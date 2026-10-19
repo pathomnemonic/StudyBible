@@ -29,5 +29,14 @@ npm start              # serves dist/ and the API on http://localhost:8787  (Nod
 * CSRF: state-changing requests need header `X-StudyBible: 1` and a same-origin `Origin`. Login/registration are rate limited.
 * Limits: 1000 changes/request, 256 KB per record, 200k records per user.
 * **Not end-to-end encrypted.** Note text is stored as JSON on the server, so the operator can read it. Host it yourself or trust the host.
-* **No email password reset** (the server sends no email). An operator can delete an account and the user can re-register; a signed-in user can change their password.
+* **No email password reset** (the server sends no email). The operator resets a forgotten password from the command line: `npm run admin -- reset-password user@example.com 'new passphrase'` (also `list` and `delete-user`). A signed-in user can change their own password in the app.
 * Sync is last-writer-wins per record by `updatedAt`; deletions travel as tombstones.
+
+## Docker
+```bash
+docker build -t studybible .
+docker run -d -p 8787:8787 -v studybible-data:/data -e COOKIE_SECURE=true -e REGISTRATION=closed studybible
+# admin tasks inside the container:
+docker exec -it <container> npx tsx server/admin.ts list
+```
+Put it behind an HTTPS reverse proxy. The Dockerfile has not been built in CI; check it on your host.

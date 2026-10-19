@@ -14,6 +14,7 @@ interface Cmd {
 }
 
 const NAV: { label: string; to: string }[] = [
+  { label: 'Today', to: '/today' },
   { label: 'Read', to: '/read' },
   { label: 'Study home', to: '/study' },
   { label: 'Fathers & saints library', to: '/study/fathers' },

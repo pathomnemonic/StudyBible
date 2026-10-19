@@ -34,19 +34,19 @@ export default function StudyHome() {
       )}
       <div className="grid">
         <Link className="card" to="/study/doctrine" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <h3>Doctrine & Catechism</h3>
+          <h2 className="card-title">Doctrine & Catechism</h2>
           <p className="muted">Topic index (Eucharist, Trinity, grace, Mary…), the Scripture ↔ Catechism links, and official documents.</p>
         </Link>
         <Link className="card" to="/study/fathers" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <h3>Fathers & saints</h3>
+          <h2 className="card-title">Fathers & saints</h2>
           <p className="muted">Augustine, Chrysostom, Irenaeus, Athanasius, Teresa of Ávila, Catherine of Siena and more, in a reading mode.</p>
         </Link>
         <Link className="card" to="/study/sources" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <h3>Sources & licensing</h3>
+          <h2 className="card-title">Sources & licensing</h2>
           <p className="muted">Every source: its authority, period, rights and format. What is public domain, what is only linked.</p>
         </Link>
         <Link className="card" to="/listen" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <h3>Bible in a Year</h3>
+          <h2 className="card-title">Bible in a Year</h2>
           <p className="muted">Episodes mapped to the passages they read.</p>
         </Link>
       </div>

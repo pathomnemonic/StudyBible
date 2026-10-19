@@ -6,6 +6,7 @@ import CommandPalette from './CommandPalette';
 import { useSync } from '../sync/state';
 
 const TABS = [
+  { to: '/today', label: 'Today', icon: 'sun', match: '/today' },
   { to: '/read', label: 'Read', icon: 'read', match: '/read' },
   { to: '/study', label: 'Study', icon: 'study', match: '/study' },
   { to: '/listen', label: 'Listen', icon: 'listen', match: '/listen' },

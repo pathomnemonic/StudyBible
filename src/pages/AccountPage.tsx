@@ -44,7 +44,7 @@ export default function AccountPage() {
       <h1>Account & sync</h1>
       {s.server === 'unavailable' && (
         <div className="card">
-          <h3>Accounts are not available on this copy of the app</h3>
+          <h2 className="card-title">Accounts are not available on this copy of the app</h2>
           <p>
             Your notes and highlights are saved safely on <strong>this device</strong>. To sign in and sync across devices, the app has to be served by the Study Bible server, which provides accounts and storage. You can run it yourself in a minute:
           </p>
@@ -86,7 +86,7 @@ export default function AccountPage() {
           <div className="card">
             <div className="row between">
               <div>
-                <h3 style={{ marginBottom: 2 }}>{s.user.name || s.user.email}</h3>
+                <h2 className="card-title" style={{ marginBottom: 2 }}>{s.user.name || s.user.email}</h2>
                 <div className="muted small">{s.user.email}</div>
               </div>
               <span className={`chip ${s.status === 'idle' ? 'good' : s.status === 'error' ? 'warn' : ''}`}>{{ idle: 'Synced', syncing: 'Syncing…', error: 'Sync problem', offline: 'Offline', 'signed-out': '' }[s.status]}</span>
@@ -101,7 +101,7 @@ export default function AccountPage() {
           </div>
 
           <div className="card">
-            <h3>Change password</h3>
+            <h2 className="card-title">Change password</h2>
             <div className="row">
               <input type="password" placeholder="Current password" value={cur} onChange={(e) => setCur(e.target.value)} autoComplete="current-password" />
               <input type="password" placeholder="New password (10+ characters)" value={next} onChange={(e) => setNext(e.target.value)} autoComplete="new-password" />
@@ -110,7 +110,7 @@ export default function AccountPage() {
           </div>
 
           <div className="card danger-zone">
-            <h3>Delete my account</h3>
+            <h2 className="card-title">Delete my account</h2>
             <p className="muted small">Permanently deletes your account and every note, highlight and setting stored on the server. Copies on your own devices are not touched unless you choose so below. This cannot be undone.</p>
             <div className="row">
               <input type="password" placeholder="Confirm with your password" value={delPw} onChange={(e) => setDelPw(e.target.value)} autoComplete="current-password" />
@@ -121,7 +121,7 @@ export default function AccountPage() {
       )}
 
       <div className="card">
-        <h3>How your data is handled</h3>
+        <h2 className="card-title">How your data is handled</h2>
         <ul className="small bullets">
           <li><strong>Local first.</strong> Everything works offline and without an account; signing in only adds sync and backup.</li>
           <li><strong>What is stored.</strong> Notes, highlights, bookmarks, folders, collections, journal, plans and progress, links you attach, and reading settings. No analytics, no tracking.</li>

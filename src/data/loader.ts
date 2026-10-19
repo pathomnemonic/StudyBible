@@ -80,3 +80,30 @@ export async function isEditionCached(edition: string, books: string[]): Promise
     return false;
   }
 }
+
+export interface StudyPack {
+  id: string;
+  label: string;
+  bytes: number;
+  files: string[];
+}
+export const getManifest = () => getJson<{ generated: string; packs: StudyPack[] }>('manifest.json', true);
+
+/** Fetch every file of a study pack so the service worker caches it for offline use. */
+export async function downloadPack(pack: StudyPack, onProgress: (done: number, total: number) => void) {
+  const queue = [...pack.files];
+  let done = 0;
+  const worker = async () => {
+    while (queue.length) {
+      const f = queue.shift()!;
+      await getJson(f, true).catch(() => null);
+      onProgress(++done, pack.files.length);
+    }
+  };
+  await Promise.all([worker(), worker(), worker(), worker()]);
+  try {
+    localStorage.setItem(`pack.${pack.id}`, pack.files.length ? new Date().toISOString() : '');
+  } catch {
+    /* storage unavailable */
+  }
+}

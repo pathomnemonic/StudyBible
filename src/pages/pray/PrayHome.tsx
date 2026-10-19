@@ -32,7 +32,7 @@ export default function PrayHome() {
       <h1>Pray</h1>
       <p className="lede">Quiet tools for praying with Scripture. Everything here is optional.</p>
       <div className="card">
-        <div className="row between"><h3>Today · {new Date(today + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</h3><span className="chip">{COLOR_NAME[day.color]}</span></div>
+        <div className="row between"><h2 className="card-title">Today · {new Date(today + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</h2><span className="chip">{COLOR_NAME[day.color]}</span></div>
         <p style={{ margin: '4px 0' }}><strong>{day.dayName}</strong></p>
         <p className="muted small">{day.seasonName} · Sunday cycle {day.sundayCycle}, weekday cycle {day.weekdayCycle} · computed offline; see Readings for your local calendar.</p>
         {rd && rd.items.length > 0 && (
@@ -43,10 +43,10 @@ export default function PrayHome() {
         <div className="row"><Link className="btn primary" to="/pray/readings">Today’s readings</Link><Link className="btn" to="/pray/lectio">Lectio Divina</Link></div>
       </div>
       <div className="grid">
-        <Link to="/pray/lectio" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h3>Lectio Divina</h3><p className="muted">Read, meditate, pray, rest — with a gentle timer you control.</p></Link>
-        <Link to="/pray/journal" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h3>Prayer journal</h3><p className="muted">Reflections, intentions and saved prayers. Private to this device.</p></Link>
-        <Link to="/pray/plans" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h3>Reading plans</h3><p className="muted">Whole Bible, Gospels, Bible in a Year, Catechism topics, saints, seasons — or make your own.</p></Link>
-        <Link to="/read" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h3>Quiet reading</h3><p className="muted">Scripture only: turn on “Scripture only” in the reader to hide everything else.</p></Link>
+        <Link to="/pray/lectio" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Lectio Divina</h2><p className="muted">Read, meditate, pray, rest — with a gentle timer you control.</p></Link>
+        <Link to="/pray/journal" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prayer journal</h2><p className="muted">Reflections, intentions and saved prayers. Private to this device.</p></Link>
+        <Link to="/pray/plans" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Reading plans</h2><p className="muted">Whole Bible, Gospels, Bible in a Year, Catechism topics, saints, seasons — or make your own.</p></Link>
+        <Link to="/read" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Quiet reading</h2><p className="muted">Scripture only: turn on “Scripture only” in the reader to hide everything else.</p></Link>
       </div>
       {active.length > 0 && (
         <>

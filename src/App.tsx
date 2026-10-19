@@ -27,6 +27,7 @@ const PlansPage = lazy(() => import('./pages/pray/PlansPage'));
 const PlanPage = lazy(() => import('./pages/pray/PlanPage'));
 const LibraryHome = lazy(() => import('./pages/library/LibraryHome'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
+const TodayPage = lazy(() => import('./pages/TodayPage'));
 const AccountPage = lazy(() => import('./pages/AccountPage'));
 const AttachPage = lazy(() => import('./pages/AttachPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -101,6 +102,7 @@ export default function App() {
               <Route path="/pray/plans/:id" element={<PlanPage />} />
               <Route path="/library/*" element={<LibraryHome />} />
               <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/today" element={<TodayPage />} />
               <Route path="/account" element={<AccountPage />} />
               <Route path="/attach" element={<AttachPage />} />
               <Route path="/about" element={<AboutPage />} />

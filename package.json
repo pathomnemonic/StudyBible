@@ -18,7 +18,8 @@
     "docs:status": "tsx scripts/docs-status.ts",
     "server": "tsx server/index.ts",
     "server:dev": "tsx watch server/index.ts",
-    "start": "npm run build && tsx server/index.ts"
+    "start": "npm run build && tsx server/index.ts",
+    "admin": "tsx server/admin.ts"
   },
   "dependencies": {
     "dexie": "^4.0.10",

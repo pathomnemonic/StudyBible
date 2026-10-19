@@ -384,9 +384,9 @@ export default function ReadPage() {
         {!data && !error && <div className="center-note">Loading {bk.name}…</div>}
         {data && chapterData && !parallelMode && (
           <article className="scripture" aria-label={`${bk.name} chapter ${chNum}`}>
-            <h2 className="chapter-title">
+            <h1 className="chapter-title">
               {bk.id === 'PSA' ? `Psalm ${chNum}` : `${bk.name} ${chNum}`}
-            </h2>
+            </h1>
             {psalmDual && <div className="subtitle">Hebrew / English numbering: Psalm {psalmDual}</div>}
             {bk.id === 'PSA' && edition.scheme === 'english' && anchorChapters[0] !== chNum && <div className="subtitle">Vulgate (Douay) numbering: Psalm {anchorChapters.join('–')}</div>}
             {chNum === 1 && data.intro && data.intro.length > 0 && data.intro.map((p, i) => <p key={i} className="subtitle">{p}</p>)}
@@ -589,10 +589,10 @@ function ParallelView({
   const ln = bookAlignmentNote(left.scheme, book) ?? bookAlignmentNote(right.scheme, book);
   return (
     <div className="scripture" style={{ maxWidth: 'none' }}>
-      <h2 className="chapter-title">
+      <h1 className="chapter-title">
         {getBook(book).name} {c}
         {book === 'PSA' && psalmDualLabel(c) ? ` (Hebrew ${psalmDualLabel(c)})` : ''}
-      </h2>
+      </h1>
       <div className="subtitle">Rows are aligned by the app's stable verse identifiers (Vulgate anchor), so differing numbering stays side by side.</div>
       {ln && <div className="notice">{ln}</div>}
       <table className="parallel">

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
-import { downloadEdition, isEditionCached } from '../data/loader';
+import { downloadEdition, isEditionCached, downloadPack, getManifest, type StudyPack } from '../data/loader';
 import { useSettings, type ThemeName } from '../lib/store';
 import { BOOKS } from '../lib/canon';
 import { NATIONS } from '../liturgy/litcal';
@@ -17,6 +17,22 @@ export default function SettingsPage() {
   useEffect(() => {
     editions.forEach((e) => isEditionCached(e.id, BOOKS.map((b) => b.id)).then((c) => setCached((x) => ({ ...x, [e.id]: c }))));
   }, [editions]);
+  const [packs, setPacks] = useState<StudyPack[]>([]);
+  const [packProg, setPackProg] = useState<Record<string, string>>({});
+  useEffect(() => {
+    getManifest().then((m) => setPacks(m?.packs ?? [])).catch(() => {});
+  }, []);
+  const dlPack = async (p: StudyPack) => {
+    await downloadPack(p, (d, t) => setPackProg((x) => ({ ...x, [p.id]: `${d}/${t}` })));
+    setPackProg((x) => ({ ...x, [p.id]: '' }));
+  };
+  const packDone = (id: string) => {
+    try {
+      return !!localStorage.getItem(`pack.${id}`);
+    } catch {
+      return false;
+    }
+  };
   const dl = async (id: string) => {
     await downloadEdition(id, BOOKS.map((b) => b.id), (d, t) => setProg((p) => ({ ...p, [id]: `${d}/${t}` })));
     setProg((p) => ({ ...p, [id]: '' }));
@@ -26,18 +42,18 @@ export default function SettingsPage() {
     <div className="page">
       <h1>Settings</h1>
       <div className="card">
-        <h3>Reading</h3>
+        <h2 className="card-title">Reading</h2>
         <div className="row between" style={{ margin: '8px 0' }}><span>Default translation</span><select value={s.defaultEdition} onChange={(e) => set({ defaultEdition: e.target.value, last: null })} aria-label="Default translation">{editions.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}</select></div>
         <div className="row between" style={{ margin: '8px 0' }}><span>Theme</span><select value={s.theme} onChange={(e) => set({ theme: e.target.value as ThemeName })} aria-label="Theme">{['system', 'light', 'sepia', 'dark'].map((t) => <option key={t}>{t}</option>)}</select></div>
         <label className="row between" style={{ margin: '8px 0' }}><span>Text size ({s.fontSize}px)</span><input type="range" min={14} max={30} value={s.fontSize} onChange={(e) => set({ fontSize: +e.target.value })} /></label>
         <label className="row between" style={{ margin: '8px 0' }}><span>Line spacing ({s.lineHeight.toFixed(2)})</span><input type="range" min={1.3} max={2.2} step={0.05} value={s.lineHeight} onChange={(e) => set({ lineHeight: +e.target.value })} /></label>
-        <div className="row between" style={{ margin: '8px 0' }}><span>Margins</span><select value={s.margin} onChange={(e) => set({ margin: e.target.value as any })}>{['narrow', 'normal', 'wide'].map((t) => <option key={t}>{t}</option>)}</select></div>
-        <div className="row between" style={{ margin: '8px 0' }}><span>Typed references (e.g. “Ps 23”) use</span><select value={s.refNumbering} onChange={(e) => set({ refNumbering: e.target.value as any })}><option value="edition">the numbering of the current translation</option><option value="english">English / Hebrew numbering</option><option value="vulgate">Vulgate / Douay numbering</option></select></div>
-        <div className="row between" style={{ margin: '8px 0' }}><span>Liturgical calendar</span><select value={s.diocese} onChange={(e) => set({ diocese: e.target.value })}>{Object.entries(NATIONS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></div>
+        <div className="row between" style={{ margin: '8px 0' }}><span>Margins</span><select aria-label="Margins" value={s.margin} onChange={(e) => set({ margin: e.target.value as any })}>{['narrow', 'normal', 'wide'].map((t) => <option key={t}>{t}</option>)}</select></div>
+        <div className="row between" style={{ margin: '8px 0' }}><span>Typed references (e.g. “Ps 23”) use</span><select aria-label="Numbering for typed references" value={s.refNumbering} onChange={(e) => set({ refNumbering: e.target.value as any })}><option value="edition">the numbering of the current translation</option><option value="english">English / Hebrew numbering</option><option value="vulgate">Vulgate / Douay numbering</option></select></div>
+        <div className="row between" style={{ margin: '8px 0' }}><span>Liturgical calendar</span><select aria-label="Liturgical calendar" value={s.diocese} onChange={(e) => set({ diocese: e.target.value })}>{Object.entries(NATIONS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></div>
       </div>
 
       <div className="card">
-        <h3>Offline reading</h3>
+        <h2 className="card-title">Offline reading</h2>
         <p className="muted small">Only public-domain editions can be downloaded. The app caches any chapter you open; use these buttons to fetch an entire edition (about 5 MB each) in advance.</p>
         {editions.map((e) => (
           <div className="row between" key={e.id} style={{ margin: '6px 0' }}>
@@ -48,17 +64,28 @@ export default function SettingsPage() {
       </div>
 
       <div className="card">
-        <h3>Reminders (optional)</h3>
+        <h2 className="card-title">Study data offline</h2>
+        <p className="muted small">Commentary, the Fathers library and resource links are cached as you use them. Download a whole pack to have it before you go offline. Links to publisher websites and the Bible in a Year audio still need a connection.</p>
+        {packs.map((p) => (
+          <div className="row between" key={p.id} style={{ margin: '6px 0' }}>
+            <span>{p.label} <span className="muted small">({(p.bytes / 1e6).toFixed(1)} MB)</span></span>
+            {packProg[p.id] ? <span className="chip">{packProg[p.id]}</span> : packDone(p.id) ? <span className="chip good">downloaded</span> : <button className="btn small" onClick={() => dlPack(p)}>Download</button>}
+          </div>
+        ))}
+      </div>
+
+      <div className="card">
+        <h2 className="card-title">Reminders (optional)</h2>
         <p className="muted small">Entirely under your control. They work while the app is open or installed; nothing is sent from a server and no tracking is involved.</p>
         <label className="row between" style={{ margin: '8px 0' }}><span>Remind me daily</span><input type="checkbox" checked={s.reminders.enabled} onChange={async (e) => { if (e.target.checked) { const r = await enableReminders(); setRemMsg(r === 'granted' ? 'Reminders enabled while the app is running.' : r === 'denied' ? 'Notification permission was denied in the browser.' : 'This browser does not support notifications.'); set({ reminders: { ...s.reminders, enabled: r === 'granted' } }); } else set({ reminders: { ...s.reminders, enabled: false } }); setTimeout(scheduleReminder, 50); }} /></label>
-        <div className="row between" style={{ margin: '8px 0' }}><span>Time</span><input type="time" value={s.reminders.time} onChange={(e) => { set({ reminders: { ...s.reminders, time: e.target.value } }); setTimeout(scheduleReminder, 50); }} /></div>
+        <div className="row between" style={{ margin: '8px 0' }}><span>Time</span><input type="time" aria-label="Reminder time" value={s.reminders.time} onChange={(e) => { set({ reminders: { ...s.reminders, time: e.target.value } }); setTimeout(scheduleReminder, 50); }} /></div>
         <input type="text" value={s.reminders.message} onChange={(e) => set({ reminders: { ...s.reminders, message: e.target.value } })} style={{ width: '100%' }} aria-label="Reminder message" />
         {remMsg && <p className="small">{remMsg}</p>}
         <label className="row between" style={{ margin: '12px 0 0' }}><span>Show “days in a row” on reading plans (off by default)</span><input type="checkbox" checked={s.showStreaks} onChange={(e) => set({ showStreaks: e.target.checked })} /></label>
       </div>
 
       <div className="card">
-        <h3>Your data, sync and privacy</h3>
+        <h2 className="card-title">Your data, sync and privacy</h2>
         <ul className="small" style={{ lineHeight: 1.6 }}>
           <li><strong>Private by default.</strong> Notes, highlights, bookmarks, journal and progress are stored only in this browser (IndexedDB). They are not uploaded anywhere. There are no accounts and no analytics.</li>
           <li><strong>Sync.</strong> Multi-device sync is not enabled in this build. The code defines a <code>SyncAdapter</code> (src/db/sync.ts) and a recommended end-to-end-encrypted design; until a backend is connected, use Export/Import to move data between devices.</li>

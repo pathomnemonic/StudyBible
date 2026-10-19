@@ -68,13 +68,13 @@ export default function ListenHome() {
       <div className="grid" style={{ marginBottom: 12 }}>
         {resumeEp && (
           <div className="card">
-            <h3>Resume</h3>
+            <h2 className="card-title">Resume</h2>
             <p>{resumeEp.title}</p>
             <button className="btn primary" onClick={() => player.play(resumeEp)}><Icon name="play" size={16} /> Continue at {Math.floor(resumeId!.position / 60)} min</button>
           </div>
         )}
         <div className="card">
-          <h3>Follow the plan</h3>
+          <h2 className="card-title">Follow the plan</h2>
           {planStart ? (
             todayEp ? (
               <>

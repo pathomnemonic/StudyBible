@@ -65,24 +65,20 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
                 {text}
                 {lastRunOfVerse && d?.note && <span className="mark" title="You have a note here">✎</span>}
                 {lastRunOfVerse && d?.bookmark && <span className="mark" title="Bookmarked">⚑</span>}
-                {lastRunOfVerse && !!density?.get(n) && (
-                  <button
-                    className="rm"
-                    tabIndex={-1}
-                    title={`${density.get(n)} connected resources: commentary, Fathers, Catechism, articles`}
-                    aria-label={`Verse ${n}: ${density.get(n)} connected resources. Open study panel`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onMarker?.(n);
-                    }}
-                  >
-                    {density.get(n)}
-                  </button>
-                )}
                 {lastRunOfVerse && fnotes && fnotes.map((f, k) => (
                   <span key={k} className="fn" title={f} aria-label={`Footnote: ${f}`}>†</span>
                 ))}
               </span>
+              {lastRunOfVerse && !!density?.get(n) && (
+                <button
+                  className="rm"
+                  title={`${density.get(n)} connected resources: commentary, Fathers, Catechism, articles`}
+                  aria-label={`Verse ${n}: ${density.get(n)} connected resources. Open study panel`}
+                  onClick={() => onMarker?.(n)}
+                >
+                  {density.get(n)}
+                </button>
+              )}
               {j !== lastIdx && ' '}
             </Fragment>
           );

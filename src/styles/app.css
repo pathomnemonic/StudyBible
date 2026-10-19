@@ -584,7 +584,8 @@ a.chip:hover {
   margin: 0 0 14px;
   box-shadow: var(--shadow-sm);
 }
-.card h3 {
+.card h3,
+.card h2.card-title {
   margin: 0 0 6px;
   font-size: 1.05rem;
 }
@@ -950,7 +951,7 @@ a.card:hover {
 :root[data-margin='wide'] .scripture {
   max-width: 33em;
 }
-.scripture h2.chapter-title {
+.scripture .chapter-title {
   font-size: 2em;
   margin: 8px 0 2px;
   font-weight: 600;
@@ -1048,6 +1049,9 @@ a.card:hover {
 .v.selected[class*='hl-'] {
   box-shadow: 0 1px 0 var(--accent), 0 0 0 2px var(--sel);
 }
+.v.selected .vn {
+  color: var(--text);
+}
 .vn {
   font-family: var(--font-sans);
   font-size: 0.56em;
@@ -1082,7 +1086,7 @@ a.card:hover {
   font-size: 10px;
   font-weight: 700;
   line-height: 1;
-  color: var(--muted);
+  color: var(--text-2);
   background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: 99px;
@@ -1091,13 +1095,7 @@ a.card:hover {
   vertical-align: 0.25em;
   cursor: pointer;
   user-select: none;
-  opacity: 0.55;
-  transition: opacity 0.12s, background 0.12s, color 0.12s;
-}
-.v:hover .rm,
-.v.selected .rm,
-.rm:focus-visible {
-  opacity: 1;
+  transition: background 0.12s, color 0.12s;
 }
 .rm:hover {
   background: var(--accent-soft);
@@ -1363,6 +1361,7 @@ a.card:hover {
 .sect > h3 .n {
   font-weight: 600;
   background: var(--surface-3);
+  color: var(--text);
   border-radius: 99px;
   padding: 0 7px;
   letter-spacing: 0;
@@ -1639,4 +1638,12 @@ a.t:hover {
   flex-wrap: wrap;
   gap: 6px;
   margin: 6px 0;
+}
+
+.by-author {
+  margin: 14px 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
 }

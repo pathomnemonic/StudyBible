@@ -55,7 +55,19 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Notes (Markdown), highlights (6 colours), bookmarks, folders, tags, collections, personal cross-references, journal, export/import | **Working** | Stored in IndexedDB on the device, anchored to stable Vulgate-based ids so they survive translation changes. |
-| Accounts & cross-device sync | **Working** | Optional: needs the bundled Node server (npm start) that you host yourself; the app works fully offline without it. Last-writer-wins sync of notes, highlights, bookmarks, journal, plans and attached links. Not end-to-end encrypted; no email password reset. See docs/SERVER.md. |
+| Accounts & cross-device sync | **Working** | Optional: needs the bundled Node server (npm start, or the Dockerfile) that you host yourself; the app works fully offline without it. Last-writer-wins sync of notes, highlights, bookmarks, journal, plans and attached links. Not end-to-end encrypted; no email password reset (operators use npm run admin). See docs/SERVER.md. |
+
+## Pray
+
+| Feature | Status | Notes |
+|---|---|---|
+| Today page: Mass readings, Bible in a Year, verse of the day, where you left off | **Working** | Readings need the LitCal calendar online or an imported lectionary. The Bible in a Year day follows the calendar year. |
+
+## Library
+
+| Feature | Status | Notes |
+|---|---|---|
+| Study data offline packs | **Working** | Download commentary, the Fathers library and resource links in Settings. Publisher links and audio still need a connection. |
 
 ## Study
 

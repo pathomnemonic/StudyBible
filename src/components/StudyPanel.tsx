@@ -160,8 +160,11 @@ export default function StudyPanel({
                 </h3>
                 {meta.hint && <div className="muted small" style={{ margin: '-4px 0 8px' }}>{meta.hint}</div>}
                 {list.length === 0 && <div className="empty">{emptyMessage(sk, refs[0].book)}</div>}
-                {list.map((i) => (
-                  <Item key={i.id} item={i} edition={edition} onOpenPassage={onOpenPassage} onNote={(t) => setNoteTargets([t])} />
+                {(sk === 'fathers' || sk === 'saints' ? [...list].sort((a, b) => (a.author ?? '').localeCompare(b.author ?? '')) : list).map((i, n, arr) => (
+                  <div key={i.id}>
+                    {(sk === 'fathers' || sk === 'saints') && i.author && i.author !== arr[n - 1]?.author && <h4 className="by-author">{i.author}</h4>}
+                    <Item item={i} edition={edition} onOpenPassage={onOpenPassage} onNote={(t) => setNoteTargets([t])} />
+                  </div>
                 ))}
                 {sk === 'links' && (
                   <button className="btn small" onClick={() => setAddLink(true)}>
