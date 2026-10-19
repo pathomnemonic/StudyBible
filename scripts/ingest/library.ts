@@ -126,10 +126,13 @@ export function buildLibrary(report: Report) {
     for (const s of secs) {
       const paras: string[] = [];
       const hits: TagHit[] = [];
+      let prevPara = '';
       for (const pm of s.body.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)) {
         const raw = pm[1];
         const t = plain(raw);
         if (t.length < 2) continue;
+        const context = t.length < 90 && prevPara ? `${prevPara.slice(-200)} ${t}` : t;
+        prevPara = t;
         paras.push(t);
         for (const r of scripRefs(raw)) {
           const p = parseOsis(r.osis);
@@ -137,10 +140,10 @@ export function buildLibrary(report: Report) {
           if (p.book === 'PSA') {
             if (cfg.psalmTags === 'skip' || !cfg.psalmTags) continue;
           }
-          const scheme = p.book === 'PSA' && cfg.psalmTags === 'vulgate' ? 'vulgate' : 'english';
-          const a = scheme === 'vulgate' ? { c: p.c1, v1: p.v1, v2: p.v1 } : toAnchor('english', p.book, p.c1, p.v1);
-          const b = p.v2 !== undefined && p.c2 === p.c1 ? (scheme === 'vulgate' ? { c: p.c1, v1: p.v2, v2: p.v2 } : toAnchor('english', p.book, p.c1, p.v2)) : a;
-          hits.push({ ref: { book: p.book, c1: a.c, v1: a.v1, c2: a.c, v2: Math.max(b.v2, a.v1) }, snippet: t.slice(0, 280) });
+          const scheme = p.book === 'PSA' && cfg.psalmTags === 'vulgate' ? 'vulgate' : 'kjv';
+          const a = scheme === 'vulgate' ? { c: p.c1, v1: p.v1, v2: p.v1 } : toAnchor('kjv', p.book, p.c1, p.v1);
+          const b = p.v2 !== undefined && p.c2 === p.c1 ? (scheme === 'vulgate' ? { c: p.c1, v1: p.v2, v2: p.v2 } : toAnchor('kjv', p.book, p.c1, p.v2)) : a;
+          hits.push({ ref: { book: p.book, c1: a.c, v1: a.v1, c2: a.c, v2: Math.max(b.v2, a.v1) }, snippet: context.slice(0, 300) });
         }
       }
       if (!paras.length) continue;

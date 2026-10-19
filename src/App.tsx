@@ -4,6 +4,8 @@ import { EditionsProvider, useEditions } from './data/EditionsContext';
 import { useSettings } from './lib/store';
 import Shell from './components/Shell';
 import ReadPage from './pages/ReadPage';
+import { PlayerProvider } from './data/PlayerContext';
+import MiniPlayer from './components/MiniPlayer';
 
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
 const SearchPage = lazy(() => import('./pages/study/SearchPage'));
@@ -66,6 +68,7 @@ export default function App() {
     <EditionsProvider>
       <ThemeApplier />
       <Gate>
+        <PlayerProvider>
         <Shell>
           <Suspense fallback={<div className="center-note">Loading…</div>}>
             <Routes>
@@ -94,7 +97,9 @@ export default function App() {
               <Route path="*" element={<Navigate replace to="/" />} />
             </Routes>
           </Suspense>
+          <MiniPlayer />
         </Shell>
+        </PlayerProvider>
       </Gate>
     </EditionsProvider>
   );

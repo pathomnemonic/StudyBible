@@ -69,7 +69,7 @@
    "NEH": 2,
    "1MA": 3,
    "2MA": 3,
-   "JOB": 5,
+   "JOB": 2,
    "ECC": 4,
    "SNG": 3,
    "WIS": 7,
@@ -113,14 +113,14 @@
     "book": "MAT",
     "ccelId": "catena1",
     "title": "Catena Aurea: Gospel of Matthew",
-    "groups": 1060,
+    "groups": 283,
     "items": 6112
    },
    {
     "book": "MRK",
     "ccelId": "catena2",
     "title": "Catena Aurea: Gospel of Mark",
-    "groups": 678,
+    "groups": 105,
     "items": 2464
    }
   ],
@@ -133,7 +133,7 @@
     99,
     184
    ],
-   "dayVariantCount": 166
+   "dayVariantCount": 165
   },
   "library.aug-tractates-john": {
    "sections": 124
@@ -172,6 +172,10 @@
    "works": 11,
    "sections": 820,
    "indexedWords": 23646
+  },
+  "curated": {
+   "topics": 18,
+   "cccLinksShipped": 29
   }
  }
 }

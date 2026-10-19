@@ -1,0 +1,266 @@
+{
+ "_about": "Verse → Catechism links that are NOT guesses: each entry names a distinctive phrase (evidence) that the paragraph itself contains, quoting or directly echoing the verse. `npm run verify:ccc` fetches each paragraph once (2-second crawl delay, single paragraph pages) and only entries whose evidence is found are marked verified. Paragraph text is never stored. Refs are anchor ids (Vulgate numbering). This is a seed set, not the full Scripture index of the Catechism.",
+ "links": [
+  {
+   "ref": "GEN.1.1",
+   "para": 290,
+   "evidence": "In the beginning God created the heavens and the earth",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "GEN.1.26-27",
+   "para": 355,
+   "evidence": "God created man in his own image",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "GEN.3.1-24",
+   "para": 397,
+   "evidence": "Man, tempted by the devil",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "EXO.3.14",
+   "para": 206,
+   "evidence": "I AM WHO AM",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "MAT.5.3-12",
+   "para": 1716,
+   "evidence": "The Beatitudes are at the heart of Jesus' preaching",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "MAT.6.9-13",
+   "para": 2759,
+   "evidence": "St. Matthew gives a more developed version of seven petitions",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "MAT.16.18",
+   "para": 552,
+   "evidence": "on this rock I will build my Church",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "MAT.22.37-40",
+   "para": 2055,
+   "evidence": "love the Lord your God",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "LUK.1.28",
+   "para": 490,
+   "evidence": "full of grace",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "LUK.1.38",
+   "para": 494,
+   "evidence": "handmaid of the Lord",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "LUK.1.42-45",
+   "para": 2676,
+   "evidence": "Ave Maria",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "LUK.15.11-32",
+   "para": 1439,
+   "evidence": "prodigal son",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "LUK.24.13-35",
+   "para": 1347,
+   "evidence": "explained the Scriptures",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "JHN.1.14",
+   "para": 461,
+   "evidence": "Word became flesh",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "JHN.3.5",
+   "para": 1257,
+   "evidence": "born of water and the Spirit",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "JHN.6.53",
+   "para": 1384,
+   "evidence": "unless you eat the flesh of the Son of man",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "JHN.6.60-69",
+   "para": 1336,
+   "evidence": "Will you also go away",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "JHN.6.51-58",
+   "para": 1406,
+   "evidence": "living bread",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "JHN.15.5",
+   "para": 2074,
+   "evidence": "apart from me",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "JHN.20.22-23",
+   "para": 1485,
+   "evidence": "Receive the Holy Spirit. If you forgive the sins of any",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "ACT.2.42",
+   "para": 1342,
+   "evidence": "breaking of bread",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "ROM.8.28",
+   "para": 313,
+   "evidence": "God works for good",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "ROM.5.12",
+   "para": 402,
+   "evidence": "By one man's disobedience many",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "1CO.13.1-3",
+   "para": 1826,
+   "evidence": "have not charity",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "1CO.15.14",
+   "para": 651,
+   "evidence": "If Christ has not been raised, then our preaching is in vain",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "GAL.5.22-23",
+   "para": 1832,
+   "evidence": "charity, joy, peace",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "1PE.2.9",
+   "para": 1268,
+   "evidence": "royal priesthood",
+   "kind": "discussion",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "JAS.5.14-15",
+   "para": 1510,
+   "evidence": "Is any among you sick",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  },
+  {
+   "ref": "LUK.11.1-4",
+   "para": 2759,
+   "evidence": "Lord, teach us to pray, as John taught his disciples",
+   "kind": "quotation",
+   "verified": true,
+   "verifiedOn": "2026-10-19",
+   "verifiedBy": "phrase found in paragraph text (scborromeo.org mirror of the Vatican text)"
+  }
+ ]
+}

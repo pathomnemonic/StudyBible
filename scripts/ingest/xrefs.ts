@@ -28,7 +28,7 @@ function parseOne(s: string): { book: string; c: number; v: number } | null {
 
 /** English-tradition verse → Vulgate anchor verse (start,end). */
 function anchorOf(p: { book: string; c: number; v: number }) {
-  return toAnchor('english', p.book, p.c, p.v);
+  return toAnchor('kjv', p.book, p.c, p.v);
 }
 
 export function buildXrefs(report: Report) {

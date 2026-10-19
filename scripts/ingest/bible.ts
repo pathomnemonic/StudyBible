@@ -187,6 +187,17 @@ export function buildVersification(
   if (dc[113] + dc[114] !== ec[115]) report.warn(`PSA 114+115 vs 116: ${dc[113]}+${dc[114]} vs ${ec[115]}`);
   if (dc[145] + dc[146] !== ec[146]) report.warn(`PSA 146+147 vs 147: ${dc[145]}+${dc[146]} vs ${ec[146]}`);
 
+  // Other verified rules (checked by reading both texts at every boundary, see docs/VERSIFICATION.md).
+  const verifiedExtra: Rule[] = [
+    // Job: the Vulgate puts English 40:1-5 at the end of chapter 39, and shifts 40–41 accordingly.
+    ['JOB', 39, 1, 30, 39, 1, 30],
+    ['JOB', 40, 1, 5, 39, 31, 35],
+    ['JOB', 40, 6, 24, 40, 1, 19],
+    ['JOB', 41, 1, 9, 40, 20, 28],
+    ['JOB', 41, 10, 34, 41, 1, 25],
+  ];
+  rules.push(...verifiedExtra);
+  const verifiedChapters = new Set(verifiedExtra.map((r) => `${r[0]}.${r[1]}`));
   unverified.PSA = [...drift];
   // All other books: flag chapters whose verse counts differ from the Vulgate anchor.
   const unaligned: Record<string, string> = {};
@@ -202,8 +213,16 @@ export function buildVersification(
     const diff: number[] = [];
     if (e.length !== d.length) report.warn(`${b.id}: English has ${e.length} chapters, Vulgate ${d.length}`);
     for (let i = 0; i < Math.min(e.length, d.length); i++) if (e[i] !== d[i] && e[i] !== v[i]) diff.push(i + 1);
-    if (diff.length) unverified[b.id] = diff;
+    const left = diff.filter((c) => !verifiedChapters.has(`${b.id}.${c}`));
+    if (left.length) unverified[b.id] = left;
   }
+  // Daniel: English/KJV vs Vulgate (the Song of the Three and the Vulgate's chapter 3/4 boundary).
+  const danielRules: Rule[] = [
+    ['DAN', 3, 1, 23, 3, 1, 23],
+    ['DAN', 3, 24, 30, 3, 91, 97],
+    ['DAN', 4, 1, 3, 3, 98, 100],
+    ['DAN', 4, 4, 37, 4, 1, 34],
+  ];
   report.stats['versification.unverifiedChapters'] = Object.fromEntries(Object.entries(unverified).map(([k, v]) => [k, v.length]));
   return {
     version: 1,
@@ -214,6 +233,13 @@ export function buildVersification(
         rules,
         unverifiedChapters: unverified,
         unalignedBooks: unaligned,
+      },
+      kjv: {
+        description:
+          'The numbering used by external English-tradition data (OpenBible cross-references, plans, lectionary lists, typed references): KJV/RSV-style. Same Psalm rules as `english`, plus the Daniel chapter 3/4 boundary. Not an edition: used only to convert references into the Vulgate anchor.',
+        rules: [...rules, ...danielRules],
+        unverifiedChapters: Object.fromEntries(Object.entries(unverified).filter(([b]) => b !== 'DAN')),
+        unalignedBooks: {},
       },
     },
   };

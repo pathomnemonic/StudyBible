@@ -1,0 +1,840 @@
+{
+ "_about": "Doctrine index. Topics are editorial entry points: their Catechism ranges and passage lists are SUGGESTED topical connections (labelled as such in the app), distinct from the verse-level citations in ccc-links.json. Summaries are written for this app, in neutral language, and are not magisterial texts. Official documents link to the Vatican website; their text is not reproduced.",
+ "levels": {
+  "doctrine": "Defined / solemn teaching (e.g. conciliar dogmatic constitutions, defined dogmas).",
+  "magisterial": "Authoritative Church teaching that is not itself a solemn definition (encyclicals, apostolic exhortations).",
+  "father": "Church Father or early Christian writer: witnesses to Tradition; individual interpretations are not binding.",
+  "saint": "Saint, Doctor or spiritual master: spiritual authority, not doctrinal definition.",
+  "scholarship": "Theological opinion or scholarly interpretation.",
+  "reflection": "Private spiritual reflection, preaching or apologetics.",
+  "historical": "Historical commentary; may contain interpretations that are disputed or superseded."
+ },
+ "documents": {
+  "dv": {
+   "title": "Dei Verbum (Dogmatic Constitution on Divine Revelation)",
+   "body": "Second Vatican Council, 1965",
+   "level": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html"
+  },
+  "lg": {
+   "title": "Lumen Gentium (Dogmatic Constitution on the Church)",
+   "body": "Second Vatican Council, 1964",
+   "level": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html"
+  },
+  "sc": {
+   "title": "Sacrosanctum Concilium (Constitution on the Sacred Liturgy)",
+   "body": "Second Vatican Council, 1963",
+   "level": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_en.html"
+  },
+  "gs": {
+   "title": "Gaudium et Spes (Pastoral Constitution on the Church in the Modern World)",
+   "body": "Second Vatican Council, 1965",
+   "level": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html"
+  },
+  "vd": {
+   "title": "Verbum Domini (Post-Synodal Apostolic Exhortation)",
+   "body": "Benedict XVI, 2010",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/apost_exhortations/documents/hf_ben-xvi_exh_20100930_verbum-domini.html"
+  },
+  "dad": {
+   "title": "Divino Afflante Spiritu (Encyclical on Biblical Studies)",
+   "body": "Pius XII, 1943",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_30091943_divino-afflante-spiritu.html"
+  },
+  "pd": {
+   "title": "Providentissimus Deus (Encyclical on the Study of Holy Scripture)",
+   "body": "Leo XIII, 1893",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_18111893_providentissimus-deus.html"
+  },
+  "dce": {
+   "title": "Deus Caritas Est (Encyclical on Christian Love)",
+   "body": "Benedict XVI, 2005",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20051225_deus-caritas-est.html"
+  },
+  "ss": {
+   "title": "Spe Salvi (Encyclical on Christian Hope)",
+   "body": "Benedict XVI, 2007",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20071130_spe-salvi.html"
+  },
+  "sd": {
+   "title": "Salvifici Doloris (Apostolic Letter on the Christian Meaning of Human Suffering)",
+   "body": "John Paul II, 1984",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1984/documents/hf_jp-ii_apl_11021984_salvifici-doloris.html"
+  },
+  "mc": {
+   "title": "Marialis Cultus (Apostolic Exhortation on Devotion to Mary)",
+   "body": "Paul VI, 1974",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/paul-vi/en/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html"
+  },
+  "rm": {
+   "title": "Redemptoris Mater (Encyclical on the Blessed Virgin Mary)",
+   "body": "John Paul II, 1987",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031987_redemptoris-mater.html"
+  },
+  "vs": {
+   "title": "Veritatis Splendor (Encyclical on the Moral Life)",
+   "body": "John Paul II, 1993",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html"
+  },
+  "dev": {
+   "title": "Dominum et Vivificantem (Encyclical on the Holy Spirit)",
+   "body": "John Paul II, 1986",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_18051986_dominum-et-vivificantem.html"
+  },
+  "lf": {
+   "title": "Lumen Fidei (Encyclical on Faith)",
+   "body": "Francis (with Benedict XVI), 2013",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20130629_enciclica-lumen-fidei.html"
+  },
+  "rvm": {
+   "title": "Rosarium Virginis Mariae (Apostolic Letter on the Rosary)",
+   "body": "John Paul II, 2002",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/2002/documents/hf_jp-ii_apl_20021016_rosarium-virginis-mariae.html"
+  },
+  "sac": {
+   "title": "Sacramentum Caritatis (Post-Synodal Apostolic Exhortation on the Eucharist)",
+   "body": "Benedict XVI, 2007",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/apost_exhortations/documents/hf_ben-xvi_exh_20070222_sacramentum-caritatis.html"
+  },
+  "rp": {
+   "title": "Reconciliatio et Paenitentia (Post-Synodal Apostolic Exhortation)",
+   "body": "John Paul II, 1984",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_02121984_reconciliatio-et-paenitentia.html"
+  },
+  "ede": {
+   "title": "Ecclesia de Eucharistia (Encyclical on the Eucharist and its Relationship to the Church)",
+   "body": "John Paul II, 2003",
+   "level": "magisterial",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_20030417_eccl-de-euch.html"
+  }
+ },
+ "topics": [
+  {
+   "id": "eucharist",
+   "title": "The Eucharist",
+   "summary": "The Church teaches that in the Eucharist the bread and wine become, by the power of Christ's word and the Holy Spirit, his Body and Blood, and that the Mass makes present his one sacrifice. The Bread of Life discourse (John 6), the institution narratives and Paul's teaching in 1 Corinthians are the central passages.",
+   "ccc": [
+    [
+     1322,
+     1419
+    ]
+   ],
+   "scripture": [
+    "JHN.6.22-71",
+    "MAT.26.26-29",
+    "MRK.14.22-25",
+    "LUK.22.14-20",
+    "1CO.10.14-22",
+    "1CO.11.23-29",
+    "LUK.24.13-35",
+    "ACT.2.42",
+    "EXO.12.1-14",
+    "GEN.14.18-20",
+    "MAL.1.11"
+   ],
+   "docs": [
+    "sc",
+    "ede",
+    "sac"
+   ],
+   "related": [
+    "sacrifice-covenant",
+    "saints"
+   ],
+   "keywords": [
+    "eucharist",
+    "mass",
+    "communion",
+    "bread of life",
+    "real presence",
+    "transubstantiation",
+    "body and blood",
+    "last supper",
+    "lord's supper"
+   ]
+  },
+  {
+   "id": "trinity",
+   "title": "The Holy Trinity",
+   "summary": "One God in three Persons — Father, Son and Holy Spirit. The doctrine is drawn from the whole of Scripture and defined by the early councils; key passages include the baptismal formula, the prologue of John, and Paul's greeting in 2 Corinthians.",
+   "ccc": [
+    [
+     232,
+     267
+    ]
+   ],
+   "scripture": [
+    "MAT.28.19",
+    "JHN.1.1-18",
+    "JHN.14.15-26",
+    "JHN.17.1-26",
+    "2CO.13.13",
+    "MAT.3.13-17",
+    "EPH.4.4-6",
+    "JHN.10.30",
+    "GEN.1.26"
+   ],
+   "docs": [
+    "dev"
+   ],
+   "related": [
+    "holy-spirit",
+    "baptism"
+   ],
+   "keywords": [
+    "trinity",
+    "father",
+    "son",
+    "holy spirit",
+    "persons",
+    "god",
+    "nicaea"
+   ]
+  },
+  {
+   "id": "salvation",
+   "title": "Salvation",
+   "summary": "God's saving plan accomplished in Christ: forgiveness of sins, adoption as children of God, and the hope of eternal life. Catholic teaching holds that salvation is entirely God's gift in Christ, received in faith and bearing fruit in love.",
+   "ccc": [
+    [
+     430,
+     440
+    ],
+    [
+     1987,
+     2029
+    ]
+   ],
+   "scripture": [
+    "EPH.2.1-10",
+    "ROM.3.21-28",
+    "ROM.8.28-30",
+    "JHN.3.16-17",
+    "ACT.4.12",
+    "1TI.2.3-6",
+    "TIT.3.4-7",
+    "PHP.2.12-13",
+    "JAS.2.14-26"
+   ],
+   "docs": [
+    "ss",
+    "lf"
+   ],
+   "related": [
+    "grace",
+    "resurrection"
+   ],
+   "keywords": [
+    "salvation",
+    "redemption",
+    "justification",
+    "faith",
+    "works",
+    "saved",
+    "atonement"
+   ]
+  },
+  {
+   "id": "grace",
+   "title": "Grace",
+   "summary": "Grace is God's free and undeserved help, the gift of participating in his divine life. It is the root of justification, of faith, and of the whole life of holiness.",
+   "ccc": [
+    [
+     1996,
+     2005
+    ]
+   ],
+   "scripture": [
+    "EPH.2.8-9",
+    "ROM.5.1-5",
+    "2CO.12.7-10",
+    "JHN.1.14-18",
+    "ROM.6.1-14",
+    "2PE.1.3-4",
+    "GAL.2.19-20"
+   ],
+   "docs": [
+    "dev"
+   ],
+   "related": [
+    "salvation"
+   ],
+   "keywords": [
+    "grace",
+    "gift",
+    "favor",
+    "sanctifying",
+    "justified",
+    "divine life"
+   ]
+  },
+  {
+   "id": "mary",
+   "title": "Mary, Mother of God",
+   "summary": "Catholic teaching on Mary — Mother of God (Theotokos), ever-virgin, and model of discipleship — rests on the infancy narratives, Cana, the cross, and the woman of Revelation 12 read in the Church's tradition. Doctrinal statements are distinguished from devotional practice.",
+   "ccc": [
+    [
+     484,
+     511
+    ],
+    [
+     963,
+     975
+    ]
+   ],
+   "scripture": [
+    "LUK.1.26-56",
+    "MAT.1.18-25",
+    "LUK.2.1-52",
+    "JHN.2.1-12",
+    "JHN.19.25-27",
+    "GEN.3.15",
+    "REV.12.1-6",
+    "ACT.1.12-14"
+   ],
+   "docs": [
+    "lg",
+    "rm",
+    "mc",
+    "rvm"
+   ],
+   "related": [
+    "saints"
+   ],
+   "keywords": [
+    "mary",
+    "virgin",
+    "mother of god",
+    "theotokos",
+    "hail mary",
+    "annunciation",
+    "magnificat",
+    "rosary",
+    "immaculate"
+   ]
+  },
+  {
+   "id": "saints",
+   "title": "The Communion of Saints",
+   "summary": "The Church is a communion of all the faithful — on earth, in purification and in heaven — who share in holy things and pray for one another. The letter to the Hebrews' 'cloud of witnesses' and Revelation's scenes of heavenly worship are frequently cited.",
+   "ccc": [
+    [
+     946,
+     962
+    ]
+   ],
+   "scripture": [
+    "HEB.12.1-2",
+    "REV.5.8",
+    "REV.6.9-10",
+    "1CO.12.12-27",
+    "LUK.9.28-36",
+    "ROM.12.4-5",
+    "JAS.5.16",
+    "2MA.15.12-16",
+    "LUK.16.19-31"
+   ],
+   "docs": [
+    "lg"
+   ],
+   "related": [
+    "mary",
+    "prayer"
+   ],
+   "keywords": [
+    "saints",
+    "communion of saints",
+    "intercession",
+    "heaven",
+    "cloud of witnesses",
+    "purgatory",
+    "all saints"
+   ]
+  },
+  {
+   "id": "prayer",
+   "title": "Prayer",
+   "summary": "Prayer is the raising of mind and heart to God. The Church's teaching draws on the Psalms, the example and teaching of Jesus (especially the Our Father) and the witness of the saints; Christian prayer is always a response to God who speaks first.",
+   "ccc": [
+    [
+     2558,
+     2865
+    ]
+   ],
+   "scripture": [
+    "MAT.6.5-15",
+    "LUK.11.1-13",
+    "LUK.18.1-14",
+    "1TH.5.16-18",
+    "ROM.8.26-27",
+    "PHP.4.6-7",
+    "EPH.6.18",
+    "JHN.17.1-26",
+    "PSA.62.1-9"
+   ],
+   "docs": [
+    "dv",
+    "vd"
+   ],
+   "related": [
+    "scripture",
+    "saints"
+   ],
+   "keywords": [
+    "prayer",
+    "our father",
+    "lectio divina",
+    "psalms",
+    "intercession",
+    "contemplation",
+    "praise",
+    "petition"
+   ]
+  },
+  {
+   "id": "confession",
+   "title": "Confession and Reconciliation",
+   "summary": "The sacrament of Penance, in which sins committed after baptism are forgiven through the ministry of the Church. The Church points to Christ's commission on Easter evening and to the parable of the Prodigal Son as the heart of the teaching.",
+   "ccc": [
+    [
+     1422,
+     1498
+    ]
+   ],
+   "scripture": [
+    "JHN.20.19-23",
+    "MAT.16.18-19",
+    "MAT.18.15-20",
+    "2CO.5.17-20",
+    "JAS.5.14-16",
+    "1JN.1.5-10",
+    "LUK.15.11-32",
+    "PSA.50.1-21",
+    "MRK.2.1-12"
+   ],
+   "docs": [
+    "rp"
+   ],
+   "related": [
+    "grace",
+    "suffering"
+   ],
+   "keywords": [
+    "confession",
+    "penance",
+    "reconciliation",
+    "forgiveness",
+    "absolution",
+    "repentance",
+    "sin"
+   ]
+  },
+  {
+   "id": "suffering",
+   "title": "Suffering and the Anointing of the Sick",
+   "summary": "Scripture neither explains away suffering nor leaves the sufferer alone: Job and the Psalms give voice to lament, the Servant of Isaiah 53 and the Passion of Christ give it meaning, and the Church anoints the sick.",
+   "ccc": [
+    [
+     1499,
+     1532
+    ]
+   ],
+   "scripture": [
+    "JOB.1.1-22",
+    "ISA.53.1-12",
+    "ROM.8.18-25",
+    "COL.1.24",
+    "2CO.1.3-7",
+    "JAS.5.13-15",
+    "MAT.11.28-30",
+    "1PE.4.12-19",
+    "HEB.12.5-11"
+   ],
+   "docs": [
+    "sd",
+    "ss"
+   ],
+   "related": [
+    "resurrection",
+    "confession"
+   ],
+   "keywords": [
+    "suffering",
+    "pain",
+    "illness",
+    "anointing",
+    "sick",
+    "cross",
+    "lament",
+    "job"
+   ]
+  },
+  {
+   "id": "resurrection",
+   "title": "The Resurrection",
+   "summary": "Christ's Resurrection is the foundation of Christian faith, and the pledge of the resurrection of the body promised to all the faithful.",
+   "ccc": [
+    [
+     638,
+     658
+    ],
+    [
+     988,
+     1019
+    ]
+   ],
+   "scripture": [
+    "MAT.28.1-10",
+    "LUK.24.1-12",
+    "JHN.20.1-29",
+    "1CO.15.1-58",
+    "JHN.11.17-44",
+    "ROM.6.3-11",
+    "PHP.3.20-21",
+    "1TH.4.13-18",
+    "2MA.7.1-42",
+    "DAN.12.1-3"
+   ],
+   "docs": [
+    "ss"
+   ],
+   "related": [
+    "salvation",
+    "suffering"
+   ],
+   "keywords": [
+    "resurrection",
+    "easter",
+    "risen",
+    "empty tomb",
+    "afterlife",
+    "heaven",
+    "body"
+   ]
+  },
+  {
+   "id": "moral-life",
+   "title": "The Moral Life",
+   "summary": "Life in Christ: the commandments, the Beatitudes and the law of love. Catholic moral teaching treats conscience, the virtues, grace and the gift of the Spirit together, with the Decalogue and the Sermon on the Mount as touchstones.",
+   "ccc": [
+    [
+     1691,
+     2051
+    ]
+   ],
+   "scripture": [
+    "EXO.20.1-17",
+    "MAT.5.1-48",
+    "MAT.22.34-40",
+    "ROM.12.1-21",
+    "GAL.5.16-26",
+    "1CO.13.1-13",
+    "LUK.10.25-37",
+    "MAT.25.31-46",
+    "DEU.6.4-9",
+    "JHN.15.9-17"
+   ],
+   "docs": [
+    "vs",
+    "gs"
+   ],
+   "related": [
+    "grace"
+   ],
+   "keywords": [
+    "moral",
+    "commandments",
+    "ten commandments",
+    "virtue",
+    "conscience",
+    "beatitudes",
+    "love",
+    "charity",
+    "sin"
+   ]
+  },
+  {
+   "id": "scripture",
+   "title": "Sacred Scripture and Tradition",
+   "summary": "Scripture is inspired by God and, together with Sacred Tradition, forms a single deposit of the Word of God entrusted to the Church. The Church teaches that Scripture is to be read in the light of the whole, in the living Tradition of the Church and the analogy of faith.",
+   "ccc": [
+    [
+     101,
+     141
+    ]
+   ],
+   "scripture": [
+    "2TI.3.14-17",
+    "2PE.1.19-21",
+    "LUK.24.25-27",
+    "LUK.24.44-45",
+    "ACT.8.26-40",
+    "JHN.5.39",
+    "2PE.3.15-16"
+   ],
+   "docs": [
+    "dv",
+    "vd",
+    "dad",
+    "pd"
+   ],
+   "related": [
+    "prayer"
+   ],
+   "keywords": [
+    "scripture",
+    "bible",
+    "inspiration",
+    "tradition",
+    "canon",
+    "interpretation",
+    "revelation",
+    "magisterium"
+   ]
+  },
+  {
+   "id": "church",
+   "title": "The Church",
+   "summary": "The Church is the people of God, the Body of Christ and the temple of the Spirit, one, holy, catholic and apostolic. The Petrine texts and Paul's image of the body are central.",
+   "ccc": [
+    [
+     748,
+     870
+    ],
+    [
+     880,
+     896
+    ]
+   ],
+   "scripture": [
+    "MAT.16.13-20",
+    "JHN.21.15-19",
+    "LUK.22.31-32",
+    "1CO.12.12-27",
+    "EPH.4.1-16",
+    "ACT.2.42-47",
+    "1PE.2.4-10",
+    "MAT.28.16-20"
+   ],
+   "docs": [
+    "lg"
+   ],
+   "related": [
+    "saints",
+    "holy-spirit"
+   ],
+   "keywords": [
+    "church",
+    "pope",
+    "peter",
+    "bishop",
+    "apostolic",
+    "catholic",
+    "body of christ",
+    "magisterium"
+   ]
+  },
+  {
+   "id": "baptism",
+   "title": "Baptism",
+   "summary": "Baptism is the sacrament of new birth in water and the Spirit, incorporating the person into Christ and his Church and forgiving original and personal sin.",
+   "ccc": [
+    [
+     1213,
+     1284
+    ]
+   ],
+   "scripture": [
+    "JHN.3.1-8",
+    "MAT.28.19",
+    "ROM.6.3-11",
+    "ACT.2.37-41",
+    "GAL.3.26-28",
+    "MAT.3.13-17",
+    "1PE.3.18-22",
+    "COL.2.11-14",
+    "TIT.3.4-7"
+   ],
+   "docs": [
+    "sc"
+   ],
+   "related": [
+    "trinity",
+    "holy-spirit"
+   ],
+   "keywords": [
+    "baptism",
+    "born again",
+    "water",
+    "initiation",
+    "regeneration",
+    "infant baptism"
+   ]
+  },
+  {
+   "id": "holy-spirit",
+   "title": "The Holy Spirit",
+   "summary": "The third Person of the Trinity, the 'Lord and giver of life,' who spoke through the prophets, descended at Pentecost, and dwells in the Church and in believers.",
+   "ccc": [
+    [
+     683,
+     747
+    ]
+   ],
+   "scripture": [
+    "JHN.14.15-26",
+    "JHN.16.5-15",
+    "ACT.2.1-13",
+    "ROM.8.1-17",
+    "GAL.5.16-26",
+    "1CO.12.1-11",
+    "JOL.2.28-32",
+    "LUK.1.35"
+   ],
+   "docs": [
+    "dev"
+   ],
+   "related": [
+    "trinity",
+    "baptism"
+   ],
+   "keywords": [
+    "holy spirit",
+    "spirit",
+    "pentecost",
+    "paraclete",
+    "gifts",
+    "fruits",
+    "confirmation"
+   ]
+  },
+  {
+   "id": "creation",
+   "title": "Creation",
+   "summary": "God freely created the world and all that is in it, and made man and woman in his image. The Church reads the creation accounts as teaching truths of faith (not as a scientific treatise).",
+   "ccc": [
+    [
+     279,
+     421
+    ]
+   ],
+   "scripture": [
+    "GEN.1.1-31",
+    "GEN.2.4-25",
+    "PSA.103.1-35",
+    "JOB.38.1-41",
+    "WIS.11.17-26",
+    "JHN.1.1-5",
+    "COL.1.15-20"
+   ],
+   "docs": [
+    "gs"
+   ],
+   "related": [
+    "trinity"
+   ],
+   "keywords": [
+    "creation",
+    "genesis",
+    "adam",
+    "eve",
+    "image of god",
+    "evolution",
+    "fall",
+    "original sin"
+   ]
+  },
+  {
+   "id": "marriage",
+   "title": "Marriage",
+   "summary": "Marriage is a covenant of the whole of life between a man and a woman, ordered to their good and to the procreation and education of children, and for baptized persons a sacrament.",
+   "ccc": [
+    [
+     1601,
+     1666
+    ]
+   ],
+   "scripture": [
+    "GEN.2.18-25",
+    "MAT.19.3-9",
+    "EPH.5.21-33",
+    "TOB.8.1-9",
+    "1CO.7.1-16",
+    "SNG.2.1-17",
+    "JHN.2.1-11"
+   ],
+   "docs": [
+    "gs"
+   ],
+   "related": [
+    "moral-life"
+   ],
+   "keywords": [
+    "marriage",
+    "matrimony",
+    "husband",
+    "wife",
+    "family",
+    "divorce",
+    "covenant"
+   ]
+  },
+  {
+   "id": "sacrifice-covenant",
+   "title": "Sacrifice and Covenant",
+   "summary": "The covenants with Noah, Abraham, Moses and David, and the sacrifices of the Old Testament, which the Church reads as fulfilled in the new and eternal covenant in Christ's blood.",
+   "ccc": [
+    [
+     54,
+     64
+    ],
+    [
+     1362,
+     1372
+    ]
+   ],
+   "scripture": [
+    "GEN.15.1-21",
+    "EXO.24.1-8",
+    "JER.31.31-34",
+    "HEB.8.1-13",
+    "HEB.9.11-28",
+    "HEB.10.1-18",
+    "LEV.16.1-34",
+    "LUK.22.20"
+   ],
+   "docs": [
+    "sc"
+   ],
+   "related": [
+    "eucharist"
+   ],
+   "keywords": [
+    "covenant",
+    "sacrifice",
+    "temple",
+    "passover",
+    "lamb",
+    "atonement",
+    "priesthood"
+   ]
+  }
+ ]
+}

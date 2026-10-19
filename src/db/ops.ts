@@ -81,7 +81,7 @@ export async function toggleBookmark(ref: Ref, kind: Bookmark['kind'] = 'bookmar
 // Export / import
 // ---------------------------------------------------------------------------
 
-const TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'planProgress', 'userPlans', 'episodeProgress', 'queue', 'savedSearches', 'recentSearches', 'history', 'saved', 'libraryProgress'] as const;
+const TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'planProgress', 'userPlans', 'episodeProgress', 'queue', 'savedSearches', 'recentSearches', 'history', 'saved', 'libraryProgress', 'media'] as const;
 
 export async function exportAll(): Promise<string> {
   const out: Record<string, unknown> = { format: 'studybible-export', version: 1, exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate' };

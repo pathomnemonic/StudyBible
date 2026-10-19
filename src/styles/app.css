@@ -645,9 +645,13 @@ button.chip {
 .shell.quiet .actionbar {
   bottom: 14px;
 }
+.actionbar .icon-btn {
+  width: 34px;
+  height: 34px;
+}
 .actionbar .sw {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   border: 2px solid var(--surface);
   box-shadow: 0 0 0 1px var(--border);
@@ -690,7 +694,8 @@ button.chip {
 .panel-body {
   padding: 8px 14px 100px;
 }
-.panel.sheet {
+.panel.sheet,
+.panel.side {
   position: fixed;
   left: 0;
   right: 0;
@@ -708,7 +713,12 @@ button.chip {
     height: 100vh;
     position: sticky;
     top: 0;
-    overflow: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    border-radius: 0;
+    box-shadow: none;
+    z-index: 5;
   }
 }
 .backdrop {

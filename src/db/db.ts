@@ -158,7 +158,24 @@ export interface LibraryProgress {
   updatedAt: number;
 }
 
+export interface MediaItem {
+  id?: number;
+  title: string;
+  url: string;
+  note?: string;
+  refs: string[];
+  createdAt: number;
+}
+
+export interface CacheRow {
+  key: string;
+  value: unknown;
+  ts: number;
+}
+
 class StudyBibleDB extends Dexie {
+  cache!: Table<CacheRow, string>;
+  media!: Table<MediaItem, number>;
   notes!: Table<Note, number>;
   highlights!: Table<Highlight, number>;
   bookmarks!: Table<Bookmark, number>;
@@ -196,6 +213,8 @@ class StudyBibleDB extends Dexie {
       saved: '++id, &key, type',
       libraryProgress: 'workId',
     });
+    this.version(2).stores({ cache: 'key' });
+    this.version(3).stores({ media: '++id, createdAt' });
   }
 }
 

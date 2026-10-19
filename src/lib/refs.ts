@@ -1,4 +1,5 @@
 import { BOOKS, BOOK_BY_ID, BOOK_ORDER, getBook } from './canon';
+import { psalmDualLabel } from './versification';
 
 /**
  * A passage in the *anchor* (Clementine Vulgate) numbering unless a caller says otherwise.
@@ -48,7 +49,17 @@ export function isWholeChapter(r: Ref) {
 }
 
 /** Human-readable reference like `John 6:51–58` (uses an en dash). */
-export function formatRef(r: Ref, opts: { abbr?: boolean; name?: string } = {}): string {
+export function formatRef(r: Ref, opts: { abbr?: boolean; name?: string; noDual?: boolean } = {}): string {
+  const base = formatRefPlain(r, opts);
+  // Psalms are numbered differently in the Vulgate/Douay anchor and in most modern Bibles: always show both.
+  if (r.book === 'PSA' && !opts.noDual && r.c1 === r.c2) {
+    const dual = psalmDualLabel(r.c1);
+    if (dual) return `${base} (Heb. ${dual})`;
+  }
+  return base;
+}
+
+function formatRefPlain(r: Ref, opts: { abbr?: boolean; name?: string } = {}): string {
   const b = getBook(r.book);
   const name = opts.name ?? (opts.abbr ? b.abbr : b.name);
   const single = b.chapters === 1;

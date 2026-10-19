@@ -5,6 +5,7 @@ import { buildXrefs } from './xrefs';
 import { buildCatena } from './catena';
 import { buildBiay } from './biay';
 import { buildLibrary } from './library';
+import { buildCurated } from './curated';
 import { loadVersification } from '../../src/lib/versification';
 import { PROVENANCE, Report, today, writeJson } from './lib/util';
 
@@ -21,6 +22,11 @@ async function main() {
     }
     console.log(`   ${name} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
   };
+  if (cmd === 'validate') {
+    const { execSync } = await import('node:child_process');
+    execSync('npx vitest run tests/data.test.ts', { stdio: 'inherit' });
+    return;
+  }
   if (cmd === 'fetch' || cmd === 'all') await run('fetch', () => fetchAll(rest));
   if (cmd === 'build' || cmd === 'all') {
     await run('bible', () => {
@@ -31,6 +37,7 @@ async function main() {
     await run('catena', () => buildCatena(report));
     await run('biay', () => buildBiay(report));
     await run('library', () => buildLibrary(report));
+    await run('curated', () => buildCurated(report));
   }
   if (cmd === 'build' || cmd === 'all') {
     writeJson(join(PROVENANCE, 'build-report.json'), { generated: today(), errors: report.errors, warnings: report.warnings.slice(0, 500), warningCount: report.warnings.length, stats: report.stats }, true);

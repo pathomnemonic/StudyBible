@@ -12,14 +12,14 @@
    "book": "MAT",
    "ccelId": "catena1",
    "title": "Catena Aurea: Gospel of Matthew",
-   "groups": 1060,
+   "groups": 283,
    "items": 6112
   },
   {
    "book": "MRK",
    "ccelId": "catena2",
    "title": "Catena Aurea: Gospel of Mark",
-   "groups": 678,
+   "groups": 105,
    "items": 2464
   }
  ],

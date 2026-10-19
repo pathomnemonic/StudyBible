@@ -40,6 +40,7 @@ function passagesFrom(text: string): RawPassage[] {
     if (!book) continue;
     const c1 = +m[2];
     const c2 = m[3] ? +m[3] : c1;
+    if (c1 < 1 || Math.max(c1, c2) > getBook(book).chapters) continue; // e.g. a typo such as "Psalm 199"; never guess
     out.push({ book, c1, c2: Math.max(c1, c2) });
   }
   return out;
@@ -150,7 +151,7 @@ export function buildBiay(report: Report) {
       }
       void bk;
       for (let c = p.c1; c <= p.c2; c++) {
-        for (const a of chapterToAnchorRefs('english', p.book, c)) {
+        for (const a of chapterToAnchorRefs('kjv', p.book, c)) {
           const id = refId(a.ref);
           if (!out.includes(id)) out.push(id);
         }

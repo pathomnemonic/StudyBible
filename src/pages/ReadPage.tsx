@@ -330,6 +330,12 @@ export default function ReadPage() {
             {chNum === 1 && bk.note && <div className="notice info">{bk.note}</div>}
             {chapterNote && <div className="notice">{chapterNote}</div>}
             <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} />
+            {chapterData.notes && Object.keys(chapterData.notes).length > 0 && (
+              <section aria-label="Footnotes" className="subtitle" style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 8 }}>
+                <strong>Notes</strong>
+                {Object.entries(chapterData.notes).map(([v, ns]) => ns.map((n, i) => <p key={v + '-' + i} style={{ margin: '4px 0' }}><span className="vn" style={{ verticalAlign: 'baseline' }}>{v}</span> {n}</p>))}
+              </section>
+            )}
             {!settings.scriptureOnly && (
               <p className="subtitle" style={{ marginTop: 24 }}>
                 {edition.attribution}

@@ -68,8 +68,14 @@ export function buildCatena(report: Report) {
           let v2 = m[2] ? +m[2] : v1;
           const list = /^(?:\[?)(?:Ver(?:s|ses)?\.?\s*)?((?:\d+\s*,\s*)+\d+)/.exec(text);
           if (list) v2 = Math.max(...list[1].split(',').map((x) => +x));
-          cur = { c, v1, v2, scripture: m[4], items: [] };
-          groups.push(cur);
+          if (cur && cur.items.length === 0 && cur.c === c) {
+            // consecutive verses quoted before any commentary: the commentary that follows covers the whole run
+            cur.v2 = Math.max(cur.v2, v2);
+            cur.scripture = `${cur.scripture ?? ''} ${m[4]}`.trim();
+          } else {
+            cur = { c, v1, v2, scripture: m[4], items: [] };
+            groups.push(cur);
+          }
         } else if (cur) {
           // "Chrys., Hom. in Matt., Hom. ii: Matthew wrote…"
           const lm = /^([^:]{1,140}?):\s+([\s\S]+)$/.exec(text);
@@ -87,7 +93,8 @@ export function buildCatena(report: Report) {
       }
       void divId;
     }
-    writeJson(join(PUBLIC_DATA, 'commentary/catena', `${v.book}.json`), { source: v.ccelId, groups });
+    const kept = groups.filter((g) => g.items.length > 0);
+    writeJson(join(PUBLIC_DATA, 'commentary/catena', `${v.book}.json`), { source: v.ccelId, groups: kept });
     meta.push({ book: v.book, ccelId: v.ccelId, title: v.title, groups: groups.length, items: nItems });
   }
   writeJson(
