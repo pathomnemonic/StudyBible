@@ -109,6 +109,13 @@ export default function ListenHome() {
         {filtered.slice(0, 400).map((e) => <Row key={e.id} e={e} progress={doneMap.get(e.id)} inQueue={queue.some((x) => x.episodeId === e.id)} />)}
       </ul>
       {filtered.length > 400 && <p className="muted small">Showing the first 400; narrow with search.</p>}
+      <section className="card" style={{ marginTop: 16 }}>
+        <h2 className="card-title">Hear Scripture read aloud</h2>
+        <p className="muted small">
+          In the Read tab, tap <strong>Read aloud</strong> (the headphones icon) to have any chapter read with your device’s speech voices: highlight follows the verse, with speed, voice and skip controls, and it can continue into the next chapter. This is synthesized speech, not a human recording.
+          For recorded readings of public-domain Bibles, volunteer recordings are published by <a href="https://librivox.org/" target="_blank" rel="noreferrer">LibriVox</a> (search for the Douay-Rheims or World English Bible); add any recording’s page or audio file to the media queue below to play it here.
+        </p>
+      </section>
       <MyMedia />
       <div className="notice info">
         Official sources: <a href={biay.data.meta.page} target="_blank" rel="noreferrer">podcast page</a> · <a href={biay.data.meta.home} target="_blank" rel="noreferrer">Ascension reading plan</a> · <a href="https://www.youtube.com/@AscensionPresents" target="_blank" rel="noreferrer">Ascension Presents on YouTube</a>. Transcripts are not published in the official feed, so none are shown. Passage lists come from the feed metadata (voted across yearly re-releases) and may be corrected by reviewers in <code>data/curated/biay-overrides.json</code>.

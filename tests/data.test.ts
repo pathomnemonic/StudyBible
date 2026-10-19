@@ -208,6 +208,22 @@ d('content packs', () => {
     for (const p of gen.persons) for (const k of ['f', 'm']) if (p[k]) expect(ids.has(p[k]), p.id).toBe(true);
     expect(gen.lines.matthew.groups.flatMap((g: any) => g[1]).at(-1)).toBe('jesus');
   });
+  it('themes, textual variants, journeys, eras and memory sets are consistent', () => {
+    const themes = json('reference/themes.json').themes;
+    const ids = new Set(themes.map((t: any) => t.id));
+    expect(themes.length).toBeGreaterThanOrEqual(12);
+    for (const t of themes) {
+      expect(t.stages.length, t.id).toBeGreaterThanOrEqual(5);
+      for (const r of t.related) expect(ids.has(r), `${t.id}->${r}`).toBe(true);
+    }
+    const variants = json('reference/variants.json').variants;
+    expect(variants.some((v: any) => v.id === 'mark-16')).toBe(true);
+    for (const v of variants) expect(v.evidence.length, v.id).toBeGreaterThan(0);
+    const places = new Set(json('maps/places.json').filter(Boolean).map((p: any) => p.n));
+    for (const j of json('reference/journeys.json').journeys) for (const st of j.stops) expect(places.has(st.place), `${j.id}:${st.place}`).toBe(true);
+    expect(json('reference/world.json').finds.length).toBeGreaterThan(8);
+    expect(json('reference/memory-sets.json').sets.length).toBeGreaterThan(8);
+  });
   it('original-language and map data exist and are shaped as the app expects', () => {
     const w = json('original/grc/JHN.json');
     expect(w[0][0][1][1]).toBe('746'); // John 1:1, second word ἀρχῇ = G746

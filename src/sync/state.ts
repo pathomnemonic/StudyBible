@@ -88,6 +88,11 @@ const lastUser = () => {
 
 /** Call once at start-up: probe the server and resume a session if there is one. */
 export async function initSync() {
+  if (getSettings().localOnly) {
+    // local-only mode: never contact a server
+    emit({ server: 'unavailable', status: 'signed-out' });
+    return;
+  }
   syncFlags.onLocalChange = () => scheduleSync();
   settingsChangeHooks.push(() => {
     if (state.user && !syncFlags.applying) noteSettingsChanged();

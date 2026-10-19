@@ -5,7 +5,7 @@ import { downloadEdition, isEditionCached, downloadPack, getManifest, type Study
 import { useSettings, type ThemeName } from '../lib/store';
 import { BOOKS } from '../lib/canon';
 import { NATIONS } from '../liturgy/litcal';
-import { enableReminders, scheduleReminder } from '../liturgy/reminders';
+import { enableReminders, scheduleReminder, PRESETS } from '../liturgy/reminders';
 import { deleteAllData, download, exportAll } from '../db/ops';
 
 export default function SettingsPage() {
@@ -44,7 +44,7 @@ export default function SettingsPage() {
       <div className="card">
         <h2 className="card-title">Reading</h2>
         <div className="row between" style={{ margin: '8px 0' }}><span>Default translation</span><select value={s.defaultEdition} onChange={(e) => set({ defaultEdition: e.target.value, last: null })} aria-label="Default translation">{editions.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}</select></div>
-        <div className="row between" style={{ margin: '8px 0' }}><span>Theme</span><select value={s.theme} onChange={(e) => set({ theme: e.target.value as ThemeName })} aria-label="Theme">{['system', 'light', 'sepia', 'dark'].map((t) => <option key={t}>{t}</option>)}</select></div>
+        <div className="row between" style={{ margin: '8px 0' }}><span>Theme</span><select value={s.theme} onChange={(e) => set({ theme: e.target.value as ThemeName })} aria-label="Theme">{[['system', 'System (follows high-contrast setting)'], ['light', 'Light'], ['sepia', 'Sepia'], ['dark', 'Dark'], ['contrast', 'High contrast (light)'], ['contrast-dark', 'High contrast (dark)']].map(([k, l]) => <option key={k} value={k}>{l}</option>)}</select></div>
         <label className="row between" style={{ margin: '8px 0' }}><span>Text size ({s.fontSize}px)</span><input type="range" min={14} max={30} value={s.fontSize} onChange={(e) => set({ fontSize: +e.target.value })} /></label>
         <label className="row between" style={{ margin: '8px 0' }}><span>Line spacing ({s.lineHeight.toFixed(2)})</span><input type="range" min={1.3} max={2.2} step={0.05} value={s.lineHeight} onChange={(e) => set({ lineHeight: +e.target.value })} /></label>
         <div className="row between" style={{ margin: '8px 0' }}><span>Margins</span><select aria-label="Margins" value={s.margin} onChange={(e) => set({ margin: e.target.value as any })}>{['narrow', 'normal', 'wide'].map((t) => <option key={t}>{t}</option>)}</select></div>
@@ -65,7 +65,8 @@ export default function SettingsPage() {
 
       <div className="card">
         <h2 className="card-title">Study data offline</h2>
-        <p className="muted small">Commentary, the Fathers library and resource links are cached as you use them. Download a whole pack to have it before you go offline. Links to publisher websites and the Bible in a Year audio still need a connection.</p>
+        <p className="muted small">Commentary, the Fathers library and resource links are cached as you use them. Download a whole pack to have it before you go offline. Your notes, highlights, plans, memorization and progress are always stored on this device and work offline. Links to publisher websites, map tiles and the Bible in a Year audio still need a connection.</p>
+        {packs.length > 0 && <div className="row" style={{ marginBottom: 6 }}><button className="btn small primary" onClick={async () => { for (const p of packs) if (!packDone(p.id)) await dlPack(p); }}>Download all study data ({(packs.reduce((n, p) => n + p.bytes, 0) / 1e6).toFixed(0)} MB)</button></div>}
         {packs.map((p) => (
           <div className="row between" key={p.id} style={{ margin: '6px 0' }}>
             <span>{p.label} <span className="muted small">({(p.bytes / 1e6).toFixed(1)} MB)</span></span>
@@ -81,6 +82,22 @@ export default function SettingsPage() {
         <div className="row between" style={{ margin: '8px 0' }}><span>Time</span><input type="time" aria-label="Reminder time" value={s.reminders.time} onChange={(e) => { set({ reminders: { ...s.reminders, time: e.target.value } }); setTimeout(scheduleReminder, 50); }} /></div>
         <input type="text" value={s.reminders.message} onChange={(e) => set({ reminders: { ...s.reminders, message: e.target.value } })} style={{ width: '100%' }} aria-label="Reminder message" />
         {remMsg && <p className="small">{remMsg}</p>}
+        <h3 style={{ marginTop: 14 }}>Prayer and verse reminders</h3>
+        {s.prayerReminders.map((r) => (
+          <div className="row between" key={r.id} style={{ margin: '6px 0' }}>
+            <label className="row"><input type="checkbox" checked={r.enabled} onChange={async (e) => { if (e.target.checked && (await enableReminders()) !== 'granted') { setRemMsg('Notification permission is needed.'); return; } set({ prayerReminders: s.prayerReminders.map((x) => (x.id === r.id ? { ...x, enabled: e.target.checked } : x)) }); setTimeout(scheduleReminder, 50); }} /> {r.label}</label>
+            <span className="row">
+              <input type="time" value={r.time} aria-label={`${r.label} time`} onChange={(e) => { set({ prayerReminders: s.prayerReminders.map((x) => (x.id === r.id ? { ...x, time: e.target.value } : x)) }); setTimeout(scheduleReminder, 50); }} />
+              <button className="btn small ghost" onClick={() => { set({ prayerReminders: s.prayerReminders.filter((x) => x.id !== r.id) }); setTimeout(scheduleReminder, 50); }} aria-label={`Remove ${r.label}`}>Remove</button>
+            </span>
+          </div>
+        ))}
+        <div className="row" style={{ marginTop: 6 }}>
+          <span className="muted small">Add:</span>
+          {PRESETS.filter((p) => !s.prayerReminders.some((r) => r.label === p.label)).map((p) => (
+            <button key={p.label} className="btn small" onClick={() => set({ prayerReminders: [...s.prayerReminders, { id: `r-${Date.now()}`, label: p.label, time: p.time, message: p.message, enabled: false }] })}>{p.label}</button>
+          ))}
+        </div>
         <label className="row between" style={{ margin: '12px 0 0' }}><span>Show “days in a row” on reading plans (off by default)</span><input type="checkbox" checked={s.showStreaks} onChange={(e) => set({ showStreaks: e.target.checked })} /></label>
       </div>
 

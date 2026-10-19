@@ -183,6 +183,19 @@ export interface UserLink extends Syncable {
   createdAt: number;
 }
 
+export interface MemoryCard extends Syncable {
+  id?: number;
+  ref: string; // anchor passage id
+  set?: string; // themed set id
+  ease: number;
+  interval: number;
+  reps: number;
+  lapses: number;
+  due: number;
+  lastReviewed?: number;
+  createdAt: number;
+}
+
 export interface Tombstone {
   id?: number;
   tbl: string;
@@ -199,7 +212,7 @@ export interface CacheRow {
 export const newUid = () => (crypto.randomUUID ? crypto.randomUUID() : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`);
 
 /** Tables with an auto-increment local id; sync matches them across devices by `uid`. */
-export const AUTO_TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'userPlans', 'saved', 'media', 'queue', 'savedSearches', 'userLinks'] as const;
+export const AUTO_TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'userPlans', 'saved', 'media', 'queue', 'savedSearches', 'userLinks', 'memory'] as const;
 /** Tables keyed by a natural id (their key *is* the sync uid). */
 export const KEYED_TABLES: Record<string, string> = { planProgress: 'planId', episodeProgress: 'episodeId', libraryProgress: 'workId' };
 
@@ -210,6 +223,7 @@ class StudyBibleDB extends Dexie {
   cache!: Table<CacheRow, string>;
   media!: Table<MediaItem, number>;
   userLinks!: Table<UserLink, number>;
+  memory!: Table<MemoryCard, number>;
   tombs!: Table<Tombstone, number>;
   notes!: Table<Note, number>;
   highlights!: Table<Highlight, number>;
@@ -276,6 +290,7 @@ class StudyBibleDB extends Dexie {
           });
         }
       });
+    this.version(5).stores({ memory: '++id, ref, due, uid' });
     this.installSyncHooks();
   }
 

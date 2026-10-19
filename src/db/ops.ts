@@ -81,7 +81,7 @@ export async function toggleBookmark(ref: Ref, kind: Bookmark['kind'] = 'bookmar
 // Export / import
 // ---------------------------------------------------------------------------
 
-const TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'planProgress', 'userPlans', 'episodeProgress', 'queue', 'savedSearches', 'recentSearches', 'history', 'saved', 'libraryProgress', 'media', 'userLinks'] as const;
+const TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'planProgress', 'userPlans', 'episodeProgress', 'queue', 'savedSearches', 'recentSearches', 'history', 'saved', 'libraryProgress', 'media', 'userLinks', 'memory'] as const;
 
 export async function exportAll(): Promise<string> {
   const out: Record<string, unknown> = { format: 'studybible-export', version: 1, exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate' };
@@ -154,4 +154,36 @@ export function download(filename: string, text: string, type = 'application/jso
   a.download = filename;
   a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+const csvCell = (v: unknown) => {
+  const t = String(v ?? '');
+  return /[",\n]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t;
+};
+
+/** Highlights and bookmarks as CSV (spreadsheets) or Markdown (any notes app). Passage ids are the app's stable Vulgate-anchored ids. */
+export async function exportMarks(format: 'csv' | 'md'): Promise<string> {
+  const [hl, bm] = await Promise.all([db.highlights.toArray(), db.bookmarks.toArray()]);
+  const name = (id: string) => {
+    const r = parseRefId(id);
+    return r ? `${BOOKS.find((b) => b.id === r.book)!.name} ${r.c1}${r.v1 ? ':' + r.v1 : ''}${r.c2 !== r.c1 || (r.v2 && r.v2 !== r.v1) ? '–' + (r.c2 !== r.c1 ? r.c2 + ':' : '') + (r.v2 ?? '') : ''}` : id;
+  };
+  if (format === 'csv') {
+    const rows = [['type', 'reference', 'anchor_id', 'colour_or_kind', 'label', 'created']];
+    for (const h of hl) rows.push(['highlight', name(h.ref), h.ref, h.color, '', new Date(h.createdAt).toISOString()]);
+    for (const b of bm) rows.push(['bookmark', name(b.ref), b.ref, b.kind, b.label ?? '', new Date(b.createdAt).toISOString()]);
+    return rows.map((r) => r.map(csvCell).join(',')).join('\n');
+  }
+  const out = ['# My highlights and bookmarks', ''];
+  out.push('## Highlights', '', ...hl.map((h) => `- ${name(h.ref)} — ${h.color}`), '', '## Bookmarks', '', ...bm.map((b) => `- ${name(b.ref)}${b.label ? ' — ' + b.label : ''}${b.kind === 'later' ? ' (read later)' : ''}`));
+  return out.join('\n');
+}
+
+/** What an export file contains, without changing anything, so you can check it before importing. */
+export function previewImport(json: string): { counts: Record<string, number>; exportedAt?: string } {
+  const data = JSON.parse(json);
+  if (data.format !== 'studybible-export') throw new Error('Not a Study Bible export file.');
+  const counts: Record<string, number> = {};
+  for (const t of TABLES) if (Array.isArray(data[t]) && data[t].length) counts[t] = data[t].length;
+  return { counts, exportedAt: data.exportedAt };
 }

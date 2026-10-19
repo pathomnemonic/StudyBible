@@ -23,7 +23,7 @@ const MAX_BODY = 6 * 1024 * 1024;
 const MAX_CHANGES = 1000;
 const MAX_PAYLOAD = 256 * 1024;
 const MAX_RECORDS_PER_USER = 200_000;
-const SYNC_TABLES = new Set(['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'userPlans', 'saved', 'media', 'userLinks', 'planProgress', 'episodeProgress', 'libraryProgress', 'queue', 'savedSearches', 'settings']);
+const SYNC_TABLES = new Set(['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'userPlans', 'saved', 'media', 'userLinks', 'planProgress', 'episodeProgress', 'libraryProgress', 'queue', 'savedSearches', 'memory', 'settings']);
 
 class HttpError extends Error {
   constructor(public status: number, message: string) {

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { getPlaces, getPlacesByBook, type Place } from '../../data/content';
@@ -76,7 +76,7 @@ export default function MapsPage() {
   return (
     <div className="page wide">
       <h1>Maps</h1>
-      <p className="lede">Places named in Scripture. Locations are scholarly best guesses; paler dots are less certain.</p>
+      <p className="lede">Places named in Scripture. Locations are scholarly best guesses; paler dots are less certain. <Link to="/study/world">Journeys, eras and archaeology →</Link></p>
       <div className="maps-layout">
         <div>
           <div className="row" style={{ marginBottom: 8 }}>

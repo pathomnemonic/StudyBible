@@ -58,6 +58,28 @@ export function buildEditorial(report: Report) {
     for (const k of ['f', 'm']) if (p[k] && !ids.has(p[k])) report.error(`editorial: genealogies: ${p.id}.${k} -> unknown ${p[k]}`);
     if (p.r) check(`genealogies.${p.id}`, p.r);
   }
-  for (const f of ['books', 'indexes', 'synopsis', 'pauline', 'genealogies']) writeJson(join(PUBLIC_DATA, 'reference', `${f}.json`), readJson(join(src, `${f}.json`)));
+  const themes = readJson(join(src, 'themes.json'));
+  const tids = new Set(themes.themes.map((x: any) => x.id));
+  for (const th of themes.themes) {
+    for (const st of th.stages) check(`themes.${th.id}.${st.label}`, st.refs);
+    for (const r of th.related) if (!tids.has(r)) report.error(`editorial: themes.${th.id}: unknown related theme ${r}`);
+  }
+  const variants = readJson(join(src, 'variants.json'));
+  for (const v of variants.variants) check(`variants.${v.id}`, v.refs);
+  const places = new Set(readJson(join(PUBLIC_DATA, 'maps/places.json')).filter(Boolean).map((p: any) => p.n));
+  const journeys = readJson(join(src, 'journeys.json'));
+  for (const jn of journeys.journeys) for (const st of jn.stops) {
+    if (!places.has(st.place)) report.error(`editorial: journeys.${jn.id}: unknown place "${st.place}"`);
+    check(`journeys.${jn.id}.${st.place}`, st.ref);
+  }
+  const world = readJson(join(src, 'world.json'));
+  for (const e of world.eras) {
+    check(`world.eras.${e.id}`, e.refs);
+    for (const pl of e.places) if (!places.has(pl)) report.error(`editorial: world.eras.${e.id}: unknown place "${pl}"`);
+  }
+  for (const f of world.finds) check(`world.finds.${f.name}`, f.refs);
+  const mem = readJson(join(src, 'memory-sets.json'));
+  for (const set of mem.sets) for (const r of set.refs) check(`memory.${set.id}`, r);
+  for (const f of ['books', 'indexes', 'synopsis', 'pauline', 'genealogies', 'memory-sets', 'themes', 'variants', 'journeys', 'world']) writeJson(join(PUBLIC_DATA, 'reference', `${f}.json`), readJson(join(src, `${f}.json`)));
   report.stats['editorial'] = { books: Object.keys(books).length, references: refs, persons: gen.persons.length, synopsisRows: syn.rows.length, parables: idx.parables.length, miracles: idx.miracles.length, prophecies: idx.prophecies.length, covenants: idx.covenants.length };
 }

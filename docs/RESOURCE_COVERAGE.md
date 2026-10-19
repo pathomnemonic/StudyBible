@@ -53,3 +53,17 @@ Add a row to `data/curated/external-resources.json` with the passages it treats,
 
 ## Update: outside-article links (permission given by the maintainer)
 The maintainer authorised adding more links to outside articles. ~90 more pages were added, each matched by hand from its title and a search-result summary and labelled that way in the app (`basis: title-and-summary`): Catholic Answers (Genesis 1–3, original sin, Melchizedek, images, binding and loosing, divorce, Mary as Mother of God, John 19, Trinity and baptism, John 1:1, apostolic succession, Acts 15, Romans 10:9, 1 Timothy 2:5, James 5:14, John 21), Word on Fire (John 6, Genesis), St. Paul Center, Catholic Productions, FORMED/Augustine Institute (Matthew series), EWTN and New Advent. Forum threads and shop pages were left out. Nothing is copied; each row is a title, URL and passage list.
+
+## Round 6: accessibility, memorization, dashboard and more
+| Feature | Honest status |
+|---|---|
+| Read aloud | Browser speech synthesis; quality depends on the device. No human audio Bible is bundled (no verified public-domain recording source); LibriVox is linked and recordings can be added to the media queue. |
+| Accessibility | Light and dark high-contrast themes, system contrast preference, reduced motion, ARIA labels. Axe audit clean on the checked pages; no testing with real screen-reader users yet. |
+| Memorization | SM-2-style scheduling, 15 themed sets (references only, text read from your translation), cloze/initials/audio recall. |
+| Dashboard / reminders / widget | Customizable Today page; reminders work only while the app runs; widget page is a web view, not an OS widget. |
+| Data portability | Export JSON/Markdown/CSV, preview before import, merge/replace, backup reminders, local-only mode. |
+| Biblical theology explorer | 15 editorial themes; CCC numbers are section pointers I checked from memory of the Catechism's structure, so verify them. |
+| Textual history | 28 variants written in cautious language; manuscript details are from standard scholarship and need checking against a critical edition (e.g. NA28) before quotation. |
+| Biblical world | 7 journeys, 9 eras, 12 finds; dates are conventional estimates. |
+| Guided session, verse card, xref map, authors compared | Built on data already in the app. |
+Not built: a community/study-group feature (needs a moderated server), hosted accounts with email reset, native widgets and push notifications, recorded audio Bibles.

@@ -18,6 +18,11 @@ export default defineConfig({
         background_color: '#fbf8f3',
         display: 'standalone',
         start_url: './',
+        shortcuts: [
+          { name: 'Today', short_name: 'Today', url: './#/today' },
+          { name: 'Memorize', short_name: 'Memorize', url: './#/memorize' },
+          { name: 'Verse widget', short_name: 'Widget', url: './#/widget' },
+        ],
         icons: [{ src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }],
       },
       workbox: {

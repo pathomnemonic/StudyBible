@@ -57,3 +57,6 @@ npm run verify:ccc   # re-check curated Catechism links against the paragraph te
 * **Accounts (optional):** `npm run build && npm start` serves the app and a small sync API. Sign in from the rail to sync annotations. Not end-to-end encrypted; no email reset. See [docs/SERVER.md](docs/SERVER.md).
 * **Shortcuts:** `Ctrl/⌘+K` jump/search, `←/→` chapters, `S` study panel, `N` note, `1–6` highlight, `?` help.
 * **Catholic Answers:** their Terms of Service forbid automated collection into a database, so articles are *not* bulk-linked. The app links their Bible Navigator pages, lets you attach any article/video to a passage ("Add link"; or open `#/attach?url=…&title=…`), and has a permission-ready import (`data/licensed/`). Draft request: [docs/OUTREACH_CATHOLIC_ANSWERS.md](docs/OUTREACH_CATHOLIC_ANSWERS.md).
+
+## More study and daily-use tools
+Today dashboard (customizable) · Read with the Church (guided session) · Memorize Scripture (spaced repetition) · Read aloud · high-contrast themes · biblical theology explorer · textual history · the biblical world (journeys, eras, archaeology) · maps · concordance · topical index · Greek/Hebrew word study · knowledge graph · verse cards · offline packs · local-only mode. See docs/FEATURE_STATUS.md and docs/RESOURCE_COVERAGE.md for what is complete and what is partial.

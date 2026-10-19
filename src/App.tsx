@@ -8,6 +8,7 @@ import { PlayerProvider } from './data/PlayerContext';
 import MiniPlayer from './components/MiniPlayer';
 import { ToastProvider } from './components/Toast';
 import { initSync } from './sync/state';
+import { scheduleReminder } from './liturgy/reminders';
 
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
 const SearchPage = lazy(() => import('./pages/study/SearchPage'));
@@ -35,6 +36,13 @@ const IndexPage = lazy(() => import('./pages/study/IndexPage'));
 const SynopsisPage = lazy(() => import('./pages/study/SynopsisPage'));
 const PaulinePage = lazy(() => import('./pages/study/PaulinePage'));
 const PeoplePage = lazy(() => import('./pages/study/PeoplePage'));
+const MemorizePage = lazy(() => import('./pages/pray/MemorizePage'));
+const SharePage = lazy(() => import('./pages/SharePage'));
+const WidgetPage = lazy(() => import('./pages/WidgetPage'));
+const ThemesPage = lazy(() => import('./pages/study/ThemesPage'));
+const TextualPage = lazy(() => import('./pages/study/TextualPage'));
+const WorldPage = lazy(() => import('./pages/study/WorldPage'));
+const SessionPage = lazy(() => import('./pages/SessionPage'));
 const TodayPage = lazy(() => import('./pages/TodayPage'));
 const AccountPage = lazy(() => import('./pages/AccountPage'));
 const AttachPage = lazy(() => import('./pages/AttachPage'));
@@ -45,20 +53,29 @@ function ThemeApplier() {
   useEffect(() => {
     const root = document.documentElement;
     const apply = () => {
-      let t = s.theme;
-      if (t === 'system') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      let t: string = s.theme;
+      if (t === 'system') {
+        const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+        const more = matchMedia('(prefers-contrast: more)').matches;
+        t = more ? (dark ? 'contrast-dark' : 'contrast') : dark ? 'dark' : 'light';
+      }
       root.dataset.theme = t;
       root.dataset.margin = s.margin;
       root.style.setProperty('--read-size', `${s.fontSize}px`);
       root.style.setProperty('--read-lh', String(s.lineHeight));
       root.style.setProperty('--read-font', s.fontFamily === 'serif' ? 'var(--font-serif)' : 'var(--font-sans)');
       const meta = document.querySelector('meta[name="theme-color"]');
-      meta?.setAttribute('content', t === 'dark' ? '#17140f' : t === 'sepia' ? '#efe3c8' : '#fbf8f3');
+      meta?.setAttribute('content', t === 'dark' ? '#17140f' : t === 'contrast-dark' ? '#000000' : t === 'contrast' ? '#ffffff' : t === 'sepia' ? '#efe3c8' : '#fbf8f3');
     };
     apply();
     const mq = matchMedia('(prefers-color-scheme: dark)');
+    const mc = matchMedia('(prefers-contrast: more)');
     mq.addEventListener('change', apply);
-    return () => mq.removeEventListener('change', apply);
+    mc.addEventListener('change', apply);
+    return () => {
+      mq.removeEventListener('change', apply);
+      mc.removeEventListener('change', apply);
+    };
   }, [s.theme, s.margin, s.fontSize, s.lineHeight, s.fontFamily]);
   return null;
 }
@@ -79,6 +96,7 @@ function Home() {
 export default function App() {
   useEffect(() => {
     initSync();
+    scheduleReminder();
   }, []);
   return (
     <ToastProvider>
@@ -100,6 +118,9 @@ export default function App() {
               <Route path="/study/synopsis" element={<SynopsisPage />} />
               <Route path="/study/pauline" element={<PaulinePage />} />
               <Route path="/study/people" element={<PeoplePage />} />
+              <Route path="/study/themes" element={<ThemesPage />} />
+              <Route path="/study/textual" element={<TextualPage />} />
+              <Route path="/study/world" element={<WorldPage />} />
               <Route path="/study/maps" element={<MapsPage />} />
               <Route path="/study/topical" element={<TopicalPage />} />
               <Route path="/study/concordance" element={<ConcordancePage />} />
@@ -118,6 +139,10 @@ export default function App() {
               <Route path="/pray/plans/:id" element={<PlanPage />} />
               <Route path="/library/*" element={<LibraryHome />} />
               <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/memorize" element={<MemorizePage />} />
+              <Route path="/share" element={<SharePage />} />
+              <Route path="/widget" element={<WidgetPage />} />
+              <Route path="/session" element={<SessionPage />} />
               <Route path="/today" element={<TodayPage />} />
               <Route path="/account" element={<AccountPage />} />
               <Route path="/attach" element={<AttachPage />} />

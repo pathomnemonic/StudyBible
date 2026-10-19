@@ -7,7 +7,8 @@ import RefLink from '../../components/RefLink';
 import { renderMarkdown } from '../../lib/markdown';
 import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
-import { download, exportAll, exportNotesMarkdown, importAll } from '../../db/ops';
+import { download, exportAll, exportMarks, exportNotesMarkdown, importAll, previewImport } from '../../db/ops';
+import { useSettings } from '../../lib/store';
 import { fold } from '../../search/engine';
 import { BOOK_ORDER } from '../../lib/canon';
 import GraphPage from './GraphPage';
@@ -205,21 +206,47 @@ function History() {
 
 function ExportTab() {
   const [msg, setMsg] = useState('');
+  const [pending, setPending] = useState<{ text: string; counts: Record<string, number>; at?: string } | null>(null);
+  const [s, set] = useSettings();
+  const daysSince = s.lastBackup ? Math.floor((Date.now() - s.lastBackup) / 86400000) : null;
   return (
     <>
       <div className="card">
-        <h3>Export</h3>
-        <p className="muted">Take your notes with you. The JSON file contains everything (notes, highlights, bookmarks, collections, journal, plan progress, listening progress) and can be re-imported; the Markdown file is a readable copy of your notes for any other app. Scripture links use stable Vulgate-anchored ids, so they keep working across translations.</p>
+        <h3>Export (backup)</h3>
+        <p className="muted">Your data lives on this device. The JSON file contains everything (notes, highlights, bookmarks, collections, journal, plans, memorization, listening progress) and can be re-imported on any device; the other formats are readable copies for other apps. Scripture links use stable Vulgate-anchored ids, so they keep working across translations.</p>
         <div className="row">
-          <button className="btn primary" onClick={async () => download(`studybible-export-${new Date().toISOString().slice(0, 10)}.json`, await exportAll())}>Export everything (JSON)</button>
-          <button className="btn" onClick={async () => download('studybible-notes.md', await exportNotesMarkdown(), 'text/markdown')}>Export notes (Markdown)</button>
+          <button className="btn primary" onClick={async () => { download(`studybible-export-${new Date().toISOString().slice(0, 10)}.json`, await exportAll()); set({ lastBackup: Date.now() }); }}>Export everything (JSON)</button>
+          <button className="btn" onClick={async () => download('studybible-notes.md', await exportNotesMarkdown(), 'text/markdown')}>Notes (Markdown)</button>
+          <button className="btn" onClick={async () => download('studybible-marks.csv', await exportMarks('csv'), 'text/csv')}>Highlights and bookmarks (CSV)</button>
+          <button className="btn" onClick={async () => download('studybible-marks.md', await exportMarks('md'), 'text/markdown')}>Highlights and bookmarks (Markdown)</button>
         </div>
+        <p className="small" style={{ marginBottom: 0 }}>{daysSince === null ? 'You have not made a backup from this device yet.' : `Last backup: ${daysSince === 0 ? 'today' : `${daysSince} day${daysSince === 1 ? '' : 's'} ago`}.`}</p>
+        <label className="row" style={{ marginTop: 6 }}>Remind me to back up
+          <select value={s.backupEveryDays} onChange={(e) => set({ backupEveryDays: +e.target.value })} aria-label="Backup reminder">
+            <option value={0}>never</option><option value={7}>every week</option><option value={30}>every month</option><option value={90}>every 3 months</option>
+          </select>
+        </label>
       </div>
       <div className="card">
         <h3>Import</h3>
-        <p className="muted small">Merging adds the file’s items to what is already here.</p>
-        <input type="file" accept="application/json" onChange={async (e) => { const f = e.target.files?.[0]; if (!f) return; try { setMsg(`Imported ${await importAll(await f.text(), 'merge')} items.`); } catch (err: any) { setMsg(err.message); } }} />
-        {msg && <p className="small">{msg}</p>}
+        <p className="muted small">Choose a file to see what it contains before anything changes. Merging adds the file’s items to what is here and never duplicates items you already have; replacing erases this device’s data first.</p>
+        <input type="file" accept="application/json" aria-label="Export file to import" onChange={async (e) => { const f = e.target.files?.[0]; if (!f) return; try { const text = await f.text(); const p = previewImport(text); setPending({ text, counts: p.counts, at: p.exportedAt }); setMsg(''); } catch (err: any) { setPending(null); setMsg(err.message); } }} />
+        {pending && (
+          <div style={{ marginTop: 8 }}>
+            <p className="small">This file{pending.at ? ` (exported ${pending.at.slice(0, 10)})` : ''} contains: {Object.entries(pending.counts).map(([k, v]) => `${v} ${k}`).join(', ') || 'nothing'}.</p>
+            <div className="row">
+              <button className="btn primary" onClick={async () => { setMsg(`Imported ${await importAll(pending.text, 'merge')} items.`); setPending(null); }}>Merge into this device</button>
+              <button className="btn" onClick={async () => { if (confirm('Replace everything on this device with the file’s contents?')) { setMsg(`Imported ${await importAll(pending.text, 'replace')} items.`); setPending(null); } }}>Replace everything</button>
+              <button className="btn ghost" onClick={() => setPending(null)}>Cancel</button>
+            </div>
+          </div>
+        )}
+        {msg && <p className="small" role="status">{msg}</p>}
+      </div>
+      <div className="card">
+        <h3>Privacy</h3>
+        <p className="muted small">Nothing leaves this device unless you sign in to a sync server you choose. There are no analytics. You can switch off all server contact:</p>
+        <label className="row"><input type="checkbox" checked={s.localOnly} onChange={(e) => { set({ localOnly: e.target.checked }); setTimeout(() => location.reload(), 200); }} /> Local-only mode (never contact a sync server; hides sign-in)</label>
       </div>
     </>
   );

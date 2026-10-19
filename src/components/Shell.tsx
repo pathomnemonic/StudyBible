@@ -30,7 +30,7 @@ export default function Shell({ children }: { children: ReactNode }) {
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
   }, []);
-  const fullscreenReader = loc.pathname.startsWith('/read') && s.scriptureOnly;
+  const fullscreenReader = (loc.pathname.startsWith('/read') && s.scriptureOnly) || loc.pathname.startsWith('/widget');
   return (
     <div className={`shell${fullscreenReader ? ' quiet' : ''}`}>
       <a className="skip" href="#main">
@@ -61,11 +61,11 @@ export default function Shell({ children }: { children: ReactNode }) {
           <span className="ico"><Icon name="gear" /></span>
           <span>Settings</span>
         </NavLink>
-        <NavLink to="/account" className={`tab utility${loc.pathname.startsWith('/account') ? ' active' : ''}`} aria-label={sync.user ? `Account: ${sync.user.email}` : 'Sign in'}>
+        {!s.localOnly && <NavLink to="/account" className={`tab utility${loc.pathname.startsWith('/account') ? ' active' : ''}`} aria-label={sync.user ? `Account: ${sync.user.email}` : 'Sign in'}>
           <span className="ico">{sync.user ? <span className="avatar">{(sync.user.name || sync.user.email)[0].toUpperCase()}</span> : <Icon name="info" />}</span>
           <span>{sync.user ? 'Account' : 'Sign in'}</span>
           {sync.user && <i className={`sync-dot ${sync.status}`} />}
-        </NavLink>
+        </NavLink>}
       </nav>
       <main id="main" className="main">
         {children}

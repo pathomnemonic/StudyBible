@@ -15,11 +15,15 @@ interface Cmd {
 
 const NAV: { label: string; to: string }[] = [
   { label: 'Today', to: '/today' },
+  { label: 'Read with the Church (guided session)', to: '/session' },
   { label: 'Read', to: '/read' },
   { label: 'Study home', to: '/study' },
   { label: 'Fathers & saints library', to: '/study/fathers' },
   { label: 'Catechism & doctrine', to: '/study/doctrine' },
   { label: 'Sources & rights', to: '/study/sources' },
+  { label: 'Biblical theology explorer', to: '/study/themes' },
+  { label: 'Textual history', to: '/study/textual' },
+  { label: 'The biblical world: journeys and archaeology', to: '/study/world' },
   { label: 'Maps', to: '/study/maps' },
   { label: 'Concordance', to: '/study/concordance' },
   { label: 'Topical index', to: '/study/topical' },
@@ -33,6 +37,7 @@ const NAV: { label: string; to: string }[] = [
   { label: 'Pray', to: '/pray' },
   { label: 'Journal', to: '/pray/journal' },
   { label: 'Reading plans', to: '/pray/plans' },
+  { label: 'Memorize Scripture', to: '/memorize' },
   { label: 'My library (notes, highlights, bookmarks)', to: '/library' },
   { label: 'Account & sync', to: '/account' },
   { label: 'Settings', to: '/settings' },

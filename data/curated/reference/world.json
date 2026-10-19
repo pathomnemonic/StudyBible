@@ -1,0 +1,209 @@
+{
+ "_about": "Historical eras and archaeological finds that help set Scripture in context. Written for this app as a study aid with cautious language; dates are conventional estimates and several are debated. Verify details with a reputable archaeological reference before quoting.",
+ "eras": [
+  {
+   "id": "patriarchs",
+   "title": "The patriarchs",
+   "dates": "c. 2000–1700 BC (traditional estimates)",
+   "summary": "Abraham, Isaac, Jacob and Joseph move between Mesopotamia, Canaan and Egypt.",
+   "refs": "Genesis 12:1-50:26",
+   "context": "Dating the patriarchs is uncertain and debated; Genesis gives no absolute dates.",
+   "places": [
+    "Ur",
+    "Haran",
+    "Hebron",
+    "Egypt"
+   ]
+  },
+  {
+   "id": "exodus",
+   "title": "Exodus and wilderness",
+   "dates": "c. 13th century BC (a common but debated dating)",
+   "summary": "Israel leaves Egypt, receives the law at Sinai and wanders forty years.",
+   "refs": "Exodus 1:1-40:38; Numbers 1:1-36:13",
+   "context": "The date of the Exodus is much debated (15th vs 13th century BC are the leading proposals).",
+   "places": [
+    "Rameses",
+    "Sinai",
+    "Kadesh-barnea"
+   ]
+  },
+  {
+   "id": "judges",
+   "title": "Settlement and judges",
+   "dates": "c. 1200–1050 BC",
+   "summary": "Israel enters Canaan, and judges such as Deborah, Gideon and Samson arise.",
+   "refs": "Joshua 1:1-24:33; Judges 1:1-21:25",
+   "context": "The Merneptah Stele (c. 1208 BC), an Egyptian victory inscription, is the earliest known mention of “Israel” outside the Bible.",
+   "places": [
+    "Gilgal 1",
+    "Shechem",
+    "Shiloh"
+   ]
+  },
+  {
+   "id": "monarchy",
+   "title": "United monarchy",
+   "dates": "c. 1050–930 BC",
+   "summary": "Saul, David and Solomon; Jerusalem becomes the capital and the Temple is built.",
+   "refs": "1 Samuel 8:1-31:13; 2 Samuel 1:1-24:25; 1 Kings 1:1-11:43",
+   "context": "The Tel Dan inscription (9th century BC) mentions a “house of David.”",
+   "places": [
+    "Jerusalem",
+    "Hebron",
+    "Gibeon"
+   ]
+  },
+  {
+   "id": "divided",
+   "title": "Divided kingdom",
+   "dates": "c. 930–722 BC",
+   "summary": "Israel in the north and Judah in the south; prophets Elijah, Elisha, Amos, Hosea, Isaiah.",
+   "refs": "1 Kings 12:1-22:53; 2 Kings 1:1-17:41",
+   "context": "Assyrian records describe Israel’s defeat and the fall of Samaria in 722 BC.",
+   "places": [
+    "Samaria",
+    "Jerusalem",
+    "Dan"
+   ]
+  },
+  {
+   "id": "judah",
+   "title": "Judah, exile and return",
+   "dates": "c. 722–400 BC",
+   "summary": "Assyria threatens Jerusalem; Babylon destroys the Temple in 586 BC; the exiles return under Persian rule.",
+   "refs": "2 Kings 18:1-25:30; Ezra 1:1-10:44; Nehemiah 1:1-13:31",
+   "context": "Sennacherib’s Prism records the 701 BC siege of Jerusalem; the Cyrus Cylinder reflects Persian policy toward exiled peoples.",
+   "places": [
+    "Jerusalem",
+    "Babylon",
+    "Nineveh"
+   ]
+  },
+  {
+   "id": "second-temple",
+   "title": "The Second Temple period",
+   "dates": "c. 515 BC–AD 70",
+   "summary": "Persian, Greek and Roman rule; the Maccabean revolt; Herod rebuilds the Temple.",
+   "refs": "1 Maccabees 1:1-16:24; 2 Maccabees 3:1-15:39",
+   "context": "Writings from Qumran (the Dead Sea Scrolls) and Josephus describe Jewish life in this age.",
+   "places": [
+    "Jerusalem",
+    "Jericho"
+   ]
+  },
+  {
+   "id": "jesus",
+   "title": "The time of Jesus",
+   "dates": "c. 6 BC–AD 30 (traditional estimates)",
+   "summary": "Jesus is born under Roman rule, ministers in Galilee and Judea, and is crucified under Pontius Pilate.",
+   "refs": "Matthew 1:1-28:20; Luke 1:1-24:53",
+   "context": "A stone inscription found at Caesarea names Pontius Pilate as prefect of Judea.",
+   "places": [
+    "Nazareth",
+    "Capernaum",
+    "Jerusalem"
+   ]
+  },
+  {
+   "id": "church",
+   "title": "The early Church",
+   "dates": "c. AD 30–100",
+   "summary": "The gospel spreads from Jerusalem through the Roman empire.",
+   "refs": "Acts 1:1-28:31",
+   "context": "An inscription at Delphi dating the proconsulship of Gallio helps fix the date of Paul’s stay in Corinth (Acts 18:12).",
+   "places": [
+    "Antioch 1",
+    "Ephesus",
+    "Corinth",
+    "Rome"
+   ]
+  }
+ ],
+ "finds": [
+  {
+   "name": "Merneptah Stele",
+   "date": "c. 1208 BC",
+   "where": "Egypt (now in Cairo)",
+   "note": "The earliest known mention of “Israel” outside the Bible, in a victory hymn of Pharaoh Merneptah.",
+   "refs": "Judges 1:1-36"
+  },
+  {
+   "name": "Tel Dan Inscription",
+   "date": "9th century BC",
+   "where": "Tel Dan, northern Israel",
+   "note": "An Aramaic inscription that most scholars read as mentioning the “house of David.”",
+   "refs": "2 Samuel 7:11-16"
+  },
+  {
+   "name": "Siloam Tunnel and Inscription",
+   "date": "c. 700 BC",
+   "where": "Jerusalem",
+   "note": "A water tunnel cut through rock, with a Hebrew inscription describing its completion, widely linked to Hezekiah’s work.",
+   "refs": "2 Kings 20:20; 2 Chronicles 32:30"
+  },
+  {
+   "name": "Sennacherib’s Prism",
+   "date": "701 BC",
+   "where": "Nineveh (now in the British Museum and elsewhere)",
+   "note": "The Assyrian king’s account of his campaign and his siege of Jerusalem.",
+   "refs": "2 Kings 18:13-19:37"
+  },
+  {
+   "name": "Cyrus Cylinder",
+   "date": "539–538 BC",
+   "where": "Babylon (now in the British Museum)",
+   "note": "A Persian royal text describing Cyrus’ policy of returning peoples to their homelands and restoring their temples; it does not mention Jerusalem, but it fits the policy behind Ezra 1.",
+   "refs": "Ezra 1:1-4"
+  },
+  {
+   "name": "Dead Sea Scrolls",
+   "date": "c. 250 BC–AD 70",
+   "where": "Qumran and nearby caves",
+   "note": "The oldest surviving copies of most books of the Hebrew Bible, including a nearly complete Isaiah scroll, and writings of a Jewish community.",
+   "refs": "Isaiah 1:1-66:24"
+  },
+  {
+   "name": "Pilate Stone",
+   "date": "1st century AD",
+   "where": "Caesarea Maritima",
+   "note": "A Latin dedication inscription naming Pontius Pilate as prefect of Judea.",
+   "refs": "Luke 3:1; John 18:28-19:16"
+  },
+  {
+   "name": "Gallio Inscription",
+   "date": "AD 51–52",
+   "where": "Delphi, Greece",
+   "note": "An inscription from the emperor Claudius that helps date Gallio’s time as proconsul of Achaia, and so Paul’s time in Corinth.",
+   "refs": "Acts 18:12-17"
+  },
+  {
+   "name": "Erastus Inscription",
+   "date": "1st century AD",
+   "where": "Corinth",
+   "note": "A paved-area inscription naming an Erastus as aedile; some scholars link him with the Erastus of Romans 16:23.",
+   "refs": "Romans 16:23"
+  },
+  {
+   "name": "Pool of Siloam",
+   "date": "1st century AD",
+   "where": "Jerusalem",
+   "note": "Excavations have uncovered a large stepped pool identified with the Pool of Siloam.",
+   "refs": "John 9:1-12"
+  },
+  {
+   "name": "Capernaum synagogue and houses",
+   "date": "1st–4th centuries AD",
+   "where": "Capernaum, Galilee",
+   "note": "Remains of a synagogue and of village houses; beneath a later church is a house venerated since early Christian times as Peter’s.",
+   "refs": "Mark 1:21-31"
+  },
+  {
+   "name": "Church of the Holy Sepulchre",
+   "date": "4th century AD and later",
+   "where": "Jerusalem",
+   "note": "The church built over the traditional site of Jesus’ crucifixion and burial; excavation shows the area was a quarry used for tombs in the first century.",
+   "refs": "John 19:41-42"
+  }
+ ]
+}

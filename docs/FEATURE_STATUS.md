@@ -78,6 +78,41 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Modern Catholic study Bibles and commentaries (Ignatius, Navarre, Jerome, CCSS…) | **Needs licence** | Copyrighted; none bundled. See docs/RESOURCE_COVERAGE.md. |
 
+## Listen
+
+| Feature | Status | Notes |
+|---|---|---|
+| Read aloud (text-to-speech) | **Working** | Any chapter read with your device’s speech voices: verse highlighting, speed, voice, skip, continue to the next chapter. It is synthesized speech, not a human recording; Latin has no standard browser voice. Recorded public-domain readings can be added to the media queue. |
+
+## Settings
+
+| Feature | Status | Notes |
+|---|---|---|
+| High-contrast themes, reduced motion, adjustable text | **Working** | Light and dark high-contrast themes (also chosen automatically when your system asks for more contrast), reduced-motion support, text size, spacing and margins, screen-reader labels (checked with an automated audit, not yet with a person using a screen reader). |
+
+## Pray
+
+| Feature | Status | Notes |
+|---|---|---|
+| Scripture memorization | **Working** | Spaced repetition, themed sets, fill-in-the-blank that gets harder as you improve, first-letter and audio recall. Syncs with your account if you use one. |
+| Customizable Today dashboard, reminders and widget view | **Working** | Choose and order home-screen cards; reading, prayer, verse-of-the-day and review reminders (they fire while the app is open or installed; true background notifications and phone home-screen widgets need a native app); a compact widget page for a pinned tab or installed shortcut. |
+
+## Library
+
+| Feature | Status | Notes |
+|---|---|---|
+| Data portability, backup reminders and local-only mode | **Working** | Export everything (JSON), notes (Markdown), highlights and bookmarks (CSV or Markdown); preview before importing; merge or replace; backup reminders; local-only mode that never contacts a server. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Offline study packs | **Working** | Download commentary, library, links, reference data, Greek/Hebrew data, maps data and Church-document references in Settings. Map tiles, publisher links and audio still need a connection. |
+| Biblical theology explorer | **Working** | 15 themes traced through Scripture with the Church’s reading and Catechism pointers. Editorial and not exhaustive. |
+| Scripture textual history | **Partial** | 28 notable variants (New Testament manuscripts, Masoretic vs Septuagint vs Dead Sea Scrolls) with the passage in the bundled editions side by side. It is not a full critical apparatus; written cautiously; verify details with a critical edition. |
+| Biblical world: journeys, eras and archaeology | **Partial** | Seven journeys (Abraham, the Exodus, Jesus, Paul’s four) stepped through on a map, nine historical eras and twelve archaeological finds. Locations are scholarly proposals; the Exodus route in particular is uncertain. |
+| Read with the Church (guided session), verse cards, cross-reference map, authors side by side | **Working** | A five-step guided session from today’s Gospel (or the verse of the day), shareable verse images made on your device, a radial cross-reference map, and a side-by-side view of the authors who comment on a passage. |
+
 ## Pray
 
 | Feature | Status | Notes |

@@ -7,7 +7,7 @@ import {
 import { getXrefs } from '../data/loader';
 import type { ResourceSource } from '../data/content';
 import { languageLinks } from './languageTools';
-import { getIndexes, getSynopsis, refsFromText } from './refData';
+import { getIndexes, getSynopsis, getVariants, getThemes, refsFromText } from './refData';
 import { convertRef } from '../lib/versification';
 import { db } from '../db/db';
 
@@ -383,7 +383,7 @@ export const providers: Record<string, Provider> = {
 
   /** Editorial reference indexes: Gospel parallels, parables, miracles, prophecy/fulfilment, covenants. */
   async parallels(refs) {
-    const [syn, idx] = await Promise.all([getSynopsis(), getIndexes()]);
+    const [syn, idx, vars, themes] = await Promise.all([getSynopsis(), getIndexes(), getVariants(), getThemes()]);
     const out: StudyItem[] = [];
     const hit = (text: string) => refsFromText(text).filter((r) => refs.some((x) => refsOverlap(x, r)));
     const add = (id: string, kind: string, title: string, others: string[], why: string, link?: string) =>
@@ -403,6 +403,11 @@ export const providers: Record<string, Provider> = {
       const ot = hit(r[1]).length;
       const nt = hit(r[2]).length;
       if (ot || nt) add(`pro-${r[0]}`, ot ? 'Prophecy' : 'Fulfilment', r[0], ot ? [r[2]] : [r[1]], 'A passage the New Testament itself cites or applies; the pairing is the New Testament’s own, not a modern guess.', '/study/index?tab=prophecies');
+    }
+    for (const x of vars?.variants ?? []) if (hit(x.refs).length) add(`var-${x.id}`, 'Textual variant', x.title, [], 'Manuscripts or ancient versions differ here. Open the textual-history page for the evidence and the bundled editions side by side.', `/study/textual?v=${x.id}`);
+    for (const th of themes?.themes ?? []) {
+      const st = th.stages.find((s) => hit(s.refs).length);
+      if (st) add(`theme-${th.id}`, 'Biblical theme', th.title, [st.label], 'This passage is a stage in the theme traced in the biblical theology explorer.', `/study/themes?t=${th.id}`);
     }
     for (const r of idx?.covenants ?? []) if (hit(r[1]).length) add(`cov-${r[0]}`, 'Covenant', r[0], [], r[2], '/study/index?tab=covenants');
     return out;

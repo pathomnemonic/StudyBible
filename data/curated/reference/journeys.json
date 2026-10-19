@@ -1,0 +1,410 @@
+{
+ "_about": "Journeys as ordered stops matched by name to the OpenBible place list. Every stop gives the passage that records it. Locations are scholarly proposals; uncertain journeys carry a caution.",
+ "journeys": [
+  {
+   "id": "abraham",
+   "title": "Abraham’s journey",
+   "summary": "From Ur of the Chaldeans to Canaan and Egypt, and back to the promised land.",
+   "color": "#8a2f39",
+   "stops": [
+    {
+     "place": "Ur",
+     "ref": "Genesis 11:31",
+     "note": "Terah’s family sets out from Ur."
+    },
+    {
+     "place": "Haran",
+     "ref": "Genesis 11:31-12:5",
+     "note": "They settle in Haran; Abram is called to go."
+    },
+    {
+     "place": "Shechem",
+     "ref": "Genesis 12:6-7",
+     "note": "The Lord appears; an altar is built."
+    },
+    {
+     "place": "Bethel 1",
+     "ref": "Genesis 12:8",
+     "note": "Abram camps between Bethel and Ai."
+    },
+    {
+     "place": "Egypt",
+     "ref": "Genesis 12:10-20",
+     "note": "Famine drives Abram to Egypt."
+    },
+    {
+     "place": "Bethel 1",
+     "ref": "Genesis 13:3-4",
+     "note": "He returns to the altar at Bethel."
+    },
+    {
+     "place": "Hebron",
+     "ref": "Genesis 13:18",
+     "note": "Abram settles by the oaks of Mamre at Hebron."
+    },
+    {
+     "place": "Moriah",
+     "ref": "Genesis 22:1-14",
+     "note": "The binding of Isaac."
+    },
+    {
+     "place": "Beersheba",
+     "ref": "Genesis 21:31-33; Genesis 22:19",
+     "note": "Abraham dwells at Beersheba."
+    },
+    {
+     "place": "Hebron",
+     "ref": "Genesis 23:1-20",
+     "note": "Sarah’s death and the cave of Machpelah."
+    }
+   ],
+   "caution": "The locations of Ur and Moriah are debated; the pins are the best current scholarly proposals."
+  },
+  {
+   "id": "exodus",
+   "title": "The Exodus and the wilderness (traditional route)",
+   "summary": "From Rameses to Mount Sinai, with the stations named in Numbers 33.",
+   "color": "#3f6a8a",
+   "stops": [
+    {
+     "place": "Rameses",
+     "ref": "Exodus 12:37",
+     "note": "Israel departs."
+    },
+    {
+     "place": "Succoth 2",
+     "ref": "Exodus 12:37; Exodus 13:20",
+     "note": "The first camp."
+    },
+    {
+     "place": "Etham",
+     "ref": "Exodus 13:20",
+     "note": "At the edge of the wilderness."
+    },
+    {
+     "place": "Pi-hahiroth",
+     "ref": "Exodus 14:1-9",
+     "note": "Camp by the sea; Pharaoh pursues."
+    },
+    {
+     "place": "Marah",
+     "ref": "Exodus 15:22-25",
+     "note": "Bitter water made sweet."
+    },
+    {
+     "place": "Elim",
+     "ref": "Exodus 15:27",
+     "note": "Twelve springs and seventy palms."
+    },
+    {
+     "place": "Rephidim",
+     "ref": "Exodus 17:1-8",
+     "note": "Water from the rock; Amalek."
+    },
+    {
+     "place": "Sinai",
+     "ref": "Exodus 19:1-2",
+     "note": "The covenant at the mountain."
+    },
+    {
+     "place": "Kadesh-barnea",
+     "ref": "Numbers 13:26; Deuteronomy 1:46",
+     "note": "The spies; years of waiting."
+    }
+   ],
+   "caution": "The route and the site of Mount Sinai are uncertain and much debated; every pin here is a proposal, and the scholarly alternatives differ widely."
+  },
+  {
+   "id": "jesus",
+   "title": "The life and ministry of Jesus",
+   "summary": "From Bethlehem and Nazareth, through Galilee, to Jerusalem.",
+   "color": "#2f7d5b",
+   "stops": [
+    {
+     "place": "Bethlehem 1",
+     "ref": "Luke 2:1-7",
+     "note": "Born in Bethlehem."
+    },
+    {
+     "place": "Nazareth",
+     "ref": "Luke 2:39-40",
+     "note": "Grows up in Nazareth."
+    },
+    {
+     "place": "Jerusalem",
+     "ref": "Luke 2:41-52",
+     "note": "Found in the Temple at twelve."
+    },
+    {
+     "place": "Bethany 2",
+     "ref": "John 1:28",
+     "note": "John baptises across the Jordan."
+    },
+    {
+     "place": "Cana",
+     "ref": "John 2:1-11",
+     "note": "The first sign."
+    },
+    {
+     "place": "Capernaum",
+     "ref": "Mark 1:21-34",
+     "note": "Base for the Galilean ministry."
+    },
+    {
+     "place": "Nain",
+     "ref": "Luke 7:11-17",
+     "note": "Raises the widow’s son."
+    },
+    {
+     "place": "Caesarea Philippi",
+     "ref": "Matthew 16:13-20",
+     "note": "Peter’s confession."
+    },
+    {
+     "place": "Jericho",
+     "ref": "Luke 19:1-10",
+     "note": "Zacchaeus."
+    },
+    {
+     "place": "Bethany 1",
+     "ref": "John 11:1-44",
+     "note": "Lazarus raised."
+    },
+    {
+     "place": "Jerusalem",
+     "ref": "Mark 11:1-11",
+     "note": "Entry into Jerusalem; the Passion."
+    },
+    {
+     "place": "Emmaus",
+     "ref": "Luke 24:13-35",
+     "note": "The road to Emmaus."
+    }
+   ],
+   "caution": "The site of Emmaus is disputed (several candidates exist)."
+  },
+  {
+   "id": "paul1",
+   "title": "Paul’s first journey",
+   "summary": "Cyprus and southern Asia Minor, with Barnabas.",
+   "color": "#6b5a9a",
+   "stops": [
+    {
+     "place": "Antioch 1",
+     "ref": "Acts 13:1-3",
+     "note": "Sent out from Antioch."
+    },
+    {
+     "place": "Seleucia",
+     "ref": "Acts 13:4",
+     "note": "Sail for Cyprus."
+    },
+    {
+     "place": "Salamis",
+     "ref": "Acts 13:5",
+     "note": "Preach in the synagogues."
+    },
+    {
+     "place": "Paphos",
+     "ref": "Acts 13:6-12",
+     "note": "The proconsul Sergius Paulus."
+    },
+    {
+     "place": "Perga",
+     "ref": "Acts 13:13",
+     "note": "John Mark leaves them."
+    },
+    {
+     "place": "Antioch 2",
+     "ref": "Acts 13:14-52",
+     "note": "Paul’s sermon in the synagogue."
+    },
+    {
+     "place": "Iconium",
+     "ref": "Acts 14:1-6",
+     "note": "Preaching and opposition."
+    },
+    {
+     "place": "Lystra",
+     "ref": "Acts 14:8-20",
+     "note": "A lame man healed; Paul stoned."
+    },
+    {
+     "place": "Derbe",
+     "ref": "Acts 14:20-21",
+     "note": "Preaching the good news."
+    }
+   ]
+  },
+  {
+   "id": "paul2",
+   "title": "Paul’s second journey",
+   "summary": "Through Asia Minor to Macedonia and Greece, with Silas.",
+   "color": "#a07a1c",
+   "stops": [
+    {
+     "place": "Antioch 1",
+     "ref": "Acts 15:36-40",
+     "note": "Paul and Silas set out."
+    },
+    {
+     "place": "Tarsus",
+     "ref": "Acts 15:41",
+     "note": "Strengthening the churches."
+    },
+    {
+     "place": "Derbe",
+     "ref": "Acts 16:1",
+     "note": "Timothy joins them."
+    },
+    {
+     "place": "Lystra",
+     "ref": "Acts 16:1-5",
+     "note": "Timothy."
+    },
+    {
+     "place": "Troas",
+     "ref": "Acts 16:8-10",
+     "note": "The vision of the man of Macedonia."
+    },
+    {
+     "place": "Philippi",
+     "ref": "Acts 16:11-40",
+     "note": "Lydia; the jailer."
+    },
+    {
+     "place": "Thessalonica",
+     "ref": "Acts 17:1-9",
+     "note": "Opposition."
+    },
+    {
+     "place": "Berea",
+     "ref": "Acts 17:10-14",
+     "note": "Noble hearers."
+    },
+    {
+     "place": "Athens",
+     "ref": "Acts 17:16-34",
+     "note": "The Areopagus address."
+    },
+    {
+     "place": "Corinth",
+     "ref": "Acts 18:1-18",
+     "note": "A year and a half."
+    },
+    {
+     "place": "Ephesus",
+     "ref": "Acts 18:19-21",
+     "note": "A brief stop."
+    },
+    {
+     "place": "Caesarea",
+     "ref": "Acts 18:22",
+     "note": "Landing and greeting."
+    },
+    {
+     "place": "Antioch 1",
+     "ref": "Acts 18:22",
+     "note": "Return."
+    }
+   ]
+  },
+  {
+   "id": "paul3",
+   "title": "Paul’s third journey",
+   "summary": "A long stay in Ephesus, then Macedonia, Greece and the voyage to Jerusalem.",
+   "color": "#b4631f",
+   "stops": [
+    {
+     "place": "Ephesus",
+     "ref": "Acts 19:1-41",
+     "note": "Three years in Ephesus."
+    },
+    {
+     "place": "Philippi",
+     "ref": "Acts 20:1-6",
+     "note": "Through Macedonia."
+    },
+    {
+     "place": "Corinth",
+     "ref": "Acts 20:2-3",
+     "note": "Three months in Greece."
+    },
+    {
+     "place": "Troas",
+     "ref": "Acts 20:6-12",
+     "note": "Eutychus raised."
+    },
+    {
+     "place": "Miletus",
+     "ref": "Acts 20:17-38",
+     "note": "Farewell to the Ephesian elders."
+    },
+    {
+     "place": "Tyre",
+     "ref": "Acts 21:3-6",
+     "note": "A week with the disciples."
+    },
+    {
+     "place": "Caesarea",
+     "ref": "Acts 21:8-14",
+     "note": "Philip and Agabus."
+    },
+    {
+     "place": "Jerusalem",
+     "ref": "Acts 21:15-17",
+     "note": "Arrival."
+    }
+   ]
+  },
+  {
+   "id": "paulrome",
+   "title": "Paul’s voyage to Rome",
+   "summary": "As a prisoner, through storm and shipwreck, to Rome.",
+   "color": "#5b7a4f",
+   "stops": [
+    {
+     "place": "Caesarea",
+     "ref": "Acts 27:1",
+     "note": "They set sail."
+    },
+    {
+     "place": "Sidon",
+     "ref": "Acts 27:3",
+     "note": "Kindness from a centurion."
+    },
+    {
+     "place": "Myra",
+     "ref": "Acts 27:5-6",
+     "note": "Change of ship."
+    },
+    {
+     "place": "Fair Havens",
+     "ref": "Acts 27:8-12",
+     "note": "Paul warns of danger."
+    },
+    {
+     "place": "Malta",
+     "ref": "Acts 28:1-10",
+     "note": "Shipwreck and healings."
+    },
+    {
+     "place": "Syracuse",
+     "ref": "Acts 28:12",
+     "note": "Three days."
+    },
+    {
+     "place": "Puteoli",
+     "ref": "Acts 28:13-14",
+     "note": "Welcomed by brothers."
+    },
+    {
+     "place": "Rome",
+     "ref": "Acts 28:14-31",
+     "note": "Preaching under guard."
+    }
+   ],
+   "caution": "Paul’s later movements (Spain, a second imprisonment) are not recorded in Acts."
+  }
+ ]
+}

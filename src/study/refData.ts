@@ -69,3 +69,39 @@ export function sectionFor(info: BookInfo | undefined, chapter: number): string 
   }
   return null;
 }
+
+export interface Theme {
+  id: string;
+  title: string;
+  summary: string;
+  stages: { label: string; refs: string; note: string }[];
+  catholic: string;
+  ccc: string[];
+  related: string[];
+}
+export const getThemes = () => getJson<{ themes: Theme[] }>('reference/themes.json', true);
+export interface Variant {
+  id: string;
+  title: string;
+  refs: string;
+  kind: 'NT' | 'OT';
+  summary: string;
+  evidence: string[];
+  catholic?: string;
+}
+export const getVariants = () => getJson<{ variants: Variant[] }>('reference/variants.json', true);
+
+export interface Journey {
+  id: string;
+  title: string;
+  summary: string;
+  color: string;
+  caution?: string;
+  stops: { place: string; ref: string; note: string }[];
+}
+export const getJourneys = () => getJson<{ journeys: Journey[] }>('reference/journeys.json', true);
+export interface World {
+  eras: { id: string; title: string; dates: string; summary: string; refs: string; context: string; places: string[] }[];
+  finds: { name: string; date: string; where: string; note: string; refs: string }[];
+}
+export const getWorld = () => getJson<World>('reference/world.json', true);

@@ -1,3 +1,4 @@
+import { getSettings } from '../lib/store';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../sync/api';
@@ -9,6 +10,13 @@ const decide = async (n: number): Promise<AuthDecision> =>
   confirm(`This device holds ${n} notes, highlights and other items from a different account.\n\nOK = remove them from this device before signing in (recommended on a shared device).\nCancel = merge them into the account you are signing in to.`) ? 'wipe' : 'merge';
 
 export default function AccountPage() {
+  if (getSettings().localOnly)
+    return (
+      <div className="page">
+        <h1>Account &amp; sync</h1>
+        <div className="notice info">Local-only mode is on: this app never contacts a sync server. Your data stays on this device; back it up from Library → Export. Turn local-only mode off there (Privacy) to use an account.</div>
+      </div>
+    );
   const s = useSync();
   const toast = useToast();
   const [mode, setMode] = useState<'in' | 'up'>('in');

@@ -8,6 +8,10 @@ const PACKS: { id: string; label: string; dirs: string[] }[] = [
   { id: 'library', label: 'Fathers & saints library', dirs: ['library'] },
   { id: 'links', label: 'Cross-references, resource links, doctrine, Catechism citations', dirs: ['xrefs', 'resources', 'doctrine'] },
   { id: 'media', label: 'Bible in a Year data', dirs: ['media'] },
+  { id: 'reference', label: 'Book outlines, indexes, synopsis, genealogies, memory sets', dirs: ['reference'] },
+  { id: 'places', label: 'Maps data and topical index', dirs: ['maps', 'topics'] },
+  { id: 'original', label: 'Greek and Hebrew word study', dirs: ['original'] },
+  { id: 'church', label: 'Church documents on Scripture (article numbers and references)', dirs: ['magisterium'] },
 ];
 
 function walk(dir: string, out: string[] = []) {

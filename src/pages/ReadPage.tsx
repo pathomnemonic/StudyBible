@@ -19,6 +19,7 @@ import Modal from '../components/Modal';
 import StudyPanel from '../components/StudyPanel';
 import TextSettings from '../components/TextSettings';
 import CompareModal from '../components/CompareModal';
+import ReadAloud from '../components/ReadAloud';
 import { verseResourceCounts } from '../study/density';
 import { getBooksInfo, sectionFor, type BookInfo } from '../study/refData';
 import { convertRef } from '../lib/versification';
@@ -58,6 +59,7 @@ export default function ReadPage() {
   const [panel, setPanel] = useState(false);
   const [compare, setCompare] = useState(false);
   const [shortcuts, setShortcuts] = useState(false);
+  const [aloud, setAloud] = useState(false);
   const [textSettings, setTextSettings] = useState(false);
   const [editionPicker, setEditionPicker] = useState(false);
   const lastClicked = useRef<number | null>(null);
@@ -308,6 +310,15 @@ export default function ReadPage() {
     await navigator.clipboard?.writeText(`${base}#/read/${edition.id}/${bk.id}/${chNum}?v=${a}${b !== a ? '-' + b : ''}`);
   };
 
+  const markSpeaking = useCallback((n: number | null) => {
+    document.querySelectorAll('.v.speaking').forEach((e) => e.classList.remove('speaking'));
+    if (n != null) {
+      const el = document.querySelector(`.v[data-v="${n}"]`);
+      el?.classList.add('speaking');
+      el?.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    }
+  }, []);
+
   // -------- keyboard shortcuts
   const keyRef = useRef({ prev, next, applyColor, hasSel, panel, clearSel });
   keyRef.current = { prev, next, applyColor, hasSel, panel, clearSel };
@@ -366,6 +377,9 @@ export default function ReadPage() {
           </div>
           <button className="icon-btn" aria-pressed={parallelMode} onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : editions.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? editions.find((e) => e.id !== edition.id)!.id))} aria-label="Toggle parallel translations" title="Parallel translations">
             <Icon name="columns" />
+          </button>
+          <button className="icon-btn" aria-pressed={aloud} onClick={() => setAloud((a) => !a)} aria-label="Read aloud" title="Read this chapter aloud">
+            <Icon name="listen" />
           </button>
           <button className="icon-btn" onClick={() => setTextSettings(true)} aria-label="Text settings" title="Text size, spacing and theme">
             <Icon name="text" />
@@ -479,6 +493,9 @@ export default function ReadPage() {
               <Icon name="copy" />
             </button>
           )}
+          <button className="icon-btn" onClick={() => nav(`/share?ref=${encodeURIComponent(refId(selRefs[0]))}`)} aria-label="Share as image" title="Share this passage as an image">
+            <Icon name="expand" />
+          </button>
           <button className="icon-btn" onClick={copyLink} aria-label="Copy link" title="Copy link to this passage">
             <Icon name="link" />
           </button>
@@ -508,6 +525,17 @@ export default function ReadPage() {
       )}
       {noteFor && <NoteEditor initialTargets={noteFor} originEdition={edition.id} onClose={() => setNoteFor(null)} />}
       {compare && hasSel && <CompareModal refs={selRefs} editions={editions} onClose={() => setCompare(false)} />}
+      {aloud && !parallelMode && flat.length > 0 && (
+        <ReadAloud
+          key={`${edition.id}.${bk.id}.${chNum}`}
+          verses={flat}
+          lang={edition.language}
+          startAt={selNative[0]}
+          onVerse={markSpeaking}
+          onClose={() => setAloud(false)}
+          onChapterEnd={next}
+        />
+      )}
       {shortcuts && (
         <Modal title="Keyboard shortcuts" onClose={() => setShortcuts(false)}>
           <table className="small">

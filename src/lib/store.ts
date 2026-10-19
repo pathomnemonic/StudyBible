@@ -1,6 +1,14 @@
 import { useSyncExternalStore } from 'react';
 
-export type ThemeName = 'light' | 'dark' | 'sepia' | 'system';
+export type ThemeName = 'light' | 'dark' | 'sepia' | 'contrast' | 'contrast-dark' | 'system';
+
+export interface PrayerReminder {
+  id: string;
+  label: string;
+  time: string;
+  message: string;
+  enabled: boolean;
+}
 
 export interface Settings {
   theme: ThemeName;
@@ -20,6 +28,18 @@ export interface Settings {
   last: { edition: string; book: string; chapter: number; verse?: number } | null;
   diocese: string; // liturgical calendar: 'universal' | 'usa' ...
   onboarded: boolean;
+  /** read-aloud speed and voice (browser voice name; empty = default) */
+  ttsRate: number;
+  ttsVoice: string;
+  /** Today page widgets: order and hidden ids */
+  dashboard: { order: string[]; hidden: string[] };
+  /** extra reminders (morning/evening prayer, verse of the day…) */
+  prayerReminders: PrayerReminder[];
+  /** never contact a sync server: hides account prompts */
+  localOnly: boolean;
+  /** remind me to back up every N days (0 = never) and when I last did */
+  backupEveryDays: number;
+  lastBackup: number;
 }
 
 export const DEFAULTS: Settings = {
@@ -39,6 +59,13 @@ export const DEFAULTS: Settings = {
   last: null,
   diocese: 'universal',
   onboarded: false,
+  ttsRate: 1,
+  ttsVoice: '',
+  dashboard: { order: ['readings', 'session', 'biay', 'verse', 'continue', 'plans', 'memorize', 'notes', 'liturgy'], hidden: [] },
+  prayerReminders: [],
+  localOnly: false,
+  backupEveryDays: 0,
+  lastBackup: 0,
 };
 
 const KEY = 'studybible.settings.v1';

@@ -12,6 +12,8 @@ import { db, type Target } from '../db/db';
 import { useToast } from './Toast';
 import InlinePlayer from './InlinePlayer';
 import WordStudy from './WordStudy';
+import FathersCompare from './FathersCompare';
+import XrefMap from './XrefMap';
 import { embedFor } from '../lib/embed';
 import { usePlayer } from '../data/PlayerContext';
 import { loadBiay } from '../data/biay';
@@ -53,6 +55,8 @@ export default function StudyPanel({
   const [author, setAuthor] = useState('');
   const [noteTargets, setNoteTargets] = useState<Target[] | null>(null);
   const [addLink, setAddLink] = useState(false);
+  const [compare, setCompare] = useState(false);
+  const [xmap, setXmap] = useState(true);
   const key = refs.map(refId).join('|');
 
   useEffect(() => {
@@ -161,8 +165,18 @@ export default function StudyPanel({
                   {meta.label} <span className="n">{real.length}</span>
                 </h3>
                 {meta.hint && <div className="muted small" style={{ margin: '-4px 0 8px' }}>{meta.hint}</div>}
+                {sk === 'fathers' && real.length > 1 && (
+                  <button className="btn small" aria-pressed={compare} onClick={() => setCompare(!compare)} style={{ marginBottom: 8 }}>{compare ? 'Show as a list' : 'Compare authors side by side'}</button>
+                )}
+                {sk === 'xref' && real.length > 2 && (
+                  <>
+                    <button className="btn small" aria-pressed={xmap} onClick={() => setXmap(!xmap)} style={{ marginBottom: 8 }}>{xmap ? 'Hide map' : 'Show map'}</button>
+                    {xmap && <XrefMap items={list} center={heading} onOpen={(id) => { const r = parseRefId(id); if (r) onOpenPassage(r); }} />}
+                  </>
+                )}
                 {list.length === 0 && <div className="empty">{emptyMessage(sk, refs[0].book)}</div>}
-                {(sk === 'fathers' || sk === 'saints' ? [...list].sort((a, b) => (a.author ?? '').localeCompare(b.author ?? '')) : list).map((i, n, arr) => (
+                {sk === 'fathers' && compare && <FathersCompare items={list} />}
+                {!(sk === 'fathers' && compare) && (sk === 'fathers' || sk === 'saints' ? [...list].sort((a, b) => (a.author ?? '').localeCompare(b.author ?? '')) : list).map((i, n, arr) => (
                   <div key={i.id}>
                     {(sk === 'fathers' || sk === 'saints') && i.author && i.author !== arr[n - 1]?.author && <h4 className="by-author">{i.author}</h4>}
                     <Item item={i} edition={edition} onOpenPassage={onOpenPassage} onNote={(t) => setNoteTargets([t])} />

@@ -1,0 +1,345 @@
+{
+ "_about": "Notable differences between manuscripts and between the Hebrew, Greek and Latin texts of Scripture. Written for this app as a study aid, in cautious language; it is not a full critical apparatus. Manuscript details come from standard sources and should be checked against a critical edition before being quoted.",
+ "variants": [
+  {
+   "id": "mark-16",
+   "title": "The longer ending of Mark",
+   "refs": "Mark 16:9-20",
+   "kind": "NT",
+   "summary": "Whether Mark’s Gospel originally ended at 16:8 (“for they were afraid”), or continued with the appearances and the commission.",
+   "evidence": [
+    "Missing from the 4th-century Greek manuscripts Sinaiticus and Vaticanus, which are among the oldest.",
+    "Present in most later Greek manuscripts and in the Latin tradition including the Vulgate.",
+    "A “shorter ending” and other endings also exist in some manuscripts.",
+    "Writers such as Eusebius and Jerome noted that many Greek copies lacked it, while Irenaeus (2nd century) quotes from it."
+   ],
+   "catholic": "The Council of Trent received the books “with all their parts, as they have been accustomed to be read in the Catholic Church and as they are contained in the old Latin Vulgate edition” as sacred and canonical. The Church therefore receives Mark 16:9–20 as inspired Scripture whatever its manuscript history."
+  },
+  {
+   "id": "john-adultery",
+   "title": "The woman caught in adultery",
+   "refs": "John 7:53-8:11",
+   "kind": "NT",
+   "summary": "The story of the woman brought to Jesus is absent from the earliest Greek witnesses to John and is placed in different spots in others.",
+   "evidence": [
+    "Not found in the early papyri P66 and P75, or in Sinaiticus and Vaticanus.",
+    "Present in Codex Bezae and many later manuscripts and in the Latin tradition.",
+    "Some manuscripts place it elsewhere, for example after Luke 21:38.",
+    "Many scholars think it is an early authentic tradition about Jesus that entered John’s text later."
+   ],
+   "catholic": "The Council of Trent received the books “with all their parts, as they have been accustomed to be read in the Catholic Church and as they are contained in the old Latin Vulgate edition” as sacred and canonical. The passage is read in the liturgy as Scripture."
+  },
+  {
+   "id": "comma",
+   "title": "The Johannine Comma",
+   "refs": "1 John 5:7-8",
+   "kind": "NT",
+   "summary": "The words “in heaven: the Father, the Word and the Holy Spirit; and these three are one. And there are three that give testimony on earth” are in the Vulgate tradition but in almost no early Greek manuscripts.",
+   "evidence": [
+    "Absent from the early Greek manuscripts and from Greek writers who would have used it in Trinity debates.",
+    "Appears in later Latin copies and in a very few late Greek manuscripts.",
+    "Most modern critical editions and many modern translations omit it or place it in a note."
+   ],
+   "catholic": "In the early 20th century the Church clarified that the question of the passage’s authenticity may be studied freely by scholars. The doctrine of the Trinity does not depend on this verse."
+  },
+  {
+   "id": "lords-prayer",
+   "title": "The doxology of the Our Father",
+   "refs": "Matthew 6:13",
+   "kind": "NT",
+   "summary": "“For thine is the kingdom, and the power, and the glory” is not in the earliest manuscripts of Matthew or in the Vulgate.",
+   "evidence": [
+    "Absent from Sinaiticus, Vaticanus and the Vulgate.",
+    "Appears in later Byzantine manuscripts.",
+    "A similar doxology appears in the Didache (an early Christian teaching) as part of the prayer in worship."
+   ],
+   "catholic": "At Mass the people say the doxology after the priest’s prayer that follows the Our Father; it is not read as part of Matthew’s text in the Catholic lectionary."
+  },
+  {
+   "id": "angel-gethsemane",
+   "title": "The angel and the sweat like blood",
+   "refs": "Luke 22:43-44",
+   "kind": "NT",
+   "summary": "Luke’s account of an angel strengthening Jesus and his sweat becoming like drops of blood is missing from some early manuscripts.",
+   "evidence": [
+    "Absent from P75 and Vaticanus, and a few others.",
+    "Present in most manuscripts and quoted in the 2nd century by Justin Martyr and Irenaeus.",
+    "Scholars debate whether it was added or removed."
+   ],
+   "catholic": "The verses are part of the Catholic text and are read in the liturgy."
+  },
+  {
+   "id": "father-forgive",
+   "title": "“Father, forgive them”",
+   "refs": "Luke 23:34",
+   "kind": "NT",
+   "summary": "Jesus’ prayer on the cross is absent from some early manuscripts though widely attested elsewhere.",
+   "evidence": [
+    "Missing from P75 and Vaticanus.",
+    "Present in many other manuscripts and cited by early writers."
+   ],
+   "catholic": "Part of the Catholic text; read in the Passion narrative."
+  },
+  {
+   "id": "acts-8-37",
+   "title": "Philip and the Ethiopian’s confession",
+   "refs": "Acts 8:37",
+   "kind": "NT",
+   "summary": "“If you believe with all your heart, you may.” And he answered, “I believe that Jesus Christ is the Son of God.” is absent from the oldest Greek manuscripts.",
+   "evidence": [
+    "Not in the early Greek manuscripts such as Sinaiticus, Vaticanus and Alexandrinus.",
+    "Found in a few later Greek manuscripts and in many Latin copies, including the Vulgate.",
+    "Many modern translations omit it or put it in a note."
+   ],
+   "catholic": "The Council of Trent received the books “with all their parts, as they have been accustomed to be read in the Catholic Church and as they are contained in the old Latin Vulgate edition” as sacred and canonical."
+  },
+  {
+   "id": "matt-17-21",
+   "title": "Prayer and fasting",
+   "refs": "Matthew 17:21",
+   "kind": "NT",
+   "summary": "“But this kind does not go out except by prayer and fasting” appears in some manuscripts of Matthew, probably carried over from Mark 9:29.",
+   "evidence": [
+    "Missing from Sinaiticus (original hand) and Vaticanus.",
+    "Present in many later manuscripts and in the Vulgate."
+   ]
+  },
+  {
+   "id": "john-5-4",
+   "title": "The angel at the pool",
+   "refs": "John 5:3-4",
+   "kind": "NT",
+   "summary": "The explanation that an angel stirred the water at Bethesda is missing from the earliest manuscripts of John.",
+   "evidence": [
+    "Not in P66, P75, Sinaiticus or Vaticanus.",
+    "Present in later Greek manuscripts and the Vulgate.",
+    "The phrase “waiting for the moving of the water” (5:3) is sometimes also omitted."
+   ]
+  },
+  {
+   "id": "john-3-13",
+   "title": "“Who is in heaven”",
+   "refs": "John 3:13",
+   "kind": "NT",
+   "summary": "Whether Jesus says the Son of Man “who is in heaven” has ascended.",
+   "evidence": [
+    "The words “who is in heaven” are absent from P66 (original hand), P75, Sinaiticus and Vaticanus.",
+    "Present in many other manuscripts and in the Vulgate."
+   ]
+  },
+  {
+   "id": "john-1-18",
+   "title": "“Only begotten Son” or “only begotten God”",
+   "refs": "John 1:18",
+   "kind": "NT",
+   "summary": "The Greek manuscripts differ on whether the Prologue ends with “the only Son” or “the only God” who is at the Father’s side.",
+   "evidence": [
+    "P66, P75, Sinaiticus and Vaticanus read “only begotten God.”",
+    "Most later manuscripts and the Vulgate read “only begotten Son.”",
+    "Both readings affirm the Son’s divinity: the first states it directly."
+   ]
+  },
+  {
+   "id": "1tim-3-16",
+   "title": "“God was manifested” or “who was manifested”",
+   "refs": "1 Timothy 3:16",
+   "kind": "NT",
+   "summary": "The early hymn reads in the oldest uncial manuscripts “who was manifested in the flesh,” and in many later ones “God was manifested.”",
+   "evidence": [
+    "Earliest witnesses lean towards “who” (in Greek a one-letter difference from “God” in the abbreviation).",
+    "Later manuscripts read “God”; the Vulgate reads “which (quod) was manifested.”"
+   ]
+  },
+  {
+   "id": "eph-1-1",
+   "title": "“In Ephesus”",
+   "refs": "Ephesians 1:1",
+   "kind": "NT",
+   "summary": "Some of the earliest manuscripts lack the words “in Ephesus” in the greeting.",
+   "evidence": [
+    "Missing from P46, and from Sinaiticus and Vaticanus in their original hands.",
+    "Present in most later manuscripts.",
+    "Some think the letter was meant as a circular letter to several churches."
+   ]
+  },
+  {
+   "id": "mark-1-1",
+   "title": "“The Son of God” in Mark 1:1",
+   "refs": "Mark 1:1",
+   "kind": "NT",
+   "summary": "The opening line of Mark may or may not originally have included “Son of God.”",
+   "evidence": [
+    "Missing from Sinaiticus (original hand) and a few other witnesses.",
+    "Present in most manuscripts."
+   ],
+   "catholic": "Either way, Mark 15:39 and the baptism and transfiguration scenes affirm Jesus as Son of God."
+  },
+  {
+   "id": "luke-3-22",
+   "title": "“Today I have begotten you”",
+   "refs": "Luke 3:22",
+   "kind": "NT",
+   "summary": "A “Western” reading of the voice at the baptism quotes Psalm 2:7 instead of “with you I am well pleased.”",
+   "evidence": [
+    "Found in Codex Bezae and some Latin and patristic witnesses.",
+    "Most manuscripts read “with you I am well pleased.”"
+   ]
+  },
+  {
+   "id": "luke-10-1",
+   "title": "Seventy or seventy-two",
+   "refs": "Luke 10:1",
+   "kind": "NT",
+   "summary": "Manuscripts divide on the number of disciples Jesus sent out.",
+   "evidence": [
+    "Some of the earliest manuscripts (P75, Vaticanus) read seventy-two; others read seventy.",
+    "The Vulgate and Douay-Rheims read seventy-two.",
+    "Seventy and seventy-two both occur in Jewish tradition for the number of nations in Genesis 10."
+   ]
+  },
+  {
+   "id": "matt-27-49",
+   "title": "The spear before the death",
+   "refs": "Matthew 27:49",
+   "kind": "NT",
+   "summary": "Some manuscripts add that another took a spear and pierced Jesus’ side before he died, probably from John 19:34.",
+   "evidence": [
+    "Found in Sinaiticus, Vaticanus and a few others.",
+    "Most manuscripts and the Vulgate omit it."
+   ]
+  },
+  {
+   "id": "rom-16-25",
+   "title": "Where the doxology of Romans belongs",
+   "refs": "Romans 16:25-27",
+   "kind": "NT",
+   "summary": "The closing doxology appears at different places in different manuscripts.",
+   "evidence": [
+    "Most place it at the end of chapter 16.",
+    "Some place it after chapter 14, and P46 places it after chapter 15.",
+    "A few omit it entirely.",
+    "This and similar variations are one reason scholars discuss the original ending of Romans."
+   ]
+  },
+  {
+   "id": "1cor-14-34",
+   "title": "Where 1 Corinthians 14:34–35 belongs",
+   "refs": "1 Corinthians 14:34-35",
+   "kind": "NT",
+   "summary": "The instructions that women be silent in the churches appear after verse 40 in some manuscripts.",
+   "evidence": [
+    "Some Western manuscripts (including Codex Bezae) move these verses after 14:40.",
+    "Most manuscripts keep them after 14:33.",
+    "Scholars debate whether they are original, a gloss, or a quotation Paul answers."
+   ]
+  },
+  {
+   "id": "2pet-3-10",
+   "title": "“Will be found”, “burned up” or “laid bare”",
+   "refs": "2 Peter 3:10",
+   "kind": "NT",
+   "summary": "Manuscripts have several readings for what happens to the earth on the day of the Lord.",
+   "evidence": [
+    "Sinaiticus reads “will be found”; many later manuscripts read “will be burned up”; other readings also exist.",
+    "Translations differ as a result."
+   ]
+  },
+  {
+   "id": "rev-13-18",
+   "title": "666 or 616",
+   "refs": "Revelation 13:18",
+   "kind": "NT",
+   "summary": "A few early manuscripts have 616 as the number of the beast.",
+   "evidence": [
+    "Papyrus 115 and Codex Ephraemi read 616.",
+    "Most manuscripts read 666; Irenaeus knew both and defended 666."
+   ]
+  },
+  {
+   "id": "jude-5",
+   "title": "Who saved the people from Egypt?",
+   "refs": "Jude 5",
+   "kind": "NT",
+   "summary": "The manuscripts differ on whether it was “the Lord,” “Jesus,” or “God” who saved the people out of Egypt.",
+   "evidence": [
+    "Several important early manuscripts read “Jesus.”",
+    "Others read “the Lord” or “God.” Modern editions weigh the evidence differently."
+   ]
+  },
+  {
+   "id": "deut-32-8",
+   "title": "The sons of God or the sons of Israel",
+   "refs": "Deuteronomy 32:8",
+   "kind": "OT",
+   "summary": "The Hebrew text (Masoretic) says God fixed the boundaries of the nations according to “the sons of Israel”; the Greek Septuagint and a Dead Sea Scroll read “the sons of God” (angels).",
+   "evidence": [
+    "The Masoretic Text reads “sons of Israel.”",
+    "The Septuagint reads “angels of God” or “sons of God”, and a Qumran manuscript (4QDeut-j) reads “sons of God.”",
+    "The Vulgate follows the Hebrew."
+   ],
+   "catholic": "The Septuagint was the Bible of the early Church; the Vulgate largely follows the Hebrew. The Church uses both traditions."
+  },
+  {
+   "id": "ps-22-16",
+   "title": "“They have pierced my hands and feet”",
+   "refs": "Psalm 22:16",
+   "kind": "OT",
+   "summary": "The Hebrew text as handed down reads “like a lion my hands and feet”; the Septuagint, the Vulgate and a Dead Sea Scroll read “they have pierced.”",
+   "evidence": [
+    "Masoretic Text: “like a lion (are) my hands and feet.”",
+    "Septuagint and Vulgate: “they have dug/pierced my hands and feet.”",
+    "Scholars debate how to read the relevant word in the Dead Sea Scrolls fragments; some other ancient versions agree with the Greek."
+   ],
+   "catholic": "The Douay-Rheims (from the Vulgate) reads “they have dug my hands and feet,” which Christians have long read in light of the crucifixion (Psalm 21 in Vulgate numbering)."
+  },
+  {
+   "id": "ex-1-5",
+   "title": "Seventy or seventy-five who went to Egypt",
+   "refs": "Exodus 1:5",
+   "kind": "OT",
+   "summary": "The Hebrew text counts seventy descendants of Jacob in Egypt; the Septuagint says seventy-five, which is the number in Acts 7:14.",
+   "evidence": [
+    "Masoretic Text: seventy.",
+    "Septuagint: seventy-five (also Acts 7:14).",
+    "A Qumran manuscript of Exodus reads seventy-five."
+   ],
+   "catholic": "Stephen’s speech in Acts follows the Greek Old Testament, which shows how the early Church read Scripture in Greek."
+  },
+  {
+   "id": "gen-5",
+   "title": "The ages in Genesis 5 and 11",
+   "refs": "Genesis 5:1-32",
+   "kind": "OT",
+   "summary": "The Hebrew, Greek and Samaritan texts give different ages for the patriarchs.",
+   "evidence": [
+    "The Hebrew, Septuagint and Samaritan Pentateuch disagree on many ages in Genesis 5 and 11.",
+    "Luke 3:36 includes Cainan, which is in the Greek but not the Hebrew of Genesis 11."
+   ],
+   "catholic": "The Church does not teach a chronology from Genesis; these differences show scribal transmission and the use of numbers in ancient texts."
+  },
+  {
+   "id": "1sam-17-4",
+   "title": "Goliath: six cubits or four",
+   "refs": "1 Samuel 17:4",
+   "kind": "OT",
+   "summary": "The Masoretic text gives Goliath’s height as six cubits and a span; the Septuagint and a Dead Sea Scroll say four cubits and a span.",
+   "evidence": [
+    "Masoretic Text: six cubits and a span.",
+    "Septuagint and 4QSam-a: four cubits and a span."
+   ]
+  },
+  {
+   "id": "isa-7-14",
+   "title": "“Virgin” or “young woman”",
+   "refs": "Isaiah 7:14",
+   "kind": "OT",
+   "summary": "The Hebrew word almah means a young woman; the Greek Septuagint translates it parthenos, “virgin,” which Matthew 1:23 quotes.",
+   "evidence": [
+    "Hebrew: almah (a young woman of marriageable age, who may be a virgin).",
+    "Septuagint: parthenos (virgin).",
+    "Matthew quotes the Greek reading."
+   ],
+   "catholic": "The Church reads the prophecy in its fuller sense as fulfilled in the virginal conception of Jesus (see Matthew 1:22–23), while recognising the Hebrew word and its first context."
+  }
+ ]
+}

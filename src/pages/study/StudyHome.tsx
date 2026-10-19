@@ -53,7 +53,11 @@ export default function StudyHome() {
       <h2 style={{ fontSize: '1.15rem', marginTop: 24 }}>Reference tools</h2>
       <div className="grid">
         {[
+          ['/study/themes', 'Biblical theology explorer', 'Follow a theme through the whole Bible, with the Church’s reading.'],
+          ['/study/textual', 'Textual history', 'Where manuscripts differ, shown across the bundled editions.'],
+          ['/memorize', 'Memorize Scripture', 'Spaced repetition, fill-in-the-blank and audio recall.'],
           ['/study/books', 'Books & outlines', 'An introduction and outline for each of the 73 books.'],
+          ['/study/world', 'The biblical world', 'Journeys on the map, eras and archaeology.'],
           ['/study/maps', 'Maps', 'Places named in Scripture on an interactive map.'],
           ['/study/people', 'Genealogies', 'Family trees from Adam to Jesus.'],
           ['/study/synopsis', 'Gospel synopsis', 'Matthew, Mark, Luke and John side by side.'],

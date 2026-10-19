@@ -1,0 +1,778 @@
+{
+ "_about": "Themes traced through Scripture with the Church’s reading of each. Written for this app as study aids. CCC numbers point to the Catechism sections that treat the theme; they are pointers, not quotations.",
+ "themes": [
+  {
+   "id": "creation",
+   "title": "Creation and new creation",
+   "summary": "From “in the beginning” to “I make all things new,” Scripture frames salvation as God’s creative work, restored and completed in Christ.",
+   "stages": [
+    {
+     "label": "In the beginning",
+     "refs": "Genesis 1:1-2:3",
+     "note": "God creates by his word; creation is good and ordered toward the Sabbath."
+    },
+    {
+     "label": "Humanity in God’s image",
+     "refs": "Genesis 1:26-28; Genesis 2:7-25",
+     "note": "Man and woman are made in God’s image and given care of the world."
+    },
+    {
+     "label": "Wisdom at creation",
+     "refs": "Proverbs 8:22-31; Wisdom 7:22-8:1",
+     "note": "Wisdom is present at creation, a theme the New Testament applies to Christ."
+    },
+    {
+     "label": "Creation praises",
+     "refs": "Psalm 19:1-6; Psalm 104:1-35",
+     "note": "The heavens and the earth declare God’s glory."
+    },
+    {
+     "label": "A new creation promised",
+     "refs": "Isaiah 65:17-25; Isaiah 43:18-19",
+     "note": "God promises new heavens and a new earth."
+    },
+    {
+     "label": "Through the Word",
+     "refs": "John 1:1-5; Colossians 1:15-20",
+     "note": "All things were made through the Word and are reconciled in him."
+    },
+    {
+     "label": "A new creation in Christ",
+     "refs": "2 Corinthians 5:17; Romans 8:19-23",
+     "note": "Believers are a new creation; creation itself groans for redemption."
+    },
+    {
+     "label": "All things new",
+     "refs": "Revelation 21:1-5",
+     "note": "The story ends with a new heaven and a new earth."
+    }
+   ],
+   "catholic": "The Church reads creation as the first act of God’s plan of salvation: everything is made through the Word and for Christ, and the Resurrection begins the new creation. Genesis is read for its religious truth (who made the world and why), not as a scientific account.",
+   "ccc": [
+    "279–324",
+    "1042–1050"
+   ],
+   "related": [
+    "sabbath",
+    "covenant"
+   ]
+  },
+  {
+   "id": "covenant",
+   "title": "Covenant",
+   "summary": "God binds himself to his people by oath and love, from Noah to the new covenant in Christ’s blood.",
+   "stages": [
+    {
+     "label": "Noah",
+     "refs": "Genesis 9:8-17",
+     "note": "God makes an everlasting covenant with all creatures; the rainbow is its sign."
+    },
+    {
+     "label": "Abraham",
+     "refs": "Genesis 15:1-21; Genesis 17:1-14",
+     "note": "Land, descendants and blessing for all nations; circumcision as sign."
+    },
+    {
+     "label": "Sinai",
+     "refs": "Exodus 19:3-8; Exodus 24:3-8",
+     "note": "Israel is called a priestly kingdom; the covenant is sealed with blood."
+    },
+    {
+     "label": "David",
+     "refs": "2 Samuel 7:8-16; Psalm 89:3-4",
+     "note": "An everlasting house and throne for David’s line."
+    },
+    {
+     "label": "Broken and renewed",
+     "refs": "Hosea 2:14-23; Jeremiah 11:1-8",
+     "note": "Israel breaks the covenant; the prophets call it back."
+    },
+    {
+     "label": "A new covenant promised",
+     "refs": "Jeremiah 31:31-34; Ezekiel 36:24-28",
+     "note": "The law will be written on hearts; God will give a new spirit."
+    },
+    {
+     "label": "Sealed in Christ’s blood",
+     "refs": "Luke 22:19-20; Hebrews 8:6-13; Hebrews 9:11-15",
+     "note": "At the Last Supper Jesus gives the cup of the new covenant."
+    },
+    {
+     "label": "Wedding of the Lamb",
+     "refs": "Revelation 19:6-9; Revelation 21:2-3",
+     "note": "The covenant is fulfilled in God dwelling with his people."
+    }
+   ],
+   "catholic": "The Church sees one plan of salvation unfolding in successive covenants, each preparing for the new and eternal covenant in Christ, which the Eucharist makes present.",
+   "ccc": [
+    "56–64",
+    "1340",
+    "1365"
+   ],
+   "related": [
+    "exodus",
+    "marriage"
+   ]
+  },
+  {
+   "id": "exodus",
+   "title": "Exodus and Passover",
+   "summary": "God’s liberation of Israel from slavery becomes the pattern for all later deliverance, culminating in Christ’s Passover.",
+   "stages": [
+    {
+     "label": "Slavery and call",
+     "refs": "Exodus 1:8-14; Exodus 3:1-15",
+     "note": "God hears the cry of his people and reveals his name to Moses."
+    },
+    {
+     "label": "Passover",
+     "refs": "Exodus 12:1-14, 21-28",
+     "note": "The lamb’s blood on the doorposts; a memorial feast."
+    },
+    {
+     "label": "Through the sea",
+     "refs": "Exodus 14:15-31; Exodus 15:1-21",
+     "note": "God saves his people through the water."
+    },
+    {
+     "label": "Manna in the wilderness",
+     "refs": "Exodus 16:1-36; Deuteronomy 8:2-3",
+     "note": "Bread from heaven and daily dependence on God."
+    },
+    {
+     "label": "A second exodus",
+     "refs": "Isaiah 40:1-5; Isaiah 43:14-21; Jeremiah 23:7-8",
+     "note": "The prophets promise a new exodus from exile."
+    },
+    {
+     "label": "Christ’s Passover",
+     "refs": "Luke 22:7-20; John 1:29; 1 Corinthians 5:7-8",
+     "note": "Jesus is the Lamb of God; the Last Supper is a Passover meal."
+    },
+    {
+     "label": "Baptism and exodus",
+     "refs": "1 Corinthians 10:1-6; Romans 6:3-4",
+     "note": "Paul reads the sea and the cloud as figures of baptism."
+    },
+    {
+     "label": "The song of the Lamb",
+     "refs": "Revelation 15:3-4",
+     "note": "The redeemed sing the song of Moses and of the Lamb."
+    }
+   ],
+   "catholic": "The Fathers read the Passover and the crossing of the sea as types of Christ’s death and resurrection and of baptism; the Eucharist is the new Passover.",
+   "ccc": [
+    "1340",
+    "1363",
+    "1217–1222"
+   ],
+   "related": [
+    "covenant",
+    "water"
+   ]
+  },
+  {
+   "id": "temple",
+   "title": "Temple and the presence of God",
+   "summary": "From the tabernacle to Christ’s body to the Church, God chooses to dwell with his people.",
+   "stages": [
+    {
+     "label": "Garden as sanctuary",
+     "refs": "Genesis 2:8-15; Genesis 3:8",
+     "note": "Eden is where God walks with humanity."
+    },
+    {
+     "label": "The tabernacle",
+     "refs": "Exodus 25:8-22; Exodus 40:34-38",
+     "note": "God’s glory fills the tent."
+    },
+    {
+     "label": "Solomon’s Temple",
+     "refs": "1 Kings 8:10-13, 27-30",
+     "note": "The glory fills the Temple; God cannot be contained."
+    },
+    {
+     "label": "Prophets and the Temple",
+     "refs": "Jeremiah 7:1-15; Ezekiel 10:18-19; Ezekiel 43:1-7",
+     "note": "The glory departs and is promised to return."
+    },
+    {
+     "label": "The Word tabernacled",
+     "refs": "John 1:14; John 2:19-21",
+     "note": "The Word “pitched his tent” among us; Jesus’ body is the new Temple."
+    },
+    {
+     "label": "The Church as Temple",
+     "refs": "1 Corinthians 3:16-17; Ephesians 2:19-22; 1 Peter 2:4-5",
+     "note": "Believers are living stones in God’s house."
+    },
+    {
+     "label": "The Temple is the Lord",
+     "refs": "Revelation 21:22",
+     "note": "In the new Jerusalem the Lord God and the Lamb are its temple."
+    }
+   ],
+   "catholic": "The Church sees the Temple fulfilled in Christ’s body and in the Church; the liturgy is a participation in the heavenly worship.",
+   "ccc": [
+    "583–586",
+    "756"
+   ],
+   "related": [
+    "kingdom",
+    "sacrifice"
+   ]
+  },
+  {
+   "id": "kingdom",
+   "title": "Kingdom and Messiah",
+   "summary": "God’s kingship, promised through David, comes near in Jesus the Messiah.",
+   "stages": [
+    {
+     "label": "God is King",
+     "refs": "Exodus 15:18; Psalm 93:1-5",
+     "note": "Israel confesses the Lord as king."
+    },
+    {
+     "label": "Israel asks for a king",
+     "refs": "1 Samuel 8:4-9; 1 Samuel 16:1-13",
+     "note": "The monarchy begins; God’s choice looks at the heart."
+    },
+    {
+     "label": "The Davidic promise",
+     "refs": "2 Samuel 7:12-16; Psalm 2:1-9; Psalm 110:1-4",
+     "note": "An anointed king and son of God whose throne will last."
+    },
+    {
+     "label": "Prophecy of a coming king",
+     "refs": "Isaiah 9:1-7; Isaiah 11:1-9; Micah 5:2-4",
+     "note": "A child, a shoot of Jesse, a ruler from Bethlehem."
+    },
+    {
+     "label": "The Son of Man",
+     "refs": "Daniel 7:13-14",
+     "note": "One like a son of man receives an everlasting kingdom."
+    },
+    {
+     "label": "The kingdom has come near",
+     "refs": "Mark 1:14-15; Luke 4:16-21; Matthew 5:3-10",
+     "note": "Jesus proclaims the kingdom in word and deed."
+    },
+    {
+     "label": "The King crucified and risen",
+     "refs": "John 18:33-37; Matthew 28:18-20",
+     "note": "Jesus’ kingship is revealed on the cross and in the Resurrection."
+    },
+    {
+     "label": "The reign completed",
+     "refs": "Revelation 11:15; Revelation 22:1-5",
+     "note": "The kingdom of the world becomes the kingdom of our Lord."
+    }
+   ],
+   "catholic": "The Church receives Christ as the Messiah, the Son of David, and proclaims that the kingdom is already present in him and in the Church while awaiting its fulfilment.",
+   "ccc": [
+    "436–440",
+    "541–550"
+   ],
+   "related": [
+    "covenant",
+    "shepherd"
+   ]
+  },
+  {
+   "id": "shepherd",
+   "title": "The shepherd and the flock",
+   "summary": "Israel’s kings and God himself are shepherds; Jesus is the Good Shepherd who lays down his life.",
+   "stages": [
+    {
+     "label": "The Lord is my shepherd",
+     "refs": "Psalm 23:1-6; Psalm 80:1",
+     "note": "God leads and protects his flock."
+    },
+    {
+     "label": "Moses and David as shepherds",
+     "refs": "Exodus 3:1; 1 Samuel 16:11-13; 2 Samuel 5:2",
+     "note": "God raises shepherds for his people."
+    },
+    {
+     "label": "Bad shepherds",
+     "refs": "Ezekiel 34:1-16; Jeremiah 23:1-4",
+     "note": "God condemns shepherds who feed themselves and promises to shepherd the flock himself."
+    },
+    {
+     "label": "A shepherd in David’s line",
+     "refs": "Ezekiel 34:23-24; Micah 5:2-4",
+     "note": "A servant like David will shepherd Israel."
+    },
+    {
+     "label": "The Good Shepherd",
+     "refs": "John 10:1-18; Luke 15:3-7",
+     "note": "Jesus knows his sheep and gives his life for them."
+    },
+    {
+     "label": "Feed my sheep",
+     "refs": "John 21:15-17; 1 Peter 5:1-4",
+     "note": "Peter and the elders are charged to tend the flock."
+    },
+    {
+     "label": "The Lamb as shepherd",
+     "refs": "Revelation 7:15-17",
+     "note": "The Lamb will shepherd the redeemed."
+    }
+   ],
+   "catholic": "The Church’s pastors share in Christ’s own shepherding; the Church is the sheepfold whose gate is Christ.",
+   "ccc": [
+    "754",
+    "896"
+   ],
+   "related": [
+    "kingdom"
+   ]
+  },
+  {
+   "id": "sacrifice",
+   "title": "Sacrifice and priesthood",
+   "summary": "From Abel’s offering to the one sacrifice of Christ, the Bible shows how God’s people draw near to him.",
+   "stages": [
+    {
+     "label": "Abel and Noah",
+     "refs": "Genesis 4:3-5; Genesis 8:20-22",
+     "note": "The earliest offerings."
+    },
+    {
+     "label": "Melchizedek",
+     "refs": "Genesis 14:18-20; Psalm 110:4",
+     "note": "A priest-king offers bread and wine."
+    },
+    {
+     "label": "The binding of Isaac",
+     "refs": "Genesis 22:1-19",
+     "note": "The beloved son and the provided lamb."
+    },
+    {
+     "label": "The Levitical system",
+     "refs": "Leviticus 1:1-9; Leviticus 16:1-34",
+     "note": "Offerings, priests and the Day of Atonement."
+    },
+    {
+     "label": "Mercy over sacrifice",
+     "refs": "Hosea 6:6; Psalm 51:16-17; Isaiah 1:11-17",
+     "note": "The prophets insist sacrifice must flow from a faithful heart."
+    },
+    {
+     "label": "The Servant gives himself",
+     "refs": "Isaiah 52:13-53:12",
+     "note": "One who bears the sins of many."
+    },
+    {
+     "label": "The one sacrifice",
+     "refs": "Hebrews 9:11-14; Hebrews 10:10-14",
+     "note": "Christ the high priest offers himself once for all."
+    },
+    {
+     "label": "The sacrifice of praise and the Mass",
+     "refs": "Malachi 1:11; Romans 12:1; Revelation 5:6-14",
+     "note": "A pure offering among all nations; believers offer themselves; the Lamb is worshiped."
+    }
+   ],
+   "catholic": "The Church holds that Christ’s one sacrifice on the cross is made present in the Eucharist, and that the ministerial priesthood serves the priesthood of all the baptised.",
+   "ccc": [
+    "614",
+    "1362–1367",
+    "1544–1545"
+   ],
+   "related": [
+    "temple",
+    "exodus"
+   ]
+  },
+  {
+   "id": "sabbath",
+   "title": "Sabbath and rest",
+   "summary": "God’s rest at creation becomes the pattern of worship and the promise of a final rest.",
+   "stages": [
+    {
+     "label": "God rests",
+     "refs": "Genesis 2:1-3",
+     "note": "The seventh day is blessed and made holy."
+    },
+    {
+     "label": "Sabbath in the law",
+     "refs": "Exodus 20:8-11; Deuteronomy 5:12-15",
+     "note": "Rest remembers creation and liberation."
+    },
+    {
+     "label": "Sabbath year and jubilee",
+     "refs": "Leviticus 25:1-22",
+     "note": "A rhythm of release and restoration."
+    },
+    {
+     "label": "Jesus and the Sabbath",
+     "refs": "Mark 2:23-28; Mark 3:1-6; John 5:1-18",
+     "note": "“The Sabbath was made for man”; the Son of Man is lord of the Sabbath."
+    },
+    {
+     "label": "The first day of the week",
+     "refs": "John 20:1, 19; Acts 20:7; Revelation 1:10",
+     "note": "The Resurrection gives Christians the Lord’s Day."
+    },
+    {
+     "label": "A rest that remains",
+     "refs": "Hebrews 4:1-11",
+     "note": "A Sabbath rest still awaits the people of God."
+    }
+   ],
+   "catholic": "Christians keep the Lord’s Day as the day of the Resurrection, in which creation’s rest is fulfilled and the eternal rest is foretasted.",
+   "ccc": [
+    "345–349",
+    "2168–2176"
+   ],
+   "related": [
+    "creation"
+   ]
+  },
+  {
+   "id": "marriage",
+   "title": "Marriage and the bridegroom",
+   "summary": "The covenant between God and his people is told in the language of marriage.",
+   "stages": [
+    {
+     "label": "Marriage at creation",
+     "refs": "Genesis 2:18-25",
+     "note": "Two become one flesh."
+    },
+    {
+     "label": "Israel as bride",
+     "refs": "Hosea 2:14-20; Jeremiah 2:2; Isaiah 54:5-8",
+     "note": "God courts, forgives and restores his unfaithful bride."
+    },
+    {
+     "label": "The love song",
+     "refs": "Song of Songs 2:8-17; Song of Songs 8:6-7",
+     "note": "Read as an image of divine love."
+    },
+    {
+     "label": "The bridegroom has come",
+     "refs": "Mark 2:18-20; John 3:28-30; Matthew 25:1-13",
+     "note": "Jesus is the bridegroom."
+    },
+    {
+     "label": "Marriage in Christ",
+     "refs": "Ephesians 5:21-33",
+     "note": "Christian marriage reflects Christ’s love for the Church."
+    },
+    {
+     "label": "The wedding supper",
+     "refs": "Revelation 19:7-9; Revelation 21:2",
+     "note": "The marriage of the Lamb and the new Jerusalem."
+    }
+   ],
+   "catholic": "The Church honours marriage as a sacrament that signifies Christ’s union with the Church, and reads the Song of Songs as an image of God’s love for his people.",
+   "ccc": [
+    "796",
+    "1602–1617"
+   ],
+   "related": [
+    "covenant"
+   ]
+  },
+  {
+   "id": "water",
+   "title": "Water and baptism",
+   "summary": "Water brings judgment and new life, from the flood to the font.",
+   "stages": [
+    {
+     "label": "The Spirit over the waters",
+     "refs": "Genesis 1:1-2",
+     "note": "The waters of creation."
+    },
+    {
+     "label": "The flood",
+     "refs": "Genesis 6:17-8:22; 1 Peter 3:20-21",
+     "note": "Judgment and a new beginning; Peter reads it as a figure of baptism."
+    },
+    {
+     "label": "The Red Sea and the Jordan",
+     "refs": "Exodus 14:21-31; Joshua 3:14-17",
+     "note": "God’s people pass through the water."
+    },
+    {
+     "label": "Washing and cleansing",
+     "refs": "Psalm 51:2, 7; Ezekiel 36:25-27",
+     "note": "Water as sign of cleansing and a new spirit."
+    },
+    {
+     "label": "Jesus baptised",
+     "refs": "Mark 1:9-11",
+     "note": "The Spirit descends and the Father speaks."
+    },
+    {
+     "label": "Born of water and the Spirit",
+     "refs": "John 3:1-8; Titus 3:5; Romans 6:3-4",
+     "note": "New birth in baptism."
+    },
+    {
+     "label": "The river of life",
+     "refs": "Ezekiel 47:1-12; Revelation 22:1-2",
+     "note": "Water flows from the Temple and the throne."
+    }
+   ],
+   "catholic": "The Church teaches that the waters of creation, the flood and the Red Sea prefigure baptism, in which the Spirit gives new birth.",
+   "ccc": [
+    "1217–1222",
+    "1226–1228"
+   ],
+   "related": [
+    "exodus",
+    "creation"
+   ]
+  },
+  {
+   "id": "wisdom",
+   "title": "Wisdom and the Word",
+   "summary": "Wisdom personified in the Old Testament becomes the key to the New Testament’s description of Christ.",
+   "stages": [
+    {
+     "label": "The fear of the Lord",
+     "refs": "Proverbs 1:7; Proverbs 9:10",
+     "note": "The beginning of wisdom."
+    },
+    {
+     "label": "Wisdom speaks",
+     "refs": "Proverbs 8:1-36; Sirach 24:1-22",
+     "note": "Wisdom calls and dwells among God’s people."
+    },
+    {
+     "label": "Wisdom and the Law",
+     "refs": "Sirach 24:23; Baruch 3:36-4:1",
+     "note": "Wisdom is identified with the book of the Law."
+    },
+    {
+     "label": "Wisdom, a breath of God’s power",
+     "refs": "Wisdom 7:22-8:1",
+     "note": "A reflection of eternal light."
+    },
+    {
+     "label": "The Word became flesh",
+     "refs": "John 1:1-18",
+     "note": "Wisdom and Word meet in the Incarnation."
+    },
+    {
+     "label": "Christ the wisdom of God",
+     "refs": "1 Corinthians 1:22-25; Colossians 2:2-3",
+     "note": "In Christ are hidden all the treasures of wisdom."
+    }
+   ],
+   "catholic": "The Church reads the wisdom texts as pointing to the eternal Word, and honours the Wisdom books as inspired Scripture.",
+   "ccc": [
+    "291"
+   ],
+   "related": [
+    "creation"
+   ]
+  },
+  {
+   "id": "exile",
+   "title": "Exile and return",
+   "summary": "Loss, judgment and homecoming give Israel’s prophets their message of hope.",
+   "stages": [
+    {
+     "label": "Expelled from Eden",
+     "refs": "Genesis 3:22-24",
+     "note": "The first exile."
+    },
+    {
+     "label": "Warnings",
+     "refs": "Deuteronomy 28:36-37, 64-68; Jeremiah 25:8-11",
+     "note": "Covenant curses and the threat of exile."
+    },
+    {
+     "label": "The fall of Jerusalem",
+     "refs": "2 Kings 25:1-21; Lamentations 1:1-5",
+     "note": "The Temple is destroyed and the people deported."
+    },
+    {
+     "label": "Songs in a strange land",
+     "refs": "Psalm 137:1-6; Ezekiel 37:1-14",
+     "note": "Grief and the vision of dry bones coming to life."
+    },
+    {
+     "label": "Return",
+     "refs": "Ezra 1:1-4; Isaiah 40:1-11; Nehemiah 8:1-12",
+     "note": "Cyrus’ decree and the rebuilding."
+    },
+    {
+     "label": "Exile in the Gospels",
+     "refs": "Matthew 1:11-12; Luke 24:21",
+     "note": "The genealogy marks the exile; many still awaited redemption."
+    },
+    {
+     "label": "Strangers and pilgrims",
+     "refs": "1 Peter 1:1; Hebrews 11:13-16",
+     "note": "Christians as exiles on the way to the heavenly homeland."
+    }
+   ],
+   "catholic": "The Church reads the return from exile as a figure of redemption in Christ and of the pilgrim Church on earth.",
+   "ccc": [],
+   "related": [
+    "exodus",
+    "temple"
+   ]
+  },
+  {
+   "id": "mercy",
+   "title": "Mercy and forgiveness",
+   "summary": "God’s self-revelation as “merciful and gracious” runs through Scripture, and Jesus embodies it.",
+   "stages": [
+    {
+     "label": "The name of the Lord",
+     "refs": "Exodus 34:6-7",
+     "note": "“Merciful and gracious, slow to anger, abounding in steadfast love.”"
+    },
+    {
+     "label": "David’s repentance",
+     "refs": "2 Samuel 12:1-14; Psalm 51:1-12",
+     "note": "A king confesses and is forgiven."
+    },
+    {
+     "label": "Mercy to Nineveh",
+     "refs": "Jonah 3:1-4:11",
+     "note": "God’s mercy extends to the nations."
+    },
+    {
+     "label": "The heart of God",
+     "refs": "Hosea 11:1-9; Isaiah 1:18; Micah 7:18-20",
+     "note": "God’s compassion overcomes his anger."
+    },
+    {
+     "label": "The Father’s embrace",
+     "refs": "Luke 15:11-32; Luke 19:1-10",
+     "note": "The prodigal son and Zacchaeus."
+    },
+    {
+     "label": "Forgiveness given to the Church",
+     "refs": "John 20:19-23; Matthew 18:21-35",
+     "note": "The risen Lord entrusts forgiveness to the apostles; forgive as you are forgiven."
+    },
+    {
+     "label": "Mercy triumphs",
+     "refs": "James 2:13; Ephesians 2:4-7",
+     "note": "Rich in mercy."
+    }
+   ],
+   "catholic": "The Church proclaims God’s mercy as the heart of the gospel and exercises Christ’s forgiveness in the sacrament of Penance.",
+   "ccc": [
+    "210–211",
+    "1441–1449"
+   ],
+   "related": [
+    "covenant"
+   ]
+  },
+  {
+   "id": "spirit",
+   "title": "The Holy Spirit",
+   "summary": "From the Spirit hovering over the waters to Pentecost, the Spirit gives life, speaks through the prophets and is poured out on the Church.",
+   "stages": [
+    {
+     "label": "Creation",
+     "refs": "Genesis 1:2; Psalm 104:29-30",
+     "note": "The breath of God gives life."
+    },
+    {
+     "label": "Judges, kings and prophets",
+     "refs": "Judges 6:34; 1 Samuel 16:13; Isaiah 61:1-3",
+     "note": "The Spirit empowers chosen leaders."
+    },
+    {
+     "label": "Promise of a new Spirit",
+     "refs": "Ezekiel 36:26-27; Joel 2:28-29",
+     "note": "God will put his Spirit within his people."
+    },
+    {
+     "label": "The anointed servant",
+     "refs": "Isaiah 11:1-2; Luke 3:21-22; Luke 4:16-21",
+     "note": "The Spirit rests on Jesus."
+    },
+    {
+     "label": "The Counselor",
+     "refs": "John 14:15-17, 25-26; John 16:7-15",
+     "note": "Jesus promises the Spirit of truth."
+    },
+    {
+     "label": "Pentecost",
+     "refs": "Acts 2:1-21",
+     "note": "The Spirit is poured out on the Church."
+    },
+    {
+     "label": "Life in the Spirit",
+     "refs": "Romans 8:1-17; Galatians 5:16-25",
+     "note": "Children of God led by the Spirit; the fruits of the Spirit."
+    }
+   ],
+   "catholic": "The Church confesses the Holy Spirit as Lord and giver of life, who spoke through the prophets and is at work in the Church’s sacraments and Scripture.",
+   "ccc": [
+    "702–716",
+    "691–693"
+   ],
+   "related": [
+    "covenant"
+   ]
+  },
+  {
+   "id": "bread",
+   "title": "Manna and the bread of life",
+   "summary": "God’s feeding of his people in the wilderness is the Old Testament background for the Eucharist.",
+   "stages": [
+    {
+     "label": "The manna",
+     "refs": "Exodus 16:4, 14-31",
+     "note": "Bread from heaven each day."
+    },
+    {
+     "label": "Bread of the Presence",
+     "refs": "Exodus 25:30; Leviticus 24:5-9",
+     "note": "Twelve loaves set before God."
+    },
+    {
+     "label": "Elijah fed",
+     "refs": "1 Kings 19:1-8",
+     "note": "Bread for the journey."
+    },
+    {
+     "label": "Wisdom’s banquet",
+     "refs": "Proverbs 9:1-6; Isaiah 55:1-3",
+     "note": "Come, eat my bread."
+    },
+    {
+     "label": "Multiplication of the loaves",
+     "refs": "Mark 6:30-44; Mark 8:1-10",
+     "note": "Jesus feeds the crowds."
+    },
+    {
+     "label": "The bread of life",
+     "refs": "John 6:22-71",
+     "note": "“My flesh is true food”; the disciples’ hard saying."
+    },
+    {
+     "label": "The Last Supper",
+     "refs": "Luke 22:14-20; 1 Corinthians 11:23-26",
+     "note": "“This is my body”; “do this in memory of me.”"
+    },
+    {
+     "label": "Emmaus",
+     "refs": "Luke 24:13-35",
+     "note": "He was known to them in the breaking of the bread."
+    }
+   ],
+   "catholic": "The Church teaches that Christ is truly, really and substantially present in the Eucharist, and reads the manna as a figure of it.",
+   "ccc": [
+    "1333–1336",
+    "1373–1381"
+   ],
+   "related": [
+    "exodus",
+    "sacrifice"
+   ]
+  }
+ ]
+}
