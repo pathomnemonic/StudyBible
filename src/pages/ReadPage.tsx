@@ -530,6 +530,7 @@ export default function ReadPage() {
           key={`${edition.id}.${bk.id}.${chNum}`}
           verses={flat}
           lang={edition.language}
+          biayFor={{ book: bk.id, chapters: anchorChapters }}
           startAt={selNative[0]}
           onVerse={markSpeaking}
           onClose={() => setAloud(false)}

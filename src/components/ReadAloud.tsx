@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Icon from './Icon';
+import { Link } from 'react-router-dom';
 import { useSettings } from '../lib/store';
+import { useBiay } from '../data/biay';
+import { usePlayer } from '../data/PlayerContext';
+import { parseRefId } from '../lib/refs';
+import { rangesOverlap } from '../db/ops';
 
 interface V {
   n: number;
@@ -12,7 +17,7 @@ interface V {
  * cloud voices, which the browser documents). Highlights the verse being read, skips back and forth by verse, and can
  * continue into the next chapter. Latin has no standard browser voice, so choose any voice you find intelligible.
  */
-export default function ReadAloud({ verses, lang = 'en', startAt, onVerse, onClose, onChapterEnd }: { verses: V[]; lang?: string; startAt?: number; onVerse: (n: number | null) => void; onClose: () => void; onChapterEnd?: () => void }) {
+export default function ReadAloud({ verses, lang = 'en', startAt, onVerse, onClose, onChapterEnd, biayFor }: { biayFor?: { book: string; chapters: number[] }; verses: V[]; lang?: string; startAt?: number; onVerse: (n: number | null) => void; onClose: () => void; onChapterEnd?: () => void }) {
   const [s, set] = useSettings();
   const [i, setI] = useState(() => Math.max(0, verses.findIndex((v) => v.n === startAt)));
   const [playing, setPlaying] = useState(false);
@@ -20,6 +25,12 @@ export default function ReadAloud({ verses, lang = 'en', startAt, onVerse, onClo
   const iRef = useRef(i);
   const playRef = useRef(false);
   iRef.current = i;
+  const { biay } = useBiay();
+  const player = usePlayer();
+  const episodes = (biay && biayFor
+    ? [...biay.dayEpisode.values()].filter((e) => e.audio && e.passages.some((p) => { const r = parseRefId(p); return r && biayFor.chapters.some((c) => rangesOverlap(r, { book: biayFor.book, c1: c, c2: c })); }))
+    : []
+  ).sort((a, b) => (a.day ?? 0) - (b.day ?? 0)).slice(0, 3);
   const supported = typeof speechSynthesis !== 'undefined';
 
   useEffect(() => {
@@ -125,6 +136,17 @@ export default function ReadAloud({ verses, lang = 'en', startAt, onVerse, onClo
       <div className="readaloud" role="region" aria-label="Read aloud">
         <span className="small">This browser has no built-in speech. Try Chrome, Edge, Safari or Firefox, or your device’s screen reader.</span>
         <button className="btn small" onClick={onClose}>Close</button>
+      {episodes.length > 0 && (
+        <span className="small" style={{ width: '100%' }}>
+          Prefer a human voice? Fr. Mike Schmitz reads and reflects on this chapter in <em>The Bible in a Year</em>:{' '}
+          {episodes.map((e) => (
+            <span key={e.id} style={{ marginRight: 10 }}>
+              <button className="linklike" onClick={() => { speechSynthesis?.cancel(); void player.play(e); }}>▶ Day {e.day}</button>{' '}
+              <Link to={`/listen/episode/${e.id}`}>details</Link>
+            </span>
+          ))}
+        </span>
+      )}
       </div>
     );
   const pref = lang === 'la' ? '' : lang.slice(0, 2);
@@ -142,6 +164,18 @@ export default function ReadAloud({ verses, lang = 'en', startAt, onVerse, onClo
         <label className="small">Voice <select value={s.ttsVoice} onChange={(e) => set({ ttsVoice: e.target.value })} aria-label="Voice" style={{ maxWidth: 180 }}><option value="">Default</option>{list.map((v) => <option key={v.name} value={v.name}>{v.name}</option>)}</select></label>
       )}
       <button className="icon-btn" onClick={onClose} aria-label="Close read aloud"><Icon name="close" /></button>
+
+      {episodes.length > 0 && (
+        <span className="small" style={{ width: '100%' }}>
+          Prefer a human voice? Fr. Mike Schmitz reads and reflects on this chapter in <em>The Bible in a Year</em>:{' '}
+          {episodes.map((e) => (
+            <span key={e.id} style={{ marginRight: 10 }}>
+              <button className="linklike" onClick={() => { speechSynthesis?.cancel(); void player.play(e); }}>▶ Day {e.day}</button>{' '}
+              <Link to={`/listen/episode/${e.id}`}>details</Link>
+            </span>
+          ))}
+        </span>
+      )}
       {lang === 'la' && <span className="muted small" style={{ width: '100%' }}>No browser has a Latin voice; pick one that suits Ecclesiastical pronunciation, or use the English text.</span>}
     </div>
   );
