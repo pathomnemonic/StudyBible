@@ -57,7 +57,7 @@ function ThemeApplier() {
       if (t === 'system') {
         const dark = matchMedia('(prefers-color-scheme: dark)').matches;
         const more = matchMedia('(prefers-contrast: more)').matches;
-        t = more ? (dark ? 'contrast-dark' : 'contrast') : dark ? 'dark' : 'light';
+        t = more ? (dark ? 'contrast-dark' : 'contrast') : dark ? 'twilight' : 'dawn';
       }
       root.dataset.theme = t;
       root.dataset.margin = s.margin;

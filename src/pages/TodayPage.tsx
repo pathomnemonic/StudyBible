@@ -18,6 +18,11 @@ import RefLink from '../components/RefLink';
 import Icon from '../components/Icon';
 import { getBook } from '../lib/canon';
 
+const greeting = () => {
+  const h = new Date().getHours();
+  return h < 5 ? 'Peace be with you' : h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
+};
+
 const localIso = () => {
   const n = new Date();
   return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
@@ -199,13 +204,23 @@ export default function TodayPage() {
 
   return (
     <div className="page">
-      <div className="row between">
-        <h1 style={{ margin: 0 }}>{new Date(today + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</h1>
-        <button className="btn small" aria-pressed={customize} onClick={() => setCustomize(!customize)}>{customize ? 'Done' : 'Customize'}</button>
-      </div>
-      <p className="lede">
-        {day.dayName} · {day.seasonName} <span className="chip">{COLOR_NAME[day.color]}</span>
-      </p>
+      <header className="hero">
+        <div className="eyebrow">{new Date(today + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</div>
+        <h1>{greeting()}</h1>
+        <div className="season">{day.dayName} · {day.seasonName} <span className="chip">{COLOR_NAME[day.color]}</span></div>
+        {!hidden.has('verse') && verse && (
+          <>
+            <blockquote>{verse.text}</blockquote>
+            <div className="cite">{verse.label.toUpperCase()} · {edition.shortName}</div>
+          </>
+        )}
+        <div className="actions">
+          <Link className="btn primary" to="/session">Begin a quiet moment</Link>
+          {last ? <Link className="btn" to={`/read/${last.edition}/${last.book}/${last.chapter}`}>Continue reading</Link> : <Link className="btn" to="/read">Start reading</Link>}
+          {verse && <Link className="btn" to={`/study/passage/${refId(verse.ref)}`}>Explore this verse</Link>}
+          <button className="btn ghost" aria-pressed={customize} onClick={() => setCustomize(!customize)}>{customize ? 'Done' : 'Customize'}</button>
+        </div>
+      </header>
       {s.backupEveryDays > 0 && (!s.lastBackup || Date.now() - s.lastBackup > s.backupEveryDays * 86400000) && (
         <div className="notice info" style={{ marginBottom: 12 }}>
           It has been a while since your last backup. <Link to="/library">Export your notes and marks</Link> to keep them safe.
@@ -229,7 +244,7 @@ export default function TodayPage() {
         </div>
       )}
       <div className="grid">
-        {order.filter((id) => !hidden.has(id)).map((id) => (
+        {order.filter((id) => !hidden.has(id) && id !== 'verse' && id !== 'continue').map((id) => (
           <section className="card" key={id}>
             <h2 className="card-title">{widgets[id].title}</h2>
             {widgets[id].body}

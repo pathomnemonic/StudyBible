@@ -1,15 +1,19 @@
 import { useSyncExternalStore } from 'react';
 
-export type ThemeName = 'dark' | 'midnight' | 'amoled' | 'forest' | 'mocha' | 'nord' | 'light' | 'paper' | 'rose' | 'sepia' | 'solarized' | 'contrast' | 'contrast-dark' | 'system';
+export type ThemeName = 'twilight' | 'ocean' | 'dawn' | 'mist' | 'dark' | 'midnight' | 'amoled' | 'forest' | 'mocha' | 'nord' | 'light' | 'paper' | 'rose' | 'sepia' | 'solarized' | 'contrast' | 'contrast-dark' | 'system';
 
 /** Themes offered in Settings: [id, label, background, text, accent] (colours are preview swatches only). */
 export const THEMES: [ThemeName, string, string, string, string][] = [
-  ['dark', 'Dark (default)', '#121110', '#ecebe6', '#e28d95'],
+  ['twilight', 'Twilight (default)', '#0a0c1c', '#ecebf8', '#b7a8ff'],
+  ['ocean', 'Ocean', '#06131b', '#e4f1f5', '#7fd6d0'],
+  ['dark', 'Ember', '#121110', '#ecebe6', '#e28d95'],
   ['midnight', 'Midnight', '#0c111b', '#e6ebf5', '#8ab4f8'],
   ['amoled', 'Black (OLED)', '#000000', '#ecebe6', '#e28d95'],
   ['forest', 'Forest', '#0f1612', '#e5ece6', '#8fd1a3'],
   ['mocha', 'Mocha', '#1a1411', '#f0e6dc', '#e0b07a'],
   ['nord', 'Nord', '#242933', '#eceff4', '#88c0d0'],
+  ['dawn', 'Dawn', '#fbf3ec', '#33283a', '#7a5aa8'],
+  ['mist', 'Mist', '#eef3f2', '#1f302f', '#2f7a73'],
   ['light', 'Light', '#fbf8f3', '#2a2622', '#8a2f39'],
   ['paper', 'Paper', '#f4f5f7', '#1c2330', '#2c5aa0'],
   ['rose', 'Rose', '#faf1f0', '#3a2224', '#9b3350'],
@@ -61,7 +65,7 @@ export interface Settings {
 }
 
 export const DEFAULTS: Settings = {
-  theme: 'dark',
+  theme: 'twilight',
   fontSize: 19,
   lineHeight: 1.65,
   margin: 'normal',

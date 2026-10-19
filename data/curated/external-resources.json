@@ -15713,6 +15713,1659 @@
    "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
    "reviewedOn": "2026-10-19",
    "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Raphael",
+   "url": "https://www.newadvent.org/cathen/12640b.htm",
+   "refs": [
+    "Tobit 12:12-15"
+   ],
+   "tags": [
+    "tobit",
+    "raphael",
+    "angels"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Book of Tobias",
+   "url": "https://www.ewtn.com/catholicism/library/book-of-tobias-12464",
+   "refs": [
+    "Tobit 1:1-14:15"
+   ],
+   "tags": [
+    "tobit",
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "Celebrating the Archangels: 7 things to know and share",
+   "url": "https://jimmyakin.com/2014/09/celebrating-the-archangels-7-things-to-know-and-share.html",
+   "refs": [
+    "Tobit 12:15"
+   ],
+   "tags": [
+    "raphael",
+    "angels"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-productions",
+   "type": "article",
+   "title": "Almsgiving and Atonement for Sin in the Bible",
+   "url": "https://catholicproductions.com/blogs/blog/almsgiving-and-atonement-for-sin",
+   "refs": [
+    "Tobit 12:8-9",
+    "Tobit 4:7-11"
+   ],
+   "tags": [
+    "almsgiving",
+    "atonement"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Intercession of the Saints-Revealed",
+   "url": "https://www.catholic.com/magazine/online-edition/intercession-of-the-saints-revealed",
+   "refs": [
+    "2 Maccabees 15:12-16"
+   ],
+   "tags": [
+    "intercession",
+    "saints"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Do the Saints Pray for Us?",
+   "url": "https://www.catholic.com/audio/ddp/do-the-saints-pray-for-us",
+   "refs": [
+    "2 Maccabees 15:12-16"
+   ],
+   "tags": [
+    "intercession",
+    "saints"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "St. Me, Pray For Me?",
+   "url": "https://jimmyakin.com/2006/11/st_me_pray_for_.html",
+   "refs": [
+    "2 Maccabees 15:12-16"
+   ],
+   "tags": [
+    "intercession",
+    "saints"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "3 Catholic Doctrines That Appear in the Deuterocanonical Books",
+   "url": "https://stpaulcenter.com/posts/3-catholic-doctrines-that-appear-in-the-deuterocanonical-books",
+   "refs": [
+    "2 Maccabees 12:38-46",
+    "2 Maccabees 15:12-16"
+   ],
+   "tags": [
+    "purgatory",
+    "intercession",
+    "canon"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "2 Maccabees 7 (NABRE)",
+   "url": "https://bible.usccb.org/bible/2mc/7",
+   "refs": [
+    "2 Maccabees 7:1-42"
+   ],
+   "tags": [
+    "martyrs",
+    "resurrection"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "article",
+   "title": "Maccabees and Martyrdom",
+   "url": "https://www.archbalt.org/maccabees-and-martyrdom/",
+   "refs": [
+    "2 Maccabees 7:1-42"
+   ],
+   "tags": [
+    "martyrs",
+    "resurrection"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "article",
+   "title": "The Holy Mother and Sons - Great Examples of Heroic Courage",
+   "url": "https://ncregister.com/blog/the-holy-mother-and-sons-great-examples-of-heroic-courage",
+   "refs": [
+    "2 Maccabees 7:1-42"
+   ],
+   "tags": [
+    "martyrs"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "Judith - Two strong women of the Old Testament: First, Judith",
+   "url": "https://www.catholicculture.org/commentary/two-strong-women-old-testament-first-judith/",
+   "refs": [
+    "Judith 8:1-16:25"
+   ],
+   "tags": [
+    "judith"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Book of Judith",
+   "url": "https://www.newadvent.org/cathen/08554a.htm",
+   "refs": [
+    "Judith 1:1-16:25"
+   ],
+   "tags": [
+    "judith"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Book of Judith",
+   "url": "https://www.ewtn.com/catholicism/library/book-of-judith-12361",
+   "refs": [
+    "Judith 1:1-16:25"
+   ],
+   "tags": [
+    "judith"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Feast of the Dedication",
+   "url": "https://www.newadvent.org/cathen/04673b.htm",
+   "refs": [
+    "1 Maccabees 4:36-61",
+    "1 Maccabees 4:56"
+   ],
+   "tags": [
+    "hanukkah",
+    "dedication"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Mathathias",
+   "url": "https://www.newadvent.org/cathen/10046b.htm",
+   "refs": [
+    "1 Maccabees 2:1-70"
+   ],
+   "tags": [
+    "mattathias"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Judas Machabeus",
+   "url": "https://www.newadvent.org/cathen/08541a.htm",
+   "refs": [
+    "1 Maccabees 3:1-9:22"
+   ],
+   "tags": [
+    "judas-maccabeus"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "1 Maccabees: A shift in understanding salvation history",
+   "url": "https://www.catholicculture.org/commentary/1-maccabees-shift-in-understanding-salvation-history/",
+   "refs": [
+    "1 Maccabees 1:1-16:24"
+   ],
+   "tags": [
+    "maccabees"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The First Book of Machabees",
+   "url": "https://www.ewtn.com/catholicism/library/first-book-of-machabees-12223",
+   "refs": [
+    "1 Maccabees 1:1-16:24"
+   ],
+   "tags": [
+    "maccabees"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "Wisdom 2 (NABRE)",
+   "url": "https://bible.usccb.org/bible/wisdom/2",
+   "refs": [
+    "Wisdom 2:1-24"
+   ],
+   "tags": [
+    "righteous-one",
+    "passion"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "Wisdom 7 (NABRE)",
+   "url": "https://bible.usccb.org/bible/wisdom/7",
+   "refs": [
+    "Wisdom 7:1-30"
+   ],
+   "tags": [
+    "sophia",
+    "wisdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Book of Wisdom",
+   "url": "https://www.newadvent.org/cathen/15666a.htm",
+   "refs": [
+    "Wisdom 1:1-19:22"
+   ],
+   "tags": [
+    "wisdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Book of Wisdom",
+   "url": "https://www.ewtn.com/catholicism/library/book-of-wisdom-12471",
+   "refs": [
+    "Wisdom 1:1-19:22"
+   ],
+   "tags": [
+    "wisdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Ecclesiasticus (Sirach)",
+   "url": "https://www.newadvent.org/cathen/05263a.htm",
+   "refs": [
+    "Sirach 1:1-51:30"
+   ],
+   "tags": [
+    "sirach"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "Golden threads of wisdom in the book of Sirach",
+   "url": "https://www.catholicculture.org/commentary/golden-threads-wisdom-in-book-sirach",
+   "refs": [
+    "Sirach 24:1-22"
+   ],
+   "tags": [
+    "wisdom",
+    "sirach"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "page",
+   "title": "Canticle of the Three Children from the Book of Daniel",
+   "url": "https://www.catholicculture.org/culture/liturgicalyear/prayers/view.cfm?id=1391",
+   "refs": [
+    "Daniel 3:57-88"
+   ],
+   "tags": [
+    "benedicite",
+    "canticle"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Defending The Deuterocanonicals",
+   "url": "https://www.ewtn.com/catholicism/library/defending-the-deuterocanonicals-996",
+   "refs": [
+    "Tobit 1:1",
+    "2 Maccabees 12:38-46"
+   ],
+   "tags": [
+    "canon",
+    "deuterocanon"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Why Are Protestant Bibles Smaller?",
+   "url": "https://stpaulcenter.com/posts/why-are-protestant-bibles-smaller",
+   "refs": [
+    "Tobit 12:9",
+    "2 Maccabees 12:38-46"
+   ],
+   "tags": [
+    "canon",
+    "deuterocanon"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Woman, the Seed, the Serpent",
+   "url": "https://catholic.com/magazine/print-edition/the-woman-the-seed-the-serpent",
+   "refs": [
+    "Genesis 3:15"
+   ],
+   "tags": [
+    "protoevangelium",
+    "messiah",
+    "mary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "God, Abraham, and Human Sacrifice",
+   "url": "https://www.catholic.com/magazine/blog/god-abraham-and-human-sacrifice",
+   "refs": [
+    "Genesis 22:1-19"
+   ],
+   "tags": [
+    "abraham",
+    "isaac",
+    "sacrifice"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "When Was Abraham Justified?",
+   "url": "https://www.catholic.com/magazine/blog/when-was-abraham-justified",
+   "refs": [
+    "Genesis 15:6",
+    "Genesis 22:1-19"
+   ],
+   "tags": [
+    "abraham",
+    "justification",
+    "faith"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Holy Bible: Genesis 22",
+   "url": "https://www.newadvent.org/bible/gen022.htm",
+   "refs": [
+    "Genesis 22"
+   ],
+   "tags": [
+    "abraham",
+    "isaac",
+    "scripture-text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Eucharist's Long Shadow Across the Bible",
+   "url": "https://www.catholic.com/magazine/print-edition/the-eucharists-long-shadow-across-the-bible",
+   "refs": [
+    "Genesis 14:18-20",
+    "Genesis 22"
+   ],
+   "tags": [
+    "eucharist",
+    "melchizedek",
+    "typology"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Jesus Christ, Messiah Priest",
+   "url": "https://www.ewtn.com/catholicism/library/jesus-christ-messiah-priest-23940",
+   "refs": [
+    "Genesis 14:18-20"
+   ],
+   "tags": [
+    "melchizedek",
+    "priesthood"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Why Was Moses Not Allowed to Enter the Promised Land?",
+   "url": "https://stpaulcenter.com/posts/why-was-moses-not-allowed-to-enter-the-promised-land",
+   "refs": [
+    "Numbers 20:1-13",
+    "Deuteronomy 9"
+   ],
+   "tags": [
+    "moses",
+    "meribah",
+    "intercession"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Prayer of Moses",
+   "url": "https://www.ewtn.com/catholicism/library/prayer-of-moses-6438",
+   "refs": [
+    "Exodus 32:11-14",
+    "Exodus 32:30-34"
+   ],
+   "tags": [
+    "golden-calf",
+    "intercession",
+    "moses"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "A Surefire Way to Get on God's Nerves",
+   "url": "https://www.catholic.com/magazine/online-edition/a-surefire-way-to-get-on-gods-nerves",
+   "refs": [
+    "Numbers 11",
+    "Numbers 14"
+   ],
+   "tags": [
+    "wilderness",
+    "grumbling"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "The Priesthood Debate",
+   "url": "https://jimmyakin.com/library/the-priesthood-debate",
+   "refs": [
+    "Numbers 16"
+   ],
+   "tags": [
+    "korah",
+    "priesthood"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Book of Numbers",
+   "url": "https://www.ewtn.com/catholicism/library/book-of-numbers-12409",
+   "refs": [
+    "Numbers 11",
+    "Numbers 16",
+    "Numbers 20",
+    "Numbers 22",
+    "Numbers 25"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "How Archaeology Dispels Bible Doubts",
+   "url": "https://www.catholic.com/magazine/online-edition/how-archaeology-dispels-bible-doubts",
+   "refs": [
+    "Numbers 22",
+    "Numbers 23",
+    "Numbers 24"
+   ],
+   "tags": [
+    "balaam",
+    "archaeology"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Book of Exodus",
+   "url": "https://www.ewtn.com/catholicism/library/book-of-exodus-12309",
+   "refs": [
+    "Exodus 3",
+    "Exodus 12",
+    "Exodus 14",
+    "Exodus 16",
+    "Exodus 20"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "fr-mike-schmitz",
+   "type": "podcast",
+   "title": "Day 69: The Bronze Serpent (Bible in a Year transcript)",
+   "url": "https://podcasts.happyscribe.com/the-bible-in-a-year-with-fr-mike-schmitz/day-69-the-bronze-serpent-2026",
+   "refs": [
+    "Numbers 21:4-9"
+   ],
+   "tags": [
+    "bronze-serpent",
+    "typology",
+    "cross"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "page",
+   "title": "Exodus 3",
+   "url": "https://www.ewtn.com/bible/exodus/3",
+   "refs": [
+    "Exodus 3"
+   ],
+   "tags": [
+    "scripture-text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "page",
+   "title": "Exodus 20",
+   "url": "https://www.ewtn.com/bible/exodus/20",
+   "refs": [
+    "Exodus 20"
+   ],
+   "tags": [
+    "decalogue",
+    "scripture-text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "The Twenty-First-Century Catholic's Guide to the Ten Commandments",
+   "url": "https://ascensionpress.com/blogs/articles/the-twenty-first-century-catholics-guide-to-the-ten-commandments",
+   "refs": [
+    "Exodus 20:1-17"
+   ],
+   "tags": [
+    "decalogue"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "An Ark of the Covenant Mystery",
+   "url": "https://www.catholic.com/magazine/online-edition/an-ark-of-the-covenant-mystery",
+   "refs": [
+    "Exodus 25",
+    "Exodus 16:32-34"
+   ],
+   "tags": [
+    "ark",
+    "tabernacle",
+    "manna"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "What Does Jubilee Mean in the Bible?",
+   "url": "https://stpaulcenter.com/posts/what-does-jubilee-mean-in-the-bible",
+   "refs": [
+    "Leviticus 25"
+   ],
+   "tags": [
+    "jubilee"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "Year of Jubilee: Catholic Answers Guide to Jubilee 2025",
+   "url": "https://www.catholic.com/tract/year-of-jubilee-catholic-answers-guide-to-jubilee-2025",
+   "refs": [
+    "Leviticus 25"
+   ],
+   "tags": [
+    "jubilee"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Year of Jubilee",
+   "url": "https://www.ewtn.com/catholicism/library/year-of-jubilee-21343",
+   "refs": [
+    "Leviticus 25"
+   ],
+   "tags": [
+    "jubilee"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Book of Deuteronomy",
+   "url": "https://www.catholic.com/magazine/print-edition/deuteronomy",
+   "refs": [
+    "Deuteronomy 6:4-9",
+    "Deuteronomy 18:15-19",
+    "Deuteronomy 30"
+   ],
+   "tags": [
+    "shema",
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Book of Deuteronomy",
+   "url": "https://www.ewtn.com/catholicism/library/book-of-deuteronomy-12294",
+   "refs": [
+    "Deuteronomy 6",
+    "Deuteronomy 18",
+    "Deuteronomy 30"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Why Can't There Be Other Prophets After Jesus?",
+   "url": "https://www.catholic.com/qa/why-cant-there-be-other-prophets-after-jesus",
+   "refs": [
+    "Deuteronomy 18:15-19"
+   ],
+   "tags": [
+    "prophet"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "How God Can Wrestle Without a Body",
+   "url": "https://www.catholic.com/magazine/online-edition/how-god-can-wrestle-without-a-body",
+   "refs": [
+    "Genesis 32:22-32"
+   ],
+   "tags": [
+    "jacob",
+    "wrestling"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "I Have Wrestled with God and Won",
+   "url": "https://media.ascensionpress.com/2015/10/23/wrestled-god-won-2/",
+   "refs": [
+    "Genesis 32:22-32"
+   ],
+   "tags": [
+    "jacob",
+    "wrestling"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Prayer of Jacob",
+   "url": "https://www.ewtn.com/catholicism/library/prayer-of-jacob-6431",
+   "refs": [
+    "Genesis 32:22-32"
+   ],
+   "tags": [
+    "jacob",
+    "prayer"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Old Joseph, Young Joseph",
+   "url": "https://www.catholic.com/magazine/online-edition/old-joseph-young-joseph",
+   "refs": [
+    "Genesis 37"
+   ],
+   "tags": [
+    "joseph"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Tower of Babel",
+   "url": "https://www.catholic.com/encyclopedia/tower-of-babel",
+   "refs": [
+    "Genesis 11:1-9"
+   ],
+   "tags": [
+    "babel"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "video",
+   "title": "Tower of Babel (Bible in a Year)",
+   "url": "https://ascensionpress.com/pages/media-episode/biy-ep9-tower-of-babel",
+   "refs": [
+    "Genesis 11:1-9"
+   ],
+   "tags": [
+    "babel"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "video",
+   "title": "Isaac and Rebekah",
+   "url": "https://ascensionpress.com/pages/media-episode/biy-ep17-isaac-and-rebekah",
+   "refs": [
+    "Genesis 24"
+   ],
+   "tags": [
+    "isaac"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "video",
+   "title": "Intercessory Prayer",
+   "url": "https://ascensionpress.com/pages/media-episode/biy-ep67-intercessory-prayer",
+   "refs": [
+    "Genesis 18:16-33"
+   ],
+   "tags": [
+    "intercession",
+    "abraham"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Why Do We Have Original Sin if We Didn't Eat the Apple?",
+   "url": "https://stpaulcenter.com/posts/why-do-we-have-original-sin-if-we-didnt-eat-the-apple",
+   "refs": [
+    "Genesis 3"
+   ],
+   "tags": [
+    "fall",
+    "original-sin"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Original Sin in the Bible",
+   "url": "https://www.catholic.com/magazine/print-edition/original-sin",
+   "refs": [
+    "Genesis 3"
+   ],
+   "tags": [
+    "fall",
+    "original-sin"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Were Adam and Eve Immortal?",
+   "url": "https://www.catholic.com/qa/were-adam-and-eve-immortal",
+   "refs": [
+    "Genesis 2",
+    "Genesis 3"
+   ],
+   "tags": [
+    "adam-eve"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Was There Death Before the Fall?",
+   "url": "https://www.catholic.com/magazine/online-edition/was-there-death-before-the-fall",
+   "refs": [
+    "Genesis 2:17",
+    "Genesis 3"
+   ],
+   "tags": [
+    "fall"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "article",
+   "title": "Hello, Original Sin! Adam and Eve Meet Vulnerability and Accountability",
+   "url": "https://www.wordonfire.org/articles/fellows/hello-original-sin-adam-and-eve-meet-vulnerability-and-accountability/",
+   "refs": [
+    "Genesis 3"
+   ],
+   "tags": [
+    "fall"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "page",
+   "title": "Genesis 3 (Ascension Bible app)",
+   "url": "https://app.ascensionpress.com/bible/books/Gen/3",
+   "refs": [
+    "Genesis 3"
+   ],
+   "tags": [
+    "scripture-text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "For 450 Years, Every King Came From One Family - Here's Why",
+   "url": "https://www.catholic.com/audio/tjap/for-450-years-every-king-came-from-one-family-heres-why",
+   "refs": [
+    "2 Samuel 7",
+    "1 Kings 11"
+   ],
+   "tags": [
+    "davidic-covenant",
+    "kings"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Worst King of Israel Competition",
+   "url": "https://www.catholic.com/magazine/online-edition/the-worst-king-of-israel-competition",
+   "refs": [
+    "1 Kings 16",
+    "2 Kings 21"
+   ],
+   "tags": [
+    "kings"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Canticle of Canticles",
+   "url": "https://www.newadvent.org/cathen/03302a.htm",
+   "refs": [
+    "Song of Songs 1"
+   ],
+   "tags": [
+    "allegory",
+    "patristic"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "article",
+   "title": "Daniel and the Great Unveiling",
+   "url": "https://www.wordonfire.org/articles/barron/daniel-and-the-great-unveiling/",
+   "refs": [
+    "Daniel 7",
+    "Daniel 2"
+   ],
+   "tags": [
+    "son-of-man",
+    "bishop-barron"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "What Are 10 Things I Should Know About Daniel?",
+   "url": "https://stpaulcenter.com/posts/what-are-10-things-i-should-know-about-daniel",
+   "refs": [
+    "Daniel 1",
+    "Daniel 2",
+    "Daniel 7",
+    "Daniel 9"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Holy Bible: Daniel 9",
+   "url": "https://www.newadvent.org/bible/dan009.htm",
+   "refs": [
+    "Daniel 9"
+   ],
+   "tags": [
+    "seventy-weeks",
+    "text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "What Are 10 Things I Should Know About Ezekiel?",
+   "url": "https://stpaulcenter.com/posts/what-are-10-things-i-should-know-about-ezekiel",
+   "refs": [
+    "Ezekiel 34",
+    "Ezekiel 36",
+    "Ezekiel 37",
+    "Ezekiel 40",
+    "Ezekiel 47"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "What Are 10 Things I Should Know About Jeremiah?",
+   "url": "https://stpaulcenter.com/posts/what-are-10-things-i-should-know-about-jeremiah",
+   "refs": [
+    "Jeremiah 7",
+    "Jeremiah 29",
+    "Jeremiah 31"
+   ],
+   "tags": [
+    "new-covenant",
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "Meet the Messengers: Jeremiah, Prophet of Hope",
+   "url": "https://ascensionpress.com/blogs/articles/meet-messengers-jeremiah",
+   "refs": [
+    "Jeremiah 1",
+    "Jeremiah 29",
+    "Jeremiah 31"
+   ],
+   "tags": [
+    "prophet"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Prophecy of Jeremias",
+   "url": "https://www.ewtn.com/catholicism/library/prophecy-of-jeremias-12349",
+   "refs": [
+    "Jeremiah 1",
+    "Jeremiah 7",
+    "Jeremiah 18",
+    "Jeremiah 31"
+   ],
+   "tags": [
+    "commentary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "Jeremiah, Chapter 29",
+   "url": "https://bible.usccb.org/bible/jeremiah/29",
+   "refs": [
+    "Jeremiah 29"
+   ],
+   "tags": [
+    "text",
+    "exile"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "Lamentations",
+   "url": "https://bible.usccb.org/bible/lamentations/0",
+   "refs": [
+    "Lamentations 1"
+   ],
+   "tags": [
+    "introduction",
+    "exile"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "The Burning Coal: Eucharist in the Old Testament",
+   "url": "https://stpaulcenter.com/posts/the-burning-coal-eucharist-in-the-old-testament",
+   "refs": [
+    "Isaiah 6"
+   ],
+   "tags": [
+    "eucharist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "podcast",
+   "title": "The Sanctus and Its Biblical Roots",
+   "url": "https://ascensionpress.com/blogs/podcasts/the-sanctus-and-its-biblical-roots",
+   "refs": [
+    "Isaiah 6"
+   ],
+   "tags": [
+    "sanctus",
+    "liturgy"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Where Does the Holy, Holy, Holy Prayer Come From?",
+   "url": "https://www.catholic.com/qa/where-does-the-holy-holy-holy-prayer-come-from",
+   "refs": [
+    "Isaiah 6"
+   ],
+   "tags": [
+    "sanctus"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "What Are 10 Things I Should Know About Isaiah?",
+   "url": "https://stpaulcenter.com/posts/what-are-10-things-i-should-know-about-isaiah",
+   "refs": [
+    "Isaiah 40",
+    "Isaiah 66"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Hitchhiker's Guide to Heaven",
+   "url": "https://www.catholic.com/magazine/print-edition/the-hitchhikers-guide-to-heaven",
+   "refs": [
+    "Isaiah 65",
+    "Isaiah 66"
+   ],
+   "tags": [
+    "new-heavens"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "2 Samuel, Chapter 7",
+   "url": "https://bible.usccb.org/bible/2samuel/7",
+   "refs": [
+    "2 Samuel 7"
+   ],
+   "tags": [
+    "davidic-covenant",
+    "text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "The Sin of David",
+   "url": "https://www.wordonfire.org/videos/sermons/the-sin-of-david/",
+   "refs": [
+    "2 Samuel 11",
+    "2 Samuel 12"
+   ],
+   "tags": [
+    "bathsheba",
+    "sermon"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Why Does Jesus Hold Up King David As A Role Model?",
+   "url": "https://stpaulcenter.com/posts/why-does-jesus-hold-up-king-david-as-a-role-model",
+   "refs": [
+    "1 Samuel 17",
+    "2 Samuel 11"
+   ],
+   "tags": [
+    "david"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "Elijah, You're Fired!",
+   "url": "https://www.wordonfire.org/videos/sermons/elijah-youre-fired/",
+   "refs": [
+    "1 Kings 19"
+   ],
+   "tags": [
+    "elijah",
+    "sermon"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "1 Kings, Chapter 19",
+   "url": "https://bible.usccb.org/bible/1kings/19",
+   "refs": [
+    "1 Kings 19"
+   ],
+   "tags": [
+    "elijah",
+    "text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Whats Up with Elisha and the Bears?",
+   "url": "https://www.catholic.com/qa/whats-up-with-elisha-and-the-bears",
+   "refs": [
+    "2 Kings 2"
+   ],
+   "tags": [
+    "elisha"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Yes, Enoch and Elijah Went to Heaven",
+   "url": "https://www.catholic.com/magazine/online-edition/yes-enoch-and-elijah-went-to-heaven",
+   "refs": [
+    "2 Kings 2"
+   ],
+   "tags": [
+    "elijah"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Was Elijah assumed into heaven before Mary?",
+   "url": "https://www.catholic.com/qa/was-elijah-assumed-into-heaven-before-mary",
+   "refs": [
+    "2 Kings 2"
+   ],
+   "tags": [
+    "elijah"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Elijah",
+   "url": "https://www.ewtn.com/catholicism/library/elijah-10529",
+   "refs": [
+    "1 Kings 17",
+    "1 Kings 18",
+    "1 Kings 19",
+    "2 Kings 2"
+   ],
+   "tags": [
+    "elijah"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Significance of Babylonian Exile",
+   "url": "https://www.catholic.com/qa/significance-of-babylonian-exile",
+   "refs": [
+    "2 Kings 25",
+    "Jeremiah 29",
+    "Ezra 1"
+   ],
+   "tags": [
+    "exile"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "What Was the Babylonian Exile and Why Should I Care?",
+   "url": "https://stpaulcenter.com/posts/what-was-the-babylonian-exile-and-why-should-i-care",
+   "refs": [
+    "2 Kings 25",
+    "2 Chronicles 36",
+    "Lamentations 1"
+   ],
+   "tags": [
+    "exile"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "page",
+   "title": "Proverbs",
+   "url": "https://www.ewtn.com/catholicism/library/proverbs-12425",
+   "refs": [
+    "Proverbs 8",
+    "Proverbs 31"
+   ],
+   "tags": [
+    "wisdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Book of Proverbs",
+   "url": "https://www.ewtn.com/catholicism/library/book-of-proverbs-12426",
+   "refs": [
+    "Proverbs 8",
+    "Proverbs 31"
+   ],
+   "tags": [
+    "wisdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "A World Without Hope",
+   "url": "https://www.catholic.com/magazine/online-edition/a-world-without-hope",
+   "refs": [
+    "Ecclesiastes 3",
+    "Ecclesiastes 9"
+   ],
+   "tags": [
+    "vanity"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Answering the Bethlehem Skeptics",
+   "url": "https://www.catholic.com/magazine/print-edition/answering-the-bethlehem-skeptics",
+   "refs": [
+    "Micah 5"
+   ],
+   "tags": [
+    "bethlehem",
+    "messianic"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Prophecy of Micheas",
+   "url": "https://www.ewtn.com/catholicism/library/prophecy-of-micheas-12402",
+   "refs": [
+    "Micah 5"
+   ],
+   "tags": [
+    "commentary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "What You Missed About Jonah and Christs Passion and Resurrection",
+   "url": "https://www.catholic.com/audio/sp/what-you-missed-about-jonah-and-christs-passion-and-resurrection",
+   "refs": [
+    "Jonah 1",
+    "Jonah 2"
+   ],
+   "tags": [
+    "sign-of-jonah"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Did Jonah Die in the Whale?",
+   "url": "https://www.catholic.com/magazine/online-edition/did-jonah-die-in-the-whale",
+   "refs": [
+    "Jonah 1",
+    "Jonah 2"
+   ],
+   "tags": [
+    "sign-of-jonah"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "Misusing the Sign of Jonah",
+   "url": "https://jimmyakin.com/2022/11/misusing-the-sign-of-jonah.html",
+   "refs": [
+    "Jonah 1",
+    "Jonah 2"
+   ],
+   "tags": [
+    "sign-of-jonah"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
   }
  ]
 }
