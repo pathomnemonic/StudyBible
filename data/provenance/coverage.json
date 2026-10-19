@@ -1,0 +1,536 @@
+{
+ "generated": "2026-10-19",
+ "total": 35809,
+ "tier": {
+  "verse": 27528,
+  "chapter": 8281,
+  "data": 0,
+  "none": 0
+ },
+ "kinds": {
+  "haydock": 18922,
+  "glossa": 13775,
+  "fathers": 15993,
+  "curated": 2473,
+  "magisterium": 878,
+  "xrefs": 29271,
+  "topics": 10796,
+  "challoner": 1834,
+  "biay": 7377,
+  "curatedChapter": 354,
+  "catena": 3777
+ },
+ "books": {
+  "GEN": {
+   "verses": 1530,
+   "verse": 1108,
+   "chapter": 422,
+   "data": 0,
+   "none": 0
+  },
+  "EXO": {
+   "verses": 1211,
+   "verse": 888,
+   "chapter": 323,
+   "data": 0,
+   "none": 0
+  },
+  "LEV": {
+   "verses": 858,
+   "verse": 661,
+   "chapter": 197,
+   "data": 0,
+   "none": 0
+  },
+  "NUM": {
+   "verses": 1288,
+   "verse": 758,
+   "chapter": 530,
+   "data": 0,
+   "none": 0
+  },
+  "DEU": {
+   "verses": 959,
+   "verse": 765,
+   "chapter": 194,
+   "data": 0,
+   "none": 0
+  },
+  "JOS": {
+   "verses": 658,
+   "verse": 428,
+   "chapter": 230,
+   "data": 0,
+   "none": 0
+  },
+  "JDG": {
+   "verses": 618,
+   "verse": 485,
+   "chapter": 133,
+   "data": 0,
+   "none": 0
+  },
+  "RUT": {
+   "verses": 85,
+   "verse": 74,
+   "chapter": 11,
+   "data": 0,
+   "none": 0
+  },
+  "1SA": {
+   "verses": 811,
+   "verse": 647,
+   "chapter": 164,
+   "data": 0,
+   "none": 0
+  },
+  "2SA": {
+   "verses": 695,
+   "verse": 519,
+   "chapter": 176,
+   "data": 0,
+   "none": 0
+  },
+  "1KI": {
+   "verses": 817,
+   "verse": 615,
+   "chapter": 202,
+   "data": 0,
+   "none": 0
+  },
+  "2KI": {
+   "verses": 719,
+   "verse": 530,
+   "chapter": 189,
+   "data": 0,
+   "none": 0
+  },
+  "1CH": {
+   "verses": 940,
+   "verse": 578,
+   "chapter": 362,
+   "data": 0,
+   "none": 0
+  },
+  "2CH": {
+   "verses": 822,
+   "verse": 530,
+   "chapter": 292,
+   "data": 0,
+   "none": 0
+  },
+  "EZR": {
+   "verses": 280,
+   "verse": 179,
+   "chapter": 101,
+   "data": 0,
+   "none": 0
+  },
+  "NEH": {
+   "verses": 404,
+   "verse": 242,
+   "chapter": 162,
+   "data": 0,
+   "none": 0
+  },
+  "TOB": {
+   "verses": 298,
+   "verse": 97,
+   "chapter": 201,
+   "data": 0,
+   "none": 0
+  },
+  "JDT": {
+   "verses": 346,
+   "verse": 72,
+   "chapter": 274,
+   "data": 0,
+   "none": 0
+  },
+  "EST": {
+   "verses": 275,
+   "verse": 150,
+   "chapter": 125,
+   "data": 0,
+   "none": 0
+  },
+  "1MA": {
+   "verses": 929,
+   "verse": 51,
+   "chapter": 878,
+   "data": 0,
+   "none": 0
+  },
+  "2MA": {
+   "verses": 558,
+   "verse": 107,
+   "chapter": 451,
+   "data": 0,
+   "none": 0
+  },
+  "JOB": {
+   "verses": 1070,
+   "verse": 974,
+   "chapter": 96,
+   "data": 0,
+   "none": 0
+  },
+  "PSA": {
+   "verses": 2527,
+   "verse": 2450,
+   "chapter": 77,
+   "data": 0,
+   "none": 0
+  },
+  "PRO": {
+   "verses": 915,
+   "verse": 814,
+   "chapter": 101,
+   "data": 0,
+   "none": 0
+  },
+  "ECC": {
+   "verses": 222,
+   "verse": 211,
+   "chapter": 11,
+   "data": 0,
+   "none": 0
+  },
+  "SNG": {
+   "verses": 116,
+   "verse": 115,
+   "chapter": 1,
+   "data": 0,
+   "none": 0
+  },
+  "WIS": {
+   "verses": 439,
+   "verse": 284,
+   "chapter": 155,
+   "data": 0,
+   "none": 0
+  },
+  "SIR": {
+   "verses": 1592,
+   "verse": 835,
+   "chapter": 757,
+   "data": 0,
+   "none": 0
+  },
+  "ISA": {
+   "verses": 1292,
+   "verse": 1187,
+   "chapter": 105,
+   "data": 0,
+   "none": 0
+  },
+  "JER": {
+   "verses": 1363,
+   "verse": 1079,
+   "chapter": 284,
+   "data": 0,
+   "none": 0
+  },
+  "LAM": {
+   "verses": 154,
+   "verse": 122,
+   "chapter": 32,
+   "data": 0,
+   "none": 0
+  },
+  "BAR": {
+   "verses": 213,
+   "verse": 36,
+   "chapter": 177,
+   "data": 0,
+   "none": 0
+  },
+  "EZK": {
+   "verses": 1272,
+   "verse": 856,
+   "chapter": 416,
+   "data": 0,
+   "none": 0
+  },
+  "DAN": {
+   "verses": 531,
+   "verse": 321,
+   "chapter": 210,
+   "data": 0,
+   "none": 0
+  },
+  "HOS": {
+   "verses": 198,
+   "verse": 188,
+   "chapter": 10,
+   "data": 0,
+   "none": 0
+  },
+  "JOL": {
+   "verses": 73,
+   "verse": 65,
+   "chapter": 8,
+   "data": 0,
+   "none": 0
+  },
+  "AMO": {
+   "verses": 147,
+   "verse": 130,
+   "chapter": 17,
+   "data": 0,
+   "none": 0
+  },
+  "OBA": {
+   "verses": 21,
+   "verse": 20,
+   "chapter": 1,
+   "data": 0,
+   "none": 0
+  },
+  "JON": {
+   "verses": 48,
+   "verse": 41,
+   "chapter": 7,
+   "data": 0,
+   "none": 0
+  },
+  "MIC": {
+   "verses": 104,
+   "verse": 95,
+   "chapter": 9,
+   "data": 0,
+   "none": 0
+  },
+  "NAM": {
+   "verses": 47,
+   "verse": 40,
+   "chapter": 7,
+   "data": 0,
+   "none": 0
+  },
+  "HAB": {
+   "verses": 56,
+   "verse": 54,
+   "chapter": 2,
+   "data": 0,
+   "none": 0
+  },
+  "ZEP": {
+   "verses": 53,
+   "verse": 49,
+   "chapter": 4,
+   "data": 0,
+   "none": 0
+  },
+  "HAG": {
+   "verses": 38,
+   "verse": 29,
+   "chapter": 9,
+   "data": 0,
+   "none": 0
+  },
+  "ZEC": {
+   "verses": 211,
+   "verse": 179,
+   "chapter": 32,
+   "data": 0,
+   "none": 0
+  },
+  "MAL": {
+   "verses": 55,
+   "verse": 52,
+   "chapter": 3,
+   "data": 0,
+   "none": 0
+  },
+  "MAT": {
+   "verses": 1070,
+   "verse": 1070,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "MRK": {
+   "verses": 677,
+   "verse": 677,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "LUK": {
+   "verses": 1151,
+   "verse": 1151,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "JHN": {
+   "verses": 879,
+   "verse": 879,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "ACT": {
+   "verses": 1004,
+   "verse": 913,
+   "chapter": 91,
+   "data": 0,
+   "none": 0
+  },
+  "ROM": {
+   "verses": 433,
+   "verse": 433,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "1CO": {
+   "verses": 437,
+   "verse": 437,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "2CO": {
+   "verses": 255,
+   "verse": 255,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "GAL": {
+   "verses": 149,
+   "verse": 149,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "EPH": {
+   "verses": 155,
+   "verse": 155,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "PHP": {
+   "verses": 104,
+   "verse": 104,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "COL": {
+   "verses": 95,
+   "verse": 95,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "1TH": {
+   "verses": 89,
+   "verse": 89,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "2TH": {
+   "verses": 47,
+   "verse": 47,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "1TI": {
+   "verses": 113,
+   "verse": 113,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "2TI": {
+   "verses": 83,
+   "verse": 83,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "TIT": {
+   "verses": 46,
+   "verse": 46,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "PHM": {
+   "verses": 25,
+   "verse": 25,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "HEB": {
+   "verses": 303,
+   "verse": 303,
+   "chapter": 0,
+   "data": 0,
+   "none": 0
+  },
+  "JAS": {
+   "verses": 108,
+   "verse": 104,
+   "chapter": 4,
+   "data": 0,
+   "none": 0
+  },
+  "1PE": {
+   "verses": 105,
+   "verse": 100,
+   "chapter": 5,
+   "data": 0,
+   "none": 0
+  },
+  "2PE": {
+   "verses": 61,
+   "verse": 60,
+   "chapter": 1,
+   "data": 0,
+   "none": 0
+  },
+  "1JN": {
+   "verses": 105,
+   "verse": 103,
+   "chapter": 2,
+   "data": 0,
+   "none": 0
+  },
+  "2JN": {
+   "verses": 13,
+   "verse": 10,
+   "chapter": 3,
+   "data": 0,
+   "none": 0
+  },
+  "3JN": {
+   "verses": 14,
+   "verse": 10,
+   "chapter": 4,
+   "data": 0,
+   "none": 0
+  },
+  "JUD": {
+   "verses": 25,
+   "verse": 24,
+   "chapter": 1,
+   "data": 0,
+   "none": 0
+  },
+  "REV": {
+   "verses": 405,
+   "verse": 383,
+   "chapter": 22,
+   "data": 0,
+   "none": 0
+  }
+ }
+}

@@ -33,6 +33,28 @@ The Bible in a Year plays in the app. The Catechism in a Year is a search link o
 ## Historical and language references
 Interlinear and lexicon: links to Bible Hub and Blue Letter Bible for every protocanonical verse. Bible Odyssey, BAS, New Advent, Thomistic Institute: registered as sources (link-only, not yet mapped to passages). Perseus, Dead Sea Scrolls, atlases, Biblical dictionaries: **Not done**.
 
+
+## Coverage by verse (audit)
+`npx tsx scripts/verify/coverage.ts` reads the generated data and reports, for each of the 35,809 anchored verses, what the app has. Run it after `npm run data:build` (add `--write` to refresh `data/provenance/coverage.json`, which a test reads).
+
+- **Verse-level reading** (about 77% of verses at the last run): a Haydock, Challoner, Catena Aurea or Glossa note on the verse, a Father or saint whose text cites or covers it, or a curated page about a short span around it.
+- **Chapter-level** (the remaining ~23%): every chapter of all 73 books gets Challoner's one-line chapter summary, three chapter reading links (Douay-Rheims with Challoner's footnotes at drbo.org, Douay-Rheims on New Advent, the NABRE with the US bishops' notes at bible.usccb.org), a Bible in a Year episode where the plan covers it, cross-references, and topic links. These are about the chapter, not the verse, and the app says so on each item.
+- **Nothing:** 0 verses.
+
+Weakest at verse level: 1–2 Maccabees, Judith, Tobit, Baruch, parts of Sirach, Numbers, Genesis, Ezekiel and Chronicles. Haydock's module has no deuterocanon, and Challoner's notes there are sparse. Closing the gap needs more hand-curated links or a public-domain commentary on those books (none found that was machine-readable).
+
+### Sources added in this round
+- **Challoner's annotations, chapter summaries and book introductions** (Douay-Rheims, 1749–1752) from Project Gutenberg #8300: about 1,850 notes, 1,293 chapter summaries, 71 introductions. Public domain; verse numbering is Douay/Vulgate.
+- **Chrysostom on Galatians, Ephesians, Philippians, Colossians, 1–2 Thessalonians, 1–2 Timothy, Titus, Philemon** (NPNF 1st series vol. 13), with each homily tied to its verse span.
+- **More Fathers, found by their tagged Scripture citations:** Clement of Alexandria, Tertullian, Hippolytus, Cyprian, Novatian, Lactantius, Augustine (letters, doctrinal, moral, anti-Manichæan, Donatist and anti-Pelagian writings), Eusebius, Theodoret, Jerome's *Lives*, Gregory of Nyssa.
+- **Sunday homilies** from Word on Fire and Ascension, matched to the Gospel through the Lectionary (confidence shown on each item), and Word on Fire's calendar and Gospel-chapter index pages.
+- **Roughly 900 hand-reviewed links** to Catholic Answers, Jimmy Akin, the St. Paul Center, Catholic Productions, Word on Fire, Ascension, New Advent, EWTN, the USCCB and Vatican documents. Each was checked from its title and search-result summary, not by reading the page; the row says so.
+
+### Considered and not used
+- **"Early Church Fathers Commentary" MyBible module (SermonIndex).** It says "Public domain", but its text has the form of the *Ancient Christian Commentary on Scripture* (IVP, in copyright): ellipsised excerpts with work citations, and modern translations of Didymus, Oecumenius, Andreas and Philoxenus. A compiler's label is not evidence of a translation's status, so it is not imported.
+- **Cornelius à Lapide module (SermonIndex).** Public-domain translations (1876–1908), but only 175 entries (parts of the Gospels and 1–2 Corinthians, Galatians); not yet imported because the Gospels are already well covered.
+- **USCCB pages are linked by address pattern only.** The site returns a bot challenge to rapid requests, so I checked the pattern on a sample and through search results, not every chapter. The DRBO and New Advent patterns were checked on every chapter.
+
 ## How to add links (any of the above)
 Add a row to `data/curated/external-resources.json` with the passages it treats, the exact page URL, and `basis` stating how you checked it; add the publisher to `data/registry/resource-sources.json` first. For a larger authorised dataset use `data/licensed/external-*.jsonl`.
 

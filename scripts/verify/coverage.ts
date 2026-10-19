@@ -107,3 +107,4 @@ const lines = [
 ];
 console.log(lines.join('\n'));
 if (process.argv.includes('--write')) writeFileSync(join(process.cwd(), 'data/provenance/coverage.json'), JSON.stringify({ generated: new Date().toISOString().slice(0, 10), total, tier, kinds, books: out }, null, 1));
+if (process.argv.includes('--books')) console.log(Object.entries(out).map(([b, o]) => [b, o.chapter, o.verses] as const).filter((x) => x[1] > 0).sort((a, b) => b[1] - a[1]).slice(0, 30).map((x) => `${x[0]} ${x[1]}/${x[2]}`).join('  '));
