@@ -5,6 +5,8 @@ import { buildXrefs } from './xrefs';
 import { buildCatena } from './catena';
 import { buildBiay } from './biay';
 import { buildLibrary } from './library';
+import { buildHaydock } from './haydock';
+import { buildExternal } from './external';
 import { buildCurated } from './curated';
 import { loadVersification } from '../../src/lib/versification';
 import { PROVENANCE, Report, today, writeJson } from './lib/util';
@@ -36,8 +38,10 @@ async function main() {
     await run('xrefs', () => buildXrefs(report));
     await run('catena', () => buildCatena(report));
     await run('biay', () => buildBiay(report));
+    await run('haydock', () => buildHaydock(report));
     await run('library', () => buildLibrary(report));
     await run('curated', () => buildCurated(report));
+    await run('external', () => buildExternal(report));
   }
   if (cmd === 'build' || cmd === 'all') {
     writeJson(join(PROVENANCE, 'build-report.json'), { generated: today(), errors: report.errors, warnings: report.warnings.slice(0, 500), warningCount: report.warnings.length, stats: report.stats }, true);

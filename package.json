@@ -15,7 +15,10 @@
     "data:validate": "tsx scripts/ingest/cli.ts validate",
     "data:all": "tsx scripts/ingest/cli.ts all",
     "verify:ccc": "tsx scripts/verify/ccc.ts",
-    "docs:status": "tsx scripts/docs-status.ts"
+    "docs:status": "tsx scripts/docs-status.ts",
+    "server": "tsx server/index.ts",
+    "server:dev": "tsx watch server/index.ts",
+    "start": "npm run build && tsx server/index.ts"
   },
   "dependencies": {
     "dexie": "^4.0.10",

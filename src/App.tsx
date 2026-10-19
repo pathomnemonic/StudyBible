@@ -6,6 +6,8 @@ import Shell from './components/Shell';
 import ReadPage from './pages/ReadPage';
 import { PlayerProvider } from './data/PlayerContext';
 import MiniPlayer from './components/MiniPlayer';
+import { ToastProvider } from './components/Toast';
+import { initSync } from './sync/state';
 
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
 const SearchPage = lazy(() => import('./pages/study/SearchPage'));
@@ -25,6 +27,8 @@ const PlansPage = lazy(() => import('./pages/pray/PlansPage'));
 const PlanPage = lazy(() => import('./pages/pray/PlanPage'));
 const LibraryHome = lazy(() => import('./pages/library/LibraryHome'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
+const AccountPage = lazy(() => import('./pages/AccountPage'));
+const AttachPage = lazy(() => import('./pages/AttachPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 
 function ThemeApplier() {
@@ -64,7 +68,11 @@ function Home() {
 }
 
 export default function App() {
+  useEffect(() => {
+    initSync();
+  }, []);
   return (
+    <ToastProvider>
     <EditionsProvider>
       <ThemeApplier />
       <Gate>
@@ -93,6 +101,8 @@ export default function App() {
               <Route path="/pray/plans/:id" element={<PlanPage />} />
               <Route path="/library/*" element={<LibraryHome />} />
               <Route path="/settings" element={<SettingsPage />} />
+              <Route path="/account" element={<AccountPage />} />
+              <Route path="/attach" element={<AttachPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="*" element={<Navigate replace to="/" />} />
             </Routes>
@@ -102,5 +112,6 @@ export default function App() {
         </PlayerProvider>
       </Gate>
     </EditionsProvider>
+    </ToastProvider>
   );
 }

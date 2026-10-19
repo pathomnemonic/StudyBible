@@ -208,5 +208,215 @@
   "terms": "https://ccel.org/ccel/lawrence",
   "rights": "public-domain",
   "note": "The Practice of the Presence of God, Brother Lawrence of the Resurrection. Public-domain text distributed by CCEL as ThML."
+ },
+ "crosswire-catena": {
+  "url": "https://crosswire.org/ftpmirror/pub/sword/packages/rawzip/Catena.zip",
+  "file": "Catena.sword.zip",
+  "bytes": 2272947,
+  "sha256": "b48c9d75bbc142a9bf4f4e078026d049e386e27a263169f26dca112dde619918",
+  "retrieved": "2026-10-19",
+  "terms": "https://crosswire.org/sword/modules/ModInfo.jsp?modName=Catena",
+  "rights": "public-domain",
+  "note": "CrossWire SWORD module 'Catena' (Catena Aurea, Newman translation 1842), DistributionLicense=Public Domain; text source https://github.com/lemtom/catena/ (Tom Lemmens). Covers Matthew, Mark, Luke, John."
+ },
+ "sermonindex-haydock": {
+  "url": "https://www.sermonindex.net/modules/mybible/SI-HAYDOCKC.commentaries.zip",
+  "file": "haydock.mybible.zip",
+  "bytes": 3481691,
+  "sha256": "e12b4914a8883b8c0d401fb4d06a661fd5c806c251eb6387f869aa2364381196",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.sermonindex.net/commentary/haydock-c/",
+  "rights": "public-domain",
+  "note": "Haydock's Catholic Bible Commentary (Geo. L. Haydock, 1811; Douay-Rheims edition 1859), MyBible SQLite module prepared by SermonIndex.net, stated Public Domain. Verse-by-verse, Vulgate/Douay numbering, protocanonical books only."
+ },
+ "ccel-schaff_npnf107": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf107.xml",
+  "file": "ccel_schaff_npnf107.xml",
+  "bytes": 3694413,
+  "sha256": "75d52f4c31dde0959974256b3f5d84394b7b96fcd2883e78a3d32e0b66c5869a",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Tractates on the Gospel of John, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf108": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf108.xml",
+  "file": "ccel_schaff_npnf108.xml",
+  "bytes": 6222968,
+  "sha256": "87b60e90917e69f03c75955517fc996a0e6d22dc9862365b45c308e70e5bf784",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Expositions on the Psalms, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf114": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf114.xml",
+  "file": "ccel_schaff_npnf114.xml",
+  "bytes": 4728349,
+  "sha256": "b130406978fbceb7bcd0774b0e8b09905f35a020a2300c1baf02f314a2d5a70a",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Homilies on the Gospel of John, John Chrysostom. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf110": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf110.xml",
+  "file": "ccel_schaff_npnf110.xml",
+  "bytes": 3956654,
+  "sha256": "e110c98b1f444147bf7baf79e46e56ae6c6a1f0b2983e6fc52f2356fac7f858f",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Homilies on the Gospel of Matthew, John Chrysostom. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf204": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf204.xml",
+  "file": "ccel_schaff_npnf204.xml",
+  "bytes": 5809854,
+  "sha256": "bd625a0fa4f5ddd4b2fa13fcee753de8832ea4b316625e0e06454beb81cfa652",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "On the Incarnation, Athanasius of Alexandria. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf207": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf207.xml",
+  "file": "ccel_schaff_npnf207.xml",
+  "bytes": 4247548,
+  "sha256": "3ac73f4179c0b7d6e66e6fea04ae572e64c0e4a80e8fa38980b40366c8a13928",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Catechetical Lectures (incl. Mystagogical Catecheses), Cyril of Jerusalem. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_anf01": {
+  "url": "https://www.ccel.org/ccel/schaff/anf01.xml",
+  "file": "ccel_schaff_anf01.xml",
+  "bytes": 4511814,
+  "sha256": "8012ea0e35b497d2fbd783f9d4fd7b3a27d98c6dc66fd427b50d7312e6dd45af",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Against Heresies, Irenaeus of Lyons. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-augustine_confess": {
+  "url": "https://www.ccel.org/ccel/augustine/confess.xml",
+  "file": "ccel_augustine_confess.xml",
+  "bytes": 730316,
+  "sha256": "9f47b8635f245847576fb9e0ea94934a03cbb1b426d352cb7882ca0171fe2f52",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/augustine",
+  "rights": "public-domain",
+  "note": "Confessions, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-teresa_castle2": {
+  "url": "https://www.ccel.org/ccel/teresa/castle2.xml",
+  "file": "ccel_teresa_castle2.xml",
+  "bytes": 582155,
+  "sha256": "8ff410eb6ad0bb12f3003fc902c1ff706f506d01de3cb0e4e36ef9523b10eaf7",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/teresa",
+  "rights": "public-domain",
+  "note": "The Interior Castle, Teresa of Ávila. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-catherine_dialog": {
+  "url": "https://www.ccel.org/ccel/catherine/dialog.xml",
+  "file": "ccel_catherine_dialog.xml",
+  "bytes": 539965,
+  "sha256": "bce0952b1f8544b9ea177b86920618c7b383eba6023779e315f4ce371838f988",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/catherine",
+  "rights": "public-domain",
+  "note": "The Dialogue of St. Catherine of Siena, Catherine of Siena. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-lawrence_practice": {
+  "url": "https://www.ccel.org/ccel/lawrence/practice.xml",
+  "file": "ccel_lawrence_practice.xml",
+  "bytes": 88898,
+  "sha256": "05149b19c169d3f148add4a75f90a84fce96a75ba776b919f8c4fc59d78b3c6d",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/lawrence",
+  "rights": "public-domain",
+  "note": "The Practice of the Presence of God, Brother Lawrence of the Resurrection. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf111": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf111.xml",
+  "file": "ccel_schaff_npnf111.xml",
+  "bytes": 5349065,
+  "sha256": "46072a7fefb80b4b7ea68544b46c13fc1785bd29d99834fd2f867f8aa5e14f08",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Homilies on the Acts of the Apostles, John Chrysostom. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf112": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf112.xml",
+  "file": "ccel_schaff_npnf112.xml",
+  "bytes": 3253154,
+  "sha256": "b8b345e060625cdf495e888322d88e922f66e686863e818a978204c5f564a4dd",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Homilies on First Corinthians, John Chrysostom. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf106": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf106.xml",
+  "file": "ccel_schaff_npnf106.xml",
+  "bytes": 4680096,
+  "sha256": "3710c6985a8dfc4e4ffafc461a7a8550db609b0506535453dac252f2aa55b604",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Our Lord's Sermon on the Mount, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf210": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf210.xml",
+  "file": "ccel_schaff_npnf210.xml",
+  "bytes": 3837030,
+  "sha256": "c6f1a9d66653852d8b743c84a613c72c521dfb1b05602f0a2eff400c17665ee8",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Dogmatic Treatises, Ethical Works, and Sermons (incl. On the Mysteries, On the Holy Spirit, Concerning Repentance), Ambrose of Milan. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf208": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf208.xml",
+  "file": "ccel_schaff_npnf208.xml",
+  "bytes": 3303323,
+  "sha256": "95cf3dafefccec80e0949a03c7f1f605da293302d0dc7a8bd62a4e711a0c5532",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "On the Holy Spirit and the Hexæmeron, Basil the Great. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf206": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf206.xml",
+  "file": "ccel_schaff_npnf206.xml",
+  "bytes": 4444300,
+  "sha256": "6bf37affb240f5a775995ab2353c00569b34990130c98649a358f30f37f41f8d",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Treatises (incl. Against Jovinianus, Against Vigilantius), Jerome. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_anf04": {
+  "url": "https://www.ccel.org/ccel/schaff/anf04.xml",
+  "file": "ccel_schaff_anf04.xml",
+  "bytes": 5759964,
+  "sha256": "240b26390c16fb0a7683b6ce6076e86f0d387c4e43fa88f079d9600f385acaf0",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Origen (Against Celsus and De Principiis), Origen. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-aquinas_summa": {
+  "url": "https://www.ccel.org/ccel/aquinas/summa.xml",
+  "file": "ccel_aquinas_summa.xml",
+  "bytes": 18855316,
+  "sha256": "550eb0b0758f119dfe50346e43072026e8c3070d806d4942025525fb24fb7f5b",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/aquinas",
+  "rights": "public-domain",
+  "note": "Summa Theologica (index of Scripture citations), Thomas Aquinas. Public-domain text distributed by CCEL as ThML."
  }
 }

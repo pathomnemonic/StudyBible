@@ -18,11 +18,14 @@ export async function fetchAll(only?: string[]) {
   mkdirSync(PROVENANCE, { recursive: true });
   const entries: FetchEntry[] = [];
   entries.push(...readJson(join(REGISTRY, 'fetch.json')).sources);
+  const seenCcel = new Set<string>();
   for (const w of readJson(join(REGISTRY, 'library.json')).works) {
+    if (seenCcel.has(w.ccel)) continue; // several works can share one CCEL volume
+    seenCcel.add(w.ccel);
     entries.push({
-      id: `ccel-${w.id}`,
+      id: `ccel-${w.ccel.replace('/', '_')}`,
       url: `https://www.ccel.org/ccel/${w.ccel}.xml`,
-      file: `ccel-${w.id}.xml`,
+      file: `ccel_${w.ccel.replace('/', '_')}.xml`,
       terms: 'https://ccel.org/ccel/' + w.ccel.split('/')[0],
       rights: 'public-domain',
       note: `${w.title}, ${w.author}. Public-domain text distributed by CCEL as ThML.`,

@@ -111,17 +111,23 @@
   "catena": [
    {
     "book": "MAT",
-    "ccelId": "catena1",
-    "title": "Catena Aurea: Gospel of Matthew",
     "groups": 283,
-    "items": 6112
+    "items": 3825
    },
    {
     "book": "MRK",
-    "ccelId": "catena2",
-    "title": "Catena Aurea: Gospel of Mark",
-    "groups": 105,
-    "items": 2464
+    "groups": 108,
+    "items": 1296
+   },
+   {
+    "book": "LUK",
+    "groups": 244,
+    "items": 3518
+   },
+   {
+    "book": "JHN",
+    "groups": 186,
+    "items": 2699
    }
   ],
   "biay": {
@@ -134,6 +140,11 @@
     184
    ],
    "dayVariantCount": 165
+  },
+  "haydock": {
+   "entries": 19085,
+   "books": 66,
+   "skippedUnknownBook": 0
   },
   "library.aug-tractates-john": {
    "sections": 124
@@ -148,13 +159,13 @@
    "sections": 87
   },
   "library.athanasius-incarnation": {
-   "sections": 2
+   "sections": 58
   },
   "library.cyril-catecheses": {
    "sections": 25
   },
   "library.irenaeus-heresies": {
-   "sections": 8
+   "sections": 225
   },
   "library.aug-confessions": {
    "sections": 277
@@ -163,19 +174,65 @@
    "sections": 32
   },
   "library.catherine-dialogue": {
-   "sections": 7
+   "sections": 97
   },
   "library.lawrence-practice": {
    "sections": 21
   },
+  "library.chrys-acts": {
+   "sections": 55
+  },
+  "library.chrys-romans": {
+   "sections": 33
+  },
+  "library.chrys-1cor": {
+   "sections": 45
+  },
+  "library.chrys-2cor": {
+   "sections": 30
+  },
+  "library.chrys-hebrews": {
+   "sections": 36
+  },
+  "library.aug-sermon-mount": {
+   "sections": 48
+  },
+  "library.aug-harmony": {
+   "sections": 155
+  },
+  "library.ambrose-works": {
+   "sections": 50
+  },
+  "library.basil-works": {
+   "sections": 30
+  },
+  "library.jerome-treatises": {
+   "sections": 13
+  },
+  "library.jerome-letters": {
+   "sections": 150
+  },
+  "library.origen-celsus": {
+   "sections": 26
+  },
+  "library.aquinas-summa": {
+   "articles": 3110,
+   "citations": 8193
+  },
   "library.total": {
-   "works": 11,
-   "sections": 820,
-   "indexedWords": 23646
+   "works": 24,
+   "sections": 1854,
+   "indexedWords": 34052
   },
   "curated": {
    "topics": 18,
    "cccLinksShipped": 29
+  },
+  "external": {
+   "rows": 73,
+   "caNavigator": 73,
+   "caNavigatorSkippedAmbiguous": 7,
+   "books": 28
   }
  }
 }

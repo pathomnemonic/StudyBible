@@ -1,5 +1,11 @@
 import Dexie, { type Table } from 'dexie';
 
+/** Fields the sync engine stamps on every user-created row. */
+export interface Syncable {
+  uid?: string;
+  updatedAt?: number;
+}
+
 /**
  * Everything the user creates lives here, in IndexedDB on their own device, private by default.
  * Scripture links use *anchor* ids (Clementine Vulgate numbering, see versification.ts) so they survive a
@@ -17,7 +23,7 @@ export type Target =
 
 export type NoteKind = 'note' | 'question' | 'study' | 'prayer';
 
-export interface Note {
+export interface Note extends Syncable {
   id?: number;
   title?: string;
   body: string; // Markdown
@@ -34,7 +40,7 @@ export interface Note {
 
 export type HighlightColor = 'yellow' | 'green' | 'blue' | 'pink' | 'orange' | 'purple';
 
-export interface Highlight {
+export interface Highlight extends Syncable {
   id?: number;
   ref: string; // anchor refId of a verse range
   book: string;
@@ -44,7 +50,7 @@ export interface Highlight {
   createdAt: number;
 }
 
-export interface Bookmark {
+export interface Bookmark extends Syncable {
   id?: number;
   ref: string;
   kind: 'bookmark' | 'later';
@@ -53,13 +59,13 @@ export interface Bookmark {
   createdAt: number;
 }
 
-export interface Folder {
+export interface Folder extends Syncable {
   id?: number;
   name: string;
   createdAt: number;
 }
 
-export interface Collection {
+export interface Collection extends Syncable {
   id?: number;
   name: string;
   description?: string;
@@ -68,7 +74,7 @@ export interface Collection {
   updatedAt: number;
 }
 
-export interface UserXref {
+export interface UserXref extends Syncable {
   id?: number;
   from: string;
   to: string;
@@ -76,7 +82,7 @@ export interface UserXref {
   createdAt: number;
 }
 
-export interface JournalEntry {
+export interface JournalEntry extends Syncable {
   id?: number;
   date: string; // YYYY-MM-DD
   kind: 'journal' | 'intention' | 'prayer';
@@ -88,7 +94,7 @@ export interface JournalEntry {
   updatedAt: number;
 }
 
-export interface PlanProgress {
+export interface PlanProgress extends Syncable {
   planId: string; // builtin id or "user:<id>"
   startedAt: number;
   status: 'active' | 'paused' | 'finished';
@@ -99,7 +105,7 @@ export interface PlanProgress {
   pausedAt?: number;
 }
 
-export interface UserPlan {
+export interface UserPlan extends Syncable {
   id?: number;
   name: string;
   description?: string;
@@ -107,7 +113,7 @@ export interface UserPlan {
   createdAt: number;
 }
 
-export interface EpisodeProgress {
+export interface EpisodeProgress extends Syncable {
   episodeId: string;
   position: number; // seconds
   duration?: number;
@@ -115,13 +121,13 @@ export interface EpisodeProgress {
   updatedAt: number;
 }
 
-export interface QueueItem {
+export interface QueueItem extends Syncable {
   id?: number;
   episodeId: string;
   order: number;
 }
 
-export interface SavedSearch {
+export interface SavedSearch extends Syncable {
   id?: number;
   query: string;
   filters?: Record<string, string>;
@@ -142,7 +148,7 @@ export interface HistoryEntry {
   label: string;
 }
 
-export interface SavedItem {
+export interface SavedItem extends Syncable {
   id?: number;
   key: string; // unique key e.g. "reading:2026-10-19", "ccc:1324"
   type: 'reading' | 'catechism' | 'work' | 'commentary';
@@ -151,14 +157,14 @@ export interface SavedItem {
   createdAt: number;
 }
 
-export interface LibraryProgress {
+export interface LibraryProgress extends Syncable {
   workId: string;
   section: string;
   scroll?: number;
   updatedAt: number;
 }
 
-export interface MediaItem {
+export interface MediaItem extends Syncable {
   id?: number;
   title: string;
   url: string;
@@ -167,15 +173,44 @@ export interface MediaItem {
   createdAt: number;
 }
 
+export interface UserLink extends Syncable {
+  id?: number;
+  ref: string; // anchor passage id
+  url: string;
+  title: string;
+  sourceId?: string; // 'catholic-answers' | 'word-on-fire' | 'ascension' | ...
+  note?: string;
+  createdAt: number;
+}
+
+export interface Tombstone {
+  id?: number;
+  tbl: string;
+  uid: string;
+  updatedAt: number;
+}
+
 export interface CacheRow {
   key: string;
   value: unknown;
   ts: number;
 }
 
+export const newUid = () => (crypto.randomUUID ? crypto.randomUUID() : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}-${Math.random().toString(36).slice(2)}`);
+
+/** Tables with an auto-increment local id; sync matches them across devices by `uid`. */
+export const AUTO_TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'userPlans', 'saved', 'media', 'queue', 'savedSearches', 'userLinks'] as const;
+/** Tables keyed by a natural id (their key *is* the sync uid). */
+export const KEYED_TABLES: Record<string, string> = { planProgress: 'planId', episodeProgress: 'episodeId', libraryProgress: 'workId' };
+
+/** Set by the sync engine while it applies remote changes, so those writes are not re-stamped or tombstoned. */
+export const syncFlags = { applying: false, onLocalChange: (() => {}) as () => void };
+
 class StudyBibleDB extends Dexie {
   cache!: Table<CacheRow, string>;
   media!: Table<MediaItem, number>;
+  userLinks!: Table<UserLink, number>;
+  tombs!: Table<Tombstone, number>;
   notes!: Table<Note, number>;
   highlights!: Table<Highlight, number>;
   bookmarks!: Table<Bookmark, number>;
@@ -215,6 +250,78 @@ class StudyBibleDB extends Dexie {
     });
     this.version(2).stores({ cache: 'key' });
     this.version(3).stores({ media: '++id, createdAt' });
+    // v4: every user-created table gets a `uid` (stable across devices) for sync; tombstones record deletions.
+    this.version(4)
+      .stores({
+        notes: '++id, kind, folderId, updatedAt, *tags, *chapterKeys, uid',
+        highlights: '++id, [book+c], ref, color, uid',
+        bookmarks: '++id, ref, kind, createdAt, uid',
+        folders: '++id, uid',
+        collections: '++id, updatedAt, uid',
+        userXrefs: '++id, from, to, uid',
+        journal: '++id, date, kind, updatedAt, uid',
+        userPlans: '++id, uid',
+        saved: '++id, &key, type, uid',
+        media: '++id, createdAt, uid',
+        queue: '++id, order, episodeId, uid',
+        savedSearches: '++id, uid',
+        userLinks: '++id, ref, uid',
+        tombs: '++id, tbl',
+      })
+      .upgrade(async (tx) => {
+        for (const t of AUTO_TABLES) {
+          await tx.table(t).toCollection().modify((r: any) => {
+            r.uid ??= newUid();
+            r.updatedAt ??= r.createdAt ?? Date.now();
+          });
+        }
+      });
+    this.installSyncHooks();
+  }
+
+  private installSyncHooks() {
+    for (const name of AUTO_TABLES) {
+      const t = this.table(name);
+      t.hook('creating', (_pk, obj: any) => {
+        if (syncFlags.applying) return;
+        obj.uid ??= newUid();
+        obj.updatedAt = Date.now();
+        queueMicrotask(() => syncFlags.onLocalChange());
+      });
+      t.hook('updating', () => {
+        if (syncFlags.applying) return;
+        queueMicrotask(() => syncFlags.onLocalChange());
+        return { updatedAt: Date.now() };
+      });
+      t.hook('deleting', function (_pk, obj: any) {
+        if (syncFlags.applying || !obj?.uid) return;
+        const uid = obj.uid as string;
+        // runs after the delete commits (a different table cannot be written inside this transaction)
+        this.onsuccess = () => {
+          db.tombs.add({ tbl: name, uid, updatedAt: Date.now() }).then(() => syncFlags.onLocalChange());
+        };
+      });
+    }
+    for (const [name, key] of Object.entries(KEYED_TABLES)) {
+      const t = this.table(name);
+      t.hook('creating', (_pk, obj: any) => {
+        if (syncFlags.applying) return;
+        obj.uid = obj[key];
+        obj.updatedAt = Date.now();
+        queueMicrotask(() => syncFlags.onLocalChange());
+      });
+      t.hook('updating', () => {
+        if (syncFlags.applying) return;
+        queueMicrotask(() => syncFlags.onLocalChange());
+        return { updatedAt: Date.now() };
+      });
+      t.hook('deleting', function (pk: any) {
+        if (syncFlags.applying) return;
+        this.onsuccess = () => {
+          db.tombs.add({ tbl: name, uid: String(pk), updatedAt: Date.now() }).then(() => syncFlags.onLocalChange());
+        };
+      });
+    }
   }
 }
 

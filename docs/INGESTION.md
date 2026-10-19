@@ -33,3 +33,7 @@
 - **Another podcast/feed**: copy `biay.ts`, change the feed and overrides.
 - **A licensed edition**: see docs/LICENSING.md and add an entry to `editions.json` with its `scheme`.
 - **Fix a mapping**: add an override (`biay-overrides.json`) or a verified versification rule (`bible.ts` → `verifiedExtra`), re-run the build and tests.
+
+## Round 2 pipeline
+Order: bible → xrefs → catena (SWORD zCom) → biay → haydock (MyBible sqlite) → library (CCEL, modes tractates/psalm-roman/john-dot/homily-start/summa-index/tags) → curated → external.
+External resources: `data/curated/external-resources.json` (needs `reviewedBy`/`reviewedOn`), `data/licensed/external-*.jsonl` (only with written permission), and `data/curated/ca-bible-navigator-urls.txt` (sitemap URL slugs → passages). Output: `public/data/resources/<BOOK>.json` + `catalog.json`.

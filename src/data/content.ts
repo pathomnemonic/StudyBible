@@ -12,6 +12,8 @@ export const getCatena = (book: string) => getJson<{ source: string; groups: Cat
 export const getGlossa = (book: string) => getJson<Record<string, [string, string][]>>(`commentary/glossa/${book}.json`, true);
 
 export interface LibraryWorkMeta {
+  indexOnly?: boolean;
+  sectionUrl?: string;
   id: string;
   title: string;
   author: string;
@@ -92,3 +94,25 @@ export const CCC_OFFICIAL = 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM';
 
 export interface Entity { id: string; name: string; kind: 'person' | 'place'; aliases: string[]; passages: string[] }
 export const getEntities = () => getJson<Entity[]>('doctrine/entities.json', true);
+
+/** [c1, v1, c2, v2, text] */
+export type HaydockEntry = [number, number, number, number, string];
+export const getHaydock = (book: string) => getJson<HaydockEntry[]>(`commentary/haydock/${book}.json`, true);
+
+/** [c1, v1, c2, v2, resourceId] */
+export type ResourceRef = [number, number, number, number, string];
+export interface ResourceRow {
+  id: string;
+  source: string;
+  type: string;
+  title: string;
+  url: string;
+  author?: string;
+  date?: string;
+  how: 'publisher-supplied' | 'human-reviewed' | 'url-slug';
+  note?: string;
+  reviewedBy?: string;
+  reviewedOn?: string;
+}
+export const getResourceRefs = (book: string) => getJson<ResourceRef[]>(`resources/${book}.json`, true);
+export const getResourceCatalog = () => getJson<Record<string, ResourceRow>>('resources/catalog.json', true);

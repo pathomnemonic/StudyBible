@@ -1,30 +1,32 @@
 {
  "work": "Catena Aurea (Golden Chain)",
  "author": "St. Thomas Aquinas (compiler); quoting the Fathers of the Church",
- "translation": "English translation (Oxford, 1841–1845, J.H. Newman et al.); text as published by CCEL",
- "publication": "London: J.G.F. and J. Rivington, 1842",
+ "translation": "English translation of 1841–45 (published by J.G.F. and J. Rivington, London 1842), by John Henry Newman and colleagues",
+ "module": "CrossWire SWORD module “Catena” v1.0.1 — Public Domain; compiled from public-domain sources, checked against scans of the original publication, converted to OSIS by Tom Lemmens (github.com/lemtom/catena)",
  "rights": "public-domain",
- "note": "CCEL metadata lists the translator inconsistently; the printed edition is the Rivington/Oxford translation. Verified by the structure of the source itself: each patristic excerpt follows the verse of the Gospel it comments on.",
- "url": "https://ccel.org/ccel/aquinas",
+ "url": "https://crosswire.org/sword/modules/ModInfo.jsp?modName=Catena",
  "retrieved": "2026-10-19",
+ "note": "Verse links are those of the Catena itself: each patristic excerpt appears beneath the verse(s) of the Gospel it was set to comment on.",
  "volumes": [
   {
    "book": "MAT",
-   "ccelId": "catena1",
-   "title": "Catena Aurea: Gospel of Matthew",
    "groups": 283,
-   "items": 6112
+   "items": 3825
   },
   {
    "book": "MRK",
-   "ccelId": "catena2",
-   "title": "Catena Aurea: Gospel of Mark",
-   "groups": 105,
-   "items": 2464
+   "groups": 108,
+   "items": 1296
+  },
+  {
+   "book": "LUK",
+   "groups": 244,
+   "items": 3518
+  },
+  {
+   "book": "JHN",
+   "groups": 186,
+   "items": 2699
   }
- ],
- "missing": [
-  "Luke (CCEL volume not available)",
-  "John (CCEL volume not available)"
  ]
 }

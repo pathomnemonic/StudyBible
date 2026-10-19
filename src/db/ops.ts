@@ -81,7 +81,7 @@ export async function toggleBookmark(ref: Ref, kind: Bookmark['kind'] = 'bookmar
 // Export / import
 // ---------------------------------------------------------------------------
 
-const TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'planProgress', 'userPlans', 'episodeProgress', 'queue', 'savedSearches', 'recentSearches', 'history', 'saved', 'libraryProgress', 'media'] as const;
+const TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'planProgress', 'userPlans', 'episodeProgress', 'queue', 'savedSearches', 'recentSearches', 'history', 'saved', 'libraryProgress', 'media', 'userLinks'] as const;
 
 export async function exportAll(): Promise<string> {
   const out: Record<string, unknown> = { format: 'studybible-export', version: 1, exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate' };
@@ -106,6 +106,14 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
           if (t === 'saved') {
             const ex = await db.saved.where('key').equals(rec.key).first();
             if (ex) continue;
+          }
+          // Re-importing an export must not duplicate rows: match by uid and keep the newer one.
+          if (rec.uid) {
+            const ex = await (db as any)[t].where('uid').equals(rec.uid).first();
+            if (ex) {
+              if ((ex.updatedAt ?? 0) < (rec.updatedAt ?? 0)) await (db as any)[t].put({ ...rec, id: ex.id });
+              continue;
+            }
           }
           await (db as any)[t].add(rec);
         }

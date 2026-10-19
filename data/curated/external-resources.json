@@ -1,0 +1,4 @@
+{
+  "_about": "Hand-reviewed links from Catholic publishers to Bible passages. Add an entry only after a person has read the page and confirmed it discusses the passage. `refs` are ordinary references in modern numbering (e.g. \"John 6:51-58\"). `note` must be your own short words, never a copy of the publisher's text. Entries without reviewedBy/reviewedOn are rejected by the build. Publishers that forbid automated collection (e.g. Catholic Answers: Terms of Service) must only be added this way or from a dataset they supply under an agreement (data/licensed/external-*.jsonl).",
+  "resources": []
+}

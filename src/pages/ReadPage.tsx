@@ -19,6 +19,7 @@ import Modal from '../components/Modal';
 import StudyPanel from '../components/StudyPanel';
 import TextSettings from '../components/TextSettings';
 import CompareModal from '../components/CompareModal';
+import { verseResourceCounts } from '../study/density';
 
 const COLORS: HighlightColor[] = ['yellow', 'green', 'blue', 'pink', 'orange', 'purple'];
 
@@ -53,9 +54,11 @@ export default function ReadPage() {
   const [noteFor, setNoteFor] = useState<Target[] | null>(null);
   const [panel, setPanel] = useState(false);
   const [compare, setCompare] = useState(false);
+  const [shortcuts, setShortcuts] = useState(false);
   const [textSettings, setTextSettings] = useState(false);
   const [editionPicker, setEditionPicker] = useState(false);
   const lastClicked = useRef<number | null>(null);
+  const [anchorDensity, setAnchorDensity] = useState<Map<number, number>>(new Map());
 
   // -------- load text
   useEffect(() => {
@@ -81,6 +84,33 @@ export default function ReadPage() {
     for (const v of flat) m.set(v.n, toAnchor(edition.scheme, bk.id, chNum, v.n));
     return m;
   }, [flat, edition.scheme, bk.id, chNum]);
+
+  // how many resources are connected to each verse (margin markers)
+  useEffect(() => {
+    let live = true;
+    setAnchorDensity(new Map());
+    (async () => {
+      const merged = new Map<number, number>();
+      for (const c of anchorChapters) {
+        const vc = (editions.find((e) => e.scheme === 'vulgate') ?? edition).verseCounts?.[bk.id]?.[c - 1] ?? 0;
+        if (!vc) continue;
+        const m = await verseResourceCounts(bk.id, c, vc);
+        for (const [v, n] of m) merged.set(c * 1000 + v, n);
+      }
+      if (live) setAnchorDensity(merged);
+    })().catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, [bk.id, anchorChapters.join(), edition.id]);
+  const density = useMemo(() => {
+    const m = new Map<number, number>();
+    for (const [n, a] of anchorOf) {
+      const d = anchorDensity.get(a.c * 1000 + a.v1);
+      if (d) m.set(n, d);
+    }
+    return m;
+  }, [anchorOf, anchorDensity]);
 
   // -------- deep link ?v=51-58 and remember position
   const vParam = sp.get('v');
@@ -195,6 +225,8 @@ export default function ReadPage() {
     () => parallelMode || groupConsecutive(selNative).every(([a, b]) => nativeToAnchorRef(edition, bk.id, chNum, a, b).exact),
     [selNative, parallelMode, edition, bk.id, chNum],
   );
+  const selRefsRef = useRef<Ref[]>([]);
+  selRefsRef.current = selRefs;
   const hasSel = selRefs.length > 0;
   const clearSel = () => {
     setSelNative([]);
@@ -269,13 +301,37 @@ export default function ReadPage() {
     await navigator.clipboard?.writeText(`${base}#/read/${edition.id}/${bk.id}/${chNum}?v=${a}${b !== a ? '-' + b : ''}`);
   };
 
+  // -------- keyboard shortcuts
+  const keyRef = useRef({ prev, next, applyColor, hasSel, panel, clearSel });
+  keyRef.current = { prev, next, applyColor, hasSel, panel, clearSel };
+  useEffect(() => {
+    const h = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement;
+      if (t.closest('input,textarea,select,[contenteditable],[role=dialog]') || e.metaKey || e.ctrlKey || e.altKey) return;
+      const k = keyRef.current;
+      if (e.key === 'ArrowLeft') k.prev();
+      else if (e.key === 'ArrowRight') k.next();
+      else if (e.key === 's' && k.hasSel) setPanel((p) => !p);
+      else if (e.key === 'n' && k.hasSel) {
+        e.preventDefault();
+        setNoteFor(selRefsRef.current.map((r) => ({ type: 'passage', ref: refId(r) })));
+      } else if (/^[1-6]$/.test(e.key) && k.hasSel) k.applyColor(COLORS[+e.key - 1]);
+      else if (e.key === 'Escape') {
+        if (k.panel) setPanel(false);
+        else k.clearSel();
+      } else if (e.key === '?') setShortcuts(true);
+    };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  }, []);
+
   // -------- header labels
   const psalmDual = bk.id === 'PSA' && edition.scheme === 'vulgate' ? psalmDualLabel(chNum) : '';
   const chapterNote = chapterAlignmentNote(edition.scheme, bk.id, chNum) ?? bookAlignmentNote(edition.scheme, bk.id);
   const selLabel = selRefs.map((r) => formatRef(r, { abbr: true })).join('; ');
 
   return (
-    <div className={`reader${settings.showVerseNumbers ? '' : ' hide-nums'}`}>
+    <div className={`reader${settings.showVerseNumbers ? '' : ' hide-nums'}${panel && hasSel ? ' has-panel' : ''}`}>
       <div className="reader-col">
         <div className="reader-bar">
           <button className="icon-btn" onClick={prev} aria-label="Previous chapter">
@@ -285,9 +341,16 @@ export default function ReadPage() {
             <button className="title-btn" onClick={() => setPicker(true)} aria-haspopup="dialog">
               {bk.name} {chNum}
             </button>
-            <button className="chip" onClick={() => setEditionPicker(true)} aria-label={`Translation: ${edition.name}. Change translation`}>
+            <button className="chip ed-chip" onClick={() => setEditionPicker(true)} aria-label={`Translation: ${edition.name}. Change translation`}>
               {edition.shortName}
             </button>
+            <span className="ed-switch segmented" role="group" aria-label="Translation">
+              {editions.map((e) => (
+                <button key={e.id} aria-pressed={e.id === edition.id} onClick={() => e.id !== edition.id && switchEdition(e.id)} title={e.name}>
+                  {e.shortName}
+                </button>
+              ))}
+            </span>
             {parallel && (
               <button className="chip" onClick={() => setEditionPicker(true)} aria-label="Change parallel translation">
                 ‖ {parallel.shortName}
@@ -329,7 +392,7 @@ export default function ReadPage() {
             {chNum === 1 && data.intro && data.intro.length > 0 && data.intro.map((p, i) => <p key={i} className="subtitle">{p}</p>)}
             {chNum === 1 && bk.note && <div className="notice info">{bk.note}</div>}
             {chapterNote && <div className="notice">{chapterNote}</div>}
-            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} />
+            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} />
             {chapterData.notes && Object.keys(chapterData.notes).length > 0 && (
               <section aria-label="Footnotes" className="subtitle" style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 8 }}>
                 <strong>Notes</strong>
@@ -428,6 +491,17 @@ export default function ReadPage() {
       )}
       {noteFor && <NoteEditor initialTargets={noteFor} originEdition={edition.id} onClose={() => setNoteFor(null)} />}
       {compare && hasSel && <CompareModal refs={selRefs} editions={editions} onClose={() => setCompare(false)} />}
+      {shortcuts && (
+        <Modal title="Keyboard shortcuts" onClose={() => setShortcuts(false)}>
+          <table className="small">
+            <tbody>
+              {[['Ctrl/⌘ K', 'Jump to a passage, search, go anywhere'], ['← / →', 'Previous / next chapter'], ['Click, Shift-click', 'Select verse / range'], ['S', 'Open or close the study panel'], ['N', 'Note on the selection'], ['1–6', 'Highlight colours'], ['Esc', 'Close panel / clear selection'], ['?', 'This help']].map(([k, d]) => (
+                <tr key={k}><td style={{ paddingRight: 16 }}><kbd>{k}</kbd></td><td>{d}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </Modal>
+      )}
       {textSettings && <TextSettings onClose={() => setTextSettings(false)} />}
       {editionPicker && (
         <Modal title="Translations" onClose={() => setEditionPicker(false)}>

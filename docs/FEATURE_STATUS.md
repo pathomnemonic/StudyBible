@@ -19,7 +19,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Verse study panel with provenance, authority level and match reason on every item | **Working** | Never lists a source for a verse unless the data links it; empty sections say so. |
 | Catechism links | **Partial** | 29 verse-level citations, each verified against the paragraph text; topic ranges for 18 doctrine topics. The full Scripture index of the CCC needs a licensed data file. CCC text is never stored. |
-| Church Fathers: Catena Aurea (Matthew, Mark), Augustine, Chrysostom, Irenaeus, Athanasius, Cyril, Glossa Ordinaria (Latin) | **Working** | Public-domain translations from CCEL; Luke and John Catena volumes are not available from CCEL. |
+| Church Fathers: Catena Aurea (all four Gospels, CrossWire), Haydock Catholic Bible Commentary (protocanon), Augustine, Chrysostom, Irenaeus, Athanasius, Cyril, Glossa Ordinaria (Latin) | **Working** | Public-domain: CrossWire Catena (Public Domain licence), SermonIndex Haydock module, CCEL translations. 24 works in the library plus a link-out Summa index. |
 | Saints library (Teresa of Ávila, Catherine of Siena, Brother Lawrence) | **Partial** | Several popular translations were left out because their copyright status could not be verified. |
 | Popes and Vatican documents | **Partial** | Linked (not copied) with authority labels; text search of them is not included. |
 | Catholic Answers, Word on Fire, Ascension Presents | **Needs credentials / agreement** | No public APIs or reuse licences. Only search links and a curated-link schema are provided; no content is imported. A partnership/licence would unlock richer integration. |
@@ -55,7 +55,13 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Notes (Markdown), highlights (6 colours), bookmarks, folders, tags, collections, personal cross-references, journal, export/import | **Working** | Stored in IndexedDB on the device, anchored to stable Vulgate-based ids so they survive translation changes. |
-| Cross-device sync & accounts | **Planned** | Local-first by design. A SyncAdapter interface is defined (src/db/sync.ts); a backend (e.g. an end-to-end-encrypted store) must be provided. Until then use export/import. |
+| Accounts & cross-device sync | **Working** | Optional: needs the bundled Node server (npm start) that you host yourself; the app works fully offline without it. Last-writer-wins sync of notes, highlights, bookmarks, journal, plans and attached links. Not end-to-end encrypted; no email password reset. See docs/SERVER.md. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Catholic Answers articles linked to verses | **Needs licence** | Catholic Answers’ Terms of Service forbid automated collection into a database without written permission. Shipped instead: 73 Bible Navigator pages by URL slug, user-attached links, a permission-ready import path (data/licensed/) and search links. See docs/OUTREACH_CATHOLIC_ANSWERS.md. |
 
 ## Platform
 

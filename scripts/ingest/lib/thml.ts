@@ -28,6 +28,8 @@ export function plain(s: string): string {
 export interface ScripRef {
   osis: string;
   passage?: string;
+  /** true when the tag says the numbering is Vulgate (osisRef="Bible.vul:…") */
+  vulgate?: boolean;
 }
 
 /** All OSIS scripture references tagged inside a fragment of ThML. */
@@ -35,7 +37,7 @@ export function scripRefs(s: string): ScripRef[] {
   const out: ScripRef[] = [];
   for (const m of s.matchAll(/<scripRef\b([^>]*)>/g)) {
     const osis = /osisRef="([^"]*)"/.exec(m[1])?.[1];
-    if (osis) out.push({ osis: osis.replace(/^Bible:/, ''), passage: /passage="([^"]*)"/.exec(m[1])?.[1] });
+    if (osis) out.push({ osis: osis.replace(/^Bible(?:\.[a-z]+)?:/, ''), passage: /passage="([^"]*)"/.exec(m[1])?.[1], vulgate: /^Bible\.vul:/.test(osis) });
   }
   return out;
 }

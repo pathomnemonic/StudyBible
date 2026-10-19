@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { refId, type Ref } from '../../src/lib/refs';
 import { toAnchor } from '../../src/lib/versification';
 import { PUBLIC_DATA, RAW, readJson, REGISTRY, Report, today, writeJson, exists } from './lib/util';
+import { BOOK_BY_ID } from '../../src/lib/canon';
 import { decodeEntities, parseOsis, plain, scripRefs } from './lib/thml';
 
 interface WorkCfg {
@@ -16,7 +17,10 @@ interface WorkCfg {
   kind: string;
   year?: string;
   rootTitle?: string | null;
-  scriptureMode: 'tractates' | 'psalm-roman' | 'john-dot' | 'tags';
+  scriptureMode: 'tractates' | 'psalm-roman' | 'john-dot' | 'homily-start' | 'summa-index' | 'tags';
+  book?: string;
+  indexOnly?: boolean;
+  sectionUrl?: string;
   psalmTags?: 'vulgate' | 'english' | 'skip';
   sectionLabel?: string;
   skipTitles?: string[];
@@ -80,6 +84,24 @@ function sectionsOf(xml: string, cfg: WorkCfg): { title: string; id: string; bod
   const skip = (t: string) => (cfg.skipTitles ?? ['Title Page', 'Preface', 'Index']).some((s) => t.toLowerCase().startsWith(s.toLowerCase()));
   const roots = cfg.rootTitle ? div1s.filter((d) => d.title.includes(cfg.rootTitle!) || new RegExp(cfg.rootTitle!, 'i').test(d.title)) : div1s.filter((d) => !skip(d.title));
   const out: { title: string; id: string; body: string }[] = [];
+  const finer = (items: { title: string; id: string; body: string }[]) => {
+    // Works delivered as a few giant sections are split at the next level down so they can be read and linked sensibly.
+    if (items.length >= 10) return items;
+    const res: { title: string; id: string; body: string }[] = [];
+    for (const it of items) {
+      const kids = [...it.body.matchAll(/<div3\b([^>]*)>([\s\S]*?)(?=<div3\b|$)/g)];
+      if (kids.length < 2) {
+        res.push(it);
+        continue;
+      }
+      for (const k of kids) {
+        const t = decodeEntities(/title="([^"]*)"/.exec(k[1])?.[1] ?? '');
+        if (skip(t)) continue;
+        res.push({ title: `${it.title} — ${t}`, id: /\bid="([^"]*)"/.exec(k[1])?.[1] ?? '', body: k[2] });
+      }
+    }
+    return res;
+  };
   for (const r of roots) {
     const div2s = [...r.body.matchAll(/<div2\b([^>]*)>([\s\S]*?)(?=<div2\b|$)/g)];
     if (!div2s.length) {
@@ -92,7 +114,7 @@ function sectionsOf(xml: string, cfg: WorkCfg): { title: string; id: string; bod
       out.push({ title, id: /\bid="([^"]*)"/.exec(d[1])?.[1] ?? '', body: d[2] });
     }
   }
-  return out;
+  return finer(out);
 }
 
 interface TagHit {
@@ -108,20 +130,26 @@ export function buildLibrary(report: Report) {
   const sectionIndex: [string, number][] = []; // global section idx → [workId, sectionIdx]
   let globalIdx = 0;
 
+  const vc: Record<string, number[]> = readJson(join(PUBLIC_DATA, 'editions.json')).editions.find((e: any) => e.id === 'vulgate').verseCounts;
   const pushScripture = (book: string, entry: any[]) => (scriptureIndex.get(book) ?? scriptureIndex.set(book, []).get(book)!).push(entry);
 
   for (const cfg of cfgs) {
-    const path = join(RAW, `ccel-${cfg.id}.xml`);
+    const path = join(RAW, `ccel_${cfg.ccel.replace('/', '_')}.xml`);
     if (!exists(path)) {
       report.warn(`library: ${cfg.id} not fetched`);
       continue;
     }
     const xml = readFileSync(path, 'utf8');
+    if (cfg.scriptureMode === 'summa-index') {
+      buildSummaIndex(cfg, xml, meta, pushScripture, report);
+      continue;
+    }
     const published = decodeEntities(/<published>([^<]*)<\/published>/.exec(xml)?.[1] ?? '');
     const secs = sectionsOf(xml, cfg);
     const sections: Section[] = [];
     let ordinal = 0;
     let lastJohn: { c: number; v: number }[] = [];
+    const startHints: ({ c: number; v: number } | null)[] = [];
 
     for (const s of secs) {
       const paras: string[] = [];
@@ -137,10 +165,10 @@ export function buildLibrary(report: Report) {
         for (const r of scripRefs(raw)) {
           const p = parseOsis(r.osis);
           if (!p || p.v1 === undefined) continue;
-          if (p.book === 'PSA') {
+          if (p.book === 'PSA' && !r.vulgate) {
             if (cfg.psalmTags === 'skip' || !cfg.psalmTags) continue;
           }
-          const scheme = p.book === 'PSA' && cfg.psalmTags === 'vulgate' ? 'vulgate' : 'kjv';
+          const scheme = r.vulgate || (p.book === 'PSA' && cfg.psalmTags === 'vulgate') ? 'vulgate' : 'kjv';
           const a = scheme === 'vulgate' ? { c: p.c1, v1: p.v1, v2: p.v1 } : toAnchor('kjv', p.book, p.c1, p.v1);
           const b = p.v2 !== undefined && p.c2 === p.c1 ? (scheme === 'vulgate' ? { c: p.c1, v1: p.v2, v2: p.v2 } : toAnchor('kjv', p.book, p.c1, p.v2)) : a;
           hits.push({ ref: { book: p.book, c1: a.c, v1: a.v1, c2: a.c, v2: Math.max(b.v2, a.v1) }, snippet: context.slice(0, 300) });
@@ -164,6 +192,17 @@ export function buildLibrary(report: Report) {
           title = `${cfg.sectionLabel ?? 'Section'} ${lastJohn.length}: ${s.title}`;
         }
       }
+      if (cfg.scriptureMode === 'homily-start') {
+        const tm = /\bon\s+(?:[1-3]\s*)?(?:Acts|Rom\.?|Cor\.?|Heb\.?|John)\s+([ivxlc]+)\.\s*(\d+)/i.exec(s.title) ?? /^John\s+(\d+)\.(\d+)/.exec(s.title);
+        let hint: { c: number; v: number } | null = null;
+        if (tm) hint = /^\d/.test(tm[1]) ? { c: +tm[1], v: +tm[2] } : { c: roman(tm[1]), v: +tm[2] };
+        else {
+          const h = hits.slice(0, 40).find((x) => x.ref.book === cfg.book);
+          if (h) hint = { c: h.ref.c1, v: h.ref.v1 ?? 1 };
+        }
+        startHints.push(hint);
+        title = `${cfg.sectionLabel ?? 'Section'} ${startHints.length}${hint ? ` (${BOOK_BY_ID[cfg.book!].name} ${hint.c}:${hint.v}…)` : ''}`;
+      }
       sections.push({ id: s.id, title, paras, scripture: structure.map(refId) });
       for (const r of structure) pushScripture(r.book, [r.c1, r.v1 ?? 0, r.c2, r.v2 ?? 0, cfg.id, idx, 's', '']);
       const seen = new Set<string>();
@@ -180,20 +219,20 @@ export function buildLibrary(report: Report) {
       globalIdx++;
     }
 
-    // Chrysostom-on-John: derive each homily's verse span from successive start points.
-    if (cfg.scriptureMode === 'john-dot') {
-      // sections came with a start verse in their titles; compute spans now
-      const starts = sections.map((s) => /John (\d+)\.(\d+)/.exec(s.title)).map((m) => (m ? { c: +m[1], v: +m[2] } : null));
-      sections.forEach((s, i) => {
-        const st = starts[i];
+    // Homily series: each homily's verse span runs from its start verse to just before the next homily's start.
+    if (cfg.scriptureMode === 'homily-start') {
+      const chEnd = (c: number) => vc[cfg.book!]?.[c - 1] ?? 999;
+      sections.forEach((sec, i) => {
+        const st = startHints[i];
         if (!st) return;
-        const nx = starts.slice(i + 1).find(Boolean);
+        const nx = startHints.slice(i + 1).find((x) => x && (x.c > st.c || (x.c === st.c && x.v > st.v)));
         let r: Ref;
-        if (nx && nx.c === st.c) r = { book: 'JHN', c1: st.c, v1: st.v, c2: st.c, v2: Math.max(st.v, nx.v - (nx.v > st.v ? 1 : 0)) };
-        else if (nx && nx.c > st.c) r = { book: 'JHN', c1: st.c, v1: st.v, c2: st.c, v2: 999 };
-        else r = { book: 'JHN', c1: st.c, v1: st.v, c2: st.c, v2: 999 };
-        s.scripture = [refId(r)];
-        pushScripture('JHN', [r.c1, r.v1!, r.c2, r.v2!, cfg.id, i, 's', '']);
+        if (!nx) r = { book: cfg.book!, c1: st.c, v1: st.v, c2: st.c, v2: chEnd(st.c) };
+        else if (nx.c === st.c) r = { book: cfg.book!, c1: st.c, v1: st.v, c2: st.c, v2: nx.v - 1 };
+        else if (nx.v > 1) r = { book: cfg.book!, c1: st.c, v1: st.v, c2: nx.c, v2: nx.v - 1 };
+        else r = { book: cfg.book!, c1: st.c, v1: st.v, c2: nx.c - 1, v2: chEnd(nx.c - 1) };
+        sec.scripture = [refId(r)];
+        pushScripture(cfg.book!, [r.c1, r.v1!, r.c2, r.v2!, cfg.id, i, 's', '']);
       });
     }
 
@@ -227,4 +266,45 @@ export function buildLibrary(report: Report) {
   for (const [w, ids] of postings) if (ids.length < globalIdx * 0.6) post[w] = ids;
   writeJson(join(PUBLIC_DATA, 'library/fulltext-index.json'), { sections: sectionIndex, postings: post });
   report.stats['library.total'] = { works: meta.length, sections: globalIdx, indexedWords: Object.keys(post).length };
+}
+
+
+/** Index-only treatment of a very large work: store which articles cite which verses (with a short snippet) and link out for the text. */
+function buildSummaIndex(cfg: WorkCfg, xml: string, meta: any[], push: (book: string, entry: any[]) => void, report: Report) {
+  const articles = [...xml.matchAll(/<div4\b([^>]*)>([\s\S]*?)(?=<div4\b|<div3\b|<div2\b|<div1\b|<\/ThML\.body>)/g)];
+  const sections: { id: string; title: string; scripture: string[]; words: number }[] = [];
+  let cites = 0;
+  for (const a of articles) {
+    const id = /\bid="([^"]*)"/.exec(a[1])?.[1];
+    const title = decodeEntities(/title="([^"]*)"/.exec(a[1])?.[1] ?? '');
+    if (!id || !/^(FP|FS|SS|TP|XP)_Q\d+_A\d+$/.test(id)) continue;
+    const idx = sections.length;
+    sections.push({ id, title: title.replace(/^Article\.\s*/, ''), scripture: [], words: 0 });
+    const seen = new Set<string>();
+    for (const pm of a[2].matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)) {
+      const raw = pm[1];
+      if (!raw.includes('<scripRef')) continue;
+      const t = plain(raw);
+      for (const r of scripRefs(raw)) {
+        const p = parseOsis(r.osis);
+        if (!p || p.v1 === undefined) continue;
+        // The Summa's tags carry osisRef="Bible.vul:…": Vulgate numbering, i.e. the anchor itself (Psalms included).
+        const conv = (v: number) => (r.vulgate ? { c: p.c1, v1: v, v2: v } : toAnchor('kjv', p.book, p.c1, v));
+        const x = conv(p.v1);
+        const y = p.v2 !== undefined && p.c2 === p.c1 ? conv(p.v2) : x;
+        const key = `${p.book}.${x.c}.${x.v1}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        push(p.book, [x.c, x.v1, x.c, Math.max(y.v2, x.v1), cfg.id, idx, 't', t.slice(0, 300)]);
+        cites++;
+      }
+    }
+  }
+  meta.push({
+    id: cfg.id, title: cfg.title, author: cfg.author, authorId: cfg.authorId, period: cfg.period, authority: cfg.authority, kind: cfg.kind, year: cfg.year,
+    description: cfg.description, scriptureMode: cfg.scriptureMode, translator: (cfg as any).translator, rightsEvidence: (cfg as any).rightsEvidence,
+    source: { name: 'Christian Classics Ethereal Library (CCEL)', url: `https://ccel.org/ccel/${cfg.ccel}`, retrieved: today() },
+    rights: 'public-domain', format: 'excerpt', indexOnly: true, sectionUrl: cfg.sectionUrl, sections,
+  });
+  report.stats[`library.${cfg.id}`] = { articles: sections.length, citations: cites };
 }

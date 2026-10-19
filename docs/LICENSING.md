@@ -24,3 +24,10 @@
 ## Attribution
 
 Each edition's `attribution` string is displayed under every chapter; each study item shows its source and rights note; the Sources page lists everything.
+
+## Round 2 additions
+* Catena Aurea: CrossWire `Catena` module, `DistributionLicense=Public Domain` (checked at build time).
+* Haydock Commentary: SermonIndex MyBible module, public domain (checked in module info).
+* Extra library works: CCEL ThML volumes, each with translator and rights evidence in `data/registry/library.json`; John of the Cross (Peers), Devout Life and the 1949 Imitation are excluded.
+* Summa Theologiae: index only (≤300-char snippets + link-out).
+* Catholic Answers / Word on Fire / Ascension: link-only; CA's ToS forbid automated collection, so no crawl.

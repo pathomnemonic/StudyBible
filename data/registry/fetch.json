@@ -42,20 +42,20 @@
       "note": "Official public podcast RSS feed of The Bible in a Year (with Fr. Mike Schmitz), Ascension. Only metadata (titles, dates, descriptions, enclosure links) is used; audio is never copied."
     },
     {
-      "id": "ccel-catena1",
-      "url": "https://www.ccel.org/ccel/aquinas/catena1.xml",
-      "file": "catena1.xml",
-      "terms": "https://ccel.org/ccel/aquinas",
+      "id": "crosswire-catena",
+      "url": "https://crosswire.org/ftpmirror/pub/sword/packages/rawzip/Catena.zip",
+      "file": "Catena.sword.zip",
+      "terms": "https://crosswire.org/sword/modules/ModInfo.jsp?modName=Catena",
       "rights": "public-domain",
-      "note": "Catena Aurea, Gospel of Matthew (Aquinas; English translation, London 1842). Public-domain text distributed by CCEL as ThML. Luke and John volumes are not available from CCEL under this id."
+      "note": "CrossWire SWORD module 'Catena' (Catena Aurea, Newman translation 1842), DistributionLicense=Public Domain; text source https://github.com/lemtom/catena/ (Tom Lemmens). Covers Matthew, Mark, Luke, John."
     },
     {
-      "id": "ccel-catena2",
-      "url": "https://www.ccel.org/ccel/aquinas/catena2.xml",
-      "file": "catena2.xml",
-      "terms": "https://ccel.org/ccel/aquinas",
+      "id": "sermonindex-haydock",
+      "url": "https://www.sermonindex.net/modules/mybible/SI-HAYDOCKC.commentaries.zip",
+      "file": "haydock.mybible.zip",
+      "terms": "https://www.sermonindex.net/commentary/haydock-c/",
       "rights": "public-domain",
-      "note": "Catena Aurea, Gospel of Mark (Aquinas; English translation, London 1842). Public-domain text distributed by CCEL as ThML. Luke and John volumes are not available from CCEL under this id."
+      "note": "Haydock's Catholic Bible Commentary (Geo. L. Haydock, 1811; Douay-Rheims edition 1859), MyBible SQLite module prepared by SermonIndex.net, stated Public Domain. Verse-by-verse, Vulgate/Douay numbering, protocanonical books only."
     }
   ]
 }

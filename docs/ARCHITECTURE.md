@@ -61,3 +61,6 @@ Not implemented; local-first by choice. The intended design: end-to-end encrypt 
 ## Offline
 
 The service worker precaches the app shell and caches `/data/**` on first use (CacheFirst). Settings → *Offline reading* prefetches an entire edition. Only public-domain editions are marked `offlineAllowed`.
+
+## Accounts & sync
+Server: `server/` (node:http + node:sqlite). Client: `src/sync/` (engine, state, api). Dexie v4 stamps `uid`/`updatedAt` on every user row via hooks; deletions become tombstones; last-writer-wins. Study panel: `src/study/providers.ts` (sections/tabs) and `src/components/StudyPanel.tsx`; margin markers from `src/study/density.ts`.

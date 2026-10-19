@@ -1,115 +1,167 @@
+import { unzipSync } from 'fflate';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { PUBLIC_DATA, RAW, Report, writeJson, today, exists } from './lib/util';
-import { plain } from './lib/thml';
+import { openZCom } from './sword';
+import { decodeEntities } from './lib/thml';
+import { PUBLIC_DATA, RAW, Report, exists, today, writeJson } from './lib/util';
+import { parseOsis } from './lib/thml';
+import { readJson } from './lib/util';
 
-/** Abbreviations used by the Catena Aurea translators → full names. Unknown labels are kept verbatim. */
-const AUTHORS: Record<string, string> = {
-  'Chrys': 'John Chrysostom', 'Chrysostom': 'John Chrysostom', 'Pseudo-Chrys': 'Pseudo-Chrysostom (Opus Imperfectum)', 'Aug': 'Augustine of Hippo', 'Augustine': 'Augustine of Hippo',
-  'Jerome': 'Jerome', 'Hier': 'Jerome', 'Ambrose': 'Ambrose of Milan', 'Amb': 'Ambrose of Milan', 'Hilary': 'Hilary of Poitiers', 'Hilar': 'Hilary of Poitiers', 'Origen': 'Origen',
-  'Greg': 'Gregory the Great', 'Gregory': 'Gregory the Great', 'Bede': 'The Venerable Bede', 'Rabanus': 'Rabanus Maurus', 'Remig': 'Remigius of Auxerre', 'Remigius': 'Remigius of Auxerre',
-  'Theophyl': 'Theophylact', 'Theophylact': 'Theophylact', 'Cyril': 'Cyril of Alexandria', 'Basil': 'Basil the Great', 'Gloss. Ordinaria': 'Glossa Ordinaria', 'Gloss': 'Glossa Ordinaria',
-  'Gloss. ord': 'Glossa Ordinaria', 'Gloss. interlin': 'Glossa Interlinearis', 'Euseb': 'Eusebius of Caesarea', 'Eusebius': 'Eusebius of Caesarea', 'Isidore': 'Isidore of Seville',
-  'Dionysius': 'Pseudo-Dionysius', 'Damascene': 'John Damascene', 'Anselm': 'Anselm', 'Leo': 'Leo the Great', 'Cassian': 'John Cassian', 'Maximus': 'Maximus of Turin',
-  'Ambrosiaster': 'Ambrosiaster', 'Epiphanius': 'Epiphanius', 'Hegesippus': 'Hegesippus', 'Josephus': 'Josephus', 'Cyprian': 'Cyprian of Carthage', 'Athanasius': 'Athanasius',
-  'Nyssen': 'Gregory of Nyssa', 'Nazianzen': 'Gregory Nazianzen', 'Orig': 'Origen', 'Titus Bost': 'Titus of Bostra', 'Severian': 'Severian', 'Victor': 'Victor of Antioch', 'Alcuin': 'Alcuin',
-};
+/** Names used by the Catena's translators → full names (unknown labels are kept verbatim). */
+const AUTHORS: [RegExp, string][] = [
+  [/^(?:Pseudo-?Chrys|Chrys\. \(Op\. Imperf|Op\. Imperf)/i, 'Pseudo-Chrysostom (Opus Imperfectum)'],
+  [/^Chrys/i, 'John Chrysostom'],
+  [/^Aug/i, 'Augustine of Hippo'],
+  [/^(?:Jerome|Hier)/i, 'Jerome'],
+  [/^Amb(?!rosiaster)/i, 'Ambrose of Milan'],
+  [/^Ambrosiaster/i, 'Ambrosiaster'],
+  [/^Hil/i, 'Hilary of Poitiers'],
+  [/^Orig/i, 'Origen'],
+  [/^Greg\. ?Naz|^Nazian/i, 'Gregory Nazianzen'],
+  [/^Greg\. ?Nyss|^Nyss/i, 'Gregory of Nyssa'],
+  [/^Greg/i, 'Gregory the Great'],
+  [/^Bede/i, 'The Venerable Bede'],
+  [/^Rab/i, 'Rabanus Maurus'],
+  [/^Remig/i, 'Remigius of Auxerre'],
+  [/^Theophyl/i, 'Theophylact'],
+  [/^Cyril/i, 'Cyril of Alexandria'],
+  [/^Basil/i, 'Basil the Great'],
+  [/^Gloss\. ?Ord|^Gloss\.? ?\(?ord/i, 'Glossa Ordinaria'],
+  [/^Gloss\. ?Interl|^Interlin/i, 'Glossa Interlinearis'],
+  [/^Gloss/i, 'Gloss (compilers of the Catena)'],
+  [/^Euseb/i, 'Eusebius of Caesarea'],
+  [/^Isidore|^Isid/i, 'Isidore of Seville'],
+  [/^Dionys/i, 'Pseudo-Dionysius'],
+  [/^Damasc/i, 'John Damascene'],
+  [/^Anselm/i, 'Anselm'],
+  [/^Leo/i, 'Leo the Great'],
+  [/^Cassian/i, 'John Cassian'],
+  [/^Maxim/i, 'Maximus of Turin'],
+  [/^Epiph/i, 'Epiphanius'],
+  [/^Cyprian/i, 'Cyprian of Carthage'],
+  [/^Athan/i, 'Athanasius'],
+  [/^Titus/i, 'Titus of Bostra'],
+  [/^Severian/i, 'Severian of Gabala'],
+  [/^Victor/i, 'Victor of Antioch'],
+  [/^Alcuin/i, 'Alcuin'],
+  [/^Josephus/i, 'Josephus'],
+  [/^Hegesipp/i, 'Hegesippus'],
+  [/^Tertull/i, 'Tertullian'],
+  [/^Theodor/i, 'Theodoret'],
+  [/^Eus/i, 'Eusebius of Caesarea'],
+  [/^Cat\. ?Aur|^Aquin/i, 'Thomas Aquinas (compiler)'],
+];
 
 function authorOf(label: string): { id: string; name: string } {
-  // "Chrys., Hom. in Matt., Hom. ii" → "Chrys"
-  const head = label.split(/[,:]/)[0].trim().replace(/\.$/, '');
-  const key = Object.keys(AUTHORS).find((k) => head === k || head.startsWith(k + '.') || head.startsWith(k + ' '));
-  const name = key ? AUTHORS[key] : head;
-  return { id: name.toLowerCase().replace(/[^a-z]+/g, '-'), name };
+  const head = label.replace(/^\W+/, '').trim();
+  const hit = AUTHORS.find(([re]) => re.test(head));
+  const name = hit ? hit[1] : head.split(/[,:]/)[0].replace(/\.$/, '').trim();
+  return { id: name.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, ''), name };
 }
+
+const clean = (s: string) =>
+  decodeEntities(
+    s
+      .replace(/<note\b[\s\S]*?<\/note>/g, '')
+      .replace(/<\/?(?:hi|div|reference|q|l|lg|p|seg|name|foreign|divineName)\b[^>]*>/g, ' ')
+      .replace(/<[^>]+>/g, ' '),
+  )
+    .replace(/\s+/g, ' ')
+    .replace(/\s+([.,;:!?])/g, '$1')
+    .trim();
 
 export interface CatenaGroup {
   c: number;
   v1: number;
   v2: number;
-  /** quoted scripture text as printed in the Catena (translator's wording) */
   scripture?: string;
   items: { a: string; id: string; l: string; t: string }[];
 }
 
-const VOLS: { file: string; ccelId: string; book: string; title: string }[] = [
-  { file: 'catena1.xml', ccelId: 'catena1', book: 'MAT', title: 'Catena Aurea: Gospel of Matthew' },
-  { file: 'catena2.xml', ccelId: 'catena2', book: 'MRK', title: 'Catena Aurea: Gospel of Mark' },
-];
+const BOOKS: Record<string, string> = { Matt: 'MAT', Mark: 'MRK', Luke: 'LUK', John: 'JHN' };
 
 export function buildCatena(report: Report) {
-  const meta: any[] = [];
-  for (const v of VOLS) {
-    const path = join(RAW, v.file);
-    if (!exists(path)) {
-      report.warn(`catena: ${v.file} not fetched`);
+  const zipPath = join(RAW, 'Catena.sword.zip');
+  if (!exists(zipPath)) return report.warn('catena: Catena.sword.zip not fetched');
+  const files = unzipSync(new Uint8Array(readFileSync(zipPath)));
+  const get = (suffix: string) => {
+    const k = Object.keys(files).find((x) => x.endsWith(suffix));
+    if (!k) throw new Error(`catena: missing ${suffix} in the SWORD module`);
+    return files[k];
+  };
+  const z = openZCom(get('nt.czv'), get('nt.czs'), get('nt.czz'));
+  const conf = new TextDecoder().decode(get('catena.conf'));
+  const license = /DistributionLicense=(.*)/.exec(conf)?.[1]?.trim();
+  if (license !== 'Public Domain') throw new Error(`catena: unexpected module licence "${license}"`);
+
+  // Collect every annotated entry: the OSIS annotateRef says which verse(s) it comments on.
+  interface Raw { book: string; c: number; v1: number; c2: number; v2: number | null; body: string }
+  const raws: Raw[] = [];
+  for (let i = 0; i < z.entries; i++) {
+    const t = z.entry(i);
+    const m = /annotateRef="([^"]+)"/.exec(t);
+    if (!m) continue;
+    const p = parseOsis(m[1]);
+    if (!p || !BOOKS[Object.keys(BOOKS).find((k) => m[1].startsWith(k + '.')) ?? '']) {
+      report.warn(`catena: unparsed annotateRef "${m[1]}"`);
       continue;
     }
-    const xml = readFileSync(path, 'utf8');
-    const groups: CatenaGroup[] = [];
-    // chapters
-    const chapRe = /<div2\b([^>]*)>([\s\S]*?)(?=<div2\b|<\/div1>)/g;
-    let cm: RegExpExecArray | null;
-    let nItems = 0;
-    while ((cm = chapRe.exec(xml))) {
-      const tm = /title="Chapter (\d+)"/.exec(cm[1]);
-      if (!tm) continue;
-      const body = cm[2];
-      const divId = /id="([^"]*)"/.exec(cm[1])?.[1];
-      const c = +tm[1];
-      let cur: CatenaGroup | null = null;
-      for (const pm of body.matchAll(/<p class="(scripture|normal)"[^>]*>([\s\S]*?)<\/p>/g)) {
-        let cls = pm[1];
-        const text = plain(pm[2]).replace(/^(Ver(?:s|ses)?\.?\s*)?([\dl]+)(?=\s*[-–.,:])/, (_m, v, n) => (v ?? '') + n.replace(/l/g, '1'));
-        const m = cls === 'scripture' ? /^(?:\[?)(?:Ver(?:s|ses)?\.?\s*)?(\d+)\]?(?:\s*[-–]\s*(\d+)|(?:\s*,\s*(\d+))+)?\s*[.:,]?\s*(.*)$/s.exec(text) : null;
-        if (cls === 'scripture' && (!m || !/^[“"‘'A-Za-z(\[]/.test(m[4] ?? ''))) cls = 'normal';
-        if (cls === 'scripture' && m) {
-          const v1 = +m[1];
-          let v2 = m[2] ? +m[2] : v1;
-          const list = /^(?:\[?)(?:Ver(?:s|ses)?\.?\s*)?((?:\d+\s*,\s*)+\d+)/.exec(text);
-          if (list) v2 = Math.max(...list[1].split(',').map((x) => +x));
-          if (cur && cur.items.length === 0 && cur.c === c) {
-            // consecutive verses quoted before any commentary: the commentary that follows covers the whole run
-            cur.v2 = Math.max(cur.v2, v2);
-            cur.scripture = `${cur.scripture ?? ''} ${m[4]}`.trim();
-          } else {
-            cur = { c, v1, v2, scripture: m[4], items: [] };
-            groups.push(cur);
-          }
-        } else if (cur) {
-          // "Chrys., Hom. in Matt., Hom. ii: Matthew wrote…"
-          const lm = /^([^:]{1,140}?):\s+([\s\S]+)$/.exec(text);
-          if (lm) {
-            const au = authorOf(lm[1]);
-            cur.items.push({ a: au.name, id: au.id, l: lm[1].trim(), t: lm[2].trim() });
-          } else {
-            // continuation paragraph of the previous father's text, or an unlabelled gloss
-            const last = cur.items[cur.items.length - 1];
-            if (last) last.t += '\n\n' + text;
-            else cur.items.push({ a: 'Aquinas (compiler)', id: 'aquinas', l: '', t: text });
-          }
-          nItems++;
-        }
+    raws.push({ book: p.book, c: p.c1, v1: p.v1 ?? 1, c2: p.c2, v2: m[1].includes('-') && p.c2 === p.c1 ? (p.v2 ?? null) : null, body: t });
+  }
+
+  const vc: Record<string, number[]> = readJson(join(PUBLIC_DATA, 'editions.json')).editions.find((e: any) => e.id === 'vulgate').verseCounts;
+  const byBook = new Map<string, CatenaGroup[]>();
+  let items = 0;
+  raws.forEach((r, i) => {
+    const next = raws[i + 1];
+    // The group runs to the verse before the next group when that is in the same chapter; if the OSIS ref names an end, use it.
+    const chapterEnd = vc[r.book]?.[r.c - 1] ?? r.v1;
+    let v2 = r.v2 ?? (next && next.book === r.book && next.c === r.c && next.v1 > r.v1 ? next.v1 - 1 : chapterEnd);
+    if (v2 < r.v1) v2 = r.v1;
+    const g: CatenaGroup = { c: r.c, v1: r.v1, v2, items: [] };
+    // paragraphs: <div sID="genN" type="x-p"/> … <div eID="genN" type="x-p"/>
+    const paras = [...r.body.matchAll(/<div sID="([^"]+)" type="x-p"\/>([\s\S]*?)<div eID="\1" type="x-p"\/>/g)].map((m) => m[2]);
+    for (const p of paras) {
+      const lead = /^\s*<hi type="bold">([\s\S]*?)<\/hi>\s*([\s\S]*)$/.exec(p);
+      if (lead && /^Vers?\./i.test(clean(lead[1]))) {
+        g.scripture = clean(lead[2]);
+        continue;
       }
-      void divId;
+      if (lead) {
+        const label = clean(lead[1]).replace(/:$/, '');
+        const text = clean(lead[2]);
+        if (!text) continue;
+        const au = authorOf(label);
+        g.items.push({ a: au.name, id: au.id, l: label, t: text });
+        items++;
+      } else {
+        const text = clean(p);
+        if (!text) continue;
+        const last = g.items[g.items.length - 1];
+        if (last) last.t += '\n\n' + text;
+        else g.items.push({ a: 'Gloss (compilers of the Catena)', id: 'gloss', l: '', t: text });
+        items++;
+      }
     }
-    const kept = groups.filter((g) => g.items.length > 0);
-    writeJson(join(PUBLIC_DATA, 'commentary/catena', `${v.book}.json`), { source: v.ccelId, groups: kept });
-    meta.push({ book: v.book, ccelId: v.ccelId, title: v.title, groups: groups.length, items: nItems });
+    if (g.items.length) (byBook.get(r.book) ?? byBook.set(r.book, []).get(r.book)!).push(g);
+  });
+  const meta: any[] = [];
+  for (const [book, groups] of byBook) {
+    writeJson(join(PUBLIC_DATA, 'commentary/catena', `${book}.json`), { source: 'crosswire-catena', groups });
+    meta.push({ book, groups: groups.length, items: groups.reduce((a, g) => a + g.items.length, 0) });
   }
   writeJson(
     join(PUBLIC_DATA, 'commentary/catena/_meta.json'),
     {
       work: 'Catena Aurea (Golden Chain)',
       author: 'St. Thomas Aquinas (compiler); quoting the Fathers of the Church',
-      translation: 'English translation (Oxford, 1841–1845, J.H. Newman et al.); text as published by CCEL',
-      publication: 'London: J.G.F. and J. Rivington, 1842',
+      translation: 'English translation of 1841–45 (published by J.G.F. and J. Rivington, London 1842), by John Henry Newman and colleagues',
+      module: 'CrossWire SWORD module “Catena” v1.0.1 — Public Domain; compiled from public-domain sources, checked against scans of the original publication, converted to OSIS by Tom Lemmens (github.com/lemtom/catena)',
       rights: 'public-domain',
-      note: 'CCEL metadata lists the translator inconsistently; the printed edition is the Rivington/Oxford translation. Verified by the structure of the source itself: each patristic excerpt follows the verse of the Gospel it comments on.',
-      url: 'https://ccel.org/ccel/aquinas',
+      url: 'https://crosswire.org/sword/modules/ModInfo.jsp?modName=Catena',
       retrieved: today(),
+      note: 'Verse links are those of the Catena itself: each patristic excerpt appears beneath the verse(s) of the Gospel it was set to comment on.',
       volumes: meta,
-      missing: ['Luke (CCEL volume not available)', 'John (CCEL volume not available)'],
     },
     true,
   );

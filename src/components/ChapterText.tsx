@@ -14,10 +14,13 @@ interface Props {
   decor: Map<number, VerseDecor>;
   onVerse: (n: number, e: React.MouseEvent | React.KeyboardEvent, openMenu?: boolean) => void;
   lang?: string;
+  /** number of connected resources per native verse; click opens the study panel */
+  density?: Map<number, number>;
+  onMarker?: (n: number) => void;
 }
 
 /** Renders one chapter with paragraph/poetry structure preserved and every verse individually selectable. */
-export default function ChapterText({ chapter, selected, decor, onVerse, lang }: Props) {
+export default function ChapterText({ chapter, selected, decor, onVerse, lang, density, onMarker }: Props) {
   let cur = 0;
   const seenNumber = new Set<number>();
   const notes = chapter.notes ?? {};
@@ -62,6 +65,20 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang }:
                 {text}
                 {lastRunOfVerse && d?.note && <span className="mark" title="You have a note here">✎</span>}
                 {lastRunOfVerse && d?.bookmark && <span className="mark" title="Bookmarked">⚑</span>}
+                {lastRunOfVerse && !!density?.get(n) && (
+                  <button
+                    className="rm"
+                    tabIndex={-1}
+                    title={`${density.get(n)} connected resources: commentary, Fathers, Catechism, articles`}
+                    aria-label={`Verse ${n}: ${density.get(n)} connected resources. Open study panel`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onMarker?.(n);
+                    }}
+                  >
+                    {density.get(n)}
+                  </button>
+                )}
                 {lastRunOfVerse && fnotes && fnotes.map((f, k) => (
                   <span key={k} className="fn" title={f} aria-label={`Footnote: ${f}`}>†</span>
                 ))}

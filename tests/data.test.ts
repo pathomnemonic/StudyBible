@@ -155,9 +155,26 @@ d('content packs', () => {
       expect(g.items.length).toBeGreaterThan(0);
     }
   });
+  it('Catena covers all four Gospels and Haydock covers the protocanon', () => {
+    for (const b of ['MAT', 'MRK', 'LUK', 'JHN']) expect(json(`commentary/catena/${b}.json`).groups.length).toBeGreaterThan(80);
+    const h = json('commentary/haydock/JHN.json');
+    expect(h.length).toBeGreaterThan(20);
+    for (const [c1, v1, c2, v2, text] of h.slice(0, 50)) {
+      expect(c2).toBeGreaterThanOrEqual(c1);
+      expect(v1).toBeGreaterThan(0);
+      expect(v2).toBeGreaterThan(0);
+      expect(text.length).toBeGreaterThan(0);
+    }
+  });
+  it('external resource catalogue only holds Catholic Answers navigator slugs unless reviewed or licensed', () => {
+    const cat = json('resources/catalog.json');
+    const rows = Array.isArray(cat) ? cat : Object.values(cat.resources ?? cat);
+    expect(rows.length).toBeGreaterThan(0);
+    for (const r of rows as any[]) expect(r.url ?? r.u ?? '').toMatch(/^https:\/\//);
+  });
   it('library works record translator, rights evidence and source', () => {
     const lib = json('library/index.json');
-    expect(lib.works.length).toBeGreaterThanOrEqual(8);
+    expect(lib.works.length).toBeGreaterThanOrEqual(20);
     for (const w of lib.works) {
       expect(w.translator, w.id).toBeTruthy();
       expect(w.rightsEvidence, w.id).toBeTruthy();
