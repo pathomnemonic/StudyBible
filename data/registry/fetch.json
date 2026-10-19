@@ -1,0 +1,61 @@
+{
+  "_about": "Every network source the ingestion pipeline reads. Nothing here is scraped: each entry is a file the publisher distributes for download (a data archive, a published feed, or a documented export). `terms` records where the reuse terms were checked.",
+  "sources": [
+    {
+      "id": "ebible-engDRA",
+      "url": "https://ebible.org/Scriptures/engDRA_usfm.zip",
+      "file": "engDRA_usfm.zip",
+      "terms": "https://ebible.org/engDRA/copyright.htm",
+      "rights": "public-domain",
+      "note": "Douay-Rheims 1899 American Edition (Challoner revision), eBible.org USFM export. Published 1899; marked Public Domain by eBible.org."
+    },
+    {
+      "id": "ebible-latVUC",
+      "url": "https://ebible.org/Scriptures/latVUC_usfm.zip",
+      "file": "latVUC_usfm.zip",
+      "terms": "https://ebible.org/latVUC/copyright.htm",
+      "rights": "public-domain",
+      "note": "Clementine Vulgate (1598) with the Glossa Ordinaria in the Migne edition (1880), eBible.org USFM export. Public domain."
+    },
+    {
+      "id": "ebible-eng-web-c",
+      "url": "https://ebible.org/Scriptures/eng-web-c_usfm.zip",
+      "file": "eng-web-c_usfm.zip",
+      "terms": "https://ebible.org/eng-web-c/copyright.htm",
+      "rights": "public-domain",
+      "note": "World English Bible, Catholic book order. Dedicated to the public domain; 'World English Bible' is a trademark of eBible.org (do not call a modified text by that name)."
+    },
+    {
+      "id": "openbible-xrefs",
+      "url": "https://a.openbible.info/data/cross-references.zip",
+      "file": "cross-references.zip",
+      "terms": "https://www.openbible.info/labs/cross-references/",
+      "rights": "open-license",
+      "note": "OpenBible.info cross references, CC BY 4.0. Uses KJV/English verse numbering; converted to the Vulgate anchor by the pipeline."
+    },
+    {
+      "id": "biay-feed",
+      "url": "https://feeds.fireside.fm/bibleinayear/rss",
+      "file": "biay.rss.xml",
+      "terms": "https://bibleinayear.fireside.fm/",
+      "rights": "metadata-only",
+      "note": "Official public podcast RSS feed of The Bible in a Year (with Fr. Mike Schmitz), Ascension. Only metadata (titles, dates, descriptions, enclosure links) is used; audio is never copied."
+    },
+    {
+      "id": "ccel-catena1",
+      "url": "https://www.ccel.org/ccel/aquinas/catena1.xml",
+      "file": "catena1.xml",
+      "terms": "https://ccel.org/ccel/aquinas",
+      "rights": "public-domain",
+      "note": "Catena Aurea, Gospel of Matthew (Aquinas; English translation, London 1842). Public-domain text distributed by CCEL as ThML. Luke and John volumes are not available from CCEL under this id."
+    },
+    {
+      "id": "ccel-catena2",
+      "url": "https://www.ccel.org/ccel/aquinas/catena2.xml",
+      "file": "catena2.xml",
+      "terms": "https://ccel.org/ccel/aquinas",
+      "rights": "public-domain",
+      "note": "Catena Aurea, Gospel of Mark (Aquinas; English translation, London 1842). Public-domain text distributed by CCEL as ThML. Luke and John volumes are not available from CCEL under this id."
+    }
+  ]
+}

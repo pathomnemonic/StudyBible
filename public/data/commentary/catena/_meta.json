@@ -1,0 +1,30 @@
+{
+ "work": "Catena Aurea (Golden Chain)",
+ "author": "St. Thomas Aquinas (compiler); quoting the Fathers of the Church",
+ "translation": "English translation (Oxford, 1841–1845, J.H. Newman et al.); text as published by CCEL",
+ "publication": "London: J.G.F. and J. Rivington, 1842",
+ "rights": "public-domain",
+ "note": "CCEL metadata lists the translator inconsistently; the printed edition is the Rivington/Oxford translation. Verified by the structure of the source itself: each patristic excerpt follows the verse of the Gospel it comments on.",
+ "url": "https://ccel.org/ccel/aquinas",
+ "retrieved": "2026-10-19",
+ "volumes": [
+  {
+   "book": "MAT",
+   "ccelId": "catena1",
+   "title": "Catena Aurea: Gospel of Matthew",
+   "groups": 1060,
+   "items": 6112
+  },
+  {
+   "book": "MRK",
+   "ccelId": "catena2",
+   "title": "Catena Aurea: Gospel of Mark",
+   "groups": 678,
+   "items": 2464
+  }
+ ],
+ "missing": [
+  "Luke (CCEL volume not available)",
+  "John (CCEL volume not available)"
+ ]
+}

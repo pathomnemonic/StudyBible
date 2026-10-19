@@ -1,0 +1,212 @@
+{
+ "ebible-engDRA": {
+  "url": "https://ebible.org/Scriptures/engDRA_usfm.zip",
+  "file": "engDRA_usfm.zip",
+  "bytes": 2938537,
+  "sha256": "897180f92e4e22d9f47ccbe24d51dc2b7b2e639ef8dfb68adf6785215d49dd0d",
+  "retrieved": "2026-10-19",
+  "terms": "https://ebible.org/engDRA/copyright.htm",
+  "rights": "public-domain",
+  "note": "Douay-Rheims 1899 American Edition (Challoner revision), eBible.org USFM export. Published 1899; marked Public Domain by eBible.org."
+ },
+ "ebible-latVUC": {
+  "url": "https://ebible.org/Scriptures/latVUC_usfm.zip",
+  "file": "latVUC_usfm.zip",
+  "bytes": 3550146,
+  "sha256": "7855be62826214f32db733cc90f788ff79c4f512b7b6fe5dc5fa989c566b7e8f",
+  "retrieved": "2026-10-19",
+  "terms": "https://ebible.org/latVUC/copyright.htm",
+  "rights": "public-domain",
+  "note": "Clementine Vulgate (1598) with the Glossa Ordinaria in the Migne edition (1880), eBible.org USFM export. Public domain."
+ },
+ "ebible-eng-web-c": {
+  "url": "https://ebible.org/Scriptures/eng-web-c_usfm.zip",
+  "file": "eng-web-c_usfm.zip",
+  "bytes": 3082401,
+  "sha256": "c7d78ce99a095ec661d67c72cb8593a0095dfb0f45d176eb54bfe3af60e8e39f",
+  "retrieved": "2026-10-19",
+  "terms": "https://ebible.org/eng-web-c/copyright.htm",
+  "rights": "public-domain",
+  "note": "World English Bible, Catholic book order. Dedicated to the public domain; 'World English Bible' is a trademark of eBible.org (do not call a modified text by that name)."
+ },
+ "openbible-xrefs": {
+  "url": "https://a.openbible.info/data/cross-references.zip",
+  "file": "cross-references.zip",
+  "bytes": 1982990,
+  "sha256": "3b694f0db9ea81e125c78e88b1845ec18e8b99e63ac94eee3be58ab92cca27f1",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.openbible.info/labs/cross-references/",
+  "rights": "open-license",
+  "note": "OpenBible.info cross references, CC BY 4.0. Uses KJV/English verse numbering; converted to the Vulgate anchor by the pipeline."
+ },
+ "biay-feed": {
+  "url": "https://feeds.fireside.fm/bibleinayear/rss",
+  "file": "biay.rss.xml",
+  "bytes": 9077543,
+  "sha256": "2a7d1b87c893ca7652ea12dd0ea9b36ca497b66925c05834bde3a6c7db413fcd",
+  "retrieved": "2026-10-19",
+  "terms": "https://bibleinayear.fireside.fm/",
+  "rights": "metadata-only",
+  "note": "Official public podcast RSS feed of The Bible in a Year (with Fr. Mike Schmitz), Ascension. Only metadata (titles, dates, descriptions, enclosure links) is used; audio is never copied."
+ },
+ "ccel-catena1": {
+  "url": "https://www.ccel.org/ccel/aquinas/catena1.xml",
+  "file": "catena1.xml",
+  "bytes": 3021275,
+  "sha256": "943a6b5fd668ef021877e99f210d96b84abbbe81212fe5627c6bb206f9ce1618",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/aquinas",
+  "rights": "public-domain",
+  "note": "Catena Aurea, Gospel of Matthew (Aquinas; English translation, London 1842). Public-domain text distributed by CCEL as ThML. Luke and John volumes are not available from CCEL under this id."
+ },
+ "ccel-catena2": {
+  "url": "https://www.ccel.org/ccel/aquinas/catena2.xml",
+  "file": "catena2.xml",
+  "bytes": 971399,
+  "sha256": "69c8f2d198186de50e444c6a618dd3de24d3b89e8af879042b06c5a46c89168f",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/aquinas",
+  "rights": "public-domain",
+  "note": "Catena Aurea, Gospel of Mark (Aquinas; English translation, London 1842). Public-domain text distributed by CCEL as ThML. Luke and John volumes are not available from CCEL under this id."
+ },
+ "ccel-aug-tractates-john": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf107.xml",
+  "file": "ccel-aug-tractates-john.xml",
+  "bytes": 3694413,
+  "sha256": "75d52f4c31dde0959974256b3f5d84394b7b96fcd2883e78a3d32e0b66c5869a",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Tractates on the Gospel of John, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-aug-psalms": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf108.xml",
+  "file": "ccel-aug-psalms.xml",
+  "bytes": 6222968,
+  "sha256": "87b60e90917e69f03c75955517fc996a0e6d22dc9862365b45c308e70e5bf784",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Expositions on the Psalms, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-chrys-john": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf114.xml",
+  "file": "ccel-chrys-john.xml",
+  "bytes": 4728349,
+  "sha256": "b130406978fbceb7bcd0774b0e8b09905f35a020a2300c1baf02f314a2d5a70a",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Homilies on the Gospel of John, John Chrysostom. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-chrys-matthew": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf110.xml",
+  "file": "ccel-chrys-matthew.xml",
+  "bytes": 3956654,
+  "sha256": "e110c98b1f444147bf7baf79e46e56ae6c6a1f0b2983e6fc52f2356fac7f858f",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Homilies on the Gospel of Matthew, John Chrysostom. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-athanasius-incarnation": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf204.xml",
+  "file": "ccel-athanasius-incarnation.xml",
+  "bytes": 5809854,
+  "sha256": "bd625a0fa4f5ddd4b2fa13fcee753de8832ea4b316625e0e06454beb81cfa652",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "On the Incarnation, Athanasius of Alexandria. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-cyril-catecheses": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf207.xml",
+  "file": "ccel-cyril-catecheses.xml",
+  "bytes": 4247548,
+  "sha256": "3ac73f4179c0b7d6e66e6fea04ae572e64c0e4a80e8fa38980b40366c8a13928",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Catechetical Lectures (incl. Mystagogical Catecheses), Cyril of Jerusalem. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-irenaeus-heresies": {
+  "url": "https://www.ccel.org/ccel/schaff/anf01.xml",
+  "file": "ccel-irenaeus-heresies.xml",
+  "bytes": 4511814,
+  "sha256": "8012ea0e35b497d2fbd783f9d4fd7b3a27d98c6dc66fd427b50d7312e6dd45af",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Against Heresies, Irenaeus of Lyons. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-aug-confessions": {
+  "url": "https://www.ccel.org/ccel/augustine/confess.xml",
+  "file": "ccel-aug-confessions.xml",
+  "bytes": 730316,
+  "sha256": "9f47b8635f245847576fb9e0ea94934a03cbb1b426d352cb7882ca0171fe2f52",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/augustine",
+  "rights": "public-domain",
+  "note": "Confessions, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-teresa-castle": {
+  "url": "https://www.ccel.org/ccel/teresa/castle2.xml",
+  "file": "ccel-teresa-castle.xml",
+  "bytes": 582155,
+  "sha256": "8ff410eb6ad0bb12f3003fc902c1ff706f506d01de3cb0e4e36ef9523b10eaf7",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/teresa",
+  "rights": "public-domain",
+  "note": "The Interior Castle, Teresa of Ávila. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-john-cross-dark-night": {
+  "url": "https://www.ccel.org/ccel/john_cross/dark_night.xml",
+  "file": "ccel-john-cross-dark-night.xml",
+  "bytes": 412950,
+  "sha256": "b736b7d64552b2a36149c7aaa4d54102c64ee60148fcf6c6b410dcfbda6849dc",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/john_cross",
+  "rights": "public-domain",
+  "note": "Dark Night of the Soul, John of the Cross. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-desales-devout-life": {
+  "url": "https://www.ccel.org/ccel/desales/devout_life.xml",
+  "file": "ccel-desales-devout-life.xml",
+  "bytes": 651626,
+  "sha256": "af8c467a87fbbcf2aaac1764e7962fdcd64b8eab5db740ca565752533d73861f",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/desales",
+  "rights": "public-domain",
+  "note": "Introduction to the Devout Life, Francis de Sales. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-kempis-imitation": {
+  "url": "https://www.ccel.org/ccel/kempis/imitation.xml",
+  "file": "ccel-kempis-imitation.xml",
+  "bytes": 438798,
+  "sha256": "8492aaa26bac887bcac1a9052459348b8f0e29ef44f77ad4859dd759aabb8598",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/kempis",
+  "rights": "public-domain",
+  "note": "The Imitation of Christ, Thomas à Kempis. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-catherine-dialogue": {
+  "url": "https://www.ccel.org/ccel/catherine/dialog.xml",
+  "file": "ccel-catherine-dialogue.xml",
+  "bytes": 539965,
+  "sha256": "bce0952b1f8544b9ea177b86920618c7b383eba6023779e315f4ce371838f988",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/catherine",
+  "rights": "public-domain",
+  "note": "The Dialogue of St. Catherine of Siena, Catherine of Siena. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-lawrence-practice": {
+  "url": "https://www.ccel.org/ccel/lawrence/practice.xml",
+  "file": "ccel-lawrence-practice.xml",
+  "bytes": 88898,
+  "sha256": "05149b19c169d3f148add4a75f90a84fce96a75ba776b919f8c4fc59d78b3c6d",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/lawrence",
+  "rights": "public-domain",
+  "note": "The Practice of the Presence of God, Brother Lawrence of the Resurrection. Public-domain text distributed by CCEL as ThML."
+ }
+}

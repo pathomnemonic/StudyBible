@@ -1,0 +1,4 @@
+{
+  "_about": "Human-reviewed corrections for Bible in a Year episode → Scripture mappings. Each override replaces the feed-derived passages for a Day (all years) or for one episode id. Passage ids are anchor ids (Clementine Vulgate numbering), e.g. \"PSA.18\" for modern Psalm 19. Add reviewedBy and reviewedOn to every entry.",
+  "overrides": []
+}

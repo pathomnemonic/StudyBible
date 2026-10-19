@@ -1,0 +1,42 @@
+{
+  "name": "studybible",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A Catholic Bible study app: Scripture, Church teaching, the Fathers, Bible in a Year, notes and prayer in one library.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "data:fetch": "tsx scripts/ingest/cli.ts fetch",
+    "data:build": "tsx scripts/ingest/cli.ts build",
+    "data:validate": "tsx scripts/ingest/cli.ts validate",
+    "data:all": "tsx scripts/ingest/cli.ts all"
+  },
+  "dependencies": {
+    "dexie": "^4.0.10",
+    "dexie-react-hooks": "^1.1.7",
+    "dompurify": "^3.2.4",
+    "marked": "^15.0.7",
+    "minisearch": "^7.1.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.0"
+  },
+  "devDependencies": {
+    "@types/dompurify": "^3.0.5",
+    "@types/node": "^22.13.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "fast-xml-parser": "^4.5.1",
+    "fflate": "^0.8.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0",
+    "vite-plugin-pwa": "^0.21.1",
+    "vitest": "^3.0.5"
+  }
+}
