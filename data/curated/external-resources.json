@@ -2834,6 +2834,573 @@
    "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
    "reviewedOn": "2026-10-19",
    "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Explaining the \"Nephilim\" of Genesis",
+   "url": "https://www.catholic.com/qa/explaining-the-nephilim-of-genesis",
+   "refs": [
+    "Genesis 6:1-4"
+   ],
+   "tags": [
+    "Nephilim",
+    "Genesis 6"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "7 Mysteries About the Nephilim",
+   "url": "https://www.catholic.com/magazine/online-edition/7-mysteries-about-the-nephilim",
+   "refs": [
+    "Genesis 6:1-4"
+   ],
+   "tags": [
+    "Nephilim"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Did Angels Mate with Human Women?",
+   "url": "https://www.catholic.com/magazine/online-edition/did-angels-mate-with-human-women",
+   "refs": [
+    "Genesis 6:1-4",
+    "Jude 1:6"
+   ],
+   "tags": [
+    "Nephilim",
+    "Angels"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Rebellious Angels and the Great Flood",
+   "url": "https://www.catholic.com/magazine/online-edition/rebellious-angels-and-the-great-flood",
+   "refs": [
+    "Genesis 6:1-4",
+    "Genesis 7:1-24"
+   ],
+   "tags": [
+    "Nephilim",
+    "Flood"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Did Jesus Claim to Be God?",
+   "url": "https://www.catholic.com/magazine/online-edition/did-jesus-claim-to-be-god",
+   "refs": [
+    "John 8:58",
+    "Exodus 3:14"
+   ],
+   "tags": [
+    "Divinity of Christ",
+    "I AM"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Did Jesus Claim to Be God?",
+   "url": "https://www.catholic.com/qa/did-jesus-claim-to-be-god",
+   "refs": [
+    "John 8:58",
+    "John 10:30"
+   ],
+   "tags": [
+    "Divinity of Christ"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Divine \"I AM\" and John 9:9",
+   "url": "https://www.catholic.com/qa/divine-i-am-and-john-99",
+   "refs": [
+    "John 9:9",
+    "John 8:58",
+    "Exodus 3:14"
+   ],
+   "tags": [
+    "I AM"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "What the Early Church Believed: Sabbath or Sunday?",
+   "url": "https://www.catholic.com/tract/sabbath-or-sunday",
+   "refs": [
+    "Exodus 20:8-11",
+    "Colossians 2:16-17",
+    "Revelation 1:10",
+    "Acts 20:7"
+   ],
+   "tags": [
+    "Sabbath",
+    "Sunday"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "From Sabbath to Sunday",
+   "url": "https://www.catholic.com/magazine/print-edition/from-sabbath-to-sunday",
+   "refs": [
+    "Exodus 20:8-11",
+    "Revelation 1:10"
+   ],
+   "tags": [
+    "Sabbath",
+    "Sunday"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Lord's Day Replaced the Sabbath",
+   "url": "https://www.catholic.com/magazine/print-edition/the-lords-day-replaced-the-sabbath",
+   "refs": [
+    "Colossians 2:16-17",
+    "Revelation 1:10"
+   ],
+   "tags": [
+    "Sabbath",
+    "Lord's Day"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Seventh-day Adventists and the Sabbath",
+   "url": "https://www.catholic.com/qa/what-about-the-seventh-day-adventist-claim-that-the-sabbath-shouldnt-have-been-changed-to-sunday",
+   "refs": [
+    "Exodus 20:8-11",
+    "Colossians 2:16"
+   ],
+   "tags": [
+    "Sabbath",
+    "Adventists"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Where Is the Papacy in the Old Testament?",
+   "url": "https://www.catholic.com/magazine/online-edition/where-is-the-papacy-in-the-old-testament",
+   "refs": [
+    "Isaiah 22:15-25",
+    "Matthew 16:18-19"
+   ],
+   "tags": [
+    "Papacy",
+    "Keys"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "Peter the Rock",
+   "url": "https://www.catholic.com/tract/peter-the-rock",
+   "refs": [
+    "Matthew 16:18-19",
+    "John 1:42"
+   ],
+   "tags": [
+    "Peter",
+    "Papacy"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "You Can't Get Past this Rock",
+   "url": "https://www.catholic.com/magazine/print-edition/you-cant-get-past-this-rock",
+   "refs": [
+    "Matthew 16:18-19"
+   ],
+   "tags": [
+    "Peter",
+    "Papacy"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "What Are the Implications of Matt 16:19? (Binding and Loosing)",
+   "url": "https://www.catholic.com/video/what-are-the-implications-of-matt-1619-binding-and-loosing",
+   "refs": [
+    "Matthew 16:19",
+    "Matthew 18:18"
+   ],
+   "tags": [
+    "Binding and loosing"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "What the Early Church Believed: The Sacrifice of the Mass",
+   "url": "https://www.catholic.com/tract/the-sacrifice-of-the-mass",
+   "refs": [
+    "Malachi 1:11",
+    "Hebrews 9:24-28",
+    "1 Corinthians 10:16-21"
+   ],
+   "tags": [
+    "Mass",
+    "Sacrifice"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Is the Mass a Sacrifice?",
+   "url": "https://www.catholic.com/magazine/print-edition/is-the-mass-a-sacrifice",
+   "refs": [
+    "Malachi 1:11",
+    "Hebrews 9:24-28"
+   ],
+   "tags": [
+    "Mass",
+    "Sacrifice"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Sacrifice of the Mass",
+   "url": "https://www.catholic.com/magazine/print-edition/sacrifice-of-the-mass",
+   "refs": [
+    "Malachi 1:10-11",
+    "Hebrews 10:10-14"
+   ],
+   "tags": [
+    "Mass",
+    "Sacrifice"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Do \"the Dead Know Nothing?\"",
+   "url": "https://www.catholic.com/magazine/online-edition/do-the-dead-know-nothing",
+   "refs": [
+    "Ecclesiastes 9:5-6",
+    "Ecclesiastes 9:10"
+   ],
+   "tags": [
+    "Death",
+    "Afterlife",
+    "Ecclesiastes"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Ecclesiastes Doesn't Disprove Intercessory Prayer",
+   "url": "https://www.catholic.com/qa/ecclesiastes-doesnt-disprove-intercessory-prayer",
+   "refs": [
+    "Ecclesiastes 9:5-6"
+   ],
+   "tags": [
+    "Intercession of saints",
+    "Ecclesiastes"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Praying to Saints and Bible's Prohibition of Necromancy",
+   "url": "https://www.catholic.com/qa/praying-to-saints-and-bibles-prohibition-of-necromancy",
+   "refs": [
+    "Deuteronomy 18:10-12",
+    "1 Samuel 28:3-25"
+   ],
+   "tags": [
+    "Necromancy",
+    "Intercession of saints"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "What Are Ghosts?",
+   "url": "https://www.catholic.com/magazine/online-edition/what-are-ghosts",
+   "refs": [
+    "1 Samuel 28:3-25"
+   ],
+   "tags": [
+    "Ghosts",
+    "Witch of Endor"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Book of Daniel",
+   "url": "https://www.catholic.com/magazine/print-edition/daniel",
+   "refs": [
+    "Daniel 1:1-12:13"
+   ],
+   "tags": [
+    "Daniel",
+    "Introduction"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Antichrist",
+   "url": "https://www.catholic.com/magazine/print-edition/the-antichrist-0",
+   "refs": [
+    "1 John 2:18",
+    "Revelation 13:1-18"
+   ],
+   "tags": [
+    "Antichrist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Apocalypse (Catholic Encyclopedia)",
+   "url": "https://www.catholic.com/encyclopedia/apocalypse",
+   "refs": [
+    "Revelation 1:1-22:21"
+   ],
+   "tags": [
+    "Revelation",
+    "Introduction"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Book of Daniel (Catholic Encyclopedia)",
+   "url": "https://www.catholic.com/encyclopedia/book-of-daniel",
+   "refs": [
+    "Daniel 9:24-27",
+    "Daniel 1:1-12:13"
+   ],
+   "tags": [
+    "Daniel",
+    "Seventy weeks"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "Guardian Angels and The Guardian Angel Prayer",
+   "url": "https://www.catholic.com/tract/guardian-angels-and-the-guardian-angel-prayer",
+   "refs": [
+    "Matthew 18:10",
+    "Hebrews 1:14",
+    "Psalm 91:11"
+   ],
+   "tags": [
+    "Guardian angels"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Book of Tobit",
+   "url": "https://www.catholic.com/magazine/print-edition/tobit",
+   "refs": [
+    "Tobit 1:1-14:15",
+    "Tobit 12:12-15"
+   ],
+   "tags": [
+    "Tobit",
+    "Raphael",
+    "Angels"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Saving Judith and Tobit",
+   "url": "https://www.catholic.com/magazine/print-edition/saving-judith-and-tobit",
+   "refs": [
+    "Tobit 1:1-14:15",
+    "Judith 1:1-16:25"
+   ],
+   "tags": [
+    "Deuterocanon"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Why pray to angels?",
+   "url": "https://www.catholic.com/qa/why-pray-to-angels",
+   "refs": [
+    "Tobit 12:12-15",
+    "Revelation 5:8"
+   ],
+   "tags": [
+    "Angels",
+    "Intercession"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "What About Matthew 12:31-32, Which Says that Anyone Who Speaks Against the Holy Spirit will Never be Forgiven?",
+   "url": "https://www.catholic.com/qa/what-about-matthew-1231-32-which-says-that-anyone-who-speaks-against-the-holy-spirit-will-never",
+   "refs": [
+    "Matthew 12:31-32"
+   ],
+   "tags": [
+    "Unforgivable sin",
+    "Holy Spirit"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Is Blasphemy Against the Holy Spirit Unforgivable?",
+   "url": "https://www.catholic.com/qa/is-blasphemy-against-the-holy-spirit-unforgivable",
+   "refs": [
+    "Matthew 12:31-32",
+    "Mark 3:28-30"
+   ],
+   "tags": [
+    "Unforgivable sin"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "Blasphemy: Meaning, Bible Examples, and Catholic Teaching",
+   "url": "https://www.catholic.com/tract/blasphemy-meaning-bible-examples-and-catholic-teaching",
+   "refs": [
+    "Matthew 12:31-32",
+    "Leviticus 24:16"
+   ],
+   "tags": [
+    "Blasphemy"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Purgatory in Jesus' Teaching",
+   "url": "https://www.catholic.com/magazine/print-edition/purgatory-in-jesus-teaching",
+   "refs": [
+    "Matthew 12:32",
+    "Matthew 5:25-26"
+   ],
+   "tags": [
+    "Purgatory"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
   }
  ]
 }
