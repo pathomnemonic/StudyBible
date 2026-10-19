@@ -11,6 +11,7 @@ import { useEditions } from '../data/EditionsContext';
 import { db, type Target } from '../db/db';
 import { useToast } from './Toast';
 import InlinePlayer from './InlinePlayer';
+import WordStudy from './WordStudy';
 import { embedFor } from '../lib/embed';
 import { usePlayer } from '../data/PlayerContext';
 import { loadBiay } from '../data/biay';
@@ -146,6 +147,7 @@ export default function StudyPanel({
           />
         )}
 
+        {tab === 'words' && <WordStudy refs={refs} />}
         {activeTab &&
           activeTab.sections.map((sk) => {
             const meta = SECTIONS.find((s) => s.key === sk)!;

@@ -1,0 +1,26 @@
+{
+ "generated": "2026-10-19",
+ "repos": [
+  {
+   "id": "sblgnt",
+   "url": "https://github.com/morphgnt/sblgnt",
+   "use": "Greek New Testament words, lemmas and parsing",
+   "rights": "SBLGNT text: CC BY 4.0 (https://sblgnt.com/license/). MorphGNT lemmatisation and parsing: CC BY-SA 3.0.",
+   "attribution": "SBL Greek New Testament, © Society of Biblical Literature and Logos Bible Software, CC BY 4.0. MorphGNT analysis by James Tauber, CC BY-SA 3.0."
+  },
+  {
+   "id": "morphhb",
+   "url": "https://github.com/openscriptures/morphhb",
+   "use": "Hebrew Bible (Westminster Leningrad Codex) with lemmas and morphology",
+   "rights": "WLC text: Public Domain. Lemma and morphology: CC BY 4.0 (Open Scriptures Hebrew Bible project).",
+   "attribution": "Open Scriptures Hebrew Bible (OSHB), based on the Westminster Leningrad Codex; lemma and morphology CC BY 4.0."
+  },
+  {
+   "id": "strongs",
+   "url": "https://github.com/openscriptures/strongs",
+   "use": "Strong's Greek and Hebrew dictionaries (JSON)",
+   "rights": "Underlying dictionaries by James Strong (1890/1894), public domain; Open Scriptures JSON/Unicode edition CC BY-SA.",
+   "attribution": "Strong's Exhaustive Concordance dictionaries, Open Scriptures edition, CC BY-SA."
+  }
+ ]
+}

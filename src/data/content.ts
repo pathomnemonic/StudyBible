@@ -150,3 +150,23 @@ export interface MagisteriumDoc {
 }
 export const getMagisteriumRefs = (book: string) => getJson<MagisteriumRef[]>(`magisterium/${book}.json`, true);
 export const getMagisteriumIndex = () => getJson<{ generated: string; documents: MagisteriumDoc[] }>('magisterium/index.json', true);
+
+export interface Place {
+  n: string;
+  r?: string;
+  lat: number;
+  lon: number;
+  /** approximate location */
+  a?: 1;
+  c?: string;
+  v: string[];
+  nv: number;
+}
+export const getPlaces = () => getJson<(Place | null)[]>('maps/places.json', true);
+/** [chapter, verse, placeIndex] in anchor numbering */
+export const getPlacesByBook = (book: string) => getJson<[number, number, number][]>(`maps/by-book/${book}.json`, true);
+export const getTopicIndex = () => getJson<[string, number][]>('topics/index.json', true);
+export const getTopics = () => getJson<Record<string, [string, number][]>>('topics/topics.json', true);
+/** [c1, v1, c2, v2, topicIndex, score] */
+export const getTopicsByBook = (book: string) => getJson<[number, number, number, number, number, number][]>(`topics/by-book/${book}.json`, true);
+export const getAttributions = () => Promise.all([getJson<{ attribution: string }>('maps/_meta.json', true), getJson<{ attribution: string }>('topics/_meta.json', true)]);

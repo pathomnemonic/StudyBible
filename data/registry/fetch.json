@@ -1,61 +1,77 @@
 {
-  "_about": "Every network source the ingestion pipeline reads. Nothing here is scraped: each entry is a file the publisher distributes for download (a data archive, a published feed, or a documented export). `terms` records where the reuse terms were checked.",
-  "sources": [
-    {
-      "id": "ebible-engDRA",
-      "url": "https://ebible.org/Scriptures/engDRA_usfm.zip",
-      "file": "engDRA_usfm.zip",
-      "terms": "https://ebible.org/engDRA/copyright.htm",
-      "rights": "public-domain",
-      "note": "Douay-Rheims 1899 American Edition (Challoner revision), eBible.org USFM export. Published 1899; marked Public Domain by eBible.org."
-    },
-    {
-      "id": "ebible-latVUC",
-      "url": "https://ebible.org/Scriptures/latVUC_usfm.zip",
-      "file": "latVUC_usfm.zip",
-      "terms": "https://ebible.org/latVUC/copyright.htm",
-      "rights": "public-domain",
-      "note": "Clementine Vulgate (1598) with the Glossa Ordinaria in the Migne edition (1880), eBible.org USFM export. Public domain."
-    },
-    {
-      "id": "ebible-eng-web-c",
-      "url": "https://ebible.org/Scriptures/eng-web-c_usfm.zip",
-      "file": "eng-web-c_usfm.zip",
-      "terms": "https://ebible.org/eng-web-c/copyright.htm",
-      "rights": "public-domain",
-      "note": "World English Bible, Catholic book order. Dedicated to the public domain; 'World English Bible' is a trademark of eBible.org (do not call a modified text by that name)."
-    },
-    {
-      "id": "openbible-xrefs",
-      "url": "https://a.openbible.info/data/cross-references.zip",
-      "file": "cross-references.zip",
-      "terms": "https://www.openbible.info/labs/cross-references/",
-      "rights": "open-license",
-      "note": "OpenBible.info cross references, CC BY 4.0. Uses KJV/English verse numbering; converted to the Vulgate anchor by the pipeline."
-    },
-    {
-      "id": "biay-feed",
-      "url": "https://feeds.fireside.fm/bibleinayear/rss",
-      "file": "biay.rss.xml",
-      "terms": "https://bibleinayear.fireside.fm/",
-      "rights": "metadata-only",
-      "note": "Official public podcast RSS feed of The Bible in a Year (with Fr. Mike Schmitz), Ascension. Only metadata (titles, dates, descriptions, enclosure links) is used; audio is never copied."
-    },
-    {
-      "id": "crosswire-catena",
-      "url": "https://crosswire.org/ftpmirror/pub/sword/packages/rawzip/Catena.zip",
-      "file": "Catena.sword.zip",
-      "terms": "https://crosswire.org/sword/modules/ModInfo.jsp?modName=Catena",
-      "rights": "public-domain",
-      "note": "CrossWire SWORD module 'Catena' (Catena Aurea, Newman translation 1842), DistributionLicense=Public Domain; text source https://github.com/lemtom/catena/ (Tom Lemmens). Covers Matthew, Mark, Luke, John."
-    },
-    {
-      "id": "sermonindex-haydock",
-      "url": "https://www.sermonindex.net/modules/mybible/SI-HAYDOCKC.commentaries.zip",
-      "file": "haydock.mybible.zip",
-      "terms": "https://www.sermonindex.net/commentary/haydock-c/",
-      "rights": "public-domain",
-      "note": "Haydock's Catholic Bible Commentary (Geo. L. Haydock, 1811; Douay-Rheims edition 1859), MyBible SQLite module prepared by SermonIndex.net, stated Public Domain. Verse-by-verse, Vulgate/Douay numbering, protocanonical books only."
-    }
-  ]
+ "_about": "Every network source the ingestion pipeline reads. Nothing here is scraped: each entry is a file the publisher distributes for download (a data archive, a published feed, or a documented export). `terms` records where the reuse terms were checked.",
+ "sources": [
+  {
+   "id": "ebible-engDRA",
+   "url": "https://ebible.org/Scriptures/engDRA_usfm.zip",
+   "file": "engDRA_usfm.zip",
+   "terms": "https://ebible.org/engDRA/copyright.htm",
+   "rights": "public-domain",
+   "note": "Douay-Rheims 1899 American Edition (Challoner revision), eBible.org USFM export. Published 1899; marked Public Domain by eBible.org."
+  },
+  {
+   "id": "ebible-latVUC",
+   "url": "https://ebible.org/Scriptures/latVUC_usfm.zip",
+   "file": "latVUC_usfm.zip",
+   "terms": "https://ebible.org/latVUC/copyright.htm",
+   "rights": "public-domain",
+   "note": "Clementine Vulgate (1598) with the Glossa Ordinaria in the Migne edition (1880), eBible.org USFM export. Public domain."
+  },
+  {
+   "id": "ebible-eng-web-c",
+   "url": "https://ebible.org/Scriptures/eng-web-c_usfm.zip",
+   "file": "eng-web-c_usfm.zip",
+   "terms": "https://ebible.org/eng-web-c/copyright.htm",
+   "rights": "public-domain",
+   "note": "World English Bible, Catholic book order. Dedicated to the public domain; 'World English Bible' is a trademark of eBible.org (do not call a modified text by that name)."
+  },
+  {
+   "id": "openbible-xrefs",
+   "url": "https://a.openbible.info/data/cross-references.zip",
+   "file": "cross-references.zip",
+   "terms": "https://www.openbible.info/labs/cross-references/",
+   "rights": "open-license",
+   "note": "OpenBible.info cross references, CC BY 4.0. Uses KJV/English verse numbering; converted to the Vulgate anchor by the pipeline."
+  },
+  {
+   "id": "biay-feed",
+   "url": "https://feeds.fireside.fm/bibleinayear/rss",
+   "file": "biay.rss.xml",
+   "terms": "https://bibleinayear.fireside.fm/",
+   "rights": "metadata-only",
+   "note": "Official public podcast RSS feed of The Bible in a Year (with Fr. Mike Schmitz), Ascension. Only metadata (titles, dates, descriptions, enclosure links) is used; audio is never copied."
+  },
+  {
+   "id": "crosswire-catena",
+   "url": "https://crosswire.org/ftpmirror/pub/sword/packages/rawzip/Catena.zip",
+   "file": "Catena.sword.zip",
+   "terms": "https://crosswire.org/sword/modules/ModInfo.jsp?modName=Catena",
+   "rights": "public-domain",
+   "note": "CrossWire SWORD module 'Catena' (Catena Aurea, Newman translation 1842), DistributionLicense=Public Domain; text source https://github.com/lemtom/catena/ (Tom Lemmens). Covers Matthew, Mark, Luke, John."
+  },
+  {
+   "id": "sermonindex-haydock",
+   "url": "https://www.sermonindex.net/modules/mybible/SI-HAYDOCKC.commentaries.zip",
+   "file": "haydock.mybible.zip",
+   "terms": "https://www.sermonindex.net/commentary/haydock-c/",
+   "rights": "public-domain",
+   "note": "Haydock's Catholic Bible Commentary (Geo. L. Haydock, 1811; Douay-Rheims edition 1859), MyBible SQLite module prepared by SermonIndex.net, stated Public Domain. Verse-by-verse, Vulgate/Douay numbering, protocanonical books only."
+  },
+  {
+   "id": "openbible-geo",
+   "url": "https://www.openbible.info/geo/data/merged.txt",
+   "file": "openbible-geo-merged.txt",
+   "terms": "https://www.openbible.info/geo/",
+   "rights": "CC-BY-4.0",
+   "note": "OpenBible.info Bible Geocoding data: possible modern locations of biblical places with confidence marks. Creative Commons Attribution; credit OpenBible.info (some data from OpenStreetMap, ODbL)."
+  },
+  {
+   "id": "openbible-topics",
+   "url": "https://a.openbible.info/data/topic-scores.zip",
+   "file": "openbible-topic-scores.zip",
+   "terms": "https://www.openbible.info/topics",
+   "rights": "CC-BY-4.0",
+   "note": "OpenBible.info topical Bible: topics with scored passages (from user votes). Creative Commons Attribution; credit OpenBible.info."
+  }
+ ]
 }

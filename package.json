@@ -25,6 +25,7 @@
     "dexie": "^4.0.10",
     "dexie-react-hooks": "^1.1.7",
     "dompurify": "^3.2.4",
+    "leaflet": "^1.9.4",
     "marked": "^15.0.7",
     "minisearch": "^7.1.2",
     "react": "^18.3.1",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@types/dompurify": "^3.0.5",
+    "@types/leaflet": "^1.9.12",
     "@types/node": "^22.13.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",

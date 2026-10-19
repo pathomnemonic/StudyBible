@@ -286,6 +286,20 @@
     "evangelii-gaudium": "92/288 articles, 207 refs"
    }
   },
+  "original": {
+   "greekWords": 137554,
+   "greekLemmaMatchedToStrongs": 134089,
+   "hebrewWords": 305506
+  },
+  "maps": {
+   "places": 1232,
+   "skippedNoCoordinates": 42,
+   "books": 59
+  },
+  "topics": {
+   "topics": 6350,
+   "rowsKept": 37852
+  },
   "external": {
    "rows": 158,
    "caNavigator": 73,

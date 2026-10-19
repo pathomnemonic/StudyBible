@@ -41,6 +41,24 @@ export async function fetchAll(only?: string[]) {
       note: `${d.title} (${d.author}, ${d.date}). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed.`,
     });
   }
+  // shallow git clones (original-language data lives in public git repositories)
+  const gitDir = join(RAW, 'repos');
+  mkdirSync(gitDir, { recursive: true });
+  const gitProv: Record<string, string> = {};
+  for (const r of readJson(join(REGISTRY, 'original-sources.json')).repos) {
+    if (only && only.length && !only.includes(`git-${r.id}`)) continue;
+    const dest = join(gitDir, r.id);
+    if (!exists(join(dest, '.git'))) {
+      console.log(`↓ git-${r.id}  ${r.url}`);
+      try {
+        execFileSync('git', ['clone', '-q', '--depth', '1', r.url, dest], { stdio: 'inherit', env: { ...process.env, GIT_LFS_SKIP_SMUDGE: '1' } });
+      } catch {
+        console.error(`!! could not clone ${r.id}`);
+        continue;
+      }
+    } else console.log(`= git-${r.id} (cached)`);
+    gitProv[r.id] = execFileSync('git', ['-C', dest, 'rev-parse', 'HEAD']).toString().trim();
+  }
   const prov: Record<string, unknown> = exists(join(PROVENANCE, 'fetched.json')) ? readJson(join(PROVENANCE, 'fetched.json')) : {};
   for (const e of entries) {
     if (only && only.length && !only.includes(e.id)) continue;
@@ -60,6 +78,7 @@ export async function fetchAll(only?: string[]) {
     const buf = readFileSync(dest);
     prov[e.id] = { url: e.url, file: e.file, bytes: buf.length, sha256: sha256(buf), retrieved: today(), terms: e.terms, rights: e.rights, note: e.note };
   }
+  prov['_git'] = { ...((prov['_git'] as object) ?? {}), ...gitProv };
   writeJson(join(PROVENANCE, 'fetched.json'), prov, true);
   console.log('fetch complete');
 }

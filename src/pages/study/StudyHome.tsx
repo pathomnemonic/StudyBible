@@ -50,6 +50,19 @@ export default function StudyHome() {
           <p className="muted">Episodes mapped to the passages they read.</p>
         </Link>
       </div>
+      <h2 style={{ fontSize: '1.15rem', marginTop: 24 }}>Reference tools</h2>
+      <div className="grid">
+        {[
+          ['/study/maps', 'Maps', 'Places named in Scripture on an interactive map.'],
+          ['/study/concordance', 'Concordance', 'Every verse containing a word, counted by book.'],
+          ['/study/topical', 'Topical index', 'Thousands of topics with their passages.'],
+        ].map(([to, t, d]) => (
+          <Link key={to} className="card" to={to} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <h3>{t}</h3>
+            <p className="muted">{d}</p>
+          </Link>
+        ))}
+      </div>
       <p className="muted small" style={{ marginTop: 16 }}>
         Tip: select any verse in the Read tab and tap <Icon name="study" size={14} /> to see everything attached to it.
       </p>

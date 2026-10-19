@@ -2,7 +2,7 @@ import type { AuthorityLevel, ItemFormat, Period } from '../lib/types';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
 import { getBook } from '../lib/canon';
 import {
-  CCC_OFFICIAL, cccUrl, getBiay, getCatena, getCccLinks, getDoctrine, getGlossa, getHaydock, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex,
+  CCC_OFFICIAL, cccUrl, getBiay, getCatena, getCccLinks, getDoctrine, getGlossa, getHaydock, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex, getPlaces, getPlacesByBook, getTopicIndex, getTopicsByBook,
 } from '../data/content';
 import { getXrefs } from '../data/loader';
 import type { ResourceSource } from '../data/content';
@@ -16,7 +16,7 @@ export type SectionKey =
   | 'fathers' | 'saints'
   | 'xref'
   | 'catholic-answers' | 'creators' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
-  | 'context' | 'language'
+  | 'context' | 'language' | 'places' | 'topics'
   | 'mine';
 
 export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
@@ -36,6 +36,8 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'resources', label: 'Other Catholic resources' },
   { key: 'links', label: 'Links you added' },
   { key: 'language', label: 'Original language', hint: 'Greek and Hebrew study tools for this verse (third-party sites, not checked by this app). Protocanonical books only.' },
+  { key: 'places', label: 'Places', hint: 'Locations named in this passage (OpenBible.info geocoding, CC BY). Open the map.' },
+  { key: 'topics', label: 'Topical index', hint: 'Topics people have tied to this passage (OpenBible.info, CC BY; community-voted, not Church-reviewed).' },
   { key: 'context', label: 'Context & translation notes' },
   { key: 'mine', label: 'My notes & highlights' },
 ];
@@ -47,7 +49,8 @@ export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'fathers', label: 'Fathers & saints', sections: ['fathers', 'saints'] },
   { id: 'xref', label: 'Cross-refs', sections: ['xref'] },
   { id: 'media', label: 'Media & apologetics', sections: ['catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
-  { id: 'context', label: 'Context', sections: ['context', 'language'] },
+  { id: 'words', label: 'Original language', sections: [] },
+  { id: 'context', label: 'Context', sections: ['context', 'places', 'topics', 'language'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
 
@@ -376,6 +379,62 @@ export const providers: Record<string, Provider> = {
     return out;
   },
 
+  /** Places named in the passage, from the OpenBible geocoding data. */
+  async places(refs) {
+    const book = refs[0].book;
+    const [byBook, places] = await Promise.all([getPlacesByBook(book), getPlaces()]);
+    if (!byBook || !places) return [];
+    const out: StudyItem[] = [];
+    const seen = new Set<number>();
+    for (const [c, v, idx] of byBook) {
+      if (seen.has(idx) || !anyOverlap(refs, c, v, c, v)) continue;
+      const pl = places[idx];
+      if (!pl) continue;
+      seen.add(idx);
+      out.push({
+        id: `place-${idx}`,
+        section: 'places',
+        title: pl.n,
+        excerpt: [pl.c, pl.r ? `Same site as ${pl.r}` : '', pl.a ? 'Location approximate' : ''].filter(Boolean).join(' · ') || undefined,
+        internal: `/study/maps?place=${idx}`,
+        authority: 'scholarship',
+        period: 'contemporary',
+        format: 'external-link',
+        match: 'explicit-reference',
+        why: `${pl.n} is named in ${formatRef(refs[0])}. Coordinates are scholarly best guesses from OpenBible.info (CC BY 4.0).`,
+        sourceName: 'OpenBible.info geocoding',
+        kind: 'Place',
+      });
+    }
+    return out;
+  },
+
+  /** Topics tied to the passage in the OpenBible topical index. */
+  async topics(refs) {
+    const book = refs[0].book;
+    const [byBook, names] = await Promise.all([getTopicsByBook(book), getTopicIndex()]);
+    if (!byBook || !names) return [];
+    const best = new Map<number, number>();
+    for (const [c1, v1, c2, v2, ti, score] of byBook) if (anyOverlap(refs, c1, v1, c2, v2)) best.set(ti, Math.max(best.get(ti) ?? 0, score));
+    return [...best.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 12)
+      .map(([ti, score]) => ({
+        id: `topic-${ti}`,
+        section: 'topics' as SectionKey,
+        title: names[ti][0],
+        internal: `/study/topical?topic=${encodeURIComponent(names[ti][0])}`,
+        authority: 'reflection' as AuthorityLevel,
+        period: 'contemporary' as Period,
+        format: 'external-link' as ItemFormat,
+        match: 'topic' as MatchKind,
+        why: `Readers of the OpenBible topical index tied this passage to “${names[ti][0]}” (score ${score}). It is a shared-topic suggestion, not a citation or a Church teaching.`,
+        sourceName: 'OpenBible.info topics',
+        kind: 'Topic',
+        votes: score,
+      }));
+  },
+
   async external(refs) {
     const out: StudyItem[] = [];
     const book = refs[0].book;
@@ -626,6 +685,8 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     [['links'], providers.userlinks(refs)],
     [['biay'], providers.biay(refs)],
     [['context'], providers.context(refs)],
+    [['places'], providers.places(refs)],
+    [['topics'], providers.topics(refs)],
     [['mine'], providers.mine(refs)],
   ];
   emitExt('catholic-answers');
