@@ -94,8 +94,8 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Catholic Answers articles linked to verses | **Partial** | Links to individual catholic.com pages (permitted by their permissions page) matched by hand from title and summary: about 75 pages across ~25 passages so far, plus 73 Bible Navigator pages. A complete index needs Catholic Answers’ own mapping; the database and import path are ready (docs/OUTREACH_CATHOLIC_ANSWERS.md). |
-| Catholic creators (Jimmy Akin, Trent Horn, Matt Fradd, Brant Pitre, Word on Fire…) | **Partial** | A handful of individually linked pages and episodes, plus per-passage YouTube and podcast search links for each creator. Embedded playback for YouTube, Spotify, Apple Podcasts, Vimeo and audio files. |
+| Catholic Answers articles linked to verses | **Partial** | Links to individual catholic.com pages (permitted by their permissions page) matched by hand from title and summary: about 130 pages across ~55 passages so far, plus 73 Bible Navigator pages. A complete index needs Catholic Answers’ own mapping; the database and import path are ready (docs/OUTREACH_CATHOLIC_ANSWERS.md). |
+| Catholic creators (Jimmy Akin, Trent Horn, Matt Fradd, Brant Pitre, Word on Fire…) | **Partial** | About 45 individually linked pages and episodes (Word on Fire, St. Paul Center, Catholic Productions, FORMED/Augustine Institute, EWTN, New Advent, Jimmy Akin, Trent Horn), plus per-passage YouTube and podcast search links for each creator. Embedded playback for YouTube, Spotify, Apple Podcasts, Vimeo and audio files. |
 
 ## Platform
 

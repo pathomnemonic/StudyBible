@@ -50,3 +50,6 @@ Add a row to `data/curated/external-resources.json` with the passages it treats,
 | Pauline argument outlines | In app, editorial | 13 letters plus Hebrews. |
 | Genealogies and family trees | In app, editorial | 134 people with parents and passages; Matthew 1 and Luke 3 lines; differences between lists are noted, not resolved. |
 | Knowledge graph | In app | Built on your device from your notes, questions, tags, passages, authors, Catechism paragraphs and collections; optional suggested links to doctrine topics are marked as suggestions. |
+
+## Update: outside-article links (permission given by the maintainer)
+The maintainer authorised adding more links to outside articles. ~90 more pages were added, each matched by hand from its title and a search-result summary and labelled that way in the app (`basis: title-and-summary`): Catholic Answers (Genesis 1–3, original sin, Melchizedek, images, binding and loosing, divorce, Mary as Mother of God, John 19, Trinity and baptism, John 1:1, apostolic succession, Acts 15, Romans 10:9, 1 Timothy 2:5, James 5:14, John 21), Word on Fire (John 6, Genesis), St. Paul Center, Catholic Productions, FORMED/Augustine Institute (Matthew series), EWTN and New Advent. Forum threads and shop pages were left out. Nothing is copied; each row is a title, URL and passage list.

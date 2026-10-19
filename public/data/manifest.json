@@ -273,7 +273,7 @@
   {
    "id": "links",
    "label": "Cross-references, resource links, doctrine, Catechism citations",
-   "bytes": 4414790,
+   "bytes": 4453982,
    "files": [
     "xrefs/1CH.json",
     "xrefs/1CO.json",
@@ -349,6 +349,7 @@
     "resources/1TI.json",
     "resources/2MA.json",
     "resources/2PE.json",
+    "resources/2SA.json",
     "resources/2TH.json",
     "resources/2TI.json",
     "resources/ACT.json",
@@ -365,9 +366,11 @@
     "resources/LEV.json",
     "resources/LUK.json",
     "resources/MAT.json",
+    "resources/MIC.json",
     "resources/MRK.json",
     "resources/NUM.json",
     "resources/PHP.json",
+    "resources/PSA.json",
     "resources/REV.json",
     "resources/ROM.json",
     "resources/TIT.json",
