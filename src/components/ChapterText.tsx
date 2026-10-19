@@ -53,7 +53,7 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
                 role="button"
                 tabIndex={0}
                 aria-pressed={selected.has(n)}
-                aria-label={`Verse ${n}${d?.highlight ? ', highlighted' : ''}${d?.note ? ', has a note' : ''}${d?.bookmark ? ', bookmarked' : ''}`}
+                aria-description={[d?.highlight ? 'highlighted' : '', d?.note ? 'has a note' : '', d?.bookmark ? 'bookmarked' : ''].filter(Boolean).join(', ') || undefined}
                 onClick={(e) => onVerse(n, e)}
                 onContextMenu={(e) => {
                   e.preventDefault();
