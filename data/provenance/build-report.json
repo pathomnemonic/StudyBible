@@ -353,10 +353,40 @@
   "library.gregory-nyssa-letters": {
    "sections": 18
   },
+  "library.gregory-thaum": {
+   "sections": 11
+  },
+  "library.methodius": {
+   "sections": 11
+  },
+  "library.arnobius": {
+   "sections": 9
+  },
+  "library.origen-john": {
+   "sections": 8
+  },
+  "library.origen-matthew": {
+   "sections": 8
+  },
+  "library.tatian-diatessaron": {
+   "sections": 57
+  },
+  "library.chrys-minor": {
+   "sections": 79
+  },
+  "library.gregory-letters": {
+   "sections": 150
+  },
+  "library.ephraim-aphrahat": {
+   "sections": 100
+  },
+  "library.socrates-sozomen": {
+   "sections": 255
+  },
   "library.total": {
-   "works": 67,
-   "sections": 4965,
-   "indexedWords": 60673
+   "works": 77,
+   "sections": 5653,
+   "indexedWords": 63931
   },
   "curated": {
    "topics": 18,

@@ -683,5 +683,155 @@
   "terms": "https://www.gutenberg.org/policy/permission.html",
   "rights": "public-domain",
   "note": "Douay-Rheims Bible, Challoner revision (1749-1752) with its annotations, book introductions and chapter summaries; Project Gutenberg e-text #8300. The underlying text is 18th-century; used for Challoner's notes, book introductions and chapter summaries."
+ },
+ "ccel-schaff_anf02": {
+  "url": "https://www.ccel.org/ccel/schaff/anf02.xml",
+  "file": "ccel_schaff_anf02.xml",
+  "bytes": 4980135,
+  "sha256": "99cb6b19b1cf7df49546ea73e3b313807ac6d7d84702c1209675a7c34456318a",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "The Instructor, Stromata and other works, Clement of Alexandria. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_anf03": {
+  "url": "https://www.ccel.org/ccel/schaff/anf03.xml",
+  "file": "ccel_schaff_anf03.xml",
+  "bytes": 6246883,
+  "sha256": "a6eee75d691b7a3dfe045bb2998ad01c7f1b5c17d46ec58606678e7aeea82a35",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Apologetic works, Tertullian. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_anf05": {
+  "url": "https://www.ccel.org/ccel/schaff/anf05.xml",
+  "file": "ccel_schaff_anf05.xml",
+  "bytes": 5795506,
+  "sha256": "a0623805b4c825198bf4542a4976c58f755808a531fb72b7cb481633ebb59744",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Works of Hippolytus, Hippolytus of Rome. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_anf07": {
+  "url": "https://www.ccel.org/ccel/schaff/anf07.xml",
+  "file": "ccel_schaff_anf07.xml",
+  "bytes": 5451478,
+  "sha256": "2a06bbed738de15a688512d4f51c9f28b6543e33284cfa2c28d55632952e8d83",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Divine Institutes and other works, Lactantius. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf101": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf101.xml",
+  "file": "ccel_schaff_npnf101.xml",
+  "bytes": 4837387,
+  "sha256": "5a251ba0e3ef934821f3998ba1e3ab52ea40dae02ced15fbd36bb111fd81afc0",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Letters, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf103": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf103.xml",
+  "file": "ccel_schaff_npnf103.xml",
+  "bytes": 3842341,
+  "sha256": "410f240f8105bb6097316a54a867fa5a4ae02c0d3d03606aefc2df71f5bfc455",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Doctrinal treatises, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf104": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf104.xml",
+  "file": "ccel_schaff_npnf104.xml",
+  "bytes": 4362836,
+  "sha256": "978cdefc45de5bd5bce3aecb0f8e5bbd27129400f531c0c7b6dee88b17c677b9",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Writings against the Manichæans, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf105": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf105.xml",
+  "file": "ccel_schaff_npnf105.xml",
+  "bytes": 4501690,
+  "sha256": "224f0e6a188ddfe691c1433c8db9a883755a9f030b71fede644d4af6c18ee63f",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Anti-Pelagian writings, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf201": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf201.xml",
+  "file": "ccel_schaff_npnf201.xml",
+  "bytes": 5624937,
+  "sha256": "da92679dcdd452c10dab212ee4168be1d37f89f758dae8301821a96d49a261c9",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Church History, Eusebius of Caesarea. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf203": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf203.xml",
+  "file": "ccel_schaff_npnf203.xml",
+  "bytes": 4264937,
+  "sha256": "f2683481bded09cf90369589dd40330e231c83e6dbd4cb1aec730c9b90f9ec3a",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Ecclesiastical History, Dialogues and Letters, Theodoret of Cyrus. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf205": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf205.xml",
+  "file": "ccel_schaff_npnf205.xml",
+  "bytes": 4225695,
+  "sha256": "43e87ed232457fd2d5862f72dd2d5d84fe1e8b69f4c3eec839bad04579327bf3",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Dogmatic treatises, Gregory of Nyssa. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_anf06": {
+  "url": "https://www.ccel.org/ccel/schaff/anf06.xml",
+  "file": "ccel_schaff_anf06.xml",
+  "bytes": 4639247,
+  "sha256": "620c7626c3ba4120d55bfaf569da947b3d10b440dc72b2239be3cf1985a13a07",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Works of Gregory Thaumaturgus (including the Metaphrase on Ecclesiastes), Gregory Thaumaturgus. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_anf09": {
+  "url": "https://www.ccel.org/ccel/schaff/anf09.xml",
+  "file": "ccel_schaff_anf09.xml",
+  "bytes": 4647627,
+  "sha256": "6a3932956be998903672d451fc3a0901b5da8ebecce85273bb6513ae9d7df09f",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Commentary on the Gospel of John, Origen. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf109": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf109.xml",
+  "file": "ccel_schaff_npnf109.xml",
+  "bytes": 3017592,
+  "sha256": "6d0887393b4d197d7784cbea989aeb422d7e38f55711b4c4d4af85e3de680175",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Treatises, homilies and letters, John Chrysostom. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf202": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf202.xml",
+  "file": "ccel_schaff_npnf202.xml",
+  "bytes": 3292641,
+  "sha256": "0139e8dcea6d40c3b1a5e046f3d45bdf6d1b30c503461d7f29f60309b4f2015c",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Ecclesiastical Histories, Socrates Scholasticus and Sozomen. Public-domain text distributed by CCEL as ThML."
  }
 }

@@ -2,36 +2,36 @@
  "generated": "2026-10-19",
  "total": 35809,
  "tier": {
-  "verse": 27540,
-  "chapter": 8269,
+  "verse": 27608,
+  "chapter": 8201,
   "data": 0,
   "none": 0
  },
  "kinds": {
   "haydock": 18922,
   "glossa": 13775,
-  "fathers": 15993,
+  "fathers": 16509,
   "curated": 2582,
   "magisterium": 878,
   "xrefs": 29271,
   "topics": 10796,
   "challoner": 1834,
-  "biay": 7366,
-  "curatedChapter": 450,
+  "biay": 7303,
+  "curatedChapter": 447,
   "catena": 3777
  },
  "books": {
   "GEN": {
    "verses": 1530,
-   "verse": 1108,
-   "chapter": 422,
+   "verse": 1112,
+   "chapter": 418,
    "data": 0,
    "none": 0
   },
   "EXO": {
    "verses": 1211,
-   "verse": 890,
-   "chapter": 321,
+   "verse": 902,
+   "chapter": 309,
    "data": 0,
    "none": 0
   },
@@ -44,15 +44,15 @@
   },
   "NUM": {
    "verses": 1288,
-   "verse": 762,
-   "chapter": 526,
+   "verse": 763,
+   "chapter": 525,
    "data": 0,
    "none": 0
   },
   "DEU": {
    "verses": 959,
-   "verse": 766,
-   "chapter": 193,
+   "verse": 767,
+   "chapter": 192,
    "data": 0,
    "none": 0
   },
@@ -79,43 +79,43 @@
   },
   "1SA": {
    "verses": 811,
-   "verse": 647,
-   "chapter": 164,
+   "verse": 654,
+   "chapter": 157,
    "data": 0,
    "none": 0
   },
   "2SA": {
    "verses": 695,
-   "verse": 519,
-   "chapter": 176,
+   "verse": 520,
+   "chapter": 175,
    "data": 0,
    "none": 0
   },
   "1KI": {
    "verses": 817,
-   "verse": 615,
-   "chapter": 202,
+   "verse": 618,
+   "chapter": 199,
    "data": 0,
    "none": 0
   },
   "2KI": {
    "verses": 719,
-   "verse": 530,
-   "chapter": 189,
+   "verse": 535,
+   "chapter": 184,
    "data": 0,
    "none": 0
   },
   "1CH": {
    "verses": 940,
-   "verse": 578,
-   "chapter": 362,
+   "verse": 579,
+   "chapter": 361,
    "data": 0,
    "none": 0
   },
   "2CH": {
    "verses": 822,
-   "verse": 531,
-   "chapter": 291,
+   "verse": 532,
+   "chapter": 290,
    "data": 0,
    "none": 0
   },
@@ -163,8 +163,8 @@
   },
   "2MA": {
    "verses": 558,
-   "verse": 108,
-   "chapter": 450,
+   "verse": 109,
+   "chapter": 449,
    "data": 0,
    "none": 0
   },
@@ -205,29 +205,29 @@
   },
   "WIS": {
    "verses": 439,
-   "verse": 284,
-   "chapter": 155,
+   "verse": 287,
+   "chapter": 152,
    "data": 0,
    "none": 0
   },
   "SIR": {
    "verses": 1592,
-   "verse": 835,
-   "chapter": 757,
+   "verse": 840,
+   "chapter": 752,
    "data": 0,
    "none": 0
   },
   "ISA": {
    "verses": 1292,
-   "verse": 1187,
-   "chapter": 105,
+   "verse": 1189,
+   "chapter": 103,
    "data": 0,
    "none": 0
   },
   "JER": {
    "verses": 1363,
-   "verse": 1080,
-   "chapter": 283,
+   "verse": 1085,
+   "chapter": 278,
    "data": 0,
    "none": 0
   },
@@ -240,22 +240,22 @@
   },
   "BAR": {
    "verses": 213,
-   "verse": 36,
-   "chapter": 177,
+   "verse": 40,
+   "chapter": 173,
    "data": 0,
    "none": 0
   },
   "EZK": {
    "verses": 1272,
-   "verse": 857,
-   "chapter": 415,
+   "verse": 864,
+   "chapter": 408,
    "data": 0,
    "none": 0
   },
   "DAN": {
    "verses": 531,
-   "verse": 321,
-   "chapter": 210,
+   "verse": 322,
+   "chapter": 209,
    "data": 0,
    "none": 0
   },
@@ -268,8 +268,8 @@
   },
   "JOL": {
    "verses": 73,
-   "verse": 65,
-   "chapter": 8,
+   "verse": 66,
+   "chapter": 7,
    "data": 0,
    "none": 0
   },
@@ -373,8 +373,8 @@
   },
   "ACT": {
    "verses": 1004,
-   "verse": 913,
-   "chapter": 91,
+   "verse": 916,
+   "chapter": 88,
    "data": 0,
    "none": 0
   },
