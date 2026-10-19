@@ -193,6 +193,34 @@ d('content packs', () => {
     for (const e of json('magisterium/JHN.json').slice(0, 50)) expect(e.length).toBe(6);
     for (const d of idx.documents) expect(d.url).toMatch(/^https:\/\/www\.vatican\.va\//);
   });
+  it('editorial reference data covers every book and every Pauline letter', () => {
+    const books = json('reference/books.json');
+    expect(Object.keys(books).length).toBe(73);
+    for (const [id, b] of Object.entries<any>(books)) {
+      expect(b.intro.length, id).toBeGreaterThan(30);
+      expect(b.outline.length, id).toBeGreaterThan(0);
+    }
+    expect(Object.keys(json('reference/pauline.json').letters).length).toBe(14);
+    const syn = json('reference/synopsis.json').rows;
+    expect(syn.some((r: string[]) => r[0] === 'The Last Supper' && r[1].startsWith('Matthew 26'))).toBe(true);
+    const gen = json('reference/genealogies.json');
+    const ids = new Set(gen.persons.map((p: any) => p.id));
+    for (const p of gen.persons) for (const k of ['f', 'm']) if (p[k]) expect(ids.has(p[k]), p.id).toBe(true);
+    expect(gen.lines.matthew.groups.flatMap((g: any) => g[1]).at(-1)).toBe('jesus');
+  });
+  it('original-language and map data exist and are shaped as the app expects', () => {
+    const w = json('original/grc/JHN.json');
+    expect(w[0][0][1][1]).toBe('746'); // John 1:1, second word ἀρχῇ = G746
+    expect(json('original/hbo/GEN.json')[0][0][1][1]).toBe('1254'); // Genesis 1:1 bārā' = H1254
+    expect(json('original/lex-grc.json')['3056'][0]).toBe('λόγος');
+    const places = json('maps/places.json').filter(Boolean);
+    expect(places.length).toBeGreaterThan(1000);
+    for (const p of places.slice(0, 200)) {
+      expect(p.lat).toBeGreaterThan(-90);
+      expect(p.lon).toBeLessThan(180);
+    }
+    expect(json('topics/index.json').length).toBeGreaterThan(1000);
+  });
   it('library works record translator, rights evidence and source', () => {
     const lib = json('library/index.json');
     expect(lib.works.length).toBeGreaterThanOrEqual(20);

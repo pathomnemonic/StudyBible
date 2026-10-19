@@ -7,6 +7,7 @@ import {
 import { getXrefs } from '../data/loader';
 import type { ResourceSource } from '../data/content';
 import { languageLinks } from './languageTools';
+import { getIndexes, getSynopsis, refsFromText } from './refData';
 import { convertRef } from '../lib/versification';
 import { db } from '../db/db';
 
@@ -16,7 +17,7 @@ export type SectionKey =
   | 'fathers' | 'saints'
   | 'xref'
   | 'catholic-answers' | 'creators' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
-  | 'context' | 'language' | 'places' | 'topics'
+  | 'context' | 'language' | 'places' | 'topics' | 'parallels'
   | 'mine';
 
 export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
@@ -36,6 +37,7 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'resources', label: 'Other Catholic resources' },
   { key: 'links', label: 'Links you added' },
   { key: 'language', label: 'Original language', hint: 'Greek and Hebrew study tools for this verse (third-party sites, not checked by this app). Protocanonical books only.' },
+  { key: 'parallels', label: 'Parallels and indexes', hint: 'Gospel parallels, parables, miracles, prophecy and fulfilment, covenants (an editorial index written for this app).' },
   { key: 'places', label: 'Places', hint: 'Locations named in this passage (OpenBible.info geocoding, CC BY). Open the map.' },
   { key: 'topics', label: 'Topical index', hint: 'Topics people have tied to this passage (OpenBible.info, CC BY; community-voted, not Church-reviewed).' },
   { key: 'context', label: 'Context & translation notes' },
@@ -50,7 +52,7 @@ export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'xref', label: 'Cross-refs', sections: ['xref'] },
   { id: 'media', label: 'Media & apologetics', sections: ['catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
   { id: 'words', label: 'Original language', sections: [] },
-  { id: 'context', label: 'Context', sections: ['context', 'places', 'topics', 'language'] },
+  { id: 'context', label: 'Context', sections: ['context', 'parallels', 'places', 'topics', 'language'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
 
@@ -379,6 +381,33 @@ export const providers: Record<string, Provider> = {
     return out;
   },
 
+  /** Editorial reference indexes: Gospel parallels, parables, miracles, prophecy/fulfilment, covenants. */
+  async parallels(refs) {
+    const [syn, idx] = await Promise.all([getSynopsis(), getIndexes()]);
+    const out: StudyItem[] = [];
+    const hit = (text: string) => refsFromText(text).filter((r) => refs.some((x) => refsOverlap(x, r)));
+    const add = (id: string, kind: string, title: string, others: string[], why: string, link?: string) =>
+      out.push({
+        id, section: 'parallels', title, excerpt: others.length ? `See also: ${others.join(' · ')}` : undefined, internal: link,
+        authority: 'scholarship', period: 'contemporary', format: 'external-link', match: 'explicit-reference', why, sourceName: 'Study Bible reference index (editorial)', kind,
+      });
+    for (const r of syn?.rows ?? []) {
+      const cols = r.slice(1);
+      if (!cols.some((c) => c && hit(c).length)) continue;
+      const others = cols.filter((c) => c && !hit(c).length);
+      add(`syn-${r[0]}`, 'Gospel parallel', r[0], others, 'This passage belongs to a pericope that appears in more than one Gospel (common synopses; the grouping is editorial). Open the synopsis to read them side by side.', `/study/synopsis?p=${encodeURIComponent(r[0])}`);
+    }
+    for (const r of idx?.parables ?? []) if (hit(r[1]).length) add(`par-${r[0]}`, 'Parable', r[0], [r[1]], 'Listed among the parables of Jesus.', '/study/index?tab=parables');
+    for (const r of idx?.miracles ?? []) if (hit(r[1]).length) add(`mir-${r[0]}`, 'Miracle', r[0], [r[1]], `Listed among the miracles of Jesus (${r[2]}).`, '/study/index?tab=miracles');
+    for (const r of idx?.prophecies ?? []) {
+      const ot = hit(r[1]).length;
+      const nt = hit(r[2]).length;
+      if (ot || nt) add(`pro-${r[0]}`, ot ? 'Prophecy' : 'Fulfilment', r[0], ot ? [r[2]] : [r[1]], 'A passage the New Testament itself cites or applies; the pairing is the New Testament’s own, not a modern guess.', '/study/index?tab=prophecies');
+    }
+    for (const r of idx?.covenants ?? []) if (hit(r[1]).length) add(`cov-${r[0]}`, 'Covenant', r[0], [], r[2], '/study/index?tab=covenants');
+    return out;
+  },
+
   /** Places named in the passage, from the OpenBible geocoding data. */
   async places(refs) {
     const book = refs[0].book;
@@ -685,6 +714,7 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     [['links'], providers.userlinks(refs)],
     [['biay'], providers.biay(refs)],
     [['context'], providers.context(refs)],
+    [['parallels'], providers.parallels(refs)],
     [['places'], providers.places(refs)],
     [['topics'], providers.topics(refs)],
     [['mine'], providers.mine(refs)],

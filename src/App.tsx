@@ -30,6 +30,11 @@ const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const MapsPage = lazy(() => import('./pages/study/MapsPage'));
 const TopicalPage = lazy(() => import('./pages/study/TopicalPage'));
 const ConcordancePage = lazy(() => import('./pages/study/ConcordancePage'));
+const BooksPage = lazy(() => import('./pages/study/BooksPage'));
+const IndexPage = lazy(() => import('./pages/study/IndexPage'));
+const SynopsisPage = lazy(() => import('./pages/study/SynopsisPage'));
+const PaulinePage = lazy(() => import('./pages/study/PaulinePage'));
+const PeoplePage = lazy(() => import('./pages/study/PeoplePage'));
 const TodayPage = lazy(() => import('./pages/TodayPage'));
 const AccountPage = lazy(() => import('./pages/AccountPage'));
 const AttachPage = lazy(() => import('./pages/AttachPage'));
@@ -90,6 +95,11 @@ export default function App() {
               <Route path="/study" element={<StudyHome />} />
               <Route path="/study/search" element={<SearchPage />} />
               <Route path="/study/topics/:id" element={<TopicPage />} />
+              <Route path="/study/books/:id?" element={<BooksPage />} />
+              <Route path="/study/index" element={<IndexPage />} />
+              <Route path="/study/synopsis" element={<SynopsisPage />} />
+              <Route path="/study/pauline" element={<PaulinePage />} />
+              <Route path="/study/people" element={<PeoplePage />} />
               <Route path="/study/maps" element={<MapsPage />} />
               <Route path="/study/topical" element={<TopicalPage />} />
               <Route path="/study/concordance" element={<ConcordancePage />} />

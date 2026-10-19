@@ -53,7 +53,12 @@ export default function StudyHome() {
       <h2 style={{ fontSize: '1.15rem', marginTop: 24 }}>Reference tools</h2>
       <div className="grid">
         {[
+          ['/study/books', 'Books & outlines', 'An introduction and outline for each of the 73 books.'],
           ['/study/maps', 'Maps', 'Places named in Scripture on an interactive map.'],
+          ['/study/people', 'Genealogies', 'Family trees from Adam to Jesus.'],
+          ['/study/synopsis', 'Gospel synopsis', 'Matthew, Mark, Luke and John side by side.'],
+          ['/study/pauline', 'Paul’s letters', 'Argument outlines for each letter.'],
+          ['/study/index', 'Parables, miracles, prophecies, covenants', 'Indexes with every passage linked.'],
           ['/study/concordance', 'Concordance', 'Every verse containing a word, counted by book.'],
           ['/study/topical', 'Topical index', 'Thousands of topics with their passages.'],
         ].map(([to, t, d]) => (

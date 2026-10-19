@@ -20,6 +20,9 @@ import StudyPanel from '../components/StudyPanel';
 import TextSettings from '../components/TextSettings';
 import CompareModal from '../components/CompareModal';
 import { verseResourceCounts } from '../study/density';
+import { getBooksInfo, sectionFor, type BookInfo } from '../study/refData';
+import { convertRef } from '../lib/versification';
+import { Link } from 'react-router-dom';
 
 const COLORS: HighlightColor[] = ['yellow', 'green', 'blue', 'pink', 'orange', 'purple'];
 
@@ -58,6 +61,10 @@ export default function ReadPage() {
   const [textSettings, setTextSettings] = useState(false);
   const [editionPicker, setEditionPicker] = useState(false);
   const lastClicked = useRef<number | null>(null);
+  const [bookInfo, setBookInfo] = useState<BookInfo | undefined>();
+  useEffect(() => {
+    getBooksInfo().then((all) => setBookInfo(all?.[bk.id]));
+  }, [bk.id]);
   const [anchorDensity, setAnchorDensity] = useState<Map<number, number>>(new Map());
 
   // -------- load text
@@ -387,6 +394,16 @@ export default function ReadPage() {
             <h1 className="chapter-title">
               {bk.id === 'PSA' ? `Psalm ${chNum}` : `${bk.name} ${chNum}`}
             </h1>
+            {(() => {
+              const kjvCh = convertRef('vulgate', 'kjv', { book: bk.id, c1: primaryAnchorChapter, v1: 1, c2: primaryAnchorChapter, v2: 1 }).ref.c1;
+              const line = sectionFor(bookInfo, kjvCh);
+              return line ? (
+                <div className="subtitle">
+                  {line} · <Link to={`/study/books/${bk.id}`}>About this book</Link>
+                </div>
+              ) : null;
+            })()}
+            {chNum === 1 && bookInfo && <div className="notice info"><strong>{bk.name}.</strong> {bookInfo.intro}</div>}
             {psalmDual && <div className="subtitle">Hebrew / English numbering: Psalm {psalmDual}</div>}
             {bk.id === 'PSA' && edition.scheme === 'english' && anchorChapters[0] !== chNum && <div className="subtitle">Vulgate (Douay) numbering: Psalm {anchorChapters.join('–')}</div>}
             {chNum === 1 && data.intro && data.intro.length > 0 && data.intro.map((p, i) => <p key={i} className="subtitle">{p}</p>)}

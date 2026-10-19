@@ -11,6 +11,7 @@ import { buildManifest } from './manifest';
 import { buildChurchDocs } from './church';
 import { buildOriginal } from './original';
 import { buildPlaces, buildTopics } from './reference';
+import { buildEditorial } from './editorial';
 import { buildCurated } from './curated';
 import { loadVersification } from '../../src/lib/versification';
 import { PROVENANCE, Report, today, writeJson } from './lib/util';
@@ -49,6 +50,7 @@ async function main() {
     await run('original', () => buildOriginal(report));
     await run('places', () => buildPlaces(report));
     await run('topics', () => buildTopics(report));
+    await run('editorial', () => buildEditorial(report));
     await run('external', () => buildExternal(report));
     await run('manifest', () => buildManifest());
   }

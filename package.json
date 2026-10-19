@@ -22,6 +22,7 @@
     "admin": "tsx server/admin.ts"
   },
   "dependencies": {
+    "d3-force": "^3.0.0",
     "dexie": "^4.0.10",
     "dexie-react-hooks": "^1.1.7",
     "dompurify": "^3.2.4",
@@ -33,6 +34,7 @@
     "react-router-dom": "^6.30.0"
   },
   "devDependencies": {
+    "@types/d3-force": "^3.0.10",
     "@types/dompurify": "^3.0.5",
     "@types/leaflet": "^1.9.12",
     "@types/node": "^22.13.0",

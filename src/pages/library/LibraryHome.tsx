@@ -10,9 +10,10 @@ import { convertRef } from '../../lib/versification';
 import { download, exportAll, exportNotesMarkdown, importAll } from '../../db/ops';
 import { fold } from '../../search/engine';
 import { BOOK_ORDER } from '../../lib/canon';
+import GraphPage from './GraphPage';
 
-type Tab = 'notes' | 'highlights' | 'bookmarks' | 'collections' | 'xrefs' | 'saved' | 'history' | 'export';
-const TABS: [Tab, string][] = [['notes', 'Notes'], ['highlights', 'Highlights'], ['bookmarks', 'Bookmarks'], ['collections', 'Collections'], ['xrefs', 'Connections'], ['saved', 'Saved'], ['history', 'History'], ['export', 'Export']];
+type Tab = 'notes' | 'graph' | 'highlights' | 'bookmarks' | 'collections' | 'xrefs' | 'saved' | 'history' | 'export';
+const TABS: [Tab, string][] = [['notes', 'Notes'], ['graph', 'Knowledge graph'], ['highlights', 'Highlights'], ['bookmarks', 'Bookmarks'], ['collections', 'Collections'], ['xrefs', 'Connections'], ['saved', 'Saved'], ['history', 'History'], ['export', 'Export']];
 
 export default function LibraryHome() {
   const loc = useLocation();
@@ -25,6 +26,7 @@ export default function LibraryHome() {
       <p className="lede">Your notes, highlights, bookmarks and collections. Private to this device unless you export them.</p>
       <div className="tabbar" role="tablist">{TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => { setTab(k); if (noteIdFromUrl) nav('/library'); }}>{l}</button>)}</div>
       {tab === 'notes' && <Notes openId={noteIdFromUrl ? +noteIdFromUrl : undefined} />}
+      {tab === 'graph' && <GraphPage />}
       {tab === 'highlights' && <Highlights />}
       {tab === 'bookmarks' && <Bookmarks />}
       {tab === 'collections' && <Collections />}

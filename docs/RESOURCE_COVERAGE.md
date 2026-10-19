@@ -35,3 +35,18 @@ Interlinear and lexicon: links to Bible Hub and Blue Letter Bible for every prot
 
 ## How to add links (any of the above)
 Add a row to `data/curated/external-resources.json` with the passages it treats, the exact page URL, and `basis` stating how you checked it; add the publisher to `data/registry/resource-sources.json` first. For a larger authorised dataset use `data/licensed/external-*.jsonl`.
+
+## Reference tools (round 5)
+| Tool | Status | Data and honesty notes |
+|---|---|---|
+| Original-language word study | In app (protocanon) | Greek: SBLGNT + MorphGNT (97.5% of words matched to a Strong's number). Hebrew: OSHB/WLC. Glosses are Strong's definitions, a concordance aid, not translations. Hebrew verse numbers are used only where the chapter lines up with the English count (or a Psalm differs by its title lines); otherwise the panel says so. Deuterocanon: not available. |
+| Interactive maps | In app | 1,232 places (OpenBible geocoding, CC BY) on OpenStreetMap tiles; needs a connection. Locations are scholarly guesses; approximate ones are paler. |
+| Concordance | In app | Exact-word search by book in DRB, WEB-C or the other English edition. |
+| Topical index | In app | 6,350 topics from OpenBible (CC BY), community-voted; not doctrine. |
+| Book introductions and outlines | In app, editorial | Written for this app (AI-assisted) for all 73 books; the outline also serves as a chapter-level summary in the reader. Not an official text. |
+| Chapter summaries | Partly | One outline line per chapter (the section it belongs to), not a separate summary for every chapter. |
+| Parables, miracles, prophecy-and-fulfilment, covenants | In app, editorial | 37 parables, 35 miracles, 36 prophecy/fulfilment pairs (the New Testament's own citations), 7 covenants. Not exhaustive. |
+| Gospel synopsis | In app, editorial | 90 pericopes with parallels, shown side by side in the chosen translation. Groupings follow common synopses but are editorial. |
+| Pauline argument outlines | In app, editorial | 13 letters plus Hebrews. |
+| Genealogies and family trees | In app, editorial | 134 people with parents and passages; Matthew 1 and Luke 3 lines; differences between lists are noted, not resolved. |
+| Knowledge graph | In app | Built on your device from your notes, questions, tags, passages, authors, Catechism paragraphs and collections; optional suggested links to doctrine topics are marked as suggestions. |

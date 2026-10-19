@@ -62,7 +62,20 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Church documents on Scripture (Dei Verbum, Verbum Domini, Vatican II, encyclicals) | **Partial** | Article numbers linked to the Scripture they cite, parsed from vatican.va; text not stored. Strong for Dei Verbum, Verbum Domini and the recent encyclicals; weak for pre-1965 documents and footnote-only citations. See docs/RESOURCE_COVERAGE.md. |
-| Original-language tools (interlinear, lexicon) | **Partial** | Per-verse links to Bible Hub and Blue Letter Bible for the protocanonical books. No Hebrew/Greek text is bundled. |
+| Original-language word study (Greek and Hebrew) | **Working** | Word by word with Strong’s glosses and parsing for the protocanonical books (SBLGNT/MorphGNT, OSHB/WLC). Hebrew is shown only where verse numbers provably line up; deuterocanon not included. Links to Bible Hub and Blue Letter Bible as well. |
+| Maps, concordance and topical index | **Working** | OpenBible.info data (CC BY): 1,232 places on an OpenStreetMap map (needs a connection), exact-word concordance, 6,350 community-voted topics. |
+| Book introductions and outlines, indexes, synopsis, Pauline outlines, genealogies | **Working** | Editorial study aids written for this app (AI-assisted) and checked for valid references; they are not official Church texts and are not exhaustive. |
+
+## Library
+
+| Feature | Status | Notes |
+|---|---|---|
+| Personal knowledge graph | **Working** | Notes, questions, passages, authors, Catechism paragraphs, tags and collections as an interactive graph built on your device. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
 | Modern Catholic study Bibles and commentaries (Ignatius, Navarre, Jerome, CCSS…) | **Needs licence** | Copyrighted; none bundled. See docs/RESOURCE_COVERAGE.md. |
 
 ## Pray

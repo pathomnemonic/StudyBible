@@ -168,6 +168,96 @@
     "summary"
    ],
    "description": "Short neutral overviews and topic summaries written for this app. They are not magisterial."
+  },
+  {
+   "kind": "dataset",
+   "authority": "scholarship",
+   "period": "contemporary",
+   "language": "grc",
+   "formats": [
+    "full-text"
+   ],
+   "id": "sblgnt",
+   "name": "SBL Greek New Testament with MorphGNT parsing",
+   "rights": "open-license",
+   "rightsNote": "SBLGNT text © Society of Biblical Literature and Logos Bible Software, CC BY 4.0. MorphGNT lemmatisation and parsing by James Tauber, CC BY-SA 3.0. Shown word by word in the study panel.",
+   "website": "https://github.com/morphgnt/sblgnt",
+   "description": "Greek New Testament word by word, with lemmas and parsing."
+  },
+  {
+   "kind": "dataset",
+   "authority": "scholarship",
+   "period": "contemporary",
+   "language": "hbo",
+   "formats": [
+    "full-text"
+   ],
+   "id": "oshb",
+   "name": "Open Scriptures Hebrew Bible (Westminster Leningrad Codex)",
+   "rights": "open-license",
+   "rightsNote": "WLC text: public domain. OSHB lemma and morphology: CC BY 4.0 (Open Scriptures).",
+   "website": "https://github.com/openscriptures/morphhb",
+   "description": "Hebrew Bible word by word, with Strong’s lemma numbers and morphology."
+  },
+  {
+   "kind": "dataset",
+   "authority": "scholarship",
+   "period": "contemporary",
+   "language": "en",
+   "formats": [
+    "full-text"
+   ],
+   "id": "strongs",
+   "name": "Strong’s Hebrew and Greek dictionaries (Open Scriptures edition)",
+   "rights": "open-license",
+   "rightsNote": "Underlying dictionaries by James Strong (1890/1894), public domain; Open Scriptures JSON edition CC BY-SA.",
+   "website": "https://github.com/openscriptures/strongs",
+   "description": "Short definitions and KJV renderings behind the word-study glosses."
+  },
+  {
+   "kind": "dataset",
+   "authority": "scholarship",
+   "period": "contemporary",
+   "language": "en",
+   "formats": [
+    "full-text"
+   ],
+   "id": "openbible-geo",
+   "name": "OpenBible.info Bible Geocoding",
+   "rights": "open-license",
+   "rightsNote": "CC BY 4.0, credit OpenBible.info; some data from OpenStreetMap contributors (ODbL). Map tiles © OpenStreetMap.",
+   "website": "https://www.openbible.info/geo/",
+   "description": "Possible modern locations of biblical places, with confidence marks."
+  },
+  {
+   "kind": "dataset",
+   "authority": "scholarship",
+   "period": "contemporary",
+   "language": "en",
+   "formats": [
+    "full-text"
+   ],
+   "id": "openbible-topics",
+   "name": "OpenBible.info Topical Bible",
+   "rights": "open-license",
+   "rightsNote": "CC BY 4.0, credit OpenBible.info. Scores come from community votes and are not Church-reviewed.",
+   "website": "https://www.openbible.info/topics/",
+   "description": "Topics and the passages readers tied to them."
+  },
+  {
+   "kind": "dataset",
+   "authority": "scholarship",
+   "period": "contemporary",
+   "language": "en",
+   "formats": [
+    "full-text"
+   ],
+   "id": "vatican-docs",
+   "name": "Church documents on Scripture (article numbers and references only)",
+   "rights": "metadata-only",
+   "rightsNote": "Documents © Libreria Editrice Vaticana. The app stores only article numbers and the Scripture references found in them, and links to vatican.va; no document text.",
+   "website": "https://www.vatican.va/",
+   "description": "Dei Verbum, Verbum Domini, Vatican II constitutions, encyclicals and Pontifical Biblical Commission documents."
   }
  ]
 }

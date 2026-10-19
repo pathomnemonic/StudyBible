@@ -300,6 +300,16 @@
    "topics": 6350,
    "rowsKept": 37852
   },
+  "editorial": {
+   "books": 73,
+   "references": 1153,
+   "persons": 134,
+   "synopsisRows": 90,
+   "parables": 37,
+   "miracles": 35,
+   "prophecies": 36,
+   "covenants": 7
+  },
   "external": {
    "rows": 158,
    "caNavigator": 73,

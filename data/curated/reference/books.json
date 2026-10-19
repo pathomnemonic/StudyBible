@@ -1,0 +1,1942 @@
+{
+ "GEN": {
+  "intro": "The first book of the Torah: creation, the fall, and the call of Abraham and his family. It is the Church’s foundation for belief in one Creator, human dignity, sin, and God’s covenant promise.",
+  "author": "Traditionally Moses",
+  "date": "c. 1400–1200 BC (tradition); compiled over time",
+  "outline": [
+   [
+    "1:1-2:3",
+    "Creation in six days and the Sabbath"
+   ],
+   [
+    "2:4-3:24",
+    "The garden, the fall and the first promise (3:15)"
+   ],
+   [
+    "4:1-5:32",
+    "Cain and Abel; the line from Adam to Noah"
+   ],
+   [
+    "6:1-9:29",
+    "Noah, the flood and the covenant with creation"
+   ],
+   [
+    "10:1-11:32",
+    "Nations, Babel and the line to Abram"
+   ],
+   [
+    "12:1-14:24",
+    "The call of Abram; Lot; Melchizedek"
+   ],
+   [
+    "15:1-17:27",
+    "Covenant with Abraham; Hagar; circumcision"
+   ],
+   [
+    "18:1-19:38",
+    "The three visitors; Sodom"
+   ],
+   [
+    "20:1-22:24",
+    "Isaac born; the binding of Isaac"
+   ],
+   [
+    "23:1-25:18",
+    "Sarah’s death; Isaac and Rebekah; Abraham’s death"
+   ],
+   [
+    "25:19-28:22",
+    "Jacob and Esau; Bethel"
+   ],
+   [
+    "29:1-31:55",
+    "Jacob with Laban; Leah and Rachel; the sons"
+   ],
+   [
+    "32:1-36:43",
+    "Peniel; Dinah; Esau’s line"
+   ],
+   [
+    "37:1-41:57",
+    "Joseph sold; Judah and Tamar; Potiphar; Pharaoh’s dreams"
+   ],
+   [
+    "42:1-45:28",
+    "Joseph’s brothers in Egypt; reconciliation"
+   ],
+   [
+    "46:1-50:26",
+    "Jacob in Egypt; blessings; death of Jacob and Joseph"
+   ]
+  ]
+ },
+ "EXO": {
+  "intro": "The liberation from Egypt, the covenant at Sinai and the building of the tabernacle. The Passover and the Law shape Israel’s identity and, for Christians, foreshadow Christ’s Passover and the New Covenant.",
+  "author": "Traditionally Moses",
+  "date": "c. 1400–1200 BC (tradition)",
+  "outline": [
+   [
+    "1:1-2:25",
+    "Israel oppressed; the birth and flight of Moses"
+   ],
+   [
+    "3:1-4:31",
+    "The burning bush; the name of God"
+   ],
+   [
+    "5:1-11:10",
+    "Moses before Pharaoh; the plagues"
+   ],
+   [
+    "12:1-13:16",
+    "The Passover and the exodus"
+   ],
+   [
+    "13:17-15:21",
+    "The Red Sea and the song of Moses"
+   ],
+   [
+    "15:22-18:27",
+    "Manna, water from the rock, Amalek, Jethro"
+   ],
+   [
+    "19:1-20:26",
+    "Sinai and the Ten Commandments"
+   ],
+   [
+    "21:1-24:18",
+    "The Book of the Covenant; covenant sealed"
+   ],
+   [
+    "25:1-31:18",
+    "Instructions for tabernacle, priesthood and Sabbath"
+   ],
+   [
+    "32:1-34:35",
+    "The golden calf; intercession; renewal of the covenant"
+   ],
+   [
+    "35:1-40:38",
+    "Building and consecrating the tabernacle"
+   ]
+  ]
+ },
+ "LEV": {
+  "intro": "Laws of sacrifice, priesthood, ritual purity and holiness, centred on the call “be holy, for I am holy.” Read in the Church as preparing the language of sacrifice, atonement and priesthood fulfilled in Christ.",
+  "author": "Traditionally Moses",
+  "date": "c. 1400–1200 BC (tradition)",
+  "outline": [
+   [
+    "1:1-7:38",
+    "Offerings and sacrifices"
+   ],
+   [
+    "8:1-10:20",
+    "Ordination of Aaron and his sons"
+   ],
+   [
+    "11:1-15:33",
+    "Clean and unclean; purity laws"
+   ],
+   [
+    "16:1-34",
+    "The Day of Atonement"
+   ],
+   [
+    "17:1-26:46",
+    "The Holiness Code (including 19:18, love of neighbour)"
+   ],
+   [
+    "27:1-34",
+    "Vows and dedications"
+   ]
+  ]
+ },
+ "NUM": {
+  "intro": "Israel’s forty years from Sinai to the plains of Moab: census, rebellion, wandering and preparation to enter the land. It is read by Paul and the Fathers as a figure of the Christian journey.",
+  "author": "Traditionally Moses",
+  "date": "c. 1400–1200 BC (tradition)",
+  "outline": [
+   [
+    "1:1-4:49",
+    "The census and ordering of the camp"
+   ],
+   [
+    "5:1-10:10",
+    "Laws, the Nazirite, the priestly blessing, dedication"
+   ],
+   [
+    "10:11-14:45",
+    "Departure; complaints; the spies; refusal to enter"
+   ],
+   [
+    "15:1-19:22",
+    "Further laws; Korah’s rebellion; Aaron’s rod"
+   ],
+   [
+    "20:1-21:35",
+    "Meribah; the bronze serpent; first victories"
+   ],
+   [
+    "22:1-25:18",
+    "Balaam; Baal-peor"
+   ],
+   [
+    "26:1-30:16",
+    "New census; Zelophehad’s daughters; Joshua; offerings; vows"
+   ],
+   [
+    "31:1-36:13",
+    "Midian; Transjordan tribes; stages of the journey; cities of refuge"
+   ]
+  ]
+ },
+ "DEU": {
+  "intro": "Moses’ farewell addresses on the plains of Moab: a renewal of the covenant and a call to love and obey God. It contains the Shema (6:4–9) and is quoted by Jesus more than any other book against the tempter.",
+  "author": "Traditionally Moses",
+  "date": "c. 1400–1200 BC (tradition); in its present form perhaps later",
+  "outline": [
+   [
+    "1:1-4:43",
+    "First address: history and warning"
+   ],
+   [
+    "4:44-11:32",
+    "Second address: the Great Commandment (6:4–9) and exhortations"
+   ],
+   [
+    "12:1-26:19",
+    "The laws of the covenant"
+   ],
+   [
+    "27:1-28:68",
+    "Blessings and curses"
+   ],
+   [
+    "29:1-30:20",
+    "Covenant renewal; choose life"
+   ],
+   [
+    "31:1-34:12",
+    "Succession of Joshua; Song of Moses; blessing; death of Moses"
+   ]
+  ]
+ },
+ "JOS": {
+  "intro": "The conquest and distribution of the land under Joshua, ending with a covenant renewal at Shechem. Its warfare passages are read by the Fathers spiritually and are difficult for many readers.",
+  "date": "Composed in stages; Joshua’s time to later editing",
+  "outline": [
+   [
+    "1:1-5:15",
+    "Crossing the Jordan; Gilgal"
+   ],
+   [
+    "6:1-12:24",
+    "Jericho, Ai and the conquest"
+   ],
+   [
+    "13:1-21:45",
+    "Division of the land; cities of refuge; Levitical cities"
+   ],
+   [
+    "22:1-34",
+    "The altar by the Jordan"
+   ],
+   [
+    "23:1-24:33",
+    "Joshua’s farewell; covenant at Shechem"
+   ]
+  ]
+ },
+ "JDG": {
+  "intro": "The cycle of sin, oppression, cry for help and deliverance in the generations after Joshua, with judges such as Deborah, Gideon and Samson. The refrain: “there was no king in Israel.”",
+  "date": "Composed in stages, c. 1000–600 BC",
+  "outline": [
+   [
+    "1:1-3:6",
+    "Incomplete conquest and the cycle of apostasy"
+   ],
+   [
+    "3:7-5:31",
+    "Othniel, Ehud, Deborah and Barak"
+   ],
+   [
+    "6:1-8:35",
+    "Gideon"
+   ],
+   [
+    "9:1-57",
+    "Abimelech"
+   ],
+   [
+    "10:1-12:15",
+    "Jephthah and minor judges"
+   ],
+   [
+    "13:1-16:31",
+    "Samson"
+   ],
+   [
+    "17:1-21:25",
+    "Micah’s idol; the Danites; the crime at Gibeah"
+   ]
+  ]
+ },
+ "RUT": {
+  "intro": "A short story of loyalty and providence: the Moabite Ruth joins Naomi’s people and becomes the great-grandmother of David, and so an ancestor of Christ (Matthew 1:5).",
+  "outline": [
+   [
+    "1:1-22",
+    "Naomi and Ruth return to Bethlehem"
+   ],
+   [
+    "2:1-23",
+    "Ruth gleans in Boaz’s field"
+   ],
+   [
+    "3:1-18",
+    "At the threshing floor"
+   ],
+   [
+    "4:1-22",
+    "Redemption, marriage and the line of David"
+   ]
+  ]
+ },
+ "1SA": {
+  "intro": "Samuel, the first king Saul, and David’s rise. The book shows how God’s choice, not outward appearance, makes a king (16:7).",
+  "outline": [
+   [
+    "1:1-3:21",
+    "Hannah, the birth and call of Samuel"
+   ],
+   [
+    "4:1-7:17",
+    "The ark captured and returned; Samuel judges"
+   ],
+   [
+    "8:1-12:25",
+    "Israel asks for a king; Saul anointed"
+   ],
+   [
+    "13:1-15:35",
+    "Saul’s failures and rejection"
+   ],
+   [
+    "16:1-17:58",
+    "David anointed; David and Goliath"
+   ],
+   [
+    "18:1-26:25",
+    "Saul’s jealousy; David’s flight"
+   ],
+   [
+    "27:1-31:13",
+    "David among the Philistines; death of Saul"
+   ]
+  ]
+ },
+ "2SA": {
+  "intro": "David’s reign: his rise to the throne in Jerusalem, God’s promise of an everlasting house (7), his sin with Bathsheba and the troubles that followed.",
+  "outline": [
+   [
+    "1:1-5:25",
+    "Lament for Saul; David king over Judah, then Israel; Jerusalem"
+   ],
+   [
+    "6:1-7:29",
+    "The ark in Jerusalem; the Davidic covenant"
+   ],
+   [
+    "8:1-10:19",
+    "David’s victories; Mephibosheth; Ammon"
+   ],
+   [
+    "11:1-12:31",
+    "Bathsheba, Uriah and Nathan"
+   ],
+   [
+    "13:1-19:43",
+    "Amnon, Absalom’s rebellion and David’s return"
+   ],
+   [
+    "20:1-24:25",
+    "Sheba’s revolt; appendices; the census"
+   ]
+  ]
+ },
+ "1KI": {
+  "intro": "Solomon’s reign and temple, the division of the kingdom, and the ministry of Elijah. Kings are judged by fidelity to the covenant.",
+  "outline": [
+   [
+    "1:1-2:46",
+    "Solomon succeeds David"
+   ],
+   [
+    "3:1-4:34",
+    "Solomon’s wisdom"
+   ],
+   [
+    "5:1-8:66",
+    "Building and dedicating the Temple"
+   ],
+   [
+    "9:1-11:43",
+    "Solomon’s glory and fall"
+   ],
+   [
+    "12:1-14:31",
+    "The kingdom divides"
+   ],
+   [
+    "15:1-16:34",
+    "Kings of Judah and Israel; Ahab"
+   ],
+   [
+    "17:1-19:21",
+    "Elijah: the widow, Carmel, Horeb"
+   ],
+   [
+    "20:1-22:53",
+    "Ahab’s wars; Naboth; Micaiah"
+   ]
+  ]
+ },
+ "2KI": {
+  "intro": "The history of the two kingdoms to the fall of Samaria (722 BC) and of Jerusalem (586 BC), with the ministry of Elisha.",
+  "outline": [
+   [
+    "1:1-8:29",
+    "Elijah’s last days; Elisha’s miracles"
+   ],
+   [
+    "9:1-10:36",
+    "Jehu’s revolution"
+   ],
+   [
+    "11:1-17:41",
+    "Athaliah to the fall of Samaria"
+   ],
+   [
+    "18:1-20:21",
+    "Hezekiah and Isaiah"
+   ],
+   [
+    "21:1-23:30",
+    "Manasseh; Josiah’s reform"
+   ],
+   [
+    "23:31-25:30",
+    "The fall of Jerusalem and exile"
+   ]
+  ]
+ },
+ "1CH": {
+  "intro": "A retelling of Israel’s history from Adam to David, centred on Judah, the Temple and the Levites, written after the exile.",
+  "outline": [
+   [
+    "1:1-9:44",
+    "Genealogies from Adam"
+   ],
+   [
+    "10:1-12:40",
+    "Death of Saul; David made king"
+   ],
+   [
+    "13:1-16:43",
+    "The ark brought to Jerusalem"
+   ],
+   [
+    "17:1-21:30",
+    "God’s promise to David; wars; the census"
+   ],
+   [
+    "22:1-29:30",
+    "Preparations for the Temple; David’s last words"
+   ]
+  ]
+ },
+ "2CH": {
+  "intro": "The history of Solomon and the kings of Judah, with emphasis on the Temple, worship and the reforms of Hezekiah and Josiah, ending with the decree of Cyrus.",
+  "outline": [
+   [
+    "1:1-9:31",
+    "Solomon and the Temple"
+   ],
+   [
+    "10:1-12:16",
+    "The division; Rehoboam"
+   ],
+   [
+    "13:1-28:27",
+    "Kings of Judah"
+   ],
+   [
+    "29:1-32:33",
+    "Hezekiah’s reform"
+   ],
+   [
+    "33:1-35:27",
+    "Manasseh; Josiah"
+   ],
+   [
+    "36:1-23",
+    "The exile and the decree of Cyrus"
+   ]
+  ]
+ },
+ "EZR": {
+  "intro": "The return from exile under Cyrus, the rebuilding of the Temple, and Ezra’s reform of the community around the Law.",
+  "outline": [
+   [
+    "1:1-2:70",
+    "Cyrus’ decree; the returning exiles"
+   ],
+   [
+    "3:1-6:22",
+    "Rebuilding the altar and Temple"
+   ],
+   [
+    "7:1-10:44",
+    "Ezra the scribe and his reforms"
+   ]
+  ]
+ },
+ "NEH": {
+  "intro": "Nehemiah, cupbearer to the Persian king, rebuilds Jerusalem’s walls and leads a renewal of the covenant.",
+  "outline": [
+   [
+    "1:1-2:20",
+    "Nehemiah’s prayer and mission"
+   ],
+   [
+    "3:1-7:73",
+    "Building the wall; opposition"
+   ],
+   [
+    "8:1-10:39",
+    "Ezra reads the Law; confession; covenant"
+   ],
+   [
+    "11:1-13:31",
+    "Resettling Jerusalem; dedication; reforms"
+   ]
+  ]
+ },
+ "TOB": {
+  "intro": "A family story of faithfulness, almsgiving, burial of the dead and prayer, set among the exiles in Nineveh. The angel Raphael guides Tobias; the book is a classic on marriage and trust in providence. Deuterocanonical.",
+  "date": "c. 200 BC (traditional estimate)",
+  "outline": [
+   [
+    "1",
+    "Tobit’s piety and charity in exile"
+   ],
+   [
+    "2-3",
+    "Tobit’s blindness; Sarah’s sorrow; both pray"
+   ],
+   [
+    "4-5",
+    "Tobit’s counsel; Tobias meets Raphael"
+   ],
+   [
+    "6-9",
+    "The journey; Sarah and Tobias"
+   ],
+   [
+    "10-11",
+    "Return; Tobit healed"
+   ],
+   [
+    "12",
+    "Raphael reveals himself"
+   ],
+   [
+    "13-14",
+    "Tobit’s hymn and last words"
+   ]
+  ]
+ },
+ "JDT": {
+  "intro": "A pious widow saves Bethulia by courage and prayer, defeating Holofernes. It is a story about faith under threat, with intentional historical freedom. Deuterocanonical.",
+  "date": "2nd century BC (traditional estimate)",
+  "outline": [
+   [
+    "1-7",
+    "Nebuchadnezzar’s campaign and the siege of Bethulia"
+   ],
+   [
+    "8-9",
+    "Judith’s faith and prayer"
+   ],
+   [
+    "10-13",
+    "Judith and Holofernes"
+   ],
+   [
+    "14-16",
+    "Victory and Judith’s song"
+   ]
+  ]
+ },
+ "EST": {
+  "intro": "The story of Esther, the Jewish queen of Persia, and the deliverance of her people from Haman’s plot (the Feast of Purim). The Greek and Latin Bibles include additional prayers and edicts (additions A–F).",
+  "outline": [
+   [
+    "1:1-2:23",
+    "Vashti deposed; Esther made queen"
+   ],
+   [
+    "3:1-4:17",
+    "Haman’s plot; Mordecai’s appeal"
+   ],
+   [
+    "5:1-8:17",
+    "Esther’s banquets; Haman’s downfall; the Jews’ edict"
+   ],
+   [
+    "9:1-10:3",
+    "The feast of Purim"
+   ]
+  ]
+ },
+ "JOB": {
+  "intro": "The righteous man Job suffers undeservedly, debates with his friends, and is finally addressed by God from the whirlwind. The book honestly faces the mystery of suffering.",
+  "outline": [
+   [
+    "1:1-2:13",
+    "Job tested"
+   ],
+   [
+    "3:1-14:22",
+    "First cycle of speeches"
+   ],
+   [
+    "15:1-21:34",
+    "Second cycle"
+   ],
+   [
+    "22:1-27:23",
+    "Third cycle"
+   ],
+   [
+    "28:1-28",
+    "The hymn to wisdom"
+   ],
+   [
+    "29:1-31:40",
+    "Job’s final defence"
+   ],
+   [
+    "32:1-37:24",
+    "Elihu"
+   ],
+   [
+    "38:1-42:6",
+    "God’s answer; Job’s repentance"
+   ],
+   [
+    "42:7-17",
+    "Restoration"
+   ]
+  ]
+ },
+ "PSA": {
+  "intro": "The Church’s prayer book: 150 songs of praise, lament, thanksgiving, trust and kingship, prayed in the liturgy and the Liturgy of the Hours. Numbering differs between the Hebrew/English and the Vulgate/Douay.",
+  "author": "Traditionally David",
+  "date": "c. 1000–200 BC",
+  "outline": [
+   [
+    "1-41",
+    "Book I"
+   ],
+   [
+    "42-72",
+    "Book II"
+   ],
+   [
+    "73-89",
+    "Book III"
+   ],
+   [
+    "90-106",
+    "Book IV"
+   ],
+   [
+    "107-150",
+    "Book V"
+   ]
+  ]
+ },
+ "PRO": {
+  "intro": "Short sayings and instructions on wisdom, prudence and the fear of the Lord, with Lady Wisdom personified. The Fathers read Wisdom as pointing to Christ.",
+  "author": "Traditionally Solomon",
+  "outline": [
+   [
+    "1-9",
+    "Instructions of a father; Lady Wisdom"
+   ],
+   [
+    "10:1-22:16",
+    "Proverbs of Solomon"
+   ],
+   [
+    "22:17-24:34",
+    "Sayings of the wise"
+   ],
+   [
+    "25-29",
+    "Further Solomonic proverbs (Hezekiah’s men)"
+   ],
+   [
+    "30-31",
+    "Agur; Lemuel; the woman of strength"
+   ]
+  ]
+ },
+ "ECC": {
+  "intro": "Qoheleth the Teacher reflects on the apparent emptiness (“vanity”) of life under the sun, and concludes with trust in God and obedience to his commands.",
+  "author": "Traditionally Solomon",
+  "outline": [
+   [
+    "1:1-2:26",
+    "Vanity of wisdom and pleasure"
+   ],
+   [
+    "3:1-5:20",
+    "A time for everything; oppression; wealth"
+   ],
+   [
+    "6:1-8:17",
+    "Limits of human knowledge"
+   ],
+   [
+    "9:1-12:14",
+    "Death, enjoyment, and fear of God"
+   ]
+  ]
+ },
+ "SNG": {
+  "intro": "A love poem between a bride and bridegroom, read in the Church as an image of God’s love for Israel, of Christ and the Church, and of the soul’s union with God.",
+  "author": "Traditionally Solomon",
+  "outline": [
+   [
+    "1:1-2:7",
+    "First encounters"
+   ],
+   [
+    "2:8-3:5",
+    "Spring; the search by night"
+   ],
+   [
+    "3:6-5:1",
+    "The wedding procession and the garden"
+   ],
+   [
+    "5:2-6:3",
+    "The beloved’s absence and search"
+   ],
+   [
+    "6:4-8:4",
+    "Praises and reunion"
+   ],
+   [
+    "8:5-14",
+    "Love strong as death"
+   ]
+  ]
+ },
+ "WIS": {
+  "intro": "Written in Greek for Jews in Alexandria, Wisdom praises Wisdom as God’s gift, defends the righteous against persecutors, and reads Israel’s history, especially the Exodus. Deuterocanonical.",
+  "author": "Traditionally Solomon",
+  "date": "1st century BC (traditional estimate)",
+  "outline": [
+   [
+    "1-5",
+    "The righteous and the ungodly; immortality"
+   ],
+   [
+    "6-9",
+    "Praise of Wisdom; Solomon’s prayer"
+   ],
+   [
+    "10-12",
+    "Wisdom in Israel’s history; God’s mercy"
+   ],
+   [
+    "13-15",
+    "Idolatry"
+   ],
+   [
+    "16-19",
+    "The Exodus retold"
+   ]
+  ]
+ },
+ "SIR": {
+  "intro": "Ben Sira’s long collection of wise instruction on conduct, family, friendship, worship and Wisdom, followed by a praise of the fathers of Israel. Deuterocanonical.",
+  "author": "Jesus ben Sira",
+  "date": "c. 180 BC",
+  "outline": [
+   [
+    "1-23",
+    "Wisdom, the fear of the Lord, and daily conduct"
+   ],
+   [
+    "24",
+    "Wisdom’s own praise"
+   ],
+   [
+    "25-42",
+    "Further instruction"
+   ],
+   [
+    "42:15-43:33",
+    "God in creation"
+   ],
+   [
+    "44-50",
+    "Praise of the fathers of Israel"
+   ],
+   [
+    "51",
+    "Prayer and the pursuit of Wisdom"
+   ]
+  ]
+ },
+ "ISA": {
+  "intro": "The great prophet of Judah: judgment and consolation, the Servant who suffers for many, and the vision of the nations coming to Zion. Cited in the New Testament more than any other prophet.",
+  "author": "Isaiah (and later disciples)",
+  "date": "8th century BC and later",
+  "outline": [
+   [
+    "1:1-12:6",
+    "Judgment and hope; Immanuel (7:14); the child (9:6); the shoot of Jesse (11)"
+   ],
+   [
+    "13:1-23:18",
+    "Oracles against the nations"
+   ],
+   [
+    "24:1-27:13",
+    "The Isaiah Apocalypse"
+   ],
+   [
+    "28:1-35:10",
+    "Woes and promises"
+   ],
+   [
+    "36:1-39:8",
+    "Hezekiah and Sennacherib"
+   ],
+   [
+    "40:1-48:22",
+    "Comfort: the God who redeems"
+   ],
+   [
+    "49:1-55:13",
+    "The Servant (including 52:13–53:12)"
+   ],
+   [
+    "56:1-66:24",
+    "Restoration and the new heavens and earth"
+   ]
+  ]
+ },
+ "JER": {
+  "intro": "Jeremiah’s long ministry before and after the fall of Jerusalem: warnings, personal “confessions,” and the promise of a new covenant (31:31–34).",
+  "author": "Jeremiah and his scribe Baruch",
+  "date": "c. 626–580 BC",
+  "outline": [
+   [
+    "1:1-19",
+    "The call"
+   ],
+   [
+    "2:1-6:30",
+    "Early oracles"
+   ],
+   [
+    "7:1-10:25",
+    "Temple sermon; false worship"
+   ],
+   [
+    "11:1-20:18",
+    "Confessions and signs"
+   ],
+   [
+    "21:1-29:32",
+    "Kings and false prophets; letter to the exiles"
+   ],
+   [
+    "30:1-33:26",
+    "Book of Consolation; the new covenant"
+   ],
+   [
+    "34:1-45:5",
+    "Siege and fall of Jerusalem"
+   ],
+   [
+    "46:1-51:64",
+    "Oracles against the nations"
+   ],
+   [
+    "52:1-34",
+    "Appendix"
+   ]
+  ]
+ },
+ "LAM": {
+  "intro": "Five laments over the destruction of Jerusalem, mixing grief, confession and hope in the Lord’s steadfast mercy (3:22–23).",
+  "outline": [
+   [
+    "1",
+    "Jerusalem in ruins"
+   ],
+   [
+    "2",
+    "The Lord’s anger"
+   ],
+   [
+    "3",
+    "The man who has seen affliction; hope"
+   ],
+   [
+    "4",
+    "Siege and famine"
+   ],
+   [
+    "5",
+    "Prayer for restoration"
+   ]
+  ]
+ },
+ "BAR": {
+  "intro": "Baruch’s prayer of confession, a poem on Wisdom as the Law, and words of comfort for exiled Jerusalem, with the Letter of Jeremiah. Deuterocanonical.",
+  "outline": [
+   [
+    "1:1-3:8",
+    "Confession and prayer of the exiles"
+   ],
+   [
+    "3:9-4:4",
+    "Wisdom is the book of God’s commandments"
+   ],
+   [
+    "4:5-5:9",
+    "Consolation for Jerusalem"
+   ],
+   [
+    "6",
+    "Letter of Jeremiah against idols"
+   ]
+  ]
+ },
+ "EZK": {
+  "intro": "Ezekiel, priest and prophet among the exiles in Babylon: visions of God’s glory, signs of judgment, the new heart and spirit, the dry bones, and the restored Temple.",
+  "outline": [
+   [
+    "1:1-3:27",
+    "The vision of glory and the call"
+   ],
+   [
+    "4:1-24:27",
+    "Judgment on Jerusalem"
+   ],
+   [
+    "25:1-32:32",
+    "Oracles against the nations"
+   ],
+   [
+    "33:1-39:29",
+    "Restoration: the shepherd, the new heart, dry bones"
+   ],
+   [
+    "40:1-48:35",
+    "The new Temple and the river of life"
+   ]
+  ]
+ },
+ "DAN": {
+  "intro": "Stories of faithful Jews in Babylon and visions of the kingdoms and the “one like a son of man.” The Catholic canon includes Susanna and Bel and the Dragon (13–14) and the Prayer of Azariah.",
+  "outline": [
+   [
+    "1:1-6:28",
+    "Court stories: the furnace, the writing, the lions"
+   ],
+   [
+    "7:1-12:13",
+    "Visions: the four beasts, the Son of Man, the seventy weeks, the end"
+   ],
+   [
+    "13:1-64",
+    "Susanna"
+   ],
+   [
+    "14:1-42",
+    "Bel and the Dragon"
+   ]
+  ]
+ },
+ "HOS": {
+  "intro": "Hosea’s marriage to an unfaithful wife becomes a living picture of God’s faithful love for unfaithful Israel.",
+  "outline": [
+   [
+    "1:1-3:5",
+    "Hosea’s marriage as a sign"
+   ],
+   [
+    "4:1-14:9",
+    "Judgment on Israel and God’s tender love (11)"
+   ]
+  ]
+ },
+ "JOL": {
+  "intro": "A locust plague becomes a call to repentance and the promise that God will pour out his Spirit (cited in Acts 2).",
+  "outline": [
+   [
+    "1:1-2:17",
+    "Plague and call to repentance"
+   ],
+   [
+    "2:18-3:21",
+    "Restoration, the outpouring of the Spirit and the day of the Lord"
+   ]
+  ]
+ },
+ "AMO": {
+  "intro": "A shepherd from Tekoa denounces social injustice and empty worship in Israel, and ends with hope.",
+  "outline": [
+   [
+    "1:1-2:16",
+    "Oracles against the nations and Israel"
+   ],
+   [
+    "3:1-6:14",
+    "Words against Samaria"
+   ],
+   [
+    "7:1-9:15",
+    "Visions; Amaziah; restoration"
+   ]
+  ]
+ },
+ "OBA": {
+  "intro": "The shortest Old Testament book: judgment on Edom for its part in Jerusalem’s fall and hope for Israel.",
+  "outline": [
+   [
+    "1-14",
+    "Against Edom"
+   ],
+   [
+    "15-21",
+    "The day of the Lord"
+   ]
+  ]
+ },
+ "JON": {
+  "intro": "The reluctant prophet who flees God’s call, is swallowed by a great fish, and preaches Nineveh’s repentance. It is about God’s mercy to all; Jesus points to the “sign of Jonah.”",
+  "outline": [
+   [
+    "1:1-16",
+    "Flight and storm"
+   ],
+   [
+    "1:17-2:10",
+    "In the fish; Jonah’s prayer"
+   ],
+   [
+    "3:1-10",
+    "Nineveh repents"
+   ],
+   [
+    "4:1-11",
+    "Jonah’s anger and God’s answer"
+   ]
+  ]
+ },
+ "MIC": {
+  "intro": "Micah denounces corrupt leaders and promises a ruler from Bethlehem (5:2). “Do justice, love kindness, walk humbly” (6:8).",
+  "outline": [
+   [
+    "1:1-3:12",
+    "Judgment on Samaria and Jerusalem"
+   ],
+   [
+    "4:1-5:15",
+    "Hope: the mountain of the Lord; the ruler from Bethlehem"
+   ],
+   [
+    "6:1-7:20",
+    "The Lord’s case; mercy"
+   ]
+  ]
+ },
+ "NAM": {
+  "intro": "Nahum announces the fall of Nineveh, the oppressor, as an act of God’s justice.",
+  "outline": [
+   [
+    "1",
+    "The Lord’s power"
+   ],
+   [
+    "2",
+    "The fall of Nineveh"
+   ],
+   [
+    "3",
+    "Woe to the bloody city"
+   ]
+  ]
+ },
+ "HAB": {
+  "intro": "Habakkuk questions God about injustice; the answer, “the righteous shall live by faith” (2:4), is quoted by Paul.",
+  "outline": [
+   [
+    "1:1-2:5",
+    "Complaints and the Lord’s answer"
+   ],
+   [
+    "2:6-20",
+    "Five woes"
+   ],
+   [
+    "3:1-19",
+    "Habakkuk’s prayer"
+   ]
+  ]
+ },
+ "ZEP": {
+  "intro": "A warning of the “day of the Lord” and a promise of a humble remnant who will trust the Lord.",
+  "outline": [
+   [
+    "1:1-2:3",
+    "The day of the Lord"
+   ],
+   [
+    "2:4-3:8",
+    "Against the nations and Jerusalem"
+   ],
+   [
+    "3:9-20",
+    "Restoration"
+   ]
+  ]
+ },
+ "HAG": {
+  "intro": "After the exile, Haggai urges the people to rebuild the Temple, promising that its glory will be greater.",
+  "outline": [
+   [
+    "1",
+    "Call to rebuild"
+   ],
+   [
+    "2",
+    "The glory of the new house; Zerubbabel"
+   ]
+  ]
+ },
+ "ZEC": {
+  "intro": "Eight night visions, the coming of a humble king on a donkey (9:9) and the pierced one (12:10), quoted in the Gospels.",
+  "outline": [
+   [
+    "1:1-6:15",
+    "Visions"
+   ],
+   [
+    "7:1-8:23",
+    "Fasting and promise"
+   ],
+   [
+    "9:1-14:21",
+    "Oracles: the king, the shepherd, the day of the Lord"
+   ]
+  ]
+ },
+ "MAL": {
+  "intro": "The last prophet of the Old Testament: criticism of careless worship, the coming messenger, and the day of the Lord (the Church sees Elijah returning in John the Baptist).",
+  "outline": [
+   [
+    "1:1-2:9",
+    "Worship offered carelessly"
+   ],
+   [
+    "2:10-16",
+    "Faithfulness in marriage"
+   ],
+   [
+    "2:17-3:5",
+    "The messenger and the day"
+   ],
+   [
+    "3:6-4:6",
+    "Tithes; the day; Elijah"
+   ]
+  ]
+ },
+ "1MA": {
+  "intro": "Israel’s struggle against Hellenistic persecution and the Maccabean revolt that restored the Temple (Hanukkah), written in Hebrew style. Deuterocanonical.",
+  "date": "c. 100 BC",
+  "outline": [
+   [
+    "1:1-2:70",
+    "Antiochus’ persecution; Mattathias"
+   ],
+   [
+    "3:1-9:22",
+    "Judas Maccabeus and the rededication of the Temple"
+   ],
+   [
+    "9:23-12:53",
+    "Jonathan"
+   ],
+   [
+    "13:1-16:24",
+    "Simon and John Hyrcanus"
+   ]
+  ]
+ },
+ "2MA": {
+  "intro": "An independent account of Judas’ campaigns with stories of martyrdom, resurrection of the dead and prayer for the dead (12:38–46). Deuterocanonical.",
+  "date": "c. 100 BC",
+  "outline": [
+   [
+    "1:1-2:32",
+    "Letters and preface"
+   ],
+   [
+    "3:1-7:42",
+    "Heliodorus; Jason; the martyrs"
+   ],
+   [
+    "8:1-15:39",
+    "Judas Maccabeus; prayer for the dead"
+   ]
+  ]
+ },
+ "MAT": {
+  "intro": "The Gospel written for a Jewish-Christian audience, presenting Jesus as the Messiah and new Moses whose teaching is gathered in five great discourses, and who founds the Church on Peter.",
+  "author": "Traditionally Matthew the apostle",
+  "date": "c. AD 70–90",
+  "outline": [
+   [
+    "1:1-2:23",
+    "Genealogy and infancy: Joseph, the Magi, the flight to Egypt"
+   ],
+   [
+    "3:1-4:25",
+    "John’s baptism; Jesus baptised and tempted; call of the first disciples"
+   ],
+   [
+    "5:1-7:29",
+    "Sermon on the Mount"
+   ],
+   [
+    "8:1-9:38",
+    "Healings and miracles"
+   ],
+   [
+    "10:1-42",
+    "Mission discourse"
+   ],
+   [
+    "11:1-12:50",
+    "Opposition grows; the sign of Jonah"
+   ],
+   [
+    "13:1-52",
+    "Parables of the kingdom"
+   ],
+   [
+    "13:53-17:27",
+    "Bread, Peter’s confession (16), the Transfiguration"
+   ],
+   [
+    "18:1-35",
+    "Discourse on the community"
+   ],
+   [
+    "19:1-23:39",
+    "Journey to Jerusalem; the Temple; woes to the Pharisees"
+   ],
+   [
+    "24:1-25:46",
+    "Discourse on the end; parables of readiness and judgment"
+   ],
+   [
+    "26:1-27:66",
+    "Last Supper, Passion and death"
+   ],
+   [
+    "28:1-20",
+    "Resurrection and the Great Commission"
+   ]
+  ]
+ },
+ "MRK": {
+  "intro": "The shortest and probably earliest Gospel: swift, vivid, centred on Jesus’ identity as Son of God and the way of the cross. Tradition connects it with Mark, the companion of Peter.",
+  "author": "Traditionally Mark, companion of Peter",
+  "date": "c. AD 65–70",
+  "outline": [
+   [
+    "1:1-13",
+    "John and the baptism and temptation of Jesus"
+   ],
+   [
+    "1:14-3:6",
+    "Beginnings in Galilee: calling, healings, controversy"
+   ],
+   [
+    "3:7-6:6",
+    "Parables and mighty works"
+   ],
+   [
+    "6:7-8:21",
+    "Mission of the Twelve; loaves; the leaven"
+   ],
+   [
+    "8:22-10:52",
+    "The way: Peter’s confession; three passion predictions; teaching on discipleship"
+   ],
+   [
+    "11:1-13:37",
+    "Jerusalem: the Temple; the end"
+   ],
+   [
+    "14:1-15:47",
+    "The Passion"
+   ],
+   [
+    "16:1-20",
+    "The empty tomb and the appearances (the longer ending, 16:9–20, is canonical)"
+   ]
+  ]
+ },
+ "LUK": {
+  "intro": "A carefully ordered account by Luke the physician and companion of Paul, with the infancy narratives, parables of mercy (the Prodigal Son, the Good Samaritan), and a focus on prayer, the poor and the Holy Spirit.",
+  "author": "Traditionally Luke, companion of Paul",
+  "date": "c. AD 80–90",
+  "outline": [
+   [
+    "1:1-2:52",
+    "Prologue and infancy: Annunciation, Visitation, Nativity, the Temple"
+   ],
+   [
+    "3:1-4:13",
+    "John; baptism; genealogy; temptation"
+   ],
+   [
+    "4:14-9:50",
+    "Ministry in Galilee"
+   ],
+   [
+    "9:51-19:27",
+    "The journey to Jerusalem: parables and teaching"
+   ],
+   [
+    "19:28-21:38",
+    "Jerusalem and the Temple"
+   ],
+   [
+    "22:1-23:56",
+    "Last Supper, Passion and death"
+   ],
+   [
+    "24:1-53",
+    "Resurrection: Emmaus and the Ascension"
+   ]
+  ]
+ },
+ "JHN": {
+  "intro": "The “spiritual” Gospel by the beloved disciple: the Word made flesh, seven signs, “I am” sayings, the Last Supper discourse and the Resurrection. John 6 is the Bread of Life discourse.",
+  "author": "Traditionally John the apostle",
+  "date": "c. AD 90–100",
+  "outline": [
+   [
+    "1:1-18",
+    "Prologue: the Word became flesh"
+   ],
+   [
+    "1:19-4:54",
+    "Testimony of John; the first signs; Nicodemus; the Samaritan woman"
+   ],
+   [
+    "5:1-6:71",
+    "Healing at the pool; bread of life"
+   ],
+   [
+    "7:1-10:42",
+    "Feast of Tabernacles; the light of the world; the good shepherd"
+   ],
+   [
+    "11:1-12:50",
+    "Lazarus; the hour approaches"
+   ],
+   [
+    "13:1-17:26",
+    "Last Supper: washing feet, the farewell discourse, the priestly prayer"
+   ],
+   [
+    "18:1-19:42",
+    "Passion and death"
+   ],
+   [
+    "20:1-31",
+    "Resurrection appearances and the purpose of the book"
+   ],
+   [
+    "21:1-25",
+    "Epilogue: the commission of Peter"
+   ]
+  ]
+ },
+ "ACT": {
+  "intro": "Luke’s second volume: the Spirit-filled growth of the Church from Jerusalem to Rome, through Peter’s and Paul’s ministries.",
+  "author": "Luke",
+  "date": "c. AD 80–90",
+  "outline": [
+   [
+    "1:1-2:47",
+    "Ascension and Pentecost"
+   ],
+   [
+    "3:1-5:42",
+    "The Church in Jerusalem; first persecution"
+   ],
+   [
+    "6:1-8:40",
+    "Stephen; Philip; Samaria"
+   ],
+   [
+    "9:1-12:25",
+    "Saul’s conversion; Cornelius; Antioch; Peter’s arrest"
+   ],
+   [
+    "13:1-15:35",
+    "Paul’s first journey; the Council of Jerusalem"
+   ],
+   [
+    "15:36-18:22",
+    "Second journey"
+   ],
+   [
+    "18:23-21:16",
+    "Third journey, Ephesus"
+   ],
+   [
+    "21:17-26:32",
+    "Arrest, trials in Jerusalem and Caesarea"
+   ],
+   [
+    "27:1-28:31",
+    "The voyage to Rome"
+   ]
+  ]
+ },
+ "ROM": {
+  "intro": "Paul’s most systematic letter: all humanity needs God’s righteousness, received through faith in Christ; the Spirit; Israel’s place in God’s plan; and life in the Church.",
+  "author": "Paul",
+  "date": "c. AD 57",
+  "outline": [
+   [
+    "1:1-17",
+    "Greeting and theme"
+   ],
+   [
+    "1:18-3:20",
+    "All are under sin"
+   ],
+   [
+    "3:21-5:21",
+    "Justification through Christ; Abraham; Adam and Christ"
+   ],
+   [
+    "6:1-8:39",
+    "Baptism, the law, life in the Spirit"
+   ],
+   [
+    "9:1-11:36",
+    "Israel’s mystery"
+   ],
+   [
+    "12:1-15:13",
+    "Living the gospel"
+   ],
+   [
+    "15:14-16:27",
+    "Plans and greetings"
+   ]
+  ]
+ },
+ "1CO": {
+  "intro": "Paul answers questions and scandals in the church of Corinth: divisions, immorality, marriage, food offered to idols, the Eucharist, spiritual gifts, charity (13) and the Resurrection.",
+  "author": "Paul",
+  "date": "c. AD 54–57",
+  "outline": [
+   [
+    "1:1-4:21",
+    "Divisions and true wisdom"
+   ],
+   [
+    "5:1-6:20",
+    "Immorality and lawsuits"
+   ],
+   [
+    "7:1-40",
+    "Marriage and virginity"
+   ],
+   [
+    "8:1-11:1",
+    "Food offered to idols; Paul’s example"
+   ],
+   [
+    "11:2-34",
+    "Order in worship; the Lord’s Supper"
+   ],
+   [
+    "12:1-14:40",
+    "Spiritual gifts; the hymn to love (13)"
+   ],
+   [
+    "15:1-58",
+    "The Resurrection"
+   ],
+   [
+    "16:1-24",
+    "Collection and greetings"
+   ]
+  ]
+ },
+ "2CO": {
+  "intro": "A personal letter: Paul defends his apostolic ministry, speaks of reconciliation, the collection for Jerusalem and the strength found in weakness.",
+  "author": "Paul",
+  "date": "c. AD 55–57",
+  "outline": [
+   [
+    "1:1-2:13",
+    "Greeting; Paul’s plans and the painful visit"
+   ],
+   [
+    "2:14-7:16",
+    "The ministry of the new covenant and reconciliation"
+   ],
+   [
+    "8:1-9:15",
+    "The collection for Jerusalem"
+   ],
+   [
+    "10:1-13:10",
+    "Paul defends his apostleship"
+   ],
+   [
+    "13:11-13",
+    "Conclusion"
+   ]
+  ]
+ },
+ "GAL": {
+  "intro": "Paul defends the gospel of grace against those who required Gentile converts to keep the Law: justified by faith in Christ, free in the Spirit.",
+  "author": "Paul",
+  "date": "c. AD 49–55",
+  "outline": [
+   [
+    "1:1-2:21",
+    "Paul’s gospel and apostolic authority"
+   ],
+   [
+    "3:1-4:31",
+    "Faith, the promise to Abraham, sons and heirs"
+   ],
+   [
+    "5:1-6:18",
+    "Freedom, the Spirit and the fruits of the Spirit"
+   ]
+  ]
+ },
+ "EPH": {
+  "intro": "A letter on God’s plan to unite all things in Christ and on the Church as his body, with practical instruction for Christian life and the armour of God.",
+  "author": "Paul (or a disciple in his tradition)",
+  "date": "c. AD 60–80",
+  "outline": [
+   [
+    "1:1-3:21",
+    "God’s plan in Christ; the Church"
+   ],
+   [
+    "4:1-6:9",
+    "Unity, the new life, marriage and household"
+   ],
+   [
+    "6:10-24",
+    "The armour of God"
+   ]
+  ]
+ },
+ "PHP": {
+  "intro": "A warm letter of joy from prison, with the great hymn to Christ’s self-emptying (2:6–11) and Paul’s teaching to rejoice in the Lord.",
+  "author": "Paul",
+  "date": "c. AD 55–62",
+  "outline": [
+   [
+    "1:1-26",
+    "Greeting and Paul’s imprisonment"
+   ],
+   [
+    "1:27-2:18",
+    "Unity and the hymn of Christ"
+   ],
+   [
+    "2:19-30",
+    "Timothy and Epaphroditus"
+   ],
+   [
+    "3:1-4:1",
+    "Warnings; knowing Christ"
+   ],
+   [
+    "4:2-23",
+    "Exhortations and thanks"
+   ]
+  ]
+ },
+ "COL": {
+  "intro": "Paul answers a false teaching by proclaiming the supremacy of Christ over all creation (1:15–20) and calling Christians to live as people raised with him.",
+  "author": "Paul (or a close disciple)",
+  "date": "c. AD 60–80",
+  "outline": [
+   [
+    "1:1-2:5",
+    "Christ’s supremacy"
+   ],
+   [
+    "2:6-3:4",
+    "Against false teaching; raised with Christ"
+   ],
+   [
+    "3:5-4:18",
+    "The new life; household; greetings"
+   ]
+  ]
+ },
+ "1TH": {
+  "intro": "Probably Paul’s earliest letter: thanks and encouragement to a young church, with teaching on holiness and on the coming of the Lord.",
+  "author": "Paul",
+  "date": "c. AD 50–51",
+  "outline": [
+   [
+    "1:1-3:13",
+    "Thanksgiving and Paul’s relationship with the church"
+   ],
+   [
+    "4:1-12",
+    "Holiness"
+   ],
+   [
+    "4:13-5:11",
+    "The Lord’s coming"
+   ],
+   [
+    "5:12-28",
+    "Final exhortations"
+   ]
+  ]
+ },
+ "2TH": {
+  "intro": "A short follow-up correcting confusion about “the day of the Lord” and urging steadfastness and work.",
+  "author": "Paul",
+  "date": "c. AD 51",
+  "outline": [
+   [
+    "1:1-12",
+    "Thanksgiving and encouragement"
+   ],
+   [
+    "2:1-17",
+    "The day of the Lord"
+   ],
+   [
+    "3:1-18",
+    "Prayer and the duty to work"
+   ]
+  ]
+ },
+ "1TI": {
+  "intro": "A pastoral letter to Timothy about sound teaching, worship, the qualities of bishops, deacons and widows, and the care of the community.",
+  "author": "Paul (or in his name)",
+  "date": "c. AD 63–100 (debated)",
+  "outline": [
+   [
+    "1:1-20",
+    "Against false teachers"
+   ],
+   [
+    "2:1-3:16",
+    "Prayer and worship; overseers and deacons"
+   ],
+   [
+    "4:1-16",
+    "Faithful ministry"
+   ],
+   [
+    "5:1-6:2",
+    "Widows, elders and slaves"
+   ],
+   [
+    "6:3-21",
+    "Riches and a final charge"
+   ]
+  ]
+ },
+ "2TI": {
+  "intro": "Paul’s last letter, a charge to Timothy to guard the gospel and endure hardship; it contains “All scripture is inspired by God” (3:16).",
+  "author": "Paul (or in his name)",
+  "date": "c. AD 64–100 (debated)",
+  "outline": [
+   [
+    "1:1-2:13",
+    "Encouragement to Timothy; endure with Christ"
+   ],
+   [
+    "2:14-4:5",
+    "False teachers; the Scriptures; preach the word"
+   ],
+   [
+    "4:6-22",
+    "Paul’s final testimony"
+   ]
+  ]
+ },
+ "TIT": {
+  "intro": "A pastoral letter on appointing elders in Crete, sound teaching and good works as the fruit of grace.",
+  "author": "Paul (or in his name)",
+  "date": "c. AD 63–100 (debated)",
+  "outline": [
+   [
+    "1:1-16",
+    "Appointing elders; false teachers"
+   ],
+   [
+    "2:1-15",
+    "Teaching for different groups; grace has appeared"
+   ],
+   [
+    "3:1-15",
+    "Good works; final counsel"
+   ]
+  ]
+ },
+ "PHM": {
+  "intro": "A short personal letter asking Philemon to welcome back his runaway slave Onesimus “no longer as a slave but as a beloved brother.”",
+  "author": "Paul",
+  "date": "c. AD 55–62",
+  "outline": [
+   [
+    "1-7",
+    "Greeting and thanks"
+   ],
+   [
+    "8-22",
+    "The appeal for Onesimus"
+   ],
+   [
+    "23-25",
+    "Greetings"
+   ]
+  ]
+ },
+ "HEB": {
+  "intro": "A sermon on the superiority of Christ, the great high priest, to angels, Moses and the Levitical priesthood, with a call to faith and perseverance (chapter 11 on the heroes of faith). The Church has long received it as inspired; its authorship is uncertain.",
+  "author": "Unknown (Pauline tradition)",
+  "date": "c. AD 60–90",
+  "outline": [
+   [
+    "1:1-2:18",
+    "The Son greater than the angels"
+   ],
+   [
+    "3:1-4:13",
+    "Greater than Moses; God’s rest"
+   ],
+   [
+    "4:14-7:28",
+    "Christ the high priest, after Melchizedek"
+   ],
+   [
+    "8:1-10:18",
+    "The new covenant and the one sacrifice"
+   ],
+   [
+    "10:19-12:29",
+    "Faith and endurance"
+   ],
+   [
+    "13:1-25",
+    "Final exhortations"
+   ]
+  ]
+ },
+ "JAS": {
+  "intro": "A practical letter on living the faith: patience in trials, controlling the tongue, care for the poor, and faith shown in works (2:14–26). It mentions anointing the sick (5:14–15).",
+  "author": "James",
+  "date": "c. AD 60–90",
+  "outline": [
+   [
+    "1:1-27",
+    "Trials, wisdom and doing the word"
+   ],
+   [
+    "2:1-26",
+    "Partiality; faith and works"
+   ],
+   [
+    "3:1-4:12",
+    "The tongue; wisdom; worldliness"
+   ],
+   [
+    "4:13-5:20",
+    "Warnings; patience; prayer and anointing"
+   ]
+  ]
+ },
+ "1PE": {
+  "intro": "Written to Christians facing hostility: a call to holiness and hope, grounded in baptism and Christ’s suffering.",
+  "author": "Peter (or in his name)",
+  "date": "c. AD 60–90",
+  "outline": [
+   [
+    "1:1-2:10",
+    "Born anew; a holy people"
+   ],
+   [
+    "2:11-3:12",
+    "Living among unbelievers; wives and husbands"
+   ],
+   [
+    "3:13-4:19",
+    "Suffering for doing good; baptism"
+   ],
+   [
+    "5:1-14",
+    "Elders and final greetings"
+   ]
+  ]
+ },
+ "2PE": {
+  "intro": "A farewell letter warning against false teachers and affirming the apostolic witness and the Lord’s coming; it mentions Paul’s letters among the Scriptures (3:15–16).",
+  "author": "Peter (or in his name)",
+  "date": "c. AD 60–100 (debated)",
+  "outline": [
+   [
+    "1:1-21",
+    "Apostolic witness"
+   ],
+   [
+    "2:1-22",
+    "False teachers"
+   ],
+   [
+    "3:1-18",
+    "The Lord’s coming"
+   ]
+  ]
+ },
+ "1JN": {
+  "intro": "Short reflections on walking in the light, loving one another, and abiding in God who is love.",
+  "author": "John",
+  "date": "c. AD 90–100",
+  "outline": [
+   [
+    "1:1-2:17",
+    "Fellowship, light and sin"
+   ],
+   [
+    "2:18-3:24",
+    "Truth, children of God, love"
+   ],
+   [
+    "4:1-5:21",
+    "Testing spirits; God is love; faith and life"
+   ]
+  ]
+ },
+ "2JN": {
+  "intro": "A brief letter to “the elect lady” urging love and truth and warning against deceivers.",
+  "author": "John",
+  "date": "c. AD 90–100",
+  "outline": [
+   [
+    "1-13",
+    "Love, truth and false teachers"
+   ]
+  ]
+ },
+ "3JN": {
+  "intro": "A personal letter commending hospitality to travelling missionaries.",
+  "author": "John",
+  "date": "c. AD 90–100",
+  "outline": [
+   [
+    "1-15",
+    "Hospitality; Gaius and Diotrephes"
+   ]
+  ]
+ },
+ "JUD": {
+  "intro": "A short urgent letter to “contend for the faith” against false teachers.",
+  "author": "Jude",
+  "date": "c. AD 60–100",
+  "outline": [
+   [
+    "1-16",
+    "The danger of false teachers"
+   ],
+   [
+    "17-25",
+    "Persevere; doxology"
+   ]
+  ]
+ },
+ "REV": {
+  "intro": "A prophetic vision of Christ’s victory over evil, written in symbolic language to encourage persecuted Christians; the Church reads it with the Liturgy, the Lamb and the new Jerusalem.",
+  "author": "John",
+  "date": "c. AD 90–96",
+  "outline": [
+   [
+    "1:1-3:22",
+    "Vision of Christ and the seven letters"
+   ],
+   [
+    "4:1-5:14",
+    "Heavenly worship; the Lamb"
+   ],
+   [
+    "6:1-8:5",
+    "Seven seals"
+   ],
+   [
+    "8:6-11:19",
+    "Seven trumpets"
+   ],
+   [
+    "12:1-14:20",
+    "The woman, the dragon and the beasts; the Lamb on Zion"
+   ],
+   [
+    "15:1-16:21",
+    "Seven bowls"
+   ],
+   [
+    "17:1-19:10",
+    "The fall of Babylon; the wedding of the Lamb"
+   ],
+   [
+    "19:11-20:15",
+    "The rider; the final judgment"
+   ],
+   [
+    "21:1-22:21",
+    "The new heaven, new earth and new Jerusalem"
+   ]
+  ]
+ }
+}

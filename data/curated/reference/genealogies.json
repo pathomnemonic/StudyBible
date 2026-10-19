@@ -1,0 +1,983 @@
+{
+ "_about": "A people-and-lines index built from the genealogies of Genesis, Ruth, 1 Chronicles, Matthew 1 and Luke 3. Editorial: each person lists where they appear. The tree follows Matthew’s line for the descent from Judah to Joseph. Variations between lists (omitted generations, Cainan, the two fathers of Joseph) are noted, not resolved.",
+ "persons": [
+  {
+   "id": "adam",
+   "n": "Adam",
+   "r": "Genesis 1:26-5:5"
+  },
+  {
+   "id": "eve",
+   "n": "Eve",
+   "r": "Genesis 2:18-4:25"
+  },
+  {
+   "id": "cain",
+   "n": "Cain",
+   "f": "adam",
+   "m": "eve",
+   "r": "Genesis 4:1-17"
+  },
+  {
+   "id": "abel",
+   "n": "Abel",
+   "f": "adam",
+   "m": "eve",
+   "r": "Genesis 4:1-8"
+  },
+  {
+   "id": "seth",
+   "n": "Seth",
+   "f": "adam",
+   "m": "eve",
+   "r": "Genesis 4:25; Genesis 5:3"
+  },
+  {
+   "id": "enosh",
+   "n": "Enosh",
+   "f": "seth",
+   "r": "Genesis 5:6-11"
+  },
+  {
+   "id": "kenan",
+   "n": "Kenan",
+   "f": "enosh",
+   "r": "Genesis 5:9-14"
+  },
+  {
+   "id": "mahalalel",
+   "n": "Mahalalel",
+   "f": "kenan",
+   "r": "Genesis 5:12-17"
+  },
+  {
+   "id": "jared",
+   "n": "Jared",
+   "f": "mahalalel",
+   "r": "Genesis 5:15-20"
+  },
+  {
+   "id": "enoch",
+   "n": "Enoch",
+   "f": "jared",
+   "r": "Genesis 5:18-24",
+   "note": "“Enoch walked with God, and he was not” (Genesis 5:24)."
+  },
+  {
+   "id": "methuselah",
+   "n": "Methuselah",
+   "f": "enoch",
+   "r": "Genesis 5:21-27"
+  },
+  {
+   "id": "lamech",
+   "n": "Lamech",
+   "f": "methuselah",
+   "r": "Genesis 5:25-31"
+  },
+  {
+   "id": "noah",
+   "n": "Noah",
+   "f": "lamech",
+   "r": "Genesis 5:28-9:29"
+  },
+  {
+   "id": "shem",
+   "n": "Shem",
+   "f": "noah",
+   "r": "Genesis 5:32; Genesis 10:21-31"
+  },
+  {
+   "id": "ham",
+   "n": "Ham",
+   "f": "noah",
+   "r": "Genesis 5:32; Genesis 10:6-20"
+  },
+  {
+   "id": "japheth",
+   "n": "Japheth",
+   "f": "noah",
+   "r": "Genesis 5:32; Genesis 10:2-5"
+  },
+  {
+   "id": "arphaxad",
+   "n": "Arphaxad",
+   "f": "shem",
+   "r": "Genesis 11:10-13",
+   "note": "Luke 3:36 and the Greek Old Testament insert Cainan between Arphaxad and Shelah."
+  },
+  {
+   "id": "shelah",
+   "n": "Shelah",
+   "f": "arphaxad",
+   "r": "Genesis 11:12-15"
+  },
+  {
+   "id": "eber",
+   "n": "Eber",
+   "f": "shelah",
+   "r": "Genesis 11:14-17"
+  },
+  {
+   "id": "peleg",
+   "n": "Peleg",
+   "f": "eber",
+   "r": "Genesis 11:16-19"
+  },
+  {
+   "id": "reu",
+   "n": "Reu",
+   "f": "peleg",
+   "r": "Genesis 11:18-21"
+  },
+  {
+   "id": "serug",
+   "n": "Serug",
+   "f": "reu",
+   "r": "Genesis 11:20-23"
+  },
+  {
+   "id": "nahor1",
+   "n": "Nahor",
+   "f": "serug",
+   "r": "Genesis 11:22-25"
+  },
+  {
+   "id": "terah",
+   "n": "Terah",
+   "f": "nahor1",
+   "r": "Genesis 11:24-32"
+  },
+  {
+   "id": "abraham",
+   "n": "Abraham (Abram)",
+   "f": "terah",
+   "r": "Genesis 11:26-25:11"
+  },
+  {
+   "id": "nahor2",
+   "n": "Nahor, Abraham’s brother",
+   "f": "terah",
+   "r": "Genesis 11:26-29"
+  },
+  {
+   "id": "haran",
+   "n": "Haran",
+   "f": "terah",
+   "r": "Genesis 11:26-28"
+  },
+  {
+   "id": "lot",
+   "n": "Lot",
+   "f": "haran",
+   "r": "Genesis 11:27-19:38"
+  },
+  {
+   "id": "moab",
+   "n": "Moab",
+   "f": "lot",
+   "r": "Genesis 19:37"
+  },
+  {
+   "id": "benammi",
+   "n": "Ben-ammi (father of the Ammonites)",
+   "f": "lot",
+   "r": "Genesis 19:38"
+  },
+  {
+   "id": "sarah",
+   "n": "Sarah (Sarai)",
+   "f": "terah",
+   "r": "Genesis 11:29; Genesis 17:15-21",
+   "note": "Called Abraham’s half-sister in Genesis 20:12."
+  },
+  {
+   "id": "hagar",
+   "n": "Hagar",
+   "r": "Genesis 16:1-16; Genesis 21:8-21"
+  },
+  {
+   "id": "keturah",
+   "n": "Keturah",
+   "r": "Genesis 25:1-4"
+  },
+  {
+   "id": "ishmael",
+   "n": "Ishmael",
+   "f": "abraham",
+   "m": "hagar",
+   "r": "Genesis 16:11-16; Genesis 25:12-18"
+  },
+  {
+   "id": "isaac",
+   "n": "Isaac",
+   "f": "abraham",
+   "m": "sarah",
+   "r": "Genesis 21:1-7; Genesis 22:1-19"
+  },
+  {
+   "id": "midian",
+   "n": "Midian",
+   "f": "abraham",
+   "m": "keturah",
+   "r": "Genesis 25:1-2"
+  },
+  {
+   "id": "rebekah",
+   "n": "Rebekah",
+   "r": "Genesis 24:1-67; Genesis 25:20"
+  },
+  {
+   "id": "esau",
+   "n": "Esau (Edom)",
+   "f": "isaac",
+   "m": "rebekah",
+   "r": "Genesis 25:24-34; Genesis 36:1-8"
+  },
+  {
+   "id": "jacob",
+   "n": "Jacob (Israel)",
+   "f": "isaac",
+   "m": "rebekah",
+   "r": "Genesis 25:24-34; Genesis 32:28"
+  },
+  {
+   "id": "eliphaz",
+   "n": "Eliphaz",
+   "f": "esau",
+   "r": "Genesis 36:4,11"
+  },
+  {
+   "id": "leah",
+   "n": "Leah",
+   "r": "Genesis 29:16-35"
+  },
+  {
+   "id": "rachel",
+   "n": "Rachel",
+   "r": "Genesis 29:16-30:24; Genesis 35:16-20"
+  },
+  {
+   "id": "bilhah",
+   "n": "Bilhah",
+   "r": "Genesis 30:3-8"
+  },
+  {
+   "id": "zilpah",
+   "n": "Zilpah",
+   "r": "Genesis 30:9-13"
+  },
+  {
+   "id": "reuben",
+   "n": "Reuben",
+   "f": "jacob",
+   "m": "leah",
+   "r": "Genesis 29:32"
+  },
+  {
+   "id": "simeon",
+   "n": "Simeon",
+   "f": "jacob",
+   "m": "leah",
+   "r": "Genesis 29:33"
+  },
+  {
+   "id": "levi",
+   "n": "Levi",
+   "f": "jacob",
+   "m": "leah",
+   "r": "Genesis 29:34"
+  },
+  {
+   "id": "judah",
+   "n": "Judah",
+   "f": "jacob",
+   "m": "leah",
+   "r": "Genesis 29:35"
+  },
+  {
+   "id": "issachar",
+   "n": "Issachar",
+   "f": "jacob",
+   "m": "leah",
+   "r": "Genesis 30:18"
+  },
+  {
+   "id": "zebulun",
+   "n": "Zebulun",
+   "f": "jacob",
+   "m": "leah",
+   "r": "Genesis 30:20"
+  },
+  {
+   "id": "dan",
+   "n": "Dan",
+   "f": "jacob",
+   "m": "bilhah",
+   "r": "Genesis 30:6"
+  },
+  {
+   "id": "naphtali",
+   "n": "Naphtali",
+   "f": "jacob",
+   "m": "bilhah",
+   "r": "Genesis 30:8"
+  },
+  {
+   "id": "gad",
+   "n": "Gad",
+   "f": "jacob",
+   "m": "zilpah",
+   "r": "Genesis 30:11"
+  },
+  {
+   "id": "asher",
+   "n": "Asher",
+   "f": "jacob",
+   "m": "zilpah",
+   "r": "Genesis 30:13"
+  },
+  {
+   "id": "joseph1",
+   "n": "Joseph (son of Jacob)",
+   "f": "jacob",
+   "m": "rachel",
+   "r": "Genesis 30:22-24; Genesis 37:1-50:26"
+  },
+  {
+   "id": "benjamin",
+   "n": "Benjamin",
+   "f": "jacob",
+   "m": "rachel",
+   "r": "Genesis 35:16-18"
+  },
+  {
+   "id": "dinah",
+   "n": "Dinah",
+   "f": "jacob",
+   "m": "leah",
+   "r": "Genesis 30:21; Genesis 34:1-31"
+  },
+  {
+   "id": "asenath",
+   "n": "Asenath",
+   "r": "Genesis 41:45"
+  },
+  {
+   "id": "manasseh1",
+   "n": "Manasseh (son of Joseph)",
+   "f": "joseph1",
+   "m": "asenath",
+   "r": "Genesis 41:50-51"
+  },
+  {
+   "id": "ephraim",
+   "n": "Ephraim",
+   "f": "joseph1",
+   "m": "asenath",
+   "r": "Genesis 41:52; Genesis 48:1-22"
+  },
+  {
+   "id": "tamar1",
+   "n": "Tamar (Judah’s daughter-in-law)",
+   "r": "Genesis 38:1-30; Matthew 1:3"
+  },
+  {
+   "id": "er",
+   "n": "Er",
+   "f": "judah",
+   "r": "Genesis 38:3,7"
+  },
+  {
+   "id": "onan",
+   "n": "Onan",
+   "f": "judah",
+   "r": "Genesis 38:4,8-10"
+  },
+  {
+   "id": "shelah2",
+   "n": "Shelah (son of Judah)",
+   "f": "judah",
+   "r": "Genesis 38:5,11"
+  },
+  {
+   "id": "perez",
+   "n": "Perez",
+   "f": "judah",
+   "m": "tamar1",
+   "r": "Genesis 38:29; Matthew 1:3"
+  },
+  {
+   "id": "zerah",
+   "n": "Zerah",
+   "f": "judah",
+   "m": "tamar1",
+   "r": "Genesis 38:30; Matthew 1:3"
+  },
+  {
+   "id": "hezron",
+   "n": "Hezron",
+   "f": "perez",
+   "r": "Genesis 46:12; Ruth 4:18-19; Matthew 1:3"
+  },
+  {
+   "id": "ram",
+   "n": "Ram (Aram)",
+   "f": "hezron",
+   "r": "Ruth 4:19; Matthew 1:3-4"
+  },
+  {
+   "id": "amminadab",
+   "n": "Amminadab",
+   "f": "ram",
+   "r": "Exodus 6:23; Ruth 4:19-20; Matthew 1:4"
+  },
+  {
+   "id": "nahshon",
+   "n": "Nahshon",
+   "f": "amminadab",
+   "r": "Numbers 1:7; Ruth 4:20; Matthew 1:4"
+  },
+  {
+   "id": "salmon",
+   "n": "Salmon (Sala)",
+   "f": "nahshon",
+   "r": "Ruth 4:20-21; Matthew 1:4-5"
+  },
+  {
+   "id": "rahab",
+   "n": "Rahab",
+   "r": "Joshua 2:1-21; Joshua 6:22-25; Matthew 1:5"
+  },
+  {
+   "id": "boaz",
+   "n": "Boaz",
+   "f": "salmon",
+   "m": "rahab",
+   "r": "Ruth 2:1-4:22; Matthew 1:5",
+   "note": "Matthew names Rahab as Boaz’s mother; Ruth 4 does not."
+  },
+  {
+   "id": "ruth",
+   "n": "Ruth",
+   "r": "Ruth 1:1-4:22; Matthew 1:5"
+  },
+  {
+   "id": "obed",
+   "n": "Obed",
+   "f": "boaz",
+   "m": "ruth",
+   "r": "Ruth 4:13-17; Matthew 1:5"
+  },
+  {
+   "id": "jesse",
+   "n": "Jesse",
+   "f": "obed",
+   "r": "Ruth 4:17,22; 1 Samuel 16:1-13; Matthew 1:5-6"
+  },
+  {
+   "id": "kohath",
+   "n": "Kohath",
+   "f": "levi",
+   "r": "Exodus 6:16-18"
+  },
+  {
+   "id": "gershon",
+   "n": "Gershon",
+   "f": "levi",
+   "r": "Exodus 6:16"
+  },
+  {
+   "id": "merari",
+   "n": "Merari",
+   "f": "levi",
+   "r": "Exodus 6:16"
+  },
+  {
+   "id": "amram",
+   "n": "Amram",
+   "f": "kohath",
+   "r": "Exodus 6:18-20"
+  },
+  {
+   "id": "jochebed",
+   "n": "Jochebed",
+   "r": "Exodus 6:20; Numbers 26:59"
+  },
+  {
+   "id": "aaron",
+   "n": "Aaron",
+   "f": "amram",
+   "m": "jochebed",
+   "r": "Exodus 6:20; Exodus 28:1"
+  },
+  {
+   "id": "moses",
+   "n": "Moses",
+   "f": "amram",
+   "m": "jochebed",
+   "r": "Exodus 2:1-10; Exodus 6:20"
+  },
+  {
+   "id": "miriam",
+   "n": "Miriam",
+   "f": "amram",
+   "m": "jochebed",
+   "r": "Exodus 15:20; Numbers 26:59"
+  },
+  {
+   "id": "zipporah",
+   "n": "Zipporah",
+   "r": "Exodus 2:21-22"
+  },
+  {
+   "id": "gershom",
+   "n": "Gershom",
+   "f": "moses",
+   "m": "zipporah",
+   "r": "Exodus 2:22"
+  },
+  {
+   "id": "eliezer1",
+   "n": "Eliezer (son of Moses)",
+   "f": "moses",
+   "m": "zipporah",
+   "r": "Exodus 18:4"
+  },
+  {
+   "id": "nadab",
+   "n": "Nadab",
+   "f": "aaron",
+   "r": "Leviticus 10:1-2"
+  },
+  {
+   "id": "abihu",
+   "n": "Abihu",
+   "f": "aaron",
+   "r": "Leviticus 10:1-2"
+  },
+  {
+   "id": "eleazar1",
+   "n": "Eleazar (son of Aaron)",
+   "f": "aaron",
+   "r": "Numbers 20:25-28"
+  },
+  {
+   "id": "ithamar",
+   "n": "Ithamar",
+   "f": "aaron",
+   "r": "Exodus 6:23"
+  },
+  {
+   "id": "phinehas",
+   "n": "Phinehas",
+   "f": "eleazar1",
+   "r": "Numbers 25:7-13"
+  },
+  {
+   "id": "david",
+   "n": "David",
+   "f": "jesse",
+   "r": "1 Samuel 16:1-13; 2 Samuel 5:1-5; Matthew 1:6"
+  },
+  {
+   "id": "bathsheba",
+   "n": "Bathsheba",
+   "r": "2 Samuel 11:1-12:25; Matthew 1:6",
+   "note": "Matthew calls her “the wife of Uriah.”"
+  },
+  {
+   "id": "michal",
+   "n": "Michal",
+   "r": "1 Samuel 18:20-27"
+  },
+  {
+   "id": "ahinoam",
+   "n": "Ahinoam of Jezreel",
+   "r": "1 Samuel 25:43"
+  },
+  {
+   "id": "abigail",
+   "n": "Abigail",
+   "r": "1 Samuel 25:14-42"
+  },
+  {
+   "id": "maacah",
+   "n": "Maacah",
+   "r": "2 Samuel 3:3"
+  },
+  {
+   "id": "haggith",
+   "n": "Haggith",
+   "r": "2 Samuel 3:4"
+  },
+  {
+   "id": "amnon",
+   "n": "Amnon",
+   "f": "david",
+   "m": "ahinoam",
+   "r": "2 Samuel 3:2; 2 Samuel 13:1-39"
+  },
+  {
+   "id": "absalom",
+   "n": "Absalom",
+   "f": "david",
+   "m": "maacah",
+   "r": "2 Samuel 3:3; 2 Samuel 15:1-18:33"
+  },
+  {
+   "id": "adonijah",
+   "n": "Adonijah",
+   "f": "david",
+   "m": "haggith",
+   "r": "2 Samuel 3:4; 1 Kings 1:5-2:25"
+  },
+  {
+   "id": "nathan2",
+   "n": "Nathan (son of David)",
+   "f": "david",
+   "m": "bathsheba",
+   "r": "2 Samuel 5:14; 1 Chronicles 3:5",
+   "note": "Luke 3:31 traces Jesus through Nathan."
+  },
+  {
+   "id": "solomon",
+   "n": "Solomon",
+   "f": "david",
+   "m": "bathsheba",
+   "r": "2 Samuel 12:24-25; 1 Kings 1:28-53; Matthew 1:6"
+  },
+  {
+   "id": "rehoboam",
+   "n": "Rehoboam",
+   "f": "solomon",
+   "r": "1 Kings 11:43-12:24; Matthew 1:7"
+  },
+  {
+   "id": "abijah",
+   "n": "Abijah (Abijam)",
+   "f": "rehoboam",
+   "r": "1 Kings 15:1-8; Matthew 1:7"
+  },
+  {
+   "id": "asa",
+   "n": "Asa",
+   "f": "abijah",
+   "r": "1 Kings 15:9-24; Matthew 1:7"
+  },
+  {
+   "id": "jehoshaphat",
+   "n": "Jehoshaphat",
+   "f": "asa",
+   "r": "1 Kings 22:41-50; Matthew 1:8"
+  },
+  {
+   "id": "joram",
+   "n": "Joram (Jehoram)",
+   "f": "jehoshaphat",
+   "r": "2 Kings 8:16-24; Matthew 1:8",
+   "note": "Matthew omits Ahaziah, Joash and Amaziah between Joram and Uzziah."
+  },
+  {
+   "id": "uzziah",
+   "n": "Uzziah (Azariah)",
+   "f": "joram",
+   "r": "2 Kings 15:1-7; Matthew 1:8-9"
+  },
+  {
+   "id": "jotham",
+   "n": "Jotham",
+   "f": "uzziah",
+   "r": "2 Kings 15:32-38; Matthew 1:9"
+  },
+  {
+   "id": "ahaz",
+   "n": "Ahaz",
+   "f": "jotham",
+   "r": "2 Kings 16:1-20; Matthew 1:9"
+  },
+  {
+   "id": "hezekiah",
+   "n": "Hezekiah",
+   "f": "ahaz",
+   "r": "2 Kings 18:1-20:21; Matthew 1:9-10"
+  },
+  {
+   "id": "manasseh2",
+   "n": "Manasseh (king of Judah)",
+   "f": "hezekiah",
+   "r": "2 Kings 21:1-18; Matthew 1:10"
+  },
+  {
+   "id": "amon",
+   "n": "Amon",
+   "f": "manasseh2",
+   "r": "2 Kings 21:19-26; Matthew 1:10"
+  },
+  {
+   "id": "josiah",
+   "n": "Josiah",
+   "f": "amon",
+   "r": "2 Kings 22:1-23:30; Matthew 1:10-11"
+  },
+  {
+   "id": "jechoniah",
+   "n": "Jechoniah (Jehoiachin)",
+   "f": "josiah",
+   "r": "2 Kings 24:8-17; Matthew 1:11-12",
+   "note": "Matthew skips Jehoiakim between Josiah and Jechoniah in some readings; the exile to Babylon marks the second set of fourteen."
+  },
+  {
+   "id": "shealtiel",
+   "n": "Shealtiel",
+   "f": "jechoniah",
+   "r": "Matthew 1:12; Ezra 3:2"
+  },
+  {
+   "id": "zerubbabel",
+   "n": "Zerubbabel",
+   "f": "shealtiel",
+   "r": "Ezra 3:2; Haggai 1:1; Matthew 1:12-13"
+  },
+  {
+   "id": "abiud",
+   "n": "Abiud",
+   "f": "zerubbabel",
+   "r": "Matthew 1:13"
+  },
+  {
+   "id": "eliakim",
+   "n": "Eliakim",
+   "f": "abiud",
+   "r": "Matthew 1:13"
+  },
+  {
+   "id": "azor",
+   "n": "Azor",
+   "f": "eliakim",
+   "r": "Matthew 1:13-14"
+  },
+  {
+   "id": "zadok",
+   "n": "Zadok",
+   "f": "azor",
+   "r": "Matthew 1:14"
+  },
+  {
+   "id": "achim",
+   "n": "Achim",
+   "f": "zadok",
+   "r": "Matthew 1:14"
+  },
+  {
+   "id": "eliud",
+   "n": "Eliud",
+   "f": "achim",
+   "r": "Matthew 1:14-15"
+  },
+  {
+   "id": "eleazar2",
+   "n": "Eleazar (Matthew)",
+   "f": "eliud",
+   "r": "Matthew 1:15"
+  },
+  {
+   "id": "matthan",
+   "n": "Matthan",
+   "f": "eleazar2",
+   "r": "Matthew 1:15"
+  },
+  {
+   "id": "jacob2",
+   "n": "Jacob (father of Joseph)",
+   "f": "matthan",
+   "r": "Matthew 1:15-16"
+  },
+  {
+   "id": "joseph2",
+   "n": "Joseph, husband of Mary",
+   "f": "jacob2",
+   "r": "Matthew 1:16-25; Luke 2:4-7",
+   "note": "Luke 3:23 calls him the son of Heli; the Fathers explain the two lines by levirate marriage or by tracing Mary’s line."
+  },
+  {
+   "id": "mary",
+   "n": "Mary, mother of Jesus",
+   "r": "Luke 1:26-38; Matthew 1:16"
+  },
+  {
+   "id": "jesus",
+   "n": "Jesus",
+   "f": "joseph2",
+   "m": "mary",
+   "r": "Matthew 1:16; Luke 3:23",
+   "note": "Conceived by the Holy Spirit; Joseph is his legal father (Matthew 1:18–25)."
+  },
+  {
+   "id": "elizabeth",
+   "n": "Elizabeth, kinswoman of Mary",
+   "r": "Luke 1:5-45"
+  },
+  {
+   "id": "zechariah",
+   "n": "Zechariah (priest)",
+   "r": "Luke 1:5-25"
+  },
+  {
+   "id": "john",
+   "n": "John the Baptist",
+   "f": "zechariah",
+   "m": "elizabeth",
+   "r": "Luke 1:57-80"
+  }
+ ],
+ "lines": {
+  "matthew": {
+   "title": "Matthew 1:2–16: from Abraham to Jesus",
+   "groups": [
+    [
+     "Abraham to David",
+     [
+      "abraham",
+      "isaac",
+      "jacob",
+      "judah",
+      "perez",
+      "hezron",
+      "ram",
+      "amminadab",
+      "nahshon",
+      "salmon",
+      "boaz",
+      "obed",
+      "jesse",
+      "david"
+     ]
+    ],
+    [
+     "David to the exile in Babylon",
+     [
+      "david",
+      "solomon",
+      "rehoboam",
+      "abijah",
+      "asa",
+      "jehoshaphat",
+      "joram",
+      "uzziah",
+      "jotham",
+      "ahaz",
+      "hezekiah",
+      "manasseh2",
+      "amon",
+      "josiah",
+      "jechoniah"
+     ]
+    ],
+    [
+     "The exile to Jesus",
+     [
+      "jechoniah",
+      "shealtiel",
+      "zerubbabel",
+      "abiud",
+      "eliakim",
+      "azor",
+      "zadok",
+      "achim",
+      "eliud",
+      "eleazar2",
+      "matthan",
+      "jacob2",
+      "joseph2",
+      "jesus"
+     ]
+    ]
+   ],
+   "note": "Matthew 1:17 groups the names in three sets of fourteen generations; David and Jechoniah stand at the boundary of two sets."
+  },
+  "luke": {
+   "title": "Luke 3:23–38: from Jesus back to Adam and God",
+   "names": [
+    "Jesus",
+    "Joseph",
+    "Heli",
+    "Matthat",
+    "Levi",
+    "Melchi",
+    "Jannai",
+    "Joseph",
+    "Mattathias",
+    "Amos",
+    "Nahum",
+    "Esli",
+    "Naggai",
+    "Maath",
+    "Mattathias",
+    "Semein",
+    "Josech",
+    "Joda",
+    "Joanan",
+    "Rhesa",
+    "Zerubbabel",
+    "Shealtiel",
+    "Neri",
+    "Melchi",
+    "Addi",
+    "Cosam",
+    "Elmadam",
+    "Er",
+    "Joshua",
+    "Eliezer",
+    "Jorim",
+    "Matthat",
+    "Levi",
+    "Simeon",
+    "Judah",
+    "Joseph",
+    "Jonam",
+    "Eliakim",
+    "Melea",
+    "Menna",
+    "Mattatha",
+    "Nathan",
+    "David",
+    "Jesse",
+    "Obed",
+    "Boaz",
+    "Sala",
+    "Nahshon",
+    "Amminadab",
+    "Admin",
+    "Arni",
+    "Hezron",
+    "Perez",
+    "Judah",
+    "Jacob",
+    "Isaac",
+    "Abraham",
+    "Terah",
+    "Nahor",
+    "Serug",
+    "Reu",
+    "Peleg",
+    "Eber",
+    "Shelah",
+    "Cainan",
+    "Arphaxad",
+    "Shem",
+    "Noah",
+    "Lamech",
+    "Methuselah",
+    "Enoch",
+    "Jared",
+    "Mahalaleel",
+    "Cainan",
+    "Enos",
+    "Seth",
+    "Adam",
+    "God"
+   ]
+  }
+ }
+}
