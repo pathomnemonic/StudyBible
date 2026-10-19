@@ -46,6 +46,10 @@ export interface Settings {
   studyDock: boolean;
   /** dismissed the one-time "tap a verse" hint */
   hintVerse: boolean;
+  /** a soft backdrop that suits the book (or the passage); off keeps the plain theme */
+  atmosphere: 'off' | 'book' | 'passage';
+  /** optional low-volume ambience for reading (generated in the browser, nothing is downloaded) */
+  ambience: { kind: 'off' | 'rain' | 'wind' | 'stream'; volume: number; match: boolean };
   /** how to interpret typed references like "Ps 23" */
   refNumbering: 'edition' | 'vulgate' | 'english';
   reminders: { enabled: boolean; time: string; message: string };
@@ -80,6 +84,8 @@ export const DEFAULTS: Settings = {
   scriptureOnly: false,
   studyDock: true,
   hintVerse: false,
+  atmosphere: 'passage',
+  ambience: { kind: 'off', volume: 0.25, match: false },
   refNumbering: 'edition',
   reminders: { enabled: false, time: '07:30', message: 'A quiet moment with Scripture, if you would like one.' },
   showStreaks: false,

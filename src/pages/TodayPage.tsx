@@ -283,7 +283,10 @@ export default function TodayPage() {
           <h1>{greeting()}</h1>
           <div className="season">{day.dayName} · {day.seasonName}</div>
         </div>
-        <button className="btn small ghost" aria-pressed={customize} onClick={() => setCustomize(!customize)}>{customize ? 'Done' : 'Customize'}</button>
+        <div className="row">
+          <button className="btn small ghost" onClick={() => { setS({ scriptureOnly: true }); nav(last ? `/read/${last.edition}/${last.book}/${last.chapter}` : `/read/${s.defaultEdition}/JHN/1`); }} title="Open the Bible with only the text on screen">Read in silence</button>
+          <button className="btn small ghost" aria-pressed={customize} onClick={() => setCustomize(!customize)}>{customize ? 'Done' : 'Customize'}</button>
+        </div>
       </header>
       <form className="jump" onSubmit={go} role="search">
         <input type="search" value={jump} onChange={(e) => setJump(e.target.value)} placeholder="Go to John 6:35 — or search anything" aria-label="Go to a passage or search" />

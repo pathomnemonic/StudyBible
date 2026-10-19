@@ -18,6 +18,9 @@ import NoteEditor from '../components/NoteEditor';
 import Modal from '../components/Modal';
 import StudyPanel from '../components/StudyPanel';
 import TextSettings from '../components/TextSettings';
+import { atmosphereFor, MOOD_SOUND } from '../lib/atmosphere';
+import { setAmbience, stopAmbience } from '../lib/ambience';
+import { useQuiet, endQuiet } from '../lib/quiet';
 import CompareModal from '../components/CompareModal';
 import ReadAloud from '../components/ReadAloud';
 import { verseResourceCounts } from '../study/density';
@@ -50,6 +53,17 @@ function useWide(query = '(min-width: 1180px)') {
   return w;
 }
 
+function QuietClock({ endsAt, onEnd }: { endsAt: number; onEnd: () => void }) {
+  const [now, setNow] = useState(Date.now());
+  useEffect(() => {
+    const t = window.setInterval(() => setNow(Date.now()), 20_000);
+    return () => window.clearInterval(t);
+  }, []);
+  if (endsAt < 0) return <button onClick={onEnd}>End session</button>;
+  const m = Math.max(1, Math.ceil((endsAt - now) / 60_000));
+  return <button onClick={onEnd} title="End the session">{m} min · end</button>;
+}
+
 export default function ReadPage() {
   const { edition: edId = 'dra', book = 'JHN', chapter = '1' } = useParams();
   const [sp, setSp] = useSearchParams();
@@ -71,6 +85,7 @@ export default function ReadPage() {
   const [panel, setPanel] = useState(false);
   const [moreMenu, setMoreMenu] = useState(false);
   const wide = useWide();
+  const silentRef = useRef(false);
   const wideRef = useRef(wide);
   wideRef.current = wide;
   const [compare, setCompare] = useState(false);
@@ -259,6 +274,32 @@ export default function ReadPage() {
   const chapterRef: Ref = { book: bk.id, c1: anchorChapters[0], c2: anchorChapters[anchorChapters.length - 1] };
   const panelOpen = dockOn || (panel && hasSel);
   const panelRefs = hasSel ? selRefs : [chapterRef];
+
+  // atmosphere: a backdrop mood for this book or passage, and optional ambience that can follow it
+  const mood = atmosphereFor(bk.id, primaryAnchorChapter, settings.atmosphere);
+  useEffect(() => {
+    const root = document.documentElement;
+    if (mood) root.dataset.atm = mood;
+    else delete root.dataset.atm;
+    return () => {
+      delete root.dataset.atm;
+    };
+  }, [mood]);
+  useEffect(() => {
+    const root = document.documentElement;
+    if (settings.scriptureOnly) root.dataset.silent = '1';
+    else delete root.dataset.silent;
+    return () => {
+      delete root.dataset.silent;
+    };
+  }, [settings.scriptureOnly]);
+  const sound = settings.ambience.kind !== 'off' ? (settings.ambience.match && mood && MOOD_SOUND[mood] ? MOOD_SOUND[mood]! : settings.ambience.kind) : 'off';
+  useEffect(() => {
+    setAmbience(sound, settings.ambience.volume);
+  }, [sound, settings.ambience.volume]);
+  useEffect(() => () => stopAmbience(), []);
+  const quiet = useQuiet();
+  silentRef.current = settings.scriptureOnly;
   useEffect(() => {
     if (!panelOpen || dockOn || !hasSel) return;
     const el = document.querySelector(`.v[data-v="${selNative[0]}"]`);
@@ -369,6 +410,7 @@ export default function ReadPage() {
       else if (e.key === 'Escape') {
         if (k.hasSel) k.clearSel();
         else if (k.panel) setPanel(false);
+        else if (silentRef.current) { setSettings({ scriptureOnly: false }); endQuiet(); }
       } else if (e.key === '?') setShortcuts(true);
     };
     window.addEventListener('keydown', h);
@@ -421,7 +463,7 @@ export default function ReadPage() {
           <button className="icon-btn tool-sm" aria-pressed={aloud} onClick={() => setAloud((a) => !a)} aria-label="Read aloud" title="Read this chapter aloud">
             <Icon name="listen" />
           </button>
-          <button className="icon-btn tool-sm" onClick={() => setTextSettings(true)} aria-label="Text settings" title="Text size, spacing and theme">
+          <button className="icon-btn tool-sm" onClick={() => setTextSettings(true)} aria-label="Reading settings" title="Text, theme, atmosphere, sound and quiet reading">
             <Icon name="text" />
           </button>
           <button
@@ -431,8 +473,8 @@ export default function ReadPage() {
               setSettings({ scriptureOnly: !settings.scriptureOnly });
               clearSel();
             }}
-            aria-label="Scripture-only mode"
-            title="Scripture only: hides navigation and study tools"
+            aria-label="Silent mode"
+            title="Silent mode: only the text, nothing else"
           >
             <Icon name="expand" />
           </button>
@@ -445,8 +487,8 @@ export default function ReadPage() {
                 <button role="menuitem" onClick={() => setEditionPicker(true)}>Translation: {edition.shortName}</button>
                 <button role="menuitem" onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : editions.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? editions.find((e) => e.id !== edition.id)!.id))}>Parallel translations {parallelMode ? '(on)' : ''}</button>
                 <button role="menuitem" onClick={() => setAloud((a) => !a)}>Read aloud {aloud ? '(on)' : ''}</button>
-                <button role="menuitem" onClick={() => setTextSettings(true)}>Text size and theme</button>
-                <button role="menuitem" onClick={() => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); }}>Scripture only</button>
+                <button role="menuitem" onClick={() => setTextSettings(true)}>Reading settings, atmosphere and sound</button>
+                <button role="menuitem" onClick={() => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); }}>Silent mode</button>
               </div>
             )}
           </span>
@@ -567,9 +609,11 @@ export default function ReadPage() {
       )}
 
       {settings.scriptureOnly && (
-        <button className="btn small" style={{ position: 'fixed', top: 8, right: 8, zIndex: 50 }} onClick={() => setSettings({ scriptureOnly: false })}>
-          Exit scripture-only
-        </button>
+        <div className="silent-ui">
+          {quiet.endsAt !== 0 && <QuietClock endsAt={quiet.endsAt} onEnd={endQuiet} />}
+          {quiet.finished && <span className="silent-done" role="status">Your time is complete.</span>}
+          <button onClick={() => { setSettings({ scriptureOnly: false }); endQuiet(); }}>Leave silent mode</button>
+        </div>
       )}
 
       {picker && (

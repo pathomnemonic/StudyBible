@@ -2993,7 +2993,7 @@ h3,
   font-size: 1.35rem;
 }
 .ptabs button.dim {
-  opacity: 0.55;
+  font-weight: 400;
 }
 .filter-row {
   margin: 0 0 10px;
@@ -3107,4 +3107,230 @@ h3,
   .panel.side {
     height: 58vh;
   }
+}
+
+/* ---- reading atmosphere: only the backdrop is tinted; text and contrast are untouched */
+:root[data-atm='law'] {
+  --aura-a: rgba(214,160,90,0.45);
+  --aura-b: rgba(190,110,70,0.27);
+  --aura-c: rgba(255,220,150,0.18);
+}
+:root[data-atm='history'] {
+  --aura-a: rgba(160,130,70,0.42);
+  --aura-b: rgba(120,150,110,0.27);
+  --aura-c: rgba(210,150,100,0.18);
+}
+:root[data-atm='wisdom'] {
+  --aura-a: rgba(70,150,150,0.39);
+  --aura-b: rgba(200,160,90,0.24);
+  --aura-c: rgba(120,190,170,0.18);
+}
+:root[data-atm='psalms'] {
+  --aura-a: rgba(90,120,255,0.51);
+  --aura-b: rgba(60,200,220,0.30);
+  --aura-c: rgba(170,130,255,0.21);
+}
+:root[data-atm='prophets'] {
+  --aura-a: rgba(230,110,70,0.39);
+  --aura-b: rgba(90,80,200,0.33);
+  --aura-c: rgba(255,190,120,0.15);
+}
+:root[data-atm='gospels'] {
+  --aura-a: rgba(240,170,110,0.42);
+  --aura-b: rgba(220,120,150,0.27);
+  --aura-c: rgba(255,225,160,0.21);
+}
+:root[data-atm='acts'] {
+  --aura-a: rgba(240,130,80,0.42);
+  --aura-b: rgba(255,190,90,0.27);
+  --aura-c: rgba(200,100,120,0.18);
+}
+:root[data-atm='epistles'] {
+  --aura-a: rgba(100,140,220,0.39);
+  --aura-b: rgba(180,170,140,0.21);
+  --aura-c: rgba(120,200,200,0.15);
+}
+:root[data-atm='revelation'] {
+  --aura-a: rgba(150,90,240,0.51);
+  --aura-b: rgba(240,200,90,0.27);
+  --aura-c: rgba(90,60,200,0.30);
+}
+:root[data-atm='storm'] {
+  --aura-a: rgba(80,100,130,0.60);
+  --aura-b: rgba(40,60,100,0.48);
+  --aura-c: rgba(150,170,190,0.15);
+}
+:root[data-atm='dawn'] {
+  --aura-a: rgba(255,170,120,0.60);
+  --aura-b: rgba(255,210,130,0.39);
+  --aura-c: rgba(240,140,170,0.30);
+}
+:root[data-atm='dusk'] {
+  --aura-a: rgba(190,60,80,0.48);
+  --aura-b: rgba(90,50,120,0.39);
+  --aura-c: rgba(230,130,90,0.18);
+}
+:root[data-atm='night'] {
+  --aura-a: rgba(70,90,200,0.54);
+  --aura-b: rgba(240,220,140,0.30);
+  --aura-c: rgba(120,100,220,0.24);
+}
+:root[data-atm='firstlight'] {
+  --aura-a: rgba(255,230,160,0.54);
+  --aura-b: rgba(120,160,255,0.33);
+  --aura-c: rgba(255,255,255,0.15);
+}
+:root[data-atm='pasture'] {
+  --aura-a: rgba(110,190,120,0.45);
+  --aura-b: rgba(150,210,170,0.27);
+  --aura-c: rgba(230,230,150,0.21);
+}
+:root[data-atm='newcreation'] {
+  --aura-a: rgba(255,225,150,0.57);
+  --aura-b: rgba(255,255,255,0.24);
+  --aura-c: rgba(150,200,255,0.30);
+}
+
+body {
+  transition: background-color 1.2s var(--ease-calm);
+}
+html[data-atm] .reader::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.07;
+  background-repeat: repeat;
+}
+/* Psalms: slow flowing lines */
+html[data-atm='psalms'] .reader::before,
+html[data-atm='pasture'] .reader::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='120'%3E%3Cpath d='M0 60 C40 20 80 100 120 60 S200 20 240 60 S300 90 320 60' fill='none' stroke='white' stroke-width='1.2'/%3E%3Cpath d='M0 90 C40 50 80 130 120 90 S200 50 240 90 S300 120 320 90' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+}
+/* Revelation and the new creation: concentric, symbolic geometry */
+html[data-atm='revelation'] .reader::before,
+html[data-atm='newcreation'] .reader::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cg fill='none' stroke='white' stroke-width='1'%3E%3Ccircle cx='110' cy='110' r='90'/%3E%3Ccircle cx='110' cy='110' r='60'/%3E%3Cpath d='M110 20 L188 155 L32 155 Z'/%3E%3Cpath d='M110 200 L32 65 L188 65 Z'/%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.05;
+}
+/* a calm display voice per kind of book; the reading text itself keeps its settings */
+html[data-atm='psalms'] .chapter-title,
+html[data-atm='pasture'] .chapter-title {
+  font-style: italic;
+}
+html[data-atm='revelation'] .chapter-title,
+html[data-atm='newcreation'] .chapter-title {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+html[data-atm='law'] .chapter-title,
+html[data-atm='history'] .chapter-title {
+  letter-spacing: 0.02em;
+}
+/* silent mode: the decoration steps back further */
+html[data-silent='1'] {
+  --aura-a: color-mix(in srgb, var(--aura-a) 35%, transparent);
+  --aura-b: color-mix(in srgb, var(--aura-b) 35%, transparent);
+  --aura-c: color-mix(in srgb, var(--aura-c) 35%, transparent);
+}
+html[data-silent='1'] .reader::before {
+  opacity: 0.02;
+}
+:root[data-theme='contrast'] .reader::before,
+:root[data-theme='contrast-dark'] .reader::before {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
+}
+
+.silent-ui {
+  position: fixed;
+  top: 10px;
+  right: 12px;
+  z-index: 50;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  opacity: 0.22;
+  transition: opacity 0.6s var(--ease-calm);
+}
+.silent-ui:hover,
+.silent-ui:focus-within {
+  opacity: 1;
+}
+.silent-ui button {
+  background: var(--glass);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+.silent-done {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.modal-sub {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 20px 0 6px;
+}
+
+/* a soft sky over the top of the page for the moods that have one */
+body {
+  background:
+    linear-gradient(180deg, var(--sky, transparent), transparent 42%),
+    radial-gradient(60vmax 50vmax at 12% -8%, var(--aura-a), transparent 62%),
+    radial-gradient(55vmax 45vmax at 92% 8%, var(--aura-b), transparent 60%),
+    radial-gradient(70vmax 50vmax at 50% 112%, var(--aura-c), transparent 62%),
+    var(--bg);
+  background-attachment: fixed;
+}
+:root[data-atm='dawn'] {
+  --sky: rgba(255,160,110,.24);
+}
+:root[data-atm='storm'] {
+  --sky: rgba(60,80,110,.38);
+}
+:root[data-atm='night'] {
+  --sky: rgba(30,40,110,.38);
+}
+:root[data-atm='dusk'] {
+  --sky: rgba(150,40,70,.28);
+}
+:root[data-atm='firstlight'] {
+  --sky: rgba(255,225,150,.26);
+}
+:root[data-atm='pasture'] {
+  --sky: rgba(120,190,120,.18);
+}
+:root[data-atm='newcreation'] {
+  --sky: rgba(255,235,170,.26);
+}
+:root[data-atm='law'] {
+  --sky: rgba(220,170,100,.16);
+}
+:root[data-atm='revelation'] {
+  --sky: rgba(110,60,200,.24);
+}
+:root[data-atm='psalms'] {
+  --sky: rgba(70,110,230,.20);
+}
+:root[data-atm='prophets'] {
+  --sky: rgba(210,100,60,.16);
+}
+:root[data-atm='gospels'] {
+  --sky: rgba(240,170,110,.16);
+}
+:root[data-silent='1'] {
+  --sky: transparent;
 }
