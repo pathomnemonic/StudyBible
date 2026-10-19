@@ -40,6 +40,7 @@ export default function StudyPanel({
   inline = false,
   initialTab = 'all',
   scope = 'passage',
+  onSelectRange,
 }: {
   refs: Ref[];
   edition: EditionRecord;
@@ -49,6 +50,8 @@ export default function StudyPanel({
   initialTab?: string;
   /** 'chapter' = nothing selected yet: the panel shows what is connected to the whole chapter */
   scope?: 'passage' | 'chapter';
+  /** select a wider run of verses in the reader (used by "Select vv. 1–4") */
+  onSelectRange?: (r: Ref) => void;
 }) {
   const [data, setData] = useState<Partial<Record<SectionKey, StudyItem[]>>>({});
   const [loading, setLoading] = useState(true);
@@ -146,12 +149,13 @@ export default function StudyPanel({
 
         {tab === 'all' && (
           <Overview
+            sel={refs}
             scope={scope}
             data={data}
             loading={loading}
             passes={passes}
             go={setTab}
-            render={(i) => <Item key={i.id} item={i} edition={edition} onOpenPassage={onOpenPassage} onNote={(t) => setNoteTargets([t])} />}
+            render={(i, covers) => <Item key={i.id} item={i} edition={edition} onOpenPassage={onOpenPassage} onNote={(t) => setNoteTargets([t])} covers={covers} />}
           />
         )}
 
@@ -180,12 +184,36 @@ export default function StudyPanel({
                 )}
                 {list.length === 0 && <div className="empty">{emptyMessage(sk, refs[0].book)}</div>}
                 {sk === 'fathers' && compare && <FathersCompare items={list} />}
-                {!(sk === 'fathers' && compare) && (sk === 'fathers' || sk === 'saints' ? [...list].sort((a, b) => (a.author ?? '').localeCompare(b.author ?? '')) : list).map((i, n, arr) => (
-                  <div key={i.id}>
-                    {(sk === 'fathers' || sk === 'saints') && i.author && i.author !== arr[n - 1]?.author && <h4 className="by-author">{i.author}</h4>}
-                    <Item item={i} edition={edition} onOpenPassage={onOpenPassage} onNote={(t) => setNoteTargets([t])} />
-                  </div>
-                ))}
+                {!(sk === 'fathers' && compare) && (() => {
+                  const base = sk === 'fathers' || sk === 'saints' ? [...list].sort((a, b) => (a.author ?? '').localeCompare(b.author ?? '')) : list;
+                  const { specific, units, chapter } = arrange(base, refs);
+                  const renderItem = (i: StudyItem, n: number, arr: StudyItem[], range?: Ref) => (
+                    <div key={i.id}>
+                      {(sk === 'fathers' || sk === 'saints') && i.author && i.author !== arr[n - 1]?.author && <h4 className="by-author">{i.author}</h4>}
+                      <Item item={i} edition={edition} onOpenPassage={onOpenPassage} onNote={(t) => setNoteTargets([t])} covers={range ? rangeLabel(range) : undefined} />
+                    </div>
+                  );
+                  return (
+                    <>
+                      {specific.map((i, n, arr) => renderItem(i, n, arr))}
+                      {units.map((g) => (
+                        <details key={rangeKey(g.range)} className="unit" open={specific.length === 0}>
+                          <summary>
+                            <span>Shared with the neighbouring verses · {rangeLabel(g.range)} <span className="n">{g.items.length}</span></span>
+                          </summary>
+                          <p className="small muted">{g.items.length === 1 ? 'This note was written' : 'These notes were written'} for {formatRef(g.range)} as a unit, so {g.items.length === 1 ? 'it appears' : 'they appear'} for each of those verses. {onSelectRange && <button className="linklike" onClick={() => onSelectRange(g.range)}>Select {rangeLabel(g.range)}</button>}</p>
+                          {g.items.map((i, n, arr) => renderItem(i, n, arr, g.range))}
+                        </details>
+                      ))}
+                      {chapter.length > 0 && (
+                        <details className="unit">
+                          <summary><span>About the whole chapter · {chapter.length}</span></summary>
+                          {chapter.map((i, n, arr) => renderItem(i, n, arr))}
+                        </details>
+                      )}
+                    </>
+                  );
+                })()}
                 {sk === 'links' && (
                   <button className="btn small" onClick={() => setAddLink(true)}>
                     <Icon name="plus" size={14} /> Add a link
@@ -210,6 +238,49 @@ export default function StudyPanel({
   );
 }
 
+
+/**
+ * A note that was written for a run of verses ("vv. 1–4") is the same note whichever of those verses you tap. Instead of showing
+ * it again and again, the panel tells you what it covers, lists verse-specific material first, and tucks the shared notes
+ * into one group you can open, or select as a whole.
+ */
+function unitRange(i: StudyItem, sel: Ref[]): Ref | null {
+  if (!i.ref || sel.length !== 1) return null;
+  const s = sel[0];
+  if (s.v1 === undefined || s.c1 !== s.c2) return null;
+  const r = parseRefId(i.ref);
+  if (!r || r.book !== s.book || r.v1 === undefined || r.c1 !== r.c2 || r.c1 !== s.c1) return null;
+  const a = r.v1;
+  const b = r.v2 ?? r.v1;
+  const sa = s.v1;
+  const sb = s.v2 ?? s.v1;
+  if (!(a <= sa && sb <= b)) return null;
+  if (a === sa && b === sb) return null;
+  if (b - a + 1 > 60) return null;
+  return r;
+}
+const rangeKey = (r: Ref) => `${r.c1}:${r.v1}-${r.v2 ?? r.v1}`;
+const rangeLabel = (r: Ref) => `vv. ${r.v1}${r.v2 && r.v2 !== r.v1 ? '–' + r.v2 : ''}`;
+const CHAPTER_KINDS = new Set(['Read with notes', 'Chapter summary', 'Book introduction']);
+function arrange(list: StudyItem[], sel: Ref[]) {
+  const specific: StudyItem[] = [];
+  const chapter: StudyItem[] = [];
+  const groups = new Map<string, { range: Ref; items: StudyItem[] }>();
+  const verseLevel = sel.length === 1 && sel[0].v1 !== undefined;
+  for (const i of list) {
+    if (verseLevel && i.kind && CHAPTER_KINDS.has(i.kind)) {
+      chapter.push(i);
+      continue;
+    }
+    const u = unitRange(i, sel);
+    if (!u) specific.push(i);
+    else (groups.get(rangeKey(u)) ?? groups.set(rangeKey(u), { range: u, items: [] }).get(rangeKey(u))!).items.push(i);
+  }
+  // narrowest shared range first: it is the closest to the verse you tapped
+  const units = [...groups.values()].sort((x, y) => (x.range.v2 ?? x.range.v1!) - x.range.v1! - ((y.range.v2 ?? y.range.v1!) - y.range.v1!));
+  return { specific, units, chapter };
+}
+
 function emptyMessage(sk: SectionKey, book: string): string {
   switch (sk) {
     case 'catechism':
@@ -227,10 +298,12 @@ function emptyMessage(sk: SectionKey, book: string): string {
   }
 }
 
-function Overview({ scope, data, loading, passes, go, render }: { scope: 'passage' | 'chapter'; data: Partial<Record<SectionKey, StudyItem[]>>; loading: boolean; passes: (i: StudyItem) => boolean; go: (t: string) => void; render: (i: StudyItem) => JSX.Element }) {
+function Overview({ scope, sel, data, loading, passes, go, render }: { scope: 'passage' | 'chapter'; sel: Ref[]; data: Partial<Record<SectionKey, StudyItem[]>>; loading: boolean; passes: (i: StudyItem) => boolean; go: (t: string) => void; render: (i: StudyItem, covers?: string) => JSX.Element }) {
   const blocks = TABS.map((t) => {
-    const all = t.sections.flatMap((s) => data[s] ?? []).filter((i) => isReal(i) && passes(i));
-    return { t, all };
+    const all = t.sections.flatMap((s) => data[s] ?? []).filter((i) => isReal(i) && passes(i) && !(sel.length === 1 && sel[0].v1 !== undefined && i.kind && CHAPTER_KINDS.has(i.kind)));
+    const { specific, units } = arrange(all, sel);
+    const ordered = [...specific.map((i) => ({ i, covers: undefined as string | undefined })), ...units.flatMap((g) => g.items.map((i) => ({ i, covers: rangeLabel(g.range) })))];
+    return { t, all, ordered, nSpecific: specific.length };
   });
   const any = blocks.some((b) => b.all.length);
   // with nothing selected, lead with the chapter's own guide: its summary, where to read it with notes, and the matching Bible in a Year day
@@ -267,7 +340,7 @@ function Overview({ scope, data, loading, passes, go, render }: { scope: 'passag
       {!loading && !any && <div className="empty">Nothing in the loaded sources is attached to this passage. Try a neighbouring verse, or use <strong>Add link</strong> to attach something you found.</div>}
       {blocks
         .filter((b) => b.all.length)
-        .map(({ t, all }) => (
+        .map(({ t, all, ordered, nSpecific }) => (
           <section key={t.id} className="sect">
             <h3>
               {t.label} <span className="n">{all.length}</span>
@@ -277,14 +350,15 @@ function Overview({ scope, data, loading, passes, go, render }: { scope: 'passag
                 </button>
               )}
             </h3>
-            {all.slice(0, 2).map(render)}
+            {ordered.slice(0, 2).map(({ i, covers }) => render(i, covers))}
+            {nSpecific === 0 && ordered.length > 0 && ordered[0].covers && <p className="small muted" style={{ margin: '2px 0 0' }}>Nothing is specific to this verse in {t.label.toLowerCase()}; the note{ordered.length > 1 ? 's' : ''} above cover{ordered.length > 1 ? '' : 's'} {ordered[0].covers} together.</p>}
           </section>
         ))}
     </>
   );
 }
 
-function Item({ item, edition, onOpenPassage, onNote }: { item: StudyItem; edition: EditionRecord; onOpenPassage: (r: Ref) => void; onNote: (t: Target) => void }) {
+function Item({ item, edition, onOpenPassage, onNote, covers }: { item: StudyItem; edition: EditionRecord; onOpenPassage: (r: Ref) => void; onNote: (t: Target) => void; covers?: string }) {
   const [expanded, setExpanded] = useState(false);
   const [playing, setPlaying] = useState(false);
   const embed = embedFor(item.audio) ?? embedFor(item.url);
@@ -314,6 +388,7 @@ function Item({ item, edition, onOpenPassage, onNote }: { item: StudyItem; editi
           </>
         )}
         {item.lang === 'la' && <span className="chip">Latin</span>}
+        {covers && <span className="chip" title="This note covers a run of verses, not only the one you tapped">covers {covers}</span>}
         {item.date && <span style={{ fontWeight: 400 }}>· {item.date}</span>}
       </div>
       {item.internal ? (

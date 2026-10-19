@@ -359,7 +359,7 @@ export const providers: Record<string, Provider> = {
         authorId: w.authorId,
         authority: w.authority as AuthorityLevel,
         period: w.period as Period,
-        ref: `${book}.${e[0]}`,
+        ref: refId({ book, c1: e[0], v1: e[1] || undefined, c2: e[2], v2: e[3] || undefined }),
       };
       if (w.indexOnly) {
         out.push({ ...base, excerpt: e[7], url: w.sectionUrl!.replace('{id}', sec.id), format: 'excerpt', match: 'explicit-reference', kind: 'Summa', why: 'This article of the Summa Theologiae cites the passage (tagged in the CCEL edition, Vulgate numbering). The excerpt shows the sentence around the citation; the full article opens at CCEL.', sourceName: `Summa Theologica — ${w.translator} (CCEL)` });

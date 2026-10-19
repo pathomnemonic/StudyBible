@@ -2964,3 +2964,23 @@ h3,
     -webkit-line-clamp: 2;
   }
 }
+
+/* notes shared by a run of verses */
+.unit {
+  margin: 10px 0;
+  border: 1px dashed var(--hairline);
+  border-radius: var(--r-md);
+  padding: 0 12px;
+}
+.unit > summary {
+  cursor: pointer;
+  padding: 10px 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+.unit[open] > summary {
+  color: var(--text);
+}
+.unit .n {
+  margin-left: 4px;
+}

@@ -516,7 +516,7 @@ export default function ReadPage() {
         )}
       </div>
 
-      {panelOpen && <StudyPanel key={dockOn && !hasSel ? 'chapter' : 'sel'} scope={hasSel ? 'passage' : 'chapter'} refs={panelRefs} edition={edition} onClose={() => (dockOn ? setSettings({ studyDock: false }) : setPanel(false))} onOpenPassage={(r) => nav(`/read/${edition.id}/${r.book}/${anchorToNative(edition, r).chapter}?v=${anchorToNative(edition, r).v1 ?? ''}${anchorToNative(edition, r).v2 && anchorToNative(edition, r).v2 !== anchorToNative(edition, r).v1 ? '-' + anchorToNative(edition, r).v2 : ''}`)} />}
+      {panelOpen && <StudyPanel onSelectRange={(r) => { const n = anchorToNative(edition, r); if (n.chapter === chNum && n.v1) { const hi = n.v2 ?? n.v1; setSelNative(Array.from({ length: hi - n.v1 + 1 }, (_, k) => n.v1! + k)); lastClicked.current = n.v1; } }} key={dockOn && !hasSel ? 'chapter' : 'sel'} scope={hasSel ? 'passage' : 'chapter'} refs={panelRefs} edition={edition} onClose={() => (dockOn ? setSettings({ studyDock: false }) : setPanel(false))} onOpenPassage={(r) => nav(`/read/${edition.id}/${r.book}/${anchorToNative(edition, r).chapter}?v=${anchorToNative(edition, r).v1 ?? ''}${anchorToNative(edition, r).v2 && anchorToNative(edition, r).v2 !== anchorToNative(edition, r).v1 ? '-' + anchorToNative(edition, r).v2 : ''}`)} />}
 
       {hasSel && !panelOpen && !settings.scriptureOnly && (
         <div className="actionbar" role="toolbar" aria-label="Verse actions">
