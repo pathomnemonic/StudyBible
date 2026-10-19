@@ -245,17 +245,9 @@ export default function TodayPage() {
         <button className="btn small ghost" aria-pressed={customize} onClick={() => setCustomize(!customize)}>{customize ? 'Done' : 'Customize'}</button>
       </header>
       <form className="jump" onSubmit={go} role="search">
-        <input type="search" value={jump} onChange={(e) => setJump(e.target.value)} placeholder="Go to a passage (John 6:35) or search anything (bread of life, Aquinas, purgatory)" aria-label="Go to a passage or search" />
+        <input type="search" value={jump} onChange={(e) => setJump(e.target.value)} placeholder="Go to John 6:35 — or search anything" aria-label="Go to a passage or search" />
         <button className="btn primary" type="submit">Go</button>
       </form>
-      <nav className="quick" aria-label="Quick links">
-        <Link className="btn" to={last ? `/read/${last.edition}/${last.book}/${last.chapter}` : '/read'}>Read</Link>
-        <Link className="btn" to="/study">Study</Link>
-        <Link className="btn" to="/pray/readings">Mass readings</Link>
-        <Link className="btn" to="/listen">Listen</Link>
-        <Link className="btn" to="/library">Notes &amp; highlights</Link>
-        <Link className="btn" to="/study/search">Search</Link>
-      </nav>
       {s.backupEveryDays > 0 && (!s.lastBackup || Date.now() - s.lastBackup > s.backupEveryDays * 86400000) && (
         <div className="notice info" style={{ marginBottom: 12 }}>
           It has been a while since your last backup. <Link to="/library">Export your notes and marks</Link> to keep them safe.

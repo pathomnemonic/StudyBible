@@ -14,7 +14,8 @@ import { BOOK_ORDER } from '../../lib/canon';
 import GraphPage from './GraphPage';
 
 type Tab = 'notes' | 'graph' | 'highlights' | 'bookmarks' | 'collections' | 'xrefs' | 'saved' | 'history' | 'export';
-const TABS: [Tab, string][] = [['notes', 'Notes'], ['graph', 'Knowledge graph'], ['highlights', 'Highlights'], ['bookmarks', 'Bookmarks'], ['collections', 'Collections'], ['xrefs', 'Connections'], ['saved', 'Saved'], ['history', 'History'], ['export', 'Export']];
+const TABS: [Tab, string][] = [['notes', 'Notes'], ['highlights', 'Highlights'], ['bookmarks', 'Bookmarks'], ['collections', 'Collections']];
+const MORE: [Tab, string][] = [['graph', 'Knowledge graph'], ['xrefs', 'Connections'], ['saved', 'Saved'], ['history', 'History'], ['export', 'Export and backup']];
 
 export default function LibraryHome() {
   const loc = useLocation();
@@ -23,9 +24,14 @@ export default function LibraryHome() {
   const [tab, setTab] = useState<Tab>('notes');
   return (
     <div className="page">
-      <h1>Library</h1>
-      <p className="lede">Your notes, highlights, bookmarks and collections. Private to this device unless you export them.</p>
-      <div className="tabbar" role="tablist">{TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => { setTab(k); if (noteIdFromUrl) nav('/library'); }}>{l}</button>)}</div>
+      <h1>Notes</h1>
+      <p className="lede">Your notes, highlights, bookmarks and collections. Private to this device unless you sign in to sync or export them.</p>
+      <div className="tabbar"><div className="tabs-inner" role="tablist">{TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => { setTab(k); if (noteIdFromUrl) nav('/library'); }}>{l}</button>)}</div>
+        <select className="tab-more" aria-label="More" value={MORE.some(([k]) => k === tab) ? tab : ''} onChange={(e) => { if (e.target.value) { setTab(e.target.value as Tab); if (noteIdFromUrl) nav('/library'); } }}>
+          <option value="">More…</option>
+          {MORE.map(([k, l]) => <option key={k} value={k}>{l}</option>)}
+        </select>
+      </div>
       {tab === 'notes' && <Notes openId={noteIdFromUrl ? +noteIdFromUrl : undefined} />}
       {tab === 'graph' && <GraphPage />}
       {tab === 'highlights' && <Highlights />}

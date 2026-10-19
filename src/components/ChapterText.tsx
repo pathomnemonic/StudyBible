@@ -73,7 +73,7 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
                 <button
                   className="rm"
                   title={`${density.get(n)} connected resources: commentary, Fathers, Catechism, articles`}
-                  aria-label={`Verse ${n}: ${density.get(n)} connected resources. Open study panel`}
+                  aria-label={`${density.get(n)} connected resources for verse ${n}. Open study panel`}
                   onClick={() => onMarker?.(n)}
                 >
                   {density.get(n)}

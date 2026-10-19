@@ -41,6 +41,11 @@ export default function SettingsPage() {
   return (
     <div className="page">
       <h1>Settings</h1>
+      <div className="card more-links">
+        <Link to="/account">Account and sync</Link>
+        <Link to="/study/sources">Sources and licensing</Link>
+        <Link to="/about">About and feature status</Link>
+      </div>
       <div className="card">
         <h2 className="card-title">Reading</h2>
         <div className="row between" style={{ margin: '8px 0' }}><span>Default translation</span><select value={s.defaultEdition} onChange={(e) => set({ defaultEdition: e.target.value, last: null })} aria-label="Default translation">{editions.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}</select></div>

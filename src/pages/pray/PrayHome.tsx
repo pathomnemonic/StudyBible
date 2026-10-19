@@ -29,24 +29,22 @@ export default function PrayHome() {
   }, [s.diocese]);
   return (
     <div className="page">
-      <h1>Pray</h1>
-      <p className="lede">Quiet tools for praying with Scripture. Everything here is optional.</p>
-      <div className="card">
-        <div className="row between"><h2 className="card-title">Today · {new Date(today + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</h2><span className="chip">{COLOR_NAME[day.color]}</span></div>
+      <h1>Prayer</h1>
+      <p className="lede">Quiet ways to pray with Scripture. Everything here is optional; the Bible and your readings are one tab away.</p>
+      <div className="grid">
+        <Link to="/pray/lectio" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Lectio Divina</h2><p className="muted">Read, meditate, pray, rest — with a gentle timer you control.</p></Link>
+        <Link to="/session" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">A quiet moment</h2><p className="muted">A guided ten-minute pause: pray, read, reflect, hear the Church, pray.</p></Link>
+        <Link to="/pray/journal" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prayer journal</h2><p className="muted">Reflections, intentions and saved prayers. Private to this device.</p></Link>
+      </div>
+      <div className="card" style={{ marginTop: 14 }}>
+        <div className="row between"><h2 className="card-title">The Church today</h2><span className="chip">{COLOR_NAME[day.color]}</span></div>
         <p style={{ margin: '4px 0' }}><strong>{day.dayName}</strong></p>
-        <p className="muted small">{day.seasonName} · Sunday cycle {day.sundayCycle}, weekday cycle {day.weekdayCycle} · computed offline; see Readings for your local calendar.</p>
+        <p className="muted small">{day.seasonName} · Sunday cycle {day.sundayCycle}, weekday cycle {day.weekdayCycle}</p>
         {rd && rd.items.length > 0 && (
           <ul className="list">
             {rd.items.map((i) => <li key={i.slot}><span className="muted small">{i.slot.replace('_', ' ')}: </span>{i.refs[0] ? <RefLink refv={i.refs[0]}>{i.text}</RefLink> : i.text}</li>)}
           </ul>
         )}
-        <div className="row"><Link className="btn primary" to="/pray/readings">Today’s readings</Link><Link className="btn" to="/pray/lectio">Lectio Divina</Link></div>
-      </div>
-      <div className="grid">
-        <Link to="/pray/lectio" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Lectio Divina</h2><p className="muted">Read, meditate, pray, rest — with a gentle timer you control.</p></Link>
-        <Link to="/pray/journal" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prayer journal</h2><p className="muted">Reflections, intentions and saved prayers. Private to this device.</p></Link>
-        <Link to="/pray/plans" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Reading plans</h2><p className="muted">Whole Bible, Gospels, Bible in a Year, Catechism topics, saints, seasons — or make your own.</p></Link>
-        <Link to="/read" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Quiet reading</h2><p className="muted">Scripture only: turn on “Scripture only” in the reader to hide everything else.</p></Link>
       </div>
       {active.length > 0 && (
         <>

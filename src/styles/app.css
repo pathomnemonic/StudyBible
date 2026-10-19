@@ -2759,3 +2759,73 @@ h3,
     font-size: 1.05rem;
   }
 }
+
+/* sub-menu for the daily-practice tab, breadcrumb for study tools, "More" tab on phones */
+.subnav {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 960px;
+  margin: 14px auto 0;
+  padding: 0 16px;
+}
+.subnav a {
+  flex: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: background 0.4s var(--ease-calm), color 0.4s var(--ease-calm);
+}
+.subnav a:hover {
+  color: var(--text);
+}
+.subnav a.on {
+  color: var(--text);
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.crumbs {
+  max-width: 960px;
+  margin: 14px auto -6px;
+  padding: 0 16px;
+  font-size: 0.9rem;
+}
+.crumbs a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.crumbs a:hover {
+  color: var(--text);
+}
+@media (min-width: 900px) {
+  .more-tab {
+    display: none;
+  }
+}
+
+.tabbar .tab-more {
+  margin-left: auto;
+  align-self: center;
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+
+.more-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin-bottom: 14px;
+}
+.more-links a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.tabbar .tabs-inner {
+  display: contents;
+}
