@@ -47,13 +47,12 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
 
 /** How sections are grouped into the panel's tabs. */
 export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
+  { id: 'notes', label: 'Notes', sections: ['commentary', 'fathers', 'saints'] },
   { id: 'teaching', label: 'Teaching', sections: ['catechism', 'magisterium', 'doctrine', 'liturgy'] },
-  { id: 'commentary', label: 'Commentary', sections: ['commentary'] },
-  { id: 'fathers', label: 'Fathers & saints', sections: ['fathers', 'saints'] },
-  { id: 'xref', label: 'Cross-refs', sections: ['xref'] },
-  { id: 'media', label: 'Media & apologetics', sections: ['catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
-  { id: 'words', label: 'Original language', sections: [] },
-  { id: 'context', label: 'Context', sections: ['context', 'parallels', 'places', 'topics', 'language'] },
+  { id: 'connections', label: 'Connections', sections: ['xref', 'parallels', 'topics'] },
+  { id: 'words', label: 'Words', sections: [] },
+  { id: 'world', label: 'World', sections: ['places', 'context', 'language'] },
+  { id: 'media', label: 'Media', sections: ['catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
 
@@ -109,7 +108,45 @@ export interface StudyItem {
 
 const AUTH_W: Record<AuthorityLevel, number> = { doctrine: 100, magisterial: 90, father: 70, saint: 60, scholarship: 40, historical: 35, reflection: 20, media: 10 };
 const MATCH_W: Record<MatchKind, number> = { 'direct-citation': 30, 'verse-by-verse': 25, 'explicit-reference': 20, passage: 10, topic: 5, editorial: 0 };
-export const score = (i: StudyItem) => AUTH_W[i.authority] * 10 + MATCH_W[i.match] * 3 + Math.min(i.votes ?? 0, 100) / 10;
+/**
+ * How useful an item is for the passage that is selected. Ordered by what a reader wants first:
+ *   1. how specific it is to these verses (a note on exactly this verse, then a note shared by a few verses, then chapter-level);
+ *   2. whether the substance is in the app (a real note or quotation you can read here) rather than a link you have to leave for;
+ *   3. only then the source's authority, as a tie-break, and community votes.
+ * With no verse selected (chapter view) specificity falls back to how the item was matched.
+ */
+export function relevance(i: StudyItem, sel: Ref[] = []): number {
+  let spec: number;
+  const s = sel.length === 1 && sel[0].v1 !== undefined && sel[0].c1 === sel[0].c2 ? sel[0] : null;
+  const r = i.ref ? parseRefId(i.ref) : null;
+  if (s && r && r.book === s.book && r.v1 !== undefined && r.c1 === r.c2 && r.c1 === s.c1) {
+    const a = r.v1;
+    const b = r.v2 ?? r.v1;
+    const sa = s.v1!;
+    const sb = s.v2 ?? s.v1!;
+    if (a === sa && b === sb) spec = 100;
+    else if (a >= sa && b <= sb) spec = 92;
+    else if (a <= sa && sb <= b) spec = Math.max(60, 92 - 3 * (b - a));
+    else spec = 35; // overlaps only part of the selection
+  } else if (s && r && r.book === s.book && (r.v1 === undefined || r.c1 !== r.c2)) {
+    spec = 25; // a chapter or longer passage
+  } else {
+    spec = { 'direct-citation': 85, 'verse-by-verse': 85, 'explicit-reference': 60, passage: 30, topic: 12, editorial: 12 }[i.match];
+  }
+  // a work that merely mentions the verse is not commentary on it
+  if (i.match === 'explicit-reference') spec = Math.min(spec, 75);
+  const text = (i.fullExcerpt ?? i.excerpt ?? '').length;
+  let substance = text >= 120 ? 30 : text >= 40 ? 15 : 0;
+  if (i.url && !i.internal && text < 40) substance -= 15; // you have to click out to get anything
+  if (i.links?.length && text < 40) substance -= 10;
+  if (i.kind === 'Search') substance -= 40;
+  if (i.kind && ['Read with notes', 'Chapter summary', 'Book introduction'].includes(i.kind)) substance -= 20;
+  if (i.audio || i.episodeId) substance += 10; // plays here
+  // a note written on the verse beats a work that merely mentions it
+  const kind = { 'verse-by-verse': 12, 'direct-citation': 6, 'explicit-reference': 0, passage: -5, topic: -10, editorial: -10 }[i.match];
+  return spec + substance + kind + AUTH_W[i.authority] / 10 + Math.min(i.votes ?? 0, 100) / 10;
+}
+export const score = (i: StudyItem, sel: Ref[] = []) => relevance(i, sel);
 
 const overlaps = (r: Ref, c1: number, v1: number, c2: number, v2: number) => {
   const a = r.c1 * 1000 + (r.v1 ?? 0);
@@ -577,7 +614,8 @@ export const providers: Record<string, Provider> = {
         authority: 'reflection',
         period: 'contemporary',
         format: r.type === 'video' ? 'video' : r.type === 'podcast' ? 'audio' : 'external-link',
-        match: r.how === 'url-slug' ? 'explicit-reference' : r.basis === 'title-and-summary' || r.basis === 'lectionary-date' ? 'passage' : r.basis === 'lectionary-confirmed' ? 'explicit-reference' : 'direct-citation',
+        match: r.how === 'url-pattern' ? 'passage' : r.how === 'url-slug' ? 'explicit-reference' : r.basis === 'title-and-summary' || r.basis === 'lectionary-date' ? 'passage' : r.basis === 'lectionary-confirmed' ? 'explicit-reference' : 'direct-citation',
+        ref: refId({ book, c1, v1: v1 || undefined, c2, v2: v2 || undefined }),
         why: `${how} Apologetics and popular teaching, not magisterial.`,
         sourceName: src?.name ?? r.source,
         date: r.date,
@@ -813,7 +851,7 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
         items = [];
       }
       for (const k of keys) {
-        const mine = items.filter((i) => i.section === k).sort((a, b) => score(b) - score(a));
+        const mine = items.filter((i) => i.section === k).sort((a, b) => score(b, refs) - score(a, refs));
         if (k === 'catholic-answers' || k === 'creators' || k === 'word-on-fire' || k === 'ascension') emitExt(k, mine);
         else onSection(k, mine);
       }

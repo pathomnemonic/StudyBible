@@ -236,6 +236,8 @@ export default function ReadPage() {
       return cur.includes(n) ? cur.filter((x) => x !== n) : [...cur, n];
     });
     lastClicked.current = n;
+    // tapping a verse opens what is connected to it, everywhere (docked beside the text on wide screens, a sheet on phones)
+    if (!menu && !settings.scriptureOnly) setPanel(true);
   };
 
   /** anchor Refs for the current selection (grouped into contiguous ranges) */
@@ -257,6 +259,12 @@ export default function ReadPage() {
   const chapterRef: Ref = { book: bk.id, c1: anchorChapters[0], c2: anchorChapters[anchorChapters.length - 1] };
   const panelOpen = dockOn || (panel && hasSel);
   const panelRefs = hasSel ? selRefs : [chapterRef];
+  useEffect(() => {
+    if (!panelOpen || dockOn || !hasSel) return;
+    const el = document.querySelector(`.v[data-v="${selNative[0]}"]`);
+    el?.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [panelOpen, selNative.join()]);
   const clearSel = () => {
     setSelNative([]);
     setSelAnchor([]);

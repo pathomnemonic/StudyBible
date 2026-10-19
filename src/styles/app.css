@@ -2984,3 +2984,127 @@ h3,
 .unit .n {
   margin-left: 4px;
 }
+
+/* ---- study panel: read first; sources and filters stay out of the way */
+.panel-head .top {
+  padding-bottom: 2px;
+}
+.panel-head h2 {
+  font-size: 1.35rem;
+}
+.ptabs button.dim {
+  opacity: 0.55;
+}
+.filter-row {
+  margin: 0 0 10px;
+}
+.stream {
+  display: flex;
+  flex-direction: column;
+}
+.item.reading {
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  border-radius: 0;
+  background: transparent;
+  padding: 16px 2px 10px;
+  margin: 0;
+}
+.stream > .item.reading:first-child,
+.stream > .guide + .item.reading {
+  border-top: 0;
+}
+.item.reading .byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+}
+.item.reading .byline strong {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.item.reading .byline .work {
+  font-size: 0.78rem;
+  color: var(--muted);
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.covers {
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 0 8px;
+}
+.item.reading .ex {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 8px 0 6px;
+}
+.item .acts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  margin-top: 4px;
+}
+.item .act {
+  background: none;
+  border: 0;
+  padding: 2px 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+.item .act:hover,
+.item .act:focus-visible {
+  color: var(--accent);
+}
+.item .act.strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+.item .act.info-btn {
+  margin-left: auto;
+  opacity: 0.7;
+}
+.item .info {
+  margin-top: 8px;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-2);
+  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+  border-radius: var(--r-sm);
+}
+.item .info > div + div {
+  margin-top: 4px;
+}
+.sect .hint {
+  margin: -4px 0 8px;
+}
+.shared-lead {
+  margin: 12px 0 0;
+}
+.unit {
+  margin-top: 14px;
+}
+
+.v {
+  scroll-margin-top: 76px;
+}
+@media (max-width: 1099px) {
+  .panel.side {
+    height: 58vh;
+  }
+}

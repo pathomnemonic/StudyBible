@@ -4,7 +4,7 @@
   {
    "id": "commentary",
    "label": "Commentary (Haydock, Challoner, Catena Aurea, Glossa)",
-   "bytes": 21209149,
+   "bytes": 21205545,
    "files": [
     "commentary/catena/JHN.json",
     "commentary/catena/LUK.json",

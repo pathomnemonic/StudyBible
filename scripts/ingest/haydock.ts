@@ -16,8 +16,12 @@ const NUM: Record<number, string> = {
   720: 'JUD', 730: 'REV',
 };
 
+const cp1252 = new TextDecoder('windows-1252');
 const text = (h: string) =>
   decodeEntities(h.replace(/<br\s*\/?>/g, '\n').replace(/<\/p>\s*<p>/g, '\n\n').replace(/<[^>]+>/g, ''))
+    // the module carries RTF leftovers: \'e6 style escapes (Windows-1252 letters such as æ, œ) and \i / \i0 italic switches
+    .replace(/\\'([0-9a-fA-F]{2})/g, (_, h2) => cp1252.decode(Uint8Array.of(parseInt(h2, 16))))
+    .replace(/\\i0?(?![a-zA-Z])/g, '')
     .replace(/[ \t]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
