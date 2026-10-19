@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
 import { useSettings } from '../lib/store';
@@ -11,6 +11,7 @@ import { loadBiay } from '../data/biay';
 import { usePlayer } from '../data/PlayerContext';
 import type { BiayEpisode } from '../data/content';
 import { parseRefs, refId, formatRef, type Ref } from '../lib/refs';
+import { BOOKS } from '../lib/canon';
 import { convertRef } from '../lib/versification';
 import { passageText, anchorToNative } from '../lib/bibleText';
 import { dayOfYear, verseForDay } from '../study/verseOfDay';
@@ -65,6 +66,22 @@ export default function TodayPage() {
   const memTotal = useLiveQuery(() => db.memory.count(), []) ?? 0;
   const notes = useLiveQuery(() => db.notes.orderBy('updatedAt').reverse().limit(3).toArray(), []) ?? [];
   const [customize, setCustomize] = useState(false);
+  const nav = useNavigate();
+  const [jump, setJump] = useState('');
+  const go = (e: React.FormEvent) => {
+    e.preventDefault();
+    const t = jump.trim();
+    if (!t) return;
+    const p = parseRefs(t);
+    if (p.ok) {
+      const ref = p.refs[0].ref;
+      const v = ref.v1 ? `?v=${ref.v1}${ref.v2 && ref.v2 !== ref.v1 && ref.c2 === ref.c1 ? '-' + ref.v2 : ''}` : '';
+      nav(`/read/${s.defaultEdition}/${ref.book}/${ref.c1}${v}`);
+      return;
+    }
+    const b = BOOKS.find((x) => x.name.toLowerCase() === t.toLowerCase());
+    nav(b ? `/read/${s.defaultEdition}/${b.id}/1` : `/study/search?q=${encodeURIComponent(t)}`);
+  };
 
   const widgets: Record<string, { title: string; body: ReactNode }> = {
     readings: {
@@ -107,7 +124,7 @@ export default function TodayPage() {
       title: 'A verse to carry',
       body: verse ? (
         <>
-          <blockquote style={{ margin: '6px 0', fontFamily: 'var(--font-serif)', fontSize: '1.1rem' }}>{verse.text}</blockquote>
+          <blockquote style={{ margin: '6px 0', fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '1.25rem', lineHeight: 1.4 }}>{verse.text}</blockquote>
           <p className="muted small">{verse.label} ({edition.shortName})</p>
           <div className="row">
             <Link className="btn small" to={`/read/${edition.id}/${verse.ref.book}/${nat?.chapter ?? 1}${nat?.v1 ? `?v=${nat.v1}${nat.v2 && nat.v2 !== nat.v1 ? '-' + nat.v2 : ''}` : ''}`}>Read in context</Link>
@@ -120,16 +137,31 @@ export default function TodayPage() {
       ),
     },
     continue: {
-      title: 'Where you left off',
+      title: 'Continue reading',
       body: (
         <>
           {last ? (
             <>
-              <p style={{ margin: '4px 0' }}>{getBook(last.book).name} {last.chapter}</p>
-              <Link className="btn primary small" to={`/read/${last.edition}/${last.book}/${last.chapter}`}>Continue reading</Link>
+              <p className="big-line">{getBook(last.book).name} {last.chapter}</p>
+              <div className="row">
+                <Link className="btn primary" to={`/read/${last.edition}/${last.book}/${last.chapter}`}>Continue reading</Link>
+                <Link className="btn" to="/read">Open Bible</Link>
+                <Link className="btn" to="/study">Study tools</Link>
+              </div>
             </>
           ) : (
-            <Link className="btn primary small" to="/read">Start reading</Link>
+            <div className="row">
+              <Link className="btn primary" to="/read">Start reading</Link>
+              <Link className="btn" to="/study">Study tools</Link>
+            </div>
+          )}
+          {!last && (
+            <p className="small" style={{ marginTop: 14 }}>
+              <span className="muted">Good places to begin: </span>
+              {([['JHN', 1, 'John 1'], ['PSA', 22, 'Psalm 22'], ['GEN', 1, 'Genesis 1'], ['MAT', 5, 'Matthew 5'], ['LUK', 1, 'Luke 1']] as const).map(([b, c, l]) => (
+                <Link key={l} className="chip" style={{ marginRight: 6 }} to={`/read/${s.defaultEdition}/${b}/${c}`}>{l}</Link>
+              ))}
+            </p>
           )}
           {s.showStreaks && streak > 0 && <p className="muted small">{streak} day{streak === 1 ? '' : 's'} in a row.</p>}
         </>
@@ -171,11 +203,11 @@ export default function TodayPage() {
       ),
     },
     session: {
-      title: 'Read with the Church',
+      title: 'A quiet moment (optional)',
       body: (
         <>
-          <p style={{ margin: '4px 0' }}>A guided ten-minute session: pray, read, reflect, hear the Church, pray.</p>
-          <Link className="btn small primary" to="/session">Begin</Link>
+          <p style={{ margin: '4px 0' }}>A guided ten-minute pause: pray, read, reflect, pray.</p>
+          <Link className="btn small" to="/session">Begin</Link>
         </>
       ),
     },
@@ -204,23 +236,26 @@ export default function TodayPage() {
 
   return (
     <div className="page">
-      <header className="hero">
-        <div className="eyebrow">{new Date(today + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</div>
-        <h1>{greeting()}</h1>
-        <div className="season">{day.dayName} · {day.seasonName} <span className="chip">{COLOR_NAME[day.color]}</span></div>
-        {!hidden.has('verse') && verse && (
-          <>
-            <blockquote>{verse.text}</blockquote>
-            <div className="cite">{verse.label.toUpperCase()} · {edition.shortName}</div>
-          </>
-        )}
-        <div className="actions">
-          <Link className="btn primary" to="/session">Begin a quiet moment</Link>
-          {last ? <Link className="btn" to={`/read/${last.edition}/${last.book}/${last.chapter}`}>Continue reading</Link> : <Link className="btn" to="/read">Start reading</Link>}
-          {verse && <Link className="btn" to={`/study/passage/${refId(verse.ref)}`}>Explore this verse</Link>}
-          <button className="btn ghost" aria-pressed={customize} onClick={() => setCustomize(!customize)}>{customize ? 'Done' : 'Customize'}</button>
+      <header className="today-head">
+        <div>
+          <div className="eyebrow">{new Date(today + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</div>
+          <h1>{greeting()}</h1>
+          <div className="season">{day.dayName} · {day.seasonName} <span className="chip">{COLOR_NAME[day.color]}</span></div>
         </div>
+        <button className="btn small ghost" aria-pressed={customize} onClick={() => setCustomize(!customize)}>{customize ? 'Done' : 'Customize'}</button>
       </header>
+      <form className="jump" onSubmit={go} role="search">
+        <input type="search" value={jump} onChange={(e) => setJump(e.target.value)} placeholder="Go to a passage (John 6:35) or search anything (bread of life, Aquinas, purgatory)" aria-label="Go to a passage or search" />
+        <button className="btn primary" type="submit">Go</button>
+      </form>
+      <nav className="quick" aria-label="Quick links">
+        <Link className="btn" to={last ? `/read/${last.edition}/${last.book}/${last.chapter}` : '/read'}>Read</Link>
+        <Link className="btn" to="/study">Study</Link>
+        <Link className="btn" to="/pray/readings">Mass readings</Link>
+        <Link className="btn" to="/listen">Listen</Link>
+        <Link className="btn" to="/library">Notes &amp; highlights</Link>
+        <Link className="btn" to="/study/search">Search</Link>
+      </nav>
       {s.backupEveryDays > 0 && (!s.lastBackup || Date.now() - s.lastBackup > s.backupEveryDays * 86400000) && (
         <div className="notice info" style={{ marginBottom: 12 }}>
           It has been a while since your last backup. <Link to="/library">Export your notes and marks</Link> to keep them safe.
@@ -244,8 +279,8 @@ export default function TodayPage() {
         </div>
       )}
       <div className="grid">
-        {order.filter((id) => !hidden.has(id) && id !== 'verse' && id !== 'continue').map((id) => (
-          <section className="card" key={id}>
+        {order.filter((id) => !hidden.has(id)).map((id) => (
+          <section className={'card' + (id === 'continue' ? ' span2' : '')} key={id}>
             <h2 className="card-title">{widgets[id].title}</h2>
             {widgets[id].body}
           </section>

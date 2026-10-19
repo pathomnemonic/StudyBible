@@ -5,13 +5,14 @@ import { useSettings } from '../lib/store';
 import CommandPalette from './CommandPalette';
 import { useSync } from '../sync/state';
 
+// Reading and study come first; prayer and quiet tools are one tap away but not the headline.
 const TABS = [
-  { to: '/today', label: 'Today', icon: 'sun', match: '/today' },
   { to: '/read', label: 'Read', icon: 'read', match: '/read' },
   { to: '/study', label: 'Study', icon: 'study', match: '/study' },
+  { to: '/today', label: 'Today', icon: 'sun', match: '/today' },
   { to: '/listen', label: 'Listen', icon: 'listen', match: '/listen' },
+  { to: '/library', label: 'My notes', icon: 'library', match: '/library' },
   { to: '/pray', label: 'Pray', icon: 'pray', match: '/pray' },
-  { to: '/library', label: 'Library', icon: 'library', match: '/library' },
 ];
 
 export default function Shell({ children }: { children: ReactNode }) {

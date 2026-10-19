@@ -2576,3 +2576,54 @@ h3,
 .page > h1 {
   margin-bottom: 18px;
 }
+
+/* Today: a working home screen first, atmosphere second */
+.today-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 4px 0 18px;
+}
+.today-head .eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.today-head h1 {
+  margin: 4px 0 2px;
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  font-weight: 400;
+}
+.today-head .season {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.jump {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 12px;
+}
+.jump input {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 1rem;
+  border-radius: 999px;
+}
+.quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 22px;
+}
+.big-line {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  margin: 2px 0 12px;
+}
+@media (min-width: 900px) {
+  .card.span2 {
+    grid-column: span 2;
+  }
+}
