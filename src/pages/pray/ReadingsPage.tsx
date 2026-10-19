@@ -63,7 +63,7 @@ export default function ReadingsPage() {
       <p className="muted small">Dates are your device’s local calendar days. The universal calendar and national calendars differ (for example in the transfer of Epiphany, the Ascension and Corpus Christi, and in saints’ days); choose yours above.</p>
 
       <div className="card">
-        <div className="row between"><h3>{lit.dayName}</h3><span className="chip">{COLOR_NAME[lit.color]}</span></div>
+        <div className="row between"><h3>{lit.dayName}</h3><span className="chip" title="The colour of the priest’s vestments today">Vestments: {COLOR_NAME[lit.color]}</span></div>
         <div className="muted small">{lit.seasonName}{lit.week ? `, week ${lit.week}` : ''} · Sunday cycle {lit.sundayCycle} · weekday cycle {lit.weekdayCycle} (computed offline)</div>
         {events.length > 0 && (
           <ul className="list small">

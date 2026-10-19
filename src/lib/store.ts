@@ -89,7 +89,7 @@ export const DEFAULTS: Settings = {
   onboarded: false,
   ttsRate: 1,
   ttsVoice: '',
-  dashboard: { order: ['continue', 'readings', 'biay', 'notes', 'plans', 'verse', 'memorize', 'liturgy', 'session'], hidden: [] },
+  dashboard: { order: ['continue', 'readings', 'biay', 'plans', 'verse', 'notes', 'memorize', 'liturgy', 'session'], hidden: ['memorize', 'liturgy', 'session'] },
   prayerReminders: [],
   localOnly: false,
   backupEveryDays: 0,
@@ -106,7 +106,8 @@ function load(): Settings {
     if (raw) {
       const saved = JSON.parse(raw);
       // the first home screen put the guided session first; move people still on that untouched default to the new one
-      if (saved.dashboard?.order?.join() === 'readings,session,biay,verse,continue,plans,memorize,notes,liturgy') delete saved.dashboard;
+      const prevDefaults = ['readings,session,biay,verse,continue,plans,memorize,notes,liturgy', 'continue,readings,biay,notes,plans,verse,memorize,liturgy,session'];
+      if (prevDefaults.includes(saved.dashboard?.order?.join()) && !saved.dashboard?.hidden?.length) delete saved.dashboard;
       return { ...DEFAULTS, ...saved };
     }
   } catch {

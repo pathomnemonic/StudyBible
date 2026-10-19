@@ -37,7 +37,7 @@ export default function PrayHome() {
         <Link to="/pray/journal" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prayer journal</h2><p className="muted">Reflections, intentions and saved prayers. Private to this device.</p></Link>
       </div>
       <div className="card" style={{ marginTop: 14 }}>
-        <div className="row between"><h2 className="card-title">The Church today</h2><span className="chip">{COLOR_NAME[day.color]}</span></div>
+        <div className="row between"><h2 className="card-title">The Church today</h2><span className="chip" title="The colour of the priest’s vestments today">Vestments: {COLOR_NAME[day.color]}</span></div>
         <p style={{ margin: '4px 0' }}><strong>{day.dayName}</strong></p>
         <p className="muted small">{day.seasonName} · Sunday cycle {day.sundayCycle}, weekday cycle {day.weekdayCycle}</p>
         {rd && rd.items.length > 0 && (

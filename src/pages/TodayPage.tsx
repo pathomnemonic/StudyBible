@@ -5,13 +5,14 @@ import { db } from '../db/db';
 import { useSettings } from '../lib/store';
 import { isDue } from '../lib/srs';
 import { useEditions } from '../data/EditionsContext';
-import { liturgicalDay, parseIso, COLOR_NAME } from '../liturgy/compute';
+import { liturgicalDay, parseIso } from '../liturgy/compute';
 import { readingsFor, type DayReadings } from '../liturgy/readings';
 import { loadBiay } from '../data/biay';
 import { usePlayer } from '../data/PlayerContext';
 import type { BiayEpisode } from '../data/content';
 import { parseRefs, refId, formatRef, type Ref } from '../lib/refs';
 import { BOOKS } from '../lib/canon';
+import { useMedia } from '../lib/useMedia';
 import { convertRef } from '../lib/versification';
 import { passageText, anchorToNative } from '../lib/bibleText';
 import { dayOfYear, verseForDay } from '../study/verseOfDay';
@@ -67,6 +68,7 @@ export default function TodayPage() {
   const notes = useLiveQuery(() => db.notes.orderBy('updatedAt').reverse().limit(3).toArray(), []) ?? [];
   const [customize, setCustomize] = useState(false);
   const nav = useNavigate();
+  const phone = useMedia('(max-width: 899px)');
   const [jump, setJump] = useState('');
   const go = (e: React.FormEvent) => {
     e.preventDefault();
@@ -216,7 +218,7 @@ export default function TodayPage() {
       body: (
         <>
           <p style={{ margin: '4px 0' }}><strong>{day.dayName}</strong></p>
-          <p className="muted small">{day.seasonName} · Sunday cycle {day.sundayCycle}, weekday cycle {day.weekdayCycle} <span className="chip">{COLOR_NAME[day.color]}</span></p>
+          <p className="muted small">{day.seasonName} · Sunday cycle {day.sundayCycle}, weekday cycle {day.weekdayCycle}</p>
           <Link className="btn small" to="/pray">Prayer tools</Link>
         </>
       ),
@@ -234,13 +236,52 @@ export default function TodayPage() {
   };
   const toggle = (id: string) => setS({ dashboard: { ...s.dashboard, hidden: hidden.has(id) ? s.dashboard.hidden.filter((x) => x !== id) : [...s.dashboard.hidden, id] } });
 
+  if (phone) {
+    const plan = plans[0];
+    const read = rd && rd.items.length ? rd.items.slice(0, 3).map((i) => i.text).join(' · ') : 'Open today’s readings';
+    const dayN = Math.min(dayOfYear(), 365);
+    return (
+      <div className="today-compact">
+        <header>
+          <div className="eyebrow">{new Date(today + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</div>
+          <h1>{greeting()}</h1>
+          <div className="season">{day.dayName}</div>
+        </header>
+        <form className="jump" onSubmit={go} role="search">
+          <input type="search" value={jump} onChange={(e) => setJump(e.target.value)} placeholder="Go to John 6:35 — or search" aria-label="Go to a passage or search" />
+          <button className="btn primary" type="submit">Go</button>
+        </form>
+        <section className="resume">
+          <div className="eyebrow">{last ? 'Continue reading' : 'Start reading'}</div>
+          <div className="where">{last ? `${getBook(last.book).name} ${last.chapter}` : 'The Gospel of John'}</div>
+          <Link className="btn primary" to={last ? `/read/${last.edition}/${last.book}/${last.chapter}` : `/read/${s.defaultEdition}/JHN/1`}>{last ? 'Continue' : 'Begin'}</Link>
+        </section>
+        <div className="tile-grid">
+          <Link className="tile" to="/pray/readings"><span className="eyebrow">Mass readings</span><span className="body">{read}</span></Link>
+          <section className="tile">
+            <Link to={ep ? `/listen/episode/${ep.id}` : '/listen'}><span className="eyebrow">Bible in a Year</span><span className="body">{ep ? `Day ${dayN} · ${ep.short}` : 'Listen'}</span></Link>
+            {ep && <button className="btn small primary" onClick={() => player.play(ep)}><Icon name="play" size={13} /> Play</button>}
+          </section>
+          <Link className="tile" to={plan ? `/pray/plans/${encodeURIComponent(plan.planId)}` : '/pray/plans'}>
+            <span className="eyebrow">Reading plan</span>
+            <span className="body">{plan ? `${plan.planId === 'biay' ? 'Bible in a Year' : plan.planId.replace(/^user:/, 'My plan ')} · ${plan.done.length} days done` : 'Choose a plan'}</span>
+          </Link>
+          <Link className="tile" to={verse ? `/study/passage/${refId(verse.ref)}` : '/study'}>
+            <span className="eyebrow">Verse to carry</span>
+            <span className="body verse">{verse ? verse.text : '…'}</span>
+            {verse && <span className="cite">{verse.label}</span>}
+          </Link>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="page">
       <header className="today-head">
         <div>
           <div className="eyebrow">{new Date(today + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</div>
           <h1>{greeting()}</h1>
-          <div className="season">{day.dayName} · {day.seasonName} <span className="chip">{COLOR_NAME[day.color]}</span></div>
+          <div className="season">{day.dayName} · {day.seasonName}</div>
         </div>
         <button className="btn small ghost" aria-pressed={customize} onClick={() => setCustomize(!customize)}>{customize ? 'Done' : 'Customize'}</button>
       </header>
