@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
 import { downloadEdition, isEditionCached, downloadPack, getManifest, type StudyPack } from '../data/loader';
-import { useSettings, type ThemeName } from '../lib/store';
+import { useSettings, THEMES } from '../lib/store';
 import { BOOKS } from '../lib/canon';
 import { NATIONS } from '../liturgy/litcal';
 import { enableReminders, scheduleReminder, PRESETS } from '../liturgy/reminders';
@@ -44,7 +44,17 @@ export default function SettingsPage() {
       <div className="card">
         <h2 className="card-title">Reading</h2>
         <div className="row between" style={{ margin: '8px 0' }}><span>Default translation</span><select value={s.defaultEdition} onChange={(e) => set({ defaultEdition: e.target.value, last: null })} aria-label="Default translation">{editions.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}</select></div>
-        <div className="row between" style={{ margin: '8px 0' }}><span>Theme</span><select value={s.theme} onChange={(e) => set({ theme: e.target.value as ThemeName })} aria-label="Theme">{[['system', 'System (follows high-contrast setting)'], ['light', 'Light'], ['sepia', 'Sepia'], ['dark', 'Dark'], ['contrast', 'High contrast (light)'], ['contrast-dark', 'High contrast (dark)']].map(([k, l]) => <option key={k} value={k}>{l}</option>)}</select></div>
+        <div style={{ margin: '8px 0' }}>
+          <div id="theme-label" style={{ marginBottom: 6 }}>Theme</div>
+          <div role="radiogroup" aria-labelledby="theme-label" className="theme-grid">
+            {THEMES.map(([k, l, bg, fg, ac]) => (
+              <button key={k} role="radio" aria-checked={s.theme === k} className={'theme-swatch' + (s.theme === k ? ' on' : '')} onClick={() => set({ theme: k })}>
+                <span className="theme-preview" style={{ background: bg, color: fg, borderColor: ac }} aria-hidden="true"><b>Aa</b><i style={{ background: ac }} /></span>
+                <span>{l}</span>
+              </button>
+            ))}
+          </div>
+        </div>
         <label className="row between" style={{ margin: '8px 0' }}><span>Text size ({s.fontSize}px)</span><input type="range" min={14} max={30} value={s.fontSize} onChange={(e) => set({ fontSize: +e.target.value })} /></label>
         <label className="row between" style={{ margin: '8px 0' }}><span>Line spacing ({s.lineHeight.toFixed(2)})</span><input type="range" min={1.3} max={2.2} step={0.05} value={s.lineHeight} onChange={(e) => set({ lineHeight: +e.target.value })} /></label>
         <div className="row between" style={{ margin: '8px 0' }}><span>Margins</span><select aria-label="Margins" value={s.margin} onChange={(e) => set({ margin: e.target.value as any })}>{['narrow', 'normal', 'wide'].map((t) => <option key={t}>{t}</option>)}</select></div>

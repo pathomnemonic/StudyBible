@@ -65,7 +65,7 @@ function ThemeApplier() {
       root.style.setProperty('--read-lh', String(s.lineHeight));
       root.style.setProperty('--read-font', s.fontFamily === 'serif' ? 'var(--font-serif)' : 'var(--font-sans)');
       const meta = document.querySelector('meta[name="theme-color"]');
-      meta?.setAttribute('content', t === 'dark' ? '#17140f' : t === 'contrast-dark' ? '#000000' : t === 'contrast' ? '#ffffff' : t === 'sepia' ? '#efe3c8' : '#fbf8f3');
+      meta?.setAttribute('content', getComputedStyle(root).getPropertyValue('--bg').trim() || '#121110');
     };
     apply();
     const mq = matchMedia('(prefers-color-scheme: dark)');
