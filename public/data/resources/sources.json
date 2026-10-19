@@ -292,5 +292,37 @@
   "site": "https://www.biblicalarchaeology.org/",
   "section": "resources",
   "policy": "Mostly subscription content; link only."
+ },
+ {
+  "id": "st-paul-center",
+  "name": "St. Paul Center for Biblical Theology",
+  "kind": "publisher",
+  "site": "https://stpaulcenter.com/",
+  "section": "resources",
+  "policy": "Link only: title, page URL and passage reference; no page text is copied."
+ },
+ {
+  "id": "usccb",
+  "name": "USCCB",
+  "kind": "publisher",
+  "site": "https://bible.usccb.org/",
+  "section": "resources",
+  "policy": "Link only: title, page URL and passage reference; no page text is copied."
+ },
+ {
+  "id": "catholic-culture",
+  "name": "Catholic Culture",
+  "kind": "publisher",
+  "site": "https://www.catholicculture.org/",
+  "section": "resources",
+  "policy": "Link only: title, page URL and passage reference; no page text is copied."
+ },
+ {
+  "id": "other-catholic",
+  "name": "Other Catholic sources",
+  "kind": "publisher",
+  "site": "https://www.vatican.va/",
+  "section": "resources",
+  "policy": "Link only: title, page URL and passage reference; no page text is copied."
  }
 ]

@@ -273,7 +273,7 @@
   {
    "id": "links",
    "label": "Cross-references, resource links, doctrine, Catechism citations",
-   "bytes": 5129634,
+   "bytes": 5130625,
    "files": [
     "xrefs/1CH.json",
     "xrefs/1CO.json",
@@ -382,6 +382,7 @@
     "resources/JER.json",
     "resources/JHN.json",
     "resources/JOB.json",
+    "resources/JOL.json",
     "resources/JON.json",
     "resources/JOS.json",
     "resources/JUD.json",
