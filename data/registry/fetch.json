@@ -72,6 +72,22 @@
    "terms": "https://www.openbible.info/topics",
    "rights": "CC-BY-4.0",
    "note": "OpenBible.info topical Bible: topics with scored passages (from user votes). Creative Commons Attribution; credit OpenBible.info."
+  },
+  {
+   "id": "feed-barron-sunday",
+   "url": "https://feed.podbean.com/wordonfire/feed.xml",
+   "file": "feed-barron-sunday.xml",
+   "terms": "https://www.wordonfire.org/",
+   "rights": "link-only",
+   "note": "Bishop Barron's Sunday Sermons podcast feed, published for podcast apps. Used only for episode titles, dates, page links and audio addresses; the audio is played from the publisher, never copied."
+  },
+  {
+   "id": "feed-frmike-homilies",
+   "url": "https://feeds.fireside.fm/fathermikehomilies/rss",
+   "file": "feed-frmike-homilies.xml",
+   "terms": "https://ascensionpress.com/",
+   "rights": "link-only",
+   "note": "Ascension's Sunday Homilies with Fr. Mike Schmitz podcast feed, published for podcast apps. Used only for episode titles, dates, page links and audio addresses."
   }
  ]
 }

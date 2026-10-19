@@ -109,11 +109,12 @@ export interface ResourceRow {
   url: string;
   author?: string;
   date?: string;
-  how: 'publisher-supplied' | 'human-reviewed' | 'url-slug';
+  how: 'publisher-supplied' | 'human-reviewed' | 'url-slug' | 'feed-lectionary' | 'url-pattern';
   note?: string;
   tags?: string[];
   show?: string;
-  basis?: 'page-read' | 'title-and-summary';
+  basis?: 'page-read' | 'title-and-summary' | 'lectionary-confirmed' | 'lectionary-date' | 'url-pattern';
+  audio?: string;
   reviewedBy?: string;
   reviewedOn?: string;
 }

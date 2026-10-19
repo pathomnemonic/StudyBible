@@ -310,8 +310,19 @@
    "prophecies": 36,
    "covenants": 7
   },
+  "homilies": {
+   "word-on-fire": 268,
+   "word-on-fire-confirmed": 81,
+   "word-on-fire-episodes": 999,
+   "ascension": 303,
+   "ascension-confirmed": 13,
+   "ascension-episodes": 432
+  },
+  "wofIndex": {
+   "rows": 139
+  },
   "external": {
-   "rows": 246,
+   "rows": 956,
    "caNavigator": 73,
    "caNavigatorSkippedAmbiguous": 7,
    "books": 32

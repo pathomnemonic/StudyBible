@@ -100,6 +100,8 @@ export interface StudyItem {
   episodeId?: string;
   /** how the match was checked, shown to the reader */
   basis?: string;
+  /** the publisher's own audio address, playable in the app */
+  audio?: string;
   /** extra outbound links (e.g. search this creator on YouTube / podcast apps) */
   links?: { label: string; url: string }[];
 }
@@ -484,7 +486,11 @@ export const providers: Record<string, Provider> = {
       const src = srcById.get(r.source);
       const section = (src?.section as SectionKey) ?? 'resources';
       const how =
-        r.how === 'url-slug'
+        r.how === 'feed-lectionary'
+          ? 'Matched by the liturgical calendar: it is a homily given on the Sunday when this Gospel is read at Mass.'
+          : r.how === 'url-pattern'
+            ? 'Word on Fire’s own index page for this liturgical week or Bible chapter; its address follows the publisher’s pattern, confirmed on a sample of pages.'
+            : r.how === 'url-slug'
           ? 'The passage was read from the page address in the publisher’s own sitemap; the page itself was not collected.'
           : r.how === 'human-reviewed'
             ? `Matched to this passage from its title and summary (${r.reviewedBy}, ${r.reviewedOn}); open it to confirm how it treats the verse.`
@@ -496,13 +502,14 @@ export const providers: Record<string, Provider> = {
         author: r.author,
         tags: r.tags,
         show: r.show,
-        basis: r.basis === 'title-and-summary' ? 'Matched from title and summary, not a full read of the page.' : undefined,
+        basis: r.basis === 'title-and-summary' ? 'Matched from title and summary, not a full read of the page.' : r.basis === 'lectionary-confirmed' ? 'Matched by the Sunday calendar, and the episode’s wording agrees with this Gospel.' : r.basis === 'lectionary-date' ? 'Matched by the Sunday calendar only; the homily may be on another reading of the day.' : undefined,
+        audio: r.audio,
         excerpt: r.note,
         url: r.url,
         authority: 'reflection',
         period: 'contemporary',
         format: r.type === 'video' ? 'video' : r.type === 'podcast' ? 'audio' : 'external-link',
-        match: r.how === 'url-slug' ? 'explicit-reference' : r.basis === 'title-and-summary' ? 'passage' : 'direct-citation',
+        match: r.how === 'url-slug' ? 'explicit-reference' : r.basis === 'title-and-summary' || r.basis === 'lectionary-date' ? 'passage' : r.basis === 'lectionary-confirmed' ? 'explicit-reference' : 'direct-citation',
         why: `${how} Apologetics and popular teaching, not magisterial.`,
         sourceName: src?.name ?? r.source,
         date: r.date,

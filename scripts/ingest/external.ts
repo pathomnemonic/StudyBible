@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { BOOKS } from '../../src/lib/canon';
 import { lookupBook, parseRefs, refId, type Ref } from '../../src/lib/refs';
 import { toAnchor } from '../../src/lib/versification';
+import { buildHomilyRows, buildWordOnFireIndexRows } from './homilies';
 import { CURATED, ROOT, PUBLIC_DATA, readText, readJson, Report, today, writeJson, exists } from './lib/util';
 
 /**
@@ -26,11 +27,12 @@ export interface ExternalRow {
   author?: string;
   date?: string;
   refs: string[]; // anchor ids
-  how: 'publisher-supplied' | 'human-reviewed' | 'url-slug';
+  how: 'publisher-supplied' | 'human-reviewed' | 'url-slug' | 'feed-lectionary' | 'url-pattern';
   note?: string; // our own words, short
   tags?: string[];
   show?: string; // podcast / programme name
-  basis?: 'page-read' | 'title-and-summary'; // how the match was checked
+  basis?: 'page-read' | 'title-and-summary' | 'lectionary-confirmed' | 'lectionary-date' | 'url-pattern'; // how the match was checked
+  audio?: string; // the publisher's own audio address (played from the publisher, never copied)
   reviewedBy?: string;
   reviewedOn?: string;
 }
@@ -152,6 +154,25 @@ export function buildExternal(report: Report) {
       rows.push({ id: `canav-${m[1]}-${m[2]}`, source: 'catholic-answers', type: 'navigator', title: `Bible Navigator: ${pretty(m[1])}`, url, refs: toAnchorIds(refs), how: 'url-slug', note: `Catholic Answers’ own Bible Navigator page on “${pretty(m[1])}” for this passage (topic and passage read from the page address).` });
       navOk++;
     }
+  }
+
+  // 4. Sunday homilies from podcast feeds, matched to the Sunday Gospel
+  for (const h of buildHomilyRows(report)) {
+    const refs: Ref[] = [];
+    for (const part of h.refs[0].split(/;\s*/)) {
+      const p = parseRefs(part);
+      if (p.ok) refs.push(...p.refs.map((x) => x.ref));
+    }
+    if (refs.length) rows.push({ ...h, refs: toAnchorIds(refs) });
+  }
+
+  for (const h of buildWordOnFireIndexRows(report)) {
+    const refs: Ref[] = [];
+    for (const part of h.refs[0].split(/;\s*/)) {
+      const p = parseRefs(part);
+      if (p.ok) refs.push(...p.refs.map((x) => x.ref));
+    }
+    if (refs.length) rows.push({ ...h, refs: toAnchorIds(refs) });
   }
 
   // output per book

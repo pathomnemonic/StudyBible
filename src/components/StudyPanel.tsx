@@ -261,7 +261,7 @@ function Overview({ data, loading, passes, go, render }: { data: Partial<Record<
 function Item({ item, edition, onOpenPassage, onNote }: { item: StudyItem; edition: EditionRecord; onOpenPassage: (r: Ref) => void; onNote: (t: Target) => void }) {
   const [expanded, setExpanded] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const embed = embedFor(item.url);
+  const embed = embedFor(item.audio) ?? embedFor(item.url);
   const player = usePlayer();
   const [preview, setPreview] = useState<{ v: number; c: number; text: string }[] | null>(null);
   const { get } = useEditions();
