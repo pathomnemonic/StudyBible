@@ -57,6 +57,14 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Notes (Markdown), highlights (6 colours), bookmarks, folders, tags, collections, personal cross-references, journal, export/import | **Working** | Stored in IndexedDB on the device, anchored to stable Vulgate-based ids so they survive translation changes. |
 | Accounts & cross-device sync | **Working** | Optional: needs the bundled Node server (npm start, or the Dockerfile) that you host yourself; the app works fully offline without it. Last-writer-wins sync of notes, highlights, bookmarks, journal, plans and attached links. Not end-to-end encrypted; no email password reset (operators use npm run admin). See docs/SERVER.md. |
 
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Church documents on Scripture (Dei Verbum, Verbum Domini, Vatican II, encyclicals) | **Partial** | Article numbers linked to the Scripture they cite, parsed from vatican.va; text not stored. Strong for Dei Verbum, Verbum Domini and the recent encyclicals; weak for pre-1965 documents and footnote-only citations. See docs/RESOURCE_COVERAGE.md. |
+| Original-language tools (interlinear, lexicon) | **Partial** | Per-verse links to Bible Hub and Blue Letter Bible for the protocanonical books. No Hebrew/Greek text is bundled. |
+| Modern Catholic study Bibles and commentaries (Ignatius, Navarre, Jerome, CCSS…) | **Needs licence** | Copyrighted; none bundled. See docs/RESOURCE_COVERAGE.md. |
+
 ## Pray
 
 | Feature | Status | Notes |

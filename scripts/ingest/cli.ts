@@ -8,6 +8,7 @@ import { buildLibrary } from './library';
 import { buildHaydock } from './haydock';
 import { buildExternal } from './external';
 import { buildManifest } from './manifest';
+import { buildChurchDocs } from './church';
 import { buildCurated } from './curated';
 import { loadVersification } from '../../src/lib/versification';
 import { PROVENANCE, Report, today, writeJson } from './lib/util';
@@ -42,6 +43,7 @@ async function main() {
     await run('haydock', () => buildHaydock(report));
     await run('library', () => buildLibrary(report));
     await run('curated', () => buildCurated(report));
+    await run('church', () => buildChurchDocs(report));
     await run('external', () => buildExternal(report));
     await run('manifest', () => buildManifest());
   }

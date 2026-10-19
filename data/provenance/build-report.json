@@ -237,14 +237,54 @@
   "library.aug-christian-doctrine": {
    "sections": 152
   },
+  "library.athanasius-arians": {
+   "sections": 11
+  },
+  "library.ephrem-hymns": {
+   "sections": 103
+  },
+  "library.justin-martyr": {
+   "sections": 11
+  },
+  "library.ignatius-letters": {
+   "sections": 25
+  },
+  "library.clement-rome": {
+   "sections": 60
+  },
+  "library.john-damascus": {
+   "sections": 6
+  },
   "library.total": {
-   "works": 30,
-   "sections": 2346,
-   "indexedWords": 40792
+   "works": 36,
+   "sections": 2562,
+   "indexedWords": 42812
   },
   "curated": {
    "topics": 18,
    "cccLinksShipped": 29
+  },
+  "church": {
+   "documents": 15,
+   "citations": 737,
+   "books": 48,
+   "perDoc": {
+    "dei-verbum": "18/26 articles, 72 refs",
+    "verbum-domini": "75/124 articles, 261 refs",
+    "providentissimus-deus": "0/63 articles, 0 refs",
+    "spiritus-paraclitus": "11/132 articles, 22 refs",
+    "divino-afflante-spiritu": "1/61 articles, 10 refs",
+    "pbc-bible-morality": "0/150 articles, 0 refs",
+    "pbc-jewish-people": "0/9 articles, 0 refs",
+    "lumen-gentium": "0/69 articles, 0 refs",
+    "sacrosanctum-concilium": "8/129 articles, 13 refs",
+    "gaudium-et-spes": "17/93 articles, 33 refs",
+    "nostra-aetate": "3/5 articles, 4 refs",
+    "unitatis-redintegratio": "0/24 articles, 0 refs",
+    "deus-caritas-est": "26/42 articles, 67 refs",
+    "spe-salvi": "23/50 articles, 48 refs",
+    "evangelii-gaudium": "92/288 articles, 207 refs"
+   }
   },
   "external": {
    "rows": 158,

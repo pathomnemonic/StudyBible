@@ -184,6 +184,15 @@ d('content packs', () => {
       if (r.how === 'human-reviewed') expect(r.reviewedBy && r.reviewedOn).toBeTruthy();
     }
   });
+  it('magisterium index links Scripture to numbered articles without storing document text', () => {
+    const idx = json('magisterium/index.json');
+    const dv = idx.documents.findIndex((d: any) => d.id === 'dei-verbum');
+    expect(dv).toBeGreaterThanOrEqual(0);
+    const t = json('magisterium/2TI.json').filter((e: number[]) => e[4] === dv);
+    expect(t.some((e: number[]) => e[0] === 3 && e[1] === 16 && e[5] === 11)).toBe(true); // Dei Verbum 11 cites 2 Tim 3:16
+    for (const e of json('magisterium/JHN.json').slice(0, 50)) expect(e.length).toBe(6);
+    for (const d of idx.documents) expect(d.url).toMatch(/^https:\/\/www\.vatican\.va\//);
+  });
   it('library works record translator, rights evidence and source', () => {
     const lib = json('library/index.json');
     expect(lib.works.length).toBeGreaterThanOrEqual(20);

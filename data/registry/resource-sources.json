@@ -1,17 +1,385 @@
 {
  "_about": "Catholic publishers and creators whose material the app links to. Nothing here is copied: the app stores only a title, a URL and the passage(s) a person matched. `policy` records what the publisher allows. `section` is where items appear in the study panel. `youtube`/`podcasts` are used only to build search links on the publisher's/creator's behalf (no scraping).",
  "sources": [
-  {"id":"catholic-answers","name":"Catholic Answers","kind":"publisher","site":"https://www.catholic.com/","section":"catholic-answers","policy":{"mode":"link-only","summary":"Permissions page: links to the site and to individual pages are welcome; brief quotation with attribution is allowed. Their Terms of Service forbid bots/scrapers and systematic collection into a database without written permission, so the index is built page by page by hand, plus a permission-ready import path.","permissionsUrl":"https://www.catholic.com/permissions","contact":"permissions@catholic.com"},"search":"https://www.catholic.com/search?q={q}","youtubeQuery":"Catholic Answers","podcastQuery":"Catholic Answers Live"},
-  {"id":"jimmy-akin","name":"Jimmy Akin","kind":"creator","site":"https://jimmyakin.com/","section":"creators","policy":{"mode":"link-only","summary":"Link to individual posts and episodes."},"youtubeQuery":"Jimmy Akin","podcastQuery":"Jimmy Akin Podcast"},
-  {"id":"trent-horn","name":"Trent Horn","kind":"creator","site":"https://www.catholic.com/","section":"creators","policy":{"mode":"link-only","summary":"Counsel of Trent podcast and videos; link to episodes."},"youtubeQuery":"Trent Horn","podcastQuery":"Counsel of Trent Trent Horn"},
-  {"id":"matt-fradd","name":"Matt Fradd","kind":"creator","site":"https://pintswithaquinas.com/","section":"creators","policy":{"mode":"link-only","summary":"Pints with Aquinas; link to episodes."},"youtubeQuery":"Matt Fradd Pints with Aquinas","podcastQuery":"Pints with Aquinas"},
-  {"id":"word-on-fire","name":"Bishop Robert Barron / Word on Fire","kind":"publisher","site":"https://www.wordonfire.org/","section":"word-on-fire","policy":{"mode":"link-only","summary":"Link to individual pages and videos."},"youtubeQuery":"Bishop Barron","podcastQuery":"Bishop Barron Sunday Sermons"},
-  {"id":"ascension","name":"Ascension (Fr. Mike Schmitz, Jeff Cavins, Edward Sri)","kind":"publisher","site":"https://ascensionpress.com/","section":"ascension","policy":{"mode":"link-only","summary":"The Bible in a Year feed is published for podcast apps; other material is link-only."},"youtubeQuery":"Ascension Presents","podcastQuery":"Ascension Presents"},
-  {"id":"brant-pitre","name":"Brant Pitre","kind":"creator","site":"https://brantpitre.com/","section":"creators","policy":{"mode":"link-only","summary":"Link only."},"youtubeQuery":"Brant Pitre","podcastQuery":"Brant Pitre"},
-  {"id":"scott-hahn","name":"Scott Hahn / St. Paul Center","kind":"creator","site":"https://stpaulcenter.com/","section":"creators","policy":{"mode":"link-only","summary":"Link only."},"youtubeQuery":"Scott Hahn","podcastQuery":"Scott Hahn"},
-  {"id":"joe-heschmeyer","name":"Joe Heschmeyer (Shameless Popery)","kind":"creator","site":"https://www.catholic.com/","section":"creators","policy":{"mode":"link-only","summary":"Link only."},"youtubeQuery":"Joe Heschmeyer Shameless Popery","podcastQuery":"Shameless Popery"},
-  {"id":"karlo-broussard","name":"Karlo Broussard","kind":"creator","site":"https://www.catholic.com/","section":"creators","policy":{"mode":"link-only","summary":"Link only."},"youtubeQuery":"Karlo Broussard","podcastQuery":"Karlo Broussard"},
-  {"id":"formed","name":"FORMED","kind":"publisher","site":"https://watch.formed.org/","section":"resources","policy":{"mode":"link-only","summary":"Many items need a subscription (often provided by a parish)."}},
-  {"id":"ewtn","name":"EWTN","kind":"publisher","site":"https://www.ewtn.com/","section":"resources","policy":{"mode":"link-only","summary":"Link only."}}
+  {
+   "id": "catholic-answers",
+   "name": "Catholic Answers",
+   "kind": "publisher",
+   "site": "https://www.catholic.com/",
+   "section": "catholic-answers",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Permissions page: links to the site and to individual pages are welcome; brief quotation with attribution is allowed. Their Terms of Service forbid bots/scrapers and systematic collection into a database without written permission, so the index is built page by page by hand, plus a permission-ready import path.",
+    "permissionsUrl": "https://www.catholic.com/permissions",
+    "contact": "permissions@catholic.com"
+   },
+   "search": "https://www.catholic.com/search?q={q}",
+   "youtubeQuery": "Catholic Answers",
+   "podcastQuery": "Catholic Answers Live",
+   "group": "creators"
+  },
+  {
+   "id": "jimmy-akin",
+   "name": "Jimmy Akin",
+   "kind": "creator",
+   "site": "https://jimmyakin.com/",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link to individual posts and episodes."
+   },
+   "youtubeQuery": "Jimmy Akin",
+   "podcastQuery": "Jimmy Akin Podcast",
+   "group": "creators"
+  },
+  {
+   "id": "trent-horn",
+   "name": "Trent Horn",
+   "kind": "creator",
+   "site": "https://www.catholic.com/",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Counsel of Trent podcast and videos; link to episodes."
+   },
+   "youtubeQuery": "Trent Horn",
+   "podcastQuery": "Counsel of Trent Trent Horn",
+   "group": "creators"
+  },
+  {
+   "id": "matt-fradd",
+   "name": "Matt Fradd",
+   "kind": "creator",
+   "site": "https://pintswithaquinas.com/",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Pints with Aquinas; link to episodes."
+   },
+   "youtubeQuery": "Matt Fradd Pints with Aquinas",
+   "podcastQuery": "Pints with Aquinas",
+   "group": "creators"
+  },
+  {
+   "id": "word-on-fire",
+   "name": "Bishop Robert Barron / Word on Fire",
+   "kind": "publisher",
+   "site": "https://www.wordonfire.org/",
+   "section": "word-on-fire",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link to individual pages and videos."
+   },
+   "youtubeQuery": "Bishop Barron",
+   "podcastQuery": "Bishop Barron Sunday Sermons",
+   "group": "creators"
+  },
+  {
+   "id": "ascension",
+   "name": "Ascension (Fr. Mike Schmitz, Jeff Cavins, Edward Sri)",
+   "kind": "publisher",
+   "site": "https://ascensionpress.com/",
+   "section": "ascension",
+   "policy": {
+    "mode": "link-only",
+    "summary": "The Bible in a Year feed is published for podcast apps; other material is link-only."
+   },
+   "youtubeQuery": "Ascension Presents",
+   "podcastQuery": "Ascension Presents",
+   "group": "creators"
+  },
+  {
+   "id": "brant-pitre",
+   "name": "Brant Pitre",
+   "kind": "creator",
+   "site": "https://brantpitre.com/",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only."
+   },
+   "youtubeQuery": "Brant Pitre",
+   "podcastQuery": "Brant Pitre",
+   "group": "creators"
+  },
+  {
+   "id": "scott-hahn",
+   "name": "Scott Hahn / St. Paul Center",
+   "kind": "creator",
+   "site": "https://stpaulcenter.com/",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only."
+   },
+   "youtubeQuery": "Scott Hahn",
+   "podcastQuery": "Scott Hahn",
+   "group": "creators"
+  },
+  {
+   "id": "joe-heschmeyer",
+   "name": "Joe Heschmeyer (Shameless Popery)",
+   "kind": "creator",
+   "site": "https://www.catholic.com/",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only."
+   },
+   "youtubeQuery": "Joe Heschmeyer Shameless Popery",
+   "podcastQuery": "Shameless Popery",
+   "group": "creators"
+  },
+  {
+   "id": "karlo-broussard",
+   "name": "Karlo Broussard",
+   "kind": "creator",
+   "site": "https://www.catholic.com/",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only."
+   },
+   "youtubeQuery": "Karlo Broussard",
+   "podcastQuery": "Karlo Broussard",
+   "group": "creators"
+  },
+  {
+   "id": "formed",
+   "name": "FORMED",
+   "kind": "publisher",
+   "site": "https://watch.formed.org/",
+   "section": "resources",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Many items need a subscription (often provided by a parish)."
+   }
+  },
+  {
+   "id": "ewtn",
+   "name": "EWTN",
+   "kind": "publisher",
+   "site": "https://www.ewtn.com/",
+   "section": "resources",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only."
+   }
+  },
+  {
+   "id": "john-bergsma",
+   "name": "John Bergsma",
+   "kind": "scholar",
+   "site": "",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "John Bergsma",
+   "podcastQuery": "John Bergsma"
+  },
+  {
+   "id": "mary-healy",
+   "name": "Mary Healy",
+   "kind": "scholar",
+   "site": "",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Mary Healy Catholic Scripture",
+   "podcastQuery": "Mary Healy Catholic Scripture"
+  },
+  {
+   "id": "peter-williamson",
+   "name": "Peter Williamson",
+   "kind": "scholar",
+   "site": "",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Peter Williamson Catholic Scripture",
+   "podcastQuery": "Peter Williamson Catholic Scripture"
+  },
+  {
+   "id": "curtis-mitch",
+   "name": "Curtis Mitch",
+   "kind": "scholar",
+   "site": "",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Curtis Mitch Scripture",
+   "podcastQuery": "Curtis Mitch Scripture"
+  },
+  {
+   "id": "michael-barber",
+   "name": "Michael Barber",
+   "kind": "scholar",
+   "site": "",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Michael Barber Catholic Scripture",
+   "podcastQuery": "Michael Barber Catholic Scripture"
+  },
+  {
+   "id": "matthew-levering",
+   "name": "Matthew Levering",
+   "kind": "scholar",
+   "site": "",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Matthew Levering Scripture",
+   "podcastQuery": "Matthew Levering Scripture"
+  },
+  {
+   "id": "edward-sri",
+   "name": "Edward Sri",
+   "kind": "scholar",
+   "site": "",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Edward Sri",
+   "podcastQuery": "Edward Sri"
+  },
+  {
+   "id": "jeff-cavins",
+   "name": "Jeff Cavins",
+   "kind": "scholar",
+   "site": "",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Jeff Cavins Great Adventure",
+   "podcastQuery": "Jeff Cavins Great Adventure"
+  },
+  {
+   "id": "tim-gray",
+   "name": "Tim Gray",
+   "kind": "scholar",
+   "site": "",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Tim Gray Catholic Scripture",
+   "podcastQuery": "Tim Gray Catholic Scripture"
+  },
+  {
+   "id": "fr-mike-schmitz",
+   "name": "Fr. Mike Schmitz",
+   "kind": "scholar",
+   "site": "",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Fr Mike Schmitz",
+   "podcastQuery": "Fr Mike Schmitz"
+  },
+  {
+   "id": "catholic-productions",
+   "name": "Catholic Productions (Michael Barber, Brant Pitre & friends)",
+   "kind": "publisher",
+   "site": "https://catholicproductions.com/",
+   "section": "creators",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Catholic Productions",
+   "podcastQuery": "Catholic Productions"
+  },
+  {
+   "id": "augustine-institute",
+   "name": "Augustine Institute / FORMED",
+   "kind": "publisher",
+   "site": "https://www.augustineinstitute.edu/",
+   "section": "resources",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Augustine Institute Scripture",
+   "podcastQuery": "Augustine Institute"
+  },
+  {
+   "id": "thomistic-institute",
+   "name": "Thomistic Institute (Bible-specific lectures only)",
+   "kind": "publisher",
+   "site": "https://thomisticinstitute.org/",
+   "section": "resources",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Link only; open at the source."
+   },
+   "group": "scholars",
+   "youtubeQuery": "Thomistic Institute Scripture lecture",
+   "podcastQuery": "Thomistic Institute"
+  },
+  {
+   "id": "new-advent",
+   "name": "New Advent (Catholic Encyclopedia, Fathers, Summa)",
+   "kind": "publisher",
+   "site": "https://www.newadvent.org/",
+   "section": "resources",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Public-domain Catholic Encyclopedia (1913) and Fathers texts; linked, not copied."
+   }
+  },
+  {
+   "id": "bible-odyssey",
+   "name": "Bible Odyssey (Society of Biblical Literature)",
+   "kind": "publisher",
+   "site": "https://www.bibleodyssey.org/",
+   "section": "resources",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Scholarly background articles; link only."
+   }
+  },
+  {
+   "id": "bas",
+   "name": "Biblical Archaeology Society",
+   "kind": "publisher",
+   "site": "https://www.biblicalarchaeology.org/",
+   "section": "resources",
+   "policy": {
+    "mode": "link-only",
+    "summary": "Mostly subscription content; link only."
+   }
+  }
  ]
 }

@@ -156,7 +156,7 @@
   {
    "id": "library",
    "label": "Fathers & saints library",
-   "bytes": 35312561,
+   "bytes": 38251004,
    "files": [
     "library/fulltext-index.json",
     "library/index.json",
@@ -234,6 +234,7 @@
     "library/scripture/ZEC.json",
     "library/scripture/ZEP.json",
     "library/works/ambrose-works.json",
+    "library/works/athanasius-arians.json",
     "library/works/athanasius-incarnation.json",
     "library/works/aug-christian-doctrine.json",
     "library/works/aug-city-of-god.json",
@@ -252,11 +253,16 @@
     "library/works/chrys-john.json",
     "library/works/chrys-matthew.json",
     "library/works/chrys-romans.json",
+    "library/works/clement-rome.json",
     "library/works/cyril-catecheses.json",
+    "library/works/ephrem-hymns.json",
     "library/works/gregory-pastoral-rule.json",
+    "library/works/ignatius-letters.json",
     "library/works/irenaeus-heresies.json",
     "library/works/jerome-letters.json",
     "library/works/jerome-treatises.json",
+    "library/works/john-damascus.json",
+    "library/works/justin-martyr.json",
     "library/works/lawrence-practice.json",
     "library/works/leo-sermons-letters.json",
     "library/works/origen-celsus.json",
@@ -267,7 +273,7 @@
   {
    "id": "links",
    "label": "Cross-references, resource links, doctrine, Catechism citations",
-   "bytes": 4409993,
+   "bytes": 4414790,
    "files": [
     "xrefs/1CH.json",
     "xrefs/1CO.json",

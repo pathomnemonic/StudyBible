@@ -31,6 +31,16 @@ export async function fetchAll(only?: string[]) {
       note: `${w.title}, ${w.author}. Public-domain text distributed by CCEL as ThML.`,
     });
   }
+  for (const d of readJson(join(REGISTRY, 'church-documents.json')).documents) {
+    entries.push({
+      id: `church-${d.id}`,
+      url: d.url,
+      file: `church_${d.id}.html`,
+      terms: 'https://www.vatican.va/robots.txt',
+      rights: 'copyright-lev',
+      note: `${d.title} (${d.author}, ${d.date}). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed.`,
+    });
+  }
   const prov: Record<string, unknown> = exists(join(PROVENANCE, 'fetched.json')) ? readJson(join(PROVENANCE, 'fetched.json')) : {};
   for (const e of entries) {
     if (only && only.length && !only.includes(e.id)) continue;
@@ -45,7 +55,7 @@ export async function fetchAll(only?: string[]) {
         console.error(`!! could not fetch ${e.id}`);
         continue;
       }
-      await new Promise((r) => setTimeout(r, 800)); // be polite to the publisher's server
+      await new Promise((r) => setTimeout(r, e.url.includes('vatican.va') ? 2200 : 800)); // be polite (vatican.va asks for a 2 s crawl delay) to the publisher's server
     }
     const buf = readFileSync(dest);
     prov[e.id] = { url: e.url, file: e.file, bytes: buf.length, sha256: sha256(buf), retrieved: today(), terms: e.terms, rights: e.rights, note: e.note };

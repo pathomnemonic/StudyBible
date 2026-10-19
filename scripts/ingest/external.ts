@@ -182,7 +182,7 @@ export function buildExternal(report: Report) {
   report.stats['external'] = { rows: rows.length, caNavigator: navOk, caNavigatorSkippedAmbiguous: navSkipped, books: byBook.size };
   writeJson(
     join(PUBLIC_DATA, 'resources/sources.json'),
-    registry.map((x) => ({ id: x.id, name: x.name, kind: x.kind, site: x.site, section: x.section, policy: x.policy?.summary, search: x.search, youtubeQuery: x.youtubeQuery, podcastQuery: x.podcastQuery })),
+    registry.map((x) => ({ id: x.id, name: x.name, kind: x.kind, site: x.site, section: x.section, policy: x.policy?.summary, search: x.search, youtubeQuery: x.youtubeQuery, podcastQuery: x.podcastQuery, group: x.group })),
     true,
   );
   void BOOKS;

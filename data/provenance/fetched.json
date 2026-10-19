@@ -448,5 +448,175 @@
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "The City of God, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
+ },
+ "church-dei-verbum": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html",
+  "file": "church_dei-verbum.html",
+  "bytes": 43095,
+  "sha256": "e5eac5f655389e3c54295985be85e5a4ce9f55f0165e8e8ee9ce6167fedb8e5f",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Dei Verbum — Dogmatic Constitution on Divine Revelation (Second Vatican Council, 1965-11-18). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-verbum-domini": {
+  "url": "https://www.vatican.va/content/benedict-xvi/en/apost_exhortations/documents/hf_ben-xvi_exh_20100930_verbum-domini.html",
+  "file": "church_verbum-domini.html",
+  "bytes": 405208,
+  "sha256": "6b1d2530a907f960ebe15fed48fe7181bed0b664a6f1978f908c0cbc7909d64c",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Verbum Domini — Post-Synodal Apostolic Exhortation on the Word of God (Benedict XVI, 2010-09-30). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-providentissimus-deus": {
+  "url": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_18111893_providentissimus-deus.html",
+  "file": "church_providentissimus-deus.html",
+  "bytes": 94821,
+  "sha256": "a81048d956091139ff6eb746bba973d2becaf99e88877fea3f90ccd189582032",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Providentissimus Deus — Encyclical on the Study of Holy Scripture (Leo XIII, 1893-11-18). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-spiritus-paraclitus": {
+  "url": "https://www.vatican.va/content/benedict-xv/en/encyclicals/documents/hf_ben-xv_enc_15091920_spiritus-paraclitus.html",
+  "file": "church_spiritus-paraclitus.html",
+  "bytes": 119924,
+  "sha256": "3b4da3f53c03695fd9783f3a4c9dc412c7f33d7117c582d0d9350c19d31b473e",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Spiritus Paraclitus — Encyclical on St. Jerome (Benedict XV, 1920-09-15). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-divino-afflante-spiritu": {
+  "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_30091943_divino-afflante-spiritu.html",
+  "file": "church_divino-afflante-spiritu.html",
+  "bytes": 100863,
+  "sha256": "6dfe58b056b6e58f4d50b02ac541d7b1fc32179458cd3b0e75851160f4ccbc49",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Divino Afflante Spiritu — Encyclical on Promoting Biblical Studies (Pius XII, 1943-09-30). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-pbc-bible-morality": {
+  "url": "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_documents/rc_con_cfaith_doc_20080511_bibbia-e-morale_en.html",
+  "file": "church_pbc-bible-morality.html",
+  "bytes": 373861,
+  "sha256": "d93d0ee7c1f8203e546cf853452546ab2e4c45c7f260378edfc6ccf95577e9f9",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "The Bible and Morality: Biblical Roots of Christian Conduct (Pontifical Biblical Commission, 2008-05-11). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-pbc-jewish-people": {
+  "url": "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_documents/rc_con_cfaith_doc_20020212_popolo-ebraico_en.html",
+  "file": "church_pbc-jewish-people.html",
+  "bytes": 386428,
+  "sha256": "954e09371372cad37269c554ba80a9a02bbe81e94b61552e35fd9bd6019e156a",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "The Jewish People and Their Sacred Scriptures in the Christian Bible (Pontifical Biblical Commission, 2001-05-24). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-lumen-gentium": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html",
+  "file": "church_lumen-gentium.html",
+  "bytes": 204167,
+  "sha256": "7e0dccd5d56d433a3530defc93eb765ddea634e75269d7619467f32fec5ce1b0",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Lumen Gentium — Dogmatic Constitution on the Church (Second Vatican Council, 1964-11-21). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-sacrosanctum-concilium": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_en.html",
+  "file": "church_sacrosanctum-concilium.html",
+  "bytes": 91960,
+  "sha256": "3cfc290b5445086fc2be06b47ed6cb86ee3bc3e90bdbb2b5454889dfd76fd96e",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Sacrosanctum Concilium — Constitution on the Sacred Liturgy (Second Vatican Council, 1963-12-04). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-gaudium-et-spes": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html",
+  "file": "church_gaudium-et-spes.html",
+  "bytes": 238757,
+  "sha256": "23b935b99bdaa1cd8bc5ee0951f418672d1d246d008d026ada56e1d01861c12d",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Gaudium et Spes — Pastoral Constitution on the Church in the Modern World (Second Vatican Council, 1965-12-07). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-nostra-aetate": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html",
+  "file": "church_nostra-aetate.html",
+  "bytes": 17231,
+  "sha256": "c730506f26d197c6150b41d521cc16c015c21afdbd7ac60c30254a2ed39c3069",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Nostra Aetate — Declaration on the Relation of the Church to Non-Christian Religions (Second Vatican Council, 1965-10-28). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-unitatis-redintegratio": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html",
+  "file": "church_unitatis-redintegratio.html",
+  "bytes": 50959,
+  "sha256": "368e45a1a7b5970f18f3f57e0988af37a0b9e019630fc58ff417fed25603418a",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Unitatis Redintegratio — Decree on Ecumenism (Second Vatican Council, 1964-11-21). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-deus-caritas-est": {
+  "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20051225_deus-caritas-est.html",
+  "file": "church_deus-caritas-est.html",
+  "bytes": 137836,
+  "sha256": "0f21533523e1bcdb06482dd3290c470be3e83024de199fbc9ac2cc8de5cdc554",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Deus Caritas Est — Encyclical on Christian Love (Benedict XVI, 2005-12-25). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-spe-salvi": {
+  "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20071130_spe-salvi.html",
+  "file": "church_spe-salvi.html",
+  "bytes": 152489,
+  "sha256": "3bca40e81d8ac003c85c749846436e2494fd8425bdc614e9775f8d69fe046f61",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Spe Salvi — Encyclical on Christian Hope (Benedict XVI, 2007-11-30). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-evangelii-gaudium": {
+  "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html",
+  "file": "church_evangelii-gaudium.html",
+  "bytes": 462252,
+  "sha256": "6b40c51e8ab6b12791c1f9b5fcfa781b05225018405d4411e59c21738e784f81",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Evangelii Gaudium — Apostolic Exhortation on the Proclamation of the Gospel (Francis, 2013-11-24). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "ccel-schaff_npnf213": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf213.xml",
+  "file": "ccel_schaff_npnf213.xml",
+  "bytes": 2246124,
+  "sha256": "323ecfb6470854de378fdf47375b2e15b108e72559bbe3167da9c37500bbf2ae",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Hymns and Homilies (selections), Ephrem the Syrian. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf209": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf209.xml",
+  "file": "ccel_schaff_npnf209.xml",
+  "bytes": 3088610,
+  "sha256": "b07e2fac0851444a42d2bbd11d39eb7384c518f6fd79e64b7f7bdc404e8a3cc7",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Exposition of the Orthodox Faith, John of Damascus. Public-domain text distributed by CCEL as ThML."
  }
 }

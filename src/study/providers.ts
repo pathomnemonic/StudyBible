@@ -2,23 +2,26 @@ import type { AuthorityLevel, ItemFormat, Period } from '../lib/types';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
 import { getBook } from '../lib/canon';
 import {
-  CCC_OFFICIAL, cccUrl, getBiay, getCatena, getCccLinks, getDoctrine, getGlossa, getHaydock, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources,
+  CCC_OFFICIAL, cccUrl, getBiay, getCatena, getCccLinks, getDoctrine, getGlossa, getHaydock, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex,
 } from '../data/content';
 import { getXrefs } from '../data/loader';
 import type { ResourceSource } from '../data/content';
+import { languageLinks } from './languageTools';
+import { convertRef } from '../lib/versification';
 import { db } from '../db/db';
 
 export type SectionKey =
-  | 'doctrine' | 'catechism' | 'liturgy' // teaching
+  | 'doctrine' | 'catechism' | 'magisterium' | 'liturgy' // teaching
   | 'commentary' // verse-by-verse Catholic commentaries
   | 'fathers' | 'saints'
   | 'xref'
   | 'catholic-answers' | 'creators' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
-  | 'context'
+  | 'context' | 'language'
   | 'mine';
 
 export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'catechism', label: 'Catechism of the Catholic Church', hint: 'Verse-level citations, each checked against the paragraph.' },
+  { key: 'magisterium', label: 'Church documents', hint: 'Dei Verbum, Verbum Domini, other encyclicals and Vatican II texts that cite this passage. Open the document at vatican.va and find the numbered article.' },
   { key: 'doctrine', label: 'Doctrine topics', hint: 'Editorial pointers: key passages for a teaching.' },
   { key: 'liturgy', label: 'Liturgical use' },
   { key: 'commentary', label: 'Catholic commentary', hint: 'Haydock and the Catena Aurea, verse by verse.' },
@@ -32,18 +35,19 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'biay', label: 'Bible in a Year with Fr. Mike Schmitz' },
   { key: 'resources', label: 'Other Catholic resources' },
   { key: 'links', label: 'Links you added' },
+  { key: 'language', label: 'Original language', hint: 'Greek and Hebrew study tools for this verse (third-party sites, not checked by this app). Protocanonical books only.' },
   { key: 'context', label: 'Context & translation notes' },
   { key: 'mine', label: 'My notes & highlights' },
 ];
 
 /** How sections are grouped into the panel's tabs. */
 export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
-  { id: 'teaching', label: 'Teaching', sections: ['catechism', 'doctrine', 'liturgy'] },
+  { id: 'teaching', label: 'Teaching', sections: ['catechism', 'magisterium', 'doctrine', 'liturgy'] },
   { id: 'commentary', label: 'Commentary', sections: ['commentary'] },
   { id: 'fathers', label: 'Fathers & saints', sections: ['fathers', 'saints'] },
   { id: 'xref', label: 'Cross-refs', sections: ['xref'] },
   { id: 'media', label: 'Media & apologetics', sections: ['catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
-  { id: 'context', label: 'Context', sections: ['context'] },
+  { id: 'context', label: 'Context', sections: ['context', 'language'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
 
@@ -338,6 +342,40 @@ export const providers: Record<string, Provider> = {
   },
 
   /** Articles, Q&As, videos and episodes from Catholic publishers that are tied to this passage in the resource catalog. */
+  /** Magisterial documents whose numbered articles cite this passage (article numbers and references only; the text stays at vatican.va). */
+  async magisterium(refs) {
+    const book = refs[0].book;
+    const [list, idx] = await Promise.all([getMagisteriumRefs(book), getMagisteriumIndex()]);
+    if (!list || !idx) return [];
+    const out: StudyItem[] = [];
+    const seen = new Set<string>();
+    for (const [c1, v1, c2, v2, di, art] of list) {
+      if (!anyOverlap(refs, c1, v1, c2, v2)) continue;
+      const d = idx.documents[di];
+      const key = `${di}-${art}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const era = d.date.slice(0, 4);
+      out.push({
+        id: `mag-${d.id}-${art}`,
+        section: 'magisterium',
+        title: `${d.short} ${d.kind === 'Encyclical' || d.kind === 'Apostolic exhortation' ? '§' : 'art. '}${art}`,
+        author: `${d.author}, ${era}`,
+        url: d.url,
+        authority: 'magisterial',
+        period: 'contemporary',
+        format: 'external-link',
+        match: 'explicit-reference',
+        why: `Article ${art} of ${d.title} cites ${formatRef(parseRefId(refId({ book, c1, v1, c2, v2 }))!)} in its text or notes (read automatically from the Vatican’s page; article numbers can occasionally be off by one, so check at the source).`,
+        sourceName: 'Vatican.va',
+        rightsNote: 'Document © Libreria Editrice Vaticana; opens on vatican.va.',
+        kind: d.kind,
+        date: d.date,
+      });
+    }
+    return out;
+  },
+
   async external(refs) {
     const out: StudyItem[] = [];
     const book = refs[0].book;
@@ -539,19 +577,35 @@ export function externalSearchItems(refs: Ref[], sources: ResourceSource[] = [])
     { ...base, id: 'ext-wof-site', section: 'word-on-fire', title: 'Word on Fire: Gospel commentaries and homilies', url: 'https://www.wordonfire.org/', why: 'The publisher’s site. Not matched to this passage.', sourceName: 'Word on Fire' },
     { ...base, id: 'ext-asc-search', section: 'ascension', title: `Search Ascension for “${q}”`, url: `https://ascensionpress.com/search?q=${enc}`, why: 'Opens Ascension’s own search. Results are not checked by this app.', sourceName: 'Ascension' },
   ];
-  const creators = sources.filter((x) => x.youtubeQuery);
-  if (creators.length) {
+  const short = (n: string) => n.split(' / ')[0].split(' (')[0];
+  for (const [group, label] of [['creators', 'creators and apologists'], ['scholars', 'Catholic Scripture scholars']] as const) {
+    const list = sources.filter((x) => x.youtubeQuery && (x.group ?? 'creators') === group);
+    if (!list.length) continue;
     items.push({
       ...base,
-      id: 'ext-creators-find',
+      id: `ext-find-${group}`,
       section: 'creators',
-      title: `Find videos and podcasts on ${q}`,
-      why: 'Search links built from the creator’s name and this passage; the results are the platforms’ own and are not checked or ranked by this app.',
+      title: `Videos and podcasts on ${q} from ${label}`,
+      why: 'Search links built from each name and this passage; the results are the platforms’ own and are not checked or ranked by this app. Pick items that directly explain the passage.',
       sourceName: 'YouTube / Apple Podcasts search',
-      links: creators.flatMap((c) => [
-        { label: `${c.name.split(' / ')[0].split(' (')[0]} · video`, url: yt(c.youtubeQuery!) },
-        ...(c.podcastQuery ? [{ label: `${c.name.split(' / ')[0].split(' (')[0]} · podcast`, url: pod(c.podcastQuery) }] : []),
+      links: list.flatMap((c) => [
+        { label: `${short(c.name)} ▶`, url: yt(c.youtubeQuery!) },
+        ...(c.podcastQuery ? [{ label: `${short(c.name)} 🎧`, url: pod(c.podcastQuery) }] : []),
       ]),
+    });
+  }
+  const r0 = refs[0];
+  const kj = convertRef('vulgate', 'kjv', { ...r0, c2: r0.c1, v2: r0.v1 ?? 1 }).ref;
+  const lang = languageLinks(r0.book, kj.c1, kj.v1 ?? 1);
+  if (lang.length) {
+    items.push({
+      ...base,
+      id: 'ext-language',
+      section: 'language',
+      title: `Greek / Hebrew tools for ${formatRef(kj, { noDual: true })}`,
+      why: 'Opens third-party sites using English (KJV) verse numbering. Their content is not checked by this app.',
+      sourceName: 'Bible Hub / Blue Letter Bible',
+      links: lang,
     });
   }
   return items;
@@ -562,6 +616,7 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
   const emitExt = (key: SectionKey, extra: StudyItem[] = []) => onSection(key, [...extra, ...ext.filter((i) => i.section === key)]);
   const jobs: [SectionKey[], Promise<StudyItem[]>][] = [
     [['catechism'], providers.catechism(refs)],
+    [['magisterium'], providers.magisterium(refs)],
     [['doctrine'], providers.doctrine(refs)],
     [['liturgy'], providers.liturgy(refs)],
     [['commentary'], providers.commentary(refs)],
@@ -575,6 +630,7 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
   ];
   emitExt('catholic-answers');
   emitExt('creators');
+  emitExt('language');
   emitExt('word-on-fire');
   emitExt('ascension');
   await Promise.all(

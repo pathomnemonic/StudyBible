@@ -127,7 +127,26 @@ export interface ResourceSource {
   search?: string;
   youtubeQuery?: string;
   podcastQuery?: string;
+  group?: 'creators' | 'scholars';
 }
 export const getResourceSources = () => getJson<ResourceSource[]>('resources/sources.json', true);
 export const getResourceRefs = (book: string) => getJson<ResourceRef[]>(`resources/${book}.json`, true);
 export const getResourceCatalog = () => getJson<Record<string, ResourceRow>>('resources/catalog.json', true);
+
+/** [c1, v1, c2, v2, documentIndex, articleNumber] */
+export type MagisteriumRef = [number, number, number, number, number, number];
+export interface MagisteriumDoc {
+  id: string;
+  title: string;
+  short: string;
+  author: string;
+  date: string;
+  kind: string;
+  focus: string;
+  url: string;
+  era: string;
+  articles: number;
+  citations: number;
+}
+export const getMagisteriumRefs = (book: string) => getJson<MagisteriumRef[]>(`magisterium/${book}.json`, true);
+export const getMagisteriumIndex = () => getJson<{ generated: string; documents: MagisteriumDoc[] }>('magisterium/index.json', true);

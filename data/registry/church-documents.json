@@ -1,0 +1,170 @@
+{
+ "_about": "Magisterial documents about Scripture. The app stores only the numbers of articles/paragraphs and the Scripture references found in them (facts), plus a link to the Vatican's own page. Document text is never stored or displayed. Texts are © Libreria Editrice Vaticana; vatican.va robots.txt allows fetching (crawl-delay 2s, honoured). `era` pre-1965 documents cite Psalms in Vulgate numbering, so Psalm citations from them are skipped rather than guessed.",
+ "documents": [
+  {
+   "id": "dei-verbum",
+   "title": "Dei Verbum — Dogmatic Constitution on Divine Revelation",
+   "short": "Dei Verbum",
+   "author": "Second Vatican Council",
+   "date": "1965-11-18",
+   "kind": "Council constitution",
+   "focus": "scripture",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html",
+   "era": "post-1965"
+  },
+  {
+   "id": "verbum-domini",
+   "title": "Verbum Domini — Post-Synodal Apostolic Exhortation on the Word of God",
+   "short": "Verbum Domini",
+   "author": "Benedict XVI",
+   "date": "2010-09-30",
+   "kind": "Apostolic exhortation",
+   "focus": "scripture",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/apost_exhortations/documents/hf_ben-xvi_exh_20100930_verbum-domini.html",
+   "era": "post-1965"
+  },
+  {
+   "id": "providentissimus-deus",
+   "title": "Providentissimus Deus — Encyclical on the Study of Holy Scripture",
+   "short": "Providentissimus Deus",
+   "author": "Leo XIII",
+   "date": "1893-11-18",
+   "kind": "Encyclical",
+   "focus": "scripture",
+   "url": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_18111893_providentissimus-deus.html",
+   "era": "pre-1965"
+  },
+  {
+   "id": "spiritus-paraclitus",
+   "title": "Spiritus Paraclitus — Encyclical on St. Jerome",
+   "short": "Spiritus Paraclitus",
+   "author": "Benedict XV",
+   "date": "1920-09-15",
+   "kind": "Encyclical",
+   "focus": "scripture",
+   "url": "https://www.vatican.va/content/benedict-xv/en/encyclicals/documents/hf_ben-xv_enc_15091920_spiritus-paraclitus.html",
+   "era": "pre-1965"
+  },
+  {
+   "id": "divino-afflante-spiritu",
+   "title": "Divino Afflante Spiritu — Encyclical on Promoting Biblical Studies",
+   "short": "Divino Afflante Spiritu",
+   "author": "Pius XII",
+   "date": "1943-09-30",
+   "kind": "Encyclical",
+   "focus": "scripture",
+   "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_30091943_divino-afflante-spiritu.html",
+   "era": "pre-1965"
+  },
+  {
+   "id": "pbc-bible-morality",
+   "title": "The Bible and Morality: Biblical Roots of Christian Conduct",
+   "short": "PBC: The Bible and Morality",
+   "author": "Pontifical Biblical Commission",
+   "date": "2008-05-11",
+   "kind": "PBC document",
+   "focus": "scripture",
+   "url": "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_documents/rc_con_cfaith_doc_20080511_bibbia-e-morale_en.html",
+   "era": "post-1965"
+  },
+  {
+   "id": "pbc-jewish-people",
+   "title": "The Jewish People and Their Sacred Scriptures in the Christian Bible",
+   "short": "PBC: Jewish People and Scriptures",
+   "author": "Pontifical Biblical Commission",
+   "date": "2001-05-24",
+   "kind": "PBC document",
+   "focus": "scripture",
+   "url": "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_documents/rc_con_cfaith_doc_20020212_popolo-ebraico_en.html",
+   "era": "post-1965"
+  },
+  {
+   "id": "lumen-gentium",
+   "title": "Lumen Gentium — Dogmatic Constitution on the Church",
+   "short": "Lumen Gentium",
+   "author": "Second Vatican Council",
+   "date": "1964-11-21",
+   "kind": "Council constitution",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html",
+   "era": "post-1965"
+  },
+  {
+   "id": "sacrosanctum-concilium",
+   "title": "Sacrosanctum Concilium — Constitution on the Sacred Liturgy",
+   "short": "Sacrosanctum Concilium",
+   "author": "Second Vatican Council",
+   "date": "1963-12-04",
+   "kind": "Council constitution",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_en.html",
+   "era": "post-1965"
+  },
+  {
+   "id": "gaudium-et-spes",
+   "title": "Gaudium et Spes — Pastoral Constitution on the Church in the Modern World",
+   "short": "Gaudium et Spes",
+   "author": "Second Vatican Council",
+   "date": "1965-12-07",
+   "kind": "Council constitution",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html",
+   "era": "post-1965"
+  },
+  {
+   "id": "nostra-aetate",
+   "title": "Nostra Aetate — Declaration on the Relation of the Church to Non-Christian Religions",
+   "short": "Nostra Aetate",
+   "author": "Second Vatican Council",
+   "date": "1965-10-28",
+   "kind": "Council declaration",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html",
+   "era": "post-1965"
+  },
+  {
+   "id": "unitatis-redintegratio",
+   "title": "Unitatis Redintegratio — Decree on Ecumenism",
+   "short": "Unitatis Redintegratio",
+   "author": "Second Vatican Council",
+   "date": "1964-11-21",
+   "kind": "Council decree",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html",
+   "era": "post-1965"
+  },
+  {
+   "id": "deus-caritas-est",
+   "title": "Deus Caritas Est — Encyclical on Christian Love",
+   "short": "Deus Caritas Est",
+   "author": "Benedict XVI",
+   "date": "2005-12-25",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20051225_deus-caritas-est.html",
+   "era": "post-1965"
+  },
+  {
+   "id": "spe-salvi",
+   "title": "Spe Salvi — Encyclical on Christian Hope",
+   "short": "Spe Salvi",
+   "author": "Benedict XVI",
+   "date": "2007-11-30",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20071130_spe-salvi.html",
+   "era": "post-1965"
+  },
+  {
+   "id": "evangelii-gaudium",
+   "title": "Evangelii Gaudium — Apostolic Exhortation on the Proclamation of the Gospel",
+   "short": "Evangelii Gaudium",
+   "author": "Francis",
+   "date": "2013-11-24",
+   "kind": "Apostolic exhortation",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html",
+   "era": "post-1965"
+  }
+ ]
+}
