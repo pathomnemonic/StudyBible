@@ -38,6 +38,18 @@ function groupConsecutive(nums: number[]): [number, number][] {
   return out;
 }
 
+function useWide(query = '(min-width: 1180px)') {
+  const [w, setW] = useState(() => typeof matchMedia !== 'undefined' && matchMedia(query).matches);
+  useEffect(() => {
+    const m = matchMedia(query);
+    const f = () => setW(m.matches);
+    m.addEventListener('change', f);
+    f();
+    return () => m.removeEventListener('change', f);
+  }, [query]);
+  return w;
+}
+
 export default function ReadPage() {
   const { edition: edId = 'dra', book = 'JHN', chapter = '1' } = useParams();
   const [sp, setSp] = useSearchParams();
@@ -57,6 +69,9 @@ export default function ReadPage() {
   const [picker, setPicker] = useState(false);
   const [noteFor, setNoteFor] = useState<Target[] | null>(null);
   const [panel, setPanel] = useState(false);
+  const wide = useWide();
+  const wideRef = useRef(wide);
+  wideRef.current = wide;
   const [compare, setCompare] = useState(false);
   const [shortcuts, setShortcuts] = useState(false);
   const [aloud, setAloud] = useState(false);
@@ -237,6 +252,10 @@ export default function ReadPage() {
   const selRefsRef = useRef<Ref[]>([]);
   selRefsRef.current = selRefs;
   const hasSel = selRefs.length > 0;
+  const dockOn = wide && settings.studyDock && !settings.scriptureOnly && !parallelMode;
+  const chapterRef: Ref = { book: bk.id, c1: anchorChapters[0], c2: anchorChapters[anchorChapters.length - 1] };
+  const panelOpen = dockOn || (panel && hasSel);
+  const panelRefs = hasSel ? selRefs : [chapterRef];
   const clearSel = () => {
     setSelNative([]);
     setSelAnchor([]);
@@ -320,8 +339,8 @@ export default function ReadPage() {
   }, []);
 
   // -------- keyboard shortcuts
-  const keyRef = useRef({ prev, next, applyColor, hasSel, panel, clearSel });
-  keyRef.current = { prev, next, applyColor, hasSel, panel, clearSel };
+  const keyRef = useRef({ prev, next, applyColor, hasSel, panel, clearSel, dockOn });
+  keyRef.current = { prev, next, applyColor, hasSel, panel, clearSel, dockOn };
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
       const t = e.target as HTMLElement;
@@ -329,14 +348,18 @@ export default function ReadPage() {
       const k = keyRef.current;
       if (e.key === 'ArrowLeft') k.prev();
       else if (e.key === 'ArrowRight') k.next();
-      else if (e.key === 's' && k.hasSel) setPanel((p) => !p);
+      else if (e.key === 's') {
+        if (k.dockOn) setSettings({ studyDock: false });
+        else if (k.hasSel) setPanel((p) => !p);
+        else if (wideRef.current) setSettings({ studyDock: true });
+      }
       else if (e.key === 'n' && k.hasSel) {
         e.preventDefault();
         setNoteFor(selRefsRef.current.map((r) => ({ type: 'passage', ref: refId(r) })));
       } else if (/^[1-6]$/.test(e.key) && k.hasSel) k.applyColor(COLORS[+e.key - 1]);
       else if (e.key === 'Escape') {
-        if (k.panel) setPanel(false);
-        else k.clearSel();
+        if (k.hasSel) k.clearSel();
+        else if (k.panel) setPanel(false);
       } else if (e.key === '?') setShortcuts(true);
     };
     window.addEventListener('keydown', h);
@@ -349,7 +372,7 @@ export default function ReadPage() {
   const selLabel = selRefs.map((r) => formatRef(r, { abbr: true })).join('; ');
 
   return (
-    <div className={`reader${settings.showVerseNumbers ? '' : ' hide-nums'}${panel && hasSel ? ' has-panel' : ''}`}>
+    <div className={`reader${settings.showVerseNumbers ? '' : ' hide-nums'}${panelOpen ? ' has-panel' : ''}`}>
       <div className="reader-col">
         <div className="reader-bar">
           <button className="icon-btn" onClick={prev} aria-label="Previous chapter">
@@ -378,6 +401,14 @@ export default function ReadPage() {
           <button className="icon-btn" aria-pressed={parallelMode} onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : editions.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? editions.find((e) => e.id !== edition.id)!.id))} aria-label="Toggle parallel translations" title="Parallel translations">
             <Icon name="columns" />
           </button>
+          <button className="icon-btn" onClick={() => window.dispatchEvent(new Event('studybible:search'))} aria-label="Search or go to a passage" title="Search or go to a passage (Ctrl+K)">
+            <Icon name="search" />
+          </button>
+          {wide && !settings.scriptureOnly && !parallelMode && (
+            <button className="icon-btn" aria-pressed={dockOn} onClick={() => setSettings({ studyDock: !settings.studyDock })} aria-label="Study panel" title="Study panel: commentary, Fathers, cross-references, Church teaching (S)">
+              <Icon name="study" />
+            </button>
+          )}
           <button className="icon-btn" aria-pressed={aloud} onClick={() => setAloud((a) => !a)} aria-label="Read aloud" title="Read this chapter aloud">
             <Icon name="listen" />
           </button>
@@ -401,6 +432,12 @@ export default function ReadPage() {
           </button>
         </div>
 
+        {!wide && !settings.hintVerse && !settings.scriptureOnly && (
+          <div className="notice info hint" role="note">
+            <span>Tap any verse to see its commentary, Church Fathers, cross-references, Catechism links and more.</span>
+            <button className="btn small" onClick={() => setSettings({ hintVerse: true })}>Got it</button>
+          </div>
+        )}
         {error && <div className="notice">{error}</div>}
         {!data && !error && <div className="center-note">Loading {bk.name}…</div>}
         {data && chapterData && !parallelMode && (
@@ -464,9 +501,9 @@ export default function ReadPage() {
         )}
       </div>
 
-      {panel && hasSel && <StudyPanel refs={selRefs} edition={edition} onClose={() => setPanel(false)} onOpenPassage={(r) => nav(`/read/${edition.id}/${r.book}/${anchorToNative(edition, r).chapter}?v=${anchorToNative(edition, r).v1 ?? ''}${anchorToNative(edition, r).v2 && anchorToNative(edition, r).v2 !== anchorToNative(edition, r).v1 ? '-' + anchorToNative(edition, r).v2 : ''}`)} />}
+      {panelOpen && <StudyPanel key={dockOn && !hasSel ? 'chapter' : 'sel'} scope={hasSel ? 'passage' : 'chapter'} refs={panelRefs} edition={edition} onClose={() => (dockOn ? setSettings({ studyDock: false }) : setPanel(false))} onOpenPassage={(r) => nav(`/read/${edition.id}/${r.book}/${anchorToNative(edition, r).chapter}?v=${anchorToNative(edition, r).v1 ?? ''}${anchorToNative(edition, r).v2 && anchorToNative(edition, r).v2 !== anchorToNative(edition, r).v1 ? '-' + anchorToNative(edition, r).v2 : ''}`)} />}
 
-      {hasSel && !panel && !settings.scriptureOnly && (
+      {hasSel && !panelOpen && !settings.scriptureOnly && (
         <div className="actionbar" role="toolbar" aria-label="Verse actions">
           <span className="refl">{selLabel}</span>
           {COLORS.map((c) => (

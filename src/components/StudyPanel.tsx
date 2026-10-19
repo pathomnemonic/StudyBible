@@ -39,6 +39,7 @@ export default function StudyPanel({
   onOpenPassage,
   inline = false,
   initialTab = 'all',
+  scope = 'passage',
 }: {
   refs: Ref[];
   edition: EditionRecord;
@@ -46,6 +47,8 @@ export default function StudyPanel({
   onOpenPassage: (r: Ref) => void;
   inline?: boolean;
   initialTab?: string;
+  /** 'chapter' = nothing selected yet: the panel shows what is connected to the whole chapter */
+  scope?: 'passage' | 'chapter';
 }) {
   const [data, setData] = useState<Partial<Record<SectionKey, StudyItem[]>>>({});
   const [loading, setLoading] = useState(true);
@@ -84,7 +87,7 @@ export default function StudyPanel({
     <aside className={`panel ${inline ? 'inline' : 'side'}`} aria-label="Study panel">
       <div className="panel-head">
         <div className="top">
-          <h2>{heading}</h2>
+          <h2>{heading}{scope === 'chapter' && <span className="scope-tag">whole chapter</span>}</h2>
           <button className="btn small" onClick={() => setNoteTargets(refs.map((r) => ({ type: 'passage', ref: refId(r) })))}>
             <Icon name="note" size={15} /> Note
           </button>
@@ -98,7 +101,7 @@ export default function StudyPanel({
           )}
         </div>
         <div className="sub">
-          {loading ? 'Gathering what is connected to this passage…' : total ? `${total} connected resource${total === 1 ? '' : 's'}${filtersOn ? ' (filtered)' : ''}` : 'Nothing connected yet — see the tabs below for what is covered.'}
+          {scope === 'chapter' && !loading ? `Study guide for this chapter · ${total} connected resource${total === 1 ? '' : 's'}. Tap a verse to narrow it to that verse.` : loading ? 'Gathering what is connected to this passage…' : total ? `${total} connected resource${total === 1 ? '' : 's'}${filtersOn ? ' (filtered)' : ''}` : 'Nothing connected yet — see the tabs below for what is covered.'}
         </div>
         <div className="ptabs" role="tablist">
           <button role="tab" aria-selected={tab === 'all'} onClick={() => setTab('all')}>
@@ -143,6 +146,7 @@ export default function StudyPanel({
 
         {tab === 'all' && (
           <Overview
+            scope={scope}
             data={data}
             loading={loading}
             passes={passes}
@@ -223,14 +227,36 @@ function emptyMessage(sk: SectionKey, book: string): string {
   }
 }
 
-function Overview({ data, loading, passes, go, render }: { data: Partial<Record<SectionKey, StudyItem[]>>; loading: boolean; passes: (i: StudyItem) => boolean; go: (t: string) => void; render: (i: StudyItem) => JSX.Element }) {
+function Overview({ scope, data, loading, passes, go, render }: { scope: 'passage' | 'chapter'; data: Partial<Record<SectionKey, StudyItem[]>>; loading: boolean; passes: (i: StudyItem) => boolean; go: (t: string) => void; render: (i: StudyItem) => JSX.Element }) {
   const blocks = TABS.map((t) => {
     const all = t.sections.flatMap((s) => data[s] ?? []).filter((i) => isReal(i) && passes(i));
     return { t, all };
   });
   const any = blocks.some((b) => b.all.length);
+  // with nothing selected, lead with the chapter's own guide: its summary, where to read it with notes, and the matching Bible in a Year day
+  const comm = data.commentary ?? [];
+  const summary = comm.find((i) => i.kind === 'Chapter summary');
+  const intro = comm.find((i) => i.kind === 'Book introduction');
+  const links = comm.filter((i) => i.kind === 'Read with notes');
+  const day = (data.biay ?? []).filter(isReal)[0];
   return (
     <>
+      {scope === 'chapter' && (summary || links.length > 0 || day) && (
+        <section className="sect guide">
+          <h3>This chapter</h3>
+          {summary && <p className="guide-sum">{summary.excerpt}</p>}
+          {day && render(day)}
+          {links.length > 0 && (
+            <p className="small guide-links">
+              <span className="muted">Read it with notes: </span>
+              {links.map((l) => (
+                <a key={l.id} className="chip" href={l.url} target="_blank" rel="noreferrer noopener" title={l.why}>{l.sourceName.replace(/ \(.*\)/, '')} ↗</a>
+              ))}
+            </p>
+          )}
+          {intro && <details className="small"><summary>About this book (Challoner)</summary><p>{intro.fullExcerpt ?? intro.excerpt}</p></details>}
+        </section>
+      )}
       {loading && !any && (
         <>
           <div className="skeleton" style={{ height: 70 }} />

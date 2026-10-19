@@ -28,8 +28,13 @@ export default function Shell({ children }: { children: ReactNode }) {
         setPalette((p) => !p);
       }
     };
+    const open = () => setPalette(true);
     window.addEventListener('keydown', h);
-    return () => window.removeEventListener('keydown', h);
+    window.addEventListener('studybible:search', open);
+    return () => {
+      window.removeEventListener('keydown', h);
+      window.removeEventListener('studybible:search', open);
+    };
   }, []);
   const fullscreenReader = (loc.pathname.startsWith('/read') && s.scriptureOnly) || loc.pathname.startsWith('/widget');
   return (
@@ -42,6 +47,10 @@ export default function Shell({ children }: { children: ReactNode }) {
           <span className="mark">✛</span>
           <span>Study Bible</span>
         </div>
+        <button className="tab utility search-tab" onClick={() => setPalette(true)} aria-label="Search and jump (Ctrl+K)" title="Search and jump (Ctrl+K)">
+          <span className="ico"><Icon name="search" /></span>
+          <span>Search</span>
+        </button>
         {TABS.map((t) => (
           <NavLink
             key={t.to}
@@ -54,10 +63,6 @@ export default function Shell({ children }: { children: ReactNode }) {
           </NavLink>
         ))}
         <div className="tab-spacer" />
-        <button className="tab utility" onClick={() => setPalette(true)} aria-label="Search and jump (Ctrl+K)" title="Search and jump (Ctrl+K)">
-          <span className="ico"><Icon name="search" /></span>
-          <span>Search</span>
-        </button>
         <NavLink to="/settings" className={`tab utility${loc.pathname.startsWith('/settings') ? ' active' : ''}`} aria-label="Settings and account">
           <span className="ico"><Icon name="gear" /></span>
           <span>Settings</span>

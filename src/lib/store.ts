@@ -42,6 +42,10 @@ export interface Settings {
   parallelEdition: string | null;
   showVerseNumbers: boolean;
   scriptureOnly: boolean;
+  /** on wide screens, keep the study panel open beside the text (chapter-level until a verse is selected) */
+  studyDock: boolean;
+  /** dismissed the one-time "tap a verse" hint */
+  hintVerse: boolean;
   /** how to interpret typed references like "Ps 23" */
   refNumbering: 'edition' | 'vulgate' | 'english';
   reminders: { enabled: boolean; time: string; message: string };
@@ -74,6 +78,8 @@ export const DEFAULTS: Settings = {
   parallelEdition: null,
   showVerseNumbers: true,
   scriptureOnly: false,
+  studyDock: true,
+  hintVerse: false,
   refNumbering: 'edition',
   reminders: { enabled: false, time: '07:30', message: 'A quiet moment with Scripture, if you would like one.' },
   showStreaks: false,
