@@ -69,6 +69,7 @@ export default function ReadPage() {
   const [picker, setPicker] = useState(false);
   const [noteFor, setNoteFor] = useState<Target[] | null>(null);
   const [panel, setPanel] = useState(false);
+  const [moreMenu, setMoreMenu] = useState(false);
   const wide = useWide();
   const wideRef = useRef(wide);
   wideRef.current = wide;
@@ -398,7 +399,7 @@ export default function ReadPage() {
               </button>
             )}
           </div>
-          <button className="icon-btn" aria-pressed={parallelMode} onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : editions.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? editions.find((e) => e.id !== edition.id)!.id))} aria-label="Toggle parallel translations" title="Parallel translations">
+          <button className="icon-btn tool-sm" aria-pressed={parallelMode} onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : editions.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? editions.find((e) => e.id !== edition.id)!.id))} aria-label="Toggle parallel translations" title="Parallel translations">
             <Icon name="columns" />
           </button>
           <button className="icon-btn" onClick={() => window.dispatchEvent(new Event('studybible:search'))} aria-label="Search or go to a passage" title="Search or go to a passage (Ctrl+K)">
@@ -409,14 +410,14 @@ export default function ReadPage() {
               <Icon name="study" />
             </button>
           )}
-          <button className="icon-btn" aria-pressed={aloud} onClick={() => setAloud((a) => !a)} aria-label="Read aloud" title="Read this chapter aloud">
+          <button className="icon-btn tool-sm" aria-pressed={aloud} onClick={() => setAloud((a) => !a)} aria-label="Read aloud" title="Read this chapter aloud">
             <Icon name="listen" />
           </button>
-          <button className="icon-btn" onClick={() => setTextSettings(true)} aria-label="Text settings" title="Text size, spacing and theme">
+          <button className="icon-btn tool-sm" onClick={() => setTextSettings(true)} aria-label="Text settings" title="Text size, spacing and theme">
             <Icon name="text" />
           </button>
           <button
-            className="icon-btn"
+            className="icon-btn tool-sm"
             aria-pressed={settings.scriptureOnly}
             onClick={() => {
               setSettings({ scriptureOnly: !settings.scriptureOnly });
@@ -427,6 +428,20 @@ export default function ReadPage() {
           >
             <Icon name="expand" />
           </button>
+          <span className="more-wrap">
+            <button className="icon-btn more-btn" aria-haspopup="menu" aria-expanded={moreMenu} onClick={() => setMoreMenu((m) => !m)} aria-label="More reading tools" title="More">
+              <span aria-hidden="true" style={{ fontSize: 20, lineHeight: 1 }}>⋯</span>
+            </button>
+            {moreMenu && (
+              <div className="more-menu" role="menu" onClick={() => setMoreMenu(false)}>
+                <button role="menuitem" onClick={() => setEditionPicker(true)}>Translation: {edition.shortName}</button>
+                <button role="menuitem" onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : editions.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? editions.find((e) => e.id !== edition.id)!.id))}>Parallel translations {parallelMode ? '(on)' : ''}</button>
+                <button role="menuitem" onClick={() => setAloud((a) => !a)}>Read aloud {aloud ? '(on)' : ''}</button>
+                <button role="menuitem" onClick={() => setTextSettings(true)}>Text size and theme</button>
+                <button role="menuitem" onClick={() => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); }}>Scripture only</button>
+              </div>
+            )}
+          </span>
           <button className="icon-btn" onClick={next} aria-label="Next chapter">
             <Icon name="chevR" />
           </button>

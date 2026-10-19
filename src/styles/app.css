@@ -2713,3 +2713,49 @@ h3,
   gap: 12px;
   margin: 10px 12px 0;
 }
+
+/* reader bar: on phones the secondary tools fold into a menu so the chapter title stays readable */
+.more-wrap {
+  position: relative;
+  display: none;
+}
+.more-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 70;
+  min-width: 220px;
+  padding: 6px;
+  background: var(--glass-strong);
+  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(22px);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+}
+.more-menu button {
+  display: block;
+  width: 100%;
+  padding: 11px 14px;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.more-menu button:hover,
+.more-menu button:focus-visible {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+@media (max-width: 640px) {
+  .reader-bar .tool-sm,
+  .reader-bar .ed-chip {
+    display: none;
+  }
+  .more-wrap {
+    display: block;
+  }
+  .reader-bar .title-btn {
+    font-size: 1.05rem;
+  }
+}
