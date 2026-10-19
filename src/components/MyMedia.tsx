@@ -4,6 +4,8 @@ import { db } from '../db/db';
 import { parseRefs, refId } from '../lib/refs';
 import { convertRef } from '../lib/versification';
 import RefLink from './RefLink';
+import InlinePlayer from './InlinePlayer';
+import { embedFor } from '../lib/embed';
 
 /** Extract an 11-character YouTube id from the common URL shapes. */
 export function youtubeId(url: string): string | null {
@@ -43,7 +45,7 @@ export default function MyMedia() {
   return (
     <section className="card" style={{ marginTop: 16 }}>
       <h3>My media queue</h3>
-      <p className="muted small">Add a link to any video, talk or podcast episode, optionally tied to a passage. YouTube links play in YouTube’s own embedded player; others open at the publisher. Include only content you are allowed to watch; credit stays with the original publisher.</p>
+      <p className="muted small">Add a link to any video, talk or podcast episode, optionally tied to a passage. YouTube, Spotify, Apple Podcasts and Vimeo links, and direct audio files, play right here; others open at the publisher. Include only content you are allowed to watch; credit stays with the original publisher.</p>
       <div className="row">
         <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
         <input type="url" placeholder="https://…" value={url} onChange={(e) => setUrl(e.target.value)} style={{ flex: 1, minWidth: 180 }} aria-label="Media URL" />
@@ -52,7 +54,7 @@ export default function MyMedia() {
       </div>
       <ul className="list">
         {items.map((m) => {
-          const yt = youtubeId(m.url);
+          const yt = embedFor(m.url);
           return (
             <li key={m.id}>
               <div className="row between">
@@ -63,7 +65,7 @@ export default function MyMedia() {
                   <button className="btn small ghost" onClick={() => db.media.delete(m.id!)}>Remove</button>
                 </span>
               </div>
-              {yt && open === m.id && <iframe title={m.title} width="100%" height="315" src={`https://www.youtube-nocookie.com/embed/${yt}`} allow="accelerometer; encrypted-media; picture-in-picture" allowFullScreen loading="lazy" style={{ border: 0, marginTop: 8 }} />}
+              {yt && open === m.id && <InlinePlayer embed={yt} title={m.title} />}
             </li>
           );
         })}

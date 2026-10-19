@@ -28,6 +28,9 @@ export interface ExternalRow {
   refs: string[]; // anchor ids
   how: 'publisher-supplied' | 'human-reviewed' | 'url-slug';
   note?: string; // our own words, short
+  tags?: string[];
+  show?: string; // podcast / programme name
+  basis?: 'page-read' | 'title-and-summary'; // how the match was checked
   reviewedBy?: string;
   reviewedOn?: string;
 }
@@ -87,6 +90,9 @@ export function buildExternal(report: Report) {
       return refId({ book: r.book, c1: a.c, v1: a.v1, c2: b.c, v2: Math.max(b.v2, a.v1) });
     });
 
+  const regPath = join(ROOT, 'data/registry/resource-sources.json');
+  const registry = readJson(regPath).sources as any[];
+  const knownSources = new Set(registry.map((x) => x.id));
   // 1. curated
   const curPath = join(CURATED, 'external-resources.json');
   if (exists(curPath)) {
@@ -95,6 +101,8 @@ export function buildExternal(report: Report) {
         report.error(`external: curated resource "${r.title}" lacks reviewedBy/reviewedOn`);
         continue;
       }
+      if (!knownSources.has(r.source)) report.error(`external: "${r.title}": unknown source "${r.source}" (add it to data/registry/resource-sources.json)`);
+      if (!/^https:\/\//.test(r.url ?? '')) report.error(`external: "${r.title}": url must be https`);
       const refs: Ref[] = [];
       for (const s of r.refs as string[]) {
         const p = parseRefs(s);
@@ -104,7 +112,7 @@ export function buildExternal(report: Report) {
         }
         refs.push(...p.refs.map((x) => x.ref));
       }
-      rows.push({ id: `cur-${rows.length}`, source: r.source, type: r.type, title: r.title, url: r.url, author: r.author, date: r.date, refs: toAnchorIds(refs), how: 'human-reviewed', note: r.note, reviewedBy: r.reviewedBy, reviewedOn: r.reviewedOn });
+      rows.push({ id: `cur-${rows.length}`, source: r.source, type: r.type, title: r.title, url: r.url, author: r.author, date: r.date, refs: toAnchorIds(refs), how: 'human-reviewed', note: r.note, tags: r.tags, show: r.show, basis: r.basis ?? 'page-read', reviewedBy: r.reviewedBy, reviewedOn: r.reviewedOn });
     }
   }
   // 2. licensed / publisher-supplied datasets
@@ -172,6 +180,11 @@ export function buildExternal(report: Report) {
     true,
   );
   report.stats['external'] = { rows: rows.length, caNavigator: navOk, caNavigatorSkippedAmbiguous: navSkipped, books: byBook.size };
+  writeJson(
+    join(PUBLIC_DATA, 'resources/sources.json'),
+    registry.map((x) => ({ id: x.id, name: x.name, kind: x.kind, site: x.site, section: x.section, policy: x.policy?.summary, search: x.search, youtubeQuery: x.youtubeQuery, podcastQuery: x.podcastQuery })),
+    true,
+  );
   void BOOKS;
   void lookupBook;
 }

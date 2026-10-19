@@ -219,20 +219,38 @@
    "articles": 3110,
    "citations": 8193
   },
+  "library.leo-sermons-letters": {
+   "sections": 221
+  },
+  "library.gregory-pastoral-rule": {
+   "sections": 14
+  },
+  "library.cassian-works": {
+   "sections": 45
+  },
+  "library.vincent-commonitory": {
+   "sections": 37
+  },
+  "library.aug-city-of-god": {
+   "sections": 23
+  },
+  "library.aug-christian-doctrine": {
+   "sections": 152
+  },
   "library.total": {
-   "works": 24,
-   "sections": 1854,
-   "indexedWords": 34052
+   "works": 30,
+   "sections": 2346,
+   "indexedWords": 40792
   },
   "curated": {
    "topics": 18,
    "cccLinksShipped": 29
   },
   "external": {
-   "rows": 73,
+   "rows": 158,
    "caNavigator": 73,
    "caNavigatorSkippedAmbiguous": 7,
-   "books": 28
+   "books": 29
   }
  }
 }

@@ -418,5 +418,35 @@
   "terms": "https://ccel.org/ccel/aquinas",
   "rights": "public-domain",
   "note": "Summa Theologica (index of Scripture citations), Thomas Aquinas. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf212": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf212.xml",
+  "file": "ccel_schaff_npnf212.xml",
+  "bytes": 3461929,
+  "sha256": "f701b4ce5196bc5890e50adabce4900cd07b803f3221115a7cce526ae0a95570",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Letters and Sermons, Leo the Great. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf211": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf211.xml",
+  "file": "ccel_schaff_npnf211.xml",
+  "bytes": 4045340,
+  "sha256": "4ca2fa69fc584c8a697884454a3d95453b044e7548b48ff44a1d95605741a5b2",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Institutes and Conferences, John Cassian. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-schaff_npnf102": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf102.xml",
+  "file": "ccel_schaff_npnf102.xml",
+  "bytes": 4137798,
+  "sha256": "b8ca21dfa7d553681651f85197064b0fe52ae6c17e5e17252df9301536a4ae2a",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "The City of God, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
  }
 }

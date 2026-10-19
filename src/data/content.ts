@@ -111,8 +111,23 @@ export interface ResourceRow {
   date?: string;
   how: 'publisher-supplied' | 'human-reviewed' | 'url-slug';
   note?: string;
+  tags?: string[];
+  show?: string;
+  basis?: 'page-read' | 'title-and-summary';
   reviewedBy?: string;
   reviewedOn?: string;
 }
+export interface ResourceSource {
+  id: string;
+  name: string;
+  kind: string;
+  site: string;
+  section: string;
+  policy?: string;
+  search?: string;
+  youtubeQuery?: string;
+  podcastQuery?: string;
+}
+export const getResourceSources = () => getJson<ResourceSource[]>('resources/sources.json', true);
 export const getResourceRefs = (book: string) => getJson<ResourceRef[]>(`resources/${book}.json`, true);
 export const getResourceCatalog = () => getJson<Record<string, ResourceRow>>('resources/catalog.json', true);

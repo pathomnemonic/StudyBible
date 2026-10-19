@@ -172,6 +172,18 @@ d('content packs', () => {
     expect(rows.length).toBeGreaterThan(0);
     for (const r of rows as any[]) expect(r.url ?? r.u ?? '').toMatch(/^https:\/\//);
   });
+  it('curated resources are https links to known sources and record how they were checked', () => {
+    const reg = json('resources/sources.json');
+    const known = new Set(reg.map((x: any) => x.id));
+    const cat = json('resources/catalog.json');
+    const rows = Object.values(cat) as any[];
+    expect(rows.some((r) => r.source === 'catholic-answers' && r.how === 'human-reviewed')).toBe(true);
+    for (const r of rows) {
+      expect(known.has(r.source), r.source).toBe(true);
+      expect(r.url).toMatch(/^https:\/\//);
+      if (r.how === 'human-reviewed') expect(r.reviewedBy && r.reviewedOn).toBeTruthy();
+    }
+  });
   it('library works record translator, rights evidence and source', () => {
     const lib = json('library/index.json');
     expect(lib.works.length).toBeGreaterThanOrEqual(20);

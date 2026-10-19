@@ -1,4 +1,1396 @@
 {
-  "_about": "Hand-reviewed links from Catholic publishers to Bible passages. Add an entry only after a person has read the page and confirmed it discusses the passage. `refs` are ordinary references in modern numbering (e.g. \"John 6:51-58\"). `note` must be your own short words, never a copy of the publisher's text. Entries without reviewedBy/reviewedOn are rejected by the build. Publishers that forbid automated collection (e.g. Catholic Answers: Terms of Service) must only be added this way or from a dataset they supply under an agreement (data/licensed/external-*.jsonl).",
-  "resources": []
+ "_about": "Hand-reviewed links from Catholic publishers to Bible passages. Add an entry only after a person has read the page and confirmed it discusses the passage. `refs` are ordinary references in modern numbering (e.g. \"John 6:51-58\"). `note` must be your own short words, never a copy of the publisher's text. Entries without reviewedBy/reviewedOn are rejected by the build. Publishers that forbid automated collection (e.g. Catholic Answers: Terms of Service) must only be added this way or from a dataset they supply under an agreement (data/licensed/external-*.jsonl).",
+ "resources": [
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "John 6:62-63 Further Affirms Real Presence of Eucharist",
+   "url": "https://www.catholic.com/qa/john-662-63-further-affirms-real-presence-of-eucharist",
+   "refs": [
+    "John 6:51-58",
+    "1 Corinthians 11:23-29"
+   ],
+   "tags": [
+    "Eucharist",
+    "Real Presence"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Is the Eucharist Truly Jesus' Body and Blood?",
+   "url": "https://www.catholic.com/magazine/online-edition/is-the-eucharist-truly-jesus-body-and-blood",
+   "refs": [
+    "John 6:22-71"
+   ],
+   "tags": [
+    "Eucharist",
+    "Real Presence"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Season of Living Bread",
+   "url": "https://www.catholic.com/magazine/online-edition/the-season-of-living-bread",
+   "refs": [
+    "John 6:22-71"
+   ],
+   "tags": [
+    "Eucharist",
+    "Real Presence"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "What Catholics Ignore in Their Interpretation of John 6?",
+   "url": "https://www.catholic.com/audio/drk/what-catholics-ignore-in-their-interpretation-of-john-6",
+   "refs": [
+    "John 6:22-71"
+   ],
+   "tags": [
+    "Eucharist",
+    "Real Presence"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "John 6 Is a Metaphor, So You Should Worship the Eucharist?",
+   "url": "https://www.catholic.com/audio/sp/john-6-is-a-metaphor-so-you-should-worship-the-eucharist",
+   "refs": [
+    "John 6:22-71"
+   ],
+   "tags": [
+    "Eucharist",
+    "Real Presence"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "More Protestant Objections to John 6—Answered",
+   "url": "https://www.catholic.com/audio/cal/ama-224",
+   "refs": [
+    "John 6:22-71"
+   ],
+   "tags": [
+    "Eucharist",
+    "Real Presence"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "What the Early Church Believed: The Real Presence",
+   "url": "https://www.catholic.com/tract/the-real-presence",
+   "refs": [
+    "John 6:51-58",
+    "1 Corinthians 11:23-29"
+   ],
+   "tags": [
+    "Eucharist",
+    "Real Presence"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Answering Fundamentalist Attacks on the Eucharist",
+   "url": "https://www.catholic.com/video/answering-fundamentalist-attacks-on-the-eucharist",
+   "author": "Trent Horn",
+   "refs": [
+    "John 6:53-58",
+    "1 Corinthians 11:27-29"
+   ],
+   "tags": [
+    "Eucharist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "navigator",
+   "title": "Bible Navigator: Real Presence",
+   "url": "https://www.catholic.com/bible-navigator/real-presence",
+   "refs": [
+    "John 6:53-58",
+    "1 Corinthians 11:23-29",
+    "Matthew 26:26-28"
+   ],
+   "tags": [
+    "Real Presence",
+    "Bible Navigator"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Here's Why You Can Be Absolutely Sure That Paul Believed in the Eucharist",
+   "url": "https://www.catholic.com/magazine/online-edition/heres-why-you-can-be-absolutely-sure-that-paul-believed-in-the-eucharist",
+   "refs": [
+    "1 Corinthians 11:23-30"
+   ],
+   "tags": [
+    "Eucharist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Most Straightforward Verse About the Eucharist in the Bible",
+   "url": "https://www.catholic.com/magazine/online-edition/the-most-straight-forward-verse-about-the-eucharist-in-the-bible",
+   "refs": [
+    "1 Corinthians 11:23-30"
+   ],
+   "tags": [
+    "Eucharist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "How to Defend Christ's Presence in the Eucharist",
+   "url": "https://www.catholic.com/magazine/print-edition/how-to-defend-christs-presence-in-the-eucharist",
+   "refs": [
+    "1 Corinthians 11:23-30"
+   ],
+   "tags": [
+    "Eucharist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Must we confess before receiving Communion because God cannot be in the presence of sin?",
+   "url": "https://www.catholic.com/qa/must-we-confess-before-receiving-communion-because-god-cannot-be-in-the-presence-of-sin",
+   "refs": [
+    "1 Corinthians 11:27-29"
+   ],
+   "tags": [
+    "Eucharist",
+    "Confession"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Peter Is the Rock Upon Which the Church Is Founded",
+   "url": "https://www.catholic.com/magazine/online-edition/peter-is-the-rock-upon-which-the-church-is-founded",
+   "refs": [
+    "Matthew 16:13-19"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Papacy in Scripture: No Rocks Required",
+   "url": "https://www.catholic.com/magazine/online-edition/the-papacy-in-scripture-no-rocks-required",
+   "refs": [
+    "Matthew 16:13-19"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Rock Explains the Papacy",
+   "url": "https://www.catholic.com/magazine/online-edition/the-rock-explains-the-papacy",
+   "refs": [
+    "Matthew 16:13-19"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "What the Early Church Believed: Peter as Pope",
+   "url": "https://www.catholic.com/tract/origins-of-peter-as-pope",
+   "refs": [
+    "Matthew 16:13-19"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Answering Protestant Objections to \"On This Rock\"",
+   "url": "https://www.catholic.com/video/answering-protestant-objections-to-on-this-rock",
+   "refs": [
+    "Matthew 16:13-19"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Peter Receives His Name and His Gender",
+   "url": "https://www.catholic.com/magazine/online-edition/peter-receives-his-name-and-his-gender",
+   "refs": [
+    "Matthew 16:13-19"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Protestant Scholars Admit Peter Is the Rock",
+   "url": "https://www.catholic.com/magazine/print-edition/peter-is-the-rock",
+   "refs": [
+    "Matthew 16:13-19"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Is St. Peter Really the Rock?",
+   "url": "https://www.catholic.com/audio/tjap/is-st-peter-really-the-rock",
+   "author": "Jimmy Akin",
+   "show": "The Jimmy Akin Podcast",
+   "refs": [
+    "Matthew 16:13-19"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Why James Says Faith Without Works Is Dead",
+   "url": "https://www.catholic.com/magazine/online-edition/why-james-says-faith-without-works-is-dead",
+   "refs": [
+    "James 2:14-26"
+   ],
+   "tags": [
+    "Faith and works",
+    "Justification"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "The Sight of Men or God? What James Meant by Justification",
+   "url": "https://www.catholic.com/audio/drk/the-sight-of-men-or-god-what-james-meant-by-justification",
+   "refs": [
+    "James 2:14-26"
+   ],
+   "tags": [
+    "Faith and works",
+    "Justification"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Protestants Still Can't Explain James 2",
+   "url": "https://www.catholic.com/audio/cot/protestants-still-cant-explain-james-2",
+   "author": "Trent Horn",
+   "show": "Counsel of Trent",
+   "refs": [
+    "James 2:14-26"
+   ],
+   "tags": [
+    "Faith and works",
+    "Justification"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "James on Abraham's Justification—Are Catholics Missing the Whole Point?",
+   "url": "https://www.catholic.com/audio/drk/james-on-abrahams-justification-are-catholics-missing-the-whole-point",
+   "refs": [
+    "James 2:14-26"
+   ],
+   "tags": [
+    "Faith and works",
+    "Justification"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Justification in James and Paul",
+   "url": "https://www.catholic.com/audio/ddp/justification-in-james-and-paul",
+   "refs": [
+    "James 2:14-26"
+   ],
+   "tags": [
+    "Faith and works",
+    "Justification"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Aren't We Saved by Faith Alone?",
+   "url": "https://www.catholic.com/magazine/print-edition/arent-we-saved-by-faith-alone",
+   "refs": [
+    "Romans 3:21-31"
+   ],
+   "tags": [
+    "Justification",
+    "Faith and works"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Works Mattered to St. Paul",
+   "url": "https://www.catholic.com/magazine/online-edition/works-mattered-to-st-paul",
+   "refs": [
+    "Romans 3:21-31"
+   ],
+   "tags": [
+    "Justification",
+    "Faith and works"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "\"Faith Alone\": What EVERYBODY Gets WRONG!",
+   "url": "https://www.catholic.com/audio/tjap/faith-alone-what-everybody-gets-wrong",
+   "author": "Jimmy Akin",
+   "show": "The Jimmy Akin Podcast",
+   "refs": [
+    "Romans 3:21-31"
+   ],
+   "tags": [
+    "Justification",
+    "Faith and works"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "The Justification 2x2 DEBATE (Horn/Akin vs. Nesan/Boyce)",
+   "url": "https://www.catholic.com/audio/cot/the-justification-2x2-debate-horn-akin-vs-nesan-boyce",
+   "author": "Trent Horn",
+   "show": "Counsel of Trent",
+   "refs": [
+    "Romans 3:21-31"
+   ],
+   "tags": [
+    "Justification",
+    "Faith and works"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Justified by Faith or Works or Both?",
+   "url": "https://www.catholic.com/qa/justified-by-faith-or-works-or-both",
+   "refs": [
+    "Romans 3:28",
+    "James 2:24"
+   ],
+   "tags": [
+    "Justification"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Purgatory's Purifying Fire",
+   "url": "https://www.catholic.com/magazine/online-edition/purgatorys-purifying-fire",
+   "refs": [
+    "1 Corinthians 3:10-15"
+   ],
+   "tags": [
+    "Purgatory"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "You Don't Believe in Purgatory? Paul Did!",
+   "url": "https://www.catholic.com/audio/drk/you-dont-believe-in-purgatory-paul-did",
+   "refs": [
+    "1 Corinthians 3:10-15"
+   ],
+   "tags": [
+    "Purgatory"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Is Purgatory Found in the Bible?",
+   "url": "https://www.catholic.com/magazine/print-edition/is-purgatory-found-in-the-bible",
+   "refs": [
+    "1 Corinthians 3:10-15"
+   ],
+   "tags": [
+    "Purgatory"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Where Is Purgatory in the Bible? — Every Objection to Purgatory Answered",
+   "url": "https://www.catholic.com/video/where-is-purgatory-in-the-bible-every-objection-to-purgatory-answered",
+   "refs": [
+    "1 Corinthians 3:10-15"
+   ],
+   "tags": [
+    "Purgatory"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "What Is Purgatory?",
+   "url": "https://www.catholic.com/tract/purgatory",
+   "refs": [
+    "1 Corinthians 3:10-15"
+   ],
+   "tags": [
+    "Purgatory"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "navigator",
+   "title": "Bible Navigator: Purgatory",
+   "url": "https://www.catholic.com/bible-navigator/purgatory",
+   "refs": [
+    "1 Corinthians 3:10-15",
+    "2 Maccabees 12:38-46"
+   ],
+   "tags": [
+    "Purgatory",
+    "Bible Navigator"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "navigator",
+   "title": "Bible Navigator: Purgatory (2 Maccabees 12:42-46)",
+   "url": "https://www.catholic.com/bible-navigator/purgatory/2maccabees1242-46",
+   "refs": [
+    "2 Maccabees 12:42-46"
+   ],
+   "tags": [
+    "Purgatory",
+    "Bible Navigator"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "The Jewish Roots of Praying for the Dead",
+   "url": "https://www.catholic.com/audio/caf/the-jewish-roots-of-praying-for-the-dead",
+   "refs": [
+    "2 Maccabees 12:38-46"
+   ],
+   "tags": [
+    "Prayers for the dead"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Is Purgatory in the Bible?",
+   "url": "https://www.catholic.com/magazine/online-edition/is-purgatory-in-the-bible",
+   "refs": [
+    "2 Maccabees 12:38-46",
+    "1 Corinthians 3:10-15"
+   ],
+   "tags": [
+    "Purgatory"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "A Biblical Case for Confession",
+   "url": "https://www.catholic.com/magazine/print-edition/a-biblical-case-for-confession",
+   "refs": [
+    "John 20:19-23"
+   ],
+   "tags": [
+    "Confession"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Finding the Sacrament of Confession in Biblical Grammar",
+   "url": "https://www.catholic.com/magazine/online-edition/finding-sacrament-confession-in-biblical-grammar",
+   "refs": [
+    "John 20:19-23"
+   ],
+   "tags": [
+    "Confession"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Is Confession in Scripture?",
+   "url": "https://www.catholic.com/magazine/online-edition/is-confession-in-scripture",
+   "refs": [
+    "John 20:19-23"
+   ],
+   "tags": [
+    "Confession"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Does John 20:23 Mean Confession?",
+   "url": "https://www.catholic.com/video/refuting-biblical-objections-to-confession",
+   "refs": [
+    "John 20:19-23"
+   ],
+   "tags": [
+    "Confession"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Forgiveness: Jesus Gave Amazing Power to Priests",
+   "url": "https://www.catholic.com/audio/caf/forgiveness-jesus-gave-amazing-power-to-priests",
+   "refs": [
+    "John 20:19-23"
+   ],
+   "tags": [
+    "Confession"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "What the Early Church Believed: Confession",
+   "url": "https://www.catholic.com/tract/confession",
+   "refs": [
+    "John 20:21-23",
+    "James 5:14-16"
+   ],
+   "tags": [
+    "Confession"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "navigator",
+   "title": "Bible Navigator: Mary’s Immaculate Conception (Luke 1:28)",
+   "url": "https://www.catholic.com/bible-navigator/mary%E2%80%99s-immaculate-conception/luke128",
+   "refs": [
+    "Luke 1:28"
+   ],
+   "tags": [
+    "Mary",
+    "Immaculate Conception",
+    "Bible Navigator"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Where Is the Immaculate Conception in the Bible?",
+   "url": "https://www.catholic.com/magazine/online-edition/the-immaculate-conception-in-scripture",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "tags": [
+    "Mary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Bible Mary, Conceived Without Sin",
+   "url": "https://www.catholic.com/magazine/online-edition/bible-mary-conceived-without-sin",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "tags": [
+    "Mary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "The Hail Mary Is in the Bible",
+   "url": "https://www.catholic.com/qa/the-hail-mary-is-in-the-bible",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "tags": [
+    "Mary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "Immaculate Conception and Assumption",
+   "url": "https://www.catholic.com/tract/immaculate-conception-and-assumption",
+   "refs": [
+    "Luke 1:28",
+    "Genesis 3:15",
+    "Revelation 12:1-6"
+   ],
+   "tags": [
+    "Mary",
+    "Immaculate Conception",
+    "Assumption"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Genesis 3:15: Who Crushes the Serpent’s Head?",
+   "url": "https://www.catholic.com/qa/genesis-315-who-crushes-the-serpents-head",
+   "refs": [
+    "Genesis 3:15"
+   ],
+   "tags": [
+    "Mary",
+    "Protoevangelium"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "How Can You Say That Mary Is the 'New Eve'?",
+   "url": "https://www.catholic.com/magazine/print-edition/how-can-you-say-that-mary-is-the-new-eve",
+   "refs": [
+    "Genesis 3:15",
+    "Luke 1:26-38"
+   ],
+   "tags": [
+    "Mary",
+    "New Eve"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Why the Early Church Thought Mary Was the New Eve",
+   "url": "https://www.catholic.com/audio/sp/why-the-early-church-thought-mary-was-the-new-eve",
+   "refs": [
+    "Genesis 3:15",
+    "Luke 1:26-38"
+   ],
+   "tags": [
+    "Mary",
+    "New Eve"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "navigator",
+   "title": "Bible Navigator: Assumption of Mary (Revelation 12:1-5)",
+   "url": "https://www.catholic.com/bible-navigator/assumption-of-mary/rev121-5",
+   "refs": [
+    "Revelation 12:1-5"
+   ],
+   "tags": [
+    "Mary",
+    "Assumption",
+    "Bible Navigator"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "PROVING Mary Was Raised to Heaven! (Using only the Bible)",
+   "url": "https://www.catholic.com/video/proving-mary-was-raised-to-heaven-using-only-the-bible",
+   "refs": [
+    "Revelation 12:1-6"
+   ],
+   "tags": [
+    "Assumption"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Defending the Assumption of Mary",
+   "url": "https://www.catholic.com/magazine/online-edition/the-assumption-of-mary",
+   "refs": [
+    "Revelation 11:19-12:6"
+   ],
+   "tags": [
+    "Assumption"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Mary, Queen of Heaven and Earth",
+   "url": "https://www.catholic.com/magazine/print-edition/is-marys-queenship-biblical",
+   "refs": [
+    "Revelation 12:1-6"
+   ],
+   "tags": [
+    "Mary",
+    "Queenship"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Was Mary a Perpetual Virgin?",
+   "url": "https://www.catholic.com/magazine/print-edition/was-mary-a-perpetual-virgin",
+   "refs": [
+    "Matthew 12:46-50",
+    "Mark 6:3"
+   ],
+   "tags": [
+    "Mary",
+    "Perpetual virginity"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Case for Mary's Perpetual Virginity",
+   "url": "https://www.catholic.com/magazine/print-edition/the-case-for-marys-perpetual-virginity",
+   "refs": [
+    "Matthew 12:46-50",
+    "Mark 6:3"
+   ],
+   "tags": [
+    "Mary",
+    "Perpetual virginity"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Did Jesus Really Have Brothers? The Biblical Answer",
+   "url": "https://www.catholic.com/video/did-jesus-really-have-brothers-the-biblical-answer",
+   "refs": [
+    "Matthew 12:46-50",
+    "Mark 6:3"
+   ],
+   "tags": [
+    "Mary",
+    "Perpetual virginity"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Answering Objections to Mary's Perpetual Virginity",
+   "url": "https://www.catholic.com/audio/cot/answering-objections-to-marys-perpetual-virginity",
+   "author": "Trent Horn",
+   "show": "Counsel of Trent",
+   "refs": [
+    "Matthew 12:46-50",
+    "Mark 6:3"
+   ],
+   "tags": [
+    "Mary",
+    "Perpetual virginity"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "Are Catholics Born Again?",
+   "url": "https://www.catholic.com/tract/are-catholics-born-again",
+   "refs": [
+    "John 3:1-8",
+    "Acts 2:38",
+    "1 Peter 3:20-21"
+   ],
+   "tags": [
+    "Baptism"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Defending Rebirth by Water",
+   "url": "https://www.catholic.com/magazine/online-edition/defending-rebirth-by-water",
+   "refs": [
+    "John 3:1-8",
+    "Acts 2:38",
+    "1 Peter 3:20-21"
+   ],
+   "tags": [
+    "Baptism"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "What the Early Church Believed: Born Again in Baptism",
+   "url": "https://www.catholic.com/tract/born-again-in-baptism",
+   "refs": [
+    "John 3:1-8",
+    "Acts 2:38",
+    "1 Peter 3:20-21"
+   ],
+   "tags": [
+    "Baptism"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Is Baptism Merely a Symbol?",
+   "url": "https://www.catholic.com/magazine/print-edition/is-baptism-merely-a-symbol",
+   "refs": [
+    "John 3:1-8",
+    "Acts 2:38",
+    "1 Peter 3:20-21"
+   ],
+   "tags": [
+    "Baptism"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Spiritual Birth, Physical Things",
+   "url": "https://www.catholic.com/magazine/online-edition/spiritual-birth-physical-things",
+   "refs": [
+    "John 3:1-8",
+    "Acts 2:38",
+    "1 Peter 3:20-21"
+   ],
+   "tags": [
+    "Baptism"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "navigator",
+   "title": "Bible Navigator: Necessity of Baptism",
+   "url": "https://www.catholic.com/bible-navigator/necessity-of-baptism",
+   "refs": [
+    "John 3:5",
+    "Acts 2:38",
+    "1 Peter 3:21"
+   ],
+   "tags": [
+    "Baptism",
+    "Bible Navigator"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Rebutting Gavin Ortlund on Baptismal Regeneration",
+   "url": "https://www.catholic.com/audio/cot/rebutting-gavin-ortlund-on-baptismal-regeneration",
+   "author": "Trent Horn",
+   "show": "Counsel of Trent",
+   "refs": [
+    "John 3:5",
+    "1 Peter 3:21"
+   ],
+   "tags": [
+    "Baptism"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "Scripture and Tradition",
+   "url": "https://www.catholic.com/tract/scripture-and-tradition",
+   "refs": [
+    "2 Thessalonians 2:15",
+    "2 Timothy 3:14-17"
+   ],
+   "tags": [
+    "Tradition",
+    "Sola scriptura"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Ten Deficiencies of Sola Scriptura as a Rule of Faith",
+   "url": "https://www.catholic.com/magazine/print-edition/ten-deficiencies-of-sola-scriptura-as-a-rule-of-faith",
+   "refs": [
+    "2 Timothy 3:16-17"
+   ],
+   "tags": [
+    "Sola scriptura"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Debunking \"Bible Alone\" with the Bible",
+   "url": "https://www.catholic.com/video/debunking-bible-alone-with-the-bible",
+   "refs": [
+    "2 Timothy 3:16-17",
+    "2 Thessalonians 2:15"
+   ],
+   "tags": [
+    "Sola scriptura"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Bible Against Tradition?",
+   "url": "https://www.catholic.com/magazine/online-edition/the-bible-and-other-traditions",
+   "refs": [
+    "2 Thessalonians 2:15",
+    "Matthew 15:1-9"
+   ],
+   "tags": [
+    "Tradition"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "Call No Man \"Father\"?",
+   "url": "https://www.catholic.com/tract/call-no-man-father",
+   "refs": [
+    "Matthew 23:9"
+   ],
+   "tags": [
+    "Priesthood"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Calling Priests \"Father\"",
+   "url": "https://www.catholic.com/magazine/online-edition/calling-priests-father",
+   "refs": [
+    "Matthew 23:9"
+   ],
+   "tags": [
+    "Priesthood"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Why Do Catholics Call Priests Father, If the Bible Says \"Call No Man Father\"?",
+   "url": "https://www.catholic.com/video/why-do-catholics-call-priests-father-if-the-bible-says-call-no-man-father",
+   "refs": [
+    "Matthew 23:9"
+   ],
+   "tags": [
+    "Priesthood"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Salvific Offerings for the Dead",
+   "url": "https://www.catholic.com/magazine/print-edition/salvific-offerings-for-the-dead",
+   "refs": [
+    "2 Maccabees 12:38-46"
+   ],
+   "tags": [
+    "Prayers for the dead"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "Is St. Peter the Rock on which Jesus built his Church?",
+   "url": "https://jimmyakin.com/?p=15705",
+   "author": "Jimmy Akin",
+   "refs": [
+    "Matthew 16:13-19"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "podcast",
+   "title": "Jimmy Akin Podcast 045: Is St. Peter the Rock on which Jesus built his Church?",
+   "url": "https://jimmyakinpodcast.libsyn.com/045-is-st-peter-the-rock-on-which-jesus-built-his-church",
+   "author": "Jimmy Akin",
+   "show": "Jimmy Akin Podcast",
+   "refs": [
+    "Matthew 16:13-19"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "video",
+   "title": "Debate: Is Peter the “Rock” in Matthew 16:18? (Akin v. Nemes)",
+   "url": "https://apologetics315.com/2022/04/debate-is-peter-the-rock-in-matthew-1618-akin-v-nemes/",
+   "author": "Jimmy Akin",
+   "refs": [
+    "Matthew 16:18"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "note": "Hosted on Apologetics315; a debate with Steven Nemes.",
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "Matthew 16:18 – Jesus Changes Peter’s Name… So What’s His New Job?",
+   "url": "https://chnetwork.org/?p=42287",
+   "author": "Jimmy Akin",
+   "refs": [
+    "Matthew 16:18"
+   ],
+   "tags": [
+    "Papacy",
+    "Peter"
+   ],
+   "note": "Catholic Hub Network.",
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "Justification in James 2",
+   "url": "https://www.ewtn.com/catholicism/library/justification-in-james-2-1057",
+   "author": "James Akin",
+   "refs": [
+    "James 2:14-26"
+   ],
+   "tags": [
+    "Justification",
+    "Faith and works"
+   ],
+   "note": "EWTN Library.",
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "matt-fradd",
+   "type": "podcast",
+   "title": "Pints with Aquinas: The Holy Eucharist with Bishop Robert Barron",
+   "url": "https://watch.formed.org/pints-with-aquinas-podcast/season:1/videos/the-holy-eucharist-with-bishop-robert-barron",
+   "author": "Matt Fradd",
+   "show": "Pints with Aquinas",
+   "refs": [
+    "John 6:51-58",
+    "1 Corinthians 11:23-29"
+   ],
+   "tags": [
+    "Eucharist"
+   ],
+   "note": "On FORMED (may require a parish or personal subscription). Topic match only; the episode is about the Eucharist generally.",
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "brant-pitre",
+   "type": "video",
+   "title": "Jesus and the Jewish Roots of the Eucharist (Dr. Brant Pitre)",
+   "url": "https://watch.formed.org/jesus-and-the-jewish-roots-of-the-eucharist-by-dr-brant-pitre",
+   "author": "Brant Pitre",
+   "refs": [
+    "John 6:22-59",
+    "Luke 22:14-20",
+    "Exodus 16:1-36"
+   ],
+   "tags": [
+    "Eucharist",
+    "Manna",
+    "Passover"
+   ],
+   "note": "On FORMED (subscription may be required). Topic match.",
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "article",
+   "title": "Where Heaven and Earth Meet (Bishop Barron on the John 6 Sundays)",
+   "url": "https://www.wordonfire.org/?p=63776",
+   "author": "Bishop Robert Barron",
+   "refs": [
+    "John 6:1-71"
+   ],
+   "tags": [
+    "Eucharist",
+    "Bread of Life"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  }
+ ]
 }

@@ -37,3 +37,10 @@
 ## Round 2 pipeline
 Order: bible → xrefs → catena (SWORD zCom) → biay → haydock (MyBible sqlite) → library (CCEL, modes tractates/psalm-roman/john-dot/homily-start/summa-index/tags) → curated → external.
 External resources: `data/curated/external-resources.json` (needs `reviewedBy`/`reviewedOn`), `data/licensed/external-*.jsonl` (only with written permission), and `data/curated/ca-bible-navigator-urls.txt` (sitemap URL slugs → passages). Output: `public/data/resources/<BOOK>.json` + `catalog.json`.
+
+## Curated links and creators (round 3)
+* `data/registry/resource-sources.json`: the publishers and creators the app links to (policy, section, search names). Add a source before using it in a row.
+* `data/curated/external-resources.json`: one row per page: `source`, `type` (article/qa/tract/video/podcast/page), `title`, `url`, `refs` (modern numbering), `tags`, optional `author`/`show`, `basis` (`page-read` or `title-and-summary`), `reviewedBy`, `reviewedOn`.
+  Titles are the publisher's own; descriptions (`note`) must be your own words. The build rejects rows with an unknown source, a non-https URL or no reviewer.
+* In-app playback (`src/lib/embed.ts`): YouTube (privacy-enhanced), Spotify, Apple Podcasts, Vimeo and direct audio/video files play inside the app; everything else opens at the publisher. The Bible in a Year plays in the app's own player.
+* Creator video/podcast links for *any* verse are search links built from the creator's name and the reference; they are not curated.

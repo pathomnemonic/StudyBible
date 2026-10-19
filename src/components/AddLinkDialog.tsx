@@ -9,6 +9,11 @@ import { useToast } from './Toast';
 export const SOURCE_BY_HOST: [RegExp, string, string][] = [
   [/(^|\.)catholic\.com$/, 'catholic-answers', 'Catholic Answers'],
   [/(^|\.)wordonfire\.org$/, 'word-on-fire', 'Word on Fire'],
+  [/(^|\.)jimmyakin\.com$/, 'jimmy-akin', 'Jimmy Akin'],
+  [/(^|\.)pintswithaquinas\.com$/, 'matt-fradd', 'Matt Fradd'],
+  [/(^|\.)stpaulcenter\.com$/, 'scott-hahn', 'St. Paul Center'],
+  [/(^|\.)ewtn\.com$/, 'ewtn', 'EWTN'],
+  [/(^|\.)formed\.org$/, 'formed', 'FORMED'],
   [/(^|\.)ascensionpress\.com$|(^|\.)ascensionpresents\.com$/, 'ascension', 'Ascension'],
 ];
 

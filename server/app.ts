@@ -40,7 +40,7 @@ const CSP = [
   "img-src 'self' data: https:",
   "media-src https: blob:",
   "connect-src 'self' https://litcal.johnromanodorazio.com",
-  "frame-src https://fireside.fm https://www.youtube-nocookie.com",
+  "frame-src https://fireside.fm https://www.youtube-nocookie.com https://open.spotify.com https://embed.podcasts.apple.com https://player.vimeo.com",
   "worker-src 'self'",
   "manifest-src 'self'",
   "base-uri 'self'",

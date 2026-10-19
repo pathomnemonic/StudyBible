@@ -2,9 +2,10 @@ import type { AuthorityLevel, ItemFormat, Period } from '../lib/types';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
 import { getBook } from '../lib/canon';
 import {
-  CCC_OFFICIAL, cccUrl, getBiay, getCatena, getCccLinks, getDoctrine, getGlossa, getHaydock, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs,
+  CCC_OFFICIAL, cccUrl, getBiay, getCatena, getCccLinks, getDoctrine, getGlossa, getHaydock, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources,
 } from '../data/content';
 import { getXrefs } from '../data/loader';
+import type { ResourceSource } from '../data/content';
 import { db } from '../db/db';
 
 export type SectionKey =
@@ -12,7 +13,7 @@ export type SectionKey =
   | 'commentary' // verse-by-verse Catholic commentaries
   | 'fathers' | 'saints'
   | 'xref'
-  | 'catholic-answers' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
+  | 'catholic-answers' | 'creators' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
   | 'context'
   | 'mine';
 
@@ -24,7 +25,8 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'fathers', label: 'Church Fathers & Doctors', hint: 'Works in the library that comment on or cite this passage.' },
   { key: 'saints', label: 'Saints & spiritual masters' },
   { key: 'xref', label: 'Cross-references' },
-  { key: 'catholic-answers', label: 'Catholic Answers' },
+  { key: 'catholic-answers', label: 'Catholic Answers', hint: 'Links to individual pages on catholic.com. Open them to read the full article there.' },
+  { key: 'creators', label: 'Catholic creators & apologists', hint: 'Jimmy Akin, Trent Horn, Matt Fradd, Brant Pitre and others: videos, podcasts and articles, linked at their source.' },
   { key: 'word-on-fire', label: 'Bishop Barron & Word on Fire' },
   { key: 'ascension', label: 'Ascension Presents' },
   { key: 'biay', label: 'Bible in a Year with Fr. Mike Schmitz' },
@@ -40,7 +42,7 @@ export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'commentary', label: 'Commentary', sections: ['commentary'] },
   { id: 'fathers', label: 'Fathers & saints', sections: ['fathers', 'saints'] },
   { id: 'xref', label: 'Cross-refs', sections: ['xref'] },
-  { id: 'media', label: 'Media & apologetics', sections: ['catholic-answers', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
+  { id: 'media', label: 'Media & apologetics', sections: ['catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
   { id: 'context', label: 'Context', sections: ['context'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
@@ -82,6 +84,15 @@ export interface StudyItem {
   kind?: string;
   /** the user's own link (can be removed) */
   userLinkId?: number;
+  tags?: string[];
+  /** podcast / programme name */
+  show?: string;
+  /** a Bible in a Year episode id: played by the app's own player */
+  episodeId?: string;
+  /** how the match was checked, shown to the reader */
+  basis?: string;
+  /** extra outbound links (e.g. search this creator on YouTube / podcast apps) */
+  links?: { label: string; url: string }[];
 }
 
 const AUTH_W: Record<AuthorityLevel, number> = { doctrine: 100, magisterial: 90, father: 70, saint: 60, scholarship: 40, historical: 35, reflection: 20, media: 10 };
@@ -98,7 +109,6 @@ const anyOverlap = (refs: Ref[], c1: number, v1: number, c2: number, v2: number)
 
 export type Provider = (refs: Ref[]) => Promise<StudyItem[]>;
 
-const SOURCE_SECTION: Record<string, SectionKey> = { 'catholic-answers': 'catholic-answers', 'word-on-fire': 'word-on-fire', ascension: 'ascension' };
 
 export const providers: Record<string, Provider> = {
   async catechism(refs) {
@@ -331,36 +341,41 @@ export const providers: Record<string, Provider> = {
   async external(refs) {
     const out: StudyItem[] = [];
     const book = refs[0].book;
-    const [list, catalog] = await Promise.all([getResourceRefs(book), getResourceCatalog()]);
+    const [list, catalog, sources] = await Promise.all([getResourceRefs(book), getResourceCatalog(), getResourceSources()]);
     if (!list || !catalog) return out;
+    const srcById = new Map((sources ?? []).map((x) => [x.id, x]));
     const seen = new Set<string>();
     for (const [c1, v1, c2, v2, id] of list) {
       if (!anyOverlap(refs, c1, v1, c2, v2) || seen.has(id)) continue;
       seen.add(id);
       const r = catalog[id];
       if (!r) continue;
-      const section = SOURCE_SECTION[r.source] ?? 'resources';
+      const src = srcById.get(r.source);
+      const section = (src?.section as SectionKey) ?? 'resources';
       const how =
         r.how === 'url-slug'
           ? 'The passage was read from the page address in the publisher’s own sitemap; the page itself was not collected.'
           : r.how === 'human-reviewed'
-            ? `Reviewed by ${r.reviewedBy} on ${r.reviewedOn}.`
+            ? `Matched to this passage from its title and summary (${r.reviewedBy}, ${r.reviewedOn}); open it to confirm how it treats the verse.`
             : 'Mapping supplied by the publisher.';
       out.push({
         id: `ext-${id}`,
         section,
         title: r.title,
         author: r.author,
+        tags: r.tags,
+        show: r.show,
+        basis: r.basis === 'title-and-summary' ? 'Matched from title and summary, not a full read of the page.' : undefined,
         excerpt: r.note,
         url: r.url,
         authority: 'reflection',
         period: 'contemporary',
         format: r.type === 'video' ? 'video' : r.type === 'podcast' ? 'audio' : 'external-link',
-        match: r.how === 'url-slug' ? 'explicit-reference' : 'direct-citation',
+        match: r.how === 'url-slug' ? 'explicit-reference' : r.basis === 'title-and-summary' ? 'passage' : 'direct-citation',
         why: `${how} Apologetics and popular teaching, not magisterial.`,
-        sourceName: section === 'catholic-answers' ? 'Catholic Answers' : r.source,
+        sourceName: src?.name ?? r.source,
         date: r.date,
-        kind: r.type === 'navigator' ? 'Bible Navigator' : r.type === 'qa' ? 'Q&A' : r.type === 'tract' ? 'Tract' : r.type,
+        kind: ({ navigator: 'Bible Navigator', qa: 'Q&A', tract: 'Tract', article: 'Article', video: 'Video', podcast: 'Podcast', homily: 'Homily', page: 'Page' } as Record<string, string>)[r.type] ?? r.type,
       });
     }
     return out;
@@ -429,6 +444,7 @@ export const providers: Record<string, Provider> = {
         ref: refId(hit),
         date: e.date,
         kind: 'Podcast',
+        episodeId: e.id,
       });
     }
     return out;
@@ -508,21 +524,41 @@ export const providers: Record<string, Provider> = {
   },
 };
 
-/** Search links to external Catholic publishers: links to *their* search pages. The app does not claim these sources discuss a given verse. */
-export function externalSearchItems(refs: Ref[]): StudyItem[] {
+/**
+ * Search links to Catholic publishers and creators: links to *their* search pages (or YouTube / podcast-app searches with their name).
+ * The app does not claim these sources discuss a given verse.
+ */
+export function externalSearchItems(refs: Ref[], sources: ResourceSource[] = []): StudyItem[] {
   const q = formatRef(refs[0], { noDual: true });
   const enc = encodeURIComponent(q);
   const base = { authority: 'reflection' as AuthorityLevel, period: 'contemporary' as Period, match: 'passage' as MatchKind, format: 'external-link' as ItemFormat, kind: 'Search' };
-  return [
-    { ...base, id: 'ext-ca-search', section: 'catholic-answers', title: `Search Catholic Answers for “${q}”`, url: `https://www.catholic.com/search?q=${enc}`, why: 'Opens Catholic Answers’ own search. Results are not curated or checked by this app. Catholic Answers’ terms forbid automated collection of its articles, so articles are not indexed here; attach any article you find with “Add a link”.', sourceName: 'Catholic Answers' },
-    { ...base, id: 'ext-wof-search', section: 'word-on-fire', title: `Find Bishop Barron on “${q}”`, url: `https://www.youtube.com/results?search_query=${encodeURIComponent('Bishop Barron ' + q)}`, why: 'A YouTube search (Word on Fire has no public API). Results are not curated or checked by this app.', sourceName: 'Word on Fire (via YouTube search)' },
+  const yt = (name: string) => `https://www.youtube.com/results?search_query=${encodeURIComponent(`${name} ${q}`)}`;
+  const pod = (name: string) => `https://podcasts.apple.com/search?term=${encodeURIComponent(`${name} ${q}`)}`;
+  const items: StudyItem[] = [
+    { ...base, id: 'ext-ca-search', section: 'catholic-answers', title: `Search Catholic Answers for “${q}”`, url: `https://www.catholic.com/search?q=${enc}`, why: 'Opens Catholic Answers’ own search. Results are not checked by this app; attach anything you find with “Add link”.', sourceName: 'Catholic Answers' },
     { ...base, id: 'ext-wof-site', section: 'word-on-fire', title: 'Word on Fire: Gospel commentaries and homilies', url: 'https://www.wordonfire.org/', why: 'The publisher’s site. Not matched to this passage.', sourceName: 'Word on Fire' },
-    { ...base, id: 'ext-asc-search', section: 'ascension', title: `Search Ascension for “${q}”`, url: `https://ascensionpress.com/search?q=${enc}`, why: 'Opens Ascension’s own search. Results are not curated or checked by this app.', sourceName: 'Ascension' },
+    { ...base, id: 'ext-asc-search', section: 'ascension', title: `Search Ascension for “${q}”`, url: `https://ascensionpress.com/search?q=${enc}`, why: 'Opens Ascension’s own search. Results are not checked by this app.', sourceName: 'Ascension' },
   ];
+  const creators = sources.filter((x) => x.youtubeQuery);
+  if (creators.length) {
+    items.push({
+      ...base,
+      id: 'ext-creators-find',
+      section: 'creators',
+      title: `Find videos and podcasts on ${q}`,
+      why: 'Search links built from the creator’s name and this passage; the results are the platforms’ own and are not checked or ranked by this app.',
+      sourceName: 'YouTube / Apple Podcasts search',
+      links: creators.flatMap((c) => [
+        { label: `${c.name.split(' / ')[0].split(' (')[0]} · video`, url: yt(c.youtubeQuery!) },
+        ...(c.podcastQuery ? [{ label: `${c.name.split(' / ')[0].split(' (')[0]} · podcast`, url: pod(c.podcastQuery) }] : []),
+      ]),
+    });
+  }
+  return items;
 }
 
 export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items: StudyItem[]) => void) {
-  const ext = externalSearchItems(refs);
+  const ext = externalSearchItems(refs, (await getResourceSources().catch(() => null)) ?? []);
   const emitExt = (key: SectionKey, extra: StudyItem[] = []) => onSection(key, [...extra, ...ext.filter((i) => i.section === key)]);
   const jobs: [SectionKey[], Promise<StudyItem[]>][] = [
     [['catechism'], providers.catechism(refs)],
@@ -531,13 +567,14 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     [['commentary'], providers.commentary(refs)],
     [['fathers', 'saints'], providers.fathers(refs)],
     [['xref'], providers.xref(refs)],
-    [['catholic-answers', 'word-on-fire', 'ascension', 'resources'], providers.external(refs)],
+    [['catholic-answers', 'creators', 'word-on-fire', 'ascension', 'resources'], providers.external(refs)],
     [['links'], providers.userlinks(refs)],
     [['biay'], providers.biay(refs)],
     [['context'], providers.context(refs)],
     [['mine'], providers.mine(refs)],
   ];
   emitExt('catholic-answers');
+  emitExt('creators');
   emitExt('word-on-fire');
   emitExt('ascension');
   await Promise.all(
@@ -550,7 +587,7 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
       }
       for (const k of keys) {
         const mine = items.filter((i) => i.section === k).sort((a, b) => score(b) - score(a));
-        if (k === 'catholic-answers' || k === 'word-on-fire' || k === 'ascension') emitExt(k, mine);
+        if (k === 'catholic-answers' || k === 'creators' || k === 'word-on-fire' || k === 'ascension') emitExt(k, mine);
         else onSection(k, mine);
       }
     }),

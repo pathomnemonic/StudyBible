@@ -10,6 +10,10 @@ import type { EditionRecord } from '../data/loader';
 import { useEditions } from '../data/EditionsContext';
 import { db, type Target } from '../db/db';
 import { useToast } from './Toast';
+import InlinePlayer from './InlinePlayer';
+import { embedFor } from '../lib/embed';
+import { usePlayer } from '../data/PlayerContext';
+import { loadBiay } from '../data/biay';
 
 export const AUTH_LABEL: Record<string, string> = {
   doctrine: 'Official doctrine',
@@ -237,6 +241,9 @@ function Overview({ data, loading, passes, go, render }: { data: Partial<Record<
 
 function Item({ item, edition, onOpenPassage, onNote }: { item: StudyItem; edition: EditionRecord; onOpenPassage: (r: Ref) => void; onNote: (t: Target) => void }) {
   const [expanded, setExpanded] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const embed = embedFor(item.url);
+  const player = usePlayer();
   const [preview, setPreview] = useState<{ v: number; c: number; text: string }[] | null>(null);
   const { get } = useEditions();
   const toast = useToast();
@@ -271,7 +278,10 @@ function Item({ item, edition, onOpenPassage, onNote }: { item: StudyItem; editi
       ) : (
         <div className="t">{item.title}</div>
       )}
-      {item.author && <div className="by">{item.author}</div>}
+      {(item.author || item.show) && <div className="by">{[item.author, item.show].filter(Boolean).join(' · ')}</div>}
+      {item.tags && item.tags.length > 0 && <div className="tag-row">{item.tags.map((t) => <span key={t} className="chip">{t}</span>)}</div>}
+      {item.links && <div className="find-links">{item.links.map((l) => <a key={l.url} className="chip" href={l.url} target="_blank" rel="noreferrer">{l.label} ↗</a>)}</div>}
+      {playing && embed && <InlinePlayer embed={embed} title={item.title} />}
       {text && (
         <div className={`ex${!expanded && long ? ' clamp' : ''}`} lang={item.lang}>
           {text}
@@ -298,6 +308,7 @@ function Item({ item, edition, onOpenPassage, onNote }: { item: StudyItem; editi
           )}
         </>
       )}
+      {item.basis && <div className="muted small">{item.basis}</div>}
       <details className="why">
         <summary style={{ cursor: 'pointer' }}>
           <strong>{MATCH_LABEL[item.match].split(' — ')[0]}</strong> — why this is here
@@ -315,6 +326,23 @@ function Item({ item, edition, onOpenPassage, onNote }: { item: StudyItem; editi
           <Link className="btn small" to={item.internal}>
             Open
           </Link>
+        )}
+        {item.episodeId && (
+          <button
+            className="btn small primary"
+            onClick={async () => {
+              const b = await loadBiay();
+              const ep = b?.byId.get(item.episodeId!);
+              if (ep) player.play(ep);
+            }}
+          >
+            <Icon name="play" size={14} /> Play here
+          </button>
+        )}
+        {embed && (
+          <button className="btn small primary" onClick={() => setPlaying(!playing)}>
+            <Icon name="play" size={14} /> {playing ? 'Close player' : 'Play here'}
+          </button>
         )}
         {item.url && !item.internal && (
           <a className="btn small" href={item.url} target="_blank" rel="noreferrer">
