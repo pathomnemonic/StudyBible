@@ -1,4 +1,4 @@
-import { getCatena, getCccLinks, getHaydock, getLibScripture, getResourceRefs } from '../data/content';
+import { getChalloner, getCatena, getCccLinks, getHaydock, getLibScripture, getResourceRefs } from '../data/content';
 import { parseRefId } from '../lib/refs';
 
 /**
@@ -13,8 +13,9 @@ export async function verseResourceCounts(book: string, chapter: number, verseCo
     const to = chapter === c2 ? (v2 && v2 < 999 ? v2 : verseCount) : verseCount;
     for (let v = from; v <= Math.min(to, verseCount); v++) counts.set(v, (counts.get(v) ?? 0) + 1);
   };
-  const [hay, cat, lib, ext, ccc] = await Promise.all([getHaydock(book), getCatena(book), getLibScripture(book), getResourceRefs(book), getCccLinks()]);
+  const [hay, cat, lib, ext, ccc, chal] = await Promise.all([getHaydock(book), getCatena(book), getLibScripture(book), getResourceRefs(book), getCccLinks(), getChalloner(book)]);
   for (const [c1, v1, c2, v2] of hay ?? []) add(c1, v1, c2, v2);
+  for (const [c1, v1, c2, v2] of chal?.notes ?? []) add(c1, v1, c2, v2);
   for (const g of cat?.groups ?? []) add(g.c, g.v1, g.c, g.v2);
   const seen = new Set<string>();
   for (const e of lib ?? []) {

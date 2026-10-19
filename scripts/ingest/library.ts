@@ -17,6 +17,8 @@ interface WorkCfg {
   kind: string;
   year?: string;
   rootTitle?: string | null;
+  /** Pick one div2 (e.g. one epistle) inside a shared volume section. */
+  subTitle?: string;
   scriptureMode: 'tractates' | 'psalm-roman' | 'john-dot' | 'homily-start' | 'summa-index' | 'tags';
   book?: string;
   indexOnly?: boolean;
@@ -73,12 +75,12 @@ function parseTractateTitle(title: string): Ref[] {
   return out;
 }
 
-function sectionsOf(xml: string, cfg: WorkCfg): { title: string; id: string; body: string }[] {
+export function sectionsOf(xml: string, cfg: WorkCfg): { title: string; id: string; body: string }[] {
   // Choose the div1 root(s)
   const div1s = [...xml.matchAll(/<div1\b([^>]*)>([\s\S]*?)(?=<div1\b|<\/ThML\.body>)/g)].map((m) => ({
     attrs: m[1],
     body: m[2],
-    title: decodeEntities(/title="([^"]*)"/.exec(m[1])?.[1] ?? ''),
+    title: decodeEntities(/\stitle="([^"]*)"/.exec(m[1])?.[1] ?? ''),
     id: /\bid="([^"]*)"/.exec(m[1])?.[1] ?? '',
   }));
   const skip = (t: string) => (cfg.skipTitles ?? ['Title Page', 'Preface', 'Index']).some((s) => t.toLowerCase().startsWith(s.toLowerCase()));
@@ -95,7 +97,7 @@ function sectionsOf(xml: string, cfg: WorkCfg): { title: string; id: string; bod
         continue;
       }
       for (const k of kids) {
-        const t = decodeEntities(/title="([^"]*)"/.exec(k[1])?.[1] ?? '');
+        const t = decodeEntities(/\stitle="([^"]*)"/.exec(k[1])?.[1] ?? '');
         if (skip(t)) continue;
         res.push({ title: `${it.title} — ${t}`, id: /\bid="([^"]*)"/.exec(k[1])?.[1] ?? '', body: k[2] });
       }
@@ -109,8 +111,9 @@ function sectionsOf(xml: string, cfg: WorkCfg): { title: string; id: string; bod
       continue;
     }
     for (const d of div2s) {
-      const title = decodeEntities(/title="([^"]*)"/.exec(d[1])?.[1] ?? '');
+      const title = decodeEntities(/\stitle="([^"]*)"/.exec(d[1])?.[1] ?? '');
       if (skip(title)) continue;
+      if (cfg.subTitle && !new RegExp(cfg.subTitle, 'i').test(title)) continue;
       out.push({ title, id: /\bid="([^"]*)"/.exec(d[1])?.[1] ?? '', body: d[2] });
     }
   }
@@ -193,7 +196,7 @@ export function buildLibrary(report: Report) {
         }
       }
       if (cfg.scriptureMode === 'homily-start') {
-        const tm = /\bon\s+(?:[1-3]\s*)?(?:Acts|Rom\.?|Cor\.?|Heb\.?|John)\s+([ivxlc]+)\.\s*(\d+)/i.exec(s.title) ?? /^John\s+(\d+)\.(\d+)/.exec(s.title);
+        const tm = /—\s*(?:[1-3]\s*)?[A-Za-z]+\s+(\d+)[:.](\d+)/.exec(s.title) ?? /\bon\s+(?:[1-3]\s*)?(?:Acts|Rom\.?|Cor\.?|Heb\.?|John)\s+([ivxlc]+)\.\s*(\d+)/i.exec(s.title) ?? /^John\s+(\d+)\.(\d+)/.exec(s.title);
         let hint: { c: number; v: number } | null = null;
         if (tm) hint = /^\d/.test(tm[1]) ? { c: +tm[1], v: +tm[2] } : { c: roman(tm[1]), v: +tm[2] };
         else {
@@ -276,7 +279,7 @@ function buildSummaIndex(cfg: WorkCfg, xml: string, meta: any[], push: (book: st
   let cites = 0;
   for (const a of articles) {
     const id = /\bid="([^"]*)"/.exec(a[1])?.[1];
-    const title = decodeEntities(/title="([^"]*)"/.exec(a[1])?.[1] ?? '');
+    const title = decodeEntities(/\stitle="([^"]*)"/.exec(a[1])?.[1] ?? '');
     if (!id || !/^(FP|FS|SS|TP|XP)_Q\d+_A\d+$/.test(id)) continue;
     const idx = sections.length;
     sections.push({ id, title: title.replace(/^Article\.\s*/, ''), scripture: [], words: 0 });

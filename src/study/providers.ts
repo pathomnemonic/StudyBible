@@ -2,11 +2,12 @@ import type { AuthorityLevel, ItemFormat, Period } from '../lib/types';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
 import { getBook } from '../lib/canon';
 import {
-  CCC_OFFICIAL, cccUrl, getBiay, getCatena, getCccLinks, getDoctrine, getGlossa, getHaydock, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex, getPlaces, getPlacesByBook, getTopicIndex, getTopicsByBook,
+  CCC_OFFICIAL, cccUrl, getBiay, getCatena, getCccLinks, getDoctrine, getGlossa, getHaydock, getChalloner, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex, getPlaces, getPlacesByBook, getTopicIndex, getTopicsByBook,
 } from '../data/content';
 import { getXrefs } from '../data/loader';
 import type { ResourceSource } from '../data/content';
 import { languageLinks } from './languageTools';
+import { chapterReadingItems } from './readingLinks';
 import { getIndexes, getSynopsis, getVariants, getThemes, refsFromText } from './refData';
 import { convertRef } from '../lib/versification';
 import { db } from '../db/db';
@@ -177,7 +178,7 @@ export const providers: Record<string, Provider> = {
 
   /** Verse-by-verse Catholic commentary: Haydock, the Catena Aurea, and the Glossa Ordinaria. */
   async commentary(refs) {
-    const out: StudyItem[] = [];
+    const out: StudyItem[] = [...chapterReadingItems(refs)];
     const book = refs[0].book;
     const bookName = getBook(book).name;
 
@@ -205,6 +206,73 @@ export const providers: Record<string, Provider> = {
           kind: 'Haydock',
         });
       });
+    }
+
+
+    const ch = await getChalloner(book);
+    if (ch) {
+      const seenCh = new Set<number>();
+      for (const r of refs) for (let c = r.c1; c <= r.c2; c++) seenCh.add(c);
+      for (const c of seenCh) {
+        const sum = ch.chapters[String(c)];
+        if (!sum) continue;
+        out.push({
+          id: `challoner-sum-${book}-${c}`,
+          section: 'commentary',
+          title: `${bookName} ${c}: summary of the chapter (Challoner)`,
+          author: 'Bishop Richard Challoner',
+          authorId: 'challoner',
+          excerpt: sum,
+          authority: 'historical',
+          period: 'early-modern',
+          format: 'excerpt',
+          match: 'passage',
+          why: 'The one-line summary Bishop Challoner printed at the head of this chapter in the Douay-Rheims Bible (1749–1752). It is a heading for the whole chapter, not a note on this verse.',
+          sourceName: 'Douay-Rheims Bible, Challoner revision (public domain, via Project Gutenberg)',
+          ref: `${book}.${c}`,
+          kind: 'Chapter summary',
+        });
+      }
+      ch.notes.forEach(([c1, v1, c2, v2, text], i) => {
+        if (!anyOverlap(refs, c1, v1, c2, v2)) return;
+        out.push({
+          id: `challoner-${book}-${i}`,
+          section: 'commentary',
+          title: `Challoner’s note on ${bookName} ${c1}:${v1}`,
+          author: 'Bishop Richard Challoner',
+          authorId: 'challoner',
+          excerpt: trim(text, 380),
+          fullExcerpt: text,
+          url: 'https://www.gutenberg.org/ebooks/8300',
+          authority: 'historical',
+          period: 'early-modern',
+          format: 'excerpt',
+          match: 'verse-by-verse',
+          why: 'Bishop Challoner’s annotation on this verse in the Douay-Rheims Bible (1749–1752). The note’s key words come first, followed by “…”. An eighteenth-century note: some of the scholarship is dated.',
+          sourceName: 'Douay-Rheims Bible, Challoner revision (public domain, via Project Gutenberg)',
+          ref: refId({ book, c1, v1, c2, v2 }),
+          kind: 'Challoner',
+        });
+      });
+      if (ch.intro && refs.some((r) => r.c1 === 1)) {
+        out.push({
+          id: `challoner-intro-${book}`,
+          section: 'commentary',
+          title: `${bookName}: Challoner’s introduction`,
+          author: 'Bishop Richard Challoner',
+          authorId: 'challoner',
+          excerpt: trim(ch.intro, 380),
+          fullExcerpt: ch.intro,
+          authority: 'historical',
+          period: 'early-modern',
+          format: 'excerpt',
+          match: 'passage',
+          why: 'The introduction Bishop Challoner printed before this book in the Douay-Rheims Bible (1749–1752). Its views on authorship and date are traditional and predate modern scholarship.',
+          sourceName: 'Douay-Rheims Bible, Challoner revision (public domain, via Project Gutenberg)',
+          ref: `${book}.1`,
+          kind: 'Book introduction',
+        });
+      }
     }
 
     const cat = await getCatena(book);

@@ -212,7 +212,7 @@ function emptyMessage(sk: SectionKey, book: string): string {
       return 'No verified Catechism citation is on file for this passage. The shipped set is a checked seed; browse the doctrine topics for broader pointers.';
     case 'commentary':
       return ['TOB', 'JDT', 'WIS', 'SIR', 'BAR', '1MA', '2MA'].includes(book)
-        ? 'Haydock’s module does not include the deuterocanonical books, and the Catena covers only the Gospels. The Glossa (Latin) and the Fathers library may still have material.'
+        ? 'Haydock’s module does not include the deuterocanonical books, and the Catena covers only the Gospels. Challoner’s notes and chapter summary, the Glossa (Latin) and the Fathers library may still have material; the chapter reading links below open full notes.'
         : 'No commentary note is attached to this exact verse. Try the chapter or neighbouring verses.';
     case 'fathers':
       return 'No work in the Fathers & saints library comments on or cites this passage. The library is growing; see Study → Fathers & saints for what is covered.';

@@ -6,6 +6,7 @@ import { buildCatena } from './catena';
 import { buildBiay } from './biay';
 import { buildLibrary } from './library';
 import { buildHaydock } from './haydock';
+import { buildChalloner } from './challoner';
 import { buildExternal } from './external';
 import { buildManifest } from './manifest';
 import { buildChurchDocs } from './church';
@@ -44,6 +45,7 @@ async function main() {
     await run('catena', () => buildCatena(report));
     await run('biay', () => buildBiay(report));
     await run('haydock', () => buildHaydock(report));
+    await run('challoner', () => buildChalloner(report));
     await run('library', () => buildLibrary(report));
     await run('curated', () => buildCurated(report));
     await run('church', () => buildChurchDocs(report));

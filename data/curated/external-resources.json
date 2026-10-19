@@ -10943,6 +10943,4776 @@
    "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
    "reviewedOn": "2026-10-19",
    "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Ecclesiastes (Catholic Encyclopedia)",
+   "url": "https://www.catholic.com/encyclopedia/ecclesiastes",
+   "refs": [
+    "Ecclesiastes 1"
+   ],
+   "tags": [
+    "encyclopedia"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Sirach",
+   "url": "https://catholic.com/magazine/print-edition/sirach",
+   "refs": [
+    "Sirach 1"
+   ],
+   "tags": [
+    "wisdom",
+    "deuterocanon"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Jeremiah 31:31-34 foretells the new covenant",
+   "url": "https://catholic.com/qa/jeremiah-3131-34-foretells-the-new-covenant",
+   "refs": [
+    "Jeremiah 31"
+   ],
+   "tags": [
+    "new-covenant"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Joel (Catholic Encyclopedia)",
+   "url": "https://www.catholic.com/encyclopedia/joel",
+   "refs": [
+    "Joel 2"
+   ],
+   "tags": [
+    "pentecost",
+    "prophets"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Micheas (Micah) (Catholic Encyclopedia)",
+   "url": "https://www.catholic.com/encyclopedia/micheas-micah",
+   "refs": [
+    "Micah 1"
+   ],
+   "tags": [
+    "prophets",
+    "encyclopedia"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "The Jonah Death Hypothesis - Did Jonah Die in the Whale",
+   "url": "https://www.catholic.com/audio/tjap/the-jonah-death-hypothesis-did-jonah-die-in-the-whale",
+   "refs": [
+    "Jonah 1",
+    "Jonah 2"
+   ],
+   "tags": [
+    "jonah",
+    "jimmy-akin"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "The Dead Know Nothing?",
+   "url": "https://jimmyakin.com/2005/06/the_dead_know_n.html",
+   "refs": [
+    "Ecclesiastes 9"
+   ],
+   "tags": [
+    "afterlife",
+    "wisdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "Palm Sunday and the Kingship of Christ",
+   "url": "https://ascensionpress.com/blogs/articles/palm-sunday-and-the-kingship-of-christ",
+   "refs": [
+    "Zechariah 9"
+   ],
+   "tags": [
+    "messiah",
+    "palm-sunday"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "fr-mike-schmitz",
+   "type": "podcast",
+   "title": "Day 181: Jonah and the Whale (Bible in a Year)",
+   "url": "https://bibleinayear.fireside.fm/biy-day181-2024",
+   "refs": [
+    "Jonah 1",
+    "Jonah 2",
+    "Jonah 3",
+    "Jonah 4"
+   ],
+   "tags": [
+    "jonah",
+    "bible-in-a-year"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "fr-mike-schmitz",
+   "type": "podcast",
+   "title": "Day 206: The Book of Baruch (Bible in a Year transcript)",
+   "url": "https://podcasts.happyscribe.com/the-bible-in-a-year-with-fr-mike-schmitz/day-206-the-book-of-baruch-2026",
+   "refs": [
+    "Baruch 1",
+    "Baruch 2"
+   ],
+   "tags": [
+    "baruch",
+    "bible-in-a-year"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "page",
+   "title": "The Wisdom Literature",
+   "url": "https://www.ewtn.com/catholicism/library/wisdom-literature-12473",
+   "refs": [
+    "Proverbs 1",
+    "Job 1",
+    "Ecclesiastes 1",
+    "Wisdom 1",
+    "Sirach 1"
+   ],
+   "tags": [
+    "wisdom",
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "page",
+   "title": "Qoheleth",
+   "url": "https://www.ewtn.com/catholicism/library/qoheleth-12432",
+   "refs": [
+    "Ecclesiastes 1"
+   ],
+   "tags": [
+    "wisdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "page",
+   "title": "Prophecy of Amos",
+   "url": "https://www.ewtn.com/catholicism/library/prophecy-of-amos-12250",
+   "refs": [
+    "Amos 1"
+   ],
+   "tags": [
+    "prophets"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "page",
+   "title": "The Prophecy of Joel",
+   "url": "https://www.ewtn.com/catholicism/library/prophecy-of-joel-12355",
+   "refs": [
+    "Joel 2"
+   ],
+   "tags": [
+    "pentecost",
+    "prophets"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Sirach 24 (Douay-Rheims)",
+   "url": "https://www.newadvent.org/bible/sir024.htm",
+   "refs": [
+    "Sirach 24"
+   ],
+   "tags": [
+    "wisdom",
+    "scripture-text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "Wisdom Books Introduction (NABRE)",
+   "url": "https://bible.usccb.org/bible/wisdombooks/0",
+   "refs": [
+    "Proverbs 1",
+    "Job 1",
+    "Ecclesiastes 1",
+    "Wisdom 1",
+    "Sirach 1"
+   ],
+   "tags": [
+    "wisdom",
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "Zechariah 9 (NABRE with notes)",
+   "url": "https://bible.usccb.org/bible/zechariah/9",
+   "refs": [
+    "Zechariah 9"
+   ],
+   "tags": [
+    "messiah",
+    "notes"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "Sirach Introduction (NABRE)",
+   "url": "https://bible.usccb.org/bible/Sirach/0",
+   "refs": [
+    "Sirach 1"
+   ],
+   "tags": [
+    "wisdom",
+    "deuterocanon"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "podcast",
+   "title": "Jer 31:31-34: A New Covenant",
+   "url": "https://catholic-link.org/podcast/jer-3131-34-a-new-covenant/",
+   "refs": [
+    "Jeremiah 31"
+   ],
+   "tags": [
+    "new-covenant"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "podcast",
+   "title": "Prophecy and Revelation in the Wisdom of Solomon",
+   "url": "https://catholic-theology-show.castos.com/episodes/prophecy-and-revelation-in-the-wisdom-of-solomon",
+   "refs": [
+    "Wisdom 1"
+   ],
+   "tags": [
+    "wisdom",
+    "augustine-institute"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "article",
+   "title": "What the Prophet Malachi Teaches Us about the Eucharist",
+   "url": "https://catholicexchange.com/what-the-prophet-malachi-teaches-us-about-the-eucharist",
+   "refs": [
+    "Malachi 1"
+   ],
+   "tags": [
+    "eucharist",
+    "mass"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Chrysostom: Homilies on the Gospel of Matthew (index of 90 homilies)",
+   "url": "https://www.newadvent.org/fathers/2001.htm",
+   "refs": [
+    "Matthew 1:1",
+    "Matthew 28:20"
+   ],
+   "tags": [
+    "chrysostom",
+    "homilies",
+    "gospel"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Augustine: Tractates on the Gospel of John (index by passage)",
+   "url": "https://www.newadvent.org/fathers/1701.htm",
+   "refs": [
+    "John 1:1",
+    "John 21:25"
+   ],
+   "tags": [
+    "augustine",
+    "tractates",
+    "gospel"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Augustine: Tractate 1 on John 1:1-5",
+   "url": "https://www.newadvent.org/fathers/1701001.htm",
+   "refs": [
+    "John 1:1",
+    "John 1:5"
+   ],
+   "tags": [
+    "augustine",
+    "logos",
+    "tractates"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Augustine: Tractate 2 on John 1:6-14",
+   "url": "https://www.newadvent.org/fathers/1701002.htm",
+   "refs": [
+    "John 1:6",
+    "John 1:14"
+   ],
+   "tags": [
+    "augustine",
+    "tractates",
+    "incarnation"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Augustine: Tractate 15 on John 4:1-42",
+   "url": "https://www.newadvent.org/fathers/1701015.htm",
+   "refs": [
+    "John 4:1",
+    "John 4:42"
+   ],
+   "tags": [
+    "augustine",
+    "tractates",
+    "samaritan-woman"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Augustine: Tractate 91 on John 15:24-25",
+   "url": "https://www.newadvent.org/fathers/1701091.htm",
+   "refs": [
+    "John 15:24",
+    "John 15:25"
+   ],
+   "tags": [
+    "augustine",
+    "tractates"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Augustine: On the Sermon on the Mount (contents)",
+   "url": "https://www.newadvent.org/fathers/1601.htm",
+   "refs": [
+    "Matthew 5:1",
+    "Matthew 7:29"
+   ],
+   "tags": [
+    "augustine",
+    "sermon-on-the-mount"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Augustine: On the Sermon on the Mount, Book I (Matthew 5)",
+   "url": "https://www.newadvent.org/fathers/16011.htm",
+   "refs": [
+    "Matthew 5:1",
+    "Matthew 5:48"
+   ],
+   "tags": [
+    "augustine",
+    "beatitudes",
+    "sermon-on-the-mount"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Chrysostom: Homilies on the Gospel of John (index)",
+   "url": "https://www.newadvent.org/fathers/2401.htm",
+   "refs": [
+    "John 1:1",
+    "John 21:25"
+   ],
+   "tags": [
+    "chrysostom",
+    "homilies",
+    "gospel"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Chrysostom: Homily 1 on the Gospel of John",
+   "url": "https://www.newadvent.org/fathers/240101.htm",
+   "refs": [
+    "John 1:1"
+   ],
+   "tags": [
+    "chrysostom",
+    "homilies",
+    "logos"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Augustine: Expositions on the Psalms (index)",
+   "url": "https://www.newadvent.org/fathers/1801.htm",
+   "refs": [
+    "Psalm 1:1",
+    "Psalm 150:6"
+   ],
+   "tags": [
+    "augustine",
+    "psalms",
+    "enarrationes"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Augustine: Exposition on Psalm 22",
+   "url": "https://www.newadvent.org/fathers/1801022.htm",
+   "refs": [
+    "Psalm 22:1",
+    "Psalm 22:31"
+   ],
+   "tags": [
+    "augustine",
+    "psalms",
+    "crucifixion"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Augustine: Exposition on Psalm 51",
+   "url": "https://newadvent.org/fathers/1801051.htm",
+   "refs": [
+    "Psalm 51:1",
+    "Psalm 51:19"
+   ],
+   "tags": [
+    "augustine",
+    "psalms",
+    "penitence"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Chrysostom: Homilies on Romans (index)",
+   "url": "https://www.newadvent.org/fathers/2102.htm",
+   "refs": [
+    "Romans 1:1",
+    "Romans 16:27"
+   ],
+   "tags": [
+    "chrysostom",
+    "homilies",
+    "paul"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Chrysostom: Homilies on First Corinthians (index)",
+   "url": "https://www.newadvent.org/fathers/2201.htm",
+   "refs": [
+    "1 Corinthians 1:1",
+    "1 Corinthians 16:24"
+   ],
+   "tags": [
+    "chrysostom",
+    "homilies",
+    "paul"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Chrysostom: Homilies on Second Corinthians (index)",
+   "url": "https://www.newadvent.org/fathers/2202.htm",
+   "refs": [
+    "2 Corinthians 1:1",
+    "2 Corinthians 13:14"
+   ],
+   "tags": [
+    "chrysostom",
+    "homilies",
+    "paul"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "page",
+   "title": "Aquinas: Commentary on the Gospel of John",
+   "url": "https://isidore.co/aquinas/SSJohn.htm",
+   "refs": [
+    "John 1:1",
+    "John 21:25"
+   ],
+   "tags": [
+    "aquinas",
+    "commentary",
+    "gospel"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "page",
+   "title": "Dei Verbum: Dogmatic Constitution on Divine Revelation (Vatican II)",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html",
+   "refs": [
+    "2 Timothy 3:16",
+    "Hebrews 1:1"
+   ],
+   "tags": [
+    "scripture",
+    "revelation",
+    "vatican-ii"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "page",
+   "title": "Verbum Domini: Post-Synodal Exhortation on the Word of God (Benedict XVI)",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/apost_exhortations/documents/hf_ben-xvi_exh_20100930_verbum-domini.html",
+   "refs": [
+    "John 1:1",
+    "John 1:14"
+   ],
+   "tags": [
+    "scripture",
+    "word-of-god",
+    "benedict-xvi"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "page",
+   "title": "John Paul II General Audience 10 Oct 1979: Man's Original Solitude (Genesis 2)",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/audiences/1979/documents/hf_jp-ii_aud_19791010.pdf",
+   "refs": [
+    "Genesis 2:18",
+    "Genesis 2:7"
+   ],
+   "tags": [
+    "theology-of-the-body",
+    "genesis",
+    "john-paul-ii"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "page",
+   "title": "John Paul II General Audience 13 Feb 1980: Communion of Persons (Genesis 2)",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/audiences/1980/documents/hf_jp-ii_aud_19800213.html",
+   "refs": [
+    "Genesis 2:23",
+    "Genesis 2:24"
+   ],
+   "tags": [
+    "theology-of-the-body",
+    "genesis",
+    "john-paul-ii"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "page",
+   "title": "Gregory the Great: Moralia on Job (index of the Oxford translation)",
+   "url": "https://lectionarycentral.com/gregorymoraliaindex.html",
+   "refs": [
+    "Job 1:1",
+    "Job 42:17"
+   ],
+   "tags": [
+    "gregory-the-great",
+    "moralia",
+    "job"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "page",
+   "title": "The Book of Genesis (introduction and commentary)",
+   "url": "https://www.ewtn.com/catholicism/library/book-of-genesis-12328",
+   "refs": [
+    "Genesis 1:1",
+    "Genesis 50:26"
+   ],
+   "tags": [
+    "genesis",
+    "introduction",
+    "commentary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "page",
+   "title": "Homilies on Romans 1-8 (Chrysostom)",
+   "url": "https://www.ewtn.com/catholicism/library/homilies-on-romans-18-11688",
+   "refs": [
+    "Romans 1:1",
+    "Romans 8:39"
+   ],
+   "tags": [
+    "chrysostom",
+    "homilies",
+    "paul"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "page",
+   "title": "Lectures or Tractates on the Gospel according to St. John 1-10 (Augustine)",
+   "url": "https://ewtn.com/catholicism/library/lectures-or-tractates-on-the-gospel-according-to-st-john-110-11775",
+   "refs": [
+    "John 1:1",
+    "John 3:36"
+   ],
+   "tags": [
+    "augustine",
+    "tractates",
+    "gospel"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "page",
+   "title": "Divorce and Remarriage (Mark 10:10-12)",
+   "url": "https://www.catholic.com/bible-navigator/divorce-and-remarriage/mark1010-12",
+   "refs": [
+    "Mark 10:10",
+    "Mark 10:11",
+    "Mark 10:12"
+   ],
+   "tags": [
+    "divorce",
+    "marriage"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "If Jesus made an exception for divorce in cases of adultery, why doesn't the Church?",
+   "url": "https://www.catholic.com/qa/if-jesus-made-an-exception-for-divorce-in-cases-of-adultery-why-doesnt-the-church",
+   "refs": [
+    "Matthew 19:9"
+   ],
+   "tags": [
+    "divorce",
+    "annulment"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Why the Bible's Divorce Exception?",
+   "url": "https://substack.catholic.com/p/why-the-bibles-divorce-exception",
+   "refs": [
+    "Matthew 19:9"
+   ],
+   "tags": [
+    "divorce",
+    "porneia"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Our Power to Bind and Loose",
+   "url": "https://www.catholic.com/magazine/online-edition/our-power-to-bind-and-loose",
+   "refs": [
+    "Matthew 18:18"
+   ],
+   "tags": [
+    "binding-loosing",
+    "church-authority"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Right Time to Call Out Sin",
+   "url": "https://www.catholic.com/magazine/online-edition/the-right-time-to-call-out-sin",
+   "refs": [
+    "Matthew 18:15",
+    "Matthew 18:16",
+    "Matthew 18:17"
+   ],
+   "tags": [
+    "fraternal-correction",
+    "church-discipline"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Binding and Loosing",
+   "url": "https://www.catholic.com/audio/ddp/binding-and-loosing-2",
+   "refs": [
+    "Matthew 18:18"
+   ],
+   "tags": [
+    "binding-loosing",
+    "church-discipline"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "page",
+   "title": "Acts 2:38 Necessity of Baptism",
+   "url": "https://www.catholic.com/bible-navigator/necessity-of-baptism/acts238",
+   "refs": [
+    "Acts 2:38"
+   ],
+   "tags": [
+    "baptism",
+    "forgiveness"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "We Receive the Holy Spirit at Baptism",
+   "url": "https://www.catholic.com/qa/we-receive-the-holy-spirit-at-baptism",
+   "refs": [
+    "Acts 2:38"
+   ],
+   "tags": [
+    "baptism",
+    "holy-spirit"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "page",
+   "title": "Acts 2:42 Church's Teaching Authority",
+   "url": "https://www.catholic.com/bible-navigator/church's-teaching-authority/acts242",
+   "refs": [
+    "Acts 2:42"
+   ],
+   "tags": [
+    "apostolic-teaching",
+    "eucharist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Continuity of the Mass",
+   "url": "https://www.catholic.com/magazine/print-edition/the-continuity-of-the-mass",
+   "refs": [
+    "Acts 2:42"
+   ],
+   "tags": [
+    "mass",
+    "breaking-of-bread"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Sunday Is Not the Sabbath",
+   "url": "https://www.catholic.com/magazine/online-edition/should-christians-keep-the-sabbath-or-celebrate-the-lords-day",
+   "refs": [
+    "Acts 20:7"
+   ],
+   "tags": [
+    "sunday",
+    "lords-day"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Rediscovering Sunday",
+   "url": "https://www.catholic.com/magazine/online-edition/rediscovering-sunday",
+   "refs": [
+    "Acts 20:7"
+   ],
+   "tags": [
+    "sunday",
+    "lords-day"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "Did the Early Church Move the Sabbath from Saturday to Sunday?",
+   "url": "https://www.catholic.com/qa/did-the-early-church-move-the-sabbath-from-saturday-to-sunday",
+   "refs": [
+    "Acts 20:7"
+   ],
+   "tags": [
+    "sunday",
+    "sabbath"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "What Did Jesus and Moses Talk About at the Transfiguration?",
+   "url": "https://www.catholic.com/magazine/online-edition/what-did-jesus-and-moses-talk-about-at-the-transfiguration",
+   "refs": [
+    "Mark 9:2",
+    "Mark 9:4"
+   ],
+   "tags": [
+    "transfiguration",
+    "exodus"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Did Jesus Mess Up a Prophecy?",
+   "url": "https://www.catholic.com/magazine/online-edition/jesus-botched-predicting-the-end-times",
+   "refs": [
+    "Mark 13:30",
+    "Matthew 24:34"
+   ],
+   "tags": [
+    "olivet-discourse",
+    "end-times"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Peter's Denials",
+   "url": "https://www.catholic.com/audio/ddp/peters-denials",
+   "refs": [
+    "Mark 14:66",
+    "Mark 14:72"
+   ],
+   "tags": [
+    "peter",
+    "denial"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "The Institution of the Mass",
+   "url": "https://www.catholic.com/tract/the-institution-of-the-mass",
+   "refs": [
+    "Matthew 26:26",
+    "Mark 14:22"
+   ],
+   "tags": [
+    "eucharist",
+    "last-supper"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Fr. James Martin's Flawed View of the Parable of the Talents",
+   "url": "https://www.catholic.com/audio/sp/fr-james-martins-flawed-view-of-the-parable-of-the-talents",
+   "refs": [
+    "Matthew 25:14",
+    "Matthew 25:30"
+   ],
+   "tags": [
+    "parable-of-talents"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Bridegroom and the Bride",
+   "url": "https://www.catholic.com/magazine/online-edition/the-bridegroom-and-the-bride",
+   "refs": [
+    "Matthew 25:1",
+    "Matthew 25:13"
+   ],
+   "tags": [
+    "ten-virgins"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The First Step to Being Saved",
+   "url": "https://www.catholic.com/magazine/online-edition/the-what-how-and-why-of-repentance",
+   "refs": [
+    "Luke 15:11",
+    "Luke 15:32"
+   ],
+   "tags": [
+    "prodigal-son",
+    "repentance"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Security and Sonship",
+   "url": "https://www.catholic.com/audio/ddp/security-and-sonship",
+   "refs": [
+    "Luke 15:11"
+   ],
+   "tags": [
+    "prodigal-son",
+    "sonship"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Why Grape Wine?",
+   "url": "https://www.catholic.com/magazine/print-edition/why-grape-wine",
+   "refs": [
+    "John 15:1"
+   ],
+   "tags": [
+    "vine",
+    "eucharist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "Did John Use Mark as a Template? A Detailed Analysis",
+   "url": "https://jimmyakin.com/did-john-use-mark-as-a-template-a-detailed-analysis",
+   "refs": [
+    "Mark 14",
+    "Mark 15"
+   ],
+   "tags": [
+    "passion",
+    "gospel-parallels"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "9 Things You Need to Know About Good Friday",
+   "url": "https://jimmyakin.com/2015/04/9-things-you-need-to-know-about-good-friday-2.html",
+   "refs": [
+    "Mark 15",
+    "Matthew 27"
+   ],
+   "tags": [
+    "good-friday",
+    "crucifixion"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "St. Stephen: First Martyr and Witness to the Essence of Christianity",
+   "url": "https://media.ascensionpress.com/2019/12/26/st-stephen-first-martyr-witness-essence-christianity/",
+   "refs": [
+    "Acts 7:54",
+    "Acts 7:60"
+   ],
+   "tags": [
+    "stephen",
+    "martyrdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "Scriptural Rosary for Good Friday",
+   "url": "https://media.ascensionpress.com/2019/04/19/scriptural-rosary-good-friday",
+   "refs": [
+    "Mark 15"
+   ],
+   "tags": [
+    "passion",
+    "rosary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "Did Jesus Predict the End and Get It Wrong?",
+   "url": "https://ascensionpress.com/blogs/articles/jesus-predict-end-get-wrong",
+   "refs": [
+    "Mark 13",
+    "Matthew 24"
+   ],
+   "tags": [
+    "olivet-discourse",
+    "end-times"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "The Bible and Tradition",
+   "url": "https://ascensionpress.com/blogs/articles/bible-tradition",
+   "refs": [
+    "Acts 2:42"
+   ],
+   "tags": [
+    "tradition",
+    "apostolic-teaching"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "The Great Commission of Matthew 28",
+   "url": "https://stpaulcenter.com/posts/the-great-commission-of-matthew-28",
+   "refs": [
+    "Matthew 28"
+   ],
+   "tags": [
+    "great-commission",
+    "baptism"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Commissioned to Preach, Teach, and Baptize All Nations",
+   "url": "https://stpaulcenter.com/posts/commissioned-to-preach-teach-and-baptize-all-nations",
+   "refs": [
+    "Matthew 28"
+   ],
+   "tags": [
+    "great-commission",
+    "evangelization"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Through Agony to Glory: The Feast of the Transfiguration of the Lord",
+   "url": "https://stpaulcenter.com/posts/through-agony-to-glory-the-feast-of-the-transfiguration-of-the-lord",
+   "refs": [
+    "Mark 9"
+   ],
+   "tags": [
+    "transfiguration"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "10 Things You Should Know About Matthew's Gospel",
+   "url": "https://stpaulcenter.com/posts/10-things-you-should-know-about-matthews-gospel",
+   "refs": [
+    "Matthew 24",
+    "Matthew 25"
+   ],
+   "tags": [
+    "matthew",
+    "last-judgment"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "When Were the Gospels Written?",
+   "url": "https://stpaulcenter.com/posts/when-were-the-gospels-written",
+   "refs": [
+    "Mark 13",
+    "Matthew 24"
+   ],
+   "tags": [
+    "olivet-discourse",
+    "dating"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "The Spread of the Kingdom in Acts",
+   "url": "https://stpaulcenter.com/posts/the-spread-of-the-kingdom-in-acts",
+   "refs": [
+    "Acts 5"
+   ],
+   "tags": [
+    "acts",
+    "kingdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "article",
+   "title": "The Eucharist and What Jesus Meant By Is",
+   "url": "https://www.wordonfire.org/resources/blog/the-eucharist-and-what-jesus-meant-by-is/",
+   "refs": [
+    "Matthew 26"
+   ],
+   "tags": [
+    "eucharist",
+    "last-supper"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "The Prodigal Son Returns",
+   "url": "https://www.wordonfire.org/videos/sermons/the-prodigal-son-returns/",
+   "refs": [
+    "Luke 15"
+   ],
+   "tags": [
+    "prodigal-son"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "page",
+   "title": "Luke 15 - Word on Fire",
+   "url": "https://www.wordonfire.org/scripture/luke-15/feed/",
+   "refs": [
+    "Luke 15"
+   ],
+   "tags": [
+    "prodigal-son",
+    "lost-sheep"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "page",
+   "title": "Matthew 19 - Word on Fire",
+   "url": "https://www.wordonfire.org/scripture/matthew-19/feed/",
+   "refs": [
+    "Matthew 19"
+   ],
+   "tags": [
+    "celibacy",
+    "marriage"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "page",
+   "title": "Matthew 25 - Word on Fire",
+   "url": "https://www.wordonfire.org/scripture/matthew-25/feed/",
+   "refs": [
+    "Matthew 25"
+   ],
+   "tags": [
+    "last-judgment",
+    "works-of-mercy"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "article",
+   "title": "Transfigured Prayer",
+   "url": "https://www.wordonfire.org/resources/homily/transfigured-prayer/874/",
+   "refs": [
+    "Mark 9"
+   ],
+   "tags": [
+    "transfiguration",
+    "prayer"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "article",
+   "title": "The Mystical Transfiguration of Christ",
+   "url": "https://wordonfire.org/resources/homily/the-mystical-transfiguration-of-christ/21588",
+   "refs": [
+    "Mark 9"
+   ],
+   "tags": [
+    "transfiguration"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "page",
+   "title": "Gospel Reflection - Good Friday 2026",
+   "url": "https://www.wordonfire.org/reflections/a-holyweek2026-good-friday/",
+   "refs": [
+    "Mark 15"
+   ],
+   "tags": [
+    "passion",
+    "good-friday"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Paul on the Areopagus: A Master Class in Evangelization",
+   "url": "https://www.ewtn.com/catholicism/library/paul-on-the-aeropagus-a-master-class-in-evangelization-9765",
+   "refs": [
+    "Acts 17"
+   ],
+   "tags": [
+    "areopagus",
+    "evangelization"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Stephen, the Protomartyr",
+   "url": "https://www.ewtn.com/catholicism/library/stephen-the-protomartyr-6316",
+   "refs": [
+    "Acts 7"
+   ],
+   "tags": [
+    "stephen",
+    "martyrdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Saint Stephen, The First Martyr. Scriptural Saint",
+   "url": "https://www.ewtn.com/catholicism/library/saint-stephen-the-first-martyr-scriptural-saint-5846",
+   "refs": [
+    "Acts 7"
+   ],
+   "tags": [
+    "stephen",
+    "martyrdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Acts of the Apostles (Douay-Rheims with notes)",
+   "url": "https://www.ewtn.com/catholicism/library/acts-of-the-apostles-12246",
+   "refs": [
+    "Acts 5",
+    "Acts 2"
+   ],
+   "tags": [
+    "acts"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Church of the Apostles",
+   "url": "https://www.ewtn.com/catholicism/library/church-of-the-apostles-1175",
+   "refs": [
+    "Acts 2:38",
+    "Acts 2:42"
+   ],
+   "tags": [
+    "early-church",
+    "baptism"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Pre-Eminence of St. Peter",
+   "url": "https://www.ewtn.com/catholicism/library/preeminence-of-st-peter-12243",
+   "refs": [
+    "Acts 5"
+   ],
+   "tags": [
+    "peter",
+    "primacy"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Transfiguration",
+   "url": "https://ewtn.com/catholicism/seasons-and-feast-days/transfiguration-14446",
+   "refs": [
+    "Mark 9"
+   ],
+   "tags": [
+    "transfiguration"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Where Is the Transfiguration in the Bible?",
+   "url": "https://www.ewtn.com/catholicism/seasons-and-feast-days/where-is-the-transfiguration-in-the-bible-22059",
+   "refs": [
+    "Mark 9"
+   ],
+   "tags": [
+    "transfiguration"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Institution of the Eucharist in Scripture",
+   "url": "https://www.ewtn.com/catholicism/teachings/institution-of-the-eucharist-in-scripture-223",
+   "refs": [
+    "Matthew 26",
+    "Mark 14"
+   ],
+   "tags": [
+    "eucharist",
+    "last-supper"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Gospel According to St. Mark",
+   "url": "https://www.ewtn.com/catholicism/library/gospel-according-to-st-mark-12386",
+   "refs": [
+    "Mark 14",
+    "Mark 15"
+   ],
+   "tags": [
+    "passion"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Father Cantalamessa on Christ's Suffering",
+   "url": "https://www.ewtn.com/catholicism/library/father-cantalamessa-on-christs-suffering-3271",
+   "refs": [
+    "Mark 14",
+    "Mark 15"
+   ],
+   "tags": [
+    "passion"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "On the Holy Spirit",
+   "url": "https://www.ewtn.com/catholicism/library/on-the-holy-spirit-3388",
+   "refs": [
+    "John 14",
+    "John 16"
+   ],
+   "tags": [
+    "paraclete",
+    "holy-spirit"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "qa",
+   "title": "Exceptive clause in Matthew",
+   "url": "https://ewtn.com/vexperts/showmessage.asp?Pg=&Pgnu=&number=315083&recnu=",
+   "refs": [
+    "Matthew 19:9"
+   ],
+   "tags": [
+    "divorce",
+    "exception-clause"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Gospel According to St. Matthew",
+   "url": "https://www.ewtn.com/catholicism/library/gospel-according-to-st-matthew-12394",
+   "refs": [
+    "Matthew 25"
+   ],
+   "tags": [
+    "matthew"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Catholic Encyclopedia: Simon Magus",
+   "url": "https://newadvent.org/cathen/13797b.htm",
+   "refs": [
+    "Acts 8:9",
+    "Acts 8:24"
+   ],
+   "tags": [
+    "simon-magus",
+    "simony"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Chrysostom Homily 77 on Matthew",
+   "url": "https://www.newadvent.org/fathers/200177.htm",
+   "refs": [
+    "Matthew 24"
+   ],
+   "tags": [
+    "olivet-discourse",
+    "fathers"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Chrysostom Homily 78 on Matthew",
+   "url": "https://www.newadvent.org/fathers/200178.htm",
+   "refs": [
+    "Matthew 25"
+   ],
+   "tags": [
+    "fathers",
+    "last-judgment"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Augustine Harmony of the Gospels Book IV Chapter 10",
+   "url": "https://www.newadvent.org/fathers/1602410.htm",
+   "refs": [
+    "Matthew 26",
+    "Mark 14"
+   ],
+   "tags": [
+    "fathers",
+    "passion"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: The Last Supper",
+   "url": "https://www.newadvent.org/cathen/14341a.htm",
+   "refs": [
+    "Mark 14",
+    "Matthew 26"
+   ],
+   "tags": [
+    "last-supper"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: The Passion of Christ (Gospel Accounts)",
+   "url": "https://www.newadvent.org/cathen/11530a.htm",
+   "refs": [
+    "Mark 14",
+    "Mark 15"
+   ],
+   "tags": [
+    "passion"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Sunday",
+   "url": "https://www.newadvent.org/cathen/14335a.htm",
+   "refs": [
+    "Acts 20:7"
+   ],
+   "tags": [
+    "sunday",
+    "eucharist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Chrysostom Homily 12 on the Acts of the Apostles",
+   "url": "https://www.newadvent.org/fathers/210112.htm",
+   "refs": [
+    "Acts 5"
+   ],
+   "tags": [
+    "fathers",
+    "ananias"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Chrysostom Homily 14 on the Acts of the Apostles",
+   "url": "https://www.newadvent.org/fathers/210114.htm",
+   "refs": [
+    "Acts 5"
+   ],
+   "tags": [
+    "fathers"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Parables",
+   "url": "https://www.newadvent.org/cathen/11460a.htm",
+   "refs": [
+    "Matthew 25",
+    "Luke 15"
+   ],
+   "tags": [
+    "parables"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Jerome Against Jovinianus Book II",
+   "url": "https://www.newadvent.org/fathers/30092.htm",
+   "refs": [
+    "Matthew 25"
+   ],
+   "tags": [
+    "fathers",
+    "ten-virgins"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "Mark Chapter 9",
+   "url": "https://bible.usccb.org/bible/mark/9",
+   "refs": [
+    "Mark 9"
+   ],
+   "tags": [
+    "transfiguration"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "Acts of the Apostles Chapter 17",
+   "url": "https://bible.usccb.org/bible/acts/17",
+   "refs": [
+    "Acts 17"
+   ],
+   "tags": [
+    "areopagus"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "John Chapter 15",
+   "url": "https://bible.usccb.org/bible/john/15",
+   "refs": [
+    "John 15"
+   ],
+   "tags": [
+    "vine"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "John Chapter 14",
+   "url": "https://bible.usccb.org/bible/john/14",
+   "refs": [
+    "John 14"
+   ],
+   "tags": [
+    "paraclete"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "article",
+   "title": "Disciples Called To Witness: Part II",
+   "url": "https://www.usccb.org/beliefs-and-teachings/how-we-teach/new-evangelization/disciples-called-to-witness/disciples-called-to-witness-part-ii",
+   "refs": [
+    "Matthew 28:19",
+    "Matthew 28:20"
+   ],
+   "tags": [
+    "great-commission",
+    "evangelization"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "other-catholic",
+   "type": "article",
+   "title": "General Audience of 6 November 2019 (Pope Francis on Paul in Athens)",
+   "url": "https://www.vatican.va/content/francesco/en/audiences/2019/documents/papa-francesco_20191106_udienza-generale.html",
+   "refs": [
+    "Acts 17"
+   ],
+   "tags": [
+    "areopagus",
+    "pope-francis"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "Israel as God's Chosen People: Does God Show Favoritism?",
+   "url": "https://ascensionpress.com/blogs/articles/israel-as-gods-chosen-people-does-god-show-favoritism",
+   "refs": [
+    "Genesis 12",
+    "Genesis 22"
+   ],
+   "tags": [
+    "abraham",
+    "covenant",
+    "election"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Who Was Melchizedek and Why Does He Matter?",
+   "url": "https://stpaulcenter.com/posts/who-was-melchizedek-and-why-does-he-matter",
+   "refs": [
+    "Genesis 14"
+   ],
+   "tags": [
+    "melchizedek",
+    "priesthood",
+    "abraham"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Meal of Melchizedek",
+   "url": "https://www.ewtn.com/catholicism/teachings/meal-of-melchizedek-227",
+   "refs": [
+    "Genesis 14"
+   ],
+   "tags": [
+    "melchizedek",
+    "eucharist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "WOF 316: Understanding Genesis: Jacob",
+   "url": "https://www.wordonfire.org/videos/wordonfire-show/episode316/",
+   "refs": [
+    "Genesis 25",
+    "Genesis 27",
+    "Genesis 28",
+    "Genesis 32"
+   ],
+   "tags": [
+    "jacob",
+    "patriarchs",
+    "genesis"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "The Burning Bush: Theotokos in the Old Testament",
+   "url": "https://stpaulcenter.com/posts/the-burning-bush-theotokos-in-the-old-testament",
+   "refs": [
+    "Exodus 3"
+   ],
+   "tags": [
+    "burning-bush",
+    "mary",
+    "typology"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "The Jewish Roots of the Mass (Brant Pitre)",
+   "url": "https://www.usccb.org/resources/catechetical-sunday-2011-jewish-roots-mass",
+   "refs": [
+    "Exodus 12"
+   ],
+   "tags": [
+    "passover",
+    "eucharist",
+    "brant-pitre"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Paschal Lamb",
+   "url": "https://www.newadvent.org/cathen/08755a.htm",
+   "refs": [
+    "Exodus 12"
+   ],
+   "tags": [
+    "passover",
+    "lamb",
+    "eucharist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Paschal Feast in the Bible",
+   "url": "https://www.ewtn.com/catholicism/library/paschal-feast-in-the-bible-12416",
+   "refs": [
+    "Exodus 12"
+   ],
+   "tags": [
+    "passover",
+    "feast"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "Holy Thursday: From the Old Covenant to the New",
+   "url": "https://ascensionpress.com/blogs/articles/holy-thursday-old-covenant-new-call-sacrifice-thanksgiving-charity",
+   "refs": [
+    "Exodus 12"
+   ],
+   "tags": [
+    "passover",
+    "eucharist",
+    "holy-thursday"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-productions",
+   "type": "article",
+   "title": "Behold the Lamb of God: John 1:35-42 Explained",
+   "url": "https://catholicproductions.com/blogs/blog/jesus-and-the-disciples-of-john-the-baptist",
+   "refs": [
+    "Exodus 12"
+   ],
+   "tags": [
+    "lamb-of-god",
+    "passover",
+    "brant-pitre"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Day of Atonement (Yom Kippur)",
+   "url": "https://www.newadvent.org/cathen/02054a.htm",
+   "refs": [
+    "Leviticus 16"
+   ],
+   "tags": [
+    "atonement",
+    "scapegoat",
+    "yom-kippur"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Book of Leviticus",
+   "url": "https://www.ewtn.com/catholicism/library/book-of-leviticus-12373",
+   "refs": [
+    "Leviticus 16"
+   ],
+   "tags": [
+    "leviticus",
+    "atonement"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-productions",
+   "type": "article",
+   "title": "The Feast of the Presentation of the Lord",
+   "url": "https://catholicproductions.com/blogs/mass-readings-explained-year-c/the-feast-of-the-presentation-of-the-lord",
+   "refs": [
+    "Leviticus 12"
+   ],
+   "tags": [
+    "purification",
+    "presentation"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-productions",
+   "type": "article",
+   "title": "The Exaltation of the Holy Cross (Year A)",
+   "url": "https://catholicproductions.com/blogs/mass-readings-explained-year-a/feast-of-the-exaltation-of-the-holy-cross",
+   "refs": [
+    "Numbers 21"
+   ],
+   "tags": [
+    "bronze-serpent",
+    "cross"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-productions",
+   "type": "article",
+   "title": "4th Sunday of Lent (Year B)",
+   "url": "https://catholicproductions.com/blogs/mass-readings-explained-year-b/the-fourth-sunday-in-lent-year-b",
+   "refs": [
+    "Numbers 21"
+   ],
+   "tags": [
+    "bronze-serpent",
+    "cross",
+    "lent"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "article",
+   "title": "Gospel Reflection - Sunday, September 14, 2025",
+   "url": "https://www.wordonfire.org/reflections/c-ordinary2025-wk24-sunday-2/",
+   "refs": [
+    "Numbers 21"
+   ],
+   "tags": [
+    "bronze-serpent",
+    "exaltation-of-the-cross"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Catholic Encyclopedia: Archaeology of the Cross and Crucifix",
+   "url": "https://www.newadvent.org/cathen/04517a.htm",
+   "refs": [
+    "Numbers 21"
+   ],
+   "tags": [
+    "bronze-serpent",
+    "cross"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "A Star Shall Come Forth Out of Jacob: Celebrating the Epiphany",
+   "url": "https://stpaulcenter.com/posts/a-star-shall-come-forth-out-of-jacob-celebrating-the-epiphany",
+   "refs": [
+    "Numbers 24"
+   ],
+   "tags": [
+    "balaam",
+    "star",
+    "magi",
+    "edward-sri"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "A Prophet Like Moses",
+   "url": "https://www.wordonfire.org/videos/sermons/a-prophet-like-moses/",
+   "refs": [
+    "Deuteronomy 18"
+   ],
+   "tags": [
+    "prophet",
+    "moses",
+    "bishop-barron"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "A Prophet Greater than Moses",
+   "url": "https://www.wordonfire.org/videos/sermons/a-prophet-greater-than-moses/",
+   "refs": [
+    "Deuteronomy 18"
+   ],
+   "tags": [
+    "prophet",
+    "moses",
+    "bishop-barron"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Listen to Him: Scott Hahn Reflects on the Second Sunday of Lent",
+   "url": "https://stpaulcenter.com/posts/listen-to-him-scott-hahn-reflects-on-the-second-sunday-of-lent",
+   "refs": [
+    "Deuteronomy 18"
+   ],
+   "tags": [
+    "prophet-like-moses",
+    "transfiguration",
+    "scott-hahn"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Book of Ruth",
+   "url": "https://www.ewtn.com/catholicism/library/book-of-ruth-12438",
+   "refs": [
+    "Ruth 1",
+    "Ruth 2",
+    "Ruth 3",
+    "Ruth 4"
+   ],
+   "tags": [
+    "ruth",
+    "book-text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "7 Amazing Old Testament Women",
+   "url": "https://stpaulcenter.com/posts/7-amazing-old-testament-women",
+   "refs": [
+    "Ruth 1",
+    "Ruth 4"
+   ],
+   "tags": [
+    "ruth",
+    "women"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Book of Judges",
+   "url": "https://www.ewtn.com/catholicism/library/book-of-judges-12360",
+   "refs": [
+    "Judges 6"
+   ],
+   "tags": [
+    "judges",
+    "gideon"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "article",
+   "title": "David and Goliath (Bishop Barron)",
+   "url": "https://www.wordonfire.org/articles/barron/david-and-goliath/",
+   "refs": [
+    "1 Samuel 17"
+   ],
+   "tags": [
+    "david",
+    "goliath",
+    "bishop-barron"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "formed",
+   "type": "video",
+   "title": "David and Goliath - Catholic Commentary: House of David",
+   "url": "https://watch.formed.org/suggested-content-for-thursday/videos/david-and-goliath-catholic-commentary-house-of-david",
+   "refs": [
+    "1 Samuel 17"
+   ],
+   "tags": [
+    "david",
+    "goliath"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "The Story of Salvation: God's Primordial Promise Fulfilled",
+   "url": "https://ascensionpress.com/blogs/articles/the-story-of-salvation-gods-primordial-promise-fulfilled",
+   "refs": [
+    "2 Samuel 7"
+   ],
+   "tags": [
+    "davidic-covenant",
+    "salvation-history"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Understanding the Annunciation",
+   "url": "https://stpaulcenter.com/posts/understanding-the-annunciation",
+   "refs": [
+    "2 Samuel 7"
+   ],
+   "tags": [
+    "davidic-covenant",
+    "annunciation"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-productions",
+   "type": "article",
+   "title": "The Nativity of the Lord (Year B)",
+   "url": "https://catholicproductions.com/blogs/mass-readings-explained-year-b/the-nativity-of-the-lord",
+   "refs": [
+    "2 Samuel 7"
+   ],
+   "tags": [
+    "davidic-covenant",
+    "nativity",
+    "brant-pitre"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-productions",
+   "type": "article",
+   "title": "Why Did Jesus Teach in Parables? Jesus, the New Solomon",
+   "url": "https://catholicproductions.com/blogs/blog/jesus-the-new-solomon",
+   "refs": [
+    "1 Kings 3",
+    "1 Kings 4",
+    "1 Kings 8"
+   ],
+   "tags": [
+    "solomon",
+    "wisdom",
+    "temple"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "article",
+   "title": "The Tiny, Whispering Sound (Bishop Barron)",
+   "url": "https://www.wordonfire.org/articles/barron/the-tiny-whispering-sound/",
+   "refs": [
+    "1 Kings 19"
+   ],
+   "tags": [
+    "elijah",
+    "bishop-barron"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "John the Baptist: In the Spirit and Power of Elijah",
+   "url": "https://stpaulcenter.com/posts/john-the-baptist-in-the-spirit-and-power-of-elijah",
+   "refs": [
+    "1 Kings 17",
+    "1 Kings 18",
+    "1 Kings 19",
+    "2 Kings 2"
+   ],
+   "tags": [
+    "elijah",
+    "john-the-baptist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "Divided Kingdom, Exile and Return",
+   "url": "https://ascensionpress.com/blogs/articles/divided-kingdom-exile-return",
+   "refs": [
+    "1 Kings 12",
+    "2 Kings 17",
+    "2 Kings 25",
+    "Ezra 1",
+    "Nehemiah 1"
+   ],
+   "tags": [
+    "exile",
+    "return",
+    "divided-kingdom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "formed",
+   "type": "video",
+   "title": "Ezra-Nehemiah (Bible Project Overview)",
+   "url": "https://watch.formed.org/videos/ezra-nehemiah-old-testament-book-overviews-the-bible-project",
+   "refs": [
+    "Ezra 1",
+    "Nehemiah 1"
+   ],
+   "tags": [
+    "ezra",
+    "nehemiah",
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "formed",
+   "type": "video",
+   "title": "Book of Tobit Summary",
+   "url": "https://watch.formed.org/old-testament-book-overviews-the-bible-project/videos/book-of-tobit-summary",
+   "refs": [
+    "Tobit 1"
+   ],
+   "tags": [
+    "tobit",
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "formed",
+   "type": "video",
+   "title": "Book of Esther (Second Edition)",
+   "url": "https://watch.formed.org/the-deuterocanon-bible-project/season:1/videos/book-of-esther-second-edition",
+   "refs": [
+    "Esther 1"
+   ],
+   "tags": [
+    "esther",
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "formed",
+   "type": "video",
+   "title": "The Bible Collection - Esther",
+   "url": "https://watch.formed.org/the-bible-collection-esther",
+   "refs": [
+    "Esther 1"
+   ],
+   "tags": [
+    "esther",
+    "film"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "podcast",
+   "title": "The Courage and Prudence of Queen Esther",
+   "url": "https://media.ascensionpress.com/video/the-courage-prudence-of-queen-esther-w-dcn-bob-rice/",
+   "refs": [
+    "Esther 4"
+   ],
+   "tags": [
+    "esther",
+    "jeff-cavins"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Queen Esther and the Feminine Genius",
+   "url": "https://stpaulcenter.com/posts/queen-esther-and-the-feminine-genius",
+   "refs": [
+    "Esther 4"
+   ],
+   "tags": [
+    "esther",
+    "women"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Esther",
+   "url": "https://www.ewtn.com/catholicism/library/esther-10533",
+   "refs": [
+    "Esther 1"
+   ],
+   "tags": [
+    "esther",
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "How to Explain Purgatory to Protestants",
+   "url": "https://www.ewtn.com/catholicism/library/how-to-explain-purgatory-to-protestants-1037",
+   "refs": [
+    "2 Maccabees 12"
+   ],
+   "tags": [
+    "purgatory",
+    "prayer-for-the-dead"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "What is the Basis for Belief in Purgatory?",
+   "url": "https://www.ewtn.com/catholicism/library/what-is-the-basis-for-belief-in-purgatory-952",
+   "refs": [
+    "2 Maccabees 12"
+   ],
+   "tags": [
+    "purgatory"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "Library: Prayer for the Dead",
+   "url": "https://www.catholicculture.org/culture/library/view.cfm?id=7858",
+   "refs": [
+    "2 Maccabees 12"
+   ],
+   "tags": [
+    "purgatory",
+    "prayer-for-the-dead"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "Purgatory in Scripture: New Developments",
+   "url": "https://www.catholicculture.org/commentary/purgatory-in-scripture-new-developments/",
+   "refs": [
+    "2 Maccabees 12"
+   ],
+   "tags": [
+    "purgatory"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Summa Theologiae: The suffrages for the dead (Supplementum, Q. 71)",
+   "url": "https://www.newadvent.org/summa/5071.htm",
+   "refs": [
+    "2 Maccabees 12"
+   ],
+   "tags": [
+    "purgatory",
+    "prayer-for-the-dead"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "podcast",
+   "title": "The Fires of Purgatory",
+   "url": "https://ascensionpress.com/blogs/podcasts/the-fires-of-purgatory",
+   "refs": [
+    "2 Maccabees 12"
+   ],
+   "tags": [
+    "purgatory"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "1 Maccabees 4 (rededication of the altar, origin of Hanukkah)",
+   "url": "https://bible.usccb.org/bible/1maccabees/4",
+   "refs": [
+    "1 Maccabees 4"
+   ],
+   "tags": [
+    "hanukkah",
+    "maccabees"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "Joshua - Introduction",
+   "url": "https://bible.usccb.org/bible/joshua/0",
+   "refs": [
+    "Joshua 6"
+   ],
+   "tags": [
+    "joshua",
+    "conquest",
+    "herem"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Catholics and Evolution (Trent Horn)",
+   "url": "https://www.catholic.com/video/catholics-and-evolution",
+   "refs": [
+    "Genesis 1",
+    "Genesis 2"
+   ],
+   "tags": [
+    "creation",
+    "evolution",
+    "trent-horn"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Is the Exodus Historical? (Trent Horn, Counsel of Trent)",
+   "url": "https://www.catholic.com/audio/cot/is-the-exodus-historical",
+   "refs": [
+    "Exodus 1",
+    "Exodus 12"
+   ],
+   "tags": [
+    "exodus",
+    "history"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "What Is the Mark of the Beast (a.k.a. 666) with Jimmy Akin",
+   "url": "https://www.catholic.com/audio/cot/what-is-the-mark-of-the-beast-a-k-a-666-with-jimmy-akin",
+   "refs": [
+    "Revelation 13"
+   ],
+   "tags": [
+    "revelation",
+    "beast",
+    "666"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "video",
+   "title": "Who Is the Beast of Revelation? (Video)",
+   "url": "https://jimmyakin.com/?p=12798",
+   "refs": [
+    "Revelation 13",
+    "Revelation 17"
+   ],
+   "tags": [
+    "revelation",
+    "beast"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "podcast",
+   "title": "The Mysterious Nephilim of the Bible: Aliens, Angels, or Something Else? (Jimmy Akin's Mysterious World)",
+   "url": "https://jimmyakin.com/2020/03/the-mysterious-nephilim-of-the-bible-aliens-angels-or-something-else-jimmy-akins-mysterious-world.html",
+   "refs": [
+    "Genesis 6:1-4"
+   ],
+   "tags": [
+    "nephilim",
+    "genesis"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "podcast",
+   "title": "The Book of Revelation with Jay Aruga and Unboxing Catholicism (Jimmy Akin's Mysterious World)",
+   "url": "https://jimmyakin.com/2023/09/the-book-of-revelation-with-jay-aruga-and-unboxing-catholicism-podcasts-jimmy-akins-mysterious-world.html",
+   "refs": [
+    "Revelation 13"
+   ],
+   "tags": [
+    "revelation",
+    "antichrist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "The Servant(s) of God in Isaiah",
+   "url": "https://jimmyakin.com/2018/11/the-servants-of-god-in-isaiah.html",
+   "refs": [
+    "Isaiah 52:13-53:12",
+    "Isaiah 42:1-9"
+   ],
+   "tags": [
+    "servant",
+    "isaiah"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "A Virgin Shall Conceive",
+   "url": "https://www.catholic.com/audio/ddp/a-virgin-shall-conceive",
+   "refs": [
+    "Isaiah 7:14",
+    "Matthew 1:23"
+   ],
+   "tags": [
+    "virgin-birth",
+    "prophecy"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Are We Born Sinners? (Karlo Broussard)",
+   "url": "https://www.catholic.com/video/are-we-born-sinners",
+   "refs": [
+    "Romans 5:12"
+   ],
+   "tags": [
+    "original-sin",
+    "adam"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "The Paschal Mystery and the Eucharist",
+   "url": "https://www.catholic.com/video/the-paschal-mystery-and-the-eucharist",
+   "refs": [
+    "John 6:53",
+    "Exodus 12"
+   ],
+   "tags": [
+    "eucharist",
+    "passover"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "formed",
+   "type": "video",
+   "title": "Jesus and the Jewish Roots of the Eucharist by Dr. Brant Pitre",
+   "url": "https://watch.formed.org/videos/jesus-and-the-jewish-roots-of-the-eucharist",
+   "refs": [
+    "Luke 22:14-20",
+    "John 6:30-58",
+    "Exodus 12"
+   ],
+   "tags": [
+    "last-supper",
+    "eucharist",
+    "manna"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-productions",
+   "type": "video",
+   "title": "Jesus and the Last Supper",
+   "url": "https://catholicproductions.com/blogs/blog/jesus-and-the-last-supper-video",
+   "refs": [
+    "Luke 22:14-20",
+    "Matthew 26:26-29"
+   ],
+   "tags": [
+    "last-supper",
+    "eucharist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-productions",
+   "type": "video",
+   "title": "When Was the Last Supper? Its Dating and the Passover",
+   "url": "https://catholicproductions.com/blogs/blog/the-dating-of-the-last-supper-interview",
+   "refs": [
+    "Mark 14:12-25",
+    "John 13:1"
+   ],
+   "tags": [
+    "last-supper",
+    "passover"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-productions",
+   "type": "article",
+   "title": "Holy Week Timeline: The Jewish Roots of Jesus' Last Days",
+   "url": "https://catholicproductions.com/blogs/blog/the-jewish-roots-of-holy-week",
+   "refs": [
+    "Matthew 26",
+    "John 19"
+   ],
+   "tags": [
+    "holy-week",
+    "passover"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "formed",
+   "type": "video",
+   "title": "The Lamb's Supper by Dr. Scott Hahn",
+   "url": "https://watch.formed.org/videos/the-lamb-s-supper-by-dr-scott-hahn",
+   "refs": [
+    "Revelation 5",
+    "Revelation 19:9"
+   ],
+   "tags": [
+    "revelation",
+    "mass",
+    "lamb"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "Bishop Barron on the Resurrection of Jesus",
+   "url": "https://www.wordonfire.org/videos/bishop-barrons-commentaries/bishop-barron-on-the-resurrection-of-jesus/",
+   "refs": [
+    "John 20",
+    "1 Corinthians 15"
+   ],
+   "tags": [
+    "resurrection"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "The Resurrection of Jesus (Bishop Barron commentary)",
+   "url": "https://www.wordonfire.org/videos/bishop-barrons-commentaries/the-resurrection-of-jesus/",
+   "refs": [
+    "John 20",
+    "Luke 24"
+   ],
+   "tags": [
+    "resurrection"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "Bishop Barron on the Meaning of the Resurrection",
+   "url": "https://www.youtube.com/watch?v=rZ9WT3o94a8",
+   "refs": [
+    "John 20",
+    "1 Corinthians 15"
+   ],
+   "tags": [
+    "resurrection"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "Misreading Genesis (Bishop Barron)",
+   "url": "https://www.wordonfire.org/resources/video/misreading-genesis/174/",
+   "refs": [
+    "Genesis 1",
+    "Genesis 2"
+   ],
+   "tags": [
+    "creation",
+    "genesis"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "The Lord's Prayer (Bishop Barron sermon)",
+   "url": "https://www.wordonfire.org/videos/sermons/the-lords-prayer/",
+   "refs": [
+    "Matthew 6:9-13",
+    "Luke 11:1-4"
+   ],
+   "tags": [
+    "lords-prayer",
+    "prayer"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "The Prodigal Son (Bishop Barron sermon)",
+   "url": "https://www.wordonfire.org/videos/sermons/the-prodigal-son/",
+   "refs": [
+    "Luke 15:11-32"
+   ],
+   "tags": [
+    "parable",
+    "prodigal-son"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "word-on-fire",
+   "type": "video",
+   "title": "The Adventure of Salvation (Bishop Barron sermon on Abraham and the Transfiguration)",
+   "url": "https://www.wordonfire.org/videos/sermons/the-adventure-of-salvation/",
+   "refs": [
+    "Genesis 12:1-4",
+    "Matthew 17:1-9"
+   ],
+   "tags": [
+    "abraham",
+    "transfiguration"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "video",
+   "title": "Mary: Mother of God (Edward Sri)",
+   "url": "https://ascensionpress.com/blogs/videos/mary-mother-of-god",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "tags": [
+    "annunciation",
+    "mary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "podcast",
+   "title": "Mary's Fiat: Trusting God in the Unexpected",
+   "url": "https://ascensionpress.com/blogs/podcasts/marys-fiat-trusting-god-in-the-unexpected",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "tags": [
+    "annunciation",
+    "mary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "podcast",
+   "title": "The Immaculate Conception: Meeting God in Our Lowest Parts",
+   "url": "https://ascensionpress.com/blogs/podcasts/the-immaculate-conception-meeting-god-in-our-lowest-parts",
+   "refs": [
+    "Luke 1:28"
+   ],
+   "tags": [
+    "annunciation",
+    "full-of-grace"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "Hail, Full of Grace: The Immaculate Conception Explained",
+   "url": "https://ascensionpress.com/blogs/articles/hail-full-grace-immaculate-conception-explained",
+   "refs": [
+    "Luke 1:28"
+   ],
+   "tags": [
+    "annunciation",
+    "full-of-grace"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "podcast",
+   "title": "Day 001 (Genesis 1-3) - The Bible in a Year with Fr. Mike Schmitz",
+   "url": "https://play.anghami.com/episode/1193443935",
+   "refs": [
+    "Genesis 1",
+    "Genesis 2",
+    "Genesis 3"
+   ],
+   "tags": [
+    "creation",
+    "fall"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "fr-mike-schmitz",
+   "type": "podcast",
+   "title": "S5 Day 4: Genesis 10-12 (The Bible in a Year)",
+   "url": "https://play.anghami.com/episode/1250393548",
+   "refs": [
+    "Genesis 10",
+    "Genesis 11",
+    "Genesis 12"
+   ],
+   "tags": [
+    "babel",
+    "abraham"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "fr-mike-schmitz",
+   "type": "podcast",
+   "title": "S5 Day 15: Genesis 43-45 (The Bible in a Year)",
+   "url": "https://play.anghami.com/episode/1252395938",
+   "refs": [
+    "Genesis 43",
+    "Genesis 44",
+    "Genesis 45"
+   ],
+   "tags": [
+    "joseph"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "How Can Christ's Sufferings Lack Anything?",
+   "url": "https://www.catholic.com/qa/how-can-christs-sufferings-lack-anything",
+   "refs": [
+    "Colossians 1:24"
+   ],
+   "tags": [
+    "suffering",
+    "redemption"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "If Christ died once for all, why do we need redemptive suffering souls?",
+   "url": "https://www.catholic.com/qa/my-friend-said-that-christ-died-once-for-all-so-we-dont-need-redemptive-suffering-souls-how",
+   "refs": [
+    "Colossians 1:24"
+   ],
+   "tags": [
+    "suffering",
+    "redemption"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Hope through Suffering",
+   "url": "https://www.catholic.com/magazine/online-edition/hope-through-suffering",
+   "refs": [
+    "Colossians 1:24"
+   ],
+   "tags": [
+    "suffering"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "podcast",
+   "title": "How Can We Rejoice in Our Sufferings? - Colossians 1:24",
+   "url": "https://ascensionpress.com/blogs/podcasts/how-can-we-rejoice-in-our-sufferings-colossians-124",
+   "refs": [
+    "Colossians 1:24"
+   ],
+   "tags": [
+    "suffering"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Epistle of St. Paul to the Colossians",
+   "url": "https://www.ewtn.com/catholicism/library/epistle-of-st-paul-to-the-colossians-12281",
+   "refs": [
+    "Colossians 1:1-4:18"
+   ],
+   "tags": [
+    "commentary",
+    "haydock"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Philippians, Colossians, and Philemon",
+   "url": "https://www.catholic.com/magazine/print-edition/philippians-colossians-philemon",
+   "refs": [
+    "Philippians 1:1-4:23",
+    "Colossians 1:1-4:18",
+    "Philemon 1:1-25"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Slavery and the New Testament",
+   "url": "https://www.catholic.com/magazine/print-edition/slavery-and-the-new-testament",
+   "refs": [
+    "Philemon 1:1-25"
+   ],
+   "tags": [
+    "slavery"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Philemon",
+   "url": "https://www.catholic.com/encyclopedia/philemon",
+   "refs": [
+    "Philemon 1:1-25"
+   ],
+   "tags": [
+    "catholic-encyclopedia"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "The Letter to Philemon - Daily Readings",
+   "url": "https://bible.usccb.org/bible/philemon/0",
+   "refs": [
+    "Philemon 1:1-25"
+   ],
+   "tags": [
+    "bible-text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "A Necessary Bondage? When the Church Endorsed Slavery",
+   "url": "https://www.catholicculture.org/culture/library/view.cfm?recnum=6765",
+   "refs": [
+    "Philemon 1:1-25"
+   ],
+   "tags": [
+    "slavery"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Epistle of St. Paul to the Galatians",
+   "url": "https://www.ewtn.com/catholicism/library/epistle-of-st-paul-to-the-galatians-12327",
+   "refs": [
+    "Galatians 1:1-6:18"
+   ],
+   "tags": [
+    "commentary",
+    "haydock"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Epistle to the Galatians (Catholic Encyclopedia)",
+   "url": "https://www.newadvent.org/cathen/06336a.htm",
+   "refs": [
+    "Galatians 1:1-6:18"
+   ],
+   "tags": [
+    "catholic-encyclopedia"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Galatians 2:16 and Sola Fide",
+   "url": "https://www.catholic.com/magazine/online-edition/galatians-216-and-sola-fide",
+   "refs": [
+    "Galatians 2:16"
+   ],
+   "tags": [
+    "justification",
+    "faith-and-works"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Works of the Law",
+   "url": "https://www.ewtn.com/catholicism/library/works-of-the-law-1181",
+   "refs": [
+    "Galatians 2:1-3:29"
+   ],
+   "tags": [
+    "justification",
+    "works-of-the-law"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Works of the Law",
+   "url": "https://www.catholic.com/audio/ddp/works-of-the-law",
+   "refs": [
+    "Galatians 2:1-3:29"
+   ],
+   "tags": [
+    "justification",
+    "works-of-the-law"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "Galatians: The radical shift from Judaism to Christianity",
+   "url": "https://www.catholicculture.org/commentary/galatians-radical-shift-from-judaism-to-christianity/",
+   "refs": [
+    "Galatians 1:1-6:18"
+   ],
+   "tags": [
+    "commentary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "John Chrysostom - Commentary on Galatians",
+   "url": "https://www.ewtn.com/catholicism/library/commentary-on-galatians-11700",
+   "refs": [
+    "Galatians 1:1-6:18"
+   ],
+   "tags": [
+    "fathers",
+    "chrysostom"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "James, \"Lord's Brother\" (Galatians 1:18-19)",
+   "url": "https://www.catholic.com/qa/james-lords-brother-galatians-118-19",
+   "refs": [
+    "Galatians 1:18-19"
+   ],
+   "tags": [
+    "brothers-of-the-lord",
+    "mary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "The Brethren of the Lord (Catholic Encyclopedia)",
+   "url": "https://www.newadvent.org/cathen/02767a.htm",
+   "refs": [
+    "Galatians 1:18-19"
+   ],
+   "tags": [
+    "brothers-of-the-lord"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "formed",
+   "type": "video",
+   "title": "Bible Study: Galatians",
+   "url": "https://watch.formed.org/bible-study-galatians",
+   "refs": [
+    "Galatians 1:1-6:18"
+   ],
+   "tags": [
+    "bible-study",
+    "michael-barber"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "formed",
+   "type": "video",
+   "title": "Bible Study on Galatians: Chapters 1:10-2:10",
+   "url": "https://watch.formed.org/formed-now-1/season:1/videos/bible-study-galatians-part-2",
+   "refs": [
+    "Galatians 1:10-2:10"
+   ],
+   "tags": [
+    "bible-study"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "formed",
+   "type": "video",
+   "title": "Bible Study on Galatians: Chapter 3:1-18",
+   "url": "https://watch.formed.org/videos/bible-study-galatians-part-4",
+   "refs": [
+    "Galatians 3:1-18"
+   ],
+   "tags": [
+    "bible-study"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "formed",
+   "type": "video",
+   "title": "Bible Study on Galatians: Chapter 4:21-31",
+   "url": "https://watch.formed.org/formed-now-1/season:1/videos/bible-study-galatians-part-7",
+   "refs": [
+    "Galatians 4:21-31"
+   ],
+   "tags": [
+    "bible-study"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "What is the Church's Teaching on Ephesians 2:8-10?",
+   "url": "https://www.catholic.com/qa/what-is-the-churchs-teaching-on-ephesians-28-10",
+   "refs": [
+    "Ephesians 2:8-10"
+   ],
+   "tags": [
+    "grace",
+    "faith-and-works"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Faith and Works: Understanding Ephesians 2:8-9",
+   "url": "https://www.catholic.com/magazine/print-edition/faith-and-works",
+   "refs": [
+    "Ephesians 2:8-9"
+   ],
+   "tags": [
+    "grace",
+    "faith-and-works"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Wives Be Subject to Your Husbands",
+   "url": "https://www.catholic.com/magazine/print-edition/wives-be-subject-to-your-husbands",
+   "refs": [
+    "Ephesians 5:21-33"
+   ],
+   "tags": [
+    "marriage",
+    "submission"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Should Wives Submit to their Husbands?",
+   "url": "https://www.catholic.com/video/should-wives-submit-to-their-husbands",
+   "refs": [
+    "Ephesians 5:21-33"
+   ],
+   "tags": [
+    "marriage",
+    "submission"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Authority and Submission in Marriage, Done Right",
+   "url": "https://www.catholic.com/magazine/online-edition/authority-in-the-family",
+   "refs": [
+    "Ephesians 5:21-33"
+   ],
+   "tags": [
+    "marriage"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "video",
+   "title": "What it Means to Submit to Your Husband",
+   "url": "https://media.ascensionpress.com/video/what-it-means-to-submit-to-your-husband/",
+   "refs": [
+    "Ephesians 5:21-33"
+   ],
+   "tags": [
+    "marriage",
+    "submission"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "An orthodox reading of \"mutual subjection\" in marriage",
+   "url": "https://www.catholicculture.org/commentary/orthodox-reading-mutual-subjection-in-marriage/",
+   "refs": [
+    "Ephesians 5:21-33"
+   ],
+   "tags": [
+    "marriage"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Wives, Be Submissive to Your Husbands...?",
+   "url": "https://www.ewtn.com/catholicism/library/wives-be-submissive-to-your-husbands-5026",
+   "refs": [
+    "Ephesians 5:21-33"
+   ],
+   "tags": [
+    "marriage",
+    "submission"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "scott-hahn",
+   "type": "page",
+   "title": "Ignatius Catholic Study Bible: Galatians and Ephesians",
+   "url": "https://www.scotthahn.com/resources-1/2015/4/20/ignatius-catholic-study-bible-the-letters-of-st-paul-to-the-galatians-and-to-the-ephesians",
+   "refs": [
+    "Galatians 1:1-6:18",
+    "Ephesians 1:1-6:24"
+   ],
+   "tags": [
+    "study-bible"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The One Who \"Emptied Himself\"",
+   "url": "https://www.ewtn.com/catholicism/library/one-who-emptied-himself-23920",
+   "refs": [
+    "Philippians 2:5-11"
+   ],
+   "tags": [
+    "kenosis",
+    "incarnation"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "page",
+   "title": "Dictionary: Kenosis",
+   "url": "https://www.catholicculture.org/culture/library/dictionary/index.cfm?id=34432",
+   "refs": [
+    "Philippians 2:5-11"
+   ],
+   "tags": [
+    "kenosis"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "article",
+   "title": "Kenosis (Catholic Encyclopedia)",
+   "url": "https://www.newadvent.org/cathen/08617a.htm",
+   "refs": [
+    "Philippians 2:5-11"
+   ],
+   "tags": [
+    "kenosis"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "The Incarnation of God",
+   "url": "https://www.catholic.com/audio/caf/the-incarnation-of-god",
+   "refs": [
+    "Philippians 2:5-11"
+   ],
+   "tags": [
+    "incarnation"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Jesus: Firstborn or Creator?",
+   "url": "https://www.catholic.com/audio/scw/jesus-firstborn-or-creator-love-salvation-and-the-good-samaritan-15th-sunday-year-c",
+   "refs": [
+    "Colossians 1:15-20"
+   ],
+   "tags": [
+    "christology"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "tract",
+   "title": "The Rapture",
+   "url": "https://www.catholic.com/tract/the-rapture",
+   "refs": [
+    "1 Thessalonians 4:13-5:11",
+    "Revelation 20:1-15"
+   ],
+   "tags": [
+    "rapture",
+    "end-times"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Can Catholics Believe in the Rapture?",
+   "url": "https://www.catholic.com/video/can-catholics-believe-in-the-rapture",
+   "refs": [
+    "1 Thessalonians 4:13-18"
+   ],
+   "tags": [
+    "rapture"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Debunking the Pre-Tribulation Rapture",
+   "url": "https://www.catholic.com/audio/scw/debunking-the-pre-tribulation-rapture",
+   "refs": [
+    "1 Thessalonians 4:13-18"
+   ],
+   "tags": [
+    "rapture"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "video",
+   "title": "Is the Rapture Real? Here's What Most People Miss",
+   "url": "https://www.catholic.com/video/is-the-rapture-real-heres-what-most-people-miss",
+   "refs": [
+    "1 Thessalonians 4:13-18"
+   ],
+   "tags": [
+    "rapture"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Answering the Rapture Challenge",
+   "url": "https://www.catholic.com/magazine/online-edition/answering-the-rapture-challenge",
+   "refs": [
+    "1 Thessalonians 4:13-18",
+    "2 Thessalonians 2:1-12"
+   ],
+   "tags": [
+    "rapture"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Should Catholics Believe in \"the Rapture\"?",
+   "url": "https://www.catholic.com/audio/cot/should-catholics-believe-in-the-rapture",
+   "refs": [
+    "1 Thessalonians 4:13-18"
+   ],
+   "tags": [
+    "rapture"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Meeting the Rapture Challenge",
+   "url": "https://catholic.com/audio/caf/meeting-the-rapture-challenge",
+   "refs": [
+    "1 Thessalonians 4:13-18"
+   ],
+   "tags": [
+    "rapture"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "What Is the Catholic View of the Rapture?",
+   "url": "https://stpaulcenter.com/posts/what-is-the-catholic-view-of-the-rapture",
+   "refs": [
+    "1 Thessalonians 4:13-18",
+    "Revelation 20:1-15"
+   ],
+   "tags": [
+    "rapture",
+    "millennium"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "Five Myths About the Rapture",
+   "url": "https://www.catholicculture.org/culture/library/view.cfm?recnum=5788",
+   "refs": [
+    "1 Thessalonians 4:13-18"
+   ],
+   "tags": [
+    "rapture"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "What Does a Catholic Reading of the Bible Tell Us About the Antichrist?",
+   "url": "https://stpaulcenter.com/posts/what-does-a-catholic-reading-of-the-bible-tell-us-about-the-antichrist",
+   "refs": [
+    "2 Thessalonians 2:1-17"
+   ],
+   "tags": [
+    "antichrist",
+    "man-of-lawlessness"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "Who Is the Antichrist?",
+   "url": "https://www.catholic.com/audio/tjap/who-is-the-antichrist",
+   "refs": [
+    "2 Thessalonians 2:1-17"
+   ],
+   "tags": [
+    "antichrist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Not Just Antichrist-Antichrists!",
+   "url": "https://www.catholic.com/magazine/online-edition/how-to-defeat-the-antichrist",
+   "refs": [
+    "2 Thessalonians 2:1-17"
+   ],
+   "tags": [
+    "antichrist"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Timothy and Titus",
+   "url": "https://www.catholic.com/magazine/print-edition/timothy-and-titus",
+   "refs": [
+    "1 Timothy 1:1-6:21",
+    "2 Timothy 1:1-4:22",
+    "Titus 1:1-3:15"
+   ],
+   "tags": [
+    "pastoral-epistles",
+    "bishops"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Biblical Evidence for Apostolic Succession",
+   "url": "https://www.catholic.com/magazine/print-edition/the-biblical-evidence-for-apostolic-succession",
+   "refs": [
+    "2 Timothy 2:1-26",
+    "Titus 1:1-16"
+   ],
+   "tags": [
+    "apostolic-succession"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Second Epistle of St. Paul to Timothy",
+   "url": "https://www.ewtn.com/catholicism/library/second-epistle-of-st-paul-to-timothy-12238",
+   "refs": [
+    "2 Timothy 1:1-4:22"
+   ],
+   "tags": [
+    "commentary",
+    "haydock"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "St Paul (19): Theological Vision of Pastoral Letters",
+   "url": "https://www.catholicculture.org/culture/library/view.cfm?recnum=8741",
+   "refs": [
+    "1 Timothy 1:1-6:21",
+    "2 Timothy 1:1-4:22",
+    "Titus 1:1-3:15"
+   ],
+   "tags": [
+    "pastoral-epistles"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "The Biblical Foundations of the Priesthood",
+   "url": "https://stpaulcenter.com/posts/the-biblical-foundations-of-the-priesthood",
+   "refs": [
+    "Hebrews 5:1-7:28",
+    "1 Timothy 3:1-13"
+   ],
+   "tags": [
+    "priesthood"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Epistle of St. Paul to the Hebrews",
+   "url": "https://www.ewtn.com/catholicism/library/epistle-of-st-paul-to-the-hebrews-12337",
+   "refs": [
+    "Hebrews 1:1-13:25"
+   ],
+   "tags": [
+    "commentary",
+    "haydock"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Priest According to the Order of Melchisedech",
+   "url": "https://www.ewtn.com/catholicism/library/priest-according-to-the-order-of-melchisedech-11937",
+   "refs": [
+    "Hebrews 5:1-7:28"
+   ],
+   "tags": [
+    "melchizedek",
+    "priesthood"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "podcast",
+   "title": "Hebrews: An Inside Look at the Mass",
+   "url": "https://media.ascensionpress.com/podcast/hebrews-an-inside-look-at-the-mass/",
+   "refs": [
+    "Hebrews 1:1-13:25"
+   ],
+   "tags": [
+    "mass",
+    "sacrifice"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "Hebrews: A Catechism in Miniature",
+   "url": "https://ascensionpress.com/blogs/articles/hebrews-a-catechism-in-miniature",
+   "refs": [
+    "Hebrews 1:1-13:25"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Victim and Priest: Christ's Sacrifice in the Eucharist",
+   "url": "https://stpaulcenter.com/posts/victim-and-priest-christs-sacrifice-in-the-eucharist",
+   "refs": [
+    "Hebrews 7:1-10:18"
+   ],
+   "tags": [
+    "eucharist",
+    "sacrifice"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "The One and Only Sacrifice of the Mass",
+   "url": "https://www.catholic.com/audio/scw/the-one-and-only-sacrifice-of-the-mass",
+   "refs": [
+    "Hebrews 7:1-10:18"
+   ],
+   "tags": [
+    "mass",
+    "sacrifice"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "The Todah Sacrifice as Pattern for the Eucharist",
+   "url": "https://www.catholicculture.org/culture/library/view.cfm?recnum=8368",
+   "refs": [
+    "Hebrews 13:1-25"
+   ],
+   "tags": [
+    "eucharist",
+    "todah"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "The Christian Liturgy as 'Sacrifice of Praise' in the Epistle to the Hebrews",
+   "url": "https://www.catholicculture.org/culture/library/view.cfm?recnum=11345",
+   "refs": [
+    "Hebrews 13:1-25"
+   ],
+   "tags": [
+    "liturgy"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Justification in James 2",
+   "url": "https://origin.ewtn.com/catholicism/library/justification-in-james-2-1057",
+   "refs": [
+    "James 2:14-26"
+   ],
+   "tags": [
+    "justification",
+    "jimmy-akin"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Catholic Epistle of St. James the Apostle",
+   "url": "https://www.ewtn.com/catholicism/library/catholic-epistle-of-st-james-the-apostle-12348",
+   "refs": [
+    "James 1:1-5:20"
+   ],
+   "tags": [
+    "commentary",
+    "haydock"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "The Anointing of the Sick",
+   "url": "https://www.catholic.com/audio/ddp/the-anointing-of-the-sick-2",
+   "refs": [
+    "James 5:13-15"
+   ],
+   "tags": [
+    "anointing-of-the-sick"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "What Is the Anointing of the Sick? Catholic Guide to the Sacrament of Healing",
+   "url": "https://ascensionpress.com/blogs/articles/what-is-the-anointing-of-the-sick-catholic-guide-to-the-sacrament-of-healing",
+   "refs": [
+    "James 5:13-15"
+   ],
+   "tags": [
+    "anointing-of-the-sick"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "We Infer the Apostles Practiced Confession",
+   "url": "https://www.catholic.com/qa/we-infer-the-apostles-practiced-confession",
+   "refs": [
+    "James 5:13-20"
+   ],
+   "tags": [
+    "confession"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "usccb",
+   "type": "page",
+   "title": "James, Chapter 5",
+   "url": "https://bible.usccb.org/bible/james/5",
+   "refs": [
+    "James 5:1-20"
+   ],
+   "tags": [
+    "bible-text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "First Epistle of St. Peter the Apostle",
+   "url": "https://www.ewtn.com/catholicism/library/first-epistle-of-st-peter-the-apostle-12225",
+   "refs": [
+    "1 Peter 1:1-5:14"
+   ],
+   "tags": [
+    "commentary",
+    "haydock"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "page",
+   "title": "1 Peter 3:21 Necessity of Baptism (Bible Navigator)",
+   "url": "https://www.catholic.com/bible-navigator/necessity-of-baptism/1peter321",
+   "refs": [
+    "1 Peter 3:21"
+   ],
+   "tags": [
+    "baptism"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "How Baptism Saves Us",
+   "url": "https://www.catholic.com/qa/how-baptism-saves-us",
+   "refs": [
+    "1 Peter 3:18-22"
+   ],
+   "tags": [
+    "baptism"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Second Epistle of St. Peter the Apostle",
+   "url": "https://www.ewtn.com/catholicism/library/second-epistle-of-st-peter-the-apostle-12235",
+   "refs": [
+    "2 Peter 1:1-3:18"
+   ],
+   "tags": [
+    "commentary",
+    "haydock"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "He Had Heard the Voice from Heaven",
+   "url": "https://www.catholic.com/magazine/print-edition/he-had-heard-the-voice-from-heaven",
+   "refs": [
+    "2 Peter 1:16-21"
+   ],
+   "tags": [
+    "scripture",
+    "interpretation"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "The Problem of Personal Interpretation",
+   "url": "https://www.catholic.com/audio/sp/the-problem-of-personal-interpretation",
+   "refs": [
+    "2 Peter 1:16-21"
+   ],
+   "tags": [
+    "scripture",
+    "interpretation"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "Catholic Epistle of St. Jude the Apostle",
+   "url": "https://www.ewtn.com/catholicism/library/catholic-epistle-of-st-jude-the-apostle-12359",
+   "refs": [
+    "Jude 1:1-25"
+   ],
+   "tags": [
+    "commentary",
+    "haydock"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "new-advent",
+   "type": "page",
+   "title": "Holy Bible: Jude",
+   "url": "https://www.newadvent.org/bible/jud001.htm",
+   "refs": [
+    "Jude 1:1-25"
+   ],
+   "tags": [
+    "bible-text"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Apocrypha",
+   "url": "https://www.catholic.com/encyclopedia/apocrypha",
+   "refs": [
+    "Jude 1:9-15"
+   ],
+   "tags": [
+    "enoch",
+    "apocrypha"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Book of Revelation",
+   "url": "https://www.catholic.com/magazine/print-edition/apocalypse",
+   "refs": [
+    "Revelation 1:1-22:21"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "podcast",
+   "title": "The Book of Revelation",
+   "url": "https://www.catholic.com/audio/tjap/the-book-of-revelation",
+   "refs": [
+    "Revelation 1:1-22:21"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Time Is Near",
+   "url": "https://www.catholic.com/magazine/print-edition/the-time-is-near",
+   "refs": [
+    "Revelation 1:1-22:21"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "The Structure of Revelation",
+   "url": "https://www.ewtn.com/catholicism/library/structure-of-revelation-12436",
+   "refs": [
+    "Revelation 1:1-22:21"
+   ],
+   "tags": [
+    "structure"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "How Do I Make Sense of the Book of Revelation?",
+   "url": "https://stpaulcenter.com/posts/how-do-i-make-sense-of-the-book-of-revelation",
+   "refs": [
+    "Revelation 1:1-22:21"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Read the Book of Revelation for Your Daily Dose of Hope",
+   "url": "https://stpaulcenter.com/posts/read-the-book-of-revelation-for-your-daily-dose-of-hope",
+   "refs": [
+    "Revelation 1:1-22:21"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "The End of the World: What Does the Church Teach?",
+   "url": "https://ascensionpress.com/blogs/articles/the-end-of-the-world-what-does-the-church-teach",
+   "refs": [
+    "Revelation 19:1-22:21"
+   ],
+   "tags": [
+    "end-times"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ascension",
+   "type": "article",
+   "title": "Prophecy and the Catholic Church",
+   "url": "https://ascensionpress.com/blogs/articles/prophecy-and-the-catholic-church",
+   "refs": [
+    "Revelation 20:1-15"
+   ],
+   "tags": [
+    "millennium",
+    "prophecy"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "augustine-institute",
+   "type": "page",
+   "title": "The Book of Revelation (Short Course)",
+   "url": "https://courses.augustineinstitute.org/courses/the-book-of-revelation",
+   "refs": [
+    "Revelation 1:1-22:21"
+   ],
+   "tags": [
+    "course",
+    "michael-barber"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "video",
+   "title": "The Meaning of The Book of Revelation With Jimmy Akin",
+   "url": "https://www.youtube.com/watch?v=e6GjSvKYL9A",
+   "refs": [
+    "Revelation 1:1-22:21"
+   ],
+   "tags": [
+    "overview"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "karlo-broussard",
+   "type": "video",
+   "title": "A Catholic Study of the Book of Revelation (Lesson 1): The Beginning of the Unveiling (Part I)",
+   "url": "https://www.youtube.com/watch?v=noBWDHXS_OQ",
+   "refs": [
+    "Revelation 1:1-3:22"
+   ],
+   "tags": [
+    "bible-study"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "karlo-broussard",
+   "type": "video",
+   "title": "A Catholic Study of the Book of Revelation (Lesson 2): The Letters, Liturgy & a Seal Scroll (Part I)",
+   "url": "https://www.youtube.com/watch?v=uGVSzmhLTfM",
+   "refs": [
+    "Revelation 2:1-5:14"
+   ],
+   "tags": [
+    "bible-study"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "qa",
+   "title": "What is the millennium the television preachers talk so much about?",
+   "url": "https://www.catholic.com/qa/what-is-the-millennium-the-television-preachers-talk-so-much-about",
+   "refs": [
+    "Revelation 20:1-15"
+   ],
+   "tags": [
+    "millennium"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "Millennium and Millenarianism",
+   "url": "https://www.catholic.com/encyclopedia/millennium-and-millenarianism",
+   "refs": [
+    "Revelation 20:1-15"
+   ],
+   "tags": [
+    "millennium",
+    "catholic-encyclopedia"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "page",
+   "title": "Dictionary: Millennium",
+   "url": "https://www.catholicculture.org/culture/library/dictionary/index.cfm?id=34882",
+   "refs": [
+    "Revelation 20:1-15"
+   ],
+   "tags": [
+    "millennium"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "jimmy-akin",
+   "type": "article",
+   "title": "Revelation 12: Who Is the Woman Clothed with the Sun?",
+   "url": "https://jimmyakin.com/2012/09/revelation-12-who-is-the-woman-clothed-with-the-sun.html",
+   "refs": [
+    "Revelation 12:1-17"
+   ],
+   "tags": [
+    "woman-clothed-with-the-sun",
+    "mary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-answers",
+   "type": "article",
+   "title": "The Bible's Mystery Woman",
+   "url": "https://www.catholic.com/magazine/online-edition/the-bibles-mystery-woman",
+   "refs": [
+    "Revelation 12:1-17"
+   ],
+   "tags": [
+    "woman-clothed-with-the-sun",
+    "mary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "catholic-culture",
+   "type": "article",
+   "title": "Clothed With The Sun",
+   "url": "https://www.catholicculture.org/culture/library/view.cfm?recnum=4070",
+   "refs": [
+    "Revelation 12:1-17"
+   ],
+   "tags": [
+    "mary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "ewtn",
+   "type": "article",
+   "title": "What are the 12 stars around Mary's head?",
+   "url": "https://www.ewtn.com/catholicism/seasons-and-feast-days/what-are-the-12-stars-around-marys-head-22586",
+   "refs": [
+    "Revelation 12:1-17"
+   ],
+   "tags": [
+    "mary"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
+  },
+  {
+   "source": "st-paul-center",
+   "type": "article",
+   "title": "Who Are the Different Jameses in the New Testament?",
+   "url": "https://stpaulcenter.com/posts/who-are-the-different-jameses-in-the-new-testament",
+   "refs": [
+    "Galatians 1:18-19",
+    "James 1:1-5:20"
+   ],
+   "tags": [
+    "james"
+   ],
+   "reviewedBy": "Claude (checked title and search-result summary; page not read in full)",
+   "reviewedOn": "2026-10-19",
+   "basis": "title-and-summary"
   }
  ]
 }

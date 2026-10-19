@@ -88,6 +88,14 @@
    "terms": "https://ascensionpress.com/",
    "rights": "link-only",
    "note": "Ascension's Sunday Homilies with Fr. Mike Schmitz podcast feed, published for podcast apps. Used only for episode titles, dates, page links and audio addresses."
+  },
+  {
+   "id": "gutenberg-dr8300",
+   "url": "https://www.gutenberg.org/files/8300/8300-h/8300-h.htm",
+   "file": "douay-rheims-gutenberg-8300.html",
+   "terms": "https://www.gutenberg.org/policy/permission.html",
+   "rights": "public-domain",
+   "note": "Douay-Rheims Bible, Challoner revision (1749-1752) with its annotations, book introductions and chapter summaries; Project Gutenberg e-text #8300. The underlying text is 18th-century; used for Challoner's notes, book introductions and chapter summaries."
   }
  ]
 }

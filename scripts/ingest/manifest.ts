@@ -4,7 +4,7 @@ import { PUBLIC_DATA, writeJson, today } from './lib/util';
 
 /** Lists the study-data files by pack so the app can offer "download for offline use". */
 const PACKS: { id: string; label: string; dirs: string[] }[] = [
-  { id: 'commentary', label: 'Commentary (Haydock, Catena Aurea, Glossa)', dirs: ['commentary'] },
+  { id: 'commentary', label: 'Commentary (Haydock, Challoner, Catena Aurea, Glossa)', dirs: ['commentary'] },
   { id: 'library', label: 'Fathers & saints library', dirs: ['library'] },
   { id: 'links', label: 'Cross-references, resource links, doctrine, Catechism citations', dirs: ['xrefs', 'resources', 'doctrine'] },
   { id: 'media', label: 'Bible in a Year data', dirs: ['media'] },

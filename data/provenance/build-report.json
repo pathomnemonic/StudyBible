@@ -146,6 +146,11 @@
    "books": 66,
    "skippedUnknownBook": 0
   },
+  "challoner": {
+   "notes": 1850,
+   "chapterSummaries": 1293,
+   "bookIntroductions": 71
+  },
   "library.aug-tractates-john": {
    "sections": 124
   },
@@ -177,7 +182,7 @@
    "sections": 97
   },
   "library.lawrence-practice": {
-   "sections": 21
+   "sections": 20
   },
   "library.chrys-acts": {
    "sections": 55
@@ -255,10 +260,103 @@
   "library.john-damascus": {
    "sections": 6
   },
+  "library.chrys-gal": {
+   "sections": 6
+  },
+  "library.chrys-eph": {
+   "sections": 24
+  },
+  "library.chrys-phil": {
+   "sections": 15
+  },
+  "library.chrys-col": {
+   "sections": 12
+  },
+  "library.chrys-1th": {
+   "sections": 11
+  },
+  "library.chrys-2th": {
+   "sections": 4
+  },
+  "library.chrys-1tim": {
+   "sections": 18
+  },
+  "library.chrys-2tim": {
+   "sections": 10
+  },
+  "library.chrys-titus": {
+   "sections": 6
+  },
+  "library.chrys-phlm": {
+   "sections": 3
+  },
+  "library.clement-alex": {
+   "sections": 27
+  },
+  "library.tertullian-apologetic": {
+   "sections": 10
+  },
+  "library.tertullian-marcion": {
+   "sections": 10
+  },
+  "library.tertullian-ethical": {
+   "sections": 94
+  },
+  "library.hippolytus": {
+   "sections": 19
+  },
+  "library.cyprian": {
+   "sections": 106
+  },
+  "library.novatian": {
+   "sections": 40
+  },
+  "library.lactantius": {
+   "sections": 109
+  },
+  "library.aug-letters": {
+   "sections": 169
+  },
+  "library.aug-doctrinal": {
+   "sections": 245
+  },
+  "library.aug-moral": {
+   "sections": 335
+  },
+  "library.aug-manichaean": {
+   "sections": 208
+  },
+  "library.aug-donatist": {
+   "sections": 24
+  },
+  "library.aug-pelagian": {
+   "sections": 353
+  },
+  "library.eusebius-history": {
+   "sections": 15
+  },
+  "library.theodoret-history": {
+   "sections": 206
+  },
+  "library.jerome-lives": {
+   "sections": 242
+  },
+  "library.gregory-nyssa-dogmatic": {
+   "sections": 20
+  },
+  "library.gregory-nyssa-ascetic": {
+   "sections": 3
+  },
+  "library.gregory-nyssa-apologetic": {
+   "sections": 42
+  },
+  "library.gregory-nyssa-letters": {
+   "sections": 18
+  },
   "library.total": {
-   "works": 36,
-   "sections": 2562,
-   "indexedWords": 42812
+   "works": 67,
+   "sections": 4965,
+   "indexedWords": 60673
   },
   "curated": {
    "topics": 18,
@@ -322,10 +420,10 @@
    "rows": 139
   },
   "external": {
-   "rows": 1469,
+   "rows": 1762,
    "caNavigator": 73,
    "caNavigatorSkippedAmbiguous": 7,
-   "books": 68
+   "books": 71
   }
  }
 }

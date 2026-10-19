@@ -97,6 +97,12 @@ export const getEntities = () => getJson<Entity[]>('doctrine/entities.json', tru
 
 /** [c1, v1, c2, v2, text] */
 export type HaydockEntry = [number, number, number, number, string];
+export interface ChallonerBook {
+  intro: string;
+  chapters: Record<string, string>;
+  notes: [number, number, number, number, string][];
+}
+export const getChalloner = (book: string) => getJson<ChallonerBook>(`commentary/challoner/${book}.json`, true);
 export const getHaydock = (book: string) => getJson<HaydockEntry[]>(`commentary/haydock/${book}.json`, true);
 
 /** [c1, v1, c2, v2, resourceId] */

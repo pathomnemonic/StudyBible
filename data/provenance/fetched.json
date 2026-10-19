@@ -618,5 +618,70 @@
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Exposition of the Orthodox Faith, John of Damascus. Public-domain text distributed by CCEL as ThML."
+ },
+ "openbible-geo": {
+  "url": "https://www.openbible.info/geo/data/merged.txt",
+  "file": "openbible-geo-merged.txt",
+  "bytes": 137696,
+  "sha256": "4c28b9232919ac89c094f8e4d3f978462b1117b5c73ce492b81c41175f967150",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.openbible.info/geo/",
+  "rights": "CC-BY-4.0",
+  "note": "OpenBible.info Bible Geocoding data: possible modern locations of biblical places with confidence marks. Creative Commons Attribution; credit OpenBible.info (some data from OpenStreetMap, ODbL)."
+ },
+ "openbible-topics": {
+  "url": "https://a.openbible.info/data/topic-scores.zip",
+  "file": "openbible-topic-scores.zip",
+  "bytes": 418767,
+  "sha256": "47bc1cb1defe5b8f0f65ca9966cd99ff151b7f22cab18ef9c99eda6a244df7cc",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.openbible.info/topics",
+  "rights": "CC-BY-4.0",
+  "note": "OpenBible.info topical Bible: topics with scored passages (from user votes). Creative Commons Attribution; credit OpenBible.info."
+ },
+ "feed-barron-sunday": {
+  "url": "https://feed.podbean.com/wordonfire/feed.xml",
+  "file": "feed-barron-sunday.xml",
+  "bytes": 2394588,
+  "sha256": "43b200377cbdbf4c59715ebd6af9598cfd06ad43352fa64ec2c1937b2b99edcb",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.wordonfire.org/",
+  "rights": "link-only",
+  "note": "Bishop Barron's Sunday Sermons podcast feed, published for podcast apps. Used only for episode titles, dates, page links and audio addresses; the audio is played from the publisher, never copied."
+ },
+ "feed-frmike-homilies": {
+  "url": "https://feeds.fireside.fm/fathermikehomilies/rss",
+  "file": "feed-frmike-homilies.xml",
+  "bytes": 1389691,
+  "sha256": "0e1955d42fff4ad63775c943a15b685b8cb70446efbb6abd0d73c81d9f9fc13b",
+  "retrieved": "2026-10-19",
+  "terms": "https://ascensionpress.com/",
+  "rights": "link-only",
+  "note": "Ascension's Sunday Homilies with Fr. Mike Schmitz podcast feed, published for podcast apps. Used only for episode titles, dates, page links and audio addresses."
+ },
+ "ccel-schaff_npnf113": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf113.xml",
+  "file": "ccel_schaff_npnf113.xml",
+  "bytes": 4441248,
+  "sha256": "d62c7c82b262c738739090ffaf5473aa5a76dbadf62ebee0dccac8c4a7db4762",
+  "retrieved": "2026-10-19",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "Commentary on Galatians, John Chrysostom. Public-domain text distributed by CCEL as ThML."
+ },
+ "_git": {
+  "sblgnt": "aaed91e57c8e4a8dc9a2383e129ca5e75fe6393d",
+  "morphhb": "3d15126fb1ef74867fc1434be1942e837932691f",
+  "strongs": "0acd2f251c2d35ff8db2dece4e0593979d3ac223"
+ },
+ "gutenberg-dr8300": {
+  "url": "https://www.gutenberg.org/files/8300/8300-h/8300-h.htm",
+  "file": "douay-rheims-gutenberg-8300.html",
+  "bytes": 7900145,
+  "sha256": "3dedada4783bd3ad47faed93e47f67dd59a5a6b88bcf6bf58e0a2a514a18b77b",
+  "retrieved": "2026-10-19",
+  "terms": "https://www.gutenberg.org/policy/permission.html",
+  "rights": "public-domain",
+  "note": "Douay-Rheims Bible, Challoner revision (1749-1752) with its annotations, book introductions and chapter summaries; Project Gutenberg e-text #8300. The underlying text is 18th-century; used for Challoner's notes, book introductions and chapter summaries."
  }
 }
