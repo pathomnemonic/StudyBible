@@ -324,5 +324,21 @@
   "site": "https://www.vatican.va/",
   "section": "resources",
   "policy": "Link only: title, page URL and passage reference; no page text is copied."
+ },
+ {
+  "id": "tertullian-org",
+  "name": "Early Church Texts (tertullian.org)",
+  "kind": "publisher",
+  "site": "https://www.tertullian.org/",
+  "section": "resources",
+  "policy": "Link only: title, page URL and passage reference. The host publishes public-domain translations; no text is copied by this app."
+ },
+ {
+  "id": "lectionary-central",
+  "name": "Lectionary Central",
+  "kind": "publisher",
+  "site": "https://lectionarycentral.com/",
+  "section": "resources",
+  "policy": "Link only: title, page URL and passage reference. The host publishes public-domain translations; no text is copied by this app."
  }
 ]
