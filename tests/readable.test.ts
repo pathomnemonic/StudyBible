@@ -48,3 +48,15 @@ describe('more numerals', () => {
     expect(plainNumerals('CHAPTER III.')).toBe('CHAPTER 3.');
   });
 });
+
+describe('haydockText', () => {
+  it('names the quoted words and strips the leaked chapter heading', async () => {
+    const { haydockText } = await import('../src/lib/readable');
+    expect(haydockText('CHAPTER III.\n\nSleep. So death is often styled.')).toBe('On “Sleep”: So death is often styled.');
+    expect(haydockText('Tumult. In the grave they rest. (Menochius) --- In strength. Septuagint, “in body.”')).toBe('On “Tumult”: In the grave they rest. (Menochius)\nOn “In strength”: Septuagint, “in body.”');
+    expect(haydockText('Hebrew, “from the womb,” (Haydock) or as soon as I was born.')).toContain('Hebrew, “from');
+  });
+  it('converts bare Roman chapters', () => {
+    expect(plainNumerals('Genesis xxx 3, (Homer) and (Strabo xvii.)')).toBe('Genesis 30:3, (Homer) and (Strabo, book 17)');
+  });
+});

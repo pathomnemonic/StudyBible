@@ -1,5 +1,5 @@
 import { cccPara, getCccScripture } from '../data/ccc';
-import { readableText } from '../lib/readable';
+import { haydockText, readableText } from '../lib/readable';
 import type { AuthorityLevel, ItemFormat, Period } from '../lib/types';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
 import { getBook } from '../lib/canon';
@@ -300,8 +300,8 @@ export const providers: Record<string, Provider> = {
           title: `Haydock on ${label}`,
           author: 'George Leo Haydock (compiler)',
           authorId: 'haydock',
-          excerpt: trim(text, 380),
-          fullExcerpt: text,
+          excerpt: trim(haydockText(text), 380),
+          fullExcerpt: haydockText(text),
           url: `https://www.sermonindex.net/commentary/haydock-c/${book}/${c1}`,
           authority: 'historical',
           period: 'early-modern',

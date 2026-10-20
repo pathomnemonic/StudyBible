@@ -25,12 +25,18 @@ const HEAD_RE = new RegExp(`\\b(${HEAD})(\\.?)\\s+([IVXLCDM]+|[ivxlcdm]{1,6})(?:
 const BIBLE = 'Genesis|Exodus|Leviticus|Numbers|Deuteronomy|Joshua|Judges|Ruth|Samuel|Kings|Chronicles|Ezra|Nehemiah|Tobit|Judith|Esther|Job|Psalms?|Proverbs|Ecclesiastes|Sirach|Ecclesiasticus|Wisdom|Isaiah|Jeremiah|Lamentations|Baruch|Ezekiel|Daniel|Hosea|Joel|Amos|Obadiah|Jonah|Micah|Nahum|Habakkuk|Zephaniah|Haggai|Zechariah|Malachi|Maccabees|Matthew|Mark|Luke|John|Acts|Romans|Corinthians|Galatians|Ephesians|Philippians|Colossians|Thessalonians|Timothy|Titus|Philemon|Hebrews|James|Peter|Jude|Revelation';
 const bibleRe = (names: string) => new RegExp(`\\b((?:[1-3]\\s)?(?:${names}))\\s+([IVXLC]{1,7})\\.?\\s+(\\d{1,3}(?:\\s?[-–,]\\s?\\d{1,3})*)`, 'g');
 const BIBLE_RE = bibleRe(BIBLE);
+/** a lower-case Roman chapter written without a full stop before the verse: "Genesis xxx 3" */
+const LOWER_RE = new RegExp(`\\b((?:[1-3]\\s)?(?:${BIBLE}|Gen|Exod?|Lev|Num|Deut|Matt?|Mk|Lk|Jn|Rom|Cor|Heb|Apoc|Rev|Ps|Isa?|Jer|Ezech?|Dan))\\.?\\s+([ivxlc]{1,7})\\s+(\\d{1,3})\\b`, 'g');
+/** "(Strabo xvii.)": an ancient author cited by book */
+const AUTHOR_BOOK_RE = /\(([A-Z][a-zæ]+(?:\s[A-Z][a-z]+)?),?\s+([ivxlc]{1,6})\.?\)/g;
 /** in Augustine's titles the number after a Psalm is the section of his exposition, not a verse */
 const BIBLE_TITLE_RE = bibleRe(BIBLE.replace('|Psalms?', ''));
 
 /** Roman numerals in headings and citations become ordinary numbers; running prose is left alone. */
 export function plainNumerals(text: string, opts: { title?: boolean } = {}): string {
   let t = modernRefs(text);
+  t = t.replace(LOWER_RE, (m, book: string, roman: string, verse: string) => (isNumeral(roman.toUpperCase()) && toArabic(roman.toUpperCase()) <= 150 ? `${book} ${toArabic(roman.toUpperCase())}:${verse}` : m));
+  t = t.replace(AUTHOR_BOOK_RE, (m, who: string, roman: string) => (isNumeral(roman.toUpperCase()) ? `(${who}, book ${toArabic(roman.toUpperCase())})` : m));
   t = t.replace(opts.title ? BIBLE_TITLE_RE : BIBLE_RE, (m, book: string, roman: string, rest: string) => (isNumeral(roman) ? `${book} ${num(roman)}:${rest.replace(/\s/g, ' ')}` : m));
   // "II Cor." / "I John": numbered books written with Roman numerals
   t = t.replace(/\b(I{1,3})\s+(Cor|Thess|Tim|Pet|Jn|John|Kings|Chron|Sam|Macc|Esdras)\b/g, (_m, r: string, b: string) => `${num(r)} ${b}`);
@@ -122,4 +128,19 @@ export function expandNote(raw: string): string {
 export function readableText(t: string | undefined, opts: { title?: boolean } = {}): string | undefined {
   if (!t) return t;
   return oldAbbreviations(fullBookNames(plainNumerals(t, opts)));
+}
+
+/**
+ * Haydock's notes are clipped for print: each begins with the Douay-Rheims words it explains ("Tumult. In the grave…"), and several comments
+ * are strung together with " --- ". Say so in plain words, and drop the chapter heading that the source ran into the first note of a chapter.
+ */
+export function haydockText(raw: string): string {
+  const t = raw.replace(/^\s*CHAPTER\s+[IVXLC\d]+\.?\s*/i, '').replace(/\n{2,}/g, '\n').trim();
+  return t.split(/\s+---\s+/).map((seg) => {
+    const m = /^([A-Z][A-Za-z'’\- ]{0,30}?)\.\s+(?=[A-Z“"(\[])/.exec(seg);
+    const words = m ? m[1].trim().split(/\s+/).length : 0;
+    // "Hebrew." or "Septuagint." alone is a language, not a quoted word
+    if (!m || words > 4 || /^(?:Hebrew|Septuagint|Greek|Latin|Chaldean|Syriac|Vulgate|See|Ver|Chap|Ibid)$/i.test(m[1].trim())) return seg;
+    return `On “${m[1].trim()}”: ${seg.slice(m[0].length)}`;
+  }).join('\n');
 }

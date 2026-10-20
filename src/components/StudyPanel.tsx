@@ -117,8 +117,8 @@ export default function StudyPanel({
   }).join('; ');
   const passageIds = refs.map(refId);
   const onNote = (t: Target) => setNoteTargets([t]);
-  const open = (i: StudyItem, n: number, arr: StudyItem[], opts: { covers?: string; reading?: boolean } = {}) => (
-    <Item key={i.id} item={i} edition={edition} onOpenPassage={onOpenPassage} onNote={onNote} covers={opts.covers} reading={opts.reading} />
+  const open = (i: StudyItem, n: number, arr: StudyItem[], opts: { covers?: string; reading?: boolean; autoExpand?: boolean } = {}) => (
+    <Item key={i.id} item={i} edition={edition} onOpenPassage={onOpenPassage} onNote={onNote} covers={opts.covers} reading={opts.reading} autoExpand={opts.autoExpand} />
   );
 
   // ---- the Notes tab: a reading stream of commentary, most specific first
@@ -222,27 +222,37 @@ export default function StudyPanel({
                 )}
               </p>
             )}
+            {[...notes.specific, ...notes.units.flatMap((g) => g.items)].some((i) => i.kind === 'Haydock') && (
+              <details className="how-note small muted">
+                <summary>How to read Haydock’s notes</summary>
+                <p>Haydock (1859) printed short comments gathered from earlier writers beside the Douay-Rheims Bible. Each comment begins with the Douay-Rheims words it explains, shown here as On “…”; the words are given above the note. A name in brackets, such as (Calmet), is the writer the comment comes from. “Hebrew” and “Septuagint” mean what those old texts say in the passage, which can differ from the Douay wording, and Roman numerals in his references are written here as ordinary numbers. A line of three dashes in the original separates comments on different words of the verse.</p>
+              </details>
+            )}
             {shownSpecific.map((i, n, arr) => open(i, n, arr, { reading: true }))}
             {notes.specific.length > LIMIT && !showAll && (
               <button className="btn small ghost" onClick={() => setShowAll(true)}>Show {notes.specific.length - LIMIT} more</button>
             )}
-            {notes.units.map((g) => (
+            {notes.units.map((g) => {
+              // a note written for several verses belongs to the last of them: tapping that verse opens it in full
+              const atLast = (g.range.v2 ?? g.range.v1) === (refs[0].v2 ?? refs[0].v1);
+              return (
               <section key={rangeKey(g.range)} className="shared">
                 {notes.specific.length > 0 || notes.units.length > 1 ? (
-                  <details className="unit">
+                  <details className="unit" open={atLast}>
                     <summary>
                       <span>{g.items.length} {g.items.length === 1 ? 'note' : 'notes'} on {rangeLabel(g.range)} together</span>
                     </summary>
-                    {g.items.map((i, n, arr) => open(i, n, arr, { covers: rangeLabel(g.range), reading: true }))}
+                    {g.items.map((i, n, arr) => open(i, n, arr, { covers: rangeLabel(g.range), reading: true, autoExpand: atLast }))}
                   </details>
                 ) : (
                   <>
                     <p className="small muted shared-lead">Commentary on {formatRef(g.range)} as one passage{onSelectRange && <> · <button className="linklike" onClick={() => onSelectRange(g.range)}>select {rangeLabel(g.range)}</button></>}</p>
-                    {g.items.map((i, n, arr) => open(i, n, arr, { covers: rangeLabel(g.range), reading: true }))}
+                    {g.items.map((i, n, arr) => open(i, n, arr, { covers: rangeLabel(g.range), reading: true, autoExpand: atLast }))}
                   </>
                 )}
               </section>
-            ))}
+              );
+            })}
             {noneSpecific && !loading && (
               <div className="empty">
                 <p style={{ margin: '0 0 8px' }}>No commentary is written on {scope === 'chapter' ? 'this chapter' : 'this verse'} alone. {notes.weak.length + notes.chapter.length > 0 ? 'Here is what the surrounding passage and the chapter offer.' : emptyMessage('commentary', refs[0].book)}</p>
@@ -298,7 +308,7 @@ export default function StudyPanel({
                 )}
                 {list.length === 0 && <div className="empty">{emptyMessage(sk, refs[0].book)}</div>}
                 {specific.map((i, n, arr) => open(i, n, arr))}
-                {units.map((g) => g.items.map((i, n, arr) => open(i, n, arr, { covers: rangeLabel(g.range) })))}
+                {units.map((g) => g.items.map((i, n, arr) => open(i, n, arr, { covers: rangeLabel(g.range), autoExpand: (g.range.v2 ?? g.range.v1) === (refs[0].v2 ?? refs[0].v1) })))}
                 {weak.map((i, n, arr) => open(i, n, arr))}
                 {wide.length > 0 && (
                   <details className="unit">
@@ -447,8 +457,28 @@ function CitationContext({ ctx }: { ctx: NonNullable<StudyItem['ctx']> }) {
   );
 }
 
-function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }: { item: StudyItem; edition: EditionRecord; onOpenPassage: (r: Ref) => void; onNote: (t: Target) => void; covers?: string; reading?: boolean }) {
-  const [expanded, setExpanded] = useState(false);
+/** the Douay-Rheims words a Haydock or Challoner note is written on */
+function useDouay(item: StudyItem): string | null {
+  const { get } = useEditions();
+  const [t, setT] = useState<string | null>(null);
+  useEffect(() => {
+    setT(null);
+    if (!['Haydock', 'Challoner'].includes(item.kind ?? '') || !item.ref) return;
+    const dra = get('dra');
+    const r = parseRefId(item.ref);
+    if (!dra || !r || r.v1 === undefined) return;
+    let live = true;
+    passageText(dra, r, 3).then((vs) => live && setT(vs.map((v) => `${v.v} ${v.text}`).join(' ')));
+    return () => { live = false; };
+  }, [item.id]);
+  return t;
+}
+
+function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, autoExpand = false }: { item: StudyItem; edition: EditionRecord; onOpenPassage: (r: Ref) => void; onNote: (t: Target) => void; covers?: string; reading?: boolean; autoExpand?: boolean }) {
+  const [expanded, setExpanded] = useState(autoExpand);
+  useEffect(() => { setExpanded(autoExpand); }, [autoExpand]);
+  // Haydock and Challoner comment on the words of the Douay-Rheims, so show those words
+  const douay = useDouay(item);
   const [showVerses, setShowVerses] = useState(true);
   const [readCtx, setReadCtx] = useState(false);
   const [info, setInfo] = useState(false);
@@ -519,6 +549,7 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
         </a>
       )}
       {playing && embed && <InlinePlayer embed={embed} title={item.title} />}
+      {douay && <div className="douay"><span className="muted small">The note is on these words of the Douay-Rheims:</span> <em>{douay.length > 240 ? douay.slice(0, 240).trimEnd() + '…' : douay}</em></div>}
       {text && foreignItem ? (
         <div className="ex foreign">
           {item.translation ? (
