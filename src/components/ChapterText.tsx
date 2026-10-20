@@ -78,9 +78,11 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
         if (kind === 'b') return <div key={i} className="blk b" />;
         const runs = b[1];
         const lastIdx = runs.length - 1;
+        const inBlock = new Set<number>();
         const content = runs.map(([v, text], j) => {
           if (v > 0) cur = v;
           const n = cur;
+          if (n) inBlock.add(n);
           if (!n) return <Fragment key={j}>{text}</Fragment>;
           const d = decor.get(n);
           const showNum = v > 0 && !seenNumber.has(n);
@@ -153,17 +155,17 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
             </Fragment>
           );
         });
-        const lastV = runs[lastIdx]?.[0] > 0 ? runs[lastIdx][0] : cur;
-        const figs = figures?.get(lastV);
+        // a picture follows the paragraph that contains the last verse of its scene
+        const figs = figures ? [...inBlock].flatMap((vn) => figures.get(vn) ?? []) : [];
         return (
           <Fragment key={i}>
             <div className={`blk ${kind}`}>
               {content}
             </div>
-            {figs && figs.map((f) => (
+            {figs.map((f) => (
               <figure key={f.id} className="inline-art">
                 <a href={f.page} target="_blank" rel="noreferrer"><img src={`${import.meta.env.BASE_URL}${f.file}`} alt={`${f.title}, ${f.artist}`} loading="lazy" /></a>
-                <figcaption>{f.title}, {f.artist}, {f.date}. {f.credit}. The Metropolitan Museum of Art (public domain).</figcaption>
+                <figcaption>{f.title}{f.artist ? `, ${f.artist}` : ''}{f.date ? `, ${f.date}` : ''}. {f.credit}{f.credit.includes('Museum') || f.credit.includes('public domain') || f.credit.includes('CC0') ? '' : '. The Metropolitan Museum of Art (public domain)'}.</figcaption>
               </figure>
             ))}
           </Fragment>
