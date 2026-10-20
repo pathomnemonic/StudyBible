@@ -46,6 +46,12 @@ export interface Settings {
   studyDock: boolean;
   /** show commentary written in Latin or other languages (hidden by default) */
   showOtherLanguages: boolean;
+  /** key words and phrases sparkle in the text; a tap opens a note about them */
+  sparkles: boolean;
+  /** a few soft drifting lights behind the text */
+  motes: boolean;
+  /** the one-time note about ambience has been shown */
+  ambienceTipSeen: boolean;
   /** dismissed the one-time "tap a verse" hint */
   hintVerse: boolean;
   /** a soft backdrop that suits the book (or the passage); off keeps the plain theme */
@@ -86,6 +92,9 @@ export const DEFAULTS: Settings = {
   scriptureOnly: false,
   studyDock: true,
   showOtherLanguages: false,
+  sparkles: true,
+  motes: true,
+  ambienceTipSeen: false,
   hintVerse: false,
   atmosphere: 'passage',
   ambience: { kind: 'off', volume: 0.25, match: false },

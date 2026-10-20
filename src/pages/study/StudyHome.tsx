@@ -32,6 +32,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     title: 'Words and topics',
     blurb: 'Find every place something is said.',
     items: [
+      ['/study/terms', 'Key words and phrases', 'Son of Man, Kingdom of God, Lamb of God… what they mean and where they occur.'],
       ['/study/concordance', 'Concordance', 'Every verse containing a word, counted by book.'],
       ['/study/topical', 'Topical index', 'Thousands of topics with their passages.'],
     ],

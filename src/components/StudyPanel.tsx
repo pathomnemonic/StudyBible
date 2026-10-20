@@ -109,6 +109,7 @@ export default function StudyPanel({
   const readLinks = comm.filter((i) => i.kind === 'Read with notes');
   const day = (data.biay ?? []).filter(isReal)[0];
   const LIMIT = 6;
+  const noneSpecific = notes.specific.length === 0 && notes.units.length === 0;
   const shownSpecific = showAll ? notes.specific : notes.specific.slice(0, LIMIT);
 
   return (
@@ -220,9 +221,9 @@ export default function StudyPanel({
                 )}
               </section>
             ))}
-            {notes.specific.length === 0 && notes.units.length === 0 && !loading && (
+            {noneSpecific && !loading && (
               <div className="empty">
-                <p style={{ margin: '0 0 8px' }}>{emptyMessage('commentary', refs[0].book)}</p>
+                <p style={{ margin: '0 0 8px' }}>No commentary is written on {scope === 'chapter' ? 'this chapter' : 'this verse'} alone. {notes.weak.length + notes.chapter.length > 0 ? 'Here is what the surrounding passage and the chapter offer.' : emptyMessage('commentary', refs[0].book)}</p>
                 <p className="small" style={{ margin: 0 }}>
                   {TABS.filter((t) => t.id !== 'notes' && tabCount(t.sections) > 0).map((t) => (
                     <button key={t.id} className="chip" style={{ marginRight: 6 }} onClick={() => setTab(t.id)}>{t.label} {tabCount(t.sections)}</button>
@@ -231,13 +232,13 @@ export default function StudyPanel({
               </div>
             )}
             {notes.weak.length > 0 && (
-              <details className="unit">
+              <details className="unit" open={noneSpecific}>
                 <summary><span>More on this passage · {notes.weak.length}</span></summary>
                 {notes.weak.map((i, n, arr) => open(i, n, arr, { reading: true }))}
               </details>
             )}
             {notes.chapter.length > 0 && (
-              <details className="unit">
+              <details className="unit" open={noneSpecific}>
                 <summary><span>About the whole chapter · {notes.chapter.length}</span></summary>
                 {notes.chapter.map((i, n, arr) => open(i, n, arr))}
               </details>
@@ -373,7 +374,10 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
     if (!target || !showVerses || preview) return;
     passageText(ed, target, 6).then(setPreview);
   }, [showVerses, item.id]);
-  const full = item.fullExcerpt ?? item.excerpt ?? '';
+  const original = item.fullExcerpt ?? item.excerpt ?? '';
+  const foreignItem = !!item.lang && item.lang !== 'en';
+  // a non-English item is shown as its English translation (when one exists) with the original beneath
+  const full = foreignItem && item.translation ? item.translation : original;
   const CUT = reading ? 560 : 300;
   const long = full.length > CUT + 40;
   const text = expanded || !long ? full : full.slice(0, full.lastIndexOf(' ', CUT)) + '…';
@@ -424,10 +428,30 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
         </a>
       )}
       {playing && embed && <InlinePlayer embed={embed} title={item.title} />}
-      {text && (
-        <div className="ex" lang={item.lang}>
-          {text}
+      {text && foreignItem ? (
+        <div className="ex foreign">
+          {item.translation ? (
+            <>
+              <div className="tr-label">English translation (AI-assisted, not reviewed)</div>
+              <div>{text}</div>
+              <details className="orig">
+                <summary>Latin original</summary>
+                <div lang={item.lang}>{original}</div>
+              </details>
+            </>
+          ) : (
+            <>
+              <div lang={item.lang}>{text}</div>
+              <p className="tr-missing">No English translation has been made for this note yet. <a href={`https://translate.google.com/?sl=${item.lang}&tl=en&op=translate&text=${encodeURIComponent(original.slice(0, 4500))}`} target="_blank" rel="noreferrer">Translate with Google ↗</a></p>
+            </>
+          )}
         </div>
+      ) : (
+        text && (
+          <div className="ex" lang={item.lang}>
+            {text}
+          </div>
+        )
       )}
       {item.parts && item.parts.length > 0 && (
         <ol className="parts">

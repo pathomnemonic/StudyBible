@@ -35,6 +35,8 @@ const ManuscriptsPage = lazy(() => import('./pages/study/ManuscriptsPage'));
 const GalaxyPage = lazy(() => import('./pages/study/GalaxyPage'));
 const TimeSpacePage = lazy(() => import('./pages/study/TimeSpacePage'));
 const FulfilmentPage = lazy(() => import('./pages/study/FulfilmentPage'));
+const TermPage = lazy(() => import('./pages/study/TermPage'));
+const TermsIndex = lazy(() => import('./pages/study/TermPage').then((m) => ({ default: m.TermsIndex })));
 const ConstellationPage = lazy(() => import('./pages/study/ConstellationPage'));
 const TopicalPage = lazy(() => import('./pages/study/TopicalPage'));
 const ConcordancePage = lazy(() => import('./pages/study/ConcordancePage'));
@@ -134,6 +136,8 @@ export default function App() {
               <Route path="/study/universe" element={<GalaxyPage />} />
               <Route path="/study/timespace" element={<TimeSpacePage />} />
               <Route path="/study/fulfilment" element={<FulfilmentPage />} />
+              <Route path="/study/terms" element={<TermsIndex />} />
+              <Route path="/study/term/:id" element={<TermPage />} />
               <Route path="/study/constellation" element={<ConstellationPage />} />
               <Route path="/study/maps" element={<MapsPage />} />
               <Route path="/study/topical" element={<TopicalPage />} />

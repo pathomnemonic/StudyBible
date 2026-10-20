@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import type { ChapterData } from '../lib/types';
 import type { HighlightColor } from '../db/db';
+import type { TermMatcher } from '../study/terms';
 
 export interface VerseDecor {
   highlight?: HighlightColor;
@@ -17,10 +18,29 @@ interface Props {
   /** number of connected resources per native verse; click opens the study panel */
   density?: Map<number, number>;
   onMarker?: (n: number) => void;
+  /** key words and phrases that sparkle; a click opens a note about the term */
+  terms?: TermMatcher | null;
+  onTerm?: (id: string, el: HTMLElement) => void;
 }
 
 /** Renders one chapter with paragraph/poetry structure preserved and every verse individually selectable. */
-export default function ChapterText({ chapter, selected, decor, onVerse, lang, density, onMarker }: Props) {
+export default function ChapterText({ chapter, selected, decor, onVerse, lang, density, onMarker, terms, onTerm }: Props) {
+  const withTerms = (text: string) => {
+    if (!terms) return text;
+    const hits = terms.find(text);
+    if (!hits.length) return text;
+    const out: React.ReactNode[] = [];
+    let at = 0;
+    hits.forEach((h, k) => {
+      if (h.start > at) out.push(text.slice(at, h.start));
+      out.push(
+        <span key={k} className="term" role="button" tabIndex={0} data-term={h.id} onClick={(e) => { e.stopPropagation(); onTerm?.(h.id, e.currentTarget); }} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onTerm?.(h.id, e.currentTarget); } }}>{text.slice(h.start, h.end)}</span>,
+      );
+      at = h.end;
+    });
+    if (at < text.length) out.push(text.slice(at));
+    return out;
+  };
   let cur = 0;
   const seenNumber = new Set<number>();
   const notes = chapter.notes ?? {};
@@ -62,7 +82,7 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
                 onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onVerse(n, e))}
               >
                 {showNum && <sup className="vn">{n}</sup>}
-                {text}
+                {withTerms(text)}
                 {lastRunOfVerse && d?.note && <span className="mark" title="You have a note here">✎</span>}
                 {lastRunOfVerse && d?.bookmark && <span className="mark" title="Bookmarked">⚑</span>}
                 {lastRunOfVerse && fnotes && fnotes.map((f, k) => (

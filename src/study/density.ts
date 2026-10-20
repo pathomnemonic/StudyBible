@@ -7,8 +7,10 @@ import { parseRefId } from '../lib/refs';
  */
 export async function verseResourceCounts(book: string, chapter: number, verseCount: number): Promise<Map<number, number>> {
   const counts = new Map<number, number>();
-  const add = (c1: number, v1: number, c2: number, v2: number) => {
+  /** only verse-specific material counts: a link to a whole chapter or book is not "connected to this verse" */
+  const add = (c1: number, v1: number, c2: number, v2: number, wide = false) => {
     if (chapter < c1 || chapter > c2) return;
+    if (wide && (c2 > c1 || (v2 && v2 < 999 ? v2 : verseCount) - Math.max(1, v1 || 1) + 1 > 12)) return;
     const from = chapter === c1 ? Math.max(1, v1 || 1) : 1;
     const to = chapter === c2 ? (v2 && v2 < 999 ? v2 : verseCount) : verseCount;
     for (let v = from; v <= Math.min(to, verseCount); v++) counts.set(v, (counts.get(v) ?? 0) + 1);
@@ -26,14 +28,14 @@ export async function verseResourceCounts(book: string, chapter: number, verseCo
         const key = `${k}-${e[0]}-${e[1]}`;
         if (seen.has(key)) continue;
         seen.add(key);
-        add(e[0], e[1], e[2], e[3]);
+        add(e[0], e[1], e[2], e[3], e[6] !== 's');
       }
     }
   }
-  for (const [c1, v1, c2, v2] of ext ?? []) add(c1, v1, c2, v2);
+  for (const [c1, v1, c2, v2] of ext ?? []) add(c1, v1, c2, v2, true);
   for (const l of ccc?.links ?? []) {
     const r = parseRefId(l.ref);
-    if (r && r.book === book) add(r.c1, r.v1 ?? 1, r.c2, r.v2 ?? 999);
+    if (r && r.book === book) add(r.c1, r.v1 ?? 1, r.c2, r.v2 ?? 999, true);
   }
   return counts;
 }

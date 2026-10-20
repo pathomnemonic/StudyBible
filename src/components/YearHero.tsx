@@ -52,7 +52,7 @@ export default function YearHero() {
     await db.planProgress.put({ ...prog, done });
   };
   return (
-      <section className="year-hero" aria-labelledby="year-h">
+      <section className="year-card" aria-labelledby="year-h">
         <Ring done={prog?.done.length ?? 0} day={dayN} />
         <div className="year-body">
           <div className="eyebrow" id="year-h">Bible in a Year{prog ? '' : ' · today'}</div>

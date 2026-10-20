@@ -10,6 +10,8 @@ export interface CatenaGroup {
 }
 export const getCatena = (book: string) => getJson<{ source: string; groups: CatenaGroup[] }>(`commentary/catena/${book}.json`, true);
 export const getGlossa = (book: string) => getJson<Record<string, [string, string][]>>(`commentary/glossa/${book}.json`, true);
+/** English translations of the Latin glosses (where made), keyed like the Latin: "chapter.verse". */
+export const getGlossaEn = (book: string) => getJson<Record<string, string>>(`commentary/glossa-en/${book}.json`, true).catch(() => null);
 
 export interface LibraryWorkMeta {
   indexOnly?: boolean;

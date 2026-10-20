@@ -7,6 +7,7 @@ import { buildBiay } from './biay';
 import { buildLibrary } from './library';
 import { buildHaydock } from './haydock';
 import { buildChalloner } from './challoner';
+import { buildTerms } from './terms';
 import { buildLens } from './lens';
 import { buildExternal } from './external';
 import { buildManifest } from './manifest';
@@ -55,6 +56,7 @@ async function main() {
     await run('topics', () => buildTopics(report));
     await run('editorial', () => buildEditorial(report));
     await run('lens', () => buildLens(report));
+    await run('terms', () => buildTerms(report));
     await run('external', () => buildExternal(report));
     await run('manifest', () => buildManifest());
   }

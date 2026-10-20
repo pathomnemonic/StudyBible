@@ -83,7 +83,6 @@ export default function TodayPage() {
         </div>
       </header>
 
-      <YearHero />
 
       <div className="today-row">
         <section className="today-card">
@@ -104,6 +103,7 @@ export default function TodayPage() {
           )}
           <Link className="btn" to="/pray/readings">Open</Link>
         </section>
+        <YearHero />
       </div>
 
       {verse && (

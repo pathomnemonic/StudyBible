@@ -12,6 +12,8 @@ import { useSettings } from '../lib/store';
 import { db, type HighlightColor, type Target } from '../db/db';
 import { setHighlight, toggleBookmark, rangesOverlap } from '../db/ops';
 import ChapterText, { type VerseDecor } from '../components/ChapterText';
+import TermPopover from '../components/TermPopover';
+import { loadTerms, makeMatcher, type TermBrief } from '../study/terms';
 import BookPicker from '../components/BookPicker';
 import Icon from '../components/Icon';
 import NoteEditor from '../components/NoteEditor';
@@ -101,6 +103,12 @@ export default function ReadPage() {
   useEffect(() => {
     getBooksInfo().then((all) => setBookInfo(all?.[bk.id]));
   }, [bk.id]);
+  const [termList, setTermList] = useState<TermBrief[]>([]);
+  const [termPop, setTermPop] = useState<{ id: string; at: DOMRect } | null>(null);
+  useEffect(() => {
+    if (settings.sparkles) loadTerms().then(setTermList);
+  }, [settings.sparkles]);
+  const matcher = useMemo(() => (settings.sparkles && !settings.scriptureOnly && termList.length ? makeMatcher(termList, edition.language === 'la') : null), [settings.sparkles, settings.scriptureOnly, termList, edition.language]);
   const [anchorDensity, setAnchorDensity] = useState<Map<number, number>>(new Map());
 
   // -------- load text
@@ -578,7 +586,7 @@ export default function ReadPage() {
             {chNum === 1 && data.intro && data.intro.length > 0 && data.intro.map((p, i) => <p key={i} className="subtitle">{p}</p>)}
             {chNum === 1 && bk.note && <div className="notice info">{bk.note}</div>}
             {chapterNote && <div className="notice">{chapterNote}</div>}
-            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} />
+            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
             {chapterData.notes && Object.keys(chapterData.notes).length > 0 && (
               <section aria-label="Footnotes" className="subtitle" style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 8 }}>
                 <strong>Notes</strong>
@@ -619,6 +627,7 @@ export default function ReadPage() {
         )}
       </div>
 
+      {termPop && termList.find((t) => t.id === termPop.id) && <TermPopover term={termList.find((t) => t.id === termPop.id)!} at={termPop.at} onClose={() => setTermPop(null)} onOff={() => { setSettings({ sparkles: false }); setTermPop(null); }} />}
       {from && (
         <div className="return-pill" role="navigation" aria-label="Return to where you were">
           <button className="rp-back" onClick={() => nav(from.path, { state: from.prev ? { from: from.prev } : undefined })}>← Back to {from.label}</button>

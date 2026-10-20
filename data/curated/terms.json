@@ -1,0 +1,1107 @@
+{
+ "_about": "Key words and phrases of Scripture: short notes written for this app, with the places each is used. Where an English phrase is matched in the text, it is matched by a simple pattern, so a few uses that merely look similar can be marked. Original-language remarks are standard and should be checked against a lexicon before quoting.",
+ "terms": [
+  {
+   "id": "son-of-man",
+   "title": "Son of Man",
+   "kind": "title",
+   "en": [
+    "Son of man"
+   ],
+   "la": [
+    "Filius hominis",
+    "Filium hominis",
+    "Filii hominis",
+    "Filio hominis"
+   ],
+   "gist": "In the Gospels this is the title Jesus most often uses of himself. In the Old Testament the phrase can simply mean 'a human being' (God addresses Ezekiel this way again and again), but in Daniel 7 'one like a son of man' comes with the clouds of heaven and receives everlasting rule from the Ancient of Days. Jesus draws on both: he is truly one of us, and he is the figure who judges and reigns.",
+   "original": "Hebrew ben adam; Aramaic bar enash in Daniel 7:13; Greek ho huios tou anthropou. The Greek phrase is unusual, which suggests it reproduces a Semitic idiom.",
+   "passages": [
+    {
+     "ref": "Daniel 7:13-14",
+     "note": "The vision of one like a son of man receiving dominion."
+    },
+    {
+     "ref": "Ezekiel 2:1",
+     "note": "God addresses the prophet as 'son of man', the first of many times."
+    },
+    {
+     "ref": "Psalm 8:4",
+     "note": "'What is man... or the son of man that you care for him?'"
+    },
+    {
+     "ref": "Mark 2:10",
+     "note": "'The Son of man hath power on earth to forgive sins.'"
+    },
+    {
+     "ref": "Mark 14:62",
+     "note": "Before the high priest Jesus joins his own words to Daniel 7."
+    },
+    {
+     "ref": "Matthew 8:20",
+     "note": "'The Son of man hath not where to lay his head.'"
+    }
+   ],
+   "related": [
+    "son-of-god",
+    "ancient-of-days",
+    "kingdom"
+   ]
+  },
+  {
+   "id": "son-of-god",
+   "title": "Son of God",
+   "kind": "title",
+   "en": [
+    "Son of God"
+   ],
+   "la": [
+    "Filius Dei",
+    "Filium Dei",
+    "Filii Dei"
+   ],
+   "gist": "In the Old Testament 'son of God' can name Israel as a people (Exodus 4:22), the Davidic king (Psalm 2:7), or the angels. In the Gospels it moves from a royal and messianic title to a confession of who Jesus is: at the baptism and the Transfiguration the Father's voice calls him his beloved Son, and the centurion at the cross confesses him.",
+   "original": "Hebrew ben Elohim / ben Yahweh; Greek huios tou theou.",
+   "passages": [
+    {
+     "ref": "Psalm 2:7",
+     "note": "'Thou art my son, this day have I begotten thee.'"
+    },
+    {
+     "ref": "Matthew 16:16",
+     "note": "Peter's confession at Caesarea Philippi."
+    },
+    {
+     "ref": "Mark 15:39",
+     "note": "The centurion at the cross."
+    },
+    {
+     "ref": "John 20:31",
+     "note": "The purpose of John's Gospel."
+    },
+    {
+     "ref": "Romans 1:3-4",
+     "note": "Declared Son of God in power by the resurrection."
+    }
+   ],
+   "related": [
+    "son-of-man",
+    "beloved-son",
+    "son-of-david"
+   ]
+  },
+  {
+   "id": "son-of-david",
+   "title": "Son of David",
+   "kind": "title",
+   "en": [
+    "Son of David"
+   ],
+   "la": [
+    "Filius David",
+    "Filio David",
+    "Fili David"
+   ],
+   "gist": "God promised David a son whose throne would last for ever (2 Samuel 7). The Gospels open by naming Jesus 'son of David' and the title is used by the blind and by the crowds who ask for mercy, and who greet him at Jerusalem. It is a royal and messianic title that Jesus accepts, and then stretches: how can David call his own descendant 'Lord'?",
+   "original": "Hebrew ben David; Greek huios Dauid.",
+   "passages": [
+    {
+     "ref": "2 Samuel 7:12-16",
+     "note": "The promise of an everlasting house and throne."
+    },
+    {
+     "ref": "Matthew 1:1",
+     "note": "The first words of the New Testament."
+    },
+    {
+     "ref": "Matthew 21:9",
+     "note": "'Hosanna to the Son of David.'"
+    },
+    {
+     "ref": "Matthew 22:41-45",
+     "note": "Jesus asks how David's son can be David's Lord (Psalm 110)."
+    }
+   ],
+   "related": [
+    "son-of-god",
+    "hosanna"
+   ]
+  },
+  {
+   "id": "kingdom",
+   "title": "Kingdom of God / of heaven",
+   "kind": "phrase",
+   "en": [
+    "kingdom of God",
+    "kingdom of heaven",
+    "kingdom of the heavens"
+   ],
+   "la": [
+    "regnum Dei",
+    "regnum caelorum",
+    "regnum cælorum",
+    "regnum coelorum"
+   ],
+   "gist": "The heart of Jesus' preaching. It is not a place but God's kingly rule breaking into history: already begun in Jesus' words and works, still to come in glory. Matthew mostly says 'kingdom of heaven', a reverent way of avoiding the name of God; Mark, Luke and Paul say 'kingdom of God'. Most parables begin 'the kingdom is like...'.",
+   "original": "Greek basileia tou theou / ton ouranon; behind it the Hebrew-Aramaic malkuta, God's reign.",
+   "passages": [
+    {
+     "ref": "Mark 1:14-15",
+     "note": "'The time is accomplished, and the kingdom of God is at hand.'"
+    },
+    {
+     "ref": "Matthew 13:31-33",
+     "note": "Mustard seed and leaven."
+    },
+    {
+     "ref": "Luke 17:20-21",
+     "note": "'The kingdom of God is within you' (or 'among you')."
+    },
+    {
+     "ref": "Matthew 6:10",
+     "note": "'Thy kingdom come.'"
+    },
+    {
+     "ref": "Daniel 2:44",
+     "note": "A kingdom that shall never be destroyed."
+    }
+   ],
+   "related": [
+    "son-of-man",
+    "lamb-of-god"
+   ]
+  },
+  {
+   "id": "lamb-of-god",
+   "title": "Lamb of God",
+   "kind": "title",
+   "en": [
+    "Lamb of God"
+   ],
+   "la": [
+    "Agnus Dei"
+   ],
+   "gist": "John the Baptist points to Jesus and says 'Behold the Lamb of God, who takest away the sin of the world.' Several Old Testament lambs lie behind it: the Passover lamb whose blood saved Israel, the daily offering in the Temple, Isaac's ram, and the silent lamb of Isaiah 53. At Mass the people hear these words before Communion.",
+   "original": "Greek ho amnos tou theou.",
+   "passages": [
+    {
+     "ref": "John 1:29",
+     "note": "The first time."
+    },
+    {
+     "ref": "John 1:36",
+     "note": "Repeated the next day."
+    },
+    {
+     "ref": "Exodus 12:1-13",
+     "note": "The Passover lamb."
+    },
+    {
+     "ref": "Isaiah 53:7",
+     "note": "'He was led as a sheep to the slaughter.'"
+    },
+    {
+     "ref": "Revelation 5:6-12",
+     "note": "The Lamb who was slain."
+    }
+   ],
+   "related": [
+    "passover",
+    "son-of-god"
+   ]
+  },
+  {
+   "id": "i-am",
+   "title": "'I AM'",
+   "kind": "title",
+   "en": [
+    "I AM WHO AM",
+    "I am he\\b",
+    "I am the (?:door|resurrection|way|true vine)"
+   ],
+   "la": [
+    "EGO SUM QUI SUM",
+    "Ego sum qui sum"
+   ],
+   "gist": "At the burning bush God gives Moses his name, 'I AM WHO AM' (Exodus 3:14). In John's Gospel Jesus says 'I am' with a predicate (the bread of life, the light of the world, the door, the good shepherd, the resurrection, the way, the true vine) and also, strikingly, on its own. His hearers pick up stones: they heard him taking the divine name.",
+   "original": "Hebrew ehyeh asher ehyeh (Exodus 3:14); Greek ego eimi.",
+   "passages": [
+    {
+     "ref": "Exodus 3:13-15",
+     "note": "The name given to Moses."
+    },
+    {
+     "ref": "John 8:58",
+     "note": "'Before Abraham was made, I am.'"
+    },
+    {
+     "ref": "John 6:35",
+     "note": "'I am the bread of life.'"
+    },
+    {
+     "ref": "Isaiah 43:10",
+     "note": "'That you may know... that I am he.'"
+    }
+   ],
+   "related": [
+    "bread-of-life",
+    "light-of-the-world",
+    "good-shepherd"
+   ]
+  },
+  {
+   "id": "amen",
+   "title": "'Amen, amen, I say to you'",
+   "kind": "phrase",
+   "en": [
+    "Amen,? (?:amen,? )?I say"
+   ],
+   "la": [
+    "Amen,? (?:amen,? )?dico"
+   ],
+   "gist": "'Amen' means 'so be it' or 'truly', and in Jewish speech it comes at the end of what someone else has said. Jesus does something unheard of: he begins his own sayings with it. John doubles it. It marks the words as weighty and spoken on his own authority.",
+   "original": "Hebrew amen (from a root meaning 'firm, reliable'); Greek amen.",
+   "passages": [
+    {
+     "ref": "Matthew 5:18",
+     "note": "'Amen I say to you, till heaven and earth pass...'"
+    },
+    {
+     "ref": "John 3:3",
+     "note": "'Amen, amen I say to thee...'"
+    },
+    {
+     "ref": "John 6:47",
+     "note": "Before the bread of life discourse."
+    }
+   ],
+   "related": [
+    "i-am"
+   ]
+  },
+  {
+   "id": "emmanuel",
+   "title": "Emmanuel",
+   "kind": "name",
+   "en": [
+    "Emmanuel",
+    "Immanuel"
+   ],
+   "la": [
+    "Emmanuel"
+   ],
+   "gist": "'God with us.' The name comes from the sign Isaiah gave to King Ahaz (Isaiah 7:14) and is applied by Matthew to the child conceived of the Virgin Mary. The Gospel of Matthew begins with this name and ends with Jesus' promise 'I am with you all days'.",
+   "original": "Hebrew immanu el.",
+   "passages": [
+    {
+     "ref": "Isaiah 7:14",
+     "note": "The sign of the virgin and son."
+    },
+    {
+     "ref": "Isaiah 8:8",
+     "note": "The land is called Emmanuel's."
+    },
+    {
+     "ref": "Matthew 1:22-23",
+     "note": "Fulfilment."
+    },
+    {
+     "ref": "Matthew 28:20",
+     "note": "'I am with you all days.'"
+    }
+   ],
+   "related": [
+    "kingdom"
+   ]
+  },
+  {
+   "id": "word",
+   "title": "The Word (Logos)",
+   "kind": "title",
+   "en": [
+    "the Word of God",
+    "the Word was made flesh",
+    "the Word was with God"
+   ],
+   "la": [
+    "Verbum Dei",
+    "Verbum caro factum est",
+    "Verbum erat apud Deum"
+   ],
+   "gist": "John begins by saying that the Word was in the beginning with God, was God, and became flesh. In the Old Testament God's word creates ('God said... and it was so'), speaks through the prophets and is spoken of almost like a person; in Wisdom literature Wisdom is with God at creation. John says all of this has a face: Jesus.",
+   "original": "Greek logos (word, reason); Hebrew dabar; Aramaic memra in the Targums.",
+   "passages": [
+    {
+     "ref": "John 1:1-14",
+     "note": "The prologue."
+    },
+    {
+     "ref": "Genesis 1:3",
+     "note": "God speaks and creation comes to be."
+    },
+    {
+     "ref": "Proverbs 8:22-31",
+     "note": "Wisdom beside God at creation."
+    },
+    {
+     "ref": "Revelation 19:13",
+     "note": "'His name is called the Word of God.'"
+    },
+    {
+     "ref": "Hebrews 4:12",
+     "note": "'The word of God is living and effectual.'"
+    }
+   ],
+   "related": [
+    "son-of-god"
+   ]
+  },
+  {
+   "id": "new-covenant",
+   "title": "New covenant",
+   "kind": "phrase",
+   "en": [
+    "new covenant",
+    "new testament"
+   ],
+   "la": [
+    "novum testamentum",
+    "novi testamenti"
+   ],
+   "gist": "Jeremiah promised a new covenant written on hearts, not on stone (Jeremiah 31). At the Last Supper Jesus calls the cup 'the new covenant in my blood', and Hebrews says he is its mediator. In older English Bibles the same Greek word is translated 'testament', which is why the two halves of the Bible are called Old and New Testament.",
+   "original": "Hebrew berit hadashah (Jeremiah 31:31); Greek kaine diatheke.",
+   "passages": [
+    {
+     "ref": "Jeremiah 31:31-34",
+     "note": "The promise."
+    },
+    {
+     "ref": "Luke 22:20",
+     "note": "The cup."
+    },
+    {
+     "ref": "1 Corinthians 11:25",
+     "note": "Paul's account."
+    },
+    {
+     "ref": "Hebrews 8:6-13",
+     "note": "Christ the mediator of a better covenant."
+    }
+   ],
+   "related": [
+    "passover",
+    "lamb-of-god"
+   ]
+  },
+  {
+   "id": "day-of-the-lord",
+   "title": "Day of the Lord",
+   "kind": "phrase",
+   "en": [
+    "day of the Lord",
+    "day of the LORD"
+   ],
+   "la": [
+    "dies Domini"
+   ],
+   "gist": "A day when God acts decisively: sometimes judgement on Israel and the nations, sometimes rescue. The prophets use it as a warning (Amos says it is darkness, not light); the New Testament speaks of it as the day of Christ's return, coming 'like a thief'.",
+   "original": "Hebrew yom YHWH; Greek hemera kyriou.",
+   "passages": [
+    {
+     "ref": "Amos 5:18-20",
+     "note": "'Woe to them that desire the day of the Lord.'"
+    },
+    {
+     "ref": "Joel 2:1-11",
+     "note": "The great and terrible day."
+    },
+    {
+     "ref": "1 Thessalonians 5:2",
+     "note": "'The day of the Lord shall so come as a thief in the night.'"
+    },
+    {
+     "ref": "2 Peter 3:10",
+     "note": "The day will come as a thief."
+    }
+   ],
+   "related": [
+    "kingdom"
+   ]
+  },
+  {
+   "id": "remnant",
+   "title": "The remnant",
+   "kind": "word",
+   "en": [
+    "remnant"
+   ],
+   "la": [
+    "reliquiae",
+    "reliquiæ",
+    "residuum"
+   ],
+   "gist": "Through judgement a few survive, and God builds on them. Isaiah named a son 'a remnant shall return'. Paul says that in his own day too there is 'a remnant according to the election of grace', that is, Jewish believers in Christ.",
+   "original": "Hebrew sh'ar, she'erit; Greek leimma.",
+   "passages": [
+    {
+     "ref": "Isaiah 10:20-22",
+     "note": "'A remnant shall be converted.'"
+    },
+    {
+     "ref": "Micah 5:7",
+     "note": "The remnant of Jacob."
+    },
+    {
+     "ref": "Romans 11:5",
+     "note": "'There is a remnant saved according to the election of grace.'"
+    }
+   ],
+   "related": []
+  },
+  {
+   "id": "passover",
+   "title": "Passover (Pasch)",
+   "kind": "word",
+   "en": [
+    "Passover",
+    "Pasch",
+    "the Phase"
+   ],
+   "la": [
+    "Pascha",
+    "Phase"
+   ],
+   "gist": "The night God freed Israel from Egypt, remembered every year with a lamb, unleavened bread and bitter herbs. Jesus' death falls at the Passover, and the Church calls Easter the Pasch. Paul says 'Christ our Pasch is sacrificed', and each Mass remembers the new Passover.",
+   "original": "Hebrew pesach (to pass over, to spare); Greek pascha.",
+   "passages": [
+    {
+     "ref": "Exodus 12:1-14",
+     "note": "The first Passover."
+    },
+    {
+     "ref": "Luke 22:7-20",
+     "note": "The Last Supper in a Passover setting."
+    },
+    {
+     "ref": "1 Corinthians 5:7",
+     "note": "'Christ our pasch is sacrificed.'"
+    },
+    {
+     "ref": "John 19:14",
+     "note": "The hour of the sacrifice of the lambs."
+    }
+   ],
+   "related": [
+    "lamb-of-god",
+    "manna"
+   ]
+  },
+  {
+   "id": "manna",
+   "title": "Manna",
+   "kind": "word",
+   "en": [
+    "manna"
+   ],
+   "la": [
+    "manna"
+   ],
+   "gist": "The bread that fell each morning in the wilderness, enough for the day and no more. In John 6 the crowd cites it as the sign they want; Jesus answers that the true bread from heaven is the one the Father is now giving, and speaks of eating his flesh. The Church sees in the manna a type of the Eucharist.",
+   "original": "Hebrew man (traditionally 'What is it?', Exodus 16:15).",
+   "passages": [
+    {
+     "ref": "Exodus 16:4-35",
+     "note": "The gift of manna."
+    },
+    {
+     "ref": "Psalm 78:24-25",
+     "note": "'He gave them the bread of heaven.'"
+    },
+    {
+     "ref": "John 6:31-35",
+     "note": "The crowd and the true bread."
+    },
+    {
+     "ref": "Revelation 2:17",
+     "note": "'To him that overcometh I will give the hidden manna.'"
+    }
+   ],
+   "related": [
+    "bread-of-life",
+    "passover"
+   ]
+  },
+  {
+   "id": "abba",
+   "title": "Abba",
+   "kind": "word",
+   "en": [
+    "Abba"
+   ],
+   "la": [
+    "Abba"
+   ],
+   "gist": "An Aramaic word for father used by children at home, kept untranslated in Greek texts. Jesus prays 'Abba' in Gethsemane, and Paul says the Spirit makes us cry 'Abba, Father'. It shows how intimately Jesus spoke to God, and invites us to the same.",
+   "original": "Aramaic abba.",
+   "passages": [
+    {
+     "ref": "Mark 14:36",
+     "note": "Gethsemane."
+    },
+    {
+     "ref": "Romans 8:15",
+     "note": "'You have received the spirit of adoption of sons, whereby we cry: Abba (Father).'"
+    },
+    {
+     "ref": "Galatians 4:6",
+     "note": "The Spirit of his Son crying 'Abba'."
+    }
+   ],
+   "related": [
+    "son-of-god"
+   ]
+  },
+  {
+   "id": "hosanna",
+   "title": "Hosanna",
+   "kind": "word",
+   "en": [
+    "Hosanna",
+    "Osanna"
+   ],
+   "la": [
+    "Hosanna",
+    "Osanna"
+   ],
+   "gist": "From the Hebrew cry 'save us, we pray' (Psalm 118:25). By Jesus' day it had become a shout of praise at festivals. The crowds use it when he enters Jerusalem, and the Church takes it into the Sanctus at Mass.",
+   "original": "Hebrew hoshi'ah na.",
+   "passages": [
+    {
+     "ref": "Psalm 118:25-26",
+     "note": "'O Lord, save me... blessed is he that cometh in the name of the Lord.'"
+    },
+    {
+     "ref": "Matthew 21:9",
+     "note": "The entry into Jerusalem."
+    },
+    {
+     "ref": "John 12:13",
+     "note": "The same scene in John."
+    }
+   ],
+   "related": [
+    "son-of-david"
+   ]
+  },
+  {
+   "id": "alleluia",
+   "title": "Alleluia (Hallelujah)",
+   "kind": "word",
+   "en": [
+    "Alleluia",
+    "Hallelujah"
+   ],
+   "la": [
+    "Alleluia",
+    "Alleluja"
+   ],
+   "gist": "'Praise the Lord.' It stands at the head or end of many psalms and, in the New Testament, only in Revelation 19, where the whole company of heaven sings it. The Church sings it before the Gospel and keeps it silent in Lent.",
+   "original": "Hebrew hallelu yah.",
+   "passages": [
+    {
+     "ref": "Psalm 146:1",
+     "note": "The first of the closing 'Hallelujah' psalms."
+    },
+    {
+     "ref": "Revelation 19:1-6",
+     "note": "Heaven's Alleluia."
+    }
+   ],
+   "related": []
+  },
+  {
+   "id": "selah",
+   "title": "Selah",
+   "kind": "word",
+   "en": [
+    "Selah"
+   ],
+   "la": [],
+   "gist": "A word in the Psalms whose exact meaning is lost. It is thought to mark a pause, an instrument interlude or a lifting of the voice. It appears 71 times in the Hebrew Psalter. The Latin Vulgate and the Douay-Rheims leave it out, which is why you will find it in some translations and not in others.",
+   "original": "Hebrew selah, meaning uncertain.",
+   "passages": [
+    {
+     "ref": "Psalm 3:2",
+     "note": "The first occurrence."
+    },
+    {
+     "ref": "Habakkuk 3:3",
+     "note": "One of the few uses outside the Psalms."
+    }
+   ],
+   "related": []
+  },
+  {
+   "id": "good-shepherd",
+   "title": "The good shepherd",
+   "kind": "title",
+   "en": [
+    "good shepherd"
+   ],
+   "la": [
+    "pastor bonus"
+   ],
+   "gist": "In the Old Testament God is Israel's shepherd and kings and leaders are called shepherds, often failing. Ezekiel promises that God himself will shepherd his scattered sheep and set up one shepherd, David. Jesus says 'I am the good shepherd' and lays down his life for the sheep; the early Church loved the image.",
+   "original": "Greek ho poimen ho kalos.",
+   "passages": [
+    {
+     "ref": "Psalm 23:1",
+     "note": "'The Lord ruleth me.'"
+    },
+    {
+     "ref": "Ezekiel 34:11-24",
+     "note": "God himself will shepherd them."
+    },
+    {
+     "ref": "John 10:11-18",
+     "note": "'I am the good shepherd.'"
+    },
+    {
+     "ref": "1 Peter 5:4",
+     "note": "'The prince of pastors.'"
+    }
+   ],
+   "related": [
+    "i-am"
+   ]
+  },
+  {
+   "id": "bread-of-life",
+   "title": "Bread of life",
+   "kind": "title",
+   "en": [
+    "bread of life",
+    "living bread"
+   ],
+   "la": [
+    "panis vitae",
+    "panis vivus"
+   ],
+   "gist": "The title Jesus takes after feeding the five thousand. Moses fed Israel with manna; Jesus offers himself as bread that gives eternal life. The later part of John 6, about eating his flesh and drinking his blood, has been read in the Church from the earliest centuries as speaking of the Eucharist.",
+   "original": "Greek ho artos tes zoes.",
+   "passages": [
+    {
+     "ref": "John 6:35",
+     "note": "'I am the bread of life.'"
+    },
+    {
+     "ref": "John 6:51",
+     "note": "'The bread that I will give is my flesh.'"
+    },
+    {
+     "ref": "Exodus 16:15",
+     "note": "'This is the bread which the Lord hath given you.'"
+    }
+   ],
+   "related": [
+    "manna",
+    "i-am"
+   ]
+  },
+  {
+   "id": "light-of-the-world",
+   "title": "Light of the world",
+   "kind": "title",
+   "en": [
+    "light of the world"
+   ],
+   "la": [
+    "lux mundi"
+   ],
+   "gist": "Said by Jesus at the Feast of Tabernacles, when great lamps burned in the Temple court, and again when he heals the man born blind. In Matthew 5:14 he says the same of his disciples. Light is also the first thing God made (Genesis 1:3) and the image of his law and salvation in the prophets.",
+   "original": "Greek to phos tou kosmou.",
+   "passages": [
+    {
+     "ref": "John 8:12",
+     "note": "'I am the light of the world.'"
+    },
+    {
+     "ref": "John 9:5",
+     "note": "Said before the healing of the blind man."
+    },
+    {
+     "ref": "Matthew 5:14",
+     "note": "'You are the light of the world.'"
+    },
+    {
+     "ref": "Isaiah 9:2",
+     "note": "'The people that walked in darkness have seen a great light.'"
+    }
+   ],
+   "related": [
+    "i-am"
+   ]
+  },
+  {
+   "id": "fear-of-the-lord",
+   "title": "Fear of the Lord",
+   "kind": "phrase",
+   "en": [
+    "fear of the Lord",
+    "fear of God"
+   ],
+   "la": [
+    "timor Domini",
+    "timor Dei"
+   ],
+   "gist": "In Scripture this is not terror but reverent awe before God, which leads to love and obedience. Proverbs calls it the beginning of wisdom, and Isaiah lists it among the gifts of the Spirit. The Church names it one of the seven gifts of the Holy Spirit.",
+   "original": "Hebrew yir'at YHWH.",
+   "passages": [
+    {
+     "ref": "Proverbs 1:7",
+     "note": "'The fear of the Lord is the beginning of wisdom.'"
+    },
+    {
+     "ref": "Isaiah 11:2-3",
+     "note": "A gift of the Spirit."
+    },
+    {
+     "ref": "Psalm 111:10",
+     "note": "'The fear of the Lord is the beginning of wisdom.'"
+    },
+    {
+     "ref": "Acts 9:31",
+     "note": "The Church walked 'in the fear of the Lord'."
+    }
+   ],
+   "related": []
+  },
+  {
+   "id": "holy-of-holies",
+   "title": "The Holy of Holies",
+   "kind": "place",
+   "en": [
+    "Holy of holies",
+    "holy of holies"
+   ],
+   "la": [
+    "Sanctum sanctorum",
+    "Sancta sanctorum"
+   ],
+   "gist": "The innermost room of the Tabernacle and the Temple, where the ark stood, entered only by the high priest once a year on the Day of Atonement. When Jesus died the Temple veil in front of it was torn in two, and Hebrews says that Christ has entered the true holy place in heaven.",
+   "original": "Hebrew qodesh haqqodashim.",
+   "passages": [
+    {
+     "ref": "Exodus 26:33",
+     "note": "The veil separates the holy place from the most holy."
+    },
+    {
+     "ref": "Leviticus 16:2-3",
+     "note": "The high priest enters on the Day of Atonement."
+    },
+    {
+     "ref": "Matthew 27:51",
+     "note": "The veil torn."
+    },
+    {
+     "ref": "Hebrews 9:11-12",
+     "note": "Christ enters once for all."
+    }
+   ],
+   "related": [
+    "ark-of-the-covenant"
+   ]
+  },
+  {
+   "id": "ark-of-the-covenant",
+   "title": "The Ark of the Covenant",
+   "kind": "object",
+   "en": [
+    "ark of the covenant",
+    "ark of the testament"
+   ],
+   "la": [
+    "arca foederis",
+    "arca testamenti"
+   ],
+   "gist": "The gilded chest that held the tablets of the law, with the mercy seat on top, where God's presence met his people. It led them through the Jordan, fell into Philistine hands, and was brought to Jerusalem by David. The Fathers saw in it a sign of Mary, who carried the Word; Revelation shows the ark in heaven's temple.",
+   "original": "Hebrew aron berit.",
+   "passages": [
+    {
+     "ref": "Exodus 25:10-22",
+     "note": "How it was made."
+    },
+    {
+     "ref": "2 Samuel 6:1-15",
+     "note": "David brings it to Jerusalem."
+    },
+    {
+     "ref": "Luke 1:39-45",
+     "note": "The visitation echoes the ark's journey."
+    },
+    {
+     "ref": "Revelation 11:19",
+     "note": "The ark seen in heaven."
+    }
+   ],
+   "related": [
+    "holy-of-holies"
+   ]
+  },
+  {
+   "id": "justification",
+   "title": "Justified by faith",
+   "kind": "phrase",
+   "en": [
+    "justified by faith",
+    "reputed to him unto justice",
+    "justified freely"
+   ],
+   "la": [
+    "justificati ex fide",
+    "reputatum est illi ad justitiam",
+    "justificati gratis"
+   ],
+   "gist": "Paul's central teaching: no one is made right with God by the works of the law but by God's gift, received in faith. Abraham 'believed God, and it was reputed to him unto justice' (Genesis 15:6), and Paul says that is the pattern. The Catholic Church teaches that this faith is alive in love and brings real renewal, not only a change of status (Council of Trent).",
+   "original": "Hebrew tsedaqah; Greek dikaiosyne, dikaioo ('to declare or make righteous').",
+   "passages": [
+    {
+     "ref": "Genesis 15:6",
+     "note": "Abraham believed."
+    },
+    {
+     "ref": "Romans 3:21-28",
+     "note": "Justified freely by his grace."
+    },
+    {
+     "ref": "Romans 4:1-5",
+     "note": "Abraham as the model."
+    },
+    {
+     "ref": "Galatians 2:16",
+     "note": "Not by the works of the law."
+    },
+    {
+     "ref": "James 2:21-24",
+     "note": "How faith is completed by works."
+    }
+   ],
+   "related": []
+  },
+  {
+   "id": "build-my-church",
+   "title": "'I will build my church'",
+   "kind": "phrase",
+   "en": [
+    "build my church"
+   ],
+   "la": [
+    "aedificabo ecclesiam meam",
+    "ædificabo ecclesiam meam"
+   ],
+   "gist": "Jesus' words to Simon after his confession: 'Thou art Peter, and upon this rock I will build my church.' Peter's name means 'rock'; the Church has read in these words Christ's gift of a leading place to Peter and his successors, and the passage is one of the most discussed in Scripture. Only here and in Matthew 18:17 does Jesus use the word 'church'.",
+   "original": "Greek oikodomeso mou ten ekklesian; ekklesia means 'assembly', used in the Greek Old Testament for Israel gathered before God.",
+   "passages": [
+    {
+     "ref": "Matthew 16:13-19",
+     "note": "The whole scene."
+    },
+    {
+     "ref": "Matthew 18:17",
+     "note": "The second use of 'church'."
+    },
+    {
+     "ref": "Isaiah 22:22",
+     "note": "The key of the house of David."
+    },
+    {
+     "ref": "Ephesians 2:20",
+     "note": "The household built on apostles and prophets."
+    }
+   ],
+   "related": [
+    "kingdom"
+   ]
+  },
+  {
+   "id": "ancient-of-days",
+   "title": "Ancient of days",
+   "kind": "title",
+   "en": [
+    "Ancient of days"
+   ],
+   "la": [
+    "Antiquus dierum"
+   ],
+   "gist": "In Daniel's vision, thrones are set up and an Ancient of days takes his seat, his clothing white as snow. Then one like a son of man is brought before him and given dominion. The phrase names God, as old as time and its judge.",
+   "original": "Aramaic attiq yomin.",
+   "passages": [
+    {
+     "ref": "Daniel 7:9-14",
+     "note": "The vision."
+    },
+    {
+     "ref": "Revelation 1:13-14",
+     "note": "Christ is described with the same white hair and clothing."
+    }
+   ],
+   "related": [
+    "son-of-man"
+   ]
+  },
+  {
+   "id": "beloved-son",
+   "title": "'My beloved Son'",
+   "kind": "phrase",
+   "en": [
+    "my beloved Son",
+    "beloved Son"
+   ],
+   "la": [
+    "Filius meus dilectus",
+    "Filius dilectus"
+   ],
+   "gist": "The Father's voice at Jesus' baptism and again at the Transfiguration. The words join Psalm 2:7 ('Thou art my son'), Genesis 22 ('thy beloved son') and Isaiah 42:1 (the chosen servant): kingship, sacrifice and service in a single sentence.",
+   "original": "Greek ho huios mou ho agapetos.",
+   "passages": [
+    {
+     "ref": "Matthew 3:16-17",
+     "note": "The baptism."
+    },
+    {
+     "ref": "Matthew 17:5",
+     "note": "The Transfiguration."
+    },
+    {
+     "ref": "Genesis 22:2",
+     "note": "'Take thy only begotten son, whom thou lovest, Isaac.'"
+    },
+    {
+     "ref": "Isaiah 42:1",
+     "note": "'Behold my servant... my beloved.'"
+    }
+   ],
+   "related": [
+    "son-of-god"
+   ]
+  },
+  {
+   "id": "sign-of-jonah",
+   "title": "The sign of Jonah",
+   "kind": "phrase",
+   "en": [
+    "sign of (?:the prophet )?Jonas",
+    "sign of Jonah"
+   ],
+   "la": [
+    "signum Jonae",
+    "signum Jonæ"
+   ],
+   "gist": "When asked for a sign Jesus says none will be given except 'the sign of Jonas the prophet'. Matthew explains it as three days in the heart of the earth; Luke ties it to Jonah's preaching. Both point to the Resurrection.",
+   "original": "Greek to semeion Iona.",
+   "passages": [
+    {
+     "ref": "Jonah 1:17",
+     "note": "Three days in the belly of the fish."
+    },
+    {
+     "ref": "Matthew 12:38-41",
+     "note": "Jesus' answer."
+    },
+    {
+     "ref": "Luke 11:29-32",
+     "note": "The Lucan version."
+    }
+   ],
+   "related": []
+  },
+  {
+   "id": "bridegroom",
+   "title": "The bridegroom",
+   "kind": "title",
+   "en": [
+    "bridegroom"
+   ],
+   "la": [
+    "sponsus"
+   ],
+   "gist": "The prophets picture God as husband of his people (Hosea, Isaiah, Ezekiel), and the Song of Songs was read in that light. Jesus calls himself the bridegroom when he is asked why his disciples do not fast, and tells parables of the wedding feast. Revelation ends with the marriage of the Lamb.",
+   "original": "Hebrew chatan; Greek numphios.",
+   "passages": [
+    {
+     "ref": "Isaiah 62:5",
+     "note": "'As the bridegroom rejoiceth over the bride, so shall thy God rejoice over thee.'"
+    },
+    {
+     "ref": "Matthew 9:15",
+     "note": "'Can the children of the bridegroom mourn?'"
+    },
+    {
+     "ref": "Matthew 25:1-13",
+     "note": "The ten virgins."
+    },
+    {
+     "ref": "John 3:29",
+     "note": "'He that hath the bride is the bridegroom.'"
+    },
+    {
+     "ref": "Revelation 19:7",
+     "note": "The marriage of the Lamb."
+    }
+   ],
+   "related": [
+    "lamb-of-god"
+   ]
+  },
+  {
+   "id": "mammon",
+   "title": "Mammon",
+   "kind": "word",
+   "en": [
+    "mammon"
+   ],
+   "la": [
+    "mammona"
+   ],
+   "gist": "A word from the Aramaic for wealth or property. Jesus personifies it as a rival master: 'You cannot serve God and mammon.' The word was kept untranslated in Greek and Latin.",
+   "original": "Aramaic mamona.",
+   "passages": [
+    {
+     "ref": "Matthew 6:24",
+     "note": "'You cannot serve God and mammon.'"
+    },
+    {
+     "ref": "Luke 16:9-13",
+     "note": "The dishonest steward."
+    }
+   ],
+   "related": []
+  },
+  {
+   "id": "maranatha",
+   "title": "Maranatha",
+   "kind": "word",
+   "en": [
+    "Maranatha",
+    "Maran atha"
+   ],
+   "la": [
+    "Maran atha",
+    "Maranatha"
+   ],
+   "gist": "An Aramaic prayer that Paul leaves untranslated at the end of 1 Corinthians. It can be divided two ways, 'Our Lord, come!' (marana tha) or 'Our Lord has come' (maran atha). The Church has long prayed it with the first meaning, and the Book of Revelation ends with the same cry in Greek.",
+   "original": "Aramaic marana tha.",
+   "passages": [
+    {
+     "ref": "1 Corinthians 16:22",
+     "note": "The only place it appears."
+    },
+    {
+     "ref": "Revelation 22:20",
+     "note": "'Come, Lord Jesus.'"
+    }
+   ],
+   "related": []
+  }
+ ]
+}

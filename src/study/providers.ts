@@ -2,7 +2,7 @@ import type { AuthorityLevel, ItemFormat, Period } from '../lib/types';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
 import { getBook } from '../lib/canon';
 import {
-  CCC_OFFICIAL, cccUrl, getBiay, getCatena, getCccLinks, getDoctrine, getGlossa, getHaydock, getChalloner, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex, getPlaces, getPlacesByBook, getTopicIndex, getTopicsByBook,
+  CCC_OFFICIAL, cccUrl, getBiay, getCatena, getCccLinks, getDoctrine, getGlossa, getGlossaEn, getHaydock, getChalloner, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex, getPlaces, getPlacesByBook, getTopicIndex, getTopicsByBook,
 } from '../data/content';
 import { getXrefs } from '../data/loader';
 import type { ResourceSource } from '../data/content';
@@ -117,6 +117,8 @@ export interface StudyItem {
   basis?: string;
   /** the publisher's own audio address, playable in the app */
   audio?: string;
+  /** an English translation of a non-English item (the original stays in fullExcerpt) */
+  translation?: string;
   /** verbatim quotations from library works, each linking to its section */
   quotes?: { who: string; text: string; href: string }[];
   /** a small picture shown on the card (a path under the app's data folder) */
@@ -365,6 +367,7 @@ export const providers: Record<string, Provider> = {
     }
 
     const gl = await getGlossa(book);
+    const glEn = gl ? await getGlossaEn(book) : null;
     if (gl) {
       for (const [k, parts] of Object.entries(gl)) {
         const [kc, kv] = k.split('.').map(Number);
@@ -387,6 +390,7 @@ export const providers: Record<string, Provider> = {
           sourceName: 'Glossa Ordinaria, Migne ed. (public domain, via eBible.org)',
           ref: `${book}.${kc}.${kv}`,
           lang: 'la',
+          translation: glEn?.[k],
           kind: 'Glossa (Latin)',
         });
       }
