@@ -10,12 +10,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "homilies",
-   "year": "c. 407–420",
+   "year": "c. 407\u2013420",
    "rootTitle": "Lectures or Tractates",
    "scriptureMode": "tractates",
    "sectionLabel": "Tractate",
-   "description": "Augustine's running homilies on John, including the great Eucharistic tractates 25–27 on John 6.",
-   "translator": "Rev. John Gibb (Tractates 1–37) and Rev. James Innes (Tractates 38–124), for Dods' Series of Augustin's Works; ed. Philip Schaff, NPNF 1st series vol. 7 (1888)",
+   "description": "Augustine's running homilies on John, including the great Eucharistic tractates 25\u201327 on John 6.",
+   "translator": "Rev. John Gibb (Tractates 1\u201337) and Rev. James Innes (Tractates 38\u2013124), for Dods' Series of Augustin's Works; ed. Philip Schaff, NPNF 1st series vol. 7 (1888)",
    "rightsEvidence": "Translators named in the volume's preface; 1880s publication."
   },
   {
@@ -27,7 +27,7 @@
    "period": "patristic",
    "authority": "father",
    "kind": "commentary",
-   "year": "c. 392–422",
+   "year": "c. 392\u2013422",
    "rootTitle": null,
    "scriptureMode": "psalm-roman",
    "psalmTags": "vulgate",
@@ -129,11 +129,11 @@
    "authority": "father",
    "kind": "treatise",
    "year": "c. 180",
-   "rootTitle": "IRENÆUS",
+   "rootTitle": "IREN\u00c6US",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Irenaeus' defence of apostolic tradition and the unity of Scripture.",
-   "translator": "ANF editors (Alexander Roberts, James Donaldson), with Rev. W. H. Rambaut for books 3–5; Ante-Nicene Fathers vol. 1 (1885)",
+   "translator": "ANF editors (Alexander Roberts, James Donaldson), with Rev. W. H. Rambaut for books 3\u20135; Ante-Nicene Fathers vol. 1 (1885)",
    "rightsEvidence": "Credits as stated in the volume's preface; 1880s publication."
   },
   {
@@ -145,7 +145,7 @@
    "period": "patristic",
    "authority": "father",
    "kind": "autobiography",
-   "year": "c. 397–400",
+   "year": "c. 397\u2013400",
    "rootTitle": null,
    "scriptureMode": "tags",
    "psalmTags": "skip",
@@ -162,7 +162,7 @@
    "id": "teresa-castle",
    "ccel": "teresa/castle2",
    "title": "The Interior Castle",
-   "author": "Teresa of Ávila",
+   "author": "Teresa of \u00c1vila",
    "authorId": "teresa-avila",
    "period": "early-modern",
    "authority": "saint",
@@ -349,10 +349,10 @@
    "authority": "father",
    "kind": "commentary",
    "year": "c. 393",
-   "rootTitle": "Our Lord’s Sermon on the Mount",
+   "rootTitle": "Our Lord\u2019s Sermon on the Mount",
    "scriptureMode": "tags",
    "psalmTags": "skip",
-   "description": "Augustine's commentary on Matthew 5–7.",
+   "description": "Augustine's commentary on Matthew 5\u20137.",
    "translator": "As printed in NPNF 1st series vol. 6 (1888)",
    "rightsEvidence": "1880s publication; translator credit is in the printed volume."
   },
@@ -382,7 +382,7 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 380–390",
+   "year": "c. 380\u2013390",
    "rootTitle": "Dogmatic Treatises",
    "scriptureMode": "tags",
    "psalmTags": "skip",
@@ -393,7 +393,7 @@
   {
    "id": "basil-works",
    "ccel": "schaff/npnf208",
-   "title": "On the Holy Spirit and the Hexæmeron",
+   "title": "On the Holy Spirit and the Hex\u00e6meron",
    "author": "Basil the Great",
    "authorId": "basil-the-great",
    "period": "patristic",
@@ -416,7 +416,7 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 393–406",
+   "year": "c. 393\u2013406",
    "rootTitle": "Treatises",
    "scriptureMode": "tags",
    "psalmTags": "skip",
@@ -433,7 +433,7 @@
    "period": "patristic",
    "authority": "father",
    "kind": "letters",
-   "year": "370–419",
+   "year": "370\u2013419",
    "rootTitle": "The Letters of St. Jerome",
    "scriptureMode": "tags",
    "psalmTags": "skip",
@@ -450,7 +450,7 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 230–248",
+   "year": "c. 230\u2013248",
    "rootTitle": "Origen",
    "scriptureMode": "tags",
    "psalmTags": "skip",
@@ -467,13 +467,13 @@
    "period": "medieval",
    "authority": "saint",
    "kind": "summa",
-   "year": "1265–1274",
+   "year": "1265\u20131274",
    "scriptureMode": "summa-index",
    "indexOnly": true,
    "sectionUrl": "https://ccel.org/ccel/aquinas/summa.{id}.html",
    "description": "The articles of the Summa that cite each verse. Only short snippets are stored; the full article opens at CCEL.",
-   "translator": "Fathers of the English Dominican Province (the 1911–1925 translation, as printed by CCEL)",
-   "rightsEvidence": "CCEL rights field: Public Domain; the English Dominican translation was published 1911–1925."
+   "translator": "Fathers of the English Dominican Province (the 1911\u20131925 translation, as printed by CCEL)",
+   "rightsEvidence": "CCEL rights field: Public Domain; the English Dominican translation was published 1911\u20131925."
   },
   {
    "id": "leo-sermons-letters",
@@ -484,7 +484,7 @@
    "period": "patristic",
    "authority": "father",
    "kind": "sermons",
-   "year": "440–461",
+   "year": "440\u2013461",
    "rootTitle": "The Letters and Sermons of Leo the Great",
    "scriptureMode": "tags",
    "psalmTags": "skip",
@@ -501,7 +501,7 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 590–604",
+   "year": "c. 590\u2013604",
    "rootTitle": "Gregory the Great",
    "scriptureMode": "tags",
    "psalmTags": "skip",
@@ -518,11 +518,11 @@
    "period": "patristic",
    "authority": "saint",
    "kind": "spiritual",
-   "year": "c. 420–429",
+   "year": "c. 420\u2013429",
    "rootTitle": "The Works of John Cassian",
    "scriptureMode": "tags",
    "psalmTags": "skip",
-   "description": "Cassian’s teaching on monastic life, prayer and the spiritual senses of Scripture.",
+   "description": "Cassian\u2019s teaching on monastic life, prayer and the spiritual senses of Scripture.",
    "translator": "Edgar C. S. Gibson, NPNF 2nd series vol. 11 (1894)",
    "rightsEvidence": "1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
   },
@@ -530,7 +530,7 @@
    "id": "vincent-commonitory",
    "ccel": "schaff/npnf211",
    "title": "Commonitory",
-   "author": "Vincent of Lérins",
+   "author": "Vincent of L\u00e9rins",
    "authorId": "vincent-lerins",
    "period": "patristic",
    "authority": "father",
@@ -539,7 +539,7 @@
    "rootTitle": "Commonitory",
    "scriptureMode": "tags",
    "psalmTags": "skip",
-   "description": "The classic rule for recognising Catholic tradition: “what has been believed everywhere, always, by all.”",
+   "description": "The classic rule for recognising Catholic tradition: \u201cwhat has been believed everywhere, always, by all.\u201d",
    "translator": "C. A. Heurtley, NPNF 2nd series vol. 11 (1894)",
    "rightsEvidence": "1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
   },
@@ -552,11 +552,11 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "413–426",
+   "year": "413\u2013426",
    "rootTitle": "^City of God$",
    "scriptureMode": "tags",
    "psalmTags": "skip",
-   "description": "Augustine’s great work on the two cities, history and the Church.",
+   "description": "Augustine\u2019s great work on the two cities, history and the Church.",
    "translator": "Marcus Dods, NPNF 1st series vol. 2 (1887)",
    "rightsEvidence": "1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
   },
@@ -569,7 +569,7 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "396–426",
+   "year": "396\u2013426",
    "rootTitle": "On Christian Doctrine",
    "scriptureMode": "tags",
    "psalmTags": "skip",
@@ -586,13 +586,13 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 339–360",
+   "year": "c. 339\u2013360",
    "rootTitle": "Against the Arians",
    "scriptureMode": "tags",
    "psalmTags": "skip",
-   "description": "Athanasius’ scriptural defence of Christ’s divinity (Proverbs 8:22, John 10:30, Philippians 2 and more).",
+   "description": "Athanasius\u2019 scriptural defence of Christ\u2019s divinity (Proverbs 8:22, John 10:30, Philippians 2 and more).",
    "translator": "John Henry Newman, revised by Archibald Robertson, NPNF 2nd series vol. 4 (1892)",
-   "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
+   "rightsEvidence": "1880s\u20131890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
   },
   {
    "id": "ephrem-hymns",
@@ -603,13 +603,13 @@
    "period": "patristic",
    "authority": "saint",
    "kind": "hymns",
-   "year": "c. 350–373",
+   "year": "c. 350\u2013373",
    "rootTitle": "Ephraim the Syrian",
    "scriptureMode": "tags",
    "psalmTags": "skip",
-   "description": "Selected hymns and homilies of Ephrem, the “harp of the Spirit”.",
+   "description": "Selected hymns and homilies of Ephrem, the \u201charp of the Spirit\u201d.",
    "translator": "As printed in NPNF 2nd series vol. 13, part 2 (1898); translator credits are in the volume",
-   "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
+   "rightsEvidence": "1880s\u20131890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
   },
   {
    "id": "justin-martyr",
@@ -620,13 +620,13 @@
    "period": "patristic",
    "authority": "father",
    "kind": "apologetics",
-   "year": "c. 150–165",
+   "year": "c. 150\u2013165",
    "rootTitle": "JUSTIN MARTYR",
    "scriptureMode": "tags",
    "psalmTags": "skip",
-   "description": "Justin’s earliest Christian reading of the Old Testament and description of the Eucharist and Sunday worship.",
+   "description": "Justin\u2019s earliest Christian reading of the Old Testament and description of the Eucharist and Sunday worship.",
    "translator": "Marcus Dods, George Reith and others, Ante-Nicene Fathers vol. 1 (1885)",
-   "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
+   "rightsEvidence": "1880s\u20131890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
   },
   {
    "id": "ignatius-letters",
@@ -643,7 +643,7 @@
    "psalmTags": "skip",
    "description": "Letters of the martyr-bishop of Antioch on the Eucharist, the bishop and unity.",
    "translator": "ANF editors (Alexander Roberts, James Donaldson), Ante-Nicene Fathers vol. 1 (1885)",
-   "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
+   "rightsEvidence": "1880s\u20131890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
   },
   {
    "id": "clement-rome",
@@ -660,7 +660,7 @@
    "psalmTags": "skip",
    "description": "Early letter on order and apostolic succession in the Church.",
    "translator": "ANF editors (Alexander Roberts, James Donaldson), Ante-Nicene Fathers vol. 1 (1885)",
-   "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
+   "rightsEvidence": "1880s\u20131890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
   },
   {
    "id": "john-damascus",
@@ -675,9 +675,9 @@
    "rootTitle": "John of Damascus",
    "scriptureMode": "tags",
    "psalmTags": "skip",
-   "description": "The last of the Greek Fathers’ systematic summaries of the faith.",
+   "description": "The last of the Greek Fathers\u2019 systematic summaries of the faith.",
    "translator": "S. D. F. Salmond, NPNF 2nd series vol. 9 (1899)",
-   "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
+   "rightsEvidence": "1880s\u20131890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
   },
   {
    "id": "chrys-gal",
@@ -958,12 +958,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 190–215",
+   "year": "c. 190\u2013215",
    "rootTitle": "CLEMENT OF ALEXANDRIA",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "The Instructor, Stromata and other works (Clement of Alexandria); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 2 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 2 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -975,12 +975,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 197–212",
+   "year": "c. 197\u2013212",
    "rootTitle": "^Apologetic",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Apologetic works (Tertullian); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 3 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 3 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -992,12 +992,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 207–212",
+   "year": "c. 207\u2013212",
    "rootTitle": "^Anti-Marcion",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Against Marcion and other doctrinal works (Tertullian); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 3 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 3 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1009,12 +1009,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 200–220",
+   "year": "c. 200\u2013220",
    "rootTitle": "^Ethical",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Moral and ethical works (Tertullian); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 3 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 3 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1026,12 +1026,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 200–235",
+   "year": "c. 200\u2013235",
    "rootTitle": "^Hippolytus",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Works of Hippolytus (Hippolytus of Rome); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 5 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 5 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1043,12 +1043,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 248–258",
+   "year": "c. 248\u2013258",
    "rootTitle": "^Cyprian",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Letters and treatises (Cyprian of Carthage); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 5 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 5 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1065,7 +1065,7 @@
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Treatises (Novatian); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 5 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 5 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1077,12 +1077,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 304–313",
+   "year": "c. 304\u2013313",
    "rootTitle": "^Lactantius",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Divine Institutes and other works (Lactantius); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 7 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 7 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1094,12 +1094,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "letters",
-   "year": "386–429",
+   "year": "386\u2013429",
    "rootTitle": "^Letters of St\\. Augustin$",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Letters (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 1st series vol. 1 (1887–88)",
+   "translator": "NPNF 1st series vol. 1 (1887\u201388)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1111,12 +1111,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "393–420",
+   "year": "393\u2013420",
    "rootTitle": "^Doctrinal Treatises",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Doctrinal treatises (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 1st series vol. 3 (1887–88)",
+   "translator": "NPNF 1st series vol. 3 (1887\u201388)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1128,29 +1128,29 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "388–422",
+   "year": "388\u2013422",
    "rootTitle": "^Moral Treatises",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Moral treatises (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 1st series vol. 3 (1887–88)",
+   "translator": "NPNF 1st series vol. 3 (1887\u201388)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
    "id": "aug-manichaean",
    "ccel": "schaff/npnf104",
-   "title": "Writings against the Manichæans",
+   "title": "Writings against the Manich\u00e6ans",
    "author": "Augustine of Hippo",
    "authorId": "augustine",
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "387–405",
+   "year": "387\u2013405",
    "rootTitle": "^Writings in Connection with the Manich",
    "scriptureMode": "tags",
    "psalmTags": "skip",
-   "description": "Writings against the Manichæans (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 1st series vol. 4 (1887–88)",
+   "description": "Writings against the Manich\u00e6ans (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
+   "translator": "NPNF 1st series vol. 4 (1887\u201388)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1162,12 +1162,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "393–420",
+   "year": "393\u2013420",
    "rootTitle": "^Writings in Connection with the Donatist",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Writings against the Donatists (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 1st series vol. 4 (1887–88)",
+   "translator": "NPNF 1st series vol. 4 (1887\u201388)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1179,12 +1179,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "412–428",
+   "year": "412\u2013428",
    "rootTitle": null,
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Anti-Pelagian writings (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 1st series vol. 5 (1887–88)",
+   "translator": "NPNF 1st series vol. 5 (1887\u201388)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
    "skipTitles": [
     "Credits",
@@ -1210,7 +1210,7 @@
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Church History (Eusebius of Caesarea); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 2nd series vol. 1 (1890–94)",
+   "translator": "NPNF 2nd series vol. 1 (1890\u201394)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1222,12 +1222,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 449–453",
+   "year": "c. 449\u2013453",
    "rootTitle": "^The Ecclesiastical History, Dialogues",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Ecclesiastical History, Dialogues and Letters (Theodoret of Cyrus); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 2nd series vol. 3 (1890–94)",
+   "translator": "NPNF 2nd series vol. 3 (1890\u201394)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1244,7 +1244,7 @@
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Lives of Illustrious Men (Jerome); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 2nd series vol. 3 (1890–94)",
+   "translator": "NPNF 2nd series vol. 3 (1890\u201394)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1256,12 +1256,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 380–394",
+   "year": "c. 380\u2013394",
    "rootTitle": "^Dogmatic Treatises",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Dogmatic treatises (Gregory of Nyssa); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 2nd series vol. 5 (1890–94)",
+   "translator": "NPNF 2nd series vol. 5 (1890\u201394)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1273,12 +1273,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 380–394",
+   "year": "c. 380\u2013394",
    "rootTitle": "^Ascetic and Moral",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Ascetic and moral treatises (Gregory of Nyssa); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 2nd series vol. 5 (1890–94)",
+   "translator": "NPNF 2nd series vol. 5 (1890\u201394)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1290,12 +1290,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 380–394",
+   "year": "c. 380\u2013394",
    "rootTitle": "^Apologetic Works",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Apologetic works (Gregory of Nyssa); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 2nd series vol. 5 (1890–94)",
+   "translator": "NPNF 2nd series vol. 5 (1890\u201394)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1307,12 +1307,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "letters",
-   "year": "c. 380–394",
+   "year": "c. 380\u2013394",
    "rootTitle": "^Letters",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Letters (Gregory of Nyssa); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 2nd series vol. 5 (1890–94)",
+   "translator": "NPNF 2nd series vol. 5 (1890\u201394)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -1324,12 +1324,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 240–270",
+   "year": "c. 240\u2013270",
    "rootTitle": "^Gregory Thaumaturgus",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Works of Gregory Thaumaturgus (including the Metaphrase on Ecclesiastes) (Gregory Thaumaturgus); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 6 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 6 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
    "skipTitles": [
     "Credits",
@@ -1355,7 +1355,7 @@
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Works of Methodius (Methodius of Olympus); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 6 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 6 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
    "skipTitles": [
     "Credits",
@@ -1381,7 +1381,7 @@
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Against the Heathen (Arnobius); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 6 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 6 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
    "skipTitles": [
     "Credits",
@@ -1402,12 +1402,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "commentary",
-   "year": "c. 226–231",
+   "year": "c. 226\u2013231",
    "rootTitle": "Origen's Commentary on the Gospel of John",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Commentary on the Gospel of John (Origen); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 9 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 9 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
    "skipTitles": [
     "Credits",
@@ -1433,7 +1433,7 @@
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Commentary on the Gospel of Matthew (Origen); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 9 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 9 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
    "skipTitles": [
     "Credits",
@@ -1459,7 +1459,7 @@
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Diatessaron (Tatian); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "Ante-Nicene Fathers vol. 9 (1885–86)",
+   "translator": "Ante-Nicene Fathers vol. 9 (1885\u201386)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
    "skipTitles": [
     "Credits",
@@ -1480,7 +1480,7 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 386–407",
+   "year": "c. 386\u2013407",
    "rootTitle": null,
    "scriptureMode": "tags",
    "psalmTags": "skip",
@@ -1506,12 +1506,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "letters",
-   "year": "590–604",
+   "year": "590\u2013604",
    "rootTitle": "^Selected Epistles of Gregory",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Selected Epistles (Gregory the Great); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 2nd series vol. 13 (1890–94)",
+   "translator": "NPNF 2nd series vol. 13 (1890\u201394)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
    "skipTitles": [
     "Credits",
@@ -1532,12 +1532,12 @@
    "period": "patristic",
    "authority": "father",
    "kind": "treatise",
-   "year": "c. 340–370",
+   "year": "c. 340\u2013370",
    "rootTitle": "^Selections from the Hymns",
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Hymns, homilies and Demonstrations (Ephrem the Syrian and Aphrahat); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 2nd series vol. 13 (1890–94)",
+   "translator": "NPNF 2nd series vol. 13 (1890\u201394)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
    "skipTitles": [
     "Credits",
@@ -1563,7 +1563,7 @@
    "scriptureMode": "tags",
    "psalmTags": "skip",
    "description": "Ecclesiastical Histories (Socrates Scholasticus and Sozomen); passages are found by the Scripture citations tagged in the CCEL edition.",
-   "translator": "NPNF 2nd series vol. 2 (1890–94)",
+   "translator": "NPNF 2nd series vol. 2 (1890\u201394)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
    "skipTitles": [
     "Credits",
@@ -1683,11 +1683,395 @@
    "description": "Family, synagogue, school and village life in the time of Jesus.",
    "translator": "Original English (1876; 1904 printing)",
    "rightsEvidence": "Edersheim died 1889; CCEL rights field: Public Domain."
+  },
+  {
+   "id": "ignatius-exercises",
+   "ccel": "ignatius/exercises",
+   "title": "The Spiritual Exercises",
+   "author": "Ignatius of Loyola",
+   "authorId": "ignatius-loyola",
+   "period": "early-modern",
+   "authority": "saint",
+   "kind": "spiritual",
+   "year": "1548",
+   "rootTitle": null,
+   "scriptureMode": "tags",
+   "psalmTags": "skip",
+   "skipTitles": [
+    "Title Page",
+    "Approbation",
+    "Paul III",
+    "Contents",
+    "General Note",
+    "General Index",
+    "Index"
+   ],
+   "description": "Ignatius's month-long course of meditations and rules for discernment, the foundation of Jesuit spirituality.",
+   "translator": "Fr. Elder Mullan, S.J., translated from the Spanish autograph (New York: P. J. Kenedy & Sons, 1914)",
+   "rightsEvidence": "Translator and 1914 New York edition printed in the CCEL text (title page: 'Translated from the Autograph by Father Elder Mullan, S.J.'; Imprimatur 25 April 1914; 'Copyright, 1914 by P. J. Kenedy & Sons'). A US work of 1914 is in the public domain; CCEL rights field not set, so the date was verified from the printed title page.",
+   "prefixParent": true
+  },
+  {
+   "id": "julian-revelations",
+   "ccel": "julian/revelations",
+   "title": "Revelations of Divine Love",
+   "author": "Julian of Norwich",
+   "authorId": "julian-norwich",
+   "period": "medieval",
+   "authority": "saint",
+   "kind": "spiritual",
+   "year": "c. 1393",
+   "rootTitle": null,
+   "scriptureMode": "tags",
+   "psalmTags": "skip",
+   "skipTitles": [
+    "Title Page",
+    "Indexes",
+    "Index"
+   ],
+   "description": "Sixteen 'showings' received in 1373, with Julian's long reflection on them: 'all shall be well'. Not formally canonized; widely venerated.",
+   "translator": "Grace Warrack (London: Methuen, 1901)",
+   "rightsEvidence": "CCEL rights field: Public Domain; CCEL record and text state 'Translated by Grace Warrack. First published 1901'.",
+   "prefixParent": true
+  },
+  {
+   "id": "teresa-life",
+   "ccel": "teresa/life",
+   "title": "The Life of St. Teresa of Jesus",
+   "author": "Teresa of \u00c1vila",
+   "authorId": "teresa-avila",
+   "period": "early-modern",
+   "authority": "saint",
+   "kind": "autobiography",
+   "year": "1565",
+   "rootTitle": null,
+   "scriptureMode": "tags",
+   "psalmTags": "skip",
+   "skipTitles": [
+    "Frontispiece",
+    "Title Page",
+    "Contents",
+    "Introduction",
+    "St. Teresa's Arguments",
+    "Preface",
+    "Annals",
+    "Index"
+   ],
+   "description": "Teresa's own account of her conversion, her prayer, and the beginnings of the Carmelite reform.",
+   "translator": "David Lewis, with introduction by Benedict Zimmerman, O.C.D. (London: Thomas Baker; New York: Benziger, 1904, 4th ed.)",
+   "rightsEvidence": "CCEL rights field: Public Domain; CCEL 'published' field: London: Thomas Baker; New York: Benziger Bros., 1904. Lewis's translation dates from 1870; the 1904 edition is the print source."
+  },
+  {
+   "id": "desales-devout-life",
+   "ccel": "desales/devout_life",
+   "title": "Introduction to the Devout Life",
+   "author": "Francis de Sales",
+   "authorId": "francis-de-sales",
+   "period": "early-modern",
+   "authority": "saint",
+   "kind": "spiritual",
+   "year": "1609",
+   "rootTitle": null,
+   "scriptureMode": "tags",
+   "psalmTags": "skip",
+   "skipTitles": [
+    "Title Page",
+    "Contents",
+    "Index"
+   ],
+   "description": "Francis de Sales's guide to holiness for people living ordinary lives in the world; he is a Doctor of the Church.",
+   "translator": "Anonymous 'new translation' in the Library of Spiritual Works for English Catholics (London: Rivingtons, 1876); the translator is not named",
+   "rightsEvidence": "The CCEL record gives no rights, date or translator. The CCEL text opens with the series name 'Library of Spiritual Works for English Catholics'; I compared it with the Internet Archive scan of 'Introduction to the devout life. A new translation' (London: Rivingtons, 1876; archive.org/details/introductiontod00salegoog), which carries the same series name and the same opening passage (the flower-girl Glycera). Translator unidentified; 1876 publication makes it public domain.",
+   "prefixParent": true
+  },
+  {
+   "id": "desales-love-of-god",
+   "ccel": "desales/love",
+   "title": "Treatise on the Love of God",
+   "author": "Francis de Sales",
+   "authorId": "francis-de-sales",
+   "period": "early-modern",
+   "authority": "saint",
+   "kind": "spiritual",
+   "year": "1616",
+   "rootTitle": null,
+   "scriptureMode": "tags",
+   "psalmTags": "skip",
+   "skipTitles": [
+    "Introductory Material",
+    "Title Page",
+    "Contents",
+    "Index",
+    "Other Books"
+   ],
+   "description": "Francis de Sales's mature treatise on the birth, growth and perfection of divine love, in twelve books.",
+   "translator": "Rev. Henry Benedict Mackey, O.S.B. (New York: Benziger Brothers, c. 1884)",
+   "rightsEvidence": "CCEL rights field: Public Domain; CCEL 'published': New York: Benziger Brothers, ca. 1884; the text names the translator as Rev. Henry Benedict Mackey, O.S.B.",
+   "prefixParent": true
+  },
+  {
+   "id": "hilton-scale",
+   "ccel": "hilton/ladder",
+   "title": "The Scale (or Ladder) of Perfection",
+   "author": "Walter Hilton",
+   "authorId": "walter-hilton",
+   "period": "medieval",
+   "authority": "saint",
+   "kind": "spiritual",
+   "year": "c. 1390",
+   "rootTitle": null,
+   "scriptureMode": "tags",
+   "psalmTags": "skip",
+   "skipTitles": [
+    "Title Page",
+    "Publishers",
+    "Contents",
+    "An Essay",
+    "Indexes",
+    "Index"
+   ],
+   "description": "The English contemplative's guide to restoring the image of God in the soul. Hilton (d. 1396) was an Augustinian canon, not a canonized saint.",
+   "translator": "Modernized from the Middle English by Dom Serenus Cressy (1659); edition with essay by J. B. Dalgairns (London: Burns & Oates, 1870)",
+   "rightsEvidence": "CCEL text states 'This etext is in the public domain'; the printed edition is the 1870 reprint of Cressy's 1659 text (Publishers' Note names the 1659 and 1870 editions)."
+  },
+  {
+   "id": "anselm-basic-works",
+   "ccel": "anselm/basic_works",
+   "title": "Proslogium, Monologium and Cur Deus Homo",
+   "author": "Anselm of Canterbury",
+   "authorId": "anselm",
+   "period": "medieval",
+   "authority": "saint",
+   "kind": "treatise",
+   "year": "1076\u20131098",
+   "rootTitle": null,
+   "scriptureMode": "tags",
+   "psalmTags": "skip",
+   "skipTitles": [
+    "Title Page",
+    "Introduction",
+    "Indexes",
+    "Index"
+   ],
+   "description": "Anselm's meditation on God's existence, his rational reflection on the divine nature, and his argument for why God became man. Doctor of the Church.",
+   "translator": "Sidney Norton Deane (Chicago: Open Court, 1903; reprint 1926)",
+   "rightsEvidence": "Title page of the CCEL text: 'Translated from the Latin by Sidney Norton Deane, B.A.\u2026 Reprint edition, Chicago, Open Court Publishing Company, 1926'; translation 'copyrighted by the Open Court Publishing Co. 1903'. A 1903 US publication is in the public domain.",
+   "prefixParent": true
+  },
+  {
+   "id": "therese-story-of-a-soul",
+   "ccel": "therese/autobio",
+   "title": "Story of a Soul",
+   "author": "Th\u00e9r\u00e8se of Lisieux",
+   "authorId": "therese-lisieux",
+   "period": "early-modern",
+   "authority": "saint",
+   "kind": "autobiography",
+   "year": "1898",
+   "rootTitle": null,
+   "scriptureMode": "tags",
+   "psalmTags": "skip",
+   "skipTitles": [
+    "Cover Page",
+    "NOTE TO",
+    "Title Page",
+    "Contents",
+    "Dedication",
+    "Original Title Page",
+    "Indexes",
+    "Index"
+   ],
+   "description": "The autobiography of the Little Flower, her 'Little Way' of trust and love, with her letters, counsels and poems. Doctor of the Church.",
+   "translator": "Rev. T. N. Taylor (London: Burns, Oates & Washbourne, 1912; 8th ed. 1922), as 'Soeur Th\u00e9r\u00e8se of Lisieux'",
+   "rightsEvidence": "CCEL rights field: Public Domain; the CCEL note states it reproduces the translated writings of 'Soeur Th\u00e9r\u00e8se of Lisieux (London: Burns, Oates & Washbourne, 1912; 8th ed., 1922), edited by Rev. T.N. Taylor', Imprimatur Westminster 9 December 1912. Note: this is the 1912 Taylor version, not the later (1975 and after, copyrighted) Clarke translation."
+  },
+  {
+   "id": "kempis-imitation",
+   "title": "The Imitation of Christ",
+   "author": "Thomas \u00e0 Kempis",
+   "authorId": "thomas-a-kempis",
+   "period": "medieval",
+   "authority": "saint",
+   "kind": "spiritual",
+   "year": "c. 1418\u20131427",
+   "scriptureMode": "tags",
+   "description": "The most widely read Christian devotional book after the Bible, in four books on the inner life, the cross, consolation and Holy Communion.",
+   "translator": "Rev. William Benham, B.D. (London, 1874)",
+   "rightsEvidence": "Project Gutenberg's licence header for this ebook: 'Creating the works from print editions not protected by U.S. copyright law'. Benham's translation was first published in 1874 (Gutenberg ebook #1653 names the translator and the print source); it replaces the CCEL edition (Croft & Bolton, 1940), whose rights could not be verified.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/1653/pg1653.txt",
+    "file": "gutenberg_1653.txt",
+    "sourceName": "Project Gutenberg (ebook #1653)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1653",
+    "heading": "^CHAPTER [IVXLC]+\\.?$",
+    "titleLines": 3,
+    "groupHeading": "^THE (FIRST|SECOND|THIRD|FOURTH) BOOK$",
+    "strip": [
+     "^\\(\\d{1,2}\\) [\\s\\S]*?(?=\\n\\s*\\n)",
+     "\\(\\d{1,2}\\)"
+    ]
+   }
+  },
+  {
+   "id": "roman-catechism",
+   "title": "The Roman Catechism (Catechism of the Council of Trent)",
+   "author": "Council of Trent (Pope Pius V)",
+   "authorId": "council-trent",
+   "period": "early-modern",
+   "authority": "church",
+   "kind": "catechism",
+   "year": "1566",
+   "scriptureMode": "tags",
+   "description": "The catechism for parish priests commissioned by the Council of Trent: the Creed, the Sacraments, the Commandments and the Lord's Prayer.",
+   "translator": "Very Rev. Jeremiah Donovan, D.D., Maynooth (Dublin, 1829; this printing Dublin: James Duffy, 1867)",
+   "rightsEvidence": "Donovan's translation was first published in Dublin in 1829 and this text is the 1867 Dublin (James Duffy) printing, scanned by the Internet Archive from the University of California copy; both dates are far before 1929. The text is machine OCR and has not been proofread. The 1923 McHugh & Callan translation was not used: the scans available are 1934-revised, later printings of unclear copyright status.",
+   "text": {
+    "url": "https://archive.org/download/catechismofcounc00cathiala/catechismofcounc00cathiala_djvu.txt",
+    "file": "archive_catechismofcounc00cathiala.txt",
+    "sourceName": "Internet Archive (OCR of the 1867 Duffy printing)",
+    "sourceUrl": "https://archive.org/details/catechismofcounc00cathiala",
+    "start": "^DECEEE\\s+OF\\s+THE\\s+COUNCIL\\s+OF\\s+TEENT\\.\\s*$",
+    "end": "^\\s*PRAXIS\\s+CATECHISMI",
+    "heading": "^CHAP[TI]E[RE]\\s+[IVXLCTHU1lrn]+[.,]?\\s*$",
+    "titleLines": 1,
+    "groupHeading": "^PART\\s+[IVTL]+[.,]?\\s*$",
+    "fixTitles": [
+     [
+      "Chapter XIL",
+      "Chapter XII"
+     ],
+     [
+      "Chapter XL$",
+      "Chapter XI"
+     ],
+     [
+      "CHAPTER rV",
+      "Chapter IV"
+     ],
+     [
+      "ox THE FIRST ARTICLE OF THE CREED",
+      "On The First Article"
+     ],
+     [
+      "On The FIRST ARTICLE OF THE CREED",
+      "On The First Article"
+     ],
+     [
+      "Akticle",
+      "Article"
+     ],
+     [
+      "Prater",
+      "Prayer"
+     ],
+     [
+      "Contained In The$",
+      "Contained In The Decalogue"
+     ],
+     [
+      "ON THE PREFACE TO THE LORD's PRAYER\\.? ?'?",
+      "On The Preface To The Lord's Prayer"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "baltimore-catechism",
+   "title": "Baltimore Catechism No. 3",
+   "author": "Third Plenary Council of Baltimore",
+   "authorId": "baltimore-council",
+   "period": "early-modern",
+   "authority": "church",
+   "kind": "catechism",
+   "year": "1885",
+   "scriptureMode": "tags",
+   "description": "The full Baltimore Catechism, as used in American Catholic schools for most of the twentieth century: 37 lessons from the end of man to the last things.",
+   "translator": "Prepared and enjoined by the Third Plenary Council of Baltimore (1884), approved 6 April 1885; text edited for the Gutenberg e-text from the Benziger Brothers printing",
+   "rightsEvidence": "Project Gutenberg's licence header for this ebook: 'Creating the works from print editions not protected by U.S. copyright law'. Imprimaturs dated 1885, 1901 and 1921 are printed in the text; the Catechism was composed in 1885 (Gutenberg ebook #14553). Public domain in the US.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/14553/pg14553.txt",
+    "file": "gutenberg_14553.txt",
+    "sourceName": "Project Gutenberg (ebook #14553)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/14553",
+    "start": "^PRAYERS\\s*$",
+    "heading": "^LESSON [A-Z-]+\\.?$",
+    "titleLines": 1,
+    "introTitle": "Prayers and preliminary questions",
+    "strip": [
+     "\\{[^{}]*\\}"
+    ],
+    "end": "^MORNING PRAYERS\\s*$|^End of (?:the )?Project Gutenberg"
+   }
+  },
+  {
+   "id": "baltimore-catechism-2",
+   "title": "Baltimore Catechism No. 2",
+   "author": "Third Plenary Council of Baltimore",
+   "authorId": "baltimore-council",
+   "period": "early-modern",
+   "authority": "church",
+   "kind": "catechism",
+   "year": "1885",
+   "scriptureMode": "tags",
+   "description": "The Baltimore Catechism for confirmation classes: the same questions, shorter.",
+   "translator": "Prepared and enjoined by the Third Plenary Council of Baltimore (1884), approved 6 April 1885; text edited for the Gutenberg e-text from the Benziger Brothers printing",
+   "rightsEvidence": "Project Gutenberg's licence header for this ebook: 'Creating the works from print editions not protected by U.S. copyright law'. Imprimaturs dated 1885, 1901 and 1921 are printed in the text; the Catechism was composed in 1885 (Gutenberg ebook #14552). Public domain in the US.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/14552/pg14552.txt",
+    "file": "gutenberg_14552.txt",
+    "sourceName": "Project Gutenberg (ebook #14552)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/14552",
+    "start": "^PRAYERS\\.?\\s*$",
+    "heading": "^LESSON [A-Z-]+\\.?$",
+    "titleLines": 1,
+    "introTitle": "Prayers",
+    "strip": [
+     "\\{[^{}]*\\}"
+    ],
+    "end": "^MORNING PRAYERS\\s*$|^End of (?:the )?Project Gutenberg"
+   }
+  },
+  {
+   "id": "baltimore-catechism-1",
+   "title": "Baltimore Catechism No. 1",
+   "author": "Third Plenary Council of Baltimore",
+   "authorId": "baltimore-council",
+   "period": "early-modern",
+   "authority": "church",
+   "kind": "catechism",
+   "year": "1885",
+   "scriptureMode": "tags",
+   "description": "The shortest Baltimore Catechism, for first-communion classes.",
+   "translator": "Prepared and enjoined by the Third Plenary Council of Baltimore (1884), approved 6 April 1885; text edited for the Gutenberg e-text from the Benziger Brothers printing",
+   "rightsEvidence": "Project Gutenberg's licence header for this ebook: 'Creating the works from print editions not protected by U.S. copyright law'. Imprimaturs dated 1885, 1901 and 1921 are printed in the text; the Catechism was composed in 1885 (Gutenberg ebook #14551). Public domain in the US.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/14551/pg14551.txt",
+    "file": "gutenberg_14551.txt",
+    "sourceName": "Project Gutenberg (ebook #14551)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/14551",
+    "start": "^PRAYERS\\.?\\s*$",
+    "heading": "^LESSON [A-Z-]+\\.?$",
+    "titleLines": 1,
+    "introTitle": "Prayers",
+    "strip": [
+     "\\{[^{}]*\\}"
+    ],
+    "end": "^MORNING PRAYERS\\s*$|^End of (?:the )?Project Gutenberg"
+   }
   }
  ],
  "_excluded": {
-  "john-cross-dark-night": "CCEL edition is E. Allison Peers' 20th-century translation; its US/EU status could not be verified, so it is not imported.",
-  "desales-devout-life": "CCEL record states no rights or translator; not imported until the translation and its date are verified.",
-  "kempis-imitation": "CCEL edition is a 1949 translation (Croft & Bolt). CCEL marks it Public Domain, but a 1949 translation is not obviously so; not imported until verified."
+  "john-cross-dark-night": "CCEL edition is E. Allison Peers' translation (3rd revised ed., Image Books 1959). CCEL's preface calls the 1959 Image Books edition 'uncopyrighted', but that was not verifiable, and Peers died in 1952, so his translation is under copyright in the EU/UK until 2022 at the earliest and its US status is unclear; not imported. Zimmerman/Lewis-era translations are not on CCEL.",
+  "john-cross-ascent": "Peers translation, 3rd revised edition 1952 (Nihil Obstat 24 Sept 1952), Image Books 1958/1962; not public domain. See john-cross-dark-night.",
+  "teresa-way-of-perfection": "CCEL edition is the Peers translation (Image Books 1964); not public domain. The Lewis/Stanbrook-era translations of the Way of Perfection are not on CCEL.",
+  "rolle-fire-of-love": "Rights are fine (Misyn's 1435 translation as printed by Methuen, 1914) but the CCEL ThML does not mark up chapters (they are all-caps paragraphs inside two 20-30,000-word 'books') and carries manuscript-variant notes and stray markup; Rolle is also not canonized. Not imported for quality reasons.",
+  "benedict-rule": "CCEL edition is 'The 1949 Edition' of Verheyen's translation (Verheyen d. 1923, original 1911). The 1949 edition's own copyright status could not be verified, so it was not imported; the 1911 text would qualify.",
+  "augustine-enchiridion-outler": "CCEL edition (augustine/enchiridion) is Albert Outler's 1955 translation, Library of Christian Classics (Westminster Press); not public domain. (The NPNF translation of the Enchiridion is already in aug-doctrinal.)",
+  "bernard-loving-god": "CCEL text of On Loving God names no translator or print edition (only 'Made available to the net by Paul Halsall'); the Gutenberg copy (#21152) could not be retrieved. Not imported until the translation is identified.",
+  "newman-apologia": "CCEL's Apologia pro Vita Sua (newman/apologia, OUP 1913) holds only the introductory Kingsley correspondence, not the whole book; not imported.",
+  "molinos-guide": "Not imported: Molinos's Spiritual Guide was condemned by the Church (Coelestis Pastor, 1687).",
+  "mchugh-callan-roman-catechism": "The 1923 McHugh & Callan translation of the Catechism of the Council of Trent: the first (1923) edition is public domain in the US, but the machine-readable scans on the Internet Archive are 1934-revised printings (1937, 1962) of unverified copyright status, so Donovan's 1829 translation (1867 printing) was used instead.",
+  "catechism-of-the-catholic-church": "Copyrighted (Libreria Editrice Vaticana); never ingested.",
+  "kempis-imitation-ccel-croft-bolton": "The CCEL edition is the 1940 Croft & Bolton translation (Bruce, Milwaukee); CCEL notes only that no renewal was found, which is not proof. Replaced by William Benham's 1874 translation from Project Gutenberg (id kempis-imitation)."
  }
 }

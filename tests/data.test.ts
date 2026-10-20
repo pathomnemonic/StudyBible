@@ -26,6 +26,14 @@ d('generated data', () => {
       }
     }
   });
+  it('no USFM markup leaks into any edition\'s verse text or footnotes', () => {
+    for (const e of editions.editions) {
+      for (const b of BOOKS) {
+        const raw = readFileSync(join(D, 'bible', e.id, `${b.id}.json`), 'utf8');
+        expect(/\\\\[+a-z]/.test(raw), `${e.id}/${b.id} has a stray backslash marker`).toBe(false);
+      }
+    }
+  });
   it('Vulgate-numbered editions match the canon chapter table', () => {
     for (const e of editions.editions.filter((x: any) => x.scheme === 'vulgate')) for (const b of BOOKS) expect(e.chapters[b.id], `${e.id} ${b.id}`).toBe(b.chapters);
   });
@@ -243,7 +251,7 @@ d('content packs', () => {
     for (const w of lib.works) {
       expect(w.translator, w.id).toBeTruthy();
       expect(w.rightsEvidence, w.id).toBeTruthy();
-      expect(w.source.url).toMatch(/^https:\/\/ccel\.org/);
+      expect(w.source.url).toMatch(/^https:\/\/(ccel\.org|www\.gutenberg\.org|archive\.org)/);
       expect(w.rights).toBe('public-domain');
     }
   });

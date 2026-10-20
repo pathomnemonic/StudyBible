@@ -5,10 +5,14 @@ import { toAnchor } from '../../src/lib/versification';
 import { PUBLIC_DATA, RAW, readJson, REGISTRY, Report, today, writeJson, exists } from './lib/util';
 import { BOOK_BY_ID } from '../../src/lib/canon';
 import { decodeEntities, parseOsis, plain, scripRefs } from './lib/thml';
+import { niceCase, parsePlainText, type TextSource } from './plaintext';
 
 interface WorkCfg {
   id: string;
-  ccel: string;
+  /** CCEL volume (ThML). Works not on CCEL give `text` instead. */
+  ccel?: string;
+  /** Plain-text source (Project Gutenberg / Internet Archive), see plaintext.ts. */
+  text?: TextSource;
   title: string;
   author: string;
   authorId: string;
@@ -28,6 +32,8 @@ interface WorkCfg {
   skipTitles?: string[];
   /** split a work made of numbered paragraphs ("12. …") into sections of this many numbers */
   splitEvery?: number;
+  /** Prefix each section title with its volume/book title (up to the first full stop), for works whose chapters repeat across books. */
+  prefixParent?: boolean;
   description: string;
 }
 
@@ -116,7 +122,8 @@ export function sectionsOf(xml: string, cfg: WorkCfg): { title: string; id: stri
       const title = decodeEntities(/\stitle="([^"]*)"/.exec(d[1])?.[1] ?? '');
       if (skip(title)) continue;
       if (cfg.subTitle && !new RegExp(cfg.subTitle, 'i').test(title)) continue;
-      out.push({ title, id: /\bid="([^"]*)"/.exec(d[1])?.[1] ?? '', body: d[2] });
+      const parent = niceCase(r.title.replace(/\s+/g, ' ').trim().split(/\.\s/)[0].replace(/\.$/, ''));
+      out.push({ title: cfg.prefixParent ? `${parent} — ${title}` : title, id: /\bid="([^"]*)"/.exec(d[1])?.[1] ?? '', body: d[2] });
     }
   }
   const base = finer(out);
@@ -158,8 +165,35 @@ export function buildLibrary(report: Report) {
   const vc: Record<string, number[]> = readJson(join(PUBLIC_DATA, 'editions.json')).editions.find((e: any) => e.id === 'vulgate').verseCounts;
   const pushScripture = (book: string, entry: any[]) => (scriptureIndex.get(book) ?? scriptureIndex.set(book, []).get(book)!).push(entry);
 
+  const registerTextWork = (cfg: WorkCfg, rawText: string) => {
+    const src = cfg.text!;
+    const sections: Section[] = parsePlainText(rawText, src).map((s) => ({ ...s, scripture: [] }));
+    sections.forEach((sec, idx) => {
+      sectionIndex.push([cfg.id, idx]);
+      for (const w of new Set(tokenize(sec.title + ' ' + sec.paras.join(' ')))) (postings.get(w) ?? postings.set(w, []).get(w)!).push(globalIdx);
+      globalIdx++;
+    });
+    writeJson(join(PUBLIC_DATA, 'library/works', `${cfg.id}.json`), { id: cfg.id, sections });
+    meta.push({
+      id: cfg.id, title: cfg.title, author: cfg.author, authorId: cfg.authorId, period: cfg.period, authority: cfg.authority, kind: cfg.kind, year: cfg.year,
+      description: cfg.description, scriptureMode: cfg.scriptureMode,
+      translator: (cfg as any).translator, rightsEvidence: (cfg as any).rightsEvidence,
+      source: { name: src.sourceName, url: src.sourceUrl, retrieved: today() },
+      rights: 'public-domain', format: 'full-text',
+      sections: sections.map((s) => ({ id: s.id, title: s.title, scripture: [], words: s.paras.reduce((a, p) => a + p.split(' ').length, 0) })),
+    });
+    report.stats[`library.${cfg.id}`] = { sections: sections.length };
+    if (!sections.length) report.warn(`library: ${cfg.id} produced no sections`);
+  };
+
   for (const cfg of cfgs) {
-    const path = join(RAW, `ccel_${cfg.ccel.replace('/', '_')}.xml`);
+    if (cfg.text) {
+      const tp = join(RAW, cfg.text.file);
+      if (exists(tp)) registerTextWork(cfg, readFileSync(tp, 'utf8'));
+      else report.warn(`library: ${cfg.id} not fetched`);
+      continue;
+    }
+    const path = join(RAW, `ccel_${cfg.ccel!.replace('/', '_')}.xml`);
     if (!exists(path)) {
       report.warn(`library: ${cfg.id} not fetched`);
       continue;
@@ -204,7 +238,7 @@ export function buildLibrary(report: Report) {
       }
       if (!paras.length) continue;
       const idx = sections.length;
-      let title = s.title.replace(/\.$/, '');
+      let title = s.title.trim().replace(/\.$/, '');
       const structure: Ref[] = [];
       ordinal++;
       if (cfg.scriptureMode === 'tractates' && /^Chapter/i.test(s.title)) {

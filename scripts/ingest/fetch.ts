@@ -20,6 +20,18 @@ export async function fetchAll(only?: string[]) {
   entries.push(...readJson(join(REGISTRY, 'fetch.json')).sources);
   const seenCcel = new Set<string>();
   for (const w of readJson(join(REGISTRY, 'library.json')).works) {
+    if (w.text) {
+      // non-CCEL works: a Project Gutenberg / Internet Archive plain-text file, one per work
+      entries.push({
+        id: `text-${w.id}`,
+        url: w.text.url,
+        file: w.text.file,
+        terms: w.text.sourceUrl,
+        rights: 'public-domain',
+        note: `${w.title}, ${w.author}. ${w.translator}. ${w.rightsEvidence}`,
+      });
+      continue;
+    }
     if (seenCcel.has(w.ccel)) continue; // several works can share one CCEL volume
     seenCcel.add(w.ccel);
     entries.push({

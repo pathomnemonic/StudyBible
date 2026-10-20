@@ -125,6 +125,60 @@
    "dates": "1825–1889",
    "period": "modern",
    "bio": "Jewish-born scholar who became an Anglican priest; wrote on the Temple, the Gospels and rabbinic background. A Protestant writer of the 19th century, used here for historical background, not Catholic doctrine."
+  },
+  "ignatius-loyola": {
+   "name": "Ignatius of Loyola",
+   "dates": "1491–1556",
+   "period": "early-modern",
+   "bio": "Basque soldier turned priest; founder of the Society of Jesus and author of the Spiritual Exercises."
+  },
+  "julian-norwich": {
+   "name": "Julian of Norwich",
+   "dates": "c. 1342–after 1416",
+   "period": "medieval",
+   "bio": "English anchoress at Norwich; her Revelations of Divine Love is the earliest surviving book in English by a woman. Venerated, not formally canonized."
+  },
+  "francis-de-sales": {
+   "name": "Francis de Sales",
+   "dates": "1567–1622",
+   "period": "early-modern",
+   "bio": "Bishop of Geneva, Doctor of the Church, and patron of writers; teacher of a holiness for ordinary life."
+  },
+  "therese-lisieux": {
+   "name": "Thérèse of Lisieux",
+   "dates": "1873–1897",
+   "period": "early-modern",
+   "bio": "Carmelite nun of Lisieux, known as the Little Flower; Doctor of the Church, patron of the missions."
+  },
+  "anselm": {
+   "name": "Anselm of Canterbury",
+   "dates": "1033–1109",
+   "period": "medieval",
+   "bio": "Benedictine abbot of Bec and Archbishop of Canterbury; Doctor of the Church, 'father of scholasticism'."
+  },
+  "thomas-a-kempis": {
+   "name": "Thomas à Kempis",
+   "dates": "c. 1380–1471",
+   "period": "medieval",
+   "bio": "Canon regular of the Brethren of the Common Life at Mount Saint Agnes; author (traditionally) of The Imitation of Christ. Not canonized."
+  },
+  "walter-hilton": {
+   "name": "Walter Hilton",
+   "dates": "c. 1340–1396",
+   "period": "medieval",
+   "bio": "English Augustinian canon at Thurgarton, spiritual guide and author of The Scale of Perfection. Not canonized."
+  },
+  "council-trent": {
+   "name": "Council of Trent",
+   "dates": "1545–1563",
+   "period": "early-modern",
+   "bio": "The ecumenical council that commissioned the Roman Catechism for parish priests, published under Pius V in 1566."
+  },
+  "baltimore-council": {
+   "name": "Third Plenary Council of Baltimore",
+   "dates": "1884",
+   "period": "early-modern",
+   "bio": "The assembly of the American bishops that ordered a single national catechism, published in 1885."
   }
  }
 }

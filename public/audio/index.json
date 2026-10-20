@@ -1,0 +1,147 @@
+{
+  "tracks": [
+    {
+      "id": "nature-summer-rain",
+      "file": "nature-summer-rain.mp3",
+      "title": "Summer rain",
+      "category": "nature",
+      "artist": "Joseph Sardin (BigSoundBank)",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://bigsoundbank.com/summer-rain-on-terrace-s1019.html",
+      "note": "Source page states \"License CC0 (public domain): Free and royalty-free\". Excerpt 40-125 s, played forward then reversed for a seamless loop."
+    },
+    {
+      "id": "nature-mountain-stream",
+      "file": "nature-mountain-stream.mp3",
+      "title": "Mountain stream",
+      "category": "nature",
+      "artist": "Joseph Sardin (BigSoundBank)",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://bigsoundbank.com/mountain-stream-1-s2754.html",
+      "note": "Source page states CC0. 183 s excerpt, 3 s crossfade loop."
+    },
+    {
+      "id": "nature-forest-birds",
+      "file": "nature-forest-birds.mp3",
+      "title": "Forest and stream with birds",
+      "category": "nature",
+      "artist": "Joseph Sardin (BigSoundBank)",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://bigsoundbank.com/forest-and-stream-1-s2713.html",
+      "note": "Source page states CC0. 183 s excerpt, 3 s crossfade loop."
+    },
+    {
+      "id": "nature-wind-trees",
+      "file": "nature-wind-trees.mp3",
+      "title": "Wind in the forest trees",
+      "category": "nature",
+      "artist": "Joseph Sardin (BigSoundBank)",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://bigsoundbank.com/forest-wind-in-the-trees-s0904.html",
+      "note": "Source page states CC0. 90 s excerpt, played forward then reversed for a seamless loop."
+    },
+    {
+      "id": "music-airship-serenity",
+      "file": "music-airship-serenity.mp3",
+      "title": "Airship Serenity",
+      "category": "music",
+      "artist": "Kevin MacLeod",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "sourceUrl": "https://incompetech.com/music/royalty-free/music.html",
+      "note": "Incompetech states nearly all music is CC BY 4.0 (llms.txt and catalog pieces.json, schema.org license field). Synth/ambient, no vocals or drums per catalog instrumentation. Excerpt with 3 s crossfade loop. Not auditioned by ear."
+    },
+    {
+      "id": "music-soaring",
+      "file": "music-soaring.mp3",
+      "title": "Soaring",
+      "category": "music",
+      "artist": "Kevin MacLeod",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "sourceUrl": "https://incompetech.com/music/royalty-free/music.html",
+      "note": "Incompetech states nearly all music is CC BY 4.0 (llms.txt and catalog pieces.json, schema.org license field). Synth/ambient, no vocals or drums per catalog instrumentation. Excerpt with 3 s crossfade loop. Not auditioned by ear."
+    },
+    {
+      "id": "music-winter-reflections",
+      "file": "music-winter-reflections.mp3",
+      "title": "Winter Reflections",
+      "category": "music",
+      "artist": "Kevin MacLeod",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "sourceUrl": "https://incompetech.com/music/royalty-free/music.html",
+      "note": "Incompetech states nearly all music is CC BY 4.0 (llms.txt and catalog pieces.json, schema.org license field). Synth/ambient, no vocals or drums per catalog instrumentation. Excerpt with 3 s crossfade loop. Not auditioned by ear."
+    },
+    {
+      "id": "music-water-prelude",
+      "file": "music-water-prelude.mp3",
+      "title": "Water Prelude",
+      "category": "music",
+      "artist": "Kevin MacLeod",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "sourceUrl": "https://incompetech.com/music/royalty-free/music.html",
+      "note": "Incompetech states nearly all music is CC BY 4.0 (llms.txt and catalog pieces.json, schema.org license field). Synth/ambient, no vocals or drums per catalog instrumentation. Excerpt with 3 s crossfade loop. Not auditioned by ear."
+    },
+    {
+      "id": "classical-chopin-nocturne-op9-2",
+      "file": "classical-chopin-nocturne-op9-2.mp3",
+      "title": "Nocturne in E-flat major, Op. 9 No. 2",
+      "category": "classical",
+      "artist": "Musopen pianist (not named on the source page)",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://archive.org/details/musopen-chopin",
+      "note": "Internet Archive item metadata licenseurl is CC0 1.0; composition is public domain. Performer is not credited on the item page. File: \"Nocturne Op. 9 no. 2 in E flat major.mp3\"."
+    },
+    {
+      "id": "classical-chopin-nocturne-op15-1",
+      "file": "classical-chopin-nocturne-op15-1.mp3",
+      "title": "Nocturne in F major, Op. 15 No. 1",
+      "category": "classical",
+      "artist": "Musopen pianist (not named on the source page)",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://archive.org/details/musopen-chopin",
+      "note": "Internet Archive item metadata licenseurl is CC0 1.0; composition is public domain. Performer is not credited on the item page. File: \"Nocturne Op. 15 no. 1 In F major.mp3\"."
+    },
+    {
+      "id": "classical-chopin-nocturne-op32-2",
+      "file": "classical-chopin-nocturne-op32-2.mp3",
+      "title": "Nocturne in A-flat major, Op. 32 No. 2",
+      "category": "classical",
+      "artist": "Musopen pianist (not named on the source page)",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://archive.org/details/musopen-chopin",
+      "note": "Internet Archive item metadata licenseurl is CC0 1.0; composition is public domain. Performer is not credited on the item page. File: \"Nocturne Op. 32 no. 2 in A flat major.mp3\"."
+    },
+    {
+      "id": "classical-chopin-nocturne-op55-2",
+      "file": "classical-chopin-nocturne-op55-2.mp3",
+      "title": "Nocturne in E-flat major, Op. 55 No. 2",
+      "category": "classical",
+      "artist": "Musopen pianist (not named on the source page)",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://archive.org/details/musopen-chopin",
+      "note": "Internet Archive item metadata licenseurl is CC0 1.0; composition is public domain. Performer is not credited on the item page. File: \"Nocturne Op. 55 no. 2 in E flat major.mp3\"."
+    },
+    {
+      "id": "chant-schola-kyrie",
+      "file": "chant-schola-kyrie.mp3",
+      "title": "Kyrie eleison (Vespers of St Vincent Pallotti)",
+      "category": "chant",
+      "artist": "Schola Gregoriana, Pallottine Seminary, Oltarzew, Poland, dir. Fr. Dariusz Smolarek SAC",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Schola_Gregoriana-Kyrie_eleison.ogg",
+      "note": "Commons page: recorded by Schola Gregoriana of the Pallottine Seminary in Oltarzew (male voices); copyright holder gave written permission for CC/GFDL (OTRS ticket 2008031210015414); license cc-by-sa-3.0. Genuine sung human chant, no AI. Only 42 s long (shorter than the requested 2 min); 2 s fade in, 3 s fade out. Derivatives must be shared alike."
+    }
+  ]
+}

@@ -873,5 +873,145 @@
   "terms": "https://ccel.org/ccel/edersheim",
   "rights": "public-domain",
   "note": "Sketches of Jewish Social Life, Alfred Edersheim. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-ignatius_exercises": {
+  "url": "https://www.ccel.org/ccel/ignatius/exercises.xml",
+  "file": "ccel_ignatius_exercises.xml",
+  "bytes": 266222,
+  "sha256": "f564e2bc19ffd108cf308a3ba0923f727658b6e910d8ddb7234a96cc82ef9f7b",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/ignatius",
+  "rights": "public-domain",
+  "note": "The Spiritual Exercises, Ignatius of Loyola. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-julian_revelations": {
+  "url": "https://www.ccel.org/ccel/julian/revelations.xml",
+  "file": "ccel_julian_revelations.xml",
+  "bytes": 395019,
+  "sha256": "4611e9128c4d957d342287dadc5adbcc82f0826815278875369fcf7045f2642d",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/julian",
+  "rights": "public-domain",
+  "note": "Revelations of Divine Love, Julian of Norwich. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-teresa_life": {
+  "url": "https://www.ccel.org/ccel/teresa/life.xml",
+  "file": "ccel_teresa_life.xml",
+  "bytes": 1639686,
+  "sha256": "00e8143f2480767ce63c52159be78dab9a717ffc6defd9abd6d116c5ea9e86f0",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/teresa",
+  "rights": "public-domain",
+  "note": "The Life of St. Teresa of Jesus, Teresa of Ávila. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-desales_devout_life": {
+  "url": "https://www.ccel.org/ccel/desales/devout_life.xml",
+  "file": "ccel_desales_devout_life.xml",
+  "bytes": 651626,
+  "sha256": "af8c467a87fbbcf2aaac1764e7962fdcd64b8eab5db740ca565752533d73861f",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/desales",
+  "rights": "public-domain",
+  "note": "Introduction to the Devout Life, Francis de Sales. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-desales_love": {
+  "url": "https://www.ccel.org/ccel/desales/love.xml",
+  "file": "ccel_desales_love.xml",
+  "bytes": 1890439,
+  "sha256": "b76a42327e2a53ef47912374dd1746c70d263158cef7a62b6bb1a56f45e3c8f5",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/desales",
+  "rights": "public-domain",
+  "note": "Treatise on the Love of God, Francis de Sales. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-hilton_ladder": {
+  "url": "https://www.ccel.org/ccel/hilton/ladder.xml",
+  "file": "ccel_hilton_ladder.xml",
+  "bytes": 743898,
+  "sha256": "7a189b96ee0620e426d7de8e365483657867626b15830bc22c49e1b1b3ac735c",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/hilton",
+  "rights": "public-domain",
+  "note": "The Scale (or Ladder) of Perfection, Walter Hilton. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-anselm_basic_works": {
+  "url": "https://www.ccel.org/ccel/anselm/basic_works.xml",
+  "file": "ccel_anselm_basic_works.xml",
+  "bytes": 670027,
+  "sha256": "7fc7dbf6838c7cc9f395310e130e7f27957b2d52d09ce74ef43facd476f04a22",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/anselm",
+  "rights": "public-domain",
+  "note": "Proslogium, Monologium and Cur Deus Homo, Anselm of Canterbury. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-therese_autobio": {
+  "url": "https://www.ccel.org/ccel/therese/autobio.xml",
+  "file": "ccel_therese_autobio.xml",
+  "bytes": 681615,
+  "sha256": "efa45a4a96f66835f663c88c982795f2b6b5372f0628761831caeb8d5fadc463",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/therese",
+  "rights": "public-domain",
+  "note": "Story of a Soul, Thérèse of Lisieux. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-rolle_fire": {
+  "url": "https://www.ccel.org/ccel/rolle/fire.xml",
+  "file": "ccel_rolle_fire.xml",
+  "bytes": 523180,
+  "sha256": "d2225fe7a3af81444df3073e2512ef14a60672241f62e7436f82e17b0358bad1",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/rolle",
+  "rights": "public-domain",
+  "note": "The Fire of Love and The Mending of Life, Richard Rolle. Public-domain text distributed by CCEL as ThML."
+ },
+ "text-kempis-imitation": {
+  "url": "https://www.gutenberg.org/cache/epub/1653/pg1653.txt",
+  "file": "gutenberg_1653.txt",
+  "bytes": 374954,
+  "sha256": "7631799607b0ede62f1bd7ed2a8eb62d89524451a3c41e9ad2b5cbf4c2aa5383",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.gutenberg.org/ebooks/1653",
+  "rights": "public-domain",
+  "note": "The Imitation of Christ, Thomas à Kempis. Rev. William Benham, B.D. (London, 1874). Project Gutenberg's licence header for this ebook: 'Creating the works from print editions not protected by U.S. copyright law'. Benham's translation was first published in 1874 (Gutenberg ebook #1653 names the translator and the print source); it replaces the CCEL edition (Croft & Bolton, 1940), whose rights could not be verified."
+ },
+ "text-roman-catechism": {
+  "url": "https://archive.org/download/catechismofcounc00cathiala/catechismofcounc00cathiala_djvu.txt",
+  "file": "archive_catechismofcounc00cathiala.txt",
+  "bytes": 1587615,
+  "sha256": "a54c1d74cd3e3d9deacf2381d07953dd7003657d82177f8866335d7344a193b4",
+  "retrieved": "2026-10-20",
+  "terms": "https://archive.org/details/catechismofcounc00cathiala",
+  "rights": "public-domain",
+  "note": "The Roman Catechism (Catechism of the Council of Trent), Council of Trent (Pope Pius V). Very Rev. Jeremiah Donovan, D.D., Maynooth (Dublin, 1829; this printing Dublin: James Duffy, 1867). Donovan's translation was first published in Dublin in 1829 and this text is the 1867 Dublin (James Duffy) printing, scanned by the Internet Archive from the University of California copy; both dates are far before 1929. The text is machine OCR and has not been proofread. The 1923 McHugh & Callan translation was not used: the scans available are 1934-revised, later printings of unclear copyright status."
+ },
+ "text-baltimore-catechism": {
+  "url": "https://www.gutenberg.org/cache/epub/14553/pg14553.txt",
+  "file": "gutenberg_14553.txt",
+  "bytes": 438195,
+  "sha256": "d4e54e6cc51d484b92afec3fed3c702e9f1a9f79b1f57b4946ca8f0f9ef31807",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.gutenberg.org/ebooks/14553",
+  "rights": "public-domain",
+  "note": "Baltimore Catechism No. 3, Third Plenary Council of Baltimore. Prepared and enjoined by the Third Plenary Council of Baltimore (1884), approved 6 April 1885; text edited for the Gutenberg e-text from the Benziger Brothers printing. Project Gutenberg's licence header for this ebook: 'Creating the works from print editions not protected by U.S. copyright law'. Imprimaturs dated 1885, 1901 and 1921 are printed in the text; the Catechism was composed in 1885 (Gutenberg ebook #14553). Public domain in the US."
+ },
+ "text-baltimore-catechism-2": {
+  "url": "https://www.gutenberg.org/cache/epub/14552/pg14552.txt",
+  "file": "gutenberg_14552.txt",
+  "bytes": 138040,
+  "sha256": "f5bf72c0fc3d7eea179026f195afc1bd5348167f4e56ced13ea4b5c9ceecb482",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.gutenberg.org/ebooks/14552",
+  "rights": "public-domain",
+  "note": "Baltimore Catechism No. 2, Third Plenary Council of Baltimore. Prepared and enjoined by the Third Plenary Council of Baltimore (1884), approved 6 April 1885; text edited for the Gutenberg e-text from the Benziger Brothers printing. Project Gutenberg's licence header for this ebook: 'Creating the works from print editions not protected by U.S. copyright law'. Imprimaturs dated 1885, 1901 and 1921 are printed in the text; the Catechism was composed in 1885 (Gutenberg ebook #14552). Public domain in the US."
+ },
+ "text-baltimore-catechism-1": {
+  "url": "https://www.gutenberg.org/cache/epub/14551/pg14551.txt",
+  "file": "gutenberg_14551.txt",
+  "bytes": 92036,
+  "sha256": "5543e1eb53ed0315469a8d0b83b12f73a485d357052a000ca8a03ae654606614",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.gutenberg.org/ebooks/14551",
+  "rights": "public-domain",
+  "note": "Baltimore Catechism No. 1, Third Plenary Council of Baltimore. Prepared and enjoined by the Third Plenary Council of Baltimore (1884), approved 6 April 1885; text edited for the Gutenberg e-text from the Benziger Brothers printing. Project Gutenberg's licence header for this ebook: 'Creating the works from print editions not protected by U.S. copyright law'. Imprimaturs dated 1885, 1901 and 1921 are printed in the text; the Catechism was composed in 1885 (Gutenberg ebook #14551). Public domain in the US."
  }
 }
