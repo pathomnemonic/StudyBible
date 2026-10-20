@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import Icon from '../../components/Icon';
+import WhatsNew from '../../components/WhatsNew';
 import ContinueRow from '../../components/ContinueRow';
 
 type Row = [string, string, string];
@@ -102,6 +103,7 @@ export default function StudyHome() {
           ))}
         </div>
       )}
+      <WhatsNew />
       <ContinueRow />
       <div className="featured" role="list" aria-label="Explore">
         {FEATURED.map((f) => (

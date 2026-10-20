@@ -3801,3 +3801,19 @@ html[data-atm] .reader::before { opacity: 0.13; }
   img { max-width: 60% !important; break-inside: avoid; }
   a { color: inherit !important; text-decoration: none !important; }
 }
+
+.keys-list { display: grid; gap: 6px; margin: 0; }
+.keys-list > div { display: flex; gap: 12px; align-items: baseline; }
+.keys-list dt { min-width: 9.5em; } .keys-list dd { margin: 0; color: var(--muted); }
+/* wider tap area for the margin markers without changing how they look */
+.rm { position: relative; }
+.rm::after { content: ''; position: absolute; inset: -10px; }
+
+.whats-new { position: relative; border: 1px solid var(--hairline, #8884); border-radius: 10px; padding: 8px 36px 8px 14px; margin: 0 0 14px; font-size: .88rem; }
+.whats-new ul { margin: 4px 0 0; padding-left: 1.1em; }
+.fig-share { white-space: nowrap; }
+.study-item .report, .report { font-size: .7rem; color: var(--muted); opacity: .6; } .report:hover { opacity: 1; }
+
+.library-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 12px; }
+.library-tabs a { padding: 5px 12px; border-radius: 999px; border: 1px solid var(--hairline, #8884); color: var(--muted); text-decoration: none; font-size: .88rem; }
+.library-tabs a.active { background: var(--accent); color: var(--bg); border-color: transparent; }

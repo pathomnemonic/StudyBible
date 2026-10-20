@@ -98,6 +98,7 @@ export default function ReadPage() {
   const [picker, setPicker] = useState(false);
   const [noteFor, setNoteFor] = useState<Target[] | null>(null);
   const [panel, setPanel] = useState(false);
+  const swipe = useRef<[number, number] | null>(null);
   const [moreMenu, setMoreMenu] = useState(false);
   const wide = useWide();
   const silentRef = useRef(false);
@@ -560,7 +561,7 @@ export default function ReadPage() {
 
   return (
     <div className={`reader${settings.showVerseNumbers ? '' : ' hide-nums'}${panelOpen ? ' has-panel' : ''}`}>
-      <div className="reader-col">
+      <div className="reader-col" onTouchStart={(e) => { swipe.current = e.touches.length === 1 ? [e.touches[0].clientX, e.touches[0].clientY] : null; }} onTouchEnd={(e) => { const a = swipe.current; swipe.current = null; if (!a || window.innerWidth >= 700 || !window.getSelection()?.isCollapsed) return; const dx = e.changedTouches[0].clientX - a[0], dy = e.changedTouches[0].clientY - a[1]; if (Math.abs(dx) > 90 && Math.abs(dy) < 45) (dx < 0 ? next : prev)(); }}>
         <div className="reader-bar">
           <button className="icon-btn" onClick={prev} aria-label="Previous chapter">
             <Icon name="chevL" />

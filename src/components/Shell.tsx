@@ -3,6 +3,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Icon from './Icon';
 import { useSettings } from '../lib/store';
 import CommandPalette from './CommandPalette';
+import Modal from './Modal';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
 import type { Key } from '../i18n/en';
@@ -45,8 +46,11 @@ export default function Shell({ children }: { children: ReactNode }) {
   const sync = useSync();
   const t = useT();
   const [palette, setPalette] = useState(false);
+  const [keys, setKeys] = useState(false);
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
+      const tg = e.target as HTMLElement | null;
+      if (e.key === '?' && !/INPUT|TEXTAREA|SELECT/.test(tg?.tagName ?? '') && !tg?.isContentEditable && !location.hash.startsWith('#/read')) setKeys(true);
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         setPalette((p) => !p);
@@ -123,6 +127,11 @@ export default function Shell({ children }: { children: ReactNode }) {
         )}
         {children}
       </main>
+      {keys && (
+        <Modal title="Keyboard shortcuts" onClose={() => setKeys(false)}>
+          <dl className="keys-list">{[['Ctrl/⌘ K', 'Jump to a passage, search, go anywhere'], ['?', 'This help'], ['← / →', 'Previous / next (day, chapter)'], ['Home page: i', 'Where today’s texts come from'], ['In the Bible: S', 'Study panel'], ['In the Bible: N', 'Note on the selection'], ['Esc', 'Close a panel']].map(([k, d]) => <div key={k}><dt><kbd>{k}</kbd></dt><dd>{d}</dd></div>)}</dl>
+        </Modal>
+      )}
       {palette && <CommandPalette onClose={() => setPalette(false)} />}
     </div>
   );

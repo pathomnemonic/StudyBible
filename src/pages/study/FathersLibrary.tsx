@@ -1,3 +1,4 @@
+import LibraryTabs from '../../components/LibraryTabs';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { getAuthors, getLibraryIndex, type LibraryWorkMeta } from '../../data/content';
@@ -33,6 +34,7 @@ export default function FathersLibrary() {
   }, [list]);
   return (
     <div className="page">
+      <LibraryTabs />
       <h1>Reading room</h1>
       <p className="lede">Read the saints, the Fathers and the catechisms here, in full, in a quiet page with your place remembered. These are public-domain English translations; each work names its translator and source, and every section links to the verses it comments on.</p>
       {recent.length > 0 && (

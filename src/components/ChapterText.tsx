@@ -1,4 +1,6 @@
 import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import { formatRef } from '../lib/refs';
 import type { ChapterData } from '../lib/types';
 import type { HighlightColor } from '../db/db';
 import type { TermMatcher } from '../study/terms';
@@ -164,8 +166,8 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
             </div>
             {figs.map((f) => (
               <figure key={f.id} className="inline-art">
-                <a href={f.page} target="_blank" rel="noreferrer"><img src={`${import.meta.env.BASE_URL}${f.file}`} alt={`${f.title}, ${f.artist}`} loading="lazy" /></a>
-                <figcaption>{f.title}{f.artist ? `, ${f.artist}` : ''}{f.date ? `, ${f.date}` : ''}. {f.credit}{f.credit.includes('Museum') || f.credit.includes('public domain') || f.credit.includes('CC0') ? '' : '. The Metropolitan Museum of Art (public domain)'}.</figcaption>
+                <a href={f.page} target="_blank" rel="noreferrer"><img src={`${import.meta.env.BASE_URL}${f.file}`} alt={`${String(f.id).startsWith('dore') ? 'Engraving' : 'Painting'} of ${f.title}, by ${f.artist}${f.date ? `, ${f.date}` : ''}`} loading="lazy" /></a>
+                <figcaption>{f.title}{f.artist ? `, ${f.artist}` : ''}{f.date ? `, ${f.date}` : ''}. {f.credit}{f.credit.includes('Museum') || f.credit.includes('public domain') || f.credit.includes('CC0') ? '' : '. The Metropolitan Museum of Art (public domain)'}. <Link className="fig-share" to={`/share?ref=${encodeURIComponent(formatRef(f.ref))}`}>Make a verse card</Link></figcaption>
               </figure>
             ))}
           </Fragment>

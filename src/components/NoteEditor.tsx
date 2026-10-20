@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useToast } from './Toast';
 import Modal from './Modal';
 import { db, type Note, type NoteKind, type Target } from '../db/db';
 import { saveNote } from '../db/ops';
@@ -29,6 +30,7 @@ export default function NoteEditor({
   originEdition?: string;
   onClose: (saved?: number) => void;
 }) {
+  const toast = useToast();
   const [body, setBody] = useState(note?.body ?? '');
   const [title, setTitle] = useState(note?.title ?? '');
   const [k, setK] = useState<NoteKind>(note?.kind ?? kind);
@@ -60,6 +62,7 @@ export default function NoteEditor({
       tags: tags.split(',').map((t) => t.trim().replace(/^#/, '')).filter(Boolean),
       originEdition: note?.originEdition ?? originEdition,
     });
+    if (!note?.id) { try { if (!localStorage.getItem('sb:backupNudge')) { localStorage.setItem('sb:backupNudge', '1'); toast('Saved on this device. Keep a copy any time in Settings → Export.'); } } catch { /* private mode */ } }
     onClose(id);
   };
 

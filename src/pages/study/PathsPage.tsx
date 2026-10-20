@@ -1,3 +1,4 @@
+import LibraryTabs from '../../components/LibraryTabs';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -26,6 +27,7 @@ export function PathsIndex() {
   useEffect(() => { getJson<{ paths: Meta[] }>('paths/index.json', true).then((d) => setList(d?.paths ?? [])); }, []);
   return (
     <div className="page">
+      <LibraryTabs />
       <h1>Study paths</h1>
       <p className="lede">Follow one theme through Scripture in short steps: a passage, a few words of introduction, one voice from the Fathers or saints, and a question to take away. Each takes about {Math.round(list.reduce((a, p) => a + p.minutes, 0) / Math.max(1, list.length)) || 20} minutes and you can stop and return any time.</p>
       <div className="shelf">
@@ -35,7 +37,7 @@ export function PathsIndex() {
             <Link key={p.id} className="shelf-card" to={`/study/path/${p.id}`}>
               <span className="t">{p.title}</span>
               <span className="d">{p.blurb}</span>
-              <span className="d">{p.steps} steps · about {p.minutes} min{done > 0 ? ` · step ${Math.min(done + 1, p.steps)} next` : ''}</span>
+              <span className="d">{p.steps} steps · about {p.minutes} min{done >= p.steps ? ' · ✓ Completed' : done > 0 ? ` · step ${Math.min(done + 1, p.steps)} next` : ''}</span>
               {done > 0 && <span className="bar"><i style={{ width: `${Math.round((done / p.steps) * 100)}%` }} /></span>}
             </Link>
           );

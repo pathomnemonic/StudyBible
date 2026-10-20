@@ -1,3 +1,4 @@
+import LibraryTabs from '../../components/LibraryTabs';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getJson } from '../../data/loader';
@@ -20,6 +21,7 @@ export default function ChurchDocs() {
   const list = useMemo(() => docs.filter((d) => (access === 'all' || d.access === access) && (!q || `${d.title} ${d.author} ${d.year} ${d.blurb}`.toLowerCase().includes(q.toLowerCase()))), [docs, q, access]);
   return (
     <div className="page">
+      <LibraryTabs />
       <h1>Councils and Church documents</h1>
       <p className="lede">Councils, catechisms and encyclicals. Where an English translation is in the public domain it opens here as a full text you can read, search and note. Most modern documents are under copyright, so for those this page gives the official link and a line about what the document is: it never reproduces them.</p>
       <div className="row" style={{ marginBottom: 12, gap: 8, flexWrap: 'wrap' }}>

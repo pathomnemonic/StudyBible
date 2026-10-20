@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useSettings } from '../lib/store';
+import WhatsNew from '../components/WhatsNew';
 import ContinueRow from '../components/ContinueRow';
 
 type Row = [string, string, string];
@@ -56,6 +57,7 @@ export default function MorePage() {
     <div className="page">
       <h1>Everything in Study Bible</h1>
       <p className="lede">Every part of the app, in one list. The four tabs (Today, Bible, Study, Notes) are shortcuts to the places you use most.</p>
+      <WhatsNew />
       <ContinueRow />
       <div className="tool-groups">
         {GROUPS.map((g) => (
