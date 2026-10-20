@@ -3,6 +3,7 @@ import type { ChapterData } from '../lib/types';
 import type { HighlightColor } from '../db/db';
 import type { TermMatcher } from '../study/terms';
 import type { InlineFig } from '../study/inlineArt';
+import { findFx } from '../study/wordfx';
 
 export interface VerseDecor {
   highlight?: HighlightColor;
@@ -24,29 +25,48 @@ interface Props {
   onTerm?: (id: string, el: HTMLElement) => void;
   /** paintings of the scene, shown after the given native verse */
   figures?: Map<number, InlineFig[]>;
+  /** the ordinary footnotes (alternate readings, textual notes) by verse; shown as a coloured number that opens them */
+  stdNotes?: Map<number, string[]>;
+  onStdNote?: (n: number, el: HTMLElement) => void;
+  /** words that act out their meaning (fire flickers, water ripples) */
+  wordFx?: boolean;
 }
 
 /** Renders one chapter with paragraph/poetry structure preserved and every verse individually selectable. */
-export default function ChapterText({ chapter, selected, decor, onVerse, lang, density, onMarker, terms, onTerm, figures }: Props) {
-  const withTerms = (text: string) => {
-    if (!terms) return text;
-    const hits = terms.find(text);
+export default function ChapterText({ chapter, selected, decor, onVerse, lang, density, onMarker, terms, onTerm, figures, stdNotes, onStdNote, wordFx }: Props) {
+  const fx = (text: string): React.ReactNode => {
+    if (!wordFx || lang !== 'en') return text;
+    const hits = findFx(text);
     if (!hits.length) return text;
     const out: React.ReactNode[] = [];
     let at = 0;
     hits.forEach((h, k) => {
       if (h.start > at) out.push(text.slice(at, h.start));
-      out.push(
-        <span key={k} className="term" role="button" tabIndex={0} data-term={h.id} onClick={(e) => { e.stopPropagation(); onTerm?.(h.id, e.currentTarget); }} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onTerm?.(h.id, e.currentTarget); } }}>{text.slice(h.start, h.end)}</span>,
-      );
+      out.push(<span key={k} className={`fx fx-${h.kind}`}>{text.slice(h.start, h.end)}</span>);
       at = h.end;
     });
     if (at < text.length) out.push(text.slice(at));
     return out;
   };
+  const withTerms = (text: string): React.ReactNode => {
+    if (!terms) return fx(text);
+    const hits = terms.find(text);
+    if (!hits.length) return fx(text);
+    const out: React.ReactNode[] = [];
+    let at = 0;
+    hits.forEach((h, k) => {
+      if (h.start > at) out.push(fx(text.slice(at, h.start)));
+      out.push(
+        <span key={k} className="term" role="button" tabIndex={0} data-term={h.id} onClick={(e) => { e.stopPropagation(); onTerm?.(h.id, e.currentTarget); }} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onTerm?.(h.id, e.currentTarget); } }}>{text.slice(h.start, h.end)}</span>,
+      );
+      at = h.end;
+    });
+    if (at < text.length) out.push(fx(text.slice(at)));
+    return out;
+  };
   let cur = 0;
   const seenNumber = new Set<number>();
-  const notes = chapter.notes ?? {};
+  const notes = stdNotes ? {} : chapter.notes ?? {};
   return (
     <div lang={lang}>
       {chapter.blocks.map((b, i) => {
@@ -92,6 +112,16 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
                   <span key={k} className="fn" title={f} aria-label={`Footnote: ${f}`}>†</span>
                 ))}
               </span>
+              {lastRunOfVerse && !!stdNotes?.get(n)?.length && (
+                <button
+                  className="rm rm-std"
+                  title="Note on the text: an alternate reading or a variant in the manuscripts"
+                  aria-label={`${stdNotes.get(n)!.length} note${stdNotes.get(n)!.length === 1 ? '' : 's'} on the text for verse ${n}`}
+                  onClick={(e) => onStdNote?.(n, e.currentTarget)}
+                >
+                  {stdNotes.get(n)!.length}
+                </button>
+              )}
               {lastRunOfVerse && !!density?.get(n) && (
                 <button
                   className="rm"

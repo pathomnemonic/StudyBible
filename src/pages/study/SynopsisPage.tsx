@@ -45,7 +45,7 @@ export default function SynopsisPage() {
       <div className="row" style={{ marginBottom: 8 }}>
         <input type="search" placeholder="Find a passage…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Find a passage" />
         <select value={edId} onChange={(e) => setEdId(e.target.value)} aria-label="Translation">
-          {editions.filter((e) => e.language === 'en').map((e) => <option key={e.id} value={e.id}>{e.shortName}</option>)}
+          {editions.filter((e) => e.language === 'en' && !e.offByDefault).map((e) => <option key={e.id} value={e.id}>{e.shortName}</option>)}
         </select>
       </div>
       <div className="synopsis-layout">

@@ -20,7 +20,8 @@
    "source": "ebible-engDRA",
    "usfmPattern": "engDRA",
    "bundled": true,
-   "offlineAllowed": true
+   "offlineAllowed": true,
+   "offByDefault": "The Douay-Rheims is a treasured Catholic translation, but its English is from the 1500s–1700s: “thee”, “saith”, “Isaias”, “Osee”, long sentences and older word meanings. Most readers find modern English easier, and it numbers the Psalms differently from most Bibles (Psalm 23 appears as Psalm 22). It is still in the app because many of the Fathers and the Haydock and Challoner notes are written against it."
   },
   {
    "id": "vulgate",
@@ -41,7 +42,8 @@
    "source": "ebible-latVUC",
    "usfmPattern": "latVUC",
    "bundled": true,
-   "offlineAllowed": true
+   "offlineAllowed": true,
+   "offByDefault": "This is the Latin Vulgate, not English. It is here for study and comparison (the Glossa Ordinaria notes belong to it), and it is not meant as a first reading text. Its Psalm numbering also differs from most Bibles."
   },
   {
    "id": "webc",

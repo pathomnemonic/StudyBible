@@ -23,6 +23,8 @@ import TextSettings from '../components/TextSettings';
 import { atmosphereFor, MOOD_SOUND } from '../lib/atmosphere';
 import { setAmbience, stopAmbience } from '../lib/ambience';
 import Motes from '../components/Motes';
+import NotePopover from '../components/NotePopover';
+import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
 import { artForChapter, type InlineFig } from '../study/inlineArt';
 import { useQuiet, endQuiet } from '../lib/quiet';
 import CompareModal from '../components/CompareModal';
@@ -78,6 +80,8 @@ export default function ReadPage() {
   const { get, editions, planned } = useEditions();
   const [settings, setSettings] = useSettings();
   const edition = get(edId) ?? editions[0];
+  const { choosable, isOn } = useChoosable(edId);
+  const [enabling, setEnabling] = useState<typeof edition | null>(null);
   const parallelId = sp.get('p');
   const parallel = parallelId ? get(parallelId) : undefined;
   const bk = BOOK_BY_ID[book] ?? BOOK_BY_ID.JHN;
@@ -153,6 +157,37 @@ export default function ReadPage() {
     for (const v of flat) m.set(v.n, toAnchor(edition.scheme, bk.id, chNum, v.n));
     return m;
   }, [flat, edition.scheme, bk.id, chNum]);
+
+  // the ordinary footnotes every Bible carries (alternate readings, “some manuscripts…”), from WEB-C, shown in any translation
+  const webcEd = get('webc');
+  const [stdNotes, setStdNotes] = useState<Map<number, string[]>>(new Map());
+  const [notePop, setNotePop] = useState<{ n: number; notes: string[]; at: DOMRect } | null>(null);
+  useEffect(() => {
+    let live = true;
+    const clean = (t: string) => t.replace(/^\d+[:.]\d+(?:[-–]\d+)?\s+/, '');
+    if (edition.id === 'webc') {
+      const m = new Map<number, string[]>();
+      for (const [v, ns] of Object.entries(chapterData?.notes ?? {})) m.set(+v, ns.map(clean));
+      setStdNotes(m);
+      return;
+    }
+    setStdNotes(new Map());
+    if (!webcEd || webcEd.unalignedBooks?.[bk.id]) return;
+    (async () => {
+      const byAnchor = new Map<string, string[]>();
+      for (const c of anchorChapters) {
+        const at = await anchorChapterText(webcEd, bk.id, c);
+        for (const [v, e] of at.verses) if (e.footnotes?.length) byAnchor.set(`${c}.${v}`, e.footnotes.map(clean));
+      }
+      const m = new Map<number, string[]>();
+      for (const [n, a] of anchorOf) {
+        const hit = byAnchor.get(`${a.c}.${a.v1}`);
+        if (hit) m.set(n, hit);
+      }
+      if (live) setStdNotes(m);
+    })();
+    return () => { live = false; };
+  }, [edition.id, bk.id, chNum, anchorOf, chapterData]);
 
   // how many resources are connected to each verse (margin markers)
   useEffect(() => {
@@ -313,10 +348,12 @@ export default function ReadPage() {
     const root = document.documentElement;
     if (mood) root.dataset.atm = mood;
     else delete root.dataset.atm;
+    root.style.setProperty('--atm-n', String(primaryAnchorChapter % 12));
     return () => {
       delete root.dataset.atm;
+      root.style.removeProperty('--atm-n');
     };
-  }, [mood]);
+  }, [mood, primaryAnchorChapter]);
   useEffect(() => {
     const root = document.documentElement;
     if (settings.scriptureOnly) root.dataset.silent = '1';
@@ -519,11 +556,12 @@ export default function ReadPage() {
               {edition.shortName}
             </button>
             <span className="ed-switch segmented" role="group" aria-label="Translation">
-              {editions.map((e) => (
+              {choosable.map((e) => (
                 <button key={e.id} aria-pressed={e.id === edition.id} onClick={() => e.id !== edition.id && switchEdition(e.id)} title={e.name}>
                   {e.shortName}
                 </button>
               ))}
+              <button onClick={() => setEditionPicker(true)} title="More translations" aria-label="More translations">⋯</button>
             </span>
             {parallel && (
               <button className="chip" onClick={() => setEditionPicker(true)} aria-label="Change parallel translation">
@@ -531,7 +569,7 @@ export default function ReadPage() {
               </button>
             )}
           </div>
-          <button className="icon-btn tool-sm" aria-pressed={parallelMode} onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : editions.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? editions.find((e) => e.id !== edition.id)!.id))} aria-label="Toggle parallel translations" title="Parallel translations">
+          <button className="icon-btn tool-sm" aria-pressed={parallelMode} onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id))} aria-label="Toggle parallel translations" title="Parallel translations">
             <Icon name="columns" />
           </button>
           <button className="icon-btn" onClick={() => window.dispatchEvent(new Event('studybible:search'))} aria-label="Search or go to a passage" title="Search or go to a passage (Ctrl+K)">
@@ -570,7 +608,7 @@ export default function ReadPage() {
             {moreMenu && (
               <div className="more-menu" role="menu" onClick={() => setMoreMenu(false)}>
                 <button role="menuitem" onClick={() => setEditionPicker(true)}>Translation: {edition.shortName}</button>
-                <button role="menuitem" onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : editions.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? editions.find((e) => e.id !== edition.id)!.id))}>Parallel translations {parallelMode ? '(on)' : ''}</button>
+                <button role="menuitem" onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id))}>Parallel translations {parallelMode ? '(on)' : ''}</button>
                 <button role="menuitem" onClick={() => setAloud((a) => !a)}>Read aloud {aloud ? '(on)' : ''}</button>
                 <button role="menuitem" onClick={() => setTextSettings(true)}>Reading settings, atmosphere and sound</button>
                 <button role="menuitem" onClick={() => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); }}>Silent mode</button>
@@ -615,11 +653,11 @@ export default function ReadPage() {
             {chNum === 1 && data.intro && data.intro.length > 0 && data.intro.map((p, i) => <p key={i} className="subtitle">{p}</p>)}
             {chNum === 1 && bk.note && <div className="notice info">{bk.note}</div>}
             {chapterNote && <div className="notice">{chapterNote}</div>}
-            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} figures={figureMap} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
-            {chapterData.notes && Object.keys(chapterData.notes).length > 0 && (
-              <section aria-label="Footnotes" className="subtitle" style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 8 }}>
-                <strong>Notes</strong>
-                {Object.entries(chapterData.notes).map(([v, ns]) => ns.map((n, i) => <p key={v + '-' + i} style={{ margin: '4px 0' }}><span className="vn" style={{ verticalAlign: 'baseline' }}>{v}</span> {n}</p>))}
+            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} wordFx={settings.wordFx && !settings.scriptureOnly} figures={figureMap} stdNotes={stdNotes} onStdNote={(n, el) => setNotePop({ n, notes: stdNotes.get(n) ?? [], at: el.getBoundingClientRect() })} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
+            {stdNotes.size > 0 && (
+              <section aria-label="Notes on the text" className="subtitle" style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 8 }}>
+                <strong>Notes on the text</strong>{edition.id !== 'webc' && <span className="muted"> (from the World English Bible, Catholic edition)</span>}
+                {[...stdNotes.entries()].sort((a, b) => a[0] - b[0]).map(([v, ns]) => ns.map((n, i) => <p key={v + '-' + i} style={{ margin: '4px 0' }}><span className="vn std" style={{ verticalAlign: 'baseline' }}>{v}</span> {n}</p>))}
               </section>
             )}
             {!settings.scriptureOnly && (
@@ -727,6 +765,8 @@ export default function ReadPage() {
           </div>
         </div>
       )}
+      {notePop && <NotePopover notes={notePop.notes} at={notePop.at} verse={notePop.n} source={edition.id === 'webc' ? edition.shortName : 'WEB-C'} onClose={() => setNotePop(null)} />}
+      {enabling && <EnableEditionDialog edition={enabling} onClose={() => setEnabling(null)} />}
       {textSettings && <TextSettings onClose={() => setTextSettings(false)} />}
       {editionPicker && (
         <Modal title="Translations" onClose={() => setEditionPicker(false)}>
@@ -739,8 +779,14 @@ export default function ReadPage() {
               <p className="muted small">{e.languageName} · {e.tradition}</p>
               <p className="small">{e.catholicStatus}</p>
               <div className="row">
-                <button className="btn small primary" onClick={() => switchEdition(e.id)}>Read in {e.shortName}</button>
-                {e.id !== edition.id && <button className="btn small" onClick={() => { setParallel(e.id); setEditionPicker(false); }}>Show alongside</button>}
+                {isOn(e.id) ? (
+                  <>
+                    <button className="btn small primary" onClick={() => switchEdition(e.id)}>Read in {e.shortName}</button>
+                    {e.id !== edition.id && <button className="btn small" onClick={() => { setParallel(e.id); setEditionPicker(false); }}>Show alongside</button>}
+                  </>
+                ) : (
+                  <button className="btn small" onClick={() => { setEditionPicker(false); setEnabling(e); }}>Off by default · turn on…</button>
+                )}
               </div>
             </div>
           ))}

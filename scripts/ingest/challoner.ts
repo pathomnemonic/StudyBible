@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { decodeEntities } from './lib/thml';
+import { modernRefs } from '../../src/lib/modernRefs';
 import { PUBLIC_DATA, RAW, Report, exists, today, writeJson } from './lib/util';
 import { BOOK_BY_ID } from '../../src/lib/canon';
 
@@ -67,7 +68,7 @@ export function buildChalloner(report: Report) {
       }
       if (!sawVerse) summary.push(p);
       else if (last) {
-        book.notes.push([last[0], last[1], last[0], last[1], p]);
+        book.notes.push([last[0], last[1], last[0], last[1], modernRefs(p)]);
         notes++;
       }
     }

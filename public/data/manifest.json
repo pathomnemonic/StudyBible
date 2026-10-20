@@ -4,7 +4,7 @@
   {
    "id": "commentary",
    "label": "Commentary (Haydock, Challoner, Catena Aurea, Glossa)",
-   "bytes": 21844879,
+   "bytes": 21826404,
    "files": [
     "commentary/catena/JHN.json",
     "commentary/catena/LUK.json",
@@ -234,8 +234,9 @@
   {
    "id": "library",
    "label": "Fathers & saints library",
-   "bytes": 99887556,
+   "bytes": 99898886,
    "files": [
+    "library/cite-index.json",
     "library/fulltext-index.json",
     "library/index.json",
     "library/scripture/1CH.json",

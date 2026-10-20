@@ -79,6 +79,10 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <input type="checkbox" checked={s.sparkles} onChange={(e) => set({ sparkles: e.target.checked })} aria-label="Sparkling key words" />
       </label>
       <label className="row between" style={{ margin: '4px 0' }}>
+        <span>Let words act out their meaning (fire flickers, water ripples, light glows)</span>
+        <input type="checkbox" checked={s.wordFx} onChange={(e) => set({ wordFx: e.target.checked })} aria-label="Words that act out their meaning" />
+      </label>
+      <label className="row between" style={{ margin: '4px 0' }}>
         <span>Paintings of the scene, inline</span>
         <input type="checkbox" checked={s.inlineArt} onChange={(e) => set({ inlineArt: e.target.checked })} aria-label="Inline paintings" />
       </label>

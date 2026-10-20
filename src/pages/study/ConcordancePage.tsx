@@ -66,7 +66,7 @@ export default function ConcordancePage() {
       <form className="search-box" onSubmit={(e) => { e.preventDefault(); setSp(word.trim() ? { w: word.trim() } : {}); }} role="search">
         <input type="search" value={word} onChange={(e) => setWord(e.target.value)} placeholder="e.g. covenant, manna, charity" aria-label="Word" />
         <select value={edId} onChange={(e) => setEdId(e.target.value)} aria-label="Translation">
-          {editions.filter((e) => e.language === 'en').map((e) => <option key={e.id} value={e.id}>{e.shortName}</option>)}
+          {editions.filter((e) => e.language === 'en' && !e.offByDefault).map((e) => <option key={e.id} value={e.id}>{e.shortName}</option>)}
         </select>
         <button className="btn primary" type="submit">Look up</button>
       </form>

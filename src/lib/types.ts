@@ -90,6 +90,8 @@ export interface Edition {
   /** If not bundled: how it could be added. */
   howToAdd?: string;
   rtl?: boolean;
+  /** Set for translations whose language is old or unfamiliar: they are off by default, and this says why. */
+  offByDefault?: string;
 }
 
 export interface PlannedEdition {

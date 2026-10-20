@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { getAuthors, getLibraryIndex, type LibraryWorkMeta } from '../../data/content';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
@@ -16,12 +16,14 @@ export default function FathersLibrary() {
   const [kind, setKind] = useState('');
   const [q, setQ] = useState('');
   const nav = useNavigate();
+  const [sp, setSp] = useSearchParams();
+  const authorFilter = sp.get('author') ?? '';
   const progress = useLiveQuery(() => db.libraryProgress.toArray(), []) ?? [];
   useEffect(() => {
     getLibraryIndex().then((l) => setWorks(l?.works ?? []));
     getAuthors().then((a) => setAuthors(a?.authors ?? {}));
   }, []);
-  const list = useMemo(() => works.filter((w) => (!period || w.period === period) && (!kind || w.kind === kind) && (!q || (w.title + w.author).toLowerCase().includes(q.toLowerCase()))), [works, period, kind, q]);
+  const list = useMemo(() => works.filter((w) => (!authorFilter || w.authorId === authorFilter) && (!period || w.period === period) && (!kind || w.kind === kind) && (!q || (w.title + w.author).toLowerCase().includes(q.toLowerCase()))), [works, period, kind, q, authorFilter]);
   const recent = useMemo(() => [...progress].filter((p) => works.some((w) => w.id === p.workId)).sort((a, b) => b.updatedAt - a.updatedAt).slice(0, 3), [progress, works]);
   const start = useMemo(() => START.map((id) => works.find((w) => w.id === id)).filter(Boolean) as LibraryWorkMeta[], [works]);
   const byAuthor = useMemo(() => {
@@ -46,7 +48,7 @@ export default function FathersLibrary() {
           </div>
         </section>
       )}
-      {!q && !period && !kind && start.length > 0 && (
+      {!q && !period && !kind && !authorFilter && start.length > 0 && (
         <section className="sect">
           <h3 className="eyebrow-h">Start here</h3>
           <div className="shelf">
@@ -60,6 +62,7 @@ export default function FathersLibrary() {
           </div>
         </section>
       )}
+      {authorFilter && <p className="small">Showing works by {authors[authorFilter]?.name ?? authorFilter}. <button className="linklike" onClick={() => setSp({})}>Show everything</button></p>}
       <div className="row" style={{ marginBottom: 12 }}>
         <input type="search" placeholder="Filter by title or author…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Filter works" />
         <select value={period} onChange={(e) => setPeriod(e.target.value)} aria-label="Period"><option value="">Any period</option>{Object.entries(PERIODS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select>

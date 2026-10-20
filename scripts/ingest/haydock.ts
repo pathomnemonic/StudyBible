@@ -3,6 +3,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { decodeEntities } from './lib/thml';
+import { modernRefs } from '../../src/lib/modernRefs';
 import { PUBLIC_DATA, RAW, Report, exists, today, writeJson } from './lib/util';
 import { BOOK_BY_ID } from '../../src/lib/canon';
 
@@ -49,7 +50,7 @@ export function buildHaydock(report: Report) {
       unknown++;
       continue;
     }
-    const t = text(r.t);
+    const t = modernRefs(text(r.t));
     if (!t) continue;
     (out.get(book) ?? out.set(book, []).get(book)!).push([r.c1, r.v1, r.c2, r.v2, t]);
     n++;

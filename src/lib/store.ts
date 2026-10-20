@@ -41,6 +41,8 @@ export interface Settings {
   fontFamily: 'serif' | 'sans';
   defaultEdition: string;
   parallelEdition: string | null;
+  /** older or unfamiliar translations the reader chose to switch on (see Edition.offByDefault) */
+  enabledEditions: string[];
   showVerseNumbers: boolean;
   scriptureOnly: boolean;
   /** on wide screens, keep the study panel open beside the text (chapter-level until a verse is selected) */
@@ -55,6 +57,8 @@ export interface Settings {
   ambienceTipSeen: boolean;
   /** paintings of the scene shown inline in the text */
   inlineArt: boolean;
+  /** words that act out their meaning: fire flickers, water ripples, light glows */
+  wordFx: boolean;
   /** dismissed the one-time "tap a verse" hint */
   hintVerse: boolean;
   /** a soft backdrop that suits the book (or the passage); off keeps the plain theme */
@@ -91,6 +95,7 @@ export const DEFAULTS: Settings = {
   fontFamily: 'serif',
   defaultEdition: 'webc',
   parallelEdition: null,
+  enabledEditions: [],
   showVerseNumbers: true,
   scriptureOnly: false,
   studyDock: true,
@@ -99,6 +104,7 @@ export const DEFAULTS: Settings = {
   motes: true,
   ambienceTipSeen: false,
   inlineArt: true,
+  wordFx: true,
   hintVerse: false,
   atmosphere: 'passage',
   ambience: { kind: 'nature', volume: 0.25, match: false },

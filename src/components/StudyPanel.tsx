@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Cited } from '../study/citations';
 import Icon from './Icon';
 import NoteEditor from './NoteEditor';
 import AddLinkDialog from './AddLinkDialog';
@@ -486,7 +487,7 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
           ) : (
             <div className="t">{item.title}</div>
           )}
-          {(item.author || item.show) && <div className="by">{[item.author, item.show].filter(Boolean).join(' · ')}</div>}
+          {(item.author || item.show) && <div className="by">{item.authorId ? <Link className="cite" to={`/study/fathers?author=${item.authorId}`} title="Read this author’s works in the reading room">{item.author}</Link> : item.author}{item.author && item.show ? ' · ' : ''}{item.show}</div>}
         </>
       )}
       {!reading && item.tags && item.tags.length > 0 && <div className="tag-row">{item.tags.slice(0, 4).map((t) => <span key={t} className="chip">{t}</span>)}</div>}
@@ -528,7 +529,7 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
       ) : (
         text && (
           <div className="ex" lang={item.lang}>
-            {text}
+            <Cited text={text} hint={item.ref ? parseRefId(item.ref)?.book : undefined} />
           </div>
         )
       )}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
+import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
 import { downloadEdition, isEditionCached, downloadPack, getManifest, type StudyPack } from '../data/loader';
 import { useSettings, THEMES } from '../lib/store';
 import { BOOKS } from '../lib/canon';
@@ -11,6 +12,8 @@ import { deleteAllData, download, exportAll } from '../db/ops';
 export default function SettingsPage() {
   const [s, set] = useSettings();
   const { editions } = useEditions();
+  const { choosable, off } = useChoosable();
+  const [enabling, setEnabling] = useState<(typeof editions)[number] | null>(null);
   const [cached, setCached] = useState<Record<string, boolean>>({});
   const [prog, setProg] = useState<Record<string, string>>({});
   const [remMsg, setRemMsg] = useState('');
@@ -48,7 +51,8 @@ export default function SettingsPage() {
       </div>
       <div className="card">
         <h2 className="card-title">Reading</h2>
-        <div className="row between" style={{ margin: '8px 0' }}><span>Default translation</span><select value={s.defaultEdition} onChange={(e) => set({ defaultEdition: e.target.value, last: null })} aria-label="Default translation">{editions.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}</select></div>
+        <div className="row between" style={{ margin: '8px 0' }}><span>Default translation</span><select value={s.defaultEdition} onChange={(e) => set({ defaultEdition: e.target.value, last: null })} aria-label="Default translation">{choosable.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}</select></div>
+        {off.length > 0 && <div className="row between" style={{ margin: '4px 0' }}><span className="muted small">Older translations are off by default: {off.map((e) => e.shortName).join(', ')}</span>{off.map((e) => <button key={e.id} className="btn small" onClick={() => setEnabling(e)}>Turn on {e.shortName}…</button>)}</div>}
         <div style={{ margin: '8px 0' }}>
           <div id="theme-label" style={{ marginBottom: 6 }}>Theme</div>
           <div role="radiogroup" aria-labelledby="theme-label" className="theme-grid">
@@ -131,6 +135,7 @@ export default function SettingsPage() {
         </div>
       </div>
       <p className="small"><Link to="/about">Feature status</Link> · <Link to="/study/sources">Sources & licensing</Link></p>
+      {enabling && <EnableEditionDialog edition={enabling} onClose={() => setEnabling(null)} />}
     </div>
   );
 }

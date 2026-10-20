@@ -74,7 +74,8 @@ export default function SharePage() {
   const [dim, setDim] = useState(62);
   const [theme, setTheme] = useState('All');
   const [imgErr, setImgErr] = useState(false);
-  const [verse, setVerse] = useState<{ text: string; label: string; link: string } | null>(null);
+  const [cite, setCite] = useState(false);
+  const [verse, setVerse] = useState<{ text: string; label: string; edName?: string; link: string } | null>(null);
   const [err, setErr] = useState('');
   const canvas = useRef<HTMLCanvasElement>(null);
   const ed = get(edId) ?? editions[0];
@@ -95,7 +96,7 @@ export default function SharePage() {
       if (!live) return;
       if (!vs.length) return setVerse(null), setErr('That passage is not in this translation.');
       const base = location.href.split('#')[0];
-      setVerse({ text: vs.map((v) => v.text).join(' '), label: `${formatRef(anchor ? ref : p!.ok ? p!.refs[0].ref : ref, { noDual: true })} (${ed.shortName})`, link: `${base}#${readerPath(ed, ref)}` });
+      setVerse({ text: vs.map((v) => v.text).join(' '), label: formatRef(anchor ? ref : p!.ok ? p!.refs[0].ref : ref, { noDual: true }), edName: ed.shortName, link: `${base}#${readerPath(ed, ref)}` });
     })();
     return () => {
       live = false;
@@ -171,7 +172,7 @@ export default function SharePage() {
       y += fs * 0.3;
       ctx.fillStyle = accent;
       ctx.font = `600 ${Math.round(fs * 0.5)}px system-ui, sans-serif`;
-      ctx.fillText(verse.label, x, y);
+      ctx.fillText(cite && verse.edName ? `${verse.label} (${verse.edName})` : verse.label, x, y);
       y += fs * 0.6;
       if (note) {
         y += 40;
@@ -184,20 +185,22 @@ export default function SharePage() {
         }
         ctx.globalAlpha = 1;
       }
-      ctx.fillStyle = fg;
-      ctx.globalAlpha = 0.7;
-      const cfs = Math.round(W * 0.019);
-      ctx.font = `${cfs}px system-ui, sans-serif`;
-      ctx.textBaseline = 'alphabetic';
-      const credit = [ed.attribution ?? ed.name, img && paint ? `Painting: ${paint.title}, ${paint.artist}, ${paint.date}. The Met, public domain.` : ''].filter(Boolean).join('  ·  ');
-      const cl = wrap(ctx, credit, maxW).slice(0, 3);
-      cl.forEach((l, i) => ctx.fillText(l, x, H - pad * 0.55 - (cl.length - 1 - i) * cfs * 1.35));
+      if (cite) {
+        ctx.fillStyle = fg;
+        ctx.globalAlpha = 0.55;
+        const cfs = Math.max(11, Math.round(W * 0.012));
+        ctx.font = `${cfs}px system-ui, sans-serif`;
+        ctx.textBaseline = 'alphabetic';
+        const credit = [ed.attribution ?? ed.name, img && paint ? `Painting: ${paint.title}, ${paint.artist}, ${paint.date}. The Met, public domain.` : ''].filter(Boolean).join('  ·  ');
+        const cl = wrap(ctx, credit, maxW).slice(0, 3);
+        cl.forEach((l, i) => ctx.fillText(l, x, H - pad * 0.45 - (cl.length - 1 - i) * cfs * 1.35));
+      }
       ctx.globalAlpha = 1;
     })();
     return () => {
       live = false;
     };
-  }, [verse, bg, font, size, align, thoughts, paint, dim, ed.id]);
+  }, [verse, bg, font, size, align, thoughts, paint, dim, ed.id, cite]);
 
   const png = () =>
     canvas.current?.toBlob((b) => {
@@ -208,7 +211,7 @@ export default function SharePage() {
       a.click();
       URL.revokeObjectURL(a.href);
     });
-  const fullText = () => (verse ? `“${verse.text}” — ${verse.label}${thoughts.trim() ? `\n\n${thoughts.trim()}` : ''}` : '');
+  const fullText = () => (verse ? `“${verse.text}” — ${verse.label}${cite && verse.edName ? ` (${verse.edName})` : ''}${thoughts.trim() ? `\n\n${thoughts.trim()}` : ''}` : '');
   const copy = async (t: string) => {
     try {
       await navigator.clipboard.writeText(t);
@@ -232,7 +235,8 @@ export default function SharePage() {
       <h1>Share a verse</h1>
       <div className="row" style={{ marginBottom: 8 }}>
         <input type="text" value={refText} onChange={(e) => setRefText(e.target.value)} aria-label="Reference" style={{ flex: 1, minWidth: 180 }} />
-        <select value={edId} onChange={(e) => setEdId(e.target.value)} aria-label="Translation">{editions.filter((e) => e.language === 'en' || e.id === 'vulgate').map((e) => <option key={e.id} value={e.id}>{e.shortName}</option>)}</select>
+        <label className="row" style={{ gap: 6 }}><input type="checkbox" checked={cite} onChange={(e) => setCite(e.target.checked)} /> <span className="small">Add translation and source, in small print</span></label>
+        <select value={edId} onChange={(e) => setEdId(e.target.value)} aria-label="Translation">{editions.filter((e) => (e.language === 'en' || e.id === 'vulgate') && (!e.offByDefault || s.enabledEditions.includes(e.id) || e.id === s.defaultEdition || e.id === edId)).map((e) => <option key={e.id} value={e.id}>{e.shortName}</option>)}</select>
       </div>
       {err && <p className="notice">{err}</p>}
       {verse && (
@@ -251,6 +255,27 @@ export default function SharePage() {
               <span>Your thoughts (optional)</span>
               <textarea rows={3} value={thoughts} onChange={(e) => setThoughts(e.target.value)} placeholder="Add a line of your own under the verse…" maxLength={400} />
             </label>
+            {art.length > 0 && (
+              <div className="field">
+                <strong>Or choose a painting</strong>
+                <div className="chips" style={{ margin: '8px 0' }}>
+                  {themes.map((t) => <button key={t} className={'chip' + (theme === t ? ' sel' : '')} onClick={() => setTheme(t)}>{t}</button>)}
+                </div>
+                <div className="art-grid">
+                  {shown.map((a) => (
+                    <button key={a.id} className={'art-thumb' + (paint?.id === a.id ? ' on' : '')} onClick={() => { setPaint(a); setImgErr(false); }} aria-label={`${a.title}, ${a.artist}`} aria-pressed={paint?.id === a.id}>
+                      <img src={import.meta.env.BASE_URL + a.file} alt="" loading="lazy" />
+                    </button>
+                  ))}
+                </div>
+                {paint && (
+                  <>
+                    <label className="field" style={{ marginTop: 8 }}><span>Darken for legibility</span><input type="range" min={15} max={85} value={dim} onChange={(e) => setDim(+e.target.value)} aria-label="Darken the painting" /></label>
+                    <p className="muted small">{paint.title}, {paint.artist}, {paint.date}. {paint.credit}. <a href={paint.page} target="_blank" rel="noreferrer">Source at The Met</a> (public domain, CC0).{imgErr && ' The picture could not be loaded; using a colour instead.'}</p>
+                  </>
+                )}
+              </div>
+            )}
             <div className="field">
               <span>Shape</span>
               <div className="chips" aria-label="Shape">
@@ -274,27 +299,6 @@ export default function SharePage() {
                 ))}
               </div>
             </div>
-            {art.length > 0 && (
-              <details className="field" open={!!paint}>
-                <summary>Or choose a painting</summary>
-                <div className="chips" style={{ margin: '8px 0' }}>
-                  {themes.map((t) => <button key={t} className={'chip' + (theme === t ? ' sel' : '')} onClick={() => setTheme(t)}>{t}</button>)}
-                </div>
-                <div className="art-grid">
-                  {shown.map((a) => (
-                    <button key={a.id} className={'art-thumb' + (paint?.id === a.id ? ' on' : '')} onClick={() => { setPaint(a); setImgErr(false); }} aria-label={`${a.title}, ${a.artist}`} aria-pressed={paint?.id === a.id}>
-                      <img src={import.meta.env.BASE_URL + a.file} alt="" loading="lazy" />
-                    </button>
-                  ))}
-                </div>
-                {paint && (
-                  <>
-                    <label className="field" style={{ marginTop: 8 }}><span>Darken for legibility</span><input type="range" min={15} max={85} value={dim} onChange={(e) => setDim(+e.target.value)} aria-label="Darken the painting" /></label>
-                    <p className="muted small">{paint.title}, {paint.artist}, {paint.date}. {paint.credit}. <a href={paint.page} target="_blank" rel="noreferrer">Source at The Met</a> (public domain, CC0).{imgErr && ' The picture could not be loaded; using a colour instead.'}</p>
-                  </>
-                )}
-              </details>
-            )}
           </div>
         </div>
       )}
