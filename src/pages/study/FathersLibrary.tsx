@@ -6,6 +6,9 @@ import { db } from '../../db/db';
 
 const PERIODS: Record<string, string> = { patristic: 'Patristic (to c. 750)', medieval: 'Medieval', 'early-modern': 'Early modern' };
 
+/** Gentle first reads: short, rewarding, and from different centuries. */
+const START = ['lawrence-practice', 'aug-confessions', 'athanasius-incarnation', 'teresa-castle', 'cyril-catecheses', 'kempis-imitation', 'roman-catechism', 'baltimore-catechism'];
+
 export default function FathersLibrary() {
   const [works, setWorks] = useState<LibraryWorkMeta[]>([]);
   const [authors, setAuthors] = useState<Record<string, { name: string; dates: string; bio: string }>>({});
@@ -19,6 +22,8 @@ export default function FathersLibrary() {
     getAuthors().then((a) => setAuthors(a?.authors ?? {}));
   }, []);
   const list = useMemo(() => works.filter((w) => (!period || w.period === period) && (!kind || w.kind === kind) && (!q || (w.title + w.author).toLowerCase().includes(q.toLowerCase()))), [works, period, kind, q]);
+  const recent = useMemo(() => [...progress].filter((p) => works.some((w) => w.id === p.workId)).sort((a, b) => b.updatedAt - a.updatedAt).slice(0, 3), [progress, works]);
+  const start = useMemo(() => START.map((id) => works.find((w) => w.id === id)).filter(Boolean) as LibraryWorkMeta[], [works]);
   const byAuthor = useMemo(() => {
     const m = new Map<string, LibraryWorkMeta[]>();
     for (const w of list) (m.get(w.authorId) ?? m.set(w.authorId, []).get(w.authorId)!).push(w);
@@ -26,8 +31,35 @@ export default function FathersLibrary() {
   }, [list]);
   return (
     <div className="page">
-      <h1>Fathers & saints</h1>
-      <p className="lede">Full texts of public-domain English translations, searchable and linked to the verses they comment on or cite. Each work names its translator and source; summaries are never mixed with the original wording.</p>
+      <h1>Reading room</h1>
+      <p className="lede">Read the saints, the Fathers and the catechisms here, in full, in a quiet page with your place remembered. These are public-domain English translations; each work names its translator and source, and every section links to the verses it comments on.</p>
+      {recent.length > 0 && (
+        <section className="sect">
+          <h3 className="eyebrow-h">Continue reading</h3>
+          <div className="shelf">
+            {recent.map((p) => { const w = works.find((x) => x.id === p.workId)!; return (
+              <Link key={w.id} className="shelf-card" to={`/study/works/${w.id}/${p.section}`}>
+                <span className="t">{w.title}</span>
+                <span className="d">{w.author} · section {Number(p.section) + 1} of {w.sections.length}</span>
+                <span className="bar"><i style={{ width: `${Math.round(((Number(p.section) + 1) / w.sections.length) * 100)}%` }} /></span>
+              </Link>); })}
+          </div>
+        </section>
+      )}
+      {!q && !period && !kind && start.length > 0 && (
+        <section className="sect">
+          <h3 className="eyebrow-h">Start here</h3>
+          <div className="shelf">
+            {start.map((w) => (
+              <Link key={w.id} className="shelf-card" to={`/study/works/${w.id}/0`}>
+                <span className="t">{w.title}</span>
+                <span className="d">{w.author}</span>
+                <span className="d">{w.description}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
       <div className="row" style={{ marginBottom: 12 }}>
         <input type="search" placeholder="Filter by title or author…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Filter works" />
         <select value={period} onChange={(e) => setPeriod(e.target.value)} aria-label="Period"><option value="">Any period</option>{Object.entries(PERIODS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select>

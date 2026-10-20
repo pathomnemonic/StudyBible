@@ -22,6 +22,7 @@ import StudyPanel from '../components/StudyPanel';
 import TextSettings from '../components/TextSettings';
 import { atmosphereFor, MOOD_SOUND } from '../lib/atmosphere';
 import { setAmbience, stopAmbience } from '../lib/ambience';
+import Motes from '../components/Motes';
 import { useQuiet, endQuiet } from '../lib/quiet';
 import CompareModal from '../components/CompareModal';
 import ReadAloud from '../components/ReadAloud';
@@ -527,6 +528,9 @@ export default function ReadPage() {
           <button className="icon-btn tool-sm" aria-pressed={aloud} onClick={() => setAloud((a) => !a)} aria-label="Read aloud" title="Read this chapter aloud">
             <Icon name="listen" />
           </button>
+          <button className="icon-btn tool-sm" aria-pressed={settings.ambience.kind !== 'off'} onClick={() => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'nature' : 'off' }, ambienceTipSeen: true })} aria-label={settings.ambience.kind === 'off' ? 'Turn reading sound on' : 'Turn reading sound off'} title="Reading sound: on/off">
+            <Icon name="music" />
+          </button>
           <button className="icon-btn tool-sm" onClick={() => setTextSettings(true)} aria-label="Reading settings" title="Text, theme, atmosphere, sound and quiet reading">
             <Icon name="text" />
           </button>
@@ -694,6 +698,17 @@ export default function ReadPage() {
             </tbody>
           </table>
         </Modal>
+      )}
+      {!settings.scriptureOnly && settings.motes && <Motes />}
+      {!settings.ambienceTipSeen && settings.ambience.kind !== 'off' && !settings.scriptureOnly && (
+        <div className="amb-tip" role="status">
+          <p><strong>Soft sound is playing while you read.</strong> Turn it off, or change it to music, classical piano or chant, with the note icon above or in Reading settings.</p>
+          <div className="row">
+            <button className="btn small" onClick={() => setSettings({ ambience: { ...settings.ambience, kind: 'off' }, ambienceTipSeen: true })}>Turn off</button>
+            <button className="btn small" onClick={() => { setSettings({ ambienceTipSeen: true }); setTextSettings(true); }}>Choose…</button>
+            <button className="btn small primary" onClick={() => setSettings({ ambienceTipSeen: true })}>Keep it</button>
+          </div>
+        </div>
       )}
       {textSettings && <TextSettings onClose={() => setTextSettings(false)} />}
       {editionPicker && (

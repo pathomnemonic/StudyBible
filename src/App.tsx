@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { EditionsProvider, useEditions } from './data/EditionsContext';
 import { useSettings } from './lib/store';
 import Shell from './components/Shell';
@@ -102,6 +102,12 @@ function Home() {
   return <Navigate replace to={l ? `/read/${l.edition}/${l.book}/${l.chapter}` : `/read/${s.defaultEdition}/JHN/1`} />;
 }
 
+/** Each page settles in with a slow fade and a small rise. The reader keeps one key so turning chapters never remounts it. */
+function Settle({ children }: { children: React.ReactNode }) {
+  const { pathname } = useLocation();
+  return <div className="settle" key={pathname.startsWith('/read/') ? 'reader' : pathname}>{children}</div>;
+}
+
 export default function App() {
   useEffect(() => {
     initSync();
@@ -115,7 +121,7 @@ export default function App() {
         <PlayerProvider>
         <Shell>
           <Suspense fallback={<div className="center-note">Loading…</div>}>
-            <Routes>
+            <Settle><Routes>
               <Route path="/" element={<TodayPage />} />
               <Route path="/read" element={<Home />} />
               <Route path="/read/:edition/:book/:chapter" element={<ReadPage />} />
@@ -166,7 +172,7 @@ export default function App() {
               <Route path="/attach" element={<AttachPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="*" element={<Navigate replace to="/" />} />
-            </Routes>
+            </Routes></Settle>
           </Suspense>
           <MiniPlayer />
         </Shell>

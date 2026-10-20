@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from './Modal';
 import { useSettings, THEMES, type ThemeName } from '../lib/store';
 import { startQuiet } from '../lib/quiet';
+import { loadTracks, onTrack, type Track } from '../lib/ambience';
 
 /** How I read: text, theme, atmosphere, sound and silent mode, in one place. */
 export default function TextSettings({ onClose }: { onClose: () => void }) {
   const [s, set] = useSettings();
   const [minutes, setMinutes] = useState(20);
+  const [tracks, setTracks] = useState<Track[]>([]);
+  const [now, setNow] = useState<Track | null>(null);
+  useEffect(() => { loadTracks().then(setTracks); return onTrack(setNow); }, []);
   const chip = (on: boolean, label: string, onClick: () => void) => (
     <button key={label} className={`chip${on ? ' sel' : ''}`} onClick={onClick} aria-pressed={on}>{label}</button>
   );
@@ -48,10 +52,11 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
       </div>
 
       <h3 className="modal-sub">Sound</h3>
-      <p className="muted small" style={{ margin: '0 0 6px' }}>Optional, soft and generated on your device. Stylised rain, wind or a stream; not recordings.</p>
+      <p className="muted small" style={{ margin: '0 0 6px' }}>Real recordings, played softly while you read. Nature sounds, gentle music, classical piano and plain chant; each track’s source and licence are listed below.</p>
       <div className="chips">
-        {(['off', 'rain', 'wind', 'stream'] as const).map((k) => chip(s.ambience.kind === k, k === 'off' ? 'Silence' : k[0].toUpperCase() + k.slice(1), () => set({ ambience: { ...s.ambience, kind: k } })))}
+        {([['off', 'Silence'], ['nature', 'Nature'], ['music', 'Soft music'], ['classical', 'Classical'], ['chant', 'Chant'], ['rain', 'Rain'], ['wind', 'Wind'], ['stream', 'Stream']] as const).map(([k, l]) => chip(s.ambience.kind === k, l, () => set({ ambience: { ...s.ambience, kind: k }, ambienceTipSeen: true })))}
       </div>
+      {now && s.ambience.kind !== 'off' && <p className="small muted" style={{ margin: '6px 0 0' }}>Now playing: {now.title}{now.artist ? `, ${now.artist}` : ''} · {now.sourceUrl ? <a href={now.sourceUrl} target="_blank" rel="noreferrer">{now.license}</a> : now.license}</p>}
       {s.ambience.kind !== 'off' && (
         <>
           <label className="row between" style={{ margin: '10px 0' }}>
@@ -64,6 +69,19 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
           </label>
         </>
       )}
+
+      <label className="row between" style={{ margin: '10px 0 4px' }}>
+        <span>Drifting light behind the text</span>
+        <input type="checkbox" checked={s.motes} onChange={(e) => set({ motes: e.target.checked })} aria-label="Soft moving light" />
+      </label>
+      <label className="row between" style={{ margin: '4px 0' }}>
+        <span>Sparkle on key words (tap for what they mean)</span>
+        <input type="checkbox" checked={s.sparkles} onChange={(e) => set({ sparkles: e.target.checked })} aria-label="Sparkling key words" />
+      </label>
+      <details className="small" style={{ margin: '6px 0' }}>
+        <summary>Sound credits and licences</summary>
+        <ul className="list">{tracks.map((t) => <li key={t.id}>{t.title}{t.artist ? ` — ${t.artist}` : ''} · {t.sourceUrl ? <a href={t.sourceUrl} target="_blank" rel="noreferrer">{t.license}</a> : t.license}{t.note ? `. ${t.note}` : ''}</li>)}</ul>
+      </details>
 
       <h3 className="modal-sub">Silent mode</h3>
       <label className="row between" style={{ margin: '6px 0' }}>

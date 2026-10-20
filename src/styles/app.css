@@ -3608,3 +3608,24 @@ html[data-silent] .term { border-bottom: 0; } html[data-silent] .term::after { d
 @keyframes page-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .home, .home-body { animation: none; } }
 @media (max-width: 640px) { .home-date { margin-top: 40px; } }
+
+/* Zen page transitions */
+.settle { animation: settle .55s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes settle { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .settle { animation: none; } }
+
+/* Drifting light, ambience tip */
+.motes { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: .9; }
+.amb-tip { position: fixed; z-index: 60; top: 64px; right: 14px; max-width: 300px; padding: 12px 14px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); box-shadow: 0 12px 34px rgba(0,0,0,.22); font-size: .9rem; animation: settle .5s ease both; }
+.amb-tip p { margin: 0 0 8px; }
+.amb-tip .row { gap: 8px; }
+
+/* Reading room shelves */
+.shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.shelf-card { display: grid; gap: 4px; padding: 14px 16px; border-radius: 16px; border: 1px solid var(--border); background: var(--surface); text-decoration: none; color: inherit; transition: transform .25s ease, box-shadow .25s ease; align-content: start; }
+.shelf-card:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.12); }
+.shelf-card .t { font-family: var(--font-display); font-size: 1.15rem; }
+.shelf-card .d { color: var(--muted); font-size: .85rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.shelf-card .bar { height: 4px; border-radius: 3px; background: var(--border); overflow: hidden; margin-top: 4px; }
+.shelf-card .bar i { display: block; height: 100%; background: var(--accent); }
+.eyebrow-h { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin: 14px 0 8px; font-weight: 500; }

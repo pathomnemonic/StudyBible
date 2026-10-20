@@ -15,6 +15,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
       ['/study/pauline', 'Paul’s letters', 'Argument outlines for each letter.'],
       ['/study/index', 'Parables, miracles, prophecies, covenants', 'Indexes with every passage linked.'],
       ['/study/textual', 'Textual history', 'Where manuscripts and editions differ.'],
+      ['/study/manuscripts', 'Manuscripts', 'Zoom into real pages, from a 4th-century fragment of John.'],
     ],
   },
   {
@@ -22,7 +23,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     blurb: 'What the Church teaches and how the Fathers and saints read Scripture.',
     items: [
       ['/study/doctrine', 'Doctrine & Catechism', 'Topics (Eucharist, Trinity, grace, Mary…) with Scripture and Catechism links.'],
-      ['/study/fathers', 'Fathers & saints', 'Augustine, Chrysostom, Origen, Aquinas, Teresa and more, to read or search.'],
+      ['/study/fathers', 'Reading room: saints, Fathers, catechisms', 'Augustine, Chrysostom, Teresa, the Imitation of Christ and more, to read in full.'],
       ['/study/voices', 'Voices through time', 'The Fathers and saints on one timeline, with the councils.'],
       ['/study/concepts', 'Web of themes', 'How the great themes of Scripture are tied together.'],
       ['/study/themes', 'Biblical theology explorer', 'Follow a theme from Genesis to Revelation, with the Church’s reading.'],
@@ -63,9 +64,9 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
 ];
 
 const FEATURED: { to: string; title: string; text: string; hue: number }[] = [
+  { to: '/study/fathers', title: 'Reading room', text: 'Read the saints, the Fathers and the catechisms, in full, right here.', hue: 25 },
   { to: '/study/universe', title: 'Scripture universe', text: 'Fly through the canon as a galaxy of 73 books.', hue: 265 },
   { to: '/study/fulfilment', title: 'Promise and fulfilment', text: 'Types and prophecies, in the Fathers’ own words.', hue: 35 },
-  { to: '/study/manuscripts', title: 'Manuscripts', text: 'Zoom into real pages, from a 4th-century fragment of John.', hue: 195 },
   { to: '/study/timespace', title: 'Time and place', text: 'Slide through the biblical story and watch the map follow.', hue: 145 },
 ];
 

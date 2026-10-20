@@ -23,7 +23,7 @@ export default function ConceptsPage() {
   const [themes, setThemes] = useState<Theme[]>([]);
   const [sel, setSel] = useState<string | null>(null);
   useEffect(() => {
-    getThemes().then((d) => setThemes(d?.themes ?? []));
+    getThemes().then((d) => { setThemes(d?.themes ?? []); setSel((x) => x ?? d?.themes.find((t) => t.id.startsWith('covenant'))?.id ?? d?.themes[0]?.id ?? null); });
   }, []);
 
   const { nodes, edges } = useMemo(() => {
