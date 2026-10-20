@@ -506,7 +506,7 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
       )}
       {item.thumb && (
         <a href={item.url} target="_blank" rel="noreferrer" className="thumb">
-          <img src={item.thumb} alt={`${item.title}, painting`} loading="lazy" />
+          <img src={item.thumb} alt={`${item.kind === "Engraving" ? "Engraving" : "Painting"}: ${item.title}`} loading="lazy" />
         </a>
       )}
       {playing && embed && <InlinePlayer embed={embed} title={item.title} />}

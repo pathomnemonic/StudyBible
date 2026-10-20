@@ -46,6 +46,7 @@ export default function SettingsPage() {
   return (
     <div className="page">
       <h1>Settings</h1>
+      <input type="search" className="settings-search" placeholder="Find a setting (try “font”, “sound”, “offline”)" aria-label="Find a setting" onChange={(e) => { const q = e.target.value.trim().toLowerCase(); document.querySelectorAll<HTMLElement>('.page > .card').forEach((c) => { c.hidden = !!q && !(c.textContent ?? '').toLowerCase().includes(q) && !(c.querySelector('select,input') && [...c.querySelectorAll('[aria-label]')].some((n) => (n.getAttribute('aria-label') ?? '').toLowerCase().includes(q))); }); }} />
       <div className="card more-links">
         <Link to="/account">Account and sync</Link>
         <Link to="/study/sources">Sources and licensing</Link>

@@ -1,5 +1,6 @@
 import { getJson } from '../data/loader';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
+import { moreArtFor } from './inlineArt';
 import type { StudyItem, SectionKey } from './providers';
 
 /**
@@ -218,6 +219,11 @@ export async function lensItems(sel: Ref[]): Promise<StudyItem[]> {
       }
     }),
   );
+  const have = new Set(out.filter((i) => i.section === 'art').map((i) => i.title));
+  for (const w of await moreArtFor(sel).catch(() => [])) {
+    if (have.has(w.title)) continue;
+    out.push({ ...base, id: `art-more-${w.id}`, section: 'art', title: w.title, excerpt: `${w.artist}, ${w.date}`, kind: String(w.id).startsWith('dore') ? 'Engraving' : 'Painting', thumb: import.meta.env.BASE_URL + w.file, url: w.source, match: 'explicit-reference', why: `A picture of the scene in ${w.refs[0]}. Public domain; artists show how the scene was imagined in their time, and are not evidence for how it looked.`, sourceName: w.credit.slice(0, 120) } as StudyItem);
+  }
   return out;
 }
 

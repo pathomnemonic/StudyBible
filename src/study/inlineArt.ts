@@ -57,3 +57,9 @@ export async function artForChapter(book: string, anchorChapters: number[]): Pro
   }
   return out.filter((f) => f.ref.v1 !== undefined);
 }
+
+/** Doré engravings and museum paintings whose scene overlaps the selection (for the Media tab). */
+export async function moreArtFor(sel: Ref[]) {
+  const more = await loadMore();
+  return more.filter(({ ranges }) => ranges.some((r) => sel.some((x) => x.book === r.book && x.c1 <= r.c2 && r.c1 <= x.c2))).map(({ work }) => work).slice(0, 6);
+}

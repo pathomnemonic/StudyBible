@@ -10,6 +10,7 @@ import { anchorChaptersFor, chapterAlignmentNote, bookAlignmentNote, psalmDualLa
 import { anchorChapterText, anchorToNative, chapterTitle, flattenChapter, nativeToAnchorRef, type AnchorText } from '../lib/bibleText';
 import { useSettings } from '../lib/store';
 import { db, type HighlightColor, type Target } from '../db/db';
+import { useBiay } from '../data/biay';
 import { setHighlight, toggleBookmark, rangesOverlap } from '../db/ops';
 import ChapterText, { type VerseDecor } from '../components/ChapterText';
 import TermPopover from '../components/TermPopover';
@@ -98,6 +99,7 @@ export default function ReadPage() {
   const [picker, setPicker] = useState(false);
   const [noteFor, setNoteFor] = useState<Target[] | null>(null);
   const [panel, setPanel] = useState(false);
+  const { biay: biayView } = useBiay();
   const swipe = useRef<[number, number] | null>(null);
   const [moreMenu, setMoreMenu] = useState(false);
   const wide = useWide();
@@ -138,6 +140,7 @@ export default function ReadPage() {
   const chapterData = data?.chapters[chNum - 1];
   const flat = useMemo(() => flattenChapter(chapterData), [chapterData]);
   const anchorChapters = useMemo(() => anchorChaptersFor(edition.scheme, bk.id, chNum), [edition.scheme, bk.id, chNum]);
+  const biayDay = biayView ? [...biayView.dayEpisode.entries()].find(([, e]) => e.passages.some((p) => { const r = parseRefId(p); return r && anchorChapters.some((c) => rangesOverlap(r, { book: bk.id, c1: c, c2: c })); }))?.[0] : undefined;
   const primaryAnchorChapter = anchorChapters[0];
   const [figs, setFigs] = useState<InlineFig[]>([]);
   useEffect(() => {
@@ -656,6 +659,7 @@ export default function ReadPage() {
                 </button>
               )}
             </h1>
+            {biayDay && <p className="biay-chip"><Link to="/listen">Bible in a Year, day {biayDay}: listen with Fr. Mike</Link></p>}
             {(() => {
               const kjvCh = convertRef('vulgate', 'kjv', { book: bk.id, c1: primaryAnchorChapter, v1: 1, c2: primaryAnchorChapter, v2: 1 }).ref.c1;
               const line = sectionFor(bookInfo, kjvCh);

@@ -16,6 +16,8 @@ const GROUPS: [string, string[]][] = [
 export default function ChurchDocs() {
   const [docs, setDocs] = useState<Doc[]>([]);
   const [q, setQ] = useState('');
+  const [cites, setCites] = useState<Record<string, number>>({});
+  useEffect(() => { getJson<{ works: { id: string; cites: number }[] }>('library/galaxy.json', true).then((g) => setCites(Object.fromEntries((g?.works ?? []).map((w) => [w.id, w.cites])))).catch(() => {}); }, []);
   const [access, setAccess] = useState<'all' | 'full-text' | 'link-only'>('all');
   useEffect(() => { getJson<{ docs: Doc[] }>('church/docs.json', true).then((d) => setDocs(d?.docs ?? [])); }, []);
   const list = useMemo(() => docs.filter((d) => (access === 'all' || d.access === access) && (!q || `${d.title} ${d.author} ${d.year} ${d.blurb}`.toLowerCase().includes(q.toLowerCase()))), [docs, q, access]);
@@ -42,6 +44,7 @@ export default function ChurchDocs() {
                     <span className="d">{d.author} · {d.year}</span>
                     <span className="d">{d.blurb}</span>
                     <span className="chip good">Read here</span>
+                    {cites[d.libraryWorkId] > 0 && <span className="d">Tied to {cites[d.libraryWorkId]} places in Scripture</span>}
                   </Link>
                 ) : (
                   <a key={d.id} className="shelf-card" href={d.url} target="_blank" rel="noreferrer">

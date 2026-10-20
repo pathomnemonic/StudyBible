@@ -3817,3 +3817,5 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .library-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 12px; }
 .library-tabs a { padding: 5px 12px; border-radius: 999px; border: 1px solid var(--hairline, #8884); color: var(--muted); text-decoration: none; font-size: .88rem; }
 .library-tabs a.active { background: var(--accent); color: var(--bg); border-color: transparent; }
+.biay-chip { margin: -6px 0 10px; font-size: .8rem; } .biay-chip a { color: var(--muted); }
+.settings-search { width: 100%; max-width: 420px; margin: 0 0 12px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--hairline, #8886); background: transparent; color: inherit; } .card[hidden] { display: none; }
