@@ -7,7 +7,7 @@ import { useSync } from '../sync/state';
 
 // The places you actually live in. Daily practice (Mass readings, plans, Bible in a Year, memorizing, prayer) sits under Today with a sub-menu. Settings and the account are reached from the sidebar, or the gear on Today.
 const TABS = [
-  { to: '/today', label: 'Today', icon: 'sun', match: ['/today', '/pray', '/listen', '/memorize', '/session'], home: true },
+  { to: '/today', label: 'Today', icon: 'sun', match: ['/today', '/pray', '/memorize', '/session'], home: true },
   { to: '/read', label: 'Bible', icon: 'read', match: ['/read'] },
   { to: '/study', label: 'Study', icon: 'study', match: ['/study'] },
   { to: '/library', label: 'Notes', icon: 'library', match: ['/library'] },
@@ -18,7 +18,6 @@ const DAILY = [
   { to: '/today', label: 'Today' },
   { to: '/pray/readings', label: 'Mass readings' },
   { to: '/pray/plans', label: 'Plans' },
-  { to: '/listen', label: 'Bible in a Year' },
   { to: '/memorize', label: 'Memorize' },
   { to: '/pray', label: 'Prayer' },
 ];
@@ -35,7 +34,7 @@ const dailyActive = (path: string) => {
   return best;
 };
 const isHome = (path: string) => path === '/' || path === '/today';
-const inDaily = (path: string) => !isHome(path) && ['/today', '/pray', '/listen', '/memorize', '/session'].some((p) => path === p || path.startsWith(p + '/'));
+const inDaily = (path: string) => !isHome(path) && ['/today', '/pray', '/memorize', '/session'].some((p) => path === p || path.startsWith(p + '/'));
 
 export default function Shell({ children }: { children: ReactNode }) {
   const loc = useLocation();

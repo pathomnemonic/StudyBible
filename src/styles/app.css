@@ -3578,7 +3578,7 @@ html[data-silent] .term { border-bottom: 0; } html[data-silent] .term::after { d
 
 /* Mass readings, in-app */
 .reading-stack { display: grid; gap: 22px; margin: 12px 0; }
-.reading-block h3 { margin: 2px 0 8px; font-family: var(--font-display); font-weight: 500; }
+.reading-block h3 { margin: 2px 0 8px; font-family: var(--font-display); font-weight: 500; text-transform: none; letter-spacing: 0; font-size: 1.3rem; color: var(--text); }
 .reading-block .eyebrow { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
 .reading-text { line-height: 1.7; margin: 0 0 8px; }
 .reading-text sup { color: var(--muted); font-size: .65em; margin-right: 2px; }
