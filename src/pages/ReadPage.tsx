@@ -25,6 +25,7 @@ import { setAmbience, stopAmbience } from '../lib/ambience';
 import { useT } from '../lib/i18n';
 import Motes from '../components/Motes';
 import { buzz } from '../lib/haptics';
+import { approvedLinks } from '../lib/approved';
 import NotePopover from '../components/NotePopover';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
 import { artForChapter, type InlineFig } from '../study/inlineArt';
@@ -623,7 +624,7 @@ export default function ReadPage() {
             </button>
             {moreMenu && (
               <div className="more-menu" role="menu" onClick={() => setMoreMenu(false)}>
-                <button role="menuitem" onClick={() => setEditionPicker(true)}>Translation: {edition.shortName}</button>
+                <button role="menuitem" onClick={() => setEditionPicker(true)}>Translation: {edition.shortName} (and Church-approved Bibles)</button>
                 <button role="menuitem" onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id))}>Parallel translations {parallelMode ? '(on)' : ''}</button>
                 <button role="menuitem" onClick={() => setAloud((a) => !a)}>Read aloud {aloud ? '(on)' : ''}</button>
                 <button role="menuitem" onClick={() => setTextSettings(true)}>Reading settings, atmosphere and sound</button>
@@ -786,14 +787,25 @@ export default function ReadPage() {
       {textSettings && <TextSettings onClose={() => setTextSettings(false)} />}
       {editionPicker && (
         <Modal title="Translations" onClose={() => setEditionPicker(false)}>
+          <div className="card" style={{ borderColor: 'var(--accent)' }}>
+            <strong>Church-approved modern translations</strong>
+            <p className="muted small" style={{ margin: '4px 0 8px' }}>The Bibles most Catholics read today are under copyright, so their text cannot be built into this app. Open this chapter in them at the publisher’s or a licensed reader (opens in a new tab). The translations below that are built in are public-domain.</p>
+            <div className="chips">
+              {approvedLinks(bk.id, (() => { const w = get('webc'); return w ? anchorToNative(w, { book: bk.id, c1: primaryAnchorChapter, c2: primaryAnchorChapter }).chapter : chNum; })()).map((a) => <a key={a.id} className="chip" href={a.url} target="_blank" rel="noreferrer" title={a.note}>{a.name.replace(/ \(.*\)/, '')} ↗</a>)}
+            </div>
+          </div>
           {editions.map((e) => (
             <div key={e.id} className="card">
               <div className="row between">
                 <strong>{e.name}</strong>
-                <span className={`chip ${e.rights === 'public-domain' ? 'good' : ''}`}>{e.rights.replace('-', ' ')}</span>
+                <span className="row" style={{ gap: 4 }}>
+                  {e.approval === 'approved' && <span className="chip good" title={e.approvalNote}>Church-approved</span>}
+                  {e.approval === 'none' && <span className="chip" title={e.approvalNote}>Not Church-approved</span>}
+                  <span className={`chip ${e.rights === 'public-domain' ? 'good' : ''}`}>{e.rights.replace('-', ' ')}</span>
+                </span>
               </div>
               <p className="muted small">{e.languageName} · {e.tradition}</p>
-              <p className="small">{e.catholicStatus}</p>
+              <p className="small">{e.approvalNote ?? e.catholicStatus}</p>
               <div className="row">
                 {isOn(e.id) ? (
                   <>

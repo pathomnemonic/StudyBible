@@ -21,7 +21,9 @@
    "usfmPattern": "engDRA",
    "bundled": true,
    "offlineAllowed": true,
-   "offByDefault": "The Douay-Rheims is a treasured Catholic translation, but its English is from the 1500s–1700s: “thee”, “saith”, “Isaias”, “Osee”, long sentences and older word meanings. Most readers find modern English easier, and it numbers the Psalms differently from most Bibles (Psalm 23 appears as Psalm 22). It is still in the app because many of the Fathers and the Haydock and Challoner notes are written against it."
+   "offByDefault": "The Douay-Rheims is a treasured Catholic translation, but its English is from the 1500s–1700s: “thee”, “saith”, “Isaias”, “Osee”, long sentences and older word meanings. Most readers find modern English easier, and it numbers the Psalms differently from most Bibles (Psalm 23 appears as Psalm 22). It is still in the app because many of the Fathers and the Haydock and Challoner notes are written against it.",
+   "approval": "approved",
+   "approvalNote": "The Challoner revision of the Douay-Rheims was the standard Catholic Bible in English for about two centuries, used with the approval of the Church’s bishops."
   },
   {
    "id": "vulgate",
@@ -43,7 +45,9 @@
    "usfmPattern": "latVUC",
    "bundled": true,
    "offlineAllowed": true,
-   "offByDefault": "This is the Latin Vulgate, not English. It is here for study and comparison (the Glossa Ordinaria notes belong to it), and it is not meant as a first reading text. Its Psalm numbering also differs from most Bibles."
+   "offByDefault": "This is the Latin Vulgate, not English. It is here for study and comparison (the Glossa Ordinaria notes belong to it), and it is not meant as a first reading text. Its Psalm numbering also differs from most Bibles.",
+   "approval": "approved",
+   "approvalNote": "The Clementine Vulgate was the Church’s official Latin Bible for centuries (until the Nova Vulgata of 1979)."
   },
   {
    "id": "webc",
@@ -68,7 +72,9 @@
     "DAG": "DAN"
    },
    "bundled": true,
-   "offlineAllowed": true
+   "offlineAllowed": true,
+   "approval": "none",
+   "approvalNote": "Not a Church-approved translation: a modern public-domain translation arranged with the Catholic canon."
   },
   {
    "id": "cpdv",
@@ -89,7 +95,9 @@
    "source": "scrollmapper-cpdv",
    "usfmPattern": "",
    "bundled": true,
-   "offlineAllowed": true
+   "offlineAllowed": true,
+   "approval": "none",
+   "approvalNote": "Not Church-approved: a privately made Catholic translation of the Vulgate, with no imprimatur."
   }
  ],
  "planned": [
