@@ -14,13 +14,6 @@ const localIso = () => {
   const n = new Date();
   return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
 };
-const MENU = [
-  { to: '/read', label: 'Bible' },
-  { to: '/study', label: 'Study' },
-  { to: '/library', label: 'Notes' },
-  { to: '/pray', label: 'Prayer' },
-  { to: '/settings', label: 'Settings' },
-];
 
 /** Home: one quiet screen. The day, a verse, a saint, a question; ways back into reading. Nothing to scroll. */
 export default function TodayPage() {
@@ -35,7 +28,6 @@ export default function TodayPage() {
   const [file, setFile] = useState<Awaited<ReturnType<typeof loadDaily>>>(null);
   const [verse, setVerse] = useState<{ ref: Ref; label: string; text: string } | null>(null);
   const [info, setInfo] = useState(false);
-  const [menu, setMenu] = useState(false);
   const touch = useRef<number | null>(null);
 
   useEffect(() => { loadDaily().then(setFile); }, []);
@@ -79,7 +71,7 @@ export default function TodayPage() {
       if (e.key === 'ArrowLeft') go(-1);
       else if (e.key === 'ArrowRight') go(1);
       else if (e.key.toLowerCase() === 'i') setInfo((x) => !x);
-      else if (e.key === 'Escape') { setInfo(false); setMenu(false); }
+      else if (e.key === 'Escape') { setInfo(false); }
     };
     window.addEventListener('keydown', h);
     return () => window.removeEventListener('keydown', h);
@@ -112,13 +104,6 @@ export default function TodayPage() {
     >
       <div className="home-tools">
         <button className="icon-btn" onClick={() => setInfo((x) => !x)} aria-label="About today’s verse, quote and question (i)" aria-pressed={info} title="Sources (i)"><Icon name="info" /></button>
-        <button className="icon-btn" onClick={() => setMenu((x) => !x)} aria-label="Menu" aria-expanded={menu} title="Menu"><Icon name="queue" /></button>
-        {menu && (
-          <nav className="home-menu" aria-label="Sections">
-            {MENU.map((m) => <Link key={m.to} to={m.to === '/read' && last ? `/read/${last.edition}/${last.book}/${last.chapter}` : m.to}>{m.label}</Link>)}
-            <button onClick={() => window.dispatchEvent(new Event('studybible:search'))}>Search</button>
-          </nav>
-        )}
       </div>
 
       <header className="home-date">

@@ -60,7 +60,7 @@ export default function Shell({ children }: { children: ReactNode }) {
   const fullscreenReader = (loc.pathname.startsWith('/read') && s.scriptureOnly) || loc.pathname.startsWith('/widget');
   const home = isHome(loc.pathname);
   return (
-    <div className={`shell${fullscreenReader || home ? ' quiet' : ''}${home ? ' home-shell' : ''}`}>
+    <div className={`shell${fullscreenReader ? ' quiet' : ''}${home ? ' home-shell' : ''}`}>
       <a className="skip" href="#main">
         Skip to content
       </a>

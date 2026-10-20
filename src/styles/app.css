@@ -3585,7 +3585,7 @@ html[data-silent] .term { border-bottom: 0; } html[data-silent] .term::after { d
 
 /* Home: one screen, no scroll */
 .shell.home-shell .main { padding: 0; }
-.home { position: relative; height: 100dvh; display: flex; flex-direction: column; align-items: center; padding: 16px 20px calc(18px + env(safe-area-inset-bottom)); overflow: hidden; text-align: center; animation: page-in .6s ease both; }
+.home { position: relative; height: calc(100dvh - var(--tabs-h) - env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: center; padding: 16px 20px calc(18px + env(safe-area-inset-bottom)); overflow: hidden; text-align: center; animation: page-in .6s ease both; }
 .home-tools { position: absolute; top: 10px; right: 10px; display: flex; gap: 2px; z-index: 5; }
 .home-menu { position: absolute; top: 44px; right: 0; display: grid; min-width: 140px; padding: 6px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.18); text-align: left; }
 .home-menu a, .home-menu button { padding: 8px 12px; border: 0; background: none; color: inherit; text-align: left; font: inherit; cursor: pointer; border-radius: 8px; text-decoration: none; }
@@ -3700,3 +3700,5 @@ html[data-atm] .reader::before { opacity: 0.13; }
 @media (prefers-reduced-motion: reduce) { .fx { animation: none !important; } }
 .rm.rm-std { font-size: .74rem; padding-inline: 6px; }
 .ed-switch button { white-space: nowrap; }
+
+@media (min-width: 900px) { .home { height: 100dvh; } }
