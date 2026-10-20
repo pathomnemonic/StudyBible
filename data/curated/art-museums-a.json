@@ -1,0 +1,1916 @@
+{
+ "about": "Paintings of biblical scenes from the Metropolitan Museum of Art Open Access and Cleveland Museum of Art Open Access (CC0) programmes, each tied to the passage it depicts. Images resized to <=1000 px. Each record was taken from the museum API with the public-domain/CC0 flag set.",
+ "works": [
+  {
+   "id": "met-437180",
+   "title": "The Rebuke of Adam and Eve",
+   "artist": "Charles Joseph Natoire",
+   "date": "1740",
+   "credit": "Purchase, Mr. and Mrs. Frank E. Richardson III, George T. Delacorte Jr., and Mr. and Mrs. Henry J. Heinz II Gifts; Victor Wilbour Memorial, Marquand, and The Alfred N. Punnett Endowment Funds; and The Edward Joseph Gallagher III Memorial Collection, Edward J. Gallagher Jr. Bequest, 1987, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437180",
+   "file": "art/met-437180.jpg",
+   "refs": [
+    "Genesis 3:8-19"
+   ],
+   "theme": "Adam and Eve"
+  },
+  {
+   "id": "met-817124",
+   "title": "Cain Slaying Abel",
+   "artist": "Pier Francesco Mola",
+   "date": "ca. 1650–52",
+   "credit": "Gift of Alan M. May, in memory of his wife, Marcia W. May, and in celebration of the Museum's 150th Anniversary, 2020, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/817124",
+   "file": "art/met-817124.jpg",
+   "refs": [
+    "Genesis 4:3-8"
+   ],
+   "theme": "Cain and Abel"
+  },
+  {
+   "id": "met-435680",
+   "title": "Moses Striking the Rock",
+   "artist": "Abraham Bloemaert",
+   "date": "1596",
+   "credit": "Purchase, Gift of Mary V. T. Eberstadt, by exchange, 1972, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435680",
+   "file": "art/met-435680.jpg",
+   "refs": [
+    "Exodus 17:1-7"
+   ],
+   "theme": "Moses"
+  },
+  {
+   "id": "met-436672",
+   "title": "Christ among the Doctors",
+   "artist": "Abraham Hondius",
+   "date": "1668",
+   "credit": "Gift of Dr. and Mrs. Carl F. Culicchia, 1974, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436672",
+   "file": "art/met-436672.jpg",
+   "refs": [
+    "Luke 2:41-52"
+   ],
+   "theme": "Childhood of Jesus"
+  },
+  {
+   "id": "met-436929",
+   "title": "Abraham Dismissing Hagar and Ishmael",
+   "artist": "Nicolaes Maes",
+   "date": "1653",
+   "credit": "Gift of Mrs. Edward Brayton, 1971, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436929",
+   "file": "art/met-436929.jpg",
+   "refs": [
+    "Genesis 21:9-14"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "met-436288",
+   "title": "Abraham Dismissing Hagar and Ishmael",
+   "artist": "Barent Fabritius",
+   "date": "1658",
+   "credit": "Bequest of Harry G. Sperling, 1971, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436288",
+   "file": "art/met-436288.jpg",
+   "refs": [
+    "Genesis 21:9-14"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "met-743039",
+   "title": "The Banishment of Hagar",
+   "artist": "Johann Friedrich Overbeck",
+   "date": "1839–41",
+   "credit": "Purchase, Louis V. Bell, Harris Brisbane Dick, Fletcher, and Rogers Funds and Joseph Pulitzer Bequest; Catharine Lorillard Wolfe Collection, Wolfe Fund; and Charles and Jessie Price Gift, 2024, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/743039",
+   "file": "art/met-743039.jpg",
+   "refs": [
+    "Genesis 21:14-16"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "met-435962",
+   "title": "Hagar in the Wilderness",
+   "artist": "Camille Corot",
+   "date": "1835",
+   "credit": "Rogers Fund, 1938, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435962",
+   "file": "art/met-435962.jpg",
+   "refs": [
+    "Genesis 21:14-19"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "met-441229",
+   "title": "Hagar and the Angel",
+   "artist": "Francesco Maffei",
+   "date": "ca. 1657",
+   "credit": "Bequest of Anna Mont, in memory of Frederick Mont, 2010, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/441229",
+   "file": "art/met-441229.jpg",
+   "refs": [
+    "Genesis 21:15-19"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "met-437897",
+   "title": "Abraham's Parting from the Family of Lot",
+   "artist": "Jan Victors",
+   "date": "ca. 1655–65",
+   "credit": "Purchase, 1871, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437897",
+   "file": "art/met-437897.jpg",
+   "refs": [
+    "Genesis 13:5-12"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "met-437330",
+   "title": "Saints Peter and John Healing the Lame Man",
+   "artist": "Nicolas Poussin",
+   "date": "1655",
+   "credit": "Marquand Fund, 1924, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437330",
+   "file": "art/met-437330.jpg",
+   "refs": [
+    "Acts 3:1-10"
+   ],
+   "theme": "Acts of the Apostles"
+  },
+  {
+   "id": "met-438462",
+   "title": "The Massacre of the Innocents",
+   "artist": "François Joseph Navez",
+   "date": "1824",
+   "credit": "Purchase, Catharine Lorillard Wolfe Collection, Wolfe Fund, and Louis V. Bell, Harris Brisbane Dick, Fletcher, and Rogers Funds and Joseph Pulitzer Bequest, 2023, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/438462",
+   "file": "art/met-438462.jpg",
+   "refs": [
+    "Matthew 2:16-18"
+   ],
+   "theme": "Nativity of Jesus"
+  },
+  {
+   "id": "met-437034",
+   "title": "Joseph Interpreting the Dreams of His Fellow Prisoners",
+   "artist": "Master of the Story of Joseph",
+   "date": "",
+   "credit": "Harris Brisbane Dick Fund, 1953, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437034",
+   "file": "art/met-437034.jpg",
+   "refs": [
+    "Genesis 40:5-19"
+   ],
+   "theme": "Joseph"
+  },
+  {
+   "id": "met-436176",
+   "title": "Christ Asleep during the Tempest",
+   "artist": "Eugène Delacroix",
+   "date": "ca. 1853",
+   "credit": "H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436176",
+   "file": "art/met-436176.jpg",
+   "refs": [
+    "Mark 4:35-41"
+   ],
+   "theme": "Miracles of Jesus"
+  },
+  {
+   "id": "met-439553",
+   "title": "The Lamentation",
+   "artist": "Domenichino (Domenico Zampieri)",
+   "date": "1603",
+   "credit": "Purchase, Walter and Leonore Annenberg Acquisitions Endowment Fund, European Paintings Funds and funds from various donors; Mark Fisch and Rachel Davidson, and The Reed Foundation Gifts; Gwynne Andrews Fund; Elaine Rosenberg Gift; The Edward Joseph Gallagher III Memorial Collection, Edward J. Gallagher Jr. Bequest; Marquand Fund; Museum Purchase Fund; Peter Tcherepnine Gift; The Camille M. Lownds Fund; Stephenson Family Foundation Gift; Ruth and Victoria Blumka Fund; Earl Kiely Bequest; and The Morse G. Dial Foundation, 2005 CINOA Prize and Diane Carol Brandt Gifts, 2008, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/439553",
+   "file": "art/met-439553.jpg",
+   "refs": [
+    "John 19:38-42"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-437393",
+   "title": "The Toilet of Bathsheba",
+   "artist": "Rembrandt (Rembrandt van Rijn)",
+   "date": "1643",
+   "credit": "Bequest of Benjamin Altman, 1913, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437393",
+   "file": "art/met-437393.jpg",
+   "refs": [
+    "2 Samuel 11:2-4"
+   ],
+   "theme": "David"
+  },
+  {
+   "id": "met-435769",
+   "title": "The Judgment of Solomon",
+   "artist": "Leonaert Bramer",
+   "date": "1640s",
+   "credit": "Gift of National Surety Company, 1911, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435769",
+   "file": "art/met-435769.jpg",
+   "refs": [
+    "1 Kings 3:16-28"
+   ],
+   "theme": "Solomon"
+  },
+  {
+   "id": "met-437012",
+   "title": "King Solomon and the Queen of Sheba",
+   "artist": "Master of Lecceto",
+   "date": "",
+   "credit": "Rogers Fund, 1914, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437012",
+   "file": "art/met-437012.jpg",
+   "refs": [
+    "1 Kings 10:1-13"
+   ],
+   "theme": "Solomon"
+  },
+  {
+   "id": "met-436488",
+   "title": "Tobias and the Angel",
+   "artist": "Davide Ghirlandaio (David Bigordi)",
+   "date": "ca. 1479",
+   "credit": "Francis L. Leland Fund, 1913, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436488",
+   "file": "art/met-436488.jpg",
+   "refs": [
+    "Tobit 5:17-6:5"
+   ],
+   "theme": "Tobit"
+  },
+  {
+   "id": "met-437763",
+   "title": "Tobias Curing His Father's Blindness",
+   "artist": "Bernardo Strozzi",
+   "date": "1630–35",
+   "credit": "Purchase, Mary Wetmore Shively Bequest, in memory of her husband, Henry L. Shively, M.D., 1957, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437763",
+   "file": "art/met-437763.jpg",
+   "refs": [
+    "Tobit 11:10-15"
+   ],
+   "theme": "Tobit"
+  },
+  {
+   "id": "met-437778",
+   "title": "Judith with the Head of Holofernes",
+   "artist": "David Teniers the Younger",
+   "date": "1650s",
+   "credit": "Gift of Gouverneur Kemble, 1872, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437778",
+   "file": "art/met-437778.jpg",
+   "refs": [
+    "Judith 13:6-10"
+   ],
+   "theme": "Judith"
+  },
+  {
+   "id": "met-436038",
+   "title": "Judith with the Head of Holofernes",
+   "artist": "Lucas Cranach the Elder",
+   "date": "ca. 1530",
+   "credit": "Rogers Fund, 1911, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436038",
+   "file": "art/met-436038.jpg",
+   "refs": [
+    "Judith 13:6-10"
+   ],
+   "theme": "Judith"
+  },
+  {
+   "id": "met-437745",
+   "title": "Judith with the Head of Holofernes",
+   "artist": "Massimo Stanzione",
+   "date": "ca. 1640",
+   "credit": "Gift of Edward W. Carter, 1959, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437745",
+   "file": "art/met-437745.jpg",
+   "refs": [
+    "Judith 13:6-10"
+   ],
+   "theme": "Judith"
+  },
+  {
+   "id": "met-436453",
+   "title": "Esther before Ahasuerus",
+   "artist": "Artemisia Gentileschi",
+   "date": "1620s",
+   "credit": "Gift of Elinor Dorrance Ingersoll, 1969, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436453",
+   "file": "art/met-436453.jpg",
+   "refs": [
+    "Esther 5:1-2"
+   ],
+   "theme": "Esther"
+  },
+  {
+   "id": "met-438338",
+   "title": "The Burial of Christ",
+   "artist": "Annibale Carracci",
+   "date": "1595",
+   "credit": "Purchase, Edwin L. Weisl Jr. Gift, 1998, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/438338",
+   "file": "art/met-438338.jpg",
+   "refs": [
+    "John 19:38-42"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-437543",
+   "title": "Susanna and the Elders",
+   "artist": "Peter Paul Rubens",
+   "date": "",
+   "credit": "Marquand Collection, Gift of Henry G. Marquand, 1890, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437543",
+   "file": "art/met-437543.jpg",
+   "refs": [
+    "Daniel 13:19-23"
+   ],
+   "theme": "Susanna"
+  },
+  {
+   "id": "met-435899",
+   "title": "The Annunciation",
+   "artist": "Petrus Christus",
+   "date": "ca. 1445",
+   "credit": "The Friedsam Collection, Bequest of Michael Friedsam, 1931, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435899",
+   "file": "art/met-435899.jpg",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "theme": "Annunciation"
+  },
+  {
+   "id": "met-436096",
+   "title": "The Annunciation",
+   "artist": "Gerard David",
+   "date": "1506",
+   "credit": "Bequest of Mary Stillman Harkness, 1950, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436096",
+   "file": "art/met-436096.jpg",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "theme": "Annunciation"
+  },
+  {
+   "id": "met-437490",
+   "title": "The Annunciation",
+   "artist": "Hans Memling",
+   "date": "ca. 1465–70",
+   "credit": "Gift of J. Pierpont Morgan, 1917, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437490",
+   "file": "art/met-437490.jpg",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "theme": "Annunciation"
+  },
+  {
+   "id": "met-436899",
+   "title": "The Annunciation",
+   "artist": "Fra Filippo Lippi",
+   "date": "",
+   "credit": "Maitland F. Griggs Collection, Bequest of Maitland F. Griggs, 1943, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436899",
+   "file": "art/met-436899.jpg",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "theme": "Annunciation"
+  },
+  {
+   "id": "met-438724",
+   "title": "The Annunciation",
+   "artist": "Philippe de Champaigne",
+   "date": "ca. 1644",
+   "credit": "Wrightsman Fund, 2004, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/438724",
+   "file": "art/met-438724.jpg",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "theme": "Annunciation"
+  },
+  {
+   "id": "met-436502",
+   "title": "The Annunciation",
+   "artist": "Luca Giordano",
+   "date": "1672",
+   "credit": "Gift of Mr. and Mrs. Charles Wrightsman, 1973, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436502",
+   "file": "art/met-436502.jpg",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "theme": "Annunciation"
+  },
+  {
+   "id": "met-436791",
+   "title": "The Annunciation",
+   "artist": "Joos van Cleve",
+   "date": "ca. 1525",
+   "credit": "The Friedsam Collection, Bequest of Michael Friedsam, 1931, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436791",
+   "file": "art/met-436791.jpg",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "theme": "Annunciation"
+  },
+  {
+   "id": "met-441233",
+   "title": "The Annunciation",
+   "artist": "Peter Candid (Pieter de Witte, Pietro Candido)",
+   "date": "ca. 1585",
+   "credit": "Gift of Fabrizio Moretti, in honor of Keith Christiansen, 2011, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/441233",
+   "file": "art/met-441233.jpg",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "theme": "Annunciation"
+  },
+  {
+   "id": "met-435578",
+   "title": "The Nativity",
+   "artist": "Zanobi Strozzi",
+   "date": "ca. 1433–34",
+   "credit": "Gift of May Dougherty King, 1983, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435578",
+   "file": "art/met-435578.jpg",
+   "refs": [
+    "Luke 2:6-7"
+   ],
+   "theme": "Nativity of Jesus"
+  },
+  {
+   "id": "met-436099",
+   "title": "The Nativity with Donors and Saints Jerome and Leonard",
+   "artist": "Gerard David",
+   "date": "ca. 1510–15",
+   "credit": "The Jules Bache Collection, 1949, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436099",
+   "file": "art/met-436099.jpg",
+   "refs": [
+    "Luke 2:1-20"
+   ],
+   "theme": "Nativity of Jesus"
+  },
+  {
+   "id": "met-437231",
+   "title": "The Adoration of the Shepherds",
+   "artist": "L'Ortolano (Giovanni Battista Benvenuti)",
+   "date": "late 1520s",
+   "credit": "Theodore M. Davis Collection, Bequest of Theodore M. Davis, 1915, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437231",
+   "file": "art/met-437231.jpg",
+   "refs": [
+    "Luke 2:8-20"
+   ],
+   "theme": "Nativity of Jesus"
+  },
+  {
+   "id": "met-435917",
+   "title": "The Adoration of the Shepherds",
+   "artist": "Marcellus Coffermans",
+   "date": "ca. 1550",
+   "credit": "Gift of J. Pierpont Morgan, 1917, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435917",
+   "file": "art/met-435917.jpg",
+   "refs": [
+    "Luke 2:8-20"
+   ],
+   "theme": "Nativity of Jesus"
+  },
+  {
+   "id": "met-435859",
+   "title": "The Adoration of the Shepherds",
+   "artist": "Catena (Vincenzo di Biagio)",
+   "date": "probably after 1520",
+   "credit": "Purchase, Mrs. Charles S. Payson Gift, Gwynne Andrews Fund, special funds, and other gifts and bequests, 1969, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435859",
+   "file": "art/met-435859.jpg",
+   "refs": [
+    "Luke 2:8-20"
+   ],
+   "theme": "Nativity of Jesus"
+  },
+  {
+   "id": "met-436966",
+   "title": "The Adoration of the Shepherds",
+   "artist": "Andrea Mantegna",
+   "date": "shortly after 1450",
+   "credit": "Purchase, Anonymous Gift, 1932, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436966",
+   "file": "art/met-436966.jpg",
+   "refs": [
+    "Luke 2:8-20"
+   ],
+   "theme": "Nativity of Jesus"
+  },
+  {
+   "id": "met-436570",
+   "title": "The Adoration of the Shepherds",
+   "artist": "El Greco (Domenikos Theotokopoulos)",
+   "date": "ca. 1605–10",
+   "credit": "Rogers Fund, 1905, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436570",
+   "file": "art/met-436570.jpg",
+   "refs": [
+    "Luke 2:8-20"
+   ],
+   "theme": "Nativity of Jesus"
+  },
+  {
+   "id": "met-436200",
+   "title": "The Adoration of the Shepherds",
+   "artist": "Christian Wilhelm Ernst Dietrich",
+   "date": "1760s",
+   "credit": "Purchase, 1871, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436200",
+   "file": "art/met-436200.jpg",
+   "refs": [
+    "Luke 2:8-20"
+   ],
+   "theme": "Nativity of Jesus"
+  },
+  {
+   "id": "met-436104",
+   "title": "The Adoration of the Magi",
+   "artist": "Gerard David",
+   "date": "ca. 1520",
+   "credit": "The Jack and Belle Linsky Collection, 1982, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436104",
+   "file": "art/met-436104.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "met-436803",
+   "title": "The Adoration of the Magi",
+   "artist": "Joos van Wassenhove",
+   "date": "1472–74",
+   "credit": "Bequest of George Blumenthal, 1941, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436803",
+   "file": "art/met-436803.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "met-437602",
+   "title": "The Adoration of the Magi",
+   "artist": "Sano di Pietro (Ansano di Pietro di Mencio)",
+   "date": "ca. 1470",
+   "credit": "Gift of Irma N. Straus, 1958, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437602",
+   "file": "art/met-437602.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "met-436523",
+   "title": "The Adoration of the Magi",
+   "artist": "Hugo van der Goes",
+   "date": "",
+   "credit": "Purchase, 1871, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436523",
+   "file": "art/met-436523.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "met-436984",
+   "title": "The Adoration of the Magi",
+   "artist": "Quinten Massys",
+   "date": "1526",
+   "credit": "John Stewart Kennedy Fund, 1911, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436984",
+   "file": "art/met-436984.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "met-437789",
+   "title": "The Adoration of the Magi",
+   "artist": "Giovanni Battista Tiepolo",
+   "date": "late 1750s",
+   "credit": "Rogers Fund, 1937, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437789",
+   "file": "art/met-437789.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "met-435724",
+   "title": "The Adoration of the Magi",
+   "artist": "Hieronymus Bosch",
+   "date": "ca. 1475",
+   "credit": "John Stewart Kennedy Fund, 1913, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435724",
+   "file": "art/met-435724.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "met-436504",
+   "title": "The Adoration of the Magi",
+   "artist": "Giotto di Bondone",
+   "date": "possibly ca. 1320",
+   "credit": "John Stewart Kennedy Fund, 1911, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436504",
+   "file": "art/met-436504.jpg",
+   "refs": [
+    "Matthew 2:9-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "met-436509",
+   "title": "The Adoration of the Magi",
+   "artist": "Giovanni di Paolo (Giovanni di Paolo di Grazia)",
+   "date": "ca. 1460",
+   "credit": "The Jack and Belle Linsky Collection, 1982, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436509",
+   "file": "art/met-436509.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "met-437611",
+   "title": "The Journey of the Magi",
+   "artist": "Sassetta (Stefano di Giovanni)",
+   "date": "ca. 1433–35",
+   "credit": "Maitland F. Griggs Collection, Bequest of Maitland F. Griggs, 1943, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437611",
+   "file": "art/met-437611.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "met-437298",
+   "title": "The Presentation in the Temple",
+   "artist": "Alvaro Pirez",
+   "date": "ca. 1405–15",
+   "credit": "The Jack and Belle Linsky Collection, 1982, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437298",
+   "file": "art/met-437298.jpg",
+   "refs": [
+    "Luke 2:22-38"
+   ],
+   "theme": "Presentation in the Temple"
+  },
+  {
+   "id": "met-436513",
+   "title": "The Presentation of Christ in the Temple",
+   "artist": "Giovanni di Paolo (Giovanni di Paolo di Grazia)",
+   "date": "ca. 1435",
+   "credit": "Gift of George Blumenthal, 1941, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436513",
+   "file": "art/met-436513.jpg",
+   "refs": [
+    "Luke 2:22-38"
+   ],
+   "theme": "Presentation in the Temple"
+  },
+  {
+   "id": "met-435671",
+   "title": "The Angel Appearing to Zacharias",
+   "artist": "William Blake",
+   "date": "1799–1800",
+   "credit": "Bequest of William Church Osborn, 1951, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435671",
+   "file": "art/met-435671.jpg",
+   "refs": [
+    "Luke 1:11-20"
+   ],
+   "theme": "Annunciation to Zechariah"
+  },
+  {
+   "id": "met-816629",
+   "title": "The Flight into Egypt",
+   "artist": "Carlo Maratti",
+   "date": "ca. 1664",
+   "credit": "Bequest of Errol M. Rudman, 2020, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/816629",
+   "file": "art/met-816629.jpg",
+   "refs": [
+    "Matthew 2:13-15"
+   ],
+   "theme": "Flight into Egypt"
+  },
+  {
+   "id": "met-437849",
+   "title": "The Flight into Egypt",
+   "artist": "Cosmè Tura (Cosimo di Domenico di Bonaventura)",
+   "date": "1470s",
+   "credit": "The Jules Bache Collection, 1949, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437849",
+   "file": "art/met-437849.jpg",
+   "refs": [
+    "Matthew 2:13-15"
+   ],
+   "theme": "Flight into Egypt"
+  },
+  {
+   "id": "met-438128",
+   "title": "The Flight into Egypt",
+   "artist": "Giovanni Battista Tiepolo",
+   "date": "ca. 1767–70",
+   "credit": "Bequest of Mrs. Charles Wrightsman, 2019, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/438128",
+   "file": "art/met-438128.jpg",
+   "refs": [
+    "Matthew 2:13-15"
+   ],
+   "theme": "Flight into Egypt"
+  },
+  {
+   "id": "met-436503",
+   "title": "The Flight into Egypt",
+   "artist": "Luca Giordano",
+   "date": "1701",
+   "credit": "Gift of Mr. and Mrs. Harold Morton Landon, 1961, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436503",
+   "file": "art/met-436503.jpg",
+   "refs": [
+    "Matthew 2:13-15"
+   ],
+   "theme": "Flight into Egypt"
+  },
+  {
+   "id": "met-436101",
+   "title": "The Rest on the Flight into Egypt",
+   "artist": "Gerard David",
+   "date": "ca. 1512–15",
+   "credit": "The Jules Bache Collection, 1949, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436101",
+   "file": "art/met-436101.jpg",
+   "refs": [
+    "Matthew 2:13-15"
+   ],
+   "theme": "Flight into Egypt"
+  },
+  {
+   "id": "met-436987",
+   "title": "The Rest on the Flight into Egypt",
+   "artist": "Jan Massys",
+   "date": "1537–40",
+   "credit": "The Friedsam Collection, Bequest of Michael Friedsam, 1931, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436987",
+   "file": "art/met-436987.jpg",
+   "refs": [
+    "Matthew 2:13-15"
+   ],
+   "theme": "Flight into Egypt"
+  },
+  {
+   "id": "met-437101",
+   "title": "The Rest on the Flight into Egypt",
+   "artist": "Pier Francesco Mola",
+   "date": "ca. 1641",
+   "credit": "Wrightsman Fund, 1993, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437101",
+   "file": "art/met-437101.jpg",
+   "refs": [
+    "Matthew 2:13-15"
+   ],
+   "theme": "Flight into Egypt"
+  },
+  {
+   "id": "met-437457",
+   "title": "The Baptism of Christ",
+   "artist": "Sebastiano Ricci",
+   "date": "ca. 1713–14",
+   "credit": "Purchase, Rogers and Gwynne Andrews Funds, and Gift of Jane L. Melville, by exchange, 1981, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437457",
+   "file": "art/met-437457.jpg",
+   "refs": [
+    "Matthew 3:13-17"
+   ],
+   "theme": "Baptism of Jesus"
+  },
+  {
+   "id": "met-437157",
+   "title": "Christ in the Wilderness",
+   "artist": "Moretto da Brescia (Alessandro Bonvicino)",
+   "date": "ca. 1515–20",
+   "credit": "Rogers Fund, 1911, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437157",
+   "file": "art/met-437157.jpg",
+   "refs": [
+    "Matthew 4:1-11"
+   ],
+   "theme": "Temptation of Jesus"
+  },
+  {
+   "id": "met-435619",
+   "title": "The Betrayal of Christ",
+   "artist": "Bartolomeo di Tommaso",
+   "date": "ca. 1445–50",
+   "credit": "Gwynne Andrews Fund, 1958, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435619",
+   "file": "art/met-435619.jpg",
+   "refs": [
+    "Matthew 26:47-50"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-436835",
+   "title": "The Ascension of Christ",
+   "artist": "Hans Süss von Kulmbach",
+   "date": "1513",
+   "credit": "Rogers Fund, 1921, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436835",
+   "file": "art/met-436835.jpg",
+   "refs": [
+    "Acts 1:9-11"
+   ],
+   "theme": "Ascension"
+  },
+  {
+   "id": "met-435580",
+   "title": "Christ Crowned with Thorns",
+   "artist": "Antonello da Messina (Antonello di Giovanni d'Antonio)",
+   "date": "",
+   "credit": "The Friedsam Collection, Bequest of Michael Friedsam, 1931, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435580",
+   "file": "art/met-435580.jpg",
+   "refs": [
+    "John 19:1-5"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-436035",
+   "title": "Christ Blessing the Children",
+   "artist": "Lucas Cranach the Younger and Workshop",
+   "date": "ca. 1545–50",
+   "credit": "The Jack and Belle Linsky Collection, 1982, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436035",
+   "file": "art/met-436035.jpg",
+   "refs": [
+    "Mark 10:13-16"
+   ],
+   "theme": "Teaching of Jesus"
+  },
+  {
+   "id": "met-702752",
+   "title": "Christ and the Woman of Samaria",
+   "artist": "Benedetto Luti",
+   "date": "1715–20",
+   "credit": "Rogers Fund, by exchange, 2015, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/702752",
+   "file": "art/met-702752.jpg",
+   "refs": [
+    "John 4:5-26"
+   ],
+   "theme": "Miracles and Encounters of Jesus"
+  },
+  {
+   "id": "met-437403",
+   "title": "Christ and the Woman of Samaria",
+   "artist": "Rembrandt",
+   "date": "",
+   "credit": "Bequest of Lillian S. Timken, 1959, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437403",
+   "file": "art/met-437403.jpg",
+   "refs": [
+    "John 4:5-26"
+   ],
+   "theme": "Miracles and Encounters of Jesus"
+  },
+  {
+   "id": "met-436034",
+   "title": "Christ and the Adulteress",
+   "artist": "Lucas Cranach the Younger and Workshop",
+   "date": "ca. 1545–50",
+   "credit": "The Jack and Belle Linsky Collection, 1982, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436034",
+   "file": "art/met-436034.jpg",
+   "refs": [
+    "John 8:3-11"
+   ],
+   "theme": "Teaching of Jesus"
+  },
+  {
+   "id": "met-439977",
+   "title": "Christ Carrying the Cross",
+   "artist": "Jan Gossart (called Mabuse)",
+   "date": "ca. 1520–25",
+   "credit": "Gift of Honorable J. William Middendorf II, and Purchase, Walter and Leonore Annenberg and The Annenberg Foundation Gift, Director's Fund, Gift of George A. Hearn, by exchange, and Marquand and The Alfred N. Punnett Endowment Funds, 2016, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/439977",
+   "file": "art/met-439977.jpg",
+   "refs": [
+    "John 19:16-17"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-436572",
+   "title": "Christ Healing the Blind",
+   "artist": "El Greco (Domenikos Theotokopoulos)",
+   "date": "ca. 1570",
+   "credit": "Gift of Mr. and Mrs. Charles Wrightsman, 1978, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436572",
+   "file": "art/met-436572.jpg",
+   "refs": [
+    "John 9:1-7"
+   ],
+   "theme": "Miracles of Jesus"
+  },
+  {
+   "id": "met-437821",
+   "title": "The Miracle of the Loaves and Fishes",
+   "artist": "Jacopo Tintoretto (Jacopo Robusti)",
+   "date": "ca. 1545–50",
+   "credit": "Francis L. Leland Fund, 1913, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437821",
+   "file": "art/met-437821.jpg",
+   "refs": [
+    "John 6:5-13"
+   ],
+   "theme": "Miracles of Jesus"
+  },
+  {
+   "id": "met-436801",
+   "title": "The Marriage Feast at Cana",
+   "artist": "Juan de Flandes",
+   "date": "ca. 1497",
+   "credit": "The Jack and Belle Linsky Collection, 1982, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436801",
+   "file": "art/met-436801.jpg",
+   "refs": [
+    "John 2:1-11"
+   ],
+   "theme": "Miracles of Jesus"
+  },
+  {
+   "id": "met-437566",
+   "title": "Christ's Entry into Jerusalem",
+   "artist": "Russian Painter",
+   "date": "",
+   "credit": "Gift of Humanities Fund Inc., 1972, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437566",
+   "file": "art/met-437566.jpg",
+   "refs": [
+    "Matthew 21:1-11"
+   ],
+   "theme": "Entry into Jerusalem"
+  },
+  {
+   "id": "met-442488",
+   "title": "The Agony in the Garden",
+   "artist": "Nicolas Poussin",
+   "date": "1626–27",
+   "credit": "Gift of Jon and Barbara Landau, in honor of Keith Christiansen, 2021, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/442488",
+   "file": "art/met-442488.jpg",
+   "refs": [
+    "Luke 22:39-46"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-437371",
+   "title": "The Agony in the Garden",
+   "artist": "Raphael (Raffaello Sanzio or Santi)",
+   "date": "ca. 1504",
+   "credit": "Funds from various donors, 1932, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437371",
+   "file": "art/met-437371.jpg",
+   "refs": [
+    "Matthew 26:36-46"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-436098",
+   "title": "The Crucifixion",
+   "artist": "Gerard David",
+   "date": "ca. 1495",
+   "credit": "Rogers Fund, 1909, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436098",
+   "file": "art/met-436098.jpg",
+   "refs": [
+    "John 19:17-30"
+   ],
+   "theme": "Crucifixion"
+  },
+  {
+   "id": "met-437172",
+   "title": "The Crucifixion",
+   "artist": "Bartolomé Estebán Murillo",
+   "date": "ca. 1675",
+   "credit": "Bequest of Harry G. Sperling, 1971, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437172",
+   "file": "art/met-437172.jpg",
+   "refs": [
+    "John 19:17-30"
+   ],
+   "theme": "Crucifixion"
+  },
+  {
+   "id": "met-437007",
+   "title": "The Crucifixion",
+   "artist": "Fra Angelico (Guido di Pietro)",
+   "date": "ca. 1420–23",
+   "credit": "Maitland F. Griggs Collection, Bequest of Maitland F. Griggs, 1943, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437007",
+   "file": "art/met-437007.jpg",
+   "refs": [
+    "John 19:17-30"
+   ],
+   "theme": "Crucifixion"
+  },
+  {
+   "id": "met-437972",
+   "title": "The Crucifixion",
+   "artist": "Francisco de Zurbarán",
+   "date": "",
+   "credit": "Gift of George R. Hann, 1965, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437972",
+   "file": "art/met-437972.jpg",
+   "refs": [
+    "John 19:17-30"
+   ],
+   "theme": "Crucifixion"
+  },
+  {
+   "id": "met-435817",
+   "title": "The Crucifixion with the Virgin and Saint John",
+   "artist": "Hendrick ter Brugghen",
+   "date": "ca. 1624–25",
+   "credit": "Funds from various donors, 1956, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435817",
+   "file": "art/met-435817.jpg",
+   "refs": [
+    "John 19:25-27"
+   ],
+   "theme": "Crucifixion"
+  },
+  {
+   "id": "met-437592",
+   "title": "The Yard of the Inn at Emmaus",
+   "artist": "David Ryckaert III",
+   "date": "",
+   "credit": "Purchase, 1871, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437592",
+   "file": "art/met-437592.jpg",
+   "refs": [
+    "Luke 24:28-31"
+   ],
+   "theme": "Resurrection appearances"
+  },
+  {
+   "id": "met-436562",
+   "title": "The Conversion of Saint Paul",
+   "artist": "Benozzo Gozzoli (Benozzo di Lese di Sandro)",
+   "date": "",
+   "credit": "Rogers Fund, 1915, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436562",
+   "file": "art/met-436562.jpg",
+   "refs": [
+    "Acts 9:1-9"
+   ],
+   "theme": "Conversion of Paul"
+  },
+  {
+   "id": "met-437351",
+   "title": "Paul and Barnabas at Lystra",
+   "artist": "Jacob Pynas",
+   "date": "",
+   "credit": "Gift of Emile E. Wolf, 1971, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437351",
+   "file": "art/met-437351.jpg",
+   "refs": [
+    "Acts 14:8-18"
+   ],
+   "theme": "Acts of the Apostles"
+  },
+  {
+   "id": "met-436576",
+   "title": "The Vision of Saint John",
+   "artist": "El Greco (Domenikos Theotokopoulos)",
+   "date": "ca. 1608–14",
+   "credit": "Rogers Fund, 1956, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436576",
+   "file": "art/met-436576.jpg",
+   "refs": [
+    "Revelation 6:9-11"
+   ],
+   "theme": "Revelation"
+  },
+  {
+   "id": "met-436041",
+   "title": "Samson and Delilah",
+   "artist": "Lucas Cranach the Elder",
+   "date": "ca. 1528–30",
+   "credit": "Bequest of Joan Whitney Payson, 1975, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436041",
+   "file": "art/met-436041.jpg",
+   "refs": [
+    "Judges 16:18-20"
+   ],
+   "theme": "Samson"
+  },
+  {
+   "id": "met-436603",
+   "title": "Samson Captured by the Philistines",
+   "artist": "Guercino (Giovanni Francesco Barbieri)",
+   "date": "1619",
+   "credit": "Gift of Mr. and Mrs. Charles Wrightsman, 1984, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436603",
+   "file": "art/met-436603.jpg",
+   "refs": [
+    "Judges 16:20-21"
+   ],
+   "theme": "Samson"
+  },
+  {
+   "id": "met-435967",
+   "title": "The Burning of Sodom (formerly \"The Destruction of Sodom\")",
+   "artist": "Camille Corot",
+   "date": "1843 and 1857",
+   "credit": "H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435967",
+   "file": "art/met-435967.jpg",
+   "refs": [
+    "Genesis 19:24-26"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "met-437333",
+   "title": "Pilate Washing His Hands",
+   "artist": "Mattia Preti (Il Cavalier Calabrese)",
+   "date": "1663",
+   "credit": "Purchase, Gift of J. Pierpont Morgan and Bequest of Helena W. Charlton, by exchange, Gwynne Andrews, Marquand, Rogers, Victor Wilbour Memorial, and The Alfred N. Punnett Endowment Funds, and funds given or bequeathed by friends of the Museum, 1978, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437333",
+   "file": "art/met-437333.jpg",
+   "refs": [
+    "Matthew 27:24-26"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-437414",
+   "title": "Pilate Washing His Hands",
+   "artist": "Rembrandt",
+   "date": "probably 1660s",
+   "credit": "Bequest of Benjamin Altman, 1913, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437414",
+   "file": "art/met-437414.jpg",
+   "refs": [
+    "Matthew 27:24-26"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-437978",
+   "title": "Christ Presented to the People (Ecce Homo)",
+   "artist": "Sodoma (Giovanni Antonio Bazzi)",
+   "date": "ca. 1540–49",
+   "credit": "Gift of Asbjorn R. Lunde, in memory of his parents, Karl and Elisa Lunde, 1996, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437978",
+   "file": "art/met-437978.jpg",
+   "refs": [
+    "John 19:4-6"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-437168",
+   "title": "Christ Shown to the People",
+   "artist": "Jan Mostaert",
+   "date": "1510–15",
+   "credit": "The Jack and Belle Linsky Collection, 1982, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437168",
+   "file": "art/met-437168.jpg",
+   "refs": [
+    "John 19:4-6"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-436922",
+   "title": "Christ Presented to the People",
+   "artist": "Lucas van Leyden",
+   "date": "",
+   "credit": "Marquand Collection, Gift of Henry G. Marquand, 1889, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436922",
+   "file": "art/met-436922.jpg",
+   "refs": [
+    "John 19:4-6"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-438466",
+   "title": "The Flagellation",
+   "artist": "Master of the Berswordt Altar",
+   "date": "ca. 1400",
+   "credit": "Bequest of Hertha Katz, 2000, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/438466",
+   "file": "art/met-438466.jpg",
+   "refs": [
+    "John 19:1"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-437739",
+   "title": "Salome Dancing before Herod",
+   "artist": "Spanish (Catalan) Painter",
+   "date": "",
+   "credit": "The Friedsam Collection, Bequest of Michael Friedsam, 1931, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437739",
+   "file": "art/met-437739.jpg",
+   "refs": [
+    "Mark 6:21-28"
+   ],
+   "theme": "John the Baptist"
+  },
+  {
+   "id": "met-782308",
+   "title": "Salome with the Head of John the Baptist",
+   "artist": "Gustave Moreau",
+   "date": "ca. 1876",
+   "credit": "Gift of the Eugene V. and Clare E. Thaw Charitable Trust, 2018, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/782308",
+   "file": "art/met-782308.jpg",
+   "refs": [
+    "Mark 6:24-28"
+   ],
+   "theme": "John the Baptist"
+  },
+  {
+   "id": "met-435643",
+   "title": "The Circumcision",
+   "artist": "Giovanni Bellini",
+   "date": "1511",
+   "credit": "Gift of J. Pierpont Morgan, 1917, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/435643",
+   "file": "art/met-435643.jpg",
+   "refs": [
+    "Luke 2:21"
+   ],
+   "theme": "Childhood of Jesus"
+  },
+  {
+   "id": "met-436893",
+   "title": "The Descent from the Cross",
+   "artist": "Filippino Lippi",
+   "date": "",
+   "credit": "John Stewart Kennedy Fund, 1912, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436893",
+   "file": "art/met-436893.jpg",
+   "refs": [
+    "Luke 23:50-53"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-437008",
+   "title": "The Descent from the Cross",
+   "artist": "Master of the Holy Blood",
+   "date": "",
+   "credit": "Gift of Clyde Fitch and Ferdinand Gottschalk, 1917, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437008",
+   "file": "art/met-437008.jpg",
+   "refs": [
+    "Luke 23:50-53"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-436517",
+   "title": "Descent from the Cross",
+   "artist": "Girolamo da Cremona",
+   "date": "",
+   "credit": "The Jules Bache Collection, 1949, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/436517",
+   "file": "art/met-436517.jpg",
+   "refs": [
+    "Luke 23:50-53"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "met-437556",
+   "title": "Saint Elias's Fiery Ascension",
+   "artist": "Russian Painter",
+   "date": "",
+   "credit": "Gift of Humanities Fund Inc., 1972, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437556",
+   "file": "art/met-437556.jpg",
+   "refs": [
+    "2 Kings 2:11-12"
+   ],
+   "theme": "Elijah"
+  },
+  {
+   "id": "met-437156",
+   "title": "The Entombment",
+   "artist": "Moretto da Brescia (Alessandro Bonvicino)",
+   "date": "1554",
+   "credit": "John Stewart Kennedy Fund, 1912, The Metropolitan Museum of Art (open access / CC0)",
+   "source": "https://www.metmuseum.org/art/collection/search/437156",
+   "file": "art/met-437156.jpg",
+   "refs": [
+    "John 19:38-42"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "cma-1980_258",
+   "title": "Expulsion of Adam and Eve",
+   "artist": "John Faed (Scottish, 1820–1902)",
+   "date": "1880s",
+   "credit": "Bequest of Noah L. Butkin, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1980.258",
+   "file": "art/cma-1980_258.jpg",
+   "refs": [
+    "Genesis 3:23-24"
+   ],
+   "theme": "Adam and Eve"
+  },
+  {
+   "id": "cma-1937_577",
+   "title": "The Sacrifice of Isaac",
+   "artist": "Andrea del Sarto (Italian, 1486–1530)",
+   "date": "c. 1527",
+   "credit": "Delia E. Holden and L. E. Holden Funds, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1937.577",
+   "file": "art/cma-1937_577.jpg",
+   "refs": [
+    "Genesis 22:1-14"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "cma-1952_235_1",
+   "title": "The Sacrifice of Isaac",
+   "artist": "Francesco Guardi (Italian, 1712–1793)",
+   "date": "1750s",
+   "credit": "Mr. and Mrs. William H. Marlatt Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1952.235.1",
+   "file": "art/cma-1952_235_1.jpg",
+   "refs": [
+    "Genesis 22:9-13"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "cma-1969_1",
+   "title": "The Oath of Abraham’s Servant",
+   "artist": "Giovanni Benedetto Castiglione (Italian, 1609–1664)",
+   "date": "c. 1650–59",
+   "credit": "Mr. and Mrs. William H. Marlatt Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1969.1",
+   "file": "art/cma-1969_1.jpg",
+   "refs": [
+    "Genesis 24:1-9"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "cma-1952_235_2",
+   "title": "Tobias and the Angel",
+   "artist": "Francesco Guardi (Italian, 1712–1793)",
+   "date": "1750s",
+   "credit": "Mr. and Mrs. William H. Marlatt Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1952.235.2",
+   "file": "art/cma-1952_235_2.jpg",
+   "refs": [
+    "Tobit 5:17-6:5"
+   ],
+   "theme": "Tobit"
+  },
+  {
+   "id": "cma-1965_469",
+   "title": "Laban Searching for His Stolen Household Gods",
+   "artist": "Bartolomé Esteban Murillo (Spanish, 1617–1682)",
+   "date": "c. 1665–70",
+   "credit": "Gift of the John Huntington Art and Polytechnic Trust, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1965.469",
+   "file": "art/cma-1965_469.jpg",
+   "refs": [
+    "Genesis 31:33-35"
+   ],
+   "theme": "Jacob"
+  },
+  {
+   "id": "cma-1952_235_3",
+   "title": "The Angels Appearing to Abraham",
+   "artist": "Francesco Guardi (Italian, 1712–1793)",
+   "date": "1750s",
+   "credit": "Mr. and Mrs. William H. Marlatt Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1952.235.3",
+   "file": "art/cma-1952_235_3.jpg",
+   "refs": [
+    "Genesis 18:1-8"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "cma-1952_235_4",
+   "title": "Abraham Welcoming the Three Angels",
+   "artist": "Francesco Guardi (Italian, 1712–1793)",
+   "date": "1750s",
+   "credit": "Mr. and Mrs. William H. Marlatt Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1952.235.4",
+   "file": "art/cma-1952_235_4.jpg",
+   "refs": [
+    "Genesis 18:1-8"
+   ],
+   "theme": "Abraham"
+  },
+  {
+   "id": "cma-1993_5",
+   "title": "The Healing of Tobit",
+   "artist": "Bernardo Strozzi (Italian, 1581?-1644)",
+   "date": "c. 1625",
+   "credit": "John L. Severance Fund and Mr. and Mrs. William H. Marlatt Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1993.5",
+   "file": "art/cma-1993_5.jpg",
+   "refs": [
+    "Tobit 11:10-15"
+   ],
+   "theme": "Tobit"
+  },
+  {
+   "id": "cma-1964_153",
+   "title": "Esther, Ahasuerus, and Haman",
+   "artist": "Jan Steen (Dutch, 1626–1679)",
+   "date": "c. 1668",
+   "credit": "John L. Severance Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1964.153",
+   "file": "art/cma-1964_153.jpg",
+   "refs": [
+    "Esther 7:1-8"
+   ],
+   "theme": "Esther"
+  },
+  {
+   "id": "cma-1950_251",
+   "title": "The Annunciation",
+   "artist": "Paolo Veronese (Italian, 1528–1588)",
+   "date": "c. 1580",
+   "credit": "Gift of the Hanna Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1950.251",
+   "file": "art/cma-1950_251.jpg",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "theme": "Annunciation"
+  },
+  {
+   "id": "cma-1942_635",
+   "title": "The Annunciation",
+   "artist": "Albert Bouts (Netherlandish, 1451/55–1549)",
+   "date": "c. 1480",
+   "credit": "Bequest of John L. Severance, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1942.635",
+   "file": "art/cma-1942_635.jpg",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "theme": "Annunciation"
+  },
+  {
+   "id": "cma-1953_660_1",
+   "title": "The Annunciation",
+   "artist": "Jaume Ferrer the Younger (Spanish, Catalonia died c. 1460/70)",
+   "date": "c. 1457",
+   "credit": "Gift of Francis Ginn, Marian Ginn Jones, Barbara Ginn Griesinger, and Alexander Ginn in memory of Frank Hadley Ginn and Cornelia Root Ginn, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1953.660.1",
+   "file": "art/cma-1953_660_1.jpg",
+   "refs": [
+    "Luke 1:26-38"
+   ],
+   "theme": "Annunciation"
+  },
+  {
+   "id": "cma-1950_91",
+   "title": "The Visitation",
+   "artist": "Unknown artist",
+   "date": "c. 1530–1550",
+   "credit": "Gift of the Hanna Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1950.91",
+   "file": "art/cma-1950_91.jpg",
+   "refs": [
+    "Luke 1:39-56"
+   ],
+   "theme": "Visitation"
+  },
+  {
+   "id": "cma-1958_320",
+   "title": "The Nativity",
+   "artist": "Gerard David (Netherlandish, 1450/60–1523)",
+   "date": "c. 1485–90",
+   "credit": "Leonard C. Hanna Jr. Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1958.320",
+   "file": "art/cma-1958_320.jpg",
+   "refs": [
+    "Luke 2:1-20"
+   ],
+   "theme": "Nativity of Jesus"
+  },
+  {
+   "id": "cma-1936_18",
+   "title": "Adoration of the Magi",
+   "artist": "Konrad Laib (German)",
+   "date": "early 1440s",
+   "credit": "Delia E. Holden and L. E. Holden Funds, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1936.18",
+   "file": "art/cma-1936_18.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "cma-1916_807",
+   "title": "Adoration of the Shepherds",
+   "artist": "Hans Leonhard Schäufelein (German, 1480–1540)",
+   "date": "c. 1510",
+   "credit": "Holden Collection, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1916.807",
+   "file": "art/cma-1916_807.jpg",
+   "refs": [
+    "Luke 2:8-20"
+   ],
+   "theme": "Nativity of Jesus"
+  },
+  {
+   "id": "cma-1942_536",
+   "title": "The Adoration of the Magi",
+   "artist": "Giovanni di Paolo (Italian, c. 1403–1482)",
+   "date": "1440–45",
+   "credit": "Delia E. Holden and L. E. Holden Funds, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1942.536",
+   "file": "art/cma-1942_536.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "cma-1951_353",
+   "title": "The Adoration of the Magi",
+   "artist": "Geertgen tot Sint Jans (Netherlandish, c. 1460-c. 1490)",
+   "date": "1480s",
+   "credit": "Gift of the Hanna Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1951.353",
+   "file": "art/cma-1951_353.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "cma-1957_150",
+   "title": "Adoration of the Magi",
+   "artist": "Titian (Italian, c. 1488–1576)",
+   "date": "1500s",
+   "credit": "Mr. and Mrs. William H. Marlatt Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1957.150",
+   "file": "art/cma-1957_150.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "cma-1969_132",
+   "title": "Adoration of the Magi",
+   "artist": "Guido Reni (Italian, 1575–1642)",
+   "date": "1642",
+   "credit": "Leonard C. Hanna Jr. Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1969.132",
+   "file": "art/cma-1969_132.jpg",
+   "refs": [
+    "Matthew 2:1-12"
+   ],
+   "theme": "Magi"
+  },
+  {
+   "id": "cma-1962_151",
+   "title": "Rest on the Flight into Egypt",
+   "artist": "Claude Lorrain (French, 1604–1682)",
+   "date": "early 1640s",
+   "credit": "Leonard C. Hanna Jr. Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1962.151",
+   "file": "art/cma-1962_151.jpg",
+   "refs": [
+    "Matthew 2:13-15"
+   ],
+   "theme": "Flight into Egypt"
+  },
+  {
+   "id": "cma-1967_123",
+   "title": "Rest on the Flight into Egypt",
+   "artist": "Guercino (Italian, 1591–1666)",
+   "date": "1624",
+   "credit": "Mr. and Mrs. William H. Marlatt Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1967.123",
+   "file": "art/cma-1967_123.jpg",
+   "refs": [
+    "Matthew 2:13-15"
+   ],
+   "theme": "Flight into Egypt"
+  },
+  {
+   "id": "cma-1973_32",
+   "title": "Rest on the Flight into Egypt",
+   "artist": "Charles Poërson (French, 1609–1667)",
+   "date": "c. 1640",
+   "credit": "Mr. and Mrs. William H. Marlatt Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1973.32",
+   "file": "art/cma-1973_32.jpg",
+   "refs": [
+    "Matthew 2:13-15"
+   ],
+   "theme": "Flight into Egypt"
+  },
+  {
+   "id": "cma-1950_400",
+   "title": "Baptism of Christ",
+   "artist": "Jacopo Tintoretto (Italian, 1518–1594)",
+   "date": "1580s",
+   "credit": "Gift of the Hanna Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1950.400",
+   "file": "art/cma-1950_400.jpg",
+   "refs": [
+    "Matthew 3:13-17"
+   ],
+   "theme": "Baptism of Jesus"
+  },
+  {
+   "id": "cma-1953_143",
+   "title": "The Baptism of Christ",
+   "artist": "Lucas Cranach (German, 1472–1553)",
+   "date": "1530s",
+   "credit": "Gift of Mrs. Charles E. Roseman in memory of Charles E. Roseman Jr., Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1953.143",
+   "file": "art/cma-1953_143.jpg",
+   "refs": [
+    "Matthew 3:13-17"
+   ],
+   "theme": "Baptism of Jesus"
+  },
+  {
+   "id": "cma-1980_253",
+   "title": "The Good Samaritan",
+   "artist": "Alexandre-Gabriel Decamps (French, 1803–1860)",
+   "date": "c. 1842",
+   "credit": "Bequest of Noah L. Butkin, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1980.253",
+   "file": "art/cma-1980_253.jpg",
+   "refs": [
+    "Luke 10:30-37"
+   ],
+   "theme": "Parables"
+  },
+  {
+   "id": "cma-1939_68",
+   "title": "Lazarus and the Rich Man",
+   "artist": "Jacopo Bassano (Italian, c. 1510–1592)",
+   "date": "c. 1550",
+   "credit": "Delia E. Holden and L. E. Holden Funds, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1939.68",
+   "file": "art/cma-1939_68.jpg",
+   "refs": [
+    "Luke 16:19-31"
+   ],
+   "theme": "Parables"
+  },
+  {
+   "id": "cma-1972_169",
+   "title": "The Denial of Peter",
+   "artist": "Peter Wtewael (Dutch, 1596–1660)",
+   "date": "c. 1624–28",
+   "credit": "Gift of Mr. and Mrs. Noah L. Butkin, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1972.169",
+   "file": "art/cma-1972_169.jpg",
+   "refs": [
+    "Luke 22:54-62"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "cma-1931_449",
+   "title": "The Crucifixion with a Carthusian Monk",
+   "artist": "Rogier van der Weyden (Flemish, c. 1399–1464)",
+   "date": "1460",
+   "credit": "Delia E. Holden and L. E. Holden Funds, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1931.449",
+   "file": "art/cma-1931_449.jpg",
+   "refs": [
+    "John 19:17-30"
+   ],
+   "theme": "Crucifixion"
+  },
+  {
+   "id": "cma-1916_776",
+   "title": "The Crucifixion",
+   "artist": "Andrea da Firenze (Italian, 1379)",
+   "date": "c. 1360s",
+   "credit": "Holden Collection, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1916.776",
+   "file": "art/cma-1916_776.jpg",
+   "refs": [
+    "John 19:17-30"
+   ],
+   "theme": "Crucifixion"
+  },
+  {
+   "id": "cma-1940_535",
+   "title": "The Crucifixion",
+   "artist": "Matteo di Giovanni (Italian, c. 1435–1495)",
+   "date": "1470s",
+   "credit": "Bequest of James Parmelee, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1940.535",
+   "file": "art/cma-1940_535.jpg",
+   "refs": [
+    "John 19:17-30"
+   ],
+   "theme": "Crucifixion"
+  },
+  {
+   "id": "cma-1916_786",
+   "title": "The Crucifixion",
+   "artist": "Sodoma (Italian, 1477–1549)",
+   "date": "1500s",
+   "credit": "Holden Collection, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1916.786",
+   "file": "art/cma-1916_786.jpg",
+   "refs": [
+    "John 19:17-30"
+   ],
+   "theme": "Crucifixion"
+  },
+  {
+   "id": "cma-1953_156",
+   "title": "The Return of the Holy Family to Nazareth",
+   "artist": "Nicolas Poussin (French, 1594–1665)",
+   "date": "c. 1627",
+   "credit": "Gift of the Hanna Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1953.156",
+   "file": "art/cma-1953_156.jpg",
+   "refs": [
+    "Matthew 2:19-23"
+   ],
+   "theme": "Childhood of Jesus"
+  },
+  {
+   "id": "cma-2017_192",
+   "title": "The Resurrection of Christ",
+   "artist": "Johann König (German, 1586–1642)",
+   "date": "1622",
+   "credit": "Leonard C. Hanna Jr. Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/2017.192",
+   "file": "art/cma-2017_192.jpg",
+   "refs": [
+    "Matthew 28:1-7"
+   ],
+   "theme": "Resurrection"
+  },
+  {
+   "id": "cma-1931_245",
+   "title": "The Supper at Emmaus",
+   "artist": "Giovanni Battista Piazzetta (Italian, 1682–1754)",
+   "date": "c. 1720",
+   "credit": "Purchase from the J. H. Wade Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1931.245",
+   "file": "art/cma-1931_245.jpg",
+   "refs": [
+    "Luke 24:28-31"
+   ],
+   "theme": "Resurrection appearances"
+  },
+  {
+   "id": "cma-1968_23",
+   "title": "Samson and Delilah",
+   "artist": "Gerrit van Honthorst (Dutch, 1590–1656)",
+   "date": "c. 1616",
+   "credit": "Mr. and Mrs. William H. Marlatt Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1968.23",
+   "file": "art/cma-1968_23.jpg",
+   "refs": [
+    "Judges 16:4-20"
+   ],
+   "theme": "Samson"
+  },
+  {
+   "id": "cma-1916_785",
+   "title": "Christ and the Woman Taken in Adultery",
+   "artist": "Sebastiano Ricci (Italian, 1659–1734)",
+   "date": "mid-1700s",
+   "credit": "Holden Collection, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1916.785",
+   "file": "art/cma-1916_785.jpg",
+   "refs": [
+    "John 8:3-11"
+   ],
+   "theme": "Teaching of Jesus"
+  },
+  {
+   "id": "cma-1975_79",
+   "title": "Salome with the Head of Saint John the Baptist",
+   "artist": "Jacob Duck (Dutch, c. 1600–1667)",
+   "date": "mid-1600s",
+   "credit": "Gift of Mr. and Mrs. Noah L. Butkin, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1975.79",
+   "file": "art/cma-1975_79.jpg",
+   "refs": [
+    "Mark 6:24-28"
+   ],
+   "theme": "John the Baptist"
+  },
+  {
+   "id": "cma-1916_824",
+   "title": "Salome with the Head of Saint John the Baptist",
+   "artist": "Bernardino Luini (Italian, c. 1480-c. 1532)",
+   "date": "1500s or later",
+   "credit": "Holden Collection, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1916.824",
+   "file": "art/cma-1916_824.jpg",
+   "refs": [
+    "Mark 6:24-28"
+   ],
+   "theme": "John the Baptist"
+  },
+  {
+   "id": "cma-1970_32",
+   "title": "The Betrayal of Christ",
+   "artist": "Jacob Jordaens (Flemish, 1593–1678)",
+   "date": "late 1650s",
+   "credit": "Leonard C. Hanna Jr. Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1970.32",
+   "file": "art/cma-1970_32.jpg",
+   "refs": [
+    "Matthew 26:47-50"
+   ],
+   "theme": "Passion of Christ"
+  },
+  {
+   "id": "cma-1986_74",
+   "title": "David:  \"Oh, that I had wings like a Dove!  For then would I fly away, and be at rest.\" Psalm 55:6",
+   "artist": "Frederic Leighton (British, 1830–1896)",
+   "date": "1865",
+   "credit": "Leonard C. Hanna Jr. Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1986.74",
+   "file": "art/cma-1986_74.jpg",
+   "refs": [
+    "Psalm 55:6"
+   ],
+   "theme": "David"
+  },
+  {
+   "id": "cma-1963_326",
+   "title": "Study for \"The Presentation of Christ in the Temple\" (for Saint Ulrich, Vienna)",
+   "artist": "Franz Anton Maulbertsch (Austrian, 1724–1796)",
+   "date": "c. 1750",
+   "credit": "Mr. and Mrs. William H. Marlatt Fund, Cleveland Museum of Art (open access / CC0)",
+   "source": "https://clevelandart.org/art/1963.326",
+   "file": "art/cma-1963_326.jpg",
+   "refs": [
+    "Luke 2:22-38"
+   ],
+   "theme": "Presentation in the Temple"
+  }
+ ]
+}
