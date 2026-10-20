@@ -404,10 +404,49 @@
   "library.edersheim-sketches": {
    "sections": 20
   },
+  "library.ignatius-exercises": {
+   "sections": 85
+  },
+  "library.julian-revelations": {
+   "sections": 87
+  },
+  "library.teresa-life": {
+   "sections": 52
+  },
+  "library.desales-devout-life": {
+   "sections": 119
+  },
+  "library.desales-love-of-god": {
+   "sections": 188
+  },
+  "library.hilton-scale": {
+   "sections": 6
+  },
+  "library.anselm-basic-works": {
+   "sections": 112
+  },
+  "library.therese-story-of-a-soul": {
+   "sections": 77
+  },
+  "library.kempis-imitation": {
+   "sections": 114
+  },
+  "library.roman-catechism": {
+   "sections": 48
+  },
+  "library.baltimore-catechism": {
+   "sections": 38
+  },
+  "library.baltimore-catechism-2": {
+   "sections": 38
+  },
+  "library.baltimore-catechism-1": {
+   "sections": 34
+  },
   "library.total": {
-   "works": 81,
-   "sections": 5819,
-   "indexedWords": 67934
+   "works": 94,
+   "sections": 6817,
+   "indexedWords": 72211
   },
   "curated": {
    "topics": 18,

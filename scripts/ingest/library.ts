@@ -154,6 +154,12 @@ interface TagHit {
   pi: number;
 }
 
+/** The first two paragraphs that carry prose, skipping the homily heading and the Scripture line printed under it. */
+function leadText(paras: string[]): string {
+  const body = paras.filter((p) => p.replace(/\[[^\]]*\]/g, '').trim().length >= 80);
+  return (body.length ? body : paras).slice(0, 2).join('\n\n').slice(0, 700);
+}
+
 export function buildLibrary(report: Report) {
   const cfgs: WorkCfg[] = readJson(join(REGISTRY, 'library.json')).works;
   const meta: any[] = [];
@@ -295,7 +301,7 @@ export function buildLibrary(report: Report) {
         else if (nx.v > 1) r = { book: cfg.book!, c1: st.c, v1: st.v, c2: nx.c, v2: nx.v - 1 };
         else r = { book: cfg.book!, c1: st.c, v1: st.v, c2: nx.c - 1, v2: chEnd(nx.c - 1) };
         sec.scripture = [refId(r)];
-        pushScripture(cfg.book!, [r.c1, r.v1!, r.c2, r.v2!, cfg.id, i, 's', sec.paras.slice(0, 2).join('\n\n').slice(0, 700), 0]);
+        pushScripture(cfg.book!, [r.c1, r.v1!, r.c2, r.v2!, cfg.id, i, 's', leadText(sec.paras), 0]);
       });
     }
 

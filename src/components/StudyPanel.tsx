@@ -94,7 +94,12 @@ export default function StudyPanel({
   const vcOf = (b: string, c: number) => vul?.verseCounts?.[b]?.[c - 1] ?? 0;
   const passes = (i: StudyItem) => (showOther || !foreign(i)) && (!authority || i.authority === authority) && (!period || i.period === period) && (!author || i.author === author || i.title === author);
   const items = (k: SectionKey) => (data[k] ?? []).filter(passes);
-  const tabCount = (sections: SectionKey[]) => sections.reduce((n, s) => n + (data[s] ?? []).filter((i) => isReal(i) && passes(i) && !(scope === 'passage' && refs.length === 1 && refs[0].v1 !== undefined && ((i.kind && CHAPTER_KINDS.has(i.kind)) || wholeChapter(i, vcOf) || wholeBook(i)))).length, 0);
+  // A note written for a run of verses counts on the run's last verse only, so the tab number matches the margin number.
+  const sharedElsewhere = (i: StudyItem) => {
+    const u = unitRange(i, refs);
+    return !!u && (u.v2 ?? u.v1) !== (refs[0].v2 ?? refs[0].v1);
+  };
+  const tabCount = (sections: SectionKey[]) => sections.reduce((n, s) => n + (data[s] ?? []).filter((i) => isReal(i) && passes(i) && !(scope === 'passage' && refs.length === 1 && refs[0].v1 !== undefined && ((i.kind && CHAPTER_KINDS.has(i.kind)) || wholeChapter(i, vcOf) || wholeBook(i) || sharedElsewhere(i)))).length, 0);
   const authors = useMemo(() => [...new Set(Object.values(data).flat().filter((i) => i && isReal(i)).map((i) => (i as StudyItem).author ?? (i as StudyItem).title))].filter((a) => a && a.length < 60).sort(), [data]);
   const hiddenForeign = showOther ? 0 : Object.values(data).flat().filter((i) => i && isReal(i) && foreign(i as StudyItem)).length;
   const activeTab = TABS.find((t) => t.id === tab);
