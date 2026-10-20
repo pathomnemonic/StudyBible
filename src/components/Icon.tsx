@@ -30,6 +30,7 @@ const P: Record<string, string> = {
   download: 'M12 3v12M7 11l5 5 5-5M4 21h16',
   info: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 10v7M12 7v1',
   filter: 'M3 5h18l-7 8v6l-4-2v-4z',
+  user: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21c0-4.4 3.6-7 8-7s8 2.6 8 7',
 };
 
 export default function Icon({ name, size = 22, fill = false }: { name: keyof typeof P | string; size?: number; fill?: boolean }) {

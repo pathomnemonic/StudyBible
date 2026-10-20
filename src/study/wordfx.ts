@@ -53,3 +53,19 @@ export function findFx(text: string): FxHit[] {
   }
   return out;
 }
+
+/** which kinds are most worth animating when a chapter has too many: words particular to the Bible first, then the elemental ones */
+const PRIORITY = ['name', 'lamb', 'cross', 'spirit', 'covenant', 'holy', 'sacrifice', 'temple', 'angel', 'amen', 'heaven', 'grace', 'law', 'sin', 'blood', 'fire', 'light', 'water', 'wind', 'serpent', 'thorn', 'bread', 'wine', 'oil', 'gold'];
+const rank = (k: string) => { const i = PRIORITY.indexOf(k); return i < 0 ? PRIORITY.length : i; };
+
+/** at most `max` of a chapter's words animate: the most distinctive, of different kinds, spread apart so the page stays calm */
+export function chooseFx(hits: { key: string; kind: string; order: number }[], max = 3): Set<string> {
+  const chosen: typeof hits = [];
+  for (const h of [...hits].sort((a, b) => rank(a.kind) - rank(b.kind) || a.order - b.order)) {
+    if (chosen.length >= max) break;
+    if (chosen.some((c) => c.kind === h.kind)) continue;
+    if (chosen.some((c) => Math.abs(c.order - h.order) < 12)) continue;
+    chosen.push(h);
+  }
+  return new Set(chosen.map((c) => c.key));
+}

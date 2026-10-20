@@ -9,7 +9,7 @@ import { readerPath } from '../lib/nav';
 import { useToast } from '../components/Toast';
 import { getJson } from '../data/loader';
 
-interface Painting { id: number; theme: string; title: string; artist: string; date: string; credit: string; img: string; file: string; page: string }
+interface Painting { id: number | string; theme: string; title: string; artist: string; date: string; credit: string; img: string; file: string; page: string }
 
 const BACKGROUNDS: Record<string, { label: string; stops: string[]; fg: string; accent: string }> = {
   twilight: { label: 'Twilight', stops: ['#1b1740', '#0b0b1e'], fg: '#f1edff', accent: '#b9a8ff' },
@@ -81,7 +81,17 @@ export default function SharePage() {
   const ed = get(edId) ?? editions[0];
 
   useEffect(() => {
-    getJson<{ works: Painting[] }>('art.json', true).then((a) => setArt(a?.works ?? [])).catch(() => setArt([]));
+    Promise.all([getJson<{ works: Painting[] }>('art.json', true), getJson<{ works: (Painting & { source?: string })[] }>('art-more.json', true)])
+      .then(([a, m]) => {
+        const more = (m?.works ?? []).map((w) => ({ ...w, theme: w.theme || 'More paintings and engravings', page: w.source ?? '', img: '' }));
+        const all = [...(a?.works ?? []), ...more];
+        setArt(all);
+        // "Make a verse card" from a picture in the text arrives with that picture chosen as the background
+        const want = sp.get('img');
+        const hit = want ? all.find((w) => String(w.id) === want) : null;
+        if (hit) setPaint(hit);
+      })
+      .catch(() => setArt([]));
   }, []);
 
   useEffect(() => {
@@ -191,7 +201,7 @@ export default function SharePage() {
         const cfs = Math.max(11, Math.round(W * 0.012));
         ctx.font = `${cfs}px system-ui, sans-serif`;
         ctx.textBaseline = 'alphabetic';
-        const credit = [ed.attribution ?? ed.name, img && paint ? `Painting: ${paint.title}, ${paint.artist}, ${paint.date}. The Met, public domain.` : ''].filter(Boolean).join('  ·  ');
+        const credit = [ed.attribution ?? ed.name, img && paint ? `Picture: ${paint.title}, ${paint.artist}${paint.date ? ', ' + paint.date : ''}. ${paint.credit}` : ''].filter(Boolean).join('  ·  ');
         const cl = wrap(ctx, credit, maxW).slice(0, 3);
         cl.forEach((l, i) => ctx.fillText(l, x, H - pad * 0.45 - (cl.length - 1 - i) * cfs * 1.35));
       }
@@ -229,7 +239,7 @@ export default function SharePage() {
     }
   };
   const themes = ['All', ...new Set(art.map((a) => a.theme))];
-  const shown = art.filter((a) => theme === 'All' || a.theme === theme);
+  const shown = art.filter((a) => theme === 'All' || a.theme === theme).sort((a, b) => Number(b.id === paint?.id) - Number(a.id === paint?.id)).slice(0, 96);
   return (
     <div className="page share-page">
       <h1>Share a verse</h1>
@@ -271,7 +281,7 @@ export default function SharePage() {
                 {paint && (
                   <>
                     <label className="field" style={{ marginTop: 8 }}><span>Darken for legibility</span><input type="range" min={15} max={85} value={dim} onChange={(e) => setDim(+e.target.value)} aria-label="Darken the painting" /></label>
-                    <p className="muted small">{paint.title}, {paint.artist}, {paint.date}. {paint.credit}. <a href={paint.page} target="_blank" rel="noreferrer">Source at The Met</a> (public domain, CC0).{imgErr && ' The picture could not be loaded; using a colour instead.'}</p>
+                    <p className="muted small">{paint.title}, {paint.artist}, {paint.date}. {paint.credit}. {paint.page && <a href={paint.page} target="_blank" rel="noreferrer">Source</a>}{imgErr && ' The picture could not be loaded; using a colour instead.'}</p>
                   </>
                 )}
               </div>

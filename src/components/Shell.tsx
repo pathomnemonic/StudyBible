@@ -8,12 +8,15 @@ import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
 import type { Key } from '../i18n/en';
 
-// The places you actually live in. Daily practice (Mass readings, plans, Bible in a Year, memorizing, prayer) sits under Today with a sub-menu. Settings and the account are reached from the sidebar, or the gear on Today.
+// Five places, left to right: Profile (yours: notes, plans, settings), Study (anything educational), Today (the middle tab and where the app opens),
+// the Bible, and Listen (the Bible in a Year, spoken). Prayer pages sit under Profile; the Mass readings belong to Today.
+const PROFILE_PATHS = ['/profile', '/library', '/settings', '/account', '/about', '/more', '/days', '/pray', '/memorize', '/session', '/share'];
 const TABS = [
-  { to: '/today', label: 'Today', key: 'nav.today' as Key, icon: 'sun', match: ['/today', '/pray', '/memorize', '/session'], home: true },
-  { to: '/read', label: 'Bible', key: 'nav.bible' as Key, icon: 'read', match: ['/read'] },
+  { to: '/profile', label: 'Profile', key: 'nav.profile' as Key, icon: 'user', match: PROFILE_PATHS, not: ['/pray/readings'] },
   { to: '/study', label: 'Study', key: 'nav.study' as Key, icon: 'study', match: ['/study'] },
-  { to: '/library', label: 'Notes', key: 'nav.notes' as Key, icon: 'library', match: ['/library'] },
+  { to: '/today', label: 'Today', key: 'nav.today' as Key, icon: 'sun', match: ['/today', '/pray/readings'], home: true },
+  { to: '/read', label: 'Bible', key: 'nav.bible' as Key, icon: 'read', match: ['/read'] },
+  { to: '/listen', label: 'Listen', key: 'nav.listen' as Key, icon: 'listen', match: ['/listen'] },
 ];
 
 /** Sub-menu shown across the daily-practice pages. */
@@ -84,7 +87,7 @@ export default function Shell({ children }: { children: ReactNode }) {
           <span>{t('nav.search')}</span>
         </button>
         {TABS.map((tb) => {
-          const active = tb.match.some((m) => loc.pathname.startsWith(m)) || (!!tb.home && loc.pathname === '/');
+          const active = (tb.match.some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/')) && !(tb.not ?? []).some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/'))) || (!!tb.home && loc.pathname === '/');
           return (
             <NavLink
               key={tb.to}
@@ -94,23 +97,11 @@ export default function Shell({ children }: { children: ReactNode }) {
             >
               <span className="ico"><Icon name={tb.icon} /></span>
               <span>{t(tb.key)}</span>
+              {tb.to === '/profile' && sync.user && <i className={`sync-dot ${sync.status}`} />}
             </NavLink>
           );
         })}
-        <NavLink to="/more" className={`tab more-tab${loc.pathname.startsWith('/more') || loc.pathname.startsWith('/settings') || loc.pathname.startsWith('/account') || loc.pathname.startsWith('/about') ? ' active' : ''}`} aria-label={`${t('nav.more')}: ${t('nav.settings')}, ${t('nav.account')}`}>
-          <span className="ico"><Icon name="queue" /></span>
-          <span>{t('nav.more')}</span>
-        </NavLink>
         <div className="tab-spacer" />
-        <NavLink to="/settings" className={`tab utility${loc.pathname.startsWith('/settings') ? ' active' : ''}`} aria-label="Settings and account">
-          <span className="ico"><Icon name="gear" /></span>
-          <span>{t('nav.settings')}</span>
-        </NavLink>
-        {!s.localOnly && <NavLink to="/account" className={`tab utility${loc.pathname.startsWith('/account') ? ' active' : ''}`} aria-label={sync.user ? `Account: ${sync.user.email}` : 'Sign in'}>
-          <span className="ico">{sync.user ? <span className="avatar">{(sync.user.name || sync.user.email)[0].toUpperCase()}</span> : <Icon name="info" />}</span>
-          <span>{sync.user ? t('nav.account') : t('nav.signin')}</span>
-          {sync.user && <i className={`sync-dot ${sync.status}`} />}
-        </NavLink>}
       </nav>
       <main id="main" className="main">
         {inDaily(loc.pathname) && !fullscreenReader && (
@@ -123,6 +114,11 @@ export default function Shell({ children }: { children: ReactNode }) {
         {loc.pathname.startsWith('/study/') && (
           <nav className="crumbs" aria-label="Breadcrumb">
             <NavLink to="/study">← Study</NavLink>
+          </nav>
+        )}
+        {['/library', '/settings', '/account', '/about', '/more', '/days'].some((p) => loc.pathname === p || loc.pathname.startsWith(p + '/')) && (
+          <nav className="crumbs" aria-label="Breadcrumb">
+            <NavLink to="/profile">← Profile</NavLink>
           </nav>
         )}
         {children}

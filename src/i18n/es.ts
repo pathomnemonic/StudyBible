@@ -6,6 +6,8 @@ export const es: Partial<Record<Key, string>> = {
   'nav.study': 'Estudio',
   'nav.notes': 'Notas',
   'nav.more': 'Más',
+  'nav.profile': 'Perfil',
+  'nav.listen': 'Escuchar',
   'nav.search': 'Buscar',
   'nav.settings': 'Ajustes',
   'nav.signin': 'Entrar',

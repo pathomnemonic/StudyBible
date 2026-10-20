@@ -14,6 +14,7 @@ import { scheduleReminder } from './liturgy/reminders';
 const GalleryPage = lazy(() => import('./pages/study/GalleryPage'));
 const DaysPage = lazy(() => import('./pages/DaysPage'));
 const CatechismPage = lazy(() => import('./pages/study/CatechismPage'));
+const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
 const PathPage = lazy(() => import('./pages/study/PathsPage'));
 const PathsIndex = lazy(() => import('./pages/study/PathsPage').then((m) => ({ default: m.PathsIndex })));
@@ -187,6 +188,7 @@ export default function App() {
               <Route path="/listen/episode/:id" element={<EpisodePage />} />
               <Route path="/pray" element={<PrayHome />} />
               <Route path="/pray/readings/:date?" element={<ReadingsPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
               <Route path="/days" element={<DaysPage />} />
               <Route path="/more" element={<MorePage />} />
               <Route path="/pray/sleep" element={<SleepPage />} />

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
-import { canonicalKey, fmtDuration, useBiay } from '../../data/biay';
+import { fmtDuration, useBiay } from '../../data/biay';
 import { usePlayer } from '../../data/PlayerContext';
 import { formatRef, parseRefId, parseRefs, refsOverlap } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
@@ -12,7 +12,7 @@ import { fold } from '../../search/engine';
 import MyMedia from '../../components/MyMedia';
 import YearHero from '../../components/YearHero';
 
-type View = 'plan' | 'canon' | 'release' | 'queue' | 'progress';
+type View = 'plan' | 'release' | 'queue' | 'progress';
 
 export default function ListenHome() {
   const { biay, loaded } = useBiay();
@@ -30,7 +30,6 @@ export default function ListenHome() {
     const pick = (d: number) => (year ? biay.releases.get(d)?.find((e) => e.year === year) ?? biay.dayEpisode.get(d) : biay.dayEpisode.get(d));
     const days = [...biay.dayEpisode.keys()].sort((a, b) => a - b).map((d) => pick(d)!).filter(Boolean);
     if (view === 'plan') return days;
-    if (view === 'canon') return [...days].sort((a, b) => canonicalKey(a) - canonicalKey(b));
     if (view === 'release') return [...biay.data.episodes].filter((e) => !year || e.year === year).sort((a, b) => b.date.localeCompare(a.date));
     if (view === 'queue') return queue.map((x) => biay.byId.get(x.episodeId)).filter(Boolean) as BiayEpisode[];
     return progress.filter((p) => p.completed || p.position > 0).sort((a, b) => b.updatedAt - a.updatedAt).map((p) => biay.byId.get(p.episodeId)).filter(Boolean) as BiayEpisode[];
@@ -77,7 +76,7 @@ export default function ListenHome() {
       <h2 className="h-sm">Every day</h2>
 
       <div className="tabbar" role="tablist">
-        {([['plan', 'Plan order'], ['canon', 'Canonical order'], ['release', 'All episodes'], ['queue', `Queue (${queue.length})`], ['progress', 'My progress']] as [View, string][]).map(([k, l]) => (
+        {([['plan', 'The plan'], ['release', 'All episodes'], ['queue', `Queue (${queue.length})`], ['progress', 'My progress']] as [View, string][]).map(([k, l]) => (
           <button key={k} role="tab" aria-selected={view === k} onClick={() => setView(k)}>{l}</button>
         ))}
       </div>
@@ -88,7 +87,7 @@ export default function ListenHome() {
           {years.map((y) => <option key={y} value={y}>{y} release</option>)}
         </select>
       </div>
-      {view === 'plan' && <p className="muted small">Plan order is the show’s own chronological reading order (Day 1–365). Canonical order sorts the days by the first book they read in Bible order.</p>}
+      {view === 'plan' && <p className="muted small">The plan reads the whole Bible in 365 days (Day 1–365), mixing the Old Testament, the New Testament and the Psalms or Proverbs each day. To find the episode for a passage, type it in the search box (for example “Romans 8”), or open any chapter in the Bible tab: its episode is at the top.</p>}
       {filtered.length === 0 && <div className="empty">No episodes here{view === 'queue' ? ' — add episodes to your queue from any list.' : '.'}</div>}
       <ul className="list">
         {filtered.slice(0, 400).map((e) => <Row key={e.id} e={e} progress={doneMap.get(e.id)} inQueue={queue.some((x) => x.episodeId === e.id)} />)}

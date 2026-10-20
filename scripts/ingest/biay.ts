@@ -46,6 +46,37 @@ function passagesFrom(text: string): RawPassage[] {
   return out;
 }
 
+/** The plan's own sentence ("Today's readings are John 4-6 and Proverbs 5:7-14."): chapters, where a verse range names the chapter it starts in. */
+const SENT_RE = new RegExp(`(?<![A-Za-z])((?:[1-3]\\s?)?(?:${BOOK_WORDS.join('|')}))\\.?\\s+(\\d{1,3})((?::\\d+)?)(?:\\s*[-–—]\\s*(\\d{1,3})((?::\\d+)?))?(?![\\d])`, 'gi');
+function passagesFromSentence(desc: string): RawPassage[] {
+  const out: RawPassage[] = [];
+  // every chapter the description names (it only ever names the day's readings), up to the boilerplate; votes across the yearly re-releases clean up stray mentions
+  const spans = [desc.split(/For the complete|Please note/i)[0]];
+  for (const sentence of spans) {
+    for (const m of sentence.matchAll(SENT_RE)) {
+      const book = lookupBook(m[1].replace(/\s+/g, ' '));
+      if (!book) continue;
+      const c1 = +m[2];
+      // "5-6" is two chapters; "5:7-14" stays in chapter 5; "5:7-6:3" runs on into chapter 6
+      const c2 = m[4] ? (m[3] && !m[5] ? c1 : +m[4]) : c1;
+      if (c1 < 1 || Math.max(c1, c2) > getBook(book).chapters) continue;
+      out.push({ book, c1, c2: Math.max(c1, c2) });
+      // "Esther 4 and 14, 6-7": bare numbers after a chapter belong to the same book
+      const rest = sentence.slice((m.index ?? 0) + m[0].length);
+      for (const c of rest.matchAll(/^(?:,\s*(?:and\s+)?|\s+and\s+)(\d{1,3})(?:\s*[-–—]\s*(\d{1,3}))?(?![\d:]|\s*[A-Za-z])/g)) {
+        const a = +c[1], z = c[2] ? +c[2] : a;
+        if (a >= 1 && Math.max(a, z) <= getBook(book).chapters) out.push({ book, c1: a, c2: Math.max(a, z) });
+      }
+    }
+    // books of one chapter are named without a number ("2 John, 3 John; 1 Timothy 4-6")
+    for (const m of sentence.matchAll(/(?<![A-Za-z])(Jude|Philemon|Obadiah|[23]\s?John)\b(?!\s*\d)/g)) {
+      const book = lookupBook(m[1].replace(/\s+/g, ' '));
+      if (book) out.push({ book, c1: 1, c2: 1 });
+    }
+  }
+  return out;
+}
+
 const key = (p: RawPassage) => `${p.book}.${p.c1}-${p.c2}`;
 
 function htmlToText(s: string) {
@@ -86,7 +117,11 @@ export function buildBiay(report: Report) {
     const fromKeywords: RawPassage[] = [];
     for (const k of keywords) fromKeywords.push(...passagesFrom(k).filter((p) => k.toLowerCase().replace(/[^a-z0-9]/g, '').length < 24));
     const fromDesc = passagesFrom(String(it['itunes:subtitle'] ?? '') + ' ' + desc.split('\n')[0]);
-    const own = fromKeywords.length ? fromKeywords : fromDesc;
+    // the description says it outright: "Today we read 1 Samuel 3-5 and Psalm 150." / "Today's readings are Numbers 4-6, Deuteronomy 1, and Psalm 12."
+    const fromSentence = passagesFromSentence(desc);
+    // the description's own list and the feed keywords are two views of the same readings: take both, and let the yearly votes drop a stray mention
+    const seenKeys = new Set<string>();
+    const own = [...fromSentence, ...fromKeywords, ...(fromSentence.length || fromKeywords.length ? [] : fromDesc)].filter((p) => !seenKeys.has(key(p)) && !!seenKeys.add(key(p)));
     const pub = new Date(it.pubDate);
     const dur = String(it['itunes:duration'] ?? '');
     const dparts = dur.split(':').map(Number);
@@ -105,9 +140,9 @@ export function buildBiay(report: Report) {
       player: it['fireside:playerURL'] ?? it.playerURL,
       description: desc.slice(0, 700),
       passages: [],
-      passageSource: own.length ? (fromKeywords.length ? 'feed-keywords' : 'feed-description') : 'none',
+      passageSource: own.length ? (fromSentence.length ? 'feed-description' : fromKeywords.length ? 'feed-keywords' : 'feed-description') : 'none',
       _own: own,
-      _src: own.length ? (fromKeywords.length ? 'feed-keywords' : 'feed-description') : 'none',
+      _src: own.length ? (fromSentence.length ? 'feed-description' : fromKeywords.length ? 'feed-keywords' : 'feed-description') : 'none',
     });
   }
 

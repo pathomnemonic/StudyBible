@@ -5,7 +5,8 @@ import type { ChapterData } from '../lib/types';
 import type { HighlightColor } from '../db/db';
 import type { TermMatcher } from '../study/terms';
 import type { InlineFig } from '../study/inlineArt';
-import { findFx } from '../study/wordfx';
+import { chooseFx, findFx } from '../study/wordfx';
+import { useMemo } from 'react';
 
 export interface VerseDecor {
   highlight?: HighlightColor;
@@ -38,9 +39,20 @@ interface Props {
 
 /** Renders one chapter with paragraph/poetry structure preserved and every verse individually selectable. */
 export default function ChapterText({ chapter, selected, decor, onVerse, lang, density, onMarker, terms, onTerm, figures, stdNotes, onStdNote, wordFx, red }: Props) {
-  const fx = (text: string): React.ReactNode => {
+  // a chapter animates at most three words; the rest are plain
+  const allowed = useMemo(() => {
+    if (!wordFx || lang !== 'en') return new Set<string>();
+    const hits: { key: string; kind: string; order: number }[] = [];
+    let order = 0;
+    chapter.blocks.forEach((b, i) => {
+      if (typeof b[1] === 'string') return;
+      b[1].forEach(([, text], j) => { for (const h of findFx(text)) hits.push({ key: `${i}.${j}:${h.start}`, kind: h.kind, order: order++ }); });
+    });
+    return chooseFx(hits, 3);
+  }, [chapter, wordFx, lang]);
+  const fx = (text: string, key = '', offset = 0): React.ReactNode => {
     if (!wordFx || lang !== 'en') return text;
-    const hits = findFx(text);
+    const hits = findFx(text).filter((h) => allowed.has(`${key}:${h.start + offset}`));
     if (!hits.length) return text;
     const out: React.ReactNode[] = [];
     let at = 0;
@@ -71,17 +83,17 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
   /** a stretch of a run's text, with any words of Jesus inside it in red */
   const seg = (key: string, text: string, from: number, to: number): React.ReactNode => {
     const rs = red?.[key];
-    if (!rs) return fx(text.slice(from, to));
+    if (!rs) return fx(text.slice(from, to), key, from);
     const out: React.ReactNode[] = [];
     let at = from;
     for (const [a, b] of rs) {
       const s0 = Math.max(a, from), e0 = Math.min(b, to);
       if (e0 <= s0) continue;
-      if (s0 > at) out.push(fx(text.slice(at, s0)));
-      out.push(<span key={s0} className="wj">{fx(text.slice(s0, e0))}</span>);
+      if (s0 > at) out.push(fx(text.slice(at, s0), key, at));
+      out.push(<span key={s0} className="wj">{fx(text.slice(s0, e0), key, s0)}</span>);
       at = e0;
     }
-    if (at < to) out.push(fx(text.slice(at, to)));
+    if (at < to) out.push(fx(text.slice(at, to), key, at));
     return out;
   };
   let cur = 0;
@@ -185,7 +197,7 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
             {figs.map((f) => (
               <figure key={f.id} className="inline-art">
                 <a href={f.page} target="_blank" rel="noreferrer"><img src={`${import.meta.env.BASE_URL}${f.file}`} alt={`${String(f.id).startsWith('dore') ? 'Engraving' : 'Painting'} of ${f.title}, by ${f.artist}${f.date ? `, ${f.date}` : ''}`} loading="lazy" /></a>
-                <figcaption>{f.title}{f.artist ? `, ${f.artist}` : ''}{f.date ? `, ${f.date}` : ''}. {f.credit}{f.credit.includes('Museum') || f.credit.includes('public domain') || f.credit.includes('CC0') ? '' : '. The Metropolitan Museum of Art (public domain)'}. <Link className="fig-share" to={`/share?ref=${encodeURIComponent(formatRef(f.ref))}`}>Make a verse card</Link></figcaption>
+                <figcaption>{f.title}{f.artist ? `, ${f.artist}` : ''}{f.date ? `, ${f.date}` : ''}. {f.credit}{f.credit.includes('Museum') || f.credit.includes('public domain') || f.credit.includes('CC0') ? '' : '. The Metropolitan Museum of Art (public domain)'}. <Link className="fig-share" to={`/share?ref=${encodeURIComponent(formatRef(f.ref))}&img=${encodeURIComponent(String(f.id))}`}>Make a verse card</Link></figcaption>
               </figure>
             ))}
           </Fragment>

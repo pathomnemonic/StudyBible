@@ -15,6 +15,9 @@ interface Cmd {
 
 const NAV: { label: string; to: string }[] = [
   { label: 'Today', to: '/today' },
+  { label: 'Profile (notes, plans, settings)', to: '/profile' },
+  { label: 'Catechism of the Catholic Church', to: '/study/catechism' },
+  { label: 'Favourite days', to: '/days' },
   { label: 'Everything in the app (all pages)', to: '/more' },
   { label: 'Study paths (guided journeys)', to: '/study/paths' },
   { label: 'Sleep mode (a psalm read slowly)', to: '/pray/sleep' },

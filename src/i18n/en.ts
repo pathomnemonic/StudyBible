@@ -5,6 +5,8 @@ export const en = {
   'nav.study': 'Study',
   'nav.notes': 'Notes',
   'nav.more': 'More',
+  'nav.profile': 'Profile',
+  'nav.listen': 'Listen',
   'nav.search': 'Search',
   'nav.settings': 'Settings',
   'nav.signin': 'Sign in',

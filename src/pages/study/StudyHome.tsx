@@ -24,6 +24,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     title: 'Church teaching and tradition',
     blurb: 'What the Church teaches and how the Fathers and saints read Scripture.',
     items: [
+      ['/study/catechism', 'Catechism of the Catholic Church', 'The full text, paragraph by paragraph, with search and links to the Scripture it cites.'],
       ['/study/doctrine', 'Doctrine & Catechism', 'Topics (Eucharist, Trinity, grace, Mary…) with Scripture and Catechism links.'],
       ['/study/church', 'Councils and Church documents', 'Councils, catechisms and encyclicals: read in full where public domain, official links for the rest.'],
       ['/study/fathers', 'Reading room: saints, Fathers, catechisms', 'Augustine, Chrysostom, Teresa, the Imitation of Christ and more, to read in full.'],
@@ -51,14 +52,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
       ['/study/maps', 'Maps', 'Places named in Scripture on an interactive map.'],
       ['/study/world', 'The biblical world', 'Journeys, eras and archaeology.'],
       ['/study/people', 'Genealogies', 'Family trees from Adam to Jesus.'],
-    ],
-  },
-  {
-    title: 'Listen and learn by heart',
-    blurb: 'Away from the page.',
-    items: [
-      ['/listen', 'Bible in a Year', 'Episodes mapped to the passages they read, playable here.'],
-      ['/memorize', 'Memorize Scripture', 'Spaced repetition, fill-in-the-blank and audio recall.'],
+      ['/study/gallery', 'Gallery', 'Paintings and engravings of Bible scenes, with a side-by-side compare.'],
     ],
   },
   {

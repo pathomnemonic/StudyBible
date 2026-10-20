@@ -59,10 +59,7 @@ export default function MorePage() {
   return (
     <div className="page">
       <h1>Everything in Study Bible</h1>
-      <p className="lede">Every part of the app, in one list. The four tabs (Today, Bible, Study, Notes) are shortcuts to the places you use most.</p>
-      <WhatsNew />
-      <WeekCard />
-      <ContinueRow />
+      <p className="lede">Every part of the app, in one list. The five tabs (Profile, Study, Today, Bible, Listen) are shortcuts to the places you use most; this page is the full map.</p>
       <div className="tool-groups">
         {GROUPS.map((g) => (
           <section key={g.title} className="tool-group">

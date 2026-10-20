@@ -3691,7 +3691,7 @@ html[data-atm] .reader::before { opacity: 0.13; }
 @keyframes fx-ripple { 0%, 100% { background-position: 0 0; top: 0; } 50% { background-position: 100% 0; top: 1px; } }
 @keyframes fx-glow { 0%, 100% { text-shadow: 0 0 6px rgba(255,235,160,.5); } 50% { text-shadow: 0 0 14px rgba(255,235,160,1), 0 0 3px rgba(255,235,160,1); } }
 @keyframes fx-dim { 0%, 100% { opacity: .72; } 50% { opacity: .9; } }
-@keyframes fx-sway { 0%, 100% { left: 0; letter-spacing: 0; } 50% { left: 1.5px; letter-spacing: .6px; } }
+@keyframes fx-sway { 0%, 100% { left: 0; } 50% { left: 1.5px; } }
 @keyframes fx-sheen { to { background-position: -220% 0; } }
 @keyframes fx-tremble { 0%, 90%, 100% { left: 0; top: 0; } 92% { left: -1px; top: 1px; } 94% { left: 1px; top: -1px; } 96% { left: -1px; top: 0; } 98% { left: 1px; top: 1px; } }
 @keyframes fx-drip { 0%, 60%, 100% { top: 0; } 80% { top: 1.5px; } }
@@ -3750,7 +3750,7 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .fx-wing { animation: fx-float 4.2s ease-in-out infinite; }
 .fx-heart { color: #e86d93; text-shadow: 0 0 8px rgba(232,109,147,.5); animation: fx-beat 2.4s ease-in-out infinite; }
 .fx-serpent { color: #7fae5b; animation: fx-slither 3.4s ease-in-out infinite; }
-.fx-stone { color: #a6a39b; text-shadow: 0 1px 0 rgba(0,0,0,.35); letter-spacing: .02em; }
+.fx-stone { color: #a6a39b; text-shadow: 0 1px 0 rgba(0,0,0,.35); }
 .fx-snow { text-shadow: 0 0 8px rgba(255,255,255,.75); animation: fx-twinkle 3.6s ease-in-out infinite; }
 .fx-calm { color: #86b8b0; animation: fx-breathe 6s ease-in-out infinite; }
 .fx-thorn { color: #b4604a; text-decoration: underline wavy rgba(180,96,74,.7); text-underline-offset: 3px; }
@@ -3763,12 +3763,12 @@ html[data-atm] .reader::before { opacity: 0.13; }
 @keyframes fx-glint { 0%, 55%, 100% { background-position: 120% 0; } 80% { background-position: -20% 0; } }
 @keyframes fx-float { 0%, 100% { top: 0; } 50% { top: -2px; } }
 @keyframes fx-beat { 0%, 100% { text-shadow: 0 0 4px rgba(232,109,147,.3); } 12% { text-shadow: 0 0 12px rgba(232,109,147,.9); } 24% { text-shadow: 0 0 5px rgba(232,109,147,.4); } 36% { text-shadow: 0 0 11px rgba(232,109,147,.8); } }
-@keyframes fx-slither { 0%, 100% { letter-spacing: 0; left: 0; } 50% { letter-spacing: .08em; left: 1px; } }
+@keyframes fx-slither { 0%, 100% { left: 0; } 50% { left: 1.2px; } }
 @keyframes fx-twinkle { 0%, 100% { text-shadow: 0 0 4px rgba(255,255,255,.35); } 50% { text-shadow: 0 0 12px rgba(255,255,255,1); } }
 @keyframes fx-breathe { 0%, 100% { opacity: .75; } 50% { opacity: 1; } }
 @keyframes fx-hop { 0%, 70%, 100% { top: 0; } 80% { top: -2px; } 90% { top: 0; } 95% { top: -1px; } }
 @keyframes fx-drift { 0%, 100% { opacity: .6; left: 0; } 50% { opacity: .95; left: 1.5px; } }
-@keyframes fx-sprout { 0%, 100% { letter-spacing: 0; } 50% { letter-spacing: .05em; } }
+@keyframes fx-sprout { 0%, 100% { top: 0; opacity: .85; } 50% { top: -1px; opacity: 1; } }
 
 @media (prefers-reduced-motion: reduce) { .fx { animation: none !important; } }
 
@@ -3828,7 +3828,7 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .wj .fx-blood { color: inherit; }
 
 /* words particular to the Bible */
-.fx-name { background: linear-gradient(100deg, #b9892b 15%, #fff1b8 45%, #b9892b 75%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: fx-sheen 5s linear infinite; letter-spacing: .02em; font-variant: small-caps; }
+.fx-name { background: linear-gradient(100deg, #b9892b 15%, #fff1b8 45%, #b9892b 75%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: fx-sheen 5s linear infinite; }
 .fx-holy { text-shadow: 0 0 9px rgba(255,244,200,.85); animation: fx-halo 4.2s ease-in-out infinite; }
 .fx-spirit { background: linear-gradient(90deg, #8ab4f8, #e8d4ff, #9be3d0, #8ab4f8); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: fx-swirl 4.8s ease-in-out infinite; }
 .fx-lamb { text-shadow: 0 0 8px rgba(255,255,255,.8); animation: fx-float 3.8s ease-in-out infinite; }
@@ -3844,7 +3844,7 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .fx-sin { opacity: .78; color: #b0707a; animation: fx-shudder 3.2s ease-in-out infinite; }
 @keyframes fx-halo { 0%, 100% { text-shadow: 0 0 5px rgba(255,244,200,.4); } 50% { text-shadow: 0 0 14px rgba(255,244,200,1), 0 0 3px rgba(255,244,200,.9); } }
 @keyframes fx-inscribe { 0% { background-size: 0% 1.5px; } 55%, 85% { background-size: 100% 1.5px; } 100% { background-size: 0% 1.5px; background-position: 100% 100%; } }
-@keyframes fx-swell { 0%, 100% { letter-spacing: 0; } 50% { letter-spacing: .08em; } }
+@keyframes fx-swell { 0%, 100% { text-shadow: 0 0 0 rgba(255,255,255,0); } 50% { text-shadow: 0 0 10px rgba(255,255,255,.7); } }
 @keyframes fx-ascend { 0%, 100% { top: 0; opacity: .85; } 50% { top: -2px; opacity: 1; } }
 @keyframes fx-shudder { 0%, 100% { left: 0; } 40% { left: -.6px; } 45% { left: .6px; } 50% { left: -.4px; } 55% { left: 0; } }
 @media (prefers-reduced-motion: reduce) { .fx-covenant, .fx-law { background-size: 100% 1px !important; } }
@@ -3866,3 +3866,14 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .ccc-n { font-size: .9rem; margin: 0; } .ccc-n a { text-decoration: none; color: var(--accent); }
 .ccc-para p { margin: 0 0 .6em; }
 .ccc-fn { margin: .2em 0 0; padding-left: 1.4em; }
+
+/* an effect never changes the size of a word, so lines never re-wrap while it plays */
+.fx { white-space: nowrap; }
+
+/* Today: three ways back in */
+.resume-chips { display: flex; gap: 8px; justify-content: center; width: 100%; max-width: 720px; }
+.resume-chip { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 1px; padding: 7px 10px; border-radius: 12px; border: 1px solid var(--hairline, #8884); background: color-mix(in srgb, var(--surface) 70%, transparent); text-decoration: none; color: inherit; }
+.resume-chip.on { border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+.resume-chip .k { font-size: .66rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.resume-chip .v { font-size: .86rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 420px) { .resume-chips { gap: 5px; } .resume-chip { padding: 6px 7px; } .resume-chip .k { font-size: .58rem; } .resume-chip .v { font-size: .76rem; } }

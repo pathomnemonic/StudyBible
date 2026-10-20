@@ -16,7 +16,7 @@ const PATH_FOR: Partial<Record<Season, [string, string]>> = {
 interface Galaxy { works: { id: string; author: string; authorId: string; title: string }[] }
 
 /** Small links under the day: your plan, something for the season, the saint, and a few one-tap actions. Kept to a line or two so the screen stays still. */
-export default function HomeExtras({ date, season, ref, label }: { date: string; season: Season; ref: Ref | null; label: string }) {
+export default function HomeExtras({ date, season, ref, label, onRandom }: { date: string; season: Season; ref: Ref | null; label: string; onRandom?: () => void }) {
   const [s] = useSettings();
   const plans = useLiveQuery(() => db.planProgress.filter((p) => p.status === 'active' && p.planId !== 'biay').toArray(), []) ?? [];
   const fav = useLiveQuery(() => db.cache.get(`daily-fav:${date}`), [date]);
@@ -47,6 +47,8 @@ export default function HomeExtras({ date, season, ref, label }: { date: string;
   };
   return (
     <div className="home-extras">
+      <Link to={`/pray/readings/${date}`}>Mass readings</Link>
+      {onRandom && <button onClick={onRandom}>Random verse</button>}
       {plans.length > 0 && <Link to="/pray/plans">Your reading plan →</Link>}
       {season2 && <Link to={`/study/path/${season2[0]}`}>{season2[1]} (study path)</Link>}
       {season !== 'ordinary' && <button onClick={listen} aria-pressed={playing}>{playing ? '■ Stop' : '♪ Listen: chant and hymns for the season'}</button>}
