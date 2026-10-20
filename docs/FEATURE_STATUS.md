@@ -235,3 +235,27 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Scene sounds, chant by season and old hymn recordings | **Partial** | With “let the passage choose the sound” on, the sea, desert, night, fire, thunder, pasture and crowd recordings follow certain chapters. Chant: 7 tracks (Easter propers, a Salve Regina, one Kyrie). Hymns: 8 early recordings from the Library of Congress and others, with surface noise. No verified recordings for Advent or Lent chant yet. |
+
+## Scripture
+
+| Feature | Status | Notes |
+|---|---|---|
+| Church-approved translations | **Partial** | Douay-Rheims and the Clementine Vulgate are bundled and approved (public domain). The Bibles most Catholics read today (NABRE, RSV-CE, NRSV-CE) are under copyright, so their text cannot be included: the translation picker opens the current chapter in each at the USCCB or Bible Gateway. CPDV and WEB-C are public-domain but not Church-approved, and are labelled so. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Scripture universe with the library around the canon | **Working** | The 73 books plus 107 library works in eight rings (Early, Greek and Latin Fathers, medieval saints, spiritual masters, councils and documents, catechisms, history), each work placed beside the books it cites most; cards link Fathers to books and back. |
+
+## Reading
+
+| Feature | Status | Notes |
+|---|---|---|
+| Pictures in the text: Doré engravings and museum paintings | **Partial** | 224 Doré engravings (Gallica scans: credit required, non-commercial reuse) and about 190 Met and Cleveland open-access paintings appear after the scene they depict, up to three a chapter. Doré passage references were assigned from captions; museum references from titles only, so a few may be a verse or two off. Switch off in Reading settings. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Latin Glossa notes translated to English inline | **Partial** | About 8,000 of 13,800 notes are translated (AI-assisted, literal where the Latin is garbled). The rest show the Latin with a Translate link; docs/glossa-translation holds a hand-off kit to finish them. |
