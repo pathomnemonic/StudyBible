@@ -3541,3 +3541,12 @@ body {
 .panel-actions .sw { flex: none; width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--surface); box-shadow: 0 0 0 1px var(--border-strong); cursor: pointer; padding: 0; margin: 0 3px; }
 .panel-actions .icon-btn { flex: none; width: 36px; height: 36px; }
 .panel-actions .sep { flex: none; width: 1px; height: 22px; background: var(--border); margin: 0 4px; }
+
+.featured { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 6px 0 24px; }
+.feat { display: grid; gap: 6px; align-content: end; min-height: 128px; padding: 16px; border-radius: 20px; text-decoration: none; color: #fff; position: relative; overflow: hidden;
+  background: radial-gradient(120% 100% at 0% 0%, hsl(var(--h) 70% 55% / .55), transparent 65%), linear-gradient(160deg, hsl(var(--h) 45% 22%), hsl(var(--h) 55% 11%));
+  border: 1px solid hsl(var(--h) 60% 60% / .35); transition: transform .15s, border-color .15s; }
+.feat:hover { transform: translateY(-2px); border-color: hsl(var(--h) 70% 70% / .7); }
+.feat-t { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.1; }
+.feat-d { font-size: .82rem; opacity: .85; line-height: 1.35; }
+@media (max-width: 720px) { .featured { grid-template-columns: 1fr 1fr; } .feat { min-height: 110px; padding: 12px; } .feat-t { font-size: 1.1rem; } }

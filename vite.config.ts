@@ -29,8 +29,15 @@ export default defineConfig({
         // App shell is precached; Scripture and content packs are cached the first time they are read
         // (or on demand through Settings → Offline), never fetched eagerly.
         globPatterns: ['**/*.{js,css,html,svg,woff2}'],
+        // the 3D galaxy (three.js) and the map are large and used occasionally: cached the first time they are opened
+        globIgnores: ['**/assets/scene-*.js', '**/assets/leaflet-*.js'],
         navigateFallback: 'index.html',
         runtimeCaching: [
+          {
+            urlPattern: ({ url }) => /\/assets\/(scene|leaflet)-.*\.js$/.test(url.pathname),
+            handler: 'CacheFirst',
+            options: { cacheName: 'studybible-heavy-v1' },
+          },
           {
             urlPattern: ({ url }) => url.pathname.includes('/data/'),
             handler: 'CacheFirst',

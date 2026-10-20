@@ -11,11 +11,9 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     blurb: 'Where you are in the book and how the pieces fit.',
     items: [
       ['/study/books', 'Books & outlines', 'An introduction and outline for each of the 73 books.'],
-      ['/study/fulfilment', 'Promise and fulfilment', 'Types, prophecies and how the Fathers and the New Testament read the Old.'],
       ['/study/synopsis', 'Gospel synopsis', 'Matthew, Mark, Luke and John side by side.'],
       ['/study/pauline', 'Paul’s letters', 'Argument outlines for each letter.'],
       ['/study/index', 'Parables, miracles, prophecies, covenants', 'Indexes with every passage linked.'],
-      ['/study/manuscripts', 'Manuscripts', 'Zoomable photographs of real Bible manuscripts.'],
       ['/study/textual', 'Textual history', 'Where manuscripts and editions differ.'],
     ],
   },
@@ -42,10 +40,8 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     title: 'People and places',
     blurb: 'The world the text was written in.',
     items: [
-      ['/study/universe', 'Scripture universe', 'The canon as a turning sphere of stars, bound by cross-references.'],
       ['/study/constellation', 'Constellation', 'All 73 books as stars, joined by their cross-references.'],
       ['/study/maps', 'Maps', 'Places named in Scripture on an interactive map.'],
-      ['/study/timespace', 'Time and place', 'Slide through the biblical story and watch the map follow.'],
       ['/study/world', 'The biblical world', 'Journeys, eras and archaeology.'],
       ['/study/people', 'Genealogies', 'Family trees from Adam to Jesus.'],
     ],
@@ -63,6 +59,13 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     blurb: 'Authority, rights and what is only linked.',
     items: [['/study/sources', 'Sources & licensing', 'Every source, its period, authority and rights.']],
   },
+];
+
+const FEATURED: { to: string; title: string; text: string; hue: number }[] = [
+  { to: '/study/universe', title: 'Scripture universe', text: 'Fly through the canon as a galaxy of 73 books.', hue: 265 },
+  { to: '/study/fulfilment', title: 'Promise and fulfilment', text: 'Types and prophecies, in the Fathers’ own words.', hue: 35 },
+  { to: '/study/manuscripts', title: 'Manuscripts', text: 'Zoom into real pages, from a 4th-century fragment of John.', hue: 195 },
+  { to: '/study/timespace', title: 'Time and place', text: 'Slide through the biblical story and watch the map follow.', hue: 145 },
 ];
 
 export default function StudyHome() {
@@ -93,6 +96,14 @@ export default function StudyHome() {
           ))}
         </div>
       )}
+      <div className="featured" role="list" aria-label="Explore">
+        {FEATURED.map((f) => (
+          <Link key={f.to} to={f.to} role="listitem" className="feat" style={{ ['--h' as string]: f.hue }}>
+            <span className="feat-t">{f.title}</span>
+            <span className="feat-d">{f.text}</span>
+          </Link>
+        ))}
+      </div>
       <div className="tool-groups">
         {GROUPS.map((g) => (
           <section key={g.title} className="tool-group" aria-labelledby={`tg-${g.title}`}>
