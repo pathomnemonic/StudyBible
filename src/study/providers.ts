@@ -19,7 +19,7 @@ export type SectionKey =
   | 'fathers' | 'saints'
   | 'xref'
   | 'catholic-answers' | 'creators' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
-  | 'context' | 'language' | 'places' | 'topics' | 'parallels'
+  | 'context' | 'language' | 'places' | 'topics' | 'parallels' | 'art'
   | 'quotes' | 'customs' | 'structure' | 'wordnotes' | 'versions' | 'witnesses' | 'echoes' | 'genre' | 'dependency' | 'reception' // lenses
   | 'mine';
 
@@ -40,6 +40,7 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'resources', label: 'Other Catholic resources' },
   { key: 'links', label: 'Links you added' },
   { key: 'language', label: 'Original language', hint: 'Greek and Hebrew study tools for this verse (third-party sites, not checked by this app). Protocanonical books only.' },
+  { key: 'art', label: 'Sacred art', hint: 'Public-domain paintings of scenes from the passage (The Metropolitan Museum of Art, open access).' },
   { key: 'parallels', label: 'Parallels and indexes', hint: 'Gospel parallels, parables, miracles, prophecy and fulfilment, covenants (an editorial index written for this app).' },
   { key: 'places', label: 'Places', hint: 'Locations named in this passage (OpenBible.info geocoding, CC BY). Open the map.' },
   { key: 'topics', label: 'Topical index', hint: 'Topics people have tied to this passage (OpenBible.info, CC BY; community-voted, not Church-reviewed).' },
@@ -64,7 +65,7 @@ export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'connections', label: 'Connections', sections: ['quotes', 'xref', 'parallels', 'dependency', 'topics'] },
   { id: 'words', label: 'Words', sections: ['wordnotes', 'versions'] },
   { id: 'world', label: 'World', sections: ['customs', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
-  { id: 'media', label: 'Media', sections: ['catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
+  { id: 'media', label: 'Media', sections: ['art', 'catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
 
@@ -114,6 +115,8 @@ export interface StudyItem {
   basis?: string;
   /** the publisher's own audio address, playable in the app */
   audio?: string;
+  /** a small picture shown on the card (a path under the app's data folder) */
+  thumb?: string;
   /** how firm an editorial claim is (see STATUS_LABEL in lens.ts) */
   status?: string;
   /** labelled sub-passages (the parts of a structure, a chain of earlier readings) */
@@ -836,6 +839,7 @@ export function externalSearchItems(refs: Ref[], sources: ResourceSource[] = [])
 export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items: StudyItem[]) => void) {
   const ext = externalSearchItems(refs, (await getResourceSources().catch(() => null)) ?? []);
   const emitExt = (key: SectionKey, extra: StudyItem[] = []) => onSection(key, [...extra, ...ext.filter((i) => i.section === key)]);
+  const lens = lensItems(refs);
   const jobs: [SectionKey[], Promise<StudyItem[]>][] = [
     [['catechism'], providers.catechism(refs)],
     [['magisterium'], providers.magisterium(refs)],
@@ -848,8 +852,8 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     [['links'], providers.userlinks(refs)],
     [['biay'], providers.biay(refs)],
     [['context'], providers.context(refs)],
-    [['quotes', 'customs', 'structure', 'wordnotes', 'versions', 'witnesses', 'echoes', 'genre', 'dependency', 'reception'], lensItems(refs)],
-    [['parallels'], providers.parallels(refs)],
+    [['quotes', 'customs', 'structure', 'wordnotes', 'versions', 'witnesses', 'echoes', 'genre', 'dependency', 'reception', 'art'], lens],
+    [['parallels'], Promise.all([providers.parallels(refs), lens.then((l) => l.filter((i) => i.section === 'parallels'))]).then(([a, b]) => [...b, ...a])],
     [['places'], providers.places(refs)],
     [['topics'], providers.topics(refs)],
     [['mine'], providers.mine(refs)],

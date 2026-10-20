@@ -79,6 +79,50 @@ function WordJourney({ strongs, lang }: { strongs: string; lang: 'grc' | 'hbo' }
   );
 }
 
+const STOP = new Set('3588 2532 1722 1473 4771 846 1510 1161 3739 3756 235 3754 1519 1537 1909 575 3326 4314 5037 3767 1063 3361 2443 3778 1565 5100 5101 1487 302 3303 2228 5613 3844 5228 1223 2596 3825 3568 3752 1893 3362 3364 3777 3761 3588 3956 853 834 413 5921 518 3808 1961 3605 5973 4480 3588 1992 1931 1992 1931 2088 2063 3588'.split(' '));
+const FUNCTION_WORD = /\b(article|conjunction|preposition|particle|pronoun|negative|prefix|sign of|adverb|interjection)\b/i;
+
+/** The words that keep returning in the chapter being read: a fingerprint of what it is about. */
+function ChapterEchoes({ book, chapter, lang, lex }: { book: string; chapter: number; lang: 'grc' | 'hbo'; lex: Record<string, LexEntry> | null }) {
+  const [rows, setRows] = useState<{ s: string; n: number; verses: number[] }[] | null>(null);
+  useEffect(() => {
+    let live = true;
+    setRows(null);
+    loadText(lang, book).then((t) => {
+      const ch = t?.[chapter - 1];
+      if (!ch || !live) return setRows([]);
+      const m = new Map<string, { n: number; verses: Set<number> }>();
+      ch.forEach((vs, vi) => (vs ?? []).forEach((w) => {
+        if (!w[1]) return;
+        const e = m.get(w[1]) ?? { n: 0, verses: new Set<number>() };
+        e.n++;
+        e.verses.add(vi + 1);
+        m.set(w[1], e);
+      }));
+      setRows([...m.entries()].filter(([k, v]) => v.n >= 3 && v.verses.size >= 2 && !STOP.has(k) && !(lex?.[k] && FUNCTION_WORD.test(lex[k][2].slice(0, 90)))).map(([s, v]) => ({ s, n: v.n, verses: [...v.verses] })).sort((a, b) => b.n - a.n).slice(0, 8));
+    });
+    return () => { live = false; };
+  }, [book, chapter, lang, lex]);
+  if (!rows || !rows.length || !lex) return null;
+  return (
+    <details style={{ marginTop: 14 }}>
+      <summary>Words that keep returning in this chapter</summary>
+      <ul className="echo-words">
+        {rows.map((r) => {
+          const e = lex[r.s];
+          return (
+            <li key={r.s}>
+              <span lang={lang === 'hbo' ? 'he' : 'grc'} style={{ fontSize: '1.15rem' }}>{e?.[0]}</span> <span className="muted small">{e?.[1]} · {e?.[2].split(/[;,(]/)[0].trim().slice(0, 30)}</span>
+              <span className="small"> — {r.n}× (vv. {r.verses.slice(0, 10).join(', ')}{r.verses.length > 10 ? '…' : ''})</span>
+            </li>
+          );
+        })}
+      </ul>
+      <p className="muted small">Counted by Strong’s number in the Hebrew or Greek text; small function words are left out. A word that returns is not always the point of the chapter, but it often marks a theme.</p>
+    </details>
+  );
+}
+
 /** Word-by-word Greek or Hebrew for the selected verses, with Strong's-based glosses and parsing. */
 export default function WordStudy({ refs }: { refs: Ref[] }) {
   const { editions } = useEditions();
@@ -162,6 +206,7 @@ export default function WordStudy({ refs }: { refs: Ref[] }) {
           </p>
         </div>
       )}
+      <ChapterEchoes book={ref.book} chapter={kj.c1} lang={res.lang} lex={lex} />
       <p className="muted small" style={{ marginTop: 12 }}>
         Data: SBLGNT (CC BY 4.0) with MorphGNT parsing (CC BY-SA 3.0); Open Scriptures Hebrew Bible, WLC text (public domain) with lemma and morphology (CC BY 4.0); Strong’s dictionaries, Open Scriptures edition (CC BY-SA).
       </p>

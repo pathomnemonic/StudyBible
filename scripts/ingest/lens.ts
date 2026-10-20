@@ -29,6 +29,7 @@ const REQUIRED: Record<string, string[]> = {
   vocabulary: ['title', 'note'],
   people: ['title', 'note'],
   reception: ['refs', 'title', 'stages'],
+  art: ['refs', 'title', 'work'],
 };
 
 export function buildLens(report: Report) {

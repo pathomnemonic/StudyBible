@@ -69,6 +69,14 @@ const base = {
   sourceName: 'Editorial note written for this app',
 };
 
+interface ArtWork { id: number; file: string; page: string; title: string; artist: string; date: string }
+let artById = new Map<number, ArtWork>();
+const loadArt = async () => {
+  if (artById.size) return;
+  const a = await getJson<{ works: ArtWork[] }>('art.json', true).catch(() => null);
+  artById = new Map((a?.works ?? []).map((w) => [w.id, w]));
+};
+
 type Maker = (e: LensEntry, sel: Ref[]) => StudyItem | null;
 
 const MAKERS: Record<string, { section: SectionKey; make: Maker }> = {
@@ -172,10 +180,20 @@ const MAKERS: Record<string, { section: SectionKey; make: Maker }> = {
   },
 };
 
+MAKERS.art = {
+  section: 'art',
+  make: (e, sel) => {
+    const w = artById.get(e.work as number);
+    if (!w || !overlapsAny(sel, e.a)) return null;
+    return { ...base, id: e.id, section: 'art', title: e.title!, excerpt: e.note, kind: 'Painting', thumb: import.meta.env.BASE_URL + w.file, url: w.page, match: 'explicit-reference', why: `A painting of the scene in ${label(e.a)}. Public domain; artists show how the scene was imagined in their time, and are not evidence for how it looked.`, sourceName: 'The Metropolitan Museum of Art (open access, CC0)', ref: e.a?.[0] };
+  },
+};
+
 export const LENS_TYPES = Object.keys(MAKERS);
 
 export async function lensItems(sel: Ref[]): Promise<StudyItem[]> {
   const out: StudyItem[] = [];
+  await loadArt();
   await Promise.all(
     Object.entries(MAKERS).map(async ([type, m]) => {
       const f = await load(type);
