@@ -10,7 +10,7 @@ import { anchorChaptersFor, chapterAlignmentNote, bookAlignmentNote, psalmDualLa
 import { anchorChapterText, anchorToNative, chapterTitle, flattenChapter, nativeToAnchorRef, type AnchorText } from '../lib/bibleText';
 import { useSettings } from '../lib/store';
 import { db, type HighlightColor, type Target } from '../db/db';
-import { useBiay } from '../data/biay';
+import BiayBar from '../components/BiayBar';
 import { setHighlight, toggleBookmark, rangesOverlap } from '../db/ops';
 import ChapterText, { type VerseDecor } from '../components/ChapterText';
 import TermPopover from '../components/TermPopover';
@@ -29,6 +29,7 @@ import { buzz } from '../lib/haptics';
 import { approvedLinks } from '../lib/approved';
 import NotePopover from '../components/NotePopover';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
+import { jesusWords, type RedRanges } from '../study/jesusWords';
 import { artForChapter, type InlineFig } from '../study/inlineArt';
 import { useQuiet, endQuiet } from '../lib/quiet';
 import CompareModal from '../components/CompareModal';
@@ -99,7 +100,6 @@ export default function ReadPage() {
   const [picker, setPicker] = useState(false);
   const [noteFor, setNoteFor] = useState<Target[] | null>(null);
   const [panel, setPanel] = useState(false);
-  const { biay: biayView } = useBiay();
   const swipe = useRef<[number, number] | null>(null);
   const [moreMenu, setMoreMenu] = useState(false);
   const wide = useWide();
@@ -140,9 +140,10 @@ export default function ReadPage() {
   const chapterData = data?.chapters[chNum - 1];
   const flat = useMemo(() => flattenChapter(chapterData), [chapterData]);
   const anchorChapters = useMemo(() => anchorChaptersFor(edition.scheme, bk.id, chNum), [edition.scheme, bk.id, chNum]);
-  const biayDay = biayView ? [...biayView.dayEpisode.entries()].find(([, e]) => e.passages.some((p) => { const r = parseRefId(p); return r && anchorChapters.some((c) => rangesOverlap(r, { book: bk.id, c1: c, c2: c })); }))?.[0] : undefined;
   const primaryAnchorChapter = anchorChapters[0];
   const [figs, setFigs] = useState<InlineFig[]>([]);
+  const [red, setRed] = useState<RedRanges | null>(null);
+  useEffect(() => { let live = true; setRed(null); if (settings.redLetters !== false) jesusWords(edition.id, bk.id, chNum).then((r) => live && setRed(r)); return () => { live = false; }; }, [edition.id, bk.id, chNum, settings.redLetters]);
   useEffect(() => {
     if (settings.scriptureOnly || settings.inlineArt === false) { setFigs([]); return; }
     let live = true;
@@ -648,6 +649,7 @@ export default function ReadPage() {
           </div>
         )}
         {error && <div className="notice">{error}</div>}
+        <BiayBar book={bk.id} chapters={anchorChapters} />
         {!data && !error && <div className="center-note">Loading {bk.name}…</div>}
         {data && chapterData && !parallelMode && (
           <article className="scripture" aria-label={`${bk.name} chapter ${chNum}`}>
@@ -659,7 +661,6 @@ export default function ReadPage() {
                 </button>
               )}
             </h1>
-            {biayDay && <p className="biay-chip"><Link to="/listen">Bible in a Year, day {biayDay}: listen with Fr. Mike</Link></p>}
             {(() => {
               const kjvCh = convertRef('vulgate', 'kjv', { book: bk.id, c1: primaryAnchorChapter, v1: 1, c2: primaryAnchorChapter, v2: 1 }).ref.c1;
               const line = sectionFor(bookInfo, kjvCh);
@@ -675,7 +676,7 @@ export default function ReadPage() {
             {chNum === 1 && data.intro && data.intro.length > 0 && data.intro.map((p, i) => <p key={i} className="subtitle">{p}</p>)}
             {chNum === 1 && bk.note && <div className="notice info">{bk.note}</div>}
             {chapterNote && <div className="notice">{chapterNote}</div>}
-            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} wordFx={settings.wordFx && !settings.scriptureOnly} figures={figureMap} stdNotes={stdNotes} onStdNote={(n, el) => setNotePop({ n, notes: stdNotes.get(n) ?? [], at: el.getBoundingClientRect() })} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
+            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} wordFx={settings.wordFx && !settings.scriptureOnly} red={red} figures={figureMap} stdNotes={stdNotes} onStdNote={(n, el) => setNotePop({ n, notes: stdNotes.get(n) ?? [], at: el.getBoundingClientRect() })} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
             {stdNotes.size > 0 && (
               <section aria-label="Notes on the text" className="subtitle" style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 8 }}>
                 <strong>Notes on the text</strong>{edition.id !== 'webc' && <span className="muted"> (these are the World English Bible’s notes on its own wording of the passage; this translation may read differently)</span>}

@@ -13,6 +13,7 @@ import { buildCiteIndex } from './citeindex';
 import { buildPaths } from './paths';
 import { buildGalaxyLib } from './galaxylib';
 import { buildArtMore } from './artmore';
+import { buildJesus } from './jesus';
 import { buildChurchIndex } from './churchindex';
 import { buildLectionary } from './lectionary';
 import { buildLens } from './lens';
@@ -60,6 +61,7 @@ async function main() {
     await run('paths', () => buildPaths(report));
     await run('galaxy-library', () => buildGalaxyLib(report));
     await run('art-more', () => buildArtMore(report));
+    await run('jesus', () => buildJesus(report));
     await run('church-index', () => buildChurchIndex(report));
     await run('curated', () => buildCurated(report));
     await run('church', () => buildChurchDocs(report));

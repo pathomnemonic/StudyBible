@@ -3819,3 +3819,36 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .library-tabs a.active { background: var(--accent); color: var(--bg); border-color: transparent; }
 .biay-chip { margin: -6px 0 10px; font-size: .8rem; } .biay-chip a { color: var(--muted); }
 .settings-search { width: 100%; max-width: 420px; margin: 0 0 12px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--hairline, #8886); background: transparent; color: inherit; } .card[hidden] { display: none; }
+.feed-day .reading-text p { margin: 0 0 .7em; } .feed-copy { font-size: .68rem; line-height: 1.35; }
+
+/* the words of Jesus */
+:root { --wj: #ff8d7f; }
+:root[data-theme='light'], :root[data-theme='paper'], :root[data-theme='sepia'], :root[data-theme='dawn'], :root[data-theme='mist'], :root[data-theme='rose'], :root[data-theme='solarized'] { --wj: #b3261e; }
+.wj { color: var(--wj); }
+.wj .fx-blood { color: inherit; }
+
+/* words particular to the Bible */
+.fx-name { background: linear-gradient(100deg, #b9892b 15%, #fff1b8 45%, #b9892b 75%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: fx-sheen 5s linear infinite; letter-spacing: .02em; font-variant: small-caps; }
+.fx-holy { text-shadow: 0 0 9px rgba(255,244,200,.85); animation: fx-halo 4.2s ease-in-out infinite; }
+.fx-spirit { background: linear-gradient(90deg, #8ab4f8, #e8d4ff, #9be3d0, #8ab4f8); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: fx-swirl 4.8s ease-in-out infinite; }
+.fx-lamb { text-shadow: 0 0 8px rgba(255,255,255,.8); animation: fx-float 3.8s ease-in-out infinite; }
+.fx-cross { color: #b33a3a; text-shadow: 0 0 7px rgba(179,58,58,.55); animation: fx-beat 3.6s ease-in-out infinite; }
+.fx-covenant { background-image: linear-gradient(#d9b24a, #d9b24a); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1.5px; animation: fx-inscribe 4.5s ease-in-out infinite; }
+.fx-amen { animation: fx-swell 3.6s ease-in-out infinite; }
+.fx-heaven { color: #9cc4f0; text-shadow: 0 0 9px rgba(160,200,255,.7); animation: fx-ascend 4.4s ease-in-out infinite; }
+.fx-angel { text-shadow: 0 0 8px rgba(230,240,255,.9); animation: fx-float 3.2s ease-in-out infinite; }
+.fx-temple { background-image: linear-gradient(#c9a13a, #c9a13a); background-repeat: no-repeat; background-position: 0 100%; background-size: 100% 1.5px; animation: fx-warm 4.6s ease-in-out infinite; }
+.fx-sacrifice { color: #d0733a; text-shadow: 0 0 7px rgba(208,115,58,.5); animation: fx-warm 3.4s ease-in-out infinite; }
+.fx-law { background-image: linear-gradient(currentColor, currentColor); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; animation: fx-inscribe 5.5s ease-in-out infinite; }
+.fx-grace { text-shadow: 0 0 10px rgba(255,200,170,.8); animation: fx-glow 4s ease-in-out infinite; }
+.fx-sin { opacity: .78; color: #b0707a; animation: fx-shudder 3.2s ease-in-out infinite; }
+@keyframes fx-halo { 0%, 100% { text-shadow: 0 0 5px rgba(255,244,200,.4); } 50% { text-shadow: 0 0 14px rgba(255,244,200,1), 0 0 3px rgba(255,244,200,.9); } }
+@keyframes fx-inscribe { 0% { background-size: 0% 1.5px; } 55%, 85% { background-size: 100% 1.5px; } 100% { background-size: 0% 1.5px; background-position: 100% 100%; } }
+@keyframes fx-swell { 0%, 100% { letter-spacing: 0; } 50% { letter-spacing: .08em; } }
+@keyframes fx-ascend { 0%, 100% { top: 0; opacity: .85; } 50% { top: -2px; opacity: 1; } }
+@keyframes fx-shudder { 0%, 100% { left: 0; } 40% { left: -.6px; } 45% { left: .6px; } 50% { left: -.4px; } 55% { left: 0; } }
+@media (prefers-reduced-motion: reduce) { .fx-covenant, .fx-law { background-size: 100% 1px !important; } }
+.wj .fx-tears, .wj .fx-heaven, .wj .fx-sin, .wj .fx-sacrifice, .wj .fx-cross, .wj .fx-heart, .wj .fx-stone, .wj .fx-calm, .wj .fx-dust, .wj .fx-grow, .wj .fx-bread, .wj .fx-thorn, .wj .fx-serpent { color: inherit; }
+.biay-chip { margin: 0 0 8px; } .biay-chip a { text-decoration: none; }
+.biay-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 12px; padding: 8px 12px; border: 1px solid var(--hairline, #8884); border-radius: 10px; font-size: .88rem; }
+.biay-ep { display: flex; align-items: center; gap: 10px; }

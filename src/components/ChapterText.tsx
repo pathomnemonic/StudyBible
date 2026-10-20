@@ -32,10 +32,12 @@ interface Props {
   onStdNote?: (n: number, el: HTMLElement) => void;
   /** words that act out their meaning (fire flickers, water ripples) */
   wordFx?: boolean;
+  /** the words of Jesus, as character ranges by "block.run" */
+  red?: Record<string, [number, number][]> | null;
 }
 
 /** Renders one chapter with paragraph/poetry structure preserved and every verse individually selectable. */
-export default function ChapterText({ chapter, selected, decor, onVerse, lang, density, onMarker, terms, onTerm, figures, stdNotes, onStdNote, wordFx }: Props) {
+export default function ChapterText({ chapter, selected, decor, onVerse, lang, density, onMarker, terms, onTerm, figures, stdNotes, onStdNote, wordFx, red }: Props) {
   const fx = (text: string): React.ReactNode => {
     if (!wordFx || lang !== 'en') return text;
     const hits = findFx(text);
@@ -64,6 +66,22 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
       at = h.end;
     });
     if (at < text.length) out.push(fx(text.slice(at)));
+    return out;
+  };
+  /** a stretch of a run's text, with any words of Jesus inside it in red */
+  const seg = (key: string, text: string, from: number, to: number): React.ReactNode => {
+    const rs = red?.[key];
+    if (!rs) return fx(text.slice(from, to));
+    const out: React.ReactNode[] = [];
+    let at = from;
+    for (const [a, b] of rs) {
+      const s0 = Math.max(a, from), e0 = Math.min(b, to);
+      if (e0 <= s0) continue;
+      if (s0 > at) out.push(fx(text.slice(at, s0)));
+      out.push(<span key={s0} className="wj">{fx(text.slice(s0, e0))}</span>);
+      at = e0;
+    }
+    if (at < to) out.push(fx(text.slice(at, to)));
     return out;
   };
   let cur = 0;
@@ -107,7 +125,7 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
           return (
             <Fragment key={j}>
               {pieces.map((pc, k) => pc.t === 'term' ? (
-                <span key={k} className="term" role="button" tabIndex={0} data-term={pc.id} onClick={(e) => { e.stopPropagation(); onTerm?.(pc.id, e.currentTarget); }} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onTerm?.(pc.id, e.currentTarget); } }}>{text.slice(pc.from, pc.to)}</span>
+                <span key={k} className="term" role="button" tabIndex={0} data-term={pc.id} onClick={(e) => { e.stopPropagation(); onTerm?.(pc.id, e.currentTarget); }} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onTerm?.(pc.id, e.currentTarget); } }} style={red?.[`${i}.${j}`]?.some(([a, b2]) => a <= pc.from && b2 >= pc.to) ? { color: 'var(--wj)' } : undefined}>{text.slice(pc.from, pc.to)}</span>
               ) : (
                 <span
                   key={k}
@@ -125,7 +143,7 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
                   onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onVerse(n, e))}
                 >
                   {showNum && k === 0 && <sup className="vn">{n}</sup>}
-                  {fx(text.slice(pc.from, pc.to))}
+                  {seg(`${i}.${j}`, text, pc.from, pc.to)}
                   {k === lastTextIdx && lastRunOfVerse && d?.note && <span className="mark" title="You have a note here">✎</span>}
                   {k === lastTextIdx && lastRunOfVerse && d?.bookmark && <span className="mark" title="Bookmarked">⚑</span>}
                   {k === lastTextIdx && lastRunOfVerse && fnotes && fnotes.map((f, q) => (

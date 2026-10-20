@@ -23,7 +23,7 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         {chip(false, 'Dyslexia-friendly', () => set({ fontSize: 22, lineHeight: 2, fontFamily: 'dyslexic', letterSpacing: 0.04, wordSpacing: 0.16, plainAlign: true, margin: 'wide' }))}
         {chip(false, 'Low vision (zen contrast, large)', () => set({ fontSize: 32, lineHeight: 1.9, fontFamily: 'hyperlegible', letterSpacing: 0.02, wordSpacing: 0.08, plainAlign: true, margin: 'wide', theme: 'zen', wordFx: false, motes: false, motion: 'none' }))}
       </div>
-      <div style={{ margin: '0 0 6px' }}><button className="btn" onClick={() => set({ theme: DEFAULTS.theme, fontSize: DEFAULTS.fontSize, lineHeight: DEFAULTS.lineHeight, fontFamily: DEFAULTS.fontFamily, letterSpacing: DEFAULTS.letterSpacing, wordSpacing: DEFAULTS.wordSpacing, plainAlign: DEFAULTS.plainAlign, margin: DEFAULTS.margin, motion: DEFAULTS.motion, wordFx: DEFAULTS.wordFx, motes: DEFAULTS.motes })}>Reset reading look to the original</button></div>
+      <div style={{ margin: '0 0 6px' }}><button className="btn" onClick={() => set({ theme: DEFAULTS.theme, fontSize: DEFAULTS.fontSize, lineHeight: DEFAULTS.lineHeight, fontFamily: DEFAULTS.fontFamily, letterSpacing: DEFAULTS.letterSpacing, wordSpacing: DEFAULTS.wordSpacing, plainAlign: DEFAULTS.plainAlign, margin: DEFAULTS.margin, motion: DEFAULTS.motion, wordFx: DEFAULTS.wordFx, redLetters: DEFAULTS.redLetters, motes: DEFAULTS.motes })}>Reset reading look to the original</button></div>
       <label className="row between" style={{ margin: '10px 0' }}>
         <span>Text size</span>
         <input type="range" min={14} max={44} value={s.fontSize} onChange={(e) => set({ fontSize: +e.target.value })} aria-label="Font size" />
@@ -101,6 +101,10 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
       <label className="row between" style={{ margin: '4px 0' }}>
         <span>Let words act out their meaning (fire flickers, water ripples, light glows)</span>
         <input type="checkbox" checked={s.wordFx} onChange={(e) => set({ wordFx: e.target.checked })} aria-label="Words that act out their meaning" />
+      </label>
+      <label className="row between" style={{ margin: '4px 0' }}>
+        <span>Words of Jesus in red</span>
+        <input type="checkbox" checked={s.redLetters} onChange={(e) => set({ redLetters: e.target.checked })} aria-label="Words of Jesus in red" />
       </label>
       <label className="row between" style={{ margin: '4px 0' }}>
         <span>Paintings of the scene, inline</span>

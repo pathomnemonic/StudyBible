@@ -6,7 +6,7 @@ import NoteEditor from './NoteEditor';
 import AddLinkDialog from './AddLinkDialog';
 import { SECTIONS, TABS, gatherAll, relevance, MATCH_LABEL, type SectionKey, type StudyItem } from '../study/providers';
 import { formatRef, parseRefId, refId, type Ref } from '../lib/refs';
-import { passageText } from '../lib/bibleText';
+import { passageText, anchorToNative } from '../lib/bibleText';
 import { useSettings } from '../lib/store';
 import type { EditionRecord } from '../data/loader';
 import { useEditions } from '../data/EditionsContext';
@@ -106,7 +106,12 @@ export default function StudyPanel({
   const hiddenForeign = showOther ? 0 : Object.values(data).flat().filter((i) => i && isReal(i) && foreign(i as StudyItem)).length;
   const activeTab = TABS.find((t) => t.id === tab);
   const filtersOn = !!(authority || period || author);
-  const heading = refs.map((r) => formatRef(r)).join('; ');
+  // Psalm numbers differ (Douay/Vulgate vs most modern Bibles): name the passage the way the open translation numbers it
+  const heading = refs.map((r) => {
+    if (r.book !== 'PSA' || edition?.scheme === 'vulgate' || r.c1 !== r.c2) return formatRef(r);
+    const n = anchorToNative(edition, r);
+    return `${formatRef({ ...r, c1: n.chapter, c2: n.chapter, v1: n.v1, v2: n.v2 }, { noDual: true })} (Douay/Vulgate Psalm ${r.c1})`;
+  }).join('; ');
   const passageIds = refs.map(refId);
   const onNote = (t: Target) => setNoteTargets([t]);
   const open = (i: StudyItem, n: number, arr: StudyItem[], opts: { covers?: string; reading?: boolean } = {}) => (

@@ -72,6 +72,8 @@ export interface Settings {
   inlineArt: boolean;
   /** words that act out their meaning: fire flickers, water ripples, light glows */
   wordFx: boolean;
+  /** the words of Jesus in red, where the translation marks them */
+  redLetters: boolean;
   /** dismissed the one-time "tap a verse" hint */
   hintVerse: boolean;
   /** a soft backdrop that suits the book (or the passage); off keeps the plain theme */
@@ -124,6 +126,7 @@ export const DEFAULTS: Settings = {
   ambienceTipSeen: false,
   inlineArt: true,
   wordFx: true,
+  redLetters: true,
   hintVerse: false,
   atmosphere: 'passage',
   ambience: { kind: 'nature', volume: 0.25, match: false },

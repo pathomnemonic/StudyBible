@@ -497,6 +497,11 @@
   "paths": 15,
   "galaxy-library": 107,
   "art-more": 371,
+  "jesus": {
+   "books": 9,
+   "spans": 2290,
+   "missed": 0
+  },
   "church-docs": 122,
   "curated": {
    "topics": 18,

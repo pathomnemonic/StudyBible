@@ -10,6 +10,7 @@ import RefLink from '../../components/RefLink';
 import Icon from '../../components/Icon';
 import ReadingBlock from '../../components/ReadingBlock';
 import { formatRef } from '../../lib/refs';
+import { feedDay, type FeedDay } from '../../liturgy/usccbFeed';
 
 const localIso = () => {
   const n = new Date();
@@ -22,6 +23,7 @@ export default function ReadingsPage() {
   const [s, set] = useSettings();
   const t = useT();
   const [rd, setRd] = useState<DayReadings | null>(null);
+  const [fd, setFd] = useState<FeedDay | null>(null);
   const [month, setMonth] = useState<LitYear | null>(null);
   const [manual, setManual] = useState<Partial<Record<Slot, string>>>({});
   const [showManual, setShowManual] = useState(false);
@@ -35,6 +37,7 @@ export default function ReadingsPage() {
     setRd(null);
     readingsFor(s.diocese, date).then(setRd);
   }, [date, s.diocese]);
+  useEffect(() => { setFd(null); feedDay(date).then(setFd); }, [date]);
   useEffect(() => {
     loadLitYear(s.diocese, d.getUTCFullYear()).then(setMonth);
   }, [s.diocese, d.getUTCFullYear()]);
@@ -89,9 +92,23 @@ export default function ReadingsPage() {
             ))}
           </div>
         )}
+        {fd && (
+          <div className="card feed-day">
+            <h2>The Lectionary text (NABRE)</h2>
+            <p className="muted small">As published in the USCCB’s daily-readings feed: <a href={fd.link} target="_blank" rel="noreferrer">{fd.title} on bible.usccb.org ↗</a></p>
+            {fd.sections.map((sec) => (
+              <section key={sec.label + sec.ref} className="reading-block">
+                <div className="eyebrow">{sec.label}</div>
+                <h3>{sec.href.startsWith('https://bible.usccb.org/') ? <a href={sec.href} target="_blank" rel="noreferrer">{sec.ref}</a> : sec.ref}</h3>
+                <div className="scripture reading-text">{sec.paragraphs.map((p, i) => <p key={i} dangerouslySetInnerHTML={{ __html: p.html }} />)}</div>
+              </section>
+            ))}
+            <p className="muted small feed-copy">{fd.copyright}</p>
+          </div>
+        )}
         {rd && <div className="notice info">{rd.sourceNote}</div>}
         <div className="notice">
-          The Lectionary wording (NABRE-based in the United States) is copyrighted, so the readings above are the Church’s assigned <em>passages</em>, printed in your chosen translation (change it in Settings). The official text is one tap away.
+          {fd ? 'The passages above are printed in your chosen translation (change it in Settings); the Lectionary text is shown as the USCCB publishes it in its daily-readings feed.' : 'The Lectionary wording (NABRE-based in the United States) is copyrighted, and the USCCB’s feed only covers about the last ten days up to today, so for this date the readings above are the Church’s assigned passages printed in your chosen translation (change it in Settings). The official text is one tap away.'}
         </div>
         <div className="row">
           <a className="btn" href={usccb} target="_blank" rel="noreferrer">{t('readings.official')} ↗</a>
