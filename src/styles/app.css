@@ -3629,3 +3629,8 @@ html[data-silent] .term { border-bottom: 0; } html[data-silent] .term::after { d
 .shelf-card .bar { height: 4px; border-radius: 3px; background: var(--border); overflow: hidden; margin-top: 4px; }
 .shelf-card .bar i { display: block; height: 100%; background: var(--accent); }
 .eyebrow-h { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin: 14px 0 8px; font-weight: 500; }
+
+/* Inline paintings in the reading text */
+.inline-art { margin: 16px auto; max-width: 440px; text-align: center; }
+.inline-art img { width: 100%; max-height: 360px; object-fit: contain; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); display: block; }
+.inline-art figcaption { margin-top: 6px; font-family: var(--font-sans); font-size: .75rem; color: var(--muted); line-height: 1.4; }

@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import type { ChapterData } from '../lib/types';
 import type { HighlightColor } from '../db/db';
 import type { TermMatcher } from '../study/terms';
+import type { InlineFig } from '../study/inlineArt';
 
 export interface VerseDecor {
   highlight?: HighlightColor;
@@ -21,10 +22,12 @@ interface Props {
   /** key words and phrases that sparkle; a click opens a note about the term */
   terms?: TermMatcher | null;
   onTerm?: (id: string, el: HTMLElement) => void;
+  /** paintings of the scene, shown after the given native verse */
+  figures?: Map<number, InlineFig[]>;
 }
 
 /** Renders one chapter with paragraph/poetry structure preserved and every verse individually selectable. */
-export default function ChapterText({ chapter, selected, decor, onVerse, lang, density, onMarker, terms, onTerm }: Props) {
+export default function ChapterText({ chapter, selected, decor, onVerse, lang, density, onMarker, terms, onTerm, figures }: Props) {
   const withTerms = (text: string) => {
     if (!terms) return text;
     const hits = terms.find(text);
@@ -103,10 +106,20 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
             </Fragment>
           );
         });
+        const lastV = runs[lastIdx]?.[0] > 0 ? runs[lastIdx][0] : cur;
+        const figs = figures?.get(lastV);
         return (
-          <div key={i} className={`blk ${kind}`}>
-            {content}
-          </div>
+          <Fragment key={i}>
+            <div className={`blk ${kind}`}>
+              {content}
+            </div>
+            {figs && figs.map((f) => (
+              <figure key={f.id} className="inline-art">
+                <a href={f.page} target="_blank" rel="noreferrer"><img src={`${import.meta.env.BASE_URL}${f.file}`} alt={`${f.title}, ${f.artist}`} loading="lazy" /></a>
+                <figcaption>{f.title}, {f.artist}, {f.date}. {f.credit}. The Metropolitan Museum of Art (public domain).</figcaption>
+              </figure>
+            ))}
+          </Fragment>
         );
       })}
     </div>

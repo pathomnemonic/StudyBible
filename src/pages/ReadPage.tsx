@@ -23,6 +23,7 @@ import TextSettings from '../components/TextSettings';
 import { atmosphereFor, MOOD_SOUND } from '../lib/atmosphere';
 import { setAmbience, stopAmbience } from '../lib/ambience';
 import Motes from '../components/Motes';
+import { artForChapter, type InlineFig } from '../study/inlineArt';
 import { useQuiet, endQuiet } from '../lib/quiet';
 import CompareModal from '../components/CompareModal';
 import ReadAloud from '../components/ReadAloud';
@@ -129,6 +130,22 @@ export default function ReadPage() {
   const flat = useMemo(() => flattenChapter(chapterData), [chapterData]);
   const anchorChapters = useMemo(() => anchorChaptersFor(edition.scheme, bk.id, chNum), [edition.scheme, bk.id, chNum]);
   const primaryAnchorChapter = anchorChapters[0];
+  const [figs, setFigs] = useState<InlineFig[]>([]);
+  useEffect(() => {
+    if (settings.scriptureOnly || settings.inlineArt === false) { setFigs([]); return; }
+    let live = true;
+    artForChapter(bk.id, anchorChapters).then((f) => live && setFigs(f));
+    return () => { live = false; };
+  }, [bk.id, anchorChapters.join(), settings.scriptureOnly, settings.inlineArt]);
+  const figureMap = useMemo(() => {
+    const m = new Map<number, InlineFig[]>();
+    for (const f of figs) {
+      const n = anchorToNative(edition, f.ref);
+      if (n.chapter !== chNum || !n.v1) continue;
+      m.set(n.v2 ?? n.v1, [...(m.get(n.v2 ?? n.v1) ?? []), f]);
+    }
+    return m;
+  }, [figs, edition.id, chNum]);
 
   // native verse -> anchor
   const anchorOf = useMemo(() => {
@@ -598,7 +615,7 @@ export default function ReadPage() {
             {chNum === 1 && data.intro && data.intro.length > 0 && data.intro.map((p, i) => <p key={i} className="subtitle">{p}</p>)}
             {chNum === 1 && bk.note && <div className="notice info">{bk.note}</div>}
             {chapterNote && <div className="notice">{chapterNote}</div>}
-            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
+            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} figures={figureMap} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
             {chapterData.notes && Object.keys(chapterData.notes).length > 0 && (
               <section aria-label="Footnotes" className="subtitle" style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 8 }}>
                 <strong>Notes</strong>

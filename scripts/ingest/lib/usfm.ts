@@ -43,7 +43,8 @@ const NOTE_PLACEHOLDER = /\u0001(\d+)\u0002/g;
 
 export function cleanInline(s: string): string {
   return s
-    .replace(/\\w\s+([^\\|]*?)(?:\|[^\\]*)?\\w\*/g, '$1')
+    .replace(/\\\+?(w|wh)\s+([^\\|]*?)(?:\|[^\\]*)?\\\+?\1\*/g, '$2')
+    .replace(/\\\+(?:add|nd|wj|qt|sc|tl|it|bd|bdit|em|k|sig|pn|ord|dc|sls|bk|ndx|png|rq|qs)\*?\s?/g, '')
     .replace(/\\(?:add|nd|wj|qt|sc|tl|it|bd|bdit|em|k|sig|pn|ord|dc|sls|bk|ndx|png|rq|qs)\*?\s?/g, '')
     .replace(/\\\+?[a-z]+\d?\*/g, '')
     .replace(/\s+/g, ' ');
@@ -52,13 +53,15 @@ export function cleanInline(s: string): string {
 export function parseUsfm(text: string, warn: (msg: string) => void, file = ''): ParsedBook {
   // 1. Extract footnotes (they may span lines) into placeholders.
   const notes: { parts: [string, string][]; text: string }[] = [];
+  // Cross-reference notes (\x + \xo 2:23 \xt Exodus 13:2 \x*) are not text; the app has its own cross-references.
+  text = text.replace(/\\x\s[\s\S]*?\\x\*/g, '');
   const src = text.replace(/\\f\s+[+\-?]\s+([\s\S]*?)\\f\*/g, (_m, body: string) => {
     const parts: [string, string][] = [];
     let lemma = '';
     let buf = '';
     let mode: 'fr' | 'fk' | 'ft' | 'other' = 'other';
     const flush = () => {
-      const t = buf.replace(/\s+/g, ' ').trim();
+      const t = cleanInline(buf).trim();
       if (mode === 'fk') lemma = t;
       else if (mode === 'ft' || mode === 'other') {
         if (t) parts.push([lemma, t]);

@@ -78,6 +78,10 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <span>Sparkle on key words (tap for what they mean)</span>
         <input type="checkbox" checked={s.sparkles} onChange={(e) => set({ sparkles: e.target.checked })} aria-label="Sparkling key words" />
       </label>
+      <label className="row between" style={{ margin: '4px 0' }}>
+        <span>Paintings of the scene, inline</span>
+        <input type="checkbox" checked={s.inlineArt} onChange={(e) => set({ inlineArt: e.target.checked })} aria-label="Inline paintings" />
+      </label>
       <details className="small" style={{ margin: '6px 0' }}>
         <summary>Sound credits and licences</summary>
         <ul className="list">{tracks.map((t) => <li key={t.id}>{t.title}{t.artist ? ` — ${t.artist}` : ''} · {t.sourceUrl ? <a href={t.sourceUrl} target="_blank" rel="noreferrer">{t.license}</a> : t.license}{t.note ? `. ${t.note}` : ''}</li>)}</ul>

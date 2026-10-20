@@ -53,6 +53,8 @@ export interface Settings {
   motes: boolean;
   /** the one-time note about ambience has been shown */
   ambienceTipSeen: boolean;
+  /** paintings of the scene shown inline in the text */
+  inlineArt: boolean;
   /** dismissed the one-time "tap a verse" hint */
   hintVerse: boolean;
   /** a soft backdrop that suits the book (or the passage); off keeps the plain theme */
@@ -96,6 +98,7 @@ export const DEFAULTS: Settings = {
   sparkles: true,
   motes: true,
   ambienceTipSeen: false,
+  inlineArt: true,
   hintVerse: false,
   atmosphere: 'passage',
   ambience: { kind: 'nature', volume: 0.25, match: false },
