@@ -1,0 +1,2181 @@
+{
+ "_about": "How the New Testament quotes, adapts or echoes the Old Testament. Written for this app in its own words; each row says whether the New Testament introduces the text as a citation, or only alludes to it, and (where we are confident) whether its wording follows the Hebrew or the Greek Old Testament (Septuagint). Scholars sometimes disagree about which wording lies behind a quotation. 'Differs' means the wording matches neither form closely.",
+ "entries": [
+  {
+   "refs": [
+    "Matthew 1:23"
+   ],
+   "alt": [
+    "Isaiah 7:14"
+   ],
+   "kind": "citation",
+   "note": "Matthew cites the Greek wording, which has 'virgin' (parthenos). The Hebrew word 'almah' means a young woman of marriageable age; the Greek translators chose 'virgin'.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Matthew 2:6"
+   ],
+   "alt": [
+    "Micah 5:2",
+    "2 Samuel 5:2"
+   ],
+   "kind": "citation",
+   "note": "A blend of Micah's Bethlehem oracle and God's word to David, 'you shall shepherd my people'. Matthew adjusts the wording to stress that Bethlehem is not least among the rulers of Judah.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Matthew 2:15"
+   ],
+   "alt": [
+    "Hosea 11:1"
+   ],
+   "kind": "citation",
+   "note": "Hosea speaks of Israel's exodus ('out of Egypt I called my son'). Matthew reads it as a pattern fulfilled in Jesus. The Hebrew has 'my son'; the Greek Old Testament reads 'his children'.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 2:18"
+   ],
+   "alt": [
+    "Jeremiah 31:15"
+   ],
+   "kind": "citation",
+   "note": "Rachel weeping for her children at Ramah; Jeremiah's lament over the exile is heard again at Bethlehem's slaughter.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 2:23"
+   ],
+   "alt": [
+    "Judges 13:5",
+    "Isaiah 11:1"
+   ],
+   "kind": "allusion",
+   "note": "No single Old Testament text says 'he shall be called a Nazarene'. Proposals include a wordplay on 'branch' (netzer, Isa 11:1), on 'Nazirite' (Judg 13:5), or a summary of the prophets' lowly Messiah.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Matthew 3:3"
+   ],
+   "alt": [
+    "Isaiah 40:3"
+   ],
+   "kind": "citation",
+   "note": "All four Gospels apply Isaiah's 'voice in the wilderness' to John the Baptist. The Greek puts 'in the wilderness' with the voice; the Hebrew puts it with the road to be prepared.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Mark 1:2-3"
+   ],
+   "alt": [
+    "Malachi 3:1",
+    "Exodus 23:20",
+    "Isaiah 40:3"
+   ],
+   "kind": "citation",
+   "note": "Mark attributes a combined quotation to 'Isaiah the prophet'. The first part comes from Malachi and Exodus, the second from Isaiah.",
+   "status": "documented",
+   "wording": "composite"
+  },
+  {
+   "refs": [
+    "Matthew 4:4"
+   ],
+   "alt": [
+    "Deuteronomy 8:3"
+   ],
+   "kind": "citation",
+   "note": "The first of Jesus's three answers to the tempter in the wilderness, each from Deuteronomy, and each recalling Israel's forty years of testing.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Matthew 4:6"
+   ],
+   "alt": [
+    "Psalm 91:11-12"
+   ],
+   "kind": "citation",
+   "note": "The devil quotes Scripture too; Jesus answers by setting another text beside it.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Matthew 4:7"
+   ],
+   "alt": [
+    "Deuteronomy 6:16"
+   ],
+   "kind": "citation",
+   "note": "Israel 'tested the Lord' at Massah (Exodus 17); Jesus refuses to repeat that test.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Matthew 4:10"
+   ],
+   "alt": [
+    "Deuteronomy 6:13"
+   ],
+   "kind": "citation",
+   "note": "'You shall worship the Lord your God and serve him only', the first commandment's heart.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Matthew 4:15-16"
+   ],
+   "alt": [
+    "Isaiah 9:1-2"
+   ],
+   "kind": "citation",
+   "note": "Matthew applies the light shining on 'Galilee of the nations' to the start of Jesus's public ministry.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Matthew 5:21"
+   ],
+   "alt": [
+    "Exodus 20:13",
+    "Deuteronomy 5:17"
+   ],
+   "kind": "allusion",
+   "note": "The first of six 'you have heard... but I say to you' sayings in the Sermon on the Mount, each deepening a commandment.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 5:27"
+   ],
+   "alt": [
+    "Exodus 20:14",
+    "Deuteronomy 5:18"
+   ],
+   "kind": "allusion",
+   "note": "On adultery, moving from the act to the intention of the heart.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 5:31"
+   ],
+   "alt": [
+    "Deuteronomy 24:1"
+   ],
+   "kind": "allusion",
+   "note": "On divorce; Jesus returns to 'the beginning' (Matthew 19:3-9).",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Matthew 5:38"
+   ],
+   "alt": [
+    "Exodus 21:24",
+    "Leviticus 24:20"
+   ],
+   "kind": "allusion",
+   "note": "The 'eye for an eye' rule limited retaliation in court; Jesus teaches non-retaliation in personal wrongs.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Matthew 5:43"
+   ],
+   "alt": [
+    "Leviticus 19:18"
+   ],
+   "kind": "allusion",
+   "note": "'You shall love your neighbour' is in the law; 'hate your enemy' is not, and is likely a common inference Jesus corrects.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 8:17"
+   ],
+   "alt": [
+    "Isaiah 53:4"
+   ],
+   "kind": "citation",
+   "note": "Matthew's own rendering of the Hebrew, applied to Jesus's healings.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Matthew 9:13"
+   ],
+   "alt": [
+    "Hosea 6:6"
+   ],
+   "kind": "citation",
+   "note": "'I desire mercy, not sacrifice', quoted again in Matthew 12:7.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 11:10"
+   ],
+   "alt": [
+    "Malachi 3:1",
+    "Exodus 23:20"
+   ],
+   "kind": "citation",
+   "note": "Jesus identifies John the Baptist as the messenger sent ahead; see also Mark 1:2 and Luke 7:27.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Matthew 12:18-21"
+   ],
+   "alt": [
+    "Isaiah 42:1-4"
+   ],
+   "kind": "citation",
+   "note": "The first Servant Song, applied to Jesus's gentle healing ministry. Matthew's wording is closer to neither the Hebrew nor the standard Greek.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Matthew 12:40"
+   ],
+   "alt": [
+    "Jonah 1:17"
+   ],
+   "kind": "allusion",
+   "note": "The sign of Jonah: three days and three nights in the belly of the fish, set beside the Son of Man in the heart of the earth.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 13:14-15"
+   ],
+   "alt": [
+    "Isaiah 6:9-10"
+   ],
+   "kind": "citation",
+   "note": "The hardening verse of Isaiah's call, quoted in all four Gospels and Acts 28:26-27 to explain why many do not receive Jesus's word.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Mark 4:12"
+   ],
+   "alt": [
+    "Isaiah 6:9-10"
+   ],
+   "kind": "allusion",
+   "note": "Mark's version is brief and troubling; commentators debate whether it describes purpose or result.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "John 12:40"
+   ],
+   "alt": [
+    "Isaiah 6:10"
+   ],
+   "kind": "citation",
+   "note": "John joins Isaiah 6 and Isaiah 53 (verse 38) to explain unbelief.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Acts 28:26-27"
+   ],
+   "alt": [
+    "Isaiah 6:9-10"
+   ],
+   "kind": "citation",
+   "note": "The book of Acts ends with Paul quoting the same text to Jews in Rome.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Matthew 13:35"
+   ],
+   "alt": [
+    "Psalm 78:2"
+   ],
+   "kind": "citation",
+   "note": "Jesus's parables 'utter things hidden since the foundation of the world'.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Matthew 15:4"
+   ],
+   "alt": [
+    "Exodus 20:12",
+    "Deuteronomy 5:16",
+    "Exodus 21:17"
+   ],
+   "kind": "citation",
+   "note": "Jesus uses the fourth commandment against a practice that dedicated goods to the Temple instead of supporting parents.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 15:8-9"
+   ],
+   "alt": [
+    "Isaiah 29:13"
+   ],
+   "kind": "citation",
+   "note": "'This people honours me with their lips'; Matthew and Mark follow the Greek wording.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Matthew 19:4-5"
+   ],
+   "alt": [
+    "Genesis 1:27",
+    "Genesis 2:24"
+   ],
+   "kind": "citation",
+   "note": "On marriage, Jesus goes back past Moses's concession to creation.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Matthew 21:5"
+   ],
+   "alt": [
+    "Zechariah 9:9",
+    "Isaiah 62:11"
+   ],
+   "kind": "citation",
+   "note": "The king comes humble, on a donkey. John 12:15 gives a shorter form.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Matthew 21:9"
+   ],
+   "alt": [
+    "Psalm 118:25-26"
+   ],
+   "kind": "citation",
+   "note": "'Hosanna' ('save, we pray') and 'blessed is he who comes in the name of the Lord', the pilgrim psalm of the feast.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 21:13"
+   ],
+   "alt": [
+    "Isaiah 56:7",
+    "Jeremiah 7:11"
+   ],
+   "kind": "citation",
+   "note": "Two prophets in one saying: the Temple as a house of prayer for all nations, and a robbers' den.",
+   "status": "documented",
+   "wording": "composite"
+  },
+  {
+   "refs": [
+    "Matthew 21:16"
+   ],
+   "alt": [
+    "Psalm 8:2"
+   ],
+   "kind": "citation",
+   "note": "The Greek has 'you have prepared praise'; the Hebrew has 'you have established strength'.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Matthew 21:42"
+   ],
+   "alt": [
+    "Psalm 118:22-23"
+   ],
+   "kind": "citation",
+   "note": "The stone the builders rejected, taken up in Acts 4:11 and 1 Peter 2:7.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 22:32"
+   ],
+   "alt": [
+    "Exodus 3:6"
+   ],
+   "kind": "citation",
+   "note": "Jesus argues the resurrection from God's present-tense self-description: 'I am the God of Abraham'.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 22:37"
+   ],
+   "alt": [
+    "Deuteronomy 6:5"
+   ],
+   "kind": "citation",
+   "note": "The Shema's command to love God, here with 'mind' where Deuteronomy has 'strength'.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Matthew 22:39"
+   ],
+   "alt": [
+    "Leviticus 19:18"
+   ],
+   "kind": "citation",
+   "note": "Love of neighbour, the second commandment 'like' the first.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 22:44"
+   ],
+   "alt": [
+    "Psalm 110:1"
+   ],
+   "kind": "citation",
+   "note": "'The Lord said to my Lord': the most quoted Old Testament verse in the New Testament.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Matthew 24:15"
+   ],
+   "alt": [
+    "Daniel 9:27",
+    "Daniel 11:31",
+    "Daniel 12:11"
+   ],
+   "kind": "allusion",
+   "note": "The 'abomination of desolation'; see also Mark 13:14.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Matthew 26:31"
+   ],
+   "alt": [
+    "Zechariah 13:7"
+   ],
+   "kind": "citation",
+   "note": "'I will strike the shepherd, and the sheep will be scattered', spoken on the night of the arrest.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Matthew 26:64"
+   ],
+   "alt": [
+    "Daniel 7:13",
+    "Psalm 110:1"
+   ],
+   "kind": "allusion",
+   "note": "Before the high priest Jesus joins two texts: the Son of Man coming on the clouds and being seated at God's right hand.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Matthew 27:9-10"
+   ],
+   "alt": [
+    "Zechariah 11:12-13",
+    "Jeremiah 19:1-13"
+   ],
+   "kind": "citation",
+   "note": "Matthew names Jeremiah but the thirty pieces of silver appear in Zechariah; Jeremiah supplies the potter and the field. Scholars explain it as a combined citation under the better-known prophet.",
+   "status": "documented",
+   "wording": "composite"
+  },
+  {
+   "refs": [
+    "Matthew 27:46"
+   ],
+   "alt": [
+    "Psalm 22:1"
+   ],
+   "kind": "citation",
+   "note": "The cry from the cross opens Psalm 22, a prayer that moves from abandonment to praise. Mark 15:34 keeps the Aramaic.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Mark 12:29-30"
+   ],
+   "alt": [
+    "Deuteronomy 6:4-5"
+   ],
+   "kind": "citation",
+   "note": "The Shema as the first of all the commandments.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Luke 4:18-19"
+   ],
+   "alt": [
+    "Isaiah 61:1-2",
+    "Isaiah 58:6"
+   ],
+   "kind": "citation",
+   "note": "In the Nazareth synagogue Jesus reads a combined text, stopping before 'the day of vengeance', and says it is fulfilled today.",
+   "status": "documented",
+   "wording": "composite"
+  },
+  {
+   "refs": [
+    "Luke 4:25-27"
+   ],
+   "alt": [
+    "1 Kings 17:8-24",
+    "2 Kings 5:1-14"
+   ],
+   "kind": "allusion",
+   "note": "The widow of Zarephath and Naaman the Syrian: prophets sent to outsiders, which angers the hearers.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Luke 2:23"
+   ],
+   "alt": [
+    "Exodus 13:2",
+    "Exodus 13:12"
+   ],
+   "kind": "allusion",
+   "note": "The presentation of the firstborn in the Temple.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "John 1:23"
+   ],
+   "alt": [
+    "Isaiah 40:3"
+   ],
+   "kind": "citation",
+   "note": "John the Baptist in his own words.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "John 2:17"
+   ],
+   "alt": [
+    "Psalm 69:9"
+   ],
+   "kind": "citation",
+   "note": "'Zeal for your house will consume me', remembered by the disciples after the cleansing of the Temple.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "John 6:31"
+   ],
+   "alt": [
+    "Psalm 78:24",
+    "Exodus 16:4"
+   ],
+   "kind": "citation",
+   "note": "'He gave them bread from heaven to eat', the text on which the Bread of Life discourse is built.",
+   "status": "documented",
+   "wording": "composite"
+  },
+  {
+   "refs": [
+    "John 6:45"
+   ],
+   "alt": [
+    "Isaiah 54:13"
+   ],
+   "kind": "citation",
+   "note": "'They shall all be taught by God'.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "John 10:34"
+   ],
+   "alt": [
+    "Psalm 82:6"
+   ],
+   "kind": "citation",
+   "note": "'I said, you are gods', used in a short argument from the lesser to the greater.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "John 12:13"
+   ],
+   "alt": [
+    "Psalm 118:25-26"
+   ],
+   "kind": "citation",
+   "note": "The Palm Sunday acclamation.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "John 12:15"
+   ],
+   "alt": [
+    "Zechariah 9:9"
+   ],
+   "kind": "citation",
+   "note": "'Fear not, daughter of Zion'; John's version is shorter than Matthew's.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "John 12:38"
+   ],
+   "alt": [
+    "Isaiah 53:1"
+   ],
+   "kind": "citation",
+   "note": "'Lord, who has believed our report?'",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "John 13:18"
+   ],
+   "alt": [
+    "Psalm 41:9"
+   ],
+   "kind": "citation",
+   "note": "'He who ate my bread has lifted his heel against me', applied to the betrayal.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "John 15:25"
+   ],
+   "alt": [
+    "Psalm 69:4",
+    "Psalm 35:19"
+   ],
+   "kind": "citation",
+   "note": "'They hated me without a cause'.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "John 19:24"
+   ],
+   "alt": [
+    "Psalm 22:18"
+   ],
+   "kind": "citation",
+   "note": "'They divided my garments among them', which John links closely to the soldiers' dividing of the clothes.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "John 19:36"
+   ],
+   "alt": [
+    "Exodus 12:46",
+    "Numbers 9:12",
+    "Psalm 34:20"
+   ],
+   "kind": "citation",
+   "note": "'Not a bone of him shall be broken', which recalls both the Passover lamb and the righteous sufferer.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "John 19:37"
+   ],
+   "alt": [
+    "Zechariah 12:10"
+   ],
+   "kind": "citation",
+   "note": "'They shall look on him whom they have pierced'; the Hebrew has 'on me', which John reads as God's own pierced one.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Acts 1:20"
+   ],
+   "alt": [
+    "Psalm 69:25",
+    "Psalm 109:8"
+   ],
+   "kind": "citation",
+   "note": "Peter uses two psalms of the betrayed righteous sufferer to justify choosing a replacement for Judas.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Acts 2:17-21"
+   ],
+   "alt": [
+    "Joel 2:28-32"
+   ],
+   "kind": "citation",
+   "note": "Peter explains Pentecost as the outpouring of the Spirit promised through Joel, adding 'in the last days'.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Acts 2:25-28"
+   ],
+   "alt": [
+    "Psalm 16:8-11"
+   ],
+   "kind": "citation",
+   "note": "Peter reads David's confidence that God will not abandon his soul to the grave as speaking of the resurrection.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Acts 2:34-35"
+   ],
+   "alt": [
+    "Psalm 110:1"
+   ],
+   "kind": "citation",
+   "note": "Peter's proof that David's lord is the risen Jesus.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Acts 3:22-23"
+   ],
+   "alt": [
+    "Deuteronomy 18:15-19"
+   ],
+   "kind": "citation",
+   "note": "The 'prophet like Moses'; quoted again by Stephen in Acts 7:37.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Acts 3:25"
+   ],
+   "alt": [
+    "Genesis 22:18"
+   ],
+   "kind": "citation",
+   "note": "'In your seed all the families of the earth shall be blessed'.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Acts 4:25-26"
+   ],
+   "alt": [
+    "Psalm 2:1-2"
+   ],
+   "kind": "citation",
+   "note": "The nations raging, applied to the opposition to Jesus in Jerusalem.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Acts 8:32-33"
+   ],
+   "alt": [
+    "Isaiah 53:7-8"
+   ],
+   "kind": "citation",
+   "note": "The Ethiopian official reads the Suffering Servant and Philip tells him the good news of Jesus.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Acts 13:33"
+   ],
+   "alt": [
+    "Psalm 2:7"
+   ],
+   "kind": "citation",
+   "note": "'You are my Son, today I have begotten you' applied to the resurrection.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Acts 13:47"
+   ],
+   "alt": [
+    "Isaiah 49:6"
+   ],
+   "kind": "citation",
+   "note": "A light for the nations, claimed by Paul and Barnabas as their own mission.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Acts 15:16-17"
+   ],
+   "alt": [
+    "Amos 9:11-12"
+   ],
+   "kind": "citation",
+   "note": "James quotes the Greek form, 'that the rest of mankind may seek the Lord'. The Hebrew has 'that they may possess the remnant of Edom'. The two readings differ by a few letters, and the Greek reading supports Gentile inclusion.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Romans 1:17"
+   ],
+   "alt": [
+    "Habakkuk 2:4"
+   ],
+   "kind": "citation",
+   "note": "'The righteous shall live by faith'. The Hebrew has 'his faith'; the Greek Old Testament has 'my faith'; Paul leaves the pronoun out.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Romans 3:4"
+   ],
+   "alt": [
+    "Psalm 51:4"
+   ],
+   "kind": "citation",
+   "note": "God proved right in his words.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Romans 3:10-18"
+   ],
+   "alt": [
+    "Psalm 14:1-3",
+    "Psalm 5:9",
+    "Psalm 140:3",
+    "Psalm 10:7",
+    "Isaiah 59:7-8",
+    "Psalm 36:1"
+   ],
+   "kind": "citation",
+   "note": "A chain of quotations on universal sinfulness, assembled from psalms and Isaiah.",
+   "status": "documented",
+   "wording": "composite"
+  },
+  {
+   "refs": [
+    "Romans 4:3"
+   ],
+   "alt": [
+    "Genesis 15:6"
+   ],
+   "kind": "citation",
+   "note": "'Abraham believed God, and it was reckoned to him as righteousness', the centre of Paul's argument in Romans 4 and Galatians 3.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Romans 4:7-8"
+   ],
+   "alt": [
+    "Psalm 32:1-2"
+   ],
+   "kind": "citation",
+   "note": "David's blessing on the one whose sin is covered.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Romans 8:36"
+   ],
+   "alt": [
+    "Psalm 44:22"
+   ],
+   "kind": "citation",
+   "note": "'For your sake we are being killed all the day long'.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Romans 9:7"
+   ],
+   "alt": [
+    "Genesis 21:12"
+   ],
+   "kind": "citation",
+   "note": "'Through Isaac shall your offspring be named'.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Romans 9:13"
+   ],
+   "alt": [
+    "Malachi 1:2-3"
+   ],
+   "kind": "citation",
+   "note": "'Jacob I loved, but Esau I hated', a Semitic contrast of choice rather than an emotion.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Romans 9:15"
+   ],
+   "alt": [
+    "Exodus 33:19"
+   ],
+   "kind": "citation",
+   "note": "'I will have mercy on whom I have mercy'.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Romans 9:25-26"
+   ],
+   "alt": [
+    "Hosea 2:23",
+    "Hosea 1:10"
+   ],
+   "kind": "citation",
+   "note": "'Not my people' called 'my people', applied to the Gentiles.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Romans 9:33"
+   ],
+   "alt": [
+    "Isaiah 28:16",
+    "Isaiah 8:14"
+   ],
+   "kind": "citation",
+   "note": "The stone of stumbling and the cornerstone are joined in one quotation, also found in 1 Peter 2:6-8.",
+   "status": "documented",
+   "wording": "composite"
+  },
+  {
+   "refs": [
+    "Romans 10:5"
+   ],
+   "alt": [
+    "Leviticus 18:5"
+   ],
+   "kind": "citation",
+   "note": "'The one who does the commandments shall live by them', contrasted with the righteousness of faith.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Romans 10:6-8"
+   ],
+   "alt": [
+    "Deuteronomy 30:12-14"
+   ],
+   "kind": "citation",
+   "note": "Paul re-reads Moses's 'the word is near you' as the word of faith about Christ.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Romans 10:13"
+   ],
+   "alt": [
+    "Joel 2:32"
+   ],
+   "kind": "citation",
+   "note": "'Everyone who calls on the name of the Lord shall be saved', with 'Lord' now read as Jesus.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Romans 10:15"
+   ],
+   "alt": [
+    "Isaiah 52:7"
+   ],
+   "kind": "citation",
+   "note": "'How beautiful are the feet of those who bring good news'.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Romans 10:18"
+   ],
+   "alt": [
+    "Psalm 19:4"
+   ],
+   "kind": "citation",
+   "note": "The voice of creation goes to all the earth.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Romans 11:3-4"
+   ],
+   "alt": [
+    "1 Kings 19:10",
+    "1 Kings 19:14",
+    "1 Kings 19:18"
+   ],
+   "kind": "citation",
+   "note": "Elijah and the seven thousand: a remnant chosen by grace.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Romans 11:26-27"
+   ],
+   "alt": [
+    "Isaiah 59:20-21",
+    "Isaiah 27:9"
+   ],
+   "kind": "citation",
+   "note": "'The Deliverer will come from Zion'. The Hebrew has 'to Zion'; Paul follows a form closer to the Greek.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Romans 12:19"
+   ],
+   "alt": [
+    "Deuteronomy 32:35"
+   ],
+   "kind": "citation",
+   "note": "'Vengeance is mine'.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Romans 12:20"
+   ],
+   "alt": [
+    "Proverbs 25:21-22"
+   ],
+   "kind": "citation",
+   "note": "'If your enemy is hungry, feed him'.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Romans 15:3"
+   ],
+   "alt": [
+    "Psalm 69:9"
+   ],
+   "kind": "citation",
+   "note": "'The reproaches of those who reproached you fell on me.'",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Romans 15:12"
+   ],
+   "alt": [
+    "Isaiah 11:10"
+   ],
+   "kind": "citation",
+   "note": "The root of Jesse, in whom the Gentiles hope.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "1 Corinthians 1:19"
+   ],
+   "alt": [
+    "Isaiah 29:14"
+   ],
+   "kind": "citation",
+   "note": "'I will destroy the wisdom of the wise'.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "1 Corinthians 1:31"
+   ],
+   "alt": [
+    "Jeremiah 9:24"
+   ],
+   "kind": "citation",
+   "note": "'Let the one who boasts boast in the Lord.'",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "1 Corinthians 2:9"
+   ],
+   "alt": [
+    "Isaiah 64:4"
+   ],
+   "kind": "citation",
+   "note": "'What no eye has seen'. Paul's wording is looser than any known form of Isaiah.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "1 Corinthians 2:16"
+   ],
+   "alt": [
+    "Isaiah 40:13"
+   ],
+   "kind": "citation",
+   "note": "'Who has known the mind of the Lord?'",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "1 Corinthians 6:16"
+   ],
+   "alt": [
+    "Genesis 2:24"
+   ],
+   "kind": "citation",
+   "note": "'The two shall become one flesh', applied to sexual union.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "1 Corinthians 9:9"
+   ],
+   "alt": [
+    "Deuteronomy 25:4"
+   ],
+   "kind": "citation",
+   "note": "'You shall not muzzle an ox while it treads out the grain', applied to supporting ministers.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "1 Corinthians 10:7"
+   ],
+   "alt": [
+    "Exodus 32:6"
+   ],
+   "kind": "citation",
+   "note": "The golden calf as a warning, in a chapter that reads the Exodus as a pattern for the Church.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "1 Corinthians 15:27"
+   ],
+   "alt": [
+    "Psalm 8:6"
+   ],
+   "kind": "allusion",
+   "note": "'He has put all things in subjection under his feet.'",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "1 Corinthians 15:45"
+   ],
+   "alt": [
+    "Genesis 2:7"
+   ],
+   "kind": "citation",
+   "note": "The first man Adam became a living being; the last Adam became a life-giving spirit.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "1 Corinthians 15:54"
+   ],
+   "alt": [
+    "Isaiah 25:8"
+   ],
+   "kind": "citation",
+   "note": "'Death is swallowed up in victory'.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "1 Corinthians 15:55"
+   ],
+   "alt": [
+    "Hosea 13:14"
+   ],
+   "kind": "citation",
+   "note": "'O death, where is your sting?'",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "2 Corinthians 4:13"
+   ],
+   "alt": [
+    "Psalm 116:10"
+   ],
+   "kind": "citation",
+   "note": "'I believed, and so I spoke.'",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "2 Corinthians 6:2"
+   ],
+   "alt": [
+    "Isaiah 49:8"
+   ],
+   "kind": "citation",
+   "note": "'Now is the acceptable time'.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "2 Corinthians 6:16"
+   ],
+   "alt": [
+    "Leviticus 26:12",
+    "Ezekiel 37:27"
+   ],
+   "kind": "citation",
+   "note": "'I will live in them and walk among them', the promise of God's dwelling applied to the Church.",
+   "status": "documented",
+   "wording": "composite"
+  },
+  {
+   "refs": [
+    "2 Corinthians 9:9"
+   ],
+   "alt": [
+    "Psalm 112:9"
+   ],
+   "kind": "citation",
+   "note": "'He has distributed freely, he has given to the poor.'",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Galatians 3:6"
+   ],
+   "alt": [
+    "Genesis 15:6"
+   ],
+   "kind": "citation",
+   "note": "Abraham's faith as the pattern.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Galatians 3:8"
+   ],
+   "alt": [
+    "Genesis 12:3"
+   ],
+   "kind": "citation",
+   "note": "'In you shall all the nations be blessed.'",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Galatians 3:10"
+   ],
+   "alt": [
+    "Deuteronomy 27:26"
+   ],
+   "kind": "citation",
+   "note": "'Cursed be everyone who does not abide by all things written in the book of the law.'",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Galatians 3:11"
+   ],
+   "alt": [
+    "Habakkuk 2:4"
+   ],
+   "kind": "citation",
+   "note": "'The righteous shall live by faith.'",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Galatians 3:13"
+   ],
+   "alt": [
+    "Deuteronomy 21:23"
+   ],
+   "kind": "citation",
+   "note": "'Cursed is everyone who hangs on a tree', applied to the cross.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Galatians 3:16"
+   ],
+   "alt": [
+    "Genesis 12:7",
+    "Genesis 13:15"
+   ],
+   "kind": "allusion",
+   "note": "Paul presses the singular 'offspring' (seed) in the promises to Abraham.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Galatians 4:27"
+   ],
+   "alt": [
+    "Isaiah 54:1"
+   ],
+   "kind": "citation",
+   "note": "'Rejoice, O barren one.'",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Galatians 4:30"
+   ],
+   "alt": [
+    "Genesis 21:10"
+   ],
+   "kind": "citation",
+   "note": "'Cast out the slave and her son'; part of Paul's allegory of Hagar and Sarah.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Galatians 5:14"
+   ],
+   "alt": [
+    "Leviticus 19:18"
+   ],
+   "kind": "citation",
+   "note": "The whole law fulfilled in one word: love your neighbour.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Ephesians 4:8"
+   ],
+   "alt": [
+    "Psalm 68:18"
+   ],
+   "kind": "citation",
+   "note": "Paul writes 'he gave gifts', where the Hebrew has 'you received gifts'. The Aramaic Targum and the Syriac have the form Paul uses.",
+   "status": "documented",
+   "wording": "differs"
+  },
+  {
+   "refs": [
+    "Ephesians 4:26"
+   ],
+   "alt": [
+    "Psalm 4:4"
+   ],
+   "kind": "citation",
+   "note": "'Be angry and do not sin.'",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Ephesians 5:31"
+   ],
+   "alt": [
+    "Genesis 2:24"
+   ],
+   "kind": "citation",
+   "note": "Quoted for marriage, followed by 'this mystery is profound'.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Ephesians 6:2-3"
+   ],
+   "alt": [
+    "Exodus 20:12",
+    "Deuteronomy 5:16"
+   ],
+   "kind": "citation",
+   "note": "The only commandment with a promise attached.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Hebrews 1:5"
+   ],
+   "alt": [
+    "Psalm 2:7",
+    "2 Samuel 7:14"
+   ],
+   "kind": "citation",
+   "note": "The opening chain of seven quotations proves the Son's superiority to angels.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Hebrews 1:6"
+   ],
+   "alt": [
+    "Deuteronomy 32:43"
+   ],
+   "kind": "citation",
+   "note": "'Let all God's angels worship him.' This line is not in the Hebrew text we have; it appears in the Greek Old Testament and in a Dead Sea Scrolls manuscript of Deuteronomy.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Hebrews 1:8-9"
+   ],
+   "alt": [
+    "Psalm 45:6-7"
+   ],
+   "kind": "citation",
+   "note": "The royal wedding psalm applied to the Son.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Hebrews 1:10-12"
+   ],
+   "alt": [
+    "Psalm 102:25-27"
+   ],
+   "kind": "citation",
+   "note": "The Lord who laid the foundation of the earth.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Hebrews 1:13"
+   ],
+   "alt": [
+    "Psalm 110:1"
+   ],
+   "kind": "citation",
+   "note": "The seat at God's right hand.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Hebrews 2:6-8"
+   ],
+   "alt": [
+    "Psalm 8:4-6"
+   ],
+   "kind": "citation",
+   "note": "Hebrews reads Psalm 8 of Jesus, and follows the Greek 'a little lower than the angels' where the Hebrew says 'than God (elohim)'.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Hebrews 3:7-11"
+   ],
+   "alt": [
+    "Psalm 95:7-11"
+   ],
+   "kind": "citation",
+   "note": "The wilderness generation as a warning: 'Today, if you hear his voice'.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Hebrews 5:6"
+   ],
+   "alt": [
+    "Psalm 110:4"
+   ],
+   "kind": "citation",
+   "note": "'A priest forever after the order of Melchizedek.'",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Hebrews 8:8-12"
+   ],
+   "alt": [
+    "Jeremiah 31:31-34"
+   ],
+   "kind": "citation",
+   "note": "The longest Old Testament quotation in the New Testament, on the new covenant.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Hebrews 9:20"
+   ],
+   "alt": [
+    "Exodus 24:8"
+   ],
+   "kind": "citation",
+   "note": "'This is the blood of the covenant', echoed at the Last Supper.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Hebrews 10:5-7"
+   ],
+   "alt": [
+    "Psalm 40:6-8"
+   ],
+   "kind": "citation",
+   "note": "'A body you have prepared for me.' The Hebrew has 'ears you have dug for me'; the Greek translators gave the sense differently.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Hebrews 10:37-38"
+   ],
+   "alt": [
+    "Habakkuk 2:3-4",
+    "Isaiah 26:20"
+   ],
+   "kind": "citation",
+   "note": "The coming one will not delay; the righteous one lives by faith.",
+   "status": "documented",
+   "wording": "composite"
+  },
+  {
+   "refs": [
+    "Hebrews 12:5-6"
+   ],
+   "alt": [
+    "Proverbs 3:11-12"
+   ],
+   "kind": "citation",
+   "note": "The Lord disciplines the one he loves.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Hebrews 13:5"
+   ],
+   "alt": [
+    "Deuteronomy 31:6",
+    "Joshua 1:5"
+   ],
+   "kind": "citation",
+   "note": "'I will never leave you nor forsake you.'",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "James 2:23"
+   ],
+   "alt": [
+    "Genesis 15:6"
+   ],
+   "kind": "citation",
+   "note": "The same verse Paul uses, read by James to show how faith is completed by action.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "James 4:6"
+   ],
+   "alt": [
+    "Proverbs 3:34"
+   ],
+   "kind": "citation",
+   "note": "'God opposes the proud but gives grace to the humble.' Also quoted in 1 Peter 5:5.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "1 Peter 1:16"
+   ],
+   "alt": [
+    "Leviticus 11:44",
+    "Leviticus 19:2"
+   ],
+   "kind": "citation",
+   "note": "'You shall be holy, for I am holy.'",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "1 Peter 1:24-25"
+   ],
+   "alt": [
+    "Isaiah 40:6-8"
+   ],
+   "kind": "citation",
+   "note": "'The word of the Lord remains forever.'",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "1 Peter 2:6"
+   ],
+   "alt": [
+    "Isaiah 28:16"
+   ],
+   "kind": "citation",
+   "note": "The cornerstone laid in Zion.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "1 Peter 2:7"
+   ],
+   "alt": [
+    "Psalm 118:22"
+   ],
+   "kind": "citation",
+   "note": "The rejected stone.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "1 Peter 2:9"
+   ],
+   "alt": [
+    "Exodus 19:5-6",
+    "Isaiah 43:20-21"
+   ],
+   "kind": "allusion",
+   "note": "'A chosen race, a royal priesthood, a holy nation': Israel's titles given to the Church.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "1 Peter 2:22"
+   ],
+   "alt": [
+    "Isaiah 53:9"
+   ],
+   "kind": "citation",
+   "note": "'He committed no sin, neither was deceit found in his mouth.'",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "1 Peter 3:10-12"
+   ],
+   "alt": [
+    "Psalm 34:12-16"
+   ],
+   "kind": "citation",
+   "note": "A long quotation on seeking peace.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "2 Peter 2:22"
+   ],
+   "alt": [
+    "Proverbs 26:11"
+   ],
+   "kind": "citation",
+   "note": "'The dog returns to its own vomit.'",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Jude 1:14-15"
+   ],
+   "alt": [
+    "Genesis 5:18-24"
+   ],
+   "kind": "allusion",
+   "note": "Jude quotes the book of Enoch (1 Enoch 1:9), which is not part of the Catholic canon. He cites it as a known prophecy, not as Scripture in the strict sense.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Revelation 1:7"
+   ],
+   "alt": [
+    "Daniel 7:13",
+    "Zechariah 12:10"
+   ],
+   "kind": "allusion",
+   "note": "'Coming with the clouds' and 'every eye will see him, even those who pierced him' are joined.",
+   "status": "documented",
+   "wording": "composite"
+  },
+  {
+   "refs": [
+    "Revelation 1:13-16"
+   ],
+   "alt": [
+    "Daniel 7:9-13",
+    "Daniel 10:5-6"
+   ],
+   "kind": "allusion",
+   "note": "The vision of one like a Son of Man draws on Daniel's Ancient of Days and the radiant man of Daniel 10.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Revelation 4:8"
+   ],
+   "alt": [
+    "Isaiah 6:3"
+   ],
+   "kind": "allusion",
+   "note": "The seraphim's 'Holy, holy, holy' sung around the throne.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Revelation 5:5"
+   ],
+   "alt": [
+    "Genesis 49:9-10",
+    "Isaiah 11:1"
+   ],
+   "kind": "allusion",
+   "note": "The Lion of Judah and the Root of David.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Revelation 7:17"
+   ],
+   "alt": [
+    "Isaiah 25:8",
+    "Isaiah 49:10"
+   ],
+   "kind": "allusion",
+   "note": "God wipes away every tear and the Lamb shepherds the redeemed.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Revelation 21:1"
+   ],
+   "alt": [
+    "Isaiah 65:17",
+    "Isaiah 66:22"
+   ],
+   "kind": "allusion",
+   "note": "A new heaven and a new earth.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Revelation 21:3"
+   ],
+   "alt": [
+    "Ezekiel 37:27",
+    "Leviticus 26:11-12"
+   ],
+   "kind": "allusion",
+   "note": "'The dwelling of God is with man', the covenant promise fulfilled.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Revelation 22:1-2"
+   ],
+   "alt": [
+    "Ezekiel 47:1-12",
+    "Genesis 2:9-10"
+   ],
+   "kind": "allusion",
+   "note": "The river of life and the tree of life, bringing Eden and Ezekiel's temple river together.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Luke 1:46-55"
+   ],
+   "alt": [
+    "1 Samuel 2:1-10"
+   ],
+   "kind": "echo",
+   "note": "Mary's Magnificat echoes Hannah's song at the birth of Samuel, and draws on many psalms.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Luke 1:68-79"
+   ],
+   "alt": [
+    "Psalm 106:10",
+    "Psalm 111:9",
+    "Malachi 3:1"
+   ],
+   "kind": "echo",
+   "note": "Zechariah's Benedictus is stitched from Old Testament phrases about redemption and the dawn.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Luke 24:44"
+   ],
+   "alt": [
+    "Psalm 22:1-31",
+    "Isaiah 53:1-12",
+    "Deuteronomy 18:15"
+   ],
+   "kind": "allusion",
+   "note": "The risen Jesus says the law, the prophets and the psalms speak of him.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Mark 14:62"
+   ],
+   "alt": [
+    "Daniel 7:13",
+    "Psalm 110:1"
+   ],
+   "kind": "allusion",
+   "note": "The Son of Man at God's right hand.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Mark 15:34"
+   ],
+   "alt": [
+    "Psalm 22:1"
+   ],
+   "kind": "citation",
+   "note": "The cry of dereliction in Aramaic.",
+   "status": "documented",
+   "wording": "hebrew"
+  },
+  {
+   "refs": [
+    "Mark 15:24"
+   ],
+   "alt": [
+    "Psalm 22:18"
+   ],
+   "kind": "allusion",
+   "note": "The casting of lots for his clothes.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Luke 23:46"
+   ],
+   "alt": [
+    "Psalm 31:5"
+   ],
+   "kind": "citation",
+   "note": "'Into your hands I commit my spirit.'",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Matthew 11:5"
+   ],
+   "alt": [
+    "Isaiah 35:5-6",
+    "Isaiah 61:1"
+   ],
+   "kind": "allusion",
+   "note": "The works answering John's question are the signs promised by Isaiah.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Matthew 21:33"
+   ],
+   "alt": [
+    "Isaiah 5:1-7"
+   ],
+   "kind": "allusion",
+   "note": "The parable of the tenants rewrites Isaiah's song of the vineyard.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "John 15:1"
+   ],
+   "alt": [
+    "Isaiah 5:1-7",
+    "Psalm 80:8-16"
+   ],
+   "kind": "allusion",
+   "note": "'I am the true vine' answers the picture of Israel as God's vine.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "John 10:11"
+   ],
+   "alt": [
+    "Ezekiel 34:11-16"
+   ],
+   "kind": "allusion",
+   "note": "The Good Shepherd takes up God's promise to shepherd his flock himself.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "John 1:14"
+   ],
+   "alt": [
+    "Exodus 33:7-11",
+    "Exodus 40:34-35"
+   ],
+   "kind": "allusion",
+   "note": "'The Word became flesh and dwelt (tabernacled) among us' echoes the tent of meeting and the glory filling it.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "John 3:14"
+   ],
+   "alt": [
+    "Numbers 21:8-9"
+   ],
+   "kind": "allusion",
+   "note": "The bronze serpent lifted up in the wilderness as a sign of the Son of Man lifted up.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "1 Corinthians 5:7"
+   ],
+   "alt": [
+    "Exodus 12:21"
+   ],
+   "kind": "allusion",
+   "note": "'Christ our Passover lamb has been sacrificed.'",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "1 Corinthians 10:1-4"
+   ],
+   "alt": [
+    "Exodus 13:21",
+    "Exodus 14:21-22",
+    "Exodus 16:4",
+    "Exodus 17:6"
+   ],
+   "kind": "allusion",
+   "note": "Paul reads the cloud, the sea, the manna and the rock as baptism and food for the people of God.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Hebrews 11:5"
+   ],
+   "alt": [
+    "Genesis 5:24"
+   ],
+   "kind": "allusion",
+   "note": "Enoch was taken up; the Greek says 'he pleased God', the Hebrew 'walked with God'.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Romans 5:12-21"
+   ],
+   "alt": [
+    "Genesis 3:1-24"
+   ],
+   "kind": "allusion",
+   "note": "The first Adam and the last Adam set side by side.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "Philippians 2:10-11"
+   ],
+   "alt": [
+    "Isaiah 45:23"
+   ],
+   "kind": "allusion",
+   "note": "Every knee shall bow, here said of Jesus as Lord.",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Colossians 1:15"
+   ],
+   "alt": [
+    "Genesis 1:26-27",
+    "Proverbs 8:22-31"
+   ],
+   "kind": "allusion",
+   "note": "The Son as the image of the invisible God and the firstborn of creation echoes the creation of man in God's image and personified Wisdom.",
+   "status": "documented",
+   "wording": "free"
+  },
+  {
+   "refs": [
+    "1 Timothy 5:18"
+   ],
+   "alt": [
+    "Deuteronomy 25:4"
+   ],
+   "kind": "citation",
+   "note": "The labourer deserves his wages, here joined with a saying of Jesus (Luke 10:7).",
+   "status": "documented",
+   "wording": "lxx"
+  },
+  {
+   "refs": [
+    "Titus 2:14"
+   ],
+   "alt": [
+    "Exodus 19:5",
+    "Ezekiel 37:23",
+    "Psalm 130:8"
+   ],
+   "kind": "allusion",
+   "note": "A people for his own possession.",
+   "status": "documented",
+   "wording": "free"
+  }
+ ]
+}

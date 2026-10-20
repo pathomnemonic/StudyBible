@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19",
+ "generated": "2026-10-20",
  "errors": [],
  "warnings": [
   "biay: Day 184 (2026) has no resolvable passages",
@@ -437,6 +437,14 @@
    "miracles": 35,
    "prophecies": 36,
    "covenants": 7
+  },
+  "lens": {
+   "customs": 79,
+   "quotes": 176,
+   "structure": 39,
+   "versions": 26,
+   "witnesses": 26,
+   "wordnotes": 45
   },
   "homilies": {
    "word-on-fire": 268,

@@ -1,0 +1,1172 @@
+{
+ "_about": "How a passage is built: acrostics, refrains, inclusios, chiasms, sandwiches and outlines. 'Textual fact' means the pattern is on the face of the text; 'proposed' means a respected reading that not every scholar shares. Written for this app in its own words.",
+ "entries": [
+  {
+   "refs": [
+    "Genesis 1:1-2:3"
+   ],
+   "title": "Creation as a framework of days",
+   "kind": "framework",
+   "status": "proposed",
+   "note": "The days are often read in two triads: days 1–3 give form (light, sky and sea, land and plants) and days 4–6 fill it (lights, birds and fish, animals and humans). Day 7 stands apart. Readers differ on how literally to take the days; the pattern itself is a widely noticed feature of the text.",
+   "parts": [
+    {
+     "label": "Day 1 · light",
+     "ref": "Genesis 1:3-5"
+    },
+    {
+     "label": "Day 2 · sky and waters",
+     "ref": "Genesis 1:6-8"
+    },
+    {
+     "label": "Day 3 · land and plants",
+     "ref": "Genesis 1:9-13"
+    },
+    {
+     "label": "Day 4 · sun, moon and stars",
+     "ref": "Genesis 1:14-19",
+     "note": "answers day 1"
+    },
+    {
+     "label": "Day 5 · sea and sky creatures",
+     "ref": "Genesis 1:20-23",
+     "note": "answers day 2"
+    },
+    {
+     "label": "Day 6 · land creatures and humans",
+     "ref": "Genesis 1:24-31",
+     "note": "answers day 3"
+    },
+    {
+     "label": "Day 7 · rest",
+     "ref": "Genesis 2:1-3"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Genesis 6:9-9:17"
+   ],
+   "title": "The Flood as a symmetrical story",
+   "kind": "chiasm",
+   "status": "proposed",
+   "note": "Many scholars (for example Gordon Wenham) see the Flood story as a mirror: the waters rise for 150 days, then fall for 150 days, and the centre is 'God remembered Noah' (8:1). Exact divisions differ between readers.",
+   "parts": [
+    {
+     "label": "Noah's family and the instructions",
+     "ref": "Genesis 6:9-7:10"
+    },
+    {
+     "label": "The flood rises",
+     "ref": "Genesis 7:11-24"
+    },
+    {
+     "label": "God remembered Noah (centre)",
+     "ref": "Genesis 8:1"
+    },
+    {
+     "label": "The waters recede",
+     "ref": "Genesis 8:2-14"
+    },
+    {
+     "label": "The covenant and the rainbow",
+     "ref": "Genesis 8:15-9:17",
+     "note": "answers the opening"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Exodus 25:1-40:38"
+   ],
+   "title": "The tabernacle commanded and then built",
+   "kind": "parallel",
+   "status": "textual-fact",
+   "note": "The instructions for the tabernacle (Exodus 25–31) are followed by a long account of its being made (35–40) in nearly the same words, and the end of the book repeats 'as the Lord commanded Moses'.",
+   "parts": [
+    {
+     "label": "Instructions",
+     "ref": "Exodus 25:1-31:18"
+    },
+    {
+     "label": "The golden calf interrupts",
+     "ref": "Exodus 32:1-34:35"
+    },
+    {
+     "label": "Construction",
+     "ref": "Exodus 35:1-39:43"
+    },
+    {
+     "label": "The glory fills the tent",
+     "ref": "Exodus 40:1-38"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Deuteronomy 1:1-34:12"
+   ],
+   "title": "A covenant renewal in the form of a treaty",
+   "kind": "framework",
+   "status": "proposed",
+   "note": "Many scholars compare the book with ancient suzerain treaties: introduction, history, laws, blessings and curses, and provision for succession. The comparison helps to explain the book's structure; not everyone accepts a strict parallel.",
+   "parts": [
+    {
+     "label": "Introduction",
+     "ref": "Deuteronomy 1:1-5"
+    },
+    {
+     "label": "Historical prologue",
+     "ref": "Deuteronomy 1:6-4:49"
+    },
+    {
+     "label": "Basic commandments",
+     "ref": "Deuteronomy 5:1-11:32"
+    },
+    {
+     "label": "Detailed laws",
+     "ref": "Deuteronomy 12:1-26:19"
+    },
+    {
+     "label": "Covenant ceremony, blessings and curses",
+     "ref": "Deuteronomy 27:1-30:20"
+    },
+    {
+     "label": "Moses's last words and death",
+     "ref": "Deuteronomy 31:1-34:12"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Judges 2:11-19"
+   ],
+   "title": "The cycle of the judges",
+   "kind": "refrain",
+   "status": "textual-fact",
+   "note": "The narrator describes the pattern in advance: Israel does evil, is handed over to oppressors, cries out, and a judge delivers them; then the cycle starts again. The pattern is repeated through the book with variations.",
+   "parts": [
+    {
+     "label": "Israel does evil",
+     "ref": "Judges 2:11-13"
+    },
+    {
+     "label": "The Lord gives them into the hands of enemies",
+     "ref": "Judges 2:14-15"
+    },
+    {
+     "label": "The Lord raises up judges",
+     "ref": "Judges 2:16-18"
+    },
+    {
+     "label": "They return to evil after the judge dies",
+     "ref": "Judges 2:19"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Job 1:1-42:17"
+   ],
+   "title": "Job in three parts",
+   "kind": "framework",
+   "status": "textual-fact",
+   "note": "A prose frame (chapters 1–2 and 42:7-17) surrounds a long poem in which Job and his friends speak in three rounds, followed by Elihu and then God's speeches from the whirlwind.",
+   "parts": [
+    {
+     "label": "Prologue in prose",
+     "ref": "Job 1:1-2:13"
+    },
+    {
+     "label": "Job's lament",
+     "ref": "Job 3:1-26"
+    },
+    {
+     "label": "Three cycles of speeches",
+     "ref": "Job 4:1-27:23"
+    },
+    {
+     "label": "Poem on wisdom",
+     "ref": "Job 28:1-28"
+    },
+    {
+     "label": "Job's final plea",
+     "ref": "Job 29:1-31:40"
+    },
+    {
+     "label": "Elihu",
+     "ref": "Job 32:1-37:24"
+    },
+    {
+     "label": "The Lord answers from the whirlwind",
+     "ref": "Job 38:1-41:34"
+    },
+    {
+     "label": "Job's response and epilogue",
+     "ref": "Job 42:1-17"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Psalm 1:1-150:6"
+   ],
+   "title": "The Psalter in five books",
+   "kind": "framework",
+   "status": "textual-fact",
+   "note": "The Hebrew Psalter is divided into five books, each ending with a doxology (41:13, 72:18-19, 89:52, 106:48; Psalm 150 closes the whole). The divisions echo the five books of Moses. Numbers here are the Hebrew/English numbering.",
+   "parts": [
+    {
+     "label": "Book I",
+     "ref": "Psalm 1:1-41:13"
+    },
+    {
+     "label": "Book II",
+     "ref": "Psalm 42:1-72:20"
+    },
+    {
+     "label": "Book III",
+     "ref": "Psalm 73:1-89:52"
+    },
+    {
+     "label": "Book IV",
+     "ref": "Psalm 90:1-106:48"
+    },
+    {
+     "label": "Book V",
+     "ref": "Psalm 107:1-150:6"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Psalm 8:1-9"
+   ],
+   "title": "A frame around a short psalm",
+   "kind": "inclusio",
+   "status": "textual-fact",
+   "note": "The psalm opens and closes with the same line: 'O Lord, our Lord, how majestic is your name in all the earth.'",
+   "parts": [
+    {
+     "label": "Opening line",
+     "ref": "Psalm 8:1"
+    },
+    {
+     "label": "The child and the stars",
+     "ref": "Psalm 8:2-4"
+    },
+    {
+     "label": "Crowned with glory",
+     "ref": "Psalm 8:5-8"
+    },
+    {
+     "label": "Closing line",
+     "ref": "Psalm 8:9"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Psalm 119:1-176"
+   ],
+   "title": "An alphabetic acrostic",
+   "kind": "acrostic",
+   "status": "textual-fact",
+   "note": "The psalm has twenty-two stanzas of eight verses, one for each letter of the Hebrew alphabet, and every verse in a stanza begins with that letter. The pattern does not show in translation.",
+   "parts": [
+    {
+     "label": "Aleph",
+     "ref": "Psalm 119:1-8"
+    },
+    {
+     "label": "Beth",
+     "ref": "Psalm 119:9-16"
+    },
+    {
+     "label": "Gimel",
+     "ref": "Psalm 119:17-24"
+    },
+    {
+     "label": "Daleth",
+     "ref": "Psalm 119:25-32"
+    },
+    {
+     "label": "He",
+     "ref": "Psalm 119:33-40"
+    },
+    {
+     "label": "Waw",
+     "ref": "Psalm 119:41-48"
+    },
+    {
+     "label": "Zayin",
+     "ref": "Psalm 119:49-56"
+    },
+    {
+     "label": "Heth",
+     "ref": "Psalm 119:57-64"
+    },
+    {
+     "label": "Teth",
+     "ref": "Psalm 119:65-72"
+    },
+    {
+     "label": "Yodh",
+     "ref": "Psalm 119:73-80"
+    },
+    {
+     "label": "Kaph",
+     "ref": "Psalm 119:81-88"
+    },
+    {
+     "label": "Lamedh",
+     "ref": "Psalm 119:89-96"
+    },
+    {
+     "label": "Mem",
+     "ref": "Psalm 119:97-104"
+    },
+    {
+     "label": "Nun",
+     "ref": "Psalm 119:105-112"
+    },
+    {
+     "label": "Samekh",
+     "ref": "Psalm 119:113-120"
+    },
+    {
+     "label": "Ayin",
+     "ref": "Psalm 119:121-128"
+    },
+    {
+     "label": "Pe",
+     "ref": "Psalm 119:129-136"
+    },
+    {
+     "label": "Tsadhe",
+     "ref": "Psalm 119:137-144"
+    },
+    {
+     "label": "Qoph",
+     "ref": "Psalm 119:145-152"
+    },
+    {
+     "label": "Resh",
+     "ref": "Psalm 119:153-160"
+    },
+    {
+     "label": "Shin",
+     "ref": "Psalm 119:161-168"
+    },
+    {
+     "label": "Taw",
+     "ref": "Psalm 119:169-176"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Psalm 25:1-22",
+    "Psalm 34:1-22",
+    "Psalm 37:1-40",
+    "Psalm 111:1-10",
+    "Psalm 112:1-10",
+    "Psalm 145:1-21"
+   ],
+   "title": "Acrostic psalms",
+   "kind": "acrostic",
+   "status": "textual-fact",
+   "note": "Several psalms are built so that each verse (or pair of verses) begins with the next letter of the Hebrew alphabet: Psalms 9–10, 25, 34, 37, 111, 112, 119 and 145. Some have a letter missing or out of place.",
+   "parts": [
+    {
+     "label": "Acrostic psalms"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Psalm 22:1-31"
+   ],
+   "title": "From lament to praise",
+   "kind": "framework",
+   "status": "proposed",
+   "note": "Psalm 22 moves from the cry of abandonment (vv. 1–21) to praise and testimony (vv. 22–31), with a turning point at the words 'you have answered me'.",
+   "parts": [
+    {
+     "label": "Cry of abandonment",
+     "ref": "Psalm 22:1-11"
+    },
+    {
+     "label": "The suffering described",
+     "ref": "Psalm 22:12-21"
+    },
+    {
+     "label": "Turning point",
+     "ref": "Psalm 22:21-22"
+    },
+    {
+     "label": "Praise and testimony",
+     "ref": "Psalm 22:22-31"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Psalm 42:1-43:5"
+   ],
+   "title": "One psalm with a refrain",
+   "kind": "refrain",
+   "status": "textual-fact",
+   "note": "Psalms 42 and 43 were originally one poem. Three times the same question comes back: 'Why are you cast down, my soul?' (42:5, 42:11, 43:5).",
+   "parts": [
+    {
+     "label": "First round",
+     "ref": "Psalm 42:1-5"
+    },
+    {
+     "label": "Second round",
+     "ref": "Psalm 42:6-11"
+    },
+    {
+     "label": "Third round",
+     "ref": "Psalm 43:1-5"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Psalm 107:1-43"
+   ],
+   "title": "A refrain for four rescues",
+   "kind": "refrain",
+   "status": "textual-fact",
+   "note": "Four groups (wanderers, prisoners, the sick, sailors) cry to the Lord and are rescued, each marked by the same lines of refrain (vv. 6, 13, 19, 28 and 8, 15, 21, 31).",
+   "parts": [
+    {
+     "label": "Lost in the desert",
+     "ref": "Psalm 107:4-9"
+    },
+    {
+     "label": "Prisoners",
+     "ref": "Psalm 107:10-16"
+    },
+    {
+     "label": "The sick",
+     "ref": "Psalm 107:17-22"
+    },
+    {
+     "label": "Sailors",
+     "ref": "Psalm 107:23-32"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Psalm 136:1-26"
+   ],
+   "title": "A litany",
+   "kind": "refrain",
+   "status": "textual-fact",
+   "note": "Every verse ends with the same line: 'for his steadfast love endures for ever.'",
+   "parts": [
+    {
+     "label": "A litany"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Proverbs 31:10-31"
+   ],
+   "title": "The woman of worth, an acrostic",
+   "kind": "acrostic",
+   "status": "textual-fact",
+   "note": "The poem on the capable woman has twenty-two verses, each beginning with the next letter of the Hebrew alphabet.",
+   "parts": [
+    {
+     "label": "The woman of worth, an acrostic"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Lamentations 1:1-5:22"
+   ],
+   "title": "Five laments",
+   "kind": "acrostic",
+   "status": "textual-fact",
+   "note": "Chapters 1, 2, 3 and 4 are acrostics in the Hebrew alphabet (chapter 3 has three verses for each letter). Chapter 5 has twenty-two verses but is not acrostic.",
+   "parts": [
+    {
+     "label": "Lament 1",
+     "ref": "Lamentations 1:1-22"
+    },
+    {
+     "label": "Lament 2",
+     "ref": "Lamentations 2:1-22"
+    },
+    {
+     "label": "Lament 3",
+     "ref": "Lamentations 3:1-66"
+    },
+    {
+     "label": "Lament 4",
+     "ref": "Lamentations 4:1-22"
+    },
+    {
+     "label": "Lament 5",
+     "ref": "Lamentations 5:1-22"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Isaiah 42:1-4",
+    "Isaiah 49:1-6",
+    "Isaiah 50:4-9",
+    "Isaiah 52:13-53:12"
+   ],
+   "title": "The Servant Songs",
+   "kind": "proposed",
+   "status": "proposed",
+   "note": "Since the 1890s scholars have picked out four poems in Isaiah 40–55 about God's 'servant'. Whether they form a separate set, and who the servant is (Israel, a prophet, a future king), is debated. The New Testament applies them to Jesus.",
+   "parts": [
+    {
+     "label": "First song",
+     "ref": "Isaiah 42:1-4"
+    },
+    {
+     "label": "Second song",
+     "ref": "Isaiah 49:1-6"
+    },
+    {
+     "label": "Third song",
+     "ref": "Isaiah 50:4-9"
+    },
+    {
+     "label": "Fourth song",
+     "ref": "Isaiah 52:13-53:12"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Isaiah 52:13-53:12"
+   ],
+   "title": "The fourth Servant Song in five stanzas",
+   "kind": "framework",
+   "status": "proposed",
+   "note": "The poem is often read as five stanzas of about three verses each: the Lord's announcement; the astonished onlookers; the confession of the speakers; the Servant's silent death; and the Lord's concluding word.",
+   "parts": [
+    {
+     "label": "Announcement",
+     "ref": "Isaiah 52:13-15"
+    },
+    {
+     "label": "Who has believed?",
+     "ref": "Isaiah 53:1-3"
+    },
+    {
+     "label": "Confession",
+     "ref": "Isaiah 53:4-6"
+    },
+    {
+     "label": "Silent death",
+     "ref": "Isaiah 53:7-9"
+    },
+    {
+     "label": "Vindication",
+     "ref": "Isaiah 53:10-12"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Jeremiah 11:18-12:6",
+    "Jeremiah 15:10-21",
+    "Jeremiah 17:14-18",
+    "Jeremiah 18:18-23",
+    "Jeremiah 20:7-18"
+   ],
+   "title": "Jeremiah's 'confessions'",
+   "kind": "proposed",
+   "status": "proposed",
+   "note": "Five passages in which the prophet speaks to God in his own voice, in the form of laments, are often grouped as 'confessions'. The grouping is modern.",
+   "parts": [
+    {
+     "label": "First",
+     "ref": "Jeremiah 11:18-12:6"
+    },
+    {
+     "label": "Second",
+     "ref": "Jeremiah 15:10-21"
+    },
+    {
+     "label": "Third",
+     "ref": "Jeremiah 17:14-18"
+    },
+    {
+     "label": "Fourth",
+     "ref": "Jeremiah 18:18-23"
+    },
+    {
+     "label": "Fifth",
+     "ref": "Jeremiah 20:7-18"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Daniel 2:4-7:28"
+   ],
+   "title": "The Aramaic chapters as a chiasm",
+   "kind": "chiasm",
+   "status": "proposed",
+   "note": "The section written in Aramaic is often read as a mirror: the four kingdoms in ch. 2 correspond to the four beasts in ch. 7; the fiery furnace (3) to the lions' den (6); and the two stories of a proud king (4 and 5) form the centre.",
+   "parts": [
+    {
+     "label": "A · Four kingdoms",
+     "ref": "Daniel 2:1-49"
+    },
+    {
+     "label": "B · The fiery furnace",
+     "ref": "Daniel 3:1-30"
+    },
+    {
+     "label": "C · Nebuchadnezzar's humbling",
+     "ref": "Daniel 4:1-37"
+    },
+    {
+     "label": "C' · Belshazzar's fall",
+     "ref": "Daniel 5:1-31"
+    },
+    {
+     "label": "B' · The lions' den",
+     "ref": "Daniel 6:1-28"
+    },
+    {
+     "label": "A' · Four beasts",
+     "ref": "Daniel 7:1-28"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Amos 1:3-2:16"
+   ],
+   "title": "Judgement on the nations, closing in on Israel",
+   "kind": "refrain",
+   "status": "textual-fact",
+   "note": "Each oracle begins 'For three transgressions of ... and for four'. Eight nations are named in turn, and the circle tightens until it reaches Israel itself.",
+   "parts": [
+    {
+     "label": "Damascus",
+     "ref": "Amos 1:3-5"
+    },
+    {
+     "label": "Gaza",
+     "ref": "Amos 1:6-8"
+    },
+    {
+     "label": "Tyre",
+     "ref": "Amos 1:9-10"
+    },
+    {
+     "label": "Edom",
+     "ref": "Amos 1:11-12"
+    },
+    {
+     "label": "Ammon",
+     "ref": "Amos 1:13-15"
+    },
+    {
+     "label": "Moab",
+     "ref": "Amos 2:1-3"
+    },
+    {
+     "label": "Judah",
+     "ref": "Amos 2:4-5"
+    },
+    {
+     "label": "Israel",
+     "ref": "Amos 2:6-16"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Jonah 1:1-4:11"
+   ],
+   "title": "Two halves that answer each other",
+   "kind": "parallel",
+   "status": "proposed",
+   "note": "The book falls into two matching halves: a call, a response, and an encounter with foreigners (sailors in chapters 1–2, Ninevites in 3–4). The same words ('the great city', 'arise, go') recur.",
+   "parts": [
+    {
+     "label": "The call and flight",
+     "ref": "Jonah 1:1-3"
+    },
+    {
+     "label": "Sailors and the storm",
+     "ref": "Jonah 1:4-16"
+    },
+    {
+     "label": "Prayer in the fish",
+     "ref": "Jonah 1:17-2:10"
+    },
+    {
+     "label": "The call renewed",
+     "ref": "Jonah 3:1-3"
+    },
+    {
+     "label": "Nineveh repents",
+     "ref": "Jonah 3:4-10"
+    },
+    {
+     "label": "Jonah's anger and God's question",
+     "ref": "Jonah 4:1-11"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Matthew 5:1-7:29"
+   ],
+   "title": "The first of five discourses",
+   "kind": "framework",
+   "status": "textual-fact",
+   "note": "Matthew arranges the teaching of Jesus into five long discourses, each closed with a similar formula: 'when Jesus had finished these sayings' (7:28; 11:1; 13:53; 19:1; 26:1). Many see a parallel to the five books of Moses.",
+   "parts": [
+    {
+     "label": "The Sermon on the Mount",
+     "ref": "Matthew 5:1-7:29"
+    },
+    {
+     "label": "Mission discourse",
+     "ref": "Matthew 10:1-11:1"
+    },
+    {
+     "label": "Parables of the kingdom",
+     "ref": "Matthew 13:1-53"
+    },
+    {
+     "label": "Community discourse",
+     "ref": "Matthew 18:1-19:1"
+    },
+    {
+     "label": "Discourse on the end",
+     "ref": "Matthew 24:1-26:1"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Matthew 5:3-12"
+   ],
+   "title": "The Beatitudes framed by the kingdom",
+   "kind": "inclusio",
+   "status": "textual-fact",
+   "note": "The first and eighth beatitudes end with the same promise, 'for theirs is the kingdom of heaven' (5:3 and 5:10), and both are in the present tense. The others are in the future tense.",
+   "parts": [
+    {
+     "label": "The Beatitudes framed by the kingdom"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Mark 5:21-43"
+   ],
+   "title": "A story inside a story",
+   "kind": "sandwich",
+   "status": "textual-fact",
+   "note": "Mark begins the raising of Jairus's daughter, interrupts it with the healing of the woman with a haemorrhage, and then returns to Jairus. Each story illuminates the other: faith, touch and the number twelve.",
+   "parts": [
+    {
+     "label": "Jairus asks for help",
+     "ref": "Mark 5:21-24"
+    },
+    {
+     "label": "The woman with the haemorrhage",
+     "ref": "Mark 5:25-34"
+    },
+    {
+     "label": "Jairus's daughter is raised",
+     "ref": "Mark 5:35-43"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Mark 11:12-25"
+   ],
+   "title": "The fig tree and the Temple",
+   "kind": "sandwich",
+   "status": "textual-fact",
+   "note": "The cursing of the fig tree is split by the cleansing of the Temple. Many read the two as interpreting each other: a tree with leaves and no fruit, and a Temple with worship and no justice.",
+   "parts": [
+    {
+     "label": "Jesus curses the fig tree",
+     "ref": "Mark 11:12-14"
+    },
+    {
+     "label": "The Temple is cleansed",
+     "ref": "Mark 11:15-19"
+    },
+    {
+     "label": "The withered fig tree",
+     "ref": "Mark 11:20-25"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Mark 3:20-35"
+   ],
+   "title": "The family and the scribes",
+   "kind": "sandwich",
+   "status": "textual-fact",
+   "note": "The story of Jesus's family coming to seize him is split by the scribes' charge that he works through Beelzebul.",
+   "parts": [
+    {
+     "label": "His family come",
+     "ref": "Mark 3:20-21"
+    },
+    {
+     "label": "The scribes' accusation",
+     "ref": "Mark 3:22-30"
+    },
+    {
+     "label": "His true family",
+     "ref": "Mark 3:31-35"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Mark 14:53-72"
+   ],
+   "title": "Peter in the courtyard and Jesus on trial",
+   "kind": "sandwich",
+   "status": "textual-fact",
+   "note": "Peter's denials are woven around Jesus's trial before the council. Peter denies him while Jesus confesses.",
+   "parts": [
+    {
+     "label": "Peter follows",
+     "ref": "Mark 14:53-54"
+    },
+    {
+     "label": "Jesus before the council",
+     "ref": "Mark 14:55-65"
+    },
+    {
+     "label": "Peter's denials",
+     "ref": "Mark 14:66-72"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Mark 8:22-10:52"
+   ],
+   "title": "The way section between two blind men",
+   "kind": "framework",
+   "status": "proposed",
+   "note": "This long section is framed by two healings of blind men (8:22-26 and 10:46-52). In between, Jesus three times foretells his passion and the disciples fail to understand: a journey on which they gradually learn to see.",
+   "parts": [
+    {
+     "label": "Bethsaida: a blind man healed",
+     "ref": "Mark 8:22-26"
+    },
+    {
+     "label": "Peter's confession",
+     "ref": "Mark 8:27-30"
+    },
+    {
+     "label": "First prediction of the passion",
+     "ref": "Mark 8:31-9:1"
+    },
+    {
+     "label": "Second prediction",
+     "ref": "Mark 9:30-32"
+    },
+    {
+     "label": "Third prediction",
+     "ref": "Mark 10:32-34"
+    },
+    {
+     "label": "Jericho: Bartimaeus sees",
+     "ref": "Mark 10:46-52"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Luke 9:51-19:44"
+   ],
+   "title": "The journey to Jerusalem",
+   "kind": "framework",
+   "status": "textual-fact",
+   "note": "Luke marks the beginning with 'he set his face to go to Jerusalem' and presents a long block of teaching and parables along the way, much of it found only in Luke.",
+   "parts": [
+    {
+     "label": "He sets his face",
+     "ref": "Luke 9:51-56"
+    },
+    {
+     "label": "Teaching on the road",
+     "ref": "Luke 10:1-18:30"
+    },
+    {
+     "label": "The final approach",
+     "ref": "Luke 18:31-19:44"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Luke 15:1-32"
+   ],
+   "title": "Three parables of the lost",
+   "kind": "parallel",
+   "status": "textual-fact",
+   "note": "The lost sheep, the lost coin and the lost son share a pattern: something is lost, found, and celebrated. The third parable extends the pattern with the elder brother.",
+   "parts": [
+    {
+     "label": "The lost sheep",
+     "ref": "Luke 15:3-7"
+    },
+    {
+     "label": "The lost coin",
+     "ref": "Luke 15:8-10"
+    },
+    {
+     "label": "The lost son and the elder brother",
+     "ref": "Luke 15:11-32"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "John 20:30-31",
+    "John 2:1-11"
+   ],
+   "title": "The signs in John",
+   "kind": "framework",
+   "status": "proposed",
+   "note": "John says that he has written down signs so that readers may believe (20:30-31). The first two signs are numbered (2:11; 4:54). The usual list of seven: water to wine, the official's son, the paralytic, the five thousand, walking on water, the man born blind, Lazarus. Scholars differ on whether walking on water counts.",
+   "parts": [
+    {
+     "label": "Water into wine",
+     "ref": "John 2:1-11"
+    },
+    {
+     "label": "The official's son",
+     "ref": "John 4:46-54"
+    },
+    {
+     "label": "The paralytic at the pool",
+     "ref": "John 5:1-15"
+    },
+    {
+     "label": "Feeding the five thousand",
+     "ref": "John 6:1-14"
+    },
+    {
+     "label": "Walking on the sea",
+     "ref": "John 6:16-21"
+    },
+    {
+     "label": "The man born blind",
+     "ref": "John 9:1-41"
+    },
+    {
+     "label": "The raising of Lazarus",
+     "ref": "John 11:1-44"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "John 6:35",
+    "John 8:12",
+    "John 10:7",
+    "John 10:11",
+    "John 11:25",
+    "John 14:6",
+    "John 15:1"
+   ],
+   "title": "The seven 'I am' sayings",
+   "kind": "framework",
+   "status": "textual-fact",
+   "note": "In John, Jesus says 'I am' followed by an image seven times: the bread of life, the light of the world, the door, the good shepherd, the resurrection and the life, the way the truth and the life, and the true vine.",
+   "parts": [
+    {
+     "label": "The bread of life",
+     "ref": "John 6:35"
+    },
+    {
+     "label": "The light of the world",
+     "ref": "John 8:12"
+    },
+    {
+     "label": "The door of the sheep",
+     "ref": "John 10:7"
+    },
+    {
+     "label": "The good shepherd",
+     "ref": "John 10:11"
+    },
+    {
+     "label": "The resurrection and the life",
+     "ref": "John 11:25"
+    },
+    {
+     "label": "The way, the truth and the life",
+     "ref": "John 14:6"
+    },
+    {
+     "label": "The true vine",
+     "ref": "John 15:1"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Acts 1:8"
+   ],
+   "title": "The outline of Acts",
+   "kind": "framework",
+   "status": "textual-fact",
+   "note": "The risen Christ gives the plan of the book: witnesses in Jerusalem, in all Judea and Samaria, and to the ends of the earth.",
+   "parts": [
+    {
+     "label": "Jerusalem",
+     "ref": "Acts 1:1-8:3"
+    },
+    {
+     "label": "Judea and Samaria",
+     "ref": "Acts 8:4-12:25"
+    },
+    {
+     "label": "To the ends of the earth",
+     "ref": "Acts 13:1-28:31"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "1 Corinthians 13:1-13"
+   ],
+   "title": "The hymn to love",
+   "kind": "framework",
+   "status": "proposed",
+   "note": "The chapter divides naturally into three parts: love is necessary (vv. 1–3), what love is (vv. 4–7), and love endures (vv. 8–13). Some call the whole a small chiasm.",
+   "parts": [
+    {
+     "label": "Without love, nothing",
+     "ref": "1 Corinthians 13:1-3"
+    },
+    {
+     "label": "What love does",
+     "ref": "1 Corinthians 13:4-7"
+    },
+    {
+     "label": "Love never ends",
+     "ref": "1 Corinthians 13:8-13"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Philippians 2:6-11"
+   ],
+   "title": "The hymn of Christ",
+   "kind": "framework",
+   "status": "proposed",
+   "note": "Many scholars think Paul is quoting an early hymn in two stanzas: Christ's descent into humiliation, then God's exaltation of him. Whether it was an earlier hymn is debated.",
+   "parts": [
+    {
+     "label": "Though in the form of God he emptied himself",
+     "ref": "Philippians 2:6-8"
+    },
+    {
+     "label": "Therefore God has exalted him",
+     "ref": "Philippians 2:9-11"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Colossians 1:15-20"
+   ],
+   "title": "The hymn to the firstborn",
+   "kind": "framework",
+   "status": "proposed",
+   "note": "This passage is often read as a hymn in two parts: Christ as firstborn of all creation, and as firstborn from the dead. The parallels between the two parts are a debated feature.",
+   "parts": [
+    {
+     "label": "Firstborn of all creation",
+     "ref": "Colossians 1:15-17"
+    },
+    {
+     "label": "Firstborn from the dead",
+     "ref": "Colossians 1:18-20"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Hebrews 11:1-40"
+   ],
+   "title": "The litany 'by faith'",
+   "kind": "refrain",
+   "status": "textual-fact",
+   "note": "The chapter lists the heroes of Israel by repeating the words 'by faith' at the start of each example.",
+   "parts": [
+    {
+     "label": "The litany 'by faith'"
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Revelation 1:1-22:21"
+   ],
+   "title": "Sets of seven",
+   "kind": "framework",
+   "status": "textual-fact",
+   "note": "Revelation is built from series of seven: seven letters, seven seals, seven trumpets and seven bowls, interleaved with visions. How the series relate (in sequence or as repeated views of the same events) is debated.",
+   "parts": [
+    {
+     "label": "Seven letters",
+     "ref": "Revelation 2:1-3:22"
+    },
+    {
+     "label": "Seven seals",
+     "ref": "Revelation 6:1-8:5"
+    },
+    {
+     "label": "Seven trumpets",
+     "ref": "Revelation 8:6-11:19"
+    },
+    {
+     "label": "The woman, the dragon and the beasts",
+     "ref": "Revelation 12:1-14:20"
+    },
+    {
+     "label": "Seven bowls",
+     "ref": "Revelation 15:1-16:21"
+    },
+    {
+     "label": "Fall of Babylon",
+     "ref": "Revelation 17:1-19:10"
+    },
+    {
+     "label": "The end and the new Jerusalem",
+     "ref": "Revelation 19:11-22:5"
+    }
+   ]
+  }
+ ]
+}

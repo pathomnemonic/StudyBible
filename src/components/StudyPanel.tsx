@@ -349,7 +349,7 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
   const { get } = useEditions();
   const toast = useToast();
   const ed = get(edition.id) ?? edition;
-  const target = item.xrefTarget && item.section === 'xref' ? parseRefId(item.xrefTarget) : null;
+  const target = item.xrefTarget && ['xref', 'quotes', 'parallels'].includes(item.section) ? parseRefId(item.xrefTarget) : null;
   useEffect(() => {
     if (!target || !expanded || preview) return;
     passageText(ed, target, 6).then(setPreview);
@@ -394,6 +394,20 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
         <div className="ex" lang={item.lang}>
           {text}
         </div>
+      )}
+      {item.parts && item.parts.length > 0 && (
+        <ol className="parts">
+          {item.parts.map((p, n) => {
+            const r = p.ref ? parseRefId(p.ref) : null;
+            return (
+              <li key={n}>
+                <span className="pl">{p.label}</span>
+                {r && <button className="linklike" onClick={() => onOpenPassage(r)}>{formatRef(r, { noDual: true })}</button>}
+                {p.note && <span className="pn"> {p.note}</span>}
+              </li>
+            );
+          })}
+        </ol>
       )}
       {target && (
         <>

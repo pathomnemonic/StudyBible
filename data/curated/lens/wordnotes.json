@@ -1,0 +1,365 @@
+{
+ "_about": "Places where a familiar English word hides a distinction in the original language, or where the Greek or Hebrew allows more than one reading. Written for this app in its own words; it states the options and does not choose between them unless the language does.",
+ "entries": [
+  {
+   "refs": [
+    "Genesis 1:1"
+   ],
+   "title": "'In the beginning' or 'when God began'",
+   "kind": "ambiguity",
+   "note": "The opening Hebrew word (bereshit) can be read as 'in the beginning' (as most translations and the Greek and Latin versions do) or as 'in the beginning of God's creating', which makes verse 1 a clause that leads into verse 2 or 3. Both readings are grammatically possible."
+  },
+  {
+   "refs": [
+    "Genesis 1:2"
+   ],
+   "title": "'Spirit', 'wind' or 'breath' of God",
+   "kind": "ambiguity",
+   "note": "The Hebrew ruach means wind, breath or spirit, and 'of God' can also work as a superlative ('a mighty wind'). The Church Fathers took it as the Holy Spirit; many modern translations leave the choice open in a note."
+  },
+  {
+   "refs": [
+    "Genesis 2:7"
+   ],
+   "title": "A living 'soul' or a living 'being'",
+   "kind": "translation",
+   "note": "Hebrew nephesh, often translated 'soul' (Latin anima), basically means a living creature, a person, or a throat or appetite. The same word is used of animals in Genesis 1:20-24. The translation 'living being' shows this; 'soul' brings in later ideas."
+  },
+  {
+   "refs": [
+    "Genesis 3:15"
+   ],
+   "title": "'He', 'she' or 'it' will crush",
+   "kind": "translation",
+   "note": "The Hebrew has a masculine pronoun (hu), the Greek Old Testament has the masculine 'he' (autos), and the Latin Vulgate in its common form has 'she' (ipsa), which is why the Douay-Rheims reads 'she shall crush thy head'. The Church has read the verse as pointing to Christ and, in him, to Mary; the Latin pronoun is an old reading, not the Hebrew."
+  },
+  {
+   "refs": [
+    "Genesis 6:2"
+   ],
+   "title": "'Sons of God'",
+   "kind": "ambiguity",
+   "note": "The phrase can mean divine beings, angels, or (in the line of Seth) the godly descendants of Adam. Early Jewish and Christian writers took the first view; many Fathers, including Augustine, the third. The text does not say."
+  },
+  {
+   "refs": [
+    "Genesis 22:2"
+   ],
+   "title": "'Your only son' or 'your beloved son'",
+   "kind": "translation",
+   "note": "Hebrew yachid means 'only' or 'unique'. The Greek has 'beloved' (agapetos), the word used of Jesus at his baptism."
+  },
+  {
+   "refs": [
+    "Exodus 3:14"
+   ],
+   "title": "'I am who I am'",
+   "kind": "translation",
+   "note": "Hebrew ehyeh asher ehyeh can be read 'I am who I am', 'I will be who I will be' or 'I will be what I will be'. The Greek reads 'I am the one who is'. All three readings have been used in theology."
+  },
+  {
+   "refs": [
+    "Exodus 20:13"
+   ],
+   "title": "'Kill' or 'murder'",
+   "kind": "translation",
+   "note": "The verb ratsach in the commandment is used mainly for killing a person unlawfully, and is not the usual word for killing in war or for judicial execution. 'You shall not murder' reflects this; the older 'kill' is wider than the Hebrew."
+  },
+  {
+   "refs": [
+    "Exodus 20:5"
+   ],
+   "title": "A 'jealous' God",
+   "kind": "translation",
+   "note": "The Hebrew qanna means exclusive, zealous and passionately committed, as in a husband's claim on his wife. 'Jealous' in modern English can suggest something petty that the Hebrew does not."
+  },
+  {
+   "refs": [
+    "Psalm 8:5"
+   ],
+   "title": "'Than God' or 'than angels'",
+   "kind": "textual",
+   "note": "The Hebrew elohim can mean 'God', 'gods' or heavenly beings. The Greek translates it 'angels', and Hebrews 2:7 follows that reading."
+  },
+  {
+   "refs": [
+    "Psalm 22:16"
+   ],
+   "title": "'Pierced' or 'like a lion'",
+   "kind": "textual",
+   "note": "The standard Hebrew text reads 'like a lion my hands and feet'. The Greek and Syriac read 'they have dug (or pierced) my hands and feet', and a Dead Sea scroll from Nahal Hever has a verb form that supports 'dug'. The reading is a famous example of an ancient version preserving what may be an older text."
+  },
+  {
+   "refs": [
+    "Psalm 51:5"
+   ],
+   "title": "'Conceived in sin'",
+   "kind": "ambiguity",
+   "note": "The line is a general statement of human frailty that Christian writers (especially Augustine) connected to original sin. Jewish interpreters read it differently. The Hebrew does not say that conception itself is sinful."
+  },
+  {
+   "refs": [
+    "Psalm 110:1"
+   ],
+   "title": "'The Lord said to my lord'",
+   "kind": "translation",
+   "note": "In Hebrew the first 'Lord' is God's name (YHWH) and the second is adoni, 'my lord', a title for a king. Jesus's argument in Mark 12:35-37 depends on David calling this figure 'my lord'."
+  },
+  {
+   "refs": [
+    "Psalm 110:3"
+   ],
+   "title": "A damaged line",
+   "kind": "textual",
+   "note": "The Hebrew of this verse is obscure. The Greek and Latin read 'from the womb before the morning star I begot you', which the Fathers used of the eternal generation of the Son. Modern translations differ widely."
+  },
+  {
+   "refs": [
+    "Proverbs 8:22"
+   ],
+   "title": "The Lord 'possessed', 'acquired' or 'created' Wisdom",
+   "kind": "translation",
+   "note": "Hebrew qanah means 'acquire', 'get' or 'create'. The Greek Old Testament says 'created' (ektisen) and the Latin 'possessed' (possedit). In the fourth century the Arians used 'created', and Athanasius and others argued for 'possessed' or read it of Christ's human nature."
+  },
+  {
+   "refs": [
+    "Ecclesiastes 1:2"
+   ],
+   "title": "'Vanity'",
+   "kind": "translation",
+   "note": "Hebrew hebel is literally a breath or vapour, and means something fleeting or insubstantial. 'Vanity' (from the Latin vanitas) suggests pride; 'breath' or 'mist' is closer to the sense."
+  },
+  {
+   "refs": [
+    "Job 19:25-27"
+   ],
+   "title": "'My redeemer' and 'in my flesh'",
+   "kind": "ambiguity",
+   "note": "The Hebrew word go'el is a family protector who redeems or avenges. The phrase 'from my flesh' or 'in my flesh' can mean 'in my body' or 'apart from my body', and the text is hard; the Latin took it as a statement of bodily resurrection."
+  },
+  {
+   "refs": [
+    "Isaiah 7:14"
+   ],
+   "title": "'Virgin' or 'young woman'",
+   "kind": "translation",
+   "note": "The Hebrew almah means a young woman of marriageable age; the usual Hebrew word for a virgin is bethulah. The Greek translators used parthenos (virgin). Matthew 1:23 quotes the Greek. Scholars differ on what Isaiah himself meant."
+  },
+  {
+   "refs": [
+    "Isaiah 9:6"
+   ],
+   "title": "'Mighty God' and 'Everlasting Father'",
+   "kind": "translation",
+   "note": "The Hebrew titles el gibbor and abi-ad can be read as 'mighty God' and 'father of eternity' or, by some translators, as lofty royal titles. The Greek has instead 'angel of great counsel'."
+  },
+  {
+   "refs": [
+    "Isaiah 14:12"
+   ],
+   "title": "'Lucifer'",
+   "kind": "translation",
+   "note": "The Hebrew helel ben shachar means 'shining one, son of dawn', a name for the morning star, in a taunt against a king of Babylon. The Latin lucifer means 'light-bringer', and from it the word became a name for Satan."
+  },
+  {
+   "refs": [
+    "Daniel 9:25-26"
+   ],
+   "title": "'An anointed one'",
+   "kind": "translation",
+   "note": "Hebrew mashiach means 'anointed' and is used of priests and kings. Whether the 'anointed one' of Daniel 9 is a high priest, a king, or the Messiah, and which ruler is meant, is disputed."
+  },
+  {
+   "refs": [
+    "Matthew 5:48"
+   ],
+   "title": "'Perfect'",
+   "kind": "translation",
+   "note": "Greek teleios means complete, whole or mature, and refers to reaching the goal. The parallel in Luke 6:36 says 'merciful'. 'Perfect' in English can suggest sinlessness more than the Greek does."
+  },
+  {
+   "refs": [
+    "Matthew 6:11"
+   ],
+   "title": "'Daily' bread",
+   "kind": "ambiguity",
+   "note": "The Greek word epiousios occurs nowhere else in Greek writing before the Gospels. It has been rendered 'daily', 'for tomorrow', 'necessary' and 'supersubstantial' (as Jerome rendered it in Matthew). The meaning is uncertain."
+  },
+  {
+   "refs": [
+    "Matthew 16:18"
+   ],
+   "title": "Peter and the rock",
+   "kind": "translation",
+   "note": "Matthew's Greek has two forms: Petros (a name) and petra (rock). Jesus probably spoke Aramaic, where both are the same word, Kepha, and John 1:42 records the name Cephas. Interpreters differ on what the 'rock' is; Catholic teaching sees Peter himself, as the Fathers did in the main, together with his confession."
+  },
+  {
+   "refs": [
+    "Matthew 1:25"
+   ],
+   "title": "'Until' she bore a son",
+   "kind": "translation",
+   "note": "The Greek heos can mean 'until' without saying anything about what happens afterwards, as in 2 Samuel 6:23 and Matthew 28:20. The sense in context is decided by other evidence, not by the word."
+  },
+  {
+   "refs": [
+    "Mark 1:15"
+   ],
+   "title": "'Repent'",
+   "kind": "translation",
+   "note": "The Greek metanoeite means to change one's mind, and with it one's direction of life. The Latin 'do penance' (poenitentiam agite) gave the word a sense of acts of penance, which is one stream of its meaning."
+  },
+  {
+   "refs": [
+    "Luke 1:28"
+   ],
+   "title": "'Full of grace' or 'highly favoured'",
+   "kind": "translation",
+   "note": "Greek kecharitomene is a perfect passive participle of charitoo, 'to grace'. It means 'one who has been graced' with the result remaining. The Latin gratia plena ('full of grace') and the English 'highly favoured' stress different sides of the word."
+  },
+  {
+   "refs": [
+    "Luke 17:21"
+   ],
+   "title": "'Within you' or 'among you'",
+   "kind": "ambiguity",
+   "note": "Greek entos humon can mean 'inside you' or 'in your midst'. Because Jesus is speaking to Pharisees, many scholars prefer 'among you'."
+  },
+  {
+   "refs": [
+    "Luke 22:19"
+   ],
+   "title": "'Do this in remembrance of me'",
+   "kind": "translation",
+   "note": "Greek anamnesis, 'remembrance', in Jewish and biblical use is more than a mental recollection. It is a memorial act that makes a past saving event present, as in the Passover. Christians differ on how far this sense reaches here."
+  },
+  {
+   "refs": [
+    "John 1:1"
+   ],
+   "title": "'The Word was God'",
+   "kind": "translation",
+   "note": "The Greek has the word for God (theos) without the article before it, and in the predicate position. This is the normal way to say what the Word is, as to his nature, rather than who he is. Most scholars and translations render it 'was God'; a few render it 'a god', and the grammar alone does not settle that."
+  },
+  {
+   "refs": [
+    "John 1:5"
+   ],
+   "title": "The darkness has not 'overcome' it",
+   "kind": "ambiguity",
+   "note": "Greek katelaben can mean 'overcome', 'seize' or 'understand'. John may intend more than one sense."
+  },
+  {
+   "refs": [
+    "John 3:3"
+   ],
+   "title": "'Born again' or 'born from above'",
+   "kind": "ambiguity",
+   "note": "Greek anothen means both 'again' and 'from above'. Nicodemus hears 'again' (v. 4); Jesus means a birth from God."
+  },
+  {
+   "refs": [
+    "John 3:8"
+   ],
+   "title": "'Wind' or 'Spirit'",
+   "kind": "ambiguity",
+   "note": "Greek pneuma means both wind and spirit, as does Hebrew ruach. John uses the double meaning in the same verse."
+  },
+  {
+   "refs": [
+    "John 3:16"
+   ],
+   "title": "'So' loved the world",
+   "kind": "translation",
+   "note": "Greek houtos means 'in this way' (how God loved) more than 'so much' (how greatly). Both senses fit the verse."
+  },
+  {
+   "refs": [
+    "John 20:17"
+   ],
+   "title": "'Do not touch me' or 'do not cling to me'",
+   "kind": "translation",
+   "note": "The Greek present imperative can mean 'stop clinging to me'. Jesus is telling Mary not to hold on to the way things were."
+  },
+  {
+   "refs": [
+    "John 21:15-17"
+   ],
+   "title": "Two words for love",
+   "kind": "ambiguity",
+   "note": "Jesus asks 'do you love (agapao) me?' and Peter answers with phileo, 'I am fond of you'. Many commentators see a difference; others think John varies the words for style. The Aramaic conversation probably used one word."
+  },
+  {
+   "refs": [
+    "Romans 3:28"
+   ],
+   "title": "'By faith alone'",
+   "kind": "translation",
+   "note": "The Greek says a person is justified by faith 'apart from works of the law' (choris ergon nomou). The word 'alone' is not in the Greek; Luther added allein in his German translation of 1522. What 'works of the law' means is itself debated."
+  },
+  {
+   "refs": [
+    "Romans 5:12"
+   ],
+   "title": "'In whom' or 'because'",
+   "kind": "ambiguity",
+   "note": "The Greek eph' ho can be read 'in whom' (as the Latin in quo, which Augustine took of Adam) or 'because' or 'on the ground that' all sinned. The reading affects the theology of original sin."
+  },
+  {
+   "refs": [
+    "Romans 9:13"
+   ],
+   "title": "'Esau I hated'",
+   "kind": "translation",
+   "note": "In Hebrew and Aramaic 'love' and 'hate' can state a choice and a preference, not an emotion. Luke 14:26 says 'hate' father and mother in the same sense, and Matthew 10:37 gives the sense as 'love more'."
+  },
+  {
+   "refs": [
+    "1 Corinthians 15:29"
+   ],
+   "title": "'Baptised for the dead'",
+   "kind": "ambiguity",
+   "note": "One of the most obscure phrases in the New Testament. Dozens of explanations have been proposed, from baptism on behalf of dead believers to baptism 'in view of' resurrection. Paul does not explain."
+  },
+  {
+   "refs": [
+    "1 Timothy 2:15"
+   ],
+   "title": "'Saved through childbearing'",
+   "kind": "ambiguity",
+   "note": "The Greek can mean saved through the birth of the child (Christ), saved in or through childbirth, or kept safe through childbearing. Interpreters have proposed all three."
+  },
+  {
+   "refs": [
+    "2 Timothy 3:16"
+   ],
+   "title": "'Inspired by God'",
+   "kind": "translation",
+   "note": "Greek theopneustos is literally 'God-breathed', and appears only here in the New Testament. It states the origin of Scripture rather than describing how it was written."
+  },
+  {
+   "refs": [
+    "Hebrews 11:1"
+   ],
+   "title": "'Substance' or 'assurance'",
+   "kind": "translation",
+   "note": "Greek hypostasis means 'what stands under', and so substance, reality, or confident assurance. The Latin substantia and the Douay 'substance' follow the first sense; many modern translations the second."
+  },
+  {
+   "refs": [
+    "James 2:24"
+   ],
+   "title": "'Justified'",
+   "kind": "ambiguity",
+   "note": "James uses 'justify' (dikaioo) in the sense of being shown or declared right, and Paul uses it in Romans 3–4 of being made right with God. They are answering different questions about faith and works, using the same word."
+  },
+  {
+   "refs": [
+    "1 Peter 3:19"
+   ],
+   "title": "The 'spirits in prison'",
+   "kind": "ambiguity",
+   "note": "Who the spirits are (the dead of Noah's generation, fallen angels, or others) and when Christ preached to them (in the Spirit through Noah, or after his death) is disputed. A long tradition, including the creed's 'he descended to the dead', takes it of Christ's visit to the dead."
+  }
+ ]
+}

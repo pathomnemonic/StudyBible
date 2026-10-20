@@ -3334,3 +3334,24 @@ body {
 :root[data-silent='1'] {
   --sky: transparent;
 }
+
+.item .parts {
+  list-style: none;
+  margin: 8px 0 4px;
+  padding: 0;
+  font-size: 0.88rem;
+}
+.item .parts li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  padding: 5px 0;
+  border-top: 1px solid var(--hairline);
+}
+.item .parts .pl {
+  font-weight: 600;
+  min-width: 1.4em;
+}
+.item .parts .pn {
+  color: var(--muted);
+}

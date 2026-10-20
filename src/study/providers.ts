@@ -11,6 +11,7 @@ import { chapterReadingItems } from './readingLinks';
 import { getIndexes, getSynopsis, getVariants, getThemes, refsFromText } from './refData';
 import { convertRef } from '../lib/versification';
 import { db } from '../db/db';
+import { lensItems } from './lens';
 
 export type SectionKey =
   | 'doctrine' | 'catechism' | 'magisterium' | 'liturgy' // teaching
@@ -19,6 +20,7 @@ export type SectionKey =
   | 'xref'
   | 'catholic-answers' | 'creators' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
   | 'context' | 'language' | 'places' | 'topics' | 'parallels'
+  | 'quotes' | 'customs' | 'structure' | 'wordnotes' | 'versions' | 'witnesses' | 'echoes' | 'genre' | 'dependency' | 'reception' // lenses
   | 'mine';
 
 export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
@@ -42,16 +44,26 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'places', label: 'Places', hint: 'Locations named in this passage (OpenBible.info geocoding, CC BY). Open the map.' },
   { key: 'topics', label: 'Topical index', hint: 'Topics people have tied to this passage (OpenBible.info, CC BY; community-voted, not Church-reviewed).' },
   { key: 'context', label: 'Context & translation notes' },
+  { key: 'quotes', label: 'Quoted and echoed', hint: 'Where the New Testament quotes or echoes the Old, and where this Old Testament text is taken up.' },
+  { key: 'dependency', label: 'Read this first', hint: 'Earlier passages this one assumes.' },
+  { key: 'customs', label: 'The world of the text', hint: 'Daily life, places, coins and customs, labelled by how well attested they are.' },
+  { key: 'witnesses', label: 'Manuscripts', hint: 'Ancient copies that preserve this passage.' },
+  { key: 'versions', label: 'Ancient versions', hint: 'Hebrew, Greek Old Testament, Latin and others compared.' },
+  { key: 'structure', label: 'Shape of the passage', hint: 'Acrostics, refrains, chiasms and other patterns, marked as fact or proposal.' },
+  { key: 'genre', label: 'Kind of writing' },
+  { key: 'wordnotes', label: 'Translation and ambiguity notes', hint: 'Where a familiar English word hides a distinction, or the original allows more than one reading.' },
+  { key: 'reception', label: 'How it has been read', hint: 'Interpretations through the centuries (not an endorsement of each).' },
+  { key: 'echoes', label: 'In the Church’s worship', hint: 'Liturgy, prayers, hymns and devotions that use this passage.' },
   { key: 'mine', label: 'My notes & highlights' },
 ];
 
 /** How sections are grouped into the panel's tabs. */
 export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'notes', label: 'Notes', sections: ['commentary', 'fathers', 'saints'] },
-  { id: 'teaching', label: 'Teaching', sections: ['catechism', 'magisterium', 'doctrine', 'liturgy'] },
-  { id: 'connections', label: 'Connections', sections: ['xref', 'parallels', 'topics'] },
-  { id: 'words', label: 'Words', sections: [] },
-  { id: 'world', label: 'World', sections: ['places', 'context', 'language'] },
+  { id: 'teaching', label: 'Teaching', sections: ['catechism', 'magisterium', 'doctrine', 'liturgy', 'echoes', 'reception'] },
+  { id: 'connections', label: 'Connections', sections: ['quotes', 'xref', 'parallels', 'dependency', 'topics'] },
+  { id: 'words', label: 'Words', sections: ['wordnotes', 'versions'] },
+  { id: 'world', label: 'World', sections: ['customs', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
   { id: 'media', label: 'Media', sections: ['catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
@@ -102,6 +114,10 @@ export interface StudyItem {
   basis?: string;
   /** the publisher's own audio address, playable in the app */
   audio?: string;
+  /** how firm an editorial claim is (see STATUS_LABEL in lens.ts) */
+  status?: string;
+  /** labelled sub-passages (the parts of a structure, a chain of earlier readings) */
+  parts?: { label: string; note?: string; ref?: string }[];
   /** extra outbound links (e.g. search this creator on YouTube / podcast apps) */
   links?: { label: string; url: string }[];
 }
@@ -832,6 +848,7 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     [['links'], providers.userlinks(refs)],
     [['biay'], providers.biay(refs)],
     [['context'], providers.context(refs)],
+    [['quotes', 'customs', 'structure', 'wordnotes', 'versions', 'witnesses', 'echoes', 'genre', 'dependency', 'reception'], lensItems(refs)],
     [['parallels'], providers.parallels(refs)],
     [['places'], providers.places(refs)],
     [['topics'], providers.topics(refs)],

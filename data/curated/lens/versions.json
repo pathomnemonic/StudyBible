@@ -1,0 +1,200 @@
+{
+ "_about": "How the Hebrew text, the Greek Old Testament (Septuagint), the Latin Vulgate and other ancient versions differ at a passage. The app's Douay-Rheims follows the Latin Vulgate; modern translations of the Old Testament follow the Hebrew. Written for this app in its own words; scholars debate which reading is earliest in several cases.",
+ "entries": [
+  {
+   "refs": [
+    "Isaiah 7:14"
+   ],
+   "title": "Isaiah 7:14 in the ancient versions",
+   "note": "The Hebrew has almah (young woman); the Greek Old Testament has parthenos (virgin); the Latin Vulgate has virgo. The Greek translation was made about two centuries before Christ."
+  },
+  {
+   "refs": [
+    "Genesis 3:15"
+   ],
+   "title": "Genesis 3:15 in Hebrew, Greek and Latin",
+   "note": "The Hebrew and the Greek have a masculine pronoun for the offspring who crushes the serpent's head. The Latin of the Clementine Vulgate reads the feminine 'ipsa' in its common form, though several Latin manuscripts and Jerome himself have the masculine 'ipse'."
+  },
+  {
+   "refs": [
+    "Psalm 22:16",
+    "Psalm 21:17"
+   ],
+   "title": "Psalm 22:16 (Latin: Psalm 21:17)",
+   "note": "The Hebrew text we have reads 'like a lion my hands and my feet'; the Greek and Syriac versions read 'they dug (pierced) my hands and my feet'; a scroll from Nahal Hever supports a form of 'dug'."
+  },
+  {
+   "refs": [
+    "Psalm 96:10"
+   ],
+   "title": "'The Lord reigned from the tree'",
+   "note": "Several early Greek and Latin witnesses have an addition ('from the tree') that Christian writers from Justin onward cited as a prophecy of the cross. It is not in the Hebrew or in the best Greek manuscripts."
+  },
+  {
+   "refs": [
+    "Psalm 9:1-21",
+    "Psalm 10:1-18",
+    "Psalm 114:1-8",
+    "Psalm 115:1-18",
+    "Psalm 116:1-19",
+    "Psalm 147:1-20"
+   ],
+   "title": "Psalm numbering",
+   "note": "The Greek Old Testament and the Latin Vulgate number the psalms differently from the Hebrew and most modern Bibles: Psalms 9 and 10 are one psalm, 114 and 115 are one, and 116 and 147 are each split. From Psalm 10 to 148 the Greek and Latin number is generally one behind the Hebrew. The reader here shows both numbers."
+  },
+  {
+   "refs": [
+    "Psalm 150:1-6"
+   ],
+   "title": "A psalm outside the Hebrew Psalter",
+   "note": "The Greek Psalter has a 151st psalm about David and Goliath. It is not part of the Catholic canon of Psalms, though Hebrew versions of it have been found at Qumran."
+  },
+  {
+   "refs": [
+    "Deuteronomy 32:8"
+   ],
+   "title": "'Sons of Israel' or 'sons of God'",
+   "note": "The standard Hebrew text reads 'according to the number of the sons of Israel'. The Greek Old Testament and a Dead Sea scroll (4QDeut-j) read 'sons of God' (or angels), which suggests an older Hebrew reading."
+  },
+  {
+   "refs": [
+    "Deuteronomy 32:43"
+   ],
+   "title": "A longer song",
+   "note": "The Greek Old Testament and a Dead Sea scroll of Deuteronomy have extra lines in the Song of Moses that the standard Hebrew lacks, including the line quoted in Hebrews 1:6."
+  },
+  {
+   "refs": [
+    "1 Samuel 17:1-58"
+   ],
+   "title": "David and Goliath in two lengths",
+   "note": "The Greek text of Codex Vaticanus is much shorter than the Hebrew: it omits much of 17:12-31 and 17:55-18:6, which removes some of the apparent doublets in the story. Scholars debate which is closer to the original."
+  },
+  {
+   "refs": [
+    "Jeremiah 1:1-52:34"
+   ],
+   "title": "A shorter Jeremiah",
+   "note": "The Greek Jeremiah is about one eighth shorter than the Hebrew and arranges the oracles against the nations in a different place. Dead Sea scrolls have both forms in Hebrew, so the shorter Greek text probably translates an older Hebrew edition."
+  },
+  {
+   "refs": [
+    "Job 1:1-42:17"
+   ],
+   "title": "A shorter Job",
+   "note": "The Greek book of Job is about one sixth shorter than the Hebrew, and its ending adds a note about Job's descent and a genealogy."
+  },
+  {
+   "refs": [
+    "Daniel 3:24-90",
+    "Daniel 13:1-64",
+    "Daniel 14:1-42"
+   ],
+   "title": "The Greek additions to Daniel",
+   "note": "The Song of the Three Young Men (inserted in chapter 3), Susanna (chapter 13) and Bel and the Dragon (chapter 14) are found in the Greek and Latin Bibles but not in the Hebrew. They are part of the Catholic canon."
+  },
+  {
+   "refs": [
+    "Esther 1:1-10:3"
+   ],
+   "title": "Esther in Hebrew and Greek",
+   "note": "The Greek book contains six extra passages (lettered A–F), including prayers and the text of the king's letters, which name God. The Vulgate places them at the end of the book, in chapters 10:4-16:24, and the Douay follows."
+  },
+  {
+   "refs": [
+    "Genesis 5:1-32",
+    "Genesis 11:10-32"
+   ],
+   "title": "Different chronologies",
+   "note": "The ages in the genealogies differ between the Hebrew, the Samaritan Pentateuch and the Greek Old Testament. The Greek text adds about 600 years to the period between Adam and Abraham."
+  },
+  {
+   "refs": [
+    "Exodus 12:40"
+   ],
+   "title": "The 430 years",
+   "note": "The Hebrew says the Israelites lived in Egypt for 430 years. The Greek and Samaritan texts say 'in Egypt and Canaan', which is how Paul can count 430 years from Abraham to the law (Galatians 3:17)."
+  },
+  {
+   "refs": [
+    "Exodus 35:1-40:38"
+   ],
+   "title": "The tabernacle chapters in a different order",
+   "note": "The Greek version of the building of the tabernacle is arranged differently from the Hebrew and is shorter in places."
+  },
+  {
+   "refs": [
+    "Isaiah 53:11"
+   ],
+   "title": "'He shall see light'",
+   "note": "A Dead Sea scroll of Isaiah and the Greek Old Testament both have the word 'light' in this verse, which the standard Hebrew lacks."
+  },
+  {
+   "refs": [
+    "Isaiah 9:6"
+   ],
+   "title": "'Angel of great counsel'",
+   "note": "The Greek Old Testament reads 'his name is called the angel of great counsel', where the Hebrew lists four names."
+  },
+  {
+   "refs": [
+    "Zechariah 12:10"
+   ],
+   "title": "'On me whom they have pierced'",
+   "note": "The Hebrew reads 'on me'; some Greek and other versions read 'on him', and John 19:37 uses 'him'."
+  },
+  {
+   "refs": [
+    "Habakkuk 2:4"
+   ],
+   "title": "'His faith' or 'my faith'",
+   "note": "The Hebrew has 'his faith', the Greek Old Testament 'my faith' (God's faithfulness), and Paul quotes it without a pronoun (Romans 1:17; Galatians 3:11)."
+  },
+  {
+   "refs": [
+    "Amos 9:11-12"
+   ],
+   "title": "'Remnant of Edom' or 'remnant of mankind'",
+   "note": "Two words that differ by a vowel: Hebrew edom (Edom) and adam (mankind). The Greek reads 'mankind', and Acts 15:16-18 follows it."
+  },
+  {
+   "refs": [
+    "Numbers 24:17"
+   ],
+   "title": "'A star' and 'a sceptre'",
+   "note": "The Greek reads 'a man shall rise out of Israel', where the Hebrew has 'a sceptre'. The prophecy was read as messianic in Jewish and Christian tradition."
+  },
+  {
+   "refs": [
+    "Tobit 1:1-14:15"
+   ],
+   "title": "Two Greek forms of Tobit",
+   "note": "Tobit survives in a shorter and a longer Greek form, and in fragments of Aramaic and Hebrew from Qumran, which agree more closely with the longer. Jerome's Latin translation was made from an Aramaic text in a very short time."
+  },
+  {
+   "refs": [
+    "Sirach 1:1-51:30"
+   ],
+   "title": "Sirach in Hebrew and Greek",
+   "note": "Large parts of the Hebrew text of Sirach were found in the Cairo Genizah and at Masada. The Greek is the work of the author's grandson, who explains in a prologue that he translated it in Egypt about 132 BC."
+  },
+  {
+   "refs": [
+    "Baruch 1:1-6:73"
+   ],
+   "title": "The Letter of Jeremiah",
+   "note": "The sixth chapter of Baruch is a separate work in the Greek Bible, called the Letter of Jeremiah, against idols. The Vulgate and Douay count it as Baruch 6."
+  },
+  {
+   "refs": [
+    "2 Peter 1:1-3:18",
+    "2 John 1:1-13",
+    "3 John 1:1-15",
+    "Jude 1:1-25",
+    "Revelation 1:1-22:21"
+   ],
+   "title": "The books missing from the early Syriac New Testament",
+   "note": "The Peshitta, the standard Syriac Bible of the fifth century, originally did not contain 2 Peter, 2 and 3 John, Jude or Revelation. They were added later."
+  }
+ ]
+}

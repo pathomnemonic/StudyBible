@@ -1,0 +1,525 @@
+{
+ "_about": "Ancient manuscripts and versions that preserve a passage. Dates are scholars' estimates. Written for this app in its own words, and link-only: the app shows no manuscript images itself. For the details of any particular verse, use the linked digital editions.",
+ "entries": [
+  {
+   "refs": [
+    "Genesis 1-50",
+    "Exodus 1-40",
+    "Leviticus 1-27",
+    "Numbers 1-36",
+    "Deuteronomy 1-34",
+    "Joshua 1-24",
+    "Judges 1-21",
+    "Ruth 1-4",
+    "1 Samuel 1-31",
+    "2 Samuel 1-24",
+    "1 Kings 1-22",
+    "2 Kings 1-25",
+    "1 Chronicles 1-29",
+    "2 Chronicles 1-36",
+    "Ezra 1-10",
+    "Nehemiah 1-13",
+    "Esther 1-10",
+    "Job 1-42",
+    "Psalm 1-150",
+    "Proverbs 1-31",
+    "Ecclesiastes 1-12",
+    "Song of Songs 1-8",
+    "Isaiah 1-66",
+    "Jeremiah 1-52",
+    "Lamentations 1-5",
+    "Ezekiel 1-48",
+    "Daniel 1-14",
+    "Hosea 1-14",
+    "Joel 1-3",
+    "Amos 1-9",
+    "Obadiah 1",
+    "Jonah 1-4",
+    "Micah 1-7",
+    "Nahum 1-3",
+    "Habakkuk 1-3",
+    "Zephaniah 1-3",
+    "Haggai 1-2",
+    "Zechariah 1-14",
+    "Malachi 1-4"
+   ],
+   "title": "The Hebrew text: Masoretic codices",
+   "date": "AD c. 930 (Aleppo); AD 1008 (Leningrad)",
+   "where": "Israel Museum, Jerusalem; National Library of Russia, St Petersburg",
+   "note": "The standard Hebrew text of the Old Testament is the Masoretic Text, with vowel points and accents added by Jewish scholars in the early Middle Ages. The Leningrad Codex (AD 1008) is the oldest complete Hebrew Bible and the basis of the printed scholarly editions. The Aleppo Codex (about 930) is older but damaged, and parts of the Pentateuch are missing. Modern translations of the Old Testament are mainly based on this text; the Douay-Rheims follows the Latin Vulgate.",
+   "url": "https://www.aleppocodex.org/"
+  },
+  {
+   "refs": [
+    "Genesis 1-50",
+    "Exodus 1-40",
+    "Leviticus 1-27",
+    "Numbers 1-36",
+    "Deuteronomy 1-34",
+    "Joshua 1-24",
+    "Judges 1-21",
+    "Ruth 1-4",
+    "1 Samuel 1-31",
+    "2 Samuel 1-24",
+    "1 Kings 1-22",
+    "2 Kings 1-25",
+    "1 Chronicles 1-29",
+    "2 Chronicles 1-36",
+    "Ezra 1-10",
+    "Nehemiah 1-13",
+    "Tobit 1-14",
+    "Judith 1-16",
+    "Esther 1-10",
+    "Job 1-42",
+    "Psalm 1-150",
+    "Proverbs 1-31",
+    "Ecclesiastes 1-12",
+    "Song of Songs 1-8",
+    "Wisdom 1-19",
+    "Sirach 1-51",
+    "Isaiah 1-66",
+    "Jeremiah 1-52",
+    "Lamentations 1-5",
+    "Baruch 1-6",
+    "Ezekiel 1-48",
+    "Daniel 1-14",
+    "Hosea 1-14",
+    "Joel 1-3",
+    "Amos 1-9",
+    "Obadiah 1",
+    "Jonah 1-4",
+    "Micah 1-7",
+    "Nahum 1-3",
+    "Habakkuk 1-3",
+    "Zephaniah 1-3",
+    "Haggai 1-2",
+    "Zechariah 1-14",
+    "Malachi 1-4",
+    "Matthew 1-28",
+    "Mark 1-16",
+    "Luke 1-24",
+    "John 1-21",
+    "Acts 1-28",
+    "Romans 1-16",
+    "1 Corinthians 1-16",
+    "2 Corinthians 1-13",
+    "Galatians 1-6",
+    "Ephesians 1-6",
+    "Philippians 1-4",
+    "Colossians 1-4",
+    "1 Thessalonians 1-5",
+    "2 Thessalonians 1-3",
+    "1 Timothy 1-6",
+    "2 Timothy 1-4",
+    "Titus 1-3",
+    "Philemon 1",
+    "Hebrews 1-13",
+    "James 1-5",
+    "1 Peter 1-5",
+    "2 Peter 1-3",
+    "1 John 1-5",
+    "2 John 1",
+    "3 John 1",
+    "Jude 1",
+    "Revelation 1-22"
+   ],
+   "title": "The Greek Bible: the great codices",
+   "date": "4th–5th century",
+   "where": "Codex Vaticanus (Vatican Library), Codex Sinaiticus (British Library and elsewhere), Codex Alexandrinus (British Library)",
+   "note": "The three great Greek Bibles. Vaticanus (about AD 325–350) has most of the Greek Old Testament and the New Testament as far as Hebrews 9:14. Sinaiticus (mid-fourth century) has the whole New Testament and parts of the Old, together with the Letter of Barnabas and the Shepherd of Hermas. Alexandrinus (fifth century) has almost the whole Bible, and 1 and 2 Clement. These codices are the chief evidence for the text of the Greek Old Testament and for many New Testament readings. Not every book of every manuscript survives; check the digital editions for a given passage.",
+   "url": "https://codexsinaiticus.org/"
+  },
+  {
+   "refs": [
+    "Genesis 1-50",
+    "Exodus 1-40",
+    "Leviticus 1-27",
+    "Numbers 1-36",
+    "Deuteronomy 1-34",
+    "Joshua 1-24",
+    "Judges 1-21",
+    "Ruth 1-4",
+    "1 Samuel 1-31",
+    "2 Samuel 1-24",
+    "1 Kings 1-22",
+    "2 Kings 1-25",
+    "1 Chronicles 1-29",
+    "2 Chronicles 1-36",
+    "Ezra 1-10",
+    "Nehemiah 1-13",
+    "Tobit 1-14",
+    "Judith 1-16",
+    "Esther 1-10",
+    "Job 1-42",
+    "Psalm 1-150",
+    "Proverbs 1-31",
+    "Ecclesiastes 1-12",
+    "Song of Songs 1-8",
+    "Wisdom 1-19",
+    "Sirach 1-51",
+    "Isaiah 1-66",
+    "Jeremiah 1-52",
+    "Lamentations 1-5",
+    "Baruch 1-6",
+    "Ezekiel 1-48",
+    "Daniel 1-14",
+    "Hosea 1-14",
+    "Joel 1-3",
+    "Amos 1-9",
+    "Obadiah 1",
+    "Jonah 1-4",
+    "Micah 1-7",
+    "Nahum 1-3",
+    "Habakkuk 1-3",
+    "Zephaniah 1-3",
+    "Haggai 1-2",
+    "Zechariah 1-14",
+    "Malachi 1-4",
+    "1 Maccabees 1-16",
+    "2 Maccabees 1-15",
+    "Matthew 1-28",
+    "Mark 1-16",
+    "Luke 1-24",
+    "John 1-21",
+    "Acts 1-28",
+    "Romans 1-16",
+    "1 Corinthians 1-16",
+    "2 Corinthians 1-13",
+    "Galatians 1-6",
+    "Ephesians 1-6",
+    "Philippians 1-4",
+    "Colossians 1-4",
+    "1 Thessalonians 1-5",
+    "2 Thessalonians 1-3",
+    "1 Timothy 1-6",
+    "2 Timothy 1-4",
+    "Titus 1-3",
+    "Philemon 1",
+    "Hebrews 1-13",
+    "James 1-5",
+    "1 Peter 1-5",
+    "2 Peter 1-3",
+    "1 John 1-5",
+    "2 John 1",
+    "3 John 1",
+    "Jude 1",
+    "Revelation 1-22"
+   ],
+   "title": "The Latin Vulgate: Codex Amiatinus",
+   "date": "AD c. 700–716",
+   "where": "Biblioteca Medicea Laurenziana, Florence",
+   "note": "The oldest surviving complete Bible in Jerome's Latin Vulgate, made in the monastery of Wearmouth-Jarrow in Northumbria and carried to Rome as a gift for the pope. It is an important witness to Jerome's text, which the Douay-Rheims translates. The Clementine edition (1592) used for this app's Vulgate is the later standard text."
+  },
+  {
+   "refs": [
+    "Isaiah 1-66"
+   ],
+   "title": "Great Isaiah Scroll (1QIsa-a)",
+   "date": "c. 125 BC",
+   "where": "Israel Museum, Jerusalem (Shrine of the Book)",
+   "note": "A complete scroll of Isaiah found at Qumran, a thousand years older than the oldest Masoretic manuscripts. It agrees with the Masoretic Text in most places, with spelling and a few readings that differ.",
+   "url": "https://dss.collections.imj.org.il/"
+  },
+  {
+   "refs": [
+    "Habakkuk 1-2"
+   ],
+   "title": "Habakkuk Commentary (1QpHab)",
+   "date": "1st century BC",
+   "where": "Israel Museum, Jerusalem",
+   "note": "A Qumran commentary on Habakkuk that quotes the text phrase by phrase. It is an early witness to the Hebrew text and to how a Jewish community read the prophets.",
+   "url": "https://dss.collections.imj.org.il/"
+  },
+  {
+   "refs": [
+    "Psalm 93-150"
+   ],
+   "title": "Psalms Scroll from Cave 11 (11QPs-a)",
+   "date": "1st century AD",
+   "where": "Rockefeller Museum, Jerusalem",
+   "note": "A Qumran psalm scroll with the psalms of the last part of the Psalter in a different order from the Masoretic Psalter, with additional psalms. It shows that the order of the Psalter was still fluid in the first century."
+  },
+  {
+   "refs": [
+    "1 Samuel 1-31",
+    "2 Samuel 1-24"
+   ],
+   "title": "Samuel from Cave 4 (4QSam-a)",
+   "date": "c. 50–25 BC",
+   "where": "Jerusalem",
+   "note": "A Hebrew manuscript of Samuel that often agrees with the Greek Old Testament against the Masoretic Text, and has readings that are lost in the Hebrew we have."
+  },
+  {
+   "refs": [
+    "Jeremiah 1-52"
+   ],
+   "title": "Jeremiah from Cave 4 (4QJer-b)",
+   "date": "3rd century BC",
+   "where": "Jerusalem",
+   "note": "A Hebrew text of Jeremiah in the shorter form found in the Greek Old Testament, showing that the shorter Greek was translated from an actual Hebrew edition."
+  },
+  {
+   "refs": [
+    "Deuteronomy 32:8",
+    "Deuteronomy 32:43"
+   ],
+   "title": "Deuteronomy from Cave 4 (4QDeut-j and 4QDeut-q)",
+   "date": "2nd–1st century BC",
+   "where": "Jerusalem",
+   "note": "Hebrew manuscripts that support the Greek readings 'sons of God' (32:8) and the longer text of the Song of Moses (32:43), where the standard Hebrew differs."
+  },
+  {
+   "refs": [
+    "Exodus 20:2-17",
+    "Deuteronomy 5:6-21",
+    "Deuteronomy 6:4-5"
+   ],
+   "title": "Nash Papyrus",
+   "date": "2nd–1st century BC",
+   "where": "Cambridge University Library",
+   "note": "A small papyrus with the Ten Commandments and the Shema in Hebrew, which shows a liturgical text from before the Masoretic period."
+  },
+  {
+   "refs": [
+    "Numbers 6:24-26"
+   ],
+   "title": "Silver amulets from Ketef Hinnom",
+   "date": "c. 600 BC",
+   "where": "Israel Museum, Jerusalem",
+   "note": "Two tiny silver scrolls from a tomb near Jerusalem with the priestly blessing. They are among the earliest known biblical texts."
+  },
+  {
+   "refs": [
+    "Deuteronomy 23-28"
+   ],
+   "title": "Rylands Greek Papyrus 458",
+   "date": "2nd century BC",
+   "where": "John Rylands Library, Manchester",
+   "note": "One of the oldest known pieces of the Greek Old Testament."
+  },
+  {
+   "refs": [
+    "Deuteronomy 17-33"
+   ],
+   "title": "Papyrus Fouad 266",
+   "date": "1st century BC",
+   "where": "Cairo",
+   "note": "A Greek Deuteronomy in which the name of God (YHWH) is written in Hebrew letters in the middle of the Greek text."
+  },
+  {
+   "refs": [
+    "John 18:31-33",
+    "John 18:37-38"
+   ],
+   "title": "Papyrus 52 (P52, John Rylands fragment)",
+   "date": "c. AD 100–150",
+   "where": "John Rylands Library, Manchester",
+   "note": "A scrap about the size of a credit card, with a few lines from John 18 on each side. It is the oldest known piece of the New Testament, and shows that John was copied and circulated in Egypt in the early second century."
+  },
+  {
+   "refs": [
+    "John 1-21"
+   ],
+   "title": "Papyrus 66 (P66, Bodmer II)",
+   "date": "c. AD 200",
+   "where": "Bodmer Library, Cologny (Geneva)",
+   "note": "A nearly complete early copy of John, with many corrections by the scribe, an important witness to the earliest text of the Gospel.",
+   "url": "https://www.bodmerlab.unige.ch/"
+  },
+  {
+   "refs": [
+    "Luke 3-24",
+    "John 1-15"
+   ],
+   "title": "Papyrus 75 (P75, Bodmer XIV–XV)",
+   "date": "c. AD 175–225",
+   "where": "Vatican Library",
+   "note": "An early copy of Luke and John with a text very close to Codex Vaticanus, which strengthens the case that Vaticanus preserves an early, careful text.",
+   "url": "https://www.bodmerlab.unige.ch/"
+  },
+  {
+   "refs": [
+    "Matthew 20-21",
+    "Matthew 25-26",
+    "Mark 4-9",
+    "Mark 11-12",
+    "Luke 6-14",
+    "John 4-5",
+    "John 10-11",
+    "Acts 4-17"
+   ],
+   "title": "Papyrus 45 (P45, Chester Beatty I)",
+   "date": "early 3rd century",
+   "where": "Chester Beatty Library, Dublin",
+   "note": "The earliest manuscript to have had all four Gospels and Acts in one volume, though only fragments survive."
+  },
+  {
+   "refs": [
+    "Romans 8-15",
+    "1 Corinthians 1-16",
+    "2 Corinthians 1-13",
+    "Galatians 1-6",
+    "Ephesians 1-6",
+    "Philippians 1-4",
+    "Colossians 1-4",
+    "Hebrews 1-13"
+   ],
+   "title": "Papyrus 46 (P46, Chester Beatty II)",
+   "date": "c. AD 200",
+   "where": "Chester Beatty Library, Dublin; University of Michigan",
+   "note": "The earliest known collection of Paul's letters, with Hebrews placed after Romans. It does not contain the Pastoral Letters."
+  },
+  {
+   "refs": [
+    "Matthew 3",
+    "Matthew 5",
+    "Matthew 26"
+   ],
+   "title": "Papyrus 64 and 67 (the Magdalen fragments)",
+   "date": "c. AD 200",
+   "where": "Magdalen College, Oxford; Barcelona",
+   "note": "Fragments of a codex of Matthew whose date is debated; some scholars date it to the late second century."
+  },
+  {
+   "refs": [
+    "1 Peter 1-5",
+    "2 Peter 1-3",
+    "Jude 1"
+   ],
+   "title": "Papyrus 72 (P72, Bodmer VII–VIII)",
+   "date": "3rd–4th century",
+   "where": "Vatican Library",
+   "note": "The earliest known copy of 1 and 2 Peter and Jude, found in a collection with other Christian writings."
+  },
+  {
+   "refs": [
+    "Revelation 2-15"
+   ],
+   "title": "Papyrus 115 (P115, Oxyrhynchus 4499)",
+   "date": "3rd–4th century",
+   "where": "Ashmolean Museum, Oxford",
+   "note": "A fragmentary copy of Revelation that reads 616, not 666, in Revelation 13:18, as does Codex Ephraemi."
+  },
+  {
+   "refs": [
+    "Matthew 1-28",
+    "Mark 1-16",
+    "Luke 1-24",
+    "John 1-21",
+    "Acts 1-28"
+   ],
+   "title": "Codex Bezae (D)",
+   "date": "c. AD 400",
+   "where": "Cambridge University Library",
+   "note": "A Greek-Latin manuscript of the Gospels and Acts with a very different text from other manuscripts, especially in Acts, where it is about a tenth longer. It is the chief witness to the so-called Western text.",
+   "url": "https://cudl.lib.cam.ac.uk/view/MS-NN-00002-00041/"
+  },
+  {
+   "refs": [
+    "Mark 16:14"
+   ],
+   "title": "Codex Washingtonianus (W, the Freer Gospels)",
+   "date": "4th–5th century",
+   "where": "Freer Gallery, Washington DC",
+   "note": "A Greek Gospel manuscript that has a unique addition in Mark 16:14, the 'Freer Logion', in which the disciples reply to the rebuke of the risen Lord."
+  },
+  {
+   "refs": [
+    "Revelation 13:18"
+   ],
+   "title": "Codex Ephraemi Rescriptus (C)",
+   "date": "5th century",
+   "where": "Bibliothèque nationale de France, Paris",
+   "note": "A Greek manuscript scraped clean and overwritten in the twelfth century with sermons of Ephrem. Under the later writing the earlier text can be read; it reads 616 in Revelation 13:18."
+  },
+  {
+   "refs": [
+    "Genesis 1-50",
+    "Exodus 1-40",
+    "Leviticus 1-27",
+    "Numbers 1-36",
+    "Deuteronomy 1-34"
+   ],
+   "title": "Samaritan Pentateuch",
+   "date": "medieval copies of an older text",
+   "where": "Various",
+   "note": "The Samaritans' own version of the Five Books of Moses, with a text that differs from the Masoretic Text in several thousand places, many of them small. It often agrees with the Greek Old Testament where the Hebrew differs, and has one significant addition: the command to worship on Mount Gerizim."
+  },
+  {
+   "refs": [
+    "Genesis 1-50",
+    "Exodus 1-40",
+    "Leviticus 1-27",
+    "Numbers 1-36",
+    "Deuteronomy 1-34",
+    "Joshua 1-24",
+    "Judges 1-21",
+    "Ruth 1-4",
+    "1 Samuel 1-31",
+    "2 Samuel 1-24",
+    "1 Kings 1-22",
+    "2 Kings 1-25",
+    "1 Chronicles 1-29",
+    "2 Chronicles 1-36",
+    "Ezra 1-10",
+    "Nehemiah 1-13",
+    "Tobit 1-14",
+    "Judith 1-16",
+    "Esther 1-10",
+    "Job 1-42",
+    "Psalm 1-150",
+    "Proverbs 1-31",
+    "Ecclesiastes 1-12",
+    "Song of Songs 1-8",
+    "Wisdom 1-19",
+    "Sirach 1-51",
+    "Isaiah 1-66",
+    "Jeremiah 1-52",
+    "Lamentations 1-5",
+    "Baruch 1-6",
+    "Ezekiel 1-48",
+    "Daniel 1-14",
+    "Hosea 1-14",
+    "Joel 1-3",
+    "Amos 1-9",
+    "Obadiah 1",
+    "Jonah 1-4",
+    "Micah 1-7",
+    "Nahum 1-3",
+    "Habakkuk 1-3",
+    "Zephaniah 1-3",
+    "Haggai 1-2",
+    "Zechariah 1-14",
+    "Malachi 1-4",
+    "1 Maccabees 1-16",
+    "2 Maccabees 1-15",
+    "Matthew 1-28",
+    "Mark 1-16",
+    "Luke 1-24",
+    "John 1-21",
+    "Acts 1-28",
+    "Romans 1-16",
+    "1 Corinthians 1-16",
+    "2 Corinthians 1-13",
+    "Galatians 1-6",
+    "Ephesians 1-6",
+    "Philippians 1-4",
+    "Colossians 1-4",
+    "1 Thessalonians 1-5",
+    "2 Thessalonians 1-3",
+    "1 Timothy 1-6",
+    "2 Timothy 1-4",
+    "Titus 1-3",
+    "Philemon 1",
+    "Hebrews 1-13",
+    "James 1-5",
+    "1 Peter 1-5",
+    "1 John 1-5"
+   ],
+   "title": "The Syriac Peshitta",
+   "date": "5th century (NT); older (OT)",
+   "where": "Biblioteca Ambrosiana, Milan (Codex Ambrosianus)",
+   "note": "The standard Syriac Bible. The Old Testament was translated from Hebrew, with some influence from the Greek and the Aramaic targums. The Peshitta New Testament originally left out 2 Peter, 2 and 3 John, Jude and Revelation."
+  }
+ ]
+}
