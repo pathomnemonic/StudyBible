@@ -90,8 +90,8 @@ export default function Shell({ children }: { children: ReactNode }) {
             </NavLink>
           );
         })}
-        <NavLink to="/settings" className={`tab more-tab${loc.pathname.startsWith('/settings') || loc.pathname.startsWith('/account') || loc.pathname.startsWith('/about') ? ' active' : ''}`} aria-label={`${t('nav.more')}: ${t('nav.settings')}, ${t('nav.account')}`}>
-          <span className="ico"><Icon name="gear" /></span>
+        <NavLink to="/more" className={`tab more-tab${loc.pathname.startsWith('/more') || loc.pathname.startsWith('/settings') || loc.pathname.startsWith('/account') || loc.pathname.startsWith('/about') ? ' active' : ''}`} aria-label={`${t('nav.more')}: ${t('nav.settings')}, ${t('nav.account')}`}>
+          <span className="ico"><Icon name="queue" /></span>
           <span>{t('nav.more')}</span>
         </NavLink>
         <div className="tab-spacer" />

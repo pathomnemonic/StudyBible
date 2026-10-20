@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import { BOOKS, GROUPS, getBook } from '../lib/canon';
 import { psalmDualLabel } from '../lib/versification';
@@ -39,6 +40,13 @@ export default function BookPicker({
         </>
       ) : (
         <>
+          <div className="picker-ways" aria-label="Other ways to read">
+            <Link to="/listen" onClick={onClose}>Bible in a Year</Link>
+            <Link to="/pray/plans" onClick={onClose}>Reading plans</Link>
+            <Link to="/pray/readings" onClick={onClose}>Mass readings</Link>
+            <Link to="/study/paths" onClick={onClose}>Study paths</Link>
+            <Link to="/study/fathers" onClick={onClose}>Reading room</Link>
+          </div>
           <input type="search" placeholder="Filter books…" value={q} onChange={(e) => setQ(e.target.value)} style={{ width: '100%', marginBottom: 10 }} aria-label="Filter books" />
           {(filtered ? [{ name: 'Matches', books: filtered }] : GROUPS).map((g) => (
             <div key={g.name} style={{ marginBottom: 12 }}>

@@ -15,6 +15,7 @@ const StudyHome = lazy(() => import('./pages/study/StudyHome'));
 const PathPage = lazy(() => import('./pages/study/PathsPage'));
 const PathsIndex = lazy(() => import('./pages/study/PathsPage').then((m) => ({ default: m.PathsIndex })));
 const ChurchDocs = lazy(() => import('./pages/study/ChurchDocs'));
+const MorePage = lazy(() => import('./pages/MorePage'));
 const SleepPage = lazy(() => import('./pages/pray/SleepPage'));
 const QuotationTracker = lazy(() => import('./pages/study/QuotationTracker'));
 const SearchPage = lazy(() => import('./pages/study/SearchPage'));
@@ -181,6 +182,7 @@ export default function App() {
               <Route path="/listen/episode/:id" element={<EpisodePage />} />
               <Route path="/pray" element={<PrayHome />} />
               <Route path="/pray/readings/:date?" element={<ReadingsPage />} />
+              <Route path="/more" element={<MorePage />} />
               <Route path="/pray/sleep" element={<SleepPage />} />
               <Route path="/pray/lectio" element={<LectioPage />} />
               <Route path="/pray/journal" element={<JournalPage />} />
