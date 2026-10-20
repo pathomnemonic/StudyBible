@@ -98,6 +98,38 @@
    "offlineAllowed": true,
    "approval": "none",
    "approvalNote": "Not Church-approved: a privately made Catholic translation of the Vulgate, with no imprimatur."
+  },
+  {
+   "id": "brenton",
+   "name": "The Septuagint in English (Brenton, 1851)",
+   "shortName": "LXX",
+   "language": "en",
+   "languageName": "English",
+   "scheme": "vulgate",
+   "tradition": "Translated from the Greek Septuagint, the ancient Greek Old Testament the early Church read. Psalm numbering follows the Septuagint, which is the Vulgate (Douay) numbering. The Old Testament and deuterocanon only; there is no New Testament.",
+   "description": "Sir Lancelot Brenton's 1851 English translation of the Septuagint (the Greek Old Testament used by the apostles and the Fathers), lightly modernised in spelling by eBible.org. Useful beside the Douay-Rheims for seeing what the Greek reads where it differs from the Hebrew. Only books whose chapter numbering lines up with the Vulgate are included (so Jeremiah, Esther, Daniel, Tobit, Judith, Sirach and a few others are left out). In the books that are included, a few chapters number their verses one or two differently from the Douay-Rheims, so a verse here can sit a verse away from the same verse elsewhere.",
+   "year": "1851",
+   "translators": "Lancelot C. L. Brenton",
+   "catholicStatus": "A Protestant (Anglican) 19th-century translation of the Greek Old Testament. It is not a Church-approved translation, but the Septuagint it translates is the Old Testament text the early Church used.",
+   "rights": "public-domain",
+   "rightsBasis": "Published in 1851; eBible.org's edition is stated to be in the public domain (https://ebible.org/eng-Brenton/copyright.htm).",
+   "attribution": "Septuagint, translated by Sir Lancelot C. L. Brenton (1851), public domain, text from eBible.org.",
+   "sourceUrl": "https://ebible.org/find/details.php?id=engbre",
+   "source": "ebible-eng-brenton",
+   "usfmPattern": "eng-Brenton",
+   "bookCodeMap": {
+    "ESG": "EST",
+    "DAG": "DAN",
+    "SUS": "SUS",
+    "BEL": "BEL"
+   },
+   "alignTo": "dra",
+   "bundled": true,
+   "offlineAllowed": true,
+   "offByDefault": "The Septuagint is the Greek Old Testament, not a translation of the Vulgate. Its English is from 1851 and its Old Testament books can differ in wording, order and length from the Hebrew-based and Latin-based Bibles. It is offered for comparison, not as a Church-approved reading Bible.",
+   "approval": "none",
+   "approvalNote": "A private 19th-century Protestant translation of the Septuagint; not Church-approved. The Septuagint itself is the Greek Old Testament of the early Church.",
+   "partial": true
   }
  ],
  "planned": [

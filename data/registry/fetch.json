@@ -104,6 +104,14 @@
    "terms": "https://www.sacredbible.org/catholic/",
    "rights": "public-domain",
    "note": "Catholic Public Domain Version (Ronald L. Conte Jr.), JSON export from the scrollmapper/bible_databases project. The translator dedicated the text to the public domain."
+  },
+  {
+   "id": "ebible-eng-brenton",
+   "url": "https://ebible.org/Scriptures/eng-Brenton_usfm.zip",
+   "file": "eng-Brenton_usfm.zip",
+   "terms": "https://ebible.org/eng-Brenton/copyright.htm",
+   "rights": "public-domain",
+   "note": "Brenton's English Septuagint (1851), eBible.org edition; public domain."
   }
  ]
 }
