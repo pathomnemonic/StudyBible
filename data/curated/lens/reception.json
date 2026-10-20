@@ -1,0 +1,329 @@
+{
+ "_about": "How passages have been read at different times. A reading is listed, not endorsed; the Church's own teaching is in the Teaching tab.",
+ "entries": [
+  {
+   "refs": [
+    "Genesis 3:15"
+   ],
+   "title": "The first promise",
+   "stages": [
+    {
+     "label": "Greek Old Testament",
+     "note": "The Greek text has a masculine pronoun ('he shall bruise'), referring to the 'seed', which later readers took as a single descendant."
+    },
+    {
+     "label": "Irenaeus (2nd century)",
+     "note": "Read Mary as the new Eve in the line of this promise, though not directly in this verse."
+    },
+    {
+     "label": "Latin Vulgate",
+     "note": "Many Latin manuscripts read 'she' (ipsa); the Clementine edition does. The Hebrew has a masculine pronoun, and the debate is old."
+    },
+    {
+     "label": "Modern Catholic reading",
+     "note": "The Catechism speaks of a 'proto-evangelium' without requiring that Mary is the subject of this verse (CCC 410-411)."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Isaiah 7:14"
+   ],
+   "title": "The sign of the virgin",
+   "stages": [
+    {
+     "label": "In its own time",
+     "note": "A child in the days of King Ahaz, as a sign that the house of David would not fall."
+    },
+    {
+     "label": "The Greek Old Testament",
+     "note": "The translators rendered the Hebrew 'almah' (young woman) as parthenos (virgin)."
+    },
+    {
+     "label": "Matthew",
+     "note": "Reads the child as fulfilled in the conception of Jesus (Matthew 1:22-23)."
+    },
+    {
+     "label": "Fathers",
+     "note": "Justin Martyr, Irenaeus and others defended the Christian reading against the Jewish reading."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Matthew 16:13-20"
+   ],
+   "title": "'You are Peter'",
+   "stages": [
+    {
+     "label": "The Fathers",
+     "note": "Read the rock as Peter, as Peter's confession, or as Christ himself; many Fathers allowed more than one."
+    },
+    {
+     "label": "Rome",
+     "note": "The bishop of Rome claimed the commission of Peter from the early centuries."
+    },
+    {
+     "label": "The Reformation",
+     "note": "Protestant interpreters tended to say the rock was Peter's confession or Christ."
+    },
+    {
+     "label": "Vatican I and II",
+     "note": "Teach that Christ made Peter the visible head of the Church (CCC 881)."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "John 6:51-58"
+   ],
+   "title": "The bread of life",
+   "stages": [
+    {
+     "label": "The early Church",
+     "note": "Ignatius of Antioch called the Eucharist 'the medicine of immortality' around AD 110."
+    },
+    {
+     "label": "Augustine",
+     "note": "Read the passage with a strong sense of the sacrament and the spiritual reality."
+    },
+    {
+     "label": "The Reformation",
+     "note": "Some reformers took the chapter as spiritual only; Luther held the Real Presence; Zwingli a memorial."
+    },
+    {
+     "label": "Trent",
+     "note": "Teaches that the Eucharist contains the body and blood of Christ truly, really and substantially."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Romans 9:1-33"
+   ],
+   "title": "Election and freedom",
+   "stages": [
+    {
+     "label": "Origen and the Greek Fathers",
+     "note": "Stressed human freedom and God's foreknowledge."
+    },
+    {
+     "label": "Augustine",
+     "note": "Developed a strong doctrine of grace and predestination against Pelagius."
+    },
+    {
+     "label": "The Reformation",
+     "note": "Calvin took the chapter in the direction of double predestination."
+    },
+    {
+     "label": "Council of Trent and later",
+     "note": "Teaches that God's grace precedes our will and that we can resist it; the Church condemns the teaching that anyone is predestined to evil."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Genesis 1:1-2:3"
+   ],
+   "title": "The six days",
+   "stages": [
+    {
+     "label": "Philo and Origen",
+     "note": "Read the days as figures for an ordered creation, not as twenty-four-hour days."
+    },
+    {
+     "label": "Basil of Caesarea",
+     "note": "In his Hexaemeron he took the days with a literal sense but a theological interest."
+    },
+    {
+     "label": "Augustine",
+     "note": "In The Literal Meaning of Genesis he argued that God created all things at once, with the days as an order of knowledge, and warned against embarrassing the faith by foolish claims about nature."
+    },
+    {
+     "label": "The 20th century",
+     "note": "Pius XII and Vatican II (Dei Verbum 12) allowed that genre and the ancient setting matter."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Song of Songs 1:1-8:14"
+   ],
+   "title": "The love song",
+   "stages": [
+    {
+     "label": "Rabbi Akiva",
+     "note": "Held that the Song is the holy of holies of Scripture, about God and Israel."
+    },
+    {
+     "label": "Origen",
+     "note": "Read it as Christ and the soul or the Church, in a commentary that shaped the Latin tradition."
+    },
+    {
+     "label": "Bernard of Clairvaux",
+     "note": "Preached eighty-six sermons on the first chapters, on the soul and Christ."
+    },
+    {
+     "label": "Modern interpreters",
+     "note": "Recover the literal reading as human love, while the Church's tradition keeps the spiritual sense."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Revelation 20:1-15"
+   ],
+   "title": "The thousand years",
+   "stages": [
+    {
+     "label": "Papias and Irenaeus",
+     "note": "Read the thousand years as a literal reign on earth before the end."
+    },
+    {
+     "label": "Augustine",
+     "note": "Read it as the time of the Church between the first and second coming, and not as a future earthly kingdom."
+    },
+    {
+     "label": "The Church today",
+     "note": "The Catechism rejects forms of millenarianism that foresee a worldly triumph before the end (CCC 676)."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Matthew 19:16-30"
+   ],
+   "title": "The rich young man",
+   "stages": [
+    {
+     "label": "Clement of Alexandria",
+     "note": "Wrote 'Who Is the Rich Man That Shall Be Saved?', reading the call to give as a call to inner detachment."
+    },
+    {
+     "label": "Francis of Assisi",
+     "note": "Took the passage as a personal call to literal poverty."
+    },
+    {
+     "label": "The tradition",
+     "note": "Distinguishes the commandments, for everyone, from the counsels of perfection, for those called (CCC 915)."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Luke 10:25-37"
+   ],
+   "title": "The Good Samaritan",
+   "stages": [
+    {
+     "label": "Origen and Augustine",
+     "note": "Read the story allegorically: the traveller is Adam, the Samaritan Christ, the inn the Church."
+    },
+    {
+     "label": "Modern interpreters",
+     "note": "Tend to read it as a parable with one main point about neighbour love, while the allegorical reading continues in the tradition."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Psalm 22:1-31"
+   ],
+   "title": "The cry of the righteous sufferer",
+   "stages": [
+    {
+     "label": "In Israel",
+     "note": "A psalm of lament that ends in praise."
+    },
+    {
+     "label": "The Gospels",
+     "note": "Draw on it in the passion accounts: the dividing of the garments, the mocking, the cry of abandonment."
+    },
+    {
+     "label": "The Fathers",
+     "note": "Read it as the voice of Christ, praying through the psalms."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Isaiah 53:1-12"
+   ],
+   "title": "The Suffering Servant",
+   "stages": [
+    {
+     "label": "Jewish tradition",
+     "note": "Many Jewish readers have seen the Servant as Israel; some medieval commentators held that view against Christian readings."
+    },
+    {
+     "label": "Acts 8",
+     "note": "Philip explains the passage to the Ethiopian as good news about Jesus."
+    },
+    {
+     "label": "The Fathers",
+     "note": "Read it as a prophecy of the passion of Christ."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Galatians 3:28"
+   ],
+   "title": "Neither Jew nor Greek",
+   "stages": [
+    {
+     "label": "In Paul's time",
+     "note": "A baptismal statement about unity in Christ across ethnic, social and sexual lines."
+    },
+    {
+     "label": "Across history",
+     "note": "Has been cited in debates about slavery and about the roles of women."
+    },
+    {
+     "label": "The Church today",
+     "note": "Reads it with the understanding that equal dignity does not erase difference (CCC 369-372)."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "James 2:14-26"
+   ],
+   "title": "Faith and works",
+   "stages": [
+    {
+     "label": "Augustine",
+     "note": "Said that James is correcting those who misread Paul."
+    },
+    {
+     "label": "Luther",
+     "note": "Called it an 'epistle of straw', in comparison to John and Paul."
+    },
+    {
+     "label": "Trent",
+     "note": "Teaches that justification is by grace through faith and that faith is made alive by charity."
+    }
+   ]
+  },
+  {
+   "refs": [
+    "Hebrews 6:4-6"
+   ],
+   "title": "The impossibility of renewal",
+   "stages": [
+    {
+     "label": "The early Church",
+     "note": "Used the passage in debates on whether those who had apostatised could be readmitted."
+    },
+    {
+     "label": "Novatian",
+     "note": "Argued that grave sin after baptism could not be forgiven by the Church."
+    },
+    {
+     "label": "The Church",
+     "note": "Rejected the Novatian position and taught that there is a way back through penance."
+    }
+   ]
+  }
+ ]
+}

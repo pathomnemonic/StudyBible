@@ -1,0 +1,309 @@
+{
+ "_about": "Where passages are heard in the Church's worship, prayer and hymns. Texts are named, not reproduced.",
+ "entries": [
+  {
+   "refs": [
+    "Luke 2:14"
+   ],
+   "title": "Gloria in excelsis",
+   "kind": "Liturgy",
+   "note": "The Gloria begins with the song of the angels at Bethlehem and goes on with later words of praise. It is sung at Mass on Sundays outside Advent and Lent, and on solemnities and feasts."
+  },
+  {
+   "refs": [
+    "Isaiah 6:3; Revelation 4:8"
+   ],
+   "title": "Sanctus (Holy, Holy, Holy)",
+   "kind": "Liturgy",
+   "note": "The Sanctus joins the seraphim's song in Isaiah 6 and the four living creatures in Revelation 4. The Mass then adds 'Blessed is he who comes in the name of the Lord' (Matthew 21:9; Psalm 118:26)."
+  },
+  {
+   "refs": [
+    "Luke 1:68-79"
+   ],
+   "title": "Benedictus (Canticle of Zechariah)",
+   "kind": "Liturgy",
+   "note": "The canticle of Zechariah is the Gospel canticle of Morning Prayer (Lauds) in the Liturgy of the Hours, said every day."
+  },
+  {
+   "refs": [
+    "Luke 1:46-55"
+   ],
+   "title": "Magnificat (Canticle of Mary)",
+   "kind": "Liturgy",
+   "note": "Mary's song is the Gospel canticle of Evening Prayer (Vespers) every day, and is often sung in great solemnity. It has many echoes of Hannah's song in 1 Samuel 2."
+  },
+  {
+   "refs": [
+    "Luke 2:29-32"
+   ],
+   "title": "Nunc dimittis (Canticle of Simeon)",
+   "kind": "Liturgy",
+   "note": "Simeon's words are the Gospel canticle of Night Prayer (Compline) in the Liturgy of the Hours."
+  },
+  {
+   "refs": [
+    "Matthew 6:9-13"
+   ],
+   "title": "The Lord's Prayer at Mass",
+   "kind": "Liturgy",
+   "note": "The Our Father is said at Mass before the sign of peace and the breaking of the bread, introduced by the words 'at the Saviour's command and formed by divine teaching, we dare to say'. The doxology 'for the kingdom, the power and the glory' is a later liturgical addition found in some manuscripts of Matthew."
+  },
+  {
+   "refs": [
+    "Luke 22:19-20; 1 Corinthians 11:23-25; Matthew 26:26-28; Mark 14:22-24"
+   ],
+   "title": "Words of institution",
+   "kind": "Liturgy",
+   "note": "The words over the bread and the cup in the Eucharistic Prayer combine the four New Testament accounts."
+  },
+  {
+   "refs": [
+    "John 1:29"
+   ],
+   "title": "Lamb of God (Agnus Dei)",
+   "kind": "Liturgy",
+   "note": "John the Baptist's greeting, 'Behold the Lamb of God', is sung at the breaking of the bread. The people's closing words are 'grant us peace', not 'have mercy', at the last invocation."
+  },
+  {
+   "refs": [
+    "Matthew 8:8; Luke 7:6-7"
+   ],
+   "title": "Lord, I am not worthy",
+   "kind": "Liturgy",
+   "note": "Before Communion the people say the centurion's words, 'Lord, I am not worthy that you should enter under my roof, but only say the word and my soul shall be healed.'"
+  },
+  {
+   "refs": [
+    "John 1:29; Revelation 19:9"
+   ],
+   "title": "Behold the Lamb of God, happy are those called to his supper",
+   "kind": "Liturgy",
+   "note": "The invitation to Communion joins John 1:29 with the 'supper of the Lamb' in Revelation 19:9."
+  },
+  {
+   "refs": [
+    "Matthew 15:22; Luke 18:38"
+   ],
+   "title": "Kyrie eleison",
+   "kind": "Liturgy",
+   "note": "'Lord, have mercy' is the cry of the Canaanite woman and of the blind man at Jericho. It is the Greek phrase kept in the Latin and many modern liturgies."
+  },
+  {
+   "refs": [
+    "John 14:27; John 20:19"
+   ],
+   "title": "The sign of peace",
+   "kind": "Liturgy",
+   "note": "Before Communion the priest prays 'Lord Jesus Christ, who said to your Apostles: Peace I leave you, my peace I give you', and the people exchange a sign of peace."
+  },
+  {
+   "refs": [
+    "Luke 1:28; Luke 1:42"
+   ],
+   "title": "Hail Mary",
+   "kind": "Prayer",
+   "note": "The first two parts of the Hail Mary are the greeting of the angel Gabriel and the words of Elizabeth. The prayer 'Holy Mary, Mother of God' came later."
+  },
+  {
+   "refs": [
+    "Luke 1:26-38; Luke 2:1-20; Luke 2:22-38; Luke 2:41-52; Matthew 3:13-17; John 2:1-11; Mark 1:14-15; Matthew 17:1-8; Luke 22:14-20"
+   ],
+   "title": "The mysteries of the Rosary",
+   "kind": "Prayer",
+   "note": "The Joyful, Luminous and Sorrowful Mysteries meditate on scenes from the Gospels, and the Glorious Mysteries on the resurrection, the ascension, Pentecost and the end of Mary's life and her crowning."
+  },
+  {
+   "refs": [
+    "John 19:25-27"
+   ],
+   "title": "The Stabat Mater",
+   "kind": "Hymn",
+   "note": "The medieval sequence 'Stabat Mater dolorosa' meditates on Mary standing at the cross, as in John 19. It is sung on the Memorial of Our Lady of Sorrows (15 September)."
+  },
+  {
+   "refs": [
+    "Micah 6:3-4"
+   ],
+   "title": "The Reproaches (Improperia)",
+   "kind": "Liturgy",
+   "note": "On Good Friday the Church sings the Reproaches, in which Christ asks 'My people, what have I done to you?', words that begin with Micah 6:3 and recall the Exodus."
+  },
+  {
+   "refs": [
+    "Exodus 12:1-14; Exodus 14:15-15:1"
+   ],
+   "title": "The Exsultet and the Easter Vigil",
+   "kind": "Liturgy",
+   "note": "The Easter Vigil reads from Genesis 1 and 22, Exodus 14 and other Old Testament readings, and the Easter Proclamation (Exsultet) draws on the Passover and the crossing of the Red Sea."
+  },
+  {
+   "refs": [
+    "Matthew 21:1-11; Philippians 2:6-11; Isaiah 50:4-7"
+   ],
+   "title": "Palm Sunday and the Passion",
+   "kind": "Liturgy",
+   "note": "Palm Sunday proclaims the entry into Jerusalem, then Isaiah 50, Psalm 22 and the hymn of Philippians 2 before the Passion Gospel."
+  },
+  {
+   "refs": [
+    "Isaiah 52:13-53:12; Psalm 31:1-25; Hebrews 4:14-16; Hebrews 5:7-9; John 18:1-19:42"
+   ],
+   "title": "Good Friday: the Suffering Servant",
+   "kind": "Liturgy",
+   "note": "The Good Friday liturgy reads Isaiah 52:13-53:12, Psalm 31, Hebrews 4-5 and the Passion according to John."
+  },
+  {
+   "refs": [
+    "Lamentations 1:1-5:22"
+   ],
+   "title": "The Lamentations of Jeremiah",
+   "kind": "Liturgy",
+   "note": "The Lamentations were traditionally sung at Tenebrae on the last three days of Holy Week, which many monasteries and parishes still keep."
+  },
+  {
+   "refs": [
+    "Psalm 51:1-19"
+   ],
+   "title": "Psalm 51 (Miserere)",
+   "kind": "Liturgy",
+   "note": "The penitential Psalm 51 is said at Morning Prayer on Fridays and is used throughout Lent and in the rite of anointing and penance."
+  },
+  {
+   "refs": [
+    "Psalm 95:1-11"
+   ],
+   "title": "Psalm 95 (the Invitatory)",
+   "kind": "Liturgy",
+   "note": "Psalm 95, 'Come, let us sing to the Lord', opens the day's prayer in the Liturgy of the Hours."
+  },
+  {
+   "refs": [
+    "Psalm 141:1-2"
+   ],
+   "title": "Psalm 141 and the evening incense",
+   "kind": "Liturgy",
+   "note": "'Let my prayer rise like incense' is sung at Evening Prayer in the Liturgy of the Hours and in many rites when incense is offered."
+  },
+  {
+   "refs": [
+    "Psalm 22:1-31"
+   ],
+   "title": "Psalm 22 at Palm Sunday",
+   "kind": "Liturgy",
+   "note": "The psalm that Jesus began on the cross is the responsorial psalm on Palm Sunday."
+  },
+  {
+   "refs": [
+    "Psalm 23:1-6"
+   ],
+   "title": "Psalm 23 at funerals and Easter",
+   "kind": "Liturgy",
+   "note": "'The Lord is my shepherd' is a common responsorial psalm at funerals, and is read on the Fourth Sunday of Easter (Good Shepherd Sunday, when the Gospel is from John 10)."
+  },
+  {
+   "refs": [
+    "Isaiah 11:1; Isaiah 22:22; Isaiah 9:1-2; Isaiah 28:16; Isaiah 7:14"
+   ],
+   "title": "The O Antiphons",
+   "kind": "Liturgy",
+   "note": "From 17 to 23 December the Magnificat antiphons call on Christ by titles from Isaiah: Wisdom, Lord, Root of Jesse, Key of David, Dawn, King of the nations and Emmanuel. 'O come, O come, Emmanuel' is a hymn made from them."
+  },
+  {
+   "refs": [
+    "Revelation 4:1-11; Isaiah 6:1-4"
+   ],
+   "title": "The Te Deum and the Apocalypse",
+   "kind": "Hymn",
+   "note": "The ancient hymn of thanksgiving is built partly on the heavenly praises of Isaiah 6 and Revelation 4."
+  },
+  {
+   "refs": [
+    "Revelation 4:8-11"
+   ],
+   "title": "Holy, Holy, Holy! Lord God Almighty",
+   "kind": "Hymn",
+   "note": "Reginald Heber's nineteenth-century hymn paraphrases the song of the four living creatures and the elders in Revelation 4."
+  },
+  {
+   "refs": [
+    "Psalm 98:1-9"
+   ],
+   "title": "Joy to the World",
+   "kind": "Hymn",
+   "note": "Isaac Watts wrote this carol in 1719 as a Christian paraphrase of the second half of Psalm 98, not as a Christmas carol."
+  },
+  {
+   "refs": [
+    "Psalm 46:1-11"
+   ],
+   "title": "A Mighty Fortress Is Our God",
+   "kind": "Hymn",
+   "note": "Martin Luther's hymn is modelled on Psalm 46."
+  },
+  {
+   "refs": [
+    "1 Chronicles 17:16-17"
+   ],
+   "title": "Amazing Grace",
+   "kind": "Hymn",
+   "note": "John Newton wrote the hymn for a New Year's Day sermon in 1773 on 1 Chronicles 17:16-17 ('Who am I, O Lord God...')."
+  },
+  {
+   "refs": [
+    "Revelation 19:1-6; Psalm 150:1-6"
+   ],
+   "title": "Alleluia",
+   "kind": "Liturgy",
+   "note": "'Alleluia' is Hebrew for 'praise the Lord', and is found in the Psalms and in Revelation 19. The Church omits it in Lent and sings it at Easter."
+  },
+  {
+   "refs": [
+    "Joel 2:12-18; Matthew 6:1-6; Matthew 6:16-18"
+   ],
+   "title": "Ash Wednesday: Joel and the call to return",
+   "kind": "Liturgy",
+   "note": "The first reading on Ash Wednesday is Joel 2, the Gospel is Jesus' teaching on almsgiving, prayer and fasting, and the ashes are given with a call to return to the Gospel."
+  },
+  {
+   "refs": [
+    "Acts 2:1-11; Joel 2:28-32"
+   ],
+   "title": "Pentecost",
+   "kind": "Liturgy",
+   "note": "The Pentecost readings are Acts 2, in which Peter quotes Joel 2, and the Sequence 'Veni, Sancte Spiritus'."
+  },
+  {
+   "refs": [
+    "Matthew 2:1-12; Isaiah 60:1-6"
+   ],
+   "title": "Epiphany",
+   "kind": "Liturgy",
+   "note": "The Magi are read with Isaiah 60, 'Arise, shine, for your light has come', and with Psalm 72."
+  },
+  {
+   "refs": [
+    "Luke 2:22-40; Malachi 3:1-4"
+   ],
+   "title": "The Presentation (Candlemas)",
+   "kind": "Liturgy",
+   "note": "On 2 February the church reads Malachi's 'the Lord whom you seek will suddenly come to his temple' with Luke's account of Simeon."
+  },
+  {
+   "refs": [
+    "Luke 9:28-36; Daniel 7:9-14"
+   ],
+   "title": "The Transfiguration",
+   "kind": "Liturgy",
+   "note": "The Transfiguration is read on the Second Sunday of Lent, and on the feast on 6 August, when the first reading is Daniel's vision of the Ancient of Days."
+  },
+  {
+   "refs": [
+    "Numbers 6:22-27"
+   ],
+   "title": "The blessing of Aaron",
+   "kind": "Liturgy",
+   "note": "The priestly blessing, 'The Lord bless you and keep you', is read on 1 January, the Solemnity of Mary, Mother of God, and echoes the old blessings used in the Mass."
+  }
+ ]
+}
