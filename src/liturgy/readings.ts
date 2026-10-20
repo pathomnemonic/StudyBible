@@ -13,6 +13,10 @@ export const SLOT_LABEL: Record<Slot, string> = {
   gospel: 'Gospel',
 };
 
+import { tNow } from '../lib/i18n';
+/** The reading slot's name in the app's language. */
+export const slotLabel = (slot: Slot) => tNow(`readings.${slot}` as any);
+
 export interface ReadingItem {
   slot: Slot;
   text: string; // as published, e.g. "Genesis 1:26 – 2:3"

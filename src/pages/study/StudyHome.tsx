@@ -24,6 +24,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     items: [
       ['/study/doctrine', 'Doctrine & Catechism', 'Topics (Eucharist, Trinity, grace, Mary…) with Scripture and Catechism links.'],
       ['/study/fathers', 'Reading room: saints, Fathers, catechisms', 'Augustine, Chrysostom, Teresa, the Imitation of Christ and more, to read in full.'],
+      ['/study/quotations', 'Who quoted this verse?', 'Every Father and saint who cites a passage, fullest first.'],
       ['/study/voices', 'Voices through time', 'The Fathers and saints on one timeline, with the councils.'],
       ['/study/concepts', 'Web of themes', 'How the great themes of Scripture are tied together.'],
       ['/study/themes', 'Biblical theology explorer', 'Follow a theme from Genesis to Revelation, with the Church’s reading.'],

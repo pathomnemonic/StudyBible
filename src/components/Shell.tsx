@@ -4,13 +4,15 @@ import Icon from './Icon';
 import { useSettings } from '../lib/store';
 import CommandPalette from './CommandPalette';
 import { useSync } from '../sync/state';
+import { useT } from '../lib/i18n';
+import type { Key } from '../i18n/en';
 
 // The places you actually live in. Daily practice (Mass readings, plans, Bible in a Year, memorizing, prayer) sits under Today with a sub-menu. Settings and the account are reached from the sidebar, or the gear on Today.
 const TABS = [
-  { to: '/today', label: 'Today', icon: 'sun', match: ['/today', '/pray', '/memorize', '/session'], home: true },
-  { to: '/read', label: 'Bible', icon: 'read', match: ['/read'] },
-  { to: '/study', label: 'Study', icon: 'study', match: ['/study'] },
-  { to: '/library', label: 'Notes', icon: 'library', match: ['/library'] },
+  { to: '/today', label: 'Today', key: 'nav.today' as Key, icon: 'sun', match: ['/today', '/pray', '/memorize', '/session'], home: true },
+  { to: '/read', label: 'Bible', key: 'nav.bible' as Key, icon: 'read', match: ['/read'] },
+  { to: '/study', label: 'Study', key: 'nav.study' as Key, icon: 'study', match: ['/study'] },
+  { to: '/library', label: 'Notes', key: 'nav.notes' as Key, icon: 'library', match: ['/library'] },
 ];
 
 /** Sub-menu shown across the daily-practice pages. */
@@ -41,6 +43,7 @@ export default function Shell({ children }: { children: ReactNode }) {
   const nav = useNavigate();
   const [s] = useSettings();
   const sync = useSync();
+  const t = useT();
   const [palette, setPalette] = useState(false);
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
@@ -62,43 +65,43 @@ export default function Shell({ children }: { children: ReactNode }) {
   return (
     <div className={`shell${fullscreenReader ? ' quiet' : ''}${home ? ' home-shell' : ''}`}>
       <a className="skip" href="#main">
-        Skip to content
+        {t('nav.skip')}
       </a>
-      <nav className="tabs" aria-label="Main sections">
+      <nav className="tabs" aria-label={t('nav.main')}>
         <div className="brand" aria-hidden="true">
           <span className="mark">✛</span>
           <span>Study Bible</span>
         </div>
         <button className="tab utility search-tab" onClick={() => setPalette(true)} aria-label="Search and jump (Ctrl+K)" title="Search and jump (Ctrl+K)">
           <span className="ico"><Icon name="search" /></span>
-          <span>Search</span>
+          <span>{t('nav.search')}</span>
         </button>
-        {TABS.map((t) => {
-          const active = t.match.some((m) => loc.pathname.startsWith(m)) || (!!t.home && loc.pathname === '/');
+        {TABS.map((tb) => {
+          const active = tb.match.some((m) => loc.pathname.startsWith(m)) || (!!tb.home && loc.pathname === '/');
           return (
             <NavLink
-              key={t.to}
-              to={t.to === '/read' && s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : t.to}
+              key={tb.to}
+              to={tb.to === '/read' && s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : tb.to}
               className={() => `tab${active ? ' active' : ''}`}
               aria-current={active ? 'page' : undefined}
             >
-              <span className="ico"><Icon name={t.icon} /></span>
-              <span>{t.label}</span>
+              <span className="ico"><Icon name={tb.icon} /></span>
+              <span>{t(tb.key)}</span>
             </NavLink>
           );
         })}
-        <NavLink to="/settings" className={`tab more-tab${loc.pathname.startsWith('/settings') || loc.pathname.startsWith('/account') || loc.pathname.startsWith('/about') ? ' active' : ''}`} aria-label="More: settings, account, about">
+        <NavLink to="/settings" className={`tab more-tab${loc.pathname.startsWith('/settings') || loc.pathname.startsWith('/account') || loc.pathname.startsWith('/about') ? ' active' : ''}`} aria-label={`${t('nav.more')}: ${t('nav.settings')}, ${t('nav.account')}`}>
           <span className="ico"><Icon name="gear" /></span>
-          <span>More</span>
+          <span>{t('nav.more')}</span>
         </NavLink>
         <div className="tab-spacer" />
         <NavLink to="/settings" className={`tab utility${loc.pathname.startsWith('/settings') ? ' active' : ''}`} aria-label="Settings and account">
           <span className="ico"><Icon name="gear" /></span>
-          <span>Settings</span>
+          <span>{t('nav.settings')}</span>
         </NavLink>
         {!s.localOnly && <NavLink to="/account" className={`tab utility${loc.pathname.startsWith('/account') ? ' active' : ''}`} aria-label={sync.user ? `Account: ${sync.user.email}` : 'Sign in'}>
           <span className="ico">{sync.user ? <span className="avatar">{(sync.user.name || sync.user.email)[0].toUpperCase()}</span> : <Icon name="info" />}</span>
-          <span>{sync.user ? 'Account' : 'Sign in'}</span>
+          <span>{sync.user ? t('nav.account') : t('nav.signin')}</span>
           {sync.user && <i className={`sync-dot ${sync.status}`} />}
         </NavLink>}
       </nav>

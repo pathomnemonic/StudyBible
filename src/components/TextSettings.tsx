@@ -16,9 +16,16 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
   );
   return (
     <Modal title="Reading settings" onClose={onClose}>
+      <div className="row" style={{ margin: '0 0 6px', flexWrap: 'wrap', gap: 6 }}>
+        <span className="muted small" style={{ width: '100%' }}>Comfort presets</span>
+        {chip(false, 'Standard', () => set({ fontSize: 19, lineHeight: 1.65, fontFamily: 'serif', letterSpacing: 0, wordSpacing: 0, plainAlign: false, margin: 'normal' }))}
+        {chip(false, 'Large print', () => set({ fontSize: 28, lineHeight: 1.8, fontFamily: 'hyperlegible', letterSpacing: 0.01, wordSpacing: 0.05, plainAlign: true, margin: 'wide' }))}
+        {chip(false, 'Dyslexia-friendly', () => set({ fontSize: 22, lineHeight: 2, fontFamily: 'dyslexic', letterSpacing: 0.04, wordSpacing: 0.16, plainAlign: true, margin: 'wide' }))}
+        {chip(false, 'Low vision (zen contrast, large)', () => set({ fontSize: 32, lineHeight: 1.9, fontFamily: 'hyperlegible', letterSpacing: 0.02, wordSpacing: 0.08, plainAlign: true, margin: 'wide', theme: 'zen', wordFx: false, motes: false, motion: 'none' }))}
+      </div>
       <label className="row between" style={{ margin: '10px 0' }}>
         <span>Text size</span>
-        <input type="range" min={14} max={30} value={s.fontSize} onChange={(e) => set({ fontSize: +e.target.value })} aria-label="Font size" />
+        <input type="range" min={14} max={44} value={s.fontSize} onChange={(e) => set({ fontSize: +e.target.value })} aria-label="Font size" />
       </label>
       <label className="row between" style={{ margin: '10px 0' }}>
         <span>Line spacing</span>
@@ -28,9 +35,21 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <span>Margins</span>
         <div className="chips">{(['narrow', 'normal', 'wide'] as const).map((m) => chip(s.margin === m, m, () => set({ margin: m })))}</div>
       </div>
+      <label className="row between" style={{ margin: '10px 0' }}>
+        <span>Letter spacing</span>
+        <input type="range" min={0} max={0.12} step={0.01} value={s.letterSpacing} onChange={(e) => set({ letterSpacing: +e.target.value })} aria-label="Letter spacing" />
+      </label>
+      <label className="row between" style={{ margin: '10px 0' }}>
+        <span>Word spacing</span>
+        <input type="range" min={0} max={0.4} step={0.02} value={s.wordSpacing} onChange={(e) => set({ wordSpacing: +e.target.value })} aria-label="Word spacing" />
+      </label>
+      <label className="row between" style={{ margin: '10px 0' }}>
+        <span>Plain left-aligned lines, shorter measure</span>
+        <input type="checkbox" checked={s.plainAlign} onChange={(e) => set({ plainAlign: e.target.checked })} aria-label="Plain left-aligned lines" />
+      </label>
       <div className="row between" style={{ margin: '10px 0' }}>
         <span>Typeface</span>
-        <div className="chips">{(['serif', 'sans'] as const).map((m) => chip(s.fontFamily === m, m, () => set({ fontFamily: m })))}</div>
+        <div className="chips">{([['serif', 'serif'], ['sans', 'sans'], ['hyperlegible', 'Atkinson Hyperlegible'], ['dyslexic', 'OpenDyslexic']] as const).map(([m, l]) => chip(s.fontFamily === m, l, () => set({ fontFamily: m })))}</div>
       </div>
       <label className="row between" style={{ margin: '10px 0' }}>
         <span>Theme</span>
@@ -90,6 +109,15 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <summary>Sound credits and licences</summary>
         <ul className="list">{tracks.map((t) => <li key={t.id}>{t.title}{t.artist ? ` — ${t.artist}` : ''} · {t.sourceUrl ? <a href={t.sourceUrl} target="_blank" rel="noreferrer">{t.license}</a> : t.license}{t.note ? `. ${t.note}` : ''}</li>)}</ul>
       </details>
+
+      <div className="row between" style={{ margin: '10px 0' }}>
+        <span>Animation</span>
+        <div className="chips">{([['full', 'Full'], ['calm', 'Calm'], ['none', 'Still']] as const).map(([m, l]) => chip(s.motion === m, l, () => set({ motion: m })))}</div>
+      </div>
+      <label className="row between" style={{ margin: '4px 0' }}>
+        <span>Tiny vibration on taps (phones that support it)</span>
+        <input type="checkbox" checked={s.haptics} onChange={(e) => { set({ haptics: e.target.checked }); if (e.target.checked && 'vibrate' in navigator) navigator.vibrate(15); }} aria-label="Haptic feedback" />
+      </label>
 
       <h3 className="modal-sub">Silent mode</h3>
       <label className="row between" style={{ margin: '6px 0' }}>

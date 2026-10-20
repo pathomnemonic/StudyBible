@@ -1,7 +1,8 @@
 import type { SoundKind } from './ambience';
+import { defaultLang, type Lang } from './i18n';
 import { useSyncExternalStore } from 'react';
 
-export type ThemeName = 'twilight' | 'ocean' | 'dawn' | 'mist' | 'dark' | 'midnight' | 'amoled' | 'forest' | 'mocha' | 'nord' | 'light' | 'paper' | 'rose' | 'sepia' | 'solarized' | 'contrast' | 'contrast-dark' | 'system';
+export type ThemeName = 'twilight' | 'ocean' | 'dawn' | 'mist' | 'dark' | 'midnight' | 'amoled' | 'forest' | 'mocha' | 'nord' | 'light' | 'paper' | 'rose' | 'sepia' | 'solarized' | 'contrast' | 'contrast-dark' | 'zen' | 'system';
 
 /** Themes offered in Settings: [id, label, background, text, accent] (colours are preview swatches only). */
 export const THEMES: [ThemeName, string, string, string, string][] = [
@@ -18,6 +19,7 @@ export const THEMES: [ThemeName, string, string, string, string][] = [
   ['light', 'Light', '#fbf8f3', '#2a2622', '#8a2f39'],
   ['paper', 'Paper', '#f4f5f7', '#1c2330', '#2c5aa0'],
   ['rose', 'Rose', '#faf1f0', '#3a2224', '#9b3350'],
+  ['zen', 'Zen high contrast', '#000000', '#ffffff', '#ffd54a'],
   ['sepia', 'Sepia', '#f1e6cd', '#3a2f1b', '#6b2a22'],
   ['solarized', 'Solarized light', '#fdf6e3', '#4a5559', '#1f6f8b'],
   ['contrast-dark', 'High contrast (dark)', '#000000', '#ffffff', '#ffd54a'],
@@ -35,10 +37,21 @@ export interface PrayerReminder {
 
 export interface Settings {
   theme: ThemeName;
+  /** the language of the app's own menus and screens */
+  language: Lang;
   fontSize: number;
   lineHeight: number;
   margin: 'narrow' | 'normal' | 'wide';
-  fontFamily: 'serif' | 'sans';
+  fontFamily: 'serif' | 'sans' | 'hyperlegible' | 'dyslexic';
+  /** extra spacing between letters and words (em), for easier reading */
+  letterSpacing: number;
+  wordSpacing: number;
+  /** keep every line left-aligned and never justified */
+  plainAlign: boolean;
+  /** full = all gentle animation; calm = slower, fewer; none = still */
+  motion: 'full' | 'calm' | 'none';
+  /** a short vibration on taps, where the device supports it */
+  haptics: boolean;
   defaultEdition: string;
   parallelEdition: string | null;
   /** older or unfamiliar translations the reader chose to switch on (see Edition.offByDefault) */
@@ -89,10 +102,16 @@ export interface Settings {
 
 export const DEFAULTS: Settings = {
   theme: 'twilight',
+  language: defaultLang(),
   fontSize: 19,
   lineHeight: 1.65,
   margin: 'normal',
   fontFamily: 'serif',
+  letterSpacing: 0,
+  wordSpacing: 0,
+  plainAlign: false,
+  motion: 'calm',
+  haptics: false,
   defaultEdition: 'webc',
   parallelEdition: null,
   enabledEditions: [],

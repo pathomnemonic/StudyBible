@@ -2078,7 +2078,8 @@ a.t:hover {
   --a-reflection: #333333;
   --a-media: #6a1b57;
 }
-:root[data-theme='contrast-dark'] {
+:root[data-theme='contrast-dark'],
+:root[data-theme='zen'] {
   --bg: #000000;
   --surface: #000000;
   --surface-2: #141414;
@@ -2116,7 +2117,8 @@ a.t:hover {
   --a-media: #f0b3e0;
 }
 :root[data-theme='contrast'] *:focus-visible,
-:root[data-theme='contrast-dark'] *:focus-visible {
+:root[data-theme='contrast-dark'] *:focus-visible,
+:root[data-theme='zen'] *:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
 }
@@ -3702,3 +3704,21 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .ed-switch button { white-space: nowrap; }
 
 @media (min-width: 900px) { .home { height: 100dvh; } }
+
+/* reading comfort: spacing and alignment the reader chose */
+.scripture, .work-text, .reading-text { letter-spacing: var(--read-ls, 0); word-spacing: var(--read-ws, 0); }
+:root[data-align='plain'] .scripture, :root[data-align='plain'] .work-text, :root[data-align='plain'] .reading-text, :root[data-align='plain'] .scripture * { text-align: left; text-justify: none; hyphens: none; }
+:root[data-align='plain'] .scripture .blk, :root[data-align='plain'] .work-text p { max-width: 60ch; }
+
+/* Zen high contrast: pure black and white, one gold accent, no backdrop, no moving decoration */
+:root[data-theme='zen'] { --aura-a: transparent; --aura-b: transparent; --aura-c: transparent; --sky: transparent; --std-note: #ffd54a; }
+:root[data-theme='zen'] body { background: #000; }
+:root[data-theme='zen'] .reader::before, :root[data-theme='zen'] .motes, :root[data-theme='zen'] .chapter-title::after { display: none !important; }
+:root[data-theme='zen'] .fx { animation: none !important; background: none !important; -webkit-text-fill-color: currentColor !important; filter: none !important; color: inherit !important; text-shadow: none !important; text-decoration: underline dotted; }
+:root[data-theme='zen'] .term::after { animation: none; }
+:root[data-theme='zen'] .card, :root[data-theme='zen'] .btn, :root[data-theme='zen'] .modal { border-width: 2px; border-color: #fff; }
+
+/* animation preference: still means nothing moves */
+:root[data-motion='none'] *, :root[data-motion='none'] *::before, :root[data-motion='none'] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+:root[data-motion='none'] .motes { display: none; }
+:root[data-motion='calm'] .fx-fire, :root[data-motion='calm'] .fx-quake, :root[data-motion='calm'] .fx-wind { animation-duration: 4s; }

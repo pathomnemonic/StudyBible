@@ -9,6 +9,7 @@ import { formatRef, parseRefId, type Ref } from '../lib/refs';
 import { readerPath } from '../lib/nav';
 import { getBook } from '../lib/canon';
 import Icon from '../components/Icon';
+import { useT, dateLocale } from '../lib/i18n';
 
 const localIso = () => {
   const n = new Date();
@@ -18,6 +19,7 @@ const localIso = () => {
 /** Home: one quiet screen. The day, a verse, a saint, a question; ways back into reading. Nothing to scroll. */
 export default function TodayPage() {
   const [s] = useSettings();
+  const t = useT();
   const { get, editions } = useEditions();
   const nav = useNavigate();
   const [params, setParams] = useSearchParams();
@@ -87,7 +89,7 @@ export default function TodayPage() {
       if (r) return nav(readerPath(edition, r));
     }
   };
-  const dateLabel = new Date(date + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: date.slice(0, 4) === today.slice(0, 4) ? undefined : 'numeric' });
+  const dateLabel = new Date(date + 'T12:00').toLocaleDateString(dateLocale(s.language), { weekday: 'long', month: 'long', day: 'numeric', year: date.slice(0, 4) === today.slice(0, 4) ? undefined : 'numeric' });
   const saint = entry?.saint;
 
   return (
@@ -103,16 +105,16 @@ export default function TodayPage() {
       }}
     >
       <div className="home-tools">
-        <button className="icon-btn" onClick={() => setInfo((x) => !x)} aria-label="About today’s verse, quote and question (i)" aria-pressed={info} title="Sources (i)"><Icon name="info" /></button>
+        <button className="icon-btn" onClick={() => setInfo((x) => !x)} aria-label={t('home.sourcesLabel')} aria-pressed={info} title={`${t('home.sources')} (i)`}><Icon name="info" /></button>
       </div>
 
       <header className="home-date">
-        <button className="icon-btn" onClick={() => go(-1)} aria-label="Previous day"><Icon name="chevL" /></button>
+        <button className="icon-btn" onClick={() => go(-1)} aria-label={t('home.prev')}><Icon name="chevL" /></button>
         <div>
           <div className="eyebrow">{dateLabel}</div>
           <div className="season">{ld.dayName}</div>
         </div>
-        <button className="icon-btn" onClick={() => go(1)} aria-label="Next day"><Icon name="chevR" /></button>
+        <button className="icon-btn" onClick={() => go(1)} aria-label={t('home.next')}><Icon name="chevR" /></button>
       </header>
 
       <main className="home-body" key={date} ref={bodyRef}>
@@ -143,9 +145,9 @@ export default function TodayPage() {
       )}
 
       <footer className="home-actions">
-        {lastName && last ? <Link className="btn primary" to={`/read/${last.edition}/${last.book}/${last.chapter}${last.verse ? `?v=${last.verse}` : ''}`}>Continue · {lastName}</Link> : <Link className="btn primary" to={`/read/${s.defaultEdition}/JHN/1`}>Begin reading</Link>}
-        <button className="btn" onClick={random}>Random passage</button>
-        <Link className="btn" to={`/pray/readings/${date}`}>Mass readings</Link>
+        {lastName && last ? <Link className="btn primary" to={`/read/${last.edition}/${last.book}/${last.chapter}${last.verse ? `?v=${last.verse}` : ''}`}>{t('home.continue')} · {lastName}</Link> : <Link className="btn primary" to={`/read/${s.defaultEdition}/JHN/1`}>{t('home.begin')}</Link>}
+        <button className="btn" onClick={random}>{t('home.random')}</button>
+        <Link className="btn" to={`/pray/readings/${date}`}>{t('home.mass')}</Link>
       </footer>
     </div>
   );

@@ -4,6 +4,7 @@ import { useEditions } from '../data/EditionsContext';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
 import { downloadEdition, isEditionCached, downloadPack, getManifest, type StudyPack } from '../data/loader';
 import { useSettings, THEMES } from '../lib/store';
+import { LANGS, useT } from '../lib/i18n';
 import { BOOKS } from '../lib/canon';
 import { NATIONS } from '../liturgy/litcal';
 import { enableReminders, scheduleReminder, PRESETS } from '../liturgy/reminders';
@@ -12,6 +13,7 @@ import { deleteAllData, download, exportAll } from '../db/ops';
 export default function SettingsPage() {
   const [s, set] = useSettings();
   const { editions } = useEditions();
+  const t = useT();
   const { choosable, off } = useChoosable();
   const [enabling, setEnabling] = useState<(typeof editions)[number] | null>(null);
   const [cached, setCached] = useState<Record<string, boolean>>({});
@@ -51,6 +53,8 @@ export default function SettingsPage() {
       </div>
       <div className="card">
         <h2 className="card-title">Reading</h2>
+        <div className="row between" style={{ margin: '8px 0' }}><span>{t('settings.language')}</span><select value={s.language} onChange={(e) => set({ language: e.target.value as any })} aria-label={t('settings.language')}>{LANGS.map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></div>
+        <p className="muted small" style={{ margin: '0 0 8px' }}>{t('settings.languageNote')}</p>
         <div className="row between" style={{ margin: '8px 0' }}><span>Default translation</span><select value={s.defaultEdition} onChange={(e) => set({ defaultEdition: e.target.value, last: null })} aria-label="Default translation">{choosable.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}</select></div>
         {off.length > 0 && <div className="row between" style={{ margin: '4px 0' }}><span className="muted small">Older translations are off by default: {off.map((e) => e.shortName).join(', ')}</span>{off.map((e) => <button key={e.id} className="btn small" onClick={() => setEnabling(e)}>Turn on {e.shortName}…</button>)}</div>}
         <div style={{ margin: '8px 0' }}>

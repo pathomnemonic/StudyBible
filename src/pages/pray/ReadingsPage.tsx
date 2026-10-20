@@ -3,8 +3,9 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { db } from '../../db/db';
 import { addDays, iso, liturgicalDay, parseIso, COLOR_NAME } from '../../liturgy/compute';
 import { gradeName, loadLitYear, NATIONS, type LitYear } from '../../liturgy/litcal';
-import { importLectionary, readingsFor, saveManualReadings, SLOT_LABEL, type DayReadings, type Slot } from '../../liturgy/readings';
+import { importLectionary, readingsFor, saveManualReadings, slotLabel, type DayReadings, type Slot } from '../../liturgy/readings';
 import { useSettings } from '../../lib/store';
+import { useT } from '../../lib/i18n';
 import RefLink from '../../components/RefLink';
 import Icon from '../../components/Icon';
 import ReadingBlock from '../../components/ReadingBlock';
@@ -19,6 +20,7 @@ export default function ReadingsPage() {
   const { date = localIso() } = useParams();
   const nav = useNavigate();
   const [s, set] = useSettings();
+  const t = useT();
   const [rd, setRd] = useState<DayReadings | null>(null);
   const [month, setMonth] = useState<LitYear | null>(null);
   const [manual, setManual] = useState<Partial<Record<Slot, string>>>({});
@@ -49,7 +51,7 @@ export default function ReadingsPage() {
   return (
     <div className="page">
       <Link to="/pray" className="small">← Pray</Link>
-      <h1>Readings</h1>
+      <h1>{t('readings.title')}</h1>
       <div className="row between">
         <div className="row">
           <button className="icon-btn" onClick={() => go(-1)} aria-label="Previous day"><Icon name="chevL" /></button>
@@ -75,15 +77,15 @@ export default function ReadingsPage() {
       </div>
 
       <div className="card">
-        <h3>Mass readings</h3>
+        <h3>{t('readings.mass')}</h3>
         {!rd && <div className="muted">Loading…</div>}
         {rd && rd.title && <div className="muted small">{rd.title}</div>}
         {rd && rd.items.length > 0 && (
           <div className="reading-stack">
             {rd.items.map((i) => (
               i.slot === 'gospel_acclamation'
-                ? <div key={i.slot} className="muted small">{SLOT_LABEL[i.slot]}: {i.text}</div>
-                : <ReadingBlock key={i.slot} refs={i.refs} label={SLOT_LABEL[i.slot]} text={i.text} />
+                ? <div key={i.slot} className="muted small">{slotLabel(i.slot)}: {i.text}</div>
+                : <ReadingBlock key={i.slot} refs={i.refs} label={slotLabel(i.slot)} text={i.text} />
             ))}
           </div>
         )}
@@ -92,7 +94,7 @@ export default function ReadingsPage() {
           The Lectionary wording (NABRE-based in the United States) is copyrighted, so the readings above are the Church’s assigned <em>passages</em>, printed in your chosen translation (change it in Settings). The official text is one tap away.
         </div>
         <div className="row">
-          <a className="btn" href={usccb} target="_blank" rel="noreferrer">Official daily readings (USCCB) ↗</a>
+          <a className="btn" href={usccb} target="_blank" rel="noreferrer">{t('readings.official')} ↗</a>
           <button className="btn" onClick={saveDay}>Save this day</button>
           <button className="btn" onClick={() => setShowManual(!showManual)}>Enter references</button>
           <button className="btn" onClick={() => file.current?.click()}>Import lectionary file</button>
@@ -108,7 +110,7 @@ export default function ReadingsPage() {
             <p className="muted small">Type the day’s references (as printed in your missal, e.g. “Ephesians 2:1-10”). They stay on this device and open in the reader.</p>
             {(['first_reading', 'responsorial_psalm', 'second_reading', 'gospel'] as Slot[]).map((sl) => (
               <label key={sl} className="row" style={{ margin: '4px 0' }}>
-                <span style={{ width: 150 }}>{SLOT_LABEL[sl]}</span>
+                <span style={{ width: 150 }}>{slotLabel(sl)}</span>
                 <input type="text" value={manual[sl] ?? ''} onChange={(e) => setManual({ ...manual, [sl]: e.target.value })} style={{ flex: 1 }} />
               </label>
             ))}

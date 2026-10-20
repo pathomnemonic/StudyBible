@@ -22,7 +22,9 @@ import StudyPanel from '../components/StudyPanel';
 import TextSettings from '../components/TextSettings';
 import { atmosphereFor, MOOD_SOUND } from '../lib/atmosphere';
 import { setAmbience, stopAmbience } from '../lib/ambience';
+import { useT } from '../lib/i18n';
 import Motes from '../components/Motes';
+import { buzz } from '../lib/haptics';
 import NotePopover from '../components/NotePopover';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
 import { artForChapter, type InlineFig } from '../study/inlineArt';
@@ -79,6 +81,7 @@ export default function ReadPage() {
   const from = (loc.state as { from?: Trail } | null)?.from;
   const { get, editions, planned } = useEditions();
   const [settings, setSettings] = useSettings();
+  const t = useT();
   const edition = get(edId) ?? editions[0];
   const { choosable, isOn } = useChoosable(edId);
   const [enabling, setEnabling] = useState<typeof edition | null>(null);
@@ -309,6 +312,7 @@ export default function ReadPage() {
   // -------- selection
   const parallelMode = !!parallel;
   const onVerse = (n: number, e: { shiftKey?: boolean }, menu?: boolean) => {
+    buzz();
     setSelNative((cur) => {
       if (menu) return cur.includes(n) ? cur : [...cur, n];
       if (e.shiftKey && lastClicked.current != null) {
@@ -561,7 +565,7 @@ export default function ReadPage() {
                   {e.shortName}
                 </button>
               ))}
-              <button onClick={() => setEditionPicker(true)} title="More translations" aria-label="More translations">⋯</button>
+              <button onClick={() => setEditionPicker(true)} title={t('reader.more')} aria-label={t('reader.more')}>⋯</button>
             </span>
             {parallel && (
               <button className="chip" onClick={() => setEditionPicker(true)} aria-label="Change parallel translation">
@@ -583,10 +587,10 @@ export default function ReadPage() {
           <button className="icon-btn tool-sm" aria-pressed={aloud} onClick={() => setAloud((a) => !a)} aria-label="Read aloud" title="Read this chapter aloud">
             <Icon name="listen" />
           </button>
-          <button className="icon-btn tool-sm" aria-pressed={settings.ambience.kind !== 'off'} onClick={() => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'nature' : 'off' }, ambienceTipSeen: true })} aria-label={settings.ambience.kind === 'off' ? 'Turn reading sound on' : 'Turn reading sound off'} title="Reading sound: on/off">
+          <button className="icon-btn tool-sm" aria-pressed={settings.ambience.kind !== 'off'} onClick={() => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'nature' : 'off' }, ambienceTipSeen: true })} aria-label={settings.ambience.kind === 'off' ? t('reader.soundOn') : t('reader.soundOff')} title="Reading sound: on/off">
             <Icon name="music" />
           </button>
-          <button className="icon-btn tool-sm" onClick={() => setTextSettings(true)} aria-label="Reading settings" title="Text, theme, atmosphere, sound and quiet reading">
+          <button className="icon-btn tool-sm" onClick={() => setTextSettings(true)} aria-label={t('reader.settings')} title="Text, theme, atmosphere, sound and quiet reading">
             <Icon name="text" />
           </button>
           <button
@@ -666,8 +670,8 @@ export default function ReadPage() {
               </p>
             )}
             <div className="chapter-nav">
-              <button className="btn" onClick={prev}>← Previous</button>
-              <button className="btn" onClick={next}>Next →</button>
+              <button className="btn" onClick={prev}>{t('reader.prev')}</button>
+              <button className="btn" onClick={next}>{t('reader.next')}</button>
             </div>
           </article>
         )}
@@ -754,7 +758,7 @@ export default function ReadPage() {
           </table>
         </Modal>
       )}
-      {!settings.scriptureOnly && settings.motes && <Motes />}
+      {!settings.scriptureOnly && settings.motes && settings.motion !== 'none' && settings.theme !== 'zen' && <Motes />}
       {!settings.ambienceTipSeen && settings.ambience.kind !== 'off' && !settings.scriptureOnly && (
         <div className="amb-tip" role="status">
           <p><strong>Soft sound is playing while you read.</strong> Turn it off, or change it to music, classical piano or chant, with the note icon above or in Reading settings.</p>

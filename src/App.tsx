@@ -11,6 +11,7 @@ import { initSync } from './sync/state';
 import { scheduleReminder } from './liturgy/reminders';
 
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
+const QuotationTracker = lazy(() => import('./pages/study/QuotationTracker'));
 const SearchPage = lazy(() => import('./pages/study/SearchPage'));
 const TopicPage = lazy(() => import('./pages/study/TopicPage'));
 const DoctrinePage = lazy(() => import('./pages/study/DoctrinePage'));
@@ -72,7 +73,14 @@ function ThemeApplier() {
       root.dataset.margin = s.margin;
       root.style.setProperty('--read-size', `${s.fontSize}px`);
       root.style.setProperty('--read-lh', String(s.lineHeight));
-      root.style.setProperty('--read-font', s.fontFamily === 'serif' ? 'var(--font-serif)' : 'var(--font-sans)');
+      root.style.setProperty('--read-font', s.fontFamily === 'serif' ? 'var(--font-serif)' : s.fontFamily === 'hyperlegible' ? "'Atkinson Hyperlegible', var(--font-sans)" : s.fontFamily === 'dyslexic' ? "'OpenDyslexic', 'Atkinson Hyperlegible', var(--font-sans)" : 'var(--font-sans)');
+      root.style.setProperty('--read-ls', `${s.letterSpacing}em`);
+      root.style.setProperty('--read-ws', `${s.wordSpacing}em`);
+      root.dataset.align = s.plainAlign ? 'plain' : '';
+      root.dataset.motion = s.motion;
+      root.lang = s.language;
+      if (s.fontFamily === 'hyperlegible') void import('@fontsource/atkinson-hyperlegible/400.css').catch(() => {});
+      if (s.fontFamily === 'dyslexic') { void import('@fontsource/opendyslexic/400.css').catch(() => {}); void import('@fontsource/atkinson-hyperlegible/400.css').catch(() => {}); }
       const meta = document.querySelector('meta[name="theme-color"]');
       meta?.setAttribute('content', getComputedStyle(root).getPropertyValue('--bg').trim() || '#121110');
     };
@@ -85,7 +93,7 @@ function ThemeApplier() {
       mq.removeEventListener('change', apply);
       mc.removeEventListener('change', apply);
     };
-  }, [s.theme, s.margin, s.fontSize, s.lineHeight, s.fontFamily]);
+  }, [s.language, s.theme, s.margin, s.fontSize, s.lineHeight, s.fontFamily, s.letterSpacing, s.wordSpacing, s.plainAlign, s.motion]);
   return null;
 }
 
@@ -142,6 +150,7 @@ export default function App() {
               <Route path="/study/universe" element={<GalaxyPage />} />
               <Route path="/study/timespace" element={<TimeSpacePage />} />
               <Route path="/study/fulfilment" element={<FulfilmentPage />} />
+              <Route path="/study/quotations" element={<QuotationTracker />} />
               <Route path="/study/terms" element={<TermsIndex />} />
               <Route path="/study/term/:id" element={<TermPage />} />
               <Route path="/study/constellation" element={<ConstellationPage />} />
