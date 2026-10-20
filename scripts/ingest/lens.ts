@@ -99,4 +99,16 @@ export function buildLens(report: Report) {
     stats[type] = out.length;
   }
   report.stats['lens'] = stats;
+
+  // public-domain paintings for the verse card: copied as-is after checking provenance fields
+  const art = join(CURATED, 'art.json');
+  if (exists(art)) {
+    const a = readJson(art);
+    for (const w of a.works ?? []) {
+      if (!/^https:\/\/images\.metmuseum\.org\//.test(w.img ?? '') || !/^https:\/\/www\.metmuseum\.org\//.test(w.page ?? '')) report.error(`art: ${w.title}: image and page must be on metmuseum.org`);
+      for (const k of ['title', 'artist', 'credit', 'theme']) if (!w[k]) report.error(`art: ${w.title ?? w.id}: missing "${k}"`);
+    }
+    writeJson(join(PUBLIC_DATA, 'art.json'), a);
+    report.stats['art'] = (a.works ?? []).length;
+  }
 }
