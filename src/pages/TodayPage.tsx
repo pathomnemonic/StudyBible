@@ -55,6 +55,20 @@ export default function TodayPage() {
     return () => { live = false; };
   }, [entry?.ref, edition?.id]);
 
+  // Shrink the type a little, on small screens or long texts, until everything fits without scrolling.
+  const bodyRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const el = bodyRef.current;
+    if (!el) return;
+    const fit = () => {
+      let f = 1;
+      el.style.setProperty('--fit', '1');
+      while (el.scrollHeight > el.clientHeight + 1 && f > 0.6) { f -= 0.04; el.style.setProperty('--fit', f.toFixed(2)); }
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, [entry?.ref, verse?.text, date]);
   const go = (n: number) => {
     const d = iso(addDays(parseIso(date), n));
     setParams(d === today ? {} : { d }, { replace: true });
@@ -116,7 +130,7 @@ export default function TodayPage() {
         <button className="icon-btn" onClick={() => go(1)} aria-label="Next day"><Icon name="chevR" /></button>
       </header>
 
-      <main className="home-body" key={date}>
+      <main className="home-body" key={date} ref={bodyRef}>
         {entry && verse ? (
           <>
             <blockquote className="home-verse">
