@@ -90,3 +90,15 @@ The maintainer authorised adding more links to outside articles. ~90 more pages 
 | Biblical world | 7 journeys, 9 eras, 12 finds; dates are conventional estimates. |
 | Guided session, verse card, xref map, authors compared | Built on data already in the app. |
 Not built: a community/study-group feature (needs a moderated server), hosted accounts with email reset, native widgets and push notifications, recorded audio Bibles.
+
+## Round 7: lenses, explorers and sacred art
+| Feature | Honest status |
+|---|---|
+| Lens notes (`data/curated/lens/*.json`) | Written for this app, in its own words, AI-assisted; each entry carries a `status` (attested, documented, supported, proposed, traditional, disputed, textual-fact, interpretive, editorial). References are validated against verse counts by `npm run data:build`. Coverage is selective. Verify before quoting. |
+| Manuscripts | 26 entries describing codices, papyri and scrolls; link-only, no images. Dates are scholars' estimates. |
+| Liturgy and hymn echoes | 38 entries naming where a text is heard; texts are named, not reproduced. Rubrics change; check the current Missal and Liturgy of the Hours. |
+| Reception history | 15 passages; lists readings, does not endorse them. |
+| Sacred art | `data/curated/art.json`: 39 paintings from The Met open access (CC0), each checked for `isPublicDomain` when built and re-hosted at reduced size under `public/art/`. 30 are linked to the scene they depict (`lens/art.json`). |
+| Constellation, web of themes, voices timeline | Computed from existing data; the timeline uses the work dates in the library registry. |
+| Word journeys, chapter word fingerprint | Computed in the browser from the Hebrew and Greek texts by Strong's number. Function words are excluded by a fixed list. |
+Not built: manuscript images, 3D spatial navigation, a combined time-and-space slider, a translation-comparison tool beyond the existing compare view, the pronunciation coach beyond the device speech engine.

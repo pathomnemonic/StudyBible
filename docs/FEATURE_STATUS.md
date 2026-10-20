@@ -19,6 +19,17 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Verse study panel with provenance, authority level and match reason on every item | **Working** | Never lists a source for a verse unless the data links it; empty sections say so. |
 | Catechism links | **Partial** | 29 verse-level citations, each verified against the paragraph text; topic ranges for 18 doctrine topics. The full Scripture index of the CCC needs a licensed data file. CCC text is never stored. |
+
+## App
+
+| Feature | Status | Notes |
+|---|---|---|
+| Navigation: Bible, Study, Today, Notes | **Working** | Four tabs (plus More on phones). Today groups the daily practice: Mass readings, plans, listening to Bible in a Year, memorizing and prayer. On wide screens the reader keeps a study panel beside the text that shows a chapter guide until you tap a verse. Search is first in the sidebar and in the reader bar. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
 | Challoner’s notes, chapter summaries and introductions; chapter reading links | **Working** | Bishop Challoner’s annotations (about 1,850), a one-line summary for 1,293 chapters and 71 book introductions (public domain, Project Gutenberg). Every chapter of all 73 books also links to the Douay-Rheims with notes (DRBO), New Advent and the NABRE with the bishops’ notes (USCCB). These are chapter-level, not verse-level; the app labels them so. `scripts/verify/coverage.ts` reports how many verses have a verse-level reading versus chapter-level only. |
 | Church Fathers: Catena Aurea (all four Gospels, CrossWire), Haydock Catholic Bible Commentary (protocanon), Augustine, Chrysostom, Irenaeus, Athanasius, Cyril, Glossa Ordinaria (Latin) | **Working** | Public-domain: CrossWire Catena (Public Domain licence), SermonIndex Haydock module, CCEL translations. 24 works in the library plus a link-out Summa index. |
 | Saints library (Teresa of Ávila, Catherine of Siena, Brother Lawrence) | **Partial** | Several popular translations were left out because their copyright status could not be verified. |
@@ -64,6 +75,29 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Church documents on Scripture (Dei Verbum, Verbum Domini, Vatican II, encyclicals) | **Partial** | Article numbers linked to the Scripture they cite, parsed from vatican.va; text not stored. Strong for Dei Verbum, Verbum Domini and the recent encyclicals; weak for pre-1965 documents and footnote-only citations. See docs/RESOURCE_COVERAGE.md. |
 | Original-language word study (Greek and Hebrew) | **Working** | Word by word with Strong’s glosses and parsing for the protocanonical books (SBLGNT/MorphGNT, OSHB/WLC). Hebrew is shown only where verse numbers provably line up; deuterocanon not included. Links to Bible Hub and Blue Letter Bible as well. |
+| Verse panel: notes first, shared notes grouped, verse-specific material ranked above chapter-level | **Working** | Tapping a verse opens the panel with the commentary already showing. A note written for a run of verses (for example Luke 21:1–4) is shown once, labelled with what it covers, instead of repeating. Chapter-level and click-out items sit below. |
+| Lens notes: NT quotations of the Old Testament, parallels, customs and archaeology, literary structure, word and translation notes, ancient versions, manuscripts, liturgy and hymn echoes, genre, reading dependencies, reception history | **Partial** | About 550 short notes written for this app (AI-assisted; not an official text), each labelled with how firm the claim is. Coverage is selective, not exhaustive: roughly 180 quotation links, 80 customs notes, 50 parallels, 40 structure outlines. Manuscript notes are link-only (no manuscript images). Reception history lists readings without endorsing them. Check anything you will quote against a scholarly source. |
+| Explorers: constellation of cross-references, web of themes, voices-through-time timeline, journeys and eras on the map | **Working** | The constellation is computed on your device from the cross-reference data. The timeline uses the dates recorded for each work in the library, which are approximate. The web of themes covers the 15 editorial themes only. |
+| Word journeys, repeated-word fingerprint and pronunciation | **Partial** | A word’s appearances by book (counted by Strong’s number) and the words that recur in a chapter come from the Hebrew and Greek texts. Pronunciation uses the device’s speech engine; many devices have no Hebrew or ancient-Greek voice, so it is modern Greek or Hebrew at best. |
+| Sacred art on the verse panel and share card | **Partial** | 39 public-domain paintings from The Metropolitan Museum of Art open-access collection (CC0), 30 of them linked to the scene they show. Images are bundled (about 2 MB). Not a complete art index. |
+
+## Reading
+
+| Feature | Status | Notes |
+|---|---|---|
+| Atmosphere, ambient sound, silent mode and quiet session | **Working** | Per-book colour identity, optional passage atmosphere, generated (not recorded) ambient sound, and a mode that hides everything except the text. All off or subtle by default. |
+
+## Share
+
+| Feature | Status | Notes |
+|---|---|---|
+| Verse card: shape, lettering, backgrounds, your own words, paintings | **Working** | Drawn on your device. Only public-domain translations and CC0 paintings are used, and the painting credit is printed on the image. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Manuscript viewer, spatial 3D navigation, time-and-space slider, historical-plausibility rating | **Planned** | Not built. Manuscripts are described and linked, not shown. The map and eras are separate tools rather than one scrubbable view; plausibility is covered only by the labelled status on customs notes. |
 | Maps, concordance and topical index | **Working** | OpenBible.info data (CC BY): 1,232 places on an OpenStreetMap map (needs a connection), exact-word concordance, 6,350 community-voted topics. |
 | Book introductions and outlines, indexes, synopsis, Pauline outlines, genealogies | **Working** | Editorial study aids written for this app (AI-assisted) and checked for valid references; they are not official Church texts and are not exhaustive. |
 
@@ -89,7 +123,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| High-contrast themes, reduced motion, adjustable text | **Working** | Dark by default, with 13 themes to choose from (dark, midnight, OLED black, forest, mocha, nord, light, paper, rose, sepia, solarized, two high-contrast, or match your device; each checked with an automated contrast audit), reduced-motion support, text size, spacing and margins, screen-reader labels (checked with an automated audit, not yet with a person using a screen reader). |
+| High-contrast themes, reduced motion, adjustable text | **Working** | Twilight (deep indigo) by default, with 17 themes to choose from (twilight, ocean, ember, midnight, OLED black, forest, mocha, nord, dawn, mist, light, paper, rose, sepia, solarized, two high-contrast, or match your device; each checked with an automated contrast audit), reduced-motion support, text size, spacing and margins, screen-reader labels (checked with an automated audit, not yet with a person using a screen reader). |
 
 ## Pray
 

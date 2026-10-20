@@ -932,6 +932,7 @@ a.card:hover {
   margin: 8px 0 16px;
 }
 .search-box input {
+  min-width: 0;
   flex: 1;
   font-size: 16px;
   min-height: 44px;

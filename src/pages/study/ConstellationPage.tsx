@@ -84,7 +84,7 @@ export default function ConstellationPage() {
             const on = sel === b.id || (sel && top.some(([t]) => t === b.id));
             const left = Math.cos(p.a) < 0;
             return (
-              <g key={b.id} tabIndex={0} role="button" aria-label={`${b.name}${sel === b.id ? ', selected' : ''}`} onClick={() => setSel(sel === b.id ? null : b.id)} onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setSel(sel === b.id ? null : b.id)} style={{ cursor: 'pointer' }}>
+              <g key={b.id} tabIndex={0} role="button" aria-label={`${b.abbr}, ${b.name}${sel === b.id ? ', selected' : ''}`} onClick={() => setSel(sel === b.id ? null : b.id)} onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setSel(sel === b.id ? null : b.id)} style={{ cursor: 'pointer' }}>
                 <circle cx={p.x} cy={p.y} r={11} fill="transparent" />
                 <circle cx={p.x} cy={p.y} r={sel === b.id ? 7 : on ? 5.5 : 3.8} fill={b.testament === 'OT' ? 'var(--accent)' : 'var(--accent-2, #7fb8d6)'} opacity={sel && !on ? 0.35 : 1} />
                 <text x={p.x + Math.cos(p.a) * 11} y={p.y + Math.sin(p.a) * 11 + 3} fontSize="8" textAnchor={left ? 'end' : 'start'} fill="var(--text)" opacity={sel && !on ? 0.35 : 0.9}>{b.abbr}</text>
