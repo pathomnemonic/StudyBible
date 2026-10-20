@@ -1,41 +1,19 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BOOKS, getBook } from '../../lib/canon';
-import { getXrefs } from '../../data/loader';
+import { bookMatrix, pairLinks, topLinks, type BookMatrix } from '../../study/bookLinks';
 
 const W = 560;
 const C = W / 2;
 const R = 230;
 
-type Matrix = Record<string, Record<string, number>>;
-
 /** Every book as a star on one ring; arcs are cross-references, weighted by how strongly the tradition's reference data links them. */
 export default function ConstellationPage() {
-  const [m, setM] = useState<Matrix | null>(null);
+  const [m, setM] = useState<BookMatrix | null>(null);
   const [sel, setSel] = useState<string | null>(null);
 
   useEffect(() => {
-    let live = true;
-    (async () => {
-      const out: Matrix = {};
-      await Promise.all(
-        BOOKS.map(async (b) => {
-          const f = await getXrefs(b.id).catch(() => null);
-          const row: Record<string, number> = (out[b.id] = {});
-          for (const targets of Object.values(f ?? {})) {
-            for (const [ref, votes] of targets as [string, number][]) {
-              const t = ref.split('.')[0];
-              if (t === b.id || !(t in Object.fromEntries(BOOKS.map((x) => [x.id, 1])))) continue;
-              row[t] = (row[t] ?? 0) + Math.sqrt(votes || 1);
-            }
-          }
-        }),
-      );
-      if (live) setM(out);
-    })();
-    return () => {
-      live = false;
-    };
+    bookMatrix().then(setM);
   }, []);
 
   const pos = useMemo(
@@ -49,25 +27,10 @@ export default function ConstellationPage() {
     [],
   );
 
-  const links = useMemo(() => {
-    if (!m) return [];
-    const pair: Record<string, number> = {};
-    for (const a of Object.keys(m)) for (const [b, w] of Object.entries(m[a])) {
-      const k = a < b ? `${a}|${b}` : `${b}|${a}`;
-      pair[k] = (pair[k] ?? 0) + w;
-    }
-    const all = Object.entries(pair).sort((x, y) => y[1] - x[1]);
-    const max = all[0]?.[1] ?? 1;
-    return all.slice(0, 450).map(([k, w]) => ({ a: k.split('|')[0], b: k.split('|')[1], w, n: w / max }));
-  }, [m]);
+  const links = useMemo(() => (m ? pairLinks(m, 450) : []), [m]);
 
   const shown = sel ? links.filter((l) => l.a === sel || l.b === sel) : links.slice(0, 160);
-  const top = sel
-    ? Object.entries(m?.[sel] ?? {})
-        .map(([b, w]) => [b, w + (m?.[b]?.[sel] ?? 0)] as [string, number])
-        .sort((x, y) => y[1] - x[1])
-        .slice(0, 8)
-    : [];
+  const top = m && sel ? topLinks(m, sel) : [];
 
   return (
     <div className="page">

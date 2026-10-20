@@ -97,7 +97,12 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Manuscript viewer, spatial 3D navigation, time-and-space slider, historical-plausibility rating | **Planned** | Not built. Manuscripts are described and linked, not shown. The map and eras are separate tools rather than one scrubbable view; plausibility is covered only by the labelled status on customs notes. |
+| Manuscript viewer | **Partial** | 13 open-access manuscripts from The Metropolitan Museum of Art (CC0), from a fourth-century fragment of John 2:11-22 to medieval Bibles, Gospel books and Psalters, with zoom and page turning. Photographs load from the museum (needs a connection). Only two are tied to a passage. The great codices (Vaticanus, Sinaiticus, Alexandrinus) are linked, not shown, because their images are not free to reuse. |
+| Scripture universe (3D sphere of the 73 books) | **Working** | A canvas sphere you can drag, with cross-reference arcs from the selected book. A list picker is provided for keyboard and screen-reader use. Motion is off when your device asks for reduced motion. |
+| Time and place slider | **Partial** | One slider through nine eras: the map shows the era’s places (fainter for earlier ones) with its journeys, and the card lists finds from the period. Each era has only 2–4 places, and dates are conventional estimates. |
+| Translation blind-spot detector | **Partial** | In the Words tab it flags original-language words the KJV alone renders six or more ways, so you know an English word is one choice among many. It does not compare modern translations word by word. |
+| Pronunciation coach | **Partial** | Hear a word at normal or slow speed with a transliteration, and say it back for a rough letter-match score where the browser has speech recognition. Voices and recognition are modern Greek and Hebrew, not ancient pronunciation, and many devices lack them. |
+| Evidence meter on customs and archaeology notes | **Working** | Five steps from disputed to attested by an inscription or artefact, with the label spelled out. It rates the evidence for the note, not the truth of the passage. |
 | Maps, concordance and topical index | **Working** | OpenBible.info data (CC BY): 1,232 places on an OpenStreetMap map (needs a connection), exact-word concordance, 6,350 community-voted topics. |
 | Book introductions and outlines, indexes, synopsis, Pauline outlines, genealogies | **Working** | Editorial study aids written for this app (AI-assisted) and checked for valid references; they are not official Church texts and are not exhaustive. |
 

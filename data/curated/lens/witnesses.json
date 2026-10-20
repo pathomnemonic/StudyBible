@@ -520,6 +520,26 @@
    "date": "5th century (NT); older (OT)",
    "where": "Biblioteca Ambrosiana, Milan (Codex Ambrosianus)",
    "note": "The standard Syriac Bible. The Old Testament was translated from Hebrew, with some influence from the Greek and the Aramaic targums. The Peshitta New Testament originally left out 2 Peter, 2 and 3 John, Jude and Revelation."
+  },
+  {
+   "refs": [
+    "John 2:11-22"
+   ],
+   "title": "Fragment of John 2:11-22 (Metropolitan Museum of Art)",
+   "date": "4th century",
+   "where": "New York, The Metropolitan Museum of Art",
+   "note": "A fragment of John's Gospel from Egypt, catalogued as ink on parchment. You can view the museum's open-access photographs in the manuscript viewer.",
+   "internal": "/study/manuscripts?m=479631"
+  },
+  {
+   "refs": [
+    "Nehemiah 1:1-11"
+   ],
+   "title": "Opening of Nehemiah in a French Latin Bible (Metropolitan Museum of Art)",
+   "date": "c. 1280–1300",
+   "where": "New York, The Metropolitan Museum of Art",
+   "note": "A leaf from a Latin Bible with the opening of the book the Vulgate calls Nehemias. You can view the photographs in the manuscript viewer.",
+   "internal": "/study/manuscripts?m=469985"
   }
  ]
 }

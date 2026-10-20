@@ -136,7 +136,7 @@ const MAKERS: Record<string, { section: SectionKey; make: Maker }> = {
     section: 'witnesses',
     make: (e, sel) =>
       overlapsAny(sel, e.a)
-        ? { ...base, id: e.id, section: 'witnesses', title: e.title!, excerpt: e.note, kind: 'Manuscript', tags: [e.date as string, e.where as string].filter(Boolean), match: 'explicit-reference', why: `A manuscript that preserves this passage. Dates are scholarly estimates.`, url: e.url as string | undefined, ref: e.a?.[0] }
+        ? { ...base, id: e.id, section: 'witnesses', title: e.title!, excerpt: e.note, kind: 'Manuscript', tags: [e.date as string, e.where as string].filter(Boolean), match: 'explicit-reference', why: `A manuscript that preserves this passage. Dates are scholarly estimates.`, url: e.url as string | undefined, internal: e.internal as string | undefined, ref: e.a?.[0] }
         : null,
   },
   parallels: {

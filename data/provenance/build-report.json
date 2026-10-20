@@ -449,10 +449,11 @@
    "reception": 15,
    "structure": 39,
    "versions": 26,
-   "witnesses": 26,
+   "witnesses": 28,
    "wordnotes": 45
   },
   "art": 39,
+  "manuscripts": 13,
   "homilies": {
    "word-on-fire": 268,
    "word-on-fire-confirmed": 81,

@@ -14,6 +14,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
       ['/study/synopsis', 'Gospel synopsis', 'Matthew, Mark, Luke and John side by side.'],
       ['/study/pauline', 'Paul’s letters', 'Argument outlines for each letter.'],
       ['/study/index', 'Parables, miracles, prophecies, covenants', 'Indexes with every passage linked.'],
+      ['/study/manuscripts', 'Manuscripts', 'Zoomable photographs of real Bible manuscripts.'],
       ['/study/textual', 'Textual history', 'Where manuscripts and editions differ.'],
     ],
   },
@@ -40,8 +41,10 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     title: 'People and places',
     blurb: 'The world the text was written in.',
     items: [
+      ['/study/universe', 'Scripture universe', 'The canon as a turning sphere of stars, bound by cross-references.'],
       ['/study/constellation', 'Constellation', 'All 73 books as stars, joined by their cross-references.'],
       ['/study/maps', 'Maps', 'Places named in Scripture on an interactive map.'],
+      ['/study/timespace', 'Time and place', 'Slide through the biblical story and watch the map follow.'],
       ['/study/world', 'The biblical world', 'Journeys, eras and archaeology.'],
       ['/study/people', 'Genealogies', 'Family trees from Adam to Jesus.'],
     ],

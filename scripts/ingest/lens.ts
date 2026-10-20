@@ -112,4 +112,15 @@ export function buildLens(report: Report) {
     writeJson(join(PUBLIC_DATA, 'art.json'), a);
     report.stats['art'] = (a.works ?? []).length;
   }
+
+  const ms = join(CURATED, 'manuscripts.json');
+  if (exists(ms)) {
+    const m = readJson(ms);
+    for (const w of m.works ?? []) {
+      if (!(w.images ?? []).every((u: string) => /^https:\/\/images\.metmuseum\.org\//.test(u)) || !/^https:\/\/www\.metmuseum\.org\//.test(w.page ?? '')) report.error(`manuscripts: ${w.title}: images and page must be on metmuseum.org`);
+      if (w.ref) toAnchors(`manuscripts ${w.title}`, [w.ref]);
+    }
+    writeJson(join(PUBLIC_DATA, 'manuscripts.json'), m);
+    report.stats['manuscripts'] = (m.works ?? []).length;
+  }
 }

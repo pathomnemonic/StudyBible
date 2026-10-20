@@ -101,4 +101,7 @@ Not built: a community/study-group feature (needs a moderated server), hosted ac
 | Sacred art | `data/curated/art.json`: 39 paintings from The Met open access (CC0), each checked for `isPublicDomain` when built and re-hosted at reduced size under `public/art/`. 30 are linked to the scene they depict (`lens/art.json`). |
 | Constellation, web of themes, voices timeline | Computed from existing data; the timeline uses the work dates in the library registry. |
 | Word journeys, chapter word fingerprint | Computed in the browser from the Hebrew and Greek texts by Strong's number. Function words are excluded by a fixed list. |
-Not built: manuscript images, 3D spatial navigation, a combined time-and-space slider, a translation-comparison tool beyond the existing compare view, the pronunciation coach beyond the device speech engine.
+| Manuscript viewer | `data/curated/manuscripts.json`: 13 Met open-access manuscripts (CC0); images hot-linked from images.metmuseum.org, not bundled. |
+| Scripture universe, time and place | Computed on the device from existing cross-reference and era data. |
+| Blind-spot detector, pronunciation coach, evidence meter | See `src/featureStatus.ts` for limits. |
+Not built: the great codices as images (rights), combined per-event dating of places, a word-by-word comparison of modern translations, ancient (reconstructed) pronunciation.

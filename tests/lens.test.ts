@@ -35,3 +35,16 @@ describe('sacred art', () => {
     for (const e of lens.entries) expect(ids.has(e.work)).toBe(true);
   });
 });
+
+describe('manuscripts', () => {
+  const ms = JSON.parse(readFileSync(join(__dirname, '..', 'public', 'data', 'manuscripts.json'), 'utf8'));
+  it('are hosted by the museum with a catalogue page and credit', () => {
+    expect(ms.works.length).toBeGreaterThan(5);
+    for (const w of ms.works) {
+      expect(w.images.length).toBeGreaterThan(0);
+      for (const u of w.images) expect(u).toMatch(/^https:\/\/images\.metmuseum\.org\//);
+      expect(w.page).toMatch(/^https:\/\/www\.metmuseum\.org\//);
+      expect(w.credit).toBeTruthy();
+    }
+  });
+});

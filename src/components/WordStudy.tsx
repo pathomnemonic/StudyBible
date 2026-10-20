@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { loadLexicon, originalFor, parseGreek, parseHebrew, type LexEntry, type OriginalResult, type Word } from '../study/original';
 import type { Ref } from '../lib/refs';
 import { useEditions } from '../data/EditionsContext';
@@ -11,18 +11,73 @@ import { convertRef } from '../lib/versification';
 const clean = (s: string) => s.replace(/[.,;:··!?"“”‘’()[\]]/g, '');
 
 
-const speak = (text: string, lang: string) => {
-  try {
-    const u = new SpeechSynthesisUtterance(text.replace(/[,.;·]/g, ''));
-    u.lang = lang;
-    u.rate = 0.7;
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u);
-  } catch {
-    /* no speech support */
-  }
-};
 const canSpeak = typeof speechSynthesis !== 'undefined' && typeof SpeechSynthesisUtterance !== 'undefined';
+
+const plain = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f\u0591-\u05c7]/g, '').replace(/[ς]/g, 'σ').replace(/[^\p{L}]/gu, '').toLowerCase();
+const lev = (a: string, b: string) => {
+  const d = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[a.length][b.length];
+};
+type Rec = { start(): void; stop(): void; lang: string; interimResults: boolean; maxAlternatives: number; onresult: ((e: { results: ArrayLike<ArrayLike<{ transcript: string }>> }) => void) | null; onerror: (() => void) | null; onend: (() => void) | null };
+const Recognition: (new () => Rec) | undefined = typeof window !== 'undefined' ? (window as unknown as { SpeechRecognition?: new () => Rec; webkitSpeechRecognition?: new () => Rec }).SpeechRecognition ?? (window as unknown as { webkitSpeechRecognition?: new () => Rec }).webkitSpeechRecognition : undefined;
+
+/** Hear the word slowly or at speed, see how to say it, and (where the browser allows) say it back and see how close you were. */
+function Pronounce({ word, say, rtl }: { word: string; say?: string; rtl: boolean }) {
+  const lang = rtl ? 'he-IL' : 'el-GR';
+  const [state, setState] = useState<'idle' | 'listening' | 'result' | 'error'>('idle');
+  const [score, setScore] = useState(0);
+  const [heard, setHeard] = useState('');
+  useEffect(() => { setState('idle'); }, [word]);
+  const hear = (rate: number) => {
+    try {
+      const u = new SpeechSynthesisUtterance(word.replace(/[,.;·]/g, ''));
+      u.lang = lang;
+      u.rate = rate;
+      speechSynthesis.cancel();
+      speechSynthesis.speak(u);
+    } catch { /* no speech */ }
+  };
+  const listen = () => {
+    if (!Recognition) return;
+    const r = new Recognition();
+    r.lang = lang;
+    r.interimResults = false;
+    r.maxAlternatives = 3;
+    setState('listening');
+    r.onresult = (e) => {
+      const alts = [...Array.from(e.results[0])].map((a) => a.transcript);
+      const target = plain(word);
+      let best = 0;
+      let text = alts[0] ?? '';
+      for (const a of alts) {
+        const p = plain(a);
+        const sc = 1 - lev(p, target) / Math.max(p.length, target.length, 1);
+        if (sc > best) { best = sc; text = a; }
+      }
+      setHeard(text);
+      setScore(Math.max(0, Math.round(best * 100)));
+      setState('result');
+    };
+    r.onerror = () => setState('error');
+    r.onend = () => setState((s) => (s === 'listening' ? 'error' : s));
+    try { r.start(); } catch { setState('error'); }
+  };
+  return (
+    <div style={{ margin: '4px 0' }}>
+      <div className="row" style={{ gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
+        {canSpeak && <button className="btn small" onClick={() => hear(0.9)} aria-label="Hear this word">Hear it</button>}
+        {canSpeak && <button className="btn small" onClick={() => hear(0.45)} aria-label="Hear this word slowly">Slowly</button>}
+        {Recognition && <button className="btn small" onClick={listen} disabled={state === 'listening'}>{state === 'listening' ? 'Listening…' : 'Say it'}</button>}
+        {say && <span className="muted small">Say it: <em>{say}</em></span>}
+      </div>
+      {state === 'result' && <p className="small" role="status" style={{ margin: '4px 0' }}>I heard “{heard}”: about {score}% of the letters match. Speech recognition for {rtl ? 'Hebrew' : 'Greek'} is made for the modern language, so treat this as a rough guide.</p>}
+      {state === 'error' && <p className="muted small" role="status" style={{ margin: '4px 0' }}>Could not hear you. Check that the microphone is allowed and try again.</p>}
+      {!canSpeak && !Recognition && <p className="muted small">This browser cannot speak or listen. The transliteration above is a guide.</p>}
+    </div>
+  );
+}
 
 /** Counts a word's appearances book by book, by reading the original-language text of every book on demand. */
 function WordJourney({ strongs, lang }: { strongs: string; lang: 'grc' | 'hbo' }) {
@@ -123,6 +178,39 @@ function ChapterEchoes({ book, chapter, lang, lex }: { book: string; chapter: nu
   );
 }
 
+const renderings = (kjv: string) => [...new Set(kjv.replace(/\([^)]*\)/g, '').split(/[,;]/).map((x) => x.trim().toLowerCase().replace(/^(x|to|be|a|an|the)\s+/, '')).filter((x) => x && !/^\d/.test(x)))];
+
+/** Words in the selected verses that English translators have rendered many different ways: places where one translation's choice is only one option. */
+function BlindSpots({ verses, lex, lang }: { verses: { label: string; words: Word[] }[]; lex: Record<string, LexEntry> | null; lang: 'grc' | 'hbo' }) {
+  const rows = useMemo(() => {
+    if (!lex) return [];
+    const seen = new Map<string, { s: string; n: string[]; where: Set<string> }>();
+    for (const v of verses) for (const w of v.words) {
+      const e = w[1] ? lex[w[1]] : null;
+      if (!e || !w[1] || STOP.has(w[1]) || !e[3]) continue;
+      const n = renderings(e[3]);
+      if (n.length < 6) continue;
+      const cur = seen.get(w[1]) ?? { s: w[1], n, where: new Set<string>() };
+      cur.where.add(v.label.replace(/^.*?(\d+)$/, '$1'));
+      seen.set(w[1], cur);
+    }
+    return [...seen.values()].sort((a, b) => b.n.length - a.n.length).slice(0, 5);
+  }, [verses, lex]);
+  if (!rows.length || !lex) return null;
+  return (
+    <div className="notice" style={{ marginTop: 12 }}>
+      <strong>Where an English choice hides a range</strong>
+      <ul style={{ margin: '6px 0 0', paddingLeft: 18 }}>
+        {rows.map((r) => (
+          <li key={r.s} className="small">
+            <span lang={lang === 'hbo' ? 'he' : 'grc'} style={{ fontSize: '1.05rem' }}>{lex[r.s][0]}</span> ({lex[r.s][1]}): the KJV alone renders it {r.n.length} ways, such as {r.n.slice(0, 5).join(', ')}. Compare translations before resting an argument on one English word.
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 /** Word-by-word Greek or Hebrew for the selected verses, with Strong's-based glosses and parsing. */
 export default function WordStudy({ refs }: { refs: Ref[] }) {
   const { editions } = useEditions();
@@ -184,10 +272,7 @@ export default function WordStudy({ refs }: { refs: Ref[] }) {
             <button className="btn small ghost" onClick={() => setSel(null)}>Close</button>
           </div>
           {entry && <div className="muted">{entry[1]} · Strong’s {rtl ? 'H' : 'G'}{sel.w[1]}</div>}
-          <div className="row" style={{ gap: 8, margin: '4px 0' }}>
-            {canSpeak && <button className="btn small" onClick={() => speak(sel.w[0], rtl ? 'he-IL' : 'el-GR')} aria-label="Hear this word spoken">Hear it</button>}
-            {entry && <span className="muted small">Say it: <em>{entry[1]}</em></span>}
-          </div>
+          <Pronounce word={sel.w[0]} say={entry?.[1]} rtl={rtl} />
           <p className="small" style={{ margin: '6px 0' }}><strong>Form here:</strong> {rtl ? parseHebrew(sel.w[2]) : parseGreek(sel.w[2])}</p>
           {entry ? (
             <>
@@ -206,6 +291,7 @@ export default function WordStudy({ refs }: { refs: Ref[] }) {
           </p>
         </div>
       )}
+      <BlindSpots verses={res.verses} lex={lex} lang={res.lang} />
       <ChapterEchoes book={ref.book} chapter={kj.c1} lang={res.lang} lex={lex} />
       <p className="muted small" style={{ marginTop: 12 }}>
         Data: SBLGNT (CC BY 4.0) with MorphGNT parsing (CC BY-SA 3.0); Open Scriptures Hebrew Bible, WLC text (public domain) with lemma and morphology (CC BY 4.0); Strong’s dictionaries, Open Scriptures edition (CC BY-SA).
