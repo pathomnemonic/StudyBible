@@ -3738,3 +3738,4 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .path-quote footer { font-family: var(--font-sans); font-size: .85rem; color: var(--muted); }
 .path-question { font-size: 1.1rem; color: var(--accent); margin: 18px 0; }
 .home-date h1.season { margin: 0; font-weight: 500; }
+.shelf-card .chip { justify-self: start; }

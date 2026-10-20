@@ -67,3 +67,11 @@ No public API or reuse licence. The app provides labelled search links only (Cat
 - **Daily reflection**: `data/curated/daily.json` (maintainer's own catholic-daily-reflection project; most saint quotes unverified and shown as attributed) and `data/curated/daily-season/*.json` (seasonal triples; quotes verified verbatim against `public/data/library/works`).
 - **Ambience audio** (`public/audio`, credits in `public/audio/index.json`): BigSoundBank/Joseph Sardin (CC0), Kevin MacLeod (CC BY 4.0), Musopen Chopin via Internet Archive (CC0), Schola Gregoriana of the Pallottine Seminary, Ołtarzew (CC BY-SA 3.0, OTRS-confirmed; share-alike applies to that recording).
 - **Library additions**: see `data/registry/library.json` (rights evidence per work) and `_excluded` for works examined and rejected.
+
+## Added in the councils, paths and audio round
+
+- **Councils and documents**: seven ecumenical councils from Percival's NPNF2-14 (1900, CCEL, public domain); Trent (Waterworth 1848), Leo XIII's encyclicals (Benziger 1903), Pascendi (Burns & Oates 1907), Vatican I and the Syllabus (Devin-Adair 1912) from Internet Archive OCR (unproofread, pre-1929 publications). ~75 modern documents are link-only (`data/registry/church-documents.json`); no text stored. Rejected items are in `data/registry/library.json` `_excluded`.
+- **Study paths** (`data/curated/paths`): introductions and questions written for this app; quotations verified word for word at build time (`scripts/ingest/paths.ts` drops any that do not match).
+- **Daily quote verification** (`data/curated/daily-verify.json`, summary in `daily-verify-summary.txt`): 38 verified, 20 re-attributed, 308 unverified.
+- **Audio**: 34 tracks (see `public/audio/index.json` for each licence and source). Hymn recordings from the Library of Congress National Jukebox carry a Public Domain Mark; Tudor Consort items are CC BY 3.0; Salve Regina and Kyrie are CC BY-SA.
+- **Fonts**: Atkinson Hyperlegible and OpenDyslexic via @fontsource (SIL OFL).

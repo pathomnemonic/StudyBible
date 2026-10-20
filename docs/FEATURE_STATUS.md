@@ -197,3 +197,41 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Key words that sparkle (Son of Man, Kingdom of God…) | **Partial** | 32 key terms with a short note and every place they occur in the Douay-Rheims; matching follows that wording, so counts are approximate in other translations. Switch off in Reading settings. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Study paths: 15 guided journeys through a theme | **Working** | Each step has a passage in your translation, a short editorial introduction (written for this app), one Father or saint quotation checked word for word against the library, and a question. Progress is kept on your device. A few quotes fit their theme more loosely than their exact verse. |
+| Who quoted this verse? (quotation tracker) | **Partial** | Lists every library excerpt that cites a passage, ranked by how many words it shares with the verse, then by length. It only covers the 94+ works in the library and the tags in them; it is a guide, not a complete patristic index. |
+| Councils and Church documents | **Partial** | Seven ecumenical councils (Percival, 1900), Trent (Waterworth 1848, OCR), Vatican I, Leo XIII, Pius IX and X are read in full; ~75 modern documents (Vatican II, the Catechism, encyclicals from Pius XI on) are official links only. The OCR texts are not proofread. |
+
+## Reading
+
+| Feature | Status | Notes |
+|---|---|---|
+| Reading comfort: large print, dyslexia-friendly, low vision, spacing, animation and haptic settings, zen high-contrast theme | **Working** | Presets in Reading settings set the type size, spacing, alignment and font (Atkinson Hyperlegible and OpenDyslexic are bundled). Research on dyslexia fonts is mixed, so both are offered alongside the spacing controls. Haptics work only on devices that support vibration. |
+
+## Pray
+
+| Feature | Status | Notes |
+|---|---|---|
+| Sleep mode | **Working** | A chosen psalm shown and read slowly with your device’s voice, one verse at a time, while the sound fades and the screen dims; it stops by itself. |
+
+## Library
+
+| Feature | Status | Notes |
+|---|---|---|
+| Export notes to PDF and e-book (EPUB) | **Working** | PDF opens the browser’s print dialog (choose Save as PDF). The EPUB has one chapter per note and a contents page; it has been generated but not checked in every e-reader. |
+
+## App
+
+| Feature | Status | Notes |
+|---|---|---|
+| Spanish and Latin interface | **Partial** | Menus, the home screen, the readings page headings and the reader’s main buttons are translated (Spanish and Latin translations written for this app, not professionally reviewed). The study material stays in its own languages. There is no Spanish Bible yet: no machine-readable public-domain Catholic-canon Spanish text could be verified. |
+
+## Reading
+
+| Feature | Status | Notes |
+|---|---|---|
+| Scene sounds, chant by season and old hymn recordings | **Partial** | With “let the passage choose the sound” on, the sea, desert, night, fire, thunder, pasture and crowd recordings follow certain chapters. Chant: 7 tracks (Easter propers, a Salve Regina, one Kyrie). Hymns: 8 early recordings from the Library of Congress and others, with surface noise. No verified recordings for Advent or Lent chant yet. |

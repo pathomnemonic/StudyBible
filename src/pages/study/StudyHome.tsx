@@ -23,6 +23,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     blurb: 'What the Church teaches and how the Fathers and saints read Scripture.',
     items: [
       ['/study/doctrine', 'Doctrine & Catechism', 'Topics (Eucharist, Trinity, grace, Mary…) with Scripture and Catechism links.'],
+      ['/study/church', 'Councils and Church documents', 'Councils, catechisms and encyclicals: read in full where public domain, official links for the rest.'],
       ['/study/fathers', 'Reading room: saints, Fathers, catechisms', 'Augustine, Chrysostom, Teresa, the Imitation of Christ and more, to read in full.'],
       ['/study/quotations', 'Who quoted this verse?', 'Every Father and saint who cites a passage, fullest first.'],
       ['/study/voices', 'Voices through time', 'The Fathers and saints on one timeline, with the councils.'],

@@ -13,6 +13,7 @@ import { scheduleReminder } from './liturgy/reminders';
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
 const PathPage = lazy(() => import('./pages/study/PathsPage'));
 const PathsIndex = lazy(() => import('./pages/study/PathsPage').then((m) => ({ default: m.PathsIndex })));
+const ChurchDocs = lazy(() => import('./pages/study/ChurchDocs'));
 const SleepPage = lazy(() => import('./pages/pray/SleepPage'));
 const QuotationTracker = lazy(() => import('./pages/study/QuotationTracker'));
 const SearchPage = lazy(() => import('./pages/study/SearchPage'));
@@ -155,6 +156,7 @@ export default function App() {
               <Route path="/study/fulfilment" element={<FulfilmentPage />} />
               <Route path="/study/paths" element={<PathsIndex />} />
               <Route path="/study/path/:id" element={<PathPage />} />
+              <Route path="/study/church" element={<ChurchDocs />} />
               <Route path="/study/quotations" element={<QuotationTracker />} />
               <Route path="/study/terms" element={<TermsIndex />} />
               <Route path="/study/term/:id" element={<TermPage />} />

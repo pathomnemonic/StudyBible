@@ -11,6 +11,7 @@ import { buildTerms } from './terms';
 import { buildDaily } from './daily';
 import { buildCiteIndex } from './citeindex';
 import { buildPaths } from './paths';
+import { buildChurchIndex } from './churchindex';
 import { buildLectionary } from './lectionary';
 import { buildLens } from './lens';
 import { buildExternal } from './external';
@@ -55,6 +56,7 @@ async function main() {
     await run('library', () => buildLibrary(report));
     await run('cite-index', () => buildCiteIndex(report));
     await run('paths', () => buildPaths(report));
+    await run('church-index', () => buildChurchIndex(report));
     await run('curated', () => buildCurated(report));
     await run('church', () => buildChurchDocs(report));
     await run('original', () => buildOriginal(report));
