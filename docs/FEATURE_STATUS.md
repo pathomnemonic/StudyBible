@@ -24,7 +24,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Navigation: Today, Bible, Bible in a Year, Study, Notes | **Working** | Five tabs. Today opens on the day’s Bible in a Year episode (progress ring, listen, read, mark done), then where you left off, Mass readings and a verse to carry. Mass readings, plans, memorizing and prayer sit under Today. Settings and the account are in the sidebar, or the gear on Today. Search is first in the sidebar and in the reader bar. |
+| Navigation: Today, Bible, Study, Notes | **Working** | Today is one quiet screen with no tab bars: the day, a verse, a saint and a question, plus Continue reading, Random passage and Mass readings; a small menu in the corner leads to the rest. Bible in a Year, plans, memorizing and prayer live under Study and Prayer. Settings and the account are in the sidebar. |
 
 ## Study
 
@@ -32,7 +32,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Challoner’s notes, chapter summaries and introductions; chapter reading links | **Working** | Bishop Challoner’s annotations (about 1,850), a one-line summary for 1,293 chapters and 71 book introductions (public domain, Project Gutenberg). Every chapter of all 73 books also links to the Douay-Rheims with notes (DRBO), New Advent and the NABRE with the bishops’ notes (USCCB). These are chapter-level, not verse-level; the app labels them so. `scripts/verify/coverage.ts` reports how many verses have a verse-level reading versus chapter-level only. |
 | Church Fathers: Catena Aurea (all four Gospels, CrossWire), Haydock Catholic Bible Commentary (protocanon), Augustine, Chrysostom, Irenaeus, Athanasius, Cyril, Glossa Ordinaria (Latin) | **Working** | Public-domain: CrossWire Catena (Public Domain licence), SermonIndex Haydock module, CCEL translations. 24 works in the library plus a link-out Summa index. |
-| Saints library (Teresa of Ávila, Catherine of Siena, Brother Lawrence) | **Partial** | Several popular translations were left out because their copyright status could not be verified. |
+| Reading room: saints, Fathers and catechisms in full | **Working** | 94 public-domain works, including the Imitation of Christ, Thérèse, Teresa, Julian, Francis de Sales, Ignatius, Anselm, and the Roman and Baltimore catechisms. The Roman Catechism text is unproofread OCR. The Catechism of the Catholic Church is copyrighted and linked, not included. |
 | Popes and Vatican documents | **Partial** | Linked (not copied) with authority labels; text search of them is not included. |
 | Catholic Answers, Word on Fire, Ascension Presents | **Needs credentials / agreement** | No public APIs or reuse licences. Only search links and a curated-link schema are provided; no content is imported. A partnership/licence would unlock richer integration. |
 | Semantic / concept search with AI | **Planned** | Not implemented. Concept search currently uses editorial topic keywords and a people/places index, clearly labelled. If added, AI results will be marked as such. |
@@ -56,7 +56,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Liturgical calendar, seasons, cycles, calendar view, local calendars (via LitCal) | **Working** | Offline computation plus the open LitCal API when online. |
-| Daily Mass readings | **Needs licence** | The Lectionary is copyrighted and no open reference list exists for ordinary days. Solemnities and feasts are shown via LitCal; everything else via an imported or hand-entered reference list. |
+| Daily Mass readings, read in the app | **Partial** | The Church’s assigned passages for each day (citations compiled from the USCCB daily readings pages, which permit reading for analysis with attribution) are printed in full in your chosen translation, so you stay in the app. The Lectionary wording itself is copyrighted and not shown; the official page is one tap away. Coverage: the days that were collected (see the Readings page); other days fall back to feasts via LitCal, the Sunday Gospel table, or references you import or type. |
 | Saint biographies and homilies for the day | **Partial** | The day’s celebrations come from LitCal (names, ranks). Biographies need a licensed or public-domain source (e.g. a public-domain Lives of the Saints) which has not been ingested yet. |
 | Lectio Divina, prayer journal, traditional prayers, quiet reading, plans (11+ built in, custom plans) | **Working** | Optional; no streak pressure (streak display is off by default). |
 | Audio Scripture | **Partial** | Device text-to-speech only. Recorded audio would need a licensed or public-domain recording per edition. |
@@ -88,7 +88,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Atmosphere, ambient sound, silent mode and quiet session | **Working** | Per-book colour identity, optional passage atmosphere, generated (not recorded) ambient sound, and a mode that hides everything except the text. All off or subtle by default. |
+| Atmosphere, ambient sound and music, drifting light, inline paintings, silent mode | **Working** | Sound is on by default (it starts at your first tap, with a one-time note on how to turn it off): CC0 nature recordings, Kevin MacLeod ambient music (CC BY 4.0), Chopin nocturnes from Musopen (CC0) and one short plain-chant Kyrie (CC BY-SA 3.0). Only that one chant is verified so far; more chant tracks are listed for later. Soft drifting light behind the text, key-word sparkles and inline Met paintings can each be switched off in Reading settings. |
 
 ## Share
 
@@ -159,7 +159,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Today page: Mass readings, Bible in a Year, verse of the day, where you left off | **Working** | Readings need the LitCal calendar online or an imported lectionary. The Bible in a Year day follows the calendar year. |
+| Daily reflection: verse, saint quote and question for the day | **Partial** | 366 calendar-day triples plus 151 season-specific ones (Advent, the O Antiphons, Christmas, Lent, Holy Week, Easter) so verse, quote and question agree with the liturgical day. Season quotes were checked word for word against the library texts; of the calendar-day quotes only about 15 are verified, the rest are shown as attributed and labelled so. Questions are written for this app. |
 
 ## Library
 
@@ -185,3 +185,15 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Ingestion pipeline with provenance, checksums, validation and reports | **Working** | npm run data:fetch / data:build / data:validate; see docs/INGESTION.md. |
+
+## Scripture
+
+| Feature | Status | Notes |
+|---|---|---|
+| Translations: WEB-C (default), Douay-Rheims, Catholic Public Domain Version, Clementine Vulgate | **Working** | WEB-C is the modern-English default. The CPDV (Ronald L. Conte Jr.) is a plain-English Catholic translation of the Vulgate dedicated to the public domain; it has no imprimatur and is not the Lectionary text. |
+
+## Reading
+
+| Feature | Status | Notes |
+|---|---|---|
+| Key words that sparkle (Son of Man, Kingdom of God…) | **Partial** | 32 key terms with a short note and every place they occur in the Douay-Rheims; matching follows that wording, so counts are approximate in other translations. Switch off in Reading settings. |

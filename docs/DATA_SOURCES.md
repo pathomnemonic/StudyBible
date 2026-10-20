@@ -59,3 +59,11 @@ Computed locally (Meeus Easter, seasons, cycles) and, when online, from LitCal (
 ## Catholic Answers, Word on Fire, Ascension articles/videos: linked
 
 No public API or reuse licence. The app provides labelled search links only (Catholic Answers search; a YouTube search for Bishop Barron; Ascension search). It never claims these sources discuss a given verse. Curated, individually verified links can be added to the schema if a partnership or editorial review is arranged.
+
+## Added in the reading-and-home round
+
+- **Catholic Public Domain Version (CPDV)**: Ronald L. Conte Jr.; dedicated to the public domain by the translator (sacredbible.org/catholic). Text from the scrollmapper/bible_databases JSON export (`data/raw/CPDV.json`). Vulgate numbering. No imprimatur. Rights statement could not be re-fetched at build time; re-verify before redistribution beyond this app.
+- **Daily Mass reading references**: citations only (e.g. "Ephesians 2:12-22"), compiled by `scripts/fetch-readings.py` + `scripts/lectionary-curate.py` from bible.usccb.org daily pages, one request per second with an identifying User-Agent. USCCB's llms.txt permits AI crawling and analysis with attribution for non-commercial use and forbids full mirrors; no Lectionary text is stored. Output: `data/curated/lectionary-refs.json`.
+- **Daily reflection**: `data/curated/daily.json` (maintainer's own catholic-daily-reflection project; most saint quotes unverified and shown as attributed) and `data/curated/daily-season/*.json` (seasonal triples; quotes verified verbatim against `public/data/library/works`).
+- **Ambience audio** (`public/audio`, credits in `public/audio/index.json`): BigSoundBank/Joseph Sardin (CC0), Kevin MacLeod (CC BY 4.0), Musopen Chopin via Internet Archive (CC0), Schola Gregoriana of the Pallottine Seminary, Ołtarzew (CC BY-SA 3.0, OTRS-confirmed; share-alike applies to that recording).
+- **Library additions**: see `data/registry/library.json` (rights evidence per work) and `_excluded` for works examined and rejected.
