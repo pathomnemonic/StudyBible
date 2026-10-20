@@ -32,7 +32,7 @@ const MapsPage = lazy(() => import('./pages/study/MapsPage'));
 const VoicesPage = lazy(() => import('./pages/study/VoicesPage'));
 const ConceptsPage = lazy(() => import('./pages/study/ConceptsPage'));
 const ManuscriptsPage = lazy(() => import('./pages/study/ManuscriptsPage'));
-const UniversePage = lazy(() => import('./pages/study/UniversePage'));
+const GalaxyPage = lazy(() => import('./pages/study/GalaxyPage'));
 const TimeSpacePage = lazy(() => import('./pages/study/TimeSpacePage'));
 const ConstellationPage = lazy(() => import('./pages/study/ConstellationPage'));
 const TopicalPage = lazy(() => import('./pages/study/TopicalPage'));
@@ -130,7 +130,7 @@ export default function App() {
               <Route path="/study/voices" element={<VoicesPage />} />
               <Route path="/study/concepts" element={<ConceptsPage />} />
               <Route path="/study/manuscripts" element={<ManuscriptsPage />} />
-              <Route path="/study/universe" element={<UniversePage />} />
+              <Route path="/study/universe" element={<GalaxyPage />} />
               <Route path="/study/timespace" element={<TimeSpacePage />} />
               <Route path="/study/constellation" element={<ConstellationPage />} />
               <Route path="/study/maps" element={<MapsPage />} />

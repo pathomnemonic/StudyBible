@@ -1,4 +1,3 @@
-import { STATUS_LABEL } from '../study/lens';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from './Icon';
@@ -32,8 +31,6 @@ export const AUTH_LABEL: Record<string, string> = {
 const PERIOD_LABEL: Record<string, string> = { apostolic: 'Apostolic', patristic: 'Patristic', medieval: 'Medieval', 'early-modern': 'Early modern', modern: 'Modern', contemporary: 'Contemporary' };
 
 const isReal = (i: StudyItem) => i.kind !== 'Search';
-
-const EVIDENCE: Record<string, number> = { attested: 5, documented: 4, supported: 3, proposed: 2, traditional: 2, disputed: 1 };
 
 export default function StudyPanel({
   refs,
@@ -392,12 +389,6 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
       )}
       {!reading && item.tags && item.tags.length > 0 && <div className="tag-row">{item.tags.slice(0, 4).map((t) => <span key={t} className="chip">{t}</span>)}</div>}
       {item.links && <div className="find-links">{item.links.map((l) => <a key={l.url} className="chip" href={l.url} target="_blank" rel="noreferrer">{l.label} ↗</a>)}</div>}
-      {item.section === 'customs' && item.status && EVIDENCE[item.status] && (
-        <div className="evidence" title={STATUS_LABEL[item.status]}>
-          <span className="meter" role="img" aria-label={`Evidence: ${EVIDENCE[item.status]} of 5. ${STATUS_LABEL[item.status]}`}>{[1, 2, 3, 4, 5].map((n) => <i key={n} className={n <= EVIDENCE[item.status!] ? 'on' : ''} />)}</span>
-          <span className="muted small">{STATUS_LABEL[item.status]}</span>
-        </div>
-      )}
       {item.thumb && (
         <a href={item.url} target="_blank" rel="noreferrer" className="thumb">
           <img src={item.thumb} alt={`${item.title}, painting`} loading="lazy" />

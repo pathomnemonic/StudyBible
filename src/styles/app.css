@@ -3408,7 +3408,36 @@ body {
 .ts-labels button.on { opacity: 1; font-weight: 600; }
 @media (max-width: 720px) { .ts-labels { display: none; } }
 
-.item .evidence { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
-.meter { display: inline-flex; gap: 3px; }
-.meter i { width: 14px; height: 6px; border-radius: 3px; background: rgba(127,127,127,.3); }
-.meter i.on { background: var(--accent); }
+
+/* Scripture universe: a full-bleed galaxy with a few quiet controls */
+.galaxy-page { position: relative; height: calc(100dvh - 36px); min-height: 480px; margin: 0; background: #03030a; overflow: hidden; }
+.galaxy { position: absolute; inset: 0; outline: none; touch-action: none; cursor: grab; }
+.galaxy:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
+.galaxy-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.galaxy-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.galaxy-label, .galaxy-group { position: absolute; left: 0; top: 0; white-space: nowrap; transition: opacity .35s; will-change: transform, opacity; text-shadow: 0 0 8px #000, 0 0 2px #000; }
+.galaxy-label { font: 500 13px/1 var(--font-ui, system-ui); color: #f3f0ff; }
+.galaxy-label.sel { color: var(--c); font-weight: 700; font-size: 15px; }
+.galaxy-group { font: 600 11px/1 var(--font-ui, system-ui); letter-spacing: .22em; text-transform: uppercase; color: var(--c); }
+.galaxy-veil { position: absolute; inset: 0; display: grid; place-items: center; color: #cfc8ff; letter-spacing: .1em; pointer-events: none; }
+.galaxy-head { position: absolute; top: 14px; left: 18px; right: 18px; pointer-events: none; color: #f1edff; max-width: 420px; }
+.galaxy-head h1 { margin: 4px 0 4px; font-size: 1.5rem; }
+.galaxy-head p { margin: 0; font-size: .85rem; opacity: .75; }
+.galaxy-back { pointer-events: auto; color: #cfc8ff; font-size: .85rem; text-decoration: none; }
+.galaxy-groups { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; width: max-content; max-width: calc(100% - 24px); padding: 6px; border-radius: 22px; background: rgba(12,10,30,.55); backdrop-filter: blur(14px); border: 1px solid rgba(180,160,255,.2); }
+.galaxy-groups button { white-space: nowrap; border: 0; background: transparent; color: #e5e0ff; font-size: .8rem; padding: 6px 11px; border-radius: 999px; cursor: pointer; }
+.galaxy-groups button:hover, .galaxy-groups button.on { background: rgba(185,168,255,.22); }
+.galaxy-pick { position: absolute; top: 14px; right: 18px; }
+.galaxy-pick select { background: rgba(12,10,30,.6); color: #f1edff; border: 1px solid rgba(180,160,255,.3); border-radius: 999px; padding: 8px 14px; backdrop-filter: blur(10px); }
+.galaxy-card { position: absolute; right: 18px; bottom: 76px; width: min(360px, calc(100% - 36px)); padding: 18px 18px 16px; border-radius: 20px; color: #f1edff; background: rgba(12,10,32,.62); backdrop-filter: blur(18px); border: 1px solid rgba(190,170,255,.25); box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.galaxy-card h2 { margin: 2px 0 2px; font-size: 1.5rem; font-family: var(--font-display); font-weight: 500; }
+.galaxy-card p { font-size: .88rem; line-height: 1.5; margin: 6px 0; }
+.galaxy-meta { opacity: .7; }
+.galaxy-kicker { font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; opacity: .7; margin-top: 8px; }
+.galaxy-links { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+.galaxy-links button { background: rgba(185,168,255,.16); color: #f1edff; border: 1px solid rgba(185,168,255,.25); border-radius: 999px; padding: 4px 10px; font-size: .78rem; cursor: pointer; }
+.galaxy-links button:hover { background: rgba(185,168,255,.3); }
+.galaxy-actions { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
+.galaxy-x { position: absolute; top: 8px; right: 10px; background: none; border: 0; color: #f1edff; font-size: 1.4rem; cursor: pointer; line-height: 1; }
+@media (max-width: 720px) { .galaxy-groups { flex-wrap: nowrap; overflow-x: auto; width: calc(100% - 24px); justify-content: flex-start; border-radius: 999px; } .galaxy-page { height: calc(100dvh - var(--tabs-h) - env(safe-area-inset-bottom) - 36px); } .galaxy-card { right: 12px; left: 12px; width: auto; bottom: 70px; } .galaxy-head p { display: none; } }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }

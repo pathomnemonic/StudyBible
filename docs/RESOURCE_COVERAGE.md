@@ -103,5 +103,5 @@ Not built: a community/study-group feature (needs a moderated server), hosted ac
 | Word journeys, chapter word fingerprint | Computed in the browser from the Hebrew and Greek texts by Strong's number. Function words are excluded by a fixed list. |
 | Manuscript viewer | `data/curated/manuscripts.json`: 13 Met open-access manuscripts (CC0); images hot-linked from images.metmuseum.org, not bundled. |
 | Scripture universe, time and place | Computed on the device from existing cross-reference and era data. |
-| Blind-spot detector, pronunciation coach, evidence meter | See `src/featureStatus.ts` for limits. |
+| Blind-spot detector, pronunciation coach | See `src/featureStatus.ts` for limits. |
 Not built: the great codices as images (rights), combined per-event dating of places, a word-by-word comparison of modern translations, ancient (reconstructed) pronunciation.
