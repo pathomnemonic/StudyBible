@@ -11,6 +11,7 @@ import { buildTerms } from './terms';
 import { buildDaily } from './daily';
 import { buildCiteIndex } from './citeindex';
 import { buildPaths } from './paths';
+import { buildGalaxyLib } from './galaxylib';
 import { buildArtMore } from './artmore';
 import { buildChurchIndex } from './churchindex';
 import { buildLectionary } from './lectionary';
@@ -57,6 +58,7 @@ async function main() {
     await run('library', () => buildLibrary(report));
     await run('cite-index', () => buildCiteIndex(report));
     await run('paths', () => buildPaths(report));
+    await run('galaxy-library', () => buildGalaxyLib(report));
     await run('art-more', () => buildArtMore(report));
     await run('church-index', () => buildChurchIndex(report));
     await run('curated', () => buildCurated(report));

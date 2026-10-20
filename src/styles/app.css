@@ -3740,3 +3740,6 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .path-question { font-size: 1.1rem; color: var(--accent); margin: 18px 0; }
 .home-date h1.season { margin: 0; font-weight: 500; }
 .shelf-card .chip { justify-self: start; }
+.galaxy-groups-lib { bottom: 62px; }
+.galaxy-groups-lib .galaxy-kicker { align-self: center; margin: 0 4px 0 8px; color: #f1edff; }
+@media (max-width: 720px) { .galaxy-groups-lib { bottom: 60px; } .galaxy-card { bottom: 120px; } }

@@ -233,6 +233,69 @@ export class Galaxy {
     }
   }
 
+  /** The library's non-biblical works, in rings outside the canon: each beside the books it cites most, layered by kind. */
+  private libGroups = new Map<string, THREE.Vector3>();
+  addLibrary(data: { cats: { id: string; name: string }[]; works: { id: string; title: string; author: string; cat: string; words: number; books: [string, number][] }[] }) {
+    const COLORS: Record<string, string> = { early: '#9ad1ff', greek: '#7be0c3', latin: '#a8f08a', medieval: '#ffb3d9', spiritual: '#ffc46b', councils: '#ffe08a', catechisms: '#ffffff', history: '#c4b5fd' };
+    const core = glowTexture('rgba(255,255,255,1)', 'rgba(255,255,255,0.35)');
+    const halo = glowTexture('rgba(255,255,255,0.55)', 'rgba(255,255,255,0.10)');
+    const ring = new Map<string, { id: string; ang: number; w: (typeof data.works)[number] }[]>();
+    data.cats.forEach((c) => ring.set(c.id, []));
+    data.works.forEach((w, i) => {
+      let x = 0, z = 0, tot = 0;
+      for (const [b, n] of w.books) {
+        const bp = this.books.get(b)?.pos;
+        if (!bp) continue;
+        const l = Math.hypot(bp.x, bp.z) || 1;
+        x += (bp.x / l) * n; z += (bp.z / l) * n; tot += n;
+      }
+      const ang = tot > 0 ? Math.atan2(z, x) : (i * 2.399963) % (Math.PI * 2); // no citations: spread by the golden angle
+      ring.get(w.cat)?.push({ id: w.id, ang, w });
+    });
+    data.cats.forEach((cat, ci) => {
+      // each kind of work has its own ring; within a ring the works keep the order of the books they cite, spread evenly round it
+      const list = (ring.get(cat.id) ?? []).sort((a, b) => a.ang - b.ang);
+      const colour = COLORS[cat.id] ?? '#ffffff';
+      GROUP_COLOR[cat.name] = colour;
+      const centroid = new THREE.Vector3();
+      let mx = 0, mz = 0;
+      list.forEach((it, k) => {
+        const ang = ((k + 0.5) / list.length) * Math.PI * 2 + ci * 0.35;
+        mx += Math.cos(ang); mz += Math.sin(ang);
+        const radius = 350 + ci * 16;
+        const y = (ci - (data.cats.length - 1) / 2) * 17 + Math.sin(k * 2.1) * 3;
+        const pos = new THREE.Vector3(Math.cos(ang) * radius, y, Math.sin(ang) * radius);
+        const col = new THREE.Color(colour);
+        const c = new THREE.Sprite(new THREE.SpriteMaterial({ map: core, color: 0xffffff, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+        const h = new THREE.Sprite(new THREE.SpriteMaterial({ map: halo, color: col, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+        const base = 2.4 + Math.sqrt(it.w.words / 40000) * 1.1;
+        c.position.copy(pos); h.position.copy(pos);
+        c.scale.setScalar(base); h.scale.setScalar(base * 4);
+        this.scene.add(h, c);
+        const label = document.createElement('div');
+        label.className = 'galaxy-label';
+        label.textContent = `${it.w.author.split(' of ')[0].replace(/^(Saint|St\.) /, '')}: ${it.w.title.replace(/\s*\(.*\)$/, '').slice(0, 38)}`;
+        label.style.setProperty('--c', colour);
+        this.labelBox.appendChild(label);
+        this.books.set(`lib:${it.id}`, { pos, core: c, halo: h, group: cat.name, label, base });
+      });
+      // the ring's name sits at the front of the ring; flying to a ring looks at that stretch from outside
+      const front = Math.PI / 2 + (ci - (data.cats.length - 1) / 2) * 0.3;
+      centroid.set(Math.cos(front) * (350 + ci * 16), (ci - (data.cats.length - 1) / 2) * 17, Math.sin(front) * (350 + ci * 16));
+      void mx; void mz;
+      if (list.length) {
+        this.libGroups.set(cat.name, centroid);
+        const d = document.createElement('div');
+        d.className = 'galaxy-group';
+        d.textContent = cat.name;
+        d.style.setProperty('--c', colour);
+        this.labelBox.appendChild(d);
+        this.groupLabels.set(cat.name, d);
+        this.groupPos.set(cat.name, centroid);
+      }
+    });
+  }
+
   private setupPost() {
     try {
       const c = new EffectComposer(this.renderer);
@@ -303,7 +366,16 @@ export class Galaxy {
   openGroup(name: string) {
     const g = GROUPS.find((x) => x.name === name);
     const c = this.groupPos.get(name);
-    if (!g || !c) return;
+    if (!c) return;
+    if (!g) {
+      // a library group: look at the whole arc of it from outside
+      this.select(null, false);
+      this.focusGroup = name;
+      this.ev.onGroup(name);
+      const out = c.clone().setY(0).normalize();
+      this.flyTo(c.clone().addScaledVector(out, -90).add(new THREE.Vector3(0, 45, 0)), c, 3.2);
+      return;
+    }
     this.select(null, false);
     this.focusGroup = name;
     this.ev.onGroup(name);
