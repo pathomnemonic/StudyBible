@@ -114,7 +114,7 @@ export default function App() {
         <Shell>
           <Suspense fallback={<div className="center-note">Loading…</div>}>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<TodayPage />} />
               <Route path="/read" element={<Home />} />
               <Route path="/read/:edition/:book/:chapter" element={<ReadPage />} />
               <Route path="/study" element={<StudyHome />} />

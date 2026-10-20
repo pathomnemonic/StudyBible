@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { useEditions } from '../data/EditionsContext';
 import { getBookText } from '../data/loader';
@@ -68,6 +68,9 @@ export default function ReadPage() {
   const { edition: edId = 'dra', book = 'JHN', chapter = '1' } = useParams();
   const [sp, setSp] = useSearchParams();
   const nav = useNavigate();
+  const loc = useLocation();
+  type Trail = { path: string; label: string; prev?: Trail };
+  const from = (loc.state as { from?: Trail } | null)?.from;
   const { get, editions, planned } = useEditions();
   const [settings, setSettings] = useSettings();
   const edition = get(edId) ?? editions[0];
@@ -422,6 +425,56 @@ export default function ReadPage() {
   const chapterNote = chapterAlignmentNote(edition.scheme, bk.id, chNum) ?? bookAlignmentNote(edition.scheme, bk.id);
   const selLabel = selRefs.map((r) => formatRef(r, { abbr: true })).join('; ');
 
+  /** Open a connected passage and remember where you were, so the reader can step back (and back again through a chain of connections). */
+  const openConnection = (r: Ref) => {
+    const n = anchorToNative(edition, r);
+    const url = `/read/${edition.id}/${r.book}/${n.chapter}?v=${n.v1 ?? ''}${n.v2 && n.v2 !== n.v1 ? '-' + n.v2 : ''}`;
+    const lo = selNative.length ? selNative[0] : 0;
+    const hi = selNative.length ? selNative[selNative.length - 1] : 0;
+    const path = `/read/${edition.id}/${bk.id}/${chNum}${lo ? `?v=${lo}${hi > lo ? '-' + hi : ''}` : ''}`;
+    const label = `${bk.name} ${chNum}${lo ? `:${lo}${hi > lo ? '–' + hi : ''}` : ''}`;
+    nav(url, { state: { from: { path, label, prev: from } satisfies Trail } });
+  };
+
+  const verseActions = (
+    <>
+          <span className="refl">{selLabel}</span>
+          {COLORS.map((c) => (
+            <button key={c} className="sw" style={{ background: `var(--hl-${c})` }} aria-label={`Highlight ${c}`} onClick={() => applyColor(c)} />
+          ))}
+          <button className="icon-btn" onClick={() => applyColor(null)} aria-label="Remove highlight" title="Remove highlight">
+            <Icon name="trash" size={18} />
+          </button>
+          <span className="sep" />
+          <button className="icon-btn" onClick={() => setNoteFor(selRefs.map((r) => ({ type: 'passage', ref: refId(r) })))} aria-label="Add note" title="Note">
+            <Icon name="note" />
+          </button>
+          <button className="icon-btn" onClick={doBookmark} aria-label="Bookmark" title="Bookmark">
+            <Icon name="bookmark" />
+          </button>
+          <button className="icon-btn" onClick={() => setPanel(true)} aria-label="Study this passage" title="Study: teaching, Fathers, cross-references…">
+            <Icon name="study" />
+          </button>
+          <button className="icon-btn" onClick={() => setCompare(true)} aria-label="Compare translations" title="Compare translations">
+            <Icon name="compare" />
+          </button>
+          {!parallelMode && (
+            <button className="icon-btn" onClick={copyText} aria-label="Copy text" title="Copy text with reference">
+              <Icon name="copy" />
+            </button>
+          )}
+          <button className="icon-btn" onClick={() => nav(`/share?ref=${encodeURIComponent(refId(selRefs[0]))}`)} aria-label="Share as image" title="Share this passage as an image">
+            <Icon name="expand" />
+          </button>
+          <button className="icon-btn" onClick={copyLink} aria-label="Copy link" title="Copy link to this passage">
+            <Icon name="link" />
+          </button>
+          <button className="icon-btn" onClick={clearSel} aria-label="Clear selection">
+            <Icon name="close" />
+          </button>
+    </>
+  );
+
   return (
     <div className={`reader${settings.showVerseNumbers ? '' : ' hide-nums'}${panelOpen ? ' has-panel' : ''}`}>
       <div className="reader-col">
@@ -566,44 +619,17 @@ export default function ReadPage() {
         )}
       </div>
 
-      {panelOpen && <StudyPanel onSelectRange={(r) => { const n = anchorToNative(edition, r); if (n.chapter === chNum && n.v1) { const hi = n.v2 ?? n.v1; setSelNative(Array.from({ length: hi - n.v1 + 1 }, (_, k) => n.v1! + k)); lastClicked.current = n.v1; } }} key={dockOn && !hasSel ? 'chapter' : 'sel'} scope={hasSel ? 'passage' : 'chapter'} refs={panelRefs} edition={edition} onClose={() => (dockOn ? setSettings({ studyDock: false }) : setPanel(false))} onOpenPassage={(r) => nav(`/read/${edition.id}/${r.book}/${anchorToNative(edition, r).chapter}?v=${anchorToNative(edition, r).v1 ?? ''}${anchorToNative(edition, r).v2 && anchorToNative(edition, r).v2 !== anchorToNative(edition, r).v1 ? '-' + anchorToNative(edition, r).v2 : ''}`)} />}
+      {from && (
+        <div className="return-pill" role="navigation" aria-label="Return to where you were">
+          <button className="rp-back" onClick={() => nav(from.path, { state: from.prev ? { from: from.prev } : undefined })}>← Back to {from.label}</button>
+          <button className="rp-x" aria-label="Dismiss" onClick={() => nav(loc.pathname + loc.search, { replace: true, state: null })}>×</button>
+        </div>
+      )}
+      {panelOpen && <StudyPanel onSelectRange={(r) => { const n = anchorToNative(edition, r); if (n.chapter === chNum && n.v1) { const hi = n.v2 ?? n.v1; setSelNative(Array.from({ length: hi - n.v1 + 1 }, (_, k) => n.v1! + k)); lastClicked.current = n.v1; } }} key={dockOn && !hasSel ? 'chapter' : 'sel'} scope={hasSel ? 'passage' : 'chapter'} refs={panelRefs} edition={edition} onClose={() => (dockOn ? setSettings({ studyDock: false }) : setPanel(false))} onOpenPassage={openConnection} actions={hasSel && !dockOn && !settings.scriptureOnly ? verseActions : undefined} />}
 
-      {hasSel && !panelOpen && !settings.scriptureOnly && (
+      {hasSel && (dockOn || !panelOpen) && !settings.scriptureOnly && (
         <div className="actionbar" role="toolbar" aria-label="Verse actions">
-          <span className="refl">{selLabel}</span>
-          {COLORS.map((c) => (
-            <button key={c} className="sw" style={{ background: `var(--hl-${c})` }} aria-label={`Highlight ${c}`} onClick={() => applyColor(c)} />
-          ))}
-          <button className="icon-btn" onClick={() => applyColor(null)} aria-label="Remove highlight" title="Remove highlight">
-            <Icon name="trash" size={18} />
-          </button>
-          <span className="sep" />
-          <button className="icon-btn" onClick={() => setNoteFor(selRefs.map((r) => ({ type: 'passage', ref: refId(r) })))} aria-label="Add note" title="Note">
-            <Icon name="note" />
-          </button>
-          <button className="icon-btn" onClick={doBookmark} aria-label="Bookmark" title="Bookmark">
-            <Icon name="bookmark" />
-          </button>
-          <button className="icon-btn" onClick={() => setPanel(true)} aria-label="Study this passage" title="Study: teaching, Fathers, cross-references…">
-            <Icon name="study" />
-          </button>
-          <button className="icon-btn" onClick={() => setCompare(true)} aria-label="Compare translations" title="Compare translations">
-            <Icon name="compare" />
-          </button>
-          {!parallelMode && (
-            <button className="icon-btn" onClick={copyText} aria-label="Copy text" title="Copy text with reference">
-              <Icon name="copy" />
-            </button>
-          )}
-          <button className="icon-btn" onClick={() => nav(`/share?ref=${encodeURIComponent(refId(selRefs[0]))}`)} aria-label="Share as image" title="Share this passage as an image">
-            <Icon name="expand" />
-          </button>
-          <button className="icon-btn" onClick={copyLink} aria-label="Copy link" title="Copy link to this passage">
-            <Icon name="link" />
-          </button>
-          <button className="icon-btn" onClick={clearSel} aria-label="Clear selection">
-            <Icon name="close" />
-          </button>
+          {verseActions}
           {!selExact && <div className="notice" style={{ width: '100%' }}>Numbering differs between editions here; the anchored passage may be a verse or two off.</div>}
         </div>
       )}

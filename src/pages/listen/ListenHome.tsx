@@ -10,6 +10,7 @@ import Icon from '../../components/Icon';
 import type { BiayEpisode } from '../../data/content';
 import { fold } from '../../search/engine';
 import MyMedia from '../../components/MyMedia';
+import YearHero from '../../components/YearHero';
 
 type View = 'plan' | 'canon' | 'release' | 'queue' | 'progress';
 
@@ -62,34 +63,18 @@ export default function ListenHome() {
 
   return (
     <div className="page">
-      <h1>Listen</h1>
+      <h1>Bible in a Year</h1>
       <p className="lede">The Bible in a Year with Fr. Mike Schmitz, mapped to the passages each day reads. Audio and video belong to Ascension; this app links to the originals and plays the publisher’s own feed.</p>
 
-      <div className="grid" style={{ marginBottom: 12 }}>
-        {resumeEp && (
-          <div className="card">
-            <h2 className="card-title">Resume</h2>
-            <p>{resumeEp.title}</p>
-            <button className="btn primary" onClick={() => player.play(resumeEp)}><Icon name="play" size={16} /> Continue at {Math.floor(resumeId!.position / 60)} min</button>
-          </div>
-        )}
-        <div className="card">
-          <h2 className="card-title">Follow the plan</h2>
-          {planStart ? (
-            todayEp ? (
-              <>
-                <p>Today is <strong>Day {todayDay}</strong>: <Link to={`/listen/episode/${todayEp.id}`}>{todayEp.short}</Link></p>
-                <p className="muted small">You started on {new Date(planStart.startedAt).toLocaleDateString()}. Days are independent of release dates; open any day below at any time.</p>
-              </>
-            ) : <p>Plan complete.</p>
-          ) : (
-            <>
-              <p className="muted small">Start tracking from today (Day 1), or just pick any day below. You can change this at any time.</p>
-              <button className="btn" onClick={startPlan}>Start plan today</button>
-            </>
-          )}
+      <YearHero />
+      {resumeEp && (
+        <div className="card" style={{ margin: '14px 0' }}>
+          <h2 className="card-title">Pick up where you stopped</h2>
+          <p style={{ margin: '0 0 8px' }}>{resumeEp.title}</p>
+          <button className="btn primary" onClick={() => player.play(resumeEp)}><Icon name="play" size={16} /> Continue at {Math.floor(resumeId!.position / 60)} min</button>
         </div>
-      </div>
+      )}
+      <h2 className="h-sm">Every day</h2>
 
       <div className="tabbar" role="tablist">
         {([['plan', 'Plan order'], ['canon', 'Canonical order'], ['release', 'All episodes'], ['queue', `Queue (${queue.length})`], ['progress', 'My progress']] as [View, string][]).map(([k, l]) => (

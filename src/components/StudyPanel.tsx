@@ -6,6 +6,7 @@ import AddLinkDialog from './AddLinkDialog';
 import { SECTIONS, TABS, gatherAll, relevance, MATCH_LABEL, type SectionKey, type StudyItem } from '../study/providers';
 import { formatRef, parseRefId, refId, type Ref } from '../lib/refs';
 import { passageText } from '../lib/bibleText';
+import { useSettings } from '../lib/store';
 import type { EditionRecord } from '../data/loader';
 import { useEditions } from '../data/EditionsContext';
 import { db, type Target } from '../db/db';
@@ -41,6 +42,7 @@ export default function StudyPanel({
   initialTab = 'notes',
   scope = 'passage',
   onSelectRange,
+  actions,
 }: {
   refs: Ref[];
   edition: EditionRecord;
@@ -52,6 +54,8 @@ export default function StudyPanel({
   scope?: 'passage' | 'chapter';
   /** select a wider run of verses in the reader (used by "Select vv. 1–4") */
   onSelectRange?: (r: Ref) => void;
+  /** verse actions (highlight, bookmark, copy, share…) shown under the title when the panel is a sheet */
+  actions?: React.ReactNode;
 }) {
   const [data, setData] = useState<Partial<Record<SectionKey, StudyItem[]>>>({});
   const [loading, setLoading] = useState(true);
@@ -79,10 +83,14 @@ export default function StudyPanel({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 
-  const passes = (i: StudyItem) => (!authority || i.authority === authority) && (!period || i.period === period) && (!author || i.author === author || i.title === author);
+  const [settings, setSettings] = useSettings();
+  const showOther = settings.showOtherLanguages;
+  const foreign = (i: StudyItem) => !!i.lang && i.lang !== 'en';
+  const passes = (i: StudyItem) => (showOther || !foreign(i)) && (!authority || i.authority === authority) && (!period || i.period === period) && (!author || i.author === author || i.title === author);
   const items = (k: SectionKey) => (data[k] ?? []).filter(passes);
   const tabCount = (sections: SectionKey[]) => sections.reduce((n, s) => n + (data[s] ?? []).filter((i) => isReal(i) && passes(i) && !(i.kind && CHAPTER_KINDS.has(i.kind) && scope === 'passage')).length, 0);
   const authors = useMemo(() => [...new Set(Object.values(data).flat().filter((i) => i && isReal(i)).map((i) => (i as StudyItem).author ?? (i as StudyItem).title))].filter((a) => a && a.length < 60).sort(), [data]);
+  const hiddenForeign = showOther ? 0 : Object.values(data).flat().filter((i) => i && isReal(i) && foreign(i as StudyItem)).length;
   const activeTab = TABS.find((t) => t.id === tab);
   const filtersOn = !!(authority || period || author);
   const heading = refs.map((r) => formatRef(r)).join('; ');
@@ -120,6 +128,7 @@ export default function StudyPanel({
             </button>
           )}
         </div>
+        {actions && <div className="panel-actions" role="toolbar" aria-label="Verse actions">{actions}</div>}
         <div className="ptabs" role="tablist">
           {TABS.map((t) => {
             const n = tabCount(t.sections);
@@ -180,6 +189,15 @@ export default function StudyPanel({
                 <div className="skeleton" style={{ height: 90 }} />
                 <div className="skeleton" style={{ height: 90 }} />
               </>
+            )}
+            {(hiddenForeign > 0 || showOther) && (
+              <p className="muted small lang-note">
+                {showOther ? (
+                  <>Showing notes in other languages. <button className="linklike" onClick={() => setSettings({ showOtherLanguages: false })}>Hide them</button></>
+                ) : (
+                  <>{hiddenForeign} note{hiddenForeign === 1 ? '' : 's'} in Latin or another language hidden. <button className="linklike" onClick={() => setSettings({ showOtherLanguages: true })}>Show</button></>
+                )}
+              </p>
             )}
             {shownSpecific.map((i, n, arr) => open(i, n, arr, { reading: true }))}
             {notes.specific.length > LIMIT && !showAll && (
@@ -341,6 +359,7 @@ function emptyMessage(sk: SectionKey, book: string): string {
 
 function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }: { item: StudyItem; edition: EditionRecord; onOpenPassage: (r: Ref) => void; onNote: (t: Target) => void; covers?: string; reading?: boolean }) {
   const [expanded, setExpanded] = useState(false);
+  const [showVerses, setShowVerses] = useState(true);
   const [info, setInfo] = useState(false);
   const [playing, setPlaying] = useState(false);
   const embed = embedFor(item.audio) ?? embedFor(item.url);
@@ -349,11 +368,11 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
   const { get } = useEditions();
   const toast = useToast();
   const ed = get(edition.id) ?? edition;
-  const target = item.xrefTarget && ['xref', 'quotes', 'parallels'].includes(item.section) ? parseRefId(item.xrefTarget) : null;
+  const target = item.xrefTarget && ['xref', 'quotes', 'parallels', 'typology', 'dependency'].includes(item.section) ? parseRefId(item.xrefTarget) : null;
   useEffect(() => {
-    if (!target || !expanded || preview) return;
+    if (!target || !showVerses || preview) return;
     passageText(ed, target, 6).then(setPreview);
-  }, [expanded]);
+  }, [showVerses, item.id]);
   const full = item.fullExcerpt ?? item.excerpt ?? '';
   const CUT = reading ? 560 : 300;
   const long = full.length > CUT + 40;
@@ -426,9 +445,9 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
       )}
       {target && (
         <>
-          <button className="btn small ghost" onClick={() => setExpanded(!expanded)}>{expanded ? 'Hide text' : 'Show text'}</button>
-          {expanded && (
-            <div className="ex">
+          <button className="btn small ghost" aria-expanded={showVerses} onClick={() => setShowVerses(!showVerses)}>{showVerses ? 'Hide verses' : 'Show verses'}</button>
+          {showVerses && (
+            <div className="ex xtext">
               {!preview && 'Loading…'}
               {preview?.map((p) => (
                 <div key={p.c + '.' + p.v}>

@@ -42,7 +42,7 @@ export default function TopicalPage() {
       ) : (
         <>
           <input type="search" placeholder="Find a topic…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Find a topic" style={{ width: '100%', marginBottom: 8 }} />
-          {!q && <p className="small">{letters.map((l) => <a key={l} href={`#topic-${l}`} style={{ marginRight: 8 }} onClick={(e) => { e.preventDefault(); document.getElementById(`topic-${l}`)?.scrollIntoView(); }}>{l}</a>)}</p>}
+          {!q && <p className="small" style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>{letters.map((l) => <a key={l} href={`#topic-${l}`} onClick={(e) => { e.preventDefault(); document.getElementById(`topic-${l}`)?.scrollIntoView(); }}>{l}</a>)}</p>}
           <div className="chips" style={{ flexWrap: 'wrap' }}>
             {list.slice(0, 1500).map(([n, c], i) => (
               <span key={n} style={{ display: 'contents' }}>

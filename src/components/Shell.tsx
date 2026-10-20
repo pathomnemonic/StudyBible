@@ -5,12 +5,13 @@ import { useSettings } from '../lib/store';
 import CommandPalette from './CommandPalette';
 import { useSync } from '../sync/state';
 
-// Four places you actually live in. Daily practice (Mass readings, plans, listening, prayer, memorizing) is one tab with a
-// sub-menu, so the bar stays short and the Bible stays first. On phones a fifth "More" tab reaches settings and the account.
+// The places you actually live in. Bible in a Year has its own tab. Daily practice (Mass readings, plans, memorizing, prayer)
+// sits under Today with a sub-menu. Settings and the account are reached from the sidebar, or the gear on Today.
 const TABS = [
+  { to: '/today', label: 'Today', icon: 'sun', match: ['/today', '/pray', '/memorize', '/session'], home: true },
   { to: '/read', label: 'Bible', icon: 'read', match: ['/read'] },
+  { to: '/listen', label: 'Bible in a Year', short: 'Year', icon: 'listen', match: ['/listen'] },
   { to: '/study', label: 'Study', icon: 'study', match: ['/study'] },
-  { to: '/today', label: 'Today', icon: 'sun', match: ['/today', '/pray', '/listen', '/memorize', '/session'] },
   { to: '/library', label: 'Notes', icon: 'library', match: ['/library'] },
 ];
 
@@ -19,7 +20,6 @@ const DAILY = [
   { to: '/today', label: 'Today' },
   { to: '/pray/readings', label: 'Mass readings' },
   { to: '/pray/plans', label: 'Plans' },
-  { to: '/listen', label: 'Listen' },
   { to: '/memorize', label: 'Memorize' },
   { to: '/pray', label: 'Prayer' },
 ];
@@ -35,7 +35,7 @@ const dailyActive = (path: string) => {
   if (best < 0 && path.startsWith('/session')) best = 0;
   return best;
 };
-const inDaily = (path: string) => ['/today', '/pray', '/listen', '/memorize', '/session'].some((p) => path === p || path.startsWith(p + '/'));
+const inDaily = (path: string) => path !== '/' && ['/today', '/pray', '/memorize', '/session'].some((p) => path === p || path.startsWith(p + '/'));
 
 export default function Shell({ children }: { children: ReactNode }) {
   const loc = useLocation();
@@ -73,21 +73,21 @@ export default function Shell({ children }: { children: ReactNode }) {
           <span className="ico"><Icon name="search" /></span>
           <span>Search</span>
         </button>
-        {TABS.map((t) => (
-          <NavLink
-            key={t.to}
-            to={t.to === '/read' && s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : t.to}
-            className={() => `tab${t.match.some((m) => loc.pathname.startsWith(m)) ? ' active' : ''}`}
-            aria-current={t.match.some((m) => loc.pathname.startsWith(m)) ? 'page' : undefined}
-          >
-            <span className="ico"><Icon name={t.icon} /></span>
-            <span>{t.label}</span>
-          </NavLink>
-        ))}
-        <NavLink to="/settings" className={`tab more-tab${loc.pathname.startsWith('/settings') || loc.pathname.startsWith('/account') || loc.pathname.startsWith('/about') ? ' active' : ''}`} aria-label="More: settings, account, about">
-          <span className="ico"><Icon name="gear" /></span>
-          <span>More</span>
-        </NavLink>
+        {TABS.map((t) => {
+          const active = t.match.some((m) => loc.pathname.startsWith(m)) || (!!t.home && loc.pathname === '/');
+          return (
+            <NavLink
+              key={t.to}
+              to={t.to === '/read' && s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : t.to}
+              className={() => `tab${active ? ' active' : ''}${t.short ? ' year-tab' : ''}`}
+              aria-current={active ? 'page' : undefined}
+              aria-label={t.label}
+            >
+              <span className="ico"><Icon name={t.icon} /></span>
+              {t.short ? (<><span className="lbl-long">{t.label}</span><span className="lbl-short">{t.short}</span></>) : <span>{t.label}</span>}
+            </NavLink>
+          );
+        })}
         <div className="tab-spacer" />
         <NavLink to="/settings" className={`tab utility${loc.pathname.startsWith('/settings') ? ' active' : ''}`} aria-label="Settings and account">
           <span className="ico"><Icon name="gear" /></span>

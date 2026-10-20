@@ -67,7 +67,16 @@ function Notes({ openId }: { openId?: number }) {
         <button className="btn" onClick={() => setEditing('question')}>Add a question</button>
         <button className="btn primary" onClick={() => setEditing('new')}>New note</button>
       </div>
-      {list.length === 0 && <div className="empty">No notes yet. Select a verse in the reader and tap the note icon, or start one here.</div>}
+      {list.length === 0 && (
+        <div className="empty-hero">
+          <h2>Your notes will gather here</h2>
+          <p>Tap any verse in the reader, then the note icon, and what you write is kept with that verse. You can also note a Father’s comment, a Catechism paragraph or a whole chapter.</p>
+          <div className="row" style={{ justifyContent: 'center' }}>
+            <Link className="btn primary" to="/read">Open the Bible</Link>
+            <Link className="btn" to="/study">Browse study tools</Link>
+          </div>
+        </div>
+      )}
       {list.map((n) => (
         <div className="card" key={n.id}>
           <div className="row between"><h3>{n.title || (n.kind === 'question' ? 'Question' : 'Note')}</h3><span className="chip">{n.kind}</span></div>
@@ -106,7 +115,7 @@ function Highlights() {
         <button className={`chip${!color ? ' sel' : ''}`} onClick={() => setColor('')}>All</button>
         {['yellow', 'green', 'blue', 'pink', 'orange', 'purple'].map((c) => <button key={c} className={`chip${color === c ? ' sel' : ''}`} onClick={() => setColor(c)} style={{ borderLeft: `10px solid var(--hl-${c})` }}>{c}</button>)}
       </div>
-      {list.length === 0 && <div className="empty">No highlights yet.</div>}
+      {list.length === 0 && <div className="empty-hero"><h2>No highlights yet</h2><p>Select a verse in the reader and choose a colour to mark it. Highlights stay with the verse in every translation.</p><Link className="btn primary" to="/read">Open the Bible</Link></div>}
       <ul className="list">
         {list.map((h) => { const r = parseRefId(h.ref)!; return <li key={h.id} className="row between"><span><span className="chip" style={{ background: `var(--hl-${h.color})` }}>&nbsp;</span> <RefLink refv={r} /></span><button className="btn small ghost" onClick={() => db.highlights.delete(h.id!)}>Remove</button></li>; })}
       </ul>
@@ -118,7 +127,7 @@ function Bookmarks() {
   const bs = useLiveQuery(() => db.bookmarks.orderBy('createdAt').reverse().toArray(), []) ?? [];
   return (
     <>
-      {bs.length === 0 && <div className="empty">No bookmarks. Select a verse and tap the bookmark icon.</div>}
+      {bs.length === 0 && <div className="empty-hero"><h2>No bookmarks yet</h2><p>Select a verse and tap the bookmark icon to keep your place.</p><Link className="btn primary" to="/read">Open the Bible</Link></div>}
       <ul className="list">
         {bs.map((b) => { const r = parseRefId(b.ref)!; return <li key={b.id} className="row between"><span><RefLink refv={r} /> <span className="chip">{b.kind === 'later' ? 'study later' : 'bookmark'}</span></span><span className="row"><button className="btn small ghost" onClick={() => db.bookmarks.update(b.id!, { kind: b.kind === 'later' ? 'bookmark' : 'later' })}>{b.kind === 'later' ? 'Make bookmark' : 'Study later'}</button><button className="btn small ghost" onClick={() => db.bookmarks.delete(b.id!)}>Remove</button></span></li>; })}
       </ul>

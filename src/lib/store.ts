@@ -44,6 +44,8 @@ export interface Settings {
   scriptureOnly: boolean;
   /** on wide screens, keep the study panel open beside the text (chapter-level until a verse is selected) */
   studyDock: boolean;
+  /** show commentary written in Latin or other languages (hidden by default) */
+  showOtherLanguages: boolean;
   /** dismissed the one-time "tap a verse" hint */
   hintVerse: boolean;
   /** a soft backdrop that suits the book (or the passage); off keeps the plain theme */
@@ -83,6 +85,7 @@ export const DEFAULTS: Settings = {
   showVerseNumbers: true,
   scriptureOnly: false,
   studyDock: true,
+  showOtherLanguages: false,
   hintVerse: false,
   atmosphere: 'passage',
   ambience: { kind: 'off', volume: 0.25, match: false },
