@@ -18,6 +18,9 @@ import XrefMap from './XrefMap';
 import { embedFor } from '../lib/embed';
 import { usePlayer } from '../data/PlayerContext';
 import { loadBiay } from '../data/biay';
+import { getJson } from '../data/loader';
+import { getWork } from '../data/content';
+import { reachOf } from '../study/density';
 
 export const AUTH_LABEL: Record<string, string> = {
   doctrine: 'Official doctrine',
@@ -84,11 +87,14 @@ export default function StudyPanel({
   }, [key]);
 
   const [settings, setSettings] = useSettings();
+  const { get } = useEditions();
   const showOther = settings.showOtherLanguages;
   const foreign = (i: StudyItem) => !!i.lang && i.lang !== 'en';
+  const vul = get('vulgate');
+  const vcOf = (b: string, c: number) => vul?.verseCounts?.[b]?.[c - 1] ?? 0;
   const passes = (i: StudyItem) => (showOther || !foreign(i)) && (!authority || i.authority === authority) && (!period || i.period === period) && (!author || i.author === author || i.title === author);
   const items = (k: SectionKey) => (data[k] ?? []).filter(passes);
-  const tabCount = (sections: SectionKey[]) => sections.reduce((n, s) => n + (data[s] ?? []).filter((i) => isReal(i) && passes(i) && !(i.kind && CHAPTER_KINDS.has(i.kind) && scope === 'passage')).length, 0);
+  const tabCount = (sections: SectionKey[]) => sections.reduce((n, s) => n + (data[s] ?? []).filter((i) => isReal(i) && passes(i) && !(scope === 'passage' && refs.length === 1 && refs[0].v1 !== undefined && ((i.kind && CHAPTER_KINDS.has(i.kind)) || wholeChapter(i, vcOf) || wholeBook(i)))).length, 0);
   const authors = useMemo(() => [...new Set(Object.values(data).flat().filter((i) => i && isReal(i)).map((i) => (i as StudyItem).author ?? (i as StudyItem).title))].filter((a) => a && a.length < 60).sort(), [data]);
   const hiddenForeign = showOther ? 0 : Object.values(data).flat().filter((i) => i && isReal(i) && foreign(i as StudyItem)).length;
   const activeTab = TABS.find((t) => t.id === tab);
@@ -102,7 +108,7 @@ export default function StudyPanel({
 
   // ---- the Notes tab: a reading stream of commentary, most specific first
   const noteList = TABS[0].sections.flatMap((k) => items(k)).filter(isReal);
-  const notes = arrange(noteList, refs);
+  const notes = arrange(noteList, refs, false, vcOf);
   const comm = data.commentary ?? [];
   const summary = comm.find((i) => i.kind === 'Chapter summary');
   const intro = comm.find((i) => i.kind === 'Book introduction');
@@ -243,6 +249,12 @@ export default function StudyPanel({
                 {notes.chapter.map((i, n, arr) => open(i, n, arr))}
               </details>
             )}
+            {notes.book.length > 0 && (
+              <details className="unit">
+                <summary><span>About the whole book · {notes.book.length}</span></summary>
+                {notes.book.map((i, n, arr) => open(i, n, arr))}
+              </details>
+            )}
           </div>
         )}
 
@@ -254,11 +266,12 @@ export default function StudyPanel({
             const real = list.filter(isReal);
             if (!list.length && !(sk in data) && loading) return <div key={sk} className="skeleton" style={{ height: 60 }} />;
             if (!list.length && !['catechism', 'catholic-answers'].includes(sk) && activeTab.sections.length > 1) return null;
-            const { specific, units, weak } = arrange(list, refs);
+            const { specific, units, weak, chapter: wideCh, book: wideBk } = arrange(list, refs, false, vcOf);
+            const wide = [...wideCh, ...wideBk];
             return (
               <section key={sk} className="sect">
                 <h3>
-                  {meta.label} <span className="n">{real.length}</span>
+                  {meta.label} <span className="n">{real.length - wide.filter(isReal).length}</span>
                 </h3>
                 {meta.hint && <div className="muted small hint">{meta.hint}</div>}
                 {sk === 'xref' && real.length > 2 && (
@@ -271,6 +284,12 @@ export default function StudyPanel({
                 {specific.map((i, n, arr) => open(i, n, arr))}
                 {units.map((g) => g.items.map((i, n, arr) => open(i, n, arr, { covers: rangeLabel(g.range) })))}
                 {weak.map((i, n, arr) => open(i, n, arr))}
+                {wide.length > 0 && (
+                  <details className="unit">
+                    <summary><span>About the whole chapter · {wide.length}</span></summary>
+                    {wide.map((i, n, arr) => open(i, n, arr))}
+                  </details>
+                )}
                 {sk === 'links' && (
                   <button className="btn small" onClick={() => setAddLink(true)}>
                     <Icon name="plus" size={14} /> Add a link
@@ -314,15 +333,31 @@ const rangeLabel = (r: Ref) => `vv. ${r.v1}${r.v2 && r.v2 !== r.v1 ? '–' + r.v
 /** below this an item is passage-level, off-site only, or a search link: it is listed after the notes that speak to the verse */
 const WEAK_BELOW = 62;
 const CHAPTER_KINDS = new Set(['Read with notes', 'Chapter summary', 'Book introduction']);
-function arrange(list: StudyItem[], sel: Ref[], keepOrder = false) {
+/** a note that covers (nearly) the whole chapter, or more, is about the chapter, not about the verse you tapped */
+function wholeChapter(i: StudyItem, verseCount?: (book: string, chapter: number) => number): boolean {
+  const r = i.ref ? parseRefId(i.ref) : null;
+  if (!r || r.v1 === undefined) return !!r;
+  return reachOf(r.c1, r.v1, r.c2, r.v2 ?? 999, verseCount?.(r.book, r.c1) ?? 0) === 'chapter';
+}
+/** a note spanning three or more chapters is about the book */
+const wholeBook = (i: StudyItem): boolean => {
+  const r = i.ref ? parseRefId(i.ref) : null;
+  return !!r && r.c2 - r.c1 >= 2;
+};
+function arrange(list: StudyItem[], sel: Ref[], keepOrder = false, verseCount?: (book: string, chapter: number) => number) {
   const specific: StudyItem[] = [];
   const chapter: StudyItem[] = [];
+  const book: StudyItem[] = [];
   const weak: StudyItem[] = [];
   const groups = new Map<string, { range: Ref; items: StudyItem[] }>();
   const verseLevel = sel.length === 1 && sel[0].v1 !== undefined;
   for (const i of list) {
-    if (verseLevel && i.kind && CHAPTER_KINDS.has(i.kind)) {
-      chapter.push(i);
+    if (verseLevel && i.kind !== 'Book introduction' && wholeBook(i)) {
+      book.push(i);
+      continue;
+    }
+    if (verseLevel && ((i.kind && CHAPTER_KINDS.has(i.kind)) || wholeChapter(i, verseCount))) {
+      (i.kind === 'Book introduction' ? book : chapter).push(i);
       continue;
     }
     const u = unitRange(i, sel);
@@ -337,7 +372,7 @@ function arrange(list: StudyItem[], sel: Ref[], keepOrder = false) {
   }
   // narrowest shared range first: it is the closest to the verse you tapped
   const units = [...groups.values()].sort((x, y) => (x.range.v2 ?? x.range.v1!) - x.range.v1! - ((y.range.v2 ?? y.range.v1!) - y.range.v1!));
-  return { specific, units, chapter, weak };
+  return { specific, units, chapter, book, weak };
 }
 
 function emptyMessage(sk: SectionKey, book: string): string {
@@ -358,9 +393,48 @@ function emptyMessage(sk: SectionKey, book: string): string {
 }
 
 
+/** Reads a library citation in its setting: the paragraph around it, or the whole Summa article it comes from. */
+function CitationContext({ ctx }: { ctx: NonNullable<StudyItem['ctx']> }) {
+  const [paras, setParas] = useState<string[] | null>(null);
+  const [hit, setHit] = useState(0);
+  const [heading, setHeading] = useState('');
+  useEffect(() => {
+    let live = true;
+    (async () => {
+      if (ctx.summa) {
+        const q = await getJson<Record<string, { title: string; paras: string[] }>>(`library/summa/${ctx.summa}.json`, true).catch(() => null);
+        const art = ctx.article ? q?.[ctx.article] : undefined;
+        if (live && art) {
+          setHeading(art.title);
+          setParas(art.paras);
+          setHit(ctx.para);
+        }
+      } else {
+        const w = await getWork(ctx.work).catch(() => null);
+        const sec = w?.sections[ctx.section];
+        if (live && sec) {
+          setHeading(sec.title);
+          const lo = Math.max(0, ctx.para - 1);
+          setParas(sec.paras.slice(lo, ctx.para + 2));
+          setHit(ctx.para - lo);
+        }
+      }
+    })();
+    return () => { live = false; };
+  }, [ctx.work, ctx.section, ctx.para, ctx.summa]);
+  if (!paras) return <div className="ex muted">Loading…</div>;
+  return (
+    <div className="ex ctx">
+      {heading && <div className="tr-label">{ctx.summa ? 'The whole article' : 'In context'} · {heading}</div>}
+      {paras.map((p, i) => <p key={i} className={i === hit ? 'hit' : undefined}>{p}</p>)}
+    </div>
+  );
+}
+
 function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }: { item: StudyItem; edition: EditionRecord; onOpenPassage: (r: Ref) => void; onNote: (t: Target) => void; covers?: string; reading?: boolean }) {
   const [expanded, setExpanded] = useState(false);
   const [showVerses, setShowVerses] = useState(true);
+  const [readCtx, setReadCtx] = useState(false);
   const [info, setInfo] = useState(false);
   const [playing, setPlaying] = useState(false);
   const embed = embedFor(item.audio) ?? embedFor(item.url);
@@ -483,7 +557,9 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
           )}
         </>
       )}
+      {item.ctx && readCtx && <CitationContext ctx={item.ctx} />}
       <div className="acts">
+        {item.ctx && <button className="act strong" aria-expanded={readCtx} onClick={() => setReadCtx(!readCtx)}>{readCtx ? 'Hide context' : item.ctx.summa ? 'Read the whole article' : 'Read in context'}</button>}
         {long && <button className="act" onClick={() => setExpanded(!expanded)}>{expanded ? 'Show less' : 'Read more'}</button>}
         {item.internal && reading === false && <Link className="act" to={item.internal}>Open</Link>}
         {item.episodeId && (

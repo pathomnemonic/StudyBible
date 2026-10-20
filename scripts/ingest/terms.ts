@@ -9,6 +9,17 @@ import { CURATED, PUBLIC_DATA, Report, exists, readJson, writeJson } from './lib
  * translation's wording.
  */
 export function buildTerms(report: Report) {
+  // English translations of Latin glosses (made for this app; see data/curated/glossa-en)
+  const gdir = join(CURATED, 'glossa-en');
+  if (exists(gdir)) {
+    let n = 0;
+    for (const f of readdirSync(gdir).filter((x) => x.endsWith('.json'))) {
+      const d = readJson(join(gdir, f));
+      writeJson(join(PUBLIC_DATA, 'commentary', 'glossa-en', f), d);
+      n += Object.keys(d).length;
+    }
+    report.stats['glossa-en'] = n;
+  }
   const src = join(CURATED, 'terms.json');
   if (!exists(src)) return;
   const terms: any[] = readJson(src).terms;

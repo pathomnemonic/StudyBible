@@ -117,6 +117,8 @@ export interface StudyItem {
   basis?: string;
   /** the publisher's own audio address, playable in the app */
   audio?: string;
+  /** where a library citation sits, so the paragraph (or the whole Summa article) can be read around it */
+  ctx?: { work: string; section: number; para: number; summa?: string; article?: string };
   /** an English translation of a non-English item (the original stays in fullExcerpt) */
   translation?: string;
   /** verbatim quotations from library works, each linking to its section */
@@ -183,6 +185,12 @@ const anyOverlap = (refs: Ref[], c1: number, v1: number, c2: number, v2: number)
 
 export type Provider = (refs: Ref[]) => Promise<StudyItem[]>;
 
+
+const SUMMA_PART: Record<string, string> = { FP: 'I', FS: 'I-II', SS: 'II-II', TP: 'III', XP: 'Supplement' };
+const summaTitle = (id: string, title: string) => {
+  const m = /^(FP|FS|SS|TP|XP)_Q(\d+)_A(\d+)$/.exec(id);
+  return m ? `Summa Theologiae ${SUMMA_PART[m[1]]}, q. ${+m[2]}, a. ${+m[3]}: ${title.replace(/^\d+\s*-\s*/, '')}` : `Summa Theologiae: ${title}`;
+};
 
 export const providers: Record<string, Provider> = {
   async catechism(refs) {
@@ -391,7 +399,7 @@ export const providers: Record<string, Provider> = {
           ref: `${book}.${kc}.${kv}`,
           lang: 'la',
           translation: glEn?.[k],
-          kind: 'Glossa (Latin)',
+          kind: /^\d+\.\d+\s+(?:Prologus|Argumentum)/i.test(text) ? 'Book introduction' : 'Glossa (Latin)',
         });
       }
     }
@@ -418,19 +426,20 @@ export const providers: Record<string, Provider> = {
       const base = {
         id: `lib-${key}`,
         section: (w.authority === 'saint' ? 'saints' : w.authority === 'scholarship' ? 'background' : 'fathers') as SectionKey,
-        title: w.indexOnly ? `${w.title.replace(/ \(index.*\)/, '')}: ${sec.title}` : `${w.title}: ${sec.title}`,
+        title: w.indexOnly ? summaTitle(sec.id, sec.title) : `${w.title}: ${sec.title}`,
         author: w.author,
         authorId: w.authorId,
         authority: w.authority as AuthorityLevel,
         period: w.period as Period,
         ref: refId({ book, c1: e[0], v1: e[1] || undefined, c2: e[2], v2: e[3] || undefined }),
+        ctx: typeof e[8] === 'number' && (!structural || !!e[7]) ? { work: w.id, section: e[5], para: e[8], summa: w.indexOnly ? sec.id.replace(/_A\d+$/, '') : undefined, article: w.indexOnly ? sec.id : undefined } : undefined,
       };
       if (w.indexOnly) {
         out.push({ ...base, excerpt: e[7], url: w.sectionUrl!.replace('{id}', sec.id), format: 'excerpt', match: 'explicit-reference', kind: 'Summa', why: 'This article of the Summa Theologiae cites the passage (tagged in the CCEL edition, Vulgate numbering). The excerpt shows the sentence around the citation; the full article opens at CCEL.', sourceName: `Summa Theologica — ${w.translator} (CCEL)` });
       } else {
         out.push({
           ...base,
-          excerpt: structural ? `This section of ${w.title} is a ${w.kind === 'commentary' ? 'commentary' : 'homily'} on the passage.` : e[7],
+          excerpt: structural ? (e[7] || `This section of ${w.title} is a ${w.kind === 'commentary' ? 'commentary' : 'homily'} on the passage.`) : e[7],
           internal: `/study/works/${w.id}/${e[5]}`,
           format: 'full-text',
           match: structural ? 'verse-by-verse' : 'explicit-reference',
@@ -805,28 +814,8 @@ export function externalSearchItems(refs: Ref[], sources: ResourceSource[] = [])
   const base = { authority: 'reflection' as AuthorityLevel, period: 'contemporary' as Period, match: 'passage' as MatchKind, format: 'external-link' as ItemFormat, kind: 'Search' };
   const yt = (name: string) => `https://www.youtube.com/results?search_query=${encodeURIComponent(`${name} ${q}`)}`;
   const pod = (name: string) => `https://podcasts.apple.com/search?term=${encodeURIComponent(`${name} ${q}`)}`;
-  const items: StudyItem[] = [
-    { ...base, id: 'ext-ca-search', section: 'catholic-answers', title: `Search Catholic Answers for “${q}”`, url: `https://www.catholic.com/search?q=${enc}`, why: 'Opens Catholic Answers’ own search. Results are not checked by this app; attach anything you find with “Add link”.', sourceName: 'Catholic Answers' },
-    { ...base, id: 'ext-wof-site', section: 'word-on-fire', title: 'Word on Fire: Gospel commentaries and homilies', url: 'https://www.wordonfire.org/', why: 'The publisher’s site. Not matched to this passage.', sourceName: 'Word on Fire' },
-    { ...base, id: 'ext-asc-search', section: 'ascension', title: `Search Ascension for “${q}”`, url: `https://ascensionpress.com/search?q=${enc}`, why: 'Opens Ascension’s own search. Results are not checked by this app.', sourceName: 'Ascension' },
-  ];
-  const short = (n: string) => n.split(' / ')[0].split(' (')[0];
-  for (const [group, label] of [['creators', 'creators and apologists'], ['scholars', 'Catholic Scripture scholars']] as const) {
-    const list = sources.filter((x) => x.youtubeQuery && (x.group ?? 'creators') === group);
-    if (!list.length) continue;
-    items.push({
-      ...base,
-      id: `ext-find-${group}`,
-      section: 'creators',
-      title: `Videos and podcasts on ${q} from ${label}`,
-      why: 'Search links built from each name and this passage; the results are the platforms’ own and are not checked or ranked by this app. Pick items that directly explain the passage.',
-      sourceName: 'YouTube / Apple Podcasts search',
-      links: list.flatMap((c) => [
-        { label: `${short(c.name)} ▶`, url: yt(c.youtubeQuery!) },
-        ...(c.podcastQuery ? [{ label: `${short(c.name)} 🎧`, url: pod(c.podcastQuery) }] : []),
-      ]),
-    });
-  }
+  // Only direct links are shown for creators and publishers (the curated rows). Search pages are not offered: they are not content.
+  const items: StudyItem[] = [];
   const r0 = refs[0];
   const kj = convertRef('vulgate', 'kjv', { ...r0, c2: r0.c1, v2: r0.v1 ?? 1 }).ref;
   const lang = languageLinks(r0.book, kj.c1, kj.v1 ?? 1);
@@ -888,3 +877,14 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
   );
 }
 export { CCC_OFFICIAL };
+
+/** Test hook: the audit script runs the real providers for any passage and inspects what the panel would receive. */
+if (typeof window !== 'undefined') {
+  (window as unknown as { __gather?: unknown }).__gather = async (book: string, c: number, v: number) => {
+    const out: Record<string, StudyItem[]> = {};
+    await gatherAll([{ book, c1: c, v1: v, c2: c, v2: v }], (k, items) => {
+      out[k] = items;
+    });
+    return out;
+  };
+}

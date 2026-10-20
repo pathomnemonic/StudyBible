@@ -144,6 +144,7 @@ export function sectionsOf(xml: string, cfg: WorkCfg): { title: string; id: stri
 interface TagHit {
   ref: Ref;
   snippet: string;
+  pi: number;
 }
 
 export function buildLibrary(report: Report) {
@@ -183,9 +184,12 @@ export function buildLibrary(report: Report) {
         const raw = pm[1];
         const t = plain(raw);
         if (t.length < 2) continue;
-        const context = t.length < 90 && prevPara ? `${prevPara.slice(-200)} ${t}` : t;
+        const context = t.length < 160 && prevPara ? `${prevPara.slice(-320)} ${t}` : t;
         prevPara = t;
         paras.push(t);
+        // a paragraph that is only a string of references (a translator's footnote such as "Wisd. ix. 17–19.") says nothing about the verse
+        const prose = plain(raw.replace(/<scripRef[\s\S]*?<\/scripRef>/g, '')).replace(/[^A-Za-z]/g, '');
+        if (prose.length < 45) continue;
         for (const r of scripRefs(raw)) {
           const p = parseOsis(r.osis);
           if (!p || p.v1 === undefined) continue;
@@ -195,7 +199,7 @@ export function buildLibrary(report: Report) {
           const scheme = r.vulgate || (p.book === 'PSA' && cfg.psalmTags === 'vulgate') ? 'vulgate' : 'kjv';
           const a = scheme === 'vulgate' ? { c: p.c1, v1: p.v1, v2: p.v1 } : toAnchor('kjv', p.book, p.c1, p.v1);
           const b = p.v2 !== undefined && p.c2 === p.c1 ? (scheme === 'vulgate' ? { c: p.c1, v1: p.v2, v2: p.v2 } : toAnchor('kjv', p.book, p.c1, p.v2)) : a;
-          hits.push({ ref: { book: p.book, c1: a.c, v1: a.v1, c2: a.c, v2: Math.max(b.v2, a.v1) }, snippet: context.slice(0, 300) });
+          hits.push({ ref: { book: p.book, c1: a.c, v1: a.v1, c2: a.c, v2: Math.max(b.v2, a.v1) }, snippet: context.slice(0, 700), pi: paras.length - 1 });
         }
       }
       if (!paras.length) continue;
@@ -229,13 +233,14 @@ export function buildLibrary(report: Report) {
       }
       sections.push({ id: s.id, title, paras, scripture: structure.map(refId) });
       for (const r of structure) pushScripture(r.book, [r.c1, r.v1 ?? 0, r.c2, r.v2 ?? 0, cfg.id, idx, 's', '']);
-      const seen = new Set<string>();
+      // one entry per cited passage in a section: the paragraph that says the most about it
+      const best = new Map<string, TagHit>();
       for (const h of hits) {
         const k = refId(h.ref);
-        if (seen.has(k)) continue;
-        seen.add(k);
-        pushScripture(h.ref.book, [h.ref.c1, h.ref.v1 ?? 0, h.ref.c2, h.ref.v2 ?? 0, cfg.id, idx, 't', h.snippet]);
+        const cur = best.get(k);
+        if (!cur || h.snippet.length > cur.snippet.length) best.set(k, h);
       }
+      for (const h of best.values()) pushScripture(h.ref.book, [h.ref.c1, h.ref.v1 ?? 0, h.ref.c2, h.ref.v2 ?? 0, cfg.id, idx, 't', h.snippet, h.pi]);
       // full-text postings (section level)
       sectionIndex.push([cfg.id, idx]);
       const words = new Set(tokenize(title + ' ' + paras.join(' ')));
@@ -256,7 +261,7 @@ export function buildLibrary(report: Report) {
         else if (nx.v > 1) r = { book: cfg.book!, c1: st.c, v1: st.v, c2: nx.c, v2: nx.v - 1 };
         else r = { book: cfg.book!, c1: st.c, v1: st.v, c2: nx.c - 1, v2: chEnd(nx.c - 1) };
         sec.scripture = [refId(r)];
-        pushScripture(cfg.book!, [r.c1, r.v1!, r.c2, r.v2!, cfg.id, i, 's', '']);
+        pushScripture(cfg.book!, [r.c1, r.v1!, r.c2, r.v2!, cfg.id, i, 's', sec.paras.slice(0, 2).join('\n\n').slice(0, 700), 0]);
       });
     }
 
@@ -298,6 +303,7 @@ function buildSummaIndex(cfg: WorkCfg, xml: string, meta: any[], push: (book: st
   const articles = [...xml.matchAll(/<div4\b([^>]*)>([\s\S]*?)(?=<div4\b|<div3\b|<div2\b|<div1\b|<\/ThML\.body>)/g)];
   const sections: { id: string; title: string; scripture: string[]; words: number }[] = [];
   let cites = 0;
+  const byQuestion = new Map<string, Record<string, { title: string; paras: string[] }>>();
   for (const a of articles) {
     const id = /\bid="([^"]*)"/.exec(a[1])?.[1];
     const title = decodeEntities(/\stitle="([^"]*)"/.exec(a[1])?.[1] ?? '');
@@ -305,10 +311,14 @@ function buildSummaIndex(cfg: WorkCfg, xml: string, meta: any[], push: (book: st
     const idx = sections.length;
     sections.push({ id, title: title.replace(/^Article\.\s*/, ''), scripture: [], words: 0 });
     const seen = new Set<string>();
+    const paras: string[] = [];
     for (const pm of a[2].matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)) {
       const raw = pm[1];
-      if (!raw.includes('<scripRef')) continue;
       const t = plain(raw);
+      if (t.length < 2) continue;
+      paras.push(t);
+      const pi = paras.length - 1;
+      if (!raw.includes('<scripRef')) continue;
       for (const r of scripRefs(raw)) {
         const p = parseOsis(r.osis);
         if (!p || p.v1 === undefined) continue;
@@ -319,11 +329,15 @@ function buildSummaIndex(cfg: WorkCfg, xml: string, meta: any[], push: (book: st
         const key = `${p.book}.${x.c}.${x.v1}`;
         if (seen.has(key)) continue;
         seen.add(key);
-        push(p.book, [x.c, x.v1, x.c, Math.max(y.v2, x.v1), cfg.id, idx, 't', t.slice(0, 300)]);
+        push(p.book, [x.c, x.v1, x.c, Math.max(y.v2, x.v1), cfg.id, idx, 't', t.slice(0, 700), pi]);
         cites++;
       }
     }
+    const qid = id.replace(/_A\d+$/, '');
+    (byQuestion.get(qid) ?? byQuestion.set(qid, {}).get(qid)!)[id] = { title: title.replace(/^Article\.\s*/, ''), paras };
   }
+  // the full text of every article, by question, so a citation can be read in its argument (loaded on demand)
+  for (const [q, arts] of byQuestion) writeJson(join(PUBLIC_DATA, 'library/summa', `${q}.json`), arts);
   meta.push({
     id: cfg.id, title: cfg.title, author: cfg.author, authorId: cfg.authorId, period: cfg.period, authority: cfg.authority, kind: cfg.kind, year: cfg.year,
     description: cfg.description, scriptureMode: cfg.scriptureMode, translator: (cfg as any).translator, rightsEvidence: (cfg as any).rightsEvidence,

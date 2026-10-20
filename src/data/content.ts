@@ -36,7 +36,7 @@ export interface LibraryWorkMeta {
 }
 export const getLibraryIndex = () => getJson<{ generated: string; works: LibraryWorkMeta[] }>('library/index.json', true);
 /** [c1, v1, c2, v2, workId, sectionIdx, 's'|'t', snippet] */
-export type LibScriptureEntry = [number, number, number, number, string, number, 's' | 't', string];
+export type LibScriptureEntry = [number, number, number, number, string, number, 's' | 't', string, number?];
 export const getLibScripture = (book: string) => getJson<LibScriptureEntry[]>(`library/scripture/${book}.json`, true);
 export const getWork = (id: string) => getJson<{ id: string; sections: { id: string; title: string; paras: string[]; scripture: string[] }[] }>(`library/works/${id}.json`);
 export const getFulltextIndex = () => getJson<{ sections: [string, number][]; postings: Record<string, number[]> }>('library/fulltext-index.json', true);

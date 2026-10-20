@@ -163,6 +163,9 @@ export default function ReadPage() {
     return m;
   }, [anchorOf, anchorDensity]);
 
+  /** notes that belong to the whole chapter (not repeated on every verse) */
+  const chapterCount = useMemo(() => anchorChapters.reduce((n, c) => n + (anchorDensity.get(c * 1000) ?? 0), 0), [anchorDensity, anchorChapters]);
+
   // -------- deep link ?v=51-58 and remember position
   const vParam = sp.get('v');
   useEffect(() => {
@@ -570,6 +573,11 @@ export default function ReadPage() {
           <article className="scripture" aria-label={`${bk.name} chapter ${chNum}`}>
             <h1 className="chapter-title">
               {bk.id === 'PSA' ? `Psalm ${chNum}` : `${bk.name} ${chNum}`}
+              {chapterCount > 0 && dockOn && (
+                <button className="rm chapter-rm" title={`${chapterCount} notes about the whole chapter`} aria-label={`${chapterCount} notes about the whole chapter. Open study panel`} onClick={() => { setSelNative([]); setSelAnchor([]); setSettings({ studyDock: true }); }}>
+                  {chapterCount}
+                </button>
+              )}
             </h1>
             {(() => {
               const kjvCh = convertRef('vulgate', 'kjv', { book: bk.id, c1: primaryAnchorChapter, v1: 1, c2: primaryAnchorChapter, v2: 1 }).ref.c1;
