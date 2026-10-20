@@ -86,7 +86,7 @@ export const DEFAULTS: Settings = {
   lineHeight: 1.65,
   margin: 'normal',
   fontFamily: 'serif',
-  defaultEdition: 'dra',
+  defaultEdition: 'webc',
   parallelEdition: null,
   showVerseNumbers: true,
   scriptureOnly: false,

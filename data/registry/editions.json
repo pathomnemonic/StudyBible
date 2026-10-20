@@ -1,119 +1,135 @@
 {
-  "_about": "Bible edition registry. 'bundled' editions are generated into public/data/bible by `npm run data:build`. 'planned' editions are listed so the UI can explain, honestly, why they are not available: they are under copyright and need a license or a publisher API.",
-  "bundled": [
-    {
-      "id": "dra",
-      "name": "Douay-Rheims Bible (Challoner revision, 1899 American edition)",
-      "shortName": "DRB",
-      "language": "en",
-      "languageName": "English",
-      "scheme": "vulgate",
-      "tradition": "Translated from the Latin Vulgate (Clementine). Vulgate chapter, verse and Psalm numbering.",
-      "description": "The traditional Catholic English Bible, translated from the Latin Vulgate at Douay and Rheims (1582–1610) and revised by Bishop Richard Challoner (1749–52). The 1899 American edition. It follows the Vulgate numbering, so Psalms 9–147 are numbered one lower than in most modern Bibles; the reader shows both numbers. Archaic vocabulary and spellings of names (Isaias, Osee, Josue) are the translators' own.",
-      "year": "1899 (text of 1749–52 revision)",
-      "translators": "English College at Douai; revised by Richard Challoner",
-      "catholicStatus": "A historic Catholic English translation of the Vulgate. Not the current liturgical Lectionary text.",
-      "rights": "public-domain",
-      "rightsBasis": "Published 1899 (translators died centuries ago). eBible.org distributes it as Public Domain.",
-      "attribution": "Douay-Rheims 1899 American Edition, text from eBible.org (public domain).",
-      "sourceUrl": "https://ebible.org/engDRA/",
-      "source": "ebible-engDRA",
-      "usfmPattern": "engDRA",
-      "bundled": true,
-      "offlineAllowed": true
-    },
-    {
-      "id": "vulgate",
-      "name": "Clementine Vulgate (Sixto-Clementine, 1598)",
-      "shortName": "VULG",
-      "language": "la",
-      "languageName": "Latin",
-      "scheme": "vulgate",
-      "tradition": "Latin Vulgate (St. Jerome and later hands), Sixto-Clementine text. Psalms are the Gallican Psalter.",
-      "description": "The Latin text of the Sixto-Clementine Vulgate, the Church's standard Latin Bible until the Nova Vulgata (1979) and the text the Douay-Rheims translates. This edition is anchored to the Vulgate numbering; every other edition is mapped to it. The same file also carries the Glossa Ordinaria (Migne, 1880) as verse-level footnotes, which the app shows as historical commentary.",
-      "year": "1598 (Migne edition 1880)",
-      "translators": "St. Jerome (and others); edited under Popes Sixtus V and Clement VIII",
-      "catholicStatus": "The historic Latin Vulgate of the Roman Church (superseded by the Nova Vulgata for liturgical use).",
-      "rights": "public-domain",
-      "rightsBasis": "Published 1598 / 1880. eBible.org distributes it as Public Domain.",
-      "attribution": "Clementine Vulgate with Glossa Ordinaria (Migne 1880), text from eBible.org (public domain).",
-      "sourceUrl": "https://ebible.org/latVUC/",
-      "source": "ebible-latVUC",
-      "usfmPattern": "latVUC",
-      "bundled": true,
-      "offlineAllowed": true
-    },
-    {
-      "id": "webc",
-      "name": "World English Bible, Catholic edition",
-      "shortName": "WEB-C",
-      "language": "en",
-      "languageName": "English",
-      "scheme": "english",
-      "tradition": "Modern English. Protocanonical books from the Hebrew and Greek; deuterocanonical books and the additions to Esther and Daniel from the Greek (Septuagint / Theodotion). English-tradition numbering.",
-      "description": "A modern, public-domain English translation arranged in the Catholic book order with the deuterocanon. It is included as a plain-English reading aid next to the Douay-Rheims. It is NOT an ecclesiastically approved Catholic translation. Because Tobit, Judith, Sirach, Esther and Daniel follow the Greek texts rather than the Vulgate, their chapters and verses do not line up with the Douay-Rheims and the app says so wherever it matters.",
-      "year": "2026 (continuously revised; this file generated 2026-10-18)",
-      "translators": "World English Bible translation team (volunteer)",
-      "catholicStatus": "Not an approved Catholic translation; included as a public-domain modern-English reading aid with the Catholic canon.",
-      "rights": "public-domain",
-      "rightsBasis": "Dedicated to the public domain by its translators. 'World English Bible' is a trademark of eBible.org: the text must not be altered and still called WEB. The app changes only formatting, never wording.",
-      "attribution": "World English Bible (Catholic), from eBible.org (public domain).",
-      "sourceUrl": "https://ebible.org/eng-web-c/",
-      "source": "ebible-eng-web-c",
-      "usfmPattern": "eng-web-c",
-      "bookCodeMap": { "ESG": "EST", "DAG": "DAN" },
-      "bundled": true,
-      "offlineAllowed": true
-    }
-  ],
-  "planned": [
-    {
-      "id": "rsvce",
-      "name": "Revised Standard Version, Catholic Edition (RSV-CE)",
-      "rights": "licensed",
-      "publisher": "Ignatius Press / National Council of the Churches of Christ in the USA",
-      "note": "Under copyright. Requires a license from the rights holders (and a Bible-publisher agreement for app use). The app's edition format, anchor mapping and licensing records are ready to receive it; the mapping from English numbering is already implemented.",
-      "url": "https://ignatius.com/"
-    },
-    {
-      "id": "rsv2ce",
-      "name": "Revised Standard Version, Second Catholic Edition (RSV-2CE)",
-      "rights": "licensed",
-      "publisher": "Ignatius Press",
-      "note": "Under copyright. Requires a license from Ignatius Press.",
-      "url": "https://ignatius.com/"
-    },
-    {
-      "id": "nabre",
-      "name": "New American Bible, Revised Edition (NABRE)",
-      "rights": "licensed",
-      "publisher": "Confraternity of Christian Doctrine / USCCB",
-      "note": "Under copyright; the USCCB publishes it online for reading and limits reproduction. Needs written permission before any text is bundled. NABRE follows Hebrew-based verse numbering (a different 'scheme' from the English one); a 'hebrew' versification scheme would be added alongside the license.",
-      "url": "https://bible.usccb.org/"
-    },
-    {
-      "id": "njb",
-      "name": "New Jerusalem Bible / Jerusalem Bible",
-      "rights": "licensed",
-      "publisher": "Darton, Longman & Todd / Doubleday",
-      "note": "Under copyright. Requires a license from the publisher.",
-      "url": "https://www.dltbooks.com/"
-    },
-    {
-      "id": "cpdv",
-      "name": "Catholic Public Domain Version (CPDV)",
-      "rights": "external-link",
-      "publisher": "Ronald L. Conte Jr.",
-      "note": "Dedicated to the public domain by its translator. Not yet imported: its rights statement and an authoritative machine-readable source still have to be verified before ingestion (see docs/DATA_SOURCES.md).",
-      "url": "https://www.sacredbible.org/catholic/"
-    },
-    {
-      "id": "apibible",
-      "name": "Other editions via a licensed Bible API (e.g. API.Bible)",
-      "rights": "licensed",
-      "publisher": "American Bible Society and content partners",
-      "note": "A pluggable provider interface exists for fetching licensed text with your own API key at read time. Requires credentials and per-edition terms; not enabled in this build.",
-      "url": "https://scripture.api.bible/"
-    }
-  ]
+ "_about": "Bible edition registry. 'bundled' editions are generated into public/data/bible by `npm run data:build`. 'planned' editions are listed so the UI can explain, honestly, why they are not available: they are under copyright and need a license or a publisher API.",
+ "bundled": [
+  {
+   "id": "dra",
+   "name": "Douay-Rheims Bible (Challoner revision, 1899 American edition)",
+   "shortName": "DRB",
+   "language": "en",
+   "languageName": "English",
+   "scheme": "vulgate",
+   "tradition": "Translated from the Latin Vulgate (Clementine). Vulgate chapter, verse and Psalm numbering.",
+   "description": "The traditional Catholic English Bible, translated from the Latin Vulgate at Douay and Rheims (1582–1610) and revised by Bishop Richard Challoner (1749–52). The 1899 American edition. It follows the Vulgate numbering, so Psalms 9–147 are numbered one lower than in most modern Bibles; the reader shows both numbers. Archaic vocabulary and spellings of names (Isaias, Osee, Josue) are the translators' own.",
+   "year": "1899 (text of 1749–52 revision)",
+   "translators": "English College at Douai; revised by Richard Challoner",
+   "catholicStatus": "A historic Catholic English translation of the Vulgate. Not the current liturgical Lectionary text.",
+   "rights": "public-domain",
+   "rightsBasis": "Published 1899 (translators died centuries ago). eBible.org distributes it as Public Domain.",
+   "attribution": "Douay-Rheims 1899 American Edition, text from eBible.org (public domain).",
+   "sourceUrl": "https://ebible.org/engDRA/",
+   "source": "ebible-engDRA",
+   "usfmPattern": "engDRA",
+   "bundled": true,
+   "offlineAllowed": true
+  },
+  {
+   "id": "vulgate",
+   "name": "Clementine Vulgate (Sixto-Clementine, 1598)",
+   "shortName": "VULG",
+   "language": "la",
+   "languageName": "Latin",
+   "scheme": "vulgate",
+   "tradition": "Latin Vulgate (St. Jerome and later hands), Sixto-Clementine text. Psalms are the Gallican Psalter.",
+   "description": "The Latin text of the Sixto-Clementine Vulgate, the Church's standard Latin Bible until the Nova Vulgata (1979) and the text the Douay-Rheims translates. This edition is anchored to the Vulgate numbering; every other edition is mapped to it. The same file also carries the Glossa Ordinaria (Migne, 1880) as verse-level footnotes, which the app shows as historical commentary.",
+   "year": "1598 (Migne edition 1880)",
+   "translators": "St. Jerome (and others); edited under Popes Sixtus V and Clement VIII",
+   "catholicStatus": "The historic Latin Vulgate of the Roman Church (superseded by the Nova Vulgata for liturgical use).",
+   "rights": "public-domain",
+   "rightsBasis": "Published 1598 / 1880. eBible.org distributes it as Public Domain.",
+   "attribution": "Clementine Vulgate with Glossa Ordinaria (Migne 1880), text from eBible.org (public domain).",
+   "sourceUrl": "https://ebible.org/latVUC/",
+   "source": "ebible-latVUC",
+   "usfmPattern": "latVUC",
+   "bundled": true,
+   "offlineAllowed": true
+  },
+  {
+   "id": "webc",
+   "name": "World English Bible, Catholic edition",
+   "shortName": "WEB-C",
+   "language": "en",
+   "languageName": "English",
+   "scheme": "english",
+   "tradition": "Modern English. Protocanonical books from the Hebrew and Greek; deuterocanonical books and the additions to Esther and Daniel from the Greek (Septuagint / Theodotion). English-tradition numbering.",
+   "description": "A modern, public-domain English translation arranged in the Catholic book order with the deuterocanon. It is included as a plain-English reading aid next to the Douay-Rheims. It is NOT an ecclesiastically approved Catholic translation. Because Tobit, Judith, Sirach, Esther and Daniel follow the Greek texts rather than the Vulgate, their chapters and verses do not line up with the Douay-Rheims and the app says so wherever it matters.",
+   "year": "2026 (continuously revised; this file generated 2026-10-18)",
+   "translators": "World English Bible translation team (volunteer)",
+   "catholicStatus": "Not an approved Catholic translation; included as a public-domain modern-English reading aid with the Catholic canon.",
+   "rights": "public-domain",
+   "rightsBasis": "Dedicated to the public domain by its translators. 'World English Bible' is a trademark of eBible.org: the text must not be altered and still called WEB. The app changes only formatting, never wording.",
+   "attribution": "World English Bible (Catholic), from eBible.org (public domain).",
+   "sourceUrl": "https://ebible.org/eng-web-c/",
+   "source": "ebible-eng-web-c",
+   "usfmPattern": "eng-web-c",
+   "bookCodeMap": {
+    "ESG": "EST",
+    "DAG": "DAN"
+   },
+   "bundled": true,
+   "offlineAllowed": true
+  },
+  {
+   "id": "cpdv",
+   "name": "Catholic Public Domain Version (CPDV)",
+   "shortName": "CPDV",
+   "language": "en",
+   "languageName": "English",
+   "scheme": "vulgate",
+   "tradition": "Translated from the Latin Vulgate in plain modern English; Vulgate (Douay) chapter, verse and Psalm numbering.",
+   "description": "A recent Catholic translation of the Latin Vulgate into straightforward modern English, made by Ronald L. Conte Jr. and placed in the public domain. It follows the same numbering as the Douay-Rheims (Psalms 9–147 are numbered one lower than in most modern Bibles; the reader shows both) but without the archaic vocabulary.",
+   "year": "2009 (2nd ed. 2012)",
+   "translators": "Ronald L. Conte Jr.",
+   "catholicStatus": "A privately made Catholic translation of the Vulgate. It has no imprimatur and is not the Lectionary text.",
+   "rights": "public-domain",
+   "rightsBasis": "Dedicated to the public domain by its translator (see sacredbible.org/catholic). Text taken from the scrollmapper/bible_databases JSON export.",
+   "attribution": "Catholic Public Domain Version, Ronald L. Conte Jr. (public domain).",
+   "sourceUrl": "https://www.sacredbible.org/catholic/",
+   "source": "scrollmapper-cpdv",
+   "usfmPattern": "",
+   "bundled": true,
+   "offlineAllowed": true
+  }
+ ],
+ "planned": [
+  {
+   "id": "rsvce",
+   "name": "Revised Standard Version, Catholic Edition (RSV-CE)",
+   "rights": "licensed",
+   "publisher": "Ignatius Press / National Council of the Churches of Christ in the USA",
+   "note": "Under copyright. Requires a license from the rights holders (and a Bible-publisher agreement for app use). The app's edition format, anchor mapping and licensing records are ready to receive it; the mapping from English numbering is already implemented.",
+   "url": "https://ignatius.com/"
+  },
+  {
+   "id": "rsv2ce",
+   "name": "Revised Standard Version, Second Catholic Edition (RSV-2CE)",
+   "rights": "licensed",
+   "publisher": "Ignatius Press",
+   "note": "Under copyright. Requires a license from Ignatius Press.",
+   "url": "https://ignatius.com/"
+  },
+  {
+   "id": "nabre",
+   "name": "New American Bible, Revised Edition (NABRE)",
+   "rights": "licensed",
+   "publisher": "Confraternity of Christian Doctrine / USCCB",
+   "note": "Under copyright; the USCCB publishes it online for reading and limits reproduction. Needs written permission before any text is bundled. NABRE follows Hebrew-based verse numbering (a different 'scheme' from the English one); a 'hebrew' versification scheme would be added alongside the license.",
+   "url": "https://bible.usccb.org/"
+  },
+  {
+   "id": "njb",
+   "name": "New Jerusalem Bible / Jerusalem Bible",
+   "rights": "licensed",
+   "publisher": "Darton, Longman & Todd / Doubleday",
+   "note": "Under copyright. Requires a license from the publisher.",
+   "url": "https://www.dltbooks.com/"
+  },
+  {
+   "id": "apibible",
+   "name": "Other editions via a licensed Bible API (e.g. API.Bible)",
+   "rights": "licensed",
+   "publisher": "American Bible Society and content partners",
+   "note": "A pluggable provider interface exists for fetching licensed text with your own API key at read time. Requires credentials and per-edition terms; not enabled in this build.",
+   "url": "https://scripture.api.bible/"
+  }
+ ]
 }

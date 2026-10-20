@@ -1,137 +1,153 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
-import { db } from '../db/db';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useSettings } from '../lib/store';
-import { isDue } from '../lib/srs';
 import { useEditions } from '../data/EditionsContext';
-import { liturgicalDay, parseIso } from '../liturgy/compute';
-import { readingsFor, type DayReadings } from '../liturgy/readings';
-import YearHero from '../components/YearHero';
-import { parseRefs, refId, formatRef, type Ref } from '../lib/refs';
-import { convertRef } from '../lib/versification';
+import { addDays, iso, liturgicalDay, parseIso } from '../liturgy/compute';
+import { dailyRef, loadDaily, pickDaily, type DailyEntry } from '../study/daily';
 import { passageText, anchorToNative } from '../lib/bibleText';
-import { verseForDay } from '../study/verseOfDay';
-import RefLink from '../components/RefLink';
+import { formatRef, parseRefId, type Ref } from '../lib/refs';
+import { readerPath } from '../lib/nav';
+import { getBook } from '../lib/canon';
 import Icon from '../components/Icon';
-import { BOOKS, getBook } from '../lib/canon';
 
-const greeting = () => {
-  const h = new Date().getHours();
-  return h < 5 ? 'Peace be with you' : h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
-};
 const localIso = () => {
   const n = new Date();
   return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
 };
+const MENU = [
+  { to: '/read', label: 'Bible' },
+  { to: '/study', label: 'Study' },
+  { to: '/library', label: 'Notes' },
+  { to: '/pray', label: 'Prayer' },
+  { to: '/settings', label: 'Settings' },
+];
 
-/** Home: today's Bible in a Year episode first, then where you left off, the Church's day and a verse to carry. */
+/** Home: one quiet screen. The day, a verse, a saint, a question; ways back into reading. Nothing to scroll. */
 export default function TodayPage() {
-  const [s, setS] = useSettings();
+  const [s] = useSettings();
   const { get, editions } = useEditions();
   const nav = useNavigate();
+  const [params, setParams] = useSearchParams();
   const today = localIso();
-  const day = liturgicalDay(parseIso(today), s.diocese === 'US' ? 'usa' : 'universal');
-  const [rd, setRd] = useState<DayReadings | null>(null);
-  const [verse, setVerse] = useState<{ ref: Ref; label: string; text: string } | null>(null);
+  const date = /^\d{4}-\d{2}-\d{2}$/.test(params.get('d') ?? '') ? params.get('d')! : today;
+  const ld = useMemo(() => liturgicalDay(parseIso(date), s.diocese === 'US' ? 'usa' : 'universal'), [date, s.diocese]);
   const edition = get(s.defaultEdition) ?? editions[0];
-  const plans = (useLiveQuery(() => db.planProgress.filter((p) => p.status === 'active' && p.planId !== 'biay').toArray(), []) ?? []);
-  const memDue = (useLiveQuery(() => db.memory.toArray(), []) ?? []).filter((c) => isDue(c)).length;
-  const memTotal = useLiveQuery(() => db.memory.count(), []) ?? 0;
-  const noteCount = useLiveQuery(() => db.notes.count(), []) ?? 0;
-  const [jump, setJump] = useState('');
+  const [file, setFile] = useState<Awaited<ReturnType<typeof loadDaily>>>(null);
+  const [verse, setVerse] = useState<{ ref: Ref; label: string; text: string } | null>(null);
+  const [info, setInfo] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const touch = useRef<number | null>(null);
 
+  useEffect(() => { loadDaily().then(setFile); }, []);
+  const entry: DailyEntry | null = file ? pickDaily(file, ld) : null;
+  const ref = entry ? dailyRef(entry) : null;
   useEffect(() => {
-    readingsFor(s.diocese, today).then(setRd);
-  }, [s.diocese]);
+    setVerse(null);
+    if (!ref || !edition) return;
+    let live = true;
+    passageText(edition, ref, 4).then((vs) => {
+      if (!live) return;
+      const n = anchorToNative(edition, ref);
+      const book = getBook(ref.book);
+      const label = `${book?.name ?? ref.book} ${n.chapter}${n.v1 ? ':' + n.v1 + (n.v2 && n.v2 !== n.v1 ? '–' + n.v2 : '') : ''}`;
+      setVerse({ ref, label, text: vs.map((v) => v.text).join(' ') });
+    });
+    return () => { live = false; };
+  }, [entry?.ref, edition?.id]);
+
+  const go = (n: number) => {
+    const d = iso(addDays(parseIso(date), n));
+    setParams(d === today ? {} : { d }, { replace: true });
+  };
   useEffect(() => {
-    const p = parseRefs(verseForDay());
-    if (!p.ok || !edition) return;
-    const anchor = convertRef('kjv', 'vulgate', p.refs[0].ref).ref;
-    passageText(edition, anchor, 6).then((vs) => setVerse({ ref: anchor, label: formatRef(p.refs[0].ref, { noDual: true }), text: vs.map((v) => v.text).join(' ') }));
-  }, [edition?.id]);
+    const h = (e: KeyboardEvent) => {
+      if ((e.target as HTMLElement)?.closest('input,textarea,select')) return;
+      if (e.key === 'ArrowLeft') go(-1);
+      else if (e.key === 'ArrowRight') go(1);
+      else if (e.key.toLowerCase() === 'i') setInfo((x) => !x);
+      else if (e.key === 'Escape') { setInfo(false); setMenu(false); }
+    };
+    window.addEventListener('keydown', h);
+    return () => window.removeEventListener('keydown', h);
+  });
 
   const last = s.last;
-  const go = (e: React.FormEvent) => {
-    e.preventDefault();
-    const t = jump.trim();
-    if (!t) return;
-    const p = parseRefs(t);
-    if (p.ok) {
-      const ref = p.refs[0].ref;
-      const v = ref.v1 ? `?v=${ref.v1}${ref.v2 && ref.v2 !== ref.v1 && ref.c2 === ref.c1 ? '-' + ref.v2 : ''}` : '';
-      nav(`/read/${s.defaultEdition}/${ref.book}/${ref.c1}${v}`);
-      return;
+  const lastName = last ? `${getBook(last.book)?.name ?? last.book} ${last.chapter}` : null;
+  const random = () => {
+    if (!file || !edition) return nav(`/read/${s.defaultEdition}/JHN/1`);
+    const all = Object.values(file.generic);
+    for (let i = 0; i < 6; i++) {
+      const r = parseRefId(all[Math.floor(Math.random() * all.length)].ref);
+      if (r) return nav(readerPath(edition, r));
     }
-    const b = BOOKS.find((x) => x.name.toLowerCase() === t.toLowerCase());
-    nav(b ? `/read/${s.defaultEdition}/${b.id}/1` : `/study/search?q=${encodeURIComponent(t)}`);
   };
-  const nat = verse && edition ? anchorToNative(edition, verse.ref) : null;
-  const dateLabel = new Date(today + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+  const dateLabel = new Date(date + 'T12:00').toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: date.slice(0, 4) === today.slice(0, 4) ? undefined : 'numeric' });
+  const saint = entry?.saint;
 
   return (
-    <div className="today">
-      <header className="today-top">
-        <div>
-          <div className="eyebrow">{dateLabel}</div>
-          <h1>{greeting()}</h1>
-          <div className="season">{day.dayName}</div>
-        </div>
-        <div className="today-tools">
-          <button className="icon-btn" aria-label="Search and jump" title="Search and jump (Ctrl+K)" onClick={() => window.dispatchEvent(new Event('studybible:search'))}><Icon name="search" size={20} /></button>
-          <Link className="icon-btn" to="/settings" aria-label="Settings and account" title="Settings and account"><Icon name="gear" size={20} /></Link>
-        </div>
-      </header>
-
-
-      <div className="today-row">
-        <section className="today-card">
-          <div className="eyebrow">{last ? 'Continue reading' : 'Start reading'}</div>
-          <div className="where">{last ? `${getBook(last.book).name} ${last.chapter}` : 'The Gospel of John'}</div>
-          <div className="row">
-            <Link className="btn primary" to={last ? `/read/${last.edition}/${last.book}/${last.chapter}` : `/read/${s.defaultEdition}/JHN/1`}>{last ? 'Continue' : 'Begin'}</Link>
-            <button className="btn ghost hide-sm" onClick={() => { setS({ scriptureOnly: true }); nav(last ? `/read/${last.edition}/${last.book}/${last.chapter}` : `/read/${s.defaultEdition}/JHN/1`); }} title="Open the Bible with only the text on screen">In silence</button>
-          </div>
-        </section>
-        <section className="today-card">
-          <div className="eyebrow">Mass readings</div>
-          <div className="where small-where">Today’s readings</div>
-          {rd && rd.items.length > 0 ? (
-            <p className="chips">{rd.items.slice(0, 4).map((i) => (i.refs[0] ? <RefLink key={i.slot} refv={i.refs[0]}>{i.text}</RefLink> : <span key={i.slot} className="chip">{i.text}</span>))}</p>
-          ) : (
-            <p className="muted small">{day.dayName}</p>
-          )}
-          <Link className="btn" to="/pray/readings">Open</Link>
-        </section>
-        <YearHero />
+    <div
+      className="home"
+      data-season={ld.season}
+      onTouchStart={(e) => { touch.current = e.touches[0].clientX; }}
+      onTouchEnd={(e) => {
+        if (touch.current === null) return;
+        const dx = e.changedTouches[0].clientX - touch.current;
+        touch.current = null;
+        if (Math.abs(dx) > 60) go(dx < 0 ? 1 : -1);
+      }}
+    >
+      <div className="home-tools">
+        <button className="icon-btn" onClick={() => setInfo((x) => !x)} aria-label="About today’s verse, quote and question (i)" aria-pressed={info} title="Sources (i)"><Icon name="info" /></button>
+        <button className="icon-btn" onClick={() => setMenu((x) => !x)} aria-label="Menu" aria-expanded={menu} title="Menu"><Icon name="queue" /></button>
+        {menu && (
+          <nav className="home-menu" aria-label="Sections">
+            {MENU.map((m) => <Link key={m.to} to={m.to === '/read' && last ? `/read/${last.edition}/${last.book}/${last.chapter}` : m.to}>{m.label}</Link>)}
+            <button onClick={() => window.dispatchEvent(new Event('studybible:search'))}>Search</button>
+          </nav>
+        )}
       </div>
 
-      {verse && (
-        <section className="today-verse">
-          <div className="eyebrow">A verse to carry</div>
-          <blockquote>{verse.text}</blockquote>
-          <p className="muted small">{verse.label} ({edition.shortName})</p>
-          <div className="row">
-            <Link className="btn small" to={`/read/${edition.id}/${verse.ref.book}/${nat?.chapter ?? 1}${nat?.v1 ? `?v=${nat.v1}${nat.v2 && nat.v2 !== nat.v1 ? '-' + nat.v2 : ''}` : ''}`}>Read in context</Link>
-            <Link className="btn small" to={`/study/passage/${refId(verse.ref)}`}>Study this</Link>
-            <Link className="btn small" to={`/share?ref=${encodeURIComponent(refId(verse.ref))}`}>Share</Link>
-          </div>
-        </section>
+      <header className="home-date">
+        <button className="icon-btn" onClick={() => go(-1)} aria-label="Previous day"><Icon name="chevL" /></button>
+        <div>
+          <div className="eyebrow">{dateLabel}</div>
+          <div className="season">{ld.dayName}</div>
+        </div>
+        <button className="icon-btn" onClick={() => go(1)} aria-label="Next day"><Icon name="chevR" /></button>
+      </header>
+
+      <main className="home-body" key={date}>
+        {entry && verse ? (
+          <>
+            <blockquote className="home-verse">
+              <p>{verse.text}</p>
+              <cite>{ref && edition ? <Link to={readerPath(edition, ref)}>{verse.label}</Link> : verse.label}</cite>
+            </blockquote>
+            {saint && (
+              <figure className="home-saint">
+                <blockquote>“{saint.text}”</blockquote>
+                <figcaption>— {saint.who}{saint.work && !saint.who.includes(saint.work) ? `, ${saint.work}` : ''}</figcaption>
+              </figure>
+            )}
+            <p className="home-question">{entry.q}</p>
+          </>
+        ) : <p className="muted home-wait">…</p>}
+      </main>
+
+      {info && entry && (
+        <aside className="home-info" role="dialog" aria-label="Sources">
+          <p><strong>Verse.</strong> {verse?.label} in {edition?.name ?? 'your translation'}{ref ? <> · <Link to={`/study/passage/${ref.book}.${ref.c1}${ref.v1 ? '.' + ref.v1 : ''}`}>study it</Link></> : null}.</p>
+          <p><strong>Quote.</strong> {saint?.who}{saint?.work ? `, ${saint.work}` : ''}. {saint?.verified ? 'Checked word for word against the public-domain text in this app’s library.' : 'Shown as attributed; not yet checked against the source text.'}</p>
+          <p><strong>Question.</strong> Written for this app to go with the verse and the season ({ld.seasonName}).</p>
+          <p className="muted small">Keys: ← → change day · i sources.</p>
+        </aside>
       )}
 
-      <form className="today-jump" onSubmit={go} role="search">
-        <input type="search" value={jump} onChange={(e) => setJump(e.target.value)} placeholder="Go to John 6:35, or search anything" aria-label="Go to a passage or search" />
-        <button className="btn" type="submit">Go</button>
-      </form>
-
-      <nav className="today-more" aria-label="More ways to pray and practise">
-        {plans[0] && <Link to={`/pray/plans/${encodeURIComponent(plans[0].planId)}`}>Reading plan · {plans[0].done.length} days done</Link>}
-        {!plans[0] && <Link to="/pray/plans">Reading plans</Link>}
-        <Link to="/memorize">{memTotal ? `Memorize · ${memDue} due` : 'Memorize'}</Link>
-        <Link to="/pray">Prayer</Link>
-        <Link to="/session">A quiet moment</Link>
-        <Link to="/library">{noteCount ? `Notes · ${noteCount}` : 'Notes'}</Link>
-      </nav>
+      <footer className="home-actions">
+        {lastName && last ? <Link className="btn primary" to={`/read/${last.edition}/${last.book}/${last.chapter}${last.verse ? `?v=${last.verse}` : ''}`}>Continue · {lastName}</Link> : <Link className="btn primary" to={`/read/${s.defaultEdition}/JHN/1`}>Begin reading</Link>}
+        <button className="btn" onClick={random}>Random passage</button>
+        <Link className="btn" to={`/pray/readings/${date}`}>Mass readings</Link>
+      </footer>
     </div>
   );
 }

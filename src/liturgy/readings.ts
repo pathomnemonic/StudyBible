@@ -2,6 +2,7 @@ import { db } from '../db/db';
 import { parseRefs, type Ref } from '../lib/refs';
 import { chapterToAnchorRefs, convertRef } from '../lib/versification';
 import { litDay, type LitEvent } from './litcal';
+import { getJson } from '../data/loader';
 
 export type Slot = 'first_reading' | 'responsorial_psalm' | 'second_reading' | 'gospel_acclamation' | 'gospel';
 export const SLOT_LABEL: Record<Slot, string> = {
@@ -21,7 +22,9 @@ export interface ReadingItem {
 }
 
 export interface DayReadings {
-  source: 'litcal' | 'user-lectionary' | 'manual' | 'none';
+  /** Title of the day as the published list gives it (e.g. “Tuesday of the First Week in Ordinary Time”). */
+  title?: string;
+  source: 'usccb-refs' | 'litcal' | 'user-lectionary' | 'manual' | 'none';
   sourceNote: string;
   items: ReadingItem[];
   events: LitEvent[];
@@ -33,7 +36,7 @@ function toItem(slot: Slot, text: string): ReadingItem {
   let approximate = false;
   let note: string | undefined;
   for (const piece of text.split('|')) {
-    const p = parseRefs(piece.replace(/\s*[–—]\s*/g, '-').replace(/\(\d+\)/g, ''));
+    const p = parseRefs(piece.replace(/(\d)[a-d]+\b/g, '$1').replace(/\s*[–—]\s*/g, '-').replace(/\(\d+\)/g, ''));
     if (!p.ok) continue;
     for (const { ref } of p.refs) {
       if (ref.book === 'PSA') {
@@ -79,6 +82,12 @@ export async function readingsFor(nation: string, isoDate: string): Promise<DayR
   if (user) {
     const items = (Object.keys(SLOT_LABEL) as Slot[]).filter((s) => user[s]).map((s) => toItem(s, user[s]!));
     if (items.length) return { source: 'user-lectionary', sourceNote: 'From the lectionary data you imported or entered on this device.', items, events };
+  }
+  const lect = await getJson<{ days: Record<string, { t: string; r: Partial<Record<Slot, string>> }> }>(`lectionary/${isoDate.slice(0, 4)}.json`, true).catch(() => null);
+  const day = lect?.days[isoDate];
+  if (day) {
+    const items = (Object.keys(SLOT_LABEL) as Slot[]).filter((s) => day.r[s]).map((s) => toItem(s, day.r[s]!));
+    if (items.length) return { source: 'usccb-refs', title: day.t, sourceNote: 'Reading citations as listed by the USCCB (bible.usccb.org). The passages below are shown in your chosen translation, not the Lectionary wording.', items, events };
   }
   // LitCal provides the readings of solemnities, feasts and some celebrations; ordinary weekdays and Sundays are not included.
   for (const e of events) {

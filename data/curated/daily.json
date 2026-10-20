@@ -1,0 +1,4520 @@
+{
+ "_about": "A verse, a saint quote and a reflection question for each day of the year (from the maintainer’s own catholic-daily-reflection project). Verse references are Douay-Rheims/Vulgate numbering; the text shown is read from the reader’s own translation. Saint quotes are shown as attributed: only those found word for word in this app’s library texts are marked verified.",
+ "entries": [
+  {
+   "key": "01-01",
+   "ref": "LUK.2.19",
+   "saint": {
+    "text": "You have made us for Yourself, O Lord, and our heart is restless until it rests in You.",
+    "who": "St. Augustine",
+    "work": "Confessions",
+    "verified": true
+   },
+   "question": "As you begin this new year, what specific restlessness in your heart are you asking God to fill?",
+   "tags": []
+  },
+  {
+   "key": "01-02",
+   "ref": "PRO.9.10",
+   "saint": {
+    "text": "A tree is known by its fruit; a man by his deeds. A good deed is never lost.",
+    "who": "St. Basil the Great",
+    "work": "Letters",
+    "verified": true
+   },
+   "question": "Looking at the 'fruit' of your recent actions, would others recognize the wisdom of God in them?",
+   "tags": []
+  },
+  {
+   "key": "01-03",
+   "ref": "PHP.2.9",
+   "saint": {
+    "text": "The Name of Jesus is the glory of preachers, because the shining splendor of that Name causes his word to be proclaimed and heard.",
+    "who": "St. Bernard of Clairvaux",
+    "work": "Sermon on the Song of Songs",
+    "verified": false
+   },
+   "question": "How can you speak the name of Jesus with more reverence in your conversations today?",
+   "tags": []
+  },
+  {
+   "key": "01-04",
+   "ref": "PSA.36.4",
+   "saint": {
+    "text": "The first end I propose in our daily work is to do the will of God.",
+    "who": "St. Elizabeth Ann Seton",
+    "work": "Collected Writings",
+    "verified": false
+   },
+   "question": "Is your current 'delight' found in following your own will or seeking God's?",
+   "tags": []
+  },
+  {
+   "key": "01-05",
+   "ref": "ROM.1.16",
+   "saint": {
+    "text": "We must love our neighbor as being made in the image of God and as an object of His love.",
+    "who": "St. John Neumann",
+    "work": "Pastoral Writings",
+    "verified": true
+   },
+   "question": "How does seeing your neighbor as an 'image of God' change the way you treat them?",
+   "tags": []
+  },
+  {
+   "key": "01-06",
+   "ref": "MAT.2.11",
+   "saint": {
+    "text": "Truth, which the Magi sought, even we should seek.",
+    "who": "St. Augustine",
+    "work": "Sermons on the Epiphany",
+    "verified": false
+   },
+   "question": "What 'star' or sign is God currently using to lead you closer to Him?",
+   "tags": []
+  },
+  {
+   "key": "01-07",
+   "ref": "ROM.12.2",
+   "saint": {
+    "text": "If you wish to know who you are, do not look at what you have been, but at what you will be.",
+    "who": "St. Raymond of Penyafort",
+    "work": "Attributed Quotes",
+    "verified": false
+   },
+   "question": "In what area of your life is God asking for a 'renewal of mind' today?",
+   "tags": []
+  },
+  {
+   "key": "01-08",
+   "ref": "MRK.1.17",
+   "saint": {
+    "text": "He who trusts in himself is lost. He who trusts in God can do all things.",
+    "who": "St. Alphonsus Liguori",
+    "work": "The Way of Salvation",
+    "verified": false
+   },
+   "question": "Are you currently fishing for your own interests or for the souls of others?",
+   "tags": []
+  },
+  {
+   "key": "01-09",
+   "ref": "PSA.26.1",
+   "saint": {
+    "text": "There is no such thing as bad weather. All weather is good because it is God's.",
+    "who": "St. Teresa of Avila",
+    "work": "The Way of Perfection",
+    "verified": false
+   },
+   "question": "What 'storm' in your life right now needs to be viewed through the lens of God's providence?",
+   "tags": []
+  },
+  {
+   "key": "01-10",
+   "ref": "1PE.4.8",
+   "saint": {
+    "text": "Charity is the form, mover, mother and root of all the virtues.",
+    "who": "St. Thomas Aquinas",
+    "work": "Summa Theologica",
+    "verified": false
+   },
+   "question": "Which of your virtues is currently lacking the 'root' of charity?",
+   "tags": []
+  },
+  {
+   "key": "01-11",
+   "ref": "MAT.7.7",
+   "saint": {
+    "text": "When we pray, the voice of the heart must be heard more than that proceeding from the mouth.",
+    "who": "St. Bernard of Clairvaux",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "Is your prayer currently a list of words, or is the 'voice of your heart' truly speaking to God?",
+   "tags": []
+  },
+  {
+   "key": "01-12",
+   "ref": "PHP.4.13",
+   "saint": {
+    "text": "Don't look at your weakness, but realize that in Christ crucified you can do everything.",
+    "who": "St. Catherine of Siena",
+    "work": "The Dialogue",
+    "verified": false
+   },
+   "question": "What weakness are you focusing on that prevents you from trusting in Christ's strength?",
+   "tags": []
+  },
+  {
+   "key": "01-13",
+   "ref": "1PE.5.6",
+   "saint": {
+    "text": "Humility destroys all of the enemy's schemes.",
+    "who": "St. Makarios of Optina",
+    "work": "Spiritual Letters",
+    "verified": false
+   },
+   "question": "In what situation today can you choose humility over being right?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "01-14",
+   "ref": "JHN.1.14",
+   "saint": {
+    "text": "Our business is to gain heaven, everything else is a sheer waste of time!",
+    "who": "St. Vincent de Paul",
+    "work": "Common Rules",
+    "verified": false
+   },
+   "question": "Does your daily schedule reflect that your primary business is to 'gain heaven'?",
+   "tags": []
+  },
+  {
+   "key": "01-15",
+   "ref": "JHN.14.27",
+   "saint": {
+    "text": "Never be in a hurry; do everything quietly and in a calm spirit.",
+    "who": "St. Francis de Sales",
+    "work": "Introduction to the Devout Life",
+    "verified": false
+   },
+   "question": "Where are you currently seeking 'worldly peace' instead of Christ's peace?",
+   "tags": []
+  },
+  {
+   "key": "01-16",
+   "ref": "PRO.3.5",
+   "saint": {
+    "text": "Apart from the cross, there is no other ladder by which we may get to heaven.",
+    "who": "St. Rose of Lima",
+    "work": "Maxims",
+    "verified": false
+   },
+   "question": "Which of your own 'prudent' plans are you most afraid to surrender to God's will?",
+   "tags": []
+  },
+  {
+   "key": "01-17",
+   "ref": "MAT.19.21",
+   "saint": {
+    "text": "The man who is kind and hospitable to the poor is like a man who has made a loan to God.",
+    "who": "St. Anthony of Egypt",
+    "work": "The Sayings of the Desert Fathers",
+    "verified": false
+   },
+   "question": "What 'possessions'—physical or emotional—are keeping you from following Jesus more closely?",
+   "tags": []
+  },
+  {
+   "key": "01-18",
+   "ref": "JHN.17.21",
+   "saint": {
+    "text": "Let us have charity and humility, and give alms, for alms purge the soul from the filth of sin.",
+    "who": "St. Francis of Assisi",
+    "work": "Letter to All the Faithful",
+    "verified": false
+   },
+   "question": "How can you promote unity in your parish or family today through an act of charity?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "01-19",
+   "ref": "PSA.22.1",
+   "saint": {
+    "text": "What does it matter if we have the whole world if we lose our souls?",
+    "who": "St. Marguerite Bourgeoys",
+    "work": "Writings",
+    "verified": false
+   },
+   "question": "Do you live like you truly 'want nothing' other than the Shepherd's guidance?",
+   "tags": [
+    "christmas"
+   ]
+  },
+  {
+   "key": "01-20",
+   "ref": "MAT.5.10",
+   "saint": {
+    "text": "The soul is not where it lives, but where it loves.",
+    "who": "St. Sebastian",
+    "work": "Attributed Quotes",
+    "verified": false
+   },
+   "question": "Is your soul rooted in the love of God, or are you too focused on where you 'live' in the world?",
+   "tags": []
+  },
+  {
+   "key": "01-21",
+   "ref": "JHN.10.27",
+   "saint": {
+    "text": "Christ is my life, and to die is my gain.",
+    "who": "St. Agnes",
+    "work": "Acts of St. Agnes",
+    "verified": false
+   },
+   "question": "Amidst the noise of the world, can you distinguish the specific 'voice' of Christ today?",
+   "tags": []
+  },
+  {
+   "key": "01-22",
+   "ref": "JER.1.5",
+   "saint": {
+    "text": "God is the author of life and we must protect it from conception to natural death.",
+    "who": "St. Gianna Molla",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "How does knowing that God 'knew you' before birth change your sense of purpose?",
+   "tags": []
+  },
+  {
+   "key": "01-23",
+   "ref": "EPH.4.32",
+   "saint": {
+    "text": "The measurement of love is to love without measurement.",
+    "who": "St. Bernard of Clairvaux",
+    "work": "On Loving God",
+    "verified": false
+   },
+   "question": "Who is the most difficult person for you to forgive right now, and can you offer a prayer for them?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "01-24",
+   "ref": "PRO.15.1",
+   "saint": {
+    "text": "He who communicates with a pure heart receives much grace.",
+    "who": "St. Francis de Sales",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "Think of a recent conflict; would a 'soft answer' have changed the outcome?",
+   "tags": []
+  },
+  {
+   "key": "01-25",
+   "ref": "MRK.16.15",
+   "saint": {
+    "text": "It is not the number of things we do, but how much love we put into them.",
+    "who": "St. Paul (Conversion Feast)",
+    "work": "1 Corinthians 13 (Implicit Reflection)",
+    "verified": false
+   },
+   "question": "Preaching the gospel can be done without words; how can your actions 'preach' today?",
+   "tags": []
+  },
+  {
+   "key": "01-26",
+   "ref": "PSA.118.105",
+   "saint": {
+    "text": "Ignorance of Scripture is ignorance of Christ.",
+    "who": "St. Jerome",
+    "work": "Commentary on Isaiah",
+    "verified": false
+   },
+   "question": "How much time have you spent getting to 'know Christ' through His Word this week?",
+   "tags": []
+  },
+  {
+   "key": "01-27",
+   "ref": "MAT.5.16",
+   "saint": {
+    "text": "The path to heaven is narrow, but for the one who loves, it is a path of joy.",
+    "who": "St. Angela Merici",
+    "work": "Counsels",
+    "verified": false
+   },
+   "question": "Is your 'light' shining to bring glory to yourself or to the Father?",
+   "tags": []
+  },
+  {
+   "key": "01-28",
+   "ref": "COL.3.14",
+   "saint": {
+    "text": "To one who has faith, no explanation is necessary. To one without faith, no explanation is possible.",
+    "who": "St. Thomas Aquinas",
+    "work": "Summa Theologica",
+    "verified": false
+   },
+   "question": "How does your charity (love) serve as a bridge for those who struggle with faith?",
+   "tags": []
+  },
+  {
+   "key": "01-29",
+   "ref": "MAT.11.30",
+   "saint": {
+    "text": "He who carries God in his heart carries heaven with him wherever he goes.",
+    "who": "St. Ignatius of Antioch",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "If Christ's yoke is light, why are you currently feeling heavy or burdened?",
+   "tags": []
+  },
+  {
+   "key": "01-30",
+   "ref": "PSA.50.12",
+   "saint": {
+    "text": "The soul is like a castle made of a single diamond or of very clear crystal.",
+    "who": "St. Teresa of Avila",
+    "work": "The Interior Castle",
+    "verified": false
+   },
+   "question": "What 'dirt' or distraction is currently clouding the 'crystal' of your soul?",
+   "tags": []
+  },
+  {
+   "key": "01-31",
+   "ref": "MRK.10.14",
+   "saint": {
+    "text": "It is not enough to love the young; they must know that they are loved.",
+    "who": "St. John Bosco",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "How can you show a 'childlike' trust in God today, setting aside adult cynicism?",
+   "tags": [
+    "christmas"
+   ]
+  },
+  {
+   "key": "02-01",
+   "ref": "PRO.2.6",
+   "saint": {
+    "text": "The more we are united to God, the more we are able to see things as they really are.",
+    "who": "St. Brigid of Kildare",
+    "work": "Sayings",
+    "verified": false
+   },
+   "question": "In what area of your life are you currently relying on your own logic rather than God's wisdom?",
+   "tags": []
+  },
+  {
+   "key": "02-02",
+   "ref": "LUK.2.30-31",
+   "saint": {
+    "text": "The Mother of God, who is our Mother also, will lead us to the Light of the World.",
+    "who": "St. Sophronius",
+    "work": "Sermon on the Presentation",
+    "verified": true
+   },
+   "question": "Like Simeon at the Presentation, can you recognize Christ's presence in the quiet moments of your day?",
+   "tags": []
+  },
+  {
+   "key": "02-03",
+   "ref": "LUK.10.19",
+   "saint": {
+    "text": "Have a good will; it is the source of all good.",
+    "who": "St. Blaise",
+    "work": "Legendary Sayings",
+    "verified": false
+   },
+   "question": "What 'enemy'—be it a bad habit or a fear—do you need the power of Christ to overcome today?",
+   "tags": []
+  },
+  {
+   "key": "02-04",
+   "ref": "PSA.146.3",
+   "saint": {
+    "text": "Do not look forward to what may happen tomorrow; the same everlasting Father who cares for you today will take care of you tomorrow.",
+    "who": "St. Joan of Valois",
+    "work": "Founding Rule",
+    "verified": false
+   },
+   "question": "What past bruise or heartbreak are you still trying to heal on your own instead of handing it to the Healer?",
+   "tags": []
+  },
+  {
+   "key": "02-05",
+   "ref": "MRK.8.35",
+   "saint": {
+    "text": "My Jesus, I love Thee with all my heart; I am sorry for having offended Thee.",
+    "who": "St. Agatha",
+    "work": "Martyrdom Accounts",
+    "verified": false
+   },
+   "question": "What part of your 'life' (reputation, comfort, or ego) are you afraid to lose for the sake of Christ?",
+   "tags": []
+  },
+  {
+   "key": "02-06",
+   "ref": "REV.3.20",
+   "saint": {
+    "text": "I will go anywhere and do anything in order to communicate the love of Jesus to those who do not know Him.",
+    "who": "St. Paul Miki",
+    "work": "Final Sermon",
+    "verified": false
+   },
+   "question": "Is there a 'door' in your heart that you have kept locked because you are afraid of what Jesus will ask of you?",
+   "tags": []
+  },
+  {
+   "key": "02-07",
+   "ref": "JAS.4.8",
+   "saint": {
+    "text": "The more a person loves God, the more reason he has to hope in Him.",
+    "who": "St. Colette",
+    "work": "Maxims",
+    "verified": false
+   },
+   "question": "What is one small, practical step you can take today to 'draw nigh' to God?",
+   "tags": []
+  },
+  {
+   "key": "02-08",
+   "ref": "PSA.137.6",
+   "saint": {
+    "text": "Be kind to everyone, but especially to the poor.",
+    "who": "St. Josephine Bakhita",
+    "work": "Journal",
+    "verified": false
+   },
+   "question": "Do you treat the 'lowly' in your community with the same dignity that God treats you?",
+   "tags": []
+  },
+  {
+   "key": "02-09",
+   "ref": "EPH.5.8",
+   "saint": {
+    "text": "If we would only give God all our heart, He would give us all His love.",
+    "who": "St. Apollonia",
+    "work": "Tradition of the Martyrs",
+    "verified": false
+   },
+   "question": "In what specific situation is your behavior currently reflecting 'darkness' rather than 'light'?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "02-10",
+   "ref": "PSA.26.14",
+   "saint": {
+    "text": "Pray as though everything depended on God. Work as though everything depended on you.",
+    "who": "St. Scholastica",
+    "work": "Rule of St. Benedict (Assoc.)",
+    "verified": false
+   },
+   "question": "Is your current struggle caused by 'waiting' without acting, or 'acting' without waiting on the Lord?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "02-11",
+   "ref": "GAL.4.4",
+   "saint": {
+    "text": "I am the Immaculate Conception.",
+    "who": "Our Lady of Lourdes (St. Bernadette)",
+    "work": "Apparition Records",
+    "verified": false
+   },
+   "question": "How does the purity of Mary inspire you to seek the Sacrament of Reconciliation for your own purification?",
+   "tags": []
+  },
+  {
+   "key": "02-12",
+   "ref": "ISA.58.11",
+   "saint": {
+    "text": "The more we are emptied of ourselves, the more God will fill us.",
+    "who": "St. Mechtild",
+    "work": "The Book of Special Grace",
+    "verified": false
+   },
+   "question": "What 'self-talk' or pride do you need to empty today so that God can fill you with His brightness?",
+   "tags": []
+  },
+  {
+   "key": "02-13",
+   "ref": "JHN.15.13",
+   "saint": {
+    "text": "Love is the swiftest path to God.",
+    "who": "St. Catherine of Ricci",
+    "work": "Spiritual Letters",
+    "verified": false
+   },
+   "question": "Who is God calling you to 'lay down your life' for today, perhaps through a sacrifice of time or patience?",
+   "tags": []
+  },
+  {
+   "key": "02-14",
+   "ref": "1CO.13.13",
+   "saint": {
+    "text": "Love God, serve God; everything is in that.",
+    "who": "St. Clare of Assisi",
+    "work": "Testament",
+    "verified": false
+   },
+   "question": "Does your current definition of 'love' look more like the world's version or the 'charity' described by St. Paul?",
+   "tags": []
+  },
+  {
+   "key": "02-15",
+   "ref": "PRO.16.9",
+   "saint": {
+    "text": "Hold your eyes on God and leave the doing to Him. That is all the rest you need.",
+    "who": "St. Jane Frances de Chantal",
+    "work": "Exhortations",
+    "verified": false
+   },
+   "question": "You have planned your day; are you willing to let the Lord redirect your steps if He intervenes?",
+   "tags": []
+  },
+  {
+   "key": "02-16",
+   "ref": "MAT.11.28",
+   "saint": {
+    "text": "We should always be disposed to do the will of God.",
+    "who": "St. Gilbert of Sempringham",
+    "work": "Rule of Life",
+    "verified": false
+   },
+   "question": "Are you seeking refreshment in distractions, or are you actually going to Christ to find rest?",
+   "tags": []
+  },
+  {
+   "key": "02-17",
+   "ref": "PSA.132.1",
+   "saint": {
+    "text": "To serve God is to reign.",
+    "who": "Seven Holy Founders of the Servite Order",
+    "work": "Original Statutes",
+    "verified": false
+   },
+   "question": "How can you serve someone today in a way that promotes unity rather than division?",
+   "tags": []
+  },
+  {
+   "key": "02-18",
+   "ref": "PSA.70.5",
+   "saint": {
+    "text": "The cross is the way to Paradise, but only when it is borne with a willing heart.",
+    "who": "St. Bernadette Soubirous",
+    "work": "Personal Notes",
+    "verified": false
+   },
+   "question": "Is your current cross being carried with resentment or with the 'willing heart' that leads to Paradise?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "02-19",
+   "ref": "PRO.4.18",
+   "saint": {
+    "text": "If you are what you should be, you will set the whole world on fire!",
+    "who": "St. Catherine of Siena",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "Are you 'going forwards' in your faith, or have you become stagnant in your spiritual habits?",
+   "tags": []
+  },
+  {
+   "key": "02-20",
+   "ref": "ISA.41.10",
+   "saint": {
+    "text": "Pray, hope, and don't worry. Worry is useless.",
+    "who": "St. Padre Pio",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "If you truly believed God was 'with thee' in this exact moment, what would you stop worrying about?",
+   "tags": []
+  },
+  {
+   "key": "02-21",
+   "ref": "JHN.16.33",
+   "saint": {
+    "text": "The soul's true peace is to be found in God alone.",
+    "who": "St. Peter Damian",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "When distress hits, is your first instinct to seek 'confidence' in the Lord or to seek an escape?",
+   "tags": []
+  },
+  {
+   "key": "02-22",
+   "ref": "MAT.16.18",
+   "saint": {
+    "text": "Where Peter is, there is the Church.",
+    "who": "St. Ambrose",
+    "work": "Exposition on the Psalms",
+    "verified": false
+   },
+   "question": "How do you support and pray for the 'Rock' (the Pope and the hierarchy) in your daily prayers?",
+   "tags": []
+  },
+  {
+   "key": "02-23",
+   "ref": "REV.2.10",
+   "saint": {
+    "text": "Eighty and six years have I served Him, and He never did me any injury.",
+    "who": "St. Polycarp",
+    "work": "Martyrdom of Polycarp",
+    "verified": false
+   },
+   "question": "If you were asked to give an account of your service to God today, what would your 'eighty and six years' (or current years) show?",
+   "tags": []
+  },
+  {
+   "key": "02-24",
+   "ref": "PSA.33.16",
+   "saint": {
+    "text": "Let us serve the Lord with a holy joy.",
+    "who": "St. Matthias",
+    "work": "Apostolic Tradition",
+    "verified": false
+   },
+   "question": "Do you pray with the confidence that God's ears are truly open to your specific needs?",
+   "tags": []
+  },
+  {
+   "key": "02-25",
+   "ref": "PSA.83.12",
+   "saint": {
+    "text": "Grace is nothing else but a certain beginning of glory in us.",
+    "who": "St. Thomas Aquinas",
+    "work": "Summa Theologica",
+    "verified": false
+   },
+   "question": "How can you cultivate a greater awareness of the 'beginning of glory' (grace) within your soul today?",
+   "tags": []
+  },
+  {
+   "key": "02-26",
+   "ref": "LUK.9.23",
+   "saint": {
+    "text": "We must carry our cross and not drag it.",
+    "who": "St. Philip Neri",
+    "work": "Maxims",
+    "verified": false
+   },
+   "question": "Are you 'dragging' your responsibilities with complaints, or 'carrying' them with purpose?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "02-27",
+   "ref": "1TH.3.12",
+   "saint": {
+    "text": "All our religion is but a false religion... if we do not have charity.",
+    "who": "St. Gabriel of Our Lady of Sorrows",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "Is your religious practice making you more charitable, or more judgmental of others?",
+   "tags": []
+  },
+  {
+   "key": "02-28",
+   "ref": "PSA.36.34",
+   "saint": {
+    "text": "Patience is the companion of wisdom.",
+    "who": "St. Augustine",
+    "work": "De Patientia",
+    "verified": false
+   },
+   "question": "In what area of your life is your lack of patience preventing you from acting with wisdom?",
+   "tags": []
+  },
+  {
+   "key": "02-29",
+   "ref": "HEB.13.8",
+   "saint": {
+    "text": "Time is given to us that we may find God. Death is given to us that we may possess Him.",
+    "who": "St. Alphonsus Liguori",
+    "work": "Preparation for Death",
+    "verified": false
+   },
+   "question": "On this 'extra' day given by the calendar, how will you use your time to possess more of God?",
+   "tags": []
+  },
+  {
+   "key": "03-01",
+   "ref": "2CO.6.2",
+   "saint": {
+    "text": "The past is no longer yours; the future is not yet in your power. You have only the present to do good.",
+    "who": "St. David of Wales",
+    "work": "Last Words",
+    "verified": false
+   },
+   "question": "What 'good' have you been putting off for a future date that you should start today?",
+   "tags": []
+  },
+  {
+   "key": "03-02",
+   "ref": "ISA.61.11",
+   "saint": {
+    "text": "Unless there is a Good Friday in your life, there can be no Easter Sunday.",
+    "who": "Ven. Fulton Sheen",
+    "work": "Peace of Soul",
+    "verified": false
+   },
+   "question": "Are you trying to skip the 'winter' of your spiritual growth and go straight to the harvest?",
+   "tags": []
+  },
+  {
+   "key": "03-03",
+   "ref": "JHN.8.12",
+   "saint": {
+    "text": "Work as if everything depended on you, pray as if everything depended on God.",
+    "who": "St. Katharine Drexel",
+    "work": "Missionary Letters",
+    "verified": false
+   },
+   "question": "In your work today, are you trusting in your own effort or the 'light' of God’s guidance?",
+   "tags": []
+  },
+  {
+   "key": "03-04",
+   "ref": "PSA.88.15",
+   "saint": {
+    "text": "A man is what he is in the sight of God, and nothing more.",
+    "who": "St. Casimir",
+    "work": "Exhortations to Virtue",
+    "verified": false
+   },
+   "question": "If you stopped caring about human opinion, how would your 'sight of God' change your behavior?",
+   "tags": []
+  },
+  {
+   "key": "03-05",
+   "ref": "PSA.90.11",
+   "saint": {
+    "text": "Make yourself familiar with the angels, and behold them frequently in spirit.",
+    "who": "St. Francis de Sales",
+    "work": "Introduction to the Devout Life",
+    "verified": false
+   },
+   "question": "Do you remember to ask your Guardian Angel for assistance during the stressful parts of your day?",
+   "tags": []
+  },
+  {
+   "key": "03-06",
+   "ref": "GAL.5.22",
+   "saint": {
+    "text": "God is more pleased by one work, however small, done secretly, than by a thousand done with the desire that men should know.",
+    "who": "St. John of the Cross",
+    "work": "Sayings of Light and Love",
+    "verified": false
+   },
+   "question": "Which 'fruit of the Spirit' is most visible in your life when no one is watching?",
+   "tags": []
+  },
+  {
+   "key": "03-07",
+   "ref": "ROM.8.35",
+   "saint": {
+    "text": "My God, my soul is all love for You.",
+    "who": "St. Perpetua",
+    "work": "Martyrdom Accounts",
+    "verified": false
+   },
+   "question": "What modern 'distress' are you allowing to act as a barrier between you and the love of Christ?",
+   "tags": []
+  },
+  {
+   "key": "03-08",
+   "ref": "ISA.58.7",
+   "saint": {
+    "text": "Christ has no body now but yours, no hands, no feet on earth but yours.",
+    "who": "St. Teresa of Avila",
+    "work": "Attributed Poem",
+    "verified": false
+   },
+   "question": "Whose 'hunger'—physical, emotional, or spiritual—is God asking you to feed today?",
+   "tags": []
+  },
+  {
+   "key": "03-09",
+   "ref": "2TI.1.7",
+   "saint": {
+    "text": "God is closer to us than water is to a fish.",
+    "who": "St. Catherine of Genoa",
+    "work": "Purgation and Purgatory",
+    "verified": false
+   },
+   "question": "If God is as close as the air you breathe, why do you still act out of a spirit of fear?",
+   "tags": []
+  },
+  {
+   "key": "03-10",
+   "ref": "PSA.33.19",
+   "saint": {
+    "text": "He who possesses God lacks nothing.",
+    "who": "St. John of God",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "Does your 'contrite heart' lead you to God's mercy, or do you let guilt keep you at a distance?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "03-11",
+   "ref": "1JN.3.1",
+   "saint": {
+    "text": "There is nothing small in the service of God.",
+    "who": "St. Frances of Rome",
+    "work": "Spiritual Maxims",
+    "verified": false
+   },
+   "question": "Do you treat your identity as a child of God as your primary title, or is it secondary to your worldly work?",
+   "tags": []
+  },
+  {
+   "key": "03-12",
+   "ref": "PSA.102.17",
+   "saint": {
+    "text": "If you are looking for the way by which you should go, take Christ, because He Himself is the way.",
+    "who": "St. Thomas Aquinas",
+    "work": "Conference on the Apostles' Creed",
+    "verified": false
+   },
+   "question": "Are you currently trying to find a shortcut to holiness that avoids the 'way' of Christ's cross?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "03-13",
+   "ref": "LUK.1.48",
+   "saint": {
+    "text": "To be little is to recognize one's nothingness and to expect everything from God.",
+    "who": "St. Thérèse of Lisieux",
+    "work": "Story of a Soul",
+    "verified": false
+   },
+   "question": "How can 'being little' actually give you more strength than trying to be powerful on your own?",
+   "tags": []
+  },
+  {
+   "key": "03-14",
+   "ref": "JER.29.13",
+   "saint": {
+    "text": "The soul is made for God, and it cannot find rest except in Him.",
+    "who": "St. Matilda",
+    "work": "Revelations",
+    "verified": false
+   },
+   "question": "Is there a part of your heart that you are intentionally holding back from your search for God?",
+   "tags": []
+  },
+  {
+   "key": "03-15",
+   "ref": "PSA.10.8",
+   "saint": {
+    "text": "Patience is the root and guardian of all the virtues.",
+    "who": "St. Gregory the Great",
+    "work": "Moralia in Job",
+    "verified": false
+   },
+   "question": "In what difficult relationship are you being called to practice 'justice' through the virtue of patience?",
+   "tags": []
+  },
+  {
+   "key": "03-16",
+   "ref": "PSA.41.3",
+   "saint": {
+    "text": "Let us go forward in peace, our eyes upon heaven, the only one goal of our labors.",
+    "who": "St. Columban",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "If you were to 'appear before the face of God' tonight, what would be the most important thing you've done today?",
+   "tags": []
+  },
+  {
+   "key": "03-17",
+   "ref": "ISA.60.1",
+   "saint": {
+    "text": "Christ be with me, Christ within me, Christ behind me, Christ before me.",
+    "who": "St. Patrick",
+    "work": "The Breastplate",
+    "verified": false
+   },
+   "question": "How would your interactions change today if you visualized Christ standing 'before' every person you meet?",
+   "tags": []
+  },
+  {
+   "key": "03-18",
+   "ref": "PRO.3.13",
+   "saint": {
+    "text": "The measure of love is to love without measure.",
+    "who": "St. Cyril of Jerusalem",
+    "work": "Catechetical Lectures",
+    "verified": false
+   },
+   "question": "Are you 'measuring' your kindness toward others based on what they deserve, or on God’s love?",
+   "tags": []
+  },
+  {
+   "key": "03-19",
+   "ref": "MAT.1.19",
+   "saint": {
+    "text": "Those who are very busy with exterior activities should not forget that interior prayer is the most important of all.",
+    "who": "St. Joseph (via St. Teresa of Avila)",
+    "work": "The Life of Teresa",
+    "verified": false
+   },
+   "question": "Like St. Joseph, can you remain 'just' and 'silent' even when you do not fully understand God's plan?",
+   "tags": []
+  },
+  {
+   "key": "03-20",
+   "ref": "REV.21.5",
+   "saint": {
+    "text": "We must begin again every day.",
+    "who": "St. Francis of Assisi",
+    "work": "The First Life of St. Francis",
+    "verified": false
+   },
+   "question": "What old habit or resentment do you need to let God 'make new' this morning?",
+   "tags": []
+  },
+  {
+   "key": "03-21",
+   "ref": "PSA.99.5",
+   "saint": {
+    "text": "He who is filled with love is filled with God Himself.",
+    "who": "St. Augustine",
+    "work": "On the Trinity",
+    "verified": false
+   },
+   "question": "If 'mercy endures forever,' why do you struggle to show mercy for mistakes that only last a moment?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "03-22",
+   "ref": "1JN.3.18",
+   "saint": {
+    "text": "Actions speak louder than words; let your words teach and your actions speak.",
+    "who": "St. Anthony of Padua",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "What 'deed' can you perform today that would prove your love for someone without you saying a word?",
+   "tags": []
+  },
+  {
+   "key": "03-23",
+   "ref": "SIR.35.21",
+   "saint": {
+    "text": "Humility is the foundation of all the other virtues.",
+    "who": "St. Turibius of Mogrovejo",
+    "work": "Diocesan Decrees",
+    "verified": false
+   },
+   "question": "Is your prayer 'piercing the clouds' with humility, or is it blocked by the ceiling of pride?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "03-24",
+   "ref": "LUK.1.38",
+   "saint": {
+    "text": "The knot of Eve's disobedience was untied by Mary's obedience.",
+    "who": "St. Irenaeus",
+    "work": "Against Heresies",
+    "verified": false
+   },
+   "question": "In what area of your life are you currently saying 'wait' instead of 'be it done to me'?",
+   "tags": []
+  },
+  {
+   "key": "03-25",
+   "ref": "JHN.1.14",
+   "saint": {
+    "text": "Mary, having given her consent, became the ladder by which God descended to earth.",
+    "who": "St. Fulgentius of Ruspe",
+    "work": "Sermon on the Annunciation",
+    "verified": false
+   },
+   "question": "How does the reality of God becoming man (the Incarnation) change how you view your own physical body?",
+   "tags": []
+  },
+  {
+   "key": "03-26",
+   "ref": "ISA.55.8",
+   "saint": {
+    "text": "God's way is the best way, though it may often seem the hardest.",
+    "who": "St. Margaret Clitherow",
+    "work": "Final Testimony",
+    "verified": false
+   },
+   "question": "Can you trust that God’s 'ways' are better than yours even when his path leads through suffering?",
+   "tags": []
+  },
+  {
+   "key": "03-27",
+   "ref": "MRK.12.30",
+   "saint": {
+    "text": "To love God is something greater than to know Him.",
+    "who": "St. Thomas Aquinas",
+    "work": "Summa Theologica",
+    "verified": false
+   },
+   "question": "Do you spend more time 'studying' about God or actually 'loving' Him in prayer?",
+   "tags": []
+  },
+  {
+   "key": "03-28",
+   "ref": "ISA.53.5",
+   "saint": {
+    "text": "The Passion of Christ is the greatest and most stupendous work of Divine Love.",
+    "who": "St. Paul of the Cross",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "How often do you stop to thank Christ for the specific 'bruises' He took for you?",
+   "tags": []
+  },
+  {
+   "key": "03-29",
+   "ref": "JHN.11.25",
+   "saint": {
+    "text": "Everything comes from love, all is ordained for the salvation of man.",
+    "who": "St. Catherine of Siena",
+    "work": "The Dialogue",
+    "verified": false
+   },
+   "question": "What part of your spirit feels 'dead' right now and needs the breath of the Resurrection?",
+   "tags": [
+    "easter"
+   ]
+  },
+  {
+   "key": "03-30",
+   "ref": "MAT.16.26",
+   "saint": {
+    "text": "The world is thy ship and not thy home.",
+    "who": "St. Thérèse of Lisieux",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "Are you spending more effort decorating your 'ship' than preparing for your 'home'?",
+   "tags": []
+  },
+  {
+   "key": "03-31",
+   "ref": "PSA.102.1",
+   "saint": {
+    "text": "Holy is His Name, and He has done great things for me.",
+    "who": "St. Mary (Magnificat)",
+    "work": "Luke 1:49",
+    "verified": false
+   },
+   "question": "As this month ends, what are the 'great things' God has done for you that you need to name and bless?",
+   "tags": []
+  },
+  {
+   "key": "04-01",
+   "ref": "PRO.14.3",
+   "saint": {
+    "text": "Silence is the gift of God, to let us speak more deeply with Him.",
+    "who": "St. John Climacus",
+    "work": "The Ladder of Divine Ascent",
+    "verified": false
+   },
+   "question": "In a world of constant noise and 'foolish' talk, how can you carve out five minutes of sacred silence today?",
+   "tags": []
+  },
+  {
+   "key": "04-02",
+   "ref": "PSA.1.3",
+   "saint": {
+    "text": "Charity is the cement which binds the community to God and to each other.",
+    "who": "St. Francis of Paola",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "Are you currently 'planted' in the grace of the Sacraments, or is your spiritual life wilting due to lack of nourishment?",
+   "tags": []
+  },
+  {
+   "key": "04-03",
+   "ref": "HEB.13.6",
+   "saint": {
+    "text": "God is our Father; we must have a great confidence in Him.",
+    "who": "St. Richard of Chichester",
+    "work": "Last Prayer",
+    "verified": false
+   },
+   "question": "If you truly believed God was your helper, whose criticism or judgment would you finally stop fearing?",
+   "tags": []
+  },
+  {
+   "key": "04-04",
+   "ref": "ROM.14.19",
+   "saint": {
+    "text": "The soul is like a garden; if we do not weed it, the thorns of vice will soon choke the flowers of virtue.",
+    "who": "St. Isidore of Seville",
+    "work": "Sententiae",
+    "verified": false
+   },
+   "question": "Which 'weed'—such as gossip, pride, or impatience—is currently choking your peace?",
+   "tags": []
+  },
+  {
+   "key": "04-05",
+   "ref": "MAT.28.20",
+   "saint": {
+    "text": "Love does not consist in feeling great things, but in having great detachment and in suffering for the Beloved.",
+    "who": "St. Vincent Ferrer",
+    "work": "Treatise on the Spiritual Life",
+    "verified": false
+   },
+   "question": "Do you feel God's presence only when things go well, or can you find Him in your 'sufferings' today?",
+   "tags": []
+  },
+  {
+   "key": "04-06",
+   "ref": "NUM.14.18",
+   "saint": {
+    "text": "A single act of pure love is more precious in the sight of God than all other works put together.",
+    "who": "St. John of the Cross",
+    "work": "Spiritual Canticle",
+    "verified": false
+   },
+   "question": "How can you perform one 'act of pure love' today without expecting any recognition or reward?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "04-07",
+   "ref": "1JN.2.10",
+   "saint": {
+    "text": "Faith is to believe what you do not see; the reward of this faith is to see what you believe.",
+    "who": "St. John Baptist de la Salle",
+    "work": "Meditations",
+    "verified": false
+   },
+   "question": "Is there someone you are struggling to 'love' whose presence is currently a stumbling block to your peace?",
+   "tags": []
+  },
+  {
+   "key": "04-08",
+   "ref": "PHP.4.19",
+   "saint": {
+    "text": "The Eucharist is the shortest and safest way to Heaven.",
+    "who": "St. Pius X",
+    "work": "Catechism on the Eucharist",
+    "verified": false
+   },
+   "question": "Do you go to the Eucharist to have your 'wants' supplied, or to offer yourself to God?",
+   "tags": []
+  },
+  {
+   "key": "04-09",
+   "ref": "PSA.50.4",
+   "saint": {
+    "text": "God is always ready to forgive us, but we must be ready to ask for it with a sincere heart.",
+    "who": "St. Mary of Egypt",
+    "work": "Vita by Sophronius",
+    "verified": false
+   },
+   "question": "Is there a sin you have 'cleansed' in your own mind but have not yet brought to the Sacrament of Penance?",
+   "tags": [
+    "advent",
+    "lent"
+   ]
+  },
+  {
+   "key": "04-10",
+   "ref": "ISA.55.9",
+   "saint": {
+    "text": "Nothing happens to man except what God wills, and what He wills is always for our best.",
+    "who": "St. Thomas More",
+    "work": "Letters from the Tower",
+    "verified": false
+   },
+   "question": "Can you trust that a 'no' from God today is actually an 'exalted way' of protecting your soul?",
+   "tags": []
+  },
+  {
+   "key": "04-11",
+   "ref": "PHP.4.7",
+   "saint": {
+    "text": "If you are the victim of injustice, do not seek revenge; leave your cause in the hands of God.",
+    "who": "St. Stanislaus",
+    "work": "Martyrological Accounts",
+    "verified": false
+   },
+   "question": "Where is your mind 'wandering' outside of Christ that is causing you to lose your peace?",
+   "tags": []
+  },
+  {
+   "key": "04-12",
+   "ref": "PSA.15.5",
+   "saint": {
+    "text": "The world is on fire, and we are still arguing over trivialities.",
+    "who": "St. Teresa of Avila",
+    "work": "The Way of Perfection",
+    "verified": false
+   },
+   "question": "Are you more concerned with your 'worldly portion' or your 'eternal inheritance' today?",
+   "tags": []
+  },
+  {
+   "key": "04-13",
+   "ref": "MAT.7.11",
+   "saint": {
+    "text": "To serve the poor is to serve Jesus. We must not look at their faults but at the image of God in them.",
+    "who": "St. Margaret of Castello",
+    "work": "Life and Miracles",
+    "verified": false
+   },
+   "question": "What 'good gift' have you received lately that you have forgotten to thank your Heavenly Father for?",
+   "tags": []
+  },
+  {
+   "key": "04-14",
+   "ref": "HEB.4.12",
+   "saint": {
+    "text": "Do not be troubled by the storm; the Pilot is at the helm and will never leave you.",
+    "who": "St. Lydwina",
+    "work": "Spiritual Counsels",
+    "verified": false
+   },
+   "question": "Has the 'word of God' challenged or 'pierced' your conscience recently, or are you avoiding its edge?",
+   "tags": []
+  },
+  {
+   "key": "04-15",
+   "ref": "PRO.4.18",
+   "saint": {
+    "text": "Our cross is only the weight of our own will; if we align it with God's, the burden becomes light.",
+    "who": "St. Bernadette Soubirous",
+    "work": "Personal Diary",
+    "verified": false
+   },
+   "question": "Is your current struggle a result of God's will or your own will pulling in a different direction?",
+   "tags": []
+  },
+  {
+   "key": "04-16",
+   "ref": "PSA.118.32",
+   "saint": {
+    "text": "God loves a cheerful giver; He gives most to those who give with joy.",
+    "who": "St. Bernadette Soubirous",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "Is your heart 'enlarged' with love for God, or is it constricted by selfishness?",
+   "tags": []
+  },
+  {
+   "key": "04-17",
+   "ref": "EPH.2.8",
+   "saint": {
+    "text": "He who neglects prayer, neglects his own salvation.",
+    "who": "St. Benedict Joseph Labre",
+    "work": "Spiritual Maxims",
+    "verified": false
+   },
+   "question": "Do you treat 'faith' as a trophy you have earned, or a gift you must humbly maintain through prayer?",
+   "tags": []
+  },
+  {
+   "key": "04-18",
+   "ref": "1JN.4.19",
+   "saint": {
+    "text": "He who wants anything other than Christ, does not know what he wants.",
+    "who": "St. Philip Neri",
+    "work": "Maxims",
+    "verified": false
+   },
+   "question": "If you stripped away all your worldly desires, would the 'first love' of God be enough for you?",
+   "tags": []
+  },
+  {
+   "key": "04-19",
+   "ref": "PSA.36.34",
+   "saint": {
+    "text": "We should be more afraid of our own will than of all the devils in hell.",
+    "who": "St. Alphege",
+    "work": "Last Homily",
+    "verified": false
+   },
+   "question": "What 'land' or promise are you trying to seize early rather than waiting for the Lord's timing?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "04-20",
+   "ref": "PSA.26.1",
+   "saint": {
+    "text": "There is no better way to find God than to find Him in our neighbor.",
+    "who": "St. Agnes of Montepulciano",
+    "work": "Rule of the Monastery",
+    "verified": false
+   },
+   "question": "Which specific 'fear' is currently casting a shadow over the 'light' of your salvation?",
+   "tags": []
+  },
+  {
+   "key": "04-21",
+   "ref": "JHN.7.18",
+   "saint": {
+    "text": "Humility is a virtue by which a man, knowing himself as he truly is, abases himself.",
+    "who": "St. Anselm",
+    "work": "Proslogion",
+    "verified": false
+   },
+   "question": "When you do a good deed, is your first thought to tell others (your glory) or to thank God (His glory)?",
+   "tags": []
+  },
+  {
+   "key": "04-22",
+   "ref": "PSA.126.1",
+   "saint": {
+    "text": "The secret of happiness is to live moment by moment and to thank God for all that He, in His goodness, sends to us.",
+    "who": "St. Gianna Beretta Molla",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "Are you laboring 'in vain' on a project that you haven't invited the Lord to build with you?",
+   "tags": []
+  },
+  {
+   "key": "04-23",
+   "ref": "1TI.6.12",
+   "saint": {
+    "text": "I am the soldier of Christ, and it is not lawful for me to fight with the weapons of this world.",
+    "who": "St. George",
+    "work": "Martyrology",
+    "verified": true
+   },
+   "question": "What 'worldly weapon'—anger, deceit, or manipulation—are you tempted to use in a situation where faith is required?",
+   "tags": []
+  },
+  {
+   "key": "04-24",
+   "ref": "PSA.83.12",
+   "saint": {
+    "text": "Let us love God, but let it be with the strength of our arms and the sweat of our brow.",
+    "who": "St. Fidelis of Sigmaringen",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "Do you view God more as a 'shield' to hide behind, or a 'sun' that motivates you to work hard for His kingdom?",
+   "tags": []
+  },
+  {
+   "key": "04-25",
+   "ref": "2TI.4.2",
+   "saint": {
+    "text": "The path to holiness is through the performance of our ordinary duties with extraordinary love.",
+    "who": "St. Mark the Evangelist",
+    "work": "Tradition of the Early Church",
+    "verified": false
+   },
+   "question": "Are you 'instant' and ready to share your faith, or do you wait for a 'perfect' season that never comes?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "04-26",
+   "ref": "PSA.118.37",
+   "saint": {
+    "text": "True perfection consists in having but one will, and that is the will of God.",
+    "who": "St. Stephen of Hungary",
+    "work": "Admonitions",
+    "verified": false
+   },
+   "question": "What 'vanity'—social media, material possessions, or status—is currently distracting your eyes from God's way?",
+   "tags": []
+  },
+  {
+   "key": "04-27",
+   "ref": "1PE.4.8",
+   "saint": {
+    "text": "Prayer is the best weapon we possess; it is the key that opens the heart of God.",
+    "who": "St. Zita",
+    "work": "Sayings to Fellow Servants",
+    "verified": false
+   },
+   "question": "How can you use 'charity' today to cover a fault you've noticed in a friend or family member?",
+   "tags": []
+  },
+  {
+   "key": "04-28",
+   "ref": "LAM.3.25",
+   "saint": {
+    "text": "Love is the life of the soul, as the soul is the life of the body.",
+    "who": "St. Louis de Montfort",
+    "work": "The Love of Eternal Wisdom",
+    "verified": false
+   },
+   "question": "Is your 'hope' in the Lord, or is it attached to a specific outcome that you have decided is best?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "04-29",
+   "ref": "1CO.3.19",
+   "saint": {
+    "text": "Proclaim the truth and do not be silent through fear.",
+    "who": "St. Catherine of Siena",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "What 'truth' are you currently keeping silent about because you are worried the world will think you are foolish?",
+   "tags": []
+  },
+  {
+   "key": "04-30",
+   "ref": "JAS.1.17",
+   "saint": {
+    "text": "He who possesses God has everything; he who lacks God has nothing.",
+    "who": "St. Pius V",
+    "work": "Papal Exhortations",
+    "verified": false
+   },
+   "question": "As April ends, what 'perfect gift' from the 'Father of lights' has had the biggest impact on your heart this month?",
+   "tags": []
+  },
+  {
+   "key": "05-01",
+   "ref": "COL.3.23",
+   "saint": {
+    "text": "If you want to be close to Jesus, stay close to Mary.",
+    "who": "St. Joseph the Worker (via St. Padre Pio)",
+    "work": "Spiritual Counsels",
+    "verified": false
+   },
+   "question": "In your daily work, do you seek the approval of your boss/peers more than the approval of the Lord?",
+   "tags": []
+  },
+  {
+   "key": "05-02",
+   "ref": "PRO.12.23",
+   "saint": {
+    "text": "Even if the world were to crumble, I would not fear, for God is with me.",
+    "who": "St. Athanasius",
+    "work": "Against the Heathen",
+    "verified": false
+   },
+   "question": "Does your 'inner seat' feel chaotic today, or are you allowing God's wisdom to take its place there?",
+   "tags": []
+  },
+  {
+   "key": "05-03",
+   "ref": "GAL.6.14",
+   "saint": {
+    "text": "He who climbs never stops going from beginning to beginning, through beginnings that have no end.",
+    "who": "St. Philip the Apostle",
+    "work": "Apostolic Sayings",
+    "verified": false
+   },
+   "question": "What 'glory' of your own are you currently protecting that prevents you from embracing the Cross?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "05-04",
+   "ref": "PSA.94.3",
+   "saint": {
+    "text": "The heart is small, yet it desires great things. It is barely large enough for a kite's meal, and yet the whole world is not sufficient for it.",
+    "who": "St. Peregrine Laziosi",
+    "work": "Spiritual Maxims",
+    "verified": false
+   },
+   "question": "Are you trying to satisfy your heart with the 'small things' of the world instead of the 'great God'?",
+   "tags": []
+  },
+  {
+   "key": "05-05",
+   "ref": "PSA.36.34",
+   "saint": {
+    "text": "He who prays most receives most.",
+    "who": "St. Hilary of Arles",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "Is your prayer life currently a 'last resort' or the primary way you wait for God's direction?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "05-06",
+   "ref": "PSA.118.105",
+   "saint": {
+    "text": "I am not my own; I have given myself to Jesus. He must be my only love.",
+    "who": "St. Dominic Savio",
+    "work": "Life of Dominic Savio by John Bosco",
+    "verified": false
+   },
+   "question": "What part of your 'path' feels dark right now, and have you brought it to the light of the Gospel?",
+   "tags": []
+  },
+  {
+   "key": "05-07",
+   "ref": "ISA.58.11",
+   "saint": {
+    "text": "To serve God is to reign; to serve Him is true liberty.",
+    "who": "St. Rose Venerini",
+    "work": "Rules of the Pious Teachers",
+    "verified": false
+   },
+   "question": "Do you view 'service to God' as a burden that takes away your freedom, or as the source of your true liberty?",
+   "tags": []
+  },
+  {
+   "key": "05-08",
+   "ref": "JHN.15.26",
+   "saint": {
+    "text": "The Holy Spirit is the soul of the soul.",
+    "who": "St. Peter Canisius",
+    "work": "Catechism",
+    "verified": false
+   },
+   "question": "Have you invited the Holy Spirit to 'give testimony' through your words and actions today?",
+   "tags": []
+  },
+  {
+   "key": "05-09",
+   "ref": "JHN.16.33",
+   "saint": {
+    "text": "The cross of Christ is the key to the whole Bible.",
+    "who": "St. Pachomius",
+    "work": "Ascetic Rules",
+    "verified": false
+   },
+   "question": "What specific 'distress' are you facing that needs to be handed over to the One who overcame the world?",
+   "tags": []
+  },
+  {
+   "key": "05-10",
+   "ref": "PSA.10.8",
+   "saint": {
+    "text": "Charity is the measure by which our Lord reveals His presence to our souls.",
+    "who": "St. Damien of Molokai",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "How can you show a 'just' and 'charitable' spirit to someone you find difficult to work with today?",
+   "tags": []
+  },
+  {
+   "key": "05-11",
+   "ref": "JHN.10.27",
+   "saint": {
+    "text": "God asks little, but He gives much.",
+    "who": "St. Ignatius of Laconi",
+    "work": "Sayings",
+    "verified": false
+   },
+   "question": "When God asks for a 'little' of your time today, are you generous enough to give it?",
+   "tags": []
+  },
+  {
+   "key": "05-12",
+   "ref": "PSA.132.1",
+   "saint": {
+    "text": "Let us always be at peace with one another.",
+    "who": "St. Pancras",
+    "work": "Martyrology",
+    "verified": false
+   },
+   "question": "What minor 'disunity' in your life are you holding onto that is preventing you from having a pleasant spirit?",
+   "tags": []
+  },
+  {
+   "key": "05-13",
+   "ref": "REV.12.1",
+   "saint": {
+    "text": "Say the Rosary every day to obtain peace for the world.",
+    "who": "Our Lady of Fatima",
+    "work": "1917 Apparition Message",
+    "verified": false
+   },
+   "question": "How can you simplify your day to make room for a deeper devotion to the Mother of God?",
+   "tags": []
+  },
+  {
+   "key": "05-14",
+   "ref": "JHN.15.16",
+   "saint": {
+    "text": "We should be empty of everything that is not God.",
+    "who": "St. Matthias the Apostle",
+    "work": "Clementine Recognitions",
+    "verified": false
+   },
+   "question": "What 'fruit' do you think God is specifically choosing you to produce in your current environment?",
+   "tags": []
+  },
+  {
+   "key": "05-15",
+   "ref": "PRO.14.27",
+   "saint": {
+    "text": "Working for God is not a burden but a privilege.",
+    "who": "St. Isidore the Farmer",
+    "work": "Oral Tradition",
+    "verified": false
+   },
+   "question": "Do you treat your daily chores as a 'fountain of life' or as a miserable necessity?",
+   "tags": []
+  },
+  {
+   "key": "05-16",
+   "ref": "PSA.32.21",
+   "saint": {
+    "text": "The most powerful weapon to conquer the devil is humility.",
+    "who": "St. Simon Stock",
+    "work": "Tradition of the Scapular",
+    "verified": false
+   },
+   "question": "In what area of your life is 'trust in His name' currently being replaced by self-reliance?",
+   "tags": []
+  },
+  {
+   "key": "05-17",
+   "ref": "MAT.7.7",
+   "saint": {
+    "text": "The Eucharist is the heart of the Church.",
+    "who": "St. Paschal Baylon",
+    "work": "Spiritual Maxims",
+    "verified": false
+   },
+   "question": "Have you stopped 'seeking' because you didn't like the answer you received the last time you 'asked'?",
+   "tags": []
+  },
+  {
+   "key": "05-18",
+   "ref": "1TH.3.12",
+   "saint": {
+    "text": "The only way to win a soul is through love.",
+    "who": "St. John I",
+    "work": "Papal Epistles",
+    "verified": false
+   },
+   "question": "Is your charity 'abounding' or is it measured out only for those you feel deserve it?",
+   "tags": []
+  },
+  {
+   "key": "05-19",
+   "ref": "PSA.50.12",
+   "saint": {
+    "text": "A soul that loves God is always happy.",
+    "who": "St. Celestine V",
+    "work": "Counsels",
+    "verified": false
+   },
+   "question": "What 'old spirit' (anger, cynicism, or laziness) needs to be renewed by God today?",
+   "tags": []
+  },
+  {
+   "key": "05-20",
+   "ref": "PRO.4.18",
+   "saint": {
+    "text": "The Name of Jesus is the best medicine for the soul.",
+    "who": "St. Bernardine of Siena",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "How often do you invoke the Name of Jesus as a source of strength during your workday?",
+   "tags": []
+  },
+  {
+   "key": "05-21",
+   "ref": "PHP.4.13",
+   "saint": {
+    "text": "We should always remember that God is the Master of our hearts.",
+    "who": "St. Christopher Magallanes",
+    "work": "Last Words",
+    "verified": false
+   },
+   "question": "What is the 'one thing' you think you *cannot* do, that God is asking you to attempt with His strength?",
+   "tags": []
+  },
+  {
+   "key": "05-22",
+   "ref": "PSA.62.4",
+   "saint": {
+    "text": "There is nothing impossible for God.",
+    "who": "St. Rita of Cascia",
+    "work": "Spiritual Sayings",
+    "verified": false
+   },
+   "question": "Are you praising God for His 'mercy' or complaining because your 'life' isn't going as planned?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "05-23",
+   "ref": "1JN.4.19",
+   "saint": {
+    "text": "Love is the beauty of the soul.",
+    "who": "St. John Baptist de Rossi",
+    "work": "Ascetic Notes",
+    "verified": false
+   },
+   "question": "Do you wait to feel loved before you love others, or do you love because you know God loved you first?",
+   "tags": []
+  },
+  {
+   "key": "05-24",
+   "ref": "ROM.14.19",
+   "saint": {
+    "text": "Mary is the gate through which we find the Lord.",
+    "who": "St. Vincent of Lerins",
+    "work": "Commonitorium",
+    "verified": false
+   },
+   "question": "What 'non-peaceful' habit are you following that you should abandon today?",
+   "tags": []
+  },
+  {
+   "key": "05-25",
+   "ref": "1CO.3.19",
+   "saint": {
+    "text": "I would rather die than commit a single mortal sin.",
+    "who": "St. Gregory VII",
+    "work": "Papal Decrees",
+    "verified": false
+   },
+   "question": "How much 'worldly wisdom' are you using to justify small sins in your life?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "05-26",
+   "ref": "PSA.99.2",
+   "saint": {
+    "text": "Cheerful people are much easier to lead to Christian perfection.",
+    "who": "St. Philip Neri",
+    "work": "Maxims",
+    "verified": false
+   },
+   "question": "Is your 'service' to your family or parish done with 'gladness' or with visible resentment?",
+   "tags": []
+  },
+  {
+   "key": "05-27",
+   "ref": "PSA.33.16",
+   "saint": {
+    "text": "He who loves God, loves the Truth.",
+    "who": "St. Augustine of Canterbury",
+    "work": "Letters to Pope Gregory",
+    "verified": false
+   },
+   "question": "Do you pray with the awareness that the Lord is actually 'listening' to you right now?",
+   "tags": []
+  },
+  {
+   "key": "05-28",
+   "ref": "GAL.5.22",
+   "saint": {
+    "text": "The soul is a garden that must be tended with care.",
+    "who": "St. Germanus",
+    "work": "Homilies",
+    "verified": false
+   },
+   "question": "If you looked at your 'soul's garden' today, would you see the fruits of the Spirit or the weeds of the world?",
+   "tags": []
+  },
+  {
+   "key": "05-29",
+   "ref": "PSA.83.12",
+   "saint": {
+    "text": "Do not be afraid of the future, for God is already there.",
+    "who": "St. Paul VI",
+    "work": "Address to Youth",
+    "verified": false
+   },
+   "question": "What future event are you dreading that you haven't yet invited God to be 'shield' for?",
+   "tags": []
+  },
+  {
+   "key": "05-30",
+   "ref": "PSA.36.4",
+   "saint": {
+    "text": "True riches are not found in gold, but in the love of Christ.",
+    "who": "St. Joan of Arc",
+    "work": "Trial Records",
+    "verified": false
+   },
+   "question": "Is the primary 'request of your heart' related to your comfort or your holiness?",
+   "tags": []
+  },
+  {
+   "key": "05-31",
+   "ref": "LUK.1.46",
+   "saint": {
+    "text": "The Mother of God is the shortcut to Jesus.",
+    "who": "St. Louis de Montfort",
+    "work": "True Devotion to Mary",
+    "verified": false
+   },
+   "question": "How has your soul 'magnified' the Lord this month, or has it been magnifying your own problems instead?",
+   "tags": []
+  },
+  {
+   "key": "06-01",
+   "ref": "MAT.11.29",
+   "saint": {
+    "text": "The heart of Jesus is the throne of mercy, where the miserable are most welcome.",
+    "who": "St. Justin Martyr",
+    "work": "First Apology (Assoc.)",
+    "verified": false
+   },
+   "question": "Are you trying to find 'rest' in leisure and entertainment, or in the meekness of Christ's Heart?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "06-02",
+   "ref": "JHN.6.57",
+   "saint": {
+    "text": "In the Eucharist, we become what we receive.",
+    "who": "St. Pothinus",
+    "work": "Martyrological Accounts",
+    "verified": false
+   },
+   "question": "How does the reality of Christ 'abiding in you' through the Eucharist change the way you treat your body?",
+   "tags": []
+  },
+  {
+   "key": "06-03",
+   "ref": "PSA.83.12",
+   "saint": {
+    "text": "The cross is the protective shield of the Christian.",
+    "who": "St. Charles Lwanga",
+    "work": "Final Testimony",
+    "verified": false
+   },
+   "question": "What 'shield' are you currently holding up against God's grace because you are afraid of change?",
+   "tags": []
+  },
+  {
+   "key": "06-04",
+   "ref": "1PE.5.6",
+   "saint": {
+    "text": "Humility is the only thing that no devil can imitate.",
+    "who": "St. Francis Caracciolo",
+    "work": "Spiritual Maxims",
+    "verified": false
+   },
+   "question": "In what specific conversation today can you choose to be 'humbled' rather than seeking to be right?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "06-05",
+   "ref": "2TH.3.3",
+   "saint": {
+    "text": "I am a servant of the Church and a child of the Gospel.",
+    "who": "St. Boniface",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "Are you relying on your own willpower to avoid evil, or are you asking the 'faithful Lord' for strength?",
+   "tags": []
+  },
+  {
+   "key": "06-06",
+   "ref": "PSA.99.5",
+   "saint": {
+    "text": "The heart is the place where the soul finds its true home.",
+    "who": "St. Norbert",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "Do you live as if God’s mercy is a limited resource, or an 'enduring' ocean?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "06-07",
+   "ref": "PRO.23.26",
+   "saint": {
+    "text": "To love God with all one's heart is better than to know all the secrets of the world.",
+    "who": "St. Robert Southwell",
+    "work": "Poems and Meditations",
+    "verified": true
+   },
+   "question": "Is your heart 'divided' between God and a specific worldly ambition right now?",
+   "tags": []
+  },
+  {
+   "key": "06-08",
+   "ref": "MAT.5.8",
+   "saint": {
+    "text": "We should always strive to keep our interior house clean for the Divine Guest.",
+    "who": "St. William of York",
+    "work": "Diocesan Statutes",
+    "verified": false
+   },
+   "question": "What 'clutter' of the heart—grudges, lust, or greed—is preventing you from 'seeing' God in your life?",
+   "tags": []
+  },
+  {
+   "key": "06-09",
+   "ref": "PRO.4.18",
+   "saint": {
+    "text": "Prayer is the best weapon we have; it is the key that opens the heart of God.",
+    "who": "St. Ephrem the Syrian",
+    "work": "Hymns on Faith",
+    "verified": false
+   },
+   "question": "Are you 'going forwards' in your prayer life, or have you been saying the same words without heart for years?",
+   "tags": []
+  },
+  {
+   "key": "06-10",
+   "ref": "COL.4.6",
+   "saint": {
+    "text": "One act of charity is worth more than the most sublime contemplation.",
+    "who": "St. Mary Magdalen de' Pazzi",
+    "work": "Spiritual Works",
+    "verified": false
+   },
+   "question": "Is your speech today 'seasoned with salt' (wisdom and grace) or with the 'vinegar' of sarcasm?",
+   "tags": []
+  },
+  {
+   "key": "06-11",
+   "ref": "ACT.11.24",
+   "saint": {
+    "text": "The apostle is one who is sent to light a fire in the world.",
+    "who": "St. Barnabas",
+    "work": "Apostolic Tradition",
+    "verified": false
+   },
+   "question": "If someone described you today, would they say you were 'full of the Holy Ghost' or full of worldly stress?",
+   "tags": []
+  },
+  {
+   "key": "06-12",
+   "ref": "PSA.22.1",
+   "saint": {
+    "text": "If we only knew how much God loves us, we would die of joy.",
+    "who": "St. John Vianney",
+    "work": "Catechetical Instructions",
+    "verified": false
+   },
+   "question": "In what area of your life are you acting like a 'lost sheep' instead of trusting the Shepherd?",
+   "tags": [
+    "christmas"
+   ]
+  },
+  {
+   "key": "06-13",
+   "ref": "ISA.35.6",
+   "saint": {
+    "text": "The spirit of humility is sweeter than honey, and those who feed on it produce sweet fruit.",
+    "who": "St. Anthony of Padua",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "How can you use your 'tongue' today to set someone else free from discouragement?",
+   "tags": []
+  },
+  {
+   "key": "06-14",
+   "ref": "HEB.4.12",
+   "saint": {
+    "text": "There is no limit to God's power; we should never despair.",
+    "who": "St. Methodius",
+    "work": "Spiritual Treatises",
+    "verified": false
+   },
+   "question": "Which 'living' word of Scripture is God using to challenge your current lifestyle?",
+   "tags": []
+  },
+  {
+   "key": "06-15",
+   "ref": "ROM.14.19",
+   "saint": {
+    "text": "God is the heart's only true rest.",
+    "who": "St. Germaine Cousin",
+    "work": "Oral Tradition",
+    "verified": false
+   },
+   "question": "Are you 'following peace' in your home, or are you the one stirring up the dust of conflict?",
+   "tags": []
+  },
+  {
+   "key": "06-16",
+   "ref": "1CO.13.13",
+   "saint": {
+    "text": "Hope is the anchor of the soul in the midst of the storm.",
+    "who": "St. John Francis Regis",
+    "work": "Missionary Notes",
+    "verified": true
+   },
+   "question": "If you lost everything today except 'faith, hope, and charity,' would you still be rich?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "06-17",
+   "ref": "PSA.50.12",
+   "saint": {
+    "text": "Let us love God, for He is our Father.",
+    "who": "St. Emily de Vialar",
+    "work": "Letters to Sisters",
+    "verified": false
+   },
+   "question": "What 'spiritual dirt' have you been ignoring that needs to be brought to the light of a clean heart?",
+   "tags": []
+  },
+  {
+   "key": "06-18",
+   "ref": "NUM.14.18",
+   "saint": {
+    "text": "One should not be afraid of the cross, for it is the way to the crown.",
+    "who": "St. Elizabeth of Portugal",
+    "work": "Counsels to the Court",
+    "verified": false
+   },
+   "question": "How can you reflect God’s 'patience' today with a person who constantly tests yours?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "06-19",
+   "ref": "MAT.11.30",
+   "saint": {
+    "text": "The soul's strength is found in its union with God.",
+    "who": "St. Romuald",
+    "work": "Brief Rule",
+    "verified": false
+   },
+   "question": "If your 'burden' feels heavy today, are you sure it is the one Christ gave you, or is it one you made yourself?",
+   "tags": []
+  },
+  {
+   "key": "06-20",
+   "ref": "JHN.14.27",
+   "saint": {
+    "text": "Mary's heart is the garden of the Holy Spirit.",
+    "who": "St. John Eudes",
+    "work": "The Sacred Heart of Jesus",
+    "verified": false
+   },
+   "question": "Is the peace you feel right now dependent on your circumstances or on the presence of Christ?",
+   "tags": []
+  },
+  {
+   "key": "06-21",
+   "ref": "PSA.36.4",
+   "saint": {
+    "text": "It is better to be a child of God than king of the whole world.",
+    "who": "St. Aloysius Gonzaga",
+    "work": "Letters to his Mother",
+    "verified": false
+   },
+   "question": "Are you 'delighting' in God’s presence, or just treating Him as a cosmic vending machine?",
+   "tags": []
+  },
+  {
+   "key": "06-22",
+   "ref": "COL.3.14",
+   "saint": {
+    "text": "I die the King's good servant, but God's first.",
+    "who": "St. Thomas More",
+    "work": "Final Words on the Scaffold",
+    "verified": false
+   },
+   "question": "In your 'loyalties' today, who comes first: the culture, your career, or the Lord?",
+   "tags": []
+  },
+  {
+   "key": "06-23",
+   "ref": "PSA.137.6",
+   "saint": {
+    "text": "A soul that loves is a soul that prays.",
+    "who": "St. Joseph Cafasso",
+    "work": "The Priest, Man of God",
+    "verified": false
+   },
+   "question": "Are you seeking the 'high things' of the world, or the 'lowly things' where God is found?",
+   "tags": []
+  },
+  {
+   "key": "06-24",
+   "ref": "JHN.3.30",
+   "saint": {
+    "text": "Prepare the way of the Lord; make straight His paths in your soul.",
+    "who": "St. John the Baptist",
+    "work": "Gospel Accounts",
+    "verified": true
+   },
+   "question": "What 'ego' or 'pride' needs to 'decrease' today so that Christ can increase in your life?",
+   "tags": []
+  },
+  {
+   "key": "06-25",
+   "ref": "PRO.3.5",
+   "saint": {
+    "text": "God's love is the only thing that can satisfy the human heart.",
+    "who": "St. William of Vercelli",
+    "work": "Monastic Rules",
+    "verified": false
+   },
+   "question": "On a scale of 1 to 10, how much do you 'trust' God with your financial or family worries today?",
+   "tags": []
+  },
+  {
+   "key": "06-26",
+   "ref": "PSA.10.8",
+   "saint": {
+    "text": "To be a saint is not a luxury for the few, but a duty for all.",
+    "who": "St. Josemaría Escrivá",
+    "work": "The Way",
+    "verified": false
+   },
+   "question": "Are you striving for 'sanctity' in your ordinary work, or just trying to get through the day?",
+   "tags": []
+  },
+  {
+   "key": "06-27",
+   "ref": "JHN.16.33",
+   "saint": {
+    "text": "The Holy Spirit is the guest of the soul.",
+    "who": "St. Cyril of Alexandria",
+    "work": "Commentary on John",
+    "verified": false
+   },
+   "question": "How would you behave differently today if you treated your soul as a 'hotel' for the Holy Spirit?",
+   "tags": []
+  },
+  {
+   "key": "06-28",
+   "ref": "1PE.5.2",
+   "saint": {
+    "text": "The glory of God is man fully alive.",
+    "who": "St. Irenaeus",
+    "work": "Against Heresies",
+    "verified": false
+   },
+   "question": "Are you 'fully alive' in your faith, or are you just going through the motions?",
+   "tags": [
+    "easter"
+   ]
+  },
+  {
+   "key": "06-29",
+   "ref": "MAT.16.18",
+   "saint": {
+    "text": "I have fought the good fight, I have finished the course, I have kept the faith.",
+    "who": "St. Paul (Apostle)",
+    "work": "2 Timothy 4:7",
+    "verified": true
+   },
+   "question": "Like Peter and Paul, are you willing to be 'built' into something you didn't plan for yourself?",
+   "tags": []
+  },
+  {
+   "key": "06-30",
+   "ref": "PSA.33.16",
+   "saint": {
+    "text": "God's providence is the ruler of the world.",
+    "who": "St. First Martyrs of the Church of Rome",
+    "work": "Clement of Rome (Letters)",
+    "verified": false
+   },
+   "question": "As June ends, have you allowed the 'Sacred Heart' of Jesus to influence your choices this month?",
+   "tags": []
+  },
+  {
+   "key": "07-01",
+   "ref": "ISA.33.22",
+   "saint": {
+    "text": "Charity is the measure by which our Lord reveals His presence to our souls.",
+    "who": "St. Junipero Serra",
+    "work": "Letters and Journals",
+    "verified": false
+   },
+   "question": "If the Lord is your King, what specific 'law' of His are you finding most difficult to follow this week?",
+   "tags": []
+  },
+  {
+   "key": "07-02",
+   "ref": "PSA.32.4",
+   "saint": {
+    "text": "The soul is more where it loves than where it lives.",
+    "who": "St. Bernardino Realino",
+    "work": "Spiritual Counsels",
+    "verified": false
+   },
+   "question": "Does your 'soul's home' reflect the faithfulness of God, or the inconsistency of the world?",
+   "tags": []
+  },
+  {
+   "key": "07-03",
+   "ref": "JHN.20.29",
+   "saint": {
+    "text": "Faith is to believe what you do not see; the reward of this faith is to see what you believe.",
+    "who": "St. Thomas the Apostle",
+    "work": "Apostolic Tradition",
+    "verified": false
+   },
+   "question": "In what area of your life is God asking you to believe 'without seeing' the final outcome?",
+   "tags": []
+  },
+  {
+   "key": "07-04",
+   "ref": "2CO.3.17",
+   "saint": {
+    "text": "True freedom consists in the power to do good.",
+    "who": "St. Elizabeth of Portugal",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "Are you using your 'liberty' to serve your own desires or to serve God and neighbor?",
+   "tags": []
+  },
+  {
+   "key": "07-05",
+   "ref": "PSA.15.5",
+   "saint": {
+    "text": "A man is what he is in the sight of God, and nothing more.",
+    "who": "St. Anthony Mary Zaccaria",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "If you were left with nothing but God as your 'portion,' would you feel poor or rich?",
+   "tags": []
+  },
+  {
+   "key": "07-06",
+   "ref": "MAT.5.9",
+   "saint": {
+    "text": "I would rather suffer a thousand deaths than commit one sin against purity.",
+    "who": "St. Maria Goretti",
+    "work": "Final Words",
+    "verified": false
+   },
+   "question": "Have you been a 'peacemaker' in your family recently, or a 'peace-breaker'?",
+   "tags": []
+  },
+  {
+   "key": "07-07",
+   "ref": "PSA.33.19",
+   "saint": {
+    "text": "Humility is the only thing that no devil can imitate.",
+    "who": "St. Pantaleon",
+    "work": "Acts of the Martyrs",
+    "verified": false
+   },
+   "question": "When you fail, do you run *to* God with a contrite heart or *away* from Him in shame?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "07-08",
+   "ref": "JHN.8.12",
+   "saint": {
+    "text": "Without the Way, there is no going; without the Truth, there is no knowing.",
+    "who": "St. Kilian",
+    "work": "Missionary Letters",
+    "verified": false
+   },
+   "question": "Is there a specific decision you are facing where you need the 'light of life' to show you the way?",
+   "tags": []
+  },
+  {
+   "key": "07-09",
+   "ref": "PSA.26.14",
+   "saint": {
+    "text": "God does not look at the greatness of our works, but at the love with which they are performed.",
+    "who": "St. Veronica Giuliani",
+    "work": "Diary",
+    "verified": false
+   },
+   "question": "Are you 'acting manfully' (with courage) in your faith, or are you shrinking back from sharing the truth?",
+   "tags": []
+  },
+  {
+   "key": "07-10",
+   "ref": "PSA.94.3",
+   "saint": {
+    "text": "To serve God is to reign.",
+    "who": "St. Knud",
+    "work": "Royal Decrees",
+    "verified": false
+   },
+   "question": "What 'false god' (money, comfort, or popularity) is currently competing for the throne of your heart?",
+   "tags": []
+  },
+  {
+   "key": "07-11",
+   "ref": "MAT.16.25",
+   "saint": {
+    "text": "Prayer is the best weapon we possess; it is the key that opens the heart of God.",
+    "who": "St. Benedict",
+    "work": "Rule of St. Benedict",
+    "verified": false
+   },
+   "question": "In what way can you 'lose' a bit of your comfort today to find more of Christ?",
+   "tags": []
+  },
+  {
+   "key": "07-12",
+   "ref": "PSA.50.12",
+   "saint": {
+    "text": "The soul is a garden that must be tended with care.",
+    "who": "St. John Gualbert",
+    "work": "Monastic Counsels",
+    "verified": false
+   },
+   "question": "If your 'spirit' were a room, would it be a place where the Holy Spirit would feel welcome today?",
+   "tags": []
+  },
+  {
+   "key": "07-13",
+   "ref": "PSA.118.105",
+   "saint": {
+    "text": "God is the heart's only true rest.",
+    "who": "St. Henry",
+    "work": "Imperial Letters",
+    "verified": false
+   },
+   "question": "Do you consult the 'lamp' of Scripture before making your plans, or only after they go wrong?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "07-14",
+   "ref": "JAS.1.17",
+   "saint": {
+    "text": "The secret of happiness is to live moment by moment.",
+    "who": "St. Kateri Tekakwitha",
+    "work": "Oral Tradition",
+    "verified": false
+   },
+   "question": "Are you looking 'above' for your satisfaction, or 'around' at what others have?",
+   "tags": []
+  },
+  {
+   "key": "07-15",
+   "ref": "PHP.4.13",
+   "saint": {
+    "text": "Faith is the beginning of our union with God.",
+    "who": "St. Bonaventure",
+    "work": "The Journey of the Mind into God",
+    "verified": false
+   },
+   "question": "What task are you facing today that feels impossible without His strength?",
+   "tags": []
+  },
+  {
+   "key": "07-16",
+   "ref": "REV.12.1",
+   "saint": {
+    "text": "Wear the Scapular as a sign of your consecration to Mary.",
+    "who": "Our Lady of Mount Carmel (Simon Stock)",
+    "work": "Scapular Tradition",
+    "verified": false
+   },
+   "question": "How can you better 'clothe' your soul in the virtues of the Blessed Virgin today?",
+   "tags": []
+  },
+  {
+   "key": "07-17",
+   "ref": "ROM.14.19",
+   "saint": {
+    "text": "True love is not found in words, but in deeds.",
+    "who": "St. Alexius",
+    "work": "Life of the Saints",
+    "verified": false
+   },
+   "question": "Is the path you are currently on leading you toward 'peace' or toward constant anxiety?",
+   "tags": []
+  },
+  {
+   "key": "07-18",
+   "ref": "PSA.36.4",
+   "saint": {
+    "text": "Silence is the gift of God, to let us speak more deeply with Him.",
+    "who": "St. Camillus de Lellis",
+    "work": "Maxims",
+    "verified": false
+   },
+   "question": "Do you 'delight' in God's presence, or do you only 'endure' it?",
+   "tags": []
+  },
+  {
+   "key": "07-19",
+   "ref": "PSA.33.16",
+   "saint": {
+    "text": "He who loves God, loves the Truth.",
+    "who": "St. Vincent de Paul",
+    "work": "Conferences",
+    "verified": false
+   },
+   "question": "Knowing God's ears are open to you, what is the one thing you are most afraid to ask Him for?",
+   "tags": []
+  },
+  {
+   "key": "07-20",
+   "ref": "NUM.14.18",
+   "saint": {
+    "text": "A soul that loves God is always happy.",
+    "who": "St. Apollinaris",
+    "work": "Acts of the Martyrs",
+    "verified": false
+   },
+   "question": "Are you showing the same 'patience' to others that God has shown to you?",
+   "tags": []
+  },
+  {
+   "key": "07-21",
+   "ref": "GAL.5.22",
+   "saint": {
+    "text": "One act of charity is worth more than the most sublime contemplation.",
+    "who": "St. Lawrence of Brindisi",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "Which 'fruit of the Spirit' is most lacking in your life at this moment?",
+   "tags": []
+  },
+  {
+   "key": "07-22",
+   "ref": "JHN.20.18",
+   "saint": {
+    "text": "I will go anywhere and do anything in order to communicate the love of Jesus.",
+    "who": "St. Mary Magdalene",
+    "work": "Apostolic tradition",
+    "verified": false
+   },
+   "question": "If you had to testify today, where would you say you 'have seen the Lord' in your life?",
+   "tags": []
+  },
+  {
+   "key": "07-23",
+   "ref": "1CO.3.19",
+   "saint": {
+    "text": "Do not be afraid of the future, for God is already there.",
+    "who": "St. Bridget of Sweden",
+    "work": "Revelations",
+    "verified": false
+   },
+   "question": "Are you basing your decisions on 'worldly wisdom' or on the 'foolishness' of the Gospel?",
+   "tags": []
+  },
+  {
+   "key": "07-24",
+   "ref": "JHN.11.25",
+   "saint": {
+    "text": "God's love is the only thing that can satisfy the human heart.",
+    "who": "St. Sharbel Makhlouf",
+    "work": "Spiritual Maxims",
+    "verified": false
+   },
+   "question": "What part of your heart feels 'dead' and needs the Resurrection to touch it?",
+   "tags": [
+    "easter"
+   ]
+  },
+  {
+   "key": "07-25",
+   "ref": "MRK.10.38",
+   "saint": {
+    "text": "To suffer for Christ is the greatest glory.",
+    "who": "St. James the Greater",
+    "work": "Apostolic tradition",
+    "verified": false
+   },
+   "question": "Are you willing to 'drink the chalice' of minor daily sufferings for the sake of the Kingdom?",
+   "tags": []
+  },
+  {
+   "key": "07-26",
+   "ref": "PSA.127.6",
+   "saint": {
+    "text": "Grandparents are a treasure in the family.",
+    "who": "St. Joachim and Anne",
+    "work": "Tradition of the Church",
+    "verified": false
+   },
+   "question": "How are you honoring the legacy of faith passed down to you by your elders?",
+   "tags": [
+    "christmas"
+   ]
+  },
+  {
+   "key": "07-27",
+   "ref": "PRO.3.5",
+   "saint": {
+    "text": "Patience is the companion of wisdom.",
+    "who": "St. Titus Brandsma",
+    "work": "Prison Writings",
+    "verified": false
+   },
+   "question": "Where is your 'own prudence' leading you astray because you aren't trusting the Lord?",
+   "tags": []
+  },
+  {
+   "key": "07-28",
+   "ref": "MAT.11.30",
+   "saint": {
+    "text": "True riches are found in the love of God.",
+    "who": "St. Samson",
+    "work": "Monastic Lives",
+    "verified": false
+   },
+   "question": "If your 'yoke' feels heavy today, what worldly weight are you trying to carry alongside it?",
+   "tags": []
+  },
+  {
+   "key": "07-29",
+   "ref": "LUK.10.41",
+   "saint": {
+    "text": "Hospitality is a virtue that brings us closer to Christ.",
+    "who": "St. Martha",
+    "work": "Gospel Accounts",
+    "verified": false
+   },
+   "question": "Are you 'troubled about many things' today? Can you sit at the feet of Jesus for just five minutes?",
+   "tags": []
+  },
+  {
+   "key": "07-30",
+   "ref": "PSA.22.1",
+   "saint": {
+    "text": "Let us always be ready to serve the Lord.",
+    "who": "St. Peter Chrysologus",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "In what specific way are you acting as if you 'want' (lack) something that the Shepherd hasn't provided?",
+   "tags": [
+    "christmas"
+   ]
+  },
+  {
+   "key": "07-31",
+   "ref": "1CO.10.31",
+   "saint": {
+    "text": "He who carries God in his heart carries heaven with him.",
+    "who": "St. Ignatius of Loyola",
+    "work": "Spiritual Exercises",
+    "verified": false
+   },
+   "question": "As July ends, can you say that your actions this month were done 'for the greater glory of God'?",
+   "tags": []
+  },
+  {
+   "key": "08-01",
+   "ref": "PSA.36.30",
+   "saint": {
+    "text": "He who loves God with his whole heart does not fear death.",
+    "who": "St. Alphonsus Liguori",
+    "work": "The Way of Salvation",
+    "verified": false
+   },
+   "question": "Is your 'meditation' today focused on the wisdom of God or the worries of the world?",
+   "tags": []
+  },
+  {
+   "key": "08-02",
+   "ref": "PSA.137.6",
+   "saint": {
+    "text": "All for the greater glory of God and the salvation of souls.",
+    "who": "St. Peter Julian Eymard",
+    "work": "The Real Presence",
+    "verified": true
+   },
+   "question": "Are you 'high' in your own estimation today, or are you looking at yourself through the eyes of the 'lowly' Christ?",
+   "tags": []
+  },
+  {
+   "key": "08-03",
+   "ref": "PSA.10.8",
+   "saint": {
+    "text": "Patience is the only way to reach the goal of perfection.",
+    "who": "St. Walburga",
+    "work": "Letters to the Monastery",
+    "verified": false
+   },
+   "question": "How can you show 'justice' to someone you have been unfairly judging in your mind?",
+   "tags": []
+  },
+  {
+   "key": "08-04",
+   "ref": "REV.3.20",
+   "saint": {
+    "text": "The soul is like a transparent crystal, and the light of God passes through it.",
+    "who": "St. John Vianney",
+    "work": "Sermons on the Holy Spirit",
+    "verified": false
+   },
+   "question": "Is the 'crystal' of your soul currently clouded by a secret sin that prevents God's light from passing through?",
+   "tags": []
+  },
+  {
+   "key": "08-05",
+   "ref": "PRO.3.13",
+   "saint": {
+    "text": "Our Lady is the path that leads us to the heart of Jesus.",
+    "who": "St. Mary of the Snows (Tradition)",
+    "work": "Basilica Chronicles",
+    "verified": false
+   },
+   "question": "In your 'riches' today, do you have more 'prudence' or more material possessions?",
+   "tags": []
+  },
+  {
+   "key": "08-06",
+   "ref": "MAT.17.2",
+   "saint": {
+    "text": "To see God is the end of all our desires.",
+    "who": "St. Hormisdas",
+    "work": "Letters to the Clergy",
+    "verified": false
+   },
+   "question": "Like the disciples on Mount Tabor, are you willing to go through the 'cloud' of confusion to see the glory of Christ?",
+   "tags": []
+  },
+  {
+   "key": "08-07",
+   "ref": "JHN.7.18",
+   "saint": {
+    "text": "Hold your eyes on God and leave the doing to Him.",
+    "who": "St. Cajetan",
+    "work": "Letters to Elizabeth Porto",
+    "verified": false
+   },
+   "question": "Are you seeking 'your own glory' in your accomplishments today, or are you pointing others toward the Father?",
+   "tags": []
+  },
+  {
+   "key": "08-08",
+   "ref": "PRO.14.3",
+   "saint": {
+    "text": "A man who controls his tongue is a man who controls his soul.",
+    "who": "St. Dominic",
+    "work": "Nine Ways of Prayer",
+    "verified": false
+   },
+   "question": "Has your 'mouth' brought confusion into a situation today, or have your words been 'wise' and peaceful?",
+   "tags": []
+  },
+  {
+   "key": "08-09",
+   "ref": "MAT.16.26",
+   "saint": {
+    "text": "The world is not our home; we are only passing through.",
+    "who": "St. Teresa Benedicta of the Cross (Edith Stein)",
+    "work": "Essays on Woman",
+    "verified": false
+   },
+   "question": "If your 'soul' is the most precious thing you own, how much time did you spend 'polishing' it today compared to your physical appearance?",
+   "tags": []
+  },
+  {
+   "key": "08-10",
+   "ref": "JHN.12.25",
+   "saint": {
+    "text": "The fire that burns within me is stronger than the fire that burns without.",
+    "who": "St. Lawrence",
+    "work": "Acts of the Martyrs",
+    "verified": false
+   },
+   "question": "Are you 'losing your life' in the service of others, or are you clinging to it out of fear?",
+   "tags": []
+  },
+  {
+   "key": "08-11",
+   "ref": "PSA.36.34",
+   "saint": {
+    "text": "Love God, serve God; everything is in that.",
+    "who": "St. Clare of Assisi",
+    "work": "Testament",
+    "verified": false
+   },
+   "question": "In what specific area are you 'waiting for the Lord' with impatience rather than with faith?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "08-12",
+   "ref": "HEB.4.12",
+   "saint": {
+    "text": "True humility consists in being content with whatever God ordains for us.",
+    "who": "St. Jane Frances de Chantal",
+    "work": "Exhortations",
+    "verified": false
+   },
+   "question": "Is there a specific Scripture passage that has 'pierced' your heart recently? What was it calling you to change?",
+   "tags": []
+  },
+  {
+   "key": "08-13",
+   "ref": "PSA.88.15",
+   "saint": {
+    "text": "Peace is the fruit of a quiet conscience.",
+    "who": "St. Pontian",
+    "work": "Papal Letters",
+    "verified": false
+   },
+   "question": "Are you leading with 'mercy and truth' in your interactions today, or with 'judgment and anger'?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "08-14",
+   "ref": "JHN.15.13",
+   "saint": {
+    "text": "Let us love without measure, for love is its own reward.",
+    "who": "St. Maximilian Kolbe",
+    "work": "Letters to the Militia Immaculata",
+    "verified": false
+   },
+   "question": "Who is the 'friend' (or enemy) for whom you are being called to 'lay down your life' through a small sacrifice today?",
+   "tags": []
+  },
+  {
+   "key": "08-15",
+   "ref": "REV.12.1",
+   "saint": {
+    "text": "The Assumption of Mary is the pledge of our own resurrection.",
+    "who": "St. Tarsicius",
+    "work": "Eulogy for Martyrs",
+    "verified": false
+   },
+   "question": "Does the reality of Heaven (as seen in Mary’s Assumption) make your earthly troubles seem smaller today?",
+   "tags": []
+  },
+  {
+   "key": "08-16",
+   "ref": "ROM.14.19",
+   "saint": {
+    "text": "The King's highway to heaven is the cross.",
+    "who": "St. Stephen of Hungary",
+    "work": "Admonitions to his Son",
+    "verified": false
+   },
+   "question": "Is what you are currently doing 'edifying' to those around you, or is it tearing them down?",
+   "tags": []
+  },
+  {
+   "key": "08-17",
+   "ref": "JAS.1.17",
+   "saint": {
+    "text": "Happiness is only found in the heart of God.",
+    "who": "St. Hyacinth",
+    "work": "Sermons to the North",
+    "verified": false
+   },
+   "question": "What 'perfect gift' from today have you attributed to 'luck' rather than to the 'Father of lights'?",
+   "tags": []
+  },
+  {
+   "key": "08-18",
+   "ref": "PSA.33.16",
+   "saint": {
+    "text": "I found the Cross, and in the Cross, I found the Truth.",
+    "who": "St. Helen",
+    "work": "Legend of the True Cross",
+    "verified": false
+   },
+   "question": "Do you pray as if God's ears are truly 'unto' your prayers, or do you treat prayer as a monologue?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "08-19",
+   "ref": "1CO.3.19",
+   "saint": {
+    "text": "God is the only master of our lives.",
+    "who": "St. John Eudes",
+    "work": "The Admirable Heart of Mary",
+    "verified": false
+   },
+   "question": "What 'worldly wisdom' are you following that is actually 'foolishness' in the light of eternity?",
+   "tags": []
+  },
+  {
+   "key": "08-20",
+   "ref": "JAS.4.8",
+   "saint": {
+    "text": "The more we love God, the more we are able to see Him in all things.",
+    "who": "St. Bernard of Clairvaux",
+    "work": "On the Love of God",
+    "verified": false
+   },
+   "question": "Have you made any attempt to 'draw nigh' to God today, or have you been waiting for Him to do all the work?",
+   "tags": []
+  },
+  {
+   "key": "08-21",
+   "ref": "GAL.5.22",
+   "saint": {
+    "text": "The Eucharist is the soul's true bread.",
+    "who": "St. Pius X",
+    "work": "Sacra Tridentina",
+    "verified": false
+   },
+   "question": "Which of these fruits (charity, joy, peace, patience) did you 'starve' today by focusing on your own ego?",
+   "tags": []
+  },
+  {
+   "key": "08-22",
+   "ref": "LUK.1.38",
+   "saint": {
+    "text": "Mary is the Queen of Heaven and the Mother of Mercy.",
+    "who": "St. Philip Benizi",
+    "work": "Order of Servants of Mary",
+    "verified": false
+   },
+   "question": "If you said 'be it done to me' to everything that happens today, how would your stress level change?",
+   "tags": []
+  },
+  {
+   "key": "08-23",
+   "ref": "PSA.83.12",
+   "saint": {
+    "text": "Apart from the Cross, there is no other ladder by which we may get to heaven.",
+    "who": "St. Rose of Lima",
+    "work": "Spiritual Writings",
+    "verified": false
+   },
+   "question": "In what way is God being a 'shield' for you right now, perhaps by preventing something you think you want?",
+   "tags": []
+  },
+  {
+   "key": "08-24",
+   "ref": "JHN.1.47",
+   "saint": {
+    "text": "To follow Christ is to walk in the truth.",
+    "who": "St. Bartholomew the Apostle",
+    "work": "Apostolic Tradition",
+    "verified": false
+   },
+   "question": "Is there any 'guile' (deceit or hidden agendas) in your heart today, or are you acting with total honesty?",
+   "tags": []
+  },
+  {
+   "key": "08-25",
+   "ref": "1TH.3.12",
+   "saint": {
+    "text": "I would rather be a servant of the poor than the master of the world.",
+    "who": "St. Louis IX",
+    "work": "Spiritual Testament to his Son",
+    "verified": false
+   },
+   "question": "Does your 'charity' abound toward your family, or do you save your best behavior for strangers?",
+   "tags": []
+  },
+  {
+   "key": "08-26",
+   "ref": "NUM.14.18",
+   "saint": {
+    "text": "Faith is the light of the soul.",
+    "who": "St. Elizabeth Bichier des Ages",
+    "work": "Founding Rules",
+    "verified": false
+   },
+   "question": "Are you taking advantage of God's 'patience' as an excuse to keep sinning, or as a reason to repent?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "08-27",
+   "ref": "PSA.132.1",
+   "saint": {
+    "text": "He who prays much is saved; he who does not pray is lost.",
+    "who": "St. Monica",
+    "work": "Confessions of St. Augustine (Assoc.)",
+    "verified": false
+   },
+   "question": "Like St. Monica, are you willing to pray for someone’s conversion for years, even if you see no results today?",
+   "tags": []
+  },
+  {
+   "key": "08-28",
+   "ref": "PSA.62",
+   "saint": {
+    "text": "To fall in love with God is the greatest romance.",
+    "who": "St. Augustine",
+    "work": "Confessions",
+    "verified": false
+   },
+   "question": "Where is your 'restless heart' trying to find peace right now, other than in God?",
+   "tags": []
+  },
+  {
+   "key": "08-29",
+   "ref": "JHN.3.30",
+   "saint": {
+    "text": "I am a voice crying in the wilderness: Make straight the way of the Lord.",
+    "who": "St. John the Baptist",
+    "work": "Gospel Accounts",
+    "verified": true
+   },
+   "question": "What part of your reputation or pride needs to 'decrease' today so that Christ can be seen through you?",
+   "tags": []
+  },
+  {
+   "key": "08-30",
+   "ref": "PSA.50.12",
+   "saint": {
+    "text": "Let us always be at peace with ourselves and with God.",
+    "who": "St. Fiacre",
+    "work": "Monastic Lives",
+    "verified": false
+   },
+   "question": "Is your 'spirit' currently 'right' (aligned with God) or 'bitter' (aligned with your own grievances)?",
+   "tags": []
+  },
+  {
+   "key": "08-31",
+   "ref": "PSA.36.4",
+   "saint": {
+    "text": "Every soul that loves is a soul that is saved.",
+    "who": "St. Raymond Nonnatus",
+    "work": "Sermons on Redemption",
+    "verified": false
+   },
+   "question": "As August ends, what 'request of your heart' did God answer in a way that was better than what you asked for?",
+   "tags": []
+  },
+  {
+   "key": "09-01",
+   "ref": "PRO.9.10",
+   "saint": {
+    "text": "The world is thy ship and not thy home.",
+    "who": "St. Giles",
+    "work": "Apothegms of the Desert",
+    "verified": false
+   },
+   "question": "Are you steering your 'ship' toward the port of Heaven, or are you drifting with the currents of the world?",
+   "tags": []
+  },
+  {
+   "key": "09-02",
+   "ref": "PSA.26.1",
+   "saint": {
+    "text": "He who carries God in his heart carries a paradise with him everywhere.",
+    "who": "St. Agricola of Avignon",
+    "work": "Spiritual Instructions",
+    "verified": false
+   },
+   "question": "If God is your 'light,' why are you still acting as if you are lost in the dark regarding your future?",
+   "tags": []
+  },
+  {
+   "key": "09-03",
+   "ref": "SIR.35.21",
+   "saint": {
+    "text": "The proof of love is in the works. Where love exists, it works great things.",
+    "who": "St. Gregory the Great",
+    "work": "Homilies on the Gospels",
+    "verified": false
+   },
+   "question": "Does your prayer today 'pierce the clouds' with sincerity, or is it just a habit of the lips?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "09-04",
+   "ref": "PSA.49.14",
+   "saint": {
+    "text": "To be a Christian is to be a child of God, and to live accordingly.",
+    "who": "St. Rosalia",
+    "work": "Inscriptions of the Hermitage",
+    "verified": false
+   },
+   "question": "What 'sacrifice of praise' can you offer God right now in the midst of a difficult situation?",
+   "tags": []
+  },
+  {
+   "key": "09-05",
+   "ref": "ISA.58.7",
+   "saint": {
+    "text": "Do not wait for leaders; do it alone, person to person.",
+    "who": "St. Teresa of Calcutta",
+    "work": "Words to the Missionaries",
+    "verified": false
+   },
+   "question": "Is there a 'harbourless' person in your life—someone lonely or rejected—that you can welcome today?",
+   "tags": []
+  },
+  {
+   "key": "09-06",
+   "ref": "REV.21.5",
+   "saint": {
+    "text": "Let us begin again, for up until now we have done little or nothing.",
+    "who": "St. Eleutherius",
+    "work": "Monastic Dialogues",
+    "verified": false
+   },
+   "question": "What part of your spiritual life has become 'old' and stale? How will you let God make it new?",
+   "tags": []
+  },
+  {
+   "key": "09-07",
+   "ref": "PSA.36.34",
+   "saint": {
+    "text": "The soul's true beauty is found in its likeness to God.",
+    "who": "St. Cloud",
+    "work": "Rule of Life",
+    "verified": false
+   },
+   "question": "In your rush to 'inherit the land,' have you forgotten to 'keep His way'?",
+   "tags": []
+  },
+  {
+   "key": "09-08",
+   "ref": "PSA.44.11",
+   "saint": {
+    "text": "Mary is the dawn which precedes the Sun of Justice.",
+    "who": "St. Sergius I",
+    "work": "Marian Liturgy",
+    "verified": false
+   },
+   "question": "On this feast of Mary's birth, what 'new beginning' is God calling you to embrace?",
+   "tags": []
+  },
+  {
+   "key": "09-09",
+   "ref": "GAL.5.22",
+   "saint": {
+    "text": "We must be the slaves of the slaves of Christ.",
+    "who": "St. Peter Claver",
+    "work": "Vow of the Mission",
+    "verified": false
+   },
+   "question": "Which of your 'good deeds' today was done for your own ego rather than out of pure 'benignity'?",
+   "tags": []
+  },
+  {
+   "key": "09-10",
+   "ref": "PSA.144.17",
+   "saint": {
+    "text": "God will provide. Do not be anxious for tomorrow.",
+    "who": "St. Nicholas of Tolentino",
+    "work": "Sayings to the Poor",
+    "verified": false
+   },
+   "question": "Do you believe God is 'just' even when His works don't align with your personal desires?",
+   "tags": []
+  },
+  {
+   "key": "09-11",
+   "ref": "2TI.1.7",
+   "saint": {
+    "text": "Patience is the root and guardian of all the virtues.",
+    "who": "St. Paphnutius",
+    "work": "Conferences of the Fathers",
+    "verified": false
+   },
+   "question": "When fear knocks at your door, do you answer with your own strength or with the 'spirit of power' from God?",
+   "tags": []
+  },
+  {
+   "key": "09-12",
+   "ref": "LUK.1.27",
+   "saint": {
+    "text": "The Name of Mary is a tower of strength and a shield of defense.",
+    "who": "St. Guy of Anderlecht",
+    "work": "Pilgrim's Notes",
+    "verified": false
+   },
+   "question": "How often do you call upon the Holy Name of Mary when you feel tempted or overwhelmed?",
+   "tags": []
+  },
+  {
+   "key": "09-13",
+   "ref": "JAS.1.17",
+   "saint": {
+    "text": "Prayer is the root, the fountain, and the mother of a thousand blessings.",
+    "who": "St. John Chrysostom",
+    "work": "On Prayer",
+    "verified": false
+   },
+   "question": "What 'perfect gift' did you receive today that you initially thought was just a coincidence?",
+   "tags": []
+  },
+  {
+   "key": "09-14",
+   "ref": "GAL.6.14",
+   "saint": {
+    "text": "The Cross is the school of love.",
+    "who": "St. Catherine of Genoa",
+    "work": "Treatise on Purgatory",
+    "verified": false
+   },
+   "question": "Is the Cross a symbol of 'glory' in your life, or a burden you are trying to hide from others?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "09-15",
+   "ref": "LUK.2.35",
+   "saint": {
+    "text": "To suffer with Mary is to love with Jesus.",
+    "who": "St. Catherine of Genoa",
+    "work": "Spiritual Dialogues",
+    "verified": false
+   },
+   "question": "What 'sword' of sorrow is currently piercing your heart, and have you invited Mary to stand with you?",
+   "tags": []
+  },
+  {
+   "key": "09-16",
+   "ref": "PSA.83.12",
+   "saint": {
+    "text": "We should be more afraid of our own will than of all the devils in hell.",
+    "who": "St. Cyprian",
+    "work": "On the Unity of the Church",
+    "verified": false
+   },
+   "question": "Do you treat God more like a 'shield' for protection or a 'sun' that exposes your hidden faults?",
+   "tags": []
+  },
+  {
+   "key": "09-17",
+   "ref": "PHP.4.13",
+   "saint": {
+    "text": "The soul is more where it loves than where it lives.",
+    "who": "St. Robert Bellarmine",
+    "work": "The Mind's Ascent to God",
+    "verified": false
+   },
+   "question": "Where does your heart 'live' most of the day? In the 'strengthening' presence of God or in worldly anxieties?",
+   "tags": []
+  },
+  {
+   "key": "09-18",
+   "ref": "PSA.26.14",
+   "saint": {
+    "text": "To be with God is to be in peace.",
+    "who": "St. Joseph of Cupertino",
+    "work": "Spiritual Maxims",
+    "verified": false
+   },
+   "question": "Are you 'sustaining the Lord' by accepting His timing, or are you trying to force your own schedule?",
+   "tags": []
+  },
+  {
+   "key": "09-19",
+   "ref": "NUM.14.18",
+   "saint": {
+    "text": "The Eucharist is the miracle above all miracles.",
+    "who": "St. Januarius",
+    "work": "Martyrological Accounts",
+    "verified": false
+   },
+   "question": "How often do you thank God for His 'patience' with your repeated mistakes?",
+   "tags": []
+  },
+  {
+   "key": "09-20",
+   "ref": "JHN.12.25",
+   "saint": {
+    "text": "Faith is the beginning of our salvation.",
+    "who": "St. Andrew Kim Taegon",
+    "work": "Final Letters",
+    "verified": false
+   },
+   "question": "Are you 'keeping' your life for yourself, or are you 'losing' it for the sake of the Gospel?",
+   "tags": []
+  },
+  {
+   "key": "09-21",
+   "ref": "MAT.9.9",
+   "saint": {
+    "text": "The past is gone; the future is unknown; only the present is ours to serve God.",
+    "who": "St. Matthew the Apostle",
+    "work": "Gospel Accounts",
+    "verified": false
+   },
+   "question": "What 'tax booth' (comfort, status, or old habit) is preventing you from following Jesus today?",
+   "tags": []
+  },
+  {
+   "key": "09-22",
+   "ref": "PSA.50.12",
+   "saint": {
+    "text": "Humility is the mother of all virtues.",
+    "who": "St. Thomas of Villanova",
+    "work": "Sermons on the Virgin",
+    "verified": false
+   },
+   "question": "If your 'spirit' was on display for everyone to see, would it be 'right' and 'clean'?",
+   "tags": []
+  },
+  {
+   "key": "09-23",
+   "ref": "MAT.16.19",
+   "saint": {
+    "text": "Pray, hope, and don't worry. Worry is useless.",
+    "who": "St. Padre Pio",
+    "work": "Letters to Spiritual Children",
+    "verified": false
+   },
+   "question": "Which are you doing more of today: praying or worrying?",
+   "tags": []
+  },
+  {
+   "key": "09-24",
+   "ref": "ROM.14.19",
+   "saint": {
+    "text": "Mary is the ladder to heaven.",
+    "who": "Our Lady of Ransom (Tradition)",
+    "work": "Order of Mercedarians",
+    "verified": false
+   },
+   "question": "Are you 'edifying' those you live with, or are you tearing down the peace of your home?",
+   "tags": []
+  },
+  {
+   "key": "09-25",
+   "ref": "1CO.3.19",
+   "saint": {
+    "text": "To serve God is to be free.",
+    "who": "St. Finbarr",
+    "work": "Monastic Rules",
+    "verified": false
+   },
+   "question": "In what way is 'worldly wisdom' telling you to be selfish today?",
+   "tags": []
+  },
+  {
+   "key": "09-26",
+   "ref": "PSA.33.16",
+   "saint": {
+    "text": "There is no better way to find God than to serve the sick.",
+    "who": "St. Cosmas and Damian",
+    "work": "Tradition of the Holy Unmercenaries",
+    "verified": false
+   },
+   "question": "Do you pray with the confidence that God's 'ears' are currently open to your voice?",
+   "tags": []
+  },
+  {
+   "key": "09-27",
+   "ref": "PSA.36.4",
+   "saint": {
+    "text": "Charity is the cement which binds the community to God.",
+    "who": "St. Vincent de Paul",
+    "work": "Instructions to the Mission",
+    "verified": false
+   },
+   "question": "Are you 'delighting' in God Himself, or just in the gifts He gives you?",
+   "tags": []
+  },
+  {
+   "key": "09-28",
+   "ref": "PRO.3.5",
+   "saint": {
+    "text": "Let us always be at peace with God and with ourselves.",
+    "who": "St. Wenceslaus",
+    "work": "Royal Exhortations",
+    "verified": false
+   },
+   "question": "Where has your 'own prudence' failed you recently, and why haven't you handed it over to the Lord?",
+   "tags": []
+  },
+  {
+   "key": "09-29",
+   "ref": "REV.12.7",
+   "saint": {
+    "text": "I am Raphael, one of the seven holy angels, who offer up the prayers of the saints.",
+    "who": "St. Raphael (via Tobias)",
+    "work": "Tobit 12:15",
+    "verified": true
+   },
+   "question": "In your spiritual battles today, are you remembering to ask for the protection of the Archangels?",
+   "tags": []
+  },
+  {
+   "key": "09-30",
+   "ref": "PSA.118.105",
+   "saint": {
+    "text": "Ignorance of Scripture is ignorance of Christ.",
+    "who": "St. Jerome",
+    "work": "Commentary on Isaiah",
+    "verified": false
+   },
+   "question": "As September ends, how has your knowledge of 'the Word' grown this month?",
+   "tags": []
+  },
+  {
+   "key": "10-01",
+   "ref": "MAT.18.3",
+   "saint": {
+    "text": "Miss no single opportunity of making some small sacrifice, here by a smiling look, there by a kindly word.",
+    "who": "St. Thérèse of Lisieux",
+    "work": "Story of a Soul",
+    "verified": false
+   },
+   "question": "What 'little way' can you serve God today—perhaps a small act of patience that no one else will notice?",
+   "tags": []
+  },
+  {
+   "key": "10-02",
+   "ref": "EXO.23.20",
+   "saint": {
+    "text": "Beside each believer stands an angel as protector and shepherd leading him to life.",
+    "who": "St. Basil the Great",
+    "work": "Adversus Eunomium",
+    "verified": false
+   },
+   "question": "How often do you thank your Guardian Angel for the unseen 'nudges' that steer you away from sin?",
+   "tags": []
+  },
+  {
+   "key": "10-03",
+   "ref": "PSA.144.13",
+   "saint": {
+    "text": "Our mission is to make the Church present and operative in those places where she can become the salt of the earth.",
+    "who": "St. Theodore Guerin",
+    "work": "Journals and Letters",
+    "verified": false
+   },
+   "question": "Are you acting as 'salt' in your workplace or social circle, or have you blended in so much that your faith is invisible?",
+   "tags": []
+  },
+  {
+   "key": "10-04",
+   "ref": "GAL.6.14",
+   "saint": {
+    "text": "Preach the Gospel at all times and when necessary, use words.",
+    "who": "St. Francis of Assisi",
+    "work": "Oral Tradition",
+    "verified": false
+   },
+   "question": "If you weren't allowed to speak for the next 24 hours, would people still know you are a follower of Christ by your actions?",
+   "tags": []
+  },
+  {
+   "key": "10-05",
+   "ref": "ISA.58.11",
+   "saint": {
+    "text": "The more a soul trusts God, the more it will receive.",
+    "who": "St. Faustina Kowalska",
+    "work": "Diary: Divine Mercy in My Soul",
+    "verified": false
+   },
+   "question": "Are you placing limits on God's mercy because you find it hard to forgive yourself?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "10-06",
+   "ref": "PSA.94.3",
+   "saint": {
+    "text": "He who possesses God lacks nothing: God alone suffices.",
+    "who": "St. Bruno",
+    "work": "Letters to Raoul le Verd",
+    "verified": false
+   },
+   "question": "In the silence of your heart, can you truly say that 'God alone suffices,' or are you still chasing worldly 'extras'?",
+   "tags": []
+  },
+  {
+   "key": "10-07",
+   "ref": "LUK.1.28",
+   "saint": {
+    "text": "The Rosary is the weapon for these times.",
+    "who": "St. Padre Pio",
+    "work": "Spiritual Counsels",
+    "verified": false
+   },
+   "question": "Do you view the Rosary as a chore to be finished, or as a conversation with your Mother?",
+   "tags": []
+  },
+  {
+   "key": "10-08",
+   "ref": "PSA.36.34",
+   "saint": {
+    "text": "He who wants anything other than Christ does not know what he wants.",
+    "who": "St. Philip Neri",
+    "work": "Maxims",
+    "verified": false
+   },
+   "question": "Are you 'keeping His way' even when the path is steep and the destination seems far off?",
+   "tags": []
+  },
+  {
+   "key": "10-09",
+   "ref": "ROM.10.15",
+   "saint": {
+    "text": "Truth is the property of no individual but is the treasure of all.",
+    "who": "St. John Henry Newman",
+    "work": "Oxford University Sermons",
+    "verified": false
+   },
+   "question": "Have you shared the 'Gospel of peace' with anyone this week, or have you kept the treasure for yourself?",
+   "tags": []
+  },
+  {
+   "key": "10-10",
+   "ref": "NUM.14.18",
+   "saint": {
+    "text": "Prayer is the best weapon we possess; it is the key that opens the heart of God.",
+    "who": "St. Daniel Comboni",
+    "work": "Writings on the Mission",
+    "verified": false
+   },
+   "question": "How can you reflect God's 'patience' today toward someone who is currently trying yours?",
+   "tags": []
+  },
+  {
+   "key": "10-11",
+   "ref": "JHN.10.11",
+   "saint": {
+    "text": "The Church is like a great ship being pounded by the waves of life's different stresses.",
+    "who": "St. John XXIII",
+    "work": "Journal of a Soul",
+    "verified": false
+   },
+   "question": "Are you helping to keep the 'ship' of the Church afloat through your prayers and service, or are you just a passenger?",
+   "tags": [
+    "christmas"
+   ]
+  },
+  {
+   "key": "10-12",
+   "ref": "PSA.50.12",
+   "saint": {
+    "text": "We should be empty of everything that is not God.",
+    "who": "St. Seraphim of Sarov",
+    "work": "Spiritual Instructions",
+    "verified": false
+   },
+   "question": "What 'old spirit'—cynicism, laziness, or resentment—needs to be renewed by God today?",
+   "tags": []
+  },
+  {
+   "key": "10-13",
+   "ref": "JAS.1.17",
+   "saint": {
+    "text": "Believe in the sun, even when it is not shining; believe in love, even when you cannot feel it.",
+    "who": "St. Edward the Confessor",
+    "work": "Royal Decrees (Assoc.)",
+    "verified": false
+   },
+   "question": "Can you still thank God for His 'perfect gifts' even when you are walking through a season of darkness?",
+   "tags": []
+  },
+  {
+   "key": "10-14",
+   "ref": "ROM.14.19",
+   "saint": {
+    "text": "The soul is more where it loves than where it lives.",
+    "who": "St. Callistus I",
+    "work": "Papal Epistles",
+    "verified": false
+   },
+   "question": "Is your heart 'living' in a state of grace today, or is it wandering in the 'pastures' of temptation?",
+   "tags": []
+  },
+  {
+   "key": "10-15",
+   "ref": "PSA.41.2",
+   "saint": {
+    "text": "Let nothing disturb you, let nothing frighten you. All things pass. God does not change.",
+    "who": "St. Teresa of Avila",
+    "work": "Bookmark of St. Teresa",
+    "verified": false
+   },
+   "question": "What is 'disturbing' you today that you have not yet surrendered to the Unchanging God?",
+   "tags": []
+  },
+  {
+   "key": "10-16",
+   "ref": "PSA.33.16",
+   "saint": {
+    "text": "Love is the only thing that will remain of our lives here on earth.",
+    "who": "St. Margaret Mary Alacoque",
+    "work": "Letters",
+    "verified": false
+   },
+   "question": "Knowing God's 'ears' are open, what is the deepest desire you want to tell Him right now?",
+   "tags": []
+  },
+  {
+   "key": "10-17",
+   "ref": "JHN.12.24",
+   "saint": {
+    "text": "Our Lord does not look so much at the greatness of our actions, or even at their difficulty, as at the love with which we do them.",
+    "who": "St. Ignatius of Antioch",
+    "work": "Epistle to the Romans",
+    "verified": false
+   },
+   "question": "If you are 'ground' by the difficulties of life today, will the result be bitterness or the 'pure bread' of holiness?",
+   "tags": []
+  },
+  {
+   "key": "10-18",
+   "ref": "LUK.10.3",
+   "saint": {
+    "text": "The Evangelist is one who carries the light of Christ into the dark places of the world.",
+    "who": "St. Luke the Evangelist",
+    "work": "Gospel Preface (Tradition)",
+    "verified": false
+   },
+   "question": "How can you be a 'lamb'—meek and trusting—in a situation that feels aggressive or hostile?",
+   "tags": []
+  },
+  {
+   "key": "10-19",
+   "ref": "1CO.3.19",
+   "saint": {
+    "text": "The cross is the school of love.",
+    "who": "St. Isaac Jogues",
+    "work": "Missionary Relations",
+    "verified": false
+   },
+   "question": "What 'lesson' is God trying to teach you through your current cross that you have been trying to avoid?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "10-20",
+   "ref": "GAL.5.22",
+   "saint": {
+    "text": "We should always have a great desire to reach the perfection of the state to which God has called us.",
+    "who": "St. Paul of the Cross",
+    "work": "Spiritual Letters",
+    "verified": false
+   },
+   "question": "Are you striving for 'perfection' in your current vocation, or are you just doing the bare minimum?",
+   "tags": []
+  },
+  {
+   "key": "10-21",
+   "ref": "1PE.5.6",
+   "saint": {
+    "text": "True humility consists in seeing ourselves as we really are in the eyes of God.",
+    "who": "St. Hilarion",
+    "work": "Vita Hilarionis",
+    "verified": false
+   },
+   "question": "In what way are you resisting God's 'mighty hand' by trying to control an outcome that isn't yours to decide?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "10-22",
+   "ref": "MAT.14.27",
+   "saint": {
+    "text": "The future starts today, not tomorrow.",
+    "who": "St. John Paul II",
+    "work": "Address in Spain, 1982",
+    "verified": false
+   },
+   "question": "Which 'door' of your life is still locked to Christ because you are afraid of what He might ask you to change?",
+   "tags": []
+  },
+  {
+   "key": "10-23",
+   "ref": "PSA.10.8",
+   "saint": {
+    "text": "To serve God is to reign.",
+    "who": "St. John of Capistrano",
+    "work": "Exhortations to Soldiers",
+    "verified": false
+   },
+   "question": "Are you treating the people under your authority (children, employees, etc.) with the justice of God or the frustration of man?",
+   "tags": []
+  },
+  {
+   "key": "10-24",
+   "ref": "PHP.4.13",
+   "saint": {
+    "text": "The heart of a Christian should be like an altar where the fire of love burns continually.",
+    "who": "St. Anthony Mary Claret",
+    "work": "Autobiography",
+    "verified": false
+   },
+   "question": "Is the 'fire of love' burning on the altar of your heart, or has it been quenched by the water of indifference?",
+   "tags": []
+  },
+  {
+   "key": "10-25",
+   "ref": "PSA.99.2",
+   "saint": {
+    "text": "We should never forget that we are the servants of the poor.",
+    "who": "St. Margaret of Clitherow",
+    "work": "Final Testimony",
+    "verified": false
+   },
+   "question": "When you 'serve' others today, is there 'gladness' in your spirit, or is it a performance for others to see?",
+   "tags": []
+  },
+  {
+   "key": "10-26",
+   "ref": "PRO.4.18",
+   "saint": {
+    "text": "Silence is the gift of God, to let us speak more deeply with Him.",
+    "who": "St. Alfred the Great",
+    "work": "Translations of the Psalms",
+    "verified": false
+   },
+   "question": "Are you 'going forwards' in your faith, or have you been standing still in the same spiritual habits for years?",
+   "tags": []
+  },
+  {
+   "key": "10-27",
+   "ref": "PRO.3.5",
+   "saint": {
+    "text": "True love is to will the good of the other.",
+    "who": "St. Frumentius",
+    "work": "Ethiopic Tradition",
+    "verified": false
+   },
+   "question": "Where is your 'own prudence' leading you toward stress, while 'trust in the Lord' would lead you to peace?",
+   "tags": []
+  },
+  {
+   "key": "10-28",
+   "ref": "JHN.15.14",
+   "saint": {
+    "text": "To be an apostle is to be a witness of the Resurrection.",
+    "who": "St. Jude Thaddeus",
+    "work": "Apostolic tradition",
+    "verified": false
+   },
+   "question": "If you are a 'friend' of Jesus, how well are you keeping His commandments today?",
+   "tags": []
+  },
+  {
+   "key": "10-29",
+   "ref": "PSA.36.4",
+   "saint": {
+    "text": "The only way to win a soul is through love.",
+    "who": "St. Narcissus of Jerusalem",
+    "work": "Sayings of the Desert",
+    "verified": false
+   },
+   "question": "What is the 'request of your heart' that you are most afraid to tell God about?",
+   "tags": []
+  },
+  {
+   "key": "10-30",
+   "ref": "MAT.11.30",
+   "saint": {
+    "text": "God's love is the only thing that can satisfy the human heart.",
+    "who": "St. Alphonsus Rodriguez",
+    "work": "Spiritual Journals",
+    "verified": false
+   },
+   "question": "If your 'yoke' feels heavy, are you sure you are yoked to Christ and not to the expectations of others?",
+   "tags": []
+  },
+  {
+   "key": "10-31",
+   "ref": "1PE.5.8",
+   "saint": {
+    "text": "The saints are the true light-bearers of history.",
+    "who": "St. Wolfgang",
+    "work": "Episcopal Sermons",
+    "verified": false
+   },
+   "question": "As October ends, have you been 'watching' for the subtle temptations that lead you away from peace?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "11-01",
+   "ref": "MAT.5.12",
+   "saint": {
+    "text": "The world is only a bridge; pass over it, but build not your dwelling there.",
+    "who": "All Saints (Tradition)",
+    "work": "Ancient Christian Proverb",
+    "verified": false
+   },
+   "question": "Are you living for the 'reward' of this world, or are you storing up treasures for the Kingdom of Heaven?",
+   "tags": []
+  },
+  {
+   "key": "11-02",
+   "ref": "2MA.12.46",
+   "saint": {
+    "text": "Let us not hesitate to help those who have died and to offer our prayers for them.",
+    "who": "St. John Chrysostom",
+    "work": "Homilies on First Corinthians",
+    "verified": false
+   },
+   "question": "Which of your deceased loved ones most needs your prayers and a small sacrifice today?",
+   "tags": []
+  },
+  {
+   "key": "11-03",
+   "ref": "ROM.13.8",
+   "saint": {
+    "text": "Everything, even the smallest task, can be done for the love of God.",
+    "who": "St. Martin de Porres",
+    "work": "Oral Tradition",
+    "verified": false
+   },
+   "question": "Can you find the face of Christ in the person you are most tempted to overlook today?",
+   "tags": []
+  },
+  {
+   "key": "11-04",
+   "ref": "1PE.5.8",
+   "saint": {
+    "text": "If we wish to keep peace with our neighbor, we should never say anything that might hurt him.",
+    "who": "St. Charles Borromeo",
+    "work": "Synodal Instructions",
+    "verified": false
+   },
+   "question": "Is your current 'vigilance' focused on your own soul, or are you too busy watching the faults of others?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "11-05",
+   "ref": "2KI.22.2",
+   "saint": {
+    "text": "Truth is the property of no individual but is the treasure of all.",
+    "who": "St. Bertilla",
+    "work": "Monastic Rules",
+    "verified": false
+   },
+   "question": "What 'shifting sand' are you standing on right now that needs to be replaced by the 'Rock' of Christ?",
+   "tags": []
+  },
+  {
+   "key": "11-06",
+   "ref": "PSA.99.5",
+   "saint": {
+    "text": "We should always give thanks to God for everything that happens to us.",
+    "who": "St. Illtud",
+    "work": "Life of the Celtic Saints",
+    "verified": false
+   },
+   "question": "Are you living as a witness of God's 'enduring truth' for the next generation, or are you following the trends of today?",
+   "tags": []
+  },
+  {
+   "key": "11-07",
+   "ref": "WIS.3.1",
+   "saint": {
+    "text": "God is the only light that can dispel the darkness of the grave.",
+    "who": "St. Willibrord",
+    "work": "Missionary Letters",
+    "verified": false
+   },
+   "question": "Do you fear the future, or do you trust that you are securely held in 'the hand of God'?",
+   "tags": []
+  },
+  {
+   "key": "11-08",
+   "ref": "PRO.4.18",
+   "saint": {
+    "text": "The higher we go, the better we shall hear the voice of Christ.",
+    "who": "St. Godfrey of Amiens",
+    "work": "Episcopal Decrees",
+    "verified": false
+   },
+   "question": "Has your light 'increased' this year, or has the world dimmed your fervor for the Gospel?",
+   "tags": []
+  },
+  {
+   "key": "11-09",
+   "ref": "1CO.3.17",
+   "saint": {
+    "text": "Our hearts are the real temples of the Holy Spirit.",
+    "who": "Dedication of the Lateran Basilica",
+    "work": "Roman Missal",
+    "verified": false
+   },
+   "question": "If your body is a 'temple,' what activities or thoughts have you allowed inside that desecrate it?",
+   "tags": []
+  },
+  {
+   "key": "11-10",
+   "ref": "MAT.16.19",
+   "saint": {
+    "text": "The shepherd should be approachable to all, yet firm in the truth.",
+    "who": "St. Leo the Great",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "Are you 'firm in the truth' when it is unpopular, or do you stay quiet to avoid social friction?",
+   "tags": []
+  },
+  {
+   "key": "11-11",
+   "ref": "MAT.25.40",
+   "saint": {
+    "text": "Lord, if your people still need me, I do not draw back from the labor.",
+    "who": "St. Martin of Tours",
+    "work": "Last Words",
+    "verified": false
+   },
+   "question": "In what small way can you 'clothe the naked' today, perhaps by protecting someone's reputation from gossip?",
+   "tags": []
+  },
+  {
+   "key": "11-12",
+   "ref": "PSA.33.19",
+   "saint": {
+    "text": "Unity in the Church is the greatest strength of the faithful.",
+    "who": "St. Josaphat",
+    "work": "The Defense of Unity",
+    "verified": false
+   },
+   "question": "When was the last time you brought a 'contrite heart' to the Sacrament of Reconciliation?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "11-13",
+   "ref": "HEB.13.14",
+   "saint": {
+    "text": "The poor are the representatives of Christ; to serve them is to serve Him.",
+    "who": "St. Frances Xavier Cabrini",
+    "work": "Letters to the Sisters",
+    "verified": false
+   },
+   "question": "Are you investing more time in your 'lasting city' in Heaven or your temporary home on Earth?",
+   "tags": []
+  },
+  {
+   "key": "11-14",
+   "ref": "JAS.1.17",
+   "saint": {
+    "text": "Prayer is the wings by which the soul flies to God.",
+    "who": "St. Lawrence O'Toole",
+    "work": "Episcopal Chronicles",
+    "verified": false
+   },
+   "question": "What 'gift' from today can you trace back to God's providence rather than your own hard work?",
+   "tags": []
+  },
+  {
+   "key": "11-15",
+   "ref": "1CO.3.19",
+   "saint": {
+    "text": "Knowledge without love only puffeth up; but love edifieth.",
+    "who": "St. Albert the Great",
+    "work": "Commentary on the Sentences",
+    "verified": false
+   },
+   "question": "Are you using your intelligence to serve others, or to make yourself feel superior?",
+   "tags": []
+  },
+  {
+   "key": "11-16",
+   "ref": "PSA.110.10",
+   "saint": {
+    "text": "A soul that loves God finds its peace even in the midst of trials.",
+    "who": "St. Gertrude the Great",
+    "work": "The Herald of Divine Love",
+    "verified": false
+   },
+   "question": "Is your peace currently dependent on your circumstances, or on your union with Christ?",
+   "tags": []
+  },
+  {
+   "key": "11-17",
+   "ref": "ISA.58.7",
+   "saint": {
+    "text": "We should use the things of this world as if we used them not.",
+    "who": "St. Elizabeth of Hungary",
+    "work": "Sayings to the Court",
+    "verified": true
+   },
+   "question": "If everything you owned was taken away today, would your identity in Christ remain unshaken?",
+   "tags": []
+  },
+  {
+   "key": "11-18",
+   "ref": "1TH.3.12",
+   "saint": {
+    "text": "Faith is the foundation of all that we do.",
+    "who": "St. Rose Philippine Duchesne",
+    "work": "Journals",
+    "verified": false
+   },
+   "question": "Has your charity 'increased' toward the person you find most difficult to be around?",
+   "tags": []
+  },
+  {
+   "key": "11-19",
+   "ref": "ROM.14.19",
+   "saint": {
+    "text": "True nobility is found in the service of God.",
+    "who": "St. Mechtilde",
+    "work": "The Book of Special Grace",
+    "verified": false
+   },
+   "question": "Are your words today building up (edifying) those around you, or are they tearing them down?",
+   "tags": []
+  },
+  {
+   "key": "11-20",
+   "ref": "PSA.83.12",
+   "saint": {
+    "text": "Humility is the only ladder that reaches to heaven.",
+    "who": "St. Edmund the Martyr",
+    "work": "Oral Tradition",
+    "verified": false
+   },
+   "question": "In what way is God being a 'shield' for you today by closing a door that was dangerous for your soul?",
+   "tags": []
+  },
+  {
+   "key": "11-21",
+   "ref": "PSA.44.11",
+   "saint": {
+    "text": "Mary offered herself to God in the temple, and so should we.",
+    "who": "Presentation of Mary",
+    "work": "Roman Breviary",
+    "verified": false
+   },
+   "question": "How can you 'present' your daily work to God today as a holy offering?",
+   "tags": []
+  },
+  {
+   "key": "11-22",
+   "ref": "PSA.149.1",
+   "saint": {
+    "text": "To sing is to pray twice.",
+    "who": "St. Cecilia (Assoc./St. Augustine)",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "Is there a 'song of praise' in your heart today, or only a list of complaints?",
+   "tags": [
+    "lent"
+   ]
+  },
+  {
+   "key": "11-23",
+   "ref": "REV.3.20",
+   "saint": {
+    "text": "The soul's salvation is the only thing that matters.",
+    "who": "St. Clement I",
+    "work": "Letter to the Corinthians",
+    "verified": false
+   },
+   "question": "Is there a specific 'gate' of your heart that you have kept locked because you fear Christ's light?",
+   "tags": []
+  },
+  {
+   "key": "11-24",
+   "ref": "JHN.8.12",
+   "saint": {
+    "text": "A martyr's blood is the seed of the Church.",
+    "who": "St. Andrew Dung-Lac",
+    "work": "Last Letters",
+    "verified": false
+   },
+   "question": "Are you willing to 'suffer' small social inconveniences for the sake of the 'Light of Life'?",
+   "tags": []
+  },
+  {
+   "key": "11-25",
+   "ref": "PSA.10.8",
+   "saint": {
+    "text": "Faith is the light that guides us through the darkness of this world.",
+    "who": "St. Catherine of Alexandria",
+    "work": "Tradition of the Philosophers",
+    "verified": false
+   },
+   "question": "Do you treat your coworkers and employees with the 'justice' that you would want from God?",
+   "tags": []
+  },
+  {
+   "key": "11-26",
+   "ref": "PRO.3.5",
+   "saint": {
+    "text": "The more we give to God, the more He gives to us.",
+    "who": "St. Leonard of Port Maurice",
+    "work": "The Hidden Treasure",
+    "verified": false
+   },
+   "question": "Where is your 'own prudence' causing you anxiety because you haven't yet trusted the Lord with the outcome?",
+   "tags": []
+  },
+  {
+   "key": "11-27",
+   "ref": "PSA.33.16",
+   "saint": {
+    "text": "Mary is the source of all our hope.",
+    "who": "Our Lady of the Miraculous Medal",
+    "work": "1830 Apparition",
+    "verified": false
+   },
+   "question": "Do you pray with the confidence that God is actively 'listening' to you right now?",
+   "tags": []
+  },
+  {
+   "key": "11-28",
+   "ref": "PSA.50.12",
+   "saint": {
+    "text": "Patience is the only way to conquer the world.",
+    "who": "St. James of the Marches",
+    "work": "Sermons",
+    "verified": false
+   },
+   "question": "What 'spiritual debris' has built up in your heart this month that needs to be cleared out?",
+   "tags": []
+  },
+  {
+   "key": "11-29",
+   "ref": "LUK.12.40",
+   "saint": {
+    "text": "Let us always be prepared to meet the Lord.",
+    "who": "St. Saturninus",
+    "work": "Passio Saturnini",
+    "verified": false
+   },
+   "question": "If Christ came for your soul tonight, would you be 'ready' or would you be ashamed of how you spent today?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "11-30",
+   "ref": "MAT.4.19",
+   "saint": {
+    "text": "To follow Christ is the only path to true joy.",
+    "who": "St. Andrew the Apostle",
+    "work": "Apostolic tradition",
+    "verified": false
+   },
+   "question": "As November ends, who in your life is waiting for you to 'cast a net' of faith and invite them to Christ?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "12-01",
+   "ref": "ISA.45.8",
+   "saint": {
+    "text": "Advent is a time of waiting for the Light to enter our darkness.",
+    "who": "St. Edmund Campion",
+    "work": "Braganza Sermons",
+    "verified": false
+   },
+   "question": "In the 'darkness' of your current struggles, are you looking for a worldly solution or for the 'Rain' of the Just One?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "12-02",
+   "ref": "NUM.14.18",
+   "saint": {
+    "text": "A soul that is at peace with God is a soul that is ready for anything.",
+    "who": "St. Bibiana",
+    "work": "Acts of the Martyrs",
+    "verified": false
+   },
+   "question": "Is your heart 'at peace' today, or are you letting the 'iniquity' of the world disturb your internal silence?",
+   "tags": []
+  },
+  {
+   "key": "12-03",
+   "ref": "MRK.16.15",
+   "saint": {
+    "text": "What does it profit a man to gain the whole world and suffer the loss of his own soul?",
+    "who": "St. Francis Xavier",
+    "work": "Letters to the Society of Jesus",
+    "verified": false
+   },
+   "question": "Are you more concerned with 'gaining the world' (status and wealth) or with the health of your soul?",
+   "tags": []
+  },
+  {
+   "key": "12-04",
+   "ref": "MAT.1.23",
+   "saint": {
+    "text": "The Son of God became man so that we might become God.",
+    "who": "St. John Damascene",
+    "work": "Exposition of the Orthodox Faith",
+    "verified": false
+   },
+   "question": "Does the reality of 'God with us' (Emmanuel) change the way you face loneliness today?",
+   "tags": [
+    "christmas"
+   ]
+  },
+  {
+   "key": "12-05",
+   "ref": "PSA.26.14",
+   "saint": {
+    "text": "Prayer is the best preparation for the coming of the King.",
+    "who": "St. Sabbas",
+    "work": "Monastic Rules",
+    "verified": false
+   },
+   "question": "Are you using this season to 'prepare' your heart, or are you just busy with the 'preparations' of the world?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "12-06",
+   "ref": "1JN.3.17",
+   "saint": {
+    "text": "The giver of every good gift is the Lord Himself.",
+    "who": "St. Nicholas of Myra",
+    "work": "Oral Tradition",
+    "verified": false
+   },
+   "question": "When you give to others today, are you doing it to be seen, or to reflect the 'secret' generosity of God?",
+   "tags": []
+  },
+  {
+   "key": "12-07",
+   "ref": "PSA.94.3",
+   "saint": {
+    "text": "The Church is the ship in which we sail safely through the storms of life.",
+    "who": "St. Ambrose",
+    "work": "De Virginibus",
+    "verified": false
+   },
+   "question": "Is there a 'storm' in your life right now where you have forgotten that Christ is the Captain of the ship?",
+   "tags": []
+  },
+  {
+   "key": "12-08",
+   "ref": "SNG.4.7",
+   "saint": {
+    "text": "Mary is the most beautiful flower that has ever bloomed in the garden of God.",
+    "who": "Immaculate Conception (Tradition)",
+    "work": "Marian Liturgy",
+    "verified": false
+   },
+   "question": "How can you honor the 'purity' of Mary today in your own thoughts and conversations?",
+   "tags": []
+  },
+  {
+   "key": "12-09",
+   "ref": "MAT.5.8",
+   "saint": {
+    "text": "Am I not here, who am your Mother? Are you not under my shadow and protection?",
+    "who": "St. Juan Diego (Words of Our Lady)",
+    "work": "Nican Mopohua",
+    "verified": false
+   },
+   "question": "Do you feel 'under the shadow' of Mary's protection, or are you trying to solve your problems entirely on your own?",
+   "tags": []
+  },
+  {
+   "key": "12-10",
+   "ref": "PSA.137.6",
+   "saint": {
+    "text": "Our Lady of Loreto is the house where the Word became Flesh.",
+    "who": "Our Lady of Loreto (Tradition)",
+    "work": "Pontifical Records",
+    "verified": false
+   },
+   "question": "Is your home a place where the 'Word' can dwell, or is it filled with the noise of distraction?",
+   "tags": []
+  },
+  {
+   "key": "12-11",
+   "ref": "ZEC.14.5",
+   "saint": {
+    "text": "The shepherd of the Church must be a defender of the faith.",
+    "who": "St. Damasus I",
+    "work": "Papal Epigrams",
+    "verified": false
+   },
+   "question": "Are you 'defending' your faith in your social circles, or are you hiding it to fit in?",
+   "tags": []
+  },
+  {
+   "key": "12-12",
+   "ref": "PSA.147.20",
+   "saint": {
+    "text": "I am the Mother of the true God for Whom one lives.",
+    "who": "Our Lady of Guadalupe",
+    "work": "Apparition Narrative",
+    "verified": false
+   },
+   "question": "Do you live as if you are truly 'living for God,' or are you just surviving for yourself?",
+   "tags": []
+  },
+  {
+   "key": "12-13",
+   "ref": "JHN.1.5",
+   "saint": {
+    "text": "To die for the faith is to find the true light.",
+    "who": "St. Lucy",
+    "work": "Acts of the Martyrs",
+    "verified": false
+   },
+   "question": "Is there a 'darkness' in your life (envy, pride, or fear) that you have not yet allowed the Light of Christ to enter?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "12-14",
+   "ref": "HEB.4.12",
+   "saint": {
+    "text": "In the evening of life, we will be judged on love alone.",
+    "who": "St. John of the Cross",
+    "work": "Sayings of Light and Love",
+    "verified": false
+   },
+   "question": "If you were 'judged on love' today, would you be satisfied with the way you treated the people closest to you?",
+   "tags": []
+  },
+  {
+   "key": "12-15",
+   "ref": "PSA.22.1",
+   "saint": {
+    "text": "Silence is the guardian of the spiritual life.",
+    "who": "St. Maria di Rosa",
+    "work": "Founding Rule",
+    "verified": false
+   },
+   "question": "Can you find ten minutes of 'silence' today to simply listen for the Shepherd's voice?",
+   "tags": [
+    "christmas"
+   ]
+  },
+  {
+   "key": "12-16",
+   "ref": "PRO.4.18",
+   "saint": {
+    "text": "Every soul that loves is a soul that prays.",
+    "who": "St. Adelaide",
+    "work": "Letters to the Imperial Court",
+    "verified": false
+   },
+   "question": "Is your prayer life 'going forwards,' or have you stopped growing in your relationship with God?",
+   "tags": []
+  },
+  {
+   "key": "12-17",
+   "ref": "SIR.24.5",
+   "saint": {
+    "text": "The wisdom of the world is a heavy burden, but the wisdom of God is a light yoke.",
+    "who": "St. Lazarus",
+    "work": "Tradition of the Resurrected",
+    "verified": false
+   },
+   "question": "Are you seeking 'prudence' (the right way to act) through prayer, or through the opinions of the world?",
+   "tags": []
+  },
+  {
+   "key": "12-18",
+   "ref": "MIC.5.2",
+   "saint": {
+    "text": "Let us prepare the way of the Lord in our souls.",
+    "who": "St. Winebald",
+    "work": "Monastic Counsels",
+    "verified": true
+   },
+   "question": "What ' Bethlehem'—small, humble, and overlooked—is God using to work a miracle in your life right now?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "12-19",
+   "ref": "PSA.50.12",
+   "saint": {
+    "text": "The heart of a Christian should be a dwelling place for God.",
+    "who": "St. Urban V",
+    "work": "Papal Bulls",
+    "verified": false
+   },
+   "question": "If Christ were to be born in your 'heart' tonight, would He find it 'clean' and ready for Him?",
+   "tags": []
+  },
+  {
+   "key": "12-20",
+   "ref": "LUK.1.38",
+   "saint": {
+    "text": "Mary's 'Yes' is the key that opened the door to our salvation.",
+    "who": "St. Dominic of Silos",
+    "work": "Benedictine Tradition",
+    "verified": false
+   },
+   "question": "In what specific area of your life is God waiting for your 'Yes'—your total surrender?",
+   "tags": []
+  },
+  {
+   "key": "12-21",
+   "ref": "PSA.10.8",
+   "saint": {
+    "text": "Blessed is the one who believes in the promises of the Lord.",
+    "who": "St. Peter Canisius",
+    "work": "German Catechism",
+    "verified": false
+   },
+   "question": "Do you 'believe' God's promises even when your current situation seems to contradict them?",
+   "tags": []
+  },
+  {
+   "key": "12-22",
+   "ref": "LUK.1.46-47",
+   "saint": {
+    "text": "True joy is not found in things, but in the presence of God.",
+    "who": "St. Hunger",
+    "work": "Diocesan Records",
+    "verified": false
+   },
+   "question": "Is your soul 'magnifying' (making bigger) the goodness of God today, or the problems you are facing?",
+   "tags": []
+  },
+  {
+   "key": "12-23",
+   "ref": "MAL.3.1",
+   "saint": {
+    "text": "Silence is the language of God; all else is a poor translation.",
+    "who": "St. John of Kanty",
+    "work": "Theological Lectures",
+    "verified": false
+   },
+   "question": "Are you 'preparing the way' for Christ in your home, or are you too busy with the noise of the holidays?",
+   "tags": [
+    "advent"
+   ]
+  },
+  {
+   "key": "12-24",
+   "ref": "LUK.2.11",
+   "saint": {
+    "text": "Tonight, Heaven and Earth are joined in the Person of a Child.",
+    "who": "St. Sharbel",
+    "work": "Maronite Liturgy (Assoc.)",
+    "verified": false
+   },
+   "question": "As you stand at the threshold of Christmas, what is the one 'gift' of your heart you want to give to the Christ Child?",
+   "tags": [
+    "christmas"
+   ]
+  },
+  {
+   "key": "12-25",
+   "ref": "JHN.1.14",
+   "saint": {
+    "text": "Awake, O man! For your sake God became man.",
+    "who": "St. Augustine",
+    "work": "Sermon 185",
+    "verified": false
+   },
+   "question": "How does the fact that 'God became man' change the way you see the dignity of every person you meet today?",
+   "tags": []
+  },
+  {
+   "key": "12-26",
+   "ref": "ACT.7.55",
+   "saint": {
+    "text": "The first martyr is the seed of the Church's courage.",
+    "who": "St. Stephen",
+    "work": "Acts of the Apostles",
+    "verified": false
+   },
+   "question": "Are you 'looking up' toward Heaven when you are faced with criticism, or are you looking for an earthly defense?",
+   "tags": []
+  },
+  {
+   "key": "12-27",
+   "ref": "1JN.1.3",
+   "saint": {
+    "text": "God is love, and he that abideth in love, abideth in God.",
+    "who": "St. John the Apostle",
+    "work": "Epistles",
+    "verified": true
+   },
+   "question": "Is the 'love' you show others today a reflection of the 'Love' that is God?",
+   "tags": []
+  },
+  {
+   "key": "12-28",
+   "ref": "PSA.8.3",
+   "saint": {
+    "text": "The innocent suffer, but their blood is not shed in vain.",
+    "who": "Holy Innocents",
+    "work": "Roman Breviary",
+    "verified": false
+   },
+   "question": "How are you protecting the 'innocence' of your own soul and the souls of the children in your life?",
+   "tags": [
+    "christmas"
+   ]
+  },
+  {
+   "key": "12-29",
+   "ref": "ROM.14.19",
+   "saint": {
+    "text": "I die for the Name of Jesus and for the defense of the Church.",
+    "who": "St. Thomas Becket",
+    "work": "Last Words",
+    "verified": false
+   },
+   "question": "Are you 'edifying' your community, or are your words contributing to its division?",
+   "tags": []
+  },
+  {
+   "key": "12-30",
+   "ref": "PSA.33.16",
+   "saint": {
+    "text": "Let us always be ready to serve the Lord with all our hearts.",
+    "who": "St. Egwin",
+    "work": "Abbatial Rule",
+    "verified": false
+   },
+   "question": "As the year draws to a close, can you see how God's 'eyes' have been upon you through every trial?",
+   "tags": []
+  },
+  {
+   "key": "12-31",
+   "ref": "LUK.12.40",
+   "saint": {
+    "text": "The time of life is short; let us use it for the glory of God.",
+    "who": "St. Sylvester I",
+    "work": "Papal Decrees",
+    "verified": false
+   },
+   "question": "As you stand at the end of this year, are you ready to meet the Son of Man today?",
+   "tags": [
+    "advent"
+   ]
+  }
+ ]
+}

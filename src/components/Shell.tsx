@@ -34,7 +34,8 @@ const dailyActive = (path: string) => {
   if (best < 0 && path.startsWith('/session')) best = 0;
   return best;
 };
-const inDaily = (path: string) => path !== '/' && ['/today', '/pray', '/listen', '/memorize', '/session'].some((p) => path === p || path.startsWith(p + '/'));
+const isHome = (path: string) => path === '/' || path === '/today';
+const inDaily = (path: string) => !isHome(path) && ['/today', '/pray', '/listen', '/memorize', '/session'].some((p) => path === p || path.startsWith(p + '/'));
 
 export default function Shell({ children }: { children: ReactNode }) {
   const loc = useLocation();
@@ -58,8 +59,9 @@ export default function Shell({ children }: { children: ReactNode }) {
     };
   }, []);
   const fullscreenReader = (loc.pathname.startsWith('/read') && s.scriptureOnly) || loc.pathname.startsWith('/widget');
+  const home = isHome(loc.pathname);
   return (
-    <div className={`shell${fullscreenReader ? ' quiet' : ''}`}>
+    <div className={`shell${fullscreenReader || home ? ' quiet' : ''}${home ? ' home-shell' : ''}`}>
       <a className="skip" href="#main">
         Skip to content
       </a>

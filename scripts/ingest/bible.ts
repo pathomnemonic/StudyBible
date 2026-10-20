@@ -33,6 +33,14 @@ const SOURCE_FILES: Record<string, string> = {
   'ebible-engDRA': 'engDRA_usfm.zip',
   'ebible-latVUC': 'latVUC_usfm.zip',
   'ebible-eng-web-c': 'eng-web-c_usfm.zip',
+  'scrollmapper-cpdv': 'CPDV.json',
+};
+
+/** Source book names of the scrollmapper JSON exports → canon ids. */
+const JSON_BOOK_NAME: Record<string, string> = { 'Song of Solomon': 'SNG', 'Acts': 'ACT', 'Revelation of John': 'REV' };
+const bookIdByJsonName = (n: string) => {
+  const t = n.replace(/^III /, '3 ').replace(/^II /, '2 ').replace(/^I /, '1 ');
+  return JSON_BOOK_NAME[n] ?? BOOKS.find((b) => b.name === t)?.id;
 };
 
 function stripStructuralBrackets(ch: ChapterData, report: Report, where: string) {
@@ -52,9 +60,35 @@ function stripStructuralBrackets(ch: ChapterData, report: Report, where: string)
   if (open !== close) report.warn(`${where}: unbalanced brackets (${open}/${close})`);
 }
 
+/** Plain JSON editions (one book list of chapters of verses): books outside the 73-book canon (Manasseh, Esdras, Laodiceans…) are skipped. */
+function buildJsonEdition(cfg: EditionConfig, src: any, report: Report): BuiltEdition {
+  const books = new Map<string, BookData>();
+  for (const b of src.books as any[]) {
+    const code = bookIdByJsonName(b.name);
+    if (!code) { report.warn(`[${cfg.id}] book “${b.name}” is not in the 73-book canon; skipped`); continue; }
+    const chapters: ChapterData[] = b.chapters.map((c: any) => ({
+      n: c.chapter,
+      blocks: [['p', c.verses.map((v: any) => [v.verse, String(v.text).replace(/\s+/g, ' ').trim()])]],
+    }));
+    books.set(code, { id: code, edition: cfg.id, chapters });
+  }
+  const chapters: Record<string, number> = {};
+  const verseCounts: Record<string, number[]> = {};
+  for (const b of BOOKS) {
+    const bd = books.get(b.id);
+    if (!bd) { report.error(`[${cfg.id}] missing book ${b.id} (${b.name})`); continue; }
+    chapters[b.id] = bd.chapters.length;
+    verseCounts[b.id] = bd.chapters.map(maxVerse);
+    if (bd.chapters.length !== b.chapters) report.warn(`[${cfg.id}] ${b.id}: ${bd.chapters.length} chapters, canon table says ${b.chapters}`);
+  }
+  const { source: _s, usfmPattern: _p, bookCodeMap: _m, ...pub } = cfg as any;
+  return { edition: { ...pub, chapters, verseCounts }, books };
+}
+
 export function buildEdition(cfg: EditionConfig, report: Report): BuiltEdition {
   const zipPath = join(RAW, SOURCE_FILES[cfg.source]);
   if (!exists(zipPath)) throw new Error(`Missing ${zipPath}; run "npm run data:fetch" first.`);
+  if (zipPath.endsWith('.json')) return buildJsonEdition(cfg, readJson(zipPath), report);
   const files = unzipSync(new Uint8Array(readFileSync(zipPath)));
   const books = new Map<string, BookData>();
   const glossa = cfg.id === 'vulgate' ? new Map<string, Record<string, [string, string][]>>() : undefined;

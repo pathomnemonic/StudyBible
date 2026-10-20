@@ -96,6 +96,14 @@
    "terms": "https://www.gutenberg.org/policy/permission.html",
    "rights": "public-domain",
    "note": "Douay-Rheims Bible, Challoner revision (1749-1752) with its annotations, book introductions and chapter summaries; Project Gutenberg e-text #8300. The underlying text is 18th-century; used for Challoner's notes, book introductions and chapter summaries."
+  },
+  {
+   "id": "scrollmapper-cpdv",
+   "url": "https://raw.githubusercontent.com/scrollmapper/bible_databases/master/formats/json/CPDV.json",
+   "file": "CPDV.json",
+   "terms": "https://www.sacredbible.org/catholic/",
+   "rights": "public-domain",
+   "note": "Catholic Public Domain Version (Ronald L. Conte Jr.), JSON export from the scrollmapper/bible_databases project. The translator dedicated the text to the public domain."
   }
  ]
 }

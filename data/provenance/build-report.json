@@ -2,6 +2,11 @@
  "generated": "2026-10-20",
  "errors": [],
  "warnings": [
+  "[cpdv] book “Prayer of Manasses” is not in the 73-book canon; skipped",
+  "[cpdv] book “I Esdras” is not in the 73-book canon; skipped",
+  "[cpdv] book “II Esdras” is not in the 73-book canon; skipped",
+  "[cpdv] book “Additional Psalm” is not in the 73-book canon; skipped",
+  "[cpdv] book “Laodiceans” is not in the 73-book canon; skipped",
   "biay: Day 184 (2026) has no resolvable passages",
   "biay: Day 99 (2026) has no resolvable passages",
   "biay: Day 184 (2025) has no resolvable passages",
@@ -53,7 +58,7 @@
   "biay: Day 178: 2 variants across 5 releases → using 2KI.10-10, AMO.1-1, PSA.110-110, AMO.2-2, AMO.3-3",
   "biay: Day 177: 2 variants across 5 releases → using PSA.109-109, 2KI.9-9, HOS.11-11, HOS.12-12, HOS.13-13, HOS.14-14"
  ],
- "warningCount": 50,
+ "warningCount": 55,
  "stats": {
   "versification.unverifiedChapters": {
    "PSA": 18,
@@ -100,6 +105,10 @@
    },
    {
     "id": "webc",
+    "books": 73
+   },
+   {
+    "id": "cpdv",
     "books": 73
    }
   ],
@@ -471,6 +480,7 @@
   "manuscripts": 13,
   "glossa-en": 1423,
   "terms": 32,
+  "daily": 517,
   "homilies": {
    "word-on-fire": 268,
    "word-on-fire-confirmed": 81,

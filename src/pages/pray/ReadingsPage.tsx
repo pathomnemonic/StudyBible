@@ -7,6 +7,7 @@ import { importLectionary, readingsFor, saveManualReadings, SLOT_LABEL, type Day
 import { useSettings } from '../../lib/store';
 import RefLink from '../../components/RefLink';
 import Icon from '../../components/Icon';
+import ReadingBlock from '../../components/ReadingBlock';
 import { formatRef } from '../../lib/refs';
 
 const localIso = () => {
@@ -76,26 +77,19 @@ export default function ReadingsPage() {
       <div className="card">
         <h3>Mass readings</h3>
         {!rd && <div className="muted">Loading…</div>}
+        {rd && rd.title && <div className="muted small">{rd.title}</div>}
         {rd && rd.items.length > 0 && (
-          <ul className="list">
+          <div className="reading-stack">
             {rd.items.map((i) => (
-              <li key={i.slot}>
-                <div className="muted small">{SLOT_LABEL[i.slot]}</div>
-                <div className="row between">
-                  <strong>{i.text}</strong>
-                  <span className="row">
-                    {i.refs.map((r, k) => <RefLink key={k} refv={r}>{k === 0 ? 'Read' : formatRef(r, { abbr: true })}</RefLink>)}
-                    {i.refs[0] && <Link to={`/study/passage/${i.refs[0].book}.${i.refs[0].c1}${i.refs[0].v1 ? '.' + i.refs[0].v1 : ''}${i.refs[0].c2 !== i.refs[0].c1 || i.refs[0].v2 !== i.refs[0].v1 ? '-' + (i.refs[0].c2 !== i.refs[0].c1 ? i.refs[0].c2 + '.' : '') + (i.refs[0].v2 ?? '') : ''}`.replace(/-$/, '')}>Study</Link>}
-                  </span>
-                </div>
-                {i.note && <div className="muted small">{i.note}</div>}
-              </li>
+              i.slot === 'gospel_acclamation'
+                ? <div key={i.slot} className="muted small">{SLOT_LABEL[i.slot]}: {i.text}</div>
+                : <ReadingBlock key={i.slot} refs={i.refs} label={SLOT_LABEL[i.slot]} text={i.text} />
             ))}
-          </ul>
+          </div>
         )}
         {rd && <div className="notice info">{rd.sourceNote}</div>}
         <div className="notice">
-          The Lectionary text (NABRE-based in the United States) is copyrighted, so this app shows <em>references</em> and opens them in the bundled translations, not the Lectionary wording.
+          The Lectionary wording (NABRE-based in the United States) is copyrighted, so the readings above are the Church’s assigned <em>passages</em>, printed in your chosen translation (change it in Settings). The official text is one tap away.
         </div>
         <div className="row">
           <a className="btn" href={usccb} target="_blank" rel="noreferrer">Official daily readings (USCCB) ↗</a>
