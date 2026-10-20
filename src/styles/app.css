@@ -3778,3 +3778,26 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .home-extras a:hover, .home-extras button:hover:not(:disabled) { color: var(--accent); text-decoration: underline; }
 .home-extras button:disabled { opacity: .7; cursor: default; }
 @media (max-height: 700px) { .home-extras { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; width: 100%; white-space: nowrap; scrollbar-width: none; margin-bottom: 4px; } }
+
+/* gallery */
+.gallery-grid { list-style: none; padding: 0; margin: 12px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.gallery-grid button { all: unset; cursor: pointer; display: block; width: 100%; }
+.gallery-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; background: var(--surface-2, #0001); display: block; }
+.gallery-grid span { display: block; font-size: .78rem; color: var(--muted); margin-top: 3px; }
+.gallery-view { position: fixed; inset: 0; z-index: 80; background: rgba(0,0,0,.72); display: grid; place-items: center; padding: 12px; }
+.gallery-card { position: relative; background: var(--bg); color: var(--fg); border-radius: 12px; padding: 14px; max-width: min(960px, 100%); max-height: 100%; overflow: auto; }
+.gallery-card img { max-width: 100%; max-height: 62vh; display: block; margin: 0 auto; border-radius: 6px; }
+.gallery-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.gallery-pair figure { margin: 0; }
+@media (max-width: 600px) { .gallery-pair { grid-template-columns: 1fr; } .gallery-pair img { max-height: 30vh; } }
+
+.offline-pill { position: fixed; top: 6px; left: 50%; transform: translateX(-50%); z-index: 90; background: var(--surface, #333); color: var(--fg); border: 1px solid var(--border, #8884); border-radius: 999px; padding: 3px 12px; font-size: .75rem; box-shadow: 0 2px 8px #0003; }
+
+/* printing: just the text */
+@media print {
+  .tabs, .skip, .offline-pill, .motes, .study-panel, .mini-player, .reader-bar, .chapter-nav, .toast, .home-actions, .icon-btn, .galaxy-x, [data-noprint] { display: none !important; }
+  html, body, .shell, .page, main { background: #fff !important; color: #000 !important; height: auto !important; overflow: visible !important; }
+  .verse-text, .chapter-text, .page { font-size: 12pt !important; line-height: 1.5 !important; max-width: none !important; }
+  img { max-width: 60% !important; break-inside: avoid; }
+  a { color: inherit !important; text-decoration: none !important; }
+}

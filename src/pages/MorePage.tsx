@@ -9,6 +9,7 @@ const GROUPS: { title: string; items: Row[] }[] = [
     ['/pray/readings', 'Mass readings', 'The day’s readings, printed in full in your translation.'],
     ['/pray/plans', 'Reading plans', 'Follow a plan through the Bible or a theme, with progress kept.'],
     ['/listen', 'Bible in a Year', 'Daily episodes mapped to the passages they read.'],
+    ['/study/gallery', 'Gallery', 'Paintings and engravings of Bible scenes; compare two of the same scene.'],
     ['/study/paths', 'Study paths', 'Guided journeys through a theme, with the Fathers and a question.'],
     ['/study/fathers', 'Reading room', 'Saints, Fathers and catechisms to read in full.'],
     ['/study/church', 'Councils and Church documents', 'Read in full where public domain, official links for the rest.'],

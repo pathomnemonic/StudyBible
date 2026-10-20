@@ -324,7 +324,7 @@ export default function ReadPage() {
     });
     lastClicked.current = n;
     // tapping a verse opens what is connected to it, everywhere (docked beside the text on wide screens, a sheet on phones)
-    if (!menu && !settings.scriptureOnly) setPanel(true);
+    if (!menu && !settings.scriptureOnly && (dockOn || window.innerWidth >= 700)) setPanel(true);
   };
 
   /** anchor Refs for the current selection (grouped into contiguous ranges) */
@@ -723,6 +723,7 @@ export default function ReadPage() {
       {hasSel && (dockOn || !panelOpen) && !settings.scriptureOnly && (
         <div className="actionbar" role="toolbar" aria-label="Verse actions">
           {verseActions}
+          {!dockOn && !settings.scriptureOnly && <button className="btn primary" onClick={() => setPanel(true)}>Study this passage</button>}
           {!selExact && <div className="notice" style={{ width: '100%' }}>Numbering differs between editions here; the anchored passage may be a verse or two off.</div>}
         </div>
       )}

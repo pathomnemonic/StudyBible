@@ -2,16 +2,21 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FEATURES, STATUS_LABEL, type Status } from '../featureStatus';
 import { CANON_NOTES } from '../lib/canon';
+import { useEffect } from 'react';
+import { getJson } from '../data/loader';
 
 const COLOR: Record<Status, string> = { working: 'good', partial: 'warn', 'needs-license': 'warn', 'needs-credentials': 'warn', planned: '' };
 
 export default function AboutPage() {
   const [f, setF] = useState<Status | ''>('');
+  const [built, setBuilt] = useState('');
+  useEffect(() => { getJson<{ generated: string }>('manifest.json', true).then((m) => setBuilt(m?.generated ?? '')).catch(() => {}); }, []);
   const list = FEATURES.filter((x) => !f || x.status === f);
   return (
     <div className="page">
       <h1>About & feature status</h1>
       <p className="lede">A study library built on legitimately available texts. This page says plainly what works, what is partial, and what needs a licence, credentials or future work.</p>
+      <p className="muted small">Text and study data last built {built || '…'}. The app updates itself quietly when you are online.</p>
       {CANON_NOTES.map((n, i) => <div className="notice info" key={i}>{n}</div>)}
       <div className="chips" style={{ margin: '10px 0' }}>
         <button className={`chip${!f ? ' sel' : ''}`} onClick={() => setF('')}>All</button>

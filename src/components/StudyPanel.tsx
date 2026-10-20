@@ -63,7 +63,8 @@ export default function StudyPanel({
 }) {
   const [data, setData] = useState<Partial<Record<SectionKey, StudyItem[]>>>({});
   const [loading, setLoading] = useState(true);
-  const [tab, setTab] = useState(initialTab === 'all' ? 'notes' : initialTab);
+  const [tab, setTabState] = useState(() => { try { return localStorage.getItem('sb:panelTab') || (initialTab === 'all' ? 'notes' : initialTab); } catch { return initialTab === 'all' ? 'notes' : initialTab; } });
+  const setTab = (t: string) => { setTabState(t); try { localStorage.setItem('sb:panelTab', t); } catch { /* private mode */ } };
   const [authority, setAuthority] = useState('');
   const [period, setPeriod] = useState('');
   const [author, setAuthor] = useState('');

@@ -60,10 +60,13 @@ export default function Shell({ children }: { children: ReactNode }) {
       window.removeEventListener('studybible:search', open);
     };
   }, []);
+  const [offline, setOffline] = useState(typeof navigator !== 'undefined' && navigator.onLine === false);
+  useEffect(() => { const a = () => setOffline(true), b = () => setOffline(false); window.addEventListener('offline', a); window.addEventListener('online', b); return () => { window.removeEventListener('offline', a); window.removeEventListener('online', b); }; }, []);
   const fullscreenReader = (loc.pathname.startsWith('/read') && s.scriptureOnly) || loc.pathname.startsWith('/widget');
   const home = isHome(loc.pathname);
   return (
     <div className={`shell${fullscreenReader ? ' quiet' : ''}${home ? ' home-shell' : ''}`}>
+      {offline && <div className="offline-pill" role="status">Offline: everything you have opened or downloaded still works</div>}
       <a className="skip" href="#main">
         {t('nav.skip')}
       </a>

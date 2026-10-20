@@ -11,6 +11,7 @@ import { ToastProvider } from './components/Toast';
 import { initSync } from './sync/state';
 import { scheduleReminder } from './liturgy/reminders';
 
+const GalleryPage = lazy(() => import('./pages/study/GalleryPage'));
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
 const PathPage = lazy(() => import('./pages/study/PathsPage'));
 const PathsIndex = lazy(() => import('./pages/study/PathsPage').then((m) => ({ default: m.PathsIndex })));
@@ -147,6 +148,7 @@ export default function App() {
               <Route path="/read" element={<Home />} />
               <Route path="/read/:edition/:book/:chapter" element={<ReadPage />} />
               <Route path="/study" element={<StudyHome />} />
+              <Route path="/study/gallery" element={<GalleryPage />} />
               <Route path="/study/search" element={<SearchPage />} />
               <Route path="/study/topics/:id" element={<TopicPage />} />
               <Route path="/study/books/:id?" element={<BooksPage />} />
