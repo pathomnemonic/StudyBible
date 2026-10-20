@@ -3,6 +3,9 @@ import { mkdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { PROVENANCE, RAW, readJson, REGISTRY, sha256, today, writeJson, exists } from './lib/util';
 
+/** Identifies this project to the publishers whose pages it reads. */
+const USER_AGENT = 'StudyBibleApp/1.0 (+https://github.com/pathomnemonic/StudyBible)';
+
 interface FetchEntry {
   id: string;
   url: string;
@@ -80,7 +83,7 @@ export async function fetchAll(only?: string[]) {
     } else {
       console.log(`↓ ${e.id}  ${e.url}`);
       try {
-        execFileSync('curl', ['-fsSL', '--retry', '4', '--retry-delay', '3', '--retry-all-errors', '-m', '180', '-o', dest, e.url], { stdio: 'inherit' });
+        execFileSync('curl', ['-fsSL', '-A', USER_AGENT, '--retry', '4', '--retry-delay', '3', '--retry-all-errors', '-m', '180', '-o', dest, e.url], { stdio: 'inherit' });
       } catch {
         console.error(`!! could not fetch ${e.id}`);
         continue;

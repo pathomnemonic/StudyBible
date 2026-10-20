@@ -127,7 +127,7 @@ export default function TodayPage() {
             {saint && (
               <figure className="home-saint">
                 <blockquote>“{saint.text}”</blockquote>
-                <figcaption>— {saint.who}{saint.work && !saint.who.includes(saint.work) ? `, ${saint.work}` : ''}</figcaption>
+                <figcaption>— {saint.who}{saint.work && !saint.who.includes(saint.work) ? `, ${saint.work}` : ''}{saint.src && (saint.src.work ? <> · <Link to={`/study/works/${saint.src.work}/${saint.src.section ?? 0}`}>{t('home.context')}</Link></> : saint.src.url ? <> · <a href={saint.src.url} target="_blank" rel="noreferrer">{t('home.context')} ↗</a></> : null)}</figcaption>
               </figure>
             )}
             <p className="home-question">{entry.q}</p>
@@ -138,7 +138,7 @@ export default function TodayPage() {
       {info && entry && (
         <aside className="home-info" role="dialog" aria-label="Sources">
           <p><strong>Verse.</strong> {verse?.label} in {edition?.name ?? 'your translation'}{ref ? <> · <Link to={`/study/passage/${ref.book}.${ref.c1}${ref.v1 ? '.' + ref.v1 : ''}`}>study it</Link></> : null}.</p>
-          <p><strong>Quote.</strong> {saint?.who}{saint?.work ? `, ${saint.work}` : ''}. {saint?.verified ? 'Checked word for word against the public-domain text in this app’s library.' : 'Shown as attributed; not yet checked against the source text.'}</p>
+          <p><strong>Quote.</strong> {saint?.who}{saint?.work ? `, ${saint.work}` : ''}. {saint?.verified ? (saint.src?.work ? 'Checked word for word against the public-domain text in this app’s library; “see it in context” opens it.' : 'Checked against a published edition (see it in context).') : saint?.misattributed ? `Attribution doubtful: ${saint.misattributed}.` : 'Shown as attributed; we could not find it in a source text we can check.'}</p>
           <p><strong>Question.</strong> Written for this app to go with the verse and the season ({ld.seasonName}).</p>
           <p className="muted small">Keys: ← → change day · i sources.</p>
         </aside>

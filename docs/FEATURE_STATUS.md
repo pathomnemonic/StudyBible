@@ -159,7 +159,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Daily reflection: verse, saint quote and question for the day | **Partial** | 366 calendar-day triples plus 151 season-specific ones (Advent, the O Antiphons, Christmas, Lent, Holy Week, Easter) so verse, quote and question agree with the liturgical day. Season quotes were checked word for word against the library texts; of the calendar-day quotes only about 15 are verified, the rest are shown as attributed and labelled so. Questions are written for this app. |
+| Daily reflection: verse, saint quote and question for the day | **Partial** | 366 calendar-day triples plus 151 season-specific ones (Advent, the O Antiphons, Christmas, Lent, Holy Week, Easter) so verse, quote and question agree with the liturgical day. Season quotes were checked word for word against the library texts; of the 366 calendar-day quotes 38 are verified against a library text or a published edition (with a “see it in context” link), 20 were found to be misattributed and are shown with the corrected author, and the remaining ~300 could not be traced to a source and are labelled as such. About 30 quote texts appear under more than one saint in the source list. Questions are written for this app. |
 
 ## Library
 

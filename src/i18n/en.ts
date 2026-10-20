@@ -15,6 +15,7 @@ export const en = {
   'home.continue': 'Continue',
   'home.random': 'Random passage',
   'home.mass': 'Mass readings',
+  'home.context': 'See it in context',
   'home.sources': 'Sources',
   'home.prev': 'Previous day',
   'home.next': 'Next day',

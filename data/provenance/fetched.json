@@ -1013,5 +1013,695 @@
   "terms": "https://www.gutenberg.org/ebooks/14551",
   "rights": "public-domain",
   "note": "Baltimore Catechism No. 1, Third Plenary Council of Baltimore. Prepared and enjoined by the Third Plenary Council of Baltimore (1884), approved 6 April 1885; text edited for the Gutenberg e-text from the Benziger Brothers printing. Project Gutenberg's licence header for this ebook: 'Creating the works from print editions not protected by U.S. copyright law'. Imprimaturs dated 1885, 1901 and 1921 are printed in the text; the Catechism was composed in 1885 (Gutenberg ebook #14551). Public domain in the US."
+ },
+ "scrollmapper-cpdv": {
+  "url": "https://raw.githubusercontent.com/scrollmapper/bible_databases/master/formats/json/CPDV.json",
+  "file": "CPDV.json",
+  "bytes": 10027217,
+  "sha256": "f91a5dc9556d77a441a18adff5a272f8f4b1fea1745e01d0c3c2a93aa7929a38",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.sacredbible.org/catholic/",
+  "rights": "public-domain",
+  "note": "Catholic Public Domain Version (Ronald L. Conte Jr.), JSON export from the scrollmapper/bible_databases project. The translator dedicated the text to the public domain."
+ },
+ "ccel-schaff_npnf214": {
+  "url": "https://www.ccel.org/ccel/schaff/npnf214.xml",
+  "file": "ccel_schaff_npnf214.xml",
+  "bytes": 3196008,
+  "sha256": "4ae3cb29edcb7b8e58bb9246049243c464b6839f88f6730f98b80122770b9bb4",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/schaff",
+  "rights": "public-domain",
+  "note": "First Council of Nicaea (325), Council of Nicaea I. Public-domain text distributed by CCEL as ThML."
+ },
+ "text-leo-xiii-encyclicals": {
+  "url": "https://archive.org/download/greatencyclicall00cathuoft/greatencyclicall00cathuoft_djvu.txt",
+  "file": "archive_greatencyclicall00cathuoft.txt",
+  "bytes": 1163035,
+  "sha256": "2b7c730b6267e731f5929631575b3cfca0dd0b58db65fbbc233517c24f19a99d",
+  "retrieved": "2026-10-20",
+  "terms": "https://archive.org/details/greatencyclicall00cathuoft",
+  "rights": "public-domain",
+  "note": "The Great Encyclical Letters of Pope Leo XIII, Leo XIII. Translations from approved sources (the Holy See's English versions as circulated at the time), collected with a preface by Rev. John J. Wynne, S.J. (New York, Cincinnati, Chicago: Benziger Brothers, Printers to the Holy Apostolic See, 1903). First published 1903 by Benziger Brothers with the imprimatur of Archbishop Farley (4 Aug 1903) and a 1903 copyright notice; the Internet Archive scan (from the University of Toronto copy) is of that edition. A US work published in 1903 is in the public domain (before 1929), and Leo XIII's original texts predate the translations. The text is raw OCR with some errors."
+ },
+ "text-trent-canons-decrees": {
+  "url": "https://archive.org/download/cu31924029369760/cu31924029369760_djvu.txt",
+  "file": "archive_cu31924029369760.txt",
+  "bytes": 1423788,
+  "sha256": "63a29ff653e60124787c11d096189fe5b719115c4bde75dfcc421800236c223e",
+  "retrieved": "2026-10-20",
+  "terms": "https://archive.org/details/cu31924029369760",
+  "rights": "public-domain",
+  "note": "The Canons and Decrees of the Council of Trent, Council of Trent. Rev. J. Waterworth (London: Dolman, 1848; this printing with the 'Essays on the External and Internal History of the Council', London: Burns & Oates / New York: Catholic Publication Society). Waterworth's translation was first published in 1848; the Internet Archive scan is of the Cornell University Library copy, whose scan notice reads 'There are no known copyright restrictions in the United States on the use of the text'. Waterworth died in 1876. The preliminary essays are not imported; only the English decrees are. The text is raw OCR."
+ },
+ "text-pascendi-dominici-gregis": {
+  "url": "https://archive.org/download/doctrinesmodern00piusuoft/doctrinesmodern00piusuoft_djvu.txt",
+  "file": "archive_doctrinesmodern00piusuoft.txt",
+  "bytes": 167230,
+  "sha256": "7fe24ccaa0cb39269c5606f758563f6a7b7ea9dc84575c6c9b7788dbcee9c368",
+  "retrieved": "2026-10-20",
+  "terms": "https://archive.org/details/doctrinesmodern00piusuoft",
+  "rights": "public-domain",
+  "note": "Pascendi Dominici Gregis: On the Doctrines of the Modernists, Pius X. Official English translation 'published with authority' by Burns & Oates, Ltd., London (1907–1908), as scanned by the Internet Archive (University of Toronto copy, 'On the doctrines of the modernists', 1908). The scanned pamphlet is the Burns & Oates 'Official Translation', issued in 1907–1908 (the Internet Archive item is dated 1908 and comes from the University of Toronto Library). A British/US printing of 1907–1908 is public domain in the US (before 1929). The pamphlet's own index and Translator's notes are omitted; only the encyclical text is imported. Text is raw OCR."
+ },
+ "text-vatican-i-constitutions": {
+  "url": "https://archive.org/download/dogmaticcanonsan00unknuoft/dogmaticcanonsan00unknuoft_djvu.txt",
+  "file": "archive_dogmaticcanonsan00unknuoft.txt",
+  "bytes": 305960,
+  "sha256": "738a5b1c6dd891588ffc4c699999628190c729ab529e053f2cbee832adcf4618",
+  "retrieved": "2026-10-20",
+  "terms": "https://archive.org/details/dogmaticcanonsan00unknuoft",
+  "rights": "public-domain",
+  "note": "First Vatican Council: Dei Filius and Pastor Aeternus, First Vatican Council. Authorized English translations as printed in 'Dogmatic Canons and Decrees' (New York: The Devin-Adair Company, 1912; imprimatur John Cardinal Farley, 22 June 1912; Remigius Lafort, censor); translator not named. Devin-Adair, New York, 1912, copyright notice 1912 (US publication before 1929, so public domain in the US); the Internet Archive scan is from the University of Toronto copy. The original Latin constitutions are of 1870. This 1912 printing's footnotes remain. The scan lost end-of-line hyphens, which the importer repairs against the text's own vocabulary; typographic errors remain."
+ },
+ "text-ineffabilis-deus": {
+  "url": "https://archive.org/download/dogmaticcanonsan00unknuoft/dogmaticcanonsan00unknuoft_djvu.txt",
+  "file": "archive_dogmaticcanonsan00unknuoft.txt",
+  "bytes": 305960,
+  "sha256": "738a5b1c6dd891588ffc4c699999628190c729ab529e053f2cbee832adcf4618",
+  "retrieved": "2026-10-20",
+  "terms": "https://archive.org/details/dogmaticcanonsan00unknuoft",
+  "rights": "public-domain",
+  "note": "Ineffabilis Deus: Definition of the Immaculate Conception, Pius IX. Authorized translation as printed in 'Dogmatic Canons and Decrees' (New York: The Devin-Adair Company, 1912; imprimatur John Cardinal Farley); translator not named. Devin-Adair, New York, 1912 (US publication before 1929, public domain in the US); Internet Archive scan from the University of Toronto copy. The original bull is of 1854. Only the definition as reprinted there is imported, not the full bull."
+ },
+ "text-syllabus-of-errors": {
+  "url": "https://archive.org/download/dogmaticcanonsan00unknuoft/dogmaticcanonsan00unknuoft_djvu.txt",
+  "file": "archive_dogmaticcanonsan00unknuoft.txt",
+  "bytes": 305960,
+  "sha256": "738a5b1c6dd891588ffc4c699999628190c729ab529e053f2cbee832adcf4618",
+  "retrieved": "2026-10-20",
+  "terms": "https://archive.org/details/dogmaticcanonsan00unknuoft",
+  "rights": "public-domain",
+  "note": "The Syllabus of Errors, Pius IX. Authorized translation as printed in 'Dogmatic Canons and Decrees' (New York: The Devin-Adair Company, 1912; imprimatur John Cardinal Farley); translator not named. Devin-Adair, New York, 1912 (US publication before 1929, public domain in the US); Internet Archive scan from the University of Toronto copy. The Syllabus itself is of 1864. Raw OCR with lost line-end hyphens repaired against the text's vocabulary."
+ },
+ "church-dignitatis-humanae": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_en.html",
+  "file": "church_dignitatis-humanae.html",
+  "bytes": 42080,
+  "sha256": "0ce2da9b19709aebb79da3d4110bb5b7dd18234c27adf629dd01724eb0bffd61",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Dignitatis Humanae — Declaration on Religious Freedom (Second Vatican Council, 1965-12-07). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-gravissimum-educationis": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_gravissimum-educationis_en.html",
+  "file": "church_gravissimum-educationis.html",
+  "bytes": 44799,
+  "sha256": "ada7f0b7bb6c9cb82d312035d5c522423bef331d0a0c5f8fa01eade25a2ea126",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Gravissimum Educationis — Declaration on Christian Education (Second Vatican Council, 1965-10-28). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-christus-dominus": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_christus-dominus_en.html",
+  "file": "church_christus-dominus.html",
+  "bytes": 68154,
+  "sha256": "f4694c0ea45925ba497242cc0d8dc6c805a431531bf634a29c8bfe413eb86945",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Christus Dominus — Decree on the Pastoral Office of Bishops (Second Vatican Council, 1965-10-28). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-perfectae-caritatis": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_perfectae-caritatis_en.html",
+  "file": "church_perfectae-caritatis.html",
+  "bytes": 36410,
+  "sha256": "6dd0dbb8aa07acdeb82bde4bb34be72de67cecef7e132e3300c839ffa00a0654",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Perfectae Caritatis — Decree on the Adaptation and Renewal of Religious Life (Second Vatican Council, 1965-10-28). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-optatam-totius": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_optatam-totius_en.html",
+  "file": "church_optatam-totius.html",
+  "bytes": 36845,
+  "sha256": "76f407751ceaa22e11cc6706c29dab6703e54dd5a8a75aeab9728f016b925ea9",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Optatam Totius — Decree on Priestly Training (Second Vatican Council, 1965-10-28). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-apostolicam-actuositatem": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651118_apostolicam-actuositatem_en.html",
+  "file": "church_apostolicam-actuositatem.html",
+  "bytes": 79558,
+  "sha256": "6e6010392f67424f085dfe2b52d3cdc25f96af392998130c76ca8b15950effd2",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Apostolicam Actuositatem — Decree on the Apostolate of the Laity (Second Vatican Council, 1965-11-18). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-ad-gentes": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_ad-gentes_en.html",
+  "file": "church_ad-gentes.html",
+  "bytes": 122006,
+  "sha256": "a7f1876c9acab15356eff3ef7919d8cd6c62cbc362d7adb5a41555450eef9e0f",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Ad Gentes — Decree on the Mission Activity of the Church (Second Vatican Council, 1965-12-07). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-presbyterorum-ordinis": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_en.html",
+  "file": "church_presbyterorum-ordinis.html",
+  "bytes": 95582,
+  "sha256": "7d5a46cee1731fbce6fd5325817b83d47fe8d193259f224827681e88ffeb3448",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Presbyterorum Ordinis — Decree on the Ministry and Life of Priests (Second Vatican Council, 1965-12-07). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-orientalium-ecclesiarum": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_orientalium-ecclesiarum_en.html",
+  "file": "church_orientalium-ecclesiarum.html",
+  "bytes": 33012,
+  "sha256": "c552394af0d4ea9c5eb52dc8005b5b0d84e2c133157edf673c87cd1cd6e5d923",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Orientalium Ecclesiarum — Decree on the Eastern Catholic Churches (Second Vatican Council, 1964-11-21). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-inter-mirifica": {
+  "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19631204_inter-mirifica_en.html",
+  "file": "church_inter-mirifica.html",
+  "bytes": 27231,
+  "sha256": "92e1fde640d2164faf90cd9ad683459264fc0949412f307d6a7403a8bf425b9d",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Inter Mirifica — Decree on the Media of Social Communications (Second Vatican Council, 1963-12-04). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-catechism-catholic-church": {
+  "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM",
+  "file": "church_catechism-catholic-church.html",
+  "bytes": 38941,
+  "sha256": "92199edc96afdb8d76df6682fced3a2e631f786c2d171abfed49a3dc64e3e05d",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Catechism of the Catholic Church (John Paul II (promulgated), 1992-10-11). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-compendium-ccc": {
+  "url": "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html",
+  "file": "church_compendium-ccc.html",
+  "bytes": 378892,
+  "sha256": "a35594fda5cf56333ff59388de407e152f5cd41e012d68e34f2bf75bbfa691a8",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Compendium of the Catechism of the Catholic Church (Benedict XVI (approved), 2005-06-28). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-fidei-depositum": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/apost_constitutions/documents/hf_jp-ii_apc_19921011_fidei-depositum.html",
+  "file": "church_fidei-depositum.html",
+  "bytes": 46986,
+  "sha256": "bd52f27efa1b18c248b42615ca5a23627c7bfe62d836b411d85507a6a960e421",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Fidei Depositum — Apostolic Constitution on the Publication of the Catechism (John Paul II, 1992-10-11). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-code-canon-law": {
+  "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_en.html",
+  "file": "church_code-canon-law.html",
+  "bytes": 82363,
+  "sha256": "32e9c175983105a6bfd3065cb96ddc90f70ad62f7853ca967f22493e615b5e21",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Code of Canon Law (1983) (John Paul II (promulgated), 1983-01-25). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-casti-connubii": {
+  "url": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_19301231_casti-connubii.html",
+  "file": "church_casti-connubii.html",
+  "bytes": 146868,
+  "sha256": "cbe0128101a32f44869edb8356628d92b4297a442590902c129eac2e23e62348",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Casti Connubii — Encyclical on Christian Marriage (Pius XI, 1930-12-31). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-quadragesimo-anno": {
+  "url": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_19310515_quadragesimo-anno.html",
+  "file": "church_quadragesimo-anno.html",
+  "bytes": 155788,
+  "sha256": "783539672439355bb5668e50554af981e23b3d16a4b5592c97474a03e9ceffda",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Quadragesimo Anno — Encyclical on Reconstruction of the Social Order (Pius XI, 1931-05-15). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-mit-brennender-sorge": {
+  "url": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_14031937_mit-brennender-sorge.html",
+  "file": "church_mit-brennender-sorge.html",
+  "bytes": 73025,
+  "sha256": "d84098a4125028b03fed8be47214565e8701eb8d02db73e8f42f424294f55ca5",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Mit Brennender Sorge — Encyclical on the Church and the German Reich (Pius XI, 1937-03-14). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-divini-redemptoris": {
+  "url": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_19370319_divini-redemptoris.html",
+  "file": "church_divini-redemptoris.html",
+  "bytes": 105484,
+  "sha256": "c5cd672204e8248bd8924cd6a07f2391b0b44cadb596f31c313b6f9217317b68",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Divini Redemptoris — Encyclical on Atheistic Communism (Pius XI, 1937-03-19). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-mystici-corporis-christi": {
+  "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_29061943_mystici-corporis-christi.html",
+  "file": "church_mystici-corporis-christi.html",
+  "bytes": 158801,
+  "sha256": "381803a218cda0260979f3fe9c18c70057b1ab91ba92a7584ee8bc0f1e27a516",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Mystici Corporis Christi — Encyclical on the Mystical Body of Christ (Pius XII, 1943-06-29). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-mediator-dei": {
+  "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_20111947_mediator-dei.html",
+  "file": "church_mediator-dei.html",
+  "bytes": 197809,
+  "sha256": "ca8a5df6025273eb473efbb114edc29d3e26bb29463746aec853ca471c31cf35",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Mediator Dei — Encyclical on the Sacred Liturgy (Pius XII, 1947-11-20). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-humani-generis": {
+  "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_12081950_humani-generis.html",
+  "file": "church_humani-generis.html",
+  "bytes": 72170,
+  "sha256": "2519a6362fb04e8202b6fbbad48c1187b095f1db73e3318919d99b721fc67af3",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Humani Generis — Encyclical on Some False Opinions Threatening Catholic Doctrine (Pius XII, 1950-08-12). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-munificentissimus-deus": {
+  "url": "https://www.vatican.va/content/pius-xii/en/apost_constitutions/documents/hf_p-xii_apc_19501101_munificentissimus-deus.html",
+  "file": "church_munificentissimus-deus.html",
+  "bytes": 74219,
+  "sha256": "f9ed0294949d4bfa366347aed3dcb3460e57e8794ea595837beaf8109288f1b1",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Munificentissimus Deus — Apostolic Constitution Defining the Assumption of Mary (Pius XII, 1950-11-01). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-ad-caeli-reginam": {
+  "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_11101954_ad-caeli-reginam.html",
+  "file": "church_ad-caeli-reginam.html",
+  "bytes": 68900,
+  "sha256": "d59e7cc557fcdf69da62142a9db7f622bd794ab9d0dfef68bf35e47d61f17279",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Ad Caeli Reginam — Encyclical on the Queenship of Mary (Pius XII, 1954-10-11). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-haurietis-aquas": {
+  "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_15051956_haurietis-aquas.html",
+  "file": "church_haurietis-aquas.html",
+  "bytes": 130158,
+  "sha256": "9dfd7417eb8cefc5d84a2468115d00b133816929077cc0f4e6322a6725b74b97",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Haurietis Aquas — Encyclical on Devotion to the Sacred Heart (Pius XII, 1956-05-15). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-mater-et-magistra": {
+  "url": "https://www.vatican.va/content/john-xxiii/en/encyclicals/documents/hf_j-xxiii_enc_15051961_mater.html",
+  "file": "church_mater-et-magistra.html",
+  "bytes": 169910,
+  "sha256": "6011b992ac08e2290643716067b981b74f05b558e7ce54748a9c2ee78dfadbee",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Mater et Magistra — Encyclical on Christianity and Social Progress (John XXIII, 1961-05-15). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-pacem-in-terris": {
+  "url": "https://www.vatican.va/content/john-xxiii/en/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html",
+  "file": "church_pacem-in-terris.html",
+  "bytes": 135838,
+  "sha256": "1ff24e53b141b878d8ce4053e72738cd84c29f6a9e9aa19891f01b8896c90b93",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Pacem in Terris — Encyclical on Establishing Universal Peace (John XXIII, 1963-04-11). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-ecclesiam-suam": {
+  "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_06081964_ecclesiam.html",
+  "file": "church_ecclesiam-suam.html",
+  "bytes": 151160,
+  "sha256": "f5a8ce712c7fab8de93d016f03a450d0b43d3813032995d45d9b1235dd70c340",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Ecclesiam Suam — Encyclical on the Church (Paul VI, 1964-08-06). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-mysterium-fidei": {
+  "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_03091965_mysterium.html",
+  "file": "church_mysterium-fidei.html",
+  "bytes": 91261,
+  "sha256": "913800e018e2e00d2d17154c66de604d2e488176240894ccdfb8660f2fff8ddd",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Mysterium Fidei — Encyclical on the Holy Eucharist (Paul VI, 1965-09-03). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-populorum-progressio": {
+  "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_26031967_populorum.html",
+  "file": "church_populorum-progressio.html",
+  "bytes": 121921,
+  "sha256": "0f620c0095104d2af7fffb25f5118d61318cba44bafa282541f0d91a99757c6b",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Populorum Progressio — Encyclical on the Development of Peoples (Paul VI, 1967-03-26). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-sacerdotalis-caelibatus": {
+  "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_24061967_sacerdotalis.html",
+  "file": "church_sacerdotalis-caelibatus.html",
+  "bytes": 120969,
+  "sha256": "df9cdf8ff6def059e359f12c5c9a232f174b5a60b30a7b667e9dfdd28e59f674",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Sacerdotalis Caelibatus — Encyclical on the Celibacy of the Priest (Paul VI, 1967-06-24). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-humanae-vitae": {
+  "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_25071968_humanae-vitae.html",
+  "file": "church_humanae-vitae.html",
+  "bytes": 85612,
+  "sha256": "ac0dd9613ad37b3435b89417f0aba4439e660776e365cf3e48465ae20a4a2720",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Humanae Vitae — Encyclical on the Regulation of Birth (Paul VI, 1968-07-25). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-marialis-cultus": {
+  "url": "https://www.vatican.va/content/paul-vi/en/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html",
+  "file": "church_marialis-cultus.html",
+  "bytes": 154839,
+  "sha256": "4946e79b073d014f7690cc9724a5679c578739c839072831495e92ac5e275524",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Marialis Cultus — Apostolic Exhortation on Devotion to the Blessed Virgin Mary (Paul VI, 1974-02-02). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-evangelii-nuntiandi": {
+  "url": "https://www.vatican.va/content/paul-vi/en/apost_exhortations/documents/hf_p-vi_exh_19751208_evangelii-nuntiandi.html",
+  "file": "church_evangelii-nuntiandi.html",
+  "bytes": 173140,
+  "sha256": "09618a80e274eef7abcd2f1e32de909a4c57fc695b15f9e3bc16d2ed23940ac1",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Evangelii Nuntiandi — Apostolic Exhortation on Evangelization in the Modern World (Paul VI, 1975-12-08). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-redemptor-hominis": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_04031979_redemptor-hominis.html",
+  "file": "church_redemptor-hominis.html",
+  "bytes": 213722,
+  "sha256": "8f3b19d4570ad7aa2d6e86d7c1fe525d4464af9172015b4d9ae0979fd54f77d2",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Redemptor Hominis — Encyclical on Christ the Redeemer (John Paul II, 1979-03-04). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-catechesi-tradendae": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_16101979_catechesi-tradendae.html",
+  "file": "church_catechesi-tradendae.html",
+  "bytes": 169662,
+  "sha256": "08e08ebbfd01b13e8ebe9cc62e397ad05e108dcf3f253ef96b4ba3ee66af4994",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Catechesi Tradendae — Apostolic Exhortation on Catechesis in Our Time (John Paul II, 1979-10-16). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-dives-in-misericordia": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html",
+  "file": "church_dives-in-misericordia.html",
+  "bytes": 167528,
+  "sha256": "973197a7980dfbe0cbdd40f01aab32e00c1060297ec0b5ac8822464c1c95419e",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Dives in Misericordia — Encyclical on the Mercy of God (John Paul II, 1980-11-30). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-laborem-exercens": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_14091981_laborem-exercens.html",
+  "file": "church_laborem-exercens.html",
+  "bytes": 186616,
+  "sha256": "3aab4a5e234ae9306e60dd7a281d2d0d5183048058485650ff91c223dcb62ac8",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Laborem Exercens — Encyclical on Human Work (John Paul II, 1981-09-14). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-familiaris-consortio": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html",
+  "file": "church_familiaris-consortio.html",
+  "bytes": 293209,
+  "sha256": "bd63b9933c9853358afaab2a006650162f1f4335568ba19aaa0eb4ae8bb54630",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Familiaris Consortio — Apostolic Exhortation on the Role of the Christian Family (John Paul II, 1981-11-22). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-redemptoris-mater": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031987_redemptoris-mater.html",
+  "file": "church_redemptoris-mater.html",
+  "bytes": 206000,
+  "sha256": "a6debbcddbfdc7f4d4e8d4eef23b84836b7d35ad3d7cb7afa255d9265a93cf58",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Redemptoris Mater — Encyclical on the Blessed Virgin Mary in the Life of the Pilgrim Church (John Paul II, 1987-03-25). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-sollicitudo-rei-socialis": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30121987_sollicitudo-rei-socialis.html",
+  "file": "church_sollicitudo-rei-socialis.html",
+  "bytes": 192709,
+  "sha256": "fc5302e9f1e098b03e5ed08e1dc7e1035a508ce8664d81ca955c5308d2b8c2c0",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Sollicitudo Rei Socialis — Encyclical on Social Concern (John Paul II, 1987-12-30). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-mulieris-dignitatem": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1988/documents/hf_jp-ii_apl_15081988_mulieris-dignitatem.html",
+  "file": "church_mulieris-dignitatem.html",
+  "bytes": 190708,
+  "sha256": "2da0ce0e8138c392bd1f1ef0be37c915aa1c0169377918ebb1f24700db6f552f",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Mulieris Dignitatem — Apostolic Letter on the Dignity and Vocation of Women (John Paul II, 1988-08-15). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-redemptoris-missio": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_07121990_redemptoris-missio.html",
+  "file": "church_redemptoris-missio.html",
+  "bytes": 280217,
+  "sha256": "1be7d8f005ca26b0ebb41a1c1fe94b4c41c8ea3b24637d12040f12b4f39065fd",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Redemptoris Missio — Encyclical on the Permanent Validity of the Church's Missionary Mandate (John Paul II, 1990-12-07). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-centesimus-annus": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html",
+  "file": "church_centesimus-annus.html",
+  "bytes": 224796,
+  "sha256": "9813dee57b4c27b9eef5b24707fccd51b187b26c880c60e3ffc7aecadc5454bc",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Centesimus Annus — Encyclical on the Hundredth Anniversary of Rerum Novarum (John Paul II, 1991-05-01). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-veritatis-splendor": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html",
+  "file": "church_veritatis-splendor.html",
+  "bytes": 328747,
+  "sha256": "144095cc862884c494016c2e4d7e5c71880f500961efe4e42734835174b7366d",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Veritatis Splendor — Encyclical on Certain Fundamental Questions of the Church's Moral Teaching (John Paul II, 1993-08-06). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-ordinatio-sacerdotalis": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1994/documents/hf_jp-ii_apl_19940522_ordinatio-sacerdotalis.html",
+  "file": "church_ordinatio-sacerdotalis.html",
+  "bytes": 42316,
+  "sha256": "099007fdc141f5c9459b964a79b4dbdce08438781265cf4a5cd3738393726731",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Ordinatio Sacerdotalis — Apostolic Letter on Reserving Priestly Ordination to Men Alone (John Paul II, 1994-05-22). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-evangelium-vitae": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html",
+  "file": "church_evangelium-vitae.html",
+  "bytes": 348757,
+  "sha256": "7fb80c1c38f4ef50f476b2afcaab535733eff71bb540d4db5a483f8603fbca6d",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Evangelium Vitae — Encyclical on the Value and Inviolability of Human Life (John Paul II, 1995-03-25). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-ut-unum-sint": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25051995_ut-unum-sint.html",
+  "file": "church_ut-unum-sint.html",
+  "bytes": 231717,
+  "sha256": "e0518d27cc5d29c620f410cb02c7993e3ff64be86244df0d4d83e0e2dcec319d",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Ut Unum Sint — Encyclical on Commitment to Ecumenism (John Paul II, 1995-05-25). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-fides-et-ratio": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_14091998_fides-et-ratio.html",
+  "file": "church_fides-et-ratio.html",
+  "bytes": 276782,
+  "sha256": "5f36fcbb7826c939a959bcec24d8ee1ce23679d17c22fb78c8fc805f4ddeb6ab",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Fides et Ratio — Encyclical on the Relationship between Faith and Reason (John Paul II, 1998-09-14). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-dies-domini": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1998/documents/hf_jp-ii_apl_05071998_dies-domini.html",
+  "file": "church_dies-domini.html",
+  "bytes": 180966,
+  "sha256": "41e1ea5870804d1a763dfa88a17220cd0ff3ca0a1fe454d62a629a850fa5a95a",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Dies Domini — Apostolic Letter on Keeping the Lord's Day Holy (John Paul II, 1998-05-31). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-rosarium-virginis-mariae": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/2002/documents/hf_jp-ii_apl_20021016_rosarium-virginis-mariae.html",
+  "file": "church_rosarium-virginis-mariae.html",
+  "bytes": 125585,
+  "sha256": "5b03e360a1eb4a6ea1ed272a1951da433a70b653e4130ebd9bc586ba756ac791",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Rosarium Virginis Mariae — Apostolic Letter on the Most Holy Rosary (John Paul II, 2002-10-16). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-ecclesia-de-eucharistia": {
+  "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_20030417_eccl-de-euch.html",
+  "file": "church_ecclesia-de-eucharistia.html",
+  "bytes": 152644,
+  "sha256": "6204a9de71f804c77a9470fa65bf9facb5926858a5980ecab330b5e31970f99f",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Ecclesia de Eucharistia — Encyclical on the Eucharist in Its Relationship to the Church (John Paul II, 2003-04-17). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-sacramentum-caritatis": {
+  "url": "https://www.vatican.va/content/benedict-xvi/en/apost_exhortations/documents/hf_ben-xvi_exh_20070222_sacramentum-caritatis.html",
+  "file": "church_sacramentum-caritatis.html",
+  "bytes": 248472,
+  "sha256": "8e075afb0e1550f823178e32cefcef04f2163990031fc3dbd207ad582f46cff0",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Sacramentum Caritatis — Apostolic Exhortation on the Eucharist (Benedict XVI, 2007-02-22). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-summorum-pontificum": {
+  "url": "https://www.vatican.va/content/benedict-xvi/en/motu_proprio/documents/hf_ben-xvi_motu-proprio_20070707_summorum-pontificum.html",
+  "file": "church_summorum-pontificum.html",
+  "bytes": 48751,
+  "sha256": "7442edfd1a6e63235fd997929c1cd029304e27e255cd02155bfa01c13b1e198a",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Summorum Pontificum — Motu Proprio on the Use of the Roman Liturgy Prior to 1970 (Benedict XVI, 2007-07-07). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-caritas-in-veritate": {
+  "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20090629_caritas-in-veritate.html",
+  "file": "church_caritas-in-veritate.html",
+  "bytes": 272051,
+  "sha256": "a04520350793ddac65fbc1bbbc5659c305ccf3aa76dd49a04bff8042924b34fe",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Caritas in Veritate — Encyclical on Integral Human Development in Charity and Truth (Benedict XVI, 2009-06-29). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-lumen-fidei": {
+  "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20130629_enciclica-lumen-fidei.html",
+  "file": "church_lumen-fidei.html",
+  "bytes": 168787,
+  "sha256": "c77ba63478be992aa63fb7286e3ec2edd8b71b20cfaa8a25f239cb96efd74edf",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Lumen Fidei — Encyclical on Faith (Francis, 2013-06-29). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-laudato-si": {
+  "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html",
+  "file": "church_laudato-si.html",
+  "bytes": 333683,
+  "sha256": "b16ab3057de6c2ccbcb61481098ac4ece4917ee2aaf1e70181173a631beebe67",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Laudato Si’ — Encyclical on Care for Our Common Home (Francis, 2015-05-24). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-amoris-laetitia": {
+  "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20160319_amoris-laetitia.html",
+  "file": "church_amoris-laetitia.html",
+  "bytes": 35875,
+  "sha256": "6cf8a26279658a5ca35a5757f255de30611308ac896762875210ba3f4003f7f8",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Amoris Laetitia — Apostolic Exhortation on Love in the Family (Francis, 2016-03-19). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-gaudete-et-exsultate": {
+  "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20180319_gaudete-et-exsultate.html",
+  "file": "church_gaudete-et-exsultate.html",
+  "bytes": 198076,
+  "sha256": "a6f21ec2d501ceb4586e1bcea757d0bb9fc1aa13c5ce425649e0db6b0d09684a",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Gaudete et Exsultate — Apostolic Exhortation on the Call to Holiness in Today's World (Francis, 2018-03-19). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-fratelli-tutti": {
+  "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html",
+  "file": "church_fratelli-tutti.html",
+  "bytes": 371250,
+  "sha256": "321f738995e6d92345254b6f52bb06b6937cbdb70677946927bf006a086ffb1d",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Fratelli Tutti — Encyclical on Fraternity and Social Friendship (Francis, 2020-10-03). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-dilexit-nos": {
+  "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/20241024-enciclica-dilexit-nos.html",
+  "file": "church_dilexit-nos.html",
+  "bytes": 259008,
+  "sha256": "181a9b2fd9d1bc0076054e008bb7577e97ca0d1f2e6efce170a138ee3bb8ab60",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Dilexit Nos — Encyclical on the Human and Divine Love of the Heart of Jesus Christ (Francis, 2024-10-24). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
+ },
+ "church-dilexi-te": {
+  "url": "https://www.vatican.va/content/leo-xiv/en/apost_exhortations/documents/20251004-dilexi-te.html",
+  "file": "church_dilexi-te.html",
+  "bytes": 189574,
+  "sha256": "568f5fda40f08282c9ea1162d07089c3b6a01b847ad105f6beb58585801c9597",
+  "retrieved": "2026-10-20",
+  "terms": "https://www.vatican.va/robots.txt",
+  "rights": "copyright-lev",
+  "note": "Dilexi Te — Apostolic Exhortation on Love for the Poor (Leo XIV, 2025-10-04). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
  }
 }

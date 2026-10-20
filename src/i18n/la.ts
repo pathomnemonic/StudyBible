@@ -16,6 +16,7 @@ export const la: Partial<Record<Key, string>> = {
   'home.continue': 'Pergere',
   'home.random': 'Locus fortuitus',
   'home.mass': 'Lectiones Missae',
+  'home.context': 'In contextu videre',
   'home.sources': 'Fontes',
   'home.prev': 'Dies prior',
   'home.next': 'Dies sequens',

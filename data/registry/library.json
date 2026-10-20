@@ -1,5 +1,5 @@
 {
- "_about": "Patristic and spiritual works ingested from the Christian Classics Ethereal Library (CCEL), which publishes these public-domain texts for download as ThML. Add a work here and run `npm run data:all` to ingest it. `scriptureMode` says how verse links are derived: 'tractates' / 'psalm-roman' / 'john-dot' read the work's own section titles (structure-based, strongest); 'tags' uses scripture references tagged inside the text (machine-tagged: the text cites the passage, it is not necessarily a commentary on it).",
+ "_about": "Patristic and spiritual works ingested from the Christian Classics Ethereal Library (CCEL), which publishes these public-domain texts for download as ThML. Add a work here and run `npm run data:all` to ingest it. `scriptureMode` says how verse links are derived: 'tractates' / 'psalm-roman' / 'john-dot' read the work's own section titles (structure-based, strongest); 'tags' uses scripture references tagged inside the text (machine-tagged: the text cites the passage, it is not necessarily a commentary on it). Works with a `text` block (Project Gutenberg or Internet Archive plain text, see scripts/ingest/plaintext.ts) are used where CCEL has no suitable public-domain edition, notably the church documents added with kind 'council' and 'document' (authority 'church'): the seven ecumenical councils (CCEL NPNF2-14), Trent, Vatican I, and papal encyclicals published before 1929 in official translations.",
  "works": [
   {
    "id": "aug-tractates-john",
@@ -2196,7 +2196,7 @@
     "headingOnce": true,
     "strip": [
      "^(?!CHAPTER|ARTICLE|PART)[A-Z][A-Z ,;:.'’\\-]{5,}(?:[ \\t]+[0-9IVWlOJ]{1,4}){1,2}[ \\t]*$",
-     "^[0-9]{1,3}[ \\t]+[A-Z][A-Z ,;:.'’\\-]{5,}$",
+     "^[0-9IOl]{1,3}[A-Za-z]{0,2}[ \\t]*\\.?[ \\t]+[A-Z][A-Z ,;:.'’\\-]{5,}$",
      "^[ \\t]*[0-9]{1,3}[ \\t]*$",
      "^(?:CITIZENS|CENTENARY|BOOKS|RELIGION|SACRED HEART OF JESUS|HIERARCHY|COMMISSION|THEIR CAUSES AND REMEDIES)\\.\\s*$"
     ],
@@ -2348,7 +2348,7 @@
     "titleLines": 0,
     "strip": [
      "^(?!CHAPTER|ARTICLE|PART)[A-Z][A-Z ,;:.'’\\-]{5,}(?:[ \\t]+[0-9IVWlOJ]{1,4}){1,2}[ \\t]*$",
-     "^[0-9]{1,3}[ \\t]+[A-Z][A-Z ,;:.'’\\-]{5,}$",
+     "^[0-9IOl]{1,3}[A-Za-z]{0,2}[ \\t]*\\.?[ \\t]+[A-Z][A-Z ,;:.'’\\-]{5,}$",
      "^[ \\t]*[0-9]{1,3}[ \\t]*$",
      "^[^a-z\\n]{0,14}SESSION\\s+[IVXLKnxi\\\\]+[.,]?[^a-z\\n]{0,6}$"
     ],
@@ -2486,7 +2486,7 @@
     "partWords": 2800,
     "strip": [
      "^(?!CHAPTER|ARTICLE|PART)[A-Z][A-Z ,;:.'’\\-]{5,}(?:[ \\t]+[0-9IVWlOJ]{1,4}){1,2}[ \\t]*$",
-     "^[0-9IOl]{1,3}[ \\t]+[A-Z][A-Z ,;:.'’\\-]{5,}$",
+     "^[0-9IOl]{1,3}[A-Za-z]{0,2}[ \\t]*\\.?[ \\t]+[A-Z][A-Z ,;:.'’\\-]{5,}$",
      "^[ \\t]*[0-9]{1,3}[ \\t]*$"
     ]
    }
@@ -2711,6 +2711,16 @@
   "molinos-guide": "Not imported: Molinos's Spiritual Guide was condemned by the Church (Coelestis Pastor, 1687).",
   "mchugh-callan-roman-catechism": "The 1923 McHugh & Callan translation of the Catechism of the Council of Trent: the first (1923) edition is public domain in the US, but the machine-readable scans on the Internet Archive are 1934-revised printings (1937, 1962) of unverified copyright status, so Donovan's 1829 translation (1867 printing) was used instead.",
   "catechism-of-the-catholic-church": "Copyrighted (Libreria Editrice Vaticana); never ingested.",
-  "kempis-imitation-ccel-croft-bolton": "The CCEL edition is the 1940 Croft & Bolton translation (Bruce, Milwaukee); CCEL notes only that no renewal was found, which is not proof. Replaced by William Benham's 1874 translation from Project Gutenberg (id kempis-imitation)."
+  "kempis-imitation-ccel-croft-bolton": "The CCEL edition is the 1940 Croft & Bolton translation (Bruce, Milwaukee); CCEL notes only that no renewal was found, which is not proof. Replaced by William Benham's 1874 translation from Project Gutenberg (id kempis-imitation).",
+  "council-in-trullo-canons": "The Canons of the Council in Trullo (Quinisext, 692) are in the same CCEL volume (NPNF2-14) and are public domain, but the Catholic Church did not accept them as a conciliar act of an ecumenical council (Rome never ratified them as a whole), so they are not presented as a council work here. They remain readable on CCEL.",
+  "lamentabili-sane-exitu": "The Holy Office decree of 1907 condemning Modernist propositions: no English translation from before 1929 with verifiable rights was found; later translations are of unclear status. Not imported. (Pascendi, its companion, is imported from the Burns & Oates official translation.)",
+  "pius-x-catechism": "The Catechism of St Pius X (1908): the English editions found (e.g. CTS and later printings) are of unverified date or rights; not imported.",
+  "leo-xiii-other-encyclicals-ia": "Individual 'Encyclical Letter ...' items on the Internet Archive (e.g. Spectata Fides, Christi Nomen, Humanum Genus uploads) carry no translator or print-edition information, so their rights could not be verified. Leo XIII's letters are imported instead from the 1903 Benziger collection.",
+  "schaff-creeds-appendices": "Schaff's Creeds of Christendom, vol. 2 on CCEL (6th ed., 1931, revised by David S. Schaff) prints Mortalium Animos (1928), Pius X's oath against Modernism and other papal documents in English; the 1931 revision's copyright status could not be verified, and the volume mixes Latin and English, so it was not imported. Schaff's own 1877 translations of the Vatican decrees are not in the CCEL text.",
+  "trent-schroeder-1941": "H. J. Schroeder's Canons and Decrees of the Council of Trent (1941, B. Herder; later TAN reprints) is a standard translation but is in copyright or of unverified renewal status; Waterworth (1848) is imported instead. Buckley (1851) is also public domain but was not needed.",
+  "vatican-ii-documents": "All Vatican II documents (Abbott 1966, Flannery, and the vatican.va translations) are copyrighted, the vatican.va texts by the Libreria Editrice Vaticana; they stay link-only in data/registry/church-documents.json.",
+  "papal-documents-1930-on": "Encyclicals from 1930 on (Casti Connubii, Quadragesimo Anno and later) were published in English by the Vatican (LEV copyright) or by the Catholic Truth Society / NCWC in translations whose renewal could not be checked; all are link-only. See data/registry/church-documents.json.",
+  "catechism-of-the-catholic-church-ccc": "The Catechism of the Catholic Church (1992/1997, Libreria Editrice Vaticana; English translation copyright USCCB/LEV) is copyrighted: link-only.",
+  "hanover-trent": "The Hanover Historical Texts Project copy of Waterworth's Trent translation could not be retrieved (the site returned a not-found page), so the Internet Archive scan of Waterworth (Cornell copy) was used instead."
  }
 }

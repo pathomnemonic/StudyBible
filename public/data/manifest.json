@@ -234,7 +234,7 @@
   {
    "id": "library",
    "label": "Fathers & saints library",
-   "bytes": 103483063,
+   "bytes": 103511772,
    "files": [
     "library/cite-index.json",
     "library/fulltext-index.json",
@@ -1422,12 +1422,13 @@
   {
    "id": "church",
    "label": "Church documents on Scripture (article numbers and references)",
-   "bytes": 21458,
+   "bytes": 123562,
    "files": [
     "magisterium/1CH.json",
     "magisterium/1CO.json",
     "magisterium/1JN.json",
     "magisterium/1KI.json",
+    "magisterium/1MA.json",
     "magisterium/1PE.json",
     "magisterium/1SA.json",
     "magisterium/1TH.json",
@@ -1435,8 +1436,10 @@
     "magisterium/2CH.json",
     "magisterium/2CO.json",
     "magisterium/2JN.json",
+    "magisterium/2KI.json",
     "magisterium/2MA.json",
     "magisterium/2PE.json",
+    "magisterium/2SA.json",
     "magisterium/2TH.json",
     "magisterium/2TI.json",
     "magisterium/3JN.json",
@@ -1446,6 +1449,7 @@
     "magisterium/COL.json",
     "magisterium/DAN.json",
     "magisterium/DEU.json",
+    "magisterium/ECC.json",
     "magisterium/EPH.json",
     "magisterium/EST.json",
     "magisterium/EXO.json",

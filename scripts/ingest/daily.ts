@@ -11,8 +11,25 @@ export function buildDaily(report: Report) {
   const src = join(CURATED, 'daily.json');
   if (!exists(src)) return;
   const generic: Record<string, any> = {};
+  // data/curated/daily-verify.json: each calendar-day quote checked against a library text or an online edition (see its summary)
+  const vf = join(CURATED, 'daily-verify.json');
+  const verify: Record<string, any> = exists(vf) ? readJson(vf).entries : {};
   for (const e of readJson(src).entries) {
-    generic[e.key] = { ref: e.ref, saint: e.saint, q: e.question };
+    const v = verify[e.key];
+    const saint = { ...e.saint };
+    if (v) {
+      if (v.status === 'verified-library' || v.status === 'verified-web') {
+        saint.verified = true;
+        if (v.status === 'verified-library' && v.work != null) saint.src = { work: v.work, section: v.section };
+        else if (v.source && /^https?:/.test(v.source)) saint.src = { url: v.source };
+        if (v.author && v.status === 'verified-library') saint.who = saint.who;
+      } else if (v.status === 'misattributed') {
+        saint.verified = false;
+        saint.misattributed = v.author ? `Found in ${v.author}${v.note ? ': ' + v.note : ''}` : v.note;
+        if (v.author && v.author.length < 60) { saint.who = `${v.author} (often attributed to ${saint.who})`; delete saint.work; }
+      } else saint.verified = false;
+    }
+    generic[e.key] = { ref: e.ref, saint, q: e.question };
   }
   const seasonal: Record<string, any> = {};
   const dir = join(CURATED, 'daily-season');
@@ -26,7 +43,7 @@ export function buildDaily(report: Report) {
           verified = works.get(e.work).sections[e.section].paras[e.para].includes(e.quote);
         } catch { /* leave unverified */ }
         if (!verified) { report.warn(`daily: quote for ${k} not found word for word in ${e.work}`); continue; }
-        seasonal[k] = { ref: e.ref, saint: { text: e.quote, who: e.who, verified: true }, q: e.question };
+        seasonal[k] = { ref: e.ref, saint: { text: e.quote, who: e.who, verified: true, src: { work: e.work, section: e.section } }, q: e.question };
       }
     }
   }

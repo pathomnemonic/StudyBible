@@ -1,5 +1,5 @@
 {
- "_about": "Magisterial documents about Scripture. The app stores only the numbers of articles/paragraphs and the Scripture references found in them (facts), plus a link to the Vatican's own page. Document text is never stored or displayed. Texts are © Libreria Editrice Vaticana; vatican.va robots.txt allows fetching (crawl-delay 2s, honoured). `era` pre-1965 documents cite Psalms in Vulgate numbering, so Psalm citations from them are skipped rather than guessed.",
+ "_about": "Magisterial documents about Scripture. The app stores only the numbers of articles/paragraphs and the Scripture references found in them (facts), plus a link to the Vatican's own page. Document text is never stored or displayed. Texts are © Libreria Editrice Vaticana; vatican.va robots.txt allows fetching (crawl-delay 2s, honoured). `era` pre-1965 documents cite Psalms in Vulgate numbering, so Psalm citations from them are skipped rather than guessed. Entries of kind Catechism, Code of law and Apostolic constitution are likewise link-only. Each entry's `description` is a neutral one-sentence summary in our own words. URLs were checked for an HTTP 200 response (2 s apart, identifying User-Agent) when added.",
  "documents": [
   {
    "id": "dei-verbum",
@@ -10,7 +10,8 @@
    "kind": "Council constitution",
    "focus": "scripture",
    "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "Sets out the Catholic understanding of divine revelation, Scripture, Tradition and the Church's teaching office, and the place of Scripture in the Church's life."
   },
   {
    "id": "verbum-domini",
@@ -21,7 +22,8 @@
    "kind": "Apostolic exhortation",
    "focus": "scripture",
    "url": "https://www.vatican.va/content/benedict-xvi/en/apost_exhortations/documents/hf_ben-xvi_exh_20100930_verbum-domini.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "Post-synodal exhortation on the Word of God in the life and mission of the Church."
   },
   {
    "id": "providentissimus-deus",
@@ -32,7 +34,8 @@
    "kind": "Encyclical",
    "focus": "scripture",
    "url": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_18111893_providentissimus-deus.html",
-   "era": "pre-1965"
+   "era": "pre-1965",
+   "description": "Leo XIII's encyclical on the study of Scripture: its inspiration and truth, how it is to be interpreted, and the response to rationalist criticism."
   },
   {
    "id": "spiritus-paraclitus",
@@ -43,7 +46,8 @@
    "kind": "Encyclical",
    "focus": "scripture",
    "url": "https://www.vatican.va/content/benedict-xv/en/encyclicals/documents/hf_ben-xv_enc_15091920_spiritus-paraclitus.html",
-   "era": "pre-1965"
+   "era": "pre-1965",
+   "description": "Benedict XV's encyclical for the fifteenth centenary of St Jerome's death, on his biblical scholarship and the place of Scripture in the Church."
   },
   {
    "id": "divino-afflante-spiritu",
@@ -54,7 +58,8 @@
    "kind": "Encyclical",
    "focus": "scripture",
    "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_30091943_divino-afflante-spiritu.html",
-   "era": "pre-1965"
+   "era": "pre-1965",
+   "description": "Pius XII's encyclical encouraging biblical scholarship from the original languages and the use of literary and historical methods."
   },
   {
    "id": "pbc-bible-morality",
@@ -65,7 +70,8 @@
    "kind": "PBC document",
    "focus": "scripture",
    "url": "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_documents/rc_con_cfaith_doc_20080511_bibbia-e-morale_en.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "A document of the Pontifical Biblical Commission on the biblical foundations of Christian moral life."
   },
   {
    "id": "pbc-jewish-people",
@@ -76,7 +82,8 @@
    "kind": "PBC document",
    "focus": "scripture",
    "url": "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_documents/rc_con_cfaith_doc_20020212_popolo-ebraico_en.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "A document of the Pontifical Biblical Commission on the Jewish Scriptures and their place in the Christian Bible."
   },
   {
    "id": "lumen-gentium",
@@ -87,7 +94,8 @@
    "kind": "Council constitution",
    "focus": "doctrine",
    "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "Presents the mystery of the Church, the People of God, the hierarchy, the laity, the universal call to holiness and the place of Mary."
   },
   {
    "id": "sacrosanctum-concilium",
@@ -98,7 +106,8 @@
    "kind": "Council constitution",
    "focus": "doctrine",
    "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_en.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "Sets out principles for the renewal and promotion of the sacred liturgy."
   },
   {
    "id": "gaudium-et-spes",
@@ -109,7 +118,8 @@
    "kind": "Council constitution",
    "focus": "doctrine",
    "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "Treats the Church in the modern world: the dignity of the person, human community, human activity, marriage, culture, economic and political life, and peace."
   },
   {
    "id": "nostra-aetate",
@@ -120,7 +130,8 @@
    "kind": "Council declaration",
    "focus": "doctrine",
    "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "Declares the Church's relation to non-Christian religions, with particular attention to Judaism."
   },
   {
    "id": "unitatis-redintegratio",
@@ -131,7 +142,8 @@
    "kind": "Council decree",
    "focus": "doctrine",
    "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "Sets out Catholic principles of ecumenism and the relation to other Christian communities."
   },
   {
    "id": "deus-caritas-est",
@@ -142,7 +154,8 @@
    "kind": "Encyclical",
    "focus": "doctrine",
    "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20051225_deus-caritas-est.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "Benedict XVI's first encyclical, on love as eros and agape and on the Church's charitable service."
   },
   {
    "id": "spe-salvi",
@@ -153,7 +166,8 @@
    "kind": "Encyclical",
    "focus": "doctrine",
    "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20071130_spe-salvi.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "Benedict XVI's encyclical on Christian hope and its grounds in Scripture and tradition."
   },
   {
    "id": "evangelii-gaudium",
@@ -164,7 +178,740 @@
    "kind": "Apostolic exhortation",
    "focus": "doctrine",
    "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html",
-   "era": "post-1965"
+   "era": "post-1965",
+   "description": "Francis's exhortation on proclaiming the Gospel in today's world, with attention to joy, mission and the poor."
+  },
+  {
+   "id": "dignitatis-humanae",
+   "title": "Dignitatis Humanae — Declaration on Religious Freedom",
+   "short": "Dignitatis Humanae",
+   "author": "Second Vatican Council",
+   "date": "1965-12-07",
+   "kind": "Council declaration",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_en.html",
+   "era": "post-1965",
+   "description": "Teaches that the human person has a right to religious freedom, grounded in human dignity and free from coercion by civil authority."
+  },
+  {
+   "id": "gravissimum-educationis",
+   "title": "Gravissimum Educationis — Declaration on Christian Education",
+   "short": "Gravissimum Educationis",
+   "author": "Second Vatican Council",
+   "date": "1965-10-28",
+   "kind": "Council declaration",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_gravissimum-educationis_en.html",
+   "era": "post-1965",
+   "description": "Sets out principles for education, the rights of parents and the role of Catholic schools and universities."
+  },
+  {
+   "id": "christus-dominus",
+   "title": "Christus Dominus — Decree on the Pastoral Office of Bishops",
+   "short": "Christus Dominus",
+   "author": "Second Vatican Council",
+   "date": "1965-10-28",
+   "kind": "Council decree",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_christus-dominus_en.html",
+   "era": "post-1965",
+   "description": "Describes the pastoral office of bishops in the universal Church and in their dioceses, and the role of episcopal conferences."
+  },
+  {
+   "id": "perfectae-caritatis",
+   "title": "Perfectae Caritatis — Decree on the Adaptation and Renewal of Religious Life",
+   "short": "Perfectae Caritatis",
+   "author": "Second Vatican Council",
+   "date": "1965-10-28",
+   "kind": "Council decree",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_perfectae-caritatis_en.html",
+   "era": "post-1965",
+   "description": "Gives principles for the renewal of religious institutes in fidelity to the Gospel and to their founders."
+  },
+  {
+   "id": "optatam-totius",
+   "title": "Optatam Totius — Decree on Priestly Training",
+   "short": "Optatam Totius",
+   "author": "Second Vatican Council",
+   "date": "1965-10-28",
+   "kind": "Council decree",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_optatam-totius_en.html",
+   "era": "post-1965",
+   "description": "Describes the formation of seminarians, including spiritual life, studies and pastoral training."
+  },
+  {
+   "id": "apostolicam-actuositatem",
+   "title": "Apostolicam Actuositatem — Decree on the Apostolate of the Laity",
+   "short": "Apostolicam Actuositatem",
+   "author": "Second Vatican Council",
+   "date": "1965-11-18",
+   "kind": "Council decree",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651118_apostolicam-actuositatem_en.html",
+   "era": "post-1965",
+   "description": "Describes the share of lay people in the Church's mission and the fields and forms of the lay apostolate."
+  },
+  {
+   "id": "ad-gentes",
+   "title": "Ad Gentes — Decree on the Mission Activity of the Church",
+   "short": "Ad Gentes",
+   "author": "Second Vatican Council",
+   "date": "1965-12-07",
+   "kind": "Council decree",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_ad-gentes_en.html",
+   "era": "post-1965",
+   "description": "Sets out the theological basis and practice of the Church's missionary work."
+  },
+  {
+   "id": "presbyterorum-ordinis",
+   "title": "Presbyterorum Ordinis — Decree on the Ministry and Life of Priests",
+   "short": "Presbyterorum Ordinis",
+   "author": "Second Vatican Council",
+   "date": "1965-12-07",
+   "kind": "Council decree",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_en.html",
+   "era": "post-1965",
+   "description": "Treats the nature of the priesthood, priestly ministry and the spiritual life and support of priests."
+  },
+  {
+   "id": "orientalium-ecclesiarum",
+   "title": "Orientalium Ecclesiarum — Decree on the Eastern Catholic Churches",
+   "short": "Orientalium Ecclesiarum",
+   "author": "Second Vatican Council",
+   "date": "1964-11-21",
+   "kind": "Council decree",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_orientalium-ecclesiarum_en.html",
+   "era": "post-1965",
+   "description": "Affirms the dignity, rites and discipline of the Eastern Catholic Churches within the Catholic communion."
+  },
+  {
+   "id": "inter-mirifica",
+   "title": "Inter Mirifica — Decree on the Media of Social Communications",
+   "short": "Inter Mirifica",
+   "author": "Second Vatican Council",
+   "date": "1963-12-04",
+   "kind": "Council decree",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19631204_inter-mirifica_en.html",
+   "era": "post-1965",
+   "description": "Addresses the use of the press, film, radio and television in the Church's mission."
+  },
+  {
+   "id": "catechism-catholic-church",
+   "title": "Catechism of the Catholic Church",
+   "short": "Catechism of the Catholic Church",
+   "author": "John Paul II (promulgated)",
+   "date": "1992-10-11",
+   "kind": "Catechism",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM",
+   "era": "post-1965",
+   "description": "The universal catechism of the Catholic Church in four parts (creed, sacraments, moral life, prayer), promulgated by John Paul II in the apostolic constitution Fidei Depositum."
+  },
+  {
+   "id": "compendium-ccc",
+   "title": "Compendium of the Catechism of the Catholic Church",
+   "short": "Compendium of the CCC",
+   "author": "Benedict XVI (approved)",
+   "date": "2005-06-28",
+   "kind": "Catechism",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html",
+   "era": "post-1965",
+   "description": "A question-and-answer summary of the Catechism of the Catholic Church in 598 numbered items."
+  },
+  {
+   "id": "fidei-depositum",
+   "title": "Fidei Depositum — Apostolic Constitution on the Publication of the Catechism",
+   "short": "Fidei Depositum",
+   "author": "John Paul II",
+   "date": "1992-10-11",
+   "kind": "Apostolic constitution",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/apost_constitutions/documents/hf_jp-ii_apc_19921011_fidei-depositum.html",
+   "era": "post-1965",
+   "description": "Promulgates the Catechism of the Catholic Church and explains its purpose and place in the Church's teaching."
+  },
+  {
+   "id": "code-canon-law",
+   "title": "Code of Canon Law (1983)",
+   "short": "Code of Canon Law",
+   "author": "John Paul II (promulgated)",
+   "date": "1983-01-25",
+   "kind": "Code of law",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_en.html",
+   "era": "post-1965",
+   "description": "The current universal law of the Latin Church in seven books, promulgated by the apostolic constitution Sacrae Disciplinae Leges."
+  },
+  {
+   "id": "casti-connubii",
+   "title": "Casti Connubii — Encyclical on Christian Marriage",
+   "short": "Casti Connubii",
+   "author": "Pius XI",
+   "date": "1930-12-31",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_19301231_casti-connubii.html",
+   "era": "pre-1965",
+   "description": "Sets out the Church's teaching on the nature, ends and dignity of Christian marriage."
+  },
+  {
+   "id": "quadragesimo-anno",
+   "title": "Quadragesimo Anno — Encyclical on Reconstruction of the Social Order",
+   "short": "Quadragesimo Anno",
+   "author": "Pius XI",
+   "date": "1931-05-15",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_19310515_quadragesimo-anno.html",
+   "era": "pre-1965",
+   "description": "Marks forty years since Rerum Novarum and develops Catholic social teaching, including the principle of subsidiarity."
+  },
+  {
+   "id": "mit-brennender-sorge",
+   "title": "Mit Brennender Sorge — Encyclical on the Church and the German Reich",
+   "short": "Mit Brennender Sorge",
+   "author": "Pius XI",
+   "date": "1937-03-14",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_14031937_mit-brennender-sorge.html",
+   "era": "pre-1965",
+   "description": "Addressed to the German bishops, it criticises the treatment of the Church under National Socialism and affirms faith, revelation and human rights."
+  },
+  {
+   "id": "divini-redemptoris",
+   "title": "Divini Redemptoris — Encyclical on Atheistic Communism",
+   "short": "Divini Redemptoris",
+   "author": "Pius XI",
+   "date": "1937-03-19",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_19370319_divini-redemptoris.html",
+   "era": "pre-1965",
+   "description": "Criticises communism as a doctrine and system and restates Catholic teaching on society and the dignity of the person."
+  },
+  {
+   "id": "mystici-corporis-christi",
+   "title": "Mystici Corporis Christi — Encyclical on the Mystical Body of Christ",
+   "short": "Mystici Corporis Christi",
+   "author": "Pius XII",
+   "date": "1943-06-29",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_29061943_mystici-corporis-christi.html",
+   "era": "pre-1965",
+   "description": "Presents the Church as the Mystical Body of Christ and treats the roles of the hierarchy, the faithful and the Holy Spirit."
+  },
+  {
+   "id": "mediator-dei",
+   "title": "Mediator Dei — Encyclical on the Sacred Liturgy",
+   "short": "Mediator Dei",
+   "author": "Pius XII",
+   "date": "1947-11-20",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_20111947_mediator-dei.html",
+   "era": "pre-1965",
+   "description": "A teaching on the nature and importance of the liturgy, the Eucharistic sacrifice, the liturgical year and the Divine Office."
+  },
+  {
+   "id": "humani-generis",
+   "title": "Humani Generis — Encyclical on Some False Opinions Threatening Catholic Doctrine",
+   "short": "Humani Generis",
+   "author": "Pius XII",
+   "date": "1950-08-12",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_12081950_humani-generis.html",
+   "era": "pre-1965",
+   "description": "Addresses certain contemporary theological and philosophical opinions, including questions of evolution, revelation and the teaching authority of the Church."
+  },
+  {
+   "id": "munificentissimus-deus",
+   "title": "Munificentissimus Deus — Apostolic Constitution Defining the Assumption of Mary",
+   "short": "Munificentissimus Deus",
+   "author": "Pius XII",
+   "date": "1950-11-01",
+   "kind": "Apostolic constitution",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/pius-xii/en/apost_constitutions/documents/hf_p-xii_apc_19501101_munificentissimus-deus.html",
+   "era": "pre-1965",
+   "description": "Defines as a dogma that Mary, after her earthly life, was assumed body and soul into heavenly glory."
+  },
+  {
+   "id": "ad-caeli-reginam",
+   "title": "Ad Caeli Reginam — Encyclical on the Queenship of Mary",
+   "short": "Ad Caeli Reginam",
+   "author": "Pius XII",
+   "date": "1954-10-11",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_11101954_ad-caeli-reginam.html",
+   "era": "pre-1965",
+   "description": "Proclaims the queenship of Mary and gives its scriptural, patristic and liturgical foundations."
+  },
+  {
+   "id": "haurietis-aquas",
+   "title": "Haurietis Aquas — Encyclical on Devotion to the Sacred Heart",
+   "short": "Haurietis Aquas",
+   "author": "Pius XII",
+   "date": "1956-05-15",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_15051956_haurietis-aquas.html",
+   "era": "pre-1965",
+   "description": "Explains the biblical and theological basis of devotion to the Sacred Heart of Jesus."
+  },
+  {
+   "id": "mater-et-magistra",
+   "title": "Mater et Magistra — Encyclical on Christianity and Social Progress",
+   "short": "Mater et Magistra",
+   "author": "John XXIII",
+   "date": "1961-05-15",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-xxiii/en/encyclicals/documents/hf_j-xxiii_enc_15051961_mater.html",
+   "era": "pre-1965",
+   "description": "Reviews and extends Catholic social teaching on work, property, agriculture and international solidarity."
+  },
+  {
+   "id": "pacem-in-terris",
+   "title": "Pacem in Terris — Encyclical on Establishing Universal Peace",
+   "short": "Pacem in Terris",
+   "author": "John XXIII",
+   "date": "1963-04-11",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-xxiii/en/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html",
+   "era": "pre-1965",
+   "description": "Addressed to all people of good will, it sets out the rights and duties of persons and the conditions for peace among nations."
+  },
+  {
+   "id": "ecclesiam-suam",
+   "title": "Ecclesiam Suam — Encyclical on the Church",
+   "short": "Ecclesiam Suam",
+   "author": "Paul VI",
+   "date": "1964-08-06",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_06081964_ecclesiam.html",
+   "era": "pre-1965",
+   "description": "Reflects on the Church's self-awareness, renewal and the character of her dialogue with the world."
+  },
+  {
+   "id": "mysterium-fidei",
+   "title": "Mysterium Fidei — Encyclical on the Holy Eucharist",
+   "short": "Mysterium Fidei",
+   "author": "Paul VI",
+   "date": "1965-09-03",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_03091965_mysterium.html",
+   "era": "post-1965",
+   "description": "Restates Catholic teaching on the Eucharist, including the real presence and the sacrifice of the Mass."
+  },
+  {
+   "id": "populorum-progressio",
+   "title": "Populorum Progressio — Encyclical on the Development of Peoples",
+   "short": "Populorum Progressio",
+   "author": "Paul VI",
+   "date": "1967-03-26",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_26031967_populorum.html",
+   "era": "post-1965",
+   "description": "Treats the integral development of persons and peoples and the duties of richer nations."
+  },
+  {
+   "id": "sacerdotalis-caelibatus",
+   "title": "Sacerdotalis Caelibatus — Encyclical on the Celibacy of the Priest",
+   "short": "Sacerdotalis Caelibatus",
+   "author": "Paul VI",
+   "date": "1967-06-24",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_24061967_sacerdotalis.html",
+   "era": "post-1965",
+   "description": "Defends and explains the discipline of priestly celibacy in the Latin Church."
+  },
+  {
+   "id": "humanae-vitae",
+   "title": "Humanae Vitae — Encyclical on the Regulation of Birth",
+   "short": "Humanae Vitae",
+   "author": "Paul VI",
+   "date": "1968-07-25",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_25071968_humanae-vitae.html",
+   "era": "post-1965",
+   "description": "Sets out the Church's teaching on conjugal love, responsible parenthood and the regulation of births."
+  },
+  {
+   "id": "marialis-cultus",
+   "title": "Marialis Cultus — Apostolic Exhortation on Devotion to the Blessed Virgin Mary",
+   "short": "Marialis Cultus",
+   "author": "Paul VI",
+   "date": "1974-02-02",
+   "kind": "Apostolic exhortation",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/paul-vi/en/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html",
+   "era": "post-1965",
+   "description": "Gives guidance on the place of Marian devotion in the liturgy and in popular piety."
+  },
+  {
+   "id": "evangelii-nuntiandi",
+   "title": "Evangelii Nuntiandi — Apostolic Exhortation on Evangelization in the Modern World",
+   "short": "Evangelii Nuntiandi",
+   "author": "Paul VI",
+   "date": "1975-12-08",
+   "kind": "Apostolic exhortation",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/paul-vi/en/apost_exhortations/documents/hf_p-vi_exh_19751208_evangelii-nuntiandi.html",
+   "era": "post-1965",
+   "description": "Presents evangelization as the Church's essential mission and describes its content, means and agents."
+  },
+  {
+   "id": "redemptor-hominis",
+   "title": "Redemptor Hominis — Encyclical on Christ the Redeemer",
+   "short": "Redemptor Hominis",
+   "author": "John Paul II",
+   "date": "1979-03-04",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_04031979_redemptor-hominis.html",
+   "era": "post-1965",
+   "description": "The first encyclical of John Paul II, centred on Christ as the redeemer of humanity and on the dignity of the human person."
+  },
+  {
+   "id": "catechesi-tradendae",
+   "title": "Catechesi Tradendae — Apostolic Exhortation on Catechesis in Our Time",
+   "short": "Catechesi Tradendae",
+   "author": "John Paul II",
+   "date": "1979-10-16",
+   "kind": "Apostolic exhortation",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_16101979_catechesi-tradendae.html",
+   "era": "post-1965",
+   "description": "Reflects on the aims, content and methods of catechesis, following the 1977 Synod of Bishops."
+  },
+  {
+   "id": "dives-in-misericordia",
+   "title": "Dives in Misericordia — Encyclical on the Mercy of God",
+   "short": "Dives in Misericordia",
+   "author": "John Paul II",
+   "date": "1980-11-30",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html",
+   "era": "post-1965",
+   "description": "Reflects on divine mercy as revealed in Scripture and in Christ, and on mercy in the life of the Church."
+  },
+  {
+   "id": "laborem-exercens",
+   "title": "Laborem Exercens — Encyclical on Human Work",
+   "short": "Laborem Exercens",
+   "author": "John Paul II",
+   "date": "1981-09-14",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_14091981_laborem-exercens.html",
+   "era": "post-1965",
+   "description": "Treats human work as a key to the social question and sets out the dignity of workers and the priority of labour over capital."
+  },
+  {
+   "id": "familiaris-consortio",
+   "title": "Familiaris Consortio — Apostolic Exhortation on the Role of the Christian Family",
+   "short": "Familiaris Consortio",
+   "author": "John Paul II",
+   "date": "1981-11-22",
+   "kind": "Apostolic exhortation",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html",
+   "era": "post-1965",
+   "description": "Following the 1980 Synod, describes the tasks of the Christian family in the modern world and the pastoral care of families."
+  },
+  {
+   "id": "redemptoris-mater",
+   "title": "Redemptoris Mater — Encyclical on the Blessed Virgin Mary in the Life of the Pilgrim Church",
+   "short": "Redemptoris Mater",
+   "author": "John Paul II",
+   "date": "1987-03-25",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031987_redemptoris-mater.html",
+   "era": "post-1965",
+   "description": "Reflects on the role of Mary in the mystery of Christ and the Church, in preparation for the Marian Year of 1987-88."
+  },
+  {
+   "id": "sollicitudo-rei-socialis",
+   "title": "Sollicitudo Rei Socialis — Encyclical on Social Concern",
+   "short": "Sollicitudo Rei Socialis",
+   "author": "John Paul II",
+   "date": "1987-12-30",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30121987_sollicitudo-rei-socialis.html",
+   "era": "post-1965",
+   "description": "Marks twenty years since Populorum Progressio and examines authentic human development and solidarity."
+  },
+  {
+   "id": "mulieris-dignitatem",
+   "title": "Mulieris Dignitatem — Apostolic Letter on the Dignity and Vocation of Women",
+   "short": "Mulieris Dignitatem",
+   "author": "John Paul II",
+   "date": "1988-08-15",
+   "kind": "Apostolic letter",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1988/documents/hf_jp-ii_apl_15081988_mulieris-dignitatem.html",
+   "era": "post-1965",
+   "description": "A meditation on the dignity and vocation of women in the light of Scripture and the Marian Year."
+  },
+  {
+   "id": "redemptoris-missio",
+   "title": "Redemptoris Missio — Encyclical on the Permanent Validity of the Church's Missionary Mandate",
+   "short": "Redemptoris Missio",
+   "author": "John Paul II",
+   "date": "1990-12-07",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_07121990_redemptoris-missio.html",
+   "era": "post-1965",
+   "description": "Restates the urgency and content of the Church's mission to all peoples."
+  },
+  {
+   "id": "centesimus-annus",
+   "title": "Centesimus Annus — Encyclical on the Hundredth Anniversary of Rerum Novarum",
+   "short": "Centesimus Annus",
+   "author": "John Paul II",
+   "date": "1991-05-01",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html",
+   "era": "post-1965",
+   "description": "Reviews Rerum Novarum a century on and considers the economy, the state and human freedom after 1989."
+  },
+  {
+   "id": "veritatis-splendor",
+   "title": "Veritatis Splendor — Encyclical on Certain Fundamental Questions of the Church's Moral Teaching",
+   "short": "Veritatis Splendor",
+   "author": "John Paul II",
+   "date": "1993-08-06",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html",
+   "era": "post-1965",
+   "description": "Sets out foundations of Catholic moral teaching, freedom, conscience and intrinsically evil acts."
+  },
+  {
+   "id": "ordinatio-sacerdotalis",
+   "title": "Ordinatio Sacerdotalis — Apostolic Letter on Reserving Priestly Ordination to Men Alone",
+   "short": "Ordinatio Sacerdotalis",
+   "author": "John Paul II",
+   "date": "1994-05-22",
+   "kind": "Apostolic letter",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1994/documents/hf_jp-ii_apl_19940522_ordinatio-sacerdotalis.html",
+   "era": "post-1965",
+   "description": "States that the Church has no authority to confer priestly ordination on women."
+  },
+  {
+   "id": "evangelium-vitae",
+   "title": "Evangelium Vitae — Encyclical on the Value and Inviolability of Human Life",
+   "short": "Evangelium Vitae",
+   "author": "John Paul II",
+   "date": "1995-03-25",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html",
+   "era": "post-1965",
+   "description": "Affirms the value of every human life and addresses abortion, euthanasia and the culture of death."
+  },
+  {
+   "id": "ut-unum-sint",
+   "title": "Ut Unum Sint — Encyclical on Commitment to Ecumenism",
+   "short": "Ut Unum Sint",
+   "author": "John Paul II",
+   "date": "1995-05-25",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25051995_ut-unum-sint.html",
+   "era": "post-1965",
+   "description": "Reaffirms the Catholic commitment to Christian unity and reflects on the ministry of the Bishop of Rome."
+  },
+  {
+   "id": "fides-et-ratio",
+   "title": "Fides et Ratio — Encyclical on the Relationship between Faith and Reason",
+   "short": "Fides et Ratio",
+   "author": "John Paul II",
+   "date": "1998-09-14",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_14091998_fides-et-ratio.html",
+   "era": "post-1965",
+   "description": "Considers the relation of faith and reason, revelation and philosophy, and the search for truth."
+  },
+  {
+   "id": "dies-domini",
+   "title": "Dies Domini — Apostolic Letter on Keeping the Lord's Day Holy",
+   "short": "Dies Domini",
+   "author": "John Paul II",
+   "date": "1998-05-31",
+   "kind": "Apostolic letter",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1998/documents/hf_jp-ii_apl_05071998_dies-domini.html",
+   "era": "post-1965",
+   "description": "A reflection on Sunday as the Lord's day, the day of Christ's resurrection and of the Eucharistic assembly."
+  },
+  {
+   "id": "rosarium-virginis-mariae",
+   "title": "Rosarium Virginis Mariae — Apostolic Letter on the Most Holy Rosary",
+   "short": "Rosarium Virginis Mariae",
+   "author": "John Paul II",
+   "date": "2002-10-16",
+   "kind": "Apostolic letter",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/2002/documents/hf_jp-ii_apl_20021016_rosarium-virginis-mariae.html",
+   "era": "post-1965",
+   "description": "Recommends the Rosary as a Christ-centred prayer and proposes the Mysteries of Light."
+  },
+  {
+   "id": "ecclesia-de-eucharistia",
+   "title": "Ecclesia de Eucharistia — Encyclical on the Eucharist in Its Relationship to the Church",
+   "short": "Ecclesia de Eucharistia",
+   "author": "John Paul II",
+   "date": "2003-04-17",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_20030417_eccl-de-euch.html",
+   "era": "post-1965",
+   "description": "Reflects on the Eucharist as the source and summit of the Church's life, with attention to its apostolic and Marian dimensions."
+  },
+  {
+   "id": "sacramentum-caritatis",
+   "title": "Sacramentum Caritatis — Apostolic Exhortation on the Eucharist",
+   "short": "Sacramentum Caritatis",
+   "author": "Benedict XVI",
+   "date": "2007-02-22",
+   "kind": "Apostolic exhortation",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/apost_exhortations/documents/hf_ben-xvi_exh_20070222_sacramentum-caritatis.html",
+   "era": "post-1965",
+   "description": "Following the 2005 Synod, reflects on the Eucharist as the sacrament of charity and on its celebration and consequences for life."
+  },
+  {
+   "id": "summorum-pontificum",
+   "title": "Summorum Pontificum — Motu Proprio on the Use of the Roman Liturgy Prior to 1970",
+   "short": "Summorum Pontificum",
+   "author": "Benedict XVI",
+   "date": "2007-07-07",
+   "kind": "Motu proprio",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/motu_proprio/documents/hf_ben-xvi_motu-proprio_20070707_summorum-pontificum.html",
+   "era": "post-1965",
+   "description": "Regulated the use of the 1962 Roman Missal as an extraordinary form of the Roman Rite; later modified by Traditionis Custodes (2021)."
+  },
+  {
+   "id": "caritas-in-veritate",
+   "title": "Caritas in Veritate — Encyclical on Integral Human Development in Charity and Truth",
+   "short": "Caritas in Veritate",
+   "author": "Benedict XVI",
+   "date": "2009-06-29",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20090629_caritas-in-veritate.html",
+   "era": "post-1965",
+   "description": "Develops Catholic social teaching on globalisation, the economy and development, with charity in truth as its guiding principle."
+  },
+  {
+   "id": "lumen-fidei",
+   "title": "Lumen Fidei — Encyclical on Faith",
+   "short": "Lumen Fidei",
+   "author": "Francis",
+   "date": "2013-06-29",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20130629_enciclica-lumen-fidei.html",
+   "era": "post-1965",
+   "description": "Begun by Benedict XVI and completed by Francis, it presents faith as a light that illuminates all of life."
+  },
+  {
+   "id": "laudato-si",
+   "title": "Laudato Si’ — Encyclical on Care for Our Common Home",
+   "short": "Laudato Si’",
+   "author": "Francis",
+   "date": "2015-05-24",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html",
+   "era": "post-1965",
+   "description": "Considers the human relation to creation, ecology and the economy, and calls for an integral ecology."
+  },
+  {
+   "id": "amoris-laetitia",
+   "title": "Amoris Laetitia — Apostolic Exhortation on Love in the Family",
+   "short": "Amoris Laetitia",
+   "author": "Francis",
+   "date": "2016-03-19",
+   "kind": "Apostolic exhortation",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20160319_amoris-laetitia.html",
+   "era": "post-1965",
+   "description": "Following two synods on the family, reflects on marriage, family life and pastoral accompaniment."
+  },
+  {
+   "id": "gaudete-et-exsultate",
+   "title": "Gaudete et Exsultate — Apostolic Exhortation on the Call to Holiness in Today's World",
+   "short": "Gaudete et Exsultate",
+   "author": "Francis",
+   "date": "2018-03-19",
+   "kind": "Apostolic exhortation",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20180319_gaudete-et-exsultate.html",
+   "era": "post-1965",
+   "description": "Reflects on the universal call to holiness, taking the Beatitudes as a guide."
+  },
+  {
+   "id": "fratelli-tutti",
+   "title": "Fratelli Tutti — Encyclical on Fraternity and Social Friendship",
+   "short": "Fratelli Tutti",
+   "author": "Francis",
+   "date": "2020-10-03",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html",
+   "era": "post-1965",
+   "description": "Calls for universal fraternity and social friendship, drawing on the parable of the Good Samaritan."
+  },
+  {
+   "id": "dilexit-nos",
+   "title": "Dilexit Nos — Encyclical on the Human and Divine Love of the Heart of Jesus Christ",
+   "short": "Dilexit Nos",
+   "author": "Francis",
+   "date": "2024-10-24",
+   "kind": "Encyclical",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/20241024-enciclica-dilexit-nos.html",
+   "era": "post-1965",
+   "description": "Reflects on devotion to the Sacred Heart and the human and divine love of Christ."
+  },
+  {
+   "id": "dilexi-te",
+   "title": "Dilexi Te — Apostolic Exhortation on Love for the Poor",
+   "short": "Dilexi Te",
+   "author": "Leo XIV",
+   "date": "2025-10-04",
+   "kind": "Apostolic exhortation",
+   "focus": "doctrine",
+   "url": "https://www.vatican.va/content/leo-xiv/en/apost_exhortations/documents/20251004-dilexi-te.html",
+   "era": "post-1965",
+   "description": "Presents love for the poor as part of the Christian faith, drawing on Scripture and the Church's tradition."
   }
  ]
 }

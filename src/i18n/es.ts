@@ -16,6 +16,7 @@ export const es: Partial<Record<Key, string>> = {
   'home.continue': 'Continuar',
   'home.random': 'Pasaje al azar',
   'home.mass': 'Lecturas de la misa',
+  'home.context': 'Ver en contexto',
   'home.sources': 'Fuentes',
   'home.prev': 'Día anterior',
   'home.next': 'Día siguiente',

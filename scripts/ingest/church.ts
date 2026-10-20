@@ -16,6 +16,8 @@ interface Doc {
   kind: string;
   focus: string;
   url: string;
+  /** One neutral sentence on what the document is about (our words; the document's text is not stored). */
+  description?: string;
   era: 'pre-1965' | 'post-1965';
 }
 

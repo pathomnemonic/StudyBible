@@ -1,0 +1,70 @@
+Daily-reflection saint quote verification (366 entries)
+
+verified-library: 7
+verified-web: 31
+misattributed: 20
+unverified: 308
+
+Notes: "verified" entries include translation variants (see per-entry note); entries flagged paraphrase:true are loose paraphrases of a genuine passage. Existing saint.verified flags in daily.json were not relied on.
+
+MISATTRIBUTED (quote -> correction):
+01-03  St. Bernard of Clairvaux | "The Name of Jesus is the glory of preachers, because the shining splen"  ->  Bernardine of Siena. Sermon 49 on the Holy Name (De glorioso nomine Iesu Christi, c.2), Office of Readings for 20 May. Exact wording; not Bernard of Clairvaux.
+01-21  St. Agnes | "Christ is my life, and to die is my gain."  ->  Paul (Philippians 1:21). Scripture (Phil 1:21) - Paul's words, not a recorded saying of Agnes; no Acts of Agnes source seen.
+01-28  St. Thomas Aquinas | "To one who has faith, no explanation is necessary. To one without fait"  ->  Unknown (not Aquinas). Quote Investigator: not in Aquinas; earliest known form is an 1882 St. Louis Post-Dispatch editorial ("No explanation is needed for a believer; no explanation s
+03-10  St. John of God | "He who possesses God lacks nothing."  ->  Teresa of Avila (bookmark poem). Same wording as the Teresa bookmark; no source in John of God's Letters found.
+04-07  St. John Baptist de la Salle | "Faith is to believe what you do not see; the reward of this faith is t"  ->  Augustine (Sermon 4). Widely attributed to Augustine, Sermon 4 (per a parish bulletin; secondary). Sermon 126 does not contain it. Primary Latin text not seen. Not found in John Bapt
+04-27  St. Zita | "Prayer is the best weapon we possess; it is the key that opens the hea"  ->  Padre Pio (as quoted by Pope Francis). This line is Padre Pio's (per Pope Francis, 6 Feb 2016; primary source in Pio's writings not found). Not found in Zita.
+04-30  St. Pius V | "He who possesses God has everything; he who lacks God has nothing."  ->  Teresa of Avila (bookmark poem). Wording corresponds to the Teresa bookmark; Pius V attribution unsupported.
+06-09  St. Ephrem the Syrian | "Prayer is the best weapon we have; it is the key that opens the heart "  ->  Padre Pio (as quoted by Pope Francis). This line is Padre Pio's (per Pope Francis, 6 Feb 2016; primary source in Pio's writings not found). Not found in Ephrem the Syrian.
+07-03  St. Thomas the Apostle | "Faith is to believe what you do not see; the reward of this faith is t"  ->  Augustine (Sermon 4). Widely attributed to Augustine, Sermon 4 (per a parish bulletin; secondary). Sermon 126 does not contain it. Primary Latin text not seen. Not found in Thomas th
+07-08  St. Kilian | "Without the Way, there is no going; without the Truth, there is no kno"  ->  Thomas a Kempis. Imitation of Christ III.56 - not by Kilian. Quote is a paraphrase.
+07-11  St. Benedict | "Prayer is the best weapon we possess; it is the key that opens the hea"  ->  Padre Pio (as quoted by Pope Francis). This line is Padre Pio's (per Pope Francis, 6 Feb 2016; primary source in Pio's writings not found). Not found in Benedict.
+07-27  St. Titus Brandsma | "Patience is the companion of wisdom."  ->  Augustine (De Patientia ch. 4; authorship doubted). Duplicate of 02-28; no Titus Brandsma source found.
+09-01  St. Giles | "The world is thy ship and not thy home."  ->  Thérèse of Lisieux (quoting Lamartine). Same line as 03-30; not from Giles/Apothegms of the Desert.
+09-11  St. Paphnutius | "Patience is the root and guardian of all the virtues."  ->  Gregory the Great. Gregory, Hom. 35 in Evang.; no Paphnutius source found (duplicate of 03-15).
+10-06  St. Bruno | "He who possesses God lacks nothing: God alone suffices."  ->  Teresa of Avila (bookmark poem). Wording is the Teresa bookmark ("Nada te turbe"), not a letter of Bruno.
+10-10  St. Daniel Comboni | "Prayer is the best weapon we possess; it is the key that opens the hea"  ->  Padre Pio (as quoted by Pope Francis). This line is Padre Pio's (per Pope Francis, 6 Feb 2016; primary source in Pio's writings not found). Not found in Daniel Comboni.
+10-17  St. Ignatius of Antioch | "Our Lord does not look so much at the greatness of our actions, or eve"  ->  Thérèse of Lisieux. Thérèse, Letter II (20 Oct 1888) in Story of a Soul (library). Quote is near-verbatim; not by Ignatius of Antioch.
+11-15  St. Albert the Great | "Knowledge without love only puffeth up; but love edifieth."  ->  Paul (1 Corinthians 8:1). Scripture, 1 Cor 8:1 (not Albert the Great). KJV: "Knowledge puffeth up, but charity edifieth."
+11-24  St. Andrew Dung-Lac | "A martyr's blood is the seed of the Church."  ->  Tertullian. Apology 50 (Latin: "semen est sanguis Christianorum"); not Andrew Dung-Lac. The library contains it only as the editor's chapter note.
+12-04  St. John Damascene | "The Son of God became man so that we might become God."  ->  Athanasius. On the Incarnation 54.3 (Athanasius), not John Damascene. Quote is a paraphrase of this line.
+
+VERIFIED (library/web):
+01-01  verified-library  Augustine
+01-04  verified-web  Elizabeth Ann Seton
+01-18  verified-web  Francis of Assisi
+01-23  verified-web  Bernard of Clairvaux
+01-26  verified-web  Jerome
+01-30  verified-library  Teresa of Avila
+02-11  verified-web  Our Lady, as reported by Bernadette Soubirous
+02-23  verified-web  Martyrdom of Polycarp (Smyrnaeans)
+02-25  verified-web  Thomas Aquinas
+02-28  verified-web  Augustine (De Patientia; authorship doubted)
+03-02  verified-web  Fulton J. Sheen
+03-05  verified-library  Francis de Sales
+03-13  verified-library  Thérèse of Lisieux
+03-15  verified-web  Gregory the Great
+03-17  verified-web  Attributed to St Patrick (Lorica / Breastplate, Old Irish, 8th-9th c.; authorship disputed)
+03-22  verified-web  Anthony of Padua
+03-24  verified-web  Irenaeus
+03-27  verified-web  Thomas Aquinas
+03-28  verified-web  Paul of the Cross
+03-30  verified-library  Thérèse of Lisieux (quoting a poem her father taught her; Lamartine)
+03-31  verified-web  Mary (Luke 1:49)
+04-18  verified-web  Philip Neri (deathbed saying, as reported)
+05-13  verified-web  Lucia dos Santos (Memoirs), words of Our Lady of Fatima
+06-22  verified-web  Thomas More (reported)
+06-24  verified-web  John the Baptist / Matthew 3:3 / Mark 1:3 (Isaiah 40:3)
+06-29  verified-library  Paul (2 Timothy 4:7)
+08-29  verified-web  John the Baptist (John 1:23)
+09-03  verified-web  Gregory the Great
+09-29  verified-web  Raphael (Tobit 12:15)
+09-30  verified-web  Jerome
+10-05  verified-web  Faustina Kowalska (words of Jesus recorded in her Diary)
+10-08  verified-web  Philip Neri (deathbed saying, as reported)
+10-15  verified-web  Teresa of Avila (tradition; found in her breviary)
+11-02  verified-web  John Chrysostom
+11-11  verified-web  Sulpicius Severus (reporting Martin)
+12-25  verified-web  Augustine
+12-27  verified-library  John the Apostle (1 John 4:16)
+12-29  verified-web  Edward Grim (Vita S. Thomae), reporting Becket
