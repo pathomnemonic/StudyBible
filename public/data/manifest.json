@@ -230,7 +230,7 @@
   {
    "id": "library",
    "label": "Fathers & saints library",
-   "bytes": 68318804,
+   "bytes": 73888220,
    "files": [
     "library/fulltext-index.json",
     "library/index.json",
@@ -349,6 +349,9 @@
     "library/works/clement-rome.json",
     "library/works/cyprian.json",
     "library/works/cyril-catecheses.json",
+    "library/works/edersheim-lifetimes.json",
+    "library/works/edersheim-sketches.json",
+    "library/works/edersheim-temple.json",
     "library/works/ephraim-aphrahat.json",
     "library/works/ephrem-hymns.json",
     "library/works/eusebius-history.json",
@@ -361,6 +364,7 @@
     "library/works/gregory-thaum.json",
     "library/works/hippolytus.json",
     "library/works/ignatius-letters.json",
+    "library/works/irenaeus-demonstration.json",
     "library/works/irenaeus-heresies.json",
     "library/works/jerome-letters.json",
     "library/works/jerome-lives.json",

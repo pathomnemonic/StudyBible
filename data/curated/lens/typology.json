@@ -1,0 +1,554 @@
+{
+ "_about": "Types and fulfilments: how the New Testament, and the Fathers after it, read events, persons and promises of the Old Testament as pointing to Christ. Quotations are verbatim from public-domain translations already in the library and are checked against the library text when the data is built. The notes are written for this app. Pitre-style 'Jewish roots' scholarship is linked, not copied (see the reading list).",
+ "entries": [
+  {
+   "refs": [
+    "Romans 5:12-21",
+    "1 Corinthians 15:45-49"
+   ],
+   "alt": [
+    "Genesis 2:7",
+    "Genesis 3:1-24"
+   ],
+   "title": "Adam, the type of the one to come",
+   "kind": "type",
+   "note": "Paul calls Adam 'a type of the one who was to come' (Romans 5:14). One man's disobedience brought death to all; the obedience of one man, Christ, brings life. The Fathers read the whole story of the first man as shaped to be answered by the second.",
+   "quotes": [
+    {
+     "who": "Irenaeus of Lyons, Demonstration of the Apostolic Preaching §§32–40",
+     "work": "irenaeus-demonstration",
+     "section": 3,
+     "text": "So then the Lord, summing up afresh this man, took the same dispensation of entry into flesh, being born from the Virgin by the Will and the Wisdom of God; that He also should show forth the likeness of Adam’s entry into flesh"
+    }
+   ],
+   "ccc": [
+    "CCC 359",
+    "CCC 402-411"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Luke 1:26-38",
+    "John 19:25-27"
+   ],
+   "alt": [
+    "Genesis 3:1-15"
+   ],
+   "title": "Eve and Mary",
+   "kind": "type",
+   "note": "From the second century, Christian writers set Mary's 'yes' beside Eve's disobedience. The reading draws on the contrast between the two scenes (a woman and a messenger; a tree and a cross) and does not depend on Genesis 3:15 alone. The Church speaks of Mary as the new Eve in this sense.",
+   "quotes": [
+    {
+     "who": "Irenaeus of Lyons, Demonstration of the Apostolic Preaching §§32–40",
+     "work": "irenaeus-demonstration",
+     "section": 3,
+     "text": "For it was necessary that Adam should be summed up in Christ, that mortality might be swallowed up and overwhelmed by immortality; and Eve summed up in Mary, that a virgin should be a virgin’s intercessor, and by a virgin’s obedience undo and put away the disobedience of a virgin."
+    }
+   ],
+   "ccc": [
+    "CCC 411",
+    "CCC 494"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "John 19:17",
+    "Hebrews 11:17-19",
+    "Romans 8:32"
+   ],
+   "alt": [
+    "Genesis 22:1-19"
+   ],
+   "title": "Isaac carries the wood",
+   "kind": "type",
+   "note": "The father is told to offer his beloved son; the son carries the wood up the hill; at the last a ram is provided. The letter to the Hebrews says Abraham received Isaac back 'as a type' of resurrection, and Paul's 'he did not spare his own Son' echoes the Genesis wording. Writers from the second century onward saw the way up the hill as a shadow of Calvary.",
+   "quotes": [
+    {
+     "who": "Tertullian, An Answer to the Jews",
+     "work": "tertullian-apologetic",
+     "section": 7,
+     "text": "This “wood,” again, Isaac the son of Abraham personally carried for his own sacrifice, when God had enjoined that he should be made a victim to Himself."
+    }
+   ],
+   "ccc": [
+    "CCC 2572"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "John 3:14-15"
+   ],
+   "alt": [
+    "Numbers 21:4-9"
+   ],
+   "title": "The bronze serpent",
+   "kind": "type",
+   "note": "Jesus Himself draws the comparison: as Moses lifted up the serpent in the wilderness, so the Son of Man must be lifted up. People bitten by serpents looked at the bronze serpent and lived. Justin Martyr, writing in the 2nd century, uses the sign to answer the objection that it contradicts the ban on images.",
+   "quotes": [
+    {
+     "who": "Justin Martyr, Dialogue with Trypho",
+     "work": "justin-martyr",
+     "section": 3,
+     "text": "For by this, as I previously remarked, He proclaimed the mystery, by which He declared that He would break the power of the serpent which occasioned the transgression of Adam, and [would bring] to them that believe on Him [who was foreshadowed] by this sign, i.e., Him who was to be crucified, salvation from the fangs of the serpent"
+    }
+   ],
+   "ccc": [
+    "CCC 2130"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "John 1:29",
+    "John 19:36",
+    "1 Corinthians 5:7",
+    "1 Peter 1:18-19"
+   ],
+   "alt": [
+    "Exodus 12:1-28",
+    "Exodus 12:46"
+   ],
+   "title": "The Passover lamb",
+   "kind": "type",
+   "note": "John the Baptist points to the Lamb of God, John notes that none of His bones was broken (as the law required of the Passover lamb), and Paul says 'Christ our Passover has been sacrificed'. Justin read the blood on the doorposts as protection by faith in Christ's blood.",
+   "quotes": [
+    {
+     "who": "Justin Martyr, Dialogue with Trypho",
+     "work": "justin-martyr",
+     "section": 3,
+     "text": "The mystery, then, of the lamb which God enjoined to be sacrificed as the passover, was a type of Christ; with whose blood, in proportion to their faith in Him, they anoint their houses, i.e., themselves, who believe on Him."
+    }
+   ],
+   "ccc": [
+    "CCC 608",
+    "CCC 1340"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "John 6:30-35",
+    "John 6:48-51"
+   ],
+   "alt": [
+    "Exodus 16:4-35",
+    "Psalm 78:23-25"
+   ],
+   "title": "Manna and the bread from heaven",
+   "kind": "type",
+   "note": "The crowd asks for a sign like the manna. Jesus answers that the true bread from heaven is His Father's gift, and goes on to speak of eating His flesh. Augustine's homilies read the manna as the sign and Christ as what it signified.",
+   "quotes": [
+    {
+     "who": "Augustine, Tractate 25 on John",
+     "work": "aug-tractates-john",
+     "section": 24,
+     "text": "But what bread? Manna, perhaps? No, but the bread which manna signified, namely, the Lord Jesus Himself."
+    }
+   ],
+   "ccc": [
+    "CCC 1094",
+    "CCC 1334"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "John 2:18-22"
+   ],
+   "alt": [
+    "1 Kings 6:1-38",
+    "1 Kings 8:10-13"
+   ],
+   "title": "The temple of His body",
+   "kind": "type",
+   "note": "Asked for a sign for cleansing the temple, Jesus says 'Destroy this temple, and in three days I will raise it up'. The evangelist explains that He spoke of the temple of His body. The place where God's glory dwelt (Solomon's temple) is fulfilled in the body of Christ.",
+   "quotes": [
+    {
+     "who": "Augustine, Tractate 10 on John",
+     "work": "aug-tractates-john",
+     "section": 9,
+     "text": "But He spake,” saith the evangelist, “of the temple of His body.”"
+    }
+   ],
+   "ccc": [
+    "CCC 586"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Hebrews 7:1-17",
+    "Matthew 26:26-28"
+   ],
+   "alt": [
+    "Genesis 14:18-20",
+    "Psalm 110:4"
+   ],
+   "title": "Melchizedek, priest of the Most High",
+   "kind": "type",
+   "note": "Melchizedek brings out bread and wine and blesses Abraham; Psalm 110 promises a priest 'after the order of Melchizedek'; Hebrews builds on both to show the priesthood of Christ. Cyprian, in the third century, reads the bread and wine as pointing to the Lord's sacrifice.",
+   "quotes": [
+    {
+     "who": "Cyprian, Letter to Cæcilius on the Sacrament of the Cup",
+     "work": "cyprian",
+     "section": 63,
+     "text": "Also in the priest Melchizedek we see prefigured the sacrament of the sacrifice of the Lord, according to what divine Scripture testifies, and says, “And Melchizedek, king of Salem, brought forth bread and wine.”"
+    }
+   ],
+   "ccc": [
+    "CCC 1333",
+    "CCC 1544"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "John 19:17-18",
+    "Colossians 2:13-15"
+   ],
+   "alt": [
+    "Exodus 17:8-16"
+   ],
+   "title": "Moses' outstretched arms",
+   "kind": "type",
+   "note": "While Joshua fought Amalek, Moses held up his hands and Israel prevailed. The early Fathers saw in the shape of his body the sign of the cross; the passage also names Joshua, whose Hebrew name is the one Jesus bears.",
+   "quotes": [
+    {
+     "who": "Tertullian, An Answer to the Jews",
+     "work": "tertullian-apologetic",
+     "section": 7,
+     "text": "except it was that there, where the name of the Lord Jesus was the theme of speech—destined as He was to enter the lists one day singly against the devil—the figure of the cross was also necessary, (that figure) through which Jesus was to win the victory?"
+    }
+   ],
+   "ccc": [],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Matthew 12:38-41",
+    "Matthew 16:1-4",
+    "Luke 11:29-32"
+   ],
+   "alt": [
+    "Jonah 1:17-2:10"
+   ],
+   "title": "The sign of Jonah",
+   "kind": "type",
+   "note": "Jesus Himself gives the sign of Jonah: three days in the belly of the fish, then preaching that moves Nineveh to repent. Matthew ties the sign to the burial and resurrection; Luke ties it to Jonah's preaching. Justin recalls it as the sign Christ offered to His own people.",
+   "quotes": [
+    {
+     "who": "Justin Martyr, Dialogue with Trypho",
+     "work": "justin-martyr",
+     "section": 3,
+     "text": "Christ said amongst you that He would give the sign of Jonah, exhorting you to repent of your wicked deeds at least after He rose again from the dead, and to mourn before God as did the Ninevites,"
+    }
+   ],
+   "ccc": [],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "1 Corinthians 10:1-6",
+    "Romans 6:3-4"
+   ],
+   "alt": [
+    "Exodus 14:21-31"
+   ],
+   "title": "The sea and the cloud",
+   "kind": "type",
+   "note": "Paul says the fathers 'were baptized into Moses in the cloud and in the sea', and warns that what happened to them was written down as an example. The Fathers pair the crossing of the Red Sea with baptism: slavery behind, new life beyond the water.",
+   "quotes": [
+    {
+     "who": "Ambrose, On the Holy Spirit III",
+     "work": "ambrose-works",
+     "section": 7,
+     "text": "it is no wonder that the operation of the Spirit found place there, where there was a figure of baptism"
+    }
+   ],
+   "ccc": [
+    "CCC 1221",
+    "CCC 1094"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Luke 22:19-20",
+    "1 Corinthians 11:23-26"
+   ],
+   "alt": [
+    "Leviticus 14:10-20",
+    "Malachi 1:11"
+   ],
+   "title": "The offering of fine flour",
+   "kind": "type",
+   "note": "Justin Martyr connects the grain offering of the cleansed leper with the Eucharist, which the Lord commanded in remembrance of His suffering, and elsewhere reads Malachi's 'pure offering among the nations' as the same worship.",
+   "quotes": [
+    {
+     "who": "Justin Martyr, Dialogue with Trypho",
+     "work": "justin-martyr",
+     "section": 3,
+     "text": "was a type of the bread of the Eucharist, the celebration of which our Lord Jesus Christ prescribed, in remembrance of the suffering which He endured on behalf of those who are purified in soul from all iniquity"
+    }
+   ],
+   "ccc": [
+    "CCC 1350"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Matthew 11:7-15",
+    "Matthew 17:10-13",
+    "Luke 1:13-17"
+   ],
+   "alt": [
+    "Malachi 4:5-6",
+    "2 Kings 2:9-15"
+   ],
+   "title": "Elijah who was to come",
+   "kind": "prophecy",
+   "note": "Malachi ends with a promise that Elijah will come before the day of the Lord. Jesus says John the Baptist is that Elijah ('if you are willing to accept it'), and the angel's words to Zechariah echo Malachi. Justin compares the sharing of Moses' spirit with Joshua to the spirit of Elijah resting on John.",
+   "quotes": [
+    {
+     "who": "Justin Martyr, Dialogue with Trypho",
+     "work": "justin-martyr",
+     "section": 3,
+     "text": "even so God was able to cause [the spirit] of Elijah to come upon John"
+    }
+   ],
+   "ccc": [
+    "CCC 718",
+    "CCC 523"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Matthew 1:18-25",
+    "Luke 1:26-35"
+   ],
+   "alt": [
+    "Isaiah 7:10-17"
+   ],
+   "title": "The sign of Emmanuel",
+   "kind": "prophecy",
+   "note": "The sign was first given to King Ahaz in a political crisis. Matthew reads it as fulfilled in the virginal conception of Jesus, following the Greek word parthenos. Irenaeus defends the Christian reading and argues that one and the same Spirit speaks in the prophets and the apostles.",
+   "quotes": [
+    {
+     "who": "Irenaeus of Lyons, Against Heresies III, ch. 21",
+     "work": "irenaeus-heresies",
+     "section": 87,
+     "text": "the one and the same Spirit of God, who proclaimed by the prophets what and of what sort the advent of the Lord should be, did by these elders give a just interpretation of what had been truly prophesied; and He did Himself, by the apostles, announce that the fulness of the times of the adoption had arrived, that the kingdom of heaven had drawn nigh, and that He was dwelling within those that believe on Him who was born Emmanuel of the Virgin."
+    }
+   ],
+   "ccc": [
+    "CCC 497",
+    "CCC 712"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Matthew 26:67-68",
+    "Matthew 27:26-31",
+    "Philippians 2:5-8"
+   ],
+   "alt": [
+    "Isaiah 50:4-9"
+   ],
+   "title": "The Servant who gives his back",
+   "kind": "prophecy",
+   "note": "The Servant's words in Isaiah 50 ('I gave my back to those who strike') are read in the Passion accounts. Irenaeus ties them to Christ's obedience 'even unto death' on the tree, set against the disobedience at the first tree.",
+   "quotes": [
+    {
+     "who": "Irenaeus of Lyons, Demonstration of the Apostolic Preaching §§32–40",
+     "work": "irenaeus-demonstration",
+     "section": 3,
+     "text": "I refuse not, nor gainsay: I gave my back to scourging, and my cheeks to smiting; and my face I turned not away from the shame of spitting."
+    }
+   ],
+   "ccc": [
+    "CCC 713",
+    "CCC 601"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Matthew 27:35-46",
+    "Mark 15:34"
+   ],
+   "alt": [
+    "Psalm 22:1-31"
+   ],
+   "title": "The cry from the cross",
+   "kind": "prophecy",
+   "note": "Jesus cries the opening of Psalm 22 from the cross, and the evangelists borrow its images (the divided garments, the mocking). The Fathers heard the whole psalm, which ends in praise, as the prayer of Christ. Justin works through it verse by verse.",
+   "quotes": [
+    {
+     "who": "Justin Martyr, Dialogue with Trypho",
+     "work": "justin-martyr",
+     "section": 3,
+     "text": "For when crucified, He spake: ‘O God, my God, why hast Thou forsaken me?’"
+    }
+   ],
+   "ccc": [],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Matthew 2:1-6",
+    "John 7:40-42"
+   ],
+   "alt": [
+    "Micah 5:1-4"
+   ],
+   "title": "A ruler from Bethlehem",
+   "kind": "prophecy",
+   "note": "The chief priests and scribes answer Herod from Micah: the ruler will come out of Bethlehem. John records the crowd arguing about the same prophecy. Tertullian cites it as a predicted place of birth.",
+   "quotes": [
+    {
+     "who": "Tertullian, An Answer to the Jews",
+     "work": "tertullian-apologetic",
+     "section": 7,
+     "text": "Now it behoved Him to be born in Bethlehem of Judah. For thus it is written in the prophet:"
+    }
+   ],
+   "ccc": [
+    "CCC 522"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Colossians 2:11-12",
+    "Acts 15:1-11"
+   ],
+   "alt": [
+    "Genesis 17:9-14"
+   ],
+   "title": "Circumcision and baptism",
+   "kind": "type",
+   "note": "Paul says that in baptism believers were 'circumcised with a circumcision not made with hands'. Cyprian's council used the same thought to argue that the grace of Christ is not to be withheld from any person, including the newborn, by an appeal to the old law.",
+   "quotes": [
+    {
+     "who": "Cyprian, Letter to Fidus on the Baptism of Infants",
+     "work": "cyprian",
+     "section": 59,
+     "text": "spiritual circumcision ought not to be hindered by carnal circumcision, but that absolutely every man is to be admitted to the grace of Christ"
+    }
+   ],
+   "ccc": [],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Hebrews 4:8-9",
+    "Matthew 1:21"
+   ],
+   "alt": [
+    "Joshua 1:1-9",
+    "Exodus 17:8-16"
+   ],
+   "title": "Joshua, whose name is Jesus",
+   "kind": "type",
+   "note": "Joshua and Jesus are the same name (Hebrew Yehoshua / Yeshua). Joshua leads the people into the land; Hebrews says that if Joshua had given them rest, God would not speak of another day. Justin points out that it was a 'Jesus' who led the fight while Moses prayed with outstretched arms.",
+   "quotes": [
+    {
+     "who": "Justin Martyr, Dialogue with Trypho",
+     "work": "justin-martyr",
+     "section": 3,
+     "text": "the son of Nave (Nun) by name Jesus (Joshua), led the fight"
+    }
+   ],
+   "ccc": [],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "1 Peter 3:20-21"
+   ],
+   "alt": [
+    "Genesis 6:9-8:22"
+   ],
+   "title": "The ark and the flood",
+   "kind": "type",
+   "note": "Peter says the water of the flood, by which a few were saved, 'corresponds' to baptism. The Fathers drew the same line: the ark as the Church, the flood as the water that both judges and saves.",
+   "quotes": [],
+   "ccc": [
+    "CCC 1219",
+    "CCC 845"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "1 Corinthians 10:1-4"
+   ],
+   "alt": [
+    "Exodus 17:1-7",
+    "Numbers 20:2-13"
+   ],
+   "title": "The rock in the wilderness",
+   "kind": "type",
+   "note": "Paul says Israel drank from 'the spiritual rock that followed them, and the rock was Christ'. John adds that blood and water flowed from Christ's side (John 19:34), and the tradition has read both together.",
+   "quotes": [],
+   "ccc": [],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "John 1:47-51"
+   ],
+   "alt": [
+    "Genesis 28:10-17"
+   ],
+   "title": "Jacob's ladder",
+   "kind": "type",
+   "note": "Jesus tells Nathanael that he will see 'the angels of God ascending and descending on the Son of Man', echoing Jacob's dream at Bethel. Christ Himself is the link between heaven and earth.",
+   "quotes": [],
+   "ccc": [],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Luke 1:32-33",
+    "Acts 2:29-36"
+   ],
+   "alt": [
+    "2 Samuel 7:8-17",
+    "Psalm 89:3-4",
+    "Psalm 132:11"
+   ],
+   "title": "The throne of David",
+   "kind": "prophecy",
+   "note": "Nathan promises David a son whose kingdom will not end. Gabriel's words to Mary and Peter's sermon at Pentecost both draw on that promise. This is the thread the Gospels use to call Jesus 'Son of David'.",
+   "quotes": [],
+   "ccc": [
+    "CCC 709"
+   ],
+   "status": "traditional"
+  },
+  {
+   "refs": [
+    "Hebrews 9:1-14",
+    "Matthew 27:51"
+   ],
+   "alt": [
+    "Leviticus 16:1-34"
+   ],
+   "title": "The Day of Atonement",
+   "kind": "type",
+   "note": "Hebrews compares the yearly entry of the high priest into the Most Holy Place with Christ's entry 'once for all' with His own blood. Edersheim's account of the Temple service (in the library) describes the ritual, and Matthew notes the veil torn at the moment of death.",
+   "quotes": [],
+   "ccc": [
+    "CCC 662"
+   ],
+   "status": "traditional"
+  }
+ ]
+}

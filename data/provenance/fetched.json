@@ -4,7 +4,7 @@
   "file": "engDRA_usfm.zip",
   "bytes": 2938537,
   "sha256": "897180f92e4e22d9f47ccbe24d51dc2b7b2e639ef8dfb68adf6785215d49dd0d",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ebible.org/engDRA/copyright.htm",
   "rights": "public-domain",
   "note": "Douay-Rheims 1899 American Edition (Challoner revision), eBible.org USFM export. Published 1899; marked Public Domain by eBible.org."
@@ -14,7 +14,7 @@
   "file": "latVUC_usfm.zip",
   "bytes": 3550146,
   "sha256": "7855be62826214f32db733cc90f788ff79c4f512b7b6fe5dc5fa989c566b7e8f",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ebible.org/latVUC/copyright.htm",
   "rights": "public-domain",
   "note": "Clementine Vulgate (1598) with the Glossa Ordinaria in the Migne edition (1880), eBible.org USFM export. Public domain."
@@ -24,7 +24,7 @@
   "file": "eng-web-c_usfm.zip",
   "bytes": 3082401,
   "sha256": "c7d78ce99a095ec661d67c72cb8593a0095dfb0f45d176eb54bfe3af60e8e39f",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ebible.org/eng-web-c/copyright.htm",
   "rights": "public-domain",
   "note": "World English Bible, Catholic book order. Dedicated to the public domain; 'World English Bible' is a trademark of eBible.org (do not call a modified text by that name)."
@@ -34,7 +34,7 @@
   "file": "cross-references.zip",
   "bytes": 1982990,
   "sha256": "3b694f0db9ea81e125c78e88b1845ec18e8b99e63ac94eee3be58ab92cca27f1",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.openbible.info/labs/cross-references/",
   "rights": "open-license",
   "note": "OpenBible.info cross references, CC BY 4.0. Uses KJV/English verse numbering; converted to the Vulgate anchor by the pipeline."
@@ -44,7 +44,7 @@
   "file": "biay.rss.xml",
   "bytes": 9077543,
   "sha256": "2a7d1b87c893ca7652ea12dd0ea9b36ca497b66925c05834bde3a6c7db413fcd",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://bibleinayear.fireside.fm/",
   "rights": "metadata-only",
   "note": "Official public podcast RSS feed of The Bible in a Year (with Fr. Mike Schmitz), Ascension. Only metadata (titles, dates, descriptions, enclosure links) is used; audio is never copied."
@@ -214,7 +214,7 @@
   "file": "Catena.sword.zip",
   "bytes": 2272947,
   "sha256": "b48c9d75bbc142a9bf4f4e078026d049e386e27a263169f26dca112dde619918",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://crosswire.org/sword/modules/ModInfo.jsp?modName=Catena",
   "rights": "public-domain",
   "note": "CrossWire SWORD module 'Catena' (Catena Aurea, Newman translation 1842), DistributionLicense=Public Domain; text source https://github.com/lemtom/catena/ (Tom Lemmens). Covers Matthew, Mark, Luke, John."
@@ -224,7 +224,7 @@
   "file": "haydock.mybible.zip",
   "bytes": 3481691,
   "sha256": "e12b4914a8883b8c0d401fb4d06a661fd5c806c251eb6387f869aa2364381196",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.sermonindex.net/commentary/haydock-c/",
   "rights": "public-domain",
   "note": "Haydock's Catholic Bible Commentary (Geo. L. Haydock, 1811; Douay-Rheims edition 1859), MyBible SQLite module prepared by SermonIndex.net, stated Public Domain. Verse-by-verse, Vulgate/Douay numbering, protocanonical books only."
@@ -234,7 +234,7 @@
   "file": "ccel_schaff_npnf107.xml",
   "bytes": 3694413,
   "sha256": "75d52f4c31dde0959974256b3f5d84394b7b96fcd2883e78a3d32e0b66c5869a",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Tractates on the Gospel of John, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
@@ -244,7 +244,7 @@
   "file": "ccel_schaff_npnf108.xml",
   "bytes": 6222968,
   "sha256": "87b60e90917e69f03c75955517fc996a0e6d22dc9862365b45c308e70e5bf784",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Expositions on the Psalms, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
@@ -254,7 +254,7 @@
   "file": "ccel_schaff_npnf114.xml",
   "bytes": 4728349,
   "sha256": "b130406978fbceb7bcd0774b0e8b09905f35a020a2300c1baf02f314a2d5a70a",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Homilies on the Gospel of John, John Chrysostom. Public-domain text distributed by CCEL as ThML."
@@ -264,7 +264,7 @@
   "file": "ccel_schaff_npnf110.xml",
   "bytes": 3956654,
   "sha256": "e110c98b1f444147bf7baf79e46e56ae6c6a1f0b2983e6fc52f2356fac7f858f",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Homilies on the Gospel of Matthew, John Chrysostom. Public-domain text distributed by CCEL as ThML."
@@ -274,7 +274,7 @@
   "file": "ccel_schaff_npnf204.xml",
   "bytes": 5809854,
   "sha256": "bd625a0fa4f5ddd4b2fa13fcee753de8832ea4b316625e0e06454beb81cfa652",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "On the Incarnation, Athanasius of Alexandria. Public-domain text distributed by CCEL as ThML."
@@ -284,7 +284,7 @@
   "file": "ccel_schaff_npnf207.xml",
   "bytes": 4247548,
   "sha256": "3ac73f4179c0b7d6e66e6fea04ae572e64c0e4a80e8fa38980b40366c8a13928",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Catechetical Lectures (incl. Mystagogical Catecheses), Cyril of Jerusalem. Public-domain text distributed by CCEL as ThML."
@@ -294,7 +294,7 @@
   "file": "ccel_schaff_anf01.xml",
   "bytes": 4511814,
   "sha256": "8012ea0e35b497d2fbd783f9d4fd7b3a27d98c6dc66fd427b50d7312e6dd45af",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Against Heresies, Irenaeus of Lyons. Public-domain text distributed by CCEL as ThML."
@@ -304,7 +304,7 @@
   "file": "ccel_augustine_confess.xml",
   "bytes": 730316,
   "sha256": "9f47b8635f245847576fb9e0ea94934a03cbb1b426d352cb7882ca0171fe2f52",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/augustine",
   "rights": "public-domain",
   "note": "Confessions, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
@@ -314,7 +314,7 @@
   "file": "ccel_teresa_castle2.xml",
   "bytes": 582155,
   "sha256": "8ff410eb6ad0bb12f3003fc902c1ff706f506d01de3cb0e4e36ef9523b10eaf7",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/teresa",
   "rights": "public-domain",
   "note": "The Interior Castle, Teresa of Ávila. Public-domain text distributed by CCEL as ThML."
@@ -324,7 +324,7 @@
   "file": "ccel_catherine_dialog.xml",
   "bytes": 539965,
   "sha256": "bce0952b1f8544b9ea177b86920618c7b383eba6023779e315f4ce371838f988",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/catherine",
   "rights": "public-domain",
   "note": "The Dialogue of St. Catherine of Siena, Catherine of Siena. Public-domain text distributed by CCEL as ThML."
@@ -334,7 +334,7 @@
   "file": "ccel_lawrence_practice.xml",
   "bytes": 88898,
   "sha256": "05149b19c169d3f148add4a75f90a84fce96a75ba776b919f8c4fc59d78b3c6d",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/lawrence",
   "rights": "public-domain",
   "note": "The Practice of the Presence of God, Brother Lawrence of the Resurrection. Public-domain text distributed by CCEL as ThML."
@@ -344,7 +344,7 @@
   "file": "ccel_schaff_npnf111.xml",
   "bytes": 5349065,
   "sha256": "46072a7fefb80b4b7ea68544b46c13fc1785bd29d99834fd2f867f8aa5e14f08",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Homilies on the Acts of the Apostles, John Chrysostom. Public-domain text distributed by CCEL as ThML."
@@ -354,7 +354,7 @@
   "file": "ccel_schaff_npnf112.xml",
   "bytes": 3253154,
   "sha256": "b8b345e060625cdf495e888322d88e922f66e686863e818a978204c5f564a4dd",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Homilies on First Corinthians, John Chrysostom. Public-domain text distributed by CCEL as ThML."
@@ -364,7 +364,7 @@
   "file": "ccel_schaff_npnf106.xml",
   "bytes": 4680096,
   "sha256": "3710c6985a8dfc4e4ffafc461a7a8550db609b0506535453dac252f2aa55b604",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Our Lord's Sermon on the Mount, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
@@ -374,7 +374,7 @@
   "file": "ccel_schaff_npnf210.xml",
   "bytes": 3837030,
   "sha256": "c6f1a9d66653852d8b743c84a613c72c521dfb1b05602f0a2eff400c17665ee8",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Dogmatic Treatises, Ethical Works, and Sermons (incl. On the Mysteries, On the Holy Spirit, Concerning Repentance), Ambrose of Milan. Public-domain text distributed by CCEL as ThML."
@@ -384,7 +384,7 @@
   "file": "ccel_schaff_npnf208.xml",
   "bytes": 3303323,
   "sha256": "95cf3dafefccec80e0949a03c7f1f605da293302d0dc7a8bd62a4e711a0c5532",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "On the Holy Spirit and the Hexæmeron, Basil the Great. Public-domain text distributed by CCEL as ThML."
@@ -394,7 +394,7 @@
   "file": "ccel_schaff_npnf206.xml",
   "bytes": 4444300,
   "sha256": "6bf37affb240f5a775995ab2353c00569b34990130c98649a358f30f37f41f8d",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Treatises (incl. Against Jovinianus, Against Vigilantius), Jerome. Public-domain text distributed by CCEL as ThML."
@@ -404,7 +404,7 @@
   "file": "ccel_schaff_anf04.xml",
   "bytes": 5759964,
   "sha256": "240b26390c16fb0a7683b6ce6076e86f0d387c4e43fa88f079d9600f385acaf0",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Origen (Against Celsus and De Principiis), Origen. Public-domain text distributed by CCEL as ThML."
@@ -414,7 +414,7 @@
   "file": "ccel_aquinas_summa.xml",
   "bytes": 18855316,
   "sha256": "550eb0b0758f119dfe50346e43072026e8c3070d806d4942025525fb24fb7f5b",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/aquinas",
   "rights": "public-domain",
   "note": "Summa Theologica (index of Scripture citations), Thomas Aquinas. Public-domain text distributed by CCEL as ThML."
@@ -424,7 +424,7 @@
   "file": "ccel_schaff_npnf212.xml",
   "bytes": 3461929,
   "sha256": "f701b4ce5196bc5890e50adabce4900cd07b803f3221115a7cce526ae0a95570",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Letters and Sermons, Leo the Great. Public-domain text distributed by CCEL as ThML."
@@ -434,7 +434,7 @@
   "file": "ccel_schaff_npnf211.xml",
   "bytes": 4045340,
   "sha256": "4ca2fa69fc584c8a697884454a3d95453b044e7548b48ff44a1d95605741a5b2",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Institutes and Conferences, John Cassian. Public-domain text distributed by CCEL as ThML."
@@ -444,7 +444,7 @@
   "file": "ccel_schaff_npnf102.xml",
   "bytes": 4137798,
   "sha256": "b8ca21dfa7d553681651f85197064b0fe52ae6c17e5e17252df9301536a4ae2a",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "The City of God, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
@@ -454,7 +454,7 @@
   "file": "church_dei-verbum.html",
   "bytes": 43095,
   "sha256": "e5eac5f655389e3c54295985be85e5a4ce9f55f0165e8e8ee9ce6167fedb8e5f",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Dei Verbum — Dogmatic Constitution on Divine Revelation (Second Vatican Council, 1965-11-18). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -464,7 +464,7 @@
   "file": "church_verbum-domini.html",
   "bytes": 405208,
   "sha256": "6b1d2530a907f960ebe15fed48fe7181bed0b664a6f1978f908c0cbc7909d64c",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Verbum Domini — Post-Synodal Apostolic Exhortation on the Word of God (Benedict XVI, 2010-09-30). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -474,7 +474,7 @@
   "file": "church_providentissimus-deus.html",
   "bytes": 94821,
   "sha256": "a81048d956091139ff6eb746bba973d2becaf99e88877fea3f90ccd189582032",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Providentissimus Deus — Encyclical on the Study of Holy Scripture (Leo XIII, 1893-11-18). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -484,7 +484,7 @@
   "file": "church_spiritus-paraclitus.html",
   "bytes": 119924,
   "sha256": "3b4da3f53c03695fd9783f3a4c9dc412c7f33d7117c582d0d9350c19d31b473e",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Spiritus Paraclitus — Encyclical on St. Jerome (Benedict XV, 1920-09-15). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -494,7 +494,7 @@
   "file": "church_divino-afflante-spiritu.html",
   "bytes": 100863,
   "sha256": "6dfe58b056b6e58f4d50b02ac541d7b1fc32179458cd3b0e75851160f4ccbc49",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Divino Afflante Spiritu — Encyclical on Promoting Biblical Studies (Pius XII, 1943-09-30). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -504,7 +504,7 @@
   "file": "church_pbc-bible-morality.html",
   "bytes": 373861,
   "sha256": "d93d0ee7c1f8203e546cf853452546ab2e4c45c7f260378edfc6ccf95577e9f9",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "The Bible and Morality: Biblical Roots of Christian Conduct (Pontifical Biblical Commission, 2008-05-11). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -514,7 +514,7 @@
   "file": "church_pbc-jewish-people.html",
   "bytes": 386428,
   "sha256": "954e09371372cad37269c554ba80a9a02bbe81e94b61552e35fd9bd6019e156a",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "The Jewish People and Their Sacred Scriptures in the Christian Bible (Pontifical Biblical Commission, 2001-05-24). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -524,7 +524,7 @@
   "file": "church_lumen-gentium.html",
   "bytes": 204167,
   "sha256": "7e0dccd5d56d433a3530defc93eb765ddea634e75269d7619467f32fec5ce1b0",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Lumen Gentium — Dogmatic Constitution on the Church (Second Vatican Council, 1964-11-21). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -534,7 +534,7 @@
   "file": "church_sacrosanctum-concilium.html",
   "bytes": 91960,
   "sha256": "3cfc290b5445086fc2be06b47ed6cb86ee3bc3e90bdbb2b5454889dfd76fd96e",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Sacrosanctum Concilium — Constitution on the Sacred Liturgy (Second Vatican Council, 1963-12-04). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -544,7 +544,7 @@
   "file": "church_gaudium-et-spes.html",
   "bytes": 238757,
   "sha256": "23b935b99bdaa1cd8bc5ee0951f418672d1d246d008d026ada56e1d01861c12d",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Gaudium et Spes — Pastoral Constitution on the Church in the Modern World (Second Vatican Council, 1965-12-07). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -554,7 +554,7 @@
   "file": "church_nostra-aetate.html",
   "bytes": 17231,
   "sha256": "c730506f26d197c6150b41d521cc16c015c21afdbd7ac60c30254a2ed39c3069",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Nostra Aetate — Declaration on the Relation of the Church to Non-Christian Religions (Second Vatican Council, 1965-10-28). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -564,7 +564,7 @@
   "file": "church_unitatis-redintegratio.html",
   "bytes": 50959,
   "sha256": "368e45a1a7b5970f18f3f57e0988af37a0b9e019630fc58ff417fed25603418a",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Unitatis Redintegratio — Decree on Ecumenism (Second Vatican Council, 1964-11-21). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -574,7 +574,7 @@
   "file": "church_deus-caritas-est.html",
   "bytes": 137836,
   "sha256": "0f21533523e1bcdb06482dd3290c470be3e83024de199fbc9ac2cc8de5cdc554",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Deus Caritas Est — Encyclical on Christian Love (Benedict XVI, 2005-12-25). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -584,7 +584,7 @@
   "file": "church_spe-salvi.html",
   "bytes": 152489,
   "sha256": "3bca40e81d8ac003c85c749846436e2494fd8425bdc614e9775f8d69fe046f61",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Spe Salvi — Encyclical on Christian Hope (Benedict XVI, 2007-11-30). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -594,7 +594,7 @@
   "file": "church_evangelii-gaudium.html",
   "bytes": 462252,
   "sha256": "6b40c51e8ab6b12791c1f9b5fcfa781b05225018405d4411e59c21738e784f81",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.vatican.va/robots.txt",
   "rights": "copyright-lev",
   "note": "Evangelii Gaudium — Apostolic Exhortation on the Proclamation of the Gospel (Francis, 2013-11-24). Fetched only to read article numbers and Scripture references; the text is not stored or redistributed."
@@ -604,7 +604,7 @@
   "file": "ccel_schaff_npnf213.xml",
   "bytes": 2246124,
   "sha256": "323ecfb6470854de378fdf47375b2e15b108e72559bbe3167da9c37500bbf2ae",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Hymns and Homilies (selections), Ephrem the Syrian. Public-domain text distributed by CCEL as ThML."
@@ -614,7 +614,7 @@
   "file": "ccel_schaff_npnf209.xml",
   "bytes": 3088610,
   "sha256": "b07e2fac0851444a42d2bbd11d39eb7384c518f6fd79e64b7f7bdc404e8a3cc7",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Exposition of the Orthodox Faith, John of Damascus. Public-domain text distributed by CCEL as ThML."
@@ -624,7 +624,7 @@
   "file": "openbible-geo-merged.txt",
   "bytes": 137696,
   "sha256": "4c28b9232919ac89c094f8e4d3f978462b1117b5c73ce492b81c41175f967150",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.openbible.info/geo/",
   "rights": "CC-BY-4.0",
   "note": "OpenBible.info Bible Geocoding data: possible modern locations of biblical places with confidence marks. Creative Commons Attribution; credit OpenBible.info (some data from OpenStreetMap, ODbL)."
@@ -634,7 +634,7 @@
   "file": "openbible-topic-scores.zip",
   "bytes": 418767,
   "sha256": "47bc1cb1defe5b8f0f65ca9966cd99ff151b7f22cab18ef9c99eda6a244df7cc",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.openbible.info/topics",
   "rights": "CC-BY-4.0",
   "note": "OpenBible.info topical Bible: topics with scored passages (from user votes). Creative Commons Attribution; credit OpenBible.info."
@@ -644,7 +644,7 @@
   "file": "feed-barron-sunday.xml",
   "bytes": 2394588,
   "sha256": "43b200377cbdbf4c59715ebd6af9598cfd06ad43352fa64ec2c1937b2b99edcb",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.wordonfire.org/",
   "rights": "link-only",
   "note": "Bishop Barron's Sunday Sermons podcast feed, published for podcast apps. Used only for episode titles, dates, page links and audio addresses; the audio is played from the publisher, never copied."
@@ -654,7 +654,7 @@
   "file": "feed-frmike-homilies.xml",
   "bytes": 1389691,
   "sha256": "0e1955d42fff4ad63775c943a15b685b8cb70446efbb6abd0d73c81d9f9fc13b",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ascensionpress.com/",
   "rights": "link-only",
   "note": "Ascension's Sunday Homilies with Fr. Mike Schmitz podcast feed, published for podcast apps. Used only for episode titles, dates, page links and audio addresses."
@@ -664,7 +664,7 @@
   "file": "ccel_schaff_npnf113.xml",
   "bytes": 4441248,
   "sha256": "d62c7c82b262c738739090ffaf5473aa5a76dbadf62ebee0dccac8c4a7db4762",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Commentary on Galatians, John Chrysostom. Public-domain text distributed by CCEL as ThML."
@@ -679,7 +679,7 @@
   "file": "douay-rheims-gutenberg-8300.html",
   "bytes": 7900145,
   "sha256": "3dedada4783bd3ad47faed93e47f67dd59a5a6b88bcf6bf58e0a2a514a18b77b",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://www.gutenberg.org/policy/permission.html",
   "rights": "public-domain",
   "note": "Douay-Rheims Bible, Challoner revision (1749-1752) with its annotations, book introductions and chapter summaries; Project Gutenberg e-text #8300. The underlying text is 18th-century; used for Challoner's notes, book introductions and chapter summaries."
@@ -689,7 +689,7 @@
   "file": "ccel_schaff_anf02.xml",
   "bytes": 4980135,
   "sha256": "99cb6b19b1cf7df49546ea73e3b313807ac6d7d84702c1209675a7c34456318a",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "The Instructor, Stromata and other works, Clement of Alexandria. Public-domain text distributed by CCEL as ThML."
@@ -699,7 +699,7 @@
   "file": "ccel_schaff_anf03.xml",
   "bytes": 6246883,
   "sha256": "a6eee75d691b7a3dfe045bb2998ad01c7f1b5c17d46ec58606678e7aeea82a35",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Apologetic works, Tertullian. Public-domain text distributed by CCEL as ThML."
@@ -709,7 +709,7 @@
   "file": "ccel_schaff_anf05.xml",
   "bytes": 5795506,
   "sha256": "a0623805b4c825198bf4542a4976c58f755808a531fb72b7cb481633ebb59744",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Works of Hippolytus, Hippolytus of Rome. Public-domain text distributed by CCEL as ThML."
@@ -719,7 +719,7 @@
   "file": "ccel_schaff_anf07.xml",
   "bytes": 5451478,
   "sha256": "2a06bbed738de15a688512d4f51c9f28b6543e33284cfa2c28d55632952e8d83",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Divine Institutes and other works, Lactantius. Public-domain text distributed by CCEL as ThML."
@@ -729,7 +729,7 @@
   "file": "ccel_schaff_npnf101.xml",
   "bytes": 4837387,
   "sha256": "5a251ba0e3ef934821f3998ba1e3ab52ea40dae02ced15fbd36bb111fd81afc0",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Letters, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
@@ -739,7 +739,7 @@
   "file": "ccel_schaff_npnf103.xml",
   "bytes": 3842341,
   "sha256": "410f240f8105bb6097316a54a867fa5a4ae02c0d3d03606aefc2df71f5bfc455",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Doctrinal treatises, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
@@ -749,7 +749,7 @@
   "file": "ccel_schaff_npnf104.xml",
   "bytes": 4362836,
   "sha256": "978cdefc45de5bd5bce3aecb0f8e5bbd27129400f531c0c7b6dee88b17c677b9",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Writings against the Manichæans, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
@@ -759,7 +759,7 @@
   "file": "ccel_schaff_npnf105.xml",
   "bytes": 4501690,
   "sha256": "224f0e6a188ddfe691c1433c8db9a883755a9f030b71fede644d4af6c18ee63f",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Anti-Pelagian writings, Augustine of Hippo. Public-domain text distributed by CCEL as ThML."
@@ -769,7 +769,7 @@
   "file": "ccel_schaff_npnf201.xml",
   "bytes": 5624937,
   "sha256": "da92679dcdd452c10dab212ee4168be1d37f89f758dae8301821a96d49a261c9",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Church History, Eusebius of Caesarea. Public-domain text distributed by CCEL as ThML."
@@ -779,7 +779,7 @@
   "file": "ccel_schaff_npnf203.xml",
   "bytes": 4264937,
   "sha256": "f2683481bded09cf90369589dd40330e231c83e6dbd4cb1aec730c9b90f9ec3a",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Ecclesiastical History, Dialogues and Letters, Theodoret of Cyrus. Public-domain text distributed by CCEL as ThML."
@@ -789,7 +789,7 @@
   "file": "ccel_schaff_npnf205.xml",
   "bytes": 4225695,
   "sha256": "43e87ed232457fd2d5862f72dd2d5d84fe1e8b69f4c3eec839bad04579327bf3",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Dogmatic treatises, Gregory of Nyssa. Public-domain text distributed by CCEL as ThML."
@@ -799,7 +799,7 @@
   "file": "ccel_schaff_anf06.xml",
   "bytes": 4639247,
   "sha256": "620c7626c3ba4120d55bfaf569da947b3d10b440dc72b2239be3cf1985a13a07",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Works of Gregory Thaumaturgus (including the Metaphrase on Ecclesiastes), Gregory Thaumaturgus. Public-domain text distributed by CCEL as ThML."
@@ -809,7 +809,7 @@
   "file": "ccel_schaff_anf09.xml",
   "bytes": 4647627,
   "sha256": "6a3932956be998903672d451fc3a0901b5da8ebecce85273bb6513ae9d7df09f",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Commentary on the Gospel of John, Origen. Public-domain text distributed by CCEL as ThML."
@@ -819,7 +819,7 @@
   "file": "ccel_schaff_npnf109.xml",
   "bytes": 3017592,
   "sha256": "6d0887393b4d197d7784cbea989aeb422d7e38f55711b4c4d4af85e3de680175",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Treatises, homilies and letters, John Chrysostom. Public-domain text distributed by CCEL as ThML."
@@ -829,9 +829,49 @@
   "file": "ccel_schaff_npnf202.xml",
   "bytes": 3292641,
   "sha256": "0139e8dcea6d40c3b1a5e046f3d45bdf6d1b30c503461d7f29f60309b4f2015c",
-  "retrieved": "2026-10-19",
+  "retrieved": "2026-10-20",
   "terms": "https://ccel.org/ccel/schaff",
   "rights": "public-domain",
   "note": "Ecclesiastical Histories, Socrates Scholasticus and Sozomen. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-irenaeus_demonstr": {
+  "url": "https://www.ccel.org/ccel/irenaeus/demonstr.xml",
+  "file": "ccel_irenaeus_demonstr.xml",
+  "bytes": 452582,
+  "sha256": "a7c68c11dba49374d06672a5d90d2d8dcaaf10188f27c679b4327b44d133cde5",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/irenaeus",
+  "rights": "public-domain",
+  "note": "The Demonstration of the Apostolic Preaching, Irenaeus of Lyons. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-edersheim_lifetimes": {
+  "url": "https://www.ccel.org/ccel/edersheim/lifetimes.xml",
+  "file": "ccel_edersheim_lifetimes.xml",
+  "bytes": 6684281,
+  "sha256": "aa20f33d57f0f1d780886840c2d1ac523bb7004e9ff7f7f23a536c5c56150334",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/edersheim",
+  "rights": "public-domain",
+  "note": "The Life and Times of Jesus the Messiah, Alfred Edersheim. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-edersheim_temple": {
+  "url": "https://www.ccel.org/ccel/edersheim/temple.xml",
+  "file": "ccel_edersheim_temple.xml",
+  "bytes": 870434,
+  "sha256": "2a37899c6430ac2403d953ce1e9e6c30884b58d15086848bc378123ef125a18d",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/edersheim",
+  "rights": "public-domain",
+  "note": "The Temple: Its Ministry and Services, Alfred Edersheim. Public-domain text distributed by CCEL as ThML."
+ },
+ "ccel-edersheim_sketches": {
+  "url": "https://www.ccel.org/ccel/edersheim/sketches.xml",
+  "file": "ccel_edersheim_sketches.xml",
+  "bytes": 716154,
+  "sha256": "bf8915f65ddee60eb8950e77c85283ee8afe7dd5fd270ec88dd373f3569eea49",
+  "retrieved": "2026-10-20",
+  "terms": "https://ccel.org/ccel/edersheim",
+  "rights": "public-domain",
+  "note": "Sketches of Jewish Social Life, Alfred Edersheim. Public-domain text distributed by CCEL as ThML."
  }
 }

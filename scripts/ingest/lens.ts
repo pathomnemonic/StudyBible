@@ -30,6 +30,9 @@ const REQUIRED: Record<string, string[]> = {
   people: ['title', 'note'],
   reception: ['refs', 'title', 'stages'],
   art: ['refs', 'title', 'work'],
+  typology: ['refs', 'alt', 'title', 'note', 'kind'],
+  guide: ['title', 'note'],
+  reading: ['title', 'note'],
 };
 
 export function buildLens(report: Report) {
@@ -93,6 +96,16 @@ export function buildLens(report: Report) {
       // nested references (structure parts, dependency chains, motif stages, reception stages)
       for (const key of ['parts', 'chain', 'stages']) {
         if (Array.isArray(e[key])) o[key] = e[key].map((p: any) => (p.ref ? { ...p, a: toAnchors(where + ' › ' + (p.label ?? p.note ?? ''), [p.ref]) , ref: undefined } : p));
+      }
+      if (type === 'typology') {
+        const norm = (t: string) => t.replace(/\s+/g, ' ').trim();
+        o.quotes = (e.quotes ?? []).map((q: any) => {
+          const wp = join(PUBLIC_DATA, 'library', 'works', `${q.work}.json`);
+          if (!exists(wp)) { report.error(`lens: ${where}: quote work "${q.work}" is not in the library`); return q; }
+          const sec = readJson(wp).sections?.[q.section];
+          if (!sec || !sec.paras.some((p: string) => norm(p).includes(norm(q.text)))) report.error(`lens: ${where}: quote is not verbatim in ${q.work} section ${q.section}`);
+          return { ...q, sectionTitle: sec?.title };
+        });
       }
       out.push(o);
     });

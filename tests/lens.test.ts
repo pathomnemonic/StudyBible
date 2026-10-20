@@ -48,3 +48,20 @@ describe('manuscripts', () => {
     }
   });
 });
+
+describe('typology', () => {
+  const root = join(__dirname, '..', 'public', 'data');
+  const t = JSON.parse(readFileSync(join(root, 'lens', 'typology.json'), 'utf8'));
+  it('has entries on both sides with verbatim quotes from library works', () => {
+    expect(t.entries.length).toBeGreaterThan(15);
+    const norm = (s: string) => s.replace(/\s+/g, ' ').trim();
+    for (const e of t.entries) {
+      expect(e.a.length).toBeGreaterThan(0);
+      expect(e.b.length).toBeGreaterThan(0);
+      for (const q of e.quotes) {
+        const w = JSON.parse(readFileSync(join(root, 'library', 'works', `${q.work}.json`), 'utf8'));
+        expect(w.sections[q.section].paras.some((p: string) => norm(p).includes(norm(q.text)))).toBe(true);
+      }
+    }
+  });
+});

@@ -383,10 +383,22 @@
   "library.socrates-sozomen": {
    "sections": 255
   },
+  "library.irenaeus-demonstration": {
+   "sections": 10
+  },
+  "library.edersheim-lifetimes": {
+   "sections": 116
+  },
+  "library.edersheim-temple": {
+   "sections": 20
+  },
+  "library.edersheim-sketches": {
+   "sections": 20
+  },
   "library.total": {
-   "works": 77,
-   "sections": 5653,
-   "indexedWords": 63931
+   "works": 81,
+   "sections": 5819,
+   "indexedWords": 67934
   },
   "curated": {
    "topics": 18,
@@ -444,10 +456,13 @@
    "dependency": 24,
    "echoes": 38,
    "genre": 32,
+   "guide": 6,
    "parallels": 52,
    "quotes": 176,
+   "reading": 12,
    "reception": 15,
    "structure": 39,
+   "typology": 24,
    "versions": 26,
    "witnesses": 28,
    "wordnotes": 45

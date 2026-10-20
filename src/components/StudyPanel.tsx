@@ -389,6 +389,16 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false }:
       )}
       {!reading && item.tags && item.tags.length > 0 && <div className="tag-row">{item.tags.slice(0, 4).map((t) => <span key={t} className="chip">{t}</span>)}</div>}
       {item.links && <div className="find-links">{item.links.map((l) => <a key={l.url} className="chip" href={l.url} target="_blank" rel="noreferrer">{l.label} ↗</a>)}</div>}
+      {item.quotes && item.quotes.length > 0 && (
+        <div className="fq">
+          {item.quotes.map((q) => (
+            <blockquote key={q.href + q.text.slice(0, 12)}>
+              <p>{/^[a-z[]/.test(q.text) ? '… ' : '“'}{q.text.replace(/^[“”"]/, '')}”</p>
+              <footer><Link to={q.href}>{q.who}</Link></footer>
+            </blockquote>
+          ))}
+        </div>
+      )}
       {item.thumb && (
         <a href={item.url} target="_blank" rel="noreferrer" className="thumb">
           <img src={item.thumb} alt={`${item.title}, painting`} loading="lazy" />

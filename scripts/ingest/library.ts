@@ -26,6 +26,8 @@ interface WorkCfg {
   psalmTags?: 'vulgate' | 'english' | 'skip';
   sectionLabel?: string;
   skipTitles?: string[];
+  /** split a work made of numbered paragraphs ("12. …") into sections of this many numbers */
+  splitEvery?: number;
   description: string;
 }
 
@@ -117,7 +119,26 @@ export function sectionsOf(xml: string, cfg: WorkCfg): { title: string; id: stri
       out.push({ title, id: /\bid="([^"]*)"/.exec(d[1])?.[1] ?? '', body: d[2] });
     }
   }
-  return finer(out);
+  const base = finer(out);
+  if (!cfg.splitEvery) return base;
+  const res: { title: string; id: string; body: string }[] = [];
+  for (const sec of base) {
+    const marks: { at: number; n: number }[] = [];
+    for (const m of sec.body.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)) {
+      const n = /^\s*(\d{1,3})\.\s/.exec(plain(m[1]))?.[1];
+      if (n) marks.push({ at: m.index!, n: +n });
+    }
+    if (marks.length < 2) { res.push(sec); continue; }
+    const cuts: { at: number; n: number }[] = [];
+    let next = 1;
+    for (const mk of marks) if (mk.n >= next) { cuts.push(mk); next = Math.floor((mk.n - 1) / cfg.splitEvery) * cfg.splitEvery + cfg.splitEvery + 1; }
+    cuts.forEach((c, i) => {
+      const end = i + 1 < cuts.length ? cuts[i + 1].at : sec.body.length;
+      const lastN = i + 1 < cuts.length ? cuts[i + 1].n - 1 : marks[marks.length - 1].n;
+      res.push({ title: `${sec.title} — §§${c.n}–${lastN}`, id: `${sec.id}-${c.n}`, body: sec.body.slice(i === 0 ? 0 : c.at, end) });
+    });
+  }
+  return res;
 }
 
 interface TagHit {

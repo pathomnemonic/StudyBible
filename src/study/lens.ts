@@ -180,6 +180,20 @@ const MAKERS: Record<string, { section: SectionKey; make: Maker }> = {
   },
 };
 
+MAKERS.typology = {
+  section: 'typology',
+  make: (e, sel) => {
+    const ntSide = overlapsAny(sel, e.a);
+    const otSide = overlapsAny(sel, e.b);
+    if (!ntSide && !otSide) return null;
+    const other = ntSide ? e.b : e.a;
+    const target = ranges(other)[0];
+    const quotes = ((e.quotes as { who: string; work: string; section: number; text: string }[] | undefined) ?? []).map((q) => ({ who: q.who, text: q.text, href: `/study/works/${q.work}/${q.section}` }));
+    return { ...base, id: e.id, section: 'typology', title: e.title!, excerpt: e.note, kind: e.kind === 'prophecy' ? 'Prophecy and fulfilment' : 'Type and fulfilment', tags: (e.ccc as string[] | undefined) ?? [], quotes, match: 'explicit-reference', status: e.status,
+      why: `${ntSide ? 'This New Testament passage points back to' : 'This Old Testament passage is taken up in'} ${label(other)}. The quotations are from Fathers whose works are in the library; the notes are written for this app.`, ref: (ntSide ? e.a : e.b)?.[0], xrefTarget: target ? refId(target) : undefined };
+  },
+};
+
 MAKERS.art = {
   section: 'art',
   make: (e, sel) => {

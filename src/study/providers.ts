@@ -19,7 +19,7 @@ export type SectionKey =
   | 'fathers' | 'saints'
   | 'xref'
   | 'catholic-answers' | 'creators' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
-  | 'context' | 'language' | 'places' | 'topics' | 'parallels' | 'art'
+  | 'context' | 'language' | 'places' | 'topics' | 'parallels' | 'art' | 'background' | 'typology'
   | 'quotes' | 'customs' | 'structure' | 'wordnotes' | 'versions' | 'witnesses' | 'echoes' | 'genre' | 'dependency' | 'reception' // lenses
   | 'mine';
 
@@ -40,6 +40,8 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'resources', label: 'Other Catholic resources' },
   { key: 'links', label: 'Links you added' },
   { key: 'language', label: 'Original language', hint: 'Greek and Hebrew study tools for this verse (third-party sites, not checked by this app). Protocanonical books only.' },
+  { key: 'typology', label: 'Types and fulfilment', hint: 'How the New Testament and the Fathers read this passage as promise or fulfilment, with their own words.' },
+  { key: 'background', label: 'Jewish and historical background', hint: 'Scholars of the Temple, the synagogue and the Gospels’ world (public-domain, 19th century). They help with background, not doctrine.' },
   { key: 'art', label: 'Sacred art', hint: 'Public-domain paintings of scenes from the passage (The Metropolitan Museum of Art, open access).' },
   { key: 'parallels', label: 'Parallels and indexes', hint: 'Gospel parallels, parables, miracles, prophecy and fulfilment, covenants (an editorial index written for this app).' },
   { key: 'places', label: 'Places', hint: 'Locations named in this passage (OpenBible.info geocoding, CC BY). Open the map.' },
@@ -62,9 +64,9 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
 export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'notes', label: 'Notes', sections: ['commentary', 'fathers', 'saints'] },
   { id: 'teaching', label: 'Teaching', sections: ['catechism', 'magisterium', 'doctrine', 'liturgy', 'echoes', 'reception'] },
-  { id: 'connections', label: 'Connections', sections: ['quotes', 'xref', 'parallels', 'dependency', 'topics'] },
+  { id: 'connections', label: 'Connections', sections: ['typology', 'quotes', 'xref', 'parallels', 'dependency', 'topics'] },
   { id: 'words', label: 'Words', sections: ['wordnotes', 'versions'] },
-  { id: 'world', label: 'World', sections: ['customs', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
+  { id: 'world', label: 'World', sections: ['customs', 'background', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
   { id: 'media', label: 'Media', sections: ['art', 'catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
@@ -115,6 +117,8 @@ export interface StudyItem {
   basis?: string;
   /** the publisher's own audio address, playable in the app */
   audio?: string;
+  /** verbatim quotations from library works, each linking to its section */
+  quotes?: { who: string; text: string; href: string }[];
   /** a small picture shown on the card (a path under the app's data folder) */
   thumb?: string;
   /** how firm an editorial claim is (see STATUS_LABEL in lens.ts) */
@@ -409,7 +413,7 @@ export const providers: Record<string, Provider> = {
       const structural = e[6] === 's';
       const base = {
         id: `lib-${key}`,
-        section: (w.authority === 'saint' ? 'saints' : 'fathers') as SectionKey,
+        section: (w.authority === 'saint' ? 'saints' : w.authority === 'scholarship' ? 'background' : 'fathers') as SectionKey,
         title: w.indexOnly ? `${w.title.replace(/ \(index.*\)/, '')}: ${sec.title}` : `${w.title}: ${sec.title}`,
         author: w.author,
         authorId: w.authorId,
@@ -426,7 +430,7 @@ export const providers: Record<string, Provider> = {
           internal: `/study/works/${w.id}/${e[5]}`,
           format: 'full-text',
           match: structural ? 'verse-by-verse' : 'explicit-reference',
-          kind: w.kind === 'homilies' ? 'Homily' : w.kind === 'commentary' ? 'Commentary' : 'Work',
+          kind: w.authorId === 'edersheim' ? 'Jewish background' : w.kind === 'homilies' ? 'Homily' : w.kind === 'commentary' ? 'Commentary' : 'Work',
           why: structural
             ? `The section's own heading places it on this passage (structure of the CCEL edition).`
             : `The text cites this passage (scripture reference tagged in the CCEL edition: machine-tagged, so it shows where the passage is mentioned, not necessarily a commentary on it).`,
@@ -846,13 +850,13 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     [['doctrine'], providers.doctrine(refs)],
     [['liturgy'], providers.liturgy(refs)],
     [['commentary'], providers.commentary(refs)],
-    [['fathers', 'saints'], providers.fathers(refs)],
+    [['fathers', 'saints', 'background'], providers.fathers(refs)],
     [['xref'], providers.xref(refs)],
     [['catholic-answers', 'creators', 'word-on-fire', 'ascension', 'resources'], providers.external(refs)],
     [['links'], providers.userlinks(refs)],
     [['biay'], providers.biay(refs)],
     [['context'], providers.context(refs)],
-    [['quotes', 'customs', 'structure', 'wordnotes', 'versions', 'witnesses', 'echoes', 'genre', 'dependency', 'reception', 'art'], lens],
+    [['quotes', 'customs', 'structure', 'wordnotes', 'versions', 'witnesses', 'echoes', 'genre', 'dependency', 'reception', 'art', 'typology'], lens],
     [['parallels'], Promise.all([providers.parallels(refs), lens.then((l) => l.filter((i) => i.section === 'parallels'))]).then(([a, b]) => [...b, ...a])],
     [['places'], providers.places(refs)],
     [['topics'], providers.topics(refs)],

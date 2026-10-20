@@ -3441,3 +3441,19 @@ body {
 .galaxy-x { position: absolute; top: 8px; right: 10px; background: none; border: 0; color: #f1edff; font-size: 1.4rem; cursor: pointer; line-height: 1; }
 @media (max-width: 720px) { .galaxy-groups { flex-wrap: nowrap; overflow-x: auto; width: calc(100% - 24px); justify-content: flex-start; border-radius: 999px; } .galaxy-page { height: calc(100dvh - var(--tabs-h) - env(safe-area-inset-bottom) - 36px); } .galaxy-card { right: 12px; left: 12px; width: auto; bottom: 70px; } .galaxy-head p { display: none; } }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.item .fq { margin: 8px 0; display: grid; gap: 8px; }
+.item .fq blockquote { margin: 0; padding: 8px 12px; border-left: 3px solid var(--accent); background: rgba(127,127,127,.08); border-radius: 0 10px 10px 0; }
+.item .fq p { margin: 0 0 4px; font-family: var(--font-display); font-size: 1.02rem; line-height: 1.5; }
+.item .fq footer { font-size: .78rem; opacity: .85; }
+
+.fulfil-guide { display: grid; gap: 8px; margin: 8px 0 22px; }
+.fulfil-guide summary { cursor: pointer; font-weight: 600; }
+.fulfil-list, .fulfil-reading { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.fulfil-reading li { padding: 4px 0; }
+.fulfil-head { display: grid; gap: 2px; width: 100%; text-align: left; background: none; border: 0; padding: 0; color: inherit; cursor: pointer; font: inherit; }
+.fulfil-body { margin-top: 8px; }
+.fq-block { margin: 8px 0; padding: 8px 14px; border-left: 3px solid var(--accent); background: rgba(127,127,127,.08); border-radius: 0 10px 10px 0; }
+.fq-block p { margin: 0 0 4px; font-family: var(--font-display); font-size: 1.1rem; line-height: 1.5; }
+.fq-block footer { font-size: .8rem; }
+.h-sm { font-size: 1.15rem; margin: 22px 0 8px; }

@@ -105,3 +105,13 @@ Not built: a community/study-group feature (needs a moderated server), hosted ac
 | Scripture universe, time and place | Computed on the device from existing cross-reference and era data. |
 | Blind-spot detector, pronunciation coach | See `src/featureStatus.ts` for limits. |
 Not built: the great codices as images (rights), combined per-event dating of places, a word-by-word comparison of modern translations, ancient (reconstructed) pronunciation.
+
+## Round 9: promise and fulfilment
+| Item | Status |
+|---|---|
+| `data/curated/lens/typology.json` | 24 entries; every quotation is verified verbatim against `public/data/library/works/*.json` by `npm run data:build` (the build fails otherwise). |
+| `guide.json`, `reading.json` | Short guide to typology and prophecy, and a reading list. Copyrighted works are link-only. |
+| Irenaeus, *Demonstration of the Apostolic Preaching* | Robinson's 1920 translation (CCEL), split into sections of ten numbered paragraphs. |
+| Edersheim: *Life and Times*, *The Temple*, *Sketches* | CCEL, public domain. Appendix IX lists 456 Old Testament passages the ancient synagogue read messianically; scripture references come from CCEL's tags (machine-tagged: it shows where a verse is mentioned). |
+| Brant Pitre / Catholic Productions | No free text found; link-only. Draft permission request: `docs/OUTREACH_PITRE_CATHOLIC_PRODUCTIONS.md` (not sent). |
+Not done: Eusebius' *Demonstratio Evangelica* (only an incomplete online transcription; the complete scan has no clear data source), Fairbairn's *Typology of Scripture* (scans on archive.org, no structured text), Pusey on Daniel.
