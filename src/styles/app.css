@@ -3374,3 +3374,14 @@ body {
 .art-thumb.on { border-color: var(--accent); }
 .art-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 860px) { .share-grid { grid-template-columns: 1fr; } }
+
+.voices-scroll { overflow-x: auto; padding-bottom: 6px; }
+.voices circle { transition: r .15s; }
+.voices a:hover circle, .voices a:focus circle { r: 8; }
+
+.wordjourney { display: grid; gap: 3px; max-height: 260px; overflow: auto; margin: 6px 0; }
+.wj-row { display: grid; grid-template-columns: 9.5em 1fr 2.5em; gap: 8px; align-items: center; text-decoration: none; color: inherit; font-size: .85rem; padding: 2px 4px; border-radius: 6px; }
+.wj-row:hover, .wj-row:focus-visible { background: var(--surface-2, rgba(127,127,127,.12)); }
+.wj-bar { height: 8px; background: rgba(127,127,127,.18); border-radius: 4px; overflow: hidden; }
+.wj-bar i { display: block; height: 100%; background: var(--accent); }
+.wj-n { text-align: right; opacity: .8; }

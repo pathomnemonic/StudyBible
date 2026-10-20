@@ -29,6 +29,8 @@ const PlanPage = lazy(() => import('./pages/pray/PlanPage'));
 const LibraryHome = lazy(() => import('./pages/library/LibraryHome'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const MapsPage = lazy(() => import('./pages/study/MapsPage'));
+const VoicesPage = lazy(() => import('./pages/study/VoicesPage'));
+const ConceptsPage = lazy(() => import('./pages/study/ConceptsPage'));
 const ConstellationPage = lazy(() => import('./pages/study/ConstellationPage'));
 const TopicalPage = lazy(() => import('./pages/study/TopicalPage'));
 const ConcordancePage = lazy(() => import('./pages/study/ConcordancePage'));
@@ -122,6 +124,8 @@ export default function App() {
               <Route path="/study/themes" element={<ThemesPage />} />
               <Route path="/study/textual" element={<TextualPage />} />
               <Route path="/study/world" element={<WorldPage />} />
+              <Route path="/study/voices" element={<VoicesPage />} />
+              <Route path="/study/concepts" element={<ConceptsPage />} />
               <Route path="/study/constellation" element={<ConstellationPage />} />
               <Route path="/study/maps" element={<MapsPage />} />
               <Route path="/study/topical" element={<TopicalPage />} />
