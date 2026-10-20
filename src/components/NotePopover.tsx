@@ -19,7 +19,7 @@ export default function NotePopover({ notes, at, verse, source, onClose }: { not
     <div ref={box} className="term-pop note-pop" style={style} role="dialog" aria-label={`Notes on verse ${verse}`} tabIndex={-1}>
       <div className="kicker">Note on the text · verse {verse}</div>
       {notes.map((n, i) => <p key={i}>{n}</p>)}
-      <div className="muted small">{source}</div>
+      <div className="muted small">{source === 'WEB-C' ? 'From the World English Bible (Catholic edition), about its own wording; this translation may read differently.' : source}</div>
     </div>
   );
 }

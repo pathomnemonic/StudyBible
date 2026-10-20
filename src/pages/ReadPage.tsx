@@ -656,7 +656,7 @@ export default function ReadPage() {
             <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} wordFx={settings.wordFx && !settings.scriptureOnly} figures={figureMap} stdNotes={stdNotes} onStdNote={(n, el) => setNotePop({ n, notes: stdNotes.get(n) ?? [], at: el.getBoundingClientRect() })} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
             {stdNotes.size > 0 && (
               <section aria-label="Notes on the text" className="subtitle" style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 8 }}>
-                <strong>Notes on the text</strong>{edition.id !== 'webc' && <span className="muted"> (from the World English Bible, Catholic edition)</span>}
+                <strong>Notes on the text</strong>{edition.id !== 'webc' && <span className="muted"> (these are the World English Bible’s notes on its own wording of the passage; this translation may read differently)</span>}
                 {[...stdNotes.entries()].sort((a, b) => a[0] - b[0]).map(([v, ns]) => ns.map((n, i) => <p key={v + '-' + i} style={{ margin: '4px 0' }}><span className="vn std" style={{ verticalAlign: 'baseline' }}>{v}</span> {n}</p>))}
               </section>
             )}
@@ -765,7 +765,7 @@ export default function ReadPage() {
           </div>
         </div>
       )}
-      {notePop && <NotePopover notes={notePop.notes} at={notePop.at} verse={notePop.n} source={edition.id === 'webc' ? edition.shortName : 'WEB-C'} onClose={() => setNotePop(null)} />}
+      {notePop && <NotePopover notes={notePop.notes} at={notePop.at} verse={notePop.n} source={edition.id === 'webc' ? 'World English Bible (Catholic edition)' : 'WEB-C'} onClose={() => setNotePop(null)} />}
       {enabling && <EnableEditionDialog edition={enabling} onClose={() => setEnabling(null)} />}
       {textSettings && <TextSettings onClose={() => setTextSettings(false)} />}
       {editionPicker && (
