@@ -97,7 +97,8 @@ export default function StudyPanel({
   const foreign = (i: StudyItem) => !!i.lang && i.lang !== 'en';
   const vul = get('vulgate');
   const vcOf = (b: string, c: number) => vul?.verseCounts?.[b]?.[c - 1] ?? 0;
-  const passes = (i: StudyItem) => (showOther || !foreign(i)) && (!authority || i.authority === authority) && (!period || i.period === period) && (!author || i.author === author || i.title === author);
+  // Haydock wrote on the Douay-Rheims wording; beside any other translation his notes do not line up, so they are not offered
+  const passes = (i: StudyItem) => (i.kind !== 'Haydock' || edition.id === 'dra') && (showOther || !foreign(i)) && (!authority || i.authority === authority) && (!period || i.period === period) && (!author || i.author === author || i.title === author);
   const items = (k: SectionKey) => (data[k] ?? []).filter(passes);
   // A note written for a run of verses counts on the run's last verse only, so the tab number matches the margin number.
   const sharedElsewhere = (i: StudyItem) => {
@@ -225,7 +226,7 @@ export default function StudyPanel({
             {[...notes.specific, ...notes.units.flatMap((g) => g.items)].some((i) => i.kind === 'Haydock') && (
               <details className="how-note small muted">
                 <summary>How to read Haydock’s notes</summary>
-                <p>Haydock (1859) printed short comments gathered from earlier writers beside the Douay-Rheims Bible. Each comment begins with the Douay-Rheims words it explains, shown here as On “…”; the words are given above the note. A name in brackets, such as (Calmet), is the writer the comment comes from. “Hebrew” and “Septuagint” mean what those old texts say in the passage, which can differ from the Douay wording, and Roman numerals in his references are written here as ordinary numbers. A line of three dashes in the original separates comments on different words of the verse.</p>
+                <p>Haydock (1859) printed short comments gathered from earlier writers beside the Douay-Rheims Bible. Each comment begins with the Douay-Rheims words it explains, shown here as On “…”. A name in brackets, such as (Calmet), is the writer the comment comes from. “Hebrew” and “Septuagint” mean what those old texts say in the passage, which can differ from the Douay wording, and Roman numerals in his references are written here as ordinary numbers. A line of three dashes in the original separates comments on different words of the verse.</p>
               </details>
             )}
             {shownSpecific.map((i, n, arr) => open(i, n, arr, { reading: true }))}
@@ -457,28 +458,9 @@ function CitationContext({ ctx }: { ctx: NonNullable<StudyItem['ctx']> }) {
   );
 }
 
-/** the Douay-Rheims words a Haydock or Challoner note is written on */
-function useDouay(item: StudyItem): string | null {
-  const { get } = useEditions();
-  const [t, setT] = useState<string | null>(null);
-  useEffect(() => {
-    setT(null);
-    if (!['Haydock', 'Challoner'].includes(item.kind ?? '') || !item.ref) return;
-    const dra = get('dra');
-    const r = parseRefId(item.ref);
-    if (!dra || !r || r.v1 === undefined) return;
-    let live = true;
-    passageText(dra, r, 3).then((vs) => live && setT(vs.map((v) => `${v.v} ${v.text}`).join(' ')));
-    return () => { live = false; };
-  }, [item.id]);
-  return t;
-}
-
 function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, autoExpand = false }: { item: StudyItem; edition: EditionRecord; onOpenPassage: (r: Ref) => void; onNote: (t: Target) => void; covers?: string; reading?: boolean; autoExpand?: boolean }) {
   const [expanded, setExpanded] = useState(autoExpand);
   useEffect(() => { setExpanded(autoExpand); }, [autoExpand]);
-  // Haydock and Challoner comment on the words of the Douay-Rheims, so show those words
-  const douay = useDouay(item);
   const [showVerses, setShowVerses] = useState(true);
   const [readCtx, setReadCtx] = useState(false);
   const [info, setInfo] = useState(false);
@@ -549,7 +531,6 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, a
         </a>
       )}
       {playing && embed && <InlinePlayer embed={embed} title={item.title} />}
-      {douay && <div className="douay"><span className="muted small">The note is on these words of the Douay-Rheims:</span> <em>{douay.length > 240 ? douay.slice(0, 240).trimEnd() + '…' : douay}</em></div>}
       {text && foreignItem ? (
         <div className="ex foreign">
           {item.translation ? (

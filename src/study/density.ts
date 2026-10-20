@@ -17,7 +17,7 @@ export function reachOf(c1: number, v1: number, c2: number, v2: number, verseCou
  * run of verses counts once, on the last verse of the run, so one note is never counted three times; tapping any verse of the run
  * still shows it. A note about the whole chapter is not counted on any verse: key 0 of the result is the chapter's own count.
  */
-export async function verseResourceCounts(book: string, chapter: number, verseCount: number): Promise<Map<number, number>> {
+export async function verseResourceCounts(book: string, chapter: number, verseCount: number, withHaydock = true): Promise<Map<number, number>> {
   const counts = new Map<number, number>();
   const bump = (v: number) => counts.set(v, (counts.get(v) ?? 0) + 1);
   const add = (c1: number, v1: number, c2: number, v2: number) => {
@@ -31,7 +31,7 @@ export async function verseResourceCounts(book: string, chapter: number, verseCo
     bump(Math.min(v2 && v2 < 999 ? v2 : verseCount, verseCount));
   };
   const [hay, cat, lib, ext, ccc, chal] = await Promise.all([getHaydock(book), getCatena(book), getLibScripture(book), getResourceRefs(book), getCccLinks(), getChalloner(book)]);
-  for (const [c1, v1, c2, v2] of hay ?? []) add(c1, v1, c2, v2);
+  for (const [c1, v1, c2, v2] of withHaydock ? hay ?? [] : []) add(c1, v1, c2, v2);
   for (const [c1, v1, c2, v2] of chal?.notes ?? []) add(c1, v1, c2, v2);
   for (const g of cat?.groups ?? []) add(g.c, g.v1, g.c, g.v2);
   const seen = new Set<string>();

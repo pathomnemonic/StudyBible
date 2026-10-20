@@ -208,7 +208,7 @@ export default function ReadPage() {
       for (const c of anchorChapters) {
         const vc = (editions.find((e) => e.scheme === 'vulgate') ?? edition).verseCounts?.[bk.id]?.[c - 1] ?? 0;
         if (!vc) continue;
-        const m = await verseResourceCounts(bk.id, c, vc);
+        const m = await verseResourceCounts(bk.id, c, vc, edition.id === 'dra');
         for (const [v, n] of m) merged.set(c * 1000 + v, n);
       }
       if (live) setAnchorDensity(merged);
