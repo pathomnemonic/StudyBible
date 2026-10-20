@@ -38,6 +38,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     title: 'People and places',
     blurb: 'The world the text was written in.',
     items: [
+      ['/study/constellation', 'Constellation', 'All 73 books as stars, joined by their cross-references.'],
       ['/study/maps', 'Maps', 'Places named in Scripture on an interactive map.'],
       ['/study/world', 'The biblical world', 'Journeys, eras and archaeology.'],
       ['/study/people', 'Genealogies', 'Family trees from Adam to Jesus.'],

@@ -3355,3 +3355,10 @@ body {
 .item .parts .pn {
   color: var(--muted);
 }
+
+.constellation { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 20px; align-items: start; }
+.constellation svg { width: 100%; max-height: 78vh; }
+.constellation-side h2 { margin: 0 0 6px; font-size: 1.15rem; }
+.constellation-side ol { padding-left: 20px; margin: 6px 0 14px; }
+.linklike { background: none; border: 0; padding: 0; color: var(--accent-text-on-bg, var(--accent)); text-decoration: underline; cursor: pointer; font: inherit; }
+@media (max-width: 720px) { .constellation { grid-template-columns: 1fr; } }
