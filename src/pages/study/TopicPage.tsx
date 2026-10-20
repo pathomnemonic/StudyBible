@@ -11,7 +11,7 @@ export default function TopicPage() {
   useEffect(() => {
     getDoctrine().then(setD);
   }, []);
-  if (!d) return <div className="center-note">Loading…</div>;
+  if (!d) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
   const t = d.topics.find((x) => x.id === id);
   if (!t) return <div className="page"><p>Topic not found. <Link to="/study/doctrine">All topics</Link></p></div>;
   return (
@@ -28,7 +28,7 @@ export default function TopicPage() {
       <ul className="list">
         {t.ccc.map(([a, b]) => (
           <li key={a}>
-            §{a}{b !== a ? `–${b}` : ''} · <a href={cccUrl(a)} target="_blank" rel="noreferrer">Open §{a}</a>{' '}
+            §{a}{b !== a ? `–${b}` : ''} · <a href={`#/study/catechism/${a}`}>Read §{a}</a>{' '}
             <button className="btn small ghost" onClick={() => db.saved.add({ key: `ccc:${a}`, type: 'catechism', label: `CCC §${a}${b !== a ? '–' + b : ''} (${t.title})`, url: cccUrl(a), createdAt: Date.now() }).catch(() => {})}>Save</button>
           </li>
         ))}

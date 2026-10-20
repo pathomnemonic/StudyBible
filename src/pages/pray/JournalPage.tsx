@@ -53,7 +53,7 @@ export default function JournalPage() {
           <div className="row"><button className="btn primary" onClick={save}>Save</button><button className="btn" onClick={() => setEdit(null)}>Cancel</button></div>
         </div>
       )}
-      {list.length === 0 && !edit && <div className="empty">Nothing here yet.</div>}
+      {list.length === 0 && !edit && <div className="empty">Your journal is empty. Write a line about what struck you today; it stays on this device.</div>}
       {list.map((e) => (
         <div className="card" key={e.id}>
           <div className="row between"><strong>{e.title || e.date}</strong><span className="muted small">{e.date}</span></div>

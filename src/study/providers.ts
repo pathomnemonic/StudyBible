@@ -1,3 +1,5 @@
+import { cccPara, getCccScripture } from '../data/ccc';
+import { readableText } from '../lib/readable';
 import type { AuthorityLevel, ItemFormat, Period } from '../lib/types';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
 import { getBook } from '../lib/canon';
@@ -24,7 +26,7 @@ export type SectionKey =
   | 'mine';
 
 export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
-  { key: 'catechism', label: 'Catechism of the Catholic Church', hint: 'Verse-level citations, each checked against the paragraph.' },
+  { key: 'catechism', label: 'Catechism of the Catholic Church', hint: 'Catechism paragraphs whose own footnotes cite this verse, with the paragraph text. A footnote that quotes the verse ranks above one that only refers to it.' },
   { key: 'magisterium', label: 'Church documents', hint: 'Dei Verbum, Verbum Domini, other encyclicals and Vatican II texts that cite this passage. Open the document at vatican.va and find the numbered article.' },
   { key: 'doctrine', label: 'Doctrine topics', hint: 'Editorial pointers: key passages for a teaching.' },
   { key: 'liturgy', label: 'Liturgical use' },
@@ -194,10 +196,46 @@ const summaTitle = (id: string, title: string) => {
 
 export const providers: Record<string, Provider> = {
   async catechism(refs) {
-    const d = await getCccLinks();
-    if (!d) return [];
     const out: StudyItem[] = [];
+    const have = new Set<number>();
+    // every paragraph whose own footnotes cite this passage (the Catechism's index of Scripture), with the paragraph itself
+    const cites = new Map<number, { quoted: boolean; at: Ref }>();
+    for (const book of [...new Set(refs.map((r) => r.book))]) {
+      for (const [c1, v1, c2, v2, para, q] of (await getCccScripture(book)) ?? []) {
+        const at = { book, c1, v1, c2, v2 };
+        if (!refs.some((r) => refsOverlap(r, at))) continue;
+        const prev = cites.get(para);
+        if (!prev || (q && !prev.quoted)) cites.set(para, { quoted: !!q, at });
+      }
+    }
+    const ranked = [...cites.entries()].sort((a, b) => Number(b[1].quoted) - Number(a[1].quoted) || a[0] - b[0]).slice(0, 30);
+    for (const [para, { quoted, at }] of ranked) {
+      const p = await cccPara(para);
+      if (!p) continue;
+      have.add(para);
+      const body = p.t.replace(/\n/g, ' ');
+      out.push({
+        id: `ccc-${para}`,
+        section: 'catechism',
+        title: `Catechism §${para}`,
+        author: 'Catechism of the Catholic Church',
+        excerpt: body.length > 360 ? body.slice(0, body.lastIndexOf(' ', 360)) + '…' : body,
+        fullExcerpt: body.length > 360 ? body : undefined,
+        internal: `/study/catechism/${para}`,
+        authority: 'doctrine',
+        period: 'contemporary',
+        format: 'excerpt',
+        match: quoted ? 'direct-citation' : 'explicit-reference',
+        why: quoted ? `This paragraph’s footnote quotes ${formatRef(at, { noDual: true })}.` : `This paragraph’s footnote refers to ${formatRef(at, { noDual: true })}.`,
+        sourceName: 'Catechism of the Catholic Church, Libreria Editrice Vaticana (shown with permission)',
+        ref: refId(at),
+        kind: 'CCC',
+      });
+    }
+    const d = await getCccLinks();
+    if (!d) return out;
     for (const l of d.links) {
+      if (have.has(l.para)) continue;
       const lr = parseRefId(l.ref)!;
       if (!refs.some((r) => refsOverlap(r, lr))) continue;
       out.push({
@@ -205,15 +243,14 @@ export const providers: Record<string, Provider> = {
         section: 'catechism',
         title: `Catechism §${l.para}`,
         author: 'Catechism of the Catholic Church',
-        url: cccUrl(l.para),
+        internal: `/study/catechism/${l.para}`,
         authority: 'doctrine',
         period: 'contemporary',
-        format: 'external-link',
+        format: 'summary',
         match: l.kind === 'quotation' ? 'direct-citation' : 'explicit-reference',
         why: l.kind === 'quotation' ? `This paragraph quotes ${formatRef(lr)} (checked against the paragraph text on ${l.verifiedOn}).` : `This paragraph discusses ${formatRef(lr)} (checked on ${l.verifiedOn}).`,
         sourceName: 'Catechism of the Catholic Church',
         ref: l.ref,
-        rightsNote: 'Text © LEV/USCCB; opens at the online paragraph.',
         xrefTarget: String(l.para),
         kind: 'CCC',
       });
@@ -833,6 +870,11 @@ export function externalSearchItems(refs: Ref[], sources: ResourceSource[] = [])
   return items;
 }
 
+/** plain numbers and full names in the text of an item (the sources use Roman numerals and old abbreviations) */
+function tidy(i: StudyItem): StudyItem {
+  return { ...i, title: readableText(i.title, { title: true }) ?? i.title, excerpt: readableText(i.excerpt), fullExcerpt: readableText(i.fullExcerpt), translation: readableText(i.translation), quotes: i.quotes?.map((q) => ({ ...q, text: readableText(q.text) ?? q.text })) };
+}
+
 export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items: StudyItem[]) => void) {
   const ext = externalSearchItems(refs, (await getResourceSources().catch(() => null)) ?? []);
   const emitExt = (key: SectionKey, extra: StudyItem[] = []) => onSection(key, [...extra, ...ext.filter((i) => i.section === key)]);
@@ -864,7 +906,7 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     jobs.map(async ([keys, p]) => {
       let items: StudyItem[] = [];
       try {
-        items = await p;
+        items = (await p).map(tidy);
       } catch {
         items = [];
       }

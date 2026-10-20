@@ -25,7 +25,7 @@ export default function EpisodePage() {
     const refs = ep.passages.map((p) => parseRefId(p)).filter(Boolean) as Ref[];
     if (refs.length) Promise.all([providers.catechism(refs.slice(0, 1)), providers.doctrine(refs.slice(0, 4))]).then(([a, b]) => setTeach([...a, ...b]));
   }, [ep?.id]);
-  if (!loaded) return <div className="center-note">Loading…</div>;
+  if (!loaded) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
   if (!ep || !biay) return <div className="page"><p>Episode not found. <Link to="/listen">Back</Link></p></div>;
   const others = ep.day ? (biay.releases.get(ep.day) ?? []).filter((e) => e.id !== ep.id) : [];
   const isCurrent = player.current?.id === ep.id;

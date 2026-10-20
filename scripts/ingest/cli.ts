@@ -14,6 +14,9 @@ import { buildPaths } from './paths';
 import { buildGalaxyLib } from './galaxylib';
 import { buildArtMore } from './artmore';
 import { buildJesus } from './jesus';
+import { buildCcc } from './ccc';
+import { plainNumerals } from '../../src/lib/readable';
+import { readdirSync } from 'node:fs';
 import { buildChurchIndex } from './churchindex';
 import { buildLectionary } from './lectionary';
 import { buildLens } from './lens';
@@ -25,7 +28,8 @@ import { buildPlaces, buildTopics } from './reference';
 import { buildEditorial } from './editorial';
 import { buildCurated } from './curated';
 import { loadVersification } from '../../src/lib/versification';
-import { PROVENANCE, Report, today, writeJson } from './lib/util';
+import { readFileSync } from 'node:fs';
+import { PROVENANCE, PUBLIC_DATA, Report, today, writeJson } from './lib/util';
 
 async function main() {
   const [cmd = 'all', ...rest] = process.argv.slice(2);
@@ -57,11 +61,24 @@ async function main() {
     await run('haydock', () => buildHaydock(report));
     await run('challoner', () => buildChalloner(report));
     await run('library', () => buildLibrary(report));
+    await run('plain-titles', () => {
+      // every builder writes section titles as its source gives them (Roman numerals); print them as ordinary numbers
+      const dir = join(PUBLIC_DATA, 'library/works');
+      let n = 0;
+      for (const f of readdirSync(dir).filter((x) => x.endsWith('.json'))) {
+        const w = JSON.parse(readFileSync(join(dir, f), 'utf8'));
+        let changed = false;
+        for (const sec of w.sections ?? []) { const t = plainNumerals(sec.title ?? '', { title: true }); if (t !== sec.title) { sec.title = t; changed = true; n++; } }
+        if (changed) writeJson(join(dir, f), w);
+      }
+      report.stats['plain-titles'] = n;
+    });
     await run('cite-index', () => buildCiteIndex(report));
     await run('paths', () => buildPaths(report));
     await run('galaxy-library', () => buildGalaxyLib(report));
     await run('art-more', () => buildArtMore(report));
     await run('jesus', () => buildJesus(report));
+    await run('ccc', () => buildCcc(report));
     await run('church-index', () => buildChurchIndex(report));
     await run('curated', () => buildCurated(report));
     await run('church', () => buildChurchDocs(report));

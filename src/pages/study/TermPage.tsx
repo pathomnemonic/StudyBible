@@ -69,7 +69,7 @@ export default function TermPage() {
     })();
     return () => { live = false; };
   }, [t?.id, ed?.id]);
-  if (t === undefined) return <div className="center-note">Loading…</div>;
+  if (t === undefined) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
   if (!t) return <div className="page"><p>That term was not found. <Link to="/study/terms">All key words</Link></p></div>;
   const rows = BOOKS.map((b) => ({ b, n: t.byBook[b.id] ?? 0 })).filter((r) => r.n);
   const max = Math.max(1, ...rows.map((r) => r.n));

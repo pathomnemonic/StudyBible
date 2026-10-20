@@ -493,14 +493,21 @@
    "sections": 7007,
    "indexedWords": 75292
   },
+  "plain-titles": 297,
   "cite-index": 1321,
   "paths": 15,
   "galaxy-library": 107,
-  "art-more": 371,
+  "art-more": 532,
   "jesus": {
    "books": 9,
    "spans": 2290,
    "missed": 0
+  },
+  "ccc": {
+   "paragraphs": 2865,
+   "missing": 0,
+   "headings": 1338,
+   "scriptureCitations": 3896
   },
   "church-docs": 122,
   "curated": {

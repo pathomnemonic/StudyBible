@@ -70,7 +70,7 @@ export default function PathPage() {
     passageText(edition, anchor, 20).then((v) => live && setVerses(v));
     return () => { live = false; };
   }, [step?.ref, edition?.id]);
-  if (path === undefined) return <div className="center-note">Loading…</div>;
+  if (path === undefined) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
   if (path === null || !path || !step || i === null) return <div className="page"><Link to="/study/paths">← Study paths</Link><p>That path was not found.</p></div>;
   const go = async (n: number) => {
     setI(n);

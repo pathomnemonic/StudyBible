@@ -98,7 +98,7 @@ export function TargetChip({ t }: { t: Target }) {
   }
   if (t.type === 'work') return <Link className="chip" to={`/study/works/${t.workId}/${t.section ?? ''}`}>{t.label}</Link>;
   if (t.type === 'episode') return <Link className="chip" to={`/listen/episode/${t.episodeId}`}>{t.label}</Link>;
-  if (t.type === 'catechism') return <a className="chip" href={`https://www.scborromeo.org/ccc/para/${t.para}.htm`} target="_blank" rel="noreferrer">{t.label ?? `CCC §${t.para}`}</a>;
+  if (t.type === 'catechism') return <a className="chip" href={`#/study/catechism/${t.para}`}>{t.label ?? `CCC §${t.para}`}</a>;
   if (t.type === 'commentary' && t.url) return <a className="chip" href={t.url} target="_blank" rel="noreferrer">{t.label}</a>;
   if (t.type === 'reading') return <Link className="chip" to={`/pray/readings/${t.date}`}>{t.label}</Link>;
   if (t.type === 'topic') return <Link className="chip" to={`/study/topics/${t.topicId}`}>{t.label}</Link>;
@@ -151,7 +151,7 @@ function Collections() {
         <div className="card" key={c.id}>
           <div className="row between"><h3>{c.name}</h3><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></div>
           <div className="chips">{c.items.map((t, i) => <span key={i}><TargetChip t={t} /> <button aria-label="Remove item" style={{ border: 0, background: 'none' }} onClick={() => db.collections.put({ ...c, items: c.items.filter((_, j) => j !== i), updatedAt: Date.now() })}>×</button></span>)}</div>
-          {c.items.length === 0 && <div className="empty">Empty. Add a passage or a saved item.</div>}
+          {c.items.length === 0 && <div className="empty">Nothing in this collection yet. Open any Bible passage and use “Add to collection”, or save a reading from the Pray section.</div>}
           <div className="row" style={{ marginTop: 6 }}>
             <input type="text" placeholder="Add passage, e.g. John 6:51-58" value={adding[c.id!] ?? ''} onChange={(e) => setAdding({ ...adding, [c.id!]: e.target.value })} onKeyDown={async (e) => { if (e.key === 'Enter') { const p = parseRefs(adding[c.id!] ?? ''); if (p.ok) { for (const x of p.refs) await add(c, { type: 'passage', ref: refId(convertRef('kjv', 'vulgate', x.ref).ref) }); setAdding({ ...adding, [c.id!]: '' }); } } }} style={{ flex: 1 }} aria-label="Add passage to collection" />
             {saved.length > 0 && <select aria-label="Add a saved item" value="" onChange={(e) => { const s = saved.find((x) => x.id === +e.target.value); if (s) add(c, s.type === 'catechism' ? { type: 'catechism', para: +s.key.split(':')[1], label: s.label } : { type: 'commentary', itemId: s.key, label: s.label, url: s.url }); }}><option value="">Add saved item…</option>{saved.map((s) => <option key={s.id} value={s.id}>{s.label.slice(0, 50)}</option>)}</select>}
@@ -185,7 +185,7 @@ function UserXrefs() {
       </div>
       {err && <div className="notice">{err}</div>}
       <ul className="list">{xs.map((x) => <li key={x.id} className="row between"><span><RefLink id={x.from} /> ↔ <RefLink id={x.to} /> {x.comment && <span className="muted small"> — {x.comment}</span>}</span><button className="btn small ghost" onClick={() => db.userXrefs.delete(x.id!)}>Remove</button></li>)}</ul>
-      {xs.length === 0 && <div className="empty">None yet.</div>}
+      {xs.length === 0 && <div className="empty">No connections of your own yet. In the study panel, “Connections” lets you link two passages that belong together.</div>}
     </>
   );
 }

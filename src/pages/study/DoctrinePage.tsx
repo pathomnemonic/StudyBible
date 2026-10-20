@@ -21,7 +21,7 @@ export default function DoctrinePage() {
     for (const l of links) (m.get(l.para) ?? m.set(l.para, []).get(l.para)!).push(l);
     return [...m.entries()].sort((a, b) => a[0] - b[0]);
   }, [links]);
-  if (!d) return <div className="center-note">Loading…</div>;
+  if (!d) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
   return (
     <div className="page">
       <h1>Doctrine & Catechism</h1>
@@ -45,7 +45,7 @@ export default function DoctrinePage() {
             <p className="muted small">{t.summary.slice(0, 120)}…</p>
           </Link>
         ))}
-        {topics.length === 0 && <div className="empty">No topic matches. Try the main search.</div>}
+        {topics.length === 0 && <div className="empty">No topic matches. Try a single word such as “grace” or “baptism”, or use the main search.</div>}
       </div>
 
       <h2 style={{ fontSize: '1.2rem', marginTop: 24 }}>Catechism paragraph ↔ Scripture</h2>
@@ -54,14 +54,14 @@ export default function DoctrinePage() {
       </p>
       <div className="row" style={{ marginBottom: 8 }}>
         <input type="text" inputMode="numeric" placeholder="Open Catechism paragraph…" value={para} onChange={(e) => setPara(e.target.value.replace(/\D/g, ''))} aria-label="Catechism paragraph number" />
-        <a className="btn" href={para ? cccUrl(+para) : CCC_OFFICIAL} target="_blank" rel="noreferrer">{para ? `Open §${para} ↗` : 'Official table of contents ↗'}</a>
+        <a className="btn" href={para ? `#/study/catechism/${para}` : '#/study/catechism'}>{para ? `Read §${para}` : 'Official table of contents ↗'}</a>
       </div>
       <table className="parallel">
         <thead><tr><th>Catechism</th><th>Scripture</th><th>Type</th><th></th></tr></thead>
         <tbody>
           {byPara.map(([p, ls]) => (
             <tr key={p}>
-              <td><a href={cccUrl(p)} target="_blank" rel="noreferrer">§{p}</a></td>
+              <td><a href={`#/study/catechism/${p}`}>§{p}</a></td>
               <td>{ls.map((l, i) => { const r = parseRefId(l.ref)!; return <span key={i} style={{ marginRight: 8 }}><RefLink refv={r}>{formatRef(r)}</RefLink></span>; })}</td>
               <td className="small">{ls[0].kind === 'quotation' ? 'quotes the passage' : 'discusses the passage'}</td>
               <td><button className="btn small ghost" onClick={() => db.saved.add({ key: `ccc:${p}`, type: 'catechism', label: `CCC §${p} · ${ls.map((l) => formatRef(parseRefId(l.ref)!)).join(', ')}`, url: cccUrl(p), createdAt: Date.now() }).catch(() => {})}>Save</button></td>

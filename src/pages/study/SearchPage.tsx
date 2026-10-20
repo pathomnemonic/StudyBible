@@ -277,7 +277,7 @@ function Group({ title, note, children }: { title: string; note?: string; childr
 }
 
 function SnipList({ items, q, empty }: { items: Snip[]; q: ReturnType<typeof parseQuery>; empty?: string }) {
-  if (!items.length) return <div className="empty">{empty ?? 'Nothing found.'}</div>;
+  if (!items.length) return <div className="empty">{empty ?? 'Nothing found. Check the spelling, try fewer words, or search a book and chapter such as “John 3”.'}</div>;
   return (
     <>
       {items.map((s) => (

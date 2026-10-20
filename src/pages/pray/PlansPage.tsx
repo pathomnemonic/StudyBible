@@ -77,7 +77,7 @@ export default function PlansPage() {
           </div>
         );
       })}
-      {show.length === 0 && <div className="empty">Loading plans…</div>}
+      {show.length === 0 && <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading plans"><i /><i /><i /></div>}
     </div>
   );
 }

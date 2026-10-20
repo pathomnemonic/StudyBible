@@ -59,7 +59,7 @@ export default function ChurchDocs() {
           </section>
         );
       })}
-      {docs.length > 0 && list.length === 0 && <div className="empty">No documents match.</div>}
+      {docs.length > 0 && list.length === 0 && <div className="empty">No document matches that search. Try a pope’s name, a year or a word from the title, or choose “All”.</div>}
     </div>
   );
 }

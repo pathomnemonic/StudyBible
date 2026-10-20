@@ -44,9 +44,11 @@ Scripture links inside these works come from (a) the work's own section structur
 
 Official public RSS feed `https://feeds.fireside.fm/bibleinayear/rss` (Ascension). Stored: title, date, duration, description, links, enclosure URL, the publisher's embed URL. Audio is never copied; playback uses the publisher's own file/embedder. Passages come from the feed's keywords/description and are majority-voted across the yearly re-releases of each Day. Days 99 and 184 list no chapters in the feed and are flagged for review. Corrections go in `data/curated/biay-overrides.json`. No transcripts are published in the feed.
 
-## Catechism: linked, with verified verse links
+## Catechism of the Catholic Church: full text, quoted with permission
 
-The Catechism text is © LEV/USCCB and is not stored. `data/curated/ccc-links.json` holds paragraph numbers and a distinctive phrase; `npm run verify:ccc` fetches each paragraph (single pages, 2 s apart) from the Charles Borromeo mirror of the Vatican text and keeps only links whose phrase is present. Paragraph links open the online text. The full Scripture index of the CCC would need a licensed data file.
+The English text (© Libreria Editrice Vaticana; USCCB for the United States) is built into the app from the Holy See's own edition at vatican.va (IntraText pages, fetched once, 1 s apart, by `scripts/ingest/ccc.ts fetch`). **The app's owner has stated that they have permission to quote the Catechism as much as they like**; that statement is the basis for including it, and the permission letter should be kept with the project. If that changes, remove `public/data/ccc` and the `ccc` build step.
+
+The build writes `public/data/ccc/` (paragraphs in blocks of 100, plus an index of headings) and `public/data/ccc/scripture/<BOOK>.json`, the verse-to-paragraph index made from the Catechism's own Scripture footnotes (a footnote with no "Cf." is counted as a quotation of the verse). The study panel shows the paragraph text under each verse, and `/study/catechism` reads and searches the whole text. `data/curated/ccc-links.json` (hand-checked links) is still used for anything the footnotes miss.
 
 ## Official documents: linked
 

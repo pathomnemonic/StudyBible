@@ -45,7 +45,7 @@ export default function WorkReader() {
     return out.slice(0, 60);
   }, [work, find]);
 
-  if (!meta) return <div className="center-note">Loading…</div>;
+  if (!meta) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
   if (!work || !sec) return <div className="center-note">Loading text…</div>;
   const go = (i: number) => nav(`/study/works/${workId}/${i}`);
   const quiet = settings.scriptureOnly;

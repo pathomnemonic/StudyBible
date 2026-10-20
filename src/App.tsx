@@ -12,6 +12,8 @@ import { initSync } from './sync/state';
 import { scheduleReminder } from './liturgy/reminders';
 
 const GalleryPage = lazy(() => import('./pages/study/GalleryPage'));
+const DaysPage = lazy(() => import('./pages/DaysPage'));
+const CatechismPage = lazy(() => import('./pages/study/CatechismPage'));
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
 const PathPage = lazy(() => import('./pages/study/PathsPage'));
 const PathsIndex = lazy(() => import('./pages/study/PathsPage').then((m) => ({ default: m.PathsIndex })));
@@ -142,13 +144,14 @@ export default function App() {
       <Gate>
         <PlayerProvider>
         <Shell>
-          <Suspense fallback={<div className="center-note">Loading…</div>}>
+          <Suspense fallback={<div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>}>
             <ErrorBoundary resetKey={loc.pathname}><Settle><Routes>
               <Route path="/" element={<TodayPage />} />
               <Route path="/read" element={<Home />} />
               <Route path="/read/:edition/:book/:chapter" element={<ReadPage />} />
               <Route path="/study" element={<StudyHome />} />
               <Route path="/study/gallery" element={<GalleryPage />} />
+              <Route path="/study/catechism/:n?" element={<CatechismPage />} />
               <Route path="/study/search" element={<SearchPage />} />
               <Route path="/study/topics/:id" element={<TopicPage />} />
               <Route path="/study/books/:id?" element={<BooksPage />} />
@@ -184,6 +187,7 @@ export default function App() {
               <Route path="/listen/episode/:id" element={<EpisodePage />} />
               <Route path="/pray" element={<PrayHome />} />
               <Route path="/pray/readings/:date?" element={<ReadingsPage />} />
+              <Route path="/days" element={<DaysPage />} />
               <Route path="/more" element={<MorePage />} />
               <Route path="/pray/sleep" element={<SleepPage />} />
               <Route path="/pray/lectio" element={<LectioPage />} />

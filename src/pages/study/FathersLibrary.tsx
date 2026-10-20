@@ -92,7 +92,7 @@ export default function FathersLibrary() {
           })}
         </section>
       ))}
-      {byAuthor.length === 0 && <div className="empty">No works match.</div>}
+      {byAuthor.length === 0 && <div className="empty">No work matches that search. Try an author’s name (for example Augustine) or a word from the title.</div>}
       <p className="muted small">More works can be added through <code>data/registry/library.json</code>; see docs/INGESTION.md. A few well-known texts were deliberately left out because their translation’s copyright status could not be verified.</p>
     </div>
   );

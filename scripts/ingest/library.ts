@@ -1,3 +1,4 @@
+import { plainNumerals } from '../../src/lib/readable';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { refId, type Ref } from '../../src/lib/refs';
@@ -244,7 +245,7 @@ export function buildLibrary(report: Report) {
       }
       if (!paras.length) continue;
       const idx = sections.length;
-      let title = s.title.trim().replace(/\.$/, '');
+      let title = plainNumerals(s.title.trim().replace(/\.$/, ''), { title: true });
       const structure: Ref[] = [];
       ordinal++;
       if (cfg.scriptureMode === 'tractates' && /^Chapter/i.test(s.title)) {

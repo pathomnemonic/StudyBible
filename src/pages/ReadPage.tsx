@@ -29,6 +29,7 @@ import { buzz } from '../lib/haptics';
 import { approvedLinks } from '../lib/approved';
 import NotePopover from '../components/NotePopover';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
+import { expandNote } from '../lib/readable';
 import { jesusWords, type RedRanges } from '../study/jesusWords';
 import { artForChapter, type InlineFig } from '../study/inlineArt';
 import { useQuiet, endQuiet } from '../lib/quiet';
@@ -173,7 +174,7 @@ export default function ReadPage() {
   const [notePop, setNotePop] = useState<{ n: number; notes: string[]; at: DOMRect } | null>(null);
   useEffect(() => {
     let live = true;
-    const clean = (t: string) => t.replace(/^\d+[:.]\d+(?:[-–]\d+)?\s+/, '');
+    const clean = (t: string) => expandNote(t.replace(/^\d+[:.]\d+(?:[-–]\d+)?\s+/, ''));
     if (edition.id === 'webc') {
       const m = new Map<number, string[]>();
       for (const [v, ns] of Object.entries(chapterData?.notes ?? {})) m.set(+v, ns.map(clean));

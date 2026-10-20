@@ -3852,3 +3852,17 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .biay-chip { margin: 0 0 8px; } .biay-chip a { text-decoration: none; }
 .biay-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 12px; padding: 8px 12px; border: 1px solid var(--hairline, #8884); border-radius: 10px; font-size: .88rem; }
 .biay-ep { display: flex; align-items: center; gap: 10px; }
+.week-card { border: 1px solid var(--hairline, #8884); border-radius: 10px; padding: 8px 14px; margin: 0 0 14px; font-size: .9rem; } .week-card p { margin: 2px 0 0; }
+
+/* loading placeholders: soft bars instead of a blank page */
+.skeleton-list { display: grid; gap: 10px; margin: 12px 0; }
+.skeleton-list i { display: block; height: 64px; border-radius: 10px; background: linear-gradient(90deg, var(--hairline, #8883) 25%, #8885 50%, var(--hairline, #8883) 75%); background-size: 200% 100%; animation: skel 1.6s ease-in-out infinite; }
+@keyframes skel { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .skeleton-list i { animation: none; } }
+
+/* Catechism reader */
+.ccc-para { display: grid; grid-template-columns: 3.2em 1fr; gap: 6px; padding: 6px 4px; border-radius: 8px; }
+.ccc-para.on { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.ccc-n { font-size: .9rem; margin: 0; } .ccc-n a { text-decoration: none; color: var(--accent); }
+.ccc-para p { margin: 0 0 .6em; }
+.ccc-fn { margin: .2em 0 0; padding-left: 1.4em; }

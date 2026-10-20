@@ -6,6 +6,7 @@ import NoteEditor from './NoteEditor';
 import AddLinkDialog from './AddLinkDialog';
 import { SECTIONS, TABS, gatherAll, relevance, MATCH_LABEL, type SectionKey, type StudyItem } from '../study/providers';
 import { formatRef, parseRefId, refId, type Ref } from '../lib/refs';
+import { pathsFor, type PathHit } from '../study/pathRefs';
 import { passageText, anchorToNative } from '../lib/bibleText';
 import { useSettings } from '../lib/store';
 import type { EditionRecord } from '../data/loader';
@@ -65,6 +66,8 @@ export default function StudyPanel({
   const [loading, setLoading] = useState(true);
   const [tab, setTabState] = useState(() => { try { return localStorage.getItem('sb:panelTab') || (initialTab === 'all' ? 'notes' : initialTab); } catch { return initialTab === 'all' ? 'notes' : initialTab; } });
   const setTab = (t: string) => { setTabState(t); try { localStorage.setItem('sb:panelTab', t); } catch { /* private mode */ } };
+  const [paths, setPaths] = useState<PathHit[]>([]);
+  useEffect(() => { let live = true; pathsFor(refs).then((p) => live && setPaths(p)); return () => { live = false; }; }, [refs.map(refId).join()]);
   const [authority, setAuthority] = useState('');
   const [period, setPeriod] = useState('');
   const [author, setAuthor] = useState('');
@@ -133,6 +136,7 @@ export default function StudyPanel({
   return (
     <aside className={`panel ${inline ? 'inline' : 'side'}`} aria-label="Study panel">
       <div className="panel-head">
+        {paths.length > 0 && <div className="path-line small muted">Part of a study path: {paths.slice(0, 2).map((p, i) => <span key={p.id}>{i ? ', ' : ''}<Link to={`/study/path/${p.id}`}>{p.title}</Link></span>)}</div>}
         <div className="top">
           <h2>{heading}{scope === 'chapter' && <span className="scope-tag">whole chapter</span>}</h2>
           <button className="icon-btn" onClick={() => setNoteTargets(refs.map((r) => ({ type: 'passage', ref: refId(r) })))} aria-label="Write a note on this passage" title="Write a note on this passage">
