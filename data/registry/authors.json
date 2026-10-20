@@ -179,6 +179,72 @@
    "dates": "1884",
    "period": "early-modern",
    "bio": "The assembly of the American bishops that ordered a single national catechism, published in 1885."
+  },
+  "council-nicaea-i": {
+   "name": "Council of Nicaea I",
+   "dates": "325",
+   "period": "patristic",
+   "bio": "The first ecumenical council of the undivided Church (325)."
+  },
+  "council-constantinople-i": {
+   "name": "Council of Constantinople I",
+   "dates": "381",
+   "period": "patristic",
+   "bio": "The second ecumenical council of the undivided Church (381)."
+  },
+  "council-ephesus": {
+   "name": "Council of Ephesus",
+   "dates": "431",
+   "period": "patristic",
+   "bio": "The third ecumenical council of the undivided Church (431)."
+  },
+  "council-chalcedon": {
+   "name": "Council of Chalcedon",
+   "dates": "451",
+   "period": "patristic",
+   "bio": "The fourth ecumenical council of the undivided Church (451)."
+  },
+  "council-constantinople-ii": {
+   "name": "Council of Constantinople II",
+   "dates": "553",
+   "period": "patristic",
+   "bio": "The fifth ecumenical council of the undivided Church (553)."
+  },
+  "council-constantinople-iii": {
+   "name": "Council of Constantinople III",
+   "dates": "680–681",
+   "period": "patristic",
+   "bio": "The sixth ecumenical council of the undivided Church (680–681)."
+  },
+  "council-nicaea-ii": {
+   "name": "Council of Nicaea II",
+   "dates": "787",
+   "period": "patristic",
+   "bio": "The seventh ecumenical council of the undivided Church (787)."
+  },
+  "leo-xiii": {
+   "name": "Leo XIII",
+   "dates": "1810–1903",
+   "period": "modern",
+   "bio": "Pope from 1878 to 1903; author of Rerum Novarum and of encyclicals on Thomism, Scripture, the Church and the state."
+  },
+  "pius-x": {
+   "name": "Pius X",
+   "dates": "1835–1914",
+   "period": "modern",
+   "bio": "Pope from 1903 to 1914; canonized 1954. Reformed catechesis and the liturgy, and condemned Modernism."
+  },
+  "pius-ix": {
+   "name": "Pius IX",
+   "dates": "1792–1878",
+   "period": "modern",
+   "bio": "Pope from 1846 to 1878; defined the Immaculate Conception and convened the First Vatican Council."
+  },
+  "council-vatican-i": {
+   "name": "First Vatican Council",
+   "dates": "1869–1870",
+   "period": "modern",
+   "bio": "The twentieth ecumenical council, which defined papal primacy and infallibility and issued the constitution on faith and reason."
   }
  }
 }

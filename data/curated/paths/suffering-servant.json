@@ -1,0 +1,112 @@
+{
+  "id": "suffering-servant",
+  "title": "The Suffering Servant",
+  "blurb": "Read Isaiah's servant songs as the Church has, and follow them to the Passion and the hymn of Philippians 2.",
+  "minutes": 40,
+  "steps": [
+    {
+      "title": "Gentle Strength",
+      "ref": "Isaiah 42:1-9",
+      "intro": "The first servant song presents God's chosen one, endowed with his Spirit, who brings justice without shouting or crushing the weak. Matthew quotes it in his Gospel to describe Jesus' quiet manner of healing.",
+      "quote": {
+        "text": "Then proclaiming His meekness, he saith, “He shall not strive nor cry.” For His desire indeed was to heal in their presence; but since they thrust Him away, not even against this did He contend.",
+        "who": "John Chrysostom",
+        "work": "chrys-matthew",
+        "section": 40,
+        "para": 31
+      },
+      "question": "Where do you tend to push back forcefully, and how might gentleness look in that situation?"
+    },
+    {
+      "title": "A Light to the Nations",
+      "ref": "Isaiah 49:1-6",
+      "intro": "The servant speaks of being called from the womb. His mission to restore Israel is called too small, so God makes him a light to the nations, that salvation may reach the ends of the earth.",
+      "quote": {
+        "text": "Our Lord Jesus Christ, Saviour of mankind, instituted the observance of the Divine religion which He wished by the grace of God to shed its brightness upon all nations and all peoples",
+        "who": "Leo the Great",
+        "work": "leo-sermons-letters",
+        "section": 15,
+        "para": 4
+      },
+      "question": "Who in your life seems far from the Church, and how could you be a light to them?"
+    },
+    {
+      "title": "Face Like Flint",
+      "ref": "Isaiah 50:4-9",
+      "intro": "The servant has a disciple's ear and does not turn away from those who strike him and spit on him. He trusts that God will help him and sets his face like flint. Christians have read this as foretelling Christ's Passion.",
+      "quote": {
+        "text": "On that face which the sea, when it saw it, had reverenced, from which the sun, when it beheld it on the cross, turned away his rays, they did spit, and struck it with the palms of their hands, and some upon the head",
+        "who": "John Chrysostom",
+        "work": "chrys-matthew",
+        "section": 81,
+        "para": 7
+      },
+      "question": "What helps you stay faithful when doing right costs you something?"
+    },
+    {
+      "title": "Without Form or Beauty",
+      "ref": "Isaiah 52:13-53:3",
+      "intro": "The fourth song begins by announcing the servant's exaltation, then describes a figure despised and rejected, without beauty or majesty. It confronts readers with a messenger of God who looks like a failure.",
+      "quote": {
+        "text": "Our Lord Jesus Christ, the Sceptre of the majesty of God, did not come in the pomp of pride or arrogance, although He might have done so, but in a lowly condition, as the Holy Spirit had declared regarding Him.",
+        "who": "Clement of Rome",
+        "work": "clement-rome",
+        "section": 16,
+        "para": 0
+      },
+      "question": "What do you expect strength to look like, and how does the servant's lowliness challenge that?"
+    },
+    {
+      "title": "By His Wounds",
+      "ref": "Isaiah 53:4-6",
+      "intro": "The song says the servant bore the griefs of others, was pierced for their transgressions, and that by his wounds they are healed. The speakers admit they judged him wrongly, and that the Lord laid all their sins on him.",
+      "quote": {
+        "text": "Truly, they were wounds piercing His Body, but there was no weakness betokened by that wound, whence flowed the Life of all, and therefore was it that the prophet said: “By His stripes we are healed.”",
+        "who": "Ambrose of Milan",
+        "work": "ambrose-works",
+        "section": 15,
+        "para": 74
+      },
+      "question": "Which of your own wounds or failings would you like to bring to Christ for healing?"
+    },
+    {
+      "title": "He Bore the Sins of Many",
+      "ref": "Isaiah 53:7-12",
+      "intro": "The servant is led like a lamb to slaughter without protest, and he is buried with the wicked. Yet he sees light after his suffering, justifies many and intercedes for transgressors. Early Christians read these lines in light of Jesus' death.",
+      "quote": {
+        "text": "For He was wounded for our transgressions, and He bare the sins of many, and He was delivered for our iniquities.",
+        "who": "Justin Martyr",
+        "work": "justin-martyr",
+        "section": 8,
+        "para": 14
+      },
+      "question": "What does it mean to you that Christ's suffering was undertaken for others, and not only endured?"
+    },
+    {
+      "title": "Crowned and Mocked",
+      "ref": "Matthew 27:27-31",
+      "intro": "Soldiers strip Jesus, put a scarlet robe on him, press a crown of thorns on his head and mock him as king. They spit on him and strike him. The scene echoes the servant songs.",
+      "quote": {
+        "text": "Considering then all these things, control thyself. For what sufferest thou like what thy Lord suffered? Wast thou publicly insulted? But not like these things. Art thou mocked? yet not thy whole body, not being thus scourged, and stripped. And even if thou wast buffeted, yet not like this.",
+        "who": "John Chrysostom",
+        "work": "chrys-matthew",
+        "section": 83,
+        "para": 22
+      },
+      "question": "When you suffer an insult, how might remembering Christ's treatment change how you respond?"
+    },
+    {
+      "title": "The Form of a Servant",
+      "ref": "Philippians 2:5-11",
+      "intro": "Paul quotes an early hymn in which Christ takes the form of a servant, becomes obedient even to death on a cross, and is then exalted by God. The path of the servant becomes the pattern for Christian life.",
+      "quote": {
+        "text": "Learn, then, what this means: “He took upon Him the form of a servant.” It means that He took upon Him all the perfections of humanity in their completeness, and obedience in its completeness.",
+        "who": "Ambrose of Milan",
+        "work": "ambrose-works",
+        "section": 16,
+        "para": 187
+      },
+      "question": "Where is God inviting you to serve in a way that costs you status or comfort?"
+    }
+  ]
+}

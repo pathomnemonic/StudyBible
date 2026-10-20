@@ -88,30 +88,47 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
           const cls = ['v', selected.has(n) ? 'selected' : '', d?.highlight ? `hl-${d.highlight}` : ''].filter(Boolean).join(' ');
           const fnotes = notes[n];
           const lastRunOfVerse = j === lastIdx || runs[j + 1][0] > 0;
+          // Sparkling key words are buttons of their own, so they sit beside the verse's text rather than inside it
+          // (a button may not contain another button); every piece of the verse selects the same verse.
+          const hits = terms ? terms.find(text) : [];
+          const pieces: ({ t: 'text'; from: number; to: number } | { t: 'term'; from: number; to: number; id: string })[] = [];
+          let at = 0;
+          for (const h of hits) {
+            if (h.start > at) pieces.push({ t: 'text', from: at, to: h.start });
+            pieces.push({ t: 'term', from: h.start, to: h.end, id: h.id });
+            at = h.end;
+          }
+          if (at < text.length || !pieces.length) pieces.push({ t: 'text', from: at, to: text.length });
+          const lastTextIdx = pieces.map((p) => p.t).lastIndexOf('text');
           return (
             <Fragment key={j}>
-              <span
-                className={cls}
-                data-v={n}
-                role="button"
-                tabIndex={0}
-                aria-pressed={selected.has(n)}
-                aria-description={[d?.highlight ? 'highlighted' : '', d?.note ? 'has a note' : '', d?.bookmark ? 'bookmarked' : ''].filter(Boolean).join(', ') || undefined}
-                onClick={(e) => onVerse(n, e)}
-                onContextMenu={(e) => {
-                  e.preventDefault();
-                  onVerse(n, e, true);
-                }}
-                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onVerse(n, e))}
-              >
-                {showNum && <sup className="vn">{n}</sup>}
-                {withTerms(text)}
-                {lastRunOfVerse && d?.note && <span className="mark" title="You have a note here">✎</span>}
-                {lastRunOfVerse && d?.bookmark && <span className="mark" title="Bookmarked">⚑</span>}
-                {lastRunOfVerse && fnotes && fnotes.map((f, k) => (
-                  <span key={k} className="fn" title={f} aria-label={`Footnote: ${f}`}>†</span>
-                ))}
-              </span>
+              {pieces.map((pc, k) => pc.t === 'term' ? (
+                <span key={k} className="term" role="button" tabIndex={0} data-term={pc.id} onClick={(e) => { e.stopPropagation(); onTerm?.(pc.id, e.currentTarget); }} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); onTerm?.(pc.id, e.currentTarget); } }}>{text.slice(pc.from, pc.to)}</span>
+              ) : (
+                <span
+                  key={k}
+                  className={cls}
+                  data-v={n}
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={selected.has(n)}
+                  aria-description={[d?.highlight ? 'highlighted' : '', d?.note ? 'has a note' : '', d?.bookmark ? 'bookmarked' : ''].filter(Boolean).join(', ') || undefined}
+                  onClick={(e) => onVerse(n, e)}
+                  onContextMenu={(e) => {
+                    e.preventDefault();
+                    onVerse(n, e, true);
+                  }}
+                  onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onVerse(n, e))}
+                >
+                  {showNum && k === 0 && <sup className="vn">{n}</sup>}
+                  {fx(text.slice(pc.from, pc.to))}
+                  {k === lastTextIdx && lastRunOfVerse && d?.note && <span className="mark" title="You have a note here">✎</span>}
+                  {k === lastTextIdx && lastRunOfVerse && d?.bookmark && <span className="mark" title="Bookmarked">⚑</span>}
+                  {k === lastTextIdx && lastRunOfVerse && fnotes && fnotes.map((f, q) => (
+                    <span key={q} className="fn" title={f} aria-label={`Footnote: ${f}`}>†</span>
+                  ))}
+                </span>
+              ))}
               {lastRunOfVerse && !!stdNotes?.get(n)?.length && (
                 <button
                   className="rm rm-std"

@@ -1,0 +1,86 @@
+{
+  "id": "resurrection",
+  "title": "The Risen Lord",
+  "blurb": "Meet the risen Christ at the tomb, on the road, in the upper room and on the shore.",
+  "minutes": 40,
+  "steps": [
+    {
+      "title": "The Empty Tomb",
+      "ref": "John 20:1-10",
+      "intro": "Mary Magdalene finds the stone rolled away. Peter and the beloved disciple run to the tomb and find the burial cloths lying there. John says the beloved disciple saw and believed.",
+      "quote": {
+        "text": "For, when the holy women, as the Gospel-story has revealed, brought word of the stone rolled away from the tomb, the sepulchre emptied of the body, and the angels bearing witness to the living Lord, their words seemed like ravings to the Apostles and other disciples.",
+        "who": "Leo the Great",
+        "work": "leo-sermons-letters",
+        "section": 209,
+        "para": 3
+      },
+      "question": "What would you have thought, running to that tomb? What do you find hard to believe about Easter?"
+    },
+    {
+      "title": "Mary Magdalene in the Garden",
+      "ref": "John 20:11-18",
+      "intro": "Weeping outside the tomb, Mary meets two angels and then a man she takes for the gardener. When he speaks her name, she recognizes Jesus and is sent to tell the disciples.",
+      "quote": {
+        "text": "By all these circumstances, as though a door was being opened for her, she was led by little and little to the knowledge of the Resurrection.",
+        "who": "John Chrysostom",
+        "work": "chrys-john",
+        "section": 84,
+        "para": 9
+      },
+      "question": "When has God called you by name in a way you only recognized later?"
+    },
+    {
+      "title": "The Road to Emmaus",
+      "ref": "Luke 24:25-35",
+      "intro": "Two disciples walk away from Jerusalem, and a stranger explains the Scriptures to them. They recognize Jesus only in the breaking of the bread, and return at once to the Eleven.",
+      "quote": {
+        "text": "When He opened their understanding, and expounded to them the Scriptures, beginning from Moses, through all the prophets; with which being now inebriated, they said, “Did not our hearts burn within us in the way, when He opened to us the Scriptures?” For they understood Christ in those books in which they knew Him not before.",
+        "who": "Augustine of Hippo",
+        "work": "aug-tractates-john",
+        "section": 8,
+        "para": 8
+      },
+      "question": "Where do you most often meet Christ: in Scripture, in the breaking of bread, or in a stranger?"
+    },
+    {
+      "title": "Thomas Believes",
+      "ref": "John 20:24-29",
+      "intro": "Thomas was absent when Jesus first appeared and doubts the others' report. A week later Jesus invites him to touch his wounds, and Thomas answers, \"My Lord and my God!\"",
+      "quote": {
+        "text": "He saw and touched the man, and acknowledged the God whom he neither saw nor touched; but by the means of what he saw and touched, he now put far away from him every doubt, and believed the other.",
+        "who": "Augustine of Hippo",
+        "work": "aug-tractates-john",
+        "section": 120,
+        "para": 7
+      },
+      "question": "What doubt could you bring honestly to Jesus rather than hide?"
+    },
+    {
+      "title": "Breakfast on the Shore",
+      "ref": "John 21:9-19",
+      "intro": "On the shore of the Sea of Tiberias the risen Jesus has a charcoal fire and breakfast ready. He then asks Peter three times, \"Do you love me?\" and entrusts his sheep to him.",
+      "quote": {
+        "text": "To the threefold denial there is now appended a threefold confession, that his tongue may not yield a feebler service to love than to fear, and imminent death may not appear to have elicited more from the lips than present life.",
+        "who": "Augustine of Hippo",
+        "work": "aug-tractates-john",
+        "section": 122,
+        "para": 7
+      },
+      "question": "If Jesus asked you \"Do you love me?\" today, what would you answer, and what would he ask of you?"
+    },
+    {
+      "title": "The Seed Raised",
+      "ref": "1 Corinthians 15:35-49",
+      "intro": "Paul answers the question of how the dead are raised. He compares the body to a seed that is sown perishable and raised imperishable, and sets Christ the last Adam against the first.",
+      "quote": {
+        "text": "For like the seeds which are cast into the earth, we do not perish by dissolution, but sown in the earth, shall rise again, death having been brought to nought by the grace of the Saviour.",
+        "who": "Athanasius of Alexandria",
+        "work": "athanasius-incarnation",
+        "section": 21,
+        "para": 1
+      },
+      "question": "How does belief in the resurrection of the body change the way you treat your own and others' bodies?"
+    }
+  ]
+}

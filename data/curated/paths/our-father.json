@@ -1,0 +1,112 @@
+{
+  "id": "our-father",
+  "title": "Our Father: The Lord's Prayer",
+  "blurb": "Pray through the Lord's Prayer one petition at a time, with the Scripture that stands behind each line.",
+  "minutes": 40,
+  "steps": [
+    {
+      "title": "How to pray",
+      "ref": "Matthew 6:5-8",
+      "intro": "Before giving the Our Father, Jesus contrasts prayer for show with prayer made in secret to a Father who already knows what his children need. The prayer that follows is offered as a pattern, not a formula for impressing God.",
+      "quote": {
+        "text": "The religious rite of prayer therefore, ordained by Himself, and animated, even at the moment when it was issuing out of the Divine mouth, by His own Spirit, ascends, by its own prerogative, into heaven, commending to the Father what the Son has taught.",
+        "who": "Tertullian",
+        "work": "tertullian-ethical",
+        "section": 42,
+        "para": 1
+      },
+      "question": "What would it look like to pray more simply and honestly this week?"
+    },
+    {
+      "title": "Our Father in heaven",
+      "ref": "Romans 8:14-17",
+      "intro": "Paul teaches that those led by the Spirit cry 'Abba, Father' and are God's children and heirs with Christ. The first words of the prayer carry that confidence, and the word 'our' places each person among many brothers and sisters.",
+      "quote": {
+        "text": "For to all hath He given one nobility, having vouchsafed to be called the Father of all alike.",
+        "who": "John Chrysostom",
+        "work": "chrys-matthew",
+        "section": 19,
+        "para": 55
+      },
+      "question": "Who is included in your 'our' when you pray, and who might you be leaving out?"
+    },
+    {
+      "title": "Hallowed be your name",
+      "ref": "Ezekiel 36:22-28",
+      "intro": "In Ezekiel God promises to make his holy name honoured among the nations by gathering his people, cleansing them and giving them a new heart and spirit. To ask that his name be hallowed is to ask for that holiness to be seen in us.",
+      "quote": {
+        "text": "After this we say, “Hallowed be Thy name;” not that we wish for God that He may be hallowed by our prayers, but that we beseech of Him that His name may be hallowed in us.",
+        "who": "Cyprian of Carthage",
+        "work": "cyprian",
+        "section": 88,
+        "para": 35
+      },
+      "question": "In what concrete way could your conduct this week make God's name honoured rather than ignored?"
+    },
+    {
+      "title": "Your kingdom come",
+      "ref": "Luke 17:20-21",
+      "intro": "Asked when the kingdom of God would come, Jesus answers that it is not observed with signs to be watched for, because it is already in the midst of his hearers. The petition asks both for its full arrival and for its growth now.",
+      "quote": {
+        "text": "When we say: “Thy kingdom come,” which shall certainly come whether we wish it or not, we do by these words stir up our own desires for that kingdom, that it may come to us, and that we may be found worthy to reign in it.",
+        "who": "Augustine of Hippo",
+        "work": "aug-letters",
+        "section": 113,
+        "para": 63
+      },
+      "question": "Where do you see the kingdom of God already at work, and how could you join in?"
+    },
+    {
+      "title": "Your will be done",
+      "ref": "Matthew 26:36-44",
+      "intro": "In Gethsemane Jesus prays in anguish, 'not as I will, but as you will.' The third petition echoes that surrender, asking that God's will be done on earth as in heaven, beginning with the one who prays.",
+      "quote": {
+        "text": "not that God should do what He wills, but that we may be able to do what God wills.",
+        "who": "Cyprian of Carthage",
+        "work": "cyprian",
+        "section": 88,
+        "para": 40
+      },
+      "question": "What is one area of your life where you find it hardest to say 'your will be done'?"
+    },
+    {
+      "title": "Give us this day our daily bread",
+      "ref": "Exodus 16:4-15",
+      "intro": "In the wilderness God gave Israel manna one day at a time, teaching dependence rather than hoarding. Christians have read the petition as covering bodily needs and also the food of God's word and the Eucharist.",
+      "quote": {
+        "text": "It remains, therefore, that we should understand the daily bread as spiritual, that is to say, divine precepts, which we ought daily to meditate and to labour after.",
+        "who": "Augustine of Hippo",
+        "work": "aug-sermon-mount",
+        "section": 29,
+        "para": 6
+      },
+      "question": "What are you tempted to store up for yourself instead of asking for it day by day?"
+    },
+    {
+      "title": "Forgive us as we forgive",
+      "ref": "Colossians 3:12-15",
+      "intro": "Paul tells believers to bear with one another and forgive as the Lord forgave them. The Lord's Prayer ties the request for pardon to the pardon we give, and Jesus underlines the link in Matthew 6:14-15.",
+      "quote": {
+        "text": "Since He might indeed, even without this, forgive thee all thine offenses; but He wills thee hereby also to receive a benefit; affording thee on all sides innumerable occasions of gentleness and love to man, casting out what is brutish in thee, and quenching wrath, and in all ways cementing thee to him who is thine own member.",
+        "who": "John Chrysostom",
+        "work": "chrys-matthew",
+        "section": 19,
+        "para": 79
+      },
+      "question": "Whom do you need to forgive, or ask forgiveness from, before you next say this prayer?"
+    },
+    {
+      "title": "Lead us not into temptation",
+      "ref": "1 Corinthians 10:12-13",
+      "intro": "Paul warns that anyone who thinks he stands should take care not to fall, and assures believers that God is faithful and provides a way out of every trial. The final petitions ask for that protection and for deliverance from evil.",
+      "quote": {
+        "text": "When we say: “Lead us not into temptation,” we admonish ourselves to seek that we may not, through being deprived of God’s help, be either ensnared to consent or compelled to yield to temptation.",
+        "who": "Augustine of Hippo",
+        "work": "aug-letters",
+        "section": 113,
+        "para": 63
+      },
+      "question": "Where are you most vulnerable to temptation, and what practical help can you ask for?"
+    }
+  ]
+}

@@ -112,12 +112,12 @@ export default function TodayPage() {
         <button className="icon-btn" onClick={() => go(-1)} aria-label={t('home.prev')}><Icon name="chevL" /></button>
         <div>
           <div className="eyebrow">{dateLabel}</div>
-          <div className="season">{ld.dayName}</div>
+          <h1 className="season">{ld.dayName}</h1>
         </div>
         <button className="icon-btn" onClick={() => go(1)} aria-label={t('home.next')}><Icon name="chevR" /></button>
       </header>
 
-      <main className="home-body" key={date} ref={bodyRef}>
+      <section className="home-body" key={date} ref={bodyRef} aria-label={ld.dayName} aria-live="polite">
         {entry && verse ? (
           <>
             <blockquote className="home-verse">
@@ -133,7 +133,7 @@ export default function TodayPage() {
             <p className="home-question">{entry.q}</p>
           </>
         ) : <p className="muted home-wait">…</p>}
-      </main>
+      </section>
 
       {info && entry && (
         <aside className="home-info" role="dialog" aria-label="Sources">

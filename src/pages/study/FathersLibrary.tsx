@@ -37,7 +37,7 @@ export default function FathersLibrary() {
       <p className="lede">Read the saints, the Fathers and the catechisms here, in full, in a quiet page with your place remembered. These are public-domain English translations; each work names its translator and source, and every section links to the verses it comments on.</p>
       {recent.length > 0 && (
         <section className="sect">
-          <h3 className="eyebrow-h">Continue reading</h3>
+          <h2 className="eyebrow-h">Continue reading</h2>
           <div className="shelf">
             {recent.map((p) => { const w = works.find((x) => x.id === p.workId)!; return (
               <Link key={w.id} className="shelf-card" to={`/study/works/${w.id}/${p.section}`}>
@@ -50,7 +50,7 @@ export default function FathersLibrary() {
       )}
       {!q && !period && !kind && !authorFilter && start.length > 0 && (
         <section className="sect">
-          <h3 className="eyebrow-h">Start here</h3>
+          <h2 className="eyebrow-h">Start here</h2>
           <div className="shelf">
             {start.map((w) => (
               <Link key={w.id} className="shelf-card" to={`/study/works/${w.id}/0`}>

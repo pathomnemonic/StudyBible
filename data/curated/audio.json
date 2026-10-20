@@ -1,5 +1,5 @@
 {
-  "_about": "Curated background audio for the reader. All files verified against their source pages/metadata; see per-track license and attribution. Chant: only one verified track could be downloaded (Wikimedia rate limiting).",
+  "_about": "Curated background audio for the reader. All files verified against source pages/metadata; see per-track license and attribution. Wikimedia hosts rate-limited the download of some candidates, which are not included.",
   "tracks": [
     {
       "id": "nature-summer-rain",
@@ -186,6 +186,380 @@
       "attribution": "\"Kyrie eleison\", Schola Gregoriana (Oltarzew), conducted by Fr. Dariusz Smolarek SAC, 2007; Wikimedia Commons, CC BY-SA 3.0",
       "note": "Commons page: recorded by Schola Gregoriana of the Pallottine Seminary in Oltarzew (male voices); copyright holder gave written permission for CC/GFDL (OTRS ticket 2008031210015414); license cc-by-sa-3.0. Genuine sung human chant, no AI. Only 42 s long (shorter than the requested 2 min); 2 s fade in, 3 s fade out. Derivatives must be shared alike.",
       "durationSec": 42
+    },
+    {
+      "id": "nature-sea-waves",
+      "kind": "nature",
+      "title": "Sea waves on a beach",
+      "performer": "Joseph Sardin (BigSoundBank)",
+      "file": "audio/nature-sea-waves.mp3",
+      "loop": true,
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://bigsoundbank.com/small-waves-and-beach-1-s1446.html",
+      "attribution": "\"Sea waves on a beach\" by Joseph Sardin, BigSoundBank.com (CC0, no attribution required)",
+      "note": "Source page states CC0. Shore ambience for lake/sea passages (Galilee). 183 s excerpt, 3 s crossfade loop.",
+      "durationSec": 180
+    },
+    {
+      "id": "nature-desert-wind",
+      "kind": "nature",
+      "title": "Wind in dry scrub",
+      "performer": "Joseph Sardin (BigSoundBank)",
+      "file": "audio/nature-desert-wind.mp3",
+      "loop": true,
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://bigsoundbank.com/wind-in-shrub-s0907.html",
+      "attribution": "\"Wind in dry scrub\" by Joseph Sardin, BigSoundBank.com (CC0, no attribution required)",
+      "note": "Source page states CC0. Recorded wind in shrubland, suitable as desert/wilderness wind (not recorded in a desert). 170 s excerpt, 3 s crossfade loop.",
+      "durationSec": 167
+    },
+    {
+      "id": "nature-night-crickets",
+      "kind": "nature",
+      "title": "Night insects",
+      "performer": "Joseph Sardin (BigSoundBank)",
+      "file": "audio/nature-night-crickets.mp3",
+      "loop": true,
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://bigsoundbank.com/nocturnal-insects-4-s1470.html",
+      "attribution": "\"Night insects\" by Joseph Sardin, BigSoundBank.com (CC0, no attribution required)",
+      "note": "Source page states CC0. Night-time insect chorus (not specifically identified as crickets). 145 s excerpt, 3 s crossfade loop.",
+      "durationSec": 142
+    },
+    {
+      "id": "nature-fire",
+      "kind": "nature",
+      "title": "Fireplace crackling",
+      "performer": "Joseph Sardin (BigSoundBank)",
+      "file": "audio/nature-fire.mp3",
+      "loop": true,
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://bigsoundbank.com/fireplace-3-s2855.html",
+      "attribution": "\"Fireplace crackling\" by Joseph Sardin, BigSoundBank.com (CC0, no attribution required)",
+      "note": "Source page states CC0. 170 s excerpt, 3 s crossfade loop.",
+      "durationSec": 167
+    },
+    {
+      "id": "nature-thunder",
+      "kind": "nature",
+      "title": "Rain and distant storm",
+      "performer": "Joseph Sardin (BigSoundBank)",
+      "file": "audio/nature-thunder.mp3",
+      "loop": true,
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://bigsoundbank.com/rain-and-storm-in-a-tent-s0820.html",
+      "attribution": "\"Rain and distant storm\" by Joseph Sardin, BigSoundBank.com (CC0, no attribution required)",
+      "note": "Source page states CC0 (\"medium rain and small storm\" recorded in a tent). Moderate thunder; 190 s excerpt, 3 s crossfade loop.",
+      "durationSec": 187
+    },
+    {
+      "id": "nature-pasture-sheep",
+      "kind": "nature",
+      "title": "Flock of sheep and cows with bells",
+      "performer": "Joseph Sardin (BigSoundBank)",
+      "file": "audio/nature-pasture-sheep.mp3",
+      "loop": true,
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://bigsoundbank.com/flock-sheep-and-cows-s3220.html",
+      "attribution": "\"Flock of sheep and cows with bells\" by Joseph Sardin, BigSoundBank.com (CC0, no attribution required)",
+      "note": "Source page states CC0. Pasture ambience; listed under bell search, bells not audited by ear. 115 s excerpt, 3 s crossfade loop.",
+      "durationSec": 112
+    },
+    {
+      "id": "nature-crowd-market",
+      "kind": "nature",
+      "title": "Outdoor market murmur",
+      "performer": "Joseph Sardin (BigSoundBank)",
+      "file": "audio/nature-crowd-market.mp3",
+      "loop": true,
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceUrl": "https://bigsoundbank.com/outdoor-market-1-s2728.html",
+      "attribution": "\"Outdoor market murmur\" by Joseph Sardin, BigSoundBank.com (CC0, no attribution required)",
+      "note": "Source page states CC0. Crowd/market murmur with modern-day voices (not intelligible-speech audited). 185 s excerpt, 3 s crossfade loop.",
+      "durationSec": 182
+    },
+    {
+      "id": "hymn-adeste-fideles-mccormack",
+      "kind": "hymn",
+      "title": "Adeste fideles",
+      "performer": "John McCormack (tenor) with chorus, Victor, 1915",
+      "file": "audio/hymn-adeste-fideles-mccormack.mp3",
+      "loop": false,
+      "license": "Public domain (recording; Public Domain Mark)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://archive.org/details/loc-jukebox-12842-adeste-fideles",
+      "attribution": "\"Adeste fideles\", John McCormack (tenor) with chorus, Victor, 1915, 1915. Library of Congress National Jukebox, via Internet Archive (Public Domain Mark).",
+      "note": "Archive.org item metadata licenseurl = Public Domain Mark 1.0; digitised by the Library of Congress Packard Campus (National Jukebox). Acoustic-era disc (1915), so US public domain (pre-1923 publication); composition also public domain. Surface noise expected. ",
+      "feast": "christmas",
+      "tags": [
+        "christmas",
+        "latin"
+      ],
+      "durationSec": 226
+    },
+    {
+      "id": "hymn-tantum-ergo-auriemma",
+      "kind": "hymn",
+      "title": "Tantum ergo",
+      "performer": "Rev. Francis Auriemma (tenor) with King's Orchestra, Victor, 1916",
+      "file": "audio/hymn-tantum-ergo-auriemma.mp3",
+      "loop": false,
+      "license": "Public domain (recording; Public Domain Mark)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://archive.org/details/loc-jukebox-19055-tantum-ergo",
+      "attribution": "\"Tantum ergo\", Rev. Francis Auriemma (tenor) with King's Orchestra, Victor, 1916, 1916. Library of Congress National Jukebox, via Internet Archive (Public Domain Mark).",
+      "note": "Archive.org item metadata licenseurl = Public Domain Mark 1.0; digitised by the Library of Congress Packard Campus (National Jukebox). Acoustic-era disc (1916), so US public domain (pre-1923 publication); composition also public domain. Surface noise expected. ",
+      "feast": "corpus-christi",
+      "tags": [
+        "eucharist",
+        "holy-thursday",
+        "latin"
+      ],
+      "durationSec": 198
+    },
+    {
+      "id": "hymn-o-salutaris-auriemma",
+      "kind": "hymn",
+      "title": "O salutaris hostia",
+      "performer": "Rev. Francis Auriemma (tenor) with King's Orchestra, Victor, 1917",
+      "file": "audio/hymn-o-salutaris-auriemma.mp3",
+      "loop": false,
+      "license": "Public domain (recording; Public Domain Mark)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://archive.org/details/loc-jukebox-23896-o-salutaris",
+      "attribution": "\"O salutaris hostia\", Rev. Francis Auriemma (tenor) with King's Orchestra, Victor, 1917, 1917. Library of Congress National Jukebox, via Internet Archive (Public Domain Mark).",
+      "note": "Archive.org item metadata licenseurl = Public Domain Mark 1.0; digitised by the Library of Congress Packard Campus (National Jukebox). Acoustic-era disc (1917), so US public domain (pre-1923 publication); composition also public domain. Surface noise expected. ",
+      "feast": "corpus-christi",
+      "tags": [
+        "eucharist",
+        "holy-thursday",
+        "latin"
+      ],
+      "durationSec": 135
+    },
+    {
+      "id": "hymn-ave-maria-auriemma",
+      "kind": "hymn",
+      "title": "Ave Maria",
+      "performer": "H. Millard and Rev. Francis Auriemma with King's Orchestra, Victor, 1916",
+      "file": "audio/hymn-ave-maria-auriemma.mp3",
+      "loop": false,
+      "license": "Public domain (recording; Public Domain Mark)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://archive.org/details/loc-jukebox-19030-ave-maria",
+      "attribution": "\"Ave Maria\", H. Millard and Rev. Francis Auriemma with King's Orchestra, Victor, 1916, 1916. Library of Congress National Jukebox, via Internet Archive (Public Domain Mark).",
+      "note": "Archive.org item metadata licenseurl = Public Domain Mark 1.0; digitised by the Library of Congress Packard Campus (National Jukebox). Acoustic-era disc (1916), so US public domain (pre-1923 publication); composition also public domain. Surface noise expected. Setting composer not stated on page; sung in Latin/Italian per catalogue.",
+      "feast": "marian",
+      "tags": [
+        "marian",
+        "may",
+        "latin"
+      ],
+      "durationSec": 218
+    },
+    {
+      "id": "hymn-silent-night-trinity-choir",
+      "kind": "hymn",
+      "title": "Silent night, holy night",
+      "performer": "Reinald Werrenrath, Lucy Isabelle Marsh, Trinity Choir et al., Victor, 1917",
+      "file": "audio/hymn-silent-night-trinity-choir.mp3",
+      "loop": false,
+      "license": "Public domain (recording; Public Domain Mark)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://archive.org/details/loc-jukebox-26061-silent-night-holy-night",
+      "attribution": "\"Silent night, holy night\", Reinald Werrenrath, Lucy Isabelle Marsh, Trinity Choir et al., Victor, 1917, 1917. Library of Congress National Jukebox, via Internet Archive (Public Domain Mark).",
+      "note": "Archive.org item metadata licenseurl = Public Domain Mark 1.0; digitised by the Library of Congress Packard Campus (National Jukebox). Acoustic-era disc (1917), so US public domain (pre-1923 publication); composition also public domain. Surface noise expected. ",
+      "feast": "christmas",
+      "tags": [
+        "christmas"
+      ],
+      "durationSec": 189
+    },
+    {
+      "id": "hymn-o-holy-night-ascension-choir",
+      "kind": "hymn",
+      "title": "O holy night",
+      "performer": "Church of the Ascension Choir, Columbia, 1909",
+      "file": "audio/hymn-o-holy-night-ascension-choir.mp3",
+      "loop": false,
+      "license": "Public domain (recording; Public Domain Mark)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://archive.org/details/loc-jukebox-761426-o-holy-night",
+      "attribution": "\"O holy night\", Church of the Ascension Choir, Columbia, 1909, 1909. Library of Congress National Jukebox, via Internet Archive (Public Domain Mark).",
+      "note": "Archive.org item metadata licenseurl = Public Domain Mark 1.0; digitised by the Library of Congress Packard Campus (National Jukebox). Acoustic-era disc (1909), so US public domain (pre-1923 publication); composition also public domain. Surface noise expected. ",
+      "feast": "christmas",
+      "tags": [
+        "christmas"
+      ],
+      "durationSec": 233
+    },
+    {
+      "id": "hymn-adeste-fideles-basilica-chor",
+      "kind": "hymn",
+      "title": "Adeste fideles",
+      "performer": "Basilica-Chor, Regens chori Pius Kalt, 1923",
+      "file": "audio/hymn-adeste-fideles-basilica-chor.mp3",
+      "loop": false,
+      "license": "Public domain (recording; Public Domain Mark)",
+      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "sourceUrl": "https://archive.org/details/AdesteFideles_201906",
+      "attribution": "\"Adeste fideles\", Basilica-Chor, Regens chori Pius Kalt (1923); Internet Archive (Public Domain Mark).",
+      "note": "Archive.org item licenseurl = Public Domain Mark 1.0, uploader transfer of a 1923 78 rpm disc. PD status is asserted by the uploader; 1923 US recordings entered the public domain in 2024. Surface noise expected.",
+      "feast": "christmas",
+      "tags": [
+        "christmas",
+        "latin"
+      ],
+      "durationSec": 228
+    },
+    {
+      "id": "hymn-stabat-mater-scarlatti-tudor-consort",
+      "kind": "hymn",
+      "title": "Stabat Mater (Scarlatti): Stabat Mater and Cujus animam",
+      "performer": "The Tudor Consort (Wellington, NZ)",
+      "composer": "Domenico Scarlatti",
+      "file": "audio/hymn-stabat-mater-scarlatti-tudor-consort.mp3",
+      "loop": false,
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "sourceUrl": "https://archive.org/details/Stabat_Mater_-_Domenico_Scarlatti-7448",
+      "attribution": "Scarlatti, Stabat Mater (movements 1-2), The Tudor Consort, 2010, CC BY 3.0 (via Free Music Archive / Internet Archive).",
+      "note": "Archive.org item licenseurl = CC BY 3.0. Ten-part Baroque polyphonic setting, not plainchant. Movements 1 and 2 joined (6:24).",
+      "feast": "lent",
+      "tags": [
+        "holy-week",
+        "marian",
+        "sorrows",
+        "polyphony"
+      ],
+      "durationSec": 384
+    },
+    {
+      "id": "chant-resurrexi-introit-tudor-consort",
+      "kind": "chant",
+      "title": "Introit: Resurrexi et adhuc tecum sum",
+      "performer": "The Tudor Consort (Wellington, NZ), dir. Simon Ravens",
+      "file": "audio/chant-resurrexi-introit-tudor-consort.mp3",
+      "loop": false,
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "sourceUrl": "https://archive.org/details/tudor_consort_animuccia_missa_victimae_paschali_laudes",
+      "attribution": "\"Introit: Resurrexi et adhuc tecum sum\", The Tudor Consort, from \"Missa Victimae Paschali Laudes\" (2006), CC BY 3.0 (Internet Archive / Free Music Archive).",
+      "note": "Archive.org item metadata: licenseurl CC BY 3.0, venue Wellington Cathedral of St Paul, NZ, engineer John Button. Human choir (named). Wikimedia Commons description of the same recording cites Graduale Romanum 1979 p. 196 (+ Gloria Patri), i.e. plainchant.",
+      "feast": "easter",
+      "tags": [
+        "easter",
+        "introit",
+        "plainchant"
+      ],
+      "durationSec": 300
+    },
+    {
+      "id": "chant-haec-dies-gradual-tudor-consort",
+      "kind": "chant",
+      "title": "Gradual: Haec dies",
+      "performer": "The Tudor Consort (Wellington, NZ), dir. Simon Ravens",
+      "file": "audio/chant-haec-dies-gradual-tudor-consort.mp3",
+      "loop": false,
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "sourceUrl": "https://archive.org/details/tudor_consort_animuccia_missa_victimae_paschali_laudes",
+      "attribution": "\"Gradual: Haec dies\", The Tudor Consort, from \"Missa Victimae Paschali Laudes\" (2006), CC BY 3.0 (Internet Archive / Free Music Archive).",
+      "note": "Archive.org item metadata: licenseurl CC BY 3.0, venue Wellington Cathedral of St Paul, NZ, engineer John Button. Human choir (named). Easter proper of the mass (Gradual). Presumed plainchant per the liturgical structure of the album; not audited by ear.",
+      "feast": "easter",
+      "tags": [
+        "easter",
+        "gradual",
+        "plainchant"
+      ],
+      "durationSec": 109
+    },
+    {
+      "id": "chant-alleluia-pascha-nostrum-tudor-consort",
+      "kind": "chant",
+      "title": "Alleluia: Pascha nostrum",
+      "performer": "The Tudor Consort (Wellington, NZ), dir. Simon Ravens",
+      "file": "audio/chant-alleluia-pascha-nostrum-tudor-consort.mp3",
+      "loop": false,
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "sourceUrl": "https://archive.org/details/tudor_consort_animuccia_missa_victimae_paschali_laudes",
+      "attribution": "\"Alleluia: Pascha nostrum\", The Tudor Consort, from \"Missa Victimae Paschali Laudes\" (2006), CC BY 3.0 (Internet Archive / Free Music Archive).",
+      "note": "Archive.org item metadata: licenseurl CC BY 3.0, venue Wellington Cathedral of St Paul, NZ, engineer John Button. Human choir (named). Easter proper of the mass (Alleluia). Presumed plainchant; not audited by ear.",
+      "feast": "easter",
+      "tags": [
+        "easter",
+        "alleluia",
+        "plainchant"
+      ],
+      "durationSec": 120
+    },
+    {
+      "id": "chant-victimae-paschali-sequence-tudor-consort",
+      "kind": "chant",
+      "title": "Sequence: Victimae paschali laudes",
+      "performer": "The Tudor Consort (Wellington, NZ), dir. Simon Ravens",
+      "file": "audio/chant-victimae-paschali-sequence-tudor-consort.mp3",
+      "loop": false,
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "sourceUrl": "https://archive.org/details/tudor_consort_animuccia_missa_victimae_paschali_laudes",
+      "attribution": "\"Sequence: Victimae paschali laudes\", The Tudor Consort, from \"Missa Victimae Paschali Laudes\" (2006), CC BY 3.0 (Internet Archive / Free Music Archive).",
+      "note": "Archive.org item metadata: licenseurl CC BY 3.0, venue Wellington Cathedral of St Paul, NZ, engineer John Button. Human choir (named). Easter sequence. Presumed plainchant (the Animuccia mass is built on this melody, but the proper track is the sequence itself); not audited by ear.",
+      "feast": "easter",
+      "tags": [
+        "easter",
+        "sequence",
+        "plainchant"
+      ],
+      "durationSec": 246
+    },
+    {
+      "id": "chant-terra-tremuit-offertory-tudor-consort",
+      "kind": "chant",
+      "title": "Offertory: Terra tremuit",
+      "performer": "The Tudor Consort (Wellington, NZ), dir. Simon Ravens",
+      "file": "audio/chant-terra-tremuit-offertory-tudor-consort.mp3",
+      "loop": false,
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "sourceUrl": "https://archive.org/details/tudor_consort_animuccia_missa_victimae_paschali_laudes",
+      "attribution": "\"Offertory: Terra tremuit\", The Tudor Consort, from \"Missa Victimae Paschali Laudes\" (2006), CC BY 3.0 (Internet Archive / Free Music Archive).",
+      "note": "Archive.org item metadata: licenseurl CC BY 3.0, venue Wellington Cathedral of St Paul, NZ, engineer John Button. Human choir (named). Easter-Sunday offertory. Presumed plainchant; not audited by ear.",
+      "feast": "easter",
+      "tags": [
+        "easter",
+        "offertory",
+        "plainchant"
+      ],
+      "durationSec": 142
+    },
+    {
+      "id": "chant-salve-regina-passy",
+      "kind": "chant",
+      "title": "Salve Regina (Hermannus Contractus)",
+      "performer": "Les Petits Chanteurs de Passy (boys' choir, Paris)",
+      "file": "audio/chant-salve-regina-passy.mp3",
+      "loop": false,
+      "license": "CC BY-SA 2.0 FR",
+      "licenseUrl": "http://creativecommons.org/licenses/by-sa/2.0/fr/",
+      "sourceUrl": "https://archive.org/details/jamendo-119883",
+      "attribution": "\"Salve Regina (Hermann Contract)\", Les Petits Chanteurs de Passy, album \"Salve !\" (Jamendo), CC BY-SA 2.0 FR",
+      "note": "Archive.org (Jamendo mirror) item licenseurl = CC BY-SA 2.0 FR. The same recording is on Wikimedia Commons (CC BY-SA 3.0, with OTRS permission ticket). Named boys' choir, sung simple-tone Salve Regina. Share-alike applies.",
+      "feast": "marian",
+      "tags": [
+        "marian",
+        "antiphon",
+        "compline"
+      ],
+      "durationSec": 190
     }
   ]
 }

@@ -34,6 +34,7 @@ export default function PrayHome() {
       <div className="grid">
         <Link to="/pray/lectio" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Lectio Divina</h2><p className="muted">Read, meditate, pray, rest — with a gentle timer you control.</p></Link>
         <Link to="/session" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">A quiet moment</h2><p className="muted">A guided ten-minute pause: pray, read, reflect, hear the Church, pray.</p></Link>
+        <Link to="/pray/sleep" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Sleep mode</h2><p className="muted">A psalm read slowly while the sound fades and the screen dims.</p></Link>
         <Link to="/pray/journal" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prayer journal</h2><p className="muted">Reflections, intentions and saved prayers. Private to this device.</p></Link>
       </div>
       <div className="card" style={{ marginTop: 14 }}>

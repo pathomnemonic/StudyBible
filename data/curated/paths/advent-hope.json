@@ -1,0 +1,112 @@
+{
+  "id": "advent-hope",
+  "title": "Advent Hope",
+  "blurb": "Walk from Isaiah's promises through the Annunciation and Nativity to the Word made flesh.",
+  "minutes": 45,
+  "steps": [
+    {
+      "title": "A Sign for the House of David",
+      "ref": "Isaiah 7:10-14",
+      "intro": "King Ahaz of Judah is offered a sign from the Lord. Isaiah answers that a young woman will conceive and bear a son called Immanuel, \"God with us.\" Christians have long read this promise as pointing to Christ.",
+      "quote": {
+        "text": "Therefore, to say, “they shall call” Him “Emmanuel,” means nothing else than that they shall see God amongst men.",
+        "who": "John Chrysostom",
+        "work": "chrys-matthew",
+        "section": 5,
+        "para": 14
+      },
+      "question": "Where in your life do you most need to hear the promise \"God with us\" this Advent?"
+    },
+    {
+      "title": "A Child Is Given",
+      "ref": "Isaiah 9:1-6",
+      "intro": "Isaiah speaks to a land in gloom of light dawning and of a child given to the people, whose names include Wonderful Counselor and Prince of Peace. The Church proclaims this reading at Christmas.",
+      "quote": {
+        "text": "One Person did the Magi adore, to one and the same they offered their gifts, to show that He Who was seen in the stall was the very Lord of heaven.",
+        "who": "Ambrose of Milan",
+        "work": "ambrose-works",
+        "section": 14,
+        "para": 129
+      },
+      "question": "Which of the child's names speaks most directly to what you are carrying right now?"
+    },
+    {
+      "title": "A Shoot from Jesse's Stump",
+      "ref": "Isaiah 11:1-9",
+      "intro": "From the stump of Jesse, the father of David, a shoot grows, filled with the Spirit of the Lord. Isaiah then describes a peace in which the wolf lives with the lamb.",
+      "quote": {
+        "text": "The husbandmen came and gave glory to the Vineyard that sprang of the root and stem of Jesse, the Virgin Cluster of the glorious Vine.",
+        "who": "Ephrem the Syrian",
+        "work": "ephrem-hymns",
+        "section": 55,
+        "para": 8
+      },
+      "question": "What conflict near you would you most like to see turned into the peace Isaiah describes?"
+    },
+    {
+      "title": "Small Bethlehem",
+      "ref": "Micah 5:1-4",
+      "intro": "Micah names Bethlehem, a small clan of Judah, as the place from which a ruler of Israel will come, whose origin is from of old. Matthew later cites this prophecy in the story of the Magi.",
+      "quote": {
+        "text": "He made Bethlehem so far greater than Jerusalem: because “not the least” seems here equivalent to “the greatest.”",
+        "who": "John Chrysostom",
+        "work": "chrys-matthew",
+        "section": 7,
+        "para": 12
+      },
+      "question": "Where might God be at work in a place or person you tend to overlook as small?"
+    },
+    {
+      "title": "The Angel and Mary",
+      "ref": "Luke 1:26-38",
+      "intro": "The angel Gabriel is sent to Mary of Nazareth to announce that she will conceive the Son of the Most High. Mary asks how this can be, then gives her assent.",
+      "quote": {
+        "text": "It is not a little thing when thou seest the Virgin deemed worthy of the Spirit, and an Angel talking with her.",
+        "who": "John Chrysostom",
+        "work": "chrys-john",
+        "section": 51,
+        "para": 34
+      },
+      "question": "What would your own \"yes\" to God look like this week, even without seeing how it unfolds?"
+    },
+    {
+      "title": "Joseph's Dream",
+      "ref": "Matthew 1:18-25",
+      "intro": "Matthew tells the story from Joseph's side. Betrothed to Mary and finding her with child, Joseph is told in a dream not to fear, takes her into his home, and names the child Jesus.",
+      "quote": {
+        "text": "For this cause too the angel came bringing His name from Heaven, hereby again intimating that this is a wondrous birth: it being God Himself who sends the name from above by the angel to Joseph.",
+        "who": "John Chrysostom",
+        "work": "chrys-matthew",
+        "section": 4,
+        "para": 56
+      },
+      "question": "Joseph acts on a message received in silence. How do you make room to listen for God?"
+    },
+    {
+      "title": "Born in Bethlehem",
+      "ref": "Luke 2:1-14",
+      "intro": "Luke places the birth of Jesus within the census under Caesar Augustus, then turns to shepherds keeping watch by night who receive the angels' announcement of a Savior.",
+      "quote": {
+        "text": "Our Saviour, dearly-beloved, was born today: let us be glad. For there is no proper place for sadness, when we keep the birthday of the Life, which destroys the fear of mortality and brings to us the joy of promised eternity.",
+        "who": "Leo the Great",
+        "work": "leo-sermons-letters",
+        "section": 182,
+        "para": 3
+      },
+      "question": "The good news first reaches shepherds at work. Who around you most needs to hear it from you?"
+    },
+    {
+      "title": "The Word Became Flesh",
+      "ref": "John 1:1-14",
+      "intro": "John begins before the manger, with the Word who was with God and was God. The prologue says the true light came into the world, and the Word became flesh and dwelt among us.",
+      "quote": {
+        "text": "But if some, wilfully closing the eyes of their mind, would not receive the rays of that Light, their darkness arises not from the nature of the Light, but from their own wickedness, who willfully deprive themselves of the gift.",
+        "who": "John Chrysostom",
+        "work": "chrys-john",
+        "section": 6,
+        "para": 4
+      },
+      "question": "What would change if you took seriously that the light has already come into your ordinary days?"
+    }
+  ]
+}

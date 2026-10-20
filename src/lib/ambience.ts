@@ -1,3 +1,5 @@
+import { liturgicalDay } from '../liturgy/compute';
+
 /**
  * Reading ambience. Real recordings (public-domain or openly licensed; see public/audio/index.json for each track's source and
  * licence) played through an <audio> element with fades, as a shuffled playlist per category or a single looping nature track.
@@ -5,14 +7,15 @@
  * Browsers only allow sound after a tap or key press, so a sound that is on by default starts at the first one.
  */
 export type AmbienceKind = 'rain' | 'wind' | 'stream';
-export type SoundKind = 'off' | AmbienceKind | 'nature' | 'music' | 'classical' | 'chant';
-export interface Track { id: string; file: string; title: string; category: 'nature' | 'music' | 'classical' | 'chant'; artist?: string; license: string; licenseUrl?: string; sourceUrl?: string; note?: string }
+export type Scene = 'sea' | 'desert' | 'night' | 'fire' | 'thunder' | 'pasture' | 'crowd';
+export type SoundKind = 'off' | AmbienceKind | Scene | 'nature' | 'music' | 'classical' | 'chant' | 'hymn';
+export interface Track { feast?: string; tags?: string[]; durationSec?: number; id: string; file: string; title: string; category: 'nature' | 'music' | 'classical' | 'chant' | 'hymn'; artist?: string; license: string; licenseUrl?: string; sourceUrl?: string; note?: string }
 
 const BASE = (import.meta as any).env?.BASE_URL ?? '/';
 let manifest: Promise<Track[]> | null = null;
 export const loadTracks = (): Promise<Track[]> =>
   (manifest ??= fetch(`${BASE}audio/index.json`).then((r) => (r.ok ? r.json() : { tracks: [] })).then((j) => j.tracks as Track[]).catch(() => []));
-const SINGLE: Record<AmbienceKind, string> = { rain: 'nature-summer-rain', wind: 'nature-wind-trees', stream: 'nature-mountain-stream' };
+const SINGLE: Record<string, string> = { rain: 'nature-summer-rain', wind: 'nature-wind-trees', stream: 'nature-mountain-stream', sea: 'nature-sea-waves', desert: 'nature-desert-wind', night: 'nature-night-crickets', fire: 'nature-fire', thunder: 'nature-thunder', pasture: 'nature-pasture-sheep', crowd: 'nature-crowd-market' };
 
 let el: HTMLAudioElement | null = null;
 let want: { kind: SoundKind; volume: number } = { kind: 'off', volume: 0.25 };
@@ -66,10 +69,15 @@ function playNext(loopSingle: boolean) {
 
 async function startReal(kind: SoundKind): Promise<boolean> {
   const tracks = await loadTracks();
-  const single = kind in SINGLE ? tracks.find((t) => t.id === SINGLE[kind as AmbienceKind]) : undefined;
-  const list = single ? [single] : tracks.filter((t) => t.category === kind);
+  const single = kind in SINGLE ? tracks.find((t) => t.id === SINGLE[kind]) : undefined;
+  // a scene with no recording yet falls back to the nearest nature sound
+  const category = kind in SINGLE && !single ? 'nature' : kind;
+  const list = single ? [single] : tracks.filter((t) => t.category === category);
   if (!list.length || want.kind !== kind) return false;
-  queue = single ? list : shuffle(list);
+  // chant and hymns follow the Church's year: tracks for today's season (or Marian ones on Marian days) come first
+  const season = (() => { try { return liturgicalDay(new Date()).season; } catch { return ''; } })();
+  const feastFirst = (l: Track[]) => [...l.filter((t) => t.feast === season), ...l.filter((t) => t.feast !== season)];
+  queue = single ? list : kind === 'chant' || kind === 'hymn' ? feastFirst(shuffle(list)) : shuffle(list);
   playNext(!!single);
   return true;
 }

@@ -66,7 +66,7 @@ export default function ReadingsPage() {
       <p className="muted small">Dates are your device’s local calendar days. The universal calendar and national calendars differ (for example in the transfer of Epiphany, the Ascension and Corpus Christi, and in saints’ days); choose yours above.</p>
 
       <div className="card">
-        <div className="row between"><h3>{lit.dayName}</h3><span className="chip" title="The colour of the priest’s vestments today">Vestments: {COLOR_NAME[lit.color]}</span></div>
+        <div className="row between"><h2>{lit.dayName}</h2><span className="chip" title="The colour of the priest’s vestments today">Vestments: {COLOR_NAME[lit.color]}</span></div>
         <div className="muted small">{lit.seasonName}{lit.week ? `, week ${lit.week}` : ''} · Sunday cycle {lit.sundayCycle} · weekday cycle {lit.weekdayCycle} (computed offline)</div>
         {events.length > 0 && (
           <ul className="list small">
@@ -77,7 +77,7 @@ export default function ReadingsPage() {
       </div>
 
       <div className="card">
-        <h3>{t('readings.mass')}</h3>
+        <h2>{t('readings.mass')}</h2>
         {!rd && <div className="muted">Loading…</div>}
         {rd && rd.title && <div className="muted small">{rd.title}</div>}
         {rd && rd.items.length > 0 && (
@@ -123,7 +123,7 @@ export default function ReadingsPage() {
         </details>
       </div>
 
-      <div className="tabbar"><button aria-selected={view === 'day'} onClick={() => setView('day')}>Day</button><button aria-selected={view === 'month'} onClick={() => setView('month')}>Calendar</button></div>
+      <div className="tabbar"><button aria-pressed={view === 'day'} onClick={() => setView('day')}>Day</button><button aria-pressed={view === 'month'} onClick={() => setView('month')}>Calendar</button></div>
       {view === 'month' && (
         <div className="card">
           <div className="row between"><strong>{first.toLocaleDateString(undefined, { month: 'long', year: 'numeric', timeZone: 'UTC' })}</strong>

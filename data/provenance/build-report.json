@@ -56,9 +56,10 @@
   "biay: Day 180: 2 variants across 5 releases → using 2KI.13-13, 2KI.14-14, PSA.124-124, AMO.7-7, AMO.8-8, AMO.9-9",
   "biay: Day 179: 2 variants across 5 releases → using 2KI.11-11, 2KI.12-12, PSA.122-122, AMO.4-4, AMO.5-5, AMO.6-6",
   "biay: Day 178: 2 variants across 5 releases → using 2KI.10-10, AMO.1-1, PSA.110-110, AMO.2-2, AMO.3-3",
-  "biay: Day 177: 2 variants across 5 releases → using PSA.109-109, 2KI.9-9, HOS.11-11, HOS.12-12, HOS.13-13, HOS.14-14"
+  "biay: Day 177: 2 variants across 5 releases → using PSA.109-109, 2KI.9-9, HOS.11-11, HOS.12-12, HOS.13-13, HOS.14-14",
+  "library: syllabus-of-errors produced no sections"
  ],
- "warningCount": 55,
+ "warningCount": 56,
  "stats": {
   "versification.unverifiedChapters": {
    "PSA": 18,
@@ -443,12 +444,52 @@
   "library.baltimore-catechism-1": {
    "sections": 34
   },
+  "library.council-nicaea-1": {
+   "sections": 10
+  },
+  "library.council-constantinople-1": {
+   "sections": 17
+  },
+  "library.council-ephesus": {
+   "sections": 15
+  },
+  "library.council-chalcedon": {
+   "sections": 18
+  },
+  "library.council-constantinople-2": {
+   "sections": 12
+  },
+  "library.council-constantinople-3": {
+   "sections": 13
+  },
+  "library.council-nicaea-2": {
+   "sections": 20
+  },
+  "library.leo-xiii-encyclicals": {
+   "sections": 30
+  },
+  "library.trent-canons-decrees": {
+   "sections": 26
+  },
+  "library.pascendi-dominici-gregis": {
+   "sections": 8
+  },
+  "library.vatican-i-constitutions": {
+   "sections": 10
+  },
+  "library.ineffabilis-deus": {
+   "sections": 1
+  },
+  "library.syllabus-of-errors": {
+   "sections": 0
+  },
   "library.total": {
-   "works": 94,
-   "sections": 6817,
-   "indexedWords": 72211
+   "works": 107,
+   "sections": 6997,
+   "indexedWords": 75253
   },
   "cite-index": 1321,
+  "paths": 15,
   "curated": {
    "topics": 18,
    "cccLinksShipped": 29

@@ -20,7 +20,7 @@ import NoteEditor from '../components/NoteEditor';
 import Modal from '../components/Modal';
 import StudyPanel from '../components/StudyPanel';
 import TextSettings from '../components/TextSettings';
-import { atmosphereFor, MOOD_SOUND } from '../lib/atmosphere';
+import { atmosphereFor, MOOD_SOUND, passageSound } from '../lib/atmosphere';
 import { setAmbience, stopAmbience } from '../lib/ambience';
 import { useT } from '../lib/i18n';
 import Motes from '../components/Motes';
@@ -366,7 +366,7 @@ export default function ReadPage() {
       delete root.dataset.silent;
     };
   }, [settings.scriptureOnly]);
-  const sound = settings.ambience.kind !== 'off' ? (settings.ambience.match && mood && MOOD_SOUND[mood] ? MOOD_SOUND[mood]! : settings.ambience.kind) : 'off';
+  const sound = settings.ambience.kind !== 'off' ? (settings.ambience.match && (passageSound(bk.id, primaryAnchorChapter) ?? (mood && MOOD_SOUND[mood])) ? (passageSound(bk.id, primaryAnchorChapter) ?? MOOD_SOUND[mood!]!) : settings.ambience.kind) : 'off';
   useEffect(() => {
     setAmbience(sound, settings.ambience.volume);
   }, [sound, settings.ambience.volume]);

@@ -71,9 +71,9 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
       </div>
 
       <h3 className="modal-sub">Sound</h3>
-      <p className="muted small" style={{ margin: '0 0 6px' }}>Real recordings, played softly while you read. Nature sounds, gentle music, classical piano and plain chant; each track’s source and licence are listed below.</p>
+      <p className="muted small" style={{ margin: '0 0 6px' }}>Real recordings, played softly while you read. Nature sounds, gentle music, classical piano, plain chant and old hymn recordings (chant and hymns follow the Church’s season where we have a fitting one); each track’s source and licence are listed below.</p>
       <div className="chips">
-        {([['off', 'Silence'], ['nature', 'Nature'], ['music', 'Soft music'], ['classical', 'Classical'], ['chant', 'Chant'], ['rain', 'Rain'], ['wind', 'Wind'], ['stream', 'Stream']] as const).map(([k, l]) => chip(s.ambience.kind === k, l, () => set({ ambience: { ...s.ambience, kind: k }, ambienceTipSeen: true })))}
+        {([['off', 'Silence'], ['nature', 'Nature'], ['music', 'Soft music'], ['classical', 'Classical'], ['chant', 'Chant'], ['hymn', 'Hymns'], ['rain', 'Rain'], ['wind', 'Wind'], ['stream', 'Stream']] as const).map(([k, l]) => chip(s.ambience.kind === k, l, () => set({ ambience: { ...s.ambience, kind: k }, ambienceTipSeen: true })))}
       </div>
       {now && s.ambience.kind !== 'off' && <p className="small muted" style={{ margin: '6px 0 0' }}>Now playing: {now.title}{now.artist ? `, ${now.artist}` : ''} · {now.sourceUrl ? <a href={now.sourceUrl} target="_blank" rel="noreferrer">{now.license}</a> : now.license}</p>}
       {s.ambience.kind !== 'off' && (

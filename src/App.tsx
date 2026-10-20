@@ -11,6 +11,9 @@ import { initSync } from './sync/state';
 import { scheduleReminder } from './liturgy/reminders';
 
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
+const PathPage = lazy(() => import('./pages/study/PathsPage'));
+const PathsIndex = lazy(() => import('./pages/study/PathsPage').then((m) => ({ default: m.PathsIndex })));
+const SleepPage = lazy(() => import('./pages/pray/SleepPage'));
 const QuotationTracker = lazy(() => import('./pages/study/QuotationTracker'));
 const SearchPage = lazy(() => import('./pages/study/SearchPage'));
 const TopicPage = lazy(() => import('./pages/study/TopicPage'));
@@ -150,6 +153,8 @@ export default function App() {
               <Route path="/study/universe" element={<GalaxyPage />} />
               <Route path="/study/timespace" element={<TimeSpacePage />} />
               <Route path="/study/fulfilment" element={<FulfilmentPage />} />
+              <Route path="/study/paths" element={<PathsIndex />} />
+              <Route path="/study/path/:id" element={<PathPage />} />
               <Route path="/study/quotations" element={<QuotationTracker />} />
               <Route path="/study/terms" element={<TermsIndex />} />
               <Route path="/study/term/:id" element={<TermPage />} />
@@ -166,6 +171,7 @@ export default function App() {
               <Route path="/listen/episode/:id" element={<EpisodePage />} />
               <Route path="/pray" element={<PrayHome />} />
               <Route path="/pray/readings/:date?" element={<ReadingsPage />} />
+              <Route path="/pray/sleep" element={<SleepPage />} />
               <Route path="/pray/lectio" element={<LectioPage />} />
               <Route path="/pray/journal" element={<JournalPage />} />
               <Route path="/pray/plans" element={<PlansPage />} />

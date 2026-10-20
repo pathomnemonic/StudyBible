@@ -1,0 +1,99 @@
+{
+  "id": "lent-journey",
+  "title": "Lenten Journey",
+  "blurb": "Follow Lent from the call to return, through temptation, thirst, sight and death, to the gates of Jerusalem.",
+  "minutes": 50,
+  "steps": [
+    {
+      "title": "Return with Your Whole Heart",
+      "ref": "Joel 2:12-18",
+      "intro": "Joel calls the people to return to the Lord with fasting, weeping and mourning, and to rend their hearts rather than their garments. The Church reads this passage on Ash Wednesday.",
+      "quote": {
+        "text": "And let us not believe that that external fast from visible food alone can possibly be sufficient for perfection of heart and purity of body unless with it there has also been united a fast of the soul.",
+        "who": "John Cassian",
+        "work": "cassian-works",
+        "section": 6,
+        "para": 66
+      },
+      "question": "What outward Lenten practice could you let reach deeper, into a real change of heart?"
+    },
+    {
+      "title": "Into the Desert",
+      "ref": "Matthew 4:1-11",
+      "intro": "After his baptism Jesus is led by the Spirit into the desert, fasts forty days, and is tempted by the devil. Each time he answers from Scripture. The First Sunday of Lent reads this account.",
+      "quote": {
+        "text": "When about to fast, He is led (as we read) into the wilderness to render vain the devil’s temptations.",
+        "who": "Ambrose of Milan",
+        "work": "ambrose-works",
+        "section": 7,
+        "para": 208
+      },
+      "question": "Which of your regular temptations could you meet with a specific line of Scripture?"
+    },
+    {
+      "title": "On the Mountain",
+      "ref": "Matthew 17:1-9",
+      "intro": "On a high mountain Jesus is transfigured before Peter, James and John. Moses and Elijah appear with him, and the Father's voice names him beloved Son. The Second Sunday of Lent reads this account.",
+      "quote": {
+        "text": "And in this Transfiguration the foremost object was to remove the offence of the cross from the disciple’s heart, and to prevent their faith being disturbed by the humiliation of His voluntary Passion by revealing to them the excellence of His hidden dignity.",
+        "who": "Leo the Great",
+        "work": "leo-sermons-letters",
+        "section": 198,
+        "para": 9
+      },
+      "question": "What glimpse of God's goodness can you hold onto when the road ahead looks hard?"
+    },
+    {
+      "title": "The Woman at the Well",
+      "ref": "John 4:19-30",
+      "intro": "Having asked a Samaritan woman for water, Jesus speaks of worship in spirit and truth and tells her he is the Messiah. She leaves her water jar and goes to tell her town.",
+      "quote": {
+        "text": "She came to draw water, and when she had lighted upon the true Well, she after that despised the material one; teaching us even by this trifling instance when we are listening to spiritual matters to overlook the things of this life, and make no account of them.",
+        "who": "John Chrysostom",
+        "work": "chrys-john",
+        "section": 32,
+        "para": 4
+      },
+      "question": "What \"water jar\" might you set down in order to follow what you have heard from Jesus?"
+    },
+    {
+      "title": "The Man Born Blind",
+      "ref": "John 9:1-12",
+      "intro": "Jesus meets a man blind from birth, rejects the idea that sin explains his condition, and sends him to wash in the pool of Siloam. The man returns able to see.",
+      "quote": {
+        "text": "If we reflect, then, on what is signified by the deed here done, that blind man is the human race; for this blindness had place in the first man, through sin, from whom we all draw our origin, not only in respect of death, but also of unrighteousness.",
+        "who": "Augustine of Hippo",
+        "work": "aug-tractates-john",
+        "section": 43,
+        "para": 2
+      },
+      "question": "Where do you need Christ to open your eyes to something you cannot see on your own?"
+    },
+    {
+      "title": "Lazarus, Come Out",
+      "ref": "John 11:32-44",
+      "intro": "Jesus weeps at the tomb of his friend Lazarus, then calls him out, still bound in burial cloths. John places this sign just before the account of the Passion.",
+      "quote": {
+        "text": "He that woke Lazarus who was four days dead and already stank, shall He not, O man, much more easily raise thee who art alive?",
+        "who": "Cyril of Jerusalem",
+        "work": "cyril-catecheses",
+        "section": 3,
+        "para": 20
+      },
+      "question": "What in you feels dead or bound, and what would it mean to hear Jesus call it out?"
+    },
+    {
+      "title": "Hosanna",
+      "ref": "Matthew 21:1-11",
+      "intro": "Jesus enters Jerusalem on a donkey, fulfilling a prophecy of Zechariah. The crowds spread cloaks and branches and cry Hosanna. Palm Sunday begins Holy Week with this story.",
+      "quote": {
+        "text": "Accordingly, for the Son of God, the Father’s equal, the Word by whom all things were made, in His good pleasure to be King of Israel, was an act of condescension and not of promotion; a token of compassion, and not any increase of power.",
+        "who": "Augustine of Hippo",
+        "work": "aug-tractates-john",
+        "section": 50,
+        "para": 10
+      },
+      "question": "What does it mean for you that your King chooses humility rather than display?"
+    }
+  ]
+}

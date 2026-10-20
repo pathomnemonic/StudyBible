@@ -44,6 +44,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     blurb: 'The world the text was written in.',
     items: [
       ['/study/constellation', 'Constellation', 'All 73 books as stars, joined by their cross-references.'],
+      ['/study/timespace', 'Time and place', 'Slide through the biblical story and watch the map follow.'],
       ['/study/maps', 'Maps', 'Places named in Scripture on an interactive map.'],
       ['/study/world', 'The biblical world', 'Journeys, eras and archaeology.'],
       ['/study/people', 'Genealogies', 'Family trees from Adam to Jesus.'],
@@ -65,10 +66,10 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
 ];
 
 const FEATURED: { to: string; title: string; text: string; hue: number }[] = [
+  { to: '/study/paths', title: 'Study paths', text: 'Follow a theme through Scripture, with the Fathers and a question at each step.', hue: 330 },
   { to: '/study/fathers', title: 'Reading room', text: 'Read the saints, the Fathers and the catechisms, in full, right here.', hue: 25 },
   { to: '/study/universe', title: 'Scripture universe', text: 'Fly through the canon as a galaxy of 73 books.', hue: 265 },
   { to: '/study/fulfilment', title: 'Promise and fulfilment', text: 'Types and prophecies, in the Fathers’ own words.', hue: 35 },
-  { to: '/study/timespace', title: 'Time and place', text: 'Slide through the biblical story and watch the map follow.', hue: 145 },
 ];
 
 export default function StudyHome() {

@@ -1,0 +1,86 @@
+{
+  "id": "wisdom-and-the-word",
+  "title": "Wisdom and the Word",
+  "blurb": "Trace Wisdom from the Old Testament's poetry to the Word made flesh in John and Colossians.",
+  "minutes": 40,
+  "steps": [
+    {
+      "title": "Wisdom at the Beginning",
+      "ref": "Proverbs 8:22-31",
+      "intro": "Wisdom speaks in the first person, present with the Lord before the earth was made and delighting in the human race. Christian tradition has often read this figure in light of Christ.",
+      "quote": {
+        "text": "It is clear, then, that the words “beginning of His ways,” which, as it seems, we must refer to the mystery of the putting on of His body, are a prophecy of the Incarnation.",
+        "who": "Ambrose of Milan",
+        "work": "ambrose-works",
+        "section": 14,
+        "para": 117
+      },
+      "question": "What does it mean for you that wisdom, not mere cleverness, was there before the world began?"
+    },
+    {
+      "title": "A Spotless Mirror",
+      "ref": "Wisdom 7:22-30",
+      "intro": "The author of the Book of Wisdom praises Wisdom as a breath of God's power and a spotless mirror of his working, who is present throughout creation and renews all things.",
+      "quote": {
+        "text": "So likewise the Wisdom of God, the Word of God, the Lord Jesus Christ, is everywhere present, because the truth is everywhere, wisdom is everywhere.",
+        "who": "Augustine of Hippo",
+        "work": "aug-tractates-john",
+        "section": 34,
+        "para": 10
+      },
+      "question": "Where have you noticed truth or goodness that seemed larger than any one person?"
+    },
+    {
+      "title": "Wisdom Pitches Her Tent",
+      "ref": "Sirach 24:1-12",
+      "intro": "Wisdom praises herself in the assembly of God's people and tells how she made her dwelling in Israel, in Zion, among a people the Lord had chosen.",
+      "quote": {
+        "text": "Thou breathedst odours, and I drew in breath and panted for Thee. I tasted, and hunger and thirst. Thou touchedst me, and I burned for Thy peace.",
+        "who": "Augustine of Hippo",
+        "work": "aug-confessions",
+        "section": 159,
+        "para": 0
+      },
+      "question": "What first made you hunger for God, and how do you keep that hunger alive?"
+    },
+    {
+      "title": "In the Beginning Was the Word",
+      "ref": "John 1:1-14",
+      "intro": "John's prologue echoes the language of Genesis and of Wisdom: the Word was with God, all things were made through him, and the Word became flesh and dwelt among us.",
+      "quote": {
+        "text": "For the intellect, having ascended to “the beginning,” enquires what “beginning”; and then finding the “was” always outstripping its imagination, has no point at which to stay its thought; but looking intently onwards, and being unable to cease at any point, it becomes wearied out, and turns back to things below.",
+        "who": "John Chrysostom",
+        "work": "chrys-john",
+        "section": 0,
+        "para": 32
+      },
+      "question": "Which line of the prologue stretches your mind most? Take a minute to simply sit with it."
+    },
+    {
+      "title": "Image of the Invisible God",
+      "ref": "Colossians 1:15-20",
+      "intro": "Paul describes Christ as the image of the invisible God, firstborn of all creation, in whom all things were created and are held together.",
+      "quote": {
+        "text": "For since He is Himself the invisible image of the invisible God, He conveyed invisibly a share in Himself to all His rational creatures, so that each one obtained a part of Him exactly proportioned to the amount of affection with which he regarded Him.",
+        "who": "Origen",
+        "work": "origen-celsus",
+        "section": 10,
+        "para": 97
+      },
+      "question": "Where do you see the whole of creation held together by Christ, and where does it seem to fall apart?"
+    },
+    {
+      "title": "The Wisdom of God",
+      "ref": "1 Corinthians 1:22-25",
+      "intro": "Paul says Jews ask for signs and Greeks seek wisdom, but he preaches Christ crucified, the power and the wisdom of God.",
+      "quote": {
+        "text": "Who then is wiser than we are who have not the wisdom of Plato, but Christ Himself, God having so willed.",
+        "who": "John Chrysostom",
+        "work": "chrys-1cor",
+        "section": 5,
+        "para": 12
+      },
+      "question": "Where does the cross challenge what the world calls wise in your own choices?"
+    }
+  ]
+}

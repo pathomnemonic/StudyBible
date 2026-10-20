@@ -57,3 +57,18 @@ export const MOOD_SOUND: Partial<Record<Mood, 'rain' | 'wind' | 'stream'>> = {
   wisdom: 'stream',
   dawn: 'wind',
 };
+
+/** A scene sound for particular chapters (anchor numbering): the sea of Galilee, the desert, a night watch, a burning fire… */
+const SCENES: [string, number, number, 'sea' | 'desert' | 'night' | 'fire' | 'thunder' | 'pasture' | 'crowd' | 'rain'][] = [
+  ['MAT', 4, 4, 'sea'], ['MAT', 8, 8, 'sea'], ['MAT', 13, 14, 'sea'], ['MRK', 1, 1, 'sea'], ['MRK', 4, 6, 'sea'], ['LUK', 5, 5, 'sea'], ['LUK', 8, 8, 'sea'], ['JHN', 6, 6, 'sea'], ['JHN', 21, 21, 'sea'], ['JON', 1, 2, 'sea'], ['EXO', 14, 15, 'sea'], ['ACT', 27, 27, 'sea'],
+  ['EXO', 1, 13, 'desert'], ['EXO', 16, 18, 'desert'], ['EXO', 32, 34, 'desert'], ['NUM', 1, 36, 'desert'], ['DEU', 1, 34, 'desert'], ['MAT', 3, 3, 'desert'], ['1KI', 19, 19, 'desert'],
+  ['LUK', 2, 2, 'night'], ['JHN', 3, 3, 'night'], ['MAT', 26, 26, 'night'], ['PSA', 3, 4, 'night'], ['PSA', 90, 90, 'night'], ['PSA', 120, 120, 'night'], ['PSA', 133, 133, 'night'], ['GEN', 28, 28, 'night'],
+  ['EXO', 3, 3, 'fire'], ['ACT', 2, 2, 'fire'], ['LEV', 9, 10, 'fire'], ['1KI', 18, 18, 'fire'], ['ISA', 6, 6, 'fire'], ['DAN', 3, 3, 'fire'],
+  ['JOB', 38, 41, 'thunder'], ['PSA', 28, 28, 'thunder'], ['EXO', 19, 20, 'thunder'], ['REV', 4, 8, 'thunder'],
+  ['PSA', 22, 22, 'pasture'], ['JHN', 10, 10, 'pasture'], ['EZK', 34, 34, 'pasture'], ['LUK', 15, 15, 'pasture'],
+  ['ACT', 17, 19, 'crowd'], ['MRK', 11, 11, 'crowd'], ['JHN', 12, 12, 'crowd'], ['LUK', 19, 19, 'crowd'],
+  ['GEN', 6, 8, 'rain'],
+];
+export function passageSound(book: string, chapter: number) {
+  return SCENES.find(([b, a, z]) => b === book && chapter >= a && chapter <= z)?.[3] ?? null;
+}

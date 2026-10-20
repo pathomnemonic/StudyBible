@@ -1,0 +1,99 @@
+{
+  "id": "mary-in-scripture",
+  "title": "Mary in Scripture",
+  "blurb": "Follow Mary from the promise of Genesis 3:15 through the Gospels to the woman of Revelation 12.",
+  "minutes": 35,
+  "steps": [
+    {
+      "title": "Enmity and a Promise",
+      "ref": "Genesis 3:15",
+      "intro": "After the Fall, God promises enmity between the serpent and the woman, and between their offspring: the offspring will strike the serpent's head. Christian tradition has read this as a first promise of a Savior born of a woman.",
+      "quote": {
+        "text": "For this end did He put enmity between the serpent and the woman and her seed, they keeping it up mutually: He, the sole of whose foot should be bitten, having power also to tread upon the enemy’s head;",
+        "who": "Irenaeus of Lyons",
+        "work": "irenaeus-heresies",
+        "section": 89,
+        "para": 12
+      },
+      "question": "What does it mean to you that God's first response to the Fall was a promise and not only a verdict?"
+    },
+    {
+      "title": "Let It Be Done to Me",
+      "ref": "Luke 1:26-38",
+      "intro": "The angel Gabriel greets Mary as full of grace and tells her she will conceive and bear the Son of the Most High. She asks how this can be, then accepts: \"Let it be done to me according to your word.\"",
+      "quote": {
+        "text": "The Lord is the Son of the handmaid. Of what handmaid? Her who when He was announced as about to be born of her, answered and said, “Behold the handmaid of the Lord: be it unto me according to Thy word.”",
+        "who": "Augustine of Hippo",
+        "work": "aug-psalms",
+        "section": 85,
+        "para": 77
+      },
+      "question": "What would it take for you to say yes to something God asks that you do not fully understand?"
+    },
+    {
+      "title": "Greeting and Magnificat",
+      "ref": "Luke 1:39-56",
+      "intro": "Mary travels to visit her relative Elizabeth, who greets her as the mother of her Lord. Mary responds with the Magnificat, praising God who lifts up the lowly and keeps his promises to Israel.",
+      "quote": {
+        "text": "Elisabeth was indeed the first to hear the voice of Mary, but John was first to feel His Lord’s gracious Presence. Sweet is the harmony of prophecy with prophecy, of woman with woman, of babe with babe.",
+        "who": "Ambrose of Milan",
+        "work": "ambrose-works",
+        "section": 15,
+        "para": 162
+      },
+      "question": "Who needs your visit or encouragement this week, and what would you bring with you?"
+    },
+    {
+      "title": "Mother of the Child",
+      "ref": "Luke 2:1-20",
+      "intro": "In Bethlehem, Mary gives birth to her firstborn and lays him in a manger. Shepherds come after an angelic announcement, and Mary keeps these things and ponders them in her heart.",
+      "quote": {
+        "text": "In her virginity Eve put on the leaves of shame: Thy Mother put on in her Virginity the garment of Glory that suffices for all. She gave the little vest of the Body to Him that covers all.",
+        "who": "Ephrem the Syrian",
+        "work": "ephrem-hymns",
+        "section": 61,
+        "para": 4
+      },
+      "question": "What do you need to keep and ponder quietly in your heart, as Mary did?"
+    },
+    {
+      "title": "Do Whatever He Tells You",
+      "ref": "John 2:1-11",
+      "intro": "At a wedding in Cana, Mary notices the wine has run out and tells Jesus. Jesus answers that his hour has not yet come, and she tells the servants, \"Do whatever he tells you.\" John calls the water turned to wine the first of his signs.",
+      "quote": {
+        "text": "These then were the words, not of one speaking rudely to his mother, but belonging to a wise dispensation, which brought her into a right frame of mind, and provided that the miracles should be attended with that honor which was meet.",
+        "who": "John Chrysostom",
+        "work": "chrys-john",
+        "section": 19,
+        "para": 23
+      },
+      "question": "What difficulty could you bring to Jesus the way Mary brought the shortage of wine?"
+    },
+    {
+      "title": "Woman, Behold Your Son",
+      "ref": "John 19:25-27",
+      "intro": "Mary stands near the cross with other women and the beloved disciple. Jesus entrusts her to the disciple and the disciple to her, and the disciple takes her into his home. The Church has long seen her as mother to all disciples.",
+      "quote": {
+        "text": "O the honor! with what honor did He honor the disciple! when He Himself was now departing, He committed her to the disciple to take care of. For since it was likely that, being His mother, she would grieve, and require protection, He with reason entrusted her to the beloved.",
+        "who": "John Chrysostom",
+        "work": "chrys-john",
+        "section": 83,
+        "para": 21
+      },
+      "question": "Whom has Christ entrusted to your care, and how are you caring for them?"
+    },
+    {
+      "title": "The Woman and the Dragon",
+      "ref": "Revelation 12:1-6",
+      "intro": "John sees a woman clothed with the sun, in labor, and a dragon waiting to devour her child. Interpreters read the woman as Israel and the Church, and Catholic tradition also sees in her an image of Mary, mother of the Messiah.",
+      "quote": {
+        "text": "The Abhorred One had exalted himself; from his uplifting he has fallen. The foot of Mary has trod him down, who bruised Eve with his heel.",
+        "who": "Ephrem the Syrian",
+        "work": "ephrem-hymns",
+        "section": 64,
+        "para": 62
+      },
+      "question": "How does the picture of a woman and her child confronting evil strengthen your hope?"
+    }
+  ]
+}
