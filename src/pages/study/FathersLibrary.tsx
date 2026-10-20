@@ -79,7 +79,7 @@ export default function FathersLibrary() {
                   <span className="chip">{w.year}</span>
                 </div>
                 <p>{w.description}</p>
-                <div className="chips"><span className="chip">{w.sections.length} sections</span><span className="chip">{Math.round(w.sections.reduce((a, s) => a + s.words, 0) / 1000)}k words</span><span className="chip good">public domain</span><span className="chip">{w.authority === 'father' ? 'Church Father' : 'Saint / spiritual master'}</span></div>
+                <div className="chips"><span className="chip">{w.sections.length} sections</span><span className="chip">{Math.round(w.sections.reduce((a, s) => a + s.words, 0) / 1000)}k words</span><span className="chip good">public domain</span><span className="chip">{w.authority === 'father' ? 'Church Father' : w.authority === 'church' ? 'Catechism' : 'Saint / spiritual master'}</span></div>
                 <p className="muted small">Translator: {w.translator}. Source: {w.source.name}.</p>
                 {p && <p className="small">Continue from section {Number(p.section) + 1}.</p>}
               </div>
