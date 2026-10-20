@@ -15,6 +15,18 @@ interface Cmd {
 
 const NAV: { label: string; to: string }[] = [
   { label: 'Today', to: '/today' },
+  { label: 'Everything in the app (all pages)', to: '/more' },
+  { label: 'Study paths (guided journeys)', to: '/study/paths' },
+  { label: 'Sleep mode (a psalm read slowly)', to: '/pray/sleep' },
+  { label: 'Who quoted this verse? (quotations)', to: '/study/quotations' },
+  { label: 'Councils and Church documents', to: '/study/church' },
+  { label: 'Reading room (saints, Fathers, catechisms)', to: '/study/fathers' },
+  { label: 'Key words and phrases', to: '/study/terms' },
+  { label: 'Scripture universe (galaxy)', to: '/study/universe' },
+  { label: 'Time and place', to: '/study/timespace' },
+  { label: 'Picture gallery (paintings and engravings)', to: '/study/gallery' },
+  { label: 'Share a verse as a picture', to: '/share' },
+  { label: 'Bible in a Year', to: '/listen' },
   { label: 'Read with the Church (guided session)', to: '/session' },
   { label: 'Read', to: '/read' },
   { label: 'Study home', to: '/study' },

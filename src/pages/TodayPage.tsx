@@ -9,6 +9,7 @@ import { formatRef, parseRefId, type Ref } from '../lib/refs';
 import { readerPath } from '../lib/nav';
 import { getBook } from '../lib/canon';
 import Icon from '../components/Icon';
+import HomeExtras from '../components/HomeExtras';
 import { useT, dateLocale } from '../lib/i18n';
 
 const localIso = () => {
@@ -144,6 +145,7 @@ export default function TodayPage() {
         </aside>
       )}
 
+      <HomeExtras date={date} season={ld.season} ref={ref} label={verse?.label ?? ''} />
       <footer className="home-actions">
         {lastName && last ? <Link className="btn primary" to={`/read/${last.edition}/${last.book}/${last.chapter}${last.verse ? `?v=${last.verse}` : ''}`}>{t('home.continue')} · {lastName}</Link> : <Link className="btn primary" to={`/read/${s.defaultEdition}/JHN/1`}>{t('home.begin')}</Link>}
         <button className="btn" onClick={random}>{t('home.random')}</button>
