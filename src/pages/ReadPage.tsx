@@ -376,7 +376,19 @@ export default function ReadPage() {
   useEffect(() => {
     if (!panelOpen || dockOn || !hasSel) return;
     const el = document.querySelector(`.v[data-v="${selNative[0]}"]`);
-    el?.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    if (!el) return;
+    // Only move the page when the verse would be hidden behind the sheet (or off the top), and then only as far as needed.
+    const t = window.setTimeout(() => {
+      const sheet = document.querySelector('aside.panel.side') as HTMLElement | null;
+      const sheetTop = sheet && getComputedStyle(sheet).position === 'fixed' ? sheet.getBoundingClientRect().top : window.innerHeight;
+      const r = el.getBoundingClientRect();
+      const header = 64;
+      if (r.bottom > sheetTop - 24 || r.top < header) {
+        const want = header + Math.max(24, (sheetTop - header) * 0.2);
+        window.scrollBy({ top: r.top - want, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches || settings.motion === 'none' ? 'auto' : 'smooth' });
+      }
+    }, 60);
+    return () => window.clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [panelOpen, selNative.join()]);
   const clearSel = () => {

@@ -90,7 +90,7 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
       )}
 
       <label className="row between" style={{ margin: '10px 0 4px' }}>
-        <span>Drifting light behind the text</span>
+        <span>Slowly drifting colour behind the text</span>
         <input type="checkbox" checked={s.motes} onChange={(e) => set({ motes: e.target.checked })} aria-label="Soft moving light" />
       </label>
       <label className="row between" style={{ margin: '4px 0' }}>

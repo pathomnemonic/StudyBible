@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react';
+import ErrorBoundary from './components/ErrorBoundary';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { EditionsProvider, useEditions } from './data/EditionsContext';
 import { useSettings } from './lib/store';
@@ -121,6 +122,13 @@ function Settle({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const loc = useLocation();
+  useEffect(() => {
+    // a page chunk that no longer exists (the app was updated under an open tab): reload once to get the new one
+    const h = (e: Event) => { e.preventDefault(); try { if (!sessionStorage.getItem('sb-reloaded')) { sessionStorage.setItem('sb-reloaded', '1'); location.reload(); } } catch { location.reload(); } };
+    window.addEventListener('vite:preloadError', h);
+    return () => window.removeEventListener('vite:preloadError', h);
+  }, []);
   useEffect(() => {
     initSync();
     scheduleReminder();
@@ -133,7 +141,7 @@ export default function App() {
         <PlayerProvider>
         <Shell>
           <Suspense fallback={<div className="center-note">Loading…</div>}>
-            <Settle><Routes>
+            <ErrorBoundary resetKey={loc.pathname}><Settle><Routes>
               <Route path="/" element={<TodayPage />} />
               <Route path="/read" element={<Home />} />
               <Route path="/read/:edition/:book/:chapter" element={<ReadPage />} />
@@ -189,7 +197,7 @@ export default function App() {
               <Route path="/attach" element={<AttachPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="*" element={<Navigate replace to="/" />} />
-            </Routes></Settle>
+            </Routes></Settle></ErrorBoundary>
           </Suspense>
           <MiniPlayer />
         </Shell>

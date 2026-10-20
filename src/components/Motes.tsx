@@ -1,6 +1,10 @@
 import { useEffect, useRef } from 'react';
 
-/** A few slow, soft points of light drifting behind the text. Off for reduced motion; paused when the tab is hidden. */
+/**
+ * A few huge, soft blobs of colour drifting very slowly behind the text, like a screensaver turned down almost to nothing.
+ * The colours come from the page's own theme and the book's atmosphere; it is off for reduced motion, paused when the tab is
+ * hidden, and can be switched off in Reading settings.
+ */
 export default function Motes() {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
@@ -8,39 +12,43 @@ export default function Motes() {
     if (!cv || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const g = cv.getContext('2d');
     if (!g) return;
-    let w = 0, h = 0, raf = 0;
-    const dpr = Math.min(devicePixelRatio || 1, 2);
-    const size = () => { w = cv.clientWidth; h = cv.clientHeight; cv.width = w * dpr; cv.height = h * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0); };
+    let w = 0, h = 0, raf = 0, last = 0;
+    const dpr = 1; // blurry shapes do not need a sharp canvas
+    const size = () => { w = Math.ceil(cv.clientWidth / 3); h = Math.ceil(cv.clientHeight / 3); cv.width = w * dpr; cv.height = h * dpr; };
     size();
-    const N = 26;
-    const m = Array.from({ length: N }, () => ({ x: Math.random(), y: Math.random(), r: 1 + Math.random() * 2.6, vx: (Math.random() - .5) * .006, vy: -0.004 - Math.random() * .01, ph: Math.random() * 6.28, sp: .15 + Math.random() * .3 }));
-    const color = () => getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#c9a24a';
-    let col = color();
-    let last = performance.now();
+    const css = (n: string) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+    const colours = () => {
+      const c = ['--aura-a', '--aura-b', '--aura-c', '--accent'].map(css).filter((x) => x && x !== 'transparent');
+      return c.length ? c : ['rgba(150,130,255,.5)'];
+    };
+    let cols = colours();
+    // each blob: a base position, an orbit and a speed, so the whole picture never repeats quickly
+    const blobs = Array.from({ length: 4 }, (_, i) => ({ x: .2 + .6 * Math.random(), y: .2 + .6 * Math.random(), ax: .18 + .12 * Math.random(), ay: .14 + .12 * Math.random(), sx: .018 + .02 * Math.random(), sy: .015 + .02 * Math.random(), ph: Math.random() * 6.28, r: .38 + .22 * Math.random(), c: i }));
     const tick = (t: number) => {
-      const dt = Math.min(0.1, (t - last) / 1000); last = t;
+      raf = requestAnimationFrame(tick);
+      if (t - last < 66) return; // about 15 frames a second is plenty for something this slow
+      last = t;
       g.clearRect(0, 0, w, h);
-      for (const p of m) {
-        p.x += p.vx * dt * 6 + Math.sin(t / 4000 * p.sp + p.ph) * 0.00008;
-        p.y += p.vy * dt * 6;
-        if (p.y < -0.05) { p.y = 1.05; p.x = Math.random(); }
-        if (p.x < -0.05) p.x = 1.05; else if (p.x > 1.05) p.x = -0.05;
-        const a = (0.5 + 0.5 * Math.sin(t / 1000 * p.sp + p.ph)) * 0.32;
-        const X = p.x * w, Y = p.y * h;
-        const grd = g.createRadialGradient(X, Y, 0, X, Y, p.r * 5);
-        grd.addColorStop(0, col); grd.addColorStop(1, 'transparent');
-        g.globalAlpha = a;
+      for (const b of blobs) {
+        const X = (b.x + b.ax * Math.sin(t / 1000 * b.sx * 6.28 + b.ph)) * w;
+        const Y = (b.y + b.ay * Math.cos(t / 1000 * b.sy * 6.28 + b.ph * 1.3)) * h;
+        const R = b.r * Math.max(w, h) * (1 + .08 * Math.sin(t / 7000 + b.ph));
+        const grd = g.createRadialGradient(X, Y, 0, X, Y, R);
+        grd.addColorStop(0, cols[b.c % cols.length]);
+        grd.addColorStop(1, 'transparent');
+        g.globalAlpha = .55;
         g.fillStyle = grd;
-        g.beginPath(); g.arc(X, Y, p.r * 5, 0, 6.2832); g.fill();
+        g.fillRect(0, 0, w, h);
       }
       g.globalAlpha = 1;
-      raf = requestAnimationFrame(tick);
     };
-    const vis = () => { cancelAnimationFrame(raf); if (!document.hidden) { last = performance.now(); col = color(); raf = requestAnimationFrame(tick); } };
+    const vis = () => { cancelAnimationFrame(raf); if (!document.hidden) { cols = colours(); raf = requestAnimationFrame(tick); } };
     document.addEventListener('visibilitychange', vis);
     window.addEventListener('resize', size);
+    const mo = new MutationObserver(() => { cols = colours(); });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-atm', 'data-theme'] });
     raf = requestAnimationFrame(tick);
-    return () => { cancelAnimationFrame(raf); document.removeEventListener('visibilitychange', vis); window.removeEventListener('resize', size); };
+    return () => { cancelAnimationFrame(raf); mo.disconnect(); document.removeEventListener('visibilitychange', vis); window.removeEventListener('resize', size); };
   }, []);
   return <canvas ref={ref} className="motes" aria-hidden="true" />;
 }
