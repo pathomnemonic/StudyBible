@@ -15,6 +15,7 @@ import { buildGalaxyLib } from './galaxylib';
 import { buildArtMore } from './artmore';
 import { buildJesus } from './jesus';
 import { buildCcc } from './ccc';
+import { buildDictionaries } from './dictionaries';
 import { plainNumerals } from '../../src/lib/readable';
 import { readdirSync } from 'node:fs';
 import { buildChurchIndex } from './churchindex';
@@ -79,6 +80,7 @@ async function main() {
     await run('art-more', () => buildArtMore(report));
     await run('jesus', () => buildJesus(report));
     await run('ccc', () => buildCcc(report));
+    await run('dictionaries', () => buildDictionaries(report));
     await run('church-index', () => buildChurchIndex(report));
     await run('curated', () => buildCurated(report));
     await run('church', () => buildChurchDocs(report));
