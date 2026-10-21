@@ -31,6 +31,7 @@ const GROUPS: { title: string; items: Row[] }[] = [
     ['/account', 'Account and sync', 'Optional; your data stays on this device without it.'],
     ['/study/sources', 'Sources and licensing', 'Where every text comes from and what is only linked.'],
     ['/about', 'About and feature status', 'What this app is, and what works.'],
+    ['/profile#tour', 'Take the tour again', 'A short walkthrough of every part of the app.'],
     ['/more', 'Every page in the app', 'A plain list of everything, in case something is hard to find.'],
   ] },
 ];
@@ -52,7 +53,7 @@ export default function ProfilePage() {
             <h2>{g.title}</h2>
             <ul>
               {g.items.map(([to, t, d]) => (
-                <li key={to}><Link to={to}><span className="t">{t}</span><span className="d">{d}</span><span className="go" aria-hidden="true">→</span></Link></li>
+                <li key={to}><Link to={to} onClick={to.endsWith('#tour') ? (e) => { e.preventDefault(); window.dispatchEvent(new Event('studybible:tour')); } : undefined}><span className="t">{t}</span><span className="d">{d}</span><span className="go" aria-hidden="true">→</span></Link></li>
               ))}
             </ul>
           </section>

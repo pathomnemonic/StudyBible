@@ -55,7 +55,7 @@
    "rootTitle": "Homilies of St. John Chrysostom on the Gospel",
    "scriptureMode": "homily-start",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Chrysostom's 88 homilies on John, delivered at Antioch.",
    "translator": "Rev. G. T. Stupart; ed. Philip Schaff, NPNF 1st series vol. 14 (1889)",
    "rightsEvidence": "Translator credited in the volume's preface; 1880s publication.",
@@ -73,7 +73,7 @@
    "year": "c. 390",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Title Page",
     "Preface",
@@ -97,7 +97,7 @@
    "year": "c. 318",
    "rootTitle": "The Incarnation of the Word",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Athanasius on why the Word became flesh.",
    "translator": "Translation as printed in NPNF 2nd series vol. 4 (1892), special editor Archibald Robertson",
    "rightsEvidence": "1890s publication; translator credit is in the printed volume."
@@ -114,7 +114,7 @@
    "year": "c. 350",
    "rootTitle": "Catechetical Lectures",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Instructions for catechumens, including the Eucharistic catecheses.",
    "translator": "Edwin Hamilton Gifford (the Lectures, in NPNF 2nd series vol. 7, 1894)",
    "rightsEvidence": "Translator credited in the volume's introduction; 1890s publication."
@@ -131,7 +131,7 @@
    "year": "c. 180",
    "rootTitle": "IRENÆUS",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Irenaeus' defence of apostolic tradition and the unity of Scripture.",
    "translator": "ANF editors (Alexander Roberts, James Donaldson), with Rev. W. H. Rambaut for books 3–5; Ante-Nicene Fathers vol. 1 (1885)",
    "rightsEvidence": "Credits as stated in the volume's preface; 1880s publication."
@@ -148,7 +148,7 @@
    "year": "c. 397–400",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Title Page",
     "Preface",
@@ -170,7 +170,7 @@
    "year": "1577",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Title Page",
     "Preface",
@@ -192,7 +192,7 @@
    "year": "1378",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Title Page",
     "Preface",
@@ -214,7 +214,7 @@
    "year": "c. 1691",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Title Page",
     "Preface",
@@ -238,7 +238,7 @@
    "scriptureMode": "homily-start",
    "book": "ACT",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title"
@@ -261,7 +261,7 @@
    "scriptureMode": "homily-start",
    "book": "ROM",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title"
@@ -284,7 +284,7 @@
    "scriptureMode": "homily-start",
    "book": "1CO",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title"
@@ -307,7 +307,7 @@
    "scriptureMode": "homily-start",
    "book": "2CO",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title"
@@ -330,7 +330,7 @@
    "scriptureMode": "homily-start",
    "book": "HEB",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title"
@@ -351,7 +351,7 @@
    "year": "c. 393",
    "rootTitle": "Our Lord’s Sermon on the Mount",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Augustine's commentary on Matthew 5–7.",
    "translator": "As printed in NPNF 1st series vol. 6 (1888)",
    "rightsEvidence": "1880s publication; translator credit is in the printed volume."
@@ -368,7 +368,7 @@
    "year": "c. 400",
    "rootTitle": "The Harmony of the Gospels",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Augustine on the agreement of the four Gospels.",
    "translator": "As printed in NPNF 1st series vol. 6 (1888)",
    "rightsEvidence": "1880s publication; translator credit is in the printed volume."
@@ -385,7 +385,7 @@
    "year": "c. 380–390",
    "rootTitle": "Dogmatic Treatises",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Ambrose on faith, the sacraments and the Christian life.",
    "translator": "As printed in NPNF 2nd series vol. 10 (1896)",
    "rightsEvidence": "1890s publication; translator credit is in the printed volume."
@@ -402,7 +402,7 @@
    "year": "c. 375",
    "rootTitle": "De Spiritu Sancto",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Basil on the Holy Spirit.",
    "translator": "As printed in NPNF 2nd series vol. 8 (1895)",
    "rightsEvidence": "1890s publication; translator credit is in the printed volume."
@@ -419,7 +419,7 @@
    "year": "c. 393–406",
    "rootTitle": "Treatises",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Jerome's polemical treatises, rich in Scripture.",
    "translator": "As printed in NPNF 2nd series vol. 6 (1893)",
    "rightsEvidence": "1890s publication; translator credit is in the printed volume."
@@ -436,7 +436,7 @@
    "year": "370–419",
    "rootTitle": "The Letters of St. Jerome",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Jerome's letters on Scripture, asceticism and controversy.",
    "translator": "As printed in NPNF 2nd series vol. 6 (1893)",
    "rightsEvidence": "1890s publication; translator credit is in the printed volume."
@@ -453,7 +453,7 @@
    "year": "c. 230–248",
    "rootTitle": "Origen",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Origen's apologetic and systematic works. Read with care: some of his positions were later condemned.",
    "translator": "As printed in Ante-Nicene Fathers vol. 4 (1885)",
    "rightsEvidence": "1880s publication; translator credit is in the printed volume."
@@ -487,7 +487,7 @@
    "year": "440–461",
    "rootTitle": "The Letters and Sermons of Leo the Great",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Pope Leo the Great on Peter, the Incarnation (the Tome) and the liturgical year.",
    "translator": "Charles Lett Feltoe, NPNF 2nd series vol. 12 (1895)",
    "rightsEvidence": "1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -504,7 +504,7 @@
    "year": "c. 590–604",
    "rootTitle": "Gregory the Great",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Gregory on the care of souls, with selected letters.",
    "translator": "James Barmby, NPNF 2nd series vol. 12 (1895)",
    "rightsEvidence": "1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -521,7 +521,7 @@
    "year": "c. 420–429",
    "rootTitle": "The Works of John Cassian",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Cassian’s teaching on monastic life, prayer and the spiritual senses of Scripture.",
    "translator": "Edgar C. S. Gibson, NPNF 2nd series vol. 11 (1894)",
    "rightsEvidence": "1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -538,7 +538,7 @@
    "year": "434",
    "rootTitle": "Commonitory",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "The classic rule for recognising Catholic tradition: “what has been believed everywhere, always, by all.”",
    "translator": "C. A. Heurtley, NPNF 2nd series vol. 11 (1894)",
    "rightsEvidence": "1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -555,7 +555,7 @@
    "year": "413–426",
    "rootTitle": "^City of God$",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Augustine’s great work on the two cities, history and the Church.",
    "translator": "Marcus Dods, NPNF 1st series vol. 2 (1887)",
    "rightsEvidence": "1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -572,7 +572,7 @@
    "year": "396–426",
    "rootTitle": "On Christian Doctrine",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "How to read and interpret Scripture, by Augustine.",
    "translator": "J. F. Shaw, NPNF 1st series vol. 2 (1887)",
    "rightsEvidence": "1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -589,7 +589,7 @@
    "year": "c. 339–360",
    "rootTitle": "Against the Arians",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Athanasius’ scriptural defence of Christ’s divinity (Proverbs 8:22, John 10:30, Philippians 2 and more).",
    "translator": "John Henry Newman, revised by Archibald Robertson, NPNF 2nd series vol. 4 (1892)",
    "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -606,7 +606,7 @@
    "year": "c. 350–373",
    "rootTitle": "Ephraim the Syrian",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Selected hymns and homilies of Ephrem, the “harp of the Spirit”.",
    "translator": "As printed in NPNF 2nd series vol. 13, part 2 (1898); translator credits are in the volume",
    "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -623,7 +623,7 @@
    "year": "c. 150–165",
    "rootTitle": "JUSTIN MARTYR",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Justin’s earliest Christian reading of the Old Testament and description of the Eucharist and Sunday worship.",
    "translator": "Marcus Dods, George Reith and others, Ante-Nicene Fathers vol. 1 (1885)",
    "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -640,7 +640,7 @@
    "year": "c. 107",
    "rootTitle": "IGNATIUS",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Letters of the martyr-bishop of Antioch on the Eucharist, the bishop and unity.",
    "translator": "ANF editors (Alexander Roberts, James Donaldson), Ante-Nicene Fathers vol. 1 (1885)",
    "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -657,7 +657,7 @@
    "year": "c. 96",
    "rootTitle": "CLEMENT OF ROME",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Early letter on order and apostolic succession in the Church.",
    "translator": "ANF editors (Alexander Roberts, James Donaldson), Ante-Nicene Fathers vol. 1 (1885)",
    "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -674,7 +674,7 @@
    "year": "c. 743",
    "rootTitle": "John of Damascus",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "The last of the Greek Fathers’ systematic summaries of the faith.",
    "translator": "S. D. F. Salmond, NPNF 2nd series vol. 9 (1899)",
    "rightsEvidence": "1880s–1890s publication; CCEL rights field: Public Domain; translator credit is in the printed volume."
@@ -693,7 +693,7 @@
    "scriptureMode": "homily-start",
    "book": "GAL",
    "sectionLabel": "Chapter",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title",
@@ -720,7 +720,7 @@
    "scriptureMode": "homily-start",
    "book": "EPH",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title",
@@ -747,7 +747,7 @@
    "scriptureMode": "homily-start",
    "book": "PHP",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title",
@@ -774,7 +774,7 @@
    "scriptureMode": "homily-start",
    "book": "COL",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title",
@@ -801,7 +801,7 @@
    "scriptureMode": "homily-start",
    "book": "1TH",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title",
@@ -828,7 +828,7 @@
    "scriptureMode": "homily-start",
    "book": "2TH",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title",
@@ -855,7 +855,7 @@
    "scriptureMode": "homily-start",
    "book": "1TI",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title",
@@ -882,7 +882,7 @@
    "scriptureMode": "homily-start",
    "book": "2TI",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title",
@@ -909,7 +909,7 @@
    "scriptureMode": "homily-start",
    "book": "TIT",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title",
@@ -936,7 +936,7 @@
    "scriptureMode": "homily-start",
    "book": "PHM",
    "sectionLabel": "Homily",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Preface",
     "Title",
@@ -961,7 +961,7 @@
    "year": "c. 190–215",
    "rootTitle": "CLEMENT OF ALEXANDRIA",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "The Instructor, Stromata and other works (Clement of Alexandria); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 2 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -978,7 +978,7 @@
    "year": "c. 197–212",
    "rootTitle": "^Apologetic",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Apologetic works (Tertullian); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 3 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -995,7 +995,7 @@
    "year": "c. 207–212",
    "rootTitle": "^Anti-Marcion",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Against Marcion and other doctrinal works (Tertullian); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 3 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1012,7 +1012,7 @@
    "year": "c. 200–220",
    "rootTitle": "^Ethical",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Moral and ethical works (Tertullian); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 3 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1029,7 +1029,7 @@
    "year": "c. 200–235",
    "rootTitle": "^Hippolytus",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Works of Hippolytus (Hippolytus of Rome); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 5 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1046,7 +1046,7 @@
    "year": "c. 248–258",
    "rootTitle": "^Cyprian",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Letters and treatises (Cyprian of Carthage); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 5 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1063,7 +1063,7 @@
    "year": "c. 250",
    "rootTitle": "^Novatian",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Treatises (Novatian); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 5 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1080,7 +1080,7 @@
    "year": "c. 304–313",
    "rootTitle": "^Lactantius",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Divine Institutes and other works (Lactantius); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 7 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1097,7 +1097,7 @@
    "year": "386–429",
    "rootTitle": "^Letters of St\\. Augustin$",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Letters (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 1st series vol. 1 (1887–88)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1114,7 +1114,7 @@
    "year": "393–420",
    "rootTitle": "^Doctrinal Treatises",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Doctrinal treatises (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 1st series vol. 3 (1887–88)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1131,7 +1131,7 @@
    "year": "388–422",
    "rootTitle": "^Moral Treatises",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Moral treatises (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 1st series vol. 3 (1887–88)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1148,7 +1148,7 @@
    "year": "387–405",
    "rootTitle": "^Writings in Connection with the Manich",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Writings against the Manichæans (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 1st series vol. 4 (1887–88)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1165,7 +1165,7 @@
    "year": "393–420",
    "rootTitle": "^Writings in Connection with the Donatist",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Writings against the Donatists (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 1st series vol. 4 (1887–88)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1182,7 +1182,7 @@
    "year": "412–428",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Anti-Pelagian writings (Augustine of Hippo); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 1st series vol. 5 (1887–88)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
@@ -1208,7 +1208,7 @@
    "year": "c. 324",
    "rootTitle": "Church History of Eusebius",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Church History (Eusebius of Caesarea); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 2nd series vol. 1 (1890–94)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1225,7 +1225,7 @@
    "year": "c. 449–453",
    "rootTitle": "^The Ecclesiastical History, Dialogues",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Ecclesiastical History, Dialogues and Letters (Theodoret of Cyrus); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 2nd series vol. 3 (1890–94)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1242,7 +1242,7 @@
    "year": "392",
    "rootTitle": "^Jerome and Gennadius",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Lives of Illustrious Men (Jerome); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 2nd series vol. 3 (1890–94)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1259,7 +1259,7 @@
    "year": "c. 380–394",
    "rootTitle": "^Dogmatic Treatises",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Dogmatic treatises (Gregory of Nyssa); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 2nd series vol. 5 (1890–94)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1276,7 +1276,7 @@
    "year": "c. 380–394",
    "rootTitle": "^Ascetic and Moral",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Ascetic and moral treatises (Gregory of Nyssa); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 2nd series vol. 5 (1890–94)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1293,7 +1293,7 @@
    "year": "c. 380–394",
    "rootTitle": "^Apologetic Works",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Apologetic works (Gregory of Nyssa); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 2nd series vol. 5 (1890–94)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1310,7 +1310,7 @@
    "year": "c. 380–394",
    "rootTitle": "^Letters",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Letters (Gregory of Nyssa); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 2nd series vol. 5 (1890–94)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
@@ -1327,7 +1327,7 @@
    "year": "c. 240–270",
    "rootTitle": "^Gregory Thaumaturgus",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Works of Gregory Thaumaturgus (including the Metaphrase on Ecclesiastes) (Gregory Thaumaturgus); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 6 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
@@ -1353,7 +1353,7 @@
    "year": "c. 290",
    "rootTitle": "^Methodius",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Works of Methodius (Methodius of Olympus); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 6 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
@@ -1379,7 +1379,7 @@
    "year": "c. 300",
    "rootTitle": "^Arnobius",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Against the Heathen (Arnobius); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 6 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
@@ -1405,7 +1405,7 @@
    "year": "c. 226–231",
    "rootTitle": "Origen's Commentary on the Gospel of John",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Commentary on the Gospel of John (Origen); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 9 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
@@ -1431,7 +1431,7 @@
    "year": "c. 249",
    "rootTitle": "Origen's Commentary on the Gospel of Matthew",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Commentary on the Gospel of Matthew (Origen); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 9 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
@@ -1457,7 +1457,7 @@
    "year": "c. 170",
    "rootTitle": "^The Diatessaron of Tatian",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Diatessaron (Tatian); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "Ante-Nicene Fathers vol. 9 (1885–86)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
@@ -1483,7 +1483,7 @@
    "year": "c. 386–407",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Treatises, homilies and letters (John Chrysostom); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 1st series vol. 9 (1889)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
@@ -1509,7 +1509,7 @@
    "year": "590–604",
    "rootTitle": "^Selected Epistles of Gregory",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Selected Epistles (Gregory the Great); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 2nd series vol. 13 (1890–94)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
@@ -1535,7 +1535,7 @@
    "year": "c. 340–370",
    "rootTitle": "^Selections from the Hymns",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Hymns, homilies and Demonstrations (Ephrem the Syrian and Aphrahat); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 2nd series vol. 13 (1890–94)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
@@ -1561,7 +1561,7 @@
    "year": "c. 440",
    "rootTitle": "Ecclesiastical History of Socrates",
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "description": "Ecclesiastical Histories (Socrates Scholasticus and Sozomen); passages are found by the Scripture citations tagged in the CCEL edition.",
    "translator": "NPNF 2nd series vol. 2 (1890–94)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
@@ -1696,7 +1696,7 @@
    "year": "1548",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Title Page",
     "Approbation",
@@ -1723,7 +1723,7 @@
    "year": "c. 1393",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Title Page",
     "Indexes",
@@ -1746,7 +1746,7 @@
    "year": "1565",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Frontispiece",
     "Title Page",
@@ -1773,7 +1773,7 @@
    "year": "1609",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Title Page",
     "Contents",
@@ -1796,7 +1796,7 @@
    "year": "1616",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Introductory Material",
     "Title Page",
@@ -1821,7 +1821,7 @@
    "year": "c. 1390",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Title Page",
     "Publishers",
@@ -1846,7 +1846,7 @@
    "year": "1076–1098",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Title Page",
     "Introduction",
@@ -1870,7 +1870,7 @@
    "year": "1898",
    "rootTitle": null,
    "scriptureMode": "tags",
-   "psalmTags": "skip",
+   "psalmTags": "english",
    "skipTitles": [
     "Cover Page",
     "NOTE TO",

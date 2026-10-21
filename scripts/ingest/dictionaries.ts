@@ -139,9 +139,10 @@ function buildDict(id: 'easton' | 'smith', xml: string, c: Counts, report: Repor
       }
     }
     const e: (typeof entries)[number] = { term, text };
-    // headwords printed as "Abaddon, Apollyon" yield lookup aliases; the term itself is kept as published
+    // headwords printed as "Abia, Abiah, Or Abijah" yield lookup aliases (only when every part is a single word; "Atonement, Day of" is not a variant list); the term itself is kept as published
     const al = new Set<string>();
-    for (const part of term.split(/\s*(?:,|;|\bor\b)\s+/)) if (part && part !== term && /^[A-Za-z][A-Za-z' -]{1,40}$/.test(part)) al.add(part);
+    const parts = term.split(/\s*,\s*(?:or\s+)?|\s+or\s+/i);
+    if (parts.length > 1 && parts.every((x) => /^[A-Za-z][A-Za-z'’-]{1,30}$/.test(x))) for (const part of parts) al.add(part);
     if (al.size) e.aliases = [...al];
     if (refs.length) e.refs = refs;
     entries.push(e);

@@ -12,12 +12,12 @@ export default function ResumeChips() {
   const work = hist.find((h) => h.type === 'work');
   const ep = hist.find((h) => h.type === 'episode');
   const day = plan ? Math.min(365, Math.max(1, Math.floor((Date.now() - plan.startedAt) / 86400000) + 1 + plan.offsetDays)) : null;
-  const bible = s.last ? { to: `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}`, text: `${getBook(s.last.book)?.name ?? s.last.book} ${s.last.chapter}` } : { to: `/read/${s.defaultEdition}/JHN/1`, text: 'Begin with John' };
-  const short = (t: string) => (t.length > 26 ? t.slice(0, 24).trimEnd() + '…' : t);
+  const bible = s.last ? { to: `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}`, text: `${getBook(s.last.book)?.name ?? s.last.book} ${s.last.chapter}` } : { to: `/read/${s.defaultEdition}/JHN/1`, text: 'Begin' };
+  const short = (t: string) => (t.length > 34 ? t.slice(0, 32).trimEnd() + '…' : t);
   const chips = [
     { key: 'bible', to: bible.to, kind: 'Bible', text: bible.text, resume: !!s.last },
-    { key: 'room', to: work ? `/study/works/${work.ref}` : '/study/fathers', kind: 'Reading room', text: work ? short(work.label.replace(/^.*?:\s*/, '')) : 'Start reading', resume: !!work },
-    { key: 'year', to: ep ? `/listen/episode/${ep.ref}` : '/listen', kind: 'Bible in a Year', text: ep ? short(ep.label.replace(/^Day (\d+).*$/, 'Day $1')) : day ? `Day ${day}` : 'Start listening', resume: !!ep || !!day },
+    { key: 'room', to: work ? `/study/works/${work.ref}` : '/study/fathers', kind: 'Reading room', text: work ? short(work.label.replace(/^.*?:\s*/, '')) : 'Browse', resume: !!work },
+    { key: 'year', to: ep ? `/listen/episode/${ep.ref}` : '/listen', kind: 'Bible in a Year', text: ep ? short(ep.label.replace(/^Day (\d+).*$/, 'Day $1')) : day ? `Day ${day}` : 'Listen', resume: !!ep || !!day },
   ];
   return (
     <nav className="resume-chips" aria-label="Pick up where you left off">

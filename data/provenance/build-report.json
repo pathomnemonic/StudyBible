@@ -1,8 +1,6 @@
 {
- "generated": "2026-10-20",
- "errors": [
-  "[brenton] PRO 30: chapter has no verses"
- ],
+ "generated": "2026-10-21",
+ "errors": [],
  "warnings": [
   "[cpdv] book “Prayer of Manasses” is not in the 73-book canon; skipped",
   "[cpdv] book “I Esdras” is not in the 73-book canon; skipped",
@@ -505,7 +503,7 @@
   "[brenton] 99-XXAeng-Brenton.usfm: unhandled marker \\tr",
   "[brenton] 99-XXAeng-Brenton.usfm: unhandled marker \\tc1"
  ],
- "warningCount": 596,
+ "warningCount": 600,
  "stats": {
   "versification.unverifiedChapters": {
    "PSA": 18,
@@ -950,6 +948,51 @@
    "missing": 0,
    "headings": 1338,
    "scriptureCitations": 3896
+  },
+  "dictionary-easton": {
+   "entries": 3964,
+   "withRefs": 3867,
+   "refs": 23024
+  },
+  "dictionary-smith": {
+   "entries": 4561,
+   "withRefs": 4003,
+   "refs": 16887
+  },
+  "dictionary-nave": {
+   "topics": 5322,
+   "withSee": 1760,
+   "subtopics": 24860,
+   "verseRefs": 72195,
+   "byBookRows": 72195,
+   "books": 67
+  },
+  "dictionary-easton-refs": {
+   "tagged": 23630,
+   "viaParse": 23612,
+   "viaOsis": 28,
+   "failed": 3,
+   "disagree": 0
+  },
+  "dictionary-smith-refs": {
+   "tagged": 17392,
+   "viaParse": 17124,
+   "viaOsis": 316,
+   "failed": 26,
+   "disagree": 0
+  },
+  "dictionary-nave-refs": {
+   "tagged": 77934,
+   "viaParse": 67023,
+   "viaOsis": 10899,
+   "failed": 12,
+   "disagree": 179
+  },
+  "dictionary-terms": {
+   "easton": 4021,
+   "smith": 4937,
+   "duplicatesEaston": 25,
+   "duplicatesSmith": 183
   },
   "church-docs": 122,
   "curated": {

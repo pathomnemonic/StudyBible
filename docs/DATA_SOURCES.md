@@ -50,6 +50,22 @@ The English text (© Libreria Editrice Vaticana; USCCB for the United States) is
 
 The build writes `public/data/ccc/` (paragraphs in blocks of 100, plus an index of headings) and `public/data/ccc/scripture/<BOOK>.json`, the verse-to-paragraph index made from the Catechism's own Scripture footnotes (a footnote with no "Cf." is counted as a quotation of the verse). The study panel shows the paragraph text under each verse, and `/study/catechism` reads and searches the whole text. `data/curated/ccc-links.json` (hand-checked links) is still used for anything the footnotes miss.
 
+## Bible dictionaries and Nave's Topical Bible: imported (public domain, via CCEL)
+
+Three nineteenth-century reference works, fetched once each as ThML from CCEL (1.2 s apart, `scripts/ingest/dictionaries.ts fetch`; cached under `data/raw`, not committed) and built into `public/data/dictionary/` by `buildDictionaries`:
+
+| Work | CCEL id | Edition | Public-domain basis |
+| --- | --- | --- | --- |
+| Easton's Bible Dictionary, M. G. Easton | `easton/ebd2` (not `ebd`, which 404s) | 1897 (3rd ed., 3 years after Easton's death); CCEL text from the Online Bible, illustrations omitted | CCEL Rights: Public Domain |
+| Smith's Bible Dictionary, William Smith | `smith_w/bibledict` | 1884 (title page; the American edition revised by Hackett and Abbott) | CCEL Rights: Public Domain |
+| Nave's Topical Bible, Orville J. Nave | `nave/bible` | 1896 per CCEL (first printed edition commonly dated 1896/97) | Public domain by age (Nave died 1917). CCEL leaves the Rights field blank for this work, so the basis is date and author's death, not a CCEL statement |
+
+**These are Protestant works** of the nineteenth century (KJV text and numbering, Protestant canon and theology, often dated archaeology). The UI must label them as such wherever they appear, and should not present them as Catholic teaching; the Catholic sources (Catechism, Fathers, Haydock, Challoner) remain the authorities in the app.
+
+Output: `easton.json` and `smith.json` (`{ source, edition, license, entries: [{ term, aliases?, text: [paragraphs], refs? }] }`, text as published with markup stripped), `nave.json` (`{ topics: [{ topic, subtopics?: [{label, refs, level?}], refs, see? }] }`, topic names as published in capitals), `nave-by-book/<BOOK>.json` (rows `[c1, v1, c2, v2, topicIndex]` in anchor numbering; a whole-chapter reference has v1 1 and v2 999), `terms.json` (lowercase term or alias to entry index, or an array of indexes when several entries share a name) and `index.json` (counts, attribution).
+
+Scripture references are the ones CCEL tagged in the text (`scripRef`). Each is parsed with `parseRefs` on the printed passage, converted from KJV to the anchor (Clementine Vulgate) numbering with `convertRef`, and stored as an anchor id (`PSA.44.9`, `EXO.6.16-20`). Where `parseRefs` cannot read the printed abbreviation (Nave's "Joh", "Lu", "De", "Re", "So", lists such as "Ps. 22, 23, 28") or reads it differently from CCEL's own tag (Nave's "Jud" is Judges), CCEL's OSIS tag is used instead. References that are not tagged in the source are not extracted. References to books outside the app's canon (1-2 Esdras, 3 Maccabees, the Prayer of Azariah) and a handful of source typos are dropped and counted in the build report (`dictionary-*-refs.failed`); the individual cases are written to `data/raw/dictionaries-ref-failures.txt`.
+
 ## Official documents: linked
 
 Vatican.va URLs (all checked to resolve). Authority labels follow the document type (conciliar constitutions = doctrine; encyclicals/exhortations = authoritative teaching).

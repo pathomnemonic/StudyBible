@@ -46,6 +46,7 @@ export function cleanInline(s: string): string {
     .replace(/\\\+?(w|wh)\s+([^\\|]*?)(?:\|[^\\]*)?\\\+?\1\*/g, '$2')
     .replace(/\\\+(?:add|nd|wj|qt|sc|tl|it|bd|bdit|em|k|sig|pn|ord|dc|sls|bk|ndx|png|rq|qs)\*?\s?/g, '')
     .replace(/\\(?:add|nd|wj|qt|sc|tl|it|bd|bdit|em|k|sig|pn|ord|dc|sls|bk|ndx|png|rq|qs)\*?\s?/g, '')
+    .replace(/\\\+?x[a-z]{1,2}\*?\s?/g, '')
     .replace(/\\\+?[a-z]+\d?\*/g, '')
     .replace(/\s+/g, ' ');
 }

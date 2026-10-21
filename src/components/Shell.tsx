@@ -4,6 +4,7 @@ import Icon from './Icon';
 import { useSettings } from '../lib/store';
 import CommandPalette from './CommandPalette';
 import Modal from './Modal';
+import Tour from './Tour';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
 import type { Key } from '../i18n/en';
@@ -128,6 +129,7 @@ export default function Shell({ children }: { children: ReactNode }) {
           <dl className="keys-list">{[['Ctrl/⌘ K', 'Jump to a passage, search, go anywhere'], ['?', 'This help'], ['← / →', 'Previous / next (day, chapter)'], ['Home page: i', 'Where today’s texts come from'], ['In the Bible: S', 'Study panel'], ['In the Bible: N', 'Note on the selection'], ['Esc', 'Close a panel']].map(([k, d]) => <div key={k}><dt><kbd>{k}</kbd></dt><dd>{d}</dd></div>)}</dl>
         </Modal>
       )}
+      <Tour />
       {palette && <CommandPalette onClose={() => setPalette(false)} />}
     </div>
   );
