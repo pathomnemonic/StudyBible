@@ -1,54 +1,132 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Modal from './Modal';
-import Icon from './Icon';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { updateSettings } from '../lib/store';
 
-const KEY = 'sb:tour';
-const seen = () => { try { return localStorage.getItem(KEY) === '1'; } catch { return true; } };
-const mark = () => { try { localStorage.setItem(KEY, '1'); localStorage.setItem('sb:whatsNew', '2026-10b'); } catch { /* private mode */ } };
+const DONE = 'sb:tour';
+const STEP = 'sb:tourStep';
+const get = (k: string) => { try { return localStorage.getItem(k); } catch { return null; } };
+const put = (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private mode */ } };
 
-interface Step { icon: string; title: string; body: string[]; to?: string; go?: string }
+interface Step {
+  /** the short text shown to the user */
+  text: string;
+  /** where this step lives; the tour goes there when it starts the step */
+  route?: string;
+  /** the thing to point at */
+  find?: () => Element | null;
+  /** when set, the step waits for the user to click the highlighted thing (Next skips ahead) */
+  tap?: boolean;
+  /** what counts as the tap (defaults to the highlighted thing); lets any verse count for "tap a verse" */
+  hit?: (t: Element) => boolean;
+  /** close the study panel when leaving this step, so it does not cover the tab bar */
+  closePanel?: boolean;
+  /** only on narrow screens (phones open the study panel with a button) */
+  narrow?: boolean;
+  /** only on wide screens (the Search button lives in the side rail) */
+  wide?: boolean;
+  title?: string;
+}
+
+const q = (sel: string) => () => document.querySelector(sel);
+const firstVerse = () => [...document.querySelectorAll('.v')].find((e) => { const r = e.getBoundingClientRect(); return r.top > 120 && r.bottom < window.innerHeight - 160 && r.height < 90; }) ?? document.querySelector('.v');
+
 const STEPS: Step[] = [
-  { icon: 'sun', title: 'Welcome to Study Bible', body: ['A Catholic study Bible that works on your phone, tablet or computer, and mostly without an internet connection. Five tabs run along the bottom (or down the side on a computer): Profile, Study, Today, Bible and Listen.', 'This short tour shows what each one does. You can skip it now and take it again any time from Profile.'] },
-  { icon: 'sun', title: 'Today: your starting point', body: ['A verse for the day that matches the Church’s season, a line from a saint, and a question to take with you. Swipe or use the arrows to change the day.', 'Under it are three ways back in: continue the chapter you were reading, your place in the reading room, or your Bible in a Year episode. You can also open the Mass readings, hear chant for the season, make a picture of the verse, memorize it, or star the day.'], to: '/today', go: 'Open Today' },
-  { icon: 'read', title: 'The Bible', body: ['Pick any book and chapter from the title at the top. Tap a verse and the study panel opens with what the Church has said about it: the Church Fathers, Haydock and Challoner, the Catechism paragraphs that cite it, cross-references, the Greek and Hebrew words, pictures and more. Tap the small number beside a verse to open its notes.', 'Choose a translation from the toggle at the top. Jesus’s words are in red, key words glow or move gently (a few per chapter), and the text settings let you change size, theme, sound and more. Douay-Rheims, Septuagint and others are in the Translations list; the Church-approved modern Bibles open at the publisher’s own site.'], to: '/read', go: 'Open the Bible' },
-  { icon: 'listen', title: 'Listen: the Bible in a Year', body: ['Fr. Mike Schmitz’s daily episodes, matched to the chapters they read. Every chapter of the Bible is covered, and each chapter page in the Bible tab shows its episode at the top. Play, queue, and mark days done.'], to: '/listen', go: 'Open Listen' },
-  { icon: 'study', title: 'Study: everything educational', body: ['The Catechism of the Catholic Church in full with search; the reading room of the Fathers, saints and councils; study paths that walk through a theme step by step; maps and a timeline; the Scripture universe (a galaxy of all 73 books with the Fathers around them); a gallery of paintings and engravings; who quoted which verse; key words; doctrine topics and more.'], to: '/study', go: 'Open Study' },
-  { icon: 'user', title: 'Profile: what is yours', body: ['Your notes, highlights and bookmarks; reading plans; memorizing; prayer, a prayer journal and Lectio Divina; favourite days; your week at a glance; export and backup; settings; and an optional account to sync between devices. Everything stays on your device unless you sign in.'], to: '/profile', go: 'Open Profile' },
-  { icon: 'search', title: 'Search and shortcuts', body: ['The Search button (or Ctrl or ⌘ plus K) jumps to any passage, searches the Bible and the library, and opens any page in the app. Press ? on a computer for the keyboard shortcuts. On a phone, swipe left or right in a chapter to move between chapters.'] },
-  { icon: 'info', title: 'Honest about sources', body: ['Every text in the app says where it comes from. Public-domain texts are built in; modern copyrighted Bibles are linked, never copied; and where something is a translation made with AI help or a commentary from the 1800s, it is labelled. Settings has an offline section so you can download what you want to keep on your device.'], to: '/study/sources', go: 'See the sources' },
+  { title: 'Welcome', text: 'A quick tour, about a minute. You will tap through the app yourself.' },
+  { route: '/today', find: q('.home-verse'), text: 'This is Today: a verse for the day, a saint’s words, and a question.' },
+  { route: '/today', find: q('.resume-chips'), text: 'These take you back to where you left off.' },
+  { route: '/today', find: q('.tabs a[href^="#/read"]'), tap: true, text: 'Tap Bible to open it.' },
+  { route: '/read', find: q('.reader-bar'), text: 'Pick any book and chapter from the title up here.' },
+  { find: firstVerse, tap: true, hit: (t) => !!t.closest('.v'), text: 'Tap any verse.' },
+  { narrow: true, find: q('.actionbar .btn.primary'), tap: true, text: 'Tap Study this passage.' },
+  { closePanel: true, find: () => document.querySelector('aside.panel [role=tablist]') ?? document.querySelector('aside.panel'), text: 'Everything about that verse appears here: Church Fathers, notes, the Catechism and more.' },
+  { find: q('.tabs a[href="#/listen"]'), tap: true, text: 'Tap Listen.' },
+  { route: '/listen', find: q('.year-hero, .page h1'), text: 'The Bible in a Year, matched to every chapter.' },
+  { find: q('.tabs a[href="#/study"]'), tap: true, text: 'Tap Study.' },
+  { route: '/study', find: q('.page h1'), text: 'The Catechism, the Fathers, maps, a gallery and more.' },
+  { find: q('.tabs a[href="#/profile"]'), tap: true, text: 'Tap Profile.' },
+  { route: '/profile', find: q('.page h1'), text: 'Your notes, plans and settings live here.' },
+  { route: '/profile', find: q('.search-tab'), wide: true, text: 'Search jumps to any passage or page. Ctrl or ⌘ plus K does the same.' },
+  { route: '/today', title: 'You are set', text: 'That is the app. Take this tour again any time from Profile.' },
 ];
 
-/** The first-run walkthrough. Shown once; reachable again from Profile (or the event `studybible:tour`). */
+/** The first-run walkthrough: short steps that point at the real screen and ask you to tap through it. */
 export default function Tour() {
-  const [open, setOpen] = useState(() => !seen());
-  const [i, setI] = useState(0);
+  const [on, setOn] = useState(() => get(DONE) !== '1');
+  const [i, setI] = useState(() => Math.min(Math.max(+(get(STEP) ?? 0) || 0, 0), STEPS.length - 1));
+  const [rect, setRect] = useState<DOMRect | null>(null);
+  const nav = useNavigate();
+  const loc = useLocation();
+  const wide = typeof window !== 'undefined' && window.matchMedia('(min-width: 900px)').matches;
+  const steps = STEPS.filter((s) => (!s.wide || wide) && (!s.narrow || !wide));
+  const step = steps[Math.min(i, steps.length - 1)];
+  const last = i >= steps.length - 1;
+  const done = useCallback(() => { put(DONE, '1'); put(STEP, '0'); put('sb:whatsNew', '2026-10b'); setOn(false); }, []);
+  const go = useCallback((n: number) => { if (steps[i]?.closePanel) document.body.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); const k = Math.max(0, n); if (k >= steps.length) return done(); setI(k); put(STEP, String(k)); }, [steps, i, done]);
+
+  // the tour is the introduction: hold back the one-time sound tip so it does not cover the screen
+  useEffect(() => { if (on) updateSettings({ ambienceTipSeen: true }); }, [on]);
   useEffect(() => {
-    const h = () => { setI(0); setOpen(true); };
+    const h = () => { setI(0); put(STEP, '0'); put(DONE, '0'); setOn(true); nav('/today'); };
     window.addEventListener('studybible:tour', h);
     return () => window.removeEventListener('studybible:tour', h);
-  }, []);
-  if (!open) return null;
-  const s = STEPS[i];
-  const last = i === STEPS.length - 1;
-  const close = () => { mark(); setOpen(false); };
+  }, [nav]);
+
+  // each step: go to its page if it names one and we are not on it
+  useEffect(() => {
+    if (!on || !step.route) return;
+    const here = loc.pathname === '/' ? '/today' : loc.pathname;
+    if (!here.startsWith(step.route)) nav(step.route === '/read' ? '/read' : step.route);
+  }, [on, i]);
+
+  // keep the highlight on the element, which may appear a moment after the page does
+  useEffect(() => {
+    if (!on) return;
+    let live = true;
+    const tick = () => {
+      if (!live) return;
+      const el = step.find?.() ?? null;
+      const r = el ? el.getBoundingClientRect() : null;
+      setRect((old) => (r && r.width > 0 ? (old && Math.abs(old.top - r.top) < 1 && Math.abs(old.left - r.left) < 1 && Math.abs(old.width - r.width) < 1 && Math.abs(old.height - r.height) < 1 ? old : r) : null));
+    };
+    tick();
+    const id = window.setInterval(tick, 250);
+    return () => { live = false; window.clearInterval(id); };
+  }, [on, i, loc.pathname]);
+
+  // a step that asks for a tap moves on when the highlighted thing is tapped
+  const ref = useRef({ step, go, i });
+  ref.current = { step, go, i };
+  useEffect(() => {
+    if (!on) return;
+    const h = (e: Event) => {
+      const { step: s, go: g, i: n } = ref.current;
+      if (!s.tap || !(e.target instanceof Element)) return;
+      const el = s.find?.() ?? null;
+      if ((s.hit && s.hit(e.target)) || (el && el.contains(e.target))) window.setTimeout(() => g(n + 1), 450);
+    };
+    document.addEventListener('click', h, true);
+    return () => document.removeEventListener('click', h, true);
+  }, [on]);
+
+  if (!on) return null;
+  const high = rect && rect.top > window.innerHeight / 2;
+  const pad = 6;
   return (
-    <Modal title={s.title} onClose={close}>
-      <div className="tour">
-        <div className="tour-ico" aria-hidden="true"><Icon name={s.icon} size={30} /></div>
-        {s.body.map((p, k) => <p key={k}>{p}</p>)}
-        <div className="tour-dots" role="group" aria-label={`Step ${i + 1} of ${STEPS.length}`}>
-          {STEPS.map((_, k) => <span key={k} className={k === i ? 'on' : ''} />)}
-        </div>
-        <div className="row between tour-actions">
-          <button className="btn ghost" onClick={close}>{last ? 'Close' : 'Skip the tour'}</button>
-          <span className="row" style={{ gap: 8 }}>
-            {i > 0 && <button className="btn" onClick={() => setI(i - 1)}>Back</button>}
-            {s.to && <Link className="btn" to={s.to} onClick={close}>{s.go}</Link>}
-            {last ? <button className="btn primary" onClick={close}>Get started</button> : <button className="btn primary" onClick={() => setI(i + 1)}>Next</button>}
+    <div className="tour-layer" role="dialog" aria-label="App tour" aria-live="polite">
+      {rect && <div className="tour-ring" style={{ top: rect.top - pad, left: rect.left - pad, width: rect.width + pad * 2, height: rect.height + pad * 2 }} />}
+      {!rect && <div className="tour-dim" />}
+      <div className={`tour-card ${high ? 'top' : 'bottom'}${rect ? '' : ' mid'}`}>
+        {step.title && <strong className="tour-title">{step.title}</strong>}
+        <p>{step.text}</p>
+        <div className="tour-bar">
+          <span className="tour-count" aria-label={`Step ${i + 1} of ${steps.length}`}>{i + 1} / {steps.length}</span>
+          <span className="tour-btns">
+            <button className="btn ghost small" onClick={done}>{last ? 'Close' : 'End tour'}</button>
+            {i > 0 && !last && <button className="btn small" onClick={() => go(i - 1)}>Back</button>}
+            {last ? <button className="btn primary small" onClick={done}>Done</button> : <button className={`btn small${step.tap ? '' : ' primary'}`} onClick={() => go(i + 1)}>{step.tap ? 'Skip step' : 'Next'}</button>}
           </span>
         </div>
       </div>
-    </Modal>
+    </div>
   );
 }
