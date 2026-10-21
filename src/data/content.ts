@@ -179,3 +179,16 @@ export const getTopics = () => getJson<Record<string, [string, number][]>>('topi
 /** [c1, v1, c2, v2, topicIndex, score] */
 export const getTopicsByBook = (book: string) => getJson<[number, number, number, number, number, number][]>(`topics/by-book/${book}.json`, true);
 export const getAttributions = () => Promise.all([getJson<{ attribution: string }>('maps/_meta.json', true), getJson<{ attribution: string }>('topics/_meta.json', true)]);
+
+/** Easton's and Smith's Bible dictionaries and Nave's Topical Bible, cut into chunks of 200 entries (see scripts/ingest/dictindex.ts) */
+export type DictRow = [number, number, number, number, number, number]; // c1, v1, c2, v2, 0 Easton | 1 Smith, entry
+export const getDictByBook = (book: string) => getJson<DictRow[]>(`dictionary/by-book/${book}.json`, true).catch(() => null);
+export const getDictChunk = (id: 'easton' | 'smith', n: number) => getJson<{ term: string; text: string[] }[]>(`dictionary/${id}-${n}.json`, true).catch(() => null);
+export const getNaveByBook = (book: string) => getJson<[number, number, number, number, number][]>(`dictionary/nave-by-book/${book}.json`, true).catch(() => null);
+export const getNaveChunk = (n: number) => getJson<{ topic: string; see?: string[]; subtopics: string[] }[]>(`dictionary/nave-${n}.json`, true).catch(() => null);
+
+/** People named in a passage: STEPBible's name list (CC BY) and Theographic (CC BY-SA); see docs/DATA_SOURCES.md */
+export const getStepNamesByBook = (book: string) => getJson<[number, number, number, number, number][]>(`reference/step/names-by-book/${book}.json`, true).catch(() => null);
+export const getStepNamesChunk = (n: number) => getJson<{ name: string; kind: string; type?: string; meaning?: string; notes: string[] }[]>(`reference/step/names-${n}.json`, true).catch(() => null);
+export const getPeopleByBook = (book: string) => getJson<[number, number, number, number, number][]>(`reference/theographic/people-by-book/${book}.json`, true).catch(() => null);
+export const getPeopleChunk = (n: number) => getJson<{ name: string; aliases?: string[]; gender?: string; father?: string; mother?: string; siblings?: string[]; partners?: string[]; children?: string[]; first?: string }[]>(`reference/theographic/people-${n}.json`, true).catch(() => null);

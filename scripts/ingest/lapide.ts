@@ -1,4 +1,3 @@
-// @ts-nocheck (work in progress)
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PUBLIC_DATA, RAW, Report, sha256, writeJson } from './lib/util';
@@ -37,14 +36,14 @@ export const VOLUMES: VolSpec[] = [
   {
     id: 'TheGreatCommentaryOfCorneliusALapideV6', vol: 6, title: "S. John's Gospel, chaps. XII-XXI; Epistles I, II and III of S. John", translator: J, edition: 'Fourth edition', year: 1908,
     books: [
-      { book: 'JHN', name: 'John', chapters: 10, kind: 'chapters', endBefore: /^(THE )?FIRST EPISTLE (GENERAL )?OF S\. ?JOHN\.?$|^COMMENTARY UPON THE (FIRST )?EPISTLE/i },
+      { book: 'JHN', name: 'John', chapters: 10, kind: 'chapters', endBefore: /^THE EPISTLES GENERAL OF\b/i },
       { book: '1JN', name: '1 John', chapters: 5, kind: 'chapters', endBefore: /^EPISTLE OF S\. ?JOHN\.?$|^PREFACE TO JOHN/i },
       { book: '2JN', name: '2 John', chapters: 1, kind: 'single', single: /^THE SECOND EPISTLE OF/i, colonLemma: true, endBefore: /^THE THIRD EPISTLE OF/i },
       { book: '3JN', name: '3 John', chapters: 1, kind: 'single', single: /^THE THIRD EPISTLE OF/i, colonLemma: true, endBefore: /^THE END\.?$/i },
     ],
   },
-  { id: 'TheGreatCommentaryOfCorneliusALapideV7', vol: 7, title: 'I Corinthians', translator: C, edition: 'first edition of the volume (undated edition statement)', year: 1908, books: [{ book: '1CO', name: '1 Corinthians', chapters: 16, kind: 'chapters' }] },
-  { id: 'TheGreatCommentaryOfCorneliusALapideV8', vol: 8, title: 'II Corinthians and Galatians', translator: C, edition: 'first edition of the volume (undated edition statement)', year: 1908, books: [{ book: '2CO', name: '2 Corinthians', chapters: 13, kind: 'chapters', endBefore: /^THE EPISTLE (OF S\. PAUL )?TO THE GALATIANS\.?$/i }, { book: 'GAL', name: 'Galatians', chapters: 6, kind: 'chapters' }] },
+  { id: 'TheGreatCommentaryOfCorneliusALapideV7', vol: 7, title: 'I Corinthians', translator: C, edition: 'edition not stated on the title page', year: 1908, books: [{ book: '1CO', name: '1 Corinthians', chapters: 16, kind: 'chapters' }] },
+  { id: 'TheGreatCommentaryOfCorneliusALapideV8', vol: 8, title: 'II Corinthians and Galatians', translator: C, edition: 'edition not stated on the title page', year: 1908, books: [{ book: '2CO', name: '2 Corinthians', chapters: 13, kind: 'chapters', endBefore: /^THE EPISTLE TO THE$/i }, { book: 'GAL', name: 'Galatians', chapters: 6, kind: 'chapters' }] },
 ];
 
 export async function fetchLapide() {
@@ -68,9 +67,9 @@ export async function fetchLapide() {
 const ROMAN: Record<string, number> = { I: 1, V: 5, X: 10, L: 50 };
 /** `CHAPTER XIL`, `CHAPTER L` ... OCR reads the final I of a numeral as L or l or 1, and the second I of II as T. */
 function parseChapterHeading(s: string): number | null {
-  const m = /^CHAPTER\s+([IVXLlT1]{1,7})\s*[.,*:;]?\s*$/.exec(s.trim());
+  const m = /^CHAPTER\s+([IVXLlTt1i]{1,7})\s*[.,*:;]?\s*$/.exec(s.trim());
   if (!m) return null;
-  const r = m[1].replace(/[lT1]/g, 'I').replace(/L$/, 'I');
+  const r = m[1].replace(/[lTt1i]/g, 'I').replace(/L$/, 'I');
   if (/L/.test(r)) return null;
   let n = 0;
   for (let i = 0; i < r.length; i++) {
@@ -95,6 +94,8 @@ function cleanLines(raw: string[]): string[] {
   let header = 0; // non-blank header lines still to swallow after a page break
   for (let s of raw) {
     s = s.replace(/\s+/g, ' ').trim();
+    // the scan stamp sometimes lands in the middle of a line
+    if (!isDigitized(s)) s = s.replace(/['‘]?\s*Digitized by(?: (?:Google|[A-Za-z^.,]*[oO0]{2}[A-Za-z]*))?/g, ' ').replace(/(^|\s)by Google\b/g, ' ').replace(/\s+/g, ' ').trim();
     if (isDigitized(s)) { header = 6; continue; }
     if (!s) { out.push(''); continue; }
     if (header > 0) {
@@ -206,38 +207,60 @@ function lev1(a: string, b: string): boolean {
   return a.length > b.length ? a.slice(i + 1) === b.slice(i) : b.slice(i + 1) === a.slice(i);
 }
 
-interface ChapterText { verses: Map<number, string[]>; scriptureEnd: number; maxVerse: number }
+interface ChapterText { verses: Map<number, string[]>; end: number; maxVerse: number }
 
-/** Reads the chapter's printed text: verse 1 is the unnumbered paragraph before `2 ...`. Returns where the commentary begins (paragraph index). */
-function readScripture(paras: string[], maxVerse: number): ChapterText {
-  const verses = new Map<number, string[]>();
-  const numAt = (p: string) => {
-    const m = new RegExp(`^(${NUM})\\s+\\S`).exec(p);
-    if (!m) return null;
-    const n = +fixDigits(m[1]).replace(/ /g, '');
-    return Number.isFinite(n) ? n : null;
-  };
-  let expected = 2;
-  let end = -1;
-  let first2 = -1;
-  for (let i = 0; i < Math.min(paras.length, 250); i++) {
-    const n = numAt(paras[i]);
-    if (n === expected || (n !== null && n > expected && n <= expected + 2 && n <= maxVerse)) {
-      if (first2 < 0 && n === 2) first2 = i;
-      if (first2 >= 0 || n === expected) { verses.set(n, toks(paras[i].replace(new RegExp(`^${NUM}\\s+`), ''))); end = i; expected = n + 1; }
-    } else if (first2 >= 0 && /^\D/.test(paras[i]) && n === null) {
-      // a verse that continues over a page break, or the unnumbered tail: stays scripture only if no commentary has begun
-      if (i === end + 1 && expected <= maxVerse && !MARK.test(paras[i])) { const v = expected - 1; verses.set(v, [...(verses.get(v) ?? []), ...toks(paras[i])]); end = i; }
-      else if (expected > maxVerse || i > end + 1) break;
-    } else if (first2 >= 0 && i > end + 1) break;
-    if (expected > maxVerse + 1) break;
+const VERSE_LINE = new RegExp(`^(${NUM})\\s+[A-Za-z“‘'"(]`);
+const verseNo = (l: string) => {
+  const m = VERSE_LINE.exec(l);
+  if (!m) return null;
+  const n = +fixDigits(m[1]).replace(/ /g, '');
+  return Number.isFinite(n) ? n : null;
+};
+
+/**
+ * Reads the chapter's printed text from the cleaned lines: verse 1 is the unnumbered block before the line that opens `2 ...`.
+ * `end` is the index of the first line after the printed text (where the commentary begins).
+ */
+function readScripture(lines: string[], maxVerse: number): ChapterText {
+  const none: ChapterText = { verses: new Map(), end: 0, maxVerse };
+  if (maxVerse < 2) return none;
+  const limit = Math.min(lines.length, 700);
+  for (let i2 = 0; i2 < limit; i2++) {
+    const first = verseNo(lines[i2]);
+    // verse 2 normally; OCR sometimes loses the number of verse 2 (or 3), so the first numbered line may be 3 or 4
+    if (first === null || first < 2 || first > 4 || MARK.test(lines[i2])) continue;
+    const verses = new Map<number, string[]>();
+    let s1 = i2 - 1;
+    while (s1 > 0 && lines[s1 - 1] !== '') s1--;
+    verses.set(1, toks(lines.slice(s1, i2).join(' ').replace(/^([A-Z]) ([A-Z]{1,8})\b/, '$1$2')));
+    let expected = first;
+    let curV = first;
+    let acc: string[] = [];
+    const flush = () => { if (acc.length) verses.set(curV, toks(acc.join(' ').replace(new RegExp(`^${NUM}\\s+`), ''))); acc = []; };
+    let i = i2;
+    let ok = true;
+    for (; i < lines.length; i++) {
+      const l = lines[i];
+      const n = verseNo(l);
+      if (n !== null && (n === expected || (n > expected && n <= expected + 2)) && n <= maxVerse) { flush(); curV = n; expected = n + 1; acc.push(l); continue; }
+      if (MARK.test(l) || /^SYNOPSIS\b|^CONTENTS\b/.test(l)) break;
+      // near the end of the chapter's text: the first paragraph break after a finished sentence ends it (a blank in mid-sentence is a page break)
+      if (expected >= maxVerse && l === '' && acc.length && /[.!?:;”"')\]]$/.test(acc[acc.length - 1])) {
+        let j = i + 1;
+        while (j < lines.length && lines[j] === '') j++;
+        if (j >= lines.length || verseNo(lines[j]) === null) break;
+      }
+      if (l !== '') acc.push(l);
+      if (i - i2 > 300 + maxVerse * 12) { ok = false; break; }
+    }
+    flush();
+    if (!ok || expected - first < Math.min(maxVerse - first, 2)) continue;
+    return { verses, end: i, maxVerse };
   }
-  if (first2 > 0) verses.set(1, toks(paras[first2 - 1]));
-  else if (end < 0) return { verses, scriptureEnd: -1, maxVerse };
-  // scripture may run on after the last numbered verse (page-break continuation lines starting with digits)
-  while (end + 1 < paras.length && numAt(paras[end + 1]) !== null && !MARK.test(paras[end + 1]) && expected <= maxVerse) { end++; expected++; }
-  return { verses, scriptureEnd: end, maxVerse };
+  return none;
 }
+
+const STOP = new Set('the and but that with him his her they them then when for not are was were you thou thee unto said have has had shall will who whom which this these those from into there their what also yet nor'.split(' '));
 
 /** Which verse does a paragraph begin with the words of? Tolerant of OCR slips; only looks forward from `cur`. */
 function lemmaVerse(p: string, ch: ChapterText, cur: number, colon: boolean): number | null {
@@ -247,11 +270,12 @@ function lemmaVerse(p: string, ch: ChapterText, cur: number, colon: boolean): nu
     if (!m) return null;
     head = m[1];
   }
+  const andc = !colon ? /^(.{6,110}?)\s*(?:&|£)\s?c\s?[.,*]/.exec(p) : null;
   const t = toks(head.slice(0, 160)).slice(0, 6);
   const need = colon ? Math.min(t.length, 2) : 4;
   if (t.length < need || !t.length) return null;
   let best: { v: number; score: number } | null = null;
-  const hi = Math.min(ch.maxVerse, cur + 12);
+  const hi = Math.min(ch.maxVerse, cur + 14);
   for (let v = Math.max(cur, 1); v <= hi; v++) {
     const vt = ch.verses.get(v);
     if (!vt) continue;
@@ -262,6 +286,20 @@ function lemmaVerse(p: string, ch: ChapterText, cur: number, colon: boolean): nu
       for (let i = 0; i < t.length && s + i < stream.length; i++) if (lev1(t[i], stream[s + i])) score++; else if (i < 2) break;
       if (!best || score > best.score) best = { v, score };
     }
+  }
+  if ((!best || best.score < Math.max(Math.min(t.length, 5) - 1, 4)) && andc) {
+    // an abbreviated lemma (`And when they were come nigh, &c.`): the AV wording can differ from the Vulgate wording quoted, so compare content words
+    const words = toks(andc[1]).filter((w) => w.length >= 3 && !STOP.has(w));
+    let bv: { v: number; sc: number } | null = null;
+    if (words.length >= 1 && words.length <= 8) {
+      for (let v = Math.max(cur, 1); v <= hi; v++) {
+        const vt = ch.verses.get(v);
+        if (!vt) continue;
+        const sc = words.filter((w) => vt.some((x) => lev1(w, x))).length;
+        if (sc >= 1 && sc / words.length >= 0.6 && (words.length > 1 || words[0].length >= 5) && (!bv || sc > bv.sc)) bv = { v, sc };
+      }
+    }
+    if (bv) return bv.v;
   }
   if (!best) return null;
   const goal = colon ? need : Math.min(t.length, 5) - 1;
@@ -285,17 +323,18 @@ function verseCounts(book: string): number[] {
 interface ChapterResult { c: number; rows: Row[]; markers: number; lemmas: number; maxVerse: number; covered: number; mode: 'verse' | 'chapter'; note?: string }
 
 function parseChapter(c: number, body: string[], maxVerse: number, corpus: Corpus, colon: boolean, report: Report, tag: string): ChapterResult {
-  const paras = toParagraphs(cleanLines(body), corpus);
-  const scr = readScripture(paras, maxVerse);
+  const lines = cleanLines(body);
+  const scr = readScripture(lines, maxVerse);
+  const paras = toParagraphs(lines.slice(scr.end), corpus);
   const blocks: Block[] = [];
-  const start = scr.scriptureEnd + 1;
+  const start = 0;
+  if (process.env.LAPIDE_DEBUG === `${tag}:${c}`) console.log('DEBUG', scr.end, [...scr.verses.keys()].join(','), JSON.stringify(paras.slice(0, 4)), '\nAFTER', JSON.stringify(paras.slice(start, start + 3)));
   let cur = 1;
-  let blk: Block | null = null;
-  const push = (v1: number, v2: number, via: Block['via'], text: string) => { blk = { v1, v2, paras: text ? [text] : [], via }; blocks.push(blk); };
+  const push = (v1: number, v2: number, via: Block['via'], text: string) => { blocks.push({ v1, v2, paras: text ? [text] : [], via }); };
+  const last = (): Block => blocks[blocks.length - 1];
   push(1, 1, 'intro', '');
-  const intro = blocks[0];
   // does the chapter use `Ver. N` blocks (then trust them alone) or opening-word paragraphs?
-  const explicit = paras.slice(start).filter((p) => !!readMarker(p, 1, maxVerse)).length;
+  const explicit = paras.filter((p) => !!readMarker(p, 1, maxVerse)).length;
   const useLemma = explicit < Math.max(3, 0.4 * maxVerse);
   let markers = 0, lemmas = 0;
   let sawFirst = false;
@@ -304,15 +343,16 @@ function parseChapter(c: number, body: string[], maxVerse: number, corpus: Corpu
     const mk = readMarker(p, sawFirst ? cur : 1, maxVerse);
     if (mk) {
       markers++;
-      if ((blk as any) && (blk as any).via !== "intro" && (blk as any).v1 === mk.v1 && (blk as any).v2 === mk.v2) { if (mk.rest) (blk as any).paras.push(mk.rest); }
+      const b0 = last();
+      if (b0.via !== 'intro' && b0.v1 === mk.v1 && b0.v2 === mk.v2) { if (mk.rest) b0.paras.push(mk.rest); }
       else push(mk.v1, mk.v2, 'marker', mk.rest);
       cur = mk.v2;
       sawFirst = true;
       continue;
     }
-    if (useLemma && (!blk || true)) {
+    if (useLemma) {
       const v = lemmaVerse(p, scr, sawFirst ? cur : 1, colon);
-      if (v !== null && (!sawFirst || v > cur || (v === cur && blk?.via === 'intro'))) {
+      if (v !== null && (!sawFirst || v > cur || (v === cur && last().via === 'intro'))) {
         lemmas++;
         push(v, v, 'lemma', p);
         cur = v;
@@ -320,7 +360,7 @@ function parseChapter(c: number, body: string[], maxVerse: number, corpus: Corpu
         continue;
       }
     }
-    (blk as Block).paras.push(p);
+    last().paras.push(p);
   }
   const rows: Row[] = [];
   const covered = new Set<number>();
@@ -339,21 +379,22 @@ function parseChapter(c: number, body: string[], maxVerse: number, corpus: Corpu
     rows.push([c, b.v1, c, b.v2, text]);
     if (b.via !== 'intro') for (let v = b.v1; v <= b.v2; v++) covered.add(v);
   }
-  void intro;
   return { c, rows, markers, lemmas, maxVerse, covered: covered.size, mode: 'verse' };
 }
 
-function findHeadings(lines: string[], from: number, to: number, chapters: number): number[] {
+function findHeadings(lines: string[], from: number, to: number, chapters: number, first = 1): number[] {
   const idx: number[] = [];
-  let want = 1;
+  let want = first;
   let pos = from;
-  for (let i = from; i < to && want <= chapters; i++) {
+  for (let i = from; i < to && want < first + chapters; i++) {
     const n = parseChapterHeading(lines[i].replace(/\s+/g, ' ').trim());
     if (n === want) { idx.push(i); want++; pos = i; }
   }
   void pos;
   return idx;
 }
+
+const startChapterOf = (v: VolSpec, b: BookSpec) => (b.book === 'MAT' && v.vol === 2 ? 10 : b.book === 'MAT' && v.vol === 3 ? 22 : b.book === 'JHN' && v.vol === 6 ? 12 : 1);
 
 export function buildLapide(report: Report) {
   if (!existsSync(join(DIR, `${VOLUMES[0].id}.txt`))) { report.warn('lapide: raw text missing (run: npx tsx scripts/ingest/lapide.ts fetch); Lapide is skipped'); return; }
@@ -367,7 +408,7 @@ export function buildLapide(report: Report) {
     const meta = existsSync(join(DIR, `${v.id}.meta.json`)) ? JSON.parse(readFileSync(join(DIR, `${v.id}.meta.json`), 'utf8')) : null;
     const rights = meta?.metadata?.licenseurl ?? '';
     // Rights gate: the title page of every volume must show an Edinburgh/John Grant 1908 imprint (pre-1929) and the scan must carry a public-domain mark.
-    const front = raw.slice(0, 12000);
+    const front = raw.slice(0, 12000).replace(/\s+/g, ' ');
     if (!/\b1908\b/.test(front) || !/JOHN GRANT/i.test(front)) { report.warn(`lapide: ${v.id}: imprint year/publisher not confirmed on the title page; skipped`); continue; }
     if (!/publicdomain/i.test(rights)) { report.warn(`lapide: ${v.id}: no public-domain mark in the Internet Archive record; skipped`); continue; }
     volumes.push({ vol: v.vol, archiveId: v.id, url: `https://archive.org/details/${v.id}`, title: v.title, translator: v.translator, edition: v.edition, imprint: `Edinburgh: John Grant, ${v.year}`, rights: 'pre-1929 print; Internet Archive Public Domain Mark', sha256: sha256(raw).slice(0, 16) });
@@ -377,7 +418,7 @@ export function buildLapide(report: Report) {
     let from = 0;
     // trailing library stamps at the end of the scan
     let volEnd = lines.length;
-    for (let i = lines.length - 1; i > lines.length * 0.5; i--) if (/^(END OF VOL|end or VOL|Printed by|ALDERMAN LIBRARY|THE END\.?\s*$)/i.test(lines[i].replace(/\s+/g, ' ').trim())) volEnd = i;
+    for (let i = lines.length - 1; i > lines.length * 0.97; i--) if (/^(END OF VOL|end or VOL|Printed by|ALDERMAN LIBRARY|THE END\.?\s*$)/i.test(lines[i].replace(/\s+/g, ' ').trim())) volEnd = i;
     for (const b of v.books) {
       const counts = verseCounts(b.book);
       const norm1 = (i: number) => lines[i].replace(/\s+/g, ' ').trim();
@@ -391,7 +432,7 @@ export function buildLapide(report: Report) {
         end = volEnd;
         if (b.endBefore) for (let i = s + 1; i < volEnd; i++) if (b.endBefore.test(norm1(i))) { end = i; break; }
       } else {
-        heads = findHeadings(lines, from, volEnd, b.chapters);
+        heads = findHeadings(lines, from, volEnd, b.chapters, startChapterOf(v, b));
         if (heads.length !== b.chapters) { report.warn(`lapide: ${v.id}: ${b.book}: found ${heads.length}/${b.chapters} chapter headings`); }
         end = volEnd;
         const lastHead = heads[heads.length - 1];
@@ -400,7 +441,7 @@ export function buildLapide(report: Report) {
       // chapter numbering inside this volume starts at the first chapter present
       const firstCh = b.kind === 'single' ? 1 : v.books.slice(0, v.books.indexOf(b)).filter((x) => x.book === b.book).length ? 0 : 0;
       void firstCh;
-      const startChapter = b.book === 'MAT' && v.vol === 2 ? 10 : b.book === 'MAT' && v.vol === 3 ? 22 : b.book === 'JHN' && v.vol === 6 ? 12 : 1;
+      const startChapter = startChapterOf(v, b);
       const results: ChapterResult[] = [];
       for (let k = 0; k < heads.length; k++) {
         const c = startChapter + k;

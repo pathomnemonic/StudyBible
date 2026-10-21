@@ -271,9 +271,12 @@ export function buildStepNames(report: Report) {
     for (const sub of rec.subs) {
       if (/^–\s*Total/.test(sub[0])) continue;
       const refCol = sub.slice(4).find((c) => c.trim() && !/^https?:/.test(c.trim()));
-      for (const tok of (refCol ?? '').split(';').map((t) => t.trim()).filter(Boolean)) {
+      let prev = ''; // a bare "16" after "Num.13.8," means verse 16 of the same chapter
+      for (let tok of (refCol ?? '').split(/[;,]/).map((t) => t.trim()).filter(Boolean)) {
         refsRead++;
+        if (/^\d+$/.test(tok) && prev) tok = `${prev}.${tok}`;
         const rm = REF_RE.exec(tok);
+        if (rm) prev = `${rm[2]}.${rm[3]}`;
         if (!rm) { bad.set(tok, (bad.get(tok) ?? 0) + 1); continue; }
         if (rm[1]) { lxxRefs++; continue; } // LXX-only occurrences use the Greek OT's own numbering; not mapped
         const book = stepBook(rm[2]);

@@ -503,7 +503,7 @@
   "[brenton] 99-XXAeng-Brenton.usfm: unhandled marker \\tr",
   "[brenton] 99-XXAeng-Brenton.usfm: unhandled marker \\tc1"
  ],
- "warningCount": 600,
+ "warningCount": 729,
  "stats": {
   "versification.unverifiedChapters": {
    "PSA": 18,
@@ -949,6 +949,103 @@
    "headings": 1338,
    "scriptureCitations": 3896
   },
+  "cathen": {
+   "articles": 212,
+   "skipped": 128,
+   "byKind": {
+    "topic": 87,
+    "person": 53,
+    "book": 39,
+    "place": 33
+   },
+   "names": 410,
+   "withCites": 192,
+   "cites": 6960,
+   "words": 693209,
+   "missingBookArticles": [
+    "GEN",
+    "NUM",
+    "LAM",
+    "EZK",
+    "MIC"
+   ]
+  },
+  "names.step": {
+   "records": 4249,
+   "excludedSections": 11,
+   "entries": 4238,
+   "kinds": {
+    "person": 3054,
+    "other": 177,
+    "place": 1007
+   },
+   "refTokensRead": 34991,
+   "lxxOnlyRefsNotMapped": 24,
+   "anchorVerses": 31795,
+   "byBookRows": 25470,
+   "withCoordinates": 971,
+   "withMeaning": 4238,
+   "withNotes": 4238,
+   "versification": {
+    "converted": 34963,
+    "exact": 32757,
+    "approximate": 2206,
+    "runs": 23,
+    "approximateByBook": {
+     "NEH": 316,
+     "1CH": 212,
+     "NUM": 211,
+     "1SA": 208,
+     "JOS": 207,
+     "ACT": 168,
+     "PSA": 133,
+     "1KI": 115,
+     "JDG": 95,
+     "GEN": 94,
+     "ROM": 64,
+     "JER": 57
+    }
+   }
+  },
+  "names.lexicon-greek": {
+   "entries": 11035,
+   "keyedByDisambiguatedStrong": 188
+  },
+  "names.theographic": {
+   "people": 3067,
+   "peopleDropped": 0,
+   "places": 1288,
+   "placesWithCoordinates": 1262,
+   "events": 450,
+   "rowsByBook": {
+    "people": 20305,
+    "places": 6513,
+    "events": 1073
+   },
+   "versification": {
+    "converted": 24553,
+    "exact": 23205,
+    "approximate": 1348,
+    "runs": 0,
+    "approximateByBook": {
+     "ACT": 129,
+     "MRK": 129,
+     "PSA": 118,
+     "NUM": 109,
+     "1SA": 93,
+     "JOS": 82,
+     "NEH": 76,
+     "JHN": 71,
+     "1CH": 53,
+     "JDG": 52,
+     "GEN": 48,
+     "1KI": 48
+    }
+   }
+  },
+  "names-index": {
+   "entries": 7305
+  },
   "dictionary-easton": {
    "entries": 3964,
    "withRefs": 3867,
@@ -993,6 +1090,10 @@
    "smith": 4937,
    "duplicatesEaston": 25,
    "duplicatesSmith": 183
+  },
+  "dictindex": {
+   "entries": 8525,
+   "books": 73
   },
   "church-docs": 122,
   "curated": {

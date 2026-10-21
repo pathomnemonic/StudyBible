@@ -4,7 +4,7 @@ import type { AuthorityLevel, ItemFormat, Period } from '../lib/types';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
 import { getBook } from '../lib/canon';
 import {
-  CCC_OFFICIAL, cccUrl, getBiay, getCatena, getCccLinks, getDoctrine, getGlossa, getGlossaEn, getHaydock, getChalloner, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex, getPlaces, getPlacesByBook, getTopicIndex, getTopicsByBook,
+  CCC_OFFICIAL, cccUrl, getBiay, getPeopleByBook, getPeopleChunk, getStepNamesByBook, getStepNamesChunk, getDictByBook, getDictChunk, getNaveByBook, getNaveChunk, getCatena, getCccLinks, getDoctrine, getGlossa, getGlossaEn, getHaydock, getChalloner, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex, getPlaces, getPlacesByBook, getTopicIndex, getTopicsByBook,
 } from '../data/content';
 import { getXrefs } from '../data/loader';
 import type { ResourceSource } from '../data/content';
@@ -21,6 +21,7 @@ export type SectionKey =
   | 'fathers' | 'saints'
   | 'xref'
   | 'catholic-answers' | 'creators' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
+  | 'dictionary' | 'people'
   | 'context' | 'language' | 'places' | 'topics' | 'parallels' | 'art' | 'background' | 'typology'
   | 'quotes' | 'customs' | 'structure' | 'wordnotes' | 'versions' | 'witnesses' | 'echoes' | 'genre' | 'dependency' | 'reception' // lenses
   | 'mine';
@@ -46,6 +47,8 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'background', label: 'Jewish and historical background', hint: 'Scholars of the Temple, the synagogue and the Gospels’ world (public-domain, 19th century). They help with background, not doctrine.' },
   { key: 'art', label: 'Sacred art', hint: 'Public-domain paintings of scenes from the passage (The Metropolitan Museum of Art, open access).' },
   { key: 'parallels', label: 'Parallels and indexes', hint: 'Gospel parallels, parables, miracles, prophecy and fulfilment, covenants (an editorial index written for this app).' },
+  { key: 'dictionary', label: 'Bible dictionaries', hint: 'Easton’s (1897) and Smith’s (1884) Bible dictionaries: entries on the people, places and things named in this passage. Nineteenth-century Protestant works, public domain; useful for background, not for Catholic doctrine.' },
+  { key: 'people', label: 'People named here', hint: 'Who is named in these verses, with family relations (Theographic, CC BY-SA) and a short description (STEPBible, CC BY; the descriptions were written with AI help and should be checked). Names only: it does not show where a person is first mentioned or dates.' },
   { key: 'places', label: 'Places', hint: 'Locations named in this passage (OpenBible.info geocoding, CC BY). Open the map.' },
   { key: 'topics', label: 'Topical index', hint: 'Topics people have tied to this passage (OpenBible.info, CC BY; community-voted, not Church-reviewed).' },
   { key: 'context', label: 'Context & translation notes' },
@@ -68,7 +71,7 @@ export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'teaching', label: 'Teaching', sections: ['catechism', 'magisterium', 'doctrine', 'liturgy', 'echoes', 'reception'] },
   { id: 'connections', label: 'Connections', sections: ['typology', 'quotes', 'xref', 'parallels', 'dependency', 'topics'] },
   { id: 'words', label: 'Words', sections: ['wordnotes', 'versions'] },
-  { id: 'world', label: 'World', sections: ['customs', 'background', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
+  { id: 'world', label: 'World', sections: ['customs', 'people', 'background', 'dictionary', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
   { id: 'media', label: 'Media', sections: ['art', 'catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
@@ -649,6 +652,131 @@ export const providers: Record<string, Provider> = {
       }));
   },
 
+  /** People, places and things named in the passage, from Easton's and Smith's dictionaries (entries that cite these verses) */
+  async dictionary(refs) {
+    const book = refs[0].book;
+    const rows = await getDictByBook(book);
+    if (!rows) return [];
+    const best = new Map<string, number>(); // "code.idx" → narrowest span
+    for (const [c1, v1, c2, v2, code, idx] of rows) {
+      if (!anyOverlap(refs, c1, v1, c2, v2)) continue;
+      const span = c1 === c2 ? v2 - v1 : 999;
+      const k = `${code}.${idx}`;
+      best.set(k, Math.min(best.get(k) ?? 9999, span));
+    }
+    const picks = [...best.entries()].sort((a, b) => a[1] - b[1]).slice(0, 10).map(([k]) => k.split('.').map(Number) as [number, number]);
+    const out: StudyItem[] = [];
+    for (const [code, idx] of picks) {
+      const id = code === 0 ? 'easton' : 'smith';
+      const chunk = await getDictChunk(id, Math.floor(idx / 200));
+      const e = chunk?.[idx % 200];
+      if (!e || e.text.join(' ').length < 30) continue;
+      const body = e.text.join('\n');
+      const name = code === 0 ? 'Easton’s Bible Dictionary (1897)' : 'Smith’s Bible Dictionary (1884)';
+      out.push({
+        id: `dict-${id}-${idx}`,
+        section: 'dictionary',
+        title: e.term.replace(/\b([A-Z])([A-Z']+)\b/g, (_m, a: string, b: string) => a + b.toLowerCase()),
+        author: name,
+        excerpt: trim(body, 380),
+        fullExcerpt: body.length > 380 ? body : undefined,
+        authority: 'historical',
+        period: 'modern',
+        format: 'excerpt',
+        match: 'explicit-reference',
+        why: `An entry in ${name} that cites this passage. A nineteenth-century Protestant reference work (public domain): helpful for names, places and customs, but not a source of Catholic teaching.`,
+        sourceName: name,
+        kind: 'Bible dictionary',
+      });
+    }
+    return out;
+  },
+
+  /** Nave's Topical Bible: topics whose verse lists include the passage */
+  async nave(refs) {
+    const rows = await getNaveByBook(refs[0].book);
+    if (!rows) return [];
+    const seen = new Set<number>();
+    const idxs: number[] = [];
+    for (const [c1, v1, c2, v2, ti] of rows) if (anyOverlap(refs, c1, v1, c2, v2) && !seen.has(ti)) { seen.add(ti); idxs.push(ti); }
+    const out: StudyItem[] = [];
+    for (const ti of idxs.slice(0, 12)) {
+      const e = (await getNaveChunk(Math.floor(ti / 200)))?.[ti % 200];
+      if (!e) continue;
+      const title = e.topic.toLowerCase().replace(/(^|[\s-])([a-z])/g, (_m, a: string, b: string) => a + b.toUpperCase());
+      out.push({
+        id: `nave-${ti}`,
+        section: 'topics',
+        title,
+        author: 'Nave’s Topical Bible (1896)',
+        excerpt: [e.subtopics.length ? `Under this topic: ${e.subtopics.slice(0, 8).join('; ')}.` : '', e.see?.length ? `See also: ${e.see.join(', ')}.` : ''].filter(Boolean).join(' ') || undefined,
+        authority: 'historical',
+        period: 'modern',
+        format: 'summary',
+        match: 'topic',
+        why: 'Nave’s Topical Bible (1896, public domain) lists this passage under the topic. A nineteenth-century Protestant index, useful for finding related verses; the grouping is not a Church teaching.',
+        sourceName: 'Nave’s Topical Bible',
+        kind: 'Topical Bible',
+      });
+    }
+    return out;
+  },
+
+  /** People named in the verses, from Theographic (family) and STEPBible's names (description) */
+  async people(refs) {
+    const book = refs[0].book;
+    const [tRows, sRows] = await Promise.all([getPeopleByBook(book), getStepNamesByBook(book)]);
+    const named = new Map<string, { t?: number; s?: number; span: number }>();
+    const norm = (n: string) => n.toLowerCase().replace(/\s*\(.*\)$/, '').trim();
+    const grab = async (rows: typeof tRows, kind: 't' | 's') => {
+      for (const [c1, v1, c2, v2, idx] of rows ?? []) {
+        if (!anyOverlap(refs, c1, v1, c2, v2)) continue;
+        const span = c1 === c2 ? v2 - v1 : 999;
+        const k = `${kind}${idx}`;
+        // names are resolved after loading their chunk, so key by index for now
+        named.set(k, { ...(kind === 't' ? { t: idx } : { s: idx }), span: Math.min(named.get(k)?.span ?? 9999, span) });
+      }
+    };
+    await grab(tRows, 't'); await grab(sRows, 's');
+    if (!named.size) return [];
+    type P = NonNullable<Awaited<ReturnType<typeof getPeopleChunk>>>[number];
+    type S = NonNullable<Awaited<ReturnType<typeof getStepNamesChunk>>>[number];
+    const byName = new Map<string, { person?: P; step?: S }>();
+    for (const v of [...named.values()].sort((a, b) => a.span - b.span).slice(0, 40)) {
+      if (v.t !== undefined) { const e = (await getPeopleChunk(Math.floor(v.t / 200)))?.[v.t % 200]; if (e) (byName.get(norm(e.name)) ?? byName.set(norm(e.name), {}).get(norm(e.name))!).person = e; }
+      if (v.s !== undefined) { const e = (await getStepNamesChunk(Math.floor(v.s / 200)))?.[v.s % 200]; if (e && e.kind === 'person') (byName.get(norm(e.name)) ?? byName.set(norm(e.name), {}).get(norm(e.name))!).step = e; }
+    }
+    const list = (a?: string[]) => (a ?? []).map((x) => x.replace(/\s*\(.*\)$/, '')).filter(Boolean);
+    const out: StudyItem[] = [];
+    for (const [, { person, step }] of byName) {
+      const name = person?.name ?? step!.name;
+      if (['god', 'lord', 'holy spirit'].includes(name.toLowerCase())) continue; // the genealogies' data on God is not a family tree
+      const bits = [
+        person?.father || person?.mother ? `Child of ${[person?.father, person?.mother].filter(Boolean).join(' and ')}.` : '',
+        list(person?.partners).length ? `Spouse or partner: ${list(person?.partners).join(', ')}.` : '',
+        list(person?.siblings).length ? `Siblings: ${list(person?.siblings).slice(0, 8).join(', ')}.` : '',
+        list(person?.children).length ? `Children: ${list(person?.children).slice(0, 10).join(', ')}.` : '',
+      ].filter(Boolean).join(' ');
+      const desc = step?.notes?.[0] ?? '';
+      if (!bits && !desc) continue;
+      out.push({
+        id: `person-${name}`,
+        section: 'people',
+        title: name + (person?.aliases?.length ? ` (also ${person.aliases.slice(0, 3).join(', ')})` : ''),
+        author: 'Theographic · STEPBible',
+        excerpt: [desc, bits].filter(Boolean).join('\n'),
+        authority: 'reflection',
+        period: 'contemporary',
+        format: 'summary',
+        match: 'explicit-reference',
+        why: 'Named in these verses. Family relations are from Theographic Bible Metadata (CC BY-SA 4.0); the short description is from STEPBible (CC BY 4.0), written with AI assistance, so check it against the text.',
+        sourceName: 'Theographic Bible Metadata (CC BY-SA 4.0) and STEPBible (CC BY 4.0)',
+        kind: 'Person',
+      });
+    }
+    return out.slice(0, 10);
+  },
+
   async external(refs) {
     const out: StudyItem[] = [];
     const book = refs[0].book;
@@ -894,7 +1022,9 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     [['quotes', 'customs', 'structure', 'wordnotes', 'versions', 'witnesses', 'echoes', 'genre', 'dependency', 'reception', 'art', 'typology'], lens],
     [['parallels'], Promise.all([providers.parallels(refs), lens.then((l) => l.filter((i) => i.section === 'parallels'))]).then(([a, b]) => [...b, ...a])],
     [['places'], providers.places(refs)],
-    [['topics'], providers.topics(refs)],
+    [['topics'], Promise.all([providers.topics(refs), providers.nave(refs)]).then(([a, b]) => [...a, ...b])],
+    [['dictionary'], providers.dictionary(refs)],
+    [['people'], providers.people(refs)],
     [['mine'], providers.mine(refs)],
   ];
   emitExt('catholic-answers');
