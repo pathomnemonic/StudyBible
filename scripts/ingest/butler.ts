@@ -163,10 +163,10 @@ const lev = (a: string, b: string) => {
 const ocrRoman = (t: string) => t.toUpperCase().replace(/[L1|!TJF]/g, 'I').replace(/U/g, 'V').replace(/Y/g, 'V');
 
 /** Find the day headings ("JANUARY II." / OCR "OCTOBER li.") for one month, in order, tolerating OCR noise. */
-export function findDays(lines: string[], month: number, from: number): { day: number; at: number }[] {
+export function findDays(lines: string[], month: number, from: number): { day: number; at: number; start: number }[] {
   const name = MONTHS[month - 1];
   const re = new RegExp(`^\\s*${name}\\s+(\\S{1,10})\\s*$`);
-  const found: { day: number; at: number }[] = [];
+  const found: { day: number; at: number; start: number }[] = [];
   let expect = 1;
   const max = DAYS_IN[month - 1];
   for (let i = from; i < lines.length; i++) {
@@ -181,14 +181,14 @@ export function findDays(lines: string[], month: number, from: number): { day: n
       const dist = tok === String(d) ? 0 : lev(norm, ROMAN(d));
       if (dist < bd && dist <= (norm.length > 2 ? 1 : 0)) { bd = dist; best = d; }
     }
-    if (best) { found.push({ day: best, at: i }); expect = best + 1; }
+    if (best) { found.push({ day: best, at: i, start: i + 1 }); expect = best + 1; }
     if (expect > max) break;
   }
   // a day heading lost to OCR: its first entry heading is the first one after the first running head of that day
   const isMark = (l: string) => l.startsWith('@@RH:');
   const entryHead = (j: number) => !isMark(lines[j]) && !!lines[j].trim() && (j === 0 || !lines[j - 1].trim()) && isHeadingBlock(lines[j].trim()) && STARTS_ENTRY.test(lines[j].trim());
   found.sort((a, b) => a.at - b.at);
-  const added: { day: number; at: number }[] = [];
+  const added: { day: number; at: number; start: number }[] = [];
   for (let d = 2; d <= max; d++) {
     if (found.some((x) => x.day === d)) continue;
     const prev = [...found].reverse().find((x) => x.day < d);
@@ -196,14 +196,14 @@ export function findDays(lines: string[], month: number, from: number): { day: n
     if (!prev || !next) continue;
     const mi = lines.findIndex((l, i) => i > prev.at && i < next.at && l === `@@RH:${month}:${d}`);
     if (mi < 0) continue;
-    for (let j = mi; j < next.at; j++) if (entryHead(j)) { added.push({ day: d, at: j }); break; }
+    for (let j = mi; j < next.at; j++) if (entryHead(j)) { added.push({ day: d, at: j, start: j }); break; }
   }
   found.push(...added);
   found.sort((a, b) => a.at - b.at);
   // day 1 can be printed without its number ("NOVEMBER" alone, then the heading)
   if (found.length && found[0].day > 1 && found[0].day <= 2) {
     for (let i = found[0].at - 1; i > from; i--) {
-      if (lines[i].trim().replace(/\.$/, '') === name) { found.unshift({ day: 1, at: i }); break; }
+      if (lines[i].trim().replace(/\.$/, '') === name) { found.unshift({ day: 1, at: i, start: i + 1 }); break; }
     }
   }
   return found;
@@ -349,7 +349,7 @@ export function buildButler(report: Report) {
       for (const fx of FIXES.filter((x) => x.file === s.file && x.month === m)) {
         if (days.some((d) => d.day === fx.day)) continue;
         const at = lines.findIndex((l, i) => i > (days.find((d) => d.day === fx.day - 1)?.at ?? 0) && fx.before.test(l));
-        if (at > 0) { days.push({ day: fx.day, at }); days.sort((a, b) => a.day - b.day); }
+        if (at > 0) { days.push({ day: fx.day, at, start: at }); days.sort((a, b) => a.day - b.day); }
       }
       const label = MONTHS[m - 1];
       if (days.length < DAYS_IN[m - 1] - 6) {
@@ -372,7 +372,7 @@ export function buildButler(report: Report) {
       for (let d = 1; d <= DAYS_IN[m - 1]; d++) if (!days.some((x) => x.day === d)) missingDays.push(d);
       for (let k = 0; k < days.length; k++) {
         const stop = k + 1 < days.length ? days[k + 1].at : endAt;
-        const r = parseDay(lines.slice(days[k].at + 1, stop), hyph, s.kind === 'ocr');
+        const r = parseDay(lines.slice(days[k].start, stop), hyph, s.kind === 'ocr');
         orphans += r.orphan;
         const dd = String(days[k].day).padStart(2, '0');
         const entries = r.entries.filter((e) => e.text.length);
