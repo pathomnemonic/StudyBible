@@ -503,7 +503,7 @@
   "[brenton] 99-XXAeng-Brenton.usfm: unhandled marker \\tr",
   "[brenton] 99-XXAeng-Brenton.usfm: unhandled marker \\tc1"
  ],
- "warningCount": 603,
+ "warningCount": 602,
  "stats": {
   "versification.unverifiedChapters": {
    "PSA": 18,
@@ -1090,18 +1090,18 @@
    "rows": 2779
   },
   "cathen": {
-   "articles": 493,
-   "skipped": 1,
+   "articles": 580,
+   "skipped": 0,
    "byKind": {
-    "topic": 206,
-    "person": 111,
-    "book": 63,
-    "place": 113
+    "topic": 282,
+    "person": 115,
+    "place": 120,
+    "book": 63
    },
-   "names": 845,
-   "withCites": 455,
-   "cites": 16134,
-   "words": 1376617,
+   "names": 1019,
+   "withCites": 519,
+   "cites": 17579,
+   "words": 1520644,
    "missingBookArticles": [
     "GEN",
     "NUM",
@@ -1184,7 +1184,7 @@
    }
   },
   "names-index": {
-   "entries": 7798
+   "entries": 7885
   },
   "dictionary-easton": {
    "entries": 3964,

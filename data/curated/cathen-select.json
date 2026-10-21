@@ -8,8 +8,11 @@
   "MIC"
  ],
  "drop": [
+  "01300a",
   "01617c",
+  "04045a",
   "13366b",
+  "14209b",
   "14287a"
  ],
  "rejected": [
@@ -3264,6 +3267,718 @@
   {
    "id": "15703a",
    "why": "linked as “Worcester” from 15515b but its title “Ancient Diocese of Worcester” is not a biblical name/topic"
+  },
+  {
+   "id": "10666a",
+   "why": "linked as “Nebo” from 10729a but its title “Nabo (Nebo)” is not a biblical name/topic"
+  },
+  {
+   "id": "05633a",
+   "why": "linked as “Eutychianism” from 01299d but its title “Eutychianism” is not a biblical name/topic"
+  },
+  {
+   "id": "06233b",
+   "why": "linked as “St. Francis Xavier” from 01299d but its title “St. Francis Xavier” is not a biblical name/topic"
+  },
+  {
+   "id": "04647c",
+   "why": "linked as “DEACON” from 01319b but its title “Deacons” is not a biblical name/topic"
+  },
+  {
+   "id": "01362a",
+   "why": "linked as “Christian altar” from 01354a but its title “History of the Christian Altar” is not a biblical name/topic"
+  },
+  {
+   "id": "05584a",
+   "why": "linked as “Blessed Sacrament” from 01354b but its title “The Blessed Eucharist as a Sacrament” is not a biblical name/topic"
+  },
+  {
+   "id": "11618c",
+   "why": "linked as “Sacrament of Penance” from 01407b but its title “The Sacrament of Penance” is not a biblical name/topic"
+  },
+  {
+   "id": "07402a",
+   "why": "linked as “Holy Communion” from 01407b but its title “Holy Communion” is not a biblical name/topic"
+  },
+  {
+   "id": "04375c",
+   "why": "linked as “Pope Cornelius” from 01407b but its title “Pope Cornelius” is not a biblical name/topic"
+  },
+  {
+   "id": "12449b",
+   "why": "linked as “St. Proclus” from 01542a but its title “St. Proclus” is not a biblical name/topic"
+  },
+  {
+   "id": "06406a",
+   "why": "linked as “Pope Gelasius” from 01542a but its title “Pope St. Gelasius I” is not a biblical name/topic"
+  },
+  {
+   "id": "02228a",
+   "why": "linked as “Baltimore” from 01542a but its title “Archdiocese of Baltimore” is not a biblical name/topic"
+  },
+  {
+   "id": "09750a",
+   "why": "linked as “Servites” from 01542a but its title “Servants of Mary (Order of Servites)” is not a biblical name/topic"
+  },
+  {
+   "id": "12683a",
+   "why": "linked as “Redemptorists” from 01542a but its title “Redemptorists” is not a biblical name/topic"
+  },
+  {
+   "id": "13105a",
+   "why": "linked as “Rock” from 01767b but its title “Daniel Rock” is not a biblical name/topic"
+  },
+  {
+   "id": "03333b",
+   "why": "linked as “Cardinal” from 01782a but its title “Cardinal” is not a biblical name/topic"
+  },
+  {
+   "id": "03653a",
+   "why": "linked as “Chicago” from 02007c but its title “Archdiocese of Chicago” is not a biblical name/topic"
+  },
+  {
+   "id": "02703a",
+   "why": "linked as “Boston” from 02007c but its title “Boston” is not a biblical name/topic"
+  },
+  {
+   "id": "05458a",
+   "why": "linked as “English literature” from 02141a but its title “English Literature” is not a biblical name/topic"
+  },
+  {
+   "id": "01287a",
+   "why": "linked as “Pope Alexander III” from 02362a but its title “Pope Alexander III” is not a biblical name/topic"
+  },
+  {
+   "id": "04024a",
+   "why": "linked as “Clement VII” from 02362a but its title “Pope Clement VII” is not a biblical name/topic"
+  },
+  {
+   "id": "02477b",
+   "why": "linked as “Beneventum” from 02362a but its title “Benevento” is not a biblical name/topic"
+  },
+  {
+   "id": "03204d",
+   "why": "linked as “Camaldolese” from 02362a but its title “Camaldolese” is not a biblical name/topic"
+  },
+  {
+   "id": "07280a",
+   "why": "linked as “Hermits” from 02362a but its title “Hermits” is not a biblical name/topic"
+  },
+  {
+   "id": "15245a",
+   "why": "linked as “Utrecht” from 03345b but its title “Archdiocese of Utrecht” is not a biblical name/topic"
+  },
+  {
+   "id": "14707b",
+   "why": "linked as “The Three Chapters” from 04157a but its title “Three Chapters” is not a biblical name/topic"
+  },
+  {
+   "id": "03014a",
+   "why": "linked as “St. Bruno” from 04157a but its title “St. Bruno” is not a biblical name/topic"
+  },
+  {
+   "id": "15718a",
+   "why": "linked as “Würzburg” from 04157a but its title “Diocese of Würzburg” is not a biblical name/topic"
+  },
+  {
+   "id": "01298a",
+   "why": "linked as “Alexander of Hales” from 04157a but its title “Alexander of Hales” is not a biblical name/topic"
+  },
+  {
+   "id": "02160b",
+   "why": "linked as “Avila” from 04157a but its title “Avila” is not a biblical name/topic"
+  },
+  {
+   "id": "09416b",
+   "why": "linked as “Ludolph of Saxony” from 04157a but its title “Ludolph of Saxony” is not a biblical name/topic"
+  },
+  {
+   "id": "11325a",
+   "why": "linked as “Allioli” from 04157a but its title “Giuseppe Agostino Orsi” is not a biblical name/topic"
+  },
+  {
+   "id": "06576a",
+   "why": "linked as “Glaire” from 04157a but its title “Jean-Baptiste Glaire” is not a biblical name/topic"
+  },
+  {
+   "id": "07365a",
+   "why": "linked as “Christian history” from 04157a but its title “Ecclesiastical History” is not a biblical name/topic"
+  },
+  {
+   "id": "03149b",
+   "why": "linked as “Marius de Calasio” from 04195a but its title “Mario di Calasio” is not a biblical name/topic"
+  },
+  {
+   "id": "11738b",
+   "why": "linked as “Pesaro” from 04497a but its title “Diocese of Pesaro” is not a biblical name/topic"
+  },
+  {
+   "id": "09157b",
+   "why": "linked as “Pope Leo III” from 04540b but its title “Pope St. Leo III” is not a biblical name/topic"
+  },
+  {
+   "id": "09368a",
+   "why": "linked as “St. Louis, King of France.” from 04540b but its title “St. Louis IX” is not a biblical name/topic"
+  },
+  {
+   "id": "09604b",
+   "why": "linked as “Cardinal Manning” from 04710a but its title “Henry Edward Manning” is not a biblical name/topic"
+  },
+  {
+   "id": "10180a",
+   "why": "linked as “Mende” from 05046a but its title “Diocese of Mende” is not a biblical name/topic"
+  },
+  {
+   "id": "13208b",
+   "why": "linked as “Rouen” from 05140a but its title “Archdiocese of Rouen” is not a biblical name/topic"
+  },
+  {
+   "id": "10611a",
+   "why": "linked as “Mozarabic” from 05224d but its title “Mozarabic Rite” is not a biblical name/topic"
+  },
+  {
+   "id": "04390b",
+   "why": "linked as “Corpus Christi” from 05224d but its title “Feast of Corpus Christi” is not a biblical name/topic"
+  },
+  {
+   "id": "09400a",
+   "why": "linked as “Low Sunday” from 05224d but its title “Low Sunday” is not a biblical name/topic"
+  },
+  {
+   "id": "13147a",
+   "why": "linked as “Roman Curia” from 05224d but its title “Roman Curia” is not a biblical name/topic"
+  },
+  {
+   "id": "03068a",
+   "why": "linked as “Burgundian” from 05224d but its title “Burgundy” is not a biblical name/topic"
+  },
+  {
+   "id": "02525b",
+   "why": "linked as “Besançon” from 05224d but its title “Besançon (Vesontio)” is not a biblical name/topic"
+  },
+  {
+   "id": "07058a",
+   "why": "linked as “Guéranger” from 05224d but its title “Prosper Louis Pascal Guéranger” is not a biblical name/topic"
+  },
+  {
+   "id": "04028b",
+   "why": "linked as “Clement X” from 05224d but its title “Pope Clement X” is not a biblical name/topic"
+  },
+  {
+   "id": "11425a",
+   "why": "linked as “Palladius” from 05329b but its title “Palladius” is not a biblical name/topic"
+  },
+  {
+   "id": "09217a",
+   "why": "linked as “Liberius of Rome” from 05329b but its title “Pope Liberius” is not a biblical name/topic"
+  },
+  {
+   "id": "06530a",
+   "why": "linked as “Gerona” from 05504c but its title “Gerona” is not a biblical name/topic"
+  },
+  {
+   "id": "11318b",
+   "why": "linked as “Orléans” from 05504c but its title “Diocese of Orléans” is not a biblical name/topic"
+  },
+  {
+   "id": "15067a",
+   "why": "linked as “Troyes” from 05692b but its title “Troyes” is not a biblical name/topic"
+  },
+  {
+   "id": "05181b",
+   "why": "linked as “Du Cange” from 06092a but its title “Charles Dufresne Du Cange” is not a biblical name/topic"
+  },
+  {
+   "id": "07029b",
+   "why": "linked as “Gretser” from 06092a but its title “Jacob Gretser” is not a biblical name/topic"
+  },
+  {
+   "id": "11764a",
+   "why": "linked as “St. Peter Damian” from 06092a but its title “St. Peter Damian” is not a biblical name/topic"
+  },
+  {
+   "id": "14506a",
+   "why": "linked as “Tenebrae” from 06643a but its title “Tenebræ” is not a biblical name/topic"
+  },
+  {
+   "id": "11217a",
+   "why": "linked as “Offertory” from 06643a but its title “Offertory” is not a biblical name/topic"
+  },
+  {
+   "id": "04533a",
+   "why": "linked as “CROSS” from 06643a but its title “The Cross and Crucifix in Liturgy” is not a biblical name/topic"
+  },
+  {
+   "id": "07703a",
+   "why": "linked as “Improperia” from 06643a but its title “Improperia” is not a biblical name/topic"
+  },
+  {
+   "id": "12043b",
+   "why": "linked as “Photian” from 06643a but its title “Photius of Constantinople” is not a biblical name/topic"
+  },
+  {
+   "id": "04581d",
+   "why": "linked as “Cynewulf” from 07143d but its title “Cynewulf” is not a biblical name/topic"
+  },
+  {
+   "id": "08578b",
+   "why": "linked as “Emperor Justinian” from 07421a but its title “Justinian I” is not a biblical name/topic"
+  },
+  {
+   "id": "09725a",
+   "why": "linked as “Pope Martin V” from 07421a but its title “Pope Martin V” is not a biblical name/topic"
+  },
+  {
+   "id": "15212a",
+   "why": "linked as “Urban IV” from 07421a but its title “Pope Urban IV” is not a biblical name/topic"
+  },
+  {
+   "id": "08431a",
+   "why": "linked as “John XXII” from 07421a but its title “Pope John XXII” is not a biblical name/topic"
+  },
+  {
+   "id": "07110b",
+   "why": "linked as “Hail Mary” from 07421a but its title “Hail Mary” is not a biblical name/topic"
+  },
+  {
+   "id": "02431a",
+   "why": "linked as “Benedict XIII” from 07421a but its title “Pope Benedict XIII” is not a biblical name/topic"
+  },
+  {
+   "id": "08784c",
+   "why": "linked as “Archbishop Lanfranc” from 07435a but its title “Lanfranc” is not a biblical name/topic"
+  },
+  {
+   "id": "08081a",
+   "why": "linked as “Introit” from 07435a but its title “Introit” is not a biblical name/topic"
+  },
+  {
+   "id": "06149a",
+   "why": "linked as “Venantius Fortunatus” from 07435a but its title “Fortunatus” is not a biblical name/topic"
+  },
+  {
+   "id": "12126c",
+   "why": "linked as “Pope Pius II” from 08364a but its title “Pope Pius II” is not a biblical name/topic"
+  },
+  {
+   "id": "12128a",
+   "why": "linked as “Pius III” from 08364a but its title “Pope Pius III” is not a biblical name/topic"
+  },
+  {
+   "id": "03328c",
+   "why": "linked as “Caracalla” from 08386a but its title “Caracalla” is not a biblical name/topic"
+  },
+  {
+   "id": "15268b",
+   "why": "linked as “Vandals” from 08386a but its title “Vandals” is not a biblical name/topic"
+  },
+  {
+   "id": "02670a",
+   "why": "linked as “Boniface IX” from 08386a but its title “Pope Boniface IX” is not a biblical name/topic"
+  },
+  {
+   "id": "08019a",
+   "why": "linked as “Innocent VII” from 08386a but its title “Pope Innocent VII” is not a biblical name/topic"
+  },
+  {
+   "id": "01289a",
+   "why": "linked as “Alexander VI” from 08386a but its title “Pope Alexander VI” is not a biblical name/topic"
+  },
+  {
+   "id": "11581a",
+   "why": "linked as “Paul IV” from 08386a but its title “Pope Paul IV” is not a biblical name/topic"
+  },
+  {
+   "id": "10247a",
+   "why": "linked as “Metz” from 08386a but its title “Metz” is not a biblical name/topic"
+  },
+  {
+   "id": "04030a",
+   "why": "linked as “Clement XII” from 08406b but its title “Pope Clement XII” is not a biblical name/topic"
+  },
+  {
+   "id": "08502c",
+   "why": "linked as “Josaphat” from 08503a but its title “Josaphat” is not a biblical name/topic"
+  },
+  {
+   "id": "09291a",
+   "why": "linked as “Litany of the Saints” from 08504a but its title “Litany of the Saints” is not a biblical name/topic"
+  },
+  {
+   "id": "14515b",
+   "why": "linked as “St. Teresa” from 08504a but its title “St. Teresa of Avila” is not a biblical name/topic"
+  },
+  {
+   "id": "15752a",
+   "why": "linked as “Zara” from 08654a but its title “Archdiocese of Zara” is not a biblical name/topic"
+  },
+  {
+   "id": "15348b",
+   "why": "linked as “Vercelli” from 09627a but its title “Vercelli” is not a biblical name/topic"
+  },
+  {
+   "id": "09732b",
+   "why": "linked as “St. Martin of Tours” from 10338a but its title “St. Martin of Tours” is not a biblical name/topic"
+  },
+  {
+   "id": "09089a",
+   "why": "linked as “St. Lawrence” from 11215d but its title “St. Lawrence” is not a biblical name/topic"
+  },
+  {
+   "id": "03547c",
+   "why": "linked as “Ceylon” from 11259b but its title “Ceylon” is not a biblical name/topic"
+  },
+  {
+   "id": "01229a",
+   "why": "linked as “Maria Agreda” from 11527b but its title “Maria de Agreda” is not a biblical name/topic"
+  },
+  {
+   "id": "06347a",
+   "why": "linked as “St. Gall” from 11531a but its title “Abbey of St. Gall” is not a biblical name/topic"
+  },
+  {
+   "id": "05431b",
+   "why": "linked as “English” from 11531a but its title “England (Before the Reformation)” is not a biblical name/topic"
+  },
+  {
+   "id": "02441a",
+   "why": "linked as “Benedictbeurn” from 11531a but its title “Abbey of Benedictbeurn” is not a biblical name/topic"
+  },
+  {
+   "id": "10348a",
+   "why": "linked as “Mystery” from 11531a but its title “Miracle Plays and Mysteries” is not a biblical name/topic"
+  },
+  {
+   "id": "02073b",
+   "why": "linked as “Augsburg” from 11531a but its title “Augsburg” is not a biblical name/topic"
+  },
+  {
+   "id": "13743a",
+   "why": "linked as “Alexander Severus” from 11712a but its title “Alexander Severus” is not a biblical name/topic"
+  },
+  {
+   "id": "08020b",
+   "why": "linked as “Pope Innocent X” from 11712a but its title “Pope Innocent X” is not a biblical name/topic"
+  },
+  {
+   "id": "01294a",
+   "why": "linked as “Alexander VII” from 11712a but its title “Pope Alexander VII” is not a biblical name/topic"
+  },
+  {
+   "id": "01089a",
+   "why": "linked as “French Academy” from 11712a but its title “The French Academy” is not a biblical name/topic"
+  },
+  {
+   "id": "15756c",
+   "why": "linked as “Pope Zephyrinus” from 11744a but its title “Pope St. Zephyrinus” is not a biblical name/topic"
+  },
+  {
+   "id": "06575a",
+   "why": "linked as “Acilius Glabrio” from 11744a but its title “Manius Acilius Glabrio” is not a biblical name/topic"
+  },
+  {
+   "id": "03551e",
+   "why": "linked as “Chair of Peter” from 11744a but its title “Chair of Peter” is not a biblical name/topic"
+  },
+  {
+   "id": "14032a",
+   "why": "linked as “Sixtus III” from 11744a but its title “Pope St. Sixtus III” is not a biblical name/topic"
+  },
+  {
+   "id": "07716a",
+   "why": "linked as “Incense” from 12149a but its title “Incense” is not a biblical name/topic"
+  },
+  {
+   "id": "01159b",
+   "why": "linked as “Adrian VI” from 12315a but its title “Pope Adrian VI” is not a biblical name/topic"
+  },
+  {
+   "id": "06799a",
+   "why": "linked as “Gregory XI” from 12400a but its title “Pope Gregory XI” is not a biblical name/topic"
+  },
+  {
+   "id": "10197b",
+   "why": "linked as “Mercedarians” from 12400a but its title “Mercedarians” is not a biblical name/topic"
+  },
+  {
+   "id": "12018b",
+   "why": "linked as “St. Philip Neri” from 12473a but its title “St. Philip Romolo Neri” is not a biblical name/topic"
+  },
+  {
+   "id": "15218b",
+   "why": "linked as “Urban VIII” from 12473a but its title “Pope Urban VIII” is not a biblical name/topic"
+  },
+  {
+   "id": "11590a",
+   "why": "linked as “St. Paul of the Cross” from 12473a but its title “St. Paul of the Cross” is not a biblical name/topic"
+  },
+  {
+   "id": "01712c",
+   "why": "linked as “Aristeas” from 12533a but its title “Aristeas” is not a biblical name/topic"
+  },
+  {
+   "id": "13131a",
+   "why": "linked as “ROMAN COLLEGES” from 13164a but its title “Roman Colleges” is not a biblical name/topic"
+  },
+  {
+   "id": "01083b",
+   "why": "linked as “ROMAN ACADEMIES” from 13164a but its title “Roman Academies” is not a biblical name/topic"
+  },
+  {
+   "id": "09014b",
+   "why": "linked as “LATERAN BASILICA” from 13164a but its title “Saint John Lateran” is not a biblical name/topic"
+  },
+  {
+   "id": "04344a",
+   "why": "linked as “Conventuals” from 13164a but its title “Order of Friars Minor Conventuals” is not a biblical name/topic"
+  },
+  {
+   "id": "09278a",
+   "why": "linked as “Lippi” from 13164a but its title “Filippo Lippi” is not a biblical name/topic"
+  },
+  {
+   "id": "13485b",
+   "why": "linked as “Sassoferrato” from 13164a but its title “Giovanni Battista Salvi da Sassoferrato” is not a biblical name/topic"
+  },
+  {
+   "id": "13687d",
+   "why": "linked as “Seitz” from 13164a but its title “Alexander Maximilian Seitz” is not a biblical name/topic"
+  },
+  {
+   "id": "04166a",
+   "why": "linked as “Emperor Commodus” from 13164a but its title “Commodus” is not a biblical name/topic"
+  },
+  {
+   "id": "03374c",
+   "why": "linked as “Caracci” from 13164a but its title “Carracci” is not a biblical name/topic"
+  },
+  {
+   "id": "10569b",
+   "why": "linked as “Caravaggio” from 13164a but its title “Michaelangelo Morigi (Caravaggio)” is not a biblical name/topic"
+  },
+  {
+   "id": "12771a",
+   "why": "linked as “Guido Reni” from 13164a but its title “Guido Reni” is not a biblical name/topic"
+  },
+  {
+   "id": "05102b",
+   "why": "linked as “Domenichino” from 13164a but its title “Domenichino” is not a biblical name/topic"
+  },
+  {
+   "id": "05372a",
+   "why": "linked as “Elcesaites” from 13164a but its title “Elcesaites” is not a biblical name/topic"
+  },
+  {
+   "id": "10073b",
+   "why": "linked as “Maxentius” from 13164a but its title “Marcus Aurelius Maxentius” is not a biblical name/topic"
+  },
+  {
+   "id": "12662b",
+   "why": "linked as “Ravenna” from 13164a but its title “Ravenna” is not a biblical name/topic"
+  },
+  {
+   "id": "14576a",
+   "why": "linked as “Theodoric” from 13164a but its title “Theodoric the Great” is not a biblical name/topic"
+  },
+  {
+   "id": "06787a",
+   "why": "linked as “Gregory II” from 13164a but its title “Pope St. Gregory II” is not a biblical name/topic"
+  },
+  {
+   "id": "11577a",
+   "why": "linked as “Paul I” from 13164a but its title “Pope Paul I” is not a biblical name/topic"
+  },
+  {
+   "id": "06789b",
+   "why": "linked as “Gregory IV” from 13164a but its title “Pope Gregory IV” is not a biblical name/topic"
+  },
+  {
+   "id": "09159a",
+   "why": "linked as “Leo IV” from 13164a but its title “Pope St. Leo IV” is not a biblical name/topic"
+  },
+  {
+   "id": "08423c",
+   "why": "linked as “John VIII” from 13164a but its title “Pope John VIII” is not a biblical name/topic"
+  },
+  {
+   "id": "11356a",
+   "why": "linked as “Otto III” from 13164a but its title “Otto III” is not a biblical name/topic"
+  },
+  {
+   "id": "06791c",
+   "why": "linked as “Gregory VII” from 13164a but its title “Pope St. Gregory VII” is not a biblical name/topic"
+  },
+  {
+   "id": "07072b",
+   "why": "linked as “Robert Guiscard” from 13164a but its title “Robert Guiscard” is not a biblical name/topic"
+  },
+  {
+   "id": "06252b",
+   "why": "linked as “Barbarossa” from 13164a but its title “Frederick I (Barbarossa)” is not a biblical name/topic"
+  },
+  {
+   "id": "11056a",
+   "why": "linked as “Nicholas III” from 13164a but its title “Pope Nicholas III” is not a biblical name/topic"
+  },
+  {
+   "id": "04125c",
+   "why": "linked as “Colonna” from 13164a but its title “Colonna” is not a biblical name/topic"
+  },
+  {
+   "id": "14557a",
+   "why": "linked as “Theatine Order” from 13164a but its title “Theatines” is not a biblical name/topic"
+  },
+  {
+   "id": "02736a",
+   "why": "linked as “Bramante” from 13164a but its title “Donato Bramante” is not a biblical name/topic"
+  },
+  {
+   "id": "15428a",
+   "why": "linked as “Vignola” from 13164a but its title “Giacomo Barozzi da Vignola” is not a biblical name/topic"
+  },
+  {
+   "id": "12283b",
+   "why": "linked as “Giacomo della Porta” from 13164a but its title “Giacomo della Porta” is not a biblical name/topic"
+  },
+  {
+   "id": "09512b",
+   "why": "linked as “Maderna” from 13164a but its title “Carlo Maderna” is not a biblical name/topic"
+  },
+  {
+   "id": "02510b",
+   "why": "linked as “Bernini” from 13164a but its title “Giovanni Lorenzo Bernini” is not a biblical name/topic"
+  },
+  {
+   "id": "02688d",
+   "why": "linked as “Borromini” from 13164a but its title “Francesco Borromini” is not a biblical name/topic"
+  },
+  {
+   "id": "13204a",
+   "why": "linked as “Pellegrino Rossi” from 13164a but its title “Pellegrino Rossi” is not a biblical name/topic"
+  },
+  {
+   "id": "02325a",
+   "why": "linked as “Basilica” from 13164a but its title “Basilica” is not a biblical name/topic"
+  },
+  {
+   "id": "05599a",
+   "why": "linked as “Eugene III” from 13164a but its title “Pope Blessed Eugene III” is not a biblical name/topic"
+  },
+  {
+   "id": "11581b",
+   "why": "linked as “Paul V” from 13164a but its title “Pope Paul V” is not a biblical name/topic"
+  },
+  {
+   "id": "12103b",
+   "why": "linked as “Pinturicchio” from 13164a but its title “Pinturicchio” is not a biblical name/topic"
+  },
+  {
+   "id": "03780c",
+   "why": "linked as “Cistercians” from 13164a but its title “Cistercians” is not a biblical name/topic"
+  },
+  {
+   "id": "11603a",
+   "why": "linked as “Pelagius II” from 13164a but its title “Pelagius II” is not a biblical name/topic"
+  },
+  {
+   "id": "07457a",
+   "why": "linked as “Honorius III” from 13164a but its title “Pope Honorius III” is not a biblical name/topic"
+  },
+  {
+   "id": "03288a",
+   "why": "linked as “Canons Regular” from 13164a but its title “Canons and Canonesses Regular” is not a biblical name/topic"
+  },
+  {
+   "id": "10169c",
+   "why": "linked as “Melozzo da Forli” from 13164a but its title “Melozzo da Forlí” is not a biblical name/topic"
+  },
+  {
+   "id": "02302a",
+   "why": "linked as “Barnabites” from 13164a but its title “Barnabites” is not a biblical name/topic"
+  },
+  {
+   "id": "02516a",
+   "why": "linked as “Pietro da Cortona” from 13164a but its title “Pietro Berrettini” is not a biblical name/topic"
+  },
+  {
+   "id": "09636c",
+   "why": "linked as “Maratta” from 13164a but its title “Carlo Maratta” is not a biblical name/topic"
+  },
+  {
+   "id": "12330c",
+   "why": "linked as “Pozzo” from 13164a but its title “Andreas Pozzo” is not a biblical name/topic"
+  },
+  {
+   "id": "13453c",
+   "why": "linked as “Sansovino” from 13164a but its title “Andrea Contucci del Sansovino” is not a biblical name/topic"
+  },
+  {
+   "id": "12104b",
+   "why": "linked as “Sebastiano del Piombo” from 13164a but its title “Sebastiano del Piombo” is not a biblical name/topic"
+  },
+  {
+   "id": "12322c",
+   "why": "linked as “Poussin” from 13164a but its title “Nicolas Poussin” is not a biblical name/topic"
+  },
+  {
+   "id": "11738a",
+   "why": "linked as “Baldassare Peruzzi” from 13164a but its title “Baldassare Peruzzi” is not a biblical name/topic"
+  },
+  {
+   "id": "15504a",
+   "why": "linked as “Daniele da Volterra” from 13164a but its title “Daniele da Volterra” is not a biblical name/topic"
+  },
+  {
+   "id": "06572a",
+   "why": "linked as “Giulio Romano” from 13164a but its title “Giulio Romano” is not a biblical name/topic"
+  },
+  {
+   "id": "11737b",
+   "why": "linked as “Perugino” from 13164a but its title “Perugino” is not a biblical name/topic"
+  },
+  {
+   "id": "09513a",
+   "why": "linked as “Maderno” from 13164a but its title “Stefano Maderno” is not a biblical name/topic"
+  },
+  {
+   "id": "09730a",
+   "why": "linked as “St. Martina” from 13164a but its title “St. Martina” is not a biblical name/topic"
+  },
+  {
+   "id": "08788b",
+   "why": "linked as “Cardinal Langham” from 13164a but its title “Simon Langham” is not a biblical name/topic"
+  },
+  {
+   "id": "03187a",
+   "why": "linked as “Callistus III” from 13164a but its title “Pope Callistus III” is not a biblical name/topic"
+  },
+  {
+   "id": "09763a",
+   "why": "linked as “Mary of Egypt” from 13164a but its title “St. Mary of Egypt” is not a biblical name/topic"
+  },
+  {
+   "id": "11578a",
+   "why": "linked as “Paul II” from 13164a but its title “Pope Paul II” is not a biblical name/topic"
+  },
+  {
+   "id": "10598a",
+   "why": "linked as “Moses of Chorene” from 13796b but its title “Moses of Chorene” is not a biblical name/topic"
+  },
+  {
+   "id": "01473b",
+   "why": "linked as “St. Andrew” from 14774a but its title “St. Andrew of Crete” is not a biblical name/topic"
+  },
+  {
+   "id": "02334b",
+   "why": "linked as “Council of Basle” from 15464b but its title “Council of Basle” is not a biblical name/topic"
+  },
+  {
+   "id": "15216a",
+   "why": "linked as “Urban VI” from 15464b but its title “Pope Urban VI” is not a biblical name/topic"
+  },
+  {
+   "id": "13539a",
+   "why": "linked as “Great Schism” from 15480a but its title “Western Schism” is not a biblical name/topic"
   }
  ],
  "articles": [
@@ -3280,6 +3995,20 @@
    "id": "01003a",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Abaddon",
+   "slug": "abaddon",
+   "id": "01005a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (A Hebrew word signifying: ruin, destruction (Job 31:12); place of destruction;)"
+  },
+  {
+   "title": "Abarim",
+   "slug": "abarim",
+   "id": "01006c",
+   "kind": "place",
+   "why": "Linked as “Abarim” from article 10729a; its title matches a place"
   },
   {
    "title": "Abdias",
@@ -3366,7 +4095,14 @@
    "slug": "achaz",
    "id": "01101e",
    "kind": "topic",
-   "why": "Linked as “Achaz” from article 11337a; scripture-dense (14 verse citations in 249 words)"
+   "why": "Linked as “Achaz” from article 01326c; scripture-dense (14 verse citations in 249 words)"
+  },
+  {
+   "title": "Acta Pilati",
+   "slug": "acta-pilati",
+   "id": "01111b",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The Gospel of)"
   },
   {
    "title": "Acts of the Apostles",
@@ -3407,6 +4143,13 @@
    "why": "Linked as “Adullam” from article 04642b; its title matches a place"
   },
   {
+   "title": "Affinity (in the Bible)",
+   "slug": "affinity",
+   "id": "01177c",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Scripture recognizes affinity as an impediment to)"
+  },
+  {
    "title": "Agabus",
    "slug": "agabus",
    "id": "01200a",
@@ -3428,11 +4171,53 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Alexandria",
+   "slug": "alexandria",
+   "id": "01299d",
+   "kind": "place",
+   "why": "Hand-picked Scripture-related article (Seaport of Egypt, on the left bank of the)"
+  },
+  {
    "title": "Alleluia",
    "slug": "alleluia",
    "id": "01319b",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Alma",
+   "slug": "alma",
+   "id": "01326c",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (A Hebrew word signifying a 'young woman', unmarried as well as)"
+  },
+  {
+   "title": "Alpha and Omega (in Scripture)",
+   "slug": "alpha-and-omega",
+   "id": "01332a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Employed from the fourth century as a symbol expressing the confidence of)"
+  },
+  {
+   "title": "Altar Horns",
+   "slug": "altar-horns",
+   "id": "01354a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (On the Jewish altar there were four projections, one at each corner, which were)"
+  },
+  {
+   "title": "Altar Lamp",
+   "slug": "altar-lamp",
+   "id": "01354b",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (In the Old Testament God commanded that a lamp filled with the purest oil of)"
+  },
+  {
+   "title": "Altars (in Scripture)",
+   "slug": "altars",
+   "id": "01360a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Describes several biblical uses of the)"
   },
   {
    "title": "Amalec",
@@ -3480,6 +4265,13 @@
    "why": "Linked as “Anathoth” from article 02319c; its title matches a place"
   },
   {
+   "title": "Ancient of Days",
+   "slug": "ancient-of-days",
+   "id": "01463a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (A name given to God by the Prophet)"
+  },
+  {
    "title": "Andrew, Saint (Apostle and Martyr)",
    "slug": "andrew-saint",
    "id": "01471a",
@@ -3494,6 +4286,13 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Animals in the Bible",
+   "slug": "animals-in-the-bible",
+   "id": "01517a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The sacred books were composed by and for a people almost exclusively given to)"
+  },
+  {
    "title": "Anna",
    "slug": "anna",
    "id": "01530c",
@@ -3506,6 +4305,13 @@
    "id": "01536a",
    "kind": "person",
    "why": "Linked as “Annas” from article 01117a; its title matches a person"
+  },
+  {
+   "title": "Annunciation of the Blessed Virgin Mary, The Feast of the",
+   "slug": "annunciation-of-the-blessed-virgin-mary-the-feast-of-the",
+   "id": "01542a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (In the Latin Church this feast is first mentioned in the Sacramentarium of Pope)"
   },
   {
    "title": "Antichrist",
@@ -3595,11 +4401,25 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Ascension, Feast of the",
+   "slug": "ascension-feast-of-the",
+   "id": "01767b",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The fortieth day after Easter Sunday, commemorating the Ascension of Christ)"
+  },
+  {
    "title": "Asia Minor",
    "slug": "asia-minor",
    "id": "01782a",
    "kind": "place",
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Asmodeus",
+   "slug": "asmodeus",
+   "id": "01792c",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Demon mentioned in the Book of)"
   },
   {
    "title": "Assideans",
@@ -3623,6 +4443,13 @@
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Astronomy in the Bible",
+   "slug": "astronomy-in-the-bible",
+   "id": "02029a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Includes examples of Old and New Testament)"
+  },
+  {
    "title": "Attalia",
    "slug": "attalia",
    "id": "02060b",
@@ -3637,11 +4464,25 @@
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Authorized Version, The",
+   "slug": "authorized-version-the",
+   "id": "02141a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Historical background on the AV, also called the King James)"
+  },
+  {
    "title": "Azotus",
    "slug": "azotus",
    "id": "02169a",
    "kind": "place",
    "why": "Linked as “Azotus” from article 06428c; its title matches a place"
+  },
+  {
+   "title": "Azymes",
+   "slug": "azymes",
+   "id": "02171a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Unfermented cakes used by the Jews in their various sacrifices and religious)"
   },
   {
    "title": "Baal, Baalim",
@@ -3672,11 +4513,25 @@
    "why": "Linked as “Barac” from article 03301a; scripture-dense (9 verse citations in 252 words)"
   },
   {
+   "title": "Barjesus",
+   "slug": "barjesus",
+   "id": "02296a",
+   "kind": "person",
+   "why": "Hand-picked Scripture-related article (False prophet mentioned in the New)"
+  },
+  {
    "title": "Barnabas, Saint",
    "slug": "barnabas-saint",
    "id": "02300a",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Barnabas, The Epistle of",
+   "slug": "barnabas-the-epistle-of",
+   "id": "02299a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Contains no clue to its author nor to those for whom it was)"
   },
   {
    "title": "Bartholomew, Saint",
@@ -3696,6 +4551,13 @@
    ]
   },
   {
+   "title": "Beards",
+   "slug": "beards",
+   "id": "02362a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Among the Jews, as among most Oriental peoples, the beard was especially)"
+  },
+  {
    "title": "Beatitudes, The Eight",
    "slug": "beatitudes-the-eight",
    "id": "02371a",
@@ -3708,6 +4570,13 @@
    "id": "02388c",
    "kind": "person",
    "why": "Linked as “Beelzebub” from article 01559a; scripture-dense (16 verse citations in 1025 words)"
+  },
+  {
+   "title": "Belial",
+   "slug": "belial",
+   "id": "02408a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Found frequently as a personal name in the Vulgate and various English)"
   },
   {
    "title": "Belshazzar",
@@ -3944,11 +4813,25 @@
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Candace",
+   "slug": "candace",
+   "id": "03244c",
+   "kind": "person",
+   "why": "Hand-picked Scripture-related article (Ethiopian)"
+  },
+  {
    "title": "Candlemas",
    "slug": "candlemas",
    "id": "03245b",
    "kind": "topic",
    "why": "Linked as “Presentation” from article 09527a; scripture-dense (9 verse citations in 1067 words)"
+  },
+  {
+   "title": "Candlestick, Seven-Branch",
+   "slug": "candlestick-seven-branch",
+   "id": "13741b",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (One of the three chief furnishings of the Holy of the Tabernacle and the)"
   },
   {
    "title": "Canon of the New Testament",
@@ -3996,11 +4879,25 @@
    "why": "Linked as “Babylonian Captivity” from article 01030b; scripture-dense (22 verse citations in 5480 words)"
   },
   {
+   "title": "Carem",
+   "slug": "carem",
+   "id": "03345b",
+   "kind": "place",
+   "why": "Hand-picked Scripture-related article (Name of a town in the Tribe of)"
+  },
+  {
    "title": "Carmel",
    "slug": "carmel",
    "id": "03351a",
    "kind": "place",
-   "why": "Linked as “Mt. Carmel” from article 06428c; its title matches a place"
+   "why": "Linked as “Carmel” from article 03352a; its title matches a place"
+  },
+  {
+   "title": "Carmel, Mount",
+   "slug": "carmel-mount",
+   "id": "03352a",
+   "kind": "place",
+   "why": "Hand-picked Scripture-related article (A well-known mountain ridge in Palestine, usually called in the Hebrew Bible)"
   },
   {
    "title": "Catholic Epistle",
@@ -4047,6 +4944,13 @@
    "why": "Linked as “Chios” from article 01782a; its title matches a place"
   },
   {
+   "title": "Christ, Character of",
+   "slug": "christ-character-of",
+   "id": "08382a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The surpassing eminence of the character of Jesus has been acknowledged by men)"
+  },
+  {
    "title": "Christ, Temptation of",
    "slug": "christ-temptation-of",
    "id": "14504b",
@@ -4059,6 +4963,13 @@
    "id": "15448a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Christian Worship",
+   "slug": "christian-worship",
+   "id": "15710a",
+   "kind": "topic",
+   "why": "Linked as “Divine worship” from article 04153a; scripture-dense (23 verse citations in 4176 words)"
   },
   {
    "title": "Christianity",
@@ -4107,13 +5018,6 @@
    "why": "Scripture-related topic"
   },
   {
-   "title": "Clement of Alexandria",
-   "slug": "clement-of-alexandria",
-   "id": "04045a",
-   "kind": "topic",
-   "why": "Linked as “Clement of Alexandria” from article 01117a; scripture-dense (15 verse citations in 3113 words)"
-  },
-  {
    "title": "Cleophas",
    "slug": "cleophas",
    "id": "04048b",
@@ -4124,7 +5028,7 @@
    "title": "Codex Alexandrinus",
    "slug": "codex-alexandrinus",
    "id": "04080c",
-   "kind": "person",
+   "kind": "topic",
    "why": "Linked as “Alexandrinus” from article 01601a; scripture-dense (12 verse citations in 1246 words)"
   },
   {
@@ -4157,6 +5061,20 @@
    "books": [
     "COL"
    ]
+  },
+  {
+   "title": "Commentaries on the Bible",
+   "slug": "commentaries-on-the-bible",
+   "id": "04157a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Includes: I. Jewish Commentaries; II. Patristic; III. Medieval; IV. Modern)"
+  },
+  {
+   "title": "Concordances of the Bible",
+   "slug": "concordances-of-the-bible",
+   "id": "04195a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Lists of Biblical words arranged alphabetically with indications to enable the)"
   },
   {
    "title": "Corinth",
@@ -4330,6 +5248,13 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Demetrius",
+   "slug": "demetrius",
+   "id": "04707a",
+   "kind": "person",
+   "why": "Hand-picked Scripture-related article (The name of two Syrian kings mentioned in the Old Testament and two other)"
+  },
+  {
    "title": "Demon",
    "slug": "demon",
    "id": "04710a",
@@ -4351,6 +5276,13 @@
    "why": "Linked as “Derbe” from article 01117a; its title matches a place"
   },
   {
+   "title": "Desert",
+   "slug": "desert",
+   "id": "04749a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The word wilderness, which is more frequently used than desert of the region of)"
+  },
+  {
    "title": "Deuteronomy",
    "slug": "deuteronomy",
    "id": "04761b",
@@ -4368,18 +5300,18 @@
    "why": "Scripture-related topic"
   },
   {
-   "title": "Diocese of Alexandria",
-   "slug": "diocese-of-alexandria",
-   "id": "01300a",
-   "kind": "person",
-   "why": "Linked as “Diocese of Alexandria” from article 05329b; kind and title confirmed after fetch"
-  },
-  {
    "title": "Disciple",
    "slug": "disciple",
    "id": "05029a",
-   "kind": "person",
+   "kind": "topic",
    "why": "Linked as “Disciples” from article 02313c; scripture-dense (33 verse citations in 498 words)"
+  },
+  {
+   "title": "Dispersion of the Apostles",
+   "slug": "dispersion-of-the-apostles",
+   "id": "05046a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (A feast in commemoration of the missionary work of the Twelve)"
   },
   {
    "title": "Dives",
@@ -4415,6 +5347,13 @@
    "id": "05165b",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Easter",
+   "slug": "easter",
+   "id": "05224d",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Includes information on the feast and)"
   },
   {
    "title": "Ecclesiastes",
@@ -4472,6 +5411,13 @@
    "why": "Linked as “Eleazar” from article 01003a; its title matches a person"
   },
   {
+   "title": "Elect",
+   "slug": "elect",
+   "id": "05374a",
+   "kind": "topic",
+   "why": "Linked as “Elect” from article 01602a; scripture-dense (33 verse citations in 654 words)"
+  },
+  {
    "title": "Elias",
    "slug": "elias",
    "id": "05381b",
@@ -4504,7 +5450,7 @@
    "slug": "emmanuel",
    "id": "05404a",
    "kind": "topic",
-   "why": "Linked as “God with us” from article 10212c; scripture-dense (11 verse citations in 501 words)"
+   "why": "Linked as “Immanuel” from article 01326c; scripture-dense (11 verse citations in 501 words)"
   },
   {
    "title": "Emmaus",
@@ -4526,6 +5472,13 @@
    "id": "07218a",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Enoch, Book of",
+   "slug": "enoch-book-of",
+   "id": "01602a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Introductory)"
   },
   {
    "title": "Ephesians, Epistle to the",
@@ -4550,6 +5503,13 @@
    "id": "05497a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Epiphany",
+   "slug": "epiphany",
+   "id": "05504c",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The feast was called among the Syrians denho (up-going), a name to be connected)"
   },
   {
    "title": "Epistle (in Scripture)",
@@ -4611,16 +5571,6 @@
    "why": "Scripture-related topic"
   },
   {
-   "title": "Exodus (See Pentateuch)",
-   "slug": "exodus",
-   "id": "11646c",
-   "kind": "book",
-   "why": "Article on the canonical book Exodus",
-   "books": [
-    "EXO"
-   ]
-  },
-  {
    "title": "Exorcism",
    "slug": "exorcism",
    "id": "05709a",
@@ -4653,6 +5603,13 @@
    "id": "05752c",
    "kind": "topic",
    "why": "Linked as “Faith” from article 01471a; scripture-dense (48 verse citations in 9955 words)"
+  },
+  {
+   "title": "Flagellation",
+   "slug": "flagellation",
+   "id": "06092a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Includes history and its use in)"
   },
   {
    "title": "Gabbatha",
@@ -4735,6 +5692,13 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Gentiles",
+   "slug": "gentiles",
+   "id": "06422a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (In the English versions of both Testaments it collectively designates the)"
+  },
+  {
    "title": "Geography, Biblical",
    "slug": "geography-biblical",
    "id": "06428c",
@@ -4756,11 +5720,32 @@
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Glory",
+   "slug": "glory",
+   "id": "06585a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (In the English version of the Bible the word Glory, one of the commonest in the)"
+  },
+  {
+   "title": "Gog and Magog",
+   "slug": "gog-and-magog",
+   "id": "06628a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Names, respectively, of a king and of his supposed kingdom, mentioned several)"
+  },
+  {
    "title": "Golgotha",
    "slug": "golgotha",
    "id": "03191a",
    "kind": "place",
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Good Friday",
+   "slug": "good-friday",
+   "id": "06643a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The Friday on which the Church keeps the anniversary of the Crucifixion of)"
   },
   {
    "title": "Gospel and Gospels",
@@ -4803,6 +5788,13 @@
    "why": "Linked as “Hammurabi King of Babylon” from article 01051a; scripture-dense (24 verse citations in 2061 words)"
   },
   {
+   "title": "Harrowing of Hell",
+   "slug": "harrowing-of-hell",
+   "id": "07143d",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (This is the Old English and Middle English term for the triumphant descent of)"
+  },
+  {
    "title": "Heaven",
    "slug": "heaven",
    "id": "07170a",
@@ -4828,7 +5820,7 @@
    "slug": "hebrew-names",
    "id": "10675a",
    "kind": "topic",
-   "why": "Linked as “Hebrew name” from article 02313c; scripture-dense (34 verse citations in 3423 words)"
+   "why": "Linked as “Hebrew names” from article 01517a; scripture-dense (34 verse citations in 3423 words)"
   },
   {
    "title": "Hebrew Poetry of the Old Testament",
@@ -4897,6 +5889,13 @@
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Hexapla",
+   "slug": "hexapla",
+   "id": "07316a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Article on Origen's compilation of six ancient versions of the Bible in)"
+  },
+  {
    "title": "Hezekiah",
    "slug": "hezekiah",
    "id": "05737a",
@@ -4953,11 +5952,32 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Holy Name of Jesus",
+   "slug": "holy-name-of-jesus",
+   "id": "07421a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Reverence for the name of Jesus is not optional for believers. Article)"
+  },
+  {
    "title": "Holy Sepulchre",
    "slug": "holy-sepulchre",
    "id": "07425a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Holy Thursday",
+   "slug": "holy-thursday",
+   "id": "10068a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The feast of Maundy (or Holy) Thursday solemnly commemorates the institution of)"
+  },
+  {
+   "title": "Holy Week",
+   "slug": "holy-week",
+   "id": "07435a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The week which precedes the great festival of the Resurrection on Easter)"
   },
   {
    "title": "Hosanna",
@@ -5048,6 +6068,13 @@
    "books": [
     "JAS"
    ]
+  },
+  {
+   "title": "Jehoshaphat, Valley of",
+   "slug": "jehoshaphat-valley-of",
+   "id": "08503a",
+   "kind": "place",
+   "why": "Hand-picked Scripture-related article (Mentioned in only one passage of the Bible (Joel, iii-Heb. text,)"
   },
   {
    "title": "Jehovah",
@@ -5238,6 +6265,13 @@
    ]
   },
   {
+   "title": "Jordan, The",
+   "slug": "jordan-the",
+   "id": "08501a",
+   "kind": "place",
+   "why": "Hand-picked Scripture-related article (Formed at a point about five and a half miles below Banias, by the junction of)"
+  },
+  {
    "title": "Joseph",
    "slug": "joseph",
    "id": "08506a",
@@ -5257,6 +6291,13 @@
    "id": "08504a",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Josephus, Flavius",
+   "slug": "josephus-flavius",
+   "id": "08522a",
+   "kind": "person",
+   "why": "Hand-picked Scripture-related article (Jewish historian, born A.D. 37, at Jerusalem; died about)"
   },
   {
    "title": "Josias",
@@ -5281,6 +6322,13 @@
    "id": "08534a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Jubilees, Book of",
+   "slug": "jubilees-book-of",
+   "id": "08535a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (An apocryphal writing, so called from the fact that the narratives and stories)"
   },
   {
    "title": "Juda",
@@ -5355,11 +6403,25 @@
    "why": "Linked as “Julius Africanus” from article 03267a; scripture-dense (38 verse citations in 1320 words)"
   },
   {
+   "title": "Keys, Power of the",
+   "slug": "keys-power-of-the",
+   "id": "08631b",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The expression 'power of the keys' is derived from Christ's words to St. Peter)"
+  },
+  {
    "title": "Kingdom of God",
    "slug": "kingdom-of-god",
    "id": "08646a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Kings, Chronology of the",
+   "slug": "kings-chronology-of-the",
+   "id": "08654a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Offers a table with the kings from the)"
   },
   {
    "title": "Kings, Third and Fourth Books of",
@@ -5419,7 +6481,7 @@
    "slug": "lebanon",
    "id": "09104a",
    "kind": "place",
-   "why": "Linked as “Lebanon” from article 06428c; its title matches a place"
+   "why": "Linked as “Lebanon” from article 01299d; its title matches a place"
   },
   {
    "title": "Levites",
@@ -5437,6 +6499,20 @@
    "books": [
     "LEV"
    ]
+  },
+  {
+   "title": "Limbo",
+   "slug": "limbo",
+   "id": "09256a",
+   "kind": "topic",
+   "why": "Linked as “Limbo” from article 01111b; scripture-dense (18 verse citations in 3890 words)"
+  },
+  {
+   "title": "Loaves of Proposition",
+   "slug": "loaves-of-proposition",
+   "id": "09317b",
+   "kind": "topic",
+   "why": "Linked as “Loaves of Proposition” from article 10582c; scripture-dense (22 verse citations in 701 words)"
   },
   {
    "title": "Logos, The",
@@ -5481,7 +6557,7 @@
    "slug": "lydda",
    "id": "09468b",
    "kind": "place",
-   "why": "Linked as “Lydda” from article 06428c; its title matches a place"
+   "why": "Linked as “Lydda” from article 04707a; its title matches a place"
   },
   {
    "title": "Lysias",
@@ -5547,6 +6623,20 @@
    ]
   },
   {
+   "title": "Malchus",
+   "slug": "malchus",
+   "id": "09566b",
+   "kind": "person",
+   "why": "Hand-picked Scripture-related article (A name common in the Semitic languages and of special interest as being that)"
+  },
+  {
+   "title": "Malediction (in Scripture)",
+   "slug": "malediction",
+   "id": "09569a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Four principal words are rendered maledictio in the Vulgate, 'curse' in Douay)"
+  },
+  {
    "title": "Manasses",
    "slug": "manasses",
    "id": "09583c",
@@ -5597,6 +6687,27 @@
    "id": "09748b",
    "kind": "topic",
    "why": "Linked as “Mary of Cleophas” from article 02767a; scripture-dense (11 verse citations in 307 words)"
+  },
+  {
+   "title": "Mary of Romans 16:6",
+   "slug": "mary-of-romans-16-6",
+   "id": "09749b",
+   "kind": "person",
+   "why": "Hand-picked Scripture-related article (She had 'laboured much among' the Roman Church, hence St. Paul's salutation to)"
+  },
+  {
+   "title": "Mary, Tomb of the Blessed Virgin",
+   "slug": "mary-tomb-of-the-blessed-virgin",
+   "id": "14774a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Explores the question where Mary died and was buried, either Jerusalem or)"
+  },
+  {
+   "title": "Massorah",
+   "slug": "massorah",
+   "id": "10035a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The textual tradition of Hebrew Bible, an official registration of its words,)"
   },
   {
    "title": "Mathusala",
@@ -5711,7 +6822,7 @@
    "slug": "moloch",
    "id": "10443b",
    "kind": "person",
-   "why": "Linked as “Moloch” from article 01431b; scripture-dense (14 verse citations in 589 words)"
+   "why": "Linked as “Moloch” from article 01360a; scripture-dense (14 verse citations in 589 words)"
   },
   {
    "title": "Moral Aspect of Divine Law",
@@ -5740,6 +6851,13 @@
    "id": "14551a",
    "kind": "place",
    "why": "Linked as “Mt. Thabor” from article 06428c; scripture-dense (13 verse citations in 864 words)"
+  },
+  {
+   "title": "Muratorian Canon",
+   "slug": "muratorian-canon",
+   "id": "10642a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Also called the Muratorian Fragment, after the name of the discoverer and first)"
   },
   {
    "title": "Myra",
@@ -5780,6 +6898,13 @@
    "why": "Linked as “Nathinites” from article 05535a; scripture-dense (11 verse citations in 517 words)"
   },
   {
+   "title": "Nazarene",
+   "slug": "nazarene",
+   "id": "10724b",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (A name applied to Our Lord in the New)"
+  },
+  {
    "title": "Nazareth",
    "slug": "nazareth",
    "id": "10725a",
@@ -5792,6 +6917,13 @@
    "id": "10727a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Nebo, Mount",
+   "slug": "nebo-mount",
+   "id": "10729a",
+   "kind": "place",
+   "why": "Hand-picked Scripture-related article (A mountain of the Abarim range east of the Jordan and the Dead Sea, from which)"
   },
   {
    "title": "Nebuchadnezzar",
@@ -5860,6 +6992,20 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Offerings",
+   "slug": "offerings",
+   "id": "11215d",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Covers the Jewish and Christian practices of offerings and)"
+  },
+  {
+   "title": "Ointment in Scripture",
+   "slug": "ointment-in-scripture",
+   "id": "11229a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (That the use of oily, fragrant materials to anoint the body is a custom going)"
+  },
+  {
    "title": "Old Testament",
    "slug": "old-testament",
    "id": "14526a",
@@ -5895,14 +7041,14 @@
    "slug": "palm-sunday",
    "id": "11432b",
    "kind": "topic",
-   "why": "Linked as “Palm Sunday” from article 01663a; scripture-dense (12 verse citations in 1973 words)"
+   "why": "Linked as “Palm Sunday” from article 01542a; scripture-dense (12 verse citations in 1973 words)"
   },
   {
    "title": "Paphos",
    "slug": "paphos",
    "id": "11457b",
    "kind": "place",
-   "why": "Linked as “Paphos” from article 09672c; its title matches a place"
+   "why": "Linked as “Paphos” from article 02296a; its title matches a place"
   },
   {
    "title": "Parables",
@@ -5926,11 +7072,25 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Parallelism",
+   "slug": "parallelism",
+   "id": "11473a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The balance of verse with verse, an essential and characteristic feature in)"
+  },
+  {
+   "title": "Parasceve",
+   "slug": "parasceve",
+   "id": "11476a",
+   "kind": "topic",
+   "why": "Linked as “Parasceve” from article 06643a; scripture-dense (13 verse citations in 590 words)"
+  },
+  {
    "title": "Paschal Lamb",
    "slug": "paschal-lamb",
    "id": "08755a",
    "kind": "topic",
-   "why": "Linked as “Paschal lamb” from article 03166a; scripture-dense (16 verse citations in 305 words)"
+   "why": "Linked as “Paschal Lamb” from article 01517a; scripture-dense (16 verse citations in 305 words)"
   },
   {
    "title": "Passion of Jesus Christ",
@@ -5945,6 +7105,13 @@
    "id": "11530a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Passion Plays",
+   "slug": "passion-plays",
+   "id": "11531a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The modern drama does not originate in the ancient, but in the religious plays)"
   },
   {
    "title": "Passover",
@@ -5971,7 +7138,7 @@
    "title": "Patriarch",
    "slug": "patriarch",
    "id": "11548a",
-   "kind": "person",
+   "kind": "topic",
    "why": "Linked as “Patriarchs” from article 08329a; scripture-dense (36 verse citations in 1510 words)"
   },
   {
@@ -5982,11 +7149,32 @@
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Pectoral",
+   "slug": "pectoral",
+   "id": "11600b",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The breastplate worn by the high priest in the Old)"
+  },
+  {
    "title": "Pentapolis",
    "slug": "pentapolis",
    "id": "11646b",
    "kind": "place",
    "why": "Linked as “Pentapolis” from article 06428c; scripture-dense (11 verse citations in 744 words)"
+  },
+  {
+   "title": "Pentateuch",
+   "slug": "pentateuch",
+   "id": "11646c",
+   "kind": "book",
+   "why": "Article on the canonical book Exodus",
+   "books": [
+    "EXO",
+    "GEN",
+    "LEV",
+    "NUM",
+    "DEU"
+   ]
   },
   {
    "title": "Pentecost",
@@ -6066,6 +7254,13 @@
    ]
   },
   {
+   "title": "Philip the Apostle, Saint",
+   "slug": "philip-the-apostle-saint",
+   "id": "11799a",
+   "kind": "person",
+   "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
    "title": "Philippi",
    "slug": "philippi",
    "id": "12007b",
@@ -6125,6 +7320,20 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Plants in the Bible",
+   "slug": "plants-in-the-bible",
+   "id": "12149a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Discusses all of the types of plants mentioned in the Sacred)"
+  },
+  {
+   "title": "Polyglot Bibles",
+   "slug": "polyglot-bibles",
+   "id": "12222a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The first Bible which may be considered a Polyglot is that edited at Alcala,)"
+  },
+  {
    "title": "Pontius Pilate",
    "slug": "pontius-pilate",
    "id": "12083c",
@@ -6151,6 +7360,13 @@
    "id": "12345b",
    "kind": "topic",
    "why": "Linked as “Prayer” from article 01407b; scripture-dense (45 verse citations in 6511 words)"
+  },
+  {
+   "title": "Presentation of the Blessed Virgin Mary, Feast of the",
+   "slug": "presentation-of-the-blessed-virgin-mary-feast-of-the",
+   "id": "12400a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (According to some apocryphal writings, Mary, at the age of three, was brought)"
   },
   {
    "title": "Pretorium",
@@ -6215,11 +7431,25 @@
    ]
   },
   {
+   "title": "Psalterium",
+   "slug": "psalterium",
+   "id": "12543b",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The Book of the Psalms only concerns us here in so far as it was transcribed)"
+  },
+  {
    "title": "Ptolemais",
    "slug": "ptolemais",
    "id": "12553b",
    "kind": "place",
    "why": "Linked as “Ptolemais” from article 11567b; its title matches a place"
+  },
+  {
+   "title": "Purim",
+   "slug": "purim",
+   "id": "12580b",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Jewish feast that commemorates the deliverance of the Jews from)"
   },
   {
    "title": "Rabbi and Rabbinism",
@@ -6248,6 +7478,13 @@
    "id": "12677d",
    "kind": "topic",
    "why": "Linked as “Redemption” from article 01476d; scripture-dense (59 verse citations in 5020 words)"
+  },
+  {
+   "title": "Refuge, Cities of",
+   "slug": "refuge-cities-of",
+   "id": "12712a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Towns which according to the Jewish law enjoyed the right of asylum and to)"
   },
   {
    "title": "Resurrection of Jesus Christ",
@@ -6298,6 +7535,20 @@
    ]
   },
   {
+   "title": "Rome",
+   "slug": "rome",
+   "id": "13164a",
+   "kind": "place",
+   "why": "Hand-picked Scripture-related article (The significance of Rome lies primarily in the fact that it is the city of the)"
+  },
+  {
+   "title": "Rosh Hashanah",
+   "slug": "rosh-hashanah",
+   "id": "15070c",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The first day of Tishri (October), the seventh month of the Hebrew)"
+  },
+  {
    "title": "Ruth, Book of",
    "slug": "ruth-book-of",
    "id": "13276a",
@@ -6313,6 +7564,13 @@
    "id": "13285c",
    "kind": "topic",
    "why": "Linked as “Saba” from article 09527a; scripture-dense (16 verse citations in 1104 words)"
+  },
+  {
+   "title": "Sabaoth",
+   "slug": "sabaoth",
+   "id": "13286a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (In Hebrew, plural form of 'host' or 'army'. The word is used almost exclusively)"
   },
   {
    "title": "Sabbath",
@@ -6340,7 +7598,7 @@
    "slug": "sacrifice-of-the-mass",
    "id": "10006a",
    "kind": "topic",
-   "why": "Linked as “Eucharistic sacrifice” from article 07181a; scripture-dense (73 verse citations in 22246 words)"
+   "why": "Linked as “Mass” from article 05224d; scripture-dense (73 verse citations in 22246 words)"
   },
   {
    "title": "Sadducees",
@@ -6452,6 +7710,13 @@
    "why": "Linked as “Sea of Tiberias” from article 02313c; its title matches a place"
   },
   {
+   "title": "Septuagint Version",
+   "slug": "septuagint-version",
+   "id": "13722a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The first translation of the Hebrew Old Testament, made into popular Greek)"
+  },
+  {
    "title": "Seraphim",
    "slug": "seraphim",
    "id": "13725b",
@@ -6459,11 +7724,25 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Seven Deacons",
+   "slug": "seven-deacons",
+   "id": "13741c",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (The seven men elected by the whole company of the original Christian community)"
+  },
+  {
    "title": "Shem",
    "slug": "shem",
    "id": "13693a",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Shroud of Turin",
+   "slug": "shroud-of-turin",
+   "id": "13762a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (A relic now preserved at Turin, for which the claim is made that it is the)"
   },
   {
    "title": "Sidon",
@@ -6497,6 +7776,13 @@
    "title": "Simon Magus",
    "slug": "simon-magus",
    "id": "13797b",
+   "kind": "person",
+   "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Simon the Apostle, Saint",
+   "slug": "simon-the-apostle-saint",
+   "id": "13796b",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
   },
@@ -6536,6 +7822,13 @@
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Solomon, Psalms of",
+   "slug": "solomon-psalms-of",
+   "id": "14137a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Eighteen apocryphal psalms, extant in Greek, probably translated from a Hebrew,)"
+  },
+  {
    "title": "Son of God",
    "slug": "son-of-god",
    "id": "14142b",
@@ -6560,20 +7853,6 @@
    ]
   },
   {
-   "title": "Sparta",
-   "slug": "sparta",
-   "id": "14209b",
-   "kind": "person",
-   "why": "Linked as “Sparta” from article 04363b; scripture-dense (23 verse citations in 637 words)"
-  },
-  {
-   "title": "St. Philip the Apostle",
-   "slug": "st-philip-the-apostle",
-   "id": "11799a",
-   "kind": "place",
-   "why": "Linked as “Philip's” from article 02313c; scripture-dense (16 verse citations in 721 words)"
-  },
-  {
    "title": "St. Raphael",
    "slug": "st-raphael",
    "id": "12640b",
@@ -6593,6 +7872,20 @@
    "id": "14286b",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Stones, Precious, in the Bible",
+   "slug": "stones-precious-in-the-bible",
+   "id": "14304c",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Stones remarkable for their colour, brilliancy, or)"
+  },
+  {
+   "title": "Stoning in Scripture",
+   "slug": "stoning-in-scripture",
+   "id": "14308a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (At first an expression of popular fury analogous to 'lynching', later came to)"
   },
   {
    "title": "Susa",
@@ -6711,7 +8004,7 @@
    "slug": "the-annunciation",
    "id": "01541c",
    "kind": "topic",
-   "why": "Linked as “Annunciation” from article 08486b; its title matches a topic"
+   "why": "Linked as “Annunciation of the Blessed Virgin Mary” from article 01542a; its title matches a topic"
   },
   {
    "title": "The Church",
@@ -6739,7 +8032,7 @@
    "slug": "the-machabees",
    "id": "09493b",
    "kind": "topic",
-   "why": "Linked as “Machabean” from article 01601a; scripture-dense (30 verse citations in 2496 words)"
+   "why": "Linked as “Machabean” from article 01517a; scripture-dense (30 verse citations in 2496 words)"
   },
   {
    "title": "Thebes",
@@ -6866,11 +8159,25 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Transfiguration of Christ, Feast of the",
+   "slug": "transfiguration-of-christ-feast-of-the",
+   "id": "15019b",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Observed on August 6 to commemorate the manifestation of the Divine glory)"
+  },
+  {
    "title": "Troas",
    "slug": "troas",
    "id": "15063c",
    "kind": "place",
    "why": "Linked as “Troas” from article 01476d; its title matches a place"
+  },
+  {
+   "title": "Types in Scripture",
+   "slug": "types-in-scripture",
+   "id": "15107a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Offers several)"
   },
   {
    "title": "Tyre",
@@ -6901,11 +8208,25 @@
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Visitation of the Blessed Virgin Mary",
+   "slug": "visitation-of-the-blessed-virgin-mary",
+   "id": "15480a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (Article on the event and the)"
+  },
+  {
    "title": "Vulgate, Revision of",
    "slug": "vulgate-revision-of",
    "id": "15515b",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Wells in Scripture",
+   "slug": "wells-in-scripture",
+   "id": "15581a",
+   "kind": "topic",
+   "why": "Hand-picked Scripture-related article (It is difficult to realize the importance which a country like Palestine)"
   },
   {
    "title": "Wisdom, Book of",

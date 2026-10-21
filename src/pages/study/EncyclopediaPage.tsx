@@ -21,7 +21,7 @@ export default function EncyclopediaPage() {
         <Link to="/study/encyclopedia">← Catholic Encyclopedia</Link>
         <h1>{art.title}</h1>
         {art.author && <p className="muted">{art.author}</p>}
-        {art.blocks.map((b, i) => typeof b === 'string' ? <p key={i}>{readableText(b)}</p> : <h2 key={i}>{b.h}</h2>)}
+        {art.blocks.map((b, i) => typeof b === 'string' ? <p key={i}>{readableText(b)}</p> : 'q' in b ? <blockquote key={i}>{b.q}</blockquote> : <h2 key={i}>{b.h}</h2>)}
         <p className="small"><a href={art.url} target="_blank" rel="noreferrer">Original at New Advent ↗</a></p>
         {credit}
       </div>

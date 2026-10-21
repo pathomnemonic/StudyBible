@@ -1,9 +1,9 @@
-import { mkdirSync, readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { rmSync, mkdirSync, readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { CURATED, PUBLIC_DATA, RAW, Report, readJson, writeJson } from './lib/util';
 import { parseRefs } from '../../src/lib/refs';
 import { BOOKS, BOOK_BY_ID } from '../../src/lib/canon';
-import { BOOK_ARTICLES, MULTI_BOOK, TOPICS, TOPIC_PREFIXES, EXACT_PERSONS, PERSONS, PLACES, MANUAL } from './cathen-lists';
+import { BOOK_ARTICLES, MULTI_BOOK, TOPICS, TOPIC_PREFIXES, EXACT_PERSONS, KIND_FIX, PERSONS, PLACES, MANUAL } from './cathen-lists';
 
 /**
  * The Catholic Encyclopedia (Robert Appleton Company, New York, 1907-1914; 1913 printing), as transcribed by New Advent
@@ -161,7 +161,11 @@ export function selectCathen(write = false): Selected[] {
   const add = (e: { id: string; title: string }, kind: Selected['kind'], why: string, books?: string[]) => {
     if (drop.has(e.id)) return;
     const prev = out.get(e.id);
-    if (prev) { if (prev.kind !== 'book' && kind === 'book') { prev.kind = 'book'; prev.books = books; prev.why = why; } return; }
+    if (prev) {
+      if (prev.kind !== 'book' && kind === 'book') { prev.kind = 'book'; prev.books = books; prev.why = why; }
+      else if (prev.kind === 'book' && kind === 'book') prev.books = [...new Set([...(prev.books ?? []), ...(books ?? [])])];
+      return;
+    }
     out.set(e.id, { id: e.id, title: e.title, slug: '', kind, why, ...(books ? { books } : {}) });
   };
   // (a) canon books
@@ -249,6 +253,8 @@ export function selectCathen(write = false): Selected[] {
     } else { newRejected.push({ id, why: `linked as “${l.text}” from ${l.from} but its title “${title}” is not a biblical name/topic` }); rejected.add(id); }
   }
   // placeholders for linked-but-unfetched articles carry a provisional title: drop them from the list until fetched
+  { const o = out.get('11646c'); if (o) o.title = 'Pentateuch'; } // the index lists it as "Exodus (See Pentateuch)"
+  for (const [id, k] of Object.entries(KIND_FIX)) { const o = out.get(id); if (o) o.kind = k; }
   const list = [...out.values()].sort((a, b) => a.title.localeCompare(b.title));
   const slugs = new Set<string>();
   for (const s of list) {
@@ -377,6 +383,7 @@ export function buildCathen(report: Report) {
   const aliases = new Map<string, string[]>();
   for (const e of idx) (aliases.get(e.id) ?? aliases.set(e.id, []).get(e.id)!).push(e.title);
   const outDir = join(PUBLIC_DATA, 'encyclopedia');
+  rmSync(join(outDir, 'a'), { recursive: true, force: true });
   const index: any[] = [];
   const names: Record<string, { slug: string; rank: number }> = {};
   const rankOf: Record<string, number> = { book: 3, person: 2, place: 2, topic: 1 };
@@ -400,7 +407,7 @@ export function buildCathen(report: Report) {
     index.push({ slug: s.slug, title: a.title, kind: s.kind, words, refs: books ?? [], ...(books?.length === 1 ? { book: books[0] } : {}), ...(books?.length ? { books } : {}), ...(a.cites ? { cites: a.cites } : {}) });
     kindCount[s.kind] = (kindCount[s.kind] ?? 0) + 1;
     const keys = nameKeys(a.title, [...(aliases.get(s.id) ?? []), s.title]);
-    if (books?.length === 1) { const b = BOOK_BY_ID[books[0]]; for (const n of [b.name, b.douayName].filter(Boolean) as string[]) keys.add(n.toLowerCase()); }
+    for (const id of books ?? []) { const b = BOOK_BY_ID[id]; for (const n of [b.name, b.douayName].filter(Boolean) as string[]) { const k = n.toLowerCase(); if (!names[k]) names[k] = { slug: s.slug, rank: 0.5 }; } }
     per.set(s.slug, keys);
     for (const k of keys) if (!names[k] || names[k].rank < rankOf[s.kind]) names[k] = { slug: s.slug, rank: rankOf[s.kind] };
   }
@@ -411,6 +418,12 @@ export function buildCathen(report: Report) {
   for (const p of readJson<any[]>(join(PUBLIC_DATA, 'maps/places.json'))) { appList.push(p.n); if (p.r) appList.push(p.r); }
   for (const e of readJson<any>(join(CURATED, 'entities.json')).entities as any[]) for (const n of [e.name, ...(e.aliases ?? [])]) for (const part of String(n).split(/\s*\/\s*|\s*\(/)) appList.push(part.replace(/\)/g, ''));
   for (const p of readJson<any>(join(PUBLIC_DATA, 'reference/genealogies.json')).persons as any[]) appList.push(p.n);
+  // an entity's aliases (Abram for Abraham, Sara for Sarah ...) all point at the article any one of them resembles
+  for (const e of readJson<any>(join(CURATED, 'entities.json')).entities as any[]) {
+    const group = [e.name, ...(e.aliases ?? [])].flatMap((n: string) => String(n).split(/\s*\/\s*|\s*\(/)).map((n: string) => n.replace(/\)/g, '').trim()).filter(Boolean);
+    const hit = group.flatMap((n) => variants(n)).map((v) => allKeys.get(v)).find(Boolean);
+    if (hit) for (const n of group) { const k = fold(n).toLowerCase().trim(); if (!names[k]) names[k] = { slug: hit, rank: 0 }; }
+  }
   for (const n of appList) { const k = fold(n).toLowerCase().trim(); const hit = variants(n).map((v) => allKeys.get(v)).find(Boolean); if (hit && !names[k]) names[k] = { slug: hit, rank: 0 }; }
   const namesOut: Record<string, string> = {};
   for (const k of Object.keys(names).sort()) namesOut[k] = names[k].slug;
