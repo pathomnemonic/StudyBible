@@ -209,7 +209,8 @@ export function findDays(lines: string[], month: number, from: number): { day: n
   return found;
 }
 
-const AD_RE = /(In the press|Now ready|price \d+s|CARDINAL WISEMAN|CARDINAL ARCHBISHOP|Superfine Paper|PUBLISHED BY|JAMES DUFFY|cloth, lettered|Morocco, super|Douay Bible|Proved from Scripture|REAL (PRESENCE|NIESENCE)|^The Lives?\b|revealed religion)/i;
+const AD_PARA = /(In the press|Now ready|price \d+s|CARDINAL WISEMAN|Superfine Paper|PUBLISHED BY|JAMES DUFFY|cloth, lettered|Morocco, super|Royal 4to|Splendid Engravings)/i;
+const AD_HEAD = /^(Holy Eucharist Proved|The Douay Bible|The Real (Presence|Niesence)|The Lives?\b)/i;
 const STOP = /^\s*(END O[FP] VOL|BY THE REV|INDEX|ALPHABETICAL|CHRONOLOGICAL|CENTENARY|TABLE OF|END OF THE PROJECT)\b/i;
 
 const joinLines = (ls: string[], hyph: (a: string, b: string) => boolean) => {
@@ -381,11 +382,11 @@ export function buildButler(report: Report) {
         let entries = r.entries.filter((e) => e.text.join('').length > 20);
         if (k === days.length - 1 && s.kind === 'ocr') {
           // the publisher's advertisements after the last day
-          const bad = (t: string) => AD_RE.test(t);
           let cut = -1;
           for (let ei = 0; ei < entries.length && cut < 0; ei++) {
-            if (bad(entries[ei].heading)) { cut = ei; break; }
-            const pi = entries[ei].text.findIndex(bad);
+            if (AD_HEAD.test(entries[ei].heading)) { cut = ei; break; }
+            const tail = Math.max(0, entries[ei].text.length - 12);
+            const pi = entries[ei].text.findIndex((t, i) => i >= tail && AD_PARA.test(t));
             if (pi >= 0) { entries[ei].text = entries[ei].text.slice(0, pi); cut = entries[ei].text.length ? ei + 1 : ei; }
           }
           if (cut >= 0) entries = entries.slice(0, cut);
