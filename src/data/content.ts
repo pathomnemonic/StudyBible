@@ -195,3 +195,9 @@ export const getPeopleChunk = (n: number) => getJson<{ name: string; aliases?: s
 
 /** Cornelius a Lapide's Great Commentary (English, 1908) for the New Testament books the edition covers: rows [c1, v1, c2, v2, text] */
 export const getLapide = (book: string) => getJson<[number, number, number, number, string][]>(`commentary/lapide/${book}.json`, true).catch(() => null);
+
+/** The Catholic Encyclopedia (1913): which articles cite a verse, and the articles themselves */
+export const getEncByBook = (book: string) => getJson<[number, number, number, number, number][]>(`encyclopedia/by-book/${book}.json`, true).catch(() => null);
+export const getEncList = () => getJson<{ slug: string; title: string; kind: string; words: number }[]>('encyclopedia/list.json', true).catch(() => null);
+export interface EncArticle { slug: string; title: string; author?: string; url: string; blocks: (string | { h: string })[] }
+export const getEncArticle = (slug: string) => getJson<EncArticle>(`encyclopedia/a/${slug}.json`, true).catch(() => null);

@@ -503,7 +503,7 @@
   "[brenton] 99-XXAeng-Brenton.usfm: unhandled marker \\tr",
   "[brenton] 99-XXAeng-Brenton.usfm: unhandled marker \\tc1"
  ],
- "warningCount": 729,
+ "warningCount": 603,
  "stats": {
   "versification.unverifiedChapters": {
    "PSA": 18,
@@ -949,19 +949,159 @@
    "headings": 1338,
    "scriptureCitations": 3896
   },
+  "butler-01": {
+   "days": 31,
+   "entries": 150,
+   "missingDays": []
+  },
+  "butler-02": {
+   "days": 29,
+   "entries": 126,
+   "missingDays": []
+  },
+  "butler-03": {
+   "days": 31,
+   "entries": 120,
+   "missingDays": []
+  },
+  "butler-04": {
+   "days": 30,
+   "entries": 128,
+   "missingDays": []
+  },
+  "butler-05": {
+   "days": 31,
+   "entries": 211,
+   "missingDays": []
+  },
+  "butler-06": {
+   "days": 30,
+   "entries": 121,
+   "missingDays": []
+  },
+  "butler-07": {
+   "days": 31,
+   "entries": 136,
+   "missingDays": []
+  },
+  "butler-08": {
+   "days": 31,
+   "entries": 100,
+   "missingDays": []
+  },
+  "butler-09": {
+   "days": 30,
+   "entries": 116,
+   "missingDays": []
+  },
+  "butler-10": {
+   "days": 31,
+   "entries": 112,
+   "missingDays": []
+  },
+  "butler-11": {
+   "days": 30,
+   "entries": 110,
+   "missingDays": []
+  },
+  "butler-12": {
+   "days": 31,
+   "entries": 85,
+   "missingDays": []
+  },
+  "butler": {
+   "months": 12,
+   "entries": 1515,
+   "names": 1435,
+   "missing": []
+  },
+  "lapide:MAT": {
+   "rows": 638,
+   "chapters": 28,
+   "chapterLevel": 0,
+   "versesCovered": 635,
+   "versesTotal": 1071
+  },
+  "lapide:MRK": {
+   "rows": 153,
+   "chapters": 16,
+   "chapterLevel": 0,
+   "versesCovered": 137,
+   "versesTotal": 678
+  },
+  "lapide:LUK": {
+   "rows": 508,
+   "chapters": 24,
+   "chapterLevel": 1,
+   "versesCovered": 509,
+   "versesTotal": 1151
+  },
+  "lapide:JHN": {
+   "rows": 644,
+   "chapters": 21,
+   "chapterLevel": 0,
+   "versesCovered": 646,
+   "versesTotal": 879
+  },
+  "lapide:1JN": {
+   "rows": 88,
+   "chapters": 5,
+   "chapterLevel": 0,
+   "versesCovered": 87,
+   "versesTotal": 105
+  },
+  "lapide:2JN": {
+   "rows": 11,
+   "chapters": 1,
+   "chapterLevel": 0,
+   "versesCovered": 10,
+   "versesTotal": 13
+  },
+  "lapide:3JN": {
+   "rows": 10,
+   "chapters": 1,
+   "chapterLevel": 0,
+   "versesCovered": 9,
+   "versesTotal": 14
+  },
+  "lapide:1CO": {
+   "rows": 364,
+   "chapters": 16,
+   "chapterLevel": 0,
+   "versesCovered": 363,
+   "versesTotal": 437
+  },
+  "lapide:2CO": {
+   "rows": 231,
+   "chapters": 13,
+   "chapterLevel": 0,
+   "versesCovered": 219,
+   "versesTotal": 256
+  },
+  "lapide:GAL": {
+   "rows": 132,
+   "chapters": 6,
+   "chapterLevel": 0,
+   "versesCovered": 126,
+   "versesTotal": 149
+  },
+  "lapide": {
+   "books": 10,
+   "rows": 2779
+  },
   "cathen": {
-   "articles": 212,
-   "skipped": 128,
+   "articles": 493,
+   "skipped": 1,
    "byKind": {
-    "topic": 87,
-    "person": 53,
-    "book": 39,
-    "place": 33
+    "topic": 206,
+    "person": 111,
+    "book": 63,
+    "place": 113
    },
-   "names": 410,
-   "withCites": 192,
-   "cites": 6960,
-   "words": 693209,
+   "names": 845,
+   "withCites": 455,
+   "cites": 16134,
+   "words": 1376617,
    "missingBookArticles": [
     "GEN",
     "NUM",
@@ -1044,7 +1184,7 @@
    }
   },
   "names-index": {
-   "entries": 7305
+   "entries": 7798
   },
   "dictionary-easton": {
    "entries": 3964,

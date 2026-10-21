@@ -16,6 +16,7 @@ const DaysPage = lazy(() => import('./pages/DaysPage'));
 const CatechismPage = lazy(() => import('./pages/study/CatechismPage'));
 const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 const SaintsPage = lazy(() => import('./pages/study/SaintsPage'));
+const EncyclopediaPage = lazy(() => import('./pages/study/EncyclopediaPage'));
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
 const PathPage = lazy(() => import('./pages/study/PathsPage'));
 const PathsIndex = lazy(() => import('./pages/study/PathsPage').then((m) => ({ default: m.PathsIndex })));
@@ -155,6 +156,7 @@ export default function App() {
               <Route path="/study/gallery" element={<GalleryPage />} />
               <Route path="/study/catechism/:n?" element={<CatechismPage />} />
               <Route path="/study/saints/:md?" element={<SaintsPage />} />
+              <Route path="/study/encyclopedia/:slug?" element={<EncyclopediaPage />} />
               <Route path="/study/search" element={<SearchPage />} />
               <Route path="/study/topics/:id" element={<TopicPage />} />
               <Route path="/study/books/:id?" element={<BooksPage />} />

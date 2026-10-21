@@ -4,7 +4,7 @@ import type { AuthorityLevel, ItemFormat, Period } from '../lib/types';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
 import { getBook } from '../lib/canon';
 import {
-  CCC_OFFICIAL, cccUrl, getBiay, getLapide, getPeopleByBook, getPeopleChunk, getStepNamesByBook, getStepNamesChunk, getDictByBook, getDictChunk, getNaveByBook, getNaveChunk, getCatena, getCccLinks, getDoctrine, getGlossa, getGlossaEn, getHaydock, getChalloner, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex, getPlaces, getPlacesByBook, getTopicIndex, getTopicsByBook,
+  CCC_OFFICIAL, cccUrl, getBiay, getEncArticle, getEncByBook, getEncList, getLapide, getPeopleByBook, getPeopleChunk, getStepNamesByBook, getStepNamesChunk, getDictByBook, getDictChunk, getNaveByBook, getNaveChunk, getCatena, getCccLinks, getDoctrine, getGlossa, getGlossaEn, getHaydock, getChalloner, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex, getPlaces, getPlacesByBook, getTopicIndex, getTopicsByBook,
 } from '../data/content';
 import { getXrefs } from '../data/loader';
 import type { ResourceSource } from '../data/content';
@@ -21,7 +21,7 @@ export type SectionKey =
   | 'fathers' | 'saints'
   | 'xref'
   | 'catholic-answers' | 'creators' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
-  | 'dictionary' | 'people'
+  | 'dictionary' | 'people' | 'encyclopedia'
   | 'context' | 'language' | 'places' | 'topics' | 'parallels' | 'art' | 'background' | 'typology'
   | 'quotes' | 'customs' | 'structure' | 'wordnotes' | 'versions' | 'witnesses' | 'echoes' | 'genre' | 'dependency' | 'reception' // lenses
   | 'mine';
@@ -48,6 +48,7 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'art', label: 'Sacred art', hint: 'Public-domain paintings of scenes from the passage (The Metropolitan Museum of Art, open access).' },
   { key: 'parallels', label: 'Parallels and indexes', hint: 'Gospel parallels, parables, miracles, prophecy and fulfilment, covenants (an editorial index written for this app).' },
   { key: 'dictionary', label: 'Bible dictionaries', hint: 'Easton’s (1897) and Smith’s (1884) Bible dictionaries: entries on the people, places and things named in this passage. Nineteenth-century Protestant works, public domain; useful for background, not for Catholic doctrine.' },
+  { key: 'encyclopedia', label: 'The Catholic Encyclopedia', hint: 'Articles from the 1913 Catholic Encyclopedia that cite these verses or are about this book. Scholarship of its day (public domain); read it as background.' },
   { key: 'people', label: 'People named here', hint: 'Who is named in these verses, with family relations (Theographic, CC BY-SA) and a short description (STEPBible, CC BY; the descriptions were written with AI help and should be checked). Names only: it does not show where a person is first mentioned or dates.' },
   { key: 'places', label: 'Places', hint: 'Locations named in this passage (OpenBible.info geocoding, CC BY). Open the map.' },
   { key: 'topics', label: 'Topical index', hint: 'Topics people have tied to this passage (OpenBible.info, CC BY; community-voted, not Church-reviewed).' },
@@ -71,7 +72,7 @@ export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'teaching', label: 'Teaching', sections: ['catechism', 'magisterium', 'doctrine', 'liturgy', 'echoes', 'reception'] },
   { id: 'connections', label: 'Connections', sections: ['typology', 'quotes', 'xref', 'parallels', 'dependency', 'topics'] },
   { id: 'words', label: 'Words', sections: ['wordnotes', 'versions'] },
-  { id: 'world', label: 'World', sections: ['customs', 'people', 'background', 'dictionary', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
+  { id: 'world', label: 'World', sections: ['customs', 'encyclopedia', 'people', 'background', 'dictionary', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
   { id: 'media', label: 'Media', sections: ['art', 'catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
@@ -802,6 +803,39 @@ export const providers: Record<string, Provider> = {
     return out.slice(0, 10);
   },
 
+  /** Catholic Encyclopedia (1913) articles that cite the passage, narrowest first, then the book's own article */
+  async encyclopedia(refs) {
+    const [rows, list] = await Promise.all([getEncByBook(refs[0].book), getEncList()]);
+    if (!rows || !list) return [];
+    const best = new Map<number, number>();
+    for (const [c1, v1, c2, v2, idx] of rows) if (anyOverlap(refs, c1, v1, c2, v2)) best.set(idx, Math.min(best.get(idx) ?? 9999, c1 === c2 ? v2 - v1 : 9000));
+    const picks = [...best.entries()].sort((a, b) => a[1] - b[1]).slice(0, 6);
+    const out: StudyItem[] = [];
+    for (const [idx] of picks) {
+      const meta = list[idx];
+      const art = await getEncArticle(meta.slug);
+      if (!art) continue;
+      const paras = art.blocks.filter((b): b is string => typeof b === 'string');
+      const lead = paras.slice(0, 2).join('\n');
+      out.push({
+        id: `enc-${meta.slug}`,
+        section: 'encyclopedia',
+        title: art.title,
+        author: `The Catholic Encyclopedia (1913)${art.author ? ', ' + art.author : ''}`,
+        excerpt: trim(lead, 420),
+        internal: `/study/encyclopedia/${meta.slug}`,
+        authority: 'historical',
+        period: 'modern',
+        format: 'excerpt',
+        match: 'explicit-reference',
+        why: 'An article in the 1913 Catholic Encyclopedia that cites this passage (or, for a book of the Bible, is about it). Scholarship of its day, public domain via New Advent: helpful background, not a statement of Church teaching.',
+        sourceName: 'The Catholic Encyclopedia, 1913 (public domain), via New Advent',
+        kind: 'Catholic Encyclopedia',
+      });
+    }
+    return out;
+  },
+
   async external(refs) {
     const out: StudyItem[] = [];
     const book = refs[0].book;
@@ -1050,6 +1084,7 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     [['topics'], Promise.all([providers.topics(refs), providers.nave(refs)]).then(([a, b]) => [...a, ...b])],
     [['dictionary'], providers.dictionary(refs)],
     [['people'], providers.people(refs)],
+    [['encyclopedia'], providers.encyclopedia(refs)],
     [['mine'], providers.mine(refs)],
   ];
   emitExt('catholic-answers');

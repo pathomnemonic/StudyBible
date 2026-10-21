@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { CURATED, PUBLIC_DATA, RAW, Report, readJson, writeJson } from './lib/util';
 import { parseRefs } from '../../src/lib/refs';
 import { BOOKS, BOOK_BY_ID } from '../../src/lib/canon';
-import { BOOK_ARTICLES, MULTI_BOOK, TOPICS, TOPIC_PREFIXES, EXACT_PERSONS, PERSONS, PLACES } from './cathen-lists';
+import { BOOK_ARTICLES, MULTI_BOOK, TOPICS, TOPIC_PREFIXES, EXACT_PERSONS, PERSONS, PLACES, MANUAL } from './cathen-lists';
 
 /**
  * The Catholic Encyclopedia (Robert Appleton Company, New York, 1907-1914; 1913 printing), as transcribed by New Advent
@@ -194,6 +194,7 @@ export function selectCathen(write = false): Selected[] {
     if (k) add(e, k, `Title matches a biblical ${k} name (this app's data or the list of well-known biblical names)`);
     else if (isTopic(e.title)) add(e, 'topic', 'Scripture-related topic');
   }
+  for (const [id, kind] of MANUAL) { const e = idx.find((x) => x.id === id); if (e) add(e, kind, 'Hand-picked Scripture-related article (' + e.desc.slice(0, 80).replace(/\s+\S*$/, '') + ')'); }
   for (const m of manual) add(m, m.kind, m.why, m.books);
 
   // (d) cross-links: names that link to other articles from inside the articles already fetched (Genesis, Ezechiel ... are not in the index)

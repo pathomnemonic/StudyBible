@@ -21,5 +21,24 @@ export function buildNamesIndex(report: Report) {
     n += all.length;
     unlinkSync(peo);
   }
+  // the Catholic Encyclopedia: which articles cite which verses (a book's own article reaches the whole book)
+  const enc = join(PUBLIC_DATA, 'encyclopedia/index.json');
+  if (existsSync(enc)) {
+    const arts: { slug: string; title: string; kind: string; words: number; book?: string; cites?: string[] }[] = JSON.parse(readFileSync(enc, 'utf8')).articles;
+    const byBook: Record<string, number[][]> = {};
+    arts.forEach((a, idx) => {
+      const seen = new Set<string>();
+      for (const c of a.cites ?? []) {
+        const m = /^([A-Z0-9]{3})\.(\d+)\.(\d+)$/.exec(c);
+        if (!m || seen.has(c)) continue;
+        seen.add(c);
+        (byBook[m[1]] ??= []).push([+m[2], +m[3], +m[2], +m[3], idx]);
+      }
+      if (a.kind === 'book' && a.book) (byBook[a.book] ??= []).push([1, 1, 999, 999, idx]);
+    });
+    for (const [b, rows] of Object.entries(byBook)) writeJson(join(PUBLIC_DATA, 'encyclopedia/by-book', `${b}.json`), rows);
+    writeJson(join(PUBLIC_DATA, 'encyclopedia/list.json'), arts.map((a) => ({ slug: a.slug, title: a.title, kind: a.kind, words: a.words })));
+    n += arts.length;
+  }
   report.stats['names-index'] = { entries: n };
 }

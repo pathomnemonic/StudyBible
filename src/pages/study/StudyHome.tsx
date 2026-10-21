@@ -27,6 +27,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
       ['/study/doctrine', 'Doctrine & Catechism', 'Topics (Eucharist, Trinity, grace, Mary…) with Scripture and Catechism links.'],
       ['/study/church', 'Councils and Church documents', 'Councils, catechisms and encyclicals: read in full where public domain, official links for the rest.'],
       ['/study/fathers', 'Reading room: saints, Fathers, catechisms', 'Augustine, Chrysostom, Teresa, the Imitation of Christ and more, to read in full.'],
+      ['/study/encyclopedia', 'The Catholic Encyclopedia', 'The 1913 articles on the books of the Bible, its people, places and topics.'],
       ['/study/saints', 'Lives of the Saints', 'Alban Butler’s lives, day by day through the year.'],
       ['/study/quotations', 'Who quoted this verse?', 'Every Father and saint who cites a passage, fullest first.'],
       ['/study/voices', 'Voices through time', 'The Fathers and saints on one timeline, with the councils.'],
