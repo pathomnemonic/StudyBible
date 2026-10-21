@@ -4,6 +4,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
 import { useSettings } from '../lib/store';
 import { getJson } from '../data/loader';
+import { butlerFor } from '../study/butler';
 import { litDay } from '../liturgy/litcal';
 import { setAmbience, stopAmbience } from '../lib/ambience';
 import { newCard } from '../lib/srs';
@@ -21,7 +22,7 @@ export default function HomeExtras({ date, season, ref, label, onRandom }: { dat
   const plans = useLiveQuery(() => db.planProgress.filter((p) => p.status === 'active' && p.planId !== 'biay').toArray(), []) ?? [];
   const fav = useLiveQuery(() => db.cache.get(`daily-fav:${date}`), [date]);
   const memoed = useLiveQuery(() => (ref ? db.memory.where('ref').equals(refId(ref)).count() : 0), [ref && refId(ref)]) ?? 0;
-  const [saint, setSaint] = useState<{ name: string; authorId?: string } | null>(null);
+  const [saint, setSaint] = useState<{ name: string; authorId?: string; life?: string } | null>(null);
   const [playing, setPlaying] = useState(false);
   useEffect(() => () => { if (playing) stopAmbience(); }, [playing]);
   useEffect(() => {
@@ -33,7 +34,9 @@ export default function HomeExtras({ date, season, ref, label, onRandom }: { dat
       if (!e) return;
       const nm = e.name.toLowerCase();
       const hit = g?.works.find((w) => w.author.toLowerCase().split(/[ ,]+/).filter((t) => t.length > 4 && !['great', 'blessed', 'hippo', 'milan', 'lisieux'].includes(t)).some((t) => nm.includes(t)));
-      setSaint({ name: e.name.replace(/, .*$/, ''), authorId: hit?.authorId });
+      const nm2 = e.name.replace(/, .*$/, '');
+      butlerFor(e.name).then((md) => live && setSaint({ name: nm2, authorId: hit?.authorId, life: md ?? undefined }));
+      setSaint({ name: nm2, authorId: hit?.authorId });
     });
     return () => { live = false; };
   }, [date, s.diocese]);
@@ -52,7 +55,7 @@ export default function HomeExtras({ date, season, ref, label, onRandom }: { dat
       {plans.length > 0 && <Link to="/pray/plans">Your reading plan →</Link>}
       {season2 && <Link to={`/study/path/${season2[0]}`}>{season2[1]} (study path)</Link>}
       {season !== 'ordinary' && <button onClick={listen} aria-pressed={playing}>{playing ? '■ Stop' : '♪ Listen: chant and hymns for the season'}</button>}
-      {saint && <Link to={saint.authorId ? `/study/fathers?author=${saint.authorId}` : '/study/fathers'}>{saint.name}{saint.authorId ? ': read their words' : ''}</Link>}
+      {saint && <Link to={saint.authorId ? `/study/fathers?author=${saint.authorId}` : `/study/saints/${saint.life ?? date.slice(5)}?name=${encodeURIComponent(saint.name.replace(/^(saint|st\.)\s+/i, ''))}`}>{saint.name}{saint.authorId ? ': read their words' : saint.life ? ': read the life' : ': saints of the day'}</Link>}
       {ref && <Link to={`/share?ref=${encodeURIComponent(label)}`}>Make a picture of this verse</Link>}
       {ref && <button onClick={remember} disabled={memoed > 0}>{memoed > 0 ? '✓ In memorize' : 'Memorize this verse'}</button>}
       <button onClick={toggleFav} aria-pressed={!!fav} title="Keep this day in your favourites">{fav ? '★ Favourite' : '☆ Favourite day'}</button>

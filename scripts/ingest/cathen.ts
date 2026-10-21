@@ -55,7 +55,7 @@ export async function fetchCathen() {
   for (const l of LETTERS) await get(`${BASE}${l}.htm`, join(IDX, `${l}.htm`));
   console.log('cathen: index pages cached');
   // round 1: the selection from the index; round 2: names found as links inside those articles; round 3: links inside round 2
-  for (let round = 0; round < 3; round++) {
+  for (let round = 0; round < 4; round++) {
     const sel = selectCathen();
     const todo = sel.filter((s) => !existsSync(join(ART, `${s.id}.htm`)) && !existsSync(join(ART, `${s.id}.htm.404`)));
     console.log(`cathen: round ${round + 1}: ${sel.length} selected, ${todo.length} to fetch`);
@@ -136,6 +136,18 @@ const NOT_THESE = new Set(['sin', 'dan', 'ur', 'ai', 'nod', 'rama', 'rome', 'acr
 /** Titles that look like a biblical name but are about something else (a later saint, a council, an order ...). */
 const NOT_BIBLICAL = /\b(council|feast|knights|order|society|congregation|devotion|church of|sisters|diocese|archdiocese|university|abbey|basilica|religious|pennsylvania|kingdom of|pope|blessed|cardinal|bishop of|brothers|institute|college|seminary|missions?|vicariate|prefecture|province|monastery|synod|liturgy|rite)\b/i;
 
+/** An article that cites Scripture often (at least 8 verse citations and 3 per thousand words) is about a biblical subject; returns a note, else null. */
+function density(raw: string, id: string): { note: string; kind: Selected['kind'] } | null {
+  const a = parseArticle(raw, id);
+  if (!a || !a.cites) return null;
+  const per = (a.cites.length / a.words) * 1000;
+  if (a.cites.length < 8 || per < 3) return null;
+  const first = a.blocks.find((b) => typeof b === 'string') as string | undefined;
+  const lead = (first ?? '').slice(0, 300);
+  const kind = /\b(king|queen|prophet|patriarch|son of|daughter of|disciple|apostle|judge of|high priest|wife of|brother of|father of|martyr)\b/i.test(lead) ? 'person' : /\b(city|town|village|mountain|river|region|province|valley|lake|sea|island|country|district|territory)\b/i.test(lead) ? 'place' : 'topic';
+  return { note: `${a.cites.length} verse citations in ${a.words} words`, kind };
+}
+
 export function selectCathen(write = false): Selected[] {
   const idx = readIndex();
   const names = appNames();
@@ -192,6 +204,7 @@ export function selectCathen(write = false): Selected[] {
     return bookKeys.get(k);
   };
   const found = new Map<string, { text: string; from: string }>();
+  const linkCount = new Map<string, { n: number; text: string; from: string }>();
   const idxIds = new Set(idx.map((e) => e.id));
   if (existsSync(ART)) {
     for (const f of readdirSync(ART)) {
@@ -203,6 +216,8 @@ export function selectCathen(write = false): Selected[] {
         if (out.has(id) || found.has(id) || rejected.has(id) || drop.has(id)) continue;
         const t = plain(m[2]);
         if (!/^[A-Z0-9]/.test(t)) continue;
+        const lc = linkCount.get(id);
+        if (lc) lc.n++; else linkCount.set(id, { n: 1, text: t, from });
         // an index article was already judged by its own title; only articles outside the index are judged by their link text
         if (idxIds.has(id)) continue;
         const vs = variants(t);
@@ -212,16 +227,22 @@ export function selectCathen(write = false): Selected[] {
       }
     }
   }
+  // scripture-dense articles that several selected articles link to (tribes, kings, prophets, sects ... missing from the name lists)
+  for (const [id, l] of linkCount) if (l.n >= 2 && !found.has(id) && !out.has(id) && !rejected.has(id) && !drop.has(id)) found.set(id, { text: l.text, from: l.from });
   const newRejected: { id: string; why: string }[] = [...(prevFile.rejected ?? [])];
   for (const [id, l] of found) {
     const art = join(ART, `${id}.htm`);
     if (!existsSync(art)) { add({ id, title: l.text }, 'person', `Linked as “${l.text}” from article ${l.from}; kind and title confirmed after fetch`); continue; }
-    const h1 = /<h1[^>]*>([\s\S]*?)<\/h1>/.exec(readFileSync(art, 'utf8'));
+    const raw = readFileSync(art, 'utf8');
+    const h1 = /<h1[^>]*>([\s\S]*?)<\/h1>/.exec(raw);
     const title = h1 ? plain(h1[1]) : '';
     // the real title decides (it must itself be a biblical name, a canon book or a Scripture topic)
     const bk = isBookTitle(title);
     const kind = bk ? 'book' : kindOf(title, '') ?? (isTopic(title) ? 'topic' : null);
-    if (title && kind) {
+    const dense = !kind && title && !NOT_BIBLICAL.test(title) && title.length <= 40 ? density(raw, id) : null;
+    if (dense) {
+      add({ id, title }, dense.kind, `Linked as “${l.text}” from article ${l.from}; scripture-dense (${dense.note})`);
+    } else if (title && kind) {
       const books = bk ? [bk] : undefined;
       add({ id, title }, kind, `Linked as “${l.text}” from article ${l.from}; its title matches a ${bk ? 'canon book' : kind}`, books);
     } else { newRejected.push({ id, why: `linked as “${l.text}” from ${l.from} but its title “${title}” is not a biblical name/topic` }); rejected.add(id); }

@@ -12,7 +12,64 @@
   "13366b",
   "14287a"
  ],
- "rejected": [],
+ "rejected": [
+  {
+   "id": "01463d",
+   "why": "linked as “Jerusalem” from 01030b but its title “Ancona and Umana” is not a biblical name/topic"
+  },
+  {
+   "id": "02046a",
+   "why": "linked as “Athens” from 01117a but its title “Modern Diocese of Athens” is not a biblical name/topic"
+  },
+  {
+   "id": "13472a",
+   "why": "linked as “Sardis” from 01594b but its title “Sardes” is not a biblical name/topic"
+  },
+  {
+   "id": "09513b",
+   "why": "linked as “Midian” from 01663a but its title “Madianites” is not a biblical name/topic"
+  },
+  {
+   "id": "01661a",
+   "why": "linked as “Aquila” from 04364a but its title “The Archdiocese of Aquila” is not a biblical name/topic"
+  },
+  {
+   "id": "12543a",
+   "why": "linked as “PSALMS” from 04642b but its title “Alphabetic Psalms” is not a biblical name/topic"
+  },
+  {
+   "id": "01774d",
+   "why": "linked as “Asher” from 06341c but its title “Aser” is not a biblical name/topic"
+  },
+  {
+   "id": "13356b",
+   "why": "linked as “St. Joseph” from 06410a but its title “Diocese of St. Joseph” is not a biblical name/topic"
+  },
+  {
+   "id": "01032a",
+   "why": "linked as “Abdon” from 06428c but its title “Sts. Abdon and Sennen” is not a biblical name/topic"
+  },
+  {
+   "id": "04784a",
+   "why": "linked as “Didymus” from 08542b but its title “Didymus the Blind” is not a biblical name/topic"
+  },
+  {
+   "id": "03134b",
+   "why": "linked as “Caesarea” from 11567b but its title “Caesarea Palaestinae” is not a biblical name/topic"
+  },
+  {
+   "id": "01674a",
+   "why": "linked as “Arabia” from 11567b but its title “Vicariate Apostolic of Arabia” is not a biblical name/topic"
+  },
+  {
+   "id": "13689b",
+   "why": "linked as “Seleucia” from 11712a but its title “Seleucia Trachea” is not a biblical name/topic"
+  },
+  {
+   "id": "14290d",
+   "why": "linked as “St. Stephen” from 15367a but its title “St. Stephen Harding” is not a biblical name/topic"
+  }
+ ],
  "articles": [
   {
    "title": "\"God\", Etymology of the Word",
@@ -81,6 +138,20 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Accaron",
+   "slug": "accaron",
+   "id": "01093b",
+   "kind": "place",
+   "why": "Linked as “ACCARON” from article 06428c; its title matches a place"
+  },
+  {
+   "title": "Achaia",
+   "slug": "achaia",
+   "id": "01101c",
+   "kind": "place",
+   "why": "Linked as “Achaia” from article 01471a; its title matches a place"
+  },
+  {
    "title": "Acts of the Apostles",
    "slug": "acts-of-the-apostles",
    "id": "01117a",
@@ -110,6 +181,13 @@
    "id": "01146a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Adullam",
+   "slug": "adullam",
+   "id": "01162a",
+   "kind": "place",
+   "why": "Linked as “Adullam” from article 04642b; its title matches a place"
   },
   {
    "title": "Agabus",
@@ -164,6 +242,13 @@
    ]
   },
   {
+   "title": "Anathoth",
+   "slug": "anathoth",
+   "id": "01457a",
+   "kind": "place",
+   "why": "Linked as “Anathoth” from article 02319c; its title matches a place"
+  },
+  {
    "title": "Andrew, Saint (Apostle and Martyr)",
    "slug": "andrew-saint",
    "id": "01471a",
@@ -183,6 +268,13 @@
    "id": "01530c",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Annas",
+   "slug": "annas",
+   "id": "01536a",
+   "kind": "person",
+   "why": "Linked as “Annas” from article 01117a; its title matches a person"
   },
   {
    "title": "Antichrist",
@@ -251,6 +343,13 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Ascalon",
+   "slug": "ascalon",
+   "id": "01766b",
+   "kind": "place",
+   "why": "Linked as “Ascalon” from article 05737a; its title matches a place"
+  },
+  {
    "title": "Ascension",
    "slug": "ascension",
    "id": "01767a",
@@ -265,6 +364,13 @@
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Assuerus",
+   "slug": "assuerus",
+   "id": "02005c",
+   "kind": "person",
+   "why": "Linked as “Assuerus” from article 01476d; its title matches a person"
+  },
+  {
    "title": "Assyria",
    "slug": "assyria",
    "id": "02007c",
@@ -272,11 +378,25 @@
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Attalia",
+   "slug": "attalia",
+   "id": "02060b",
+   "kind": "place",
+   "why": "Linked as “Attalia” from article 01782a; its title matches a place"
+  },
+  {
    "title": "Augustus",
    "slug": "augustus",
    "id": "02107a",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Azotus",
+   "slug": "azotus",
+   "id": "02169a",
+   "kind": "place",
+   "why": "Linked as “Azotus” from article 06428c; its title matches a place"
   },
   {
    "title": "Baal, Baalim",
@@ -352,11 +472,25 @@
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Bersabee",
+   "slug": "bersabee",
+   "id": "02518a",
+   "kind": "place",
+   "why": "Linked as “Bersabee” from article 06428c; its title matches a place"
+  },
+  {
    "title": "Bethany",
    "slug": "bethany",
    "id": "02531a",
    "kind": "place",
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Bethel",
+   "slug": "bethel",
+   "id": "02532d",
+   "kind": "place",
+   "why": "Linked as “Bethel” from article 01476d; its title matches a place"
   },
   {
    "title": "Bethlehem",
@@ -366,11 +500,25 @@
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Bethlehem",
+   "slug": "bethlehem-2",
+   "id": "02532e",
+   "kind": "place",
+   "why": "Linked as “Bethlehem” from article 02533a; its title matches a place"
+  },
+  {
    "title": "Bethsaida",
    "slug": "bethsaida",
    "id": "02536a",
    "kind": "place",
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Bethulia",
+   "slug": "bethulia",
+   "id": "02537b",
+   "kind": "place",
+   "why": "Linked as “Bethulia” from article 06428c; its title matches a place"
   },
   {
    "title": "Bible, Authenticity of the",
@@ -429,11 +577,35 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Book of Micheas",
+   "slug": "book-of-micheas",
+   "id": "10278a",
+   "kind": "book",
+   "why": "Linked as “Micheas” from article 15464b; its title matches a canon book",
+   "books": [
+    "MIC"
+   ]
+  },
+  {
    "title": "Brethren of the Lord, The",
    "slug": "brethren-of-the-lord-the",
    "id": "02767a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Cades",
+   "slug": "cades",
+   "id": "03130a",
+   "kind": "place",
+   "why": "Linked as “Cades” from article 06428c; its title matches a place"
+  },
+  {
+   "title": "Caesarea",
+   "slug": "caesarea",
+   "id": "03133b",
+   "kind": "place",
+   "why": "Linked as “Caesarea” from article 05165b; its title matches a place"
   },
   {
    "title": "Cæsarea Philippi",
@@ -553,6 +725,13 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Chios",
+   "slug": "chios",
+   "id": "03689b",
+   "kind": "place",
+   "why": "Linked as “Chios” from article 01782a; its title matches a place"
+  },
+  {
    "title": "Christ, Temptation of",
    "slug": "christ-temptation-of",
    "id": "14504b",
@@ -662,11 +841,32 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Crescens",
+   "slug": "crescens",
+   "id": "04484b",
+   "kind": "person",
+   "why": "Linked as “Crescens” from article 11567b; its title matches a person"
+  },
+  {
    "title": "Crown of Thorns",
    "slug": "crown-of-thorns",
    "id": "04540b",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Cyprus",
+   "slug": "cyprus",
+   "id": "04589a",
+   "kind": "place",
+   "why": "Linked as “Cyprus” from article 01117a; its title matches a place"
+  },
+  {
+   "title": "Cyrene",
+   "slug": "cyrene",
+   "id": "04591b",
+   "kind": "place",
+   "why": "Linked as “Cyrene” from article 03588e; its title matches a place"
   },
   {
    "title": "Damascus",
@@ -749,6 +949,13 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Derbe",
+   "slug": "derbe",
+   "id": "04738c",
+   "kind": "place",
+   "why": "Linked as “Derbe” from article 01117a; its title matches a place"
+  },
+  {
    "title": "Deuteronomy",
    "slug": "deuteronomy",
    "id": "04761b",
@@ -821,6 +1028,13 @@
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Eleazar",
+   "slug": "eleazar",
+   "id": "05373b",
+   "kind": "person",
+   "why": "Linked as “Eleazar” from article 01003a; its title matches a person"
+  },
+  {
    "title": "Elias",
    "slug": "elias",
    "id": "05381b",
@@ -854,6 +1068,13 @@
    "id": "05405a",
    "kind": "place",
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Engaddi",
+   "slug": "engaddi",
+   "id": "05428a",
+   "kind": "place",
+   "why": "Linked as “ENGADDI” from article 06428c; its title matches a place"
   },
   {
    "title": "Enoch",
@@ -973,6 +1194,13 @@
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Gadara",
+   "slug": "gadara",
+   "id": "06332a",
+   "kind": "place",
+   "why": "Linked as “Gadara” from article 06428c; its title matches a place"
+  },
+  {
    "title": "Galatians, Epistle to the",
    "slug": "galatians-epistle-to-the",
    "id": "06336a",
@@ -995,6 +1223,13 @@
    "id": "06374b",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Gaza",
+   "slug": "gaza",
+   "id": "06399c",
+   "kind": "place",
+   "why": "Linked as “Gaza” from article 01117a; its title matches a place"
   },
   {
    "title": "Gedeon",
@@ -1023,6 +1258,13 @@
    "id": "06428c",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Gerasa",
+   "slug": "gerasa",
+   "id": "06469a",
+   "kind": "place",
+   "why": "Linked as “Gerasa” from article 04664b; its title matches a place"
   },
   {
    "title": "Gethsemane",
@@ -1096,6 +1338,13 @@
    ]
   },
   {
+   "title": "Hebron",
+   "slug": "hebron",
+   "id": "07184a",
+   "kind": "place",
+   "why": "Linked as “Hebron” from article 01035c; its title matches a place"
+  },
+  {
    "title": "Hell",
    "slug": "hell",
    "id": "07207a",
@@ -1136,6 +1385,13 @@
    "id": "05737a",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Hierapolis",
+   "slug": "hierapolis",
+   "id": "07322a",
+   "kind": "place",
+   "why": "Linked as “Hierapolis” from article 08492a; its title matches a place"
   },
   {
    "title": "High Priest, The",
@@ -1218,11 +1474,25 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Issachar",
+   "slug": "issachar",
+   "id": "08201a",
+   "kind": "person",
+   "why": "Linked as “Issachar” from article 06428c; its title matches a person"
+  },
+  {
    "title": "Jacob",
    "slug": "jacob",
    "id": "08261a",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Jaffa",
+   "slug": "jaffa",
+   "id": "08268a",
+   "kind": "place",
+   "why": "Linked as “Joppe” from article 01129a; its title matches a place"
   },
   {
    "title": "James the Greater, Saint",
@@ -1256,6 +1526,20 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Jehu",
+   "slug": "jehu",
+   "id": "08332a",
+   "kind": "person",
+   "why": "Linked as “Jehu” from article 11337a; its title matches a person"
+  },
+  {
+   "title": "Jephte",
+   "slug": "jephte",
+   "id": "08333b",
+   "kind": "person",
+   "why": "Linked as “Jephte” from article 01431b; its title matches a person"
+  },
+  {
    "title": "Jeremiah the Prophet",
    "slug": "jeremiah-the-prophet",
    "id": "08334a",
@@ -1264,6 +1548,13 @@
    "books": [
     "JER"
    ]
+  },
+  {
+   "title": "Jericho",
+   "slug": "jericho",
+   "id": "08339a",
+   "kind": "place",
+   "why": "Linked as “Jericho” from article 01721a; its title matches a place"
   },
   {
    "title": "Jeroboam",
@@ -1523,6 +1814,13 @@
    ]
   },
   {
+   "title": "Laban",
+   "slug": "laban",
+   "id": "08717b",
+   "kind": "place",
+   "why": "Linked as “Laban” from article 02548a; its title matches a place"
+  },
+  {
    "title": "Laodicea",
    "slug": "laodicea",
    "id": "08794a",
@@ -1556,6 +1854,13 @@
    "id": "09096a",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Lebanon",
+   "slug": "lebanon",
+   "id": "09104a",
+   "kind": "place",
+   "why": "Linked as “Lebanon” from article 06428c; its title matches a place"
   },
   {
    "title": "Levites",
@@ -1606,6 +1911,27 @@
    ]
   },
   {
+   "title": "Lydda",
+   "slug": "lydda",
+   "id": "09468b",
+   "kind": "place",
+   "why": "Linked as “Lydda” from article 06428c; its title matches a place"
+  },
+  {
+   "title": "Lysias",
+   "slug": "lysias",
+   "id": "09478b",
+   "kind": "person",
+   "why": "Linked as “Lysias” from article 01058c; its title matches a person"
+  },
+  {
+   "title": "Lystra",
+   "slug": "lystra",
+   "id": "09478c",
+   "kind": "place",
+   "why": "Linked as “Lystra” from article 01117a; its title matches a place"
+  },
+  {
    "title": "Machabees, The Books of",
    "slug": "machabees-the-books-of",
    "id": "09495a",
@@ -1615,6 +1941,13 @@
     "1MA",
     "2MA"
    ]
+  },
+  {
+   "title": "Mageddo",
+   "slug": "mageddo",
+   "id": "09526a",
+   "kind": "place",
+   "why": "Linked as “Megiddo” from article 02179b; its title matches a place"
   },
   {
    "title": "Magi",
@@ -1639,6 +1972,13 @@
    "books": [
     "MAL"
    ]
+  },
+  {
+   "title": "Manasses",
+   "slug": "manasses",
+   "id": "09583c",
+   "kind": "person",
+   "why": "Linked as “Manasses” from article 06428c; its title matches a person"
   },
   {
    "title": "Manna",
@@ -1717,6 +2057,13 @@
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Memphis",
+   "slug": "memphis",
+   "id": "10176a",
+   "kind": "place",
+   "why": "Linked as “Memphis” from article 02007c; its title matches a place"
+  },
+  {
    "title": "Messias",
    "slug": "messias",
    "id": "10212c",
@@ -1729,6 +2076,13 @@
    "id": "10275b",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Miletus",
+   "slug": "miletus",
+   "id": "10303c",
+   "kind": "place",
+   "why": "Linked as “Miletus” from article 01782a; its title matches a place"
   },
   {
    "title": "Millennium and Millenarianism",
@@ -1752,6 +2106,13 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Mitylene",
+   "slug": "mitylene",
+   "id": "10407a",
+   "kind": "place",
+   "why": "Linked as “Mitylene” from article 11567b; its title matches a place"
+  },
+  {
    "title": "Moab, Moabites",
    "slug": "moab-moabites",
    "id": "10409b",
@@ -1764,6 +2125,13 @@
    "id": "10596a",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Myra",
+   "slug": "myra",
+   "id": "10661a",
+   "kind": "place",
+   "why": "Linked as “Myra” from article 11567b; its title matches a place"
   },
   {
    "title": "Nahum",
@@ -1894,6 +2262,13 @@
    ]
   },
   {
+   "title": "Paphos",
+   "slug": "paphos",
+   "id": "11457b",
+   "kind": "place",
+   "why": "Linked as “Paphos” from article 09672c; its title matches a place"
+  },
+  {
    "title": "Parables",
    "slug": "parables",
    "id": "11460a",
@@ -1929,6 +2304,13 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Patara",
+   "slug": "patara",
+   "id": "11541a",
+   "kind": "place",
+   "why": "Linked as “Patara” from article 11567b; its title matches a place"
+  },
+  {
    "title": "Patmos",
    "slug": "patmos",
    "id": "11547a",
@@ -1955,6 +2337,13 @@
    "id": "11661a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Pergamus",
+   "slug": "pergamus",
+   "id": "11666a",
+   "kind": "place",
+   "why": "Linked as “Pergamum” from article 01594b; its title matches a place"
   },
   {
    "title": "Persia",
@@ -2013,6 +2402,13 @@
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Philippi",
+   "slug": "philippi-2",
+   "id": "12007c",
+   "kind": "place",
+   "why": "Linked as “Philippi” from article 01117a; its title matches a place"
+  },
+  {
    "title": "Philippians, Epistle to the",
    "slug": "philippians-epistle-to-the",
    "id": "12008a",
@@ -2037,6 +2433,13 @@
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Pisidia",
+   "slug": "pisidia",
+   "id": "12116b",
+   "kind": "place",
+   "why": "Linked as “Pisidia” from article 01117a; its title matches a place"
+  },
+  {
    "title": "Plagues of Egypt",
    "slug": "plagues-of-egypt",
    "id": "12143a",
@@ -2049,6 +2452,13 @@
    "id": "12083c",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Pontus",
+   "slug": "pontus",
+   "id": "12234c",
+   "kind": "place",
+   "why": "Linked as “Pontus” from article 01051a; its title matches a place"
   },
   {
    "title": "Possession, Demonical",
@@ -2106,6 +2516,20 @@
    ]
   },
   {
+   "title": "Ptolemais",
+   "slug": "ptolemais",
+   "id": "12553b",
+   "kind": "place",
+   "why": "Linked as “Ptolemais” from article 11567b; its title matches a place"
+  },
+  {
+   "title": "Rachel",
+   "slug": "rachel",
+   "id": "12630a",
+   "kind": "person",
+   "why": "Linked as “Rachel” from article 02533a; its title matches a person"
+  },
+  {
    "title": "Red Sea",
    "slug": "red-sea",
    "id": "12688a",
@@ -2132,6 +2556,13 @@
    "id": "13214b",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Rhodes",
+   "slug": "rhodes",
+   "id": "13024b",
+   "kind": "place",
+   "why": "Linked as “Rhodes” from article 01782a; its title matches a place"
   },
   {
    "title": "Romans, Epistle to the",
@@ -2182,6 +2613,13 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Salamis",
+   "slug": "salamis",
+   "id": "13393a",
+   "kind": "place",
+   "why": "Linked as “Salamis” from article 04775c; its title matches a place"
+  },
+  {
    "title": "Salome",
    "slug": "salome",
    "id": "13403a",
@@ -2194,6 +2632,13 @@
    "id": "13416a",
    "kind": "place",
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Samos",
+   "slug": "samos",
+   "id": "13421c",
+   "kind": "place",
+   "why": "Linked as “Samos” from article 01782a; its title matches a place"
   },
   {
    "title": "Samson",
@@ -2219,6 +2664,13 @@
    "id": "13444a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Sarepta",
+   "slug": "sarepta",
+   "id": "13476a",
+   "kind": "place",
+   "why": "Linked as “Sarepta” from article 05381b; its title matches a place"
   },
   {
    "title": "Satan",
@@ -2256,6 +2708,13 @@
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
   },
   {
+   "title": "Siloe",
+   "slug": "siloe",
+   "id": "13792a",
+   "kind": "place",
+   "why": "Linked as “Siloe” from article 02536a; its title matches a place"
+  },
+  {
    "title": "Simeon",
    "slug": "simeon",
    "id": "13794b",
@@ -2282,6 +2741,13 @@
    "id": "14011a",
    "kind": "place",
    "why": "Title matches a biblical place name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Sion",
+   "slug": "sion",
+   "id": "14014c",
+   "kind": "place",
+   "why": "Linked as “Sion” from article 05692b; its title matches a place"
   },
   {
    "title": "Smyrna",
@@ -2329,11 +2795,32 @@
    ]
   },
   {
+   "title": "St. Tychicus",
+   "slug": "st-tychicus",
+   "id": "15106c",
+   "kind": "person",
+   "why": "Linked as “Tychicus” from article 11567b; its title matches a person"
+  },
+  {
    "title": "Stephen, Saint",
    "slug": "stephen-saint",
    "id": "14286b",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Susa",
+   "slug": "susa",
+   "id": "14344a",
+   "kind": "place",
+   "why": "Linked as “Susa” from article 02179b; its title matches a place"
+  },
+  {
+   "title": "Syene",
+   "slug": "syene",
+   "id": "14367a",
+   "kind": "place",
+   "why": "Linked as “Syene” from article 05329b; its title matches a place"
   },
   {
    "title": "Synagogue",
@@ -2427,6 +2914,13 @@
    "why": "Scripture-related topic"
   },
   {
+   "title": "Thebes",
+   "slug": "thebes",
+   "id": "14562b",
+   "kind": "place",
+   "why": "Linked as “Thebes” from article 02007c; its title matches a place"
+  },
+  {
    "title": "Theophilus",
    "slug": "theophilus",
    "id": "14625a",
@@ -2457,6 +2951,13 @@
    "id": "14658b",
    "kind": "person",
    "why": "Title matches a biblical person name (this app's data or the list of well-known biblical names)"
+  },
+  {
+   "title": "Thyatira",
+   "slug": "thyatira",
+   "id": "14713c",
+   "kind": "place",
+   "why": "Linked as “Thyatira” from article 01594b; its title matches a place"
   },
   {
    "title": "Tiberias",
@@ -2535,6 +3036,13 @@
    "id": "15019a",
    "kind": "topic",
    "why": "Scripture-related topic"
+  },
+  {
+   "title": "Troas",
+   "slug": "troas",
+   "id": "15063c",
+   "kind": "place",
+   "why": "Linked as “Troas” from article 01476d; its title matches a place"
   },
   {
    "title": "Tyre",

@@ -82,6 +82,32 @@ Only articles useful for Bible study are fetched, not the whole work: one per ca
 
 `scripts/ingest/cathen.ts fetch` (User-Agent `StudyBibleApp/1.0`, at least 1.2 s between requests, resumable; raw HTML in `data/raw/cathen/`, git-ignored) and the `cathen` build step write `public/data/encyclopedia/`: `index.json` (articles with kind, word count, `refs` = the book id(s) for book articles, and verse-level `cites`), `names.json` (lower-case names and the app's own spellings to slug) and `a/<slug>.json` (title, author, URL, blocks of paragraphs, `{h}` headings and `{q}` quotations). `cites` come only from explicit citations in the text ("Gen., xii, 1", read in the Douay/Vulgate numbering the app anchors use) and from the article's own links to New Advent's Bible pages; "I/II Kings" citations are skipped because they are ambiguous. People and places have no `refs`.
 
+## Butler's Lives of the Saints: full text, public domain (saint of the day)
+
+Alban Butler (1710-1773), *The Lives of the Fathers, Martyrs, and Other Principal Saints* (first published 1756-59). Butler died in 1773 and every edition used here is pre-1929, so the text is public domain. Fetched once by `npx tsx scripts/ingest/butler.ts fetch` (1.2 s apart, identifying User-Agent) into `data/raw/butler` (ignored by git); `buildButler` (also run by `data:build`) writes `public/data/saints/butler/`: `MM.json` (`{ month, source, edition, days: { DD: [ { name, heading, text: [paragraphs] } ] } }`), `index.json` (source, edition, entry counts, missing days/months per month) and `names.json` (simplified lowercase saint names, "St."/"B." and titles stripped, to `["MM-DD"]`, for matching the liturgical calendar).
+
+No single digital edition covers the year, so the months come from different editions:
+
+| Months | Source | Edition | Quality |
+| --- | --- | --- | --- |
+| Jan, Feb, Mar | Project Gutenberg #20450 | New York: P. J. Kenedy, 1903 (transcribed by Geoff Horton) | hand-transcribed; doubtful readings marked `{...}` by the transcriber |
+| Apr | archive.org `livesfathersmar03butlgoog` | Dublin: James Duffy, 1866, vol. IV (Google scan) | unproofread OCR |
+| May | archive.org `livesoffathersma456butl` | New York: D. & J. Sadlier, 1846, vols. 4-6 | unproofread OCR |
+| Jun | archive.org `livesfathersmar06butlgoog` | Dublin: James Duffy, 1866, vol. VI (Google scan) | unproofread OCR |
+| Jul | Project Gutenberg #49604 | New York: P. J. Kenedy, 1908, vol. VII | proofread (Distributed Proofreaders) |
+| Aug | archive.org `the_lives_of_the_fathers_martyrs_vol_viii_1866-alban_butler` | 1866 edition, vol. VIII (Google scan; the scan gives no publisher in its metadata) | unproofread OCR |
+| Sep | archive.org `livesfathersmar00butlgoog` | Dublin: James Duffy, 1866, vol. IX (Google scan) | unproofread OCR |
+| Oct, Nov, Dec | archive.org `livesoffathersm10butluoft` | New York: P. J. Kenedy, 1903, vol. 10 (Toronto scan) | unproofread OCR |
+
+Not used: Baring-Gould's *Lives of the Saints* (a different work, Gutenberg #46947 etc.); Benziger's one-saint-a-day abridgement; 1950s-60s Virtue/Kelly editions (still in copyright).
+
+Notes and limits:
+
+- **Dates are Butler's 18th-century ones.** Feasts have since moved (for example, many are now on a different day or not in the Roman calendar at all), so a saint of today's calendar may be under another day, or absent. Use `names.json` to look a saint up and do not assume the same day.
+- Text is as printed (archaic spelling, "Mahomet" and similar kept). Only line-break artifacts are repaired: hard-wrapped lines joined, end-of-line hyphens removed, running heads and page numbers dropped, paragraphs split by a page break rejoined. Footnotes, footnote markers and Gutenberg's `{page}` marks are left out; Gutenberg's `_italics_` marks are removed.
+- **OCR months (Apr-Jun, Aug-Dec) have recognition errors** (for example "8t." for "St.", stray characters, a few missing or merged entries, odd headings). Entries are separated by finding capitalised headings, so a damaged heading can merge two entries or split one. `name` is the heading in title case; `heading` is the heading as printed. Day headings lost to OCR were located from the page running heads; the missing "MARCH V." line in the Gutenberg Jan-Mar text was restored from that book's own table of contents (St. Adrian opens March 5).
+- Publisher advertisements after the last day of an OCR volume are cut off, by pattern; a few lines may remain.
+
 ## Official documents: linked
 
 Vatican.va URLs (all checked to resolve). Authority labels follow the document type (conciliar constitutions = doctrine; encyclicals/exhortations = authoritative teaching).

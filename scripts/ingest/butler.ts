@@ -209,7 +209,7 @@ export function findDays(lines: string[], month: number, from: number): { day: n
   return found;
 }
 
-const AD_PARA = /(In the press|Now ready|price \d+s|CARDINAL WISEMAN|Superfine Paper|PUBLISHED BY|JAMES DUFFY|cloth, lettered|Morocco, super|Royal 4to|Splendid Engravings)/i;
+const AD_PARA = /(In the press|Now ready|price \d+s|CARDINAL WISEMAN|Superfine Paper|cloth, lettered|Morocco, super|Royal 4to|Splendid Engravings|EMINENCE THE LATE|WISEMA|Unabri|Unabi-|Alphabetical and|PATE ?RN ?OSTER|Cardinal Archbishop|NIESENCE|CAKDINAL|CARDIXAL)/i;
 const AD_HEAD = /^(Holy Eucharist Proved|The Douay Bible|The Real (Presence|Niesence)|The Lives?\b)/i;
 const STOP = /^\s*(END O[FP] VOL|BY THE REV|INDEX|ALPHABETICAL|CHRONOLOGICAL|CENTENARY|TABLE OF|END OF THE PROJECT)\b/i;
 
@@ -234,6 +234,7 @@ export function titleCase(h: string): string {
     .replace(/(^|[\s(\-"“'‘])([a-zà-ÿ])/g, (m, p, c, off) => {
       return p + c.toUpperCase();
     })
+    .replace(/(['’])S\b/g, '$1s')
     .replace(/\b(Of|The|And|Or|In|At|On|De|Du|Des|La|Le|Von|Van|Der|Near|For|To|With|By|From|Alias|Otherwise)\b/g, (w, _a, off) => (off === 0 ? w : w.toLowerCase()))
     .replace(/\b(Ss|Bb)\./g, (w) => w.toUpperCase())
     .replace(/\b([Ii]{1,3}|[Ii][Vv]|[Vv][Ii]{0,3}|[Ii][Xx]|[Xx]{1,3})\b(?=[.,]|$)/g, (w) => w.toUpperCase())
@@ -257,7 +258,12 @@ function parseDay(lines: string[], hyph: (a: string, b: string) => boolean, ocr:
   // lines -> blocks (paragraphs)
   let blocks: string[] = [];
   let cur: string[] = [];
-  const push = () => { if (cur.length) blocks.push(joinLines(cur, hyph)); cur = []; };
+  const push = () => {
+    // a heading sometimes sits in the same block as the source line that follows it (no blank line between)
+    while (cur.length > 1 && isHeadingBlock(cur[0].trim()) && cur[0].trim().length > 4) blocks.push(joinLines([cur.shift()!], hyph));
+    if (cur.length) blocks.push(joinLines(cur, hyph));
+    cur = [];
+  };
   for (const l of lines) { if (isBlank(l) || l.startsWith('@@RH:')) push(); else cur.push(l); }
   push();
   if (ocr) {
@@ -275,7 +281,8 @@ function parseDay(lines: string[], hyph: (a: string, b: string) => boolean, ocr:
   let cu: Entry | null = null;
   let orphan = 0;
   const fin = () => { if (head) { const h = head.join(' ').replace(/[*†‡§]+/g, '').replace(/^[\s_]+|[\s_]+$/g, '').replace(/\s+/g, ' ').trim(); cu = { name: titleCase(h), heading: h, text: [] }; entries.push(cu); head = null; } };
-  for (const b of blocks) {
+  for (let b of blocks) {
+    if (/^(Also|Another)\b,?\s+(ST\.?|SS\.?|S\.|SAINT|B\.)\s/.test(b) && isHeadingBlock(b.replace(/^(Also|Another),?\s+/, ''))) b = b.replace(/^(Also|Another),?\s+/, '');
     // OCR leftovers of running heads ("154 ST. ANICETUS [APRIL 17*") are not headings
     if (ocr && isHeadingBlock(b) && (/[\[\]|^]/.test(b) || /^\d{1,3}\s/.test(b))) continue;
     if (isHeadingBlock(b) && (head || !cu || STARTS_ENTRY.test(b))) {
@@ -308,13 +315,13 @@ export function nameKeys(heading: string): string[] {
   // the part before the first comma is the saint ("St. Rumold, B. M." -> "rumold"); "or X" / "alias X" give other forms
   const main = heading.replace(/\[\d+\]/g, '').split(/[,;]/)[0];
   const stripped = main.replace(LEAD, '');
-  const add = (x: string) => { const k = simplify(x.replace(LEAD, '')); if (k.length > 2 && !/^(the|and|of)$/.test(k)) keys.add(k); };
+  const add = (x: string) => { const k = simplify(x.replace(LEAD, '').replace(/['’]s\b/gi, '')); if (k.length > 2 && !/^(the|and|of)$/.test(k)) keys.add(k); };
   add(stripped);
   for (const alt of stripped.split(/\s+(?:or|alias|otherwise called|otherwise)\s+/i)) add(alt);
   if (/^ss\.?\s/i.test(main) || /^saints\s/i.test(main)) for (const p of stripped.split(/\s+and\s+|\s*&\s*/i)) add(p);
-  // the full heading minus the title words, for names like "John of the Cross"
-  const afterOr = heading.split(/[,;]/).slice(0, 2).join(' ');
-  void afterOr;
+  // feasts named for a saint ("The Nativity of St. John Baptist"): the saint inside the heading
+  const tc = titleCase(heading.split(/[,;]/)[0]);
+  for (const m of tc.matchAll(/\b(?:St\.?|Saint)\s+([A-Z][\wà-ÿ'’-]+(?:\s+(?:of|the|de|du)\s+[A-Z][\wà-ÿ'’-]+|\s+[A-Z][\wà-ÿ'’-]+){0,2})/g)) add(m[1]);
   return [...keys];
 }
 
@@ -382,7 +389,7 @@ export function buildButler(report: Report) {
         let entries = r.entries.filter((e) => e.text.join('').length > 20);
         if (k === days.length - 1 && s.kind === 'ocr') {
           // the publisher's advertisements after the last day
-          let cut = -1;
+          let cut = -1; if (process.env.BDEBUG) console.log("LAST", label, entries.map((e) => [e.heading.slice(0, 40), e.text.length]));
           for (let ei = 0; ei < entries.length && cut < 0; ei++) {
             if (AD_HEAD.test(entries[ei].heading)) { cut = ei; break; }
             const tail = Math.max(0, entries[ei].text.length - 12);
