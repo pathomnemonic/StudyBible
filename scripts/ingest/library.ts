@@ -1,3 +1,5 @@
+import { plainCitations } from './lib/citations';
+import { quotedVerses } from './lib/quotes';
 import { plainNumerals } from '../../src/lib/readable';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -180,6 +182,19 @@ export function buildLibrary(report: Report) {
       for (const w of new Set(tokenize(sec.title + ' ' + sec.paras.join(' ')))) (postings.get(w) ?? postings.set(w, []).get(w)!).push(globalIdx);
       globalIdx++;
     });
+    // these texts carry no scripture tags: read the citations out of the running text
+    sections.forEach((sec, idx) => {
+      const best = new Map<string, { ref: Ref; snippet: string; pi: number }>();
+      sec.paras.forEach((p, pi) => {
+        if (p.length < 45) return;
+        for (const ref of [...plainCitations(p), ...quotedVerses(p)]) {
+          const k = refId(ref);
+          const cur = best.get(k);
+          if (!cur || p.length > cur.snippet.length) best.set(k, { ref, snippet: p.slice(0, 700), pi });
+        }
+      });
+      for (const h of best.values()) { pushScripture(h.ref.book, [h.ref.c1, h.ref.v1 ?? 0, h.ref.c2, h.ref.v2 ?? 0, cfg.id, idx, 't', h.snippet, h.pi]); sec.scripture.push(refId(h.ref)); }
+    });
     writeJson(join(PUBLIC_DATA, 'library/works', `${cfg.id}.json`), { id: cfg.id, sections });
     meta.push({
       id: cfg.id, title: cfg.title, author: cfg.author, authorId: cfg.authorId, period: cfg.period, authority: cfg.authority, kind: cfg.kind, year: cfg.year,
@@ -187,7 +202,7 @@ export function buildLibrary(report: Report) {
       translator: (cfg as any).translator, rightsEvidence: (cfg as any).rightsEvidence,
       source: { name: src.sourceName, url: src.sourceUrl, retrieved: today() },
       rights: 'public-domain', format: 'full-text',
-      sections: sections.map((s) => ({ id: s.id, title: s.title, scripture: [], words: s.paras.reduce((a, p) => a + p.split(' ').length, 0) })),
+      sections: sections.map((s) => ({ id: s.id, title: s.title, scripture: s.scripture, words: s.paras.reduce((a, p) => a + p.split(' ').length, 0) })),
     });
     report.stats[`library.${cfg.id}`] = { sections: sections.length };
     if (!sections.length) report.warn(`library: ${cfg.id} produced no sections`);
@@ -231,6 +246,7 @@ export function buildLibrary(report: Report) {
         // a paragraph that is only a string of references (a translator's footnote such as "Wisd. ix. 17–19.") says nothing about the verse
         const prose = plain(raw.replace(/<scripRef[\s\S]*?<\/scripRef>/g, '')).replace(/[^A-Za-z]/g, '');
         if (prose.length < 45) continue;
+        if (t.length >= 45) for (const ref of [...(raw.includes('<scripRef') ? [] : plainCitations(t)), ...quotedVerses(t)]) hits.push({ ref, snippet: context.slice(0, 700), pi: paras.length - 1 });
         for (const r of scripRefs(raw)) {
           const p = parseOsis(r.osis);
           if (!p || p.v1 === undefined) continue;
