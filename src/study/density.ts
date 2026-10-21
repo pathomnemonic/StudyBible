@@ -1,4 +1,4 @@
-import { getChalloner, getCatena, getCccLinks, getHaydock, getLibScripture, getResourceRefs } from '../data/content';
+import { getLapide, getChalloner, getCatena, getCccLinks, getHaydock, getLibScripture, getResourceRefs } from '../data/content';
 import { parseRefId } from '../lib/refs';
 
 /** How far a note reaches. A note on one verse or a run of verses belongs to those verses; one that covers (nearly) the whole chapter belongs to the chapter. */
@@ -30,9 +30,10 @@ export async function verseResourceCounts(book: string, chapter: number, verseCo
     if (chapter !== c2) return;
     bump(Math.min(v2 && v2 < 999 ? v2 : verseCount, verseCount));
   };
-  const [hay, cat, lib, ext, ccc, chal] = await Promise.all([getHaydock(book), getCatena(book), getLibScripture(book), getResourceRefs(book), getCccLinks(), getChalloner(book)]);
+  const [hay, cat, lib, ext, ccc, chal, lap] = await Promise.all([getHaydock(book), getCatena(book), getLibScripture(book), getResourceRefs(book), getCccLinks(), getChalloner(book), getLapide(book)]);
   for (const [c1, v1, c2, v2] of withHaydock ? hay ?? [] : []) add(c1, v1, c2, v2);
   for (const [c1, v1, c2, v2] of chal?.notes ?? []) add(c1, v1, c2, v2);
+  for (const [c1, v1, c2, v2] of lap ?? []) add(c1, v1, c2, v2);
   for (const g of cat?.groups ?? []) add(g.c, g.v1, g.c, g.v2);
   const seen = new Set<string>();
   for (const e of lib ?? []) {

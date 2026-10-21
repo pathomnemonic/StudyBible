@@ -82,6 +82,7 @@ function oldAbbreviations(t: string): string {
     .replace(/\bchap\.\s+(?=\d)/g, 'chapter ')
     .replace(/\bver\.\s+(?=\d)/g, 'verse ')
     .replace(/\bvv\.\s+(?=\d)/g, 'verses ')
+    .replace(/&c\.?/g, 'etc.')
     .replace(/\bi\.e\.,?/g, 'that is,')
     .replace(/\be\.g\.,?/g, 'for example,');
 }

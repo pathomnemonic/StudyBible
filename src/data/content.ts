@@ -192,3 +192,6 @@ export const getStepNamesByBook = (book: string) => getJson<[number, number, num
 export const getStepNamesChunk = (n: number) => getJson<{ name: string; kind: string; type?: string; meaning?: string; notes: string[] }[]>(`reference/step/names-${n}.json`, true).catch(() => null);
 export const getPeopleByBook = (book: string) => getJson<[number, number, number, number, number][]>(`reference/theographic/people-by-book/${book}.json`, true).catch(() => null);
 export const getPeopleChunk = (n: number) => getJson<{ name: string; aliases?: string[]; gender?: string; father?: string; mother?: string; siblings?: string[]; partners?: string[]; children?: string[]; first?: string }[]>(`reference/theographic/people-${n}.json`, true).catch(() => null);
+
+/** Cornelius a Lapide's Great Commentary (English, 1908) for the New Testament books the edition covers: rows [c1, v1, c2, v2, text] */
+export const getLapide = (book: string) => getJson<[number, number, number, number, string][]>(`commentary/lapide/${book}.json`, true).catch(() => null);

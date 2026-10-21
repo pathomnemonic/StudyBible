@@ -209,6 +209,7 @@ export function findDays(lines: string[], month: number, from: number): { day: n
   return found;
 }
 
+const AD_RE = /(In the press|Now ready|price \d+s|CARDINAL WISEMAN|CARDINAL ARCHBISHOP|Superfine Paper|PUBLISHED BY|JAMES DUFFY|cloth, lettered|Morocco, super|Douay Bible|Proved from Scripture|REAL (PRESENCE|NIESENCE)|^The Lives?\b|revealed religion)/i;
 const STOP = /^\s*(END O[FP] VOL|BY THE REV|INDEX|ALPHABETICAL|CHRONOLOGICAL|CENTENARY|TABLE OF|END OF THE PROJECT)\b/i;
 
 const joinLines = (ls: string[], hyph: (a: string, b: string) => boolean) => {
@@ -272,8 +273,10 @@ function parseDay(lines: string[], hyph: (a: string, b: string) => boolean, ocr:
   let head: string[] | null = null;
   let cu: Entry | null = null;
   let orphan = 0;
-  const fin = () => { if (head) { const h = head.join(' ').replace(/\s+/g, ' ').trim(); cu = { name: titleCase(h), heading: h, text: [] }; entries.push(cu); head = null; } };
+  const fin = () => { if (head) { const h = head.join(' ').replace(/[*†‡§]+/g, '').replace(/^[\s_]+|[\s_]+$/g, '').replace(/\s+/g, ' ').trim(); cu = { name: titleCase(h), heading: h, text: [] }; entries.push(cu); head = null; } };
   for (const b of blocks) {
+    // OCR leftovers of running heads ("154 ST. ANICETUS [APRIL 17*") are not headings
+    if (ocr && isHeadingBlock(b) && (/[\[\]|^]/.test(b) || /^\d{1,3}\s/.test(b))) continue;
     if (isHeadingBlock(b) && (head || !cu || STARTS_ENTRY.test(b))) {
       if (!head) {
         head = [b];
@@ -375,7 +378,18 @@ export function buildButler(report: Report) {
         const r = parseDay(lines.slice(days[k].start, stop), hyph, s.kind === 'ocr');
         orphans += r.orphan;
         const dd = String(days[k].day).padStart(2, '0');
-        const entries = r.entries.filter((e) => e.text.length);
+        let entries = r.entries.filter((e) => e.text.join('').length > 20);
+        if (k === days.length - 1 && s.kind === 'ocr') {
+          // the publisher's advertisements after the last day
+          const bad = (t: string) => AD_RE.test(t);
+          let cut = -1;
+          for (let ei = 0; ei < entries.length && cut < 0; ei++) {
+            if (bad(entries[ei].heading)) { cut = ei; break; }
+            const pi = entries[ei].text.findIndex(bad);
+            if (pi >= 0) { entries[ei].text = entries[ei].text.slice(0, pi); cut = entries[ei].text.length ? ei + 1 : ei; }
+          }
+          if (cut >= 0) entries = entries.slice(0, cut);
+        }
         if (entries.length) { out[dd] = entries; count += entries.length; }
         else report.warn(`butler: ${label} ${days[k].day}: no entries parsed`);
         for (const e of entries) for (const key of nameKeys(e.heading)) (names[key] ??= []).includes(`${String(m).padStart(2, '0')}-${dd}`) || names[key].push(`${String(m).padStart(2, '0')}-${dd}`);

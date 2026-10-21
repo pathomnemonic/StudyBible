@@ -4,7 +4,7 @@ import type { AuthorityLevel, ItemFormat, Period } from '../lib/types';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
 import { getBook } from '../lib/canon';
 import {
-  CCC_OFFICIAL, cccUrl, getBiay, getPeopleByBook, getPeopleChunk, getStepNamesByBook, getStepNamesChunk, getDictByBook, getDictChunk, getNaveByBook, getNaveChunk, getCatena, getCccLinks, getDoctrine, getGlossa, getGlossaEn, getHaydock, getChalloner, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex, getPlaces, getPlacesByBook, getTopicIndex, getTopicsByBook,
+  CCC_OFFICIAL, cccUrl, getBiay, getLapide, getPeopleByBook, getPeopleChunk, getStepNamesByBook, getStepNamesChunk, getDictByBook, getDictChunk, getNaveByBook, getNaveChunk, getCatena, getCccLinks, getDoctrine, getGlossa, getGlossaEn, getHaydock, getChalloner, getLibScripture, getLibraryIndex, getOverviews, getResourceCatalog, getResourceRefs, getResourceSources, getMagisteriumRefs, getMagisteriumIndex, getPlaces, getPlacesByBook, getTopicIndex, getTopicsByBook,
 } from '../data/content';
 import { getXrefs } from '../data/loader';
 import type { ResourceSource } from '../data/content';
@@ -318,6 +318,31 @@ export const providers: Record<string, Provider> = {
       });
     }
 
+
+    const lap = await getLapide(book);
+    if (lap) {
+      lap.forEach(([c1, v1, c2, v2, text], i) => {
+        if (!anyOverlap(refs, c1, v1, c2, v2)) return;
+        const label = `${bookName} ${c1}:${v1}${c2 !== c1 || v2 !== v1 ? '–' + (c2 !== c1 ? c2 + ':' : '') + v2 : ''}`;
+        out.push({
+          id: `lapide-${book}-${i}`,
+          section: 'commentary',
+          title: `Cornelius à Lapide on ${label}`,
+          author: 'Cornelius à Lapide (17th century; English by T. W. Mossman and W. F. Cobb, 1908)',
+          excerpt: trim(text, 380),
+          fullExcerpt: text,
+          url: 'https://archive.org/details/TheGreatCommentaryOfCorneliusALapideV1',
+          authority: 'historical',
+          period: 'early-modern',
+          format: 'excerpt',
+          match: 'verse-by-verse',
+          why: 'À Lapide, a Jesuit scholar (1567–1637), wrote the most widely read Catholic commentary of his age, gathering the Fathers and the scholastics on each verse. This is the 1908 English translation (public domain; scanned text, so a few misprints remain). Individual opinions are not binding.',
+          sourceName: 'The Great Commentary of Cornelius à Lapide, Edinburgh: John Grant, 1908 (Internet Archive)',
+          ref: refId({ book, c1, v1, c2, v2 }),
+          kind: 'à Lapide',
+        });
+      });
+    }
 
     const ch = await getChalloner(book);
     if (ch) {
