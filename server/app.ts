@@ -309,7 +309,18 @@ export function createApp(cfg: Config): Server {
 
   function serveStatic(req: IncomingMessage, res: ServerResponse, urlPath: string) {
     const root = resolve(cfg.staticDir!);
-    let rel = normalize(decodeURIComponent(urlPath)).replace(/^([/\\])+/, '');
+    let decoded: string;
+    try {
+      decoded = decodeURIComponent(urlPath);
+    } catch {
+      res.writeHead(400).end(); // malformed percent-escape
+      return;
+    }
+    if (decoded.includes('\0')) {
+      res.writeHead(400).end();
+      return;
+    }
+    let rel = normalize(decoded).replace(/^([/\\])+/, '');
     let file = resolve(join(root, rel));
     const inside = relative(root, file);
     if (inside.startsWith('..') || isAbsolute(inside)) {

@@ -321,7 +321,7 @@ class StudyBibleDB extends Dexie {
         const uid = obj.uid as string;
         // runs after the delete commits (a different table cannot be written inside this transaction)
         this.onsuccess = () => {
-          db.tombs.add({ tbl: name, uid, updatedAt: Date.now() }).then(() => syncFlags.onLocalChange());
+          Dexie.ignoreTransaction(() => db.tombs.add({ tbl: name, uid, updatedAt: Date.now() })).then(() => syncFlags.onLocalChange()).catch(() => {});
         };
       });
     }
@@ -341,7 +341,7 @@ class StudyBibleDB extends Dexie {
       t.hook('deleting', function (pk: any) {
         if (syncFlags.applying) return;
         this.onsuccess = () => {
-          db.tombs.add({ tbl: name, uid: String(pk), updatedAt: Date.now() }).then(() => syncFlags.onLocalChange());
+          Dexie.ignoreTransaction(() => db.tombs.add({ tbl: name, uid: String(pk), updatedAt: Date.now() })).then(() => syncFlags.onLocalChange()).catch(() => {});
         };
       });
     }

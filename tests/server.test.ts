@@ -172,3 +172,30 @@ describe('sync', () => {
     expect(ex.headers.get('content-disposition')).toMatch(/attachment/);
   });
 });
+
+describe('static files', () => {
+  it('does not serve files outside the app folder, including sibling folders with a shared prefix', async () => {
+    const { mkdtempSync, mkdirSync, writeFileSync } = await import('node:fs');
+    const { tmpdir } = await import('node:os');
+    const { join } = await import('node:path');
+    const { request } = await import('node:http');
+    const parent = mkdtempSync(join(tmpdir(), 'sb-'));
+    mkdirSync(join(parent, 'app'));
+    mkdirSync(join(parent, 'app-secret'));
+    writeFileSync(join(parent, 'app', 'index.html'), '<html>shell</html>');
+    writeFileSync(join(parent, 'app-secret', 'key.txt'), 'SECRET');
+    const s = createApp({ db: openDb(':memory:'), registration: 'open', sessionDays: 1, allowedOrigins: [], secureCookies: false, staticDir: join(parent, 'app') });
+    await new Promise<void>((r) => s.listen(0, '127.0.0.1', r));
+    const port = (s.address() as AddressInfo).port;
+    const get = (path: string) => new Promise<{ status: number; body: string }>((resolve, reject) => {
+      request({ host: '127.0.0.1', port, path, method: 'GET' }, (res) => { let b = ''; res.on('data', (d) => (b += d)); res.on('end', () => resolve({ status: res.statusCode ?? 0, body: b })); }).on('error', reject).end();
+    });
+    for (const p of ['/../app-secret/key.txt', '/%2e%2e/app-secret/key.txt', '/..%2fapp-secret/key.txt', '/%2e%2e%2fapp-secret%2fkey.txt', '/..\\app-secret\\key.txt', '/%00', '/%E0%A4%A']) {
+      const r = await get(p);
+      expect(r.body, p).not.toContain('SECRET');
+      expect(r.status, p).toBeLessThan(500);
+    }
+    expect((await get('/')).body).toContain('shell');
+    await new Promise<void>((r) => s.close(() => r()));
+  });
+});
