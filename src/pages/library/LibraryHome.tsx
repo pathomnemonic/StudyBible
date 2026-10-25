@@ -51,19 +51,19 @@ function Notes({ openId }: { openId?: number }) {
   const folders = useLiveQuery(() => db.folders.toArray(), []) ?? [];
   const [q, setQ] = useState('');
   const [tag, setTag] = useState('');
-  const [folder, setFolder] = useState<number | ''>('');
+  const [folder, setFolder] = useState<number | '' | 'none'>('');
   const [kind, setKind] = useState('');
   const [editing, setEditing] = useState<Note | 'new' | 'question' | null>(null);
   const opened = openId ? notes.find((n) => n.id === openId) : undefined;
   const tags = useMemo(() => [...new Set(notes.flatMap((n) => n.tags))].sort(), [notes]);
-  const list = notes.filter((n) => (!q || fold(`${n.title ?? ''} ${n.body} ${n.tags.join(' ')} ${n.targets.map(targetLabel).join(' ')}`).includes(fold(q))) && (!tag || n.tags.includes(tag)) && (folder === '' || n.folderId === folder) && (!kind || n.kind === kind));
+  const list = [...notes].sort((a, b) => Number(!!b.pinned) - Number(!!a.pinned)).filter((n) => (!q || fold(`${n.title ?? ''} ${n.body} ${n.tags.join(' ')} ${n.targets.map(targetLabel).join(' ')}`).includes(fold(q))) && (!tag || n.tags.includes(tag)) && (folder === '' || (folder === 'none' ? !n.folderId : n.folderId === folder)) && (!kind || n.kind === kind));
   return (
     <>
       <div className="row" style={{ marginBottom: 8 }}>
         <input type="search" placeholder="Search notes…" value={q} onChange={(e) => setQ(e.target.value)} style={{ flex: 1, minWidth: 160 }} aria-label="Search notes" />
         <select value={kind} onChange={(e) => setKind(e.target.value)} aria-label="Kind"><option value="">All kinds</option>{['note', 'question', 'study', 'prayer'].map((k) => <option key={k}>{k}</option>)}</select>
         <select value={tag} onChange={(e) => setTag(e.target.value)} aria-label="Tag"><option value="">Any tag</option>{tags.map((t) => <option key={t} value={t}>#{t}</option>)}</select>
-        <select value={folder} onChange={(e) => setFolder(e.target.value ? +e.target.value : '')} aria-label="Folder"><option value="">Any folder</option>{folders.map((f) => <option key={f.id} value={f.id}>{f.name}</option>)}</select>
+        <select value={folder} onChange={(e) => setFolder(e.target.value === 'none' ? 'none' : e.target.value ? +e.target.value : '')} aria-label="Folder"><option value="">Any folder</option><option value="none">Not in a folder (inbox)</option>{folders.map((f) => <option key={f.id} value={f.id}>{f.name}</option>)}</select>
         <button className="btn small" onClick={() => { const n = prompt('Folder name'); if (n) db.folders.add({ name: n, createdAt: Date.now() }); }}>+ Folder</button>
         <button className="btn" onClick={() => setEditing('question')}>Add a question</button>
         <button className="btn primary" onClick={() => setEditing('new')}>New note</button>
@@ -80,11 +80,11 @@ function Notes({ openId }: { openId?: number }) {
       )}
       {list.map((n) => (
         <div className="card" key={n.id}>
-          <div className="row between"><h3>{n.title || (n.kind === 'question' ? 'Question' : 'Note')}</h3><span className="chip">{n.kind}</span></div>
+          <div className="row between"><h3>{n.pinned ? '📌 ' : ''}{n.title || (n.kind === 'question' ? 'Question' : 'Note')}</h3><span className="chip">{n.kind}</span></div>
           <div className="chips">{n.targets.map((t, i) => <TargetChip key={i} t={t} />)}</div>
           <div className="md" dangerouslySetInnerHTML={{ __html: renderMarkdown(n.body) }} />
           <div className="chips">{n.tags.map((t) => <span className="chip" key={t}>#{t}</span>)}{n.folderId && <span className="chip">📁 {folders.find((f) => f.id === n.folderId)?.name}</span>}</div>
-          <div className="row" style={{ marginTop: 6 }}><button className="btn small" onClick={() => setEditing(n)}>Edit</button><span className="muted small">{new Date(n.updatedAt).toLocaleDateString()}</span></div>
+          <div className="row" style={{ marginTop: 6 }}><button className="btn small" onClick={() => setEditing(n)}>Edit</button><button className="btn small" aria-pressed={!!n.pinned} onClick={() => db.notes.update(n.id!, { pinned: !n.pinned })}>{n.pinned ? 'Unpin' : 'Pin'}</button><span className="muted small">{new Date(n.updatedAt).toLocaleDateString()}</span></div>
         </div>
       ))}
       {(editing || opened) && <NoteEditor note={editing && typeof editing === 'object' ? editing : opened} kind={editing === 'question' ? 'question' : 'note'} onClose={() => setEditing(null)} />}

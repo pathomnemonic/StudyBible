@@ -69,6 +69,14 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <input type="checkbox" checked={s.verseLines} onChange={(e) => set({ verseLines: e.target.checked })} aria-label="One verse per line" />
       </label>
       <label className="row between" style={{ margin: '10px 0' }}>
+        <span>Copy a verse as</span>
+        <select value={s.copyStyle} onChange={(e) => set({ copyStyle: e.target.value as any })} aria-label="Copy format">
+          <option value="numbers">Text with verse numbers, then the citation</option>
+          <option value="plain">Plain text, then the citation</option>
+          <option value="quote">A quotation with the citation after it</option>
+        </select>
+      </label>
+      <label className="row between" style={{ margin: '10px 0' }}>
         <span>Footnote marks (†) in the text</span>
         <input type="checkbox" checked={s.showNoteMarks} onChange={(e) => set({ showNoteMarks: e.target.checked })} aria-label="Footnote marks" />
       </label>

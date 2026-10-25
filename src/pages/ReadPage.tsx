@@ -469,10 +469,11 @@ export default function ReadPage() {
     const lines: string[] = [];
     if (parallelMode) return;
     for (const [a, b] of groupConsecutive(selNative)) {
-      for (const v of flat.filter((x) => x.n >= a && x.n <= b)) lines.push(`${v.n} ${v.text}`);
+      for (const v of flat.filter((x) => x.n >= a && x.n <= b)) lines.push(settings.copyStyle === 'numbers' ? `${v.n} ${v.text}` : v.text);
     }
     const label = `${bk.name} ${chNum}:${groupConsecutive(selNative).map(([a, b]) => (a === b ? a : `${a}–${b}`)).join(', ')}`;
-    await navigator.clipboard?.writeText(`${lines.join(' ')}\n— ${label} (${edition.shortName})`);
+    const body = lines.join(' ');
+    await navigator.clipboard?.writeText(settings.copyStyle === 'quote' ? `“${body}” — ${label} (${edition.shortName})` : `${body}\n— ${label} (${edition.shortName})`);
   };
   const copyLink = async () => {
     const [a, b] = parallelMode ? [selAnchor[0], selAnchor[selAnchor.length - 1]] : [Math.min(...selNative), Math.max(...selNative)];

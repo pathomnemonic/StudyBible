@@ -31,6 +31,8 @@ export interface Note extends Syncable {
   targets: Target[];
   tags: string[];
   folderId?: number;
+  /** kept at the top of the list */
+  pinned?: boolean;
   originEdition?: string;
   /** derived: "BOOK.chapter" keys of passage targets, for indexed lookup */
   chapterKeys?: string[];

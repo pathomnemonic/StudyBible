@@ -86,6 +86,8 @@ export interface Settings {
   keepAwake: boolean;
   /** one verse per line instead of running paragraphs */
   verseLines: boolean;
+  /** how Copy formats a selected verse: numbers kept, plain text, or a quotation with a citation */
+  copyStyle: 'numbers' | 'plain' | 'quote';
   /** the small † footnote marks and the verse markers for notes in the text */
   showNoteMarks: boolean;
   /** the words of Jesus in red, where the translation marks them */
@@ -152,6 +154,7 @@ export const DEFAULTS: Settings = {
   redLetters: true,
   keepAwake: false,
   verseLines: false,
+  copyStyle: 'numbers',
   showNoteMarks: true,
   hintVerse: false,
   atmosphere: 'passage',
