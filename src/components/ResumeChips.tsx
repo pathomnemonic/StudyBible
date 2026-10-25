@@ -13,7 +13,7 @@ export default function ResumeChips() {
   const ep = hist.find((h) => h.type === 'episode');
   const day = plan ? Math.min(365, Math.max(1, Math.floor((Date.now() - plan.startedAt) / 86400000) + 1 + plan.offsetDays)) : null;
   const bible = s.last ? { to: `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}`, text: `${getBook(s.last.book)?.name ?? s.last.book} ${s.last.chapter}` } : { to: `/read/${s.defaultEdition}/JHN/1`, text: 'Begin' };
-  const short = (t: string) => (t.length > 34 ? t.slice(0, 32).trimEnd() + '…' : t);
+  const short = (t: string) => (t.length > 70 ? t.slice(0, 68).trimEnd() + '…' : t);
   const chips = [
     { key: 'bible', to: bible.to, kind: 'Bible', text: bible.text, resume: !!s.last },
     { key: 'room', to: work ? `/study/works/${work.ref}` : '/study/fathers', kind: 'Reading room', text: work ? short(work.label.replace(/^.*?:\s*/, '')) : 'Browse', resume: !!work },
