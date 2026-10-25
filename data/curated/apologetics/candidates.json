@@ -1,0 +1,5801 @@
+{
+ "sola-scriptura": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-bible-alone-isnt-gods-plan",
+   "title": "The Bible Alone Isn't God's Plan",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-st-paul-support-sola-scriptura",
+   "title": "Did St. Paul Support Sola Scriptura?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/not-by-scripture-alone",
+   "title": "Not by Scripture Alone",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/no-bible-only-apostles",
+   "title": "No 'Bible Only' Apostles",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/not-by-scripture-alone-0",
+   "title": "What the Early Church Believed: Not by Scripture Alone",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-sola-scriptura-reasonable",
+   "title": "Is \"Sola Scriptura\" reasonable?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-bible-alone-allowed-slavery",
+   "title": "How \"Bible Alone\" Allowed Slavery",
+   "score": 3.0
+  }
+ ],
+ "canon": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-old-testament-canon",
+   "title": "What the Early Church Believed: Old Testament Canon",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-are-the-apocrypha",
+   "title": "What Are the Apocrypha?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-accept-the-apocrypha-as-inspired",
+   "title": "Why Accept the Apocrypha as Inspired?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/canon-broadsides",
+   "title": "Canon Broadsides",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/counting-the-canon",
+   "title": "Counting the Canon",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/in-the-crosshairs-of-the-canon",
+   "title": "In the Crosshairs of the Canon",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/apocrypha",
+   "title": "Apocrypha",
+   "score": 3.0
+  }
+ ],
+ "church-authority": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/apostolic-succession",
+   "title": "What the Early Church Believed: Apostolic Succession",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-magisterium-and-the-fathers",
+   "title": "The Magisterium and the Fathers",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/i-want-to-accept-apostolic-succession",
+   "title": "I Want to Accept Apostolic Succession",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/where-is-the-magisterium-in-the-bible",
+   "title": "Where Is the Magisterium in the Bible?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-orthodox-have-apostolic-succession",
+   "title": "The Orthodox Have Apostolic Succession",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-the-biblical-support-for-apostolic-succession",
+   "title": "What is the biblical support for apostolic succession?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-teaching-authority-of-the-church",
+   "title": "The Teaching Authority of the Church",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/magisterium",
+   "title": "Magisterium",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/evolution-and-the-magisterium",
+   "title": "Evolution and the Magisterium",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/apostolic-succession-in-the-bible",
+   "title": "Apostolic Succession in the Bible",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-be-catholic-apostolic-succession",
+   "title": "Why Be Catholic?: Apostolic Succession",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/apostolic-succession",
+   "title": "Apostolic Succession",
+   "score": 3.0
+  }
+ ],
+ "papacy": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/papal-infallibility",
+   "title": "Papal Infallibility",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/peter-and-the-papacy",
+   "title": "Peter and the Papacy",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/papal-infallibility",
+   "title": "Papal Infallibility",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/papal-infallibility-before-vatican-i",
+   "title": "Papal Infallibility Before Vatican I",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/before-papal-infallibility-was-defined",
+   "title": "Before Papal Infallibility Was Defined",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/peter-the-papacy-and-st-pauls-epistles",
+   "title": "Peter, the Papacy, and St. Paul’s Epistles",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/refuting-papal-myths-the-papacy-is-unbiblical-and-unhistorical",
+   "title": "Refuting Papal Myths - \"The Papacy is Unbiblical and Unhistorical\"",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/defending-the-papacy",
+   "title": "Defending the Papacy",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-last-papal-martyr",
+   "title": "The Last Papal Martyr",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/the-evidence-for-papal-primacy",
+   "title": "The Evidence for Papal Primacy",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/can-we-trust-the-papacy-historically",
+   "title": "Can We Trust the Papacy Historically?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/papacy",
+   "title": "Papacy",
+   "score": 3.0
+  }
+ ],
+ "trinity": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-trinity",
+   "title": "What the Early Church Believed: The Trinity",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/trinitarian-baptism",
+   "title": "What the Early Church Believed: Trinitarian Baptism",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-the-trinity-is-three-persons",
+   "title": "Why the Trinity Is Three Persons",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/isnt-holy-trinity-christian-polytheism",
+   "title": "Isn’t Holy Trinity Christian Polytheism?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-christs-baptism-is-a-trinitarian-sign",
+   "title": "Why Christ's Baptism Is a Trinitarian Sign",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/can-you-explain-the-trinity-in-plain-language",
+   "title": "Can You Explain the Trinity in Plain Language?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-the-whole-trinity-act-with-jesus-on-earth",
+   "title": "Did the Whole Trinity Act With Jesus On Earth?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/trinity",
+   "title": "Trinity",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-happy-trinity",
+   "title": "The Happy Trinity",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/defending-the-trinity",
+   "title": "Defending the Trinity",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/will-we-see-the-trinity-in-heaven",
+   "title": "Will we see the Trinity in Heaven?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-the-trinity-explicit-in-scripture",
+   "title": "Is the Trinity explicit in Scripture?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/trinity",
+   "title": "Trinity",
+   "score": 3.0
+  }
+ ],
+ "divinity-of-christ": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-divinity-of-christ",
+   "title": "What the Early Church Believed: The Divinity of Christ",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-jesus-claim-to-be-god",
+   "title": "Did Jesus Claim to Be God?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/did-jesus-claim-to-be-god",
+   "title": "Jesus Knew He Was God, and Said So",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/ready-reasons-did-jesus-claim-to-be-god",
+   "title": "Did Jesus Claim To Be God?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-to-engage-jehovahs-witnesses-on-the-divinity-of-christ",
+   "title": "How to engage Jehovah's Witnesses on the divinity of Christ",
+   "score": 3.0
+  }
+ ],
+ "resurrection": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/was-jesus-resurrection-of-a-physical-or-purely-spiritual-nature",
+   "title": "Was Jesus' Resurrection Physical or Purely Spiritual?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/evolution-empty-tomb-apologetics",
+   "title": "Evolution, Empty Tomb, Apologetics",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/explaining-away-jesus-resurrection",
+   "title": "Explaining Away Jesus' Resurrection: Part III",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/explaining-away-jesus-resurrection-1",
+   "title": "Explaining Away Jesus' Resurrection: Part I",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-did-mary-do-after-jesus-resurrection",
+   "title": "What Did Mary Do After Jesus' Resurrection?",
+   "score": 3.0
+  }
+ ],
+ "mary-mother-of-god": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/mary-mother-of-god",
+   "title": "What the Early Church Believed: Mary is the Mother of God",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/was-mary-forced-to-be-the-mother-of-god",
+   "title": "Was Mary Forced to Be the Mother of God?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/jesus-in-all-likelihood-called-mary-mother",
+   "title": "Jesus in All Likelihood Called Mary \"Mother\"",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/isnt-it-blasphemy-to-call-mary-the-mother-of-god",
+   "title": "Isn't It Blasphemy to Call Mary the \"Mother of God?\"",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/mary-mother-of-god",
+   "title": "Mary, Mother of God",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/mary-mother-of-whom",
+   "title": "Mary, Mother of Whom?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/mary-mother-of-salvation",
+   "title": "Mary, Mother of Salvation",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-mary-the-mother-of-god",
+   "title": "Is Mary the Mother of God?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/the-bible-says-mary-is-the-mother-of-god",
+   "title": "The Bible Says Mary Is the Mother of God",
+   "score": 3.0
+  }
+ ],
+ "immaculate-conception": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/mary-full-of-grace",
+   "title": "What the Early Church Believed: Mary’s Immaculate Nature",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/immaculate-conception-and-assumption",
+   "title": "Immaculate Conception and Assumption",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/only-one-full-of-grace",
+   "title": "Only One Full of Grace?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/full-of-grace-versus-highly-favored",
+   "title": "\"Full of Grace\" or \"Highly Favored\"?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/marys-knowledge-of-her-immaculate-conception",
+   "title": "Mary's Knowledge of Her Immaculate Conception",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/all-have-sinned-and-the-immaculate-conception",
+   "title": "\"All Have Sinned\" and the Immaculate Conception",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-immaculate-conception-an-offense-against-christ",
+   "title": "Is Immaculate Conception an Offense Against Christ?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/immaculate-conception-a-smart-take",
+   "title": "Immaculate Conception: A Smart Take",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-immaculate-conception-then-and-now",
+   "title": "The Immaculate Conception, Then and Now",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-immaculate-conception-in-scripture",
+   "title": "Where Is the Immaculate Conception in the Bible?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/was-the-immaculate-conception-necessary",
+   "title": "Was the Immaculate Conception Necessary?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-there-biblical-support-for-the-immaculate-conception",
+   "title": "Is There Biblical Support For The Immaculate Conception?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/immaculate-conception",
+   "title": "Immaculate Conception",
+   "score": 3.0
+  }
+ ],
+ "assumption": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/immaculate-conception-and-assumption",
+   "title": "Immaculate Conception and Assumption",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-islam-accept-marys-assumption",
+   "title": "Does Islam Accept Mary's Assumption?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-the-early-church-believe-in-marys-assumption",
+   "title": "Did the Early Church Believe in Mary's Assumption?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/i-have-been-looking-for-the-assumption-of-moses-to-which-jude-9-refers-how-may-i-get-a-copy-of",
+   "title": "I have been looking for The Assumption of Moses to which Jude 9 refers. How may I get a copy of this manuscript?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/should-i-complain-when-the-local-papers-religion-section-fails-to-cover-the-assumption-or-takes",
+   "title": "Should I complain about the local paper's treatment of Catholicism in its religion section?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-assumption-of-mary",
+   "title": "Defending the Assumption of Mary",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-assumption-of-mary-in-history",
+   "title": "The Assumption of Mary in History",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-other-assumption",
+   "title": "The Other Assumption",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/did-the-church-always-believe-in-the-assumption-of-mary",
+   "title": "Did the Church Always Believe in the Assumption of Mary?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/does-the-bible-disprove-the-assumption",
+   "title": "Does the Bible Disprove the Assumption?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/assumption",
+   "title": "Assumption",
+   "score": 3.0
+  }
+ ],
+ "perpetual-virginity": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/mary-ever-virgin",
+   "title": "What the Early Church Believed: The Perpetual Virginity of Mary",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/brethren-of-the-lord",
+   "title": "Did Jesus Have Brothers?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/marys-perpetual-virginity",
+   "title": "Mary's Perpetual Virginity",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-case-for-marys-perpetual-virginity",
+   "title": "The Case for Mary's Perpetual Virginity",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/why-marys-perpetual-virginity-matters",
+   "title": "Why Mary's Perpetual Virginity Matters",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/more-reasons-for-marys-perpetual-virginity",
+   "title": "More Reasons for Mary's Perpetual Virginity",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/perpetual-virginity-of-mary",
+   "title": "Perpetual Virginity of Mary",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/the-perpetual-virginity-of-mary",
+   "title": "The Perpetual Virginity of Mary",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/brethren-of-the-lord",
+   "title": "Brethren of the Lord",
+   "score": 3.0
+  }
+ ],
+ "intercession-of-saints": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/praying-to-the-saints",
+   "title": "Why Do Catholics Pray to Saints?",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-intercession-of-the-saints",
+   "title": "What the Early Church Believed: The Intercession of the Saints",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-a-catholic-have-to-pray-to-saints",
+   "title": "Does a Catholic Have to Pray to Saints?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/non-catholics-can-pray-to-saints-like-mary-and-st-michael",
+   "title": "Non-Catholics Can Pray to Saints like Mary and St. Michael",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-the-biblical-reason-catholics-pray-to-saints-for-intercession",
+   "title": "What is the biblical reason Catholics pray to saints for intercession?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/why-we-pray-to-saints",
+   "title": "Why We Pray to Saints",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/through-the-intercession-of-saints",
+   "title": "Through the Intercession of Saints",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/intercession-of-the-saints-day-one",
+   "title": "Intercession of the Saints—Day One",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-do-catholics-pray-to-saints",
+   "title": "Why Do Catholics Pray to Saints?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/do-catholics-pray-to-saints-too-much",
+   "title": "“Do Catholics Pray to Saints Too Much?\"",
+   "score": 3.0
+  }
+ ],
+ "real-presence": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-real-presence",
+   "title": "What the Early Church Believed: The Real Presence",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/episcopalians-and-the-real-presence",
+   "title": "Episcopalians and the Real Presence",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-clement-believe-in-the-real-presence",
+   "title": "Did Clement Believe in the Real Presence?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-do-we-know-the-real-presence-is-true",
+   "title": "How Do We Know the Real Presence Is True?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-real-presence-part-one",
+   "title": "The Real Presence: Part One",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-real-presence-part-two",
+   "title": "The Real Presence: Part Two",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/beware-the-term-real-presence",
+   "title": "Beware the Term 'Real Presence'",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/explaining-transubstantiation",
+   "title": "Explaining Transubstantiation",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/are-catholics-wrong-about-john-6",
+   "title": "Are Catholics Wrong About John 6?",
+   "score": 3.0
+  }
+ ],
+ "mass-sacrifice": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-sacrifice-of-the-mass",
+   "title": "What the Early Church Believed: The Sacrifice of the Mass",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-there-evidence-the-early-church-considered-the-mass-a-sacrifice",
+   "title": "Is There Evidence the Early Church Considered the Mass a Sacrifice?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-is-the-mass-called-the-unbloody-sacrifice-of-our-lord-on-his-cross",
+   "title": "Why Is the Mass Called the \"Unbloody\" Sacrifice of Our Lord on His Cross?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-does-the-offertory-prayer-seem-to-imply-that-the-sacrifice-of-the-mass-only-symbolizes",
+   "title": "Does the Offertory Prayer imply that the sacrifice of the Mass only symbolizes Christ?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/sacrifice-of-the-mass",
+   "title": "Sacrifice of the Mass",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/is-the-mass-a-sacrifice",
+   "title": "Is the Mass a Sacrifice?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/where-is-the-element-of-the-sacrifice-of-the-mass-in-the-bible",
+   "title": "Where Is the Sacrifice of the Mass in the Bible?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/sacrifice-of-the-mass",
+   "title": "Sacrifice of the Mass",
+   "score": 3.0
+  }
+ ],
+ "confession": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/confession",
+   "title": "What the Early Church Believed: Confession",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-the-absolution-given-at-a-reconciliation-service-valid-without-private-confession",
+   "title": "Is the Absolution Given at a Reconciliation Service Valid without Private Confession?",
+   "score": 9.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/go-to-confession-asap",
+   "title": "Go to Confession ASAP",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/anxiety-and-confession",
+   "title": "Anxiety and Confession",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/confession-while-in-rcia",
+   "title": "Confession While in RCIA?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/when-to-go-to-confession",
+   "title": "When to Go to Confession?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/5-reasons-to-go-to-confession-besides-forgiveness-of-sins",
+   "title": "5 Reasons to Go to Confession (Besides Forgiveness of Sins)",
+   "score": 4.6
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/a-confession-to-make",
+   "title": "A Confession to Make",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/confession-set-me-free",
+   "title": "Confession Set Me Free",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/fr-vincent-serpas-first-confession",
+   "title": "Fr. Vincent Serpa's First Confession",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-often-should-i-go-to-confession",
+   "title": "How often should I go to confession?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/absolution",
+   "title": "Absolution",
+   "score": 3.0
+  }
+ ],
+ "infant-baptism": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/infant-baptism",
+   "title": "Infant Baptism",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/early-teachings-on-infant-baptism",
+   "title": "What the Early Church Believed: Infant Baptism",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/was-infant-baptism-an-issue-for-st-justin-martyr",
+   "title": "Was Infant Baptism an Issue for St. Justin Martyr?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/infant-baptism",
+   "title": "Where Is Infant Baptism in the Bible?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/to-explain-infant-baptism-you-must-explain-original-sin",
+   "title": "To Explain Infant Baptism You Must Explain Original Sin",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/ex-catholic-confronts-us-on-infant-baptism",
+   "title": "Ex-Catholic Confronts Us on Infant Baptism",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/the-bible-supports-infant-baptism-heres-why",
+   "title": "The Bible Supports Infant Baptism (here's why)",
+   "score": 3.0
+  }
+ ],
+ "baptismal-regeneration": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/born-again-in-baptism",
+   "title": "What the Early Church Believed: Born Again in Baptism",
+   "score": 4.6
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/baptismal-grace",
+   "title": "What the Early Church Believed: Baptismal Grace",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/baptismal-regeneration",
+   "title": "Protestant Quotes on Baptismal Regeneration",
+   "score": 3.0
+  }
+ ],
+ "celibacy": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/celibacy-and-the-priesthood",
+   "title": "Celibacy and the Priesthood",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/was-priestly-celibacy-invented-in-the-middle-ages",
+   "title": "Was Priestly Celibacy \"Invented in the Middle Ages?\"",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/married-priests",
+   "title": "Married Priests?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-did-pope-francis-really-say-about-married-priests",
+   "title": "What Did Pope Francis Really Say About Married Priests?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/st-paul-and-priestly-celibacy",
+   "title": "St. Paul and Priestly Celibacy",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/a-defense-of-priestly-celibacy",
+   "title": "A Defense of Priestly Celibacy",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/how-to-argue-for-priestly-celibacy",
+   "title": "How to Argue for Priestly Celibacy",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-priestly-celibacy-responsible-for-pedophilia",
+   "title": "Is Priestly Celibacy Responsible for Pedophilia?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/are-you-expected-to-remain-celibate-after-you-have-a-civil-divorce",
+   "title": "Are You Expected to Remain Celibate After You Have a Civil Divorce?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/celibacy-of-the-clergy",
+   "title": "Celibacy of the Clergy",
+   "score": 3.0
+  }
+ ],
+ "women-priests": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/women-and-the-priesthood",
+   "title": "What the Early Church Believed: Women and the Priesthood",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/women-and-the-priesthood",
+   "title": "Women and the Priesthood",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/lay-ministries-and-the-ordination-of-women",
+   "title": "Lay Ministries and the Ordination of Women",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/explaining-the-all-male-priesthood",
+   "title": "Explaining the All-Male Priesthood",
+   "score": 3.2
+  }
+ ],
+ "faith-and-works": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/what-the-early-church-believed-faith-and-works",
+   "title": "What the Early Church Believed: Faith and Works",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/faith-and-works",
+   "title": "Faith and Works",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/reconciling-justification-and-purgatory",
+   "title": "Reconciling Justification and Purgatory",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-difference-between-salvation-and-justification",
+   "title": "The Difference Between Salvation and Justification",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/do-justification-and-condemnation-work-the-same-way",
+   "title": "Do justification and condemnation work the same way?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/think-acts-1630-31-proves-sola-fide-then-keep-reading",
+   "title": "Think Acts 16:30-31 Proves Sola Fide? Then Keep Reading",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/justification-sola-fide",
+   "title": "Justification Sola Fide",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/justification",
+   "title": "Doctrine of Justification",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/by-faith-alone",
+   "title": "\"By Faith Alone?\" Part I",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/pope-benedict-xvi-on-sola-fide-faith-alone",
+   "title": "Pope Benedict XVI on Sola Fide (Faith Alone)",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/are-we-saved-by-faith-alone",
+   "title": "Are We Saved \"By Faith Alone?\"",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/justification",
+   "title": "Justification",
+   "score": 3.0
+  }
+ ],
+ "once-saved": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/assurance-of-salvation",
+   "title": "Assurance of Salvation?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-scapular-promise-and-eternal-security",
+   "title": "The Scapular Promise and Eternal Security",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-acts-247-prove-the-idea-of-eternal-security",
+   "title": "Does Acts 2:47 Prove the Idea of Eternal Security?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/doesnt-1-john-511-13-prove-once-saved-always-saved",
+   "title": "Doesn't 1 John 5:11-13 Prove \"Once Saved, Always Saved?\"",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/once-saved-always-saved",
+   "title": "Once Saved, Always Saved?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/john-316-and-eternal-security",
+   "title": "John 3:16 and Eternal Security",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/once-saved-always-saved-part-i",
+   "title": "Once Saved, Always Saved? Part I",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/does-john-teach-assurance-of-salvation",
+   "title": "Does John Teach Assurance of Salvation?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/do-catholics-believe-in-eternal-security",
+   "title": "Do Catholics Believe in Eternal Security?",
+   "score": 3.0
+  }
+ ],
+ "indulgences": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/indulgences-catholic-answers-guide-to-partial-and-plenary-indulgences",
+   "title": "Comprehensive Guide to Partial and Plenary Indulgences",
+   "score": 8.4
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/primer-on-indulgences",
+   "title": "Primer on Indulgences",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-many-plenary-or-partial-indulgences-can-one-receive-per-day",
+   "title": "How Many Plenary or Partial Indulgences Can One Receive Per Day?",
+   "score": 8.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/do-i-have-to-confess-to-receive-a-plenary-indulgence",
+   "title": "Do I Have to Confess to Receive a Plenary Indulgence?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/can-i-receive-a-plenary-indulgence-for-reading-the-bible",
+   "title": "Can I receive a plenary indulgence for reading the Bible?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/history-of-indulgences",
+   "title": "History of Indulgences",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-about-indulgences",
+   "title": "What About Indulgences?",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/walking-the-fine-line-on-indulgences",
+   "title": "What Is the Deal with Indulgences?",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/was-martin-luther-right-about-indulgences",
+   "title": "Was Martin Luther Right About Indulgences?",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/indulgence",
+   "title": "Indulgence",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-is-a-plenary-indulgence",
+   "title": "What is a Plenary Indulgence?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/offering-a-plenary-indulgence-for-the-souls-in-purgatory",
+   "title": "Offering a Plenary Indulgence for the Souls in Purgatory",
+   "score": 6.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/indulgences",
+   "title": "Indulgences",
+   "score": 5.4
+  }
+ ],
+ "purgatory": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-roots-of-purgatory",
+   "title": "What the Early Church Believed: Purgatory",
+   "score": 6.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/purgatory",
+   "title": "What Is Purgatory?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-are-souls-in-purgatory-called-holy",
+   "title": "Why Are Souls in Purgatory Called \"Holy?\"",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/can-souls-in-purgatory-intercede-for-us",
+   "title": "Can Souls in Purgatory Intercede for Us?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/when-are-the-souls-in-purgatory-released",
+   "title": "When Are the Souls in Purgatory Released?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-purgatory",
+   "title": "A Brief Description of Purgatory",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/no-purgatory-on-earth",
+   "title": "No Purgatory on Earth",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/purgatory",
+   "title": "Purgatory",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/purgatory-0",
+   "title": "There Must Be a Purgatory",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/on-purgatory-go-deeper",
+   "title": "On Purgatory, Go Deeper",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/can-the-souls-in-purgatory-pray-for-us",
+   "title": "Can the souls in purgatory pray for us?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/offering-a-plenary-indulgence-for-the-souls-in-purgatory",
+   "title": "Offering a Plenary Indulgence for the Souls in Purgatory",
+   "score": 6.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/purgatory",
+   "title": "Purgatory",
+   "score": 3.0
+  }
+ ],
+ "hell": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-hell-there-is",
+   "title": "What the Early Church Believed: Hell",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-hell-is-like",
+   "title": "What Hell Is Like",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-god-create-hell",
+   "title": "Did God create hell?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-is-hell-eternal",
+   "title": "Why is hell eternal?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/to-hell-with-heaven",
+   "title": "To Hell with Heaven",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-judas-go-to-hell",
+   "title": "Did Judas go to hell?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/what-is-hell",
+   "title": "What Is Hell?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/hell-and-grace",
+   "title": "Hell and Grace",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-can-a-temporal-action-sin-merit-eternal-punishment-hell",
+   "title": "How Can a Temporal Action (Sin) Merit Eternal Punishment (Hell)?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/eternal-hell-or-soul-annihilation-what-happens-after-death",
+   "title": "Eternal Hell or Soul Annihilation: What Happens After Death?",
+   "score": 4.6
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/hell",
+   "title": "Hell",
+   "score": 3.0
+  }
+ ],
+ "sunday-sabbath": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/sabbath-or-sunday",
+   "title": "What the Early Church Believed: Sabbath or Sunday?",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-about-the-seventh-day-adventist-claim-that-the-sabbath-shouldnt-have-been-changed-to-sunday",
+   "title": "Seventh-day Adventists and the Sabbath",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/observing-the-lords-day",
+   "title": "Observing the Lord's Day",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-sunday-our-christian-sabbath",
+   "title": "Is Sunday Our Christian Sabbath?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-sabbath-was-made-for-man-not-man-for-the-sabbath",
+   "title": "“The Sabbath Was Made for Man, Not Man for the Sabbath”?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-lords-day-replaced-the-sabbath",
+   "title": "The Lord’s Day Replaced the Sabbath",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/should-christians-keep-the-sabbath-or-celebrate-the-lords-day",
+   "title": "Sunday Is Not the Sabbath",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/changing-the-sabbath",
+   "title": "Changing the Sabbath",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/did-the-catholic-church-change-the-sabbath",
+   "title": "Did the Catholic Church Change the Sabbath?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-the-pope-really-plotting-to-pass-a-sunday-worship-law",
+   "title": "Is the Pope really plotting to pass a Sunday Worship law?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/sabbath",
+   "title": "Sabbath",
+   "score": 3.0
+  }
+ ],
+ "images": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/do-catholics-worship-statues",
+   "title": "Do Catholics Worship Statues?",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-do-crucifixes-fit-in-with-the-old-testament-prohibition-of-graven-images",
+   "title": "How do crucifixes fit in with the Old Testament prohibition of graven images?",
+   "score": 4.3
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/should-statues-be-blessed",
+   "title": "Should Statues Be Blessed?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/was-this-an-example-of-idolatry",
+   "title": "Was this an example of idolatry?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/graven-images",
+   "title": "Graven Images",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/marian-idolatry",
+   "title": "Marian Idolatry?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/statues-of-limitations",
+   "title": "Statues of Limitations",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/are-statues-in-catholic-churches-graven-images",
+   "title": "Are Statues in Catholic Churches \"Graven Images?\"",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/praying-the-rosary-is-not-idolatry",
+   "title": "Praying the Rosary Is Not Idolatry",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/idolatry",
+   "title": "Idolatry",
+   "score": 3.0
+  }
+ ],
+ "marriage-divorce": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-permanence-of-matrimony",
+   "title": "What the Early Church Believed: Marriage",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/divorce-remarriage-and-conversion",
+   "title": "Divorce, Remarriage, and Conversion",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/deuteronomy-jesus-and-divorce-and-remarriage",
+   "title": "Deuteronomy, Jesus and Divorce and Remarriage",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-remarriage-without-annulment-require-abstinence",
+   "title": "Does Remarriage Without Annulment Require Abstinence?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-does-the-church-require-a-civil-divorce-before-considering-an-appeal-for-annulment",
+   "title": "Why does the Church require a civil divorce before considering an appeal for annulment?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-must-a-person-do-to-receive-the-eucharist-after-divorce-if-there-is-no-remarriage-is-this",
+   "title": "What Must a Person do to Receive Eucharist After Divorce?",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/divorce-annulment-remarriage-and-communion-a-catholic-primer",
+   "title": "Divorce, Annulment, Remarriage, and Communion: A Catholic Primer",
+   "score": 9.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/divorce-remarriage-and-communion",
+   "title": "Divorce, Remarriage, and Communion",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/east-vs-west-divorce-remarriage",
+   "title": "East vs. West: Divorce, Remarriage",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/marriage-divorce-and-annulment",
+   "title": "Marriage, Divorce, and Annulment",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/did-jesus-allow-some-divorce",
+   "title": "Did Jesus Allow Some Divorce?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/divorce",
+   "title": "Divorce",
+   "score": 3.0
+  }
+ ],
+ "contraception": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/contraception-and-sterilization",
+   "title": "What the Early Church Believed: Contraception and Sterilization",
+   "score": 4.6
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/birth-control",
+   "title": "Birth Control",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-is-nfp-different-from-the-sin-of-onan",
+   "title": "How is NFP Different From the Sin of Onan?",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-humanae-vitae-state-that-birth-control-is-only-forbidden-for-married-couples",
+   "title": "Does Humanae Vitae state that birth control is only forbidden for married couples?",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/nfp-and-marriage-consent",
+   "title": "NFP and Marriage Consent",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/when-nfp-alone-wont-cut-it",
+   "title": "When NFP Alone Won't Cut It",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-contraception-is-wrong",
+   "title": "Why Contraception Is Wrong",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/contraception",
+   "title": "Contraception",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/contraception-revisited",
+   "title": "Contraception Revisited",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/catholic-contraception",
+   "title": "Catholic Contraception?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-nfp-just-catholic-birth-control",
+   "title": "Is NFP Just \"Catholic Birth Control\"?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-is-natural-family-planning-different-from-contraception",
+   "title": "How Is Natural Family Planning Different from Contraception?",
+   "score": 6.0
+  }
+ ],
+ "abortion": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/abortion",
+   "title": "What the Early Church Believed: Abortion",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/souls-of-the-unborn",
+   "title": "Souls of the Unborn",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-dont-we-baptize-the-unborn",
+   "title": "Why Don't We Baptize the Unborn?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-numbers-5-mean-abortion-is-ok",
+   "title": "Does Numbers 5 Mean Abortion Is OK?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/mustnt-let-the-abortion-clinic-burn",
+   "title": "Mustn't Let the Abortion Clinic Burn",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-there-a-catholic-case-for-abortion",
+   "title": "Is There a Catholic Case for Abortion?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/pro-life-catholics-who-oppose-banning-abortion",
+   "title": "'Pro-Life Catholics' Who Oppose Banning Abortion?",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/abortion-related-violence-is-not-the-pro-life-movements-fault",
+   "title": "Abortion-Related Violence Is Not the Pro-Life Movement's Fault",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/a-pro-life-epiphany",
+   "title": "A Pro-Life Epiphany",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/relativism-and-abortion",
+   "title": "Relativism and Abortion",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-the-bible-pro-abortion",
+   "title": "Is the Bible Pro-Abortion?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/abortion",
+   "title": "Abortion",
+   "score": 3.0
+  }
+ ],
+ "science-faith": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/adam-eve-and-evolution",
+   "title": "Adam, Eve, and Evolution",
+   "score": 4.6
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/creation-and-genesis",
+   "title": "What the Early Church Believed: Creation and Genesis",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-churchs-stance-on-evolution",
+   "title": "The Church's Stance on Evolution",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/evolution-intelligent-design-as-long-as-gods-involved",
+   "title": "Evolution? Intelligent Design? As Long as God's Involved",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-did-the-church-have-difficulty-accepting-heliocentrism-but-not-evolution",
+   "title": "Why did the Church Have Difficulty Accepting Heliocentrism, but Not Evolution?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/given-the-evidence-for-evolution-are-catholics-required-to-believe-adam-and-eve-existed",
+   "title": "Given the evidence for evolution, are Catholics required to believe Adam and Eve existed?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/wasnt-the-catholic-church-wrong-in-condemning-galileo-and-therefore-fallible-in-what-it-teaches",
+   "title": "Wasn’t the Catholic Church wrong in condemning Galileo and therefore fallible in what it teaches?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/evolution-and-the-magisterium",
+   "title": "Evolution and the Magisterium",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/evangelizing-through-evolution",
+   "title": "Evangelizing Through Evolution",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/the-big-bang-evolution-and-catholicism",
+   "title": "The Big Bang, Evolution, and Catholicism",
+   "score": 4.6
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/catholics-and-evolution",
+   "title": "Catholics and Evolution",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/evolution",
+   "title": "Evolution",
+   "score": 3.0
+  }
+ ],
+ "suffering": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/it-was-about-the-suffering",
+   "title": "It WAS About the Suffering",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-does-god-allow-persecution",
+   "title": "Why Does God Allow Persecution?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-suffering-a-sign-of-punishment",
+   "title": "Is Suffering a Sign of Punishment?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/reparation-and-redemptive-suffering",
+   "title": "Reparation and Redemptive Suffering",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/terrified-of-suffering-in-purgatory",
+   "title": "Terrified of Suffering in Purgatory",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-problem-of-evil",
+   "title": "How to Answer the Problem of Evil",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-problem-of-evil-2",
+   "title": "The Problem of Evil",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/hope-through-suffering",
+   "title": "Hope through Suffering",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/relief-from-suffering",
+   "title": "Relief from Suffering",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-does-god-allow-heartbreak",
+   "title": "\"Why Does God Allow Heartbreak?\"",
+   "score": 3.0
+  }
+ ],
+ "inerrancy": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/proving-inspiration",
+   "title": "Proving Inspiration",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-papal-infallibility-mean-the-pope-is-perfect-or-inerrant",
+   "title": "Does Papal Infallibility Mean the Pope is Perfect or Inerrant?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-the-bibles-inerrancy-limited-to-matters-pertaining-to-salvation",
+   "title": "Is the Bible's inerrancy limited to matters pertaining to salvation?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-the-catholic-understanding-of-the-inspiration-of-scripture",
+   "title": "What Is the Catholic Understanding of the Inspiration of Scripture?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-apostolic-tradition-apart-from-the-bible-inerrant-or-can-it-contain-errors",
+   "title": "Is apostolic Tradition, apart from the Bible, inerrant or can it contain errors?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/bibles-inspiration-and-inerrancy",
+   "title": "Bible's Inspiration and Inerrancy",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/is-scripture-inerrant",
+   "title": "Is Scripture Inerrant?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/so-are-there-errors-in-the-bible-or-not",
+   "title": "So Are There Errors in the Bible or Not?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/inspiration-of-the-bible",
+   "title": "Inspiration of the Bible",
+   "score": 3.0
+  }
+ ],
+ "apostolic-succession": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/apostolic-succession",
+   "title": "What the Early Church Believed: Apostolic Succession",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/i-want-to-accept-apostolic-succession",
+   "title": "I Want to Accept Apostolic Succession",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-orthodox-have-apostolic-succession",
+   "title": "The Orthodox Have Apostolic Succession",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-the-biblical-support-for-apostolic-succession",
+   "title": "What is the biblical support for apostolic succession?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/episcopal-clergyman-discovers-true-home",
+   "title": "Episcopal Clergyman Discovers True Home",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/apostolic-succession-is-assurance-of-truth",
+   "title": "Apostolic Succession Is Assurance of Truth",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/does-christs-church-have-apostolic-succession",
+   "title": "Does Christ's Church Have Apostolic Succession?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/apostolic-succession-in-the-bible",
+   "title": "Apostolic Succession in the Bible",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-be-catholic-apostolic-succession",
+   "title": "Why Be Catholic?: Apostolic Succession",
+   "score": 3.0
+  }
+ ],
+ "development-of-doctrine": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/can-dogma-develop",
+   "title": "Can Dogma Develop?",
+   "score": 7.6
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/st-john-newman-the-38th-doctor-of-the-church",
+   "title": "St. John Newman | The 38th Doctor of the Church Overview",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-judaism-and-christianity-develop-from-canaanite-religion",
+   "title": "Did Judaism and Christianity Develop from Canaanite Religion?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-cardinal-newman-believe-in-the-validity-of-anglican-confessions",
+   "title": "Did Cardinal Newman Believe in the Validity of Anglican Confession?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-cardinal-newman-initially-reject-the-doctrine-of-papal-infallibility",
+   "title": "Did Cardinal Newman initially reject the doctrine of papal infallibility?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/cardinal-newman-said-to-be-deep-in-history-is-to-cease-to-be-protestant-why-dont-more-protestant",
+   "title": "Cardinal Newman Said, \"To Be Deep in History Is to Cease to Be Protestant.\" Why Don't More Protestant Historians Become Catholic?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/st-john-henry-newman-deep-in-history",
+   "title": "St. John Henry Newman: Deep in History",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/john-henry-newman-doctor-of-the-church",
+   "title": "John Henry Newman: Doctor of the Church!",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-did-the-old-testament-canon-develop",
+   "title": "How did the Old Testament canon develop?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/john-henry-newman",
+   "title": "John Henry Newman",
+   "score": 3.0
+  }
+ ],
+ "early-church-fathers": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/what-the-early-church-believed-original-sin",
+   "title": "What the Early Church Believed: Original Sin",
+   "score": 6.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/what-the-early-church-believed-monks-and-nuns",
+   "title": "What the Early Church Believed: Monks and Nuns",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-the-early-church-fathers-espouse-papal-infallibility",
+   "title": "Did the Early Church Fathers Espouse Papal Infallibility?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/who-were-the-church-fathers",
+   "title": "Who Were the Church Fathers?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-church-fathers-on-polygamy",
+   "title": "The Church Fathers on Polygamy",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/church-fathers-are-not-infallible",
+   "title": "Church Fathers Are Not Infallible",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/lots-of-evidence-from-the-church-fathers",
+   "title": "Lots of Evidence from the Church Fathers",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-early-church-fathers-and-paganism",
+   "title": "The Early Church Fathers and Paganism",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/reading-the-early-church-fathers-part-ii",
+   "title": "Reading the Early Church Fathers: Part II",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-papacy-in-the-early-church",
+   "title": "The Papacy in the Early Church",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/were-the-early-church-fathers-misguided",
+   "title": "Were the Early Church Fathers misguided?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/who-were-the-church-fathers",
+   "title": "Who were the Church Fathers?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/ignatius-of-antioch-saint",
+   "title": "Ignatius of Antioch, Saint",
+   "score": 3.0
+  }
+ ],
+ "salvation-outside-church": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/salvation-outside-the-church",
+   "title": "What the Early Church Believed: Salvation Outside the Church",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-did-vatican-ii-say-about-salvation-outside-the-church",
+   "title": "What Did Vatican II Say About Salvation Outside the Church?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/whats-the-correct-understanding-of-no-salvation-outside-the-church",
+   "title": "What's the Correct Understanding of \"No Salvation outside the Church?\"",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-no-salvation-outside-the-church-include-non-catholic-christians",
+   "title": "Does \"No Salvation outside the Church\" Include Non-Catholic Christians?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/if-there-is-no-salvation-outside-the-church-then-what-does-christs-death-do-for-those-who-die",
+   "title": "If there is no salvation outside the Church, then what does Christ's death do for those who die without entering the Church?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-indifference-equal-invincible-ignorance",
+   "title": "Does Indifference Equal Invincible Ignorance?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/no-salvation-outside-the-church",
+   "title": "No Salvation Outside the Church",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/what-no-salvation-outside-the-church-means",
+   "title": "What \"No Salvation Outside the Church\" Means",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/can-non-catholics-be-saved",
+   "title": "Can Non-Catholics Be Saved?",
+   "score": 3.2
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-there-salvation-outside-the-church",
+   "title": "Is There Salvation Outside the Church?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-there-salvation-outside-the-church-0",
+   "title": "Is There Salvation Outside the Church?",
+   "score": 6.0
+  }
+ ],
+ "sinful-popes": [
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-about-the-bad-popes",
+   "title": "What about the bad Popes?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/i-m-not-catholic-because-of-corrupt-popes",
+   "title": "I'm Not Catholic Because of Corrupt Popes...",
+   "score": 3.0
+  }
+ ],
+ "mary-queen": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-is-mary-called-queen-of-heaven",
+   "title": "Why Is Mary Called Queen of Heaven?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/when-was-marys-queenship-recognized",
+   "title": "When Was Mary's Queenship Recognized?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/marys-queenship-and-ours",
+   "title": "Mary's Queenship, and Ours",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/is-marys-queenship-biblical",
+   "title": "Mary, Queen of Heaven and Earth",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/queenship-has-its-privileges",
+   "title": "The Queenship of Mary: Queenship has it's Privilages",
+   "score": 3.0
+  }
+ ],
+ "mary-new-eve-ark": [
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/an-ark-of-the-covenant-mystery",
+   "title": "An Ark of the Covenant Mystery",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-new-adam-rebukes-the-new-eve",
+   "title": "The New Adam Rebukes the New Eve",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/how-can-you-say-that-mary-is-the-new-eve",
+   "title": "How Can You Say That Mary Is the 'New Eve'?",
+   "score": 3.0
+  }
+ ],
+ "rosary": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/hail-mary",
+   "title": "Hail Mary | Understanding the Hail Mary Prayer and Its Meaning",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-rosary",
+   "title": "The Rosary",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/rosary-pagan-come-on",
+   "title": "Rosary? Pagan? Come On",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-care-and-feeding-of-your-rosary",
+   "title": "The Care and Feeding of Your Rosary",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-do-catholics-pray-the-rosary",
+   "title": "Why Do Catholics Pray the Rosary?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/praying-the-rosary-is-not-idolatry",
+   "title": "Praying the Rosary Is Not Idolatry",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/rosary",
+   "title": "Rosary",
+   "score": 3.0
+  }
+ ],
+ "reliability-gospels": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-historicity-of-noah-abraham-and-moses",
+   "title": "The Historicity of Noah, Abraham, and Moses",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-do-some-scholars-dispute-the-gospels-historicity",
+   "title": "Why do Some Scholars Dispute the Gospels’ Historicity?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-reliability-of-the-gospels",
+   "title": "The Reliability of the Gospels",
+   "score": 3.0
+  }
+ ],
+ "virgin-birth": [
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/virgin-birth",
+   "title": "Virgin Birth",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/why-the-virgin-birth",
+   "title": "Why the Virgin Birth?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/was-the-virgin-birth-of-jesus-grounded-in-paganism",
+   "title": "Was the Virgin Birth of Jesus Grounded in Paganism?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/are-catholics-required-to-believe-in-the-virgin-birth",
+   "title": "Are Catholics Required to Believe in the Virgin Birth?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/virgin-birth-of-christ",
+   "title": "Virgin Birth of Christ",
+   "score": 3.0
+  }
+ ],
+ "incarnation": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/was-jesus-male-before-the-incarnation",
+   "title": "Was Jesus male before the Incarnation?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-jesus-know-he-was-god-at-the-incarnation",
+   "title": "Did Jesus Know He Was God at the Incarnation?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/gods-immutability-and-the-incarnation-irreconcilable-differences",
+   "title": "God’s Immutability and the Incarnation: Irreconcilable Differences?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-consubstantiation-have-anything-to-do-with-jesus-having-two-natures",
+   "title": "Does \"Consubstantiation\" Have Anything to Do with Jesus Having Two Natures?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/hypostatic-union",
+   "title": "Hypostatic Union",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/how-the-incarnation-reveals-gods-love",
+   "title": "How the Incarnation Reveals God’s Love",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/did-the-incarnation-cause-god-to-change",
+   "title": "If God Became Man, Didn't God Change?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/define-being-christian-and-christs-two-natures",
+   "title": "Define being Christian and Christ's two natures",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/if-mary-had-said-no-to-the-incarnation-would-she-still-have-been-immaculately-conceived",
+   "title": "If Mary Had Said “No” to the Incarnation, Would She Still Have Been Immaculately Conceived?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/chalcedon",
+   "title": "Chalcedon",
+   "score": 3.0
+  }
+ ],
+ "messianic-prophecy": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/jesus-fulfills-ot-messianic-prophecies",
+   "title": "Jesus Fulfills OT Messianic Prophecies",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-messianic-secret",
+   "title": "The \"Messianic Secret\"",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/who-fulfills-the-prophecy-joshua-or-jesus",
+   "title": "Who Fulfills the Prophecy, Joshua or Jesus?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/prophets-understanding-of-their-own-prophecies",
+   "title": "Prophets' Understanding of Their Own Prophecies",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/jesus-last-prophecy",
+   "title": "Jesus' Last Prophecy",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/paganism-prophecies-and-propaganda",
+   "title": "Paganism, Prophecies, and Propaganda",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-three-prophecies-of-humanae-vitae",
+   "title": "The Three Prophecies of Humanae Vitae",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/prophecy",
+   "title": "Prophecy",
+   "score": 3.0
+  }
+ ],
+ "atonement": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/a-primer-on-atonement",
+   "title": "A Primer on Atonement",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-did-jesus-die-on-the-cross",
+   "title": "Why Did Jesus Die on the Cross?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-do-we-still-sin-after-jesus-atonement",
+   "title": "Why Do We Still Sin After Jesus' Atonement?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/catholic-orthodox-and-protestant-views-on-atonement",
+   "title": "Catholic, Orthodox and Protestant Views on Atonement",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-do-catholics-believe-about-the-atonement",
+   "title": "What do Catholics believe about the Atonement?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-is-the-difference-between-redemption-and-salvation",
+   "title": "What is the Difference Between Redemption and Salvation?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/redemption",
+   "title": "Redemption",
+   "score": 3.0
+  }
+ ],
+ "rapture": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/end-of-the-world-catholic-view-on-the-rapture",
+   "title": "End of the World | Catholic View on the Second Coming of Jesus",
+   "score": 4.6
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-rapture",
+   "title": "The Rapture",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-rap-on-the-rapture",
+   "title": "The Rap on the Rapture",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/do-catholics-believe-in-the-rapture",
+   "title": "Do Catholics Believe in the Rapture?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/st-paul-isnt-talking-about-the-rapture",
+   "title": "St. Paul Isn't Talking About the Rapture",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/will-the-temple-in-jerusalem-be-rebuilt-in-the-end-times",
+   "title": "Will the Temple in Jerusalem Be Rebuilt in the End Times?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/rapture-claptrap",
+   "title": "Rapture Claptrap",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/recycled-rapture",
+   "title": "Recycled Rapture",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/no-rapture-for-rome",
+   "title": "No Rapture for Rome",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/can-catholics-believe-in-the-rapture",
+   "title": "Can Catholics Believe in the Rapture?",
+   "score": 3.0
+  }
+ ],
+ "revelation-beast": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/private-revelation",
+   "title": "What the Early Church Believed: Private Revelations",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/who-wrote-the-book-of-revelation",
+   "title": "Who Wrote the Book of Revelation?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/erroneous-private-revelation",
+   "title": "Erroneous Private Revelation",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-the-meaning-of-revelation-2218-19",
+   "title": "What is the meaning of Revelation 22:18–19?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/revelation-and-our-personal-encounter-with-god",
+   "title": "Revelation and Our Personal Encounter with God",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-woman-in-revelation-and-the-pangs-of-childbirth",
+   "title": "The Woman in Revelation and the \"Pangs of Childbirth\"",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/does-the-book-of-revelation-disprove-the-papacy",
+   "title": "Does the Book of Revelation Disprove the Papacy?",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-beast-in-revelation",
+   "title": "The Beast in Revelation",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-woman-of-revelation-12",
+   "title": "The Woman of Revelation 12",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/who-are-the-144000-sealed-servants-in-revelation",
+   "title": "Who are the 144,000 Sealed Servants in Revelation?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-are-the-new-heaven-and-earth-in-the-book-of-revelation",
+   "title": "What are the New Heaven and Earth in the Book of Revelation?",
+   "score": 6.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/revelation",
+   "title": "Revelation",
+   "score": 3.0
+  }
+ ],
+ "transubstantiation": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/isnt-consubstantiation-more-incarnational-than-transubstantiation",
+   "title": "Isn't consubstantiation more incarnational than transubstantiation?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-does-the-church-use-the-words-substance-and-accidents-in-the-doctrine-of-the-eucharist",
+   "title": "Why Does the Church Use the Words \"Substance\" and \"Accidents\" in the Doctrine of the Eucharist?",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/transubstantiation-for-beginners",
+   "title": "Transubstantiation for Beginners",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/nothing-beats-transubstantiation",
+   "title": "Nothing Beats Transubstantiation",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/is-transubstantiation-unbelievable",
+   "title": "Ditch Transubstantiation, and You Ditch God",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/explaining-transubstantiation",
+   "title": "Explaining Transubstantiation",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/another-way-to-explain-the-doctrine-of-transubstantiation",
+   "title": "Another way to explain the doctrine of Transubstantiation",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/substance",
+   "title": "Substance",
+   "score": 3.0
+  }
+ ],
+ "communion-catholics-only": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/who-can-receive-communion",
+   "title": "Who Can Receive Holy Communion in the Catholic Church",
+   "score": 4.6
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/pope-francis-on-intercommunion-with-lutherans",
+   "title": "Pope Francis on Intercommunion with Lutherans",
+   "score": 3.0
+  }
+ ],
+ "eucharistic-adoration": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/adoration-benediction-catholic-answers-guide-to-eucharistic-adoration",
+   "title": "Adoration & Benediction",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/adoration-is-for-everyone",
+   "title": "Adoration Is for Everyone",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-pray-rosary-during-eucharistic-adoration",
+   "title": "Why Pray Rosary During Eucharistic Adoration?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/can-deacons-perform-exposition-and-benediction",
+   "title": "Can Deacons Perform Exposition and Benediction?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/may-the-blessed-sacrament-be-exposed-on-good-friday",
+   "title": "May the Blessed Sacrament Be Exposed on Good Friday?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/adoration-during-the-pandemic",
+   "title": "Adoration During the Pandemic",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/eucharistic-adoration-good-or-bad",
+   "title": "Eucharistic Adoration: Good or Bad?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/bringing-the-blessed-sacrament-to-the-battlefield",
+   "title": "Bringing the Blessed Sacrament to the Battlefield",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/benediction-of-the-blessed-sacrament",
+   "title": "Benediction of the Blessed Sacrament",
+   "score": 6.0
+  }
+ ],
+ "anointing-sick": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/anointing-of-the-sick",
+   "title": "Anointing of the Sick",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/may-a-layperson-give-last-rites",
+   "title": "May a Layperson Give Last Rites?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/anointing-of-the-sick-for-a-dead-person",
+   "title": "Anointing of the Sick for a Dead Person",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/who-may-receive-the-anointing-of-the-sick",
+   "title": "Who May Receive the Anointing of the Sick",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/can-a-protestant-receive-catholic-last-rites",
+   "title": "May a Protestant Receive Catholic Last Rites?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-was-our-child-denied-anointing-of-the-sick",
+   "title": "Why was our child denied anointing of the sick?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/anointing-of-the-sick",
+   "title": "Anointing of the Sick",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-is-the-difference-between-anointing-of-the-sick-and-last-rites",
+   "title": "What is the Difference Between Anointing of the Sick and Last Rites?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-anointing-of-the-sick-a-substitute-for-confession",
+   "title": "Is anointing of the sick a substitute for confession?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/viaticum",
+   "title": "Viaticum",
+   "score": 3.0
+  }
+ ],
+ "confirmation": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/confirmation",
+   "title": "Confirmation in the Catholic Church",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/confirmation-name",
+   "title": "Confirmation Name?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/can-confirmation-be-repeated",
+   "title": "Can Confirmation Be Repeated?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/confirmation-sponsor-quandary",
+   "title": "Confirmation Sponsor Quandary?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/when-can-confirmation-be-denied",
+   "title": "When Can Confirmation Be Denied?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/never-too-late-for-confirmation",
+   "title": "Never Too Late for Confirmation",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/no-marriage-without-confirmation",
+   "title": "No Marriage Without Confirmation?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/where-is-confirmation-in-the-bible",
+   "title": "What Does the Bible Say About Confirmation?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/life-beyond-confirmation-how-to-revive-the-ancient-practice-of-mystagogy",
+   "title": "Life Beyond Confirmation: How to Revive the Ancient Practice of Mystagogy",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-religion-just-confirmation-bias",
+   "title": "Is Religion Just 'Confirmation Bias'?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-confirmation-a-catholic-invention-or-is-it-biblical",
+   "title": "Is Confirmation a Catholic Invention? Or is it Biblical?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/chrism",
+   "title": "Chrism",
+   "score": 3.0
+  }
+ ],
+ "call-no-man-father": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/call-no-man-father",
+   "title": "Call No Man \"Father\"?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-we-respond-to-the-call-no-man-father-question",
+   "title": "How can we respond to the \"call no man father\" question?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-we-explain-calling-priests-father-when-jesus-said-not-to",
+   "title": "How Can We Explain Calling Priests \"Father\" When Jesus Said Not To?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/call-no-man-father",
+   "title": "The Fatherhood of God",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/call-no-man-father-0",
+   "title": "Call No Man Father?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/calling-priests-father",
+   "title": "Calling Priests \"Father\"",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-do-catholics-call-priests-father-if-the-bible-says-call-no-man-father",
+   "title": "Why Do Catholics Call Priests Father, If the Bible Says \"Call No Man Father\"?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/call-no-man-father",
+   "title": "Call No Man Father?",
+   "score": 3.0
+  }
+ ],
+ "grace-and-merit": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/reward-and-merit",
+   "title": "What the Early Church Believed: Reward and Merit",
+   "score": 6.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/grace-what-it-is-and-what-it-does",
+   "title": "Grace: What It Is and What It Does",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/reconciling-justification-and-purgatory",
+   "title": "Reconciling Justification and Purgatory",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-difference-between-salvation-and-justification",
+   "title": "The Difference Between Salvation and Justification",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/do-justification-and-condemnation-work-the-same-way",
+   "title": "Do justification and condemnation work the same way?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-the-difference-between-justification-and-sanctification",
+   "title": "What Is the Difference Between Justification and Sanctification?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-use-scripture-to-counter-protestant-claims-about-justification",
+   "title": "How can use Scripture to counter Protestant claims about justification?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/reward-and-merit",
+   "title": "Reward and Merit",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/merit-reward",
+   "title": "Merit &amp; Reward",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/justification",
+   "title": "Doctrine of Justification",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-does-it-mean-to-merit-salvation",
+   "title": "What Does it Mean to Merit Salvation?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/merit",
+   "title": "Merit",
+   "score": 3.0
+  }
+ ],
+ "predestination": [
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/predestined-for-freedom",
+   "title": "Predestined for Freedom",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/what-is-predestination",
+   "title": "What Is Predestination?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/does-calvinism-prove-catholicism",
+   "title": "Does Calvinism Prove Catholicism?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/was-judas-predestined-for-failure",
+   "title": "Was Judas Predestined for Failure?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/do-catholics-believe-in-predestination",
+   "title": "Do Catholics Believe in Predestination?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/calvinism",
+   "title": "Calvinism",
+   "score": 3.0
+  }
+ ],
+ "mortal-and-venial-sin": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/mortal-sin",
+   "title": "What the Early Church Believed: Mortal Sin",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/praying-in-mortal-sin",
+   "title": "Praying in Mortal Sin",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/venial-sin-forgiveness",
+   "title": "Forgiveness of Venial Sins?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/forgiveness-of-mortal-sin",
+   "title": "Forgiveness of Mortal Sin",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-masturbation-a-grave-sin",
+   "title": "Is masturbation a grave sin?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/praying-while-in-mortal-sin",
+   "title": "Praying While in Mortal Sin",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-seven-deadly-sins",
+   "title": "The Seven Deadly Sins",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/mortal-and-venial-sin",
+   "title": "Mortal and Venial Sin?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/forget-mass-not-a-mortal-sin",
+   "title": "Forget Mass? Not a Mortal Sin",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-missing-sunday-mass-a-mortal-sin",
+   "title": "Is Missing Sunday Mass a Mortal Sin?",
+   "score": 3.0
+  }
+ ],
+ "limbo": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/whatever-happened-to-limbo",
+   "title": "Whatever Happened to Limbo?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-the-limbo-of-the-fathers",
+   "title": "What Is the Limbo of the Fathers?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/fate-of-unbaptized-infants-at-death",
+   "title": "Fate of Unbaptized Infants at Death?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-could-enoch-have-been-taken-up-into-heaven-before-jesus-freed-the-souls-in-limbo",
+   "title": "How could Enoch have been taken up into heaven before Jesus freed the souls in limbo?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/whats-the-deal-with-limbo",
+   "title": "What's the Deal with Limbo?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/are-purgatory-and-the-limbo-of-the-fathers-the-same-thing",
+   "title": "Are Purgatory and The Limbo of the Fathers the same thing?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/limbo",
+   "title": "Limbo",
+   "score": 3.0
+  }
+ ],
+ "heaven": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/to-hell-with-heaven",
+   "title": "To Hell with Heaven",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/free-will-in-heaven",
+   "title": "Free Will in Heaven",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-to-get-to-heaven",
+   "title": "How to Get to Heaven",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/no-sinning-in-heaven",
+   "title": "No Sinning in Heaven",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/what-is-heaven",
+   "title": "What is Heaven?",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/what-is-heaven-really-like",
+   "title": "What Is Heaven Really Like?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/do-the-new-heaven-and-the-new-earth-already-exist",
+   "title": "Do the New Heaven and the New Earth Already Exist?",
+   "score": 4.6
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-is-the-new-earth-and-the-new-heaven-in-revelations",
+   "title": "What is the New Earth and the New Heaven in Revelations?",
+   "score": 4.6
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/heaven",
+   "title": "Heaven",
+   "score": 3.0
+  }
+ ],
+ "judgment": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/particular-judgment-versus-final-judgment",
+   "title": "Particular Judgment Versus Final Judgment",
+   "score": 9.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/only-one-final-judgment",
+   "title": "Only One Final Judgment",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/when-does-our-particular-judgment-come",
+   "title": "When Does Our Particular Judgment Come?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-there-be-a-general-judgment-and-a-particular-judgment",
+   "title": "How can there be a general judgment and a particular judgment?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/given-that-at-the-last-judgment-the-world-will-end-why-in-the-glory-be-do-we-say-world-without",
+   "title": "Given that at the Last Judgment the World will End, why in the “Glory Be” do we say “World Without End”?",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/advent-is-here-prepare-for-judgment",
+   "title": "Advent Is Here: Prepare for Judgment!",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/catholics-vs-protestants-on-private-judgment",
+   "title": "Catholics vs. Protestants on Private Judgment",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/divine-judgment",
+   "title": "Divine Judgment",
+   "score": 3.0
+  }
+ ],
+ "praying-for-the-dead": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-are-souls-in-purgatory-called-holy",
+   "title": "Why Are Souls in Purgatory Called \"Holy?\"",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/can-souls-in-purgatory-intercede-for-us",
+   "title": "Can Souls in Purgatory Intercede for Us?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/when-are-the-souls-in-purgatory-released",
+   "title": "When Are the Souls in Purgatory Released?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/do-modern-jews-believe-in-purgatory-as-2-maccabees-1245-speaks-of-prayers-for-the-dead",
+   "title": "Do Modern Jews Believe in Purgatory?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/pray-for-the-dead-today",
+   "title": "Pray for the Dead Today",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/can-the-souls-in-purgatory-pray-for-us",
+   "title": "Can the souls in purgatory pray for us?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/offering-a-plenary-indulgence-for-the-souls-in-purgatory",
+   "title": "Offering a Plenary Indulgence for the Souls in Purgatory",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/prayers-for-the-dead",
+   "title": "Prayers for the Dead",
+   "score": 3.0
+  }
+ ],
+ "guardian-angels": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/guardian-angels-and-the-guardian-angel-prayer",
+   "title": "Guardian Angels and The Guardian Angel Prayer",
+   "score": 6.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/st-michael-the-archangel-catholic-answers-guide-to-the-powerful-prayer",
+   "title": "St. Michael the Archangel",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-it-true-jehovahs-witnesses-believe-that-michael-the-archangel-and-jesus-are-the-same-person",
+   "title": "Are Michael the archangel and Jesus the same person?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-pray-to-angels",
+   "title": "Why pray to angels?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-angels-cant-kill",
+   "title": "Why Angels Can't Kill",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/angels-and-devils",
+   "title": "Angels and Devils",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/are-jesus-and-michael-the-archangel-the-same-being",
+   "title": "Are Jesus and Michael the Archangel the same being?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/guardian-angels",
+   "title": "Guardian Angels",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/michael-the-archangel-saint",
+   "title": "Michael the Archangel, Saint",
+   "score": 6.0
+  }
+ ],
+ "relics-and-sacramentals": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/relics",
+   "title": "Relics",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-brown-scapular-catholic-answers-guide",
+   "title": "The Brown Scapular | Our Lady of Mt. Carmel’s Sacramental Gift to Sacramentals",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/obtaining-relics",
+   "title": "Obtaining Relics",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/adding-to-holy-water",
+   "title": "Adding to Holy Water",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/are-relics-authentic",
+   "title": "Are Relics Authentic?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/when-to-use-holy-water",
+   "title": "When to Use Holy Water",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/authenticity-of-relics",
+   "title": "Authenticity of Relics",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/is-the-scapular-a-magic-charm",
+   "title": "Is the Scapular a Magic Charm?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-bibles-recipe-for-holy-water",
+   "title": "The Bible's Recipe for Holy Water",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-do-catholics-keep-relics",
+   "title": "Why Do Catholics Keep Relics?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/where-can-first-class-relics-be-kept",
+   "title": "Where Can First-Class Relics Be Kept?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/relics",
+   "title": "Relics",
+   "score": 3.0
+  }
+ ],
+ "exorcism": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-demonic-possession-official-church-doctrine",
+   "title": "Is Demonic Possession Official Church Doctrine?",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/are-demon-and-devil-the-same",
+   "title": "Are Demon and Devil the Same?",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/satan-still-reigns",
+   "title": "Satan Still Reigns",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/satan-in-scripture",
+   "title": "Satan in Scripture",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-did-satan-rebel",
+   "title": "Why Did Satan Rebel?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/why-satan-tempts-us",
+   "title": "Why Satan Tempts Us",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/satan-wants-you-to-feel-bad",
+   "title": "Satan Wants You to Feel Bad",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/a-day-in-the-life-of-a-demon",
+   "title": "A Day in the Life of a Demon",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-do-we-define-satan",
+   "title": "How do we define Satan?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/did-satan-know-jesus-was-divine",
+   "title": "Did Satan know Jesus was divine?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/demoniacal-possession",
+   "title": "Demoniacal Possession",
+   "score": 5.4
+  }
+ ],
+ "fasting-lent": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/ash-wednesday-the-first-day-of-lent",
+   "title": "Ash Wednesday 2025 | The First Day of Lent",
+   "score": 4.6
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/ash-wednesday-2026-catholic-answers-guide-to-lent",
+   "title": "Ash Wednesday 2026 | The First Day of Lent",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-do-catholics-practice-fasting-and-abstinence-during-lent",
+   "title": "Why Do Catholics Fast During Lent?",
+   "score": 9.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-should-senior-citizens-observe-fasting-and-abstinence-during-lent",
+   "title": "How Should Elderly Catholics Observe Fasting and Abstinence During Lent?",
+   "score": 9.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-lent",
+   "title": "What Is Lent?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/offering-up-fasting",
+   "title": "Offering up Fasting",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/penance-0",
+   "title": "Biblical Evidence for Penance",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/why-we-do-lent",
+   "title": "Why We Do Lent",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/fatigued-by-lent",
+   "title": "Fatigued by Lent",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-do-penance",
+   "title": "Why Do Penance?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-do-penance-0",
+   "title": "Why Do Penance?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/lent",
+   "title": "Lent",
+   "score": 3.0
+  }
+ ],
+ "death-penalty": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/death-penalty-is-not-a-mortal-sin",
+   "title": "Death Penalty Is Not a Mortal Sin",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/when-is-the-death-penalty-justified",
+   "title": "When Is the Death Penalty Justified?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-death-penalty-in-the-old-testament",
+   "title": "The Death Penalty in the Old Testament",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-death-penalty-unjust-preemptive-strike",
+   "title": "Is Death Penalty Unjust Preemptive Strike?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-the-church-allows-for-the-death-penalty",
+   "title": "Why the Church Allows for the Death Penalty",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/flawed-execution",
+   "title": "Flawed Execution",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/war-and-capital-punishment",
+   "title": "War and Capital Punishment",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-church-and-capital-punishment",
+   "title": "The Church and Capital Punishment",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-is-capital-punishment-different-from-abortion-and-euthanasia",
+   "title": "How Is Capital Punishment Different From Abortion and Euthanasia?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/capital-punishment",
+   "title": "Capital Punishment",
+   "score": 3.0
+  }
+ ],
+ "euthanasia": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/double-effect-and-the-end-of-life",
+   "title": "Double Effect and the End of Life",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/church-teaching-on-end-of-life-care",
+   "title": "Church Teaching on End-of-Life Care",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/foregoing-medication-at-the-end-of-life",
+   "title": "Foregoing Medication at the End of Life",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/debating-assisted-suicide",
+   "title": "Debating Assisted Suicide",
+   "score": 4.6
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-doctor-assisted-suicide-debate",
+   "title": "The Doctor-Assisted Suicide Debate",
+   "score": 4.6
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/three-questions-for-euthanasia-fans",
+   "title": "Three Questions for Euthanasia Fans",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-doctor-assisted-suicide-ever-ok",
+   "title": "Is doctor-assisted suicide ever OK?",
+   "score": 4.6
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/can-a-catholic-support-abortion-or-assisted-suicide",
+   "title": "Can a Catholic Support Abortion or Assisted Suicide?",
+   "score": 4.6
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/euthanasia",
+   "title": "Euthanasia",
+   "score": 3.0
+  }
+ ],
+ "homosexuality": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/homosexuality",
+   "title": "Homosexuality",
+   "score": 5.4
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/early-teachings-on-homosexuality",
+   "title": "What the Early Church Believed: Homosexuality",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/do-homosexual-animals-prove-homosexuality-is-natural",
+   "title": "Do Homosexual Animals Prove Homosexuality Is Natural?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-the-church-say-homosexuality-is-unnatural-when-many-animals-exhibit-homosexual-instincts",
+   "title": "How Can the Church Say Homosexuality is Unnatural When Many Animals Exhibit Homosexual Instincts?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-jesus-never-talked-about-homosexuality",
+   "title": "Why Jesus Never Talked About Homosexuality",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-jesus-doesnt-need-to-speak-about-homosexuality",
+   "title": "Why Jesus Doesn't Need to Speak About Homosexuality",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/should-i-leave-the-church-because-of-my-homosexuality",
+   "title": "Should I Leave the Church Because of my Homosexuality?",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/homosexuality",
+   "title": "Catholic Church Teaching on Homosexuality",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/leviticus-on-homosexuality",
+   "title": "According to God's Design",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/homosexuality-and-hypocrisy",
+   "title": "Homosexuality and Hypocrisy",
+   "score": 5.4
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/angry-pastor-debates-us-on-homosexuality",
+   "title": "Pastor Debates Us on Homosexuality",
+   "score": 5.4
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-homosexuality-only-a-sin-of-fornication",
+   "title": "Is Homosexuality only a Sin of Fornication?",
+   "score": 5.4
+  }
+ ],
+ "chastity": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-is-pornography-a-sin",
+   "title": "Why is pornography a sin?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/marys-vow-of-chastity-before-marriage",
+   "title": "Mary's Vow of Chastity Before Marriage",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/cohabiting-couple-doesnt-view-fornication-as-a-sin",
+   "title": "Cohabiting Couple Doesn’t View Fornication as a Sin",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-is-living-together-wrong-if-were-committed-to-chastity",
+   "title": "Why is Living Together Wrong if We're Committed to Chastity?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/what-counts-as-pornography",
+   "title": "What ‘Counts’ as Pornography?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/how-to-eliminate-pornography",
+   "title": "How to Eliminate Pornography",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/oh-chastity-is-too-hard-man-up",
+   "title": "Oh, Chastity Is Too Hard? Man Up!",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/guilt-and-pornography-addiction",
+   "title": "Guilt and Pornography Addiction",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/overcoming-pornography-addiction",
+   "title": "Overcoming Pornography Addiction",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/chastity",
+   "title": "Chastity",
+   "score": 3.0
+  }
+ ],
+ "ivf": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-in-vitro-fertilization-ivf-be-wrong-if-it-creates-lives",
+   "title": "How can in vitro fertilization (IVF) be wrong if it creates lives?",
+   "score": 9.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/accompanying-those-who-choose-in-vitro-fertilization",
+   "title": "Accompanying Those Who Choose In Vitro Fertilization",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/isnt-the-churchs-teaching-on-in-vitro-fertilization-unfair-to-couples-who-cannot-conceive",
+   "title": "Isn't the Church's Teaching on In-Vitro Fertilization Unfair to Couples Who Cannot Conceive?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-to-say-to-ivf-children",
+   "title": "What to Say to IVF Children",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-the-church-deny-the-right-of-women-to-use-ivf-if-they-cannot-conceive-a-child",
+   "title": "What is the Catholic teaching on IVF?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-brave-new-world-of-ivf",
+   "title": "The Brave New World of IVF",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/we-didnt-start-the-ivf-clinic-fire",
+   "title": "Embryos or Babies?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-is-in-vitro-fertilization-wrong",
+   "title": "Why is In Vitro Fertilization wrong?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/infertility-and-the-same-sex-marriage-debate",
+   "title": "Infertility and the Same-Sex Marriage Debate",
+   "score": 3.0
+  }
+ ],
+ "adam-and-eve": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/adam-eve-and-evolution",
+   "title": "Adam, Eve, and Evolution",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/what-the-early-church-believed-original-sin",
+   "title": "What the Early Church Believed: Original Sin",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/are-adam-and-eve-in-heaven",
+   "title": "Are Adam and Eve in Heaven?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/original-sin-goes-way-back",
+   "title": "Original Sin Goes Way Back",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/were-adam-and-eve-immortal",
+   "title": "Were Adam and Eve Immortal?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/adam-and-eve-were-real-people",
+   "title": "Adam and Eve Were Real People",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/concupiscence-and-original-sin",
+   "title": "Concupiscence and Original Sin",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/original-sin",
+   "title": "Original Sin in the Bible",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/original-sin-2",
+   "title": "Original Sin",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/is-original-sin-stupid",
+   "title": "Is Original Sin Stupid?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/where-are-adam-and-eve-buried",
+   "title": "Where Are Adam and Eve Buried?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-is-original-sin-passed-down",
+   "title": "How is Original Sin Passed Down?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/original-sin",
+   "title": "Original Sin",
+   "score": 3.0
+  }
+ ],
+ "genesis-literal": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/creation-and-genesis",
+   "title": "What the Early Church Believed: Creation and Genesis",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-genesis-authentic-history",
+   "title": "Is Genesis Authentic History?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-incest-in-genesis-was-ok",
+   "title": "Why Incest in Genesis Was OK",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/genesis-symbolical-or-literal",
+   "title": "Genesis, Symbolical or Literal",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/explaining-the-nephilim-of-genesis",
+   "title": "Explaining the \"Nephilim\" of Genesis",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-god-create-the-world-in-six-days",
+   "title": "Did God Create the World in Six Days?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-six-days-of-creation",
+   "title": "The Six Days of Creation",
+   "score": 4.6
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/genesis",
+   "title": "The Book of Genesis",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/genesis-is-true",
+   "title": "Genesis Is True",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-do-the-days-in-genesis-mean",
+   "title": "What Do the Days in Genesis Mean?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/genesis-and-the-epic-of-gilgamesh",
+   "title": "Genesis and the Epic of Gilgamesh",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/genesis",
+   "title": "Genesis",
+   "score": 3.0
+  }
+ ],
+ "slavery-bible": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-the-bible-teach-slavery-is-moral",
+   "title": "Does the Bible Teach Slavery is Moral?",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-changing-circumstances-of-slavery",
+   "title": "The Changing Circumstances of Slavery",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/slavery-and-the-new-testament",
+   "title": "Slavery and the New Testament",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/dont-sell-jesus-into-slavery",
+   "title": "Don't Sell Jesus into Slavery!",
+   "score": 5.4
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-bible-alone-allowed-slavery",
+   "title": "How \"Bible Alone\" Allowed Slavery",
+   "score": 5.4
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/slavery",
+   "title": "Slavery",
+   "score": 5.4
+  }
+ ],
+ "ot-violence": [
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/a-true-christian-conquest",
+   "title": "A True Christian Conquest",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/conquest-desecration-and-phony-history",
+   "title": "Conquest, Desecration, and Phony History",
+   "score": 3.0
+  }
+ ],
+ "social-justice-poor": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/who-are-the-poor-in-spirit",
+   "title": "Who Are the Poor in Spirit?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-your-take-on-rerum-novarum",
+   "title": "What Is Your Take on 'Rerum Novarum'?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/social-justice-and-divine-mercy",
+   "title": "Social Justice and Divine Mercy",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/social-justice-isnt-left-or-right",
+   "title": "Social Justice Isn’t Left or Right",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/what-government-should-do-for-the-poor",
+   "title": "What Government Should Do for the Poor",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-doesnt-the-church-give-all-its-money-to-the-poor",
+   "title": "Why doesn't the Church give all its money to the poor?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/poverty",
+   "title": "Poverty",
+   "score": 3.0
+  }
+ ],
+ "other-religions": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-origins-of-islam",
+   "title": "The Origins of Islam",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/anything-good-about-islam",
+   "title": "Anything Good about Islam?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-muslims-can-get-to-heaven",
+   "title": "How Muslims Can Get to Heaven",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-islam-accept-marys-assumption",
+   "title": "Does Islam Accept Mary's Assumption?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/reasons-for-thinking-islam-is-false",
+   "title": "Reasons for Thinking Islam Is False",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/islam-and-catholicism",
+   "title": "Islam and Catholicism",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/evangelizing-muslims",
+   "title": "Evangelizing Muslims",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/miracles-in-other-religions",
+   "title": "Miracles in Other Religions?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/islam",
+   "title": "Islam",
+   "score": 3.0
+  }
+ ],
+ "god-exists": [
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/clarifying-arguments-for-god-part-one-cosmological",
+   "title": "Clarifying Arguments for God, Part One: Cosmological",
+   "score": 3.2
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/a-proof-of-the-existence-of-god",
+   "title": "A Proof of the Existence of God",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/five-ways-to-make-the-case-for-god",
+   "title": "Five Ways to Make the Case for God",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/answering-atheism-theres-no-evidence-for-the-existence-of-god",
+   "title": "Answering Atheism: There's no evidence for the existence of God.",
+   "score": 4.6
+  }
+ ],
+ "problem-of-evil": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-does-evil-exist",
+   "title": "How Does Evil Exist?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-does-god-allow-persecution",
+   "title": "Why Does God Allow Persecution?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-does-god-allow-miscarriages-and-infant-deaths",
+   "title": "Why Does God Allow Miscarriages and Infant Deaths?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-does-god-allow-the-devil-to-be-active-on-earth",
+   "title": "Why Does God Allow the Devil to Be Active on Earth?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-problem-of-evil",
+   "title": "How to Answer the Problem of Evil",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-problem-of-evil-2",
+   "title": "The Problem of Evil",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-does-god-allow-heartbreak",
+   "title": "\"Why Does God Allow Heartbreak?\"",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/atheism-the-burden-of-proof-and-the-problem-of-evil",
+   "title": "Atheism, the Burden of Proof, and the Problem of Evil",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/theodicy",
+   "title": "Theodicy",
+   "score": 3.0
+  }
+ ],
+ "miracles": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/do-miracles-still-occur",
+   "title": "What the Early Church Believed: Miracles",
+   "score": 7.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/our-lady-of-fatima-the-apparitions-three-secrets-and-historical-impact",
+   "title": "Our Lady of Fatima: The Apparitions, Three Secrets, and Historical Impact",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/do-miracles-violate-free-will",
+   "title": "Do Miracles Violate Free Will?",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/are-miracles-a-violation-of-natural-law",
+   "title": "Are miracles a violation of natural law?",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/are-healing-miracles-just-random-chance",
+   "title": "Are Healing Miracles Just Random Chance?",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/do-miracles-defy-the-laws-of-probability",
+   "title": "Do miracles defy the laws of probability?",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-does-jesus-not-want-talk-of-his-miracles",
+   "title": "Why Does Jesus Not Want Talk of His Miracles?",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-final-fatima-miracle",
+   "title": "The Final Fatima Miracle",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/miracles",
+   "title": "Miracles",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/can-miracles-happen",
+   "title": "Can Miracles Happen?",
+   "score": 5.4
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/miracles-in-other-religions",
+   "title": "Miracles in Other Religions?",
+   "score": 5.4
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/are-healing-miracles-a-real-thing",
+   "title": "Are 'Healing Miracles' a Real Thing?",
+   "score": 5.4
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/gift-of-miracles",
+   "title": "Gift of Miracles",
+   "score": 5.4
+  }
+ ],
+ "women-in-church": [
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/feminine-genius",
+   "title": "Feminine Genius",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/does-the-church-oppress-women-an-appreciation-of-the-feminine-genius",
+   "title": "Does the Church Oppress Women? An Appreciation of the Feminine Genius",
+   "score": 3.0
+  }
+ ],
+ "tithing-and-money": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/tithes-and-tithing-in-the-catholic-church-how-to-tithe",
+   "title": "Tithes and Tithing in The Catholic Church | How to Tithe",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/baptism-contingent-on-tithing",
+   "title": "Baptism Contingent on Tithing?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/tithing-to-your-pastor-or-your-parish",
+   "title": "Tithing to Your Pastor or Your Parish?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/john-1623-and-other-prosperity-gospel-passages",
+   "title": "John 16:23 and Other “Prosperity Gospel” Passages",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-there-a-concise-way-to-respond-to-criticisms-of-the-churchs-wealth",
+   "title": "Is There a Concise Way to Respond to Criticisms of the Church’s Wealth?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/do-i-tithe-10-percent-of-my-gross-income-or-10-percent-of-my-net-income",
+   "title": "Do I Tithe 10 Percent of My Gross Income or 10 Percent of My Net Income?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-wealth-of-the-church",
+   "title": "The Wealth of the Church",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/health-and-wealth-or-the-cross",
+   "title": "Health and Wealth—or the Cross?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/do-catholics-really-have-to-tithe",
+   "title": "Do Catholics Really Have to Tithe?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-the-vatican-hoarding-wealth",
+   "title": "Is the Vatican Hoarding Wealth?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-much-should-low-income-families-tithe",
+   "title": "How much should low income families tithe?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/use-of-wealth",
+   "title": "Use of Wealth",
+   "score": 3.0
+  }
+ ],
+ "hail-mary-bible": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/hail-mary",
+   "title": "Hail Mary | Understanding the Hail Mary Prayer and Its Meaning",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/mary-full-of-grace",
+   "title": "What the Early Church Believed: Mary’s Immaculate Nature",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/only-one-full-of-grace",
+   "title": "Only One Full of Grace?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-hail-mary-is-in-the-bible",
+   "title": "The Hail Mary Is in the Bible",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/full-of-grace-versus-highly-favored",
+   "title": "\"Full of Grace\" or \"Highly Favored\"?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/someone-told-me-that-each-hail-mary-that-is-prayed-saves-one-baby-from-abortion-is-this-true",
+   "title": "Someone told me that each Hail Mary that is prayed saves one baby from abortion. Is this true?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/a-catholic-watches-project-hail-mary",
+   "title": "A Catholic Watches Project Hail Mary",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/hail-mary",
+   "title": "Hail Mary",
+   "score": 3.0
+  }
+ ],
+ "god-has-no-body": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/god-has-no-body",
+   "title": "What the Early Church Believed: God Has No Body",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-god-have-a-body",
+   "title": "Does God Have a Body?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-god-have-a-body-like-ours",
+   "title": "Does God have a body like ours?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-we-eat-jesus-flesh-if-god-is-spirit",
+   "title": "How Can We Eat Jesus’ Flesh if God Is Spirit?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/anthropomorphism",
+   "title": "Anthropomorphism",
+   "score": 3.0
+  }
+ ],
+ "filioque-orthodox": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/eastern-orthodoxy",
+   "title": "Eastern Orthodoxy",
+   "score": 5.4
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/filioque",
+   "title": "What the Early Church Believed: Filioque",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-eastern-orthodoxy-have-saints-if-it-has-no-pope",
+   "title": "How can Eastern Orthodoxy have saints if it has no pope?",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-the-difference-between-eastern-orthodoxy-and-eastern-rite-catholicism",
+   "title": "What is the difference between Eastern Orthodoxy and Eastern-rite Catholicism?",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/was-england-catholic-beforeafter-east-west-schism-of-1054-ad",
+   "title": "Was England Catholic Before/After East-West Schism of 1054 A.D.?",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-did-the-western-schism-end",
+   "title": "How Did the Western Schism End?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/greek-orthodox-marriage-is-valid",
+   "title": "Greek Orthodox Marriage Is Valid",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/considering-eastern-orthodoxy",
+   "title": "Considering Eastern Orthodoxy?",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/how-eastern-orthodoxy-made-me-catholic",
+   "title": "How Eastern Orthodoxy Made Me Catholic",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/why-i-didnt-convert-to-eastern-orthodoxy",
+   "title": "Why I Didn’t Convert to Eastern Orthodoxy",
+   "score": 5.4
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/eastern-orthodoxy-why-not",
+   "title": "Eastern Orthodoxy: Why Not?",
+   "score": 5.4
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/eastern-orthodoxy-s-unsolvable-problem",
+   "title": "Eastern Orthodoxy's UNSOLVABLE Problem",
+   "score": 5.4
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/schism",
+   "title": "Schism",
+   "score": 3.0
+  }
+ ],
+ "catholic-inventions": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/more-catholic-inventions",
+   "title": "More Catholic \"Inventions\"",
+   "score": 6.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/catholic-inventions",
+   "title": "Catholic \"Inventions\"",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/was-priestly-celibacy-invented-in-the-middle-ages",
+   "title": "Was Priestly Celibacy \"Invented in the Middle Ages?\"",
+   "score": 3.0
+  }
+ ],
+ "anti-catholic-claims": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/anti-catholic-whoppers",
+   "title": "Anti-Catholic Myths",
+   "score": 6.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-whore-of-babylon",
+   "title": "The Whore of Babylon",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-can-i-do-about-anti-catholic-materials-in-a-protestant-bookstore",
+   "title": "What Can I do About Anti-Catholic Materials in a Protestant Bookstore?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/anti-catholic-animus",
+   "title": "Anti-Catholic Animus",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/was-paul-anti-catholic",
+   "title": "Was Paul Anti-Catholic?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/another-anti-catholic-myth-exposed",
+   "title": "Another Anti-Catholic Myth Exposed",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/answering-the-whore-of-babylon-claim",
+   "title": "Answering the \"Whore of Babylon\" Claim",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/the-anti-catholic-origins-of-public-schools",
+   "title": "The Anti-Catholic Origins of Public Schools",
+   "score": 3.0
+  }
+ ],
+ "inquisition": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-inquisition",
+   "title": "What is the Inquisition?",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-galileo-controversy",
+   "title": "The Galileo Controversy",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-i-defend-the-church-against-the-inquisition",
+   "title": "How can I defend the Church against the inquisition?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/wasnt-the-catholic-church-wrong-in-condemning-galileo-and-therefore-fallible-in-what-it-teaches",
+   "title": "Wasn’t the Catholic Church wrong in condemning Galileo and therefore fallible in what it teaches?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-myth-of-the-spanish-inquisition",
+   "title": "The Myth of the Spanish Inquisition",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/secrets-of-the-spanish-inquisition-revealed",
+   "title": "Secrets of the Spanish Inquisition Revealed",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/an-inquisition-primer",
+   "title": "An Inquisition Primer",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-propaganda-poisoned-the-crusades",
+   "title": "How Propaganda Poisoned the Crusades",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/crusades",
+   "title": "Crusades",
+   "score": 3.0
+  }
+ ],
+ "galileo": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-galileo-controversy",
+   "title": "The Galileo Controversy",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-did-the-church-have-difficulty-accepting-heliocentrism-but-not-evolution",
+   "title": "Why did the Church Have Difficulty Accepting Heliocentrism, but Not Evolution?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/wasnt-the-catholic-church-wrong-in-condemning-galileo-and-therefore-fallible-in-what-it-teaches",
+   "title": "Wasn’t the Catholic Church wrong in condemning Galileo and therefore fallible in what it teaches?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/why-did-the-catholic-church-condemn-galileo",
+   "title": "Why Did the Catholic Church Condemn Galileo?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/galileo-galilei",
+   "title": "Galileo Galilei",
+   "score": 3.0
+  }
+ ],
+ "fundamentalism": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/how-to-talk-with-fundamentalists",
+   "title": "How to Talk with Fundamentalists",
+   "score": 4.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/anti-catholic-whoppers",
+   "title": "Anti-Catholic Myths",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-do-you-lump-fundamentalists-evangelicals-and-pentecostals-with-non-christians-like-jehovahs",
+   "title": "Why do you lump Fundamentalists, Evangelicals, and Pentecostals with non-Christians, like Jehovah's Witnesses and Mormons?",
+   "score": 4.8
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-catholic-church-is-necessarily-evangelical",
+   "title": "The Catholic Church Is Necessarily Evangelical",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-can-i-do-about-anti-catholic-materials-in-a-protestant-bookstore",
+   "title": "What Can I do About Anti-Catholic Materials in a Protestant Bookstore?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/if-the-catholic-church-is-the-true-church-why-is-it-that-evangelical-protestants-are-more",
+   "title": "If the Catholic Church is the true Church, why is it that Evangelical Protestants are more successful in making converts?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-do-i-help-my-daughter-see-that-her-evangelical-pastor-isnt-the-prophet-he-claims-to-be",
+   "title": "How do I help my daughter see that her evangelical pastor isn't the prophet he claims to be?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/anti-catholic-animus",
+   "title": "Anti-Catholic Animus",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/was-paul-anti-catholic",
+   "title": "Was Paul Anti-Catholic?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/surviving-evangelical-burnout",
+   "title": "Surviving Evangelical Burnout",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/the-anti-catholic-origins-of-public-schools",
+   "title": "The Anti-Catholic Origins of Public Schools",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-star-treks-prime-directive-anti-catholic",
+   "title": "Is Star Trek’s Prime Directive Anti-Catholic?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/evangelical-church",
+   "title": "Evangelical Church",
+   "score": 3.0
+  }
+ ],
+ "jehovahs-witnesses": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/are-they-awake-on-the-watchtower",
+   "title": "Are They Awake on The Watchtower?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/was-this-jehovahs-witness-right-about-hell",
+   "title": "Was this Jehovah's Witness Right About Hell?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-do-i-refute-the-jehovahs-witness-claim-about-the-144000",
+   "title": "How Do I Refute the Jehovah's Witness Claim about the 144,000?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-can-you-tell-me-about-this-book-on-the-watchtower-society",
+   "title": "What can you tell me about this book on the Watchtower Society?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-i-bring-my-jehovahs-witness-sister-back-to-the-catholic-faith",
+   "title": "How can I bring my Jehovah's Witness sister back to the Catholic faith?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-can-i-refute-this-watchtower-society-argument-about-the-rich-man-and-lazarus",
+   "title": "How can I refute this argument about the rich man and Lazarus?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/from-the-watchtower-to-rome",
+   "title": "From the Watchtower to Rome",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-jehovahs-witness-new-testament",
+   "title": "The Jehovah's Witness New Testament",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/a-jehovahs-witness-identity-crisis",
+   "title": "A Jehovah's Witness Identity Crisis",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/door-to-door-or-street-evangelization",
+   "title": "'Door to Door' or 'Street' Evangelization?",
+   "score": 3.0
+  }
+ ],
+ "mormonism": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/problems-with-the-book-of-mormon",
+   "title": "Problems with the Book of Mormon",
+   "score": 6.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/mormonisms-baptism-for-the-dead",
+   "title": "Mormonism's Baptism for the Dead",
+   "score": 4.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/whats-the-book-of-mormon-about",
+   "title": "What's The Book of Mormon about?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-god-tell-joseph-smith-to-establish-the-mormon-church",
+   "title": "Did God Tell Joseph Smith to Establish the Mormon Church?",
+   "score": 4.6
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/are-mormon-baptisms-valid",
+   "title": "Are Mormon Baptisms Valid?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-the-mormon-book-doctrine-and-covenants",
+   "title": "What is the Mormon book Doctrine and Covenants?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/whats-the-real-story-on-mormon-beliefs-and-race",
+   "title": "Is the Mormon Church Racist?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/mormon-bashing",
+   "title": "Mormon Bashing?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/mormon-no-more",
+   "title": "'Mormon' No More?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-mormon-christ",
+   "title": "The Mormon Christ",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-is-mormon-baptism-invalid",
+   "title": "Why is Mormon Baptism Invalid?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/mormon-caller-confronts-us-on-baptism",
+   "title": "Mormon Caller Confronts Us on Baptism...",
+   "score": 3.0
+  }
+ ],
+ "adventism": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/seventh-day-adventism",
+   "title": "Seventh-day Adventism",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-seventh-day-adventism-a-cult",
+   "title": "Is Seventh-day Adventism a cult?",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/are-seventh-day-adventists-correct-about-what-happens-to-the-soul-after-death",
+   "title": "Are Seventh-day Adventists correct about what happens to the soul after death?",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-about-the-seventh-day-adventist-claim-that-the-sabbath-shouldnt-have-been-changed-to-sunday",
+   "title": "Seventh-day Adventists and the Sabbath",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-doubtful-validity-of-seventh-day-adventist-baptism",
+   "title": "The Doubtful Validity of Seventh-day Adventist Baptism",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/seventh-day-wondering",
+   "title": "Seventh-Day Wondering",
+   "score": 3.0
+  }
+ ],
+ "iglesia-ni-cristo": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/iglesia-ni-cristo",
+   "title": "Iglesia ni Cristo",
+   "score": 3.0
+  }
+ ],
+ "new-age-reincarnation": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/astrology",
+   "title": "What the Early Church Believed: Astrology",
+   "score": 3.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/reincarnation",
+   "title": "What the Early Church Believed: Reincarnation",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/jewelry-with-new-age-tags",
+   "title": "Jewelry with New Age Tags",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/whats-wrong-with-astrology",
+   "title": "What's Wrong with Astrology?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/steer-clear-of-modern-astrology",
+   "title": "Steer Clear of Modern Astrology",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/does-the-bible-condemn-astrology",
+   "title": "Does the Bible condemn astrology?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-homeostasis-a-new-age-concept",
+   "title": "Is Homeostasis a New Age Concept?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/is-reincarnation-biblical",
+   "title": "Is Reincarnation Biblical?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/reincarnation-and-the-bible",
+   "title": "What Does the Bible Say About Reincarnation?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/a-new-age-and-a-better-one",
+   "title": "A New Age, and a Better One",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-reincarnation-reasonable",
+   "title": "Is Reincarnation Reasonable?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-to-disprove-reincarnation",
+   "title": "How to Disprove Reincarnation",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/astrology",
+   "title": "Astrology",
+   "score": 3.0
+  }
+ ],
+ "born-again": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/are-catholics-born-again",
+   "title": "Are Catholics Born Again?",
+   "score": 6.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/born-again-in-baptism",
+   "title": "What the Early Church Believed: Born Again in Baptism",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/sacraments-or-a-personal-relationship-with-christ",
+   "title": "Sacraments or a Personal Relationship with Christ?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-should-a-catholic-reply-to-the-question-have-you-been-saved",
+   "title": "How should a Catholic reply to the question, \"Have you been saved?\"",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-a-good-way-to-respond-to-door-to-door-evangelists-who-ask-if-ive-been-born-again",
+   "title": "What Is a Good Way to Respond to Door-To-Door Evangelists Who Ask If I've Been \"Born Again?\"",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/have-you-been-saved",
+   "title": "“Have You Been Saved?”",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/born-again-the-bible-way",
+   "title": "Born Again - The Bible Way",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/can-infants-be-born-again",
+   "title": "Can Infants Be \"Born Again\"?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/have-you-been-saved",
+   "title": "Have You Been Saved?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/have-you-been-saved-0",
+   "title": "Have You Been Saved?",
+   "score": 3.0
+  }
+ ],
+ "sinners-prayer": [],
+ "are-catholics-christian": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/what-catholic-means",
+   "title": "What the Early Church Believed: The Meaning of \"Catholic\"",
+   "score": 6.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/are-catholics-christian",
+   "title": "Are Catholics Christian?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/are-catholics-christian",
+   "title": "Are Catholics Christian?",
+   "score": 3.0
+  }
+ ],
+ "bible-translations": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/bible-translations-guide",
+   "title": "Bible Translations Guide",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-best-bible-translation",
+   "title": "The Best Bible Translation",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/you-may-read-unapproved-bible-translations",
+   "title": "You May Read Unapproved Bible Translations",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-different-translations-for-matthew-1916-17",
+   "title": "Why Different Translations for Matthew 19:16-17?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-is-acts-837-omitted-from-many-bible-translations",
+   "title": "Why Is Acts 8:37 Omitted from Many Bible Translations?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/were-the-first-bible-translations-in-english-filled-with-errors",
+   "title": "Were the first Bible translations in English filled with errors?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/choosing-a-bible-translation",
+   "title": "Choosing a Bible Translation",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/new-frontiers-in-politically-correct-bible-translation",
+   "title": "New Frontiers in Politically Correct Bible Translation!",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/which-bible-translation-should-i-read",
+   "title": "Which Bible translation should I read?",
+   "score": 3.0
+  }
+ ],
+ "private-revelation": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/our-lady-of-fatima-the-apparitions-three-secrets-and-historical-impact",
+   "title": "Our Lady of Fatima: The Apparitions, Three Secrets, and Historical Impact",
+   "score": 5.4
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/private-revelation",
+   "title": "What the Early Church Believed: Private Revelations",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/erroneous-private-revelation",
+   "title": "Erroneous Private Revelation",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/ok-to-donate-to-america-needs-fatima",
+   "title": "OK to Donate to 'America Needs Fatima'?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/what-is-the-meaning-of-the-name-fatima",
+   "title": "What Is the Meaning of the Name \"Fatima?\"",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-the-fatima-vision-of-hell-realistic",
+   "title": "Is the Fatima Vision of Hell Realistic?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/meaning-of-flower-on-statue-of-our-lady-of-fatima",
+   "title": "Meaning of Flower on Statue of Our Lady of Fatima",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/getting-fatima-right",
+   "title": "Getting Fatima Right",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-final-fatima-miracle",
+   "title": "The Final Fatima Miracle",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/a-different-kind-of-apparition",
+   "title": "A Different Kind of Apparition",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-is-the-third-secret-of-fatima",
+   "title": "What Is the Third Secret of Fatima?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/notre-dame-de-lourdes",
+   "title": "Notre-Dame de Lourdes",
+   "score": 3.0
+  }
+ ],
+ "excommunication": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/could-you-explain-anathema-does-the-church-teach-that-protestants-are-anathema-because-they-dont",
+   "title": "Could you explain \"anathema\"?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/anathema",
+   "title": "Anathema",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/anathema",
+   "title": "Anathema",
+   "score": 3.0
+  }
+ ],
+ "blasphemy-oaths": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/blasphemy-meaning-bible-examples-and-catholic-teaching",
+   "title": "Blasphemy: Meaning, Bible Examples, and Catholic Teaching",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-blasphemy-challenge",
+   "title": "The Blasphemy Challenge",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/teaching-errors-in-gods-name",
+   "title": "Teaching Errors in God's Name",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-gods-name-yahweh-or-jehovah",
+   "title": "Is God's Name Yahweh or Jehovah?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/is-using-gods-name-in-poprock-songs-blasphemous",
+   "title": "Is Using God’s Name in Pop/Rock Songs Blasphemous?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/isnt-it-blasphemy-to-call-mary-the-mother-of-god",
+   "title": "Isn't It Blasphemy to Call Mary the \"Mother of God?\"",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-important-is-it-to-stop-swearing",
+   "title": "How Important Is It to Stop Swearing?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/what-constitutes-blasphemy-against-the-holy-spirit",
+   "title": "What Constitutes Blasphemy Against the Holy Spirit?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/blasphemy",
+   "title": "Blasphemy",
+   "score": 3.0
+  }
+ ],
+ "halloween": [
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/all-hallows-college",
+   "title": "All Hallows College",
+   "score": 3.0
+  }
+ ],
+ "seven-sacraments": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-seven-sacraments-a-comprehensive-list",
+   "title": "The Seven Sacraments | A Comprehensive List of the Catholic Sacraments",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/did-jesus-institute-seven-sacraments",
+   "title": "Did Jesus Institute Seven Sacraments?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/if-seven-is-the-symbol-of-perfection-why-do-we-not-receive-all-seven-sacraments",
+   "title": "If seven is the symbol of perfection, why do we not receive all seven sacraments?",
+   "score": 3.0
+  }
+ ],
+ "immortality-of-the-soul": [
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-do-we-refute-the-soul-sleep-argument",
+   "title": "How do we refute the \"soul sleep\" argument?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/between-existence-and-annihilation",
+   "title": "Between Existence and Annihilation",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/the-immortality-of-the-soul",
+   "title": "The Immortality of the Soul",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/the-thief-on-the-cross-and-soul-sleep",
+   "title": "The Thief on the Cross and \"Soul Sleep\"",
+   "score": 3.0
+  }
+ ],
+ "bishops-priests-deacons": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/bishop-priest-and-deacon",
+   "title": "What the Early Church Believed: Bishop, Priest, and Deacon",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/deacons-cannot-celebrate-mass-so-why-cant-women-be-ordained-to-the-diaconate",
+   "title": "Deacons Cannot Celebrate Mass, so Why Can't Women be Ordained to the Diaconate?",
+   "score": 3.0
+  }
+ ],
+ "baptism-immersion": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/baptism-immersion-only",
+   "title": "Baptism: Immersion Only?",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/was-jesus-baptized-by-immersion",
+   "title": "Was Jesus baptized by immersion?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-full-immersion-baptism-necessary",
+   "title": "Is Full-Immersion Baptism Necessary?",
+   "score": 4.6
+  }
+ ],
+ "original-sin": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/what-the-early-church-believed-original-sin",
+   "title": "What the Early Church Believed: Original Sin",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/concupiscence-and-original-sin",
+   "title": "Concupiscence and Original Sin",
+   "score": 6.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/original-sin-goes-way-back",
+   "title": "Original Sin Goes Way Back",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/was-having-sex-the-original-sin",
+   "title": "Was Having Sex the Original Sin?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-tell-someone-they-have-original-sin",
+   "title": "Why Tell Someone They Have Original Sin?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-only-mary-preserved-from-original-sin",
+   "title": "Why Only Mary Preserved from Original Sin?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/original-sin",
+   "title": "Original Sin in the Bible",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/original-sin-2",
+   "title": "Original Sin",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/is-original-sin-stupid",
+   "title": "Is Original Sin Stupid?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/how-is-original-sin-passed-down",
+   "title": "How is Original Sin Passed Down?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/is-original-sin-communicated-to-us-at-birth",
+   "title": "Is Original Sin communicated to us at birth?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/original-sin",
+   "title": "Original Sin",
+   "score": 3.0
+  }
+ ],
+ "creation-from-nothing": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/creation-out-of-nothing",
+   "title": "What the Early Church Believed: Creation out of Nothing",
+   "score": 8.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/isnt-creation-ex-nihilo-logically-impossible",
+   "title": "Isn't Creation Ex Nihilo Logically Impossible?",
+   "score": 5.4
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-to-answer-mormons-who-say-the-church-fathers-rejected-creation-ex-nihilo",
+   "title": "How to answer Mormons who say the Church Fathers rejected creation ex nihilo",
+   "score": 5.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/creation-out-of-nothing",
+   "title": "What the Early Christians Believed: Creation Out of Nothing",
+   "score": 8.4
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/creation-ex-nihilo",
+   "title": "Creation Ex Nihilo",
+   "score": 5.4
+  }
+ ],
+ "marian-dogmas": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/marian-dogmas-a-comprehensive-list-of-the-four-marian-dogmas",
+   "title": "Marian Dogmas | An Overview of the Four Marian Dogmas",
+   "score": 6.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/but-marian-dogmas-arent-in-the-bible",
+   "title": "‘But Marian Dogmas Aren’t in the Bible!’",
+   "score": 3.0
+  }
+ ],
+ "peter-in-rome": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/was-peter-in-rome",
+   "title": "Was Peter in Rome?",
+   "score": 6.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/peters-roman-residency",
+   "title": "What the Early Church Believed: Peter's Roman Residency",
+   "score": 3.0
+  }
+ ],
+ "resurrection-of-the-body": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/resurrection-of-the-body",
+   "title": "What the Early Church Believed: Resurrection of the Body",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/literal-resurrection-of-the-dead",
+   "title": "Literal Resurrection of the Dead",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/doesnt-1-corinthians-tell-us-that-jesus-glorified-body-has-no-blood",
+   "title": "Doesn't 1 Corinthians tell us that Jesus' glorified body has no blood?",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-resurrection-of-the-body-0",
+   "title": "The Resurrection of the Body",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-key-to-bodily-resurrection",
+   "title": "The Key to Bodily Resurrection",
+   "score": 3.0
+  }
+ ],
+ "brothers-of-jesus": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/brethren-of-the-lord",
+   "title": "Did Jesus Have Brothers?",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/did-jesus-have-brothers",
+   "title": "Did Jesus have siblings?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/brethren-of-the-lord",
+   "title": "Brethren of the Lord",
+   "score": 3.0
+  }
+ ],
+ "mass-in-scripture": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-institution-of-the-mass",
+   "title": "The Institution of the Mass",
+   "score": 6.0
+  },
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/the-sacrifice-of-the-mass",
+   "title": "What the Early Church Believed: The Sacrifice of the Mass",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-do-i-explain-the-mass",
+   "title": "How Do I Explain the Mass?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/why-do-we-call-it-the-mass",
+   "title": "Why Do We Call It the Mass?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/how-to-best-learn-about-the-mass",
+   "title": "How to Best Learn About the Mass",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/illustrating-how-special-the-mass-is",
+   "title": "What Is the Fundamental Purpose of the Mass?",
+   "score": 3.0
+  },
+  {
+   "type": "qa",
+   "url": "https://www.catholic.com/qa/the-form-of-the-mass-is-not-doctrinal",
+   "title": "The Form of the Mass Is Not Doctrinal",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/pop-goes-the-mass",
+   "title": "Pop Goes the Mass",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/sacrifice-of-the-mass",
+   "title": "Sacrifice of the Mass",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-mass-is-ordinary",
+   "title": "The Mass Is Ordinary",
+   "score": 3.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/where-is-the-element-of-the-sacrifice-of-the-mass-in-the-bible",
+   "title": "Where Is the Sacrifice of the Mass in the Bible?",
+   "score": 6.0
+  },
+  {
+   "type": "video",
+   "url": "https://www.catholic.com/video/why-is-the-mass-changing",
+   "title": "Why is the Mass Changing?",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/canon-of-the-mass",
+   "title": "Canon of the Mass",
+   "score": 3.0
+  }
+ ],
+ "monks-and-nuns": [
+  {
+   "type": "tract",
+   "url": "https://www.catholic.com/tract/what-the-early-church-believed-monks-and-nuns",
+   "title": "What the Early Church Believed: Monks and Nuns",
+   "score": 3.0
+  },
+  {
+   "type": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/why-young-people-still-seek-the-religious-life",
+   "title": "Why Young People Still Seek the Religious Life",
+   "score": 3.0
+  },
+  {
+   "type": "encyclopedia",
+   "url": "https://www.catholic.com/encyclopedia/monasticism",
+   "title": "Monasticism",
+   "score": 3.0
+  }
+ ]
+}

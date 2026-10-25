@@ -29,7 +29,7 @@ export type SectionKey =
 
 export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'catechism', label: 'Catechism of the Catholic Church', hint: 'Catechism paragraphs whose own footnotes cite this verse, with the paragraph text. A footnote that quotes the verse ranks above one that only refers to it.' },
-  { key: 'apologetics', label: 'Questions and answers', hint: 'Common objections to the Catholic faith that turn on this passage, with a short answer, the verses and the Catechism paragraphs. Written for this app.' },
+  { key: 'apologetics', label: 'Questions and answers', hint: 'Common objections to the Catholic faith that turn on this passage, with links to what Catholic authors and teachers have written and said about them, and the Catechism paragraphs.' },
   { key: 'magisterium', label: 'Church documents', hint: 'Dei Verbum, Verbum Domini, other encyclicals and Vatican II texts that cite this passage. Open the document at vatican.va and find the numbered article.' },
   { key: 'doctrine', label: 'Doctrine topics', hint: 'Editorial pointers: key passages for a teaching.' },
   { key: 'liturgy', label: 'Liturgical use' },
@@ -1009,9 +1009,9 @@ export const providers: Record<string, Provider> = {
   async apologetics(refs) {
     const { apologeticsFor } = await import('../pages/study/ApologeticsPage');
     return (await apologeticsFor(refs)).map((t) => ({
-      id: `apo-${t.id}`, section: 'apologetics' as SectionKey, title: t.title, excerpt: `${t.objection} ${t.answer[0]}`.slice(0, 420) + '…', internal: `/study/apologetics/${t.id}`,
+      id: `apo-${t.id}`, section: 'apologetics' as SectionKey, title: t.title, excerpt: `${t.objection} ${t.reading.length} resources by Catholic authors and teachers.`, internal: `/study/apologetics/${t.id}`,
       authority: 'doctrine' as AuthorityLevel, period: 'contemporary' as Period, format: 'full-text' as ItemFormat, match: 'explicit-reference' as MatchKind,
-      why: 'A common objection or question that turns on this passage. The answer rests on Scripture and the Catechism, and gives the references.', sourceName: 'Questions about the faith (written for this app from Scripture and the Catechism)', kind: 'Question',
+      why: 'A common question that turns on this passage. The page gathers what Catholic authors and teachers have written and said about it.', sourceName: 'Questions about the faith (links to Catholic authors)', kind: 'Question',
     }));
   },
 

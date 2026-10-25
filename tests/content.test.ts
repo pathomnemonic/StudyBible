@@ -23,10 +23,11 @@ describe('questions about the faith', () => {
   const ccc = new Set<number>();
   for (let b = 0; b < 29; b++) for (const p of read(`public/data/ccc/p${b}.json`)) ccc.add(p.n);
   it('cites verses that parse and Catechism paragraphs that exist', () => {
-    expect(d.topics.length).toBeGreaterThan(75);
+    expect(d.topics.length).toBeGreaterThan(100);
     const ids = new Set(d.topics.map((t: any) => t.id));
     for (const t of d.topics) {
-      expect(t.answer.length).toBeGreaterThan(0);
+      expect(t.reading.length, t.id).toBeGreaterThan(0);
+      for (const r of t.reading) expect(r.url, t.id).toMatch(/^https:\/\//);
       for (const v of t.verses) expect(parseRefs(v.ref.split(',')[0]).ok, `${t.id}: ${v.ref}`).toBe(true);
       for (const n of t.ccc) expect(ccc.has(n), `${t.id}: CCC ${n}`).toBe(true);
       for (const r of t.related) expect(ids.has(r), `${t.id} -> ${r}`).toBe(true);

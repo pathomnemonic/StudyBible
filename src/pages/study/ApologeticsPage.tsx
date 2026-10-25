@@ -10,14 +10,14 @@ import { passageText } from '../../lib/bibleText';
 import { readerPath } from '../../lib/nav';
 
 export interface ApoTopic {
-  id: string; category: string; title: string; objection: string; answer: string[];
-  verses: { ref: string; why: string }[]; ccc: number[]; tags: string[]; related: string[];
+  id: string; category: string; title: string; objection: string;
+  verses: { ref: string }[]; ccc: number[]; tags: string[]; related: string[];
   reading: { title: string; url: string; source: string; type: string }[];
 }
 interface ApoData { categories: string[]; topics: ApoTopic[] }
 let cache: Promise<ApoData | null> | null = null;
 export const loadApologetics = () => (cache ??= getJson<ApoData>('apologetics.json', true));
-const SRC: Record<string, string> = { 'catholic-answers': 'Catholic Answers', 'st-paul-center': 'St. Paul Center', 'word-on-fire': 'Word on Fire', ascension: 'Ascension', 'jimmy-akin': 'Jimmy Akin', 'catholic-productions': 'Catholic Productions', 'new-advent': 'New Advent', ewtn: 'EWTN', 'augustine-institute': 'Augustine Institute', usccb: 'USCCB', 'thomistic-institute': 'Thomistic Institute', 'breaking-in-the-habit': 'Breaking in the Habit', 'pints-with-aquinas': 'Pints with Aquinas', godsplaining: 'Godsplaining', 'acts-xxix': 'ACTS XXIX', 'shameless-popery': 'Shameless Popery', 'catholic-talk-show': 'The Catholic Talk Show', 'trent-horn': 'Trent Horn' };
+const SRC: Record<string, string> = { 'catholic-answers': 'Catholic Answers', 'st-paul-center': 'St. Paul Center', 'word-on-fire': 'Word on Fire', ascension: 'Ascension', 'jimmy-akin': 'Jimmy Akin', 'catholic-productions': 'Catholic Productions', 'new-advent': 'New Advent', ewtn: 'EWTN', 'augustine-institute': 'Augustine Institute', usccb: 'USCCB', 'thomistic-institute': 'Thomistic Institute', 'breaking-in-the-habit': 'Breaking in the Habit', 'pints-with-aquinas': 'Pints with Aquinas', godsplaining: 'Godsplaining', 'acts-xxix': 'ACTS XXIX', 'shameless-popery': 'Shameless Popery', 'catholic-talk-show': 'The Catholic Talk Show', 'trent-horn': 'Trent Horn', encyclopedia: 'Catholic Encyclopedia' };
 export const topicAnchors = (t: ApoTopic): Ref[] => t.verses.flatMap((v) => { const p = parseRefs(v.ref.split(',')[0]); return p.ok ? p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref).ref) : []; });
 /** topics whose key verses overlap a selection (for the study panel) */
 export async function apologeticsFor(sel: Ref[]): Promise<ApoTopic[]> {
@@ -25,7 +25,7 @@ export async function apologeticsFor(sel: Ref[]): Promise<ApoTopic[]> {
   return (d?.topics ?? []).filter((t) => topicAnchors(t).some((a) => sel.some((x) => x.book === a.book && x.c1 <= a.c2 && a.c1 <= x.c2 && (x.v1 === undefined || a.v1 === undefined || a.c1 !== a.c2 || x.c1 !== x.c2 || (x.v1 <= (a.v2 ?? a.v1) && a.v1 <= (x.v2 ?? x.v1))))));
 }
 
-function Verse({ v }: { v: { ref: string; why: string } }) {
+function Verse({ v }: { v: { ref: string } }) {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState<{ v: number; text: string }[] | null>(null);
   const { get, editions } = useEditions();
@@ -36,7 +36,7 @@ function Verse({ v }: { v: { ref: string; why: string } }) {
   useEffect(() => { if (open && ref && ed && !text) passageText(ed, ref, 14).then((t) => setText(t.map((x) => ({ v: x.v, text: x.text })))); }, [open]);
   return (
     <li>
-      <button className="linklike" aria-expanded={open} onClick={() => setOpen(!open)}><strong>{v.ref}</strong></button> <span className="muted">{v.why}</span>
+      <button className="linklike" aria-expanded={open} onClick={() => setOpen(!open)}><strong>{v.ref}</strong></button>
       {open && (
         <div className="ex xtext">
           {!text && 'Loading…'}
@@ -45,6 +45,33 @@ function Verse({ v }: { v: { ref: string; why: string } }) {
         </div>
       )}
     </li>
+  );
+}
+
+const GROUPS: { title: string; types: string[] }[] = [
+  { title: 'Tracts and articles', types: ['tract', 'article', 'encyclopedia'] },
+  { title: 'Questions answered by Catholic apologists', types: ['qa'] },
+  { title: 'Videos and talks', types: ['video', 'podcast'] },
+  { title: 'Passage by passage (Catholic Answers Bible Navigator)', types: ['page'] },
+];
+function Resources({ items }: { items: ApoTopic['reading'] }) {
+  const [all, setAll] = useState(false);
+  if (!items.length) return <p className="muted">No linked resources yet.</p>;
+  return (
+    <>
+      {GROUPS.map((g) => {
+        const list = items.filter((r) => g.types.includes(r.type));
+        if (!list.length) return null;
+        const shown = all ? list : list.slice(0, 5);
+        return (
+          <section key={g.title}>
+            <h2>{g.title}</h2>
+            <ul className="apo-reading">{shown.map((r) => <li key={r.url}><a href={r.url} target="_blank" rel="noreferrer">{r.title} ↗</a> <span className="muted small">{SRC[r.source] ?? r.source}</span></li>)}</ul>
+            {list.length > 5 && !all && <button className="btn small ghost" onClick={() => setAll(true)}>Show {list.length - 5} more</button>}
+          </section>
+        );
+      })}
+    </>
   );
 }
 
@@ -62,25 +89,19 @@ function TopicView({ t, all }: { t: ApoTopic; all: ApoTopic[] }) {
       <Link to="/study/apologetics" className="small">← Questions about the faith</Link>
       <div className="kicker">{t.category}</div>
       <h1>{t.title}</h1>
-      <blockquote className="apo-q"><strong>The objection.</strong> {t.objection}</blockquote>
-      <h2>The Catholic answer</h2>
-      {t.answer.map((p, i) => <p key={i} className="apo-a">{p}</p>)}
+      <blockquote className="apo-q"><strong>The question.</strong> {t.objection}</blockquote>
+      <p className="muted small">This page does not answer the question itself. It gathers what Catholic authors and teachers have written and said about it, so you can read them in their own words, with the verses and Catechism paragraphs they appeal to.</p>
+      <Resources items={t.reading} />
       <h2>In the Bible</h2>
       <ul className="apo-verses">{t.verses.map((v) => <Verse key={v.ref} v={v} />)}</ul>
       <h2>In the Catechism</h2>
       {paras.length === 0 && <p className="muted">Loading…</p>}
       {shown.map((p) => <p key={p.n} className="ccc-q"><Link to={`/study/catechism/${p.n}`}><strong>§{p.n}</strong></Link> {p.t}</p>)}
       {paras.length > 4 && <button className="btn small" onClick={() => setMore(!more)}>{more ? 'Show fewer paragraphs' : `Show ${paras.length - 4} more paragraphs`}</button>}
-      {t.reading.length > 0 && (
-        <>
-          <h2>Further reading</h2>
-          <ul className="apo-reading">{t.reading.map((r) => <li key={r.url}><a href={r.url} target="_blank" rel="noreferrer">{r.title} ↗</a> <span className="muted small">{SRC[r.source] ?? r.source}</span></li>)}</ul>
-        </>
-      )}
       {t.related.length > 0 && (
         <p className="small">Related: {t.related.map((id) => all.find((x) => x.id === id)).filter(Boolean).map((x, i) => <span key={x!.id}>{i ? ' · ' : ''}<Link to={`/study/apologetics/${x!.id}`}>{x!.title}</Link></span>)}</p>
       )}
-      <p className="muted small">Written for this app from Scripture and the Catechism. It is a short answer: the links lead to fuller treatments, and a priest or a good Catholic teacher can help with a hard question.</p>
+      <p className="muted small">Links go to the authors’ own pages. They are chosen by matching topic keywords and then checked by title, so a link may sometimes be only loosely related; a priest or a good Catholic teacher can help with a hard question.</p>
     </div>
   );
 }
@@ -95,11 +116,11 @@ export default function ApologeticsPage() {
   const t = id ? d.topics.find((x) => x.id === id) : null;
   if (t) return <TopicView t={t} all={d.topics} />;
   const f = q.trim().toLowerCase();
-  const match = (x: ApoTopic) => !f || `${x.title} ${x.objection} ${x.tags.join(' ')} ${x.answer.join(' ')}`.toLowerCase().includes(f);
+  const match = (x: ApoTopic) => !f || `${x.title} ${x.objection} ${x.tags.join(' ')}`.toLowerCase().includes(f);
   return (
     <div className="page apo">
       <h1>Questions about the faith</h1>
-      <p className="lede">Common questions and objections, answered briefly from Scripture and the Catechism, with the verses and paragraphs to check them against. They also appear in the study panel beside the passages they concern.</p>
+      <p className="lede">Common questions about the Catholic faith, each gathering what Catholic authors, apologists and teachers have written and said about it (Catholic Answers, the St. Paul Center, Jimmy Akin, Trent Horn and others), with the Bible passages and Catechism paragraphs involved. They also appear in the study panel beside the passages they concern.</p>
       <input type="search" placeholder="Search the questions…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search questions" />
       {d.categories.map((c) => {
         const list = d.topics.filter((x) => x.category === c && match(x));
