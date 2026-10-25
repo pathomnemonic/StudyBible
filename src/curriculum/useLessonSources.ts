@@ -36,7 +36,7 @@ export function useLessonSources(lesson: LessonSpec | undefined, band: BandId | 
     if (!lesson) return;
     const anchors = refs.map((r) => r.anchor);
     if (ed) Promise.all(refs.map(async (r) => ({ label: r.label, ref: r.ref, path: readerPath(ed, r.ref), verses: await passageText(ed, r.anchor, 14).catch(() => []) }))).then((p) => live && setPassages(p.filter((x) => x.verses.length)));
-    const nums = cccList(lesson.ccc);
+    const nums = cccList(lesson.ccc).slice(0, 12);
     Promise.all(nums.map((n) => cccRange(n, n))).then((x) => live && setCcc(x.flat()));
     videosFor(anchors, band === 'primary' || band === 'elementary' ? true : undefined).then((v) => live && setVideos(v.filter((x) => (band === 'primary' || band === 'elementary' ? true : !x.kids)).slice(0, 4)));
     moreArtFor(anchors).then((a) => live && setArt((a as never as typeof art).slice(0, 3))).catch(() => undefined);

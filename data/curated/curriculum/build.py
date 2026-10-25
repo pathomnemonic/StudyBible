@@ -6,7 +6,33 @@ from glossary import G
 OUT = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'public', 'data', 'curriculum')
 os.makedirs(OUT, exist_ok=True)
 prayers = set(re.findall(r"id: '([^']+)'", open(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'src', 'data', 'prayerbook.ts')).read()))
-order = ['k'] + [str(i) for i in range(1, 13)]
+order = ['k'] + [str(i) for i in range(1, 13)] + ['ya']
+ROOT = os.path.join(os.path.dirname(__file__), '..', '..', '..')
+apol = {t['id'] for t in json.load(open(os.path.join(ROOT, 'data', 'curated', 'apologetics.json')))['topics']}
+works = {w['id'] for w in json.load(open(os.path.join(ROOT, 'public', 'data', 'library', 'index.json')))['works']}
+ENRICH = {}
+for f in sorted(os.listdir(os.path.dirname(__file__) or '.')):
+    if re.match(r'^e_\w+\.py$', f):
+        ENRICH.update(importlib.import_module(f[:-3]).E)
+
+def squash(nums):
+    out, i = [], 0
+    nums = sorted(set(nums))
+    while i < len(nums):
+        j = i
+        while j + 1 < len(nums) and nums[j + 1] == nums[j] + 1: j += 1
+        out.append(str(nums[i]) if i == j else f'{nums[i]}-{nums[j]}')
+        i = j + 1
+    return ','.join(out)
+
+def spec_nums(spec):
+    out = []
+    for part in spec.split(','):
+        part = part.strip()
+        if '-' in part:
+            a, b = part.split('-'); out += range(int(a), int(b) + 1)
+        elif part: out.append(int(part))
+    return out
 index, used, problems = [], set(), []
 for g in order:
     m = importlib.import_module(f'g_{g}')
@@ -21,7 +47,18 @@ for g in order:
             if l['prayer'] and l['prayer'] not in prayers: problems.append(f"{G_['id']}.{ui}.{li}: unknown prayer {l['prayer']}")
             nums = [int(x) for x in re.findall(r'\d+', l['ccc'].replace('-', ','))]
             if any(n < 1 or n > 2865 for n in nums): problems.append(f"{G_['id']}.{ui}.{li}: ccc out of range")
-            ls.append(dict(id=f"{G_['id']}-{ui}-{li}", title=l['title'], idea=l['idea'], ccc=l['ccc'], scripture=l['scripture'], vocab=l['vocab'], question=l['question'], activity=l['activity'], prayer=l['prayer'] or None))
+            lid = f"{G_['id']}-{ui}-{li}"
+            row = dict(id=lid, title=l['title'], idea=l['idea'], ccc=squash(spec_nums(l['ccc'])), scripture=l['scripture'], vocab=l['vocab'], question=l['question'], activity=l['activity'], prayer=l['prayer'] or None)
+            for k in ('teach', 'talk', 'quiz', 'life', 'saint', 'misc', 'deeper', 'mem'):
+                v = l.get(k) or ENRICH.get(lid, {}).get(k)
+                if v: row[k] = v
+            for d in row.get('deeper', []):
+                kind, ident = d.split(':', 1)
+                if (kind == 'apol' and ident not in apol) or (kind == 'room' and ident not in works): problems.append(f'{lid}: unknown deeper {d}')
+            for qs in row.get('quiz', []):
+                parts = qs.split('|')
+                if len(parts) != 7 or not parts[5].isdigit() or int(parts[5]) > 3: problems.append(f'{lid}: bad quiz {qs[:40]}')
+            ls.append(row)
         units.append(dict(n=ui, title=u['title'], pillar=u['pillar'], eq=u['eq'], lessons=ls))
     json.dump(dict(id=G_['id'], name=G_['name'], band=G_['band'], age=G_['age'], theme=G_['theme'], units=units), open(os.path.join(OUT, f"grade-{G_['id']}.json"), 'w'), ensure_ascii=False, separators=(',', ':'))
     index.append(dict(id=G_['id'], name=G_['name'], band=G_['band'], age=G_['age'], theme=G_['theme'], units=len(units), lessons=sum(len(u['lessons']) for u in units)))

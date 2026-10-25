@@ -1,8 +1,18 @@
 import { getJson } from '../data/loader';
 import { db } from '../db/db';
 
-export type BandId = 'primary' | 'elementary' | 'middle' | 'high';
-export interface LessonSpec { id: string; title: string; idea: string; ccc: string; scripture: string; vocab: string[]; question: string; activity: string; prayer: string | null }
+export type BandId = 'primary' | 'elementary' | 'middle' | 'high' | 'adult';
+export interface LessonSpec {
+  id: string; title: string; idea: string; ccc: string; scripture: string; vocab: string[]; question: string; activity: string; prayer: string | null;
+  /** teacher talking points */ teach?: string[];
+  /** discussion questions */ talk?: string[];
+  /** authored questions: "question|a|b|c|d|index of the right answer|why" */ quiz?: string[];
+  /** a concrete challenge for the week */ life?: string;
+  /** a saint who lived the lesson, "Name: how" */ saint?: string;
+  /** common misunderstandings to listen for */ misc?: string[];
+  /** more: apol:<topic id> or room:<work id> */ deeper?: string[];
+  /** a verse or prayer to learn by heart */ mem?: string;
+}
 export interface UnitSpec { n: number; title: string; pillar: string; eq: string; lessons: LessonSpec[] }
 export interface GradeData { id: string; name: string; band: BandId; age: string; theme: string; units: UnitSpec[] }
 export interface GradeMeta { id: string; name: string; band: BandId; age: string; theme: string; units: number; lessons: number }
@@ -15,7 +25,7 @@ export const getGrades = () => once('index', () => getJson<GradeMeta[]>('curricu
 export const getGrade = (id: string) => once(`g${id}`, () => getJson<GradeData>(`curriculum/grade-${id}.json`, true));
 export const getGlossary = () => once('glossary', () => getJson<Glossary>('curriculum/glossary.json', true).then((x) => x ?? {}));
 
-export const gradeLabel = (id: string) => (id === 'K' ? 'Kindergarten' : `Grade ${id}`);
+export const gradeLabel = (id: string) => (id === 'K' ? 'Kindergarten' : id === 'YA' ? 'Young adults' : `Grade ${id}`);
 export const flatLessons = (g: GradeData) => g.units.flatMap((u) => u.lessons.map((l) => ({ ...l, unit: u })));
 
 /** "27-30,355" → [27,28,29,30,355] */
@@ -40,7 +50,12 @@ export async function toggleDone(grade: string, index: number, on: boolean) {
 }
 
 // ---- checking for understanding, made from the lesson’s own words
-export interface Question { q: string; options: string[]; answer: number }
+export interface Question { q: string; options: string[]; answer: number; why?: string }
+/** "question|a|b|c|d|3|why" → a question */
+export function parseQuiz(s: string): Question {
+  const p = s.split('|');
+  return { q: p[0], options: p.slice(1, 5), answer: +p[5], why: p[6] };
+}
 const shuffle = <T,>(a: T[], seed: number) => { const r = [...a]; let s = seed || 1; for (let i = r.length - 1; i > 0; i--) { s = (s * 9301 + 49297) % 233280; const j = Math.floor((s / 233280) * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; };
 const hash = (s: string) => [...s].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
 

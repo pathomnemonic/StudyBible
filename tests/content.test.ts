@@ -121,12 +121,12 @@ describe('K–12 catechism curriculum', () => {
     const { parseRefs } = await import('../src/lib/refs');
     const idx = JSON.parse(readFileSync(`${dir}/index.json`, 'utf8')) as { id: string; lessons: number }[];
     const gl = JSON.parse(readFileSync(`${dir}/glossary.json`, 'utf8')) as Record<string, { w: string; d: string }>;
-    expect(idx.map((g) => g.id)).toEqual(['K', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']);
+    expect(idx.map((g) => g.id)).toEqual(['K', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', 'YA']);
     const prayers = new Set([...readFileSync('src/data/prayerbook.ts', 'utf8').matchAll(/id: '([^']+)'/g)].map((m) => m[1]));
     const seen = new Set<string>();
     const bad: string[] = [];
     for (const g of idx) {
-      const d = JSON.parse(readFileSync(`${dir}/grade-${g.id}.json`, 'utf8')) as { units: { lessons: { id: string; ccc: string; scripture: string; vocab: string[]; prayer: string | null; idea: string; question: string; activity: string }[] }[] };
+      const d = JSON.parse(readFileSync(`${dir}/grade-${g.id}.json`, 'utf8')) as { units: { lessons: { id: string; ccc: string; scripture: string; vocab: string[]; prayer: string | null; idea: string; question: string; activity: string; quiz?: string[] }[] }[] };
       const lessons = d.units.flatMap((u) => u.lessons);
       expect(lessons.length).toBe(g.lessons);
       expect(lessons.length).toBeGreaterThanOrEqual(24);
@@ -134,6 +134,7 @@ describe('K–12 catechism curriculum', () => {
         if (seen.has(l.id)) bad.push(`duplicate ${l.id}`);
         seen.add(l.id);
         if (!l.idea || !l.question || !l.activity) bad.push(`${l.id} incomplete`);
+        for (const q of l.quiz ?? []) { const p = q.split('|'); if (p.length !== 7 || !(+p[5] >= 0 && +p[5] <= 3)) bad.push(`${l.id} quiz ${q.slice(0, 30)}`); }
         for (const s of l.scripture.split(';')) if (!parseRefs(s.trim()).ok) bad.push(`${l.id} scripture "${s}"`);
         for (const v of l.vocab) if (!gl[v]) bad.push(`${l.id} term ${v}`);
         if (l.prayer && !prayers.has(l.prayer)) bad.push(`${l.id} prayer ${l.prayer}`);

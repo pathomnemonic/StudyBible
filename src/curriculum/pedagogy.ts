@@ -73,6 +73,24 @@ export const BANDS: Band[] = [
     extend: ['Read the Summa article behind the topic', 'Respond to a real objection in writing', 'Mentor a younger class'],
   },
 ];
+export const ADULT: Band = {
+  id: 'adult', label: 'Young adults', grades: '18–35', minutes: 75,
+  plan: [
+    ['Gather and pray', 0.1, 'Welcome, a short prayer or song, and a check-in: one thing that went well, one thing that was hard.'],
+    ['Open with a real question', 0.15, 'Pose the lesson’s question and let everyone answer honestly before any teaching. Listen for what people already believe.'],
+    ['Pray with Scripture', 0.2, 'Read the passage twice. Sit in silence for two minutes. Share one word or phrase that stood out.'],
+    ['Teach from the sources', 0.2, 'Share the big idea and the Catechism paragraphs. Name common misunderstandings. Keep it under twelve minutes, then stop talking.'],
+    ['Discuss', 0.25, 'Work through the discussion questions in pairs, then together. Ask for reasons and stories, not just opinions.'],
+    ['Challenge and pray', 0.1, 'Give the weekly challenge, invite one commitment from each person, and close in prayer.'],
+  ],
+  verbs: 'weigh, argue, apply, decide, practise, share',
+  methods: ['small-group discussion around a table', 'lectio divina with the Gospel', 'short teaching from the Catechism and the Fathers', 'personal reflection and journaling', 'service and mission'],
+  assess: ['Ask each person for one concrete commitment next week', 'Check in the following week: what happened?', 'Invite a short written reflection or a prayer journal entry', 'Use the vocabulary check for review at the start of the next session'],
+  support: ['Offer the audio version for anyone who prefers to listen', 'Keep the group small enough for everyone to speak', 'Send the reading ahead of time', 'Let people pass'],
+  extend: ['Read the Father or saint suggested under “Go deeper”', 'Lead part of the next session', 'Mentor someone newer to the group'],
+};
+BANDS.push(ADULT);
+
 export const bandOf = (id: BandId) => BANDS.find((b) => b.id === id)!;
 
 export interface Principle { title: string; why: string; here: string }

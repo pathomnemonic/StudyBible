@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { useSettings } from '../../lib/store';
-import { getGlossary, getGrade, flatLessons, gradeLabel, progressId, toggleDone, vocabQuiz, reviewTerms, cccList, type GradeData, type Glossary, type LessonSpec, type Question } from '../../curriculum/model';
+import { getGlossary, getGrade, flatLessons, gradeLabel, progressId, toggleDone, vocabQuiz, reviewTerms, cccList, parseQuiz, type GradeData, type Glossary, type LessonSpec, type Question } from '../../curriculum/model';
 import { bandOf, FAMILY_DAYS, type Band } from '../../curriculum/pedagogy';
 import { useLessonSources } from '../../curriculum/useLessonSources';
 import InlinePlayer from '../../components/InlinePlayer';
@@ -30,6 +30,7 @@ function Quiz({ qs, onDone }: { qs: Question[]; onDone?: (score: number) => void
           })}
         </fieldset>
       ))}
+      {Object.keys(pick).map((k) => qs[+k].why ? <p key={k} className="muted small">Question {+k + 1}: {qs[+k].why}</p> : null)}
       {answered === qs.length && <p role="status"><strong>{score} of {qs.length}.</strong> {score === qs.length ? 'Well done.' : 'Look again at the words above, then try the lesson’s question aloud.'}</p>}
     </div>
   );
@@ -93,7 +94,8 @@ export default function CurriculumLesson() {
   useEffect(() => { if (sp.get('present') === '1') setPresent(true); }, []);
 
   const pool = useMemo(() => [...new Set(flat.flatMap((l) => l.vocab))], [flat]);
-  const quiz = useMemo(() => (lesson ? vocabQuiz(lesson, gl, pool, 3) : []), [lesson?.id, gl, pool.length]);
+  const quiz = useMemo(() => (lesson?.quiz?.length ? lesson.quiz.map(parseQuiz) : lesson ? vocabQuiz(lesson, gl, pool, 3) : []), [lesson?.id, gl, pool.length]);
+  const vocabOnly = useMemo(() => (lesson?.quiz?.length ? vocabQuiz(lesson, gl, pool, 2) : []), [lesson?.id, gl, pool.length]);
   const review = useMemo(() => (g && idx > 0 ? vocabQuiz({ ...lesson!, id: lesson!.id + 'r', vocab: reviewTerms(g, idx, 3) }, gl, pool, 3) : []), [lesson?.id, gl, idx]);
 
   if (g === undefined) return <div className="page"><p className="muted">Loading…</p></div>;
@@ -106,6 +108,8 @@ export default function CurriculumLesson() {
   const cccNums = cccList(lesson.ccc);
   const prev = flat[idx - 1], next = flat[idx + 1];
   const primary = g.band === 'primary';
+  const adult = g.band === 'adult';
+  const modes = adult ? MODES.filter(([m]) => m !== 'family').map(([m, l, d]) => (m === 'student' ? [m, 'Participant', 'Read, pray, discuss, decide'] : m === 'teacher' ? [m, 'Leader', 'A timed plan for leading a group'] : [m, l, d]) as [Mode, string, string]) : MODES;
   const readAloud = () => {
     if (speaking) { try { speechSynthesis.cancel(); } catch { /* none */ } setSpeaking(false); return; }
     setSpeaking(true);
@@ -132,7 +136,7 @@ export default function CurriculumLesson() {
       <p className="muted small" style={{ marginTop: 0 }}>{gradeLabel(g.id)} · {g.theme} · Lesson {idx + 1} of {flat.length}</p>
 
       <div className="tabbar no-print" role="tablist" aria-label="View">
-        {MODES.map(([m, l, d]) => <button key={m} role="tab" aria-selected={mode === m} title={d} onClick={() => setM(m)}>{l}</button>)}
+        {modes.map(([m, l, d]) => <button key={m} role="tab" aria-selected={mode === m || (adult && mode === 'family' && m === 'student')} title={d} onClick={() => setM(m)}>{l}</button>)}
       </div>
       <div className="row no-print" style={{ gap: 6, flexWrap: 'wrap', margin: '4px 0 10px' }}>
         <button className="btn small" onClick={() => setPresent(true)}>▶ Present on a screen</button>
@@ -178,6 +182,18 @@ export default function CurriculumLesson() {
             <p className="muted small">Read these before you teach. The Catechism paragraphs are the Church’s own words; check your understanding against them.</p>
             {src.ccc.map((p) => <blockquote key={p.n} className="cur-ccc"><p>{p.t}</p><footer><Link to={`/study/catechism/${p.n}`}>Catechism §{p.n}</Link></footer></blockquote>)}
           </section>
+          {lesson.teach && lesson.teach.length > 0 && (
+            <section className="sect">
+              <h2 className="eyebrow-h">Talking points</h2>
+              <ul>{lesson.teach.map((t) => <li key={t}>{t}</li>)}</ul>
+            </section>
+          )}
+          {lesson.misc && lesson.misc.length > 0 && (
+            <section className="sect">
+              <h2 className="eyebrow-h">Listen for these misunderstandings</h2>
+              <ul>{lesson.misc.map((t) => <li key={t}>{t}</li>)}</ul>
+            </section>
+          )}
           <section className="sect">
             <h2 className="eyebrow-h">Check for understanding</h2>
             <ul>{band.assess.map((a) => <li key={a}>{a}</li>)}<li>Ask: “{lesson.question}”</li></ul>
@@ -197,7 +213,7 @@ export default function CurriculumLesson() {
         </>
       )}
 
-      {mode === 'family' && (
+      {mode === 'family' && !adult && (
         <section className="sect">
           <h2 className="eyebrow-h">A week at home</h2>
           <p className="muted small">About 10 to 20 minutes a day. Start each day with the Sign of the Cross and end with the Our Father or the lesson’s prayer.</p>
@@ -236,8 +252,8 @@ export default function CurriculumLesson() {
         <h2 className="eyebrow-h">{primary ? 'For grown-ups: the Catechism' : 'What the Church teaches'}</h2>
         {primary
           ? <details><summary>Catechism §{lesson.ccc}</summary>{src.ccc.map((p) => <blockquote key={p.n} className="cur-ccc"><p>{p.t}</p><footer>§{p.n}</footer></blockquote>)}</details>
-          : src.ccc.slice(0, g.band === 'elementary' ? 2 : 6).map((p) => <blockquote key={p.n} className="cur-ccc"><p>{p.t}</p><footer><Link to={`/study/catechism/${p.n}`}>Catechism §{p.n}</Link></footer></blockquote>)}
-        {!primary && cccNums.length > (g.band === 'elementary' ? 2 : 6) && <p className="small"><Link to={`/study/catechism/${cccNums[0]}`}>More in the Catechism</Link></p>}
+          : src.ccc.slice(0, g.band === 'elementary' ? 2 : g.band === 'adult' ? 8 : 6).map((p) => <blockquote key={p.n} className="cur-ccc"><p>{p.t}</p><footer><Link to={`/study/catechism/${p.n}`}>Catechism §{p.n}</Link></footer></blockquote>)}
+        {!primary && cccNums.length > (g.band === 'elementary' ? 2 : g.band === 'adult' ? 8 : 6) && <p className="small"><Link to={`/study/catechism/${cccNums[0]}`}>More in the Catechism</Link></p>}
       </section>
 
       {(src.videos.length > 0 || src.art.length > 0) && (
@@ -256,6 +272,7 @@ export default function CurriculumLesson() {
       <section className="sect" aria-label="Think and talk">
         <h2 className="eyebrow-h">Think and talk</h2>
         <p className="cur-idea">{lesson.question}</p>
+        {lesson.talk && lesson.talk.length > 0 && <ul>{lesson.talk.map((t) => <li key={t}>{t}</li>)}</ul>}
         <label className="small no-print">Your thoughts (kept on this device)
           <textarea value={note} onChange={(e) => { setNote(e.target.value); try { localStorage.setItem(`sb:cur:note:${lessonId}`, e.target.value); } catch { /* private mode */ } }} rows={3} style={{ width: '100%' }} />
         </label>
@@ -267,6 +284,20 @@ export default function CurriculumLesson() {
         <p>{lesson.activity}</p>
       </section>
 
+      {lesson.life && (
+        <section className="sect" aria-label="Live it">
+          <h2 className="eyebrow-h">Live it this week</h2>
+          <p>{lesson.life}</p>
+        </section>
+      )}
+
+      {lesson.saint && (
+        <section className="sect" aria-label="A saint who lived this">
+          <h2 className="eyebrow-h">A saint who lived this</h2>
+          <p><strong>{lesson.saint.split(':')[0]}.</strong>{lesson.saint.includes(':') ? lesson.saint.slice(lesson.saint.indexOf(':') + 1) : ''}</p>
+        </section>
+      )}
+
       {src.prayer && (
         <section className="sect" aria-label="Pray">
           <h2 className="eyebrow-h">Pray: {src.prayer.title}</h2>
@@ -277,6 +308,7 @@ export default function CurriculumLesson() {
       <section className="sect no-print" aria-label="Check">
         <h2 className="eyebrow-h">Check what you learned</h2>
         <Quiz key={lesson.id} qs={quiz} />
+        {vocabOnly.length > 0 && <><h3>Words</h3><Quiz key={lesson.id + 'v'} qs={vocabOnly} /></>}
         {review.length > 0 && <><h3>Remember earlier lessons</h3><Quiz key={lesson.id + 'r'} qs={review} /></>}
       </section>
 
@@ -284,6 +316,7 @@ export default function CurriculumLesson() {
         <h2 className="eyebrow-h">Go deeper</h2>
         <ul>
           <li><Link to={`/study/catechism/${cccNums[0]}`}>The Catechism at §{cccNums[0]}</Link></li>
+          {(lesson.deeper ?? []).map((d) => { const [k, id] = d.split(':'); return k === 'apol' ? <li key={d}><Link to={`/study/apologetics/${id}`}>Questions about the faith: {id.replace(/-/g, ' ')}</Link></li> : <li key={d}><Link to={`/room/work/${id}/0`}>Read in the Reading room: {id.replace(/-/g, ' ')}</Link></li>; })}
           {!primary && <li><Link to="/room">The Reading room: saints and Fathers</Link></li>}
           {(g.band === 'high' || g.band === 'middle') && <li><Link to="/study/apologetics">Questions about the faith</Link></li>}
           <li><Link to="/study/kids">The Children’s Bible</Link></li>
