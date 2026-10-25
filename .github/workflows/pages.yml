@@ -28,7 +28,7 @@ jobs:
         run: npx tsx scripts/podcasts/build.ts || echo 'podcast refresh failed; using committed lists'
       - run: npm run build
       - run: touch dist/.nojekyll
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
   deploy:
