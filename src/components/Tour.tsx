@@ -12,6 +12,12 @@ interface Step {
   text: string;
   /** where this step lives; the tour goes there when it starts the step */
   route?: string;
+  /** a small label above the text */
+  part?: string;
+  /** a quieter line under the text */
+  sub?: string;
+  /** go to the route only when the current page is not exactly it (default: any page under it will do) */
+  exact?: boolean;
   /** the thing to point at */
   find?: () => Element | null;
   /** when set, the step waits for the user to click the highlighted thing (Next skips ahead) */
@@ -29,25 +35,58 @@ interface Step {
 
 const q = (sel: string) => () => document.querySelector(sel);
 const firstVerse = () => [...document.querySelectorAll('.v')].find((e) => { const r = e.getBoundingClientRect(); return r.top > 120 && r.bottom < window.innerHeight - 160 && r.height < 90; }) ?? document.querySelector('.v');
+const tile = (href: string) => q(`.page a[href="#${href}"]`);
+const panelTab = (name: RegExp) => () => [...document.querySelectorAll('aside.panel [role=tab]')].find((t) => name.test(t.textContent ?? '')) ?? null;
 
 const STEPS: Step[] = [
-  { title: 'Welcome', text: 'A quick tour, about a minute. You will tap through the app yourself.' },
-  { route: '/today', find: q('.home-verse'), text: 'This is Today: a verse for the day, a saint’s words, and a question.' },
-  { route: '/today', find: q('.resume-chips'), text: 'These take you back to where you left off.' },
-  { route: '/today', find: q('.tabs a[href^="#/read"]'), tap: true, text: 'Tap Bible to open it.' },
-  { route: '/read', find: q('.reader-bar'), text: 'Pick any book and chapter from the title up here.' },
-  { find: firstVerse, tap: true, hit: (t) => !!t.closest('.v'), text: 'Tap any verse.' },
-  { narrow: true, find: q('.actionbar .btn.primary'), tap: true, text: 'Tap Study this passage.' },
-  { closePanel: true, find: () => document.querySelector('aside.panel [role=tablist]') ?? document.querySelector('aside.panel'), text: 'Everything about that verse appears here: Church Fathers, notes, the Catechism and more.' },
-  { find: q('.tabs a[href="#/listen"]'), tap: true, text: 'Tap Listen.' },
-  { route: '/listen', find: q('.year-hero, .page h1'), text: 'The Bible in a Year, matched to every chapter.' },
-  { find: q('.tabs a[href="#/study"]'), tap: true, text: 'Tap Study.' },
-  { route: '/study', find: q('.page h1'), text: 'The Catechism, the Fathers, maps, a gallery and more.' },
-  { find: q('.tabs a[href="#/profile"]'), tap: true, text: 'Tap Profile.' },
-  { route: '/profile', find: q('.page h1'), text: 'Your notes, plans and settings live here.' },
-  { route: '/profile', find: q('.search-tab'), wide: true, text: 'Search jumps to any passage or page. Ctrl or ⌘ plus K does the same.' },
-  { route: '/today', title: 'You are set', text: 'That is the app. Take this tour again any time from Profile.' },
+  { part: 'Welcome', text: 'A quick tour. You will tap through the app yourself.', sub: 'A study Bible with more than 80,000 notes tied to verses, and over 100 works by the saints and Fathers.' },
+  { part: 'Today', route: '/today', exact: true, find: q('.home-verse'), text: 'This is Today: a verse for the day, a saint’s words, and a question.' },
+  { part: 'Today', route: '/today', exact: true, find: q('.resume-chips'), text: 'These take you back to where you left off.' },
+  { part: 'Bible', route: '/today', exact: true, find: q('.tabs a[href^="#/read"]'), tap: true, text: 'Tap Bible to open it.' },
+  { part: 'Bible', route: '/read', find: q('.reader-bar'), text: 'Pick a book up here, or switch translation.', sub: 'Modern English, Douay-Rheims, the Septuagint and more.' },
+  { part: 'Bible', find: firstVerse, tap: true, hit: (t) => !!t.closest('.v'), text: 'Tap any verse.' },
+  { part: 'Bible', narrow: true, find: q('.actionbar .btn.primary'), tap: true, text: 'Tap Study this passage.' },
+  { part: 'Bible', find: () => document.querySelector('aside.panel [role=tablist]') ?? document.querySelector('aside.panel'), text: 'Every verse has its own notes.', sub: 'Haydock, à Lapide, the Church Fathers and saints: tens of thousands of notes, each tied to a verse.' },
+  { part: 'Bible', find: panelTab(/Teaching/), tap: true, hit: (t) => /Teaching/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Teaching.' },
+  { part: 'Bible', closePanel: true, find: () => document.querySelector('aside.panel .sect, aside.panel'), text: 'The Catechism paragraphs that cite this verse, quoted in full.', sub: 'All 2,863 paragraphs, searchable.' },
+  { part: 'Bible', find: q('.reader-bar button[title^="Text, theme"]'), text: 'Text size, themes, sound and more live here.', sub: 'Jesus’s words are in red, and a few key words glow or move.' },
+  { part: 'Listen', find: q('.tabs a[href="#/listen"]'), tap: true, text: 'Tap Listen.' },
+  { part: 'Listen', route: '/listen', find: q('.year-hero, .page h1'), text: 'The Bible in a Year, matched to every chapter.' },
+  { part: 'Study', find: q('.tabs a[href="#/study"]'), tap: true, text: 'Tap Study.' },
+  { part: 'Study', route: '/study', exact: true, find: q('.page h1'), text: 'Study is where the deep tools are. Let us open a few.' },
+  { part: 'Study', route: '/study', exact: true, find: tile('/study/fathers'), tap: true, text: 'Tap the Reading room.' },
+  { part: 'Study', route: '/study/fathers', find: q('.page h1'), text: 'Saints and Fathers, free to read in full.', sub: 'More than 100 works: Augustine, Chrysostom, Aquinas, Teresa, Thérèse and more. About ten million words.' },
+  { part: 'Study', route: '/study', exact: true, find: tile('/study/catechism'), tap: true, text: 'Tap the Catechism.' },
+  { part: 'Study', route: '/study/catechism', find: q('.ccc-page input[type=search], .page input[type=search]'), text: 'The whole Catechism. Search it, or jump by number.', sub: 'Its Scripture footnotes link into the Bible.' },
+  { part: 'Study', route: '/study', exact: true, find: tile('/study/paths'), tap: true, text: 'Tap Study paths.' },
+  { part: 'Study', route: '/study/paths', find: q('.page h1'), text: 'Guided journeys: a passage, a Father’s words, a question.' },
+  { part: 'Study', route: '/study', exact: true, find: tile('/study/universe'), text: 'The Scripture universe: all 73 books as a galaxy, with the Fathers in rings around them.' },
+  { part: 'Study', route: '/study', exact: true, find: tile('/study/quotations'), text: 'Who quoted this verse? Every Father and saint who cites it.' },
+  { part: 'Study', route: '/study', exact: true, find: tile('/study/gallery'), text: 'A gallery of paintings and engravings, with maps and a timeline beside it.' },
+  { part: 'Profile', find: q('.tabs a[href="#/profile"]'), tap: true, text: 'Tap Profile.' },
+  { part: 'Profile', route: '/profile', exact: true, find: tile('/library'), tap: true, text: 'Tap Notes.' },
+  { part: 'Profile', route: '/library', find: q('.page h1'), text: 'Your notes, highlights and bookmarks. Private to this device.', sub: 'Export them as Markdown, PDF or EPUB.' },
+  { part: 'Profile', route: '/profile', exact: true, find: tile('/pray/plans'), text: 'Reading plans and memorizing keep your progress.' },
+  { part: 'Profile', route: '/profile', exact: true, find: tile('/days'), text: 'Star a day on Today to keep it here.' },
+  { part: 'Profile', route: '/profile', exact: true, find: tile('/settings'), tap: true, text: 'Tap Settings.' },
+  { part: 'Profile', route: '/settings', find: q('.page h1'), text: 'Language, themes, sound, offline downloads and reminders.' },
+  { part: 'Search', route: '/profile', wide: true, find: q('.search-tab'), text: 'Search jumps to any passage or page. Ctrl or ⌘ plus K does the same.' },
+  { part: 'Done', route: '/today', exact: true, title: 'You are set', text: 'Take this tour again any time from Profile.' },
 ];
+
+/** Invisible shields over everything except the one thing to tap, so a stray tap cannot break the tour. */
+function blockers(hole: DOMRect | null, pad: number) {
+  if (!hole) return <div className="tour-block" style={{ inset: 0 }} />;
+  const t = Math.max(0, hole.top - pad), l = Math.max(0, hole.left - pad), r = hole.right + pad, b = hole.bottom + pad;
+  return (
+    <>
+      <div className="tour-block" style={{ top: 0, left: 0, right: 0, height: t }} />
+      <div className="tour-block" style={{ top: b, left: 0, right: 0, bottom: 0 }} />
+      <div className="tour-block" style={{ top: t, left: 0, width: l, height: b - t }} />
+      <div className="tour-block" style={{ top: t, left: r, right: 0, height: b - t }} />
+    </>
+  );
+}
 
 /** The first-run walkthrough: short steps that point at the real screen and ask you to tap through it. */
 export default function Tour() {
@@ -72,19 +111,30 @@ export default function Tour() {
   }, [nav]);
 
   // each step: go to its page if it names one and we are not on it
+  // and if a stray tap lands somewhere else, bring it back (the next step's page is fine: that is where a tap leads)
   useEffect(() => {
     if (!on || !step.route) return;
     const here = loc.pathname === '/' ? '/today' : loc.pathname;
-    if (!here.startsWith(step.route)) nav(step.route === '/read' ? '/read' : step.route);
-  }, [on, i]);
+    const at = (s?: Step) => !!s?.route && (s.exact ? here === s.route : here === s.route || here.startsWith(s.route + '/'));
+    if (at(step) || (step.tap && at(steps[i + 1]))) return;
+    const t = window.setTimeout(() => nav(step.route!), step.tap ? 700 : 0);
+    return () => window.clearTimeout(t);
+  }, [on, i, loc.pathname]);
 
   // keep the highlight on the element, which may appear a moment after the page does
   useEffect(() => {
     if (!on) return;
     let live = true;
+    let shown: Element | null = null;
     const tick = () => {
       if (!live) return;
       const el = step.find?.() ?? null;
+      // bring the thing into view (clear of the card and the tab bar) the first time it appears
+      if (el && el !== shown && step.tap) {
+        shown = el;
+        const r0 = el.getBoundingClientRect();
+        if (r0.top < 80 || r0.bottom > window.innerHeight - 200) el.scrollIntoView({ block: 'center' });
+      }
       const r = el ? el.getBoundingClientRect() : null;
       setRect((old) => (r && r.width > 0 ? (old && Math.abs(old.top - r.top) < 1 && Math.abs(old.left - r.left) < 1 && Math.abs(old.width - r.width) < 1 && Math.abs(old.height - r.height) < 1 ? old : r) : null));
     };
@@ -109,15 +159,17 @@ export default function Tour() {
   }, [on]);
 
   if (!on) return null;
-  const high = rect && rect.top > window.innerHeight / 2;
   const pad = 6;
+  const high = rect && rect.top > window.innerHeight / 2;
   return (
     <div className="tour-layer" role="dialog" aria-label="App tour" aria-live="polite">
+      {blockers(step.tap ? rect : null, pad)}
       {rect && <div className="tour-ring" style={{ top: rect.top - pad, left: rect.left - pad, width: rect.width + pad * 2, height: rect.height + pad * 2 }} />}
       {!rect && <div className="tour-dim" />}
       <div className={`tour-card ${high ? 'top' : 'bottom'}${rect ? '' : ' mid'}`}>
-        {step.title && <strong className="tour-title">{step.title}</strong>}
+        {(step.title || step.part) && <strong className="tour-title">{step.title ?? step.part}</strong>}
         <p>{step.text}</p>
+        {step.sub && <p className="tour-sub">{step.sub}</p>}
         <div className="tour-bar">
           <span className="tour-count" aria-label={`Step ${i + 1} of ${steps.length}`}>{i + 1} / {steps.length}</span>
           <span className="tour-btns">

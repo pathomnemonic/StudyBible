@@ -3904,3 +3904,8 @@ html[data-atm] .reader::before { opacity: 0.13; }
 
 .tour-count { font-size: .8rem; color: var(--muted); white-space: nowrap; }
 .tour-btns .btn { white-space: nowrap; }
+
+.tour-sub { font-size: .86rem !important; color: var(--muted); margin-top: -4px !important; }
+.tour-title { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-family: var(--font-sans, inherit); }
+
+.tour-block { position: fixed; pointer-events: auto; background: transparent; }
