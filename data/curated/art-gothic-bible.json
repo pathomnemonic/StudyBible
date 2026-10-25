@@ -1,0 +1,982 @@
+{
+ "about": "Historiated initials from a Gothic Bible of about 1275–1300 in the Cleveland Museum of Art (2008.2), one at the opening of most books. Open access, CC0.",
+ "works": [
+  {
+   "id": "cma-2008_2_1_a",
+   "title": "Genesis: initial I, the Creation and the Crucifixion",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.1.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.1.a",
+   "file": "art/cma-2008_2_1_a.jpg",
+   "refs": [
+    "Genesis 1:1-5"
+   ],
+   "theme": "Creation"
+  },
+  {
+   "id": "cma-2008_2_20_b",
+   "title": "Exodus: initial H, Moses and two followers with the tablets of the law",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.20.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.20.b",
+   "file": "art/cma-2008_2_20_b.jpg",
+   "refs": [
+    "Exodus 24:12-18"
+   ],
+   "theme": "Moses"
+  },
+  {
+   "id": "cma-2008_2_36_a",
+   "title": "Leviticus: initial V, Moses offering a lamb on an altar",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.36.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.36.a",
+   "file": "art/cma-2008_2_36_a.jpg",
+   "refs": [
+    "Leviticus 1:1-5"
+   ],
+   "theme": "Offerings"
+  },
+  {
+   "id": "cma-2008_2_46_b",
+   "title": "Numbers: initial L, Moses kneeling before God",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.46.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.46.b",
+   "file": "art/cma-2008_2_46_b.jpg",
+   "refs": [
+    "Numbers 1:1-4"
+   ],
+   "theme": "Moses"
+  },
+  {
+   "id": "cma-2008_2_62_b",
+   "title": "Deuteronomy: initial H, Moses preaching to two men",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.62.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.62.b",
+   "file": "art/cma-2008_2_62_b.jpg",
+   "refs": [
+    "Deuteronomy 1:1-5"
+   ],
+   "theme": "Moses"
+  },
+  {
+   "id": "cma-2008_2_76_b",
+   "title": "Joshua: initial E, Joshua kneeling before God",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.76.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.76.b",
+   "file": "art/cma-2008_2_76_b.jpg",
+   "refs": [
+    "Joshua 5:13-15"
+   ],
+   "theme": "Joshua"
+  },
+  {
+   "id": "cma-2008_2_86_a",
+   "title": "Judges: initial R, a judge seated with a book, speaking to God",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.86.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.86.a",
+   "file": "art/cma-2008_2_86_a.jpg",
+   "refs": [
+    "Judges 1:1-2"
+   ],
+   "theme": "Judges"
+  },
+  {
+   "id": "cma-2008_2_96_a",
+   "title": "Ruth: initial I, Elimelech and Naomi",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.96.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.96.a",
+   "file": "art/cma-2008_2_96_a.jpg",
+   "refs": [
+    "Ruth 1:1-5"
+   ],
+   "theme": "Ruth"
+  },
+  {
+   "id": "cma-2008_2_98_a",
+   "title": "1 Samuel: initial F, Elkanah and Hannah kneeling before an altar",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.98.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.98.a",
+   "file": "art/cma-2008_2_98_a.jpg",
+   "refs": [
+    "1 Samuel 1:1-11"
+   ],
+   "theme": "Hannah"
+  },
+  {
+   "id": "cma-2008_2_112_a",
+   "title": "2 Samuel: initial F, the beheading of the Amalekite",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.112.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.112.a",
+   "file": "art/cma-2008_2_112_a.jpg",
+   "refs": [
+    "2 Samuel 1:13-16"
+   ],
+   "theme": "David"
+  },
+  {
+   "id": "cma-2008_2_123_a",
+   "title": "1 Kings: initial E, Abishag brought to the aged David",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.123.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.123.a",
+   "file": "art/cma-2008_2_123_a.jpg",
+   "refs": [
+    "1 Kings 1:1-4"
+   ],
+   "theme": "David"
+  },
+  {
+   "id": "cma-2008_2_136_a",
+   "title": "2 Kings: initial P, Ahaziah falling from a tower",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.136.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.136.a",
+   "file": "art/cma-2008_2_136_a.jpg",
+   "refs": [
+    "2 Kings 1:2"
+   ],
+   "theme": "Kings"
+  },
+  {
+   "id": "cma-2008_2_148_b",
+   "title": "1 Chronicles: initial A, descendants of Adam",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.148.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.148.b",
+   "file": "art/cma-2008_2_148_b.jpg",
+   "refs": [
+    "1 Chronicles 1:1-4"
+   ],
+   "theme": "Genealogy"
+  },
+  {
+   "id": "cma-2008_2_160_a",
+   "title": "2 Chronicles: initial C, Solomon praying before an altar",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.160.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.160.a",
+   "file": "art/cma-2008_2_160_a.jpg",
+   "refs": [
+    "2 Chronicles 6:12-14"
+   ],
+   "theme": "Solomon"
+  },
+  {
+   "id": "cma-2008_2_174_b",
+   "title": "Ezra: initial I, Cyrus directing the rebuilding of the Temple",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.174.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.174.b",
+   "file": "art/cma-2008_2_174_b.jpg",
+   "refs": [
+    "Ezra 1:1-4"
+   ],
+   "theme": "Return"
+  },
+  {
+   "id": "cma-2008_2_178_b",
+   "title": "Nehemiah: initial V, Nehemiah presenting the cup to Artaxerxes",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.178.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.178.b",
+   "file": "art/cma-2008_2_178_b.jpg",
+   "refs": [
+    "Nehemiah 2:1-2"
+   ],
+   "theme": "Nehemiah"
+  },
+  {
+   "id": "cma-2008_2_190_a",
+   "title": "Tobit: initial T, Tobit asleep on his bed",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.190.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.190.a",
+   "file": "art/cma-2008_2_190_a.jpg",
+   "refs": [
+    "Tobit 1:1-3"
+   ],
+   "theme": "Tobit"
+  },
+  {
+   "id": "cma-2008_2_194_a",
+   "title": "Judith: initial A, Judith beheading Holofernes",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.194.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.194.a",
+   "file": "art/cma-2008_2_194_a.jpg",
+   "refs": [
+    "Judith 13:8-10"
+   ],
+   "theme": "Judith"
+  },
+  {
+   "id": "cma-2008_2_199_a",
+   "title": "Esther: initial, two seated men",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.199.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.199.a",
+   "file": "art/cma-2008_2_199_a.jpg",
+   "refs": [
+    "Esther 1:1-3"
+   ],
+   "theme": "Esther"
+  },
+  {
+   "id": "cma-2008_2_205_a",
+   "title": "Job: initial V, Job on the dunghill given a gold earring",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.205.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.205.a",
+   "file": "art/cma-2008_2_205_a.jpg",
+   "refs": [
+    "Job 42:11"
+   ],
+   "theme": "Job"
+  },
+  {
+   "id": "cma-2008_2_214_b",
+   "title": "Psalm 1: initial B, David harping",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.214.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.214.b",
+   "file": "art/cma-2008_2_214_b.jpg",
+   "refs": [
+    "Psalm 1:1-3"
+   ],
+   "theme": "Psalms"
+  },
+  {
+   "id": "cma-2008_2_218_a",
+   "title": "Psalm 26 in the Vulgate numbering (27): initial D, David kneeling and pointing to his eyes",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.218.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.218.a",
+   "file": "art/cma-2008_2_218_a.jpg",
+   "refs": [
+    "Psalm 27:1-4"
+   ],
+   "theme": "Psalms"
+  },
+  {
+   "id": "cma-2008_2_220_b",
+   "title": "Psalm 38 in the Vulgate numbering (39): initial D, David kneeling before God",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.220.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.220.b",
+   "file": "art/cma-2008_2_220_b.jpg",
+   "refs": [
+    "Psalm 39:1-3"
+   ],
+   "theme": "Psalms"
+  },
+  {
+   "id": "cma-2008_2_222_b",
+   "title": "Psalm 52 in the Vulgate numbering (53): initial D, the fool",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.222.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.222.b",
+   "file": "art/cma-2008_2_222_b.jpg",
+   "refs": [
+    "Psalm 53:1"
+   ],
+   "theme": "Psalms"
+  },
+  {
+   "id": "cma-2008_2_224_b",
+   "title": "Psalm 68 in the Vulgate numbering (69): initial S, David in the waters appealing to God",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.224.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.224.b",
+   "file": "art/cma-2008_2_224_b.jpg",
+   "refs": [
+    "Psalm 69:1-3"
+   ],
+   "theme": "Psalms"
+  },
+  {
+   "id": "cma-2008_2_227_b",
+   "title": "Psalm 80 in the Vulgate numbering (81): initial E, David striking bells",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.227.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.227.b",
+   "file": "art/cma-2008_2_227_b.jpg",
+   "refs": [
+    "Psalm 81:1-3"
+   ],
+   "theme": "Psalms"
+  },
+  {
+   "id": "cma-2008_2_230_a",
+   "title": "Psalm 97 in the Vulgate numbering (98): initial C, two clerics singing at a lectern",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.230.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.230.a",
+   "file": "art/cma-2008_2_230_a.jpg",
+   "refs": [
+    "Psalm 98:1-4"
+   ],
+   "theme": "Psalms"
+  },
+  {
+   "id": "cma-2008_2_233_a",
+   "title": "Psalm 109 in the Vulgate numbering (110): initial D, the Father and the Son with the Holy Spirit between them",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.233.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.233.a",
+   "file": "art/cma-2008_2_233_a.jpg",
+   "refs": [
+    "Psalm 110:1-3"
+   ],
+   "theme": "Psalms"
+  },
+  {
+   "id": "cma-2008_2_238_a",
+   "title": "Proverbs: initial P, Solomon instructing Rehoboam",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.238.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.238.a",
+   "file": "art/cma-2008_2_238_a.jpg",
+   "refs": [
+    "Proverbs 1:1-7"
+   ],
+   "theme": "Wisdom"
+  },
+  {
+   "id": "cma-2008_2_247_b",
+   "title": "Ecclesiastes: initial V, Solomon teaching",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.247.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.247.b",
+   "file": "art/cma-2008_2_247_b.jpg",
+   "refs": [
+    "Ecclesiastes 1:1-3"
+   ],
+   "theme": "Wisdom"
+  },
+  {
+   "id": "cma-2008_2_249_b",
+   "title": "Song of Songs: initial O, the Virgin and Child",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.249.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.249.b",
+   "file": "art/cma-2008_2_249_b.jpg",
+   "refs": [
+    "Song of Solomon 1:1-4"
+   ],
+   "theme": "Song of Songs"
+  },
+  {
+   "id": "cma-2008_2_251_a",
+   "title": "Wisdom: initial D, Solomon instructing a soldier",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.251.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.251.a",
+   "file": "art/cma-2008_2_251_a.jpg",
+   "refs": [
+    "Wisdom 1:1-3"
+   ],
+   "theme": "Wisdom"
+  },
+  {
+   "id": "cma-2008_2_257_a",
+   "title": "Sirach: initial O, Sirach seated with a scroll",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.257.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.257.a",
+   "file": "art/cma-2008_2_257_a.jpg",
+   "refs": [
+    "Sirach 1:1-4"
+   ],
+   "theme": "Wisdom"
+  },
+  {
+   "id": "cma-2008_2_273_a",
+   "title": "Isaiah: initial V, the martyrdom of Isaiah",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.273.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.273.a",
+   "file": "art/cma-2008_2_273_a.jpg",
+   "refs": [
+    "Isaiah 1:1"
+   ],
+   "theme": "Isaiah"
+  },
+  {
+   "id": "cma-2008_2_292_b",
+   "title": "Jeremiah: initial V, the stoning of Jeremiah",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.292.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.292.b",
+   "file": "art/cma-2008_2_292_b.jpg",
+   "refs": [
+    "Jeremiah 1:1-3"
+   ],
+   "theme": "Jeremiah"
+  },
+  {
+   "id": "cma-2008_2_315_a",
+   "title": "Lamentations: initial E, Jeremiah kneeling in prayer",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.315.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.315.a",
+   "file": "art/cma-2008_2_315_a.jpg",
+   "refs": [
+    "Lamentations 1:1-2"
+   ],
+   "theme": "Lamentations"
+  },
+  {
+   "id": "cma-2008_2_317_a",
+   "title": "Baruch: initial H, Baruch writing at a desk",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.317.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.317.a",
+   "file": "art/cma-2008_2_317_a.jpg",
+   "refs": [
+    "Baruch 1:1-3"
+   ],
+   "theme": "Baruch"
+  },
+  {
+   "id": "cma-2008_2_320_a",
+   "title": "Ezekiel: initial E, Ezekiel asleep with his vision of the four creatures",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.320.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.320.a",
+   "file": "art/cma-2008_2_320_a.jpg",
+   "refs": [
+    "Ezekiel 1:4-14"
+   ],
+   "theme": "Ezekiel"
+  },
+  {
+   "id": "cma-2008_2_341_a",
+   "title": "Daniel: initial A, Daniel in the lions’ den",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.341.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.341.a",
+   "file": "art/cma-2008_2_341_a.jpg",
+   "refs": [
+    "Daniel 6:16-23"
+   ],
+   "theme": "Daniel"
+  },
+  {
+   "id": "cma-2008_2_350_a",
+   "title": "Hosea: initial V, Hosea preaching to three men",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.350.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.350.a",
+   "file": "art/cma-2008_2_350_a.jpg",
+   "refs": [
+    "Hosea 1:1-2"
+   ],
+   "theme": "Prophets"
+  },
+  {
+   "id": "cma-2008_2_353_a",
+   "title": "Joel: initial V, Joel seated with a scroll",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.353.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.353.a",
+   "file": "art/cma-2008_2_353_a.jpg",
+   "refs": [
+    "Joel 1:1-3"
+   ],
+   "theme": "Prophets"
+  },
+  {
+   "id": "cma-2008_2_354_b",
+   "title": "Amos: initial V, Amos kneeling in prayer",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.354.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.354.b",
+   "file": "art/cma-2008_2_354_b.jpg",
+   "refs": [
+    "Amos 1:1-2"
+   ],
+   "theme": "Prophets"
+  },
+  {
+   "id": "cma-2008_2_357_a",
+   "title": "Obadiah: initial V, Obadiah in discussion",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.357.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.357.a",
+   "file": "art/cma-2008_2_357_a.jpg",
+   "refs": [
+    "Obadiah 1:1-4"
+   ],
+   "theme": "Prophets"
+  },
+  {
+   "id": "cma-2008_2_357_b",
+   "title": "Jonah: initial E, Jonah swallowed by the whale, a walled city above",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.357.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.357.b",
+   "file": "art/cma-2008_2_357_b.jpg",
+   "refs": [
+    "Jonah 1:17",
+    "Jonah 3:1-3"
+   ],
+   "theme": "Jonah"
+  },
+  {
+   "id": "cma-2008_2_358_b",
+   "title": "Micah: initial V, Micah kneeling",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.358.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.358.b",
+   "file": "art/cma-2008_2_358_b.jpg",
+   "refs": [
+    "Micah 1:1-2"
+   ],
+   "theme": "Prophets"
+  },
+  {
+   "id": "cma-2008_2_360_b",
+   "title": "Nahum: initial O, Nahum kneeling with a scroll",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.360.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.360.b",
+   "file": "art/cma-2008_2_360_b.jpg",
+   "refs": [
+    "Nahum 1:1-3"
+   ],
+   "theme": "Prophets"
+  },
+  {
+   "id": "cma-2008_2_361_b",
+   "title": "Habakkuk: initial O, Habakkuk holding a basket and two stones",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.361.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.361.b",
+   "file": "art/cma-2008_2_361_b.jpg",
+   "refs": [
+    "Habakkuk 1:1-4"
+   ],
+   "theme": "Prophets"
+  },
+  {
+   "id": "cma-2008_2_362_b",
+   "title": "Zephaniah: initial V, Zephaniah kneeling with a scroll",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.362.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.362.b",
+   "file": "art/cma-2008_2_362_b.jpg",
+   "refs": [
+    "Zephaniah 1:1-3"
+   ],
+   "theme": "Prophets"
+  },
+  {
+   "id": "cma-2008_2_364_a",
+   "title": "Haggai: initial I, Haggai with a scroll",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.364.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.364.a",
+   "file": "art/cma-2008_2_364_a.jpg",
+   "refs": [
+    "Haggai 1:1-4"
+   ],
+   "theme": "Prophets"
+  },
+  {
+   "id": "cma-2008_2_365_a",
+   "title": "Zechariah: initial I, Zechariah standing with a scroll",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.365.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.365.a",
+   "file": "art/cma-2008_2_365_a.jpg",
+   "refs": [
+    "Zechariah 1:1-6"
+   ],
+   "theme": "Prophets"
+  },
+  {
+   "id": "cma-2008_2_368_b",
+   "title": "Malachi: initial O, Malachi seated with a scroll",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.368.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.368.b",
+   "file": "art/cma-2008_2_368_b.jpg",
+   "refs": [
+    "Malachi 1:1-5"
+   ],
+   "theme": "Prophets"
+  },
+  {
+   "id": "cma-2008_2_370_a",
+   "title": "1 Maccabees: initial E, Mattathias slaying the idolater",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.370.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.370.a",
+   "file": "art/cma-2008_2_370_a.jpg",
+   "refs": [
+    "1 Maccabees 2:23-26"
+   ],
+   "theme": "Maccabees"
+  },
+  {
+   "id": "cma-2008_2_382_b",
+   "title": "2 Maccabees: initial F, a golden chalice presented to a Jew",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.382.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.382.b",
+   "file": "art/cma-2008_2_382_b.jpg",
+   "refs": [
+    "2 Maccabees 1:1-9"
+   ],
+   "theme": "Maccabees"
+  },
+  {
+   "id": "cma-2008_2_391_b",
+   "title": "Matthew: initial L, the Tree of Jesse",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.391.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.391.b",
+   "file": "art/cma-2008_2_391_b.jpg",
+   "refs": [
+    "Matthew 1:1-17"
+   ],
+   "theme": "Genealogy of Jesus"
+  },
+  {
+   "id": "cma-2008_2_404_a",
+   "title": "Mark: initial I, Mark standing with a scroll",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.404.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.404.a",
+   "file": "art/cma-2008_2_404_a.jpg",
+   "refs": [
+    "Mark 1:1-3"
+   ],
+   "theme": "Evangelists"
+  },
+  {
+   "id": "cma-2008_2_412_b",
+   "title": "Luke: initial F, Luke praying at an altar",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.412.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.412.b",
+   "file": "art/cma-2008_2_412_b.jpg",
+   "refs": [
+    "Luke 1:1-4"
+   ],
+   "theme": "Evangelists"
+  },
+  {
+   "id": "cma-2008_2_425_b",
+   "title": "John: initial I, John seated writing",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.425.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.425.b",
+   "file": "art/cma-2008_2_425_b.jpg",
+   "refs": [
+    "John 1:1-5"
+   ],
+   "theme": "Evangelists"
+  },
+  {
+   "id": "cma-2008_2_435_b",
+   "title": "Romans: initial P, Paul seated with a sword, speaking to God",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.435.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.435.b",
+   "file": "art/cma-2008_2_435_b.jpg",
+   "refs": [
+    "Romans 1:1-7"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_440_b",
+   "title": "1 Corinthians: initial P, Paul kneeling",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.440.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.440.b",
+   "file": "art/cma-2008_2_440_b.jpg",
+   "refs": [
+    "1 Corinthians 1:1-3"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_445_b",
+   "title": "2 Corinthians: initial P, Paul standing with a sword",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.445.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.445.b",
+   "file": "art/cma-2008_2_445_b.jpg",
+   "refs": [
+    "2 Corinthians 1:1-2"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_449_a",
+   "title": "Galatians: initial P, Paul seated with a sword",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.449.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.449.a",
+   "file": "art/cma-2008_2_449_a.jpg",
+   "refs": [
+    "Galatians 1:1-5"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_450_b",
+   "title": "Ephesians: initial P, Paul seated with a sword",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.450.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.450.b",
+   "file": "art/cma-2008_2_450_b.jpg",
+   "refs": [
+    "Ephesians 1:1-3"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_452_a",
+   "title": "Philippians: initial P, Paul with a sword and scroll",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.452.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.452.a",
+   "file": "art/cma-2008_2_452_a.jpg",
+   "refs": [
+    "Philippians 1:1-2"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_453_b",
+   "title": "Colossians: initial P, Paul standing",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.453.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.453.b",
+   "file": "art/cma-2008_2_453_b.jpg",
+   "refs": [
+    "Colossians 1:1-3"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_454_b",
+   "title": "1 Thessalonians: initial P, Paul seated with a book",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.454.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.454.b",
+   "file": "art/cma-2008_2_454_b.jpg",
+   "refs": [
+    "1 Thessalonians 1:1-3"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_455_b",
+   "title": "2 Thessalonians: initial P, Paul seated with a sword",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.455.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.455.b",
+   "file": "art/cma-2008_2_455_b.jpg",
+   "refs": [
+    "2 Thessalonians 1:1-3"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_456_a",
+   "title": "1 Timothy: initial P, Paul seated",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.456.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.456.a",
+   "file": "art/cma-2008_2_456_a.jpg",
+   "refs": [
+    "1 Timothy 1:1-2"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_457_b",
+   "title": "2 Timothy: initial P, Paul speaking to God",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.457.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.457.b",
+   "file": "art/cma-2008_2_457_b.jpg",
+   "refs": [
+    "2 Timothy 1:1-2"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_458_b",
+   "title": "Titus: initial P, Paul seated with a sword",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.458.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.458.b",
+   "file": "art/cma-2008_2_458_b.jpg",
+   "refs": [
+    "Titus 1:1-4"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_459_a",
+   "title": "Philemon and Hebrews: initials P and M, Paul addressing three men",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.459.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.459.a",
+   "file": "art/cma-2008_2_459_a.jpg",
+   "refs": [
+    "Philemon 1:1-3",
+    "Hebrews 1:1-4"
+   ],
+   "theme": "Paul"
+  },
+  {
+   "id": "cma-2008_2_463_a",
+   "title": "Acts: initial P, the Ascension",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.463.a (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.463.a",
+   "file": "art/cma-2008_2_463_a.jpg",
+   "refs": [
+    "Acts 1:9-11"
+   ],
+   "theme": "Ascension"
+  },
+  {
+   "id": "cma-2008_2_476_b",
+   "title": "James: initial I, James standing with a scroll",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.476.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.476.b",
+   "file": "art/cma-2008_2_476_b.jpg",
+   "refs": [
+    "James 1:1"
+   ],
+   "theme": "Letters"
+  },
+  {
+   "id": "cma-2008_2_477_b",
+   "title": "1 Peter: initial P, Peter with a key",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.477.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.477.b",
+   "file": "art/cma-2008_2_477_b.jpg",
+   "refs": [
+    "1 Peter 1:1-2"
+   ],
+   "theme": "Letters"
+  },
+  {
+   "id": "cma-2008_2_481_b",
+   "title": "Jude: initial I, Jude standing with a scroll",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.481.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.481.b",
+   "file": "art/cma-2008_2_481_b.jpg",
+   "refs": [
+    "Jude 1:1-2"
+   ],
+   "theme": "Letters"
+  },
+  {
+   "id": "cma-2008_2_482_b",
+   "title": "Revelation: initial A, John writing to the seven churches of Asia",
+   "artist": "Gothic Bible (Vulgate), French or English workshop",
+   "date": "c. 1275–1300",
+   "credit": "Cleveland Museum of Art, 2008.2.482.b (open access / CC0). Reduced from the museum’s image.",
+   "source": "https://clevelandart.org/art/2008.2.482.b",
+   "file": "art/cma-2008_2_482_b.jpg",
+   "refs": [
+    "Revelation 1:4-11"
+   ],
+   "theme": "Revelation"
+  }
+ ]
+}

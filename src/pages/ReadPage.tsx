@@ -13,6 +13,7 @@ import { db, type HighlightColor, type Target } from '../db/db';
 import BiayBar from '../components/BiayBar';
 import PlayFromHere from '../components/PlayFromHere';
 import NextChapters from '../components/NextChapters';
+import ChapterArt from '../art/chapterArt';
 import { FindInChapter, LookUp, ReadProgress } from '../components/ReaderTools';
 import { setHighlight, toggleBookmark, rangesOverlap } from '../db/ops';
 import ChapterText, { type VerseDecor } from '../components/ChapterText';
@@ -664,7 +665,7 @@ export default function ReadPage() {
         {!data && !error && <div className="center-note">Loading {bk.name}…</div>}
         {data && chapterData && !parallelMode && (
           <article className="scripture" aria-label={`${bk.name} chapter ${chNum}`}>
-            <h1 className="chapter-title">
+            <h1 className="chapter-title has-art">
               {bk.id === 'PSA' ? `Psalm ${chNum}` : `${bk.name} ${chNum}`}
               {chapterCount > 0 && dockOn && (
                 <button className="rm chapter-rm" title={`${chapterCount} notes about the whole chapter`} aria-label={`${chapterCount} notes about the whole chapter. Open study panel`} onClick={() => { setSelNative([]); setSelAnchor([]); setSettings({ studyDock: true }); }}>
@@ -672,6 +673,7 @@ export default function ReadPage() {
                 </button>
               )}
             </h1>
+            <ChapterArt book={bk.id} chapter={primaryAnchorChapter} text={flat.map((v) => v.text).join(' ')} />
             {(() => {
               const kjvCh = convertRef('vulgate', 'kjv', { book: bk.id, c1: primaryAnchorChapter, v1: 1, c2: primaryAnchorChapter, v2: 1 }).ref.c1;
               const line = sectionFor(bookInfo, kjvCh);

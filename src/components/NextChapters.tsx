@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ChapterText from './ChapterText';
+import ChapterArt from '../art/chapterArt';
+import { flattenChapter } from '../lib/bibleText';
 import { getBookText } from '../data/loader';
 import { adjacentBook, getBook } from '../lib/canon';
 import { jesusWords, type RedRanges } from '../study/jesusWords';
@@ -65,7 +67,8 @@ export default function NextChapters({ editionId, chapters, lang, book, chapter,
     <div className="next-chapters">
       {list.map((l) => (
         <section key={`${l.book}.${l.chapter}`} className="more-chapter" aria-label={`${getBook(l.book).name} ${l.chapter}`}>
-          <h2 className="chapter-title" data-nc={`${l.book}.${l.chapter}`}>{l.book === 'PSA' ? `Psalm ${l.chapter}` : `${getBook(l.book).name} ${l.chapter}`}</h2>
+          <h2 className="chapter-title has-art" data-nc={`${l.book}.${l.chapter}`}>{l.book === 'PSA' ? `Psalm ${l.chapter}` : `${getBook(l.book).name} ${l.chapter}`}</h2>
+          <ChapterArt book={l.book} chapter={l.chapter} text={flattenChapter(l.data).map((v) => v.text).join(' ')} />
           <ChapterText chapter={l.data} selected={NONE} decor={NO_DECOR} lang={lang} wordFx={wordFx} red={l.red} onVerse={(n) => nav(`/read/${editionId}/${l.book}/${l.chapter}?v=${n}`)} />
         </section>
       ))}

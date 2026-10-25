@@ -4008,3 +4008,9 @@ html[data-atm] .reader::before { opacity: 0.13; }
 ::highlight(find-cur) { background: color-mix(in srgb, orange 75%, transparent); color: inherit; }
 .lookup { position: fixed; z-index: 95; width: 260px; }
 .lookup-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; box-shadow: 0 8px 30px rgba(0,0,0,.45); }
+
+/* a drawing for each chapter, made from what the chapter is about */
+html[data-atm] .chapter-title.has-art::after { display: none; }
+.chapter-art { display: block; width: 100%; max-width: 560px; height: auto; margin: 2px 0 8px; fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; opacity: .72; }
+.chapter-art g { stroke-width: 1.5; }
+.chapter-art .dot { fill: var(--accent); stroke: none; opacity: .6; }
