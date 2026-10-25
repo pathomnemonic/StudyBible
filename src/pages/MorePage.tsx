@@ -15,7 +15,7 @@ const GROUPS: { title: string; items: Row[] }[] = [
     ['/study/catechism', 'Catechism of the Catholic Church', 'The full text, paragraph by paragraph, with search and Scripture links.'],
     ['/study/gallery', 'Gallery', 'Paintings and engravings of Bible scenes; compare two of the same scene.'],
     ['/study/paths', 'Study paths', 'Guided journeys through a theme, with the Fathers and a question.'],
-    ['/study/fathers', 'Reading room', 'Saints, Fathers and catechisms to read in full.'],
+    ['/room', 'Reading room', 'Saints, Fathers and catechisms to read in full.'],
     ['/study/church', 'Councils and Church documents', 'Read in full where public domain, official links for the rest.'],
   ] },
   { title: 'Pray and rest', items: [

@@ -4080,3 +4080,7 @@ html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: no
 .present-nav { display: flex; gap: 16px; align-items: center; justify-content: center; margin-top: auto; }
 .present-x { position: absolute; top: 12px; right: 12px; }
 @media print { .present { display: none !important; } }
+
+.tour-switch { flex-wrap: wrap; }
+.tour-select { width: 100%; margin: 0 0 10px; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-2, transparent); color: inherit; font: inherit; }
+.tour-size { align-self: center; min-width: 2.2em; text-align: center; font-variant-numeric: tabular-nums; }

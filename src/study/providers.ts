@@ -72,9 +72,12 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
 ];
 
 /** How sections are grouped into the panel's tabs. */
+/** Under the Notes tab: the commentary stream comes first, then what the Church teaches. */
+export const NOTE_STREAM: SectionKey[] = ['commentary', 'fathers', 'saints'];
+export const TEACH_SECTIONS: SectionKey[] = ['catechism', 'apologetics', 'magisterium', 'doctrine', 'liturgy', 'echoes', 'reception'];
+
 export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
-  { id: 'notes', label: 'Notes', sections: ['commentary', 'fathers', 'saints'] },
-  { id: 'teaching', label: 'Teaching', sections: ['catechism', 'apologetics', 'magisterium', 'doctrine', 'liturgy', 'echoes', 'reception'] },
+  { id: 'notes', label: 'Notes', sections: ['commentary', 'fathers', 'saints', 'catechism', 'apologetics', 'magisterium', 'doctrine', 'liturgy', 'echoes', 'reception'] },
   { id: 'connections', label: 'Connections', sections: ['typology', 'quotes', 'xref', 'parallels', 'dependency', 'topics'] },
   { id: 'words', label: 'Words', sections: ['wordnotes', 'versions'] },
   { id: 'world', label: 'World', sections: ['customs', 'encyclopedia', 'people', 'background', 'dictionary', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },

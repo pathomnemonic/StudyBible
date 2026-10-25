@@ -14,6 +14,8 @@ import ScrollMemory from './components/ScrollMemory';
 import { db, TRASH_DAYS } from './db/db';
 import { scheduleReminder } from './liturgy/reminders';
 
+const DivineLiturgyPage = lazy(() => import('./pages/pray/DivineLiturgyPage'));
+const YoungAdultsPage = lazy(() => import('./pages/study/YoungAdultsPage'));
 const GalleryPage = lazy(() => import('./pages/study/GalleryPage'));
 const DaysPage = lazy(() => import('./pages/DaysPage'));
 const CatechismPage = lazy(() => import('./pages/study/CatechismPage'));
@@ -35,7 +37,6 @@ const SearchPage = lazy(() => import('./pages/study/SearchPage'));
 const TopicPage = lazy(() => import('./pages/study/TopicPage'));
 const DoctrinePage = lazy(() => import('./pages/study/DoctrinePage'));
 const SourcesPage = lazy(() => import('./pages/study/SourcesPage'));
-const FathersLibrary = lazy(() => import('./pages/study/FathersLibrary'));
 const WorkReader = lazy(() => import('./pages/study/WorkReader'));
 const PassageStudy = lazy(() => import('./pages/study/PassageStudy'));
 const ListenHome = lazy(() => import('./pages/listen/ListenHome'));
@@ -151,6 +152,11 @@ function Settle({ children }: { children: React.ReactNode }) {
   return <div className="settle" key={pathname.startsWith('/read/') ? 'reader' : pathname}>{children}</div>;
 }
 
+function RedirectKeepSearch({ to }: { to: string }) {
+  const l = useLocation();
+  return <Navigate replace to={to + l.search} />;
+}
+
 export default function App() {
   const loc = useLocation();
   useEffect(() => {
@@ -183,6 +189,7 @@ export default function App() {
               <Route path="/study/gallery" element={<GalleryPage />} />
               <Route path="/study/catechism/:n?" element={<CatechismPage />} />
               <Route path="/study/saints/:md?" element={<SaintsPage />} />
+              <Route path="/study/young-adults" element={<YoungAdultsPage />} />
               <Route path="/study/apologetics/:id?" element={<ApologeticsPage />} />
               <Route path="/study/kids/:id?" element={<KidsPage />} />
               <Route path="/study/videos" element={<VideoLibrary />} />
@@ -217,7 +224,7 @@ export default function App() {
               <Route path="/study/concordance" element={<ConcordancePage />} />
               <Route path="/study/doctrine" element={<DoctrinePage />} />
               <Route path="/study/sources" element={<SourcesPage />} />
-              <Route path="/study/fathers" element={<FathersLibrary />} />
+              <Route path="/study/fathers" element={<RedirectKeepSearch to="/room" />} />
               <Route path="/study/works/:workId/:section?" element={<WorkReader />} />
               <Route path="/study/passage/:refId" element={<PassageStudy />} />
               <Route path="/study/dossier" element={<DossierPage />} />
@@ -231,6 +238,7 @@ export default function App() {
               <Route path="/pray/sleep" element={<SleepPage />} />
               <Route path="/pray/office" element={<OfficePage />} />
               <Route path="/pray/morning" element={<MorningPage />} />
+              <Route path="/pray/divine-liturgy" element={<DivineLiturgyPage />} />
               <Route path="/pray/year" element={<ChurchYearPage />} />
               <Route path="/pray/examen" element={<ExamenPage />} />
               <Route path="/pray/build" element={<SessionBuilderPage />} />

@@ -55,7 +55,7 @@ export default function HomeExtras({ date, season, ref, label, onRandom }: { dat
       {plans.length > 0 && <Link to="/pray/plans">Your reading plan →</Link>}
       {season2 && <Link to={`/study/path/${season2[0]}`}>{season2[1]} (study path)</Link>}
       {season !== 'ordinary' && <button onClick={listen} aria-pressed={playing}>{playing ? '■ Stop' : '♪ Listen: chant and hymns for the season'}</button>}
-      {saint && <Link to={saint.authorId ? `/study/fathers?author=${saint.authorId}` : `/study/saints/${saint.life ?? date.slice(5)}?name=${encodeURIComponent(saint.name.replace(/^(saint|st\.)\s+/i, ''))}`}>{saint.name}{saint.authorId ? ': read their words' : saint.life ? ': read the life' : ': saints of the day'}</Link>}
+      {saint && <Link to={saint.authorId ? `/room?author=${saint.authorId}` : `/study/saints/${saint.life ?? date.slice(5)}?name=${encodeURIComponent(saint.name.replace(/^(saint|st\.)\s+/i, ''))}`}>{saint.name}{saint.authorId ? ': read their words' : saint.life ? ': read the life' : ': saints of the day'}</Link>}
       {ref && <Link to={`/share?ref=${encodeURIComponent(label)}`}>Make a picture of this verse</Link>}
       {ref && <button onClick={remember} disabled={memoed > 0}>{memoed > 0 ? '✓ In memorize' : 'Memorize this verse'}</button>}
       <button onClick={toggleFav} aria-pressed={!!fav} title="Keep this day in your favourites">{fav ? '★ Favourite' : '☆ Favourite day'}</button>

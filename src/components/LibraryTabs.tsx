@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export default function LibraryTabs() {
   return (
     <nav className="library-tabs" aria-label="Library">
-      <NavLink to="/study/fathers">Reading room</NavLink>
+      <NavLink to="/room">Reading room</NavLink>
       <NavLink to="/study/church">Church documents</NavLink>
       <NavLink to="/study/paths">Study paths</NavLink>
     </nav>

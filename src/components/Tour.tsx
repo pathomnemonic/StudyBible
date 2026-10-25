@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { updateSettings, useSettings } from '../lib/store';
+import { THEMES, updateSettings, useSettings, type ThemeName } from '../lib/store';
+import { TRADITIONS } from '../lib/tradition';
+import { useEditions } from '../data/EditionsContext';
 
 const DONE = 'sb:tour';
 const STEP = 'sb:tourStep';
@@ -32,27 +34,35 @@ interface Step {
   wide?: boolean;
   title?: string;
   /** a small control shown in the card */
-  control?: 'sound';
+  control?: 'sound' | 'tradition' | 'theme' | 'size';
 }
 
 const q = (sel: string) => () => document.querySelector(sel);
 const vis = (e: Element | null) => (e && e.getBoundingClientRect().width > 0 ? e : null);
 const anyOf = (...sels: string[]) => () => sels.map((x) => vis(document.querySelector(x))).find(Boolean) ?? null;
 const firstVerse = () => [...document.querySelectorAll('.v')].find((e) => { const r = e.getBoundingClientRect(); return r.top > 120 && r.bottom < window.innerHeight - 160 && r.height < 90; }) ?? document.querySelector('.v');
+const verse51 = () => document.querySelector('.v[data-v="51"]');
 const tile = (href: string) => q(`.page a[href="#${href}"]`);
 const panelTab = (name: RegExp) => () => [...document.querySelectorAll('aside.panel [role=tab]')].find((t) => name.test(t.textContent ?? '')) ?? null;
 
 const STEPS: Step[] = [
   { part: 'Welcome', text: 'A quick tour. You will tap through the app yourself.', sub: 'A study Bible with more than 80,000 notes tied to verses, and over 100 works by the saints and Fathers.' },
+  { part: 'Your Church', control: 'tradition', text: 'Which Church do you belong to?', sub: 'This sets the calendar, the daily readings and the prayers you are offered. You can change it later in Settings.' },
+  { part: 'Look', control: 'theme', text: 'Pick a look for reading.', sub: 'Dark themes are easier on the eyes at night; the paper themes feel like a printed page.' },
+  { part: 'Reading', control: 'size', text: 'Choose your translation and text size.', sub: 'The Douay-Rheims and Latin Vulgate are the traditional Catholic Bibles. More are in Settings.' },
   { part: 'Today', route: '/today', exact: true, find: q('.home-verse'), text: 'This is Today: a verse for the day, a saint’s words, and a question.' },
   { part: 'Today', route: '/today', exact: true, find: q('.resume-chips'), text: 'These take you back to where you left off.' },
   { part: 'Bible', route: '/today', exact: true, find: q('.tabs a[href^="#/read"]'), tap: true, text: 'Tap Bible to open it.' },
-  { part: 'Bible', route: '/read', find: q('.reader-bar'), text: 'Pick a book up here, or switch translation.', sub: 'Modern English, Douay-Rheims, the Septuagint and more.' },
-  { part: 'Bible', find: firstVerse, tap: true, hit: (t) => !!t.closest('.v'), text: 'Tap any verse.' },
+  { part: 'Bible', route: '/read/webc/JHN/6', find: q('.reader-bar'), text: 'Let us read John 6, the Bread of Life.', sub: 'Pick any book up here, or switch translation.' },
+  { part: 'Bible', find: verse51, tap: true, hit: (t) => !!t.closest('.v[data-v="51"]'), text: 'Tap verse 51: “I am the living bread.”' },
   { part: 'Bible', narrow: true, find: q('.actionbar .btn.primary'), tap: true, text: 'Tap Study this passage.' },
-  { part: 'Bible', find: () => document.querySelector('aside.panel [role=tablist]') ?? document.querySelector('aside.panel'), text: 'Every verse has its own notes.', sub: 'Haydock, à Lapide, the Church Fathers and saints: tens of thousands of notes, each tied to a verse.' },
-  { part: 'Bible', find: panelTab(/Teaching/), tap: true, hit: (t) => /Teaching/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Teaching.' },
-  { part: 'Bible', closePanel: true, find: () => document.querySelector('aside.panel .sect, aside.panel'), text: 'The Catechism paragraphs that cite this verse, quoted in full.', sub: 'All 2,863 paragraphs, searchable.' },
+  { part: 'Bible', find: () => document.querySelector('aside.panel [role=tablist]') ?? document.querySelector('aside.panel'), text: 'One verse, everything gathered around it.', sub: 'Notes holds the Catechism first, then Haydock, à Lapide, the Church Fathers and saints, each tied to this verse.' },
+  { part: 'Bible', find: panelTab(/Connections/), tap: true, hit: (t) => /Connections/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Connections.' },
+  { part: 'Bible', find: () => document.querySelector('aside.panel .panel-body'), text: 'The manna, the Last Supper, who quoted this verse, and cross-references.', sub: 'Each one opens the passage it points to.' },
+  { part: 'Bible', find: panelTab(/Words/), tap: true, hit: (t) => /Words/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Words.' },
+  { part: 'Bible', find: () => document.querySelector('aside.panel .panel-body'), text: 'Tap a Greek word to see its meaning and everywhere else it appears.' },
+  { part: 'Bible', find: panelTab(/Media/), tap: true, hit: (t) => /Media/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Media.' },
+  { part: 'Bible', closePanel: true, find: () => document.querySelector('aside.panel .panel-body'), text: 'Videos from Catholic teachers on this very passage, paintings, and the Bible in a Year episode.', sub: 'They play right here, from the creators’ own channels.' },
   { part: 'Bible', find: anyOf('.reader-bar button[title^="Text, theme"]', '.reader-bar .more-btn'), text: 'Text size, themes, sound and more live here.', sub: 'Jesus’s words are in red, and a few key words glow or move.' },
   { part: 'Bible', find: anyOf('.reader-bar button[aria-label*="ound"]', '.reader-bar .more-btn'), control: 'sound', text: 'Gentle background sound is off. Want it?', sub: '“Choose for me” plays a quiet sound that suits the book, kept soft. Change it any time with the note icon.' },
   { part: 'Listen', find: q('.tabs a[href="#/listen"]'), tap: true, text: 'Tap Listen.' },
@@ -61,8 +71,6 @@ const STEPS: Step[] = [
   { part: 'Reading room', route: '/room', find: q('.page h1'), text: 'Read and listen beyond the Bible.', sub: 'Open any work and a Bible chapter sits beside it, so you can read the Scripture and what the saints made of it together. Many works have recordings too.' },
   { part: 'Study', find: q('.tabs a[href="#/study"]'), tap: true, text: 'Tap Study.' },
   { part: 'Study', route: '/study', exact: true, find: q('.page h1'), text: 'Study is where the deep tools are. Let us open a few.' },
-  { part: 'Study', route: '/study', exact: true, find: tile('/study/fathers'), tap: true, text: 'Tap the Reading room.' },
-  { part: 'Study', route: '/study/fathers', find: q('.page h1'), text: 'Saints and Fathers, free to read in full.', sub: 'More than 100 works: Augustine, Chrysostom, Aquinas, Teresa, Thérèse and more. About ten million words.' },
   { part: 'Study', route: '/study', exact: true, find: tile('/study/catechism'), tap: true, text: 'Tap the Catechism.' },
   { part: 'Study', route: '/study/catechism', find: q('.ccc-page input[type=search], .page input[type=search]'), text: 'The whole Catechism. Search it, or jump by number.', sub: 'Its Scripture footnotes link into the Bible.' },
   { part: 'Study', route: '/study', exact: true, find: tile('/study/paths'), tap: true, text: 'Tap Study paths.' },
@@ -72,6 +80,7 @@ const STEPS: Step[] = [
   { part: 'Study', route: '/study', exact: true, find: tile('/study/gallery'), text: 'A gallery of paintings and engravings, with maps and a timeline beside it.' },
   { part: 'Study', route: '/study', exact: true, find: tile('/study/apologetics'), text: 'Questions about the faith: short answers, with the verses and Catechism paragraphs to check them.' },
   { part: 'Study', route: '/study', exact: true, find: tile('/study/kids'), text: 'A Children’s Bible: stories at three reading levels, with videos.' },
+  { part: 'Study', route: '/study', exact: true, find: tile('/study/young-adults'), text: 'Young adults: the questions, vocation and Scripture for the years of big decisions.' },
   { part: 'Profile', find: q('.profile-btn'), tap: true, text: 'Tap the round Profile button, top right.' },
   { part: 'Profile', route: '/profile', exact: true, find: tile('/library'), tap: true, text: 'Tap Notes.' },
   { part: 'Profile', route: '/library', find: q('.page h1'), text: 'Your notes, highlights and bookmarks. Private to this device.', sub: 'Export them as Markdown, PDF or EPUB.' },
@@ -93,6 +102,39 @@ function blockers(hole: DOMRect | null, pad: number) {
       <div className="tour-block" style={{ top: b, left: 0, right: 0, bottom: 0 }} />
       <div className="tour-block" style={{ top: t, left: 0, width: l, height: b - t }} />
       <div className="tour-block" style={{ top: t, left: r, right: 0, height: b - t }} />
+    </>
+  );
+}
+
+function TourControl({ kind }: { kind: 'tradition' | 'theme' | 'size' }) {
+  const [st] = useSettings();
+  const { editions } = useEditions();
+  if (kind === 'tradition') {
+    return (
+      <select className="tour-select" value={st.tradition} onChange={(e) => updateSettings({ tradition: e.target.value as typeof st.tradition })} aria-label="Your Church">
+        {TRADITIONS.map((t) => <option key={t.id} value={t.id}>{t.name}</option>)}
+      </select>
+    );
+  }
+  if (kind === 'theme') {
+    const pick: ThemeName[] = ['twilight', 'light', 'paper', 'sepia', 'dark', 'zen'];
+    return (
+      <div className="tour-switch" role="group" aria-label="Theme">
+        {pick.map((id) => { const t = THEMES.find((x) => x[0] === id); return t ? <button key={id} className={st.theme === id ? 'on' : ''} aria-pressed={st.theme === id} onClick={() => updateSettings({ theme: id })}>{t[1]}</button> : null; })}
+      </div>
+    );
+  }
+  const shown = editions.filter((e) => !e.offByDefault || e.id === st.defaultEdition);
+  return (
+    <>
+      <select className="tour-select" value={st.defaultEdition} onChange={(e) => updateSettings({ defaultEdition: e.target.value })} aria-label="Translation">
+        {shown.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}
+      </select>
+      <div className="tour-switch" role="group" aria-label="Text size">
+        <button onClick={() => updateSettings({ fontSize: Math.max(14, st.fontSize - 2) })} aria-label="Smaller text">A−</button>
+        <span className="tour-size" aria-live="polite">{st.fontSize}</span>
+        <button onClick={() => updateSettings({ fontSize: Math.min(32, st.fontSize + 2) })} aria-label="Larger text">A+</button>
+      </div>
     </>
   );
 }
@@ -180,6 +222,7 @@ export default function Tour() {
         {(step.title || step.part) && <strong className="tour-title">{step.title ?? step.part}</strong>}
         <p>{step.text}</p>
         {step.sub && <p className="tour-sub">{step.sub}</p>}
+        {step.control && step.control !== 'sound' && <TourControl kind={step.control} />}
         {step.control === 'sound' && (
           <div className="tour-switch" role="group" aria-label="Background sound">
             <button className={settings.ambience.kind === 'off' ? 'on' : ''} aria-pressed={settings.ambience.kind === 'off'} onClick={() => updateSettings({ ambience: { ...settings.ambience, kind: 'off' }, ambienceTipSeen: true })}>Off</button>

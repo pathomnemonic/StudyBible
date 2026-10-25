@@ -62,7 +62,7 @@ export function Cited({ text, hint }: { text: string; hint?: string }) {
     const name = (a[0].exec(rest) ?? [''])[0];
     const afterName = text.slice(m.index + name.length);
     const c = CITE.exec(afterName);
-    let to = `/study/fathers?author=${a[1]}`;
+    let to = `/room?author=${a[1]}`;
     let end = m.index + name.length;
     let title = 'Read this Father’s works in the reading room';
     if (c) {

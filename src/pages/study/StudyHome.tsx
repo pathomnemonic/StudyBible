@@ -26,8 +26,8 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
       ['/study/catechism', 'Catechism of the Catholic Church', 'The full text, paragraph by paragraph, with search and links to the Scripture it cites.'],
       ['/study/doctrine', 'Doctrine & Catechism', 'Topics (Eucharist, Trinity, grace, Mary…) with Scripture and Catechism links.'],
       ['/study/church', 'Councils and Church documents', 'Councils, catechisms and encyclicals: read in full where public domain, official links for the rest.'],
-      ['/study/fathers', 'Reading room: saints, Fathers, catechisms', 'Augustine, Chrysostom, Teresa, the Imitation of Christ and more, to read in full.'],
       ['/study/encyclopedia', 'The Catholic Encyclopedia', 'The 1913 articles on the books of the Bible, its people, places and topics.'],
+      ['/study/young-adults', 'Young adults', 'Questions, vocation, Scripture, reading and people for the years of big decisions.'],
       ['/study/kids', 'Children’s Bible', 'Bible stories for kids, at three reading levels, with questions and videos.'],
       ['/study/apologetics', 'Questions about the faith', 'Common questions, each gathering what Catholic authors and apologists have written and said, with the verses and Catechism paragraphs involved.'],
       ['/study/videos', 'Catholic video library', 'Thousands of teaching videos from Catholic Answers, the St. Paul Center, Bishop Barron, Ascension and more, searchable by title and creator.'],
@@ -71,7 +71,6 @@ const FEATURED: { to: string; title: string; text: string; hue: number }[] = [
   { to: '/study/story', title: 'Follow a story', text: 'Trace the promise to Abraham, the Exodus, David, the exile, Peter or Mary through the whole Bible.', hue: 120 },
   { to: '/study/dossier', title: 'Passage dossier', text: 'Type any passage and get everything on it in one page you can print.', hue: 40 },
   { to: '/study/paths', title: 'Study paths', text: 'Follow a theme through Scripture, with the Fathers and a question at each step.', hue: 330 },
-  { to: '/study/fathers', title: 'Reading room', text: 'Read the saints, the Fathers and the catechisms, in full, right here.', hue: 25 },
   { to: '/study/universe', title: 'Scripture universe', text: 'Fly through the canon as a galaxy of 73 books.', hue: 265 },
   { to: '/study/fulfilment', title: 'Promise and fulfilment', text: 'Types and prophecies, in the Fathers’ own words.', hue: 35 },
 ];

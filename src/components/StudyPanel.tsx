@@ -4,7 +4,7 @@ import { Marked } from '../study/citations';
 import Icon from './Icon';
 import NoteEditor from './NoteEditor';
 import AddLinkDialog from './AddLinkDialog';
-import { SECTIONS, TABS, gatherAll, relevance, MATCH_LABEL, type SectionKey, type StudyItem } from '../study/providers';
+import { SECTIONS, TABS, NOTE_STREAM, TEACH_SECTIONS, gatherAll, relevance, MATCH_LABEL, type SectionKey, type StudyItem } from '../study/providers';
 import { formatRef, parseRefId, refId, type Ref } from '../lib/refs';
 import { pathsFor, type PathHit } from '../study/pathRefs';
 import { passageText, anchorToNative } from '../lib/bibleText';
@@ -64,7 +64,8 @@ export default function StudyPanel({
 }) {
   const [data, setData] = useState<Partial<Record<SectionKey, StudyItem[]>>>({});
   const [loading, setLoading] = useState(true);
-  const [tab, setTabState] = useState(() => { try { return localStorage.getItem('sb:panelTab') || (initialTab === 'all' ? 'notes' : initialTab); } catch { return initialTab === 'all' ? 'notes' : initialTab; } });
+  const oldTab = (t: string) => (t === 'teaching' || t === 'all' ? 'notes' : t);
+  const [tab, setTabState] = useState(() => { try { return oldTab(localStorage.getItem('sb:panelTab') || initialTab); } catch { return oldTab(initialTab); } });
   const setTab = (t: string) => { setTabState(t); try { localStorage.setItem('sb:panelTab', t); } catch { /* private mode */ } };
   const [paths, setPaths] = useState<PathHit[]>([]);
   useEffect(() => { let live = true; pathsFor(refs).then((p) => live && setPaths(p)); return () => { live = false; }; }, [refs.map(refId).join()]);
@@ -125,7 +126,7 @@ export default function StudyPanel({
   );
 
   // ---- the Notes tab: a reading stream of commentary, most specific first
-  const noteList = TABS[0].sections.flatMap((k) => items(k)).filter(isReal);
+  const noteList = NOTE_STREAM.flatMap((k) => items(k)).filter(isReal);
   const notes = arrange(noteList, refs, false, vcOf);
   // the Catechism is the Church's own voice: when it speaks to the verse it comes first
   const cccAll = items('catechism').filter(isReal).sort((a, b) => relevance(b, refs) - relevance(a, refs));
@@ -258,7 +259,7 @@ export default function StudyPanel({
             {cccTop.length > 0 && (
               <section className="ccc-first">
                 {cccTop.map((i, n, arr) => open(i, n, arr, { reading: true }))}
-                {cccAll.length > cccTop.length && <button className="linklike small" onClick={() => setTab('teaching')}>{cccAll.length - cccTop.length} more Catechism {cccAll.length - cccTop.length === 1 ? 'paragraph' : 'paragraphs'} in Teaching</button>}
+                {cccAll.length > cccTop.length && <p className="muted small">{cccAll.length - cccTop.length} more Catechism {cccAll.length - cccTop.length === 1 ? 'paragraph' : 'paragraphs'} below, under Church teaching.</p>}
               </section>
             )}
             {shownSpecific.map((i, n, arr) => open(i, n, arr, { reading: true }))}
@@ -318,11 +319,13 @@ export default function StudyPanel({
         )}
 
         {tab === 'words' && <WordStudy refs={refs} />}
-        {tab !== 'notes' && activeTab &&
-          activeTab.sections.map((sk) => {
+        {tab === 'notes' && TEACH_SECTIONS.some((k) => items(k).length > 0 || k === 'catechism') && <h2 className="eyebrow-h" style={{ margin: '16px 0 4px' }}>Church teaching</h2>}
+        {activeTab &&
+          (tab === 'notes' ? TEACH_SECTIONS : activeTab.sections).map((sk) => {
             const meta = SECTIONS.find((s) => s.key === sk)!;
             if (settings.studyHidden.includes(sk) && activeTab.sections.length > 1) return null;
-            const list = items(sk).filter((i) => !(scope === 'passage' && i.kind && CHAPTER_KINDS.has(i.kind)));
+            const shownTop = tab === 'notes' && sk === 'catechism' ? new Set(cccTop.map((c) => c.id)) : null;
+            const list = items(sk).filter((i) => !(scope === 'passage' && i.kind && CHAPTER_KINDS.has(i.kind)) && !shownTop?.has(i.id));
             const real = list.filter(isReal);
             if (!list.length && !(sk in data) && loading) return <div key={sk} className="skeleton" style={{ height: 60 }} />;
             if (!list.length && !['catechism', 'catholic-answers'].includes(sk) && activeTab.sections.length > 1) return null;
@@ -542,7 +545,7 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, a
           ) : (
             <div className="t">{item.title}</div>
           )}
-          {(item.author || item.show) && <div className="by">{item.authorId ? <Link className="cite" to={`/study/fathers?author=${item.authorId}`} title="Read this author’s works in the reading room">{item.author}</Link> : item.author}{item.author && item.show ? ' · ' : ''}{item.show}</div>}
+          {(item.author || item.show) && <div className="by">{item.authorId ? <Link className="cite" to={`/room?author=${item.authorId}`} title="Read this author’s works in the reading room">{item.author}</Link> : item.author}{item.author && item.show ? ' · ' : ''}{item.show}</div>}
         </>
       )}
       {!reading && item.tags && item.tags.length > 0 && <div className="tag-row">{item.tags.slice(0, 4).map((t) => <span key={t} className="chip">{t}</span>)}</div>}

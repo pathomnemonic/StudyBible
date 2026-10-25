@@ -130,7 +130,7 @@
   "license": "MIT (Divinum Officium data); psalm text Douay-Rheims (public domain)",
   "attribution": "Divinum Officium contributors",
   "redistribution": "yes",
-  "notes": "Traditional psalter only"
+  "notes": "Weekly psalter, seasons, and (sancti-MM.json) saints and feasts by calendar date with collects and Matins lessons"
  },
  "original": {
   "license": "Open lexicon and morphology data as recorded in DATA_SOURCES.md (STEPBible CC BY where used)",
@@ -209,5 +209,11 @@
   "attribution": "—",
   "redistribution": "yes",
   "notes": ""
+ },
+ "liturgy": {
+  "license": "Public domain (published 1914, London)",
+  "attribution": "The Divine Liturgy of St John Chrysostom, the Greek text with a rendering in English (Williams & Norgate, 1914), via the Internet Archive",
+  "redistribution": "yes",
+  "notes": "OCR cleaned; rulers named in 1914 replaced by 'our rulers'. Not any Church's official text."
  }
 }

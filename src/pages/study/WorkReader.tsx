@@ -61,7 +61,7 @@ export default function WorkReader() {
     <div className={`page${together ? ' room-together' : ''}`} style={{ maxWidth: 'none' }}>
       {!quiet && (
         <div className="row between" style={{ maxWidth: together ? 'none' : 760, margin: '0 auto' }}>
-          <Link to={together ? '/room' : '/study/fathers'} className="small">{together ? '← Reading room' : '← Library'}</Link>
+          <Link to={'/room'} className="small">← Reading room</Link>
           <div className="row">
             {together ? <button className="btn small room-switch" onClick={() => setPaneOpen(!paneOpen)} aria-pressed={paneOpen}>{paneOpen ? 'Show the text' : 'Show the Bible'}</button> : <Link className="btn small" to={`/room/work/${workId}/${idx}`}>Read with the Bible</Link>}
             <button className="btn small" onClick={() => setToc(!toc)}>Contents</button>
