@@ -12,7 +12,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     blurb: 'Where you are in the book and how the pieces fit.',
     items: [
       ['/study/books', 'Books & outlines', 'An introduction and outline for each of the 73 books.'],
-      ['/study/synopsis', 'Gospel synopsis', 'Matthew, Mark, Luke and John side by side.'],
+      ['/study/synopsis', 'Gospel comparison', 'Matthew, Mark, Luke and John side by side.'],
       ['/study/pauline', 'Paul’s letters', 'Argument outlines for each letter.'],
       ['/study/index', 'Parables, miracles, prophecies, covenants', 'Indexes with every passage linked.'],
       ['/study/textual', 'Textual history', 'Where manuscripts and editions differ.'],

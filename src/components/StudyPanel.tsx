@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Cited } from '../study/citations';
+import { Marked } from '../study/citations';
 import Icon from './Icon';
 import NoteEditor from './NoteEditor';
 import AddLinkDialog from './AddLinkDialog';
@@ -125,6 +125,9 @@ export default function StudyPanel({
   // ---- the Notes tab: a reading stream of commentary, most specific first
   const noteList = TABS[0].sections.flatMap((k) => items(k)).filter(isReal);
   const notes = arrange(noteList, refs, false, vcOf);
+  // the Catechism is the Church's own voice: when it speaks to the verse it comes first
+  const cccAll = items('catechism').filter(isReal).sort((a, b) => relevance(b, refs) - relevance(a, refs));
+  const cccTop = scope === 'passage' ? cccAll.slice(0, 2) : [];
   const comm = data.commentary ?? [];
   const summary = comm.find((i) => i.kind === 'Chapter summary');
   const intro = comm.find((i) => i.kind === 'Book introduction');
@@ -228,6 +231,12 @@ export default function StudyPanel({
                 <summary>How to read Haydock’s notes</summary>
                 <p>Haydock (1859) printed short comments gathered from earlier writers beside the Douay-Rheims Bible. Each comment begins with the Douay-Rheims words it explains, shown here as On “…”. A name in brackets, such as (Calmet), is the writer the comment comes from. “Hebrew” and “Septuagint” mean what those old texts say in the passage, which can differ from the Douay wording, and Roman numerals in his references are written here as ordinary numbers. A line of three dashes in the original separates comments on different words of the verse.</p>
               </details>
+            )}
+            {cccTop.length > 0 && (
+              <section className="ccc-first">
+                {cccTop.map((i, n, arr) => open(i, n, arr, { reading: true }))}
+                {cccAll.length > cccTop.length && <button className="linklike small" onClick={() => setTab('teaching')}>{cccAll.length - cccTop.length} more Catechism {cccAll.length - cccTop.length === 1 ? 'paragraph' : 'paragraphs'} in Teaching</button>}
+              </section>
             )}
             {shownSpecific.map((i, n, arr) => open(i, n, arr, { reading: true }))}
             {notes.specific.length > LIMIT && !showAll && (
@@ -480,7 +489,7 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, a
   const foreignItem = !!item.lang && item.lang !== 'en';
   // a non-English item is shown as its English translation (when one exists) with the original beneath
   const full = foreignItem && item.translation ? item.translation : original;
-  const CUT = reading ? 560 : 300;
+  const CUT = reading ? 560 : full.includes('⟦') ? 760 : 300;
   const long = full.length > CUT + 40;
   const text = expanded || !long ? full : full.slice(0, full.lastIndexOf(' ', CUT)) + '…';
   const head = (item.author ?? item.show ?? item.sourceName).replace(/ \(compiler\)/, '').replace(/ \(.*\)$/, '');
@@ -552,9 +561,22 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, a
       ) : (
         text && (
           <div className="ex" lang={item.lang}>
-            <Cited text={text} hint={item.ref ? parseRefId(item.ref)?.book : undefined} />
+            <Marked text={text} hint={item.ref ? parseRefId(item.ref)?.book : undefined} />
           </div>
         )
+      )}
+      {item.more && item.more.length > 0 && (
+        <details className="more-places">
+          <summary>{item.more.length} more {item.more.length === 1 ? 'place' : 'places'} in this work</summary>
+          <ul>
+            {item.more.map((m) => (
+              <li key={m.href + m.title}>
+                <Link to={m.href}>{m.title}</Link>
+                {m.excerpt && <div className="ex"><Marked text={m.excerpt.length > 520 ? m.excerpt.slice(0, m.excerpt.lastIndexOf(' ', 520)) + '…' : m.excerpt} hint={item.ref ? parseRefId(item.ref)?.book : undefined} /></div>}
+              </li>
+            ))}
+          </ul>
+        </details>
       )}
       {item.parts && item.parts.length > 0 && (
         <ol className="parts">

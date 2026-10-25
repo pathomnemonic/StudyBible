@@ -8,7 +8,7 @@ import { liturgicalDay } from '../liturgy/compute';
  */
 export type AmbienceKind = 'rain' | 'wind' | 'stream';
 export type Scene = 'sea' | 'desert' | 'night' | 'fire' | 'thunder' | 'pasture' | 'crowd';
-export type SoundKind = 'off' | AmbienceKind | Scene | 'nature' | 'music' | 'classical' | 'chant' | 'hymn';
+export type SoundKind = 'off' | 'auto' | AmbienceKind | Scene | 'nature' | 'music' | 'classical' | 'chant' | 'hymn';
 export interface Track { feast?: string; tags?: string[]; durationSec?: number; id: string; file: string; title: string; category: 'nature' | 'music' | 'classical' | 'chant' | 'hymn'; artist?: string; license: string; licenseUrl?: string; sourceUrl?: string; note?: string }
 
 const BASE = (import.meta as any).env?.BASE_URL ?? '/';

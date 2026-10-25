@@ -83,3 +83,16 @@ export function Cited({ text, hint }: { text: string; hint?: string }) {
   if (at < text.length) out.push(text.slice(at));
   return <>{out.map((n, i) => <Fragment key={i}>{n}</Fragment>)}</>;
 }
+
+
+/** A library excerpt with the place the verse is cited marked (the ingest wraps it in ⟦ ⟧). */
+export function Marked({ text, hint }: { text: string; hint?: string }) {
+  if (!text.includes('⟦')) return <Cited text={text} hint={hint} />;
+  const parts = text.split(/(⟦[^⟧]*⟧)/);
+  return (
+    <>
+      {parts.map((t, i) => (t.startsWith('⟦') ? <mark key={i} className="cite-hit">{t.slice(1, -1)}</mark> : t ? <Cited key={i} text={t} hint={hint} /> : null))}
+    </>
+  );
+}
+export const unmark = (t: string) => t.replace(/[⟦⟧]/g, '');

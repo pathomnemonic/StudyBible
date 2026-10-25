@@ -135,6 +135,8 @@ export interface StudyItem {
   status?: string;
   /** labelled sub-passages (the parts of a structure, a chain of earlier readings) */
   parts?: { label: string; note?: string; ref?: string }[];
+  /** other places in the same work that speak of the passage (one footnote per work) */
+  more?: { title: string; excerpt: string; href: string; ctx?: StudyItem['ctx'] }[];
   /** extra outbound links (e.g. search this creator on YouTube / podcast apps) */
   links?: { label: string; url: string }[];
 }
@@ -416,7 +418,14 @@ export const providers: Record<string, Provider> = {
       for (const g of cat.groups) {
         if (!anyOverlap(refs, g.c, g.v1, g.c, g.v2)) continue;
         const where = `${bookName} ${g.c}:${g.v1}${g.v2 > g.v1 ? '–' + g.v2 : ''}`;
-        g.items.forEach((it, i) => {
+        // the Catena prints one Father's remarks on a verse as several short pieces: show them as one entry
+        const merged: typeof g.items = [];
+        for (const it of g.items) {
+          const same = merged.find((m) => m.a === it.a && (m.l ?? '') === (it.l ?? ''));
+          if (same) same.t = `${same.t}\n\n${it.t}`;
+          else merged.push({ ...it });
+        }
+        merged.forEach((it, i) => {
           const medieval = /Bede|Rabanus|Remig|Theophyl|Anselm|Gloss|Alcuin|Isidore|Damascene/.test(it.a);
           out.push({
             id: `catena-${book}-${g.c}-${g.v1}-${i}`,
@@ -517,7 +526,17 @@ export const providers: Record<string, Provider> = {
         });
       }
     }
-    return out;
+    // one entry per work: a Father who speaks of the passage in several chapters of the same book is one footnote, with the other places listed under it
+    const first = new Map<string, StudyItem>();
+    const grouped: StudyItem[] = [];
+    for (const it of out) {
+      const k = it.ctx?.work ?? it.id.replace(/^lib-(.+)-\d+$/, '$1');
+      const isLib = it.id.startsWith('lib-') && !it.ctx?.summa && it.format === 'full-text';
+      const head = isLib ? first.get(k) : undefined;
+      if (!head) { if (isLib) first.set(k, it); grouped.push(it); continue; }
+      (head.more ??= []).push({ title: it.title.replace(/^[^:]+:\s*/, ''), excerpt: it.excerpt ?? '', href: it.internal!, ctx: it.ctx });
+    }
+    return grouped;
   },
 
   async xref(refs) {
@@ -1059,7 +1078,7 @@ export function externalSearchItems(refs: Ref[], sources: ResourceSource[] = [])
 
 /** plain numbers and full names in the text of an item (the sources use Roman numerals and old abbreviations) */
 function tidy(i: StudyItem): StudyItem {
-  return { ...i, title: readableText(i.title, { title: true }) ?? i.title, excerpt: readableText(i.excerpt), fullExcerpt: readableText(i.fullExcerpt), translation: readableText(i.translation), quotes: i.quotes?.map((q) => ({ ...q, text: readableText(q.text) ?? q.text })) };
+  return { ...i, title: readableText(i.title, { title: true }) ?? i.title, excerpt: readableText(i.excerpt), fullExcerpt: readableText(i.fullExcerpt), translation: readableText(i.translation), quotes: i.quotes?.map((q) => ({ ...q, text: readableText(q.text) ?? q.text })), more: i.more?.map((m) => ({ ...m, excerpt: readableText(m.excerpt) ?? m.excerpt })) };
 }
 
 export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items: StudyItem[]) => void) {

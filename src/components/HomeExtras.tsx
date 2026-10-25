@@ -35,7 +35,7 @@ export default function HomeExtras({ date, season, ref, label, onRandom }: { dat
       const nm = e.name.toLowerCase();
       const hit = g?.works.find((w) => w.author.toLowerCase().split(/[ ,]+/).filter((t) => t.length > 4 && !['great', 'blessed', 'hippo', 'milan', 'lisieux'].includes(t)).some((t) => nm.includes(t)));
       const nm2 = e.name.replace(/, .*$/, '');
-      butlerFor(e.name).then((md) => live && setSaint({ name: nm2, authorId: hit?.authorId, life: md ?? undefined }));
+      butlerFor(e.name, date).then((md) => live && setSaint({ name: nm2, authorId: hit?.authorId, life: md ?? undefined }));
       setSaint({ name: nm2, authorId: hit?.authorId });
     });
     return () => { live = false; };

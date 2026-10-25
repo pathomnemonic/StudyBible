@@ -32,7 +32,7 @@ const GROUPS: { title: string; items: Row[] }[] = [
     ['/study/quotations', 'Who quoted this verse?', 'Every Father and saint who cites a passage.'],
     ['/study/terms', 'Key words and phrases', 'What they mean and where they occur.'],
     ['/study/books', 'Books and outlines', 'An introduction to each of the 73 books.'],
-    ['/study/synopsis', 'Gospel synopsis', 'Four Gospels side by side.'],
+    ['/study/synopsis', 'Gospel comparison', 'Four Gospels side by side.'],
     ['/study/doctrine', 'Doctrine and Catechism', 'Topics with Scripture and Catechism links.'],
     ['/study/universe', 'Scripture universe', 'The canon and the library as a galaxy.'],
     ['/study/timespace', 'Time and place', 'Slide through the biblical story with the map.'],

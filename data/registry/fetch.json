@@ -112,6 +112,22 @@
    "terms": "https://ebible.org/eng-Brenton/copyright.htm",
    "rights": "public-domain",
    "note": "Brenton's English Septuagint (1851), eBible.org edition; public domain."
+  },
+  {
+   "id": "librivox-18352",
+   "url": "https://librivox.org/api/feed/audiobooks?id=18352&format=json&extended=1",
+   "file": "librivox_18352.json",
+   "terms": "https://librivox.org/pages/public-domain/",
+   "rights": "public-domain",
+   "note": "LibriVox recording of the Douay-Rheims Bible, 1899 American Edition (read by Ron Altman). LibriVox recordings are dedicated to the public domain."
+  },
+  {
+   "id": "librivox-21093",
+   "url": "https://librivox.org/api/feed/audiobooks?id=21093&format=json&extended=1",
+   "file": "librivox_21093.json",
+   "terms": "https://librivox.org/pages/public-domain/",
+   "rights": "public-domain",
+   "note": "LibriVox recording of the World English Bible (read by Ron Altman). LibriVox recordings are dedicated to the public domain."
   }
  ]
 }

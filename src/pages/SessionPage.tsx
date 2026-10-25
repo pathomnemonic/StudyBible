@@ -62,7 +62,7 @@ export default function SessionPage() {
   useEffect(() => {
     if (!ref || !ed) return;
     passageText(ed, ref, 40).then((vs) => setVerses(vs.map((v) => ({ n: v.v, text: v.text }))));
-    Promise.all([providers.commentary([ref]), providers.fathers([ref]), providers.catechism([ref])]).then(([c, f, k]) => setChurch([...c.slice(0, 2), ...f.slice(0, 1), ...k.slice(0, 1)]));
+    Promise.all([providers.commentary([ref]), providers.fathers([ref]), providers.catechism([ref])]).then(([c, f, k]) => setChurch([...k.slice(0, 1), ...c.slice(0, 2), ...f.slice(0, 1)]));
   }, [ref?.book, ref?.c1, ref?.v1, ed?.id]);
   useEffect(() => {
     if (!ed) return;

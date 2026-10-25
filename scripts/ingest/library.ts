@@ -151,6 +151,19 @@ export function sectionsOf(xml: string, cfg: WorkCfg): { title: string; id: stri
   return res;
 }
 
+/** A stretch of the paragraph around the place the verse is cited, starting and ending at sentence breaks, with the cited words wrapped in ⟦ ⟧ so the reader can see where it is mentioned. */
+export function windowAround(t: string, pos: number, len: number, before = 230, after = 330): string {
+  if (pos < 0 || t.length <= before + after + 40) {
+    // short paragraph: the whole of it, with the mention marked when we know where it is
+    return pos >= 0 && len > 0 ? `${t.slice(0, pos)}⟦${t.slice(pos, pos + len)}⟧${t.slice(pos + len)}` : t.slice(0, 700);
+  }
+  let a = Math.max(0, pos - before);
+  if (a > 0) { const b = t.lastIndexOf('. ', pos); const c = t.indexOf('. ', a); a = b >= a ? b + 2 : c >= 0 && c < pos ? c + 2 : a; }
+  let e = Math.min(t.length, pos + len + after);
+  if (e < t.length) { const c = t.indexOf('. ', pos + len + 80); if (c >= 0 && c < e + 80) e = c + 1; }
+  return `${a > 0 ? '… ' : ''}${t.slice(a, pos)}⟦${t.slice(pos, pos + len)}⟧${t.slice(pos + len, e)}${e < t.length ? ' …' : ''}`;
+}
+
 interface TagHit {
   ref: Ref;
   snippet: string;
@@ -187,10 +200,15 @@ export function buildLibrary(report: Report) {
       const best = new Map<string, { ref: Ref; snippet: string; pi: number }>();
       sec.paras.forEach((p, pi) => {
         if (p.length < 45) return;
-        for (const ref of [...plainCitations(p), ...quotedVerses(p)]) {
+        for (const ref of plainCitations(p)) {
           const k = refId(ref);
           const cur = best.get(k);
           if (!cur || p.length > cur.snippet.length) best.set(k, { ref, snippet: p.slice(0, 700), pi });
+        }
+        for (const { at, len, ...ref } of quotedVerses(p)) {
+          const k = refId(ref);
+          const cur = best.get(k);
+          if (!cur || p.length > cur.snippet.length) best.set(k, { ref, snippet: at !== undefined ? windowAround(p, at, len ?? 0) : p.slice(0, 700), pi });
         }
       });
       for (const h of best.values()) { pushScripture(h.ref.book, [h.ref.c1, h.ref.v1 ?? 0, h.ref.c2, h.ref.v2 ?? 0, cfg.id, idx, 't', h.snippet, h.pi]); sec.scripture.push(refId(h.ref)); }
@@ -246,8 +264,14 @@ export function buildLibrary(report: Report) {
         // a paragraph that is only a string of references (a translator's footnote such as "Wisd. ix. 17–19.") says nothing about the verse
         const prose = plain(raw.replace(/<scripRef[\s\S]*?<\/scripRef>/g, '')).replace(/[^A-Za-z]/g, '');
         if (prose.length < 45) continue;
-        if (t.length >= 45) for (const ref of [...(raw.includes('<scripRef') ? [] : plainCitations(t)), ...quotedVerses(t)]) hits.push({ ref, snippet: context.slice(0, 700), pi: paras.length - 1 });
+        if (t.length >= 45) {
+          for (const ref of raw.includes('<scripRef') ? [] : plainCitations(t)) hits.push({ ref, snippet: context.slice(0, 700), pi: paras.length - 1 });
+          for (const { at, len, ...ref } of quotedVerses(t)) hits.push({ ref, snippet: at !== undefined ? windowAround(context, at + context.length - t.length, len ?? 0) : context.slice(0, 700), pi: paras.length - 1 });
+        }
+        const tagAt = [...raw.matchAll(/<scripRef\b([^>]*)>([\s\S]*?)<\/scripRef>/g)].map((m) => ({ pos: plain(raw.slice(0, m.index)).length, text: plain(m[2]) }));
+        let tagN = 0;
         for (const r of scripRefs(raw)) {
+          const where = tagAt[tagN++];
           const p = parseOsis(r.osis);
           if (!p || p.v1 === undefined) continue;
           if (p.book === 'PSA' && !r.vulgate) {
@@ -256,7 +280,10 @@ export function buildLibrary(report: Report) {
           const scheme = r.vulgate || (p.book === 'PSA' && cfg.psalmTags === 'vulgate') ? 'vulgate' : 'kjv';
           const a = scheme === 'vulgate' ? { c: p.c1, v1: p.v1, v2: p.v1 } : toAnchor('kjv', p.book, p.c1, p.v1);
           const b = p.v2 !== undefined && p.c2 === p.c1 ? (scheme === 'vulgate' ? { c: p.c1, v1: p.v2, v2: p.v2 } : toAnchor('kjv', p.book, p.c1, p.v2)) : a;
-          hits.push({ ref: { book: p.book, c1: a.c, v1: a.v1, c2: a.c, v2: Math.max(b.v2, a.v1) }, snippet: context.slice(0, 700), pi: paras.length - 1 });
+          const at = where && t.startsWith(where.text, Math.max(0, where.pos - 1)) ? where.pos - 1 : where ? t.indexOf(where.text, Math.max(0, where.pos - 3)) : -1;
+          const base = context;
+          const off = base.length - t.length;
+          hits.push({ ref: { book: p.book, c1: a.c, v1: a.v1, c2: a.c, v2: Math.max(b.v2, a.v1) }, snippet: windowAround(base, at >= 0 ? at + off : -1, at >= 0 ? where!.text.length : 0), pi: paras.length - 1 });
         }
       }
       if (!paras.length) continue;
@@ -295,7 +322,7 @@ export function buildLibrary(report: Report) {
       for (const h of hits) {
         const k = refId(h.ref);
         const cur = best.get(k);
-        if (!cur || h.snippet.length > cur.snippet.length) best.set(k, h);
+        if (!cur || (h.snippet.includes('⟦') && !cur.snippet.includes('⟦')) || (h.snippet.includes('⟦') === cur.snippet.includes('⟦') && h.snippet.length > cur.snippet.length)) best.set(k, h);
       }
       for (const h of best.values()) pushScripture(h.ref.book, [h.ref.c1, h.ref.v1 ?? 0, h.ref.c2, h.ref.v2 ?? 0, cfg.id, idx, 't', h.snippet, h.pi]);
       // full-text postings (section level)

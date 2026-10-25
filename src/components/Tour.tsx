@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { updateSettings } from '../lib/store';
+import { updateSettings, useSettings } from '../lib/store';
 
 const DONE = 'sb:tour';
 const STEP = 'sb:tourStep';
@@ -31,9 +31,13 @@ interface Step {
   /** only on wide screens (the Search button lives in the side rail) */
   wide?: boolean;
   title?: string;
+  /** a small control shown in the card */
+  control?: 'sound';
 }
 
 const q = (sel: string) => () => document.querySelector(sel);
+const vis = (e: Element | null) => (e && e.getBoundingClientRect().width > 0 ? e : null);
+const anyOf = (...sels: string[]) => () => sels.map((x) => vis(document.querySelector(x))).find(Boolean) ?? null;
 const firstVerse = () => [...document.querySelectorAll('.v')].find((e) => { const r = e.getBoundingClientRect(); return r.top > 120 && r.bottom < window.innerHeight - 160 && r.height < 90; }) ?? document.querySelector('.v');
 const tile = (href: string) => q(`.page a[href="#${href}"]`);
 const panelTab = (name: RegExp) => () => [...document.querySelectorAll('aside.panel [role=tab]')].find((t) => name.test(t.textContent ?? '')) ?? null;
@@ -49,7 +53,8 @@ const STEPS: Step[] = [
   { part: 'Bible', find: () => document.querySelector('aside.panel [role=tablist]') ?? document.querySelector('aside.panel'), text: 'Every verse has its own notes.', sub: 'Haydock, à Lapide, the Church Fathers and saints: tens of thousands of notes, each tied to a verse.' },
   { part: 'Bible', find: panelTab(/Teaching/), tap: true, hit: (t) => /Teaching/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Teaching.' },
   { part: 'Bible', closePanel: true, find: () => document.querySelector('aside.panel .sect, aside.panel'), text: 'The Catechism paragraphs that cite this verse, quoted in full.', sub: 'All 2,863 paragraphs, searchable.' },
-  { part: 'Bible', find: q('.reader-bar button[title^="Text, theme"]'), text: 'Text size, themes, sound and more live here.', sub: 'Jesus’s words are in red, and a few key words glow or move.' },
+  { part: 'Bible', find: anyOf('.reader-bar button[title^="Text, theme"]', '.reader-bar .more-btn'), text: 'Text size, themes, sound and more live here.', sub: 'Jesus’s words are in red, and a few key words glow or move.' },
+  { part: 'Bible', find: anyOf('.reader-bar button[aria-label*="ound"]', '.reader-bar .more-btn'), control: 'sound', text: 'Gentle background sound is off. Want it?', sub: '“Choose for me” plays a quiet sound that suits the book, kept soft. Change it any time with the note icon.' },
   { part: 'Listen', find: q('.tabs a[href="#/listen"]'), tap: true, text: 'Tap Listen.' },
   { part: 'Listen', route: '/listen', find: q('.year-hero, .page h1'), text: 'The Bible in a Year, matched to every chapter.' },
   { part: 'Study', find: q('.tabs a[href="#/study"]'), tap: true, text: 'Tap Study.' },
@@ -63,7 +68,7 @@ const STEPS: Step[] = [
   { part: 'Study', route: '/study', exact: true, find: tile('/study/universe'), text: 'The Scripture universe: all 73 books as a galaxy, with the Fathers in rings around them.' },
   { part: 'Study', route: '/study', exact: true, find: tile('/study/quotations'), text: 'Who quoted this verse? Every Father and saint who cites it.' },
   { part: 'Study', route: '/study', exact: true, find: tile('/study/gallery'), text: 'A gallery of paintings and engravings, with maps and a timeline beside it.' },
-  { part: 'Profile', find: q('.tabs a[href="#/profile"]'), tap: true, text: 'Tap Profile.' },
+  { part: 'Profile', find: q('.profile-btn'), tap: true, text: 'Tap the round Profile button, top right.' },
   { part: 'Profile', route: '/profile', exact: true, find: tile('/library'), tap: true, text: 'Tap Notes.' },
   { part: 'Profile', route: '/library', find: q('.page h1'), text: 'Your notes, highlights and bookmarks. Private to this device.', sub: 'Export them as Markdown, PDF or EPUB.' },
   { part: 'Profile', route: '/profile', exact: true, find: tile('/pray/plans'), text: 'Reading plans and memorizing keep your progress.' },
@@ -95,6 +100,7 @@ export default function Tour() {
   const [rect, setRect] = useState<DOMRect | null>(null);
   const nav = useNavigate();
   const loc = useLocation();
+  const [settings] = useSettings();
   const wide = typeof window !== 'undefined' && window.matchMedia('(min-width: 900px)').matches;
   const steps = STEPS.filter((s) => (!s.wide || wide) && (!s.narrow || !wide));
   const step = steps[Math.min(i, steps.length - 1)];
@@ -170,6 +176,12 @@ export default function Tour() {
         {(step.title || step.part) && <strong className="tour-title">{step.title ?? step.part}</strong>}
         <p>{step.text}</p>
         {step.sub && <p className="tour-sub">{step.sub}</p>}
+        {step.control === 'sound' && (
+          <div className="tour-switch" role="group" aria-label="Background sound">
+            <button className={settings.ambience.kind === 'off' ? 'on' : ''} aria-pressed={settings.ambience.kind === 'off'} onClick={() => updateSettings({ ambience: { ...settings.ambience, kind: 'off' }, ambienceTipSeen: true })}>Off</button>
+            <button className={settings.ambience.kind !== 'off' ? 'on' : ''} aria-pressed={settings.ambience.kind !== 'off'} onClick={() => updateSettings({ ambience: { ...settings.ambience, kind: 'auto' }, ambienceTipSeen: true })}>Choose for me</button>
+          </div>
+        )}
         <div className="tour-bar">
           <span className="tour-count" aria-label={`Step ${i + 1} of ${steps.length}`}>{i + 1} / {steps.length}</span>
           <span className="tour-btns">

@@ -9,11 +9,10 @@ import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
 import type { Key } from '../i18n/en';
 
-// Five places, left to right: Profile (yours: notes, plans, settings), Study (anything educational), Today (the middle tab and where the app opens),
-// the Bible, and Listen (the Bible in a Year, spoken). Prayer pages sit under Profile; the Mass readings belong to Today.
+// Four places along the bottom: Study (anything educational), Today (where the app opens), the Bible, and Listen (the Bible in a Year, spoken).
+// Profile (notes, plans, settings, prayer) is the round button at the top right of every screen. The Mass readings belong to Today.
 const PROFILE_PATHS = ['/profile', '/library', '/settings', '/account', '/about', '/more', '/days', '/pray', '/memorize', '/session', '/share'];
 const TABS = [
-  { to: '/profile', label: 'Profile', key: 'nav.profile' as Key, icon: 'user', match: PROFILE_PATHS, not: ['/pray/readings'] },
   { to: '/study', label: 'Study', key: 'nav.study' as Key, icon: 'study', match: ['/study'] },
   { to: '/today', label: 'Today', key: 'nav.today' as Key, icon: 'sun', match: ['/today', '/pray/readings'], home: true },
   { to: '/read', label: 'Bible', key: 'nav.bible' as Key, icon: 'read', match: ['/read'] },
@@ -72,6 +71,7 @@ export default function Shell({ children }: { children: ReactNode }) {
   useEffect(() => { const a = () => setOffline(true), b = () => setOffline(false); window.addEventListener('offline', a); window.addEventListener('online', b); return () => { window.removeEventListener('offline', a); window.removeEventListener('online', b); }; }, []);
   const fullscreenReader = (loc.pathname.startsWith('/read') && s.scriptureOnly) || loc.pathname.startsWith('/widget');
   const home = isHome(loc.pathname);
+  const profileActive = PROFILE_PATHS.some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/')) && !loc.pathname.startsWith('/pray/readings');
   return (
     <div className={`shell${fullscreenReader ? ' quiet' : ''}${home ? ' home-shell' : ''}`}>
       {offline && <div className="offline-pill" role="status">Offline: everything you have opened or downloaded still works</div>}
@@ -88,7 +88,7 @@ export default function Shell({ children }: { children: ReactNode }) {
           <span>{t('nav.search')}</span>
         </button>
         {TABS.map((tb) => {
-          const active = (tb.match.some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/')) && !(tb.not ?? []).some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/'))) || (!!tb.home && loc.pathname === '/');
+          const active = (tb.match.some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/'))) || (!!tb.home && loc.pathname === '/');
           return (
             <NavLink
               key={tb.to}
@@ -104,6 +104,12 @@ export default function Shell({ children }: { children: ReactNode }) {
         })}
         <div className="tab-spacer" />
       </nav>
+      {!fullscreenReader && (
+        <NavLink to="/profile" className={`profile-btn${profileActive ? ' active' : ''}`} aria-label="Profile: notes, plans, settings" aria-current={profileActive ? 'page' : undefined} title="Profile">
+          <Icon name="user" size={20} />
+          {sync.user && <i className={`sync-dot ${sync.status}`} />}
+        </NavLink>
+      )}
       <main id="main" className="main">
         {inDaily(loc.pathname) && !fullscreenReader && (
           <nav className="subnav" aria-label="Daily practice">

@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { getLibScripture, getLibraryIndex, type LibraryWorkMeta, type LibScriptureEntry } from '../../data/content';
 import { parseRefs, formatRef, refId, type Ref } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
-import { Cited } from '../../study/citations';
+import { Marked, unmark } from '../../study/citations';
 import { useEditions } from '../../data/EditionsContext';
 import { useSettings } from '../../lib/store';
 import { passageText } from '../../lib/bibleText';
@@ -52,7 +52,7 @@ export default function QuotationTracker() {
     if (!rows) return [];
     const seen = new Set<string>();
     return rows
-      .map((e) => { const sn = sig(e[7] ?? ''); let rel = 0; for (const w of verseWords) if (sn.has(w)) rel++; return { e, w: byId.get(e[4]), n: words(e[7] ?? ''), rel }; })
+      .map((e) => { const sn = sig(unmark(e[7] ?? '')); let rel = 0; for (const w of verseWords) if (sn.has(w)) rel++; return { e, w: byId.get(e[4]), n: words(unmark(e[7] ?? '')), rel }; })
       .filter((x) => !!x.w)
       .filter((x) => (min === 'all' ? true : min === 'cites' ? x.e[6] === 't' || x.n > 0 : x.n >= 80))
       .filter((x) => { const k = `${x.e[4]}-${x.e[5]}-${x.e[8] ?? ''}`; if (seen.has(k)) return false; seen.add(k); return true; })
@@ -86,7 +86,7 @@ export default function QuotationTracker() {
               <li key={`${e[4]}-${e[5]}-${e[8] ?? ''}`} className="card">
                 <div className="row between"><strong>{w!.author}</strong><span className="chip" title="words shared with the verse / length of the excerpt">{n ? `${rel} shared · ${n} words` : e[6] === 's' ? 'whole section' : 'cited'}</span></div>
                 <div className="muted small">{w!.title}{w!.sections[e[5]] ? `, ${w!.sections[e[5]].title}` : ''}</div>
-                {e[7] && <p style={{ margin: '8px 0' }}><Cited text={e[7].length > 600 ? e[7].slice(0, e[7].lastIndexOf(' ', 600)) + '…' : e[7]} /></p>}
+                {e[7] && <p style={{ margin: '8px 0' }}><Marked text={e[7].length > 700 ? e[7].slice(0, e[7].lastIndexOf(' ', 700)) + '…' : e[7]} /></p>}
                 <Link className="small" to={w!.indexOnly ? `/study/passage/${refId(parsed)}` : `/study/works/${w!.id}/${e[5]}`}>{w!.indexOnly ? 'Open the passage study' : 'Read in context →'}</Link>
               </li>
             ))}

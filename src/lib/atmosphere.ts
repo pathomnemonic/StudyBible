@@ -72,3 +72,16 @@ const SCENES: [string, number, number, 'sea' | 'desert' | 'night' | 'fire' | 'th
 export function passageSound(book: string, chapter: number) {
   return SCENES.find(([b, a, z]) => b === book && chapter >= a && chapter <= z)?.[3] ?? null;
 }
+
+
+/**
+ * "Choose for me": a quiet, steady sound that suits the passage. Only the gentle ones are ever picked (no thunder, crowds or crackling
+ * fire), and it is played softly, so it is never the loudest thing in the room.
+ */
+export function autoSound(book: string, chapter: number, mood?: Mood | null): 'rain' | 'wind' | 'stream' | 'sea' | 'desert' | 'night' | 'pasture' {
+  const scene = passageSound(book, chapter);
+  if (scene && !['thunder', 'crowd', 'fire'].includes(scene)) return scene as never;
+  const m = mood ? MOOD_SOUND[mood] : undefined;
+  return m ?? 'stream';
+}
+export const AUTO_VOLUME_CAP = 0.2;

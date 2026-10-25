@@ -80,6 +80,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
 
   const play = useCallback(async (e: BiayEpisode, startAt?: number) => {
     const a = audio.current!;
+    if ((a as any)._ep?.id === e.id && startAt !== undefined) a.currentTime = startAt;
     if ((a as any)._ep?.id !== e.id) {
       (a as any)._ep = e;
       a.src = e.audio;

@@ -9,7 +9,7 @@ import { formatRef } from '../../lib/refs';
 
 const COLS = ['Matthew', 'Mark', 'Luke', 'John'];
 
-/** Synoptic (and Johannine) parallels side by side, using the reader's chosen translation. */
+/** The four Gospels' accounts of the same event, side by side, in the reader's chosen translation. On a phone the chosen passage replaces the list, with a way back. */
 export default function SynopsisPage() {
   const [sp, setSp] = useSearchParams();
   const [rows, setRows] = useState<string[][]>([]);
@@ -19,6 +19,9 @@ export default function SynopsisPage() {
   const [edId, setEdId] = useState(s.defaultEdition);
   const ed = get(edId) ?? editions[0];
   const sel = sp.get('p');
+  const [narrow, setNarrow] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 899px)').matches);
+  useEffect(() => { const m = window.matchMedia('(max-width: 899px)'); const f = () => setNarrow(m.matches); m.addEventListener('change', f); return () => m.removeEventListener('change', f); }, []);
+  useEffect(() => { if (sel) window.scrollTo({ top: 0 }); }, [sel]);
   const row = rows.find((r) => r[0] === sel);
   const [texts, setTexts] = useState<{ ref: string; verses: { v: number; c: number; text: string }[] }[][]>([]);
   useEffect(() => {
@@ -40,16 +43,17 @@ export default function SynopsisPage() {
   }, [sel, ed?.id, rows.length]);
   return (
     <div className="page wide">
-      <h1>Gospel synopsis</h1>
-      <p className="lede">The same events and sayings as told by Matthew, Mark, Luke and John.</p>
-      <div className="row" style={{ marginBottom: 8 }}>
+      <h1>Gospel comparison</h1>
+      <p className="lede">The same events and sayings as told by Matthew, Mark, Luke and John, side by side: see what each Gospel keeps, adds or leaves out.</p>
+      {narrow && row && <button className="btn small" style={{ marginBottom: 8 }} onClick={() => setSp({})}>← All passages</button>}
+      <div className="row" style={{ marginBottom: 8, display: narrow && row ? 'none' : undefined }}>
         <input type="search" placeholder="Find a passage…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Find a passage" />
         <select value={edId} onChange={(e) => setEdId(e.target.value)} aria-label="Translation">
           {editions.filter((e) => e.language === 'en' && !e.offByDefault).map((e) => <option key={e.id} value={e.id}>{e.shortName}</option>)}
         </select>
       </div>
       <div className="synopsis-layout">
-        <ul className="list synopsis-list">
+        <ul className="list synopsis-list" style={{ display: narrow && row ? 'none' : undefined }}>
           {list.map((r) => (
             <li key={r[0]}>
               <button className={`linklike${r[0] === sel ? ' on' : ''}`} onClick={() => setSp({ p: r[0] })}>{r[0]}</button>
@@ -57,7 +61,7 @@ export default function SynopsisPage() {
           ))}
         </ul>
         <div>
-          {!row && <p className="muted">Choose a passage on the left.</p>}
+          {!row && !narrow && <p className="muted">Choose a passage on the left.</p>}
           {row && (
             <>
               <h2>{row[0]}</h2>
@@ -81,7 +85,7 @@ export default function SynopsisPage() {
           )}
         </div>
       </div>
-      <p className="muted small">Parallel groupings follow common synopses and are editorial; texts shown are from the translation you choose. Long passages are cut after 40 verses.</p>
+      <p className="muted small">Parallel groupings follow common Gospel harmonies and are editorial; texts shown are from the translation you choose. Long passages are cut after 40 verses.</p>
     </div>
   );
 }

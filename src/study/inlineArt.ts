@@ -55,7 +55,16 @@ export async function artForChapter(book: string, anchorChapters: number[]): Pro
     taken.add(`${c.ref.c1}.${c.ref.v1}`);
     out.push(c);
   }
-  return out.filter((f) => f.ref.v1 !== undefined);
+  // the same picture can be in both lists (or twice in one): show it once
+  const norm = (f: InlineFig) => `${f.title}|${f.artist}`.toLowerCase().replace(/[^a-z0-9|]+/g, '');
+  const names = new Set<string>(), files = new Set<string>();
+  return out.filter((f) => {
+    if (f.ref.v1 === undefined) return false;
+    const key = norm(f), file = f.file.replace(/^.*\//, '').replace(/\.[a-z]+$/i, '');
+    if (names.has(key) || files.has(file)) return false;
+    names.add(key); files.add(file);
+    return true;
+  });
 }
 
 /** Doré engravings and museum paintings whose scene overlaps the selection (for the Media tab). */

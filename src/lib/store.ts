@@ -58,6 +58,12 @@ export interface Settings {
   enabledEditions: string[];
   showVerseNumbers: boolean;
   scriptureOnly: boolean;
+  /** one chapter at a time, or an unbroken scroll through the chapters that follow */
+  scrollMode: 'pages' | 'infinite';
+  /** what focus mode (scriptureOnly) means to this reader */
+  focus: { scroll: boolean; numbers: boolean; markers: boolean; art: boolean; effects: boolean; sparkles: boolean; sound: boolean };
+  /** the sound was switched off once by default (v16); do not do it again */
+  soundOffV16: boolean;
   /** on wide screens, keep the study panel open beside the text (chapter-level until a verse is selected) */
   studyDock: boolean;
   /** show commentary written in Latin or other languages (hidden by default) */
@@ -119,6 +125,9 @@ export const DEFAULTS: Settings = {
   enabledEditions: [],
   showVerseNumbers: true,
   scriptureOnly: false,
+  scrollMode: 'pages',
+  focus: { scroll: true, numbers: true, markers: false, art: false, effects: false, sparkles: false, sound: true },
+  soundOffV16: true,
   studyDock: true,
   showOtherLanguages: false,
   sparkles: true,
@@ -129,7 +138,7 @@ export const DEFAULTS: Settings = {
   redLetters: true,
   hintVerse: false,
   atmosphere: 'passage',
-  ambience: { kind: 'nature', volume: 0.25, match: false },
+  ambience: { kind: 'off', volume: 0.25, match: false },
   refNumbering: 'edition',
   reminders: { enabled: false, time: '07:30', message: 'A quiet moment with Scripture, if you would like one.' },
   showStreaks: false,
@@ -158,7 +167,9 @@ function load(): Settings {
       // the first home screen put the guided session first; move people still on that untouched default to the new one
       const prevDefaults = ['readings,session,biay,verse,continue,plans,memorize,notes,liturgy', 'continue,readings,biay,notes,plans,verse,memorize,liturgy,session'];
       if (prevDefaults.includes(saved.dashboard?.order?.join()) && !saved.dashboard?.hidden?.length) delete saved.dashboard;
-      return { ...DEFAULTS, ...saved };
+      // sound used to start on by default; it now starts off (people can turn it on from the tour or the reading settings)
+      if (!saved.soundOffV16) { saved.ambience = { ...DEFAULTS.ambience, ...(saved.ambience ?? {}), kind: 'off' }; saved.soundOffV16 = true; }
+      return { ...DEFAULTS, ...saved, focus: { ...DEFAULTS.focus, ...(saved.focus ?? {}) } };
     }
   } catch {
     /* private mode etc. */

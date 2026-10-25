@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21",
+ "generated": "2026-10-25",
  "packs": [
   {
    "id": "commentary",
@@ -274,7 +274,7 @@
   {
    "id": "library",
    "label": "Fathers & saints library",
-   "bytes": 107906274,
+   "bytes": 101785331,
    "files": [
     "library/cite-index.json",
     "library/fulltext-index.json",

@@ -44,7 +44,7 @@ const NAV: { label: string; to: string }[] = [
   { label: 'Topical index', to: '/study/topical' },
   { label: 'Books and outlines', to: '/study/books' },
   { label: 'Genealogies and family trees', to: '/study/people' },
-  { label: 'Gospel synopsis', to: '/study/synopsis' },
+  { label: 'Gospel comparison', to: '/study/synopsis' },
   { label: 'Paul’s letters: outlines', to: '/study/pauline' },
   { label: 'Parables, miracles, prophecies, covenants', to: '/study/index' },
   { label: 'Listen', to: '/listen' },

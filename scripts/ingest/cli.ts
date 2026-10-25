@@ -14,6 +14,7 @@ import { buildPaths } from './paths';
 import { buildGalaxyLib } from './galaxylib';
 import { buildArtMore } from './artmore';
 import { buildJesus } from './jesus';
+import { buildLibrivox } from './librivox';
 import { buildCcc } from './ccc';
 import { buildButler } from './butler';
 import { buildLapide } from './lapide';
@@ -85,6 +86,7 @@ async function main() {
     await run('galaxy-library', () => buildGalaxyLib(report));
     await run('art-more', () => buildArtMore(report));
     await run('jesus', () => buildJesus(report));
+    await run('librivox', () => buildLibrivox(report));
     await run('ccc', () => buildCcc(report));
     await run('butler', () => buildButler(report));
     await run('lapide', () => buildLapide(report));

@@ -219,12 +219,25 @@ export async function lensItems(sel: Ref[]): Promise<StudyItem[]> {
       }
     }),
   );
-  const have = new Set(out.filter((i) => i.section === 'art').map((i) => i.title));
+  // one entry per picture, whichever list it came from
+  const key = (t: string, f?: string) => `${t}`.toLowerCase().replace(/[^a-z0-9]+/g, '') + '|' + (f ?? '').replace(/^.*\//, '').replace(/\.[a-z]+$/i, '');
+  const have = new Set<string>();
+  const dupe = (t: string, f?: string) => have.has(key(t)) || (!!f && have.has('|' + key('', f).slice(1)));
+  const seenArt = out.filter((i) => i.section === 'art');
+  for (const i of seenArt) { have.add(key(i.title)); if (i.thumb) have.add('|' + key('', i.thumb).slice(1)); }
   for (const w of await moreArtFor(sel).catch(() => [])) {
-    if (have.has(w.title)) continue;
+    if (dupe(w.title, w.file)) continue;
+    have.add(key(w.title)); have.add('|' + key('', w.file).slice(1));
     out.push({ ...base, id: `art-more-${w.id}`, section: 'art', title: w.title, excerpt: `${w.artist}, ${w.date}`, kind: String(w.id).startsWith('dore') ? 'Engraving' : 'Painting', thumb: import.meta.env.BASE_URL + w.file, url: w.source, match: 'explicit-reference', why: `A picture of the scene in ${w.refs[0]}. Public domain; artists show how the scene was imagined in their time, and are not evidence for how it looked.`, sourceName: w.credit.slice(0, 120) } as StudyItem);
   }
-  return out;
+  const art = new Set<string>();
+  return out.filter((i) => {
+    if (i.section !== 'art' || !i.thumb) return true;
+    const k = i.thumb.replace(/^.*\//, '');
+    if (art.has(k)) return false;
+    art.add(k);
+    return true;
+  });
 }
 
 /** all entries of one lens (for explorer pages) */

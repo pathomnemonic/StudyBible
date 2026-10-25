@@ -129,7 +129,7 @@ export function buildBiay(report: Report) {
     raw.push({
       id: String(it.guid?.['#text'] ?? it.guid),
       day: m ? +m[1] : null,
-      year: m && m[3] ? +m[3] : null,
+      year: m && m[3] ? +m[3] : m ? (/(\d{4})-day-\d+|day-\d+-(\d{4})/.exec(String(it.link ?? '')) ? +(/(\d{4})-day-\d+|day-\d+-(\d{4})/.exec(String(it.link ?? ''))!.slice(1).find(Boolean)!) : isNaN(+pub) ? null : pub.getUTCFullYear()) : null,
       kind: m ? 'day' : 'bonus',
       title,
       short: m ? m[2] : title,

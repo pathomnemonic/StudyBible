@@ -59,15 +59,29 @@ function load(): Map<string, number[]> {
   return (index = m);
 }
 
+/** where each word starts and ends in the original text (apostrophes are dropped from words, as in `words`) */
+function wordSpans(s: string): [number, number][] {
+  const kept: string[] = [];
+  const map: number[] = [];
+  for (let i = 0; i < s.length; i++) { if (s[i] === '’' || s[i] === "'") continue; kept.push(s[i].toLowerCase()); map.push(i); }
+  const out: [number, number][] = [];
+  for (const m of kept.join('').matchAll(/[a-z]+/g)) out.push([map[m.index!], map[m.index! + m[0].length - 1] + 1]);
+  return out;
+}
+
+export type QuoteAt = Ref & { at?: number; len?: number };
+
 /** the verses a paragraph quotes, as anchor refs (adjacent verses joined into one range) */
-export function quotedVerses(text: string): Ref[] {
+export function quotedVerses(text: string): QuoteAt[] {
   const idx = load();
   const w = words(text);
   if (w.length < 9) return [];
+  const spans = wordSpans(text);
+  const firstAt = new Map<number, number>();
   const pos = new Map<number, number[]>();
   for (let i = 0; i + N <= w.length; i++) {
     const ids = idx.get(w.slice(i, i + N).join(' '));
-    if (ids) for (const id of ids) (pos.get(id) ?? pos.set(id, []).get(id)!).push(i);
+    if (ids) for (const id of ids) { (pos.get(id) ?? pos.set(id, []).get(id)!).push(i); if (!firstAt.has(id)) firstAt.set(id, i); }
   }
   const ok: number[] = [];
   for (const [id, ps] of pos) {
@@ -78,12 +92,16 @@ export function quotedVerses(text: string): Ref[] {
     if (best + N - 1 >= 9 || (total <= 14 && best + N - 1 >= 7)) ok.push(id);
   }
   ok.sort((a, b) => a - b);
-  const out: Ref[] = [];
+  const out: QuoteAt[] = [];
   for (const id of ok) {
     const book = bookOf(id), c = Math.floor((id % 1e6) / 1e3), v = id % 1e3;
     const last = out[out.length - 1];
     if (last && last.book === book && last.c1 === c && v - (last.v2 ?? 0) <= 1) last.v2 = v;
-    else out.push({ book, c1: c, c2: c, v1: v, v2: v });
+    else {
+      const wi = firstAt.get(id);
+      const sp = wi !== undefined && spans[wi] && spans[wi + N - 1] ? spans[wi] : null;
+      out.push({ book, c1: c, c2: c, v1: v, v2: v, at: sp?.[0], len: sp ? spans[wi! + N - 1][1] - sp[0] : undefined });
+    }
   }
   return out;
 }

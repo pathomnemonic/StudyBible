@@ -11,6 +11,8 @@ import { anchorChapterText, anchorToNative, chapterTitle, flattenChapter, native
 import { useSettings } from '../lib/store';
 import { db, type HighlightColor, type Target } from '../db/db';
 import BiayBar from '../components/BiayBar';
+import PlayFromHere from '../components/PlayFromHere';
+import NextChapters from '../components/NextChapters';
 import { setHighlight, toggleBookmark, rangesOverlap } from '../db/ops';
 import ChapterText, { type VerseDecor } from '../components/ChapterText';
 import TermPopover from '../components/TermPopover';
@@ -21,7 +23,7 @@ import NoteEditor from '../components/NoteEditor';
 import Modal from '../components/Modal';
 import StudyPanel from '../components/StudyPanel';
 import TextSettings from '../components/TextSettings';
-import { atmosphereFor, MOOD_SOUND, passageSound } from '../lib/atmosphere';
+import { atmosphereFor, MOOD_SOUND, passageSound, autoSound, AUTO_VOLUME_CAP } from '../lib/atmosphere';
 import { setAmbience, stopAmbience } from '../lib/ambience';
 import { useT } from '../lib/i18n';
 import Motes from '../components/Motes';
@@ -122,7 +124,7 @@ export default function ReadPage() {
   useEffect(() => {
     if (settings.sparkles) loadTerms().then(setTermList);
   }, [settings.sparkles]);
-  const matcher = useMemo(() => (settings.sparkles && !settings.scriptureOnly && termList.length ? makeMatcher(termList, edition.language === 'la') : null), [settings.sparkles, settings.scriptureOnly, termList, edition.language]);
+  const matcher = useMemo(() => (settings.sparkles && (!settings.scriptureOnly || settings.focus.sparkles) && termList.length ? makeMatcher(termList, edition.language === 'la') : null), [settings.sparkles, settings.scriptureOnly, settings.focus.sparkles, termList, edition.language]);
   const [anchorDensity, setAnchorDensity] = useState<Map<number, number>>(new Map());
 
   // -------- load text
@@ -146,11 +148,11 @@ export default function ReadPage() {
   const [red, setRed] = useState<RedRanges | null>(null);
   useEffect(() => { let live = true; setRed(null); if (settings.redLetters !== false) jesusWords(edition.id, bk.id, chNum).then((r) => live && setRed(r)); return () => { live = false; }; }, [edition.id, bk.id, chNum, settings.redLetters]);
   useEffect(() => {
-    if (settings.scriptureOnly || settings.inlineArt === false) { setFigs([]); return; }
+    if ((settings.scriptureOnly && !settings.focus.art) || settings.inlineArt === false) { setFigs([]); return; }
     let live = true;
     artForChapter(bk.id, anchorChapters).then((f) => live && setFigs(f));
     return () => { live = false; };
-  }, [bk.id, anchorChapters.join(), settings.scriptureOnly, settings.inlineArt]);
+  }, [bk.id, anchorChapters.join(), settings.scriptureOnly, settings.focus.art, settings.inlineArt]);
   const figureMap = useMemo(() => {
     const m = new Map<number, InlineFig[]>();
     for (const f of figs) {
@@ -348,6 +350,7 @@ export default function ReadPage() {
   const selRefsRef = useRef<Ref[]>([]);
   selRefsRef.current = selRefs;
   const hasSel = selRefs.length > 0;
+  const infinite = !parallelMode && (settings.scrollMode === 'infinite' || (settings.scriptureOnly && settings.focus.scroll));
   const dockOn = wide && settings.studyDock && !settings.scriptureOnly && !parallelMode;
   const chapterRef: Ref = { book: bk.id, c1: anchorChapters[0], c2: anchorChapters[anchorChapters.length - 1] };
   const panelOpen = dockOn || (panel && hasSel);
@@ -373,10 +376,12 @@ export default function ReadPage() {
       delete root.dataset.silent;
     };
   }, [settings.scriptureOnly]);
-  const sound = settings.ambience.kind !== 'off' ? (settings.ambience.match && (passageSound(bk.id, primaryAnchorChapter) ?? (mood && MOOD_SOUND[mood])) ? (passageSound(bk.id, primaryAnchorChapter) ?? MOOD_SOUND[mood!]!) : settings.ambience.kind) : 'off';
+  const soundAllowed = !settings.scriptureOnly || settings.focus.sound;
+  const sound = !soundAllowed || settings.ambience.kind === 'off' ? 'off' : settings.ambience.kind === 'auto' ? autoSound(bk.id, primaryAnchorChapter, mood) : (settings.ambience.match && (passageSound(bk.id, primaryAnchorChapter) ?? (mood && MOOD_SOUND[mood])) ? (passageSound(bk.id, primaryAnchorChapter) ?? MOOD_SOUND[mood!]!) : settings.ambience.kind);
+  const soundVolume = settings.ambience.kind === 'auto' ? Math.min(settings.ambience.volume, AUTO_VOLUME_CAP) : settings.ambience.volume;
   useEffect(() => {
-    setAmbience(sound, settings.ambience.volume);
-  }, [sound, settings.ambience.volume]);
+    setAmbience(sound, soundVolume);
+  }, [sound, soundVolume]);
   useEffect(() => () => stopAmbience(), []);
   const quiet = useQuiet();
   silentRef.current = settings.scriptureOnly;
@@ -547,6 +552,7 @@ export default function ReadPage() {
           <button className="icon-btn" onClick={() => setCompare(true)} aria-label="Compare translations" title="Compare translations">
             <Icon name="compare" />
           </button>
+          {!parallelMode && selRefs[0] && <PlayFromHere edition={edition} sel={selRefs[0]} />}
           {!parallelMode && (
             <button className="icon-btn" onClick={copyText} aria-label="Copy text" title="Copy text with reference">
               <Icon name="copy" />
@@ -565,7 +571,7 @@ export default function ReadPage() {
   );
 
   return (
-    <div className={`reader${settings.showVerseNumbers ? '' : ' hide-nums'}${panelOpen ? ' has-panel' : ''}`}>
+    <div className={`reader${settings.showVerseNumbers && (!settings.scriptureOnly || settings.focus.numbers) ? '' : ' hide-nums'}${panelOpen ? ' has-panel' : ''}`}>
       <div className="reader-col" onTouchStart={(e) => { swipe.current = e.touches.length === 1 ? [e.touches[0].clientX, e.touches[0].clientY] : null; }} onTouchEnd={(e) => { const a = swipe.current; swipe.current = null; if (!a || window.innerWidth >= 700 || !window.getSelection()?.isCollapsed) return; const dx = e.changedTouches[0].clientX - a[0], dy = e.changedTouches[0].clientY - a[1]; if (Math.abs(dx) > 90 && Math.abs(dy) < 45) (dx < 0 ? next : prev)(); }}>
         <div className="reader-bar">
           <button className="icon-btn" onClick={prev} aria-label="Previous chapter">
@@ -606,7 +612,7 @@ export default function ReadPage() {
           <button className="icon-btn tool-sm" aria-pressed={aloud} onClick={() => setAloud((a) => !a)} aria-label="Read aloud" title="Read this chapter aloud">
             <Icon name="listen" />
           </button>
-          <button className="icon-btn tool-sm" aria-pressed={settings.ambience.kind !== 'off'} onClick={() => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'nature' : 'off' }, ambienceTipSeen: true })} aria-label={settings.ambience.kind === 'off' ? t('reader.soundOn') : t('reader.soundOff')} title="Reading sound: on/off">
+          <button className="icon-btn tool-sm" aria-pressed={settings.ambience.kind !== 'off'} onClick={() => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'auto' : 'off' }, ambienceTipSeen: true })} aria-label={settings.ambience.kind === 'off' ? t('reader.soundOn') : t('reader.soundOff')} title="Reading sound: on/off">
             <Icon name="music" />
           </button>
           <button className="icon-btn tool-sm" onClick={() => setTextSettings(true)} aria-label={t('reader.settings')} title="Text, theme, atmosphere, sound and quiet reading">
@@ -619,8 +625,8 @@ export default function ReadPage() {
               setSettings({ scriptureOnly: !settings.scriptureOnly });
               clearSel();
             }}
-            aria-label="Silent mode"
-            title="Silent mode: only the text, nothing else"
+            aria-label="Focus mode"
+            title="Focus mode: just the text, in one unbroken scroll (change what it hides in Reading settings)"
           >
             <Icon name="expand" />
           </button>
@@ -634,7 +640,7 @@ export default function ReadPage() {
                 <button role="menuitem" onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id))}>Parallel translations {parallelMode ? '(on)' : ''}</button>
                 <button role="menuitem" onClick={() => setAloud((a) => !a)}>Read aloud {aloud ? '(on)' : ''}</button>
                 <button role="menuitem" onClick={() => setTextSettings(true)}>Reading settings, atmosphere and sound</button>
-                <button role="menuitem" onClick={() => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); }}>Silent mode</button>
+                <button role="menuitem" onClick={() => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); }}>Focus mode</button>
               </div>
             )}
           </span>
@@ -677,7 +683,7 @@ export default function ReadPage() {
             {chNum === 1 && data.intro && data.intro.length > 0 && data.intro.map((p, i) => <p key={i} className="subtitle">{p}</p>)}
             {chNum === 1 && bk.note && <div className="notice info">{bk.note}</div>}
             {chapterNote && <div className="notice">{chapterNote}</div>}
-            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} wordFx={settings.wordFx && !settings.scriptureOnly} red={red} figures={figureMap} stdNotes={stdNotes} onStdNote={(n, el) => setNotePop({ n, notes: stdNotes.get(n) ?? [], at: el.getBoundingClientRect() })} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
+            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly && !settings.focus.markers ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} wordFx={settings.wordFx && (!settings.scriptureOnly || settings.focus.effects)} red={red} figures={figureMap} stdNotes={stdNotes} onStdNote={(n, el) => setNotePop({ n, notes: stdNotes.get(n) ?? [], at: el.getBoundingClientRect() })} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
             {stdNotes.size > 0 && (
               <section aria-label="Notes on the text" className="subtitle" style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 8 }}>
                 <strong>Notes on the text</strong>{edition.id !== 'webc' && <span className="muted"> (these are the World English Bible’s notes on its own wording of the passage; this translation may read differently)</span>}
@@ -689,10 +695,14 @@ export default function ReadPage() {
                 {edition.attribution}
               </p>
             )}
-            <div className="chapter-nav">
-              <button className="btn" onClick={prev}>{t('reader.prev')}</button>
-              <button className="btn" onClick={next}>{t('reader.next')}</button>
-            </div>
+            {infinite ? (
+              <NextChapters editionId={edition.id} chapters={edition.chapters} lang={edition.language} book={bk.id} chapter={chNum} wordFx={settings.wordFx && (!settings.scriptureOnly || settings.focus.effects)} redLetters={settings.redLetters !== false} />
+            ) : (
+              <div className="chapter-nav">
+                <button className="btn" onClick={prev}>{t('reader.prev')}</button>
+                <button className="btn" onClick={next}>{t('reader.next')}</button>
+              </div>
+            )}
           </article>
         )}
         {data && parallelMode && parallel && (
@@ -739,7 +749,7 @@ export default function ReadPage() {
         <div className="silent-ui">
           {quiet.endsAt !== 0 && <QuietClock endsAt={quiet.endsAt} onEnd={endQuiet} />}
           {quiet.finished && <span className="silent-done" role="status">Your time is complete.</span>}
-          <button onClick={() => { setSettings({ scriptureOnly: false }); endQuiet(); }}>Leave silent mode</button>
+          <button onClick={() => { setSettings({ scriptureOnly: false }); endQuiet(); }}>Leave focus mode</button>
         </div>
       )}
 
@@ -762,6 +772,7 @@ export default function ReadPage() {
           verses={flat}
           lang={edition.language}
           biayFor={{ book: bk.id, chapters: anchorChapters }}
+          recorded={{ edition: edition.id, book: bk.id, chapter: chNum }}
           startAt={selNative[0]}
           onVerse={markSpeaking}
           onClose={() => setAloud(false)}
@@ -782,7 +793,7 @@ export default function ReadPage() {
       {!settings.scriptureOnly && settings.motes && settings.motion !== 'none' && settings.theme !== 'zen' && <Motes />}
       {!settings.ambienceTipSeen && settings.ambience.kind !== 'off' && !settings.scriptureOnly && (
         <div className="amb-tip" role="status">
-          <p><strong>Soft sound is playing while you read.</strong> Turn it off, or change it to music, classical piano or chant, with the note icon above or in Reading settings.</p>
+          <p><strong>Soft sound is playing while you read.</strong> Turn it off, or choose nature, music, classical piano or chant, with the note icon above or in Reading settings.</p>
           <div className="row">
             <button className="btn small" onClick={() => setSettings({ ambience: { ...settings.ambience, kind: 'off' }, ambienceTipSeen: true })}>Turn off</button>
             <button className="btn small" onClick={() => { setSettings({ ambienceTipSeen: true }); setTextSettings(true); }}>Choose…</button>

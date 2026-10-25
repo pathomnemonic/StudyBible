@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { butlerDay, type ButlerEntry } from '../../study/butler';
+import { butlerDay, nameScore, nameTokens, type ButlerEntry } from '../../study/butler';
 import Icon from '../../components/Icon';
 
 const today = () => { const d = new Date(); return `${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
@@ -16,7 +16,8 @@ export default function SaintsPage() {
   const day = /^\d{2}-\d{2}$/.test(md) ? md : today();
   const [list, setList] = useState<ButlerEntry[] | null>(null);
   const [open, setOpen] = useState<number | null>(null);
-  useEffect(() => { setList(null); butlerDay(day).then((l) => { setList(l); const w = (sp.get('name') ?? '').toLowerCase(); const i = w ? l.findIndex((e) => e.name.toLowerCase().includes(w)) : -1; setOpen(i >= 0 ? i : l.length === 1 ? 0 : null); }); }, [day]);
+  const [hit, setHit] = useState(-1);
+  useEffect(() => { setList(null); butlerDay(day).then((l) => { setList(l); const w = nameTokens(sp.get('name') ?? ''); let i = -1, top = 0.6; l.forEach((e, k) => { const sc = nameScore(nameTokens(e.name), w); if (sc > top) { top = sc; i = k; } }); setOpen(i >= 0 ? i : l.length === 1 ? 0 : null); setHit(i); }); }, [day]);
   return (
     <div className="page">
       <h1>Lives of the Saints</h1>
@@ -31,7 +32,7 @@ export default function SaintsPage() {
       {list === null && <div className="skeleton-list" aria-busy="true"><i /><i /></div>}
       {list?.length === 0 && <p className="muted">No life is printed for this day in Butler.</p>}
       {list?.map((e, i) => (
-        <article key={i} className="card">
+        <article key={i} className="card" style={i === hit ? { outline: '2px solid var(--accent)' } : undefined} ref={(el) => { if (el && i === hit && !el.dataset.seen) { el.dataset.seen = '1'; el.scrollIntoView({ block: 'start' }); } }}>
           <h2 className="card-title">{e.name}</h2>
           {(open === i ? e.text : e.text.slice(0, 2)).map((p, k) => <p key={k}>{p}</p>)}
           {e.text.length > 2 && <button className="btn small" onClick={() => setOpen(open === i ? null : i)}>{open === i ? 'Show less' : 'Read the whole life'}</button>}

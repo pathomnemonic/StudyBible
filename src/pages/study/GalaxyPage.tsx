@@ -38,6 +38,7 @@ export default function GalaxyPage() {
   const [libData, setLibData] = useState<LibData | null>(null);
   const [libGroup, setLibGroup] = useState<string | null>(null);
   const [, force] = useState(0);
+  const [help, setHelp] = useState(() => { try { return !localStorage.getItem('sb:galaxyHelp'); } catch { return true; } });
 
   useEffect(() => {
     bookMatrix().then((m) => { matrix.current = m; force((x) => x + 1); });
@@ -101,11 +102,31 @@ export default function GalaxyPage() {
     <div className="galaxy-page">
       <div className="galaxy" ref={host} tabIndex={0} role="application" aria-label="Galaxy of the 73 books. Arrow keys move between books, W and S fly forward and back, Escape returns to the overview." onKeyDown={key} />
       {!ready && <div className="galaxy-veil" role="status">Gathering the stars…</div>}
-      <header className="galaxy-head">
-        <h1>Scripture universe</h1>
-        {!sel && <p>Drag to look around, scroll or pinch to fly. Choose a star to travel to a book. Beyond the canon, rings of stars are the Fathers, saints, councils and catechisms, each beside the books it speaks about.</p>}
-      </header>
+      <div className="galaxy-top">
+        <header className="galaxy-head">
+          <h1>Scripture universe</h1>
+          <button className="galaxy-help-btn" aria-expanded={help} onClick={() => { setHelp(!help); try { localStorage.setItem('sb:galaxyHelp', '1'); } catch { /* private mode */ } }}>{help ? 'Hide help' : 'How to read this'}</button>
+        </header>
+        <div className="galaxy-pick">
+          <label className="visually-hidden" htmlFor="gx-book">Go to a book</label>
+          <select id="gx-book" value={sel ?? ''} onChange={(e) => e.target.value && open(e.target.value)}>
+            <option value="">Go to a book…</option>
+            <optgroup label="Books of the Bible">{BOOKS.map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}</optgroup>
+            {libData?.cats.map((c) => <optgroup key={c.id} label={c.name}>{libData.works.filter((w) => w.cat === c.id).map((w) => <option key={w.id} value={`lib:${w.id}`}>{w.author.split(' of ')[0]}: {w.title.slice(0, 50)}</option>)}</optgroup>)}
+          </select>
+        </div>
+        {help && (
+          <div className="galaxy-help" role="note">
+            <p><strong>Each star is a book of the Bible.</strong> The colour is its region of the canon (the law, the prophets, the Gospels and so on), and books that sit close together are joined by many cross-references.</p>
+            <p><strong>Choose a star</strong> and the camera flies to it. Glowing threads then run to the books it is most tied to, by cross-references and quotations, and the longer bars on the card show the stronger ties.</p>
+            <p><strong>The rings of stars further out</strong> are the Fathers, saints, councils and catechisms. Each sits beside the books it speaks about most. Choose one to read it.</p>
+            <p className="muted">Drag to look around, scroll or pinch to fly, Esc to return to the overview.</p>
+          </div>
+        )}
+      </div>
+      <div className="galaxy-bars">
       <nav className="galaxy-groups" aria-label="Regions of the canon">
+        <span className="galaxy-kicker">Fly to</span>
         {GROUPS.map((g) => <button key={g.name} className={group === g.name ? 'on' : ''} onClick={() => gx.current?.openGroup(g.name)}>{g.name.replace(' Books', '').replace('General Letters', 'Letters').replace('Pauline Letters', 'Paul')}</button>)}
         <button onClick={() => { gx.current?.overview(); setSel(null); }}>Overview</button>
       </nav>
@@ -115,13 +136,6 @@ export default function GalaxyPage() {
           {libData.cats.map((c) => <button key={c.id} className={group === c.name ? 'on' : ''} title={c.blurb} onClick={() => { gx.current?.openGroup(c.name); setSel(null); }}>{c.name}</button>)}
         </nav>
       )}
-      <div className="galaxy-pick">
-        <label className="visually-hidden" htmlFor="gx-book">Go to a book</label>
-        <select id="gx-book" value={sel ?? ''} onChange={(e) => e.target.value && open(e.target.value)}>
-          <option value="">Go to a book…</option>
-          <optgroup label="Books of the Bible">{BOOKS.map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}</optgroup>
-          {libData?.cats.map((c) => <optgroup key={c.id} label={c.name}>{libData.works.filter((w) => w.cat === c.id).map((w) => <option key={w.id} value={`lib:${w.id}`}>{w.author.split(' of ')[0]}: {w.title.slice(0, 50)}</option>)}</optgroup>)}
-        </select>
       </div>
       {work && (
         <aside className="galaxy-card" aria-live="polite">
@@ -149,7 +163,7 @@ export default function GalaxyPage() {
           {links.length > 0 && (
             <>
               <div className="galaxy-kicker">Threads lead to</div>
-              <div className="galaxy-links">{links.map(([id]) => <button key={id} onClick={() => open(id)}>{getBook(id).name}</button>)}</div>
+              <div className="galaxy-links wide">{links.map(([id, w]) => <button key={id} onClick={() => open(id)} title="Cross-references and quotations tie these two books together; the bar shows how strongly, compared with this book’s strongest tie."><span>{getBook(id).name}</span><i style={{ ['--w' as string]: `${Math.max(8, Math.round((w / (links[0]?.[1] || 1)) * 100))}%` }} /></button>)}</div>
             </>
           )}
           {citing.length > 0 && (

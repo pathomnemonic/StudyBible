@@ -83,12 +83,18 @@ export default function TodayPage() {
 
   const last = s.last;
   const lastName = last ? `${getBook(last.book)?.name ?? last.book} ${last.chapter}` : null;
+  // any verse in the Bible, each equally likely: pick a verse number at random from the whole canon (Vulgate anchor numbering)
   const random = () => {
-    if (!file || !edition) return nav(`/read/${s.defaultEdition}/JHN/1`);
-    const all = Object.values(file.generic);
-    for (let i = 0; i < 6; i++) {
-      const r = parseRefId(all[Math.floor(Math.random() * all.length)].ref);
-      if (r) return nav(readerPath(edition, r));
+    const vul = editions.find((e) => e.scheme === 'vulgate');
+    if (!edition || !vul?.verseCounts) return nav(`/read/${s.defaultEdition}/JHN/1`);
+    const books = Object.entries(vul.verseCounts).filter(([b]) => edition.chapters[b] !== undefined || vul.chapters[b] !== undefined);
+    const total = books.reduce((n, [, cs]) => n + cs.reduce((a, b) => a + b, 0), 0);
+    let k = Math.floor(Math.random() * total);
+    for (const [book, cs] of books) {
+      for (let c = 0; c < cs.length; c++) {
+        if (k < cs[c]) return nav(readerPath(edition, { book, c1: c + 1, v1: k + 1, c2: c + 1, v2: k + 1 }));
+        k -= cs[c];
+      }
     }
   };
   const dateLabel = new Date(date + 'T12:00').toLocaleDateString(dateLocale(s.language), { weekday: 'long', month: 'long', day: 'numeric', year: date.slice(0, 4) === today.slice(0, 4) ? undefined : 'numeric' });
