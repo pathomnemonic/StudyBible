@@ -88,6 +88,8 @@ export interface Settings {
   verseLines: boolean;
   /** how Copy formats a selected verse: numbers kept, plain text, or a quotation with a citation */
   copyStyle: 'numbers' | 'plain' | 'quote';
+  /** study-panel sections the reader has chosen not to see */
+  studyHidden: string[];
   /** the small † footnote marks and the verse markers for notes in the text */
   showNoteMarks: boolean;
   /** the words of Jesus in red, where the translation marks them */
@@ -155,6 +157,7 @@ export const DEFAULTS: Settings = {
   keepAwake: false,
   verseLines: false,
   copyStyle: 'numbers',
+  studyHidden: [],
   showNoteMarks: true,
   hintVerse: false,
   atmosphere: 'passage',

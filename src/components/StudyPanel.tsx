@@ -204,6 +204,15 @@ export default function StudyPanel({
                 <option key={f} value={f}>{String(f).replace(/-/g, ' ')}</option>
               ))}
             </select>
+            <details className="sections-pick">
+              <summary className="btn small ghost">Sections</summary>
+              <div className="small" style={{ padding: 6, display: 'grid', gap: 4 }}>
+                {SECTIONS.filter((x) => !['recorded'].includes(x.key)).map((x) => (
+                  <label key={x.key}><input type="checkbox" checked={!settings.studyHidden.includes(x.key)} onChange={(e) => setSettings({ studyHidden: e.target.checked ? settings.studyHidden.filter((k) => k !== x.key) : [...settings.studyHidden, x.key] })} /> {x.label}</label>
+                ))}
+                <span className="muted">Hidden sections stay hidden for every passage until you tick them again. A tab with a single section still shows it.</span>
+              </div>
+            </details>
             {filtersOn && <button className="btn small ghost" onClick={() => { setAuthority(''); setPeriod(''); setAuthor(''); setMatch(''); setFormat(''); }}>Clear</button>}
           </div>
         )}
@@ -312,6 +321,7 @@ export default function StudyPanel({
         {tab !== 'notes' && activeTab &&
           activeTab.sections.map((sk) => {
             const meta = SECTIONS.find((s) => s.key === sk)!;
+            if (settings.studyHidden.includes(sk) && activeTab.sections.length > 1) return null;
             const list = items(sk).filter((i) => !(scope === 'passage' && i.kind && CHAPTER_KINDS.has(i.kind)));
             const real = list.filter(isReal);
             if (!list.length && !(sk in data) && loading) return <div key={sk} className="skeleton" style={{ height: 60 }} />;

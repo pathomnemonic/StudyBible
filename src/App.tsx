@@ -10,6 +10,7 @@ import MiniPlayer from './components/MiniPlayer';
 import { ToastProvider } from './components/Toast';
 import { initSync } from './sync/state';
 import UpdateBanner from './components/UpdateBanner';
+import ScrollMemory from './components/ScrollMemory';
 import { db, TRASH_DAYS } from './db/db';
 import { scheduleReminder } from './liturgy/reminders';
 
@@ -165,6 +166,7 @@ export default function App() {
     <EditionsProvider>
       <ThemeApplier />
       <UpdateBanner />
+      <ScrollMemory />
       <Gate>
         <PlayerProvider>
         <Shell>
