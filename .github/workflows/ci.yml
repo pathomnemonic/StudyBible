@@ -3,7 +3,8 @@ on:
   push:
   pull_request:
 jobs:
-  build:
+  # fast: runs on every push
+  fast:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,10 +15,44 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
-      - run: npm run build
-      - name: End-to-end smoke test (routes and offline reload)
+      - name: Generated documents are up to date
         run: |
-          npx playwright install --with-deps chromium
+          npm run docs:status
+          git diff --exit-code docs/FEATURE_STATUS.md
+      - name: Data validation
+        run: npm run data:validate
+      - run: npm run build
+      - name: Size budgets
+        run: npm run budget
+      - name: Dependency vulnerabilities (production)
+        run: npm audit --omit=dev --audit-level=high
+        continue-on-error: true
+  # comprehensive: real browser, offline reload, accessibility in every theme
+  browser:
+    runs-on: ubuntu-latest
+    needs: fast
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Serve the build
+        run: |
           npx vite preview --port 4173 &
-          npx wait-on http://localhost:4173 || sleep 5
-          npm run e2e
+          for i in $(seq 1 30); do curl -sf http://localhost:4173 >/dev/null && break; sleep 1; done
+      - run: npm run e2e
+      - run: npm run e2e:a11y
+  # secrets: scan the history for accidentally committed credentials
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

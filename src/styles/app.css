@@ -3876,6 +3876,7 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .resume-chip { min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 3px; min-height: 64px; padding: 10px 8px; border-radius: 14px; border: 1px solid var(--hairline, #8884); background: color-mix(in srgb, var(--surface) 70%, transparent); text-decoration: none; color: inherit; }
 .resume-chip.on { border-color: color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
 .resume-chip .k { font-size: .7rem; letter-spacing: .03em; text-transform: uppercase; color: var(--muted); line-height: 1.15; }
+.resume-chip.on .k { color: inherit; opacity: .85; } /* the tinted background of the current chip needs the full text colour to stay readable in light themes */
 .resume-chip .v { font-size: 1rem; font-weight: 600; line-height: 1.2; max-width: 100%; min-width: 0; overflow-wrap: anywhere; text-wrap: balance; }
 @media (max-width: 420px) { .resume-chips { gap: 7px; } .resume-chip { padding: 8px 5px; min-height: 60px; } .resume-chip .k { font-size: .62rem; } .resume-chip .v { font-size: .9rem; } }
 

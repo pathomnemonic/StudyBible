@@ -413,7 +413,7 @@ export function createApp(cfg: Config): Server {
       res.writeHead(404).end();
     } catch (e: any) {
       if (e instanceof HttpError) return json(res, e.status, { error: e.message });
-      console.error('server error', e);
+      console.error('server error', (e as Error)?.name, (e as Error)?.message); // never the request body or headers
       json(res, 500, { error: 'Something went wrong on the server.' });
     }
   });

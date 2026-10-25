@@ -63,7 +63,7 @@ export default function AccountPage() {
           <p>
             Your notes and highlights are saved safely on <strong>this device</strong>. To sign in and sync across devices, the app has to be served by the Study Bible server, which provides accounts and storage. You can run it yourself in a minute:
           </p>
-          <pre className="code">{`npm run build\nnpm run server        # http://localhost:8787`}</pre>
+          <pre className="code" tabIndex={0}>{`npm run build\nnpm run server        # http://localhost:8787`}</pre>
           <p className="muted small">See docs/SERVER.md for deployment (Docker, HTTPS, backups). Until then, Library → Export moves your data between devices.</p>
           <button className="btn small" onClick={() => void retryDiscovery()}>Look for the server again</button>
         </div>

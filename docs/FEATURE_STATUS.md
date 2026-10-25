@@ -47,7 +47,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Bible in a Year: 1,847 episodes mapped from the official feed; plan, canonical and release order; queue; progress; resume | **Working** | Passages come from feed metadata voted across yearly releases; two days have no passages in the feed and are flagged for review. |
+| Bible in a Year: 1,847 episodes mapped from the official feed; plan, canonical and release order; queue; progress; resume | **Working** | Passages come from feed metadata voted across yearly releases; one day (366, “A Special Leap Year Message”) has no passage in the feed, by design, and is shown without one. |
 | Transcripts and captions | **Planned** | The official feed provides none. The schema supports them if Ascension publishes transcripts or grants access. |
 | Video and other podcasts | **Planned** | Links to official YouTube channels only; adding more feeds is a matter of adding a feed entry. |
 
@@ -106,7 +106,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Translation blind-spot detector | **Partial** | In the Words tab it flags original-language words the KJV alone renders six or more ways, so you know an English word is one choice among many. It does not compare modern translations word by word. |
 | Pronunciation coach | **Partial** | Hear a word at normal or slow speed with a transliteration, and say it back for a rough letter-match score where the browser has speech recognition. Voices and recognition are modern Greek and Hebrew, not ancient pronunciation, and many devices lack them. |
 | Maps, concordance and topical index | **Working** | OpenBible.info data (CC BY): 1,232 places on an OpenStreetMap map (needs a connection), exact-word concordance, 6,350 community-voted topics. |
-| Book introductions and outlines, indexes, synopsis, Pauline outlines, genealogies | **Working** | Editorial study aids written for this app (AI-assisted) and checked for valid references; they are not official Church texts and are not exhaustive. |
+| Book introductions and outlines, indexes, Gospel comparison, Pauline outlines, genealogies | **Working** | Editorial study aids written for this app (AI-assisted) and checked for valid references; they are not official Church texts and are not exhaustive. |
 
 ## Library
 
@@ -216,6 +216,25 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
+| The Divine Office: Lauds, Terce, Sext, None, Vespers, Compline | **Partial** | The traditional Roman weekly psalter in the Douay-Rheims psalm text (Divinum Officium, MIT licence), offline. Ordinary time only: no feast, Advent, Lent or Easter propers, no Office of Readings, and not the modern Liturgy of the Hours, whose English text is copyrighted. |
+| Devotions: Rosary, Divine Mercy, Angelus, Stations of the Cross, Seven Sorrows | **Working** | Step by step with a bead counter. Scripture for each mystery and station is shown in the reader’s own translation. |
+| Prayer book and examination of conscience | **Working** | Traditional prayers searchable by need. The examination of conscience keeps nothing: ticks live only on screen. |
+| Prepare for Sunday | **Working** | The coming Sunday’s readings (from the lectionary references data we hold, 2026 and 2027) with matching homilies, Catechism paragraphs, commentary and Fathers on the Gospel. Homily matches are by the Sunday calendar and say so. |
+| Novenas and short prayer plans | **Working** | Novena to the Holy Spirit, novena to St Joseph, the seven penitential psalms and an Advent week: a passage in your translation and a traditional prayer each day, with progress kept on the device. |
+| Build a prayer time | **Working** | Order prayers from the prayer book, Scripture passages and timed silence into a playlist, saved on the device, and pray through it step by step. |
+| Following the Mass | **Partial** | The parts of the Mass in order with a short note on each, and links to the US bishops and the Catechism. The English words of the Mass (ICEL Missal) are copyrighted, so they are not included. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Salvation history in twelve lessons, with quizzes | **Working** | Twelve lessons from creation to Revelation, each with the passage in your translation and a three-question quiz. Scores stay on the device. Written for this app. |
+| Passage dossier with print | **Working** | Type any passage to open its full study page (text, Catechism, commentary, Fathers, homilies, videos, questions) and print it. |
+
+## Pray
+
+| Feature | Status | Notes |
+|---|---|---|
 | Sleep mode | **Working** | A chosen psalm shown and read slowly with your device’s voice, one verse at a time, while the sound fades and the screen dims; it stops by itself. |
 
 ## Library
@@ -259,3 +278,104 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Latin Glossa notes translated to English inline | **Partial** | About 8,000 of 13,800 notes are translated (AI-assisted, literal where the Latin is garbled). The rest show the Latin with a Translate link; docs/glossa-translation holds a hand-off kit to finish them. |
+
+## Today
+
+| Feature | Status | Notes |
+|---|---|---|
+| Home extras: plan, season path, chant and hymns, saint of the day, verse card, memorize, favourite day | **Working** | Small links under the daily reflection. The saint link opens that author’s works only when the library has them; otherwise it opens the Reading room. Favourite days are stored on this device. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Gallery of paintings and engravings | **Working** | Every picture on one page, with filters, source credit, and a side-by-side compare for pictures of the same scene. Pictures also appear in the Media tab of the study panel. |
+
+## App
+
+| Feature | Status | Notes |
+|---|---|---|
+| Small conveniences | **Working** | Continue row, what is new card, swipe between chapters on phones, remembered study tab, phone Study button, offline pill, print stylesheet, settings search, reset reading look, shortcuts overlay (?), backup reminder after the first note, Report a problem link on study items, Bible in a Year chip in the reader, Library tabs across Reading room, Church documents and Study paths. |
+
+## Reading
+
+| Feature | Status | Notes |
+|---|---|---|
+| Words of Jesus in red (on by default) | **Working** | Exact in the World English Bible (from its own markup). In Douay-Rheims, CPDV and the Vulgate only whole verses that are mostly his words are red, because those texts have no markup; verses where he speaks in part are left plain there. Turn off in Reading settings. |
+| Words particular to the Bible animate (Lamb, Cross, Covenant, Spirit, LORD, Amen, Heaven, Temple…) | **Working** | About 15 new gentle effects on top of the earlier ones; all stop with reduced motion and can be switched off. |
+| Bible in a Year episode at the top of the chapter | **Working** | Plays in the mini player. Shown only for chapters the plan covers. |
+
+## Pray
+
+| Feature | Status | Notes |
+|---|---|---|
+| NABRE Lectionary text from the USCCB daily-readings feed | **Partial** | Shown as published, with the USCCB copyright line and a link back, for the days in the feed (about the last ten days up to today). The site build fetches the feed daily; dates outside it fall back to the passages in your chosen translation. Relies on the USCCB’s web-usage terms for free sites that do not condition access. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Catechism of the Catholic Church: full text, searchable, Scripture-indexed | **Working** | The English text from the Holy See’s edition, quoted with the permission the app’s owner has stated. 2,863 of 2,865 paragraphs are in (two are being checked). The verse index is built from the Catechism’s own footnotes, so every verse it cites shows its paragraphs in the study panel. Footnote shorthand for Church documents (GS, LG, DV…) is spelled out. |
+
+## Reading
+
+| Feature | Status | Notes |
+|---|---|---|
+| Plain wording in notes: abbreviations spelled out, Roman numerals as numbers | **Working** | The Bible’s notes on the text (TR, NU, MT, LXX, Gr., Heb.) are spelled out, and section titles, citations and commentary use ordinary numbers and full book names. Names such as Pius XII and Vatican II keep their numerals. A few unusual title forms may still show a numeral. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Favourite days, weekly summary, study-path links in the panel, skeleton loaders | **Working** | Starred days from Today are listed under More › Favourite days. The week card counts chapters read, works opened and notes written on this device. |
+| Saints and Fathers quoting Scripture, in every verse’s notes | **Working** | Every library work is indexed against the verses it cites. Where the source tags its citations they are used; where it only writes them out ("Matt. xvi. 18", "Ps. xxii. 1") they are read from the text and the Roman numerals converted; and where a passage is quoted without a citation, a quotation of nine or more words (fewer for a short verse) is matched against the Douay-Rheims, CPDV and World English Bible. Psalm citations are read as English numbering, which was checked against the verse text for every work. A few works (for example the Constantinople councils and Ineffabilis Deus) simply have few or no biblical citations. Matching is by wording, so a free paraphrase is not found. |
+| Bible dictionaries, Nave’s Topical Bible and people | **Working** | Easton’s (1897) and Smith’s (1884) dictionaries and Nave’s (1896) are public domain, 19th-century Protestant works, labelled as such. People named in a passage come from Theographic (CC BY-SA 4.0, family relations) and STEPBible (CC BY 4.0, short descriptions that STEPBible wrote with AI help). Excluded: STEPBible’s Hebrew lexicon (its definitions need Online Bible’s permission) and Theographic’s dates (a young-earth chronology). |
+
+## Reading
+
+| Feature | Status | Notes |
+|---|---|---|
+| The Septuagint in English (Brenton, 1851) | **Partial** | Thirty books whose chapter numbering matches the Vulgate; off by default. A few chapters number verses one or two differently from the Douay-Rheims. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Cornelius à Lapide, Catholic Encyclopedia and Butler’s Lives of the Saints | **Partial** | À Lapide (1908 English) covers the four Gospels, 1–3 John, 1 and 2 Corinthians and Galatians; Matthew 1–23 is in long blocks. The Catholic Encyclopedia selection (about 500 articles on the books, people, places and topics of the Bible) shows beside the verses its articles cite. Butler’s lives cover the whole year, but nine months were scanned from old prints and are unproofread. Butler’s feast days are those of the 18th century. |
+
+## Listening
+
+| Feature | Status | Notes |
+|---|---|---|
+| Recorded readings (LibriVox) | **Working** | Volunteer recordings (public domain) of the Douay-Rheims and World English Bible, shown beside the chapter they include, and of about 55 works in the library (Augustine, Chrysostom, Teresa of Ávila, the Imitation of Christ, Aquinas’s Summa and more) under Listen on each work. Each file plays from its own start; the app does not claim to know where a verse falls inside a recording. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Children’s Bible | **Working** | 56 Bible stories retold at three reading levels (4–6, 7–9, 10–12), each with a passage to open, questions, a memory verse, read-aloud and pictures. Written for this app; the older levels add a little of what the Church teaches. |
+
+## Media
+
+| Feature | Status | Notes |
+|---|---|---|
+| Catholic video library and passage-matched teaching videos | **Working** | About 41,000 videos from 31 Catholic channels (Catholic Answers Live, Catholic Productions, the St. Paul Center, Bishop Barron, Ascension, Jimmy Akin, Trent Horn, the Augustine Institute, the Thomistic Institute, EWTN and more) are searchable at Study → Catholic video library. About 1,560 are tied to a passage and play in the study panel; each was checked to exist and allow embedding. About 490 of those are Fr. Mike Schmitz’s and Jeff Cavins’s Sunday homilies and reflections, attached to that Sunday’s readings: the card says so, and that we have not verified the homily discusses that particular passage. The rest are listed from the channels’ public pages and open on YouTube if embedding is off. Not every Catholic creator is covered: some channels have no public upload list. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Questions about the faith (apologetics) | **Working** | 112 common questions, each gathering what Catholic authors and teachers have written and said: Catholic Answers tracts, articles, Q&As and Bible Navigator pages, the Catholic Encyclopedia, and videos from the channels above, with the Bible passages and Catechism paragraphs involved. The app writes no answers of its own. Links are matched by keyword and checked by title, so a few may be only loosely related. |
+
+## Data
+
+| Feature | Status | Notes |
+|---|---|---|
+| Back up to Google Drive | **Needs credentials / agreement** | Keeps dated copies in a private app folder on the person’s own Drive, updated by itself after changes. Needs a Google OAuth client ID (see docs/DRIVE_BACKUP.md); until one is set the Settings card says so. Not tested against a live Google account in this build. |
+
+## Reading
+
+| Feature | Status | Notes |
+|---|---|---|
+| Kindle-style tools: find in chapter, look up a word, reading progress, continuous scroll, focus mode | **Partial** | Find in chapter (“/”), select a word and tap Look up (a short definition from Wiktionary when online, and a search of the Bible and library), minutes left and progress, continuous scroll between chapters, and a focus mode you can tailor. Not done: highlighting part of a verse, Popular Highlights from other readers, Word Wise. |
+| A line drawing for every chapter and book-opening pictures | **Working** | The drawing at the head of each chapter is composed from small motifs chosen by what the chapter says (a boat, sheep, loaves, a flame…) and arranged differently each time. Nearly every book also opens with a historiated initial from a Gothic Bible of about 1275–1300 (Cleveland Museum of Art, CC0). |

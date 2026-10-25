@@ -71,6 +71,8 @@ export default function StudyPanel({
   const [authority, setAuthority] = useState('');
   const [period, setPeriod] = useState('');
   const [author, setAuthor] = useState('');
+  const [match, setMatch] = useState('');
+  const [format, setFormat] = useState('');
   const [filters, setFilters] = useState(false);
   const [noteTargets, setNoteTargets] = useState<Target[] | null>(null);
   const [addLink, setAddLink] = useState(false);
@@ -98,7 +100,7 @@ export default function StudyPanel({
   const vul = get('vulgate');
   const vcOf = (b: string, c: number) => vul?.verseCounts?.[b]?.[c - 1] ?? 0;
   // Haydock wrote on the Douay-Rheims wording; beside any other translation his notes do not line up, so they are not offered
-  const passes = (i: StudyItem) => (i.kind !== 'Haydock' || edition.id === 'dra') && (showOther || !foreign(i)) && (!authority || i.authority === authority) && (!period || i.period === period) && (!author || i.author === author || i.title === author);
+  const passes = (i: StudyItem) => (i.kind !== 'Haydock' || edition.id === 'dra') && (showOther || !foreign(i)) && (!authority || i.authority === authority) && (!period || i.period === period) && (!author || i.author === author || i.title === author) && (!match || i.match === match) && (!format || i.format === format);
   const items = (k: SectionKey) => (data[k] ?? []).filter(passes);
   // A note written for a run of verses counts on the run's last verse only, so the tab number matches the margin number.
   const sharedElsewhere = (i: StudyItem) => {
@@ -109,7 +111,7 @@ export default function StudyPanel({
   const authors = useMemo(() => [...new Set(Object.values(data).flat().filter((i) => i && isReal(i)).map((i) => (i as StudyItem).author ?? (i as StudyItem).title))].filter((a) => a && a.length < 60).sort(), [data]);
   const hiddenForeign = showOther ? 0 : Object.values(data).flat().filter((i) => i && isReal(i) && foreign(i as StudyItem)).length;
   const activeTab = TABS.find((t) => t.id === tab);
-  const filtersOn = !!(authority || period || author);
+  const filtersOn = !!(authority || period || author || match || format);
   // Psalm numbers differ (Douay/Vulgate vs most modern Bibles): name the passage the way the open translation numbers it
   const heading = refs.map((r) => {
     if (r.book !== 'PSA' || edition?.scheme === 'vulgate' || r.c1 !== r.c2) return formatRef(r);
@@ -190,7 +192,19 @@ export default function StudyPanel({
                 <option key={a} value={a}>{a}</option>
               ))}
             </select>
-            {filtersOn && <button className="btn small ghost" onClick={() => { setAuthority(''); setPeriod(''); setAuthor(''); }}>Clear</button>}
+            <select value={match} onChange={(e) => setMatch(e.target.value)} aria-label="Filter by how it was matched to the passage">
+              <option value="">Any match</option>
+              {Object.entries(MATCH_LABEL).map(([k, v]) => (
+                <option key={k} value={k}>{v.split(' — ')[0]}</option>
+              ))}
+            </select>
+            <select value={format} onChange={(e) => setFormat(e.target.value)} aria-label="Filter by kind of source">
+              <option value="">Any kind</option>
+              {[...new Set(Object.values(data).flat().filter((i) => i && isReal(i)).map((i) => (i as StudyItem).format))].sort().map((f) => (
+                <option key={f} value={f}>{String(f).replace(/-/g, ' ')}</option>
+              ))}
+            </select>
+            {filtersOn && <button className="btn small ghost" onClick={() => { setAuthority(''); setPeriod(''); setAuthor(''); setMatch(''); setFormat(''); }}>Clear</button>}
           </div>
         )}
 
