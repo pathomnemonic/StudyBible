@@ -86,30 +86,65 @@ export interface StudyPack {
   label: string;
   bytes: number;
   files: string[];
+  /** Per-file size in bytes and a short SHA-256 (hex), parallel to `files`. */
+  sizes?: number[];
+  sums?: string[];
 }
 export const getManifest = () => getJson<{ generated: string; packs: StudyPack[] }>('manifest.json', true);
 
-/** Fetch every file of a study pack so the service worker caches it for offline use. Returns the files that could not be fetched; the pack is marked complete only when there are none. */
-export async function downloadPack(pack: StudyPack, onProgress: (done: number, total: number) => void): Promise<string[]> {
-  const queue = [...pack.files];
-  const failed: string[] = [];
+const hex = (buf: ArrayBuffer) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+
+export interface PackResult { failed: string[]; corrupt: string[]; cancelled: boolean; storageFull: boolean }
+
+/**
+ * Fetch every file of a study pack so the service worker caches it for offline use. Files already in the offline cache are skipped,
+ * so a stopped or failed download resumes where it left off. Each file is checked against the manifest's size and checksum.
+ * The pack is marked complete only when nothing failed.
+ */
+export async function downloadPack(
+  pack: StudyPack,
+  onProgress: (done: number, total: number, doneBytes: number, totalBytes: number) => void,
+  signal?: AbortSignal,
+): Promise<PackResult> {
+  const have = new Set<string>();
+  try {
+    if ('caches' in window) for (const k of await (await caches.open('studybible-data-v1')).keys()) have.add(new URL(k.url).pathname);
+  } catch { /* no cache API */ }
+  const idx = pack.files.map((_, i) => i);
+  const sizes = pack.sizes ?? [];
+  const total = pack.bytes || sizes.reduce((n, x) => n + x, 0);
+  const res: PackResult = { failed: [], corrupt: [], cancelled: false, storageFull: false };
   let done = 0;
+  let bytes = 0;
+  const step = (i: number) => { done++; bytes += sizes[i] ?? 0; onProgress(done, pack.files.length, bytes, total); };
   const worker = async () => {
-    while (queue.length) {
-      const f = queue.shift()!;
-      const got = await getJson(f, true).catch(() => null);
-      if (got === null || got === undefined) failed.push(f);
-      onProgress(++done, pack.files.length);
+    while (idx.length && !res.cancelled && !res.storageFull) {
+      if (signal?.aborted) { res.cancelled = true; return; }
+      const i = idx.shift()!;
+      const f = pack.files[i];
+      if ([...have].some((p) => p.endsWith(`/data/${f}`) || p.endsWith(`/${f}`))) { step(i); continue; }
+      try {
+        const r = await fetch(`${base}data/${f}`, { signal });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        const buf = await r.arrayBuffer();
+        if (pack.sizes && buf.byteLength !== pack.sizes[i]) res.corrupt.push(f);
+        else if (pack.sums && crypto?.subtle && hex(await crypto.subtle.digest('SHA-256', buf)).slice(0, 16) !== pack.sums[i]) res.corrupt.push(f);
+      } catch (e: any) {
+        if (e?.name === 'AbortError') { res.cancelled = true; return; }
+        if (e?.name === 'QuotaExceededError') { res.storageFull = true; return; }
+        res.failed.push(f);
+      }
+      step(i);
     }
   };
   await Promise.all([worker(), worker(), worker(), worker()]);
   try {
-    if (!failed.length && pack.files.length) localStorage.setItem(`pack.${pack.id}`, new Date().toISOString());
+    if (!res.failed.length && !res.corrupt.length && !res.cancelled && !res.storageFull && pack.files.length) localStorage.setItem(`pack.${pack.id}`, new Date().toISOString());
     else localStorage.removeItem(`pack.${pack.id}`);
   } catch {
     /* storage unavailable */
   }
-  return failed;
+  return res;
 }
 
 /** Whether a pack's files are still in the offline cache (the browser may evict them), so a stale "downloaded" mark can be repaired. */

@@ -1,4 +1,6 @@
 import { readdirSync, statSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, relative } from 'node:path';
 import { PUBLIC_DATA, writeJson, today } from './lib/util';
 
@@ -26,7 +28,15 @@ function walk(dir: string, out: string[] = []) {
 export function buildManifest() {
   const packs = PACKS.map((p) => {
     const files = p.dirs.flatMap((d) => walk(join(PUBLIC_DATA, d)));
-    return { id: p.id, label: p.label, bytes: files.reduce((n, f) => n + statSync(f).size, 0), files: files.map((f) => relative(PUBLIC_DATA, f).replace(/\\/g, '/')) };
+    return {
+      id: p.id,
+      label: p.label,
+      bytes: files.reduce((n, f) => n + statSync(f).size, 0),
+      files: files.map((f) => relative(PUBLIC_DATA, f).replace(/\\/g, '/')),
+      // per-file size and a short SHA-256, so the app can show real progress and notice a truncated or altered download
+      sizes: files.map((f) => statSync(f).size),
+      sums: files.map((f) => createHash('sha256').update(readFileSync(f)).digest('hex').slice(0, 16)),
+    };
   });
   writeJson(join(PUBLIC_DATA, 'manifest.json'), { generated: today(), packs }, true);
 }

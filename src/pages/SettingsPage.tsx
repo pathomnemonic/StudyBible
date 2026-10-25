@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
@@ -31,12 +31,18 @@ export default function SettingsPage() {
   }, []);
   const [dlErr, setDlErr] = useState<Record<string, string>>({});
   const [packOk, setPackOk] = useState<Record<string, boolean>>({});
+  const abort = useRef<AbortController | null>(null);
   const dlPack = async (p: StudyPack) => {
     setDlErr((x) => ({ ...x, [p.id]: '' }));
+    abort.current = new AbortController();
     try {
-      const failed = await downloadPack(p, (d, t) => setPackProg((x) => ({ ...x, [p.id]: `${d}/${t}` })));
-      setPackOk((x) => ({ ...x, [p.id]: failed.length === 0 }));
-      if (failed.length) setDlErr((x) => ({ ...x, [p.id]: `${failed.length} of ${p.files.length} files could not be downloaded (are you offline?). Try again to fetch the missing ones.` }));
+      const r = await downloadPack(p, (d, t, b, tb) => setPackProg((x) => ({ ...x, [p.id]: tb ? `${Math.round((100 * b) / tb)}%` : `${d}/${t}` })), abort.current.signal);
+      setPackOk((x) => ({ ...x, [p.id]: !r.failed.length && !r.corrupt.length && !r.cancelled && !r.storageFull }));
+      const msg = r.cancelled ? 'Download stopped. Start it again to carry on where it left off.'
+        : r.storageFull ? 'Your device is out of storage for this site. Free some space or remove an edition, then try again.'
+        : r.corrupt.length ? `${r.corrupt.length} files did not match their checksum and may be damaged. Try again to fetch them afresh.`
+        : r.failed.length ? `${r.failed.length} of ${p.files.length} files could not be downloaded (are you offline?). Try again to fetch the missing ones.` : '';
+      if (msg) setDlErr((x) => ({ ...x, [p.id]: msg }));
     } catch (e: any) {
       setDlErr((x) => ({ ...x, [p.id]: e?.message ?? 'The download failed. Try again.' }));
     }
@@ -112,11 +118,11 @@ export default function SettingsPage() {
       <div className="card">
         <h2 className="card-title">Study data offline</h2>
         <p className="muted small">Commentary, the Fathers library and resource links are cached as you use them. Download a whole pack to have it before you go offline. Your notes, highlights, plans, memorization and progress are always stored on this device and work offline. Links to publisher websites, map tiles and the Bible in a Year audio still need a connection.</p>
-        {packs.length > 0 && <div className="row" style={{ marginBottom: 6 }}><button className="btn small primary" onClick={async () => { for (const p of packs) if (!packDone(p.id)) await dlPack(p); }}>Download all study data ({(packs.reduce((n, p) => n + p.bytes, 0) / 1e6).toFixed(0)} MB)</button></div>}
+        {packs.length > 0 && <div className="row" style={{ marginBottom: 6 }}><button className="btn small primary" onClick={async () => { for (const p of packs) { if (!packDone(p.id)) await dlPack(p); if (abort.current?.signal.aborted) break; } }}>Download all study data ({(packs.reduce((n, p) => n + p.bytes, 0) / 1e6).toFixed(0)} MB)</button></div>}
         {packs.map((p) => (
           <div className="row between" key={p.id} style={{ margin: '6px 0' }}>
             <span>{p.label} <span className="muted small">({(p.bytes / 1e6).toFixed(1)} MB)</span></span>
-            {packProg[p.id] ? <span className="chip">{packProg[p.id]}</span> : packDone(p.id) ? <span className="chip good">downloaded</span> : <button className="btn small" onClick={() => dlPack(p)}>{dlErr[p.id] ? 'Retry' : 'Download'}</button>}
+            {packProg[p.id] ? <><span className="chip">{packProg[p.id]}</span> <button className="btn small" onClick={() => abort.current?.abort()}>Stop</button></> : packDone(p.id) ? <span className="chip good">downloaded</span> : <button className="btn small" onClick={() => dlPack(p)}>{dlErr[p.id] ? 'Retry' : 'Download'}</button>}
           </div>
         ))}
         {packs.filter((p) => dlErr[p.id]).map((p) => <p key={p.id} className="small" role="alert">{p.label}: {dlErr[p.id]}</p>)}

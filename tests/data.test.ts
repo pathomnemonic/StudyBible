@@ -263,3 +263,21 @@ d('content packs', () => {
     expect(w.sections[25].scripture[0]).toMatch(/^JHN\.6\./);
   });
 });
+
+describe('offline pack manifest', () => {
+  it('lists real files with matching sizes and checksums', async () => {
+    const { readFileSync, statSync } = await import('node:fs');
+    const { createHash } = await import('node:crypto');
+    const m = JSON.parse(readFileSync('public/data/manifest.json', 'utf8'));
+    for (const p of m.packs) {
+      expect(p.sizes).toHaveLength(p.files.length);
+      expect(p.sums).toHaveLength(p.files.length);
+      // spot-check every 20th file to keep the test quick
+      for (let i = 0; i < p.files.length; i += 20) {
+        const f = `public/data/${p.files[i]}`;
+        expect(statSync(f).size, f).toBe(p.sizes[i]);
+        expect(createHash('sha256').update(readFileSync(f)).digest('hex').slice(0, 16), f).toBe(p.sums[i]);
+      }
+    }
+  });
+});

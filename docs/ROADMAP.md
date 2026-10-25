@@ -28,7 +28,7 @@ Most of this list comes from an outside code review (a ChatGPT analysis of the r
 - CSRF review beyond SameSite, automatic server backups. (The server already sends a strict Content-Security-Policy, `nosniff`, a referrer policy and `frame-ancestors 'none'`.)
 
 ## Open: offline and PWA
-- Per-pack manifests with sizes and checksums, resumable and cancellable downloads, real byte progress, quota-error handling.
+- Done: the pack manifest lists each file's size and a short SHA-256; downloads show real byte progress, can be stopped, resume (files already cached are skipped), verify each file, and report a full-storage error. Still open: the same for whole Bible editions.
 - A true offline test in CI; an update prompt that never interrupts an unsaved journal entry.
 
 ## Open: scripture data integrity
