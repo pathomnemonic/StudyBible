@@ -38,6 +38,7 @@ const PassageStudy = lazy(() => import('./pages/study/PassageStudy'));
 const ListenHome = lazy(() => import('./pages/listen/ListenHome'));
 const EpisodePage = lazy(() => import('./pages/listen/EpisodePage'));
 const PrayHome = lazy(() => import('./pages/pray/PrayHome'));
+const OfficePage = lazy(() => import('./pages/pray/OfficePage'));
 const ReadingsPage = lazy(() => import('./pages/pray/ReadingsPage'));
 const LectioPage = lazy(() => import('./pages/pray/LectioPage'));
 const JournalPage = lazy(() => import('./pages/pray/JournalPage'));
@@ -207,6 +208,7 @@ export default function App() {
               <Route path="/days" element={<DaysPage />} />
               <Route path="/more" element={<MorePage />} />
               <Route path="/pray/sleep" element={<SleepPage />} />
+              <Route path="/pray/office" element={<OfficePage />} />
               <Route path="/pray/lectio" element={<LectioPage />} />
               <Route path="/pray/journal" element={<JournalPage />} />
               <Route path="/pray/plans" element={<PlansPage />} />

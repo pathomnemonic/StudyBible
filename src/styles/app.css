@@ -4040,3 +4040,13 @@ html[data-atm] .chapter-title.has-art::after { display: none; }
 /* reading options: one verse per line, footnote marks off */
 html[data-verses='lines'] .v.vfirst { display: block; margin-top: 0.3em; }
 html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: none; }
+
+/* Divine Office */
+.office-sec { margin: 14px 0; }
+.office-sec h3 { font-size: .95rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted, #777); margin: 0 0 6px; }
+.office-psalm p, .office-hymn p { margin: 0 0 .7em; line-height: 1.55; }
+.office-psalm, .office-hymn { padding-left: 10px; border-left: 2px solid var(--line, rgba(128,128,128,.25)); }
+.office-ant { font-style: italic; margin: 6px 0; }
+.office-k { color: var(--accent, #b33); font-weight: 600; }
+.office-pair { margin-bottom: 10px; }
+.office-vr p { margin: 2px 0; }

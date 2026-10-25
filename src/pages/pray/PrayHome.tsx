@@ -33,6 +33,7 @@ export default function PrayHome() {
       <p className="lede">Quiet ways to pray with Scripture. Everything here is optional; the Bible and your readings are one tab away.</p>
       <div className="grid">
         <Link to="/pray/lectio" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Lectio Divina</h2><p className="muted">Read, meditate, pray, rest — with a gentle timer you control.</p></Link>
+        <Link to="/pray/office" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">The Divine Office</h2><p className="muted">Lauds, Vespers, Compline and the little hours, from the Psalms. Works offline.</p></Link>
         <Link to="/session" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">A quiet moment</h2><p className="muted">A guided ten-minute pause: pray, read, reflect, hear the Church, pray.</p></Link>
         <Link to="/pray/sleep" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Sleep mode</h2><p className="muted">A psalm read slowly while the sound fades and the screen dims.</p></Link>
         <Link to="/pray/journal" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prayer journal</h2><p className="muted">Reflections, intentions and saved prayers. Private to this device.</p></Link>
