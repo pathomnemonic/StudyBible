@@ -11,6 +11,7 @@ import type { BiayEpisode } from '../../data/content';
 import { fold } from '../../search/engine';
 import MyMedia from '../../components/MyMedia';
 import YearHero from '../../components/YearHero';
+import { RecordedList } from '../../components/RecordedBooks';
 
 type View = 'plan' | 'release' | 'queue' | 'progress';
 
@@ -101,6 +102,7 @@ export default function ListenHome() {
         </p>
       </section>
       <MyMedia />
+      <RecordedList />
       <div className="notice info">
         Official sources: <a href={biay.data.meta.page} target="_blank" rel="noreferrer">podcast page</a> · <a href={biay.data.meta.home} target="_blank" rel="noreferrer">Ascension reading plan</a> · <a href="https://www.youtube.com/@AscensionPresents" target="_blank" rel="noreferrer">Ascension Presents on YouTube</a>. Transcripts are not published in the official feed, so none are shown. Passage lists come from the feed metadata (voted across yearly re-releases) and may be corrected by reviewers in <code>data/curated/biay-overrides.json</code>.
       </div>

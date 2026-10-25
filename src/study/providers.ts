@@ -23,7 +23,7 @@ export type SectionKey =
   | 'catholic-answers' | 'creators' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
   | 'dictionary' | 'people' | 'encyclopedia'
   | 'context' | 'language' | 'places' | 'topics' | 'parallels' | 'art' | 'background' | 'typology'
-  | 'videos' | 'kids'
+  | 'videos' | 'kids' | 'recorded'
   | 'quotes' | 'customs' | 'structure' | 'wordnotes' | 'versions' | 'witnesses' | 'echoes' | 'genre' | 'dependency' | 'reception' // lenses
   | 'mine';
 
@@ -39,6 +39,7 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'xref', label: 'Cross-references' },
   { key: 'videos', label: 'Videos', hint: 'Teaching videos from Catholic creators, played here. Each is matched to the passage by what it is about, even when it does not quote the verse; the card says why.' },
   { key: 'kids', label: 'For children', hint: 'A Bible story for children at three reading levels, and videos made for kids, for the passage.' },
+  { key: 'recorded', label: 'Recorded readings', hint: 'Volunteer recordings of the Bible from LibriVox (public domain). Each plays from the start of its file, which covers several chapters, so it may begin before this passage.' },
   { key: 'catholic-answers', label: 'Catholic Answers', hint: 'Links to individual pages on catholic.com. Open them to read the full article there.' },
   { key: 'creators', label: 'Catholic creators & apologists', hint: 'Jimmy Akin, Trent Horn, Matt Fradd, Brant Pitre and others: videos, podcasts and articles, linked at their source.' },
   { key: 'word-on-fire', label: 'Bishop Barron & Word on Fire' },
@@ -77,7 +78,7 @@ export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'connections', label: 'Connections', sections: ['typology', 'quotes', 'xref', 'parallels', 'dependency', 'topics'] },
   { id: 'words', label: 'Words', sections: ['wordnotes', 'versions'] },
   { id: 'world', label: 'World', sections: ['customs', 'encyclopedia', 'people', 'background', 'dictionary', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
-  { id: 'media', label: 'Media', sections: ['art', 'videos', 'kids', 'catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
+  { id: 'media', label: 'Media', sections: ['art', 'videos', 'recorded', 'kids', 'catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
 
@@ -979,6 +980,31 @@ export const providers: Record<string, Provider> = {
     return out;
   },
 
+  /** LibriVox recordings of the chapter (public domain). They start at the head of their file; we do not claim to know where a verse falls. */
+  async recorded(refs) {
+    const { recordingForChapter } = await import('../data/librivox');
+    const out: StudyItem[] = [];
+    const seen = new Set<string>();
+    for (const r of refs.slice(0, 3)) {
+      for (let c = r.c1; c <= Math.min(r.c2, r.c1 + 2); c++) {
+        for (const ed of ['dra', 'webc']) {
+          const nc = ed === 'webc' ? convertRef('vulgate', 'kjv', { book: r.book, c1: c, c2: c }).ref.c1 : c;
+          const hit = await recordingForChapter(ed, r.book, nc);
+          const key = hit && `${ed}-${hit.partIndex}`;
+          if (!hit || !key || seen.has(key)) continue;
+          seen.add(key);
+          out.push({
+            id: `lv-${key}`, section: 'recorded', title: `${hit.part[0]} (${ed === 'dra' ? 'Douay-Rheims' : 'World English Bible'})`, author: hit.recording.reader || 'LibriVox volunteers',
+            excerpt: `Read aloud by ${hit.recording.reader || 'volunteers'} for LibriVox. This file reads ${hit.part[0]} and starts at the beginning, not at this verse.`,
+            url: hit.recording.page, audio: hit.part[1], authority: 'media', period: 'contemporary', format: 'audio', match: 'passage',
+            why: `The recording of ${hit.part[0]} includes this chapter.`, sourceName: 'LibriVox (public domain)', kind: 'Recording',
+          });
+        }
+      }
+    }
+    return out;
+  },
+
   /** answers to objections that turn on the passage */
   async apologetics(refs) {
     const { apologeticsFor } = await import('../pages/study/ApologeticsPage');
@@ -1137,6 +1163,7 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     [['catholic-answers', 'creators', 'word-on-fire', 'ascension', 'resources'], providers.external(refs)],
     [['links'], providers.userlinks(refs)],
     [['biay'], providers.biay(refs)],
+    [['recorded'], providers.recorded(refs)],
     [['context'], providers.context(refs)],
     [['apologetics'], providers.apologetics(refs)],
     [['videos'], providers.videos(refs)],

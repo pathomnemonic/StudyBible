@@ -48,3 +48,24 @@ describe('video catalogue', () => {
     }
   });
 });
+
+describe('recorded readings', () => {
+  const d = read('public/data/media/librivox.json');
+  const lib = new Set(read('public/data/library/index.json').works.map((w: any) => w.id));
+  it('lists https files for works that exist in the library', () => {
+    expect(Object.keys(d.works).length).toBeGreaterThan(40);
+    for (const [id, recs] of Object.entries<any>(d.works)) {
+      expect(lib.has(id), id).toBe(true);
+      for (const r of recs) for (const p of r.parts) expect(p[1], `${id} ${p[0]}`).toMatch(/^https:\/\/.+\.mp3$/);
+    }
+  });
+  it('places the Bible recordings by chapter', async () => {
+    const { chaptersOfPart } = await import('../src/data/librivox');
+    for (const ed of ['dra', 'webc']) {
+      let n = 0;
+      for (const p of d.bible[ed].parts) n += chaptersOfPart(p[0]).length;
+      expect(n, ed).toBeGreaterThan(1000);
+    }
+    expect(chaptersOfPart('1 John 1 - 5, 2 John 1, 3 John 1').length).toBe(7);
+  });
+});

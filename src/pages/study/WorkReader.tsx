@@ -7,6 +7,7 @@ import RefLink from '../../components/RefLink';
 import NoteEditor from '../../components/NoteEditor';
 import TextSettings from '../../components/TextSettings';
 import Icon from '../../components/Icon';
+import { RecordedWork } from '../../components/RecordedBooks';
 import { fold } from '../../search/engine';
 
 export default function WorkReader() {
@@ -61,6 +62,7 @@ export default function WorkReader() {
           </div>
         </div>
       )}
+      {!quiet && <RecordedWork workId={workId} />}
       {quiet && <button className="btn small" style={{ position: 'fixed', top: 8, right: 8 }} onClick={() => setSettings({ scriptureOnly: false })}>Exit reading mode</button>}
       {toc && !quiet && (
         <div className="card" style={{ maxWidth: 760, margin: '10px auto' }}>
