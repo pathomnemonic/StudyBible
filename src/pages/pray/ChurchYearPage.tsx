@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { liturgicalDay, parseIso, COLOR_NAME, type Season } from '../../liturgy/compute';
 import { useSettings } from '../../lib/store';
+import { byzantineFixed, byzantineMovable, traditionOf } from '../../lib/tradition';
 
 const iso = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 const nice = (s: string) => new Date(`${s}T12:00:00`).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
@@ -20,7 +21,42 @@ const BLURB: Partial<Record<Season, string>> = {
   ordinary: 'The Sundays and weeks in which we follow Christ’s life and teaching through the Gospels. Green.',
 };
 
+function EasternYear() {
+  const [s] = useSettings();
+  const t = traditionOf(s.tradition);
+  const y = new Date().getFullYear();
+  const days = s.tradition === 'byzantine' ? [...byzantineMovable(y, s.paschaJulian), ...byzantineFixed(y, s.oldCalendar)].sort((a, b) => a.date.getTime() - b.date.getTime()) : [];
+  return (
+    <div className="page">
+      <p><Link to="/pray">← Prayer</Link></p>
+      <h1>The Church’s year: {t.name.split(' (')[0]}</h1>
+      {s.tradition === 'byzantine' ? (
+        <>
+          <p className="lede">The great days of the Byzantine year for {y}, worked out from the date of Pascha. {s.paschaJulian ? 'Pascha is dated by the Julian reckoning.' : 'Pascha is on the same day as in the Latin Church.'} {s.oldCalendar ? 'Fixed feasts are shown on the old calendar (civil dates 13 days later).' : 'Fixed feasts are shown on the new calendar.'} Change these in <Link to="/settings">Settings → Your Church</Link>.</p>
+          <ul className="list">{days.map((d) => <li key={d.label}><strong>{d.date.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</strong> · {d.label}</li>)}</ul>
+          <p className="muted small">Churches differ: some Byzantine Catholic Churches keep Rome’s date of Easter and the new calendar, others the Julian ones. Follow your own eparchy. The daily Apostle and Gospel readings of the Byzantine cycle, and the feasts of saints, are not in this app.</p>
+        </>
+      ) : (
+        <>
+          <p className="lede">The {t.name} keeps its own liturgical year, with its own seasons and calendar. This app can’t yet work those dates out for you, and it would be wrong to show you the Roman calendar as if it were yours.</p>
+          <p>Please use your Church’s own calendar{t.site ? <>: <a href={t.site.url} target="_blank" rel="noreferrer noopener">{t.site.label}</a></> : ' from your eparchy or parish'}.</p>
+          <p><Link to="/pray/year?roman=1">Show the Roman calendar for reference</Link></p>
+        </>
+      )}
+      <p className="small"><Link to="/about#eastern">What the app covers for the Eastern Churches</Link></p>
+    </div>
+  );
+}
+
 export default function ChurchYearPage() {
+  const [s] = useSettings();
+  const [q] = useSearchParams();
+  const roman = q.get('roman') === '1';
+  if (s.tradition !== 'latin' && !roman) return <EasternYear />;
+  return <RomanYear />;
+}
+
+function RomanYear() {
   const [s] = useSettings();
   const nation = s.diocese === 'US' ? 'usa' : 'universal';
   const { segments, key, today } = useMemo(() => {

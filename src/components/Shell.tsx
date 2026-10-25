@@ -118,7 +118,7 @@ export default function Shell({ children }: { children: ReactNode }) {
         {inDaily(loc.pathname) && !fullscreenReader && (
           <nav className="subnav" aria-label="Daily practice">
             {DAILY.map((d, i) => (
-              <NavLink key={d.to} to={d.to} className={dailyActive(loc.pathname) === i ? 'on' : ''} aria-current={dailyActive(loc.pathname) === i ? 'page' : undefined}>{d.label}</NavLink>
+              <NavLink key={d.to} to={d.to} className={dailyActive(loc.pathname) === i ? 'on' : ''} aria-current={dailyActive(loc.pathname) === i ? 'page' : undefined}>{d.to === '/pray/readings' && s.tradition !== 'latin' ? 'Roman readings' : d.label}</NavLink>
             ))}
           </nav>
         )}

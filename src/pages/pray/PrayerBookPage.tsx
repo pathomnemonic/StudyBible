@@ -1,11 +1,15 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { db } from '../../db/db';
-import { BOOK_PRAYERS as PRAYERS, PRAYER_TAGS } from '../../data/prayerbook';
+import { BOOK_PRAYERS, PRAYER_TAGS } from '../../data/prayerbook';
+import { useSettings } from '../../lib/store';
 
 const label = (t: string) => t.replace(/-/g, ' ');
 
 export default function PrayerBookPage() {
+  const [st] = useSettings();
+  // Eastern readers see the prayers of their own tradition first
+  const PRAYERS = st.tradition === 'latin' ? BOOK_PRAYERS : [...BOOK_PRAYERS].sort((a, b) => Number(b.tags.includes('eastern')) - Number(a.tags.includes('eastern')));
   const [q, setQ] = useState('');
   const [tag, setTag] = useState('');
   const [open, setOpen] = useState<string | null>(null);

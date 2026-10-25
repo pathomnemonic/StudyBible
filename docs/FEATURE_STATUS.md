@@ -245,6 +245,12 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Your own thinking over time | **Working** | The reader shows a note you wrote on this chapter months ago; Lectio shows your earlier reflections on the same passage; notes and questions can carry a come-back date; Library → Notes has a timeline by tag. |
 | Put the verse in order, group presentation, study vault | **Working** | A memorising mode that cuts the verse into pieces to put back in order; a full-screen presentation of the group sheet (private notes never shown); and a vault export of notes and journal as Markdown files with an index, for Obsidian. |
 
+## App
+
+| Feature | Status | Notes |
+|---|---|---|
+| Eastern Catholic Churches and other traditions | **Partial** | A “Your Church” setting changes the name of the liturgy, the Psalm numbering, the prayer book order and the labels on Roman-only content; Byzantine Churches also get their year’s great days (Julian or Rome’s Pascha, old or new calendar) and an outline of the Divine Liturgy. The lectionaries, hours and calendars of the Syriac, Armenian, Alexandrian and Chaldean Churches are not in the app, which says so and points to each Church’s own site. **Next:** The calendars and daily readings of each Eastern Church, and the Peshitta and other Bibles. **Blocked by:** data. **Done when:** dates for sample years match the Church’s published calendar. |
+
 ## Pray
 
 | Feature | Status | Notes |

@@ -5,6 +5,7 @@ import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
 import StorageStatus from '../components/StorageStatus';
 import { downloadEdition, isEditionCached, downloadPack, packStillCached, getManifest, type StudyPack } from '../data/loader';
 import { useSettings, THEMES } from '../lib/store';
+import { TRADITIONS, traditionOf } from '../lib/tradition';
 import { LANGS, useT } from '../lib/i18n';
 import { BOOKS } from '../lib/canon';
 import { NATIONS } from '../liturgy/litcal';
@@ -117,6 +118,23 @@ export default function SettingsPage() {
         <div className="row between" style={{ margin: '8px 0' }}><span>Liturgical calendar</span><select aria-label="Liturgical calendar" value={s.diocese} onChange={(e) => set({ diocese: e.target.value })}>{Object.entries(NATIONS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></div>
       </div>
 
+      <div className="card">
+        <h2 className="card-title">Your Church</h2>
+        <p className="muted small">The app began with the Latin (Roman) Rite. Choose your Church so it uses your own names (Divine Liturgy, Holy Qurbana…), shows the right calendar where it can, and says plainly where its readings and prayers follow the Roman Rite rather than yours.</p>
+        <label className="row between" style={{ margin: '10px 0' }}>
+          <span>I belong to</span>
+          <select value={s.tradition} onChange={(e) => set({ tradition: e.target.value as any, refNumbering: traditionOf(e.target.value).roman ? s.refNumbering : 'vulgate' })} aria-label="Your Church">
+            {TRADITIONS.map((t) => <option key={t.id} value={t.id}>{t.name}</option>)}
+          </select>
+        </label>
+        {s.tradition === 'byzantine' && (
+          <>
+            <label className="row between"><span>Date Pascha by the Julian reckoning (as the Orthodox)</span><input type="checkbox" checked={s.paschaJulian} onChange={(e) => set({ paschaJulian: e.target.checked })} aria-label="Julian Pascha" /></label>
+            <label className="row between"><span>Keep fixed feasts on the old calendar (13 days later)</span><input type="checkbox" checked={s.oldCalendar} onChange={(e) => set({ oldCalendar: e.target.checked })} aria-label="Old calendar" /></label>
+          </>
+        )}
+        {!traditionOf(s.tradition).roman && <p className="small">Psalms are numbered here as in the Septuagint (and the Vulgate), the numbering your Church’s books use. {traditionOf(s.tradition).site && <>Your Church’s own site: <a href={traditionOf(s.tradition).site!.url} target="_blank" rel="noreferrer noopener">{traditionOf(s.tradition).site!.label}</a>.</>} See <Link to="/about#eastern">what the app does and does not cover for the Eastern Churches</Link>.</p>}
+      </div>
       <div className="card">
         <h2 className="card-title">Offline reading</h2>
         <p className="muted small">Only public-domain editions can be downloaded. The app caches any chapter you open; use these buttons to fetch an entire edition (about 5 MB each) in advance.</p>

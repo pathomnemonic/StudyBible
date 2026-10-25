@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getJson } from '../../data/loader';
 import { liturgicalDay, parseIso } from '../../liturgy/compute';
+import { useSettings } from '../../lib/store';
+import { traditionOf } from '../../lib/tradition';
 
 interface Psalm { title: string; lines: string[][]; psalm: number }
 interface Resp { k?: 'R' | 'V'; t?: string; gloria?: boolean }
@@ -101,6 +103,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 export default function OfficePage() {
+  const [st] = useSettings();
   const [data, setData] = useState<Office | null>(null);
   const [err, setErr] = useState('');
   const [hour, setHour] = useState<Hour>(hourNow);
@@ -229,6 +232,7 @@ export default function OfficePage() {
   return (
     <div className="page office">
       <h1>The Divine Office</h1>
+      {st.tradition !== 'latin' && <div className="notice info" role="note"><strong>This is the Roman (Latin) Office.</strong> The {traditionOf(st.tradition).name} prays its own hours (for Byzantine Churches, the Horologion; for the Syriac Churches, the Shehimo or Ramsho and Sapro). Those are not in this app. You are welcome to pray the psalms here, which belong to every Church.</div>}
       <p className="lede">The Church’s prayer through the day, mostly from the Psalms. This is the traditional Roman weekly psalter in the Douay-Rheims psalm text, from the open Divinum Officium project.</p>
       <div className="row" style={{ flexWrap: 'wrap', gap: 6, marginBottom: 10 }} role="tablist" aria-label="Hour">
         {HOURS.map((x) => (

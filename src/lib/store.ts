@@ -90,6 +90,12 @@ export interface Settings {
   copyStyle: 'numbers' | 'plain' | 'quote';
   /** study-panel sections the reader has chosen not to see */
   studyHidden: string[];
+  /** the Catholic Church the reader belongs to; the Roman Rite is the default */
+  tradition: 'latin' | 'ordinariate' | 'byzantine' | 'syro-malabar' | 'syro-malankara' | 'maronite' | 'chaldean' | 'armenian' | 'alexandrian';
+  /** Byzantine Churches: date Pascha by the Julian reckoning (as the Orthodox do) rather than Rome's */
+  paschaJulian: boolean;
+  /** Byzantine Churches: keep fixed feasts on the old (Julian) calendar, 13 days later */
+  oldCalendar: boolean;
   /** the small † footnote marks and the verse markers for notes in the text */
   showNoteMarks: boolean;
   /** the words of Jesus in red, where the translation marks them */
@@ -158,6 +164,9 @@ export const DEFAULTS: Settings = {
   verseLines: false,
   copyStyle: 'numbers',
   studyHidden: [],
+  tradition: 'latin',
+  paschaJulian: false,
+  oldCalendar: false,
   showNoteMarks: true,
   hintVerse: false,
   atmosphere: 'passage',

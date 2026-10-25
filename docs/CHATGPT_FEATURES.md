@@ -37,7 +37,7 @@ Source: the whole ChatGPT conversation about this project (the code review, "40 
 | 29 | Patristic commentary explorer | Yes | Fathers tab, Fathers library, Voices timeline (`/study/voices`) |
 | 30 | Scripture-to-Catechism pathway | Partly | Verified Catechism links (29 verses, 18 topics); the full index needs a licence |
 | 31 | Development-of-doctrine timelines | Partly | Doctrine topics and the patristic timeline; no per-doctrine timeline |
-| 32 | Eastern / Syro-Malabar pathway | No | Needs sourced material that we do not have |
+| 32 | Eastern / Syro-Malabar pathway | Partly | **Your Church** setting (Settings): the liturgy's own name, Septuagint Psalm numbering, Eastern prayers first, Roman-only content labelled as Roman, and for Byzantine Churches the year's great days (Julian or Rome's Pascha, old or new calendar) and a Divine Liturgy outline. The Syriac, Armenian, Alexandrian and Chaldean calendars, lectionaries and hours are not in the app; it says so and links to the Church's own site |
 | 33 | Daily readings with historical context | Partly | Readings, Prepare for Sunday, homilies and commentary; short historical notes only where we have them |
 | 34 | Typology explorer | Yes | Promise and fulfilment (`/study/fulfilment`), labelled by source |
 | 35 | Active-recall study | Partly | Memorisation in five modes; no generated review questions |

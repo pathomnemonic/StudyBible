@@ -6,6 +6,7 @@ import { gradeName, loadLitYear, NATIONS, type LitYear } from '../../liturgy/lit
 import { importLectionary, readingsFor, saveManualReadings, slotLabel, type DayReadings, type Slot } from '../../liturgy/readings';
 import { useSettings } from '../../lib/store';
 import { useT } from '../../lib/i18n';
+import { traditionOf } from '../../lib/tradition';
 import RefLink from '../../components/RefLink';
 import Icon from '../../components/Icon';
 import ReadingBlock from '../../components/ReadingBlock';
@@ -55,6 +56,7 @@ export default function ReadingsPage() {
     <div className="page">
       <Link to="/pray" className="small">← Pray</Link>
       <h1>{t('readings.title')}</h1>
+      {s.tradition !== 'latin' && <div className="notice info" role="note"><strong>These are the Latin Church’s readings.</strong> The {traditionOf(s.tradition).name} follows its own cycle of readings for the {traditionOf(s.tradition).liturgy}, which this app does not have. The passages below are still Scripture you can read and pray, and the Roman lectionary is the one most English-language Catholic resources use.</div>}
       <div className="row between">
         <div className="row">
           <button className="icon-btn" onClick={() => go(-1)} aria-label="Previous day"><Icon name="chevL" /></button>
@@ -80,7 +82,7 @@ export default function ReadingsPage() {
       </div>
 
       <div className="card">
-        <h2>{t('readings.mass')}</h2>
+        <h2>{s.tradition === 'latin' ? t('readings.mass') : 'Readings (Roman lectionary)'}</h2>
         {!rd && <div className="muted">Loading…</div>}
         {rd && rd.title && <div className="muted small">{rd.title}</div>}
         {rd && rd.items.length > 0 && (
