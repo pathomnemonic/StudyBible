@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { db } from '../db/db';
 import { loadBiay } from './biay';
+import { lookupEpisode } from './podcasts';
 import type { BiayEpisode } from './content';
 
 interface PlayerState {
@@ -67,8 +68,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const next = idx >= 0 ? q[idx + 1] : q[0];
       if (idx >= 0) await db.queue.delete(q[idx].id!);
       if (next) {
-        const v = await loadBiay();
-        const ep = v?.byId.get(next.episodeId);
+        await loadBiay();
+        const ep = lookupEpisode(next.episodeId);
         if (ep) play(ep);
       }
     });

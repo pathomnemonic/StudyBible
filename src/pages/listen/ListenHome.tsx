@@ -12,10 +12,13 @@ import { fold } from '../../search/engine';
 import MyMedia from '../../components/MyMedia';
 import YearHero from '../../components/YearHero';
 import { RecordedList } from '../../components/RecordedBooks';
+import PodcastView from './PodcastView';
+import { useShows } from '../../data/podcasts';
+import { useSettings } from '../../lib/store';
 
 type View = 'plan' | 'release' | 'queue' | 'progress';
 
-export default function ListenHome() {
+function BiayListen() {
   const { biay, loaded } = useBiay();
   const player = usePlayer();
   const [view, setView] = useState<View>('plan');
@@ -62,8 +65,8 @@ export default function ListenHome() {
   const years = [...new Set(biay.data.episodes.map((e) => e.year).filter(Boolean) as number[])].sort();
 
   return (
-    <div className="page">
-      <h1>Bible in a Year</h1>
+    <div>
+      <h2 className="h-sm" style={{ marginBottom: 2 }}>The Bible in a Year</h2>
       <p className="lede">The Bible in a Year with Fr. Mike Schmitz, mapped to the passages each day reads. Audio and video belong to Ascension; this app links to the originals and plays the publisher’s own feed.</p>
 
       <YearHero />
@@ -138,3 +141,39 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
     </li>
   );
 }
+
+const KEY = 'sb:listen:show';
+
+/** The Listen tab: pick what to listen to from the list at the top. Bible in a Year is the default. */
+export default function ListenHome() {
+  const shows = useShows();
+  const [st] = useSettings();
+  const [id, setId] = useState(() => { try { return new URLSearchParams(location.hash.split('?')[1] ?? '').get('show') ?? localStorage.getItem(KEY) ?? 'biay'; } catch { return 'biay'; } });
+  const choose = (v: string) => { setId(v); try { localStorage.setItem(KEY, v); } catch { /* storage unavailable */ } };
+  const show = shows?.find((x) => x.id === id);
+  // programmes first, then your own Church's shows, then the rest
+  const mine = (x: { tradition: string | null }) => !!x.tradition && x.tradition === st.tradition;
+  const programmes = (shows ?? []).filter((x) => x.programme);
+  const others = (shows ?? []).filter((x) => !x.programme).sort((a, b) => Number(mine(b)) - Number(mine(a)));
+  return (
+    <div className="page">
+      <div className="row between" style={{ marginBottom: 6, flexWrap: 'wrap', gap: 8 }}>
+        <h1 style={{ margin: 0 }}>Listen</h1>
+        <label className="row" style={{ gap: 8 }}>
+          <span className="muted small">Listening to</span>
+          <select value={id} onChange={(e) => choose(e.target.value)} aria-label="Choose a programme or podcast" style={{ maxWidth: '70vw' }}>
+            <optgroup label="Year-long programmes">
+              <option value="biay">The Bible in a Year (Fr. Mike Schmitz)</option>
+              {programmes.map((x) => <option key={x.id} value={x.id}>{x.title}</option>)}
+            </optgroup>
+            <optgroup label="Catholic podcasts">
+              {others.map((x) => <option key={x.id} value={x.id}>{x.title}{x.tradition ? ' (Eastern Catholic)' : ''}</option>)}
+            </optgroup>
+          </select>
+        </label>
+      </div>
+      {id === 'biay' || !shows ? <BiayWrapper /> : show ? <PodcastView show={show} /> : <BiayWrapper />}
+    </div>
+  );
+}
+const BiayWrapper = () => <div className="embedded-listen"><BiayListen /></div>;

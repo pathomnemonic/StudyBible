@@ -65,7 +65,7 @@ const CSP = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
   "media-src https: blob:",
-  "connect-src 'self' https://litcal.johnromanodorazio.com",
+  "connect-src 'self' https://litcal.johnromanodorazio.com https://orthocal.info",
   "frame-src https://fireside.fm https://www.youtube-nocookie.com https://open.spotify.com https://embed.podcasts.apple.com https://player.vimeo.com",
   "worker-src 'self'",
   "manifest-src 'self'",

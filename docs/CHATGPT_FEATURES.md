@@ -52,7 +52,8 @@ Source: the whole ChatGPT conversation about this project (the code review, "40 
 | Area | Proposal | Status |
 |---|---|---|
 | Ascension | Bible in a Year with companion material | Yes (episodes mapped, readings, related teaching). Transcripts: No (not published) |
-| | Catechism in a Year, Rosary in a Year | No: the programmes' content is copyrighted |
+| | Catechism in a Year, Rosary in a Year | Yes: choose them from the list at the top of the Listen tab; episodes play from Ascension's own feed, with Catechism paragraph numbers on each Catechism episode and search by paragraph |
+| | Other Catholic podcasts | Yes: about 20 shows in the same list, including Eastern Catholic and Maronite ones |
 | | Sunday preparation | Yes (`/pray/sunday`) |
 | | Bible question library | Yes (resource directory, written by others) |
 | | Timeline-based Bible course with quizzes | Yes (`/study/course`) |

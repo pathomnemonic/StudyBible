@@ -1,0 +1,167 @@
+[
+ {
+  "id": "catechism-in-a-year",
+  "title": "The Catechism in a Year",
+  "host": "Fr. Mike Schmitz",
+  "publisher": "Ascension",
+  "feed": "https://feeds.fireside.fm/catechisminayear/rss",
+  "page": "https://catechisminayear.com/",
+  "programme": true,
+  "note": "Reads the whole Catechism of the Catholic Church in 365 days."
+ },
+ {
+  "id": "rosary-in-a-year",
+  "title": "The Rosary in a Year",
+  "host": "Fr. Mark-Mary Ames, CFR",
+  "publisher": "Ascension",
+  "feed": "https://feeds.fireside.fm/rosaryinayear/rss",
+  "page": "https://rosaryinayear.com/",
+  "programme": true,
+  "note": "Prays the Rosary each day with a short reflection, for a year."
+ },
+ {
+  "id": "fr-mike",
+  "title": "The Fr. Mike Schmitz Catholic Podcast",
+  "host": "Fr. Mike Schmitz",
+  "publisher": "Ascension",
+  "feed": "https://feeds.fireside.fm/thefrmikepodcast/rss",
+  "page": "https://www.ascensionpress.com/",
+  "cap": 150
+ },
+ {
+  "id": "sunday-homilies",
+  "title": "Sunday Homilies",
+  "host": "Fr. Mike Schmitz",
+  "publisher": "Ascension",
+  "feed": "https://feeds.fireside.fm/fathermikehomilies/rss",
+  "page": "https://www.ascensionpress.com/",
+  "cap": 150,
+  "note": "Homilies for the Sunday Mass readings."
+ },
+ {
+  "id": "all-things-catholic",
+  "title": "All Things Catholic",
+  "host": "Dr. Edward Sri",
+  "publisher": "Ascension",
+  "feed": "https://feeds.fireside.fm/allthingscatholic/rss",
+  "page": "https://www.ascensionpress.com/",
+  "cap": 150
+ },
+ {
+  "id": "catholic-answers-live",
+  "title": "Catholic Answers Live",
+  "host": "Catholic Answers",
+  "publisher": "Catholic Answers",
+  "feed": "http://feeds.feedburner.com/catholic/cal",
+  "page": "https://www.catholic.com/audio/cal",
+  "cap": 150,
+  "note": "Callers ask questions about the Catholic faith."
+ },
+ {
+  "id": "word-on-fire-show",
+  "title": "The Word on Fire Show",
+  "host": "Bishop Robert Barron",
+  "publisher": "Word on Fire",
+  "feed": "https://rss.libsyn.com/shows/71279/destinations/302449.xml",
+  "page": "https://www.wordonfire.org/",
+  "cap": 150
+ },
+ {
+  "id": "barron-sermons",
+  "title": "Bishop Barron’s Sunday Sermons",
+  "host": "Bishop Robert Barron",
+  "publisher": "Word on Fire",
+  "feed": "https://feed.podbean.com/wordonfire/feed.xml",
+  "page": "https://www.wordonfire.org/",
+  "cap": 150
+ },
+ {
+  "id": "pints-with-aquinas",
+  "title": "Pints With Aquinas",
+  "host": "Matt Fradd",
+  "publisher": "Pints With Aquinas",
+  "feed": "https://feeds.megaphone.fm/BVDWV3128780668",
+  "page": "https://pintswithaquinas.com/",
+  "cap": 150
+ },
+ {
+  "id": "catholic-talk-show",
+  "title": "The Catholic Talk Show",
+  "host": "Ryan Scheel, Ryan DellaCrosse and Fr. Michael Nixon",
+  "publisher": "The Catholic Talk Show",
+  "feed": "https://feeds.megaphone.fm/KM5671060902",
+  "page": "https://www.thecatholictalkshow.com/",
+  "cap": 150
+ },
+ {
+  "id": "pray-as-you-go",
+  "title": "Pray As You Go",
+  "host": "Jesuits in Britain",
+  "publisher": "Pray As You Go",
+  "feed": "https://admin.prayasyougo.org/api/feed.xml",
+  "page": "https://pray-as-you-go.org/",
+  "cap": 120,
+  "note": "A short daily prayer session with the day’s Scripture, from the Jesuits."
+ },
+ {
+  "id": "father-simon-says",
+  "title": "Father Simon Says",
+  "host": "Fr. Simon",
+  "publisher": "Relevant Radio",
+  "feed": "https://www.omnycontent.com/d/playlist/134e18ca-7af8-403f-a7eb-ad7f01861f48/0af98cb5-6484-4e11-a791-adf0015aa9b6/2e62f887-a693-42e6-a627-adf0015aa9c4/podcast.rss",
+  "page": "https://relevantradio.com/",
+  "cap": 150
+ },
+ {
+  "id": "veritas-gospel",
+  "title": "Daily Gospel Reflection",
+  "host": "Veritas Catholic Network",
+  "publisher": "Veritas Catholic Network",
+  "feed": "https://feed.podbean.com/dailycatholicreflection/feed.xml",
+  "page": "https://veritascatholic.network/",
+  "cap": 120,
+  "note": "A short reflection on each day’s Gospel."
+ },
+ {
+  "id": "ecdr",
+  "title": "Eastern Catholic Daily Readings",
+  "host": "ECDR",
+  "publisher": "ECDR (readings from the Royal Doors Ukrainian Catholic site and iPraises)",
+  "feed": "https://anchor.fm/s/ef0a8be8/podcast/rss",
+  "page": "https://podcasters.spotify.com/pod/show/ecdr6782",
+  "cap": 120,
+  "tradition": "byzantine",
+  "note": "The day’s Epistle and Gospel and saints of the Byzantine calendar, as audio."
+ },
+ {
+  "id": "maronite-readings",
+  "title": "The Daily Readings of the Maronite Church",
+  "host": "Nick Aho",
+  "publisher": "Nick Aho",
+  "feed": "https://feed.podbean.com/thedailyreadingofthemaronitechurch/feed.xml",
+  "page": "https://thedailyreadingofthemaronitechurch.podbean.com",
+  "cap": 100,
+  "tradition": "maronite",
+  "note": "Daily readings and reflections following the Maronite calendar."
+ },
+ {
+  "id": "divine-office",
+  "title": "Divine Office: Liturgy of the Hours",
+  "host": "DivineOffice.org",
+  "publisher": "DivineOffice.org",
+  "feed": "https://divineoffice.org/feed/podcast/",
+  "page": "https://divineoffice.org",
+  "cap": 60,
+  "note": "The Roman Liturgy of the Hours prayed aloud, hour by hour."
+ },
+ {
+  "id": "catholic-saints",
+  "title": "Catholic Saints",
+  "host": "Augustine Institute",
+  "publisher": "Augustine Institute",
+  "feed": "https://feeds.simplecast.com/KUwANK1A",
+  "page": "https://augustineinstitute.org/",
+  "cap": 150,
+  "note": "Scripture scholars on the lives of the saints."
+ }
+]

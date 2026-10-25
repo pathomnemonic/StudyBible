@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getBiay, type BiayData, type BiayEpisode } from './content';
 import { BOOK_ORDER } from '../lib/canon';
 import { parseRefId } from '../lib/refs';
+import { registerEpisodes } from './podcasts';
 
 export interface BiayView {
   data: BiayData;
@@ -18,6 +19,7 @@ export function loadBiay(): Promise<BiayView | null> {
   if (!cached)
     cached = getBiay().then((data) => {
       if (!data) return null;
+      registerEpisodes(data.episodes);
       const byId = new Map(data.episodes.map((e) => [e.id, e]));
       const releases = new Map<number, BiayEpisode[]>();
       for (const e of data.episodes) if (e.kind === 'day' && e.day) (releases.get(e.day) ?? releases.set(e.day, []).get(e.day)!).push(e);

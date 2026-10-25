@@ -24,6 +24,8 @@ jobs:
       - run: npm ci
       - name: Fetch the USCCB daily-readings feed (shown as published; keeps the committed copy if the fetch fails)
         run: curl -fsS --max-time 30 https://bible.usccb.org/readings.rss -o /tmp/feed.xml && grep -q '<item>' /tmp/feed.xml && cp /tmp/feed.xml public/data/usccb/feed.xml || echo 'feed fetch failed; using committed copy'
+      - name: Refresh the podcast episode lists from each show's public feed (keeps the committed lists if a feed fails)
+        run: npx tsx scripts/podcasts/build.ts || echo 'podcast refresh failed; using committed lists'
       - run: npm run build
       - run: touch dist/.nojekyll
       - uses: actions/upload-pages-artifact@v3

@@ -93,3 +93,24 @@ describe('rights and links', () => {
     expect(bad.slice(0, 5)).toEqual([]);
   });
 });
+
+describe('podcasts', () => {
+  it('lists the year-long programmes and shows with playable https audio', async () => {
+    const { readFileSync, existsSync } = await import('node:fs');
+    const idx = JSON.parse(readFileSync('public/data/media/podcasts.json', 'utf8'));
+    const ids = idx.shows.map((s: any) => s.id);
+    for (const id of ['catechism-in-a-year', 'rosary-in-a-year', 'ecdr', 'maronite-readings']) expect(ids, id).toContain(id);
+    expect(idx.shows.length).toBeGreaterThanOrEqual(15);
+    for (const s of idx.shows) {
+      const f = `public/data/media/podcast/${s.id}.json`;
+      expect(existsSync(f), f).toBe(true);
+      const d = JSON.parse(readFileSync(f, 'utf8'));
+      expect(d.episodes.length, s.id).toBeGreaterThan(0);
+      for (const e of d.episodes.slice(0, 30)) { expect(e.audio, `${s.id} ${e.title}`).toMatch(/^https:\/\//); expect(e.id).toMatch(/^pod-/); }
+    }
+    const cat = JSON.parse(readFileSync('public/data/media/podcast/catechism-in-a-year.json', 'utf8'));
+    expect(cat.episodes.filter((e: any) => e.ccc?.length).length).toBeGreaterThan(300);
+    const days = new Set(cat.episodes.filter((e: any) => e.day).map((e: any) => e.day));
+    expect(days.size).toBeGreaterThanOrEqual(360);
+  });
+});

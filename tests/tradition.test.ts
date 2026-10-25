@@ -29,3 +29,17 @@ describe('Eastern calendar helpers', () => {
     expect(traditionOf('byzantine').liturgy).toBe('Divine Liturgy');
   });
 });
+
+import { fromApi, readingRefs } from '../src/liturgy/byzantine';
+describe('Byzantine daily readings (Orthocal)', () => {
+  it('reads Orthocal references and a day record', () => {
+    const r = readingRefs('Galatians 2.16-20');
+    expect(r).toHaveLength(1);
+    expect(r[0]).toMatchObject({ book: 'GAL', c1: 2, v1: 16, v2: 20 });
+    expect(readingRefs('Luke 16.19-31')[0].book).toBe('LUK');
+    const day = fromApi({ titles: ['21st Sunday after Pentecost'], summary_title: '21st Sunday after Pentecost', saints: ['St Tabitha of Joppa'], tone: 4, fast_level_desc: 'No Fast', readings: [{ source: 'Gospel', display: 'Luke 16.19-31' }, { source: 'Epistle', display: 'Galatians 2.16-20' }] });
+    expect(day.titles).toEqual(['21st Sunday after Pentecost']);
+    expect(day.readings.map((x) => x.source)).toEqual(['Gospel', 'Epistle']);
+    expect(day.readings.every((x) => x.refs.length === 1)).toBe(true);
+  });
+});

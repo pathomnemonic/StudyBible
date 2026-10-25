@@ -56,6 +56,8 @@ export interface BiayEpisode {
   description: string;
   passages: string[];
   passageSource: string;
+  /** Catechism paragraph ranges the episode covers (Catechism in a Year) */
+  ccc?: [number, number][];
 }
 export interface BiayData {
   meta: Record<string, string>;

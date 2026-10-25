@@ -7,6 +7,7 @@ import { importLectionary, readingsFor, saveManualReadings, slotLabel, type DayR
 import { useSettings } from '../../lib/store';
 import { useT } from '../../lib/i18n';
 import { traditionOf } from '../../lib/tradition';
+import ByzantineDay from '../../components/ByzantineDay';
 import RefLink from '../../components/RefLink';
 import Icon from '../../components/Icon';
 import ReadingBlock from '../../components/ReadingBlock';
@@ -56,7 +57,9 @@ export default function ReadingsPage() {
     <div className="page">
       <Link to="/pray" className="small">← Pray</Link>
       <h1>{t('readings.title')}</h1>
-      {s.tradition !== 'latin' && <div className="notice info" role="note"><strong>These are the Latin Church’s readings.</strong> The {traditionOf(s.tradition).name} follows its own cycle of readings for the {traditionOf(s.tradition).liturgy}, which this app does not have. The passages below are still Scripture you can read and pray, and the Roman lectionary is the one most English-language Catholic resources use.</div>}
+      {!traditionOf(s.tradition).roman && (s.tradition === 'byzantine'
+        ? <div className="notice info" role="note"><strong>Your day is shown first.</strong> The Roman (Latin) readings further down are for reference; the Byzantine cycle differs.</div>
+        : <div className="notice info" role="note"><strong>These are the Latin Church’s readings.</strong> The {traditionOf(s.tradition).name} follows its own cycle of readings for the {traditionOf(s.tradition).liturgy}, which this app does not have. The passages below are still Scripture you can read and pray.</div>)}
       <div className="row between">
         <div className="row">
           <button className="icon-btn" onClick={() => go(-1)} aria-label="Previous day"><Icon name="chevL" /></button>
@@ -70,6 +73,7 @@ export default function ReadingsPage() {
       </div>
       <p className="muted small">Dates are your device’s local calendar days. The universal calendar and national calendars differ (for example in the transfer of Epiphany, the Ascension and Corpus Christi, and in saints’ days); choose yours above.</p>
 
+      {s.tradition === 'byzantine' && <ByzantineDay date={date} />}
       <div className="card">
         <div className="row between"><h2>{lit.dayName}</h2><span className="chip" title="The colour of the priest’s vestments today">Vestments: {COLOR_NAME[lit.color]}</span></div>
         <div className="muted small">{lit.seasonName}{lit.week ? `, week ${lit.week}` : ''} · Sunday cycle {lit.sundayCycle} · weekday cycle {lit.weekdayCycle} (computed offline)</div>
