@@ -23,6 +23,7 @@ export type SectionKey =
   | 'catholic-answers' | 'creators' | 'word-on-fire' | 'ascension' | 'resources' | 'biay' | 'links' // media & apologetics
   | 'dictionary' | 'people' | 'encyclopedia'
   | 'context' | 'language' | 'places' | 'topics' | 'parallels' | 'art' | 'background' | 'typology'
+  | 'videos' | 'kids'
   | 'quotes' | 'customs' | 'structure' | 'wordnotes' | 'versions' | 'witnesses' | 'echoes' | 'genre' | 'dependency' | 'reception' // lenses
   | 'mine';
 
@@ -35,6 +36,8 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'fathers', label: 'Church Fathers & Doctors', hint: 'Works in the library that comment on or cite this passage.' },
   { key: 'saints', label: 'Saints & spiritual masters' },
   { key: 'xref', label: 'Cross-references' },
+  { key: 'videos', label: 'Videos', hint: 'Teaching videos from Catholic creators, played here. Each is matched to the passage by what it is about, even when it does not quote the verse; the card says why.' },
+  { key: 'kids', label: 'For children', hint: 'A Bible story for children at three reading levels, and videos made for kids, for the passage.' },
   { key: 'catholic-answers', label: 'Catholic Answers', hint: 'Links to individual pages on catholic.com. Open them to read the full article there.' },
   { key: 'creators', label: 'Catholic creators & apologists', hint: 'Jimmy Akin, Trent Horn, Matt Fradd, Brant Pitre and others: videos, podcasts and articles, linked at their source.' },
   { key: 'word-on-fire', label: 'Bishop Barron & Word on Fire' },
@@ -73,7 +76,7 @@ export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'connections', label: 'Connections', sections: ['typology', 'quotes', 'xref', 'parallels', 'dependency', 'topics'] },
   { id: 'words', label: 'Words', sections: ['wordnotes', 'versions'] },
   { id: 'world', label: 'World', sections: ['customs', 'encyclopedia', 'people', 'background', 'dictionary', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
-  { id: 'media', label: 'Media', sections: ['art', 'catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
+  { id: 'media', label: 'Media', sections: ['art', 'videos', 'kids', 'catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
 
@@ -973,6 +976,31 @@ export const providers: Record<string, Provider> = {
     return out;
   },
 
+  /** teaching videos from Catholic creators, matched to the passage by what they are about */
+  async videos(refs) {
+    const { videosFor } = await import('../data/videos');
+    return (await videosFor(refs, false)).map((v) => ({
+      id: `video-${v.id}`, section: 'videos' as SectionKey, title: v.title, author: v.channel, url: `https://www.youtube.com/watch?v=${v.id}`,
+      excerpt: v.note, authority: 'media' as AuthorityLevel, period: 'contemporary' as Period, format: 'video' as ItemFormat, match: 'passage' as MatchKind,
+      why: v.note ? `Matched by subject: ${v.note}` : 'A teaching video about this passage, from a Catholic creator.', sourceName: `${v.channel} on YouTube`, kind: 'Video',
+    }));
+  },
+
+  /** the Children's Bible story for the passage, and videos made for children */
+  async kids(refs) {
+    const [{ kidsStoriesFor }, { videosFor }] = await Promise.all([import('../pages/study/KidsPage'), import('../data/videos')]);
+    const out: StudyItem[] = (await kidsStoriesFor(refs)).map((st) => ({
+      id: `kids-${st.id}`, section: 'kids' as SectionKey, title: `${st.emoji} ${st.title}`, excerpt: st.text['7-9'].slice(0, 160) + '…', internal: `/study/kids/${st.id}`,
+      authority: 'reflection' as AuthorityLevel, period: 'contemporary' as Period, format: 'full-text' as ItemFormat, match: 'explicit-reference' as MatchKind,
+      why: 'This story is retold for children at three reading levels, and links back to the passage.', sourceName: 'Children’s Bible (written for this app)', kind: 'Children’s story',
+    }));
+    for (const v of await videosFor(refs, true)) out.push({
+      id: `kvideo-${v.id}`, section: 'kids' as SectionKey, title: v.title, author: v.channel, url: `https://www.youtube.com/watch?v=${v.id}`, authority: 'media' as AuthorityLevel, period: 'contemporary' as Period,
+      format: 'video' as ItemFormat, match: 'passage' as MatchKind, why: v.note ? `Matched by subject: ${v.note}` : 'A video made for children about this passage.', sourceName: `${v.channel} on YouTube`, kind: 'Video for kids',
+    });
+    return out;
+  },
+
   async context(refs) {
     const book = refs[0].book;
     const ov = await getOverviews();
@@ -1097,6 +1125,8 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     [['links'], providers.userlinks(refs)],
     [['biay'], providers.biay(refs)],
     [['context'], providers.context(refs)],
+    [['videos'], providers.videos(refs)],
+    [['kids'], providers.kids(refs)],
     [['quotes', 'customs', 'structure', 'wordnotes', 'versions', 'witnesses', 'echoes', 'genre', 'dependency', 'reception', 'art', 'typology'], lens],
     [['parallels'], Promise.all([providers.parallels(refs), lens.then((l) => l.filter((i) => i.section === 'parallels'))]).then(([a, b]) => [...b, ...a])],
     [['places'], providers.places(refs)],

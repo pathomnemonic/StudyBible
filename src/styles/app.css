@@ -3968,3 +3968,22 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .tour-switch { display: flex; gap: 6px; margin: 0 0 10px; }
 .tour-switch button { flex: 1; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-2, transparent); color: inherit; font: inherit; cursor: pointer; }
 .tour-switch button.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 22%, transparent); font-weight: 600; }
+
+/* Children's Bible */
+.kids-ages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 16px; }
+.kids-ages button { display: grid; gap: 2px; text-align: center; padding: 10px 8px; border-radius: 14px; border: 1.5px solid var(--border); background: var(--surface); color: inherit; font: inherit; cursor: pointer; }
+.kids-ages button span { font-size: .78rem; color: var(--muted); }
+.kids-ages button.on { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 16%, var(--surface)); }
+.kids-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 10px 0 20px; }
+.kids-card { display: grid; gap: 4px; justify-items: center; text-align: center; padding: 14px 10px; border-radius: 18px; text-decoration: none; color: inherit; background: color-mix(in srgb, hsl(var(--h) 70% 55%) 14%, var(--surface)); border: 1.5px solid color-mix(in srgb, hsl(var(--h) 70% 55%) 40%, var(--border)); }
+.kids-card .em { font-size: 2.2rem; line-height: 1.1; }
+.kids-card:hover { transform: translateY(-2px); }
+.kids-hero { display: flex; align-items: center; gap: 12px; margin: 8px 0 4px; }
+.kids-hero span { font-size: 3rem; }
+.kids-hero h1 { margin: 0; }
+.kids-text { font-size: clamp(1.25rem, 3.6vw, 1.6rem); line-height: 1.7; max-width: 34em; margin: 14px 0; font-family: var(--font-display, inherit); }
+.kids-art { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
+.kids-art figure { margin: 0; max-width: 300px; }
+.kids-art img { width: 100%; border-radius: 14px; }
+.kids-verse { border-left: 4px solid color-mix(in srgb, hsl(var(--h) 70% 55%) 70%, transparent); padding: 4px 14px; margin: 14px 0; font-size: 1.15rem; }
+.kids-talk li { margin: 6px 0; font-size: 1.05rem; }

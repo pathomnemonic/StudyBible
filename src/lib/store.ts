@@ -60,6 +60,8 @@ export interface Settings {
   scriptureOnly: boolean;
   /** one chapter at a time, or an unbroken scroll through the chapters that follow */
   scrollMode: 'pages' | 'infinite';
+  /** the Children's Bible reading level */
+  kidsAge: '4-6' | '7-9' | '10-12';
   /** what focus mode (scriptureOnly) means to this reader */
   focus: { scroll: boolean; numbers: boolean; markers: boolean; art: boolean; effects: boolean; sparkles: boolean; sound: boolean };
   /** the sound was switched off once by default (v16); do not do it again */
@@ -126,6 +128,7 @@ export const DEFAULTS: Settings = {
   showVerseNumbers: true,
   scriptureOnly: false,
   scrollMode: 'pages',
+  kidsAge: '7-9',
   focus: { scroll: true, numbers: true, markers: false, art: false, effects: false, sparkles: false, sound: true },
   soundOffV16: true,
   studyDock: true,
