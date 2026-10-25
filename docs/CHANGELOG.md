@@ -5,6 +5,7 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 ## Unreleased
 
 ### App
+* **Extraordinary Form Mass** (`/mass/ef`): the whole 1962 Order of Mass in English, step by step, with the Introit, readings, Gradual, Offertory, Secret, Preface, Communion and Postcommunion of the day.
 * **Present as slides** on every catechism lesson: a real deck with a title slide, the question, the big idea, one slide per word, the story and Scripture in readable pieces, art, the Catechism, a video, discussion questions, the activity, a saint, a check with click-to-reveal answers, the weekly challenge and the closing prayer. Arrow keys, swipe, full screen, and teacher notes (N).
 * The Reading room tab now returns to the work and the place you were reading (and your search), and LibriVox recordings play in the bottom player like the Bible in a Year, with the next parts queued.
 * Every catechism lesson (K–12 and young adults) now has teacher talking points, discussion questions, an authored quiz with explanations (answer positions shuffled), a weekly challenge, a saint who lived it and, for older grades, misunderstandings to listen for.

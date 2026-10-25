@@ -72,6 +72,7 @@ export default function MassModePage() {
           <button className="btn small" onClick={() => { const n = Math.max(16, size - 2); setSize(n); put('sb:mass:size', String(n)); }} aria-label="A−, smaller text">A−</button>
           <button className="btn small" onClick={() => { const n = Math.min(40, size + 2); setSize(n); put('sb:mass:size', String(n)); }} aria-label="A+, larger text">A+</button>
           <button className="btn small" onClick={() => setList(!list)} aria-expanded={list}>All parts</button>
+          <Link className="btn small" to="/mass/ef">Extraordinary Form</Link>
           <Link className="btn small" to="/pray/liturgies">Other liturgies</Link>
         </div>
       </div>

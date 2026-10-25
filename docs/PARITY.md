@@ -5,7 +5,7 @@ An honest list, kept short. "Yes" means it works in the app now. "Partly" and "N
 | Area | Typical apps | Here |
 |---|---|---|
 | Daily Mass readings | Universalis, Laudate, USCCB | Yes (any day; Byzantine daily readings from Orthocal) |
-| Mass follow-along | Laudate, Hallow | Partly: Mass mode gives every part, posture, responses and today's readings. The Missal's own prayers (ICEL) are not printed. The 1962 Mass and other rites are not yet in the app. |
+| Mass follow-along | Laudate, Hallow | Partly: Mass mode gives every part of the Ordinary Form, posture, responses and today's readings; the Missal's own prayers (ICEL) are not printed. The 1962 Mass is in full in English with the propers of the day (Latin text not included). |
 | Liturgy of the Hours | iBreviary, Universalis | Partly: traditional Roman psalter with seasons, and the feast and Matins lessons by date. Not the modern English Liturgy of the Hours (copyright). |
 | Divine Liturgy and other rites | Few apps | Partly: Byzantine Divine Liturgy of St John Chrysostom (1914 English). The other Eastern rites, the Ordinariate and the Ambrosian and Mozarabic rites are listed with what is missing. |
 | Bible translations | Laudate, Hallow | Partly: public-domain and open editions. NABRE, RSV-CE and other modern Catholic editions need a licence and are not included. |

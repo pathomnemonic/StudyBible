@@ -227,5 +227,11 @@
   "attribution": "vatican.va",
   "redistribution": "metadata-only",
   "notes": "The documents themselves are © Libreria Editrice Vaticana / the Holy See and are not copied."
+ },
+ "missa": {
+  "license": "MIT (Divinum Officium data)",
+  "attribution": "Divinum Officium contributors",
+  "redistribution": "yes",
+  "notes": "Order of Mass and propers of the 1962 books in English; some texts missing in the source are shown as such"
  }
 }

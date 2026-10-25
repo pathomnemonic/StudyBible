@@ -24,6 +24,7 @@ const CurriculumPacket = lazy(() => import('./pages/study/CurriculumPacket'));
 const MassModePage = lazy(() => import('./pages/pray/MassModePage'));
 const LiturgiesPage = lazy(() => import('./pages/pray/LiturgiesPage'));
 const PapalPage = lazy(() => import('./pages/study/PapalPage'));
+const MassEFPage = lazy(() => import('./pages/pray/MassEFPage'));
 const GalleryPage = lazy(() => import('./pages/study/GalleryPage'));
 const DaysPage = lazy(() => import('./pages/DaysPage'));
 const CatechismPage = lazy(() => import('./pages/study/CatechismPage'));
@@ -252,6 +253,7 @@ export default function App() {
               <Route path="/pray/sleep" element={<SleepPage />} />
               <Route path="/pray/office" element={<OfficePage />} />
               <Route path="/pray/liturgies" element={<LiturgiesPage />} />
+              <Route path="/mass/ef" element={<MassEFPage />} />
               <Route path="/mass" element={<MassModePage />} />
               <Route path="/pray/mass-mode" element={<MassModePage />} />
               <Route path="/pray/morning" element={<MorningPage />} />
