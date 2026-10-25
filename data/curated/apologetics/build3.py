@@ -12,6 +12,7 @@ cats = base['categories'] + [c for c in dict.fromkeys(t['category'] for t in a7.
 cat = {v['id']: v for v in json.load(open(ROOT + 'data/curated/videos.json'))['videos']}
 SLUG = {'Catholic Productions': 'catholic-productions', 'St. Paul Center': 'st-paul-center', 'Jimmy Akin': 'jimmy-akin', 'Catholic Answers Live': 'catholic-answers', 'Bishop Robert Barron': 'word-on-fire', 'Augustine Institute': 'augustine-institute', 'EWTN': 'ewtn', 'The Thomistic Institute': 'thomistic-institute', 'Breaking In The Habit': 'breaking-in-the-habit', 'Matt Fradd': 'pints-with-aquinas', 'Godsplaining | Catholic Podcast': 'godsplaining', 'ACTS XXIX': 'acts-xxix', 'Shameless Popery': 'shameless-popery', 'The Catholic Talk Show': 'catholic-talk-show', 'CounselofTrent': 'trent-horn'}
 cand = json.load(open('candidates.json'))
+LIB = json.load(open(ROOT + 'public/data/media/video_library.json'))
 tractpick = {}
 nav = json.load(open('/tmp/claude-0/ca/nav.json'))
 NAVMAP = {'abortion': 'abortion', 'anointing-of-the-sick': 'anointing-sick', 'apostolic-succession': 'apostolic-succession', 'assurance-of-salvation': 'once-saved', 'calling-priests-father': 'call-no-man-father', 'the-church-is-one': 'church-authority', 'confession': 'confession', 'confirmation': 'confirmation', 'contraception': 'contraception', 'divorce-and-remarriage': 'marriage-divorce', 'faith-and-works': 'faith-and-works', 'hell': 'hell', 'homosexuality': 'homosexuality', 'immortality-of-the-soul': 'immortality-of-the-soul', 'infallible-church': 'church-authority', 'infant-baptism': 'infant-baptism', 'intercession-of-the-saints': 'intercession-of-saints', 'mary,-mother-of-god': 'mary-mother-of-god', 'mary’s-immaculate-conception': 'immaculate-conception', 'priesthood': 'mass-sacrifice', 'purgatory': 'purgatory', 'relics': 'relics-and-sacramentals', 'statues': 'images', 'assumption-of-mary': 'assumption', "church's-teaching-authority": 'church-authority', 'divinity-of-christ': 'divinity-of-christ', 'necessity-of-baptism': 'baptismal-regeneration', 'unity-of-god': 'trinity', 'perpetual-virginity-of-mary': 'perpetual-virginity', 'primacy-of-peter': 'papacy', 'real-presence': 'real-presence', 'repetitious-prayer': 'rosary', 'trinity': 'trinity'}
@@ -34,6 +35,7 @@ for t in base['topics']:
     t['verses'] = [dict(ref=v['ref']) for v in t['verses']]
     topics.append(t)
 for x in a7.NEW:
+    if any(t['id'] == x['id'] for t in topics): continue
     topics.append(dict(id=x['id'], category=x['category'], title=x['title'], objection=x['objection'], verses=x['verses'], ccc=x['ccc'], tags=x['tags'], related=x['related'], reading=[], _tracts=x['tracts']))
 byid = {t['id']: t for t in topics}
 TITLE = {}
@@ -67,8 +69,27 @@ for t in topics:
             u = 'https://www.youtube.com/watch?v=' + vid
             if u in seen: continue
             add(title=v['title'], url=u, source=SLUG[v['channel']], type='video'); nvid += 1
+    # more videos from the whole channel library, by words in the title
+    LIBSLUG = {'Catholic Productions': 'catholic-productions', 'St. Paul Center': 'st-paul-center', 'Jimmy Akin': 'jimmy-akin', 'Catholic Answers Live': 'catholic-answers', 'Bishop Robert Barron': 'word-on-fire', 'Augustine Institute': 'augustine-institute', 'The Thomistic Institute': 'thomistic-institute', 'Breaking In The Habit': 'breaking-in-the-habit', 'Pints with Aquinas (Matt Fradd)': 'pints-with-aquinas', 'Godsplaining | Catholic Podcast': 'godsplaining', 'Shameless Popery': 'shameless-popery', 'The Counsel of Trent (Trent Horn)': 'trent-horn', 'The Counsel of Trent': 'trent-horn', 'ACTS XXIX': 'acts-xxix', 'Ascension Presents': 'ascension', 'Magis Center': 'magis-center', 'The Catholic Talk Show': 'catholic-talk-show', 'The Cordial Catholic': 'cordial-catholic'}
+    pri = ['trent-horn', 'catholic-answers', 'catholic-productions', 'jimmy-akin', 'st-paul-center', 'shameless-popery', 'word-on-fire']
+    hits = []
+    for vid, ti, ci in LIB['videos']:
+        src = LIBSLUG.get(LIB['channels'][ci])
+        if not src: continue
+        tl = ti.lower()
+        if any(k and re.search(r'\b' + re.escape(k) + r'\b', tl) for k in keys[:4]):
+            hits.append((pri.index(src) if src in pri else 9, vid, ti, src))
+    hits.sort()
+    per = {}
+    titles_seen = {r['title'] for r in res}
+    for _, vid, ti, src in hits:
+        if nvid >= 14: break
+        u = 'https://www.youtube.com/watch?v=' + vid
+        if u in seen or ti in titles_seen or per.get(src, 0) >= 3 or re.search(r'reaction|reacts|my take|\bbros\b|fr\. martin|casey cole', ti, re.I): continue
+        per[src] = per.get(src, 0) + 1; titles_seen.add(ti)
+        add(title=ti, url=u, source=src, type='video'); nvid += 1
     res.sort(key=lambda r: ORDER.get(r['type'], 9))
-    t['reading'] = res[:26]
+    t['reading'] = res[:32]
 ids = {t['id'] for t in topics}
 for t in topics:
     t['related'] = [r for r in t['related'] if r in ids]
