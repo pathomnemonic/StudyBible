@@ -3,6 +3,7 @@
 import json, os, re, importlib, sys
 sys.path.insert(0, os.path.dirname(__file__))
 from glossary import G
+from saints import SAINT_LINES
 OUT = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'public', 'data', 'curriculum')
 os.makedirs(OUT, exist_ok=True)
 prayers = set(re.findall(r"id: '([^']+)'", open(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'src', 'data', 'prayerbook.ts')).read()))
@@ -55,9 +56,25 @@ for g in order:
             for d in row.get('deeper', []):
                 kind, ident = d.split(':', 1)
                 if (kind == 'apol' and ident not in apol) or (kind == 'room' and ident not in works): problems.append(f'{lid}: unknown deeper {d}')
+            import random
+            shuffled = []
+            for qi, qs in enumerate(row.get('quiz', [])):
+                parts = qs.split('|')
+                if len(parts) == 7 and parts[5].isdigit():
+                    opts, right = parts[1:5], int(parts[5])
+                    order = list(range(4)); random.Random(f'{lid}-{qi}').shuffle(order)
+                    parts[1:5] = [opts[i] for i in order]; parts[5] = str(order.index(right))
+                    qs = '|'.join(parts)
+                shuffled.append(qs)
+            if shuffled: row['quiz'] = shuffled
             for qs in row.get('quiz', []):
                 parts = qs.split('|')
                 if len(parts) != 7 or not parts[5].isdigit() or int(parts[5]) > 3: problems.append(f'{lid}: bad quiz {qs[:40]}')
+            sv = row.get('saint')
+            if sv and ':' not in sv:
+                nm = sv.strip().rstrip('.')
+                if nm in SAINT_LINES: row['saint'] = f'{nm}: {SAINT_LINES[nm]}'
+                else: problems.append(f'{lid}: saint without a line: {sv}')
             ls.append(row)
         units.append(dict(n=ui, title=u['title'], pillar=u['pillar'], eq=u['eq'], lessons=ls))
     json.dump(dict(id=G_['id'], name=G_['name'], band=G_['band'], age=G_['age'], theme=G_['theme'], units=units), open(os.path.join(OUT, f"grade-{G_['id']}.json"), 'w'), ensure_ascii=False, separators=(',', ':'))

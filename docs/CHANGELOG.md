@@ -5,6 +5,7 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 ## Unreleased
 
 ### App
+* Every catechism lesson (K–12 and young adults) now has teacher talking points, discussion questions, an authored quiz with explanations (answer positions shuffled), a weekly challenge, a saint who lived it and, for older grades, misunderstandings to listen for.
 * **Young adults course**: 30 guided sessions in 10 units for small groups or solo (leader plan, discussion, Scripture, Catechism, a weekly challenge, a saint, authored quiz).
 * **Mass mode** (one step at a time, with posture, responses and today's readings), an **All the liturgies** page that says what the app has for each rite, and a **Papal writings** catalogue of about 1,250 documents linked to the Vatican's text.
 * **Catechism, Kindergarten to Grade 12** (Study → Catechism program): 318 lessons in 13 grades, each with the big idea, words to know, Scripture and Catechism text, videos and art from the library, a question, an activity, a prayer and a check with spaced review; Student, Teacher (timed plan, background, support and stretch) and Family (five-day plan) views; present-on-screen, read-aloud and print; a teacher and parent handbook; progress saved and synced.

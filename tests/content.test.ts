@@ -134,6 +134,8 @@ describe('K–12 catechism curriculum', () => {
         if (seen.has(l.id)) bad.push(`duplicate ${l.id}`);
         seen.add(l.id);
         if (!l.idea || !l.question || !l.activity) bad.push(`${l.id} incomplete`);
+        const e = l as unknown as { teach?: string[]; talk?: string[]; life?: string; saint?: string; quiz?: string[] };
+        if (!e.teach?.length || !e.talk?.length || !e.life || !e.saint || (e.quiz?.length ?? 0) < 2) bad.push(`${l.id} lacks teaching content`);
         for (const q of l.quiz ?? []) { const p = q.split('|'); if (p.length !== 7 || !(+p[5] >= 0 && +p[5] <= 3)) bad.push(`${l.id} quiz ${q.slice(0, 30)}`); }
         for (const s of l.scripture.split(';')) if (!parseRefs(s.trim()).ok) bad.push(`${l.id} scripture "${s}"`);
         for (const v of l.vocab) if (!gl[v]) bad.push(`${l.id} term ${v}`);
