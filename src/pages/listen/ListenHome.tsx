@@ -147,7 +147,7 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
 
 const KEY = 'sb:listen:show';
 type Tab = 'now' | 'podcasts' | 'audiobooks' | 'programmes';
-const TABS: [Tab, string][] = [['now', 'Listen now'], ['podcasts', 'Podcasts'], ['audiobooks', 'Audiobooks'], ['programmes', 'Programs']];
+const TABS: [Tab, string][] = [['programmes', 'Bible in a Year'], ['now', 'Listen now'], ['podcasts', 'Podcasts'], ['audiobooks', 'Audiobooks']];
 
 /** The Listen tab: where you left off, the podcast library, audiobooks, and the year-long programs. */
 export default function ListenHome() {
@@ -158,9 +158,9 @@ export default function ListenHome() {
   const wanted = sp.get('show') ?? hashShow;
   const tabParam = sp.get('tab') as Tab | null;
   const wantedShow = shows?.find((x) => x.id === wanted);
-  const tab: Tab = tabParam && TABS.some((t) => t[0] === tabParam) ? tabParam : wanted ? (wanted === 'biay' || wantedShow?.programme ? 'programmes' : 'podcasts') : 'now';
+  const tab: Tab = tabParam && TABS.some((t) => t[0] === tabParam) ? tabParam : wanted ? (wanted === 'biay' || wantedShow?.programme ? 'programmes' : 'podcasts') : 'programmes';
   const go = (t: Tab, extra: Record<string, string> = {}) => setSp({ tab: t, ...extra }, { replace: true });
-  const [progId, setProgId] = useState(() => (wanted && (wanted === 'biay' || wantedShow?.programme) ? wanted : stored && (stored === 'biay' || shows?.find((x) => x.id === stored)?.programme) ? stored : 'biay'));
+  const [progId, setProgId] = useState(() => (wanted && (wanted === 'biay' || wantedShow?.programme) ? wanted : 'biay'));
   const chooseProg = (v: string) => { setProgId(v); try { localStorage.setItem(KEY, v); } catch { /* storage unavailable */ } };
   const programmes = (shows ?? []).filter((x) => x.programme);
   const openId = tab === 'podcasts' ? sp.get('show') ?? (wantedShow && !wantedShow.programme ? wantedShow.id : '') : '';

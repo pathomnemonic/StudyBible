@@ -41,3 +41,4 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 - US English spelling throughout, with a Settings choice for British spelling (Scripture and library texts are never changed).
 - Reading room: calmer Discover page (continue reading, a few starting points, browse by group), and "My shelves" with Want to read, Reading, Finished and Did not finish, star ratings, private notes, dates and a yearly count.
 - Listen: new Listen now (resume, queue, new episodes of followed shows), a library of 59 Catholic podcasts and programs by subject (adds The Counsel of Trent, the Jimmy Akin shows, Shameless Popery, Thomistic Institute, Dominican friars and more), audiobooks with progress, and the last episode and speed restored after a reload.
+- Listen opens on the Bible in a Year; tab rows wrap instead of scrolling sideways.

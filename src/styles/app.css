@@ -4198,3 +4198,12 @@ html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: no
 .shelf-badge { font-size: .68rem; letter-spacing: .03em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 14%, transparent); width: fit-content; }
 .shelf-badge.st-finished { background: color-mix(in srgb, #2e7d4f 22%, transparent); }
 .shelf-badge.st-dnf { background: color-mix(in srgb, #888 25%, transparent); }
+
+/* No sideways scrolling inside the page: tab rows wrap onto a second line instead */
+@media (max-width: 760px) {
+  .tabbar, .subnav, .ptabs { flex-wrap: wrap; overflow-x: visible; row-gap: 2px; }
+  .ptabs { margin-left: 0; margin-right: 0; padding: 0; }
+  .tabbar .tab-more { margin-left: 0; max-width: 100%; }
+  .tabbar button, .subnav a, .ptabs button { flex: 0 1 auto; }
+}
+pre.code, pre { white-space: pre-wrap; overflow-wrap: anywhere; }
