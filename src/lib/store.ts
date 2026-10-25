@@ -195,13 +195,16 @@ function load(): Settings {
   try {
     const raw = localStorage.getItem(KEY);
     if (raw) {
-      const saved = JSON.parse(raw);
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return { ...DEFAULTS };
+      const saved = parsed;
+      const part = (v: any) => (v && typeof v === 'object' && !Array.isArray(v) ? v : {});
       // the first home screen put the guided session first; move people still on that untouched default to the new one
       const prevDefaults = ['readings,session,biay,verse,continue,plans,memorize,notes,liturgy', 'continue,readings,biay,notes,plans,verse,memorize,liturgy,session'];
       if (prevDefaults.includes(saved.dashboard?.order?.join()) && !saved.dashboard?.hidden?.length) delete saved.dashboard;
       // sound used to start on by default; it now starts off (people can turn it on from the tour or the reading settings)
-      if (!saved.soundOffV16) { saved.ambience = { ...DEFAULTS.ambience, ...(saved.ambience ?? {}), kind: 'off' }; saved.soundOffV16 = true; }
-      return sanitize({ ...DEFAULTS, ...saved, focus: { ...DEFAULTS.focus, ...(saved.focus ?? {}) }, drive: { ...DEFAULTS.drive, ...(saved.drive ?? {}), }, ambience: { ...DEFAULTS.ambience, ...(saved.ambience ?? {}) } });
+      if (!saved.soundOffV16) { saved.ambience = { ...DEFAULTS.ambience, ...part(saved.ambience), kind: 'off' }; saved.soundOffV16 = true; }
+      return sanitize({ ...DEFAULTS, ...saved, focus: { ...DEFAULTS.focus, ...part(saved.focus) }, drive: { ...DEFAULTS.drive, ...part(saved.drive) }, ambience: { ...DEFAULTS.ambience, ...part(saved.ambience) } });
     }
   } catch {
     /* private mode etc. */

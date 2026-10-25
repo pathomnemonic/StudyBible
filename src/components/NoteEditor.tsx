@@ -17,6 +17,14 @@ export function targetLabel(t: Target): string {
   return t.label;
 }
 
+/** Optional starting structures; a free-form note stays the default. */
+const TEMPLATES: { name: string; text: string }[] = [
+  { name: 'Observe · Interpret · Apply', text: '## Observe\nWhat does the text say? Who, what, where, when?\n\n## Interpret\nWhat does it mean? What does the Church teach about it?\n\n## Apply\nWhat is God asking of me?\n' },
+  { name: 'Lectio divina', text: '## Lectio (read)\n\n## Meditatio (what word or phrase stays with me?)\n\n## Oratio (my prayer in response)\n\n## Contemplatio (resting in God)\n' },
+  { name: 'Questions to follow up', text: '## Questions\n- \n- \n\n## Where I could look\n- \n' },
+  { name: 'Historical context', text: '## Setting\nAuthor, audience, date, place:\n\n## Background\n\n## Why it matters for the passage\n' },
+];
+
 export default function NoteEditor({
   note,
   initialTargets = [],
@@ -106,6 +114,12 @@ export default function NoteEditor({
           {preview ? 'Edit' : 'Preview'}
         </button>
       </div>
+      {!preview && !body.trim() && (
+        <div className="row" style={{ gap: 6, flexWrap: 'wrap', margin: '6px 0' }} aria-label="Optional note templates">
+          <span className="muted small">Start from:</span>
+          {TEMPLATES.map((t) => <button type="button" key={t.name} className="btn small" onClick={() => setBody(t.text)}>{t.name}</button>)}
+        </div>
+      )}
       {preview ? <div className="md card" dangerouslySetInnerHTML={{ __html: renderMarkdown(body) }} /> : <textarea value={body} onChange={(e) => setBody(e.target.value)} autoFocus aria-label="Note text" />}
       <div className="row" style={{ marginTop: 8 }}>
         <input type="text" placeholder="Tags, comma separated" value={tags} onChange={(e) => setTags(e.target.value)} style={{ flex: 1 }} aria-label="Tags" />

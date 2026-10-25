@@ -114,6 +114,15 @@ export default function SettingsPage() {
       </div>
 
       <StorageStatus />
+      <details className="card">
+        <summary><strong>What works without a connection?</strong></summary>
+        <ul className="list small">
+          <li><strong>Always, once the app has loaded:</strong> the Bibles you have opened or downloaded, your notes, highlights and journal, the Divine Office, devotions, the prayer book, novenas and the Bible course.</li>
+          <li><strong>After you download the study data above:</strong> commentary, the Fathers and saints library, cross-references, maps, and Greek and Hebrew word study.</li>
+          <li><strong>Only online:</strong> videos, the audio of Bible in a Year, LibriVox recordings and other streams; links to other websites; the official liturgical calendars for other countries; sync and Google Drive backup.</li>
+          <li>If something shows a blank or an error while you are offline, it is most likely in the last group. The page will fill in when you reconnect.</li>
+        </ul>
+      </details>
 
       <div className="card">
         <h2 className="card-title">Study data offline</h2>
