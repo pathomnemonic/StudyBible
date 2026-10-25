@@ -27,6 +27,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
       ['/study/doctrine', 'Doctrine & Catechism', 'Topics (Eucharist, Trinity, grace, Mary…) with Scripture and Catechism links.'],
       ['/study/church', 'Councils and Church documents', 'Councils, catechisms and encyclicals: read in full where public domain, official links for the rest.'],
       ['/study/encyclopedia', 'The Catholic Encyclopedia', 'The 1913 articles on the books of the Bible, its people, places and topics.'],
+      ['/study/curriculum', 'Catechism, Kindergarten to Grade 12', 'A full program of 300+ lessons for classrooms, families and self-study, with teacher handbook.'],
       ['/study/young-adults', 'Young adults', 'Questions, vocation, Scripture, reading and people for the years of big decisions.'],
       ['/study/kids', 'Children’s Bible', 'Bible stories for kids, at three reading levels, with questions and videos.'],
       ['/study/apologetics', 'Questions about the faith', 'Common questions, each gathering what Catholic authors and apologists have written and said, with the verses and Catechism paragraphs involved.'],

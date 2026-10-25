@@ -16,6 +16,11 @@ import { scheduleReminder } from './liturgy/reminders';
 
 const DivineLiturgyPage = lazy(() => import('./pages/pray/DivineLiturgyPage'));
 const YoungAdultsPage = lazy(() => import('./pages/study/YoungAdultsPage'));
+const CurriculumHome = lazy(() => import('./pages/study/CurriculumHome'));
+const CurriculumGrade = lazy(() => import('./pages/study/CurriculumGrade'));
+const CurriculumLesson = lazy(() => import('./pages/study/CurriculumLesson'));
+const CurriculumTeachers = lazy(() => import('./pages/study/CurriculumTeachers'));
+const CurriculumPacket = lazy(() => import('./pages/study/CurriculumPacket'));
 const GalleryPage = lazy(() => import('./pages/study/GalleryPage'));
 const DaysPage = lazy(() => import('./pages/DaysPage'));
 const CatechismPage = lazy(() => import('./pages/study/CatechismPage'));
@@ -189,6 +194,11 @@ export default function App() {
               <Route path="/study/gallery" element={<GalleryPage />} />
               <Route path="/study/catechism/:n?" element={<CatechismPage />} />
               <Route path="/study/saints/:md?" element={<SaintsPage />} />
+              <Route path="/study/curriculum" element={<CurriculumHome />} />
+              <Route path="/study/curriculum/teachers" element={<CurriculumTeachers />} />
+              <Route path="/study/curriculum/:grade" element={<CurriculumGrade />} />
+              <Route path="/study/curriculum/:grade/packet" element={<CurriculumPacket />} />
+              <Route path="/study/curriculum/:grade/:lessonId" element={<CurriculumLesson />} />
               <Route path="/study/young-adults" element={<YoungAdultsPage />} />
               <Route path="/study/apologetics/:id?" element={<ApologeticsPage />} />
               <Route path="/study/kids/:id?" element={<KidsPage />} />

@@ -215,5 +215,11 @@
   "attribution": "The Divine Liturgy of St John Chrysostom, the Greek text with a rendering in English (Williams & Norgate, 1914), via the Internet Archive",
   "redistribution": "yes",
   "notes": "OCR cleaned; rulers named in 1914 replaced by 'our rulers'. Not any Church's official text."
+ },
+ "curriculum": {
+  "license": "Original text written for this project; quotes the Catechism and Scripture already shipped in the app",
+  "attribution": "Study Bible project",
+  "redistribution": "yes",
+  "notes": "Not reviewed or approved by a bishop or diocese. Catechism paragraph numbers cite the Catechism of the Catholic Church."
  }
 }

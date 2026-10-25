@@ -4084,3 +4084,32 @@ html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: no
 .tour-switch { flex-wrap: wrap; }
 .tour-select { width: 100%; margin: 0 0 10px; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-2, transparent); color: inherit; font: inherit; }
 .tour-size { align-self: center; min-width: 2.2em; text-align: center; font-variant-numeric: tabular-nums; }
+
+/* ---- K–12 catechism program */
+.cur-idea { font-size: 1.15em; line-height: 1.5; margin: 4px 0 8px; }
+.cur-big { padding: 12px 14px; border-left: 4px solid var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); border-radius: 8px; margin: 10px 0; }
+.cur-words { display: grid; gap: 8px; margin: 0; }
+.cur-words > div { display: grid; grid-template-columns: minmax(9em, 14em) 1fr; gap: 4px 14px; align-items: baseline; }
+.cur-words dt { font-weight: 600; } .cur-words dd { margin: 0; }
+@media (max-width: 600px) { .cur-words > div { grid-template-columns: 1fr; } }
+.cur-scripture, .cur-ccc { margin: 8px 0; padding: 6px 14px; border-left: 3px solid var(--border); }
+.cur-scripture p, .cur-ccc p { margin: 4px 0; } .cur-scripture sup { margin-right: 2px; color: var(--muted); }
+.cur-scripture footer, .cur-ccc footer { font-size: .85em; color: var(--muted); }
+.cur-story { font-size: 1.1em; line-height: 1.6; }
+.cur-plan > li { margin-bottom: 10px; }
+.cur-two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; } @media (max-width: 600px) { .cur-two { grid-template-columns: 1fr; } }
+.cur-q { border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; margin: 0 0 10px; }
+.cur-q legend { padding: 0 6px; font-weight: 600; }
+.cur-opt { display: block; width: 100%; text-align: left; margin: 4px 0; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.cur-opt.right { border-color: #2e7d32; background: color-mix(in srgb, #2e7d32 18%, transparent); }
+.cur-opt.wrong { border-color: #c62828; background: color-mix(in srgb, #c62828 14%, transparent); }
+.cur-toc { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 8px 0 14px; }
+.cur-table { border-collapse: collapse; width: 100%; font-size: .92em; } .cur-table th, .cur-table td { border: 1px solid var(--border); padding: 6px 8px; text-align: left; vertical-align: top; }
+.cur-sheet { break-inside: avoid; page-break-inside: avoid; padding: 10px 0 14px; border-bottom: 1px solid var(--border); }
+.cur-lines { height: 5.5em; background: repeating-linear-gradient(transparent 0 1.7em, #bbb 1.7em calc(1.7em + 1px)); margin: 6px 0; }
+.print-only-lines { display: none; }
+@media print {
+  .print-only-lines { display: block; height: 5em; background: repeating-linear-gradient(transparent 0 1.7em, #999 1.7em calc(1.7em + 1px)); }
+  .cur-lesson textarea, .cur-lesson .tabbar { display: none !important; }
+  .cur-sheet { page-break-after: always; }
+}
