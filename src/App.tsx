@@ -38,6 +38,10 @@ const PassageStudy = lazy(() => import('./pages/study/PassageStudy'));
 const ListenHome = lazy(() => import('./pages/listen/ListenHome'));
 const EpisodePage = lazy(() => import('./pages/listen/EpisodePage'));
 const PrayHome = lazy(() => import('./pages/pray/PrayHome'));
+const DevotionsPage = lazy(() => import('./pages/pray/DevotionsPage'));
+const SundayPrepPage = lazy(() => import('./pages/pray/SundayPrepPage'));
+const PrayerBookPage = lazy(() => import('./pages/pray/PrayerBookPage'));
+const ExaminationPage = lazy(() => import('./pages/pray/ExaminationPage'));
 const OfficePage = lazy(() => import('./pages/pray/OfficePage'));
 const ReadingsPage = lazy(() => import('./pages/pray/ReadingsPage'));
 const LectioPage = lazy(() => import('./pages/pray/LectioPage'));
@@ -209,6 +213,10 @@ export default function App() {
               <Route path="/more" element={<MorePage />} />
               <Route path="/pray/sleep" element={<SleepPage />} />
               <Route path="/pray/office" element={<OfficePage />} />
+              <Route path="/pray/prayers" element={<PrayerBookPage />} />
+              <Route path="/pray/examination" element={<ExaminationPage />} />
+              <Route path="/pray/sunday" element={<SundayPrepPage />} />
+              <Route path="/pray/devotions/:id?" element={<DevotionsPage />} />
               <Route path="/pray/lectio" element={<LectioPage />} />
               <Route path="/pray/journal" element={<JournalPage />} />
               <Route path="/pray/plans" element={<PlansPage />} />

@@ -30,7 +30,11 @@ A checklist of the options people expect from YouVersion, Blue Letter Bible, Log
 | Export notes (JSON, Markdown, PDF, EPUB, CSV) | Yes |
 | Widgets and installable app | Yes (PWA, with PNG icons) |
 | Interface languages | English, Spanish, Latin |
-| Prayer: Rosary, Liturgy of the Hours, examination of conscience | Partly: Lectio Divina, prayer journal, sleep mode and a quiet moment; see docs/ROADMAP.md |
+| Rosary, Divine Mercy, Angelus / Regina Caeli, Stations, Seven Sorrows | Yes (Pray → Devotions; Scripture for each mystery and station shows in your translation) |
+| Daily prayer of the Church | Partly: the traditional Roman psalter (Lauds, Terce, Sext, None, Vespers, Compline) for ordinary time, offline. Not the modern Liturgy of the Hours (copyrighted); no feast, Advent, Lent or Easter propers and no Office of Readings |
+| Prayer book searchable by need; examination of conscience (private, nothing stored) | Yes |
+| Preparing for Sunday: readings with homilies, Catechism, commentary | Yes (Pray → Prepare for Sunday) |
+| Lectio Divina, prayer journal, sleep mode, a quiet moment | Yes |
 | Modern licensed translations (NABRE, RSV-CE, ESV, NIV) | Link only (copyright) |
 | Verse-by-verse audio synced to the text | No (recordings are not timed; see feature status) |
 | Social: friends, shared reading, comments | No (private by design; no server of ours) |
