@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { ANGELUS, MERCY, MYSTERIES, SORROWS, STATIONS, rosary } from '../src/data/devotions';
 import { BOOK_PRAYERS } from '../src/data/prayerbook';
 import { PLANS } from '../src/data/novenas';
+import { COURSE } from '../src/data/course';
 import { parseRefs } from '../src/lib/refs';
 
 describe('devotions', () => {
@@ -59,5 +60,16 @@ describe('office data', () => {
 describe('prayer plans', () => {
   it('has parseable scripture for every day', () => {
     for (const p of PLANS) for (const d of p.days) expect(parseRefs(d.refs).ok, `${p.id} ${d.refs}`).toBe(true);
+  });
+});
+
+describe('course', () => {
+  it('has twelve lessons whose passages parse and whose quizzes are well formed', () => {
+    expect(COURSE).toHaveLength(12);
+    for (const l of COURSE) {
+      for (const r of l.refs.split(';')) expect(parseRefs(r).ok, `${l.id} ${r}`).toBe(true);
+      expect(l.quiz).toHaveLength(3);
+      for (const q of l.quiz) { expect(q.answer).toBeLessThan(q.options.length); expect(q.why).toBeTruthy(); }
+    }
   });
 });

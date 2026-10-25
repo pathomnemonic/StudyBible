@@ -4050,3 +4050,5 @@ html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: no
 .office-k { color: var(--accent, #b33); font-weight: 600; }
 .office-pair { margin-bottom: 10px; }
 .office-vr p { margin: 2px 0; }
+
+@media print { .no-print { display: none !important; } }

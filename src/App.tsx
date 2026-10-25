@@ -43,6 +43,10 @@ const SundayPrepPage = lazy(() => import('./pages/pray/SundayPrepPage'));
 const PrayerBookPage = lazy(() => import('./pages/pray/PrayerBookPage'));
 const ExaminationPage = lazy(() => import('./pages/pray/ExaminationPage'));
 const NovenaPage = lazy(() => import('./pages/pray/NovenaPage'));
+const CoursePage = lazy(() => import('./pages/study/CoursePage'));
+const SessionBuilderPage = lazy(() => import('./pages/pray/SessionBuilderPage'));
+const MassGuidePage = lazy(() => import('./pages/pray/MassGuidePage'));
+const DossierPage = lazy(() => import('./pages/study/DossierPage'));
 const OfficePage = lazy(() => import('./pages/pray/OfficePage'));
 const ReadingsPage = lazy(() => import('./pages/pray/ReadingsPage'));
 const LectioPage = lazy(() => import('./pages/pray/LectioPage'));
@@ -205,6 +209,7 @@ export default function App() {
               <Route path="/study/fathers" element={<FathersLibrary />} />
               <Route path="/study/works/:workId/:section?" element={<WorkReader />} />
               <Route path="/study/passage/:refId" element={<PassageStudy />} />
+              <Route path="/study/dossier" element={<DossierPage />} />
               <Route path="/listen" element={<ListenHome />} />
               <Route path="/listen/episode/:id" element={<EpisodePage />} />
               <Route path="/pray" element={<PrayHome />} />
@@ -214,6 +219,9 @@ export default function App() {
               <Route path="/more" element={<MorePage />} />
               <Route path="/pray/sleep" element={<SleepPage />} />
               <Route path="/pray/office" element={<OfficePage />} />
+              <Route path="/pray/build" element={<SessionBuilderPage />} />
+              <Route path="/pray/mass" element={<MassGuidePage />} />
+              <Route path="/study/course/:id?" element={<CoursePage />} />
               <Route path="/pray/novenas/:id?" element={<NovenaPage />} />
               <Route path="/pray/prayers" element={<PrayerBookPage />} />
               <Route path="/pray/examination" element={<ExaminationPage />} />

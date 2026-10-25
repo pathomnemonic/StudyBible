@@ -48,3 +48,8 @@ Most of this list comes from an outside code review (a ChatGPT analysis of the r
 ## Out of reach for the near-zero-cost model
 - Live YouTube search or API discovery (needs a key and quota); the video library comes from channels' public pages instead.
 - Cloud accounts that we host for everyone; licensed modern translations inline; AI chat over the library; push notifications on iOS without a push service.
+
+## Parity list from the ChatGPT review: status
+
+Done: Divine Office (ordinary-time psalter), Rosary, Divine Mercy, Angelus, Stations, Seven Sorrows, prayer book, examination of conscience (private), Prepare for Sunday, novenas and short plans, prayer playlists, Order of Mass guide (parts and links only), twelve-lesson Bible course with quizzes, passage dossier with print.
+Not done: Office of Readings and seasonal/feast propers for the Office (need a proper-of-the-day dataset); word-study guide beyond the existing original-language panel; the licensed ICEL text of the Mass.

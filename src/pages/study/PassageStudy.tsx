@@ -22,7 +22,7 @@ export default function PassageStudy() {
   if (!r) return <div className="page">Unrecognised passage.</div>;
   return (
     <div className="page">
-      <h1>{formatRef(r)}</h1>
+      <div className="row between"><h1 style={{ margin: 0 }}>{formatRef(r)}</h1><button className="btn small no-print" onClick={() => window.print()}>Print</button></div>
       <div className="card" lang={ed.language} style={{ fontFamily: 'var(--font-serif)' }}>
         {text.map((t) => (
           <span key={t.v}><sup style={{ color: 'var(--accent)' }}>{t.v}</sup> {t.text} </span>
