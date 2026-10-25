@@ -1,4 +1,4 @@
-import { db, type Bookmark, type Highlight, type HighlightColor, type Note, type Target } from './db';
+import { AUTO_TABLES, db, newUid, syncFlags, type Bookmark, type Highlight, type HighlightColor, type Note, type Target } from './db';
 import { parseRefId, refId, type Ref } from '../lib/refs';
 import { BOOKS } from '../lib/canon';
 
@@ -107,36 +107,57 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
   }
   for (const t of ['userLinks', 'media'] as const) for (const r of data[t] ?? []) if (r.url !== undefined && !safeUrl(r.url)) throw new Error(`The backup has a link in “${t}” that does not start with http or https. Nothing was imported.`);
   let n = 0;
-  await db.transaction('rw', [...TABLES.map((t) => (db as any)[t]), db.tombs], async () => {
-    // restoring over everything also drops old deletion records, which would otherwise delete the restored rows when synced
-    if (mode === 'replace') await db.tombs.clear();
-    for (const t of TABLES) {
-      const rows: any[] = data[t] ?? [];
-      if (mode === 'replace') await (db as any)[t].clear();
-      for (const r of rows) {
-        const rec = { ...r };
-        // merge mode: let new auto ids be assigned to avoid clobbering; keyed tables use put.
-        if (['planProgress', 'episodeProgress', 'libraryProgress'].includes(t)) await (db as any)[t].put(rec);
-        else {
-          if (mode === 'merge') delete rec.id;
-          if (t === 'saved') {
-            const ex = await db.saved.where('key').equals(rec.key).first();
-            if (ex) continue;
+  const auto = new Set<string>(AUTO_TABLES);
+  // uids present before a replace, so rows that the backup does not contain can be recorded as deleted for other devices
+  const before: [string, string][] = [];
+  if (mode === 'replace') for (const t of auto) for (const r of await (db as any)[t].toArray()) if (r.uid) before.push([t, r.uid]);
+  const after = new Set<string>();
+  // Restore without the change hooks: they would stamp every row as just edited and tombstone each row cleared by a replace
+  // (and a tombstone for a restored row's uid would delete it again on the next sync). Rows keep their own timestamps.
+  syncFlags.applying = true;
+  try {
+    await db.transaction('rw', [...TABLES.map((t) => (db as any)[t]), db.tombs], async () => {
+      // restoring over everything also drops old deletion records, which would otherwise delete the restored rows when synced
+      if (mode === 'replace') await db.tombs.clear();
+      for (const t of TABLES) {
+        const rows: any[] = data[t] ?? [];
+        if (mode === 'replace') await (db as any)[t].clear();
+        for (const r of rows) {
+          const rec = { ...r };
+          if (auto.has(t)) {
+            rec.uid ??= newUid();
+            rec.updatedAt ??= rec.createdAt ?? Date.now();
           }
-          // Re-importing an export must not duplicate rows: match by uid and keep the newer one.
-          if (rec.uid) {
-            const ex = await (db as any)[t].where('uid').equals(rec.uid).first();
+          // merge mode: let new auto ids be assigned to avoid clobbering; keyed tables use put.
+          if (['planProgress', 'episodeProgress', 'libraryProgress'].includes(t)) await (db as any)[t].put(rec);
+          else {
+            if (mode === 'merge') delete rec.id;
+            if (t === 'saved') {
+              const ex = await db.saved.where('key').equals(rec.key).first();
+              if (ex) continue;
+            }
+            // Re-importing an export must not duplicate rows: match by uid and keep the newer one.
+            const ex = rec.uid ? await (db as any)[t].where('uid').equals(rec.uid).first() : undefined;
             if (ex) {
               if ((ex.updatedAt ?? 0) < (rec.updatedAt ?? 0)) await (db as any)[t].put({ ...rec, id: ex.id });
+              after.add(`${t}|${rec.uid}`);
               continue;
             }
+            await (db as any)[t].add(rec);
           }
-          await (db as any)[t].add(rec);
+          if (rec.uid) after.add(`${t}|${rec.uid}`);
+          n++;
         }
-        n++;
       }
-    }
-  });
+    });
+  } finally {
+    syncFlags.applying = false;
+  }
+  if (mode === 'replace') {
+    const gone = before.filter(([t, uid]) => !after.has(`${t}|${uid}`));
+    if (gone.length) await db.tombs.bulkAdd(gone.map(([tbl, uid]) => ({ tbl, uid, updatedAt: Date.now() }) as any));
+  }
+  syncFlags.onLocalChange();
   if (mode === 'replace' && data.settings && typeof data.settings === 'object') {
     try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(data.settings)); } catch { /* storage unavailable */ }
   }

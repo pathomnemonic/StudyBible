@@ -284,11 +284,18 @@ class StudyBibleDB extends Dexie {
       })
       .upgrade(async (tx) => {
         // only tables that exist at this schema version (memory arrives in v5, and tx.table() throws for a table that is not there yet)
-        for (const t of AUTO_TABLES.filter((n) => tx.db.tables.some((x) => x.name === n))) {
-          await tx.table(t).toCollection().modify((r: any) => {
-            r.uid ??= newUid();
-            r.updatedAt ??= r.createdAt ?? Date.now();
-          });
+        const here = new Set(Array.from((tx as any).idbtrans.objectStoreNames as DOMStringList));
+        // the change hooks would stamp every old row as edited just now, making it look newer than another device's copy
+        syncFlags.applying = true;
+        try {
+          for (const t of AUTO_TABLES.filter((n) => here.has(n))) {
+            await tx.table(t).toCollection().modify((r: any) => {
+              r.uid ??= newUid();
+              r.updatedAt ??= r.createdAt ?? Date.now();
+            });
+          }
+        } finally {
+          syncFlags.applying = false;
         }
       });
     this.version(5).stores({ memory: '++id, ref, due, uid' });
