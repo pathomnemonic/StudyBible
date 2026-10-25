@@ -3995,3 +3995,16 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .apo-verses { list-style: none; padding: 0; display: grid; gap: 8px; }
 .apo-list li a { display: grid; gap: 2px; padding: 8px 0; text-decoration: none; color: inherit; }
 .ccc-q { max-width: 42em; font-size: .95rem; }
+
+.backup-nudge { display: grid; gap: 8px; padding: 12px 14px; margin: 10px 0 14px; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--border)); background: color-mix(in srgb, var(--accent) 9%, var(--surface)); font-size: .92rem; }
+
+/* Kindle-style reading tools */
+.read-progress { position: fixed; left: 12px; bottom: calc(var(--tabs-h, 60px) + env(safe-area-inset-bottom) + 6px); z-index: 30; font-size: .72rem; color: var(--muted); background: color-mix(in srgb, var(--surface) 80%, transparent); padding: 2px 9px; border-radius: 99px; pointer-events: none; backdrop-filter: blur(6px); }
+@media (min-width: 900px) { .read-progress { left: calc(var(--rail-w, 76px) + 12px); bottom: 10px; } }
+.shell.quiet .read-progress { bottom: 8px; left: 12px; }
+.find-bar { position: fixed; z-index: 90; top: 62px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 6px; padding: 6px 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,.4); }
+.find-bar input { min-width: 12em; }
+::highlight(find-hit) { background: color-mix(in srgb, gold 45%, transparent); color: inherit; }
+::highlight(find-cur) { background: color-mix(in srgb, orange 75%, transparent); color: inherit; }
+.lookup { position: fixed; z-index: 95; width: 260px; }
+.lookup-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; box-shadow: 0 8px 30px rgba(0,0,0,.45); }

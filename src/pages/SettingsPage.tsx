@@ -8,6 +8,7 @@ import { LANGS, useT } from '../lib/i18n';
 import { BOOKS } from '../lib/canon';
 import { NATIONS } from '../liturgy/litcal';
 import { enableReminders, scheduleReminder, PRESETS } from '../liturgy/reminders';
+import DriveBackup from '../components/DriveBackup';
 import { deleteAllData, download, exportAll } from '../db/ops';
 
 export default function SettingsPage() {
@@ -125,12 +126,14 @@ export default function SettingsPage() {
         <label className="row between" style={{ margin: '12px 0 0' }}><span>Show “days in a row” on reading plans (off by default)</span><input type="checkbox" checked={s.showStreaks} onChange={(e) => set({ showStreaks: e.target.checked })} /></label>
       </div>
 
+      <DriveBackup />
+
       <div className="card">
         <h2 className="card-title">Your data, sync and privacy</h2>
         <ul className="small" style={{ lineHeight: 1.6 }}>
           <li><strong>Private by default.</strong> Notes, highlights, bookmarks, journal and progress are stored only in this browser (IndexedDB). They are not uploaded anywhere. There are no accounts and no analytics.</li>
           <li><strong>Sync.</strong> Multi-device sync is not enabled in this build. The code defines a <code>SyncAdapter</code> (src/db/sync.ts) and a recommended end-to-end-encrypted design; until a backend is connected, use Export/Import to move data between devices.</li>
-          <li><strong>Backup.</strong> Export everything as JSON at any time (Library → Export). Clearing browser data erases local data, so export first.</li>
+          <li><strong>Backup.</strong> Connect Google Drive above for automatic backups, or export everything as JSON at any time (Library → Export). Clearing browser data erases local data, so back up first.</li>
           <li><strong>Retention & deletion.</strong> Data stays until you delete it. “Delete all my data” below removes the local database; with a future account, deletion would also remove server copies.</li>
           <li><strong>Network use.</strong> Reading Scripture, notes and search work offline. The app contacts third parties only when you open an external link, play a Bible in a Year episode (Ascension’s servers), or load the liturgical calendar (LitCal).</li>
         </ul>

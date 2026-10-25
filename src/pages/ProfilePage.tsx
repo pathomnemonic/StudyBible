@@ -5,6 +5,7 @@ import { useSync } from '../sync/state';
 import WhatsNew from '../components/WhatsNew';
 import WeekCard from '../components/WeekCard';
 import ContinueRow from '../components/ContinueRow';
+import DriveBackup from '../components/DriveBackup';
 
 type Row = [string, string, string];
 const GROUPS: { title: string; items: Row[] }[] = [
@@ -23,6 +24,7 @@ const GROUPS: { title: string; items: Row[] }[] = [
   ] },
   { title: 'My notes', items: [
     ['/library', 'Notes, highlights and bookmarks', 'Everything you have written or marked.'],
+    ['/settings#drive-backup', 'Back up to Google Drive', 'Keep a safe copy of your notes that updates itself.'],
     ['/library?tab=export', 'Export and backup', 'JSON, Markdown, PDF and EPUB.'],
     ['/share', 'Make a verse card', 'A picture of a verse, with a painting if you like.'],
   ] },
@@ -44,6 +46,7 @@ export default function ProfilePage() {
     <div className="page">
       <h1>Profile</h1>
       <p className="lede">{sync.user ? `Signed in as ${sync.user.email}. ` : 'Your notes, plans and settings live on this device. '}{notes ? `${notes} note${notes === 1 ? '' : 's'} so far.` : 'Nothing written yet.'}</p>
+      <DriveBackup compact />
       <WhatsNew />
       <WeekCard />
       <ContinueRow max={6} />

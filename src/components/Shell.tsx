@@ -5,6 +5,7 @@ import { useSettings } from '../lib/store';
 import CommandPalette from './CommandPalette';
 import Modal from './Modal';
 import Tour from './Tour';
+import { startDriveBackup } from '../sync/drive';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
 import type { Key } from '../i18n/en';
@@ -67,6 +68,8 @@ export default function Shell({ children }: { children: ReactNode }) {
       window.removeEventListener('studybible:search', open);
     };
   }, []);
+  // ask the browser not to clear this site's data, and keep the Drive copy (if connected) up to date
+  useEffect(() => { void navigator.storage?.persist?.(); startDriveBackup(); }, []);
   const [offline, setOffline] = useState(typeof navigator !== 'undefined' && navigator.onLine === false);
   useEffect(() => { const a = () => setOffline(true), b = () => setOffline(false); window.addEventListener('offline', a); window.addEventListener('online', b); return () => { window.removeEventListener('offline', a); window.removeEventListener('online', b); }; }, []);
   const fullscreenReader = (loc.pathname.startsWith('/read') && s.scriptureOnly) || loc.pathname.startsWith('/widget');

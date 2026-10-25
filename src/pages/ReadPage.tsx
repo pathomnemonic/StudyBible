@@ -13,6 +13,7 @@ import { db, type HighlightColor, type Target } from '../db/db';
 import BiayBar from '../components/BiayBar';
 import PlayFromHere from '../components/PlayFromHere';
 import NextChapters from '../components/NextChapters';
+import { FindInChapter, LookUp, ReadProgress } from '../components/ReaderTools';
 import { setHighlight, toggleBookmark, rangesOverlap } from '../db/ops';
 import ChapterText, { type VerseDecor } from '../components/ChapterText';
 import TermPopover from '../components/TermPopover';
@@ -351,6 +352,7 @@ export default function ReadPage() {
   selRefsRef.current = selRefs;
   const hasSel = selRefs.length > 0;
   const infinite = !parallelMode && (settings.scrollMode === 'infinite' || (settings.scriptureOnly && settings.focus.scroll));
+  const [finding, setFinding] = useState(false);
   const dockOn = wide && settings.studyDock && !settings.scriptureOnly && !parallelMode;
   const chapterRef: Ref = { book: bk.id, c1: anchorChapters[0], c2: anchorChapters[anchorChapters.length - 1] };
   const panelOpen = dockOn || (panel && hasSel);
@@ -493,7 +495,8 @@ export default function ReadPage() {
       const t = e.target as HTMLElement;
       if (t.closest('input,textarea,select,[contenteditable],[role=dialog]') || e.metaKey || e.ctrlKey || e.altKey) return;
       const k = keyRef.current;
-      if (e.key === 'ArrowLeft') k.prev();
+      if (e.key === '/') { e.preventDefault(); setFinding(true); }
+      else if (e.key === 'ArrowLeft') k.prev();
       else if (e.key === 'ArrowRight') k.next();
       else if (e.key === 's') {
         if (k.dockOn) setSettings({ studyDock: false });
@@ -638,6 +641,7 @@ export default function ReadPage() {
               <div className="more-menu" role="menu" onClick={() => setMoreMenu(false)}>
                 <button role="menuitem" onClick={() => setEditionPicker(true)}>Translation: {edition.shortName} (and Church-approved Bibles)</button>
                 <button role="menuitem" onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id))}>Parallel translations {parallelMode ? '(on)' : ''}</button>
+                <button role="menuitem" onClick={() => setFinding(true)}>Find in this chapter ( / )</button>
                 <button role="menuitem" onClick={() => setAloud((a) => !a)}>Read aloud {aloud ? '(on)' : ''}</button>
                 <button role="menuitem" onClick={() => setTextSettings(true)}>Reading settings, atmosphere and sound</button>
                 <button role="menuitem" onClick={() => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); }}>Focus mode</button>
@@ -735,6 +739,9 @@ export default function ReadPage() {
           <button className="rp-x" aria-label="Dismiss" onClick={() => nav(loc.pathname + loc.search, { replace: true, state: null })}>×</button>
         </div>
       )}
+      {finding && <FindInChapter onClose={() => setFinding(false)} />}
+      {!parallelMode && <LookUp />}
+      {settings.readProgress && !parallelMode && flat.length > 0 && <ReadProgress words={flat.reduce((n, v) => n + v.text.split(/\s+/).length, 0)} label={`${bk.name} ${chNum}`} bookPos={`chapter ${chNum} of ${edition.chapters[bk.id] ?? chNum}`} />}
       {panelOpen && <StudyPanel onSelectRange={(r) => { const n = anchorToNative(edition, r); if (n.chapter === chNum && n.v1) { const hi = n.v2 ?? n.v1; setSelNative(Array.from({ length: hi - n.v1 + 1 }, (_, k) => n.v1! + k)); lastClicked.current = n.v1; } }} key={dockOn && !hasSel ? 'chapter' : 'sel'} scope={hasSel ? 'passage' : 'chapter'} refs={panelRefs} edition={edition} onClose={() => (dockOn ? setSettings({ studyDock: false }) : setPanel(false))} onOpenPassage={openConnection} actions={hasSel && !dockOn && !settings.scriptureOnly ? verseActions : undefined} />}
 
       {hasSel && (dockOn || !panelOpen) && !settings.scriptureOnly && (
@@ -783,7 +790,7 @@ export default function ReadPage() {
         <Modal title="Keyboard shortcuts" onClose={() => setShortcuts(false)}>
           <table className="small">
             <tbody>
-              {[['Ctrl/⌘ K', 'Jump to a passage, search, go anywhere'], ['← / →', 'Previous / next chapter'], ['Click, Shift-click', 'Select verse / range'], ['S', 'Open or close the study panel'], ['N', 'Note on the selection'], ['1–6', 'Highlight colours'], ['Esc', 'Close panel / clear selection'], ['?', 'This help']].map(([k, d]) => (
+              {[['Ctrl/⌘ K', 'Jump to a passage, search, go anywhere'], ['/', 'Find in this chapter'], ['← / →', 'Previous / next chapter'], ['Click, Shift-click', 'Select verse / range'], ['S', 'Open or close the study panel'], ['N', 'Note on the selection'], ['1–6', 'Highlight colours'], ['Esc', 'Close panel / clear selection'], ['?', 'This help']].map(([k, d]) => (
                 <tr key={k}><td style={{ paddingRight: 16 }}><kbd>{k}</kbd></td><td>{d}</td></tr>
               ))}
             </tbody>

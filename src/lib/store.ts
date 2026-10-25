@@ -60,6 +60,8 @@ export interface Settings {
   scriptureOnly: boolean;
   /** one chapter at a time, or an unbroken scroll through the chapters that follow */
   scrollMode: 'pages' | 'infinite';
+  /** a quiet progress line in the corner while reading: minutes left in the chapter and how far */
+  readProgress: boolean;
   /** the Children's Bible reading level */
   kidsAge: '4-6' | '7-9' | '10-12';
   /** what focus mode (scriptureOnly) means to this reader */
@@ -105,6 +107,8 @@ export interface Settings {
   prayerReminders: PrayerReminder[];
   /** never contact a sync server: hides account prompts */
   localOnly: boolean;
+  /** Google Drive backup: connected on this device, the OAuth client id to use (if not built in), when the nudge was last dismissed */
+  drive: { connected: boolean; clientId: string; lastOk: number; lastError: string; nudgeUntil: number };
   /** remind me to back up every N days (0 = never) and when I last did */
   backupEveryDays: number;
   lastBackup: number;
@@ -128,6 +132,7 @@ export const DEFAULTS: Settings = {
   showVerseNumbers: true,
   scriptureOnly: false,
   scrollMode: 'pages',
+  readProgress: true,
   kidsAge: '7-9',
   focus: { scroll: true, numbers: true, markers: false, art: false, effects: false, sparkles: false, sound: true },
   soundOffV16: true,
@@ -154,6 +159,7 @@ export const DEFAULTS: Settings = {
   dashboard: { order: ['continue', 'readings', 'biay', 'plans', 'verse', 'notes', 'memorize', 'liturgy', 'session'], hidden: ['memorize', 'liturgy', 'session'] },
   prayerReminders: [],
   localOnly: false,
+  drive: { connected: false, clientId: '', lastOk: 0, lastError: '', nudgeUntil: 0 },
   backupEveryDays: 0,
   lastBackup: 0,
 };
@@ -172,7 +178,7 @@ function load(): Settings {
       if (prevDefaults.includes(saved.dashboard?.order?.join()) && !saved.dashboard?.hidden?.length) delete saved.dashboard;
       // sound used to start on by default; it now starts off (people can turn it on from the tour or the reading settings)
       if (!saved.soundOffV16) { saved.ambience = { ...DEFAULTS.ambience, ...(saved.ambience ?? {}), kind: 'off' }; saved.soundOffV16 = true; }
-      return { ...DEFAULTS, ...saved, focus: { ...DEFAULTS.focus, ...(saved.focus ?? {}) } };
+      return { ...DEFAULTS, ...saved, focus: { ...DEFAULTS.focus, ...(saved.focus ?? {}) }, drive: { ...DEFAULTS.drive, ...(saved.drive ?? {}) } };
     }
   } catch {
     /* private mode etc. */

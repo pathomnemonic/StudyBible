@@ -61,6 +61,10 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         </select>
       </label>
       <label className="row between" style={{ margin: '10px 0' }}>
+        <span>Show minutes left and progress while reading</span>
+        <input type="checkbox" checked={s.readProgress} onChange={(e) => set({ readProgress: e.target.checked })} aria-label="Reading progress" />
+      </label>
+      <label className="row between" style={{ margin: '10px 0' }}>
         <span>Verse numbers</span>
         <input type="checkbox" checked={s.showVerseNumbers} onChange={(e) => set({ showVerseNumbers: e.target.checked })} />
       </label>
