@@ -16,7 +16,7 @@ import { db } from '../db/db';
 import { lensItems } from './lens';
 
 export type SectionKey =
-  | 'doctrine' | 'catechism' | 'magisterium' | 'liturgy' // teaching
+  | 'apologetics' | 'doctrine' | 'catechism' | 'magisterium' | 'liturgy' // teaching
   | 'commentary' // verse-by-verse Catholic commentaries
   | 'fathers' | 'saints'
   | 'xref'
@@ -29,6 +29,7 @@ export type SectionKey =
 
 export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
   { key: 'catechism', label: 'Catechism of the Catholic Church', hint: 'Catechism paragraphs whose own footnotes cite this verse, with the paragraph text. A footnote that quotes the verse ranks above one that only refers to it.' },
+  { key: 'apologetics', label: 'Questions and answers', hint: 'Common objections to the Catholic faith that turn on this passage, with a short answer, the verses and the Catechism paragraphs. Written for this app.' },
   { key: 'magisterium', label: 'Church documents', hint: 'Dei Verbum, Verbum Domini, other encyclicals and Vatican II texts that cite this passage. Open the document at vatican.va and find the numbered article.' },
   { key: 'doctrine', label: 'Doctrine topics', hint: 'Editorial pointers: key passages for a teaching.' },
   { key: 'liturgy', label: 'Liturgical use' },
@@ -72,7 +73,7 @@ export const SECTIONS: { key: SectionKey; label: string; hint?: string }[] = [
 /** How sections are grouped into the panel's tabs. */
 export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'notes', label: 'Notes', sections: ['commentary', 'fathers', 'saints'] },
-  { id: 'teaching', label: 'Teaching', sections: ['catechism', 'magisterium', 'doctrine', 'liturgy', 'echoes', 'reception'] },
+  { id: 'teaching', label: 'Teaching', sections: ['catechism', 'apologetics', 'magisterium', 'doctrine', 'liturgy', 'echoes', 'reception'] },
   { id: 'connections', label: 'Connections', sections: ['typology', 'quotes', 'xref', 'parallels', 'dependency', 'topics'] },
   { id: 'words', label: 'Words', sections: ['wordnotes', 'versions'] },
   { id: 'world', label: 'World', sections: ['customs', 'encyclopedia', 'people', 'background', 'dictionary', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
@@ -976,6 +977,16 @@ export const providers: Record<string, Provider> = {
     return out;
   },
 
+  /** answers to objections that turn on the passage */
+  async apologetics(refs) {
+    const { apologeticsFor } = await import('../pages/study/ApologeticsPage');
+    return (await apologeticsFor(refs)).map((t) => ({
+      id: `apo-${t.id}`, section: 'apologetics' as SectionKey, title: t.title, excerpt: `${t.objection} ${t.answer[0]}`.slice(0, 420) + '…', internal: `/study/apologetics/${t.id}`,
+      authority: 'doctrine' as AuthorityLevel, period: 'contemporary' as Period, format: 'full-text' as ItemFormat, match: 'explicit-reference' as MatchKind,
+      why: 'A common objection or question that turns on this passage. The answer rests on Scripture and the Catechism, and gives the references.', sourceName: 'Questions about the faith (written for this app from Scripture and the Catechism)', kind: 'Question',
+    }));
+  },
+
   /** teaching videos from Catholic creators, matched to the passage by what they are about */
   async videos(refs) {
     const { videosFor } = await import('../data/videos');
@@ -1125,6 +1136,7 @@ export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items:
     [['links'], providers.userlinks(refs)],
     [['biay'], providers.biay(refs)],
     [['context'], providers.context(refs)],
+    [['apologetics'], providers.apologetics(refs)],
     [['videos'], providers.videos(refs)],
     [['kids'], providers.kids(refs)],
     [['quotes', 'customs', 'structure', 'wordnotes', 'versions', 'witnesses', 'echoes', 'genre', 'dependency', 'reception', 'art', 'typology'], lens],

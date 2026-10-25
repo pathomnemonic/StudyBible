@@ -1,0 +1,2946 @@
+{
+ "_about": "Short answers to common questions about the Catholic faith, written for this app from Scripture and the Catechism. Each points to the Bible passages and Catechism paragraphs behind it. Further reading links to reviewed pages at Catholic Answers and other Catholic publishers (link only).",
+ "categories": [
+  "Scripture and Tradition",
+  "Christ and the Trinity",
+  "Mary and the saints",
+  "The sacraments",
+  "Salvation and morality",
+  "Life, family and the world"
+ ],
+ "topics": [
+  {
+   "id": "sola-scriptura",
+   "category": "Scripture and Tradition",
+   "title": "The Bible alone?",
+   "objection": "Christians should believe only what is in the Bible (sola scriptura). Tradition is man-made.",
+   "answer": [
+    "The Catholic Church holds that Scripture is the inspired word of God and the supreme written norm of faith, and also that God’s word reaches us in two linked ways: Sacred Scripture and Sacred Tradition. Both flow from the same source and are interpreted by the Church’s teaching office, the Magisterium, which serves the word and does not stand above it (Dei Verbum 10).",
+    "The Bible itself does not teach that it alone is the rule. Paul tells the Thessalonians to hold fast to the traditions they were taught “by word of mouth or by letter” (2 Thessalonians 2:15), and calls the Church, not a book, “the pillar and bulwark of the truth” (1 Timothy 3:15). The New Testament books were written, collected and recognised as Scripture within the Church, and the list of books (the canon) is not itself a verse of Scripture. Second Timothy 3:16 says Scripture is useful for teaching and for equipping the man of God; it does not say it is the only authority.",
+    "Catholics do not treat Tradition as adding new doctrines, but as the living handing on of what the apostles received, in worship, creeds and teaching."
+   ],
+   "verses": [
+    {
+     "ref": "2 Thessalonians 2:15",
+     "why": "Hold fast to the traditions, by word of mouth or by letter"
+    },
+    {
+     "ref": "1 Timothy 3:15",
+     "why": "The Church of the living God, the pillar and bulwark of the truth"
+    },
+    {
+     "ref": "2 Timothy 3:14-17",
+     "why": "Scripture is inspired and useful for teaching"
+    },
+    {
+     "ref": "John 21:25",
+     "why": "Not everything Jesus did was written down"
+    },
+    {
+     "ref": "2 Peter 1:20-21",
+     "why": "No prophecy of Scripture is a matter of private interpretation"
+    }
+   ],
+   "ccc": [
+    80,
+    81,
+    82,
+    85,
+    86,
+    97,
+    113
+   ],
+   "tags": [
+    "Scripture",
+    "Tradition",
+    "Sola Scriptura",
+    "Magisterium"
+   ],
+   "related": [
+    "canon",
+    "church-authority"
+   ],
+   "reading": [
+    {
+     "title": "Scripture and Tradition",
+     "url": "https://www.catholic.com/tract/scripture-and-tradition",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Ten Deficiencies of Sola Scriptura as a Rule of Faith",
+     "url": "https://www.catholic.com/magazine/print-edition/ten-deficiencies-of-sola-scriptura-as-a-rule-of-faith",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Bible Against Tradition?",
+     "url": "https://www.catholic.com/magazine/online-edition/the-bible-and-other-traditions",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Are Catholics Still Wrong About Paul's Traditions?",
+     "url": "https://www.catholic.com/audio/drk/are-catholics-still-wrong-about-pauls-traditions",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Do Catholics Get Paul Wrong on Traditions?",
+     "url": "https://www.catholic.com/audio/drk/do-catholics-get-paul-wrong-on-traditions",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "The Perspicuity of Scripture",
+     "url": "https://www.catholic.com/audio/ddp/the-perspicuity-of-scripture",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Jesus Read Scripture: How We Can Follow Our Lord's Example This Lent",
+     "url": "https://stpaulcenter.com/posts/jesus-read-scripture-how-we-can-follow-our-lords-example-this-lent",
+     "source": "st-paul-center",
+     "type": "article"
+    },
+    {
+     "title": "The Bible and Tradition",
+     "url": "https://ascensionpress.com/blogs/articles/bible-tradition",
+     "source": "ascension",
+     "type": "article"
+    }
+   ]
+  },
+  {
+   "id": "canon",
+   "category": "Scripture and Tradition",
+   "title": "Why do Catholic Bibles have 73 books?",
+   "objection": "The Catholic Bible adds books to the Bible, the “Apocrypha”.",
+   "answer": [
+    "The Old Testament in Catholic Bibles includes seven books (Tobit, Judith, 1 and 2 Maccabees, Wisdom, Sirach, Baruch) and parts of Esther and Daniel that Protestants often leave out. These were in the Greek Old Testament (the Septuagint) that the first Christians, writing in Greek, mostly used and quoted. They were recognised as Scripture by the Church in the fourth and fifth centuries (the councils of Hippo, 393, and Carthage, 397, and the letter of Pope Innocent I, 405), and again at the Council of Florence and the Council of Trent.",
+    "The shorter Hebrew canon fixed by Jewish teachers after the time of the apostles was not the Bible of the early Church; it was Luther in the sixteenth century who removed these books from the Old Testament. The New Testament contains allusions to some of them (for example Hebrews 11:35 and 2 Maccabees 7), and the practice of praying for the dead has a basis in 2 Maccabees 12:44-46. Catholics do not “add” books: the Church received 46 Old Testament and 27 New Testament books as the canon, and no one is able to point to a verse that lists the books of the Bible."
+   ],
+   "verses": [
+    {
+     "ref": "2 Maccabees 12:43-46",
+     "why": "Prayer and sacrifice for the dead"
+    },
+    {
+     "ref": "Hebrews 11:35",
+     "why": "Women received their dead by resurrection (cf. 2 Maccabees 7)"
+    },
+    {
+     "ref": "Wisdom 2:12-20",
+     "why": "The righteous one mocked: read by the Church as a picture of Christ"
+    },
+    {
+     "ref": "Luke 24:44",
+     "why": "The law, the prophets and the psalms"
+    }
+   ],
+   "ccc": [
+    120,
+    138
+   ],
+   "tags": [
+    "Canon",
+    "Apocrypha",
+    "Deuterocanon",
+    "Septuagint"
+   ],
+   "related": [
+    "sola-scriptura"
+   ],
+   "reading": [
+    {
+     "title": "Defending The Deuterocanonicals",
+     "url": "https://www.ewtn.com/catholicism/library/defending-the-deuterocanonicals-996",
+     "source": "ewtn",
+     "type": "article"
+    },
+    {
+     "title": "Why Are Protestant Bibles Smaller?",
+     "url": "https://stpaulcenter.com/posts/why-are-protestant-bibles-smaller",
+     "source": "st-paul-center",
+     "type": "article"
+    },
+    {
+     "title": "3 Catholic Doctrines That Appear in the Deuterocanonical Books",
+     "url": "https://stpaulcenter.com/posts/3-catholic-doctrines-that-appear-in-the-deuterocanonical-books",
+     "source": "st-paul-center",
+     "type": "article"
+    },
+    {
+     "title": "Deuterocanonical References in the New Testament",
+     "url": "https://jimmyakin.com/deuterocanonical-references-in-the-new-testament",
+     "source": "jimmy-akin",
+     "type": "article"
+    },
+    {
+     "title": "Defending the Deuterocanonicals",
+     "url": "https://jimmyakin.com/defending-the-deuterocanonicals",
+     "source": "jimmy-akin",
+     "type": "article"
+    },
+    {
+     "title": "Are 1 and 2 Esdras non-canonical books?",
+     "url": "https://www.catholic.com/qa/are-1-and-2-esdras-non-canonical-books",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "Apocrypha",
+     "url": "https://www.catholic.com/encyclopedia/apocrypha",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Saving Judith and Tobit",
+     "url": "https://www.catholic.com/magazine/print-edition/saving-judith-and-tobit",
+     "source": "catholic-answers",
+     "type": "article"
+    }
+   ]
+  },
+  {
+   "id": "church-authority",
+   "category": "Scripture and Tradition",
+   "title": "Did Jesus found a Church with authority?",
+   "objection": "Jesus never founded an institution; the Church is a human invention.",
+   "answer": [
+    "Jesus chose twelve apostles, gave them a share in his own authority (“Whoever listens to you listens to me”, Luke 10:16), the power to bind and loose (Matthew 18:18) and the Great Commission to teach and baptise all nations (Matthew 28:18-20). He promised that “the gates of hell shall not prevail” against his Church (Matthew 16:18) and that the Spirit of truth would guide the apostles into all truth (John 16:13).",
+    "The Acts of the Apostles shows this structure at work: Matthias replaces Judas (Acts 1:15-26), the apostles settle a doctrinal dispute at the Council of Jerusalem (Acts 15), and Paul appoints elders (Acts 14:23, Titus 1:5). The Catholic Church teaches that the bishops are the successors of the apostles, and that the bishop of Rome, the Pope, is the successor of Peter. It also teaches that the Church’s authority is a service to the truth, for Christ is its head."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 16:18-19",
+     "why": "On this rock I will build my Church"
+    },
+    {
+     "ref": "Matthew 18:15-18",
+     "why": "Whatever you bind on earth shall be bound in heaven"
+    },
+    {
+     "ref": "Luke 10:16",
+     "why": "Whoever listens to you listens to me"
+    },
+    {
+     "ref": "John 20:21-23",
+     "why": "As the Father sent me, I send you; whose sins you forgive"
+    },
+    {
+     "ref": "Acts 15:1-29",
+     "why": "The council of Jerusalem decides"
+    }
+   ],
+   "ccc": [
+    551,
+    552,
+    553,
+    861,
+    862,
+    880,
+    881,
+    882
+   ],
+   "tags": [
+    "Church",
+    "Authority",
+    "Apostolic succession",
+    "Papacy"
+   ],
+   "related": [
+    "papacy",
+    "confession"
+   ],
+   "reading": [
+    {
+     "title": "Does Christ's Church Have Apostolic Succession?",
+     "url": "https://www.catholic.com/magazine/print-edition/does-christs-church-have-apostolic-succession",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Peter Is the Rock Upon Which the Church Is Founded",
+     "url": "https://www.catholic.com/magazine/online-edition/peter-is-the-rock-upon-which-the-church-is-founded",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Papacy in Scripture: No Rocks Required",
+     "url": "https://www.catholic.com/magazine/online-edition/the-papacy-in-scripture-no-rocks-required",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Rock Explains the Papacy",
+     "url": "https://www.catholic.com/magazine/online-edition/the-rock-explains-the-papacy",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "What the Early Church Believed: Peter as Pope",
+     "url": "https://www.catholic.com/tract/origins-of-peter-as-pope",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "What is the biblical support for apostolic succession?",
+     "url": "https://www.catholic.com/qa/what-is-the-biblical-support-for-apostolic-succession",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "Peter's Authority",
+     "url": "https://www.catholic.com/magazine/print-edition/peters-authority",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Peter and the Papacy",
+     "url": "https://www.catholic.com/tract/peter-and-the-papacy",
+     "source": "catholic-answers",
+     "type": "tract"
+    }
+   ]
+  },
+  {
+   "id": "papacy",
+   "category": "Scripture and Tradition",
+   "title": "Is Peter the rock? The papacy",
+   "objection": "Peter was not the first Pope. The rock in Matthew 16 is Peter’s faith, or Christ himself.",
+   "answer": [
+    "Jesus gives Simon a new name, Cephas (Aramaic for rock, Greek Petros), and says, “You are Peter, and on this rock I will build my Church… I will give you the keys of the kingdom of heaven” (Matthew 16:18-19). The “keys” echo Isaiah 22:22, where the royal steward holds the keys of David’s house and “shall open, and none shall shut”: an office with successors, not just a person. Jesus also prays that Peter’s faith will not fail and tells him to strengthen his brothers (Luke 22:31-32), and charges him three times to “feed my sheep” (John 21:15-17).",
+    "In Acts, Peter leads the choice of a replacement for Judas, preaches on Pentecost, and speaks first at the Council of Jerusalem. His name heads every list of the apostles. The Church has understood from earliest times that the bishop of Rome, where Peter died, inherits this ministry of unity: the Catechism says the Pope is “the perpetual and visible source and foundation of the unity both of the bishops and of the whole company of the faithful” (CCC 882). The Church also teaches that the Pope is infallible only when he solemnly defines a doctrine on faith or morals for the whole Church, not in everything he says."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 16:13-20",
+     "why": "You are Peter, and on this rock"
+    },
+    {
+     "ref": "Isaiah 22:15-22",
+     "why": "The keys of the house of David"
+    },
+    {
+     "ref": "Luke 22:31-32",
+     "why": "Strengthen your brothers"
+    },
+    {
+     "ref": "John 21:15-19",
+     "why": "Feed my lambs, tend my sheep"
+    },
+    {
+     "ref": "Acts 1:15-26",
+     "why": "Peter leads the choice of an apostle"
+    },
+    {
+     "ref": "Galatians 1:18",
+     "why": "Paul went to Jerusalem to see Cephas"
+    }
+   ],
+   "ccc": [
+    552,
+    553,
+    881,
+    882,
+    891
+   ],
+   "tags": [
+    "Papacy",
+    "Peter",
+    "Pope",
+    "Infallibility"
+   ],
+   "related": [
+    "church-authority"
+   ],
+   "reading": [
+    {
+     "title": "Peter and the Papacy",
+     "url": "https://www.catholic.com/tract/peter-and-the-papacy",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Peter Is the Rock Upon Which the Church Is Founded",
+     "url": "https://www.catholic.com/magazine/online-edition/peter-is-the-rock-upon-which-the-church-is-founded",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Papacy in Scripture: No Rocks Required",
+     "url": "https://www.catholic.com/magazine/online-edition/the-papacy-in-scripture-no-rocks-required",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Rock Explains the Papacy",
+     "url": "https://www.catholic.com/magazine/online-edition/the-rock-explains-the-papacy",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "What the Early Church Believed: Peter as Pope",
+     "url": "https://www.catholic.com/tract/origins-of-peter-as-pope",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Peter Receives His Name and His Gender",
+     "url": "https://www.catholic.com/magazine/online-edition/peter-receives-his-name-and-his-gender",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Protestant Scholars Admit Peter Is the Rock",
+     "url": "https://www.catholic.com/magazine/print-edition/peter-is-the-rock",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Is St. Peter Really the Rock?",
+     "url": "https://www.catholic.com/audio/tjap/is-st-peter-really-the-rock",
+     "source": "catholic-answers",
+     "type": "podcast"
+    }
+   ]
+  },
+  {
+   "id": "trinity",
+   "category": "Christ and the Trinity",
+   "title": "The Trinity",
+   "objection": "The Trinity is not in the Bible; it is a pagan idea or a contradiction.",
+   "answer": [
+    "Catholics worship one God in three Persons: Father, Son and Holy Spirit, equal in being and distinct as Persons. The word “Trinity” is not in the Bible, any more than “Bible” is, but the teaching is. The Old Testament insists that God is one (Deuteronomy 6:4); the New Testament shows the Father, the Son and the Spirit each called God and acting together: at Jesus’ baptism (Matthew 3:16-17), in the baptismal formula “in the name (singular) of the Father and of the Son and of the Holy Spirit” (Matthew 28:19), and in Paul’s blessing (2 Corinthians 13:13).",
+    "The Church put this in words at the Councils of Nicaea (325) and Constantinople (381) to answer those who denied that the Son is truly God. It is a mystery, which means that we cannot fully understand it, but it is not a contradiction: God is one in nature (what He is) and three in Persons (who He is). It is not saying 1 = 3. The Trinity is also at the heart of how Christians pray: “in the name of the Father, and of the Son, and of the Holy Spirit.”"
+   ],
+   "verses": [
+    {
+     "ref": "Deuteronomy 6:4",
+     "why": "The Lord our God is one"
+    },
+    {
+     "ref": "Matthew 28:19",
+     "why": "Baptise in the name of the Father, Son and Holy Spirit"
+    },
+    {
+     "ref": "John 1:1-3",
+     "why": "The Word was with God, and the Word was God"
+    },
+    {
+     "ref": "2 Corinthians 13:13",
+     "why": "The grace of the Lord Jesus Christ, the love of God, the fellowship of the Holy Spirit"
+    },
+    {
+     "ref": "Matthew 3:16-17",
+     "why": "Father, Son and Spirit at the Baptism"
+    }
+   ],
+   "ccc": [
+    232,
+    233,
+    234,
+    253,
+    254,
+    255,
+    261
+   ],
+   "tags": [
+    "Trinity",
+    "Holy Spirit",
+    "Nicaea"
+   ],
+   "related": [
+    "divinity-of-christ"
+   ],
+   "reading": [
+    {
+     "title": "What the Early Church Believed: The Trinity",
+     "url": "https://www.catholic.com/tract/the-trinity",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "What About Matthew 12:31-32, Which Says that Anyone Who Speaks Against the Holy Spirit will Never be Forgiven?",
+     "url": "https://www.catholic.com/qa/what-about-matthew-1231-32-which-says-that-anyone-who-speaks-against-the-holy-spirit-will-never",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "How to Defend the Trinity's Biblical Basis",
+     "url": "https://www.catholic.com/video/how-to-defend-the-trinitys-biblical-basis",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "The Trinity as Call to Action",
+     "url": "https://www.wordonfire.org/resources/homily/the-trinity-as-call-to-action/4773/",
+     "source": "word-on-fire",
+     "type": "article"
+    },
+    {
+     "title": "How To Understand the Trinity",
+     "url": "https://wordonfire.org/resources/homily/how-to-understand-the-trinity/31183",
+     "source": "word-on-fire",
+     "type": "article"
+    },
+    {
+     "title": "What the Early Church Believed: Trinitarian Baptism",
+     "url": "https://www.catholic.com/tract/trinitarian-baptism",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Why Don't We Baptize in the Name of Jesus?",
+     "url": "https://www.catholic.com/magazine/online-edition/why-dont-we-baptize-in-the-name-of-jesus",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "When You Baptize, Baptize Right",
+     "url": "https://www.catholic.com/magazine/online-edition/in-whose-name-should-we-baptize",
+     "source": "catholic-answers",
+     "type": "article"
+    }
+   ]
+  },
+  {
+   "id": "divinity-of-christ",
+   "category": "Christ and the Trinity",
+   "title": "Is Jesus God?",
+   "objection": "Jesus never claimed to be God; that was invented later.",
+   "answer": [
+    "The Gospels show Jesus claiming what only God can claim. He forgives sins (Mark 2:5-7), is Lord of the Sabbath (Mark 2:28), and says “before Abraham was, I AM” (John 8:58), using the divine name from Exodus 3:14; his listeners picked up stones to kill him for blasphemy. He says, “I and the Father are one” (John 10:30), and accepts Thomas’ confession, “My Lord and my God” (John 20:28). John’s Gospel begins, “In the beginning was the Word, and the Word was God… and the Word became flesh” (John 1:1, 14), and Paul says that in Christ “the whole fullness of deity dwells bodily” (Colossians 2:9).",
+    "The Church teaches that Jesus is one Divine Person with two natures, truly God and truly man, as the Council of Chalcedon (451) put it. His miracles, and above all his resurrection, are the signs given to confirm who he is."
+   ],
+   "verses": [
+    {
+     "ref": "John 8:56-59",
+     "why": "Before Abraham was, I AM"
+    },
+    {
+     "ref": "John 10:30-33",
+     "why": "I and the Father are one"
+    },
+    {
+     "ref": "John 20:28",
+     "why": "My Lord and my God"
+    },
+    {
+     "ref": "Mark 2:5-12",
+     "why": "Who can forgive sins but God alone?"
+    },
+    {
+     "ref": "Philippians 2:5-11",
+     "why": "He was in the form of God"
+    },
+    {
+     "ref": "Colossians 1:15-20",
+     "why": "In him all things were created"
+    }
+   ],
+   "ccc": [
+    464,
+    465,
+    466,
+    467,
+    468,
+    469
+   ],
+   "tags": [
+    "Jesus",
+    "Divinity of Christ",
+    "Incarnation"
+   ],
+   "related": [
+    "trinity",
+    "resurrection"
+   ],
+   "reading": [
+    {
+     "title": "Merely 'a' God? Answering Jehovah's Witnesses on Jesus",
+     "url": "https://www.catholic.com/magazine/print-edition/merely-a-god-answering-jehovahs-witnesses-on-jesus",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Jesus Is God",
+     "url": "https://www.catholic.com/magazine/print-edition/jesus-is-god",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "How \"Doubting Thomas\" Proves Jesus Is God",
+     "url": "https://www.catholic.com/magazine/blog/how-doubting-thomas-proves-jesus-is-god",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Did Jesus Claim to Be God?",
+     "url": "https://www.catholic.com/magazine/online-edition/did-jesus-claim-to-be-god",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Did Jesus Claim to Be God?",
+     "url": "https://www.catholic.com/qa/did-jesus-claim-to-be-god",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "The Incarnation of God",
+     "url": "https://www.catholic.com/audio/caf/the-incarnation-of-god",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "The Word Was God",
+     "url": "https://www.catholic.com/audio/ddp/the-word-was-god",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Augustine: Tractate 2 on John 1:6-14",
+     "url": "https://www.newadvent.org/fathers/1701002.htm",
+     "source": "new-advent",
+     "type": "article"
+    }
+   ]
+  },
+  {
+   "id": "resurrection",
+   "category": "Christ and the Trinity",
+   "title": "Did Jesus really rise from the dead?",
+   "objection": "The resurrection is a myth, or the disciples hallucinated.",
+   "answer": [
+    "The earliest written testimony is Paul’s creed in 1 Corinthians 15:3-8, which he “received” (so it is older than the letter, written about AD 55): Christ died for our sins, was buried, was raised on the third day, and appeared to Cephas, the Twelve, more than five hundred at once (most of whom were still alive), James, and last of all to Paul. The Gospels agree that women found the tomb empty, an unlikely detail to invent in a world where a woman’s testimony counted for little. The disciples, who had run away at the arrest, became fearless witnesses who suffered and died rather than deny what they had seen.",
+    "A resurrection is not the resuscitation of a corpse: the risen Jesus has a transformed, glorified body that can pass through closed doors but also eats fish and shows his wounds. It is a historical event with a meaning beyond history, which is why Paul says, “If Christ has not been raised, your faith is futile” (1 Corinthians 15:17). The Catechism calls it “the crowning truth of our faith in Christ.”"
+   ],
+   "verses": [
+    {
+     "ref": "1 Corinthians 15:3-8",
+     "why": "Paul’s creed of the resurrection"
+    },
+    {
+     "ref": "1 Corinthians 15:12-20",
+     "why": "If Christ has not been raised, our faith is futile"
+    },
+    {
+     "ref": "Luke 24:36-43",
+     "why": "Touch me and see; he ate a piece of fish"
+    },
+    {
+     "ref": "John 20:24-29",
+     "why": "Thomas and the wounds"
+    },
+    {
+     "ref": "Matthew 28:1-10",
+     "why": "The empty tomb"
+    }
+   ],
+   "ccc": [
+    638,
+    639,
+    640,
+    641,
+    642,
+    643,
+    644,
+    645,
+    646,
+    647,
+    648,
+    651
+   ],
+   "tags": [
+    "Resurrection",
+    "Easter",
+    "Empty tomb"
+   ],
+   "related": [
+    "divinity-of-christ"
+   ],
+   "reading": [
+    {
+     "title": "A Fake Resurrection in Mark's Gospel?",
+     "url": "https://www.catholic.com/magazine/online-edition/a-fake-resurrection-in-marks-gospel",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Was the Resurrection Merely Spiritual?",
+     "url": "https://www.catholic.com/audio/scw/was-the-resurrection-merely-spiritual",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Was Jesus' Resurrection Physical or Purely Spiritual?",
+     "url": "https://www.catholic.com/qa/was-jesus-resurrection-of-a-physical-or-purely-spiritual-nature",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "What the Early Church Believed: Resurrection of the Body",
+     "url": "https://www.catholic.com/tract/resurrection-of-the-body",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Bishop Barron on the Resurrection of Jesus",
+     "url": "https://www.wordonfire.org/videos/bishop-barrons-commentaries/bishop-barron-on-the-resurrection-of-jesus/",
+     "source": "word-on-fire",
+     "type": "video"
+    },
+    {
+     "title": "The Resurrection of Jesus (Bishop Barron commentary)",
+     "url": "https://www.wordonfire.org/videos/bishop-barrons-commentaries/the-resurrection-of-jesus/",
+     "source": "word-on-fire",
+     "type": "video"
+    },
+    {
+     "title": "Bishop Barron on the Meaning of the Resurrection",
+     "url": "https://www.youtube.com/watch?v=rZ9WT3o94a8",
+     "source": "word-on-fire",
+     "type": "video"
+    },
+    {
+     "title": "The Resurrection in Mark",
+     "url": "https://jimmyakin.com/2023/05/the-resurrection-in-mark.html",
+     "source": "jimmy-akin",
+     "type": "article"
+    }
+   ]
+  },
+  {
+   "id": "mary-mother-of-god",
+   "category": "Mary and the saints",
+   "title": "Mother of God",
+   "objection": "Calling Mary the Mother of God means she is older than God, or a goddess.",
+   "answer": [
+    "“Mother of God” (Theotokos, “God-bearer”) was defined at the Council of Ephesus (431), and it is a statement about Jesus before it is a statement about Mary. Mary is the mother of Jesus, and Jesus is a divine Person. Mary is not the source of his divinity, which is eternal, but she gave him his human nature, and a mother is the mother of a whole person, not of part of one. Elizabeth, filled with the Holy Spirit, called her “the mother of my Lord” (Luke 1:43), and “Lord” is the title the Old Testament uses for God.",
+    "To deny the title is to suggest that the child in the womb was not God yet. That is why the Church insisted on it: it guards the truth that Jesus is God made man."
+   ],
+   "verses": [
+    {
+     "ref": "Luke 1:43",
+     "why": "The mother of my Lord"
+    },
+    {
+     "ref": "Galatians 4:4",
+     "why": "God sent his Son, born of a woman"
+    },
+    {
+     "ref": "Luke 1:30-35",
+     "why": "The child will be called the Son of God"
+    },
+    {
+     "ref": "John 2:1-5",
+     "why": "The mother of Jesus at Cana"
+    }
+   ],
+   "ccc": [
+    495,
+    509,
+    975
+   ],
+   "tags": [
+    "Mary",
+    "Theotokos",
+    "Ephesus",
+    "Mother of God"
+   ],
+   "related": [
+    "immaculate-conception",
+    "intercession-of-saints"
+   ],
+   "reading": [
+    {
+     "title": "Mary, Mother of God",
+     "url": "https://www.catholic.com/magazine/online-edition/mary-mother-of-god",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Does the Bible Teach Mary was the Mother of God?",
+     "url": "https://www.catholic.com/video/does-the-bible-teach-mary-was-the-mother-of-god",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "Mary as Mother of God",
+     "url": "https://www.catholic.com/audio/ddp/mary-as-mother-of-god",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Mary Is NOT the Mother of God REBUTTED",
+     "url": "https://www.catholic.com/audio/cot/mary-is-not-the-mother-of-god-rebutted",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "How Can Mary Be God's Mother?",
+     "url": "https://www.catholic.com/magazine/online-edition/how-can-mary-be-gods-mother",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Burning Bush: Theotokos in the Old Testament",
+     "url": "https://stpaulcenter.com/posts/the-burning-bush-theotokos-in-the-old-testament",
+     "source": "st-paul-center",
+     "type": "article"
+    },
+    {
+     "title": "Mary: Mother of God (Edward Sri)",
+     "url": "https://ascensionpress.com/blogs/videos/mary-mother-of-god",
+     "source": "ascension",
+     "type": "video"
+    },
+    {
+     "title": "Where Is the Immaculate Conception in the Bible?",
+     "url": "https://www.catholic.com/magazine/online-edition/the-immaculate-conception-in-scripture",
+     "source": "catholic-answers",
+     "type": "article"
+    }
+   ]
+  },
+  {
+   "id": "immaculate-conception",
+   "category": "Mary and the saints",
+   "title": "The Immaculate Conception",
+   "objection": "Mary was a sinner like everyone else; the Immaculate Conception is not in the Bible.",
+   "answer": [
+    "The Immaculate Conception does not mean that Jesus was conceived without a human father (that is the virginal conception). It means that Mary herself, from the first moment of her existence, was preserved by God from original sin by a grace given in view of the merits of her Son (defined by Pope Pius IX in 1854). She was redeemed in the most perfect way: kept from falling, not lifted out afterward.",
+    "The Church finds the root of this in Scripture’s pattern: the angel greets Mary as “full of grace” (Luke 1:28), a title in place of her name, and the Ark of the Covenant, which carried God’s word, was made pure and holy. Eve was without sin before the Fall; Mary, the “new Eve”, was called to be the mother of the Redeemer, and the early Fathers contrasted “Eve’s disobedience” with “Mary’s obedience”. Romans 3:23 (“all have sinned”) allows exceptions in context: Jesus did not sin, and infants and the severely disabled cannot personally sin."
+   ],
+   "verses": [
+    {
+     "ref": "Luke 1:28",
+     "why": "Hail, full of grace"
+    },
+    {
+     "ref": "Genesis 3:15",
+     "why": "Enmity between the woman and the serpent"
+    },
+    {
+     "ref": "Revelation 12:1",
+     "why": "A woman clothed with the sun"
+    },
+    {
+     "ref": "Luke 1:46-49",
+     "why": "He who is mighty has done great things for me"
+    }
+   ],
+   "ccc": [
+    490,
+    491,
+    492,
+    493,
+    494
+   ],
+   "tags": [
+    "Mary",
+    "Immaculate Conception",
+    "Original sin"
+   ],
+   "related": [
+    "mary-mother-of-god",
+    "assumption"
+   ],
+   "reading": [
+    {
+     "title": "Immaculate Conception and Assumption",
+     "url": "https://www.catholic.com/tract/immaculate-conception-and-assumption",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Where Is the Immaculate Conception in the Bible?",
+     "url": "https://www.catholic.com/magazine/online-edition/the-immaculate-conception-in-scripture",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Catholics Are Right About Original Sin",
+     "url": "https://www.catholic.com/magazine/online-edition/catholics-are-right-about-original-sin",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Is there any biblical evidence for the Catholic doctrine of original sin?",
+     "url": "https://www.catholic.com/qa/is-there-any-biblical-evidence-for-the-catholic-doctrine-of-original-sin",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "What the Early Church Believed: Original Sin",
+     "url": "https://www.catholic.com/tract/what-the-early-church-believed-original-sin",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Using the Bible to Explain Original Sin",
+     "url": "https://www.catholic.com/magazine/online-edition/using-the-bible-to-explain-original-sin",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Mary's Immaculate Conception (Bible Navigator)",
+     "url": "https://www.catholic.com/bible-navigator/mary’s-immaculate-conception/luke128",
+     "source": "catholic-answers",
+     "type": "page"
+    },
+    {
+     "title": "Dino Deaths and Original Sin",
+     "url": "https://jimmyakin.com/2011/03/dino-deaths-original-sin.html",
+     "source": "jimmy-akin",
+     "type": "article"
+    }
+   ]
+  },
+  {
+   "id": "assumption",
+   "category": "Mary and the saints",
+   "title": "The Assumption of Mary",
+   "objection": "The Assumption is not in the Bible and was invented in 1950.",
+   "answer": [
+    "The Church teaches that Mary, at the end of her earthly life, was taken body and soul into heavenly glory. It was defined in 1950, but the belief is much older: the feast of her “Dormition” (falling asleep) was celebrated in the East by the sixth century, and no city in the ancient world claims her relics, though cities claimed those of many other saints.",
+    "Scripture does not describe it, but supports its fittingness. Enoch and Elijah were taken up (Genesis 5:24, 2 Kings 2:11); the Ark of the Covenant, which was God’s dwelling, was brought to rest in the Temple (Psalm 132:8, 2 Chronicles 5:7), and Revelation 11:19-12:1 moves from the Ark appearing in the heavenly Temple to “a woman clothed with the sun”. The Church sees in Mary a preview of what awaits all the faithful: the resurrection of the body."
+   ],
+   "verses": [
+    {
+     "ref": "Psalm 132:8",
+     "why": "Arise, O Lord, and go to your resting place, you and the ark of your might"
+    },
+    {
+     "ref": "Revelation 11:19-12:1",
+     "why": "The ark in heaven, and a woman clothed with the sun"
+    },
+    {
+     "ref": "1 Corinthians 15:20-23",
+     "why": "Christ the first fruits, then those who belong to him"
+    },
+    {
+     "ref": "2 Kings 2:11",
+     "why": "Elijah taken up"
+    }
+   ],
+   "ccc": [
+    966,
+    974
+   ],
+   "tags": [
+    "Mary",
+    "Assumption",
+    "Dormition"
+   ],
+   "related": [
+    "immaculate-conception"
+   ],
+   "reading": [
+    {
+     "title": "Immaculate Conception and Assumption",
+     "url": "https://www.catholic.com/tract/immaculate-conception-and-assumption",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Defending the Assumption of Mary",
+     "url": "https://www.catholic.com/magazine/online-edition/the-assumption-of-mary",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Where Is the Immaculate Conception in the Bible?",
+     "url": "https://www.catholic.com/magazine/online-edition/the-immaculate-conception-in-scripture",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Bible Mary, Conceived Without Sin",
+     "url": "https://www.catholic.com/magazine/online-edition/bible-mary-conceived-without-sin",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Hail Mary Is in the Bible",
+     "url": "https://www.catholic.com/qa/the-hail-mary-is-in-the-bible",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "Genesis 3:15: Who Crushes the Serpent’s Head?",
+     "url": "https://www.catholic.com/qa/genesis-315-who-crushes-the-serpents-head",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "How Can You Say That Mary Is the 'New Eve'?",
+     "url": "https://www.catholic.com/magazine/print-edition/how-can-you-say-that-mary-is-the-new-eve",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Why the Early Church Thought Mary Was the New Eve",
+     "url": "https://www.catholic.com/audio/sp/why-the-early-church-thought-mary-was-the-new-eve",
+     "source": "catholic-answers",
+     "type": "podcast"
+    }
+   ]
+  },
+  {
+   "id": "perpetual-virginity",
+   "category": "Mary and the saints",
+   "title": "Was Mary always a virgin?",
+   "objection": "The Bible speaks of the “brothers” of Jesus, so Mary had other children.",
+   "answer": [
+    "The Church teaches that Mary was a virgin before, during and after the birth of Jesus (CCC 499). In the Bible the Greek word for brother, adelphos, is used broadly, as the Hebrew “ach” is, for cousins and kinsmen: Lot is called Abraham’s “brother” though he is his nephew (Genesis 14:14, 16). The Gospels name “James and Joses” as sons of another Mary who stood at the cross (Matthew 27:56), not of Mary of Nazareth. At the cross Jesus entrusts his mother to John (John 19:26-27), which would be unnecessary if she had other sons to care for her.",
+    "Mary’s question at the Annunciation, “How can this be, since I have no husband?” (Luke 1:34), has long been read as showing a decision to remain a virgin. The Fathers and the Reformers (including Luther and Zwingli) held this teaching."
+   ],
+   "verses": [
+    {
+     "ref": "Luke 1:34",
+     "why": "How can this be, since I have no husband?"
+    },
+    {
+     "ref": "Matthew 13:55",
+     "why": "Are not his brothers James, Joseph, Simon and Judas?"
+    },
+    {
+     "ref": "Matthew 27:56",
+     "why": "Mary the mother of James and Joseph"
+    },
+    {
+     "ref": "John 19:26-27",
+     "why": "Behold your mother"
+    },
+    {
+     "ref": "Genesis 14:14-16",
+     "why": "Abraham’s “brother” Lot was his nephew"
+    }
+   ],
+   "ccc": [
+    499,
+    500,
+    501,
+    502,
+    503,
+    504,
+    505,
+    506
+   ],
+   "tags": [
+    "Mary",
+    "Perpetual virginity",
+    "Brothers of the Lord"
+   ],
+   "related": [
+    "mary-mother-of-god"
+   ],
+   "reading": [
+    {
+     "title": "The Case for Mary's Perpetual Virginity",
+     "url": "https://www.catholic.com/magazine/print-edition/the-case-for-marys-perpetual-virginity",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Answering Objections to Mary's Perpetual Virginity",
+     "url": "https://www.catholic.com/audio/cot/answering-objections-to-marys-perpetual-virginity",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Proof of Mary's Perpetual Virginity in John 19",
+     "url": "https://www.catholic.com/magazine/online-edition/proof-of-marys-perpetual-virginity-in-john-19",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Was Mary a Perpetual Virgin?",
+     "url": "https://www.catholic.com/magazine/print-edition/was-mary-a-perpetual-virgin",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Did Jesus Really Have Brothers? The Biblical Answer",
+     "url": "https://www.catholic.com/video/did-jesus-really-have-brothers-the-biblical-answer",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "Where Is the Immaculate Conception in the Bible?",
+     "url": "https://www.catholic.com/magazine/online-edition/the-immaculate-conception-in-scripture",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Bible Mary, Conceived Without Sin",
+     "url": "https://www.catholic.com/magazine/online-edition/bible-mary-conceived-without-sin",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Hail Mary Is in the Bible",
+     "url": "https://www.catholic.com/qa/the-hail-mary-is-in-the-bible",
+     "source": "catholic-answers",
+     "type": "qa"
+    }
+   ]
+  },
+  {
+   "id": "intercession-of-saints",
+   "category": "Mary and the saints",
+   "title": "Praying to the saints",
+   "objection": "Praying to saints is worship of the dead, and Jesus is the only mediator.",
+   "answer": [
+    "Catholics do not worship saints; worship (latria) belongs to God alone. We ask the saints to pray for us, just as we ask living friends to pray for us. Paul asks the Romans to “strive together with me in your prayers” (Romans 15:30), and James says that “the prayer of a righteous person has great power” (James 5:16). The saints in heaven are not dead: God “is not God of the dead, but of the living” (Matthew 22:32), and Jesus speaks with Moses and Elijah at the Transfiguration.",
+    "Paul’s “one mediator between God and men, the man Christ Jesus” (1 Timothy 2:5) is spoken in the very passage where he urges prayers for everyone (2:1-4). Christ is the one Mediator of redemption; asking someone to pray with us does not replace his mediation but shares in it, as members of his Body. Revelation shows the saints in heaven offering our prayers to God (Revelation 5:8; 6:9-10). The Church says, “Being more closely united to Christ, those who dwell in heaven fix the whole Church more firmly in holiness” (CCC 956)."
+   ],
+   "verses": [
+    {
+     "ref": "Revelation 5:8",
+     "why": "The prayers of the saints, in golden bowls of incense"
+    },
+    {
+     "ref": "James 5:16",
+     "why": "The prayer of a righteous person has great power"
+    },
+    {
+     "ref": "Hebrews 12:1",
+     "why": "A great cloud of witnesses"
+    },
+    {
+     "ref": "1 Timothy 2:1-5",
+     "why": "One mediator between God and men"
+    },
+    {
+     "ref": "Luke 9:30-31",
+     "why": "Moses and Elijah speak with Jesus"
+    }
+   ],
+   "ccc": [
+    956,
+    957,
+    958,
+    2683,
+    2684
+   ],
+   "tags": [
+    "Saints",
+    "Intercession",
+    "Communion of saints"
+   ],
+   "related": [
+    "mary-mother-of-god",
+    "purgatory"
+   ],
+   "reading": [
+    {
+     "title": "Intercession of the Saints-Revealed",
+     "url": "https://www.catholic.com/magazine/online-edition/intercession-of-the-saints-revealed",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Do the Saints Pray for Us?",
+     "url": "https://www.catholic.com/audio/ddp/do-the-saints-pray-for-us",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "St. Me, Pray For Me?",
+     "url": "https://jimmyakin.com/2006/11/st_me_pray_for_.html",
+     "source": "jimmy-akin",
+     "type": "article"
+    },
+    {
+     "title": "The Bible Supports Praying to the Saints",
+     "url": "https://www.catholic.com/magazine/print-edition/the-bible-supports-praying-to-the-saints",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Defending the Prayers of the Saints",
+     "url": "https://www.catholic.com/magazine/online-edition/defending-the-prayers-of-the-saints",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "One Mediator Between God and Man: 1 Timothy 2:5 Explained",
+     "url": "https://www.catholic.com/video/one-mediator-between-god-and-man-1-timothy-25-explained",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "Friends in High Places",
+     "url": "https://www.catholic.com/magazine/print-edition/friends-in-high-places",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Why pray to angels?",
+     "url": "https://www.catholic.com/qa/why-pray-to-angels",
+     "source": "catholic-answers",
+     "type": "qa"
+    }
+   ]
+  },
+  {
+   "id": "real-presence",
+   "category": "The sacraments",
+   "title": "The Real Presence of Christ in the Eucharist",
+   "objection": "The bread and wine are only symbols of Jesus’ body and blood.",
+   "answer": [
+    "Catholics believe that at Mass, by the power of the Holy Spirit and the words of the priest, the bread and wine become the Body and Blood, Soul and Divinity of Christ (the Church calls this transubstantiation: the appearance of bread and wine remains, while what they truly are changes). Jesus said, “This is my body… this is my blood” (Matthew 26:26-28), not “this represents”. In John 6 he says, “unless you eat the flesh of the Son of Man and drink his blood, you have no life in you” (6:53), and when many disciples left because “this is a hard saying”, he did not soften it or call after them to say he was speaking in a figure (6:60-66). The verb he uses for “eat” changes in John 6:54 to a word meaning to chew or gnaw.",
+    "Paul warns that whoever eats and drinks unworthily “will be guilty of profaning the body and blood of the Lord” and “eats and drinks judgement on himself” (1 Corinthians 11:27-29), which would make no sense if it were only a symbol. The earliest Christian writers, such as Ignatius of Antioch (about AD 107) and Justin Martyr (about 155), say plainly that the Eucharist is the flesh of Jesus Christ."
+   ],
+   "verses": [
+    {
+     "ref": "John 6:35-71",
+     "why": "The bread of life discourse"
+    },
+    {
+     "ref": "Matthew 26:26-29",
+     "why": "This is my body, this is my blood"
+    },
+    {
+     "ref": "Luke 22:19-20",
+     "why": "Do this in remembrance of me"
+    },
+    {
+     "ref": "1 Corinthians 10:16-17",
+     "why": "A participation in the blood and the body of Christ"
+    },
+    {
+     "ref": "1 Corinthians 11:23-29",
+     "why": "Guilty of the body and blood of the Lord"
+    }
+   ],
+   "ccc": [
+    1322,
+    1323,
+    1324,
+    1373,
+    1374,
+    1375,
+    1376,
+    1377,
+    1378,
+    1413
+   ],
+   "tags": [
+    "Eucharist",
+    "Real Presence",
+    "Transubstantiation",
+    "John 6"
+   ],
+   "related": [
+    "mass-sacrifice",
+    "confession"
+   ],
+   "reading": [
+    {
+     "title": "John 6:62-63 Further Affirms Real Presence of Eucharist",
+     "url": "https://www.catholic.com/qa/john-662-63-further-affirms-real-presence-of-eucharist",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "John 6 Is a Metaphor, So You Should Worship the Eucharist?",
+     "url": "https://www.catholic.com/audio/sp/john-6-is-a-metaphor-so-you-should-worship-the-eucharist",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Is the Eucharist Truly Jesus' Body and Blood?",
+     "url": "https://www.catholic.com/magazine/online-edition/is-the-eucharist-truly-jesus-body-and-blood",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "What Catholics Ignore in Their Interpretation of John 6?",
+     "url": "https://www.catholic.com/audio/drk/what-catholics-ignore-in-their-interpretation-of-john-6",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "More Protestant Objections to John 6—Answered",
+     "url": "https://www.catholic.com/audio/cal/ama-224",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "What the Early Church Believed: The Real Presence",
+     "url": "https://www.catholic.com/tract/the-real-presence",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "The Season of Living Bread",
+     "url": "https://www.catholic.com/magazine/online-edition/the-season-of-living-bread",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "John 6:62-63 Further Affirms Real Presence of Eucharist",
+     "url": "https://catholic.com/qa/john-662-63-further-affirms-real-presence-of-eucharist",
+     "source": "catholic-answers",
+     "type": "qa"
+    }
+   ]
+  },
+  {
+   "id": "mass-sacrifice",
+   "category": "The sacraments",
+   "title": "Is the Mass a sacrifice?",
+   "objection": "Christ’s sacrifice was once for all, so the Mass cannot repeat it.",
+   "answer": [
+    "The Church agrees that Christ died once for all (Hebrews 9:26-28; 10:10-14), and the Mass does not repeat or add to that sacrifice. It makes the one sacrifice of Calvary present for us, as the Passover meal made the Exodus present to each generation. At the Last Supper, Jesus took the bread and wine and said, “This is my body, which is given for you… this is my blood… poured out for you”, in the language of sacrifice and covenant. The Church’s worship in Revelation shows a “Lamb standing as though slain” in the heavenly liturgy (Revelation 5:6).",
+    "Malachi foretold a “pure offering” in every place from the rising to the setting of the sun (Malachi 1:11), which the earliest Christians (for example the Didache, about AD 100) saw fulfilled in the Eucharist. The priest acts in the person of Christ; the sacrifice is Christ’s own, and we join our lives to his."
+   ],
+   "verses": [
+    {
+     "ref": "Hebrews 9:11-14",
+     "why": "Christ entered once for all with his own blood"
+    },
+    {
+     "ref": "Malachi 1:11",
+     "why": "A pure offering from the rising of the sun to its setting"
+    },
+    {
+     "ref": "Luke 22:14-20",
+     "why": "The Last Supper"
+    },
+    {
+     "ref": "Revelation 5:6-12",
+     "why": "The Lamb as though slain"
+    },
+    {
+     "ref": "1 Corinthians 10:16-21",
+     "why": "The cup of blessing; the table of the Lord"
+    }
+   ],
+   "ccc": [
+    1362,
+    1363,
+    1364,
+    1365,
+    1366,
+    1367,
+    1368
+   ],
+   "tags": [
+    "Mass",
+    "Sacrifice",
+    "Eucharist"
+   ],
+   "related": [
+    "real-presence"
+   ],
+   "reading": [
+    {
+     "title": "The Eucharistic Sacrifice",
+     "url": "https://www.catholic.com/audio/ddp/the-eucharistic-sacrifice",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Victim and Priest: Christ's Sacrifice in the Eucharist",
+     "url": "https://stpaulcenter.com/posts/victim-and-priest-christs-sacrifice-in-the-eucharist",
+     "source": "st-paul-center",
+     "type": "article"
+    },
+    {
+     "title": "What the Early Church Believed: The Sacrifice of the Mass",
+     "url": "https://www.catholic.com/tract/the-sacrifice-of-the-mass",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Is the Mass a Sacrifice?",
+     "url": "https://www.catholic.com/magazine/print-edition/is-the-mass-a-sacrifice",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Sacrifice of the Mass",
+     "url": "https://www.catholic.com/magazine/print-edition/sacrifice-of-the-mass",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The One and Only Sacrifice of the Mass",
+     "url": "https://www.catholic.com/audio/scw/the-one-and-only-sacrifice-of-the-mass",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Does the Mass Put Jesus Back on the Cross?",
+     "url": "https://www.catholic.com/audio/sp/does-the-mass-put-jesus-back-on-the-cross",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "The Mass: Our Road to Emmaus",
+     "url": "https://ascensionpress.com/blogs/podcasts/the-mass-our-road-to-emmaus",
+     "source": "ascension",
+     "type": "podcast"
+    }
+   ]
+  },
+  {
+   "id": "confession",
+   "category": "The sacraments",
+   "title": "Confession to a priest",
+   "objection": "Only God can forgive sins; we do not need to confess to a man.",
+   "answer": [
+    "Only God forgives sins, and in Jesus God has given this power to men. On Easter evening Jesus breathes on the apostles and says, “Receive the Holy Spirit. If you forgive the sins of any, they are forgiven; if you retain the sins of any, they are retained” (John 20:22-23). A priest would not be able to “retain” a sin unless he first knew it, which implies that the sins are named. Jesus had already shown that “the Son of Man has authority on earth to forgive sins” (Mark 2:10), and the crowd praised God for giving “such authority to men” (Matthew 9:8). Paul speaks of the “ministry of reconciliation” given to the apostles (2 Corinthians 5:18-20), and James tells the sick to call the elders, and to “confess your sins to one another” (James 5:14-16).",
+    "In the sacrament of Penance the priest acts in the person of Christ. The penitent’s sorrow, confession, penance and the priest’s absolution together express and bring about God’s forgiveness. The seal of confession is absolute: a priest may never reveal anything he hears."
+   ],
+   "verses": [
+    {
+     "ref": "John 20:21-23",
+     "why": "Whose sins you forgive are forgiven"
+    },
+    {
+     "ref": "Matthew 18:18",
+     "why": "Whatever you loose on earth is loosed in heaven"
+    },
+    {
+     "ref": "2 Corinthians 5:18-20",
+     "why": "The ministry of reconciliation"
+    },
+    {
+     "ref": "James 5:14-16",
+     "why": "Confess your sins to one another"
+    },
+    {
+     "ref": "Mark 2:5-12",
+     "why": "The Son of Man has authority to forgive sins"
+    }
+   ],
+   "ccc": [
+    1440,
+    1441,
+    1442,
+    1443,
+    1444,
+    1445,
+    1461,
+    1462,
+    1463,
+    1464,
+    1465,
+    1466,
+    1467
+   ],
+   "tags": [
+    "Confession",
+    "Reconciliation",
+    "Penance"
+   ],
+   "related": [
+    "church-authority"
+   ],
+   "reading": [
+    {
+     "title": "In Defense of Confession: A Radio Reply",
+     "url": "https://www.catholic.com/magazine/online-edition/in-defense-of-confession-a-radio-reply",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Confession (Bible Navigator)",
+     "url": "https://www.catholic.com/bible-navigator/confession/john2021-23",
+     "source": "catholic-answers",
+     "type": "page"
+    },
+    {
+     "title": "Is Confession Biblical? Debunking Protestant Comebacks to John 20:23",
+     "url": "https://www.catholic.com/audio/scw/is-confession-biblical-debunking-protestant-comebacks-to-john-2023",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "A Biblical Case for Confession",
+     "url": "https://www.catholic.com/magazine/print-edition/a-biblical-case-for-confession",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Finding the Sacrament of Confession in Biblical Grammar",
+     "url": "https://www.catholic.com/magazine/online-edition/finding-sacrament-confession-in-biblical-grammar",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Is Confession in Scripture?",
+     "url": "https://www.catholic.com/magazine/online-edition/is-confession-in-scripture",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Does John 20:23 Mean Confession?",
+     "url": "https://www.catholic.com/video/refuting-biblical-objections-to-confession",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "What the Early Church Believed: Confession",
+     "url": "https://www.catholic.com/tract/confession",
+     "source": "catholic-answers",
+     "type": "tract"
+    }
+   ]
+  },
+  {
+   "id": "infant-baptism",
+   "category": "The sacraments",
+   "title": "Baptising babies",
+   "objection": "Baptism requires faith, so babies should not be baptised.",
+   "answer": [
+    "Baptism is God’s gift, not a human achievement. The New Testament speaks of whole households being baptised (Acts 16:15, 33; 1 Corinthians 1:16), and the word “household” in that time included children. Peter said on Pentecost, “the promise is for you and for your children” (Acts 2:38-39). Baptism takes the place of circumcision (Colossians 2:11-12), which was given to boys at eight days old. Jesus said, “Let the children come to me” (Matthew 19:14).",
+    "The faith of the Church, parents and godparents supports the child until he or she can profess it personally. The Church baptises infants because original sin affects every person, and because grace is a free gift. Christians have baptised infants from the earliest times: Origen (about 248) said the Church received this tradition from the apostles."
+   ],
+   "verses": [
+    {
+     "ref": "Acts 2:38-39",
+     "why": "The promise is for you and your children"
+    },
+    {
+     "ref": "Acts 16:31-34",
+     "why": "He and all his household were baptised"
+    },
+    {
+     "ref": "Colossians 2:11-12",
+     "why": "Baptism as the new circumcision"
+    },
+    {
+     "ref": "Matthew 19:13-15",
+     "why": "Let the children come to me"
+    },
+    {
+     "ref": "John 3:5",
+     "why": "Born of water and the Spirit"
+    }
+   ],
+   "ccc": [
+    1250,
+    1251,
+    1252,
+    1253,
+    1254,
+    1255
+   ],
+   "tags": [
+    "Baptism",
+    "Infant baptism"
+   ],
+   "related": [
+    "baptismal-regeneration"
+   ],
+   "reading": [
+    {
+     "title": "To Explain Infant Baptism You Must Explain Original Sin",
+     "url": "https://www.catholic.com/magazine/print-edition/to-explain-infant-baptism-you-must-explain-original-sin",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "What the Early Church Believed: Born Again in Baptism",
+     "url": "https://www.catholic.com/tract/born-again-in-baptism",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Is Baptism Merely a Symbol?",
+     "url": "https://www.catholic.com/magazine/print-edition/is-baptism-merely-a-symbol",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Rebutting Gavin Ortlund on Baptismal Regeneration",
+     "url": "https://www.catholic.com/audio/cot/rebutting-gavin-ortlund-on-baptismal-regeneration",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "What the Early Church Believed: Trinitarian Baptism",
+     "url": "https://www.catholic.com/tract/trinitarian-baptism",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Baptism in Jesus' Name",
+     "url": "https://www.catholic.com/audio/ddp/baptism-in-jesus-name",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Baptism Saves You",
+     "url": "https://www.catholic.com/magazine/print-edition/baptism-saves-you",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Necessity of Baptism (Bible Navigator)",
+     "url": "https://www.catholic.com/bible-navigator/necessity-of-baptism/john35",
+     "source": "catholic-answers",
+     "type": "page"
+    }
+   ]
+  },
+  {
+   "id": "baptismal-regeneration",
+   "category": "The sacraments",
+   "title": "Does baptism save?",
+   "objection": "We are saved by faith alone; baptism is only a symbol.",
+   "answer": [
+    "The New Testament speaks of baptism in very strong terms. Jesus says, “unless one is born of water and the Spirit, he cannot enter the kingdom of God” (John 3:5). Peter says, “Repent, and be baptised… for the forgiveness of your sins” (Acts 2:38), and, “baptism… now saves you” (1 Peter 3:21). Ananias tells Paul, “Rise and be baptised and wash away your sins” (Acts 22:16), and Paul says we are saved “by the washing of regeneration and renewal in the Holy Spirit” (Titus 3:5). Baptism is not a symbol only: through it God washes away original sin and all personal sin, gives new life in Christ and makes us members of his Church.",
+    "This is not “works salvation”: the baptised do nothing; they receive. The Church teaches that God is not bound by his sacraments, and that those who die for Christ without baptism (baptism of blood) or who seek God sincerely and would have been baptised had they known (baptism of desire) can be saved."
+   ],
+   "verses": [
+    {
+     "ref": "John 3:3-6",
+     "why": "Born of water and the Spirit"
+    },
+    {
+     "ref": "Acts 2:38",
+     "why": "Repent and be baptised for the forgiveness of sins"
+    },
+    {
+     "ref": "1 Peter 3:20-21",
+     "why": "Baptism now saves you"
+    },
+    {
+     "ref": "Titus 3:5",
+     "why": "The washing of regeneration"
+    },
+    {
+     "ref": "Romans 6:3-4",
+     "why": "We were buried with him by baptism"
+    }
+   ],
+   "ccc": [
+    1213,
+    1214,
+    1215,
+    1216,
+    1257,
+    1258,
+    1259,
+    1260
+   ],
+   "tags": [
+    "Baptism",
+    "Salvation",
+    "Regeneration"
+   ],
+   "related": [
+    "infant-baptism",
+    "faith-and-works"
+   ],
+   "reading": [
+    {
+     "title": "Rebutting Gavin Ortlund on Baptismal Regeneration",
+     "url": "https://www.catholic.com/audio/cot/rebutting-gavin-ortlund-on-baptismal-regeneration",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "What the Early Church Believed: Born Again in Baptism",
+     "url": "https://www.catholic.com/tract/born-again-in-baptism",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Is Baptism Merely a Symbol?",
+     "url": "https://www.catholic.com/magazine/print-edition/is-baptism-merely-a-symbol",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "What the Early Church Believed: Trinitarian Baptism",
+     "url": "https://www.catholic.com/tract/trinitarian-baptism",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Is Salvation an Act or a Process?",
+     "url": "https://www.catholic.com/magazine/print-edition/is-salvation-an-act-or-a-process",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Baptism in Jesus' Name",
+     "url": "https://www.catholic.com/audio/ddp/baptism-in-jesus-name",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Are Good Works Necessary for Salvation?",
+     "url": "https://www.catholic.com/magazine/online-edition/are-good-works-necessary-for-salvation",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "To Explain Infant Baptism You Must Explain Original Sin",
+     "url": "https://www.catholic.com/magazine/print-edition/to-explain-infant-baptism-you-must-explain-original-sin",
+     "source": "catholic-answers",
+     "type": "article"
+    }
+   ]
+  },
+  {
+   "id": "celibacy",
+   "category": "The sacraments",
+   "title": "Priestly celibacy",
+   "objection": "Priests should marry. The Bible says a bishop should be the husband of one wife.",
+   "answer": [
+    "Celibacy for priests in the Latin Church is a discipline, not a doctrine, and it has exceptions: some Eastern Catholic Churches have married priests, and married Protestant clergy who become Catholic may be ordained. Jesus and Paul were both unmarried. Jesus said some “have made themselves eunuchs for the sake of the kingdom of heaven. Let the one who is able to receive this receive it” (Matthew 19:12), and Paul says the unmarried man is “anxious about the things of the Lord” and has an undivided heart (1 Corinthians 7:32-35). “The husband of one wife” (1 Timothy 3:2) forbids a second marriage; it does not command marriage.",
+    "The Church asks its priests, who are called to give themselves entirely to God’s people, to live as Christ did, as a sign of the life to come, when “they neither marry nor are given in marriage” (Matthew 22:30)."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 19:10-12",
+     "why": "For the sake of the kingdom of heaven"
+    },
+    {
+     "ref": "1 Corinthians 7:7-8, 32-35",
+     "why": "Paul on the unmarried life"
+    },
+    {
+     "ref": "Matthew 22:30",
+     "why": "In the resurrection they neither marry nor are given in marriage"
+    },
+    {
+     "ref": "1 Timothy 3:2",
+     "why": "Husband of one wife"
+    }
+   ],
+   "ccc": [
+    1579,
+    1580,
+    1618,
+    1619,
+    1620
+   ],
+   "tags": [
+    "Celibacy",
+    "Priesthood",
+    "Virginity"
+   ],
+   "related": [],
+   "reading": [
+    {
+     "title": "Celibacy and the Priesthood",
+     "url": "https://www.catholic.com/tract/celibacy-and-the-priesthood",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Verse by Verse: Celibacy",
+     "url": "https://www.catholic.com/magazine/print-edition/verse-by-verse-11",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Why We Have a Ministerial Priesthood",
+     "url": "https://www.catholic.com/magazine/print-edition/why-we-have-a-ministerial-priesthood",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Is There A New Covenant Ministerial Priesthood?",
+     "url": "https://www.catholic.com/magazine/online-edition/is-there-a-new-covenant-ministerial-priesthood",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Biblical Foundations of the Priesthood",
+     "url": "https://stpaulcenter.com/posts/the-biblical-foundations-of-the-priesthood",
+     "source": "st-paul-center",
+     "type": "article"
+    },
+    {
+     "title": "How the Priesthood Comes from the Bible",
+     "url": "https://ascensionpress.com/blogs/articles/priesthood-from-bible",
+     "source": "ascension",
+     "type": "article"
+    },
+    {
+     "title": "The Priesthood Debate",
+     "url": "https://jimmyakin.com/library/the-priesthood-debate",
+     "source": "jimmy-akin",
+     "type": "article"
+    },
+    {
+     "title": "Call No Man \"Father\"?",
+     "url": "https://www.catholic.com/tract/call-no-man-father",
+     "source": "catholic-answers",
+     "type": "tract"
+    }
+   ]
+  },
+  {
+   "id": "women-priests",
+   "category": "The sacraments",
+   "title": "Why only men as priests?",
+   "objection": "The male priesthood is discrimination.",
+   "answer": [
+    "The Church teaches that she has no authority to ordain women to the priesthood (John Paul II, Ordinatio Sacerdotalis, 1994). It is not a judgement on women’s dignity or ability. Jesus, who treated women with great respect and had women disciples, chose twelve men as apostles, though it went against some of the customs of his day, and the apostles in turn appointed men as their successors. Mary, the greatest of the saints, was not an apostle. In the early Church, there were many women saints, prophets and teachers (Priscilla, Phoebe, Junia), and women have been Doctors of the Church, but none were ordained priests.",
+    "The priest acts “in the person of Christ the Bridegroom” toward the Church, his Bride, which is why the sign of a man is fitting. Women and men are equal in dignity but have different roles, as the Church sees it."
+   ],
+   "verses": [
+    {
+     "ref": "Mark 3:13-19",
+     "why": "Jesus chooses the twelve"
+    },
+    {
+     "ref": "Luke 6:12-16",
+     "why": "He called his disciples and chose twelve"
+    },
+    {
+     "ref": "Galatians 3:28",
+     "why": "Neither male nor female in Christ"
+    },
+    {
+     "ref": "2 Timothy 2:2",
+     "why": "Entrust to faithful men who will teach others"
+    }
+   ],
+   "ccc": [
+    1577,
+    1578,
+    1579
+   ],
+   "tags": [
+    "Priesthood",
+    "Ordination",
+    "Women"
+   ],
+   "related": [
+    "church-authority"
+   ],
+   "reading": [
+    {
+     "title": "Why We Have a Ministerial Priesthood",
+     "url": "https://www.catholic.com/magazine/print-edition/why-we-have-a-ministerial-priesthood",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Is There A New Covenant Ministerial Priesthood?",
+     "url": "https://www.catholic.com/magazine/online-edition/is-there-a-new-covenant-ministerial-priesthood",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Are Old Testament Women Nameless, Silent, Passive Victims?",
+     "url": "https://www.catholic.com/magazine/print-edition/are-old-testament-women-nameless-silent-passive-victims",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "7 Amazing Old Testament Women",
+     "url": "https://stpaulcenter.com/posts/7-amazing-old-testament-women",
+     "source": "st-paul-center",
+     "type": "article"
+    },
+    {
+     "title": "The Biblical Foundations of the Priesthood",
+     "url": "https://stpaulcenter.com/posts/the-biblical-foundations-of-the-priesthood",
+     "source": "st-paul-center",
+     "type": "article"
+    },
+    {
+     "title": "How the Priesthood Comes from the Bible",
+     "url": "https://ascensionpress.com/blogs/articles/priesthood-from-bible",
+     "source": "ascension",
+     "type": "article"
+    },
+    {
+     "title": "The Priesthood Debate",
+     "url": "https://jimmyakin.com/library/the-priesthood-debate",
+     "source": "jimmy-akin",
+     "type": "article"
+    },
+    {
+     "title": "Call No Man \"Father\"?",
+     "url": "https://www.catholic.com/tract/call-no-man-father",
+     "source": "catholic-answers",
+     "type": "tract"
+    }
+   ]
+  },
+  {
+   "id": "faith-and-works",
+   "category": "Salvation and morality",
+   "title": "Faith and works",
+   "objection": "We are saved by faith alone, not by works. Catholics think they earn salvation.",
+   "answer": [
+    "Catholics do not believe we earn salvation. The Church teaches that justification is God’s free gift of grace, received through faith, which we cannot merit (CCC 1996-1998, 2010). Paul says, “by grace you have been saved through faith; and this is not your own doing, it is the gift of God, not because of works” (Ephesians 2:8-9). But the same passage goes on, “we are his workmanship, created in Christ Jesus for good works” (2:10), and Paul speaks of “faith working through love” (Galatians 5:6).",
+    "James says plainly, “a man is justified by works and not by faith alone” (James 2:24), and “faith apart from works is dead” (2:26). Paul and James are not contradicting each other: Paul rejects the “works of the law” (the Jewish rituals as a way to claim God’s favour), while James rejects a faith that does nothing. Jesus’ account of the last judgement is based on what we did for “the least of these” (Matthew 25:31-46). Once God’s grace makes us just, the good we do is truly ours, and yet also his gift. “Our merit is God’s gift” (St. Augustine, quoted in CCC 2009)."
+   ],
+   "verses": [
+    {
+     "ref": "Ephesians 2:8-10",
+     "why": "By grace you have been saved through faith"
+    },
+    {
+     "ref": "James 2:14-26",
+     "why": "Faith apart from works is dead"
+    },
+    {
+     "ref": "Galatians 5:6",
+     "why": "Faith working through love"
+    },
+    {
+     "ref": "Romans 2:6-8",
+     "why": "He will render to each according to his works"
+    },
+    {
+     "ref": "Matthew 25:31-46",
+     "why": "The judgement of the nations"
+    },
+    {
+     "ref": "Philippians 2:12-13",
+     "why": "Work out your own salvation; it is God who works in you"
+    }
+   ],
+   "ccc": [
+    1987,
+    1988,
+    1989,
+    1990,
+    1991,
+    1992,
+    1996,
+    1997,
+    1998,
+    2008,
+    2009,
+    2010
+   ],
+   "tags": [
+    "Salvation",
+    "Faith",
+    "Works",
+    "Justification"
+   ],
+   "related": [
+    "once-saved",
+    "baptismal-regeneration"
+   ],
+   "reading": [
+    {
+     "title": "Are Good Works Necessary for Salvation?",
+     "url": "https://www.catholic.com/magazine/online-edition/are-good-works-necessary-for-salvation",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Aren't We Saved by Faith Alone?",
+     "url": "https://catholic.com/magazine/print-edition/arent-we-saved-by-faith-alone",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "When Was Abraham Justified?",
+     "url": "https://www.catholic.com/magazine/blog/when-was-abraham-justified",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Why James Says Faith Without Works Is Dead",
+     "url": "https://www.catholic.com/magazine/online-edition/why-james-says-faith-without-works-is-dead",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Justified by Faith or Works or Both?",
+     "url": "https://www.catholic.com/qa/justified-by-faith-or-works-or-both",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "How Abraham Proves Faith Dies Without Works",
+     "url": "https://www.catholic.com/video/139841",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "The Sight of Men or God? What James Meant by Justification",
+     "url": "https://www.catholic.com/audio/drk/the-sight-of-men-or-god-what-james-meant-by-justification",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "James on Abraham's Justification—Are Catholics Missing the Whole Point?",
+     "url": "https://www.catholic.com/audio/drk/james-on-abrahams-justification-are-catholics-missing-the-whole-point",
+     "source": "catholic-answers",
+     "type": "podcast"
+    }
+   ]
+  },
+  {
+   "id": "once-saved",
+   "category": "Salvation and morality",
+   "title": "Once saved, always saved?",
+   "objection": "Once a person is saved, he can never lose his salvation.",
+   "answer": [
+    "The Church teaches that we can have real hope and trust in God’s mercy, but not an absolute certainty that we will persevere. The New Testament warns believers that they can fall away. Paul says, “let anyone who thinks that he stands take heed lest he fall” (1 Corinthians 10:12), and fears that “after preaching to others I myself should be disqualified” (1 Corinthians 9:27). Hebrews 6:4-6 and 10:26-31 warn of those who, having received the light, fall away. Jesus describes servants who are cast out for failing to use God’s gifts (Matthew 25:14-30), and branches that are cut off from the vine (John 15:1-6). Paul speaks of salvation as something we are being saved in hope (Romans 8:24), and speaks of a race still to be finished (2 Timothy 4:7-8).",
+    "Mortal sin, a grave sin committed with full knowledge and consent, can destroy the life of grace in us, and the sacrament of Confession is the way God restores it. The Church also teaches that God gives all the help we need, and we can trust in him: “Whoever endures to the end will be saved” (Matthew 24:13)."
+   ],
+   "verses": [
+    {
+     "ref": "1 Corinthians 10:1-12",
+     "why": "Let anyone who thinks he stands take heed"
+    },
+    {
+     "ref": "Hebrews 6:4-8",
+     "why": "Those who have fallen away"
+    },
+    {
+     "ref": "John 15:1-6",
+     "why": "Abide in me; branches that do not bear fruit are cut off"
+    },
+    {
+     "ref": "Philippians 2:12",
+     "why": "Work out your salvation with fear and trembling"
+    },
+    {
+     "ref": "Matthew 24:13",
+     "why": "He who endures to the end will be saved"
+    }
+   ],
+   "ccc": [
+    1021,
+    1033,
+    1036,
+    1037,
+    1855,
+    1856,
+    1857,
+    1861,
+    2016
+   ],
+   "tags": [
+    "Salvation",
+    "Perseverance",
+    "Mortal sin"
+   ],
+   "related": [
+    "faith-and-works",
+    "confession"
+   ],
+   "reading": [
+    {
+     "title": "Is Salvation an Act or a Process?",
+     "url": "https://www.catholic.com/magazine/print-edition/is-salvation-an-act-or-a-process",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Are Good Works Necessary for Salvation?",
+     "url": "https://www.catholic.com/magazine/online-edition/are-good-works-necessary-for-salvation",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "What Is the Golden Chain of Salvation?",
+     "url": "https://www.catholic.com/audio/tjap/what-is-the-golden-chain-of-salvation",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "What is the complete meaning of Romans 10:9-10?",
+     "url": "https://www.catholic.com/qa/what-is-the-complete-meaning-of-romans-109-10",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "Once Saved, Always Saved?",
+     "url": "https://www.catholic.com/magazine/print-edition/once-saved-always-saved",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "\"Are You Saved?\" If Only!",
+     "url": "https://www.catholic.com/magazine/print-edition/are-you-saved-if-only",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Heart of Christianity",
+     "url": "https://www.wordonfire.org/videos/sermons/the-heart-of-christianity/",
+     "source": "word-on-fire",
+     "type": "video"
+    },
+    {
+     "title": "Do We Have a Say in our Salvation?: Reading Romans in Context",
+     "url": "https://www.catholic.com/qa/do-we-have-a-say-in-our-salvation-reading-romans-in-context",
+     "source": "catholic-answers",
+     "type": "qa"
+    }
+   ]
+  },
+  {
+   "id": "indulgences",
+   "category": "Salvation and morality",
+   "title": "Indulgences",
+   "objection": "Indulgences are the selling of forgiveness.",
+   "answer": [
+    "An indulgence does not forgive sins and has never been permission to sin. Forgiveness of sin comes through repentance and the sacraments. An indulgence concerns the “temporal punishment” that may remain after sin is forgiven, much as a person who is forgiven for breaking a window still needs to repair it. The Church can apply to us the spiritual treasury built up by Christ and the saints, since we are all members of one Body (Colossians 1:24; 1 Corinthians 12:26).",
+    "The Church has always taught that the sale of indulgences was an abuse, and in 1567 Pope Pius V banned any financial gain from them. The Council of Trent had already reformed the practice. Today, an indulgence is gained by doing some prayer or good work, along with Confession, Communion, and prayer for the pope’s intentions. God’s mercy is always freely given."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 16:19",
+     "why": "Whatever you loose on earth"
+    },
+    {
+     "ref": "Colossians 1:24",
+     "why": "Completing what is lacking in Christ’s afflictions for the sake of his body"
+    },
+    {
+     "ref": "2 Samuel 12:13-14",
+     "why": "David forgiven, yet the child dies"
+    },
+    {
+     "ref": "1 Corinthians 3:13-15",
+     "why": "Saved, but as through fire"
+    }
+   ],
+   "ccc": [
+    1471,
+    1472,
+    1473,
+    1474,
+    1475,
+    1476,
+    1477,
+    1478,
+    1479
+   ],
+   "tags": [
+    "Indulgences",
+    "Purgatory",
+    "Temporal punishment"
+   ],
+   "related": [
+    "purgatory"
+   ],
+   "reading": [
+    {
+     "title": "Purgatory's Purifying Fire",
+     "url": "https://www.catholic.com/magazine/online-edition/purgatorys-purifying-fire",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "You Don't Believe in Purgatory? Paul Did!",
+     "url": "https://www.catholic.com/audio/drk/you-dont-believe-in-purgatory-paul-did",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Is Purgatory Found in the Bible?",
+     "url": "https://www.catholic.com/magazine/print-edition/is-purgatory-found-in-the-bible",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Where Is Purgatory in the Bible? — Every Objection to Purgatory Answered",
+     "url": "https://www.catholic.com/video/where-is-purgatory-in-the-bible-every-objection-to-purgatory-answered",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "What Is Purgatory?",
+     "url": "https://www.catholic.com/tract/purgatory",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Is Purgatory in the Bible?",
+     "url": "https://www.catholic.com/magazine/online-edition/is-purgatory-in-the-bible",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Purgatory in Jesus' Teaching",
+     "url": "https://www.catholic.com/magazine/print-edition/purgatory-in-jesus-teaching",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Purgatory (Bible Navigator: 1 Corinthians 3:15)",
+     "url": "https://www.catholic.com/bible-navigator/purgatory/1corinthians315",
+     "source": "catholic-answers",
+     "type": "page"
+    }
+   ]
+  },
+  {
+   "id": "purgatory",
+   "category": "Salvation and morality",
+   "title": "Purgatory",
+   "objection": "Purgatory is not in the Bible. Christ’s sacrifice is enough.",
+   "answer": [
+    "Purgatory is the final purification of those who die in God’s grace and friendship but are not yet fully cleansed, so that they may enter the joy of heaven. The Church does not teach that it is a second chance or a place of torment, but that “nothing unclean shall enter” heaven (Revelation 21:27) and that we are made holy by God’s love, which Scripture often compares to fire (1 Corinthians 3:13-15; 1 Peter 1:6-7; Malachi 3:2-3). Paul describes a person whose work is burned yet “he himself will be saved, but only as through fire”.",
+    "Praying for the dead is an ancient Jewish and Christian practice (2 Maccabees 12:44-46), and it makes sense only if the dead can still be helped. Jesus speaks of sins forgiven “in the age to come” (Matthew 12:32) and of a prison from which one does not come out “till you have paid the last penny” (Matthew 5:25-26). The word “purgatory” is not in the Bible, but the Church’s tradition, from the early inscriptions of the catacombs to Saint Augustine, includes prayers for the dead. Christ’s sacrifice is fully sufficient; purgatory is about being made able to receive it fully."
+   ],
+   "verses": [
+    {
+     "ref": "1 Corinthians 3:11-15",
+     "why": "Saved, but only as through fire"
+    },
+    {
+     "ref": "2 Maccabees 12:41-46",
+     "why": "Prayer for the dead"
+    },
+    {
+     "ref": "Matthew 12:31-32",
+     "why": "Not forgiven in this age or in the age to come"
+    },
+    {
+     "ref": "Revelation 21:27",
+     "why": "Nothing unclean shall enter"
+    },
+    {
+     "ref": "1 Peter 4:6",
+     "why": "The gospel preached even to the dead"
+    }
+   ],
+   "ccc": [
+    1030,
+    1031,
+    1032,
+    1472
+   ],
+   "tags": [
+    "Purgatory",
+    "Prayer for the dead",
+    "Purification"
+   ],
+   "related": [
+    "indulgences",
+    "intercession-of-saints"
+   ],
+   "reading": [
+    {
+     "title": "Purgatory's Purifying Fire",
+     "url": "https://www.catholic.com/magazine/online-edition/purgatorys-purifying-fire",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "You Don't Believe in Purgatory? Paul Did!",
+     "url": "https://www.catholic.com/audio/drk/you-dont-believe-in-purgatory-paul-did",
+     "source": "catholic-answers",
+     "type": "podcast"
+    },
+    {
+     "title": "Is Purgatory Found in the Bible?",
+     "url": "https://www.catholic.com/magazine/print-edition/is-purgatory-found-in-the-bible",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Where Is Purgatory in the Bible? — Every Objection to Purgatory Answered",
+     "url": "https://www.catholic.com/video/where-is-purgatory-in-the-bible-every-objection-to-purgatory-answered",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "What Is Purgatory?",
+     "url": "https://www.catholic.com/tract/purgatory",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Is Purgatory in the Bible?",
+     "url": "https://www.catholic.com/magazine/online-edition/is-purgatory-in-the-bible",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Purgatory in Jesus' Teaching",
+     "url": "https://www.catholic.com/magazine/print-edition/purgatory-in-jesus-teaching",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Purgatory (Bible Navigator: 1 Corinthians 3:15)",
+     "url": "https://www.catholic.com/bible-navigator/purgatory/1corinthians315",
+     "source": "catholic-answers",
+     "type": "page"
+    }
+   ]
+  },
+  {
+   "id": "hell",
+   "category": "Salvation and morality",
+   "title": "Hell",
+   "objection": "A loving God would not send anyone to hell.",
+   "answer": [
+    "The Church teaches that hell is real: it is the state of definitive self-exclusion from communion with God, and God does not predestine anyone to it. Jesus speaks about it more than any other person in the New Testament (Matthew 25:41, 46; Mark 9:43-48). God’s love respects our freedom: C. S. Lewis said that the doors of hell are locked on the inside. A love that forced us to love him back would not be love.",
+    "To go to hell, one must die in mortal sin without repenting, having freely chosen to turn away from God. The Church has never said that any particular person is in hell, not even Judas, and prays that all be saved. The existence of hell takes seriously the weight of our choices, and our responsibility, and makes our lives matter."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 25:31-46",
+     "why": "The sheep and the goats"
+    },
+    {
+     "ref": "Luke 16:19-31",
+     "why": "The rich man and Lazarus"
+    },
+    {
+     "ref": "2 Peter 3:9",
+     "why": "God is patient, not wishing that any should perish"
+    },
+    {
+     "ref": "1 Timothy 2:3-4",
+     "why": "God desires all to be saved"
+    },
+    {
+     "ref": "Matthew 7:13-14",
+     "why": "The narrow gate"
+    }
+   ],
+   "ccc": [
+    1033,
+    1034,
+    1035,
+    1036,
+    1037,
+    1058
+   ],
+   "tags": [
+    "Hell",
+    "Judgement",
+    "Free will"
+   ],
+   "related": [
+    "once-saved"
+   ],
+   "reading": []
+  },
+  {
+   "id": "sunday-sabbath",
+   "category": "Salvation and morality",
+   "title": "Sunday or Saturday?",
+   "objection": "The Bible says the Sabbath is Saturday; Catholics changed it.",
+   "answer": [
+    "The Church keeps Sunday as the Lord’s Day because Jesus rose from the dead on “the first day of the week” (Mark 16:2, 9; John 20:1) and appeared to the disciples on the following Sunday (John 20:26). The first Christians gathered “on the first day of the week to break bread” (Acts 20:7) and put aside their offerings that day (1 Corinthians 16:2). John calls it “the Lord’s Day” (Revelation 1:10). The Catechism says the Sunday celebration fulfils the Sabbath and “announces the eternal rest of man in God” (CCC 2175).",
+    "Paul says that no one should judge Christians “in questions of food and drink or with regard to a festival or a new moon or a sabbath” (Colossians 2:16-17), and the Council of Jerusalem did not require Gentile believers to keep the Mosaic law (Acts 15). The idea that the Catholic Church “changed” the day in the fourth century is not historically accurate: Sunday worship is attested already in Ignatius and Justin Martyr in the second century. The Church still asks for the rest and the worship that the commandment commands."
+   ],
+   "verses": [
+    {
+     "ref": "Acts 20:7",
+     "why": "On the first day of the week we gathered to break bread"
+    },
+    {
+     "ref": "John 20:19-26",
+     "why": "The risen Lord appears on the first day, and a week later"
+    },
+    {
+     "ref": "Revelation 1:10",
+     "why": "On the Lord’s Day"
+    },
+    {
+     "ref": "Colossians 2:16-17",
+     "why": "Let no one pass judgement on you about a sabbath"
+    },
+    {
+     "ref": "Exodus 20:8-11",
+     "why": "Remember the sabbath day"
+    }
+   ],
+   "ccc": [
+    2174,
+    2175,
+    2176,
+    2177,
+    2178,
+    2179,
+    2180,
+    2181,
+    2182,
+    2183
+   ],
+   "tags": [
+    "Sunday",
+    "Sabbath",
+    "Lord’s Day",
+    "Third commandment"
+   ],
+   "related": [],
+   "reading": [
+    {
+     "title": "What the Early Church Believed: Sabbath or Sunday?",
+     "url": "https://www.catholic.com/tract/sabbath-or-sunday",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "From Sabbath to Sunday",
+     "url": "https://www.catholic.com/magazine/print-edition/from-sabbath-to-sunday",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Lord's Day Replaced the Sabbath",
+     "url": "https://www.catholic.com/magazine/print-edition/the-lords-day-replaced-the-sabbath",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Did the Early Church Move the Sabbath from Saturday to Sunday?",
+     "url": "https://www.catholic.com/qa/did-the-early-church-move-the-sabbath-from-saturday-to-sunday",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "Sunday Is Not the Sabbath",
+     "url": "https://www.catholic.com/magazine/online-edition/should-christians-keep-the-sabbath-or-celebrate-the-lords-day",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Seventh-day Adventists and the Sabbath",
+     "url": "https://www.catholic.com/qa/what-about-the-seventh-day-adventist-claim-that-the-sabbath-shouldnt-have-been-changed-to-sunday",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "Rediscovering Sunday",
+     "url": "https://www.catholic.com/magazine/online-edition/rediscovering-sunday",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "The Bread of the Presence and the Lord of the Sabbath: How Jesus Fulfills It",
+     "url": "https://catholicproductions.com/blogs/blog/lord-of-the-sabbath",
+     "source": "catholic-productions",
+     "type": "article"
+    }
+   ]
+  },
+  {
+   "id": "images",
+   "category": "Salvation and morality",
+   "title": "Statues and images",
+   "objection": "Catholics worship idols; the Bible forbids carved images.",
+   "answer": [
+    "The first commandment forbids making idols to worship (Exodus 20:4-5), but God himself commanded images in the Tabernacle and Temple: the carved cherubim on the Ark of the Covenant (Exodus 25:18-20), the bronze serpent (Numbers 21:8-9) and the cherubim and palm trees carved in Solomon’s Temple (1 Kings 6:23-29). The commandment is against worshipping what we have made as a god, not against using images to remind us of God and his friends, as we keep photographs of loved ones.",
+    "Since the Word became flesh, God can be depicted: “Whoever has seen me has seen the Father” (John 14:9). The Second Council of Nicaea (787) taught that honour (dulia) given to an image passes to the person it represents, and is very different from the adoration (latria) that belongs to God alone. Catholics do not pray to statues, but to the saints they remind us of."
+   ],
+   "verses": [
+    {
+     "ref": "Exodus 25:18-22",
+     "why": "God commands carved cherubim for the Ark"
+    },
+    {
+     "ref": "Numbers 21:8-9",
+     "why": "The bronze serpent"
+    },
+    {
+     "ref": "1 Kings 6:23-29",
+     "why": "Carved cherubim in the Temple"
+    },
+    {
+     "ref": "Exodus 20:4-5",
+     "why": "You shall not make a graven image to worship it"
+    },
+    {
+     "ref": "Colossians 1:15",
+     "why": "He is the image of the invisible God"
+    }
+   ],
+   "ccc": [
+    2129,
+    2130,
+    2131,
+    2132,
+    2141,
+    1159,
+    1160,
+    1161,
+    1162
+   ],
+   "tags": [
+    "Images",
+    "Icons",
+    "Idolatry",
+    "Statues"
+   ],
+   "related": [
+    "intercession-of-saints"
+   ],
+   "reading": [
+    {
+     "title": "Graven Images",
+     "url": "https://www.catholic.com/magazine/print-edition/graven-images",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Do Catholics Worship Statues?",
+     "url": "https://www.catholic.com/tract/do-catholics-worship-statues.",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Do Catholics Worship Statues?",
+     "url": "https://www.catholic.com/tract/do-catholics-worship-statues",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "How do crucifixes fit in with the Old Testament prohibition of graven images?",
+     "url": "https://www.catholic.com/qa/how-do-crucifixes-fit-in-with-the-old-testament-prohibition-of-graven-images",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "Statues Aren't Necessarily Idols",
+     "url": "https://www.catholic.com/magazine/online-edition/statues-arent-necessarily-idols",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Statues: Exodus 25:18-21",
+     "url": "https://www.catholic.com/bible-navigator/statues/exodus2518-21",
+     "source": "catholic-answers",
+     "type": "page"
+    },
+    {
+     "title": "Statues: Numbers 21:8-9",
+     "url": "https://www.catholic.com/bible-navigator/statues/numbers218-9",
+     "source": "catholic-answers",
+     "type": "page"
+    },
+    {
+     "title": "Statues: 1 Kings 6:23-32",
+     "url": "https://www.catholic.com/bible-navigator/statues/1kings623-32",
+     "source": "catholic-answers",
+     "type": "page"
+    }
+   ]
+  },
+  {
+   "id": "marriage-divorce",
+   "category": "Life, family and the world",
+   "title": "Marriage, divorce and annulment",
+   "objection": "The Church bans divorce, and annulment is “Catholic divorce”.",
+   "answer": [
+    "Jesus taught that marriage is a lifelong union: “What God has joined together, let not man put asunder” (Mark 10:2-12; Matthew 19:3-9). A valid sacramental marriage between baptised persons cannot be dissolved by any human power. The Church can recognise that a marriage which looked valid never truly existed because something essential was lacking from the beginning, such as free consent, or the intention to be faithful, or the ability to carry out the commitment of marriage. That is what an annulment declares: it does not dissolve a marriage; it is a finding that there was none.",
+    "Civil divorce is sometimes tolerated for protection, but remarriage after divorce while the first spouse is alive is not possible for Catholics, since “whoever marries a divorced woman commits adultery” (Luke 16:18). Divorced Catholics who have not remarried remain full members of the Church, and those who have remarried can still take part in the life of the Church in many ways."
+   ],
+   "verses": [
+    {
+     "ref": "Mark 10:2-12",
+     "why": "What God has joined together, let no one put asunder"
+    },
+    {
+     "ref": "Matthew 19:3-9",
+     "why": "Moses allowed divorce because of the hardness of your hearts"
+    },
+    {
+     "ref": "Ephesians 5:25-32",
+     "why": "Christ and the Church: a great mystery"
+    },
+    {
+     "ref": "Malachi 2:13-16",
+     "why": "I hate divorce, says the Lord"
+    }
+   ],
+   "ccc": [
+    1601,
+    1602,
+    1638,
+    1639,
+    1640,
+    1641,
+    1642,
+    1643,
+    1644,
+    1645,
+    1646,
+    1647,
+    1648,
+    1649,
+    1650,
+    1651
+   ],
+   "tags": [
+    "Marriage",
+    "Divorce",
+    "Annulment"
+   ],
+   "related": [],
+   "reading": [
+    {
+     "title": "Marriage and Divorce in the Teaching of Jesus",
+     "url": "https://www.catholic.com/magazine/print-edition/marriage-and-divorce-in-the-teaching-of-jesus",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Divorce and Remarriage (Mark 10:10-12)",
+     "url": "https://www.catholic.com/bible-navigator/divorce-and-remarriage/mark1010-12",
+     "source": "catholic-answers",
+     "type": "page"
+    },
+    {
+     "title": "Does Jesus leave a loophole for divorce in Matthew 19:9?",
+     "url": "https://www.catholic.com/qa/does-jesus-leave-a-loophole-for-divorce-in-matthew-199",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "Why the Bible's 'Divorce Exception'?",
+     "url": "https://www.catholic.com/magazine/online-edition/why-the-bibles-divorce-exception",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Did Jesus Say Adultery Is Grounds for Divorce?",
+     "url": "https://www.catholic.com/magazine/print-edition/did-jesus-say-adultery-is-grounds-for-divorce",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Did Jesus Allow Some Divorce?",
+     "url": "https://www.catholic.com/video/did-jesus-allow-some-divorce",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "If Jesus made an exception for divorce in cases of adultery, why doesn't the Church?",
+     "url": "https://www.catholic.com/qa/if-jesus-made-an-exception-for-divorce-in-cases-of-adultery-why-doesnt-the-church",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "The Meaning of the Exceptive Clauses",
+     "url": "https://www.catholic.com/audio/ddp/the-meaning-of-the-exceptive-clauses",
+     "source": "catholic-answers",
+     "type": "podcast"
+    }
+   ]
+  },
+  {
+   "id": "contraception",
+   "category": "Life, family and the world",
+   "title": "Contraception",
+   "objection": "The Church’s ban on contraception is out of date.",
+   "answer": [
+    "The Church teaches that marriage’s sexual union has two inseparable meanings: love between the spouses (unitive) and openness to new life (procreative). Deliberately blocking one of these separates what God joined together (Humanae Vitae 12, 1968). The Church does not demand that couples have as many children as possible: it teaches “responsible parenthood”, which includes spacing births for serious reasons, using natural family planning (NFP), which works with the body’s natural cycles of fertility. NFP differs from contraception in the means used and in the openness to life that remains in every act.",
+    "The Bible condemns the deliberate frustrating of conception in Onan’s case (Genesis 38:9-10), although scholars debate the main point of that story. The tradition, from the Fathers, taught that contraception is wrong. Humanae Vitae predicted social consequences, which many see in today’s culture. The Church’s teaching is demanding, and the Church offers pastoral care, mercy in Confession, and help with NFP."
+   ],
+   "verses": [
+    {
+     "ref": "Genesis 1:27-28",
+     "why": "Be fruitful and multiply"
+    },
+    {
+     "ref": "Genesis 38:8-10",
+     "why": "Onan and the wasted seed"
+    },
+    {
+     "ref": "Psalm 127:3-5",
+     "why": "Children are a heritage from the Lord"
+    },
+    {
+     "ref": "Ephesians 5:25-33",
+     "why": "Love as Christ loved the Church"
+    }
+   ],
+   "ccc": [
+    2366,
+    2367,
+    2368,
+    2369,
+    2370,
+    2371,
+    2372
+   ],
+   "tags": [
+    "Contraception",
+    "NFP",
+    "Humanae Vitae"
+   ],
+   "related": [
+    "marriage-divorce",
+    "abortion"
+   ],
+   "reading": []
+  },
+  {
+   "id": "abortion",
+   "category": "Life, family and the world",
+   "title": "Abortion",
+   "objection": "The Bible does not mention abortion.",
+   "answer": [
+    "The Church has always taught that human life must be respected from conception to natural death. The Bible does not use the word “abortion”, but it speaks of God’s knowledge of persons before birth: “Before I formed you in the womb I knew you” (Jeremiah 1:5), “you knit me together in my mother’s womb” (Psalm 139:13-16), and John the Baptist “leaped for joy” in Elizabeth’s womb (Luke 1:41-44), where Luke uses the same word, brephos, for the unborn child as for the baby in the manger (Luke 2:12). The commandment “You shall not kill” (Exodus 20:13) protects the innocent.",
+    "The Didache (about AD 100) says, “You shall not kill a child by abortion nor kill it once it is born.” The Church also asks us to care for women in difficult pregnancies, and to offer them real help. For those who have had an abortion, the Church offers mercy through the sacrament of Confession and through healing programs such as Project Rachel."
+   ],
+   "verses": [
+    {
+     "ref": "Jeremiah 1:5",
+     "why": "Before I formed you in the womb I knew you"
+    },
+    {
+     "ref": "Psalm 139:13-16",
+     "why": "You knit me together in my mother’s womb"
+    },
+    {
+     "ref": "Luke 1:39-44",
+     "why": "The baby leaped in her womb"
+    },
+    {
+     "ref": "Exodus 20:13",
+     "why": "You shall not kill"
+    },
+    {
+     "ref": "Isaiah 49:1",
+     "why": "The Lord called me from the womb"
+    }
+   ],
+   "ccc": [
+    2270,
+    2271,
+    2272,
+    2273,
+    2274,
+    2275,
+    2276,
+    2277
+   ],
+   "tags": [
+    "Abortion",
+    "Life",
+    "Pro-life"
+   ],
+   "related": [
+    "contraception"
+   ],
+   "reading": []
+  },
+  {
+   "id": "science-faith",
+   "category": "Life, family and the world",
+   "title": "Faith, science and evolution",
+   "objection": "Science has disproved the Bible; Genesis contradicts evolution.",
+   "answer": [
+    "The Church teaches that faith and reason cannot contradict each other, since the same God is the author of both (CCC 159). Genesis does not teach how the heavens go, but how one goes to heaven (as Galileo quoted Cardinal Baronius). Genesis 1-3 teaches in the language of its time, with a literary structure of days and a garden, that God created everything out of nothing and called it good, that human beings are made in his image, and that sin entered the world through a free choice. The Church does not require anyone to believe in a six-day creation or a young earth.",
+    "The Church has not condemned evolution as a scientific theory. Pope Pius XII (Humani Generis, 1950) allowed it as a matter for discussion, and Pope John Paul II said it was “more than a hypothesis” (1996), while insisting that the human soul is created directly by God. The Big Bang theory was first proposed by a Catholic priest, Georges Lemaître. The Church’s teaching is that the universe has a Creator, and human beings have a spiritual soul."
+   ],
+   "verses": [
+    {
+     "ref": "Genesis 1:1-2:3",
+     "why": "In the beginning God created"
+    },
+    {
+     "ref": "Psalm 19:1",
+     "why": "The heavens declare the glory of God"
+    },
+    {
+     "ref": "Wisdom 13:1-9",
+     "why": "From the greatness of created things comes a corresponding perception of their Creator"
+    },
+    {
+     "ref": "Romans 1:19-20",
+     "why": "His invisible nature has been perceived in the things that have been made"
+    }
+   ],
+   "ccc": [
+    159,
+    282,
+    283,
+    284,
+    285,
+    286,
+    337,
+    355,
+    356,
+    357,
+    362,
+    366
+   ],
+   "tags": [
+    "Creation",
+    "Evolution",
+    "Science"
+   ],
+   "related": [],
+   "reading": [
+    {
+     "title": "Catholics and Evolution (Trent Horn)",
+     "url": "https://www.catholic.com/video/catholics-and-evolution",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "The Genesis Problem",
+     "url": "https://www.wordonfire.org/articles/barron/the-genesis-problem-2-2/",
+     "source": "word-on-fire",
+     "type": "article"
+    },
+    {
+     "title": "What the Early Church Believed: Creation and Genesis",
+     "url": "https://www.catholic.com/tract/creation-and-genesis",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "Adam, Eve, and Evolution",
+     "url": "https://www.catholic.com/tract/adam-eve-and-evolution",
+     "source": "catholic-answers",
+     "type": "tract"
+    },
+    {
+     "title": "God May Create Through Any Means—Including Evolution",
+     "url": "https://www.catholic.com/magazine/print-edition/god-may-create-through-any-means-including-evolution",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "How Does the Church Teach Us to Interpret the Creation Story in Genesis?",
+     "url": "https://www.catholic.com/video/how-does-the-church-teach-us-to-interpret-the-creation-story-in-genesis",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "WOF 304: Understanding Genesis: Creation",
+     "url": "https://www.wordonfire.org/videos/wordonfire-show/episode304/",
+     "source": "word-on-fire",
+     "type": "video"
+    },
+    {
+     "title": "2026 Day 1: The Creation Story",
+     "url": "https://ascensionpress.com/pages/media-episode/biy-ep5-5-2026-day-1-the-creation-story",
+     "source": "ascension",
+     "type": "podcast"
+    }
+   ]
+  },
+  {
+   "id": "suffering",
+   "category": "Life, family and the world",
+   "title": "Why does God allow suffering?",
+   "objection": "If God is good and all-powerful, why is there evil and suffering?",
+   "answer": [
+    "The Catechism says plainly that there is no quick answer: “Only Christian faith as a whole constitutes the answer to this question” (CCC 309). God made a world “in a state of journeying” and gave free will to angels and humans, and with it the possibility of moral evil. He permits evil only because he can bring a greater good from it, as with the cross, the worst evil in history, which became the source of our salvation. The Book of Job shows that God does not give a neat explanation for the suffering of the innocent, but meets Job in person.",
+    "Christians do not say suffering is good in itself. Jesus wept at the tomb of Lazarus (John 11:35), healed the sick, and promised that God “will wipe away every tear” (Revelation 21:4). He also shares our suffering: on the cross God entered the worst we suffer. Paul says our sufferings can be joined to Christ’s for the good of others (Colossians 1:24) and that “all things work together for good for those who love God” (Romans 8:28)."
+   ],
+   "verses": [
+    {
+     "ref": "Job 38:1-42:6",
+     "why": "God answers Job"
+    },
+    {
+     "ref": "Romans 8:18-28",
+     "why": "Sufferings of this present time; all things work for good"
+    },
+    {
+     "ref": "Revelation 21:1-5",
+     "why": "He will wipe away every tear"
+    },
+    {
+     "ref": "John 11:33-35",
+     "why": "Jesus wept"
+    },
+    {
+     "ref": "Genesis 50:20",
+     "why": "You meant evil against me, but God meant it for good"
+    },
+    {
+     "ref": "Colossians 1:24",
+     "why": "Rejoicing in my sufferings for your sake"
+    }
+   ],
+   "ccc": [
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    324,
+    385,
+    1521,
+    1522,
+    1523,
+    1524,
+    1525,
+    1526
+   ],
+   "tags": [
+    "Suffering",
+    "Evil",
+    "Providence",
+    "Theodicy"
+   ],
+   "related": [
+    "hell"
+   ],
+   "reading": [
+    {
+     "title": "How Can Christ's Sufferings Lack Anything?",
+     "url": "https://www.catholic.com/qa/how-can-christs-sufferings-lack-anything",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "If Christ died once for all, why do we need redemptive suffering souls?",
+     "url": "https://www.catholic.com/qa/my-friend-said-that-christ-died-once-for-all-so-we-dont-need-redemptive-suffering-souls-how",
+     "source": "catholic-answers",
+     "type": "qa"
+    },
+    {
+     "title": "Hope through Suffering",
+     "url": "https://www.catholic.com/magazine/online-edition/hope-through-suffering",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "Why Is Life So Full of Suffering?",
+     "url": "https://www.wordonfire.org/videos/sermons/why-is-life-so-full-of-suffering/",
+     "source": "word-on-fire",
+     "type": "video"
+    },
+    {
+     "title": "Should Suffering Shake Our Faith?",
+     "url": "https://www.wordonfire.org/articles/barron/should-suffering-shake-our-faith/",
+     "source": "word-on-fire",
+     "type": "article"
+    },
+    {
+     "title": "How Can We Rejoice in Our Sufferings? - Colossians 1:24",
+     "url": "https://ascensionpress.com/blogs/podcasts/how-can-we-rejoice-in-our-sufferings-colossians-124",
+     "source": "ascension",
+     "type": "podcast"
+    },
+    {
+     "title": "Reflection on Psalm 91",
+     "url": "https://www.catholic.com/tract/exploring-psalm-91-a-catholic-approach-to-trusting-gods-providence",
+     "source": "catholic-answers",
+     "type": "article"
+    },
+    {
+     "title": "All Things Work Together for Good",
+     "url": "https://www.wordonfire.org/resources/homily/all-things-work-together-for-good/",
+     "source": "word-on-fire",
+     "type": "article"
+    }
+   ]
+  }
+ ]
+}

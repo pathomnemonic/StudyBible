@@ -3987,3 +3987,11 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .kids-art img { width: 100%; border-radius: 14px; }
 .kids-verse { border-left: 4px solid color-mix(in srgb, hsl(var(--h) 70% 55%) 70%, transparent); padding: 4px 14px; margin: 14px 0; font-size: 1.15rem; }
 .kids-talk li { margin: 6px 0; font-size: 1.05rem; }
+
+/* Questions about the faith */
+.apo .kicker { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+.apo-q { border-left: 3px solid var(--accent); padding: 4px 14px; margin: 10px 0; color: var(--text-2, inherit); }
+.apo-a { max-width: 42em; line-height: 1.7; }
+.apo-verses { list-style: none; padding: 0; display: grid; gap: 8px; }
+.apo-list li a { display: grid; gap: 2px; padding: 8px 0; text-decoration: none; color: inherit; }
+.ccc-q { max-width: 42em; font-size: .95rem; }
