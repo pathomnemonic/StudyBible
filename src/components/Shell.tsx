@@ -44,6 +44,9 @@ const dailyActive = (path: string) => {
 const isHome = (path: string) => path === '/' || path === '/today';
 const inDaily = (path: string) => !isHome(path) && ['/today', '/pray', '/memorize', '/session'].some((p) => path === p || path.startsWith(p + '/'));
 
+const ROOM_KEY = 'sb:room:last';
+const lastRoom = () => { try { return localStorage.getItem(ROOM_KEY) || '/room'; } catch { return '/room'; } };
+
 export default function Shell({ children }: { children: ReactNode }) {
   const loc = useLocation();
   const nav = useNavigate();
@@ -69,6 +72,8 @@ export default function Shell({ children }: { children: ReactNode }) {
       window.removeEventListener('studybible:search', open);
     };
   }, []);
+  // the Reading room tab returns to the work you were reading, not the front page
+  useEffect(() => { if (loc.pathname === '/room' || loc.pathname.startsWith('/room/')) { try { localStorage.setItem(ROOM_KEY, loc.pathname + loc.search); } catch { /* private mode */ } } }, [loc.pathname, loc.search]);
   // ask the browser not to clear this site's data, and keep the Drive copy (if connected) up to date
   useEffect(() => { void navigator.storage?.persist?.(); startDriveBackup(); }, []);
   const [offline, setOffline] = useState(typeof navigator !== 'undefined' && navigator.onLine === false);
@@ -96,7 +101,7 @@ export default function Shell({ children }: { children: ReactNode }) {
           return (
             <NavLink
               key={tb.to}
-              to={tb.to === '/read' && s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : tb.to}
+              to={tb.to === '/read' && s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : tb.to === '/room' ? lastRoom() : tb.to}
               className={() => `tab${active ? ' active' : ''}`}
               aria-current={active ? 'page' : undefined}
             >

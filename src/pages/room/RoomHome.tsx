@@ -4,6 +4,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { getAuthors, getLibraryIndex, type LibraryWorkMeta } from '../../data/content';
 import { recordedWorkIds } from '../../data/librivox';
+import { useScrollMemory } from '../../lib/scrollMemory';
 
 const SHELVES: { title: string; blurb: string; ids?: string[]; kinds?: string[] }[] = [
   { title: 'Begin here', blurb: 'Short, rewarding reads from different centuries.', ids: ['lawrence-practice', 'athanasius-incarnation', 'aug-confessions', 'teresa-castle', 'kempis-imitation', 'julian-revelations', 'desales-devout-life', 'therese-story-of-a-soul'] },
@@ -25,7 +26,8 @@ const PLACES: [string, string, string][] = [
 export default function RoomHome() {
   const [works, setWorks] = useState<LibraryWorkMeta[]>([]);
   const [heard, setHeard] = useState<Set<string>>(new Set());
-  const [q, setQ] = useState('');
+  const [q, setQ] = useState(() => { try { return sessionStorage.getItem('sb:room:q') ?? ''; } catch { return ''; } });
+  useEffect(() => { try { sessionStorage.setItem('sb:room:q', q); } catch { /* private mode */ } }, [q]);
   const [sp, setSp] = useSearchParams();
   const [authors, setAuthors] = useState<Record<string, { name: string }>>({});
   const authorId = sp.get('author') ?? '';
@@ -34,6 +36,7 @@ export default function RoomHome() {
   const setParam = (k: string, v: string) => { const n = new URLSearchParams(sp); if (v) n.set(k, v); else n.delete(k); setSp(n, { replace: true }); };
   const filtering = !!(q.trim() || authorId || kindF || periodF);
   const progress = useLiveQuery(() => db.libraryProgress.toArray(), []) ?? [];
+  useScrollMemory('/room', works.length > 0, '/room?' + sp.toString());
   useEffect(() => { getLibraryIndex().then((l) => setWorks(l?.works ?? [])); recordedWorkIds().then(setHeard); getAuthors().then((a) => setAuthors(a?.authors ?? {})); }, []);
   const recent = useMemo(() => [...progress].filter((p) => works.some((w) => w.id === p.workId)).sort((a, b) => b.updatedAt - a.updatedAt).slice(0, 4), [progress, works]);
   const found = useMemo(() => {

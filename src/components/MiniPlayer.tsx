@@ -26,7 +26,7 @@ export default function MiniPlayer() {
   return (
     <div className="player" role="region" aria-label="Audio player">
       <div className="row between">
-        <Link to={`/listen/episode/${p.current.id}`} className="small" style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        <Link to={p.current.link ?? `/listen/episode/${p.current.id}`} className="small" style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
           {p.current.title}
         </Link>
         <button className="icon-btn" onClick={() => p.skip(-15)} aria-label="Back 15 seconds">−15</button>

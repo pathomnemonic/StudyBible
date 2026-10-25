@@ -58,6 +58,11 @@ export interface BiayEpisode {
   passageSource: string;
   /** Catechism paragraph ranges the episode covers (Catechism in a Year) */
   ccc?: [number, number][];
+  /** where the player’s title links to (default: the episode page) */
+  link?: string;
+  /** shown on the lock screen */
+  artist?: string;
+  album?: string;
 }
 export interface BiayData {
   meta: Record<string, string>;

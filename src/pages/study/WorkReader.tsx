@@ -10,13 +10,15 @@ import Icon from '../../components/Icon';
 import { RecordedWork } from '../../components/RecordedBooks';
 import BiblePane from '../../components/BiblePane';
 import { useWakeLock } from '../../lib/wakeLock';
+import { forgetScroll, savedScroll, useScrollMemory } from '../../lib/scrollMemory';
 import { fold } from '../../search/engine';
 
 export default function WorkReader() {
   const { workId = '', section } = useParams();
   const nav = useNavigate();
   // /room/... is the same reader with a Bible chapter open beside it
-  const together = useLocation().pathname.startsWith('/room');
+  const loc = useLocation();
+  const together = loc.pathname.startsWith('/room');
   const base = together ? '/room/work' : '/study/works';
   const [paneOpen, setPaneOpen] = useState(false);
   const [meta, setMeta] = useState<LibraryWorkMeta | null>(null);
@@ -39,9 +41,11 @@ export default function WorkReader() {
     if (!sec) return;
     db.libraryProgress.put({ workId, section: String(idx), updatedAt: Date.now() });
     db.history.add({ ts: Date.now(), type: 'work', ref: `${workId}/${idx}`, label: `${meta?.title ?? workId}: ${sec.title}` });
-    window.scrollTo(0, 0);
+    if (savedScroll(loc.pathname) === null) window.scrollTo(0, 0);
     document.title = `${sec.title} · ${meta?.title ?? ''}`;
   }, [workId, idx, !!sec]);
+
+  useScrollMemory(loc.pathname, !!sec);
 
   const matches = useMemo(() => {
     if (!work || !find.trim()) return [];
@@ -55,7 +59,7 @@ export default function WorkReader() {
 
   if (!meta) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
   if (!work || !sec) return <div className="center-note">Loading text…</div>;
-  const go = (i: number) => nav(`${base}/${workId}/${i}`);
+  const go = (i: number) => { forgetScroll(`${base}/${workId}/${i}`); nav(`${base}/${workId}/${i}`); };
   const quiet = settings.scriptureOnly;
   return (
     <div className={`page${together ? ' room-together' : ''}`} style={{ maxWidth: 'none' }}>
@@ -70,7 +74,7 @@ export default function WorkReader() {
           </div>
         </div>
       )}
-      {!quiet && <RecordedWork workId={workId} />}
+      {!quiet && <RecordedWork workId={workId} title={meta?.title ?? 'Recorded book'} />}
       {quiet && <button className="btn small" style={{ position: 'fixed', top: 8, right: 8 }} onClick={() => setSettings({ scriptureOnly: false })}>Exit reading mode</button>}
       {toc && !quiet && (
         <div className="card" style={{ maxWidth: 760, margin: '10px auto' }}>

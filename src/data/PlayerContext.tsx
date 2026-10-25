@@ -97,7 +97,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       /* autoplay blocked: user can press play */
     }
     if ('mediaSession' in navigator) {
-      navigator.mediaSession.metadata = new MediaMetadata({ title: e.title, artist: 'Fr. Mike Schmitz · Ascension', album: 'The Bible in a Year' });
+      navigator.mediaSession.metadata = new MediaMetadata({ title: e.title, artist: e.artist ?? 'Fr. Mike Schmitz · Ascension', album: e.album ?? 'The Bible in a Year' });
       navigator.mediaSession.setActionHandler('play', () => a.play());
       navigator.mediaSession.setActionHandler('pause', () => a.pause());
       navigator.mediaSession.setActionHandler('seekbackward', () => (a.currentTime = Math.max(0, a.currentTime - 15)));
