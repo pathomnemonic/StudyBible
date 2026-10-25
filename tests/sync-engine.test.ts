@@ -95,4 +95,45 @@ describe('sync engine against the real server', () => {
     expect(bodies).toContain('edited on the other device');
     expect(bodies).toContain('edited on this device');
   }, 60000);
+
+  it('recovers from a network failure between batches: nothing lost, nothing duplicated, nothing left pending', async () => {
+    await freshDevice();
+    const { api } = await import('../src/sync/api');
+    const user = (await api.register('sync-fail@example.com', 'correct horse battery', 'F')) as any;
+    const uid = user.user.id;
+    const { db } = await import('../src/db/db');
+    const { runSync, pendingCount } = await import('../src/sync/engine');
+    for (let i = 0; i < 25; i++) await db.notes.add({ kind: 'note', title: `n${i}`, body: 'y'.repeat(120_000), tags: [], chapterKeys: [], targets: [], createdAt: i, updatedAt: i } as any);
+    // the connection drops on the second request
+    const real = globalThis.fetch;
+    let calls = 0;
+    vi.stubGlobal('fetch', async (...a: any[]) => { if (++calls === 2) throw new TypeError('network down'); return (real as any)(...a); });
+    await expect(runSync(uid)).rejects.toThrow(/reach/i);
+    expect(await pendingCount(uid)).toBeGreaterThan(0); // the failed sync did not mark anything as sent
+    vi.stubGlobal('fetch', real);
+    const r = await runSync(uid);
+    expect(r.rejected).toBe(0);
+    expect(await pendingCount(uid)).toBe(0);
+    // a clean device sees exactly 25 notes
+    db.close();
+    await freshDevice();
+    const again = await import('../src/db/db');
+    const eng = await import('../src/sync/engine');
+    await eng.runSync(uid);
+    expect(await again.db.notes.count()).toBe(25);
+  }, 60000);
+
+  it('reports rejected records and keeps them queued instead of calling the sync complete', async () => {
+    await freshDevice();
+    const { api } = await import('../src/sync/api');
+    const uid = ((await api.login('sync-fail@example.com', 'correct horse battery')) as any).user.id;
+    const { db } = await import('../src/db/db');
+    const { runSync, pendingCount } = await import('../src/sync/engine');
+    await runSync(uid);
+    // a bookmark with a shape the server refuses
+    await db.userLinks.add({ ref: 'JHN.3.16', url: 'javascript:alert(1)', title: 'bad', createdAt: 1 } as any);
+    const r = await runSync(uid);
+    expect(r.rejected).toBe(1);
+    expect(await pendingCount(uid)).toBeGreaterThan(0);
+  }, 60000);
 });

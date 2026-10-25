@@ -4,6 +4,8 @@ Everything here works from static data plus the user's own browser (or their own
 
 Most of this list comes from an outside code review (a ChatGPT analysis of the repository, kept at `docs/` only as these notes) and from our own audit. **Fixed** items are done in the code; the rest are open.
 
+See [REVIEW_STATUS.md](REVIEW_STATUS.md) for the full account of the outside review.
+
 ## Fixed from the review
 - Offline study packs were marked "downloaded" even when files failed. They now report failures, offer Retry, and a mark is cleared if the browser evicted the files.
 - Failed edition or pack downloads showed no error. They now do.
