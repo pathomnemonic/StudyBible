@@ -5,6 +5,7 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 ## Unreleased
 
 ### App
+* Daily Examen, the Church’s year, Follow a story, group presentation mode, a study vault export, a “put in order” memorising mode, come-back dates and a notes timeline, your past reflections returning in the reader and in Lectio, dictation in the note editor, share a prayer time by link.
 * Divine Office (Lauds, Terce, Sext, None, Vespers, Compline), devotions (Rosary, Divine Mercy, Angelus, Stations, Seven Sorrows), prayer book, examination of conscience, novenas, prayer playlists, Prepare for Sunday, Following the Mass.
 * Reading room tab with the Bible beside any other text; Bible course with quizzes; passage dossier with print.
 * Sync: devices list and sign-out, activity and diagnostics, Recently deleted (30 days), conflict copies, sync protocol version, clock-skew cap.

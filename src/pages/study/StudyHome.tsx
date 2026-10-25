@@ -68,6 +68,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
 
 const FEATURED: { to: string; title: string; text: string; hue: number }[] = [
   { to: '/study/course', title: 'Salvation history in twelve lessons', text: 'The story of the Bible in order, from creation to the new creation, with a quiz for each lesson.', hue: 200 },
+  { to: '/study/story', title: 'Follow a story', text: 'Trace the promise to Abraham, the Exodus, David, the exile, Peter or Mary through the whole Bible.', hue: 120 },
   { to: '/study/dossier', title: 'Passage dossier', text: 'Type any passage and get everything on it in one page you can print.', hue: 40 },
   { to: '/study/paths', title: 'Study paths', text: 'Follow a theme through Scripture, with the Fathers and a question at each step.', hue: 330 },
   { to: '/study/fathers', title: 'Reading room', text: 'Read the saints, the Fathers and the catechisms, in full, right here.', hue: 25 },

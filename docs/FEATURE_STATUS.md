@@ -235,6 +235,20 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
+| Daily Examen and the Church’s year | **Working** | Five guided steps for the end of the day (saved only if you choose), and a page of the liturgical year: seasons, colours and the great days, each linked to its readings. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Follow a story through the Bible | **Partial** | Six threads (the promise to Abraham, Exodus, David, exile, Peter, Mary) of about eight passages each, every step labelled as story, recalled by a later writer, or a reading from tradition. **Next:** More threads and a diagram of the characters in each. **Blocked by:** data. **Done when:** every thread has at least six passages that parse. |
+| Your own thinking over time | **Working** | The reader shows a note you wrote on this chapter months ago; Lectio shows your earlier reflections on the same passage; notes and questions can carry a come-back date; Library → Notes has a timeline by tag. |
+| Put the verse in order, group presentation, study vault | **Working** | A memorising mode that cuts the verse into pieces to put back in order; a full-screen presentation of the group sheet (private notes never shown); and a vault export of notes and journal as Markdown files with an index, for Obsidian. |
+
+## Pray
+
+| Feature | Status | Notes |
+|---|---|---|
 | Sleep mode | **Working** | A chosen psalm shown and read slowly with your device’s voice, one verse at a time, while the sound fades and the screen dims; it stops by itself. |
 
 ## Library

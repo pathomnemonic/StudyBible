@@ -4072,3 +4072,11 @@ html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: no
 @media print { .page:has(.group-sheet) > :not(.group-sheet) { display: none !important; } .group-sheet { border: none; box-shadow: none; } }
 
 .update-banner { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(76px + env(safe-area-inset-bottom)); z-index: 60; display: flex; gap: 8px; align-items: center; padding: 8px 12px; border-radius: 12px; background: var(--surface, #222); color: var(--text, #fff); border: 1px solid var(--hairline, rgba(128,128,128,.4)); box-shadow: 0 6px 24px rgba(0,0,0,.35); max-width: calc(100vw - 24px); }
+
+/* group-study presentation */
+.present { position: fixed; inset: 0; z-index: 200; background: var(--bg, #000); color: var(--text, #fff); display: flex; flex-direction: column; justify-content: center; padding: 6vw; gap: 4vh; overflow: auto; }
+.present h1 { font-size: clamp(1.8rem, 5vw, 3.4rem); margin: 0; }
+.present-body { font-size: clamp(1.3rem, 3.2vw, 2.4rem); line-height: 1.5; max-width: 40ch; }
+.present-nav { display: flex; gap: 16px; align-items: center; justify-content: center; margin-top: auto; }
+.present-x { position: absolute; top: 12px; right: 12px; }
+@media print { .present { display: none !important; } }

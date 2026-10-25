@@ -54,6 +54,7 @@ function Notes({ openId }: { openId?: number }) {
   const [tag, setTag] = useState('');
   const [folder, setFolder] = useState<number | '' | 'none'>('');
   const [kind, setKind] = useState('');
+  const [timeline, setTimeline] = useState(false);
   const [editing, setEditing] = useState<Note | 'new' | 'question' | null>(null);
   const opened = openId ? notes.find((n) => n.id === openId) : undefined;
   const tags = useMemo(() => [...new Set(notes.flatMap((n) => n.tags))].sort(), [notes]);
@@ -69,6 +70,34 @@ function Notes({ openId }: { openId?: number }) {
         <button className="btn" onClick={() => setEditing('question')}>Add a question</button>
         <button className="btn primary" onClick={() => setEditing('new')}>New note</button>
       </div>
+      {(() => {
+        const due = notes.filter((n) => n.revisitAt && n.revisitAt <= Date.now());
+        return due.length > 0 && (
+          <div className="card" role="status">
+            <h3>To revisit ({due.length})</h3>
+            <ul className="list">{due.map((n) => <li key={n.id} className="row between"><span>{n.title || n.body.slice(0, 70)} <span className="muted small">· you set {new Date(n.revisitAt!).toLocaleDateString()}</span></span><span className="row" style={{ gap: 6 }}><button className="btn small" onClick={() => setEditing(n)}>Open</button><button className="btn small" onClick={() => db.notes.update(n.id!, { revisitAt: undefined })}>Done</button></span></li>)}</ul>
+          </div>
+        );
+      })()}
+      <div className="row" style={{ marginBottom: 6 }}>
+        <button className="btn small" aria-pressed={timeline} onClick={() => setTimeline(!timeline)}>{timeline ? 'Back to the list' : 'Timeline: how my thinking changed'}</button>
+        {timeline && <span className="muted small">Choose a tag above to follow one theme through time.</span>}
+      </div>
+      {timeline && (
+        <section className="card" aria-label="Timeline of my notes">
+          <h3>{tag ? `#${tag}` : 'All notes'}, oldest first</h3>
+          {list.length === 0 && <p className="muted">No notes match.</p>}
+          <ol className="list">
+            {[...list].sort((a, b) => a.createdAt - b.createdAt).map((n) => (
+              <li key={n.id}>
+                <strong>{new Date(n.createdAt).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}</strong>{' '}
+                {n.kind === 'question' ? '(question) ' : ''}{n.title || n.body.slice(0, 120)}
+                {n.updatedAt - n.createdAt > 86400000 && <span className="muted small"> · revised {new Date(n.updatedAt).toLocaleDateString()}</span>}
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
       {list.length === 0 && (
         <div className="empty-hero">
           <h2>Your notes will gather here</h2>
@@ -79,7 +108,7 @@ function Notes({ openId }: { openId?: number }) {
           </div>
         </div>
       )}
-      {list.map((n) => (
+      {!timeline && list.map((n) => (
         <div className="card" key={n.id}>
           <div className="row between"><h3>{n.pinned ? '📌 ' : ''}{n.title || (n.kind === 'question' ? 'Question' : 'Note')}</h3><span className="chip">{n.kind}</span></div>
           <div className="chips">{n.targets.map((t, i) => <TargetChip key={i} t={t} />)}</div>
@@ -243,6 +272,7 @@ function ExportTab() {
           </span>
           <button className="btn" onClick={async () => { const ex = await import('../../db/exporters'); if (!(await ex.printNotes())) setMsg('The print window was blocked. Allow pop-ups for this site and try again.'); }}>Notes (PDF: opens print, choose “Save as PDF”)</button>
           <button className="btn" onClick={async () => { const ex = await import('../../db/exporters'); const bytes = await ex.notesEpub(); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([bytes as BlobPart], { type: 'application/epub+zip' })); a.download = 'studybible-notes.epub'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }}>Notes (e-book, EPUB)</button>
+          <button className="btn" onClick={async () => { const ex = await import('../../db/exporters'); const bytes = await ex.studyVault(); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([bytes as BlobPart], { type: 'application/zip' })); a.download = 'studybible-vault.zip'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }}>Study vault (Markdown files, for Obsidian)</button>
           <button className="btn" onClick={async () => download('studybible-notes.md', await exportNotesMarkdown(), 'text/markdown')}>Notes (Markdown)</button>
           <button className="btn" onClick={async () => download('studybible-marks.csv', await exportMarks('csv'), 'text/csv')}>Highlights and bookmarks (CSV)</button>
           <button className="btn" onClick={async () => download('studybible-marks.md', await exportMarks('md'), 'text/markdown')}>Highlights and bookmarks (Markdown)</button>

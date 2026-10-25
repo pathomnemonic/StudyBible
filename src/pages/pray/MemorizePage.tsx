@@ -12,11 +12,12 @@ import { useToast } from '../../components/Toast';
 import Icon from '../../components/Icon';
 import RefLink from '../../components/RefLink';
 
-type Mode = 'recall' | 'cloze' | 'initials' | 'audio';
+type Mode = 'recall' | 'cloze' | 'initials' | 'audio' | 'order';
 const MODES: [Mode, string, string][] = [
   ['recall', 'Recall', 'See the reference, say the verse, then check.'],
   ['cloze', 'Fill in the blanks', 'Type the missing words; more are hidden as you improve.'],
   ['initials', 'First letters', 'Only the first letter of each word is shown.'],
+  ['order', 'Put in order', 'The verse is cut into pieces and shuffled; tap them in the right order.'],
   ['audio', 'Audio recall', 'Hear the reference and the opening words, then continue from memory.'],
 ];
 
@@ -146,6 +147,22 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
 
   const words = useMemo(() => (verseText ? verseText.split(/\s+/) : []), [verseText]);
   const blanks = useMemo(() => (cur ? clozeIndexes(words, cur.reps) : new Set<number>()), [words, cur?.reps]);
+  // "put in order": cut the verse at its punctuation (or into short runs of words), shuffle with a fixed seed so a re-render does not reshuffle
+  const chunks = useMemo(() => {
+    if (!verseText) return [] as string[];
+    let parts = verseText.split(/(?<=[,;:.!?—])\s+/).filter(Boolean);
+    if (parts.length < 3) { parts = []; const w = verseText.split(/\s+/); for (let i = 0; i < w.length; i += 3) parts.push(w.slice(i, i + 3).join(' ')); }
+    return parts;
+  }, [verseText]);
+  const shuffled = useMemo(() => {
+    const idx = chunks.map((_, i) => i);
+    let seed = (cur?.id ?? 1) * 9301 + 49297;
+    for (let i = idx.length - 1; i > 0; i--) { seed = (seed * 9301 + 49297) % 233280; const j = Math.floor((seed / 233280) * (i + 1)); [idx[i], idx[j]] = [idx[j], idx[i]]; }
+    return idx;
+  }, [chunks, cur?.id]);
+  const [picked, setPicked] = useState<number[]>([]);
+  useEffect(() => setPicked([]), [cur?.id]);
+  const orderRight = picked.length === chunks.length && picked.every((x, i) => x === i);
   const speak = (t: string) => {
     if (typeof speechSynthesis === 'undefined') return;
     speechSynthesis.cancel();
@@ -204,6 +221,16 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
             })}
           </p>
         )}
+        {verseText && mode === 'order' && (
+          <div>
+            <p className="verse-card" aria-live="polite">{picked.length ? picked.map((i) => chunks[i]).join(' ') : <span className="muted">Tap the pieces in order.</span>}</p>
+            <div className="row" style={{ flexWrap: 'wrap', gap: 6 }}>
+              {shuffled.filter((i) => !picked.includes(i)).map((i) => <button key={i} className="btn small" disabled={revealed} onClick={() => setPicked([...picked, i])}>{chunks[i]}</button>)}
+            </div>
+            {picked.length > 0 && !revealed && <button className="btn small ghost" onClick={() => setPicked(picked.slice(0, -1))}>Undo last</button>}
+            {revealed && <p aria-live="polite"><strong>{orderRight ? 'In order ✓' : 'Not quite:'}</strong> {!orderRight && verseText}</p>}
+          </div>
+        )}
         {verseText && mode === 'audio' && (
           <>
             <p className="muted">Listen, then continue the verse aloud from memory.</p>
@@ -218,14 +245,14 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
         )}
       </div>
       {!revealed ? (
-        <button className="btn primary" disabled={!verseText} onClick={() => setRevealed(true)}>{mode === 'cloze' ? 'Check' : 'Reveal'}</button>
+        <button className="btn primary" disabled={!verseText || (mode === 'order' && picked.length < chunks.length)} onClick={() => setRevealed(true)}>{mode === 'cloze' || mode === 'order' ? 'Check' : 'Reveal'}</button>
       ) : (
         <div>
           {mode === 'cloze' && <p aria-live="polite"><strong>{correct.length}</strong> of {blankList.length} right.{allRight ? ' ✓' : ''}</p>}
           <div className="row" role="group" aria-label="How well did you know it?">
             <button className="btn" onClick={() => grade(0)}>Again <span className="muted small">10 min</span></button>
             <button className="btn" onClick={() => grade(1)}>Hard</button>
-            <button className="btn primary" onClick={() => grade(allRight || mode !== 'cloze' ? 2 : 1)}>Good</button>
+            <button className="btn primary" onClick={() => grade(mode === 'order' ? (orderRight ? 2 : 1) : allRight || mode !== 'cloze' ? 2 : 1)}>Good</button>
             <button className="btn" onClick={() => grade(3)}>Easy</button>
           </div>
         </div>

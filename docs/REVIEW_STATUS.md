@@ -1,5 +1,7 @@
 # Status of the outside review
 
+The feature proposals from the same conversation (the 40 features, the parity audit, the innovations and the storage ideas) are compared with the app, line by line, in [CHATGPT_FEATURES.md](CHATGPT_FEATURES.md).
+
 An outside code review (a ChatGPT analysis of the repository) produced a long list of suggestions. This page says what was done with each group, what was deliberately left, and why. "Done" means it is in the code and covered by a test or a check where one fits.
 
 ## 1. Highest-priority bugs and reliability

@@ -33,6 +33,8 @@ export interface Note extends Syncable {
   folderId?: number;
   /** kept at the top of the list */
   pinned?: boolean;
+  /** a date (ms) the reader chose to come back to this note or question; it shows under “To revisit” once it is reached */
+  revisitAt?: number;
   originEdition?: string;
   /** derived: "BOOK.chapter" keys of passage targets, for indexed lookup */
   chapterKeys?: string[];

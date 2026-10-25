@@ -73,3 +73,35 @@ export async function notesEpub(): Promise<Uint8Array> {
   for (const c of chapters) files[`OEBPS/${c.file}`] = strToU8(c.xml);
   return zipSync(files as any);
 }
+
+const slug = (s: string) => s.toLowerCase().normalize('NFKD').replace(/[^\w]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 50) || 'untitled';
+const yaml = (v: string) => JSON.stringify(v);
+
+/**
+ * A study vault: every note and journal entry as its own Markdown file (with front matter), plus `index.json` that lists
+ * everything and the highlights and bookmarks. It opens in Obsidian, or any editor, and the format is documented in docs/DATA_API.md.
+ */
+export async function studyVault(): Promise<Uint8Array> {
+  const notes = await loadNotes();
+  const journal = await db.journal.toArray();
+  const files: Record<string, Uint8Array> = {};
+  const index: any = { format: 'studybible-vault', version: 1, exportedAt: new Date().toISOString(), notes: [], journal: [], highlights: [], bookmarks: [] };
+  const used = new Set<string>();
+  const name = (dir: string, base: string, stamp: number) => { let n = `${dir}/${new Date(stamp).toISOString().slice(0, 10)}-${slug(base)}`; let k = 2; while (used.has(n)) n = `${dir}/${new Date(stamp).toISOString().slice(0, 10)}-${slug(base)}-${k++}`; used.add(n); return `${n}.md`; };
+  for (const n of notes) {
+    const path = name(n.kind === 'question' ? 'questions' : 'notes', n.title || n.body.slice(0, 40), n.createdAt);
+    const fm = ['---', `title: ${yaml(n.title ?? '')}`, `kind: ${n.kind}`, `passages: [${n.targets.filter((t) => t.type === 'passage').map((t) => yaml((t as any).ref)).join(', ')}]`, `where: ${yaml(where(n))}`, `tags: [${n.tags.map(yaml).join(', ')}]`, `created: ${new Date(n.createdAt).toISOString()}`, `updated: ${new Date(n.updatedAt).toISOString()}`, `uid: ${yaml(n.uid ?? '')}`, '---', ''].join('\n');
+    files[path] = strToU8(`${fm}\n${n.body}\n`);
+    index.notes.push({ path, uid: n.uid, title: n.title ?? null, kind: n.kind, tags: n.tags, targets: n.targets, created: n.createdAt, updated: n.updatedAt });
+  }
+  for (const j of journal) {
+    const path = name('journal', j.title || j.kind, j.createdAt);
+    files[path] = strToU8(`---\ntitle: ${yaml(j.title ?? '')}\nkind: ${j.kind}\ndate: ${j.date}\nrefs: [${(j.refs ?? []).map(yaml).join(', ')}]\n---\n\n${j.body}\n`);
+    index.journal.push({ path, kind: j.kind, date: j.date, refs: j.refs ?? [] });
+  }
+  index.highlights = (await db.highlights.toArray()).map((h) => ({ ref: h.ref, color: h.color, created: h.createdAt }));
+  index.bookmarks = (await db.bookmarks.toArray()).map((b) => ({ ref: b.ref, kind: b.kind, created: b.createdAt }));
+  files['index.json'] = strToU8(JSON.stringify(index, null, 1));
+  files['README.md'] = strToU8('# Study Bible vault\n\nNotes and journal entries are Markdown files with front matter. `index.json` lists everything, with passages as stable Vulgate-anchored ids such as `JHN.6.51`. Re-import the JSON backup from Library → Export and backup to restore into the app.\n');
+  return zipSync(files);
+}

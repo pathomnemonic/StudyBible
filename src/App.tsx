@@ -50,6 +50,9 @@ const CoursePage = lazy(() => import('./pages/study/CoursePage'));
 const SessionBuilderPage = lazy(() => import('./pages/pray/SessionBuilderPage'));
 const MassGuidePage = lazy(() => import('./pages/pray/MassGuidePage'));
 const DossierPage = lazy(() => import('./pages/study/DossierPage'));
+const ExamenPage = lazy(() => import('./pages/pray/ExamenPage'));
+const ChurchYearPage = lazy(() => import('./pages/pray/ChurchYearPage'));
+const StoryPage = lazy(() => import('./pages/study/StoryPage'));
 const OfficePage = lazy(() => import('./pages/pray/OfficePage'));
 const ReadingsPage = lazy(() => import('./pages/pray/ReadingsPage'));
 const LectioPage = lazy(() => import('./pages/pray/LectioPage'));
@@ -226,9 +229,12 @@ export default function App() {
               <Route path="/more" element={<MorePage />} />
               <Route path="/pray/sleep" element={<SleepPage />} />
               <Route path="/pray/office" element={<OfficePage />} />
+              <Route path="/pray/year" element={<ChurchYearPage />} />
+              <Route path="/pray/examen" element={<ExamenPage />} />
               <Route path="/pray/build" element={<SessionBuilderPage />} />
               <Route path="/pray/mass" element={<MassGuidePage />} />
               <Route path="/study/course/:id?" element={<CoursePage />} />
+              <Route path="/study/story/:id?" element={<StoryPage />} />
               <Route path="/pray/novenas/:id?" element={<NovenaPage />} />
               <Route path="/pray/prayers" element={<PrayerBookPage />} />
               <Route path="/pray/examination" element={<ExaminationPage />} />

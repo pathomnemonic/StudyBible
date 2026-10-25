@@ -22,6 +22,7 @@ const TEMPLATES: { name: string; text: string }[] = [
   { name: 'Observe · Interpret · Apply', text: '## Observe\nWhat does the text say? Who, what, where, when?\n\n## Interpret\nWhat does it mean? What does the Church teach about it?\n\n## Apply\nWhat is God asking of me?\n' },
   { name: 'Lectio divina', text: '## Lectio (read)\n\n## Meditatio (what word or phrase stays with me?)\n\n## Oratio (my prayer in response)\n\n## Contemplatio (resting in God)\n' },
   { name: 'Questions to follow up', text: '## Questions\n- \n- \n\n## Where I could look\n- \n' },
+  { name: 'Argument map', text: '## Claim\nWhat is the author arguing?\n\n## Because (premise or evidence)\n- \n\n## But (contrast or objection)\n- \n\n## Therefore (conclusion)\n\n## Question the author answers\n' },
   { name: 'Historical context', text: '## Setting\nAuthor, audience, date, place:\n\n## Background\n\n## Why it matters for the passage\n' },
 ];
 
@@ -48,6 +49,20 @@ export default function NoteEditor({
   const [addRef, setAddRef] = useState('');
   const [err, setErr] = useState('');
   const [preview, setPreview] = useState(false);
+  const [revisit, setRevisit] = useState<number | undefined>(note?.revisitAt);
+  const [dictating, setDictating] = useState(false);
+  const SR = typeof window !== 'undefined' ? ((window as any).SpeechRecognition ?? (window as any).webkitSpeechRecognition) : undefined;
+  const dictate = () => {
+    if (!SR) return;
+    const r = new SR();
+    r.lang = navigator.language || 'en-US';
+    r.interimResults = false;
+    r.onresult = (e: any) => setBody((b) => `${b}${b && !/\s$/.test(b) ? ' ' : ''}${Array.from(e.results).map((x: any) => x[0].transcript).join(' ')}`);
+    r.onend = () => setDictating(false);
+    r.onerror = () => setDictating(false);
+    setDictating(true);
+    r.start();
+  };
   const folders = useLiveQuery(() => db.folders.toArray(), []) ?? [];
 
   const addPassage = () => {
@@ -69,7 +84,8 @@ export default function NoteEditor({
       folderId,
       tags: tags.split(',').map((t) => t.trim().replace(/^#/, '')).filter(Boolean),
       originEdition: note?.originEdition ?? originEdition,
-    });
+      revisitAt: revisit,
+    } as any);
     if (!note?.id) { try { if (!localStorage.getItem('sb:backupNudge')) { localStorage.setItem('sb:backupNudge', '1'); toast('Saved on this device. Keep a copy any time in Settings → Export.'); } } catch { /* private mode */ } }
     onClose(id);
   };
@@ -132,6 +148,17 @@ export default function NoteEditor({
           ))}
         </select>
       </div>
+      <div className="row" style={{ marginTop: 6, gap: 8, flexWrap: 'wrap' }}>
+        <label className="small">Remind me to come back to this{' '}
+          <select value={revisit && revisit > Date.now() ? 'set' : revisit ? 'due' : ''} onChange={(e) => { const v = e.target.value; const d = (n: number) => Date.now() + n * 86400000; setRevisit(v === '' ? undefined : v === 'week' ? d(7) : v === 'month' ? d(30) : v === 'season' ? d(90) : revisit); }} aria-label="Come back to this">
+            <option value="">no</option>
+            {revisit && <option value={revisit > Date.now() ? 'set' : 'due'}>{`on ${new Date(revisit).toLocaleDateString()}`}</option>}
+            <option value="week">in a week</option><option value="month">in a month</option><option value="season">in three months</option>
+          </select>
+        </label>
+        {SR && !preview && <button type="button" className="btn small" aria-pressed={dictating} onClick={dictate} disabled={dictating}>{dictating ? 'Listening…' : '🎤 Dictate'}</button>}
+      </div>
+      {SR && <p className="muted small">Dictation uses your browser’s speech service; on some browsers the audio is sent to the browser’s maker to be turned into text. Nothing is recorded or kept by this app.</p>}
       <p className="muted small">Notes are private and stored only on this device unless you export them.</p>
       <div className="row between">
         <div>{note?.id && <button className="btn danger" onClick={remove}>Delete</button>}</div>

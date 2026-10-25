@@ -130,3 +130,29 @@ describe('password-protected backups', () => {
     await expect(encryptBackup(plain, 'short')).rejects.toThrow(/at least 8/);
   }, 30000);
 });
+
+describe('study vault export', () => {
+  beforeEach(async () => { await Dexie.delete('studybible'); vi.resetModules(); });
+  it('writes each note as a Markdown file with front matter, plus a versioned index', async () => {
+    const { db } = await import('../src/db/db');
+    const { studyVault } = await import('../src/db/exporters');
+    const { unzipSync, strFromU8 } = await import('fflate');
+    await db.notes.add({ kind: 'note', title: 'Bread of life ✝', body: 'He said: "I am"', tags: ['eucharist'], chapterKeys: [], targets: [{ type: 'passage', ref: 'JHN.6.51' }], createdAt: 86400000, updatedAt: 86400000 } as any);
+    await db.notes.add({ kind: 'question', body: 'Why bread?', tags: [], chapterKeys: [], targets: [], createdAt: 86400000, updatedAt: 86400000 } as any);
+    await db.journal.add({ date: '2026-10-25', kind: 'journal', body: 'prayed', refs: [], createdAt: 5, updatedAt: 5 } as any);
+    const files = unzipSync(await studyVault());
+    const names = Object.keys(files);
+    expect(names).toContain('index.json');
+    expect(names.some((n) => n.startsWith('notes/') && n.endsWith('.md'))).toBe(true);
+    expect(names.some((n) => n.startsWith('questions/'))).toBe(true);
+    expect(names.some((n) => n.startsWith('journal/'))).toBe(true);
+    const idx = JSON.parse(strFromU8(files['index.json']));
+    expect(idx.format).toBe('studybible-vault');
+    expect(idx.version).toBe(1);
+    const noteFile = names.find((n) => n.startsWith('notes/'))!;
+    const text = strFromU8(files[noteFile]);
+    expect(text).toMatch(/^---\ntitle: "Bread of life ✝"/);
+    expect(text).toContain('passages: ["JHN.6.51"]');
+    expect(text).toContain('He said: "I am"');
+  });
+});

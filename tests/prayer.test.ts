@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { ANGELUS, MERCY, MYSTERIES, SORROWS, STATIONS, rosary } from '../src/data/devotions';
 import { BOOK_PRAYERS } from '../src/data/prayerbook';
 import { PLANS } from '../src/data/novenas';
+import { THREADS } from '../src/data/threads';
 import { COURSE } from '../src/data/course';
 import { parseRefs } from '../src/lib/refs';
 
@@ -87,5 +88,14 @@ describe('office seasons', () => {
     for (const k of used(o.seasons.pasch.sundayLauds)) expect(o.psalms[k]?.lines.length, k).toBeGreaterThan(0);
     for (const d of Object.values<any>(o.seasons.adv.laudesAlt)) for (const k of used(d)) expect(o.psalms[k]?.lines.length, k).toBeGreaterThan(0);
     expect(Object.keys(o.seasons.adv.laudesAlt)).toHaveLength(6);
+  });
+});
+
+describe('stories', () => {
+  it('every step is a real passage and each story has several steps', () => {
+    for (const t of THREADS) {
+      expect(t.steps.length, t.id).toBeGreaterThanOrEqual(6);
+      for (const s of t.steps) expect(parseRefs(s.ref).ok, `${t.id} ${s.ref}`).toBe(true);
+    }
   });
 });

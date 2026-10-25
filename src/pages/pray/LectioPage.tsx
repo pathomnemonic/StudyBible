@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { useEditions } from '../../data/EditionsContext';
 import { useSettings } from '../../lib/store';
@@ -30,6 +31,8 @@ export default function LectioPage() {
   const [saved, setSaved] = useState(false);
   const [minutes, setMinutes] = useState(s.lectioMinutes);
   const timer = useRef<number | undefined>(undefined);
+  // earlier times you prayed with this same passage: the reflection comes back to you
+  const earlier = useLiveQuery(async () => (ref ? (await db.journal.toArray()).filter((j) => (j.refs ?? []).includes(refId(ref))).sort((a, b) => b.createdAt - a.createdAt).slice(0, 3) : []), [ref ? refId(ref) : ''], []) ?? [];
 
   const choose = () => {
     const r = parseRefs(input);
@@ -99,6 +102,13 @@ export default function LectioPage() {
             <div className="card" lang={ed.language} style={{ fontFamily: 'var(--font-serif)', fontSize: 'var(--read-size)', lineHeight: 'var(--read-lh)' as any }}>
               <div className="muted small" style={{ fontFamily: 'var(--font-sans)' }}>{formatRef(ref)} · {ed.shortName}</div>
               {text.map((t) => <span key={t.v}><sup>{t.v}</sup> {t.text} </span>)}
+            </div>
+          )}
+          {earlier.length > 0 && (
+            <div className="card" role="note">
+              <strong>You have prayed with this passage before.</strong>
+              <ul className="list">{earlier.map((j) => <li key={j.id}><span className="muted small">{new Date(j.createdAt).toLocaleDateString()}:</span> {j.body.slice(0, 220)}{j.body.length > 220 ? '…' : ''}</li>)}</ul>
+              <p className="muted small" style={{ margin: 0 }}>What do you notice now? Your reflection today will be saved beside the earlier ones.</p>
             </div>
           )}
           <div className="row">

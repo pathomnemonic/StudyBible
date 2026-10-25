@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import ReadingBlock from '../../components/ReadingBlock';
 import { BOOK_PRAYERS } from '../../data/prayerbook';
 import { convertRef } from '../../lib/versification';
@@ -12,6 +12,21 @@ type Block =
 
 const KEY = 'sb:playlist';
 const load = (): Block[] => { try { const v = JSON.parse(localStorage.getItem(KEY) ?? 'null'); return Array.isArray(v) ? v : [{ t: 'prayer', id: 'sign' }, { t: 'silence', min: 2 }, { t: 'prayer', id: 'pater' }]; } catch { return []; } };
+/** A prayer time travels as a link: the list of blocks, packed into the address. Anything that does not check out is dropped. */
+const pack = (b: Block[]) => btoa(unescape(encodeURIComponent(JSON.stringify(b)))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+function unpack(s: string): Block[] | null {
+  try {
+    const raw = JSON.parse(decodeURIComponent(escape(atob(s.replace(/-/g, '+').replace(/_/g, '/')))));
+    if (!Array.isArray(raw)) return null;
+    const ok: Block[] = [];
+    for (const x of raw.slice(0, 40)) {
+      if (x?.t === 'prayer' && BOOK_PRAYERS.some((p) => p.id === x.id)) ok.push({ t: 'prayer', id: x.id });
+      else if (x?.t === 'scripture' && typeof x.ref === 'string' && x.ref.length < 60 && parseRefs(x.ref).ok) ok.push({ t: 'scripture', ref: x.ref });
+      else if (x?.t === 'silence' && Number.isFinite(x.min) && x.min >= 1 && x.min <= 60) ok.push({ t: 'silence', min: Math.floor(x.min) });
+    }
+    return ok.length ? ok : null;
+  } catch { return null; }
+}
 const toRefs = (s: string): Ref[] => { const p = parseRefs(s); return p.ok ? p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref).ref) : []; };
 
 function Silence({ min }: { min: number }) {
@@ -37,6 +52,9 @@ export default function SessionBuilderPage() {
   const [ref, setRef] = useState('');
   const [min, setMin] = useState(2);
   const [pick, setPick] = useState(BOOK_PRAYERS[0].id);
+  const [params, setParams] = useSearchParams();
+  const shared = useMemo(() => (params.get('s') ? unpack(params.get('s')!) : null), [params]);
+  const [copied, setCopied] = useState(false);
   useEffect(() => { try { localStorage.setItem(KEY, JSON.stringify(blocks)); } catch { /* storage unavailable */ } }, [blocks]);
   const label = (b: Block) => b.t === 'prayer' ? BOOK_PRAYERS.find((p) => p.id === b.id)?.title ?? b.id : b.t === 'scripture' ? b.ref : `Silence, ${b.min} min`;
   const move = (i: number, d: number) => setBlocks((bs) => { const n = [...bs]; const j = i + d; if (j < 0 || j >= n.length) return bs; [n[i], n[j]] = [n[j], n[i]]; return n; });
@@ -67,6 +85,15 @@ export default function SessionBuilderPage() {
       <p><Link to="/pray">← Prayer</Link></p>
       <h1>Build your own prayer time</h1>
       <p className="lede">Put prayers, Scripture and silence in the order you like, then pray through them one at a time. Your playlist stays on this device.</p>
+      {shared && (
+        <div className="card" role="status">
+          <strong>Someone shared a prayer time with you</strong> ({shared.length} steps: {shared.map(label).slice(0, 4).join(', ')}{shared.length > 4 ? '…' : ''}).
+          <div className="row" style={{ gap: 6, marginTop: 6 }}>
+            <button className="btn primary small" onClick={() => { setBlocks(shared); setParams({}, { replace: true }); }}>Use it (replaces your list)</button>
+            <button className="btn small" onClick={() => setParams({}, { replace: true })}>No thanks</button>
+          </div>
+        </div>
+      )}
       <ol className="list">
         {blocks.map((b, i) => (
           <li key={i} className="row between">
@@ -80,7 +107,10 @@ export default function SessionBuilderPage() {
         ))}
         {blocks.length === 0 && <li className="muted">Nothing yet. Add something below.</li>}
       </ol>
-      <button className="btn primary" disabled={!blocks.length} onClick={() => setRun(0)}>Begin</button>
+      <div className="row" style={{ gap: 6 }}>
+        <button className="btn primary" disabled={!blocks.length} onClick={() => setRun(0)}>Begin</button>
+        <button className="btn" disabled={!blocks.length} onClick={async () => { const url = `${location.href.split('#')[0]}#/pray/build?s=${pack(blocks)}`; try { await navigator.clipboard.writeText(url); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch { /* clipboard unavailable */ } }}>{copied ? 'Link copied' : 'Copy a link to share'}</button>
+      </div>
       <h2 style={{ marginTop: 18 }}>Add</h2>
       <div className="row" style={{ gap: 6, flexWrap: 'wrap', marginBottom: 8 }}>
         <select value={pick} onChange={(e) => setPick(e.target.value)} aria-label="Prayer">{BOOK_PRAYERS.map((p) => <option key={p.id} value={p.id}>{p.title}</option>)}</select>

@@ -80,6 +80,21 @@ function QuietClock({ endsAt, onEnd }: { endsAt: number; onEnd: () => void }) {
   return <button onClick={onEnd} title="End the session">{m} min · end</button>;
 }
 
+/** "You first wrote about this chapter eight months ago": an old note of your own, offered back to you, kept on this device. */
+function PastSelf({ notes }: { notes: { id?: number; title?: string; body: string; createdAt: number }[] }) {
+  const old = [...notes].filter((n) => Date.now() - n.createdAt > 30 * 86400000).sort((a, b) => a.createdAt - b.createdAt)[0];
+  if (!old) return null;
+  const days = Math.floor((Date.now() - old.createdAt) / 86400000);
+  const ago = days >= 365 ? `${Math.floor(days / 365)} year${days >= 730 ? 's' : ''}` : days >= 60 ? `${Math.floor(days / 30)} months` : `${days} days`;
+  return (
+    <details className="notice info past-self">
+      <summary>You first wrote about this chapter {ago} ago.</summary>
+      <p className="small" style={{ margin: '6px 0' }}><strong>{old.title || 'Note'}:</strong> {old.body.slice(0, 280)}{old.body.length > 280 ? '…' : ''}</p>
+      <Link className="small" to={`/library/notes/${old.id}`}>Open it and add what has changed →</Link>
+    </details>
+  );
+}
+
 export default function ReadPage() {
   const { edition: edId = 'dra', book = 'JHN', chapter = '1' } = useParams();
   const [sp, setSp] = useSearchParams();
@@ -676,6 +691,7 @@ export default function ReadPage() {
                 </button>
               )}
             </h1>
+            <PastSelf notes={notes ?? []} />
             <ChapterArt book={bk.id} chapter={primaryAnchorChapter} text={flat.map((v) => v.text).join(' ')} />
             {(() => {
               const kjvCh = convertRef('vulgate', 'kjv', { book: bk.id, c1: primaryAnchorChapter, v1: 1, c2: primaryAnchorChapter, v2: 1 }).ref.c1;
