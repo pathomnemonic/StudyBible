@@ -1,46 +1,24 @@
-# Parity with established Bible apps
+# How this app compares with other Catholic apps
 
-A checklist of the options people expect from YouVersion, Blue Letter Bible, Logos, Kindle, Laudate and Hallow, and where this app stands. "Yes" means built; "Link" means we point to the publisher because the text or audio cannot be redistributed.
+An honest list, kept short. "Yes" means it works in the app now. "Partly" and "No" say what is missing and why.
 
-| Option | Here |
-|---|---|
-| Font size, line spacing, margins, typeface, letter and word spacing | Yes (Text settings) |
-| Themes, follow the device's light/dark and high-contrast | Yes ("System" theme) |
-| Dyslexia-friendly, large-print and low-vision presets | Yes |
-| Verse numbers on/off | Yes |
-| One verse per line or running paragraphs | Yes (added) |
-| Footnote marks on/off | Yes (added) |
-| Keep the screen on while reading | Yes (added; where the browser allows) |
-| Red letters | Yes, in every translation that marks them |
-| Infinite scroll or chapter by chapter; swipe between chapters | Yes |
-| Focus / distraction-free mode, customisable | Yes |
-| Parallel and compare translations | Yes |
-| Highlights in colours, notes, bookmarks, tags, folders | Yes |
-| Copy with citation, share a verse as a picture | Yes |
-| Search with exact phrase, book and testament filters, Fathers and commentary | Yes |
-| Cross-references, Strong's/original-language study, maps, people, dictionaries | Yes |
-| Commentaries, Church Fathers, Catechism, Church documents | Yes |
-| Reading plans, Bible in a Year, reminders, streaks | Yes |
-| Verse of the day, daily Mass readings (in the reader's translation) | Yes |
-| Audio: playback speed, sleep timer, remembered position, queue | Yes (sleep timer added) |
-| Read aloud (device voice) and recorded readings | Yes |
-| Memorisation with spaced repetition | Yes |
-| Offline Bibles and study packs | Yes (with verified downloads) |
-| Backup and sync across devices | Yes (optional Google Drive backup, optional server) |
-| Export notes (JSON, Markdown, PDF, EPUB, CSV) | Yes |
-| Widgets and installable app | Yes (PWA, with PNG icons) |
-| Interface languages | English, Spanish, Latin |
-| Rosary, Divine Mercy, Angelus / Regina Caeli, Stations, Seven Sorrows | Yes (Pray → Devotions; Scripture for each mystery and station shows in your translation) |
-| Daily prayer of the Church | Partly: the traditional Roman psalter (Lauds, Terce, Sext, None, Vespers, Compline) for ordinary time, offline. Not the modern Liturgy of the Hours (copyrighted); no feast, Advent, Lent or Easter propers and no Office of Readings |
-| Prayer book searchable by need; examination of conscience (private, nothing stored) | Yes |
-| Preparing for Sunday: readings with homilies, Catechism, commentary | Yes (Pray → Prepare for Sunday) |
-| Prayer playlists (your own order of prayers, Scripture and silence) | Yes |
-| Order of Mass guide | Partly: the parts and links; the ICEL words are copyrighted |
-| Timeline Bible course with quizzes | Yes (12 lessons) |
-| Passage dossier, printable | Yes |
-| Novenas and short prayer plans with progress | Yes (4 plans) |
-| Lectio Divina, prayer journal, sleep mode, a quiet moment | Yes |
-| Modern licensed translations (NABRE, RSV-CE, ESV, NIV) | Link only (copyright) |
-| Verse-by-verse audio synced to the text | No (recordings are not timed; see feature status) |
-| Social: friends, shared reading, comments | No (private by design; no server of ours) |
-| Push notifications with the app closed | Limited by the browser; works best when installed |
+| Area | Typical apps | Here |
+|---|---|---|
+| Daily Mass readings | Universalis, Laudate, USCCB | Yes (any day; Byzantine daily readings from Orthocal) |
+| Mass follow-along | Laudate, Hallow | Partly: Mass mode gives every part, posture, responses and today's readings. The Missal's own prayers (ICEL) are not printed. The 1962 Mass and other rites are not yet in the app. |
+| Liturgy of the Hours | iBreviary, Universalis | Partly: traditional Roman psalter with seasons, and the feast and Matins lessons by date. Not the modern English Liturgy of the Hours (copyright). |
+| Divine Liturgy and other rites | Few apps | Partly: Byzantine Divine Liturgy of St John Chrysostom (1914 English). The other Eastern rites, the Ordinariate and the Ambrosian and Mozarabic rites are listed with what is missing. |
+| Bible translations | Laudate, Hallow | Partly: public-domain and open editions. NABRE, RSV-CE and other modern Catholic editions need a licence and are not included. |
+| Catechism | Laudate, Hallow | Yes: all paragraphs, search, Scripture links, Catechism in a Year |
+| Papal writings | Laudate | Yes as a catalogue of about 1,250 documents from Pius IX to Leo XIV linked to the Vatican's text. Full texts only where public domain. |
+| Prayer book, Rosary, Stations, novenas, examination | All | Yes |
+| Saints of the day, calendar | All | Yes |
+| Audio: Bible in a Year, podcasts, recorded books | Hallow, Ascension | Yes, in one bottom player |
+| Guided prayer with narration and music | Hallow, Pray As You Go | Partly: devotions and ambience; no commissioned narration (cost) |
+| Study tools: commentary, Fathers, Summa, maps, words | Verbum, Logos, Catholic Study Bible | Yes for public-domain sources |
+| Formation courses | FORMED, Ascension, Hallow | Yes: a K–12 and young adult catechism program with teacher handbook. Not video-led. |
+| Parish tools, giving, bulletins, Mass-time finder | Parish apps, MassTimes | No: needs a server and parish data. Links to external finders only. |
+| Community: groups, shared plans, live study | Hallow, Dynamic Catholic | Partly: share-by-link; no live groups (needs a server). |
+| Canon law | Few | Link only (text is © Libreria Editrice Vaticana) |
+| Offline use | Some | Yes |
+| Cost to run | Subscriptions | None: no servers, no paid services |
