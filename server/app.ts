@@ -19,6 +19,8 @@ export interface Config {
   registerLimitPerHour?: number;
 }
 
+/** Version of the sync wire format. Clients send theirs; a server that does not understand a newer one says so instead of guessing. */
+const PROTOCOL = 1;
 const MAX_BODY = 6 * 1024 * 1024;
 const MAX_CHANGES = 1000;
 const MAX_PAYLOAD = 256 * 1024;
@@ -77,8 +79,12 @@ export function createApp(cfg: Config): Server {
     userByEmail: db.prepare('SELECT * FROM users WHERE email = ?'),
     userById: db.prepare('SELECT id, email, display_name, created_at FROM users WHERE id = ?'),
     insertUser: db.prepare('INSERT INTO users (id, email, display_name, pass_hash, created_at) VALUES (?, ?, ?, ?, ?)'),
-    insertSession: db.prepare('INSERT INTO sessions (token_hash, user_id, created_at, expires_at, user_agent) VALUES (?, ?, ?, ?, ?)'),
-    session: db.prepare('SELECT s.user_id, s.expires_at FROM sessions s WHERE s.token_hash = ?'),
+    insertSession: db.prepare('INSERT INTO sessions (token_hash, user_id, created_at, expires_at, user_agent, last_seen) VALUES (?, ?, ?, ?, ?, ?)'),
+    session: db.prepare('SELECT s.user_id, s.expires_at, s.last_seen FROM sessions s WHERE s.token_hash = ?'),
+    touchSession: db.prepare('UPDATE sessions SET last_seen = ? WHERE token_hash = ?'),
+    listSessions: db.prepare('SELECT token_hash, created_at, expires_at, last_seen, user_agent FROM sessions WHERE user_id = ? AND expires_at > ? ORDER BY COALESCE(last_seen, created_at) DESC'),
+    userCount: db.prepare('SELECT COUNT(*) AS n FROM users'),
+    stats: db.prepare('SELECT tbl, COUNT(*) AS n, SUM(deleted) AS gone FROM records WHERE user_id = ? GROUP BY tbl'),
     delSession: db.prepare('DELETE FROM sessions WHERE token_hash = ?'),
     delUserSessions: db.prepare('DELETE FROM sessions WHERE user_id = ?'),
     delUser: db.prepare('DELETE FROM users WHERE id = ?'),
@@ -142,6 +148,8 @@ export function createApp(cfg: Config): Server {
     if (!t) return null;
     const row = q.session.get(hashToken(t)) as any;
     if (!row || row.expires_at < Date.now()) return null;
+    // record activity at most every five minutes, so a busy client does not write on every request
+    if (!row.last_seen || Date.now() - row.last_seen > 300_000) q.touchSession.run(Date.now(), hashToken(t));
     return { id: row.user_id };
   }
 
@@ -161,11 +169,13 @@ export function createApp(cfg: Config): Server {
     const token = newToken();
     const now = Date.now();
     const exp = now + cfg.sessionDays * 86400_000;
-    q.insertSession.run(hashToken(token), userId, now, exp, String(req.headers['user-agent'] ?? '').slice(0, 200));
+    q.insertSession.run(hashToken(token), userId, now, exp, String(req.headers['user-agent'] ?? '').slice(0, 200), now);
     const user = q.userById.get(userId) as any;
     json(res, status, { user: pub(user) }, { 'Set-Cookie': sessionCookie(req, token, cfg.sessionDays * 86400) });
   }
 
+  /** Closed servers still let the very first account be created, so the owner can set up a private server. */
+  const openForSignup = () => cfg.registration === 'open' || (q.userCount.get() as any).n === 0;
   const pub = (u: any) => ({ id: u.id, email: u.email, name: u.display_name ?? null, createdAt: u.created_at });
 
   function deleteUserData(userId: string) {
@@ -179,11 +189,11 @@ export function createApp(cfg: Config): Server {
     const method = req.method ?? 'GET';
 
     if (path === '/api/health' && method === 'GET') {
-      return json(res, 200, { ok: true, registration: cfg.registration, name: 'studybible-sync', version: 1 });
+      return json(res, 200, { ok: true, registration: openForSignup() ? 'open' : 'closed', name: 'studybible-sync', version: 1, protocol: PROTOCOL });
     }
 
     if (path === '/api/auth/register' && method === 'POST') {
-      if (cfg.registration !== 'open') throw new HttpError(403, 'Registration is closed on this server.');
+      if (!openForSignup()) throw new HttpError(403, 'Registration is closed on this server.');
       if (!registerLimit.take(clientIp(req))) throw new HttpError(429, 'Too many sign-ups from this address. Try again later.');
       const b = await readJson(req);
       const email = validateEmail(b.email);
@@ -221,6 +231,29 @@ export function createApp(cfg: Config): Server {
 
     if (path === '/api/auth/me' && method === 'GET') return json(res, 200, { user: pub(q.userById.get(me.id)) });
 
+    if (path === '/api/auth/sessions' && method === 'GET') {
+      const mine = hashToken(cookie(req, 'sb_session')!);
+      const rows = (q.listSessions.all(me.id, Date.now()) as any[]).map((r) => ({ id: r.token_hash.slice(0, 16), current: r.token_hash === mine, createdAt: r.created_at, lastSeen: r.last_seen ?? r.created_at, expiresAt: r.expires_at, device: String(r.user_agent ?? '').slice(0, 120) }));
+      return json(res, 200, { sessions: rows });
+    }
+
+    const revoke = /^\/api\/auth\/sessions\/([0-9a-f]{16})$/.exec(path);
+    if (revoke && method === 'DELETE') {
+      const r = db.prepare('DELETE FROM sessions WHERE user_id = ? AND substr(token_hash, 1, 16) = ?').run(me.id, revoke[1]);
+      return json(res, 200, { ok: true, revoked: Number(r.changes) });
+    }
+
+    if (path === '/api/auth/sessions/revoke-others' && method === 'POST') {
+      const keep = hashToken(cookie(req, 'sb_session')!);
+      const r = db.prepare('DELETE FROM sessions WHERE user_id = ? AND token_hash <> ?').run(me.id, keep);
+      return json(res, 200, { ok: true, revoked: Number(r.changes) });
+    }
+
+    if (path === '/api/account/stats' && method === 'GET') {
+      const rows = (q.stats.all(me.id) as any[]).map((r) => ({ table: r.tbl, records: r.n - (r.gone ?? 0), deleted: r.gone ?? 0 }));
+      return json(res, 200, { tables: rows, bytes: (q.bytes.get(me.id) as any).n, limits: { records: MAX_RECORDS_PER_USER, bytes: MAX_BYTES_PER_USER } });
+    }
+
     if (path === '/api/auth/password' && method === 'POST') {
       const b = await readJson(req);
       const u = q.userByEmail.get((q.userById.get(me.id) as any).email) as any;
@@ -249,6 +282,7 @@ export function createApp(cfg: Config): Server {
 
     if (path === '/api/sync' && method === 'POST') {
       const b = await readJson(req);
+      if (b.protocol !== undefined && (!Number.isFinite(b.protocol) || b.protocol > PROTOCOL)) throw new HttpError(426, 'This app is newer than the sync server. Ask the server owner to update it.');
       const cursor = Number.isFinite(b.cursor) ? Math.max(0, Math.floor(b.cursor)) : 0;
       const changes: any[] = Array.isArray(b.changes) ? b.changes : [];
       if (changes.length > MAX_CHANGES) throw new HttpError(413, `Send at most ${MAX_CHANGES} changes per request.`);
@@ -300,6 +334,7 @@ export function createApp(cfg: Config): Server {
         cursor: last,
         more,
         rejected,
+        protocol: PROTOCOL,
         changes: rows.map((r) => ({ table: r.tbl, uid: r.uid, updatedAt: r.updated_at, deleted: !!r.deleted, payload: JSON.parse(r.payload) })),
       });
     }
@@ -382,5 +417,10 @@ export function createApp(cfg: Config): Server {
       json(res, 500, { error: 'Something went wrong on the server.' });
     }
   });
+  // bound what one client can tie up: slow or stalled requests are cut off
+  server.requestTimeout = 30_000;
+  server.headersTimeout = 15_000;
+  server.keepAliveTimeout = 5_000;
+  server.maxConnections = 500;
   return server;
 }

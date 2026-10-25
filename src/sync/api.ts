@@ -38,6 +38,15 @@ export interface AccountUser {
   createdAt: number;
 }
 
+export interface DeviceSession {
+  id: string;
+  current: boolean;
+  createdAt: number;
+  lastSeen: number;
+  expiresAt: number;
+  device: string;
+}
+
 export interface WireChange {
   table: string;
   uid: string;
@@ -55,5 +64,9 @@ export const api = {
   changePassword: (current: string, next: string) => call<{ ok: boolean }>('POST', '/api/auth/password', { current, next }),
   deleteAccount: (password: string) => call<{ ok: boolean }>('DELETE', '/api/account', { password }),
   exportAccount: () => call<any>('GET', '/api/account/export'),
-  sync: (cursor: number, changes: WireChange[]) => call<{ cursor: number; more: boolean; rejected: number; changes: WireChange[] }>('POST', '/api/sync', { cursor, changes }),
+  sync: (cursor: number, changes: WireChange[]) => call<{ cursor: number; more: boolean; rejected: number; changes: WireChange[] }>('POST', '/api/sync', { protocol: 1, cursor, changes }),
+  sessions: () => call<{ sessions: DeviceSession[] }>('GET', '/api/auth/sessions'),
+  revokeSession: (id: string) => call<{ ok: boolean }>('DELETE', `/api/auth/sessions/${id}`),
+  revokeOthers: () => call<{ ok: boolean; revoked: number }>('POST', '/api/auth/sessions/revoke-others', {}),
+  stats: () => call<{ tables: { table: string; records: number; deleted: number }[]; bytes: number; limits: { records: number; bytes: number } }>('GET', '/api/account/stats'),
 };

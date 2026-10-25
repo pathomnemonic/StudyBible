@@ -185,7 +185,7 @@ export async function localDataCount(): Promise<number> {
 export async function wipeLocalUserData() {
   syncFlags.applying = true; // no tombstones for a deliberate local wipe
   try {
-    for (const t of [...AUTO_TABLES, ...Object.keys(KEYED_TABLES), 'tombs', 'history', 'recentSearches']) await db.table(t).clear();
+    for (const t of [...AUTO_TABLES, ...Object.keys(KEYED_TABLES), 'tombs', 'trash', 'history', 'recentSearches']) await db.table(t).clear();
   } finally {
     syncFlags.applying = false;
   }

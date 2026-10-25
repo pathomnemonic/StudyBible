@@ -44,6 +44,18 @@ export function scheduleSync(delay = 2500) {
   timer = window.setTimeout(() => void syncNow(), delay);
 }
 
+/** A plain-language reason for a failed sync, by kind of failure. */
+export function explain(e: any): string {
+  if (e instanceof ApiError) {
+    if (e.status === 0) return 'The sync server cannot be reached. Your changes are safe on this device and will be sent when it is back.';
+    if (e.status === 429) return 'The server asked us to slow down. Syncing will try again in a few minutes.';
+    if (e.status === 413) return 'Some of your data is too large for the server to accept in one go. Try shortening very long notes.';
+    if (e.status === 426) return 'This app is newer than the sync server. Ask whoever runs the server to update it.';
+    if (e.status >= 500) return 'The sync server had a problem. Your changes are safe on this device and will be retried.';
+  }
+  return e?.message ?? 'Sync failed.';
+}
+
 export async function syncNow(): Promise<void> {
   const user = state.user;
   if (!user) return;
@@ -60,8 +72,8 @@ export async function syncNow(): Promise<void> {
     else emit({ status: 'idle', lastSyncAt: Date.now() });
   } catch (e: any) {
     if (e instanceof ApiError && e.status === 401) {
-      emit({ user: null, status: 'signed-out', error: 'Your session expired. Sign in again to keep syncing.' });
-    } else emit({ status: e instanceof ApiError && e.status === 0 ? 'offline' : 'error', error: e.message ?? 'Sync failed.' });
+      emit({ user: null, status: 'signed-out', error: 'You were signed out (your session expired, or you signed out from another device). Everything is still on this device; sign in again to carry on syncing.' });
+    } else emit({ status: e instanceof ApiError && e.status === 0 ? 'offline' : 'error', error: explain(e) });
   } finally {
     running = false;
     if (again) {
@@ -88,7 +100,11 @@ const lastUser = () => {
 };
 
 /** Call once at start-up: probe the server and resume a session if there is one. */
+let started = false;
 export async function initSync() {
+  // React's strict mode runs start-up twice in development; listeners and timers must only be installed once
+  if (started) return;
+  started = true;
   if (getSettings().localOnly) {
     // local-only mode: never contact a server
     emit({ server: 'unavailable', status: 'signed-out' });

@@ -65,11 +65,11 @@ describe('accounts', () => {
   it('stores passwords hashed (scrypt) and sessions as hashes', async () => {
     // indirect: a second login after changing the password must work only with the new one
     const c = new Client();
-    await c.call('POST', '/api/auth/register', { email: 'pw@example.com', password: PW });
+    await c.call('POST', '/api/auth/register', { email: 'pwchange@example.com', password: PW });
     expect((await c.call('POST', '/api/auth/password', { current: 'nope nope nope', next: 'another good phrase' })).status).toBe(401);
     expect((await c.call('POST', '/api/auth/password', { current: PW, next: 'another good phrase' })).status).toBe(200);
-    expect((await new Client().call('POST', '/api/auth/login', { email: 'pw@example.com', password: PW })).status).toBe(401);
-    expect((await new Client().call('POST', '/api/auth/login', { email: 'pw@example.com', password: 'another good phrase' })).status).toBe(200);
+    expect((await new Client().call('POST', '/api/auth/login', { email: 'pwchange@example.com', password: PW })).status).toBe(401);
+    expect((await new Client().call('POST', '/api/auth/login', { email: 'pwchange@example.com', password: 'another good phrase' })).status).toBe(200);
   });
   it('rate-limits repeated failed logins', async () => {
     const c = new Client();
@@ -197,5 +197,98 @@ describe('static files', () => {
     }
     expect((await get('/')).body).toContain('shell');
     await new Promise<void>((r) => s.close(() => r()));
+  });
+});
+
+describe('devices, sessions and operations', () => {
+  it('lists signed-in devices, revokes one, and signs out the rest', async () => {
+    const a = new Client();
+    await a.call('POST', '/api/auth/register', { email: 'devices@example.com', password: PW });
+    const b = new Client();
+    await b.call('POST', '/api/auth/login', { email: 'devices@example.com', password: PW }, { 'User-Agent': 'Phone' });
+    const c = new Client();
+    await c.call('POST', '/api/auth/login', { email: 'devices@example.com', password: PW });
+    const list = await a.call('GET', '/api/auth/sessions');
+    expect(list.body.sessions).toHaveLength(3);
+    expect(list.body.sessions.filter((s: any) => s.current)).toHaveLength(1);
+    const other = list.body.sessions.find((s: any) => !s.current);
+    expect((await a.call('DELETE', `/api/auth/sessions/${other.id}`)).status).toBe(200);
+    expect((await a.call('GET', '/api/auth/sessions')).body.sessions).toHaveLength(2);
+    const rev = await a.call('POST', '/api/auth/sessions/revoke-others', {});
+    expect(rev.body.revoked).toBe(1);
+    expect((await a.call('GET', '/api/auth/me')).status).toBe(200);
+    // exactly one of the other two is signed out by each revoke; both are gone now
+    const alive = [(await b.call('GET', '/api/auth/me')).status, (await c.call('GET', '/api/auth/me')).status];
+    expect(alive).toEqual([401, 401]);
+  });
+
+  it('does not let one account revoke another account’s sessions', async () => {
+    const a = new Client();
+    await a.call('POST', '/api/auth/register', { email: 'owner@example.com', password: PW });
+    const thief = new Client();
+    await thief.call('POST', '/api/auth/register', { email: 'thief@example.com', password: PW });
+    const id = (await a.call('GET', '/api/auth/sessions')).body.sessions[0].id;
+    expect((await thief.call('DELETE', `/api/auth/sessions/${id}`)).body.revoked).toBe(0);
+    expect((await a.call('GET', '/api/auth/me')).status).toBe(200);
+  });
+
+  it('signs other devices out when the password changes, and refuses an expired or revoked cookie', async () => {
+    const a = new Client();
+    const reg = await a.call('POST', '/api/auth/register', { email: 'pwrevoke@example.com', password: PW });
+    expect(reg.status, JSON.stringify(reg.body)).toBe(201);
+    const b = new Client();
+    await b.call('POST', '/api/auth/login', { email: 'pwrevoke@example.com', password: PW });
+    const chg = await a.call('POST', '/api/auth/password', { current: PW, next: 'a different long phrase 99' });
+    expect(chg.body, JSON.stringify(chg.body)).toMatchObject({ ok: true });
+    expect((await b.call('GET', '/api/auth/me')).status).toBe(401);
+    expect((await b.call('POST', '/api/sync', { cursor: 0, changes: [] })).status).toBe(401);
+    expect((await a.call('GET', '/api/auth/me')).status).toBe(200);
+  });
+
+  it('reports record counts without note contents, and rejects a newer sync protocol', async () => {
+    const a = new Client();
+    await a.call('POST', '/api/auth/register', { email: 'stats@example.com', password: PW });
+    await a.call('POST', '/api/sync', { protocol: 1, cursor: 0, changes: [{ table: 'notes', uid: 'x', updatedAt: 1, payload: { body: 'secret words' } }] });
+    const st = await a.call('GET', '/api/account/stats');
+    expect(st.body.tables).toEqual([{ table: 'notes', records: 1, deleted: 0 }]);
+    expect(JSON.stringify(st.body)).not.toContain('secret');
+    const newer = await a.call('POST', '/api/sync', { protocol: 99, cursor: 0, changes: [] });
+    expect(newer.status).toBe(426);
+  });
+
+  it('a closed server still lets the first account be created, and no more', async () => {
+    const s = createApp({ db: openDb(':memory:'), registration: 'closed', sessionDays: 1, allowedOrigins: [], secureCookies: false });
+    await new Promise<void>((r) => s.listen(0, '127.0.0.1', r));
+    const b = `http://127.0.0.1:${(s.address() as AddressInfo).port}`;
+    const post = (email: string) => fetch(`${b}/api/auth/register`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-StudyBible': '1' }, body: JSON.stringify({ email, password: PW }) });
+    expect((await post('first@example.com')).status).toBe(201);
+    expect((await post('second@example.com')).status).toBe(403);
+    expect(((await (await fetch(`${b}/api/health`)).json()) as any).registration).toBe('closed');
+    await new Promise<void>((r) => s.close(() => r()));
+  });
+});
+
+describe('server operations', () => {
+  it('makes verified backups and keeps only the newest few', async () => {
+    const { backupDatabase } = await import('../server/backup');
+    const { mkdtempSync, readdirSync } = await import('node:fs');
+    const { tmpdir } = await import('node:os');
+    const { join } = await import('node:path');
+    const db = openDb(':memory:');
+    db.prepare('INSERT INTO users (id, email, display_name, pass_hash, created_at) VALUES (?, ?, ?, ?, ?)').run('u1', 'a@b.co', null, 'x', 1);
+    const dir = mkdtempSync(join(tmpdir(), 'sbbk-'));
+    for (let i = 0; i < 4; i++) backupDatabase(db, dir, 2, new Date(Date.UTC(2026, 0, 1 + i)));
+    expect(readdirSync(dir)).toHaveLength(2);
+    const last = backupDatabase(db, dir, 2, new Date(Date.UTC(2026, 0, 10)));
+    expect(last.users).toBe(1);
+  });
+
+  it('checks the environment before starting', async () => {
+    const { checkEnv } = await import('../server/config');
+    expect(checkEnv({}).errors).toEqual([]);
+    expect(checkEnv({ PORT: 'abc' }).errors[0]).toMatch(/PORT/);
+    expect(checkEnv({ REGISTRATION: 'maybe' }).errors[0]).toMatch(/REGISTRATION/);
+    expect(checkEnv({ ALLOWED_ORIGINS: 'https://a.org/path' }).errors[0]).toMatch(/origin/);
+    expect(checkEnv({ HOST: '0.0.0.0', COOKIE_SECURE: 'false', REGISTRATION: 'open' }).warnings.length).toBeGreaterThanOrEqual(2);
   });
 });

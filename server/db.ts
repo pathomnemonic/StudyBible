@@ -38,5 +38,8 @@ export function openDb(path: string): DatabaseSync {
     );
     CREATE INDEX IF NOT EXISTS records_seq ON records(user_id, seq);
   `);
+  // sessions gained a last-seen time after the first release; add the column to databases created before that
+  const cols = db.prepare('PRAGMA table_info(sessions)').all() as { name: string }[];
+  if (!cols.some((c) => c.name === 'last_seen')) db.exec('ALTER TABLE sessions ADD COLUMN last_seen INTEGER');
   return db;
 }

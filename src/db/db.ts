@@ -196,6 +196,17 @@ export interface MemoryCard extends Syncable {
   createdAt: number;
 }
 
+/** A copy of something the user deleted, kept on this device for a while so it can be restored. Never synced. */
+export interface TrashItem {
+  id?: number;
+  tbl: string;
+  data: any;
+  deletedAt: number;
+}
+
+export const TRASH_TABLES = ['notes', 'journal', 'highlights', 'bookmarks', 'folders', 'collections'] as const;
+export const TRASH_DAYS = 30;
+
 export interface Tombstone {
   id?: number;
   tbl: string;
@@ -225,6 +236,7 @@ class StudyBibleDB extends Dexie {
   userLinks!: Table<UserLink, number>;
   memory!: Table<MemoryCard, number>;
   tombs!: Table<Tombstone, number>;
+  trash!: Table<TrashItem, number>;
   notes!: Table<Note, number>;
   highlights!: Table<Highlight, number>;
   bookmarks!: Table<Bookmark, number>;
@@ -299,6 +311,7 @@ class StudyBibleDB extends Dexie {
         }
       });
     this.version(5).stores({ memory: '++id, ref, due, uid' });
+    this.version(6).stores({ trash: '++id, tbl, deletedAt' });
     this.installSyncHooks();
   }
 
@@ -321,6 +334,7 @@ class StudyBibleDB extends Dexie {
         const uid = obj.uid as string;
         // runs after the delete commits (a different table cannot be written inside this transaction)
         this.onsuccess = () => {
+          if ((TRASH_TABLES as readonly string[]).includes(name)) Dexie.ignoreTransaction(() => db.trash.add({ tbl: name, data: obj, deletedAt: Date.now() })).catch(() => {});
           Dexie.ignoreTransaction(() => db.tombs.add({ tbl: name, uid, updatedAt: Date.now() })).then(() => syncFlags.onLocalChange()).catch(() => {});
         };
       });

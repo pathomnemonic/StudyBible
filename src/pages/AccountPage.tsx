@@ -1,7 +1,7 @@
 import { getSettings } from '../lib/store';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { api } from '../sync/api';
+import { api, type DeviceSession } from '../sync/api';
 import { deleteAccount, retryDiscovery, signIn, signOut, signUp, syncNow, useSync, type AuthDecision } from '../sync/state';
 import { pendingCount } from '../sync/engine';
 import { download } from '../db/ops';
@@ -22,6 +22,10 @@ export default function AccountPage() {
   const [pending, setPending] = useState<number | null>(null);
   useEffect(() => { if (s.user) pendingCount(s.user.id).then(setPending).catch(() => setPending(null)); }, [s.user?.id, s.status, s.lastSyncAt]);
   const toast = useToast();
+  const [devices, setDevices] = useState<DeviceSession[] | null>(null);
+  const [stats, setStats] = useState<{ tables: { table: string; records: number; deleted: number }[]; bytes: number; limits: { records: number; bytes: number } } | null>(null);
+  const loadDevices = () => { api.sessions().then((r) => setDevices(r.sessions)).catch(() => setDevices(null)); api.stats().then(setStats).catch(() => setStats(null)); };
+  useEffect(() => { if (s.user) loadDevices(); }, [s.user?.id, s.lastSyncAt]);
   const [mode, setMode] = useState<'in' | 'up'>('in');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -113,6 +117,34 @@ export default function AccountPage() {
           </div>
 
           <div className="card">
+            <h2 className="card-title">Sync activity</h2>
+            <ul className="small bullets">
+              <li>Status: {{ idle: 'up to date', syncing: 'syncing now', error: 'a problem (see above)', offline: 'offline', 'signed-out': 'signed out' }[s.status]}. Last successful sync: {s.lastSyncAt ? new Date(s.lastSyncAt).toLocaleString() : 'none yet'}.</li>
+              <li>Waiting to be sent from this device: {pending ?? '…'}.</li>
+              {stats && <li>On the server: {stats.tables.reduce((n, t) => n + t.records, 0)} records ({(stats.bytes / 1024).toFixed(0)} KB of {(stats.limits.bytes / 1048576).toFixed(0)} MB){stats.tables.length ? `: ${stats.tables.map((t) => `${t.table} ${t.records}`).join(', ')}` : ''}.</li>}
+              <li>Settings that sync: theme, text size and spacing, translations, verse numbers, reminders, streaks, lectio length and calendar. Interface language, layout of the Today screen, audio and sound, accessibility toggles and storage choices are kept per device.</li>
+            </ul>
+            <button className="btn small" onClick={async () => { const d = { app: 'StudyBible', schema: 5, protocol: 1, status: s.status, server: s.server, lastSyncAt: s.lastSyncAt, pending, error: s.error, online: navigator.onLine, serverTables: stats?.tables ?? null, userAgent: navigator.userAgent }; try { await navigator.clipboard.writeText(JSON.stringify(d, null, 1)); toast('Diagnostics copied. They contain no notes, journal text or passwords.'); } catch { toast('Could not copy.', 'error'); } }}>Copy diagnostics</button>
+          </div>
+
+          <div className="card">
+            <h2 className="card-title">Signed-in devices</h2>
+            {!devices && <p className="muted small">Loading…</p>}
+            {devices && (
+              <ul className="list">
+                {devices.map((d) => (
+                  <li key={d.id} className="row between">
+                    <span><strong>{d.current ? 'This device' : 'Another device'}</strong><span className="muted small"> · last active {new Date(d.lastSeen).toLocaleString()} · {d.device || 'unknown browser'}</span></span>
+                    {!d.current && <button className="btn small" onClick={async () => { await api.revokeSession(d.id); toast('That device was signed out.'); loadDevices(); }}>Sign out</button>}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {devices && devices.length > 1 && <button className="btn small" onClick={async () => { const r = await api.revokeOthers(); toast(`${r.revoked} other ${r.revoked === 1 ? 'device was' : 'devices were'} signed out.`); loadDevices(); }}>Sign out all other devices</button>}
+            <p className="muted small">Signing a device out does not delete anything on that device; it just stops it syncing until its owner signs in again.</p>
+          </div>
+
+          <div className="card">
             <h2 className="card-title">Change password</h2>
             <div className="row">
               <input type="password" placeholder="Current password" value={cur} onChange={(e) => setCur(e.target.value)} autoComplete="current-password" />
@@ -126,7 +158,7 @@ export default function AccountPage() {
             <p className="muted small">Permanently deletes your account and every note, highlight and setting stored on the server. Copies on your own devices are not touched unless you choose so below. This cannot be undone.</p>
             <div className="row">
               <input type="password" placeholder="Confirm with your password" value={delPw} onChange={(e) => setDelPw(e.target.value)} autoComplete="current-password" />
-              <button className="btn danger" disabled={!delPw} onClick={async () => { if (!confirm('Delete your account and all server-side data permanently?')) return; try { await deleteAccount(delPw, confirm('Also remove the notes from this device?')); setDelPw(''); toast('Your account was deleted.'); } catch (e: any) { toast(e.message, 'error'); } }}>Delete account</button>
+              <button className="btn danger" disabled={!delPw} onClick={async () => { if (!confirm('Before deleting: have you downloaded your account data (the button near the top of this page)?\n\nThis permanently deletes your account and everything stored on the server. Copies on your devices stay unless you choose to remove them next. Continue?')) return; try { await deleteAccount(delPw, confirm('Also remove the notes from this device?')); setDelPw(''); toast('Your account was deleted.'); } catch (e: any) { toast(e.message, 'error'); } }}>Delete account</button>
             </div>
           </div>
         </>

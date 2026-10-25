@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { db, type Collection, type Note, type Target } from '../../db/db';
+import { db, TRASH_DAYS, type Collection, type Note, type Target } from '../../db/db';
 import NoteEditor, { targetLabel } from '../../components/NoteEditor';
 import RefLink from '../../components/RefLink';
 import { renderMarkdown } from '../../lib/markdown';
@@ -13,9 +13,9 @@ import { fold } from '../../search/engine';
 import { BOOK_ORDER } from '../../lib/canon';
 import GraphPage from './GraphPage';
 
-type Tab = 'notes' | 'graph' | 'highlights' | 'bookmarks' | 'collections' | 'xrefs' | 'saved' | 'history' | 'export';
+type Tab = 'notes' | 'graph' | 'highlights' | 'bookmarks' | 'collections' | 'xrefs' | 'saved' | 'history' | 'export' | 'trash';
 const TABS: [Tab, string][] = [['notes', 'Notes'], ['highlights', 'Highlights'], ['bookmarks', 'Bookmarks'], ['collections', 'Collections']];
-const MORE: [Tab, string][] = [['graph', 'Knowledge graph'], ['xrefs', 'Connections'], ['saved', 'Saved'], ['history', 'History'], ['export', 'Export and backup']];
+const MORE: [Tab, string][] = [['graph', 'Knowledge graph'], ['xrefs', 'Connections'], ['saved', 'Saved'], ['history', 'History'], ['trash', 'Recently deleted'], ['export', 'Export and backup']];
 
 export default function LibraryHome() {
   const loc = useLocation();
@@ -40,6 +40,7 @@ export default function LibraryHome() {
       {tab === 'xrefs' && <UserXrefs />}
       {tab === 'saved' && <Saved />}
       {tab === 'history' && <History />}
+      {tab === 'trash' && <Trash />}
       {tab === 'export' && <ExportTab />}
     </div>
   );
@@ -266,5 +267,38 @@ function ExportTab() {
         <label className="row"><input type="checkbox" checked={s.localOnly} onChange={(e) => { set({ localOnly: e.target.checked }); setTimeout(() => location.reload(), 200); }} /> Local-only mode (never contact a sync server; hides sign-in)</label>
       </div>
     </>
+  );
+}
+
+/** Things deleted on this device in the last 30 days, kept only here (not synced) so a slip can be undone. */
+function Trash() {
+  const items = useLiveQuery(() => db.trash.orderBy('deletedAt').reverse().toArray(), []) ?? [];
+  const label = (t: { tbl: string; data: any }) => t.data.title || (t.data.body ? String(t.data.body).slice(0, 80) : t.data.ref || t.data.name || t.tbl);
+  const restore = async (id: number) => {
+    const it = await db.trash.get(id);
+    if (!it) return;
+    const { id: _id, ...rest } = it.data;
+    await db.table(it.tbl).add({ ...rest }); // the change hooks stamp it as edited now, so it also wins over the deletion on other devices
+    await db.tombs.filter((t) => t.tbl === it.tbl && t.uid === rest.uid).delete();
+    await db.trash.delete(id);
+  };
+  return (
+    <section>
+      <h2>Recently deleted</h2>
+      <p className="muted small">Notes, journal entries, highlights, bookmarks, folders and collections you deleted on this device in the last {TRASH_DAYS} days. They are kept on this device only and are removed for good after that.</p>
+      {items.length === 0 && <p className="muted">Nothing has been deleted lately.</p>}
+      <ul className="list">
+        {items.map((t) => (
+          <li key={t.id} className="row between">
+            <span><strong>{t.tbl}</strong> · {label(t)} <span className="muted small">· deleted {new Date(t.deletedAt).toLocaleDateString()}</span></span>
+            <span className="row" style={{ gap: 6 }}>
+              <button className="btn small" onClick={() => restore(t.id!)}>Restore</button>
+              <button className="btn small" onClick={() => db.trash.delete(t.id!)}>Remove for good</button>
+            </span>
+          </li>
+        ))}
+      </ul>
+      {items.length > 0 && <button className="btn small danger" onClick={() => confirm('Remove everything here permanently?') && db.trash.clear()}>Empty</button>}
+    </section>
   );
 }

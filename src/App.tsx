@@ -9,6 +9,7 @@ import { PlayerProvider } from './data/PlayerContext';
 import MiniPlayer from './components/MiniPlayer';
 import { ToastProvider } from './components/Toast';
 import { initSync } from './sync/state';
+import { db, TRASH_DAYS } from './db/db';
 import { scheduleReminder } from './liturgy/reminders';
 
 const GalleryPage = lazy(() => import('./pages/study/GalleryPage'));
@@ -155,6 +156,8 @@ export default function App() {
   useEffect(() => {
     initSync();
     scheduleReminder();
+    // things deleted more than 30 days ago leave the Recently deleted list for good
+    db.trash.where('deletedAt').below(Date.now() - TRASH_DAYS * 86400000).delete().catch(() => {});
   }, []);
   return (
     <ToastProvider>

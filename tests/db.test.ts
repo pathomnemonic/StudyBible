@@ -12,7 +12,7 @@ describe('IndexedDB upgrades', () => {
   it('opens a fresh install at the latest schema with every table', async () => {
     const { db } = await import('../src/db/db');
     await db.open();
-    expect(db.verno).toBe(5);
+    expect(db.verno).toBe(6);
     for (const t of ['notes', 'highlights', 'memory', 'tombs', 'userLinks', 'media']) expect(db.tables.some((x) => x.name === t), t).toBe(true);
   });
 
@@ -36,7 +36,7 @@ describe('IndexedDB upgrades', () => {
     const b = (await db.bookmarks.toArray())[0];
     expect(b.uid).toBeTruthy();
     expect(b.updatedAt).toBe(7); // falls back to createdAt, so an old row does not look freshly edited
-    expect(db.verno).toBe(5);
+    expect(db.verno).toBe(6);
   });
 });
 
@@ -93,5 +93,27 @@ describe('backup round trip', () => {
     await expect(ops.importAll(JSON.stringify({ format: 'studybible-export', version: 2, notes: 'oops' }), 'replace')).rejects.toThrow(/damaged/);
     await expect(ops.importAll(JSON.stringify({ format: 'studybible-export', version: 2, userLinks: [{ url: 'javascript:alert(1)' }] }), 'replace')).rejects.toThrow(/http or https/);
     expect(await db.notes.count()).toBe(1);
+  });
+});
+
+describe('recently deleted', () => {
+  beforeEach(async () => { await Dexie.delete('studybible'); vi.resetModules(); });
+  it('keeps a copy of a deleted note, and the deletion record, so it can be restored', async () => {
+    const { db } = await import('../src/db/db');
+    const id = await db.notes.add({ kind: 'note', title: 'Keep me', body: 'precious', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 } as any);
+    const uid = (await db.notes.get(id))!.uid!;
+    await db.notes.delete(id);
+    await new Promise((r) => setTimeout(r, 200));
+    expect(await db.notes.count()).toBe(0);
+    const t = await db.trash.toArray();
+    expect(t).toHaveLength(1);
+    expect(t[0].data.body).toBe('precious');
+    expect(await db.tombs.count()).toBe(1);
+    // restoring puts it back, newer than the deletion record
+    const { id: _i, ...rest } = t[0].data;
+    await db.notes.add(rest);
+    await db.tombs.filter((x) => x.uid === uid).delete();
+    expect((await db.notes.toArray())[0].title).toBe('Keep me');
+    expect(await db.tombs.count()).toBe(0);
   });
 });
