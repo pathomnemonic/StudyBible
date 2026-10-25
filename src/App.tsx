@@ -93,6 +93,8 @@ function ThemeApplier() {
       root.style.setProperty('--read-ls', `${s.letterSpacing}em`);
       root.style.setProperty('--read-ws', `${s.wordSpacing}em`);
       root.dataset.align = s.plainAlign ? 'plain' : '';
+      root.dataset.verses = s.verseLines ? 'lines' : 'flow';
+      root.dataset.notemarks = s.showNoteMarks ? 'on' : 'off';
       root.dataset.motion = s.motion;
       root.lang = s.language;
       if (s.fontFamily === 'hyperlegible') void import('@fontsource/atkinson-hyperlegible/400.css').catch(() => {});

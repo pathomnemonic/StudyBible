@@ -82,6 +82,12 @@ export interface Settings {
   inlineArt: boolean;
   /** words that act out their meaning: fire flickers, water ripples, light glows */
   wordFx: boolean;
+  /** keep the screen on while reading (where the browser allows) */
+  keepAwake: boolean;
+  /** one verse per line instead of running paragraphs */
+  verseLines: boolean;
+  /** the small † footnote marks and the verse markers for notes in the text */
+  showNoteMarks: boolean;
   /** the words of Jesus in red, where the translation marks them */
   redLetters: boolean;
   /** dismissed the one-time "tap a verse" hint */
@@ -144,6 +150,9 @@ export const DEFAULTS: Settings = {
   inlineArt: true,
   wordFx: true,
   redLetters: true,
+  keepAwake: false,
+  verseLines: false,
+  showNoteMarks: true,
   hintVerse: false,
   atmosphere: 'passage',
   ambience: { kind: 'off', volume: 0.25, match: false },

@@ -141,7 +141,7 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
               ) : (
                 <span
                   key={k}
-                  className={cls}
+                  className={k === 0 ? `${cls} vfirst` : cls}
                   data-v={n}
                   role="button"
                   tabIndex={0}

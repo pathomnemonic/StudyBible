@@ -65,6 +65,18 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <input type="checkbox" checked={s.readProgress} onChange={(e) => set({ readProgress: e.target.checked })} aria-label="Reading progress" />
       </label>
       <label className="row between" style={{ margin: '10px 0' }}>
+        <span>One verse per line</span>
+        <input type="checkbox" checked={s.verseLines} onChange={(e) => set({ verseLines: e.target.checked })} aria-label="One verse per line" />
+      </label>
+      <label className="row between" style={{ margin: '10px 0' }}>
+        <span>Footnote marks (†) in the text</span>
+        <input type="checkbox" checked={s.showNoteMarks} onChange={(e) => set({ showNoteMarks: e.target.checked })} aria-label="Footnote marks" />
+      </label>
+      <label className="row between" style={{ margin: '10px 0' }}>
+        <span>Keep the screen on while reading</span>
+        <input type="checkbox" checked={s.keepAwake} onChange={(e) => set({ keepAwake: e.target.checked })} aria-label="Keep the screen on" />
+      </label>
+      <label className="row between" style={{ margin: '10px 0' }}>
         <span>Verse numbers</span>
         <input type="checkbox" checked={s.showVerseNumbers} onChange={(e) => set({ showVerseNumbers: e.target.checked })} />
       </label>

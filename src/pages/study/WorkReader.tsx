@@ -9,6 +9,7 @@ import TextSettings from '../../components/TextSettings';
 import Icon from '../../components/Icon';
 import { RecordedWork } from '../../components/RecordedBooks';
 import BiblePane from '../../components/BiblePane';
+import { useWakeLock } from '../../lib/wakeLock';
 import { fold } from '../../search/engine';
 
 export default function WorkReader() {
@@ -24,6 +25,7 @@ export default function WorkReader() {
   const [find, setFind] = useState('');
   const [note, setNote] = useState(false);
   const [settings, setSettings] = useSettings();
+  useWakeLock(settings.keepAwake);
   const [ts, setTs] = useState(false);
   const idx = Math.max(0, Number(section ?? 0) || 0);
 

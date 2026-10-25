@@ -9,6 +9,7 @@ import { formatRef, parseRefId, refId, type Ref } from '../lib/refs';
 import { anchorChaptersFor, chapterAlignmentNote, bookAlignmentNote, psalmDualLabel, toAnchor } from '../lib/versification';
 import { anchorChapterText, anchorToNative, chapterTitle, flattenChapter, nativeToAnchorRef, type AnchorText } from '../lib/bibleText';
 import { useSettings } from '../lib/store';
+import { useWakeLock } from '../lib/wakeLock';
 import { db, type HighlightColor, type Target } from '../db/db';
 import BiayBar from '../components/BiayBar';
 import NextChapters from '../components/NextChapters';
@@ -88,6 +89,7 @@ export default function ReadPage() {
   const from = (loc.state as { from?: Trail } | null)?.from;
   const { get, editions, planned } = useEditions();
   const [settings, setSettings] = useSettings();
+  useWakeLock(settings.keepAwake);
   const t = useT();
   const edition = get(edId) ?? editions[0];
   const { choosable, isOn } = useChoosable(edId);

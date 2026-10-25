@@ -4036,3 +4036,7 @@ html[data-atm] .chapter-title.has-art::after { display: none; }
   .room-cols.pane-open .work-text { display: none; }
   .bp-text { max-height: none; }
 }
+
+/* reading options: one verse per line, footnote marks off */
+html[data-verses='lines'] .v.vfirst { display: block; margin-top: 0.3em; }
+html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: none; }
