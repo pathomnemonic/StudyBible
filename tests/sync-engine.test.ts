@@ -76,4 +76,23 @@ describe('sync engine against the real server', () => {
       expect(await db.notes.count()).toBe(30);
     }
   }, 60000);
+
+  it('keeps both versions when two devices edit the same note before syncing', async () => {
+    await freshDevice();
+    const { api } = await import('../src/sync/api');
+    const uid = ((await api.login('sync-engine@example.com', 'correct horse battery')) as any).user.id;
+    const { db } = await import('../src/db/db');
+    const { runSync } = await import('../src/sync/engine');
+    await runSync(uid); // device B has the 30 notes
+    const mine = (await db.notes.toArray())[0];
+    // this device edits the note, unsynced
+    await db.notes.update(mine.id!, { body: 'edited on this device' });
+    // another device edited the same note and synced first, with a later time
+    const cur = (await api.sync(0, [])).cursor;
+    await api.sync(cur, [{ table: 'notes', uid: mine.uid!, updatedAt: Date.now() + 1000, payload: { ...mine, id: undefined, body: 'edited on the other device', updatedAt: Date.now() + 1000 } } as any]);
+    await runSync(uid);
+    const bodies = (await db.notes.toArray()).map((n) => n.body);
+    expect(bodies).toContain('edited on the other device');
+    expect(bodies).toContain('edited on this device');
+  }, 60000);
 });

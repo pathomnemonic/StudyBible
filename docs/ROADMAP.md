@@ -21,6 +21,9 @@ Most of this list comes from an outside code review (a ChatGPT analysis of the r
 - Settings from an old version, a backup or another device are checked against the expected type of each value.
 - PNG and maskable app icons for installing on Android and iOS; a test that Spanish and Latin have every interface string; a quiet reminder to back up when there are notes and no recent backup.
 - CONTRIBUTING.md, SECURITY.md and issue templates.
+- Found by the new IndexedDB, backup and sync-engine tests and fixed: a database from schema version 1 could not upgrade (the upgrade touched a table that did not exist yet); upgraded rows were stamped as just edited; deleting a note, highlight or other record never wrote its deletion record, so the deletion did not reach other devices and the item came back; a replace-restore tombstoned the rows it had just restored and kept no original timestamps; a malformed `%` in a URL returned a server error instead of 400.
+- Tests now cover: upgrade from v1, export/import round trips (Unicode, large text, repeat import, replace mode, refused files), the sync client against the real server (restore on a clean device, 30 large notes, deletions, two-device conflict copy), static-path traversal, clock skew and settings loading.
+- Note templates (observe-interpret-apply, lectio divina, questions, historical context) and a “what works offline” list in Settings.
 
 ## Open: sync and accounts
 - Full server-assigned revisions (the server now caps a client's edit time at its own clock plus five minutes, so a fast clock cannot win every conflict, but ordering still starts from client time); a device/session list.
