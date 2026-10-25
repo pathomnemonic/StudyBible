@@ -51,6 +51,9 @@ class HttpError extends Error {
 
 const MIME: Record<string, string> = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.webmanifest': 'application/manifest+json', '.png': 'image/png', '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.map': 'application/json' };
 
+/** How far ahead of the server's clock a client's edit time may be before it is capped. */
+const CLOCK_SKEW_MS = 5 * 60 * 1000;
+
 const CSP = [
   "default-src 'self'",
   "script-src 'self'",
@@ -270,14 +273,16 @@ export function createApp(cfg: Config): Server {
             rejected++;
             continue;
           }
+          // A device with a clock set far ahead must not win every later conflict: cap client timestamps at server time plus a small allowance.
+          const stamp = Math.min(Math.floor(c.updatedAt), Date.now() + CLOCK_SKEW_MS);
           const ex = q.getRec.get(me.id, c.table, c.uid) as any;
-          if (ex && ex.updated_at > c.updatedAt) continue; // server copy is newer: client will receive it below
+          if (ex && ex.updated_at > stamp) continue; // server copy is newer: client will receive it below
           if (!ex && total + added >= MAX_RECORDS_PER_USER) {
             rejected++;
             continue;
           }
           const seq = (q.bump.get(me.id) as any).seq as number;
-          q.upsert.run(me.id, c.table, c.uid, Math.floor(c.updatedAt), c.deleted ? 1 : 0, payload, seq);
+          q.upsert.run(me.id, c.table, c.uid, stamp, c.deleted ? 1 : 0, payload, seq);
           mine.add(`${c.table}|${c.uid}`);
           used += payload.length;
           if (!ex) added++;

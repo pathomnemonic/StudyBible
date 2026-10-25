@@ -114,6 +114,23 @@ describe('sync', () => {
     const after = await b.call('POST', '/api/sync', { cursor: 0, changes: [] });
     expect(after.body.changes.find((c: any) => c.uid === 'h1').deleted).toBe(true);
   });
+  it('caps timestamps from a clock set far in the future so they cannot win every later conflict', async () => {
+    const a = new Client();
+    await a.call('POST', '/api/auth/register', { email: 'skew@example.com', password: PW });
+    const far = Date.now() + 10 * 365 * 86400000;
+    const r1 = await a.call('POST', '/api/sync', { cursor: 0, changes: [{ table: 'notes', uid: 'n1', updatedAt: far, payload: { body: 'from a fast clock' } }] });
+    const b = new Client();
+    await b.call('POST', '/api/auth/login', { email: 'skew@example.com', password: PW });
+    const pull = await b.call('POST', '/api/sync', { cursor: 0, changes: [] });
+    const got = pull.body.changes.find((c: any) => c.uid === 'n1');
+    expect(got.updatedAt).toBeLessThan(Date.now() + 6 * 60 * 1000);
+    // an honest edit made a little later now wins
+    const later = Date.now() + 10 * 60 * 1000;
+    const r2 = await b.call('POST', '/api/sync', { cursor: pull.body.cursor, changes: [{ table: 'notes', uid: 'n1', updatedAt: later, payload: { body: 'honest' } }] });
+    expect(r2.status).toBe(200);
+    expect(r1.status).toBe(200);
+  });
+
   it('isolates users from each other', async () => {
     const a = new Client();
     const b = new Client();

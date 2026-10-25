@@ -35,6 +35,9 @@ export default function PlanPage() {
     const done = prog.done.includes(i) ? prog.done.filter((x) => x !== i) : [...prog.done, i];
     await db.planProgress.put({ ...prog, done, status: done.length >= plan.days.length ? 'finished' : prog.status });
   };
+  // the first day not yet checked, if it lies before today: offer to pick up from there instead of skipping
+  const firstUnread = prog ? plan.days.findIndex((_, i) => !prog.done.includes(i)) : -1;
+  const behind = prog && prog.status === 'active' && firstUnread >= 0 ? todayIdx - firstUnread : 0;
   // optional streak: consecutive checked days ending at or before today (never the headline)
   const streak = (() => {
     if (!prog || !s.showStreaks) return 0;
@@ -53,6 +56,11 @@ export default function PlanPage() {
         <div className="card">
           <div className="progress"><div style={{ width: `${(100 * prog.done.length) / plan.days.length}%` }} /></div>
           <p className="small">{prog.done.length} of {plan.days.length} days read · started {new Date(prog.startedAt).toLocaleDateString()} · status: <strong>{prog.status}</strong>{streak > 1 ? ` · ${streak} days in a row` : ''}</p>
+          {behind > 0 && (
+            <p className="small" role="status">
+              You are {behind} {behind === 1 ? 'day' : 'days'} behind, and that is fine. <button className="btn small" onClick={() => db.planProgress.put({ ...prog, offsetDays: prog.offsetDays - behind })}>Pick up at day {firstUnread + 1}</button> <a href={`#d${firstUnread}`} onClick={(e) => { e.preventDefault(); document.getElementById(`d${firstUnread}`)?.scrollIntoView({ block: 'center' }); }}>or see it in the list</a>
+            </p>
+          )}
           <div className="row">
             {prog.status === 'active' ? <button className="btn small" onClick={() => db.planProgress.put({ ...prog, status: 'paused', pausedAt: Date.now() })}>Pause</button> : <button className="btn small" onClick={() => db.planProgress.put({ ...prog, status: 'active', startedAt: prog.startedAt + (Date.now() - (prog.pausedAt ?? Date.now())), pausedAt: undefined })}>Resume</button>}
             <button className="btn small" onClick={() => db.planProgress.put({ ...prog, offsetDays: prog.offsetDays - 1 })}>Slow down a day</button>

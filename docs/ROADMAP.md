@@ -23,9 +23,9 @@ Most of this list comes from an outside code review (a ChatGPT analysis of the r
 - CONTRIBUTING.md, SECURITY.md and issue templates.
 
 ## Open: sync and accounts
-- Server-assigned revisions instead of trusting client clocks; a device/session list.
+- Full server-assigned revisions (the server now caps a client's edit time at its own clock plus five minutes, so a fast clock cannot win every conflict, but ordering still starts from client time); a device/session list.
 - Optional end-to-end encryption with a recovery story.
-- Security headers/CSP review, CSRF review beyond SameSite, automatic server backups.
+- CSRF review beyond SameSite, automatic server backups. (The server already sends a strict Content-Security-Policy, `nosniff`, a referrer policy and `frame-ancestors 'none'`.)
 
 ## Open: offline and PWA
 - Per-pack manifests with sizes and checksums, resumable and cancellable downloads, real byte progress, quota-error handling.
@@ -39,8 +39,8 @@ Most of this list comes from an outside code review (a ChatGPT analysis of the r
 ## Open: reader and study features
 - Multi-verse selection actions, unified search across notes and library, backlinks from notes to Scripture, note tags and history.
 - Customisable study-panel section order, saved passage collections, configurable parallel columns.
-- Reading plans with rest days and catch-up; a daily-question notebook; printable group-study sheets.
-- Copy a verse with its citation; calendar grid for the readings archive; hymn of the day; reading streaks (kept on the device).
+- A daily-question notebook; printable group-study sheets beyond the passage dossier's Print button. (Plans now offer “Pick up at day N” when you are behind, and “Slow down a day” as a rest day.)
+- Hymn of the day. (Copy with citation, the readings calendar grid and optional plan streaks already exist.)
 
 ## Open: quality
 - Playwright end-to-end tests (sync with two contexts, offline, upgrade from old schemas), accessibility and visual regression checks, bundle-size budgets, a root LICENSE file (the owner's choice).
