@@ -9,11 +9,12 @@ import { openDb } from './db';
  *   PORT=8787 DB_PATH=./server-data/studybible.sqlite npm run server
  *
  * Environment: PORT, HOST, DB_PATH, STATIC_DIR (default ./dist), REGISTRATION=open|closed, SESSION_DAYS,
- * ALLOWED_ORIGINS (comma list, only for cross-origin development), COOKIE_SECURE=auto|true|false.
+ * TRUST_PROXY=1 (believe X-Forwarded-For; only behind your own proxy), ALLOWED_ORIGINS (comma list, only for cross-origin development), COOKIE_SECURE=auto|true|false.
  * Run it behind HTTPS (a reverse proxy that sets X-Forwarded-Proto) in production.
  */
 const port = +(process.env.PORT ?? 8787);
-const host = process.env.HOST ?? '0.0.0.0';
+// loopback by default: the server is meant to sit behind a reverse proxy. Set HOST=0.0.0.0 on purpose to listen on every interface.
+const host = process.env.HOST ?? '127.0.0.1';
 const staticDir = resolve(process.env.STATIC_DIR ?? 'dist');
 const db = openDb(resolve(process.env.DB_PATH ?? 'server-data/studybible.sqlite'));
 const server = createApp({

@@ -135,7 +135,7 @@ export default function App() {
   const loc = useLocation();
   useEffect(() => {
     // a page chunk that no longer exists (the app was updated under an open tab): reload once to get the new one
-    const h = (e: Event) => { e.preventDefault(); try { if (!sessionStorage.getItem('sb-reloaded')) { sessionStorage.setItem('sb-reloaded', '1'); location.reload(); } } catch { location.reload(); } };
+    const h = (e: Event) => { e.preventDefault(); try { const k = 'sb-reloaded'; const last = Number(sessionStorage.getItem(k) ?? 0); if (Date.now() - last > 60_000) { sessionStorage.setItem(k, String(Date.now())); location.reload(); } } catch { location.reload(); } };
     window.addEventListener('vite:preloadError', h);
     return () => window.removeEventListener('vite:preloadError', h);
   }, []);

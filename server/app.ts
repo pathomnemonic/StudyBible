@@ -1,7 +1,7 @@
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from 'node:http';
 import { randomUUID } from 'node:crypto';
 import { existsSync, readFileSync, statSync, createReadStream } from 'node:fs';
-import { extname, join, normalize, resolve } from 'node:path';
+import { extname, isAbsolute, join, normalize, relative, resolve } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import type { DatabaseSync } from 'node:sqlite';
 import { RateLimiter, hashPassword, hashToken, newToken, passwordProblem, validateEmail, verifyPassword } from './auth';
@@ -73,7 +73,11 @@ export function createApp(cfg: Config): Server {
   };
 
   const isSecure = (req: IncomingMessage) => (cfg.secureCookies === 'auto' ? req.headers['x-forwarded-proto'] === 'https' : cfg.secureCookies);
-  const clientIp = (req: IncomingMessage) => String(req.headers['x-forwarded-for'] ?? req.socket.remoteAddress ?? '').split(',')[0].trim();
+  // X-Forwarded-For is only believed when the operator says a trusted proxy sets it (TRUST_PROXY=1); otherwise a client could invent addresses to dodge the rate limits
+  const trustProxy = process.env.TRUST_PROXY === '1' || process.env.TRUST_PROXY === 'true';
+  const clientIp = (req: IncomingMessage) => (trustProxy ? String(req.headers['x-forwarded-for'] ?? '').split(',').pop()!.trim() : '') || req.socket.remoteAddress || '';
+  // a hash made once, so a login for an account that does not exist costs the same single check as one that does
+  const dummyHash = hashPassword('not-a-real-password');
 
   function json(res: ServerResponse, status: number, body: unknown, headers: Record<string, string | string[]> = {}) {
     const data = Buffer.from(JSON.stringify(body));
@@ -178,7 +182,7 @@ export function createApp(cfg: Config): Server {
       if (!loginLimit.take(key)) throw new HttpError(429, 'Too many attempts. Wait a few minutes and try again.');
       const u = email ? (q.userByEmail.get(email) as any) : null;
       // Always spend the hashing time so response timing does not reveal whether the account exists.
-      const ok = u ? await verifyPassword(String(b.password ?? ''), u.pass_hash) : (await verifyPassword('x', await hashPassword('x')), false);
+      const ok = u ? await verifyPassword(String(b.password ?? ''), u.pass_hash) : (await verifyPassword('not-the-password', await dummyHash), false);
       if (!u || !ok) throw new HttpError(401, 'Email or password is incorrect.');
       loginLimit.reset(key);
       return startSession(req, res, u.id);
@@ -213,7 +217,7 @@ export function createApp(cfg: Config): Server {
       const u = q.userByEmail.get((q.userById.get(me.id) as any).email) as any;
       if (!(await verifyPassword(String(b.password ?? ''), u.pass_hash))) throw new HttpError(401, 'Password is incorrect.');
       deleteUserData(me.id);
-      return json(res, 200, { ok: true, deleted: true }, { 'Set-Cookie': `sb_session=; HttpOnly; SameSite=Lax; Path=/; Max-Age=0` });
+      return json(res, 200, { ok: true, deleted: true }, { 'Set-Cookie': `sb_session=; HttpOnly; SameSite=Lax; Path=/; Max-Age=0${isSecure(req) ? '; Secure' : ''}` });
     }
 
     if (path === '/api/account/export' && method === 'GET') {
@@ -277,11 +281,19 @@ export function createApp(cfg: Config): Server {
     const root = resolve(cfg.staticDir!);
     let rel = normalize(decodeURIComponent(urlPath)).replace(/^([/\\])+/, '');
     let file = resolve(join(root, rel));
-    if (!file.startsWith(root)) {
+    const inside = relative(root, file);
+    if (inside.startsWith('..') || isAbsolute(inside)) {
       res.writeHead(403).end();
       return;
     }
-    if (!existsSync(file) || statSync(file).isDirectory()) file = join(root, 'index.html'); // SPA fallback
+    if (!existsSync(file) || statSync(file).isDirectory()) {
+      // the app shell answers page navigations only; a missing script, style or data file is a real 404, not HTML that would break a JSON parse
+      if (extname(rel) && extname(rel) !== '.html') {
+        res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' }).end('Not found');
+        return;
+      }
+      file = join(root, 'index.html');
+    }
     const ext = extname(file);
     const headers: Record<string, string> = {
       'Content-Type': MIME[ext] ?? 'application/octet-stream',

@@ -110,19 +110,28 @@ async function applyRemote(userId: string, changes: WireChange[]) {
   }
 }
 
-export async function runSync(userId: string): Promise<{ pushed: number; pulled: number }> {
+export async function runSync(userId: string): Promise<{ pushed: number; pulled: number; rejected: number }> {
   const startedAt = Date.now();
   const since = Number(get(lk(userId, 'lastPush')) ?? 0);
   let cursor = Number(get(lk(userId, 'cursor')) ?? 0);
   const local = await collect(userId, since);
   let pushed = 0;
   let pulled = 0;
-  const BATCH = 400;
-  let i = 0;
-  do {
-    const batch = local.slice(i, i + BATCH);
+  let rejected = 0;
+  // batches are cut by size, not just count: the server refuses bodies over 6 MB and a note may be 256 KB
+  const MAX_BYTES = 2_000_000, MAX_COUNT = 400;
+  const batches: (typeof local)[] = [];
+  for (let cur: typeof local = [], bytes = 0, k = 0; k <= local.length; k++) {
+    const c = local[k];
+    const size = c ? JSON.stringify(c).length : 0;
+    if (!c || cur.length >= MAX_COUNT || (cur.length && bytes + size > MAX_BYTES)) { if (cur.length) batches.push(cur); cur = []; bytes = 0; }
+    if (c) { cur.push(c); bytes += size; }
+  }
+  if (!batches.length) batches.push([]);
+  for (const batch of batches) {
     let res = await api.sync(cursor, batch);
-    pushed += batch.length;
+    rejected += res.rejected ?? 0;
+    pushed += batch.length - (res.rejected ?? 0);
     pulled += res.changes.length;
     await applyRemote(userId, res.changes);
     cursor = res.cursor;
@@ -132,13 +141,13 @@ export async function runSync(userId: string): Promise<{ pushed: number; pulled:
       await applyRemote(userId, res.changes);
       cursor = res.cursor;
     }
-    i += BATCH;
-  } while (i < local.length);
+  }
   set(lk(userId, 'cursor'), String(cursor));
-  set(lk(userId, 'lastPush'), String(startedAt));
+  // if the server refused anything, keep the old push time so those changes are sent again next time
+  if (!rejected) set(lk(userId, 'lastPush'), String(startedAt));
   // tombstones older than this push have reached the server; keep recent ones for slow second devices
   await db.tombs.where('id').above(-1).filter((t) => t.updatedAt < startedAt - 7 * 86400000).delete();
-  return { pushed, pulled };
+  return { pushed, pulled, rejected };
 }
 
 /** Mark settings as changed locally so the next sync carries them. */

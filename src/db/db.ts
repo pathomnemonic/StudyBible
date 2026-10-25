@@ -283,7 +283,8 @@ class StudyBibleDB extends Dexie {
         tombs: '++id, tbl',
       })
       .upgrade(async (tx) => {
-        for (const t of AUTO_TABLES) {
+        // only tables that exist at this schema version (memory arrives in v5, and tx.table() throws for a table that is not there yet)
+        for (const t of AUTO_TABLES.filter((n) => tx.db.tables.some((x) => x.name === n))) {
           await tx.table(t).toCollection().modify((r: any) => {
             r.uid ??= newUid();
             r.updatedAt ??= r.createdAt ?? Date.now();

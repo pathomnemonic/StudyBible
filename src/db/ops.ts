@@ -84,16 +84,31 @@ export async function toggleBookmark(ref: Ref, kind: Bookmark['kind'] = 'bookmar
 const TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'planProgress', 'userPlans', 'episodeProgress', 'queue', 'savedSearches', 'recentSearches', 'history', 'saved', 'libraryProgress', 'media', 'userLinks', 'memory'] as const;
 
 export async function exportAll(): Promise<string> {
-  const out: Record<string, unknown> = { format: 'studybible-export', version: 1, exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate' };
-  for (const t of TABLES) out[t] = await (db as any)[t].toArray();
+  const out: Record<string, unknown> = { format: 'studybible-export', version: 2, appExport: 'all-tables-and-settings', exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate', counts: {} as Record<string, number> };
+  for (const t of TABLES) { const rows = await (db as any)[t].toArray(); out[t] = rows; (out.counts as Record<string, number>)[t] = rows.length; }
+  // reading and accessibility preferences live outside the database; include them so a restore feels the same
+  try { const raw = localStorage.getItem(SETTINGS_KEY); if (raw) out.settings = JSON.parse(raw); } catch { /* storage unavailable */ }
   return JSON.stringify(out, null, 1);
 }
+
+const SETTINGS_KEY = 'studybible.settings.v1';
+const safeUrl = (u: unknown) => typeof u === 'string' && /^https?:\/\//i.test(u);
 
 export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge'): Promise<number> {
   const data = JSON.parse(json);
   if (data.format !== 'studybible-export') throw new Error('Not a Study Bible export file.');
+  if (typeof data.version === 'number' && data.version > 2) throw new Error('This backup was made by a newer version of the app. Update the app, then try again.');
+  // check the whole file before touching the database
+  for (const t of TABLES) {
+    const rows = data[t];
+    if (rows === undefined) continue;
+    if (!Array.isArray(rows) || rows.some((r) => !r || typeof r !== 'object' || Array.isArray(r))) throw new Error(`The backup is damaged: “${t}” is not a list of records. Nothing was imported.`);
+  }
+  for (const t of ['userLinks', 'media'] as const) for (const r of data[t] ?? []) if (r.url !== undefined && !safeUrl(r.url)) throw new Error(`The backup has a link in “${t}” that does not start with http or https. Nothing was imported.`);
   let n = 0;
-  await db.transaction('rw', TABLES.map((t) => (db as any)[t]), async () => {
+  await db.transaction('rw', [...TABLES.map((t) => (db as any)[t]), db.tombs], async () => {
+    // restoring over everything also drops old deletion records, which would otherwise delete the restored rows when synced
+    if (mode === 'replace') await db.tombs.clear();
     for (const t of TABLES) {
       const rows: any[] = data[t] ?? [];
       if (mode === 'replace') await (db as any)[t].clear();
@@ -121,6 +136,9 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
       }
     }
   });
+  if (mode === 'replace' && data.settings && typeof data.settings === 'object') {
+    try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(data.settings)); } catch { /* storage unavailable */ }
+  }
   return n;
 }
 
@@ -157,7 +175,9 @@ export function download(filename: string, text: string, type = 'application/jso
 }
 
 const csvCell = (v: unknown) => {
-  const t = String(v ?? '');
+  let t = String(v ?? '');
+  // a cell that starts with = + - @ is read as a formula by spreadsheets: a leading apostrophe keeps it as text
+  if (/^[=+\-@\t\r]/.test(t)) t = "'" + t;
   return /[",\n]/.test(t) ? `"${t.replace(/"/g, '""')}"` : t;
 };
 

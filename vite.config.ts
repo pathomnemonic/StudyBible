@@ -39,9 +39,11 @@ export default defineConfig({
             options: { cacheName: 'studybible-heavy-v1' },
           },
           {
+            // network first (a fast check; the browser answers 304 for unchanged files), cached copy when offline or slow:
+            // a corrected data file reaches people who already have an older one cached
             urlPattern: ({ url }) => url.pathname.includes('/data/'),
-            handler: 'CacheFirst',
-            options: { cacheName: 'studybible-data-v1', expiration: { maxEntries: 2000 } },
+            handler: 'NetworkFirst',
+            options: { cacheName: 'studybible-data-v1', networkTimeoutSeconds: 4, expiration: { maxEntries: 6000 } },
           },
         ],
       },

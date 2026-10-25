@@ -18,7 +18,7 @@ Why Vulgate? It is the numbering of the Douay-Rheims and the Clementine Vulgate 
 | Scheme | Used by | Notes |
 |---|---|---|
 | `vulgate` | Douay-Rheims, Clementine Vulgate | identity |
-| `english` | WEB (Catholic) and any future RSV-CE/RSV-2CE | Psalms mapped by reviewed rules; unverified chapters flagged; Tobit/Judith/Sirach/Esther/Daniel flagged as different text traditions |
+| `english` | World English Bible arranged in Catholic book order (not an approved Catholic translation) and any future RSV-CE/RSV-2CE | Psalms mapped by reviewed rules; unverified chapters flagged; Tobit/Judith/Sirach/Esther/Daniel flagged as different text traditions |
 | `kjv` | external data: OpenBible cross-references, plans, lectionary lists, typed references | same Psalm rules + Daniel 3/4 |
 
 Notes/highlights/bookmarks store the anchor id plus `originEdition`, so the UI can warn when a mark was made in an edition whose numbering is not verified for that chapter.
@@ -37,7 +37,7 @@ Notes/highlights/bookmarks store the anchor id plus `originEdition`, so the UI c
 | Saint / Father works | `data/registry/library.json` → `library/works/*.json`, `library/index.json`, section-level full-text index |
 | Media items, Bible in a Year mapping | `public/data/media/biay.json` (episodes, days, passage ids, `passageSource`), overrides in `data/curated/biay-overrides.json` |
 | Liturgical calendar and readings | `src/liturgy/*` (offline computation, LitCal client, readings providers) |
-| Users, preferences | `src/lib/store.ts` (localStorage settings); no accounts |
+| Users, preferences | `src/lib/store.ts` (localStorage settings); optional account and sync (`src/sync/`, `server/`), local-only by default |
 | Notes, highlights, bookmarks, tags, folders, collections | `src/db/db.ts` (IndexedDB) |
 | Reading plans and progress | `src/plans/builtin.ts` (generated), `planProgress`, `userPlans` tables |
 | Cross-references | `public/data/xrefs/<BOOK>.json` (OpenBible, anchor-mapped, top 12 per verse) + user cross-refs |
@@ -52,11 +52,11 @@ Every ingested item keeps provenance: source URL, retrieval date, checksum, righ
 - `src/search/engine.ts`: query parser (`"phrase"`, `in:john`, `by:augustine`), MiniSearch indexes built on demand (Scripture per edition, Catena, episodes), section-level postings for the library, reference interpretation with misspelling suggestions.
 - `src/liturgy`: Meeus Easter, seasons/weeks/cycles, LitCal client with caching, readings providers (LitCal feasts → imported lectionary → manual).
 - `src/data/PlayerContext.tsx`: one global `<audio>` element + Media Session for lock-screen controls and background playback.
-- `src/db/sync.ts`: the `SyncAdapter` interface (not implemented); see below.
+- `src/sync/`: the sync engine and account state; `server/`: the optional account and sync server (see docs/SERVER.md). `src/db/sync.ts` is the older adapter interface.
 
 ## Sync, accounts, backup, deletion (design)
 
-Not implemented; local-first by choice. The intended design: end-to-end encrypt records client-side, sync rows by `(table, id, updatedAt)` with last-writer-wins and tombstones, keep Scripture links as anchor ids, offer export-before-delete and full server-side account deletion. Until then, JSON export/import moves data between devices.
+Implemented, and optional (local-first by choice). Rows sync by `(table, uid, updatedAt)` with last-writer-wins and tombstones, and Scripture links stay anchor ids. The server stores records in readable form: **end-to-end encryption is a planned design, not something this build does.** Optional Google Drive backup (`src/sync/drive.ts`) and JSON export/import also move data between devices.
 
 ## Offline
 

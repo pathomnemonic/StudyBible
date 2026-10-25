@@ -1,29 +1,47 @@
-# Possible next features
+# Possible next features and review backlog
 
-Kept deliberately small and zero-running-cost: everything here works from static data plus the user's own browser (or their own Google Drive). Items that would need a server, paid APIs, or licensed text are listed at the end as out of reach for now.
+Everything here works from static data plus the user's own browser (or their own Google Drive), because the app has to stay at near-zero running cost. Items that would need a server we run, paid APIs or licensed text are listed last.
 
-Notes on provenance: this list comes from an audit of the code against other Bible apps (YouVersion, Logos, Blue Letter Bible, Kindle, Hallow). A ChatGPT analysis of the code was shared, but its page could not be read from the build environment, so it has not been folded in yet.
+Most of this list comes from an outside code review (a ChatGPT analysis of the repository, kept at `docs/` only as these notes) and from our own audit. **Fixed** items are done in the code; the rest are open.
 
-## Cheap and worthwhile
-- Copy a verse with its citation (and translation name) from the verse menu.
-- Calendar grid for the daily readings archive.
-- Hymn or chant of the day on Today.
-- Reading streaks and gentle goals on the Profile page (kept on the device).
-- Per-verse bookmarks with a Bookmarks list (highlights and notes exist already).
-- Printable reading plans and a printable Rosary guide.
-- Share a chapter or plan as a link that opens in the app.
-- Recording follow-along for LibriVox (needs timings; none are published, so only if someone contributes them).
-- More Gospel parallels beyond the passion narratives.
+## Fixed from the review
+- Offline study packs were marked "downloaded" even when files failed. They now report failures, offer Retry, and a mark is cleared if the browser evicted the files.
+- Failed edition or pack downloads showed no error. They now do.
+- Sync reported success when the server rejected changes. Rejected records are now counted, shown, and re-sent next time.
+- Sync batches were cut by count only (400); they are now also cut at 2 MB so a large note set cannot exceed the server's request limit.
+- Sync gave up for the session if the server was down at start-up. It now retries with back-off and jitter, and on coming back online.
+- Server: the default listen address is now 127.0.0.1 as documented; `X-Forwarded-For` is trusted only with `TRUST_PROXY=1`; login for an unknown account no longer does extra hashing work; static-file containment uses a path check instead of a string prefix; a missing script or data file returns 404 instead of the app's HTML; the account-deletion cookie now matches the other session cookies; sessions have an expiry index.
+- The IndexedDB v4 upgrade could reference the `memory` table before it existed.
+- The reload-after-update guard could stay set for the whole tab; it now allows one reload per minute.
+- Backups: they now include preferences, carry a version, validate every record and link before touching the database, refuse newer formats, and a replace-restore also clears old deletion records. CSV exports neutralise cells that start with `=`, `+`, `-` or `@`.
+- The privacy text in Settings said there were no accounts; it now describes optional accounts and says sync is not end-to-end encrypted. ARCHITECTURE.md says the same.
+- Data files are fetched network-first so a corrected file reaches people who cached an older one.
 
-## Larger, still possible
-- Glossa Ordinaria translation remainder and Aquinas's Latin.
-- More museum paintings for sparsely illustrated books.
-- Saint of the day audio from LibriVox's Butler's Lives, if a recording is found.
-- Offline packs per book instead of per edition.
+## Open: sync and accounts
+- Conflict handling for free text (keep both versions) and server-assigned revisions instead of trusting client clocks.
+- Per-user storage limits and a device/session list; sync activity and diagnostics screen.
+- Optional end-to-end encryption with a recovery story.
+- Schema validation of each synced table on the server.
+- Security headers/CSP review, CSRF review beyond SameSite, automatic server backups.
+
+## Open: offline and PWA
+- Per-pack manifests with sizes and checksums, resumable and cancellable downloads, real byte progress, quota-error handling.
+- PNG and maskable icons; a true offline test in CI; update prompt that never interrupts an unsaved journal entry.
+
+## Open: scripture data integrity
+- Confidence labels per versification mapping (Tobit, Judith, Sirach, Esther, Daniel) and broader versification tests.
+- A provenance line on every edition; a periodic external-link checker; proofread the OCR-derived Roman Catechism.
+- Label source types (Scripture, official document, historical commentary, app-written) more visibly.
+
+## Open: reader and study features
+- Multi-verse selection actions, unified search across notes and library, backlinks from notes to Scripture, note tags and history.
+- Customisable study-panel section order, saved passage collections, configurable parallel columns.
+- Reading plans with rest days and catch-up; a daily-question notebook; printable group-study sheets.
+- Copy a verse with its citation; calendar grid for the readings archive; hymn of the day; reading streaks (kept on the device).
+
+## Open: quality
+- Playwright end-to-end tests (sync with two contexts, offline, upgrade from old schemas), accessibility and visual regression checks, bundle-size budgets, a root LICENSE file (the owner's choice), a contributor guide, issue templates and a security policy.
 
 ## Out of reach for the near-zero-cost model
-- Live YouTube search or API-based discovery (needs an API key and quota).
-- Cloud sync between accounts without the user's own Drive (needs a server).
-- Licensed modern translations (NABRE, RSV-CE, ESV) inline; only links are possible.
-- AI chat over the library (per-use cost).
-- Push notifications that work with the app closed on iOS (needs a push service).
+- Live YouTube search or API discovery (needs a key and quota); the video library comes from channels' public pages instead.
+- Cloud accounts that we host for everyone; licensed modern translations inline; AI chat over the library; push notifications on iOS without a push service.

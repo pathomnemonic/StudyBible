@@ -11,7 +11,8 @@ npm start              # serves dist/ and the API on http://localhost:8787  (Nod
 
 | Env var | Default | Meaning |
 |---|---|---|
-| `PORT`, `HOST` | `8787`, `127.0.0.1` | listen address |
+| `PORT`, `HOST` | `8787`, `127.0.0.1` | listen address (loopback; set `HOST=0.0.0.0` on purpose to expose it) |
+| `TRUST_PROXY` | off | `1` to believe `X-Forwarded-For` for rate limits (only behind your own reverse proxy) |
 | `DB_PATH` | `./data/server.sqlite` | SQLite file (`node:sqlite`) |
 | `STATIC_DIR` | `./dist` | web app to serve |
 | `REGISTRATION` | `open` | `closed` disables sign-up (create accounts first, then close) |

@@ -55,8 +55,9 @@ export async function syncNow(): Promise<void> {
   running = true;
   emit({ status: 'syncing', error: null });
   try {
-    await runSync(user.id);
-    emit({ status: 'idle', lastSyncAt: Date.now() });
+    const r = await runSync(user.id);
+    if (r.rejected) emit({ status: 'error', lastSyncAt: Date.now(), error: `${r.rejected} change${r.rejected === 1 ? ' was' : 's were'} not accepted by the server and will be retried. Your data is still on this device.` });
+    else emit({ status: 'idle', lastSyncAt: Date.now() });
   } catch (e: any) {
     if (e instanceof ApiError && e.status === 401) {
       emit({ user: null, status: 'signed-out', error: 'Your session expired. Sign in again to keep syncing.' });
@@ -97,25 +98,43 @@ export async function initSync() {
   settingsChangeHooks.push(() => {
     if (state.user && !syncFlags.applying) noteSettingsChanged();
   });
+  // listeners go in first, so a server that is down at start-up is found later without reloading the app
+  window.addEventListener('online', () => void discover());
+  document.addEventListener('visibilitychange', () => document.visibilityState === 'visible' && void discover());
+  window.setInterval(() => document.visibilityState === 'visible' && void discover(), 90_000);
+  await discover();
+}
+
+let discovering = false;
+let failures = 0;
+let nextTry = 0;
+/** Find the server and resume a session, or (when the server is already known) just sync. Failed probes back off, with jitter, up to ten minutes. */
+async function discover() {
+  if (state.server === 'available') return void syncNow();
+  if (discovering || Date.now() < nextTry) return;
+  discovering = true;
   try {
     const h = await api.health();
+    failures = 0;
     emit({ server: 'available', registration: h.registration });
+    try {
+      const { user } = await api.me();
+      emit({ user, status: 'idle' });
+      remember(user.id);
+      void syncNow();
+    } catch {
+      emit({ user: null, status: 'signed-out' });
+    }
   } catch {
+    failures++;
+    nextTry = Date.now() + Math.min(600_000, 5_000 * 2 ** Math.min(failures, 7)) * (0.75 + Math.random() * 0.5);
     emit({ server: 'unavailable' });
-    return;
+  } finally {
+    discovering = false;
   }
-  try {
-    const { user } = await api.me();
-    emit({ user, status: 'idle' });
-    remember(user.id);
-    void syncNow();
-  } catch {
-    emit({ user: null, status: 'signed-out' });
-  }
-  window.addEventListener('online', () => void syncNow());
-  document.addEventListener('visibilitychange', () => document.visibilityState === 'visible' && void syncNow());
-  window.setInterval(() => document.visibilityState === 'visible' && void syncNow(), 90_000);
 }
+/** Try again now, whatever the back-off says (for a "retry" button). */
+export const retryDiscovery = () => { nextTry = 0; return discover(); };
 
 export type AuthDecision = 'merge' | 'wipe';
 

@@ -25,6 +25,7 @@ export function openDb(path: string): DatabaseSync {
       user_agent TEXT
     );
     CREATE INDEX IF NOT EXISTS sessions_user ON sessions(user_id);
+    CREATE INDEX IF NOT EXISTS sessions_expires ON sessions(expires_at);
     CREATE TABLE IF NOT EXISTS records (
       user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
       tbl TEXT NOT NULL,

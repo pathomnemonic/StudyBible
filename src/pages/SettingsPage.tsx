@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
-import { downloadEdition, isEditionCached, downloadPack, getManifest, type StudyPack } from '../data/loader';
+import { downloadEdition, isEditionCached, downloadPack, packStillCached, getManifest, type StudyPack } from '../data/loader';
 import { useSettings, THEMES } from '../lib/store';
 import { LANGS, useT } from '../lib/i18n';
 import { BOOKS } from '../lib/canon';
@@ -28,21 +28,38 @@ export default function SettingsPage() {
   useEffect(() => {
     getManifest().then((m) => setPacks(m?.packs ?? [])).catch(() => {});
   }, []);
+  const [dlErr, setDlErr] = useState<Record<string, string>>({});
+  const [packOk, setPackOk] = useState<Record<string, boolean>>({});
   const dlPack = async (p: StudyPack) => {
-    await downloadPack(p, (d, t) => setPackProg((x) => ({ ...x, [p.id]: `${d}/${t}` })));
+    setDlErr((x) => ({ ...x, [p.id]: '' }));
+    try {
+      const failed = await downloadPack(p, (d, t) => setPackProg((x) => ({ ...x, [p.id]: `${d}/${t}` })));
+      setPackOk((x) => ({ ...x, [p.id]: failed.length === 0 }));
+      if (failed.length) setDlErr((x) => ({ ...x, [p.id]: `${failed.length} of ${p.files.length} files could not be downloaded (are you offline?). Try again to fetch the missing ones.` }));
+    } catch (e: any) {
+      setDlErr((x) => ({ ...x, [p.id]: e?.message ?? 'The download failed. Try again.' }));
+    }
     setPackProg((x) => ({ ...x, [p.id]: '' }));
   };
-  const packDone = (id: string) => {
-    try {
-      return !!localStorage.getItem(`pack.${id}`);
-    } catch {
-      return false;
-    }
-  };
+  // a pack counts as downloaded only if its files are still in the cache (the browser can clear them)
+  useEffect(() => {
+    packs.forEach((p) => {
+      let marked = false;
+      try { marked = !!localStorage.getItem(`pack.${p.id}`); } catch { /* ignore */ }
+      if (!marked) return setPackOk((x) => ({ ...x, [p.id]: false }));
+      packStillCached(p).then((ok) => { setPackOk((x) => ({ ...x, [p.id]: ok })); if (!ok) { try { localStorage.removeItem(`pack.${p.id}`); } catch { /* ignore */ } } });
+    });
+  }, [packs]);
+  const packDone = (id: string) => !!packOk[id];
   const dl = async (id: string) => {
-    await downloadEdition(id, BOOKS.map((b) => b.id), (d, t) => setProg((p) => ({ ...p, [id]: `${d}/${t}` })));
+    setDlErr((x) => ({ ...x, [id]: '' }));
+    try {
+      await downloadEdition(id, BOOKS.map((b) => b.id), (d, t) => setProg((p) => ({ ...p, [id]: `${d}/${t}` })));
+      setCached((c) => ({ ...c, [id]: true }));
+    } catch (e: any) {
+      setDlErr((x) => ({ ...x, [id]: e?.message ?? 'The download failed. Check your connection and try again.' }));
+    }
     setProg((p) => ({ ...p, [id]: '' }));
-    setCached((c) => ({ ...c, [id]: true }));
   };
   return (
     <div className="page">
@@ -83,9 +100,10 @@ export default function SettingsPage() {
         {editions.map((e) => (
           <div className="row between" key={e.id} style={{ margin: '6px 0' }}>
             <span>{e.name}</span>
-            {cached[e.id] ? <span className="chip good">available offline</span> : prog[e.id] ? <span className="chip">{prog[e.id]}</span> : <button className="btn small" disabled={!e.offlineAllowed} onClick={() => dl(e.id)}>Download</button>}
+            {cached[e.id] ? <span className="chip good">available offline</span> : prog[e.id] ? <span className="chip">{prog[e.id]}</span> : <button className="btn small" disabled={!e.offlineAllowed} onClick={() => dl(e.id)}>{dlErr[e.id] ? 'Retry' : 'Download'}</button>}
           </div>
         ))}
+        {Object.entries(dlErr).filter(([k, v]) => v && editions.some((e) => e.id === k)).map(([k, v]) => <p key={k} className="small" role="alert">{v}</p>)}
       </div>
 
       <div className="card">
@@ -95,9 +113,10 @@ export default function SettingsPage() {
         {packs.map((p) => (
           <div className="row between" key={p.id} style={{ margin: '6px 0' }}>
             <span>{p.label} <span className="muted small">({(p.bytes / 1e6).toFixed(1)} MB)</span></span>
-            {packProg[p.id] ? <span className="chip">{packProg[p.id]}</span> : packDone(p.id) ? <span className="chip good">downloaded</span> : <button className="btn small" onClick={() => dlPack(p)}>Download</button>}
+            {packProg[p.id] ? <span className="chip">{packProg[p.id]}</span> : packDone(p.id) ? <span className="chip good">downloaded</span> : <button className="btn small" onClick={() => dlPack(p)}>{dlErr[p.id] ? 'Retry' : 'Download'}</button>}
           </div>
         ))}
+        {packs.filter((p) => dlErr[p.id]).map((p) => <p key={p.id} className="small" role="alert">{p.label}: {dlErr[p.id]}</p>)}
       </div>
 
       <div className="card">
@@ -131,10 +150,10 @@ export default function SettingsPage() {
       <div className="card">
         <h2 className="card-title">Your data, sync and privacy</h2>
         <ul className="small" style={{ lineHeight: 1.6 }}>
-          <li><strong>Private by default.</strong> Notes, highlights, bookmarks, journal and progress are stored only in this browser (IndexedDB). They are not uploaded anywhere. There are no accounts and no analytics.</li>
-          <li><strong>Sync.</strong> Multi-device sync is not enabled in this build. The code defines a <code>SyncAdapter</code> (src/db/sync.ts) and a recommended end-to-end-encrypted design; until a backend is connected, use Export/Import to move data between devices.</li>
+          <li><strong>Private by default.</strong> Notes, highlights, bookmarks, journal and progress are stored in this browser (IndexedDB) and nowhere else, and there are no analytics. Nothing leaves your device unless you turn on Google Drive backup or sign in to a sync server.</li>
+          <li><strong>Accounts and sync are optional.</strong> If you or someone you trust runs a Study Bible server, Account lets you sign in and sync across devices. That server can read what it stores: sync is not end-to-end encrypted. If no server is reachable here, everything keeps working locally. Use Google Drive backup or Export/Import to move data between devices without a server.</li>
           <li><strong>Backup.</strong> Connect Google Drive above for automatic backups, or export everything as JSON at any time (Library → Export). Clearing browser data erases local data, so back up first.</li>
-          <li><strong>Retention & deletion.</strong> Data stays until you delete it. “Delete all my data” below removes the local database; with a future account, deletion would also remove server copies.</li>
+          <li><strong>Retention & deletion.</strong> Data stays until you delete it. “Delete all my data” below removes the local database; if you use a sync server, deleting your account there also removes its copies.</li>
           <li><strong>Network use.</strong> Reading Scripture, notes and search work offline. The app contacts third parties only when you open an external link, play a Bible in a Year episode (Ascension’s servers), or load the liturgical calendar (LitCal).</li>
         </ul>
         <div className="row">

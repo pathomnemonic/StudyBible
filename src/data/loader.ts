@@ -89,21 +89,37 @@ export interface StudyPack {
 }
 export const getManifest = () => getJson<{ generated: string; packs: StudyPack[] }>('manifest.json', true);
 
-/** Fetch every file of a study pack so the service worker caches it for offline use. */
-export async function downloadPack(pack: StudyPack, onProgress: (done: number, total: number) => void) {
+/** Fetch every file of a study pack so the service worker caches it for offline use. Returns the files that could not be fetched; the pack is marked complete only when there are none. */
+export async function downloadPack(pack: StudyPack, onProgress: (done: number, total: number) => void): Promise<string[]> {
   const queue = [...pack.files];
+  const failed: string[] = [];
   let done = 0;
   const worker = async () => {
     while (queue.length) {
       const f = queue.shift()!;
-      await getJson(f, true).catch(() => null);
+      const got = await getJson(f, true).catch(() => null);
+      if (got === null || got === undefined) failed.push(f);
       onProgress(++done, pack.files.length);
     }
   };
   await Promise.all([worker(), worker(), worker(), worker()]);
   try {
-    localStorage.setItem(`pack.${pack.id}`, pack.files.length ? new Date().toISOString() : '');
+    if (!failed.length && pack.files.length) localStorage.setItem(`pack.${pack.id}`, new Date().toISOString());
+    else localStorage.removeItem(`pack.${pack.id}`);
   } catch {
     /* storage unavailable */
+  }
+  return failed;
+}
+
+/** Whether a pack's files are still in the offline cache (the browser may evict them), so a stale "downloaded" mark can be repaired. */
+export async function packStillCached(pack: StudyPack): Promise<boolean> {
+  if (!('caches' in window)) return false;
+  try {
+    const c = await caches.open('studybible-data-v1');
+    const have = new Set((await c.keys()).map((k) => new URL(k.url).pathname));
+    return pack.files.every((f) => [...have].some((p) => p.endsWith(`/${f}`)));
+  } catch {
+    return false;
   }
 }
