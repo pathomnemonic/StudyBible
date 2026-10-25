@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getJson } from '../../data/loader';
+import OfficeFeast from '../../components/OfficeFeast';
 import { liturgicalDay, parseIso } from '../../liturgy/compute';
 import { useSettings } from '../../lib/store';
 import { traditionOf } from '../../lib/tradition';
@@ -234,6 +235,7 @@ export default function OfficePage() {
       <h1>The Divine Office</h1>
       {st.tradition !== 'latin' && <div className="notice info" role="note"><strong>This is the Roman (Latin) Office.</strong> The {traditionOf(st.tradition).name} prays its own hours (for Byzantine Churches, the Horologion; for the Syriac Churches, the Shehimo or Ramsho and Sapro). Those are not in this app. You are welcome to pray the psalms here, which belong to every Church.</div>}
       <p className="lede">The Church’s prayer through the day, mostly from the Psalms. This is the traditional Roman weekly psalter in the Douay-Rheims psalm text, from the open Divinum Officium project.</p>
+      <OfficeFeast />
       <div className="row" style={{ flexWrap: 'wrap', gap: 6, marginBottom: 10 }} role="tablist" aria-label="Hour">
         {HOURS.map((x) => (
           <button key={x.id} role="tab" aria-selected={hour === x.id} className={`btn small${hour === x.id ? ' primary' : ''}`} onClick={() => setHour(x.id)} title={x.when}>{x.name}</button>
@@ -252,7 +254,7 @@ export default function OfficePage() {
       {!data && !err && <p className="muted">Loading…</p>}
       {body}
       <div className="card small muted" style={{ marginTop: 18 }}>
-        <strong>What this is, and isn’t.</strong> This is the traditional (pre-1970) psalter, not the modern Liturgy of the Hours, whose English text is copyrighted. It gives the weekly cycle with the chapters, responsories, hymns and versicles of Advent, Lent, Passiontide and Eastertide. It does not give feast days, the proper antiphons of the season, or the Office of Readings, and the collect and the Benedictus and Magnificat antiphons are representative, not the day’s own. For today’s Mass readings see <Link to="/pray/readings">Readings</Link>. The Office of Readings (Matins) is not included.
+        <strong>What this is, and isn’t.</strong> This is the traditional (pre-1970) psalter, not the modern Liturgy of the Hours, whose English text is copyrighted. It gives the weekly cycle with the chapters, responsories, hymns and versicles of Advent, Lent, Passiontide and Eastertide. The saint or feast of the day (by calendar date) and the Matins lessons are in the card at the top. Season-specific antiphons for the hours and the movable feasts are not included, and the collect and the Benedictus and Magnificat antiphons in the hours are representative, not the day’s own. For today’s Mass readings see <Link to="/pray/readings">Readings</Link>.
       </div>
     </div>
   );

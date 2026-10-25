@@ -57,7 +57,7 @@ Source: the whole ChatGPT conversation about this project (the code review, "40 
 | | Sunday preparation | Yes (`/pray/sunday`) |
 | | Bible question library | Yes (resource directory, written by others) |
 | | Timeline-based Bible course with quizzes | Yes (`/study/course`) |
-| Laudate / iBreviary | Complete Divine Office | Partly: Lauds, Terce, Sext, None, Vespers, Compline with the four seasons. No feasts, no seasonal antiphons, no Office of Readings; traditional psalter, not the modern Liturgy of the Hours (copyright) |
+| Laudate / iBreviary | Complete Divine Office | Partly: Lauds, Terce, Sext, None, Vespers, Compline with the four seasons. Saint or feast of the date with collect and Matins lessons (Office of Readings), by calendar date only; no seasonal hour antiphons, no movable feasts; traditional psalter, not the modern Liturgy of the Hours (copyright) |
 | | Order of Mass and Mass companion | Partly: the parts and links; the ICEL words are copyrighted |
 | | Rosary, Divine Mercy, Angelus, Stations, Seven Sorrows | Yes |
 | | Searchable prayer book, attach to passage | Yes (save to journal). Attaching a prayer to a passage: Yes (prayer book → Attach to a passage; saved as a prayer note) |
