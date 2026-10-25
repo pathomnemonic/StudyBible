@@ -22,15 +22,28 @@ export interface PlanDef {
 const chap = (book: string, c: number) => refId({ book, c1: c, c2: c });
 const range = (book: string, a: number, b: number) => (a === b ? chap(book, a) : refId({ book, c1: a, c2: b }));
 
-/** Split a list of chapters (with verse counts) into `n` days of roughly equal length. */
+/**
+ * Split a list of chapters (with verse counts) into exactly `n` days of roughly equal length.
+ * Each chapter goes to the day that its midpoint falls in, measured along the running total of verses, so days stay balanced
+ * and the count of days is always `n` (a greedy "fill until the target" split ran short, giving 300 days for a 365-day plan).
+ */
 function balanced(items: { book: string; c: number; v: number }[], n: number): PlanDay[] {
   const total = items.reduce((a, x) => a + x.v, 0);
   const target = total / n;
-  const days: PlanDay[] = [];
-  let acc = 0;
-  let cur: typeof items = [];
-  const flush = () => {
-    if (!cur.length) return;
+  const buckets: typeof items[] = Array.from({ length: n }, () => []);
+  let cum = 0;
+  for (const it of items) {
+    buckets[Math.min(n - 1, Math.floor((cum + it.v / 2) / target))].push(it);
+    cum += it.v;
+  }
+  // a very long chapter can leave a day empty: borrow the last chapter of the nearest earlier day that has more than one
+  for (let d = 0; d < n; d++) {
+    if (buckets[d].length) continue;
+    let k = d - 1;
+    while (k >= 0 && buckets[k].length < 2) k--;
+    if (k >= 0) buckets[d].push(buckets[k].pop()!);
+  }
+  return buckets.map((cur) => {
     const refs: string[] = [];
     let i = 0;
     while (i < cur.length) {
@@ -39,19 +52,8 @@ function balanced(items: { book: string; c: number; v: number }[], n: number): P
       refs.push(range(cur[i].book, cur[i].c, cur[j].c));
       i = j + 1;
     }
-    days.push({ refs });
-    cur = [];
-    acc = 0;
-  };
-  items.forEach((it, idx) => {
-    cur.push(it);
-    acc += it.v;
-    const remainingDays = n - days.length - 1;
-    const remainingItems = items.length - idx - 1;
-    if (acc >= target && remainingDays > 0 && remainingItems >= remainingDays) flush();
+    return { refs };
   });
-  flush();
-  return days;
 }
 
 function chaptersOf(ed: EditionRecord, books: string[]) {

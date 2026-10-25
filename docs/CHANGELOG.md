@@ -8,6 +8,7 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 * Divine Office (Lauds, Terce, Sext, None, Vespers, Compline), devotions (Rosary, Divine Mercy, Angelus, Stations, Seven Sorrows), prayer book, examination of conscience, novenas, prayer playlists, Prepare for Sunday, Following the Mass.
 * Reading room tab with the Bible beside any other text; Bible course with quizzes; passage dossier with print.
 * Sync: devices list and sign-out, activity and diagnostics, Recently deleted (30 days), conflict copies, sync protocol version, clock-skew cap.
+* Fix: “The whole Catholic Bible in a year” had only 300 days and “The New Testament in 90 days” only 73, because of how chapters were split; both now have the advertised number of days (days you had ticked off in an old copy of these plans will point to different passages).
 * Fixes: deletions now reach other devices; old (version 1) databases upgrade; replace-restore keeps timestamps and no longer deletes what it restores; malformed URLs return 400.
 * Offline packs: checksums, byte progress, stop and resume, storage-full message.
 * Settings: note templates, offline help, sturdier loading of saved settings.
