@@ -68,6 +68,8 @@ const STEPS: Step[] = [
   { part: 'Study', route: '/study', exact: true, find: tile('/study/universe'), text: 'The Scripture universe: all 73 books as a galaxy, with the Fathers in rings around them.' },
   { part: 'Study', route: '/study', exact: true, find: tile('/study/quotations'), text: 'Who quoted this verse? Every Father and saint who cites it.' },
   { part: 'Study', route: '/study', exact: true, find: tile('/study/gallery'), text: 'A gallery of paintings and engravings, with maps and a timeline beside it.' },
+  { part: 'Study', route: '/study', exact: true, find: tile('/study/apologetics'), text: 'Questions about the faith: short answers, with the verses and Catechism paragraphs to check them.' },
+  { part: 'Study', route: '/study', exact: true, find: tile('/study/kids'), text: 'A Children’s Bible: stories at three reading levels, with videos.' },
   { part: 'Profile', find: q('.profile-btn'), tap: true, text: 'Tap the round Profile button, top right.' },
   { part: 'Profile', route: '/profile', exact: true, find: tile('/library'), tap: true, text: 'Tap Notes.' },
   { part: 'Profile', route: '/library', find: q('.page h1'), text: 'Your notes, highlights and bookmarks. Private to this device.', sub: 'Export them as Markdown, PDF or EPUB.' },
