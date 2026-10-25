@@ -13,11 +13,15 @@ const SHELVES: { title: string; blurb: string; ids?: string[]; kinds?: string[] 
   { title: 'Catechisms, councils and documents', blurb: 'What the Church has taught, in full.', kinds: ['catechism', 'council', 'document'] },
   { title: 'Doctrine and history', blurb: 'Treatises, letters, apologetics and Church history from the early Church.', kinds: ['treatise', 'letters', 'apologetics', 'history', 'summa'] },
 ];
-const PLACES: [string, string, string][] = [
-  ['/study/catechism', 'Catechism of the Catholic Church', 'Read it paragraph by paragraph.'],
-  ['/study/church', 'Councils and Church documents', 'Councils, encyclicals and Vatican II.'],
+const TEACHING: [string, string, string][] = [
+  ['/study/catechism', 'Catechism of the Catholic Church', 'The full text, paragraph by paragraph, with the Scripture it cites.'],
+  ['/study/papal', 'Papal writings', 'Encyclicals, exhortations, constitutions and letters from Pius IX to today.'],
+  ['/study/church', 'Councils and Church documents', 'Nicaea to Vatican II, read in full where public domain.'],
+  ['/study/doctrine', 'Doctrine by topic', 'Eucharist, Trinity, grace, Mary… with Scripture and Catechism links.'],
   ['/study/saints', 'Lives of the Saints', 'A saint for each day of the year.'],
   ['/study/encyclopedia', 'The Catholic Encyclopedia', 'Articles on the Bible, the Church and her teaching.'],
+];
+const PLACES: [string, string, string][] = [
   ['/study/apologetics', 'Questions about the faith', 'Catholic authors on the common questions.'],
   ['/study/quotations', 'Who quoted this verse?', 'The Fathers and saints, verse by verse.'],
 ];
@@ -87,6 +91,12 @@ export default function RoomHome() {
           </section>
         );
       })}
+      {!filtering && (
+        <section className="sect">
+          <h2 className="eyebrow-h">Church teaching and tradition</h2>
+          <div className="shelf">{TEACHING.map(([to, t, d]) => <Link key={to} className="shelf-card" to={to}><span className="t">{t}</span><span className="d">{d}</span></Link>)}</div>
+        </section>
+      )}
       {!filtering && (
         <section className="sect">
           <h2 className="eyebrow-h">Listen</h2>
