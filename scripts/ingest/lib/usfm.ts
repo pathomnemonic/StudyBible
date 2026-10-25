@@ -48,6 +48,9 @@ export function cleanInline(s: string): string {
     .replace(/\\(?:add|nd|wj|qt|sc|tl|it|bd|bdit|em|k|sig|pn|ord|dc|sls|bk|ndx|png|rq|qs)\*?\s?/g, '')
     .replace(/\\\+?x[a-z]{1,2}\*?\s?/g, '')
     .replace(/\\\+?[a-z]+\d?\*/g, '')
+    // an opener whose closer was lost, and any word attributes left behind (|strong="G1234" lemma="…")
+    .replace(/\\\+?w\s+/g, '')
+    .replace(/\|(?:strong|lemma|x-morph|srcloc|gloss)="[^"]*"(?:\s+(?:strong|lemma|x-morph|srcloc|gloss)="[^"]*")*/g, '')
     .replace(/\s+/g, ' ');
 }
 

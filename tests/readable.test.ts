@@ -60,3 +60,19 @@ describe('haydockText', () => {
     expect(plainNumerals('Genesis xxx 3, (Homer) and (Strabo xvii.)')).toBe('Genesis 30:3, (Homer) and (Strabo, book 17)');
   });
 });
+
+import { readdirSync, readFileSync } from 'node:fs';
+describe('built Bible text carries no markup', () => {
+  it('has no USFM backslashes or Strong’s attributes in any edition', () => {
+    const root = 'public/data/bible';
+    const bad: string[] = [];
+    for (const ed of readdirSync(root)) {
+      for (const f of readdirSync(`${root}/${ed}`)) {
+        if (!f.endsWith('.json')) continue;
+        const t = readFileSync(`${root}/${ed}/${f}`, 'utf8');
+        if (/\\\\[+a-z]|\|strong=/.test(t)) bad.push(`${ed}/${f}`);
+      }
+    }
+    expect(bad).toEqual([]);
+  });
+});

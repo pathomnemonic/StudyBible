@@ -36,6 +36,26 @@ function spansOf(usfm: string): { c: number; v: number; text: string }[] {
   return out;
 }
 
+/** Carry red spans across to a text without markup: start after the speech introducer ("said to them: ", "ait illis: ") and end at a sentence end, near the same place in the verse. */
+export function partRanges(text: string, fr: [number, number][]): [number, number][] {
+  const L = text.length;
+  const intro = [...text.matchAll(/(?:said|saith|says|answered|answering|saying|spoke|spake|replied|asked|ait|dixit|dicens|respondit|inquit)\b[^:.?!]{0,70}:\s*[“"‘']?/gi)].map((m) => m.index! + m[0].length);
+  const ends = [...text.matchAll(/[.?!;][”"’']?(?=\s|$)/g)].map((m) => m.index! + m[0].length);
+  const near = (target: number, pool: number[], win: number) => { let best = -1, d = win; for (const p of pool) if (Math.abs(p - target) < d) { d = Math.abs(p - target); best = p; } return best; };
+  const out: [number, number][] = [];
+  for (const [f0, f1] of fr) {
+    let a = f0 < 0.04 ? 0 : near(f0 * L, intro, L * 0.35);
+    if (a < 0) a = near(f0 * L, ends, L * 0.2);
+    if (a < 0) continue; // not found: leave plain rather than guess
+    let b = f1 > 0.96 ? L : near(f1 * L, ends, L * 0.25);
+    if (b < 0) b = L;
+    while (a < b && /\s/.test(text[a])) a++;
+    while (b > a && /\s/.test(text[b - 1])) b--;
+    if (b - a >= 4) out.push([a, b]);
+  }
+  return out;
+}
+
 export function buildJesus(report: Report) {
   const zip = join(RAW, 'eng-web-c_usfm.zip');
   if (!exists(zip)) { report.warn('jesus: WEB-C source missing; red letters skipped'); return; }
@@ -56,6 +76,7 @@ export function buildJesus(report: Report) {
     for (const s of all) (byChapter.get(s.c) ?? byChapter.set(s.c, []).get(s.c)!).push(s);
     const outWeb: Ranges = {};
     const redVerse = new Map<string, number>(); // "c.v" -> red chars
+    const redFrac = new Map<string, [number, number][]>(); // "c.v" -> where in the verse the red runs, as fractions 0..1
     const lenVerse = new Map<string, number>();
     for (const ch of web.chapters) {
       type Pos = { b: number; r: number; i: number };
@@ -71,6 +92,9 @@ export function buildJesus(report: Report) {
           for (let i = 0; i < run[1].length; i++) if (!/\s/.test(run[1][i])) { flat.push({ b: bi, r: ri, i }); norm += run[1][i]; }
         });
       });
+      const vAt = flat.map((p) => vOf.get(`${p.b}.${p.r}`) ?? 0);
+      const vSpan = new Map<number, [number, number]>();
+      vAt.forEach((v, k) => { const o = vSpan.get(v); if (!o) vSpan.set(v, [k, k + 1]); else o[1] = k + 1; });
       let from = 0;
       const ranges: Record<string, [number, number][]> = {};
       for (const s of byChapter.get(ch.n) ?? []) {
@@ -78,6 +102,10 @@ export function buildJesus(report: Report) {
         const at = norm.indexOf(s.text, from);
         if (at < 0) { missed++; report.warn(`jesus: ${code} ${ch.n}:${s.v} span not found in the text (${s.text.slice(0, 30)}…)`); continue; }
         from = at + s.text.length;
+        for (const [v, [vs, ve]] of vSpan) {
+          const a = Math.max(at, vs), b = Math.min(at + s.text.length, ve);
+          if (b > a) (redFrac.get(`${ch.n}.${v}`) ?? redFrac.set(`${ch.n}.${v}`, []).get(`${ch.n}.${v}`)!).push([(a - vs) / (ve - vs), (b - vs) / (ve - vs)]);
+        }
         let k = at;
         while (k < at + s.text.length) {
           const p = flat[k];
@@ -108,6 +136,14 @@ export function buildJesus(report: Report) {
         const r = convertRef('english', 'vulgate', { book: code, c1: c, v1: v, c2: c, v2: v }).ref;
         want.add(`${r.c1}.${r.v1}`);
       }
+      // verses where he speaks only part of the verse: find the same part by the speech introducer ("he said to them: …") and the sentence ends
+      const part = new Map<string, [number, number][]>();
+      for (const [k, fr] of redFrac) {
+        const [c, v] = k.split('.').map(Number);
+        if (whole.some(([wc, wv]) => wc === c && wv === v)) continue;
+        const r = convertRef('english', 'vulgate', { book: code, c1: c, v1: v, c2: c, v2: v }).ref;
+        if (r.c1 === c && r.v1 === v) part.set(`${c}.${v}`, fr);
+      }
       const out: Ranges = {};
       for (const ch of ed.chapters) {
         let cur = 0;
@@ -116,7 +152,12 @@ export function buildJesus(report: Report) {
           if (typeof b[1] === 'string') return;
           b[1].forEach((run: [number, string], ri: number) => {
             if (run[0] > 0) cur = run[0];
-            if (cur && want.has(`${ch.n}.${cur}`) && run[1].trim()) ranges[`${bi}.${ri}`] = [[0, run[1].length]];
+            if (!cur || !run[1].trim()) return;
+            if (want.has(`${ch.n}.${cur}`)) ranges[`${bi}.${ri}`] = [[0, run[1].length]];
+            else if (part.has(`${ch.n}.${cur}`)) {
+              const rr = partRanges(run[1], part.get(`${ch.n}.${cur}`)!);
+              if (rr.length) ranges[`${bi}.${ri}`] = rr;
+            }
           });
         });
         if (Object.keys(ranges).length) out[ch.n] = ranges;
