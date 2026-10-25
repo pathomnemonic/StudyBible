@@ -42,6 +42,7 @@ const DevotionsPage = lazy(() => import('./pages/pray/DevotionsPage'));
 const SundayPrepPage = lazy(() => import('./pages/pray/SundayPrepPage'));
 const PrayerBookPage = lazy(() => import('./pages/pray/PrayerBookPage'));
 const ExaminationPage = lazy(() => import('./pages/pray/ExaminationPage'));
+const NovenaPage = lazy(() => import('./pages/pray/NovenaPage'));
 const OfficePage = lazy(() => import('./pages/pray/OfficePage'));
 const ReadingsPage = lazy(() => import('./pages/pray/ReadingsPage'));
 const LectioPage = lazy(() => import('./pages/pray/LectioPage'));
@@ -213,6 +214,7 @@ export default function App() {
               <Route path="/more" element={<MorePage />} />
               <Route path="/pray/sleep" element={<SleepPage />} />
               <Route path="/pray/office" element={<OfficePage />} />
+              <Route path="/pray/novenas/:id?" element={<NovenaPage />} />
               <Route path="/pray/prayers" element={<PrayerBookPage />} />
               <Route path="/pray/examination" element={<ExaminationPage />} />
               <Route path="/pray/sunday" element={<SundayPrepPage />} />

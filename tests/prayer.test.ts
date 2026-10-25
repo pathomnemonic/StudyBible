@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { ANGELUS, MERCY, MYSTERIES, SORROWS, STATIONS, rosary } from '../src/data/devotions';
 import { BOOK_PRAYERS } from '../src/data/prayerbook';
+import { PLANS } from '../src/data/novenas';
 import { parseRefs } from '../src/lib/refs';
 
 describe('devotions', () => {
@@ -50,5 +51,11 @@ describe('office data', () => {
     }
     expect(o.compline.days).toHaveLength(7);
     for (const d of o.compline.days) for (const k of d.psalms) expect(o.psalms[k]?.lines.length, k).toBeGreaterThan(0);
+  });
+});
+
+describe('prayer plans', () => {
+  it('has parseable scripture for every day', () => {
+    for (const p of PLANS) for (const d of p.days) expect(parseRefs(d.refs).ok, `${p.id} ${d.refs}`).toBe(true);
   });
 });

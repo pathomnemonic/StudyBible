@@ -34,6 +34,7 @@ A checklist of the options people expect from YouVersion, Blue Letter Bible, Log
 | Daily prayer of the Church | Partly: the traditional Roman psalter (Lauds, Terce, Sext, None, Vespers, Compline) for ordinary time, offline. Not the modern Liturgy of the Hours (copyrighted); no feast, Advent, Lent or Easter propers and no Office of Readings |
 | Prayer book searchable by need; examination of conscience (private, nothing stored) | Yes |
 | Preparing for Sunday: readings with homilies, Catechism, commentary | Yes (Pray → Prepare for Sunday) |
+| Novenas and short prayer plans with progress | Yes (4 plans) |
 | Lectio Divina, prayer journal, sleep mode, a quiet moment | Yes |
 | Modern licensed translations (NABRE, RSV-CE, ESV, NIV) | Link only (copyright) |
 | Verse-by-verse audio synced to the text | No (recordings are not timed; see feature status) |
