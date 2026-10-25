@@ -183,6 +183,24 @@ def parse_psalmi_major(path):
     return d
 
 
+def parse_psalmi_daya(path):
+    """Eastertide psalmody: `antiphon;;92;99;62;66` is one antiphon for several psalms."""
+    d = {}
+    cur = None
+    for l in open(path, encoding='utf-8').read().split('\n'):
+        m = re.match(r'^\[(Daya\d (?:Laudes|Vespera))\]\s*$', l)
+        if m:
+            cur = d.setdefault(m.group(1), [])
+        elif re.match(r'^\[', l):
+            cur = None
+        elif cur is not None and ';;' in l:
+            a, p = l.split(';;', 1)
+            keys = [psalm_ref(x.strip()) for x in p.split(';') if x.strip()[:1].isdigit()]
+            if keys:
+                cur.append({'a': a.strip(), 'ps': keys})
+    return d
+
+
 def parse_psalmi_minor(path):
     d = {}
     cur = None
@@ -284,6 +302,37 @@ def main():
         'days': [{'a': pn['Completorium'][d]['a'], 'psalms': pn['Completorium'][d]['ps']} for d in range(7)],
     }
     out['compline'] = c
+    # --- seasons: Advent, Lent, Passiontide, Eastertide (ordinary weekdays and Sundays of the season)
+    pdaya = parse_psalmi_daya(os.path.join(ROOT, 'Psalterium', 'Psalmi', 'Psalmi major.txt'))
+    def opt(f):
+        try:
+            return f()
+        except KeyError:
+            return None
+    seasons = {}
+    for sid, P, oratio_file in (('adv', 'Adv', 'Adv1-0'), ('quad', 'Quad', 'Quad1-0'), ('quad5', 'Quad5', 'Quad5-0'), ('pasch', 'Pasch', 'Pasc1-0')):
+        sec = sections(os.path.join(ROOT, 'Tempora', oratio_file + '.txt'))
+        e = {'collect': text_block(base(sec, 'Oratio'))['text']}
+        for hour, hn in (('lauds', 'Laudes'), ('vespers', 'Vespera')):
+            h = {}
+            h['chapter'] = opt(lambda: text_block(base(major, f'{P} {hn}')))
+            h['responsory'] = opt(lambda: responsory(base(major, f'Responsory {P} {hn}')))
+            h['hymn'] = opt(lambda: hymn(base(major, f'Hymnus {P} {hn}')))
+            h['versicle'] = opt(lambda: verse_pair(base(major, f'{P} Versum {2 if hour == "lauds" else 3}')))
+            e[hour] = {k: v for k, v in h.items() if v}
+        e['minor'] = {}
+        for hour, name in (('tertia', 'Tertia'), ('sexta', 'Sexta'), ('nona', 'Nona')):
+            h = {}
+            h['chapter'] = opt(lambda: text_block(base(minor, f'{P} {name}')))
+            h['responsory'] = opt(lambda: responsory(base(minor, f'Responsory breve {P} {name}')))
+            h['versicle'] = opt(lambda: verse_pair(base(minor, f'Versum {P} {name}')))
+            e['minor'][hour] = {k: v for k, v in h.items() if v}
+        seasons[sid] = e
+    # Advent and Lent weekdays say Psalm 50 first at Lauds (the second psalter set), without a proper antiphon in this data
+    seasons['adv']['laudesAlt'] = seasons['quad']['laudesAlt'] = {str(d): pm[f'Day{d} Laudes2'] for d in range(1, 7)}
+    # Eastertide: Sunday Lauds has its own alleluia antiphons; every other hour keeps the weekly psalms with an Alleluia antiphon (applied by the app)
+    seasons['pasch']['sundayLauds'] = pdaya['Daya0 Laudes']
+    out['seasons'] = seasons
     out['canticles'] = {k: psalm_text(n) for k, n in (('benedictus', 231), ('magnificat', 232), ('nunc', 233))}
     out['canticles'] = {k: [v[2] for v in val['verses']] for k, val in out['canticles'].items()}
     out['psalms'] = used

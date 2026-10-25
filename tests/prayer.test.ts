@@ -73,3 +73,19 @@ describe('course', () => {
     }
   });
 });
+
+describe('office seasons', () => {
+  const o = JSON.parse(readFileSync('public/data/office/office.json', 'utf8'));
+  it('has Advent, Lent, Passiontide and Eastertide with a collect, and every psalm they use resolves', () => {
+    for (const id of ['adv', 'quad', 'quad5', 'pasch']) {
+      const S = o.seasons[id];
+      expect(S.collect.length, id).toBeGreaterThan(40);
+      expect(S.lauds.chapter?.text, id).toBeTruthy();
+      expect(S.vespers.chapter?.text ?? S.lauds.chapter.text, id).toBeTruthy();
+    }
+    const used = (list: any[]) => list.flatMap((e) => e.ps ?? [e.p]);
+    for (const k of used(o.seasons.pasch.sundayLauds)) expect(o.psalms[k]?.lines.length, k).toBeGreaterThan(0);
+    for (const d of Object.values<any>(o.seasons.adv.laudesAlt)) for (const k of used(d)) expect(o.psalms[k]?.lines.length, k).toBeGreaterThan(0);
+    expect(Object.keys(o.seasons.adv.laudesAlt)).toHaveLength(6);
+  });
+});

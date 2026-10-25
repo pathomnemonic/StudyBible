@@ -18,6 +18,6 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 * Server: byte-range requests, cached compression, more file types.
 
 ### Content
-* Divine Office psalter data from Divinum Officium (MIT licence), Douay-Rheims psalm text.
+* Divine Office psalter data from Divinum Officium (MIT licence), Douay-Rheims psalm text, with seasonal chapters, responsories, hymns, versicles and collects for Advent, Lent, Passiontide and Eastertide.
 * Video library and catalogue of about 1,560 Catholic videos; LibriVox recordings for the Bible and about 55 library works; apologetics resource directory.
 * Offline pack manifest now lists each file's size and checksum.

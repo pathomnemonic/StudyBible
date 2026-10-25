@@ -1,15 +1,23 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getJson } from '../../data/loader';
+import { liturgicalDay, parseIso } from '../../liturgy/compute';
 
 interface Psalm { title: string; lines: string[][]; psalm: number }
 interface Resp { k?: 'R' | 'V'; t?: string; gloria?: boolean }
 interface Chapter { ref: string | null; text: string }
 interface Vers { v: string | null; r: string | null }
-interface Entry { a: string; p: string }
+interface Entry { a: string; p?: string; ps?: string[] }
 interface Major { psalms: Entry[]; chapter: Chapter; hymn: string[][]; responsory: Resp[]; versicle: Vers; canticleAnt: string }
 interface Little { a: string; psalms: string[]; chapter: Chapter; responsory: Resp[]; versicle: Vers }
+interface SeasonPart { chapter?: Chapter; responsory?: Resp[]; hymn?: string[][]; versicle?: Vers }
+interface Season { collect: string; lauds: SeasonPart; vespers: SeasonPart; minor: Record<'tertia' | 'sexta' | 'nona', SeasonPart>; laudesAlt?: Record<string, Entry[]>; sundayLauds?: Entry[] }
+type SeasonId = 'ordinary' | 'adv' | 'quad' | 'quad5' | 'pasch';
+const SEASON_NAME: Record<SeasonId, string> = { ordinary: 'Ordinary time', adv: 'Advent', quad: 'Lent', quad5: 'Passiontide', pasch: 'Eastertide' };
+const SEASON_COLLECT: Record<SeasonId, string> = { ordinary: 'the Second Sunday after Pentecost', adv: 'the First Sunday of Advent', quad: 'the First Sunday of Lent', quad5: 'Passion Sunday', pasch: 'the Monday of Easter week' };
+
 interface Office {
+  seasons: Record<Exclude<SeasonId, 'ordinary'>, Season>;
   gloria: string; pater: string; ave: string; collect: string;
   days: { lauds: Major; vespers: Major }[];
   minor: Record<'tertia' | 'sexta' | 'nona', { hymn: string[][]; days: Little[] }>;
@@ -30,6 +38,14 @@ const HOURS: { id: Hour; name: string; when: string }[] = [
   { id: 'vespers', name: 'Vespers', when: 'Evening' },
   { id: 'compline', name: 'Compline', when: 'Night' },
 ];
+function seasonNow(): SeasonId {
+  const n = new Date();
+  const d = liturgicalDay(parseIso(`${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`), 'universal');
+  if (d.season === 'advent') return 'adv';
+  if (d.season === 'lent') return (d.week ?? 0) >= 5 ? 'quad5' : 'quad';
+  if (d.season === 'easter') return 'pasch';
+  return 'ordinary';
+}
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 function hourNow(): Hour {
@@ -89,25 +105,29 @@ export default function OfficePage() {
   const [err, setErr] = useState('');
   const [hour, setHour] = useState<Hour>(hourNow);
   const [day, setDay] = useState(new Date().getDay());
+  const [season, setSeason] = useState<SeasonId>(seasonNow);
   useEffect(() => { getJson<Office>('office/office.json').then(setData).catch((e) => setErr(String(e.message ?? e))); }, []);
 
   const body = useMemo(() => {
     if (!data) return null;
     const g = data.gloria;
     const P = (key: string, canticle?: boolean) => data.psalms[key] && <PsalmBlock key={key} id={key} data={data.psalms[key]} gloria={g} canticle={canticle} />;
+    const S = season === 'ordinary' ? null : data.seasons[season];
+    const lentish = season === 'quad' || season === 'quad5';
     const opening = (
       <Section title="Opening">
         <p><span className="office-k">V.</span> O God, come to my assistance.<br /><span className="office-k">R.</span> O Lord, make haste to help me.</p>
-        <p className="muted small">{g} Alleluia (omit in Lent).</p>
+        <p className="muted small">{g} {lentish ? 'Praise be to thee, O Lord, King of eternal glory.' : season === 'pasch' ? 'Alleluia, alleluia.' : 'Alleluia.'}</p>
       </Section>
     );
-    const closing = (collect: string) => (
+    const closing = (collect: string, collectFrom?: string) => (
       <>
         <Section title="Our Father">
           <p>{data.pater}</p>
         </Section>
         <Section title="Collect">
           <p>{collect}</p>
+          {collectFrom && <p className="muted small">The collect of {collectFrom}, used here as the season’s prayer.</p>}
           <p className="muted small">Through our Lord Jesus Christ, thy Son, who liveth and reigneth with thee in the unity of the Holy Ghost, God, world without end. Amen.</p>
         </Section>
         <Section title="Conclusion">
@@ -115,10 +135,10 @@ export default function OfficePage() {
         </Section>
       </>
     );
-    const antPsalms = (list: { a: string; p: string }[]) => list.map((e, i) => (
+    const antPsalms = (list: Entry[]) => list.map((e, i) => (
       <div key={i} className="office-pair">
-        <p className="office-ant"><span className="office-k">Ant.</span> {ant(e.a)}</p>
-        {P(e.p)}
+        {e.a && <p className="office-ant"><span className="office-k">Ant.</span> {ant(e.a)}</p>}
+        {(e.ps ?? [e.p!]).map((k) => P(k))}
       </div>
     ));
     const canticle = (name: 'benedictus' | 'magnificat' | 'nunc', a: string, title: string) => (
@@ -133,18 +153,24 @@ export default function OfficePage() {
     );
 
     if (hour === 'lauds' || hour === 'vespers') {
-      const m = data.days[day][hour];
+      const base = data.days[day][hour];
+      const sp = S?.[hour];
+      const m = { ...base, chapter: sp?.chapter ?? base.chapter, responsory: sp?.responsory ?? base.responsory, hymn: sp?.hymn ?? base.hymn, versicle: sp?.versicle ?? base.versicle };
       const l = hour === 'lauds';
+      let psalms: Entry[] = base.psalms;
+      let psalmNote = '';
+      if (season === 'pasch') psalms = l && day === 0 && S?.sundayLauds ? S.sundayLauds : base.psalms.map((e) => ({ ...e, a: 'Alleluia, alleluia, alleluia.' }));
+      else if (S?.laudesAlt && l && day > 0) { psalms = S.laudesAlt[String(day)] ?? psalms; psalmNote = 'In this season the weekday Lauds begins with Psalm 50. The antiphons proper to the season are not in this data, so some psalms have none.'; }
       return (
         <>
           {opening}
-          <Section title="Psalms">{antPsalms(m.psalms)}</Section>
+          <Section title="Psalms">{psalmNote && <p className="muted small">{psalmNote}</p>}{antPsalms(psalms)}</Section>
           <Section title="Chapter"><Chapter c={m.chapter} /></Section>
           <Section title="Responsory"><Responsory items={m.responsory} gloria={g} /></Section>
           <Section title="Hymn"><Hymn stanzas={m.hymn} /></Section>
           <Section title="Versicle"><Verse v={m.versicle} /></Section>
           {canticle(l ? 'benedictus' : 'magnificat', m.canticleAnt, l ? 'Canticle of Zechariah (Benedictus)' : 'Canticle of Mary (Magnificat)')}
-          {closing(data.collect)}
+          {closing(S?.collect ?? data.collect, S ? SEASON_COLLECT[season] : undefined)}
         </>
       );
     }
@@ -179,7 +205,9 @@ export default function OfficePage() {
       );
     }
     const h = data.minor[hour];
-    const d = h.days[day];
+    const d0 = h.days[day];
+    const sp = S?.minor[hour];
+    const d = { ...d0, chapter: sp?.chapter ?? d0.chapter, responsory: sp?.responsory ?? d0.responsory, versicle: sp?.versicle ?? d0.versicle, a: season === 'pasch' ? 'Alleluia, alleluia, alleluia.' : d0.a };
     return (
       <>
         {opening}
@@ -193,10 +221,10 @@ export default function OfficePage() {
         <Section title="Chapter"><Chapter c={d.chapter} /></Section>
         <Section title="Short responsory"><Responsory items={d.responsory} gloria={g} /></Section>
         <Section title="Versicle"><Verse v={d.versicle} /></Section>
-        {closing(data.collect)}
+        {closing(S?.collect ?? data.collect, S ? SEASON_COLLECT[season] : undefined)}
       </>
     );
-  }, [data, hour, day]);
+  }, [data, hour, day, season]);
 
   return (
     <div className="page office">
@@ -210,12 +238,17 @@ export default function OfficePage() {
       <div className="row" style={{ flexWrap: 'wrap', gap: 6, marginBottom: 14 }} aria-label="Day of the week">
         {DAYS.map((n, i) => <button key={n} className={`btn small${day === i ? ' primary' : ''}`} onClick={() => setDay(i)}>{n.slice(0, 3)}</button>)}
       </div>
-      <p className="muted small">Showing {HOURS.find((x) => x.id === hour)!.name} for {DAYS[day]}, ordinary time.</p>
+      <label className="row" style={{ gap: 8, marginBottom: 8 }}>Season
+        <select value={season} onChange={(e) => setSeason(e.target.value as SeasonId)} aria-label="Season">
+          {(Object.keys(SEASON_NAME) as SeasonId[]).map((k) => <option key={k} value={k}>{SEASON_NAME[k]}</option>)}
+        </select>
+      </label>
+      <p className="muted small">Showing {HOURS.find((x) => x.id === hour)!.name} for {DAYS[day]}, {SEASON_NAME[season].toLowerCase()}.</p>
       {err && <p role="alert" className="card">Could not load the Office ({err}). Check your connection and try again.</p>}
       {!data && !err && <p className="muted">Loading…</p>}
       {body}
       <div className="card small muted" style={{ marginTop: 18 }}>
-        <strong>What this is, and isn’t.</strong> This is the traditional (pre-1970) psalter, not the modern Liturgy of the Hours, whose English text is copyrighted. It gives the ordinary weekly cycle: no feast-day, Advent, Lent or Easter propers, and the Sunday and weekday collect and antiphons are representative, not the day’s own. For today’s Mass readings see <Link to="/pray/readings">Readings</Link>. The Office of Readings (Matins) is not included.
+        <strong>What this is, and isn’t.</strong> This is the traditional (pre-1970) psalter, not the modern Liturgy of the Hours, whose English text is copyrighted. It gives the weekly cycle with the chapters, responsories, hymns and versicles of Advent, Lent, Passiontide and Eastertide. It does not give feast days, the proper antiphons of the season, or the Office of Readings, and the collect and the Benedictus and Magnificat antiphons are representative, not the day’s own. For today’s Mass readings see <Link to="/pray/readings">Readings</Link>. The Office of Readings (Matins) is not included.
       </div>
     </div>
   );
