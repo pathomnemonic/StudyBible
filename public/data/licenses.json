@@ -221,5 +221,11 @@
   "attribution": "Study Bible project",
   "redistribution": "yes",
   "notes": "Not reviewed or approved by a bishop or diocese. Catechism paragraph numbers cite the Catechism of the Catholic Church."
+ },
+ "papal": {
+  "license": "Catalogue only: titles, dates and links gathered from vatican.va index pages",
+  "attribution": "vatican.va",
+  "redistribution": "metadata-only",
+  "notes": "The documents themselves are © Libreria Editrice Vaticana / the Holy See and are not copied."
  }
 }

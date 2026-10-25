@@ -21,6 +21,9 @@ const CurriculumGrade = lazy(() => import('./pages/study/CurriculumGrade'));
 const CurriculumLesson = lazy(() => import('./pages/study/CurriculumLesson'));
 const CurriculumTeachers = lazy(() => import('./pages/study/CurriculumTeachers'));
 const CurriculumPacket = lazy(() => import('./pages/study/CurriculumPacket'));
+const MassModePage = lazy(() => import('./pages/pray/MassModePage'));
+const LiturgiesPage = lazy(() => import('./pages/pray/LiturgiesPage'));
+const PapalPage = lazy(() => import('./pages/study/PapalPage'));
 const GalleryPage = lazy(() => import('./pages/study/GalleryPage'));
 const DaysPage = lazy(() => import('./pages/DaysPage'));
 const CatechismPage = lazy(() => import('./pages/study/CatechismPage'));
@@ -194,6 +197,7 @@ export default function App() {
               <Route path="/study/gallery" element={<GalleryPage />} />
               <Route path="/study/catechism/:n?" element={<CatechismPage />} />
               <Route path="/study/saints/:md?" element={<SaintsPage />} />
+              <Route path="/study/papal" element={<PapalPage />} />
               <Route path="/study/curriculum" element={<CurriculumHome />} />
               <Route path="/study/curriculum/teachers" element={<CurriculumTeachers />} />
               <Route path="/study/curriculum/:grade" element={<CurriculumGrade />} />
@@ -247,6 +251,9 @@ export default function App() {
               <Route path="/more" element={<MorePage />} />
               <Route path="/pray/sleep" element={<SleepPage />} />
               <Route path="/pray/office" element={<OfficePage />} />
+              <Route path="/pray/liturgies" element={<LiturgiesPage />} />
+              <Route path="/mass" element={<MassModePage />} />
+              <Route path="/pray/mass-mode" element={<MassModePage />} />
               <Route path="/pray/morning" element={<MorningPage />} />
               <Route path="/pray/divine-liturgy" element={<DivineLiturgyPage />} />
               <Route path="/pray/year" element={<ChurchYearPage />} />

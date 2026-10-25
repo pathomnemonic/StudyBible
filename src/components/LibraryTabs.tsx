@@ -6,6 +6,7 @@ export default function LibraryTabs() {
     <nav className="library-tabs" aria-label="Library">
       <NavLink to="/room">Reading room</NavLink>
       <NavLink to="/study/church">Church documents</NavLink>
+      <NavLink to="/study/papal">Papal writings</NavLink>
       <NavLink to="/study/paths">Study paths</NavLink>
     </nav>
   );

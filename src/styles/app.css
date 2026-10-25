@@ -4113,3 +4113,18 @@ html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: no
   .cur-lesson textarea, .cur-lesson .tabbar { display: none !important; }
   .cur-sheet { page-break-after: always; }
 }
+
+/* ---- Mass mode */
+.mass-mode { max-width: 760px; }
+.mass-bar { height: 6px; border-radius: 6px; background: var(--border); overflow: hidden; margin: 6px 0 12px; } .mass-bar i { display: block; height: 100%; background: var(--accent); transition: width .2s; }
+.mass-card { font-size: var(--mass-size, 22px); line-height: 1.5; padding: 14px 4px 10px; min-height: 52vh; }
+.mass-part { font-size: .6em; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0; }
+.mass-title { font-size: 1.5em; margin: .1em 0 .3em; }
+.mass-posture { display: inline-flex; gap: 8px; align-items: center; padding: 6px 12px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 14%, transparent); font-size: .8em; margin: 0 0 .6em; }
+.mass-posture.kneel { background: color-mix(in srgb, #8e24aa 18%, transparent); } .mass-posture.sit { background: color-mix(in srgb, #1e88e5 16%, transparent); }
+.mass-what { margin: .4em 0; }
+.mass-people { font-size: .9em; margin: .8em 0; padding: 8px 12px; border-left: 3px solid var(--accent); } .mass-people ul { margin: 4px 0 0 1.1em; padding: 0; }
+.mass-verse { font-style: italic; font-size: 1.05em; }
+.mass-card .reading-text { font-size: .85em; }
+.mass-nav { position: sticky; bottom: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; background: var(--bg); }
+.mass-nav .btn { min-width: 8em; min-height: 3rem; font-size: 1.05rem; }

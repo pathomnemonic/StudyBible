@@ -25,6 +25,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     items: [
       ['/study/catechism', 'Catechism of the Catholic Church', 'The full text, paragraph by paragraph, with search and links to the Scripture it cites.'],
       ['/study/doctrine', 'Doctrine & Catechism', 'Topics (Eucharist, Trinity, grace, Mary…) with Scripture and Catechism links.'],
+      ['/study/papal', 'Papal writings', 'Every encyclical, exhortation, constitution and letter from Pius IX to today, linked to the Vatican’s text.'],
       ['/study/church', 'Councils and Church documents', 'Councils, catechisms and encyclicals: read in full where public domain, official links for the rest.'],
       ['/study/encyclopedia', 'The Catholic Encyclopedia', 'The 1913 articles on the books of the Bible, its people, places and topics.'],
       ['/study/curriculum', 'Catechism, Kindergarten to Grade 12', 'A full program of 300+ lessons for classrooms, families and self-study, with teacher handbook.'],
