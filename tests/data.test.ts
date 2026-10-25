@@ -281,3 +281,16 @@ describe('offline pack manifest', () => {
     }
   });
 });
+
+describe('bundled Bible texts', () => {
+  it('have no repeated chapters or verses, and no new gaps or empty verses beyond the recorded source irregularities', async () => {
+    const { auditEdition } = await import('../scripts/verify/editions');
+    const base = JSON.parse(readFileSync('scripts/verify/editions-baseline.json', 'utf8'));
+    for (const e of ['dra', 'vulgate', 'webc', 'brenton', 'cpdv']) {
+      const r = auditEdition(e);
+      const hard = r.findings.filter((f) => /repeated|out of order|no verses/.test(f.problem) && !(f.where in (base.knownEmptyChapters ?? {})));
+      expect(hard, `${e}: structural problems`).toEqual([]);
+      expect(r.findings.length, `${e}: ${r.findings.slice(0, 5).map((f) => f.where + ' ' + f.problem).join('; ')}`).toBeLessThanOrEqual(base[e]);
+    }
+  });
+});

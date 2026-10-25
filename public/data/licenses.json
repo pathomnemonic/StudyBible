@@ -1,0 +1,213 @@
+{
+ "_about": "Machine-readable rights for each top-level item in public/data. Details and evidence: docs/DATA_SOURCES.md and docs/LICENSING.md. `redistribution`: yes = may be redistributed as bundled; metadata-only = only facts, titles and links are stored; none = not included.",
+ "bible": {
+  "license": "Public domain (DRB 1899, Clementine Vulgate 1598, WEB, CPDV, Brenton 1851)",
+  "attribution": "Per edition: see editions.json `attribution`",
+  "redistribution": "yes",
+  "notes": "WEB trademark note kept; CPDV is a private translation without imprimatur"
+ },
+ "editions.json": {
+  "license": "App-written registry",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "versification.json": {
+  "license": "App-written mapping rules",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": "Confidence per mapping is in docs/VERSIFICATION.md"
+ },
+ "xrefs": {
+  "license": "CC BY 4.0 (OpenBible.info cross references)",
+  "attribution": "Cross references from OpenBible.info",
+  "redistribution": "yes",
+  "notes": "Attribution required"
+ },
+ "commentary": {
+  "license": "Public domain (Haydock, Challoner, Catena Aurea 1842, Glossa Ordinaria / Migne 1880)",
+  "attribution": "CrossWire modules and SermonIndex; see DATA_SOURCES.md",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "library": {
+  "license": "Public domain translations (CCEL, 19th and early 20th century)",
+  "attribution": "Each work's translator and print date in library/index.json",
+  "redistribution": "yes",
+  "notes": "Roman Catechism text is unproofread OCR"
+ },
+ "ccc": {
+  "license": "Catechism text © LEV/USCCB — not stored",
+  "attribution": "Numbers and check phrases only",
+  "redistribution": "metadata-only",
+  "notes": ""
+ },
+ "magisterium": {
+  "license": "References to Church documents; text not stored",
+  "attribution": "Vatican.va links",
+  "redistribution": "metadata-only",
+  "notes": ""
+ },
+ "church": {
+  "license": "Public domain councils; references",
+  "attribution": "See DATA_SOURCES.md",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "lectionary": {
+  "license": "Citations only (USCCB references); Lectionary text not stored",
+  "attribution": "USCCB reading citations",
+  "redistribution": "metadata-only",
+  "notes": ""
+ },
+ "usccb": {
+  "license": "Short daily excerpts shown with the USCCB copyright line and a link back",
+  "attribution": "USCCB",
+  "redistribution": "metadata-only",
+  "notes": "Relies on the USCCB web usage terms"
+ },
+ "daily": {
+  "license": "App-written questions; quotes verified against sources where marked",
+  "attribution": "Quote authors named in each entry",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "dictionary": {
+  "license": "Public domain (Easton, Strong-type sources) as recorded in DATA_SOURCES.md",
+  "attribution": "See DATA_SOURCES.md",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "doctrine": {
+  "license": "App-written pointers to passages",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "encyclopedia": {
+  "license": "Public domain: Catholic Encyclopedia 1913 (via New Advent)",
+  "attribution": "New Advent",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "jesus": {
+  "license": "Metadata and links",
+  "attribution": "Publisher named in each item",
+  "redistribution": "metadata-only",
+  "notes": ""
+ },
+ "kids": {
+  "license": "App-written retellings and links",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "kids_stories.json": {
+  "license": "App-written retellings",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "lens": {
+  "license": "App-written notes, with public-domain quotations",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "maps": {
+  "license": "CC BY (OpenBible.info geocoding) and public-domain sources",
+  "attribution": "OpenBible.info",
+  "redistribution": "yes",
+  "notes": "Attribution required"
+ },
+ "media": {
+  "license": "Metadata and links only; audio and video belong to their publishers",
+  "attribution": "Ascension, LibriVox (public domain recordings), YouTube channels as named",
+  "redistribution": "metadata-only",
+  "notes": ""
+ },
+ "office": {
+  "license": "MIT (Divinum Officium data); psalm text Douay-Rheims (public domain)",
+  "attribution": "Divinum Officium contributors",
+  "redistribution": "yes",
+  "notes": "Traditional psalter only"
+ },
+ "original": {
+  "license": "Open lexicon and morphology data as recorded in DATA_SOURCES.md (STEPBible CC BY where used)",
+  "attribution": "STEPBible",
+  "redistribution": "yes",
+  "notes": "Attribution required"
+ },
+ "paths": {
+  "license": "App-written study paths",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "reference": {
+  "license": "Mixed: app-written outlines; Theographic Bible Metadata CC BY-SA 4.0 (reference/theographic); public-domain sources",
+  "attribution": "Theographic Bible Metadata by Robert Rouse (CC BY-SA 4.0); STEPBible TIPNR (CC BY 4.0)",
+  "redistribution": "yes",
+  "notes": "reference/theographic is ShareAlike and must stay separate"
+ },
+ "registry": {
+  "license": "App-written registries (creators, library)",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "resources": {
+  "license": "Links to pages written by others; titles and short notes only",
+  "attribution": "Publisher named in each item",
+  "redistribution": "metadata-only",
+  "notes": ""
+ },
+ "saints": {
+  "license": "Public domain lives (Butler) and app-written index",
+  "attribution": "See DATA_SOURCES.md",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "terms": {
+  "license": "App-written term notes",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "topics": {
+  "license": "App-written topical index pointing to passages",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "apologetics.json": {
+  "license": "Directory of links to resources written by others; no answers are written by the app",
+  "attribution": "Publisher and author named per resource",
+  "redistribution": "metadata-only",
+  "notes": ""
+ },
+ "art.json": {
+  "license": "Public-domain or open-access images with credit lines (Cleveland Museum CC0, The Met Open Access, Gallica Doré engravings)",
+  "attribution": "Credit line stored per image",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "art-more.json": {
+  "license": "Public-domain or open-access images with credit lines",
+  "attribution": "Credit line stored per image",
+  "redistribution": "yes",
+  "notes": ""
+ },
+ "manuscripts.json": {
+  "license": "Open-access (CC0) manuscript images from The Metropolitan Museum of Art",
+  "attribution": "The Met",
+  "redistribution": "metadata-only",
+  "notes": "Images are linked, not stored"
+ },
+ "manifest.json": {
+  "license": "Generated file list",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": ""
+ }
+}

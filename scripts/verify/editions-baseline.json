@@ -1,0 +1,11 @@
+{
+ "_why": "Findings that come from the source texts themselves, counted so a new one fails the check. brenton and webc: verse numbers that the Greek or critical base text omits (for example Acts 8:37, Luke 17:36, and Septuagint chapters that run shorter than the Hebrew). cpdv: five verses that the source file leaves blank. dra and vulgate have none.",
+ "dra": 0,
+ "vulgate": 0,
+ "webc": 29,
+ "brenton": 63,
+ "cpdv": 5,
+ "knownEmptyChapters": {
+  "brenton/PRO 30": "The Septuagint rearranges Proverbs 24 and 30-31; Brenton prints this chapter's text under other numbers. The reader shows the chapter as empty."
+ }
+}

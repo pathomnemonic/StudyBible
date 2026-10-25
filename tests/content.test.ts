@@ -70,3 +70,26 @@ describe('recorded readings', () => {
     expect(chaptersOfPart('1 John 1 - 5, 2 John 1, 3 John 1').length).toBe(7);
   });
 });
+
+describe('rights and links', () => {
+  it('has a rights record for every top-level data item', async () => {
+    const { readdirSync, readFileSync } = await import('node:fs');
+    const lic = JSON.parse(readFileSync('public/data/licenses.json', 'utf8'));
+    const missing = readdirSync('public/data').filter((n) => n !== 'licenses.json' && !(n in lic));
+    expect(missing, 'add these to public/data/licenses.json').toEqual([]);
+    for (const [k, v] of Object.entries<any>(lic)) if (k !== '_about') { expect(v.license, k).toBeTruthy(); expect(['yes', 'metadata-only', 'none'], k).toContain(v.redistribution); }
+  });
+
+  it('every link stored in curated data is a well-formed http(s) address', async () => {
+    const { readFileSync } = await import('node:fs');
+    const files = ['public/data/apologetics.json', 'public/data/media/videos.json', 'public/data/media/video_library.json'];
+    const bad: string[] = [];
+    const walk = (v: any, file: string) => {
+      if (typeof v === 'string') { if (/^[a-z]+:\/\//i.test(v) || /^javascript:/i.test(v)) { try { const u = new URL(v); if (!['https:', 'http:'].includes(u.protocol)) bad.push(`${file}: ${v}`); } catch { bad.push(`${file}: ${v}`); } } }
+      else if (Array.isArray(v)) v.forEach((x) => walk(x, file));
+      else if (v && typeof v === 'object') Object.values(v).forEach((x) => walk(x, file));
+    };
+    for (const f of files) walk(JSON.parse(readFileSync(f, 'utf8')), f);
+    expect(bad.slice(0, 5)).toEqual([]);
+  });
+});
