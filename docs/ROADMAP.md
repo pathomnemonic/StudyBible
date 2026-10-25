@@ -37,13 +37,13 @@ Most of this list comes from an outside code review (a ChatGPT analysis of the r
 - Label source types (Scripture, official document, historical commentary, app-written) more visibly.
 
 ## Open: reader and study features
-- Multi-verse selection actions, unified search across notes and library, backlinks from notes to Scripture, note tags and history.
+- Note history. (Tags and search across notes already exist.)
 - Customisable study-panel section order, saved passage collections, configurable parallel columns.
 - A daily-question notebook; printable group-study sheets beyond the passage dossier's Print button. (Plans now offer “Pick up at day N” when you are behind, and “Slow down a day” as a rest day.)
 - Hymn of the day. (Copy with citation, the readings calendar grid and optional plan streaks already exist.)
 
 ## Open: quality
-- Playwright end-to-end tests (sync with two contexts, offline, upgrade from old schemas), accessibility and visual regression checks, bundle-size budgets, a root LICENSE file (the owner's choice).
+- Playwright end-to-end tests: a smoke test (`npm run e2e`, also in CI) loads 18 routes and reloads the Office offline. Still open: sync with two contexts and upgrades from old schemas. Also open: accessibility and visual regression checks, bundle-size budgets, a root LICENSE file (the owner's choice).
 
 ## Out of reach for the near-zero-cost model
 - Live YouTube search or API discovery (needs a key and quota); the video library comes from channels' public pages instead.

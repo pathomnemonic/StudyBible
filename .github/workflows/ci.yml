@@ -15,3 +15,9 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      - name: End-to-end smoke test (routes and offline reload)
+        run: |
+          npx playwright install --with-deps chromium
+          npx vite preview --port 4173 &
+          npx wait-on http://localhost:4173 || sleep 5
+          npm run e2e
