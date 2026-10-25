@@ -445,7 +445,7 @@ function emptyMessage(sk: SectionKey, book: string): string {
     case 'commentary':
       return ['TOB', 'JDT', 'WIS', 'SIR', 'BAR', '1MA', '2MA'].includes(book)
         ? 'Haydock’s module does not include the deuterocanonical books, and the Catena covers only the Gospels. Challoner’s notes and chapter summary, the Glossa (Latin) and the Fathers library may still have material; the chapter reading links below open full notes.'
-        : 'No commentary note is attached to this exact verse. Try the chapter or neighbouring verses.';
+        : 'No commentary note is attached to this exact verse. Try the chapter or neighboring verses.';
     case 'fathers':
       return 'No work in the Fathers & saints library comments on or cites this passage. The library is growing; see Study → Fathers & saints for what is covered.';
     case 'catholic-answers':

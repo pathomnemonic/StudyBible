@@ -6,7 +6,7 @@ interface PDoc { t: string; title: string; date: string; url: string; lang: stri
 interface Pope { id: string; name: string; years: string; docs: PDoc[] }
 const LANG: Record<string, string> = { en: 'English', la: 'Latin', it: 'Italian', fr: 'French', es: 'Spanish', de: 'German', pt: 'Portuguese' };
 
-/** A catalogue of papal writings from Pius IX to today, linked to the official texts at the Vatican. The texts themselves are not copied. */
+/** A catalog of papal writings from Pius IX to today, linked to the official texts at the Vatican. The texts themselves are not copied. */
 export default function PapalPage() {
   const [popes, setPopes] = useState<Pope[] | null>(null);
   const [sp, setSp] = useSearchParams();

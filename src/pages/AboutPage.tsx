@@ -17,7 +17,7 @@ export default function AboutPage() {
   return (
     <div className="page">
       <h1>About & feature status</h1>
-      <p className="lede">A study library built on legitimately available texts. This page says plainly what works, what is partial, and what needs a licence, credentials or future work.</p>
+      <p className="lede">A study library built on legitimately available texts. This page says plainly what works, what is partial, and what needs a license, credentials or future work.</p>
       <p className="muted small">Text and study data last built {built || '…'}. The app updates itself quietly when you are online.</p>
       {CANON_NOTES.map((n, i) => <div className="notice info" key={i}>{n}</div>)}
       <div className="chips" style={{ margin: '10px 0' }}>
@@ -37,7 +37,7 @@ export default function AboutPage() {
         <p className="small">This app began with the Latin Church, and we say so plainly instead of treating the Roman Rite as the whole Catholic Church. Choose your Church in <Link to="/settings">Settings → Your Church</Link>.</p>
         <p className="small"><strong>What it does for you now</strong></p>
         <ul className="small bullets">
-          <li>Uses your name for the liturgy (Divine Liturgy, Holy Qurbana, Holy Qurbono, Holy Badarak) and stops presenting the Roman Mass, Office, vestment colours and lectionary as if they were yours.</li>
+          <li>Uses your name for the liturgy (Divine Liturgy, Holy Qurbana, Holy Qurbono, Holy Badarak) and stops presenting the Roman Mass, Office, vestment colors and lectionary as if they were yours.</li>
           <li>Numbers the Psalms as your books do (the Septuagint numbering, which the app already uses internally).</li>
           <li><strong>Byzantine Churches:</strong> the great days of the year, worked out from Pascha, with a choice of Rome’s date or the Julian date and of the new or old calendar; an outline of the Divine Liturgy of St John Chrysostom.</li>
           <li>Prayers of the Eastern tradition in the prayer book (the Trisagion, O Heavenly King, the Our Father with its doxology, the Prayer of St Ephrem, the Paschal troparion, the Creed without the Filioque), listed first for you.</li>
@@ -55,7 +55,7 @@ export default function AboutPage() {
       <section className="card" id="method">
         <h2 className="card-title">How we choose, label and check sources</h2>
         <ul className="small bullets">
-          <li><strong>Scripture</strong> comes only from public-domain texts with a recorded source and licence. Each edition says where it came from and whether it is Church-approved.</li>
+          <li><strong>Scripture</strong> comes only from public-domain texts with a recorded source and license. Each edition says where it came from and whether it is Church-approved.</li>
           <li><strong>Every study item says why it is attached to a passage</strong>: the source quotes it, comments on it verse by verse, cites it, is about the chapter, or only shares a topic. Use the filter in the study panel to show only the stronger kinds.</li>
           <li><strong>Authority is shown on each item</strong> (Scripture, Church teaching, Father or Doctor, saint, historical commentary, popular teaching) and is never raised by the way an item looks. Notes and summaries written for this app are labelled as such.</li>
           <li><strong>Matches made by the calendar or by a title</strong> (for example a homily for a Sunday) say so, and are not claimed to treat the passage.</li>

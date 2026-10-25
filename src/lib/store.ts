@@ -4,7 +4,7 @@ import { useSyncExternalStore } from 'react';
 
 export type ThemeName = 'twilight' | 'ocean' | 'dawn' | 'mist' | 'dark' | 'midnight' | 'amoled' | 'forest' | 'mocha' | 'nord' | 'light' | 'paper' | 'rose' | 'sepia' | 'solarized' | 'contrast' | 'contrast-dark' | 'zen' | 'system';
 
-/** Themes offered in Settings: [id, label, background, text, accent] (colours are preview swatches only). */
+/** Themes offered in Settings: [id, label, background, text, accent] (colors are preview swatches only). */
 export const THEMES: [ThemeName, string, string, string, string][] = [
   ['twilight', 'Twilight (default)', '#0a0c1c', '#ecebf8', '#b7a8ff'],
   ['ocean', 'Ocean', '#06131b', '#e4f1f5', '#7fd6d0'],
@@ -39,6 +39,8 @@ export interface Settings {
   theme: ThemeName;
   /** the language of the app's own menus and screens */
   language: Lang;
+  /** spelling of the app's own words: US English (default) or British */
+  spelling: 'us' | 'uk';
   fontSize: number;
   lineHeight: number;
   margin: 'narrow' | 'normal' | 'wide';
@@ -133,6 +135,7 @@ export interface Settings {
 export const DEFAULTS: Settings = {
   theme: 'twilight',
   language: defaultLang(),
+  spelling: 'us',
   fontSize: 19,
   lineHeight: 1.65,
   margin: 'normal',

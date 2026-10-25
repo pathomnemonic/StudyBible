@@ -5,6 +5,8 @@ import { db } from '../../db/db';
 import { getAuthors, getLibraryIndex, type LibraryWorkMeta } from '../../data/content';
 import { recordedWorkIds } from '../../data/librivox';
 import { useScrollMemory } from '../../lib/scrollMemory';
+import { percentSeen, setShelf, STATUS_LABEL, STATUSES, useShelf } from '../../lib/shelf';
+import type { ShelfStatus } from '../../db/db';
 
 const SHELVES: { title: string; blurb: string; ids?: string[]; kinds?: string[] }[] = [
   { title: 'Begin here', blurb: 'Short, rewarding reads from different centuries.', ids: ['lawrence-practice', 'athanasius-incarnation', 'aug-confessions', 'teresa-castle', 'kempis-imitation', 'julian-revelations', 'desales-devout-life', 'therese-story-of-a-soul'] },
@@ -37,82 +39,144 @@ export default function RoomHome() {
   const authorId = sp.get('author') ?? '';
   const kindF = sp.get('kind') ?? '';
   const periodF = sp.get('period') ?? '';
+  const shelfF = sp.get('shelf') ?? '';
+  const tab = sp.get('tab') === 'mine' ? 'mine' : 'discover';
   const setParam = (k: string, v: string) => { const n = new URLSearchParams(sp); if (v) n.set(k, v); else n.delete(k); setSp(n, { replace: true }); };
   const filtering = !!(q.trim() || authorId || kindF || periodF);
-  const progress = useLiveQuery(() => db.libraryProgress.toArray(), []) ?? [];
+  const shelf = useShelf();
+  const [showFilters, setShowFilters] = useState(false);
   useScrollMemory('/room', works.length > 0, '/room?' + sp.toString());
   useEffect(() => { getLibraryIndex().then((l) => setWorks(l?.works ?? [])); recordedWorkIds().then(setHeard); getAuthors().then((a) => setAuthors(a?.authors ?? {})); }, []);
-  const recent = useMemo(() => [...progress].filter((p) => works.some((w) => w.id === p.workId)).sort((a, b) => b.updatedAt - a.updatedAt).slice(0, 4), [progress, works]);
+  const byId = useMemo(() => new Map(works.map((w) => [w.id, w])), [works]);
+  const reading = useMemo(() => [...shelf.values()].filter((p) => byId.has(p.workId) && p.status === 'reading').sort((a, b) => b.updatedAt - a.updatedAt), [shelf, byId]);
   const found = useMemo(() => {
     const f = q.trim().toLowerCase();
     if (!filtering) return [];
     return works.filter((w) => (!f || `${w.title} ${w.author}`.toLowerCase().includes(f)) && (!authorId || w.authorId === authorId) && (!kindF || w.kind === kindF) && (!periodF || w.period === periodF)).slice(0, 120);
   }, [works, q, authorId, kindF, periodF, filtering]);
-  const card = (w: LibraryWorkMeta, section = 0) => (
-    <Link key={w.id} className="shelf-card" to={`/room/work/${w.id}/${section}`}>
-      <span className="t">{w.title}</span>
-      <span className="d">{w.author}{heard.has(w.id) ? ' · 🎧 recorded' : ''}</span>
-    </Link>
-  );
+  const card = (w: LibraryWorkMeta, section = 0) => {
+    const p = shelf.get(w.id);
+    return (
+      <Link key={w.id} className="shelf-card" to={`/room/work/${w.id}/${section}`}>
+        <span className="t">{w.title}</span>
+        <span className="d">{w.author}{heard.has(w.id) ? ' · 🎧 recorded' : ''}</span>
+        {p?.status && <span className={`shelf-badge st-${p.status}`}>{STATUS_LABEL[p.status]}{p.rating ? ` · ${'★'.repeat(p.rating)}` : ''}</span>}
+      </Link>
+    );
+  };
+  const open = SHELVES.find((x) => x.title === shelfF);
+  const listOf = (sh: (typeof SHELVES)[number]) => (sh.ids ? (sh.ids.map((id) => byId.get(id)).filter(Boolean) as LibraryWorkMeta[]) : works.filter((w) => sh.kinds!.includes(w.kind)));
   return (
     <div className="page room">
       <h1>Reading room</h1>
-      <p className="lede">Read and listen to the saints, the Fathers and the Church’s own texts. Every work opens with a Bible chapter beside it, so you can read the Scripture and what the saints made of it at the same time.</p>
-      <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
-        <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a work or an author…" aria-label="Find a work or an author" style={{ flex: 1, minWidth: 220, maxWidth: 420 }} />
-        <select value={periodF} onChange={(e) => setParam('period', e.target.value)} aria-label="Period"><option value="">Any period</option><option value="patristic">Patristic (to c. 750)</option><option value="medieval">Medieval</option><option value="early-modern">Early modern</option></select>
-        <select value={kindF} onChange={(e) => setParam('kind', e.target.value)} aria-label="Kind"><option value="">Any kind</option>{[...new Set(works.map((w) => w.kind))].sort().map((k) => <option key={k}>{k}</option>)}</select>
-        <Link className="btn" to="/study/search">Search inside all texts</Link>
+      <p className="lede">The saints, the Fathers and the Church’s own texts, each of which opens beside a Bible chapter.</p>
+      <div className="tabbar" role="tablist">
+        <button role="tab" aria-selected={tab === 'discover'} onClick={() => setParam('tab', '')}>Discover</button>
+        <button role="tab" aria-selected={tab === 'mine'} onClick={() => setParam('tab', 'mine')}>My shelves</button>
       </div>
-      {authorId && <p className="small">Showing works by {authors[authorId]?.name ?? authorId}. <button className="linklike" onClick={() => setParam('author', '')}>Show everything</button></p>}
-      {filtering && <ul className="plain" style={{ listStyle: 'none', padding: 0 }}>{found.map((w) => <li key={w.id} style={{ padding: '4px 0' }}><Link to={`/room/work/${w.id}/0`}>{w.title}</Link> <span className="muted small">{w.author}</span></li>)}{!found.length && <li className="muted">Nothing matches.</li>}</ul>}
-      {!filtering && recent.length > 0 && (
-        <section className="sect">
-          <h2 className="eyebrow-h">Continue</h2>
-          <div className="shelf">
-            {recent.map((p) => { const w = works.find((x) => x.id === p.workId)!; return (
-              <Link key={w.id} className="shelf-card" to={`/room/work/${w.id}/${p.section}`}>
-                <span className="t">{w.title}</span>
-                <span className="d">{w.author} · section {Number(p.section) + 1} of {w.sections.length}</span>
-                <span className="bar"><i style={{ width: `${Math.round(((Number(p.section) + 1) / w.sections.length) * 100)}%` }} /></span>
-              </Link>); })}
+      {tab === 'mine' ? <MyShelves works={works} card={card} /> : (
+        <>
+          <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
+            <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a work or an author…" aria-label="Find a work or an author" style={{ flex: 1, minWidth: 200, maxWidth: 420 }} />
+            <button className="btn small" aria-expanded={showFilters} onClick={() => setShowFilters(!showFilters)}>Filters</button>
+            <Link className="btn small" to="/study/search">Search inside texts</Link>
           </div>
-        </section>
-      )}
-      {!filtering && SHELVES.map((sh) => {
-        const list = sh.ids ? (sh.ids.map((id) => works.find((w) => w.id === id)).filter(Boolean) as LibraryWorkMeta[]) : works.filter((w) => sh.kinds!.includes(w.kind));
-        if (!list.length) return null;
-        return (
-          <section key={sh.title} className="sect">
-            <h2 className="eyebrow-h">{sh.title}</h2>
-            <p className="muted small" style={{ margin: '0 0 8px' }}>{sh.blurb}</p>
-            <div className="shelf">{(sh.ids ? list : list.slice(0, 12)).map((w) => card(w))}</div>
-            {!sh.ids && list.length > 12 && <button className="linklike small" onClick={() => { setParam("kind", sh.kinds![0]); }}>All {list.length} in this group, with filters →</button>}
-          </section>
-        );
-      })}
-      {!filtering && (
-        <section className="sect">
-          <h2 className="eyebrow-h">Church teaching and tradition</h2>
-          <div className="shelf">{TEACHING.map(([to, t, d]) => <Link key={to} className="shelf-card" to={to}><span className="t">{t}</span><span className="d">{d}</span></Link>)}</div>
-        </section>
-      )}
-      {!filtering && (
-        <section className="sect">
-          <h2 className="eyebrow-h">Listen</h2>
-          <div className="shelf">
-            <Link className="shelf-card" to="/listen"><span className="t">The Bible in a Year</span><span className="d">Fr. Mike Schmitz, daily</span></Link>
-            <Link className="shelf-card" to="/listen#recorded"><span className="t">Recorded books</span><span className="d">{heard.size} works read aloud by volunteers</span></Link>
-            <Link className="shelf-card" to="/study/videos"><span className="t">Catholic video library</span><span className="d">Talks and teaching from Catholic creators</span></Link>
-          </div>
-        </section>
-      )}
-      {!filtering && (
-        <section className="sect">
-          <h2 className="eyebrow-h">More to read</h2>
-          <div className="shelf">{PLACES.map(([to, t, d]) => <Link key={to} className="shelf-card" to={to}><span className="t">{t}</span><span className="d">{d}</span></Link>)}</div>
-        </section>
+          {(showFilters || periodF || kindF) && (
+            <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginTop: 8 }}>
+              <select value={periodF} onChange={(e) => setParam('period', e.target.value)} aria-label="Period"><option value="">Any period</option><option value="patristic">Patristic (to c. 750)</option><option value="medieval">Medieval</option><option value="early-modern">Early modern</option></select>
+              <select value={kindF} onChange={(e) => setParam('kind', e.target.value)} aria-label="Kind"><option value="">Any kind</option>{[...new Set(works.map((w) => w.kind))].sort().map((k) => <option key={k}>{k}</option>)}</select>
+            </div>
+          )}
+          {authorId && <p className="small">Showing works by {authors[authorId]?.name ?? authorId}. <button className="linklike" onClick={() => setParam('author', '')}>Show everything</button></p>}
+          {filtering && <ul className="plain" style={{ listStyle: 'none', padding: 0 }}>{found.map((w) => <li key={w.id} style={{ padding: '4px 0' }}><Link to={`/room/work/${w.id}/0`}>{w.title}</Link> <span className="muted small">{w.author}</span></li>)}{!found.length && <li className="muted">Nothing matches.</li>}</ul>}
+          {!filtering && open && (
+            <section className="sect">
+              <button className="linklike small" onClick={() => setParam('shelf', '')}>← Back</button>
+              <h2 className="eyebrow-h">{open.title}</h2>
+              <p className="muted small">{open.blurb}</p>
+              <div className="shelf">{listOf(open).map((w) => card(w))}</div>
+            </section>
+          )}
+          {!filtering && !open && (
+            <>
+              {reading.length > 0 && (
+                <section className="sect">
+                  <h2 className="eyebrow-h">Continue reading</h2>
+                  <div className="shelf">
+                    {reading.slice(0, 3).map((p) => { const w = byId.get(p.workId)!; return (
+                      <Link key={w.id} className="shelf-card" to={`/room/work/${w.id}/${p.section}`}>
+                        <span className="t">{w.title}</span>
+                        <span className="d">{w.author} · section {Number(p.section) + 1} of {w.sections.length}</span>
+                        <span className="bar"><i style={{ width: `${Math.round(((Number(p.section) + 1) / w.sections.length) * 100)}%` }} /></span>
+                      </Link>); })}
+                  </div>
+                  {reading.length > 3 && <Link className="small" to="?tab=mine">All {reading.length} you are reading →</Link>}
+                </section>
+              )}
+              <section className="sect">
+                <h2 className="eyebrow-h">{SHELVES[0].title}</h2>
+                <p className="muted small" style={{ margin: '0 0 8px' }}>{SHELVES[0].blurb}</p>
+                <div className="shelf">{listOf(SHELVES[0]).slice(0, 4).map((w) => card(w))}</div>
+              </section>
+              <section className="sect">
+                <h2 className="eyebrow-h">Browse</h2>
+                <div className="shelf">
+                  {SHELVES.slice(1).map((sh) => <button key={sh.title} className="shelf-card as-btn" onClick={() => setParam('shelf', sh.title)}><span className="t">{sh.title}</span><span className="d">{sh.blurb}</span><span className="muted small">{listOf(sh).length} works</span></button>)}
+                </div>
+              </section>
+              <section className="sect">
+                <h2 className="eyebrow-h">Church teaching and tradition</h2>
+                <div className="shelf">{TEACHING.map(([to, t, d]) => <Link key={to} className="shelf-card" to={to}><span className="t">{t}</span><span className="d">{d}</span></Link>)}</div>
+              </section>
+              <section className="sect">
+                <h2 className="eyebrow-h">Listen</h2>
+                <div className="shelf">
+                  <Link className="shelf-card" to="/listen?tab=audiobooks"><span className="t">Audiobooks</span><span className="d">{heard.size} works read aloud by volunteers</span></Link>
+                  <Link className="shelf-card" to="/listen?tab=podcasts"><span className="t">Catholic podcasts</span><span className="d">Dozens of shows, with your place remembered</span></Link>
+                  <Link className="shelf-card" to="/study/videos"><span className="t">Catholic video library</span><span className="d">Talks and teaching from Catholic creators</span></Link>
+                </div>
+              </section>
+              <section className="sect">
+                <h2 className="eyebrow-h">More</h2>
+                <div className="shelf">{PLACES.map(([to, t, d]) => <Link key={to} className="shelf-card" to={to}><span className="t">{t}</span><span className="d">{d}</span></Link>)}</div>
+              </section>
+            </>
+          )}
+        </>
       )}
     </div>
+  );
+}
+
+/** The reader's own shelves, by status, with a count of what they finished this year. */
+function MyShelves({ works, card }: { works: LibraryWorkMeta[]; card: (w: LibraryWorkMeta, section?: number) => React.ReactNode }) {
+  const shelf = useShelf();
+  const [st, setSt] = useState<ShelfStatus | 'all'>('reading');
+  const mine = [...shelf.values()].filter((p) => p.status && works.some((w) => w.id === p.workId));
+  const count = (s: ShelfStatus) => mine.filter((p) => p.status === s).length;
+  const year = new Date().getFullYear();
+  const doneThisYear = mine.filter((p) => p.status === 'finished' && p.finishedAt && new Date(p.finishedAt).getFullYear() === year).length;
+  const list = mine.filter((p) => st === 'all' || p.status === st).sort((a, b) => b.updatedAt - a.updatedAt);
+  return (
+    <section className="sect">
+      <p className="muted small">{mine.length ? `${doneThisYear} finished in ${year}. ` : ''}Open any work and use “Your shelf” at the end of a section to put it here, rate it and keep your thoughts.</p>
+      <div className="tabbar" role="tablist">
+        {STATUSES.map((s) => <button key={s} role="tab" aria-selected={st === s} onClick={() => setSt(s)}>{STATUS_LABEL[s]} ({count(s)})</button>)}
+      </div>
+      {list.length === 0 && <div className="empty">Nothing on this shelf yet. Find something in Discover, then mark it Want to read.</div>}
+      <div className="shelf">
+        {list.map((p) => { const w = works.find((x) => x.id === p.workId)!; return (
+          <div key={w.id} className="shelf-card">
+            <Link to={`/room/work/${w.id}/${p.section}`} className="t">{w.title}</Link>
+            <span className="d">{w.author}{p.rating ? ` · ${'★'.repeat(p.rating)}` : ''}</span>
+            {st === 'reading' && <span className="bar"><i style={{ width: `${percentSeen(p, w.sections.length) || Math.round(((Number(p.section) + 1) / w.sections.length) * 100)}%` }} /></span>}
+            {p.review && <span className="muted small clamp2">{p.review}</span>}
+            <select value={p.status} onChange={(e) => setShelf(w.id, e.target.value === 'none' ? { clear: true } : { status: e.target.value as ShelfStatus })} aria-label={`Shelf for ${w.title}`}>
+              {STATUSES.map((s) => <option key={s} value={s}>{STATUS_LABEL[s]}</option>)}
+              <option value="none">Not started</option>
+            </select>
+          </div>); })}
+      </div>
+    </section>
   );
 }

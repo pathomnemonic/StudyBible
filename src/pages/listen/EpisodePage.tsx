@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { fmtDuration, useBiay } from '../../data/biay';
-import { usePlayer } from '../../data/PlayerContext';
+import { rememberEpisode, usePlayer } from '../../data/PlayerContext';
 import { formatRef, parseRefId, type Ref } from '../../lib/refs';
 import RefLink from '../../components/RefLink';
 import NoteEditor from '../../components/NoteEditor';
@@ -38,7 +38,7 @@ export default function EpisodePage() {
         <button className="btn primary" onClick={() => (isCurrent ? player.toggle() : player.play(ep))}>
           <Icon name={isCurrent && player.playing ? 'pause' : 'play'} size={16} /> {isCurrent && player.playing ? 'Pause' : prog && !prog.completed && prog.position > 30 ? `Resume (${Math.floor(prog.position / 60)} min)` : 'Play'}
         </button>
-        <button className="btn" onClick={() => db.queue.add({ episodeId: ep.id, order: Date.now() })}><Icon name="queue" size={16} /> Add to queue</button>
+        <button className="btn" onClick={() => db.queue.add({ episodeId: ep.id, order: Date.now() }).then(() => rememberEpisode(ep))}><Icon name="queue" size={16} /> Add to queue</button>
         <button className="btn" onClick={() => db.episodeProgress.put({ episodeId: ep.id, position: 0, completed: !prog?.completed, updatedAt: Date.now() })}><Icon name="check" size={16} /> {prog?.completed ? 'Completed — undo' : 'Mark completed'}</button>
         <button className="btn" onClick={() => setNote(true)}><Icon name="note" size={16} /> Note</button>
       </div>

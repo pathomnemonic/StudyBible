@@ -28,7 +28,7 @@ interface Props {
   onTerm?: (id: string, el: HTMLElement) => void;
   /** paintings of the scene, shown after the given native verse */
   figures?: Map<number, InlineFig[]>;
-  /** the ordinary footnotes (alternate readings, textual notes) by verse; shown as a coloured number that opens them */
+  /** the ordinary footnotes (alternate readings, textual notes) by verse; shown as a colored number that opens them */
   stdNotes?: Map<number, string[]>;
   onStdNote?: (n: number, el: HTMLElement) => void;
   /** words that act out their meaning (fire flickers, water ripples) */

@@ -149,7 +149,7 @@ export default function WorldPage() {
           ))}
         </ul>
       )}
-      <p className="muted small">Eras, dates and finds are summarised for this app in cautious language; dates are conventional estimates and several are debated. Check a reputable archaeological reference before quoting a detail.</p>
+      <p className="muted small">Eras, dates and finds are summarized for this app in cautious language; dates are conventional estimates and several are debated. Check a reputable archaeological reference before quoting a detail.</p>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { liturgicalDay } from '../liturgy/compute';
 
 /**
  * Reading ambience. Real recordings (public-domain or openly licensed; see public/audio/index.json for each track's source and
- * licence) played through an <audio> element with fades, as a shuffled playlist per category or a single looping nature track.
+ * license) played through an <audio> element with fades, as a shuffled playlist per category or a single looping nature track.
  * If the recordings cannot be loaded, rain, wind and a stream are synthesised in the browser instead (filtered noise).
  * Browsers only allow sound after a tap or key press, so a sound that is on by default starts at the first one.
  */

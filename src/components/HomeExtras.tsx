@@ -58,7 +58,7 @@ export default function HomeExtras({ date, season, ref, label, onRandom }: { dat
       {saint && <Link to={saint.authorId ? `/room?author=${saint.authorId}` : `/study/saints/${saint.life ?? date.slice(5)}?name=${encodeURIComponent(saint.name.replace(/^(saint|st\.)\s+/i, ''))}`}>{saint.name}{saint.authorId ? ': read their words' : saint.life ? ': read the life' : ': saints of the day'}</Link>}
       {ref && <Link to={`/share?ref=${encodeURIComponent(label)}`}>Make a picture of this verse</Link>}
       {ref && <button onClick={remember} disabled={memoed > 0}>{memoed > 0 ? '✓ In memorize' : 'Memorize this verse'}</button>}
-      <button onClick={toggleFav} aria-pressed={!!fav} title="Keep this day in your favourites">{fav ? '★ Favourite' : '☆ Favourite day'}</button>
+      <button onClick={toggleFav} aria-pressed={!!fav} title="Keep this day in your favorites">{fav ? '★ Favorite' : '☆ Favorite day'}</button>
     </div>
   );
 }

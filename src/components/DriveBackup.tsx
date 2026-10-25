@@ -37,7 +37,7 @@ export default function DriveBackup({ compact = false }: { compact?: boolean }) 
       <p className="small">Your notes, highlights, bookmarks, journal and progress are kept in this browser. If that storage is cleared, they are lost. Connect Google Drive and the app saves a dated copy of everything to a private folder only it can see (it does not appear among your files), updates it a few minutes after you make changes, and keeps the last {7} copies, so one bad save cannot destroy a good one.</p>
       {!driveAvailable() && (
         <div className="notice">
-          <p style={{ margin: '0 0 6px' }}>Google Drive backup is not switched on in this copy of the app: it needs a Google OAuth client ID (free to create, <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer">Google Cloud console</a>, a “Web application” client with this site’s address as an authorised JavaScript origin, and the Drive API enabled). The site’s owner sets it once; see docs/DRIVE_BACKUP.md.</p>
+          <p style={{ margin: '0 0 6px' }}>Google Drive backup is not switched on in this copy of the app: it needs a Google OAuth client ID (free to create, <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer">Google Cloud console</a>, a “Web application” client with this site’s address as an authorized JavaScript origin, and the Drive API enabled). The site’s owner sets it once; see docs/DRIVE_BACKUP.md.</p>
           <label className="field"><span>Client ID (optional, for your own copy)</span><input value={s.drive.clientId} placeholder="123…apps.googleusercontent.com" onChange={(e) => set({ drive: { ...s.drive, clientId: e.target.value.trim() } })} /></label>
         </div>
       )}

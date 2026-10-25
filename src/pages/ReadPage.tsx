@@ -810,7 +810,7 @@ export default function ReadPage() {
         <Modal title="Keyboard shortcuts" onClose={() => setShortcuts(false)}>
           <table className="small">
             <tbody>
-              {[['Ctrl/⌘ K', 'Jump to a passage, search, go anywhere'], ['/', 'Find in this chapter'], ['← / →', 'Previous / next chapter'], ['Click, Shift-click', 'Select verse / range'], ['S', 'Open or close the study panel'], ['N', 'Note on the selection'], ['1–6', 'Highlight colours'], ['Esc', 'Close panel / clear selection'], ['?', 'This help']].map(([k, d]) => (
+              {[['Ctrl/⌘ K', 'Jump to a passage, search, go anywhere'], ['/', 'Find in this chapter'], ['← / →', 'Previous / next chapter'], ['Click, Shift-click', 'Select verse / range'], ['S', 'Open or close the study panel'], ['N', 'Note on the selection'], ['1–6', 'Highlight colors'], ['Esc', 'Close panel / clear selection'], ['?', 'This help']].map(([k, d]) => (
                 <tr key={k}><td style={{ paddingRight: 16 }}><kbd>{k}</kbd></td><td>{d}</td></tr>
               ))}
             </tbody>

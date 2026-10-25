@@ -98,6 +98,7 @@ export default function SettingsPage() {
         <h2 className="card-title">Reading</h2>
         <div className="row between" style={{ margin: '8px 0' }}><span>{t('settings.language')}</span><select value={s.language} onChange={(e) => set({ language: e.target.value as any })} aria-label={t('settings.language')}>{LANGS.map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></div>
         <p className="muted small" style={{ margin: '0 0 8px' }}>{t('settings.languageNote')}</p>
+        <div className="row between" style={{ margin: '8px 0' }}><span>Spelling</span><select value={s.spelling ?? 'us'} onChange={(e) => set({ spelling: e.target.value as 'us' | 'uk' })} aria-label="Spelling" data-keep-spelling><option value="us">US English (color)</option><option value="uk">British English (colour)</option></select></div>
         <div className="row between" style={{ margin: '8px 0' }}><span>Default translation</span><select value={s.defaultEdition} onChange={(e) => set({ defaultEdition: e.target.value, last: null })} aria-label="Default translation">{choosable.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}</select></div>
         {off.length > 0 && <div className="row between" style={{ margin: '4px 0' }}><span className="muted small">Older translations are off by default: {off.map((e) => e.shortName).join(', ')}</span>{off.map((e) => <button key={e.id} className="btn small" onClick={() => setEnabling(e)}>Turn on {e.shortName}…</button>)}</div>}
         <div style={{ margin: '8px 0' }}>

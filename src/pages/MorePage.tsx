@@ -11,7 +11,7 @@ const GROUPS: { title: string; items: Row[] }[] = [
     ['/pray/readings', 'Mass readings', 'The day’s readings, printed in full in your translation.'],
     ['/pray/plans', 'Reading plans', 'Follow a plan through the Bible or a theme, with progress kept.'],
     ['/listen', 'Bible in a Year', 'Daily episodes mapped to the passages they read.'],
-    ['/days', 'Favourite days', 'Days you starred on Today, a date picker, and your week at a glance.'],
+    ['/days', 'Favorite days', 'Days you starred on Today, a date picker, and your week at a glance.'],
     ['/study/catechism', 'Catechism of the Catholic Church', 'The full text, paragraph by paragraph, with search and Scripture links.'],
     ['/study/gallery', 'Gallery', 'Paintings and engravings of Bible scenes; compare two of the same scene.'],
     ['/study/paths', 'Study paths', 'Guided journeys through a theme, with the Fathers and a question.'],

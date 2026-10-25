@@ -123,7 +123,7 @@ export default function SessionPage() {
           <>
             <h2 className="card-title">Hear the Church</h2>
             <p className="muted small">What Catholic commentators and the Catechism have said about this passage (from the app’s sources). Read as a conversation partner, not a replacement for the text.</p>
-            {church.length === 0 && <p className="muted">Nothing in the loaded sources is attached to this exact passage. Try the study panel in the reader for neighbouring verses.</p>}
+            {church.length === 0 && <p className="muted">Nothing in the loaded sources is attached to this exact passage. Try the study panel in the reader for neighboring verses.</p>}
             {church.map((i) => (
               <article key={i.id} className="item" data-auth={i.authority}>
                 <div className="kicker"><span className="dot" /><span>{i.kind ?? i.sourceName}</span></div>

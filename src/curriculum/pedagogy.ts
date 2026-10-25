@@ -83,7 +83,7 @@ export const ADULT: Band = {
     ['Discuss', 0.25, 'Work through the discussion questions in pairs, then together. Ask for reasons and stories, not just opinions.'],
     ['Challenge and pray', 0.1, 'Give the weekly challenge, invite one commitment from each person, and close in prayer.'],
   ],
-  verbs: 'weigh, argue, apply, decide, practise, share',
+  verbs: 'weigh, argue, apply, decide, practice, share',
   methods: ['small-group discussion around a table', 'lectio divina with the Gospel', 'short teaching from the Catechism and the Fathers', 'personal reflection and journaling', 'service and mission'],
   assess: ['Ask each person for one concrete commitment next week', 'Check in the following week: what happened?', 'Invite a short written reflection or a prayer journal entry', 'Use the vocabulary check for review at the start of the next session'],
   support: ['Offer the audio version for anyone who prefers to listen', 'Keep the group small enough for everyone to speak', 'Send the reading ahead of time', 'Let people pass'],

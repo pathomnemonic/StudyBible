@@ -10,7 +10,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Douay-Rheims, Clementine Vulgate, WEB (Catholic): 73 books, offline | **Working** | Public-domain texts ingested from eBible.org USFM; paragraphs, poetry, headings and footnotes preserved. |
 | Parallel view, verse comparison, translation switching that keeps the passage | **Working** | Aligned through the Vulgate anchor. Psalms are mapped by reviewed rules; other chapters whose numbering differs are flagged, never silently mismatched. |
 | Verse-level alignment for Tobit, Judith, Sirach, Esther, Daniel across Greek vs Vulgate texts | **Partial** | These books follow different textual traditions; chapter-level alignment only, with an explicit notice. **Next:** A reviewed verse map for each of the five books. **Blocked by:** verification. **Done when:** a versification test per book that every verse maps or is marked unaligned. |
-| RSV-CE, RSV-2CE, NABRE, Jerusalem Bible / NJB | **Needs licence** | Under copyright. The edition registry, anchor mapping (English scheme) and attribution records are ready; a licence and text file are required. **Next:** A licence and text file from the rights holders. **Blocked by:** rights. **Done when:** the edition registry test passes with the text present and an attribution record. |
+| RSV-CE, RSV-2CE, NABRE, Jerusalem Bible / NJB | **Needs license** | Under copyright. The edition registry, anchor mapping (English scheme) and attribution records are ready; a license and text file are required. **Next:** A license and text file from the rights holders. **Blocked by:** rights. **Done when:** the edition registry test passes with the text present and an attribution record. |
 | Maps and appendices | **Planned** | Not in the public-domain sources used; the data model allows per-edition introductions and footnotes. **Next:** Public-domain appendix sources chosen and ingested. **Blocked by:** data. **Done when:** the data validator lists each appendix with a source. |
 
 ## Study
@@ -31,10 +31,10 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Challoner’s notes, chapter summaries and introductions; chapter reading links | **Working** | Bishop Challoner’s annotations (about 1,850), a one-line summary for 1,293 chapters and 71 book introductions (public domain, Project Gutenberg). Every chapter of all 73 books also links to the Douay-Rheims with notes (DRBO), New Advent and the NABRE with the bishops’ notes (USCCB). These are chapter-level, not verse-level; the app labels them so. `scripts/verify/coverage.ts` reports how many verses have a verse-level reading versus chapter-level only. |
-| Church Fathers: Catena Aurea (all four Gospels, CrossWire), Haydock Catholic Bible Commentary (protocanon), Augustine, Chrysostom, Irenaeus, Athanasius, Cyril, Glossa Ordinaria (Latin) | **Working** | Public-domain: CrossWire Catena (Public Domain licence), SermonIndex Haydock module, CCEL translations. 24 works in the library plus a link-out Summa index. |
+| Church Fathers: Catena Aurea (all four Gospels, CrossWire), Haydock Catholic Bible Commentary (protocanon), Augustine, Chrysostom, Irenaeus, Athanasius, Cyril, Glossa Ordinaria (Latin) | **Working** | Public-domain: CrossWire Catena (Public Domain license), SermonIndex Haydock module, CCEL translations. 24 works in the library plus a link-out Summa index. |
 | Reading room: saints, Fathers and catechisms in full | **Working** | 94 public-domain works, including the Imitation of Christ, Thérèse, Teresa, Julian, Francis de Sales, Ignatius, Anselm, and the Roman and Baltimore catechisms. The Roman Catechism text is unproofread OCR. The Catechism of the Catholic Church is copyrighted and linked, not included. |
 | Popes and Vatican documents | **Partial** | Linked (not copied) with authority labels; text search of them is not included. **Next:** Full-text search of the linked documents. **Blocked by:** rights. **Done when:** a search test over the documents that returns the cited article. |
-| Catholic Answers, Word on Fire, Ascension Presents | **Needs credentials / agreement** | No public APIs or reuse licences. Only search links and a curated-link schema are provided; no content is imported. A partnership/licence would unlock richer integration. **Next:** A reuse agreement or public API from each publisher. **Blocked by:** rights. **Done when:** an integration fetches an item and shows attribution. |
+| Catholic Answers, Word on Fire, Ascension Presents | **Needs credentials / agreement** | No public APIs or reuse licenses. Only search links and a curated-link schema are provided; no content is imported. A partnership/license would unlock richer integration. **Next:** A reuse agreement or public API from each publisher. **Blocked by:** rights. **Done when:** an integration fetches an item and shows attribution. |
 | Semantic / concept search with AI | **Planned** | Not implemented. Concept search currently uses editorial topic keywords and a people/places index, clearly labelled. If added, AI results will be marked as such. **Next:** Evidence-first retrieval that cites source passages. **Blocked by:** code. **Done when:** every result links to a passage and marks generated text as such. |
 
 ## Search
@@ -66,7 +66,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Notes (Markdown), highlights (6 colours), bookmarks, folders, tags, collections, personal cross-references, journal, export/import | **Working** | Stored in IndexedDB on the device, anchored to stable Vulgate-based ids so they survive translation changes. |
+| Notes (Markdown), highlights (6 colors), bookmarks, folders, tags, collections, personal cross-references, journal, export/import | **Working** | Stored in IndexedDB on the device, anchored to stable Vulgate-based ids so they survive translation changes. |
 | Accounts & cross-device sync | **Working** | Optional: needs the bundled Node server (npm start, or the Dockerfile) that you host yourself; the app works fully offline without it. Last-writer-wins sync of notes, highlights, bookmarks, journal, plans and attached links. Not end-to-end encrypted; no email password reset (operators use npm run admin). See docs/SERVER.md. |
 
 ## Study
@@ -118,7 +118,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Modern Catholic study Bibles and commentaries (Ignatius, Navarre, Jerome, CCSS…) | **Needs licence** | Copyrighted; none bundled. See docs/RESOURCE_COVERAGE.md. |
+| Modern Catholic study Bibles and commentaries (Ignatius, Navarre, Jerome, CCSS…) | **Needs license** | Copyrighted; none bundled. See docs/RESOURCE_COVERAGE.md. |
 
 ## Listen
 
@@ -216,7 +216,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| The Divine Office: Lauds, Terce, Sext, None, Vespers, Compline | **Partial** | The traditional Roman weekly psalter in the Douay-Rheims psalm text (Divinum Officium, MIT licence), offline. Weekly psalter for ordinary time, plus the chapters, responsories, hymns, versicles and collects of Advent, Lent, Passiontide and Eastertide (chosen from today’s date or by hand). Not included: feast days, the seasons’ proper antiphons, the Office of Readings, Prime, and Compline’s seasonal parts. Not the modern Liturgy of the Hours, whose English text is copyrighted. **Next:** Feast days, proper antiphons of the seasons and the Office of Readings. **Blocked by:** data. **Done when:** each proper’s psalms, antiphons and collect match the Divinum Officium output for sample dates. |
+| The Divine Office: Lauds, Terce, Sext, None, Vespers, Compline | **Partial** | The traditional Roman weekly psalter in the Douay-Rheims psalm text (Divinum Officium, MIT license), offline. Weekly psalter for ordinary time, plus the chapters, responsories, hymns, versicles and collects of Advent, Lent, Passiontide and Eastertide (chosen from today’s date or by hand). Not included: feast days, the seasons’ proper antiphons, the Office of Readings, Prime, and Compline’s seasonal parts. Not the modern Liturgy of the Hours, whose English text is copyrighted. **Next:** Feast days, proper antiphons of the seasons and the Office of Readings. **Blocked by:** data. **Done when:** each proper’s psalms, antiphons and collect match the Divinum Officium output for sample dates. |
 | Devotions: Rosary, Divine Mercy, Angelus, Stations of the Cross, Seven Sorrows | **Working** | Step by step with a bead counter. Scripture for each mystery and station is shown in the reader’s own translation. |
 | Prayer book and examination of conscience | **Working** | Traditional prayers searchable by need. The examination of conscience keeps nothing: ticks live only on screen. |
 | Prepare for Sunday | **Working** | The coming Sunday’s readings (from the lectionary references data we hold, 2026 and 2027) with matching homilies, Catechism paragraphs, commentary and Fathers on the Gospel. Homily matches are by the Sunday calendar and say so. |
@@ -235,7 +235,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Daily Examen and the Church’s year | **Working** | Five guided steps for the end of the day (saved only if you choose), and a page of the liturgical year: seasons, colours and the great days, each linked to its readings. |
+| Daily Examen and the Church’s year | **Working** | Five guided steps for the end of the day (saved only if you choose), and a page of the liturgical year: seasons, colors and the great days, each linked to its readings. |
 
 ## Study
 
@@ -243,7 +243,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Follow a story through the Bible | **Partial** | Six threads (the promise to Abraham, Exodus, David, exile, Peter, Mary) of about eight passages each, every step labelled as story, recalled by a later writer, or a reading from tradition. **Next:** More threads and a diagram of the characters in each. **Blocked by:** data. **Done when:** every thread has at least six passages that parse. |
 | Your own thinking over time | **Working** | The reader shows a note you wrote on this chapter months ago; Lectio shows your earlier reflections on the same passage; notes and questions can carry a come-back date; Library → Notes has a timeline by tag. |
-| Put the verse in order, group presentation, study vault | **Working** | A memorising mode that cuts the verse into pieces to put back in order; a full-screen presentation of the group sheet (private notes never shown); and a vault export of notes and journal as Markdown files with an index, for Obsidian. |
+| Put the verse in order, group presentation, study vault | **Working** | A memorizing mode that cuts the verse into pieces to put back in order; a full-screen presentation of the group sheet (private notes never shown); and a vault export of notes and journal as Markdown files with an index, for Obsidian. |
 
 ## App
 
@@ -279,7 +279,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Church-approved translations | **Partial** | Douay-Rheims and the Clementine Vulgate are bundled and approved (public domain). The Bibles most Catholics read today (NABRE, RSV-CE, NRSV-CE) are under copyright, so their text cannot be included: the translation picker opens the current chapter in each at the USCCB or Bible Gateway. CPDV and WEB-C are public-domain but not Church-approved, and are labelled so. **Next:** Licensed texts of approved translations. **Blocked by:** rights. **Done when:** the edition registry shows approval and licence for each. |
+| Church-approved translations | **Partial** | Douay-Rheims and the Clementine Vulgate are bundled and approved (public domain). The Bibles most Catholics read today (NABRE, RSV-CE, NRSV-CE) are under copyright, so their text cannot be included: the translation picker opens the current chapter in each at the USCCB or Bible Gateway. CPDV and WEB-C are public-domain but not Church-approved, and are labelled so. **Next:** Licensed texts of approved translations. **Blocked by:** rights. **Done when:** the edition registry shows approval and license for each. |
 
 ## Study
 
@@ -303,7 +303,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Home extras: plan, season path, chant and hymns, saint of the day, verse card, memorize, favourite day | **Working** | Small links under the daily reflection. The saint link opens that author’s works only when the library has them; otherwise it opens the Reading room. Favourite days are stored on this device. |
+| Home extras: plan, season path, chant and hymns, saint of the day, verse card, memorize, favorite day | **Working** | Small links under the daily reflection. The saint link opens that author’s works only when the library has them; otherwise it opens the Reading room. Favorite days are stored on this device. |
 
 ## Study
 
@@ -347,7 +347,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Favourite days, weekly summary, study-path links in the panel, skeleton loaders | **Working** | Starred days from Today are listed under More › Favourite days. The week card counts chapters read, works opened and notes written on this device. |
+| Favorite days, weekly summary, study-path links in the panel, skeleton loaders | **Working** | Starred days from Today are listed under More › Favorite days. The week card counts chapters read, works opened and notes written on this device. |
 | Saints and Fathers quoting Scripture, in every verse’s notes | **Working** | Every library work is indexed against the verses it cites. Where the source tags its citations they are used; where it only writes them out ("Matt. xvi. 18", "Ps. xxii. 1") they are read from the text and the Roman numerals converted; and where a passage is quoted without a citation, a quotation of nine or more words (fewer for a short verse) is matched against the Douay-Rheims, CPDV and World English Bible. Psalm citations are read as English numbering, which was checked against the verse text for every work. A few works (for example the Constantinople councils and Ineffabilis Deus) simply have few or no biblical citations. Matching is by wording, so a free paraphrase is not found. |
 | Bible dictionaries, Nave’s Topical Bible and people | **Working** | Easton’s (1897) and Smith’s (1884) dictionaries and Nave’s (1896) are public domain, 19th-century Protestant works, labelled as such. People named in a passage come from Theographic (CC BY-SA 4.0, family relations) and STEPBible (CC BY 4.0, short descriptions that STEPBible wrote with AI help). Excluded: STEPBible’s Hebrew lexicon (its definitions need Online Bible’s permission) and Theographic’s dates (a young-earth chronology). |
 

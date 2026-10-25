@@ -281,7 +281,7 @@ export default function SharePage() {
                 {paint && (
                   <>
                     <label className="field" style={{ marginTop: 8 }}><span>Darken for legibility</span><input type="range" min={15} max={85} value={dim} onChange={(e) => setDim(+e.target.value)} aria-label="Darken the painting" /></label>
-                    <p className="muted small">{paint.title}, {paint.artist}, {paint.date}. {paint.credit}. {paint.page && <a href={paint.page} target="_blank" rel="noreferrer">Source</a>}{imgErr && ' The picture could not be loaded; using a colour instead.'}</p>
+                    <p className="muted small">{paint.title}, {paint.artist}, {paint.date}. {paint.credit}. {paint.page && <a href={paint.page} target="_blank" rel="noreferrer">Source</a>}{imgErr && ' The picture could not be loaded; using a color instead.'}</p>
                   </>
                 )}
               </div>
@@ -301,7 +301,7 @@ export default function SharePage() {
             </div>
             <div className="field">
               <span>Background</span>
-              <div className="chips" aria-label="Background colour">
+              <div className="chips" aria-label="Background color">
                 {Object.entries(BACKGROUNDS).map(([k, v]) => (
                   <button key={k} aria-pressed={!paint && bg === k} className={'chip' + (!paint && bg === k ? ' sel' : '')} onClick={() => { setPaint(null); setBg(k); }}>
                     <span className="swatch" style={{ background: `linear-gradient(135deg, ${v.stops[0]}, ${v.stops[1]})` }} aria-hidden="true" /> {v.label}

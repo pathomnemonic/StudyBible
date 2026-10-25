@@ -255,8 +255,8 @@ export class Galaxy {
     data.cats.forEach((cat, ci) => {
       // each kind of work has its own ring; within a ring the works keep the order of the books they cite, spread evenly round it
       const list = (ring.get(cat.id) ?? []).sort((a, b) => a.ang - b.ang);
-      const colour = COLORS[cat.id] ?? '#ffffff';
-      GROUP_COLOR[cat.name] = colour;
+      const color = COLORS[cat.id] ?? '#ffffff';
+      GROUP_COLOR[cat.name] = color;
       const centroid = new THREE.Vector3();
       let mx = 0, mz = 0;
       list.forEach((it, k) => {
@@ -265,7 +265,7 @@ export class Galaxy {
         const radius = 350 + ci * 16;
         const y = (ci - (data.cats.length - 1) / 2) * 17 + Math.sin(k * 2.1) * 3;
         const pos = new THREE.Vector3(Math.cos(ang) * radius, y, Math.sin(ang) * radius);
-        const col = new THREE.Color(colour);
+        const col = new THREE.Color(color);
         const c = new THREE.Sprite(new THREE.SpriteMaterial({ map: core, color: 0xffffff, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
         const h = new THREE.Sprite(new THREE.SpriteMaterial({ map: halo, color: col, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
         const base = 2.4 + Math.sqrt(it.w.words / 40000) * 1.1;
@@ -275,7 +275,7 @@ export class Galaxy {
         const label = document.createElement('div');
         label.className = 'galaxy-label';
         label.textContent = `${it.w.author.split(' of ')[0].replace(/^(Saint|St\.) /, '')}: ${it.w.title.replace(/\s*\(.*\)$/, '').slice(0, 38)}`;
-        label.style.setProperty('--c', colour);
+        label.style.setProperty('--c', color);
         this.labelBox.appendChild(label);
         this.books.set(`lib:${it.id}`, { pos, core: c, halo: h, group: cat.name, label, base });
       });
@@ -288,7 +288,7 @@ export class Galaxy {
         const d = document.createElement('div');
         d.className = 'galaxy-group';
         d.textContent = cat.name;
-        d.style.setProperty('--c', colour);
+        d.style.setProperty('--c', color);
         this.labelBox.appendChild(d);
         this.groupLabels.set(cat.name, d);
         this.groupPos.set(cat.name, centroid);

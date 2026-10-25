@@ -33,7 +33,7 @@ export interface MysterySet { id: string; name: string; days: number[]; mysterie
 export const MYSTERIES: MysterySet[] = [
   { id: 'joyful', name: 'Joyful', days: [1, 6], mysteries: [
     { title: 'The Annunciation', refs: 'Luke 1:26-38', fruit: 'Humility' },
-    { title: 'The Visitation', refs: 'Luke 1:39-56', fruit: 'Love of neighbour' },
+    { title: 'The Visitation', refs: 'Luke 1:39-56', fruit: 'Love of neighbor' },
     { title: 'The Nativity', refs: 'Luke 2:1-20', fruit: 'Poverty of spirit' },
     { title: 'The Presentation', refs: 'Luke 2:22-38', fruit: 'Obedience' },
     { title: 'The Finding in the Temple', refs: 'Luke 2:41-52', fruit: 'Joy in finding Jesus' },

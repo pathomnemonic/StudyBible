@@ -3,17 +3,19 @@ import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { fmtDuration } from '../../data/biay';
-import { usePlayer } from '../../data/PlayerContext';
+import { rememberEpisode, usePlayer } from '../../data/PlayerContext';
 import { loadShow, lookupEpisode, type Show, type ShowData } from '../../data/podcasts';
 import type { BiayEpisode } from '../../data/content';
 import { fold } from '../../search/engine';
 import Icon from '../../components/Icon';
+import { toggleFollow, useFollows } from '../../lib/follow';
 
 type View = 'plan' | 'all' | 'queue' | 'progress';
 
-/** A podcast or year-long programme from its publisher's own feed. Episode lists are metadata; the audio plays from the publisher. */
+/** A podcast or year-long program from its publisher's own feed. Episode lists are metadata; the audio plays from the publisher. */
 export default function PodcastView({ show }: { show: Show }) {
   const player = usePlayer();
+  const following = useFollows().has(show.id);
   const [data, setData] = useState<ShowData | null | undefined>(undefined);
   const [view, setView] = useState<View>(show.programme ? 'plan' : 'all');
   const [q, setQ] = useState('');
@@ -25,7 +27,7 @@ export default function PodcastView({ show }: { show: Show }) {
   const list = useMemo(() => {
     if (!data) return [] as BiayEpisode[];
     if (view === 'plan') {
-      // one episode for each day of the programme: the latest release
+      // one episode for each day of the program: the latest release
       const byDay = new Map<number, BiayEpisode>();
       for (const e of data.episodes) if (e.day && (!byDay.has(e.day) || (e.year ?? 0) > (byDay.get(e.day)!.year ?? 0))) byDay.set(e.day, e);
       return [...byDay.keys()].sort((a, b) => a - b).map((d) => byDay.get(d)!);
@@ -50,7 +52,7 @@ export default function PodcastView({ show }: { show: Show }) {
 
   return (
     <section aria-label={show.title}>
-      <h2 className="h-sm" style={{ marginBottom: 2 }}>{show.title}</h2>
+      <div className="row between"><h2 className="h-sm" style={{ marginBottom: 2 }}>{show.title}</h2><button className="btn small" aria-pressed={following} onClick={() => toggleFollow(show.id, !following)}>{following ? '✓ Following' : '+ Follow'}</button></div>
       <p className="muted small" style={{ marginTop: 0 }}>{show.host}{show.publisher && show.publisher !== show.host ? ` · ${show.publisher}` : ''}{show.note ? ` · ${show.note}` : ''}</p>
       <p className="muted small">Episode lists come from the publisher’s own public feed, and the audio plays from them; nothing is copied. <a href={show.page} target="_blank" rel="noreferrer noopener">The publisher’s page</a>.{show.tradition ? ' Made for an Eastern Catholic audience.' : ''}</p>
       {data === undefined && <div className="center-note">Loading episodes…</div>}
@@ -64,8 +66,14 @@ export default function PodcastView({ show }: { show: Show }) {
               <button className="btn primary small" onClick={() => player.play(todaysEp)}><Icon name="play" size={14} /> Play</button>
             </div>
           )}
+          {!show.programme && view === 'all' && !q && (() => { const part = progress.filter((p) => !p.completed && p.position > 20 && p.episodeId.startsWith(`pod-${show.id}-`)).sort((a, b) => b.updatedAt - a.updatedAt)[0]; const e = part ? data.episodes.find((x) => x.id === part.episodeId) : data.episodes[0]; return e ? (
+            <div className="card" style={{ margin: '10px 0' }}>
+              <strong>{part ? 'Pick up where you stopped' : 'Latest episode'}</strong>
+              <div>{e.title}</div>
+              <button className="btn primary small" onClick={() => player.play(e)}><Icon name="play" size={14} /> {part ? `Resume at ${Math.floor(part.position / 60)} min` : 'Play'}</button>
+            </div>) : null; })()}
           <div className="tabbar" role="tablist">
-            {([...(show.programme ? [['plan', 'The programme']] : []), ['all', show.programme ? 'All episodes' : 'Latest episodes'], ['queue', `Queue (${queue.length})`], ['progress', 'My progress']] as [View, string][]).map(([k, l]) => (
+            {([...(show.programme ? [['plan', 'The program']] : []), ['all', show.programme ? 'All episodes' : 'Latest episodes'], ['queue', `Queue (${queue.length})`], ['progress', 'My progress']] as [View, string][]).map(([k, l]) => (
               <button key={k} role="tab" aria-selected={view === k} onClick={() => setView(k)}>{l}</button>
             ))}
           </div>
@@ -85,8 +93,8 @@ export default function PodcastView({ show }: { show: Show }) {
 function Row({ e, show, progress, inQueue }: { e: BiayEpisode; show: Show; progress?: { completed: boolean; position: number; duration?: number }; inQueue: boolean }) {
   const player = usePlayer();
   const pct = progress && progress.duration ? Math.round((100 * progress.position) / progress.duration) : 0;
-  const toggleQueue = async () => { if (inQueue) await db.queue.where('episodeId').equals(e.id).delete(); else await db.queue.add({ episodeId: e.id, order: Date.now() }); };
-  const toggleDone = () => db.episodeProgress.put({ episodeId: e.id, position: 0, completed: !progress?.completed, updatedAt: Date.now(), duration: progress?.duration });
+  const toggleQueue = async () => { if (inQueue) await db.queue.where('episodeId').equals(e.id).delete(); else { void rememberEpisode(e); await db.queue.add({ episodeId: e.id, order: Date.now() }); } };
+  const toggleDone = () => { void rememberEpisode(e); return db.episodeProgress.put({ episodeId: e.id, position: 0, completed: !progress?.completed, updatedAt: Date.now(), duration: progress?.duration }); };
   return (
     <li>
       <div className="row between">

@@ -2040,7 +2040,7 @@ a.t:hover {
   cursor: grab;
 }
 
-/* high contrast (light): black on white, strong borders, 7:1+ colours */
+/* high contrast (light): black on white, strong borders, 7:1+ colors */
 :root[data-theme='contrast'] {
   --bg: #ffffff;
   --surface: #ffffff;
@@ -2286,7 +2286,7 @@ a.t:hover {
 /* =========================================================================
    Calm layer — meditation-app inspired: soft aurora light, frosted glass, generous space,
    a display serif for headings, slow easing, a gentle breathing glow. Everything here is
-   decoration; colours come from the theme tokens above, and motion stops under reduced-motion.
+   decoration; colors come from the theme tokens above, and motion stops under reduced-motion.
    ========================================================================= */
 :root {
   --ease-calm: cubic-bezier(0.22, 0.8, 0.28, 1);
@@ -3444,12 +3444,12 @@ body {
 .item .fq p { margin: 0 0 4px; font-family: var(--font-display); font-size: 1.02rem; line-height: 1.5; }
 .item .fq footer { font-size: .78rem; opacity: .85; }
 
-.fulfil-guide { display: grid; gap: 8px; margin: 8px 0 22px; }
-.fulfil-guide summary { cursor: pointer; font-weight: 600; }
-.fulfil-list, .fulfil-reading { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-.fulfil-reading li { padding: 4px 0; }
-.fulfil-head { display: grid; gap: 2px; width: 100%; text-align: left; background: none; border: 0; padding: 0; color: inherit; cursor: pointer; font: inherit; }
-.fulfil-body { margin-top: 8px; }
+.fulfill-guide { display: grid; gap: 8px; margin: 8px 0 22px; }
+.fulfill-guide summary { cursor: pointer; font-weight: 600; }
+.fulfill-list, .fulfill-reading { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.fulfill-reading li { padding: 4px 0; }
+.fulfill-head { display: grid; gap: 2px; width: 100%; text-align: left; background: none; border: 0; padding: 0; color: inherit; cursor: pointer; font: inherit; }
+.fulfill-body { margin-top: 8px; }
 .fq-block { margin: 8px 0; padding: 8px 14px; border-left: 3px solid var(--accent); background: rgba(127,127,127,.08); border-radius: 0 10px 10px 0; }
 .fq-block p { margin: 0 0 4px; font-family: var(--font-display); font-size: 1.1rem; line-height: 1.5; }
 .fq-block footer { font-size: .8rem; }
@@ -3668,7 +3668,7 @@ body { background:
   background-attachment: fixed; }
 html[data-atm] .reader::before { opacity: 0.13; }
 
-/* ordinary footnotes: a number in its own colour, so they are not missed */
+/* ordinary footnotes: a number in its own color, so they are not missed */
 :root { --std-note: #e0a53a; }
 :root[data-theme='light'], :root[data-theme='paper'], :root[data-theme='sepia'] { --std-note: #b4641c; }
 .rm.rm-std { background: color-mix(in srgb, var(--std-note) 22%, transparent); color: var(--std-note); border-color: color-mix(in srgb, var(--std-note) 55%, transparent); font-weight: 700; }
@@ -3876,7 +3876,7 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .resume-chip { min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 3px; min-height: 64px; padding: 10px 8px; border-radius: 14px; border: 1px solid var(--hairline, #8884); background: color-mix(in srgb, var(--surface) 70%, transparent); text-decoration: none; color: inherit; }
 .resume-chip.on { border-color: color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
 .resume-chip .k { font-size: .7rem; letter-spacing: .03em; text-transform: uppercase; color: var(--muted); line-height: 1.15; }
-.resume-chip.on .k { color: inherit; opacity: .85; } /* the tinted background of the current chip needs the full text colour to stay readable in light themes */
+.resume-chip.on .k { color: inherit; opacity: .85; } /* the tinted background of the current chip needs the full text color to stay readable in light themes */
 .resume-chip .v { font-size: 1rem; font-weight: 600; line-height: 1.2; max-width: 100%; min-width: 0; overflow-wrap: anywhere; text-wrap: balance; }
 @media (max-width: 420px) { .resume-chips { gap: 7px; } .resume-chip { padding: 8px 5px; min-height: 60px; } .resume-chip .k { font-size: .62rem; } .resume-chip .v { font-size: .9rem; } }
 
@@ -4054,7 +4054,7 @@ html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: no
 
 @media print { .no-print { display: none !important; } }
 
-/* Windows high-contrast / forced colours: keep controls, selection and status visible when the system overrides our colours */
+/* Windows high-contrast / forced colors: keep controls, selection and status visible when the system overrides our colors */
 @media (forced-colors: active) {
   .btn, .chip, .icon-btn, select, input, textarea, .card { border: 1px solid CanvasText; }
   .btn.primary { forced-color-adjust: none; background: Highlight; color: HighlightText; }
@@ -4190,3 +4190,11 @@ html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: no
 .home::before { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 60%); pointer-events: none; }
 .more-menu .menu-narrow { display: none; }
 @media (max-width: 560px) { .work-reader .room-switch { display: none; } .more-menu .menu-narrow { display: block; } }
+.stars { display: flex; gap: 2px; }
+.star { background: none; border: 0; font-size: 1.6rem; line-height: 1; cursor: pointer; color: var(--muted); padding: 2px 3px; }
+.star.on { color: #d9a21b; }
+.shelf-control { margin: 18px 0; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--hairline, #8884); }
+.shelf-card.as-btn { text-align: left; cursor: pointer; font: inherit; color: inherit; }
+.shelf-badge { font-size: .68rem; letter-spacing: .03em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 14%, transparent); width: fit-content; }
+.shelf-badge.st-finished { background: color-mix(in srgb, #2e7d4f 22%, transparent); }
+.shelf-badge.st-dnf { background: color-mix(in srgb, #888 25%, transparent); }

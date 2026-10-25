@@ -42,7 +42,7 @@ export const OF_STEPS: MassStep[] = [
   { id: 'consecration', part: 'Liturgy of the Eucharist', title: 'Eucharistic Prayer: the Consecration', posture: 'kneel', what: 'The priest prays over the bread and wine, and by the Holy Spirit and Christ’s words they become the Body and Blood of Christ. The priest elevates the Host and the chalice.', people: ['Adore in silence', 'Sing or say the memorial acclamation'], note: 'Many people bow the head at the elevation.' },
   { id: 'amen', part: 'Liturgy of the Eucharist', title: 'Doxology and Great Amen', posture: 'kneel', what: 'The priest lifts the Host and chalice: “Through him, and with him, and in him…”', people: ['The Great Amen, sung or said with full voice'] },
   { id: 'ourfather', part: 'Communion Rite', title: 'The Lord’s Prayer', posture: 'stand', what: 'We pray the prayer Jesus taught, the Our Father.', people: ['Pray the Our Father together. The priest adds, “For the kingdom, the power and the glory are yours, now and for ever.”'] },
-  { id: 'peace', part: 'Communion Rite', title: 'Sign of Peace', posture: 'stand', what: 'The priest prays for peace and unity. We offer a sign of peace to those near us.', people: ['“And with your spirit.”', '“Peace be with you.” to neighbours'] },
+  { id: 'peace', part: 'Communion Rite', title: 'Sign of Peace', posture: 'stand', what: 'The priest prays for peace and unity. We offer a sign of peace to those near us.', people: ['“And with your spirit.”', '“Peace be with you.” to neighbors'] },
   { id: 'agnus', part: 'Communion Rite', title: 'Lamb of God', posture: 'kneel', what: 'During the breaking of the Host we sing or say the Agnus Dei. The priest holds up the Host: “Behold the Lamb of God…”', people: ['“Lord, I am not worthy that you should enter under my roof, but only say the word and my soul shall be healed.”'] },
   { id: 'communion', part: 'Communion Rite', title: 'Holy Communion', posture: 'move', what: 'We go forward in procession. To receive: bow before you receive, say “Amen” to “The Body of Christ,” and receive in the hand or on the tongue. Those who cannot receive may come forward with arms crossed for a blessing.', people: ['Sing the communion hymn', 'Return to your place and pray'], note: 'Receive only if you are a Catholic in a state of grace and have fasted for one hour.' },
   { id: 'thanks', part: 'Communion Rite', title: 'Thanksgiving', posture: 'sit', what: 'A time of silence or a hymn of thanks. Then the priest prays the prayer after Communion.', people: ['Pray your thanks to Jesus', '“Amen.”'] },
@@ -52,7 +52,7 @@ export const OF_STEPS: MassStep[] = [
 ];
 
 export const POSTURE: Record<Posture, { label: string; icon: string; hint: string }> = {
-  stand: { label: 'Stand', icon: '🧍', hint: 'We stand to pray and to honour the Gospel.' },
+  stand: { label: 'Stand', icon: '🧍', hint: 'We stand to pray and to honor the Gospel.' },
   sit: { label: 'Sit', icon: '🪑', hint: 'We sit to listen and reflect.' },
   kneel: { label: 'Kneel', icon: '🙏', hint: 'We kneel in adoration. If you cannot, bow or sit.' },
   move: { label: 'Move', icon: '🚶', hint: 'We go forward in procession.' },

@@ -138,7 +138,7 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
       )}
 
       <label className="row between" style={{ margin: '10px 0 4px' }}>
-        <span>Slowly drifting colour behind the text</span>
+        <span>Slowly drifting color behind the text</span>
         <input type="checkbox" checked={s.motes} onChange={(e) => set({ motes: e.target.checked })} aria-label="Soft moving light" />
       </label>
       <label className="row between" style={{ margin: '4px 0' }}>
@@ -158,7 +158,7 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <input type="checkbox" checked={s.inlineArt} onChange={(e) => set({ inlineArt: e.target.checked })} aria-label="Inline paintings" />
       </label>
       <details className="small" style={{ margin: '6px 0' }}>
-        <summary>Sound credits and licences</summary>
+        <summary>Sound credits and licenses</summary>
         <ul className="list">{tracks.map((t) => <li key={t.id}>{t.title}{t.artist ? ` — ${t.artist}` : ''} · {t.sourceUrl ? <a href={t.sourceUrl} target="_blank" rel="noreferrer">{t.license}</a> : t.license}{t.note ? `. ${t.note}` : ''}</li>)}</ul>
       </details>
 

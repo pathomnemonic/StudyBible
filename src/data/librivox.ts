@@ -66,3 +66,8 @@ export async function recordingForChapter(edition: string, book: string, chapter
   }
   return null;
 }
+
+/** Every library work that has recordings, with its recordings. */
+export async function allRecordedWorks(): Promise<Record<string, Recording[]>> {
+  return (await load())?.works ?? {};
+}

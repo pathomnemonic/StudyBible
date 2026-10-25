@@ -1,5 +1,5 @@
 /**
- * Reading atmosphere: a restrained colour and texture identity for each kind of book, with a few passage-level moods
+ * Reading atmosphere: a restrained color and texture identity for each kind of book, with a few passage-level moods
  * (a desert light for the Exodus, a storm sky for Job, dawn for the Resurrection). It only tints the backdrop; the text,
  * its contrast and its size are never changed. Everything here is decoration and can be switched off in Settings.
  */

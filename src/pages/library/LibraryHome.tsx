@@ -146,7 +146,7 @@ function Highlights() {
         <button className={`chip${!color ? ' sel' : ''}`} onClick={() => setColor('')}>All</button>
         {['yellow', 'green', 'blue', 'pink', 'orange', 'purple'].map((c) => <button key={c} className={`chip${color === c ? ' sel' : ''}`} onClick={() => setColor(c)} style={{ borderLeft: `10px solid var(--hl-${c})` }}>{c}</button>)}
       </div>
-      {list.length === 0 && <div className="empty-hero"><h2>No highlights yet</h2><p>Select a verse in the reader and choose a colour to mark it. Highlights stay with the verse in every translation.</p><Link className="btn primary" to="/read">Open the Bible</Link></div>}
+      {list.length === 0 && <div className="empty-hero"><h2>No highlights yet</h2><p>Select a verse in the reader and choose a color to mark it. Highlights stay with the verse in every translation.</p><Link className="btn primary" to="/read">Open the Bible</Link></div>}
       <ul className="list">
         {list.map((h) => { const r = parseRefId(h.ref)!; return <li key={h.id} className="row between"><span><span className="chip" style={{ background: `var(--hl-${h.color})` }}>&nbsp;</span> <RefLink refv={r} /></span><button className="btn small ghost" onClick={() => db.highlights.delete(h.id!)}>Remove</button></li>; })}
       </ul>

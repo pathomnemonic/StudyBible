@@ -161,11 +161,20 @@ export interface SavedItem extends Syncable {
   createdAt: number;
 }
 
+export type ShelfStatus = 'want' | 'reading' | 'finished' | 'dnf';
 export interface LibraryProgress extends Syncable {
   workId: string;
   section: string;
   scroll?: number;
   updatedAt: number;
+  /** the reader's own shelf: want to read, reading, finished, did not finish (absent = not started) */
+  status?: ShelfStatus;
+  rating?: number; // 1 to 5
+  review?: string;
+  startedAt?: number;
+  finishedAt?: number;
+  /** sections visited, so the work's real progress is known, not only the furthest point */
+  seen?: number[];
 }
 
 export interface MediaItem extends Syncable {

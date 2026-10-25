@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { fmtDuration, useBiay } from '../../data/biay';
-import { usePlayer } from '../../data/PlayerContext';
+import { rememberEpisode, usePlayer } from '../../data/PlayerContext';
 import { formatRef, parseRefId, parseRefs, refsOverlap } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import Icon from '../../components/Icon';
@@ -13,6 +13,9 @@ import MyMedia from '../../components/MyMedia';
 import YearHero from '../../components/YearHero';
 import { RecordedList } from '../../components/RecordedBooks';
 import PodcastView from './PodcastView';
+import ListenNow from './ListenNow';
+import PodcastLibrary from './PodcastLibrary';
+import Audiobooks from './Audiobooks';
 import { useShows } from '../../data/podcasts';
 import { useSettings } from '../../lib/store';
 
@@ -118,9 +121,9 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
   const pct = progress && progress.duration ? Math.round((100 * progress.position) / progress.duration) : 0;
   const toggleQueue = async () => {
     if (inQueue) await db.queue.where('episodeId').equals(e.id).delete();
-    else await db.queue.add({ episodeId: e.id, order: Date.now() });
+    else { void rememberEpisode(e); await db.queue.add({ episodeId: e.id, order: Date.now() }); }
   };
-  const toggleDone = () => db.episodeProgress.put({ episodeId: e.id, position: 0, completed: !progress?.completed, updatedAt: Date.now(), duration: progress?.duration });
+  const toggleDone = () => { void rememberEpisode(e); return db.episodeProgress.put({ episodeId: e.id, position: 0, completed: !progress?.completed, updatedAt: Date.now(), duration: progress?.duration }); };
   return (
     <li>
       <div className="row between">
@@ -143,36 +146,49 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
 }
 
 const KEY = 'sb:listen:show';
+type Tab = 'now' | 'podcasts' | 'audiobooks' | 'programmes';
+const TABS: [Tab, string][] = [['now', 'Listen now'], ['podcasts', 'Podcasts'], ['audiobooks', 'Audiobooks'], ['programmes', 'Programs']];
 
-/** The Listen tab: pick what to listen to from the list at the top. Bible in a Year is the default. */
+/** The Listen tab: where you left off, the podcast library, audiobooks, and the year-long programs. */
 export default function ListenHome() {
   const shows = useShows();
-  const [st] = useSettings();
-  const [id, setId] = useState(() => { try { return new URLSearchParams(location.hash.split('?')[1] ?? '').get('show') ?? localStorage.getItem(KEY) ?? 'biay'; } catch { return 'biay'; } });
-  const choose = (v: string) => { setId(v); try { localStorage.setItem(KEY, v); } catch { /* storage unavailable */ } };
-  const show = shows?.find((x) => x.id === id);
-  // programmes first, then your own Church's shows, then the rest
-  const mine = (x: { tradition: string | null }) => !!x.tradition && x.tradition === st.tradition;
+  const [sp, setSp] = useSearchParams();
+  const hashShow = (() => { try { return new URLSearchParams(location.hash.split('?')[1] ?? '').get('show'); } catch { return null; } })();
+  const stored = (() => { try { return localStorage.getItem(KEY); } catch { return null; } })();
+  const wanted = sp.get('show') ?? hashShow;
+  const tabParam = sp.get('tab') as Tab | null;
+  const wantedShow = shows?.find((x) => x.id === wanted);
+  const tab: Tab = tabParam && TABS.some((t) => t[0] === tabParam) ? tabParam : wanted ? (wanted === 'biay' || wantedShow?.programme ? 'programmes' : 'podcasts') : 'now';
+  const go = (t: Tab, extra: Record<string, string> = {}) => setSp({ tab: t, ...extra }, { replace: true });
+  const [progId, setProgId] = useState(() => (wanted && (wanted === 'biay' || wantedShow?.programme) ? wanted : stored && (stored === 'biay' || shows?.find((x) => x.id === stored)?.programme) ? stored : 'biay'));
+  const chooseProg = (v: string) => { setProgId(v); try { localStorage.setItem(KEY, v); } catch { /* storage unavailable */ } };
   const programmes = (shows ?? []).filter((x) => x.programme);
-  const others = (shows ?? []).filter((x) => !x.programme).sort((a, b) => Number(mine(b)) - Number(mine(a)));
+  const openId = tab === 'podcasts' ? sp.get('show') ?? (wantedShow && !wantedShow.programme ? wantedShow.id : '') : '';
+  const open = shows?.find((x) => x.id === openId);
+  const progShow = programmes.find((x) => x.id === progId);
   return (
     <div className="page">
-      <div className="row between" style={{ marginBottom: 6, flexWrap: 'wrap', gap: 8 }}>
-        <h1 style={{ margin: 0 }}>Listen</h1>
-        <label className="row" style={{ gap: 8 }}>
-          <span className="muted small">Listening to</span>
-          <select value={id} onChange={(e) => choose(e.target.value)} aria-label="Choose a programme or podcast" style={{ maxWidth: '70vw' }}>
-            <optgroup label="Year-long programmes">
+      <h1 style={{ marginTop: 0 }}>Listen</h1>
+      <div className="tabbar" role="tablist">
+        {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => go(k)}>{l}</button>)}
+      </div>
+      {tab === 'now' && <ListenNow />}
+      {tab === 'podcasts' && (open
+        ? <><button className="linklike small" onClick={() => go('podcasts')}>← All podcasts</button><PodcastView show={open} /></>
+        : <PodcastLibrary onOpen={(id) => go('podcasts', { show: id })} />)}
+      {tab === 'audiobooks' && <Audiobooks />}
+      {tab === 'programmes' && (
+        <>
+          <label className="row" style={{ gap: 8, marginBottom: 8 }}>
+            <span className="muted small">Program</span>
+            <select value={progId} onChange={(e) => chooseProg(e.target.value)} aria-label="Choose a program" style={{ maxWidth: '70vw' }}>
               <option value="biay">The Bible in a Year (Fr. Mike Schmitz)</option>
               {programmes.map((x) => <option key={x.id} value={x.id}>{x.title}</option>)}
-            </optgroup>
-            <optgroup label="Catholic podcasts">
-              {others.map((x) => <option key={x.id} value={x.id}>{x.title}{x.tradition ? ' (Eastern Catholic)' : ''}</option>)}
-            </optgroup>
-          </select>
-        </label>
-      </div>
-      {id === 'biay' || !shows ? <BiayWrapper /> : show ? <PodcastView show={show} /> : <BiayWrapper />}
+            </select>
+          </label>
+          {progId === 'biay' || !shows ? <BiayWrapper /> : progShow ? <PodcastView show={progShow} /> : <BiayWrapper />}
+        </>
+      )}
     </div>
   );
 }

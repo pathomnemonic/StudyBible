@@ -41,7 +41,7 @@ function Cites({ text, onOpen }: { text: string; onOpen: (ref: ReturnType<typeof
   );
 }
 
-/** The Catechism of the Catholic Church, read in the app: any paragraph with its neighbours, its Scripture footnotes as links, and a search. */
+/** The Catechism of the Catholic Church, read in the app: any paragraph with its neighbors, its Scripture footnotes as links, and a search. */
 export default function CatechismPage() {
   const { n } = useParams();
   const nav = useNavigate();

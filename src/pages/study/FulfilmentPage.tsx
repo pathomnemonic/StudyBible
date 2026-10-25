@@ -47,7 +47,7 @@ export default function FulfilmentPage() {
 
       <section aria-labelledby="how">
         <h2 id="how" className="h-sm">How it works</h2>
-        <div className="fulfil-guide">
+        <div className="fulfill-guide">
           {guide.map((g) => (
             <details key={g.title} className="card">
               <summary>{g.title}</summary>
@@ -63,16 +63,16 @@ export default function FulfilmentPage() {
         <div className="chips" style={{ margin: '4px 0 12px' }}>
           {KINDS.map(([k, l]) => <button key={k} className={'chip' + (kind === k ? ' sel' : '')} aria-pressed={kind === k} onClick={() => setKind(k)}>{l}</button>)}
         </div>
-        <ul className="fulfil-list">
+        <ul className="fulfill-list">
           {shown.map((e) => (
             <li key={e.id} className="card">
-              <button className="fulfil-head" aria-expanded={open === e.id} onClick={() => setOpen(open === e.id ? null : e.id)}>
+              <button className="fulfill-head" aria-expanded={open === e.id} onClick={() => setOpen(open === e.id ? null : e.id)}>
                 <span className="kicker">{e.kind === 'prophecy' ? 'Prophecy' : 'Type'}</span>
                 <strong>{e.title}</strong>
                 <span className="muted small">{[...(e.b ?? []), ...(e.a ?? [])].slice(0, 3).map((id) => { const r = parseRefId(id); return r ? formatRef(r, { noDual: true }) : ''; }).join(' → ')}</span>
               </button>
               {open === e.id && (
-                <div className="fulfil-body">
+                <div className="fulfill-body">
                   <p>{e.note}</p>
                   {(e.quotes ?? []).map((q) => (
                     <blockquote key={q.text.slice(0, 20)} className="fq-block">
@@ -93,7 +93,7 @@ export default function FulfilmentPage() {
 
       <section aria-labelledby="more">
         <h2 id="more" className="h-sm">Read more</h2>
-        <ul className="fulfil-reading">
+        <ul className="fulfill-reading">
           {reading.map((r) => (
             <li key={r.title}>
               {r.internal ? <Link to={r.internal}><strong>{r.title}</strong></Link> : <a href={r.url} target="_blank" rel="noreferrer"><strong>{r.title}</strong> ↗</a>}

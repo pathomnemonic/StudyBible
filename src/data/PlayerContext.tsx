@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { db } from '../db/db';
 import { loadBiay } from './biay';
-import { lookupEpisode } from './podcasts';
+import { lookupEpisode, registerEpisodes } from './podcasts';
 import type { BiayEpisode } from './content';
 
 interface PlayerState {
@@ -21,6 +21,17 @@ interface PlayerState {
 const Ctx = createContext<PlayerState | null>(null);
 export const usePlayer = () => useContext(Ctx)!;
 
+/** Keep a copy of an episode's details so it can be resumed, queued or advanced to even when its show is not loaded. */
+export const rememberEpisode = (e: BiayEpisode) => db.cache.put({ key: `ep:${e.id}`, value: e as unknown as string, ts: Date.now() }).catch(() => undefined);
+export async function resolveEpisode(id: string): Promise<BiayEpisode | undefined> {
+  const hit = lookupEpisode(id);
+  if (hit) return hit;
+  const row = await db.cache.get(`ep:${id}`);
+  const ep = row?.value as unknown as BiayEpisode | undefined;
+  if (ep && typeof ep === 'object') { registerEpisodes([ep]); return ep; }
+  return undefined;
+}
+
 /**
  * One global <audio> element so playback continues while navigating. Uses the Media Session API for lock-screen /
  * background controls where the browser supports it. The audio is the publisher's own enclosure URL from the
@@ -32,12 +43,13 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [playing, setPlaying] = useState(false);
   const [position, setPosition] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [rate, setRateState] = useState(1);
+  const [rate, setRateState] = useState(() => { try { return Number(localStorage.getItem('sb:rate')) || 1; } catch { return 1; } });
   const lastSave = useRef(0);
 
   useEffect(() => {
     const a = new Audio();
     a.preload = 'none';
+    a.playbackRate = rate;
     audio.current = a;
     const save = (completed = false) => {
       const cur = (a as any)._ep as BiayEpisode | undefined;
@@ -69,11 +81,29 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       if (idx >= 0) await db.queue.delete(q[idx].id!);
       if (next) {
         await loadBiay();
-        const ep = lookupEpisode(next.episodeId);
+        const ep = await resolveEpisode(next.episodeId);
         if (ep) play(ep);
       }
     });
+    const hide = () => { if (document.visibilityState === 'hidden') save(); };
+    document.addEventListener('visibilitychange', hide);
+    window.addEventListener('pagehide', () => save());
+    // after a reload, bring back the last thing played, paused, at the place it stopped
+    db.cache.get('player:last').then(async (row) => {
+      const id = row?.value as unknown as string | undefined;
+      if (!id || (a as any)._ep) return;
+      const ep = await resolveEpisode(id);
+      const prog = await db.episodeProgress.get(id);
+      if (!ep || (a as any)._ep || prog?.completed) return;
+      (a as any)._ep = ep;
+      a.src = ep.audio;
+      a.preload = 'metadata';
+      a.addEventListener('loadedmetadata', () => { a.currentTime = prog?.position ?? 0; }, { once: true });
+      setCurrent(ep);
+      setPosition(prog?.position ?? 0);
+    });
     return () => {
+      document.removeEventListener('visibilitychange', hide);
       a.pause();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -82,6 +112,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const play = useCallback(async (e: BiayEpisode, startAt?: number) => {
     const a = audio.current!;
     if ((a as any)._ep?.id === e.id && startAt !== undefined) a.currentTime = startAt;
+    void rememberEpisode(e);
+    db.cache.put({ key: 'player:last', value: e.id as unknown as string, ts: Date.now() }).catch(() => undefined);
     if ((a as any)._ep?.id !== e.id) {
       (a as any)._ep = e;
       a.src = e.audio;
@@ -97,11 +129,13 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       /* autoplay blocked: user can press play */
     }
     if ('mediaSession' in navigator) {
-      navigator.mediaSession.metadata = new MediaMetadata({ title: e.title, artist: e.artist ?? 'Fr. Mike Schmitz · Ascension', album: e.album ?? 'The Bible in a Year' });
+      navigator.mediaSession.metadata = new MediaMetadata({ title: e.title, artist: e.artist ?? e.album ?? 'Ascension', album: e.album ?? 'The Bible in a Year' });
       navigator.mediaSession.setActionHandler('play', () => a.play());
       navigator.mediaSession.setActionHandler('pause', () => a.pause());
       navigator.mediaSession.setActionHandler('seekbackward', () => (a.currentTime = Math.max(0, a.currentTime - 15)));
       navigator.mediaSession.setActionHandler('seekforward', () => (a.currentTime = a.currentTime + 30));
+      navigator.mediaSession.setActionHandler('nexttrack', () => { a.currentTime = a.duration || a.currentTime; });
+      navigator.mediaSession.setActionHandler('previoustrack', () => { a.currentTime = 0; });
     }
   }, [rate]);
 
@@ -118,6 +152,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       skip: (d) => (audio.current!.currentTime = Math.max(0, audio.current!.currentTime + d)),
       setRate: (r) => {
         setRateState(r);
+        try { localStorage.setItem('sb:rate', String(r)); } catch { /* storage unavailable */ }
         audio.current!.playbackRate = r;
       },
       stop: () => {
@@ -125,6 +160,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         (audio.current as any)._ep = undefined;
         audio.current!.removeAttribute('src');
         setCurrent(null);
+        db.cache.delete('player:last').catch(() => undefined);
       },
     }),
     [current, playing, position, duration, rate, play],

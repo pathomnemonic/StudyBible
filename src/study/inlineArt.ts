@@ -47,7 +47,7 @@ export async function artForChapter(book: string, anchorChapters: number[]): Pro
       break;
     }
   }
-  // paintings first (they are in colour), then engravings; keep scenes apart so illustrations do not crowd one spot
+  // paintings first (they are in color), then engravings; keep scenes apart so illustrations do not crowd one spot
   cands.sort((a, b) => Number(String(a.id).startsWith('dore')) - Number(String(b.id).startsWith('dore')));
   for (const c of cands) {
     if (out.length >= 3) break;

@@ -21,7 +21,7 @@ export default function PassageStudy() {
   useEffect(() => {
     if (r) passageText(ed, r, 14).then(setText);
   }, [refId, ed.id]);
-  if (!r) return <div className="page">Unrecognised passage.</div>;
+  if (!r) return <div className="page">Unrecognized passage.</div>;
   return (
     <div className="page">
       <div className="row between"><h1 style={{ margin: 0 }}>{formatRef(r)}</h1><span className="row no-print" style={{ gap: 6 }}><button className="btn small" aria-pressed={sheet} onClick={() => setSheet(!sheet)}>Group sheet</button><button className="btn small" onClick={() => window.print()}>Print</button></span></div>

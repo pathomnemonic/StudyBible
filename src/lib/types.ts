@@ -92,7 +92,7 @@ export interface Edition {
   rtl?: boolean;
   /** Set for translations whose language is old or unfamiliar: they are off by default, and this says why. */
   offByDefault?: string;
-  /** whether the Church has approved this translation for Catholic use (never guessed: 'none' means no approval, not a judgement of quality) */
+  /** whether the Church has approved this translation for Catholic use (never guessed: 'none' means no approval, not a judgment of quality) */
   approval?: 'approved' | 'none';
   approvalNote?: string;
 }

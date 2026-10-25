@@ -12,14 +12,14 @@
 | Peers (Dark Night), 1949 Imitation, Devout Life (CCEL) | **Not bundled** | Translation date/status unverified |
 | Catechism text | Not bundled | © LEV/USCCB; only numbers and check phrases stored |
 | Lectionary / NABRE / RSV / NJB | Not bundled | Copyrighted |
-| Bible in a Year, Word on Fire, Catholic Answers, Ascension | Metadata/links only | No reuse licence |
+| Bible in a Year, Word on Fire, Catholic Answers, Ascension | Metadata/links only | No reuse license |
 | Traditional prayers (Our Father, Hail Mary, Memorare, …) | Bundled | Long-established traditional wording; ICEL liturgical texts excluded |
 
 ## Adding licensed content
 
 1. Put the licensed file under `data/licensed/` (git-ignored) and add an adapter in `scripts/ingest/` that outputs the same pack shape.
-2. Record `rights: "licensed"`, the licence reference and permitted uses (offline? excerpt length?) in the registry; set `offlineAllowed` accordingly.
-3. Do not commit it to a public repository unless the licence allows redistribution.
+2. Record `rights: "licensed"`, the license reference and permitted uses (offline? excerpt length?) in the registry; set `offlineAllowed` accordingly.
+3. Do not commit it to a public repository unless the license allows redistribution.
 
 ## Attribution
 

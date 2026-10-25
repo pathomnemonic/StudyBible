@@ -3,7 +3,7 @@ import type { HighlightColor } from '../db/db';
 
 const COLORS: HighlightColor[] = ['yellow', 'green', 'blue', 'pink'];
 
-/** A small bar over a selection inside the text of a work: highlight in a colour, add a note, or copy. */
+/** A small bar over a selection inside the text of a work: highlight in a color, add a note, or copy. */
 export default function WorkSelection({ onHighlight, onNote }: { onHighlight: (quote: string, paraIndex: number, color: HighlightColor) => void; onNote: (quote: string, paraIndex: number) => void }) {
   const [pos, setPos] = useState<{ x: number; y: number; text: string; p: number } | null>(null);
   useEffect(() => {

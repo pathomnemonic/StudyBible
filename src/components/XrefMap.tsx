@@ -5,7 +5,7 @@ import { getBook } from '../lib/canon';
 
 const COLORS = ['#8a2f39', '#3f6a8a', '#2f7d5b', '#6b5a9a', '#a07a1c', '#b4631f', '#5b7a4f', '#9a6a8a'];
 
-/** A radial map of a verse's cross-references. Each spoke is a passage; colour groups the book; click one to open it. */
+/** A radial map of a verse's cross-references. Each spoke is a passage; color groups the book; click one to open it. */
 export default function XrefMap({ items, center, onOpen }: { items: StudyItem[]; center: string; onOpen: (id: string) => void }) {
   const [hover, setHover] = useState<string | null>(null);
   const list = items.filter((i) => i.xrefTarget).slice(0, 28);

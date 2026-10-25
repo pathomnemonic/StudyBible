@@ -28,7 +28,7 @@ export default function GraphPage() {
   }, []);
   const graph = useMemo(() => buildGraph(notes, collections, xrefs, doctrine, suggest), [notes, collections, xrefs, doctrine, suggest]);
   const visibleIds = useMemo(() => new Set(graph.nodes.filter((n) => !hidden.has(n.kind)).map((n) => n.id)), [graph, hidden]);
-  const neighbours = useMemo(() => {
+  const neighbors = useMemo(() => {
     const m = new Map<string, Set<string>>();
     for (const e of graph.edges) {
       (m.get(e.a) ?? m.set(e.a, new Set()).get(e.a)!).add(e.b);
@@ -61,9 +61,9 @@ export default function GraphPage() {
   const [view, setView] = useState({ x: 0, y: 0, k: 1 });
   const drag = useRef<{ x: number; y: number } | null>(null);
   const chosen = sel ? byId.get(sel) : null;
-  const near = chosen ? [...(neighbours.get(chosen.id) ?? [])].map((i) => byId.get(i)!).filter(Boolean) : [];
+  const near = chosen ? [...(neighbors.get(chosen.id) ?? [])].map((i) => byId.get(i)!).filter(Boolean) : [];
   const questions = graph.nodes.filter((n) => n.kind === 'question');
-  const dim = (id: string) => (lc && !matches.has(id)) || (sel && id !== sel && !(neighbours.get(sel)?.has(id)));
+  const dim = (id: string) => (lc && !matches.has(id)) || (sel && id !== sel && !(neighbors.get(sel)?.has(id)));
 
   if (!notes.length && !collections.length)
     return (
@@ -124,7 +124,7 @@ export default function GraphPage() {
           {graph.nodes.filter((n) => visibleIds.has(n.id)).sort((a, b) => a.kind.localeCompare(b.kind) || a.label.localeCompare(b.label)).map((n) => (
             <li key={n.id}>
               <button className="linklike" onClick={() => setSel(n.id)}>{n.label}</button> <span className="chip">{KIND_LABEL[n.kind]}</span>
-              <span className="muted small"> linked to {[...(neighbours.get(n.id) ?? [])].map((i) => byId.get(i)?.label).filter(Boolean).slice(0, 6).join(', ') || 'nothing yet'}</span>
+              <span className="muted small"> linked to {[...(neighbors.get(n.id) ?? [])].map((i) => byId.get(i)?.label).filter(Boolean).slice(0, 6).join(', ') || 'nothing yet'}</span>
             </li>
           ))}
         </ul>
@@ -158,7 +158,7 @@ export default function GraphPage() {
             {questions.map((n) => (
               <li key={n.id}>
                 <button className="linklike" onClick={() => setSel(n.id)}>{n.label}</button>
-                <span className="muted small"> {[...(neighbours.get(n.id) ?? [])].map((i) => byId.get(i)?.label).filter(Boolean).slice(0, 3).join(', ')}</span>
+                <span className="muted small"> {[...(neighbors.get(n.id) ?? [])].map((i) => byId.get(i)?.label).filter(Boolean).slice(0, 3).join(', ')}</span>
               </li>
             ))}
           </ul>

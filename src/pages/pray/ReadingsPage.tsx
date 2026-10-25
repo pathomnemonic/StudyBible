@@ -75,7 +75,7 @@ export default function ReadingsPage() {
 
       {s.tradition === 'byzantine' && <ByzantineDay date={date} />}
       <div className="card">
-        <div className="row between"><h2>{lit.dayName}</h2><span className="chip" title="The colour of the priest’s vestments today">Vestments: {COLOR_NAME[lit.color]}</span></div>
+        <div className="row between"><h2>{lit.dayName}</h2><span className="chip" title="The color of the priest’s vestments today">Vestments: {COLOR_NAME[lit.color]}</span></div>
         <div className="muted small">{lit.seasonName}{lit.week ? `, week ${lit.week}` : ''} · Sunday cycle {lit.sundayCycle} · weekday cycle {lit.weekdayCycle} (computed offline)</div>
         {events.length > 0 && (
           <ul className="list small">
@@ -142,7 +142,7 @@ export default function ReadingsPage() {
         )}
         <details className="small" style={{ marginTop: 8 }}>
           <summary>Importing a lectionary data file</summary>
-          <p className="muted">If you hold a licence to a lectionary reference list, import it as JSON: <code>{`{"2026-10-19": {"first_reading": "Ephesians 2:1-10", "responsorial_psalm": "Psalm 100:1-5", "gospel": "Luke 12:13-21"}}`}</code>. Nothing is uploaded.</p>
+          <p className="muted">If you hold a license to a lectionary reference list, import it as JSON: <code>{`{"2026-10-19": {"first_reading": "Ephesians 2:1-10", "responsorial_psalm": "Psalm 100:1-5", "gospel": "Luke 12:13-21"}}`}</code>. Nothing is uploaded.</p>
         </details>
       </div>
 
@@ -168,7 +168,7 @@ export default function ReadingsPage() {
               );
             })}
           </div>
-          <p className="muted small">Top border = liturgical colour of the season. Titles show memorials and above.</p>
+          <p className="muted small">Top border = liturgical color of the season. Titles show memorials and above.</p>
         </div>
       )}
     </div>

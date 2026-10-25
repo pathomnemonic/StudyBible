@@ -17,7 +17,7 @@ Use the **Report a problem** link on a study item, or open an issue with the *Da
 | A cross-reference | `public/data/xrefs/<BOOK>.json` is generated from OpenBible; add to `data/curated/` instead of editing it |
 | A study link to a page, video or homily | `data/curated/videos.json`, `data/curated/apologetics.json` and the matching scripts in `data/curated/` and `scripts/videos/` |
 | A quotation or its author | `data/curated/` daily quotes; cite the edition and page |
-| A source's licence or credit | `docs/DATA_SOURCES.md`, `docs/LICENSING.md` and `public/data/licenses.json` |
+| A source's license or credit | `docs/DATA_SOURCES.md`, `docs/LICENSING.md` and `public/data/licenses.json` |
 | An OCR error in the Roman Catechism | `public/data/library/` section file, with the page image or print source |
 
 Generated files are rebuilt by `npm run data:all` (see `docs/INGESTION.md`); do not hand-edit them unless the file says it is curated.

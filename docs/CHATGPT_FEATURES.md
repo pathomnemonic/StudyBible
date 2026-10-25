@@ -33,9 +33,9 @@ Source: the whole ChatGPT conversation about this project (the code review, "40 
 | 25 | Listen to the original languages | Yes | Pronunciation coach (device voice; not recorded Greek or Hebrew) |
 | 26 | Quotation detector | Yes | NT quotations of the OT in the lens notes |
 | 27 | Frequency maps | Yes | Word journeys and repeated-word fingerprint |
-| 28 | Liturgical year as a navigable map | Yes | **The Church's year** (`/pray/year`): seasons, colours, great days, each linked to its readings |
+| 28 | Liturgical year as a navigable map | Yes | **The Church's year** (`/pray/year`): seasons, colors, great days, each linked to its readings |
 | 29 | Patristic commentary explorer | Yes | Fathers tab, Fathers library, Voices timeline (`/study/voices`) |
-| 30 | Scripture-to-Catechism pathway | Partly | Verified Catechism links (29 verses, 18 topics); the full index needs a licence |
+| 30 | Scripture-to-Catechism pathway | Partly | Verified Catechism links (29 verses, 18 topics); the full index needs a license |
 | 31 | Development-of-doctrine timelines | Partly | Doctrine topics and the patristic timeline; no per-doctrine timeline |
 | 32 | Eastern / Syro-Malabar pathway | Partly | **Your Church** setting (Settings): the liturgy's own name, Septuagint Psalm numbering, Eastern prayers first, Roman-only content labelled as Roman, and for Byzantine Churches the year's great days (Julian or Rome's Pascha, old or new calendar) and a Divine Liturgy outline. The Syriac, Armenian, Alexandrian and Chaldean calendars, lectionaries and hours are not in the app; it says so and links to the Church's own site |
 | 33 | Daily readings with historical context | Partly | Readings, Prepare for Sunday, homilies and commentary; short historical notes only where we have them |

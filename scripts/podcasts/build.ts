@@ -75,7 +75,7 @@ async function build(show: any) {
   if (!show.programme && show.cap) eps = eps.slice(0, show.cap);
   const data = { meta: { id: show.id, title: show.title, host: show.host, publisher: show.publisher, page: show.page, feed: show.feed, retrieved: new Date().toISOString().slice(0, 10), total: String(total), kept: String(eps.length) }, episodes: eps };
   writeFileSync(join(OUT, 'podcast', `${show.id}.json`), JSON.stringify(data));
-  return { id: show.id, title: show.title, host: show.host, publisher: show.publisher, programme: !!show.programme, tradition: show.tradition ?? null, note: show.note ?? '', page: show.page, episodes: eps.length, latest: eps[0]?.date ?? '' };
+  return { id: show.id, title: show.title, host: show.host, publisher: show.publisher, programme: !!show.programme, tradition: show.tradition ?? null, category: show.category ?? 'Faith and culture', note: show.note ?? '', page: show.page, episodes: eps.length, latest: eps[0]?.date ?? '' };
 }
 
 let previous: any[] = [];

@@ -9,6 +9,7 @@ export interface Show {
   publisher: string;
   programme: boolean;
   tradition: string | null;
+  category?: string;
   note: string;
   page: string;
   episodes: number;

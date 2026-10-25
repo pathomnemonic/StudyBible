@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * A few huge, soft blobs of colour drifting very slowly behind the text, like a screensaver turned down almost to nothing.
- * The colours come from the page's own theme and the book's atmosphere; it is off for reduced motion, paused when the tab is
+ * A few huge, soft blobs of color drifting very slowly behind the text, like a screensaver turned down almost to nothing.
+ * The colors come from the page's own theme and the book's atmosphere; it is off for reduced motion, paused when the tab is
  * hidden, and can be switched off in Reading settings.
  */
 export default function Motes() {
@@ -17,11 +17,11 @@ export default function Motes() {
     const size = () => { w = Math.ceil(cv.clientWidth / 3); h = Math.ceil(cv.clientHeight / 3); cv.width = w * dpr; cv.height = h * dpr; };
     size();
     const css = (n: string) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-    const colours = () => {
+    const colors = () => {
       const c = ['--aura-a', '--aura-b', '--aura-c', '--accent'].map(css).filter((x) => x && x !== 'transparent');
       return c.length ? c : ['rgba(150,130,255,.5)'];
     };
-    let cols = colours();
+    let cols = colors();
     // each blob: a base position, an orbit and a speed, so the whole picture never repeats quickly
     const blobs = Array.from({ length: 4 }, (_, i) => ({ x: .2 + .6 * Math.random(), y: .2 + .6 * Math.random(), ax: .18 + .12 * Math.random(), ay: .14 + .12 * Math.random(), sx: .018 + .02 * Math.random(), sy: .015 + .02 * Math.random(), ph: Math.random() * 6.28, r: .38 + .22 * Math.random(), c: i }));
     const tick = (t: number) => {
@@ -42,10 +42,10 @@ export default function Motes() {
       }
       g.globalAlpha = 1;
     };
-    const vis = () => { cancelAnimationFrame(raf); if (!document.hidden) { cols = colours(); raf = requestAnimationFrame(tick); } };
+    const vis = () => { cancelAnimationFrame(raf); if (!document.hidden) { cols = colors(); raf = requestAnimationFrame(tick); } };
     document.addEventListener('visibilitychange', vis);
     window.addEventListener('resize', size);
-    const mo = new MutationObserver(() => { cols = colours(); });
+    const mo = new MutationObserver(() => { cols = colors(); });
     mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-atm', 'data-theme'] });
     raf = requestAnimationFrame(tick);
     return () => { cancelAnimationFrame(raf); mo.disconnect(); document.removeEventListener('visibilitychange', vis); window.removeEventListener('resize', size); };

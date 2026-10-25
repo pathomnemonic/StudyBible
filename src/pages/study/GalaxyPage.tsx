@@ -117,7 +117,7 @@ export default function GalaxyPage() {
         </div>
         {help && (
           <div className="galaxy-help" role="note">
-            <p><strong>Each star is a book of the Bible.</strong> The colour is its region of the canon (the law, the prophets, the Gospels and so on), and books that sit close together are joined by many cross-references.</p>
+            <p><strong>Each star is a book of the Bible.</strong> The color is its region of the canon (the law, the prophets, the Gospels and so on), and books that sit close together are joined by many cross-references.</p>
             <p><strong>Choose a star</strong> and the camera flies to it. Glowing threads then run to the books it is most tied to, by cross-references and quotations, and the longer bars on the card show the stronger ties.</p>
             <p><strong>The rings of stars further out</strong> are the Fathers, saints, councils and catechisms. Each sits beside the books it speaks about most. Choose one to read it.</p>
             <p className="muted">Drag to look around, scroll or pinch to fly, Esc to return to the overview.</p>

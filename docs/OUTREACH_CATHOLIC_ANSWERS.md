@@ -21,4 +21,4 @@ Thank you for your work.
 ## Update: what the app does today
 Catholic Answers' permissions page welcomes links to individual pages, so the app links to individual catholic.com pages that a person (here, an AI assistant working with the maintainer) matched to a passage
 from the page title and a search-result summary. Each row records `basis: title-and-summary` and is labelled that way in the app. Nothing is crawled, no article text is stored, and no metadata beyond title + URL is kept.
-A larger, authorised mapping from Catholic Answers would replace these rows: see `data/licensed/` in docs/INGESTION.md.
+A larger, authorized mapping from Catholic Answers would replace these rows: see `data/licensed/` in docs/INGESTION.md.

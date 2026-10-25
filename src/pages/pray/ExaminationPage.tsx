@@ -37,18 +37,18 @@ const SECTIONS: { title: string; ref: string; qs: string[] }[] = [
     'Have I stolen, cheated, or kept what is not mine, including at work or in taxes?',
     'Have I failed to pay a just debt or a fair wage, or wasted what was entrusted to me?',
     'Have I been generous to the poor and to the Church according to my means?' ] },
-  { title: 'You shall not bear false witness against your neighbour', ref: 'Exodus 20:16', qs: [
+  { title: 'You shall not bear false witness against your neighbor', ref: 'Exodus 20:16', qs: [
     'Have I lied, exaggerated or deceived, or broken a confidence?',
     'Have I gossiped, slandered, or spoken ill of someone without need?',
     'Have I judged others rashly, or refused to repair harm I have done to their good name?' ] },
-  { title: 'You shall not covet your neighbour’s wife or goods', ref: 'Exodus 20:17', qs: [
+  { title: 'You shall not covet your neighbor’s wife or goods', ref: 'Exodus 20:17', qs: [
     'Have I been jealous or envious of what others have or are?',
     'Have I let greed or the desire to have more rule my choices?',
     'Have I let lust or desire for another person’s spouse take root in my heart?' ] },
   { title: 'The precepts of the Church and my duties', ref: 'Catechism 2041-2043', qs: [
     'Have I gone to confession at least once a year, and to Communion at least once a year at Easter?',
     'Have I kept the days of fasting and abstinence, and received Communion only when rightly prepared, fasting an hour before and free of mortal sin?',
-    'Have I neglected the duties of my state in life (family, work, study) or my duty to love my neighbour in practical ways?',
+    'Have I neglected the duties of my state in life (family, work, study) or my duty to love my neighbor in practical ways?',
     'Have I been lazy in using my gifts, or proud, vain, or selfish in how I treat others?' ] },
 ];
 

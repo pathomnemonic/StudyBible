@@ -7,7 +7,8 @@
   "feed": "https://feeds.fireside.fm/catechisminayear/rss",
   "page": "https://catechisminayear.com/",
   "programme": true,
-  "note": "Reads the whole Catechism of the Catholic Church in 365 days."
+  "note": "Reads the whole Catechism of the Catholic Church in 365 days.",
+  "category": "Programs"
  },
  {
   "id": "rosary-in-a-year",
@@ -17,7 +18,8 @@
   "feed": "https://feeds.fireside.fm/rosaryinayear/rss",
   "page": "https://rosaryinayear.com/",
   "programme": true,
-  "note": "Prays the Rosary each day with a short reflection, for a year."
+  "note": "Prays the Rosary each day with a short reflection, for a year.",
+  "category": "Programs"
  },
  {
   "id": "fr-mike",
@@ -26,7 +28,8 @@
   "publisher": "Ascension",
   "feed": "https://feeds.fireside.fm/thefrmikepodcast/rss",
   "page": "https://www.ascensionpress.com/",
-  "cap": 150
+  "cap": 150,
+  "category": "Spiritual life"
  },
  {
   "id": "sunday-homilies",
@@ -36,7 +39,8 @@
   "feed": "https://feeds.fireside.fm/fathermikehomilies/rss",
   "page": "https://www.ascensionpress.com/",
   "cap": 150,
-  "note": "Homilies for the Sunday Mass readings."
+  "note": "Homilies for the Sunday Mass readings.",
+  "category": "Homilies and daily reflections"
  },
  {
   "id": "all-things-catholic",
@@ -45,7 +49,8 @@
   "publisher": "Ascension",
   "feed": "https://feeds.fireside.fm/allthingscatholic/rss",
   "page": "https://www.ascensionpress.com/",
-  "cap": 150
+  "cap": 150,
+  "category": "Faith and culture"
  },
  {
   "id": "catholic-answers-live",
@@ -55,7 +60,8 @@
   "feed": "http://feeds.feedburner.com/catholic/cal",
   "page": "https://www.catholic.com/audio/cal",
   "cap": 150,
-  "note": "Callers ask questions about the Catholic faith."
+  "note": "Callers ask questions about the Catholic faith.",
+  "category": "Apologetics"
  },
  {
   "id": "word-on-fire-show",
@@ -64,7 +70,8 @@
   "publisher": "Word on Fire",
   "feed": "https://rss.libsyn.com/shows/71279/destinations/302449.xml",
   "page": "https://www.wordonfire.org/",
-  "cap": 150
+  "cap": 150,
+  "category": "Faith and culture"
  },
  {
   "id": "barron-sermons",
@@ -73,7 +80,8 @@
   "publisher": "Word on Fire",
   "feed": "https://feed.podbean.com/wordonfire/feed.xml",
   "page": "https://www.wordonfire.org/",
-  "cap": 150
+  "cap": 150,
+  "category": "Homilies and daily reflections"
  },
  {
   "id": "pints-with-aquinas",
@@ -82,7 +90,8 @@
   "publisher": "Pints With Aquinas",
   "feed": "https://feeds.megaphone.fm/BVDWV3128780668",
   "page": "https://pintswithaquinas.com/",
-  "cap": 150
+  "cap": 150,
+  "category": "Apologetics"
  },
  {
   "id": "catholic-talk-show",
@@ -91,7 +100,8 @@
   "publisher": "The Catholic Talk Show",
   "feed": "https://feeds.megaphone.fm/KM5671060902",
   "page": "https://www.thecatholictalkshow.com/",
-  "cap": 150
+  "cap": 150,
+  "category": "Faith and culture"
  },
  {
   "id": "pray-as-you-go",
@@ -101,7 +111,8 @@
   "feed": "https://admin.prayasyougo.org/api/feed.xml",
   "page": "https://pray-as-you-go.org/",
   "cap": 120,
-  "note": "A short daily prayer session with the day’s Scripture, from the Jesuits."
+  "note": "A short daily prayer session with the day’s Scripture, from the Jesuits.",
+  "category": "Prayer"
  },
  {
   "id": "father-simon-says",
@@ -110,7 +121,8 @@
   "publisher": "Relevant Radio",
   "feed": "https://www.omnycontent.com/d/playlist/134e18ca-7af8-403f-a7eb-ad7f01861f48/0af98cb5-6484-4e11-a791-adf0015aa9b6/2e62f887-a693-42e6-a627-adf0015aa9c4/podcast.rss",
   "page": "https://relevantradio.com/",
-  "cap": 150
+  "cap": 150,
+  "category": "Homilies and daily reflections"
  },
  {
   "id": "veritas-gospel",
@@ -120,7 +132,8 @@
   "feed": "https://feed.podbean.com/dailycatholicreflection/feed.xml",
   "page": "https://veritascatholic.network/",
   "cap": 120,
-  "note": "A short reflection on each day’s Gospel."
+  "note": "A short reflection on each day’s Gospel.",
+  "category": "Homilies and daily reflections"
  },
  {
   "id": "ecdr",
@@ -131,7 +144,8 @@
   "page": "https://podcasters.spotify.com/pod/show/ecdr6782",
   "cap": 120,
   "tradition": "byzantine",
-  "note": "The day’s Epistle and Gospel and saints of the Byzantine calendar, as audio."
+  "note": "The day’s Epistle and Gospel and saints of the Byzantine calendar, as audio.",
+  "category": "Homilies and daily reflections"
  },
  {
   "id": "maronite-readings",
@@ -142,7 +156,8 @@
   "page": "https://thedailyreadingofthemaronitechurch.podbean.com",
   "cap": 100,
   "tradition": "maronite",
-  "note": "Daily readings and reflections following the Maronite calendar."
+  "note": "Daily readings and reflections following the Maronite calendar.",
+  "category": "Homilies and daily reflections"
  },
  {
   "id": "divine-office",
@@ -152,7 +167,8 @@
   "feed": "https://divineoffice.org/feed/podcast/",
   "page": "https://divineoffice.org",
   "cap": 60,
-  "note": "The Roman Liturgy of the Hours prayed aloud, hour by hour."
+  "note": "The Roman Liturgy of the Hours prayed aloud, hour by hour.",
+  "category": "Prayer"
  },
  {
   "id": "catholic-saints",
@@ -162,6 +178,469 @@
   "feed": "https://feeds.simplecast.com/KUwANK1A",
   "page": "https://augustineinstitute.org/",
   "cap": 150,
-  "note": "Scripture scholars on the lives of the saints."
+  "note": "Scripture scholars on the lives of the saints.",
+  "category": "Saints and history"
+ },
+ {
+  "id": "counsel-of-trent",
+  "title": "The Counsel of Trent",
+  "host": "Trent Horn",
+  "publisher": "Catholic Answers",
+  "feed": "https://feeds.soundcloud.com/users/soundcloud:users:406683825/sounds.rss",
+  "page": "https://www.catholic.com/audio/cot",
+  "category": "Apologetics",
+  "note": "Trent Horn takes on hard questions and objections to the faith.",
+  "cap": 150
+ },
+ {
+  "id": "jimmy-akin",
+  "title": "The Jimmy Akin Podcast",
+  "host": "Jimmy Akin",
+  "publisher": "Catholic Answers",
+  "feed": "https://www.catholic.com/audio/tjap/podcast",
+  "page": "https://www.catholic.com/audio/tjap",
+  "category": "Apologetics",
+  "note": "Jimmy Akin answers questions on Scripture, doctrine, canon law and liturgy.",
+  "cap": 150
+ },
+ {
+  "id": "mysterious-world",
+  "title": "Jimmy Akin’s Mysterious World",
+  "host": "Jimmy Akin",
+  "publisher": "Catholic Answers",
+  "feed": "https://feeds.sqpn.com/mysterious",
+  "page": "https://www.catholic.com/audio/jaw",
+  "category": "Apologetics",
+  "note": "Strange claims, mysteries and legends examined with a clear head.",
+  "cap": 150
+ },
+ {
+  "id": "catholic-answers-focus",
+  "title": "Catholic Answers Focus",
+  "host": "Catholic Answers",
+  "publisher": "Catholic Answers",
+  "feed": "https://www.catholic.com/focus/podcast",
+  "page": "https://www.catholic.com/audio/caf",
+  "category": "Apologetics",
+  "note": "Interviews with authors and experts on faith and life.",
+  "cap": 150
+ },
+ {
+  "id": "shameless-popery",
+  "title": "Shameless Popery",
+  "host": "Joe Heschmeyer",
+  "publisher": "Catholic Answers",
+  "feed": "https://www.catholic.com/audio/sp/podcast.xml",
+  "page": "https://www.catholic.com/audio/sp",
+  "category": "Apologetics",
+  "note": "Scripture, the Fathers and the case for the Catholic Church.",
+  "cap": 150
+ },
+ {
+  "id": "called-to-communion",
+  "title": "Called to Communion",
+  "host": "Dr. David Anders",
+  "publisher": "EWTN",
+  "feed": "https://www.ewtn.com/api/audios/en/~BT.xml",
+  "page": "https://www.ewtn.com/",
+  "category": "Apologetics",
+  "note": "Dr. David Anders answers questions, many from Protestants considering the Church.",
+  "cap": 150
+ },
+ {
+  "id": "journey-home",
+  "title": "The Journey Home",
+  "host": "Marcus Grodi",
+  "publisher": "EWTN",
+  "feed": "https://www.ewtn.com/api/audios/en/JHT.xml",
+  "page": "https://www.ewtn.com/",
+  "category": "Apologetics",
+  "note": "Converts and returning Catholics tell their stories.",
+  "cap": 150
+ },
+ {
+  "id": "where-peter-is",
+  "title": "Where Peter Is",
+  "host": "Where Peter Is",
+  "publisher": "Where Peter Is",
+  "feed": "https://feeds.soundcloud.com/users/soundcloud:users:802097824/sounds.rss",
+  "page": "https://wherepeteris.com/",
+  "category": "Faith and culture",
+  "note": "Catholic commentary on the Church and current questions.",
+  "cap": 150
+ },
+ {
+  "id": "jeff-cavins",
+  "title": "The Jeff Cavins Show",
+  "host": "Jeff Cavins",
+  "publisher": "Ascension",
+  "feed": "https://feeds.fireside.fm/thejeffcavinsshow/rss",
+  "page": "https://www.ascensionpress.com/",
+  "category": "Scripture",
+  "note": "Catholic Bible study from the author of The Great Adventure.",
+  "cap": 150
+ },
+ {
+  "id": "letters-from-home",
+  "title": "Letters From Home",
+  "host": "St. Paul Center",
+  "publisher": "St. Paul Center for Biblical Theology",
+  "feed": "https://feed.podbean.com/lettersfromhome/feed.xml",
+  "page": "https://stpaulcenter.com/",
+  "category": "Scripture",
+  "note": "Short Scripture reflections tied to the readings.",
+  "cap": 150
+ },
+ {
+  "id": "catholic-bible-study",
+  "title": "Catholic Bible Study",
+  "host": "Augustine Institute",
+  "publisher": "Augustine Institute",
+  "feed": "https://feeds.simplecast.com/S9qBMWHu",
+  "page": "https://www.augustineinstitute.org/",
+  "category": "Scripture",
+  "note": "Bible study talks from the Augustine Institute.",
+  "cap": 150
+ },
+ {
+  "id": "lighthouse-talks",
+  "title": "Lighthouse Catholic Talks",
+  "host": "Augustine Institute",
+  "publisher": "Augustine Institute",
+  "feed": "https://feeds.simplecast.com/fSxUYgHM",
+  "page": "https://www.augustineinstitute.org/",
+  "category": "Scripture",
+  "note": "Classic talks from the Lighthouse Catholic Media library.",
+  "cap": 150
+ },
+ {
+  "id": "scripture-and-tradition",
+  "title": "Scripture and Tradition",
+  "host": "Fr. Mitch Pacwa, SJ",
+  "publisher": "EWTN",
+  "feed": "https://www.ewtn.com/api/audios/en/STP.xml",
+  "page": "https://www.ewtn.com/",
+  "category": "Scripture",
+  "note": "Fr. Mitch Pacwa on the Bible and the Church’s tradition.",
+  "cap": 150
+ },
+ {
+  "id": "desert-fathers",
+  "title": "Desert Fathers in a Year",
+  "host": "Bishop Erik Varden",
+  "publisher": "Exodus 90",
+  "feed": "https://feeds.captivate.fm/desert-fathers-in-a-year/",
+  "page": "https://exodus90.com/",
+  "category": "Saints and history",
+  "note": "The sayings of the Desert Fathers, with Bishop Erik Varden.",
+  "cap": 150
+ },
+ {
+  "id": "history-of-papacy",
+  "title": "History of the Papacy",
+  "host": "History of the Papacy",
+  "publisher": "History of the Papacy",
+  "feed": "https://www.omnycontent.com/d/playlist/5e27a451-e6e6-4c51-aa03-a7370003783c/43fdcdd5-3930-4c2e-ac55-b1920146063e/f85e358d-796f-479d-8d12-b192014625c2/podcast.rss",
+  "page": "https://www.omnycontent.com/",
+  "category": "Saints and history",
+  "note": "The popes, one by one.",
+  "cap": 150
+ },
+ {
+  "id": "american-catholic-history",
+  "title": "American Catholic History",
+  "host": "Noelle and Tom Crowe",
+  "publisher": "Independent",
+  "feed": "https://feed.podbean.com/americancatholichistory/feed.xml",
+  "page": "https://www.americancatholichistory.com/",
+  "category": "Saints and history",
+  "note": "The Catholic story in the United States.",
+  "cap": 150
+ },
+ {
+  "id": "say-yes-to-holiness",
+  "title": "Say Yes to Holiness",
+  "host": "Christina Semmens",
+  "publisher": "Independent",
+  "feed": "https://anchor.fm/s/f4b30ac/podcast/rss",
+  "page": "https://www.saintsintraining.com/",
+  "category": "Saints and history",
+  "note": "Stories of the saints for the whole family.",
+  "cap": 150
+ },
+ {
+  "id": "vatican-ii-in-a-year",
+  "title": "Vatican II in a Year",
+  "host": "Fr. Matthew Schneider, LC",
+  "publisher": "Independent",
+  "feed": "https://rss.libsyn.com/shows/557091/destinations/4810886.xml",
+  "page": "https://www.vatican.va/",
+  "category": "Programs",
+  "note": "Reads the documents of the Second Vatican Council, day by day.",
+  "cap": 150
+ },
+ {
+  "id": "thomistic-institute",
+  "title": "The Thomistic Institute",
+  "host": "Thomistic Institute",
+  "publisher": "Dominican Friars",
+  "feed": "https://feeds.cohostpodcasting.com/8dluqp75",
+  "page": "https://thomisticinstitute.org/",
+  "category": "Theology and philosophy",
+  "note": "Lectures from the Dominican Thomistic Institute.",
+  "cap": 150
+ },
+ {
+  "id": "godsplaining",
+  "title": "Godsplaining",
+  "host": "Dominican Friars",
+  "publisher": "Dominican Friars, Province of St. Joseph",
+  "feed": "https://feed.podbean.com/godsplaining/feed.xml",
+  "page": "https://www.godsplaining.org/",
+  "category": "Theology and philosophy",
+  "note": "Dominican friars answer your questions.",
+  "cap": 150
+ },
+ {
+  "id": "sed-contra",
+  "title": "Sed Contra",
+  "host": "Sacra Doctrina Project",
+  "publisher": "Sacra Doctrina Project",
+  "feed": "https://feeds.simplecast.com/ySRGKEPY",
+  "page": "https://sacradoctrina.org/",
+  "category": "Theology and philosophy",
+  "note": "Catholic theology in the Thomist tradition.",
+  "cap": 150
+ },
+ {
+  "id": "peter-kreeft",
+  "title": "Peter Kreeft",
+  "host": "Peter Kreeft",
+  "publisher": "Peter Kreeft",
+  "feed": "https://peterkreeft.com/podcasts/index.xml",
+  "page": "https://peterkreeft.com/",
+  "category": "Theology and philosophy",
+  "note": "Lectures from the Boston College philosopher.",
+  "cap": 150
+ },
+ {
+  "id": "ask-christopher-west",
+  "title": "Ask Christopher West",
+  "host": "Christopher West",
+  "publisher": "Theology of the Body Institute",
+  "feed": "https://anchor.fm/s/10343b5d0/podcast/rss",
+  "page": "https://tobinstitute.org/",
+  "category": "Theology and philosophy",
+  "note": "Questions on the Theology of the Body.",
+  "cap": 150
+ },
+ {
+  "id": "fulton-sheen",
+  "title": "Bishop Fulton Sheen Remastered",
+  "host": "Fulton J. Sheen",
+  "publisher": "Fulton Sheen Audio Team",
+  "feed": "https://anchor.fm/s/f1047aa8/podcast/rss",
+  "page": "https://www.fultonsheen.com/",
+  "category": "Theology and philosophy",
+  "note": "Classic talks of Archbishop Fulton Sheen.",
+  "cap": 150
+ },
+ {
+  "id": "mother-angelica",
+  "title": "Mother Angelica Live Classics",
+  "host": "Mother Angelica",
+  "publisher": "EWTN",
+  "feed": "https://www.ewtn.com/api/audios/en/MA9.xml",
+  "page": "https://www.ewtn.com/",
+  "category": "Spiritual life",
+  "note": "Classic episodes with Mother Angelica.",
+  "cap": 150
+ },
+ {
+  "id": "chris-stefanick",
+  "title": "Chris Stefanick Catholic Show",
+  "host": "Chris Stefanick",
+  "publisher": "Real Life Catholic",
+  "feed": "https://feeds.castos.com/oz4x5",
+  "page": "https://www.chrisstefanick.com/",
+  "category": "Spiritual life",
+  "note": "Talks for people trying to live the faith.",
+  "cap": 150
+ },
+ {
+  "id": "abiding-together",
+  "title": "Abiding Together",
+  "host": "Heather Khym, Michelle Benzinger and Sr. Miriam James Heidland",
+  "publisher": "Independent",
+  "feed": "https://rss.libsyn.com/shows/94321/destinations/478599.xml",
+  "page": "https://www.abidingtogether.com/",
+  "category": "Spiritual life",
+  "note": "Healing and friendship with Jesus.",
+  "cap": 150
+ },
+ {
+  "id": "among-women",
+  "title": "Among Women",
+  "host": "Pat Gohn",
+  "publisher": "Independent",
+  "feed": "https://rss.libsyn.com/shows/35948/destinations/91618.xml",
+  "page": "https://www.patgohn.com/",
+  "category": "Spiritual life",
+  "note": "Catholic women’s spirituality and conversation.",
+  "cap": 150
+ },
+ {
+  "id": "ignatius-press",
+  "title": "Ignatius Press Podcast",
+  "host": "Ignatius Press",
+  "publisher": "Ignatius Press",
+  "feed": "https://podcast.ignatius.com/feed.xml",
+  "page": "https://ignatius.com/",
+  "category": "Faith and culture",
+  "note": "Authors and ideas from Ignatius Press.",
+  "cap": 150
+ },
+ {
+  "id": "catholic-stuff",
+  "title": "Catholic Stuff You Should Know",
+  "host": "J. 10 Initiative",
+  "publisher": "J. 10 Initiative",
+  "feed": "https://pinecast.com/feed/catholicstuff",
+  "page": "https://www.catholicstuffyoushouldknow.com/",
+  "category": "Faith and culture",
+  "note": "Catholic teaching and history in plain language.",
+  "cap": 150
+ },
+ {
+  "id": "explaining-the-faith",
+  "title": "Explaining the Faith",
+  "host": "Fr. Chris Alar, MIC",
+  "publisher": "Marian Fathers",
+  "feed": "https://feeds.transistor.fm/explaining-the-faith",
+  "page": "https://www.thedivinemercy.org/",
+  "category": "Faith and culture",
+  "note": "Divine Mercy and the Catholic faith explained.",
+  "cap": 150
+ },
+ {
+  "id": "inside-the-vatican",
+  "title": "Inside the Vatican",
+  "host": "America Media",
+  "publisher": "America Media",
+  "feed": "https://feeds.megaphone.fm/AMMD9157570844",
+  "page": "https://www.americamagazine.org/",
+  "category": "News",
+  "note": "Weekly reporting on the Vatican and the Church.",
+  "cap": 150
+ },
+ {
+  "id": "vatican-news",
+  "title": "Vatican News: English",
+  "host": "Vatican News",
+  "publisher": "Dicastery for Communication",
+  "feed": "https://www.vaticannews.va/en/podcast/english-podcast.podcast.xml",
+  "page": "https://www.vaticannews.va/",
+  "category": "News",
+  "note": "Daily news from the Holy See.",
+  "cap": 150
+ },
+ {
+  "id": "father-dave",
+  "title": "Father Dave Preaches",
+  "host": "Fr. Dave Dwyer, CSP",
+  "publisher": "Busted Halo",
+  "feed": "https://rss.libsyn.com/shows/20023/destinations/18894.xml",
+  "page": "https://bustedhalo.com/",
+  "category": "Homilies and daily reflections",
+  "note": "Short, down-to-earth homilies.",
+  "cap": 150
+ },
+ {
+  "id": "catholic-daily-reflections",
+  "title": "Catholic Daily Reflections",
+  "host": "My Catholic Life",
+  "publisher": "My Catholic Life",
+  "feed": "https://www.spreaker.com/show/3075404/episodes/feed",
+  "page": "https://mycatholic.life/",
+  "category": "Homilies and daily reflections",
+  "note": "A reflection for each day’s readings.",
+  "cap": 150
+ },
+ {
+  "id": "rob-galea",
+  "title": "Homilies with Fr. Rob Galea",
+  "host": "Fr. Rob Galea",
+  "publisher": "ICON Ministry",
+  "feed": "https://rss.buzzsprout.com/1396426.rss",
+  "page": "https://www.robgalea.com/",
+  "category": "Homilies and daily reflections",
+  "note": "Homilies from the singer-priest.",
+  "cap": 150
+ },
+ {
+  "id": "daily-rosary",
+  "title": "RosaryMinded Daily Rosary",
+  "host": "Rosary Minded",
+  "publisher": "Rosary Minded",
+  "feed": "https://anchor.fm/s/6276cf5c/podcast/rss",
+  "page": "https://www.rosaryminded.com/",
+  "category": "Prayer",
+  "note": "The Rosary, prayed daily.",
+  "cap": 150
+ },
+ {
+  "id": "rosary-dominicans",
+  "title": "Into the Mysteries of the Rosary",
+  "host": "Dominican Friars",
+  "publisher": "Dominican Friars, Province of St. Joseph",
+  "feed": "https://rss.buzzsprout.com/2614609.rss",
+  "page": "https://www.dominicanfriars.org/",
+  "category": "Prayer",
+  "note": "Dominican friars on the mysteries of the Rosary.",
+  "cap": 150
+ },
+ {
+  "id": "contemplata",
+  "title": "Contemplata",
+  "host": "Dominican Friars",
+  "publisher": "Dominican Friars, Province of St. Joseph",
+  "feed": "https://rss.buzzsprout.com/2277726.rss",
+  "page": "https://www.dominicanfriars.org/",
+  "category": "Prayer",
+  "note": "Dominican meditations on prayer.",
+  "cap": 150
+ },
+ {
+  "id": "catholic-mom-calm",
+  "title": "Catholic Mom Calm",
+  "host": "Sterling Jaquith",
+  "publisher": "Independent",
+  "feed": "https://rss.libsyn.com/shows/310712/destinations/2495009.xml",
+  "page": "https://catholicmomcalm.com/",
+  "category": "Family and life",
+  "note": "Calm and encouragement for Catholic mothers.",
+  "cap": 150
+ },
+ {
+  "id": "amdg-jesuit",
+  "title": "AMDG: A Jesuit Podcast",
+  "host": "Jesuit Conference",
+  "publisher": "Jesuit Conference",
+  "feed": "https://feeds.soundcloud.com/users/soundcloud:users:557403294/sounds.rss",
+  "page": "https://www.jesuits.org/",
+  "category": "Spiritual life",
+  "note": "Jesuit voices on faith and justice.",
+  "cap": 150
+ },
+ {
+  "id": "trent-catechism",
+  "title": "Catechism of the Council of Trent",
+  "host": "Mark Langley",
+  "publisher": "Independent",
+  "feed": "https://anchor.fm/s/d91b1618/podcast/rss",
+  "page": "https://www.catholic.com/",
+  "category": "Programs",
+  "note": "The Roman Catechism read aloud.",
+  "cap": 150
  }
 ]

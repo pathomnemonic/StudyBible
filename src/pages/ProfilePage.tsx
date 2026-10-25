@@ -13,7 +13,7 @@ const GROUPS: { title: string; items: Row[] }[] = [
   { title: 'My reading', items: [
     ['/pray/plans', 'Reading plans', 'Follow a plan through the Bible or a theme, with progress kept.'],
     ['/memorize', 'Memorize Scripture', 'Spaced repetition and audio recall.'],
-    ['/days', 'Favourite days', 'Days you starred on Today, and a date picker for any other day.'],
+    ['/days', 'Favorite days', 'Days you starred on Today, and a date picker for any other day.'],
     ['/pray/readings', 'Mass readings', 'The day’s readings, in full in your translation.'],
   ] },
   { title: 'My prayer', items: [

@@ -14,6 +14,8 @@ import BiblePane from '../../components/BiblePane';
 import ReadAloud from '../../components/ReadAloud';
 import WorkSelection from '../../components/WorkSelection';
 import { FindInChapter, LookUp, ReadProgress } from '../../components/ReaderTools';
+import { noteVisit, setShelf } from '../../lib/shelf';
+import ShelfControl from '../../components/ShelfControl';
 import { useWakeLock } from '../../lib/wakeLock';
 import { forgetScroll, savedScroll, useScrollMemory } from '../../lib/scrollMemory';
 import { setAmbience, stopAmbience } from '../../lib/ambience';
@@ -71,7 +73,7 @@ export default function WorkReader() {
   const sec = work?.sections[idx];
   useEffect(() => {
     if (!sec) return;
-    db.libraryProgress.put({ workId, section: String(idx), updatedAt: Date.now() });
+    noteVisit(workId, idx, work?.sections.length ?? 0);
     db.history.add({ ts: Date.now(), type: 'work', ref: `${workId}/${idx}`, label: `${meta?.title ?? workId}: ${sec.title}` });
     if (savedScroll(loc.pathname) === null) window.scrollTo(0, 0);
     document.title = `${sec.title} · ${meta?.title ?? ''}`;
@@ -198,6 +200,8 @@ export default function WorkReader() {
                     </ul>
                   </section>
                 )}
+                {idx >= last && <div className="card"><strong>You reached the end.</strong> <button className="btn small primary" onClick={() => setShelf(workId, { status: 'finished' })}>Mark as finished</button></div>}
+                <ShelfControl workId={workId} total={work.sections.length} />
                 <hr />
                 <p className="muted small">
                   Translator/edition: {meta.translator}. Text: {meta.source.name} (<a href={meta.source.url} target="_blank" rel="noreferrer">original ↗</a>), public domain — {meta.rightsEvidence}

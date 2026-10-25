@@ -69,7 +69,7 @@ export default function ManuscriptsPage() {
           </button>
         ))}
       </div>
-      <p className="muted small">Photographs: The Metropolitan Museum of Art open-access programme (CC0). For the great codices (Vaticanus, Sinaiticus, Alexandrinus) see the links in each passage's manuscript notes; those images are not public domain to reuse here.</p>
+      <p className="muted small">Photographs: The Metropolitan Museum of Art open-access program (CC0). For the great codices (Vaticanus, Sinaiticus, Alexandrinus) see the links in each passage's manuscript notes; those images are not public domain to reuse here.</p>
     </div>
   );
 }

@@ -66,7 +66,7 @@ export default function QuotationTracker() {
   return (
     <div className="page">
       <h1>Who quoted this verse?</h1>
-      <p className="lede">Every place in the library where a Father or saint cites or comments on a passage, those that share the most words with the verse first, then the fullest. This is a rough guide to relevance, not a judgement of quality.</p>
+      <p className="lede">Every place in the library where a Father or saint cites or comments on a passage, those that share the most words with the verse first, then the fullest. This is a rough guide to relevance, not a judgment of quality.</p>
       <form className="search-box" onSubmit={(e) => { e.preventDefault(); setSp({ ref: text.trim() }); }} role="search">
         <input value={text} onChange={(e) => setText(e.target.value)} placeholder="John 6:51, Romans 8:28-30, Psalm 23…" aria-label="Passage" />
         <button className="btn primary" type="submit">Find quotations</button>

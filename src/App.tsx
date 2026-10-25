@@ -1,3 +1,4 @@
+import { useSpelling } from './lib/spelling';
 import { lazy, Suspense, useEffect } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
@@ -168,6 +169,8 @@ function RedirectKeepSearch({ to }: { to: string }) {
 
 export default function App() {
   const loc = useLocation();
+  const [spell] = useSettings();
+  useSpelling(spell.spelling);
   useEffect(() => {
     // a page chunk that no longer exists (the app was updated under an open tab): reload once to get the new one
     const h = (e: Event) => { e.preventDefault(); try { const k = 'sb-reloaded'; const last = Number(sessionStorage.getItem(k) ?? 0); if (Date.now() - last > 60_000) { sessionStorage.setItem(k, String(Date.now())); location.reload(); } } catch { location.reload(); } };

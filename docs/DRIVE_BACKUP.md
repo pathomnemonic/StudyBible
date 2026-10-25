@@ -16,7 +16,7 @@ Google requires an OAuth client ID for any app that signs in with Google.
 
 1. In the [Google Cloud console](https://console.cloud.google.com/), create a project and enable the **Google Drive API**.
 2. Under *APIs & Services → OAuth consent screen* set up the app (the `drive.appdata` scope is not a "sensitive" scope, so it needs no verification beyond the basic consent screen).
-3. Under *Credentials* create an **OAuth client ID** of type *Web application* and add the site's address (for example `https://example.github.io`) as an authorised JavaScript origin.
+3. Under *Credentials* create an **OAuth client ID** of type *Web application* and add the site's address (for example `https://example.github.io`) as an authorized JavaScript origin.
 4. Build the app with `VITE_GOOGLE_CLIENT_ID=<the id>` set, or paste the ID into *Settings → Back up to Google Drive* on a single device to try it.
 
 Until an ID is present the Settings card explains this instead of offering to connect.
