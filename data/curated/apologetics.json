@@ -2941,6 +2941,2828 @@
      "type": "article"
     }
    ]
+  },
+  {
+   "id": "inerrancy",
+   "category": "Scripture and Tradition",
+   "title": "Does the Bible contain errors?",
+   "objection": "The Bible is full of contradictions and mistakes, so it cannot be the word of God.",
+   "answer": [
+    "The Church teaches that God is the author of Scripture and that the human writers were true authors who wrote “all and only” what God wanted written (Dei Verbum 11). Because the Holy Spirit is the author, the books “firmly, faithfully and without error teach that truth which God, for the sake of our salvation, wished to see confided to the sacred Scriptures.” That is a claim about the truth God intends to teach through each book, not that every sentence is a modern scientific or historical report.",
+    "To find what a passage asserts, a reader must attend to its literary form (history, poetry, parable, law, prophecy), to the customs of the author’s time, and to the unity of the whole Bible read in the living Tradition of the Church (CCC 109-114). Many apparent contradictions, such as differing numbers or the order of events in the Gospels, come from this: ancient writers did not follow modern conventions of precise reporting."
+   ],
+   "verses": [
+    {
+     "ref": "2 Timothy 3:16-17",
+     "why": "All Scripture is inspired by God and profitable for teaching"
+    },
+    {
+     "ref": "2 Peter 1:20-21",
+     "why": "Men moved by the Holy Spirit spoke from God"
+    },
+    {
+     "ref": "John 10:35",
+     "why": "Scripture cannot be annulled"
+    },
+    {
+     "ref": "Luke 1:1-4",
+     "why": "Luke’s careful investigation"
+    }
+   ],
+   "ccc": [
+    105,
+    106,
+    107,
+    109,
+    110,
+    111,
+    112
+   ],
+   "tags": [
+    "Inerrancy",
+    "Inspiration",
+    "Contradictions"
+   ],
+   "related": [
+    "sola-scriptura",
+    "canon"
+   ],
+   "reading": [
+    {
+     "title": "Did God Dictate the Bible? What “Inspired” and “Inerrant” Really Mean",
+     "url": "https://www.youtube.com/watch?v=NqCaplcxtvA",
+     "source": "jimmy-akin",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "apostolic-succession",
+   "category": "Scripture and Tradition",
+   "title": "Apostolic succession",
+   "objection": "There is no biblical basis for bishops succeeding the apostles. Every believer is a priest.",
+   "answer": [
+    "In the New Testament the apostles do not simply preach and die: they appoint others to carry on their work. Paul tells Timothy to entrust what he has heard to “faithful men who will be able to teach others also” (2 Timothy 2:2), and Titus is left in Crete to “appoint elders in every town” (Titus 1:5). When Judas fell, the Eleven chose a successor so that “another may take his office” (Acts 1:20-26). The laying on of hands carried a real gift (2 Timothy 1:6).",
+    "The early Church counted bishops in lists reaching back to the apostles: Clement of Rome and Ignatius of Antioch write of the apostles appointing overseers and of unity around the bishop, and Irenaeus appeals to the succession of bishops as a guarantee of true teaching. The Catholic Church holds that this unbroken line preserves the apostolic faith (CCC 861-862). The royal priesthood of all baptised believers (1 Peter 2:9) is real, and is distinct from the ministerial priesthood that serves it."
+   ],
+   "verses": [
+    {
+     "ref": "Acts 1:15-26",
+     "why": "Matthias takes the office of Judas"
+    },
+    {
+     "ref": "2 Timothy 2:2",
+     "why": "Entrust to faithful men who will teach others"
+    },
+    {
+     "ref": "Titus 1:5",
+     "why": "Appoint elders in every town"
+    },
+    {
+     "ref": "2 Timothy 1:6",
+     "why": "The gift through the laying on of my hands"
+    }
+   ],
+   "ccc": [
+    77,
+    861,
+    862,
+    1576,
+    1577
+   ],
+   "tags": [
+    "Apostolic succession",
+    "Bishops",
+    "Ordination"
+   ],
+   "related": [
+    "church-authority",
+    "papacy"
+   ],
+   "reading": [
+    {
+     "title": "Is Apostolic Succession Biblical? Acts 14 Explained | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=jvpqs27iHHs",
+     "source": "catholic-productions",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "development-of-doctrine",
+   "category": "Scripture and Tradition",
+   "title": "Development of doctrine",
+   "objection": "Catholics keep adding new doctrines that the apostles never taught.",
+   "answer": [
+    "The Church says she cannot add to the deposit of faith, which closed with the apostles. What develops is our understanding of it. Jesus promised that the Spirit would guide the disciples “into all the truth” (John 16:12-13) and Luke twice says that Mary “kept all these things, pondering them in her heart” (Luke 2:19, 2:51): the faith is received whole and grasped more deeply with time.",
+    "The best-known description is by St John Henry Newman, who compared it to an acorn becoming an oak. The Trinity and the divinity of Christ were drawn out in the fourth-century creeds against heresies, and the canon of Scripture itself was recognised over several centuries. A true development keeps the same meaning and cannot contradict what was believed before (CCC 66, 94)."
+   ],
+   "verses": [
+    {
+     "ref": "John 16:12-13",
+     "why": "The Spirit will guide you into all the truth"
+    },
+    {
+     "ref": "Luke 2:19",
+     "why": "Mary kept all these things, pondering them in her heart"
+    },
+    {
+     "ref": "Jude 1:3",
+     "why": "The faith once for all delivered to the saints"
+    },
+    {
+     "ref": "Matthew 13:31-32",
+     "why": "The mustard seed becomes a tree"
+    }
+   ],
+   "ccc": [
+    66,
+    94,
+    98,
+    99,
+    100
+   ],
+   "tags": [
+    "Development of doctrine",
+    "Newman",
+    "Tradition"
+   ],
+   "related": [
+    "sola-scriptura",
+    "church-authority"
+   ],
+   "reading": []
+  },
+  {
+   "id": "early-church-fathers",
+   "category": "Scripture and Tradition",
+   "title": "What the early Christians believed",
+   "objection": "The Catholic Church departed from the faith of the first Christians. Early Christianity looked more like my church.",
+   "answer": [
+    "The writings of the Church Fathers, who taught in the first centuries, show recognisably Catholic worship and belief. Ignatius of Antioch (about AD 107) calls the Church “catholic” and warns that those who deny the Eucharist is “the flesh of our Saviour” are heretics. Justin Martyr (about 155) describes Sunday worship in which bread and wine become the body and blood of Christ. Clement of Rome (about 96) writes of bishops with authority from the apostles.",
+    "The Fathers do not agree on everything, and they are not a replacement for Scripture. But where they speak with one voice about the Eucharist, baptism, apostolic succession, and the authority of the Church in Rome, they are witnesses to what the apostles handed on. Newman, famously, wrote that “to be deep in history is to cease to be a Protestant.” The Fathers are quoted in this app alongside the Bible passages they comment on."
+   ],
+   "verses": [
+    {
+     "ref": "Acts 2:42",
+     "why": "They devoted themselves to the apostles’ teaching, the breaking of the bread and the prayers"
+    },
+    {
+     "ref": "2 Thessalonians 2:15",
+     "why": "Hold to the traditions you were taught"
+    },
+    {
+     "ref": "1 Timothy 3:15",
+     "why": "The Church is the pillar and bulwark of the truth"
+    }
+   ],
+   "ccc": [
+    78,
+    81,
+    82,
+    83,
+    84
+   ],
+   "tags": [
+    "Church Fathers",
+    "Early Church",
+    "Ignatius",
+    "Justin Martyr"
+   ],
+   "related": [
+    "sola-scriptura",
+    "apostolic-succession"
+   ],
+   "reading": []
+  },
+  {
+   "id": "salvation-outside-church",
+   "category": "Salvation and morality",
+   "title": "“No salvation outside the Church”",
+   "objection": "Catholics say only Catholics can be saved. That is arrogant and unbiblical.",
+   "answer": [
+    "The Church teaches that all salvation comes from Christ through his Body, the Church, and that Christ himself taught the necessity of faith and baptism (John 3:5; Mark 16:16). It also teaches that this does not condemn everyone outside the visible Church: those who through no fault of their own do not know Christ and his Church, but seek God sincerely and try to do his will as they know it, may also attain salvation (CCC 847; Lumen Gentium 16). Their salvation, if it happens, still comes from Christ.",
+    "Catholics are also not asked to judge anyone’s eternal fate: the Church canonises saints, but she has never declared any particular person to be in hell. The teaching is a reason for mission, since the fullness of the means of grace is found in the Catholic Church (CCC 816), and also for humility, since baptised Catholics who knowingly reject the faith or fall into serious sin are not guaranteed salvation either."
+   ],
+   "verses": [
+    {
+     "ref": "John 3:5",
+     "why": "Unless one is born of water and the Spirit"
+    },
+    {
+     "ref": "Acts 4:12",
+     "why": "No other name under heaven by which we must be saved"
+    },
+    {
+     "ref": "Romans 2:14-16",
+     "why": "Gentiles who do by nature what the law requires"
+    },
+    {
+     "ref": "1 Timothy 2:3-4",
+     "why": "God desires all to be saved"
+    }
+   ],
+   "ccc": [
+    816,
+    846,
+    847,
+    848,
+    1257
+   ],
+   "tags": [
+    "Salvation outside the Church",
+    "Baptism of desire",
+    "Non-Catholics"
+   ],
+   "related": [
+    "infant-baptism",
+    "hell"
+   ],
+   "reading": [
+    {
+     "title": "What Does “No Salvation Outside the Church” Mean? w/ @JimmyAkin",
+     "url": "https://www.youtube.com/watch?v=m6rb4bpi7o4",
+     "source": "catholic-answers",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "sinful-popes",
+   "category": "Scripture and Tradition",
+   "title": "Bad popes and a holy Church",
+   "objection": "The history of corrupt popes proves the Catholic Church is not led by the Holy Spirit.",
+   "answer": [
+    "Jesus chose Peter, who denied him three times, as the rock (Matthew 16:18; Luke 22:31-34), and Judas was an apostle. The Church has never claimed that her leaders are sinless: some popes were scandalous in their lives. What the Church claims is that Christ’s promise, that the gates of hell will not prevail (Matthew 16:18), means that the Church as a whole will not lose the truth, and that the Pope is protected from teaching error when he solemnly defines a matter of faith or morals.",
+    "That protection is called infallibility. It is not impeccability, and no pope has ever formally defined a false doctrine. Sacraments are also not made invalid by the sins of the minister, because Christ is the one acting through them (CCC 1550). In practice, the bad popes show that the Church’s survival and teaching do not depend on the holiness of her officers but on Christ."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 16:18",
+     "why": "The gates of hell shall not prevail"
+    },
+    {
+     "ref": "Luke 22:31-34",
+     "why": "Peter’s weakness and his task of strengthening the brothers"
+    },
+    {
+     "ref": "Matthew 23:2-3",
+     "why": "Do what they teach, though not what they do"
+    },
+    {
+     "ref": "Galatians 2:11-14",
+     "why": "Paul opposes Peter’s conduct"
+    }
+   ],
+   "ccc": [
+    882,
+    889,
+    891,
+    1550
+   ],
+   "tags": [
+    "Bad popes",
+    "Infallibility",
+    "Impeccability"
+   ],
+   "related": [
+    "papacy",
+    "church-authority"
+   ],
+   "reading": []
+  },
+  {
+   "id": "mary-queen",
+   "category": "Mary and the saints",
+   "title": "Mary, Queen of Heaven",
+   "objection": "Calling Mary the Queen of Heaven is pagan and takes glory from Christ.",
+   "answer": [
+    "The kings of Judah had a queen mother with real standing. When Solomon takes the throne, he has a seat brought for his mother Bathsheba, who sat at his right hand (1 Kings 2:19). Gabriel tells Mary that her Son will be given “the throne of his father David” and reign forever (Luke 1:32-33), so Mary is the mother of the Davidic king. In Revelation 12:1 a woman appears “clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars,” a figure the Church has long read as Israel and the Church, and also as Mary.",
+    "Her queenship is derived from Christ’s kingship and her role is intercession, not power of her own (CCC 966, 969). Jeremiah’s “queen of heaven” (Jeremiah 7:18; 44:17) was a pagan goddess; the title Catholics use is the title of the mother of Christ the King."
+   ],
+   "verses": [
+    {
+     "ref": "1 Kings 2:19-20",
+     "why": "The king’s mother at his right hand"
+    },
+    {
+     "ref": "Luke 1:32-33",
+     "why": "He will be given the throne of his father David"
+    },
+    {
+     "ref": "Revelation 12:1-6",
+     "why": "A woman clothed with the sun"
+    },
+    {
+     "ref": "Psalm 45:9",
+     "why": "At your right hand stands the queen"
+    }
+   ],
+   "ccc": [
+    966,
+    969,
+    971,
+    972
+   ],
+   "tags": [
+    "Queen of Heaven",
+    "Queen mother",
+    "Coronation of Mary"
+   ],
+   "related": [
+    "assumption",
+    "mary-mother-of-god"
+   ],
+   "reading": [
+    {
+     "title": "Mary, Queen of Heaven: The Queen Mother | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=8TpjIoec7zQ",
+     "source": "catholic-productions",
+     "type": "video"
+    },
+    {
+     "title": "The Kingdom of God and Mary: Is Mary a Queen? | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=tvY_9ut4d9o",
+     "source": "catholic-productions",
+     "type": "video"
+    },
+    {
+     "title": "Why Catholics Call Mary \"Queen of Heaven\" (Revelation 12) | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=OjXEIvWNZGc",
+     "source": "catholic-productions",
+     "type": "video"
+    },
+    {
+     "title": "Where Is Mary Called Queen of Heaven in the Bible?",
+     "url": "https://www.youtube.com/watch?v=mZevETkHXU4",
+     "source": "jimmy-akin",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "mary-new-eve-ark",
+   "category": "Mary and the saints",
+   "title": "Mary the New Eve and the Ark of the Covenant",
+   "objection": "The Bible says nothing about Mary being a new Eve or the Ark. That is a later invention.",
+   "answer": [
+    "Paul calls Christ the new Adam (Romans 5:14; 1 Corinthians 15:45), and the Fathers saw Mary as the new Eve: Eve’s disobedience brought sin, and Mary’s “let it be done to me according to your word” (Luke 1:38) opened the way for salvation. Justin Martyr and Irenaeus say this in the second century, and John’s Gospel has Jesus address his mother as “woman” at Cana and on the Cross (John 2:4; 19:26), echoing Genesis 3:15.",
+    "In Luke 1:39-56, many scholars and the Fathers see Mary as the new Ark. The Ark of the Covenant held the presence of God and was carried to the hill country of Judah, where David asked, “How can the ark of the Lord come to me?” (2 Samuel 6:9). Elizabeth asks almost the same thing: “Why is this granted me, that the mother of my Lord should come to me?” (Luke 1:43). The word for “overshadow” (Luke 1:35) is used of the cloud over the tent of meeting (Exodus 40:35). The text invites the reader to see these echoes."
+   ],
+   "verses": [
+    {
+     "ref": "Genesis 3:15",
+     "why": "The woman’s offspring will crush the serpent’s head"
+    },
+    {
+     "ref": "Luke 1:35",
+     "why": "The power of the Most High will overshadow you"
+    },
+    {
+     "ref": "Luke 1:39-45",
+     "why": "The ark comes to the hill country"
+    },
+    {
+     "ref": "2 Samuel 6:9-11",
+     "why": "How can the ark of the Lord come to me?"
+    },
+    {
+     "ref": "Revelation 11:19-12:1",
+     "why": "The ark in heaven, and the woman"
+    }
+   ],
+   "ccc": [
+    411,
+    494,
+    511,
+    721,
+    726
+   ],
+   "tags": [
+    "New Eve",
+    "Ark of the Covenant",
+    "Typology"
+   ],
+   "related": [
+    "mary-mother-of-god",
+    "immaculate-conception"
+   ],
+   "reading": [
+    {
+     "title": "Mary: New Eve, The New Ark of the Covenant, New Queen Mother",
+     "url": "https://www.youtube.com/watch?v=cUGwN9v5s1E",
+     "source": "pints-with-aquinas",
+     "type": "video"
+    },
+    {
+     "title": "Mary, the Ark of the New Covenant | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=jmNWqLSJcJI",
+     "source": "catholic-productions",
+     "type": "video"
+    },
+    {
+     "title": "Does Luke Really Portray Mary as the New Ark of the Covenant?",
+     "url": "https://www.youtube.com/watch?v=pDaJYI1K25U",
+     "source": "st-paul-center",
+     "type": "video"
+    },
+    {
+     "title": "How Mary is the New Ark of the Covenant | Journey Through Advent",
+     "url": "https://www.youtube.com/watch?v=9YC0YTv9TRQ",
+     "source": "st-paul-center",
+     "type": "video"
+    },
+    {
+     "title": "Mary as the New Eve and New Ark of the Covenant | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=2oko0V836BE",
+     "source": "catholic-productions",
+     "type": "video"
+    },
+    {
+     "title": "The Immaculate Conception and the New Eve | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=03rELqAV_5Q",
+     "source": "catholic-productions",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "rosary",
+   "category": "Mary and the saints",
+   "title": "The Rosary and “vain repetition”",
+   "objection": "Jesus condemned repetitive prayer, and the Rosary is idolatry of Mary.",
+   "answer": [
+    "In Matthew 6:7 Jesus warns against “heaping up empty phrases as the Gentiles do,” who think they will be heard for their many words. The problem is empty, mechanical prayer aimed at manipulating God, not repetition as such. Jesus himself prayed the same words in Gethsemane three times (Matthew 26:44), the angels in heaven cry “Holy, holy, holy” without ceasing (Revelation 4:8), and Psalm 136 repeats “for his steadfast love endures forever” in every verse.",
+    "The Rosary is built on Scripture: the Our Father, the Hail Mary (made of Gabriel’s and Elizabeth’s greetings in Luke 1:28 and 1:42), and the Glory Be. While the lips repeat, the mind meditates on the mysteries of Christ’s life, so the prayer is centred on Jesus (CCC 971, 2678, 2708). Catholics ask Mary to pray for them in the same way they would ask a friend, and do not worship her."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 6:7-13",
+     "why": "Not heaping up empty phrases, then the Our Father"
+    },
+    {
+     "ref": "Matthew 26:44",
+     "why": "Jesus prays the same words again"
+    },
+    {
+     "ref": "Luke 1:28",
+     "why": "Hail, full of grace"
+    },
+    {
+     "ref": "Luke 1:42",
+     "why": "Blessed are you among women"
+    },
+    {
+     "ref": "Revelation 4:8",
+     "why": "They never cease to say, Holy, holy, holy"
+    }
+   ],
+   "ccc": [
+    971,
+    2676,
+    2677,
+    2678,
+    2708
+   ],
+   "tags": [
+    "Rosary",
+    "Hail Mary",
+    "Vain repetition"
+   ],
+   "related": [
+    "intercession-of-saints",
+    "mary-mother-of-god"
+   ],
+   "reading": [
+    {
+     "title": "Does the Bible Condemn the Rosary and Repetitive Prayer?",
+     "url": "https://www.youtube.com/watch?v=IvCXu_z2n8g",
+     "source": "st-paul-center",
+     "type": "video"
+    },
+    {
+     "title": "Did Jesus Condemn Praying The Rosary?",
+     "url": "https://www.youtube.com/watch?v=vkcTwl6Wo1U",
+     "source": "catholic-answers",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "reliability-gospels",
+   "category": "Christ and the Trinity",
+   "title": "Can we trust the Gospels?",
+   "objection": "The Gospels were written long after Jesus by unknown authors, so they are legends.",
+   "answer": [
+    "The Church teaches that the four Gospels are historical: they “faithfully hand on what Jesus the Son of God, while he lived among men, really did and taught for their eternal salvation” (Dei Verbum 19; CCC 126). Luke says that he followed everything closely from the beginning and had the accounts of “eyewitnesses and ministers of the word” (Luke 1:1-4). Paul quotes an even earlier creed about the death, burial, and resurrection of Jesus, which he received from others within a few years of the events (1 Corinthians 15:3-8).",
+    "The Gospels were written within about thirty to sixty years of the events, which is very close by the standards of ancient history. They preserve embarrassing details, such as the disciples’ failures and the women as the first witnesses. The evangelists selected and arranged their material for theological purposes, so they differ in detail, but they agree on the core: Jesus’ ministry, death, and resurrection."
+   ],
+   "verses": [
+    {
+     "ref": "Luke 1:1-4",
+     "why": "Luke’s careful investigation"
+    },
+    {
+     "ref": "1 Corinthians 15:3-8",
+     "why": "What I received I handed on to you"
+    },
+    {
+     "ref": "1 John 1:1-3",
+     "why": "What we have seen and heard and touched"
+    },
+    {
+     "ref": "John 21:24",
+     "why": "This is the disciple who testifies to these things"
+    }
+   ],
+   "ccc": [
+    124,
+    125,
+    126,
+    127,
+    515
+   ],
+   "tags": [
+    "Gospels",
+    "Historicity",
+    "Eyewitnesses"
+   ],
+   "related": [
+    "resurrection",
+    "canon"
+   ],
+   "reading": []
+  },
+  {
+   "id": "virgin-birth",
+   "category": "Christ and the Trinity",
+   "title": "The virgin birth",
+   "objection": "The virgin birth was borrowed from pagan myths, and Isaiah 7:14 only says “young woman”.",
+   "answer": [
+    "Matthew and Luke each say that Jesus was conceived by the Holy Spirit and born of the Virgin Mary without a human father (Matthew 1:18-25; Luke 1:34-35). They tell the story independently and in different ways, which suggests an early tradition. Matthew cites Isaiah 7:14, “the virgin shall conceive,” as fulfilled. The Hebrew word almah means a young woman of marriageable age, and the Jewish translators of the Greek Septuagint, some two centuries before Christ, rendered it parthenos, “virgin.” Matthew follows that reading.",
+    "The pagan stories of gods coupling with women are not parallels: here there is no marriage of God and a woman, but a creative act of the Holy Spirit. The virginal conception shows that Jesus’ sonship is a gift of God and not a human achievement, and that the new creation begins with God’s initiative (CCC 496-499, 503)."
+   ],
+   "verses": [
+    {
+     "ref": "Isaiah 7:14",
+     "why": "The virgin shall conceive and bear a son"
+    },
+    {
+     "ref": "Matthew 1:18-25",
+     "why": "Conceived of the Holy Spirit"
+    },
+    {
+     "ref": "Luke 1:34-35",
+     "why": "How can this be, since I have no husband?"
+    },
+    {
+     "ref": "Galatians 4:4",
+     "why": "Born of woman, born under the law"
+    }
+   ],
+   "ccc": [
+    496,
+    497,
+    498,
+    499,
+    503
+   ],
+   "tags": [
+    "Virgin birth",
+    "Immanuel",
+    "Isaiah 7:14"
+   ],
+   "related": [
+    "perpetual-virginity",
+    "divinity-of-christ"
+   ],
+   "reading": [
+    {
+     "title": "Isaiah 7:14 Explained: Was Immanuel Jesus—or Someone Else?",
+     "url": "https://www.youtube.com/watch?v=N_PuPaxOdMg",
+     "source": "jimmy-akin",
+     "type": "video"
+    },
+    {
+     "title": "Is Mary Prophesied in the Old Testament? Isaiah 7’s Double Meaning",
+     "url": "https://www.youtube.com/watch?v=CHZkrqZSar8",
+     "source": "jimmy-akin",
+     "type": "video"
+    },
+    {
+     "title": "Why Did Joseph Plan on Divorcing Mary? | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=F2lMYAeZDxo",
+     "source": "catholic-productions",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "incarnation",
+   "category": "Christ and the Trinity",
+   "title": "Fully God and fully man",
+   "objection": "Jesus is either God or man, and cannot be both. The Church’s language is philosophy, not Scripture.",
+   "answer": [
+    "The Gospel of John says that “the Word was God” and that “the Word became flesh and dwelt among us” (John 1:1, 14). Paul writes that Christ, “though he was in the form of God,” took the form of a servant and was born in human likeness (Philippians 2:6-8). The Council of Chalcedon (AD 451) summed this up: one person, the Son of God, in two natures, divine and human, “without confusion, without change, without division, without separation.”",
+    "Because Christ is truly God, his sacrifice has infinite value, and because he is truly man, he can die and represent us (Hebrews 2:14-17; 4:15). He had a human body, a human soul, a human will, and grew in wisdom (Luke 2:52), and he still has all that he is as God. The Church stresses both sides because losing either one destroys the Gospel (CCC 464-469)."
+   ],
+   "verses": [
+    {
+     "ref": "John 1:1-14",
+     "why": "The Word was God, and the Word became flesh"
+    },
+    {
+     "ref": "Philippians 2:5-11",
+     "why": "He emptied himself, taking the form of a servant"
+    },
+    {
+     "ref": "Colossians 2:9",
+     "why": "In him the whole fullness of deity dwells bodily"
+    },
+    {
+     "ref": "Hebrews 4:15",
+     "why": "Tempted as we are, yet without sin"
+    }
+   ],
+   "ccc": [
+    464,
+    465,
+    466,
+    467,
+    468,
+    469,
+    470,
+    471,
+    472,
+    473
+   ],
+   "tags": [
+    "Incarnation",
+    "Chalcedon",
+    "Two natures"
+   ],
+   "related": [
+    "divinity-of-christ",
+    "trinity"
+   ],
+   "reading": [
+    {
+     "title": "Is Jesus God? The Evidence From Colossians | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=E3y7_SCZu64",
+     "source": "catholic-productions",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "messianic-prophecy",
+   "category": "Christ and the Trinity",
+   "title": "Old Testament prophecies of Christ",
+   "objection": "Christians read Jesus into the Old Testament. The prophecies are about other things.",
+   "answer": [
+    "The New Testament does not claim every Old Testament line was a straight prediction. It claims that the story, the law, the temple, and the prophets all point forward to Christ, and that he fulfils them. Isaiah’s Suffering Servant, who “was wounded for our transgressions” (Isaiah 53:5), is cited in the New Testament by Philip with the Ethiopian (Acts 8:32-35). Psalm 22, which begins with the words Jesus uttered on the Cross (Matthew 27:46), describes pierced hands and feet and the division of garments.",
+    "Micah 5:2 names Bethlehem as the origin of the ruler, and Zechariah 9:9 describes the king riding a donkey. Jesus himself explained “in all the Scriptures the things concerning himself” on the road to Emmaus (Luke 24:27). The Church teaches that the Old Testament has its own value as revelation, and that it is fully understood only in Christ (CCC 128-130, 601, 702-716)."
+   ],
+   "verses": [
+    {
+     "ref": "Isaiah 53:1-12",
+     "why": "The Suffering Servant"
+    },
+    {
+     "ref": "Psalm 22:1-31",
+     "why": "They have pierced my hands and feet"
+    },
+    {
+     "ref": "Micah 5:2",
+     "why": "From Bethlehem shall come forth a ruler"
+    },
+    {
+     "ref": "Luke 24:25-27",
+     "why": "Beginning with Moses and all the prophets"
+    },
+    {
+     "ref": "Zechariah 9:9",
+     "why": "Your king comes to you, humble and riding on a donkey"
+    }
+   ],
+   "ccc": [
+    128,
+    129,
+    130,
+    601,
+    702,
+    711,
+    712,
+    713,
+    714
+   ],
+   "tags": [
+    "Prophecy",
+    "Messiah",
+    "Suffering Servant",
+    "Typology"
+   ],
+   "related": [
+    "resurrection",
+    "divinity-of-christ"
+   ],
+   "reading": [
+    {
+     "title": "How Psalm 22 Prophesies Christ's Passion",
+     "url": "https://www.youtube.com/watch?v=-QFEhzbrLW0",
+     "source": "st-paul-center",
+     "type": "video"
+    },
+    {
+     "title": "Isaiah's Suffering Servant and the Baptism of Jesus | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=1jozRFlBxz8",
+     "source": "catholic-productions",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "atonement",
+   "category": "Christ and the Trinity",
+   "title": "Why did Jesus have to die?",
+   "objection": "A loving God would forgive without needing a bloody sacrifice.",
+   "answer": [
+    "The Church teaches that Christ died “for our sins in accordance with the Scriptures” (1 Corinthians 15:3), and that in his Passion he freely offered himself in love as a sacrifice to the Father for our redemption (CCC 606-618). Sin is a real offence against God and wounds human nature, and love’s answer to it is costly. “Greater love has no man than this, that a man lay down his life for his friends” (John 15:13). The Cross is not the Father punishing an unwilling Son, but the Father and the Son, in the Spirit, acting together to rescue sinners.",
+    "Scripture uses many pictures for what Jesus did: ransom (Mark 10:45), Passover lamb (1 Corinthians 5:7), sin offering (Hebrews 10:10-14), and victory over death (Colossians 2:14-15). They fit together in the Church’s teaching that Christ, who is both God and man, could offer to God the perfect satisfaction that humanity owed and could not give."
+   ],
+   "verses": [
+    {
+     "ref": "Mark 10:45",
+     "why": "To give his life as a ransom for many"
+    },
+    {
+     "ref": "Romans 5:6-11",
+     "why": "While we were yet sinners Christ died for us"
+    },
+    {
+     "ref": "Hebrews 10:10-14",
+     "why": "By a single offering he has perfected for all time"
+    },
+    {
+     "ref": "Isaiah 53:4-6",
+     "why": "The Lord laid on him the iniquity of us all"
+    },
+    {
+     "ref": "John 1:29",
+     "why": "Behold the Lamb of God"
+    }
+   ],
+   "ccc": [
+    599,
+    601,
+    602,
+    603,
+    604,
+    605,
+    606,
+    607,
+    613,
+    614,
+    615,
+    616,
+    617
+   ],
+   "tags": [
+    "Atonement",
+    "Redemption",
+    "Sacrifice"
+   ],
+   "related": [
+    "mass-sacrifice",
+    "divinity-of-christ"
+   ],
+   "reading": [
+    {
+     "title": "Crucifixion: The Curse of the Cross | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=IVZOWqiauBg",
+     "source": "catholic-productions",
+     "type": "video"
+    },
+    {
+     "title": "Jesus Was Cursed By God? Understanding Galatians 3:13",
+     "url": "https://www.youtube.com/watch?v=7ZjSD7XqGxQ",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "Crucifixion: The Cruelty of the Cross | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=y4HAs9mI5rY",
+     "source": "catholic-productions",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "rapture",
+   "category": "Life, family and the world",
+   "title": "The Rapture and the end times",
+   "objection": "Believers will be secretly taken up before a seven-year tribulation (the Rapture).",
+   "answer": [
+    "The Rapture is a nineteenth-century idea and is not found in the earliest Christian teaching. The Catholic Church reads 1 Thessalonians 4:16-17, “we who are alive… shall be caught up together with them in the clouds,” as describing the public return of Christ, with a trumpet and a shout, at the general resurrection. Jesus says that his coming will be like lightning that flashes from east to west (Matthew 24:27), and not hidden.",
+    "The Catechism teaches that before Christ’s return the Church will pass through a final trial that shakes the faith of many (CCC 675), and that no one knows the day or the hour (Matthew 24:36). The book of Revelation is read by the Church as a vision of Christ’s victory in history and at the end of time, not as a timetable. Believers are told to stay awake and ready rather than to predict dates."
+   ],
+   "verses": [
+    {
+     "ref": "1 Thessalonians 4:13-18",
+     "why": "The Lord himself will descend with a cry of command"
+    },
+    {
+     "ref": "Matthew 24:27-44",
+     "why": "As the lightning comes from the east"
+    },
+    {
+     "ref": "Matthew 24:36",
+     "why": "No one knows that day or hour"
+    },
+    {
+     "ref": "2 Thessalonians 2:1-4",
+     "why": "The man of lawlessness comes first"
+    },
+    {
+     "ref": "Revelation 21:1-4",
+     "why": "A new heaven and a new earth"
+    }
+   ],
+   "ccc": [
+    668,
+    669,
+    670,
+    671,
+    672,
+    673,
+    674,
+    675,
+    676,
+    677
+   ],
+   "tags": [
+    "Rapture",
+    "Second Coming",
+    "End times",
+    "Tribulation"
+   ],
+   "related": [
+    "hell",
+    "resurrection"
+   ],
+   "reading": [
+    {
+     "title": "Is the Day of the Lord Near? St. Paul on the Parousia | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=L9JRdKxf47I",
+     "source": "catholic-productions",
+     "type": "video"
+    },
+    {
+     "title": "The Apocalypse, Antichrist, & Second Coming (Dr. Scott Hahn) | Ep. 539",
+     "url": "https://www.youtube.com/watch?v=084Z2BM3p4Y",
+     "source": "pints-with-aquinas",
+     "type": "video"
+    },
+    {
+     "title": "Answering Every Question About The End of The World",
+     "url": "https://www.youtube.com/watch?v=tPoGqNtZ3zc",
+     "source": "catholic-answers",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "revelation-beast",
+   "category": "Life, family and the world",
+   "title": "The book of Revelation, 666 and the 144,000",
+   "objection": "Revelation says only 144,000 will be saved, and 666 refers to the Pope or to a microchip.",
+   "answer": [
+    "The 144,000 in Revelation 7 and 14 is a symbolic number: twelve tribes times twelve apostles times a thousand, which stands for the full people of God. Just after the 144,000 are sealed, John sees “a great multitude which no man could number, from every nation” (Revelation 7:9), which is the same people in a different image. The number 666 is explained in the text itself: “it is the number of a man” (Revelation 13:18), usually taken to refer to Nero Caesar, whose name, written in Hebrew letters, adds up to 666 (some manuscripts have 616, which fits the Latin spelling of Nero).",
+    "Revelation is apocalyptic writing, filled with symbols from the Old Testament, to console persecuted Christians in the first century and to assure them that Christ, the slain Lamb, has already won. Catholics read it in the Liturgy, where the Mass echoes the heavenly worship of Revelation 4-5. Attempts to match its images to a modern politician or technology have failed again and again (CCC 675-677)."
+   ],
+   "verses": [
+    {
+     "ref": "Revelation 7:1-10",
+     "why": "The sealed and the great multitude"
+    },
+    {
+     "ref": "Revelation 13:16-18",
+     "why": "The number of the beast"
+    },
+    {
+     "ref": "Revelation 5:6-12",
+     "why": "The Lamb who was slain"
+    },
+    {
+     "ref": "Revelation 21:1-5",
+     "why": "Behold, I make all things new"
+    }
+   ],
+   "ccc": [
+    675,
+    676,
+    677,
+    1138,
+    1186
+   ],
+   "tags": [
+    "Revelation",
+    "Apocalypse",
+    "666",
+    "144000"
+   ],
+   "related": [
+    "rapture",
+    "hell"
+   ],
+   "reading": [
+    {
+     "title": "Book of Revelation Say Only 144,000 Will Be Saved?",
+     "url": "https://www.youtube.com/watch?v=3ZqXbizmxXg",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "Could This Be the Mark of the Beast? w/@JimmyAkin",
+     "url": "https://www.youtube.com/watch?v=0wzn5VPNSzM",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "How to Actually Read the Book of Revelation | The Jimmy Akin Podcast",
+     "url": "https://www.youtube.com/watch?v=5N1Ekl3AtII",
+     "source": "jimmy-akin",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "transubstantiation",
+   "category": "The sacraments",
+   "title": "Transubstantiation",
+   "objection": "The word “transubstantiation” isn’t in the Bible, and the Eucharist is a symbol.",
+   "answer": [
+    "The word is the Church’s way of expressing what Jesus said: “This is my body… this is my blood” (Matthew 26:26-28). Paul says that those who eat and drink unworthily are “guilty of profaning the body and blood of the Lord” (1 Corinthians 11:27) and that the cup is a participation in the blood of Christ (1 Corinthians 10:16). The Church teaches that the substance of bread and wine is changed into the substance of Christ’s body and blood, while the appearances (taste, colour, texture) remain the same (CCC 1376-1377). The change is called transubstantiation.",
+    "“Substance” here is the philosophical term for what a thing is at its deepest level, as opposed to its outward properties. It was chosen to say clearly what the Church had always believed, and to exclude readings that make the Eucharist only a symbol or that suppose a physical, cannibalistic change. Christ is present whole and entire, body and blood, soul and divinity, under each form."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 26:26-28",
+     "why": "This is my body… this is my blood"
+    },
+    {
+     "ref": "John 6:53-56",
+     "why": "My flesh is food indeed"
+    },
+    {
+     "ref": "1 Corinthians 10:16",
+     "why": "A participation in the blood of Christ"
+    },
+    {
+     "ref": "1 Corinthians 11:27-29",
+     "why": "Not discerning the body"
+    }
+   ],
+   "ccc": [
+    1373,
+    1374,
+    1375,
+    1376,
+    1377,
+    1413
+   ],
+   "tags": [
+    "Transubstantiation",
+    "Eucharist",
+    "Real Presence"
+   ],
+   "related": [
+    "real-presence",
+    "mass-sacrifice"
+   ],
+   "reading": [
+    {
+     "title": "The Real Presence of Jesus Christ in the Eucharist (Aquinas 101)",
+     "url": "https://www.youtube.com/watch?v=sCuP50dVfIs",
+     "source": "thomistic-institute",
+     "type": "video"
+    },
+    {
+     "title": "Is the Eucharist Really the Body & Blood of Jesus? | Ready Reasons | Karlo Broussard",
+     "url": "https://www.youtube.com/watch?v=6xLAgusyVX0",
+     "source": "catholic-answers",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "communion-catholics-only",
+   "category": "The sacraments",
+   "title": "Why only Catholics receive Communion",
+   "objection": "Closed communion is exclusive and unloving.",
+   "answer": [
+    "Receiving Communion is a public sign of full communion in the same faith, sacraments, and governance. Paul says that those who share the one bread are one body (1 Corinthians 10:16-17) and warns that eating “in an unworthy manner” brings judgment (1 Corinthians 11:27-29). The earliest description of the Eucharist outside the New Testament, by Justin Martyr, says that no one may take part unless they believe the teaching is true and have been baptised.",
+    "The Catholic Church does not judge anyone’s heart or deny that other Christians have real faith and grace. But because a person who receives affirms the Church’s faith about the Eucharist, the Church asks that Catholics be in a state of grace, having fasted one hour, and that non-Catholics not receive except in rare cases of grave need (CCC 1395, 1400-1401, 1415). Others are welcome to come forward for a blessing."
+   ],
+   "verses": [
+    {
+     "ref": "1 Corinthians 10:16-17",
+     "why": "We who are many are one body"
+    },
+    {
+     "ref": "1 Corinthians 11:27-29",
+     "why": "Examine yourself before eating the bread"
+    },
+    {
+     "ref": "Acts 2:42",
+     "why": "The apostles’ teaching and the breaking of bread"
+    },
+    {
+     "ref": "Ephesians 4:4-6",
+     "why": "One Lord, one faith, one baptism"
+    }
+   ],
+   "ccc": [
+    1395,
+    1400,
+    1401,
+    1415,
+    1416
+   ],
+   "tags": [
+    "Closed communion",
+    "Intercommunion",
+    "State of grace"
+   ],
+   "related": [
+    "real-presence",
+    "confession"
+   ],
+   "reading": []
+  },
+  {
+   "id": "eucharistic-adoration",
+   "category": "The sacraments",
+   "title": "Eucharistic adoration",
+   "objection": "Worshipping a piece of bread is idolatry.",
+   "answer": [
+    "Catholics adore the Eucharist because they believe that, after consecration, the bread is no longer bread but Christ himself. If that is true, the right response is the one given to Christ throughout the Gospels: the magi “fell down and worshiped him” (Matthew 2:11), the disciples worshipped the risen Jesus (Matthew 28:9, 17), and Thomas called him “My Lord and my God” (John 20:28). If it were not true, adoration would be idolatry. The question is whether Jesus is really there.",
+    "The Church teaches that Christ remains present in the consecrated host as long as the appearances of bread last (CCC 1377), and that he is worthy of the worship due to God alone (CCC 1378-1381). Adoration is also a way of prolonging the grace of the Mass: Jesus’ question in Gethsemane, “Could you not watch with me one hour?” (Matthew 26:40), is lived out by many in an hour before the Blessed Sacrament."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 2:11",
+     "why": "They fell down and worshiped him"
+    },
+    {
+     "ref": "John 20:28",
+     "why": "My Lord and my God"
+    },
+    {
+     "ref": "Matthew 26:40",
+     "why": "Could you not watch with me one hour?"
+    },
+    {
+     "ref": "Psalm 95:6",
+     "why": "Come, let us worship and bow down"
+    }
+   ],
+   "ccc": [
+    1378,
+    1379,
+    1380,
+    1381,
+    1418
+   ],
+   "tags": [
+    "Adoration",
+    "Benediction",
+    "Blessed Sacrament"
+   ],
+   "related": [
+    "real-presence",
+    "images"
+   ],
+   "reading": []
+  },
+  {
+   "id": "anointing-sick",
+   "category": "The sacraments",
+   "title": "Anointing of the Sick",
+   "objection": "Last rites are a ritual for the dying with no scriptural basis.",
+   "answer": [
+    "James writes: “Is any among you sick? Let him call for the elders (presbyters) of the Church, and let them pray over him, anointing him with oil in the name of the Lord; and the prayer of faith will save the sick man, and the Lord will raise him up; and if he has committed sins, he will be forgiven” (James 5:14-15). The Church sees in this the sacrament of Anointing of the Sick. It also recalls that the Twelve “anointed with oil many who were sick and healed them” (Mark 6:13).",
+    "The sacrament is not only for the dying: it is for anyone seriously ill or elderly, and it can be received again if the illness worsens. It gives strength, peace, and courage, unites the sufferer to the Passion of Christ, and, if the person is unable to confess, forgives sins (CCC 1499-1532). When the person is near death, it is often given with confession and Viaticum (Holy Communion), which are together the “last rites.”"
+   ],
+   "verses": [
+    {
+     "ref": "James 5:14-15",
+     "why": "Let him call for the elders… anointing him with oil"
+    },
+    {
+     "ref": "Mark 6:12-13",
+     "why": "They anointed with oil many who were sick"
+    },
+    {
+     "ref": "2 Corinthians 12:9",
+     "why": "My grace is sufficient for you"
+    },
+    {
+     "ref": "Colossians 1:24",
+     "why": "Completing what is lacking in Christ’s afflictions"
+    }
+   ],
+   "ccc": [
+    1499,
+    1500,
+    1510,
+    1511,
+    1512,
+    1513,
+    1514,
+    1520,
+    1521
+   ],
+   "tags": [
+    "Anointing of the sick",
+    "Last rites",
+    "Viaticum"
+   ],
+   "related": [
+    "confession",
+    "suffering"
+   ],
+   "reading": []
+  },
+  {
+   "id": "confirmation",
+   "category": "The sacraments",
+   "title": "Confirmation",
+   "objection": "Confirmation is a man-made rite. Baptism gives the Holy Spirit.",
+   "answer": [
+    "Acts records an action after baptism that gave the Spirit through the apostles. In Samaria, Philip baptised the new believers, but the Holy Spirit “had not yet fallen on any of them.” So Peter and John came, “prayed for them that they might receive the Holy Spirit,” and “laid their hands on them” (Acts 8:14-17). Paul did the same at Ephesus (Acts 19:5-6). Hebrews lists “instruction about baptisms, the laying on of hands” among the basic teachings (Hebrews 6:2).",
+    "The Church teaches that Confirmation completes baptismal grace. It seals the baptised with the Spirit (Ephesians 1:13) and strengthens them to bear witness (CCC 1285, 1302-1305). The sign is anointing with chrism, a perfumed oil blessed by the bishop, with the words “Be sealed with the gift of the Holy Spirit.” In the West it is normally given by the bishop, to show the connection to the apostles."
+   ],
+   "verses": [
+    {
+     "ref": "Acts 8:14-17",
+     "why": "They laid their hands on them and they received the Holy Spirit"
+    },
+    {
+     "ref": "Acts 19:1-7",
+     "why": "The Holy Spirit came on them"
+    },
+    {
+     "ref": "Hebrews 6:1-2",
+     "why": "Baptisms, the laying on of hands"
+    },
+    {
+     "ref": "Ephesians 1:13",
+     "why": "Sealed with the promised Holy Spirit"
+    }
+   ],
+   "ccc": [
+    1285,
+    1288,
+    1302,
+    1303,
+    1304,
+    1305,
+    1312
+   ],
+   "tags": [
+    "Confirmation",
+    "Holy Spirit",
+    "Chrism"
+   ],
+   "related": [
+    "infant-baptism",
+    "baptismal-regeneration"
+   ],
+   "reading": [
+    {
+     "title": "The Sacrament of Confirmation in the Bible | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=zQFQTqsgWPM",
+     "source": "catholic-productions",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "call-no-man-father",
+   "category": "The sacraments",
+   "title": "“Call no man your father”",
+   "objection": "Matthew 23:9 forbids Catholics from calling priests “Father”.",
+   "answer": [
+    "Jesus says: “Call no man your father on earth, for you have one Father, who is in heaven” (Matthew 23:9). Taken without context, that would also forbid calling your own dad “father,” and the New Testament does not read it that way. Jesus uses hyperbole in the same passage, and the point is against the vanity of those who seek titles (Matthew 23:5-12). Stephen addresses the Jewish elders as “brethren and fathers” (Acts 7:2), and Paul says, “I became your father in Christ Jesus through the Gospel” (1 Corinthians 4:15).",
+    "Catholics call priests “Father” because they are spiritual fathers who give birth to the life of grace through the sacraments and teaching (CCC 1548, 1551). The same title has been used since the early Church for bishops. Jesus’ point, that all fatherhood comes from God (Ephesians 3:14-15), is exactly what Catholics hold."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 23:8-12",
+     "why": "Call no man your father on earth"
+    },
+    {
+     "ref": "1 Corinthians 4:15",
+     "why": "I became your father in Christ Jesus"
+    },
+    {
+     "ref": "Acts 7:2",
+     "why": "Brethren and fathers, hear me"
+    },
+    {
+     "ref": "Ephesians 3:14-15",
+     "why": "The Father from whom all fatherhood takes its name"
+    }
+   ],
+   "ccc": [
+    239,
+    1548,
+    1551,
+    1591
+   ],
+   "tags": [
+    "Father",
+    "Priesthood",
+    "Titles"
+   ],
+   "related": [
+    "apostolic-succession",
+    "celibacy"
+   ],
+   "reading": []
+  },
+  {
+   "id": "grace-and-merit",
+   "category": "Salvation and morality",
+   "title": "Grace and merit",
+   "objection": "Catholics try to earn their way to heaven. The Bible says salvation is a free gift.",
+   "answer": [
+    "Catholic teaching begins with grace as a free, undeserved gift: “By grace you have been saved through faith; and this is not your own doing, it is the gift of God” (Ephesians 2:8). No one can merit the first grace of conversion (CCC 2010). The Council of Trent taught that our justification is by grace alone, and that no work before it earns it. The Catholic Church condemned the idea that a person can save himself.",
+    "But the Bible also speaks of rewards, of faith working through love (Galatians 5:6), and of God working in us “both to will and to work for his good pleasure” (Philippians 2:12-13). Because God gives us a share in his own life, our cooperation with grace can be rewarded, in the way a father delights in the gift a child gives with the father’s own money. This is what the Church means by merit, and it too is a gift of God (CCC 2006-2011, 1996-1999)."
+   ],
+   "verses": [
+    {
+     "ref": "Ephesians 2:8-10",
+     "why": "Saved by grace through faith, created for good works"
+    },
+    {
+     "ref": "Philippians 2:12-13",
+     "why": "Work out your salvation, for God is at work in you"
+    },
+    {
+     "ref": "Galatians 5:6",
+     "why": "Faith working through love"
+    },
+    {
+     "ref": "Matthew 25:34-40",
+     "why": "Come, you blessed… I was hungry and you gave me food"
+    }
+   ],
+   "ccc": [
+    1996,
+    1997,
+    1998,
+    1999,
+    2006,
+    2007,
+    2008,
+    2010,
+    2011
+   ],
+   "tags": [
+    "Grace",
+    "Merit",
+    "Justification"
+   ],
+   "related": [
+    "faith-and-works",
+    "once-saved"
+   ],
+   "reading": [
+    {
+     "title": "Ephesians 2:8–10: Saved by Faith or by Works?",
+     "url": "https://www.youtube.com/watch?v=VTlwBNflv-g",
+     "source": "jimmy-akin",
+     "type": "video"
+    },
+    {
+     "title": "How Can the Catholic Church Claim to Teach Salvation by Faith?",
+     "url": "https://www.youtube.com/watch?v=0xTGLPJMIU8",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "What the Bible Really Says About Salvation",
+     "url": "https://www.youtube.com/watch?v=RusniufdI4w",
+     "source": "catholic-answers",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "predestination",
+   "category": "Salvation and morality",
+   "title": "Predestination and free will",
+   "objection": "God predestines some to heaven and others to hell, so human choices don’t matter.",
+   "answer": [
+    "Scripture says that God “chose us in him before the foundation of the world” (Ephesians 1:4-5) and that those he foreknew he also predestined (Romans 8:29-30). The Catholic Church teaches that God has a plan of loving goodness for all, and that he wants all people to be saved (1 Timothy 2:4; CCC 1037, 1058). She rejects the idea of “double predestination,” in which God directly creates some people for hell: “God predestines no one to go to hell” (CCC 1037).",
+    "The Church also teaches that human beings have real freedom and are responsible for their actions (CCC 1730-1738). God’s knowledge of what we will freely do does not take our freedom away, because he does not know in time as we do. Jesus warns, invites, and judges as though our choices count, because they do (Matthew 7:13-14; 25:31-46)."
+   ],
+   "verses": [
+    {
+     "ref": "Romans 8:28-30",
+     "why": "Those whom he foreknew he also predestined"
+    },
+    {
+     "ref": "Ephesians 1:3-6",
+     "why": "He chose us in him before the foundation of the world"
+    },
+    {
+     "ref": "1 Timothy 2:3-4",
+     "why": "God desires all men to be saved"
+    },
+    {
+     "ref": "2 Peter 3:9",
+     "why": "Not wishing that any should perish"
+    }
+   ],
+   "ccc": [
+    600,
+    1037,
+    1730,
+    1731,
+    1732,
+    1733,
+    1734
+   ],
+   "tags": [
+    "Predestination",
+    "Free will",
+    "Calvinism"
+   ],
+   "related": [
+    "once-saved",
+    "hell"
+   ],
+   "reading": []
+  },
+  {
+   "id": "mortal-and-venial-sin",
+   "category": "Salvation and morality",
+   "title": "Mortal and venial sin",
+   "objection": "All sins are equal in God’s eyes. The distinction between mortal and venial sin isn’t biblical.",
+   "answer": [
+    "John writes: “If anyone sees his brother committing what is not a mortal sin, he will ask, and God will give him life… There is sin which is mortal… all wrongdoing is sin, but there is sin which is not mortal” (1 John 5:16-17). Jesus speaks of the “weightier matters of the law” (Matthew 23:23) and of greater and lesser sins (John 19:11), and Paul lists sins that keep one from the kingdom (1 Corinthians 6:9-10; Galatians 5:19-21). Not all sins break our friendship with God to the same degree.",
+    "The Church teaches that a sin is mortal when it is a grave matter, committed with full knowledge and deliberate consent (CCC 1857). It destroys charity in the heart and, unless repented, deprives us of eternal life. Venial sin weakens charity without breaking it, and is forgiven through prayer, the Eucharist, and works of love (CCC 1854-1863)."
+   ],
+   "verses": [
+    {
+     "ref": "1 John 5:16-17",
+     "why": "There is sin which is mortal"
+    },
+    {
+     "ref": "Matthew 23:23",
+     "why": "The weightier matters of the law"
+    },
+    {
+     "ref": "James 1:14-15",
+     "why": "Sin when it is full-grown brings forth death"
+    },
+    {
+     "ref": "1 Corinthians 6:9-10",
+     "why": "Wrongdoers will not inherit the kingdom"
+    }
+   ],
+   "ccc": [
+    1854,
+    1855,
+    1856,
+    1857,
+    1858,
+    1859,
+    1860,
+    1861,
+    1862,
+    1863
+   ],
+   "tags": [
+    "Mortal sin",
+    "Venial sin",
+    "Grave matter"
+   ],
+   "related": [
+    "confession",
+    "hell"
+   ],
+   "reading": [
+    {
+     "title": "Eating Meat Can Send You to Hell? 3 Key Questions on Mortal Sin",
+     "url": "https://www.youtube.com/watch?v=DbdYMxV7ZlU",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "Does James Say All Sins are Equal ? | Ready Reasons | Karlo Broussard",
+     "url": "https://www.youtube.com/watch?v=wD4Y1OFU-yw",
+     "source": "catholic-answers",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "limbo",
+   "category": "Salvation and morality",
+   "title": "Unbaptised babies and limbo",
+   "objection": "The Church teaches that babies who die without baptism go to hell.",
+   "answer": [
+    "The Church has never taught that unbaptised infants go to hell. The Catechism says: “As regards children who have died without Baptism, the Church can only entrust them to the mercy of God, as she does in her funeral rites. Indeed, the great mercy of God who desires that all men should be saved, and Jesus’ tenderness toward children which caused him to say: ‘Let the children come to me, do not hinder them,’ allow us to hope that there is a way of salvation for children who have died without Baptism” (CCC 1261).",
+    "“Limbo” was a theological opinion, never a doctrine of the Church. In 2007 the International Theological Commission, with the approval of Pope Benedict XVI, concluded that there are serious grounds for hope that such children are saved. At the same time, the Church insists that we must not neglect to baptise infants (CCC 1250)."
+   ],
+   "verses": [
+    {
+     "ref": "Mark 10:14",
+     "why": "Let the children come to me"
+    },
+    {
+     "ref": "1 Timothy 2:4",
+     "why": "God desires all men to be saved"
+    },
+    {
+     "ref": "Ezekiel 18:23",
+     "why": "I have no pleasure in the death of the wicked"
+    },
+    {
+     "ref": "Matthew 18:14",
+     "why": "It is not the will of my Father that one of these little ones should perish"
+    }
+   ],
+   "ccc": [
+    1250,
+    1257,
+    1260,
+    1261,
+    1283
+   ],
+   "tags": [
+    "Limbo",
+    "Unbaptised infants",
+    "Baptism"
+   ],
+   "related": [
+    "infant-baptism",
+    "baptismal-regeneration"
+   ],
+   "reading": []
+  },
+  {
+   "id": "heaven",
+   "category": "Salvation and morality",
+   "title": "What is heaven like?",
+   "objection": "Heaven is just clouds and harps, or we simply float around as spirits.",
+   "answer": [
+    "The Church describes heaven as perfect, unending communion with the Trinity, Mary, the angels, and all the blessed (CCC 1024). Paul says that “eye has not seen, nor ear heard… what God has prepared for those who love him” (1 Corinthians 2:9), and John speaks of seeing God “face to face” (1 John 3:2; 1 Corinthians 13:12). This is the “beatific vision,” the fulfilment of the human desire for truth and love.",
+    "The Christian hope is also not for escape from the body: at the Last Day the dead will be raised and heaven and earth will be renewed (Revelation 21:1-4; Romans 8:19-23). Jesus’ resurrection body could be touched, ate fish, and still passed through closed doors (Luke 24:39-43; John 20:19). Heaven is not boring: it is the full life for which we were made (CCC 1023-1029, 1042-1050)."
+   ],
+   "verses": [
+    {
+     "ref": "Revelation 21:1-4",
+     "why": "A new heaven and a new earth"
+    },
+    {
+     "ref": "1 Corinthians 13:12",
+     "why": "Then face to face"
+    },
+    {
+     "ref": "1 John 3:2",
+     "why": "We shall be like him, for we shall see him as he is"
+    },
+    {
+     "ref": "Luke 24:36-43",
+     "why": "The risen body of Jesus"
+    }
+   ],
+   "ccc": [
+    1023,
+    1024,
+    1025,
+    1026,
+    1027,
+    1028,
+    1029,
+    1042,
+    1044,
+    1045
+   ],
+   "tags": [
+    "Heaven",
+    "Beatific vision",
+    "New creation"
+   ],
+   "related": [
+    "hell",
+    "resurrection"
+   ],
+   "reading": []
+  },
+  {
+   "id": "judgment",
+   "category": "Salvation and morality",
+   "title": "Particular and final judgment",
+   "objection": "Nobody is judged until the end of the world, and Christians don’t get judged at all.",
+   "answer": [
+    "Hebrews 9:27 says that “it is appointed for men to die once, and after that comes judgment.” The Church teaches two moments: the particular judgment, at the hour of death, when each soul receives its eternal destiny of heaven, purification, or damnation (CCC 1021-1022); and the general judgment at the return of Christ, when all will be raised and the secrets of hearts revealed (Matthew 25:31-46; John 5:28-29; CCC 1038-1041). Jesus tells of Lazarus and the rich man, in which the dead already face their reward or punishment (Luke 16:19-31).",
+    "Christians are not exempt: Paul says that “we must all appear before the judgment seat of Christ” (2 Corinthians 5:10) and that believers’ works will be tested by fire (1 Corinthians 3:12-15). We are judged on love: the criteria in Matthew 25 are feeding the hungry, welcoming the stranger, and visiting the sick."
+   ],
+   "verses": [
+    {
+     "ref": "Hebrews 9:27",
+     "why": "After death comes judgment"
+    },
+    {
+     "ref": "Matthew 25:31-46",
+     "why": "Whatever you did for the least of these"
+    },
+    {
+     "ref": "2 Corinthians 5:10",
+     "why": "We must all appear before the judgment seat of Christ"
+    },
+    {
+     "ref": "Luke 16:19-31",
+     "why": "Lazarus and the rich man"
+    }
+   ],
+   "ccc": [
+    1021,
+    1022,
+    1038,
+    1039,
+    1040,
+    1041
+   ],
+   "tags": [
+    "Judgment",
+    "Particular judgment",
+    "Final judgment"
+   ],
+   "related": [
+    "purgatory",
+    "heaven",
+    "hell"
+   ],
+   "reading": []
+  },
+  {
+   "id": "praying-for-the-dead",
+   "category": "Mary and the saints",
+   "title": "Praying for the dead",
+   "objection": "After death, our fate is sealed and prayers for the dead do nothing.",
+   "answer": [
+    "Judas Maccabeus took up a collection to offer sacrifice for the fallen soldiers, “in view of the resurrection… it is a holy and pious thought. Therefore he made atonement for the dead, that they might be delivered from their sin” (2 Maccabees 12:43-45). The Jews at the time of Jesus prayed for the dead, and the practice is attested in Christian inscriptions, in the prayers of the early liturgies, and in Tertullian and Augustine, who mentions Monica’s request to be remembered at the altar.",
+    "Paul prays for Onesiphorus on “that day” (2 Timothy 1:16-18), which most naturally refers to the judgment after his death. Since the Church is one body in Christ, the living can help those being purified, and the saints help us (CCC 958, 1030-1032). Praying for the dead is an act of mercy, and it is a firm hope in the resurrection."
+   ],
+   "verses": [
+    {
+     "ref": "2 Maccabees 12:38-46",
+     "why": "He made atonement for the dead"
+    },
+    {
+     "ref": "2 Timothy 1:16-18",
+     "why": "May the Lord grant him to find mercy on that day"
+    },
+    {
+     "ref": "1 Corinthians 15:29",
+     "why": "Baptized on behalf of the dead"
+    },
+    {
+     "ref": "1 Corinthians 3:10-15",
+     "why": "Saved, but only as through fire"
+    }
+   ],
+   "ccc": [
+    958,
+    1030,
+    1031,
+    1032,
+    1471,
+    1689
+   ],
+   "tags": [
+    "Prayer for the dead",
+    "Purgatory",
+    "Maccabees"
+   ],
+   "related": [
+    "purgatory",
+    "intercession-of-saints"
+   ],
+   "reading": [
+    {
+     "title": "Where Is Purgatory in the Bible? | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=YesD9TjrUes",
+     "source": "catholic-productions",
+     "type": "video"
+    },
+    {
+     "title": "Biblical Proof for Purgatory (in Protestant Bibles!)",
+     "url": "https://www.youtube.com/watch?v=QcCubnEKir8",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "Catholic Answers Focus: Good News About Purgatory",
+     "url": "https://www.youtube.com/watch?v=8IP6aBx2pK0",
+     "source": "catholic-answers",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "guardian-angels",
+   "category": "Mary and the saints",
+   "title": "Angels and guardian angels",
+   "objection": "Angels are folk tales, and praying to your guardian angel is unbiblical.",
+   "answer": [
+    "Angels are spiritual, personal beings created by God, who serve him and help humanity (Hebrews 1:14). They appear throughout Scripture: Gabriel announces the births of John and Jesus (Luke 1:11-38), an angel strengthens Jesus in Gethsemane (Luke 22:43), and angels attended the empty tomb. The Church teaches that their existence is a truth of faith (CCC 328).",
+    "Jesus says of children, “their angels always behold the face of my Father who is in heaven” (Matthew 18:10), which the Church’s tradition has read as pointing to a guardian angel for each person (CCC 336, quoting St Basil: “Beside each believer stands an angel as protector and shepherd”). When the disciples hear Peter at the door after his release, they say, “It is his angel!” (Acts 12:15). Asking the help of our guardian angel is a form of asking for intercession, like asking a friend in the Church to pray for you."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 18:10",
+     "why": "Their angels always behold the face of my Father"
+    },
+    {
+     "ref": "Psalm 91:11-12",
+     "why": "He will give his angels charge of you"
+    },
+    {
+     "ref": "Hebrews 1:14",
+     "why": "Ministering spirits sent to serve those who will inherit salvation"
+    },
+    {
+     "ref": "Acts 12:7-15",
+     "why": "An angel of the Lord appeared"
+    }
+   ],
+   "ccc": [
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334,
+    335,
+    336
+   ],
+   "tags": [
+    "Angels",
+    "Guardian angel",
+    "Michael"
+   ],
+   "related": [
+    "intercession-of-saints",
+    "relics-and-sacramentals"
+   ],
+   "reading": []
+  },
+  {
+   "id": "relics-and-sacramentals",
+   "category": "Mary and the saints",
+   "title": "Relics and sacramentals",
+   "objection": "Honouring relics, holy water, and medals is superstition.",
+   "answer": [
+    "The Bible shows God working through physical objects. A woman touched the fringe of Jesus’ cloak and was healed (Matthew 9:20-22). Handkerchiefs and aprons that had touched Paul healed the sick (Acts 19:11-12), and Peter’s shadow was hoped to heal (Acts 5:15). A dead man thrown into Elisha’s tomb came to life when his body touched Elisha’s bones (2 Kings 13:21). Catholics venerate relics (the bodies or belongings of saints) because the body is sacred, and God honours it.",
+    "Sacramentals are blessed objects and actions, such as holy water, ashes, candles, and medals, that prepare us to receive grace and help us sanctify daily life (CCC 1667-1673). They have no power of their own: they work through the prayer of the Church, and the faith of the user. The Church condemns superstition, which attributes magical power to the object itself (CCC 2111)."
+   ],
+   "verses": [
+    {
+     "ref": "Acts 19:11-12",
+     "why": "Handkerchiefs or aprons that had touched him"
+    },
+    {
+     "ref": "2 Kings 13:20-21",
+     "why": "He touched the bones of Elisha, and revived"
+    },
+    {
+     "ref": "Mark 5:25-34",
+     "why": "If I touch even his garments I shall be made well"
+    },
+    {
+     "ref": "John 9:6-7",
+     "why": "Clay and spittle, and the pool of Siloam"
+    }
+   ],
+   "ccc": [
+    1667,
+    1668,
+    1669,
+    1670,
+    1671,
+    1672,
+    1673,
+    1674,
+    2111
+   ],
+   "tags": [
+    "Relics",
+    "Sacramentals",
+    "Holy water"
+   ],
+   "related": [
+    "images",
+    "intercession-of-saints"
+   ],
+   "reading": []
+  },
+  {
+   "id": "exorcism",
+   "category": "Mary and the saints",
+   "title": "Demons and exorcism",
+   "objection": "Exorcism is superstition. Demons are a medieval fiction.",
+   "answer": [
+    "The Gospels report that Jesus often cast out demons and gave the Twelve and the seventy-two authority over them (Mark 1:23-27; 3:14-15; Luke 10:17-20). Jesus distinguishes illnesses from possession, and the Church does too. She teaches that the devil and other demons are fallen angels (CCC 391-395), that their power is limited, and that they cannot overcome those who rely on Christ.",
+    "The Church performs exorcisms of the sacramental kind in baptism (renouncing Satan), and the major exorcism of a possessed person only with the bishop’s permission and after medical and psychological causes are ruled out (CCC 1237, 1673). The ordinary Christian response to temptation is the one Jesus used in the desert: Scripture, prayer, and fasting (Matthew 4:1-11)."
+   ],
+   "verses": [
+    {
+     "ref": "Mark 1:23-27",
+     "why": "Jesus rebukes the unclean spirit"
+    },
+    {
+     "ref": "Luke 10:17-20",
+     "why": "Even the demons are subject to us in your name"
+    },
+    {
+     "ref": "Matthew 4:1-11",
+     "why": "Jesus is tempted in the desert"
+    },
+    {
+     "ref": "Ephesians 6:10-12",
+     "why": "Our struggle is against the principalities and powers"
+    }
+   ],
+   "ccc": [
+    391,
+    392,
+    393,
+    394,
+    395,
+    550,
+    1237,
+    1673
+   ],
+   "tags": [
+    "Exorcism",
+    "Demons",
+    "Satan"
+   ],
+   "related": [
+    "guardian-angels",
+    "relics-and-sacramentals"
+   ],
+   "reading": [
+    {
+     "title": "The Truth About Spiritual Warfare | Fr. Louis Merosne w/ John Bergsma",
+     "url": "https://www.youtube.com/watch?v=ctGaWS68CoU",
+     "source": "st-paul-center",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "fasting-lent",
+   "category": "Salvation and morality",
+   "title": "Fasting, Lent and penance",
+   "objection": "Fasting is a Pharisee’s practice, and Christians are free from food rules.",
+   "answer": [
+    "Jesus assumes that his disciples will fast: “When you fast…” (Matthew 6:16-18), and he says that “the days will come when the bridegroom is taken away from them, and then they will fast” (Matthew 9:15). He himself fasted for forty days before his ministry (Matthew 4:2). The early Church fasted before choosing leaders (Acts 13:2-3; 14:23), and the Didache (about AD 100) tells Christians to fast on Wednesdays and Fridays.",
+    "The forty days of Lent echo Moses on Sinai, Elijah on Horeb, and Jesus in the desert. The Church asks Catholics to fast on Ash Wednesday and Good Friday, to abstain from meat on Fridays in Lent, and to do some penance on other Fridays (CCC 1434, 1438, 2043). The purpose is not to earn God’s love but to put the body and the appetites in order, to turn the heart back to God, and to share with the poor (Isaiah 58:6-7)."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 6:16-18",
+     "why": "When you fast, anoint your head"
+    },
+    {
+     "ref": "Matthew 9:14-15",
+     "why": "Then they will fast"
+    },
+    {
+     "ref": "Joel 2:12-13",
+     "why": "Return to me with all your heart, with fasting"
+    },
+    {
+     "ref": "Isaiah 58:6-7",
+     "why": "The fast that I choose"
+    }
+   ],
+   "ccc": [
+    1434,
+    1435,
+    1436,
+    1437,
+    1438,
+    1439,
+    2043
+   ],
+   "tags": [
+    "Fasting",
+    "Lent",
+    "Penance"
+   ],
+   "related": [
+    "confession",
+    "indulgences"
+   ],
+   "reading": []
+  },
+  {
+   "id": "death-penalty",
+   "category": "Life, family and the world",
+   "title": "The death penalty",
+   "objection": "The Church has always approved of the death penalty, or the Church has changed its teaching.",
+   "answer": [
+    "The Church’s long-standing teaching was that the state has the right to impose capital punishment when it is the only way to protect society. In 2018 Pope Francis changed paragraph 2267 of the Catechism to state that the death penalty is “inadmissible because it is an attack on the inviolability and dignity of the person,” and that the Church works with determination for its abolition. This is a development in the application of a principle: the sacredness of human life, which includes the guilty (Genesis 4:15; 9:6), and the modern ability to protect society without execution.",
+    "Scripture gives different signals. The Old Law prescribes death for many crimes (Genesis 9:6; Exodus 21:12), but God spares Cain (Genesis 4:15) and Jesus rescues the woman caught in adultery from stoning (John 8:1-11). Paul says the ruler “does not bear the sword in vain” (Romans 13:4). The Church today asks governments to use non-lethal means and to give the guilty time for repentance (CCC 2266-2267)."
+   ],
+   "verses": [
+    {
+     "ref": "Genesis 9:5-6",
+     "why": "Whoever sheds the blood of man"
+    },
+    {
+     "ref": "Genesis 4:15",
+     "why": "The Lord put a mark on Cain"
+    },
+    {
+     "ref": "John 8:1-11",
+     "why": "Let him who is without sin cast the first stone"
+    },
+    {
+     "ref": "Romans 13:1-5",
+     "why": "The authority does not bear the sword in vain"
+    }
+   ],
+   "ccc": [
+    2258,
+    2266,
+    2267,
+    2268,
+    2269
+   ],
+   "tags": [
+    "Death penalty",
+    "Capital punishment",
+    "Life"
+   ],
+   "related": [
+    "abortion",
+    "euthanasia"
+   ],
+   "reading": []
+  },
+  {
+   "id": "euthanasia",
+   "category": "Life, family and the world",
+   "title": "Euthanasia and assisted suicide",
+   "objection": "People should have the right to die with dignity. Suffering is pointless.",
+   "answer": [
+    "The Church teaches that every human life is a gift of God to be received, not a possession to be disposed of (Psalm 139:13-16; CCC 2258, 2280). Euthanasia, the direct and intentional ending of the life of a sick or dying person, and assisted suicide are morally unacceptable, even when requested, because they are choices to kill (CCC 2277). A patient may, however, refuse burdensome or disproportionate treatment, and pain may be relieved with drugs even if this shortens life, as long as death is not intended (CCC 2278-2279).",
+    "Suffering is not good in itself, but it is not meaningless: Christ redeemed it by his Passion, and we can unite our sufferings to his (Colossians 1:24). The Church asks for more compassion, not less, with palliative care, company, and the sacraments, so that no one feels like a burden."
+   ],
+   "verses": [
+    {
+     "ref": "Psalm 139:13-16",
+     "why": "You knit me together in my mother’s womb"
+    },
+    {
+     "ref": "Exodus 20:13",
+     "why": "You shall not kill"
+    },
+    {
+     "ref": "Colossians 1:24",
+     "why": "Completing what is lacking in Christ’s afflictions"
+    },
+    {
+     "ref": "2 Corinthians 12:9",
+     "why": "My power is made perfect in weakness"
+    }
+   ],
+   "ccc": [
+    2276,
+    2277,
+    2278,
+    2279,
+    2280,
+    2281,
+    2282,
+    2283,
+    2324,
+    2325
+   ],
+   "tags": [
+    "Euthanasia",
+    "Assisted suicide",
+    "End of life",
+    "Dignity"
+   ],
+   "related": [
+    "abortion",
+    "suffering"
+   ],
+   "reading": []
+  },
+  {
+   "id": "homosexuality",
+   "category": "Life, family and the world",
+   "title": "Same-sex attraction and marriage",
+   "objection": "The Church hates gay people and condemns who they are.",
+   "answer": [
+    "The Church distinguishes between a person and an act. It teaches that persons with same-sex attractions “must be accepted with respect, compassion, and sensitivity. Every sign of unjust discrimination in their regard should be avoided” (CCC 2358). The attraction itself is not a sin. It also teaches that every person is called to chastity, and that sexual acts between persons of the same sex cannot be approved because they are not open to life and do not express the complementarity of man and woman (CCC 2357, 2359).",
+    "This rests on Scripture’s view of marriage and the body: “male and female he created them” (Genesis 1:27; Matthew 19:4-6) and on passages that treat same-sex acts as sinful (Romans 1:26-27; 1 Corinthians 6:9-10; Leviticus 18:22). The same Church that holds this teaching also holds that all people are made in God’s image and loved by him. Many Catholics who experience same-sex attraction, living chastely, have described friendship, community, and prayer as central to their lives."
+   ],
+   "verses": [
+    {
+     "ref": "Genesis 1:27",
+     "why": "Male and female he created them"
+    },
+    {
+     "ref": "Matthew 19:4-6",
+     "why": "From the beginning it was not so"
+    },
+    {
+     "ref": "Romans 1:24-27",
+     "why": "Natural relations"
+    },
+    {
+     "ref": "1 Corinthians 6:9-11",
+     "why": "And such were some of you"
+    }
+   ],
+   "ccc": [
+    1603,
+    1604,
+    2333,
+    2357,
+    2358,
+    2359
+   ],
+   "tags": [
+    "Homosexuality",
+    "Chastity",
+    "Marriage"
+   ],
+   "related": [
+    "marriage-divorce",
+    "chastity"
+   ],
+   "reading": []
+  },
+  {
+   "id": "chastity",
+   "category": "Life, family and the world",
+   "title": "Chastity and sex before marriage",
+   "objection": "Sex outside marriage is a private matter, and the Church’s rules are outdated.",
+   "answer": [
+    "The Church teaches that sexual union is a total gift of self, which is why it belongs within the permanent, faithful, fruitful covenant of marriage. Jesus affirms the lifelong union of man and wife (Mark 10:6-9), and the New Testament repeatedly lists sexual immorality (porneia) among sins that exclude from the kingdom (1 Corinthians 6:9-11, 18-20; Hebrews 13:4). Paul says the body is “a temple of the Holy Spirit” (1 Corinthians 6:19).",
+    "Chastity is a virtue for every state of life. For the married it means fidelity; for the unmarried, abstinence; for the vowed, celibacy (CCC 2337-2350). The Church recognises that this is hard and that people fail, which is why she offers confession and community, and she holds that sexual integrity is a good for personal freedom, not only a rule."
+   ],
+   "verses": [
+    {
+     "ref": "1 Corinthians 6:18-20",
+     "why": "Your body is a temple of the Holy Spirit"
+    },
+    {
+     "ref": "Hebrews 13:4",
+     "why": "Let marriage be held in honor"
+    },
+    {
+     "ref": "Matthew 5:27-28",
+     "why": "Everyone who looks at a woman lustfully"
+    },
+    {
+     "ref": "Genesis 2:24",
+     "why": "They become one flesh"
+    }
+   ],
+   "ccc": [
+    2337,
+    2338,
+    2339,
+    2348,
+    2349,
+    2350,
+    2351,
+    2352,
+    2353,
+    2360,
+    2361,
+    2362,
+    2363
+   ],
+   "tags": [
+    "Chastity",
+    "Sexual morality",
+    "Purity"
+   ],
+   "related": [
+    "marriage-divorce",
+    "contraception"
+   ],
+   "reading": []
+  },
+  {
+   "id": "ivf",
+   "category": "Life, family and the world",
+   "title": "In vitro fertilisation",
+   "objection": "Why does the Church oppose IVF? It helps couples have children.",
+   "answer": [
+    "The Church understands the desire for a child as good (Genesis 30:1; 1 Samuel 1:10-11). It teaches that a child is “a gift” and not a right or a product (CCC 2378), and that the child should be the fruit of the spouses’ own loving union. IVF replaces that act with a laboratory procedure. It typically creates more embryos than are implanted, and many are frozen or destroyed, which the Church holds to be a grave violation of the dignity of human life from conception (CCC 2376-2377).",
+    "Treatments that help the marital act to achieve conception are permitted (CCC 2375), including some fertility-restoring medical care. The Church also reminds couples with infertility that they can have spiritual fruitfulness through adoption, service, and works of mercy, and she grieves with those who suffer this cross (CCC 2379)."
+   ],
+   "verses": [
+    {
+     "ref": "Psalm 127:3",
+     "why": "Children are a heritage from the Lord"
+    },
+    {
+     "ref": "1 Samuel 1:9-20",
+     "why": "Hannah’s prayer for a child"
+    },
+    {
+     "ref": "Psalm 139:13-16",
+     "why": "You formed my inward parts"
+    },
+    {
+     "ref": "Jeremiah 1:5",
+     "why": "Before I formed you in the womb I knew you"
+    }
+   ],
+   "ccc": [
+    2373,
+    2374,
+    2375,
+    2376,
+    2377,
+    2378,
+    2379
+   ],
+   "tags": [
+    "IVF",
+    "Fertility",
+    "Embryo",
+    "Infertility"
+   ],
+   "related": [
+    "contraception",
+    "abortion"
+   ],
+   "reading": []
+  },
+  {
+   "id": "adam-and-eve",
+   "category": "Life, family and the world",
+   "title": "Adam and Eve, evolution and original sin",
+   "objection": "Science has disproved Adam and Eve, so original sin is a myth.",
+   "answer": [
+    "The Church teaches that Genesis 1-3 uses figurative language to teach real truths: God created everything out of nothing, humanity is made in his image, man and woman are for each other, and a primeval sin entered the human story (CCC 337-342, 355-361, 390). It says nothing against the biological evolution of the human body, but holds that each human soul is created directly by God (Pius XII, Humani Generis; CCC 366). Catholics are free to believe in evolution, and not free to deny the soul, the original unity of the human race, or the fall.",
+    "Paul’s teaching on Adam as the head of the human race, through whom sin and death came, and Christ as the new Adam, is central (Romans 5:12-21; 1 Corinthians 15:21-22), and the Church has therefore not abandoned the idea of a real first human pair. How that fits with the details of paleoanthropology is a question for scientists and theologians, not settled by the Church."
+   ],
+   "verses": [
+    {
+     "ref": "Genesis 1:26-28",
+     "why": "God created man in his own image"
+    },
+    {
+     "ref": "Genesis 2:7",
+     "why": "The breath of life"
+    },
+    {
+     "ref": "Romans 5:12-19",
+     "why": "Through one man sin entered the world"
+    },
+    {
+     "ref": "1 Corinthians 15:21-22",
+     "why": "As in Adam all die, so in Christ all will be made alive"
+    }
+   ],
+   "ccc": [
+    337,
+    355,
+    356,
+    357,
+    358,
+    359,
+    360,
+    361,
+    362,
+    363,
+    364,
+    365,
+    366,
+    390
+   ],
+   "tags": [
+    "Adam and Eve",
+    "Evolution",
+    "Original sin",
+    "Genesis"
+   ],
+   "related": [
+    "science-faith",
+    "suffering"
+   ],
+   "reading": [
+    {
+     "title": "What does Genesis Tell Us about Adam and Eve? (Aquinas 101)",
+     "url": "https://www.youtube.com/watch?v=vjYJaTT5OkU",
+     "source": "thomistic-institute",
+     "type": "video"
+    },
+    {
+     "title": "Did Adam and Eve Really Exist? (Aquinas 101)",
+     "url": "https://www.youtube.com/watch?v=ppbXsyTE3TI",
+     "source": "thomistic-institute",
+     "type": "video"
+    },
+    {
+     "title": "Do We Really Inherit Original Sin from Adam and Eve? (Aquinas 101)",
+     "url": "https://www.youtube.com/watch?v=_yT0YpOrz_4",
+     "source": "thomistic-institute",
+     "type": "video"
+    },
+    {
+     "title": "\"Why Are Kids Being Taught Adam & Eve Weren’t Real?\"",
+     "url": "https://www.youtube.com/watch?v=uN4mSdkysDE",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "Evolution and the Creation of Man (Aquinas 101)",
+     "url": "https://www.youtube.com/watch?v=lmeaLhq7rXs",
+     "source": "thomistic-institute",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "genesis-literal",
+   "category": "Scripture and Tradition",
+   "title": "Should Genesis be read literally?",
+   "objection": "Catholics are either fundamentalists or they don’t believe the Bible.",
+   "answer": [
+    "The Church teaches that the “literal sense” of a passage is what the human author intended to convey, which depends on its literary form (CCC 109-110). The Catholic tradition has read Genesis in several ways: Augustine wrote about the creation days as a literary structure, and Aquinas insisted that the faithful should not tie the faith to a particular scientific interpretation. The Pontifical Biblical Commission (1909) allowed that the days of Genesis need not be 24 hours.",
+    "Genesis 1 is a carefully structured account of God ordering the world as a temple and giving humanity its place. It teaches that the world is good, created by one God out of nothing, with the Sabbath as its goal. What the Church requires is that the central teachings be held: creation from nothing, the unity of the human race, the fall, and the creation of the soul by God (CCC 279-301, 355-379)."
+   ],
+   "verses": [
+    {
+     "ref": "Genesis 1:1-2:3",
+     "why": "The six days and the Sabbath"
+    },
+    {
+     "ref": "Psalm 104:1-30",
+     "why": "Creation as praise"
+    },
+    {
+     "ref": "Hebrews 11:3",
+     "why": "By faith we understand that the world was created by the word of God"
+    },
+    {
+     "ref": "2 Peter 3:8",
+     "why": "With the Lord one day is as a thousand years"
+    }
+   ],
+   "ccc": [
+    109,
+    110,
+    279,
+    280,
+    281,
+    282,
+    283,
+    284,
+    285,
+    286,
+    287,
+    288,
+    289,
+    290,
+    291,
+    292,
+    293,
+    294,
+    295,
+    296,
+    297,
+    298,
+    299,
+    300,
+    301
+   ],
+   "tags": [
+    "Genesis",
+    "Literal sense",
+    "Creation",
+    "Six days"
+   ],
+   "related": [
+    "adam-and-eve",
+    "science-faith"
+   ],
+   "reading": [
+    {
+     "title": "Can Catholics Believe in a Literal Six-Day Creation?",
+     "url": "https://www.youtube.com/watch?v=4X_4c7yneC0",
+     "source": "jimmy-akin",
+     "type": "video"
+    },
+    {
+     "title": "How Do We Interpret the Genesis Creation Accounts? (Aquinas 101)",
+     "url": "https://www.youtube.com/watch?v=d2Ik1ea8yUI",
+     "source": "thomistic-institute",
+     "type": "video"
+    },
+    {
+     "title": "What Does the Church Say About Early Genesis? | The Jimmy Akin Podcast",
+     "url": "https://www.youtube.com/watch?v=dwU7FLfIgqc",
+     "source": "jimmy-akin",
+     "type": "video"
+    },
+    {
+     "title": "Bishop Barron on Misreading Genesis",
+     "url": "https://www.youtube.com/watch?v=UVsbVAVSssc",
+     "source": "word-on-fire",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "slavery-bible",
+   "category": "Life, family and the world",
+   "title": "Does the Bible support slavery?",
+   "objection": "The Bible condones slavery, so it can’t be trusted morally.",
+   "answer": [
+    "Slavery existed in the ancient world, and the Old Testament law regulates it, with limits that were unusual for the time: Hebrew slaves were to be freed after six years (Exodus 21:2), kidnappers were put to death (Exodus 21:16), and runaways were not to be returned (Deuteronomy 23:15-16). The law does not ideally endorse it, and Jesus says of divorce that Moses allowed it “for your hardness of heart” (Matthew 19:8): the law is a stage in God’s teaching of a people.",
+    "In the New Testament Paul asks Philemon to receive his runaway slave Onesimus “no longer as a slave but more than a slave, as a beloved brother” (Philemon 16), and he lists slave traders among the lawless (1 Timothy 1:10). Galatians 3:28 says “there is neither slave nor free… in Christ.” The Catechism teaches that slavery is a grave offence against human dignity (CCC 2414), and Popes Paul III, Gregory XVI, and Leo XIII condemned enslaving people. Christianity’s deeper principle of the equality of persons in the image of God led, over time, to abolition."
+   ],
+   "verses": [
+    {
+     "ref": "Philemon 1:15-16",
+     "why": "No longer as a slave but as a beloved brother"
+    },
+    {
+     "ref": "Galatians 3:28",
+     "why": "There is neither slave nor free"
+    },
+    {
+     "ref": "Exodus 21:16",
+     "why": "Whoever kidnaps a man shall be put to death"
+    },
+    {
+     "ref": "1 Timothy 1:9-10",
+     "why": "Enslavers are among the lawless"
+    }
+   ],
+   "ccc": [
+    357,
+    1929,
+    1935,
+    2414
+   ],
+   "tags": [
+    "Slavery",
+    "Human dignity",
+    "Philemon"
+   ],
+   "related": [
+    "ot-violence",
+    "science-faith"
+   ],
+   "reading": [
+    {
+     "title": "Does the Bible Support Slavery?",
+     "url": "https://www.youtube.com/watch?v=UsIaSL1ChI8",
+     "source": "breaking-in-the-habit",
+     "type": "video"
+    },
+    {
+     "title": "Why Doesn't the Bible Condemn Slavery?",
+     "url": "https://www.youtube.com/watch?v=ssFm7QrqLAE",
+     "source": "pints-with-aquinas",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "ot-violence",
+   "category": "Scripture and Tradition",
+   "title": "Violence in the Old Testament",
+   "objection": "The God of the Old Testament commands genocide, and so cannot be the God of love in the New.",
+   "answer": [
+    "The Church reads the Old Testament as a real revelation that is also incomplete. God teaches a people steeped in violent cultures step by step (CCC 53, 122), and some of the texts, like the conquest narratives in Joshua, are hard. The Church’s tradition offers several approaches: the commands may be partly hyperbolic ancient-war language (the “total destruction” texts in Joshua are followed by accounts in which the same peoples remain), they were limited in scope, and the Church Fathers (Origen, Augustine) also read them allegorically as the Christian’s struggle against sin.",
+    "The Old Testament also contains the commands to protect the stranger, widow, and orphan, and Hosea’s and Jonah’s portraits of God’s mercy. Jesus is the fullness of revelation (Hebrews 1:1-2), and the New Testament does not set God against God: the same God of love is the judge. Catholic scholars are open about the difficulty, and the Church does not teach that God commands anyone to kill the innocent today."
+   ],
+   "verses": [
+    {
+     "ref": "Joshua 6:1-21",
+     "why": "The fall of Jericho"
+    },
+    {
+     "ref": "Hosea 11:8-9",
+     "why": "How can I give you up, O Ephraim?"
+    },
+    {
+     "ref": "Jonah 4:10-11",
+     "why": "Should I not pity Nineveh?"
+    },
+    {
+     "ref": "Hebrews 1:1-2",
+     "why": "In these last days he has spoken to us by a Son"
+    }
+   ],
+   "ccc": [
+    53,
+    122,
+    123,
+    124,
+    129,
+    130,
+    2260
+   ],
+   "tags": [
+    "Old Testament violence",
+    "Conquest",
+    "Joshua"
+   ],
+   "related": [
+    "slavery-bible",
+    "inerrancy"
+   ],
+   "reading": [
+    {
+     "title": "Bishop Barron on Violence in the Bible",
+     "url": "https://www.youtube.com/watch?v=1A65Wfr2is0",
+     "source": "word-on-fire",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "social-justice-poor",
+   "category": "Life, family and the world",
+   "title": "The poor and social justice",
+   "objection": "Faith is a private matter. The Church should stay out of politics and economics.",
+   "answer": [
+    "Jesus identifies himself with the poor: “As you did it to one of the least of these my brethren, you did it to me” (Matthew 25:40). The prophets denounce the oppression of the poor (Amos 5:11-24; Isaiah 58:6-10), and James says that “faith by itself, if it has no works, is dead” (James 2:14-17). The Church’s social teaching, from Rerum Novarum (1891) to Laudato Si’ (2015), applies this to workers’ rights, the dignity of labour, the universal destination of goods, and care for creation.",
+    "The Church asks governments and individuals to give priority to the poor, a “preferential option” that does not exclude anyone (CCC 2443-2446). The works of mercy, corporal and spiritual, are the daily way each Christian responds (CCC 2447). The Church does not propose a political party, but insists that no political or economic system can treat the human person as a mere means."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 25:31-46",
+     "why": "I was hungry and you gave me food"
+    },
+    {
+     "ref": "Amos 5:21-24",
+     "why": "Let justice roll down like waters"
+    },
+    {
+     "ref": "James 2:14-17",
+     "why": "Faith without works is dead"
+    },
+    {
+     "ref": "Luke 16:19-31",
+     "why": "Lazarus and the rich man"
+    }
+   ],
+   "ccc": [
+    1928,
+    1929,
+    1930,
+    2443,
+    2444,
+    2445,
+    2446,
+    2447,
+    2448,
+    2449
+   ],
+   "tags": [
+    "Social justice",
+    "Poor",
+    "Works of mercy"
+   ],
+   "related": [
+    "faith-and-works",
+    "abortion"
+   ],
+   "reading": [
+    {
+     "title": "Just Wage: Jesus' Warning to the Rich (James 5) | Dr. Brant Pitre",
+     "url": "https://www.youtube.com/watch?v=vtmY0p8qfi8",
+     "source": "catholic-productions",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "other-religions",
+   "category": "Salvation and morality",
+   "title": "Other religions",
+   "objection": "All religions lead to the same God, or the Church condemns other religions.",
+   "answer": [
+    "The Second Vatican Council taught that “the Catholic Church rejects nothing that is true and holy” in other religions, and regards their teachings with sincere respect, since they often reflect “a ray of that Truth which enlightens all men” (Nostra Aetate 2). At the same time, the Church insists that Christ is “the way, and the truth, and the life” (John 14:6) and that the fullness of revelation is in him. She rejects the claim that all religions are equally true, since they contradict each other on basic matters, such as who Jesus is.",
+    "Judaism has a special place, as the Jews are the people of the first covenant, which God never revoked (Romans 9:4-5; 11:29; CCC 839-840), and Muslims, who worship the one God, are also mentioned (CCC 841). Respect and dialogue go with proclamation: Christ sent his Church to make disciples of all nations (Matthew 28:19-20), and the Church does so without coercion."
+   ],
+   "verses": [
+    {
+     "ref": "John 14:6",
+     "why": "I am the way, and the truth, and the life"
+    },
+    {
+     "ref": "Acts 17:22-31",
+     "why": "Paul at the Areopagus"
+    },
+    {
+     "ref": "Romans 11:28-29",
+     "why": "The gifts and the call of God are irrevocable"
+    },
+    {
+     "ref": "Matthew 28:19-20",
+     "why": "Make disciples of all nations"
+    }
+   ],
+   "ccc": [
+    839,
+    840,
+    841,
+    842,
+    843,
+    844,
+    845,
+    856
+   ],
+   "tags": [
+    "Other religions",
+    "Nostra Aetate",
+    "Interreligious dialogue"
+   ],
+   "related": [
+    "salvation-outside-church",
+    "divinity-of-christ"
+   ],
+   "reading": []
+  },
+  {
+   "id": "god-exists",
+   "category": "Life, family and the world",
+   "title": "Does God exist?",
+   "objection": "There’s no evidence for God. Faith is belief without reason.",
+   "answer": [
+    "The Church teaches that God can be known with certainty by the natural light of human reason from created things (Romans 1:19-20; Wisdom 13:1-9; CCC 31-36; Vatican I). Thomas Aquinas set out “five ways” of reasoning from the world to God: from motion, causation, contingency, degrees of perfection, and the order of the world. Many thinkers, believers and not, find the existence of a rationally ordered universe or of consciousness and moral obligation hard to explain without a source beyond it.",
+    "Faith is not blind: the Church calls it a free assent to God’s revelation, supported by reasons such as miracles and prophecy, but it goes beyond what reason alone can establish (CCC 156-159). “Faith and reason are like two wings,” John Paul II wrote in Fides et Ratio. The mysteries of faith, such as the Trinity, are above reason, not against it."
+   ],
+   "verses": [
+    {
+     "ref": "Romans 1:19-20",
+     "why": "His invisible nature has been clearly perceived in the things that have been made"
+    },
+    {
+     "ref": "Wisdom 13:1-5",
+     "why": "From the greatness of created things comes a corresponding perception of their Creator"
+    },
+    {
+     "ref": "Psalm 19:1-4",
+     "why": "The heavens declare the glory of God"
+    },
+    {
+     "ref": "Acts 17:24-28",
+     "why": "In him we live and move and have our being"
+    }
+   ],
+   "ccc": [
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    156,
+    157,
+    158,
+    159
+   ],
+   "tags": [
+    "God",
+    "Proofs of God",
+    "Faith and reason",
+    "Aquinas"
+   ],
+   "related": [
+    "science-faith",
+    "suffering"
+   ],
+   "reading": [
+    {
+     "title": "Can You Prove God Exists Without the Bible? (Aquinas 101)",
+     "url": "https://www.youtube.com/watch?v=qvVKVlo_ml4",
+     "source": "thomistic-institute",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "problem-of-evil",
+   "category": "Life, family and the world",
+   "title": "If God is good, why is there evil?",
+   "objection": "A good and all-powerful God would not allow evil.",
+   "answer": [
+    "The Church acknowledges that no short answer removes the problem (CCC 309). The Catechism’s reply is that God created a world “in a state of journeying” toward perfection, with real freedom for his creatures, including freedom to refuse him (CCC 310-311). God is not the cause of moral evil (CCC 311), but permits it, and brings greater goods out of it: “God would not allow evil if he did not draw good from evil itself” (CCC 311, citing Augustine). The supreme example is the Cross.",
+    "The Bible does not hide the pain: Job protests, the Psalms lament, and Jesus weeps and cries out on the Cross. God’s answer to Job is not an argument but a revelation of his wisdom and presence (Job 38-42), and the answer of the New Testament is that God enters suffering in Jesus. Paul adds that “the sufferings of this present time are not worth comparing with the glory that is to be revealed” (Romans 8:18). The final answer is promised: God “will wipe away every tear” (Revelation 21:4)."
+   ],
+   "verses": [
+    {
+     "ref": "Job 38:1-42:6",
+     "why": "The Lord answers Job"
+    },
+    {
+     "ref": "Romans 8:18-28",
+     "why": "All things work together for good"
+    },
+    {
+     "ref": "Genesis 50:20",
+     "why": "You meant evil against me, but God meant it for good"
+    },
+    {
+     "ref": "Revelation 21:3-4",
+     "why": "He will wipe away every tear"
+    }
+   ],
+   "ccc": [
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    324,
+    385
+   ],
+   "tags": [
+    "Problem of evil",
+    "Theodicy",
+    "Suffering"
+   ],
+   "related": [
+    "suffering",
+    "god-exists"
+   ],
+   "reading": [
+    {
+     "title": "Episode 404:  When God Doesn’t Make Sense, The Book of Job, Part I",
+     "url": "https://www.youtube.com/watch?v=A7QOKXQjgO0",
+     "source": "acts-xxix",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "miracles",
+   "category": "Life, family and the world",
+   "title": "Do miracles happen?",
+   "objection": "Miracles are impossible, so the Gospel miracles are legends.",
+   "answer": [
+    "If God exists and created the laws of nature, it is not irrational to think he could act within them in unusual ways. The Church holds that Jesus’ miracles are “signs” that the kingdom of God has come (CCC 547-550), and that they invite faith and do not force it (CCC 548). The Gospels report that even Jesus’ opponents did not deny that he did extraordinary works: they claimed he did them by Beelzebul (Mark 3:22).",
+    "The Church is cautious about modern miracles. Lourdes keeps a medical bureau, and the Church requires documented, medically inexplicable cures for the canonisation of saints. The most important miracle is the resurrection, and the Church invites people to examine the evidence for it (1 Corinthians 15:3-8)."
+   ],
+   "verses": [
+    {
+     "ref": "John 20:30-31",
+     "why": "These are written that you may believe"
+    },
+    {
+     "ref": "Mark 2:1-12",
+     "why": "The paralytic let down through the roof"
+    },
+    {
+     "ref": "John 11:38-44",
+     "why": "The raising of Lazarus"
+    },
+    {
+     "ref": "Acts 2:22",
+     "why": "Jesus of Nazareth, attested by God with mighty works and wonders"
+    }
+   ],
+   "ccc": [
+    156,
+    547,
+    548,
+    549,
+    550,
+    551
+   ],
+   "tags": [
+    "Miracles",
+    "Signs",
+    "Lourdes"
+   ],
+   "related": [
+    "resurrection",
+    "god-exists"
+   ],
+   "reading": []
+  },
+  {
+   "id": "women-in-church",
+   "category": "Scripture and Tradition",
+   "title": "Women in the Church",
+   "objection": "The Church is sexist, and Paul says women must be silent.",
+   "answer": [
+    "Women are prominent in the Gospels and the Church: women follow and support Jesus (Luke 8:1-3), Mary Magdalene is the first witness of the resurrection (John 20:11-18), Phoebe is a deaconess (Romans 16:1), Priscilla teaches Apollos with her husband (Acts 18:26), and Junia is “prominent among the apostles” (Romans 16:7). Mary is the greatest of the saints, and of the 37 Doctors of the Church, four are women.",
+    "Paul’s texts on women keeping silent (1 Corinthians 14:34-35; 1 Timothy 2:11-15) are hard to interpret and must be read with his clear acceptance of women prophesying and praying in church (1 Corinthians 11:5). On the question of priesthood, the Church teaches that Christ chose only men as apostles and that she has no authority to change this (CCC 1577), which says nothing against women’s equal dignity, as shown by John Paul II’s teaching on the “feminine genius.”"
+   ],
+   "verses": [
+    {
+     "ref": "Luke 8:1-3",
+     "why": "Women who provided for them out of their means"
+    },
+    {
+     "ref": "Romans 16:1-7",
+     "why": "Phoebe, Priscilla and Junia"
+    },
+    {
+     "ref": "John 20:11-18",
+     "why": "Mary Magdalene, apostle to the apostles"
+    },
+    {
+     "ref": "Galatians 3:28",
+     "why": "There is neither male nor female"
+    }
+   ],
+   "ccc": [
+    369,
+    370,
+    371,
+    372,
+    1577,
+    1578
+   ],
+   "tags": [
+    "Women",
+    "Feminine genius",
+    "Mary Magdalene"
+   ],
+   "related": [
+    "women-priests",
+    "mary-mother-of-god"
+   ],
+   "reading": [
+    {
+     "title": "Did Paul Say Women Can't Teach? w/ @JimmyAkin",
+     "url": "https://www.youtube.com/watch?v=6MhTp8bTagI",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "Why Mary Magdalene Was So Important",
+     "url": "https://www.youtube.com/watch?v=iUmQhbXSjQM",
+     "source": "st-paul-center",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "tithing-and-money",
+   "category": "Salvation and morality",
+   "title": "Money, tithing and the prosperity gospel",
+   "objection": "God wants Christians to be rich. Give to the church and receive back.",
+   "answer": [
+    "Jesus warns that “you cannot serve God and mammon” (Matthew 6:24) and that “it is easier for a camel to go through the eye of a needle than for a rich man to enter the kingdom of God” (Mark 10:25). The New Testament praises generosity (2 Corinthians 9:6-8) and describes the first Christians sharing what they had (Acts 2:44-45), but it does not promise earthly wealth. Paul calls the love of money “the root of all evils” (1 Timothy 6:10). The saints and the Cross show that following Christ often costs.",
+    "Catholics are called to give to the Church and the poor (CCC 2043, 2446-2447), and to hold their possessions as stewards. Almsgiving, with prayer and fasting, is one of the three traditional works of Lent. The “prosperity gospel” turns the good news into a transaction, and it is at odds with Jesus’ words that his disciples should expect suffering for his sake (Matthew 5:10-12; Luke 9:23)."
+   ],
+   "verses": [
+    {
+     "ref": "Matthew 6:19-24",
+     "why": "You cannot serve God and mammon"
+    },
+    {
+     "ref": "Mark 10:17-27",
+     "why": "The rich young man"
+    },
+    {
+     "ref": "1 Timothy 6:6-10",
+     "why": "The love of money is the root of all evils"
+    },
+    {
+     "ref": "Luke 9:23",
+     "why": "Take up his cross daily and follow me"
+    }
+   ],
+   "ccc": [
+    2043,
+    2446,
+    2447,
+    2544,
+    2545,
+    2546
+   ],
+   "tags": [
+    "Money",
+    "Tithing",
+    "Prosperity gospel",
+    "Almsgiving"
+   ],
+   "related": [
+    "social-justice-poor",
+    "suffering"
+   ],
+   "reading": [
+    {
+     "title": "Bishop Barron on The Prosperity Gospel",
+     "url": "https://www.youtube.com/watch?v=1ip4Jx92F94",
+     "source": "word-on-fire",
+     "type": "video"
+    },
+    {
+     "title": "Treasures in Heaven | The Gospel of Matthew | Catholic Bible Study",
+     "url": "https://www.youtube.com/watch?v=p1l70eWFDeI",
+     "source": "augustine-institute",
+     "type": "video"
+    }
+   ]
+  },
+  {
+   "id": "hail-mary-bible",
+   "category": "Mary and the saints",
+   "title": "Is the Hail Mary in the Bible?",
+   "objection": "Catholics pray to Mary and make up prayers that Scripture doesn’t contain.",
+   "answer": [
+    "The first half of the Hail Mary is drawn directly from the Gospel of Luke: the angel Gabriel’s greeting, “Hail, full of grace, the Lord is with you” (Luke 1:28), and Elizabeth’s words, “Blessed are you among women, and blessed is the fruit of your womb” (Luke 1:42). The second half, “Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death,” was added by the Church over the centuries, and expresses the request for intercession.",
+    "Asking Mary to pray for us is like asking any believer to pray for us, which Paul often does (Romans 15:30; Colossians 4:3). Catholics hold that those who have died in Christ are alive in him, and are still members of the same family, so they can pray for us (Luke 20:38; Hebrews 12:1; Revelation 5:8). The title “Mother of God” follows from the fact that Jesus is God (Luke 1:43; CCC 495)."
+   ],
+   "verses": [
+    {
+     "ref": "Luke 1:28",
+     "why": "Hail, full of grace, the Lord is with you"
+    },
+    {
+     "ref": "Luke 1:41-45",
+     "why": "Blessed are you among women"
+    },
+    {
+     "ref": "Luke 1:48",
+     "why": "All generations will call me blessed"
+    },
+    {
+     "ref": "Revelation 5:8",
+     "why": "The prayers of the saints"
+    }
+   ],
+   "ccc": [
+    495,
+    971,
+    2617,
+    2676,
+    2677,
+    2678
+   ],
+   "tags": [
+    "Hail Mary",
+    "Intercession",
+    "Mary"
+   ],
+   "related": [
+    "rosary",
+    "intercession-of-saints"
+   ],
+   "reading": [
+    {
+     "title": "Was Mary Sinless? | The Catholic Talk Show",
+     "url": "https://www.youtube.com/watch?v=ffhW3BMSr8U",
+     "source": "catholic-talk-show",
+     "type": "video"
+    },
+    {
+     "title": "Is Mary The Mother of God? (Or Only Of Jesus?) | The Catholic Talk Show",
+     "url": "https://www.youtube.com/watch?v=nOgipRNlopc",
+     "source": "catholic-talk-show",
+     "type": "video"
+    },
+    {
+     "title": "Does the Bible Teach Mary was the Mother of God? | Ready Reasons | Karlo Broussard",
+     "url": "https://www.youtube.com/watch?v=hDzWWV1Bhag",
+     "source": "catholic-answers",
+     "type": "video"
+    },
+    {
+     "title": "Is Mary The Mother of God?",
+     "url": "https://www.youtube.com/watch?v=n88xsp57cZY",
+     "source": "catholic-answers",
+     "type": "video"
+    }
+   ]
   }
  ]
 }

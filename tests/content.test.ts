@@ -23,7 +23,7 @@ describe('questions about the faith', () => {
   const ccc = new Set<number>();
   for (let b = 0; b < 29; b++) for (const p of read(`public/data/ccc/p${b}.json`)) ccc.add(p.n);
   it('cites verses that parse and Catechism paragraphs that exist', () => {
-    expect(d.topics.length).toBeGreaterThan(25);
+    expect(d.topics.length).toBeGreaterThan(75);
     const ids = new Set(d.topics.map((t: any) => t.id));
     for (const t of d.topics) {
       expect(t.answer.length).toBeGreaterThan(0);
@@ -37,7 +37,7 @@ describe('questions about the faith', () => {
 describe('video catalogue', () => {
   const d = read('public/data/media/videos.json');
   it('lists only checked, embeddable videos with passages that parse', () => {
-    expect(d.videos.length).toBeGreaterThan(200);
+    expect(d.videos.length).toBeGreaterThan(700);
     const seen = new Set<string>();
     for (const v of d.videos) {
       expect(v.id).toMatch(/^[\w-]{11}$/);
