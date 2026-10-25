@@ -141,6 +141,8 @@ export interface StudyItem {
   parts?: { label: string; note?: string; ref?: string }[];
   /** other places in the same work that speak of the passage (one footnote per work) */
   more?: { title: string; excerpt: string; href: string; ctx?: StudyItem['ctx'] }[];
+  /** play only on the publisher's site (embedding is switched off for it) */
+  noEmbed?: boolean;
   /** extra outbound links (e.g. search this creator on YouTube / podcast apps) */
   links?: { label: string; url: string }[];
 }
@@ -993,7 +995,7 @@ export const providers: Record<string, Provider> = {
     return (await videosFor(refs, false)).map((v) => ({
       id: `video-${v.id}`, section: 'videos' as SectionKey, title: v.title, author: v.channel, url: `https://www.youtube.com/watch?v=${v.id}`,
       excerpt: v.note, authority: 'media' as AuthorityLevel, period: 'contemporary' as Period, format: 'video' as ItemFormat, match: 'passage' as MatchKind,
-      why: v.note ? `Matched by subject: ${v.note}` : 'A teaching video about this passage, from a Catholic creator.', sourceName: `${v.channel} on YouTube`, kind: 'Video',
+      why: v.note ? `Matched by subject: ${v.note}` : 'A teaching video about this passage, from a Catholic creator.', sourceName: `${v.channel} on YouTube`, kind: 'Video', noEmbed: v.noEmbed,
     }));
   },
 
