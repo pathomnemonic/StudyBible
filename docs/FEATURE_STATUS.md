@@ -9,16 +9,16 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Douay-Rheims, Clementine Vulgate, WEB (Catholic): 73 books, offline | **Working** | Public-domain texts ingested from eBible.org USFM; paragraphs, poetry, headings and footnotes preserved. |
 | Parallel view, verse comparison, translation switching that keeps the passage | **Working** | Aligned through the Vulgate anchor. Psalms are mapped by reviewed rules; other chapters whose numbering differs are flagged, never silently mismatched. |
-| Verse-level alignment for Tobit, Judith, Sirach, Esther, Daniel across Greek vs Vulgate texts | **Partial** | These books follow different textual traditions; chapter-level alignment only, with an explicit notice. |
-| RSV-CE, RSV-2CE, NABRE, Jerusalem Bible / NJB | **Needs licence** | Under copyright. The edition registry, anchor mapping (English scheme) and attribution records are ready; a licence and text file are required. |
-| Maps and appendices | **Planned** | Not in the public-domain sources used; the data model allows per-edition introductions and footnotes. |
+| Verse-level alignment for Tobit, Judith, Sirach, Esther, Daniel across Greek vs Vulgate texts | **Partial** | These books follow different textual traditions; chapter-level alignment only, with an explicit notice. **Next:** A reviewed verse map for each of the five books. **Blocked by:** verification. **Done when:** a versification test per book that every verse maps or is marked unaligned. |
+| RSV-CE, RSV-2CE, NABRE, Jerusalem Bible / NJB | **Needs licence** | Under copyright. The edition registry, anchor mapping (English scheme) and attribution records are ready; a licence and text file are required. **Next:** A licence and text file from the rights holders. **Blocked by:** rights. **Done when:** the edition registry test passes with the text present and an attribution record. |
+| Maps and appendices | **Planned** | Not in the public-domain sources used; the data model allows per-edition introductions and footnotes. **Next:** Public-domain appendix sources chosen and ingested. **Blocked by:** data. **Done when:** the data validator lists each appendix with a source. |
 
 ## Study
 
 | Feature | Status | Notes |
 |---|---|---|
 | Verse study panel with provenance, authority level and match reason on every item | **Working** | Never lists a source for a verse unless the data links it; empty sections say so. |
-| Catechism links | **Partial** | 29 verse-level citations, each verified against the paragraph text; topic ranges for 18 doctrine topics. The full Scripture index of the CCC needs a licensed data file. CCC text is never stored. |
+| Catechism links | **Partial** | 29 verse-level citations, each verified against the paragraph text; topic ranges for 18 doctrine topics. The full Scripture index of the CCC needs a licensed data file. CCC text is never stored. **Next:** A licensed Scripture index of the CCC, or more verified citations. **Blocked by:** rights. **Done when:** scripts/verify/ccc.ts confirms each citation against paragraph text. |
 
 ## App
 
@@ -33,9 +33,9 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Challoner’s notes, chapter summaries and introductions; chapter reading links | **Working** | Bishop Challoner’s annotations (about 1,850), a one-line summary for 1,293 chapters and 71 book introductions (public domain, Project Gutenberg). Every chapter of all 73 books also links to the Douay-Rheims with notes (DRBO), New Advent and the NABRE with the bishops’ notes (USCCB). These are chapter-level, not verse-level; the app labels them so. `scripts/verify/coverage.ts` reports how many verses have a verse-level reading versus chapter-level only. |
 | Church Fathers: Catena Aurea (all four Gospels, CrossWire), Haydock Catholic Bible Commentary (protocanon), Augustine, Chrysostom, Irenaeus, Athanasius, Cyril, Glossa Ordinaria (Latin) | **Working** | Public-domain: CrossWire Catena (Public Domain licence), SermonIndex Haydock module, CCEL translations. 24 works in the library plus a link-out Summa index. |
 | Reading room: saints, Fathers and catechisms in full | **Working** | 94 public-domain works, including the Imitation of Christ, Thérèse, Teresa, Julian, Francis de Sales, Ignatius, Anselm, and the Roman and Baltimore catechisms. The Roman Catechism text is unproofread OCR. The Catechism of the Catholic Church is copyrighted and linked, not included. |
-| Popes and Vatican documents | **Partial** | Linked (not copied) with authority labels; text search of them is not included. |
-| Catholic Answers, Word on Fire, Ascension Presents | **Needs credentials / agreement** | No public APIs or reuse licences. Only search links and a curated-link schema are provided; no content is imported. A partnership/licence would unlock richer integration. |
-| Semantic / concept search with AI | **Planned** | Not implemented. Concept search currently uses editorial topic keywords and a people/places index, clearly labelled. If added, AI results will be marked as such. |
+| Popes and Vatican documents | **Partial** | Linked (not copied) with authority labels; text search of them is not included. **Next:** Full-text search of the linked documents. **Blocked by:** rights. **Done when:** a search test over the documents that returns the cited article. |
+| Catholic Answers, Word on Fire, Ascension Presents | **Needs credentials / agreement** | No public APIs or reuse licences. Only search links and a curated-link schema are provided; no content is imported. A partnership/licence would unlock richer integration. **Next:** A reuse agreement or public API from each publisher. **Blocked by:** rights. **Done when:** an integration fetches an item and shows attribution. |
+| Semantic / concept search with AI | **Planned** | Not implemented. Concept search currently uses editorial topic keywords and a people/places index, clearly labelled. If added, AI results will be marked as such. **Next:** Evidence-first retrieval that cites source passages. **Blocked by:** code. **Done when:** every result links to a passage and marks generated text as such. |
 
 ## Search
 
@@ -48,19 +48,19 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Bible in a Year: 1,847 episodes mapped from the official feed; plan, canonical and release order; queue; progress; resume | **Working** | Passages come from feed metadata voted across yearly releases; one day (366, “A Special Leap Year Message”) has no passage in the feed, by design, and is shown without one. |
-| Transcripts and captions | **Planned** | The official feed provides none. The schema supports them if Ascension publishes transcripts or grants access. |
-| Video and other podcasts | **Planned** | Links to official YouTube channels only; adding more feeds is a matter of adding a feed entry. |
+| Transcripts and captions | **Planned** | The official feed provides none. The schema supports them if Ascension publishes transcripts or grants access. **Next:** Transcripts supplied by Ascension. **Blocked by:** rights. **Done when:** a transcript loads beside an episode and stays in sync. |
+| Video and other podcasts | **Planned** | Links to official YouTube channels only; adding more feeds is a matter of adding a feed entry. **Next:** More feeds added as entries. **Blocked by:** data. **Done when:** each feed entry validates and plays. |
 
 ## Pray
 
 | Feature | Status | Notes |
 |---|---|---|
 | Liturgical calendar, seasons, cycles, calendar view, local calendars (via LitCal) | **Working** | Offline computation plus the open LitCal API when online. |
-| Daily Mass readings, read in the app | **Partial** | The Church’s assigned passages for each day (citations compiled from the USCCB daily readings pages, which permit reading for analysis with attribution) are printed in full in your chosen translation, so you stay in the app. The Lectionary wording itself is copyrighted and not shown; the official page is one tap away. Coverage: the days that were collected (see the Readings page); other days fall back to feasts via LitCal, the Sunday Gospel table, or references you import or type. |
+| Daily Mass readings, read in the app | **Partial** | The Church’s assigned passages for each day (citations compiled from the USCCB daily readings pages, which permit reading for analysis with attribution) are printed in full in your chosen translation, so you stay in the app. The Lectionary wording itself is copyrighted and not shown; the official page is one tap away. Coverage: the days that were collected (see the Readings page); other days fall back to feasts via LitCal, the Sunday Gospel table, or references you import or type. **Next:** The licensed lectionary wording. **Blocked by:** rights. **Done when:** the reading text shown matches the USCCB text with the copyright line. |
 | Saint biographies and homilies for the day | **Partial** | The day’s celebrations come from LitCal (names, ranks). Biographies need a licensed or public-domain source (e.g. a public-domain Lives of the Saints) which has not been ingested yet. |
 | Lectio Divina, prayer journal, traditional prayers, quiet reading, plans (11+ built in, custom plans) | **Working** | Optional; no streak pressure (streak display is off by default). |
-| Audio Scripture | **Partial** | Device text-to-speech only. Recorded audio would need a licensed or public-domain recording per edition. |
-| Reminders | **Partial** | Work while the app is open/installed. True background push needs a server or native wrapper. |
+| Audio Scripture | **Partial** | Device text-to-speech only. Recorded audio would need a licensed or public-domain recording per edition. **Next:** Timed recordings (verse-level timings). **Blocked by:** data. **Done when:** a recording highlights the verse being read. |
+| Reminders | **Partial** | Work while the app is open/installed. True background push needs a server or native wrapper. **Next:** A push service for closed-app notifications. **Blocked by:** code. **Done when:** a reminder arrives with the app closed. |
 
 ## Library
 
@@ -216,13 +216,13 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| The Divine Office: Lauds, Terce, Sext, None, Vespers, Compline | **Partial** | The traditional Roman weekly psalter in the Douay-Rheims psalm text (Divinum Officium, MIT licence), offline. Ordinary time only: no feast, Advent, Lent or Easter propers, no Office of Readings, and not the modern Liturgy of the Hours, whose English text is copyrighted. |
+| The Divine Office: Lauds, Terce, Sext, None, Vespers, Compline | **Partial** | The traditional Roman weekly psalter in the Douay-Rheims psalm text (Divinum Officium, MIT licence), offline. Ordinary time only: no feast, Advent, Lent or Easter propers, no Office of Readings, and not the modern Liturgy of the Hours, whose English text is copyrighted. **Next:** Feast, Advent, Lent and Easter propers and the Office of Readings. **Blocked by:** data. **Done when:** each proper’s psalms, antiphons and collect match the Divinum Officium output for sample dates. |
 | Devotions: Rosary, Divine Mercy, Angelus, Stations of the Cross, Seven Sorrows | **Working** | Step by step with a bead counter. Scripture for each mystery and station is shown in the reader’s own translation. |
 | Prayer book and examination of conscience | **Working** | Traditional prayers searchable by need. The examination of conscience keeps nothing: ticks live only on screen. |
 | Prepare for Sunday | **Working** | The coming Sunday’s readings (from the lectionary references data we hold, 2026 and 2027) with matching homilies, Catechism paragraphs, commentary and Fathers on the Gospel. Homily matches are by the Sunday calendar and say so. |
 | Novenas and short prayer plans | **Working** | Novena to the Holy Spirit, novena to St Joseph, the seven penitential psalms and an Advent week: a passage in your translation and a traditional prayer each day, with progress kept on the device. |
 | Build a prayer time | **Working** | Order prayers from the prayer book, Scripture passages and timed silence into a playlist, saved on the device, and pray through it step by step. |
-| Following the Mass | **Partial** | The parts of the Mass in order with a short note on each, and links to the US bishops and the Catechism. The English words of the Mass (ICEL Missal) are copyrighted, so they are not included. |
+| Following the Mass | **Partial** | The parts of the Mass in order with a short note on each, and links to the US bishops and the Catechism. The English words of the Mass (ICEL Missal) are copyrighted, so they are not included. **Next:** Licensed ICEL texts, or links only. **Blocked by:** rights. **Done when:** the page names every part of the Order of Mass. |
 
 ## Study
 
@@ -247,7 +247,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Spanish and Latin interface | **Partial** | Menus, the home screen, the readings page headings and the reader’s main buttons are translated (Spanish and Latin translations written for this app, not professionally reviewed). The study material stays in its own languages. There is no Spanish Bible yet: no machine-readable public-domain Catholic-canon Spanish text could be verified. |
+| Spanish and Latin interface | **Partial** | Menus, the home screen, the readings page headings and the reader’s main buttons are translated (Spanish and Latin translations written for this app, not professionally reviewed). The study material stays in its own languages. There is no Spanish Bible yet: no machine-readable public-domain Catholic-canon Spanish text could be verified. **Next:** Translate the remaining pages. **Blocked by:** code. **Done when:** tests/i18n.test.ts reports no missing keys for any language. |
 
 ## Reading
 
@@ -259,7 +259,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Church-approved translations | **Partial** | Douay-Rheims and the Clementine Vulgate are bundled and approved (public domain). The Bibles most Catholics read today (NABRE, RSV-CE, NRSV-CE) are under copyright, so their text cannot be included: the translation picker opens the current chapter in each at the USCCB or Bible Gateway. CPDV and WEB-C are public-domain but not Church-approved, and are labelled so. |
+| Church-approved translations | **Partial** | Douay-Rheims and the Clementine Vulgate are bundled and approved (public domain). The Bibles most Catholics read today (NABRE, RSV-CE, NRSV-CE) are under copyright, so their text cannot be included: the translation picker opens the current chapter in each at the USCCB or Bible Gateway. CPDV and WEB-C are public-domain but not Church-approved, and are labelled so. **Next:** Licensed texts of approved translations. **Blocked by:** rights. **Done when:** the edition registry shows approval and licence for each. |
 
 ## Study
 
@@ -277,7 +277,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Latin Glossa notes translated to English inline | **Partial** | About 8,000 of 13,800 notes are translated (AI-assisted, literal where the Latin is garbled). The rest show the Latin with a Translate link; docs/glossa-translation holds a hand-off kit to finish them. |
+| Latin Glossa notes translated to English inline | **Partial** | About 8,000 of 13,800 notes are translated (AI-assisted, literal where the Latin is garbled). The rest show the Latin with a Translate link; docs/glossa-translation holds a hand-off kit to finish them. **Next:** Translate the remaining notes. **Blocked by:** data. **Done when:** the share of translated notes reaches 100% in the coverage report. |
 
 ## Today
 
@@ -371,7 +371,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Back up to Google Drive | **Needs credentials / agreement** | Keeps dated copies in a private app folder on the person’s own Drive, updated by itself after changes. Needs a Google OAuth client ID (see docs/DRIVE_BACKUP.md); until one is set the Settings card says so. Not tested against a live Google account in this build. |
+| Back up to Google Drive | **Needs credentials / agreement** | Keeps dated copies in a private app folder on the person’s own Drive, updated by itself after changes. Needs a Google OAuth client ID (see docs/DRIVE_BACKUP.md); until one is set the Settings card says so. Not tested against a live Google account in this build. **Next:** A Google OAuth client ID supplied by the owner. **Blocked by:** rights. **Done when:** a backup file appears in the user’s Drive app folder and restores. |
 
 ## Reading
 

@@ -4053,3 +4053,20 @@ html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: no
 .office-vr p { margin: 2px 0; }
 
 @media print { .no-print { display: none !important; } }
+
+/* Windows high-contrast / forced colours: keep controls, selection and status visible when the system overrides our colours */
+@media (forced-colors: active) {
+  .btn, .chip, .icon-btn, select, input, textarea, .card { border: 1px solid CanvasText; }
+  .btn.primary { forced-color-adjust: none; background: Highlight; color: HighlightText; }
+  .v.sel, .v.selected, mark, .hl { outline: 2px solid Highlight; forced-color-adjust: none; background: Highlight; color: HighlightText; }
+  a { text-decoration: underline; }
+  :focus-visible { outline: 3px solid Highlight; outline-offset: 2px; }
+}
+
+/* touch screens: small buttons get a comfortable target without changing the desktop look */
+@media (pointer: coarse) {
+  .btn, .btn.small, .icon-btn, .chip.ed-chip { min-height: 40px; }
+  .btn.small { padding-block: 8px; }
+}
+
+@media print { .page:has(.group-sheet) > :not(.group-sheet) { display: none !important; } .group-sheet { border: none; box-shadow: none; } }

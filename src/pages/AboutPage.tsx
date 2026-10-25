@@ -27,8 +27,21 @@ export default function AboutPage() {
           <div className="row between"><strong>{x.name}</strong><span className={`chip ${COLOR[x.status]}`}>{STATUS_LABEL[x.status]}</span></div>
           <div className="muted small">{x.area}</div>
           <p className="small">{x.detail}</p>
+          {x.next && <p className="small muted"><strong>Next:</strong> {x.next.deliverable}. <strong>Blocked by:</strong> {x.next.blocker}. <strong>Done when:</strong> {x.next.test}.</p>}
         </div>
       ))}
+      <section className="card" id="method">
+        <h2 className="card-title">How we choose, label and check sources</h2>
+        <ul className="small bullets">
+          <li><strong>Scripture</strong> comes only from public-domain texts with a recorded source and licence. Each edition says where it came from and whether it is Church-approved.</li>
+          <li><strong>Every study item says why it is attached to a passage</strong>: the source quotes it, comments on it verse by verse, cites it, is about the chapter, or only shares a topic. Use the filter in the study panel to show only the stronger kinds.</li>
+          <li><strong>Authority is shown on each item</strong> (Scripture, Church teaching, Father or Doctor, saint, historical commentary, popular teaching) and is never raised by the way an item looks. Notes and summaries written for this app are labelled as such.</li>
+          <li><strong>Matches made by the calendar or by a title</strong> (for example a homily for a Sunday) say so, and are not claimed to treat the passage.</li>
+          <li><strong>Checks:</strong> citations are verified against source text where possible; the data validator and tests run on every change; links to other sites are not copied and may change.</li>
+          <li><strong>Found a mistake?</strong> Use “Report a problem” on an item, or <a href="https://github.com/pathomnemonic/StudyBible/issues/new?template=data-correction.md" target="_blank" rel="noreferrer">open a correction</a> with the source that shows the right version. Nothing you have written in your notes is sent.</li>
+          <li><a href="https://github.com/pathomnemonic/StudyBible/blob/main/docs/CHANGELOG.md" target="_blank" rel="noreferrer">What changed</a> lists app changes and content changes separately.</li>
+        </ul>
+      </section>
       <p className="small"><Link to="/study/sources">Sources & licensing</Link> · <Link to="/settings">Settings</Link></p>
     </div>
   );

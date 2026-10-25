@@ -10,6 +10,7 @@ for (const f of FEATURES) {
     area = f.area;
     lines.push('', `## ${area}`, '', '| Feature | Status | Notes |', '|---|---|---|');
   }
-  lines.push(`| ${f.name} | **${STATUS_LABEL[f.status]}** | ${f.detail} |`);
+  const nx = f.next ? ` **Next:** ${f.next.deliverable}. **Blocked by:** ${f.next.blocker}. **Done when:** ${f.next.test}.` : '';
+  lines.push(`| ${f.name} | **${STATUS_LABEL[f.status]}** | ${f.detail}${nx} |`);
 }
 writeFileSync(join(ROOT, 'docs/FEATURE_STATUS.md'), lines.join('\n') + '\n');
