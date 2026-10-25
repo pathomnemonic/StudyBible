@@ -42,7 +42,7 @@ export function RecordedList() {
   }, []);
   if (!works.length) return null;
   return (
-    <section style={{ marginTop: 20 }}>
+    <section id="recorded" style={{ marginTop: 20 }}>
       <h2>Recorded books</h2>
       <p className="muted small">Works in the library that volunteers have recorded for LibriVox (public domain). Open one and use Listen at the top.</p>
       <ul className="plain" style={{ columns: '2 280px', margin: 0, padding: 0, listStyle: 'none' }}>

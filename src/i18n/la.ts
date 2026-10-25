@@ -8,6 +8,7 @@ export const la: Partial<Record<Key, string>> = {
   'nav.more': 'Plura',
   'nav.profile': 'Persona',
   'nav.listen': 'Audire',
+  'nav.room': 'Lectorium',
   'nav.search': 'Quaerere',
   'nav.settings': 'Optiones',
   'nav.signin': 'Intrare',

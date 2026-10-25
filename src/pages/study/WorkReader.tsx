@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getLibraryIndex, getWork, type LibraryWorkMeta } from '../../data/content';
 import { db } from '../../db/db';
 import { useSettings } from '../../lib/store';
@@ -8,11 +8,16 @@ import NoteEditor from '../../components/NoteEditor';
 import TextSettings from '../../components/TextSettings';
 import Icon from '../../components/Icon';
 import { RecordedWork } from '../../components/RecordedBooks';
+import BiblePane from '../../components/BiblePane';
 import { fold } from '../../search/engine';
 
 export default function WorkReader() {
   const { workId = '', section } = useParams();
   const nav = useNavigate();
+  // /room/... is the same reader with a Bible chapter open beside it
+  const together = useLocation().pathname.startsWith('/room');
+  const base = together ? '/room/work' : '/study/works';
+  const [paneOpen, setPaneOpen] = useState(false);
   const [meta, setMeta] = useState<LibraryWorkMeta | null>(null);
   const [work, setWork] = useState<Awaited<ReturnType<typeof getWork>>>(null);
   const [toc, setToc] = useState(false);
@@ -48,14 +53,15 @@ export default function WorkReader() {
 
   if (!meta) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
   if (!work || !sec) return <div className="center-note">Loading text…</div>;
-  const go = (i: number) => nav(`/study/works/${workId}/${i}`);
+  const go = (i: number) => nav(`${base}/${workId}/${i}`);
   const quiet = settings.scriptureOnly;
   return (
-    <div className="page" style={{ maxWidth: 'none' }}>
+    <div className={`page${together ? ' room-together' : ''}`} style={{ maxWidth: 'none' }}>
       {!quiet && (
-        <div className="row between" style={{ maxWidth: 760, margin: '0 auto' }}>
-          <Link to="/study/fathers" className="small">← Library</Link>
+        <div className="row between" style={{ maxWidth: together ? 'none' : 760, margin: '0 auto' }}>
+          <Link to={together ? '/room' : '/study/fathers'} className="small">{together ? '← Reading room' : '← Library'}</Link>
           <div className="row">
+            {together ? <button className="btn small room-switch" onClick={() => setPaneOpen(!paneOpen)} aria-pressed={paneOpen}>{paneOpen ? 'Show the text' : 'Show the Bible'}</button> : <Link className="btn small" to={`/room/work/${workId}/${idx}`}>Read with the Bible</Link>}
             <button className="btn small" onClick={() => setToc(!toc)}>Contents</button>
             <button className="icon-btn" onClick={() => setTs(true)} aria-label="Text settings"><Icon name="text" /></button>
             <button className="icon-btn" aria-pressed={quiet} onClick={() => setSettings({ scriptureOnly: true })} aria-label="Reading mode" title="Reading mode (hide navigation)"><Icon name="expand" /></button>
@@ -75,6 +81,7 @@ export default function WorkReader() {
           </ol>
         </div>
       )}
+      <div className={together ? `room-cols${paneOpen ? ' pane-open' : ''}` : undefined}>
       <article className="work-text" style={{ padding: '12px 4px 120px' }}>
         <div className="muted small" style={{ fontFamily: 'var(--font-sans)' }}>{meta.title} · {meta.author}</div>
         <h2>{sec.title}</h2>
@@ -103,6 +110,8 @@ export default function WorkReader() {
           </div>
         )}
       </article>
+      {together && <aside className="room-aside"><BiblePane suggest={sec.scripture} /></aside>}
+      </div>
       {note && <NoteEditor initialTargets={[{ type: 'work', workId, section: String(idx), label: `${meta.title}: ${sec.title}` }]} onClose={() => setNote(false)} />}
       {ts && <TextSettings onClose={() => setTs(false)} />}
     </div>

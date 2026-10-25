@@ -18,6 +18,7 @@ const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 const SaintsPage = lazy(() => import('./pages/study/SaintsPage'));
 const ApologeticsPage = lazy(() => import('./pages/study/ApologeticsPage'));
 const KidsPage = lazy(() => import('./pages/study/KidsPage'));
+const RoomHome = lazy(() => import('./pages/room/RoomHome'));
 const VideoLibrary = lazy(() => import('./pages/study/VideoLibrary'));
 const EncyclopediaPage = lazy(() => import('./pages/study/EncyclopediaPage'));
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
@@ -162,6 +163,8 @@ export default function App() {
               <Route path="/study/apologetics/:id?" element={<ApologeticsPage />} />
               <Route path="/study/kids/:id?" element={<KidsPage />} />
               <Route path="/study/videos" element={<VideoLibrary />} />
+              <Route path="/room" element={<RoomHome />} />
+              <Route path="/room/work/:workId/:section?" element={<WorkReader />} />
               <Route path="/study/encyclopedia/:slug?" element={<EncyclopediaPage />} />
               <Route path="/study/search" element={<SearchPage />} />
               <Route path="/study/topics/:id" element={<TopicPage />} />

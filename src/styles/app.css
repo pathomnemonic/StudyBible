@@ -4014,3 +4014,25 @@ html[data-atm] .chapter-title.has-art::after { display: none; }
 .chapter-art { display: block; width: 100%; max-width: 560px; height: auto; margin: 2px 0 8px; fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; opacity: .72; }
 .chapter-art g { stroke-width: 1.5; }
 .chapter-art .dot { fill: var(--accent); stroke: none; opacity: .6; }
+
+/* Reading room: a text with a Bible chapter beside it */
+.room-cols { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); max-width: 1500px; margin: 0 auto; }
+.room-cols .work-text { max-width: 720px; margin: 0 auto; width: 100%; }
+.room-aside { min-width: 0; }
+.bible-pane { border: 1px solid var(--hairline, #8884); border-radius: 14px; background: color-mix(in srgb, var(--surface) 75%, transparent); padding: 10px 14px 16px; }
+.bp-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; position: sticky; top: 0; padding: 6px 0; background: inherit; z-index: 1; }
+.bp-text { max-height: calc(100vh - 150px); overflow: auto; padding-right: 6px; line-height: 1.7; }
+.bp-text h3 { margin: 8px 0; font-family: var(--font-serif, inherit); }
+.bp-v { margin: 0 0 6px; }
+.room-switch { display: none; }
+@media (min-width: 1000px) {
+  .room-cols { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  .room-aside { position: sticky; top: 12px; }
+}
+@media (max-width: 999px) {
+  .room-switch { display: inline-flex; }
+  .room-cols .room-aside { display: none; }
+  .room-cols.pane-open .room-aside { display: block; }
+  .room-cols.pane-open .work-text { display: none; }
+  .bp-text { max-height: none; }
+}

@@ -7,6 +7,7 @@ export const en = {
   'nav.more': 'More',
   'nav.profile': 'Profile',
   'nav.listen': 'Listen',
+  'nav.room': 'Reading room',
   'nav.search': 'Search',
   'nav.settings': 'Settings',
   'nav.signin': 'Sign in',
