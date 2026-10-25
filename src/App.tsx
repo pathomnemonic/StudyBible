@@ -9,6 +9,7 @@ import { PlayerProvider } from './data/PlayerContext';
 import MiniPlayer from './components/MiniPlayer';
 import { ToastProvider } from './components/Toast';
 import { initSync } from './sync/state';
+import UpdateBanner from './components/UpdateBanner';
 import { db, TRASH_DAYS } from './db/db';
 import { scheduleReminder } from './liturgy/reminders';
 
@@ -163,6 +164,7 @@ export default function App() {
     <ToastProvider>
     <EditionsProvider>
       <ThemeApplier />
+      <UpdateBanner />
       <Gate>
         <PlayerProvider>
         <Shell>

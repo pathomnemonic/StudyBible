@@ -117,3 +117,16 @@ describe('recently deleted', () => {
     expect(await db.tombs.count()).toBe(0);
   });
 });
+
+describe('password-protected backups', () => {
+  it('round-trips, refuses a wrong password, and does not contain the plain text', async () => {
+    const { encryptBackup, decryptBackup, isEncryptedBackup } = await import('../src/db/crypto');
+    const plain = JSON.stringify({ format: 'studybible-export', notes: [{ body: 'my private prayer ✝', pad: 'x'.repeat(200000) }] });
+    const enc = await encryptBackup(plain, 'correct horse');
+    expect(isEncryptedBackup(enc)).toBe(true);
+    expect(enc).not.toContain('private prayer');
+    expect(await decryptBackup(enc, 'correct horse')).toBe(plain);
+    await expect(decryptBackup(enc, 'wrong password')).rejects.toThrow(/does not open/);
+    await expect(encryptBackup(plain, 'short')).rejects.toThrow(/at least 8/);
+  }, 30000);
+});

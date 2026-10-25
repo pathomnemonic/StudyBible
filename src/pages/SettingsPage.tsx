@@ -12,6 +12,22 @@ import { enableReminders, scheduleReminder, PRESETS } from '../liturgy/reminders
 import DriveBackup from '../components/DriveBackup';
 import { deleteAllData, download, exportAll } from '../db/ops';
 
+/** Timings the browser already keeps, shown only here. Nothing is sent anywhere. */
+function PerfInfo() {
+  const nav = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+  const fcp = performance.getEntriesByName('first-contentful-paint')[0];
+  const first = performance.getEntriesByName('sb-first-passage')[0];
+  const ms = (n?: number) => (n === undefined ? 'not measured yet' : `${Math.round(n)} ms`);
+  return (
+    <ul className="small bullets">
+      <li>First content on screen: {ms(fcp?.startTime)} after the page started loading.</li>
+      <li>First Bible passage shown: {ms(first?.startTime)} (open a chapter to measure it).</li>
+      <li>Page fully loaded: {ms(nav?.loadEventEnd)}.</li>
+      <li>These come from your browser and stay on this device. We do not collect them.</li>
+    </ul>
+  );
+}
+
 export default function SettingsPage() {
   const [s, set] = useSettings();
   const { editions } = useEditions();
@@ -114,6 +130,10 @@ export default function SettingsPage() {
       </div>
 
       <StorageStatus />
+      <details className="card">
+        <summary><strong>Speed on this device</strong></summary>
+        <PerfInfo />
+      </details>
       <details className="card">
         <summary><strong>What works without a connection?</strong></summary>
         <ul className="list small">

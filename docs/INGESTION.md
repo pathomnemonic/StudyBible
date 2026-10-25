@@ -44,3 +44,11 @@ External resources: `data/curated/external-resources.json` (needs `reviewedBy`/`
   Titles are the publisher's own; descriptions (`note`) must be your own words. The build rejects rows with an unknown source, a non-https URL or no reviewer.
 * In-app playback (`src/lib/embed.ts`): YouTube (privacy-enhanced), Spotify, Apple Podcasts, Vimeo and direct audio/video files play inside the app; everything else opens at the publisher. The Bible in a Year plays in the app's own player.
 * Creator video/podcast links for *any* verse are search links built from the creator's name and the reference; they are not curated.
+
+## Reproducing the data from scratch
+1. `npm run data:fetch` downloads each source into `data/raw/` (git-ignored) and records its URL, date and SHA-256 in `data/raw/*.json`.
+2. Before anything is used, check its rights against `docs/LICENSING.md`; add a record to `public/data/licenses.json` for any new top-level data item (a test fails otherwise).
+3. `npm run data:build` runs the adapters in `scripts/ingest/` and writes `public/data/`.
+4. `npm run data:validate` and `npm test` check shape, anchors, rights records and the Bible-text audit (`scripts/verify/editions.ts`).
+5. The offline pack manifest (`public/data/manifest.json`) is rebuilt by the same step; it lists each file's size and checksum. A rebuild from unchanged sources should leave `git diff` empty except for the `generated` date: review any other diff before committing.
+6. Record what changed in `docs/CHANGELOG.md`.

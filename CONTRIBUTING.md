@@ -28,3 +28,5 @@ npm run server     # optional account and sync server (see docs/SERVER.md)
 
 ## Pull requests
 Keep them small, run the tests and the type check, and say what you checked in a browser. Correct a wrong cross-reference, mapping or quotation with the book, chapter, verse and the source that shows the error.
+
+See also [docs/DATA_CORRECTIONS.md](docs/DATA_CORRECTIONS.md) for reporting or fixing data, [docs/RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md), and the [code of conduct](CODE_OF_CONDUCT.md).

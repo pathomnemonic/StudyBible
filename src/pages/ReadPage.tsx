@@ -145,6 +145,8 @@ export default function ReadPage() {
 
   const chapterData = data?.chapters[chNum - 1];
   const flat = useMemo(() => flattenChapter(chapterData), [chapterData]);
+  // kept on this device only: how long the first passage took to appear (shown in Settings → Speed on this device)
+  useEffect(() => { if (flat.length && !performance.getEntriesByName('sb-first-passage').length) performance.mark('sb-first-passage'); }, [flat.length]);
   const anchorChapters = useMemo(() => anchorChaptersFor(edition.scheme, bk.id, chNum), [edition.scheme, bk.id, chNum]);
   const primaryAnchorChapter = anchorChapters[0];
   const [figs, setFigs] = useState<InlineFig[]>([]);

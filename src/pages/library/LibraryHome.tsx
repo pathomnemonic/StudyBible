@@ -7,6 +7,7 @@ import RefLink from '../../components/RefLink';
 import { renderMarkdown } from '../../lib/markdown';
 import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
+import { decryptBackup, encryptBackup, isEncryptedBackup } from '../../db/crypto';
 import { download, exportAll, exportMarks, exportNotesMarkdown, importAll, previewImport } from '../../db/ops';
 import { useSettings } from '../../lib/store';
 import { fold } from '../../search/engine';
@@ -224,6 +225,10 @@ function ExportTab() {
   const [msg, setMsg] = useState('');
   const [pending, setPending] = useState<{ text: string; counts: Record<string, number>; at?: string } | null>(null);
   const [s, set] = useSettings();
+  const [pw, setPw] = useState('');
+  const [locked, setLocked] = useState<string | null>(null);
+  const [unlockPw, setUnlockPw] = useState('');
+  const showFile = (text: string) => { const p = previewImport(text); setPending({ text, counts: p.counts, at: p.exportedAt }); setMsg(''); };
   const daysSince = s.lastBackup ? Math.floor((Date.now() - s.lastBackup) / 86400000) : null;
   return (
     <>
@@ -232,6 +237,10 @@ function ExportTab() {
         <p className="muted">Your data lives on this device. The JSON file contains everything (notes, highlights, bookmarks, collections, journal, plans, memorization, listening progress) and can be re-imported on any device; the other formats are readable copies for other apps. Scripture links use stable Vulgate-anchored ids, so they keep working across translations.</p>
         <div className="row">
           <button className="btn primary" onClick={async () => { download(`studybible-export-${new Date().toISOString().slice(0, 10)}.json`, await exportAll()); set({ lastBackup: Date.now() }); }}>Export everything (JSON)</button>
+          <span className="row" style={{ gap: 6 }}>
+            <input type="password" value={pw} onChange={(e) => setPw(e.target.value)} placeholder="Password (8+ characters)" aria-label="Password for a protected backup" autoComplete="new-password" />
+            <button className="btn" disabled={pw.length < 8} onClick={async () => { try { download(`studybible-protected-${new Date().toISOString().slice(0, 10)}.json`, await encryptBackup(await exportAll(), pw)); set({ lastBackup: Date.now() }); setPw(''); setMsg('Protected backup saved. Keep the password: it cannot be recovered.'); } catch (err: any) { setMsg(err.message); } }}>Export with a password</button>
+          </span>
           <button className="btn" onClick={async () => { const ex = await import('../../db/exporters'); if (!(await ex.printNotes())) setMsg('The print window was blocked. Allow pop-ups for this site and try again.'); }}>Notes (PDF: opens print, choose “Save as PDF”)</button>
           <button className="btn" onClick={async () => { const ex = await import('../../db/exporters'); const bytes = await ex.notesEpub(); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([bytes as BlobPart], { type: 'application/epub+zip' })); a.download = 'studybible-notes.epub'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }}>Notes (e-book, EPUB)</button>
           <button className="btn" onClick={async () => download('studybible-notes.md', await exportNotesMarkdown(), 'text/markdown')}>Notes (Markdown)</button>
@@ -248,13 +257,14 @@ function ExportTab() {
       <div className="card">
         <h3>Import</h3>
         <p className="muted small">Choose a file to see what it contains before anything changes. Merging adds the file’s items to what is here and never duplicates items you already have; replacing erases this device’s data first.</p>
-        <input type="file" accept="application/json" aria-label="Export file to import" onChange={async (e) => { const f = e.target.files?.[0]; if (!f) return; try { const text = await f.text(); const p = previewImport(text); setPending({ text, counts: p.counts, at: p.exportedAt }); setMsg(''); } catch (err: any) { setPending(null); setMsg(err.message); } }} />
+        <input type="file" accept="application/json" aria-label="Export file to import" onChange={async (e) => { const f = e.target.files?.[0]; if (!f) return; try { const text = await f.text(); setLocked(null); if (isEncryptedBackup(text)) { setLocked(text); setPending(null); setMsg('This backup is protected. Enter its password to see what it contains.'); } else showFile(text); } catch (err: any) { setPending(null); setMsg(err.message); } }} />
+        {locked && <div className="row" style={{ marginTop: 6, gap: 6 }}><input type="password" value={unlockPw} onChange={(e) => setUnlockPw(e.target.value)} placeholder="Backup password" aria-label="Backup password" /><button className="btn" onClick={async () => { try { showFile(await decryptBackup(locked, unlockPw)); setLocked(null); setUnlockPw(''); } catch (err: any) { setMsg(err.message); } }}>Unlock</button></div>}
         {pending && (
           <div style={{ marginTop: 8 }}>
             <p className="small">This file{pending.at ? ` (exported ${pending.at.slice(0, 10)})` : ''} contains: {Object.entries(pending.counts).map(([k, v]) => `${v} ${k}`).join(', ') || 'nothing'}.</p>
             <div className="row">
               <button className="btn primary" onClick={async () => { setMsg(`Imported ${await importAll(pending.text, 'merge')} items.`); setPending(null); }}>Merge into this device</button>
-              <button className="btn" onClick={async () => { if (confirm('Replace everything on this device with the file’s contents?')) { setMsg(`Imported ${await importAll(pending.text, 'replace')} items.`); setPending(null); } }}>Replace everything</button>
+              <button className="btn" onClick={async () => { if (confirm('Replace everything on this device with the file’s contents?\n\nYour current data will first be saved to a file in your downloads, so you can undo this.')) { download(`studybible-before-restore-${new Date().toISOString().slice(0, 10)}.json`, await exportAll()); setMsg(`Imported ${await importAll(pending.text, 'replace')} items.`); setPending(null); } }}>Replace everything</button>
               <button className="btn ghost" onClick={() => setPending(null)}>Cancel</button>
             </div>
           </div>

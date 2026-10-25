@@ -9,9 +9,9 @@ import '@fontsource/cormorant-garamond/400.css';
 import '@fontsource/cormorant-garamond/400-italic.css';
 import '@fontsource/cormorant-garamond/500.css';
 import './styles/app.css';
-import { registerSW } from 'virtual:pwa-register';
+import { initUpdates } from './lib/update';
 
-registerSW({ immediate: true });
+initUpdates();
 
 createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
