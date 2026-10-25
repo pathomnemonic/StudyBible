@@ -7,6 +7,7 @@ import { getGlossary, getGrade, flatLessons, gradeLabel, progressId, toggleDone,
 import { bandOf, FAMILY_DAYS, type Band } from '../../curriculum/pedagogy';
 import { useLessonSources } from '../../curriculum/useLessonSources';
 import InlinePlayer from '../../components/InlinePlayer';
+import LessonSlides, { buildSlides } from '../../curriculum/LessonSlides';
 import { embedFor } from '../../lib/embed';
 
 type Mode = 'student' | 'teacher' | 'family';
@@ -41,28 +42,6 @@ function speak(parts: string[], onEnd: () => void) {
     speechSynthesis.cancel();
     parts.filter(Boolean).forEach((p, i, a) => { const u = new SpeechSynthesisUtterance(p); u.rate = 0.95; if (i === a.length - 1) u.onend = onEnd; speechSynthesis.speak(u); });
   } catch { onEnd(); }
-}
-
-function PresentCards({ cards, onClose }: { cards: { head: string; body: string }[]; onClose: () => void }) {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const k = (e: KeyboardEvent) => { if (e.key === 'ArrowRight' || e.key === ' ') setI((x) => Math.min(cards.length - 1, x + 1)); else if (e.key === 'ArrowLeft') setI((x) => Math.max(0, x - 1)); else if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', k);
-    return () => window.removeEventListener('keydown', k);
-  }, [cards.length, onClose]);
-  const c = cards[i];
-  return (
-    <div className="present" role="dialog" aria-modal="true" aria-label="Lesson presentation">
-      <button className="btn small present-x" onClick={onClose}>Close (Esc)</button>
-      <h1>{c.head}</h1>
-      <p className="present-body" style={{ whiteSpace: 'pre-line' }}>{c.body}</p>
-      <div className="present-nav">
-        <button className="btn" disabled={i === 0} onClick={() => setI(i - 1)}>← Back</button>
-        <span>{i + 1} / {cards.length}</span>
-        <button className="btn primary" disabled={i === cards.length - 1} onClick={() => setI(i + 1)}>Next →</button>
-      </div>
-    </div>
-  );
 }
 
 const mins = (total: number, share: number) => Math.max(2, Math.round((total * share) / 1));
@@ -115,16 +94,7 @@ export default function CurriculumLesson() {
     setSpeaking(true);
     speak([`${lesson.title}.`, lesson.idea, kidsText || scriptureText, `Think and talk. ${lesson.question}`], () => setSpeaking(false));
   };
-  const cards = [
-    { head: lesson.title, body: `${gradeLabel(g.id)} · Unit ${lesson.unit.n}: ${lesson.unit.title}\n\n${lesson.unit.eq}` },
-    { head: 'The big idea', body: lesson.idea },
-    ...(words.length ? [{ head: 'Words to know', body: words.map((v) => `${gl[v].w}: ${gl[v].d}`).join('\n\n') }] : []),
-    ...src.passages.map((p) => ({ head: p.label, body: p.verses.map((v) => v.text).join(' ') })),
-    ...(src.ccc[0] ? [{ head: `Catechism ${src.ccc[0].n}`, body: src.ccc[0].t }] : []),
-    { head: 'Think and talk', body: lesson.question },
-    { head: 'Do', body: lesson.activity },
-    ...(src.prayer ? [{ head: src.prayer.title, body: src.prayer.text }] : []),
-  ];
+  const slides = present ? buildSlides({ lesson, grade: g, gl, band, passages: src.passages, ccc: src.ccc, videos: src.videos, art: src.art, story: kidsText, prayer: src.prayer, quiz, base: import.meta.env.BASE_URL }) : [];
 
   return (
     <div className="page cur-lesson">
@@ -139,7 +109,7 @@ export default function CurriculumLesson() {
         {modes.map(([m, l, d]) => <button key={m} role="tab" aria-selected={mode === m || (adult && mode === 'family' && m === 'student')} title={d} onClick={() => setM(m)}>{l}</button>)}
       </div>
       <div className="row no-print" style={{ gap: 6, flexWrap: 'wrap', margin: '4px 0 10px' }}>
-        <button className="btn small" onClick={() => setPresent(true)}>▶ Present on a screen</button>
+        <button className="btn small" onClick={() => setPresent(true)}>▶ Present as slides</button>
         {typeof speechSynthesis !== 'undefined' && <button className="btn small" onClick={readAloud} aria-pressed={speaking}>{speaking ? '■ Stop' : '🔊 Read to me'}</button>}
         <button className="btn small" onClick={() => window.print()}>🖨 Print this lesson</button>
         <button className={`btn small${done ? ' primary' : ''}`} aria-pressed={done} onClick={() => toggleDone(g.id, idx, !done)}>{done ? '✓ Done' : 'Mark done'}</button>
@@ -330,7 +300,7 @@ export default function CurriculumLesson() {
         {next ? <Link className="btn primary" to={`/study/curriculum/${g.id}/${next.id}`}>{next.title} →</Link> : <Link className="btn primary" to={`/study/curriculum/${g.id}`}>Finish this grade</Link>}
       </nav>
       <p className="muted small">This program is a study aid built from the Catechism and Scripture. It has not been reviewed or approved by a bishop. If you teach for a parish, school or diocese, follow your diocese’s requirements for catechetical texts.</p>
-      {present && <PresentCards cards={cards} onClose={() => { setPresent(false); if (sp.get('present')) { sp.delete('present'); setSp(sp, { replace: true }); } }} />}
+      {present && <LessonSlides slides={slides} onClose={() => { setPresent(false); if (sp.get('present')) { sp.delete('present'); setSp(sp, { replace: true }); } }} />}
     </div>
   );
 }

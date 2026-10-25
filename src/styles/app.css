@@ -4128,3 +4128,35 @@ html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: no
 .mass-card .reading-text { font-size: .85em; }
 .mass-nav { position: sticky; bottom: 0; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; background: var(--bg); }
 .mass-nav .btn { min-width: 8em; min-height: 3rem; font-size: 1.05rem; }
+
+/* ---- lesson slides */
+.slides { position: fixed; inset: 0; z-index: 210; display: flex; flex-direction: column; background: var(--bg); color: var(--text); outline: none; --sl-a: var(--accent); }
+.slides .sl-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 18px; }
+.slides .sl-label { font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; color: var(--sl-a); font-weight: 700; }
+.slides .sl-tools { display: flex; gap: 6px; }
+.sl-stage { flex: 1; display: flex; align-items: center; justify-content: center; padding: 2vh 7vw; cursor: pointer; overflow: auto; }
+.sl-body { width: 100%; max-width: 1100px; animation: slIn .25s ease; }
+@keyframes slIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .sl-body { animation: none; } }
+.sl-title { font-size: clamp(2.4rem, 7vw, 5.5rem); line-height: 1.05; margin: 0 0 .3em; }
+.sl-sub { font-size: clamp(1.1rem, 2.6vw, 1.9rem); color: var(--muted); margin: 0; }
+.sl-big { font-size: clamp(1.9rem, 5vw, 3.6rem); line-height: 1.2; margin: 0; font-weight: 600; } .sl-big.sm { font-size: clamp(1.5rem, 3.6vw, 2.6rem); }
+.sl-list { font-size: clamp(1.4rem, 3.4vw, 2.5rem); line-height: 1.45; padding-left: 1.2em; } .sl-list.sm { font-size: clamp(1.15rem, 2.6vw, 1.8rem); } .sl-list li { margin: .35em 0; }
+.sl-word { font-size: clamp(2.8rem, 9vw, 7rem); line-height: 1; margin: 0 0 .25em; color: var(--sl-a); }
+.sl-def { font-size: clamp(1.4rem, 3.6vw, 2.8rem); line-height: 1.4; margin: 0; max-width: 28em; }
+.sl-story { font-size: clamp(1.6rem, 4vw, 3rem); line-height: 1.5; margin: 0; }
+.sl-verse, .sl-church, .sl-prayer { margin: 0; padding: 0 0 0 1.2em; border-left: 6px solid var(--sl-a); }
+.sl-verse p, .sl-church p, .sl-prayer p { font-size: clamp(1.4rem, 3.4vw, 2.6rem); line-height: 1.5; margin: 0 0 .5em; font-family: Georgia, 'Times New Roman', serif; }
+.sl-church p { font-family: inherit; font-size: clamp(1.2rem, 2.8vw, 2.1rem); }
+.sl-verse footer { font-size: 1.1rem; color: var(--muted); font-style: normal; text-transform: uppercase; letter-spacing: .08em; }
+.sl-fig { margin: 0; text-align: center; } .sl-fig img { max-width: 100%; max-height: 66vh; border-radius: 10px; } .sl-fig figcaption { margin-top: .6em; color: var(--muted); }
+.sl-video { max-width: 960px; margin: 0 auto; }
+.sl-opts { font-size: clamp(1.2rem, 2.8vw, 2rem); line-height: 1.4; margin: 1em 0; padding-left: 1.6em; } .sl-opts li { margin: .35em 0; padding: .1em .5em; border-radius: 8px; }
+.sl-opts li.right { background: color-mix(in srgb, #2e7d32 28%, transparent); font-weight: 700; } .sl-opts li.dim { opacity: .4; }
+.sl-why { font-size: clamp(1rem, 2.2vw, 1.5rem); color: var(--muted); } .sl-hint { color: var(--muted); }
+.sl-notes { margin: 0 18px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; background: color-mix(in srgb, var(--text) 6%, transparent); max-height: 24vh; overflow: auto; font-size: .95rem; } .sl-notes ul { margin: 4px 0 0 1.1em; padding: 0; }
+.sl-bar { height: 5px; background: var(--border); margin: 8px 18px 0; border-radius: 5px; overflow: hidden; } .sl-bar i { display: block; height: 100%; background: var(--sl-a); transition: width .2s; }
+.sl-nav { display: flex; justify-content: center; align-items: center; gap: 18px; padding: 12px; } .sl-nav .btn { min-width: 8em; min-height: 3rem; }
+.slides.sk-title, .slides.sk-end { background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, var(--bg)), var(--bg)); }
+.slides.sk-vocab { --sl-a: #ef6c00; } .slides.sk-scripture { --sl-a: #1565c0; } .slides.sk-church { --sl-a: #6a1b9a; } .slides.sk-quiz { --sl-a: #00838f; } .slides.sk-talk, .slides.sk-wonder { --sl-a: #2e7d32; } .slides.sk-prayer { --sl-a: #8e24aa; } .slides.sk-life, .slides.sk-do { --sl-a: #c62828; }
+@media print { .slides { display: none !important; } }
