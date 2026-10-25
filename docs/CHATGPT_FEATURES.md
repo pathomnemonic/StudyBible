@@ -60,12 +60,12 @@ Source: the whole ChatGPT conversation about this project (the code review, "40 
 | Laudate / iBreviary | Complete Divine Office | Partly: Lauds, Terce, Sext, None, Vespers, Compline with the four seasons. No feasts, no seasonal antiphons, no Office of Readings; traditional psalter, not the modern Liturgy of the Hours (copyright) |
 | | Order of Mass and Mass companion | Partly: the parts and links; the ICEL words are copyrighted |
 | | Rosary, Divine Mercy, Angelus, Stations, Seven Sorrows | Yes |
-| | Searchable prayer book, attach to passage | Yes (save to journal). Attaching a prayer to a passage: No |
+| | Searchable prayer book, attach to passage | Yes (save to journal). Attaching a prayer to a passage: Yes (prayer book → Attach to a passage; saved as a prayer note) |
 | | Examination of conscience | Yes (private) |
 | | Saint of the day | Partly (names, short lives for part of the calendar) |
 | Hallow / Amen | Recorded prayer library | Partly: LibriVox recordings, chant and sleep mode; no studio-recorded prayers |
 | | Session builder and playlists | Yes (`/pray/build`) |
-| | Sleep and wake modes | Partly: sleep yes; no morning wake mode |
+| | Sleep and wake modes | Yes: sleep mode and Morning mode (a web page cannot wake a locked phone; it says so) |
 | | Examen | Yes (`/pray/examen`) |
 | | Prayer plans, novenas | Yes |
 | | Family and group prayer | Partly: share a prayer time or a study sheet by link; no live groups (needs a server) |

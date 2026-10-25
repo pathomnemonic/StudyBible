@@ -1,6 +1,9 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { db } from '../../db/db';
+import { saveNote } from '../../db/ops';
+import { parseRefs, refId } from '../../lib/refs';
+import { convertRef } from '../../lib/versification';
 import { BOOK_PRAYERS, PRAYER_TAGS } from '../../data/prayerbook';
 import { useSettings } from '../../lib/store';
 
@@ -15,6 +18,9 @@ export default function PrayerBookPage() {
   const [open, setOpen] = useState<string | null>(null);
   const [copied, setCopied] = useState('');
   const [saved, setSaved] = useState('');
+  const [attach, setAttach] = useState<string | null>(null);
+  const [passage, setPassage] = useState('');
+  const [attachMsg, setAttachMsg] = useState('');
   const today = () => { const n = new Date(); return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`; };
   const save = async (p: { id: string; title: string; text: string }) => {
     await db.journal.add({ date: today(), kind: 'prayer', title: p.title, body: p.text, refs: [], createdAt: Date.now(), updatedAt: Date.now() });
@@ -24,6 +30,13 @@ export default function PrayerBookPage() {
     const t = q.trim().toLowerCase();
     return PRAYERS.filter((p) => (!tag || p.tags.includes(tag)) && (!t || `${p.title} ${p.tags.join(' ')} ${p.text}`.toLowerCase().includes(t)));
   }, [q, tag]);
+  const attachTo = async (p: { id: string; title: string; text: string }) => {
+    const r = parseRefs(passage);
+    if (!r.ok) return setAttachMsg(r.error);
+    await saveNote({ kind: 'prayer', title: p.title, body: p.text, tags: ['prayer'], targets: r.refs.map((x) => ({ type: 'passage' as const, ref: refId(convertRef('kjv', 'vulgate', x.ref).ref) })) } as any);
+    setAttachMsg(`Attached to ${passage.trim()}. It now appears with that passage in the reader and the study panel, under your notes.`);
+    setPassage('');
+  };
   const copy = async (id: string, text: string) => {
     try { await navigator.clipboard.writeText(text); setCopied(id); setTimeout(() => setCopied(''), 1500); } catch { /* clipboard unavailable */ }
   };
@@ -48,6 +61,11 @@ export default function PrayerBookPage() {
             </div>
           </div>
           {open === p.id && <>
+            <div className="row" style={{ gap: 6, margin: '6px 0', flexWrap: 'wrap' }}>
+              <button className="btn small" aria-expanded={attach === p.id} onClick={() => { setAttach(attach === p.id ? null : p.id); setAttachMsg(''); }}>Attach to a passage</button>
+              {attach === p.id && <><input value={passage} onChange={(e) => setPassage(e.target.value)} placeholder="e.g. Luke 1:46-55" aria-label="Passage to attach this prayer to" /><button className="btn small primary" disabled={!passage.trim()} onClick={() => attachTo(p)}>Attach</button></>}
+            </div>
+            {attach === p.id && attachMsg && <p className="small" role="status">{attachMsg}</p>}
             <p className="scripture" style={{ fontSize: '1.08rem', lineHeight: 1.6 }}>{p.text}</p>
             {p.note && <p className="muted small">{p.note}</p>}
           </>}

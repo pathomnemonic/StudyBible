@@ -53,6 +53,7 @@ const DossierPage = lazy(() => import('./pages/study/DossierPage'));
 const ExamenPage = lazy(() => import('./pages/pray/ExamenPage'));
 const ChurchYearPage = lazy(() => import('./pages/pray/ChurchYearPage'));
 const StoryPage = lazy(() => import('./pages/study/StoryPage'));
+const MorningPage = lazy(() => import('./pages/pray/MorningPage'));
 const OfficePage = lazy(() => import('./pages/pray/OfficePage'));
 const ReadingsPage = lazy(() => import('./pages/pray/ReadingsPage'));
 const LectioPage = lazy(() => import('./pages/pray/LectioPage'));
@@ -229,6 +230,7 @@ export default function App() {
               <Route path="/more" element={<MorePage />} />
               <Route path="/pray/sleep" element={<SleepPage />} />
               <Route path="/pray/office" element={<OfficePage />} />
+              <Route path="/pray/morning" element={<MorningPage />} />
               <Route path="/pray/year" element={<ChurchYearPage />} />
               <Route path="/pray/examen" element={<ExamenPage />} />
               <Route path="/pray/build" element={<SessionBuilderPage />} />

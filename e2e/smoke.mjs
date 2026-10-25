@@ -3,7 +3,7 @@
 import { chromium } from 'playwright';
 
 const BASE = process.env.BASE ?? 'http://localhost:4173';
-const ROUTES = ['/', '/read', '/study', '/room', '/pray', '/pray/office', '/pray/devotions', '/pray/devotions/rosary', '/pray/prayers', '/pray/examination', '/pray/novenas', '/pray/sunday', '/pray/build', '/pray/mass', '/study/course', '/study/dossier', '/listen', '/settings', '/library', '/study/apologetics', '/study/videos', '/account', '/study/passage/JHN.6.51', '/study/story', '/study/story/peter', '/pray/year', '/pray/examen'];
+const ROUTES = ['/', '/read', '/study', '/room', '/pray', '/pray/office', '/pray/devotions', '/pray/devotions/rosary', '/pray/prayers', '/pray/examination', '/pray/novenas', '/pray/sunday', '/pray/build', '/pray/mass', '/study/course', '/study/dossier', '/listen', '/settings', '/library', '/study/apologetics', '/study/videos', '/account', '/study/passage/JHN.6.51', '/study/story', '/study/story/peter', '/pray/year', '/pray/examen', '/pray/morning'];
 
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined });
 const ctx = await browser.newContext({ viewport: { width: 420, height: 900 } });
