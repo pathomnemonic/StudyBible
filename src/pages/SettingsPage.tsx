@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
+import StorageStatus from '../components/StorageStatus';
 import { downloadEdition, isEditionCached, downloadPack, packStillCached, getManifest, type StudyPack } from '../data/loader';
 import { useSettings, THEMES } from '../lib/store';
 import { LANGS, useT } from '../lib/i18n';
@@ -105,6 +106,8 @@ export default function SettingsPage() {
         ))}
         {Object.entries(dlErr).filter(([k, v]) => v && editions.some((e) => e.id === k)).map(([k, v]) => <p key={k} className="small" role="alert">{v}</p>)}
       </div>
+
+      <StorageStatus />
 
       <div className="card">
         <h2 className="card-title">Study data offline</h2>

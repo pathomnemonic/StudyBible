@@ -21,7 +21,7 @@ export default function LibraryHome() {
   const loc = useLocation();
   const nav = useNavigate();
   const noteIdFromUrl = /\/library\/notes\/(\d+)/.exec(loc.pathname)?.[1];
-  const [tab, setTab] = useState<Tab>('notes');
+  const [tab, setTab] = useState<Tab>(new URLSearchParams(loc.search).get('tab') === 'export' ? 'export' : 'notes');
   return (
     <div className="page">
       <h1>Notes</h1>
