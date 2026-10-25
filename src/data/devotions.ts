@@ -127,30 +127,34 @@ export const MERCY: Devotion = {
   ],
 };
 
+const STATION_VERSICLE = 'V. We adore thee, O Christ, and we praise thee. R. Because by thy holy cross thou hast redeemed the world.';
+const STATION_END = 'Our Father, Hail Mary, Glory be. Have mercy on us, O Lord. Have mercy on us.';
+
 export const STATIONS: Devotion = {
-  id: 'stations', name: 'Stations of the Cross', blurb: 'Fourteen steps with Christ on the way to Calvary. Stations marked “traditional” are not told in the Gospels, so a nearby prophecy is shown.',
+  id: 'stations', name: 'Stations of the Cross', blurb: 'The traditional fourteen stations, with the prayers after St Alphonsus Liguori and the Scripture beside each. Stations marked “traditional” are not told in the Gospels, so a nearby prophecy is shown.',
   steps: [
+    { title: 'Opening prayer', text: 'O my Jesus, I come to walk with thee the way thou didst walk for me. Give me a heart that is sorry for my sins and grateful for thy love. Make me, by this devotion, more like thee. Amen.', note: 'Make the Sign of the Cross. At each station, genuflect and say the versicle; then read, pray and meditate.' },
     ...[
-      ['Jesus is condemned to death', 'Matthew 27:22-26', ''],
-      ['Jesus takes up his cross', 'John 19:16-17', ''],
-      ['Jesus falls the first time', 'Isaiah 53:4-6', 'Traditional'],
-      ['Jesus meets his Mother', 'Luke 2:34-35', 'Traditional'],
-      ['Simon of Cyrene helps Jesus carry the cross', 'Luke 23:26', ''],
-      ['Veronica wipes the face of Jesus', 'Isaiah 53:2-3', 'Traditional'],
-      ['Jesus falls the second time', 'Psalm 22:6-8', 'Traditional'],
-      ['Jesus meets the women of Jerusalem', 'Luke 23:27-31', ''],
-      ['Jesus falls the third time', 'Isaiah 53:7-8', 'Traditional'],
-      ['Jesus is stripped of his garments', 'John 19:23-24', ''],
-      ['Jesus is nailed to the cross', 'Luke 23:33-34', ''],
-      ['Jesus dies on the cross', 'Luke 23:44-46; John 19:28-30', ''],
-      ['Jesus is taken down from the cross', 'Luke 23:50-53', ''],
-      ['Jesus is laid in the tomb', 'John 19:40-42', ''],
-    ].map(([t, r, tr], i): Step => ({
+      ['Jesus is condemned to death', 'Matthew 27:22-26', '', 'My adorable Jesus, it was not Pilate, no, it was my sins that condemned thee to die. By the merits of this sorrowful journey, assist my soul on its journey to eternity.'],
+      ['Jesus takes up his cross', 'John 19:16-17', '', 'My most beloved Jesus, I embrace all the sufferings thou hast destined for me until death. By the pain thou didst suffer in carrying the cross, give me the necessary help to carry mine with perfect patience and resignation.'],
+      ['Jesus falls the first time', 'Isaiah 53:4-6', 'Traditional', 'My beloved Jesus, it is not the weight of the cross but of my sins which has made thee suffer so much. By the merits of this first fall, deliver me from the misfortune of falling into mortal sin.'],
+      ['Jesus meets his afflicted Mother', 'Luke 2:34-35', 'Traditional', 'My most loving Jesus, by the sorrow thou didst experience in meeting thy Mother, grant me the grace of a truly sincere devotion to thy Blessed Mother. And thou, my Queen, who wast overwhelmed with sorrow, obtain for me by thy intercession a tender and lasting remembrance of the Passion of thy Son.'],
+      ['Simon of Cyrene helps Jesus carry the cross', 'Luke 23:26', '', 'My most beloved Jesus, I will not refuse the cross as Simon did; I accept it and embrace it. I accept in particular the death thou hast destined for me, with all the pains that may accompany it.'],
+      ['Veronica wipes the face of Jesus', 'Isaiah 53:2-3', 'Traditional', 'My most beloved Jesus, thy face was beautiful before, but in this journey it has lost all its beauty. Alas, my soul also was once beautiful when it received thy grace in baptism, but I have disfigured it since by my sins. Thou alone, my Redeemer, canst restore it to its former beauty.'],
+      ['Jesus falls the second time', 'Psalm 22:6-8', 'Traditional', 'My Jesus, by the weight of my sins thou wast made to fall again. By the merits of this second fall, give me the grace to persevere in thy friendship until death, and keep me from relapsing into sin.'],
+      ['Jesus meets the women of Jerusalem', 'Luke 23:27-31', '', 'My Jesus, laden with sorrows, I weep for the offences I have committed against thee, because of the pains they deserve, and still more because of the displeasure they have caused thee, who hast loved me so much.'],
+      ['Jesus falls the third time', 'Isaiah 53:7-8', 'Traditional', 'My most gentle Jesus, by the weakness thou didst suffer in going to Calvary, give me strength to overcome all human respect and all my wicked passions, which have led me to despise thy friendship.'],
+      ['Jesus is stripped of his garments', 'John 19:23-24', '', 'My Jesus, by the torment thou didst suffer in being stripped of thy garments, help me to strip myself of all attachment to the things of earth, and to place all my love in thee, who art so worthy of my love.'],
+      ['Jesus is nailed to the cross', 'Luke 23:33-34', '', 'My Jesus, nailed to the cross, I offer thee my will, because thou wast pleased to be fastened to the cross for love of me. Let me not wander from thee: nail my heart to thy holy will.'],
+      ['Jesus dies on the cross', 'Luke 23:44-46; John 19:28-30', '', 'My Jesus, thou didst die for love of me. Make me die rather than offend thee again. In thy wounds I place my hope, and into thy hands I commend my spirit.'],
+      ['Jesus is taken down from the cross', 'Luke 23:50-53', '', 'O Mother of sorrows, for the love of this Son, accept me as thy child and pray for me. And thou, my Redeemer, since thou hast died for me, permit me to love thee, for I wish only thee and nothing more.'],
+      ['Jesus is laid in the tomb', 'John 19:40-42', '', 'My buried Jesus, I kiss the stone that encloses thee. But thou didst rise again the third day. I beseech thee, by thy resurrection, make me rise glorious with thee at the last day, to be always united with thee in heaven.'],
+    ].map(([t, r, tr, pr], i): Step => ({
       title: `${i + 1}. ${t}`, refs: r,
-      text: 'V. We adore thee, O Christ, and we praise thee. R. Because by thy holy cross thou hast redeemed the world.',
-      note: `${tr ? `${tr} station. ` : ''}Pray an Our Father, a Hail Mary and a Glory Be, and add: Lord Jesus, have mercy on us.`,
+      text: `${STATION_VERSICLE}\n\n${pr}`,
+      note: `${tr ? `${tr} station. ` : ''}${STATION_END}`,
     })),
-    { title: 'Closing', text: 'Lord Jesus Christ, thou didst walk this way for me. Keep me close to thee, and bring me, through thy cross, to the joy of thy resurrection. Amen.' },
+    { title: 'Closing prayer', text: 'Lord Jesus Christ, thou didst walk this way for me. Keep me close to thee, and bring me, through thy cross, to the joy of thy resurrection. Pray also for the intentions of the Holy Father, with an Our Father, Hail Mary and Glory be. Amen.' },
   ],
 };
 

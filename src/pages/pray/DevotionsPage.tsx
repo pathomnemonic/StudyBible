@@ -43,7 +43,7 @@ function Prayer({ d, back }: { d: Devotion; back: string }) {
         <h2 className="card-title">{step.title}</h2>
         {step.note && <p className="muted small">{step.note}</p>}
         {refs.length > 0 && <ReadingBlock refs={refs} label="Scripture" text={step.refs!} max={9} />}
-        {step.text && <p className="scripture" style={{ fontSize: '1.1rem', lineHeight: 1.6 }}>{step.text}</p>}
+        {step.text && <p className="scripture" style={{ fontSize: '1.1rem', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{step.text}</p>}
         {need > 1 && (
           <div className="row" style={{ gap: 10, alignItems: 'center' }}>
             <button className="btn primary" onClick={tap} disabled={ready}>{ready ? 'Done' : 'Said one'}</button>

@@ -21,15 +21,17 @@ describe('devotions', () => {
   });
   it('stations and sorrows have valid scripture', () => {
     expect(STATIONS.steps.filter((s) => s.refs)).toHaveLength(14);
+    expect(STATIONS.steps.filter((s) => s.text?.includes('We adore thee'))).toHaveLength(14);
     for (const d of [STATIONS, SORROWS, ANGELUS, MERCY]) for (const s of d.steps) if (s.refs) expect(parseRefs(s.refs).ok, s.refs).toBe(true);
   });
 });
 
 describe('prayer book', () => {
-  it('has unique ids and no ICEL creed', () => {
+  it('has unique ids and the traditional Nicene Creed', () => {
     const ids = BOOK_PRAYERS.map((p) => p.id);
     expect(new Set(ids).size).toBe(ids.length);
-    expect(ids).not.toContain('nicene');
+    expect(ids).toContain('nicene');
+    expect(BOOK_PRAYERS.find((p) => p.id === 'nicene')!.text).toContain('consubstantial with the Father');
   });
 });
 
