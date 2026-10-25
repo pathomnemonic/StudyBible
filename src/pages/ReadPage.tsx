@@ -11,7 +11,6 @@ import { anchorChapterText, anchorToNative, chapterTitle, flattenChapter, native
 import { useSettings } from '../lib/store';
 import { db, type HighlightColor, type Target } from '../db/db';
 import BiayBar from '../components/BiayBar';
-import PlayFromHere from '../components/PlayFromHere';
 import NextChapters from '../components/NextChapters';
 import ChapterArt from '../art/chapterArt';
 import { FindInChapter, LookUp, ReadProgress } from '../components/ReaderTools';
@@ -556,7 +555,6 @@ export default function ReadPage() {
           <button className="icon-btn" onClick={() => setCompare(true)} aria-label="Compare translations" title="Compare translations">
             <Icon name="compare" />
           </button>
-          {!parallelMode && selRefs[0] && <PlayFromHere edition={edition} sel={selRefs[0]} />}
           {!parallelMode && (
             <button className="icon-btn" onClick={copyText} aria-label="Copy text" title="Copy text with reference">
               <Icon name="copy" />
@@ -781,7 +779,6 @@ export default function ReadPage() {
           verses={flat}
           lang={edition.language}
           biayFor={{ book: bk.id, chapters: anchorChapters }}
-          recorded={{ edition: edition.id, book: bk.id, chapter: chNum }}
           startAt={selNative[0]}
           onVerse={markSpeaking}
           onClose={() => setAloud(false)}

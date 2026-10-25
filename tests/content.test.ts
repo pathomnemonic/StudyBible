@@ -48,18 +48,3 @@ describe('video catalogue', () => {
     }
   });
 });
-
-describe('recorded readings', () => {
-  const d = read('public/data/media/librivox.json');
-  it('place every chapter inside its file', () => {
-    for (const ed of ['dra', 'webc']) {
-      const p = d[ed];
-      expect(Object.keys(p.map).length).toBeGreaterThan(1000);
-      for (const [k, [fi, t0, t1]] of Object.entries(p.map) as [string, [number, number, number]][]) {
-        expect(p.files[fi], k).toBeTruthy();
-        expect(t0).toBeLessThanOrEqual(t1);
-        expect(t1).toBeLessThanOrEqual(p.files[fi].secs + 1);
-      }
-    }
-  });
-});
