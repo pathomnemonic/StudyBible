@@ -55,18 +55,34 @@ export function loadEditions(): Promise<EditionsFile> {
 export const getBookText = (edition: string, book: string) => getJson<BookData>(`bible/${edition}/${book}.json`) as Promise<BookData>;
 export const getXrefs = (book: string) => getJson<XrefFile>(`xrefs/${book}.json`, true);
 
-/** Prefetch every book of an edition into the browser cache for offline reading. */
-export async function downloadEdition(edition: string, books: string[], onProgress: (done: number, total: number) => void) {
+/**
+ * Prefetch every book of an edition into the browser cache for offline reading. Each book is checked against the size and
+ * checksum in the manifest, and the call throws, naming the books, if any failed or did not match.
+ */
+export async function downloadEdition(edition: string, books: string[], onProgress: (done: number, total: number) => void, signal?: AbortSignal) {
+  const man = await getManifest().catch(() => null);
+  const want = man?.editions?.[edition];
   let done = 0;
   const queue = [...books];
+  const bad: string[] = [];
   const worker = async () => {
-    while (queue.length) {
+    while (queue.length && !signal?.aborted) {
       const b = queue.shift()!;
-      await getBookText(edition, b);
+      try {
+        const r = await fetch(`${base}data/bible/${edition}/${b}.json`, { signal });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        const buf = await r.arrayBuffer();
+        if (want && (buf.byteLength !== want.sizes[b] || (crypto?.subtle && hex(await crypto.subtle.digest('SHA-256', buf)).slice(0, 16) !== want.sums[b]))) bad.push(b);
+      } catch (e: any) {
+        if (e?.name === 'AbortError') return;
+        bad.push(b);
+      }
       onProgress(++done, books.length);
     }
   };
   await Promise.all([worker(), worker(), worker()]);
+  if (signal?.aborted) throw new Error('Download stopped. Start it again to carry on.');
+  if (bad.length) throw new Error(`${bad.length} book${bad.length === 1 ? '' : 's'} could not be downloaded or did not match (${bad.slice(0, 5).join(', ')}${bad.length > 5 ? '…' : ''}). Check your connection and try again.`);
 }
 
 export async function isEditionCached(edition: string, books: string[]): Promise<boolean> {
@@ -90,8 +106,7 @@ export interface StudyPack {
   sizes?: number[];
   sums?: string[];
 }
-export const getManifest = () => getJson<{ generated: string; packs: StudyPack[] }>('manifest.json', true);
-
+export const getManifest = () => getJson<{ generated: string; packs: StudyPack[]; editions?: Record<string, { sizes: Record<string, number>; sums: Record<string, string> }> }>('manifest.json', true);
 const hex = (buf: ArrayBuffer) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
 
 export interface PackResult { failed: string[]; corrupt: string[]; cancelled: boolean; storageFull: boolean }

@@ -51,7 +51,10 @@ class HttpError extends Error {
   }
 }
 
-const MIME: Record<string, string> = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.webmanifest': 'application/manifest+json', '.png': 'image/png', '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.map': 'application/json' };
+const MIME: Record<string, string> = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.webmanifest': 'application/manifest+json', '.png': 'image/png', '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.map': 'application/json', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.gif': 'image/gif', '.avif': 'image/avif', '.woff': 'font/woff', '.ttf': 'font/ttf', '.mp3': 'audio/mpeg', '.m4a': 'audio/mp4', '.ogg': 'audio/ogg', '.opus': 'audio/ogg', '.wav': 'audio/wav', '.mp4': 'video/mp4', '.webm': 'video/webm', '.pdf': 'application/pdf', '.xml': 'application/xml', '.epub': 'application/epub+zip' };
+
+/** compressed copies of static files, kept until the file changes, so each request does not compress again */
+const gzCache = new Map<string, { mtime: number; body: Buffer }>();
 
 /** How far ahead of the server's clock a client's edit time may be before it is capped. */
 const CLOCK_SKEW_MS = 5 * 60 * 1000;
@@ -378,15 +381,34 @@ export function createApp(cfg: Config): Server {
       'Content-Security-Policy': CSP,
       'Cache-Control': /\/assets\//.test(file) ? 'public, max-age=31536000, immutable' : file.endsWith('index.html') || file.endsWith('sw.js') ? 'no-cache' : 'public, max-age=3600',
     };
-    const compressible = ['.html', '.js', '.css', '.json', '.svg', '.webmanifest', '.txt'].includes(ext);
+    const compressible = ['.html', '.js', '.css', '.json', '.svg', '.webmanifest', '.txt', '.xml'].includes(ext);
+    const st = statSync(file);
     if (compressible && String(req.headers['accept-encoding'] ?? '').includes('gzip')) {
-      const body = gzipSync(readFileSync(file));
-      res.writeHead(200, { ...headers, 'Content-Encoding': 'gzip', 'Content-Length': body.length, Vary: 'Accept-Encoding' });
-      res.end(body);
-    } else {
-      res.writeHead(200, { ...headers, 'Content-Length': statSync(file).size });
-      createReadStream(file).pipe(res);
+      let hit = gzCache.get(file);
+      if (!hit || hit.mtime !== st.mtimeMs) {
+        hit = { mtime: st.mtimeMs, body: gzipSync(readFileSync(file)) };
+        if (gzCache.size > 300) gzCache.delete(gzCache.keys().next().value!);
+        gzCache.set(file, hit);
+      }
+      res.writeHead(200, { ...headers, 'Content-Encoding': 'gzip', 'Content-Length': hit.body.length, Vary: 'Accept-Encoding' });
+      res.end(hit.body);
+      return;
     }
+    // byte ranges, so audio and large files can be seeked and resumed
+    const range = /^bytes=(\d*)-(\d*)$/.exec(String(req.headers.range ?? ''));
+    if (range && (range[1] || range[2])) {
+      let start = range[1] ? +range[1] : Math.max(0, st.size - +range[2]);
+      let end = range[1] && range[2] ? Math.min(+range[2], st.size - 1) : st.size - 1;
+      if (start > end || start >= st.size) {
+        res.writeHead(416, { 'Content-Range': `bytes */${st.size}` }).end();
+        return;
+      }
+      res.writeHead(206, { ...headers, 'Accept-Ranges': 'bytes', 'Content-Range': `bytes ${start}-${end}/${st.size}`, 'Content-Length': end - start + 1 });
+      createReadStream(file, { start, end }).pipe(res);
+      return;
+    }
+    res.writeHead(200, { ...headers, 'Accept-Ranges': 'bytes', 'Content-Length': st.size });
+    createReadStream(file).pipe(res);
   }
 
   const server = createServer(async (req, res) => {

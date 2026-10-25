@@ -38,5 +38,17 @@ export function buildManifest() {
       sums: files.map((f) => createHash('sha256').update(readFileSync(f)).digest('hex').slice(0, 16)),
     };
   });
-  writeJson(join(PUBLIC_DATA, 'manifest.json'), { generated: today(), packs }, true);
+  // whole Bible editions: each book's size and checksum, so a download can be verified like a study pack
+  const editions: Record<string, { sizes: Record<string, number>; sums: Record<string, string> }> = {};
+  for (const e of readdirSync(join(PUBLIC_DATA, 'bible'))) {
+    const dir = join(PUBLIC_DATA, 'bible', e);
+    if (!statSync(dir).isDirectory()) continue;
+    const e2: { sizes: Record<string, number>; sums: Record<string, string> } = { sizes: {}, sums: {} };
+    editions[e] = e2;
+    for (const f of readdirSync(dir).filter((x) => x.endsWith('.json'))) {
+      e2.sizes[f.replace(/\.json$/, '')] = statSync(join(dir, f)).size;
+      e2.sums[f.replace(/\.json$/, '')] = createHash('sha256').update(readFileSync(join(dir, f))).digest('hex').slice(0, 16);
+    }
+  }
+  writeJson(join(PUBLIC_DATA, 'manifest.json'), { generated: today(), packs, editions }, true);
 }

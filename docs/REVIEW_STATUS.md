@@ -13,7 +13,7 @@ An outside code review (a ChatGPT analysis of the repository) produced a long li
 | Stale "downloaded" marks | Done (re-checked against the cache) |
 | Privacy text and architecture docs out of date | Done |
 | Reload guard stuck; static-path prefix check; payload shapes; IndexedDB v4 upgrade; stale data caches; cookie attributes; session expiry index; failed edition download state | Done |
-| Static responses: MIME types, range requests | MIME types and a 404 for missing assets done. Range requests not added: the server serves small static files and no audio |
+| Static responses: MIME types, range requests | Done: MIME types for all bundled formats, a 404 for missing assets, byte-range requests (206/416), and cached gzip |
 | **Found while testing the review's areas** | Fixed: deletions never reached other devices; a version-1 database could not upgrade; upgraded rows looked newly edited; a replace-restore deleted what it restored; reading plans fell short (300 and 73 days); a malformed URL returned 500; a sideways scroll on the Study page at 320 px; two accessibility violations (a label that did not contain its visible text, a scrollable code box without keyboard access, low contrast on the Today chip in four light themes) |
 
 ## 2. Sync and accounts
@@ -35,7 +35,7 @@ An outside code review (a ChatGPT analysis of the repository) produced a long li
 Versioned, validated, atomic imports with a preview; replace mode fixed (tombstones, timestamps); CSV formula neutralising; settings included; selective exports (notes, marks); reminders; storage status; unsafe link refusal were done earlier. New: **password-protected backups** (AES-GCM, tested), an automatic **safety copy before a replace-restore**, round-trip and upgrade tests, and a "what is backed up" list in `docs/SERVER.md` and Settings. Not done: an undo for every bulk action (Recently deleted and the safety copy cover the main cases).
 
 ## 4. Offline and PWA
-Manifest with sizes and checksums, resumable and cancellable downloads, byte progress, quota message, repair of stale marks, install icons, a "what works offline" list, an offline reload test (`npm run e2e`), and **updates that never interrupt you** (a banner; applied only when you choose or when you leave with nothing unsaved) are done. Not done: whole-edition downloads do not yet verify checksums.
+Manifest with sizes and checksums, resumable and cancellable downloads, byte progress, quota message, repair of stale marks, install icons, a "what works offline" list, an offline reload test (`npm run e2e`), and **updates that never interrupt you** (a banner; applied only when you choose or when you leave with nothing unsaved) are done. Whole-edition downloads are verified against per-book checksums too.
 
 ## 5. Scripture data and sources
 Done: the WEB label, per-edition provenance, an audit of every bundled Bible text (`scripts/verify/editions.ts`, with recorded source irregularities), a versification regression test, plan diagnostics, machine-readable rights per dataset (`public/data/licenses.json`, enforced by a test), a link checker (`scripts/verify/links.ts`, monthly in CI), a methodology section in About, filters by match kind and source kind in the study panel, and the data-correction guide. Not done: expanding Greek and Hebrew coverage, a larger textual-variant layer, right-to-left testing, proofreading the Roman Catechism OCR, Eastern calendars. These need sources or reviewers, not code.

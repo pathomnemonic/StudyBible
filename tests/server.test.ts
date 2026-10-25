@@ -196,6 +196,17 @@ describe('static files', () => {
       expect(r.status, p).toBeLessThan(500);
     }
     expect((await get('/')).body).toContain('shell');
+    // byte ranges and compression
+    writeFileSync(join(parent, 'app', 'sound.mp3'), Buffer.from('0123456789'));
+    const ranged = await new Promise<{ status: number; body: string; type?: string; range?: string }>((resolve, reject) => {
+      request({ host: '127.0.0.1', port, path: '/sound.mp3', headers: { Range: 'bytes=2-5' } }, (res) => { let b = ''; res.on('data', (d) => (b += d)); res.on('end', () => resolve({ status: res.statusCode ?? 0, body: b, type: String(res.headers['content-type']), range: String(res.headers['content-range']) })); }).on('error', reject).end();
+    });
+    expect(ranged.status).toBe(206);
+    expect(ranged.body).toBe('2345');
+    expect(ranged.range).toBe('bytes 2-5/10');
+    expect(ranged.type).toBe('audio/mpeg');
+    const bad = await new Promise<number>((resolve, reject) => { request({ host: '127.0.0.1', port, path: '/sound.mp3', headers: { Range: 'bytes=50-60' } }, (res) => { res.resume(); res.on('end', () => resolve(res.statusCode ?? 0)); }).on('error', reject).end(); });
+    expect(bad).toBe(416);
     await new Promise<void>((r) => s.close(() => r()));
   });
 });

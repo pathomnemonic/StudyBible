@@ -294,3 +294,20 @@ describe('bundled Bible texts', () => {
     }
   });
 });
+
+describe('edition manifest', () => {
+  it('lists every book of every bundled edition with its size and checksum', async () => {
+    const { readFileSync, statSync, readdirSync } = await import('node:fs');
+    const { createHash } = await import('node:crypto');
+    const m = JSON.parse(readFileSync('public/data/manifest.json', 'utf8'));
+    for (const e of ['dra', 'vulgate', 'webc', 'cpdv', 'brenton']) {
+      const files = readdirSync(`public/data/bible/${e}`).filter((f) => f.endsWith('.json'));
+      expect(Object.keys(m.editions[e].sums).length, e).toBe(files.length);
+      for (const f of files.filter((_, i) => i % 9 === 0)) {
+        const id = f.replace('.json', '');
+        expect(statSync(`public/data/bible/${e}/${f}`).size).toBe(m.editions[e].sizes[id]);
+        expect(createHash('sha256').update(readFileSync(`public/data/bible/${e}/${f}`)).digest('hex').slice(0, 16)).toBe(m.editions[e].sums[id]);
+      }
+    }
+  });
+});
