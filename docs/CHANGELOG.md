@@ -33,3 +33,7 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 * Divine Office psalter data from Divinum Officium (MIT licence), Douay-Rheims psalm text, with seasonal chapters, responsories, hymns, versicles and collects for Advent, Lent, Passiontide and Eastertide.
 * Video library and catalogue of about 1,560 Catholic videos; LibriVox recordings for the Bible and about 55 library works; apologetics resource directory.
 * Offline pack manifest now lists each file's size and checksum.
+
+## Reading room reader and Today
+- Reading-room works now read like the Bible page: reader bar, shared typography, progress and minutes left, find, word look-up, read aloud, background sound, focus mode, swipe and arrow-key turning, highlights and notes by selecting text, bookmarks.
+- Today: feature tiles (Apologetics, Video library, Mass mode, Scripture universe) replace the top buttons; softer verse, saint and background styling.
