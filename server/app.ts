@@ -23,6 +23,24 @@ const MAX_BODY = 6 * 1024 * 1024;
 const MAX_CHANGES = 1000;
 const MAX_PAYLOAD = 256 * 1024;
 const MAX_RECORDS_PER_USER = 200_000;
+const MAX_BYTES_PER_USER = 100 * 1024 * 1024;
+const isObj = (v: unknown): v is Record<string, unknown> => !!v && typeof v === 'object' && !Array.isArray(v);
+/** What each synced table must look like. A deletion carries no body, so only a live record is checked. Unknown extra fields are allowed (newer clients). */
+const SHAPES: Record<string, (p: Record<string, unknown>) => boolean> = {
+  notes: (p) => typeof p.body === 'string' && (p.title === undefined || typeof p.title === 'string') && (p.tags === undefined || (Array.isArray(p.tags) && p.tags.every((t) => typeof t === 'string'))),
+  highlights: (p) => typeof p.ref === 'string' && typeof p.color === 'string',
+  bookmarks: (p) => typeof p.ref === 'string',
+  journal: (p) => typeof p.date === 'string',
+  userLinks: (p) => typeof p.url === 'string' && /^https?:\/\//i.test(p.url) && typeof p.ref === 'string',
+  media: (p) => typeof p.url === 'string' && /^https?:\/\//i.test(p.url),
+  settings: (p) => Object.values(p).every((v) => v === null || ['string', 'number', 'boolean', 'object'].includes(typeof v)),
+};
+function payloadOk(table: string, payload: unknown, deleted: boolean) {
+  if (!isObj(payload)) return deleted && (payload === undefined || payload === null);
+  if (deleted) return true;
+  const check = SHAPES[table];
+  return check ? check(payload) : true;
+}
 const SYNC_TABLES = new Set(['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'userPlans', 'saved', 'media', 'userLinks', 'planProgress', 'episodeProgress', 'libraryProgress', 'queue', 'savedSearches', 'memory', 'settings']);
 
 class HttpError extends Error {
@@ -68,6 +86,7 @@ export function createApp(cfg: Config): Server {
       ON CONFLICT(user_id, tbl, uid) DO UPDATE SET updated_at = excluded.updated_at, deleted = excluded.deleted, payload = excluded.payload, seq = excluded.seq`),
     since: db.prepare('SELECT tbl, uid, updated_at, deleted, payload, seq FROM records WHERE user_id = ? AND seq > ? ORDER BY seq LIMIT ?'),
     count: db.prepare('SELECT COUNT(*) AS n FROM records WHERE user_id = ?'),
+    bytes: db.prepare('SELECT COALESCE(SUM(LENGTH(payload)), 0) AS n FROM records WHERE user_id = ?'),
     all: db.prepare('SELECT tbl, uid, updated_at, deleted, payload FROM records WHERE user_id = ? AND deleted = 0'),
     expire: db.prepare('DELETE FROM sessions WHERE expires_at < ?'),
   };
@@ -235,14 +254,19 @@ export function createApp(cfg: Config): Server {
       db.exec('BEGIN IMMEDIATE');
       try {
         const total = (q.count.get(me.id) as any).n as number;
+        let used = (q.bytes.get(me.id) as any).n as number;
         let added = 0;
         for (const c of changes) {
           if (!c || typeof c.table !== 'string' || !SYNC_TABLES.has(c.table) || typeof c.uid !== 'string' || c.uid.length > 200 || !Number.isFinite(c.updatedAt)) {
             rejected++;
             continue;
           }
+          if (!payloadOk(c.table, c.payload, !!c.deleted)) {
+            rejected++;
+            continue;
+          }
           const payload = JSON.stringify(c.payload ?? {});
-          if (payload.length > MAX_PAYLOAD) {
+          if (payload.length > MAX_PAYLOAD || used + payload.length > MAX_BYTES_PER_USER) {
             rejected++;
             continue;
           }
@@ -255,6 +279,7 @@ export function createApp(cfg: Config): Server {
           const seq = (q.bump.get(me.id) as any).seq as number;
           q.upsert.run(me.id, c.table, c.uid, Math.floor(c.updatedAt), c.deleted ? 1 : 0, payload, seq);
           mine.add(`${c.table}|${c.uid}`);
+          used += payload.length;
           if (!ex) added++;
         }
         db.exec('COMMIT');

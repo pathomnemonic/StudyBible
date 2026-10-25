@@ -88,6 +88,7 @@ export async function exportAll(): Promise<string> {
   for (const t of TABLES) { const rows = await (db as any)[t].toArray(); out[t] = rows; (out.counts as Record<string, number>)[t] = rows.length; }
   // reading and accessibility preferences live outside the database; include them so a restore feels the same
   try { const raw = localStorage.getItem(SETTINGS_KEY); if (raw) out.settings = JSON.parse(raw); } catch { /* storage unavailable */ }
+  try { localStorage.setItem('sb:lastExport', String(Date.now())); } catch { /* storage unavailable */ }
   return JSON.stringify(out, null, 1);
 }
 

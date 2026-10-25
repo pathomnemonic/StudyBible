@@ -23,7 +23,12 @@ export default defineConfig({
           { name: 'Memorize', short_name: 'Memorize', url: './#/memorize' },
           { name: 'Verse widget', short_name: 'Widget', url: './#/widget' },
         ],
-        icons: [{ src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }],
+        icons: [
+          { src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+          { src: 'icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+          { src: 'icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+          { src: 'icon-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+        ],
       },
       workbox: {
         // App shell is precached; Scripture and content packs are cached the first time they are read

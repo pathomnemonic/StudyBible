@@ -57,6 +57,8 @@ const STEPS: Step[] = [
   { part: 'Bible', find: anyOf('.reader-bar button[aria-label*="ound"]', '.reader-bar .more-btn'), control: 'sound', text: 'Gentle background sound is off. Want it?', sub: '“Choose for me” plays a quiet sound that suits the book, kept soft. Change it any time with the note icon.' },
   { part: 'Listen', find: q('.tabs a[href="#/listen"]'), tap: true, text: 'Tap Listen.' },
   { part: 'Listen', route: '/listen', find: q('.year-hero, .page h1'), text: 'The Bible in a Year, matched to every chapter.' },
+  { part: 'Reading room', find: q('.tabs a[href="#/room"]'), tap: true, text: 'Tap Reading room.' },
+  { part: 'Reading room', route: '/room', find: q('.page h1'), text: 'Read and listen beyond the Bible.', sub: 'Open any work and a Bible chapter sits beside it, so you can read the Scripture and what the saints made of it together. Many works have recordings too.' },
   { part: 'Study', find: q('.tabs a[href="#/study"]'), tap: true, text: 'Tap Study.' },
   { part: 'Study', route: '/study', exact: true, find: q('.page h1'), text: 'Study is where the deep tools are. Let us open a few.' },
   { part: 'Study', route: '/study', exact: true, find: tile('/study/fathers'), tap: true, text: 'Tap the Reading room.' },

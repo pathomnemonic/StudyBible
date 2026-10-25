@@ -168,6 +168,20 @@ const KEY = 'studybible.settings.v1';
 let state: Settings = load();
 const listeners = new Set<() => void>();
 
+/** Settings can come from an old version, a restored backup or another device: any value of the wrong kind falls back to its default instead of breaking a page. */
+function sanitize(s: Settings): Settings {
+  const out: any = { ...s };
+  for (const k of Object.keys(DEFAULTS) as (keyof Settings)[]) {
+    const d: any = DEFAULTS[k];
+    const v: any = out[k];
+    if (d === null || d === undefined || v === null || v === undefined) continue;
+    const kind = (x: any) => (Array.isArray(x) ? 'array' : typeof x);
+    if (kind(d) !== kind(v)) out[k] = d;
+    else if (typeof d === 'number' && !Number.isFinite(v)) out[k] = d;
+  }
+  return out;
+}
+
 function load(): Settings {
   try {
     const raw = localStorage.getItem(KEY);
@@ -178,7 +192,7 @@ function load(): Settings {
       if (prevDefaults.includes(saved.dashboard?.order?.join()) && !saved.dashboard?.hidden?.length) delete saved.dashboard;
       // sound used to start on by default; it now starts off (people can turn it on from the tour or the reading settings)
       if (!saved.soundOffV16) { saved.ambience = { ...DEFAULTS.ambience, ...(saved.ambience ?? {}), kind: 'off' }; saved.soundOffV16 = true; }
-      return { ...DEFAULTS, ...saved, focus: { ...DEFAULTS.focus, ...(saved.focus ?? {}) }, drive: { ...DEFAULTS.drive, ...(saved.drive ?? {}) } };
+      return sanitize({ ...DEFAULTS, ...saved, focus: { ...DEFAULTS.focus, ...(saved.focus ?? {}) }, drive: { ...DEFAULTS.drive, ...(saved.drive ?? {}), }, ambience: { ...DEFAULTS.ambience, ...(saved.ambience ?? {}) } });
     }
   } catch {
     /* private mode etc. */

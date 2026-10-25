@@ -6,6 +6,7 @@ import WhatsNew from '../components/WhatsNew';
 import WeekCard from '../components/WeekCard';
 import ContinueRow from '../components/ContinueRow';
 import DriveBackup from '../components/DriveBackup';
+import { useSettings } from '../lib/store';
 
 type Row = [string, string, string];
 const GROUPS: { title: string; items: Row[] }[] = [
@@ -42,10 +43,16 @@ const GROUPS: { title: string; items: Row[] }[] = [
 export default function ProfilePage() {
   const sync = useSync();
   const notes = useLiveQuery(() => db.notes.count(), []) ?? 0;
+  const [st] = useSettings();
+  // a quiet nudge, only when there is something to lose: notes, no Drive backup, and no export in a month
+  let lastExport = 0;
+  try { lastExport = Number(localStorage.getItem('sb:lastExport') ?? 0); } catch { /* ignore */ }
+  const stale = notes >= 3 && !st.drive.connected && !sync.user && Date.now() - lastExport > 30 * 86400000;
   return (
     <div className="page">
       <h1>Profile</h1>
       <p className="lede">{sync.user ? `Signed in as ${sync.user.email}. ` : 'Your notes, plans and settings live on this device. '}{notes ? `${notes} note${notes === 1 ? '' : 's'} so far.` : 'Nothing written yet.'}</p>
+      {stale && <p className="notice small">You have {notes} notes and no recent backup. <Link to="/library?tab=export">Export a copy</Link> or turn on Google Drive backup below, so clearing the browser never costs you your work.</p>}
       <DriveBackup compact />
       <WhatsNew />
       <WeekCard />

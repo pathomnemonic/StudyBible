@@ -1,8 +1,9 @@
 import { getSettings } from '../lib/store';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../sync/api';
-import { deleteAccount, signIn, signOut, signUp, syncNow, useSync, type AuthDecision } from '../sync/state';
+import { deleteAccount, retryDiscovery, signIn, signOut, signUp, syncNow, useSync, type AuthDecision } from '../sync/state';
+import { pendingCount } from '../sync/engine';
 import { download } from '../db/ops';
 import { useToast } from '../components/Toast';
 
@@ -18,6 +19,8 @@ export default function AccountPage() {
       </div>
     );
   const s = useSync();
+  const [pending, setPending] = useState<number | null>(null);
+  useEffect(() => { if (s.user) pendingCount(s.user.id).then(setPending).catch(() => setPending(null)); }, [s.user?.id, s.status, s.lastSyncAt]);
   const toast = useToast();
   const [mode, setMode] = useState<'in' | 'up'>('in');
   const [email, setEmail] = useState('');
@@ -58,6 +61,7 @@ export default function AccountPage() {
           </p>
           <pre className="code">{`npm run build\nnpm run server        # http://localhost:8787`}</pre>
           <p className="muted small">See docs/SERVER.md for deployment (Docker, HTTPS, backups). Until then, Library → Export moves your data between devices.</p>
+          <button className="btn small" onClick={() => void retryDiscovery()}>Look for the server again</button>
         </div>
       )}
 
@@ -99,7 +103,7 @@ export default function AccountPage() {
               </div>
               <span className={`chip ${s.status === 'idle' ? 'good' : s.status === 'error' ? 'warn' : ''}`}>{{ idle: 'Synced', syncing: 'Syncing…', error: 'Sync problem', offline: 'Offline', 'signed-out': '' }[s.status]}</span>
             </div>
-            <p className="muted small">{s.lastSyncAt ? `Last synced ${new Date(s.lastSyncAt).toLocaleTimeString()}.` : 'Not synced yet.'} Changes sync automatically a few seconds after you make them.</p>
+            <p className="muted small">{s.lastSyncAt ? `Last synced ${new Date(s.lastSyncAt).toLocaleTimeString()}.` : 'Not synced yet.'} Changes sync automatically a few seconds after you make them.{pending !== null && pending > 0 ? ` ${pending} change${pending === 1 ? '' : 's'} waiting to be sent.` : ''}</p>
             {s.error && <div className="notice">{s.error}</div>}
             <div className="row">
               <button className="btn" onClick={() => syncNow()}>Sync now</button>

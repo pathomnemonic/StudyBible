@@ -134,10 +134,22 @@ describe('sync', () => {
     ] });
     expect(r.body.rejected).toBe(2);
   });
+  it('refuses records whose shape is wrong, and unsafe links', async () => {
+    const c = new Client();
+    await c.call('POST', '/api/auth/register', { email: 'shape@example.com', password: PW });
+    const r = await c.call('POST', '/api/sync', { cursor: 0, changes: [
+      { table: 'notes', uid: 'bad1', updatedAt: 1, payload: { body: 42 } },
+      { table: 'notes', uid: 'bad2', updatedAt: 1, payload: 'text' },
+      { table: 'userLinks', uid: 'bad3', updatedAt: 1, payload: { ref: 'JHN.1.1', url: 'javascript:alert(1)' } },
+      { table: 'notes', uid: 'ok', updatedAt: 1, payload: { body: 'fine', tags: ['a'] } },
+      { table: 'notes', uid: 'gone', updatedAt: 1, deleted: true, payload: {} },
+    ] });
+    expect(r.body.rejected).toBe(3);
+  });
   it('exports an account as JSON', async () => {
     const c = new Client();
     await c.call('POST', '/api/auth/register', { email: 'exp@example.com', password: PW });
-    await c.call('POST', '/api/sync', { cursor: 0, changes: [{ table: 'journal', uid: 'j1', updatedAt: 5, payload: { body: 'Lord, hear' } }] });
+    await c.call('POST', '/api/sync', { cursor: 0, changes: [{ table: 'journal', uid: 'j1', updatedAt: 5, payload: { date: '2026-01-01', body: 'Lord, hear' } }] });
     const ex = await c.call('GET', '/api/account/export');
     expect(ex.body.records[0].data.body).toBe('Lord, hear');
     expect(ex.headers.get('content-disposition')).toMatch(/attachment/);

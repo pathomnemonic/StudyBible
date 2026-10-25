@@ -10,14 +10,14 @@ import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
 import type { Key } from '../i18n/en';
 
-// Five places along the bottom: Study (anything educational), Today (where the app opens), the Bible, the Reading room (texts and recordings beyond the Bible, read beside a Bible chapter), and Listen (the Bible in a Year, spoken).
+// Five places along the bottom, with Today in the middle: the Reading room (texts and recordings beyond the Bible, read beside a Bible chapter), Study (anything educational), Today (where the app opens), the Bible, and Listen (the Bible in a Year, spoken).
 // Profile (notes, plans, settings, prayer) is the round button at the top right of every screen. The Mass readings belong to Today.
 const PROFILE_PATHS = ['/profile', '/library', '/settings', '/account', '/about', '/more', '/days', '/pray', '/memorize', '/session', '/share'];
 const TABS = [
+  { to: '/room', label: 'Reading room', key: 'nav.room' as Key, icon: 'library', match: ['/room'] },
   { to: '/study', label: 'Study', key: 'nav.study' as Key, icon: 'study', match: ['/study'] },
   { to: '/today', label: 'Today', key: 'nav.today' as Key, icon: 'sun', match: ['/today', '/pray/readings'], home: true },
   { to: '/read', label: 'Bible', key: 'nav.bible' as Key, icon: 'read', match: ['/read'] },
-  { to: '/room', label: 'Reading room', key: 'nav.room' as Key, icon: 'library', match: ['/room'] },
   { to: '/listen', label: 'Listen', key: 'nav.listen' as Key, icon: 'listen', match: ['/listen'] },
 ];
 

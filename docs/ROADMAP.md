@@ -16,17 +16,20 @@ Most of this list comes from an outside code review (a ChatGPT analysis of the r
 - Backups: they now include preferences, carry a version, validate every record and link before touching the database, refuse newer formats, and a replace-restore also clears old deletion records. CSV exports neutralise cells that start with `=`, `+`, `-` or `@`.
 - The privacy text in Settings said there were no accounts; it now describes optional accounts and says sync is not end-to-end encrypted. ARCHITECTURE.md says the same.
 - Data files are fetched network-first so a corrected file reaches people who cached an older one.
+- Server: every synced record is checked against the shape of its table (a note needs a text body, a link must be http or https), and each account is capped at 100 MB.
+- Sync: when two devices edit the same note or journal entry before syncing, the older edit is kept as a copy instead of being overwritten. The Account page shows how many changes are waiting and has a "look for the server again" button.
+- Settings from an old version, a backup or another device are checked against the expected type of each value.
+- PNG and maskable app icons for installing on Android and iOS; a test that Spanish and Latin have every interface string; a quiet reminder to back up when there are notes and no recent backup.
+- CONTRIBUTING.md, SECURITY.md and issue templates.
 
 ## Open: sync and accounts
-- Conflict handling for free text (keep both versions) and server-assigned revisions instead of trusting client clocks.
-- Per-user storage limits and a device/session list; sync activity and diagnostics screen.
+- Server-assigned revisions instead of trusting client clocks; a device/session list.
 - Optional end-to-end encryption with a recovery story.
-- Schema validation of each synced table on the server.
 - Security headers/CSP review, CSRF review beyond SameSite, automatic server backups.
 
 ## Open: offline and PWA
 - Per-pack manifests with sizes and checksums, resumable and cancellable downloads, real byte progress, quota-error handling.
-- PNG and maskable icons; a true offline test in CI; update prompt that never interrupts an unsaved journal entry.
+- A true offline test in CI; an update prompt that never interrupts an unsaved journal entry.
 
 ## Open: scripture data integrity
 - Confidence labels per versification mapping (Tobit, Judith, Sirach, Esther, Daniel) and broader versification tests.
@@ -40,7 +43,7 @@ Most of this list comes from an outside code review (a ChatGPT analysis of the r
 - Copy a verse with its citation; calendar grid for the readings archive; hymn of the day; reading streaks (kept on the device).
 
 ## Open: quality
-- Playwright end-to-end tests (sync with two contexts, offline, upgrade from old schemas), accessibility and visual regression checks, bundle-size budgets, a root LICENSE file (the owner's choice), a contributor guide, issue templates and a security policy.
+- Playwright end-to-end tests (sync with two contexts, offline, upgrade from old schemas), accessibility and visual regression checks, bundle-size budgets, a root LICENSE file (the owner's choice).
 
 ## Out of reach for the near-zero-cost model
 - Live YouTube search or API discovery (needs a key and quota); the video library comes from channels' public pages instead.

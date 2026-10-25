@@ -1,4 +1,4 @@
-import { AUTO_TABLES, KEYED_TABLES, db, syncFlags } from '../db/db';
+import { AUTO_TABLES, KEYED_TABLES, db, newUid, syncFlags } from '../db/db';
 import { DEFAULTS, getSettings, updateSettings } from '../lib/store';
 import { api, ApiError, type WireChange } from './api';
 
@@ -99,6 +99,12 @@ async function applyRemote(userId: string, changes: WireChange[]) {
       }
       if (local) {
         if ((local.updatedAt ?? 0) >= c.updatedAt) continue;
+        // two devices edited the same text before either synced: the newer one wins, but the other is kept as a copy instead of being lost
+        const unsynced = (local.updatedAt ?? 0) > Number(get(lk(userId, 'lastPush')) ?? 0);
+        if (unsynced && (c.table === 'notes' || c.table === 'journal') && typeof local.body === 'string' && local.body.trim() && local.body !== row.body) {
+          const { id: _id, uid: _uid, ...rest } = local;
+          await t.add({ ...rest, uid: newUid(), updatedAt: Date.now(), ...(c.table === 'notes' ? { title: `${local.title || 'Note'} (other version kept at sync)` } : { body: `(Other version kept at sync)\n\n${local.body}` }) });
+        }
         await t.put({ ...row, id: local.id });
       } else {
         delete row.id;
@@ -108,6 +114,11 @@ async function applyRemote(userId: string, changes: WireChange[]) {
   } finally {
     syncFlags.applying = false;
   }
+}
+
+/** How many local changes have not been sent yet (for the sync status line). */
+export async function pendingCount(userId: string): Promise<number> {
+  return (await collect(userId, Number(get(lk(userId, 'lastPush')) ?? 0))).length;
 }
 
 export async function runSync(userId: string): Promise<{ pushed: number; pulled: number; rejected: number }> {
