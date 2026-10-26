@@ -136,8 +136,8 @@ export default function SettingsPage() {
         <ul className="small" style={{ lineHeight: 1.6 }}>
           <li><strong>Private by default.</strong> Notes, highlights, bookmarks, journal and progress are stored in this browser (IndexedDB) and nowhere else, and there are no analytics. Nothing leaves your device unless you turn on Google Drive backup or sign in to a sync server.</li>
           <li><strong>Accounts and sync are optional.</strong> If you or someone you trust runs a sync server, Account lets you sign in and sync across devices. That server can read what it stores: sync is not end-to-end encrypted. If no server is reachable here, everything keeps working locally. Use Google Drive backup or Export/Import to move data between devices without a server.</li>
-          <li><strong>Backup.</strong> Connect Google Drive above for automatic backups, or export everything as JSON at any time (Library → Export). Clearing browser data erases local data, so back up first.</li>
-          <li><strong>Retention & deletion.</strong> Data stays until you delete it. “Delete all my data” below removes the local database; if you use a sync server, deleting your account there also removes its copies.</li>
+          <li><strong>Backup.</strong> Connect Google Drive for automatic backups, or export everything as JSON at any time (Library → Export). Clearing browser data erases local data, so back up first.</li>
+          <li><strong>Retention & deletion.</strong> Data stays until you delete it. “Delete all my data” removes the local database; if you use a sync server, deleting your account there also removes its copies.</li>
           <li><strong>Network use.</strong> Reading Scripture, notes and search work offline. The app contacts third parties only when you open an external link, play a Bible in a Year episode (Ascension’s servers), or load the liturgical calendar (LitCal).</li>
         </ul>
         <div className="row">

@@ -60,7 +60,7 @@ export default function MassGuidePage() {
     return (
       <div className="page">
         <h1>Following the {t.liturgy}</h1>
-        <p className="lede">The {t.liturgy} of the {t.name} has its own order, prayers and readings, and this app does not have them. The outline below is of the Roman Mass and would not match yours, so we do not show it as if it did.</p>
+        <p className="lede">The {t.liturgy} of the {t.name} has its own order, prayers and readings, and this app does not have them. The Roman Mass follows a different order, so we do not show it as if it were yours.</p>
         <p>Please use your parish’s service book{t.site ? <> or <a href={t.site.url} target="_blank" rel="noreferrer noopener">{t.site.label}</a></> : ''}.</p>
         <p><a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_orientalium-ecclesiarum_en.html" target="_blank" rel="noreferrer noopener">Orientalium Ecclesiarum</a> explains why the Church treasures each rite.</p>
       </div>

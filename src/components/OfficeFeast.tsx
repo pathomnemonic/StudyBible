@@ -26,7 +26,7 @@ export default function OfficeFeast() {
         </div>
       </div>
       {day === undefined && <p className="muted small">Loading…</p>}
-      {day === null && <p className="muted small">No saint or feast is fixed to this date in the traditional calendar, so the day follows the season and the psalter below.</p>}
+      {day === null && <p className="muted small">No saint or feast is fixed to this date in the traditional calendar, so the day follows the season and the psalter.</p>}
       {day && (
         <>
           <p style={{ fontWeight: 600, margin: '8px 0 4px' }}>{day.name}</p>

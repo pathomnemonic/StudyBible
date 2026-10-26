@@ -20,7 +20,7 @@ export function TeachHome() {
       <p className="lede">Your classes in one place: the student list, attendance, participation, quiz and exam scores, a gradebook and report cards. Joining a live session takes attendance for you.</p>
       <div className="notice info small">Class records are kept on this device. If you are signed in to a sync server, they sync to your own account only. Nothing is shared with students except the names on the list, which they see when they join a session.</div>
       <h2 className="eyebrow-h" style={{ marginTop: 18 }}>Your classes</h2>
-      {classes && classes.length === 0 && <div className="empty">No classes yet. Make your first one below.</div>}
+      {classes && classes.length === 0 && <div className="empty">No classes yet. Make your first one to begin.</div>}
       <div className="shelf">{(classes ?? []).filter((c) => !c.archived).map((c) => <Link key={c.id} className="shelf-card" to={`/teach/${c.id}`}><span className="t">{c.name}</span><span className="d">{c.grade ? `${c.grade} · ` : ''}{c.students.length} students · {c.year}</span></Link>)}</div>
       <form className="live-form" style={{ marginTop: 16 }} onSubmit={async (e) => { e.preventDefault(); const id = await createClass(name, grade || undefined); nav(`/teach/${id}`); }}>
         <label>Class name<input value={name} onChange={(e) => setName(e.target.value)} placeholder="Grade 5 Religion, Period 3" required /></label>
@@ -163,7 +163,7 @@ function Grades({ cls, work }: { cls: ClassDoc; work: Work }) {
         {rows.map((r) => <tr key={r.student.id}><th scope="row">{r.student.name}</th>{asm.map((a) => <td key={a.id}><input className="score-in" inputMode="decimal" aria-label={`${r.student.name}, ${a.title}`} defaultValue={a.scores[r.student.id] ?? ''} key={`${a.id}${a.scores[r.student.id] ?? ''}`} onBlur={(e) => { const t = e.target.value.trim(); const n = t === '' ? null : Number(t); if (n === null || Number.isFinite(n)) void setScore(a, r.student.id, n); }} /></td>)}<td><strong>{pct(r.total)}</strong></td><td><strong>{letter(r.total, cls.scale)}</strong></td></tr>)}
         <tr className="avg"><th scope="row">Class average</th>{asm.map((a) => <td key={a.id}>{pct(avg((r) => r.byAssessment[a.id] ?? null))}</td>)}<td>{pct(avg((r) => r.total))}</td><td /></tr>
       </tbody></table></div>
-      {!asm.length && <div className="empty">No scores yet. Live games and exams add themselves when they end. Add homework or a project below.</div>}
+      {!asm.length && <div className="empty">No scores yet. Live games and exams add themselves when they end. Add homework or a project to record scores.</div>}
       <div className="row no-print" style={{ gap: 8, marginTop: 8, flexWrap: 'wrap' }}>
         <button className="btn small" onClick={() => download(`gradebook-${cls.name}.csv`, toCsv([['Student', ...asm.map((a) => `${a.title} (/${a.points})`), 'Overall %', 'Grade'], ...rows.map((r) => [r.student.name, ...asm.map((a) => a.scores[r.student.id] ?? ''), r.total === null ? '' : Math.round(r.total * 10) / 10, letter(r.total, cls.scale)])]))}>Download gradebook (CSV)</button>
         <button className="btn small" onClick={() => window.print()}>Print</button>

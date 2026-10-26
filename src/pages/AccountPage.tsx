@@ -113,7 +113,7 @@ export default function AccountPage() {
           <div className="card">
             <h2 className="card-title">Sync activity</h2>
             <ul className="small bullets">
-              <li>Status: {{ idle: 'up to date', syncing: 'syncing now', error: 'a problem (see above)', offline: 'offline', 'signed-out': 'signed out' }[s.status]}. Last successful sync: {s.lastSyncAt ? new Date(s.lastSyncAt).toLocaleString() : 'none yet'}.</li>
+              <li>Status: {{ idle: 'up to date', syncing: 'syncing now', error: 'a problem', offline: 'offline', 'signed-out': 'signed out' }[s.status]}. Last successful sync: {s.lastSyncAt ? new Date(s.lastSyncAt).toLocaleString() : 'none yet'}.</li>
               <li>Waiting to be sent from this device: {pending ?? '…'}.</li>
               {stats && <li>On the server: {stats.tables.reduce((n, t) => n + t.records, 0)} records ({(stats.bytes / 1024).toFixed(0)} KB of {(stats.limits.bytes / 1048576).toFixed(0)} MB){stats.tables.length ? `: ${stats.tables.map((t) => `${t.table} ${t.records}`).join(', ')}` : ''}.</li>}
               <li>Settings that sync: theme, text size and spacing, translations, verse numbers, reminders, streaks, lectio length and calendar. Interface language, layout of the Today screen, audio and sound, accessibility toggles and storage choices are kept per device.</li>

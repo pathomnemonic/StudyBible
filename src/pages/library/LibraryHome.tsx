@@ -82,7 +82,7 @@ function Notes({ openId }: { openId?: number }) {
       })()}
       <div className="row" style={{ marginBottom: 6 }}>
         <button className="btn small" aria-pressed={timeline} onClick={() => setTimeline(!timeline)}>{timeline ? 'Back to the list' : 'Timeline: how my thinking changed'}</button>
-        {timeline && <span className="muted small">Choose a tag above to follow one theme through time.</span>}
+        {timeline && <span className="muted small">Choose a tag to follow one theme through time.</span>}
       </div>
       {timeline && (
         <section className="card" aria-label="Timeline of my notes">
