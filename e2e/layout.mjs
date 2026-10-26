@@ -14,6 +14,9 @@ for (const w of WIDTHS) {
   for (const r of ROUTES) {
     await p.goto(`${BASE}/#${r}`).catch(() => {});
     await p.waitForTimeout(900);
+    // open every menu and fold first: popups are where things run off the screen
+    await p.evaluate(() => document.querySelectorAll('details').forEach((d) => { d.open = true; }));
+    await p.waitForTimeout(150);
     const bad = await p.evaluate(() => {
       const out = [];
       const se = document.scrollingElement;
