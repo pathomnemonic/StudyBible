@@ -4,23 +4,25 @@ import { getJson } from '../../data/loader';
 import { embedFor } from '../../lib/embed';
 import { db } from '../../db/db';
 import InlinePlayer from '../../components/InlinePlayer';
+import { toggleFollow, useFollows } from '../../lib/follow';
 
 interface Lib { about: string; channels: string[]; videos: [id: string, title: string, channel: number][] }
 const PAGE = 40;
 let cache: Promise<Lib | null> | null = null;
 type View = 'all' | 'later' | 'watched';
-type Sort = 'recent' | 'title';
+type Sort = 'mine' | 'recent' | 'title';
 
 /**
  * Every video from the Catholic channels the app draws on. The lists come from each channel's own upload page, newest first, so
  * "recently uploaded" puts each channel's latest videos at the top, mixed across channels. Videos you play here are remembered,
  * and any video can be saved for later.
  */
-export default function VideoLibrary() {
+export default function VideoLibrary({ embedded = false }: { embedded?: boolean }) {
+  const follows = useFollows();
   const [lib, setLib] = useState<Lib | null>(null);
   const [q, setQ] = useState('');
   const [ch, setCh] = useState(-1);
-  const [sort, setSort] = useState<Sort>('recent');
+  const [sort, setSort] = useState<Sort | null>(null);
   const [view, setView] = useState<View>('all');
   const [shown, setShown] = useState(PAGE);
   const [play, setPlay] = useState<string | null>(null);
@@ -41,6 +43,8 @@ export default function VideoLibrary() {
   }, [lib]);
   const byId = useMemo(() => new Map((lib?.videos ?? []).map((v) => [v[0], v])), [lib]);
 
+  const favs = useMemo(() => new Set((lib?.channels ?? []).map((c, i) => (follows.has(`vc:${c}`) ? i : -1)).filter((i) => i >= 0)), [lib, follows]);
+  const eff: Sort = sort ?? (favs.size ? 'mine' : 'recent');
   const list = useMemo(() => {
     if (!lib) return [];
     const words = q.toLowerCase().split(/\s+/).filter(Boolean);
@@ -48,10 +52,10 @@ export default function VideoLibrary() {
     if (view === 'watched') base = hist.slice().sort((a, b) => b.ts - a.ts).map((h) => byId.get(h.ref)).filter((v): v is [string, string, number] => !!v);
     else if (view === 'later') base = later.slice().sort((a, b) => b.createdAt - a.createdAt).map((s) => byId.get(s.key.slice(6))).filter((v): v is [string, string, number] => !!v);
     const out = base.filter((v) => (ch < 0 || v[2] === ch) && words.every((w) => v[1].toLowerCase().includes(w)));
-    if (view === 'all') out.sort(sort === 'title' ? (a, b) => a[1].localeCompare(b[1]) : (a, b) => (rank.get(a[0]) ?? 0) - (rank.get(b[0]) ?? 0));
+    if (view === 'all') out.sort(eff === 'title' ? (a, b) => a[1].localeCompare(b[1]) : eff === 'mine' ? (a, b) => (+favs.has(b[2]) - +favs.has(a[2])) || (rank.get(a[0]) ?? 0) - (rank.get(b[0]) ?? 0) : (a, b) => (rank.get(a[0]) ?? 0) - (rank.get(b[0]) ?? 0));
     return out;
-  }, [lib, q, ch, sort, view, hist, later, byId, rank]);
-  useEffect(() => setShown(PAGE), [q, ch, sort, view]);
+  }, [lib, q, ch, eff, favs, view, hist, later, byId, rank]);
+  useEffect(() => setShown(PAGE), [q, ch, eff, view]);
   if (!lib) return <div className="page"><p className="muted">Loading…</p></div>;
   const counts = new Map<number, number>();
   for (const v of lib.videos) counts.set(v[2], (counts.get(v[2]) ?? 0) + 1);
@@ -68,9 +72,9 @@ export default function VideoLibrary() {
   };
   const forget = (id: string) => db.history.where('type').equals('video').filter((h) => h.ref === id).delete();
   return (
-    <div className="page">
-      <h1>Catholic video library</h1>
-      <p className="lede">{lib.videos.length.toLocaleString()} videos from {lib.channels.length} Catholic channels: Catholic Answers, Catholic Productions, the St. Paul Center, Bishop Barron, Ascension, Jimmy Akin, Trent Horn and more. They play here through YouTube’s own player, or open on YouTube if the creator turned embedding off.</p>
+    <div className={embedded ? undefined : 'page'}>
+      {!embedded && <h1>Catholic video library</h1>}
+      <p className={embedded ? 'muted small' : 'lede'}>{lib.videos.length.toLocaleString()} videos from {lib.channels.length} Catholic channels: Catholic Answers, Catholic Productions, the St. Paul Center, Bishop Barron, Ascension, Jimmy Akin, Trent Horn and more. They play here through YouTube’s own player, or open on YouTube if the creator turned embedding off.</p>
       <div className="tabbar" role="tablist">
         <button role="tab" aria-selected={view === 'all'} onClick={() => setView('all')}>Library</button>
         <button role="tab" aria-selected={view === 'later'} onClick={() => setView('later')}>Watch later ({later.length})</button>
@@ -82,7 +86,8 @@ export default function VideoLibrary() {
           <option value={-1}>All creators</option>
           {lib.channels.map((c, i) => <option key={c} value={i}>{c} ({counts.get(i) ?? 0})</option>)}
         </select>
-        {view === 'all' && <select value={sort} onChange={(e) => setSort(e.target.value as Sort)} aria-label="Sort"><option value="recent">Recently uploaded</option><option value="title">Title A to Z</option></select>}
+        {ch >= 0 && <button className="btn small" aria-pressed={follows.has(`vc:${lib.channels[ch]}`)} onClick={() => toggleFollow(`vc:${lib.channels[ch]}`, !follows.has(`vc:${lib.channels[ch]}`))}>{follows.has(`vc:${lib.channels[ch]}`) ? '★ Favorite creator' : '☆ Make a favorite'}</button>}
+        {view === 'all' && <select value={eff} onChange={(e) => setSort(e.target.value as Sort)} aria-label="Sort">{favs.size > 0 && <option value="mine">My creators first</option>}<option value="recent">Recently uploaded</option><option value="title">Title A to Z</option></select>}
       </div>
       <div className="row between"><p className="muted small">{list.length.toLocaleString()} videos</p>{view === 'watched' && hist.length > 0 && <button className="btn small" onClick={() => confirm('Clear your watched list?') && db.history.where('type').equals('video').delete()}>Clear watched list</button>}</div>
       {list.length === 0 && view !== 'all' && <div className="empty">{view === 'later' ? 'Nothing saved yet. Use “Watch later” on any video.' : 'Videos you play here will be listed here.'}</div>}

@@ -2,16 +2,17 @@
  * One list of everything the app can do, so the search box, the "Everything" page, the hubs and the red dots all agree.
  * `hub` is the tab where a reader would look first; `hot` marks the features worth pointing a newcomer at.
  */
-export type Hub = 'today' | 'bible' | 'read' | 'study' | 'pray' | 'listen' | 'teach' | 'you';
+export type Hub = 'today' | 'bible' | 'read' | 'study' | 'learn' | 'pray' | 'listen' | 'teach' | 'you';
 export interface Feature { id: string; title: string; blurb: string; to: string; hub: Hub; keywords?: string; hot?: boolean; interest?: string[] }
 
 export const HUBS: { id: Hub; title: string; blurb: string; to: string }[] = [
   { id: 'today', title: 'Today', blurb: 'The day’s readings, saint and a question', to: '/today' },
   { id: 'bible', title: 'Bible', blurb: 'Read, study and search Scripture', to: '/read' },
   { id: 'read', title: 'Read', blurb: 'Saints, Fathers, catechisms and your own books', to: '/room' },
+  { id: 'learn', title: 'Learn', blurb: 'The Catechism program for every age, the Catechism itself and the faith explained', to: '/learn' },
   { id: 'study', title: 'Study', blurb: 'Lessons, tools, maps and the Catechism', to: '/study' },
   { id: 'pray', title: 'Pray', blurb: 'Rosary, Mass, devotions and the Church’s year', to: '/pray' },
-  { id: 'listen', title: 'Listen', blurb: 'Podcasts, audiobooks and the Bible in a Year', to: '/listen' },
+  { id: 'listen', title: 'Media', blurb: 'Bible in a Year, podcasts, audiobooks and videos', to: '/listen' },
   { id: 'teach', title: 'Teach', blurb: 'Classes, live games and the K–12 program', to: '/teach' },
   { id: 'you', title: 'You', blurb: 'Notes, plans, settings and sync', to: '/profile' },
 ];
@@ -39,27 +40,27 @@ export const FEATURES: Feature[] = [
   { id: 'bible.share', title: 'Share a verse', blurb: 'Make a picture of a verse, with a painting.', to: '/share', hub: 'bible', keywords: 'image card instagram' },
   // Read
   { id: 'read.room', title: 'Read: saints and Fathers', blurb: '94 works to read in full, with a Bible chapter beside them.', to: '/room', hub: 'read', keywords: 'library augustine aquinas confessions imitation', hot: true, interest: ['study', 'pray'] },
-  { id: 'read.catechism', title: 'Catechism of the Catholic Church', blurb: 'The full text, paragraph by paragraph, with search.', to: '/study/catechism', hub: 'read', keywords: 'ccc doctrine', hot: true, interest: ['study', 'teach'] },
+  { id: 'read.catechism', title: 'Catechism of the Catholic Church', blurb: 'The full text, paragraph by paragraph, with search.', to: '/study/catechism', hub: 'learn', keywords: 'ccc doctrine', hot: true, interest: ['study', 'teach'] },
   { id: 'read.church', title: 'Councils and Church documents', blurb: 'Read in full where public domain, official links for the rest.', to: '/study/church', hub: 'read', keywords: 'vatican nicaea encyclical' },
   { id: 'read.papal', title: 'Papal writings', blurb: 'Encyclicals and letters.', to: '/study/papal', hub: 'read', keywords: 'pope encyclical' },
   { id: 'read.saints', title: 'Saints', blurb: 'Lives of the saints and the saint of the day.', to: '/study/saints', hub: 'read', keywords: 'saint of the day biography' },
   { id: 'read.encyclopedia', title: 'Catholic encyclopedia', blurb: 'Articles on the Church’s history, doctrine and life.', to: '/study/encyclopedia', hub: 'read', keywords: 'reference' },
   { id: 'read.mine', title: 'My books', blurb: 'Import your own EPUB or text books and read them here.', to: '/room?tab=mine', hub: 'read', keywords: 'epub import kindle shelf' },
-  { id: 'study.visual', title: 'Visual Catechism', blurb: 'The faith as tappable diagrams: Trinity, sacraments, Mass, the Church’s year, salvation history.', to: '/study/visual', hub: 'study', keywords: 'diagram chart timeline infographic trinity sacraments commandments virtues', hot: true, interest: ['study', 'teach', 'family'] },
+  { id: 'study.visual', title: 'Visual Catechism', blurb: 'The faith as tappable diagrams: Trinity, sacraments, Mass, the Church’s year, salvation history.', to: '/study/visual', hub: 'learn', keywords: 'diagram chart timeline infographic trinity sacraments commandments virtues', hot: true, interest: ['study', 'teach', 'family'] },
   { id: 'pray.intentions', title: 'Prayer list', blurb: 'People and needs you pray for, with a daily “I prayed” and answered prayers.', to: '/pray/intentions', hub: 'pray', keywords: 'intentions petitions prayer requests names', hot: true, interest: ['pray'] },
   { id: 'pray.memento', title: 'Memento mori', blurb: 'An optional, private look at the weeks of a life, as the saints kept death in mind. Add a bar to Today.', to: '/memento', hub: 'pray', keywords: 'death life weeks birthday saints remember mortality', interest: ['pray'] },
   { id: 'pray.pilgrim', title: 'Pilgrim pack', blurb: 'Rome, the Holy Land, Lourdes, Fatima, Santiago and more: guides and a checklist that work offline.', to: '/pray/pilgrim', hub: 'pray', keywords: 'pilgrimage travel trip camino shrine offline', interest: ['pray'] },
   { id: 'read.gallery', title: 'Gallery', blurb: 'Paintings and engravings of Bible scenes.', to: '/study/gallery', hub: 'read', keywords: 'art dore' },
   // Study
-  { id: 'study.curriculum', title: 'Catechism program, K–12', blurb: '396 lessons with slides, games and a teacher handbook.', to: '/study/curriculum', hub: 'study', keywords: 'lessons classroom homeschool religious education', hot: true, interest: ['teach', 'study'] },
-  { id: 'study.prepare', title: 'Prepare for a sacrament', blurb: 'First Confession, First Communion, Confirmation, RCIA, marriage and more.', to: '/study/prepare', hub: 'study', keywords: 'rcia sacrament preparation', hot: true, interest: ['study'] },
-  { id: 'study.ya', title: 'Young adults course', blurb: 'Thirty-six sessions on faith, vocation and the hard questions.', to: '/study/young-adults', hub: 'study', keywords: 'college discernment', interest: ['study'] },
-  { id: 'study.apologetics', title: 'Questions about the faith', blurb: 'Short answers with the verses and Catechism paragraphs.', to: '/study/apologetics', hub: 'study', keywords: 'apologetics objections why catholics', hot: true, interest: ['study'] },
-  { id: 'study.kids', title: 'Children’s Bible', blurb: 'Stories at three reading levels, with questions and videos.', to: '/study/kids', hub: 'study', keywords: 'children family', interest: ['teach'] },
-  { id: 'study.course', title: 'Salvation history in twelve lessons', blurb: 'The story of the Bible in order, with a quiz each.', to: '/study/course', hub: 'study', keywords: 'overview course', interest: ['bible', 'study'] },
-  { id: 'study.story', title: 'Follow a story', blurb: 'Trace Abraham, the Exodus, David, Mary or Peter through the Bible.', to: '/study/story', hub: 'study', keywords: 'thread theme' },
-  { id: 'study.paths', title: 'Study paths', blurb: 'Guided journeys: a passage, a Father’s words, a question.', to: '/study/paths', hub: 'study', keywords: 'guided' },
-  { id: 'study.doctrine', title: 'Doctrine and Catechism', blurb: 'Topics with Scripture and Catechism links.', to: '/study/doctrine', hub: 'study', keywords: 'beliefs topics' },
+  { id: 'study.curriculum', title: 'Catechism program, K–12', blurb: '396 lessons with slides, games and a teacher handbook.', to: '/study/curriculum', hub: 'learn', keywords: 'lessons classroom homeschool religious education', hot: true, interest: ['teach', 'study'] },
+  { id: 'study.prepare', title: 'Prepare for a sacrament', blurb: 'First Confession, First Communion, Confirmation, RCIA, marriage and more.', to: '/study/prepare', hub: 'learn', keywords: 'rcia sacrament preparation', hot: true, interest: ['study'] },
+  { id: 'study.ya', title: 'Young adults course', blurb: 'Thirty-six sessions on faith, vocation and the hard questions.', to: '/study/young-adults', hub: 'learn', keywords: 'college discernment', interest: ['study'] },
+  { id: 'study.apologetics', title: 'Questions about the faith', blurb: 'Short answers with the verses and Catechism paragraphs.', to: '/study/apologetics', hub: 'learn', keywords: 'apologetics objections why catholics', hot: true, interest: ['study'] },
+  { id: 'study.kids', title: 'Children’s Bible', blurb: 'Stories at three reading levels, with questions and videos.', to: '/study/kids', hub: 'learn', keywords: 'children family', interest: ['teach'] },
+  { id: 'study.course', title: 'Salvation history in twelve lessons', blurb: 'The story of the Bible in order, with a quiz each.', to: '/study/course', hub: 'learn', keywords: 'overview course', interest: ['bible', 'study'] },
+  { id: 'study.story', title: 'Follow a story', blurb: 'Trace Abraham, the Exodus, David, Mary or Peter through the Bible.', to: '/study/story', hub: 'learn', keywords: 'thread theme' },
+  { id: 'study.paths', title: 'Study paths', blurb: 'Guided journeys: a passage, a Father’s words, a question.', to: '/study/paths', hub: 'learn', keywords: 'guided' },
+  { id: 'study.doctrine', title: 'Doctrine and Catechism', blurb: 'Topics with Scripture and Catechism links.', to: '/study/doctrine', hub: 'learn', keywords: 'beliefs topics' },
   { id: 'study.themes', title: 'Biblical theology explorer', blurb: 'Follow a theme from Genesis to Revelation.', to: '/study/themes', hub: 'study', keywords: 'covenant temple' },
   { id: 'study.universe', title: 'Scripture universe', blurb: 'All 73 books as a galaxy with the Fathers in rings.', to: '/study/universe', hub: 'study', keywords: 'galaxy 3d visual', hot: true, interest: ['study'] },
   { id: 'study.constellation', title: 'Constellation', blurb: 'The books as stars joined by cross-references.', to: '/study/constellation', hub: 'study', keywords: 'xrefs graph' },
@@ -71,7 +72,6 @@ export const FEATURES: Feature[] = [
   { id: 'study.textual', title: 'Textual history', blurb: 'How the text was handed down.', to: '/study/textual', hub: 'study', keywords: 'variants' },
   { id: 'study.voices', title: 'Voices through time', blurb: 'The Fathers and saints on one timeline.', to: '/study/voices', hub: 'study', keywords: 'timeline fathers' },
   { id: 'study.concepts', title: 'Web of themes', blurb: 'How great themes of Scripture connect.', to: '/study/concepts', hub: 'study', keywords: 'graph' },
-  { id: 'study.videos', title: 'Catholic video library', blurb: 'Thousands of teaching videos, searchable.', to: '/study/videos', hub: 'study', keywords: 'youtube bishop barron catholic answers' },
   { id: 'study.sources', title: 'Sources and licensing', blurb: 'Where every text comes from.', to: '/study/sources', hub: 'study', keywords: 'rights' },
   // Pray
   { id: 'pray.rosary', title: 'The Rosary', blurb: 'Bead by bead, with the mysteries pictured, led by you, a pace, your device or a recording.', to: '/pray/devotions/rosary', hub: 'pray', keywords: 'mysteries beads mary joyful sorrowful glorious luminous', hot: true, interest: ['pray'] },
@@ -97,10 +97,13 @@ export const FEATURES: Feature[] = [
   { id: 'pray.divineliturgy', title: 'Byzantine Divine Liturgy', blurb: 'The Liturgy of St John Chrysostom to follow along.', to: '/pray/divine-liturgy', hub: 'pray', keywords: 'eastern orthodox' },
   // Listen
   { id: 'listen.biay', title: 'Bible in a Year', blurb: 'Daily episodes matched to the passages.', to: '/listen', hub: 'listen', keywords: 'fr mike schmitz podcast', hot: true, interest: ['bible', 'listen'] },
+  { id: 'listen.foryou', title: 'For you: your favorites', blurb: 'Pick favorite podcasts, audiobooks and video creators; they are put first.', to: '/listen?tab=now', hub: 'listen', keywords: 'favorites follow continue queue', hot: true, interest: ['listen'] },
+  { id: 'listen.videos', title: 'Video library', blurb: 'Over 40,000 videos from Catholic creators, searchable, with watch later.', to: '/listen?tab=videos', hub: 'listen', keywords: 'youtube watch barron catholic answers', interest: ['listen', 'study'] },
   { id: 'listen.podcasts', title: 'Catholic podcasts', blurb: 'A large library with progress and queues.', to: '/listen?tab=podcasts', hub: 'listen', keywords: 'shows episodes', hot: true, interest: ['listen'] },
   { id: 'listen.audiobooks', title: 'Audiobooks', blurb: 'Recorded books with your place remembered.', to: '/listen?tab=audiobooks', hub: 'listen', keywords: 'librivox' },
   { id: 'listen.programmes', title: 'Programmes', blurb: 'Series by Catholic teachers.', to: '/listen?tab=programmes', hub: 'listen', keywords: 'series courses' },
   // Teach
+  { id: 'learn.mass', title: 'Walk through the Mass', blurb: 'Follow the Mass step by step with what each part means.', to: '/pray/mass', hub: 'learn', keywords: 'liturgy explain parts' },
   { id: 'teach.classes', title: 'Teacher tools', blurb: 'Classes, attendance, scores, exams and a gradebook.', to: '/teach', hub: 'teach', keywords: 'class roster gradebook report card', hot: true, interest: ['teach'] },
   { id: 'teach.join', title: 'Join a class', blurb: 'Type the code your teacher is showing.', to: '/join', hub: 'teach', keywords: 'student code kahoot game', hot: true, interest: ['teach'] },
   { id: 'teach.handbook', title: 'Teacher handbook', blurb: 'Methods, pacing and support for every grade.', to: '/study/curriculum/teachers', hub: 'teach', keywords: 'handbook parents' },

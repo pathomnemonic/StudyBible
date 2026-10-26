@@ -14,7 +14,8 @@ import MyMedia from '../../components/MyMedia';
 import YearHero from '../../components/YearHero';
 import { RecordedList } from '../../components/RecordedBooks';
 import PodcastView from './PodcastView';
-import ListenNow from './ListenNow';
+import ForYou from './ForYou';
+import VideoLibrary from '../study/VideoLibrary';
 import PodcastLibrary from './PodcastLibrary';
 import Audiobooks from './Audiobooks';
 import { useShows } from '../../data/podcasts';
@@ -147,10 +148,10 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
 }
 
 const KEY = 'sb:listen:show';
-type Tab = 'now' | 'podcasts' | 'audiobooks' | 'programmes';
-const TABS: [Tab, string][] = [['programmes', 'Bible in a Year'], ['now', 'Listen now'], ['podcasts', 'Podcasts'], ['audiobooks', 'Audiobooks']];
+type Tab = 'now' | 'podcasts' | 'audiobooks' | 'programmes' | 'videos';
+const TABS: [Tab, string][] = [['programmes', 'Bible in a Year'], ['now', 'For you'], ['podcasts', 'Podcasts'], ['audiobooks', 'Audiobooks'], ['videos', 'Videos']];
 
-/** The Listen tab: where you left off, the podcast library, audiobooks, and the year-long programs. */
+/** The Media tab: where you left off, the podcast library, audiobooks, and the year-long programs. */
 export default function ListenHome() {
   const shows = useShows();
   const [sp, setSp] = useSearchParams();
@@ -169,13 +170,14 @@ export default function ListenHome() {
   const progShow = programmes.find((x) => x.id === progId);
   return (
     <div className="page">
-      <h1 style={{ marginTop: 0 }}>Listen</h1>
-      <Tip id="listen" title="Listen your way">Start the Bible in a Year, or pick a podcast. The player stays at the bottom while you browse.</Tip>
+      <h1 style={{ marginTop: 0 }}>Media</h1>
+      <Tip id="listen" title="Listen and watch your way">Start the Bible in a Year, or choose favorites under For you and they will be put first. The player stays at the bottom while you browse.</Tip>
       <StartHere hub="listen" />
       <div className="tabbar" role="tablist">
         {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => go(k)}>{l}</button>)}
       </div>
-      {tab === 'now' && <ListenNow />}
+      {tab === 'now' && <ForYou />}
+      {tab === 'videos' && <VideoLibrary embedded />}
       {tab === 'podcasts' && (open
         ? <><button className="linklike small" onClick={() => go('podcasts')}>← All podcasts</button><PodcastView show={open} /></>
         : <PodcastLibrary onOpen={(id) => go('podcasts', { show: id })} />)}

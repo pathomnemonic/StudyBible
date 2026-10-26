@@ -16,7 +16,7 @@ const INTERESTS: [string, string, string][] = [
   ['bible', 'Read the Bible', 'Daily reading, plans and Bible in a Year'],
   ['pray', 'Pray every day', 'Rosary, Mass, devotions and the Church’s year'],
   ['study', 'Learn the faith', 'Catechism, Fathers, lessons and tough questions'],
-  ['listen', 'Listen on the go', 'Podcasts, audiobooks and recorded prayers'],
+  ['listen', 'Listen and watch', 'Podcasts, audiobooks, videos and recorded prayers'],
   ['teach', 'Teach or lead a class', 'K–12 program, slides, live games and gradebook'],
   ['family', 'Raise a family in the faith', 'Children’s Bible, family prayer and lessons'],
 ];

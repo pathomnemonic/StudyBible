@@ -22,15 +22,10 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
   },
   {
     title: 'Church teaching and tradition',
-    blurb: 'Learn the faith: lessons, questions, videos and themes. The Catechism, papal writings, councils and the saints now live in the Reading room.',
+    blurb: 'Study tools for people, places and themes. Lessons, the Catechism and questions about the faith are in the Learn tab; papal writings, councils and the saints are in Read.',
     items: [
       ['/teach', 'Teacher tools', 'Classes, attendance, participation, scores, exams, a gradebook and report cards.'],
       ['/join', 'Join a class', 'Type the code your teacher is showing to follow a lesson and play the quiz together.'],
-      ['/study/curriculum', 'Catechism, Kindergarten to Grade 12', 'A full program of nearly 400 lessons for classrooms, families and self-study, with teacher handbook.'],
-      ['/study/prepare', 'Prepare for a sacrament', 'First Confession, First Communion, Confirmation, becoming Catholic, marriage, the sick and vocation: lessons, prayers and tools for each.'],
-      ['/study/young-adults', 'Young adults', 'Questions, vocation, Scripture, reading and people for the years of big decisions.'],
-      ['/study/kids', 'Children’s Bible', 'Bible stories for kids, at three reading levels, with questions and videos.'],
-      ['/study/apologetics', 'Questions about the faith', 'Common questions, each gathering what Catholic authors and apologists have written and said, with the verses and Catechism paragraphs involved.'],
       ['/study/videos', 'Catholic video library', 'Thousands of teaching videos from Catholic Answers, the St. Paul Center, Bishop Barron, Ascension and more, searchable by title and creator.'],
       ['/study/quotations', 'Who quoted this verse?', 'Every Father and saint who cites a passage, fullest first.'],
       ['/study/voices', 'Voices through time', 'The Fathers and saints on one timeline, with the councils.'],
@@ -77,6 +72,7 @@ export default function StudyHome() {
       <h1>Study</h1>
       <Tip id="study" title="Where to begin">Try Lessons for a guided path, or search for any topic. Red dots show tools you have not opened.</Tip>
       <StartHere hub="study" />
+      <Link to="/learn" className="notice info small" style={{ display: 'block', textDecoration: 'none', color: 'inherit', marginBottom: 12 }}><strong>Looking for lessons, the Catechism or questions about the faith?</strong> They are now in the Learn tab.</Link>
       <p className="lede">Everything is connected to the verses you read. Search it, or browse by what you want to do.</p>
       <Link to="/read" className="notice info small" style={{ display: 'block', textDecoration: 'none', color: 'inherit', marginBottom: 12 }}>
         <strong>Looking for book outlines, the Gospel comparison, key words, the concordance or the topical index?</strong> They are now with the Bible: open any chapter and tap the <Icon name="study" size={14} /> Bible tools button, or <u>open the Bible</u>.

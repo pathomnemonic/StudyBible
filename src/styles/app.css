@@ -4696,3 +4696,6 @@ button, a, [role='button'] { touch-action: manipulation; }
 .memento-bar { height: 8px; border-radius: 6px; background: var(--surface-3); overflow: hidden; } .memento-bar i { display: block; height: 100%; background: var(--accent); } .memento-bar.big { height: 18px; border-radius: 10px; margin: 6px 0 10px; }
 .memento-big { font-family: var(--font-display, Georgia, serif); font-size: 1.6rem; margin: 4px 0; } .memento-grid { width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto 8px; }
 .memento-line blockquote { font-family: var(--font-scripture, Georgia, serif); font-size: 1.2rem; margin: 0 0 4px; font-style: italic; } .memento-line footer { color: var(--muted); font-size: .85rem; margin-bottom: 8px; }
+
+/* Favorites picker */
+.fav-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; max-height: 320px; overflow: auto; } .fav-chip { display: grid; text-align: left; gap: 0; padding: 7px 11px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); font: inherit; cursor: pointer; max-width: 100%; } .fav-chip small { color: var(--muted); font-size: .72rem; } .fav-chip.on { border-color: var(--accent); background: var(--accent-soft); }

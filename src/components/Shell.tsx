@@ -14,19 +14,24 @@ import { useT } from '../lib/i18n';
 import type { Key } from '../i18n/en';
 import { BIBLE_TOOLS, isBibleToolPath } from '../lib/bibleTools';
 
-// Six places along the bottom: Read (texts and recordings beyond the Bible, read beside a Bible chapter), Study (anything educational), Today (where the app opens), the Bible, and Listen (the Bible in a Year, spoken).
+// Seven places along the bottom: Learn (the faith, taught), Read (texts and recordings beyond the Bible, read beside a Bible chapter), Study (anything educational), Today (where the app opens), the Bible, and Listen (the Bible in a Year, spoken).
 // Profile (notes, plans, settings, prayer) is the round button at the top right of every screen. The Mass readings belong to Today.
 const PROFILE_PATHS = ['/profile', '/library', '/settings', '/account', '/about', '/more', '/days', '/share'];
 /** Paths under /pray that belong to Today's daily practice rather than the Pray tab. */
 const DAILY_PRAY = ['/pray/readings', '/pray/plans'];
 const inPray = (path: string) => (['/pray', '/mass'].some((m) => path === m || path.startsWith(m + '/'))) && !DAILY_PRAY.some((m) => path === m || path.startsWith(m + '/'));
+/** The Catechism program, the Catechism itself and the pages that teach the faith: they belong to Learn, not Study. */
+const LEARN_PATHS = ['/learn', '/study/curriculum', '/study/prepare', '/study/young-adults', '/study/kids', '/study/apologetics', '/study/visual', '/study/catechism', '/study/doctrine', '/study/course', '/study/story', '/study/paths', '/teach', '/join'];
+const under = (path: string, list: string[]) => list.some((m) => path === m || path.startsWith(m + '/'));
+const inLearn = (path: string) => under(path, LEARN_PATHS);
 const TABS = [
   { to: '/room', label: 'Read', key: 'nav.room' as Key, icon: 'library', match: ['/room'] },
-  { to: '/study', label: 'Study', key: 'nav.study' as Key, icon: 'study', match: ['/study'] },
+  { to: '/study', label: 'Study', key: 'nav.study' as Key, icon: 'study', match: [] as string[] },
+  { to: '/learn', label: 'Learn', key: 'nav.learn' as Key, icon: 'learn', match: [] as string[] },
   { to: '/today', label: 'Today', key: 'nav.today' as Key, icon: 'sun', match: ['/today', '/pray/readings'], home: true },
   { to: '/read', label: 'Bible', key: 'nav.bible' as Key, icon: 'read', match: ['/read'] },
   { to: '/pray', label: 'Pray', key: 'nav.pray' as Key, icon: 'pray', match: [] as string[] },
-  { to: '/listen', label: 'Listen', key: 'nav.listen' as Key, icon: 'listen', match: ['/listen'] },
+  { to: '/listen', label: 'Media', key: 'nav.listen' as Key, icon: 'listen', match: ['/listen'] },
 ];
 
 /** Sub-menu shown across the daily-practice pages. */
@@ -90,7 +95,7 @@ export default function Shell({ children }: { children: ReactNode }) {
   // arriving at a tab any other way (a link, the address bar) counts as having opened it
   useEffect(() => {
     const p = loc.pathname;
-    const hit = TABS.find((tb) => tb.to === '/pray' ? inPray(p) : tb.to !== '/today' && (p === tb.to || p.startsWith(tb.to + '/')));
+    const hit = TABS.find((tb) => tb.to === '/pray' ? inPray(p) : tb.to === '/learn' ? inLearn(p) : tb.to === '/study' ? p.startsWith('/study') && !inLearn(p) : tb.to !== '/today' && (p === tb.to || p.startsWith(tb.to + '/')));
     if (hit) markSeen(`tab.${hit.to}`);
   }, [loc.pathname]);
   // ask the browser not to clear this site's data, and keep the Drive copy (if connected) up to date
@@ -123,7 +128,7 @@ export default function Shell({ children }: { children: ReactNode }) {
         </button>
         {TABS.map((tb) => {
           const tool = isBibleToolPath(loc.pathname);
-          const active = tool ? tb.to === '/read' : tb.to === '/pray' ? inPray(loc.pathname) : (tb.match.some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/'))) || (!!tb.home && loc.pathname === '/');
+          const active = tool ? tb.to === '/read' : tb.to === '/pray' ? inPray(loc.pathname) : tb.to === '/learn' ? inLearn(loc.pathname) : tb.to === '/study' ? loc.pathname.startsWith('/study') && !inLearn(loc.pathname) : (tb.match.some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/'))) || (!!tb.home && loc.pathname === '/');
           return (
             <NavLink
               key={tb.to}

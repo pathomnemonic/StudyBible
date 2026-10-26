@@ -49,7 +49,7 @@ const NAV: { label: string; to: string }[] = [
   { label: 'Gospel comparison', to: '/study/synopsis' },
   { label: 'Paul’s letters: outlines', to: '/study/pauline' },
   { label: 'Parables, miracles, prophecies, covenants', to: '/study/index' },
-  { label: 'Listen', to: '/listen' },
+  { label: 'Media: podcasts, audiobooks, videos', to: '/listen' },
   { label: 'Today’s readings', to: '/pray/readings' },
   { label: 'Pray', to: '/pray' },
   { label: 'Journal', to: '/pray/journal' },
