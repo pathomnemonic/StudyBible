@@ -96,6 +96,9 @@ export const FEATURES: Feature[] = [
   { id: 'pray.build', title: 'Build a prayer time', blurb: 'Order your own prayers, Scripture and silence.', to: '/pray/build', hub: 'pray', keywords: 'custom' },
   { id: 'pray.journal', title: 'Prayer journal', blurb: 'Reflections and intentions, private to this device.', to: '/pray/journal', hub: 'pray', keywords: 'diary' },
   { id: 'pray.liturgies', title: 'All the liturgies', blurb: 'Roman, Byzantine and other rites.', to: '/pray/liturgies', hub: 'pray', keywords: 'eastern rites' },
+  { id: 'pray.lit.james', title: 'Liturgy of St James', blurb: 'The ancient liturgy of Jerusalem and West Syria.', to: '/pray/liturgy/james', hub: 'pray', keywords: 'syro-malankara maronite antioch jerusalem qurbono anaphora eastern' },
+  { id: 'pray.lit.mark', title: 'Liturgy of St Mark', blurb: 'The ancient liturgy of Alexandria, behind the Coptic and Ethiopian rites.', to: '/pray/liturgy/mark', hub: 'pray', keywords: 'coptic ethiopian eritrean alexandria egypt eastern' },
+  { id: 'pray.lit.addai', title: 'Liturgy of Addai and Mari', blurb: 'The ancient East Syriac liturgy, behind the Chaldean and Syro-Malabar rites.', to: '/pray/liturgy/addai-mari', hub: 'pray', keywords: 'chaldean syro-malabar qurbana anaphora eastern assyrian' },
   { id: 'pray.divineliturgy', title: 'Byzantine Divine Liturgy', blurb: 'The Liturgy of St John Chrysostom to follow along.', to: '/pray/divine-liturgy', hub: 'pray', keywords: 'eastern orthodox' },
   // Listen
   { id: 'listen.biay', title: 'Bible in a Year', blurb: 'Daily episodes matched to the passages.', to: '/listen', hub: 'listen', keywords: 'fr mike schmitz podcast', hot: true, interest: ['bible', 'listen'] },

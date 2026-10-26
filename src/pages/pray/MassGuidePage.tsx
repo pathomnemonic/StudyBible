@@ -62,6 +62,7 @@ export default function MassGuidePage() {
         <h1>Following the {t.liturgy}</h1>
         <p className="lede">The {t.liturgy} of the {t.name} has its own order, prayers and readings, and this app does not have them. The Roman Mass follows a different order, so we do not show it as if it were yours.</p>
         <p>Please use your parish’s service book{t.site ? <> or <a href={t.site.url} target="_blank" rel="noreferrer noopener">{t.site.label}</a></> : ''}.</p>
+        {({ 'syro-malankara': 'james', maronite: 'james', 'syro-malabar': 'addai-mari', chaldean: 'addai-mari', alexandrian: 'mark' } as Record<string, string>)[t.id] && <p>For study, an ancient liturgy of your Church’s family is in the app: <Link to={`/pray/liturgy/${({ 'syro-malankara': 'james', maronite: 'james', 'syro-malabar': 'addai-mari', chaldean: 'addai-mari', alexandrian: 'mark' } as Record<string, string>)[t.id]}`}>read it here</Link>. It is not the text your parish uses today.</p>}
         <p><a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_orientalium-ecclesiarum_en.html" target="_blank" rel="noreferrer noopener">Orientalium Ecclesiarum</a> explains why the Church treasures each rite.</p>
       </div>
     );

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { TRADITIONS } from '../../lib/tradition';
 
 type Have = 'yes' | 'part' | 'no';
-interface Rite { name: string; who: string; mass: { what: string; to?: string; have: Have }; hours?: { what: string; to?: string; have: Have }; note?: string }
+interface Rite { name: string; who: string; text?: { id: string; title: string }; mass: { what: string; to?: string; have: Have }; hours?: { what: string; to?: string; have: Have }; note?: string }
 const MARK: Record<Have, string> = { yes: 'In the app', part: 'Partly in the app', no: 'Not in the app' };
 
 const LATIN: Rite[] = [
@@ -13,12 +13,12 @@ const LATIN: Rite[] = [
 ];
 const EASTERN: Record<string, Rite> = {
   byzantine: { name: 'Byzantine Rite', who: 'Ukrainian, Ruthenian, Melkite, Romanian, Hungarian, Slovak and other Greek Catholic Churches', mass: { what: 'The Divine Liturgy of St John Chrysostom (a 1914 English rendering, public domain). Daily readings and saints from Orthocal.', to: '/pray/divine-liturgy', have: 'part' }, hours: { what: 'The Horologion, Vespers and Matins are not in the app', have: 'no' }, note: 'The Liturgy of St Basil and the Presanctified are not yet in the app.' },
-  'syro-malabar': { name: 'Syro-Malabar Church (East Syriac)', who: 'India and the diaspora', mass: { what: 'The Holy Qurbana is not in the app. The Church’s official site has its text.', have: 'no' }, hours: { what: 'Not in the app', have: 'no' } },
-  'syro-malankara': { name: 'Syro-Malankara Church (West Syriac)', who: 'India and the diaspora', mass: { what: 'Not in the app', have: 'no' } },
-  maronite: { name: 'Maronite Church (West Syriac)', who: 'Lebanon and the diaspora', mass: { what: 'The Holy Qurbono is not in the app. Daily readings in the Maronite calendar are in the Listen tab.', to: '/listen?show=maronite-readings', have: 'part' } },
-  chaldean: { name: 'Chaldean Church (East Syriac)', who: 'Iraq and the diaspora', mass: { what: 'Not in the app', have: 'no' } },
+  'syro-malabar': { text: { id: 'addai-mari', title: 'The Liturgy of Addai and Mari' }, name: 'Syro-Malabar Church (East Syriac)', who: 'India and the diaspora', mass: { what: 'The Holy Qurbana is not in the app. The Church’s official site has its text.', have: 'no' }, hours: { what: 'Not in the app', have: 'no' } },
+  'syro-malankara': { text: { id: 'james', title: 'The Liturgy of St James' }, name: 'Syro-Malankara Church (West Syriac)', who: 'India and the diaspora', mass: { what: 'Not in the app', have: 'no' } },
+  maronite: { text: { id: 'james', title: 'The Liturgy of St James' }, name: 'Maronite Church (West Syriac)', who: 'Lebanon and the diaspora', mass: { what: 'The Holy Qurbono is not in the app. Daily readings in the Maronite calendar are in the Listen tab.', to: '/listen?show=maronite-readings', have: 'part' } },
+  chaldean: { text: { id: 'addai-mari', title: 'The Liturgy of Addai and Mari' }, name: 'Chaldean Church (East Syriac)', who: 'Iraq and the diaspora', mass: { what: 'Not in the app', have: 'no' } },
   armenian: { name: 'Armenian Catholic Church', who: 'Armenia, Lebanon and the diaspora', mass: { what: 'Not in the app', have: 'no' } },
-  alexandrian: { name: 'Coptic, Ethiopian and Eritrean Catholic Churches', who: 'Egypt, Ethiopia, Eritrea and the diaspora', mass: { what: 'Not in the app', have: 'no' } },
+  alexandrian: { text: { id: 'mark', title: 'The Liturgy of St Mark' }, name: 'Coptic, Ethiopian and Eritrean Catholic Churches', who: 'Egypt, Ethiopia, Eritrea and the diaspora', mass: { what: 'Not in the app', have: 'no' } },
 };
 
 export default function LiturgiesPage() {
@@ -47,6 +47,7 @@ function RiteCard({ r, site }: { r: Rite; site?: { label: string; url: string } 
       <h3 className="card-title">{r.name}</h3>
       <p className="muted small">{r.who}</p>
       <p><strong>{MARK[r.mass.have]}: the Eucharistic liturgy.</strong> {r.mass.what} {r.mass.to && <Link to={r.mass.to}>Open →</Link>}</p>
+      {r.text && <p><strong>An ancient form of this family of liturgies is in the app.</strong> <Link to={`/pray/liturgy/${r.text.id}`}>{r.text.title}</Link>, in a public-domain English translation of 1886. It is for study and prayer at home. It is not the text your Church prays today.</p>}
       {r.hours && <p><strong>{MARK[r.hours.have]}: the daily hours.</strong> {r.hours.what} {r.hours.to && <Link to={r.hours.to}>Open →</Link>}</p>}
       {r.note && <p className="muted small">{r.note}</p>}
       {site && <p className="small"><a href={site.url} target="_blank" rel="noreferrer">{site.label}</a></p>}
