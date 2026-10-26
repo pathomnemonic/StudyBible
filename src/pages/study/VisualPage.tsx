@@ -1,6 +1,19 @@
 import { useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { VISUALS, type Node, type Visual } from '../../data/visuals';
+import { VISUALS as BASE, type Node, type Visual } from '../../data/visuals';
+import { MORE_VISUALS } from '../../data/visuals2';
+
+const VISUALS: Visual[] = [...BASE, ...MORE_VISUALS];
+/** which topic each diagram sits under, so the strip of tabs stays short */
+const TOPIC: Record<string, string> = {
+  trinity: 'Faith', creed: 'Faith', pillars: 'Faith', lastthings: 'Faith', mary: 'Faith',
+  sacraments: 'Worship', mass: 'Worship', year: 'Worship', triduum: 'Worship', church: 'Worship', confession: 'Worship', orders: 'Worship', marriage: 'Worship',
+  commandments: 'Living it', virtues: 'Living it', beatitudes: 'Living it', sins: 'Living it', mortalsin: 'Living it', mercy: 'Living it',
+  prayer: 'Prayer', rosary: 'Prayer',
+  salvation: 'Scripture and history', canon: 'Scripture and history', gospels: 'Scripture and history', councils: 'Scripture and history', history: 'Scripture and history',
+  marks: 'The Church', hierarchy: 'The Church',
+};
+const TOPICS = ['Faith', 'Worship', 'Living it', 'Prayer', 'Scripture and history', 'The Church'];
 
 const COLORS = ['#5b4bd6', '#b0501a', '#1c6f69', '#b0355a', '#3a7226', '#7d6208', '#2a62a0'];
 const cccLink = (s: string) => `/study/catechism/${parseInt(s, 10)}`;
@@ -103,6 +116,8 @@ export default function VisualPage() {
   const nav = useNavigate();
   const v = useMemo(() => VISUALS.find((x) => x.id === id) ?? VISUALS[0], [id]);
   const [sel, setSel] = useState('');
+  const topic = TOPIC[v.id] ?? 'Faith';
+  const inTopic = VISUALS.filter((x) => (TOPIC[x.id] ?? 'Faith') === topic);
   const pick = (to: string) => { setSel(''); nav(`/study/visual/${to}`); };
   const node = v.nodes.find((n) => n.id === sel);
   const Body = v.kind === 'wheel' ? Wheel : v.kind === 'trinity' ? Trinity : v.kind === 'flow' ? Flow : v.kind === 'timeline' ? Timeline : Columns;
@@ -110,8 +125,11 @@ export default function VisualPage() {
     <div className="page vis-page">
       <h1>Visual Catechism</h1>
       <p className="lede">The faith as diagrams. Tap any part to see what the Church teaches and where to read more.</p>
+      <div className="vis-topics" role="group" aria-label="Topics">
+        {TOPICS.map((t) => <button key={t} className={`chip${t === topic ? ' sel' : ''}`} aria-pressed={t === topic} onClick={() => pick(VISUALS.find((x) => (TOPIC[x.id] ?? 'Faith') === t)!.id)}>{t}</button>)}
+      </div>
       <div className="vis-tabs" role="tablist" aria-label="Diagrams">
-        {VISUALS.map((x) => <button key={x.id} role="tab" aria-selected={x.id === v.id} className={x.id === v.id ? 'on' : ''} onClick={() => pick(x.id)}>{x.title}</button>)}
+        {inTopic.map((x) => <button key={x.id} role="tab" aria-selected={x.id === v.id} className={x.id === v.id ? 'on' : ''} onClick={() => pick(x.id)}>{x.title}</button>)}
       </div>
       <h2>{v.title}</h2>
       <p className="muted">{v.blurb}</p>
