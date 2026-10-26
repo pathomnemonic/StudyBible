@@ -37,7 +37,7 @@ function Quiz({ qs, onDone }: { qs: Question[]; onDone?: (score: number) => void
         </fieldset>
       ))}
       {Object.keys(pick).map((k) => qs[+k].why ? <p key={k} className="muted small">Question {+k + 1}: {qs[+k].why}</p> : null)}
-      {answered === qs.length && <p role="status"><strong>{score} of {qs.length}.</strong> {score === qs.length ? 'Well done.' : 'Look again at the words above, then try the lesson’s question aloud.'}</p>}
+      {answered === qs.length && <p role="status"><strong>{score} of {qs.length}.</strong> {score === qs.length ? 'Well done.' : 'Look again at the words, then try the lesson’s question aloud.'}</p>}
     </div>
   );
 }
