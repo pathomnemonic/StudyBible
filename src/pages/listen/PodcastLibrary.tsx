@@ -3,6 +3,8 @@ import { useShows, type Show } from '../../data/podcasts';
 import { toggleFollow, useFollows } from '../../lib/follow';
 import { fold } from '../../search/engine';
 import { useSettings } from '../../lib/store';
+import Fold from '../../components/Fold';
+import { addUserShow, exportOpml, parseOpml, removeUserShow, searchPodcasts } from '../../data/feeds';
 
 const ORDER = ['Programs', 'Apologetics', 'Scripture', 'Theology and philosophy', 'Homilies and daily reflections', 'Spiritual life', 'Prayer', 'Saints and history', 'Faith and culture', 'Family and life', 'News'];
 
@@ -26,6 +28,7 @@ export default function PodcastLibrary({ onOpen }: { onOpen: (id: string) => voi
   return (
     <div>
       <p className="muted small" style={{ marginTop: 0 }}>{shows.length} Catholic podcasts and year-long programs. Episode lists come from each publisher’s own public feed and the audio plays from them. Open a show to listen; follow it to see new episodes under Listen now.</p>
+      <AddPodcast />
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 8 }}>
         <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a show or a host…" aria-label="Find a podcast" style={{ flex: 1, minWidth: 200, maxWidth: 380 }} />
         <select value={cat} onChange={(e) => setCat(e.target.value)} aria-label="Subject"><option value="">All subjects</option>{cats.map((c) => <option key={c}>{c}</option>)}</select>
@@ -36,7 +39,7 @@ export default function PodcastLibrary({ onOpen }: { onOpen: (id: string) => voi
       {groups.map(([c, list]) => (
         <section key={c} className="sect">
           <h2 className="eyebrow-h">{c}</h2>
-          <div className="shelf">{list.map((s) => <Card key={s.id} s={s} on={follows.has(s.id)} onOpen={onOpen} mine={!!s.tradition && s.tradition === st.tradition} />)}</div>
+          <div className="shelf">{list.map((s) => <Card key={s.id} s={s} on={follows.has(s.id)} onOpen={onOpen} mine={!!s.tradition && s.tradition === st.tradition} removable={c === 'Yours'} />)}</div>
         </section>
       ))}
       {!groups.length && <div className="empty">No show matches.</div>}
@@ -44,14 +47,38 @@ export default function PodcastLibrary({ onOpen }: { onOpen: (id: string) => voi
   );
 }
 
-function Card({ s, on, onOpen, mine }: { s: Show; on: boolean; onOpen: (id: string) => void; mine: boolean }) {
+function Card({ s, on, onOpen, mine, removable }: { s: Show; on: boolean; onOpen: (id: string) => void; mine: boolean; removable?: boolean }) {
   return (
     <div className="shelf-card pod-card">
       <button className="linklike t" onClick={() => onOpen(s.id)} style={{ textAlign: 'left', fontWeight: 600 }}>{s.title}</button>
       <span className="d">{s.host}{mine ? ' · your Church' : ''}</span>
       <span className="muted small clamp2">{s.note}</span>
       <span className="muted small">{s.episodes} episodes · latest {s.latest || 'n/a'}</span>
-      <button className="btn small" aria-pressed={on} onClick={() => toggleFollow(s.id, !on)}>{on ? '✓ Following' : '+ Follow'}</button>
+      <div className="row" style={{ gap: 6 }}><button className="btn small" aria-pressed={on} onClick={() => toggleFollow(s.id, !on)}>{on ? '✓ Following' : '+ Follow'}</button>{removable && <button className="btn small ghost" onClick={() => confirm(`Remove ${s.title}?`) && removeUserShow(s.id)}>Remove</button>}</div>
     </div>
+  );
+}
+
+/** Add any podcast: search the public directory, paste a feed link, or bring a list from another podcast app. */
+function AddPodcast() {
+  const [q, setQ] = useState('');
+  const [res, setRes] = useState<{ title: string; host: string; feed: string; image: string; count: number }[] | null>(null);
+  const [msg, setMsg] = useState('');
+  const [busy, setBusy] = useState(false);
+  const run = async (f: () => Promise<void>) => { setBusy(true); setMsg(''); try { await f(); } catch (e) { setMsg((e as Error).message); } finally { setBusy(false); } };
+  const isLink = /^(https?|feed):\/\//i.test(q.trim());
+  return (
+    <Fold id="pod:add" title="Add a podcast of your own" hint="Search for any show, paste its feed link, or import a list from another app.">
+      <form className="row" style={{ gap: 8, flexWrap: 'wrap' }} onSubmit={(e) => { e.preventDefault(); void run(async () => { if (isLink) { const sh = await addUserShow(q); setMsg(`Added ${sh.title}.`); setQ(''); } else setRes(await searchPodcasts(q)); }); }}>
+        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="A show’s name, or a feed link (https://…)" aria-label="Search for a podcast or paste a feed link" style={{ flex: 1, minWidth: 220 }} />
+        <button className="btn primary" disabled={busy || !q.trim()}>{isLink ? 'Add this feed' : 'Search'}</button>
+      </form>
+      {res && <ul className="list">{res.map((r) => <li key={r.feed} className="row between"><span style={{ minWidth: 0 }}><strong>{r.title}</strong><span className="muted small"> · {r.host}{r.count ? ` · ${r.count} episodes` : ''}</span></span><button className="btn small" disabled={busy} onClick={() => run(async () => { const sh = await addUserShow(r.feed, r); setMsg(`Added ${sh.title}.`); })}>+ Add</button></li>)}{!res.length && <li className="muted">Nothing found.</li>}</ul>}
+      <div className="row" style={{ gap: 8, margin: '8px 0', flexWrap: 'wrap' }}>
+        <label className="btn small">Import from another app (OPML)<input type="file" accept=".opml,.xml,text/xml" hidden onChange={(e) => { const f = e.target.files?.[0]; if (f) void run(async () => { const list = parseOpml(await f.text()); let n = 0; for (const x of list.slice(0, 60)) { try { await addUserShow(x.feed, { title: x.title }); n++; } catch { /* skip an unreadable feed */ } } setMsg(`Added ${n} of ${list.length} shows.`); }); }} /></label>
+        <button className="btn small" onClick={async () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([await exportOpml()], { type: 'text/x-opml' })); a.download = 'studybible-podcasts.opml'; a.click(); }}>Export my list (OPML)</button>
+      </div>
+      <p className="muted small" role="status">{busy ? 'Working…' : msg}</p>
+    </Fold>
   );
 }

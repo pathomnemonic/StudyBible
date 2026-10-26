@@ -27,6 +27,7 @@ export default function WorkSelection({ onHighlight, onNote }: { onHighlight: (q
       {COLORS.map((c) => <button key={c} className="work-sel-dot" style={{ background: `var(--hl-${c})` }} aria-label={`Highlight ${c}`} onClick={() => { onHighlight(pos.text, pos.p, c); done(); }} />)}
       <button className="btn small" onClick={() => { onNote(pos.text, pos.p); done(); }}>Note</button>
       <button className="btn small" onClick={() => { void navigator.clipboard?.writeText(pos.text); done(); }}>Copy</button>
+      <button className="btn small" onClick={async () => { const t = `“${pos.text}” (${document.title})`; try { if (navigator.share) await navigator.share({ text: t }); else await navigator.clipboard?.writeText(t); } catch { /* cancelled */ } done(); }}>Share</button>
     </div>
   );
 }

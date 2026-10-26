@@ -4,6 +4,7 @@ import { setShelf, STATUS_LABEL, STATUSES, useShelf } from '../lib/shelf';
 /** Goodreads-style details for one work: which shelf, a star rating, and a private note. */
 export default function ShelfControl({ workId, total }: { workId: string; total: number }) {
   const shelf = useShelf().get(workId);
+  const [tag, setTag] = useState('');
   const [review, setReview] = useState(shelf?.review ?? '');
   useEffect(() => setReview(shelf?.review ?? ''), [shelf?.review, workId]);
   const status = shelf?.status;
@@ -28,6 +29,11 @@ export default function ShelfControl({ workId, total }: { workId: string; total:
         {[1, 2, 3, 4, 5].map((n) => (
           <button key={n} role="radio" aria-checked={shelf?.rating === n} aria-label={`${n} star${n > 1 ? 's' : ''}`} className={`star${(shelf?.rating ?? 0) >= n ? ' on' : ''}`} onClick={() => setShelf(workId, { rating: shelf?.rating === n ? undefined : n })}>★</button>
         ))}
+      </div>
+      <div className="chips" style={{ margin: '6px 0' }}>
+        <span className="muted small">Collections:</span>
+        {(shelf?.tags ?? []).map((t) => <button key={t} className="chip" onClick={() => setShelf(workId, { tags: (shelf?.tags ?? []).filter((x) => x !== t) })} aria-label={`Remove from ${t}`}>{t} ✕</button>)}
+        <form onSubmit={(e) => { e.preventDefault(); const v = tag.trim().toLowerCase(); if (v && !(shelf?.tags ?? []).includes(v)) void setShelf(workId, { tags: [...(shelf?.tags ?? []), v] }); setTag(''); }}><input value={tag} onChange={(e) => setTag(e.target.value)} placeholder="add to a collection" aria-label="Add to a collection" style={{ width: 160 }} /></form>
       </div>
       <textarea value={review} onChange={(e) => setReview(e.target.value)} onBlur={() => review !== (shelf?.review ?? '') && setShelf(workId, { review })} placeholder="Your thoughts on this book (private)" rows={3} aria-label="Your thoughts on this book" style={{ width: '100%', marginTop: 6 }} />
     </section>

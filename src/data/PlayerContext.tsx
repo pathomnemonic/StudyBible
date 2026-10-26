@@ -16,10 +16,35 @@ interface PlayerState {
   skip: (d: number) => void;
   setRate: (r: number) => void;
   stop: () => void;
+  /** pause after some minutes, or at the end of the episode */
+  sleep: { mode: 'off' | 'minutes' | 'end'; left: number };
+  setSleep: (m: 'off' | 'end' | number) => void;
+  /** the part of an episode id that names its show, for per-show settings */
+  showKey: string;
 }
 
 const Ctx = createContext<PlayerState | null>(null);
+/** audio files the reader added live in the browser's own storage; turn the reference into something an audio element can play */
+const blobUrls = new Map<string, string>();
+export async function audioUrl(src: string): Promise<string> {
+  if (!src.startsWith('idb:')) return src;
+  const id = src.slice(4);
+  if (blobUrls.has(id)) return blobUrls.get(id)!;
+  const row = await db.userAudio.get(id);
+  if (!row) return '';
+  const u = URL.createObjectURL(row.blob);
+  blobUrls.set(id, u);
+  return u;
+}
+
 export const usePlayer = () => useContext(Ctx)!;
+
+/** pod-<show>-<hash>, u-<hash>-<hash>, lv:<recording>:<part>, or an episode of the Bible in a Year */
+export const showKeyOf = (id: string) => (id.startsWith('pod-') ? id.split('-').slice(0, -1).join('-') : id.startsWith('u-') ? id.split('-').slice(0, 2).join('-') : id.startsWith('lv:') ? id.split(':').slice(0, 2).join(':') : 'biay');
+const ls = (k: string) => { try { return localStorage.getItem(k); } catch { return null; } };
+const lsSet = (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* storage unavailable */ } };
+export const showSetting = (key: string, what: 'rate' | 'skip') => Number(ls(`sb:${what}:${key}`)) || 0;
+export const setShowSetting = (key: string, what: 'rate' | 'skip', v: number) => lsSet(`sb:${what}:${key}`, String(v));
 
 /** Keep a copy of an episode's details so it can be resumed, queued or advanced to even when its show is not loaded. */
 export const rememberEpisode = (e: BiayEpisode) => db.cache.put({ key: `ep:${e.id}`, value: e as unknown as string, ts: Date.now() }).catch(() => undefined);
@@ -45,6 +70,9 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [duration, setDuration] = useState(0);
   const [rate, setRateState] = useState(() => { try { return Number(localStorage.getItem('sb:rate')) || 1; } catch { return 1; } });
   const lastSave = useRef(0);
+  const [sleep, setSleepState] = useState<{ mode: 'off' | 'minutes' | 'end'; left: number }>({ mode: 'off', left: 0 });
+  const sleepRef = useRef(sleep);
+  sleepRef.current = sleep;
 
   useEffect(() => {
     const a = new Audio();
@@ -73,6 +101,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     });
     a.addEventListener('ended', async () => {
       save(true);
+      if (sleepRef.current.mode === 'end') { setSleepState({ mode: 'off', left: 0 }); return; }
       // advance through the personal queue
       const q = await db.queue.orderBy('order').toArray();
       const cur = (a as any)._ep as BiayEpisode | undefined;
@@ -96,7 +125,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const prog = await db.episodeProgress.get(id);
       if (!ep || (a as any)._ep || prog?.completed) return;
       (a as any)._ep = ep;
-      a.src = ep.audio;
+      a.src = await audioUrl(ep.audio);
       a.preload = 'metadata';
       a.addEventListener('loadedmetadata', () => { a.currentTime = prog?.position ?? 0; }, { once: true });
       setCurrent(ep);
@@ -116,13 +145,16 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     db.cache.put({ key: 'player:last', value: e.id as unknown as string, ts: Date.now() }).catch(() => undefined);
     if ((a as any)._ep?.id !== e.id) {
       (a as any)._ep = e;
-      a.src = e.audio;
+      a.src = await audioUrl(e.audio);
       setCurrent(e);
       const prog = await db.episodeProgress.get(e.id);
-      const at = startAt ?? (prog && !prog.completed ? prog.position : 0);
+      const sk = showSetting(showKeyOf(e.id), 'skip');
+      const at = startAt ?? (prog && !prog.completed && prog.position > 0 ? prog.position : sk);
       a.addEventListener('loadedmetadata', () => (a.currentTime = at), { once: true });
     }
-    a.playbackRate = rate;
+    const own = showSetting(showKeyOf(e.id), 'rate');
+    a.playbackRate = own || rate;
+    if (own) setRateState(own);
     try {
       await a.play();
     } catch {
@@ -139,6 +171,12 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     }
   }, [rate]);
 
+  useEffect(() => {
+    if (sleep.mode !== 'minutes') return;
+    const id = setInterval(() => setSleepState((x) => { if (x.mode !== 'minutes') return x; if (x.left <= 1) { audio.current?.pause(); return { mode: 'off', left: 0 }; } return { mode: 'minutes', left: x.left - 1 }; }), 1000);
+    return () => clearInterval(id);
+  }, [sleep.mode]);
+
   const value = useMemo<PlayerState>(
     () => ({
       current,
@@ -153,8 +191,13 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       setRate: (r) => {
         setRateState(r);
         try { localStorage.setItem('sb:rate', String(r)); } catch { /* storage unavailable */ }
+        const cur = (audio.current as any)?._ep as BiayEpisode | undefined;
+        if (cur) setShowSetting(showKeyOf(cur.id), 'rate', r);
         audio.current!.playbackRate = r;
       },
+      sleep,
+      setSleep: (m) => setSleepState(m === 'off' ? { mode: 'off', left: 0 } : m === 'end' ? { mode: 'end', left: 0 } : { mode: 'minutes', left: m * 60 }),
+      showKey: current ? showKeyOf(current.id) : '',
       stop: () => {
         audio.current!.pause();
         (audio.current as any)._ep = undefined;
@@ -163,7 +206,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         db.cache.delete('player:last').catch(() => undefined);
       },
     }),
-    [current, playing, position, duration, rate, play],
+    [current, playing, position, duration, rate, play, sleep],
   );
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

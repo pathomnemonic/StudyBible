@@ -20,6 +20,7 @@ import ChapterText, { type VerseDecor } from '../components/ChapterText';
 import TermPopover from '../components/TermPopover';
 import { loadTerms, makeMatcher, type TermBrief } from '../study/terms';
 import BookPicker from '../components/BookPicker';
+import { useReadingTime } from '../lib/readingTime';
 import BibleTools from '../components/BibleTools';
 import Icon from '../components/Icon';
 import NoteEditor from '../components/NoteEditor';
@@ -125,6 +126,7 @@ export default function ReadPage() {
   const swipe = useRef<[number, number] | null>(null);
   const [moreMenu, setMoreMenu] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
+  useReadingTime(true);
   const wide = useWide();
   const silentRef = useRef(false);
   const wideRef = useRef(wide);

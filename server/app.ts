@@ -3,6 +3,8 @@ import { randomUUID } from 'node:crypto';
 import { existsSync, readFileSync, statSync, createReadStream } from 'node:fs';
 import { extname, isAbsolute, join, normalize, relative, resolve } from 'node:path';
 import { gzipSync } from 'node:zlib';
+import { lookup } from 'node:dns/promises';
+import { isIP } from 'node:net';
 import type { DatabaseSync } from 'node:sqlite';
 import { LiveHub, MAX_PLAYERS, sanitizeContent, sanitizeRoster, sanitizeSettings, type LiveRoom } from '../src/live/engine';
 import { RateLimiter, hashPassword, hashToken, newToken, passwordProblem, validateEmail, verifyPassword } from './auth';
@@ -46,6 +48,14 @@ function payloadOk(table: string, payload: unknown, deleted: boolean) {
 }
 const SYNC_TABLES = new Set(['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'userPlans', 'saved', 'media', 'userLinks', 'planProgress', 'episodeProgress', 'libraryProgress', 'classes', 'classwork', 'queue', 'savedSearches', 'memory', 'settings']);
 
+
+/** Is this address one a feed fetch must never reach (loopback, private ranges, link-local, metadata services)? */
+export function privateAddress(ip: string): boolean {
+  if (ip.includes(':')) { const l = ip.toLowerCase(); return l === '::1' || l === '::' || l.startsWith('fc') || l.startsWith('fd') || l.startsWith('fe8') || l.startsWith('fe9') || l.startsWith('fea') || l.startsWith('feb') || l.startsWith('::ffff:') && privateAddress(l.slice(7)); }
+  const [a, b] = ip.split('.').map(Number);
+  return a === 0 || a === 10 || a === 127 || (a === 169 && b === 254) || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 100 && b >= 64 && b <= 127) || a >= 224;
+}
+
 class HttpError extends Error {
   constructor(public status: number, message: string) {
     super(message);
@@ -83,6 +93,7 @@ export function createApp(cfg: Config): Server {
   const hub = new LiveHub();
   const createLimit = new RateLimiter(20, 60 * 60_000);
   const joinLimit = new RateLimiter(80, 10 * 60_000);
+  const feedLimit = new RateLimiter(60, 10 * 60_000);
   const streams = new Map<string, Set<{ res: ServerResponse; role: 'host' | 'player'; token?: string; seen: number }>>();
   const MAX_STREAMS_PER_ROOM = MAX_PLAYERS + 5;
   const pushRoom = (room: LiveRoom, force = false) => {
@@ -218,6 +229,25 @@ export function createApp(cfg: Config): Server {
       return json(res, 200, { ok: true, registration: openForSignup() ? 'open' : 'closed', name: 'studybible-sync', version: 1, protocol: PROTOCOL });
     }
 
+
+
+    // a podcast feed fetched for the browser, which cannot read most feeds itself (they send no cross-origin permission)
+    if (path === '/api/feed' && method === 'GET') {
+      if (!feedLimit.take(clientIp(req))) throw new HttpError(429, 'Too many feed requests. Try again in a few minutes.');
+      let target: URL;
+      try { target = new URL(new URL(req.url ?? '/', 'http://x').searchParams.get('url') ?? ''); } catch { throw new HttpError(400, 'A feed link is needed.'); }
+      if (target.protocol !== 'https:' || target.username || target.password || (target.port && target.port !== '443')) throw new HttpError(400, 'Only plain https feed links are allowed.');
+      const addrs = isIP(target.hostname) ? [{ address: target.hostname }] : await lookup(target.hostname, { all: true }).catch(() => []);
+      if (!addrs.length || addrs.some((a) => privateAddress(a.address))) throw new HttpError(400, 'That address cannot be fetched.');
+      let up: Response;
+      try { up = await fetch(target, { redirect: 'manual', signal: AbortSignal.timeout(10_000), headers: { 'User-Agent': 'StudyBible-feed (+https://github.com/pathomnemonic/StudyBible)', Accept: 'application/rss+xml, application/xml, text/xml, */*' } }); } catch { throw new HttpError(502, 'The feed did not answer.'); }
+      if (up.status >= 300 && up.status < 400) throw new HttpError(502, 'The feed moved. Use its new link.');
+      if (!up.ok) throw new HttpError(502, `The feed answered ${up.status}.`);
+      const buf = Buffer.from(await up.arrayBuffer());
+      if (buf.length > 6 * 1024 * 1024) throw new HttpError(413, 'That feed is too large.');
+      res.writeHead(200, { 'Content-Type': 'text/xml; charset=utf-8', 'Cache-Control': 'private, max-age=300', 'Content-Length': buf.length });
+      return void res.end(buf);
+    }
 
     // ---- live classroom sessions: no account needed to join or to host
     if (path.startsWith('/api/live/')) {

@@ -5,6 +5,7 @@ import { db } from '../../db/db';
 import { getLibraryIndex, type LibraryWorkMeta } from '../../data/content';
 import { allRecordedWorks, type Recording } from '../../data/librivox';
 import { fmtDuration } from '../../data/biay';
+import MyAudio from './MyAudio';
 import { fold } from '../../search/engine';
 
 /** Audiobooks: every library work volunteers have recorded, with how far through each you are. */
@@ -26,6 +27,7 @@ export default function Audiobooks() {
   const list = works.filter((w) => !q.trim() || fold(`${w.title} ${w.author}`).includes(fold(q.trim()))).map((w) => ({ w, s: stat(w) })).filter(({ s }) => filter === 'all' || (filter === 'done' ? s.finished : s.started && !s.finished)).sort((a, b) => ((b.s as any).last ?? 0) - ((a.s as any).last ?? 0) || a.w.title.localeCompare(b.w.title));
   return (
     <div>
+      <MyAudio />
       <p className="muted small" style={{ marginTop: 0 }}>{works.length} works read aloud by volunteers for <a href="https://librivox.org" target="_blank" rel="noreferrer">LibriVox</a> (public domain). Open one to play it in the bar at the bottom; it remembers the part and the minute you stopped, and carries on to the next part.</p>
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 8 }}>
         <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find an audiobook or an author…" aria-label="Find an audiobook" style={{ flex: 1, minWidth: 200, maxWidth: 380 }} />

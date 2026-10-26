@@ -332,3 +332,13 @@ describe('live classroom sessions', () => {
     ctl.abort();
   });
 });
+
+describe('podcast feed proxy', () => {
+  it('refuses addresses that are not public https feeds', async () => {
+    const c = new Client();
+    for (const u of ['http://example.com/feed', 'https://127.0.0.1/feed', 'https://localhost/x', 'https://169.254.169.254/latest', 'https://user:pw@example.com/feed', 'https://example.com:8443/feed', 'not a url']) {
+      const r = await c.call('GET', `/api/feed?url=${encodeURIComponent(u)}`);
+      expect(r.status, u).toBe(400);
+    }
+  });
+});

@@ -14,8 +14,10 @@ import BiblePane from '../../components/BiblePane';
 import ReadAloud from '../../components/ReadAloud';
 import WorkSelection from '../../components/WorkSelection';
 import { FindInChapter, LookUp, ReadProgress } from '../../components/ReaderTools';
+import { bookMeta, bookWork, isUserBook } from '../../data/userBooks';
 import { noteVisit, setShelf } from '../../lib/shelf';
 import ShelfControl from '../../components/ShelfControl';
+import { useReadingTime } from '../../lib/readingTime';
 import { useWakeLock } from '../../lib/wakeLock';
 import { forgetScroll, savedScroll, useScrollMemory } from '../../lib/scrollMemory';
 import { setAmbience, stopAmbience } from '../../lib/ambience';
@@ -61,13 +63,18 @@ export default function WorkReader() {
   const [editing, setEditing] = useState<Note | null>(null);
   const [settings, setSettings] = useSettings();
   useWakeLock(settings.keepAwake);
+  useReadingTime(true);
   const [ts, setTs] = useState(false);
   const idx = Math.max(0, Number(section ?? 0) || 0);
   const swipe = useRef<[number, number] | null>(null);
 
   useEffect(() => {
-    getLibraryIndex().then((l) => setMeta(l?.works.find((w) => w.id === workId) ?? null));
     setWork(null);
+    if (isUserBook(workId)) {
+      void db.userBooks.get(workId).then((b) => { if (b) { setMeta(bookMeta(b)); setWork(bookWork(b)); } else setMeta(null); });
+      return;
+    }
+    getLibraryIndex().then((l) => setMeta(l?.works.find((w) => w.id === workId) ?? null));
     getWork(workId).then(setWork).catch(() => setWork(null));
   }, [workId]);
   const sec = work?.sections[idx];
@@ -164,6 +171,7 @@ export default function WorkReader() {
         {!quiet && <RecordedWork workId={workId} title={meta.title} />}
         {toc && !quiet && (
           <div className="card" style={{ maxWidth: 760, margin: '10px auto' }}>
+            <Notebook workId={workId} onJump={(i) => { go(i); setToc(false); }} />
             <input type="search" placeholder="Search the whole work…" value={tocFind} onChange={(e) => setTocFind(e.target.value)} style={{ width: '100%', marginBottom: 8 }} aria-label="Search the whole work" />
             {tocFind && <div className="small muted">{matches.length} section{matches.length === 1 ? '' : 's'} contain “{tocFind}”</div>}
             <ol className="list" style={{ maxHeight: 320, overflow: 'auto' }} start={1}>
@@ -204,7 +212,7 @@ export default function WorkReader() {
                 <ShelfControl workId={workId} total={work.sections.length} />
                 <hr />
                 <p className="muted small">
-                  Translator/edition: {meta.translator}. Text: {meta.source.name} (<a href={meta.source.url} target="_blank" rel="noreferrer">original ↗</a>), public domain — {meta.rightsEvidence}
+                  {isUserBook(workId) ? <>This is your own copy ({meta.source.name}), kept on this device only.</> : <>Translator/edition: {meta.translator}. Text: {meta.source.name} (<a href={meta.source.url} target="_blank" rel="noreferrer">original ↗</a>), public domain — {meta.rightsEvidence}</>}
                 </p>
                 <div className="chapter-nav row between">
                   <button className="btn" disabled={idx === 0} onClick={() => go(idx - 1)}>← Previous</button>
@@ -230,3 +238,17 @@ export default function WorkReader() {
 }
 
 const short = (s: string, n: number) => (s.length > n ? s.slice(0, n).trimEnd() + '…' : s);
+
+/** Every highlight and note in this book, in one place, like a Kindle's notebook. */
+function Notebook({ workId, onJump }: { workId: string; onJump: (i: number) => void }) {
+  const rows = useLiveQuery(() => db.notes.filter((n) => n.targets.some((t) => t.type === 'work' && t.workId === workId)).toArray(), [workId]) ?? [];
+  if (!rows.length) return null;
+  const sec = (n: Note) => { const t = n.targets.find((x) => x.type === 'work' && x.workId === workId); return Number(t && t.type === 'work' ? t.section ?? 0 : 0); };
+  const sorted = [...rows].sort((a, b) => sec(a) - sec(b));
+  return (
+    <details style={{ marginBottom: 8 }}>
+      <summary><strong>Your highlights and notes in this book ({rows.length})</strong></summary>
+      <ul className="list">{sorted.map((n) => <li key={n.id}><button className="linklike" onClick={() => onJump(sec(n))}><span className="muted small">Section {sec(n) + 1}</span> {isHl(n) ? <mark className="wk-hl" style={{ background: `var(--hl-${colorOf(n)})`, color: 'inherit' }}>{short(quoteOf(n), 120)}</mark> : short(n.title || n.body, 140)}</button></li>)}</ul>
+    </details>
+  );
+}

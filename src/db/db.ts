@@ -155,12 +155,18 @@ export interface HistoryEntry {
 export interface SavedItem extends Syncable {
   id?: number;
   key: string; // unique key e.g. "reading:2026-10-19", "ccc:1324"
-  type: 'reading' | 'catechism' | 'work' | 'commentary' | 'video';
+  type: 'reading' | 'catechism' | 'work' | 'commentary' | 'video' | 'podcast';
   label: string;
+  /** for a podcast you added: its details, so another device can show it before the feed loads */
+  meta?: { host?: string; image?: string; page?: string };
   url?: string;
   createdAt: number;
 }
 
+/** A book the reader added from their own files. Kept on this device only. */
+export interface UserBook { id: string; title: string; author: string; format: string; addedAt: number; sections: { title: string; paras: string[] }[]; words: number }
+/** An audio file the reader added (an audiobook chapter, a talk). Kept on this device only. */
+export interface UserAudio { id: string; title: string; album: string; blob: Blob; size: number; secs?: number; addedAt: number }
 export type ShelfStatus = 'want' | 'reading' | 'finished' | 'dnf';
 import type { ClassDoc, ClassWork } from '../teach/model';
 export interface LibraryProgress extends Syncable {
@@ -172,6 +178,8 @@ export interface LibraryProgress extends Syncable {
   status?: ShelfStatus;
   rating?: number; // 1 to 5
   review?: string;
+  /** the reader's own collections, like Goodreads shelves */
+  tags?: string[];
   startedAt?: number;
   finishedAt?: number;
   /** sections visited, so the work's real progress is known, not only the furthest point */
@@ -268,6 +276,8 @@ class StudyBibleDB extends Dexie {
   saved!: Table<SavedItem, number>;
   libraryProgress!: Table<LibraryProgress, string>;
   classes!: Table<ClassDoc, string>;
+  userBooks!: Table<UserBook, string>;
+  userAudio!: Table<UserAudio, string>;
   classwork!: Table<ClassWork, string>;
 
   constructor() {
@@ -329,6 +339,7 @@ class StudyBibleDB extends Dexie {
     this.version(5).stores({ memory: '++id, ref, due, uid' });
     this.version(6).stores({ trash: '++id, tbl, deletedAt' });
     this.version(7).stores({ classes: 'id, updatedAt', classwork: 'id, classId, kind, date' });
+    this.version(8).stores({ userBooks: 'id, addedAt', userAudio: 'id, album, addedAt' });
     this.installSyncHooks();
   }
 

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useLiveQuery } from 'dexie-react-hooks';
+import { db } from '../db/db';
 import { getJson } from './loader';
 import type { BiayEpisode } from './content';
 
@@ -24,6 +26,7 @@ export const lookupEpisode = (id: string) => registry.get(id);
 
 export const getShows = () => getJson<{ generated: string; shows: Show[] }>('media/podcasts.json', true);
 export async function loadShow(id: string): Promise<ShowData | null> {
+  if (id.startsWith('u-')) { const { loadUserShow } = await import('./feeds'); return loadUserShow(id); }
   const d = await getJson<ShowData>(`media/podcast/${id}.json`, true);
   if (d) registerEpisodes(d.episodes);
   return d;
@@ -31,6 +34,11 @@ export async function loadShow(id: string): Promise<ShowData | null> {
 
 export function useShows() {
   const [shows, setShows] = useState<Show[] | null>(null);
-  useEffect(() => { getShows().then((d) => setShows(d?.shows ?? [])).catch(() => setShows([])); }, []);
+  const mine = useLiveQuery(() => db.saved.where('type').equals('podcast').toArray(), []);
+  useEffect(() => {
+    let off = false;
+    Promise.all([getShows().catch(() => null), import('./feeds').then((f) => f.listUserShows())]).then(([d, u]) => { if (!off) setShows([...(d?.shows ?? []), ...u]); }).catch(() => { if (!off) setShows([]); });
+    return () => { off = true; };
+  }, [mine?.length]);
   return shows;
 }

@@ -12,7 +12,7 @@ describe('IndexedDB upgrades', () => {
   it('opens a fresh install at the latest schema with every table', async () => {
     const { db } = await import('../src/db/db');
     await db.open();
-    expect(db.verno).toBe(7);
+    expect(db.verno).toBe(8);
     for (const t of ['notes', 'highlights', 'memory', 'tombs', 'userLinks', 'media']) expect(db.tables.some((x) => x.name === t), t).toBe(true);
   });
 
@@ -35,8 +35,8 @@ describe('IndexedDB upgrades', () => {
     expect(n.uid).toBeTruthy();
     const b = (await db.bookmarks.toArray())[0];
     expect(b.uid).toBeTruthy();
-    expect(b.updatedAt).toBe(7); // falls back to createdAt, so an old row does not look freshly edited
-    expect(db.verno).toBe(7);
+    expect(b.updatedAt).toBe(8); // falls back to createdAt, so an old row does not look freshly edited
+    expect(db.verno).toBe(8);
   });
 });
 

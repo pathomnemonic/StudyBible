@@ -5,6 +5,8 @@ import { db } from '../../db/db';
 import { getAuthors, getLibraryIndex, type LibraryWorkMeta } from '../../data/content';
 import { recordedWorkIds } from '../../data/librivox';
 import Fold from '../../components/Fold';
+import { getGoal, setGoal, useReadingStats } from '../../lib/readingTime';
+import { addBookFile, bookMeta, useUserBooks } from '../../data/userBooks';
 import { useScrollMemory } from '../../lib/scrollMemory';
 import { percentSeen, setShelf, STATUS_LABEL, STATUSES, useShelf } from '../../lib/shelf';
 import type { ShelfStatus } from '../../db/db';
@@ -48,7 +50,9 @@ export default function RoomHome() {
   const [showFilters, setShowFilters] = useState(false);
   useScrollMemory('/room', works.length > 0, '/room?' + sp.toString());
   useEffect(() => { getLibraryIndex().then((l) => setWorks(l?.works ?? [])); recordedWorkIds().then(setHeard); getAuthors().then((a) => setAuthors(a?.authors ?? {})); }, []);
-  const byId = useMemo(() => new Map(works.map((w) => [w.id, w])), [works]);
+  const mine = useUserBooks();
+  const all = useMemo(() => [...works, ...mine.map(bookMeta)], [works, mine]);
+  const byId = useMemo(() => new Map(all.map((w) => [w.id, w])), [all]);
   const reading = useMemo(() => [...shelf.values()].filter((p) => byId.has(p.workId) && p.status === 'reading').sort((a, b) => b.updatedAt - a.updatedAt), [shelf, byId]);
   const found = useMemo(() => {
     const f = q.trim().toLowerCase();
@@ -75,7 +79,7 @@ export default function RoomHome() {
         <button role="tab" aria-selected={tab === 'discover'} onClick={() => setParam('tab', '')}>Discover</button>
         <button role="tab" aria-selected={tab === 'mine'} onClick={() => setParam('tab', 'mine')}>My shelves</button>
       </div>
-      {tab === 'mine' ? <MyShelves works={works} card={card} /> : (
+      {tab === 'mine' ? <MyShelves works={all} card={card} /> : (
         <>
           <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
             <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a work or an author…" aria-label="Find a work or an author" style={{ flex: 1, minWidth: 200, maxWidth: 420 }} />
@@ -125,6 +129,10 @@ export default function RoomHome() {
                   {SHELVES.slice(1).map((sh) => <button key={sh.title} className="shelf-card as-btn" onClick={() => setParam('shelf', sh.title)}><span className="t">{sh.title}</span><span className="d">{sh.blurb}</span><span className="muted small">{listOf(sh).length} works</span></button>)}
                 </div>
               </section>
+              <Fold id="room:books" title={`Your own books (${mine.length})`} hint="Add an EPUB, text or HTML file and read it here, with highlights, notes and your place remembered." open={mine.length > 0}>
+                <AddBooks />
+                <div className="shelf">{mine.map((b) => <div key={b.id} className="shelf-card"><Link to={`/room/work/${b.id}/${shelf.get(b.id)?.section ?? 0}`} className="t">{b.title}</Link><span className="d">{b.author || 'Your book'} · {b.sections.length} sections · {Math.round(b.words / 250)} min</span><button className="linklike small" onClick={() => confirm(`Remove “${b.title}” from this device? Your notes on it stay.`) && db.userBooks.delete(b.id)}>Remove</button></div>)}</div>
+              </Fold>
               <Fold id="room:teach" title="Church teaching and tradition">
                 <div className="shelf">{TEACHING.map(([to, t, d]) => <Link key={to} className="shelf-card" to={to}><span className="t">{t}</span><span className="d">{d}</span></Link>)}</div>
               </Fold>
@@ -152,11 +160,23 @@ function MyShelves({ works, card }: { works: LibraryWorkMeta[]; card: (w: Librar
   const [st, setSt] = useState<ShelfStatus | 'all'>('reading');
   const mine = [...shelf.values()].filter((p) => p.status && works.some((w) => w.id === p.workId));
   const count = (s: ShelfStatus) => mine.filter((p) => p.status === s).length;
+  const stats = useReadingStats();
+  const [goal, setG] = useState(getGoal());
+  const [tag, setTag] = useState('');
   const year = new Date().getFullYear();
   const doneThisYear = mine.filter((p) => p.status === 'finished' && p.finishedAt && new Date(p.finishedAt).getFullYear() === year).length;
-  const list = mine.filter((p) => st === 'all' || p.status === st).sort((a, b) => b.updatedAt - a.updatedAt);
+  const tags = [...new Set(mine.flatMap((p) => p.tags ?? []))].sort();
+  const list = mine.filter((p) => (st === 'all' || p.status === st) && (!tag || (p.tags ?? []).includes(tag))).sort((a, b) => b.updatedAt - a.updatedAt);
   return (
     <section className="sect">
+      <div className="read-stats" aria-label="Your reading">
+        <div><strong>{stats.today}</strong><span>min today of {goal}</span><i className="bar"><b style={{ width: `${Math.min(100, (stats.today / goal) * 100)}%` }} /></i></div>
+        <div><strong>{stats.streak}</strong><span>day streak 🔥</span></div>
+        <div><strong>{doneThisYear}</strong><span>finished in {year}</span></div>
+        <label className="small">Daily goal <select value={goal} onChange={(e) => { setGoal(+e.target.value); setG(+e.target.value); }}>{[5, 10, 15, 20, 30, 45, 60].map((m) => <option key={m} value={m}>{m} min</option>)}</select></label>
+        <div className="spark" aria-hidden="true">{stats.week.map((d) => <i key={d.day} title={`${d.day}: ${d.min} min`} style={{ height: `${Math.max(6, Math.min(100, (d.min / Math.max(goal, 1)) * 100))}%` }} className={d.min >= goal ? 'ok' : ''} />)}</div>
+      </div>
+      {tags.length > 0 && <div className="chips" style={{ margin: '6px 0' }}><span className="muted small">Collections:</span>{tags.map((t) => <button key={t} className="chip" aria-pressed={tag === t} onClick={() => setTag(tag === t ? '' : t)}>{t}</button>)}</div>}
       <p className="muted small">{mine.length ? `${doneThisYear} finished in ${year}. ` : ''}Open any work and use “Your shelf” at the end of a section to put it here, rate it and keep your thoughts.</p>
       <div className="tabbar" role="tablist">
         {STATUSES.map((s) => <button key={s} role="tab" aria-selected={st === s} onClick={() => setSt(s)}>{STATUS_LABEL[s]} ({count(s)})</button>)}
@@ -176,5 +196,25 @@ function MyShelves({ works, card }: { works: LibraryWorkMeta[]; card: (w: Librar
           </div>); })}
       </div>
     </section>
+  );
+}
+
+/** Add a book from a file on this device. */
+function AddBooks() {
+  const [msg, setMsg] = useState('');
+  const [busy, setBusy] = useState(false);
+  const add = async (files: FileList | null) => {
+    if (!files?.length) return;
+    setBusy(true); setMsg('');
+    const done: string[] = [];
+    for (const f of [...files]) { try { done.push((await addBookFile(f)).title); } catch (e) { setMsg(`${f.name}: ${(e as Error).message}`); } }
+    setBusy(false);
+    if (done.length) setMsg(`Added ${done.join(', ')}.`);
+  };
+  return (
+    <div style={{ marginBottom: 10 }}>
+      <label className="btn primary">{busy ? 'Reading the file…' : 'Add a book'}<input type="file" multiple accept=".epub,.txt,.md,.markdown,.html,.htm,text/plain,text/markdown,text/html,application/epub+zip" hidden onChange={(e) => { void add(e.target.files); e.target.value = ''; }} /></label>
+      <span className="muted small" role="status" style={{ marginLeft: 10 }}>{msg || 'EPUB, text, Markdown or HTML. Kept on this device.'}</span>
+    </div>
   );
 }
