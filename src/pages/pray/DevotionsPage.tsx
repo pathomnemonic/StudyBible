@@ -1,6 +1,6 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { ANGELUS, MERCY, MYSTERIES, REGINA, SORROWS, STATIONS, todaysMysteries } from '../../data/devotions';
-import { MORE } from '../../data/devotions2';
+import { CONFESSION, MORE } from '../../data/devotions2';
 import { liturgicalDay, parseIso } from '../../liturgy/compute';
 import BeadPrayer from '../../pray/BeadPrayer';
 import StepPrayer from '../../pray/StepPrayer';
@@ -31,7 +31,7 @@ export default function DevotionsPage() {
   if (id === 'regina-caeli') return <StepPrayer d={REGINA} back="/pray/devotions" />;
   if (id === 'stations') return <StepPrayer d={STATIONS} back="/pray/devotions" art={(n) => (n >= 1 && n <= 14 ? STATION_ART[n - 1] : null)} />;
   if (id === 'seven-sorrows') return <StepPrayer d={SORROWS} back="/pray/devotions" />;
-  const more = MORE.find((x) => x.id === id);
+  const more = [...MORE, CONFESSION].find((x) => x.id === id);
   if (more) return <StepPrayer d={more} back="/pray/devotions" />;
   if (id?.startsWith('rosary')) return <BeadPrayer plan={rosaryPlan(set)} art={MYSTERY_ART[set.id]} episode={CREEDAL[set.id]} back="/pray/devotions" backLabel="Devotions" startMode={startMode} />;
 

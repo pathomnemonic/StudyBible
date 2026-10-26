@@ -79,4 +79,20 @@ export const HOLY_HOUR: Devotion = {
     { title: 'Leave in peace', text: 'Thank you, Lord, for this time. Stay with me through the day. Amen.', note: 'Make the Sign of the Cross and genuflect as you go.' },
   ],
 };
+const ACT = 'O my God, I am heartily sorry for having offended thee, and I detest all my sins, because of thy just punishments, but most of all because they offend thee, my God, who art all good and deserving of all my love. I firmly resolve, with the help of thy grace, to sin no more and to avoid the near occasion of sin. Amen.';
+export const CONFESSION: Devotion = {
+  id: 'confession', name: 'Going to Confession', blurb: 'A step-by-step guide to the sacrament, with what to say. Nothing you type or tap here is saved or sent.',
+  steps: [
+    { title: 'Ask for light', text: 'Come, Holy Spirit, fill the hearts of thy faithful, and kindle in them the fire of thy love.\n\nLord, help me to see my sins as you see them, and to trust your mercy more than I fear my failures.', note: 'Take a few quiet minutes.', seconds: 45 },
+    { title: 'Examine your conscience', text: 'Look over your life since your last good Confession: your love of God (prayer, Mass, his name), your love of others (family, work, truth, purity, justice, forgiveness) and your own heart. Use the Examination of conscience page if you want a list.', note: 'You must confess every mortal sin you remember, in kind and number. Venial sins are good to confess too.', seconds: 120 },
+    { title: 'Be truly sorry', text: 'Sorrow is the heart of repentance: you are sorry because you have hurt God and others, and you want to turn back. If your sorrow feels thin, ask for more. God works with a willing heart.', seconds: 30 },
+    { title: 'Greet the priest', text: 'Make the Sign of the Cross as he does. Then say:\n\n“Bless me, Father, for I have sinned. It has been ___ since my last Confession.”', note: 'If it has been a long time, just say so. If you are nervous or new, tell him; he will help you.' },
+    { title: 'Tell your sins', text: 'Say them simply and honestly, in kind and number for serious sins. Do not explain them away and do not carry the details of other people. When you are done, say:\n\n“For these and all my sins, I am sorry.”', note: 'The priest is bound by the seal of confession and may never reveal anything you say (CCC 1467).' },
+    { title: 'Listen', text: 'The priest may give counsel, then a penance (a prayer or an act of kindness). Accept it and remember it.' },
+    { title: 'Act of Contrition', text: ACT, note: 'Say it aloud, or in your own words if you prefer.' },
+    { title: 'Absolution', text: 'The priest extends his hand and says:\n\n“God, the Father of mercies, through the death and resurrection of his Son has reconciled the world to himself and sent the Holy Spirit among us for the forgiveness of sins; through the ministry of the Church may God give you pardon and peace, and I absolve you from your sins in the name of the Father, and of the Son, and of the Holy Spirit.”\n\nAnswer: “Amen.”', note: 'Your sins are forgiven.' },
+    { title: 'Go in peace', text: 'Priest: “Give thanks to the Lord, for he is good.”\nYou: “His mercy endures for ever.”\nPriest: “The Lord has freed you from your sins. Go in peace.”' },
+    { title: 'Thank God and do your penance', text: 'Thank him in the church, and do your penance soon. If you forgot a sin, it is forgiven; mention it next time. If you can, make amends to anyone you have wronged.', note: 'Welcome home.' },
+  ],
+};
 export const MORE: Devotion[] = [HOLY_HOUR, LORETO, JOSEPH, MICHAEL];
