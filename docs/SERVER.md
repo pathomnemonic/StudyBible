@@ -78,3 +78,14 @@ docker run -d -p 127.0.0.1:8787:8787 -v studybible-data:/data -e COOKIE_SECURE=t
 docker exec -it <container> npx tsx server/admin.ts list
 ```
 Put it behind an HTTPS reverse proxy. The Dockerfile is not built in CI; check it on your host.
+
+## Turning accounts on for the public app
+
+The public build is static (GitHub Pages), so it has no server and the setup screen says so: "Accounts need a sync server, and this copy of the app is not connected to one." To offer real accounts at setup:
+
+1. Run `server/` somewhere that keeps a disk across restarts (a small VPS, or a platform volume on Fly.io, Railway or Render) behind HTTPS. See Docker above.
+2. Set `ALLOWED_ORIGINS` on the server to the origin the app is served from, and `COOKIE_SECURE=true`.
+3. Build the app with `VITE_API_BASE=https://your-server.example` so the browser talks to it. Sign-in cookies are cross-site, so serve both from the same registrable domain (for example `app.example.org` and `api.example.org`).
+4. Turn on the scheduled database backup (see Backups and restore) and copy the snapshots off the machine (an object-storage bucket or a second host). Snapshots are integrity-checked before they count.
+
+Until then, the app protects people's writing with what needs no server: the browser is asked to keep its data, a safety copy is kept on the device each day, a backup file can be saved or shared in one tap with a nudge every two weeks, and Google Drive backup works once `VITE_GOOGLE_CLIENT_ID` is set (see DRIVE_BACKUP.md).
