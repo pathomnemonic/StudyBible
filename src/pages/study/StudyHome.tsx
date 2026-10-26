@@ -1,127 +1,36 @@
 import { useState } from 'react';
-import { Tip, StartHere } from '../../components/Hints';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import Icon from '../../components/Icon';
-import Fold from '../../components/Fold';
-import ContinueRow from '../../components/ContinueRow';
+import { Group, HubHeader, HubHero, Tiles } from '../../components/Hub';
 
-type Row = [string, string, string];
-const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
-  {
-    title: 'Guided study',
-    blurb: 'Walk through the Bible and the faith in order.',
-    items: [
-      ['/study/course', 'Salvation history in twelve lessons', 'The story of the Bible in order, with a quiz for each lesson.'],
-      ['/study/story', 'Follow a story', 'Trace the promise to Abraham, the Exodus, David, the exile, Peter or Mary through the whole Bible.'],
-      ['/study/dossier', 'Passage dossier', 'Type any passage and get everything on it in one printable page.'],
-      ['/study/paths', 'Study paths', 'Follow a theme through Scripture, with the Fathers and a question at each step.'],
-      ['/study/fulfilment', 'Promise and fulfilment', 'Types and prophecies, in the Fathers’ own words.'],
-    ],
-  },
-  {
-    title: 'Church teaching and tradition',
-    blurb: 'Study tools for people, places and themes. Lessons, the Catechism and questions about the faith are in the Learn tab; papal writings, councils and the saints are in Read.',
-    items: [
-      ['/teach', 'Teacher tools', 'Classes, attendance, participation, scores, exams, a gradebook and report cards.'],
-      ['/join', 'Join a class', 'Type the code your teacher is showing to follow a lesson and play the quiz together.'],
-      ['/study/videos', 'Catholic video library', 'Thousands of teaching videos from Catholic Answers, the St. Paul Center, Bishop Barron, Ascension and more, searchable by title and creator.'],
-      ['/study/quotations', 'Who quoted this verse?', 'Every Father and saint who cites a passage, fullest first.'],
-      ['/study/voices', 'Voices through time', 'The Fathers and saints on one timeline, with the councils.'],
-      ['/study/concepts', 'Web of themes', 'How the great themes of Scripture are tied together.'],
-      ['/study/themes', 'Biblical theology explorer', 'Follow a theme from Genesis to Revelation, with the Church’s reading.'],
-    ],
-  },
-  {
-    title: 'People and places',
-    blurb: 'The world the text was written in.',
-    items: [
-      ['/study/constellation', 'Constellation', 'All 73 books as stars, joined by their cross-references.'],
-      ['/study/timespace', 'Time and place', 'Slide through the biblical story and watch the map follow.'],
-      ['/study/maps', 'Maps', 'Places named in Scripture on an interactive map.'],
-      ['/study/world', 'The biblical world', 'Journeys, eras and archaeology.'],
-      ['/study/people', 'Genealogies', 'Family trees from Adam to Jesus.'],
-      ['/study/gallery', 'Gallery', 'Paintings and engravings of Bible scenes, with a side-by-side compare.'],
-    ],
-  },
-  {
-    title: 'About the sources',
-    blurb: 'Authority, rights and what is only linked.',
-    items: [['/study/sources', 'Sources & licensing', 'Every source, its period, authority and rights.']],
-  },
-];
-
-const FEATURED: { to: string; title: string; text: string; c: string }[] = [
-  { to: '/study/apologetics', title: 'Apologetics hub', text: 'Answers to the hard questions, from Catholic authors and the Catechism.', c: 'wine' },
-  { to: '/study/videos', title: 'Video library', text: 'Thousands of teaching videos, newest first.', c: 'ocean' },
-  { to: '/mass', title: 'Mass mode', text: 'Follow the Mass step by step, in English or Latin.', c: 'gold' },
-  { to: '/study/universe', title: 'Scripture universe', text: 'Fly through the Bible as a galaxy of 73 books.', c: 'night' },
-];
-
+/** Study: the big-picture tools (people, places, themes, sources). Lessons and the Catechism are in Learn; resuming is on Today. */
 export default function StudyHome() {
   const [q, setQ] = useState('');
   const nav = useNavigate();
-  const recent = useLiveQuery(() => db.recentSearches.orderBy('ts').reverse().limit(6).toArray(), []) ?? [];
-  const go = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (q.trim()) nav(`/study/search?q=${encodeURIComponent(q.trim())}`);
-  };
+  const recent = useLiveQuery(() => db.recentSearches.orderBy('ts').reverse().limit(5).toArray(), []) ?? [];
+  const go = (e: React.FormEvent) => { e.preventDefault(); if (q.trim()) nav(`/study/search?q=${encodeURIComponent(q.trim())}`); };
   return (
-    <div className="page">
-      <h1>Study</h1>
-      <Tip id="study" title="Where to begin">Try Lessons for a guided path, or search for any topic. Red dots show tools you have not opened.</Tip>
-      <StartHere hub="study" />
-      <Link to="/learn" className="notice info small" style={{ display: 'block', textDecoration: 'none', color: 'inherit', marginBottom: 12 }}><strong>Looking for lessons, the Catechism or questions about the faith?</strong> They are now in the Learn tab.</Link>
-      <p className="lede">Everything is connected to the verses you read. Search it, or browse by what you want to do.</p>
-      <Link to="/read" className="notice info small" style={{ display: 'block', textDecoration: 'none', color: 'inherit', marginBottom: 12 }}>
-        <strong>Looking for book outlines, the Gospel comparison, key words, the concordance or the topical index?</strong> They are now with the Bible: open any chapter and tap the <Icon name="study" size={14} /> Bible tools button, or <u>open the Bible</u>.
-      </Link>
-      <form className="search-box" onSubmit={go} role="search">
-        <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="John 6:51, “bread of life”, Eucharist, Augustine…" aria-label="Search everything" />
-        <button className="btn primary" type="submit">
-          <Icon name="search" size={18} /> Search
-        </button>
-      </form>
-      {recent.length > 0 && (
-        <div className="chips" style={{ marginBottom: 16 }}>
-          <span className="muted small">Recent:</span>
-          {recent.map((r) => (
-            <Link key={r.id} className="chip" to={`/study/search?q=${encodeURIComponent(r.query)}`}>
-              {r.query}
-            </Link>
-          ))}
-        </div>
-      )}
-            <ContinueRow />
-      <div className="featured" role="list" aria-label="Explore">
-        {FEATURED.map((f) => (
-          <Link key={f.to} to={f.to} role="listitem" className={`feat ft-${f.c}`}>
-            <span className="feat-t">{f.title}</span>
-            <span className="feat-d">{f.text}</span>
-          </Link>
-        ))}
-      </div>
-      <div className="tool-groups">
-        {GROUPS.map((g) => (
-          <Fold key={g.title} id={`study:${g.title}`} title={g.title} hint={g.blurb}>
-            <ul className="fold-list">
-              {g.items.map(([to, t, d]) => (
-                <li key={to}>
-                  <Link to={to}>
-                    <span className="t">{t}</span>
-                    <span className="d">{d}</span>
-                    <span className="go" aria-hidden="true">→</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </Fold>
-        ))}
-      </div>
-      <p className="muted small" style={{ marginTop: 18 }}>
-        The quickest route: open the Bible, and the study panel beside the text shows everything connected to the chapter, or to the verse you tap. <Link to="/read">Open the Bible</Link>.
-      </p>
+    <div className="page hub">
+      <HubHeader title="Study" sub="Go deeper into the text: people, places, themes and sources." />
+      <HubHero tone="study" eyebrow="Search" title="Find anything in the Bible and the library">
+        <form className="row" style={{ gap: 8, width: '100%' }} onSubmit={go} role="search">
+          <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="John 6:51, bread of life, Augustine…" aria-label="Search everything" />
+          <button className="btn" type="submit"><Icon name="search" size={16} /> Search</button>
+        </form>
+        {recent.length > 0 && <div className="chips" style={{ marginTop: 6 }}>{recent.map((r) => <Link key={r.id} className="chip" to={`/study/search?q=${encodeURIComponent(r.query)}`}>{r.query}</Link>)}</div>}
+      </HubHero>
+      <Group title="People and places" hint="The world the text was written in">
+        <Tiles ids={['study.maps', 'study.world', 'study.timespace', 'study.people', 'read.gallery']} />
+      </Group>
+      <Group title="The big picture" hint="How the whole Bible fits together">
+        <Tiles ids={['study.universe', 'study.constellation', 'study.themes', 'study.concepts', 'study.voices']} />
+      </Group>
+      <Group title="Sources and history" hint="Where the text comes from">
+        <Tiles ids={['study.textual', 'study.manuscripts', 'study.sources']} />
+      </Group>
+      <p className="hub-hint">Looking for a concordance, book outlines or the Gospel comparison? Open any chapter in <Link to="/read">the Bible</Link> and tap <strong>Bible tools</strong>.</p>
     </div>
   );
 }

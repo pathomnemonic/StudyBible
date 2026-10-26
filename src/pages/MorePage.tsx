@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSettings } from '../lib/store';
-import { FEATURES, HUBS, searchFeatures, type Feature } from '../lib/features';
+import { FEATURES, HUBS, searchFeatures, visible, type Feature } from '../lib/features';
 import { NewDot } from '../components/Hints';
 
 /** A plain map of everything in the app, grouped like the tabs, with a filter and a red dot on what you have not opened. */
@@ -31,7 +31,7 @@ export default function MorePage() {
             <section key={h.id} className="tool-group">
               <h2><Link to={h.to}>{h.title}</Link></h2>
               <p className="muted small">{h.blurb}</p>
-              <ul>{FEATURES.filter((f) => f.hub === h.id).map(link)}</ul>
+              <ul>{FEATURES.filter((f) => f.hub === h.id && visible(f)).map(link)}</ul>
             </section>
           ))}
         </div>

@@ -1,3 +1,4 @@
+import { HubHeader } from '../../components/Hub';
 import SaveOffline from '../../components/SaveOffline';
 import { useMemo, useState } from 'react';
 import { Tip, StartHere } from '../../components/Hints';
@@ -172,9 +173,7 @@ export default function ListenHome() {
   const progShow = programmes.find((x) => x.id === progId);
   return (
     <div className="page">
-      <h1 style={{ marginTop: 0 }}>Media</h1>
-      <Tip id="listen" title="Listen and watch your way">Start the Bible in a Year, or choose favorites under For you and they will be put first. The player stays at the bottom while you browse.</Tip>
-      <StartHere hub="listen" />
+      <HubHeader title="Media" sub="The Bible in a Year, podcasts, audiobooks and videos." />
       <div className="tabbar" role="tablist">
         {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => go(k)}>{l}</button>)}
       </div>

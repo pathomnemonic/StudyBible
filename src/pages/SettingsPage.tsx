@@ -2,6 +2,7 @@ import Fold from '../components/Fold';
 import { resetSeen, markAllSeen } from '../lib/seen';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSync } from '../sync/state';
 import { useEditions } from '../data/EditionsContext';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
 import StorageStatus from '../components/StorageStatus';
@@ -31,6 +32,7 @@ function PerfInfo() {
 
 export default function SettingsPage() {
   const [s, set] = useSettings();
+  const sync = useSync();
   const { editions } = useEditions();
   const t = useT();
   const { choosable, off } = useChoosable();
@@ -42,7 +44,7 @@ export default function SettingsPage() {
       <input type="search" className="settings-search" placeholder="Find a setting (try “font”, “sound”, “offline”)" aria-label="Find a setting" onChange={(e) => { const q = e.target.value.trim().toLowerCase(); document.querySelectorAll<HTMLElement>('.page > .card').forEach((c) => { c.hidden = !!q && !(c.textContent ?? '').toLowerCase().includes(q) && !(c.querySelector('select,input') && [...c.querySelectorAll('[aria-label]')].some((n) => (n.getAttribute('aria-label') ?? '').toLowerCase().includes(q))); }); }} />
       <div className="card more-links">
         <Link to="/downloads">Downloads and offline</Link>
-        <Link to="/account">Account and sync</Link>
+        {(sync.server === 'available' || sync.user) && <Link to="/account">Account and sync</Link>}
         <Link to="/study/sources">Sources and licensing</Link>
         <Link to="/about">About and feature status</Link>
       </div>

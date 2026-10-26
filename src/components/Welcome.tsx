@@ -122,9 +122,9 @@ export default function Welcome() {
         </>}
 
         {i === SAFE && !warn && <>
-          <p className="welcome-sub">Your notes, highlights, prayer list and progress are saved in this browser. Choose at least one way to keep a second copy, so they cannot be lost.</p>
+          <p className="welcome-sub">Your notes, highlights, prayer list and progress are saved on this device. Keep a second copy so they cannot be lost.</p>
           <div className="safe-list">
-            <section className={`safe-card${sync.user ? ' ok' : ''}`}>
+            {(sync.user || sync.server === 'available') && (            <section className={`safe-card${sync.user ? ' ok' : ''}`}>
               <h2>Account {sync.user && '✓'}</h2>
               {sync.user ? <p className="small">Signed in as <strong>{sync.user.email}</strong>. Your notes sync and are kept on the server.</p>
                 : sync.server === 'available' ? (
@@ -136,9 +136,9 @@ export default function Welcome() {
                     <button className="btn primary" disabled={!!busy}>{busy || (mode === 'up' ? 'Create account' : 'Sign in')}</button>
                   </form>
                 ) : sync.server === 'unknown' ? <p className="small muted">Looking for the sync server…</p>
-                : <p className="small">Accounts need a sync server, and this copy of the app is not connected to one. The options below still protect your notes.</p>}
+                : null}
               {safeMsg && <p className="small" role="alert">{safeMsg}</p>}
-            </section>
+            </section>)}
             {driveAvailable() && <section className={`safe-card${s.drive.connected ? ' ok' : ''}`}><h2>Google Drive {s.drive.connected && '✓'}</h2>
               <p className="small">A private app folder in your own Drive, kept up to date by itself.</p>
               {!s.drive.connected && <button className="btn" onClick={async () => { try { await connectDrive(); setSafeMsg(''); } catch (er) { setSafeMsg((er as Error).message); } }}>Back up to Google Drive</button>}</section>}

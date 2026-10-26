@@ -20,7 +20,7 @@ export default function BackupBanner() {
       {msg ? <span role="status">{msg}</span> : (
         <span className="row" style={{ gap: 6 }}>
           <button className="btn small primary" onClick={save}>Save a backup</button>
-          <Link className="btn small" to="/account">Account</Link>
+          {sync.server === 'available' && <Link className="btn small" to="/account">Account</Link>}
           <button className="btn small ghost" onClick={() => { snoozeBackup(7); setGone(true); }}>Later</button>
         </span>
       )}

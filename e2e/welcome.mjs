@@ -44,9 +44,11 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   if (dots < 3) fail('tab dots expected, got ' + dots);
   // opening Pray clears its dot and shows the tip once
   await p.locator('a[data-seen="tab./pray"]').first().click();
-  await p.waitForSelector('.tip-card');
+  await p.waitForSelector('.hub-hero');
   const prayDot = await p.locator('a[data-seen="tab./pray"] .new-dot').count();
   if (prayDot) fail('dot should clear after opening the tab');
+  await p.goto(`${BASE}/#/pray/intentions`);
+  await p.waitForSelector('.tip-card');
   await p.click('.tip-card .btn');
   if (await p.locator('.tip-card').count()) fail('tip should dismiss');
   await p.reload(); await p.waitForTimeout(600);

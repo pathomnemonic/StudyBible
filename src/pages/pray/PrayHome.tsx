@@ -1,98 +1,39 @@
-import Fold from '../../components/Fold';
-import { Tip, StartHere } from '../../components/Hints';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
-import { db } from '../../db/db';
-import { iso, liturgicalDay, parseIso, COLOR_NAME } from '../../liturgy/compute';
-import { useSettings } from '../../lib/store';
-import { traditionOf } from '../../lib/tradition';
-import { readingsFor, type DayReadings } from '../../liturgy/readings';
-import RefLink from '../../components/RefLink';
-import { useEditions } from '../../data/EditionsContext';
-import { builtinPlans, type PlanDef } from '../../plans/builtin';
+import { Group, HubHeader, HubHero, Tiles } from '../../components/Hub';
 
-const localIso = () => {
-  const n = new Date();
-  return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`;
-};
+/** The time-of-day prayer to put in front: what a person would most likely want to do right now. */
+function nowPrayer(h: number): { eyebrow: string; title: string; text: string; to: string; cta: string } {
+  if (h < 5 || h >= 22) return { eyebrow: 'Tonight', title: 'End the day in peace', text: 'A psalm read slowly while the sound fades and the screen dims.', to: '/pray/sleep', cta: 'Sleep mode' };
+  if (h < 11) return { eyebrow: 'This morning', title: 'Begin the day with God', text: 'Wake to a bell and the day’s Gospel, then offer the day.', to: '/pray/morning', cta: 'Morning mode' };
+  if (h < 14) return { eyebrow: 'Midday', title: 'Pause for the Angelus', text: 'A short prayer at noon, remembering the Incarnation.', to: '/pray/devotions/angelus', cta: 'Pray the Angelus' };
+  if (h < 18) return { eyebrow: 'This afternoon', title: 'Pray the Divine Mercy Chaplet', text: 'Prayed on rosary beads, best at three o’clock, with a recording if you like.', to: '/pray/devotions/divine-mercy', cta: 'Divine Mercy' };
+  return { eyebrow: 'This evening', title: 'Look back on the day', text: 'Five quiet steps: thanks, review, sorrow, resolve. Saved only if you choose.', to: '/pray/examen', cta: 'Daily Examen' };
+}
 
 export default function PrayHome() {
-  const [s] = useSettings();
-  const today = localIso();
-  const day = liturgicalDay(parseIso(today), s.diocese === 'US' ? 'usa' : 'universal');
-  const [rd, setRd] = useState<DayReadings | null>(null);
-  const [plans, setPlans] = useState<PlanDef[]>([]);
-  const { get } = useEditions();
-  const active = useLiveQuery(() => db.planProgress.filter((p) => p.status === 'active').toArray(), []) ?? [];
-  useEffect(() => {
-    readingsFor(s.diocese, today).then(setRd);
-    const v = get('vulgate');
-    if (v) builtinPlans(v).then(setPlans);
-  }, [s.diocese]);
+  const p = nowPrayer(new Date().getHours());
   return (
-    <div className="page">
-      <h1>Prayer</h1>
-      <Tip id="pray" title="New here? Start with the rosary">Open the Rosary, then tap each bead as you pray. You can also pray along with a recording, and the mysteries appear as pictures.</Tip>
-      <StartHere hub="pray" />
-      <p className="lede">Quiet ways to pray with Scripture. Everything here is optional; the Bible and your readings are one tab away.</p>
-      <Fold id="pray:Daily prayer" title="Daily prayer" open={true}>
-        <div className="grid">
-        <Link to="/pray/lectio" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Lectio Divina</h2><p className="muted">Read, meditate, pray, rest — with a gentle timer you control.</p></Link>
-        <Link to="/pray/office" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">{s.tradition === 'latin' ? 'The Divine Office' : 'The Roman Divine Office'}</h2><p className="muted">{s.tradition === 'latin' ? 'Lauds, Vespers, Compline and the little hours, from the Psalms. Works offline.' : 'The Latin Church’s hours of prayer, for reference. Your Church has its own daily prayer.'}</p></Link>
-        <Link to="/pray/devotions" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Devotions</h2><p className="muted">The Rosary and Divine Mercy bead by bead with the mysteries pictured, plus the Angelus, Stations of the Cross and Seven Sorrows. Tap along, set a pace, let your device lead, or pray with a recording.</p></Link>
-        <Link to="/pray/life" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Catholic life</h2><p className="muted">Today’s obligations (Mass, fasting, abstinence), upcoming holy days, a Confession guide, indulgences and where to find a Mass.</p></Link>
-        <Link to="/pray/prayers" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prayer book</h2><p className="muted">Traditional prayers you can search by need: morning, the sick, the dead, study, peace.</p></Link>
-        <Link to="/pray/examen" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Daily Examen</h2><p className="muted">Five quiet steps at the end of the day: thanks, review, sorrow, resolve. Saved only if you choose.</p></Link>
-        <Link to="/session" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">A quiet moment</h2><p className="muted">A guided ten-minute pause: pray, read, reflect, hear the Church, pray.</p></Link>
-        <Link to="/pray/morning" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Morning mode</h2><p className="muted">Wake to rising sound, a bell and the day’s Gospel read aloud. Keep the app open and charging.</p></Link>
-        <Link to="/pray/sleep" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Sleep mode</h2><p className="muted">A psalm read slowly while the sound fades and the screen dims.</p></Link>
-        </div>
-      </Fold>
-      <Fold id="pray:The Mass and the liturgies" title="The Mass and the liturgies" open={false}>
-        <div className="grid">
-        <Link to="/mass" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Mass mode</h2><p className="muted">Follow the Mass one step at a time: when to stand, sit and kneel, what to say, and today’s readings.</p></Link>
-        <Link to="/pray/mass" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Following the {traditionOf(s.tradition).liturgy === 'Mass' ? 'Mass' : traditionOf(s.tradition).liturgy}</h2><p className="muted">{s.tradition === 'latin' ? 'The parts of the Mass in order, with links to the official texts.' : s.tradition === 'byzantine' ? 'The parts of the Divine Liturgy in order.' : 'Where to find the liturgy of your Church.'}</p></Link>
-        <Link to="/pray/liturgies" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">All the liturgies</h2><p className="muted">The Roman, Byzantine, Syriac, Armenian and other rites: what the app has for each, and where to find the rest.</p></Link>
-        <Link to="/pray/divine-liturgy" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Byzantine Divine Liturgy</h2><p className="muted">The Liturgy of St John Chrysostom to follow along with. A public-domain English rendering.</p></Link>
-        <Link to="/pray/sunday" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prepare for Sunday</h2><p className="muted">The coming Sunday’s readings, with homilies, the Catechism and commentary on the Gospel.</p></Link>
-        <Link to="/pray/year" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">The Church’s year</h2><p className="muted">Advent to Christ the King: the seasons, their colors and the great days, with the readings for each.</p></Link>
-        </div>
-      </Fold>
-      <Fold id="pray:Make and keep your own" title="Make and keep your own" open={false}>
-        <div className="grid">
-        <Link to="/pray/examination" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Examination of conscience</h2><p className="muted">A private checklist before Confession. Nothing is saved.</p></Link>
-        <Link to="/pray/novenas" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Novenas and short plans</h2><p className="muted">Nine days with the Holy Spirit or St Joseph, the penitential psalms, an Advent week.</p></Link>
-        <Link to="/pray/build" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Build a prayer time</h2><p className="muted">Order your own prayers, Scripture and silence, then pray through them.</p></Link>
-        <Link to="/pray/journal" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prayer journal</h2><p className="muted">Reflections, intentions and saved prayers. Private to this device.</p></Link>
-        </div>
-      </Fold>
-      <div className="card" style={{ marginTop: 14 }}>
-        <div className="row between"><h2 className="card-title">{s.tradition === 'latin' ? 'The Church today' : 'The Roman calendar today'}</h2>{s.tradition === 'latin' && <span className="chip" title="The color of the priest’s vestments today">Vestments: {COLOR_NAME[day.color]}</span>}</div>
-        <p style={{ margin: '4px 0' }}><strong>{day.dayName}</strong></p>
-        <p className="muted small">{day.seasonName} · Sunday cycle {day.sundayCycle}, weekday cycle {day.weekdayCycle}</p>
-        {rd && rd.items.length > 0 && (
-          <ul className="list">
-            {rd.items.map((i) => <li key={i.slot}><span className="muted small">{i.slot.replace('_', ' ')}: </span>{i.refs[0] ? <RefLink refv={i.refs[0]}>{i.text}</RefLink> : i.text}</li>)}
-          </ul>
-        )}
-      </div>
-      {active.length > 0 && (
-        <>
-          <h2 style={{ fontSize: '1.15rem' }}>Your plans</h2>
-          {active.map((p) => {
-            const def = plans.find((x) => x.id === p.planId) ?? (p.planId.startsWith('user:') ? undefined : undefined);
-            const dayIdx = Math.max(0, Math.floor((Date.now() - p.startedAt) / 86400000) + p.offsetDays);
-            return (
-              <div className="card" key={p.planId}>
-                <div className="row between"><strong>{def?.name ?? p.planId}</strong><Link to={`/pray/plans/${encodeURIComponent(p.planId)}`} className="btn small">Open</Link></div>
-                <div className="progress" style={{ margin: '8px 0' }}><div style={{ width: `${(100 * p.done.length) / (def?.days.length ?? 365)}%` }} /></div>
-                <span className="muted small">{p.done.length} of {def?.days.length ?? '—'} days read · today is day {dayIdx + 1}</span>
-              </div>
-            );
-          })}
-        </>
-      )}
+    <div className="page hub">
+      <HubHeader title="Pray" sub="Pray with the Church, in your own words, or in silence." />
+      <HubHero tone="pray" eyebrow={p.eyebrow} title={p.title} text={p.text}>
+        <Link className="btn" to={p.to}>{p.cta}</Link>
+        <Link className="btn ghost" to="/pray/devotions/rosary">The Rosary</Link>
+      </HubHero>
+      <Group title="Devotions" hint="Bead by bead, with pictures and recordings">
+        <Tiles ids={['pray.rosary', 'pray.mercy', 'pray.novenas', 'pray.devotions', 'pray.lectio', 'pray.prayers']} />
+      </Group>
+      <Group title="The Mass and the Church’s year">
+        <Tiles ids={['pray.mass', 'pray.sunday', 'pray.office', 'pray.year', 'pray.liturgies']} />
+      </Group>
+      <Group title="Confession and examination">
+        <Tiles ids={['pray.confession', 'pray.examination', 'pray.examen', 'pray.life']} />
+      </Group>
+      <Group title="Quiet and your own prayer">
+        <Tiles ids={['today.session', 'pray.morning', 'pray.sleep', 'pray.build']} />
+      </Group>
+      <Group title="Your prayer life">
+        <Tiles ids={['pray.intentions', 'pray.journal', 'pray.memento', 'pray.pilgrim']} />
+      </Group>
     </div>
   );
 }

@@ -1,5 +1,5 @@
+import { Group, HubHeader, Tiles } from '../../components/Hub';
 import { useEffect, useMemo, useState } from 'react';
-import { Tip, StartHere } from '../../components/Hints';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
@@ -19,19 +19,6 @@ const SHELVES: { title: string; blurb: string; ids?: string[]; kinds?: string[] 
   { title: 'Catechisms, councils and documents', blurb: 'What the Church has taught, in full.', kinds: ['catechism', 'council', 'document'] },
   { title: 'Doctrine and history', blurb: 'Treatises, letters, apologetics and Church history from the early Church.', kinds: ['treatise', 'letters', 'apologetics', 'history', 'summa'] },
 ];
-const TEACHING: [string, string, string][] = [
-  ['/study/catechism', 'Catechism of the Catholic Church', 'The full text, paragraph by paragraph, with the Scripture it cites.'],
-  ['/study/papal', 'Papal writings', 'Encyclicals, exhortations, constitutions and letters from Pius IX to today.'],
-  ['/study/church', 'Councils and Church documents', 'Nicaea to Vatican II, read in full where public domain.'],
-  ['/study/doctrine', 'Doctrine by topic', 'Eucharist, Trinity, grace, Mary… with Scripture and Catechism links.'],
-  ['/study/saints', 'Lives of the Saints', 'A saint for each day of the year.'],
-  ['/study/encyclopedia', 'The Catholic Encyclopedia', 'Articles on the Bible, the Church and her teaching.'],
-];
-const PLACES: [string, string, string][] = [
-  ['/study/apologetics', 'Questions about the faith', 'Catholic authors on the common questions.'],
-  ['/study/quotations', 'Who quoted this verse?', 'The Fathers and saints, verse by verse.'],
-];
-
 /** The reading room: texts and recordings beyond the Bible, each of which can be opened with a Bible chapter beside it. */
 export default function RoomHome() {
   const [works, setWorks] = useState<LibraryWorkMeta[]>([]);
@@ -74,10 +61,7 @@ export default function RoomHome() {
   const listOf = (sh: (typeof SHELVES)[number]) => (sh.ids ? (sh.ids.map((id) => byId.get(id)).filter(Boolean) as LibraryWorkMeta[]) : works.filter((w) => sh.kinds!.includes(w.kind)));
   return (
     <div className="page room">
-      <h1>Read</h1>
-      <Tip id="read" title="Books beside the Bible">Pick a saint, a Father or a catechism. It opens next to a Bible chapter, and your place is saved.</Tip>
-      <StartHere hub="read" />
-      <p className="lede">The saints, the Fathers and the Church’s own texts, each of which opens beside a Bible chapter.</p>
+      <HubHeader title="Read" sub="The saints, the Fathers and the Church’s own texts, each opening beside a Bible chapter." />
       <div className="tabbar" role="tablist">
         <button role="tab" aria-selected={tab === 'discover'} onClick={() => setParam('tab', '')}>Discover</button>
         <button role="tab" aria-selected={tab === 'mine'} onClick={() => setParam('tab', 'mine')}>My shelves</button>
@@ -107,20 +91,6 @@ export default function RoomHome() {
           )}
           {!filtering && !open && (
             <>
-              {reading.length > 0 && (
-                <section className="sect">
-                  <h2 className="eyebrow-h">Continue reading</h2>
-                  <div className="shelf">
-                    {reading.slice(0, 3).map((p) => { const w = byId.get(p.workId)!; return (
-                      <Link key={w.id} className="shelf-card" to={`/room/work/${w.id}/${p.section}`}>
-                        <span className="t">{w.title}</span>
-                        <span className="d">{w.author} · section {Number(p.section) + 1} of {w.sections.length}</span>
-                        <span className="bar"><i style={{ width: `${Math.round(((Number(p.section) + 1) / w.sections.length) * 100)}%` }} /></span>
-                      </Link>); })}
-                  </div>
-                  {reading.length > 3 && <Link className="small" to="?tab=mine">All {reading.length} you are reading →</Link>}
-                </section>
-              )}
               <section className="sect">
                 <h2 className="eyebrow-h">{SHELVES[0].title}</h2>
                 <p className="muted small" style={{ margin: '0 0 8px' }}>{SHELVES[0].blurb}</p>
@@ -132,22 +102,10 @@ export default function RoomHome() {
                   {SHELVES.slice(1).map((sh) => <button key={sh.title} className="shelf-card as-btn" onClick={() => setParam('shelf', sh.title)}><span className="t">{sh.title}</span><span className="d">{sh.blurb}</span><span className="muted small">{listOf(sh).length} works</span></button>)}
                 </div>
               </section>
+              <Group title="More to read" hint="Beyond the Fathers"><Tiles ids={['read.saints', 'read.encyclopedia', 'read.papal', 'read.church', 'read.gallery']} /></Group>
               <Fold id="room:books" title={`Your own books (${mine.length})`} hint="Add an EPUB, text or HTML file and read it here, with highlights, notes and your place remembered." open={mine.length > 0}>
                 <AddBooks />
                 <div className="shelf">{mine.map((b) => <div key={b.id} className="shelf-card"><Link to={`/room/work/${b.id}/${shelf.get(b.id)?.section ?? 0}`} className="t">{b.title}</Link><span className="d">{b.author || 'Your book'} · {b.sections.length} sections · {Math.round(b.words / 250)} min</span><button className="linklike small" onClick={() => confirm(`Remove “${b.title}” from this device? Your notes on it stay.`) && db.userBooks.delete(b.id)}>Remove</button></div>)}</div>
-              </Fold>
-              <Fold id="room:teach" title="Church teaching and tradition">
-                <div className="shelf">{TEACHING.map(([to, t, d]) => <Link key={to} className="shelf-card" to={to}><span className="t">{t}</span><span className="d">{d}</span></Link>)}</div>
-              </Fold>
-              <Fold id="room:listen" title="Listen">
-                <div className="shelf">
-                  <Link className="shelf-card" to="/listen?tab=audiobooks"><span className="t">Audiobooks</span><span className="d">{heard.size} works read aloud by volunteers</span></Link>
-                  <Link className="shelf-card" to="/listen?tab=podcasts"><span className="t">Catholic podcasts</span><span className="d">Dozens of shows, with your place remembered</span></Link>
-                  <Link className="shelf-card" to="/study/videos"><span className="t">Catholic video library</span><span className="d">Talks and teaching from Catholic creators</span></Link>
-                </div>
-              </Fold>
-              <Fold id="room:more" title="More">
-                <div className="shelf">{PLACES.map(([to, t, d]) => <Link key={to} className="shelf-card" to={to}><span className="t">{t}</span><span className="d">{d}</span></Link>)}</div>
               </Fold>
             </>
           )}

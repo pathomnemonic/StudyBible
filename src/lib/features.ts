@@ -118,13 +118,16 @@ export const FEATURES: Feature[] = [
   { id: 'you.about', title: 'About', blurb: 'What this app is and is not.', to: '/about', hub: 'you', keywords: 'status help' },
 ];
 
+import { getSync } from '../sync/state';
+/** Accounts only show up where a sync server exists; nothing mentions them otherwise. */
+export const visible = (f: Feature) => f.id !== 'you.account' || getSync().server === 'available' || !!getSync().user;
 const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 /** Every feature that matches the typed words, best first (title matches before description matches). */
 export function searchFeatures(q: string, limit = 12): Feature[] {
   const words = norm(q).split(/\s+/).filter(Boolean);
   if (!words.length) return [];
   const scored: [number, Feature][] = [];
-  for (const f of FEATURES) {
+  for (const f of FEATURES.filter(visible)) {
     const t = norm(f.title), b = norm(f.blurb), k = norm(f.keywords ?? '');
     let score = 0;
     for (const w of words) {
@@ -137,7 +140,7 @@ export function searchFeatures(q: string, limit = 12): Feature[] {
   }
   return scored.sort((a, b) => b[0] - a[0]).slice(0, limit).map((x) => x[1]);
 }
-export const featuresOf = (hub: Hub) => FEATURES.filter((f) => f.hub === hub);
+export const featuresOf = (hub: Hub) => FEATURES.filter((f) => f.hub === hub && visible(f));
 /** The features worth starting with, put first for the things the reader said they came for. */
 export function startHere(hub: Hub | null, interests: string[], n = 4): Feature[] {
   const pool = FEATURES.filter((f) => f.hot && (!hub || f.hub === hub));

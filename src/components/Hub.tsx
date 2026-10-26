@@ -1,0 +1,61 @@
+import type { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { FEATURES, visible, type Feature } from '../lib/features';
+import { useSync } from '../sync/state';
+import { NewDot } from './Hints';
+
+/** One look for every tab's front page: a title, one big thing to do, then a few small groups of tiles. */
+export const ICON: Record<string, string> = {
+  'study.themes': '🧭', 'study.universe': '🌌', 'study.constellation': '✨', 'study.timespace': '🕰️', 'study.maps': '🗺️', 'study.world': '🏺', 'study.people': '🌳', 'study.manuscripts': '📜', 'study.textual': '🔎', 'study.voices': '🗣️', 'study.concepts': '🕸️', 'study.sources': '⚖️',
+  'read.gallery': '🖼️', 'read.saints': '🕊️', 'read.encyclopedia': '📚', 'read.papal': '✉️', 'read.church': '🏛️', 'read.room': '📖', 'read.mine': '📘',
+  'study.curriculum': '🎓', 'study.prepare': '🕯️', 'study.ya': '🧑', 'study.kids': '🧸', 'study.course': '⛪', 'read.catechism': '✝️', 'study.doctrine': '💡', 'study.visual': '🎨', 'learn.mass': '🍞', 'study.apologetics': '❓', 'study.paths': '🛤️', 'study.story': '📖',
+  'pray.rosary': '📿', 'pray.mercy': '❤️', 'pray.devotions': '🙏', 'pray.mass': '🍷', 'pray.massef': '🕍', 'pray.life': '🗓️', 'pray.confession': '🕊️', 'pray.examination': '🪞', 'pray.examen': '🌙', 'pray.office': '🔔', 'pray.prayers': '📕', 'pray.novenas': '🔥', 'pray.lectio': '🕯️', 'pray.year': '🎄', 'pray.sunday': '☀️', 'pray.morning': '🌅', 'pray.sleep': '😴', 'pray.build': '🧩', 'pray.journal': '✍️', 'pray.liturgies': '⛪', 'pray.divineliturgy': '☦️', 'pray.intentions': '🙌', 'pray.memento': '⏳', 'pray.pilgrim': '🥾',
+  'today.readings': '📜', 'today.plans': '📅', 'today.days': '⭐', 'today.session': '🧘', 'today.memorize': '🧠',
+  'you.library': '🗒️', 'you.goals': '🎯', 'you.downloads': '⬇️', 'you.privacy': '🔒', 'you.settings': '⚙️', 'you.account': '☁️', 'you.about': 'ℹ️',
+  'listen.biay': '🎧', 'listen.foryou': '⭐', 'listen.videos': '▶️', 'listen.podcasts': '🎙️', 'listen.audiobooks': '📚', 'listen.programmes': '📻',
+  'teach.classes': '👩‍🏫', 'teach.join': '🔑', 'teach.handbook': '📋', 'teach.run': '🎒',
+};
+const byId = new Map(FEATURES.map((f) => [f.id, f]));
+export const feature = (id: string) => byId.get(id);
+
+export function HubHeader({ title, sub, action }: { title: string; sub?: string; action?: ReactNode }) {
+  return (
+    <header className="hub-head">
+      <div><h1>{title}</h1>{sub && <p className="hub-sub">{sub}</p>}</div>
+      {action}
+    </header>
+  );
+}
+
+export function HubHero({ tone, eyebrow, title, text, children }: { tone: string; eyebrow?: string; title: string; text?: string; children?: ReactNode }) {
+  return (
+    <section className={`hub-hero tone-${tone}`}>
+      {eyebrow && <p className="hub-eyebrow">{eyebrow}</p>}
+      <h2>{title}</h2>
+      {text && <p>{text}</p>}
+      {children && <div className="hub-hero-acts">{children}</div>}
+    </section>
+  );
+}
+
+export function Group({ title, hint, children }: { title: string; hint?: string; children: ReactNode }) {
+  return <section className="hub-group"><div className="hub-group-head"><h2>{title}</h2>{hint && <span>{hint}</span>}</div>{children}</section>;
+}
+
+export function Tile({ f, icon }: { f: Feature; icon?: string }) {
+  return (
+    <Link to={f.to} data-seen={f.id} className="hub-tile">
+      <span className="hub-ico" aria-hidden="true">{icon ?? ICON[f.id] ?? '•'}</span>
+      <span className="hub-tile-t">{f.title}</span>
+      <span className="hub-dot"><NewDot id={f.id} label="New" /></span>
+      <span className="hub-tile-d">{f.blurb}</span>
+    </Link>
+  );
+}
+
+/** Tiles for the given feature ids, in that order. Unknown ids are skipped. */
+export function Tiles({ ids }: { ids: string[] }) {
+  useSync();
+  const list = ids.map((id) => byId.get(id)).filter((f): f is Feature => !!f && visible(f));
+  return <div className="hub-tiles">{list.map((f) => <Tile key={f.id} f={f} />)}</div>;
+}

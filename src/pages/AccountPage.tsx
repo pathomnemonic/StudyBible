@@ -59,13 +59,7 @@ export default function AccountPage() {
       <h1>Account & sync</h1>
       {s.server === 'unavailable' && (
         <div className="card">
-          <h2 className="card-title">Accounts are not available on this copy of the app</h2>
-          <p>
-            Your notes and highlights are saved safely on <strong>this device</strong>. To sign in and sync across devices, the app has to be served by the Study Bible server, which provides accounts and storage. You can run it yourself in a minute:
-          </p>
-          <pre className="code" tabIndex={0}>{`npm run build\nnpm run server        # http://localhost:8787`}</pre>
-          <p className="muted small">See docs/SERVER.md for deployment (Docker, HTTPS, backups). Until then, Library → Export moves your data between devices.</p>
-          <button className="btn small" onClick={() => void retryDiscovery()}>Look for the server again</button>
+          <p>Your notes and highlights are saved on <strong>this device</strong>. To keep a second copy, save a backup file from <Link to="/library?tab=export">Library → Export</Link>.</p>
         </div>
       )}
 
