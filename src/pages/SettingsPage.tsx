@@ -1,4 +1,5 @@
 import Fold from '../components/Fold';
+import { resetSeen, markAllSeen } from '../lib/seen';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
@@ -119,6 +120,14 @@ export default function SettingsPage() {
         <div className="row between" style={{ margin: '8px 0' }}><span>Liturgical calendar</span><select aria-label="Liturgical calendar" value={s.diocese} onChange={(e) => set({ diocese: e.target.value })}>{Object.entries(NATIONS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></div>
       </Fold>
 
+      <Fold id="settings:Tips and red dots" title="Tips and red dots" open={false}>
+        <label className="welcome-check"><input type="checkbox" checked={s.hints} onChange={(e) => set({ hints: e.target.checked })} /><span><strong>Show red dots and short tips</strong><br /><small>Dots mark things you have not opened; tips explain a feature once.</small></span></label>
+        <div className="row-actions">
+          <button className="btn" onClick={() => { resetSeen(); set({ hints: true }); }}>Show them all again</button>
+          <button className="btn" onClick={() => markAllSeen()}>Clear every dot</button>
+          <button className="btn" onClick={() => window.dispatchEvent(new Event('studybible:tour'))}>Take the short tour</button>
+        </div>
+      </Fold>
       <Fold id="settings:Your Church" title="Your Church" open={false}>
         <p className="muted small">The app began with the Latin (Roman) Rite. Choose your Church so it uses your own names (Divine Liturgy, Holy Qurbana…), shows the right calendar where it can, and says plainly where its readings and prayers follow the Roman Rite rather than yours.</p>
         <label className="row between" style={{ margin: '10px 0' }}>

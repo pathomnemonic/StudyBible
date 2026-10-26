@@ -18,7 +18,7 @@ export default function ContinueRow({ max = 4 }: { max?: number }) {
   const items: { key: string; to: string; kind: string; label: string; ts: number }[] = [];
   if (s.last) items.push({ key: 'read', to: `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}`, kind: 'Bible', label: `${getBook(s.last.book)?.name ?? s.last.book} ${s.last.chapter}`, ts: hist.find((h) => h.type === 'read')?.ts ?? 0 });
   const w = hist.find((h) => h.type === 'work');
-  if (w) items.push({ key: 'work', to: `/study/works/${w.ref}`, kind: 'Reading room', label: w.label, ts: w.ts });
+  if (w) items.push({ key: 'work', to: `/study/works/${w.ref}`, kind: 'Read', label: w.label, ts: w.ts });
   const ep = hist.find((h) => h.type === 'episode');
   if (ep) items.push({ key: 'ep', to: `/listen/episode/${ep.ref}`, kind: 'Bible in a Year', label: ep.label, ts: ep.ts });
   const open = progress.map((r) => ({ r, p: paths.find((x) => r.key === `path:${x.id}`) })).filter((x) => x.p && (x.r.value as number) > 0 && (x.r.value as number) < x.p.steps).sort((a, b) => b.r.ts - a.r.ts)[0];

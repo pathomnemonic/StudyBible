@@ -13,7 +13,7 @@ export async function addBookFile(file: File): Promise<UserBook> {
 }
 export const useUserBooks = () => useLiveQuery(() => db.userBooks.orderBy('addedAt').reverse().toArray(), []) ?? [];
 
-/** A book of the reader's own, in the shape the Reading room reader expects. */
+/** A book of the reader's own, in the shape the Read tab reader expects. */
 export function bookMeta(b: UserBook): LibraryWorkMeta {
   return { id: b.id, title: b.title, author: b.author || 'Your book', authorId: 'user', period: '', authority: 'Your own file', kind: 'your book', description: '', scriptureMode: 'none', translator: 'as in your file', rightsEvidence: 'It is your own copy, kept on this device only.', source: { name: `Your file (${b.format})`, url: '', retrieved: '' }, rights: 'user', format: b.format, sections: b.sections.map((s, i) => ({ id: String(i), title: s.title, scripture: [], words: s.paras.join(' ').split(/\s+/).length })) };
 }

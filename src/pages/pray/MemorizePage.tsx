@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Tip } from '../../components/Hints';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, type MemoryCard } from '../../db/db';
 import { useSettings } from '../../lib/store';
@@ -64,6 +65,7 @@ export default function MemorizePage() {
   return (
     <div className="page">
       <h1>Memorize Scripture</h1>
+      <Tip id="memorize" title="How this works">Each card shows a verse with words hidden. Say it, reveal, and rate how it went. Cards you miss come back sooner.</Tip>
       <p className="lede">Spaced repetition: verses you know well come back less often; the ones you miss come back soon.</p>
       <div className="card">
         <div className="row between">

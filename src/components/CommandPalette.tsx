@@ -4,6 +4,8 @@ import Icon from './Icon';
 import { BOOKS } from '../lib/canon';
 import { parseRefs, formatRef } from '../lib/refs';
 import { useSettings } from '../lib/store';
+import { FEATURES, searchFeatures } from '../lib/features';
+import { markSeen } from '../lib/seen';
 
 interface Cmd {
   id: string;
@@ -23,7 +25,7 @@ const NAV: { label: string; to: string }[] = [
   { label: 'Sleep mode (a psalm read slowly)', to: '/pray/sleep' },
   { label: 'Who quoted this verse? (quotations)', to: '/study/quotations' },
   { label: 'Councils and Church documents', to: '/study/church' },
-  { label: 'Reading room (saints, Fathers, catechisms)', to: '/room' },
+  { label: 'Read: saints, Fathers, catechisms and more', to: '/room' },
   { label: 'Key words and phrases', to: '/study/terms' },
   { label: 'Scripture universe (galaxy)', to: '/study/universe' },
   { label: 'Time and place', to: '/study/timespace' },
@@ -90,7 +92,15 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
       }
     }
     const lc = t.toLowerCase();
-    for (const n of NAV.filter((n) => !lc || n.label.toLowerCase().includes(lc))) out.push({ id: n.to, group: 'Go to', label: n.label, run: go(n.to === '/read' && s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : n.to) });
+    const seen = new Set<string>();
+    const add = (id: string, label: string, to: string, hint?: string) => {
+      if (seen.has(to)) return;
+      seen.add(to);
+      out.push({ id: id + to, group: 'Go to', label, hint, run: () => { markSeen(id); go(to === '/read' && s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : to)(); } });
+    };
+    if (lc) for (const f of searchFeatures(lc, 10)) add(f.id, f.title, f.to, f.blurb.slice(0, 60));
+    for (const n of NAV.filter((n) => !lc || n.label.toLowerCase().includes(lc))) add('nav', n.label, n.to);
+    if (!lc) for (const f of FEATURES.filter((f) => f.hot).slice(0, 8)) add(f.id, f.title, f.to, f.blurb.slice(0, 60));
     return out;
   }, [q, nav, onClose, s.defaultEdition, s.last]);
 

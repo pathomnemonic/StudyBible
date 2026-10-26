@@ -140,7 +140,7 @@ export default function WorkReader() {
       <div className="reader-col" onTouchStart={(e) => { swipe.current = e.touches.length === 1 ? [e.touches[0].clientX, e.touches[0].clientY] : null; }} onTouchEnd={(e) => { const a = swipe.current; swipe.current = null; if (!a || window.innerWidth >= 700 || !window.getSelection()?.isCollapsed) return; const dx = e.changedTouches[0].clientX - a[0], dy = e.changedTouches[0].clientY - a[1]; if (Math.abs(dx) > 90 && Math.abs(dy) < 45) go(idx + (dx < 0 ? 1 : -1)); }}>
         {!quiet && (
           <div className="reader-bar">
-            <Link to="/room" className="icon-btn" aria-label="Back to the Reading room" title="Reading room"><Icon name="library" /></Link>
+            <Link to="/room" className="icon-btn" aria-label="Back to Read" title="Read"><Icon name="library" /></Link>
             <button className="icon-btn" onClick={() => go(idx - 1)} disabled={idx === 0} aria-label="Previous section"><Icon name="chevL" /></button>
             <div className="title">
               <button className="title-btn" onClick={() => setToc(!toc)} aria-expanded={toc} aria-haspopup="dialog">{meta.title} <span className="muted small">{idx + 1}/{work.sections.length}</span></button>

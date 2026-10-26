@@ -16,7 +16,7 @@ export default function ResumeChips() {
   const short = (t: string) => (t.length > 70 ? t.slice(0, 68).trimEnd() + '…' : t);
   const chips = [
     { key: 'bible', to: bible.to, kind: 'Bible', text: bible.text, resume: !!s.last },
-    { key: 'room', to: work ? `/study/works/${work.ref}` : '/room', kind: 'Reading room', text: work ? short(work.label.replace(/^.*?:\s*/, '')) : 'Browse', resume: !!work },
+    { key: 'room', to: work ? `/study/works/${work.ref}` : '/room', kind: 'Read', text: work ? short(work.label.replace(/^.*?:\s*/, '')) : 'Browse', resume: !!work },
     { key: 'year', to: ep ? `/listen/episode/${ep.ref}` : '/listen', kind: 'Bible in a Year', text: ep ? short(ep.label.replace(/^Day (\d+).*$/, 'Day $1')) : day ? `Day ${day}` : 'Listen', resume: !!ep || !!day },
   ];
   return (

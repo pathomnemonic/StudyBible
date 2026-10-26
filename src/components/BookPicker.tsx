@@ -45,7 +45,7 @@ export default function BookPicker({
             <Link to="/pray/plans" onClick={onClose}>Reading plans</Link>
             <Link to="/pray/readings" onClick={onClose}>Mass readings</Link>
             <Link to="/study/paths" onClick={onClose}>Study paths</Link>
-            <Link to="/room" onClick={onClose}>Reading room</Link>
+            <Link to="/room" onClick={onClose}>Read tab</Link>
           </div>
           <input type="search" placeholder="Filter books…" value={q} onChange={(e) => setQ(e.target.value)} style={{ width: '100%', marginBottom: 10 }} aria-label="Filter books" />
           {(filtered ? [{ name: 'Matches', books: filtered }] : GROUPS).map((g) => (

@@ -303,7 +303,7 @@ export default function CurriculumLesson() {
         <ul>
           <li><Link to={`/study/catechism/${cccNums[0]}`}>The Catechism at §{cccNums[0]}</Link></li>
           {(lesson.deeper ?? []).map((d) => { const [k, id] = d.split(':'); return k === 'apol' ? <li key={d}><Link to={`/study/apologetics/${id}`}>Questions about the faith: {id.replace(/-/g, ' ')}</Link></li> : <li key={d}><Link to={`/room/work/${id}/0`}>Read in the Reading room: {id.replace(/-/g, ' ')}</Link></li>; })}
-          {!primary && <li><Link to="/room">The Reading room: saints and Fathers</Link></li>}
+          {!primary && <li><Link to="/room">Read: saints and Fathers</Link></li>}
           {(g.band === 'high' || g.band === 'middle') && <li><Link to="/study/apologetics">Questions about the faith</Link></li>}
           <li><Link to="/study/kids">The Children’s Bible</Link></li>
           <li><Link to="/pray/prayers">The prayer book</Link></li>

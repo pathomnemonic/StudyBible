@@ -46,12 +46,7 @@ const tile = (href: string) => q(`.page a[href="#${href}"]`);
 const panelTab = (name: RegExp) => () => [...document.querySelectorAll('aside.panel [role=tab]')].find((t) => name.test(t.textContent ?? '')) ?? null;
 
 const STEPS: Step[] = [
-  { part: 'Welcome', text: 'A quick tour. You will tap through the app yourself.', sub: 'A study Bible with more than 80,000 notes tied to verses, and over 100 works by the saints and Fathers.' },
-  { part: 'Your Church', control: 'tradition', text: 'Which Church do you belong to?', sub: 'This sets the calendar, the daily readings and the prayers you are offered. You can change it later in Settings.' },
-  { part: 'Look', control: 'theme', text: 'Pick a look for reading.', sub: 'Dark themes are easier on the eyes at night; the paper themes feel like a printed page.' },
-  { part: 'Reading', control: 'size', text: 'Choose your translation and text size.', sub: 'The Douay-Rheims and Latin Vulgate are the traditional Catholic Bibles. More are in Settings.' },
   { part: 'Today', route: '/today', exact: true, find: q('.home-verse'), text: 'This is Today: a verse for the day, a saint’s words, and a question.' },
-  { part: 'Today', route: '/today', exact: true, find: q('.resume-chips'), text: 'These take you back to where you left off.' },
   { part: 'Bible', route: '/today', exact: true, find: q('.tabs a[href^="#/read"]'), tap: true, text: 'Tap Bible to open it.' },
   { part: 'Bible', route: '/read/webc/JHN/6', find: q('.reader-bar'), text: 'Let us read John 6, the Bread of Life.', sub: 'Pick any book up here, or switch translation.' },
   { part: 'Bible', find: verse51, tap: true, hit: (t) => !!t.closest('.v[data-v="51"]'), text: 'Tap verse 51: “I am the living bread.”' },
@@ -59,36 +54,14 @@ const STEPS: Step[] = [
   { part: 'Bible', find: () => document.querySelector('aside.panel [role=tablist]') ?? document.querySelector('aside.panel'), text: 'One verse, everything gathered around it.', sub: 'Notes holds the Catechism first, then Haydock, à Lapide, the Church Fathers and saints, each tied to this verse.' },
   { part: 'Bible', find: panelTab(/Connections/), tap: true, hit: (t) => /Connections/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Connections.' },
   { part: 'Bible', find: () => document.querySelector('aside.panel .panel-body'), text: 'The manna, the Last Supper, who quoted this verse, and cross-references.', sub: 'Each one opens the passage it points to.' },
-  { part: 'Bible', find: panelTab(/Words/), tap: true, hit: (t) => /Words/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Words.' },
-  { part: 'Bible', find: () => document.querySelector('aside.panel .panel-body'), text: 'Tap a Greek word to see its meaning and everywhere else it appears.' },
-  { part: 'Bible', find: panelTab(/Media/), tap: true, hit: (t) => /Media/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Media.' },
-  { part: 'Bible', closePanel: true, find: () => document.querySelector('aside.panel .panel-body'), text: 'Videos from Catholic teachers on this very passage, paintings, and the Bible in a Year episode.', sub: 'They play right here, from the creators’ own channels.' },
-  { part: 'Bible', find: anyOf('.reader-bar button[title^="Text, theme"]', '.reader-bar .more-btn'), text: 'Text size, themes, sound and more live here.', sub: 'Jesus’s words are in red, and a few key words glow or move.' },
-  { part: 'Bible', find: anyOf('.reader-bar button[aria-label*="ound"]', '.reader-bar .more-btn'), control: 'sound', text: 'Gentle background sound is off. Want it?', sub: '“Choose for me” plays a quiet sound that suits the book, kept soft. Change it any time with the note icon.' },
   { part: 'Listen', find: q('.tabs a[href="#/listen"]'), tap: true, text: 'Tap Listen.' },
   { part: 'Listen', route: '/listen', find: q('.year-hero, .page h1'), text: 'The Bible in a Year, matched to every chapter.' },
-  { part: 'Reading room', find: q('.tabs a[href="#/room"]'), tap: true, text: 'Tap Reading room.' },
-  { part: 'Reading room', route: '/room', find: q('.page h1'), text: 'Read and listen beyond the Bible.', sub: 'Open any work and a Bible chapter sits beside it, so you can read the Scripture and what the saints made of it together. Many works have recordings too.' },
+  { part: 'Read', find: q('.tabs a[href="#/room"]'), tap: true, text: 'Tap Read.' },
+  { part: 'Read', route: '/room', find: q('.page h1'), text: 'Read and listen beyond the Bible.', sub: 'Open any work and a Bible chapter sits beside it, so you can read the Scripture and what the saints made of it together. Many works have recordings too.' },
+  { part: 'Pray', find: q('.tabs a[href="#/pray"]'), tap: true, text: 'Tap Pray.' },
+  { part: 'Pray', route: '/pray', find: q('.page h1'), text: 'The rosary, Divine Mercy, novenas and more, all interactive.', sub: 'Tap to say a prayer bead by bead, or pray along with a recording.' },
   { part: 'Study', find: q('.tabs a[href="#/study"]'), tap: true, text: 'Tap Study.' },
   { part: 'Study', route: '/study', exact: true, find: q('.page h1'), text: 'Study is where the deep tools are. Let us open a few.' },
-  { part: 'Study', route: '/study', exact: true, find: tile('/study/catechism'), tap: true, text: 'Tap the Catechism.' },
-  { part: 'Study', route: '/study/catechism', find: q('.ccc-page input[type=search], .page input[type=search]'), text: 'The whole Catechism. Search it, or jump by number.', sub: 'Its Scripture footnotes link into the Bible.' },
-  { part: 'Study', route: '/study', exact: true, find: tile('/study/paths'), tap: true, text: 'Tap Study paths.' },
-  { part: 'Study', route: '/study/paths', find: q('.page h1'), text: 'Guided journeys: a passage, a Father’s words, a question.' },
-  { part: 'Study', route: '/study', exact: true, find: tile('/study/universe'), text: 'The Scripture universe: all 73 books as a galaxy, with the Fathers in rings around them.' },
-  { part: 'Study', route: '/study', exact: true, find: tile('/study/quotations'), text: 'Who quoted this verse? Every Father and saint who cites it.' },
-  { part: 'Study', route: '/study', exact: true, find: tile('/study/gallery'), text: 'A gallery of paintings and engravings, with maps and a timeline beside it.' },
-  { part: 'Study', route: '/study', exact: true, find: tile('/study/apologetics'), text: 'Questions about the faith: short answers, with the verses and Catechism paragraphs to check them.' },
-  { part: 'Study', route: '/study', exact: true, find: tile('/study/kids'), text: 'A Children’s Bible: stories at three reading levels, with videos.' },
-  { part: 'Study', route: '/study', exact: true, find: tile('/study/young-adults'), text: 'Young adults: the questions, vocation and Scripture for the years of big decisions.' },
-  { part: 'Profile', find: q('.profile-btn'), tap: true, text: 'Tap the round Profile button, top right.' },
-  { part: 'Profile', route: '/profile', exact: true, find: tile('/library'), tap: true, text: 'Tap Notes.' },
-  { part: 'Profile', route: '/library', find: q('.page h1'), text: 'Your notes, highlights and bookmarks. Private to this device.', sub: 'Export them as Markdown, PDF or EPUB.' },
-  { part: 'Profile', route: '/profile', exact: true, find: tile('/pray/plans'), text: 'Reading plans and memorizing keep your progress.' },
-  { part: 'Profile', route: '/profile', exact: true, find: tile('/days'), text: 'Star a day on Today to keep it here.' },
-  { part: 'Profile', route: '/profile', exact: true, find: tile('/settings'), tap: true, text: 'Tap Settings.' },
-  { part: 'Profile', route: '/settings', find: q('.page h1'), text: 'Language, themes, sound, offline downloads and reminders.' },
-  { part: 'Search', route: '/profile', wide: true, find: q('.search-tab'), text: 'Search jumps to any passage or page. Ctrl or ⌘ plus K does the same.' },
   { part: 'Done', route: '/today', exact: true, title: 'You are set', text: 'Take this tour again any time from Profile.' },
 ];
 
@@ -141,7 +114,7 @@ function TourControl({ kind }: { kind: 'tradition' | 'theme' | 'size' }) {
 
 /** The first-run walkthrough: short steps that point at the real screen and ask you to tap through it. */
 export default function Tour() {
-  const [on, setOn] = useState(() => get(DONE) !== '1');
+  const [on, setOn] = useState(false);
   const [i, setI] = useState(() => Math.min(Math.max(+(get(STEP) ?? 0) || 0, 0), STEPS.length - 1));
   const [rect, setRect] = useState<DOMRect | null>(null);
   const nav = useNavigate();

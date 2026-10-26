@@ -231,7 +231,7 @@ function Saved() {
   );
 }
 
-const HIST_KINDS: [string, string][] = [['all', 'Everything'], ['read', 'Bible chapters'], ['work', 'Reading room'], ['catechism', 'Catechism'], ['episode', 'Listening'], ['video', 'Videos']];
+const HIST_KINDS: [string, string][] = [['all', 'Everything'], ['read', 'Bible chapters'], ['work', 'Read tab'], ['catechism', 'Catechism'], ['episode', 'Listening'], ['video', 'Videos']];
 
 function History() {
   const hs = useLiveQuery(() => db.history.orderBy('ts').reverse().limit(400).toArray(), []) ?? [];
@@ -266,7 +266,7 @@ function History() {
       <h3 className="h-sm" style={{ marginTop: 18 }}>Other things the app remembers</h3>
       <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
         <button className="btn small" onClick={() => confirm('Forget where you stopped in podcasts and audiobooks?') && db.episodeProgress.clear()}>Clear listening progress</button>
-        <button className="btn small" onClick={() => confirm('Forget your place in every Reading room work? Your shelves, ratings and notes are kept.') && db.libraryProgress.toCollection().modify((p) => { p.section = '0'; delete p.seen; delete p.scroll; })}>Clear reading places</button>
+        <button className="btn small" onClick={() => confirm('Forget your place in every Read-tab work? Your shelves, ratings and notes are kept.') && db.libraryProgress.toCollection().modify((p) => { p.section = '0'; delete p.seen; delete p.scroll; })}>Clear reading places</button>
         <button className="btn small" onClick={() => db.recentSearches.clear()}>Clear recent searches</button>
         <button className="btn small" onClick={() => confirm('Clear the up-next queue?') && db.queue.clear()}>Clear queue</button>
       </div>

@@ -131,7 +131,7 @@ export default function CurriculumTeachers() {
           <li><Link to="/study/catechism">The Catechism</Link>, searchable, with Scripture links</li>
           <li><Link to="/study/kids">The Children’s Bible</Link> at three reading levels</li>
           <li><Link to="/study/apologetics">Questions about the faith</Link>, for middle and high school</li>
-          <li><Link to="/room">The Reading room</Link>: the Baltimore Catechism, the Roman Catechism and the writings of the saints</li>
+          <li><Link to="/room">The Read tab</Link>: the Baltimore Catechism, the Roman Catechism and the writings of the saints</li>
           <li><Link to="/study/saints">Lives of the saints</Link> and the <Link to="/pray/prayers">prayer book</Link></li>
           <li><Link to="/study/videos">The Catholic video library</Link> (watch before you show)</li>
           <li><Link to="/study/course">Salvation history in twelve lessons</Link>, <Link to="/study/story">Follow a story</Link> and <Link to="/study/paths">Study paths</Link></li>

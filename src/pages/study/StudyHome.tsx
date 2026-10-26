@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Tip } from '../../components/Hints';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
@@ -74,6 +75,7 @@ export default function StudyHome() {
   return (
     <div className="page">
       <h1>Study</h1>
+      <Tip id="study" title="Where to begin">Try Lessons for a guided path, or search for any topic. Red dots show tools you have not opened.</Tip>
       <p className="lede">Everything is connected to the verses you read. Search it, or browse by what you want to do.</p>
       <Link to="/read" className="notice info small" style={{ display: 'block', textDecoration: 'none', color: 'inherit', marginBottom: 12 }}>
         <strong>Looking for book outlines, the Gospel comparison, key words, the concordance or the topical index?</strong> They are now with the Bible: open any chapter and tap the <Icon name="study" size={14} /> Bible tools button, or <u>open the Bible</u>.

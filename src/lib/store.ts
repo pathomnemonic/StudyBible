@@ -116,6 +116,10 @@ export interface Settings {
   last: { edition: string; book: string; chapter: number; verse?: number } | null;
   diocese: string; // liturgical calendar: 'universal' | 'usa' ...
   onboarded: boolean;
+  /** red dots on things not yet opened, and one-time tips the first time a feature is used */
+  hints: boolean;
+  /** what the reader said they came for (set in the welcome), used to suggest where to start */
+  interests: string[];
   /** read-aloud speed and voice (browser voice name; empty = default) */
   ttsRate: number;
   ttsVoice: string;
@@ -181,6 +185,8 @@ export const DEFAULTS: Settings = {
   last: null,
   diocese: 'universal',
   onboarded: false,
+  hints: true,
+  interests: [],
   ttsRate: 1,
   ttsVoice: '',
   dashboard: { order: ['continue', 'readings', 'biay', 'plans', 'verse', 'notes', 'memorize', 'liturgy', 'session'], hidden: ['memorize', 'liturgy', 'session'] },

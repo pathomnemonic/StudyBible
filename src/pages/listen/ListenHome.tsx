@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { Tip } from '../../components/Hints';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
@@ -169,6 +170,7 @@ export default function ListenHome() {
   return (
     <div className="page">
       <h1 style={{ marginTop: 0 }}>Listen</h1>
+      <Tip id="listen" title="Listen your way">Start the Bible in a Year, or pick a podcast. The player stays at the bottom while you browse.</Tip>
       <div className="tabbar" role="tablist">
         {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => go(k)}>{l}</button>)}
       </div>
