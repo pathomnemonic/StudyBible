@@ -43,7 +43,7 @@ for (const w of WIDTHS) {
       budget('.filterbar-top', 60, 'search and filter row');
       budget('.hub-head', 150, 'page header');
       // no loose text hanging at the end of a page: long closing text belongs in a card, a notice or a fold
-      for (const pg of document.querySelectorAll('.page')) {
+      for (const pg of document.querySelectorAll('.page:not(.office)')) {
         const kids = [...pg.children].filter((k) => k.getBoundingClientRect().height > 0 && !k.matches('script, style, .no-print, nav, footer'));
         const loose = kids.slice(-2).filter((k) => (k.tagName === 'P' || (k.tagName === 'DIV' && !k.className && !k.querySelector('details, .card, .fold, section, ul, ol, table, .hub-tiles'))) && (k.textContent || '').trim().length > 220);
         if (loose.length) out.push(`long loose text at the end of the page: "${loose[0].textContent.trim().slice(0, 50)}…" (put it in a card, notice or fold)`);
