@@ -12,6 +12,8 @@ export interface LessonSpec {
   /** common misunderstandings to listen for */ misc?: string[];
   /** more: apol:<topic id> or room:<work id> */ deeper?: string[];
   /** a verse or prayer to learn by heart */ mem?: string;
+  /** a story, object or question that opens the lesson */ hook?: string;
+  /** how the teacher can tell the class understood */ assess?: string;
 }
 export interface UnitSpec { n: number; title: string; pillar: string; eq: string; lessons: LessonSpec[] }
 export interface GradeData { id: string; name: string; band: BandId; age: string; theme: string; units: UnitSpec[] }

@@ -34,6 +34,7 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
   s.push({ kind: 'title', label: `${gradeLabel(grade.id)} · Unit ${lesson.unit.n}`, title: lesson.title, body: lesson.unit.title, notes: [`Essential question: ${lesson.unit.eq}`, `Plan about ${band.minutes} minutes. Start with the opening prayer.`] });
   // 1. hook: a poll, so everyone has a stake before anything is taught
   if (mistaken[0]) s.push({ kind: 'poll', label: 'Hands up!', title: `What do you think? “${mistaken[0]}”`, poll: older ? ['Agree', 'Disagree', 'Not sure'] : ['Yes', 'No', 'Not sure'], notes: ['Have students vote before you teach anything. Do not say who is right yet; you will come back to it. Ask one person from each side why.'] });
+  if (lesson.hook) s.push({ kind: 'story', label: 'Start here', body: lesson.hook, notes: ['Tell or read this to open the lesson. Then ask the question on the next slide.'] });
   s.push({ kind: 'wonder', label: 'Let’s wonder', title: lesson.question, notes: ['Ask before you teach. Collect two or three answers, and write them where everyone can see.', ...band.plan.slice(1, 2).map((p) => p[2])] });
   // 2. a story first: a person who lived it
   if (lesson.saint) { const i = lesson.saint.indexOf(':'); const nm = i > 0 ? lesson.saint.slice(0, i) : lesson.saint; s.push({ kind: 'meet', label: 'Meet someone', title: nm, body: i > 0 ? lesson.saint.slice(i + 1).trim() : '', notes: ['Tell this as a short story, not a fact. Ask: what would it have been like to be there? We will see why they matter at the end.'] }); }
@@ -65,6 +66,7 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
   quiz.forEach((q, i) => s.push({ kind: 'quiz', label: `Check · ${i + 1} of ${quiz.length}`, q, notes: ['Let students answer before you reveal. Ask why.'] }));
   if (lesson.saint) { const i = lesson.saint.indexOf(':'); s.push({ kind: 'saint', label: 'Why they matter', title: i > 0 ? lesson.saint.slice(0, i) : lesson.saint, body: i > 0 ? lesson.saint.slice(i + 1).trim() : '', notes: ['Return to the story from the start. What did this person do that shows today’s idea?'] }); }
   if (lesson.life) s.push({ kind: 'life', label: 'This week', title: lesson.life });
+  if (lesson.mem) s.push({ kind: 'prayer', label: 'Learn by heart', body: lesson.mem, notes: ['Say it together three times, then a second time with the words hidden.'] });
   s.push({ kind: 'exit', label: 'Exit ticket', title: older ? '3 · 2 · 1' : 'Before you go', items: older ? ['3 things I learned', '2 things I am still wondering', '1 thing I will do this week'] : ['One thing I learned', 'One thing I want to ask', 'One way I will show it this week'], notes: ['Collect on a card or a sticky note. Read them before next class.'] });
   if (prayer) {
     const pieces = chunk(prayer.text, 280);

@@ -134,6 +134,9 @@ export default function CurriculumLesson() {
 
       {mode !== 'teacher' && <LessonPlay grade={g} lesson={lesson} index={idx} gl={gl} />}
 
+      {mode !== 'teacher' && lesson.hook && <section className="cur-hook" aria-label="Start here"><h2 className="eyebrow-h">Start here</h2><p>{lesson.hook}</p></section>}
+      {mode !== 'teacher' && lesson.mem && <section className="cur-mem" aria-label="Learn by heart"><h2 className="eyebrow-h">Learn by heart</h2><p>{lesson.mem}</p></section>}
+
       {mode === 'teacher' && (
         <>
           <section className="sect">
@@ -152,10 +155,10 @@ export default function CurriculumLesson() {
                 <li key={name}>
                   <strong>{name}</strong> <span className="muted small">({mins(minutes, share)} min)</span>
                   <div>{how}</div>
-                  {i === 1 && <div className="small"><em>This lesson:</em> ask, “{lesson.question}” and collect first answers before teaching.</div>}
+                  {i === 1 && <div className="small"><em>This lesson:</em> {lesson.hook ? <>open with this: {lesson.hook} Then ask, “{lesson.question}”</> : <>ask, “{lesson.question}” and collect first answers before teaching.</>}</div>}
                   {i === 2 && <div className="small"><em>This lesson:</em> {lesson.idea} Read {lesson.scripture.replace(/;/g, ', ')} aloud. {words.length ? `Introduce: ${words.map((v) => gl[v].w).join(', ')}.` : ''}</div>}
                   {i === 3 && <div className="small"><em>This lesson:</em> {lesson.activity}</div>}
-                  {i === 4 && <div className="small"><em>This lesson:</em> {src.prayer ? `Pray: ${src.prayer.title}.` : 'Close with a spontaneous prayer of thanks.'} Exit ticket: one thing I learned, one question I still have.</div>}
+                  {i === 4 && <div className="small"><em>This lesson:</em> {src.prayer ? `Pray: ${src.prayer.title}.` : 'Close with a spontaneous prayer of thanks.'} {lesson.assess ?? 'Exit ticket: one thing I learned, one question I still have.'}</div>}
                 </li>
               ))}
             </ol>

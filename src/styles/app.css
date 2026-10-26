@@ -4488,3 +4488,4 @@ html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent;
 button, a, [role='button'] { touch-action: manipulation; }
 .tabbar { border-radius: 22px; }
 @media (max-width: 760px) { .subnav { padding-right: 56px; } .tabbar button { flex: 1 1 auto; text-align: center; } }
+.cur-hook, .cur-mem { margin: 12px 0; padding: 14px 18px; border-radius: 16px; border-left: 5px solid #c9a24a; background: color-mix(in srgb, #c9a24a 10%, transparent); } .cur-hook p, .cur-mem p { margin: 0; font-family: var(--font-display); font-size: 1.12rem; line-height: 1.5; } .cur-mem { border-left-color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, transparent); } .cur-mem p { font-style: italic; }

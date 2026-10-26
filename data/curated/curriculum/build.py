@@ -2,6 +2,8 @@
 """Builds public/data/curriculum/{index,glossary,grade-*}.json from the grade specs in this folder."""
 import json, os, re, importlib, sys
 sys.path.insert(0, os.path.dirname(__file__))
+for _f in sorted(os.listdir(os.path.dirname(__file__) or '.')):
+    pass
 from glossary import G
 from saints import SAINT_LINES
 OUT = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'public', 'data', 'curriculum')
@@ -12,9 +14,13 @@ ROOT = os.path.join(os.path.dirname(__file__), '..', '..', '..')
 apol = {t['id'] for t in json.load(open(os.path.join(ROOT, 'data', 'curated', 'apologetics.json')))['topics']}
 works = {w['id'] for w in json.load(open(os.path.join(ROOT, 'public', 'data', 'library', 'index.json')))['works']}
 ENRICH = {}
+# professional rewrites of a lesson's core text: r_<grade>.py holds R = {lesson id: dict(idea, hook, activity, teach, misc, mem, assess, ...)}
+REWRITE = {}
 for f in sorted(os.listdir(os.path.dirname(__file__) or '.')):
     if re.match(r'^e_\w+\.py$', f):
         ENRICH.update(importlib.import_module(f[:-3]).E)
+    if re.match(r'^r_\w+\.py$', f):
+        REWRITE.update(importlib.import_module(f[:-3]).R)
 
 def squash(nums):
     out, i = [], 0
@@ -51,9 +57,11 @@ for g in order:
             if any(n < 1 or n > 2865 for n in nums): problems.append(f"{G_['id']}.{ui}.{li}: ccc out of range")
             lid = f"{G_['id']}-{ui}-{li}"
             row = dict(id=lid, title=l['title'], idea=l['idea'], ccc=squash(spec_nums(l['ccc'])), scripture=l['scripture'], vocab=l['vocab'], question=l['question'], activity=l['activity'], prayer=l['prayer'] or None)
-            for k in ('teach', 'talk', 'quiz', 'life', 'saint', 'misc', 'deeper', 'mem'):
-                v = l.get(k) or ENRICH.get(lid, {}).get(k)
+            for k in ('teach', 'talk', 'quiz', 'life', 'saint', 'misc', 'deeper', 'mem', 'hook', 'assess'):
+                v = REWRITE.get(lid, {}).get(k) or l.get(k) or ENRICH.get(lid, {}).get(k)
                 if v: row[k] = v
+            for k in ('idea', 'activity'):
+                if REWRITE.get(lid, {}).get(k): row[k] = REWRITE[lid][k]
             for d in row.get('deeper', []):
                 kind, ident = d.split(':', 1)
                 if (kind == 'apol' and ident not in apol) or (kind == 'room' and ident not in works): problems.append(f'{lid}: unknown deeper {d}')
