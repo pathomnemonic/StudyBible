@@ -4,6 +4,7 @@ import { db } from '../db/db';
 import { useSync } from '../sync/state';
 import WeekCard from '../components/WeekCard';
 import { Group, HubHeader, Tiles } from '../components/Hub';
+import QuickSettings from '../components/QuickSettings';
 
 /** Everything that is yours: your writing, your plans and the settings. Where you left off is on Today. */
 export default function ProfilePage() {
@@ -14,6 +15,7 @@ export default function ProfilePage() {
     <div className="page hub">
       <HubHeader title="You" sub={sync.user ? `Signed in as ${sync.user.email}.` : `${notes} note${notes === 1 ? '' : 's'} and ${marks} highlight${marks === 1 ? '' : 's'}, kept on this device.`} />
       <WeekCard />
+      <Group title="Make it yours"><QuickSettings /></Group>
       <Group title="Your things">
         <Tiles ids={['you.library', 'today.plans', 'today.memorize', 'pray.journal', 'pray.intentions', 'you.goals', 'today.days']} />
       </Group>

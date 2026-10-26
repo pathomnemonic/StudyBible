@@ -10,7 +10,7 @@ export const HUBS: { id: Hub; title: string; blurb: string; to: string }[] = [
   { id: 'bible', title: 'Bible', blurb: 'Read, study and search Scripture', to: '/read' },
   { id: 'read', title: 'Read', blurb: 'Saints, Fathers, catechisms and your own books', to: '/room' },
   { id: 'learn', title: 'Learn', blurb: 'The Catechism program for every age, the Catechism itself and the faith explained', to: '/learn' },
-  { id: 'study', title: 'Study', blurb: 'Lessons, tools, maps and the Catechism', to: '/study' },
+  { id: 'study', title: 'Explore', blurb: 'Study tools for the Bible: words, books, people, places', to: '/study' },
   { id: 'pray', title: 'Pray', blurb: 'Rosary, Mass, devotions and the Church’s year', to: '/pray' },
   { id: 'listen', title: 'Media', blurb: 'Bible in a Year, podcasts, audiobooks and videos', to: '/listen' },
   { id: 'teach', title: 'Teach', blurb: 'Classes, live games and the K–12 program', to: '/teach' },

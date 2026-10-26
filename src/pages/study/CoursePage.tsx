@@ -25,7 +25,6 @@ export default function CoursePage() {
   if (!lesson) {
     return (
       <div className="page">
-        <p><Link to="/study">← Study</Link></p>
         <h1>Salvation history in twelve lessons</h1>
         <p className="lede">Follow the story of the Bible in order, from creation to the new creation. Each lesson has a short reading and three questions. Scores stay on this device.</p>
         <ol className="list">

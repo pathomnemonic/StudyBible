@@ -13,7 +13,7 @@ const read = (): Record<string, 1> => {
   if (raw) { try { mem = JSON.parse(raw) as Record<string, 1>; } catch { mem = {}; } return mem!; }
   mem = {};
   try {
-    if (localStorage.getItem('sb:tour') === '1' && !localStorage.getItem('sb:welcomed')) for (const id of ['tab./room', 'tab./study', 'tab./read', 'tab./listen']) mem[id] = 1;
+    if (localStorage.getItem('sb:tour') === '1' && !localStorage.getItem('sb:welcomed')) for (const id of ['tab./room', 'tab./study', 'tab./read', 'tab./listen', 'tab./profile']) mem[id] = 1;
     localStorage.setItem(KEY, JSON.stringify(mem));
   } catch { /* private mode */ }
   return mem!;

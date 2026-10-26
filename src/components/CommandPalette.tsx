@@ -34,7 +34,7 @@ const NAV: { label: string; to: string }[] = [
   { label: 'Bible in a Year', to: '/listen' },
   { label: 'Read with the Church (guided session)', to: '/session' },
   { label: 'Read', to: '/read' },
-  { label: 'Study home', to: '/study' },
+  { label: 'Explore the Bible: study tools', to: '/study' },
   { label: 'Fathers & saints library', to: '/room' },
   { label: 'Catechism & doctrine', to: '/study/doctrine' },
   { label: 'Sources & rights', to: '/study/sources' },

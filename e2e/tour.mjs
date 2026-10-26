@@ -17,7 +17,7 @@ for (const vp of [{ width: 390, height: 844 }, { width: 1280, height: 800 }]) {
     const label = await p.evaluate(() => document.querySelector('[class*=tour] .tour-text, [class*=tour] p')?.textContent ?? '');
     if (/Take this tour again/.test(label)) break;
     // a "Tap X" step names a tab: that tab must be visible and not covered
-    const m = /^Tap (Media|Read|Pray|Learn|Study|Bible)\.$/.exec(label.trim());
+    const m = /^Tap (Media|Read|Pray|Learn|You|Bible)\.$/.exec(label.trim());
     if (m) {
       const ok = await p.evaluate((name) => {
         const a = [...document.querySelectorAll('.tabs a')].find((x) => x.textContent?.includes(name));
@@ -29,7 +29,7 @@ for (const vp of [{ width: 390, height: 844 }, { width: 1280, height: 800 }]) {
       }, m[1]);
       if (ok !== 'ok') fail(`${vp.width}px, step "${label.trim()}": ${ok}`);
     }
-    const next = p.locator('button:has-text("Skip step"), button:has-text("Next"), button:has-text("Done")').first();
+    const next = p.locator('.tour-layer button:has-text("Skip step"), .tour-layer button:has-text("Next"), .tour-layer button:has-text("Done")').first();
     if (await next.count()) await next.click().catch(() => {});
     else break;
   }

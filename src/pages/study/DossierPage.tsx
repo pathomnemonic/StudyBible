@@ -16,7 +16,6 @@ export default function DossierPage() {
   };
   return (
     <div className="page">
-      <p><Link to="/study">← Study</Link></p>
       <h1>Passage dossier</h1>
       <p className="lede">Type a passage to gather everything the app has on it in one page you can read or print: the text, the Catechism, commentary, the Fathers, homilies, videos and questions.</p>
       <form onSubmit={go} className="row" style={{ gap: 6 }}>

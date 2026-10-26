@@ -46,25 +46,12 @@ const tile = (href: string) => q(`.page a[href="#${href}"]`);
 const panelTab = (name: RegExp) => () => [...document.querySelectorAll('aside.panel [role=tab]')].find((t) => name.test(t.textContent ?? '')) ?? null;
 
 const STEPS: Step[] = [
-  { part: 'Today', route: '/today', exact: true, find: q('.home-verse'), text: 'This is Today: a verse for the day, a saint’s words, and a question.' },
-  { part: 'Bible', route: '/today', exact: true, find: q('.tabs a[href^="#/read"]'), tap: true, text: 'Tap Bible to open it.' },
-  { part: 'Bible', route: '/read/webc/JHN/6', find: q('.reader-bar'), text: 'Let us read John 6, the Bread of Life.', sub: 'Pick any book up here, or switch translation.' },
-  { part: 'Bible', find: verse51, tap: true, hit: (t) => !!t.closest('.v[data-v="51"]'), text: 'Tap verse 51: “I am the living bread.”' },
+  { part: 'Today', route: '/today', exact: true, find: q('.home-verse'), text: 'Today: a verse, a saint’s words and a question for the day.', sub: 'Pick up where you left off from the buttons below. Tap the pen to write your answer to the question.' },
+  { part: 'Bible', route: '/read/webc/JHN/6', find: verse51, tap: true, hit: (t) => !!t.closest('.v[data-v="51"]'), text: 'Tap any verse to study it. Try verse 51.', sub: 'Tap a verse and everything gathered around it opens.' },
   { part: 'Bible', narrow: true, find: q('.actionbar .btn.primary'), tap: true, text: 'Tap Study this passage.' },
-  { part: 'Bible', find: () => document.querySelector('aside.panel [role=tablist]') ?? document.querySelector('aside.panel'), text: 'One verse, everything gathered around it.', sub: 'Notes holds the Catechism first, then Haydock, à Lapide, the Church Fathers and saints, each tied to this verse.' },
-  { part: 'Bible', find: panelTab(/Connections/), tap: true, hit: (t) => /Connections/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Connections.' },
-  { part: 'Bible', closePanel: true, find: () => document.querySelector('aside.panel .panel-body'), text: 'The manna, the Last Supper, who quoted this verse, and cross-references.', sub: 'Each one opens the passage it points to.' },
-  { part: 'Media', find: q('.tabs a[href="#/listen"]'), tap: true, text: 'Tap Media.' },
-  { part: 'Media', route: '/listen', find: q('.year-hero, .page h1'), text: 'The Bible in a Year first, then podcasts, audiobooks and videos.', sub: 'Choose favorites under For you and they come first.' },
-  { part: 'Read', find: q('.tabs a[href="#/room"]'), tap: true, text: 'Tap Read.' },
-  { part: 'Read', route: '/room', find: q('.page h1'), text: 'Read and listen beyond the Bible.', sub: 'Open any work and a Bible chapter sits beside it, so you can read the Scripture and what the saints made of it together. Many works have recordings too.' },
-  { part: 'Pray', find: q('.tabs a[href="#/pray"]'), tap: true, text: 'Tap Pray.' },
-  { part: 'Pray', route: '/pray', find: q('.page h1'), text: 'The rosary, Divine Mercy, novenas and more, all interactive.', sub: 'Tap to say a prayer bead by bead, or pray along with a recording.' },
-  { part: 'Learn', find: q('.tabs a[href="#/learn"]'), tap: true, text: 'Tap Learn.' },
-  { part: 'Learn', route: '/learn', find: q('.page h1'), text: 'The Catholic faith, taught: pick your level, or look things up in the Catechism.', sub: 'Lessons run from Kindergarten to Grade 12, plus an adults course.' },
-  { part: 'Study', find: q('.tabs a[href="#/study"]'), tap: true, text: 'Tap Study.' },
-  { part: 'Study', route: '/study', exact: true, find: q('.page h1'), text: 'Study is where the deep tools are. Let us open a few.' },
-  { part: 'Done', route: '/today', exact: true, title: 'You are set', text: 'Take this tour again any time from Profile.' },
+  { part: 'Bible', find: () => document.querySelector('aside.panel [role=tablist]') ?? document.querySelector('aside.panel'), text: 'Notes, Connections, Words, World and Media for this verse.', sub: 'Notes put the Catechism first, then the commentators and the Church Fathers. Words shows the Greek and Hebrew.' },
+  { part: 'Bible', closePanel: true, find: panelTab(/Connections/), tap: true, hit: (t) => /Connections/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Connections to follow this verse to other passages and who quoted it.' },
+  { part: 'Done', route: '/today', exact: true, title: 'That is all you need', text: 'Red dots mark what you have not opened yet, and each new feature explains itself the first time. Everything is also in Search and on the Everything page.' },
 ];
 
 /** Invisible shields over everything except the one thing to tap, so a stray tap cannot break the tour. */

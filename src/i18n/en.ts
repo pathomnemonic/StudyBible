@@ -3,6 +3,7 @@ export const en = {
   'nav.today': 'Today',
   'nav.bible': 'Bible',
   'nav.study': 'Study',
+  'nav.you': 'You',
   'nav.learn': 'Learn',
   'nav.notes': 'Notes',
   'nav.more': 'More',

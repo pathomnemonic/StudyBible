@@ -81,7 +81,7 @@ export default function SettingsPage() {
           <button className="btn" onClick={() => window.dispatchEvent(new Event('studybible:tour'))}>Take the short tour</button>
         </div>
       </Fold>
-      <Fold id="settings:Your Church" title="Your Church" open={false}>
+      <Fold id="settings:Your Church" title="Your Church" open={true}>
         <p className="muted small">The app began with the Latin (Roman) Rite. Choose your Church so it uses your own names (Divine Liturgy, Holy Qurbana…), shows the right calendar where it can, and says plainly where its readings and prayers follow the Roman Rite rather than yours.</p>
         <label className="row between" style={{ margin: '10px 0' }}>
           <span>I belong to</span>
@@ -105,7 +105,7 @@ export default function SettingsPage() {
       </details>
 
 
-      <Fold id="settings:Reminders (optional)" title="Reminders (optional)" open={false}>
+      <Fold id="settings:Reminders (optional)" title="Reminders (optional)" open={true}>
         <p className="muted small">Entirely under your control. They work while the app is open or installed; nothing is sent from a server and no tracking is involved.</p>
         <label className="row between" style={{ margin: '8px 0' }}><span>Remind me daily</span><input type="checkbox" checked={s.reminders.enabled} onChange={async (e) => { if (e.target.checked) { const r = await enableReminders(); setRemMsg(r === 'granted' ? 'Reminders enabled while the app is running.' : r === 'denied' ? 'Notification permission was denied in the browser.' : 'This browser does not support notifications.'); set({ reminders: { ...s.reminders, enabled: r === 'granted' } }); } else set({ reminders: { ...s.reminders, enabled: false } }); setTimeout(scheduleReminder, 50); }} /></label>
         <div className="row between" style={{ margin: '8px 0' }}><span>Time</span><input type="time" aria-label="Reminder time" value={s.reminders.time} onChange={(e) => { set({ reminders: { ...s.reminders, time: e.target.value } }); setTimeout(scheduleReminder, 50); }} /></div>

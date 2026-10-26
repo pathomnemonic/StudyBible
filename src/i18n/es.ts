@@ -4,6 +4,7 @@ export const es: Partial<Record<Key, string>> = {
   'nav.today': 'Hoy',
   'nav.bible': 'Biblia',
   'nav.study': 'Estudio',
+  'nav.you': 'Tú',
   'nav.learn': 'Aprender',
   'nav.notes': 'Notas',
   'nav.more': 'Más',

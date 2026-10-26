@@ -16,21 +16,14 @@ import BibleToolMenu from './BibleToolMenu';
 import { BRAND } from '../lib/brand';
 import BackupBanner from './BackupBanner';
 import { snapshotIfDue } from '../lib/safety';
-import { BIBLE_TOOLS, isBibleToolPath } from '../lib/bibleTools';
+import { isBibleToolPath } from '../lib/bibleTools';
+import { DAILY_PRAY, inBible, inLearn, inPray, inRead, inYou, under } from '../lib/tabs';
 
 // Seven places along the bottom: Learn (the faith, taught), Read (texts and recordings beyond the Bible, read beside a Bible chapter), Study (anything educational), Today (where the app opens), the Bible, and Listen (the Bible in a Year, spoken).
-// Profile (notes, plans, settings, prayer) is the round button at the top right of every screen. The Mass readings belong to Today.
-const PROFILE_PATHS = ['/profile', '/downloads', '/library', '/settings', '/account', '/about', '/more', '/days', '/share'];
-/** Paths under /pray that belong to Today's daily practice rather than the Pray tab. */
-const DAILY_PRAY = ['/pray/readings', '/pray/plans'];
-const inPray = (path: string) => (['/pray', '/mass'].some((m) => path === m || path.startsWith(m + '/'))) && !DAILY_PRAY.some((m) => path === m || path.startsWith(m + '/'));
-/** The Catechism program, the Catechism itself and the pages that teach the faith: they belong to Learn, not Study. */
-const LEARN_PATHS = ['/learn', '/study/curriculum', '/study/prepare', '/study/young-adults', '/study/adults', '/study/kids', '/study/apologetics', '/study/visual', '/study/catechism', '/study/doctrine', '/study/course', '/study/story', '/study/paths', '/teach', '/join'];
-const under = (path: string, list: string[]) => list.some((m) => path === m || path.startsWith(m + '/'));
-const inLearn = (path: string) => under(path, LEARN_PATHS);
+// You (notes, plans, settings, downloads) is the first tab. Study tools live with the Bible tab. The Mass readings belong to Today.
 const TABS = [
+  { to: '/profile', label: 'You', key: 'nav.you' as Key, icon: 'user', match: [] as string[] },
   { to: '/room', label: 'Read', key: 'nav.room' as Key, icon: 'library', match: ['/room'] },
-  { to: '/study', label: 'Study', key: 'nav.study' as Key, icon: 'study', match: [] as string[] },
   { to: '/learn', label: 'Learn', key: 'nav.learn' as Key, icon: 'learn', match: [] as string[] },
   { to: '/today', label: 'Today', key: 'nav.today' as Key, icon: 'sun', match: ['/today', '/pray/readings'], home: true },
   { to: '/read', label: 'Bible', key: 'nav.bible' as Key, icon: 'read', match: ['/read'] },
@@ -99,7 +92,7 @@ export default function Shell({ children }: { children: ReactNode }) {
   // arriving at a tab any other way (a link, the address bar) counts as having opened it
   useEffect(() => {
     const p = loc.pathname;
-    const hit = TABS.find((tb) => tb.to === '/pray' ? inPray(p) : tb.to === '/learn' ? inLearn(p) : tb.to === '/study' ? p.startsWith('/study') && !inLearn(p) : tb.to !== '/today' && (p === tb.to || p.startsWith(tb.to + '/')));
+    const hit = TABS.find((tb) => tb.to === '/profile' ? inYou(p) : tb.to === '/room' ? inRead(p) : tb.to === '/pray' ? inPray(p) : tb.to === '/learn' ? inLearn(p) : tb.to === '/read' ? inBible(p) : tb.to !== '/today' && (p === tb.to || p.startsWith(tb.to + '/')));
     if (hit) markSeen(`tab.${hit.to}`);
   }, [loc.pathname]);
   // ask the browser not to clear this site's data, and keep the Drive copy (if connected) up to date
@@ -114,7 +107,6 @@ export default function Shell({ children }: { children: ReactNode }) {
   useEffect(() => { const a = () => setOffline(true), b = () => setOffline(false); window.addEventListener('offline', a); window.addEventListener('online', b); return () => { window.removeEventListener('offline', a); window.removeEventListener('online', b); }; }, []);
   const fullscreenReader = ((loc.pathname.startsWith('/read') || loc.pathname.startsWith('/room/work') || loc.pathname.startsWith('/study/works')) && s.scriptureOnly) || loc.pathname.startsWith('/widget');
   const home = isHome(loc.pathname);
-  const profileActive = PROFILE_PATHS.some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/')) && !loc.pathname.startsWith('/pray/readings');
   return (
     <div className={`shell${fullscreenReader ? ' quiet' : ''}${home ? ' home-shell' : ''}`}>
       {offline && <div className="offline-pill" role="status">Offline: everything you have opened or downloaded still works</div>}
@@ -131,8 +123,8 @@ export default function Shell({ children }: { children: ReactNode }) {
           <span>{t('nav.search')}</span>
         </button>
         {TABS.map((tb) => {
-          const tool = isBibleToolPath(loc.pathname);
-          const active = tool ? tb.to === '/read' : tb.to === '/pray' ? inPray(loc.pathname) : tb.to === '/learn' ? inLearn(loc.pathname) : tb.to === '/study' ? loc.pathname.startsWith('/study') && !inLearn(loc.pathname) : (tb.match.some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/'))) || (!!tb.home && loc.pathname === '/');
+          const p = loc.pathname;
+          const active = tb.to === '/profile' ? inYou(p) : tb.to === '/room' ? inRead(p) : tb.to === '/pray' ? inPray(p) : tb.to === '/learn' ? inLearn(p) : tb.to === '/read' ? inBible(p) : (tb.match.some((m) => p === m || p.startsWith(m + '/'))) || (!!tb.home && p === '/');
           return (
             <NavLink
               key={tb.to}
@@ -150,12 +142,6 @@ export default function Shell({ children }: { children: ReactNode }) {
         })}
         <div className="tab-spacer" />
       </nav>
-      {!fullscreenReader && (
-        <NavLink to="/profile" className={`profile-btn${profileActive ? ' active' : ''}`} aria-label="Profile: notes, plans, settings" aria-current={profileActive ? 'page' : undefined} title="Profile">
-          <Icon name="user" size={20} />
-          {sync.user && <i className={`sync-dot ${sync.status}`} />}
-        </NavLink>
-      )}
       <main id="main" className="main">
         {!home && <BackupBanner />}
         {inDaily(loc.pathname) && !fullscreenReader && (
@@ -168,16 +154,11 @@ export default function Shell({ children }: { children: ReactNode }) {
         {isBibleToolPath(loc.pathname) && !fullscreenReader && (
           <BibleToolMenu back={s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : '/read'} />
         )}
-        {loc.pathname.startsWith('/study/') && !isBibleToolPath(loc.pathname) && (
-          <nav className="crumbs" aria-label="Breadcrumb">
-            {inLearn(loc.pathname) ? <NavLink to="/learn">← Learn</NavLink> : <NavLink to="/study">← Study</NavLink>}
-          </nav>
-        )}
-        {['/library', '/settings', '/account', '/about', '/more', '/days', '/downloads', '/goals', '/privacy'].some((p) => loc.pathname === p || loc.pathname.startsWith(p + '/')) && (
-          <nav className="crumbs" aria-label="Breadcrumb">
-            <NavLink to="/profile">← You</NavLink>
-          </nav>
-        )}
+        {(() => {
+          const p = loc.pathname;
+          const c: [string, string] | null = p.startsWith('/study/') && inLearn(p) ? ['/learn', 'Learn'] : p.startsWith('/study/') && inRead(p) ? ['/room', 'Read'] : p.startsWith('/study/') && !isBibleToolPath(p) ? ['/study', 'Explore'] : inYou(p) && p !== '/profile' ? ['/profile', 'You'] : null;
+          return c ? <nav className="crumbs" aria-label="Breadcrumb"><NavLink to={c[0]}>← {c[1]}</NavLink></nav> : null;
+        })()}
         {children}
       </main>
       {keys && (

@@ -25,7 +25,7 @@ export default function StudyHome() {
   }, [s.diocese]);
   return (
     <div className="page hub">
-      <HubHeader title="Study" sub="Go deeper into the text: words, books, people, places and sources." />
+      <HubHeader title="Explore the Bible" sub="Study tools for the text: words, books, people, places and sources." />
       <HubHero tone="study" eyebrow="Search" title="Find anything in the Bible and the library">
         <form className="row" style={{ gap: 8, width: '100%' }} onSubmit={go} role="search">
           <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="John 6:51, bread of life, Augustine…" aria-label="Search everything" />

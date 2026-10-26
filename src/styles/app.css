@@ -4790,3 +4790,8 @@ button, a, [role='button'] { touch-action: manipulation; }
 .gen-detail { padding: 6px 10px 10px; margin: 4px 0 6px; border-left: 3px solid var(--accent); font-size: .9rem; } .gen-detail p { margin: 3px 0; }
 .chips:has(> button), .chips:has(> a.chip), .chip-scroll { min-width: 0; max-width: 100%; }
 @media (max-width: 380px) { .reader-bar { gap: 2px; padding: 0 6px; } .reader-bar > .icon-btn:first-child { display: none; } .reader-bar .icon-btn { width: 34px; min-width: 34px; } }
+/* quick settings on the You page */
+.qs { display: grid; gap: 14px; margin: 0 0 24px; } .qs-block { border: 1px solid var(--border); border-radius: 16px; padding: 12px 14px; background: var(--surface); } .qs-block h3 { margin: 0 0 8px; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.qs-themes { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; margin-bottom: 8px; } .qs-theme { background: none; border: 2px solid transparent; border-radius: 12px; padding: 4px; cursor: pointer; display: grid; gap: 3px; color: var(--text); font: inherit; } .qs-theme.on { border-color: var(--accent); } .qs-theme small { font-size: .7rem; color: var(--muted); text-align: center; line-height: 1.1; }
+.qs-sw { display: grid; place-items: center; position: relative; height: 40px; border-radius: 9px; border: 1px solid; font-weight: 700; font-family: var(--font-serif); } .qs-sw b { position: absolute; right: 5px; bottom: 5px; width: 14px; height: 6px; border-radius: 3px; }
+.welcome-h { margin: 12px 0 6px; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }

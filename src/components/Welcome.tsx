@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { THEMES, updateSettings, useSettings, type ThemeName } from '../lib/store';
+import { THEMES, updateSettings, useSettings } from '../lib/store';
 import { TRADITIONS } from '../lib/tradition';
 import { LANGS } from '../lib/i18n';
 import { NATIONS } from '../liturgy/litcal';
 import { enableReminders, scheduleReminder } from '../liturgy/reminders';
-import { useEditions } from '../data/EditionsContext';
 import { startHere } from '../lib/features';
 import { BRAND } from '../lib/brand';
 import FavoritesPicker from './FavoritesPicker';
@@ -27,15 +26,13 @@ const INTERESTS: [string, string, string][] = [
   ['teach', 'Teach or lead a class', 'K–12 program, slides, live games and gradebook'],
   ['family', 'Raise a family in the faith', 'Children’s Bible, family prayer and lessons'],
 ];
-const PICK: ThemeName[] = ['twilight', 'light', 'paper', 'sepia', 'dark', 'zen'];
-const STEPS = ['What brings you here?', 'Your Church and Bible', 'Your favorites', 'Your daily rhythm', 'Keep your notes safe', 'You’re set'];
+const STEPS = ['What brings you here?', 'Your Church and look', 'Your favorites', 'Your daily rhythm', 'Keep your notes safe', 'You’re set'];
 
 /** The setup: a few short steps that tailor the app to the reader and make sure their writing is kept safe. Everyone sees it once (existing readers too), and every choice can be changed later in Settings. */
 export default function Welcome() {
   const [on, setOn] = useState(() => get(SETUP_KEY) !== SETUP_VERSION);
   const [i, setI] = useState(0);
   const [s] = useSettings();
-  const { editions } = useEditions();
   const sync = useSync();
   const [remMsg, setRemMsg] = useState('');
   const [warn, setWarn] = useState(false);
@@ -55,7 +52,6 @@ export default function Welcome() {
     if (tour) window.setTimeout(() => window.dispatchEvent(new Event('studybible:tour')), 250);
   };
   const toggleInterest = (id: string) => updateSettings({ interests: s.interests.includes(id) ? s.interests.filter((x) => x !== id) : [...s.interests, id] });
-  const shown = editions.filter((e) => !e.offByDefault || e.id === s.defaultEdition);
   const last = i === STEPS.length - 1;
   const SAFE = 4;
   const suggestions = startHere(null, s.interests, 3);
@@ -95,12 +91,17 @@ export default function Welcome() {
             <select value={s.diocese} onChange={(e) => updateSettings({ diocese: e.target.value })} aria-label="Liturgical calendar">{Object.entries(NATIONS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></label>
           <label className="welcome-row"><span>Language</span>
             <select value={s.language} onChange={(e) => updateSettings({ language: e.target.value as typeof s.language })} aria-label="Language">{LANGS.map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></label>
-          <label className="welcome-row"><span>Bible translation</span>
-            <select value={s.defaultEdition} onChange={(e) => updateSettings({ defaultEdition: e.target.value })} aria-label="Translation">{shown.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}</select></label>
           <div className="welcome-row"><span>Text size</span>
             <span className="tour-switch" role="group" aria-label="Text size"><button onClick={() => updateSettings({ fontSize: Math.max(14, s.fontSize - 2) })} aria-label="Smaller text">A−</button><span className="tour-size">{s.fontSize}</span><button onClick={() => updateSettings({ fontSize: Math.min(32, s.fontSize + 2) })} aria-label="Larger text">A+</button></span></div>
-          <div className="welcome-row"><span>Look</span>
-            <span className="tour-switch" role="group" aria-label="Theme">{PICK.map((id) => { const t = THEMES.find((x) => x[0] === id); return t ? <button key={id} className={s.theme === id ? 'on' : ''} aria-pressed={s.theme === id} onClick={() => updateSettings({ theme: id })}>{t[1]}</button> : null; })}</span></div>
+          <h3 className="welcome-h">Color</h3>
+          <div className="qs-themes" role="group" aria-label="Color theme">
+            {THEMES.map(([k, l, bg, fg, ac]) => (
+              <button key={k} className={`qs-theme${s.theme === k ? ' on' : ''}`} aria-pressed={s.theme === k} onClick={() => updateSettings({ theme: k })} title={l}>
+                <span className="qs-sw" style={{ background: bg, color: fg, borderColor: ac }}><b style={{ background: ac }} />Aa</span>
+                <small>{l.replace(' (default)', '')}</small>
+              </button>
+            ))}
+          </div>
           <p className="welcome-preview" style={{ fontSize: s.fontSize }}>In the beginning was the Word, and the Word was with God, and the Word was God.</p>
         </>}
 
