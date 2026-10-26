@@ -46,7 +46,6 @@ export default function MassGuidePage() {
   if (!t.roman && st.tradition === 'byzantine') {
     return (
       <div className="page">
-        <p><Link to="/pray">← Prayer</Link></p>
         <h1>Following the Divine Liturgy</h1>
         <p className="lede">The parts of the Divine Liturgy of St John Chrysostom, in order. Other days use the Liturgy of St Basil or the Presanctified Gifts, and each Church has its own books and customs. Follow your own parish’s service book.</p>
         {BYZANTINE.map((sec) => <section className="card" key={sec.head}><h2 className="card-title">{sec.head}</h2><ol className="list">{sec.items.map((i) => <li key={i.name}><strong>{i.name}.</strong> {i.note}</li>)}</ol></section>)}
@@ -60,7 +59,6 @@ export default function MassGuidePage() {
   if (!t.roman) {
     return (
       <div className="page">
-        <p><Link to="/pray">← Prayer</Link></p>
         <h1>Following the {t.liturgy}</h1>
         <p className="lede">The {t.liturgy} of the {t.name} has its own order, prayers and readings, and this app does not have them. The outline below is of the Roman Mass and would not match yours, so we do not show it as if it did.</p>
         <p>Please use your parish’s service book{t.site ? <> or <a href={t.site.url} target="_blank" rel="noreferrer noopener">{t.site.label}</a></> : ''}.</p>
@@ -70,7 +68,6 @@ export default function MassGuidePage() {
   }
   return (
     <div className="page">
-      <p><Link to="/pray">← Prayer</Link></p>
       <h1>Following the Mass</h1>
       <p className="lede">The parts of the Mass in order, with a word on what each one is. The Church’s English texts of the Mass are copyrighted, so this guide describes the parts and sends you to the official sources.</p>
       {PARTS.map((s) => (

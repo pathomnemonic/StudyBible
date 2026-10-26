@@ -19,7 +19,6 @@ const OUT: [string, string, string][] = [
 export default function PrivacyPage() {
   return (
     <div className="page">
-      <p><Link to="/about">← About</Link></p>
       <h1>Privacy</h1>
       <p className="lede">Your notes and prayers belong to you. This page says exactly where they live and when anything leaves your device.</p>
       <h2>Stays on your device</h2>

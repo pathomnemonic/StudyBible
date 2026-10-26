@@ -26,7 +26,6 @@ export default function GoalsPage() {
   const today = new Date().getDay();
   return (
     <div className="page">
-      <p><Link to="/profile">← Profile</Link></p>
       <h1>Reading goal</h1>
       <p className="lede">Pick a number of Bible chapters for the week. It counts the chapters you open in the reader. No streak to lose, just a nudge.</p>
       <div className="card">

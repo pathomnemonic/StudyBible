@@ -28,7 +28,6 @@ function EasternYear() {
   const days = s.tradition === 'byzantine' ? [...byzantineMovable(y, s.paschaJulian), ...byzantineFixed(y, s.oldCalendar)].sort((a, b) => a.date.getTime() - b.date.getTime()) : [];
   return (
     <div className="page">
-      <p><Link to="/pray">← Prayer</Link></p>
       <h1>The Church’s year: {t.name.split(' (')[0]}</h1>
       {s.tradition === 'byzantine' ? (
         <>
@@ -80,7 +79,6 @@ function RomanYear() {
   }, [nation]);
   return (
     <div className="page">
-      <p><Link to="/pray">← Prayer</Link></p>
       <h1>The Church’s year</h1>
       <p className="lede">The cycle of seasons and great days that the readings, prayers and saints follow. Dates are for the {nation === 'usa' ? 'United States' : 'universal'} calendar; change it in Settings.</p>
       <ol className="list year-seasons">

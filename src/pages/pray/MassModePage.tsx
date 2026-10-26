@@ -47,7 +47,7 @@ export default function MassModePage() {
 
   if (!t.roman && !force) {
     return (
-      <div className="page"><Link to="/pray">← Pray</Link><h1>Mass mode</h1>
+      <div className="page"><h1>Mass mode</h1>
         <p>This guide follows the Roman Mass. {st.tradition === 'byzantine' ? <>For the Byzantine Divine Liturgy use <Link to="/pray/divine-liturgy">the Divine Liturgy page</Link>.</> : <>For the {t.name}, the <Link to="/pray/liturgies">Liturgies page</Link> lists what is in the app and where to find your Church’s books.</>}</p>
         <p><button className="btn" onClick={() => setForce(true)}>Show the Roman Mass anyway</button></p>
       </div>

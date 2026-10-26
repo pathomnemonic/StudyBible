@@ -82,7 +82,6 @@ export default function SessionBuilderPage() {
   }
   return (
     <div className="page">
-      <p><Link to="/pray">← Prayer</Link></p>
       <h1>Build your own prayer time</h1>
       <p className="lede">Put prayers, Scripture and silence in the order you like, then pray through them one at a time. Your playlist stays on this device.</p>
       {shared && (

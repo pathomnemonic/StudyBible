@@ -37,7 +37,6 @@ export default function MementoPage() {
   const badDate = m.birthday && !parseBirthday(m.birthday);
   return (
     <div className="page memento">
-      <p><Link to="/pray">← Prayer</Link></p>
       <h1>Memento mori</h1>
       <p className="lede">“Remember that you will die.” The saints kept death before their eyes, not to be gloomy, but to live each day for what lasts. This is an optional, private reminder.</p>
 

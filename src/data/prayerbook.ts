@@ -4,7 +4,9 @@
  */
 export interface BookPrayer { id: string; title: string; text: string; tags: string[]; note?: string }
 
-export const BOOK_PRAYERS: BookPrayer[] = [
+import { MORE_PRAYERS } from './prayerbook2';
+
+const CORE_PRAYERS: BookPrayer[] = [
   { id: 'sign', title: 'Sign of the Cross', tags: ['basic', 'morning', 'evening', 'daily'], text: 'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.' },
   { id: 'pater', title: 'Our Father', tags: ['basic', 'daily', 'lord'], text: 'Our Father, who art in heaven, hallowed be thy name; thy kingdom come; thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil. Amen.' },
   { id: 'ave', title: 'Hail Mary', tags: ['basic', 'mary', 'daily'], text: 'Hail Mary, full of grace, the Lord is with thee; blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.' },
@@ -53,5 +55,7 @@ export const BOOK_PRAYERS: BookPrayer[] = [
   { id: 'peace', title: 'For peace', tags: ['peace', 'war', 'world', 'church', 'justice'], text: 'O God, from whom all holy desires, all good counsels and all just works do proceed: give unto thy servants that peace which the world cannot give, that our hearts may be set to obey thy commandments, and that, being defended from the fear of our enemies, we may pass our time in rest and quietness. Through Christ our Lord. Amen.' },
   { id: 'pope', title: 'For the Pope and the Church', tags: ['church', 'pope', 'intercession', 'bishops'], text: 'Let us pray for our Pope. May the Lord preserve him, give him life, make him blessed upon the earth, and deliver him not up to the will of his enemies. Our Father, Hail Mary. Almighty and everlasting God, have mercy upon thy servant our Pope, and direct him according to thy loving kindness in the way of everlasting salvation, that of thy gift he may desire what is pleasing to thee and perform it with all his strength. Through Christ our Lord. Amen.' },
 ];
+
+export const BOOK_PRAYERS: BookPrayer[] = [...CORE_PRAYERS, ...MORE_PRAYERS];
 
 export const PRAYER_TAGS = ['eastern', 'morning', 'evening', 'mary', 'eucharist', 'confession', 'sick', 'dead', 'peace', 'study', 'family', 'angels', 'holy-spirit', 'travel', 'work', 'anxiety', 'basic'] as const;

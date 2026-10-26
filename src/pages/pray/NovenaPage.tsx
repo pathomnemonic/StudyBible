@@ -30,7 +30,6 @@ export default function NovenaPage() {
   if (!plan) {
     return (
       <div className="page">
-        <p><Link to="/pray">← Prayer</Link></p>
         <h1>Novenas and short plans</h1>
         <p className="lede">A passage and a prayer for each day. Your progress stays on this device.</p>
         <div className="grid">

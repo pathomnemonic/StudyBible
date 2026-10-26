@@ -26,7 +26,6 @@ export default function ExamenPage() {
   };
   return (
     <div className="page">
-      <p><Link to="/pray">← Prayer</Link></p>
       <h1>The daily Examen</h1>
       <p className="lede">A few quiet minutes at the end of the day. Nothing you write here is saved unless you choose to keep it.</p>
       <div className="progress" aria-hidden><div style={{ width: `${(100 * (i + 1)) / STEPS.length}%` }} /></div>

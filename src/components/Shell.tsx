@@ -156,7 +156,7 @@ export default function Shell({ children }: { children: ReactNode }) {
         )}
         {(() => {
           const p = loc.pathname;
-          const c: [string, string] | null = p.startsWith('/study/') && inLearn(p) ? ['/learn', 'Learn'] : p.startsWith('/study/') && inRead(p) ? ['/room', 'Read'] : p.startsWith('/study/') && !isBibleToolPath(p) ? ['/study', 'Explore'] : inYou(p) && p !== '/profile' ? ['/profile', 'You'] : null;
+          const c: [string, string] | null = p.startsWith('/study/') && inLearn(p) ? ['/learn', 'Learn'] : p.startsWith('/study/') && inRead(p) ? ['/room', 'Read'] : p.startsWith('/study/') && !isBibleToolPath(p) ? ['/study', 'Explore'] : inYou(p) && p !== '/profile' ? ['/profile', 'You'] : /^\/pray\/[^/]+$/.test(p) && !inDaily(p) && !fullscreenReader ? ['/pray', 'Pray'] : p.startsWith('/listen/episode') ? ['/listen', 'Media'] : null;
           return c ? <nav className="crumbs" aria-label="Breadcrumb"><NavLink to={c[0]}>← {c[1]}</NavLink></nav> : null;
         })()}
         {children}

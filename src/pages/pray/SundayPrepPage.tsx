@@ -48,7 +48,6 @@ export default function SundayPrepPage() {
   const top = (k: SectionKey, n = 3) => (data[k] ?? []).slice(0, n);
   return (
     <div className="page">
-      <p><Link to="/pray">← Prayer</Link></p>
       <h1>Prepare for Sunday</h1>
       <p className="lede">Read the Mass readings ahead of time, then listen or read what others have said about the Gospel.</p>
       <div className="row between" style={{ marginBottom: 8 }}>

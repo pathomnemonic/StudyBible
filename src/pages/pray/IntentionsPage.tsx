@@ -22,7 +22,6 @@ export default function IntentionsPage() {
   const prayedToday = open.filter((x) => x.last === today()).length;
   return (
     <div className="page">
-      <p><Link to="/pray">← Prayer</Link></p>
       <h1>Prayer list</h1>
       <Tip id="intentions" title="Pray for people by name">Add a person or a need. Tap “I prayed” each day you remember it. When God answers, mark it answered and keep the story.</Tip>
       <p className="lede">The people and needs you carry. Private to this device.</p>

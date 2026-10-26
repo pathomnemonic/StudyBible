@@ -34,7 +34,6 @@ export default function LifePage() {
   const since = last ? days(new Date(`${last}T00:00:00Z`), today) : null;
   return (
     <div className="page">
-      <p><Link to="/pray">← Prayer</Link></p>
       <h1>Catholic life</h1>
       <p className="lede">What the Church asks today, how to go to Confession, and where to find a Mass. Nothing here is sent anywhere.</p>
 

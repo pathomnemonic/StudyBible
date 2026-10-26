@@ -82,7 +82,6 @@ export default function MorningPage() {
 
   return (
     <div className="page narrow">
-      <p><Link to="/pray">← Prayer</Link></p>
       <h1>Morning mode</h1>
       <p className="lede">Wake to a quiet start: the sound rises slowly, a bell rings, and the day’s Gospel is shown and read aloud.</p>
       {phase !== 'awake' && (

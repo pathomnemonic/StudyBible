@@ -32,7 +32,6 @@ export default function EpisodePage() {
   const isCurrent = player.current?.id === ep.id;
   return (
     <div className="page">
-      <Link to="/listen" className="small">← Listen</Link>
       <h1>{ep.title}</h1>
       <div className="muted">{ep.date} · {fmtDuration(ep.duration)} · Fr. Mike Schmitz / Ascension</div>
       <div className="row" style={{ margin: '12px 0' }}>

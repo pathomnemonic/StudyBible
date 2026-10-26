@@ -101,7 +101,6 @@ export default function DownloadsPage() {
   const audioBytes = saved.reduce((n, x) => n + x.bytes, 0);
   return (
     <div className="page downloads">
-      <p><Link to="/settings">← Settings</Link></p>
       <h1>Downloads and offline</h1>
       <Tip id="downloads" title="Save things for the plane, the retreat or the road">Bibles and study data are small. Audio is large (about 1 MB a minute), so save only what you will use.</Tip>
       <p className="lede">Everything saved on this device, with the real size of each, and a way to remove it.</p>

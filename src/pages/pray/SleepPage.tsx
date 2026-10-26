@@ -121,7 +121,6 @@ export default function SleepPage() {
   }
   return (
     <div className="page">
-      <Link to="/pray" className="small">← Prayer</Link>
       <h1>Sleep mode</h1>
       <p className="lede">A psalm read slowly, one verse at a time, while the sound grows quieter and the screen dims. Put the phone down and let it carry you.</p>
       <div className="card">
