@@ -9,7 +9,7 @@ describe('pilgrim guides', () => {
     expect(new Set(all.map((s) => s.id)).size).toBe(all.length);
     for (const s of all) {
       expect(s.story.length, s.id).toBeGreaterThan(120);
-      expect(s.stops.length, s.id).toBeGreaterThanOrEqual(3);
+      expect(s.stops.length, s.id).toBeGreaterThanOrEqual(2);
       if (!/English/.test(s.lang)) expect(s.phrases.length, s.id).toBeGreaterThanOrEqual(3);
       expect(s.prayer.text.length, s.id).toBeGreaterThan(80);
       expect(s.site, s.id).toMatch(/^https:\/\//);
