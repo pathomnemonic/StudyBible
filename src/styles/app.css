@@ -5003,3 +5003,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 :root[data-motion='calm'] .drop i { animation-duration: 1500ms; }
 :root[data-motion='none'] .drop { display: none; }
 @media (prefers-reduced-motion: reduce) { .drop { display: none; } }
+/* the picture viewer's close button stays put while a tall card scrolls, and is readable on any theme */
+.gallery-card .galaxy-x { position: sticky; top: 4px; float: right; right: auto; z-index: 3; margin: -4px -4px 0 8px; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); }
+/* every dialog's title row, with its Close button, stays visible while the dialog scrolls */
+.modal > .row.between:first-child { position: sticky; top: -18px; z-index: 5; background: var(--surface); margin: -18px -20px 8px; padding: 14px 20px 8px; }

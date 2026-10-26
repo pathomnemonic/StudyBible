@@ -1,3 +1,4 @@
+import { copyText } from '../lib/clipboard';
 import { useEffect, useState } from 'react';
 import { popupY } from '../lib/popupPos';
 import type { HighlightColor } from '../db/db';
@@ -27,7 +28,7 @@ export default function WorkSelection({ onHighlight, onNote }: { onHighlight: (q
     <div className="work-sel" style={{ left: pos.x, top: pos.y }} role="toolbar" aria-label="Selected text" onMouseDown={(e) => e.preventDefault()}>
       {COLORS.map((c) => <button key={c} className="work-sel-dot" style={{ background: `var(--hl-${c})` }} aria-label={`Highlight ${c}`} onClick={() => { onHighlight(pos.text, pos.p, c); done(); }} />)}
       <button className="btn small" onClick={() => { onNote(pos.text, pos.p); done(); }}>Note</button>
-      <button className="btn small" onClick={() => { void navigator.clipboard?.writeText(pos.text); done(); }}>Copy</button>
+      <button className="btn small" onClick={() => { void copyText(pos.text); done(); }}>Copy</button>
       <button className="btn small" onClick={async () => { const t = `“${pos.text}” (${document.title})`; try { if (navigator.share) await navigator.share({ text: t }); else await navigator.clipboard?.writeText(t); } catch { /* cancelled */ } done(); }}>Share</button>
     </div>
   );

@@ -37,6 +37,7 @@ import { setAmbience, stopAmbience } from '../lib/ambience';
 import { useT } from '../lib/i18n';
 import Motes from '../components/Motes';
 import { buzz } from '../lib/haptics';
+import { copyText as safeCopy } from '../lib/clipboard';
 import { approvedLinks } from '../lib/approved';
 import NotePopover from '../components/NotePopover';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
@@ -521,12 +522,12 @@ export default function ReadPage() {
     }
     const label = `${bk.name} ${chNum}:${groupConsecutive(selNative).map(([a, b]) => (a === b ? a : `${a}–${b}`)).join(', ')}`;
     const body = lines.join(' ');
-    await navigator.clipboard?.writeText(settings.copyStyle === 'quote' ? `“${body}” — ${label} (${edition.shortName})` : `${body}\n— ${label} (${edition.shortName})`);
+    await safeCopy(settings.copyStyle === 'quote' ? `“${body}” — ${label} (${edition.shortName})` : `${body}\n— ${label} (${edition.shortName})`);
   };
   const copyLink = async () => {
     const [a, b] = parallelMode ? [selAnchor[0], selAnchor[selAnchor.length - 1]] : [Math.min(...selNative), Math.max(...selNative)];
     const base = location.href.split('?')[0].split('#')[0];
-    await navigator.clipboard?.writeText(`${base}#/read/${edition.id}/${bk.id}/${chNum}?v=${a}${b !== a ? '-' + b : ''}`);
+    await safeCopy(`${base}#/read/${edition.id}/${bk.id}/${chNum}?v=${a}${b !== a ? '-' + b : ''}`);
   };
 
   const markSpeaking = useCallback((n: number | null) => {
