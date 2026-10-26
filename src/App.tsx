@@ -1,6 +1,7 @@
 import { useSpelling } from './lib/spelling';
 import { lazy, Suspense, useEffect } from 'react';
 import { buzz } from './lib/haptics';
+import { installRipples } from './lib/ripple';
 import ErrorBoundary from './components/ErrorBoundary';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { EditionsProvider, useEditions } from './data/EditionsContext';
@@ -123,6 +124,8 @@ const AboutPage = lazy(() => import('./pages/AboutPage'));
 
 function ThemeApplier() {
   const [s] = useSettings();
+  useEffect(() => installRipples(), []);
+
   // a short tick under the finger for taps on buttons, tabs and chips, for readers who switched haptics on
   useEffect(() => {
     const h = (e: PointerEvent) => { if (e.pointerType === 'touch' && (e.target as HTMLElement | null)?.closest?.('.btn, .tab, .chip, .icon-btn, .hub-tile, .fold > summary')) buzz(6); };

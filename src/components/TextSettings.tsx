@@ -171,6 +171,15 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <input type="checkbox" checked={s.haptics} onChange={(e) => { set({ haptics: e.target.checked }); if (e.target.checked && 'vibrate' in navigator) navigator.vibrate(15); }} aria-label="Haptic feedback" />
       </label>
 
+      <label className="row between" style={{ margin: '4px 0' }}>
+        <span>Water ripples when you tap</span>
+        <input type="checkbox" checked={s.tapRipple} onChange={(e) => set({ tapRipple: e.target.checked })} aria-label="Water ripples on taps" />
+      </label>
+      <label className="row between" style={{ margin: '4px 0' }}>
+        <span>A quiet water-drop sound when you tap</span>
+        <input type="checkbox" checked={s.tapSound} onChange={(e) => set({ tapSound: e.target.checked })} aria-label="Water-drop sound on taps" />
+      </label>
+
       <h3 className="modal-sub">Focus mode</h3>
       <label className="row between" style={{ margin: '6px 0' }}>
         <span>Just the text: no study panel, prompts or progress</span>

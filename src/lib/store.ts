@@ -54,6 +54,10 @@ export interface Settings {
   motion: 'full' | 'calm' | 'none';
   /** a short vibration on taps, where the device supports it */
   haptics: boolean;
+  /** a ring of ripples spreads from every tap, like a drop falling into still water */
+  tapRipple: boolean;
+  /** a very quiet water-drop sound on taps */
+  tapSound: boolean;
   defaultEdition: string;
   parallelEdition: string | null;
   /** older or unfamiliar translations the reader chose to switch on (see Edition.offByDefault) */
@@ -159,6 +163,8 @@ export const DEFAULTS: Settings = {
   plainAlign: false,
   motion: 'calm',
   haptics: false,
+  tapRipple: true,
+  tapSound: false,
   defaultEdition: 'webc',
   parallelEdition: null,
   enabledEditions: [],
