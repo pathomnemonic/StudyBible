@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { PILGRIM_SITES, CHECKLIST } from '../../data/pilgrim';
+import { PILGRIM_SITES as BASE_SITES, CHECKLIST } from '../../data/pilgrim';
+import { MORE_SITES } from '../../data/pilgrim2';
+
+const PILGRIM_SITES = [...BASE_SITES, ...MORE_SITES];
 import { Tip } from '../../components/Hints';
 
 const KEY = 'sb:pilgrim';

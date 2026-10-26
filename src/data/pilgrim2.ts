@@ -1,0 +1,113 @@
+/** More pilgrim guides, in the same shape as pilgrim.ts. Facts are the well-established ones; hours and Mass times change, so check each shrine's own site. */
+import type { Site } from './pilgrim';
+
+export const MORE_SITES: Site[] = [
+  {
+    id: 'czestochowa', name: 'Częstochowa', place: 'Poland', lang: 'Polish', tag: 'The Black Madonna of Jasna Góra',
+    story: 'Jasna Góra, the “Bright Mountain”, is a monastery of the Pauline Fathers and Poland’s national shrine. It keeps the icon of Our Lady known as the Black Madonna. Poles remember the monastery’s defense in 1655, and walking pilgrimages from across the country, especially around 15 August, have gone there for centuries.',
+    stops: [
+      { name: 'The Chapel of Our Lady', note: 'The icon of the Black Madonna hangs here. It is unveiled for Mass at set times, so check the schedule.' },
+      { name: 'The Basilica', note: 'The monastery church, next to the chapel.' },
+      { name: 'The Treasury and the arsenal', note: 'Votive offerings left by pilgrims, and exhibits about the history of the shrine.' },
+      { name: 'The Way of the Cross', note: 'Stations in the monastery gardens, a quiet place after the crowds in the chapel.' },
+    ],
+    scripture: [{ ref: 'John 19:25-27', why: 'Jesus gives Mary to the beloved disciple, and to us.' }, { ref: 'Luke 1:46-55', why: 'Mary’s song, the Magnificat.' }],
+    prayer: { title: 'Prayer to Our Lady on pilgrimage', text: 'Mary, Mother of Jesus and our mother, I come to you as a pilgrim. Take my worries, my family and my country into your care. Lead me to your Son, and teach me to say yes to God as you did. Amen.' },
+    phrases: [['Where is the church?', 'Gdzie jest kościół?'], ['What time is Mass?', 'O której jest Msza?'], ['Thank you', 'Dziękuję'], ['Please', 'Proszę'], ['Excuse me', 'Przepraszam'], ['Where is confession?', 'Gdzie jest spowiedź?']],
+    saints: ['St. John Paul II', 'St. Maximilian Kolbe', 'St. Faustina Kowalska', 'St. Stanislaus of Kraków'], site: 'https://www.jasnagora.pl',
+  },
+  {
+    id: 'lisieux', name: 'Lisieux', place: 'France', lang: 'French', tag: 'The little way of St Thérèse',
+    story: 'Thérèse Martin entered the Carmel of Lisieux at fifteen and died there in 1897, aged twenty-four. Her autobiography, Story of a Soul, made her “little way” of trust and small acts of love known across the world. She is a Doctor of the Church and, with Joan of Arc, a patron of France.',
+    stops: [
+      { name: 'The Basilica of St Thérèse', note: 'A large basilica on the hill above the town, consecrated in 1954.' },
+      { name: 'The Carmel', note: 'The convent chapel holds her shrine. The monastery itself is enclosed.' },
+      { name: 'Les Buissonnets', note: 'The family home where she grew up, with the rooms preserved.' },
+      { name: 'The Cathedral of St Pierre', note: 'The parish church the family attended.' },
+    ],
+    scripture: [{ ref: 'Matthew 18:1-4', why: 'Unless you become like children: the heart of her little way.' }, { ref: '1 Corinthians 13:1-13', why: 'She found her vocation: “in the heart of the Church, I will be love.”' }],
+    prayer: { title: 'Prayer to St Thérèse', text: 'Dear Thérèse, you showed that holiness is for ordinary people who love in small things. Pray for me. Teach me to do little things with great love, to trust God like a child, and to scatter his kindness wherever I go. Amen.' },
+    phrases: [['Where is the church?', 'Où est l’église ?'], ['What time is Mass?', 'À quelle heure est la messe ?'], ['Thank you', 'Merci'], ['Please', 'S’il vous plaît'], ['Excuse me', 'Excusez-moi'], ['Where is confession?', 'Où est la confession ?']],
+    saints: ['St. Thérèse of Lisieux', 'Sts. Louis and Zélie Martin', 'St. Joan of Arc'], site: 'https://www.therese-de-lisieux.catholique.fr',
+  },
+  {
+    id: 'krakow', name: 'Kraków', place: 'Poland', lang: 'Polish', tag: 'Divine Mercy and St John Paul II',
+    story: 'Kraków is the city of two saints. St Faustina Kowalska, to whom Jesus is said to have revealed the message of Divine Mercy, lived and is buried at Łagiewniki, where the Divine Mercy sanctuary stands. Karol Wojtyła, later St John Paul II, was the archbishop of Kraków before he was elected Pope in 1978.',
+    stops: [
+      { name: 'The Divine Mercy Sanctuary, Łagiewniki', note: 'The convent chapel with the tomb of St Faustina and the image of the Merciful Jesus, and a large basilica nearby.' },
+      { name: 'Wawel Cathedral', note: 'The royal cathedral. Karol Wojtyła said his first Mass as a priest in the crypt of St Leonard here.' },
+      { name: 'The Sanctuary of St John Paul II', note: 'A shrine with relics of the saint, near the Divine Mercy Sanctuary.' },
+      { name: 'Wadowice', note: 'The birthplace and family home of John Paul II, about an hour away.' },
+    ],
+    scripture: [{ ref: 'Luke 15:11-32', why: 'The father who runs to meet the lost son: mercy.' }, { ref: 'John 20:19-23', why: 'The risen Lord gives his peace and the power to forgive sins.' }],
+    prayer: { title: 'The Divine Mercy ejaculation', text: 'Jesus, I trust in you. Merciful Jesus, I place my life and the lives of those I love in your hands. Have mercy on us and on the whole world. Amen.' },
+    phrases: [['Where is the church?', 'Gdzie jest kościół?'], ['What time is Mass?', 'O której jest Msza?'], ['Thank you', 'Dziękuję'], ['Please', 'Proszę'], ['Excuse me', 'Przepraszam'], ['Where is confession?', 'Gdzie jest spowiedź?']],
+    saints: ['St. Faustina Kowalska', 'St. John Paul II', 'St. Stanislaus', 'St. Jadwiga'], site: 'https://www.faustyna.pl',
+  },
+  {
+    id: 'padua', name: 'Padua', place: 'Italy', lang: 'Italian', tag: 'St Anthony, the preacher and finder of lost things',
+    story: 'St Anthony was born in Lisbon, became a Franciscan, and preached in Italy and France. He died near Padua in 1231 and was canonized within a year. His basilica, known simply as “il Santo”, is one of the most visited shrines in Europe. People ask his help for lost things, a custom tied to the memory of his preaching and his gift for finding the lost.',
+    stops: [
+      { name: 'The Basilica of St Anthony', note: 'The saint’s tomb is in a chapel inside the basilica, and pilgrims touch it in prayer.' },
+      { name: 'The Chapel of the Relics', note: 'Holds relics of the saint, including his tongue and vocal organs, kept as signs of his preaching.' },
+      { name: 'The Santa Giustina basilica', note: 'A large church in the city, with the tomb of St Luke, according to long tradition.' },
+      { name: 'The Cloisters', note: 'Quiet courtyards beside the basilica.' },
+    ],
+    scripture: [{ ref: 'Luke 15:1-10', why: 'The lost sheep and the lost coin: Christ searches for what is lost.' }, { ref: 'Matthew 28:19-20', why: 'Go and make disciples: Anthony’s preaching.' }],
+    prayer: { title: 'Prayer to St Anthony', text: 'Holy St Anthony, gentle and powerful in your help, you preached the Gospel and cared for the poor. Help me find what I have lost, above all the way back to God when I stray. Pray for me, and for everyone who is searching. Amen.' },
+    phrases: [['Where is the church?', 'Dov’è la chiesa?'], ['What time is Mass?', 'A che ora è la Messa?'], ['Thank you', 'Grazie'], ['Please', 'Per favore'], ['Excuse me', 'Scusi'], ['Where is confession?', 'Dov’è la confessione?']],
+    saints: ['St. Anthony of Padua', 'St. Leopold Mandić', 'St. Luke'], site: 'https://www.basilicadelsanto.org',
+  },
+  {
+    id: 'loreto', name: 'Loreto', place: 'Italy', lang: 'Italian', tag: 'The Holy House of Nazareth',
+    story: 'The Sanctuary of Loreto holds the Holy House, which a long tradition says is the home of Mary in Nazareth, brought here in the Middle Ages. The Church honors the shrine as a pilgrimage place without defining how the house came to Loreto. The Litany of Loreto, a prayer to Our Lady, is named for this shrine.',
+    stops: [
+      { name: 'The Holy House', note: 'A small stone structure inside the basilica, surrounded by a marble screen.' },
+      { name: 'The Basilica of the Holy House', note: 'The shrine church built around it.' },
+      { name: 'The Black Madonna of Loreto', note: 'A statue of Our Lady and Child in the Holy House.' },
+    ],
+    scripture: [{ ref: 'Luke 1:26-38', why: 'The Annunciation: the angel greets Mary.' }, { ref: 'John 1:14', why: 'The Word became flesh and dwelt among us.' }],
+    prayer: { title: 'Prayer in the Holy House', text: 'Lord Jesus, you grew up in a home with Mary and Joseph. Bless my family and my own home. Make it a place of prayer, patience and welcome, where your presence is known. Amen.' },
+    phrases: [['Where is the church?', 'Dov’è la chiesa?'], ['What time is Mass?', 'A che ora è la Messa?'], ['Thank you', 'Grazie'], ['Please', 'Per favore'], ['Excuse me', 'Scusi'], ['Where is confession?', 'Dov’è la confessione?']],
+    saints: ['The Virgin Mary', 'St. Joseph', 'St. Joseph of Cupertino'], site: 'https://www.santuarioloreto.it',
+  },
+  {
+    id: 'pio', name: 'San Giovanni Rotondo', place: 'Italy', lang: 'Italian', tag: 'The shrine of St Pio of Pietrelcina',
+    story: 'Padre Pio, a Capuchin friar, lived in San Giovanni Rotondo for most of his life. He heard confessions for many hours each day and is said to have borne the stigmata for fifty years. In 1956 he founded the hospital Casa Sollievo della Sofferenza, the “Home for the Relief of Suffering”. He died in 1968 and was canonized in 2002.',
+    stops: [
+      { name: 'The Shrine of St Pio', note: 'The large modern church, with the saint’s tomb in the crypt.' },
+      { name: 'The old church of Santa Maria delle Grazie', note: 'Where Padre Pio prayed and heard confessions.' },
+      { name: 'Casa Sollievo della Sofferenza', note: 'The hospital he founded, still caring for the sick.' },
+    ],
+    scripture: [{ ref: 'Galatians 6:14-17', why: 'Paul bears the marks of Christ in his body.' }, { ref: 'Matthew 11:28-30', why: 'Come to me, all who labor: the Lord’s gentle yoke.' }],
+    prayer: { title: 'Prayer to St Pio', text: 'Padre Pio, you carried the cross with love and served the suffering. Pray for me in my own trials. Obtain for me the grace to trust in God, to confess my sins with a contrite heart, and to love those who suffer. Amen.' },
+    phrases: [['Where is the church?', 'Dov’è la chiesa?'], ['What time is Mass?', 'A che ora è la Messa?'], ['Thank you', 'Grazie'], ['Please', 'Per favore'], ['Excuse me', 'Scusi'], ['Where is confession?', 'Dov’è la confessione?']],
+    saints: ['St. Pio of Pietrelcina', 'St. Francis of Assisi'], site: 'https://www.operapadrepio.it',
+  },
+  {
+    id: 'ars', name: 'Ars', place: 'France', lang: 'French', tag: 'The parish priest St John Vianney',
+    story: 'John Vianney was sent in 1818 to Ars, a poor village of a few hundred people. By prayer, fasting and long hours in the confessional he transformed the parish, and pilgrims came from across France to confess to him. He died in 1859, and in 1929 Pope Pius XI named him patron of parish priests.',
+    stops: [
+      { name: 'The village church', note: 'The church where he preached and heard confessions, with the confessional still in place.' },
+      { name: 'The Basilica of Ars', note: 'A larger church built to hold the pilgrims. His incorrupt body lies here.' },
+      { name: 'The Presbytery', note: 'His simple house, preserved as a museum.' },
+    ],
+    scripture: [{ ref: 'John 21:15-17', why: 'Feed my sheep: the pastor’s calling.' }, { ref: 'Luke 15:20-24', why: 'The father’s forgiveness, which he mediated to so many.' }],
+    prayer: { title: 'Prayer for priests', text: 'Lord Jesus, shepherd of your people, bless the priests of my parish and of the whole world. Make them holy, joyful and faithful, as St John Vianney was. Give them strength to forgive, to teach and to serve. Amen.' },
+    phrases: [['Where is the church?', 'Où est l’église ?'], ['What time is Mass?', 'À quelle heure est la messe ?'], ['Thank you', 'Merci'], ['Please', 'S’il vous plaît'], ['Excuse me', 'Excusez-moi'], ['Where is confession?', 'Où est la confession ?']],
+    saints: ['St. John Vianney', 'St. Philomena', 'St. Francis Regis'], site: 'https://www.ars-catholique.fr',
+  },
+  {
+    id: 'aparecida', name: 'Aparecida', place: 'Brazil', lang: 'Portuguese', tag: 'The patroness of Brazil',
+    story: 'In 1717 three fishermen netted a small clay statue of Our Lady of the Immaculate Conception in the Paraíba River. Devotion to “Our Lady Aparecida” grew, and in 1930 she was declared patroness of Brazil. The national shrine is one of the largest Marian churches in the world and hosts millions of pilgrims every year.',
+    stops: [
+      { name: 'The National Shrine basilica', note: 'The statue stands above the main altar and is reached through a long line.' },
+      { name: 'The Old Basilica', note: 'The earlier church, now a place for quiet prayer.' },
+      { name: 'The Promise Room', note: 'A room filled with offerings and thanksgivings left by pilgrims.' },
+    ],
+    scripture: [{ ref: 'John 2:1-11', why: 'At Cana Mary tells the servants, “Do whatever he tells you.”' }, { ref: 'Luke 1:39-45', why: 'Elizabeth blesses Mary: “Blessed is she who believed.”' }],
+    prayer: { title: 'Prayer to Our Lady Aparecida', text: 'Mary, mother of Jesus and of Brazil, you are close to the poor and to those who work. Bless my family, my country and everyone who suffers. Lead us all to your Son. Amen.' },
+    phrases: [['Where is the church?', 'Onde fica a igreja?'], ['What time is Mass?', 'A que horas é a Missa?'], ['Thank you', 'Obrigado (Obrigada)'], ['Please', 'Por favor'], ['Excuse me', 'Com licença'], ['Where is confession?', 'Onde é a confissão?']],
+    saints: ['Our Lady Aparecida', 'St. Anthony of Sant’Anna Galvão', 'St. Paulina'], site: 'https://www.a12.com',
+  },
+];
