@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Icon from './Icon';
 import { useSettings } from '../lib/store';
@@ -115,13 +115,35 @@ export default function Shell({ children }: { children: ReactNode }) {
   useEffect(() => { const a = () => setOffline(true), b = () => setOffline(false); window.addEventListener('offline', a); window.addEventListener('online', b); return () => { window.removeEventListener('offline', a); window.removeEventListener('online', b); }; }, []);
   const fullscreenReader = ((loc.pathname.startsWith('/read') || loc.pathname.startsWith('/room/work') || loc.pathname.startsWith('/study/works')) && s.scriptureOnly) || loc.pathname.startsWith('/widget');
   const home = isHome(loc.pathname);
+  // a soft pill that glides to the active tab instead of the highlight jumping
+  const navRef = useRef<HTMLElement>(null);
+  useLayoutEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+    const place = () => {
+      const ico = nav.querySelector('.tab.active .ico') as HTMLElement | null;
+      if (!ico || !ico.offsetParent) { nav.style.setProperty('--pill-o', '0'); return; }
+      const a = nav.getBoundingClientRect(), b = ico.getBoundingClientRect();
+      nav.style.setProperty('--pill-x', `${Math.round(b.left - a.left)}px`);
+      nav.style.setProperty('--pill-y', `${Math.round(b.top - a.top)}px`);
+      nav.style.setProperty('--pill-w', `${Math.round(b.width)}px`);
+      nav.style.setProperty('--pill-h', `${Math.round(b.height)}px`);
+      nav.style.setProperty('--pill-o', '1');
+    };
+    place();
+    window.addEventListener('resize', place);
+    const t = window.setTimeout(place, 250);
+    return () => { window.removeEventListener('resize', place); window.clearTimeout(t); };
+  });
+
   return (
     <div className={`shell${fullscreenReader ? ' quiet' : ''}${home ? ' home-shell' : ''}`}>
       {offline && <div className="offline-pill" role="status">Offline: everything you have opened or downloaded still works</div>}
       <a className="skip" href="#main">
         {t('nav.skip')}
       </a>
-      <nav className="tabs" aria-label={t('nav.main')}>
+      <nav className="tabs" aria-label={t('nav.main')} ref={navRef}>
+        <span className="tab-pill" aria-hidden="true" />
         <div className="brand" aria-hidden="true">
           <span className="mark">✛</span>
           <span>{BRAND.name}</span>

@@ -9,7 +9,7 @@ const SKIP = /delete|remove|clear|reset|sign out|log out|erase|forget|wipe|undo 
 const routes = ['today', 'read/webc/GEN/1', 'read/webc/JHN/6', 'read/webc/PSA/23', 'bible', 'listen', 'listen?tab=meditate', 'listen?tab=podcasts', 'listen?tab=videos', 'learn', 'study/curriculum/YA', 'study/curriculum/3/3-1-1', 'study/apologetics', 'study/ya', 'pray', 'pray/devotions', 'pray/devotions/rosary?set=joyful', 'pray/plans', 'pray/sleep', 'pray/examen', 'pray/novenas', 'pray/year', 'pray/readings', 'library', 'you', 'study', 'read', 'study/saints', 'study/doctrine', 'study/maps', 'study/kids', 'goals', 'memento', 'share'];
 const b = await chromium.launch();
 const bad = [];
-for (const vp of [{ width: 390, height: 844 }, { width: 1280, height: 800 }]) {
+for (const vp of (process.env.WIDTHS || '390,1280').split(',').map((w) => ({ width: +w, height: +w > 600 ? 800 : 844 }))) {
   for (const r of routes) {
     const ctx = await b.newContext({ viewport: vp });
     await ctx.addInitScript(() => { if (sessionStorage.getItem('i')) return; sessionStorage.setItem('i', '1'); localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); });

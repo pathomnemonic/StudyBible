@@ -4983,3 +4983,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 @media (max-height: 700px) { .home .plan-strip .btn, .home .plan-strip button { min-height: 32px; padding: 4px 10px; } }
 .home .plan-strip a.btn.primary { color: var(--accent-text); }
 .home .plan-strip a.btn:not(.primary) { color: var(--text); }
+/* the sliding pill behind the active tab */
+.tabs { --pill-o: 0; }
+.tab-pill { position: absolute; left: 0; top: 0; width: var(--pill-w, 42px); height: var(--pill-h, 28px); border-radius: 14px; background: var(--accent-soft); transform: translate(var(--pill-x, 0), var(--pill-y, 0)); opacity: var(--pill-o); pointer-events: none; transition: transform var(--d3) var(--ease-spring), width var(--d3) var(--ease-out), opacity var(--d2); }
+.tab.active .ico { background: transparent; }
+.tab { z-index: 1; }
+:root[data-motion='none'] .tab-pill { transition: none; }
