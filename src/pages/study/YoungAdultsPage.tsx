@@ -46,17 +46,19 @@ export default function YoungAdultsPage() {
       <h1>Adults</h1>
       <p className="lede">For anyone weighing the faith or coming back to it: what you actually believe, what to do with your life, how to love well, and whether any of it holds up. Nothing here is a lecture. Open what you need.</p>
 
-      <section className="sect">
-        <h2 className="eyebrow-h">The course</h2>
-        <p className="muted small">Forty-eight guided sessions in sixteen units, for a small group or on your own: knowing God, the Bible and the Church, prayer, mercy, the sacraments, love and chastity, vocation, work and money, hard questions, and living as a missionary disciple. Each has Scripture, the Catechism, discussion, a challenge and a saint.</p>
-        <Link className="btn primary" to="/study/curriculum/YA">Start the adults course</Link>
-      </section>
 
       <section className="sect">
         <h2 className="eyebrow-h">Questions adults ask</h2>
+        <p><Link className="btn primary" to="/study/apologetics">Open the apologetics hub</Link></p>
         <p className="muted small">Each gathers what Catholic writers and speakers say, with the verses and Catechism paragraphs to check it against.</p>
         <ul className="list">{ASK.map(([id, t]) => <li key={id}><Link to={`/study/apologetics/${id}`} className="t">{t}</Link></li>)}</ul>
         <Link to="/study/apologetics" className="small">All the questions →</Link>
+      </section>
+
+      <section className="sect">
+        <h2 className="eyebrow-h">Step by step, if you are newer to the faith</h2>
+        <p className="muted small">Forty-eight guided sessions in sixteen units, in order, for a small group or on your own. It starts from the basics: knowing God, the Bible and the Church, prayer, mercy, the sacraments, love and chastity, vocation, work and money, hard questions, and living as a missionary disciple. Each has Scripture, the Catechism, discussion, a challenge and a saint.</p>
+        <Link className="btn primary" to="/study/curriculum/YA">Start the adults course</Link>
       </section>
 
       <section className="sect">

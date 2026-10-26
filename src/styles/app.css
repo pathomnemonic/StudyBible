@@ -4870,3 +4870,12 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .home[data-tight='2'] .reflect, .home[data-tight='3'] .reflect, .home[data-tight='4'] .reflect { display: none; }
 .home[data-tight='3'] .home-actions, .home[data-tight='4'] .home-actions { display: none; }
 .home[data-tight='4'] .memento-card { display: none; }
+
+/* lesson of the day: one quiet line, not a banner */
+.lod { display: flex; align-items: baseline; gap: 10px; padding: 10px 14px; margin: 0 0 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); text-decoration: none; color: inherit; }
+.lod-k { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.lod strong { font-weight: 600; font-size: .95rem; flex: 1; min-width: 0; }
+.lod-go { color: var(--muted); }
+.lod:hover { border-color: var(--accent); }
+@media (max-width: 520px) { .lod { flex-wrap: wrap; gap: 2px 10px; } }
+@media (max-width: 560px) { .hub-group-head { flex-direction: column; align-items: flex-start; gap: 2px; } }

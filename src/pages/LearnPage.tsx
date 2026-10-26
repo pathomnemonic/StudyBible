@@ -8,6 +8,17 @@ import { Group, HubHeader, Tiles } from '../components/Hub';
 import { useSettings, updateSettings } from '../lib/store';
 import LessonOfDay from '../components/LessonOfDay';
 
+const ASK: [string, string][] = [
+  ['god-exists', 'Does God exist?'],
+  ['problem-of-evil', 'Why is there evil?'],
+  ['suffering', 'Why does God allow suffering?'],
+  ['science-faith', 'Faith and science'],
+  ['marriage-divorce', 'Marriage, divorce, annulment'],
+  ['contraception', 'Contraception'],
+  ['confession', 'Confession to a priest'],
+  ['hell', 'Hell'],
+];
+
 /** Learn: everything that teaches the faith. The Catechism program comes first, then the Catechism itself and the questions people ask. */
 export default function LearnPage() {
   const [grades, setGrades] = useState<GradeMeta[]>([]);
@@ -31,17 +42,26 @@ export default function LearnPage() {
         </Group>
       )}
       {adult && (
-        <Group title="Adult course" hint="Forty-eight sessions in sixteen units, for one person or a small group">
-          <Link className="btn primary" to="/study/curriculum/YA">{adultDone ? `Continue · ${adultDone} done` : 'Start the adult course'}</Link>
+        <Group title="The questions people really ask" hint="Straight answers, with the verses and Catechism paragraphs behind them">
+          <Link className="btn primary" to="/study/apologetics">Open the apologetics hub</Link>
+          <div className="level-chips" role="group" aria-label="Common questions">
+            {ASK.map(([id, t]) => <Link key={id} className="chip" to={`/study/apologetics/${id}`}>{t}</Link>)}
+          </div>
         </Group>
       )}
       {adult ? (
+        <Fold id="learn:adult-course" title="Step-by-step course" hint={`Forty-eight sessions in sixteen units${adultDone ? ` · ${adultDone} done` : ''}, from the basics, for one person or a small group`}>
+          <Link className="btn" to="/study/curriculum/YA">{adultDone ? `Continue the course · ${adultDone} done` : 'Start the adult course'}</Link>
+          <Link className="small" to="/study/ya" style={{ marginLeft: 10 }}>Adults page</Link>
+        </Fold>
+      ) : null}
+      {adult ? (
         <Fold id="learn:grades" title="Lessons by grade" hint="Kindergarten to Grade 12, for students, families and teachers">
-        <>
+          <>
         {!mineGrade && <Link className="btn primary" to="/study/curriculum">Open the program</Link>}
-        {mineGrade && <Link className="btn" to={`/study/curriculum/${mineGrade.id}`}>Continue {gradeLabel(mineGrade.id)} · {mine!.done.length} of {mineGrade.lessons}</Link>}
-        <div className="level-chips" role="group" aria-label="Levels">{grades.map((g) => <Link key={g.id} className="chip" to={`/study/curriculum/${g.id}`} title={`${g.name}: ${g.lessons} lessons`}>{g.id === 'K' ? 'K' : g.id === 'YA' ? 'Adults' : g.id}</Link>)}</div>
-      </>
+          {mineGrade && <Link className="btn" to={`/study/curriculum/${mineGrade.id}`}>Continue {gradeLabel(mineGrade.id)} · {mine!.done.length} of {mineGrade.lessons}</Link>}
+          <div className="level-chips" role="group" aria-label="Levels">{grades.map((g) => <Link key={g.id} className="chip" to={`/study/curriculum/${g.id}`} title={`${g.name}: ${g.lessons} lessons`}>{g.id === 'K' ? 'K' : g.id === 'YA' ? 'Adults' : g.id}</Link>)}</div>
+          </>
         </Fold>
       ) : (
       <Group title="Catechism program" hint="408 lessons: Kindergarten to Grade 12, and adults">
