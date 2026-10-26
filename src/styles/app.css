@@ -3582,7 +3582,7 @@ html[data-silent] .term { border-bottom: 0; } html[data-silent] .term::after { d
 
 /* Home: one screen, no scroll */
 .shell.home-shell .main { padding: 0; }
-.home { position: relative; height: calc(100dvh - var(--tabs-h) - env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: center; padding: 16px 20px calc(18px + env(safe-area-inset-bottom)); overflow: hidden; text-align: center; animation: page-in .6s ease both; }
+.home { position: relative; height: auto; min-height: calc(100dvh - var(--tabs-h) - env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: center; padding: 16px 20px calc(18px + env(safe-area-inset-bottom)); overflow: visible; text-align: center; animation: page-in .6s ease both; }
 .home-tools { position: absolute; top: 10px; right: 10px; display: flex; gap: 2px; z-index: 5; }
 .home-menu { position: absolute; top: 44px; right: 0; display: grid; min-width: 140px; padding: 6px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.18); text-align: left; }
 .home-menu a, .home-menu button { padding: 8px 12px; border: 0; background: none; color: inherit; text-align: left; font: inherit; cursor: pointer; border-radius: 8px; text-decoration: none; }
@@ -3590,7 +3590,7 @@ html[data-silent] .term { border-bottom: 0; } html[data-silent] .term::after { d
 .home-date { display: flex; align-items: center; gap: 10px; margin-top: 4px; }
 .home-date .eyebrow { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
 .home-date .season { font-family: var(--font-display); font-size: clamp(1rem, 2.4vh, 1.25rem); }
-.home-body { flex: 1; min-height: 0; width: min(680px, 100%); display: flex; flex-direction: column; justify-content: center; gap: calc(var(--fit, 1) * clamp(14px, 3.4vh, 34px)); animation: page-in .7s ease both; }
+.home-body { flex: 1 0 auto; min-height: auto; width: min(680px, 100%); display: flex; flex-direction: column; justify-content: center; gap: calc(var(--fit, 1) * clamp(14px, 3.4vh, 34px)); animation: page-in .7s ease both; }
 .home-verse { margin: 0; }
 .home-verse p { margin: 0; font-family: var(--font-display); font-style: italic; font-size: calc(var(--fit, 1) * clamp(1.1rem, 3vh, 1.65rem)); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 8; -webkit-box-orient: vertical; overflow: hidden; }
 .home-verse cite { display: block; margin-top: 8px; font-style: normal; font-size: .85rem; letter-spacing: .08em; color: var(--muted); }

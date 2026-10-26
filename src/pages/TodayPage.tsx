@@ -60,12 +60,12 @@ export default function TodayPage() {
     if (!el) return;
     const fit = () => {
       let f = 1;
-      const home = el.closest('.home');
-      home?.classList.remove('grow');
+      const home = el.closest('.home') as HTMLElement | null;
+      if (!home) return;
+      // the page is at least one screen tall and grows with its content, so nothing can overlap; shrink the type until it fits one screen
+      const screen = parseFloat(getComputedStyle(home).minHeight) || window.innerHeight;
       el.style.setProperty('--fit', '1');
-      while (el.scrollHeight > el.clientHeight + 1 && f > 0.6) { f -= 0.04; el.style.setProperty('--fit', f.toFixed(2)); }
-      // if it still does not fit (a long text, a small screen, extra cards), let the page scroll instead of letting things overlap
-      if (el.scrollHeight > el.clientHeight + 1) home?.classList.add('grow');
+      while (home.offsetHeight > screen + 1 && f > 0.6) { f -= 0.04; el.style.setProperty('--fit', f.toFixed(2)); }
     };
     fit();
     window.addEventListener('resize', fit);
