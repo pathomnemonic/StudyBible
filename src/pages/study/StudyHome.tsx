@@ -23,6 +23,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
     title: 'Church teaching and tradition',
     blurb: 'Learn the faith: lessons, questions, videos and themes. The Catechism, papal writings, councils and the saints now live in the Reading room.',
     items: [
+      ['/join', 'Join a class', 'Type the code your teacher is showing to follow a lesson and play the quiz together.'],
       ['/study/curriculum', 'Catechism, Kindergarten to Grade 12', 'A full program of 300+ lessons for classrooms, families and self-study, with teacher handbook.'],
       ['/study/young-adults', 'Young adults', 'Questions, vocation, Scripture, reading and people for the years of big decisions.'],
       ['/study/kids', 'Children’s Bible', 'Bible stories for kids, at three reading levels, with questions and videos.'],

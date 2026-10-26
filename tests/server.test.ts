@@ -303,3 +303,32 @@ describe('server operations', () => {
     expect(checkEnv({ HOST: '0.0.0.0', COOKIE_SECURE: 'false', REGISTRATION: 'open' }).warnings.length).toBeGreaterThanOrEqual(2);
   });
 });
+
+describe('live classroom sessions', () => {
+  it('creates, joins, streams, answers and exports over HTTP', async () => {
+    const c = new Client();
+    const created = await c.call('POST', '/api/live/create', { content: { title: 'T', questions: [{ type: 'mc', q: 'q', options: ['a', 'b'], correct: [1], time: 10 }] }, settings: {} });
+    expect(created.status).toBe(201);
+    const { code, hostKey } = created.body;
+    expect(code).toMatch(/^\d{6}$/);
+    expect((await c.call('GET', `/api/live/${code}/peek`)).body.title).toBe('T');
+    const j = await c.call('POST', '/api/live/join', { code, name: 'Student' });
+    expect(j.status).toBe(200);
+    expect((await c.call('POST', '/api/live/join', { code: '000000', name: 'x' })).status).toBe(404);
+    expect((await c.call('POST', `/api/live/${code}/host`, { key: 'wrong', action: 'start' })).status).toBe(403);
+    expect((await c.call('POST', `/api/live/${code}/host`, { key: hostKey, action: 'start' })).status).toBe(200);
+    const ctl = new AbortController();
+    const es = await fetch(`${base}/api/live/${code}/events?token=${j.body.token}`, { signal: ctl.signal });
+    const reader = es.body!.getReader();
+    const first = new TextDecoder().decode((await reader.read()).value);
+    const view = JSON.parse(first.split('data: ')[1]);
+    expect(view.phase).toBe('question');
+    expect(view.reveal).toBeUndefined();
+    expect(JSON.stringify(view)).not.toContain('"correct"');
+    expect((await c.call('POST', `/api/live/${code}/answer`, { token: j.body.token, value: 1 })).body.ok).toBe(true);
+    const csv = await fetch(`${base}/api/live/${code}/export?key=${hostKey}`);
+    expect(csv.status).toBe(200);
+    expect(await csv.text()).toContain('Student');
+    ctl.abort();
+  });
+});

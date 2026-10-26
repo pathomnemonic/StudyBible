@@ -18,6 +18,9 @@ import { scheduleReminder } from './liturgy/reminders';
 const DivineLiturgyPage = lazy(() => import('./pages/pray/DivineLiturgyPage'));
 const YoungAdultsPage = lazy(() => import('./pages/study/YoungAdultsPage'));
 const CurriculumHome = lazy(() => import('./pages/study/CurriculumHome'));
+const JoinPage = lazy(() => import('./live/Screens').then((m) => ({ default: m.JoinPage })));
+const PlayPage = lazy(() => import('./live/Screens').then((m) => ({ default: m.PlayPage })));
+const HostPage = lazy(() => import('./live/Screens').then((m) => ({ default: m.HostPage })));
 const CurriculumGrade = lazy(() => import('./pages/study/CurriculumGrade'));
 const CurriculumLesson = lazy(() => import('./pages/study/CurriculumLesson'));
 const CurriculumTeachers = lazy(() => import('./pages/study/CurriculumTeachers'));
@@ -202,6 +205,10 @@ export default function App() {
               <Route path="/study/catechism/:n?" element={<CatechismPage />} />
               <Route path="/study/saints/:md?" element={<SaintsPage />} />
               <Route path="/study/papal" element={<PapalPage />} />
+              <Route path="/join" element={<JoinPage />} />
+              <Route path="/join/:code" element={<JoinPage />} />
+              <Route path="/play/:code" element={<PlayPage />} />
+              <Route path="/host/:code" element={<HostPage />} />
               <Route path="/study/curriculum" element={<CurriculumHome />} />
               <Route path="/study/curriculum/teachers" element={<CurriculumTeachers />} />
               <Route path="/study/curriculum/:grade" element={<CurriculumGrade />} />

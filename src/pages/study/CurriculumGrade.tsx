@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { getGrade, gradeLabel, progressId, type GradeData } from '../../curriculum/model';
+import { starsOf, xpId } from '../../curriculum/LessonPlay';
 import { bandOf } from '../../curriculum/pedagogy';
 
 export default function CurriculumGrade() {
@@ -10,6 +11,7 @@ export default function CurriculumGrade() {
   const [g, setG] = useState<GradeData | null | undefined>(undefined);
   useEffect(() => { getGrade(grade).then((x) => setG(x ?? null)); }, [grade]);
   const prog = useLiveQuery(() => db.planProgress.get(progressId(grade)), [grade]);
+  const stars = starsOf(useLiveQuery(() => db.planProgress.get(xpId(grade)), [grade])?.done);
   if (g === undefined) return <div className="page"><p className="muted">Loading…</p></div>;
   if (!g) return <div className="page"><Link to="/study/curriculum">← Curriculum</Link><p>That grade was not found.</p></div>;
   const band = bandOf(g.band);
@@ -26,7 +28,7 @@ export default function CurriculumGrade() {
       <div className="row no-print" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 12 }}>
         <Link className="btn primary" to={`/study/curriculum/${g.id}/${firstOpen}`}>{done.size ? 'Continue' : 'Start the first lesson'}</Link>
         <Link className="btn" to={`/study/curriculum/${g.id}/packet`}>Print the whole grade</Link>
-        <span className="muted small" style={{ alignSelf: 'center' }}>{done.size} of {total} done</span>
+        <span className="muted small" style={{ alignSelf: 'center' }}>{done.size} of {total} done · ★ {[...stars.values()].reduce((a, b) => a + b, 0)} stars earned</span>
       </div>
       {g.units.map((u) => (
         <section key={u.n} className="sect">
@@ -36,7 +38,7 @@ export default function CurriculumGrade() {
             {u.lessons.map((l) => { k++; return (
               <li key={l.id} style={{ display: 'flex', gap: 8, alignItems: 'baseline' }}>
                 <span aria-hidden="true">{done.has(k) ? '✓' : '○'}</span>
-                <span><Link className="t" to={`/study/curriculum/${g.id}/${l.id}`}>{l.title}</Link><span className="muted small"> · {l.scripture.split(';')[0]} · CCC {l.ccc.split(',')[0]}</span></span>
+                <span><Link className="t" to={`/study/curriculum/${g.id}/${l.id}`}>{l.title}</Link><span className="muted small"> · {l.scripture.split(';')[0]} · CCC {l.ccc.split(',')[0]}</span>{stars.get(k) ? <span className="lesson-stars" aria-label={`${stars.get(k)} stars`}> {'★'.repeat(stars.get(k)!)}{'☆'.repeat(3 - stars.get(k)!)}</span> : null}</span>
               </li>
             ); })}
           </ol>

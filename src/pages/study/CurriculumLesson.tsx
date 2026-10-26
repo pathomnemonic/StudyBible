@@ -8,6 +8,9 @@ import { bandOf, FAMILY_DAYS, type Band } from '../../curriculum/pedagogy';
 import { useLessonSources } from '../../curriculum/useLessonSources';
 import InlinePlayer from '../../components/InlinePlayer';
 import LessonSlides, { buildSlides } from '../../curriculum/LessonSlides';
+import LessonPlay from '../../curriculum/LessonPlay';
+import StartLive from '../../live/StartLive';
+import { toLiveSlides } from '../../live/slides';
 import { embedFor } from '../../lib/embed';
 
 type Mode = 'student' | 'teacher' | 'family';
@@ -46,6 +49,9 @@ function speak(parts: string[], onEnd: () => void) {
 
 const mins = (total: number, share: number) => Math.max(2, Math.round((total * share) / 1));
 
+const pillarKey = (p: string) => (/creed|revel|faith|god|trinity|christ|church|mary|last/i.test(p) ? 'creed' : /sacrament|liturg|worship|mass|eucharist/i.test(p) ? 'sacrament' : /moral|life|commandment|virtue|beatitude|justice|vocation/i.test(p) ? 'moral' : /prayer|pray/i.test(p) ? 'prayer' : 'creed');
+const pillarIcon = (p: string) => ({ creed: '✝', sacrament: '🕯', moral: '🧭', prayer: '🙏' })[pillarKey(p)];
+
 export default function CurriculumLesson() {
   const { grade = '', lessonId = '' } = useParams();
   const nav = useNavigate();
@@ -59,6 +65,7 @@ export default function CurriculumLesson() {
   const [speaking, setSpeaking] = useState(false);
   const [playing, setPlaying] = useState<string | null>(null);
   const [note, setNote] = useState('');
+  const [liveOpen, setLiveOpen] = useState(false);
   useEffect(() => { getGrade(grade).then((x) => setG(x ?? null)); getGlossary().then(setGl); }, [grade]);
   const flat = useMemo(() => (g ? flatLessons(g) : []), [g]);
   const idx = flat.findIndex((l) => l.id === lessonId);
@@ -96,20 +103,24 @@ export default function CurriculumLesson() {
   };
   const slides = present ? buildSlides({ lesson, grade: g, gl, band, passages: src.passages, ccc: src.ccc, videos: src.videos, art: src.art, story: kidsText, prayer: src.prayer, quiz, base: import.meta.env.BASE_URL }) : [];
 
+  const liveSlides = () => toLiveSlides(buildSlides({ lesson, grade: g, gl, band, passages: src.passages, ccc: src.ccc, videos: src.videos, art: src.art, story: kidsText, prayer: src.prayer, quiz, base: import.meta.env.BASE_URL }));
   return (
     <div className="page cur-lesson">
       <nav className="no-print row" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 6 }} aria-label="Lesson navigation">
         <Link to={`/study/curriculum/${g.id}`} className="small">← {gradeLabel(g.id)}</Link>
         <span className="muted small">Unit {lesson.unit.n}: {lesson.unit.title}</span>
       </nav>
-      <h1 style={{ marginBottom: 2 }}>{lesson.title}</h1>
+      <div className={`lesson-banner pillar-${pillarKey(lesson.unit.pillar)}`}><span className="pillar-ico" aria-hidden="true">{pillarIcon(lesson.unit.pillar)}</span><div><div className="pillar-name">{lesson.unit.pillar}</div><h1 style={{ margin: 0 }}>{lesson.title}</h1></div></div>
       <p className="muted small" style={{ marginTop: 0 }}>{gradeLabel(g.id)} · {g.theme} · Lesson {idx + 1} of {flat.length}</p>
 
+      {liveOpen && <StartLive grade={g} lesson={lesson} slides={liveSlides()} onClose={() => setLiveOpen(false)} />}
       <div className="tabbar no-print" role="tablist" aria-label="View">
         {modes.map(([m, l, d]) => <button key={m} role="tab" aria-selected={mode === m || (adult && mode === 'family' && m === 'student')} title={d} onClick={() => setM(m)}>{l}</button>)}
       </div>
       <div className="row no-print" style={{ gap: 6, flexWrap: 'wrap', margin: '4px 0 10px' }}>
         <button className="btn small" onClick={() => setPresent(true)}>▶ Present as slides</button>
+        <button className="btn small" onClick={() => setLiveOpen(true)}>📡 Host live with a class code</button>
+        <Link className="btn small" to="/join">Join a class</Link>
         {typeof speechSynthesis !== 'undefined' && <button className="btn small" onClick={readAloud} aria-pressed={speaking}>{speaking ? '■ Stop' : '🔊 Read to me'}</button>}
         <button className="btn small" onClick={() => window.print()}>🖨 Print this lesson</button>
         <button className={`btn small${done ? ' primary' : ''}`} aria-pressed={done} onClick={() => toggleDone(g.id, idx, !done)}>{done ? '✓ Done' : 'Mark done'}</button>
@@ -120,6 +131,8 @@ export default function CurriculumLesson() {
         <p className="cur-idea">{lesson.idea}</p>
         <p className="muted small"><strong>Essential question:</strong> {lesson.unit.eq}</p>
       </section>
+
+      {mode !== 'teacher' && <LessonPlay grade={g} lesson={lesson} index={idx} gl={gl} />}
 
       {mode === 'teacher' && (
         <>

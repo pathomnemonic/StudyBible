@@ -18,6 +18,7 @@ export default function CurriculumHome() {
       <p className="lede">{total || 300} lessons across thirteen grades, plus a 30-session course for young adults. Each one is built on the Catechism and Scripture, brings in the videos, art, prayers and readings already in this app, and can be taught in a classroom, at home, on your own, by listening, or on paper.</p>
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 14 }}>
         <Link className="btn primary" to="/study/curriculum/teachers">For teachers and parents: the handbook</Link>
+        <Link className="btn" to="/join">Join a class with a code</Link>
         <a className="btn" href="#delivery">Ways to use it</a>
         <a className="btn" href="#why">Why it is built this way</a>
       </div>

@@ -1,4 +1,5 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { parseRefs } from '../src/lib/refs';
 
@@ -144,5 +145,37 @@ describe('K–12 catechism curriculum', () => {
       }
     }
     expect(bad).toEqual([]);
+  });
+});
+
+describe('live quiz question bank', () => {
+  const dir = join(__dirname, '..', 'public/data/curriculum/questions');
+  const files = readdirSync(dir).filter((f) => f.endsWith('.json'));
+  it('has a bank for every grade', () => { expect(files.length).toBe(14); });
+  it('has well-formed questions with one clear right answer', () => {
+    let n = 0;
+    for (const f of files) {
+      const bank = JSON.parse(readFileSync(join(dir, f), 'utf8')) as Record<string, any[]>;
+      for (const [lesson, qs] of Object.entries(bank)) {
+        for (const q of qs) {
+          n++;
+          const where = `${f} ${lesson} ${q.q.slice(0, 40)}`;
+          expect(q.q.length, where).toBeGreaterThan(10);
+          if (q.type === 'text') { expect(q.correct.length, where).toBeGreaterThan(0); continue; }
+          expect(new Set(q.options).size, `${where}: repeated choices`).toBe(q.options.length);
+          expect(q.options.every((o: string) => o && o.length < 260), where).toBe(true);
+          for (const c of q.correct) expect(c >= 0 && c < q.options.length, where).toBe(true);
+          if (q.type === 'mc') expect(q.correct.length, where).toBe(1);
+        }
+      }
+    }
+    expect(n).toBeGreaterThan(2500);
+  });
+  it('gives every upper-grade lesson a good number of questions, including harder kinds', () => {
+    const g9 = JSON.parse(readFileSync(join(dir, '9.json'), 'utf8')) as Record<string, any[]>;
+    const counts = Object.values(g9).map((q) => q.length);
+    expect(Math.min(...counts)).toBeGreaterThanOrEqual(5);
+    const kinds = new Set(Object.values(g9).flat().map((q) => q.kind));
+    for (const k of ['true', 'mistaken', 'multi', 'cloze', 'ccc', 'vocab', 'saint']) expect(kinds.has(k), k).toBe(true);
   });
 });

@@ -4,6 +4,7 @@ import { existsSync, readFileSync, statSync, createReadStream } from 'node:fs';
 import { extname, isAbsolute, join, normalize, relative, resolve } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import type { DatabaseSync } from 'node:sqlite';
+import { LiveHub, MAX_PLAYERS, sanitizeContent, sanitizeSettings, type LiveRoom } from './live';
 import { RateLimiter, hashPassword, hashToken, newToken, passwordProblem, validateEmail, verifyPassword } from './auth';
 
 export interface Config {
@@ -78,6 +79,28 @@ export function createApp(cfg: Config): Server {
   const { db } = cfg;
   const loginLimit = new RateLimiter(10, 10 * 60_000);
   const registerLimit = new RateLimiter(cfg.registerLimitPerHour ?? 5, 60 * 60_000);
+  // live classroom sessions (kept in memory; a session is meant to last one class)
+  const hub = new LiveHub();
+  const createLimit = new RateLimiter(20, 60 * 60_000);
+  const joinLimit = new RateLimiter(80, 10 * 60_000);
+  const streams = new Map<string, Set<{ res: ServerResponse; role: 'host' | 'player'; token?: string; seen: number }>>();
+  const MAX_STREAMS_PER_ROOM = MAX_PLAYERS + 5;
+  const pushRoom = (room: LiveRoom, force = false) => {
+    for (const c of streams.get(room.code) ?? []) {
+      if (!force && c.seen === room.version) continue;
+      c.seen = room.version;
+      c.res.write(`data: ${JSON.stringify(room.view(c.role, c.token))}\n\n`);
+    }
+  };
+  const liveTimer = setInterval(() => {
+    for (const room of hub.rooms.values()) { room.tick(); pushRoom(room); }
+    for (const [code, set] of streams) { if (!hub.get(code)) { for (const c of set) c.res.end(); streams.delete(code); } }
+    hub.sweep();
+  }, 500);
+  liveTimer.unref();
+  const keepAlive = setInterval(() => { for (const set of streams.values()) for (const c of set) c.res.write(': keep\n\n'); }, 15_000);
+  keepAlive.unref();
+
   const q = {
     userByEmail: db.prepare('SELECT * FROM users WHERE email = ?'),
     userById: db.prepare('SELECT id, email, display_name, created_at FROM users WHERE id = ?'),
@@ -193,6 +216,71 @@ export function createApp(cfg: Config): Server {
 
     if (path === '/api/health' && method === 'GET') {
       return json(res, 200, { ok: true, registration: openForSignup() ? 'open' : 'closed', name: 'studybible-sync', version: 1, protocol: PROTOCOL });
+    }
+
+
+    // ---- live classroom sessions: no account needed to join or to host
+    if (path.startsWith('/api/live/')) {
+      const parts = path.split('/').filter(Boolean); // api, live, <code|create|join>, <what>
+      const first = parts[2];
+      if (first === 'create' && method === 'POST') {
+        if (!createLimit.take(clientIp(req))) throw new HttpError(429, 'Too many sessions started from this address. Try again later.');
+        const body = await readJson(req);
+        const content = sanitizeContent(body.content);
+        if (!content.questions.length && !content.slides.length) throw new HttpError(400, 'A session needs slides or questions.');
+        let room: LiveRoom;
+        try { room = hub.create(content, sanitizeSettings(body.settings)); } catch (e: any) { throw new HttpError(503, e.message); }
+        return json(res, 201, { code: room.code, hostKey: room.hostKey, view: room.view('host') });
+      }
+      if (first === 'join' && method === 'POST') {
+        if (!joinLimit.take(clientIp(req))) throw new HttpError(429, 'Too many tries. Wait a few minutes.');
+        const body = await readJson(req);
+        const room = hub.get(String(body.code ?? '').replace(/\D/g, ''));
+        if (!room) throw new HttpError(404, 'No session with that code. Check the number on the teacher’s screen.');
+        try { const j = room.join(String(body.name ?? ''), typeof body.token === 'string' ? body.token : undefined); pushRoom(room); return json(res, 200, { ...j, code: room.code, title: room.content.title }); }
+        catch (e: any) { throw new HttpError(409, e.message); }
+      }
+      const room = first ? hub.get(first) : undefined;
+      if (!room) throw new HttpError(404, 'That session has ended or does not exist.');
+      const sub = parts[3];
+      if (sub === 'peek' && method === 'GET') return json(res, 200, { title: room.content.title, phase: room.phase, locked: room.locked });
+      if (sub === 'events' && method === 'GET') {
+        const url = new URL(req.url ?? '/', 'http://x');
+        const key = url.searchParams.get('key'), token = url.searchParams.get('token');
+        const role: 'host' | 'player' | null = key && key === room.hostKey ? 'host' : token && room.playerByToken(token) ? 'player' : null;
+        if (!role) throw new HttpError(403, 'Not part of this session.');
+        const set = streams.get(room.code) ?? new Set();
+        if (set.size >= MAX_STREAMS_PER_ROOM) throw new HttpError(503, 'This session is full.');
+        streams.set(room.code, set);
+        res.writeHead(200, { 'Content-Type': 'text/event-stream; charset=utf-8', 'Cache-Control': 'no-store, no-transform', Connection: 'keep-alive', 'X-Accel-Buffering': 'no' });
+        const c = { res, role, token: token ?? undefined, seen: room.version };
+        set.add(c);
+        res.write(`retry: 2000\ndata: ${JSON.stringify(room.view(role, token ?? undefined))}\n\n`);
+        if (token) room.ping(token);
+        req.on('close', () => set.delete(c));
+        return;
+      }
+      if (sub === 'answer' && method === 'POST') {
+        const body = await readJson(req);
+        const ok = room.answer(String(body.token ?? ''), body.value);
+        pushRoom(room);
+        return json(res, 200, { ok });
+      }
+      if (sub === 'host' && method === 'POST') {
+        const body = await readJson(req);
+        if (body.key !== room.hostKey) throw new HttpError(403, 'Only the teacher can do that.');
+        room.host(String(body.action ?? ''), body.arg);
+        pushRoom(room);
+        return json(res, 200, { ok: true });
+      }
+      if (sub === 'export' && method === 'GET') {
+        const key = new URL(req.url ?? '/', 'http://x').searchParams.get('key');
+        if (key !== room.hostKey) throw new HttpError(403, 'Only the teacher can do that.');
+        const data = Buffer.from(room.csv());
+        res.writeHead(200, { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="session-${room.code}.csv"`, 'Cache-Control': 'no-store', 'Content-Length': data.length });
+        return void res.end(data);
+      }
+      throw new HttpError(404, 'Not found.');
     }
 
     if (path === '/api/auth/register' && method === 'POST') {
@@ -443,6 +531,6 @@ export function createApp(cfg: Config): Server {
   server.requestTimeout = 30_000;
   server.headersTimeout = 15_000;
   server.keepAliveTimeout = 5_000;
-  server.maxConnections = 500;
+  server.maxConnections = 1500;
   return server;
 }
