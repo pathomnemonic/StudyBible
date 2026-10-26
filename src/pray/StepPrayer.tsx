@@ -36,8 +36,8 @@ export default function StepPrayer({ d, back, art, bells }: { d: Devotion; back:
   const next = () => (t >= last ? (setDone(true), setRunning(false)) : go(t + 1));
   useEffect(() => { if (ring && bells && tick.n === 0 && bells[tick.step]) bell(bells[tick.step]); }, [t, ring]);
   useGuide({
-    mode, running: running && !done, index: t, last, speed,
-    seconds: (n) => Math.max(2.5, (d.steps[ticks[n].step].text ?? '').split(/\s+/).length / 3 + 1.2),
+    mode: mode === 'voice' && step.seconds && step.seconds >= 45 ? 'pace' : mode, running: running && !done, index: t, last, speed,
+    seconds: (n) => d.steps[ticks[n].step].seconds ?? Math.max(2.5, (d.steps[ticks[n].step].text ?? '').split(/\s+/).length / 3 + 1.2),
     speech: (n) => { const x = ticks[n]; const st = d.steps[x.step]; return x.n === 0 ? `${st.title}. ${st.text ?? ''}` : st.text ?? ''; },
     onNext: next,
   });

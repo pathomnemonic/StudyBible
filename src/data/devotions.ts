@@ -10,6 +10,8 @@ export interface Step {
   /** Number of times the prayer is repeated; the page counts taps. */
   count?: number;
   note?: string;
+  /** a pause, in seconds, when the prayer is paced (silences in a Holy Hour) */
+  seconds?: number;
 }
 
 export interface Devotion {

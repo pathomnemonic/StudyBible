@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { MYSTERIES } from '../src/data/devotions';
+import { MORE } from '../src/data/devotions2';
 import { BIG, CENTER, CROSS, LOOP_BIG, decadeSmalls, layout, mercyPlan, rosaryPlan, stepAt, stepTimes } from '../src/pray/plan';
 
 describe('rosary bead plan', () => {
@@ -46,5 +47,15 @@ describe('rosary bead plan', () => {
     expect(stepAt(p.steps, 840, 0)).toBe(0);
     expect(stepAt(p.steps, 840, 839)).toBe(p.steps.length - 1);
     expect(stepAt(p.steps, 840, 420)).toBeGreaterThan(20);
+  });
+});
+
+describe('more devotions', () => {
+  it('every step has something to pray or read', () => {
+    for (const d of MORE) { expect(d.steps.length).toBeGreaterThan(5); for (const s of d.steps) expect(Boolean(s.text || s.refs), `${d.id}: ${s.title}`).toBe(true); }
+  });
+  it('the chaplet of St Michael has nine salutations and the holy hour has silences', () => {
+    expect(MORE.find((d) => d.id === 'st-michael')!.steps.filter((s) => /^\d\. The choir/.test(s.title)).length).toBe(9);
+    expect(MORE.find((d) => d.id === 'holy-hour')!.steps.filter((s) => (s.seconds ?? 0) >= 300).length).toBe(2);
   });
 });

@@ -1,5 +1,6 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { ANGELUS, MERCY, MYSTERIES, REGINA, SORROWS, STATIONS, todaysMysteries } from '../../data/devotions';
+import { MORE } from '../../data/devotions2';
 import { liturgicalDay, parseIso } from '../../liturgy/compute';
 import BeadPrayer from '../../pray/BeadPrayer';
 import StepPrayer from '../../pray/StepPrayer';
@@ -30,6 +31,8 @@ export default function DevotionsPage() {
   if (id === 'regina-caeli') return <StepPrayer d={REGINA} back="/pray/devotions" />;
   if (id === 'stations') return <StepPrayer d={STATIONS} back="/pray/devotions" art={(n) => (n >= 1 && n <= 14 ? STATION_ART[n - 1] : null)} />;
   if (id === 'seven-sorrows') return <StepPrayer d={SORROWS} back="/pray/devotions" />;
+  const more = MORE.find((x) => x.id === id);
+  if (more) return <StepPrayer d={more} back="/pray/devotions" />;
   if (id?.startsWith('rosary')) return <BeadPrayer plan={rosaryPlan(set)} art={MYSTERY_ART[set.id]} episode={CREEDAL[set.id]} back="/pray/devotions" backLabel="Devotions" startMode={startMode} />;
 
   const hasAudio = !!CREEDAL[set.id];
@@ -73,6 +76,14 @@ export default function DevotionsPage() {
           <Link key={d.id} to={`/pray/devotions/${d.id}`} className="card" style={{ textDecoration: 'none', color: 'inherit' }}>
             <h2 className="card-title">{d.name}</h2><p className="muted">{d.blurb}</p>
             <p className="muted small" style={{ margin: 0 }}>{d.id === 'angelus' ? 'With the bell.' : d.id === 'stations' ? 'With a picture for the stations.' : 'Seven by seven, counted.'} Led by your device if you like.</p>
+          </Link>
+        ))}
+      </div>
+      <h2 style={{ fontSize: '1.15rem', marginTop: 18 }}>More devotions</h2>
+      <div className="grid">
+        {MORE.map((d) => (
+          <Link key={d.id} to={`/pray/devotions/${d.id}`} className="card" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <h2 className="card-title">{d.name}</h2><p className="muted">{d.blurb}</p>
           </Link>
         ))}
       </div>
