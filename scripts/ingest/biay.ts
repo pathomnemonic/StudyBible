@@ -51,7 +51,10 @@ const SENT_RE = new RegExp(`(?<![A-Za-z])((?:[1-3]\\s?)?(?:${BOOK_WORDS.join('|'
 function passagesFromSentence(desc: string): RawPassage[] {
   const out: RawPassage[] = [];
   // every chapter the description names (it only ever names the day's readings), up to the boilerplate; votes across the yearly re-releases clean up stray mentions
-  const spans = [desc.split(/For the complete|Please note/i)[0]];
+  // "Today's readings are …", "The readings are …", "Today we read …": take only that clause, so a book the commentary merely mentions (Luke 4 on an Isaiah day) is not a reading
+  const body = desc.split(/For the complete|Please note/i)[0];
+  const clause = /(?:readings?\s+(?:are|is|include)|we\s+read|today[’']?s\s+reading[s]?)\s*:?\s*([\s\S]*)$/i.exec(body);
+  const spans = [clause ? clause[1] : body];
   for (const sentence of spans) {
     for (const m of sentence.matchAll(SENT_RE)) {
       const book = lookupBook(m[1].replace(/\s+/g, ' '));
@@ -121,7 +124,10 @@ export function buildBiay(report: Report) {
     const fromSentence = passagesFromSentence(desc);
     // the description's own list and the feed keywords are two views of the same readings: take both, and let the yearly votes drop a stray mention
     const seenKeys = new Set<string>();
-    const own = [...fromSentence, ...fromKeywords, ...(fromSentence.length || fromKeywords.length ? [] : fromDesc)].filter((p) => !seenKeys.has(key(p)) && !!seenKeys.add(key(p)));
+    // when the plan's own sentence names the readings, a feed keyword only counts if it is in a book that sentence names (a stray "Genesis 3" tag on a Judith day is not a reading)
+    const sentenceBooks = new Set(fromSentence.map((p) => p.book));
+    const keywordsOk = fromSentence.length ? fromKeywords.filter((p) => sentenceBooks.has(p.book)) : fromKeywords;
+    const own = [...fromSentence, ...keywordsOk, ...(fromSentence.length || keywordsOk.length ? [] : fromDesc)].filter((p) => !seenKeys.has(key(p)) && !!seenKeys.add(key(p)));
     const pub = new Date(it.pubDate);
     const dur = String(it['itunes:duration'] ?? '');
     const dparts = dur.split(':').map(Number);
