@@ -166,6 +166,7 @@ export default function TodayPage() {
 
       {info && entry && (
         <aside className="home-info" role="dialog" aria-label="Sources">
+          <button className="icon-btn home-info-x" onClick={() => setInfo(false)} aria-label="Close sources">✕</button>
           <p><strong>Verse.</strong> {verse?.label} in {edition?.name ?? 'your translation'}{ref ? <> · <Link to={`/study/passage/${ref.book}.${ref.c1}${ref.v1 ? '.' + ref.v1 : ''}`}>study it</Link></> : null}.</p>
           <p><strong>Quote.</strong> {saint?.who}{saint?.work ? `, ${saint.work}` : ''}. {saint?.verified ? (saint.src?.work ? 'Checked word for word against the public-domain text in this app’s library; “see it in context” opens it.' : 'Checked against a published edition (see it in context).') : saint?.misattributed ? `Attribution doubtful: ${saint.misattributed}.` : 'Shown as attributed; we could not find it in a source text we can check.'}</p>
           <p><strong>Question.</strong> Written for this app to go with the verse and the season ({ld.seasonName}).</p>

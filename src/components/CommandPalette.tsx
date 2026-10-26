@@ -115,6 +115,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
   return (
     <div className="palette-back" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
       <div className="palette" role="dialog" aria-modal="true" aria-label="Command palette">
+        <button className="icon-btn palette-x" onClick={onClose} aria-label="Close search">✕</button>
         <input ref={input} value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={key} placeholder="Type a passage (Jn 6:51-58), a topic, or a page…" aria-label="Command palette input" />
         <ul role="listbox">
           {cmds.map((c, i) => {

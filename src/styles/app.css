@@ -4989,3 +4989,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .tab.active .ico { background: transparent; }
 .tab { z-index: 1; }
 :root[data-motion='none'] .tab-pill { transition: none; }
+.palette { position: relative; }
+.palette-x, .home-info-x { position: absolute; top: 6px; right: 6px; z-index: 2; }
+.home-info { padding-right: 44px; }
+.palette input { padding-right: 44px; }
