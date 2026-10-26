@@ -36,7 +36,7 @@ try {
   const join = async (code, name) => { const s = await ctx(); await s.goto(`${BASE}/#/join/${code}`); await s.getByRole('button', { name }).click(); await s.getByRole('button', { name: 'Join', exact: true }).click(); await s.waitForSelector('text=You’re in!'); return s; };
   const maria = await join(code, 'Maria Lopez'), james = await join(code, 'James Carter');
   // a student not on the list cannot join
-  const rogue = await ctx(); await rogue.goto(`${BASE}/#/join/${code}`); check(await rogue.getByRole('button', { name: 'Join', exact: true }).isDisabled(), 'join disabled until a name is picked');
+  const rogue = await ctx(); await rogue.goto(`${BASE}/#/join/${code}`); await rogue.waitForSelector('.live-roster'); check(await rogue.getByRole('button', { name: 'Join', exact: true }).isDisabled(), 'join disabled until a name is picked');
   await t.getByRole('button', { name: 'Skip to the quiz' }).click();
   for (let q = 0; q < 5; q++) {
     for (const s of [maria, james]) {
