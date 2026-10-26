@@ -19,22 +19,8 @@ export default function ResumeChips() {
     { key: 'room', to: work ? `/study/works/${work.ref}` : '/room', kind: 'Reading room', text: work ? short(work.label.replace(/^.*?:\s*/, '')) : 'Browse', resume: !!work },
     { key: 'year', to: ep ? `/listen/episode/${ep.ref}` : '/listen', kind: 'Bible in a Year', text: ep ? short(ep.label.replace(/^Day (\d+).*$/, 'Day $1')) : day ? `Day ${day}` : 'Listen', resume: !!ep || !!day },
   ];
-  const features = [
-    { to: '/study/apologetics', k: 'Apologetics', v: 'Answers to hard questions', c: 'wine' },
-    { to: '/study/videos', k: 'Video library', v: 'Watch and learn', c: 'ocean' },
-    { to: '/mass', k: 'Mass mode', v: 'Follow along, easy', c: 'gold' },
-    { to: '/study/universe', k: 'Scripture universe', v: 'Explore the connections', c: 'night' },
-  ];
   return (
     <>
-    <nav className="feature-tiles" aria-label="Featured">
-      {features.map((f) => (
-        <Link key={f.to} to={f.to} className={`feature-tile ft-${f.c}`}>
-          <span className="k">{f.k}</span>
-          <span className="v">{f.v}</span>
-        </Link>
-      ))}
-    </nav>
     <nav className="resume-chips" aria-label="Pick up where you left off">
       {chips.map((c) => (
         <Link key={c.key} className={`resume-chip${c.resume ? ' on' : ''}`} to={c.to}>

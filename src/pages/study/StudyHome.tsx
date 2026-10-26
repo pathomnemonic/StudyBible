@@ -3,10 +3,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import Icon from '../../components/Icon';
+import Fold from '../../components/Fold';
 import ContinueRow from '../../components/ContinueRow';
 
 type Row = [string, string, string];
 const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
+  {
+    title: 'Guided study',
+    blurb: 'Walk through the Bible and the faith in order.',
+    items: [
+      ['/study/course', 'Salvation history in twelve lessons', 'The story of the Bible in order, with a quiz for each lesson.'],
+      ['/study/story', 'Follow a story', 'Trace the promise to Abraham, the Exodus, David, the exile, Peter or Mary through the whole Bible.'],
+      ['/study/dossier', 'Passage dossier', 'Type any passage and get everything on it in one printable page.'],
+      ['/study/paths', 'Study paths', 'Follow a theme through Scripture, with the Fathers and a question at each step.'],
+      ['/study/fulfilment', 'Promise and fulfilment', 'Types and prophecies, in the Fathers’ own words.'],
+    ],
+  },
   {
     title: 'Church teaching and tradition',
     blurb: 'Learn the faith: lessons, questions, videos and themes. The Catechism, papal writings, councils and the saints now live in the Reading room.',
@@ -43,13 +55,11 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
   },
 ];
 
-const FEATURED: { to: string; title: string; text: string; hue: number }[] = [
-  { to: '/study/course', title: 'Salvation history in twelve lessons', text: 'The story of the Bible in order, from creation to the new creation, with a quiz for each lesson.', hue: 200 },
-  { to: '/study/story', title: 'Follow a story', text: 'Trace the promise to Abraham, the Exodus, David, the exile, Peter or Mary through the whole Bible.', hue: 120 },
-  { to: '/study/dossier', title: 'Passage dossier', text: 'Type any passage and get everything on it in one page you can print.', hue: 40 },
-  { to: '/study/paths', title: 'Study paths', text: 'Follow a theme through Scripture, with the Fathers and a question at each step.', hue: 330 },
-  { to: '/study/universe', title: 'Scripture universe', text: 'Fly through the canon as a galaxy of 73 books.', hue: 265 },
-  { to: '/study/fulfilment', title: 'Promise and fulfilment', text: 'Types and prophecies, in the Fathers’ own words.', hue: 35 },
+const FEATURED: { to: string; title: string; text: string; c: string }[] = [
+  { to: '/study/apologetics', title: 'Apologetics hub', text: 'Answers to the hard questions, from Catholic authors and the Catechism.', c: 'wine' },
+  { to: '/study/videos', title: 'Video library', text: 'Thousands of teaching videos, newest first.', c: 'ocean' },
+  { to: '/mass', title: 'Mass mode', text: 'Follow the Mass step by step, in English or Latin.', c: 'gold' },
+  { to: '/study/universe', title: 'Scripture universe', text: 'Fly through the Bible as a galaxy of 73 books.', c: 'night' },
 ];
 
 export default function StudyHome() {
@@ -86,7 +96,7 @@ export default function StudyHome() {
             <ContinueRow />
       <div className="featured" role="list" aria-label="Explore">
         {FEATURED.map((f) => (
-          <Link key={f.to} to={f.to} role="listitem" className="feat" style={{ ['--h' as string]: f.hue }}>
+          <Link key={f.to} to={f.to} role="listitem" className={`feat ft-${f.c}`}>
             <span className="feat-t">{f.title}</span>
             <span className="feat-d">{f.text}</span>
           </Link>
@@ -94,10 +104,8 @@ export default function StudyHome() {
       </div>
       <div className="tool-groups">
         {GROUPS.map((g) => (
-          <section key={g.title} className="tool-group" aria-labelledby={`tg-${g.title}`}>
-            <h2 id={`tg-${g.title}`}>{g.title}</h2>
-            <p className="muted small">{g.blurb}</p>
-            <ul>
+          <Fold key={g.title} id={`study:${g.title}`} title={g.title} hint={g.blurb}>
+            <ul className="fold-list">
               {g.items.map(([to, t, d]) => (
                 <li key={to}>
                   <Link to={to}>
@@ -108,7 +116,7 @@ export default function StudyHome() {
                 </li>
               ))}
             </ul>
-          </section>
+          </Fold>
         ))}
       </div>
       <p className="muted small" style={{ marginTop: 18 }}>

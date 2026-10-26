@@ -9,7 +9,7 @@ import { formatRef, parseRefId, type Ref } from '../lib/refs';
 import { readerPath } from '../lib/nav';
 import { getBook } from '../lib/canon';
 import Icon from '../components/Icon';
-import HomeExtras from '../components/HomeExtras';
+import HomeExtras, { FavStar } from '../components/HomeExtras';
 import ResumeChips from '../components/ResumeChips';
 import { useT, dateLocale } from '../lib/i18n';
 
@@ -112,6 +112,7 @@ export default function TodayPage() {
         if (Math.abs(dx) > 60) go(dx < 0 ? 1 : -1);
       }}
     >
+      <div className="home-tools-left"><FavStar date={date} label={verse?.label ?? ld.dayName} /></div>
       <div className="home-tools">
         <button className="icon-btn" onClick={() => setInfo((x) => !x)} aria-label={t('home.sourcesLabel')} aria-pressed={info} title={`${t('home.sources')} (i)`}><Icon name="info" /></button>
       </div>

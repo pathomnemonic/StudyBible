@@ -4385,3 +4385,41 @@ pre.code, pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 .keys { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; }
 .keys button { width: 2.3rem; height: 2.3rem; border-radius: 8px; border: 1px solid var(--border-strong, #8886); background: var(--surface); color: inherit; font: inherit; cursor: pointer; }
 .keys button:disabled { opacity: .35; }
+
+/* The universe card is a short sheet on phones, with a close button that is easy to hit */
+.galaxy-x { width: 44px; height: 44px; top: 4px; right: 4px; display: grid; place-items: center; font-size: 1.7rem; border-radius: 50%; background: rgba(255,255,255,.1); }
+.galaxy-card h2, .galaxy-card .galaxy-kicker:first-of-type { padding-right: 40px; }
+@media (max-width: 899px) { .galaxy-card { max-height: 44vh; bottom: 112px; overflow: auto; overscroll-behavior: contain; } }
+
+/* The Study buttons: four rich, colored doors */
+.feat.ft-wine { background: radial-gradient(120% 100% at 0% 0%, rgba(255,255,255,.18), transparent 60%), linear-gradient(145deg, #9a3040, #4e1523); border-color: rgba(255,255,255,.2); }
+.feat.ft-ocean { background: radial-gradient(120% 100% at 0% 0%, rgba(255,255,255,.18), transparent 60%), linear-gradient(145deg, #1f6a9a, #0f2f55); border-color: rgba(255,255,255,.2); }
+.feat.ft-gold { background: radial-gradient(120% 100% at 0% 0%, rgba(255,255,255,.2), transparent 60%), linear-gradient(145deg, #a06a14, #553208); border-color: rgba(255,255,255,.2); }
+.feat.ft-night { background: radial-gradient(120% 100% at 0% 0%, rgba(255,255,255,.16), transparent 60%), linear-gradient(145deg, #52429a, #1b1745); border-color: rgba(255,255,255,.2); }
+.featured .feat { min-height: 150px; box-shadow: 0 8px 22px rgba(0,0,0,.22); }
+.featured .feat-t { font-size: 1.5rem; }
+.featured .feat-d { opacity: .92; }
+
+/* Folded sections */
+.fold { border: 1px solid var(--hairline, #8884); border-radius: 16px; background: color-mix(in srgb, var(--surface) 70%, transparent); margin: 10px 0; overflow: hidden; }
+.fold > summary { list-style: none; display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center; padding: 14px 16px; cursor: pointer; min-height: 52px; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold-t { font-family: var(--font-display); font-size: 1.2rem; grid-column: 1; }
+.fold-h { grid-column: 1; font-size: .82rem; color: var(--muted); line-height: 1.35; }
+.fold-chev { grid-column: 2; grid-row: 1 / span 2; font-size: 1.6rem; color: var(--muted); transition: transform .2s; }
+.fold[open] > summary .fold-chev { transform: rotate(90deg); }
+.fold[open] > summary { border-bottom: 1px solid var(--hairline, #8884); }
+.fold-body { padding: 10px 14px 14px; }
+.fold-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.fold-list a { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; padding: 10px 12px; border-radius: 12px; text-decoration: none; color: inherit; border: 1px solid transparent; }
+.fold-list a:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); border-color: var(--hairline, #8884); }
+.fold-list .t { font-weight: 600; } .fold-list .d { grid-column: 1; font-size: .84rem; color: var(--muted); } .fold-list .go { grid-row: 1 / span 2; grid-column: 2; align-self: center; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .fold-chev { transition: none; } }
+
+/* Today: the two things people tap most are big, and the day's star sits in the corner */
+.home-cta { display: flex; gap: 10px; justify-content: center; width: 100%; margin: 4px 0 8px; flex-basis: 100%; }
+.home-extras a.cta-main, .home-extras button.cta-main { flex: 1; max-width: 220px; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 48px; padding: 10px 14px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 16%, var(--surface)); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); color: var(--text); font-weight: 600; font-size: .95rem; text-decoration: none; }
+.home-extras a.cta-main:hover, .home-extras button.cta-main:hover { background: color-mix(in srgb, var(--accent) 28%, var(--surface)); text-decoration: none; color: var(--text); }
+.home-tools-left { position: absolute; top: 10px; left: 10px; z-index: 5; }
+.fav-star { font-size: 1.5rem; line-height: 1; } .fav-star[aria-pressed='true'] { color: #d9a21b; }
+@media (max-height: 700px) { .home-extras a.cta-main, .home-extras button.cta-main { min-height: 44px; } }

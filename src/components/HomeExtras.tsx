@@ -17,6 +17,13 @@ const PATH_FOR: Partial<Record<Season, [string, string]>> = {
 interface Galaxy { works: { id: string; author: string; authorId: string; title: string }[] }
 
 /** Small links under the day: your plan, something for the season, the saint, and a few one-tap actions. Kept to a line or two so the screen stays still. */
+/** A star in the corner: keep this day. */
+export function FavStar({ date, label }: { date: string; label: string }) {
+  const fav = useLiveQuery(() => db.cache.get(`daily-fav:${date}`), [date]);
+  const toggle = () => (fav ? db.cache.delete(`daily-fav:${date}`) : db.cache.put({ key: `daily-fav:${date}`, value: label, ts: Date.now() }));
+  return <button className="icon-btn fav-star" onClick={toggle} aria-pressed={!!fav} aria-label={fav ? 'Remove this day from your favorites' : 'Add this day to your favorites'} title={fav ? 'Favorite day' : 'Favorite this day'}><span aria-hidden="true">{fav ? '★' : '☆'}</span></button>;
+}
+
 export default function HomeExtras({ date, season, ref, label, onRandom }: { date: string; season: Season; ref: Ref | null; label: string; onRandom?: () => void }) {
   const [s] = useSettings();
   const plans = useLiveQuery(() => db.planProgress.filter((p) => p.status === 'active' && p.planId !== 'biay').toArray(), []) ?? [];
@@ -50,15 +57,16 @@ export default function HomeExtras({ date, season, ref, label, onRandom }: { dat
   };
   return (
     <div className="home-extras">
-      <Link to={`/pray/readings/${date}`}>Mass readings</Link>
-      {onRandom && <button onClick={onRandom}>Random verse</button>}
+      <div className="home-cta">
+        <Link to={`/pray/readings/${date}`} className="cta-main">📖 Mass readings</Link>
+        {onRandom && <button onClick={onRandom} className="cta-main">🎲 Random verse</button>}
+      </div>
       {plans.length > 0 && <Link to="/pray/plans">Your reading plan →</Link>}
       {season2 && <Link to={`/study/path/${season2[0]}`}>{season2[1]} (study path)</Link>}
       {season !== 'ordinary' && <button onClick={listen} aria-pressed={playing}>{playing ? '■ Stop' : '♪ Listen: chant and hymns for the season'}</button>}
       {saint && <Link to={saint.authorId ? `/room?author=${saint.authorId}` : `/study/saints/${saint.life ?? date.slice(5)}?name=${encodeURIComponent(saint.name.replace(/^(saint|st\.)\s+/i, ''))}`}>{saint.name}{saint.authorId ? ': read their words' : saint.life ? ': read the life' : ': saints of the day'}</Link>}
       {ref && <Link to={`/share?ref=${encodeURIComponent(label)}`}>Make a picture of this verse</Link>}
       {ref && <button onClick={remember} disabled={memoed > 0}>{memoed > 0 ? '✓ In memorize' : 'Memorize this verse'}</button>}
-      <button onClick={toggleFav} aria-pressed={!!fav} title="Keep this day in your favorites">{fav ? '★ Favorite' : '☆ Favorite day'}</button>
     </div>
   );
 }

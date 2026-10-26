@@ -598,6 +598,9 @@ export default function ReadPage() {
     <div className={`reader${settings.showVerseNumbers && (!settings.scriptureOnly || settings.focus.numbers) ? '' : ' hide-nums'}${panelOpen ? ' has-panel' : ''}`}>
       <div className="reader-col" onTouchStart={(e) => { swipe.current = e.touches.length === 1 ? [e.touches[0].clientX, e.touches[0].clientY] : null; }} onTouchEnd={(e) => { const a = swipe.current; swipe.current = null; if (!a || window.innerWidth >= 700 || !window.getSelection()?.isCollapsed) return; const dx = e.changedTouches[0].clientX - a[0], dy = e.changedTouches[0].clientY - a[1]; if (Math.abs(dx) > 90 && Math.abs(dy) < 45) (dx < 0 ? next : prev)(); }}>
         <div className="reader-bar">
+          <button className="icon-btn" onClick={() => setPicker(true)} aria-haspopup="dialog" aria-label="Choose a book or chapter" title="Books and chapters">
+            <Icon name="library" />
+          </button>
           <button className="icon-btn" onClick={prev} aria-label="Previous chapter">
             <Icon name="chevL" />
           </button>
