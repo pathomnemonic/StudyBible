@@ -147,7 +147,7 @@ export interface RecentSearch {
 export interface HistoryEntry {
   id?: number;
   ts: number;
-  type: 'read' | 'work' | 'episode' | 'catechism' | 'video';
+  type: 'read' | 'finished' | 'work' | 'episode' | 'catechism' | 'video';
   ref: string;
   label: string;
 }

@@ -118,6 +118,10 @@ export interface Settings {
   memento: { on: boolean; birthday: string; expectancy: number; onHome: boolean; view: 'bar' | 'weeks' };
   /** chapters to read per week; 0 for no goal */
   weeklyGoal: number;
+  /** the reading plan followed day to day (a plan id; '' for none). Shown in the Bible tab, the reader and Today. */
+  activePlan: string;
+  /** who the Catechism program is for: 'adult' (default for most), 'student', 'parent' or 'teacher'; '' until chosen */
+  audience: '' | 'adult' | 'youth' | 'parent' | 'teacher';
   lectioMinutes: number;
   last: { edition: string; book: string; chapter: number; verse?: number } | null;
   diocese: string; // liturgical calendar: 'universal' | 'usa' ...
@@ -190,6 +194,8 @@ export const DEFAULTS: Settings = {
   autoFavorites: false,
   memento: { on: false, birthday: '', expectancy: 80, onHome: true, view: 'bar' },
   weeklyGoal: 0,
+  activePlan: '',
+  audience: '',
   lectioMinutes: 15,
   last: null,
   diocese: 'universal',

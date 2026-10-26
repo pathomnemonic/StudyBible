@@ -238,7 +238,7 @@ function History() {
   const hs = useLiveQuery(() => db.history.orderBy('ts').reverse().limit(400).toArray(), []) ?? [];
   const nav = useNavigate();
   const [kind, setKind] = useState('all');
-  const list = hs.filter((h) => kind === 'all' || h.type === kind).slice(0, 100);
+  const list = hs.filter((h) => h.type !== 'finished' && (kind === 'all' || h.type === kind)).slice(0, 100);
   const label = HIST_KINDS.find((k) => k[0] === kind)![1];
   const open = (h: (typeof hs)[number]) => {
     if (h.type === 'read') { const r = parseRefId(h.ref); if (r) nav(`/read/dra/${r.book}/${r.c1}`); }

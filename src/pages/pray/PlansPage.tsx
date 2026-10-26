@@ -7,6 +7,8 @@ import { builtinPlans, type PlanDef } from '../../plans/builtin';
 import { parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import { getLibraryIndex } from '../../data/content';
+import { choosePlan } from '../../lib/activePlan';
+import { useSettings } from '../../lib/store';
 
 const CAT: Record<string, string> = { bible: 'Whole Bible', gospel: 'Gospels', listening: 'Reading + listening', catechism: 'Catechism topics', saint: 'Saints & Fathers', seasonal: 'Seasons', psalms: 'Psalms' };
 
@@ -28,6 +30,7 @@ export default function PlansPage() {
   }, []);
   const start = async (id: string) => {
     await db.planProgress.put({ planId: id, startedAt: Date.now(), status: 'active', done: [], offsetDays: 0 });
+    choosePlan(id);
     nav(`/pray/plans/${encodeURIComponent(id)}`);
   };
   const createPlan = async () => {

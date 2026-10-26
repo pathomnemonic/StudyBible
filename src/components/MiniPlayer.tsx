@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { usePlayer } from '../data/PlayerContext';
 import Icon from './Icon';
@@ -7,10 +7,23 @@ import NowPlaying, { SPEEDS } from './NowPlaying';
 export default function MiniPlayer() {
   const p = usePlayer();
   const [open, setOpen] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+  const has = !!p.current;
+  // other fixed bars (toasts, the rosary bar, read-aloud, the update banner) sit above the player by this much, so it never covers them
+  useEffect(() => {
+    const root = document.documentElement;
+    const el = box.current;
+    if (!has || !el) { root.style.removeProperty('--player-h'); return; }
+    const set = () => root.style.setProperty('--player-h', `${Math.round(el.getBoundingClientRect().height)}px`);
+    set();
+    const ro = new ResizeObserver(set);
+    ro.observe(el);
+    return () => { ro.disconnect(); root.style.removeProperty('--player-h'); };
+  }, [has]);
   if (!p.current) return null;
   const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
   return (
-    <div className="player" role="region" aria-label="Audio player">
+    <div className="player" ref={box} role="region" aria-label="Audio player">
       <div className="row between">
         <Link to={p.current.link ?? `/listen/episode/${p.current.id}`} className="small" style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
           {p.current.title}

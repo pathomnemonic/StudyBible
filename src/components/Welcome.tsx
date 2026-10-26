@@ -9,6 +9,8 @@ import { startHere } from '../lib/features';
 import { BRAND } from '../lib/brand';
 import FavoritesPicker from './FavoritesPicker';
 import { saveBackupFile } from '../lib/safety';
+import { db } from '../db/db';
+import { choosePlan } from '../lib/activePlan';
 import { signIn, signUp, useSync } from '../sync/state';
 import { connect as connectDrive, driveAvailable } from '../sync/drive';
 
@@ -26,7 +28,7 @@ const INTERESTS: [string, string, string][] = [
   ['teach', 'Teach or lead a class', 'K–12 program, slides, live games and gradebook'],
   ['family', 'Raise a family in the faith', 'Children’s Bible, family prayer and lessons'],
 ];
-const STEPS = ['What brings you here?', 'Your Church and look', 'Your favorites', 'Your daily rhythm', 'Keep your notes safe', 'You’re set'];
+const STEPS = ['What brings you here?', 'Your learning and reading', 'Your Church and look', 'Your favorites', 'Your daily rhythm', 'Keep your notes safe', 'You’re set'];
 
 /** The setup: a few short steps that tailor the app to the reader and make sure their writing is kept safe. Everyone sees it once (existing readers too), and every choice can be changed later in Settings. */
 export default function Welcome() {
@@ -53,7 +55,7 @@ export default function Welcome() {
   };
   const toggleInterest = (id: string) => updateSettings({ interests: s.interests.includes(id) ? s.interests.filter((x) => x !== id) : [...s.interests, id] });
   const last = i === STEPS.length - 1;
-  const SAFE = 4;
+  const SAFE = STEPS.indexOf('Keep your notes safe');
   const suggestions = startHere(null, s.interests, 3);
   const guarded = [sync.user ? 'account' : '', s.drive.connected ? 'Google Drive' : '', s.lastBackup ? 'backup file' : ''].filter(Boolean);
   const submit = async (e: React.FormEvent) => {
@@ -84,6 +86,33 @@ export default function Welcome() {
         </>}
 
         {i === 1 && <>
+          <p className="welcome-sub">So that you are not shown lessons made for ten-year-olds if you are an adult, and so your reading plan is ready the first time you open the Bible.</p>
+          <h3 className="welcome-h">Who is the Catechism program for?</h3>
+          <div className="welcome-chips" role="group" aria-label="Who is learning">
+            {([['adult', 'Me, an adult', 'Adult lessons first; the K–12 grades stay a tap away'], ['youth', 'A student', 'Lessons by grade'], ['parent', 'My children', 'Lessons to do at home, by grade'], ['teacher', 'My class', 'Teacher guides, slides and games']] as [typeof s.audience, string, string][]).map(([id, label, d]) => (
+              <button key={id} className={`welcome-chip${s.audience === id ? ' on' : ''}`} aria-pressed={s.audience === id} onClick={() => updateSettings({ audience: id })}>
+                <strong>{label}</strong><span>{d}</span>
+              </button>
+            ))}
+          </div>
+          <h3 className="welcome-h">Follow a Bible reading plan?</h3>
+          <div className="welcome-chips" role="group" aria-label="Reading plan">
+            {([['', 'Not now', 'You can pick one later in Pray, then Plans'], ['biay', 'Bible in a Year', 'Read and listen with Fr. Mike Schmitz'], ['gospels-30', 'The four Gospels in 30 days', 'About three chapters a day'], ['nt-90', 'New Testament in 90 days', 'Three chapters a day'], ['john-21', 'John in 21 days', 'One chapter a day']] as [string, string, string][]).map(([id, label, d]) => (
+              <button key={id || 'none'} className={`welcome-chip${s.activePlan === id ? ' on' : ''}`} aria-pressed={s.activePlan === id} onClick={async () => {
+                if (id) { const have = await db.planProgress.get(id); if (!have) await db.planProgress.put({ planId: id, startedAt: Date.now(), status: 'active', done: [], offsetDays: 0 }); }
+                choosePlan(id);
+              }}>
+                <strong>{label}</strong><span>{d}</span>
+              </button>
+            ))}
+          </div>
+          <label className="welcome-row"><span>Weekly goal</span>
+            <select value={s.weeklyGoal} onChange={(e) => updateSettings({ weeklyGoal: +e.target.value })} aria-label="Chapters to read each week">
+              <option value={0}>No goal</option>{[3, 5, 7, 10, 14].map((n) => <option key={n} value={n}>{n} chapters a week</option>)}
+            </select></label>
+        </>}
+
+        {i === 2 && <>
           <p className="welcome-sub">This sets the calendar, the readings and what you see first.</p>
           <label className="welcome-row"><span>Your Church</span>
             <select value={s.tradition} onChange={(e) => updateSettings({ tradition: e.target.value as typeof s.tradition })} aria-label="Your Church">{TRADITIONS.map((t) => <option key={t.id} value={t.id}>{t.name}</option>)}</select></label>
@@ -105,12 +134,12 @@ export default function Welcome() {
           <p className="welcome-preview" style={{ fontSize: s.fontSize }}>In the beginning was the Word, and the Word was with God, and the Word was God.</p>
         </>}
 
-        {i === 2 && <>
+        {i === 3 && <>
           <p className="welcome-sub">Choose podcasts, audiobooks and video creators you like. Media puts them first. Skip it and everything is still there, with the Bible in a Year first.</p>
           <FavoritesPicker compact />
         </>}
 
-        {i === 3 && <>
+        {i === 4 && <>
           <label className="welcome-check"><input type="checkbox" checked={s.reminders.enabled} onChange={async (e) => {
             if (e.target.checked) { const r = await enableReminders(); setRemMsg(r === 'granted' ? '' : r === 'denied' ? 'Notifications were blocked in the browser; you can allow them in its settings.' : 'This browser does not support notifications.'); updateSettings({ reminders: { ...s.reminders, enabled: r === 'granted' } }); }
             else updateSettings({ reminders: { ...s.reminders, enabled: false } });

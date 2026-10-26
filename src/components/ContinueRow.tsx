@@ -16,7 +16,7 @@ export default function ContinueRow({ max = 4 }: { max?: number }) {
   const [paths, setPaths] = useState<PathMeta[]>([]);
   useEffect(() => { getJson<{ paths: PathMeta[] }>('paths/index.json', true).then((d) => setPaths(d?.paths ?? [])); }, []);
   const items: { key: string; to: string; kind: string; label: string; ts: number }[] = [];
-  if (s.last) items.push({ key: 'read', to: `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}`, kind: 'Bible', label: `${getBook(s.last.book)?.name ?? s.last.book} ${s.last.chapter}`, ts: hist.find((h) => h.type === 'read')?.ts ?? 0 });
+  if (s.last) items.push({ key: 'read', to: `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}`, kind: 'Bible', label: `${getBook(s.last.book)?.name ?? s.last.book} ${s.last.chapter}`, ts: hist.find((h) => h.type === 'read' || h.type === 'finished')?.ts ?? 0 });
   const w = hist.find((h) => h.type === 'work');
   if (w) items.push({ key: 'work', to: `/study/works/${w.ref}`, kind: 'Read', label: w.label, ts: w.ts });
   const ep = hist.find((h) => h.type === 'episode');

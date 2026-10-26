@@ -14,6 +14,7 @@ import { dayOfYear } from '../study/verseOfDay';
 import RefLink from './RefLink';
 import Icon from './Icon';
 import ShowSettings from './ShowSettings';
+import { choosePlan } from '../lib/activePlan';
 
 /** Progress ring: the Bible in a Year days you have finished, out of 365. */
 function Ring({ done, day }: { done: number; day: number }) {
@@ -47,7 +48,7 @@ export default function YearHero() {
   const ep: BiayEpisode | null = biay?.dayEpisode.get(dayN) ?? null;
   const finished = prog?.done.includes(todayIdx) ?? false;
   const first = ep?.passages.map((p) => parseRefId(p)).find(Boolean);
-  const startTracking = () => db.planProgress.put({ planId: 'biay', startedAt: Date.now(), status: 'active', done: [], offsetDays: dayOfYear() - 1 });
+  const startTracking = async () => { await db.planProgress.put({ planId: 'biay', startedAt: Date.now(), status: 'active', done: [], offsetDays: dayOfYear() - 1 }); if (!s.activePlan) choosePlan('biay'); };
   const toggleDone = async () => {
     if (!prog) return db.planProgress.put({ planId: 'biay', startedAt: Date.now(), status: 'active', done: [todayIdx], offsetDays: dayOfYear() - 1 });
     const done = finished ? prog.done.filter((x) => x !== todayIdx) : [...prog.done, todayIdx];
@@ -69,7 +70,7 @@ export default function YearHero() {
             <button className="btn icon" onClick={() => setCfg(true)} title="Skip the intro, speed and skip buttons for this show" aria-label="Bible in a Year settings"><Icon name="gear" size={16} /></button>
           </div>
           <p className="year-foot muted small">
-            {prog ? `${prog.done.length} of 365 days finished · Fr. Mike Schmitz, Ascension` : <>Following the calendar. <button className="linklike" onClick={startTracking}>Track my progress</button></>}
+            {prog ? <>{prog.done.length} of 365 days finished · Fr. Mike Schmitz, Ascension · <Link to="/pray/plans">Change plan</Link></> : <>Following the calendar. <button className="linklike" onClick={startTracking}>Track my progress</button></>}
           </p>
         </div>
       {cfg && <ShowSettings showKey="biay" name="Bible in a Year" onClose={() => setCfg(false)} />}

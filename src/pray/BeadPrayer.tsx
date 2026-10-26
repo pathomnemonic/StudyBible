@@ -15,9 +15,18 @@ import { toRefs } from './refs';
 import { SPEEDS, useGuide, voiceSupported, type Mode } from './useGuide';
 
 const key = (id: string) => `sb:pray:${id}`;
-const load = (id: string, max: number) => { try { const n = Number(localStorage.getItem(key(id))); return n > 0 && n < max ? n : 0; } catch { return 0; } };
-const save = (id: string, n: number) => { try { n > 0 ? localStorage.setItem(key(id), String(n)) : localStorage.removeItem(key(id)); } catch { /* private mode */ } };
+/** Where this prayer was left: the bead and when. Only a recent, mid-way spot is offered again (a spot at the very end is never restored, so reopening never lands on a lone Amen). */
+const load = (id: string, max: number): { i: number; at: number } => {
+  try {
+    const [n, t] = (localStorage.getItem(key(id)) ?? '').split('|').map(Number);
+    return n > 0 && n < max - 1 && Date.now() - (t || 0) < 12 * 3600_000 ? { i: n, at: t } : { i: 0, at: 0 };
+  } catch { return { i: 0, at: 0 }; }
+};
+const save = (id: string, n: number) => { try { n > 0 ? localStorage.setItem(key(id), `${n}|${Date.now()}`) : localStorage.removeItem(key(id)); } catch { /* private mode */ } };
 const bump = (id: string) => { try { const k = `sb:pray:done:${id}`; const n = Number(localStorage.getItem(k) ?? 0) + 1; localStorage.setItem(k, String(n)); return n; } catch { return 1; } };
+const PREFS = 'sb:pray:prefs';
+const loadPrefs = (): { mode: Mode; speed: number; scripture: 'open' | 'fold' | 'off' } => { try { return { mode: 'tap', speed: 1, scripture: 'open', ...JSON.parse(localStorage.getItem(PREFS) ?? '{}') }; } catch { return { mode: 'tap', speed: 1, scripture: 'open' }; } };
+const timesPrayed = (id: string) => { try { return Number(localStorage.getItem(`sb:pray:done:${id}`) ?? 0); } catch { return 0; } };
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 
 /**
@@ -29,10 +38,16 @@ export default function BeadPrayer({ plan, art, episode, back, backLabel, intro,
   useWakeLock(s.keepAwake);
   const dock = useDock();
   const player = usePlayer();
-  const [i, setI] = useState(() => load(plan.id, plan.steps.length));
-  const [mode, setMode] = useState<Mode>('tap');
+  const saved = useRef(load(plan.id, plan.steps.length));
+  const [resume, setResume] = useState(saved.current.i > 0);
+  const [i, setI] = useState(0);
+  const prefs = useRef(loadPrefs());
+  const [mode, setMode] = useState<Mode>(startMode ?? (prefs.current.mode === 'audio' ? 'tap' : prefs.current.mode));
   const [running, setRunning] = useState(true);
-  const [speed, setSpeed] = useState(1);
+  const [speed, setSpeed] = useState(prefs.current.speed);
+  const [scr, setScr] = useState<'open' | 'fold' | 'off'>(timesPrayed(plan.id) > 0 && prefs.current.scripture === 'open' ? 'fold' : prefs.current.scripture);
+  const reached = useRef(0);
+  const [early, setEarly] = useState(false);
   const [follow, setFollow] = useState(true);
   const [offset, setOffset] = useState(0);
   const [finished, setFinished] = useState(false);
@@ -44,15 +59,18 @@ export default function BeadPrayer({ plan, art, episode, back, backLabel, intro,
   const pic = usePic(decade !== undefined ? art[decade] : null);
   const base = import.meta.env.BASE_URL;
 
-  useEffect(() => { if (!finished) save(plan.id, i); }, [i, finished, plan.id]);
-  useEffect(() => { setI(load(plan.id, plan.steps.length)); setFinished(false); }, [plan.id]);
+  // nothing is saved until the person has actually moved on from the start, so a fresh open never overwrites a spot waiting to be resumed
+  useEffect(() => { reached.current = Math.max(reached.current, i); if (!finished && !resume && i > 0) save(plan.id, i); }, [i, finished, plan.id, resume]);
+  useEffect(() => { saved.current = load(plan.id, plan.steps.length); setResume(saved.current.i > 0); setI(0); setFinished(false); reached.current = 0; }, [plan.id]);
+  useEffect(() => { try { localStorage.setItem(PREFS, JSON.stringify({ mode, speed, scripture: scr })); } catch { /* private mode */ } }, [mode, speed, scr]);
 
   const go = (n: number) => {
     const c = Math.max(0, Math.min(last, n));
     if (c !== i) buzz();
     setI(c);
   };
-  const finish = () => { setTimes(bump(plan.id)); setFinished(true); save(plan.id, 0); if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel(); setRunning(false); };
+  const finish = () => {
+    if (!early && reached.current < Math.floor(last * 0.6) && mode !== 'audio') { setEarly(true); return; } setTimes(bump(plan.id)); setEarly(false); setFinished(true); save(plan.id, 0); if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel(); setRunning(false); };
   const next = () => (i >= last ? finish() : go(i + 1));
 
   const audioOn = mode === 'audio' && !!episode && player.current?.id === episode.id;
@@ -87,7 +105,7 @@ export default function BeadPrayer({ plan, art, episode, back, backLabel, intro,
     const idx = d === 'start' ? 0 : d === 'end' ? plan.steps.findIndex((x) => x.kind === 'salve' || (x.decade === undefined && x.of?.[0] === 1 && x.title === 'Holy God')) : plan.steps.findIndex((x) => x.decade === d);
     if (idx >= 0) { go(idx); nudge(idx); }
   };
-  const restart = () => { setFinished(false); setI(0); setOffset(0); setRunning(true); save(plan.id, 0); };
+  const restart = () => { setEarly(false); setResume(false); reached.current = 0; setFinished(false); setI(0); setOffset(0); setRunning(true); save(plan.id, 0); };
   const choose = (m: Mode) => {
     setMode(m);
     setRunning(true);
@@ -99,6 +117,7 @@ export default function BeadPrayer({ plan, art, episode, back, backLabel, intro,
   useEffect(() => { if (startMode && startMode !== 'tap') choose(startMode); }, []);
 
   const pct = (100 * i) / last;
+  void decade;
   const decades = plan.decades;
   if (finished) {
     return (
@@ -121,6 +140,32 @@ export default function BeadPrayer({ plan, art, episode, back, backLabel, intro,
       <h1>{plan.name}</h1>
       {intro && <p className="muted small">{intro}</p>}
 
+      {resume && (
+        <section className="card rosary-resume" role="status">
+          <strong>Pick up where you left off?</strong>
+          <span className="muted small"> You were at prayer {saved.current.i + 1} of {plan.steps.length}.</span>
+          <div className="row" style={{ gap: 8, marginTop: 8 }}>
+            <button className="btn primary" onClick={() => { setI(saved.current.i); setResume(false); }}>Continue</button>
+            <button className="btn" onClick={() => { save(plan.id, 0); setResume(false); }}>Start from the beginning</button>
+          </div>
+        </section>
+      )}
+      {early && (
+        <section className="card rosary-resume" role="alertdialog" aria-label="Finish early?">
+          <strong>Finish already?</strong>
+          <span className="muted small"> You have only just begun. Amen ends the prayer here.</span>
+          <div className="row" style={{ gap: 8, marginTop: 8 }}>
+            <button className="btn" onClick={() => setEarly(false)}>Keep praying</button>
+            <button className="btn primary" onClick={finish}>Yes, finish</button>
+          </div>
+        </section>
+      )}
+      {i === 0 && !resume && timesPrayed(plan.id) === 0 && decade === undefined && (
+        <section className="card rosary-howto">
+          <strong>How this works</strong>
+          <p className="small" style={{ margin: '4px 0 0' }}>Tap the big button after each prayer to move to the next bead. At each of the five mysteries you will see a short scene from the Gospels: read it, or just picture it, then pray one Our Father, ten Hail Marys and a Glory Be while you keep that scene in mind. Pick another way to pray below if you would rather be led.</p>
+        </section>
+      )}
       <div className="rosary-modes" role="radiogroup" aria-label="How would you like to pray?">
         {([['tap', 'I’ll tap', 'Tap Next on each bead'], ['pace', 'Set the pace', 'Beads move at a steady speed'], ['voice', 'Lead me', 'Your device reads each prayer'], ...(episode ? [['audio', 'Pray with me', 'Follow the Creedal recording']] : [])] as [Mode, string, string][]).map(([m, l, d]) => (
           <button key={m} role="radio" aria-checked={mode === m} className={`mode${mode === m ? ' on' : ''}`} onClick={() => choose(m)} disabled={m === 'voice' && !voiceSupported()} title={m === 'voice' && !voiceSupported() ? 'This browser has no speech voice' : d}>
@@ -128,6 +173,10 @@ export default function BeadPrayer({ plan, art, episode, back, backLabel, intro,
           </button>
         ))}
       </div>
+
+      <label className="row small" style={{ gap: 8, margin: '4px 0' }}>
+        <input type="checkbox" checked={scr !== 'off'} onChange={(e) => setScr(e.target.checked ? 'fold' : 'off')} /> Show the Scripture scene for each mystery
+      </label>
 
       {(mode === 'pace' || mode === 'voice') && (
         <div className="row rosary-speed" style={{ gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
@@ -184,7 +233,13 @@ export default function BeadPrayer({ plan, art, episode, back, backLabel, intro,
               {step.of && <span className="chip rosary-count" aria-label={`${step.of[0]} of ${step.of[1]}`}>{step.of[0]} / {step.of[1]}</span>}
             </div>
             {step.note && <p className="muted small">{step.note}</p>}
-            {refs.length > 0 && <ReadingBlock refs={refs} label="Scripture" text={step.refs!} max={9} />}
+            {refs.length > 0 && scr !== 'off' && (
+              <details className="rosary-scene" open={scr === 'open'} onToggle={(e) => { const o = (e.currentTarget as HTMLDetailsElement).open; if (o !== (scr === 'open')) setScr(o ? 'open' : 'fold'); }}>
+                <summary>The scene from Scripture · {step.refs}</summary>
+                <p className="muted small" style={{ margin: '4px 0' }}>Read it slowly, or just picture it. It is what you keep in mind through the decade.</p>
+                <ReadingBlock refs={refs} label="Scripture" text={step.refs!} max={9} />
+              </details>
+            )}
             {step.text && <p className="scripture rosary-text">{step.text}</p>}
             {step.kind === 'ave' && step.of && (
               <div className="rosary-dots" aria-hidden>{Array.from({ length: step.of[1] }, (_, n) => <i key={n} className={n < step.of![0] ? 'on' : ''} />)}</div>

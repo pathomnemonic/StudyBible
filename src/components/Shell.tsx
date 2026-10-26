@@ -53,6 +53,9 @@ const dailyActive = (path: string) => {
 const isHome = (path: string) => path === '/' || path === '/today';
 const inDaily = (path: string) => !isHome(path) && ['/today', '/pray/readings', '/pray/plans', '/memorize', '/session'].some((p) => path === p || path.startsWith(p + '/'));
 
+/** Each tab remembers the last page you were on inside it for this visit, so leaving for a moment and tapping the tab again brings you back to it; tapping the tab you are already on goes to its start. */
+const tabKey = (to: string) => `sb:tabloc:${to}`;
+const lastIn = (to: string) => { try { return sessionStorage.getItem(tabKey(to)) || to; } catch { return to; } };
 const ROOM_KEY = 'sb:room:last';
 const lastRoom = () => { try { return localStorage.getItem(ROOM_KEY) || '/room'; } catch { return '/room'; } };
 
@@ -82,6 +85,11 @@ export default function Shell({ children }: { children: ReactNode }) {
     };
   }, []);
   // the Read tab returns to the work you were reading, not the front page
+  useEffect(() => {
+    const p = loc.pathname;
+    const hit = TABS.find((tb) => tb.to === '/profile' ? inYou(p) : tb.to === '/pray' ? inPray(p) : tb.to === '/learn' ? inLearn(p) : tb.to === '/listen' ? p === '/listen' || p.startsWith('/listen/') : false);
+    if (hit) { try { sessionStorage.setItem(tabKey(hit.to), p + loc.search); } catch { /* private mode */ } }
+  }, [loc.pathname, loc.search]);
   useEffect(() => { if (loc.pathname === '/room' || loc.pathname.startsWith('/room/')) { try { localStorage.setItem(ROOM_KEY, loc.pathname + loc.search); } catch { /* private mode */ } } }, [loc.pathname, loc.search]);
   // anything marked data-seen clears its red dot when it is opened
   useEffect(() => {
@@ -128,7 +136,7 @@ export default function Shell({ children }: { children: ReactNode }) {
           return (
             <NavLink
               key={tb.to}
-              to={tb.to === '/read' && s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : tb.to === '/room' ? lastRoom() : tb.to}
+              to={tb.to === '/read' && s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : tb.to === '/room' ? lastRoom() : ['/pray', '/learn', '/listen', '/profile'].includes(tb.to) && !active ? lastIn(tb.to) : tb.to}
               className={() => `tab${active ? ' active' : ''}`}
               aria-current={active ? 'page' : undefined}
               data-seen={tb.to === '/today' ? undefined : `tab.${tb.to}`}

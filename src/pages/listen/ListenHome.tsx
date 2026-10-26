@@ -25,12 +25,18 @@ import Audiobooks from './Audiobooks';
 import { useShows } from '../../data/podcasts';
 import { useSettings } from '../../lib/store';
 
-type View = 'plan' | 'release' | 'queue' | 'progress';
+type View = 'next' | 'plan' | 'extras' | 'queue' | 'progress';
+const HIDE_KEY = 'sb:biay:hidedone';
+const loadHide = () => { try { return localStorage.getItem(HIDE_KEY) !== '0'; } catch { return true; } };
 
 function BiayListen() {
   const { biay, loaded } = useBiay();
   const player = usePlayer();
-  const [view, setView] = useState<View>('plan');
+  const [view, setView] = useState<View>('next');
+  const [hideDone, setHideDone] = useState(loadHide);
+  const [shown, setShown] = useState(12);
+  const [bulk, setBulk] = useState(false);
+  const [upTo, setUpTo] = useState('');
   const [q, setQ] = useState('');
   const [year, setYear] = useState<number | ''>('');
   const progress = useLiveQuery(() => db.episodeProgress.toArray(), []) ?? [];
@@ -46,15 +52,18 @@ function BiayListen() {
     if (!biay) return [] as BiayEpisode[];
     const pick = (d: number) => (year ? biay.releases.get(d)?.find((e) => e.year === year) ?? biay.dayEpisode.get(d) : biay.dayEpisode.get(d));
     const days = [...biay.dayEpisode.keys()].sort((a, b) => a - b).map((d) => pick(d)!).filter(Boolean);
-    if (view === 'plan') return days;
-    if (view === 'release') return [...biay.data.episodes].filter((e) => !year || e.year === year).sort((a, b) => b.date.localeCompare(a.date));
+    if (view === 'plan' || view === 'next') return days;
+    if (view === 'extras') return [...biay.data.episodes].filter((e) => e.kind !== 'day' && (!year || e.year === year)).sort((a, b) => b.date.localeCompare(a.date));
     if (view === 'queue') return queue.map((x) => biay.byId.get(x.episodeId) ?? other[x.episodeId]).filter(Boolean) as BiayEpisode[];
     return progress.filter((p) => p.completed || p.position > 0).sort((a, b) => b.updatedAt - a.updatedAt).map((p) => biay.byId.get(p.episodeId) ?? other[p.episodeId]).filter(Boolean) as BiayEpisode[];
   }, [biay, view, year, queue, progress, other]);
 
+  const finishedIds = useMemo(() => new Set(progress.filter((p) => p.completed).map((p) => p.episodeId)), [progress]);
   const filtered = useMemo(() => {
     const s = q.trim();
-    if (!s) return epsFor;
+    // finished episodes are tucked away (unless you are searching for one), so the list starts at where you are
+    const base = !s && hideDone && (view === 'next' || view === 'plan' || view === 'extras') ? epsFor.filter((e) => !finishedIds.has(e.id)) : epsFor;
+    if (!s) return base;
     const num = /^(?:day\s*)?(\d{1,3})$/i.exec(s);
     if (num) return epsFor.filter((e) => e.day === +num[1]);
     const pr = parseRefs(s);
@@ -65,12 +74,26 @@ function BiayListen() {
     }
     const f = fold(s);
     return epsFor.filter((e) => fold(e.title + ' ' + e.description).includes(f));
-  }, [epsFor, q]);
+  }, [epsFor, q, hideDone, view, finishedIds]);
 
   if (!loaded) return <div className="center-note">Loading episodes…</div>;
   if (!biay) return <div className="center-note">Episode data is missing. Run <code>npm run data:all</code>.</div>;
 
-  const startPlan = () => db.planProgress.put({ planId: 'biay', startedAt: Date.now(), status: 'active', done: [], offsetDays: 0 });
+  /** Marks days 1..n finished (every release's episode for each day) and moves the plan to day n+1. */
+  const markThrough = async (n: number) => {
+    const rows = [];
+    for (let d = 1; d <= n; d++) for (const e of biay.releases.get(d) ?? [biay.dayEpisode.get(d)].filter(Boolean) as BiayEpisode[]) rows.push({ episodeId: e.id, position: 0, completed: true, updatedAt: Date.now(), duration: e.duration ?? undefined });
+    await db.episodeProgress.bulkPut(rows);
+    const cur = await db.planProgress.get('biay');
+    const done = [...new Set([...(cur?.done ?? []), ...Array.from({ length: n }, (_, i) => i)])];
+    await db.planProgress.put({ planId: 'biay', startedAt: Date.now(), status: 'active', done, offsetDays: n });
+    setBulk(false); setUpTo('');
+  };
+  const clearFinished = async () => {
+    if (!confirm('Clear every finished mark on these episodes? Your queue and listening position are kept.')) return;
+    const ids = progress.filter((p) => p.completed).map((p) => p.episodeId);
+    await db.episodeProgress.where('episodeId').anyOf(ids).modify({ completed: false });
+  };
   const todayDay = planStart ? Math.min(365, Math.max(1, Math.floor((Date.now() - planStart.startedAt) / 86400000) + 1 + planStart.offsetDays)) : null;
   const todayEp = todayDay ? biay.dayEpisode.get(todayDay) : null;
   const resumeId = progress.filter((p) => !p.completed && p.position > 30).sort((a, b) => b.updatedAt - a.updatedAt)[0];
@@ -80,25 +103,51 @@ function BiayListen() {
   return (
     <div>
       <YearHero />
-      <h2 className="h-sm" style={{ marginTop: 22 }}>Every day</h2>
+      <h2 className="h-sm" style={{ marginTop: 22 }}>Episodes</h2>
 
       <div className="tabbar" role="tablist">
-        {([['plan', 'Plan'], ['release', 'All'], ['queue', `Queue ${queue.length}`], ['progress', 'Progress']] as [View, string][]).map(([k, l]) => (
-          <button key={k} role="tab" aria-selected={view === k} onClick={() => setView(k)}>{l}</button>
+        {([['next', 'Up next'], ['plan', 'All 365 days'], ['extras', 'Extras'], ['queue', `Queue ${queue.length}`], ['progress', 'History']] as [View, string][]).map(([k, l]) => (
+          <button key={k} role="tab" aria-selected={view === k} onClick={() => { setView(k); setShown(12); }}>{l}</button>
         ))}
       </div>
-      <FilterBar active={year ? 1 : 0}
-        search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Day, title or passage (92, Hezekiah, John 6)" aria-label="Search episodes" />}>
-        <label>Release<select value={year} onChange={(e) => setYear(e.target.value ? +e.target.value : '')} aria-label="Release year">
-          <option value="">Latest release</option>
-          {years.map((y) => <option key={y} value={y}>{y} release</option>)}
-        </select></label>
-      </FilterBar>
-      {view === 'plan' && <p className="muted small">365 days through the whole Bible. Type a passage to find its episode.</p>}
-      {filtered.length === 0 && <div className="empty">No episodes here{view === 'queue' ? ' — add episodes to your queue from any list.' : '.'}</div>}
+      {(view === 'plan' || view === 'extras') && (
+        <FilterBar active={year ? 1 : 0}
+          search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Day, title or passage (92, Hezekiah, John 6)" aria-label="Search episodes" />}>
+          <label>Release<select value={year} onChange={(e) => setYear(e.target.value ? +e.target.value : '')} aria-label="Release year">
+            <option value="">Latest release</option>
+            {years.map((y) => <option key={y} value={y}>{y} release</option>)}
+          </select></label>
+        </FilterBar>
+      )}
+      {view === 'next' && <p className="muted small" style={{ margin: '6px 0' }}>Your next unfinished days, in order. {finishedIds.size > 0 ? `${finishedIds.size} finished ${finishedIds.size === 1 ? 'episode is' : 'episodes are'} tucked away.` : 'Mark an episode finished with the ✓ and it moves out of the way.'}</p>}
+      {view === 'plan' && <p className="muted small">All 365 days, through the whole Bible. Type a passage to find its episode.</p>}
+      {view === 'extras' && <p className="muted small">Bonus and special episodes that are not one of the 365 days.</p>}
+      {(view === 'next' || view === 'plan' || view === 'extras') && (
+        <div className="row" style={{ gap: 10, flexWrap: 'wrap', margin: '4px 0 8px' }}>
+          <label className="row small" style={{ gap: 6 }}>
+            <input type="checkbox" checked={hideDone} onChange={(e) => { setHideDone(e.target.checked); try { localStorage.setItem(HIDE_KEY, e.target.checked ? '1' : '0'); } catch { /* private mode */ } }} /> Hide finished episodes
+          </label>
+          {(view === 'next' || view === 'plan') && <button className="linklike small" onClick={() => setBulk(!bulk)} aria-expanded={bulk}>Coming from another app?</button>}
+        </div>
+      )}
+      {bulk && (
+        <section className="card" aria-label="Catch up">
+          <strong>Already listening somewhere else?</strong>
+          <p className="muted small" style={{ margin: '4px 0 8px' }}>Tell us how far you got and every earlier day is marked finished and tucked away, so the list starts at your next episode. You can undo it.</p>
+          <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
+            <label className="row small" style={{ gap: 6 }}>I have finished through day
+              <input type="number" min={1} max={365} value={upTo} onChange={(e) => setUpTo(e.target.value)} style={{ width: 80 }} aria-label="Last day finished" />
+            </label>
+            <button className="btn primary small" disabled={!(+upTo >= 1)} onClick={() => void markThrough(Math.min(365, +upTo))}>Mark days 1 to {upTo || '…'} finished</button>
+            <button className="btn small" onClick={() => void clearFinished()}>Undo all finished marks</button>
+          </div>
+        </section>
+      )}
+      {filtered.length === 0 && <div className="empty">{view === 'queue' ? 'Nothing in your queue — add episodes from any list.' : view === 'next' || view === 'plan' ? (finishedIds.size > 0 ? 'Everything here is finished. Untick “Hide finished episodes” to see them.' : 'No episodes here.') : 'No episodes here.'}</div>}
       <ul className="list">
-        {filtered.slice(0, 400).map((e) => <Row key={e.id} e={e} progress={doneMap.get(e.id)} inQueue={queue.some((x) => x.episodeId === e.id)} />)}
+        {(view === 'next' ? filtered.slice(0, shown) : filtered.slice(0, 400)).map((e) => <Row key={e.id} e={e} progress={doneMap.get(e.id)} inQueue={queue.some((x) => x.episodeId === e.id)} />)}
       </ul>
+      {view === 'next' && filtered.length > shown && <p><button className="btn" onClick={() => setShown(shown + 20)}>Show the next 20</button> <button className="linklike small" onClick={() => setView('plan')}>or browse all days</button></p>}
       {view === 'queue' && !q && queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length > 0 && (
         <div className="notice" role="note">
           {queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length} items in your queue can no longer be found.{' '}

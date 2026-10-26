@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSettings, updateSettings } from '../lib/store';
 import { db } from '../db/db';
+import { countsAsRead } from '../lib/finished';
 
 const startOfWeek = () => { const d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() - d.getDay()); return d.getTime(); };
 const DAY = 86400000;
 
-/** A gentle weekly reading goal, counted from the chapters you actually open in the reader. Private to this device. */
+/** A gentle weekly reading goal, counted from the chapters you finish in the reader. Private to this device. */
 export default function GoalsPage() {
   const [s] = useSettings();
   const goal = s.weeklyGoal ?? 0;
@@ -15,7 +16,7 @@ export default function GoalsPage() {
   useEffect(() => {
     const from = startOfWeek();
     db.history.where('ts').aboveOrEqual(from).toArray().then((rows) => {
-      const reads = rows.filter((r) => r.type === 'read');
+      const reads = rows.filter(countsAsRead);
       setChapters([...new Set(reads.map((r) => r.ref))]);
       const d = Array(7).fill(false);
       for (const r of rows) d[Math.min(6, Math.floor((r.ts - from) / DAY))] = true;
@@ -27,7 +28,7 @@ export default function GoalsPage() {
   return (
     <div className="page">
       <h1>Reading goal</h1>
-      <p className="lede">Pick a number of Bible chapters for the week. It counts the chapters you open in the reader. No streak to lose, just a nudge.</p>
+      <p className="lede">Pick a number of Bible chapters for the week. A chapter counts once you have read to its end (or tapped “Mark this chapter read”), not just opened it. No streak to lose, just a nudge.</p>
       <div className="card">
         <label className="row between"><span>Chapters this week</span>
           <select value={goal} onChange={(e) => updateSettings({ weeklyGoal: +e.target.value })} aria-label="Weekly goal in chapters">

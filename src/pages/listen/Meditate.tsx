@@ -35,8 +35,26 @@ export default function Meditate() {
     let n = Date.now();
     for (const e of eps.slice(1)) await db.queue.add({ episodeId: e.id, order: ++n });
   };
+  /** A long run of real recordings that plays on its own for an hour or more, then stops (the player's own sleep timer also works). */
+  const sleepMix = async (cats: Track['category'][], album: string) => {
+    if (!tracks) return;
+    const pool = tracks.filter((t) => cats.includes(t.category) && (t.durationSec ?? 0) >= 100).sort(() => Math.random() - 0.5);
+    if (!pool.length) return;
+    const list: Track[] = [];
+    while (list.reduce((n, t) => n + (t.durationSec ?? 180), 0) < 75 * 60) list.push(...pool);
+    await queueAll(list, album);
+    p.setSleep(75);
+  };
   return (
     <div className="meditate">
+      <Group title="To fall asleep to" hint="Real recordings, not a synthetic voice. Each runs for about an hour and then stops by itself.">
+        <div className="row" style={{ flexWrap: 'wrap', gap: 8 }}>
+          <button className="btn primary" onClick={() => void sleepMix(['chant'], 'Chant for sleep')}><Icon name="play" size={14} /> Monastic chant</button>
+          <button className="btn" onClick={() => void sleepMix(['chant', 'hymn'], 'Chant and hymns for sleep')}>Chant and hymns</button>
+          <button className="btn" onClick={() => void sleepMix(['classical'], 'Piano for sleep')}>Piano nocturnes</button>
+          <button className="btn" onClick={() => void sleepMix(['nature'], 'Nature for sleep')}>Rain, sea and wind</button>
+        </div>
+      </Group>
       <Link to="/pray/sleep" className="card meditate-sleep">
         <strong>Fall asleep with a psalm</strong>
         <span className="muted small">A psalm read slowly, one verse at a time, over rain or a stream, while the screen dims and the sound fades.</span>

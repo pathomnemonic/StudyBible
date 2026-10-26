@@ -9,11 +9,11 @@ import { setAmbience, stopAmbience, softBell } from '../../lib/ambience';
 
 /** gentle psalms, in the numbering most Bibles use */
 const PSALMS: [number, string][] = [[4, 'In peace I will lie down'], [23, 'The Lord is my shepherd'], [27, 'The Lord is my light'], [34, 'I will bless the Lord at all times'], [42, 'As the deer longs for water'], [46, 'Be still, and know'], [62, 'My soul waits in silence'], [63, 'My soul clings to you'], [84, 'How lovely is your dwelling place'], [91, 'Under his wings'], [103, 'Bless the Lord, O my soul'], [121, 'My help comes from the Lord'], [130, 'Out of the depths'], [131, 'A weaned child at rest'], [139, 'You search me and know me'], [145, 'I will extol you, my God']];
-const SOUNDS: [string, string][] = [['rain', 'Rain'], ['stream', 'Stream'], ['wind', 'Wind'], ['sea', 'Sea'], ['night', 'Night'], ['music', 'Soft music'], ['classical', 'Piano'], ['off', 'Silence']];
+const SOUNDS: [string, string][] = [['chant', 'Chant'], ['hymn', 'Hymns'], ['rain', 'Rain'], ['stream', 'Stream'], ['wind', 'Wind'], ['sea', 'Sea'], ['night', 'Night'], ['music', 'Soft music'], ['classical', 'Piano'], ['off', 'Silence']];
 const KEY = 'sb:sleep';
 interface Prefs { mode: 'one' | 'on'; psalm: number; sound: string; speak: boolean; speed: number; gap: number; volume: number }
-const DEFAULTS: Prefs = { mode: 'on', psalm: 121, sound: 'rain', speak: true, speed: 0.7, gap: 3, volume: 0.3 };
-const load = (): Prefs => { try { return { ...DEFAULTS, ...JSON.parse(localStorage.getItem(KEY) ?? '{}') }; } catch { return DEFAULTS; } };
+const DEFAULTS: Prefs = { mode: 'on', psalm: 121, sound: 'chant', speak: false, speed: 0.7, gap: 3, volume: 0.3 };
+const load = (): Prefs => { try { const saved = JSON.parse(localStorage.getItem(KEY) ?? '{}'); /* the device voice is now opt-in: older saved choices of it are reset once */ if (!saved.v2) { saved.speak = false; saved.v2 = true; } return { ...DEFAULTS, ...saved }; } catch { return DEFAULTS; } };
 const wait = (ms: number, stop: { v: boolean }) => new Promise<void>((res) => { const t = window.setTimeout(res, ms); const c = window.setInterval(() => { if (stop.v) { window.clearTimeout(t); window.clearInterval(c); res(); } }, 300); window.setTimeout(() => window.clearInterval(c), ms + 400); });
 
 /**
@@ -141,7 +141,7 @@ export default function SleepPage() {
           {p.mode === 'on' && <p className="muted small" style={{ margin: '6px 0 0' }}>Carries on through the next psalms (Psalm {p.psalm + 1 > 150 ? 1 : p.psalm + 1}, and so on) until you stop it or fall asleep. It grows quieter and dimmer as it goes.</p>}
         </div>
         <div className="field"><span>Sound</span><div className="chips">{SOUNDS.map(([k, l]) => <button key={k} className={`chip${p.sound === k ? ' sel' : ''}`} aria-pressed={p.sound === k} onClick={() => set({ sound: k })}>{l}</button>)}</div></div>
-        <label className="row" style={{ gap: 8, margin: '8px 0' }}><input type="checkbox" checked={p.speak} onChange={(e) => set({ speak: e.target.checked })} /> Read it aloud, slowly (your device’s voice)</label>
+        <label className="row" style={{ gap: 8, margin: '8px 0' }}><input type="checkbox" checked={p.speak} onChange={(e) => set({ speak: e.target.checked })} /> Also read it aloud in your device’s voice (off by default: recorded chant and sound are better for sleep)</label>
         <button className="btn primary" onClick={start}>Begin</button>
         <p className="muted small">Once it begins, tap the small ⚙ to change the speed, the pause between verses or the volume. Psalm numbers follow the numbering used in most Bibles. Browsers may need one tap before sound can play.</p>
       </div>

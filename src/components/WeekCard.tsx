@@ -1,3 +1,4 @@
+import { countsAsRead } from '../lib/finished';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
 
@@ -6,7 +7,7 @@ export default function WeekCard() {
   const since = Date.now() - 7 * 86400000;
   const s = useLiveQuery(async () => {
     const hist = await db.history.where('ts').above(since).toArray();
-    const chapters = new Set(hist.filter((h) => h.type === 'read').map((h) => h.ref.split(/[:\-–]/)[0]));
+    const chapters = new Set(hist.filter(countsAsRead).map((h) => h.ref.split(/[:\-–]/)[0]));
     const notes = await db.notes.where('createdAt').above(since).count().catch(() => 0);
     const works = new Set(hist.filter((h) => h.type === 'work').map((h) => h.label)).size;
     const days = new Set(hist.map((h) => new Date(h.ts).toDateString())).size;
