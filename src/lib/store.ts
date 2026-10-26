@@ -112,6 +112,8 @@ export interface Settings {
   refNumbering: 'edition' | 'vulgate' | 'english';
   reminders: { enabled: boolean; time: string; message: string };
   showStreaks: boolean;
+  /** chapters to read per week; 0 for no goal */
+  weeklyGoal: number;
   lectioMinutes: number;
   last: { edition: string; book: string; chapter: number; verse?: number } | null;
   diocese: string; // liturgical calendar: 'universal' | 'usa' ...
@@ -181,6 +183,7 @@ export const DEFAULTS: Settings = {
   refNumbering: 'edition',
   reminders: { enabled: false, time: '07:30', message: 'A quiet moment with Scripture, if you would like one.' },
   showStreaks: false,
+  weeklyGoal: 0,
   lectioMinutes: 15,
   last: null,
   diocese: 'universal',
