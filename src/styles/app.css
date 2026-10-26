@@ -4700,3 +4700,6 @@ button, a, [role='button'] { touch-action: manipulation; }
 /* Favorites picker */
 .fav-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; max-height: 320px; overflow: auto; } .fav-chip { display: grid; text-align: left; gap: 0; padding: 7px 11px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); font: inherit; cursor: pointer; max-width: 100%; } .fav-chip small { color: var(--muted); font-size: .72rem; } .fav-chip.on { border-color: var(--accent); background: var(--accent-soft); }
 .key-badge { display: inline-block; margin-left: 6px; padding: 0 7px; border-radius: 999px; background: var(--accent-soft); color: var(--text); border: 1px solid var(--accent); font-size: .72rem; font-weight: 700; white-space: nowrap; } .key-lessons { margin: 0 0 14px; }
+
+/* Downloads */
+.dl-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; } .dl-list li { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 12px; padding: 6px 0; border-bottom: 1px solid var(--border); } .dl-act { display: inline-flex; gap: 6px; align-items: center; } .dl-err { flex-basis: 100%; color: var(--danger, #e5484d); }

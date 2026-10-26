@@ -156,7 +156,7 @@ export default function ReadPage() {
     setError('');
     getBookText(edition.id, bk.id)
       .then((d) => live && setData(d))
-      .catch((e) => live && setError(`Could not load ${bk.name} in ${edition.shortName}. If you are offline, download this edition in Settings → Offline reading while connected. (${e.message})`));
+      .catch((e) => live && setError(`Could not load ${bk.name} in ${edition.shortName}. If you are offline, download this edition on the Downloads page (Settings → Downloads and offline) while connected. (${e.message})`));
     return () => {
       live = false;
     };

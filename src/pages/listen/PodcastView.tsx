@@ -1,3 +1,4 @@
+import SaveOffline from '../../components/SaveOffline';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -106,6 +107,7 @@ function Row({ e, show, progress, inQueue }: { e: BiayEpisode; show: Show; progr
         </div>
         <div className="row">
           <button className="icon-btn" onClick={() => player.play(e)} aria-label={`Play ${e.title}`}><Icon name="play" /></button>
+          <SaveOffline ep={e} compact />
           <button className="icon-btn" aria-pressed={inQueue} onClick={toggleQueue} aria-label={inQueue ? 'Remove from queue' : 'Add to queue'}><Icon name="queue" /></button>
           <button className="icon-btn" aria-pressed={!!progress?.completed} onClick={toggleDone} aria-label={progress?.completed ? 'Mark not completed' : 'Mark completed'}><Icon name="check" /></button>
         </div>

@@ -16,7 +16,7 @@ import { BIBLE_TOOLS, isBibleToolPath } from '../lib/bibleTools';
 
 // Seven places along the bottom: Learn (the faith, taught), Read (texts and recordings beyond the Bible, read beside a Bible chapter), Study (anything educational), Today (where the app opens), the Bible, and Listen (the Bible in a Year, spoken).
 // Profile (notes, plans, settings, prayer) is the round button at the top right of every screen. The Mass readings belong to Today.
-const PROFILE_PATHS = ['/profile', '/library', '/settings', '/account', '/about', '/more', '/days', '/share'];
+const PROFILE_PATHS = ['/profile', '/downloads', '/library', '/settings', '/account', '/about', '/more', '/days', '/share'];
 /** Paths under /pray that belong to Today's daily practice rather than the Pray tab. */
 const DAILY_PRAY = ['/pray/readings', '/pray/plans'];
 const inPray = (path: string) => (['/pray', '/mass'].some((m) => path === m || path.startsWith(m + '/'))) && !DAILY_PRAY.some((m) => path === m || path.startsWith(m + '/'));

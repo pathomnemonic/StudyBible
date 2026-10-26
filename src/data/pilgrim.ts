@@ -130,8 +130,8 @@ export const PILGRIM_SITES: Site[] = [
 
 export const CHECKLIST: [string, string][] = [
   ['docs', 'Passport, tickets, insurance, and a copy of each, on paper and in your phone'],
-  ['bible', 'Download your Bible translation for offline use (Settings, Offline reading)'],
-  ['study', 'Download the study data you want (Settings, Study data offline)'],
+  ['bible', 'Save your Bible, the study data and a few audio episodes (Downloads and offline)'],
+  ['study', 'Check the Downloads page shows everything you need as “on this device”'],
   ['mass', 'Check the shrine’s own site for Mass and confession times'],
   ['shoes', 'Broken-in walking shoes; a small bag; water'],
   ['rosary', 'A rosary and a small notebook (or the app’s journal)'],

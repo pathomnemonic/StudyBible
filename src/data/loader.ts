@@ -59,6 +59,13 @@ export const getXrefs = (book: string) => getJson<XrefFile>(`xrefs/${book}.json`
  * Prefetch every book of an edition into the browser cache for offline reading. Each book is checked against the size and
  * checksum in the manifest, and the call throws, naming the books, if any failed or did not match.
  */
+/** Keep a verified download in the offline cache ourselves, so saving does not depend on the service worker having taken control of the page yet. */
+async function keep(url: string, buf: ArrayBuffer, type = 'application/json') {
+  if (!('caches' in window)) return;
+  const c = await caches.open('studybible-data-v1');
+  await c.put(new URL(url, location.href).href, new Response(buf, { headers: { 'content-type': type, 'content-length': String(buf.byteLength) } }));
+}
+
 export async function downloadEdition(edition: string, books: string[], onProgress: (done: number, total: number) => void, signal?: AbortSignal) {
   const man = await getManifest().catch(() => null);
   const want = man?.editions?.[edition];
@@ -73,6 +80,7 @@ export async function downloadEdition(edition: string, books: string[], onProgre
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         const buf = await r.arrayBuffer();
         if (want && (buf.byteLength !== want.sizes[b] || (crypto?.subtle && hex(await crypto.subtle.digest('SHA-256', buf)).slice(0, 16) !== want.sums[b]))) bad.push(b);
+        else await keep(`${base}data/bible/${edition}/${b}.json`, buf);
       } catch (e: any) {
         if (e?.name === 'AbortError') return;
         bad.push(b);
@@ -144,6 +152,7 @@ export async function downloadPack(
         const buf = await r.arrayBuffer();
         if (pack.sizes && buf.byteLength !== pack.sizes[i]) res.corrupt.push(f);
         else if (pack.sums && crypto?.subtle && hex(await crypto.subtle.digest('SHA-256', buf)).slice(0, 16) !== pack.sums[i]) res.corrupt.push(f);
+        else await keep(`${base}data/${f}`, buf);
       } catch (e: any) {
         if (e?.name === 'AbortError') { res.cancelled = true; return; }
         if (e?.name === 'QuotaExceededError') { res.storageFull = true; return; }

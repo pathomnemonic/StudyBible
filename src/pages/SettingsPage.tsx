@@ -1,15 +1,13 @@
 import Fold from '../components/Fold';
 import { resetSeen, markAllSeen } from '../lib/seen';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
 import StorageStatus from '../components/StorageStatus';
-import { downloadEdition, isEditionCached, downloadPack, packStillCached, getManifest, type StudyPack } from '../data/loader';
 import { useSettings, THEMES } from '../lib/store';
 import { TRADITIONS, traditionOf } from '../lib/tradition';
 import { LANGS, useT } from '../lib/i18n';
-import { BOOKS } from '../lib/canon';
 import { NATIONS } from '../liturgy/litcal';
 import { enableReminders, scheduleReminder, PRESETS } from '../liturgy/reminders';
 import DriveBackup from '../components/DriveBackup';
@@ -37,61 +35,13 @@ export default function SettingsPage() {
   const t = useT();
   const { choosable, off } = useChoosable();
   const [enabling, setEnabling] = useState<(typeof editions)[number] | null>(null);
-  const [cached, setCached] = useState<Record<string, boolean>>({});
-  const [prog, setProg] = useState<Record<string, string>>({});
   const [remMsg, setRemMsg] = useState('');
-  useEffect(() => {
-    editions.forEach((e) => isEditionCached(e.id, BOOKS.map((b) => b.id)).then((c) => setCached((x) => ({ ...x, [e.id]: c }))));
-  }, [editions]);
-  const [packs, setPacks] = useState<StudyPack[]>([]);
-  const [packProg, setPackProg] = useState<Record<string, string>>({});
-  useEffect(() => {
-    getManifest().then((m) => setPacks(m?.packs ?? [])).catch(() => {});
-  }, []);
-  const [dlErr, setDlErr] = useState<Record<string, string>>({});
-  const [packOk, setPackOk] = useState<Record<string, boolean>>({});
-  const abort = useRef<AbortController | null>(null);
-  const dlPack = async (p: StudyPack) => {
-    setDlErr((x) => ({ ...x, [p.id]: '' }));
-    abort.current = new AbortController();
-    try {
-      const r = await downloadPack(p, (d, t, b, tb) => setPackProg((x) => ({ ...x, [p.id]: tb ? `${Math.round((100 * b) / tb)}%` : `${d}/${t}` })), abort.current.signal);
-      setPackOk((x) => ({ ...x, [p.id]: !r.failed.length && !r.corrupt.length && !r.cancelled && !r.storageFull }));
-      const msg = r.cancelled ? 'Download stopped. Start it again to carry on where it left off.'
-        : r.storageFull ? 'Your device is out of storage for this site. Free some space or remove an edition, then try again.'
-        : r.corrupt.length ? `${r.corrupt.length} files did not match their checksum and may be damaged. Try again to fetch them afresh.`
-        : r.failed.length ? `${r.failed.length} of ${p.files.length} files could not be downloaded (are you offline?). Try again to fetch the missing ones.` : '';
-      if (msg) setDlErr((x) => ({ ...x, [p.id]: msg }));
-    } catch (e: any) {
-      setDlErr((x) => ({ ...x, [p.id]: e?.message ?? 'The download failed. Try again.' }));
-    }
-    setPackProg((x) => ({ ...x, [p.id]: '' }));
-  };
-  // a pack counts as downloaded only if its files are still in the cache (the browser can clear them)
-  useEffect(() => {
-    packs.forEach((p) => {
-      let marked = false;
-      try { marked = !!localStorage.getItem(`pack.${p.id}`); } catch { /* ignore */ }
-      if (!marked) return setPackOk((x) => ({ ...x, [p.id]: false }));
-      packStillCached(p).then((ok) => { setPackOk((x) => ({ ...x, [p.id]: ok })); if (!ok) { try { localStorage.removeItem(`pack.${p.id}`); } catch { /* ignore */ } } });
-    });
-  }, [packs]);
-  const packDone = (id: string) => !!packOk[id];
-  const dl = async (id: string) => {
-    setDlErr((x) => ({ ...x, [id]: '' }));
-    try {
-      await downloadEdition(id, BOOKS.map((b) => b.id), (d, t) => setProg((p) => ({ ...p, [id]: `${d}/${t}` })));
-      setCached((c) => ({ ...c, [id]: true }));
-    } catch (e: any) {
-      setDlErr((x) => ({ ...x, [id]: e?.message ?? 'The download failed. Check your connection and try again.' }));
-    }
-    setProg((p) => ({ ...p, [id]: '' }));
-  };
   return (
     <div className="page">
       <h1>Settings</h1>
       <input type="search" className="settings-search" placeholder="Find a setting (try “font”, “sound”, “offline”)" aria-label="Find a setting" onChange={(e) => { const q = e.target.value.trim().toLowerCase(); document.querySelectorAll<HTMLElement>('.page > .card').forEach((c) => { c.hidden = !!q && !(c.textContent ?? '').toLowerCase().includes(q) && !(c.querySelector('select,input') && [...c.querySelectorAll('[aria-label]')].some((n) => (n.getAttribute('aria-label') ?? '').toLowerCase().includes(q))); }); }} />
       <div className="card more-links">
+        <Link to="/downloads">Downloads and offline</Link>
         <Link to="/account">Account and sync</Link>
         <Link to="/study/sources">Sources and licensing</Link>
         <Link to="/about">About and feature status</Link>
@@ -144,43 +94,13 @@ export default function SettingsPage() {
         )}
         {!traditionOf(s.tradition).roman && <p className="small">Psalms are numbered here as in the Septuagint (and the Vulgate), the numbering your Church’s books use. {traditionOf(s.tradition).site && <>Your Church’s own site: <a href={traditionOf(s.tradition).site!.url} target="_blank" rel="noreferrer noopener">{traditionOf(s.tradition).site!.label}</a>.</>} See <Link to="/about#eastern">what the app does and does not cover for the Eastern Churches</Link>.</p>}
       </Fold>
-      <Fold id="settings:Offline reading" title="Offline reading" open={false}>
-        <p className="muted small">Only public-domain editions can be downloaded. The app caches any chapter you open; use these buttons to fetch an entire edition (about 5 MB each) in advance.</p>
-        {editions.map((e) => (
-          <div className="row between" key={e.id} style={{ margin: '6px 0' }}>
-            <span>{e.name}</span>
-            {cached[e.id] ? <span className="chip good">available offline</span> : prog[e.id] ? <span className="chip">{prog[e.id]}</span> : <button className="btn small" disabled={!e.offlineAllowed} onClick={() => dl(e.id)}>{dlErr[e.id] ? 'Retry' : 'Download'}</button>}
-          </div>
-        ))}
-        {Object.entries(dlErr).filter(([k, v]) => v && editions.some((e) => e.id === k)).map(([k, v]) => <p key={k} className="small" role="alert">{v}</p>)}
-      </Fold>
 
       <StorageStatus />
       <details className="card">
         <summary><strong>Speed on this device</strong></summary>
         <PerfInfo />
       </details>
-      <details className="card">
-        <summary><strong>What works without a connection?</strong></summary>
-        <ul className="list small">
-          <li><strong>Always, once the app has loaded:</strong> the Bibles you have opened or downloaded, your notes, highlights and journal, the Divine Office, devotions, the prayer book, novenas and the Bible course.</li>
-          <li><strong>After you download the study data above:</strong> commentary, the Fathers and saints library, cross-references, maps, and Greek and Hebrew word study.</li>
-          <li><strong>Only online:</strong> videos, the audio of Bible in a Year, LibriVox recordings and other streams; links to other websites; the official liturgical calendars for other countries; sync and Google Drive backup.</li>
-          <li>If something shows a blank or an error while you are offline, it is most likely in the last group. The page will fill in when you reconnect.</li>
-        </ul>
-      </details>
 
-      <Fold id="settings:Study data offline" title="Study data offline" open={false}>
-        <p className="muted small">Commentary, the Fathers library and resource links are cached as you use them. Download a whole pack to have it before you go offline. Your notes, highlights, plans, memorization and progress are always stored on this device and work offline. Links to publisher websites, map tiles and the Bible in a Year audio still need a connection.</p>
-        {packs.length > 0 && <div className="row" style={{ marginBottom: 6 }}><button className="btn small primary" onClick={async () => { for (const p of packs) { if (!packDone(p.id)) await dlPack(p); if (abort.current?.signal.aborted) break; } }}>Download all study data ({(packs.reduce((n, p) => n + p.bytes, 0) / 1e6).toFixed(0)} MB)</button></div>}
-        {packs.map((p) => (
-          <div className="row between" key={p.id} style={{ margin: '6px 0' }}>
-            <span>{p.label} <span className="muted small">({(p.bytes / 1e6).toFixed(1)} MB)</span></span>
-            {packProg[p.id] ? <><span className="chip">{packProg[p.id]}</span> <button className="btn small" onClick={() => abort.current?.abort()}>Stop</button></> : packDone(p.id) ? <span className="chip good">downloaded</span> : <button className="btn small" onClick={() => dlPack(p)}>{dlErr[p.id] ? 'Retry' : 'Download'}</button>}
-          </div>
-        ))}
-        {packs.filter((p) => dlErr[p.id]).map((p) => <p key={p.id} className="small" role="alert">{p.label}: {dlErr[p.id]}</p>)}
-      </Fold>
 
       <Fold id="settings:Reminders (optional)" title="Reminders (optional)" open={false}>
         <p className="muted small">Entirely under your control. They work while the app is open or installed; nothing is sent from a server and no tracking is involved.</p>

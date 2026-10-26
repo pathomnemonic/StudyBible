@@ -1,3 +1,4 @@
+import { savedUrl } from '../lib/offlineAudio';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { db } from '../db/db';
 import { loadBiay } from './biay';
@@ -27,7 +28,7 @@ const Ctx = createContext<PlayerState | null>(null);
 /** audio files the reader added live in the browser's own storage; turn the reference into something an audio element can play */
 const blobUrls = new Map<string, string>();
 export async function audioUrl(src: string): Promise<string> {
-  if (!src.startsWith('idb:')) return src;
+  if (!src.startsWith('idb:')) return (await savedUrl(src)) ?? src;
   const id = src.slice(4);
   if (blobUrls.has(id)) return blobUrls.get(id)!;
   const row = await db.userAudio.get(id);
