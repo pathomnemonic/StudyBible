@@ -21,6 +21,7 @@ R = {
     close="Say the grace together: “Bless us, O Lord, and these thy gifts.” Make the Sign of the Cross. Send home: “Find one beautiful thing God made and say thank you.”")),
 
 'K-1-3': dict(
+  saint="Carlo Acutis: a boy who loved God and computers and showed that everyone has gifts.",
   saintStory="Carlo Acutis was born in 1991 and grew up in Milan, Italy. He was a cheerful boy who liked soccer, video games and animals, and he loved Jesus in the Eucharist. He went to Mass almost every day.\nCarlo was very good with computers. When he was a teenager, he taught himself to build websites, and he made one that showed Eucharistic miracles from all over the world, so that more people could learn about Jesus in the Eucharist. He was kind to people who were lonely and to those who had less than he did.\nCarlo became very ill when he was fifteen and died in 2006. The Church has named him a saint. He shows us that God makes every child with gifts, and that a child can use their gifts to help others know God.",
   tryit=["Trace your hand.", "Write your name inside it.", "Say: “God made me.”"],
   script=dict(
