@@ -6677,7 +6677,7 @@
   {
    "id": "links",
    "label": "Cross-references, resource links, doctrine, Catechism citations",
-   "bytes": 5331292,
+   "bytes": 5343790,
    "files": [
     "xrefs/1CH.json",
     "xrefs/1CO.json",
@@ -6969,7 +6969,7 @@
     9874,
     8699,
     2263,
-    16236,
+    28734,
     5457
    ],
    "sums": [
@@ -7116,7 +7116,7 @@
     "cf4ed05b219844dc",
     "597604b620dcd8f4",
     "1a3341603949932e",
-    "e5b02b8b41395b63",
+    "763b6e2555e659ac",
     "37c13bc47660072b"
    ]
   },

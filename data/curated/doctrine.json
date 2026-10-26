@@ -835,6 +835,748 @@
     "atonement",
     "priesthood"
    ]
+  },
+  {
+   "id": "incarnation",
+   "title": "The Incarnation",
+   "summary": "The Church teaches that the eternal Son of God became man, true God and true man in one Person, to save us, to show us the Father’s love, to be our model of holiness and to make us sharers in the divine nature. John’s prologue, Philippians 2 and Hebrews are the central passages.",
+   "ccc": [
+    [
+     456,
+     483
+    ]
+   ],
+   "scripture": [
+    "JHN.1.1-18",
+    "LUK.1.26-38",
+    "MAT.1.18-25",
+    "PHP.2.5-11",
+    "HEB.2.14-18",
+    "GAL.4.4-5",
+    "COL.1.15-20",
+    "1JN.4.2"
+   ],
+   "docs": [
+    "lg"
+   ],
+   "related": [
+    "mary",
+    "salvation",
+    "trinity"
+   ],
+   "keywords": [
+    "incarnation",
+    "word made flesh",
+    "christmas",
+    "hypostatic union",
+    "true god and true man",
+    "chalcedon",
+    "emmanuel"
+   ]
+  },
+  {
+   "id": "original-sin",
+   "title": "Original sin and the Fall",
+   "summary": "The Church teaches that our first parents sinned and so lost the original holiness and justice they were meant to hand on; as a result every human being is born wounded and in need of redemption, though human nature remains good. Genesis 3 and Romans 5 are the central passages.",
+   "ccc": [
+    [
+     385,
+     421
+    ]
+   ],
+   "scripture": [
+    "GEN.3.1-24",
+    "ROM.5.12-21",
+    "1CO.15.21-22",
+    "EPH.2.1-5",
+    "GEN.1.26-31"
+   ],
+   "docs": [
+    "gs"
+   ],
+   "related": [
+    "grace",
+    "salvation",
+    "baptism"
+   ],
+   "keywords": [
+    "original sin",
+    "fall",
+    "adam and eve",
+    "concupiscence",
+    "garden of eden",
+    "protoevangelium"
+   ]
+  },
+  {
+   "id": "justification",
+   "title": "Grace and justification",
+   "summary": "The Church teaches that we are justified, made right with God, by the free gift of grace through faith in Christ, not by our own works; and that grace truly heals and transforms us so that we can cooperate with God and grow in holiness. Romans, Galatians, Ephesians and James are read together.",
+   "ccc": [
+    [
+     1987,
+     2029
+    ]
+   ],
+   "scripture": [
+    "ROM.3.21-31",
+    "ROM.5.1-11",
+    "ROM.8.28-30",
+    "GAL.2.16-21",
+    "EPH.2.8-10",
+    "PHP.2.12-13",
+    "JAS.2.14-26"
+   ],
+   "docs": [
+    "vs"
+   ],
+   "related": [
+    "grace",
+    "salvation",
+    "moral-life"
+   ],
+   "keywords": [
+    "justification",
+    "faith and works",
+    "sola fide",
+    "merit",
+    "sanctifying grace",
+    "salvation by faith"
+   ]
+  },
+  {
+   "id": "sacraments",
+   "title": "The seven sacraments",
+   "summary": "The Church teaches that Christ instituted seven sacraments, efficacious signs of grace: Baptism, Confirmation, Eucharist, Penance, Anointing of the Sick, Holy Orders and Matrimony. They give the grace they signify when celebrated rightly.",
+   "ccc": [
+    [
+     1113,
+     1134
+    ]
+   ],
+   "scripture": [
+    "JHN.3.5",
+    "JHN.6.53-56",
+    "MAT.28.19-20",
+    "ACT.2.38",
+    "ACT.8.14-17",
+    "JAS.5.14-15",
+    "JHN.20.21-23",
+    "EPH.5.31-32"
+   ],
+   "docs": [
+    "sc"
+   ],
+   "related": [
+    "baptism",
+    "eucharist",
+    "confession",
+    "holy-orders"
+   ],
+   "keywords": [
+    "sacraments",
+    "seven sacraments",
+    "efficacious sign",
+    "ex opere operato",
+    "sacramental grace"
+   ]
+  },
+  {
+   "id": "holy-orders",
+   "title": "Holy Orders and the priesthood",
+   "summary": "The Church teaches that Christ’s own priesthood is shared in two ways, by all the baptized and by the ordained, who act in his person. Holy Orders has three degrees: bishop, priest and deacon. Hebrews and the pastoral letters are central.",
+   "ccc": [
+    [
+     1536,
+     1600
+    ]
+   ],
+   "scripture": [
+    "LUK.22.19",
+    "JHN.20.21-23",
+    "ACT.14.23",
+    "1TI.3.1-13",
+    "TIT.1.5-9",
+    "2TI.1.6",
+    "HEB.5.1-4",
+    "1PE.2.4-10"
+   ],
+   "docs": [
+    "lg"
+   ],
+   "related": [
+    "church",
+    "eucharist",
+    "sacraments"
+   ],
+   "keywords": [
+    "holy orders",
+    "priesthood",
+    "priest",
+    "bishop",
+    "deacon",
+    "ordination",
+    "apostolic succession",
+    "celibacy"
+   ]
+  },
+  {
+   "id": "anointing",
+   "title": "Anointing of the Sick",
+   "summary": "The Church teaches that in the Anointing of the Sick a priest anoints those who are seriously ill or growing frail, so that Christ may strengthen, comfort and, if God wills, heal them, and forgive their sins. James 5 and the healing ministry of Jesus are the basis.",
+   "ccc": [
+    [
+     1499,
+     1532
+    ]
+   ],
+   "scripture": [
+    "JAS.5.13-16",
+    "MRK.6.12-13",
+    "MAT.25.36",
+    "MAT.8.14-17",
+    "2CO.12.7-10"
+   ],
+   "docs": [
+    "sd"
+   ],
+   "related": [
+    "suffering",
+    "sacraments",
+    "confession"
+   ],
+   "keywords": [
+    "anointing of the sick",
+    "last rites",
+    "extreme unction",
+    "viaticum",
+    "sickness",
+    "healing"
+   ]
+  },
+  {
+   "id": "last-things",
+   "title": "Death, judgment, heaven and hell",
+   "summary": "The Church teaches that each person is judged at death, that Christ will come again to judge the living and the dead, that the dead will rise, and that those who die in God’s friendship will see him face to face. Hell is the state of definitive self-exclusion from God; the Church has never said that any particular person is there.",
+   "ccc": [
+    [
+     988,
+     1060
+    ]
+   ],
+   "scripture": [
+    "MAT.25.31-46",
+    "1CO.15.12-58",
+    "REV.21.1-8",
+    "1TH.4.13-18",
+    "JHN.5.28-29",
+    "LUK.16.19-31",
+    "JHN.14.1-3"
+   ],
+   "docs": [
+    "ss"
+   ],
+   "related": [
+    "resurrection",
+    "purgatory",
+    "saints"
+   ],
+   "keywords": [
+    "last things",
+    "death",
+    "judgment",
+    "heaven",
+    "hell",
+    "second coming",
+    "resurrection of the body",
+    "eschatology"
+   ]
+  },
+  {
+   "id": "purgatory",
+   "title": "Purgatory and prayer for the dead",
+   "summary": "The Church teaches that those who die in God’s grace but still imperfectly purified undergo a purification so as to enter the joy of heaven, and that the living can help them by prayer, almsgiving, indulgences and above all the Mass. It rests on the ancient practice of praying for the dead.",
+   "ccc": [
+    [
+     1030,
+     1032
+    ]
+   ],
+   "scripture": [
+    "2MA.12.38-46",
+    "1CO.3.10-15",
+    "MAT.12.32",
+    "REV.21.27",
+    "1PE.1.6-7"
+   ],
+   "docs": [
+    "ss"
+   ],
+   "related": [
+    "last-things",
+    "saints",
+    "eucharist"
+   ],
+   "keywords": [
+    "purgatory",
+    "praying for the dead",
+    "all souls",
+    "indulgence",
+    "holy souls",
+    "purification"
+   ]
+  },
+  {
+   "id": "social-teaching",
+   "title": "Catholic social teaching",
+   "summary": "The Church teaches that every person has inherent dignity, that the goods of the earth are meant for all, that society should serve the common good, and that those with power have special duties to the poor. It rests on the prophets, the Gospels and the Fathers, and has been developed in papal encyclicals since 1891.",
+   "ccc": [
+    [
+     2419,
+     2449
+    ],
+    [
+     1877,
+     1948
+    ]
+   ],
+   "scripture": [
+    "MAT.25.31-46",
+    "LUK.16.19-31",
+    "JAS.2.1-9",
+    "ACT.2.44-45",
+    "1JN.3.17",
+    "AMO.5.21-24",
+    "ISA.58.6-10"
+   ],
+   "docs": [
+    "gs"
+   ],
+   "related": [
+    "moral-life",
+    "church",
+    "sanctity-of-life"
+   ],
+   "keywords": [
+    "social teaching",
+    "common good",
+    "solidarity",
+    "subsidiarity",
+    "justice",
+    "poverty",
+    "workers",
+    "rerum novarum",
+    "dignity"
+   ]
+  },
+  {
+   "id": "sanctity-of-life",
+   "title": "The dignity and sanctity of human life",
+   "summary": "The Church teaches that every human life, from conception to natural death, is a gift of God and has inviolable dignity because each person is made in his image. It forbids direct abortion and euthanasia, and calls for care of the vulnerable, the sick and the dying.",
+   "ccc": [
+    [
+     2258,
+     2283
+    ],
+    [
+     2319,
+     2330
+    ]
+   ],
+   "scripture": [
+    "GEN.1.26-27",
+    "GEN.9.5-6",
+    "JER.1.5",
+    "EXO.20.13",
+    "MAT.5.21-22",
+    "MAT.25.40",
+    "LUK.1.39-45"
+   ],
+   "docs": [
+    "gs"
+   ],
+   "related": [
+    "moral-life",
+    "social-teaching",
+    "suffering"
+   ],
+   "keywords": [
+    "life",
+    "abortion",
+    "euthanasia",
+    "dignity",
+    "respect for life",
+    "conception",
+    "natural death",
+    "pro-life"
+   ]
+  },
+  {
+   "id": "faith-reason",
+   "title": "Faith and reason",
+   "summary": "The Church teaches that faith and reason are two wings by which the human spirit rises to truth: reason can know that God exists, and faith goes further, to what God has revealed. Real science and real faith cannot contradict each other, because the same God is the author of both.",
+   "ccc": [
+    [
+     26,
+     49
+    ],
+    [
+     156,
+     159
+    ]
+   ],
+   "scripture": [
+    "ROM.1.19-20",
+    "WIS.13.1-9",
+    "ACT.17.22-31",
+    "1PE.3.15",
+    "1CO.1.18-25"
+   ],
+   "docs": [
+    "lf"
+   ],
+   "related": [
+    "scripture",
+    "creation",
+    "trinity"
+   ],
+   "keywords": [
+    "faith and reason",
+    "science",
+    "proofs of god",
+    "natural theology",
+    "apologetics",
+    "evolution"
+   ]
+  },
+  {
+   "id": "liturgy",
+   "title": "The liturgy and worship",
+   "summary": "The Church teaches that the liturgy is the public worship of the whole Body of Christ, head and members, and the summit and source of the Christian life. It is celebrated through the seven sacraments, the Liturgy of the Hours and the Church’s year.",
+   "ccc": [
+    [
+     1066,
+     1209
+    ]
+   ],
+   "scripture": [
+    "JHN.4.19-24",
+    "ACT.2.42",
+    "1CO.11.17-34",
+    "HEB.10.19-25",
+    "REV.4.1-11",
+    "LUK.24.30-35"
+   ],
+   "docs": [
+    "sc"
+   ],
+   "related": [
+    "eucharist",
+    "sacraments",
+    "prayer"
+   ],
+   "keywords": [
+    "liturgy",
+    "worship",
+    "mass",
+    "liturgy of the hours",
+    "church year",
+    "rites",
+    "sacred music"
+   ]
+  },
+  {
+   "id": "ecumenism",
+   "title": "Christian unity and the Church",
+   "summary": "The Church teaches that Christ prayed for his followers to be one and that the Catholic Church is where the Church of Christ subsists in its fullness, while recognizing real elements of truth and holiness in other Christian communities. Catholics are called to pray and work for unity.",
+   "ccc": [
+    [
+     811,
+     822
+    ]
+   ],
+   "scripture": [
+    "JHN.17.20-23",
+    "EPH.4.1-6",
+    "1CO.1.10-13",
+    "JHN.10.14-16",
+    "ACT.2.42-47"
+   ],
+   "docs": [
+    "lg"
+   ],
+   "related": [
+    "church",
+    "baptism",
+    "scripture"
+   ],
+   "keywords": [
+    "unity",
+    "ecumenism",
+    "orthodox",
+    "protestant",
+    "schism",
+    "division",
+    "one church",
+    "communion"
+   ]
+  },
+  {
+   "id": "angels",
+   "title": "Angels",
+   "summary": "The Church teaches that angels are real, created, spiritual beings who serve and worship God and are sent to guard and guide us. Each person has a guardian angel. Scripture shows them at the great moments of salvation.",
+   "ccc": [
+    [
+     328,
+     336
+    ]
+   ],
+   "scripture": [
+    "HEB.1.14",
+    "MAT.18.10",
+    "LUK.1.26-38",
+    "ACT.12.6-11",
+    "REV.12.7-9",
+    "MAT.4.11",
+    "LUK.2.8-14"
+   ],
+   "docs": [
+    "lg"
+   ],
+   "related": [
+    "creation",
+    "prayer",
+    "saints"
+   ],
+   "keywords": [
+    "angels",
+    "guardian angel",
+    "michael",
+    "gabriel",
+    "raphael",
+    "archangel",
+    "spiritual beings"
+   ]
+  },
+  {
+   "id": "evangelization",
+   "title": "Mission and evangelization",
+   "summary": "The Church teaches that the whole Church is missionary: every baptized person is sent to share the Good News by word and by the witness of a holy life. The Great Commission is the root of the Church’s mission.",
+   "ccc": [
+    [
+     849,
+     856
+    ]
+   ],
+   "scripture": [
+    "MAT.28.16-20",
+    "ACT.1.8",
+    "ROM.10.14-17",
+    "MRK.16.15",
+    "1PE.3.15",
+    "LUK.10.1-9"
+   ],
+   "docs": [
+    "lg"
+   ],
+   "related": [
+    "church",
+    "baptism",
+    "saints"
+   ],
+   "keywords": [
+    "evangelization",
+    "mission",
+    "witness",
+    "great commission",
+    "new evangelization",
+    "apostles",
+    "sharing the faith"
+   ]
+  },
+  {
+   "id": "virtue",
+   "title": "Virtue and the moral life",
+   "summary": "The Church teaches that virtues are habits of the good, built by repeated good acts and strengthened by grace. The human virtues are prudence, justice, fortitude and temperance; the theological virtues are faith, hope and charity, given by God.",
+   "ccc": [
+    [
+     1803,
+     1829
+    ]
+   ],
+   "scripture": [
+    "GAL.5.22-23",
+    "1CO.13.1-13",
+    "PHP.4.8",
+    "2PE.1.5-7",
+    "COL.3.12-14"
+   ],
+   "docs": [
+    "vs"
+   ],
+   "related": [
+    "moral-life",
+    "grace",
+    "prayer"
+   ],
+   "keywords": [
+    "virtue",
+    "virtues",
+    "cardinal virtues",
+    "theological virtues",
+    "prudence",
+    "justice",
+    "fortitude",
+    "temperance",
+    "charity",
+    "character"
+   ]
+  },
+  {
+   "id": "sunday",
+   "title": "The Lord’s Day and Sunday Mass",
+   "summary": "The Church teaches that Sunday, the day of the Resurrection, is the Lord’s Day, on which Catholics take part in Mass and rest from unnecessary work. The third commandment honors both the Sabbath of creation and the new creation in Christ.",
+   "ccc": [
+    [
+     2168,
+     2195
+    ]
+   ],
+   "scripture": [
+    "EXO.20.8-11",
+    "ACT.20.7",
+    "1CO.16.2",
+    "REV.1.10",
+    "MRK.2.23-28",
+    "HEB.10.24-25"
+   ],
+   "docs": [
+    "sc"
+   ],
+   "related": [
+    "liturgy",
+    "eucharist",
+    "moral-life"
+   ],
+   "keywords": [
+    "sunday",
+    "lord’s day",
+    "sabbath",
+    "sunday obligation",
+    "rest",
+    "mass obligation",
+    "holy day"
+   ]
+  },
+  {
+   "id": "sin",
+   "title": "Sin and mercy",
+   "summary": "The Church teaches that sin is an offense against God and a wound to ourselves and to the Church; it can be mortal or venial; and that where sin abounds, grace abounds all the more. God’s mercy is greater than any sin, and is received in Baptism and the sacrament of Penance.",
+   "ccc": [
+    [
+     1846,
+     1876
+    ]
+   ],
+   "scripture": [
+    "ROM.3.23",
+    "ROM.5.20-21",
+    "1JN.1.8-10",
+    "MAT.15.17-20",
+    "LUK.15.11-32",
+    "ROM.6.1-14"
+   ],
+   "docs": [
+    "rp"
+   ],
+   "related": [
+    "confession",
+    "grace",
+    "original-sin"
+   ],
+   "keywords": [
+    "sin",
+    "mortal sin",
+    "venial sin",
+    "mercy",
+    "forgiveness",
+    "repentance",
+    "temptation",
+    "conversion"
+   ]
+  },
+  {
+   "id": "papacy",
+   "title": "The Pope and the bishops",
+   "summary": "The Church teaches that Christ built his Church on Peter, and that Peter’s successor, the bishop of Rome, is the visible head of the whole Church, with the other bishops as successors of the apostles. The Pope can teach infallibly only under strict conditions, when he defines a doctrine of faith or morals for the whole Church.",
+   "ccc": [
+    [
+     880,
+     892
+    ]
+   ],
+   "scripture": [
+    "MAT.16.13-19",
+    "JHN.21.15-19",
+    "LUK.22.31-32",
+    "ACT.15.1-29",
+    "GAL.1.18",
+    "JHN.10.14-16"
+   ],
+   "docs": [
+    "lg"
+   ],
+   "related": [
+    "church",
+    "holy-orders",
+    "scripture"
+   ],
+   "keywords": [
+    "pope",
+    "papacy",
+    "peter",
+    "infallibility",
+    "primacy",
+    "magisterium",
+    "rome",
+    "bishops",
+    "keys"
+   ]
+  },
+  {
+   "id": "laity",
+   "title": "The lay faithful",
+   "summary": "The Church teaches that all the baptized share in Christ’s priestly, prophetic and kingly mission, and that lay people are called to sanctify the world from within, through family, work and public life, as well as to take part in the Church’s own work.",
+   "ccc": [
+    [
+     897,
+     913
+    ]
+   ],
+   "scripture": [
+    "1PE.2.4-10",
+    "ROM.12.1-8",
+    "1CO.12.4-27",
+    "MAT.5.13-16",
+    "EPH.4.11-16"
+   ],
+   "docs": [
+    "lg"
+   ],
+   "related": [
+    "church",
+    "baptism",
+    "evangelization"
+   ],
+   "keywords": [
+    "laity",
+    "lay people",
+    "vocation",
+    "baptism",
+    "priesthood of all believers",
+    "apostolate",
+    "ministry"
+   ]
   }
  ]
 }
