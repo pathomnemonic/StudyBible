@@ -1,3 +1,4 @@
+import SafetyCopies from '../../components/SafetyCopies';
 import { useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -285,6 +286,7 @@ function ExportTab() {
   const daysSince = s.lastBackup ? Math.floor((Date.now() - s.lastBackup) / 86400000) : null;
   return (
     <>
+      <SafetyCopies />
       <div className="card">
         <h3>Export (backup)</h3>
         <p className="muted">Your data lives on this device. The JSON file contains everything (notes, highlights, bookmarks, collections, journal, plans, memorization, listening progress) and can be re-imported on any device; the other formats are readable copies for other apps. Scripture links use stable Vulgate-anchored ids, so they keep working across translations.</p>

@@ -4703,3 +4703,5 @@ button, a, [role='button'] { touch-action: manipulation; }
 
 /* Downloads */
 .dl-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; } .dl-list li { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 12px; padding: 6px 0; border-bottom: 1px solid var(--border); } .dl-act { display: inline-flex; gap: 6px; align-items: center; } .dl-err { flex-basis: 100%; color: var(--danger, #e5484d); }
+.backup-banner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 14px; padding: 8px 14px; background: var(--accent-soft); border-bottom: 1px solid var(--accent); font-size: .88rem; position: relative; z-index: 5; }
+.safe-list { display: grid; gap: 10px; } .safe-card { border: 1px solid var(--border); border-radius: 14px; padding: 10px 12px; background: var(--surface-2); } .safe-card.ok { border-color: var(--accent); } .safe-card h2 { margin: 0 0 4px; font-size: 1rem; } .safe-warn { border: 2px solid #e5484d; border-radius: 14px; padding: 12px 14px; background: color-mix(in srgb, #e5484d 10%, var(--surface)); } .safe-warn h2 { margin: 0 0 6px; }

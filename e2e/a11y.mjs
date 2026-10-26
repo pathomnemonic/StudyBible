@@ -10,7 +10,7 @@ const axeSource = readFileSync(createRequire(import.meta.url).resolve('axe-core/
 
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined });
 const ctx = await browser.newContext({ viewport: { width: 420, height: 900 } });
-await ctx.addInitScript(() => { try { localStorage.setItem('sb:tour', '1'); } catch { /* ignore */ } });
+await ctx.addInitScript(() => { try { { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); }; } catch { /* ignore */ } });
 const page = await ctx.newPage();
 const bad = [];
 const THEME_ROUTES = ['/', '/read/webc/JHN/3', '/pray/prayers', '/settings'];

@@ -98,6 +98,8 @@ const safeUrl = (u: unknown) => typeof u === 'string' && /^https?:\/\//i.test(u)
 export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge'): Promise<number> {
   const data = JSON.parse(json);
   if (data.format !== 'studybible-export') throw new Error('Not a Study Bible export file.');
+  // a replace overwrites what is here: keep a safety copy first so a wrong file can be undone
+  if (mode === 'replace') await import('../lib/safety').then((m) => m.snapshotIfDue(true)).catch(() => undefined);
   if (typeof data.version === 'number' && data.version > 2) throw new Error('This backup was made by a newer version of the app. Update the app, then try again.');
   // check the whole file before touching the database
   for (const t of TABLES) {

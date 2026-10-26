@@ -14,7 +14,7 @@ for (let i = 0; i < 60; i++) { try { if ((await fetch(BASE)).ok) break; } catch 
 
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined });
 const problems = [];
-const ctx = async (w = 420) => { const c = await browser.newContext({ viewport: { width: w, height: 900 } }); await c.addInitScript((BROKER) => { try { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:live:brokers', BROKER); } catch { /* ignore */ } }, `ws://127.0.0.1:${broker.port}/mqtt`); const p = await c.newPage(); p.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`)); p.on('dialog', (d) => d.accept()); return p; };
+const ctx = async (w = 420) => { const c = await browser.newContext({ viewport: { width: w, height: 900 } }); await c.addInitScript((BROKER) => { try { { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); }; localStorage.setItem('sb:live:brokers', BROKER); } catch { /* ignore */ } }, `ws://127.0.0.1:${broker.port}/mqtt`); const p = await c.newPage(); p.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`)); p.on('dialog', (d) => d.accept()); return p; };
 const check = (ok, msg) => { if (!ok) problems.push(msg); };
 try {
   const t = await ctx(1200);

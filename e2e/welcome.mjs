@@ -9,20 +9,37 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   const errs = []; p.on('pageerror', (e) => errs.push(e.message));
   await p.goto(`${BASE}/#/today`);
   await p.waitForSelector('.welcome-card');
-  if (await p.locator('.welcome-dots i').count() !== 5) fail('five steps');
+  if (await p.locator('.welcome-dots i').count() !== 6) fail('six steps');
   await p.click('.welcome-chip:has-text("Pray every day")');
-  await p.click('.welcome-bar .btn.primary'); // next
-  await p.selectOption('select[aria-label="Spelling"]', 'uk');
+  await p.click('.welcome-bar .btn.primary'); // 2: Church and Bible
+  await p.selectOption('select[aria-label="Language"]', 'fr');
+  await p.selectOption('select[aria-label="Language"]', 'en');
+  await p.click('.welcome-bar .btn.primary'); // 3: favorites
+  await p.waitForSelector('.fav-chip');
+  await p.locator('.fav-chip').first().click();
+  await p.waitForSelector('.fav-chip.on', { timeout: 5000 }).catch(() => fail('a favorite should be chosen'));
+  await p.click('.welcome-bar .btn.primary'); // 4: rhythm
+  await p.click('.welcome-bar .btn.primary'); // 5: keep notes safe
+  await p.waitForSelector('.safe-list');
+  // no account, Drive or backup yet: Continue must warn clearly, and only proceed with acknowledgement
   await p.click('.welcome-bar .btn.primary');
+  await p.waitForSelector('.safe-warn');
+  if (!(await p.locator('.safe-warn').textContent())?.includes('gone for good')) fail('warning wording');
+  if (!(await p.locator('.safe-warn button:has-text("Continue without protection")').isDisabled())) fail('continue needs acknowledgement');
+  await p.click('.safe-warn button:has-text("Go back")');
+  await p.waitForSelector('.safe-list');
   await p.click('.welcome-bar .btn.primary');
-  await p.click('.welcome-bar .btn.primary');
+  await p.check('.safe-warn input[type=checkbox]');
+  await p.click('.safe-warn button:has-text("Continue without protection")');
   await p.waitForSelector('.welcome-start a');
   const first = await p.locator('.welcome-start strong').first().textContent();
   if (!/Mass readings|Prayer list|Rosary|Mercy/.test(first ?? '')) fail('interests should put prayer first, got ' + first);
-  await p.click('.welcome-bar .btn.primary:has-text("Start")');
+  await p.click('.welcome-bar .btn.primary:has-text("Start the tour")');
   await p.waitForSelector('.welcome-card', { state: 'detached' });
-  const done = await p.evaluate(() => localStorage.getItem('sb:tour'));
-  if (done !== '1') fail('setup should be remembered');
+  await p.waitForSelector('.tour-card, .tour-pop, [class*=tour]', { timeout: 5000 });
+  await p.click('button:has-text("End tour")');
+  const done = await p.evaluate(() => [localStorage.getItem('sb:tour'), localStorage.getItem('sb:setup')].join());
+  if (done !== '1,2') fail('setup should be remembered, got ' + done);
   const dots = await p.locator('.tabs .new-dot, .tab .new-dot').count();
   if (dots < 3) fail('tab dots expected, got ' + dots);
   // opening Pray clears its dot and shows the tip once

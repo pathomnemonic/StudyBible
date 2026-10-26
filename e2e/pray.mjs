@@ -7,7 +7,7 @@ const errs = [];
 const fail = (m) => { console.error('FAIL', m); process.exitCode = 1; };
 for (const [vw, vh, tag] of [[1280, 900, 'wide'], [390, 800, 'narrow']]) {
   const ctx = await b.newContext({ viewport: { width: vw, height: vh } });
-  await ctx.addInitScript(() => { try { localStorage.setItem('sb:tour', '1'); } catch {} });
+  await ctx.addInitScript(() => { try { { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); }; } catch {} });
   const p = await ctx.newPage();
   p.on('pageerror', (e) => errs.push(String(e)));
   p.on('console', (m) => { if (m.type() === 'error' && !/WebSocket|favicon|net::ERR|Failed to load resource/.test(m.text())) errs.push(m.text()); });

@@ -25,7 +25,7 @@ const wav = (() => { const n = 8000, b = Buffer.alloc(44 + n); b.write('RIFF', 0
 const feed = `<?xml version="1.0"?><rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"><channel><title>Test Pilgrim Podcast</title><link>https://example.test/</link><description>A test show.</description><itunes:author>Fr. Test</itunes:author><item><title>Episode two</title><pubDate>Tue, 02 Sep 2025 10:00:00 GMT</pubDate><enclosure url="https://example.test/2.mp3" type="audio/mpeg"/><itunes:duration>12:30</itunes:duration></item><item><title>Episode one</title><pubDate>Mon, 01 Sep 2025 10:00:00 GMT</pubDate><enclosure url="https://example.test/1.mp3" type="audio/mpeg"/></item></channel></rss>`;
 try {
   const c = await browser.newContext({ viewport: { width: 420, height: 900 } });
-  await c.addInitScript(() => { try { localStorage.setItem('sb:tour', '1'); } catch { /* ignore */ } });
+  await c.addInitScript(() => { try { { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); }; } catch { /* ignore */ } });
   const p = await c.newPage();
   p.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`));
   p.on('dialog', (d) => d.accept());

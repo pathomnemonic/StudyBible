@@ -12,6 +12,8 @@ import { startDriveBackup } from '../sync/drive';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
 import type { Key } from '../i18n/en';
+import BackupBanner from './BackupBanner';
+import { snapshotIfDue } from '../lib/safety';
 import { BIBLE_TOOLS, isBibleToolPath } from '../lib/bibleTools';
 
 // Seven places along the bottom: Learn (the faith, taught), Read (texts and recordings beyond the Bible, read beside a Bible chapter), Study (anything educational), Today (where the app opens), the Bible, and Listen (the Bible in a Year, spoken).
@@ -99,7 +101,7 @@ export default function Shell({ children }: { children: ReactNode }) {
     if (hit) markSeen(`tab.${hit.to}`);
   }, [loc.pathname]);
   // ask the browser not to clear this site's data, and keep the Drive copy (if connected) up to date
-  useEffect(() => { void navigator.storage?.persist?.(); startDriveBackup(); }, []);
+  useEffect(() => { void navigator.storage?.persist?.(); startDriveBackup(); const t = window.setTimeout(() => void snapshotIfDue().catch(() => {}), 20000); return () => window.clearTimeout(t); }, []);
   // a menu that is open closes when anything else is tapped, on touch screens too
   useEffect(() => {
     const h = (e: Event) => { const open = document.querySelector('.more-btn[aria-expanded="true"]') as HTMLElement | null; if (open && !(e.target as HTMLElement).closest('.more-wrap')) open.click(); };
@@ -153,6 +155,7 @@ export default function Shell({ children }: { children: ReactNode }) {
         </NavLink>
       )}
       <main id="main" className="main">
+        {!home && <BackupBanner />}
         {inDaily(loc.pathname) && !fullscreenReader && (
           <nav className="subnav" aria-label="Daily practice">
             {DAILY.map((d, i) => (

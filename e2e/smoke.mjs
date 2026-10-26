@@ -7,7 +7,7 @@ const ROUTES = ['/', '/more', '/learn', '/downloads', '/study/visual', '/study/v
 
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined });
 const ctx = await browser.newContext({ viewport: { width: 420, height: 900 } });
-await ctx.addInitScript(() => { try { localStorage.setItem('sb:tour', '1'); } catch { /* ignore */ } });
+await ctx.addInitScript(() => { try { { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); }; } catch { /* ignore */ } });
 const page = await ctx.newPage();
 const problems = [];
 page.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`));

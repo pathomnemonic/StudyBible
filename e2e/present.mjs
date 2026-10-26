@@ -3,7 +3,7 @@ import { chromium } from 'playwright';
 const BASE = process.env.BASE ?? 'http://localhost:4173';
 const b = await chromium.launch();
 const ctx = await b.newContext({ viewport: { width: 1200, height: 800 } });
-await ctx.addInitScript(() => localStorage.setItem('sb:tour', '1'));
+await ctx.addInitScript(() => { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); });
 const deck = await ctx.newPage();
 const errs = []; deck.on('pageerror', (e) => errs.push(e.message));
 await deck.goto(`${BASE}/#/study/curriculum/5`);

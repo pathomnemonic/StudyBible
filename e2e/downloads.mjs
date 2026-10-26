@@ -3,7 +3,7 @@ import { chromium } from 'playwright';
 const BASE = process.env.BASE ?? 'http://localhost:4173';
 const b = await chromium.launch();
 const ctx = await b.newContext({ viewport: { width: 1000, height: 900 } });
-await ctx.addInitScript(() => localStorage.setItem('sb:tour', '1'));
+await ctx.addInitScript(() => { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); });
 const fail = (m) => { console.error('FAIL', m); process.exit(1); };
 // audio from any publisher: a small fake file with permissive CORS
 await ctx.route(/podtrac|fireside|\.mp3/, (r) => r.fulfill({ status: 200, headers: { 'content-type': 'audio/mpeg', 'access-control-allow-origin': '*' }, body: Buffer.alloc(120000, 1) }));
