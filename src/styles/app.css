@@ -4479,3 +4479,12 @@ a { text-underline-offset: 3px; }
 .read-stats .bar { display: block; height: 6px; border-radius: 6px; background: color-mix(in srgb, var(--text) 14%, transparent); margin-top: 4px; overflow: hidden; } .read-stats .bar b { display: block; height: 100%; background: var(--accent); }
 .spark { display: flex; align-items: flex-end; gap: 3px; height: 38px; margin-left: auto; min-width: 90px; } .spark i { flex: 1; background: color-mix(in srgb, var(--text) 20%, transparent); border-radius: 2px; } .spark i.ok { background: #4d6b2e; }
 .now { display: grid; gap: 10px; } .now-art { font-size: 3rem; text-align: center; padding: 14px; border-radius: 18px; background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 40%, var(--surface)), var(--surface)); }
+.term-pop { padding-right: 44px; } .pop-x { position: absolute; top: 2px; right: 2px; width: 44px; height: 44px; border: 0; background: none; color: inherit; font-size: 1.6rem; line-height: 1; cursor: pointer; border-radius: 50%; }
+/* every close button is easy to hit with a thumb */
+.modal .icon-btn[aria-label='Close'], .icon-btn[aria-label^='Close'] { min-width: 44px; min-height: 44px; }
+.modal { max-height: calc(100dvh - 24px); overflow: auto; overscroll-behavior: contain; }
+@supports (padding: max(0px)) { .modal-back { padding-top: max(12px, env(safe-area-inset-top)); padding-bottom: max(12px, env(safe-area-inset-bottom)); } }
+html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+button, a, [role='button'] { touch-action: manipulation; }
+.tabbar { border-radius: 22px; }
+@media (max-width: 760px) { .subnav { padding-right: 56px; } .tabbar button { flex: 1 1 auto; text-align: center; } }

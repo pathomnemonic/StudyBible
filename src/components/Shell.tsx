@@ -77,6 +77,12 @@ export default function Shell({ children }: { children: ReactNode }) {
   useEffect(() => { if (loc.pathname === '/room' || loc.pathname.startsWith('/room/')) { try { localStorage.setItem(ROOM_KEY, loc.pathname + loc.search); } catch { /* private mode */ } } }, [loc.pathname, loc.search]);
   // ask the browser not to clear this site's data, and keep the Drive copy (if connected) up to date
   useEffect(() => { void navigator.storage?.persist?.(); startDriveBackup(); }, []);
+  // a menu that is open closes when anything else is tapped, on touch screens too
+  useEffect(() => {
+    const h = (e: Event) => { const open = document.querySelector('.more-btn[aria-expanded="true"]') as HTMLElement | null; if (open && !(e.target as HTMLElement).closest('.more-wrap')) open.click(); };
+    document.addEventListener('pointerdown', h);
+    return () => document.removeEventListener('pointerdown', h);
+  }, []);
   const [offline, setOffline] = useState(typeof navigator !== 'undefined' && navigator.onLine === false);
   useEffect(() => { const a = () => setOffline(true), b = () => setOffline(false); window.addEventListener('offline', a); window.addEventListener('online', b); return () => { window.removeEventListener('offline', a); window.removeEventListener('online', b); }; }, []);
   const fullscreenReader = ((loc.pathname.startsWith('/read') || loc.pathname.startsWith('/room/work') || loc.pathname.startsWith('/study/works')) && s.scriptureOnly) || loc.pathname.startsWith('/widget');

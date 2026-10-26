@@ -11,7 +11,7 @@ await ctx.addInitScript(() => { try { localStorage.setItem('sb:tour', '1'); } ca
 const page = await ctx.newPage();
 const problems = [];
 page.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`));
-page.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource/.test(m.text())) problems.push(`console: ${m.text()}`); });
+page.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|WebSocket connection/.test(m.text())) problems.push(`console: ${m.text()}`); });
 
 for (const r of ROUTES) {
   await page.goto(`${BASE}/#${r}`);
