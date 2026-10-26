@@ -18,7 +18,7 @@ R = {
  teach=['Sacraments of Christian initiation lay the foundations of life (CCC 1212). Penance and Anointing heal (CCC 1421). Holy Orders and Matrimony are ordered to others’ salvation (CCC 1534).',
         'The three groups echo human life: birth, growth, nourishment, healing, mission. Christian life is a real life in Christ.',
         'Baptism, Confirmation and Holy Orders can only be received once because they imprint a character (CCC 1121). The others can be repeated.',
-        'Point out that Matrimony and Orders are not “better” or “worse”: both serve the community.'],
+        'Point out that Matrimony and Orders are both sacraments at the service of communion, and that each is a path to holiness.'],
  misc=['“All sacraments are only for adults.”', '“You can repeat Baptism if you fall away.”'],
  mem='“Repent, and be baptized every one of you in the name of Jesus Christ for the forgiveness of your sins.” (Acts 2:38)',
  assess='Give a life situation and ask students to name the group and the sacrament.'),
