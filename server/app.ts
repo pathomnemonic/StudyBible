@@ -262,7 +262,7 @@ export function createApp(cfg: Config): Server {
       }
       if (sub === 'answer' && method === 'POST') {
         const body = await readJson(req);
-        const ok = room.settings.mode === 'exam' && body.submit ? room.submit(String(body.token ?? '')) : room.settings.mode === 'exam' ? room.examAnswer(String(body.token ?? ''), Number(body.q), body.value) : room.answer(String(body.token ?? ''), body.value);
+        const ok = room.settings.mode === 'exam' && body.submit ? room.submit(String(body.token ?? '')) : room.settings.mode === 'exam' ? room.examAnswer(String(body.token ?? ''), Number(body.q), body.value) : room.settings.mode === 'race' || room.settings.mode === 'build' ? room.runAnswer(String(body.token ?? ''), body.value) : room.answer(String(body.token ?? ''), body.value);
         pushRoom(room);
         return json(res, 200, { ok });
       }

@@ -172,3 +172,59 @@ describe('class lists and exams', () => {
     void b;
   });
 });
+
+describe('other games', () => {
+  it('last one standing: a wrong answer is out, and the game ends when one is left', () => {
+    const k = clock();
+    const r = new LiveRoom('700001', content, sanitizeSettings({ elimination: true, shuffleOptions: false }), k.now);
+    const a = r.join('A'), b = r.join('B'), c = r.join('C');
+    r.host('quiz');
+    r.answer(a.token, 1); r.answer(b.token, 1); r.answer(c.token, 0);
+    expect(r.view('player', c.token).me!.out).toBe(true);
+    expect(r.answer(c.token, 1)).toBe(false);
+    r.host('next'); r.host('next'); // leaderboard, then question two
+    r.answer(a.token, [0, 1, 3]); r.answer(b.token, [0]);
+    expect(r.phase).toBe('results'); // c is out, so only a and b needed to answer
+    r.host('next');
+    expect(r.phase).toBe('board');
+    r.host('next');
+    expect(r.phase).toBe('ended'); // a is the last one standing
+  });
+  it('nobody is out when everyone misses', () => {
+    const r = new LiveRoom('700002', content, sanitizeSettings({ elimination: true, shuffleOptions: false }), clock().now);
+    const a = r.join('A'), b = r.join('B');
+    r.host('quiz'); r.answer(a.token, 0); r.answer(b.token, 3);
+    expect(r.view('player', a.token).me!.out).toBe(false);
+  });
+  it('race: each student answers their own questions, and the first to the goal finishes', () => {
+    const k = clock();
+    const r = new LiveRoom('700003', content, sanitizeSettings({ mode: 'race', goal: 3, runMinutes: 5, shuffleOptions: false }), k.now);
+    const a = r.join('A'), b = r.join('B');
+    r.host('start');
+    expect(r.phase).toBe('run');
+    const right = (tok: string) => { const q = r.view('player', tok).run!.mine!.question!; const real = r.content.questions.find((x) => x.q === q.q)!; return real.type === 'text' ? [String(real.correct[0])] : real.correct; };
+    for (let i = 0; i < 3; i++) expect(r.runAnswer(a.token, right(a.token))).toBe(true);
+    expect(JSON.stringify(r.view('player', b.token))).not.toContain('"correct"');
+    const v = r.view('host');
+    expect(v.run!.track[0]).toMatchObject({ name: 'A', steps: 3, finished: true });
+    expect(r.runAnswer(a.token, 0)).toBe(false); // finished
+    r.runAnswer(b.token, right(b.token));
+    expect(r.view('host').run!.track.find((t) => t.name === 'B')!.answered).toBe(1);
+    k.set(k.now() + 6 * 60_000); r.tick();
+    expect(r.phase).toBe('ended');
+    expect(r.results().players.find((p) => p.name === 'A')).toMatchObject({ correct: 3, answered: 3 });
+  });
+  it('build the cathedral: everyone adds to one total and the class wins together', () => {
+    const r = new LiveRoom('700004', content, sanitizeSettings({ mode: 'build', goal: 3, shuffleOptions: false }), clock().now);
+    const a = r.join('A'), b = r.join('B');
+    r.host('start');
+    const right = (tok: string) => { const q = r.view('player', tok).run!.mine!.question!; const real = r.content.questions.find((x) => x.q === q.q)!; return real.type === 'text' ? [String(real.correct[0])] : real.correct; };
+    r.runAnswer(a.token, right(a.token));
+    expect(r.phase).toBe('run');
+    r.runAnswer(b.token, right(b.token));
+    expect(r.phase).toBe('run');
+    r.runAnswer(a.token, right(a.token));
+    expect(r.phase).toBe('ended');
+    expect(r.view('host').run!.classSteps).toBe(3);
+  });
+});

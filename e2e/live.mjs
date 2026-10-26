@@ -58,7 +58,29 @@ try {
   await t.getByRole('button', { name: /^End$/ }).click();
   await t.waitForSelector('text=Final results', { timeout: 10000 });
   await students[0].waitForSelector('text=You finished');
-} catch (e) { problems.push(`flow: ${e.message.split('\n')[0]}`); if (process.env.DEBUG_LIVE) for (const p of browser.contexts().flatMap((c) => c.pages())) console.error('---', (await p.innerText('body').catch(() => '')).slice(0, 500)); }
+
+  // other games: Pilgrim's Road and Build the Cathedral
+  for (const [kind, label, seen] of [['race', 'Start the race', '.road'], ['build', 'Start building', '.cathedral']]) {
+    await t.goto(`${BASE}/#/study/curriculum/9/9-1-2`);
+    await t.getByRole('button', { name: /Host live/ }).click();
+    await t.getByLabel('What kind of session').selectOption(kind);
+    await t.getByRole('button', { name: 'Open the room' }).click();
+    await t.waitForSelector('.live-code');
+    const c2 = (await t.locator('.live-code').innerText()).trim();
+    const s = await ctx(); await s.goto(`${BASE}/#/join/${c2}`); await s.getByPlaceholder('A name your class will know').fill('Racer'); await s.getByRole('button', { name: 'Join', exact: true }).click(); await s.waitForSelector('text=You’re in!');
+    await t.getByRole('button', { name: label }).click();
+    await s.waitForSelector('.live-opts button, .live-form input, .live-order button');
+    for (let i = 0; i < 3; i++) {
+      await s.waitForSelector('.live-opts button.live-opt:not([disabled]), .live-form input', { timeout: 10000 });
+      if (await s.locator('.live-opts button.live-opt').count()) { await s.locator('.live-opts button.live-opt').first().click(); if (await s.getByRole('button', { name: 'Lock in' }).count()) await s.getByRole('button', { name: 'Lock in' }).click(); }
+      else { await s.locator('.live-form input').fill('x'); await s.getByRole('button', { name: 'Lock in' }).click(); }
+      await s.waitForSelector('.run-fb', { timeout: 10000 }).catch(() => undefined);
+    }
+    await t.waitForSelector(seen);
+    await t.getByRole('button', { name: /End now/ }).click();
+    await s.waitForSelector('text=right answers', { timeout: 10000 });
+  }
+} catch (e) { problems.push(`flow: ${e.message.split('\n')[0]}`); if (process.env.DEBUG_LIVE) for (const p of browser.contexts().flatMap((c) => c.pages())) console.error('---', (await p.innerText('body').catch(() => '')).slice(0, 300).replace(/\n+/g, ' | ')); }
 await browser.close();
 server.kill();
 if (problems.length) { console.error(problems.join('\n')); process.exit(1); }

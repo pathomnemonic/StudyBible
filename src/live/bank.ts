@@ -43,4 +43,4 @@ export const toContent = (title: string, questions: BankQuestion[], slides: Live
   questions: questions.map(({ level: _l, kind: _k, ...q }) => ({ ...q, time: Math.round(Math.min(120, Math.max(5, q.time * timeScale))) })),
 });
 
-export const DEFAULT_SETTINGS: LiveSettings = { teams: 0, shuffleQuestions: true, shuffleOptions: true, lateJoin: true, showNames: true, mode: 'game', examMinutes: 30, showResults: true, showAnswers: false, rosterOnly: true };
+export const DEFAULT_SETTINGS: LiveSettings = { teams: 0, shuffleQuestions: true, shuffleOptions: true, lateJoin: true, showNames: true, mode: 'game', elimination: false, runMinutes: 10, goal: 12, examMinutes: 30, showResults: true, showAnswers: false, rosterOnly: true };
