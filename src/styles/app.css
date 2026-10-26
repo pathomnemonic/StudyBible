@@ -4721,3 +4721,6 @@ button, a, [role='button'] { touch-action: manipulation; }
 .level-chips { display: flex; flex-wrap: wrap; gap: 6px; width: 100%; } .hub-hero .chip { background: rgba(255,255,255,.18); color: #fff; border: 1px solid rgba(255,255,255,.35); } .hub-hero .chip:hover { background: rgba(255,255,255,.3); }
 .level-chips .chip { min-width: 38px; justify-content: center; font-weight: 700; }
 .hub-tile { position: relative; } .hub-dot { position: absolute; top: 12px; right: 12px; } .hub-dot .new-dot { position: static; width: 8px; height: 8px; display: block; }
+.hub-tile .bar { display: block; height: 4px; border-radius: 3px; background: var(--surface-3); overflow: hidden; margin-top: 6px; } .hub-tile .bar i { display: block; height: 100%; background: var(--accent); }
+.hub-ico { font-weight: 700; font-size: 1.1rem; }
+.act-more { position: relative; } .act-more summary { list-style: none; cursor: pointer; } .act-more summary::-webkit-details-marker { display: none; } .act-more-list { position: absolute; z-index: 20; top: calc(100% + 6px); left: 0; display: grid; gap: 6px; padding: 8px; min-width: 220px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border-strong); box-shadow: 0 12px 30px rgba(0,0,0,.4); } .act-more-list .btn { justify-content: flex-start; width: 100%; }

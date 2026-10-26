@@ -171,12 +171,12 @@ export default function Shell({ children }: { children: ReactNode }) {
         )}
         {loc.pathname.startsWith('/study/') && !isBibleToolPath(loc.pathname) && (
           <nav className="crumbs" aria-label="Breadcrumb">
-            <NavLink to="/study">← Study</NavLink>
+            {inLearn(loc.pathname) ? <NavLink to="/learn">← Learn</NavLink> : <NavLink to="/study">← Study</NavLink>}
           </nav>
         )}
-        {['/library', '/settings', '/account', '/about', '/more', '/days'].some((p) => loc.pathname === p || loc.pathname.startsWith(p + '/')) && (
+        {['/library', '/settings', '/account', '/about', '/more', '/days', '/downloads', '/goals', '/privacy'].some((p) => loc.pathname === p || loc.pathname.startsWith(p + '/')) && (
           <nav className="crumbs" aria-label="Breadcrumb">
-            <NavLink to="/profile">← Profile</NavLink>
+            <NavLink to="/profile">← You</NavLink>
           </nav>
         )}
         {children}

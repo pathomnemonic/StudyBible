@@ -73,18 +73,8 @@ function BiayListen() {
 
   return (
     <div>
-      <h2 className="h-sm" style={{ marginBottom: 2 }}>The Bible in a Year</h2>
-      <p className="lede">The Bible in a Year with Fr. Mike Schmitz, mapped to the passages each day reads. Audio and video belong to Ascension; this app links to the originals and plays the publisher’s own feed.</p>
-
       <YearHero />
-      {resumeEp && (
-        <div className="card" style={{ margin: '14px 0' }}>
-          <h2 className="card-title">Pick up where you stopped</h2>
-          <p style={{ margin: '0 0 8px' }}>{resumeEp.title}</p>
-          <button className="btn primary" onClick={() => player.play(resumeEp)}><Icon name="play" size={16} /> Continue at {Math.floor(resumeId!.position / 60)} min</button>
-        </div>
-      )}
-      <h2 className="h-sm">Every day</h2>
+      <h2 className="h-sm" style={{ marginTop: 22 }}>Every day</h2>
 
       <div className="tabbar" role="tablist">
         {([['plan', 'The plan'], ['release', 'All episodes'], ['queue', `Queue (${queue.length})`], ['progress', 'My progress']] as [View, string][]).map(([k, l]) => (

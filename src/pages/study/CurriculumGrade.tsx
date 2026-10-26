@@ -36,7 +36,7 @@ export default function CurriculumGrade() {
       </div>
       {keyList.length > 0 && (
         <section className="card key-lessons no-print" aria-label="Key lessons">
-          <h2 className="eyebrow-h" style={{ marginTop: 0 }}>★ Short on time? Start with the {keyList.length} key lessons</h2>
+          <h2 style={{ marginTop: 0, fontSize: '1.1rem' }}>★ Short on time? Start with the {keyList.length} key lessons</h2>
           <p className="muted small">The lessons that carry this grade’s core. Each is a complete lesson on its own.</p>
           <ol className="list">{keyList.map((l) => <li key={l.id}><Link className="t" to={`/study/curriculum/${g.id}/${l.id}`}>{l.title}</Link></li>)}</ol>
           <label className="row small"><input type="checkbox" checked={keyOnly} onChange={(e) => setKeyOnly(e.target.checked)} /> <span>Show only the key lessons in the list below</span></label>

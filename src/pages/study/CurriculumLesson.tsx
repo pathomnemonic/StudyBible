@@ -123,11 +123,15 @@ export default function CurriculumLesson() {
       <div className="row no-print" style={{ gap: 6, flexWrap: 'wrap', margin: '4px 0 10px' }}>
         <button className="btn small primary" onClick={() => setRunning(true)}>🎒 Run this lesson</button>
         <button className="btn small" onClick={() => setPresent(true)}>▶ Present as slides</button>
-        <button className="btn small" onClick={() => setLiveOpen(true)}>📡 Host live with a class code</button>
+        <button className="btn small" onClick={() => setLiveOpen(true)}>📡 Host live</button>
+        <button className={`btn small${done ? ' primary' : ''}`} aria-pressed={done} onClick={() => toggleDone(g.id, idx, !done)}>{done ? '✓ Done' : 'Mark done'}</button>
+        <details className="act-more"><summary className="btn small">More</summary>
+          <div className="act-more-list">
         <Link className="btn small" to="/join">Join a class</Link>
         {typeof speechSynthesis !== 'undefined' && <button className="btn small" onClick={readAloud} aria-pressed={speaking}>{speaking ? '■ Stop' : '🔊 Read to me'}</button>}
         <button className="btn small" onClick={() => window.print()}>🖨 Print this lesson</button>
-        <button className={`btn small${done ? ' primary' : ''}`} aria-pressed={done} onClick={() => toggleDone(g.id, idx, !done)}>{done ? '✓ Done' : 'Mark done'}</button>
+          </div>
+        </details>
       </div>
 
       <section className="cur-big" aria-label="The big idea">
