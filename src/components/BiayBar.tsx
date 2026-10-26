@@ -19,10 +19,10 @@ export default function BiayBar({ book, chapters }: { book: string; chapters: nu
       {eps.map((e) => (
         <div key={e.id} className="biay-ep">
           <button className="btn" onClick={() => void player.play(e)} aria-label={`Listen: Bible in a Year day ${e.day}, ${e.short || e.title}`}>▶ Listen</button>
-          <span><Link to={`/listen/episode/${e.id}`}><strong>Bible in a Year, day {e.day}</strong></Link>{e.duration ? ` · ${Math.round(e.duration / 60)} min` : ''}<span className="muted small"> with Fr. Mike Schmitz</span></span>
+          <span><Link to={`/listen/episode/${e.id}`}><strong>Hear this chapter</strong></Link>{e.duration ? ` · ${Math.round(e.duration / 60)} min` : ''}<span className="muted small"> Fr. Mike Schmitz reads it on day {e.day} of the Bible in a Year</span></span>
         </div>
       ))}
-      <Link className="small" to="/listen">All episodes</Link>
+      <Link className="small" to="/listen">Bible in a Year</Link>
     </div>
   );
 }

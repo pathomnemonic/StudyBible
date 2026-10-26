@@ -1,5 +1,4 @@
 import PlanStrip from './PlanStrip';
-import LessonOfDay from './LessonOfDay';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -64,7 +63,6 @@ export default function HomeExtras({ date, season, ref, label, onRandom }: { dat
         {onRandom && <button onClick={onRandom} className="cta-main">🎲 Random verse</button>}
       </div>
       <PlanStrip book="" chapters={[]} />
-      {s.audience === 'adult' && <LessonOfDay />}
       {season2 && <Link to={`/study/path/${season2[0]}`}>{season2[1]} (study path)</Link>}
       {season !== 'ordinary' && <button onClick={listen} aria-pressed={playing}>{playing ? '■ Stop' : '♪ Listen: chant and hymns for the season'}</button>}
       {saint && <Link to={saint.authorId ? `/room?author=${saint.authorId}` : `/study/saints/${saint.life ?? date.slice(5)}?name=${encodeURIComponent(saint.name.replace(/^(saint|st\.)\s+/i, ''))}`}>{saint.name}{saint.authorId ? ': read their words' : saint.life ? ': read the life' : ': saints of the day'}</Link>}

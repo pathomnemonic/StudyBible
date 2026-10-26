@@ -3486,7 +3486,7 @@ html[data-silent] .term { border-bottom: 0; } html[data-silent] .term::after { d
 
 /* Home: one screen, no scroll */
 .shell.home-shell .main { padding: 0; }
-.home { position: relative; height: auto; min-height: calc(100dvh - var(--tabs-h) - env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: center; padding: 16px 20px calc(18px + env(safe-area-inset-bottom)); overflow: visible; text-align: center; animation: page-in .6s ease both; }
+.home { position: relative; height: auto; min-height: calc(100dvh - var(--tabs-h) - var(--player-h, 0px) - env(safe-area-inset-bottom)); display: flex; flex-direction: column; align-items: center; padding: 16px 20px calc(18px + env(safe-area-inset-bottom)); overflow: visible; text-align: center; animation: page-in .6s ease both; }
 .home-tools { position: absolute; top: 10px; right: 10px; display: flex; gap: 2px; z-index: 5; }
 .home-menu { position: absolute; top: 44px; right: 0; display: grid; min-width: 140px; padding: 6px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.18); text-align: left; }
 .home-menu a, .home-menu button { padding: 8px 12px; border: 0; background: none; color: inherit; text-align: left; font: inherit; cursor: pointer; border-radius: 8px; text-decoration: none; }
@@ -3600,7 +3600,7 @@ html[data-atm] .reader::before { opacity: 0.13; }
 .rm.rm-std { font-size: .74rem; padding-inline: 6px; }
 .ed-switch button { white-space: nowrap; }
 
-@media (min-width: 900px) { .home { height: 100dvh; } }
+@media (min-width: 900px) { .home { height: calc(100dvh - var(--player-h, 0px)); } }
 
 /* reading comfort: spacing and alignment the reader chose */
 .scripture, .work-text, .reading-text { letter-spacing: var(--read-ls, 0); word-spacing: var(--read-ws, 0); }
@@ -4594,7 +4594,7 @@ button, a, [role='button'] { touch-action: manipulation; }
 .hub-ico { font-weight: 700; font-size: 1.1rem; }
 .act-more { position: relative; } .act-more summary { list-style: none; cursor: pointer; } .act-more summary::-webkit-details-marker { display: none; } .act-more-list { position: absolute; z-index: 20; top: calc(100% + 6px); left: 0; display: grid; gap: 6px; padding: 8px; min-width: 220px; border-radius: 14px; background: var(--surface); border: 1px solid var(--border-strong); box-shadow: 0 12px 30px rgba(0,0,0,.4); } .act-more-list .btn { justify-content: flex-start; width: 100%; }
 /* when Today's text cannot be shrunk to fit, scroll rather than overlap */
-.home.grow { height: auto; min-height: calc(100dvh - var(--tabs-h) - env(safe-area-inset-bottom)); overflow: visible; }
+.home.grow { height: auto; min-height: calc(100dvh - var(--tabs-h) - var(--player-h, 0px) - env(safe-area-inset-bottom)); overflow: visible; }
 .home.grow .home-body { flex: 0 0 auto; min-height: auto; margin: 10px 0 14px; }
 .memento-card { margin: 6px auto; padding: 8px 12px; }
 
@@ -4864,3 +4864,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .fineprint p { margin: 6px 0 0; line-height: 1.5; }
 
 .sl-do-steps { margin: 1rem 0 0; padding-left: 1.4em; font-size: clamp(1rem, 2.2vw, 1.5rem); line-height: 1.45; text-align: left; max-width: 38ch; } .sl-do-steps li { margin: .3em 0; }
+
+/* Today never scrolls: when even the smallest type does not fit, drop the least important blocks in turn */
+.home[data-tight='1'] .home-saint, .home[data-tight='2'] .home-saint, .home[data-tight='3'] .home-saint, .home[data-tight='4'] .home-saint { display: none; }
+.home[data-tight='2'] .reflect, .home[data-tight='3'] .reflect, .home[data-tight='4'] .reflect { display: none; }
+.home[data-tight='3'] .home-actions, .home[data-tight='4'] .home-actions { display: none; }
+.home[data-tight='4'] .memento-card { display: none; }
