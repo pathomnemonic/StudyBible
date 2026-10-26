@@ -8,6 +8,7 @@ import type { BookPrayer } from '../data/prayerbook';
 import type { Passage } from './useLessonSources';
 import { gradeLabel, type GradeData, type Glossary, type LessonSpec, type Question } from './model';
 import type { Band } from './pedagogy';
+import { DECK_CHANNEL, type DeckState } from './PresenterView';
 
 type Kind = 'poll' | 'myth' | 'debate' | 'timer' | 'exit' | 'meet' | 'title' | 'wonder' | 'idea' | 'goals' | 'vocab' | 'story' | 'scripture' | 'image' | 'church' | 'video' | 'points' | 'point' | 'section' | 'talk' | 'do' | 'saint' | 'quiz' | 'life' | 'prayer' | 'end';
 interface Card { k: string; v: string }
@@ -203,6 +204,18 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
   const [reveal, setReveal] = useState(false);
   const [shown, setShown] = useState(1);
   const [idle, setIdle] = useState(false);
+  useEffect(() => {
+    if (typeof BroadcastChannel === 'undefined') return;
+    const ch = new BroadcastChannel(DECK_CHANNEL);
+    const send = () => {
+      const sl = slides[i], nx = slides[i + 1];
+      const st: DeckState = { i, total: slides.length, label: sl.label, lines: slideLines(sl), notes: sl.notes ?? [], next: nx ? { label: nx.label, lines: slideLines(nx) } : undefined, title: slides[0]?.title ?? 'Lesson' };
+      ch.postMessage(st);
+    };
+    send();
+    ch.onmessage = (e) => { if ((e.data as { hello?: boolean })?.hello) send(); };
+    return () => ch.close();
+  }, [i, slides]);
   const dir = useRef(1);
   const root = useRef<HTMLDivElement>(null);
   const touch = useRef<number | null>(null);
@@ -248,6 +261,7 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
           <button className="btn small" onClick={() => setGrid(true)} title="All slides (G)">▦</button>
           <button className="btn small" onClick={() => setPrinting(true)} title="Print or save as a PDF handout">PDF</button>
           <button className="btn small" onClick={() => { void import('./pptx').then((m) => m.exportPptx(slides, slides[0]?.title ?? 'Lesson')); }} title="Download as a PowerPoint file">PPTX</button>
+          <button className="btn small" onClick={() => window.open(`${location.pathname}#/presenter`, 'sb-presenter', 'width=520,height=760')} title="Open notes and the next slide in a second window">Presenter</button>
           <button className="btn small" onClick={() => setNotes(!notes)} aria-pressed={notes} title="Teacher notes (N)">Notes</button>
           <button className="btn small" onClick={() => (document.fullscreenElement ? document.exitFullscreen() : root.current?.requestFullscreen?.())} title="Full screen (F)">⛶</button>
           <button className="btn small" onClick={onClose}>Close (Esc)</button>

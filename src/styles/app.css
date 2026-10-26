@@ -4689,3 +4689,4 @@ button, a, [role='button'] { touch-action: manipulation; }
 .tip-card .btn { flex: none; white-space: nowrap; }
 .goal-bar { height: 10px; border-radius: 6px; background: var(--surface-3); overflow: hidden; margin: 10px 0 6px; } .goal-bar i { display: block; height: 100%; background: var(--accent); transition: width .4s; }
 .goal-days { display: flex; gap: 6px; } .goal-days span { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-3); color: var(--muted); font-size: .8rem; } .goal-days span.on { background: var(--accent); color: var(--accent-text); } .goal-days span.today { outline: 2px solid var(--text); outline-offset: 1px; }
+.run-clock.sm { font-size: 1.4rem; margin: 0; } .pres-notes li { font-size: 1.15rem; margin: 6px 0; } .presenter .card { margin: 10px 0; }
