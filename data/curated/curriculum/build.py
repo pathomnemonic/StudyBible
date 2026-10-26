@@ -21,7 +21,7 @@ for f in sorted(os.listdir(os.path.dirname(__file__) or '.')):
     if re.match(r'^e_\w+\.py$', f):
         ENRICH.update(importlib.import_module(f[:-3]).E)
     if re.match(r'^r_\w+\.py$', f):
-        REWRITE.update(importlib.import_module(f[:-3]).R)
+        [REWRITE.setdefault(k, {}).update(v) for k, v in importlib.import_module(f[:-3]).R.items()]
 
 def squash(nums):
     out, i = [], 0
