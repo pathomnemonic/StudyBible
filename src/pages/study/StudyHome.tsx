@@ -26,6 +26,7 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
       ['/teach', 'Teacher tools', 'Classes, attendance, participation, scores, exams, a gradebook and report cards.'],
       ['/join', 'Join a class', 'Type the code your teacher is showing to follow a lesson and play the quiz together.'],
       ['/study/curriculum', 'Catechism, Kindergarten to Grade 12', 'A full program of nearly 400 lessons for classrooms, families and self-study, with teacher handbook.'],
+      ['/study/prepare', 'Prepare for a sacrament', 'First Confession, First Communion, Confirmation, becoming Catholic, marriage, the sick and vocation: lessons, prayers and tools for each.'],
       ['/study/young-adults', 'Young adults', 'Questions, vocation, Scripture, reading and people for the years of big decisions.'],
       ['/study/kids', 'Children’s Bible', 'Bible stories for kids, at three reading levels, with questions and videos.'],
       ['/study/apologetics', 'Questions about the faith', 'Common questions, each gathering what Catholic authors and apologists have written and said, with the verses and Catechism paragraphs involved.'],
