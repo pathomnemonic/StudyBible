@@ -100,6 +100,7 @@ export const FEATURES: Feature[] = [
   { id: 'teach.classes', title: 'Teacher tools', blurb: 'Classes, attendance, scores, exams and a gradebook.', to: '/teach', hub: 'teach', keywords: 'class roster gradebook report card', hot: true, interest: ['teach'] },
   { id: 'teach.join', title: 'Join a class', blurb: 'Type the code your teacher is showing.', to: '/join', hub: 'teach', keywords: 'student code kahoot game', hot: true, interest: ['teach'] },
   { id: 'teach.handbook', title: 'Teacher handbook', blurb: 'Methods, pacing and support for every grade.', to: '/study/curriculum/teachers', hub: 'teach', keywords: 'handbook parents' },
+  { id: 'teach.run', title: 'Run a lesson in one tap', blurb: 'Open any lesson and tap Run this lesson: a timed running order with what to say and ask.', to: '/study/curriculum/5', hub: 'teach', keywords: 'lesson in a box timer teach now plan', hot: true, interest: ['teach'] },
   // You
   { id: 'you.library', title: 'Notes, highlights and bookmarks', blurb: 'Everything you have written or marked.', to: '/library', hub: 'you', keywords: 'my notes export' },
   { id: 'you.settings', title: 'Settings', blurb: 'Translation, language, theme, offline, reminders.', to: '/settings', hub: 'you', keywords: 'preferences font size' },

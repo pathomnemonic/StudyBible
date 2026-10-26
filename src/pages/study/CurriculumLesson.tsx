@@ -8,6 +8,7 @@ import { bandOf, FAMILY_DAYS, type Band } from '../../curriculum/pedagogy';
 import { useLessonSources } from '../../curriculum/useLessonSources';
 import InlinePlayer from '../../components/InlinePlayer';
 import LessonSlides, { buildSlides } from '../../curriculum/LessonSlides';
+import LessonRun from '../../curriculum/LessonRun';
 import LessonPlay from '../../curriculum/LessonPlay';
 import StartLive from '../../live/StartLive';
 import { toLiveSlides } from '../../live/slides';
@@ -62,6 +63,7 @@ export default function CurriculumLesson() {
   const [mode, setMode] = useState<Mode>(() => { try { const m = localStorage.getItem('sb:cur:mode'); return m === 'teacher' || m === 'family' ? m : 'student'; } catch { return 'student'; } });
   const [length, setLength] = useState(0);
   const [present, setPresent] = useState(false);
+  const [running, setRunning] = useState(false);
   const [speaking, setSpeaking] = useState(false);
   const [playing, setPlaying] = useState<string | null>(null);
   const [note, setNote] = useState('');
@@ -118,6 +120,7 @@ export default function CurriculumLesson() {
         {modes.map(([m, l, d]) => <button key={m} role="tab" aria-selected={mode === m || (adult && mode === 'family' && m === 'student')} title={d} onClick={() => setM(m)}>{l}</button>)}
       </div>
       <div className="row no-print" style={{ gap: 6, flexWrap: 'wrap', margin: '4px 0 10px' }}>
+        <button className="btn small primary" onClick={() => setRunning(true)}>🎒 Run this lesson</button>
         <button className="btn small" onClick={() => setPresent(true)}>▶ Present as slides</button>
         <button className="btn small" onClick={() => setLiveOpen(true)}>📡 Host live with a class code</button>
         <Link className="btn small" to="/join">Join a class</Link>
@@ -316,6 +319,7 @@ export default function CurriculumLesson() {
         {next ? <Link className="btn primary" to={`/study/curriculum/${g.id}/${next.id}`}>{next.title} →</Link> : <Link className="btn primary" to={`/study/curriculum/${g.id}`}>Finish this grade</Link>}
       </nav>
       <p className="muted small">This program is a study aid built from the Catechism and Scripture. It has not been reviewed or approved by a bishop. If you teach for a parish, school or diocese, follow your diocese’s requirements for catechetical texts.</p>
+      {running && <LessonRun lesson={lesson} grade={g} band={band} prayer={src.prayer?.text} scripture={scriptureText} onSlides={() => setPresent(true)} onClose={() => setRunning(false)} />}
       {present && <LessonSlides slides={slides} onClose={() => { setPresent(false); if (sp.get('present')) { sp.delete('present'); setSp(sp, { replace: true }); } }} />}
     </div>
   );
