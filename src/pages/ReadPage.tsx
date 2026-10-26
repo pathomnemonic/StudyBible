@@ -12,6 +12,8 @@ import { anchorChapterText, anchorToNative, chapterTitle, flattenChapter, native
 import { useSettings } from '../lib/store';
 import { useWakeLock } from '../lib/wakeLock';
 import { db, type HighlightColor, type Target } from '../db/db';
+import { newCard } from '../lib/srs';
+import { useToast } from '../components/Toast';
 import BiayBar from '../components/BiayBar';
 import NextChapters from '../components/NextChapters';
 import ChapterArt from '../art/chapterArt';
@@ -120,6 +122,7 @@ export default function ReadPage() {
   const [data, setData] = useState<BookData | null>(null);
   const [error, setError] = useState('');
   const [selNative, setSelNative] = useState<number[]>([]);
+  const toast = useToast();
   const [flash, setFlash] = useState<number[]>([]); // verses a link pointed at: lit for a moment, then let go (not a selection)
   const [selAnchor, setSelAnchor] = useState<number[]>([]); // parallel mode: anchor verse numbers (within anchorChapter)
   const [picker, setPicker] = useState(false);
@@ -491,6 +494,20 @@ export default function ReadPage() {
   const applyColor = async (c: HighlightColor | null) => {
     for (const r of selRefs) await setHighlight(r, c, edition.id);
   };
+  const memCards = useLiveQuery(() => db.memory.toArray(), []) ?? [];
+  const memHave = new Set(memCards.map((c) => c.ref));
+  const memAll = selRefs.length > 0 && selRefs.every((r) => memHave.has(refId(r)));
+  /** Add the selected verses to the memory list (spaced review), or take them off again. */
+  const toggleMemorize = async () => {
+    if (memAll) {
+      for (const r of selRefs) await db.memory.where('ref').equals(refId(r)).delete();
+      toast('Taken off your memory list.', 'info');
+      return;
+    }
+    let n = 0;
+    for (const r of selRefs) if (!memHave.has(refId(r))) { await db.memory.add({ ref: refId(r), ...newCard(), createdAt: Date.now() }); n++; }
+    toast(`Added to your memory list. Practice it under Today › Memorize.`, 'info');
+  };
   const doBookmark = async () => {
     for (const r of selRefs) await toggleBookmark(r, 'bookmark', edition.id);
   };
@@ -580,6 +597,9 @@ export default function ReadPage() {
           </button>
           <button className="icon-btn" onClick={doBookmark} aria-label="Bookmark" title="Bookmark">
             <Icon name="bookmark" />
+          </button>
+          <button className={`icon-btn${memAll ? ' on' : ''}`} onClick={toggleMemorize} aria-pressed={memAll} aria-label={memAll ? 'Memorizing: tap to remove' : 'Memorize this passage'} title={memAll ? 'On your memory list: tap to remove' : 'Memorize: add to your spaced-review list'}>
+            <Icon name="memorize" />
           </button>
           <button className="icon-btn" onClick={() => setPanel(true)} aria-label="Study this passage" title="Study: teaching, Fathers, cross-references…">
             <Icon name="study" />
