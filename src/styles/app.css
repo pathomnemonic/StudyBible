@@ -4456,3 +4456,12 @@ input[type='search'], input[type='text'], input:not([type]), select, textarea { 
 a { text-underline-offset: 3px; }
 @media (max-width: 520px) { .tabbar { width: 100%; overflow-x: visible; } .tabbar button { padding: 8px 12px; } .page { padding-left: 16px; padding-right: 16px; } }
 @media (prefers-reduced-motion: reduce) { .card, .shelf-card, .btn { transition: none; } a.shelf-card:hover, .btn:hover { transform: none; } }
+.sl-kicker { text-transform: uppercase; letter-spacing: .14em; font-size: .95rem; color: var(--sl-a); font-weight: 700; margin: 0 0 .6em; }
+.sl-reveal { font-size: clamp(1.3rem, 3vw, 2.2rem); margin: .8em 0 0; padding: .5em .8em; border-radius: 12px; font-weight: 600; } .sl-reveal.ok { background: color-mix(in srgb, #2e7d32 24%, transparent); } .sl-reveal.no { background: color-mix(in srgb, #c62828 22%, transparent); }
+.sl-sides { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 1em 0; } .sl-sides div { padding: .8em; text-align: center; font-size: clamp(1.3rem, 3vw, 2.2rem); font-weight: 700; border-radius: 14px; border: 3px solid var(--sl-a); }
+.sl-frames { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; } .sl-frames li { padding: .4em .9em; border-radius: 999px; background: color-mix(in srgb, var(--text) 8%, transparent); font-size: clamp(1rem, 2vw, 1.4rem); font-style: italic; }
+.sl-poll-opts { display: grid; gap: 12px; margin: 1em 0; } .sl-poll-opt { display: grid; grid-template-columns: 9em 3ch 1fr; gap: 14px; align-items: center; font-size: 1.4rem; } .sl-poll-opt .btn { font-size: 1.2rem; padding: .6em 1em; }
+.sl-poll-bar { height: 22px; border-radius: 8px; background: color-mix(in srgb, var(--text) 10%, transparent); overflow: hidden; display: block; } .sl-poll-bar i { display: block; height: 100%; background: var(--sl-a); transition: width .3s; }
+.sl-clock { display: flex; gap: 20px; align-items: center; margin-top: .6em; } .sl-clock span { font-size: clamp(2.6rem, 8vw, 6rem); font-weight: 800; font-variant-numeric: tabular-nums; } .sl-clock span.done { color: #c62828; }
+.slides.sk-poll, .slides.sk-myth { --sl-a: #6a1b9a; } .slides.sk-debate { --sl-a: #c62828; } .slides.sk-timer { --sl-a: #2e7d32; } .slides.sk-meet { --sl-a: #1565c0; } .slides.sk-exit { --sl-a: #ef6c00; }
+.slides.sk-meet, .slides.sk-exit { background: linear-gradient(160deg, color-mix(in srgb, var(--sl-a) 18%, var(--bg)), var(--bg)); }

@@ -125,7 +125,7 @@ export function PlayPage() {
       {v.phase === 'run' && v.run && <RunPlay v={v} link={link!} now={serverNow} />}
       {(v.phase === 'exam' || (v.phase === 'ended' && v.exam)) && v.exam && <ExamView v={v} link={link!} now={serverNow} />}
       {v.phase === 'lobby' && <div className="live-center"><h1>You’re in!</h1><p className="lede">{v.title}</p><p className="muted">Waiting for your teacher to start. Look at the big screen.</p><div className="live-bounce" aria-hidden="true">✝</div></div>}
-      {v.phase === 'slides' && v.slides && <div><SlideView s={v.slides[v.slideIndex]} /><p className="muted small" style={{ textAlign: 'center' }}>Slide {v.slideIndex + 1} of {v.slideCount} · your teacher is moving through the lesson</p></div>}
+      {v.phase === 'slides' && v.slides && <div><SlideView s={v.slides[v.slideIndex]} />{v.slides[v.slideIndex].poll && v.poll && <PollVote v={v} onVote={(i) => void link!.answer(i)} />}<p className="muted small" style={{ textAlign: 'center' }}>Slide {v.slideIndex + 1} of {v.slideCount} · your teacher is moving through the lesson</p></div>}
       {v.phase === 'question' && q && (
         <div>
           <Timer deadline={q.deadline} total={q.time} now={serverNow} />
@@ -230,6 +230,7 @@ export function HostPage() {
       {v.phase === 'slides' && v.slides && (
         <div>
           <SlideView s={v.slides[v.slideIndex]} />
+          {v.slides[v.slideIndex].poll && v.poll && <PollBars v={v} />}
           <div className="live-nav">
             <button className="btn" disabled={v.slideIndex === 0} onClick={() => act('slide', v.slideIndex - 1)}>← Back</button>
             <span>{v.slideIndex + 1} / {v.slideCount} · {connected} watching</span>
@@ -400,6 +401,27 @@ function RunPlay({ v, link, now }: { v: LiveView; link: PlayerLink; now: () => n
           {q.type === 'order' && <><p className="muted small">Tap in the right order.</p><ol className="live-order">{q.options!.map((o, i) => <li key={i}><button className={`live-opt o${i % 4}${sel.includes(i) ? ' on' : ''}`} onClick={() => setSel(sel.includes(i) ? sel.filter((x) => x !== i) : [...sel, i])}><span className="shape">{sel.includes(i) ? sel.indexOf(i) + 1 : '·'}</span>{o}</button></li>)}</ol><div className="row" style={{ gap: 8 }}><button className="btn" onClick={() => setSel([])}>Clear</button><button className="btn primary big" disabled={sel.length !== q.options!.length || busy} onClick={() => send(sel)}>Lock in</button></div></>}
         </>
       )}
+    </div>
+  );
+}
+
+/** A student's vote on a poll slide. */
+function PollVote({ v, onVote }: { v: LiveView; onVote: (i: number) => void }) {
+  const opts = v.slides![v.slideIndex].poll!.options;
+  return (
+    <div className="live-opts n4" role="group" aria-label="Vote">
+      {opts.map((o, i) => <button key={o} className={`live-opt o${i % 4}${v.poll!.mine === i ? ' on' : ''}`} aria-pressed={v.poll!.mine === i} onClick={() => onVote(i)}><span className="shape" aria-hidden="true">{v.poll!.mine === i ? '✓' : SHAPES[i]}</span>{o}</button>)}
+      {v.poll!.mine !== undefined && <p className="muted small" style={{ gridColumn: '1 / -1' }}>Your vote is counted. You can change it until your teacher moves on.</p>}
+    </div>
+  );
+}
+/** The teacher's live count of a poll. */
+function PollBars({ v }: { v: LiveView }) {
+  const opts = v.slides![v.slideIndex].poll!.options, c = v.poll!.counts, max = Math.max(1, ...c);
+  return (
+    <div>
+      <ul className="live-bars">{opts.map((o, i) => <li key={o}><span className="lab">{SHAPES[i]}  {o}</span><span className="bar"><i className={`o${i % 4}`} style={{ width: `${(c[i] / max) * 100}%` }} /></span><span className="n">{c[i]}</span></li>)}</ul>
+      <p className="muted small" style={{ textAlign: 'center' }}>{v.poll!.total} of {v.players.length} have voted</p>
     </div>
   );
 }

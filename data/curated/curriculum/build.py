@@ -38,6 +38,7 @@ index, used, problems = [], set(), []
 for g in order:
     m = importlib.import_module(f'g_{g}')
     G_ = m.GRADE
+    G_['units'] = list(G_['units']) + importlib.import_module('h_hard').EXTRA.get(G_['id'], [])
     units = []
     for ui, u in enumerate(G_['units'], 1):
         ls = []

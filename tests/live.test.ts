@@ -228,3 +228,21 @@ describe('other games', () => {
     expect(r.view('host').run!.classSteps).toBe(3);
   });
 });
+
+describe('poll slides', () => {
+  it('counts one vote per student, lets them change it, and ignores slides without a poll', () => {
+    const c = sanitizeContent({ title: 'P', slides: [{ label: 'Hook', title: 'Agree?', poll: { options: ['Agree', 'Disagree', 'Not sure'] } }, { label: 'Plain', title: 'No poll' }], questions: [] });
+    const r = new LiveRoom('800001', c, sanitizeSettings({}), clock().now);
+    const a = r.join('A'), b = r.join('B');
+    r.host('start');
+    expect(r.answer(a.token, 0)).toBe(true);
+    expect(r.answer(b.token, 1)).toBe(true);
+    expect(r.answer(a.token, 2)).toBe(true); // changed her mind
+    expect(r.answer(a.token, 9)).toBe(false);
+    expect(r.view('host').poll).toMatchObject({ counts: [0, 1, 1], total: 2 });
+    expect(r.view('player', a.token).poll!.mine).toBe(2);
+    r.host('slide', 1);
+    expect(r.view('host').poll).toBeUndefined();
+    expect(r.answer(a.token, 0)).toBe(false);
+  });
+});
