@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildSlides, chunk } from '../src/curriculum/LessonSlides';
+import { buildSlides, chunk, headline, splitCcc } from '../src/curriculum/LessonSlides';
 import { BANDS } from '../src/curriculum/pedagogy';
 import { parseQuiz } from '../src/curriculum/model';
 
@@ -17,7 +17,7 @@ describe('lesson slides', () => {
     const slides = buildSlides({ lesson, grade, gl: { grace: { w: 'grace', d: 'a gift' } }, band: BANDS[1], passages: [{ label: 'John 1:1', ref: {} as never, path: '', verses: [{ v: 1, c: 1, text: 'In the beginning was the Word.' }] }], ccc: [], videos: [], art: [], story: '', prayer: { id: 'p', title: 'Our Father', text: 'Our Father.', tags: [] }, quiz: q, base: '/' });
     const kinds = slides.map((s) => s.kind);
     expect(kinds[0]).toBe('title');
-    for (const k of ['wonder', 'meet', 'idea', 'vocab', 'scripture', 'timer', 'do', 'saint', 'quiz', 'life', 'exit', 'prayer', 'end']) expect(kinds).toContain(k);
+    for (const k of ['wonder', 'meet', 'idea', 'vocab', 'scripture', 'timer', 'do', 'saint', 'quiz', 'life', 'exit', 'prayer', 'end', 'section', 'goals']) expect(kinds).toContain(k);
     expect(kinds.filter((k) => k === 'timer').length).toBe(2); // each discussion question becomes a timed think-pair-share
     expect(kinds.indexOf('meet')).toBeLessThan(kinds.indexOf('idea')); // a story comes before the idea
   });
@@ -33,5 +33,18 @@ describe('lesson slides', () => {
     // younger children get the games but not the debate
     const young = buildSlides({ lesson, grade: { ...grade, id: '2', band: 'primary' as const }, gl: {}, band: BANDS[0], passages: [], ccc: [], videos: [], art: [], story: '', prayer: null, quiz: [], base: '/' });
     expect(young.map((s) => s.kind)).not.toContain('debate');
+  });
+});
+
+describe('slide helpers', () => {
+  it('makes a short headline and keeps the rest', () => {
+    const h = headline('God is almighty, and his power is shown most in mercy and in forgiveness of sinners. He loves us.', 60);
+    expect(h.head.length).toBeLessThanOrEqual(62);
+    expect(`${h.head} ${h.rest}`).toContain('He loves us');
+  });
+  it('lifts Catechism citations out of a sentence', () => {
+    const r = splitCcc('Baptism frees us from sin (CCC 1213, 1250). It makes us God’s children.');
+    expect(r.chips).toEqual(['CCC 1213, 1250']);
+    expect(r.text).toBe('Baptism frees us from sin. It makes us God’s children.');
   });
 });
