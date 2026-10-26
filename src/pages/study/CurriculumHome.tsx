@@ -5,6 +5,7 @@ import { db } from '../../db/db';
 import { getGrades, gradeLabel, type GradeMeta } from '../../curriculum/model';
 import { BANDS, DELIVERY, PRINCIPLES } from '../../curriculum/pedagogy';
 import { Group, HubHeader, Tiles } from '../../components/Hub';
+import Fold from '../../components/Fold';
 
 /** A kindergarten-through-twelfth-grade catechism program built from the Catechism, Scripture and the rest of the app’s library. */
 export default function CurriculumHome() {
@@ -16,9 +17,6 @@ export default function CurriculumHome() {
   return (
     <div className="page hub">
       <HubHeader title="Catechism program" sub={`${total || 396} lessons from Kindergarten to Grade 12, plus a course for adults. Each is built on the Catechism and Scripture.`} />
-      <Group title="For teachers and parents">
-        <Tiles ids={['teach.handbook', 'teach.classes', 'teach.join']} />
-      </Group>
       {BANDS.map((b) => (
         <Group key={b.id} title={`${b.label} · ${b.grades}`} hint={`about ${b.minutes} minutes a lesson`}>
           <div className="hub-tiles">
@@ -37,16 +35,14 @@ export default function CurriculumHome() {
           </div>
         </Group>
       ))}
-      <p className="hub-hint"><a href="#delivery">Ways to use it</a> · <a href="#why">Why it is built this way</a></p>
-
-      <section className="sect" id="delivery">
-        <h2 className="eyebrow-h">Ways to use it</h2>
+      <Group title="For teachers and parents">
+        <Tiles ids={['teach.handbook', 'teach.classes', 'teach.join']} />
+      </Group>
+      <Fold id="cur:delivery" title="Ways to use it" hint="Classroom, home, parish, self-study">
         <p className="muted small">The same lesson reaches people in several ways. Choose what fits your setting; you can switch at any time.</p>
         <dl className="cur-words">{DELIVERY.map((d) => <div key={d.id}><dt>{d.name}</dt><dd><span className="muted">{d.who}.</span> {d.how}</dd></div>)}</dl>
-      </section>
-
-      <section className="sect" id="why">
-        <h2 className="eyebrow-h">What every lesson contains</h2>
+      </Fold>
+      <Fold id="cur:why" title="What every lesson contains and why" hint="The principles behind the program">
         <ul>
           <li><strong>The big idea</strong> and an essential question, in language for the age.</li>
           <li><strong>Scripture</strong>, with a children’s retelling in the early grades, and <strong>the Catechism</strong> paragraphs it rests on.</li>
@@ -56,11 +52,11 @@ export default function CurriculumHome() {
         </ul>
         <h3>The principles behind it</h3>
         <ul>{PRINCIPLES.map((p) => <li key={p.title}><strong>{p.title}.</strong> {p.why} <span className="muted">Here: {p.here}</span></li>)}</ul>
-      </section>
-
-      <div className="notice info">
-        <strong>About this program.</strong> It follows the order and content of the Catechism of the Catholic Church, and cites the paragraphs so you can check every lesson. It was written for this app. It has not been reviewed or approved by a bishop and is not a replacement for a program your diocese requires. Most lessons are an outline with the app’s library attached; a teacher’s judgment and prayer make it a lesson.
-      </div>
+      </Fold>
+      <Fold id="cur:about" title="About this program">
+        <p className="small">
+        It follows the order and content of the Catechism of the Catholic Church, and cites the paragraphs so you can check every lesson. It was written for this app. It has not been reviewed or approved by a bishop and is not a replacement for a program your diocese requires. Most lessons are an outline with the app’s library attached; a teacher’s judgment and prayer make it a lesson.</p>
+      </Fold>
     </div>
   );
 }

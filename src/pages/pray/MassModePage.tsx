@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import FinePrint from '../../components/FinePrint';
 import { Link } from 'react-router-dom';
 import { OF_STEPS, POSTURE, type MassStep, type Slot } from '../../liturgy/massSteps';
 import { liturgicalDay, parseIso, COLOR_NAME } from '../../liturgy/compute';
@@ -108,7 +109,7 @@ export default function MassModePage() {
         <span className="muted">{idx + 1} / {steps.length}</span>
         <button className="btn primary" onClick={() => go(idx + 1)} disabled={idx === steps.length - 1}>Next →</button>
       </div>
-      <p className="muted small">The long prayers of the Mass (the Roman Missal) are copyrighted and not printed here: follow the words in your missalette. This guide gives the order, the postures and today’s readings. Postures follow the usual United States practice; follow your parish. Tap Next, press the Space bar or swipe.</p>
+      <FinePrint>The long prayers of the Mass (the Roman Missal) are copyrighted and not printed here: follow the words in your missalette. This guide gives the order, the postures and today’s readings. Postures follow the usual United States practice; follow your parish. Tap Next, press the Space bar or swipe.</FinePrint>
     </div>
   );
 }

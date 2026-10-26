@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import FinePrint from '../../components/FinePrint';
 import { Link } from 'react-router-dom';
 import { efDay, getOrdo, getPrefaces, prefaceKey, type EfResult } from '../../liturgy/missaEF';
 import { addDays, iso, parseIso } from '../../liturgy/compute';
@@ -110,7 +111,7 @@ export default function MassEFPage() {
           )}
         </>
       )}
-      <p className="muted small">The Mass of the 1962 books in English from the Divinum Officium project (MIT license), as a low Mass. The Mass of the day is chosen by the rank of the season and the saint; commemorations and some transferred feasts are not applied, so check your own missal or parish calendar. Where the source lacks a text, the page says so. The Latin text is not included.</p>
+      <FinePrint>The Mass of the 1962 books in English from the Divinum Officium project (MIT license), as a low Mass. The Mass of the day is chosen by the rank of the season and the saint; commemorations and some transferred feasts are not applied, so check your own missal or parish calendar. Where the source lacks a text, the page says so. The Latin text is not included.</FinePrint>
     </div>
   );
 }

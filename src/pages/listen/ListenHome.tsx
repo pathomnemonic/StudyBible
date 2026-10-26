@@ -1,13 +1,13 @@
 import FilterBar from '../../components/FilterBar';
 import { HubHeader } from '../../components/Hub';
 import SaveOffline from '../../components/SaveOffline';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { Tip, StartHere } from '../../components/Hints';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { fmtDuration, useBiay } from '../../data/biay';
-import { rememberEpisode, usePlayer } from '../../data/PlayerContext';
+import { rememberEpisode, resolveEpisode, usePlayer } from '../../data/PlayerContext';
 import { formatRef, parseRefId, parseRefs, refsOverlap } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import Icon from '../../components/Icon';
@@ -36,6 +36,10 @@ function BiayListen() {
   const progress = useLiveQuery(() => db.episodeProgress.toArray(), []) ?? [];
   const queue = useLiveQuery(() => db.queue.orderBy('order').toArray(), []) ?? [];
   const planStart = useLiveQuery(() => db.planProgress.get('biay'), []);
+  // the queue and progress hold episodes from any show (podcasts, audiobooks, meditation), not only this plan
+  const [other, setOther] = useState<Record<string, BiayEpisode>>({});
+  const wantIds = (view === 'queue' ? queue.map((x) => x.episodeId) : view === 'progress' ? progress.filter((p) => p.completed || p.position > 0).map((p) => p.episodeId) : []).join(',');
+  useEffect(() => { let live = true; void Promise.all(wantIds.split(',').filter(Boolean).map(async (id) => [id, await resolveEpisode(id)] as const)).then((r) => live && setOther(Object.fromEntries(r.filter((x): x is [string, BiayEpisode] => !!x[1])))); return () => { live = false; }; }, [wantIds]);
   const doneMap = useMemo(() => new Map(progress.map((p) => [p.episodeId, p])), [progress]);
 
   const epsFor = useMemo(() => {
@@ -44,9 +48,9 @@ function BiayListen() {
     const days = [...biay.dayEpisode.keys()].sort((a, b) => a - b).map((d) => pick(d)!).filter(Boolean);
     if (view === 'plan') return days;
     if (view === 'release') return [...biay.data.episodes].filter((e) => !year || e.year === year).sort((a, b) => b.date.localeCompare(a.date));
-    if (view === 'queue') return queue.map((x) => biay.byId.get(x.episodeId)).filter(Boolean) as BiayEpisode[];
-    return progress.filter((p) => p.completed || p.position > 0).sort((a, b) => b.updatedAt - a.updatedAt).map((p) => biay.byId.get(p.episodeId)).filter(Boolean) as BiayEpisode[];
-  }, [biay, view, year, queue, progress]);
+    if (view === 'queue') return queue.map((x) => biay.byId.get(x.episodeId) ?? other[x.episodeId]).filter(Boolean) as BiayEpisode[];
+    return progress.filter((p) => p.completed || p.position > 0).sort((a, b) => b.updatedAt - a.updatedAt).map((p) => biay.byId.get(p.episodeId) ?? other[p.episodeId]).filter(Boolean) as BiayEpisode[];
+  }, [biay, view, year, queue, progress, other]);
 
   const filtered = useMemo(() => {
     const s = q.trim();
@@ -79,7 +83,7 @@ function BiayListen() {
       <h2 className="h-sm" style={{ marginTop: 22 }}>Every day</h2>
 
       <div className="tabbar" role="tablist">
-        {([['plan', 'The plan'], ['release', 'All episodes'], ['queue', `Queue (${queue.length})`], ['progress', 'My progress']] as [View, string][]).map(([k, l]) => (
+        {([['plan', 'Plan'], ['release', 'All'], ['queue', `Queue ${queue.length}`], ['progress', 'Progress']] as [View, string][]).map(([k, l]) => (
           <button key={k} role="tab" aria-selected={view === k} onClick={() => setView(k)}>{l}</button>
         ))}
       </div>
@@ -95,6 +99,12 @@ function BiayListen() {
       <ul className="list">
         {filtered.slice(0, 400).map((e) => <Row key={e.id} e={e} progress={doneMap.get(e.id)} inQueue={queue.some((x) => x.episodeId === e.id)} />)}
       </ul>
+      {view === 'queue' && !q && queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length > 0 && (
+        <div className="notice" role="note">
+          {queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length} items in your queue can no longer be found.{' '}
+          <button className="linklike" onClick={() => void db.queue.bulkDelete(queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).map((x) => x.id!))}>Clear them</button>
+        </div>
+      )}
       {filtered.length > 400 && <p className="muted small">Showing the first 400; narrow with search.</p>}
       <section className="card" style={{ marginTop: 16 }}>
         <h2 className="card-title">Hear Scripture read aloud</h2>
@@ -143,7 +153,7 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
 }
 
 type Tab = 'now' | 'podcasts' | 'audiobooks' | 'programmes' | 'videos' | 'meditate';
-const TABS: [Tab, string][] = [['programmes', 'Bible in a Year'], ['now', 'For you'], ['podcasts', 'Podcasts'], ['audiobooks', 'Audiobooks'], ['videos', 'Videos'], ['meditate', 'Meditate']];
+const TABS: [Tab, string][] = [['programmes', 'Year'], ['now', 'For you'], ['podcasts', 'Podcasts'], ['audiobooks', 'Books'], ['videos', 'Videos'], ['meditate', 'Meditate']];
 
 /** The Media tab: the Bible in a Year first, then what you follow, podcasts, audiobooks and videos. */
 export default function ListenHome() {

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import FinePrint from '../../components/FinePrint';
 import { Link, useSearchParams } from 'react-router-dom';
 import { getJson } from '../../data/loader';
 
@@ -45,7 +46,7 @@ export default function PapalPage() {
         </section>
       ))}
       {popes && !shown.length && <p className="muted">Nothing matches.</p>}
-      <p className="muted small">The list was gathered from the Vatican’s index pages and may miss recent or unlisted documents. Popes before Pius IX (including earlier encyclicals) are not yet listed. Texts are © their publisher (usually Libreria Editrice Vaticana); this page only links to them.</p>
+      <FinePrint>The list was gathered from the Vatican’s index pages and may miss recent or unlisted documents. Popes before Pius IX (including earlier encyclicals) are not yet listed. Texts are © their publisher (usually Libreria Editrice Vaticana); this page only links to them.</FinePrint>
     </div>
   );
 }

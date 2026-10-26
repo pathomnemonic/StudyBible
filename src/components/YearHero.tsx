@@ -65,8 +65,8 @@ export default function YearHero() {
             <button className="btn primary big" disabled={!ep} onClick={() => ep && player.play(ep)}><Icon name="play" size={16} /> Listen</button>
             {ep && <SaveOffline ep={ep} compact />}
             {first && edition && <Link className="btn" to={readerPath(edition, first)}>Read</Link>}
-            <button className={'btn' + (finished ? ' on' : '')} aria-pressed={finished} onClick={toggleDone} title="Mark today finished">{finished ? '✓ Done' : 'Done?'}</button>
-            <button className="btn" onClick={() => setCfg(true)} title="Skip the intro, speed, skip buttons for this show">Settings</button>
+            <button className={'btn icon' + (finished ? ' on' : '')} aria-pressed={finished} onClick={toggleDone} title={finished ? 'Finished today' : 'Mark today finished'} aria-label={finished ? 'Finished today. Tap to undo' : 'Mark today finished'}>✓</button>
+            <button className="btn icon" onClick={() => setCfg(true)} title="Skip the intro, speed and skip buttons for this show" aria-label="Bible in a Year settings"><Icon name="gear" size={16} /></button>
           </div>
           <p className="year-foot muted small">
             {prog ? `${prog.done.length} of 365 days finished · Fr. Mike Schmitz, Ascension` : <>Following the calendar. <button className="linklike" onClick={startTracking}>Track my progress</button></>}

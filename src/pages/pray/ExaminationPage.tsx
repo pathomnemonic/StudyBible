@@ -52,9 +52,11 @@ export default function ExaminationPage() {
       <p className="lede">A quiet look back before Confession. Ask the Holy Spirit for light, and be honest and gentle with yourself.</p>
       <p className="exam-prayer"><em>{PRAYER_BEFORE}</em></p>
 
-      <div className="tabbar" role="tablist" aria-label="Choose a way to examine">
-        {LENSES.map((l) => <button key={l.id} role="tab" aria-selected={lensId === l.id} onClick={() => { setLensId(l.id); setOpen(new Set([l.sections[0].id])); }}>{l.title}</button>)}
-      </div>
+      <label className="exam-lens">Examine by
+        <select value={lensId} onChange={(e) => { const l = LENSES.find((x) => x.id === e.target.value)!; setLensId(l.id); setOpen(new Set([l.sections[0].id])); }}>
+          {LENSES.map((l) => <option key={l.id} value={l.id}>{l.title}</option>)}
+        </select>
+      </label>
       <div className="row between" style={{ margin: '0 0 8px' }}>
         <p className="muted small" style={{ margin: 0 }}>{lens.blurb}</p>
         <ExpandAll all={allOpen} onChange={setAll} />

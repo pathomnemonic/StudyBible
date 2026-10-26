@@ -1,4 +1,5 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
+import FinePrint from '../../components/FinePrint';
 import { ANGELUS, MERCY, MYSTERIES, REGINA, SORROWS, STATIONS, todaysMysteries } from '../../data/devotions';
 import { CONFESSION, MORE } from '../../data/devotions2';
 import { liturgicalDay, parseIso } from '../../liturgy/compute';
@@ -87,7 +88,7 @@ export default function DevotionsPage() {
           </Link>
         ))}
       </div>
-      <p className="muted small" style={{ marginTop: 14 }}>Recordings of the Rosary and Divine Mercy chaplet are from the <a href="https://www.creedalpodcast.com/rosary" target="_blank" rel="noreferrer">Creedal podcast</a>, streamed from the publisher. Paintings and engravings are public domain (credits on each picture and in the <Link to="/study/gallery">Gallery</Link>). The Divine Mercy chaplet is a private devotion from the revelations to St Faustina; the prayer texts are the long-used traditional wordings.</p>
+      <FinePrint>Recordings of the Rosary and Divine Mercy chaplet are from the <a href="https://www.creedalpodcast.com/rosary" target="_blank" rel="noreferrer">Creedal podcast</a>, streamed from the publisher. Paintings and engravings are public domain (credits on each picture and in the <Link to="/study/gallery">Gallery</Link>). The Divine Mercy chaplet is a private devotion from the revelations to St Faustina; the prayer texts are the long-used traditional wordings.</FinePrint>
     </div>
   );
 }

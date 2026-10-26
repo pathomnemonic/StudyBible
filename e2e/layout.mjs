@@ -36,6 +36,18 @@ for (const w of WIDTHS) {
         if (shapes.size > 1) out.push(`cards of different shapes in one grid: ${g.className} (${[...shapes].join(' vs ')})`);
       }
       for (const k of document.querySelectorAll('.hub-tile, .shelf-card')) if (!k.parentElement.matches('.hub-tiles, .shelf')) { out.push(`card outside a grid: ${k.className}`); break; }
+      // clutter budget: a block that is only a helper must not push the page's real content down
+      const budget = (sel, max, why) => { for (const e of document.querySelectorAll(sel)) { const h = e.getBoundingClientRect().height; if (h > max) out.push(`too tall (${Math.round(h)}px > ${max}px): ${why}`); } };
+      budget('.year-card', 170, 'Bible in a Year card');
+      budget('.tabbar', 130, 'tab bar (rename tabs shorter, or fewer)');
+      budget('.filterbar-top', 60, 'search and filter row');
+      budget('.hub-head', 150, 'page header');
+      // no loose text hanging at the end of a page: long closing text belongs in a card, a notice or a fold
+      for (const pg of document.querySelectorAll('.page')) {
+        const kids = [...pg.children].filter((k) => k.getBoundingClientRect().height > 0 && !k.matches('script, style, .no-print, nav, footer'));
+        const loose = kids.slice(-2).filter((k) => (k.tagName === 'P' || (k.tagName === 'DIV' && !k.className && !k.querySelector('details, .card, .fold, section, ul, ol, table, .hub-tiles'))) && (k.textContent || '').trim().length > 220);
+        if (loose.length) out.push(`long loose text at the end of the page: "${loose[0].textContent.trim().slice(0, 50)}…" (put it in a card, notice or fold)`);
+      }
       // menus of tabs and chips wrap; none of them may scroll sideways
       for (const e of document.querySelectorAll('.tabbar, .subnav, .bible-subnav, .chips, .vis-tabs, .ptabs, .year-acts')) {
         const o = getComputedStyle(e).overflowX;

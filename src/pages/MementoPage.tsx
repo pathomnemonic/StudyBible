@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import FinePrint from '../components/FinePrint';
 import { Link } from 'react-router-dom';
 import { updateSettings, useSettings } from '../lib/store';
 import { ESTIMATORS, lifeStats, lineOfTheDay, parseBirthday } from '../lib/memento';
@@ -78,7 +79,7 @@ export default function MementoPage() {
         <blockquote>“{line.text}”</blockquote><footer>{line.src}</footer>
         <p className="small">Ask yourself: if this week were my last, what would I want to have done, said or asked forgiveness for? <Link to="/pray/examination">Examine my conscience</Link> · <Link to="/pray/devotions/confession">Confession guide</Link> · <Link to="/pray/intentions">My prayer list</Link></p>
       </section>
-      <p className="muted small">This is a reflection tool, not a prediction or medical advice. If thoughts about death are heavy or frightening for you right now, talk to a priest, a counselor or someone you trust. In the U.S. you can call or text 988 at any time.</p>
+      <FinePrint>This is a reflection tool, not a prediction or medical advice. If thoughts about death are heavy or frightening for you right now, talk to a priest, a counselor or someone you trust. In the U.S. you can call or text 988 at any time.</FinePrint>
     </div>
   );
 }

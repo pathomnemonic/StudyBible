@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import FinePrint from '../../components/FinePrint';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
@@ -323,7 +324,7 @@ export default function CurriculumLesson() {
         {prev ? <Link className="btn" to={`/study/curriculum/${g.id}/${prev.id}`}>← {prev.title}</Link> : <span />}
         {next ? <Link className="btn primary" to={`/study/curriculum/${g.id}/${next.id}`}>{next.title} →</Link> : <Link className="btn primary" to={`/study/curriculum/${g.id}`}>Finish this grade</Link>}
       </nav>
-      <p className="muted small">This program is a study aid built from the Catechism and Scripture. It has not been reviewed or approved by a bishop. If you teach for a parish, school or diocese, follow your diocese’s requirements for catechetical texts.</p>
+      <FinePrint>This program is a study aid built from the Catechism and Scripture. It has not been reviewed or approved by a bishop. If you teach for a parish, school or diocese, follow your diocese’s requirements for catechetical texts.</FinePrint>
       {running && <LessonRun lesson={lesson} grade={g} band={band} prayer={src.prayer?.text} scripture={scriptureText} onSlides={() => setPresent(true)} onClose={() => setRunning(false)} />}
       {present && <LessonSlides slides={slides} onClose={() => { setPresent(false); if (sp.get('present')) { sp.delete('present'); setSp(sp, { replace: true }); } }} />}
     </div>

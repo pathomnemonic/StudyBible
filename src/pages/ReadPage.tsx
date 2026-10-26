@@ -120,6 +120,7 @@ export default function ReadPage() {
   const [data, setData] = useState<BookData | null>(null);
   const [error, setError] = useState('');
   const [selNative, setSelNative] = useState<number[]>([]);
+  const [flash, setFlash] = useState<number[]>([]); // verses a link pointed at: lit for a moment, then let go (not a selection)
   const [selAnchor, setSelAnchor] = useState<number[]>([]); // parallel mode: anchor verse numbers (within anchorChapter)
   const [picker, setPicker] = useState(false);
   const [noteFor, setNoteFor] = useState<Target[] | null>(null);
@@ -256,19 +257,25 @@ export default function ReadPage() {
   /** notes that belong to the whole chapter (not repeated on every verse) */
   const chapterCount = useMemo(() => anchorChapters.reduce((n, c) => n + (anchorDensity.get(c * 1000) ?? 0), 0), [anchorDensity, anchorChapters]);
 
+  const flashTimer = useRef<number>(0);
+  useEffect(() => () => window.clearTimeout(flashTimer.current), []);
   // -------- deep link ?v=51-58 and remember position
   const vParam = sp.get('v');
   useEffect(() => {
+    window.clearTimeout(flashTimer.current);
     if (vParam && flat.length) {
       const m = /^(\d+)(?:-(\d+))?$/.exec(vParam);
       if (m) {
         const a = +m[1];
         const b = m[2] ? +m[2] : a;
-        setSelNative(Array.from({ length: b - a + 1 }, (_, i) => a + i));
+        setSelNative([]);
+        setFlash(Array.from({ length: Math.min(b - a + 1, 60) }, (_, i) => a + i));
         setTimeout(() => document.querySelector(`[data-v="${a}"]`)?.scrollIntoView({ block: 'center' }), 60);
+        flashTimer.current = window.setTimeout(() => setFlash([]), 3500);
       }
     } else {
       setSelNative([]);
+      setFlash([]);
     }
     setSelAnchor([]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -718,7 +725,7 @@ export default function ReadPage() {
             {chNum === 1 && data.intro && data.intro.length > 0 && data.intro.map((p, i) => <p key={i} className="subtitle">{p}</p>)}
             {chNum === 1 && bk.note && <div className="notice info">{bk.note}</div>}
             {chapterNote && <div className="notice">{chapterNote}</div>}
-            <ChapterText chapter={chapterData} selected={new Set(selNative)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly && !settings.focus.markers ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} wordFx={settings.wordFx && (!settings.scriptureOnly || settings.focus.effects)} red={red} figures={figureMap} stdNotes={stdNotes} onStdNote={(n, el) => setNotePop({ n, notes: stdNotes.get(n) ?? [], at: el.getBoundingClientRect() })} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
+            <ChapterText chapter={chapterData} selected={new Set(selNative.length ? selNative : flash)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly && !settings.focus.markers ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} wordFx={settings.wordFx && (!settings.scriptureOnly || settings.focus.effects)} red={red} figures={figureMap} stdNotes={stdNotes} onStdNote={(n, el) => setNotePop({ n, notes: stdNotes.get(n) ?? [], at: el.getBoundingClientRect() })} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
             {stdNotes.size > 0 && (
               <section aria-label="Notes on the text" className="subtitle" style={{ marginTop: 24, borderTop: '1px solid var(--border)', paddingTop: 8 }}>
                 <strong>Notes on the text</strong>{edition.id !== 'webc' && <span className="muted"> (these are the World English Bible’s notes on its own wording of the passage; this translation may read differently)</span>}
