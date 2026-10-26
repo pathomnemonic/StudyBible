@@ -6,6 +6,7 @@ import { parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import { BOOK_PRAYERS, PRAYER_TAGS } from '../../data/prayerbook';
 import { useSettings } from '../../lib/store';
+import Speak from '../../pray/Speak';
 
 const label = (t: string) => t.replace(/-/g, ' ');
 
@@ -56,6 +57,7 @@ export default function PrayerBookPage() {
           <div className="row between">
             <h2 className="card-title" style={{ margin: 0 }}><button className="linklike" aria-expanded={open === p.id} onClick={() => setOpen(open === p.id ? null : p.id)}>{p.title}</button></h2>
             <div className="row" style={{ gap: 6 }}>
+              <Speak title={p.title} text={p.text} />
               <button className="btn small" onClick={() => copy(p.id, `${p.title}\n\n${p.text}`)}>{copied === p.id ? 'Copied' : 'Copy'}</button>
               <button className="btn small" disabled={saved === p.id} onClick={() => save(p)}>{saved === p.id ? <>Saved · <Link to="/pray/journal">open</Link></> : 'Save'}</button>
             </div>

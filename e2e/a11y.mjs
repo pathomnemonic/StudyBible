@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 
 const BASE = process.env.BASE ?? 'http://localhost:4173';
-const ROUTES = ['/', '/read', '/read/webc/JHN/3', '/study', '/room', '/pray', '/pray/office', '/pray/devotions', '/pray/prayers', '/pray/examination', '/pray/examen', '/pray/year', '/pray/morning', '/mass', '/mass/ef', '/study/papal', '/pray/liturgies', '/study/young-adults', '/study/curriculum', '/study/curriculum/teachers', '/study/curriculum/K/K-2-3', '/study/curriculum/9/9-5-2', '/study/curriculum/YA/YA-1-1', '/pray/divine-liturgy', '/study/story/mary', '/pray/novenas/holy-spirit', '/study/course/exodus', '/library', '/settings', '/listen', '/account'];
+const ROUTES = ['/', '/read', '/read/webc/JHN/3', '/study', '/room', '/pray', '/pray/office', '/pray/devotions', '/pray/devotions/rosary', '/pray/devotions/divine-mercy', '/pray/devotions/stations', '/pray/prayers', '/pray/examination', '/pray/examen', '/pray/year', '/pray/morning', '/mass', '/mass/ef', '/study/papal', '/pray/liturgies', '/study/young-adults', '/study/curriculum', '/study/curriculum/teachers', '/study/curriculum/K/K-2-3', '/study/curriculum/9/9-5-2', '/study/curriculum/YA/YA-1-1', '/pray/divine-liturgy', '/study/story/mary', '/pray/novenas/holy-spirit', '/study/course/exodus', '/library', '/settings', '/listen', '/account'];
 const axeSource = readFileSync(createRequire(import.meta.url).resolve('axe-core/axe.min.js'), 'utf8');
 
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined });
