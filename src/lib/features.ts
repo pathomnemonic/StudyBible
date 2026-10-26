@@ -52,7 +52,7 @@ export const FEATURES: Feature[] = [
   { id: 'pray.pilgrim', title: 'Pilgrim pack', blurb: 'Rome, the Holy Land, Lourdes, Fatima, Santiago and more: guides and a checklist that work offline.', to: '/pray/pilgrim', hub: 'pray', keywords: 'pilgrimage travel trip camino shrine offline', interest: ['pray'] },
   { id: 'read.gallery', title: 'Gallery', blurb: 'Paintings and engravings of Bible scenes.', to: '/study/gallery', hub: 'read', keywords: 'art dore' },
   // Study
-  { id: 'study.curriculum', title: 'Catechism program, K–12', blurb: '396 lessons with slides, games and a teacher handbook.', to: '/study/curriculum', hub: 'learn', keywords: 'lessons classroom homeschool religious education', hot: true, interest: ['teach', 'study'] },
+  { id: 'study.curriculum', title: 'Catechism program, K–12', blurb: '408 lessons with slides, games and a teacher handbook.', to: '/study/curriculum', hub: 'learn', keywords: 'lessons classroom homeschool religious education', hot: true, interest: ['teach', 'study'] },
   { id: 'study.prepare', title: 'Prepare for a sacrament', blurb: 'First Confession, First Communion, Confirmation, RCIA, marriage and more.', to: '/study/prepare', hub: 'learn', keywords: 'rcia sacrament preparation', hot: true, interest: ['study'] },
   { id: 'study.ya', title: 'Adults course', blurb: 'Thirty-six sessions on faith, vocation and the hard questions.', to: '/study/adults', hub: 'learn', keywords: 'college discernment', interest: ['study'] },
   { id: 'study.apologetics', title: 'Questions about the faith', blurb: 'Short answers with the verses and Catechism paragraphs.', to: '/study/apologetics', hub: 'learn', keywords: 'apologetics objections why catholics', hot: true, interest: ['study'] },

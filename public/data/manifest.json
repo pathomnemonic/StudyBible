@@ -4,7 +4,7 @@
   {
    "id": "learn",
    "label": "Catechism text, the K–12 lessons, children’s stories and apologetics",
-   "bytes": 6405538,
+   "bytes": 6494303,
    "files": [
     "ccc/index.json",
     "ccc/p0.json",
@@ -264,7 +264,7 @@
     178299,
     195143,
     93544,
-    286708,
+    375473,
     1952,
     69217,
     141860,
@@ -411,8 +411,8 @@
     "ee4772830be3d52f",
     "bf8fb4616cc03b63",
     "2ff26dac27b8470d",
-    "3a45d5b79c63fd06",
-    "48a2c161175634e6",
+    "f97aa7b67ef9f109",
+    "c5c1651da08c18c4",
     "907ff3e7fafb3df9",
     "9acb5ea8c41af3f0",
     "8566c147bc5ac65f",

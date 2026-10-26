@@ -31,7 +31,7 @@ export default function LearnPage() {
         </Group>
       )}
       {adult && (
-        <Group title="Adult course" hint="Thirty-six sessions in twelve units, for one person or a small group">
+        <Group title="Adult course" hint="Forty-eight sessions in sixteen units, for one person or a small group">
           <Link className="btn primary" to="/study/curriculum/YA">{adultDone ? `Continue · ${adultDone} done` : 'Start the adult course'}</Link>
         </Group>
       )}
@@ -44,7 +44,7 @@ export default function LearnPage() {
       </>
         </Fold>
       ) : (
-      <Group title="Catechism program" hint="396 lessons: Kindergarten to Grade 12, and adults">
+      <Group title="Catechism program" hint="408 lessons: Kindergarten to Grade 12, and adults">
         {!mineGrade && <Link className="btn primary" to="/study/curriculum">Open the program</Link>}
         {mineGrade && <Link className="btn" to={`/study/curriculum/${mineGrade.id}`}>Continue {gradeLabel(mineGrade.id)} · {mine!.done.length} of {mineGrade.lessons}</Link>}
         <div className="level-chips" role="group" aria-label="Levels">{grades.map((g) => <Link key={g.id} className="chip" to={`/study/curriculum/${g.id}`} title={`${g.name}: ${g.lessons} lessons`}>{g.id === 'K' ? 'K' : g.id === 'YA' ? 'Adults' : g.id}</Link>)}</div>

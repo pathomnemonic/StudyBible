@@ -16,7 +16,7 @@ export default function CurriculumHome() {
   const total = grades.reduce((n, g) => n + g.lessons, 0);
   return (
     <div className="page hub">
-      <HubHeader title="Catechism program" sub={`${total || 396} lessons from Kindergarten to Grade 12, plus a course for adults. Each is built on the Catechism and Scripture.`} />
+      <HubHeader title="Catechism program" sub={`${total || 408} lessons from Kindergarten to Grade 12, plus a course for adults. Each is built on the Catechism and Scripture.`} />
       {BANDS.map((b) => (
         <Group key={b.id} title={`${b.label} · ${b.grades}`} hint={`about ${b.minutes} minutes a lesson`}>
           <div className="hub-tiles">

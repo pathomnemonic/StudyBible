@@ -48,7 +48,7 @@ export default function YoungAdultsPage() {
 
       <section className="sect">
         <h2 className="eyebrow-h">The course</h2>
-        <p className="muted small">Thirty guided sessions in ten units, for a small group or on your own: knowing God, the Bible and the Church, prayer, mercy, the sacraments, love and chastity, vocation, work and money, hard questions, and living as a missionary disciple. Each has Scripture, the Catechism, discussion, a challenge and a saint.</p>
+        <p className="muted small">Forty-eight guided sessions in sixteen units, for a small group or on your own: knowing God, the Bible and the Church, prayer, mercy, the sacraments, love and chastity, vocation, work and money, hard questions, and living as a missionary disciple. Each has Scripture, the Catechism, discussion, a challenge and a saint.</p>
         <Link className="btn primary" to="/study/curriculum/YA">Start the adults course</Link>
       </section>
 
