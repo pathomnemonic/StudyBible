@@ -4690,3 +4690,9 @@ button, a, [role='button'] { touch-action: manipulation; }
 .goal-bar { height: 10px; border-radius: 6px; background: var(--surface-3); overflow: hidden; margin: 10px 0 6px; } .goal-bar i { display: block; height: 100%; background: var(--accent); transition: width .4s; }
 .goal-days { display: flex; gap: 6px; } .goal-days span { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-3); color: var(--muted); font-size: .8rem; } .goal-days span.on { background: var(--accent); color: var(--accent-text); } .goal-days span.today { outline: 2px solid var(--text); outline-offset: 1px; }
 .run-clock.sm { font-size: 1.4rem; margin: 0; } .pres-notes li { font-size: 1.15rem; margin: 6px 0; } .presenter .card { margin: 10px 0; }
+
+/* Memento mori */
+.memento-card { display: grid; gap: 6px; margin: 10px auto; width: min(560px, calc(100% - 24px)); padding: 10px 14px; border: 1px solid var(--border); border-radius: 14px; background: color-mix(in srgb, var(--surface) 80%, transparent); color: var(--text); text-decoration: none; backdrop-filter: blur(6px); } .memento-card span { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); } .memento-card strong { font-weight: 500; font-size: .9rem; }
+.memento-bar { height: 8px; border-radius: 6px; background: var(--surface-3); overflow: hidden; } .memento-bar i { display: block; height: 100%; background: var(--accent); } .memento-bar.big { height: 18px; border-radius: 10px; margin: 6px 0 10px; }
+.memento-big { font-family: var(--font-display, Georgia, serif); font-size: 1.6rem; margin: 4px 0; } .memento-grid { width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto 8px; }
+.memento-line blockquote { font-family: var(--font-scripture, Georgia, serif); font-size: 1.2rem; margin: 0 0 4px; font-style: italic; } .memento-line footer { color: var(--muted); font-size: .85rem; margin-bottom: 8px; }

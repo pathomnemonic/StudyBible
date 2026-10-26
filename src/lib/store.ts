@@ -112,6 +112,8 @@ export interface Settings {
   refNumbering: 'edition' | 'vulgate' | 'english';
   reminders: { enabled: boolean; time: string; message: string };
   showStreaks: boolean;
+  /** Memento mori: an opt-in reminder of how much of a life has been lived. Birthday is kept only on this device (and in synced settings if you sync). */
+  memento: { on: boolean; birthday: string; expectancy: number; onHome: boolean; view: 'bar' | 'weeks' };
   /** chapters to read per week; 0 for no goal */
   weeklyGoal: number;
   lectioMinutes: number;
@@ -183,6 +185,7 @@ export const DEFAULTS: Settings = {
   refNumbering: 'edition',
   reminders: { enabled: false, time: '07:30', message: 'A quiet moment with Scripture, if you would like one.' },
   showStreaks: false,
+  memento: { on: false, birthday: '', expectancy: 80, onHome: true, view: 'bar' },
   weeklyGoal: 0,
   lectioMinutes: 15,
   last: null,
@@ -231,7 +234,7 @@ function load(): Settings {
       if (prevDefaults.includes(saved.dashboard?.order?.join()) && !saved.dashboard?.hidden?.length) delete saved.dashboard;
       // sound used to start on by default; it now starts off (people can turn it on from the tour or the reading settings)
       if (!saved.soundOffV16) { saved.ambience = { ...DEFAULTS.ambience, ...part(saved.ambience), kind: 'off' }; saved.soundOffV16 = true; }
-      return sanitize({ ...DEFAULTS, ...saved, focus: { ...DEFAULTS.focus, ...part(saved.focus) }, drive: { ...DEFAULTS.drive, ...part(saved.drive) }, ambience: { ...DEFAULTS.ambience, ...part(saved.ambience) } });
+      return sanitize({ ...DEFAULTS, ...saved, focus: { ...DEFAULTS.focus, ...part(saved.focus) }, drive: { ...DEFAULTS.drive, ...part(saved.drive) }, memento: { ...DEFAULTS.memento, ...part(saved.memento) }, ambience: { ...DEFAULTS.ambience, ...part(saved.ambience) } });
     }
   } catch {
     /* private mode etc. */

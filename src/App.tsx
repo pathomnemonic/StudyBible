@@ -59,6 +59,7 @@ const ListenHome = lazy(() => import('./pages/listen/ListenHome'));
 const EpisodePage = lazy(() => import('./pages/listen/EpisodePage'));
 const PrayHome = lazy(() => import('./pages/pray/PrayHome'));
 const PresenterView = lazy(() => import('./curriculum/PresenterView'));
+const MementoPage = lazy(() => import('./pages/MementoPage'));
 const GoalsPage = lazy(() => import('./pages/GoalsPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const IntentionsPage = lazy(() => import('./pages/pray/IntentionsPage'));
@@ -271,6 +272,7 @@ export default function App() {
               <Route path="/listen/episode/:id" element={<EpisodePage />} />
               <Route path="/pray" element={<PrayHome />} />
               <Route path="/presenter" element={<PresenterView />} />
+              <Route path="/memento" element={<MementoPage />} />
               <Route path="/goals" element={<GoalsPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/pray/intentions" element={<IntentionsPage />} />
