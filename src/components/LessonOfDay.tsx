@@ -17,7 +17,7 @@ export default function LessonOfDay() {
   }, []);
   if (!pick) return null;
   return (
-    <Link className="lod" to={`/study/curriculum/YA/${pick.id}`} aria-label={`Lesson of the day: ${pick.title}`}>
+    <Link className="lod" to={`/study/curriculum/YA/${pick.id}`}>
       <span className="lod-k">Lesson of the day</span>
       <strong>{pick.title}</strong>
       <span className="lod-go" aria-hidden="true">›</span>

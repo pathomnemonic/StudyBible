@@ -13,7 +13,7 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   await p.locator('.btn.small.primary:has-text("Start")').first().click();
   await p.waitForTimeout(800);
   await p.goto(`${BASE}/#/today`);
-  await p.waitForSelector('.plan-strip', { timeout: 8000 }).catch(() => fail('Today should show the chosen plan'));
+  await p.waitForSelector('.plan-strip', { timeout: 8000 }).catch(() => fail(`Today should show the chosen plan at ${vp.width}`));
   const day1 = await p.locator('.plan-strip .eyebrow').innerText();
   await p.goto(`${BASE}/#/read/webc/GEN/1`);
   await p.waitForSelector('.plan-strip', { timeout: 8000 }).catch(() => fail('the reader should show the chosen plan'));

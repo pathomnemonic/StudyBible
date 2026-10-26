@@ -65,11 +65,14 @@ export default function TodayPage() {
       // the page is at least one screen tall and grows with its content, so nothing can overlap; shrink the type until it fits one screen
       const screen = parseFloat(getComputedStyle(home).minHeight) || window.innerHeight;
       el.style.setProperty('--fit', '1');
-      while (home.offsetHeight > screen + 1 && f > 0.6) { f -= 0.04; el.style.setProperty('--fit', f.toFixed(2)); }
+      // wide screens give the page a fixed height (it overflows inside itself); narrow ones let it grow past a minimum
+      const fixed = window.matchMedia('(min-width: 900px)').matches;
+      const over = () => (fixed ? home.scrollHeight - home.clientHeight : home.offsetHeight - screen) > 1;
+      while (over() && f > 0.6) { f -= 0.04; el.style.setProperty('--fit', f.toFixed(2)); }
       // still too tall (a small phone with a plan and memento mori on): drop the least important blocks one at a time, never scroll
       let tight = 0;
       home.dataset.tight = '0';
-      while (home.offsetHeight > screen + 1 && tight < 6) { tight += 1; home.dataset.tight = String(tight); }
+      while (over() && tight < 6) { tight += 1; home.dataset.tight = String(tight); }
     };
     fit();
     window.addEventListener('resize', fit);

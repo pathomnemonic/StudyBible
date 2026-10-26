@@ -4981,3 +4981,5 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .home .plan-strip { padding: 8px 12px; margin: 0; font-size: .85rem; }
 .home .plan-strip .eyebrow { font-size: .68rem; }
 @media (max-height: 700px) { .home .plan-strip .btn, .home .plan-strip button { min-height: 32px; padding: 4px 10px; } }
+.home .plan-strip a.btn.primary { color: var(--accent-text); }
+.home .plan-strip a.btn:not(.primary) { color: var(--text); }
