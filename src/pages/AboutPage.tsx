@@ -17,6 +17,7 @@ export default function AboutPage() {
   return (
     <div className="page">
       <h1>About & feature status</h1>
+      <p className="small"><Link to="/privacy">Privacy: what stays on your device</Link></p>
       <p className="lede">A study library built on legitimately available texts. This page says plainly what works, what is partial, and what needs a license, credentials or future work.</p>
       <p className="muted small">Text and study data last built {built || '…'}. The app updates itself quietly when you are online.</p>
       {CANON_NOTES.map((n, i) => <div className="notice info" key={i}>{n}</div>)}
