@@ -14,7 +14,7 @@ const OPT = {
   tradition: ['latin', 'byzantine', 'maronite'], showStreaks: [true, false], scriptureOnly: [false, true], hints: [true, false], showNoteMarks: [true, false], verseLines: [false, true],
 };
 const memento = () => pick([{ on: false, birthday: '', expectancy: 80, onHome: true, view: 'bar' }, { on: true, birthday: '1985-03-04', expectancy: 82, onHome: true, view: 'bar' }, { on: true, birthday: '1950-01-01', expectancy: 75, onHome: true, view: 'weeks' }]);
-const routes = ['today', 'bible', 'read/webc/JHN/1', 'read/webc/PSA/23', 'learn', 'pray', 'listen', 'goals', 'library', 'study/visual', 'pray/year', 'memento', 'study/doctrine', 'study/apologetics'];
+const routes = process.env.ROUTES ? process.env.ROUTES.split(',') : ['today', 'bible', 'read/webc/JHN/1', 'read/webc/PSA/23', 'learn', 'pray', 'listen', 'goals', 'library', 'study/visual', 'pray/year', 'memento', 'study/doctrine', 'study/apologetics'];
 const N = Number(process.env.N || 10);
 const viewports = [{ width: 320, height: 568 }, { width: 390, height: 844 }, { width: 768, height: 1024 }, { width: 1280, height: 800 }];
 const b = await chromium.launch();

@@ -4866,10 +4866,12 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .sl-do-steps { margin: 1rem 0 0; padding-left: 1.4em; font-size: clamp(1rem, 2.2vw, 1.5rem); line-height: 1.45; text-align: left; max-width: 38ch; } .sl-do-steps li { margin: .3em 0; }
 
 /* Today never scrolls: when even the smallest type does not fit, drop the least important blocks in turn */
-.home[data-tight='1'] .home-saint, .home[data-tight='2'] .home-saint, .home[data-tight='3'] .home-saint, .home[data-tight='4'] .home-saint { display: none; }
-.home[data-tight='2'] .reflect, .home[data-tight='3'] .reflect, .home[data-tight='4'] .reflect { display: none; }
-.home[data-tight='3'] .home-actions, .home[data-tight='4'] .home-actions { display: none; }
-.home[data-tight='4'] .memento-card { display: none; }
+.home[data-tight='1'] .home-saint, .home[data-tight='2'] .home-saint, .home[data-tight='3'] .home-saint, .home[data-tight='4'] .home-saint, .home[data-tight='5'] .home-saint, .home[data-tight='6'] .home-saint { display: none; }
+.home[data-tight='2'] .reflect, .home[data-tight='3'] .reflect, .home[data-tight='4'] .reflect, .home[data-tight='5'] .reflect, .home[data-tight='6'] .reflect { display: none; }
+.home[data-tight='3'] .home-extras > :not(.home-cta):not(.plan-strip), .home[data-tight='4'] .home-extras > :not(.home-cta):not(.plan-strip), .home[data-tight='5'] .home-extras > :not(.home-cta):not(.plan-strip), .home[data-tight='6'] .home-extras > :not(.home-cta):not(.plan-strip) { display: none; }
+.home[data-tight='4'] .home-actions, .home[data-tight='5'] .home-actions, .home[data-tight='6'] .home-actions { display: none; }
+.home[data-tight='5'] .memento-card, .home[data-tight='6'] .memento-card { display: none; }
+.home[data-tight='6'] .plan-strip { display: none; }
 
 /* lesson of the day: one quiet line, not a banner */
 .lod { display: flex; align-items: baseline; gap: 10px; padding: 10px 14px; margin: 0 0 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); text-decoration: none; color: inherit; }
@@ -4975,3 +4977,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 }
 /* waiting for Today to load: a soft shimmer, not an ellipsis */
 .home-wait { height: 4.5em; width: min(520px, 90%); border-radius: 16px; color: transparent; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--text) 10%, transparent), transparent); background-size: 200% 100%; animation: skel 1.4s linear infinite; }
+/* on Today the plan is a compact line, not a card */
+.home .plan-strip { padding: 8px 12px; margin: 0; font-size: .85rem; }
+.home .plan-strip .eyebrow { font-size: .68rem; }
+@media (max-height: 700px) { .home .plan-strip .btn, .home .plan-strip button { min-height: 32px; padding: 4px 10px; } }

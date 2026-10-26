@@ -69,17 +69,18 @@ export default function TodayPage() {
       // still too tall (a small phone with a plan and memento mori on): drop the least important blocks one at a time, never scroll
       let tight = 0;
       home.dataset.tight = '0';
-      while (home.offsetHeight > screen + 1 && tight < 4) { tight += 1; home.dataset.tight = String(tight); }
+      while (home.offsetHeight > screen + 1 && tight < 6) { tight += 1; home.dataset.tight = String(tight); }
     };
     fit();
     window.addEventListener('resize', fit);
     const ro = typeof ResizeObserver !== 'undefined' && el.closest('.home') ? new ResizeObserver(() => fit()) : null;
-    const foot = el.closest('.home')?.querySelector('.home-actions');
-    if (ro && foot) ro.observe(foot);
+    // anything that arrives late (the plan strip, memento mori, the footer chips) can change the height: look again
+    for (const sel of ['.home-actions', '.home-extras', '.memento-card']) { const x = el.closest('.home')?.querySelector(sel); if (ro && x) ro.observe(x); }
+    const late = window.setTimeout(fit, 600), later = window.setTimeout(fit, 1800);
     // the player appearing or going away changes how much room there is (it publishes --player-h on <html>)
     const mo = new MutationObserver(() => fit());
     mo.observe(document.documentElement, { attributes: true, attributeFilter: ['style'] });
-    return () => { window.removeEventListener('resize', fit); ro?.disconnect(); mo.disconnect(); };
+    return () => { window.removeEventListener('resize', fit); ro?.disconnect(); mo.disconnect(); window.clearTimeout(late); window.clearTimeout(later); };
   }, [entry?.ref, verse?.text, date, s.memento.on, s.memento.onHome]);
   const go = (n: number) => {
     const d = iso(addDays(parseIso(date), n));
