@@ -48,7 +48,7 @@ export async function recordSession(v: LiveView, meta: HostMeta) {
   const mapped = new Map<string, string | null>((old?.results ?? []).map((r) => [r.name, r.studentId]));
   const results: SessionResult[] = v.results.players.map((p) => ({
     studentId: mapped.has(p.name) ? mapped.get(p.name)! : matchStudent(p.name, cls.students)?.id ?? null,
-    name: p.name, score: p.score, correct: p.correct, answered: p.answered, total: v.settings.mode === 'race' || v.settings.mode === 'build' ? p.total : v.qCount || p.total, joinedAt: p.joinedAt, submitted: p.submitted,
+    name: p.name, score: p.score, correct: p.correct, answered: p.answered, total: v.settings?.mode === 'race' || v.settings?.mode === 'build' ? p.total : v.qCount || p.total, joinedAt: p.joinedAt, submitted: p.submitted,
   }));
   const rec: Session = { id, classId: meta.classId, kind: 'session', date: old?.date ?? meta.date, ts: old?.ts ?? Date.now(), startedAt: v.results.startedAt || old?.startedAt, title: meta.title, mode: meta.mode, code: v.code, results, questions: v.results.questions.map((q) => ({ q: q.q, correctPct: q.correctPct, answeredPct: q.answeredPct })) };
   await db.classwork.put(rec);
