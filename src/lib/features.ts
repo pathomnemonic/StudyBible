@@ -45,6 +45,7 @@ export const FEATURES: Feature[] = [
   { id: 'read.saints', title: 'Saints', blurb: 'Lives of the saints and the saint of the day.', to: '/study/saints', hub: 'read', keywords: 'saint of the day biography' },
   { id: 'read.encyclopedia', title: 'Catholic encyclopedia', blurb: 'Articles on the Church’s history, doctrine and life.', to: '/study/encyclopedia', hub: 'read', keywords: 'reference' },
   { id: 'read.mine', title: 'My books', blurb: 'Import your own EPUB or text books and read them here.', to: '/room?tab=mine', hub: 'read', keywords: 'epub import kindle shelf' },
+  { id: 'study.visual', title: 'Visual Catechism', blurb: 'The faith as tappable diagrams: Trinity, sacraments, Mass, the Church’s year, salvation history.', to: '/study/visual', hub: 'study', keywords: 'diagram chart timeline infographic trinity sacraments commandments virtues', hot: true, interest: ['study', 'teach', 'family'] },
   { id: 'read.gallery', title: 'Gallery', blurb: 'Paintings and engravings of Bible scenes.', to: '/study/gallery', hub: 'read', keywords: 'art dore' },
   // Study
   { id: 'study.curriculum', title: 'Catechism program, K–12', blurb: '396 lessons with slides, games and a teacher handbook.', to: '/study/curriculum', hub: 'study', keywords: 'lessons classroom homeschool religious education', hot: true, interest: ['teach', 'study'] },
