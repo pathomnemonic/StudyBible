@@ -4673,3 +4673,14 @@ button, a, [role='button'] { touch-action: manipulation; }
 .pil-check { list-style: none; padding: 0; } .pil-check li { padding: 6px 0; } .pil-prayer { border-left: 3px solid var(--accent); margin: 8px 0; padding: 4px 14px; font-style: italic; }
 .pil-phrases { display: grid; gap: 4px; } .pil-phrases div { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; border-bottom: 1px solid var(--border); } .pil-phrases dt { color: var(--muted); } .pil-phrases dd { margin: 0; font-weight: 600; text-align: right; }
 .int-list { list-style: none; padding: 0; display: grid; gap: 10px; margin: 10px 0; } .int-list .card { display: grid; gap: 8px; }
+
+/* Slide handout (print only) */
+.sl-handout { display: none; }
+@media print {
+  body > *:not(.sl-handout) { display: none !important; }
+  .sl-handout { display: block !important; color: #000; background: #fff; font: 12pt/1.4 Georgia, serif; padding: 0; }
+  .sl-handout h1 { font-size: 20pt; margin: 0; } .sl-handout > p { margin: 0 0 12pt; color: #555; }
+  .sl-h-box { break-inside: avoid; border: 1px solid #999; border-radius: 6px; margin: 0 0 10pt; padding: 8pt 10pt; }
+  .sl-h-box header { font-size: 9pt; text-transform: uppercase; letter-spacing: .06em; color: #555; margin-bottom: 4pt; } .sl-h-box header b { display: inline-block; background: #222; color: #fff; border-radius: 4px; padding: 0 5pt; margin-right: 4pt; }
+  .sl-h-box p { margin: 2pt 0; } .sl-h-box aside { margin-top: 5pt; padding-top: 4pt; border-top: 1px dashed #aaa; font-size: 10pt; color: #333; }
+}

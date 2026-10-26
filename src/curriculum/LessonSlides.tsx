@@ -150,9 +150,54 @@ function Verse({ text }: { text: string }) {
   return <>{text.split(/\[\[(\d+)\]\]/).map((p, i) => (i % 2 ? <sup key={i}>{p}</sup> : <span key={i}>{p}</span>))}</>;
 }
 
+/** The words on a slide, as plain lines, for the printed handout. */
+export function slideLines(sl: Slide): string[] {
+  const out: string[] = [];
+  if (sl.title) out.push(sl.title);
+  if (sl.word) out.push(`${sl.word.w}: ${sl.word.d}`);
+  if (sl.body) out.push(sl.body.replace(/\[\[(\d+)\]\]/g, ' $1 ').replace(/\s+/g, ' ').trim());
+  if (sl.ref) out.push(`— ${sl.ref}`);
+  if (sl.poll) out.push(sl.poll.join(' / '));
+  if (sl.cards) for (const c of sl.cards) out.push(`${c.k}: ${c.v}`);
+  if (sl.items?.length && !sl.cards) out.push(...sl.items);
+  if (sl.q) { out.push(sl.q.q, ...sl.q.options.map((o, j) => `${'ABCD'[j]}. ${o}`), `Answer: ${'ABCD'[sl.q.answer]}. ${sl.q.why}`); }
+  if (sl.reveal) out.push(sl.reveal);
+  if (sl.sides) out.push(sl.sides.join(' / '));
+  if (sl.chips?.length) out.push(sl.chips.join(' · '));
+  if (sl.img) out.push(`Picture: ${sl.img.credit}`);
+  if (sl.video) out.push(`Video: ${sl.video.title}`);
+  return out;
+}
+
+/** Every slide as a numbered box with its notes, one tap away from "Save as PDF" in the print dialog. */
+function Handout({ slides, title }: { slides: Slide[]; title: string }) {
+  return createPortal(
+    <div className="sl-handout">
+      <h1>{title}</h1>
+      <p>Slide handout with teacher notes</p>
+      {slides.map((sl, n) => (
+        <section key={n} className="sl-h-box">
+          <header><b>{n + 1}</b> {sl.label}</header>
+          <div>{slideLines(sl).map((t, k) => <p key={k}>{t}</p>)}</div>
+          {sl.notes?.length ? <aside><strong>Notes:</strong> {sl.notes.join(' ')}</aside> : null}
+        </section>
+      ))}
+    </div>,
+    document.body,
+  );
+}
+
 /** A real deck: a title with a picture, section dividers, one idea per slide, builds, big numerals, quotes, full-bleed art, a check with answers, a prayer. */
 export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onClose: () => void }) {
   const [i, setI] = useState(0);
+  const [printing, setPrinting] = useState(false);
+  useEffect(() => {
+    if (!printing) return;
+    const done = () => setPrinting(false);
+    window.addEventListener('afterprint', done);
+    const t = window.setTimeout(() => window.print(), 150);
+    return () => { window.removeEventListener('afterprint', done); window.clearTimeout(t); };
+  }, [printing]);
   const [notes, setNotes] = useState(false);
   const [grid, setGrid] = useState(false);
   const [reveal, setReveal] = useState(false);
@@ -201,6 +246,7 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
         <span className="sl-label">{sl.label}</span>
         <span className="sl-tools">
           <button className="btn small" onClick={() => setGrid(true)} title="All slides (G)">▦</button>
+          <button className="btn small" onClick={() => setPrinting(true)} title="Print or save as a PDF handout">PDF</button>
           <button className="btn small" onClick={() => setNotes(!notes)} aria-pressed={notes} title="Teacher notes (N)">Notes</button>
           <button className="btn small" onClick={() => (document.fullscreenElement ? document.exitFullscreen() : root.current?.requestFullscreen?.())} title="Full screen (F)">⛶</button>
           <button className="btn small" onClick={onClose}>Close (Esc)</button>
@@ -249,6 +295,7 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
         </div>
       </div>
       {notes && <aside className="sl-notes" aria-label="Teacher notes"><strong>Notes</strong>{sl.notes?.length ? <ul>{sl.notes.map((n) => <li key={n}>{n}</li>)}</ul> : <p className="muted">No notes for this slide.</p>}</aside>}
+      {printing && <Handout slides={slides} title={slides[0]?.title ?? 'Lesson'} />}
       <div className="sl-bar"><i style={{ width: `${((i + 1) / slides.length) * 100}%` }} /></div>
       <div className="sl-nav">
         <button className="btn" onClick={back} disabled={i === 0 && shown <= 1}>← Back</button>

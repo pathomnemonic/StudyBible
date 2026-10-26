@@ -24,7 +24,7 @@ function Wheel({ v, sel, set }: { v: Visual; sel: string; set: (id: string) => v
       {v.nodes.map((nd, i) => {
         const a = (i / n) * Math.PI * 2 - Math.PI / 2, x = Math.cos(a) * R, y = Math.sin(a) * R, on = nd.id === sel;
         return (
-          <g key={nd.id} transform={`translate(${x},${y})`} role="button" tabIndex={0} aria-label={nd.label} aria-pressed={on} className={`vis-node${on ? ' on' : ''}`} onClick={() => set(nd.id)} onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), set(nd.id))}>
+          <g key={nd.id} transform={`translate(${x},${y})`} role="button" tabIndex={0} aria-pressed={on} className={`vis-node${on ? ' on' : ''}`} onClick={() => set(nd.id)} onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), set(nd.id))}>
             <circle r={on ? r + 4 : r} fill={COLORS[i % COLORS.length]} opacity={on ? 1 : 0.85} />
             <text textAnchor="middle" y={-2} className="vis-t">{nd.label.length > 13 ? nd.label.split(' ')[0] : nd.label}</text>
             {nd.short && <text textAnchor="middle" y={12} className="vis-s">{nd.short}</text>}

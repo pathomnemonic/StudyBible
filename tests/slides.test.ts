@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildSlides, chunk, headline, splitCcc } from '../src/curriculum/LessonSlides';
+import { buildSlides, chunk, headline, slideLines, splitCcc } from '../src/curriculum/LessonSlides';
 import { BANDS } from '../src/curriculum/pedagogy';
 import { parseQuiz } from '../src/curriculum/model';
 
@@ -46,5 +46,11 @@ describe('slide helpers', () => {
     const r = splitCcc('Baptism frees us from sin (CCC 1213, 1250). It makes us God’s children.');
     expect(r.chips).toEqual(['CCC 1213, 1250']);
     expect(r.text).toBe('Baptism frees us from sin. It makes us God’s children.');
+  });
+  it('turns a quiz slide into handout lines with the answer', () => {
+    const q = parseQuiz('Who made us?|Nobody|God|Chance|Fate|1|God made us.');
+    const lines = slideLines({ kind: 'quiz', label: 'Check', q } as never);
+    expect(lines.join('\n')).toContain('Answer: B.');
+    expect(lines.join('\n')).toContain('B. God');
   });
 });
