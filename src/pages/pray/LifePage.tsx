@@ -4,6 +4,8 @@ import Fold from '../../components/Fold';
 import { addDays, iso, liturgicalDay } from '../../liturgy/compute';
 import { dutiesOn, nextHolyDays } from '../../liturgy/discipline';
 import { useSettings } from '../../lib/store';
+import { churchYearIcs } from '../../liturgy/ics';
+import { download } from '../../db/ops';
 
 const KEY = 'sb:lastConfession';
 const get = (k: string) => { try { return localStorage.getItem(k); } catch { return null; } };
@@ -22,6 +24,8 @@ export default function LifePage() {
   const next = nextHolyDays(addDays(today, 1), variant, 4);
   const [last, setLast] = useState<string | null>(get(KEY));
   const [rosaries, setRosaries] = useState(0);
+  const [icsSun, setIcsSun] = useState(false);
+  const [icsFast, setIcsFast] = useState(true);
   useEffect(() => {
     let n = 0;
     try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i)!; if (k.startsWith('sb:pray:done:rosary-')) n += Number(localStorage.getItem(k) ?? 0); } } catch { /* none */ }
@@ -88,6 +92,12 @@ export default function LifePage() {
         <p className="muted small">See the Enchiridion Indulgentiarum for the full list. Ask a priest if you are unsure.</p>
       </Fold>
 
+      <Fold id="life:calendar" title="Add the Church year to your calendar" hint="A file for Apple, Google or Outlook">
+        <p className="muted small">Downloads the next twelve months of solemnities, feasts and holy days of obligation as all-day events, for the calendar you chose in Settings. Add Sundays and Lenten fast days if you like.</p>
+        <label className="row"><input type="checkbox" checked={icsSun} onChange={(e) => setIcsSun(e.target.checked)} /> <span>Include Sundays</span></label>
+        <label className="row"><input type="checkbox" checked={icsFast} onChange={(e) => setIcsFast(e.target.checked)} /> <span>Include Ash Wednesday, Good Friday and Lenten fasting days</span></label>
+        <p><button className="btn primary" onClick={() => download('church-year.ics', churchYearIcs({ from: today, days: 365, variant, sundays: icsSun, fasting: icsFast }), 'text/calendar')}>Download calendar file</button></p>
+      </Fold>
       <Fold id="life:log" title="Your prayer log" hint="Kept on this device only">
         <p>Rosaries prayed in this app: <strong>{rosaries}</strong>. <Link to="/pray/devotions">Pray one</Link>.</p>
       </Fold>
