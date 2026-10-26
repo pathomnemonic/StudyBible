@@ -64,6 +64,13 @@ export function splitCcc(t: string): { text: string; chips: string[] } {
 }
 export const pillarKey = (p: string) => (/creed|revel|faith|god|trinity|christ|church|mary|last/i.test(p) ? 'creed' : /sacrament|liturg|worship|mass|eucharist/i.test(p) ? 'sacrament' : /moral|life|commandment|virtue|beatitude|justice|vocation/i.test(p) ? 'moral' : /prayer|pray/i.test(p) ? 'prayer' : 'creed');
 
+/** The activity's name (the part in quotes at the front), or its first few words, for a slide the students read. */
+export function activityName(a: string): string {
+  const q = /^[“"]([^”"]{3,60})[”"]/.exec(a.trim());
+  if (q) return q[1];
+  return headline(a, 48).head;
+}
+
 export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units'][number] }; grade: GradeData; gl: Glossary; band: Band; passages: Passage[]; ccc: CccPara[]; videos: Video[]; art: { file: string; title: string; artist: string }[]; story: string; prayer: BookPrayer | null; quiz: Question[]; base: string }): Slide[] {
   const { lesson, grade, gl, band, passages, ccc, videos, art, story, prayer, quiz, base } = a;
   const younger = grade.band === 'primary' || grade.band === 'elementary';
@@ -78,17 +85,19 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
   const mistaken = (lesson.misc ?? []).map((m) => m.replace(/^[“"‘']+|[”"’']+$/g, '').trim()).filter((m) => m.length > 10 && m.length < 200);
   const sources = lesson.saint ? lesson.saint.split(':') : [];
   const personName = lesson.saint && lesson.saint.indexOf(':') > 0 ? sources[0] : lesson.saint ?? '';
-  const personStory = lesson.saint && lesson.saint.indexOf(':') > 0 ? lesson.saint.slice(lesson.saint.indexOf(':') + 1).trim() : '';
+  const personLine = lesson.saint && lesson.saint.indexOf(':') > 0 ? lesson.saint.slice(lesson.saint.indexOf(':') + 1).trim() : '';
+  // a saint's story is written in three short paragraphs: who they were, what they did, why it matters for this lesson
+  const storyParts = (lesson.saintStory ?? personLine).split(/\n+/).map((x) => x.trim()).filter(Boolean);
+  const personStory = storyParts[0] ?? '';
 
   add({ kind: 'title', label: `${gradeLabel(grade.id)} · Unit ${lesson.unit.n}`, title: lesson.title, body: lesson.question, chips: [lesson.unit.pillar, lesson.unit.title], bg: art[0] ? base + art[0].file : undefined, notes: [`Essential question: ${lesson.unit.eq}`, `Plan about ${band.minutes} minutes. Start with the opening question, then teach, discuss, practice and pray.`] });
   if (mistaken[0]) add({ kind: 'poll', label: 'Hands up!', title: `What do you think? “${mistaken[0]}”`, poll: older ? ['Agree', 'Disagree', 'Not sure'] : ['Yes', 'No', 'Not sure'], notes: ['Have students vote before you teach anything. Come back to this vote at the end and see who changed their mind.'] });
-  if (lesson.hook) add({ kind: 'story', label: 'Start here', body: lesson.hook, notes: ['Tell or read this to open the lesson, then ask the big question.'] });
-  add({ kind: 'wonder', label: 'Let’s wonder', title: lesson.question, notes: ['Ask before you teach. Collect two or three answers and write them where everyone can see.'] });
+  add({ kind: 'wonder', label: 'Let’s wonder', title: lesson.question, notes: [...(lesson.script?.open ? [`Open: ${lesson.script.open}`] : lesson.hook ? [`Open: ${lesson.hook}`] : []), 'Ask before you teach. Collect two or three answers and write them where everyone can see.'] });
   add({ kind: 'goals', label: 'Today', title: 'Today we will…', cards: [
     { k: 'Learn', v: headline(lesson.idea, 80).head },
     ...(words.length ? [{ k: 'Words', v: words.slice(0, 3).map((v) => gl[v].w).join(' · ') }] : []),
     { k: 'Hear', v: lesson.scripture.split(';').slice(0, 2).join(' · ') },
-    { k: 'Do', v: headline(lesson.activity, 70).head },
+    { k: 'Do', v: activityName(lesson.activity) },
   ], items: [`Learn: ${short(lesson.idea, 110)}`], notes: ['Each card appears as you click. Say what each one means for today.'] });
 
   section('Explore', 'See it, hear it, name it');
@@ -120,11 +129,12 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
   const round = [...myths, ...truths].sort((x, y) => (x.text.length * 7) % 5 - (y.text.length * 7) % 5);
   round.forEach((r, i) => add({ kind: 'myth', label: `Myth or truth? ${i + 1} of ${round.length}`, title: r.text, reveal: r.truth ? 'TRUTH. This is what the Church teaches.' : `MYTH. ${lesson.idea}`, notes: ['Everyone stands for TRUTH or stays seated for MYTH. Then reveal and ask why.'] }));
   if (older && mistaken[0]) add({ kind: 'debate', label: 'Debate', title: mistaken[0], sides: ['Agree', 'Disagree'], frames: ['I agree because…', 'I see it differently because…', 'The Church would answer…', 'A question I still have…'], reveal: lesson.idea, notes: ['Two corners. Give each side two minutes, then reveal what the Church teaches.'] });
-  add({ kind: 'do', label: younger ? 'Let’s play and make' : 'Let’s do it', title: lesson.activity, notes: lesson.misc?.length ? [`Listen for: ${lesson.misc.join(' · ')}`] : undefined });
+  add({ kind: 'do', label: younger ? 'Let’s play and make' : 'Let’s do it', title: activityName(lesson.activity), items: lesson.tryit, notes: [...(lesson.script?.practice ?? [lesson.activity]), ...(lesson.misc?.length ? [`Listen for: ${lesson.misc.join(' · ')}`] : [])] });
   quiz.forEach((q, i) => add({ kind: 'quiz', label: `Check · ${i + 1} of ${quiz.length}`, q, notes: ['Let students answer before you reveal. Ask why.'] }));
 
   section('Live it', 'Carry it into the week');
-  if (lesson.saint) add({ kind: 'saint', label: 'Why they matter', title: personName, body: personStory, notes: ['Return to the person from the start: what would they say about today’s idea?'] });
+  if (lesson.saint && storyParts.length > 2) add({ kind: 'saint', label: 'What they did', title: personName, body: storyParts[1], notes: ['Tell it in your own words. Pause and ask what surprised the class.'] });
+  if (lesson.saint) add({ kind: 'saint', label: 'Why they matter', title: personName, body: storyParts.length > 2 ? storyParts[2] : storyParts.slice(1).join(' ') || personLine, notes: ['Return to the person from the start: what would they say about today’s idea?'] });
   if (lesson.life) add({ kind: 'life', label: 'This week', title: lesson.life });
   if (lesson.mem) add({ kind: 'prayer', label: 'Learn by heart', body: lesson.mem, notes: ['Say it together three times, then a second time with the words hidden.'] });
   add({ kind: 'exit', label: 'Exit ticket', title: older ? '3 · 2 · 1' : 'Before you go', items: older ? ['3 things I learned', '2 things I am still wondering', '1 thing I will do this week'] : ['One thing I learned', 'One thing I want to ask'], cards: older ? [{ k: '3', v: 'things I learned' }, { k: '2', v: 'things I still wonder' }, { k: '1', v: 'thing I will do' }] : [{ k: '1', v: 'thing I learned' }, { k: '?', v: 'one thing I want to ask' }], notes: lesson.assess ? [`Check for understanding: ${lesson.assess}`] : ['Collect these on paper or say them aloud.'] });
@@ -278,7 +288,7 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
           {sl.kind === 'wonder' && <><p className="sl-kicker">Let’s wonder</p><h1 className="sl-big">{sl.title}</h1></>}
           {sl.kind === 'idea' && <><p className="sl-kicker">The big idea</p><h1 className="sl-big"><Hl text={sl.title ?? ''} hi={sl.hi} /></h1>{sl.body && <p className="sl-support"><Hl text={sl.body} hi={sl.hi} /></p>}</>}
           {(sl.kind === 'talk' || sl.kind === 'life') && <><p className="sl-kicker">{sl.label}</p><h1 className="sl-big">{sl.title}</h1></>}
-          {sl.kind === 'do' && <div className="sl-do"><span className="sl-do-ico" aria-hidden>✎</span><h1 className="sl-big sm">{sl.title}</h1></div>}
+          {sl.kind === 'do' && <div className="sl-do"><span className="sl-do-ico" aria-hidden>✎</span><h1 className="sl-big sm">{sl.title}</h1>{sl.items?.length ? <ol className="sl-do-steps">{sl.items.map((t) => <li key={t}>{t}</li>)}</ol> : null}</div>}
           {sl.kind === 'goals' && <><h1 className="sl-big sm">{sl.title}</h1><div className="sl-cards">{sl.cards!.slice(0, shown).map((c) => <div className="sl-card" key={c.k}><span className="sl-card-k">{c.k}</span><span className="sl-card-v">{c.v}</span></div>)}</div></>}
           {sl.kind === 'point' && <div className="sl-point">
             <span className="sl-numeral">{sl.n}<small>/{sl.of}</small></span>
@@ -291,7 +301,7 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
           {sl.kind === 'church' && <div className="sl-church"><span className="sl-chip big">{sl.title}</span><blockquote><p><Hl text={sl.body ?? ''} hi={sl.hi} /></p></blockquote></div>}
           {sl.kind === 'image' && sl.img && <figure className="sl-fig"><img src={sl.img.src} alt={sl.img.alt} /><figcaption>{sl.img.credit}</figcaption></figure>}
           {sl.kind === 'video' && sl.video && <div className="sl-video"><InlinePlayer embed={embedFor(`https://www.youtube.com/watch?v=${sl.video.id}`)!} title={sl.video.title} /><p className="sl-sub">{sl.video.title} · {sl.video.channel}</p></div>}
-          {sl.kind === 'saint' && <><p className="sl-kicker">Why they matter</p><h1 className="sl-word">{sl.title}</h1><p className="sl-def">{sl.body}</p></>}
+          {sl.kind === 'saint' && <><p className="sl-kicker">{sl.label}</p><h1 className="sl-word">{sl.title}</h1><p className="sl-def">{sl.body}</p></>}
           {sl.kind === 'quiz' && sl.q && (
             <div className="sl-quiz">
               <h1 className="sl-big sm">{sl.q.q}</h1>

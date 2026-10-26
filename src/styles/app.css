@@ -4862,3 +4862,5 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .fineprint summary { cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; } .fineprint summary::-webkit-details-marker { display: none; }
 .fineprint summary::after { content: '›'; transition: transform .15s; } .fineprint[open] summary::after { transform: rotate(90deg); }
 .fineprint p { margin: 6px 0 0; line-height: 1.5; }
+
+.sl-do-steps { margin: 1rem 0 0; padding-left: 1.4em; font-size: clamp(1rem, 2.2vw, 1.5rem); line-height: 1.45; text-align: left; max-width: 38ch; } .sl-do-steps li { margin: .3em 0; }

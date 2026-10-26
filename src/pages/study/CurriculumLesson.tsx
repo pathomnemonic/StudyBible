@@ -6,6 +6,7 @@ import { db } from '../../db/db';
 import { useSettings } from '../../lib/store';
 import { getGlossary, getGrade, flatLessons, gradeLabel, progressId, toggleDone, vocabQuiz, reviewTerms, cccList, parseQuiz, type GradeData, type Glossary, type LessonSpec, type Question } from '../../curriculum/model';
 import { bandOf, FAMILY_DAYS, type Band } from '../../curriculum/pedagogy';
+import { activityName } from '../../curriculum/LessonSlides';
 import { useLessonSources } from '../../curriculum/useLessonSources';
 import InlinePlayer from '../../components/InlinePlayer';
 import LessonSlides, { buildSlides } from '../../curriculum/LessonSlides';
@@ -143,11 +144,20 @@ export default function CurriculumLesson() {
 
       {mode !== 'teacher' && <LessonPlay grade={g} lesson={lesson} index={idx} gl={gl} />}
 
-      {mode !== 'teacher' && lesson.hook && <section className="cur-hook" aria-label="Start here"><h2 className="eyebrow-h">Start here</h2><p>{lesson.hook}</p></section>}
       {mode !== 'teacher' && lesson.mem && <section className="cur-mem" aria-label="Learn by heart"><h2 className="eyebrow-h">Learn by heart</h2><p>{lesson.mem}</p></section>}
 
       {mode === 'teacher' && (
         <>
+          {lesson.script && (
+            <section className="sect cur-script" aria-label="Teaching script">
+              <h2 className="eyebrow-h">Teach it: what to say and do</h2>
+              <h3>Open</h3><p>{lesson.script.open}</p>
+              <h3>Teach</h3>{lesson.script.teach.map((t) => <p key={t}>{t}</p>)}
+              <h3>Ask</h3><ul>{lesson.script.ask.map((t) => <li key={t}>{t}</li>)}</ul>
+              <h3>Practice</h3><ol>{lesson.script.practice.map((t) => <li key={t}>{t}</li>)}</ol>
+              <h3>Close</h3><p>{lesson.script.close}</p>
+            </section>
+          )}
           <section className="sect">
             <h2 className="eyebrow-h">Objectives</h2>
             <ul>
@@ -164,7 +174,7 @@ export default function CurriculumLesson() {
                 <li key={name}>
                   <strong>{name}</strong> <span className="muted small">({mins(minutes, share)} min)</span>
                   <div>{how}</div>
-                  {i === 1 && <div className="small"><em>This lesson:</em> {lesson.hook ? <>open with this: {lesson.hook} Then ask, “{lesson.question}”</> : <>ask, “{lesson.question}” and collect first answers before teaching.</>}</div>}
+                  {i === 1 && !lesson.script && <div className="small"><em>This lesson:</em> {lesson.hook ? <>open with this: {lesson.hook} Then ask, “{lesson.question}”</> : <>ask, “{lesson.question}” and collect first answers before teaching.</>}</div>}
                   {i === 2 && <div className="small"><em>This lesson:</em> {lesson.idea} Read {lesson.scripture.replace(/;/g, ', ')} aloud. {words.length ? `Introduce: ${words.map((v) => gl[v].w).join(', ')}.` : ''}</div>}
                   {i === 3 && <div className="small"><em>This lesson:</em> {lesson.activity}</div>}
                   {i === 4 && <div className="small"><em>This lesson:</em> {src.prayer ? `Pray: ${src.prayer.title}.` : 'Close with a spontaneous prayer of thanks.'} {lesson.assess ?? 'Exit ticket: one thing I learned, one question I still have.'}</div>}
@@ -276,7 +286,7 @@ export default function CurriculumLesson() {
 
       <section className="sect" aria-label="Do">
         <h2 className="eyebrow-h">Do</h2>
-        <p>{lesson.activity}</p>
+        {mode !== 'teacher' && lesson.tryit?.length ? <><p><strong>{activityName(lesson.activity)}</strong></p><ol>{lesson.tryit.map((t) => <li key={t}>{t}</li>)}</ol></> : <p>{lesson.activity}</p>}
       </section>
 
       {lesson.life && (
@@ -289,7 +299,9 @@ export default function CurriculumLesson() {
       {lesson.saint && (
         <section className="sect" aria-label="A saint who lived this">
           <h2 className="eyebrow-h">A saint who lived this</h2>
-          <p><strong>{lesson.saint.split(':')[0]}.</strong>{lesson.saint.includes(':') ? lesson.saint.slice(lesson.saint.indexOf(':') + 1) : ''}</p>
+          {lesson.saintStory
+            ? <><p><strong>{lesson.saint.split(':')[0]}.</strong></p>{lesson.saintStory.split(/\n+/).map((t) => <p key={t}>{t}</p>)}</>
+            : <p><strong>{lesson.saint.split(':')[0]}.</strong>{lesson.saint.includes(':') ? lesson.saint.slice(lesson.saint.indexOf(':') + 1) : ''}</p>}
         </section>
       )}
 

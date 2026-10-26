@@ -14,6 +14,12 @@ export interface LessonSpec {
   /** a verse or prayer to learn by heart */ mem?: string;
   /** a story, object or question that opens the lesson */ hook?: string;
   /** how the teacher can tell the class understood */ assess?: string;
+  /** what to say and do, in the teacher's own voice, so the lesson can be taught from this alone */
+  script?: { open: string; teach: string[]; ask: string[]; practice: string[]; close: string };
+  /** the activity as the students hear it (short lines addressed to them), for the slide */
+  tryit?: string[];
+  /** the saint's story in a few sentences: who they were, what they did, why it matters here */
+  saintStory?: string;
 }
 export interface UnitSpec { n: number; title: string; pillar: string; eq: string; lessons: LessonSpec[] }
 export interface GradeData { id: string; name: string; band: BandId; age: string; theme: string; units: UnitSpec[] }

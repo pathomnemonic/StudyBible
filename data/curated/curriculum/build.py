@@ -58,7 +58,7 @@ for g in order:
             if any(n < 1 or n > 2865 for n in nums): problems.append(f"{G_['id']}.{ui}.{li}: ccc out of range")
             lid = f"{G_['id']}-{ui}-{li}"
             row = dict(id=lid, title=l['title'], idea=l['idea'], ccc=squash(spec_nums(l['ccc'] + (',' + CCC_X[lid] if lid in CCC_X else ''))), scripture=l['scripture'], vocab=l['vocab'], question=l['question'], activity=l['activity'], prayer=l['prayer'] or None)
-            for k in ('teach', 'talk', 'quiz', 'life', 'saint', 'misc', 'deeper', 'mem', 'hook', 'assess'):
+            for k in ('teach', 'talk', 'quiz', 'life', 'saint', 'misc', 'deeper', 'mem', 'hook', 'assess', 'script', 'tryit', 'saintStory'):
                 v = REWRITE.get(lid, {}).get(k) or l.get(k) or ENRICH.get(lid, {}).get(k)
                 if v: row[k] = v
             for k in ('idea', 'activity'):

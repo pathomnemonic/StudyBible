@@ -18,22 +18,22 @@ export function segmentsFor(lesson: L, band: Band, o: { prayer?: string; scriptu
       seg.say = ['Begin with the Sign of the Cross.', o.prayer ? 'Pray together: ' + o.prayer.split(/(?<=[.!?])\s/).slice(0, 2).join(' ') : 'Pray an Our Father or a short prayer of your own.'];
       seg.ask = ['What do you remember from last time?'];
     } else if (/hook|engage|launch|frame|real question/.test(n)) {
-      seg.say = [lesson.hook ?? lesson.question];
+      seg.say = [lesson.script?.open ?? lesson.hook ?? lesson.question];
       seg.ask = [lesson.question, ...(lesson.misc?.[0] ? [`Listen for this idea: “${lesson.misc[0].replace(/^[“"]|[”"]$/g, '')}”`] : [])];
     } else if (/pray with scripture/.test(n)) {
       seg.say = [`Read ${lesson.scripture.split(';')[0]} aloud twice, slowly.`, 'Keep two minutes of silence.'];
       seg.ask = ['Which word or phrase stood out for you?'];
       seg.need = [lesson.scripture.split(';')[0]];
     } else if (/teach|tell|story/.test(n)) {
-      seg.say = [clean(lesson.idea), ...(lesson.teach ?? []).slice(0, 3).map(clean)];
-      seg.ask = ['Who can say that in your own words?'];
+      seg.say = lesson.script?.teach ?? [clean(lesson.idea), ...(lesson.teach ?? []).slice(0, 3).map(clean)];
+      seg.ask = lesson.script?.ask.slice(0, 2) ?? ['Who can say that in your own words?'];
       seg.need = [`Scripture: ${lesson.scripture}`, `Catechism §${lesson.ccc}`];
     } else if (/practice|do it|work on|workshop|seminar|discuss/.test(n)) {
-      seg.say = [lesson.activity];
-      seg.ask = lesson.talk?.length ? lesson.talk.slice(0, 3) : [lesson.question];
+      seg.say = lesson.script?.practice ?? [lesson.activity];
+      seg.ask = lesson.script?.ask.slice(2) ?? (lesson.talk?.length ? lesson.talk.slice(0, 3) : [lesson.question]);
       if (lesson.misc?.length) seg.need = ['Listen for: ' + lesson.misc.slice(0, 2).join(' · ')];
     } else {
-      seg.say = [...(lesson.life ? [`This week: ${lesson.life}`] : []), ...(lesson.mem ? [`Learn by heart: ${lesson.mem}`] : []), 'Close with the lesson’s prayer, then the Sign of the Cross.'];
+      seg.say = [...(lesson.script ? [lesson.script.close] : []), ...(lesson.life ? [`This week: ${lesson.life}`] : []), ...(lesson.mem ? [`Learn by heart: ${lesson.mem}`] : []), 'Close with the lesson’s prayer, then the Sign of the Cross.'];
       seg.ask = [lesson.assess ?? 'Tell me one thing you will remember.'];
     }
     return seg;

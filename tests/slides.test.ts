@@ -54,3 +54,31 @@ describe('slide helpers', () => {
     expect(lines.join('\n')).toContain('B. God');
   });
 });
+
+describe('students see only what is for students', () => {
+  it('keeps the hook, the activity instructions, the assessment and the misconceptions to the teacher notes', () => {
+    const lesson = {
+      id: 'X-3-1', title: 'T', idea: 'God made us. He loves us.', ccc: '1', scripture: 'Genesis 1:1', vocab: [], question: 'Why?',
+      activity: '“Four scenes” (25 min). TEACHER-INSTRUCTION hand out the paper and have children draw.', prayer: null,
+      hook: 'HOOK-FOR-TEACHER spill ink on a white cloth and ask what happens.', assess: 'ASSESS-FOR-TEACHER ask what the first sin broke.',
+      misc: ['“MISCONCEPTION God is angry with us.”'], teach: ['TEACH-POINT for the teacher.'],
+      script: { open: 'SCRIPT-OPEN', teach: ['SCRIPT-TEACH'], ask: ['a'], practice: ['SCRIPT-PRACTICE'], close: 'SCRIPT-CLOSE' },
+      tryit: ['Draw the first scene.'], saint: 'Name: a line', saintStory: 'Who she was.\nWhat she did.\nWhy it matters.',
+      unit: { n: 1, title: 'U', pillar: 'p', eq: 'e', lessons: [] },
+    };
+    const grade = { id: '4', name: 'Grade 4', band: 'elementary' as const, age: '9', theme: 't', units: [] };
+    const slides = buildSlides({ lesson: lesson as never, grade, gl: {}, band: BANDS[1], passages: [], ccc: [], videos: [], art: [], story: '', prayer: null, quiz: [], base: '/' });
+    // what the class sees is everything except the speaker notes
+    const seen = slides.map((s) => slideLines({ ...s, notes: undefined }).join(' ')).join(' ');
+    for (const secret of ['HOOK-FOR-TEACHER', 'ASSESS-FOR-TEACHER', 'TEACHER-INSTRUCTION', 'TEACH-POINT', 'SCRIPT-', 'for the teacher']) expect(seen, secret).not.toContain(secret);
+    // while the teacher still has them
+    const notes = slides.flatMap((s) => s.notes ?? []).join(' ');
+    expect(notes).toContain('SCRIPT-OPEN');
+    expect(notes).toContain('SCRIPT-PRACTICE');
+    // the students get the activity's name and their own steps
+    expect(seen).toContain('Four scenes');
+    expect(seen).toContain('Draw the first scene.');
+    // the saint's story is told in parts
+    expect(slides.filter((s) => s.kind === 'saint').map((s) => s.body)).toEqual(['What she did.', 'Why it matters.']);
+  });
+});
