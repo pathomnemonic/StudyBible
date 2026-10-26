@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { live, randomName, useCountdown, useLive } from './client';
+import { randomName, useCountdown } from './client';
+import { useHostLink, usePlayerLink } from './hooks';
+import { joinRoom, peekRoom, type HostLink, type PlayerLink } from './link';
 import type { LiveSlide, LiveView } from './types';
 import InlinePlayer from '../components/InlinePlayer';
 import { recordSession, type HostMeta } from '../teach/store';
@@ -67,14 +69,14 @@ export function JoinPage() {
   const [title, setTitle] = useState('');
   const [roster, setRoster] = useState<string[]>([]);
   const [rosterOnly, setRosterOnly] = useState(false);
-  useEffect(() => { if (/^\d{6}$/.test(code)) live.peek(code).then((p) => { setTitle(p.title); setRoster(p.roster ?? []); setRosterOnly(!!p.rosterOnly); }, () => { setTitle(''); setRoster([]); }); else { setTitle(''); setRoster([]); } }, [code]);
+  useEffect(() => { if (/^\d{6}$/.test(code)) peekRoom(code).then((p) => { setTitle(p.title); setRoster(p.roster ?? []); setRosterOnly(!!p.rosterOnly); }, () => { setTitle(''); setRoster([]); }); else { setTitle(''); setRoster([]); } }, [code]);
   const submit = async (e: React.FormEvent) => {
     e.preventDefault(); setErr(''); setBusy(true);
     try {
       const c = code.replace(/\D/g, '');
       if (roster.length && rosterOnly && !roster.includes(name)) throw new Error('Tap your name in the list.');
-      const j = await live.join(c, name.trim() || randomName(), read(tokOf(c)) || undefined);
-      write(tokOf(c), j.token); write('sb:live:name', name.trim());
+      const j = await joinRoom(c, name.trim() || randomName(), read(tokOf(c)) || undefined);
+      write(tokOf(c), j.token); j.close(); write('sb:live:name', name.trim());
       nav(`/play/${c}`);
     } catch (x) { setErr((x as Error).message); } finally { setBusy(false); }
   };
@@ -103,7 +105,7 @@ export function JoinPage() {
 export function PlayPage() {
   const { code = '' } = useParams();
   const token = read(tokOf(code));
-  const { view: v, state, serverNow } = useLive(code, { token });
+  const { link, view: v, state, serverNow } = usePlayerLink(code, token);
   const [sel, setSel] = useState<number[]>([]);
   const [text, setText] = useState('');
   const [sent, setSent] = useState(false);
@@ -114,14 +116,14 @@ export function PlayPage() {
   if (!v) return <div className="page"><p className="muted" aria-busy="true">Connecting…</p></div>;
   const me = v.me;
   const q = v.question;
-  const send = async (value: unknown) => { setSent(true); try { await live.answer(code, token, value); } catch { setSent(false); } };
+  const send = async (value: unknown) => { setSent(true); try { await link!.answer(value); } catch { setSent(false); } };
   const answered = sent || me?.answered;
   const toggle = (i: number) => setSel((s) => (q?.type === 'order' ? (s.includes(i) ? s.filter((x) => x !== i) : [...s, i]) : s.includes(i) ? s.filter((x) => x !== i) : [...s, i]));
   return (
     <div className="page live-play" aria-live="polite">
       <header className="live-top"><span className="live-who">{me?.name}</span><span>{me?.score.toLocaleString()} pts</span>{v.settings.teams > 0 && me?.team !== undefined && <span className={`live-chip t${me.team}`}>{['Red', 'Blue', 'Gold', 'Green', 'Purple', 'Orange'][me.team]} team</span>}{state === 'lost' && <span className="live-chip warn">Reconnecting…</span>}</header>
-      {v.phase === 'run' && v.run && <RunPlay v={v} code={code} token={token} now={serverNow} />}
-      {(v.phase === 'exam' || (v.phase === 'ended' && v.exam)) && v.exam && <ExamView v={v} code={code} token={token} now={serverNow} />}
+      {v.phase === 'run' && v.run && <RunPlay v={v} link={link!} now={serverNow} />}
+      {(v.phase === 'exam' || (v.phase === 'ended' && v.exam)) && v.exam && <ExamView v={v} link={link!} now={serverNow} />}
       {v.phase === 'lobby' && <div className="live-center"><h1>You’re in!</h1><p className="lede">{v.title}</p><p className="muted">Waiting for your teacher to start. Look at the big screen.</p><div className="live-bounce" aria-hidden="true">✝</div></div>}
       {v.phase === 'slides' && v.slides && <div><SlideView s={v.slides[v.slideIndex]} /><p className="muted small" style={{ textAlign: 'center' }}>Slide {v.slideIndex + 1} of {v.slideCount} · your teacher is moving through the lesson</p></div>}
       {v.phase === 'question' && q && (
@@ -172,9 +174,8 @@ export function PlayPage() {
 /** ---------- the teacher's side ---------- */
 export function HostPage() {
   const { code = '' } = useParams();
-  const key = read(keyOf(code));
-  const { view: v, state, serverNow } = useLive(code, { key });
-  const act = (a: string, arg?: unknown) => live.host(code, key, a, arg).catch(() => undefined);
+  const { link, view: v, state, serverNow } = useHostLink(code);
+  const act = (a: string, arg?: unknown) => (link ? link.act(a, arg).catch(() => undefined) : Promise.resolve());
   const meta = useMemo<HostMeta | null>(() => { try { const m = localStorage.getItem(`sb:live:meta:${code}`); return m ? (JSON.parse(m) as HostMeta) : null; } catch { return null; } }, [code]);
   const lastSaved = useRef('');
   useEffect(() => {
@@ -195,7 +196,7 @@ export function HostPage() {
     window.addEventListener('keydown', k);
     return () => window.removeEventListener('keydown', k);
   });
-  if (!key) return <div className="page"><p>This session was started on another device. Open it there, or start a new one.</p><Link className="btn" to="/study/curriculum">Lessons</Link></div>;
+  if (state === 'gone' && !v) return <div className="page"><p>This session is not on this device, or it has ended. Open it where you started it, or start a new one.</p><Link className="btn" to="/study/curriculum">Lessons</Link></div>;
   if (state === 'gone') return <div className="page"><h1>This session has ended</h1><Link className="btn" to="/study/curriculum">Back to lessons</Link></div>;
   if (!v) return <div className="page"><p className="muted" aria-busy="true">Connecting…</p></div>;
   const q = v.question;
@@ -287,7 +288,7 @@ export function HostPage() {
           <Board v={v} /><Teams v={v} /></>}
           {v.settings.mode === 'game' && !v.qCount && <p className="muted">{v.players.length} students took part.</p>}
           <div className="row" style={{ gap: 8, justifyContent: 'center' }}>
-            <a className="btn primary" href={live.exportUrl(code, key)} download>Download scores (CSV)</a>
+            <button className="btn primary" onClick={async () => { const t = await link!.csv(); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([t], { type: 'text/csv;charset=utf-8' })); a.download = `session-${code}.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }}>Download scores (CSV)</button>
             <Link className="btn" to="/study/curriculum">Back to lessons</Link>
           </div>
           <p className="muted small">The session stays open for a little while so you can download the scores.</p>
@@ -298,7 +299,7 @@ export function HostPage() {
 }
 
 /** The student's side of an exam: all the questions, one clock, answers saved as they go, hand in when done. */
-function ExamView({ v, code, token, now }: { v: LiveView; code: string; token: string; now: () => number }) {
+function ExamView({ v, link, now }: { v: LiveView; link: PlayerLink; now: () => number }) {
   const ex = v.exam!;
   const [i, setI] = useState(0);
   const [mine, setMine] = useState<((number | string)[] | null)[]>(ex.answers);
@@ -307,7 +308,7 @@ function ExamView({ v, code, token, now }: { v: LiveView; code: string; token: s
   const left = useCountdown(ex.deadline, now);
   const q = ex.questions[i];
   useEffect(() => { setText(typeof mine[i]?.[0] === 'string' ? String(mine[i]![0]) : ''); }, [i]);
-  const save = (val: (number | string)[] | null) => { setMine((m) => m.map((x, k) => (k === i ? val : x))); if (val) void live.answer(code, token, val, i).catch(() => undefined); };
+  const save = (val: (number | string)[] | null) => { setMine((m) => m.map((x, k) => (k === i ? val : x))); if (val) void link.answer(val, i).catch(() => undefined); };
   const sel = (mine[i] ?? []).map(Number);
   const answeredCount = mine.filter(Boolean).length;
   const mm = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
@@ -322,7 +323,7 @@ function ExamView({ v, code, token, now }: { v: LiveView; code: string; token: s
       </div>
     );
   }
-  const submit = async () => { if (answeredCount < ex.questions.length && !confirm(`${ex.questions.length - answeredCount} questions are blank. Hand in anyway?`)) return; setBusy(true); try { await live.submit(code, token); } finally { setBusy(false); } };
+  const submit = async () => { if (answeredCount < ex.questions.length && !confirm(`${ex.questions.length - answeredCount} questions are blank. Hand in anyway?`)) return; setBusy(true); try { await link.submit(); } finally { setBusy(false); } };
   return (
     <div>
       <div className="live-timer" role="timer" aria-label={`${mm(left)} left`}><div className="live-timer-bar"><i style={{ width: `${Math.min(100, (left / Math.max(1, v.settings.examMinutes * 60)) * 100)}%` }} /></div><span style={{ minWidth: '4.5ch' }}>{mm(left)}</span></div>
@@ -371,7 +372,7 @@ function RunHost({ v, now, onEnd }: { v: LiveView; now: () => number; onEnd: () 
 }
 
 /** A student's side of a race or a build: question after question at their own pace. */
-function RunPlay({ v, code, token, now }: { v: LiveView; code: string; token: string; now: () => number }) {
+function RunPlay({ v, link, now }: { v: LiveView; link: PlayerLink; now: () => number }) {
   const r = v.run!, mine = r.mine;
   const left = useCountdown(r.deadline, now);
   const mm = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
@@ -382,7 +383,7 @@ function RunPlay({ v, code, token, now }: { v: LiveView; code: string; token: st
   const fb = mine?.feedback;
   const key = `${mine?.steps}:${fb?.n}`;
   useEffect(() => { setSel([]); setText(''); setBusy(false); }, [key]);
-  const send = async (val: unknown) => { setBusy(true); try { await live.answer(code, token, val); } catch { setBusy(false); } };
+  const send = async (val: unknown) => { setBusy(true); try { await link.answer(val); } catch { setBusy(false); } };
   const doneRace = v.settings.mode === 'race' && (mine?.steps ?? 0) >= r.goal;
   return (
     <div>

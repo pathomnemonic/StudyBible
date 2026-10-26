@@ -4,7 +4,7 @@ import { existsSync, readFileSync, statSync, createReadStream } from 'node:fs';
 import { extname, isAbsolute, join, normalize, relative, resolve } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import type { DatabaseSync } from 'node:sqlite';
-import { LiveHub, MAX_PLAYERS, sanitizeContent, sanitizeRoster, sanitizeSettings, type LiveRoom } from './live';
+import { LiveHub, MAX_PLAYERS, sanitizeContent, sanitizeRoster, sanitizeSettings, type LiveRoom } from '../src/live/engine';
 import { RateLimiter, hashPassword, hashToken, newToken, passwordProblem, validateEmail, verifyPassword } from './auth';
 
 export interface Config {
@@ -66,7 +66,7 @@ const CSP = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
   "media-src https: blob:",
-  "connect-src 'self' https://litcal.johnromanodorazio.com https://orthocal.info",
+  "connect-src 'self' https://litcal.johnromanodorazio.com https://orthocal.info wss://broker.emqx.io:8084 wss://broker.hivemq.com:8884 wss://test.mosquitto.org:8081 wss://mqtt.eclipseprojects.io:443 https://itunes.apple.com https://api.rss2json.com",
   "frame-src https://fireside.fm https://www.youtube-nocookie.com https://open.spotify.com https://embed.podcasts.apple.com https://player.vimeo.com",
   "worker-src 'self'",
   "manifest-src 'self'",

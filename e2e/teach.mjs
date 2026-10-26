@@ -2,18 +2,19 @@
 // Usage: npm run build && node e2e/teach.mjs   (starts its own server on a spare port)
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
-import { mkdtempSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
 
+import { startBroker } from '../scripts/dev/mini-broker.mjs';
+
+// No Study Bible server at all: a plain static copy of the app, and a local relay standing in for the public ones.
 const PORT = 8797;
-const dir = mkdtempSync(join(tmpdir(), 'sb-teach-'));
-const server = spawn('npx', ['tsx', 'server/index.ts'], { env: { ...process.env, PORT: String(PORT), DB_PATH: join(dir, 'db.sqlite'), STATIC_DIR: 'dist' }, stdio: 'ignore' });
+const broker = await startBroker(0);
+const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], { stdio: 'ignore', detached: true });
 const BASE = `http://127.0.0.1:${PORT}`;
-for (let i = 0; i < 60; i++) { try { if ((await fetch(`${BASE}/api/health`)).ok) break; } catch { /* starting */ } await new Promise((r) => setTimeout(r, 500)); }
+for (let i = 0; i < 60; i++) { try { if ((await fetch(BASE)).ok) break; } catch { /* starting */ } await new Promise((r) => setTimeout(r, 500)); }
+
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined });
 const problems = [];
-const ctx = async (w = 420) => { const c = await browser.newContext({ viewport: { width: w, height: 900 } }); await c.addInitScript(() => { try { localStorage.setItem('sb:tour', '1'); } catch { /* ignore */ } }); const p = await c.newPage(); p.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`)); p.on('dialog', (d) => d.accept()); return p; };
+const ctx = async (w = 420) => { const c = await browser.newContext({ viewport: { width: w, height: 900 } }); await c.addInitScript((BROKER) => { try { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:live:brokers', BROKER); } catch { /* ignore */ } }, `ws://127.0.0.1:${broker.port}/mqtt`); const p = await c.newPage(); p.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`)); p.on('dialog', (d) => d.accept()); return p; };
 const check = (ok, msg) => { if (!ok) problems.push(msg); };
 try {
   const t = await ctx(1200);
@@ -95,6 +96,6 @@ try {
   await t.waitForSelector('.report-card');
 } catch (e) { problems.push(`flow: ${e.message.split('\n')[0]}`); }
 await browser.close();
-server.kill();
+try { process.kill(-server.pid); } catch { /* gone */ } broker.close();
 if (problems.length) { console.error(problems.join('\n')); process.exit(1); }
 console.log('teach e2e ok');

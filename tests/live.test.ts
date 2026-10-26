@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LiveHub, LiveRoom, isRight, sanitizeContent, sanitizeSettings } from '../server/live';
+import { LiveHub, LiveRoom, isRight, sanitizeContent, sanitizeSettings } from '../src/live/engine';
 
 const content = sanitizeContent({
   title: 'Test',

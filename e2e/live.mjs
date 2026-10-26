@@ -2,19 +2,19 @@
 // Usage: npm run build && node e2e/live.mjs   (starts its own server on a spare port)
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
-import { mkdtempSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
 
+import { startBroker } from '../scripts/dev/mini-broker.mjs';
+
+// No Study Bible server at all: a plain static copy of the app, and a local relay standing in for the public ones.
 const PORT = 8799;
-const dir = mkdtempSync(join(tmpdir(), 'sb-live-'));
-const server = spawn('npx', ['tsx', 'server/index.ts'], { env: { ...process.env, PORT: String(PORT), DB_PATH: join(dir, 'db.sqlite'), STATIC_DIR: 'dist', REGISTRATION: 'open' }, stdio: 'ignore' });
+const broker = await startBroker(0);
+const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], { stdio: 'ignore', detached: true });
 const BASE = `http://127.0.0.1:${PORT}`;
-for (let i = 0; i < 60; i++) { try { if ((await fetch(`${BASE}/api/health`)).ok) break; } catch { /* starting */ } await new Promise((r) => setTimeout(r, 500)); }
+for (let i = 0; i < 60; i++) { try { if ((await fetch(BASE)).ok) break; } catch { /* starting */ } await new Promise((r) => setTimeout(r, 500)); }
 
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined });
 const problems = [];
-const ctx = async (w = 420) => { const c = await browser.newContext({ viewport: { width: w, height: 900 } }); await c.addInitScript(() => { try { localStorage.setItem('sb:tour', '1'); } catch { /* ignore */ } }); const p = await c.newPage(); p.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`)); return p; };
+const ctx = async (w = 420) => { const c = await browser.newContext({ viewport: { width: w, height: 900 } }); await c.addInitScript((BROKER) => { try { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:live:brokers', BROKER); } catch { /* ignore */ } }, `ws://127.0.0.1:${broker.port}/mqtt`); const p = await c.newPage(); p.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`)); p.on('console', (m) => { if (process.env.DEBUG_LIVE && m.type() === 'error') console.error('console:', m.text().slice(0, 200)); }); return p; };
 try {
   const t = await ctx(1100);
   await t.goto(`${BASE}/#/study/curriculum/9/9-1-2`);
@@ -69,6 +69,7 @@ try {
     const c2 = (await t.locator('.live-code').innerText()).trim();
     const s = await ctx(); await s.goto(`${BASE}/#/join/${c2}`); await s.getByPlaceholder('A name your class will know').fill('Racer'); await s.getByRole('button', { name: 'Join', exact: true }).click(); await s.waitForSelector('text=You’re in!');
     await t.getByRole('button', { name: label }).click();
+    await t.waitForTimeout(1500); if (process.env.DEBUG_LIVE) console.error(kind, (await t.innerText('body')).slice(0, 400).replace(/\n+/g, ' | '));
     await s.waitForSelector('.live-opts button, .live-form input, .live-order button');
     for (let i = 0; i < 3; i++) {
       await s.waitForSelector('.live-opts button.live-opt:not([disabled]), .live-form input', { timeout: 10000 });
@@ -82,6 +83,6 @@ try {
   }
 } catch (e) { problems.push(`flow: ${e.message.split('\n')[0]}`); if (process.env.DEBUG_LIVE) for (const p of browser.contexts().flatMap((c) => c.pages())) console.error('---', (await p.innerText('body').catch(() => '')).slice(0, 300).replace(/\n+/g, ' | ')); }
 await browser.close();
-server.kill();
+try { process.kill(-server.pid); } catch { /* gone */ } broker.close();
 if (problems.length) { console.error(problems.join('\n')); process.exit(1); }
 console.log('live e2e ok');

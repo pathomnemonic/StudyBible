@@ -1,5 +1,9 @@
-import { randomInt, randomBytes } from 'node:crypto';
-import type { LiveContent, LiveQuestion, LiveSettings, LiveSlide, LiveView, Phase, PlayerResult, QStat } from '../src/live/types';
+import type { LiveContent, LiveQuestion, LiveSettings, LiveSlide, LiveView, Phase, PlayerResult, QStat } from './types';
+
+/** Random helpers that work in the browser and in Node (the same code runs the class on a teacher's device or on the server). */
+const rnd = (n: number) => { const a = new Uint32Array(1); globalThis.crypto.getRandomValues(a); return a[0] % n; };
+const randomInt = (a: number, b?: number) => (b === undefined ? rnd(a) : a + rnd(b - a));
+const randomBytes = (n: number) => { const a = new Uint8Array(n); globalThis.crypto.getRandomValues(a); return { toString: (_f: 'hex') => [...a].map((x) => x.toString(16).padStart(2, '0')).join('') }; };
 
 export const MAX_PLAYERS = 200;
 const fold = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
@@ -12,7 +16,8 @@ export function sanitizeContent(raw: any): LiveContent {
   const slides: LiveSlide[] = (Array.isArray(raw?.slides) ? raw.slides : []).slice(0, 80).map((s: any) => {
     const img = s?.img && safeSrc(s.img.src) ? { src: safeSrc(s.img.src), alt: clean(s.img.alt, 200) } : undefined;
     const video = /^[\w-]{6,20}$/.test(String(s?.videoId ?? '')) ? String(s.videoId) : undefined;
-    return { label: clean(s?.label, 40) || 'Slide', title: clean(s?.title, 200) || undefined, body: clean(s?.body, 1500) || undefined, items: strs(s?.items, 12, 400), ref: clean(s?.ref, 80) || undefined, img, videoId: video };
+    const poll = Array.isArray(s?.poll?.options) && s.poll.options.length >= 2 ? { options: strs(s.poll.options, 6, 100) } : undefined;
+    return { poll, label: clean(s?.label, 40) || 'Slide', title: clean(s?.title, 200) || undefined, body: clean(s?.body, 1500) || undefined, items: strs(s?.items, 12, 400), ref: clean(s?.ref, 80) || undefined, img, videoId: video };
   });
   const questions: LiveQuestion[] = [];
   for (const r of (Array.isArray(raw?.questions) ? raw.questions : []).slice(0, 120)) {
@@ -44,10 +49,10 @@ interface Player { id: string; token: string; name: string; score: number; strea
 
 /** One class session: who is in it, where it is up to, and the scores. No I/O here; the server feeds it time and requests. */
 export class LiveRoom {
-  readonly code: string;
-  readonly hostKey = randomBytes(16).toString('hex');
-  readonly content: LiveContent;
-  readonly settings: LiveSettings;
+  code: string;
+  hostKey = randomBytes(16).toString('hex');
+  content: LiveContent;
+  settings: LiveSettings;
   phase: Phase = 'lobby';
   locked = false;
   slideIndex = 0;
@@ -62,8 +67,10 @@ export class LiveRoom {
   private order: number[] = [];
   private optionOrder: number[][] = [];
   private qstats: { correct: number; answered: number }[] = [];
-  readonly roster: string[];
+  roster: string[];
   startedAt = 0;
+  /** votes on poll slides: slide index, then player id, then the choice */
+  private votes: Record<number, Record<string, number>> = {};
 
   constructor(code: string, content: LiveContent, settings: LiveSettings, private now: () => number = Date.now, roster: string[] = []) {
     this.code = code;
@@ -117,6 +124,8 @@ export class LiveRoom {
     this.touch();
     return { id: p.id, token: p.token };
   }
+  /** every joined player's private token, so the host can send each one their own view */
+  tokens(): string[] { return [...this.players.values()].map((p) => p.token); }
   ping(token: string) { const p = [...this.players.values()].find((x) => x.token === token); if (p) p.lastSeen = this.now(); }
   playerByToken(token: string) { return [...this.players.values()].find((x) => x.token === token); }
 
@@ -229,6 +238,7 @@ export class LiveRoom {
   submit(token: string): boolean { const p = this.playerByToken(token); if (!p || this.phase !== 'exam') return false; this.submitPlayer(p); this.touch(); return true; }
 
   answer(token: string, value: unknown): boolean {
+    if (this.phase === 'slides') return this.vote(token, value);
     const p = this.playerByToken(token);
     if (!p || this.phase !== 'question' || p.answer || p.out) return false;
     const q = this.content.questions[this.qIndex];
@@ -245,6 +255,30 @@ export class LiveRoom {
     this.touch();
     if ([...this.players.values()].filter((x) => !x.out).every((x) => x.answer)) this.finishQuestion();
     return true;
+  }
+
+  private vote(token: string, value: unknown): boolean {
+    const p = this.playerByToken(token);
+    const sl = this.content.slides[this.slideIndex];
+    const n = Number(Array.isArray(value) ? value[0] : value);
+    if (!p || !sl?.poll || !Number.isInteger(n) || n < 0 || n >= sl.poll.options.length) return false;
+    (this.votes[this.slideIndex] ??= {})[p.id] = n;
+    this.touch();
+    return true;
+  }
+
+  /** The whole room as plain data, so a teacher who reloads the page can carry on. */
+  snapshot(): string {
+    return JSON.stringify({ code: this.code, hostKey: this.hostKey, content: this.content, settings: this.settings, roster: this.roster, phase: this.phase, locked: this.locked, slideIndex: this.slideIndex, qIndex: this.qIndex, deadline: this.deadline, createdAt: this.createdAt, startedAt: this.startedAt, counts: this.counts, textCounts: this.textCounts, qstats: this.qstats, lastRound: this.lastRound, votes: this.votes, players: [...this.players.values()] });
+  }
+  static restore(json: string, now: () => number = Date.now): LiveRoom {
+    const d = JSON.parse(json);
+    const r = new LiveRoom(d.code, d.content, { ...d.settings, shuffleQuestions: false, shuffleOptions: false }, now, d.roster);
+    r.settings = d.settings; r.content = d.content; r.hostKey = d.hostKey;
+    Object.assign(r, { phase: d.phase, locked: d.locked, slideIndex: d.slideIndex, qIndex: d.qIndex, deadline: d.deadline, createdAt: d.createdAt, startedAt: d.startedAt, counts: d.counts, textCounts: d.textCounts, qstats: d.qstats, lastRound: d.lastRound, votes: d.votes });
+    for (const p of d.players) r.players.set(p.id, p);
+    r.touched = now(); r.version = 1;
+    return r;
   }
 
   /** Called on a timer: ends a question when its time is up, and counts players who dropped off. */
@@ -327,6 +361,12 @@ export class LiveRoom {
       board: ranked.slice(0, this.phase === 'ended' ? 10 : 5).map((p) => ({ id: p.id, name: p.name, score: p.score, rank: rankOf.get(p.id)!, streak: p.streak, team: p.team })),
     };
     if (role === 'player') v.players = v.players.map((p) => ({ ...p, name: this.settings.showNames ? p.name : '', answered: false, progress: undefined, submitted: undefined }));
+    const cur = this.content.slides[this.slideIndex];
+    if (this.phase === 'slides' && cur?.poll) {
+      const vs = this.votes[this.slideIndex] ?? {};
+      const counts = cur.poll.options.map((_, i) => Object.values(vs).filter((x) => x === i).length);
+      v.poll = { counts, total: Object.keys(vs).length, mine: me ? vs[me.id] : undefined };
+    }
     if (role === 'host') v.results = this.results();
     if (this.phase === 'exam') v.examDeadline = this.deadline;
     if (this.settings.mode === 'race' || this.settings.mode === 'build') {

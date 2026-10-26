@@ -13,7 +13,7 @@ export interface LiveQuestion {
   points: 0 | 1 | 2;
   why?: string;
 }
-export interface LiveSlide { label: string; title?: string; body?: string; items?: string[]; ref?: string; img?: { src: string; alt: string }; videoId?: string }
+export interface LiveSlide { poll?: { options: string[] }; label: string; title?: string; body?: string; items?: string[]; ref?: string; img?: { src: string; alt: string }; videoId?: string }
 export interface LiveContent { title: string; slides: LiveSlide[]; questions: LiveQuestion[] }
 export interface LiveSettings {
   teams: number; shuffleQuestions: boolean; shuffleOptions: boolean; lateJoin: boolean; showNames: boolean;
@@ -57,6 +57,8 @@ export interface LiveView {
   /** the teacher always gets the full results, so they can be kept in the class record */
   results?: { players: PlayerResult[]; questions: QStat[]; startedAt: number };
   roster?: string[];
+  /** votes on the poll slide being shown */
+  poll?: { counts: number[]; total: number; mine?: number };
   /** race and build: each student's own stream of questions, with the class's progress */
   run?: { deadline: number; goal: number; classSteps: number; classGoal: number; track: { id: string; name: string; steps: number; answered: number; finished: boolean; streak: number }[]; mine?: { question?: { type: QType; q: string; options?: string[]; points: number }; steps: number; streak: number; feedback?: { ok: boolean; why?: string; correct: (number | string)[]; q: string; options?: string[]; n: number } } };
   /** when an exam ends, on the server's clock */

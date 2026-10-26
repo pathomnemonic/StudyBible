@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { GradeData, LessonSpec } from '../curriculum/model';
-import { live } from './client';
+import { createHost } from './link';
 import { useClasses } from '../teach/store';
 import { today } from '../teach/model';
 import { DEFAULT_SETTINGS, pick, questionsFor, toContent, type Difficulty, type Scope } from './bank';
@@ -38,9 +38,8 @@ export default function StartLive({ grade, lesson, slides, onClose }: Props) {
       const qs = kind === 'lesson' ? [] : pick(all, count, diff);
       if (!qs.length && kind !== 'lesson') throw new Error('There are no questions for that choice.');
       const title = scope === 'lesson' ? lesson.title : scope === 'unit' ? `Unit ${lesson.unit.n}: ${lesson.unit.title}` : `${grade.name} review`;
-      const c = await live.create(toContent(title, qs, (kind === 'game' || kind === 'standing' || kind === 'lesson') && (kind === 'lesson' || withSlides) && scope === 'lesson' ? slides : [], time), { ...st, mode: kind === 'exam' ? 'exam' : kind === 'race' ? 'race' : kind === 'build' ? 'build' : 'game', elimination: kind === 'standing' }, cls && cls.students.length ? cls.students.map((x) => x.name) : undefined);
+      const c = await createHost(toContent(title, qs, (kind === 'game' || kind === 'standing' || kind === 'lesson') && (kind === 'lesson' || withSlides) && scope === 'lesson' ? slides : [], time), { ...st, mode: kind === 'exam' ? 'exam' : kind === 'race' ? 'race' : kind === 'build' ? 'build' : 'game', elimination: kind === 'standing' }, cls && cls.students.length ? cls.students.map((x) => x.name) : []);
       if (cls) { try { localStorage.setItem(`sb:live:meta:${c.code}`, JSON.stringify({ classId: cls.id, title, mode: kind === 'lesson' ? 'lesson' : kind === 'exam' ? 'exam' : 'game', date: today() })); localStorage.setItem('sb:teach:last', cls.id); } catch { /* storage unavailable */ } }
-      try { localStorage.setItem(`sb:live:host:${c.code}`, c.hostKey); } catch { /* storage unavailable */ }
       nav(`/host/${c.code}`);
     } catch (e) { setErr((e as Error).message); setBusy(false); }
   };
