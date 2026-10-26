@@ -137,6 +137,8 @@ describe('K–12 catechism curriculum', () => {
         if (!l.idea || !l.question || !l.activity) bad.push(`${l.id} incomplete`);
         const e = l as unknown as { teach?: string[]; talk?: string[]; life?: string; saint?: string; quiz?: string[] };
         if (!e.teach?.length || !e.talk?.length || !e.life || !e.saint || (e.quiz?.length ?? 0) < 2) bad.push(`${l.id} lacks teaching content`);
+        const pro = l as unknown as { hook?: string; assess?: string; mem?: string; misc?: string[]; teach?: string[] };
+        if (!pro.hook || !pro.assess || !pro.mem || !(pro.misc?.length) || (pro.teach?.length ?? 0) < 3) bad.push(`${l.id} lacks catechist-quality parts`);
         for (const q of l.quiz ?? []) { const p = q.split('|'); if (p.length !== 7 || !(+p[5] >= 0 && +p[5] <= 3)) bad.push(`${l.id} quiz ${q.slice(0, 30)}`); }
         for (const s of l.scripture.split(';')) if (!parseRefs(s.trim()).ok) bad.push(`${l.id} scripture "${s}"`);
         for (const v of l.vocab) if (!gl[v]) bad.push(`${l.id} term ${v}`);

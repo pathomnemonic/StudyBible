@@ -15,7 +15,7 @@ export default function CurriculumHome() {
   return (
     <div className="page">
       <h1>Catechism, Kindergarten to Grade 12</h1>
-      <p className="lede">{total || 300} lessons across thirteen grades, plus a 30-session course for young adults. Each one is built on the Catechism and Scripture, brings in the videos, art, prayers and readings already in this app, and can be taught in a classroom, at home, on your own, by listening, or on paper.</p>
+      <p className="lede">{total || 396} lessons across thirteen grades and a 36-session course for young adults. Each one is built on the Catechism and Scripture, brings in the videos, art, prayers and readings already in this app, and can be taught in a classroom, at home, on your own, by listening, or on paper.</p>
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 14 }}>
         <Link className="btn primary" to="/study/curriculum/teachers">For teachers and parents: the handbook</Link>
         <Link className="btn" to="/teach">Teacher tools: classes and gradebook</Link>
