@@ -45,3 +45,51 @@ export const PLANS: PrayerPlan[] = [
     { title: 'Day 7: Simeon and Anna', refs: 'Luke 2:25-38' },
   ] },
 ];
+
+const MERCY_N = 'Most Merciful Jesus, whose very nature is to have compassion on us and to forgive us, do not look upon our sins but upon our trust which we place in your infinite goodness. Receive us all into the abode of your most compassionate Heart, and never let us escape from it. We beg this of you by your love which unites you to the Father and the Holy Spirit. Amen.';
+const IMMACULATE = 'O God, who by the Immaculate Conception of the Blessed Virgin didst prepare a worthy dwelling for thy Son, we beseech thee that, as thou didst preserve her from every stain by the foreseen death of thy Son, so thou wouldst grant that we, through her intercession, may come to thee with pure hearts. Through Christ our Lord. Amen.';
+const HEART = 'O Sacred Heart of Jesus, fountain of every blessing, I adore thee, I love thee, and with lively sorrow for my sins I offer thee this poor heart of mine. Make me humble, patient, pure and wholly obedient to thy will. Grant, good Jesus, that I may live in thee and for thee. Protect me in the midst of danger; comfort me in my afflictions. Amen.';
+export const MORE_PLANS: PrayerPlan[] = [
+  { id: 'divine-mercy', name: 'Divine Mercy Novena', blurb: 'Nine days from Good Friday to the eve of Divine Mercy Sunday, each day for a different group of souls, with the Chaplet of Divine Mercy.', opening: 'Each day, pray the Chaplet of Divine Mercy (Prayer → Devotions), then the prayer below for the day’s intention.', days: [
+    { title: 'Day 1: All mankind, especially sinners', refs: 'John 3:16-17', prayer: MERCY_N },
+    { title: 'Day 2: Priests and religious', refs: 'Matthew 9:36-38', prayer: MERCY_N },
+    { title: 'Day 3: Devout and faithful souls', refs: 'Psalm 103:8-14', prayer: MERCY_N },
+    { title: 'Day 4: Those who do not yet know Jesus', refs: 'Acts 10:34-36', prayer: MERCY_N },
+    { title: 'Day 5: Christians separated from the Church', refs: 'John 17:20-23', prayer: MERCY_N },
+    { title: 'Day 6: The meek and humble, and children', refs: 'Matthew 11:28-30', prayer: MERCY_N },
+    { title: 'Day 7: Souls who venerate and glorify God’s mercy', refs: 'Luke 1:50-54', prayer: MERCY_N },
+    { title: 'Day 8: The souls in purgatory', refs: 'John 14:1-3', prayer: MERCY_N },
+    { title: 'Day 9: Lukewarm souls', refs: 'Revelation 3:14-22', prayer: MERCY_N },
+  ] },
+  { id: 'o-antiphons', name: 'The O Antiphons', blurb: 'The seven great titles of Christ prayed at Evening Prayer from 17 to 23 December, one a day. The first letters of the Latin titles, read backward, spell “Ero cras”: “Tomorrow I will be there.”', days: [
+    { title: 'Dec 17: O Wisdom', refs: 'Isaiah 11:2-3', prayer: 'O Wisdom, who camest out of the mouth of the Most High, and reachest from one end to another, mightily and sweetly ordering all things: Come and teach us the way of prudence.' },
+    { title: 'Dec 18: O Lord (Adonai)', refs: 'Exodus 3:2-6', prayer: 'O Adonai, and Ruler of the house of Israel, who appearedst to Moses in the burning bush, and gavest him the law on Sinai: Come and redeem us with an outstretched arm.' },
+    { title: 'Dec 19: O Root of Jesse', refs: 'Isaiah 11:10', prayer: 'O Root of Jesse, who standest for an ensign of the people, before whom kings shall keep silence, and unto whom the Gentiles shall make supplication: Come and deliver us, and tarry not.' },
+    { title: 'Dec 20: O Key of David', refs: 'Isaiah 22:22', prayer: 'O Key of David, and Sceptre of the house of Israel; that openest, and no man shutteth; and shuttest, and no man openeth: Come and bring the prisoner out of the prison house, and him that sitteth in darkness and the shadow of death.' },
+    { title: 'Dec 21: O Dayspring', refs: 'Isaiah 9:2', prayer: 'O Dayspring, Brightness of the Light everlasting, and Sun of Righteousness: Come and enlighten them that sit in darkness and the shadow of death.' },
+    { title: 'Dec 22: O King of the Gentiles', refs: 'Isaiah 28:16', prayer: 'O King of the Gentiles, and their Desire; the Cornerstone, who makest both one: Come and save mankind, whom thou formedst of clay.' },
+    { title: 'Dec 23: O Emmanuel', refs: 'Isaiah 7:14', prayer: 'O Emmanuel, our King and our Lawgiver, the Desire of all nations, and their Salvation: Come and save us, O Lord our God.' },
+  ] },
+  { id: 'immaculate-conception', name: 'Novena to the Immaculate Conception', blurb: 'Nine days from 29 November to 7 December, before the feast of the Immaculate Conception on 8 December.', days: [
+    { title: 'Day 1: The promise', refs: 'Genesis 3:15', prayer: IMMACULATE },
+    { title: 'Day 2: Full of grace', refs: 'Luke 1:26-28', prayer: IMMACULATE },
+    { title: 'Day 3: Her yes', refs: 'Luke 1:29-38', prayer: IMMACULATE },
+    { title: 'Day 4: Blessed among women', refs: 'Luke 1:39-45', prayer: IMMACULATE },
+    { title: 'Day 5: Her song', refs: 'Luke 1:46-55', prayer: IMMACULATE },
+    { title: 'Day 6: At Cana', refs: 'John 2:1-5', prayer: IMMACULATE },
+    { title: 'Day 7: At the Cross', refs: 'John 19:25-27', prayer: IMMACULATE },
+    { title: 'Day 8: The woman clothed with the sun', refs: 'Revelation 12:1-6', prayer: IMMACULATE },
+    { title: 'Day 9: Chosen before the world began', refs: 'Ephesians 1:3-6', prayer: IMMACULATE },
+  ] },
+  { id: 'sacred-heart', name: 'Novena to the Sacred Heart', blurb: 'Nine days with the heart of Jesus, often prayed before the Solemnity of the Sacred Heart (the Friday after Corpus Christi) or at any time.', days: [
+    { title: 'Day 1: A new heart', refs: 'Ezekiel 36:26-28', prayer: HEART },
+    { title: 'Day 2: He knows our frame', refs: 'Psalm 103:8-14', prayer: HEART },
+    { title: 'Day 3: Gentle and lowly of heart', refs: 'Matthew 11:28-30', prayer: HEART },
+    { title: 'Day 4: Rivers of living water', refs: 'John 7:37-39', prayer: HEART },
+    { title: 'Day 5: Abide in my love', refs: 'John 15:9-12', prayer: HEART },
+    { title: 'Day 6: The pierced side', refs: 'John 19:31-37', prayer: HEART },
+    { title: 'Day 7: The shepherd and the lost sheep', refs: 'Luke 15:1-7', prayer: HEART },
+    { title: 'Day 8: The breadth and length and height', refs: 'Ephesians 3:14-19', prayer: HEART },
+    { title: 'Day 9: God is love', refs: '1 John 4:7-16', prayer: HEART },
+  ] },
+];

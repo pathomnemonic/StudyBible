@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ReadingBlock from '../../components/ReadingBlock';
-import { PLANS } from '../../data/novenas';
+import { MORE_PLANS, PLANS as BASE_PLANS } from '../../data/novenas';
+
+const PLANS = [...BASE_PLANS, ...MORE_PLANS];
 import { convertRef } from '../../lib/versification';
 import { parseRefs, type Ref } from '../../lib/refs';
 
