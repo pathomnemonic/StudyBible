@@ -9,6 +9,7 @@ import { startDriveBackup } from '../sync/drive';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
 import type { Key } from '../i18n/en';
+import { BIBLE_TOOLS, isBibleToolPath } from '../lib/bibleTools';
 
 // Five places along the bottom, with Today in the middle: the Reading room (texts and recordings beyond the Bible, read beside a Bible chapter), Study (anything educational), Today (where the app opens), the Bible, and Listen (the Bible in a Year, spoken).
 // Profile (notes, plans, settings, prayer) is the round button at the top right of every screen. The Mass readings belong to Today.
@@ -97,7 +98,8 @@ export default function Shell({ children }: { children: ReactNode }) {
           <span>{t('nav.search')}</span>
         </button>
         {TABS.map((tb) => {
-          const active = (tb.match.some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/'))) || (!!tb.home && loc.pathname === '/');
+          const tool = isBibleToolPath(loc.pathname);
+          const active = tool ? tb.to === '/read' : (tb.match.some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/'))) || (!!tb.home && loc.pathname === '/');
           return (
             <NavLink
               key={tb.to}
@@ -127,7 +129,13 @@ export default function Shell({ children }: { children: ReactNode }) {
             ))}
           </nav>
         )}
-        {loc.pathname.startsWith('/study/') && (
+        {isBibleToolPath(loc.pathname) && !fullscreenReader && (
+          <nav className="subnav bible-subnav" aria-label="Bible tools">
+            <NavLink to={s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : '/read'} className="back">← Back to reading</NavLink>
+            {BIBLE_TOOLS.map((t) => { const on = loc.pathname === t.match || loc.pathname.startsWith(t.match + '/'); return <NavLink key={t.to} to={t.to} className={on ? 'on' : ''} aria-current={on ? 'page' : undefined}>{t.label.replace(/^Parables, miracles, prophecies, covenants$/, 'Indexes').replace('Books and outlines', 'Books').replace('Gospel comparison', 'Gospels').replace('Key words and phrases', 'Key words').replace('Topical index', 'Topics')}</NavLink>; })}
+          </nav>
+        )}
+        {loc.pathname.startsWith('/study/') && !isBibleToolPath(loc.pathname) && (
           <nav className="crumbs" aria-label="Breadcrumb">
             <NavLink to="/study">← Study</NavLink>
           </nav>

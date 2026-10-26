@@ -8,18 +8,6 @@ import ContinueRow from '../../components/ContinueRow';
 type Row = [string, string, string];
 const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
   {
-    title: 'Understand the text',
-    blurb: 'Where you are in the book and how the pieces fit.',
-    items: [
-      ['/study/books', 'Books & outlines', 'An introduction and outline for each of the 73 books.'],
-      ['/study/synopsis', 'Gospel comparison', 'Matthew, Mark, Luke and John side by side.'],
-      ['/study/pauline', 'Paul’s letters', 'Argument outlines for each letter.'],
-      ['/study/index', 'Parables, miracles, prophecies, covenants', 'Indexes with every passage linked.'],
-      ['/study/textual', 'Textual history', 'Where manuscripts and editions differ.'],
-      ['/study/manuscripts', 'Manuscripts', 'Zoom into real pages, from a 4th-century fragment of John.'],
-    ],
-  },
-  {
     title: 'Church teaching and tradition',
     blurb: 'Learn the faith: lessons, questions, videos and themes. The Catechism, papal writings, councils and the saints now live in the Reading room.',
     items: [
@@ -34,15 +22,6 @@ const GROUPS: { title: string; blurb: string; items: Row[] }[] = [
       ['/study/voices', 'Voices through time', 'The Fathers and saints on one timeline, with the councils.'],
       ['/study/concepts', 'Web of themes', 'How the great themes of Scripture are tied together.'],
       ['/study/themes', 'Biblical theology explorer', 'Follow a theme from Genesis to Revelation, with the Church’s reading.'],
-    ],
-  },
-  {
-    title: 'Words and topics',
-    blurb: 'Find every place something is said.',
-    items: [
-      ['/study/terms', 'Key words and phrases', 'Son of Man, Kingdom of God, Lamb of God… what they mean and where they occur.'],
-      ['/study/concordance', 'Concordance', 'Every verse containing a word, counted by book.'],
-      ['/study/topical', 'Topical index', 'Thousands of topics with their passages.'],
     ],
   },
   {
@@ -85,6 +64,9 @@ export default function StudyHome() {
     <div className="page">
       <h1>Study</h1>
       <p className="lede">Everything is connected to the verses you read. Search it, or browse by what you want to do.</p>
+      <Link to="/read" className="notice info small" style={{ display: 'block', textDecoration: 'none', color: 'inherit', marginBottom: 12 }}>
+        <strong>Looking for book outlines, the Gospel comparison, key words, the concordance or the topical index?</strong> They are now with the Bible: open any chapter and tap the <Icon name="study" size={14} /> Bible tools button, or <u>open the Bible</u>.
+      </Link>
       <form className="search-box" onSubmit={go} role="search">
         <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="John 6:51, “bread of life”, Eucharist, Augustine…" aria-label="Search everything" />
         <button className="btn primary" type="submit">

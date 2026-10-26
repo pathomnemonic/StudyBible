@@ -20,6 +20,7 @@ import ChapterText, { type VerseDecor } from '../components/ChapterText';
 import TermPopover from '../components/TermPopover';
 import { loadTerms, makeMatcher, type TermBrief } from '../study/terms';
 import BookPicker from '../components/BookPicker';
+import BibleTools from '../components/BibleTools';
 import Icon from '../components/Icon';
 import NoteEditor from '../components/NoteEditor';
 import Modal from '../components/Modal';
@@ -123,6 +124,7 @@ export default function ReadPage() {
   const [panel, setPanel] = useState(false);
   const swipe = useRef<[number, number] | null>(null);
   const [moreMenu, setMoreMenu] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
   const wide = useWide();
   const silentRef = useRef(false);
   const wideRef = useRef(wide);
@@ -652,12 +654,14 @@ export default function ReadPage() {
           >
             <Icon name="expand" />
           </button>
+          <button className="icon-btn" onClick={() => setToolsOpen(true)} aria-label="Bible tools: book outlines, key words, concordance and more" title="Bible tools: book outlines, key words, concordance, topics"><Icon name="study" /></button>
           <span className="more-wrap">
             <button className="icon-btn more-btn" aria-haspopup="menu" aria-expanded={moreMenu} onClick={() => setMoreMenu((m) => !m)} aria-label="More reading tools" title="More">
               <span aria-hidden="true" style={{ fontSize: 20, lineHeight: 1 }}>⋯</span>
             </button>
             {moreMenu && (
               <div className="more-menu" role="menu" onClick={() => setMoreMenu(false)}>
+                <button role="menuitem" onClick={() => setToolsOpen(true)}>Bible tools: outlines, key words, concordance, topics</button>
                 <button role="menuitem" onClick={() => setEditionPicker(true)}>Translation: {edition.shortName} (and Church-approved Bibles)</button>
                 <button role="menuitem" onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id))}>Parallel translations {parallelMode ? '(on)' : ''}</button>
                 <button role="menuitem" onClick={() => setFinding(true)}>Find in this chapter ( / )</button>
@@ -781,6 +785,7 @@ export default function ReadPage() {
         </div>
       )}
 
+      {toolsOpen && <BibleTools book={bk} chapter={chNum} onClose={() => setToolsOpen(false)} />}
       {picker && (
         <BookPicker
           edition={edition}

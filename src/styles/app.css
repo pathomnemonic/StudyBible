@@ -4327,3 +4327,11 @@ pre.code, pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 .report-stats strong { font-size: 1.6rem; } .report-stats span { font-size: .8rem; color: var(--muted); }
 .print-only { display: none; }
 @media print { .print-only { display: block; } .report-card { border: 0; } }
+
+/* Bible tools */
+.bible-tools h3.eyebrow-h { margin: 14px 0 6px; }
+.bt-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.bt-list button { width: 100%; text-align: left; display: grid; gap: 2px; padding: 10px 12px; border: 1px solid var(--hairline, #8884); border-radius: 12px; background: var(--surface); color: inherit; font: inherit; cursor: pointer; }
+.bt-list button:hover { border-color: var(--accent); }
+.bt-list strong { font-size: .98rem; } .bt-list span { font-size: .82rem; color: var(--muted); }
+.bible-subnav .back { font-weight: 700; }
