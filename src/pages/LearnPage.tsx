@@ -5,6 +5,7 @@ import { db } from '../db/db';
 import { featuresOf } from '../lib/features';
 import { getGrades, gradeLabel, type GradeMeta } from '../curriculum/model';
 import { NewDot, StartHere, Tip } from '../components/Hints';
+import { useSettings } from '../lib/store';
 
 const GROUPS: { title: string; blurb: string; ids: string[] }[] = [
   { title: 'Courses', blurb: 'Guided lessons, in order.', ids: ['study.curriculum', 'study.prepare', 'study.ya', 'study.kids', 'study.course'] },
@@ -15,6 +16,8 @@ const GROUPS: { title: string; blurb: string; ids: string[] }[] = [
 /** Learn: everything that teaches the faith. The Catechism program for every age comes first, then the Catechism itself and the questions people ask. */
 export default function LearnPage() {
   const all = featuresOf('learn');
+  const [st] = useSettings();
+  const teach = st.interests.includes('teach'), family = st.interests.includes('family');
   const [grades, setGrades] = useState<GradeMeta[]>([]);
   useEffect(() => { getGrades().then(setGrades); }, []);
   const prog = useLiveQuery(() => db.planProgress.where('planId').startsWith('cur:').toArray(), []) ?? [];
@@ -27,6 +30,15 @@ export default function LearnPage() {
       {mine.length > 0 && (
         <section className="sect"><h2 className="eyebrow-h">Continue</h2>
           <div className="chips">{mine.map((m) => <Link key={m.id} className="chip" to={`/study/curriculum/${m.id}`}>{gradeLabel(m.id)} · {m.n} of {m.meta!.lessons} lessons</Link>)}</div></section>
+      )}
+      {(teach || family) && (
+        <section className="card" aria-label="For you">
+          <h2 className="eyebrow-h" style={{ marginTop: 0 }}>{teach ? 'For teaching' : 'For your family'}</h2>
+          <div className="chips">
+            {teach && <><Link className="chip" to="/teach">Teacher tools</Link><Link className="chip" to="/study/curriculum/teachers">Teacher handbook</Link><Link className="chip" to="/study/curriculum">Key lessons for every grade</Link></>}
+            {family && <><Link className="chip" to="/study/kids">Children’s Bible</Link><Link className="chip" to="/study/curriculum/K">Kindergarten</Link><Link className="chip" to="/study/curriculum/1">Grade 1</Link><Link className="chip" to="/pray/devotions/rosary">Family rosary</Link></>}
+          </div>
+        </section>
       )}
       <section className="sect">
         <h2 className="eyebrow-h">Choose your level</h2>

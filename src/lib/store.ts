@@ -112,6 +112,8 @@ export interface Settings {
   refNumbering: 'edition' | 'vulgate' | 'english';
   reminders: { enabled: boolean; time: string; message: string };
   showStreaks: boolean;
+  /** when the queue ends, keep playing the newest unplayed episode from followed shows */
+  autoFavorites: boolean;
   /** Memento mori: an opt-in reminder of how much of a life has been lived. Birthday is kept only on this device (and in synced settings if you sync). */
   memento: { on: boolean; birthday: string; expectancy: number; onHome: boolean; view: 'bar' | 'weeks' };
   /** chapters to read per week; 0 for no goal */
@@ -185,6 +187,7 @@ export const DEFAULTS: Settings = {
   refNumbering: 'edition',
   reminders: { enabled: false, time: '07:30', message: 'A quiet moment with Scripture, if you would like one.' },
   showStreaks: false,
+  autoFavorites: false,
   memento: { on: false, birthday: '', expectancy: 80, onHome: true, view: 'bar' },
   weeklyGoal: 0,
   lectioMinutes: 15,

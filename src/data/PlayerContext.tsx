@@ -1,4 +1,6 @@
 import { savedUrl } from '../lib/offlineAudio';
+import { nextFavorite } from './autoplay';
+import { getSettings } from '../lib/store';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { db } from '../db/db';
 import { loadBiay } from './biay';
@@ -113,6 +115,9 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         await loadBiay();
         const ep = await resolveEpisode(next.episodeId);
         if (ep) play(ep);
+      } else if (getSettings().autoFavorites) {
+        const ep = await nextFavorite(cur?.id);
+        if (ep) { registerEpisodes([ep]); play(ep); }
       }
     });
     const hide = () => { if (document.visibilityState === 'hidden') save(); };

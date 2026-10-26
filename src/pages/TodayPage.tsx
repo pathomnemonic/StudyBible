@@ -8,6 +8,7 @@ import { passageText, anchorToNative } from '../lib/bibleText';
 import { formatRef, parseRefId, type Ref } from '../lib/refs';
 import { readerPath } from '../lib/nav';
 import { getBook } from '../lib/canon';
+import ForYouChips from '../components/ForYouChips';
 import MementoCard from '../components/MementoCard';
 import Icon from '../components/Icon';
 import HomeExtras, { FavStar } from '../components/HomeExtras';
@@ -154,6 +155,7 @@ export default function TodayPage() {
         </aside>
       )}
 
+      <ForYouChips />
       <MementoCard />
       <HomeExtras date={date} season={ld.season} ref={ref} label={verse?.label ?? ''} onRandom={random} />
       <footer className="home-actions">

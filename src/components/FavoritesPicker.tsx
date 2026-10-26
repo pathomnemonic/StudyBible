@@ -5,6 +5,7 @@ import { allRecordedWorks } from '../data/librivox';
 import { getJson } from '../data/loader';
 import { toggleFollow, useFollows } from '../lib/follow';
 import { fold } from '../search/engine';
+import { updateSettings } from '../lib/store';
 
 type Group = 'podcasts' | 'audiobooks' | 'videos';
 const LIMIT = 12;
@@ -45,7 +46,7 @@ export default function FavoritesPicker({ compact = false }: { compact?: boolean
         <div className="fav-chips" role="group" aria-label={`Choose ${g}`}>
           {shown.map((r) => {
             const on = follows.has(r.key);
-            return <button key={r.key} className={`fav-chip${on ? ' on' : ''}`} aria-pressed={on} onClick={() => toggleFollow(r.key, !on)}><span>{on ? '✓ ' : ''}{r.label}</span>{r.sub && <small>{r.sub}</small>}</button>;
+            return <button key={r.key} className={`fav-chip${on ? ' on' : ''}`} aria-pressed={on} onClick={() => { void toggleFollow(r.key, !on); if (!on && compact) updateSettings({ autoFavorites: true }); }}><span>{on ? '✓ ' : ''}{r.label}</span>{r.sub && <small>{r.sub}</small>}</button>;
           })}
           {!shown.length && <p className="muted small">Nothing matches.</p>}
         </div>
