@@ -182,12 +182,10 @@ export default function SearchPage() {
             <div className="notice info">Did you mean a book: {suggestBooks(qParam).map((s) => BOOK_BY_ID[s].name).join(', ')}?</div>
           )}
 
-          <div className="chips" style={{ margin: '8px 0 14px' }}>
-            {KINDS.map(([k, label]) => (
-              <button key={k} className={`chip${kind === k ? ' sel' : ''}`} onClick={() => setKind(k)}>
-                {label}
-              </button>
-            ))}
+          <div className="row" style={{ margin: '8px 0 14px', gap: 8, flexWrap: 'wrap' }}>
+            <select value={kind} onChange={(e) => setKind(e.target.value as typeof kind)} aria-label="What to show">
+              {KINDS.map(([k, label]) => <option key={k} value={k}>{label}</option>)}
+            </select>
             {authors.length > 0 && (
               <select value={author} onChange={(e) => setAuthor(e.target.value)} aria-label="Filter by author">
                 <option value="">Any author</option>

@@ -60,8 +60,8 @@ export const showPrefs = (key: string) => ({
   rate: showSetting(key, 'rate'),
   intro: showSetting(key, 'skip'),
   outro: showSetting(key, 'outro'),
-  fwd: showSetting(key, 'fwd') || 30,
-  back: showSetting(key, 'back') || 15,
+  fwd: showSetting(key, 'fwd') || showSetting('all', 'fwd') || 30,
+  back: showSetting(key, 'back') || showSetting('all', 'back') || 15,
   auto: !showSetting(key, 'manual'),
 });
 

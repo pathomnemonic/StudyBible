@@ -1,3 +1,4 @@
+import FilterBar from '../../components/FilterBar';
 import { Group, HubHeader, Tiles } from '../../components/Hub';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -35,7 +36,6 @@ export default function RoomHome() {
   const setParam = (k: string, v: string) => { const n = new URLSearchParams(sp); if (v) n.set(k, v); else n.delete(k); setSp(n, { replace: true }); };
   const filtering = !!(q.trim() || authorId || kindF || periodF);
   const shelf = useShelf();
-  const [showFilters, setShowFilters] = useState(false);
   useScrollMemory('/room', works.length > 0, '/room?' + sp.toString());
   useEffect(() => { getLibraryIndex().then((l) => setWorks(l?.works ?? [])); recordedWorkIds().then(setHeard); getAuthors().then((a) => setAuthors(a?.authors ?? {})); }, []);
   const mine = useUserBooks();
@@ -61,24 +61,19 @@ export default function RoomHome() {
   const listOf = (sh: (typeof SHELVES)[number]) => (sh.ids ? (sh.ids.map((id) => byId.get(id)).filter(Boolean) as LibraryWorkMeta[]) : works.filter((w) => sh.kinds!.includes(w.kind)));
   return (
     <div className="page room">
-      <HubHeader title="Read" sub="The saints, the Fathers and the Church’s own texts, each opening beside a Bible chapter." />
+      <HubHeader title="Read" sub="The saints, the Fathers and the Church’s own texts, with every Bible reference a tap away." />
       <div className="tabbar" role="tablist">
         <button role="tab" aria-selected={tab === 'discover'} onClick={() => setParam('tab', '')}>Discover</button>
         <button role="tab" aria-selected={tab === 'mine'} onClick={() => setParam('tab', 'mine')}>My shelves</button>
       </div>
       {tab === 'mine' ? <MyShelves works={all} card={card} /> : (
         <>
-          <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
-            <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a work or an author…" aria-label="Find a work or an author" style={{ flex: 1, minWidth: 200, maxWidth: 420 }} />
-            <button className="btn small" aria-expanded={showFilters} onClick={() => setShowFilters(!showFilters)}>Filters</button>
-            <Link className="btn small" to="/study/search">Search inside texts</Link>
-          </div>
-          {(showFilters || periodF || kindF) && (
-            <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginTop: 8 }}>
-              <select value={periodF} onChange={(e) => setParam('period', e.target.value)} aria-label="Period"><option value="">Any period</option><option value="patristic">Patristic (to c. 750)</option><option value="medieval">Medieval</option><option value="early-modern">Early modern</option></select>
-              <select value={kindF} onChange={(e) => setParam('kind', e.target.value)} aria-label="Kind"><option value="">Any kind</option>{[...new Set(works.map((w) => w.kind))].sort().map((k) => <option key={k}>{k}</option>)}</select>
-            </div>
-          )}
+          <FilterBar active={(periodF ? 1 : 0) + (kindF ? 1 : 0)}
+            search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a work or an author…" aria-label="Find a work or an author" />}
+            extra={<Link className="btn small" to="/study/search">Search inside texts</Link>}>
+        <select value={periodF} onChange={(e) => setParam('period', e.target.value)} aria-label="Period"><option value="">Any period</option><option value="patristic">Patristic (to c. 750)</option><option value="medieval">Medieval</option><option value="early-modern">Early modern</option></select>
+        <select value={kindF} onChange={(e) => setParam('kind', e.target.value)} aria-label="Kind"><option value="">Any kind</option>{[...new Set(works.map((w) => w.kind))].sort().map((k) => <option key={k}>{k}</option>)}</select>
+          </FilterBar>
           {authorId && <p className="small">Showing works by {authors[authorId]?.name ?? authorId}. <button className="linklike" onClick={() => setParam('author', '')}>Show everything</button></p>}
           {filtering && <ul className="plain" style={{ listStyle: 'none', padding: 0 }}>{found.map((w) => <li key={w.id} style={{ padding: '4px 0' }}><Link to={`/room/work/${w.id}/0`}>{w.title}</Link> <span className="muted small">{w.author}</span></li>)}{!found.length && <li className="muted">Nothing matches.</li>}</ul>}
           {!filtering && open && (

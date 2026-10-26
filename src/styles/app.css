@@ -4792,3 +4792,5 @@ button, a, [role='button'] { touch-action: manipulation; }
 
 .meditate-sleep{display:grid;gap:.25rem;text-decoration:none;color:inherit;margin-bottom:.6rem}
 .med-list li{padding:.35rem 0;border-bottom:1px solid var(--hairline)}
+.qs-row{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.4rem 0}
+.qs-row>span{flex:1 1 14rem}
