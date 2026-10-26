@@ -4795,3 +4795,10 @@ button, a, [role='button'] { touch-action: manipulation; }
 .qs-themes { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px; margin-bottom: 8px; } .qs-theme { background: none; border: 2px solid transparent; border-radius: 12px; padding: 4px; cursor: pointer; display: grid; gap: 3px; color: var(--text); font: inherit; } .qs-theme.on { border-color: var(--accent); } .qs-theme small { font-size: .7rem; color: var(--muted); text-align: center; line-height: 1.1; }
 .qs-sw { display: grid; place-items: center; position: relative; height: 40px; border-radius: 9px; border: 1px solid; font-weight: 700; font-family: var(--font-serif); } .qs-sw b { position: absolute; right: 5px; bottom: 5px; width: 14px; height: 6px; border-radius: 3px; }
 .welcome-h { margin: 12px 0 6px; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+.reflect-pen{margin-left:.35rem;vertical-align:middle;position:relative;width:1.9rem;height:1.9rem}
+.reflect-pen svg{width:1rem;height:1rem}
+.reflect-dot{position:absolute;top:.2rem;right:.2rem;width:.45rem;height:.45rem;border-radius:50%;background:var(--accent)}
+.reflect-box{margin-top:.5rem;display:grid;gap:.5rem}
+.reflect-box textarea{width:100%;resize:vertical;font:inherit;padding:.6rem;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:inherit}
+.reflect-box .row{display:flex;gap:.8rem;align-items:center}
