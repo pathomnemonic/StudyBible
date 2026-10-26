@@ -39,7 +39,7 @@ export const FEATURES: Feature[] = [
   { id: 'bible.fulfilment', title: 'Promise and fulfilment', blurb: 'Types and prophecies in the Fathers’ words.', to: '/study/fulfilment', hub: 'bible', keywords: 'typology prophecy' },
   { id: 'bible.share', title: 'Share a verse', blurb: 'Make a picture of a verse, with a painting.', to: '/share', hub: 'bible', keywords: 'image card instagram' },
   // Read
-  { id: 'read.room', title: 'Read: saints and Fathers', blurb: '94 works to read in full, with a Bible chapter beside them.', to: '/room', hub: 'read', keywords: 'library augustine aquinas confessions imitation', hot: true, interest: ['study', 'pray'] },
+  { id: 'read.room', title: 'Read: saints and Fathers', blurb: '94 works to read in full, with every Bible reference tappable.', to: '/room', hub: 'read', keywords: 'library augustine aquinas confessions imitation', hot: true, interest: ['study', 'pray'] },
   { id: 'read.catechism', title: 'Catechism of the Catholic Church', blurb: 'The full text, paragraph by paragraph, with search.', to: '/study/catechism', hub: 'learn', keywords: 'ccc doctrine', hot: true, interest: ['study', 'teach'] },
   { id: 'read.church', title: 'Councils and Church documents', blurb: 'Read in full where public domain, official links for the rest.', to: '/study/church', hub: 'read', keywords: 'vatican nicaea encyclical' },
   { id: 'read.papal', title: 'Papal writings', blurb: 'Encyclicals and letters.', to: '/study/papal', hub: 'read', keywords: 'pope encyclical' },

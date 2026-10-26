@@ -5,12 +5,14 @@ import { getLibraryIndex, getWork, type LibraryWorkMeta } from '../../data/conte
 import { db, type HighlightColor, type Note } from '../../db/db';
 import { saveNote } from '../../db/ops';
 import { useSettings } from '../../lib/store';
+import { useEditions } from '../../data/EditionsContext';
+import { readerPath } from '../../lib/nav';
+import { splitScripture } from '../../lib/scriptureLinks';
 import RefLink from '../../components/RefLink';
 import NoteEditor from '../../components/NoteEditor';
 import TextSettings from '../../components/TextSettings';
 import Icon from '../../components/Icon';
 import { RecordedWork } from '../../components/RecordedBooks';
-import BiblePane from '../../components/BiblePane';
 import ReadAloud from '../../components/ReadAloud';
 import WorkSelection from '../../components/WorkSelection';
 import { FindInChapter, LookUp, ReadProgress } from '../../components/ReaderTools';
@@ -30,16 +32,21 @@ const quoteOf = (n: Note) => (n.body.split('\n')[0] ?? '').replace(/^>\s*/, '').
 
 /** One paragraph with the reader's highlights drawn in, and any search hit marked. */
 function Para({ text, hls, find, speaking }: { text: string; hls: { q: string; color: HighlightColor; id?: number }[]; find: string; speaking: boolean }) {
+  const { get, editions } = useEditions();
+  const [st] = useSettings();
+  const edition = get(st.defaultEdition) ?? editions[0];
+  /** Scripture references in the text open that passage in the Bible tab. */
+  const plain = (t: string, k: number): React.ReactNode[] => splitScripture(t).map((pc, j) => typeof pc === 'string' || !edition ? (typeof pc === 'string' ? pc : pc.text) : <Link key={`${k}.${j}`} className="scrip-ref" to={readerPath(edition, pc.ref)} title="Open in the Bible">{pc.text}</Link>);
   const hits = hls.map((h) => ({ ...h, at: text.indexOf(h.q) })).filter((h) => h.at >= 0).sort((a, b) => a.at - b.at);
   const parts: React.ReactNode[] = [];
   let pos = 0;
   for (const h of hits) {
     if (h.at < pos) continue;
-    parts.push(text.slice(pos, h.at));
+    parts.push(...plain(text.slice(pos, h.at), pos));
     parts.push(<mark key={h.at} className={`wk-hl hl-${h.color}`} style={{ background: `var(--hl-${h.color})`, color: 'inherit' }}>{text.slice(h.at, h.at + h.q.length)}</mark>);
     pos = h.at + h.q.length;
   }
-  parts.push(text.slice(pos));
+  parts.push(...plain(text.slice(pos), pos));
   void find;
   return <>{parts}{speaking ? '' : ''}</>;
 }
@@ -50,8 +57,7 @@ export default function WorkReader() {
   const loc = useLocation();
   const together = loc.pathname.startsWith('/room');
   const base = together ? '/room/work' : '/study/works';
-  const [paneOpen, setPaneOpen] = useState(false);
-  const [meta, setMeta] = useState<LibraryWorkMeta | null>(null);
+    const [meta, setMeta] = useState<LibraryWorkMeta | null>(null);
   const [work, setWork] = useState<Awaited<ReturnType<typeof getWork>>>(null);
   const [toc, setToc] = useState(false);
   const [tocFind, setTocFind] = useState('');
@@ -145,7 +151,6 @@ export default function WorkReader() {
             <div className="title">
               <button className="title-btn" onClick={() => setToc(!toc)} aria-expanded={toc} aria-haspopup="dialog">{meta.title} <span className="muted small">{idx + 1}/{work.sections.length}</span></button>
             </div>
-            {together && <button className="btn small room-switch" onClick={() => setPaneOpen(!paneOpen)} aria-pressed={paneOpen}>{paneOpen ? 'Show the text' : 'Show the Bible'}</button>}
             <button className="icon-btn" onClick={() => setFinding(true)} aria-label="Find in this section" title="Find in this section ( / )"><Icon name="search" /></button>
             <button className="icon-btn tool-sm" aria-pressed={aloud} onClick={() => setAloud((a) => !a)} aria-label="Read aloud" title="Read this section aloud"><Icon name="listen" /></button>
             <button className="icon-btn tool-sm" aria-pressed={settings.ambience.kind !== 'off'} onClick={() => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'auto' : 'off' }, ambienceTipSeen: true })} aria-label={settings.ambience.kind === 'off' ? 'Turn background sound on' : 'Turn background sound off'}><Icon name="music" /></button>
@@ -156,10 +161,8 @@ export default function WorkReader() {
               {more && (
                 <div className="more-menu" role="menu" onClick={() => setMore(false)}>
                   <button role="menuitem" onClick={() => setNote({})}>Note on this section</button>
-                  {together && <button role="menuitem" className="menu-narrow" onClick={() => setPaneOpen(!paneOpen)}>{paneOpen ? 'Show the text' : 'Show the Bible beside it'}</button>}
                   <button role="menuitem" onClick={toggleBookmark}>{bookmarked ? 'Remove bookmark' : 'Bookmark this section'}</button>
                   <button role="menuitem" onClick={() => setToc(true)}>Contents and search the whole work</button>
-                  {!together && <button role="menuitem" onClick={() => nav(`/room/work/${workId}/${idx}`)}>Open with a Bible beside it</button>}
                 </div>
               )}
             </span>
@@ -181,7 +184,7 @@ export default function WorkReader() {
             </ol>
           </div>
         )}
-        <div className={together ? `room-cols${paneOpen ? ' pane-open' : ''}` : undefined}>
+        <div>
           <article className="scripture work-text" aria-label={sec.title}>
             <div className="muted small" style={{ fontFamily: 'var(--font-sans)' }}>{meta.title} · {meta.author}</div>
             <h1 className="chapter-title">{sec.title}</h1>
@@ -223,7 +226,6 @@ export default function WorkReader() {
               </div>
             )}
           </article>
-          {together && <aside className="room-aside"><BiblePane suggest={sec.scripture} /></aside>}
         </div>
       </div>
       {!quiet && <ReadProgress words={words} label={sec.title.length > 38 ? sec.title.slice(0, 36) + '…' : sec.title} bookPos={`${idx + 1}/${work.sections.length}`} />}

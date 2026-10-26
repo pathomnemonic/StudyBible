@@ -19,7 +19,7 @@ const SHELVES: { title: string; blurb: string; ids?: string[]; kinds?: string[] 
   { title: 'Catechisms, councils and documents', blurb: 'What the Church has taught, in full.', kinds: ['catechism', 'council', 'document'] },
   { title: 'Doctrine and history', blurb: 'Treatises, letters, apologetics and Church history from the early Church.', kinds: ['treatise', 'letters', 'apologetics', 'history', 'summa'] },
 ];
-/** The reading room: texts and recordings beyond the Bible, each of which can be opened with a Bible chapter beside it. */
+/** The reading room: texts and recordings beyond the Bible. */
 export default function RoomHome() {
   const [works, setWorks] = useState<LibraryWorkMeta[]>([]);
   const [heard, setHeard] = useState<Set<string>>(new Set());
