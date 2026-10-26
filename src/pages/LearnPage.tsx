@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
 import { getGrades, gradeLabel, type GradeMeta } from '../curriculum/model';
@@ -22,6 +22,8 @@ const ASK: [string, string][] = [
 /** Learn: everything that teaches the faith. The Catechism program comes first, then the Catechism itself and the questions people ask. */
 export default function LearnPage() {
   const [grades, setGrades] = useState<GradeMeta[]>([]);
+  const nav = useNavigate();
+  const [num, setNum] = useState('');
   const [st] = useSettings();
   useEffect(() => { getGrades().then(setGrades); }, []);
   const prog = useLiveQuery(() => db.planProgress.where('planId').startsWith('cur:').toArray(), []) ?? [];
@@ -33,6 +35,16 @@ export default function LearnPage() {
   return (
     <div className="page hub">
       <HubHeader title="Learn" sub="The Catholic faith, taught step by step." />
+      <Group title="The Catechism and doctrine" hint="What the Church teaches, and where it says so">
+        <form className="ccc-jump" onSubmit={(e) => { e.preventDefault(); const n = parseInt(num, 10); if (n >= 1 && n <= 2865) nav(`/study/catechism/${n}`); }}>
+          <Link className="btn primary" to="/study/catechism">Read the Catechism</Link>
+          <Link className="btn" to="/study/doctrine">Doctrine by topic</Link>
+          <label className="ccc-num"><span className="sr-only">Catechism paragraph number</span>
+            <input type="number" inputMode="numeric" min={1} max={2865} placeholder="Go to § (1–2865)" value={num} onChange={(e) => setNum(e.target.value)} />
+          </label>
+        </form>
+        <Tiles ids={['study.visual', 'learn.mass']} />
+      </Group>
       {adult && <LessonOfDay />}
       {!st.audience && (
         <Group title="Who is this for?" hint="Shows the right lessons first. You can change it in Settings.">
@@ -77,9 +89,6 @@ export default function LearnPage() {
       )}
       <Fold id="learn:more-courses" title="More courses" hint="Guided lessons, in order">
         <Tiles ids={['study.ya', 'study.prepare', 'study.kids', 'study.course']} />
-      </Fold>
-      <Fold id="learn:catechism" title="The Catechism and doctrine" hint="What the Church teaches, and where it says so">
-        <Tiles ids={['read.catechism', 'study.doctrine', 'study.visual', 'learn.mass']} />
       </Fold>
       <Fold id="learn:questions" title="Questions and journeys">
         <Tiles ids={['study.apologetics', 'study.paths', 'study.story']} />

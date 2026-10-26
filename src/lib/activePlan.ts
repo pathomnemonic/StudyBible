@@ -30,6 +30,11 @@ export function useActivePlan(): ActivePlan | null {
   const [built, setBuilt] = useState<PlanDef[]>([]);
   const v = get('vulgate');
   useEffect(() => { if (v) void builtinPlans(v).then(setBuilt); }, [v?.id]);
+  // a plan chosen in Settings with no progress yet (settings restored on a new device, or progress cleared): begin it today instead of showing nothing
+  useEffect(() => {
+    if (!rows || !s.activePlan || rows.some((r) => r.planId === s.activePlan)) return;
+    void db.planProgress.put({ planId: s.activePlan, startedAt: Date.now(), status: 'active', done: [], offsetDays: 0 });
+  }, [rows, s.activePlan]);
   if (!rows || !userPlans) return null;
   const live = rows.filter((r) => r.status !== 'finished');
   const chosen = s.activePlan && rows.find((r) => r.planId === s.activePlan) ? s.activePlan : live.length === 1 ? live[0].planId : '';
