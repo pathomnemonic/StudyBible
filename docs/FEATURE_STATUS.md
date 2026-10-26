@@ -32,7 +32,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Challoner’s notes, chapter summaries and introductions; chapter reading links | **Working** | Bishop Challoner’s annotations (about 1,850), a one-line summary for 1,293 chapters and 71 book introductions (public domain, Project Gutenberg). Every chapter of all 73 books also links to the Douay-Rheims with notes (DRBO), New Advent and the NABRE with the bishops’ notes (USCCB). These are chapter-level, not verse-level; the app labels them so. `scripts/verify/coverage.ts` reports how many verses have a verse-level reading versus chapter-level only. |
 | Church Fathers: Catena Aurea (all four Gospels, CrossWire), Haydock Catholic Bible Commentary (protocanon), Augustine, Chrysostom, Irenaeus, Athanasius, Cyril, Glossa Ordinaria (Latin) | **Working** | Public-domain: CrossWire Catena (Public Domain license), SermonIndex Haydock module, CCEL translations. 24 works in the library plus a link-out Summa index. |
-| Reading room: saints, Fathers and catechisms in full | **Working** | 94 public-domain works, including the Imitation of Christ, Thérèse, Teresa, Julian, Francis de Sales, Ignatius, Anselm, and the Roman and Baltimore catechisms. The Roman Catechism text is unproofread OCR. The Catechism of the Catholic Church is copyrighted and linked, not included. |
+| Read tab: saints, Fathers and catechisms in full | **Working** | 94 public-domain works, including the Imitation of Christ, Thérèse, Teresa, Julian, Francis de Sales, Ignatius, Anselm, and the Roman and Baltimore catechisms. The Roman Catechism text is unproofread OCR. The Catechism of the Catholic Church is copyrighted and linked, not included. |
 | Popes and Vatican documents | **Partial** | Linked (not copied) with authority labels; text search of them is not included. **Next:** Full-text search of the linked documents. **Blocked by:** rights. **Done when:** a search test over the documents that returns the cited article. |
 | Catholic Answers, Word on Fire, Ascension Presents | **Needs credentials / agreement** | No public APIs or reuse licenses. Only search links and a curated-link schema are provided; no content is imported. A partnership/license would unlock richer integration. **Next:** A reuse agreement or public API from each publisher. **Blocked by:** rights. **Done when:** an integration fetches an item and shows attribution. |
 | Semantic / concept search with AI | **Planned** | Not implemented. Concept search currently uses editorial topic keywords and a people/places index, clearly labelled. If added, AI results will be marked as such. **Next:** Evidence-first retrieval that cites source passages. **Blocked by:** code. **Done when:** every result links to a passage and marks generated text as such. |
@@ -399,3 +399,29 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Kindle-style tools: find in chapter, look up a word, reading progress, continuous scroll, focus mode | **Partial** | Find in chapter (“/”), select a word and tap Look up (a short definition from Wiktionary when online, and a search of the Bible and library), minutes left and progress, continuous scroll between chapters, and a focus mode you can tailor. Not done: highlighting part of a verse, Popular Highlights from other readers, Word Wise. |
 | A line drawing for every chapter and book-opening pictures | **Working** | The drawing at the head of each chapter is composed from small motifs chosen by what the chapter says (a boat, sheep, loaves, a flame…) and arranged differently each time. Nearly every book also opens with a historiated initial from a Gothic Bible of about 1275–1300 (Cleveland Museum of Art, CC0). |
+
+## App
+
+| Feature | Status | Notes |
+|---|---|---|
+| Six tabs, short setup and red dots | **Working** | Read, Study, Today, Bible, Pray and Listen tabs; a five-step setup that tailors the app; red dots on things you have not opened and one-time tips; one feature list drives search, the Everything page and Start here rows. All of it can be turned off in Settings. |
+
+## Teach
+
+| Feature | Status | Notes |
+|---|---|---|
+| Lesson in a box | **Working** | Run this lesson: a timed running order for the class length with what to say and ask at each step, built from the lesson and the age band. |
+| Slide PDF handout | **Working** | Every slide with its teacher notes as printable boxes; use Save as PDF in the print dialog. A PowerPoint export is not built. **Next:** PPTX export of the deck. **Blocked by:** code. **Done when:** Open the exported file in PowerPoint and Keynote and compare slide counts. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Visual Catechism | **Working** | Ten tappable diagrams (Trinity, sacraments, Creed pillars, commandments, virtues, Mass, Church year, salvation history, works of mercy, canon) tied to Catechism paragraphs. Content awaits review by a priest or theologian. |
+
+## Pray
+
+| Feature | Status | Notes |
+|---|---|---|
+| Pilgrim pack | **Working** | Offline guides to eight pilgrimage places, a getting-ready checklist and a prayer for the way. Opening hours are not included; each guide links to the shrine’s own site. |
+| Prayer list and Church year calendar file | **Working** | A private list of intentions with a daily I prayed and answered prayers; a downloadable .ics of the next twelve months of feasts, holy days and Lenten fast days. |

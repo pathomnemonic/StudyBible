@@ -4684,3 +4684,4 @@ button, a, [role='button'] { touch-action: manipulation; }
   .sl-h-box header { font-size: 9pt; text-transform: uppercase; letter-spacing: .06em; color: #555; margin-bottom: 4pt; } .sl-h-box header b { display: inline-block; background: #222; color: #fff; border-radius: 4px; padding: 0 5pt; margin-right: 4pt; }
   .sl-h-box p { margin: 2pt 0; } .sl-h-box aside { margin-top: 5pt; padding-top: 4pt; border-top: 1px dashed #aaa; font-size: 10pt; color: #333; }
 }
+.start-here { margin: 8px 0 14px; } .start-here ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px; } .start-here a { display: grid; gap: 2px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); color: var(--text); text-decoration: none; height: 100%; } .start-here a span { color: var(--muted); font-size: .82rem; line-height: 1.3; }

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Tip } from '../../components/Hints';
+import { Tip, StartHere } from '../../components/Hints';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
@@ -76,6 +76,7 @@ export default function RoomHome() {
     <div className="page room">
       <h1>Read</h1>
       <Tip id="read" title="Books beside the Bible">Pick a saint, a Father or a catechism. It opens next to a Bible chapter, and your place is saved.</Tip>
+      <StartHere hub="read" />
       <p className="lede">The saints, the Fathers and the Church’s own texts, each of which opens beside a Bible chapter.</p>
       <div className="tabbar" role="tablist">
         <button role="tab" aria-selected={tab === 'discover'} onClick={() => setParam('tab', '')}>Discover</button>

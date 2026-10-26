@@ -1,5 +1,5 @@
 import Fold from '../../components/Fold';
-import { Tip } from '../../components/Hints';
+import { Tip, StartHere } from '../../components/Hints';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -34,6 +34,7 @@ export default function PrayHome() {
     <div className="page">
       <h1>Prayer</h1>
       <Tip id="pray" title="New here? Start with the rosary">Open the Rosary, then tap each bead as you pray. You can also pray along with a recording, and the mysteries appear as pictures.</Tip>
+      <StartHere hub="pray" />
       <p className="lede">Quiet ways to pray with Scripture. Everything here is optional; the Bible and your readings are one tab away.</p>
       <Fold id="pray:Daily prayer" title="Daily prayer" open={true}>
         <div className="grid">
