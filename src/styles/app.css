@@ -4465,3 +4465,12 @@ a { text-underline-offset: 3px; }
 .sl-clock { display: flex; gap: 20px; align-items: center; margin-top: .6em; } .sl-clock span { font-size: clamp(2.6rem, 8vw, 6rem); font-weight: 800; font-variant-numeric: tabular-nums; } .sl-clock span.done { color: #c62828; }
 .slides.sk-poll, .slides.sk-myth { --sl-a: #6a1b9a; } .slides.sk-debate { --sl-a: #c62828; } .slides.sk-timer { --sl-a: #2e7d32; } .slides.sk-meet { --sl-a: #1565c0; } .slides.sk-exit { --sl-a: #ef6c00; }
 .slides.sk-meet, .slides.sk-exit { background: linear-gradient(160deg, color-mix(in srgb, var(--sl-a) 18%, var(--bg)), var(--bg)); }
+.tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 12px; }
+.tool-card { padding: 14px 16px; border-radius: 16px; border: 1px solid var(--hairline, #8884); background: color-mix(in srgb, var(--surface) 80%, transparent); margin-bottom: 12px; display: grid; gap: 8px; align-content: start; }
+.tool-card h3 { margin: 0; font-family: var(--font-display); font-size: 1.15rem; }
+.picker { font: 700 clamp(1.6rem, 6vw, 2.6rem) var(--font-display, serif); min-height: 1.4em; text-align: center; padding: 8px; border-radius: 12px; background: color-mix(in srgb, var(--accent) 12%, transparent); } .picker.spin { opacity: .6; }
+.groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; } .group { padding: 8px 10px; border-radius: 12px; border: 1px solid var(--hairline, #8884); } .group ul { margin: 4px 0 0; padding-left: 1.1em; }
+.big-clock { font: 800 clamp(2.4rem, 9vw, 4.5rem) var(--font-display, serif); text-align: center; font-variant-numeric: tabular-nums; }
+.test-page { margin-top: 14px; padding: 16px; border: 1px solid var(--hairline, #8884); border-radius: 12px; } .test-opts { padding-left: 1.4em; } .test-page ol > li { margin: 10px 0; break-inside: avoid; }
+.rubric-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--hairline, #8884); } .rubric-row strong { min-width: 130px; }
+@media print { .test-page.key { break-before: page; } .tool-card { border: 0; } body * { visibility: hidden; } .test-sheet, .test-sheet * { visibility: visible; } .test-sheet { position: absolute; left: 0; top: 0; width: 100%; } .no-print { display: none !important; } }

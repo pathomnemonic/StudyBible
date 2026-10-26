@@ -94,6 +94,14 @@ try {
   check((await t.locator('th.asm-title, .asm-title').count()) >= 3, 'exam column added');
   await t.getByRole('tab', { name: 'Reports' }).click();
   await t.waitForSelector('.report-card');
+  // the toolkit
+  await t.getByRole('tab', { name: 'Toolkit' }).click();
+  await t.getByRole('button', { name: 'Pick', exact: true }).click();
+  await t.waitForFunction(() => document.querySelector('.picker') && document.querySelector('.picker').textContent !== '?', null, { timeout: 5000 });
+  await t.getByRole('button', { name: 'Shuffle' }).click();
+  await t.waitForSelector('.group');
+  await t.getByRole('button', { name: 'Make the test' }).click();
+  await t.waitForSelector('.test-page.key');
 } catch (e) { problems.push(`flow: ${e.message.split('\n')[0]}`); }
 await browser.close();
 try { process.kill(-server.pid); } catch { /* gone */ } broker.close();

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { db } from '../db/db';
 import { addStudents, addAssessment, assessmentsOf, attendanceOf, createClass, deleteClass, mapPlayer, saveClass, sessionsOf, setMark, setScore, useClass, useClasses, useWork } from './store';
+import { Toolkit } from './TeachTools';
 import { attendanceSummary, gradebook, letter, MARK_LABEL, toCsv, today, type ClassDoc, type Mark } from './model';
 
 const download = (name: string, text: string) => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'text/csv;charset=utf-8' })); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); };
@@ -31,7 +32,7 @@ export function TeachHome() {
   );
 }
 
-type Tab = 'roster' | 'attendance' | 'sessions' | 'grades' | 'reports';
+type Tab = 'roster' | 'attendance' | 'sessions' | 'grades' | 'reports' | 'tools';
 export function ClassPage() {
   const { classId = '' } = useParams();
   const cls = useClass(classId);
@@ -40,7 +41,7 @@ export function ClassPage() {
   const tab = (sp.get('tab') as Tab) || 'roster';
   if (cls === undefined) return <div className="page"><p className="muted">Loading…</p></div>;
   if (!cls) return <div className="page"><Link to="/teach">← Teacher tools</Link><p>That class was not found.</p></div>;
-  const TABS: [Tab, string][] = [['roster', 'Students'], ['attendance', 'Attendance'], ['sessions', 'Sessions'], ['grades', 'Gradebook'], ['reports', 'Reports']];
+  const TABS: [Tab, string][] = [['roster', 'Students'], ['attendance', 'Attendance'], ['sessions', 'Sessions'], ['grades', 'Gradebook'], ['reports', 'Reports'], ['tools', 'Toolkit']];
   return (
     <div className="page">
       <Link to="/teach" className="small no-print">← Teacher tools</Link>
@@ -52,6 +53,7 @@ export function ClassPage() {
       {tab === 'sessions' && <Sessions cls={cls} work={work} />}
       {tab === 'grades' && <Grades cls={cls} work={work} />}
       {tab === 'reports' && <Reports cls={cls} work={work} />}
+      {tab === 'tools' && <Toolkit cls={cls} work={work} />}
     </div>
   );
 }
@@ -64,7 +66,7 @@ function Roster({ cls }: { cls: ClassDoc }) {
     <div>
       <p className="muted small">Type or paste student names, one per line. Students pick their name from this list when they join a live session, which is how attendance is taken.</p>
       <textarea rows={5} value={text} onChange={(e) => setText(e.target.value)} placeholder={'Maria Lopez\nJames Carter\nAnh Nguyen'} aria-label="Student names" style={{ width: '100%' }} />
-      <div className="row" style={{ gap: 8, margin: '6px 0 12px' }}><button className="btn primary" disabled={!text.trim()} onClick={async () => { const n = await addStudents(cls, text); setMsg(`${n} added.`); setText(''); }}>Add students</button><span className="muted small" aria-live="polite">{msg}</span></div>
+      <div className="row" style={{ gap: 8, margin: '6px 0 12px', flexWrap: 'wrap' }}><label className="btn">Import a list from a file<input type="file" accept=".csv,.txt" hidden onChange={async (e) => { const f = e.target.files?.[0]; if (f) { const t = (await f.text()).split(/\r?\n/).map((l) => l.split(',').slice(0, 2).reverse().map((x) => x.trim().replace(/^"|"$/g, '')).filter(Boolean).join(' ')).join('\n'); setText(t); } }} /></label><button className="btn primary" disabled={!text.trim()} onClick={async () => { const n = await addStudents(cls, text); setMsg(`${n} added.`); setText(''); }}>Add students</button><span className="muted small" aria-live="polite">{msg}</span></div>
       <ul className="list">
         {cls.students.map((s) => (
           <li key={s.id} className="row between" style={{ gap: 8, flexWrap: 'wrap' }}>
@@ -152,11 +154,12 @@ function Grades({ cls, work }: { cls: ClassDoc; work: Work }) {
   const [title, setTitle] = useState('');
   const [cat, setCat] = useState(cls.categories[0]?.id ?? 'homework');
   const [pts, setPts] = useState(100);
+  const [due, setDue] = useState('');
   const total = cls.categories.reduce((a, c) => a + c.weight, 0);
   const avg = (f: (r: (typeof rows)[number]) => number | null) => { const v = rows.map(f).filter((x): x is number => x !== null); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; };
   return (
     <div>
-      <div className="grid-scroll"><table className="grid-table grades"><thead><tr><th>Student</th>{asm.map((a) => <th key={a.id} title={`${a.title} (${a.points} points)`}><span className="asm-title">{a.title}</span><small>{cls.categories.find((c) => c.id === a.category)?.name} · /{a.points}</small></th>)}<th>Overall</th><th>Grade</th></tr></thead><tbody>
+      <div className="grid-scroll"><table className="grid-table grades"><thead><tr><th>Student</th>{asm.map((a) => <th key={a.id} title={`${a.title} (${a.points} points)`}><span className="asm-title">{a.title}</span><small>{cls.categories.find((c) => c.id === a.category)?.name} · /{a.points}{a.due ? ` · due ${a.due}` : ''}</small></th>)}<th>Overall</th><th>Grade</th></tr></thead><tbody>
         {rows.map((r) => <tr key={r.student.id}><th scope="row">{r.student.name}</th>{asm.map((a) => <td key={a.id}><input className="score-in" inputMode="decimal" aria-label={`${r.student.name}, ${a.title}`} defaultValue={a.scores[r.student.id] ?? ''} key={`${a.id}${a.scores[r.student.id] ?? ''}`} onBlur={(e) => { const t = e.target.value.trim(); const n = t === '' ? null : Number(t); if (n === null || Number.isFinite(n)) void setScore(a, r.student.id, n); }} /></td>)}<td><strong>{pct(r.total)}</strong></td><td><strong>{letter(r.total, cls.scale)}</strong></td></tr>)}
         <tr className="avg"><th scope="row">Class average</th>{asm.map((a) => <td key={a.id}>{pct(avg((r) => r.byAssessment[a.id] ?? null))}</td>)}<td>{pct(avg((r) => r.total))}</td><td /></tr>
       </tbody></table></div>
@@ -165,10 +168,11 @@ function Grades({ cls, work }: { cls: ClassDoc; work: Work }) {
         <button className="btn small" onClick={() => download(`gradebook-${cls.name}.csv`, toCsv([['Student', ...asm.map((a) => `${a.title} (/${a.points})`), 'Overall %', 'Grade'], ...rows.map((r) => [r.student.name, ...asm.map((a) => a.scores[r.student.id] ?? ''), r.total === null ? '' : Math.round(r.total * 10) / 10, letter(r.total, cls.scale)])]))}>Download gradebook (CSV)</button>
         <button className="btn small" onClick={() => window.print()}>Print</button>
       </div>
-      <form className="row no-print" style={{ gap: 8, margin: '14px 0', flexWrap: 'wrap', alignItems: 'end' }} onSubmit={async (e) => { e.preventDefault(); await addAssessment(cls.id, title, cat, pts); setTitle(''); }}>
+      <form className="row no-print" style={{ gap: 8, margin: '14px 0', flexWrap: 'wrap', alignItems: 'end' }} onSubmit={async (e) => { e.preventDefault(); await addAssessment(cls.id, title, cat, pts, due); setTitle(''); setDue(''); }}>
         <label>New assignment<input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Chapter 3 homework" required /></label>
         <label>Category<select value={cat} onChange={(e) => setCat(e.target.value)}>{cls.categories.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}</select></label>
         <label>Points<input type="number" min={1} value={pts} onChange={(e) => setPts(+e.target.value)} style={{ width: 80 }} /></label>
+        <label>Due<input type="date" value={due} onChange={(e) => setDue(e.target.value)} /></label>
         <button className="btn primary">Add</button>
       </form>
       <details className="no-print"><summary>Weights, letter grades and removing items</summary>
@@ -210,6 +214,7 @@ function Reports({ cls, work }: { cls: ClassDoc; work: Work }) {
             </div>
             <table className="grid-table"><thead><tr><th>Assessment</th><th>Category</th><th>Score</th></tr></thead><tbody>{asm.filter((x) => x.scores[r.student.id] !== undefined && x.scores[r.student.id] !== null).map((x) => <tr key={x.id}><th scope="row">{x.title}</th><td>{cls.categories.find((c) => c.id === x.category)?.name}</td><td>{x.scores[r.student.id]}/{x.points} ({pct(r.byAssessment[x.id])})</td></tr>)}</tbody></table>
             <label className="no-print" style={{ display: 'grid', gap: 4, marginTop: 8 }}>Teacher’s comment<textarea rows={2} value={comments[r.student.id] ?? ''} onChange={(e) => { const n = { ...comments, [r.student.id]: e.target.value }; setComments(n); void db.cache.put({ key: `rc-comments:${cls.id}`, value: JSON.stringify(n), ts: Date.now() }); }} /></label>
+            <details className="no-print"><summary>Message to the family</summary><textarea readOnly rows={5} style={{ width: '100%' }} value={`Dear family of ${r.student.name.split(' ')[0]},\n\nHere is a brief update from ${cls.name}. ${r.student.name.split(' ')[0]}'s overall grade is ${pct(r.total) || 'not yet available'}${letter(r.total, cls.scale) ? ` (${letter(r.total, cls.scale)})` : ''}, with attendance of ${pct(a.rate) || 'n/a'} and participation of ${pct(part) || 'n/a'}.${comments[r.student.id] ? `\n\n${comments[r.student.id]}` : ''}\n\nThank you for your partnership.`} onFocus={(e) => e.currentTarget.select()} /></details>
             {comments[r.student.id] && <p className="report-comment print-only"><strong>Comment:</strong> {comments[r.student.id]}</p>}
           </article>
         );

@@ -12,7 +12,10 @@ export interface SessionResult { studentId: string | null; name: string; score: 
 export interface QuestionStat { q: string; kind?: string; correctPct: number; answeredPct: number }
 export type ClassWork =
   | { id: string; classId: string; kind: 'session'; date: string; ts: number; startedAt?: number; title: string; mode: 'lesson' | 'game' | 'exam'; code: string; results: SessionResult[]; questions: QuestionStat[]; updatedAt?: number }
-  | { id: string; classId: string; kind: 'assessment'; date: string; title: string; category: string; points: number; type: 'game' | 'exam' | 'manual' | 'participation'; sessionId?: string; scores: Record<string, number | null>; /** students whose score the teacher typed in, so automatic updates leave it alone */ edited?: string[]; updatedAt?: number }
+  | { id: string; classId: string; kind: 'assessment'; date: string; title: string; category: string; points: number; due?: string; type: 'game' | 'exam' | 'manual' | 'participation'; sessionId?: string; scores: Record<string, number | null>; /** students whose score the teacher typed in, so automatic updates leave it alone */ edited?: string[]; updatedAt?: number }
+  | { id: string; classId: string; kind: 'plan'; date: string; gradeId: string; lessonId: string; title: string; note?: string; done?: boolean; updatedAt?: number }
+  | { id: string; classId: string; kind: 'log'; date: string; studentId: string; type: 'note' | 'praise' | 'concern' | 'accommodation' | 'contact'; text: string; updatedAt?: number }
+  | { id: string; classId: string; kind: 'rubric'; date: string; title: string; criteria: { name: string; levels: { label: string; points: number }[] }[]; updatedAt?: number }
   | { id: string; classId: string; kind: 'attendance'; date: string; marks: Record<string, Mark>; updatedAt?: number };
 
 export const DEFAULT_CATEGORIES: Category[] = [

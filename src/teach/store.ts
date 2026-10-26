@@ -116,6 +116,6 @@ export async function setScore(a: Assessment, studentId: string, value: number |
   const edited = [...new Set([...(a.edited ?? []), studentId])];
   await db.classwork.put({ ...a, scores: { ...a.scores, [studentId]: value }, edited });
 }
-export async function addAssessment(classId: string, title: string, category: string, points: number, date = today()) {
-  await db.classwork.put({ id: uid(), classId, kind: 'assessment', date, title: title.trim() || 'Assignment', category, points: points || 100, type: 'manual', scores: {} });
+export async function addAssessment(classId: string, title: string, category: string, points: number, due?: string, date = today()) {
+  await db.classwork.put({ id: uid(), classId, kind: 'assessment', date, title: title.trim() || 'Assignment', category, points: points || 100, due: due || undefined, type: 'manual', scores: {} });
 }
