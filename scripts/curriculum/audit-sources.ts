@@ -19,7 +19,7 @@ for (const gm of grades) {
       const vr: Ref[] = v.refs.flatMap((x) => { const p = parseRefs(x); return p.ok ? p.refs.map((r) => r.ref) : []; });
       if (!vr.some((a) => sel.some((s) => a.book === s.book && a.c1 <= (s.c2 ?? s.c1) && s.c1 <= (a.c2 ?? a.c1)))) continue;
       total++;
-      const ok = relevant(l, v.title, v.refs.join('; '));
+      const ok = relevant({ title: l.title, scripture: l.scripture, vocab: l.vocab, idea: l.idea }, v.title, v.refs.join('; '));
       if (ok) kept++;
       console.log(`${ok ? 'KEEP' : 'DROP'}  ${l.id} “${l.title}” [${l.scripture}]  ←  ${v.title} [${v.refs.join('; ')}]`);
     }

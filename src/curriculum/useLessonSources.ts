@@ -10,6 +10,7 @@ import { videosFor, type Video } from '../data/videos';
 import { moreArtFor } from '../study/inlineArt';
 import { kidsStoriesFor } from '../pages/study/KidsPage';
 import { BOOK_PRAYERS } from '../data/prayerbook';
+import { relevant } from './match';
 import { cccList, type BandId, type LessonSpec } from './model';
 
 export interface Passage { label: string; ref: Ref; path: string; verses: { v: number; c: number; text: string }[] }
@@ -38,8 +39,8 @@ export function useLessonSources(lesson: LessonSpec | undefined, band: BandId | 
     if (ed) Promise.all(refs.map(async (r) => ({ label: r.label, ref: r.ref, path: readerPath(ed, r.ref), verses: await passageText(ed, r.anchor, 14).catch(() => []) }))).then((p) => live && setPassages(p.filter((x) => x.verses.length)));
     const nums = cccList(lesson.ccc).slice(0, 12);
     Promise.all(nums.map((n) => cccRange(n, n))).then((x) => live && setCcc(x.flat()));
-    videosFor(anchors, band === 'primary' || band === 'elementary' ? true : undefined).then((v) => live && setVideos(v.filter((x) => (band === 'primary' || band === 'elementary' ? true : !x.kids)).slice(0, 4)));
-    moreArtFor(anchors).then((a) => live && setArt((a as never as typeof art).slice(0, 3))).catch(() => undefined);
+    videosFor(anchors, band === 'primary' || band === 'elementary' ? true : undefined).then((v) => live && setVideos(v.filter((x) => (band === 'primary' || band === 'elementary' ? true : !x.kids)).filter((x) => relevant(lesson, x.title, x.refs.join('; '))).slice(0, 4)));
+    moreArtFor(anchors).then((a) => live && setArt((a as never as (typeof art[number] & { refs?: string[] })[]).filter((w) => relevant(lesson, w.title, (w.refs ?? []).join('; '))).slice(0, 3))).catch(() => undefined);
     if (band === 'primary' || band === 'elementary') kidsStoriesFor(anchors).then((xs) => {
       // the story must overlap the passage itself, not just share a chapter
       const hit = xs.find((x) => x.refs.some((sr) => { const p = parseRefs(sr); return p.ok && p.refs.some((q) => { const a = convertRef('kjv', 'vulgate', q.ref).ref; return anchors.some((b) => refsOverlap(a, b)); }); }));
