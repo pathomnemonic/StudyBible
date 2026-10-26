@@ -163,7 +163,7 @@ export default function BeadPrayer({ plan, art, episode, back, backLabel, intro,
       {i === 0 && !resume && timesPrayed(plan.id) === 0 && decade === undefined && (
         <section className="card rosary-howto">
           <strong>How this works</strong>
-          <p className="small" style={{ margin: '4px 0 0' }}>Tap the big button after each prayer to move to the next bead. At each of the five mysteries you will see a short scene from the Gospels: read it, or just picture it, then pray one Our Father, ten Hail Marys and a Glory Be while you keep that scene in mind. Pick another way to pray below if you would rather be led.</p>
+          <p className="small" style={{ margin: '4px 0 0' }}>Tap the big button after each prayer to move to the next bead. At each of the five mysteries you will see a short scene from the Gospels: read it, or just picture it, then pray one Our Father, ten Hail Marys and a Glory Be while you keep that scene in mind. If you would rather be led, choose “Lead me” or “Set the pace” instead.</p>
         </section>
       )}
       <div className="rosary-modes" role="radiogroup" aria-label="How would you like to pray?">
