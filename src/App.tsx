@@ -58,6 +58,7 @@ const PassageStudy = lazy(() => import('./pages/study/PassageStudy'));
 const ListenHome = lazy(() => import('./pages/listen/ListenHome'));
 const EpisodePage = lazy(() => import('./pages/listen/EpisodePage'));
 const PrayHome = lazy(() => import('./pages/pray/PrayHome'));
+const PilgrimPage = lazy(() => import('./pages/pray/PilgrimPage'));
 const DevotionsPage = lazy(() => import('./pages/pray/DevotionsPage'));
 const LifePage = lazy(() => import('./pages/pray/LifePage'));
 const PreparePage = lazy(() => import('./pages/study/PreparePage'));
@@ -265,6 +266,7 @@ export default function App() {
               <Route path="/listen" element={<ListenHome />} />
               <Route path="/listen/episode/:id" element={<EpisodePage />} />
               <Route path="/pray" element={<PrayHome />} />
+              <Route path="/pray/pilgrim/:id?" element={<PilgrimPage />} />
               <Route path="/pray/readings/:date?" element={<ReadingsPage />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/days" element={<DaysPage />} />

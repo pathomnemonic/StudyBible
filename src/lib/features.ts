@@ -46,6 +46,7 @@ export const FEATURES: Feature[] = [
   { id: 'read.encyclopedia', title: 'Catholic encyclopedia', blurb: 'Articles on the Church’s history, doctrine and life.', to: '/study/encyclopedia', hub: 'read', keywords: 'reference' },
   { id: 'read.mine', title: 'My books', blurb: 'Import your own EPUB or text books and read them here.', to: '/room?tab=mine', hub: 'read', keywords: 'epub import kindle shelf' },
   { id: 'study.visual', title: 'Visual Catechism', blurb: 'The faith as tappable diagrams: Trinity, sacraments, Mass, the Church’s year, salvation history.', to: '/study/visual', hub: 'study', keywords: 'diagram chart timeline infographic trinity sacraments commandments virtues', hot: true, interest: ['study', 'teach', 'family'] },
+  { id: 'pray.pilgrim', title: 'Pilgrim pack', blurb: 'Rome, the Holy Land, Lourdes, Fatima, Santiago and more: guides and a checklist that work offline.', to: '/pray/pilgrim', hub: 'pray', keywords: 'pilgrimage travel trip camino shrine offline', interest: ['pray'] },
   { id: 'read.gallery', title: 'Gallery', blurb: 'Paintings and engravings of Bible scenes.', to: '/study/gallery', hub: 'read', keywords: 'art dore' },
   // Study
   { id: 'study.curriculum', title: 'Catechism program, K–12', blurb: '396 lessons with slides, games and a teacher handbook.', to: '/study/curriculum', hub: 'study', keywords: 'lessons classroom homeschool religious education', hot: true, interest: ['teach', 'study'] },
