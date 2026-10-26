@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Icon from '../../components/Icon';
-import { Group, HubHeader, HubHero, Tiles } from '../../components/Hub';
+import { Group, HubHeader, Tiles } from '../../components/Hub';
 import { clearRecentSearches, useRecentSearches } from '../../lib/recent';
 import { readingsFor } from '../../liturgy/readings';
 import { useSettings } from '../../lib/store';
@@ -26,13 +26,13 @@ export default function StudyHome() {
   return (
     <div className="page hub">
       <HubHeader title="Explore the Bible" sub="Study tools for the text: words, books, people, places and sources." />
-      <HubHero tone="study" eyebrow="Search" title="Find anything in the Bible and the library">
+      <div className="hub-search">
         <form className="row" style={{ gap: 8, width: '100%' }} onSubmit={go} role="search">
           <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="John 6:51, bread of life, Augustine…" aria-label="Search everything" />
           <button className="btn" type="submit"><Icon name="search" size={16} /> Search</button>
         </form>
         {recent.length > 0 && <div className="recent-row"><div className="chips">{recent.map((r) => <Link key={r.id} className="chip" to={`/study/search?q=${encodeURIComponent(r.query)}`}>{r.query}</Link>)}</div><button className="linklike small" onClick={() => void clearRecentSearches()} aria-label="Clear recent searches">Clear</button></div>}
-      </HubHero>
+      </div>
       {(gos.today || gos.sunday) && (
         <Group title="Study the Mass readings" hint="With the Fathers, commentary and Catechism">
           <div className="hub-tiles">

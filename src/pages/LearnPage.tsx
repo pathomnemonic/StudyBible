@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
 import { getGrades, gradeLabel, type GradeMeta } from '../curriculum/model';
-import { Group, HubHeader, HubHero, Tiles } from '../components/Hub';
+import { Group, HubHeader, Tiles } from '../components/Hub';
 import { useSettings } from '../lib/store';
 
 /** Learn: everything that teaches the faith. The Catechism program comes first, then the Catechism itself and the questions people ask. */
@@ -18,10 +18,10 @@ export default function LearnPage() {
   return (
     <div className="page hub">
       <HubHeader title="Learn" sub="The Catholic faith, taught step by step." />
-      <HubHero tone="learn" eyebrow="The Catechism program" title="Choose your level" text="Kindergarten to Grade 12, and a course for adults. For classrooms, families and self-study.">
+      <Group title="Choose your level" hint="Kindergarten to Grade 12, and a course for adults">
         {mineGrade && <Link className="btn" to={`/study/curriculum/${mineGrade.id}`}>Continue {gradeLabel(mineGrade.id)} · {mine!.done.length} of {mineGrade.lessons}</Link>}
         <div className="level-chips" role="group" aria-label="Levels">{grades.map((g) => <Link key={g.id} className="chip" to={`/study/curriculum/${g.id}`} title={`${g.name}: ${g.lessons} lessons`}>{g.id === 'K' ? 'K' : g.id === 'YA' ? 'Adults' : g.id}</Link>)}</div>
-      </HubHero>
+      </Group>
       {(teach || family) && (
         <Group title={teach ? 'For teaching' : 'For your family'}>
           <Tiles ids={teach ? ['teach.classes', 'teach.run', 'teach.handbook', 'teach.join'] : ['study.kids', 'pray.rosary', 'study.prepare']} />

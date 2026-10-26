@@ -93,8 +93,8 @@ export default function RoomHome() {
               </section>
               <section className="sect">
                 <h2 className="eyebrow-h">Browse</h2>
-                <div className="shelf">
-                  {SHELVES.slice(1).map((sh) => <button key={sh.title} className="shelf-card as-btn" onClick={() => setParam('shelf', sh.title)}><span className="t">{sh.title}</span><span className="d">{sh.blurb}</span><span className="muted small">{listOf(sh).length} works</span></button>)}
+                <div className="hub-tiles">
+                  {SHELVES.slice(1).map((sh, i) => <button key={sh.title} className="hub-tile as-btn" onClick={() => setParam('shelf', sh.title)}><span className="hub-ico" aria-hidden="true">{['📖', '🕯️', '📜', '🏛️'][i] ?? '📚'}</span><span className="hub-tile-t">{sh.title}</span><span className="hub-tile-d">{sh.blurb} {listOf(sh).length} works.</span></button>)}
                 </div>
               </section>
               <Group title="More to read" hint="Beyond the Fathers"><Tiles ids={['read.saints', 'read.encyclopedia', 'read.papal', 'read.church', 'read.gallery']} /></Group>
