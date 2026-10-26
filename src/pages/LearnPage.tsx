@@ -31,7 +31,7 @@ export default function LearnPage() {
       <section className="sect">
         <h2 className="eyebrow-h">Choose your level</h2>
         <div className="chips">{grades.map((g) => <Link key={g.id} className="chip" to={`/study/curriculum/${g.id}`} title={`${g.name}: ${g.lessons} lessons`}>{gradeLabel(g.id)}</Link>)}</div>
-        <p className="muted small">Kindergarten to Grade 12, plus a young adults course. For classrooms, families and self-study.</p>
+        <p className="muted small">Kindergarten to Grade 12, plus a course for adults. For classrooms, families and self-study.</p>
       </section>
       <StartHere hub="learn" />
       {GROUPS.map((g) => (

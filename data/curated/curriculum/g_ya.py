@@ -1,6 +1,6 @@
 from spec import L, U
 # quiz strings: "question|a|b|c|d|index of right answer|why"
-GRADE = dict(id='YA', name='Young adults', band='adult', age='18–35', theme='A guided course for people in the years of big decisions', units=[
+GRADE = dict(id='YA', name='Adults', band='adult', age='18 and up', theme='A guided course for adults: the faith made plain, and what to do with it', units=[
 U('Knowing God','Creed','Is it reasonable to believe, and who is the God Christians believe in?',[
  L('The question of God','Almost every culture asks where the world came from and what it is for. Christianity claims that reason can reach God as the source of all that exists, and that God also reached out to us in Jesus. Believing is a free act of trust that is reasonable, not blind.','27,31,32,33,34,35,36,37','Acts 17:22-31;Romans 1:19-20','faith-reason god creator revelation','What experiences (wonder, loss, love, guilt) have made you ask whether God is real?','Write down the two strongest reasons you have heard for and against belief. Swap with a partner and respond to each in a sentence.','come-holy-spirit',
    teach=['The Church teaches that God can be known with certainty by the natural light of reason from creation (CCC 36). That is different from saying everyone has the argument at hand.','Faith goes beyond reason without contradicting it; truth cannot contradict truth (CCC 159).','Doubt is not the opposite of faith. Many saints, including Mother Teresa, lived with long dryness and kept praying.'],

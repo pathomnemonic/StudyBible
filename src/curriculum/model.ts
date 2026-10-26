@@ -27,7 +27,7 @@ export const getGrades = () => once('index', () => getJson<GradeMeta[]>('curricu
 export const getGrade = (id: string) => once(`g${id}`, () => getJson<GradeData>(`curriculum/grade-${id}.json`, true));
 export const getGlossary = () => once('glossary', () => getJson<Glossary>('curriculum/glossary.json', true).then((x) => x ?? {}));
 
-export const gradeLabel = (id: string) => (id === 'K' ? 'Kindergarten' : id === 'YA' ? 'Young adults' : `Grade ${id}`);
+export const gradeLabel = (id: string) => (id === 'K' ? 'Kindergarten' : id === 'YA' ? 'Adults' : `Grade ${id}`);
 export const flatLessons = (g: GradeData) => g.units.flatMap((u) => u.lessons.map((l) => ({ ...l, unit: u })));
 
 /** "27-30,355" → [27,28,29,30,355] */

@@ -61,7 +61,7 @@ const STEPS: Step[] = [
   { part: 'Pray', find: q('.tabs a[href="#/pray"]'), tap: true, text: 'Tap Pray.' },
   { part: 'Pray', route: '/pray', find: q('.page h1'), text: 'The rosary, Divine Mercy, novenas and more, all interactive.', sub: 'Tap to say a prayer bead by bead, or pray along with a recording.' },
   { part: 'Learn', find: q('.tabs a[href="#/learn"]'), tap: true, text: 'Tap Learn.' },
-  { part: 'Learn', route: '/learn', find: q('.page h1'), text: 'The Catholic faith, taught: pick your level, or look things up in the Catechism.', sub: 'Lessons run from Kindergarten to Grade 12, plus a young adults course.' },
+  { part: 'Learn', route: '/learn', find: q('.page h1'), text: 'The Catholic faith, taught: pick your level, or look things up in the Catechism.', sub: 'Lessons run from Kindergarten to Grade 12, plus an adults course.' },
   { part: 'Study', find: q('.tabs a[href="#/study"]'), tap: true, text: 'Tap Study.' },
   { part: 'Study', route: '/study', exact: true, find: q('.page h1'), text: 'Study is where the deep tools are. Let us open a few.' },
   { part: 'Done', route: '/today', exact: true, title: 'You are set', text: 'Take this tour again any time from Profile.' },

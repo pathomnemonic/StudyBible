@@ -231,6 +231,7 @@ export default function App() {
               <Route path="/study/curriculum/:grade/packet" element={<CurriculumPacket />} />
               <Route path="/study/curriculum/:grade/:lessonId" element={<CurriculumLesson />} />
               <Route path="/study/young-adults" element={<YoungAdultsPage />} />
+              <Route path="/study/adults" element={<YoungAdultsPage />} />
               <Route path="/study/apologetics/:id?" element={<ApologeticsPage />} />
               <Route path="/study/kids/:id?" element={<KidsPage />} />
               <Route path="/study/videos" element={<VideoLibrary />} />

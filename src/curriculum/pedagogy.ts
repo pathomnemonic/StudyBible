@@ -74,7 +74,7 @@ export const BANDS: Band[] = [
   },
 ];
 export const ADULT: Band = {
-  id: 'adult', label: 'Young adults', grades: '18–35', minutes: 75,
+  id: 'adult', label: 'Adults', grades: '18 and up', minutes: 75,
   plan: [
     ['Gather and pray', 0.1, 'Welcome, a short prayer or song, and a check-in: one thing that went well, one thing that was hard.'],
     ['Open with a real question', 0.15, 'Pose the lesson’s question and let everyone answer honestly before any teaching. Listen for what people already believe.'],

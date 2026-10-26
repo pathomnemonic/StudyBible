@@ -21,7 +21,7 @@ const PROFILE_PATHS = ['/profile', '/library', '/settings', '/account', '/about'
 const DAILY_PRAY = ['/pray/readings', '/pray/plans'];
 const inPray = (path: string) => (['/pray', '/mass'].some((m) => path === m || path.startsWith(m + '/'))) && !DAILY_PRAY.some((m) => path === m || path.startsWith(m + '/'));
 /** The Catechism program, the Catechism itself and the pages that teach the faith: they belong to Learn, not Study. */
-const LEARN_PATHS = ['/learn', '/study/curriculum', '/study/prepare', '/study/young-adults', '/study/kids', '/study/apologetics', '/study/visual', '/study/catechism', '/study/doctrine', '/study/course', '/study/story', '/study/paths', '/teach', '/join'];
+const LEARN_PATHS = ['/learn', '/study/curriculum', '/study/prepare', '/study/young-adults', '/study/adults', '/study/kids', '/study/apologetics', '/study/visual', '/study/catechism', '/study/doctrine', '/study/course', '/study/story', '/study/paths', '/teach', '/join'];
 const under = (path: string, list: string[]) => list.some((m) => path === m || path.startsWith(m + '/'));
 const inLearn = (path: string) => under(path, LEARN_PATHS);
 const TABS = [

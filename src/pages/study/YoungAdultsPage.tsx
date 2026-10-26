@@ -39,21 +39,21 @@ const LISTEN: [string, string][] = [
   ['father-simon-says', 'Father Simon Says'],
 ];
 
-/** A page for people in their late teens to thirties: the questions, the Scripture and the people that usually come up. */
+/** A page for adults: the questions, the Scripture and the people that usually come up. */
 export default function YoungAdultsPage() {
   return (
     <div className="page">
-      <h1>Young adults</h1>
-      <p className="lede">For the years of big decisions: what to do with your life, who to love, what you actually believe, and whether any of it holds up. Nothing here is a lecture. Open what you need.</p>
+      <h1>Adults</h1>
+      <p className="lede">For anyone weighing the faith or coming back to it: what you actually believe, what to do with your life, how to love well, and whether any of it holds up. Nothing here is a lecture. Open what you need.</p>
 
       <section className="sect">
         <h2 className="eyebrow-h">The course</h2>
         <p className="muted small">Thirty guided sessions in ten units, for a small group or on your own: knowing God, the Bible and the Church, prayer, mercy, the sacraments, love and chastity, vocation, work and money, hard questions, and living as a missionary disciple. Each has Scripture, the Catechism, discussion, a challenge and a saint.</p>
-        <Link className="btn primary" to="/study/curriculum/YA">Start the young adults course</Link>
+        <Link className="btn primary" to="/study/curriculum/YA">Start the adults course</Link>
       </section>
 
       <section className="sect">
-        <h2 className="eyebrow-h">Questions people your age ask</h2>
+        <h2 className="eyebrow-h">Questions adults ask</h2>
         <p className="muted small">Each gathers what Catholic writers and speakers say, with the verses and Catechism paragraphs to check it against.</p>
         <ul className="list">{ASK.map(([id, t]) => <li key={id}><Link to={`/study/apologetics/${id}`} className="t">{t}</Link></li>)}</ul>
         <Link to="/study/apologetics" className="small">All the questions →</Link>

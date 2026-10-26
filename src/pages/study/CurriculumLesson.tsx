@@ -8,6 +8,7 @@ import { bandOf, FAMILY_DAYS, type Band } from '../../curriculum/pedagogy';
 import { useLessonSources } from '../../curriculum/useLessonSources';
 import InlinePlayer from '../../components/InlinePlayer';
 import LessonSlides, { buildSlides } from '../../curriculum/LessonSlides';
+import { isKeyLesson } from '../../curriculum/keyLessons';
 import LessonRun from '../../curriculum/LessonRun';
 import LessonPlay from '../../curriculum/LessonPlay';
 import StartLive from '../../live/StartLive';
@@ -113,7 +114,7 @@ export default function CurriculumLesson() {
         <span className="muted small">Unit {lesson.unit.n}: {lesson.unit.title}</span>
       </nav>
       <div className={`lesson-banner pillar-${pillarKey(lesson.unit.pillar)}`}><span className="pillar-ico" aria-hidden="true">{pillarIcon(lesson.unit.pillar)}</span><div><div className="pillar-name">{lesson.unit.pillar}</div><h1 style={{ margin: 0 }}>{lesson.title}</h1></div></div>
-      <p className="muted small" style={{ marginTop: 0 }}>{gradeLabel(g.id)} · {g.theme} · Lesson {idx + 1} of {flat.length}</p>
+      <p className="muted small" style={{ marginTop: 0 }}>{gradeLabel(g.id)} · {g.theme} · Lesson {idx + 1} of {flat.length}{isKeyLesson(g.id, lesson.id) && <span className="key-badge"> ★ Key lesson</span>}</p>
 
       {liveOpen && <StartLive grade={g} lesson={lesson} slides={liveSlides()} onClose={() => setLiveOpen(false)} />}
       <div className="tabbar no-print" role="tablist" aria-label="View">
