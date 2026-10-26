@@ -11,7 +11,7 @@ import type { Band } from './pedagogy';
 
 type Kind = 'poll' | 'myth' | 'debate' | 'timer' | 'exit' | 'meet' | 'title' | 'wonder' | 'idea' | 'goals' | 'vocab' | 'story' | 'scripture' | 'image' | 'church' | 'video' | 'points' | 'point' | 'section' | 'talk' | 'do' | 'saint' | 'quiz' | 'life' | 'prayer' | 'end';
 interface Card { k: string; v: string }
-interface Slide {
+export interface Slide {
   kind: Kind; label: string; title?: string; body?: string; items?: string[]; ref?: string;
   poll?: string[]; reveal?: string; seconds?: number; sides?: string[]; frames?: string[];
   img?: { src: string; alt: string; credit: string }; video?: Video; q?: Question; notes?: string[]; word?: { w: string; d: string };
@@ -247,6 +247,7 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
         <span className="sl-tools">
           <button className="btn small" onClick={() => setGrid(true)} title="All slides (G)">▦</button>
           <button className="btn small" onClick={() => setPrinting(true)} title="Print or save as a PDF handout">PDF</button>
+          <button className="btn small" onClick={() => { void import('./pptx').then((m) => m.exportPptx(slides, slides[0]?.title ?? 'Lesson')); }} title="Download as a PowerPoint file">PPTX</button>
           <button className="btn small" onClick={() => setNotes(!notes)} aria-pressed={notes} title="Teacher notes (N)">Notes</button>
           <button className="btn small" onClick={() => (document.fullscreenElement ? document.exitFullscreen() : root.current?.requestFullscreen?.())} title="Full screen (F)">⛶</button>
           <button className="btn small" onClick={onClose}>Close (Esc)</button>
