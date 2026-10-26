@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
-import { resolveEpisode, setShowSetting, showSetting, usePlayer } from '../data/PlayerContext';
+import { resolveEpisode, usePlayer } from '../data/PlayerContext';
 import type { BiayEpisode } from '../data/content';
 import Modal from './Modal';
+import ShowSettings from './ShowSettings';
 
 export const SPEEDS = [0.5, 0.7, 0.85, 1, 1.1, 1.25, 1.5, 1.75, 2, 2.5, 3];
 const fmt = (s: number) => { const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60); return `${h ? h + ':' + String(m).padStart(2, '0') : m}:${String(Math.floor(s % 60)).padStart(2, '0')}`; };
@@ -14,7 +15,7 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
   const p = usePlayer();
   const q = useLiveQuery(() => db.queue.orderBy('order').toArray(), []) ?? [];
   const [eps, setEps] = useState<Record<string, BiayEpisode>>({});
-  const [skip, setSkip] = useState(() => (p.showKey ? showSetting(p.showKey, 'skip') : 0));
+  const [cfg, setCfg] = useState(false);
   useEffect(() => { void Promise.all(q.map(async (x) => [x.episodeId, await resolveEpisode(x.episodeId)] as const)).then((r) => setEps(Object.fromEntries(r.filter((x): x is [string, BiayEpisode] => !!x[1])))); }, [q.map((x) => x.episodeId).join()]);
   const e = p.current;
   if (!e) return null;
@@ -28,18 +29,18 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
         <div className="row small muted" style={{ gap: 8 }}><span>{fmt(p.position)}</span><input type="range" min={0} max={p.duration || 1} value={p.position} step={1} onChange={(ev) => p.seek(+ev.target.value)} style={{ flex: 1 }} aria-label="Seek" /><span>−{fmt(Math.max(0, p.duration - p.position))}</span></div>
         <div className="row" style={{ justifyContent: 'center', gap: 14 }}>
           <button className="btn" onClick={() => p.skip(-60)} aria-label="Back one minute">−60</button>
-          <button className="btn" onClick={() => p.skip(-15)} aria-label="Back 15 seconds">−15</button>
+          <button className="btn" onClick={() => p.skip(-p.back)} aria-label={`Back ${p.back} seconds`}>−{p.back}</button>
           <button className="btn primary big" onClick={p.toggle} aria-label={p.playing ? 'Pause' : 'Play'}>{p.playing ? '⏸' : '▶'}</button>
-          <button className="btn" onClick={() => p.skip(30)} aria-label="Forward 30 seconds">+30</button>
+          <button className="btn" onClick={() => p.skip(p.fwd)} aria-label={`Forward ${p.fwd} seconds`}>+{p.fwd}</button>
           <button className="btn" onClick={() => p.skip(60)} aria-label="Forward one minute">+60</button>
         </div>
         <div className="row" style={{ gap: 10, flexWrap: 'wrap' }}>
           <label>Speed <select value={p.rate} onChange={(ev) => p.setRate(+ev.target.value)}>{SPEEDS.map((r) => <option key={r} value={r}>{r}×</option>)}</select></label>
           <label>Sleep <select value={p.sleep.mode === 'off' ? 'off' : p.sleep.mode === 'end' ? 'end' : 'min'} onChange={(ev) => p.setSleep(ev.target.value === 'off' ? 'off' : ev.target.value === 'end' ? 'end' : 15)}><option value="off">Off</option><option value="end">End of this episode</option><option value="min">{p.sleep.mode === 'minutes' ? `${Math.ceil(p.sleep.left / 60)} min left` : 'In minutes…'}</option></select></label>
           {p.sleep.mode !== 'end' && <label>Minutes <select value="" onChange={(ev) => ev.target.value && p.setSleep(+ev.target.value)}><option value="">choose</option>{[5, 10, 15, 30, 45, 60, 90].map((m) => <option key={m} value={m}>{m}</option>)}</select></label>}
-          <label>Skip intro <input type="number" min={0} max={300} value={skip} style={{ width: 70 }} onChange={(ev) => { const n = Math.max(0, +ev.target.value || 0); setSkip(n); if (p.showKey) setShowSetting(p.showKey, 'skip', n); }} /> s</label>
+          {p.showKey && <button className="btn small" onClick={() => setCfg(true)}>This show’s settings</button>}
         </div>
-        <p className="muted small" style={{ margin: 0 }}>Speed and intro skip are remembered for this show.</p>
+        
         <div className="row" style={{ gap: 8 }}>
           <button className="btn small" onClick={share}>Share</button>
           <button className="btn small" onClick={() => { void db.episodeProgress.put({ episodeId: e.id, position: 0, completed: true, updatedAt: Date.now(), duration: p.duration }); }}>Mark played</button>
@@ -50,6 +51,7 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
           <ol className="list">{q.map((x) => <li key={x.id} className="row between"><span style={{ minWidth: 0 }}>{eps[x.episodeId]?.title ?? x.episodeId}</span><button className="icon-btn" aria-label="Remove from queue" onClick={() => db.queue.delete(x.id!)}>✕</button></li>)}</ol>
         </details>
       </div>
+      {cfg && <ShowSettings showKey={p.showKey} name={e.album ?? e.artist ?? e.title} onClose={() => setCfg(false)} />}
     </Modal>
   );
 }

@@ -9,6 +9,7 @@ import { loadShow, lookupEpisode, type Show, type ShowData } from '../../data/po
 import type { BiayEpisode } from '../../data/content';
 import { fold } from '../../search/engine';
 import Icon from '../../components/Icon';
+import ShowSettings from '../../components/ShowSettings';
 import { toggleFollow, useFollows } from '../../lib/follow';
 
 type View = 'plan' | 'all' | 'queue' | 'progress';
@@ -20,6 +21,7 @@ export default function PodcastView({ show }: { show: Show }) {
   const [data, setData] = useState<ShowData | null | undefined>(undefined);
   const [view, setView] = useState<View>(show.programme ? 'plan' : 'all');
   const [q, setQ] = useState('');
+  const [cfg, setCfg] = useState(false);
   const progress = useLiveQuery(() => db.episodeProgress.toArray(), []) ?? [];
   const queue = useLiveQuery(() => db.queue.orderBy('order').toArray(), []) ?? [];
   const doneMap = useMemo(() => new Map(progress.map((p) => [p.episodeId, p])), [progress]);
@@ -53,7 +55,8 @@ export default function PodcastView({ show }: { show: Show }) {
 
   return (
     <section aria-label={show.title}>
-      <div className="row between"><h2 className="h-sm" style={{ marginBottom: 2 }}>{show.title}</h2><button className="btn small" aria-pressed={following} onClick={() => toggleFollow(show.id, !following)}>{following ? '✓ Following' : '+ Follow'}</button></div>
+      {cfg && <ShowSettings showKey={`pod-${show.id}`} name={show.title} onClose={() => setCfg(false)} />}
+      <div className="row between"><h2 className="h-sm" style={{ marginBottom: 2 }}>{show.title}</h2><button className="btn small" onClick={() => setCfg(true)} title="Skip the intro, speed, skip buttons for this show">Settings</button><button className="btn small" aria-pressed={following} onClick={() => toggleFollow(show.id, !following)}>{following ? '✓ Following' : '+ Follow'}</button></div>
       <p className="muted small" style={{ marginTop: 0 }}>{show.host}{show.publisher && show.publisher !== show.host ? ` · ${show.publisher}` : ''}{show.note ? ` · ${show.note}` : ''}</p>
       <p className="muted small">Episode lists come from the publisher’s own public feed, and the audio plays from them; nothing is copied. <a href={show.page} target="_blank" rel="noreferrer noopener">The publisher’s page</a>.{show.tradition ? ' Made for an Eastern Catholic audience.' : ''}</p>
       {data === undefined && <div className="center-note">Loading episodes…</div>}

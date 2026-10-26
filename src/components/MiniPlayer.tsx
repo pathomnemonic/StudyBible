@@ -15,9 +15,9 @@ export default function MiniPlayer() {
         <Link to={p.current.link ?? `/listen/episode/${p.current.id}`} className="small" style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
           {p.current.title}
         </Link>
-        <button className="icon-btn" onClick={() => p.skip(-15)} aria-label="Back 15 seconds">−15</button>
+        <button className="icon-btn" onClick={() => p.skip(-p.back)} aria-label={`Back ${p.back} seconds`}>−{p.back}</button>
         <button className="icon-btn" onClick={p.toggle} aria-label={p.playing ? 'Pause' : 'Play'}><Icon name={p.playing ? 'pause' : 'play'} /></button>
-        <button className="icon-btn" onClick={() => p.skip(30)} aria-label="Forward 30 seconds">+30</button>
+        <button className="icon-btn" onClick={() => p.skip(p.fwd)} aria-label={`Forward ${p.fwd} seconds`}>+{p.fwd}</button>
         <select value={p.rate} onChange={(e) => p.setRate(+e.target.value)} aria-label="Playback speed">
           {SPEEDS.map((r) => <option key={r} value={r}>{r}×</option>)}
         </select>

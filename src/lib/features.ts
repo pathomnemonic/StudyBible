@@ -91,6 +91,7 @@ export const FEATURES: Feature[] = [
   { id: 'pray.year', title: 'The Church’s year', blurb: 'Seasons, colors and great days.', to: '/pray/year', hub: 'pray', keywords: 'advent lent easter calendar liturgical' },
   { id: 'pray.sunday', title: 'Prepare for Sunday', blurb: 'The coming Sunday’s readings with commentary.', to: '/pray/sunday', hub: 'pray', keywords: 'homily' },
   { id: 'pray.morning', title: 'Morning mode', blurb: 'Wake to rising sound and the day’s Gospel.', to: '/pray/morning', hub: 'pray', keywords: 'alarm' },
+  { id: 'listen.meditate', title: 'Meditate: chant, hymns and quiet sounds', blurb: 'Gregorian chant, hymns, piano and nature to rest with or fall asleep to.', to: '/listen?tab=meditate', hub: 'listen', keywords: 'sleep calm relax chant hymns piano rain peace', interest: ['pray'] },
   { id: 'pray.sleep', title: 'Sleep mode', blurb: 'A psalm read slowly while the sound fades.', to: '/pray/sleep', hub: 'pray', keywords: 'bedtime night' },
   { id: 'pray.build', title: 'Build a prayer time', blurb: 'Order your own prayers, Scripture and silence.', to: '/pray/build', hub: 'pray', keywords: 'custom' },
   { id: 'pray.journal', title: 'Prayer journal', blurb: 'Reflections and intentions, private to this device.', to: '/pray/journal', hub: 'pray', keywords: 'diary' },

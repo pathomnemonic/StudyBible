@@ -14,6 +14,7 @@ import Icon from '../../components/Icon';
 import type { BiayEpisode } from '../../data/content';
 import { fold } from '../../search/engine';
 import MyMedia from '../../components/MyMedia';
+import Meditate from './Meditate';
 import YearHero from '../../components/YearHero';
 import { RecordedList } from '../../components/RecordedBooks';
 import PodcastView from './PodcastView';
@@ -141,8 +142,8 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
   );
 }
 
-type Tab = 'now' | 'podcasts' | 'audiobooks' | 'programmes' | 'videos';
-const TABS: [Tab, string][] = [['programmes', 'Bible in a Year'], ['now', 'For you'], ['podcasts', 'Podcasts'], ['audiobooks', 'Audiobooks'], ['videos', 'Videos']];
+type Tab = 'now' | 'podcasts' | 'audiobooks' | 'programmes' | 'videos' | 'meditate';
+const TABS: [Tab, string][] = [['programmes', 'Bible in a Year'], ['now', 'For you'], ['podcasts', 'Podcasts'], ['audiobooks', 'Audiobooks'], ['videos', 'Videos'], ['meditate', 'Meditate']];
 
 /** The Media tab: the Bible in a Year first, then what you follow, podcasts, audiobooks and videos. */
 export default function ListenHome() {
@@ -163,6 +164,7 @@ export default function ListenHome() {
       </div>
       {tab === 'now' && <ForYou />}
       {tab === 'videos' && <VideoLibrary embedded />}
+      {tab === 'meditate' && <Meditate />}
       {tab === 'podcasts' && (open
         ? <><button className="linklike small" onClick={() => go('podcasts')}>← All podcasts</button><PodcastView show={open} /></>
         : <PodcastLibrary onOpen={(id) => go('podcasts', { show: id })} />)}

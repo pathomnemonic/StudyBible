@@ -13,6 +13,7 @@ import { readerPath } from '../lib/nav';
 import { dayOfYear } from '../study/verseOfDay';
 import RefLink from './RefLink';
 import Icon from './Icon';
+import ShowSettings from './ShowSettings';
 
 /** Progress ring: the Bible in a Year days you have finished, out of 365. */
 function Ring({ done, day }: { done: number; day: number }) {
@@ -52,6 +53,7 @@ export default function YearHero() {
     const done = finished ? prog.done.filter((x) => x !== todayIdx) : [...prog.done, todayIdx];
     await db.planProgress.put({ ...prog, done });
   };
+  const [cfg, setCfg] = useState(false);
   return (
       <section className="year-card" aria-labelledby="year-h">
         <Ring done={prog?.done.length ?? 0} day={dayN} />
@@ -64,11 +66,13 @@ export default function YearHero() {
             {ep && <SaveOffline ep={ep} compact />}
             {first && edition && <Link className="btn" to={readerPath(edition, first)}>Read</Link>}
             <button className={'btn' + (finished ? ' on' : '')} aria-pressed={finished} onClick={toggleDone} title="Mark today finished">{finished ? '✓ Done' : 'Done?'}</button>
+            <button className="btn" onClick={() => setCfg(true)} title="Skip the intro, speed, skip buttons for this show">Settings</button>
           </div>
           <p className="year-foot muted small">
             {prog ? `${prog.done.length} of 365 days finished · Fr. Mike Schmitz, Ascension` : <>Following the calendar. <button className="linklike" onClick={startTracking}>Track my progress</button></>}
           </p>
         </div>
+      {cfg && <ShowSettings showKey="biay" name="Bible in a Year" onClose={() => setCfg(false)} />}
       </section>
   );
 }
