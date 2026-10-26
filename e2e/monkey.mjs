@@ -12,7 +12,7 @@ const bad = [];
 for (const vp of (process.env.WIDTHS || '390,1280').split(',').map((w) => ({ width: +w, height: +w > 600 ? 800 : 844 }))) {
   for (const r of routes) {
     const ctx = await b.newContext({ viewport: vp });
-    await ctx.addInitScript(() => { if (sessionStorage.getItem('i')) return; sessionStorage.setItem('i', '1'); localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); });
+    await ctx.addInitScript(() => { try { if (sessionStorage.getItem('i')) return; sessionStorage.setItem('i', '1'); localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); } catch { /* a sandboxed frame */ } });
     const p = await ctx.newPage();
     const errs = [];
     p.on('pageerror', (e) => errs.push(e.message));
