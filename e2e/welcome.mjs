@@ -57,11 +57,11 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   // Everything page: grouped by tab, filterable
   await p.goto(`${BASE}/#/more`);
   await p.waitForSelector('.everything-filter');
-  const groups = await p.locator('.tool-group').count();
+  const groups = await p.locator('.hub-group').count();
   if (groups < 6) fail('groups ' + groups);
   await p.fill('.everything-filter', 'rosary');
   await p.waitForTimeout(200);
-  const hits = await p.locator('.tool-group li').count();
+  const hits = await p.locator('.hub-group .hub-tile').count();
   if (hits < 1 || hits > 12) fail('rosary search ' + hits);
   // palette finds features by words
   await p.keyboard.press('Control+k');

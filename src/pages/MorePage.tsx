@@ -1,40 +1,27 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSettings } from '../lib/store';
-import { FEATURES, HUBS, searchFeatures, visible, type Feature } from '../lib/features';
-import { NewDot } from '../components/Hints';
+import { FEATURES, HUBS, searchFeatures, visible } from '../lib/features';
+import { Group, HubHeader, Tile } from '../components/Hub';
+import { useSync } from '../sync/state';
 
-/** A plain map of everything in the app, grouped like the tabs, with a filter and a red dot on what you have not opened. */
+/** Every page in the app, grouped like the tabs. A directory for when something is hard to find; the tabs are the way in. */
 export default function MorePage() {
-  const [s] = useSettings();
   const [q, setQ] = useState('');
+  useSync();
   const found = useMemo(() => (q.trim() ? searchFeatures(q, 40) : null), [q]);
-  const link = (f: Feature) => (
-    <li key={f.id}>
-      <Link to={f.to === '/read' && s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : f.to} data-seen={f.id}>
-        <span className="t">{f.title} <NewDot id={f.id} inline label="New" /></span>
-        <span className="d">{f.blurb}</span>
-        <span className="go" aria-hidden="true">→</span>
-      </Link>
-    </li>
-  );
   return (
-    <div className="page">
-      <h1>Everything in Study Bible</h1>
-      <p className="lede">Every part of the app in one list, grouped like the tabs. A red dot marks something you have not opened yet.</p>
+    <div className="page hub">
+      <HubHeader title="Everything" sub="Every part of the app, grouped like the tabs." />
       <input type="search" className="everything-filter" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a feature: rosary, maps, quiz, export…" aria-label="Find a feature" />
       {found ? (
-        <section className="tool-group"><h2>{found.length ? `${found.length} found` : 'Nothing matches'}</h2><ul>{found.map(link)}</ul></section>
+        <Group title={found.length ? `${found.length} found` : 'Nothing matches'}><div className="hub-tiles">{found.map((f) => <Tile key={f.id} f={f} />)}</div></Group>
       ) : (
-        <div className="tool-groups">
-          {HUBS.map((h) => (
-            <section key={h.id} className="tool-group">
-              <h2><Link to={h.to}>{h.title}</Link></h2>
-              <p className="muted small">{h.blurb}</p>
-              <ul>{FEATURES.filter((f) => f.hub === h.id && visible(f)).map(link)}</ul>
-            </section>
-          ))}
-        </div>
+        HUBS.map((h) => (
+          <Group key={h.id} title={h.title} hint={h.blurb}>
+            <div className="hub-tiles">{FEATURES.filter((f) => f.hub === h.id && visible(f)).map((f) => <Tile key={f.id} f={f} />)}</div>
+            <p className="hub-hint" style={{ margin: '8px 0 0' }}><Link to={h.to}>Open {h.title} →</Link></p>
+          </Group>
+        ))
       )}
     </div>
   );
