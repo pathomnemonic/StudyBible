@@ -88,7 +88,7 @@ describe('backup round trip', () => {
     const { db } = await import('../src/db/db');
     const ops = await import('../src/db/ops');
     await db.notes.add({ kind: 'note', body: 'precious', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 } as any);
-    await expect(ops.importAll(JSON.stringify({ format: 'something-else' }), 'replace')).rejects.toThrow(/Not a Study Bible/);
+    await expect(ops.importAll(JSON.stringify({ format: 'something-else' }), 'replace')).rejects.toThrow(/Not a .+ export file/);
     await expect(ops.importAll(JSON.stringify({ format: 'studybible-export', version: 99 }), 'replace')).rejects.toThrow(/newer version/);
     await expect(ops.importAll(JSON.stringify({ format: 'studybible-export', version: 2, notes: 'oops' }), 'replace')).rejects.toThrow(/damaged/);
     await expect(ops.importAll(JSON.stringify({ format: 'studybible-export', version: 2, userLinks: [{ url: 'javascript:alert(1)' }] }), 'replace')).rejects.toThrow(/http or https/);

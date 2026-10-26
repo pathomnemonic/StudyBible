@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Fold from '../../components/Fold';
+import Fold, { FoldControls } from '../../components/Fold';
 import { addDays, iso, liturgicalDay } from '../../liturgy/compute';
 import { dutiesOn, nextHolyDays } from '../../liturgy/discipline';
 import { useSettings } from '../../lib/store';
@@ -80,6 +80,7 @@ export default function LifePage() {
         <p className="muted small" style={{ marginBottom: 0 }}>These open other sites. Your parish bulletin or office is the surest source for times.</p>
       </section>
 
+      <FoldControls />
       <Fold id="life:indulgences" title="Indulgences, plainly" hint="What they are and how to gain one">
         <p>An indulgence remits the <em>temporal punishment</em> due to sins that are already forgiven; it never forgives the sin itself and can never be bought (CCC 1471–1479). A <strong>partial</strong> indulgence needs only that you do the work with a contrite heart. A <strong>plenary</strong> indulgence also requires:</p>
         <ul className="list">

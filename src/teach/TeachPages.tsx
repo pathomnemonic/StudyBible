@@ -18,7 +18,7 @@ export function TeachHome() {
     <div className="page">
       <h1>Teacher tools</h1>
       <p className="lede">Your classes in one place: the student list, attendance, participation, quiz and exam scores, a gradebook and report cards. Joining a live session takes attendance for you.</p>
-      <div className="notice info small">Class records are kept on this device. If you are signed in to a Study Bible server, they sync to your own account only. Nothing is shared with students except the names on the list, which they see when they join a session.</div>
+      <div className="notice info small">Class records are kept on this device. If you are signed in to a sync server, they sync to your own account only. Nothing is shared with students except the names on the list, which they see when they join a session.</div>
       <h2 className="eyebrow-h" style={{ marginTop: 18 }}>Your classes</h2>
       {classes && classes.length === 0 && <div className="empty">No classes yet. Make your first one below.</div>}
       <div className="shelf">{(classes ?? []).filter((c) => !c.archived).map((c) => <Link key={c.id} className="shelf-card" to={`/teach/${c.id}`}><span className="t">{c.name}</span><span className="d">{c.grade ? `${c.grade} · ` : ''}{c.students.length} students · {c.year}</span></Link>)}</div>

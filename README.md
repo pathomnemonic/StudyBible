@@ -60,3 +60,7 @@ npm run verify:ccc   # re-check curated Catechism links against the paragraph te
 
 ## More study and daily-use tools
 Today dashboard (customizable) · Read with the Church (guided session) · Memorize Scripture (spaced repetition) · Read aloud · high-contrast themes · biblical theology explorer · textual history · the biblical world (journeys, eras, archaeology) · maps · concordance · topical index · Greek/Hebrew word study · knowledge graph · verse cards · offline packs · local-only mode. See docs/FEATURE_STATUS.md and docs/RESOURCE_COVERAGE.md for what is complete and what is partial.
+
+## Changing the app's name
+
+The name, tagline and description live in `brand.json` at the project root. Edit that file and rebuild: the interface, the browser tab, the install name, exports, calendar files and notifications all follow. Storage keys and file formats keep their original internal names so that nobody loses data when the name changes.

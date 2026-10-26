@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { popupY } from '../lib/popupPos';
 import type { HighlightColor } from '../db/db';
 
 const COLORS: HighlightColor[] = ['yellow', 'green', 'blue', 'pink'];
@@ -15,7 +16,7 @@ export default function WorkSelection({ onHighlight, onNote }: { onHighlight: (q
       const end = (s.focusNode?.parentElement ?? null)?.closest('p[data-p]') as HTMLElement | null;
       if (!para || para !== end) { setPos(null); return; }
       const r = s.getRangeAt(0).getBoundingClientRect();
-      setPos({ x: Math.min(window.innerWidth - 230, Math.max(8, r.left + r.width / 2 - 105)), y: Math.max(60, r.top - 50), text: t, p: +para.dataset.p! });
+      setPos({ x: Math.max(8, Math.min(window.innerWidth - 340, r.left + r.width / 2 - 165)), y: popupY(r, 50), text: t, p: +para.dataset.p! });
     };
     document.addEventListener('selectionchange', f);
     return () => document.removeEventListener('selectionchange', f);

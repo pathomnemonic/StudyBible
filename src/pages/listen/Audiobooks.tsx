@@ -5,6 +5,7 @@ import { db } from '../../db/db';
 import { getLibraryIndex, type LibraryWorkMeta } from '../../data/content';
 import { allRecordedWorks, type Recording } from '../../data/librivox';
 import { fmtDuration } from '../../data/biay';
+import FilterBar from '../../components/FilterBar';
 import MyAudio from './MyAudio';
 import { fold } from '../../search/engine';
 
@@ -29,10 +30,10 @@ export default function Audiobooks() {
     <div>
       <MyAudio />
       <p className="muted small" style={{ marginTop: 0 }}>{works.length} works read aloud by volunteers for <a href="https://librivox.org" target="_blank" rel="noreferrer">LibriVox</a> (public domain). Open one to play it in the bar at the bottom; it remembers the part and the minute you stopped, and carries on to the next part.</p>
-      <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 8 }}>
-        <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find an audiobook or an author…" aria-label="Find an audiobook" style={{ flex: 1, minWidth: 200, maxWidth: 380 }} />
-        <select value={filter} onChange={(e) => setFilter(e.target.value as 'all')} aria-label="Show"><option value="all">All</option><option value="going">In progress</option><option value="done">Finished</option></select>
-      </div>
+      <FilterBar active={filter !== 'all' ? 1 : 0}
+        search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find an audiobook or an author…" aria-label="Find an audiobook" />}>
+        <label>Show<select value={filter} onChange={(e) => setFilter(e.target.value as 'all')} aria-label="Show"><option value="all">All</option><option value="going">In progress</option><option value="done">Finished</option></select></label>
+      </FilterBar>
       <ul className="list">
         {list.map(({ w, s }) => (
           <li key={w.id}>

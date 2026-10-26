@@ -12,6 +12,8 @@ import { startDriveBackup } from '../sync/drive';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
 import type { Key } from '../i18n/en';
+import BibleToolMenu from './BibleToolMenu';
+import { BRAND } from '../lib/brand';
 import BackupBanner from './BackupBanner';
 import { snapshotIfDue } from '../lib/safety';
 import { BIBLE_TOOLS, isBibleToolPath } from '../lib/bibleTools';
@@ -122,7 +124,7 @@ export default function Shell({ children }: { children: ReactNode }) {
       <nav className="tabs" aria-label={t('nav.main')}>
         <div className="brand" aria-hidden="true">
           <span className="mark">✛</span>
-          <span>Study Bible</span>
+          <span>{BRAND.name}</span>
         </div>
         <button className="tab utility search-tab" onClick={() => setPalette(true)} aria-label="Search and jump (Ctrl+K)" title="Search and jump (Ctrl+K)">
           <span className="ico"><Icon name="search" /></span>
@@ -164,10 +166,7 @@ export default function Shell({ children }: { children: ReactNode }) {
           </nav>
         )}
         {isBibleToolPath(loc.pathname) && !fullscreenReader && (
-          <nav className="subnav bible-subnav" aria-label="Bible tools">
-            <NavLink to={s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : '/read'} className="back">← Back to reading</NavLink>
-            {BIBLE_TOOLS.map((t) => { const on = loc.pathname === t.match || loc.pathname.startsWith(t.match + '/'); return <NavLink key={t.to} to={t.to} className={on ? 'on' : ''} aria-current={on ? 'page' : undefined}>{t.label.replace(/^Parables, miracles, prophecies, covenants$/, 'Indexes').replace('Books and outlines', 'Books').replace('Gospel comparison', 'Gospels').replace('Key words and phrases', 'Key words').replace('Topical index', 'Topics')}</NavLink>; })}
-          </nav>
+          <BibleToolMenu back={s.last ? `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}` : '/read'} />
         )}
         {loc.pathname.startsWith('/study/') && !isBibleToolPath(loc.pathname) && (
           <nav className="crumbs" aria-label="Breadcrumb">

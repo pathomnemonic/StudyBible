@@ -1,3 +1,4 @@
+import { BRAND } from '../lib/brand';
 import { cccPara, getCccScripture } from '../data/ccc';
 import { haydockText, readableText } from '../lib/readable';
 import type { AuthorityLevel, ItemFormat, Period } from '../lib/types';
@@ -291,7 +292,7 @@ export const providers: Record<string, Provider> = {
         format: 'summary',
         match: 'topic',
         why: `Suggested topical connection: ${formatRef(hit)} is one of the key passages listed for “${t.title}”. An editorial pointer, not a citation.`,
-        sourceName: 'Study Bible editorial notes',
+        sourceName: `${BRAND.name} editorial notes`,
         ref: refId(hit),
         kind: 'Topic',
       });
@@ -627,7 +628,7 @@ export const providers: Record<string, Provider> = {
     const add = (id: string, kind: string, title: string, others: string[], why: string, link?: string) =>
       out.push({
         id, section: 'parallels', title, excerpt: others.length ? `See also: ${others.join(' · ')}` : undefined, internal: link,
-        authority: 'scholarship', period: 'contemporary', format: 'external-link', match: 'explicit-reference', why, sourceName: 'Study Bible reference index (editorial)', kind,
+        authority: 'scholarship', period: 'contemporary', format: 'external-link', match: 'explicit-reference', why, sourceName: `${BRAND.name} reference index (editorial)`, kind,
       });
     for (const r of syn?.rows ?? []) {
       const cols = r.slice(1);
@@ -1052,13 +1053,13 @@ export const providers: Record<string, Provider> = {
         id: `overview-${book}`,
         section: 'context',
         title: `About ${getBook(book).name}`,
-        author: 'Study Bible editorial notes',
+        author: `${BRAND.name} editorial notes`,
         excerpt: ov[book],
         authority: 'scholarship',
         format: 'summary',
         match: 'passage',
         why: 'Short neutral overview written for this app. Not a magisterial text.',
-        sourceName: 'Study Bible editorial notes',
+        sourceName: `${BRAND.name} editorial notes`,
         kind: 'Overview',
       });
     }

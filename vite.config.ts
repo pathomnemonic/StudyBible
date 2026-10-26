@@ -1,19 +1,25 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { readFileSync } from 'node:fs';
+
+const brand = JSON.parse(readFileSync(new URL('./brand.json', import.meta.url), 'utf8')) as { name: string; description: string };
+/** puts the app name from brand.json into index.html */
+const brandHtml = () => ({ name: 'brand-html', transformIndexHtml: (html: string) => html.replace(/%BRAND_NAME%/g, brand.name).replace(/%BRAND_DESCRIPTION%/g, brand.description) });
 
 // `base: './'` keeps the build relocatable (GitHub Pages sub-paths, file hosting, Capacitor wrappers).
 export default defineConfig({
   base: './',
   plugins: [
     react(),
+    brandHtml(),
     VitePWA({
       registerType: 'prompt',
       includeAssets: ['icon.svg'],
       manifest: {
-        name: 'Study Bible',
-        short_name: 'Study Bible',
-        description: 'A Catholic Bible study library: Scripture, Church teaching, the Fathers, notes and prayer.',
+        name: brand.name,
+        short_name: brand.name,
+        description: brand.description,
         theme_color: '#7a2e2e',
         background_color: '#fbf8f3',
         display: 'standalone',

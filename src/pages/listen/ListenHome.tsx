@@ -1,3 +1,4 @@
+import FilterBar from '../../components/FilterBar';
 import { HubHeader } from '../../components/Hub';
 import SaveOffline from '../../components/SaveOffline';
 import { useMemo, useState } from 'react';
@@ -81,14 +82,14 @@ function BiayListen() {
           <button key={k} role="tab" aria-selected={view === k} onClick={() => setView(k)}>{l}</button>
         ))}
       </div>
-      <div className="row" style={{ marginBottom: 8 }}>
-        <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Day number, title, or passage (e.g. 92, Hezekiah, John 6)" aria-label="Search episodes" style={{ flex: 1, minWidth: 200 }} />
-        <select value={year} onChange={(e) => setYear(e.target.value ? +e.target.value : '')} aria-label="Release year">
+      <FilterBar active={year ? 1 : 0}
+        search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Day, title or passage (92, Hezekiah, John 6)" aria-label="Search episodes" />}>
+        <label>Release<select value={year} onChange={(e) => setYear(e.target.value ? +e.target.value : '')} aria-label="Release year">
           <option value="">Latest release</option>
           {years.map((y) => <option key={y} value={y}>{y} release</option>)}
-        </select>
-      </div>
-      {view === 'plan' && <p className="muted small">The plan reads the whole Bible in 365 days (Day 1–365), mixing the Old Testament, the New Testament and the Psalms or Proverbs each day. To find the episode for a passage, type it in the search box (for example “Romans 8”), or open any chapter in the Bible tab: its episode is at the top.</p>}
+        </select></label>
+      </FilterBar>
+      {view === 'plan' && <p className="muted small">365 days through the whole Bible. Type a passage to find its episode.</p>}
       {filtered.length === 0 && <div className="empty">No episodes here{view === 'queue' ? ' — add episodes to your queue from any list.' : '.'}</div>}
       <ul className="list">
         {filtered.slice(0, 400).map((e) => <Row key={e.id} e={e} progress={doneMap.get(e.id)} inQueue={queue.some((x) => x.episodeId === e.id)} />)}
@@ -140,31 +141,24 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
   );
 }
 
-const KEY = 'sb:listen:show';
 type Tab = 'now' | 'podcasts' | 'audiobooks' | 'programmes' | 'videos';
 const TABS: [Tab, string][] = [['programmes', 'Bible in a Year'], ['now', 'For you'], ['podcasts', 'Podcasts'], ['audiobooks', 'Audiobooks'], ['videos', 'Videos']];
 
-/** The Media tab: where you left off, the podcast library, audiobooks, and the year-long programs. */
+/** The Media tab: the Bible in a Year first, then what you follow, podcasts, audiobooks and videos. */
 export default function ListenHome() {
   const shows = useShows();
   const [sp, setSp] = useSearchParams();
   const hashShow = (() => { try { return new URLSearchParams(location.hash.split('?')[1] ?? '').get('show'); } catch { return null; } })();
-  const stored = (() => { try { return localStorage.getItem(KEY); } catch { return null; } })();
   const wanted = sp.get('show') ?? hashShow;
   const tabParam = sp.get('tab') as Tab | null;
-  const wantedShow = shows?.find((x) => x.id === wanted);
-  const tab: Tab = tabParam && TABS.some((t) => t[0] === tabParam) ? tabParam : wanted ? (wanted === 'biay' || wantedShow?.programme ? 'programmes' : 'podcasts') : 'programmes';
+  const tab: Tab = tabParam && TABS.some((t) => t[0] === tabParam) ? tabParam : wanted && wanted !== 'biay' ? 'podcasts' : 'programmes';
   const go = (t: Tab, extra: Record<string, string> = {}) => setSp({ tab: t, ...extra }, { replace: true });
-  const [progId, setProgId] = useState(() => (wanted && (wanted === 'biay' || wantedShow?.programme) ? wanted : 'biay'));
-  const chooseProg = (v: string) => { setProgId(v); try { localStorage.setItem(KEY, v); } catch { /* storage unavailable */ } };
-  const programmes = (shows ?? []).filter((x) => x.programme);
-  const openId = tab === 'podcasts' ? sp.get('show') ?? (wantedShow && !wantedShow.programme ? wantedShow.id : '') : '';
+  const openId = tab === 'podcasts' ? sp.get('show') ?? (wanted && wanted !== 'biay' ? wanted : '') : '';
   const open = shows?.find((x) => x.id === openId);
-  const progShow = programmes.find((x) => x.id === progId);
   return (
-    <div className="page">
-      <HubHeader title="Media" sub="The Bible in a Year, podcasts, audiobooks and videos." />
-      <div className="tabbar" role="tablist">
+    <div className="page media">
+      <HubHeader title="Media" />
+      <div className="tabbar" role="tablist" aria-label="Media">
         {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => go(k)}>{l}</button>)}
       </div>
       {tab === 'now' && <ForYou />}
@@ -173,19 +167,7 @@ export default function ListenHome() {
         ? <><button className="linklike small" onClick={() => go('podcasts')}>← All podcasts</button><PodcastView show={open} /></>
         : <PodcastLibrary onOpen={(id) => go('podcasts', { show: id })} />)}
       {tab === 'audiobooks' && <Audiobooks />}
-      {tab === 'programmes' && (
-        <>
-          <label className="row" style={{ gap: 8, marginBottom: 8 }}>
-            <span className="muted small">Program</span>
-            <select value={progId} onChange={(e) => chooseProg(e.target.value)} aria-label="Choose a program" style={{ maxWidth: '70vw' }}>
-              <option value="biay">The Bible in a Year (Fr. Mike Schmitz)</option>
-              {programmes.map((x) => <option key={x.id} value={x.id}>{x.title}</option>)}
-            </select>
-          </label>
-          {progId === 'biay' || !shows ? <BiayWrapper /> : progShow ? <PodcastView show={progShow} /> : <BiayWrapper />}
-        </>
-      )}
+      {tab === 'programmes' && <div className="embedded-listen"><BiayListen /></div>}
     </div>
   );
 }
-const BiayWrapper = () => <div className="embedded-listen"><BiayListen /></div>;

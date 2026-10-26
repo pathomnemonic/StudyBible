@@ -1,3 +1,4 @@
+import { BRAND } from '../lib/brand';
 import { AUTO_TABLES, db, newUid, syncFlags, type Bookmark, type Highlight, type HighlightColor, type Note, type Target } from './db';
 import { parseRefId, refId, type Ref } from '../lib/refs';
 import { BOOKS } from '../lib/canon';
@@ -97,7 +98,7 @@ const safeUrl = (u: unknown) => typeof u === 'string' && /^https?:\/\//i.test(u)
 
 export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge'): Promise<number> {
   const data = JSON.parse(json);
-  if (data.format !== 'studybible-export') throw new Error('Not a Study Bible export file.');
+  if (data.format !== 'studybible-export') throw new Error(`Not a ${BRAND.name} export file.`);
   // a replace overwrites what is here: keep a safety copy first so a wrong file can be undone
   if (mode === 'replace') await import('../lib/safety').then((m) => m.snapshotIfDue(true)).catch(() => undefined);
   if (typeof data.version === 'number' && data.version > 2) throw new Error('This backup was made by a newer version of the app. Update the app, then try again.');
@@ -174,7 +175,7 @@ export async function deleteAllData() {
 /** Notes → one Markdown document, grouped by passage, for use in any notes app. */
 export async function exportNotesMarkdown(): Promise<string> {
   const notes = await db.notes.orderBy('updatedAt').reverse().toArray();
-  const lines = ['# My Study Bible notes', '', `_Exported ${new Date().toISOString().slice(0, 10)}_`, ''];
+  const lines = [`# My ${BRAND.name} notes`, '', `_Exported ${new Date().toISOString().slice(0, 10)}_`, ''];
   for (const n of notes) {
     const where = n.targets
       .map((t) => {
@@ -226,7 +227,7 @@ export async function exportMarks(format: 'csv' | 'md'): Promise<string> {
 /** What an export file contains, without changing anything, so you can check it before importing. */
 export function previewImport(json: string): { counts: Record<string, number>; exportedAt?: string } {
   const data = JSON.parse(json);
-  if (data.format !== 'studybible-export') throw new Error('Not a Study Bible export file.');
+  if (data.format !== 'studybible-export') throw new Error(`Not a ${BRAND.name} export file.`);
   const counts: Record<string, number> = {};
   for (const t of TABLES) if (Array.isArray(data[t]) && data[t].length) counts[t] = data[t].length;
   return { counts, exportedAt: data.exportedAt };

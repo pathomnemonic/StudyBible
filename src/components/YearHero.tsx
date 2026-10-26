@@ -61,10 +61,9 @@ export default function YearHero() {
           {ep && <p className="year-ps">{ep.passages.slice(0, 5).map((p) => <span key={p} className="chip"><RefLink id={p} /></span>)}</p>}
           <div className="year-acts">
             <button className="btn primary big" disabled={!ep} onClick={() => ep && player.play(ep)}><Icon name="play" size={16} /> Listen</button>
-            {ep && <SaveOffline ep={ep} />}
+            {ep && <SaveOffline ep={ep} compact />}
             {first && edition && <Link className="btn" to={readerPath(edition, first)}>Read</Link>}
-            <button className={'btn' + (finished ? ' on' : '')} aria-pressed={finished} onClick={toggleDone}>{finished ? '✓ Done today' : 'Mark done'}</button>
-            <Link className="btn ghost hide-sm" to="/listen">All days</Link>
+            <button className={'btn' + (finished ? ' on' : '')} aria-pressed={finished} onClick={toggleDone} title="Mark today finished">{finished ? '✓ Done' : 'Done?'}</button>
           </div>
           <p className="year-foot muted small">
             {prog ? `${prog.done.length} of 365 days finished · Fr. Mike Schmitz, Ascension` : <>Following the calendar. <button className="linklike" onClick={startTracking}>Track my progress</button></>}

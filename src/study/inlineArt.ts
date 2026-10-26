@@ -56,13 +56,14 @@ export async function artForChapter(book: string, anchorChapters: number[]): Pro
     out.push(c);
   }
   // the same picture can be in both lists (or twice in one): show it once
-  const norm = (f: InlineFig) => `${f.title}|${f.artist}`.toLowerCase().replace(/[^a-z0-9|]+/g, '');
-  const names = new Set<string>(), files = new Set<string>();
+  // (two museum records, or a painting and its workshop copy, of the same scene count as the same picture: same title, or same spot in the text)
+  const norm = (f: InlineFig) => f.title.toLowerCase().replace(/\b(the|a|an)\b/g, '').replace(/[^a-z0-9]+/g, '');
+  const names = new Set<string>(), files = new Set<string>(), spots = new Set<string>();
   return out.filter((f) => {
     if (f.ref.v1 === undefined) return false;
-    const key = norm(f), file = f.file.replace(/^.*\//, '').replace(/\.[a-z]+$/i, '');
-    if (names.has(key) || files.has(file)) return false;
-    names.add(key); files.add(file);
+    const key = norm(f), file = f.file.replace(/^.*\//, '').replace(/\.[a-z]+$/i, ''), spot = `${f.ref.c1}.${f.ref.v1}`;
+    if (names.has(key) || files.has(file) || spots.has(spot)) return false;
+    names.add(key); files.add(file); spots.add(spot);
     return true;
   });
 }

@@ -72,6 +72,7 @@ export const FEATURES: Feature[] = [
   { id: 'study.textual', title: 'Textual history', blurb: 'How the text was handed down.', to: '/study/textual', hub: 'study', keywords: 'variants' },
   { id: 'study.voices', title: 'Voices through time', blurb: 'The Fathers and saints on one timeline.', to: '/study/voices', hub: 'study', keywords: 'timeline fathers' },
   { id: 'study.concepts', title: 'Web of themes', blurb: 'How great themes of Scripture connect.', to: '/study/concepts', hub: 'study', keywords: 'graph' },
+  { id: 'study.lexicon', title: 'Greek and Hebrew words', blurb: 'Look up a word by meaning, sound or Strong’s number, and see every place it appears.', to: '/study/lexicon', hub: 'study', keywords: 'lexicon strongs greek hebrew original language agape logos hesed', hot: true, interest: ['study', 'bible'] },
   { id: 'study.sources', title: 'Sources and licensing', blurb: 'Where every text comes from.', to: '/study/sources', hub: 'study', keywords: 'rights' },
   // Pray
   { id: 'pray.rosary', title: 'The Rosary', blurb: 'Bead by bead, with the mysteries pictured, led by you, a pace, your device or a recording.', to: '/pray/devotions/rosary', hub: 'pray', keywords: 'mysteries beads mary joyful sorrowful glorious luminous', hot: true, interest: ['pray'] },

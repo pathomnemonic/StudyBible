@@ -1,3 +1,4 @@
+import { pageTitle } from '../lib/brand';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -287,7 +288,7 @@ export default function ReadPage() {
     else if (!vParam) window.scrollTo(0, 0);
     const onScroll = () => sessionStorage.setItem('scroll.' + key, String(window.scrollY));
     window.addEventListener('scroll', onScroll, { passive: true });
-    document.title = `${bk.name} ${chNum} · Study Bible`;
+    document.title = pageTitle(`${bk.name} ${chNum}`);
     return () => window.removeEventListener('scroll', onScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [edition.id, bk.id, chNum]);

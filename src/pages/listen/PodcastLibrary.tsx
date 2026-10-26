@@ -3,6 +3,7 @@ import { useShows, type Show } from '../../data/podcasts';
 import { toggleFollow, useFollows } from '../../lib/follow';
 import { fold } from '../../search/engine';
 import { useSettings } from '../../lib/store';
+import FilterBar from '../../components/FilterBar';
 import Fold from '../../components/Fold';
 import { addUserShow, exportOpml, parseOpml, removeUserShow, searchPodcasts } from '../../data/feeds';
 
@@ -27,12 +28,12 @@ export default function PodcastLibrary({ onOpen }: { onOpen: (id: string) => voi
   const mine = shows.filter((s) => follows.has(s.id));
   return (
     <div>
-      <p className="muted small" style={{ marginTop: 0 }}>{shows.length} Catholic podcasts and year-long programs. Episode lists come from each publisher’s own public feed and the audio plays from them. Open a show to listen; follow it to see new episodes under Listen now.</p>
+      <p className="muted small" style={{ marginTop: 0 }}>{shows.length} Catholic podcasts and year-long programs.</p>
       <AddPodcast />
-      <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 8 }}>
-        <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a show or a host…" aria-label="Find a podcast" style={{ flex: 1, minWidth: 200, maxWidth: 380 }} />
-        <select value={cat} onChange={(e) => setCat(e.target.value)} aria-label="Subject"><option value="">All subjects</option>{cats.map((c) => <option key={c}>{c}</option>)}</select>
-      </div>
+      <FilterBar active={cat ? 1 : 0}
+        search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a show or a host…" aria-label="Find a podcast" />}>
+        <label>Subject<select value={cat} onChange={(e) => setCat(e.target.value)} aria-label="Subject"><option value="">All subjects</option>{cats.map((c) => <option key={c}>{c}</option>)}</select></label>
+      </FilterBar>
       {mine.length > 0 && !q && !cat && (
         <section className="sect"><h2 className="eyebrow-h">Following</h2><div className="shelf">{mine.map((s) => <Card key={s.id} s={s} on onOpen={onOpen} mine={false} />)}</div></section>
       )}

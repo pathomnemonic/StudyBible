@@ -1,3 +1,4 @@
+import { BRAND } from '../lib/brand';
 import { addDays, iso, liturgicalDay, type CalendarVariant } from './compute';
 import { dutiesOn } from './discipline';
 
@@ -9,7 +10,7 @@ export interface IcsOptions { from: Date; days: number; variant: CalendarVariant
 
 /** The Church's year as an iCalendar file: solemnities, feasts, holy days, penitential days and (optionally) Sundays, as all-day events. */
 export function churchYearIcs(o: IcsOptions): string {
-  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Study Bible//Church year//EN', 'CALSCALE:GREGORIAN', 'X-WR-CALNAME:Church year'];
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', `PRODID:-//${BRAND.name}//Church year//EN`, 'CALSCALE:GREGORIAN', 'X-WR-CALNAME:Church year'];
   for (let i = 0; i < o.days; i++) {
     const d = addDays(o.from, i);
     const ld = liturgicalDay(d, o.variant);

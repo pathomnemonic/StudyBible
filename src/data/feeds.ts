@@ -1,3 +1,4 @@
+import { BRAND } from '../lib/brand';
 import { db } from '../db/db';
 import type { BiayEpisode } from './content';
 import type { Show, ShowData } from './podcasts';
@@ -106,5 +107,5 @@ export function parseOpml(xml: string): { title: string; feed: string }[] {
 export async function exportOpml(): Promise<string> {
   const rows = await db.saved.where('type').equals('podcast').toArray();
   const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<opml version="2.0"><head><title>Study Bible podcasts</title></head><body>\n${rows.map((r) => `  <outline type="rss" text="${esc(r.label)}" title="${esc(r.label)}" xmlUrl="${esc(r.url ?? '')}"/>`).join('\n')}\n</body></opml>`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<opml version="2.0"><head><title>${BRAND.name} podcasts</title></head><body>\n${rows.map((r) => `  <outline type="rss" text="${esc(r.label)}" title="${esc(r.label)}" xmlUrl="${esc(r.url ?? '')}"/>`).join('\n')}\n</body></opml>`;
 }

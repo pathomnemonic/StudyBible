@@ -1,3 +1,4 @@
+import { BRAND } from '../lib/brand';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -28,7 +29,7 @@ export default function WidgetPage() {
   }, [ed.id]);
   return (
     <div className="page" style={{ maxWidth: 420, margin: '0 auto' }}>
-      <h1 className="visually-hidden">Study Bible widget</h1>
+      <h1 className="visually-hidden">{BRAND.name} widget</h1>
       <section className="card">
         <p className="muted small" style={{ margin: 0 }}>Verse of the day</p>
         <blockquote style={{ margin: '8px 0', fontFamily: 'var(--font-serif)', fontSize: '1.15rem', lineHeight: 1.6 }}>{v?.text ?? '…'}</blockquote>

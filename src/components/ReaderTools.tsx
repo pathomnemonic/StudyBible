@@ -1,3 +1,4 @@
+import { popupY } from '../lib/popupPos';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -82,7 +83,7 @@ export function LookUp() {
       const a = s.anchorNode?.parentElement;
       if (!a?.closest('.scripture')) { setPos(null); return; }
       const r = s.getRangeAt(0).getBoundingClientRect();
-      setPos({ x: Math.min(window.innerWidth - 90, Math.max(8, r.left + r.width / 2 - 40)), y: Math.max(8, r.top - 44), text: t });
+      setPos({ x: Math.min(window.innerWidth - 90, Math.max(8, r.left + r.width / 2 - 40)), y: popupY(r, 44), text: t });
       setOpen(false);
     };
     document.addEventListener('selectionchange', f);

@@ -10,7 +10,7 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<T>
   } catch { throw new Error('Could not reach the server. Check your connection.'); }
   const text = await res.text();
   let data: any = {};
-  try { data = text ? JSON.parse(text) : {}; } catch { throw new Error('Live sessions need the Study Bible server; this copy of the app has none.'); }
+  try { data = text ? JSON.parse(text) : {}; } catch { throw new Error('Live sessions need the sync server; this copy of the app has none.'); }
   if (!res.ok) throw new Error(data.error ?? `Request failed (${res.status}).`);
   return data as T;
 }

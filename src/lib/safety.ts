@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { db } from '../db/db';
 import { download, exportAll, importAll } from '../db/ops';
 import { localDataCount } from '../sync/engine';
+import { BRAND } from './brand';
 import { getSettings, updateSettings } from './store';
 
 /**
@@ -49,7 +50,7 @@ export async function saveBackupFile(): Promise<'shared' | 'downloaded'> {
   try {
     const file = new File([json], name, { type: 'application/json' });
     const nav = navigator as Navigator & { canShare?: (d: ShareData) => boolean };
-    if (nav.canShare?.({ files: [file] })) { await nav.share({ files: [file], title: 'Study Bible backup' }); how = 'shared'; }
+    if (nav.canShare?.({ files: [file] })) { await nav.share({ files: [file], title: `${BRAND.name} backup` }); how = 'shared'; }
     else download(name, json);
   } catch (e) {
     if ((e as Error)?.name === 'AbortError') throw e;

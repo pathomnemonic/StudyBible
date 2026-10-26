@@ -26,7 +26,7 @@ export const isEncryptedBackup = (text: string) => { try { return JSON.parse(tex
 
 export async function decryptBackup(text: string, password: string): Promise<string> {
   const f = JSON.parse(text);
-  if (f.format !== 'studybible-encrypted' || f.version !== 1) throw new Error('This is not a protected Study Bible backup.');
+  if (f.format !== 'studybible-encrypted' || f.version !== 1) throw new Error('This is not a protected backup.');
   try {
     const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: unb64(f.iv) as BufferSource }, await key(password, unb64(f.salt), f.iterations), unb64(f.data) as BufferSource);
     return new TextDecoder().decode(plain);

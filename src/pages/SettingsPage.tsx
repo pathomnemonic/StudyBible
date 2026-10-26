@@ -1,4 +1,4 @@
-import Fold from '../components/Fold';
+import Fold, { FoldControls } from '../components/Fold';
 import { resetSeen, markAllSeen } from '../lib/seen';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -48,6 +48,7 @@ export default function SettingsPage() {
         <Link to="/study/sources">Sources and licensing</Link>
         <Link to="/about">About and feature status</Link>
       </div>
+      <FoldControls />
       <Fold id="settings:Reading" title="Reading" open={true}>
         <div className="row between" style={{ margin: '8px 0' }}><span>{t('settings.language')}</span><select value={s.language} onChange={(e) => set({ language: e.target.value as any })} aria-label={t('settings.language')}>{LANGS.map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></div>
         <p className="muted small" style={{ margin: '0 0 8px' }}>{t('settings.languageNote')}</p>
@@ -134,7 +135,7 @@ export default function SettingsPage() {
       <Fold id="settings:Your data, sync and privacy" title="Your data, sync and privacy" open={false}>
         <ul className="small" style={{ lineHeight: 1.6 }}>
           <li><strong>Private by default.</strong> Notes, highlights, bookmarks, journal and progress are stored in this browser (IndexedDB) and nowhere else, and there are no analytics. Nothing leaves your device unless you turn on Google Drive backup or sign in to a sync server.</li>
-          <li><strong>Accounts and sync are optional.</strong> If you or someone you trust runs a Study Bible server, Account lets you sign in and sync across devices. That server can read what it stores: sync is not end-to-end encrypted. If no server is reachable here, everything keeps working locally. Use Google Drive backup or Export/Import to move data between devices without a server.</li>
+          <li><strong>Accounts and sync are optional.</strong> If you or someone you trust runs a sync server, Account lets you sign in and sync across devices. That server can read what it stores: sync is not end-to-end encrypted. If no server is reachable here, everything keeps working locally. Use Google Drive backup or Export/Import to move data between devices without a server.</li>
           <li><strong>Backup.</strong> Connect Google Drive above for automatic backups, or export everything as JSON at any time (Library → Export). Clearing browser data erases local data, so back up first.</li>
           <li><strong>Retention & deletion.</strong> Data stays until you delete it. “Delete all my data” below removes the local database; if you use a sync server, deleting your account there also removes its copies.</li>
           <li><strong>Network use.</strong> Reading Scripture, notes and search work offline. The app contacts third parties only when you open an external link, play a Bible in a Year episode (Ascension’s servers), or load the liturgical calendar (LitCal).</li>

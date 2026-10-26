@@ -60,6 +60,7 @@ const EpisodePage = lazy(() => import('./pages/listen/EpisodePage'));
 const PrayHome = lazy(() => import('./pages/pray/PrayHome'));
 const PresenterView = lazy(() => import('./curriculum/PresenterView'));
 const DownloadsPage = lazy(() => import('./pages/DownloadsPage'));
+const LexiconPage = lazy(() => import('./pages/study/LexiconPage'));
 const LearnPage = lazy(() => import('./pages/LearnPage'));
 const MementoPage = lazy(() => import('./pages/MementoPage'));
 const GoalsPage = lazy(() => import('./pages/GoalsPage'));
@@ -276,6 +277,7 @@ export default function App() {
               <Route path="/pray" element={<PrayHome />} />
               <Route path="/presenter" element={<PresenterView />} />
               <Route path="/downloads" element={<DownloadsPage />} />
+              <Route path="/study/lexicon" element={<LexiconPage />} />
               <Route path="/learn" element={<LearnPage />} />
               <Route path="/memento" element={<MementoPage />} />
               <Route path="/goals" element={<GoalsPage />} />

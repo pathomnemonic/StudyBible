@@ -53,7 +53,7 @@ const STEPS: Step[] = [
   { part: 'Bible', narrow: true, find: q('.actionbar .btn.primary'), tap: true, text: 'Tap Study this passage.' },
   { part: 'Bible', find: () => document.querySelector('aside.panel [role=tablist]') ?? document.querySelector('aside.panel'), text: 'One verse, everything gathered around it.', sub: 'Notes holds the Catechism first, then Haydock, à Lapide, the Church Fathers and saints, each tied to this verse.' },
   { part: 'Bible', find: panelTab(/Connections/), tap: true, hit: (t) => /Connections/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Connections.' },
-  { part: 'Bible', find: () => document.querySelector('aside.panel .panel-body'), text: 'The manna, the Last Supper, who quoted this verse, and cross-references.', sub: 'Each one opens the passage it points to.' },
+  { part: 'Bible', closePanel: true, find: () => document.querySelector('aside.panel .panel-body'), text: 'The manna, the Last Supper, who quoted this verse, and cross-references.', sub: 'Each one opens the passage it points to.' },
   { part: 'Media', find: q('.tabs a[href="#/listen"]'), tap: true, text: 'Tap Media.' },
   { part: 'Media', route: '/listen', find: q('.year-hero, .page h1'), text: 'The Bible in a Year first, then podcasts, audiobooks and videos.', sub: 'Choose favorites under For you and they come first.' },
   { part: 'Read', find: q('.tabs a[href="#/room"]'), tap: true, text: 'Tap Read.' },

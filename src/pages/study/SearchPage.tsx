@@ -1,3 +1,4 @@
+import { addRecentSearch, clearRecentSearches, useRecentSearches } from '../../lib/recent';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -31,7 +32,7 @@ export default function SearchPage() {
   const [busy, setBusy] = useState('');
   const [res, setRes] = useState<{ verses: VerseHit[]; verseTotal: number; topics: Snip[]; fathers: Snip[]; commentary: Snip[]; episodes: Snip[]; mine: Snip[]; entities: Awaited<ReturnType<typeof searchEntities>> } | null>(null);
   const saved = useLiveQuery(() => db.savedSearches.toArray(), []) ?? [];
-  const recent = useLiveQuery(() => db.recentSearches.orderBy('ts').reverse().limit(8).toArray(), []) ?? [];
+  const recent = useRecentSearches(8);
   const edition = get(settings.defaultEdition) ?? editions[0];
   const numbering: 'vulgate' | 'english' = settings.refNumbering === 'edition' ? (edition.scheme === 'vulgate' ? 'vulgate' : 'english') : settings.refNumbering;
 
@@ -53,8 +54,7 @@ export default function SearchPage() {
     (async () => {
       const q = parseQuery(effective);
       if (book) q.scopeBook = book;
-      db.recentSearches.where('query').equals(qParam).delete().catch(() => {});
-      db.recentSearches.add({ query: qParam, ts: Date.now() });
+      void addRecentSearch(qParam).catch(() => {});
       setBusy('Searching…');
       const eds = allEd ? editions : [edition];
       const [v, topics, fathers, commentary, episodes, mine, entities] = await Promise.all([
@@ -144,7 +144,7 @@ export default function SearchPage() {
                 {recent.map((s) => (
                   <Link key={s.id} className="chip" to={`/study/search?q=${encodeURIComponent(s.query)}`}>{s.query}</Link>
                 ))}
-                <button className="btn small ghost" onClick={() => db.recentSearches.clear()}>Clear</button>
+                <button className="btn small ghost" onClick={() => clearRecentSearches()}>Clear</button>
               </div>
             </>
           )}

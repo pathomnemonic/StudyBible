@@ -8,7 +8,6 @@ import { passageText, anchorToNative } from '../lib/bibleText';
 import { formatRef, parseRefId, type Ref } from '../lib/refs';
 import { readerPath } from '../lib/nav';
 import { getBook } from '../lib/canon';
-import ForYouChips from '../components/ForYouChips';
 import MementoCard from '../components/MementoCard';
 import Icon from '../components/Icon';
 import HomeExtras, { FavStar } from '../components/HomeExtras';
@@ -60,13 +59,20 @@ export default function TodayPage() {
     if (!el) return;
     const fit = () => {
       let f = 1;
+      const home = el.closest('.home');
+      home?.classList.remove('grow');
       el.style.setProperty('--fit', '1');
       while (el.scrollHeight > el.clientHeight + 1 && f > 0.6) { f -= 0.04; el.style.setProperty('--fit', f.toFixed(2)); }
+      // if it still does not fit (a long text, a small screen, extra cards), let the page scroll instead of letting things overlap
+      if (el.scrollHeight > el.clientHeight + 1) home?.classList.add('grow');
     };
     fit();
     window.addEventListener('resize', fit);
-    return () => window.removeEventListener('resize', fit);
-  }, [entry?.ref, verse?.text, date]);
+    const ro = typeof ResizeObserver !== 'undefined' && el.closest('.home') ? new ResizeObserver(() => fit()) : null;
+    const foot = el.closest('.home')?.querySelector('.home-actions');
+    if (ro && foot) ro.observe(foot);
+    return () => { window.removeEventListener('resize', fit); ro?.disconnect(); };
+  }, [entry?.ref, verse?.text, date, s.memento.on, s.memento.onHome]);
   const go = (n: number) => {
     const d = iso(addDays(parseIso(date), n));
     setParams(d === today ? {} : { d }, { replace: true });
@@ -155,7 +161,6 @@ export default function TodayPage() {
         </aside>
       )}
 
-      <ForYouChips />
       <MementoCard />
       <HomeExtras date={date} season={ld.season} ref={ref} label={verse?.label ?? ''} onRandom={random} />
       <footer className="home-actions">

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { getGenealogies, type Genealogies, type Person } from '../../study/refData';
+import FilterBar from '../../components/FilterBar';
 import RefChips from '../../components/RefChips';
 
 const ROOTS: [string, string][] = [['adam', 'Adam'], ['noah', 'Noah'], ['abraham', 'Abraham'], ['isaac', 'Isaac'], ['jacob', 'Jacob (the twelve tribes)'], ['judah', 'Judah'], ['levi', 'Levi (Moses and Aaron)'], ['david', 'David']];
@@ -21,7 +22,8 @@ export default function PeoplePage() {
   const [root, setRoot] = useState('abraham');
   const [sel, setSel] = useState<string | null>(null);
   const [hl, setHl] = useState(true);
-  const [view, setView] = useState<'tree' | 'matthew' | 'luke'>('tree');
+  const [view, setView] = useState<'outline' | 'tree' | 'matthew' | 'luke'>(() => (typeof matchMedia !== 'undefined' && matchMedia('(max-width: 760px)').matches ? 'outline' : 'tree'));
+  const [openIds, setOpenIds] = useState<Set<string>>(new Set());
   const scroller = useRef<HTMLDivElement>(null);
   useEffect(() => {
     getGenealogies().then(setData);
@@ -70,17 +72,20 @@ export default function PeoplePage() {
       <h1>Genealogies and family trees</h1>
       <p className="lede">From Adam to Jesus: the family lines of Scripture. Where the lists differ, the differences are noted, not resolved.</p>
       <div className="segmented" role="tablist" style={{ marginBottom: 12 }}>
+        <button role="tab" aria-selected={view === 'outline'} onClick={() => setView('outline')}>Outline</button>
         <button role="tab" aria-selected={view === 'tree'} onClick={() => setView('tree')}>Family tree</button>
         <button role="tab" aria-selected={view === 'matthew'} onClick={() => setView('matthew')}>Matthew 1</button>
         <button role="tab" aria-selected={view === 'luke'} onClick={() => setView('luke')}>Luke 3</button>
       </div>
 
-      {view === 'tree' && (
+      {(view === 'tree' || view === 'outline') && (
         <>
-          <div className="row" style={{ marginBottom: 8 }}>
-            <label>Start from <select value={root} onChange={(e) => { setRoot(e.target.value); setSel(null); }}>{ROOTS.map(([id, n]) => <option key={id} value={id}>{n}</option>)}</select></label>
-            <label className="row"><input type="checkbox" checked={hl} onChange={(e) => setHl(e.target.checked)} /> Highlight the line to Jesus in Matthew 1</label>
-          </div>
+          <FilterBar active={0}
+            search={<label className="fb-inline">Start from <select value={root} onChange={(e) => { setRoot(e.target.value); setSel(null); setOpenIds(new Set()); }} aria-label="Start from">{ROOTS.map(([id, n]) => <option key={id} value={id}>{n}</option>)}</select></label>}>
+            <label className="row small" style={{ gap: 8 }}><input type="checkbox" checked={hl} onChange={(e) => setHl(e.target.checked)} /> <span>Highlight the line to Jesus (Matthew 1)</span></label>
+          </FilterBar>
+          {view === 'outline' && layout && <ul className="gen-outline" aria-label={`Descendants of ${byId.get(root)?.n}`}><OutlineNode n={layout.tree} depth={0} openIds={openIds} setOpenIds={setOpenIds} sel={sel} setSel={setSel} hl={hl} mt={mtSet} byId={byId} /></ul>}
+          {view === 'tree' && <>
           <div className="tree-scroll" ref={scroller} tabIndex={0} aria-label="Family tree; scroll to explore">
             {layout && (
               <svg width={layout.width + 20} height={layout.height + 10} role="group" aria-label={`Descendants of ${byId.get(root)?.n}`}>
@@ -99,6 +104,7 @@ export default function PeoplePage() {
               </svg>
             )}
           </div>
+          </>}
           {chosen && (
             <div className="card" style={{ marginTop: 10 }}>
               <div className="row between"><h2 className="card-title">{chosen.n}</h2><button className="btn small ghost" onClick={() => setSel(null)}>Close</button></div>
@@ -140,5 +146,28 @@ export default function PeoplePage() {
       )}
       <p className="muted small">Editorial index written for this app. Each person lists the passages where they appear; family relationships come from the biblical lists. Names follow the Douay-Rheims or the common English forms.</p>
     </div>
+  );
+}
+
+function OutlineNode({ n, depth, openIds, setOpenIds, sel, setSel, hl, mt, byId }: { n: Node; depth: number; openIds: Set<string>; setOpenIds: (s: Set<string>) => void; sel: string | null; setSel: (id: string | null) => void; hl: boolean; mt: Set<string>; byId: Map<string, Person> }) {
+  const open = openIds.has(n.p.id) || depth === 0;
+  const flip = () => { const x = new Set(openIds); x.has(n.p.id) ? x.delete(n.p.id) : x.add(n.p.id); setOpenIds(x); };
+  const line = hl && mt.has(n.p.id);
+  return (
+    <li className={`gen-node${line ? ' line' : ''}`}>
+      <div className="gen-row" style={{ paddingLeft: depth * 14 }}>
+        {n.kids.length > 0 ? <button className="gen-tog" aria-expanded={open} aria-label={`${open ? 'Hide' : 'Show'} children of ${n.p.n}`} onClick={flip}>{open ? '▾' : '▸'}</button> : <span className="gen-tog dot">·</span>}
+        <button className="gen-name" onClick={() => setSel(sel === n.p.id ? null : n.p.id)} aria-pressed={sel === n.p.id}>{n.p.n}{n.p.m ? <small> m. {byId.get(n.p.m)?.n.split(' ')[0]}</small> : null}{line && <span className="gen-star" title="In Jesus’ line (Matthew 1)"> ★</span>}</button>
+        {n.kids.length > 0 && <span className="muted small">{n.kids.length}</span>}
+      </div>
+      {sel === n.p.id && (
+        <div className="gen-detail" style={{ marginLeft: depth * 14 + 26 }}>
+          {n.p.f && <p>Father: {byId.get(n.p.f)?.n}.{n.p.m ? ` Mother: ${byId.get(n.p.m)?.n}.` : ''}</p>}
+          {n.p.note && <p>{n.p.note}</p>}
+          {n.p.r && <p>Passages: <RefChips text={n.p.r} /></p>}
+        </div>
+      )}
+      {open && n.kids.length > 0 && <ul>{n.kids.map((k) => <OutlineNode key={k.p.id} n={k} depth={depth + 1} openIds={openIds} setOpenIds={setOpenIds} sel={sel} setSel={setSel} hl={hl} mt={mt} byId={byId} />)}</ul>}
+    </li>
   );
 }

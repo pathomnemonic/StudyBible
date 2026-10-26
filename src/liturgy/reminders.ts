@@ -1,3 +1,4 @@
+import { BRAND } from '../lib/brand';
 import { getSettings } from '../lib/store';
 import { verseForDay } from '../study/verseOfDay';
 
@@ -25,7 +26,7 @@ function arm(id: string, time: string, body: () => string) {
     id,
     window.setTimeout(() => {
       try {
-        new Notification('Study Bible', { body: body(), tag: `studybible-${id}` });
+        new Notification(BRAND.name, { body: body(), tag: `studybible-${id}` });
       } catch {
         /* notifications blocked */
       }

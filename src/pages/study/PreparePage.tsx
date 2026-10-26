@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Fold from '../../components/Fold';
+import Fold, { FoldControls } from '../../components/Fold';
 import { getGrade, gradeLabel, flatLessons } from '../../curriculum/model';
 
 interface Topic { id: string; title: string; blurb: string; lessons: string[]; extra?: { to: string; label: string }[] }
@@ -30,9 +30,10 @@ export default function PreparePage() {
   }, []);
   return (
     <div className="page">
-      <p><Link to="/study">← Study</Link></p>
+      <p><Link to="/learn">← Learn</Link></p>
       <h1>Prepare for a sacrament</h1>
       <p className="lede">Lessons, prayers and tools for each sacrament, gathered in one place. They support, and do not replace, your parish’s own preparation: speak with your pastor or parish office about requirements and dates.</p>
+      <FoldControls />
       {TOPICS.map((t, i) => (
         <Fold key={t.id} id={`prepare:${t.id}`} title={t.title} hint={t.blurb} open={i === 0}>
           {t.extra && <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 8 }}>{t.extra.map((e) => <Link key={e.to} className="btn small" to={e.to}>{e.label}</Link>)}</div>}

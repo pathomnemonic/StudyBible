@@ -7,6 +7,7 @@ import { NATIONS } from '../liturgy/litcal';
 import { enableReminders, scheduleReminder } from '../liturgy/reminders';
 import { useEditions } from '../data/EditionsContext';
 import { startHere } from '../lib/features';
+import { BRAND } from '../lib/brand';
 import FavoritesPicker from './FavoritesPicker';
 import { saveBackupFile } from '../lib/safety';
 import { signIn, signUp, useSync } from '../sync/state';
@@ -69,7 +70,7 @@ export default function Welcome() {
   };
   const next = () => { if (i === SAFE && !guarded.length && !ack) { setWarn(true); return; } setI(i + 1); };
   return (
-    <div className="welcome-layer" role="dialog" aria-modal="true" aria-label="Set up Study Bible">
+    <div className="welcome-layer" role="dialog" aria-modal="true" aria-label={`Set up ${BRAND.name}`}>
       <div className="welcome-card" ref={card} tabIndex={-1}>
         <div className="welcome-dots" aria-hidden>{STEPS.map((_, n) => <i key={n} className={n === i ? 'on' : n < i ? 'done' : ''} />)}</div>
         <p className="welcome-step">{i === 0 ? 'Welcome' : `Step ${i + 1} of ${STEPS.length}`}</p>
