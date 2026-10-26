@@ -2,6 +2,14 @@ import json, importlib
 import ot1
 import ot2, nt1, nt2
 S = ot1.S
+import more
+for after, story in more.ADD:
+    i = next(k for k, x in enumerate(S) if x['id'] == after)
+    j = i + 1
+    while j < len(S) and S[j].get('_added'): j += 1
+    story['_added'] = True
+    S.insert(j, story)
+for x in S: x.pop('_added', None)
 # order: biblical order within testaments
 order = {s['id']: i for i, s in enumerate(S)}
 ot = [s for s in S if s['testament']=='OT']; nt = [s for s in S if s['testament']=='NT']

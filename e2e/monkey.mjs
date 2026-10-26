@@ -22,13 +22,24 @@ for (const vp of [{ width: 390, height: 844 }, { width: 1280, height: 800 }]) {
     await p.goto(`${BASE}/#/${r}`).catch(() => {});
     await p.waitForTimeout(900);
     for (let n = 0; n < CLICKS; n++) {
-      const els = await p.$$('a[href^="#/"], button, [role=tab], summary, input[type=checkbox], [role=button]');
-      const vis = [];
-      for (const e of els) { if (await e.isVisible().catch(() => false)) { const t = ((await e.innerText().catch(() => '')) + (await e.getAttribute('aria-label').catch(() => '') || '')).trim(); if (!SKIP.test(t)) vis.push(e); } }
-      if (!vis.length) break;
-      const e = vis[Math.floor(rnd() * vis.length)];
-      const label = ((await e.innerText().catch(() => '')) || (await e.getAttribute('aria-label').catch(() => '')) || '?').slice(0, 30).replace(/\n/g, ' ');
-      await e.click({ timeout: 1500, trial: false }).catch(() => {});
+      const cands = await p.evaluate((skip) => {
+        const re = new RegExp(skip, 'i');
+        document.querySelectorAll('[data-mk]').forEach((x) => x.removeAttribute('data-mk'));
+        const out = [];
+        document.querySelectorAll('a[href^="#/"], button, [role=tab], summary, input[type=checkbox], [role=button]').forEach((e) => {
+          const r = e.getBoundingClientRect();
+          if (!r.width || !r.height || e.disabled) return;
+          const cs = getComputedStyle(e); if (cs.visibility === 'hidden' || cs.display === 'none') return;
+          const t = ((e.innerText || '') + (e.getAttribute('aria-label') || '')).trim();
+          if (re.test(t)) return;
+          e.setAttribute('data-mk', String(out.length)); out.push(t.slice(0, 30).replace(/\n/g, ' ') || '?');
+        });
+        return out;
+      }, SKIP.source);
+      if (!cands.length) break;
+      const pick = Math.floor(rnd() * cands.length);
+      const label = cands[pick];
+      await p.locator(`[data-mk="${pick}"]`).first().click({ timeout: 1500 }).catch(() => {});
       await p.waitForTimeout(250);
       const st = await p.evaluate(() => {
         const out = {};
