@@ -6,3 +6,6 @@ data/raw
 .env
 .env.*
 data/licensed
+
+__pycache__/
+*.pyc
