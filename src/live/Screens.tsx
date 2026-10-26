@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { live, randomName, useCountdown, useLive } from './client';
 import type { LiveSlide, LiveView } from './types';
 import InlinePlayer from '../components/InlinePlayer';
+import { recordSession, type HostMeta } from '../teach/store';
 import { embedFor } from '../lib/embed';
 
 const SHAPES = ['▲', '◆', '●', '■'];
@@ -62,11 +63,14 @@ export function JoinPage() {
   const [err, setErr] = useState('');
   const [busy, setBusy] = useState(false);
   const [title, setTitle] = useState('');
-  useEffect(() => { if (/^\d{6}$/.test(code)) live.peek(code).then((p) => setTitle(p.title), () => setTitle('')); else setTitle(''); }, [code]);
+  const [roster, setRoster] = useState<string[]>([]);
+  const [rosterOnly, setRosterOnly] = useState(false);
+  useEffect(() => { if (/^\d{6}$/.test(code)) live.peek(code).then((p) => { setTitle(p.title); setRoster(p.roster ?? []); setRosterOnly(!!p.rosterOnly); }, () => { setTitle(''); setRoster([]); }); else { setTitle(''); setRoster([]); } }, [code]);
   const submit = async (e: React.FormEvent) => {
     e.preventDefault(); setErr(''); setBusy(true);
     try {
       const c = code.replace(/\D/g, '');
+      if (roster.length && rosterOnly && !roster.includes(name)) throw new Error('Tap your name in the list.');
       const j = await live.join(c, name.trim() || randomName(), read(tokOf(c)) || undefined);
       write(tokOf(c), j.token); write('sb:live:name', name.trim());
       nav(`/play/${c}`);
@@ -79,9 +83,16 @@ export function JoinPage() {
       <form onSubmit={submit} className="live-form">
         <label>Class code<input inputMode="numeric" autoComplete="off" pattern="\d{6}" maxLength={6} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))} placeholder="123456" aria-label="Class code" className="live-code-input" autoFocus /></label>
         {title && <p className="muted small">Session: <strong>{title}</strong></p>}
-        <label>Your name<div className="row" style={{ gap: 6 }}><input value={name} maxLength={20} onChange={(e) => setName(e.target.value)} placeholder="A name your class will know" style={{ flex: 1 }} /><button type="button" className="btn small" onClick={() => setName(randomName())}>🎲 Surprise me</button></div></label>
+        {roster.length > 0 ? (
+          <fieldset className="live-roster"><legend>Tap your name</legend>
+            <div className="live-roster-list">{roster.map((r) => <button type="button" key={r} className={`btn${name === r ? ' primary' : ''}`} aria-pressed={name === r} onClick={() => setName(r)}>{r}</button>)}</div>
+            {!rosterOnly && <label>Not on the list?<input value={roster.includes(name) ? '' : name} maxLength={20} onChange={(e) => setName(e.target.value)} placeholder="Type your name" /></label>}
+          </fieldset>
+        ) : (
+          <label>Your name<div className="row" style={{ gap: 6 }}><input value={name} maxLength={20} onChange={(e) => setName(e.target.value)} placeholder="A name your class will know" style={{ flex: 1 }} /><button type="button" className="btn small" onClick={() => setName(randomName())}>🎲 Surprise me</button></div></label>
+        )}
         {err && <div className="notice warn" role="alert">{err}</div>}
-        <button className="btn primary big" disabled={busy || code.length !== 6}>{busy ? 'Joining…' : 'Join'}</button>
+        <button className="btn primary big" disabled={busy || code.length !== 6 || (roster.length > 0 && rosterOnly && !roster.includes(name))}>{busy ? 'Joining…' : 'Join'}</button>
       </form>
     </div>
   );
@@ -107,6 +118,7 @@ export function PlayPage() {
   return (
     <div className="page live-play" aria-live="polite">
       <header className="live-top"><span className="live-who">{me?.name}</span><span>{me?.score.toLocaleString()} pts</span>{v.settings.teams > 0 && me?.team !== undefined && <span className={`live-chip t${me.team}`}>{['Red', 'Blue', 'Gold', 'Green', 'Purple', 'Orange'][me.team]} team</span>}{state === 'lost' && <span className="live-chip warn">Reconnecting…</span>}</header>
+      {(v.phase === 'exam' || (v.phase === 'ended' && v.exam)) && v.exam && <ExamView v={v} code={code} token={token} now={serverNow} />}
       {v.phase === 'lobby' && <div className="live-center"><h1>You’re in!</h1><p className="lede">{v.title}</p><p className="muted">Waiting for your teacher to start. Look at the big screen.</p><div className="live-bounce" aria-hidden="true">✝</div></div>}
       {v.phase === 'slides' && v.slides && <div><SlideView s={v.slides[v.slideIndex]} /><p className="muted small" style={{ textAlign: 'center' }}>Slide {v.slideIndex + 1} of {v.slideCount} · your teacher is moving through the lesson</p></div>}
       {v.phase === 'question' && q && (
@@ -134,7 +146,7 @@ export function PlayPage() {
         </div>
       )}
       {v.phase === 'board' && <Board v={v} me={me?.id} />}
-      {v.phase === 'ended' && me && (
+      {v.phase === 'ended' && me && !v.exam && (
         <div className="live-center">
           <h1>{me.rank <= 3 ? ['🥇', '🥈', '🥉'][me.rank - 1] : '🎉'} You finished {ordinal(me.rank)}</h1>
           <p className="lede">{me.score.toLocaleString()} points</p>
@@ -152,6 +164,15 @@ export function HostPage() {
   const key = read(keyOf(code));
   const { view: v, state, serverNow } = useLive(code, { key });
   const act = (a: string, arg?: unknown) => live.host(code, key, a, arg).catch(() => undefined);
+  const meta = useMemo<HostMeta | null>(() => { try { const m = localStorage.getItem(`sb:live:meta:${code}`); return m ? (JSON.parse(m) as HostMeta) : null; } catch { return null; } }, [code]);
+  const lastSaved = useRef('');
+  useEffect(() => {
+    if (!v || !meta || !v.results) return;
+    const key = JSON.stringify([v.phase, v.results.players.map((p) => [p.name, p.score, p.correct, p.answered, p.submitted])]);
+    if (lastSaved.current === key) return;
+    const t = setTimeout(() => { lastSaved.current = key; void recordSession(v, meta); }, v.phase === 'ended' ? 0 : 2500);
+    return () => clearTimeout(t);
+  }, [v, meta]);
   const joinUrl = useMemo(() => `${location.origin}${location.pathname}#/join/${code}`, [code]);
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
@@ -185,8 +206,8 @@ export function HostPage() {
           <p className="muted">and enter the code</p>
           <div className="live-code" aria-label={`Class code ${v.code.split('').join(' ')}`}>{v.code}</div>
           <div className="row" style={{ gap: 8, justifyContent: 'center', flexWrap: 'wrap', margin: '12px 0' }}>
-            <button className="btn primary big" onClick={() => act('start')} disabled={!v.slideCount && !v.qCount}>{v.slideCount ? 'Start the lesson' : 'Start the quiz'}</button>
-            {v.slideCount > 0 && v.qCount > 0 && <button className="btn" onClick={() => act('quiz')}>Skip to the quiz</button>}
+            <button className="btn primary big" onClick={() => act('start')} disabled={!v.slideCount && !v.qCount}>{v.settings.mode === 'exam' ? `Start the exam (${v.settings.examMinutes} min)` : v.slideCount ? 'Start the lesson' : 'Start the quiz'}</button>
+            {v.slideCount > 0 && v.qCount > 0 && v.settings.mode !== 'exam' && <button className="btn" onClick={() => act('quiz')}>Skip to the quiz</button>}
             <button className="btn" aria-pressed={v.locked} onClick={() => act('lock', !v.locked)}>{v.locked ? '🔒 Locked' : '🔓 Lock the room'}</button>
           </div>
           <p className="muted small">{v.slideCount} slides · {v.qCount} questions{v.settings.teams ? ` · ${v.settings.teams} teams` : ''}</p>
@@ -200,7 +221,7 @@ export function HostPage() {
           <div className="live-nav">
             <button className="btn" disabled={v.slideIndex === 0} onClick={() => act('slide', v.slideIndex - 1)}>← Back</button>
             <span>{v.slideIndex + 1} / {v.slideCount} · {connected} watching</span>
-            {v.slideIndex < v.slideCount - 1 ? <button className="btn primary" onClick={() => act('slide', v.slideIndex + 1)}>Next →</button> : <button className="btn primary" onClick={() => act('quiz')} disabled={!v.qCount}>{v.qCount ? 'Start the quiz →' : 'Done'}</button>}
+            {v.slideIndex < v.slideCount - 1 ? <button className="btn primary" onClick={() => act('slide', v.slideIndex + 1)}>Next →</button> : (v.qCount ? <button className="btn primary" onClick={() => act('quiz')}>Start the quiz →</button> : <button className="btn primary" onClick={() => act('end')}>Finish the lesson ✓</button>)}
             {v.qCount > 0 && v.slideIndex < v.slideCount - 1 && <button className="btn small" onClick={() => act('quiz')}>Skip to quiz</button>}
           </div>
         </div>
@@ -216,6 +237,16 @@ export function HostPage() {
           {q.type === 'multi' && <p className="muted">Select all that apply.</p>}
           {q.type === 'order' && <p className="muted">Students put these in order.</p>}
           <div className="live-nav"><button className="btn" onClick={() => act('skip')}>Show the answer now</button></div>
+        </div>
+      )}
+
+      {v.phase === 'exam' && (
+        <div className="live-center" style={{ maxWidth: 820 }}>
+          <Timer deadline={v.examDeadline ?? 0} total={v.settings.examMinutes * 60} now={serverNow} />
+          <h2>Exam in progress</h2>
+          <p className="muted">{v.players.filter((p) => p.submitted).length} of {v.players.length} have handed in</p>
+          <ul className="exam-progress">{v.players.map((p) => <li key={p.id} className={p.submitted ? 'done' : ''}><span>{p.name}</span><span className="bar"><i style={{ width: `${((p.progress ?? 0) / Math.max(1, v.qCount)) * 100}%` }} /></span><span>{p.submitted ? '✓ in' : `${p.progress ?? 0}/${v.qCount}`}</span></li>)}</ul>
+          <button className="btn" onClick={() => confirm('End the exam now and collect everyone’s answers?') && act('end')}>End the exam now</button>
         </div>
       )}
 
@@ -235,9 +266,12 @@ export function HostPage() {
 
       {v.phase === 'ended' && (
         <div className="live-center">
-          <h1>🎉 Final results</h1>
-          <div className="live-podium">{[1, 0, 2].map((i) => v.board[i] && <div key={i} className={`step s${i + 1}`}><span className="medal">{['🥇', '🥈', '🥉'][i]}</span><strong>{v.board[i].name}</strong><span>{v.board[i].score.toLocaleString()}</span></div>)}</div>
-          <Board v={v} /><Teams v={v} />
+          <h1>{v.settings.mode === 'exam' ? '📝 Exam results' : '🎉 Final results'}</h1>
+          {meta && <p className="notice ok small">Saved to your class record: attendance, participation and scores. <Link to={`/teach/${meta.classId}`}>Open the class</Link></p>}
+          {v.settings.mode === 'exam' && v.results && <ol className="live-board">{v.results.players.map((p, k) => <li key={p.id}><span className="rank">{k + 1}</span><span className="nm">{p.name}{p.submitted ? '' : ' (not handed in)'}</span><span className="pts">{Math.round(p.score)}%</span></li>)}</ol>}
+          {v.settings.mode !== 'exam' && v.qCount > 0 && <><div className="live-podium">{[1, 0, 2].map((i) => v.board[i] && <div key={i} className={`step s${i + 1}`}><span className="medal">{['🥇', '🥈', '🥉'][i]}</span><strong>{v.board[i].name}</strong><span>{v.board[i].score.toLocaleString()}</span></div>)}</div>
+          <Board v={v} /><Teams v={v} /></>}
+          {v.settings.mode !== 'exam' && !v.qCount && <p className="muted">{v.players.length} students took part.</p>}
           <div className="row" style={{ gap: 8, justifyContent: 'center' }}>
             <a className="btn primary" href={live.exportUrl(code, key)} download>Download scores (CSV)</a>
             <Link className="btn" to="/study/curriculum">Back to lessons</Link>
@@ -245,6 +279,48 @@ export function HostPage() {
           <p className="muted small">The session stays open for a little while so you can download the scores.</p>
         </div>
       )}
+    </div>
+  );
+}
+
+/** The student's side of an exam: all the questions, one clock, answers saved as they go, hand in when done. */
+function ExamView({ v, code, token, now }: { v: LiveView; code: string; token: string; now: () => number }) {
+  const ex = v.exam!;
+  const [i, setI] = useState(0);
+  const [mine, setMine] = useState<((number | string)[] | null)[]>(ex.answers);
+  const [text, setText] = useState('');
+  const [busy, setBusy] = useState(false);
+  const left = useCountdown(ex.deadline, now);
+  const q = ex.questions[i];
+  useEffect(() => { setText(typeof mine[i]?.[0] === 'string' ? String(mine[i]![0]) : ''); }, [i]);
+  const save = (val: (number | string)[] | null) => { setMine((m) => m.map((x, k) => (k === i ? val : x))); if (val) void live.answer(code, token, val, i).catch(() => undefined); };
+  const sel = (mine[i] ?? []).map(Number);
+  const answeredCount = mine.filter(Boolean).length;
+  const mm = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  if (ex.submitted || v.phase === 'ended') {
+    const r = ex.result;
+    return (
+      <div className="live-center">
+        <h1>✓ Handed in</h1>
+        {r ? <><p className="live-gain">{Math.round(r.percent)}%</p><p>{r.correct} of {r.total} right</p></> : <p className="muted">Your teacher will share your result.</p>}
+        {r?.review && <ol className="exam-review">{r.review.map((x, k) => <li key={k} className={x.ok ? 'ok' : 'no'}><strong>{ex.questions[k].q}</strong><br /><span>Your answer: {x.mine ? x.mine.map((c) => ex.questions[k].options ? ex.questions[k].options![Number(c)] : String(c)).join(', ') : '(blank)'}</span><br /><span>Right answer: {x.correct.map((c) => (ex.questions[k].options ? ex.questions[k].options![Number(c)] : String(c))).join(ex.questions[k].type === 'order' ? ' → ' : ', ')}</span>{x.why && <><br /><em>{x.why}</em></>}</li>)}</ol>}
+        <Link className="btn" to="/study/curriculum">Back to lessons</Link>
+      </div>
+    );
+  }
+  const submit = async () => { if (answeredCount < ex.questions.length && !confirm(`${ex.questions.length - answeredCount} questions are blank. Hand in anyway?`)) return; setBusy(true); try { await live.submit(code, token); } finally { setBusy(false); } };
+  return (
+    <div>
+      <div className="live-timer" role="timer" aria-label={`${mm(left)} left`}><div className="live-timer-bar"><i style={{ width: `${Math.min(100, (left / Math.max(1, v.settings.examMinutes * 60)) * 100)}%` }} /></div><span style={{ minWidth: '4.5ch' }}>{mm(left)}</span></div>
+      <nav className="exam-nav" aria-label="Questions">{ex.questions.map((_, k) => <button key={k} className={`${k === i ? 'cur' : ''}${mine[k] ? ' done' : ''}`} aria-label={`Question ${k + 1}${mine[k] ? ', answered' : ''}`} onClick={() => setI(k)}>{k + 1}</button>)}</nav>
+      <p className="muted small">Question {i + 1} of {ex.questions.length}{q.points === 2 ? ' · counts double' : ''}</p>
+      <h2 className="live-q">{q.q}</h2>
+      {(q.type === 'mc' || q.type === 'tf') && <div className={`live-opts n${q.options!.length}`}>{q.options!.map((o, k) => <button key={k} className={`live-opt o${k}${sel[0] === k ? ' on' : ''}`} aria-pressed={sel[0] === k} onClick={() => save([k])}><span className="shape" aria-hidden="true">{sel[0] === k ? '✓' : SHAPES[k]}</span>{o}</button>)}</div>}
+      {q.type === 'multi' && <><p className="muted small">Choose all that apply.</p><div className="live-opts n4">{q.options!.map((o, k) => <button key={k} className={`live-opt o${k % 4}${sel.includes(k) ? ' on' : ''}`} aria-pressed={sel.includes(k)} onClick={() => { const n = sel.includes(k) ? sel.filter((x) => x !== k) : [...sel, k]; save(n.length ? n : null); }}><span className="shape" aria-hidden="true">{sel.includes(k) ? '✓' : SHAPES[k % 4]}</span>{o}</button>)}</div></>}
+      {q.type === 'text' && <input value={text} onChange={(e) => setText(e.target.value)} onBlur={() => save(text.trim() ? [text.trim()] : null)} maxLength={80} placeholder="Type your answer" aria-label="Your answer" style={{ width: '100%' }} />}
+      {q.type === 'order' && <><p className="muted small">Tap in the right order. Tap again to start over.</p><ol className="live-order">{q.options!.map((o, k) => { const pos = sel.indexOf(k); return <li key={k}><button className={`live-opt o${k % 4}${pos >= 0 ? ' on' : ''}`} onClick={() => { const n = pos >= 0 ? [] : [...sel, k]; save(n.length === q.options!.length ? n : null); setMine((m) => m.map((x, kk) => (kk === i ? (n.length === q.options!.length ? n : n.length ? n : null) : x))); }}><span className="shape">{pos >= 0 ? pos + 1 : '·'}</span>{o}</button></li>; })}</ol></>}
+      <div className="live-nav"><button className="btn" disabled={i === 0} onClick={() => { if (q.type === 'text') save(text.trim() ? [text.trim()] : null); setI(i - 1); }}>← Back</button><span className="muted">{answeredCount}/{ex.questions.length} answered</span>{i < ex.questions.length - 1 ? <button className="btn primary" onClick={() => { if (q.type === 'text') save(text.trim() ? [text.trim()] : null); setI(i + 1); }}>Next →</button> : <button className="btn primary" disabled={busy} onClick={submit}>Hand in</button>}</div>
+      <p className="muted small" style={{ textAlign: 'center' }}>Your answers are saved as you go. {i < ex.questions.length - 1 && <button className="linklike" onClick={submit}>Hand in now</button>}</p>
     </div>
   );
 }

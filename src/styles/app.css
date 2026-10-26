@@ -4292,3 +4292,38 @@ pre.code, pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 .flip .back { background: linear-gradient(135deg, #1f5f8b, #123a63); font-size: .9rem; transform: rotateY(180deg); }
 .flip.on .front { transform: rotateY(180deg); } .flip.on .back { transform: rotateY(360deg); }
 @media (prefers-reduced-motion: reduce) { .flip .face { transition: none; } .play-stars span.on { animation: none; } }
+.live-roster { border: 0; padding: 0; margin: 0; display: grid; gap: 10px; }
+.live-roster legend { font-weight: 700; margin-bottom: 6px; }
+.live-roster-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.exam-nav { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+.exam-nav button { width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--border-strong, #8886); background: var(--surface); color: inherit; font: inherit; cursor: pointer; }
+.exam-nav button.done { background: color-mix(in srgb, #2d7a3a 28%, var(--surface)); }
+.exam-nav button.cur { outline: 3px solid var(--accent); }
+.exam-progress { list-style: none; padding: 0; width: 100%; display: grid; gap: 6px; }
+.exam-progress li { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) 4.5ch; gap: 10px; align-items: center; text-align: left; }
+.exam-progress .bar { height: 14px; border-radius: 6px; background: color-mix(in srgb, var(--text) 12%, transparent); overflow: hidden; display: block; }
+.exam-progress .bar i { display: block; height: 100%; background: var(--accent); }
+.exam-progress li.done .bar i { background: #2d7a3a; }
+.exam-review { text-align: left; display: grid; gap: 8px; padding-left: 20px; }
+.exam-review li.ok { color: inherit; border-left: 4px solid #2d7a3a; padding-left: 8px; } .exam-review li.no { border-left: 4px solid #b3261e; padding-left: 8px; }
+
+/* Teacher tools */
+.grid-scroll { overflow-x: auto; max-width: 100%; }
+.grid-table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+.grid-table th, .grid-table td { padding: 6px 8px; border-bottom: 1px solid var(--hairline, #8884); text-align: left; vertical-align: middle; }
+.grid-table thead th { font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.grid-table td.bad { color: #b3261e; font-weight: 700; }
+.grid-table tr.avg th, .grid-table tr.avg td { font-weight: 700; border-top: 2px solid var(--border-strong, #8886); }
+.grades th small { display: block; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.grades .asm-title { display: block; max-width: 11em; white-space: normal; }
+.score-in { width: 4.5em; padding: 4px 6px; text-align: right; }
+.item-analysis { list-style: none; padding: 0; display: grid; gap: 6px; }
+.item-analysis li { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 7ch; gap: 10px; align-items: center; font-size: .9rem; }
+.item-analysis .bar { height: 12px; background: color-mix(in srgb, var(--text) 12%, transparent); border-radius: 6px; overflow: hidden; display: block; }
+.item-analysis .bar i { display: block; height: 100%; background: #2d7a3a; } .item-analysis .bar i.low { background: #b3261e; } .item-analysis .bar i.mid { background: #b45309; }
+.report-card { border: 1px solid var(--hairline, #8884); border-radius: 14px; padding: 16px; margin: 12px 0; page-break-after: always; break-after: page; }
+.report-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0; }
+.report-stats div { padding: 10px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 8%, transparent); display: grid; }
+.report-stats strong { font-size: 1.6rem; } .report-stats span { font-size: .8rem; color: var(--muted); }
+.print-only { display: none; }
+@media print { .print-only { display: block; } .report-card { border: 0; } }

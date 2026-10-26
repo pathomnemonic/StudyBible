@@ -1,5 +1,5 @@
 import { randomInt, randomBytes } from 'node:crypto';
-import type { LiveContent, LiveQuestion, LiveSettings, LiveSlide, LiveView, Phase } from '../src/live/types';
+import type { LiveContent, LiveQuestion, LiveSettings, LiveSlide, LiveView, Phase, PlayerResult, QStat } from '../src/live/types';
 
 export const MAX_PLAYERS = 200;
 const fold = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
@@ -31,11 +31,16 @@ export function sanitizeContent(raw: any): LiveContent {
   }
   return { title: clean(raw?.title, 120) || 'Class session', slides, questions };
 }
+export function sanitizeRoster(raw: unknown): string[] { return [...new Set((Array.isArray(raw) ? raw : []).slice(0, 120).map((x) => clean(x, 40)).filter(Boolean))]; }
 export function sanitizeSettings(raw: any): LiveSettings {
-  return { teams: Math.min(6, Math.max(0, Math.round(Number(raw?.teams) || 0))), shuffleQuestions: !!raw?.shuffleQuestions, shuffleOptions: raw?.shuffleOptions !== false, lateJoin: raw?.lateJoin !== false, showNames: raw?.showNames !== false };
+  return {
+    teams: Math.min(6, Math.max(0, Math.round(Number(raw?.teams) || 0))), shuffleQuestions: !!raw?.shuffleQuestions, shuffleOptions: raw?.shuffleOptions !== false, lateJoin: raw?.lateJoin !== false, showNames: raw?.showNames !== false,
+    mode: raw?.mode === 'exam' ? 'exam' : 'game', examMinutes: Math.min(180, Math.max(1, Math.round(Number(raw?.examMinutes) || 30))),
+    showResults: raw?.showResults !== false, showAnswers: !!raw?.showAnswers, rosterOnly: raw?.rosterOnly !== false,
+  };
 }
 
-interface Player { id: string; token: string; name: string; score: number; streak: number; team?: number; lastSeen: number; answer?: { value: (number | string)[]; at: number }; last?: { correct: boolean; points: number; bonus: number } | null; log: { q: number; correct: boolean; points: number }[] }
+interface Player { id: string; token: string; name: string; score: number; streak: number; team?: number; joinedAt: number; lastSeen: number; answer?: { value: (number | string)[]; at: number }; last?: { correct: boolean; points: number; bonus: number } | null; log: { q: number; correct: boolean; points: number; answered: boolean }[]; exam: ((number | string)[] | null)[]; submitted?: boolean; examResult?: { percent: number; correct: number; total: number } }
 
 /** One class session: who is in it, where it is up to, and the scores. No I/O here; the server feeds it time and requests. */
 export class LiveRoom {
@@ -56,9 +61,13 @@ export class LiveRoom {
   private textCounts: Record<string, number> = {};
   private order: number[] = [];
   private optionOrder: number[][] = [];
+  private qstats: { correct: number; answered: number }[] = [];
+  readonly roster: string[];
+  startedAt = 0;
 
-  constructor(code: string, content: LiveContent, settings: LiveSettings, private now: () => number = Date.now) {
+  constructor(code: string, content: LiveContent, settings: LiveSettings, private now: () => number = Date.now, roster: string[] = []) {
     this.code = code;
+    this.roster = roster;
     this.settings = settings;
     this.createdAt = this.touched = now();
     // questions may be reordered, and each question's choices shuffled, once for the room, so every player sees the same thing
@@ -77,6 +86,8 @@ export class LiveRoom {
   }
 
   get playerCount() { return this.players.size; }
+  /** the class names nobody has taken yet */
+  rosterFree(): string[] { const taken = new Set([...this.players.values()].map((p) => fold(p.name))); return this.roster.filter((r) => !taken.has(fold(r))); }
   private touch() { this.touched = this.now(); this.version++; }
   private ranked() { return [...this.players.values()].sort((a, b) => b.score - a.score || a.name.localeCompare(b.name)); }
   private nameFree(name: string) { let n = name, k = 2; const taken = new Set([...this.players.values()].map((p) => p.name.toLowerCase())); while (taken.has(n.toLowerCase())) n = `${name} ${k++}`; return n; }
@@ -87,8 +98,17 @@ export class LiveRoom {
     if (this.phase !== 'lobby' && !this.settings.lateJoin) throw new Error('This session has already started.');
     if (this.phase === 'ended') throw new Error('This session has ended.');
     if (this.players.size >= MAX_PLAYERS) throw new Error('This session is full.');
-    const name = this.nameFree(clean(rawName, 20) || 'Pilgrim');
-    const p: Player = { id: randomBytes(5).toString('hex'), token: randomBytes(16).toString('hex'), name, score: 0, streak: 0, lastSeen: this.now(), log: [] };
+    let name: string;
+    if (this.roster.length) {
+      const want = fold(clean(rawName, 40));
+      const hit = this.roster.find((r) => fold(r) === want);
+      if (!hit && this.settings.rosterOnly) throw new Error('Pick your name from the class list.');
+      if (hit) {
+        if ([...this.players.values()].some((x) => fold(x.name) === fold(hit))) throw new Error('That name is already in use. Ask your teacher if it is not you.');
+        name = hit;
+      } else name = this.nameFree(clean(rawName, 20) || 'Guest');
+    } else name = this.nameFree(clean(rawName, 20) || 'Pilgrim');
+    const p: Player = { id: randomBytes(5).toString('hex'), token: randomBytes(16).toString('hex'), name, score: 0, streak: 0, joinedAt: this.now(), lastSeen: this.now(), log: [], exam: [] };
     if (this.settings.teams > 0) {
       const sizes = Array.from({ length: this.settings.teams }, (_, t) => [...this.players.values()].filter((x) => x.team === t).length);
       p.team = sizes.indexOf(Math.min(...sizes));
@@ -126,7 +146,8 @@ export class LiveRoom {
       }
       p.streak = correct ? p.streak + 1 : 0;
       p.last = { correct, points, bonus };
-      p.log.push({ q: this.qIndex, correct, points: points + bonus });
+      p.log.push({ q: this.qIndex, correct, points: points + bonus, answered: !!a });
+      const st = (this.qstats[this.qIndex] ??= { correct: 0, answered: 0 }); if (a) st.answered++; if (correct) st.correct++;
       if (a) {
         if (q.type === 'text') { const k = fold(String(a.value[0] ?? '')); if (k) this.textCounts[k] = (this.textCounts[k] ?? 0) + 1; }
         else if (q.type !== 'order') for (const v of a.value) { const n = Number(v); if (this.counts[n] !== undefined) this.counts[n]++; }
@@ -135,6 +156,36 @@ export class LiveRoom {
     this.phase = 'results';
     this.touch();
   }
+
+  // ---- exam: every student works alone against one clock
+  private examScore(p: Player) {
+    let got = 0, of = 0, correct = 0, total = 0;
+    this.content.questions.forEach((q, i) => {
+      if (q.points === 0) return;
+      total++; of += q.points;
+      const a = p.exam[i];
+      if (a && isRight(q, a)) { got += q.points; correct++; }
+    });
+    return { percent: of ? (got / of) * 100 : 0, correct, total };
+  }
+  private submitPlayer(p: Player) { if (p.submitted) return; p.submitted = true; p.examResult = this.examScore(p); }
+  /** save one exam answer (it can be changed until the student hands in) */
+  examAnswer(token: string, qi: number, value: unknown): boolean {
+    const p = this.playerByToken(token);
+    if (!p || this.phase !== 'exam' || p.submitted || !Number.isInteger(qi) || qi < 0 || qi >= this.content.questions.length) return false;
+    const q = this.content.questions[qi];
+    let v: (number | string)[];
+    if (q.type === 'text') v = [clean(Array.isArray(value) ? value[0] : value, 80)];
+    else {
+      v = (Array.isArray(value) ? value : [value]).map(Number).filter((n) => Number.isInteger(n) && n >= 0 && n < (q.options?.length ?? 0));
+      if (q.type === 'order') { if (new Set(v).size !== q.options!.length) return false; } else v = [...new Set(v)];
+      if ((q.type === 'mc' || q.type === 'tf') && v.length !== 1) return false;
+    }
+    p.exam[qi] = v.length && v[0] !== '' ? v : null;
+    this.touch();
+    return true;
+  }
+  submit(token: string): boolean { const p = this.playerByToken(token); if (!p || this.phase !== 'exam') return false; this.submitPlayer(p); this.touch(); return true; }
 
   answer(token: string, value: unknown): boolean {
     const p = this.playerByToken(token);
@@ -158,15 +209,16 @@ export class LiveRoom {
   /** Called on a timer: ends a question when its time is up, and counts players who dropped off. */
   tick(): boolean {
     if (this.phase === 'question' && this.now() >= this.deadline) { this.finishQuestion(); return true; }
+    if (this.phase === 'exam' && this.now() >= this.deadline) { for (const p of this.players.values()) this.submitPlayer(p); this.phase = 'ended'; this.touch(); return true; }
     return false;
   }
 
   host(action: string, arg?: any): void {
     const last = this.content.questions.length - 1;
     switch (action) {
-      case 'start': if (this.phase !== 'lobby') return; if (this.content.slides.length) { this.phase = 'slides'; this.slideIndex = 0; } else if (last >= 0) this.startQuestion(0); else return; break;
+      case 'start': if (this.phase !== 'lobby') return; this.startedAt = this.now(); if (this.settings.mode === 'exam') { if (!this.content.questions.length) return; this.phase = 'exam'; this.deadline = this.now() + this.settings.examMinutes * 60_000; } else if (this.content.slides.length) { this.phase = 'slides'; this.slideIndex = 0; } else if (last >= 0) this.startQuestion(0); else return; break;
       case 'slide': if (this.phase !== 'slides') return; this.slideIndex = Math.min(this.content.slides.length - 1, Math.max(0, Math.round(Number(arg) || 0))); break;
-      case 'quiz': if ((this.phase !== 'slides' && this.phase !== 'lobby') || last < 0) return; this.startQuestion(0); break;
+      case 'quiz': if ((this.phase !== 'slides' && this.phase !== 'lobby') || last < 0 || this.settings.mode === 'exam') return; this.startedAt ||= this.now(); this.startQuestion(0); break;
       case 'skip': this.finishQuestion(); return;
       case 'next':
         if (this.phase === 'results') { this.phase = 'board'; }
@@ -176,7 +228,7 @@ export class LiveRoom {
         break;
       case 'lock': this.locked = !!arg; break;
       case 'kick': this.players.delete(String(arg)); break;
-      case 'end': this.phase = 'ended'; break;
+      case 'end': if (this.phase === 'exam') for (const p of this.players.values()) this.submitPlayer(p); this.phase = 'ended'; break;
       default: return;
     }
     this.touch();
@@ -192,6 +244,29 @@ export class LiveRoom {
     return rows.join('\n');
   }
 
+  /** everything worth keeping about the session, for the teacher's class record */
+  results(): { players: PlayerResult[]; questions: QStat[]; startedAt: number } {
+    const nQ = this.content.questions.length;
+    const exam = this.settings.mode === 'exam';
+    const players = this.ranked().map((p): PlayerResult => {
+      if (exam) { const r = p.examResult ?? this.examScore(p); return { id: p.id, name: p.name, score: Math.round(r.percent * 10) / 10, correct: r.correct, answered: p.exam.filter(Boolean).length, total: r.total, joinedAt: p.joinedAt, submitted: !!p.submitted, team: p.team }; }
+      const done = p.log.length;
+      return { id: p.id, name: p.name, score: p.score, correct: p.log.filter((l) => l.correct).length, answered: p.log.filter((l) => l.answered).length, total: Math.max(done, this.qIndex >= 0 ? (this.phase === 'ended' ? nQ : done) : 0), joinedAt: p.joinedAt, submitted: this.phase === 'ended', team: p.team };
+    });
+    const questions: QStat[] = this.content.questions.map((q, i) => {
+      if (exam) {
+        const all = [...this.players.values()];
+        const ans = all.filter((p) => p.exam[i]);
+        const ok = ans.filter((p) => isRight(q, p.exam[i]!));
+        return { q: q.q, correctPct: all.length ? Math.round((ok.length / all.length) * 100) : 0, answeredPct: all.length ? Math.round((ans.length / all.length) * 100) : 0 };
+      }
+      const st = this.qstats[i];
+      const n = this.players.size || 1;
+      return { q: q.q, correctPct: st ? Math.round((st.correct / n) * 100) : 0, answeredPct: st ? Math.round((st.answered / n) * 100) : 0 };
+    });
+    return { players, questions, startedAt: this.startedAt };
+  }
+
   view(role: 'host' | 'player', token?: string): LiveView {
     const ranked = this.ranked();
     const rankOf = new Map(ranked.map((p, i) => [p.id, i + 1]));
@@ -204,10 +279,24 @@ export class LiveRoom {
       slideIndex: this.slideIndex, slideCount: this.content.slides.length,
       slides: this.phase === 'slides' || role === 'host' ? this.content.slides : undefined,
       qIndex: this.qIndex, qCount: this.content.questions.length,
-      players: [...this.players.values()].map((p) => ({ id: p.id, name: p.name, score: p.score, answered: !!p.answer, team: p.team, connected: this.now() - p.lastSeen < 45_000 })),
+      players: [...this.players.values()].map((p) => ({ id: p.id, name: p.name, score: p.score, answered: !!p.answer, team: p.team, connected: this.now() - p.lastSeen < 45_000, progress: p.exam.filter(Boolean).length, submitted: !!p.submitted })),
       board: ranked.slice(0, this.phase === 'ended' ? 10 : 5).map((p) => ({ id: p.id, name: p.name, score: p.score, rank: rankOf.get(p.id)!, streak: p.streak, team: p.team })),
     };
-    if (role === 'player') v.players = v.players.map((p) => ({ ...p, name: this.settings.showNames ? p.name : '', answered: false }));
+    if (role === 'player') v.players = v.players.map((p) => ({ ...p, name: this.settings.showNames ? p.name : '', answered: false, progress: undefined, submitted: undefined }));
+    if (role === 'host') v.results = this.results();
+    if (this.phase === 'exam') v.examDeadline = this.deadline;
+    if (role === 'host' && this.roster.length) v.roster = this.roster;
+    if (this.phase === 'exam' || (this.phase === 'ended' && this.settings.mode === 'exam')) {
+      v.question = undefined;
+      if (role === 'player' && me) {
+        const qs = this.content.questions.map((q) => ({ type: q.type, q: q.q, options: q.options, points: q.points }));
+        const done = !!me.submitted;
+        v.exam = { questions: qs, answers: this.content.questions.map((_, i) => me.exam[i] ?? null), deadline: this.deadline, submitted: done };
+        if (done && this.settings.showResults && me.examResult) {
+          v.exam.result = { ...me.examResult, review: this.settings.showAnswers ? this.content.questions.map((q, i) => ({ correct: q.correct, mine: me.exam[i] ?? null, ok: !!me.exam[i] && isRight(q, me.exam[i]!), why: q.why })) : undefined };
+        }
+      }
+    }
     if (q && (this.phase === 'question' || showAnswers)) {
       v.question = { type: q.type, q: q.q, options: q.options, time: q.time, points: q.points, deadline: this.deadline, answered, total: this.players.size, multiHint: q.type === 'multi' ? (q.correct as number[]).length : undefined };
       if (showAnswers) v.reveal = { correct: q.correct, why: q.why, counts: this.counts, text: q.type === 'text' ? this.textCounts : undefined };
@@ -232,12 +321,12 @@ function shuffle<T>(a: T[]): T[] { const r = [...a]; for (let i = r.length - 1; 
 export class LiveHub {
   rooms = new Map<string, LiveRoom>();
   constructor(private now: () => number = Date.now, private maxRooms = 300) {}
-  create(content: LiveContent, settings: LiveSettings): LiveRoom {
+  create(content: LiveContent, settings: LiveSettings, roster: string[] = []): LiveRoom {
     this.sweep();
     if (this.rooms.size >= this.maxRooms) throw new Error('The server is busy. Try again in a few minutes.');
     let code = '';
     do code = String(randomInt(100000, 1000000)); while (this.rooms.has(code));
-    const r = new LiveRoom(code, content, settings, this.now);
+    const r = new LiveRoom(code, content, settings, this.now, roster);
     this.rooms.set(code, r);
     return r;
   }

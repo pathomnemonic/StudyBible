@@ -16,11 +16,12 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<T>
 }
 
 export const live = {
-  create: (content: LiveContent, settings: Partial<LiveSettings>) => call<{ code: string; hostKey: string; view: LiveView }>('POST', '/api/live/create', { content, settings }),
+  create: (content: LiveContent, settings: Partial<LiveSettings>, roster?: string[]) => call<{ code: string; hostKey: string; view: LiveView }>('POST', '/api/live/create', { content, settings, roster }),
   join: (code: string, name: string, token?: string) => call<{ id: string; token: string; code: string; title: string }>('POST', '/api/live/join', { code, name, token }),
-  peek: (code: string) => call<{ title: string; phase: string; locked: boolean }>('GET', `/api/live/${code}/peek`),
+  peek: (code: string) => call<{ title: string; phase: string; locked: boolean; mode: 'game' | 'exam'; roster: string[]; rosterOnly: boolean }>('GET', `/api/live/${code}/peek`),
   host: (code: string, key: string, action: string, arg?: unknown) => call<{ ok: boolean }>('POST', `/api/live/${code}/host`, { key, action, arg }),
-  answer: (code: string, token: string, value: unknown) => call<{ ok: boolean }>('POST', `/api/live/${code}/answer`, { token, value }),
+  answer: (code: string, token: string, value: unknown, q?: number) => call<{ ok: boolean }>('POST', `/api/live/${code}/answer`, { token, value, q }),
+  submit: (code: string, token: string) => call<{ ok: boolean }>('POST', `/api/live/${code}/answer`, { token, submit: true }),
   exportUrl: (code: string, key: string) => `${BASE}/api/live/${code}/export?key=${encodeURIComponent(key)}`,
   eventsUrl: (code: string, who: { key?: string; token?: string }) => `${BASE}/api/live/${code}/events?${who.key ? `key=${encodeURIComponent(who.key)}` : `token=${encodeURIComponent(who.token ?? '')}`}`,
 };

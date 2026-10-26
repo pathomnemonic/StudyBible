@@ -15,8 +15,19 @@ export interface LiveQuestion {
 }
 export interface LiveSlide { label: string; title?: string; body?: string; items?: string[]; ref?: string; img?: { src: string; alt: string }; videoId?: string }
 export interface LiveContent { title: string; slides: LiveSlide[]; questions: LiveQuestion[] }
-export interface LiveSettings { teams: number; shuffleQuestions: boolean; shuffleOptions: boolean; lateJoin: boolean; showNames: boolean }
-export type Phase = 'lobby' | 'slides' | 'question' | 'results' | 'board' | 'ended';
+export interface LiveSettings {
+  teams: number; shuffleQuestions: boolean; shuffleOptions: boolean; lateJoin: boolean; showNames: boolean;
+  /** 'game' is paced by the teacher; 'exam' lets each student work alone against one clock */
+  mode: 'game' | 'exam';
+  examMinutes: number;
+  /** after an exam, show each student their score (and, if showAnswers, the right answers) */
+  showResults: boolean; showAnswers: boolean;
+  /** with a class list, students must pick their own name from it */
+  rosterOnly: boolean;
+}
+export type Phase = 'lobby' | 'slides' | 'question' | 'results' | 'board' | 'exam' | 'ended';
+export interface PlayerResult { id: string; name: string; score: number; correct: number; answered: number; total: number; joinedAt: number; submitted: boolean; team?: number }
+export interface QStat { q: string; correctPct: number; answeredPct: number }
 
 /** what a player or the host is shown */
 export interface LiveView {
@@ -35,8 +46,14 @@ export interface LiveView {
   question?: { type: QType; q: string; options?: string[]; time: number; points: number; deadline: number; answered: number; total: number; multiHint?: number };
   /** shown once the question is over */
   reveal?: { correct: (number | string)[]; why?: string; counts: number[]; text?: Record<string, number> };
-  players: { id: string; name: string; score: number; answered: boolean; team?: number; connected: boolean }[];
+  players: { id: string; name: string; score: number; answered: boolean; team?: number; connected: boolean; progress?: number; submitted?: boolean }[];
   board: { id: string; name: string; score: number; rank: number; streak: number; team?: number }[];
   teams?: { team: number; score: number; members: number }[];
+  /** the teacher always gets the full results, so they can be kept in the class record */
+  results?: { players: PlayerResult[]; questions: QStat[]; startedAt: number };
+  roster?: string[];
+  /** when an exam ends, on the server's clock */
+  examDeadline?: number;
+  exam?: { questions: { type: QType; q: string; options?: string[]; points: number }[]; answers: ((number | string)[] | null)[]; deadline: number; submitted: boolean; result?: { percent: number; correct: number; total: number; review?: { correct: (number | string)[]; mine: (number | string)[] | null; ok: boolean; why?: string }[] } };
   me?: { id: string; name: string; score: number; rank: number; streak: number; answered: boolean; team?: number; last?: { correct: boolean; points: number; bonus: number } | null; picked?: (number | string)[] };
 }

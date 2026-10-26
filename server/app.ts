@@ -4,7 +4,7 @@ import { existsSync, readFileSync, statSync, createReadStream } from 'node:fs';
 import { extname, isAbsolute, join, normalize, relative, resolve } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import type { DatabaseSync } from 'node:sqlite';
-import { LiveHub, MAX_PLAYERS, sanitizeContent, sanitizeSettings, type LiveRoom } from './live';
+import { LiveHub, MAX_PLAYERS, sanitizeContent, sanitizeRoster, sanitizeSettings, type LiveRoom } from './live';
 import { RateLimiter, hashPassword, hashToken, newToken, passwordProblem, validateEmail, verifyPassword } from './auth';
 
 export interface Config {
@@ -44,7 +44,7 @@ function payloadOk(table: string, payload: unknown, deleted: boolean) {
   const check = SHAPES[table];
   return check ? check(payload) : true;
 }
-const SYNC_TABLES = new Set(['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'userPlans', 'saved', 'media', 'userLinks', 'planProgress', 'episodeProgress', 'libraryProgress', 'queue', 'savedSearches', 'memory', 'settings']);
+const SYNC_TABLES = new Set(['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'userPlans', 'saved', 'media', 'userLinks', 'planProgress', 'episodeProgress', 'libraryProgress', 'classes', 'classwork', 'queue', 'savedSearches', 'memory', 'settings']);
 
 class HttpError extends Error {
   constructor(public status: number, message: string) {
@@ -229,7 +229,7 @@ export function createApp(cfg: Config): Server {
         const content = sanitizeContent(body.content);
         if (!content.questions.length && !content.slides.length) throw new HttpError(400, 'A session needs slides or questions.');
         let room: LiveRoom;
-        try { room = hub.create(content, sanitizeSettings(body.settings)); } catch (e: any) { throw new HttpError(503, e.message); }
+        try { room = hub.create(content, sanitizeSettings(body.settings), sanitizeRoster(body.roster)); } catch (e: any) { throw new HttpError(503, e.message); }
         return json(res, 201, { code: room.code, hostKey: room.hostKey, view: room.view('host') });
       }
       if (first === 'join' && method === 'POST') {
@@ -243,7 +243,7 @@ export function createApp(cfg: Config): Server {
       const room = first ? hub.get(first) : undefined;
       if (!room) throw new HttpError(404, 'That session has ended or does not exist.');
       const sub = parts[3];
-      if (sub === 'peek' && method === 'GET') return json(res, 200, { title: room.content.title, phase: room.phase, locked: room.locked });
+      if (sub === 'peek' && method === 'GET') return json(res, 200, { title: room.content.title, phase: room.phase, locked: room.locked, mode: room.settings.mode, roster: room.rosterFree(), rosterOnly: room.roster.length > 0 && room.settings.rosterOnly });
       if (sub === 'events' && method === 'GET') {
         const url = new URL(req.url ?? '/', 'http://x');
         const key = url.searchParams.get('key'), token = url.searchParams.get('token');
@@ -262,7 +262,7 @@ export function createApp(cfg: Config): Server {
       }
       if (sub === 'answer' && method === 'POST') {
         const body = await readJson(req);
-        const ok = room.answer(String(body.token ?? ''), body.value);
+        const ok = room.settings.mode === 'exam' && body.submit ? room.submit(String(body.token ?? '')) : room.settings.mode === 'exam' ? room.examAnswer(String(body.token ?? ''), Number(body.q), body.value) : room.answer(String(body.token ?? ''), body.value);
         pushRoom(room);
         return json(res, 200, { ok });
       }

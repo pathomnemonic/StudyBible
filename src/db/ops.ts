@@ -81,7 +81,7 @@ export async function toggleBookmark(ref: Ref, kind: Bookmark['kind'] = 'bookmar
 // Export / import
 // ---------------------------------------------------------------------------
 
-const TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'planProgress', 'userPlans', 'episodeProgress', 'queue', 'savedSearches', 'recentSearches', 'history', 'saved', 'libraryProgress', 'media', 'userLinks', 'memory'] as const;
+const TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'planProgress', 'userPlans', 'episodeProgress', 'queue', 'savedSearches', 'recentSearches', 'history', 'saved', 'libraryProgress', 'classes', 'classwork', 'media', 'userLinks', 'memory'] as const;
 
 export async function exportAll(): Promise<string> {
   const out: Record<string, unknown> = { format: 'studybible-export', version: 2, appExport: 'all-tables-and-settings', exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate', counts: {} as Record<string, number> };
@@ -129,7 +129,7 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
             rec.updatedAt ??= rec.createdAt ?? Date.now();
           }
           // merge mode: let new auto ids be assigned to avoid clobbering; keyed tables use put.
-          if (['planProgress', 'episodeProgress', 'libraryProgress'].includes(t)) await (db as any)[t].put(rec);
+          if (['planProgress', 'episodeProgress', 'libraryProgress', 'classes', 'classwork'].includes(t)) await (db as any)[t].put(rec);
           else {
             if (mode === 'merge') delete rec.id;
             if (t === 'saved') {

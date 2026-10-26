@@ -118,3 +118,57 @@ describe('a live room', () => {
     expect(hub.rooms.size).toBe(0);
   });
 });
+
+describe('class lists and exams', () => {
+  it('lets students join only as a name on the class list, once each', () => {
+    const r = new LiveRoom('600001', content, sanitizeSettings({}), clock().now, ['Ann Lee', 'Ben Cruz']);
+    expect(() => r.join('Zed')).toThrow(/class list/);
+    const a = r.join('ann lee');
+    expect(r.view('host').players[0].name).toBe('Ann Lee');
+    expect(r.rosterFree()).toEqual(['Ben Cruz']);
+    expect(() => r.join('Ann Lee')).toThrow(/already in use/);
+    expect(r.join('x', a.token).id).toBe(a.id); // coming back with the same device is fine
+    const g = new LiveRoom('600002', content, sanitizeSettings({ rosterOnly: false }), clock().now, ['Ann Lee']);
+    expect(g.join('Visitor').id).toBeTruthy();
+  });
+  it('runs an exam on one clock and scores each student alone', () => {
+    const k = clock();
+    const r = new LiveRoom('600003', content, sanitizeSettings({ mode: 'exam', examMinutes: 10, shuffleOptions: false }), k.now, ['Ann', 'Ben']);
+    const a = r.join('Ann'), b = r.join('Ben');
+    r.host('start');
+    expect(r.phase).toBe('exam');
+    expect(r.view('player', a.token).exam!.questions).toHaveLength(5);
+    expect(JSON.stringify(r.view('player', a.token))).not.toContain('"correct"');
+    expect(r.examAnswer(a.token, 0, 1)).toBe(true);
+    expect(r.examAnswer(a.token, 1, [0, 1, 3])).toBe(true);
+    expect(r.examAnswer(a.token, 2, ['peter'])).toBe(true);
+    expect(r.examAnswer(a.token, 0, 9)).toBe(false);
+    r.examAnswer(b.token, 0, 0);
+    r.submit(a.token);
+    expect(r.examAnswer(a.token, 3, [0, 1, 2])).toBe(false); // handed in
+    const view = r.view('player', a.token);
+    expect(view.exam!.submitted).toBe(true);
+    expect(view.exam!.result!.correct).toBe(3);
+    expect(view.exam!.result!.review).toBeUndefined(); // answers are hidden unless the teacher allows them
+    k.set(k.now() + 11 * 60_000);
+    r.tick();
+    expect(r.phase).toBe('ended');
+    const res = r.results();
+    expect(res.players.find((p) => p.name === 'Ann')!.score).toBeGreaterThan(res.players.find((p) => p.name === 'Ben')!.score);
+    expect(res.players.every((p) => p.submitted)).toBe(true);
+    expect(res.questions[0].correctPct).toBe(50);
+  });
+  it('reports each player and each question to the teacher after a game', () => {
+    const k = clock();
+    const r = new LiveRoom('600004', content, settings, k.now);
+    const a = r.join('Ann'), b = r.join('Ben');
+    r.host('quiz');
+    r.answer(a.token, 1);
+    k.set(k.now() + 30_000); r.tick();
+    const res = r.results();
+    expect(res.players.find((p) => p.name === 'Ann')).toMatchObject({ correct: 1, answered: 1 });
+    expect(res.players.find((p) => p.name === 'Ben')).toMatchObject({ correct: 0, answered: 0 });
+    expect(res.questions[0]).toMatchObject({ correctPct: 50, answeredPct: 50 });
+    void b;
+  });
+});

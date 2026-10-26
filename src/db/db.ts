@@ -162,6 +162,7 @@ export interface SavedItem extends Syncable {
 }
 
 export type ShelfStatus = 'want' | 'reading' | 'finished' | 'dnf';
+import type { ClassDoc, ClassWork } from '../teach/model';
 export interface LibraryProgress extends Syncable {
   workId: string;
   section: string;
@@ -238,7 +239,7 @@ export const newUid = () => (crypto.randomUUID ? crypto.randomUUID() : `${Date.n
 /** Tables with an auto-increment local id; sync matches them across devices by `uid`. */
 export const AUTO_TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'userPlans', 'saved', 'media', 'queue', 'savedSearches', 'userLinks', 'memory'] as const;
 /** Tables keyed by a natural id (their key *is* the sync uid). */
-export const KEYED_TABLES: Record<string, string> = { planProgress: 'planId', episodeProgress: 'episodeId', libraryProgress: 'workId' };
+export const KEYED_TABLES: Record<string, string> = { planProgress: 'planId', episodeProgress: 'episodeId', libraryProgress: 'workId', classes: 'id', classwork: 'id' };
 
 /** Set by the sync engine while it applies remote changes, so those writes are not re-stamped or tombstoned. */
 export const syncFlags = { applying: false, onLocalChange: (() => {}) as () => void };
@@ -266,6 +267,8 @@ class StudyBibleDB extends Dexie {
   history!: Table<HistoryEntry, number>;
   saved!: Table<SavedItem, number>;
   libraryProgress!: Table<LibraryProgress, string>;
+  classes!: Table<ClassDoc, string>;
+  classwork!: Table<ClassWork, string>;
 
   constructor() {
     super('studybible');
@@ -325,6 +328,7 @@ class StudyBibleDB extends Dexie {
       });
     this.version(5).stores({ memory: '++id, ref, due, uid' });
     this.version(6).stores({ trash: '++id, tbl, deletedAt' });
+    this.version(7).stores({ classes: 'id, updatedAt', classwork: 'id, classId, kind, date' });
     this.installSyncHooks();
   }
 
