@@ -1,3 +1,4 @@
+import Fold from '../components/Fold';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
@@ -59,14 +60,13 @@ export default function ProfilePage() {
       <ContinueRow max={6} />
       <div className="tool-groups">
         {GROUPS.map((g) => (
-          <section key={g.title} className="tool-group">
-            <h2>{g.title}</h2>
-            <ul>
+          <Fold key={g.title} id={`profile:${g.title}`} title={g.title} open={g.title === 'My reading'}>
+            <ul className="fold-list">
               {g.items.map(([to, t, d]) => (
                 <li key={to}><Link to={to} onClick={to.endsWith('#tour') ? (e) => { e.preventDefault(); window.dispatchEvent(new Event('studybible:tour')); } : undefined}><span className="t">{t}</span><span className="d">{d}</span><span className="go" aria-hidden="true">→</span></Link></li>
               ))}
             </ul>
-          </section>
+          </Fold>
         ))}
       </div>
     </div>

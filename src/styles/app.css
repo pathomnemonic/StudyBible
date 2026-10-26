@@ -4423,3 +4423,36 @@ pre.code, pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 .home-tools-left { position: absolute; top: 10px; left: 10px; z-index: 5; }
 .fav-star { font-size: 1.5rem; line-height: 1; } .fav-star[aria-pressed='true'] { color: #d9a21b; }
 @media (max-height: 700px) { .home-extras a.cta-main, .home-extras button.cta-main { min-height: 44px; } }
+
+/* ---- Polish: one consistent, softer look across the app ---- */
+.page { max-width: 880px; }
+.page > h1, .page h1:first-child { font-family: var(--font-display); font-weight: 500; letter-spacing: -.01em; font-size: clamp(1.9rem, 5vw, 2.6rem); line-height: 1.1; margin: .2em 0 .25em; }
+.lede { color: var(--muted); font-size: 1.05rem; line-height: 1.55; max-width: 60ch; }
+.eyebrow-h { font-family: var(--font-sans, inherit); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 22px 0 8px; font-weight: 600; }
+.card, .shelf-card, .tool-group, .report-card { border-radius: 18px; border: 1px solid var(--hairline, #8884); background: color-mix(in srgb, var(--surface) 82%, transparent); box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px -12px rgba(0,0,0,.25); transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 55%, transparent); box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 14px 30px -12px rgba(0,0,0,.35); }
+.shelf-card { padding: 14px 16px; display: grid; gap: 4px; align-content: start; text-decoration: none; color: inherit; }
+.shelf-card .t { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.2; }
+.shelf-card .d { font-size: .86rem; color: var(--muted); line-height: 1.4; }
+.shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.btn { border-radius: 999px; padding: 9px 18px; font-weight: 600; transition: transform .12s ease, box-shadow .12s ease, background .12s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn.primary { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 88%, #fff), var(--accent)); box-shadow: 0 6px 16px -6px color-mix(in srgb, var(--accent) 70%, transparent); }
+.btn.small { padding: 5px 12px; font-size: .85rem; }
+.btn.ghost { box-shadow: none; }
+input[type='search'], input[type='text'], input:not([type]), select, textarea { border-radius: 12px; }
+:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 70%, #fff); outline-offset: 2px; border-radius: 8px; }
+.tabbar { border-bottom: 0; gap: 6px; margin: 12px 0 18px; padding: 4px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 70%, transparent); border: 1px solid var(--hairline, #8884); width: fit-content; max-width: 100%; }
+.tabbar button { border-radius: 999px; padding: 8px 16px; border-bottom: 0 !important; transition: background .15s; }
+.tabbar button[aria-selected='true'] { background: color-mix(in srgb, var(--accent) 24%, var(--surface)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent); color: var(--text); }
+.chip { border-radius: 999px; }
+.notice { border-radius: 14px; }
+.empty { border: 1px dashed var(--hairline, #8886); border-radius: 16px; padding: 22px; text-align: center; color: var(--muted); }
+.modal { border-radius: 22px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.tabs { backdrop-filter: blur(16px) saturate(1.4); }
+.tab.active { font-weight: 700; }
+.list > li { padding: 10px 2px; }
+a { text-underline-offset: 3px; }
+@media (max-width: 520px) { .tabbar { width: 100%; overflow-x: visible; } .tabbar button { padding: 8px 12px; } .page { padding-left: 16px; padding-right: 16px; } }
+@media (prefers-reduced-motion: reduce) { .card, .shelf-card, .btn { transition: none; } a.shelf-card:hover, .btn:hover { transform: none; } }

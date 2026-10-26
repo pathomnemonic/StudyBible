@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Fold from './Fold';
 import Modal from './Modal';
 import { BIBLE_TOOLS } from '../lib/bibleTools';
 import type { Book } from '../lib/canon';
@@ -26,10 +27,8 @@ export default function BibleTools({ book, chapter, onClose }: { book: Book; cha
         </form>
         <h3 className="eyebrow-h">This book</h3>
         <ul className="bt-list">{here.map(([to, t, d]) => <li key={to}><button onClick={() => go(to)}><strong>{t}</strong><span>{d}</span></button></li>)}</ul>
-        <h3 className="eyebrow-h">Understand the text</h3>
-        <ul className="bt-list">{BIBLE_TOOLS.filter((t) => t.group === 'text').map((t) => <li key={t.to}><button onClick={() => go(t.to)}><strong>{t.label}</strong><span>{t.blurb}</span></button></li>)}</ul>
-        <h3 className="eyebrow-h">Words and topics</h3>
-        <ul className="bt-list">{BIBLE_TOOLS.filter((t) => t.group === 'words').map((t) => <li key={t.to}><button onClick={() => go(t.to)}><strong>{t.label}</strong><span>{t.blurb}</span></button></li>)}</ul>
+        <Fold id="bt:text" title="Understand the text"><ul className="bt-list">{BIBLE_TOOLS.filter((t) => t.group === 'text').map((t) => <li key={t.to}><button onClick={() => go(t.to)}><strong>{t.label}</strong><span>{t.blurb}</span></button></li>)}</ul></Fold>
+        <Fold id="bt:words" title="Words and topics"><ul className="bt-list">{BIBLE_TOOLS.filter((t) => t.group === 'words').map((t) => <li key={t.to}><button onClick={() => go(t.to)}><strong>{t.label}</strong><span>{t.blurb}</span></button></li>)}</ul></Fold>
         <p className="muted small">More study material, such as story trails, study paths and the Scripture universe, is under <Link to="/study" onClick={onClose}>Study</Link>.</p>
       </div>
     </Modal>

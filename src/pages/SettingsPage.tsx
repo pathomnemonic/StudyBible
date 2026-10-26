@@ -1,3 +1,4 @@
+import Fold from '../components/Fold';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
@@ -94,8 +95,7 @@ export default function SettingsPage() {
         <Link to="/study/sources">Sources and licensing</Link>
         <Link to="/about">About and feature status</Link>
       </div>
-      <div className="card">
-        <h2 className="card-title">Reading</h2>
+      <Fold id="settings:Reading" title="Reading" open={true}>
         <div className="row between" style={{ margin: '8px 0' }}><span>{t('settings.language')}</span><select value={s.language} onChange={(e) => set({ language: e.target.value as any })} aria-label={t('settings.language')}>{LANGS.map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></div>
         <p className="muted small" style={{ margin: '0 0 8px' }}>{t('settings.languageNote')}</p>
         <div className="row between" style={{ margin: '8px 0' }}><span>Spelling</span><select value={s.spelling ?? 'us'} onChange={(e) => set({ spelling: e.target.value as 'us' | 'uk' })} aria-label="Spelling" data-keep-spelling><option value="us">US English (color)</option><option value="uk">British English (colour)</option></select></div>
@@ -117,10 +117,9 @@ export default function SettingsPage() {
         <div className="row between" style={{ margin: '8px 0' }}><span>Margins</span><select aria-label="Margins" value={s.margin} onChange={(e) => set({ margin: e.target.value as any })}>{['narrow', 'normal', 'wide'].map((t) => <option key={t}>{t}</option>)}</select></div>
         <div className="row between" style={{ margin: '8px 0' }}><span>Typed references (e.g. “Ps 23”) use</span><select aria-label="Numbering for typed references" value={s.refNumbering} onChange={(e) => set({ refNumbering: e.target.value as any })}><option value="edition">the numbering of the current translation</option><option value="english">English / Hebrew numbering</option><option value="vulgate">Vulgate / Douay numbering</option></select></div>
         <div className="row between" style={{ margin: '8px 0' }}><span>Liturgical calendar</span><select aria-label="Liturgical calendar" value={s.diocese} onChange={(e) => set({ diocese: e.target.value })}>{Object.entries(NATIONS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></div>
-      </div>
+      </Fold>
 
-      <div className="card">
-        <h2 className="card-title">Your Church</h2>
+      <Fold id="settings:Your Church" title="Your Church" open={false}>
         <p className="muted small">The app began with the Latin (Roman) Rite. Choose your Church so it uses your own names (Divine Liturgy, Holy Qurbana…), shows the right calendar where it can, and says plainly where its readings and prayers follow the Roman Rite rather than yours.</p>
         <label className="row between" style={{ margin: '10px 0' }}>
           <span>I belong to</span>
@@ -135,9 +134,8 @@ export default function SettingsPage() {
           </>
         )}
         {!traditionOf(s.tradition).roman && <p className="small">Psalms are numbered here as in the Septuagint (and the Vulgate), the numbering your Church’s books use. {traditionOf(s.tradition).site && <>Your Church’s own site: <a href={traditionOf(s.tradition).site!.url} target="_blank" rel="noreferrer noopener">{traditionOf(s.tradition).site!.label}</a>.</>} See <Link to="/about#eastern">what the app does and does not cover for the Eastern Churches</Link>.</p>}
-      </div>
-      <div className="card">
-        <h2 className="card-title">Offline reading</h2>
+      </Fold>
+      <Fold id="settings:Offline reading" title="Offline reading" open={false}>
         <p className="muted small">Only public-domain editions can be downloaded. The app caches any chapter you open; use these buttons to fetch an entire edition (about 5 MB each) in advance.</p>
         {editions.map((e) => (
           <div className="row between" key={e.id} style={{ margin: '6px 0' }}>
@@ -146,7 +144,7 @@ export default function SettingsPage() {
           </div>
         ))}
         {Object.entries(dlErr).filter(([k, v]) => v && editions.some((e) => e.id === k)).map(([k, v]) => <p key={k} className="small" role="alert">{v}</p>)}
-      </div>
+      </Fold>
 
       <StorageStatus />
       <details className="card">
@@ -163,8 +161,7 @@ export default function SettingsPage() {
         </ul>
       </details>
 
-      <div className="card">
-        <h2 className="card-title">Study data offline</h2>
+      <Fold id="settings:Study data offline" title="Study data offline" open={false}>
         <p className="muted small">Commentary, the Fathers library and resource links are cached as you use them. Download a whole pack to have it before you go offline. Your notes, highlights, plans, memorization and progress are always stored on this device and work offline. Links to publisher websites, map tiles and the Bible in a Year audio still need a connection.</p>
         {packs.length > 0 && <div className="row" style={{ marginBottom: 6 }}><button className="btn small primary" onClick={async () => { for (const p of packs) { if (!packDone(p.id)) await dlPack(p); if (abort.current?.signal.aborted) break; } }}>Download all study data ({(packs.reduce((n, p) => n + p.bytes, 0) / 1e6).toFixed(0)} MB)</button></div>}
         {packs.map((p) => (
@@ -174,10 +171,9 @@ export default function SettingsPage() {
           </div>
         ))}
         {packs.filter((p) => dlErr[p.id]).map((p) => <p key={p.id} className="small" role="alert">{p.label}: {dlErr[p.id]}</p>)}
-      </div>
+      </Fold>
 
-      <div className="card">
-        <h2 className="card-title">Reminders (optional)</h2>
+      <Fold id="settings:Reminders (optional)" title="Reminders (optional)" open={false}>
         <p className="muted small">Entirely under your control. They work while the app is open or installed; nothing is sent from a server and no tracking is involved.</p>
         <label className="row between" style={{ margin: '8px 0' }}><span>Remind me daily</span><input type="checkbox" checked={s.reminders.enabled} onChange={async (e) => { if (e.target.checked) { const r = await enableReminders(); setRemMsg(r === 'granted' ? 'Reminders enabled while the app is running.' : r === 'denied' ? 'Notification permission was denied in the browser.' : 'This browser does not support notifications.'); set({ reminders: { ...s.reminders, enabled: r === 'granted' } }); } else set({ reminders: { ...s.reminders, enabled: false } }); setTimeout(scheduleReminder, 50); }} /></label>
         <div className="row between" style={{ margin: '8px 0' }}><span>Time</span><input type="time" aria-label="Reminder time" value={s.reminders.time} onChange={(e) => { set({ reminders: { ...s.reminders, time: e.target.value } }); setTimeout(scheduleReminder, 50); }} /></div>
@@ -200,12 +196,11 @@ export default function SettingsPage() {
           ))}
         </div>
         <label className="row between" style={{ margin: '12px 0 0' }}><span>Show “days in a row” on reading plans (off by default)</span><input type="checkbox" checked={s.showStreaks} onChange={(e) => set({ showStreaks: e.target.checked })} /></label>
-      </div>
+      </Fold>
 
       <DriveBackup />
 
-      <div className="card">
-        <h2 className="card-title">Your data, sync and privacy</h2>
+      <Fold id="settings:Your data, sync and privacy" title="Your data, sync and privacy" open={false}>
         <ul className="small" style={{ lineHeight: 1.6 }}>
           <li><strong>Private by default.</strong> Notes, highlights, bookmarks, journal and progress are stored in this browser (IndexedDB) and nowhere else, and there are no analytics. Nothing leaves your device unless you turn on Google Drive backup or sign in to a sync server.</li>
           <li><strong>Accounts and sync are optional.</strong> If you or someone you trust runs a Study Bible server, Account lets you sign in and sync across devices. That server can read what it stores: sync is not end-to-end encrypted. If no server is reachable here, everything keeps working locally. Use Google Drive backup or Export/Import to move data between devices without a server.</li>
@@ -217,7 +212,7 @@ export default function SettingsPage() {
           <button className="btn" onClick={async () => download(`studybible-export-${new Date().toISOString().slice(0, 10)}.json`, await exportAll())}>Export everything</button>
           <button className="btn danger" onClick={() => confirm('Delete ALL notes, highlights, bookmarks, journal entries and progress on this device? This cannot be undone.') && deleteAllData()}>Delete all my data</button>
         </div>
-      </div>
+      </Fold>
       <p className="small"><Link to="/about">Feature status</Link> · <Link to="/study/sources">Sources & licensing</Link></p>
       {enabling && <EnableEditionDialog edition={enabling} onClose={() => setEnabling(null)} />}
     </div>

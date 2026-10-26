@@ -1,3 +1,4 @@
+import Fold from '../../components/Fold';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -32,26 +33,36 @@ export default function PrayHome() {
     <div className="page">
       <h1>Prayer</h1>
       <p className="lede">Quiet ways to pray with Scripture. Everything here is optional; the Bible and your readings are one tab away.</p>
-      <div className="grid">
+      <Fold id="pray:Daily prayer" title="Daily prayer" open={true}>
+        <div className="grid">
         <Link to="/pray/lectio" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Lectio Divina</h2><p className="muted">Read, meditate, pray, rest — with a gentle timer you control.</p></Link>
         <Link to="/pray/office" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">{s.tradition === 'latin' ? 'The Divine Office' : 'The Roman Divine Office'}</h2><p className="muted">{s.tradition === 'latin' ? 'Lauds, Vespers, Compline and the little hours, from the Psalms. Works offline.' : 'The Latin Church’s hours of prayer, for reference. Your Church has its own daily prayer.'}</p></Link>
         <Link to="/pray/devotions" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Devotions</h2><p className="muted">The Rosary, Divine Mercy, Angelus, Stations of the Cross and the Seven Sorrows, step by step.</p></Link>
-        <Link to="/pray/sunday" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prepare for Sunday</h2><p className="muted">The coming Sunday’s readings, with homilies, the Catechism and commentary on the Gospel.</p></Link>
         <Link to="/pray/prayers" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prayer book</h2><p className="muted">Traditional prayers you can search by need: morning, the sick, the dead, study, peace.</p></Link>
+        <Link to="/pray/examen" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Daily Examen</h2><p className="muted">Five quiet steps at the end of the day: thanks, review, sorrow, resolve. Saved only if you choose.</p></Link>
+        <Link to="/session" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">A quiet moment</h2><p className="muted">A guided ten-minute pause: pray, read, reflect, hear the Church, pray.</p></Link>
+        <Link to="/pray/morning" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Morning mode</h2><p className="muted">Wake to rising sound, a bell and the day’s Gospel read aloud. Keep the app open and charging.</p></Link>
+        <Link to="/pray/sleep" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Sleep mode</h2><p className="muted">A psalm read slowly while the sound fades and the screen dims.</p></Link>
+        </div>
+      </Fold>
+      <Fold id="pray:The Mass and the liturgies" title="The Mass and the liturgies" open={false}>
+        <div className="grid">
+        <Link to="/mass" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Mass mode</h2><p className="muted">Follow the Mass one step at a time: when to stand, sit and kneel, what to say, and today’s readings.</p></Link>
+        <Link to="/pray/mass" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Following the {traditionOf(s.tradition).liturgy === 'Mass' ? 'Mass' : traditionOf(s.tradition).liturgy}</h2><p className="muted">{s.tradition === 'latin' ? 'The parts of the Mass in order, with links to the official texts.' : s.tradition === 'byzantine' ? 'The parts of the Divine Liturgy in order.' : 'Where to find the liturgy of your Church.'}</p></Link>
+        <Link to="/pray/liturgies" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">All the liturgies</h2><p className="muted">The Roman, Byzantine, Syriac, Armenian and other rites: what the app has for each, and where to find the rest.</p></Link>
+        <Link to="/pray/divine-liturgy" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Byzantine Divine Liturgy</h2><p className="muted">The Liturgy of St John Chrysostom to follow along with. A public-domain English rendering.</p></Link>
+        <Link to="/pray/sunday" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prepare for Sunday</h2><p className="muted">The coming Sunday’s readings, with homilies, the Catechism and commentary on the Gospel.</p></Link>
+        <Link to="/pray/year" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">The Church’s year</h2><p className="muted">Advent to Christ the King: the seasons, their colors and the great days, with the readings for each.</p></Link>
+        </div>
+      </Fold>
+      <Fold id="pray:Make and keep your own" title="Make and keep your own" open={false}>
+        <div className="grid">
         <Link to="/pray/examination" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Examination of conscience</h2><p className="muted">A private checklist before Confession. Nothing is saved.</p></Link>
         <Link to="/pray/novenas" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Novenas and short plans</h2><p className="muted">Nine days with the Holy Spirit or St Joseph, the penitential psalms, an Advent week.</p></Link>
         <Link to="/pray/build" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Build a prayer time</h2><p className="muted">Order your own prayers, Scripture and silence, then pray through them.</p></Link>
-        <Link to="/pray/mass" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Following the {traditionOf(s.tradition).liturgy === 'Mass' ? 'Mass' : traditionOf(s.tradition).liturgy}</h2><p className="muted">{s.tradition === 'latin' ? 'The parts of the Mass in order, with links to the official texts.' : s.tradition === 'byzantine' ? 'The parts of the Divine Liturgy in order.' : 'Where to find the liturgy of your Church.'}</p></Link>
-        <Link to="/pray/examen" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Daily Examen</h2><p className="muted">Five quiet steps at the end of the day: thanks, review, sorrow, resolve. Saved only if you choose.</p></Link>
-        <Link to="/pray/year" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">The Church’s year</h2><p className="muted">Advent to Christ the King: the seasons, their colors and the great days, with the readings for each.</p></Link>
-        <Link to="/session" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">A quiet moment</h2><p className="muted">A guided ten-minute pause: pray, read, reflect, hear the Church, pray.</p></Link>
-        <Link to="/mass" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Mass mode</h2><p className="muted">Follow the Mass one step at a time: when to stand, sit and kneel, what to say, and today’s readings.</p></Link>
-        <Link to="/pray/liturgies" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">All the liturgies</h2><p className="muted">The Roman, Byzantine, Syriac, Armenian and other rites: what the app has for each, and where to find the rest.</p></Link>
-        <Link to="/pray/morning" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Morning mode</h2><p className="muted">Wake to rising sound, a bell and the day’s Gospel read aloud. Keep the app open and charging.</p></Link>
-        <Link to="/pray/divine-liturgy" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Byzantine Divine Liturgy</h2><p className="muted">The Liturgy of St John Chrysostom to follow along with. A public-domain English rendering.</p></Link>
-        <Link to="/pray/sleep" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Sleep mode</h2><p className="muted">A psalm read slowly while the sound fades and the screen dims.</p></Link>
         <Link to="/pray/journal" className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">Prayer journal</h2><p className="muted">Reflections, intentions and saved prayers. Private to this device.</p></Link>
-      </div>
+        </div>
+      </Fold>
       <div className="card" style={{ marginTop: 14 }}>
         <div className="row between"><h2 className="card-title">{s.tradition === 'latin' ? 'The Church today' : 'The Roman calendar today'}</h2>{s.tradition === 'latin' && <span className="chip" title="The color of the priest’s vestments today">Vestments: {COLOR_NAME[day.color]}</span>}</div>
         <p style={{ margin: '4px 0' }}><strong>{day.dayName}</strong></p>

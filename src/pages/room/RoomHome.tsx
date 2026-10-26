@@ -4,6 +4,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { getAuthors, getLibraryIndex, type LibraryWorkMeta } from '../../data/content';
 import { recordedWorkIds } from '../../data/librivox';
+import Fold from '../../components/Fold';
 import { useScrollMemory } from '../../lib/scrollMemory';
 import { percentSeen, setShelf, STATUS_LABEL, STATUSES, useShelf } from '../../lib/shelf';
 import type { ShelfStatus } from '../../db/db';
@@ -124,22 +125,19 @@ export default function RoomHome() {
                   {SHELVES.slice(1).map((sh) => <button key={sh.title} className="shelf-card as-btn" onClick={() => setParam('shelf', sh.title)}><span className="t">{sh.title}</span><span className="d">{sh.blurb}</span><span className="muted small">{listOf(sh).length} works</span></button>)}
                 </div>
               </section>
-              <section className="sect">
-                <h2 className="eyebrow-h">Church teaching and tradition</h2>
+              <Fold id="room:teach" title="Church teaching and tradition">
                 <div className="shelf">{TEACHING.map(([to, t, d]) => <Link key={to} className="shelf-card" to={to}><span className="t">{t}</span><span className="d">{d}</span></Link>)}</div>
-              </section>
-              <section className="sect">
-                <h2 className="eyebrow-h">Listen</h2>
+              </Fold>
+              <Fold id="room:listen" title="Listen">
                 <div className="shelf">
                   <Link className="shelf-card" to="/listen?tab=audiobooks"><span className="t">Audiobooks</span><span className="d">{heard.size} works read aloud by volunteers</span></Link>
                   <Link className="shelf-card" to="/listen?tab=podcasts"><span className="t">Catholic podcasts</span><span className="d">Dozens of shows, with your place remembered</span></Link>
                   <Link className="shelf-card" to="/study/videos"><span className="t">Catholic video library</span><span className="d">Talks and teaching from Catholic creators</span></Link>
                 </div>
-              </section>
-              <section className="sect">
-                <h2 className="eyebrow-h">More</h2>
+              </Fold>
+              <Fold id="room:more" title="More">
                 <div className="shelf">{PLACES.map(([to, t, d]) => <Link key={to} className="shelf-card" to={to}><span className="t">{t}</span><span className="d">{d}</span></Link>)}</div>
-              </section>
+              </Fold>
             </>
           )}
         </>
