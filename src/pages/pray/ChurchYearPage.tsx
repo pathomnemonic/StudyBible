@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { liturgicalDay, parseIso, COLOR_NAME, type Season } from '../../liturgy/compute';
 import { useSettings } from '../../lib/store';
+import Fold from '../../components/Fold';
+import FeastsGuide from '../../components/FeastsGuide';
 import { byzantineFixed, byzantineMovable, traditionOf } from '../../lib/tradition';
 
 const iso = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -95,6 +97,9 @@ function RomanYear() {
       <ul className="list">
         {key.sort((a, b) => a.date.localeCompare(b.date)).map((k) => <li key={k.label}><Link to={`/pray/readings/${k.date}`}>{k.label}</Link> <span className="muted small">· {nice(k.date)}</span></li>)}
       </ul>
+      <Fold id="year:feasts" title="The great feasts, explained" hint="What each one celebrates, its customs and its readings">
+        <FeastsGuide />
+      </Fold>
       <p className="muted small">Saints’ days and local feasts are on the <Link to="/pray/readings">readings calendar</Link>. This page follows the Roman calendar only; Eastern Catholic churches keep their own.</p>
     </div>
   );
