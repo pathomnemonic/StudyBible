@@ -147,7 +147,7 @@ export interface RecentSearch {
 export interface HistoryEntry {
   id?: number;
   ts: number;
-  type: 'read' | 'work' | 'episode' | 'catechism';
+  type: 'read' | 'work' | 'episode' | 'catechism' | 'video';
   ref: string;
   label: string;
 }
@@ -155,7 +155,7 @@ export interface HistoryEntry {
 export interface SavedItem extends Syncable {
   id?: number;
   key: string; // unique key e.g. "reading:2026-10-19", "ccc:1324"
-  type: 'reading' | 'catechism' | 'work' | 'commentary';
+  type: 'reading' | 'catechism' | 'work' | 'commentary' | 'video';
   label: string;
   url?: string;
   createdAt: number;

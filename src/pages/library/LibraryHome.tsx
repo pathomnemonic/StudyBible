@@ -231,21 +231,45 @@ function Saved() {
   );
 }
 
+const HIST_KINDS: [string, string][] = [['all', 'Everything'], ['read', 'Bible chapters'], ['work', 'Reading room'], ['catechism', 'Catechism'], ['episode', 'Listening'], ['video', 'Videos']];
+
 function History() {
-  const hs = useLiveQuery(() => db.history.orderBy('ts').reverse().limit(100).toArray(), []) ?? [];
+  const hs = useLiveQuery(() => db.history.orderBy('ts').reverse().limit(400).toArray(), []) ?? [];
   const nav = useNavigate();
+  const [kind, setKind] = useState('all');
+  const list = hs.filter((h) => kind === 'all' || h.type === kind).slice(0, 100);
+  const label = HIST_KINDS.find((k) => k[0] === kind)![1];
+  const open = (h: (typeof hs)[number]) => {
+    if (h.type === 'read') { const r = parseRefId(h.ref); if (r) nav(`/read/dra/${r.book}/${r.c1}`); }
+    else if (h.type === 'work') nav(`/study/works/${h.ref}`);
+    else if (h.type === 'episode') nav(`/listen/episode/${h.ref}`);
+    else if (h.type === 'catechism') nav(`/study/catechism/${h.ref}`);
+    else if (h.type === 'video') window.open(`https://www.youtube.com/watch?v=${h.ref}`, '_blank', 'noreferrer');
+  };
+  const clear = () => {
+    if (kind === 'all') { if (confirm('Clear all of your history? Your notes, highlights, bookmarks and shelves are kept.')) void db.history.clear(); }
+    else if (confirm(`Clear ${label.toLowerCase()} history?`)) void db.history.where('type').equals(kind).delete();
+  };
   return (
     <>
-      <div className="row between"><span className="muted small">Last 100 items opened.</span><button className="btn small" onClick={() => confirm('Clear reading history?') && db.history.clear()}>Clear</button></div>
+      <div className="tabbar" role="tablist">{HIST_KINDS.map(([k, l]) => <button key={k} role="tab" aria-selected={kind === k} onClick={() => setKind(k)}>{l}</button>)}</div>
+      <div className="row between"><span className="muted small">Latest 100 items. Remove any one with ✕.</span><button className="btn small" onClick={clear} disabled={!list.length}>{kind === 'all' ? 'Clear all history' : `Clear ${label.toLowerCase()}`}</button></div>
+      {list.length === 0 && <div className="empty">Nothing here.</div>}
       <ul className="list">
-        {hs.map((h) => (
-          <li key={h.id}><button className="btn ghost" style={{ padding: 0 }} onClick={() => {
-            if (h.type === 'read') { const r = parseRefId(h.ref); if (r) nav(`/read/dra/${r.book}/${r.c1}`); }
-            else if (h.type === 'work') nav(`/study/works/${h.ref}`);
-            else if (h.type === 'episode') nav(`/listen/episode/${h.ref}`);
-          }}>{h.label}</button> <span className="muted small">{new Date(h.ts).toLocaleString()}</span></li>
+        {list.map((h) => (
+          <li key={h.id} className="row between">
+            <span><button className="btn ghost" style={{ padding: 0 }} onClick={() => open(h)}>{h.label}</button> <span className="muted small">{new Date(h.ts).toLocaleString()}</span></span>
+            <button className="icon-btn" aria-label={`Remove ${h.label} from history`} onClick={() => db.history.delete(h.id!)}>✕</button>
+          </li>
         ))}
       </ul>
+      <h3 className="h-sm" style={{ marginTop: 18 }}>Other things the app remembers</h3>
+      <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
+        <button className="btn small" onClick={() => confirm('Forget where you stopped in podcasts and audiobooks?') && db.episodeProgress.clear()}>Clear listening progress</button>
+        <button className="btn small" onClick={() => confirm('Forget your place in every Reading room work? Your shelves, ratings and notes are kept.') && db.libraryProgress.toCollection().modify((p) => { p.section = '0'; delete p.seen; delete p.scroll; })}>Clear reading places</button>
+        <button className="btn small" onClick={() => db.recentSearches.clear()}>Clear recent searches</button>
+        <button className="btn small" onClick={() => confirm('Clear the up-next queue?') && db.queue.clear()}>Clear queue</button>
+      </div>
     </>
   );
 }

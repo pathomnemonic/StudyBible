@@ -70,6 +70,7 @@ export default function ListenNow() {
                   </div>
                   <button className="btn small primary" onClick={() => player.play(e)}><Icon name="play" size={14} /> Resume</button>
                   <button className="icon-btn" aria-label="Mark played" title="Mark played" onClick={() => db.episodeProgress.put({ ...p, position: 0, completed: true, updatedAt: Date.now() })}><Icon name="check" /></button>
+                  <button className="icon-btn" aria-label="Forget my place" title="Forget my place" onClick={() => db.episodeProgress.delete(p.episodeId)}><Icon name="close" size={16} /></button>
                 </div>
               </li>); })}
           </ul>
@@ -111,7 +112,7 @@ export default function ListenNow() {
       {recent.length > 0 && (
         <section className="sect">
           <h2 className="eyebrow-h">Recently finished</h2>
-          <ul className="list">{recent.map((p) => { const e = eps.get(p.episodeId)!; return <li key={p.episodeId}><span className="t">{e.title}</span> <span className="muted small">{showOf(e)}</span> <button className="linklike small" onClick={() => db.episodeProgress.put({ ...p, completed: false, position: 0, updatedAt: Date.now() })}>Mark unplayed</button></li>; })}</ul>
+          <ul className="list">{recent.map((p) => { const e = eps.get(p.episodeId)!; return <li key={p.episodeId}><span className="t">{e.title}</span> <span className="muted small">{showOf(e)}</span> <button className="linklike small" onClick={() => db.episodeProgress.put({ ...p, completed: false, position: 0, updatedAt: Date.now() })}>Mark unplayed</button> <button className="linklike small" onClick={() => db.episodeProgress.delete(p.episodeId)}>Remove</button></li>; })}</ul>
         </section>
       )}
     </div>

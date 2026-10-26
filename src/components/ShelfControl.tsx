@@ -23,6 +23,7 @@ export default function ShelfControl({ workId, total }: { workId: string; total:
         {shelf?.finishedAt ? ` · finished ${fmt(shelf.finishedAt)}` : ''}
         {shelf?.seen?.length ? ` · ${shelf.seen.length} of ${total} sections opened` : ''}
       </p>
+      {(shelf?.seen?.length || shelf?.section !== undefined && shelf.section !== '0') && <button className="linklike small" onClick={() => setShelf(workId, { section: '0', seen: [] })}>Forget my place in this work</button>}
       <div role="radiogroup" aria-label="Your rating" className="stars">
         {[1, 2, 3, 4, 5].map((n) => (
           <button key={n} role="radio" aria-checked={shelf?.rating === n} aria-label={`${n} star${n > 1 ? 's' : ''}`} className={`star${(shelf?.rating ?? 0) >= n ? ' on' : ''}`} onClick={() => setShelf(workId, { rating: shelf?.rating === n ? undefined : n })}>★</button>
