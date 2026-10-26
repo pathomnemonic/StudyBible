@@ -9,9 +9,11 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   const errs = []; p.on('pageerror', (e) => errs.push(e.message));
   await p.goto(`${BASE}/#/today`);
   await p.waitForSelector('.welcome-card');
-  if (await p.locator('.welcome-dots i').count() !== 6) fail('six steps');
+  if (await p.locator('.welcome-dots i').count() !== 7) fail('seven steps');
   await p.click('.welcome-chip:has-text("Pray every day")');
-  await p.click('.welcome-bar .btn.primary'); // 2: Church and Bible
+  await p.click('.welcome-bar .btn.primary'); // 2: learning and reading
+  await p.click('.welcome-chip:has-text("Me, an adult")');
+  await p.click('.welcome-bar .btn.primary'); // 3: Church and look
   await p.selectOption('select[aria-label="Language"]', 'fr');
   await p.selectOption('select[aria-label="Language"]', 'en');
   await p.click('.welcome-bar .btn.primary'); // 3: favorites
@@ -44,7 +46,7 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   if (dots < 3) fail('tab dots expected, got ' + dots);
   // opening Pray clears its dot and shows the tip once
   await p.locator('a[data-seen="tab./pray"]').first().click();
-  await p.waitForSelector('.hub-hero');
+  await p.waitForSelector('.hub-head');
   const prayDot = await p.locator('a[data-seen="tab./pray"] .new-dot').count();
   if (prayDot) fail('dot should clear after opening the tab');
   await p.goto(`${BASE}/#/pray/intentions`);

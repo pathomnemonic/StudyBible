@@ -41,6 +41,8 @@ for (const [vw, vh, tag] of [[1280, 900, 'wide'], [390, 800, 'narrow']]) {
   await p.goto(`${BASE}/#/pray/devotions`);
   await p.goto(`${BASE}/#/pray/devotions/rosary?set=joyful`);
   await p.waitForSelector('.rosary-svg');
+  if (!(await p.locator('.rosary-resume').count())) fail('rosary should offer to pick up where it was left');
+  await p.locator('.rosary-resume .btn.primary').click();
   if (!/second joyful mystery/i.test(await title())) fail('rosary should resume where it was left');
   // jump by decade chip and back, keyboard
   await p.locator('.rosary-jump .chip', { hasText: /^4$/ }).click();
