@@ -78,7 +78,7 @@ export default function Shell({ children }: { children: ReactNode }) {
   useEffect(() => { void navigator.storage?.persist?.(); startDriveBackup(); }, []);
   const [offline, setOffline] = useState(typeof navigator !== 'undefined' && navigator.onLine === false);
   useEffect(() => { const a = () => setOffline(true), b = () => setOffline(false); window.addEventListener('offline', a); window.addEventListener('online', b); return () => { window.removeEventListener('offline', a); window.removeEventListener('online', b); }; }, []);
-  const fullscreenReader = (loc.pathname.startsWith('/read') && s.scriptureOnly) || loc.pathname.startsWith('/widget');
+  const fullscreenReader = ((loc.pathname.startsWith('/read') || loc.pathname.startsWith('/room/work') || loc.pathname.startsWith('/study/works')) && s.scriptureOnly) || loc.pathname.startsWith('/widget');
   const home = isHome(loc.pathname);
   const profileActive = PROFILE_PATHS.some((m) => loc.pathname === m || loc.pathname.startsWith(m + '/')) && !loc.pathname.startsWith('/pray/readings');
   return (
