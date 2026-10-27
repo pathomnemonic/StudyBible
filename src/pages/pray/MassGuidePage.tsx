@@ -47,7 +47,7 @@ export default function MassGuidePage() {
     return (
       <div className="page">
         <h1>Following the Divine Liturgy</h1>
-        <p className="lede">The parts of the Divine Liturgy of St John Chrysostom, in order. Other days use the Liturgy of St Basil or the Presanctified Gifts, and each Church has its own books and customs. Follow your own parish’s service book.</p>
+        <p className="lede">The parts of the Divine Liturgy of St John Chrysostom, in order.</p>
         {BYZANTINE.map((sec) => <section className="card" key={sec.head}><h2 className="card-title">{sec.head}</h2><ol className="list">{sec.items.map((i) => <li key={i.name}><strong>{i.name}.</strong> {i.note}</li>)}</ol></section>)}
         <section className="card"><h2 className="card-title">Learn more</h2><ul className="list">
           <li><a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_orientalium-ecclesiarum_en.html" target="_blank" rel="noreferrer noopener">Orientalium Ecclesiarum</a>, the Second Vatican Council’s decree on the Eastern Catholic Churches.</li>
@@ -56,21 +56,11 @@ export default function MassGuidePage() {
       </div>
     );
   }
-  if (!t.roman) {
-    return (
-      <div className="page">
-        <h1>Following the {t.liturgy}</h1>
-        <p className="lede">The {t.liturgy} of the {t.name} has its own order, prayers and readings, and this app does not have them. The Roman Mass follows a different order, so we do not show it as if it were yours.</p>
-        <p>Please use your parish’s service book{t.site ? <> or <a href={t.site.url} target="_blank" rel="noreferrer noopener">{t.site.label}</a></> : ''}.</p>
-        {({ 'syro-malankara': 'james', maronite: 'james', 'syro-malabar': 'addai-mari', chaldean: 'addai-mari', alexandrian: 'mark' } as Record<string, string>)[t.id] && <p>For study, an ancient liturgy of your Church’s family is in the app: <Link to={`/pray/liturgy/${({ 'syro-malankara': 'james', maronite: 'james', 'syro-malabar': 'addai-mari', chaldean: 'addai-mari', alexandrian: 'mark' } as Record<string, string>)[t.id]}`}>read it here</Link>. It is not the text your parish uses today.</p>}
-        <p><a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_orientalium-ecclesiarum_en.html" target="_blank" rel="noreferrer noopener">Orientalium Ecclesiarum</a> explains why the Church treasures each rite.</p>
-      </div>
-    );
-  }
   return (
     <div className="page">
       <h1>Following the Mass</h1>
-      <p className="lede">The parts of the Mass in order, with a word on what each one is. The Church’s English texts of the Mass are copyrighted, so this guide describes the parts and sends you to the official sources.</p>
+      {!t.roman && <div className="notice info" role="note"><strong>This is the Roman Mass.</strong> Your Church’s own {t.liturgy} is not in the app yet, so the Roman Mass is shown instead.</div>}
+      <p className="lede">The parts of the Mass in order, with a word on what each one is.</p>
       {PARTS.map((s) => (
         <section className="card" key={s.head}>
           <h2 className="card-title">{s.head}</h2>

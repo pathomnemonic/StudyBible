@@ -21,7 +21,7 @@ export default function SaintsPage() {
   return (
     <div className="page">
       <h1>Lives of the Saints</h1>
-      <p className="lede">Alban Butler’s eighteenth-century lives, day by day. Butler keeps the feast days of his own calendar, which can differ from today’s, so a saint may sit a day or two away from where you expect.</p>
+      <p className="lede">Alban Butler’s eighteenth-century lives, day by day.</p>
       <div className="row" style={{ gap: 8, marginBottom: 10 }}>
         <button className="icon-btn" onClick={() => nav(`/study/saints/${shift(day, -1)}`)} aria-label="Previous day"><Icon name="chevL" /></button>
         <strong>{label(day)}</strong>

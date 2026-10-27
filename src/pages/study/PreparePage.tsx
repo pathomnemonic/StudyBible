@@ -32,7 +32,7 @@ export default function PreparePage() {
     <div className="page">
       <p><Link to="/learn">← Learn</Link></p>
       <h1>Prepare for a sacrament</h1>
-      <p className="lede">Lessons, prayers and tools for each sacrament, gathered in one place. They support, and do not replace, your parish’s own preparation: speak with your pastor or parish office about requirements and dates.</p>
+      <p className="lede">Lessons, prayers and tools for each sacrament, gathered in one place.</p>
       <FoldControls />
       {TOPICS.map((t, i) => (
         <Fold key={t.id} id={`prepare:${t.id}`} title={t.title} hint={t.blurb} open={i === 0}>

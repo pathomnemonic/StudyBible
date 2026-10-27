@@ -128,9 +128,12 @@ function ThemeApplier() {
 
   // a short tick under the finger for taps on buttons, tabs and chips, for readers who switched haptics on
   useEffect(() => {
-    const h = (e: PointerEvent) => { if (e.pointerType === 'touch' && (e.target as HTMLElement | null)?.closest?.('.btn, .tab, .chip, .icon-btn, .hub-tile, .fold > summary')) buzz(6); };
-    document.addEventListener('pointerdown', h, { passive: true });
-    return () => document.removeEventListener('pointerdown', h);
+    let at: { x: number; y: number } | null = null;
+    const d = (e: PointerEvent) => { at = { x: e.clientX, y: e.clientY }; };
+    const u = (e: PointerEvent) => { const a = at; at = null; if (a && e.pointerType === 'touch' && Math.hypot(e.clientX - a.x, e.clientY - a.y) < 10 && (e.target as HTMLElement | null)?.closest?.('.btn, .tab, .chip, .icon-btn, .hub-tile, .fold > summary')) buzz(6); };
+    document.addEventListener('pointerdown', d, { passive: true });
+    document.addEventListener('pointerup', u, { passive: true });
+    return () => { document.removeEventListener('pointerdown', d); document.removeEventListener('pointerup', u); };
   }, []);
 
   useEffect(() => {

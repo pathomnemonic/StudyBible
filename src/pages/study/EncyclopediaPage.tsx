@@ -30,7 +30,7 @@ export default function EncyclopediaPage() {
   return (
     <div className="page">
       <h1>The Catholic Encyclopedia</h1>
-      <p className="lede">The 1913 articles on the books of the Bible, its people and places, and topics such as the canon, covenant and the Temple. Their Scripture citations also appear in the study panel beside the verses they cite.</p>
+      <p className="lede">The 1913 articles on Bible books, people, places and topics.</p>
       <input type="search" placeholder="Find an article" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Find an article" style={{ width: '100%', maxWidth: 420, marginBottom: 12 }} />
       {(['book', 'person', 'place', 'topic'] as const).map((k) => {
         const items = shown.filter((a) => a.kind === k);

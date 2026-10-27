@@ -39,7 +39,7 @@ export default function LexiconPage() {
   return (
     <div className="page lexicon">
       <h1>Greek and Hebrew words</h1>
-      <p className="lede">Look a word up by its English meaning, by how it sounds, or by Strong’s number (G26, H157). Then see every place it appears.</p>
+      <p className="lede">Look a word up by its English meaning, by how it sounds, or by Strong’s number (G26, H157).</p>
       <div className="tabbar" role="tablist" aria-label="Language"><button role="tab" aria-selected={lang === 'grc'} onClick={() => setLang('grc')}>Greek (New Testament)</button><button role="tab" aria-selected={lang === 'hbo'} onClick={() => setLang('hbo')}>Hebrew (Old Testament)</button></div>
       <FilterBar active={0} search={<input type="search" value={q} onChange={(e) => { setQ(e.target.value); setSel(null); }} placeholder={lang === 'grc' ? 'love, agape, G26…' : 'covenant, hesed, H2617…'} aria-label="Find a word" />}>
         <p className="muted small" style={{ margin: 0 }}>Entries are from Strong’s lexicon (public domain). Meanings are brief; the study panel’s Words tab shows each word in its verse.</p>

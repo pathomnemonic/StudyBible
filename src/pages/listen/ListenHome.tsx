@@ -3,6 +3,7 @@ import { HubHeader } from '../../components/Hub';
 import SaveOffline from '../../components/SaveOffline';
 import { useMemo, useState, useEffect } from 'react';
 import { Tip, StartHere } from '../../components/Hints';
+import RefLink from '../../components/RefLink';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
@@ -186,7 +187,7 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
           <Link to={`/listen/episode/${e.id}`} className="t" style={{ fontWeight: 600 }}>{e.kind === 'day' ? `Day ${e.day}: ${e.short}` : e.title}</Link>
           <div className="muted small">{e.date} · {fmtDuration(e.duration)}{e.year ? ` · ${e.year} release` : ''}{progress?.completed ? ' · ✓ completed' : pct > 0 ? ` · ${pct}%` : ''}</div>
           <div className="chips" style={{ marginTop: 4 }}>
-            {e.passages.slice(0, 6).map((p) => { const r = parseRefId(p); return r ? <span key={p} className="chip">{formatRef(r, { abbr: true })}</span> : null; })}
+            {e.passages.slice(0, 6).map((p) => { const r = parseRefId(p); return r ? <RefLink key={p} refv={r}><span className="chip">{formatRef(r, { abbr: true })}</span></RefLink> : null; })}
             {e.passages.length === 0 && e.kind === 'day' && <span className="chip warn">passages not in feed — needs review</span>}
           </div>
         </div>
@@ -217,7 +218,7 @@ export default function ListenHome() {
   const open = shows?.find((x) => x.id === openId);
   return (
     <div className="page media">
-      <HubHeader title="Media" />
+      <HubHeader quiet title="Media" />
       <div className="tabbar" role="tablist" aria-label="Media">
         {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => go(k)}>{l}</button>)}
       </div>

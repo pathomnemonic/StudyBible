@@ -15,6 +15,7 @@ import RefLink from './RefLink';
 import Icon from './Icon';
 import ShowSettings from './ShowSettings';
 import { choosePlan } from '../lib/activePlan';
+import PlanPicker from './PlanPicker';
 
 /** Progress ring: the Bible in a Year days you have finished, out of 365. */
 function Ring({ done, day }: { done: number; day: number }) {
@@ -55,6 +56,7 @@ export default function YearHero() {
     await db.planProgress.put({ ...prog, done });
   };
   const [cfg, setCfg] = useState(false);
+  const [pick, setPick] = useState(false);
   return (
       <section className="year-card" aria-labelledby="year-h">
         <Ring done={prog?.done.length ?? 0} day={dayN} />
@@ -70,9 +72,10 @@ export default function YearHero() {
             <button className="btn icon" onClick={() => setCfg(true)} title="Skip the intro, speed and skip buttons for this show" aria-label="Bible in a Year settings"><Icon name="gear" size={16} /></button>
           </div>
           <p className="year-foot muted small">
-            {prog ? <>{prog.done.length} of 365 days finished · Fr. Mike Schmitz, Ascension · <Link to="/pray/plans">Change plan</Link></> : <>Following the calendar. <button className="linklike" onClick={startTracking}>Track my progress</button></>}
+            {prog ? <>{prog.done.length} of 365 days finished · Fr. Mike Schmitz, Ascension · <button className="linklike" onClick={() => setPick(true)}>Switch plan</button></> : <>Following the calendar. <button className="linklike" onClick={startTracking}>Track my progress</button></>}
           </p>
         </div>
+      {pick && <PlanPicker onClose={() => setPick(false)} />}
       {cfg && <ShowSettings showKey="biay" name="Bible in a Year" onClose={() => setCfg(false)} />}
       </section>
   );

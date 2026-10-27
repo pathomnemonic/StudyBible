@@ -70,3 +70,14 @@ const FIXED: [number, number, string][] = [
 export function byzantineFixed(year: number, oldCalendar: boolean): FeastDate[] {
   return FIXED.map(([m, d, label]) => ({ label, date: addDays(utc(year, m, d), oldCalendar ? 13 : 0) })).sort((a, b) => a.date.getTime() - b.date.getTime());
 }
+
+/**
+ * Which liturgy the app can actually put in front of someone: the Roman Mass, the Byzantine Divine Liturgy, or (for every other Church) the
+ * Roman Mass shown in its place, said plainly, because the app does not have that Church's own text.
+ */
+export function liturgyFor(id: string | undefined): { kind: 'roman' | 'byzantine' | 'roman-instead'; label: string; own: Tradition } {
+  const t = traditionOf(id);
+  if (t.roman) return { kind: 'roman', label: 'Mass', own: t };
+  if (t.id === 'byzantine') return { kind: 'byzantine', label: 'Divine Liturgy', own: t };
+  return { kind: 'roman-instead', label: 'Roman Mass', own: t };
+}

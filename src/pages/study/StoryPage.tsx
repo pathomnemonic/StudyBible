@@ -15,7 +15,7 @@ export default function StoryPage() {
     return (
       <div className="page">
         <h1>Follow a story</h1>
-        <p className="lede">Trace one thread through the whole Bible, one passage at a time. Each step says whether it continues the story in the text, whether a later writer recalls it, or whether it is a reading from the Church’s tradition.</p>
+        <p className="lede">Trace one thread through the whole Bible, one passage at a time.</p>
         <div className="grid">{THREADS.map((x) => <Link key={x.id} to={`/study/story/${x.id}`} className="card" style={{ textDecoration: 'none', color: 'inherit' }}><h2 className="card-title">{x.title}</h2><p className="muted">{x.blurb}</p><p className="muted small">{x.steps.length} passages</p></Link>)}</div>
       </div>
     );

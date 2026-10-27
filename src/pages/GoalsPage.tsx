@@ -28,7 +28,7 @@ export default function GoalsPage() {
   return (
     <div className="page">
       <h1>Reading goal</h1>
-      <p className="lede">Pick a number of Bible chapters for the week. A chapter counts once you have read to its end (or tapped “Mark this chapter read”), not just opened it. No streak to lose, just a nudge.</p>
+      <p className="lede">Pick a number of Bible chapters for the week.</p>
       <div className="card">
         <label className="row between"><span>Chapters this week</span>
           <select value={goal} onChange={(e) => updateSettings({ weeklyGoal: +e.target.value })} aria-label="Weekly goal in chapters">

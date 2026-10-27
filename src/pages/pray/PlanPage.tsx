@@ -1,3 +1,4 @@
+import { getSettings, updateSettings } from '../../lib/store';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -70,7 +71,7 @@ export default function PlanPage() {
             <button className="btn small" onClick={() => db.planProgress.put({ ...prog, offsetDays: prog.offsetDays - 1 })}>Slow down a day</button>
             <button className="btn small" onClick={() => db.planProgress.put({ ...prog, offsetDays: prog.offsetDays + 1 })}>Skip ahead a day</button>
             <button className="btn small" onClick={() => confirm('Restart this plan from day 1? Your checked days will be cleared.') && db.planProgress.put({ planId: id, startedAt: Date.now(), status: 'active', done: [], offsetDays: 0 })}>Restart</button>
-            <button className="btn small danger" onClick={() => confirm('Stop following this plan?') && db.planProgress.delete(id)}>Stop</button>
+            <button className="btn small danger" onClick={async () => { await db.planProgress.delete(id); if (getSettings().activePlan === id) updateSettings({ activePlan: '' }); }}>Stop</button>
           </div>
         </div>
       )}

@@ -44,7 +44,7 @@ export default function YoungAdultsPage() {
   return (
     <div className="page">
       <h1>Adults</h1>
-      <p className="lede">For anyone weighing the faith or coming back to it: what you actually believe, what to do with your life, how to love well, and whether any of it holds up. Nothing here is a lecture. Open what you need.</p>
+      <p className="lede">Weighing the faith, or coming back to it? Start with what you actually believe.</p>
 
 
       <section className="sect">

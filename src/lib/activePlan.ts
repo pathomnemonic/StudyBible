@@ -30,11 +30,6 @@ export function useActivePlan(): ActivePlan | null {
   const [built, setBuilt] = useState<PlanDef[]>([]);
   const v = get('vulgate');
   useEffect(() => { if (v) void builtinPlans(v).then(setBuilt); }, [v?.id]);
-  // a plan chosen in Settings with no progress yet (settings restored on a new device, or progress cleared): begin it today instead of showing nothing
-  useEffect(() => {
-    if (!rows || !s.activePlan || rows.some((r) => r.planId === s.activePlan)) return;
-    void db.planProgress.put({ planId: s.activePlan, startedAt: Date.now(), status: 'active', done: [], offsetDays: 0 });
-  }, [rows, s.activePlan]);
   if (!rows || !userPlans) return null;
   const live = rows.filter((r) => r.status !== 'finished');
   const chosen = s.activePlan && rows.find((r) => r.planId === s.activePlan) ? s.activePlan : live.length === 1 ? live[0].planId : '';
@@ -58,3 +53,22 @@ export function useActivePlan(): ActivePlan | null {
 }
 
 export const choosePlan = (id: string) => updateSettings({ activePlan: id });
+
+/**
+ * Keeps the plan choice quietly in order, with no prompt: people who never chose a plan get the Bible in a Year podcast, a chosen plan
+ * always has progress to show, and anyone already following one plan keeps it.
+ */
+export function useEnsureActivePlan() {
+  const [s] = useSettings();
+  const rows = useLiveQuery(() => db.planProgress.toArray(), []);
+  useEffect(() => {
+    if (!rows) return;
+    if (!s.planDefaultV1) {
+      const live = rows.filter((r) => r.status !== 'finished');
+      const keep = s.activePlan && rows.some((r) => r.planId === s.activePlan) ? s.activePlan : live.length === 1 ? live[0].planId : live.length > 1 ? '' : 'biay';
+      updateSettings({ planDefaultV1: true, activePlan: keep });
+      return;
+    }
+    if (s.activePlan && !rows.some((r) => r.planId === s.activePlan)) void db.planProgress.put({ planId: s.activePlan, startedAt: Date.now(), status: 'active', done: [], offsetDays: 0 });
+  }, [rows, s.activePlan, s.planDefaultV1]);
+}

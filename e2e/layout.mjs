@@ -56,7 +56,7 @@ for (const w of WIDTHS) {
       const vis = (e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(e).visibility !== 'hidden'; };
       const scrollX = (e) => { for (let a = e.parentElement; a; a = a.parentElement) { const o = getComputedStyle(a).overflowX; if ((o === 'auto' || o === 'scroll') && a.scrollWidth > a.clientWidth) return true; } return false; };
       for (const e of document.querySelectorAll('h1, h2, h3, button, a, summary, label, .chip, .title-btn, .hub-tile-t')) {
-        if (!vis(e) || scrollX(e) || e.closest('.tabs, .tabbar, .chips, .chip-scroll, .tour-card, [data-clip-ok]')) continue;
+        if (!vis(e) || scrollX(e) || e.closest('.tabs, .tabbar, .chips, .chip-scroll, .tour-card, .sr-only, [data-clip-ok]')) continue;
         const cs = getComputedStyle(e);
         const clipped = (cs.overflow === 'hidden' || cs.overflowX === 'hidden') && e.scrollWidth > e.clientWidth + 2 && cs.display !== 'inline';
         const lineCut = cs.webkitLineClamp !== 'none' && cs.webkitLineClamp !== '' && e.scrollHeight > e.clientHeight + 3 && /^(H1|H2|H3)$/.test(e.tagName);

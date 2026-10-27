@@ -39,7 +39,7 @@ export default function MementoPage() {
   return (
     <div className="page memento">
       <h1>Memento mori</h1>
-      <p className="lede">“Remember that you will die.” The saints kept death before their eyes, not to be gloomy, but to live each day for what lasts. This is an optional, private reminder.</p>
+      <p className="lede">“Remember that you will die.” The saints kept death before their eyes, not to be gloomy, but to live each day for what lasts.</p>
 
       <section className="card">
         <label className="row between"><span><strong>Show my life as a progress bar</strong><br /><small className="muted">Off until you choose it. Nothing is sent anywhere.</small></span>

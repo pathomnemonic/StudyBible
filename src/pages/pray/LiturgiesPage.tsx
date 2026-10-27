@@ -1,56 +1,56 @@
 import { Link } from 'react-router-dom';
-import { TRADITIONS } from '../../lib/tradition';
+import Fold from '../../components/Fold';
+import { useSettings } from '../../lib/store';
+import { liturgyFor } from '../../lib/tradition';
 
-type Have = 'yes' | 'part' | 'no';
-interface Rite { name: string; who: string; text?: { id: string; title: string }; mass: { what: string; to?: string; have: Have }; hours?: { what: string; to?: string; have: Have }; note?: string }
-const MARK: Record<Have, string> = { yes: 'In the app', part: 'Partly in the app', no: 'Not in the app' };
-
-const LATIN: Rite[] = [
-  { name: 'Roman Rite: Ordinary Form (the Mass of Paul VI)', who: 'Most Catholics in the world', mass: { what: 'Mass mode: every part in order with posture, what you say, and today’s readings. The Missal’s prayers are copyrighted and are not printed.', to: '/mass', have: 'part' }, hours: { what: 'Liturgy of the Hours: the traditional Roman psalter, not the modern English text (copyright)', to: '/pray/office', have: 'part' } },
-  { name: 'Roman Rite: Extraordinary Form (the Mass of 1962)', who: 'Catholics who attend the Latin Mass', mass: { what: 'The whole Order of Mass in English (low Mass) with the Introit, readings, Gradual, Offertory, Secret, Preface, Communion and Postcommunion of the day, from Divinum Officium. Latin text is not included, and the day is chosen by rank without every rule of precedence.', to: '/mass/ef', have: 'part' }, hours: { what: 'Traditional Roman Office, with saints and feasts by date', to: '/pray/office', have: 'part' } },
-  { name: 'Ordinariate (Divine Worship)', who: 'Former Anglicans in the Personal Ordinariates', mass: { what: 'The Missal is copyrighted. Mass mode can be used for the order; the Ordinariate’s own books give the prayers.', to: '/mass', have: 'part' }, hours: { what: 'The Ordinariate’s Divine Office is not in the app', have: 'no' } },
-  { name: 'Ambrosian and Mozarabic Rites', who: 'Milan; Toledo (and a few places)', mass: { what: 'Not in the app', have: 'no' }, note: 'Both are Latin rites with their own Mass texts. Ask the diocese for the books.' },
+/** What the app really has, in plain terms. Rites without a text here are listed once, honestly, and a person from such a Church is given the Roman Mass instead. */
+const HAVE: { to: string; title: string; note: string }[] = [
+  { to: '/mass', title: 'Roman Mass', note: 'Every part in order, with posture, what you say and today’s readings.' },
+  { to: '/mass/ef', title: 'Extraordinary Form (1962)', note: 'The whole Order of Mass in English, with the propers of the day.' },
+  { to: '/pray/divine-liturgy', title: 'Byzantine Divine Liturgy', note: 'The Liturgy of St John Chrysostom, a 1914 English rendering.' },
+  { to: '/pray/office', title: 'Divine Office', note: 'The traditional Roman psalter, hour by hour.' },
 ];
-const EASTERN: Record<string, Rite> = {
-  byzantine: { name: 'Byzantine Rite', who: 'Ukrainian, Ruthenian, Melkite, Romanian, Hungarian, Slovak and other Greek Catholic Churches', mass: { what: 'The Divine Liturgy of St John Chrysostom (a 1914 English rendering, public domain). Daily readings and saints from Orthocal.', to: '/pray/divine-liturgy', have: 'part' }, hours: { what: 'The Horologion, Vespers and Matins are not in the app', have: 'no' }, note: 'The Liturgy of St Basil and the Presanctified are not yet in the app.' },
-  'syro-malabar': { text: { id: 'addai-mari', title: 'The Liturgy of Addai and Mari' }, name: 'Syro-Malabar Church (East Syriac)', who: 'India and the diaspora', mass: { what: 'The Holy Qurbana is not in the app. The Church’s official site has its text.', have: 'no' }, hours: { what: 'Not in the app', have: 'no' } },
-  'syro-malankara': { text: { id: 'james', title: 'The Liturgy of St James' }, name: 'Syro-Malankara Church (West Syriac)', who: 'India and the diaspora', mass: { what: 'Not in the app', have: 'no' } },
-  maronite: { text: { id: 'james', title: 'The Liturgy of St James' }, name: 'Maronite Church (West Syriac)', who: 'Lebanon and the diaspora', mass: { what: 'The Holy Qurbono is not in the app. Daily readings in the Maronite calendar are in the Listen tab.', to: '/listen?show=maronite-readings', have: 'part' } },
-  chaldean: { text: { id: 'addai-mari', title: 'The Liturgy of Addai and Mari' }, name: 'Chaldean Church (East Syriac)', who: 'Iraq and the diaspora', mass: { what: 'Not in the app', have: 'no' } },
-  armenian: { name: 'Armenian Catholic Church', who: 'Armenia, Lebanon and the diaspora', mass: { what: 'Not in the app', have: 'no' } },
-  alexandrian: { text: { id: 'mark', title: 'The Liturgy of St Mark' }, name: 'Coptic, Ethiopian and Eritrean Catholic Churches', who: 'Egypt, Ethiopia, Eritrea and the diaspora', mass: { what: 'Not in the app', have: 'no' } },
-};
+const ANCIENT: { to: string; title: string; note: string }[] = [
+  { to: '/pray/liturgy/addai-mari', title: 'Addai and Mari', note: 'The ancient East Syriac anaphora, behind the Chaldean and Syro-Malabar rites. For study.' },
+  { to: '/pray/liturgy/james', title: 'St James', note: 'The ancient liturgy of Jerusalem and West Syria. For study.' },
+  { to: '/pray/liturgy/mark', title: 'St Mark', note: 'The ancient liturgy of Alexandria. For study.' },
+];
+const NOT_YET = ['Ambrosian and Mozarabic (Latin rites)', 'Ordinariate Divine Worship', 'Syro-Malabar Holy Qurbana', 'Syro-Malankara Holy Qurbana', 'Maronite Holy Qurbono', 'Chaldean Holy Qurbana', 'Armenian Holy Badarak', 'Coptic, Ethiopian and Eritrean Divine Liturgy'];
 
 export default function LiturgiesPage() {
+  const [st] = useSettings();
+  const lit = liturgyFor(st.tradition);
+  const own = lit.own;
   return (
     <div className="page">
       <Link to="/pray" className="small">← Pray</Link>
-      <h1>The Church’s liturgies</h1>
-      <p className="lede">The Catholic Church celebrates the Eucharist and the daily hours in many rites. This page says plainly what the app has for each, and where to go for the rest. A rite’s official books are the authority for its words.</p>
-      <div className="row" style={{ gap: 8, flexWrap: 'wrap', margin: '10px 0' }}>
-        <Link className="btn primary" to="/mass">Open Mass mode</Link>
-        <Link className="btn" to="/pray/divine-liturgy">Divine Liturgy (Byzantine)</Link>
-        <Link className="btn" to="/pray/office">Divine Office</Link>
-      </div>
-      <h2 className="eyebrow-h">The Latin Church</h2>
-      {LATIN.map((r) => <RiteCard key={r.name} r={r} />)}
-      <h2 className="eyebrow-h">The Eastern Catholic Churches</h2>
-      {TRADITIONS.filter((t) => t.id in EASTERN).map((t) => { const r = EASTERN[t.id]; return <RiteCard key={t.id} r={r} site={t.site} />; })}
-      <div className="notice info">Where the app does not have a liturgy, it does not guess. If you can supply a freely reusable English text for any of these, or have permission from the Church that owns it, it can be added with the right credit.</div>
-    </div>
-  );
-}
+      <h1>Liturgies in the app</h1>
 
-function RiteCard({ r, site }: { r: Rite; site?: { label: string; url: string } }) {
-  return (
-    <section className="card" style={{ marginBottom: 10 }}>
-      <h3 className="card-title">{r.name}</h3>
-      <p className="muted small">{r.who}</p>
-      <p><strong>{MARK[r.mass.have]}: the Eucharistic liturgy.</strong> {r.mass.what} {r.mass.to && <Link to={r.mass.to}>Open →</Link>}</p>
-      {r.text && <p><strong>An ancient form of this family of liturgies is in the app.</strong> <Link to={`/pray/liturgy/${r.text.id}`}>{r.text.title}</Link>, in a public-domain English translation of 1886. It is for study and prayer at home. It is not the text your Church prays today.</p>}
-      {r.hours && <p><strong>{MARK[r.hours.have]}: the daily hours.</strong> {r.hours.what} {r.hours.to && <Link to={r.hours.to}>Open →</Link>}</p>}
-      {r.note && <p className="muted small">{r.note}</p>}
-      {site && <p className="small"><a href={site.url} target="_blank" rel="noreferrer">{site.label}</a></p>}
-    </section>
+      <section className="feat" aria-label="Your Church">
+        <div className="feat-t">{own.name.split(' (')[0]}</div>
+        {lit.kind === 'roman' && <p className="feat-d">The Mass follows the Roman Rite, and it is in the app.</p>}
+        {lit.kind === 'byzantine' && <p className="feat-d">The Divine Liturgy of St John Chrysostom is in the app.</p>}
+        {lit.kind === 'roman-instead' && <p className="feat-d">Your Church’s {own.liturgy} is not in the app yet. We show the Roman Mass in its place, and say so each time.</p>}
+        <div className="feat-acts">
+          <Link className="btn primary" to={lit.kind === 'byzantine' ? '/pray/divine-liturgy' : '/mass'}>{lit.kind === 'byzantine' ? 'Open the Divine Liturgy' : lit.kind === 'roman' ? 'Open Mass mode' : 'Open the Roman Mass'}</Link>
+          {own.site && <a className="btn" href={own.site.url} target="_blank" rel="noreferrer noopener">{own.site.label}</a>}
+        </div>
+      </section>
+
+      <h2 className="eyebrow-h">What is here</h2>
+      <div className="hub-tiles">
+        {HAVE.map((h) => <Link key={h.to} to={h.to} className="hub-tile"><span className="hub-tile-t">{h.title}</span><span className="hub-tile-d">{h.note}</span></Link>)}
+      </div>
+
+      <h2 className="eyebrow-h" style={{ marginTop: 18 }}>Ancient liturgies, for study</h2>
+      <div className="hub-tiles">
+        {ANCIENT.map((h) => <Link key={h.to} to={h.to} className="hub-tile"><span className="hub-tile-t">{h.title}</span><span className="hub-tile-d">{h.note}</span></Link>)}
+      </div>
+
+      <Fold id="lit:notyet" title="Not in the app yet" hint="Where a rite has no text here, the app does not guess">
+        <ul className="list">{NOT_YET.map((n) => <li key={n}>{n}</li>)}</ul>
+        <p className="muted small">A rite’s own books are the authority for its words. If you can supply a freely reusable English text, or have permission from the Church that owns it, it can be added with the right credit.</p>
+      </Fold>
+    </div>
   );
 }

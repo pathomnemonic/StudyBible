@@ -59,7 +59,7 @@ export default function ReadingsPage() {
       <h1>{t('readings.title')}</h1>
       {!traditionOf(s.tradition).roman && (s.tradition === 'byzantine'
         ? <div className="notice info" role="note"><strong>Your day is shown first.</strong> The Roman (Latin) readings further down are for reference; the Byzantine cycle differs.</div>
-        : <div className="notice info" role="note"><strong>These are the Latin Church’s readings.</strong> The {traditionOf(s.tradition).name} follows its own cycle of readings for the {traditionOf(s.tradition).liturgy}, which this app does not have. The passages below are still Scripture you can read and pray.</div>)}
+        : <div className="notice info" role="note"><strong>Roman readings.</strong> Your Church’s own cycle isn’t in the app yet.</div>)}
       <div className="row between">
         <div className="row">
           <button className="icon-btn" onClick={() => go(-1)} aria-label="Previous day"><Icon name="chevL" /></button>

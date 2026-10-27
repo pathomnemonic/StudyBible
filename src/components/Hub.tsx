@@ -18,7 +18,14 @@ export const ICON: Record<string, string> = {
 const byId = new Map(FEATURES.map((f) => [f.id, f]));
 export const feature = (id: string) => byId.get(id);
 
-export function HubHeader({ title, sub, action }: { title: string; sub?: string; action?: ReactNode }) {
+/** The title of a tab's front page. On the tab roots the title is only for screen readers: the tab you just tapped already says where you are. */
+export function HubHeader({ title, sub, action, quiet }: { title: string; sub?: string; action?: ReactNode; quiet?: boolean }) {
+  if (quiet) return (
+    <header className="hub-head quiet">
+      <h1 className="sr-only">{title}</h1>
+      {(sub || action) && <div className="hub-quiet-row">{sub && <p className="hub-sub">{sub}</p>}{action}</div>}
+    </header>
+  );
   return (
     <header className="hub-head">
       <div><h1>{title}</h1>{sub && <p className="hub-sub">{sub}</p>}</div>
@@ -54,8 +61,8 @@ export function Tile({ f, icon }: { f: Feature; icon?: string }) {
 }
 
 /** Tiles for the given feature ids, in that order. Unknown ids are skipped. */
-export function Tiles({ ids }: { ids: string[] }) {
+export function Tiles({ ids, overrides }: { ids: string[]; overrides?: Record<string, Partial<Feature>> }) {
   useSync();
   const list = ids.map((id) => byId.get(id)).filter((f): f is Feature => !!f && visible(f));
-  return <div className="hub-tiles">{list.map((f) => <Tile key={f.id} f={f} />)}</div>;
+  return <div className="hub-tiles">{list.map((f) => <Tile key={f.id} f={overrides?.[f.id] ? { ...f, ...overrides[f.id] } : f} />)}</div>;
 }

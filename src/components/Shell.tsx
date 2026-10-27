@@ -8,6 +8,7 @@ import Tour from './Tour';
 import Welcome from './Welcome';
 import { NewDot } from './Hints';
 import { markSeen } from '../lib/seen';
+import { useEnsureActivePlan } from '../lib/activePlan';
 import { startDriveBackup } from '../sync/drive';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
@@ -60,6 +61,7 @@ const ROOM_KEY = 'sb:room:last';
 const lastRoom = () => { try { return localStorage.getItem(ROOM_KEY) || '/room'; } catch { return '/room'; } };
 
 export default function Shell({ children }: { children: ReactNode }) {
+  useEnsureActivePlan();
   const loc = useLocation();
   const nav = useNavigate();
   const [s] = useSettings();

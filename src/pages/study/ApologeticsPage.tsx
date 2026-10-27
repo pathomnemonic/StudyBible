@@ -120,7 +120,7 @@ export default function ApologeticsPage() {
   return (
     <div className="page apo">
       <h1>Questions about the faith</h1>
-      <p className="lede">Common questions about the Catholic faith, each gathering what Catholic authors, apologists and teachers have written and said about it (Catholic Answers, the St. Paul Center, Jimmy Akin, Trent Horn and others), with the Bible passages and Catechism paragraphs involved. They also appear in the study panel beside the passages they concern.</p>
+      <p className="lede">Straight answers to the questions people ask, with the verses and Catechism paragraphs behind them.</p>
       <input type="search" placeholder="Search the questions…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search questions" />
       {d.categories.map((c) => {
         const list = d.topics.filter((x) => x.category === c && match(x));

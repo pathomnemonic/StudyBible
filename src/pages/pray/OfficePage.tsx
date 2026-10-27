@@ -233,8 +233,8 @@ export default function OfficePage() {
   return (
     <div className="page office">
       <h1>The Divine Office</h1>
-      {st.tradition !== 'latin' && <div className="notice info" role="note"><strong>This is the Roman (Latin) Office.</strong> The {traditionOf(st.tradition).name} prays its own hours (for Byzantine Churches, the Horologion; for the Syriac Churches, the Shehimo or Ramsho and Sapro). Those are not in this app. You are welcome to pray the psalms here, which belong to every Church.</div>}
-      <p className="lede">The Church’s prayer through the day, mostly from the Psalms. This is the traditional Roman weekly psalter in the Douay-Rheims psalm text, from the open Divinum Officium project.</p>
+      {st.tradition !== 'latin' && <div className="notice info" role="note"><strong>Roman Office.</strong> Your Church’s own hours aren’t in the app yet.</div>}
+      <p className="lede">The Church’s prayer through the day, mostly from the Psalms.</p>
       <OfficeFeast />
       <div className="row" style={{ flexWrap: 'wrap', gap: 6, marginBottom: 10 }} role="tablist" aria-label="Hour">
         {HOURS.map((x) => (

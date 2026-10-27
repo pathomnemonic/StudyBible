@@ -44,7 +44,7 @@ export default function SynopsisPage() {
   return (
     <div className="page wide">
       <h1>Gospel comparison</h1>
-      <p className="lede">The same events and sayings as told by Matthew, Mark, Luke and John, side by side: see what each Gospel keeps, adds or leaves out.</p>
+      <p className="lede">The four Gospels side by side: what each keeps, adds or leaves out.</p>
       {narrow && row && <button className="btn small" style={{ marginBottom: 8 }} onClick={() => setSp({})}>← All passages</button>}
       <div className="row" style={{ marginBottom: 8, display: narrow && row ? 'none' : undefined }}>
         <input type="search" placeholder="Find a passage…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Find a passage" />

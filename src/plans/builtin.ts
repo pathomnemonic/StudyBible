@@ -110,7 +110,7 @@ export async function builtinPlans(vulgate: EditionRecord): Promise<PlanDef[]> {
       const eps = b.episodes.filter((e) => e.day === i).sort((x, y) => (y.year ?? 0) - (x.year ?? 0));
       days.push({ title: dd?.title ? `Day ${i}: ${dd.title}` : `Day ${i}`, refs: dd?.passages ?? [], episodeId: eps[0]?.id, note: dd?.passages?.length ? undefined : 'Readings for this day are not listed in the feed.' });
     }
-    plans.push({ id: 'biay', name: 'The Bible in a Year (reading + listening)', description: 'Fr. Mike Schmitz’s 365-day plan from Ascension: read the day’s passages and listen to the episode. Independent of release dates.', category: 'listening', days });
+    plans.push({ id: 'biay', name: 'Bible in a Year podcast (Fr. Mike Schmitz)', description: 'Fr. Mike Schmitz’s 365-day plan from Ascension: read the day’s passages and listen to the episode. Independent of release dates.', category: 'listening', days });
   }
 
   // Seasonal

@@ -97,7 +97,7 @@ export default function Welcome() {
           </div>
           <h3 className="welcome-h">Follow a Bible reading plan?</h3>
           <div className="welcome-chips" role="group" aria-label="Reading plan">
-            {([['', 'Not now', 'You can pick one later in Pray, then Plans'], ['biay', 'Bible in a Year', 'Read and listen with Fr. Mike Schmitz'], ['gospels-30', 'The four Gospels in 30 days', 'About three chapters a day'], ['nt-90', 'New Testament in 90 days', 'Three chapters a day'], ['john-21', 'John in 21 days', 'One chapter a day']] as [string, string, string][]).map(([id, label, d]) => (
+            {([['biay', 'Bible in a Year podcast', 'Read and listen with Fr. Mike Schmitz. The default.'], ['gospels-30', 'The four Gospels in 30 days', 'About three chapters a day'], ['nt-90', 'New Testament in 90 days', 'Three chapters a day'], ['john-21', 'John in 21 days', 'One chapter a day'], ['', 'No plan for now', 'You can pick one later in Pray, then Plans']] as [string, string, string][]).map(([id, label, d]) => (
               <button key={id || 'none'} className={`welcome-chip${s.activePlan === id ? ' on' : ''}`} aria-pressed={s.activePlan === id} onClick={async () => {
                 if (id) { const have = await db.planProgress.get(id); if (!have) await db.planProgress.put({ planId: id, startedAt: Date.now(), status: 'active', done: [], offsetDays: 0 }); }
                 choosePlan(id);

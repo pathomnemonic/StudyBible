@@ -84,7 +84,7 @@ export default function TimeSpacePage() {
   return (
     <div className="page wide">
       <h1>Time and place</h1>
-      <p className="lede">Slide through the biblical story. The map follows where it happens; fainter dots are places from earlier ages. Dates are conventional estimates and several are debated.</p>
+      <p className="lede">Slide through the biblical story.</p>
       <div className="ts-slider">
         <button className="btn small primary" aria-pressed={playing} onClick={() => { if (!playing && i >= eras.length - 1) setI(0); setPlaying(!playing); }}>{playing ? 'Pause' : 'Play'}</button>
         <input type="range" min={0} max={Math.max(0, eras.length - 1)} value={i} onChange={(e) => setI(+e.target.value)} aria-label="Era" aria-valuetext={era ? `${era.title}, ${era.dates}` : ''} />

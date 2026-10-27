@@ -25,7 +25,7 @@ export default function PlansPage() {
   const nav = useNavigate();
   useEffect(() => {
     const v = get('vulgate');
-    if (v) builtinPlans(v).then(setPlans);
+    if (v) builtinPlans(v).then((l) => setPlans([...l.filter((p) => p.id === 'biay'), ...l.filter((p) => p.id !== 'biay')]));
     getLibraryIndex();
   }, []);
   const start = async (id: string) => {
@@ -46,7 +46,7 @@ export default function PlansPage() {
     <div className="page">
       <Link to="/pray" className="small">← Pray</Link>
       <h1>Reading plans</h1>
-      <p className="lede">Plans are a help, not a measure. Skip days, pause, shift or restart whenever you need; there are no leaderboards or pressure.</p>
+      <p className="lede">Plans are a help, not a measure.</p>
       <div className="chips" style={{ marginBottom: 12 }}>
         <button className={`chip${!cat ? ' sel' : ''}`} onClick={() => setCat('')}>All</button>
         {Object.entries(CAT).map(([k, v]) => <button key={k} className={`chip${cat === k ? ' sel' : ''}`} onClick={() => setCat(k)}>{v}</button>)}

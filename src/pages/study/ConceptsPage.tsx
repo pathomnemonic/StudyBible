@@ -63,7 +63,7 @@ export default function ConceptsPage() {
   return (
     <div className="page">
       <h1>Web of themes</h1>
-      <p className="lede">Fifteen threads that run through the whole Bible. Bold lines are links the Church's tradition draws between themes; faint lines are themes that share passages. Choose one to see where it leads.</p>
+      <p className="lede">Fifteen threads that run through the whole Bible.</p>
       <div className="constellation">
         <svg viewBox={`0 0 ${W} ${H}`} role="group" aria-label="Web of Scripture's themes">
           {edges.map((e, i) => {

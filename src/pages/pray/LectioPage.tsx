@@ -88,7 +88,7 @@ export default function LectioPage() {
       <h1>Lectio Divina</h1>
       {step < 0 && (
         <>
-          <p className="lede">An ancient way of praying with Scripture in four movements. Choose a passage and a length; the timer is only a gentle guide.</p>
+          <p className="lede">An ancient way of praying with Scripture in four movements.</p>
           <div className="row" style={{ marginBottom: 8 }}>
             <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && choose()} aria-label="Passage" style={{ flex: 1 }} />
             <button className="btn" onClick={choose}>Use</button>

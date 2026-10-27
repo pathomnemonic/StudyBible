@@ -17,7 +17,7 @@ export function TermsIndex() {
   return (
     <div className="page">
       <h1>Key words and phrases</h1>
-      <p className="lede">The words that carry the most weight in Scripture. In the reader they sparkle softly; tap one to learn what it means and where else it appears. You can turn the sparkles off in Reading settings.</p>
+      <p className="lede">The words that carry the most weight in Scripture.</p>
       {groups.map(([k, label]) => {
         const list = terms.filter((t) => t.kind === k);
         if (!list.length) return null;

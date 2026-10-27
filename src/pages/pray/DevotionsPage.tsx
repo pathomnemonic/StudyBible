@@ -40,7 +40,7 @@ export default function DevotionsPage() {
   return (
     <div className="page">
       <h1>Devotions</h1>
-      <p className="lede">Pray the Rosary and the Divine Mercy chaplet bead by bead, with the mysteries pictured. Tap along, set a pace, let your device lead, or pray with a recording.</p>
+      <p className="lede">Pray the Rosary and the Divine Mercy chaplet bead by bead, with the mysteries pictured.</p>
 
       <section className="card rosary-hero">
         <div className="row between" style={{ gap: 8, flexWrap: 'wrap' }}>

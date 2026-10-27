@@ -43,7 +43,7 @@ export default function FulfilmentPage() {
   return (
     <div className="page">
       <h1>Promise and fulfilment</h1>
-      <p className="lede">How the New Testament, and the Fathers after it, read the Old: persons and events that point to Christ, promises that are kept, and the voices that explain them.</p>
+      <p className="lede">How the New Testament and the Fathers read the Old.</p>
 
       <section aria-labelledby="how">
         <h2 id="how" className="h-sm">How it works</h2>

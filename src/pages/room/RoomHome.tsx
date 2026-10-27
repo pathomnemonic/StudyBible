@@ -61,7 +61,7 @@ export default function RoomHome() {
   const listOf = (sh: (typeof SHELVES)[number]) => (sh.ids ? (sh.ids.map((id) => byId.get(id)).filter(Boolean) as LibraryWorkMeta[]) : works.filter((w) => sh.kinds!.includes(w.kind)));
   return (
     <div className="page room">
-      <HubHeader title="Read" sub="The saints, the Fathers and the Church’s own texts, with every Bible reference a tap away." />
+      <HubHeader quiet title="Read" />
       <div className="tabbar" role="tablist">
         <button role="tab" aria-selected={tab === 'discover'} onClick={() => setParam('tab', '')}>Discover</button>
         <button role="tab" aria-selected={tab === 'mine'} onClick={() => setParam('tab', 'mine')}>My shelves</button>

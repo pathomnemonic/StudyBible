@@ -83,7 +83,7 @@ export default function SessionBuilderPage() {
   return (
     <div className="page">
       <h1>Build your own prayer time</h1>
-      <p className="lede">Put prayers, Scripture and silence in the order you like, then pray through them one at a time. Your playlist stays on this device.</p>
+      <p className="lede">Put prayers, Scripture and silence in the order you like, then pray through them one at a time.</p>
       {shared && (
         <div className="card" role="status">
           <strong>Someone shared a prayer time with you</strong> ({shared.length} steps: {shared.map(label).slice(0, 4).join(', ')}{shared.length > 4 ? '…' : ''}).

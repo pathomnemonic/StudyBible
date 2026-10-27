@@ -35,7 +35,7 @@ export default function ConstellationPage() {
   return (
     <div className="page">
       <h1>Constellation</h1>
-      <p className="lede">All 73 books on one ring, Old Testament down the right, New Testament down the left. Arcs show how often the cross-references join two books. Choose a star to see what it is bound to.</p>
+      <p className="lede">All 73 books on one ring, Old Testament down the right, New Testament down the left.</p>
       <div className="constellation">
         <svg viewBox={`0 0 ${W} ${W}`} role="group" aria-label="Cross-reference constellation of the 73 books">
           {shown.map((l) => {

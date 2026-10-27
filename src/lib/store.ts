@@ -124,6 +124,8 @@ export interface Settings {
   weeklyGoal: number;
   /** the reading plan followed day to day (a plan id; '' for none). Shown in the Bible tab, the reader and Today. */
   activePlan: string;
+  /** the Bible in a Year podcast was made the default plan once (v1); never again, so choosing no plan stays chosen */
+  planDefaultV1: boolean;
   /** who the Catechism program is for: 'adult' (default for most), 'student', 'parent' or 'teacher'; '' until chosen */
   audience: '' | 'adult' | 'youth' | 'parent' | 'teacher';
   lectioMinutes: number;
@@ -200,8 +202,9 @@ export const DEFAULTS: Settings = {
   autoFavorites: false,
   memento: { on: false, birthday: '', expectancy: 80, onHome: true, view: 'bar' },
   weeklyGoal: 0,
-  activePlan: '',
+  activePlan: 'biay',
   audience: '',
+  planDefaultV1: false,
   lectioMinutes: 15,
   last: null,
   diocese: 'universal',

@@ -17,7 +17,7 @@ export default function DossierPage() {
   return (
     <div className="page">
       <h1>Passage dossier</h1>
-      <p className="lede">Type a passage to gather everything the app has on it in one page you can read or print: the text, the Catechism, commentary, the Fathers, homilies, videos and questions.</p>
+      <p className="lede">Everything the app has on a passage, in one page to read or print.</p>
       <form onSubmit={go} className="row" style={{ gap: 6 }}>
         <input value={q} onChange={(e) => { setQ(e.target.value); setErr(''); }} placeholder="e.g. John 6:51-58" aria-label="Passage" style={{ flex: 1 }} />
         <button className="btn primary" type="submit">Open</button>

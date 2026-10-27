@@ -12,16 +12,34 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   await p.waitForSelector('.btn.small.primary:has-text("Start")');
   await p.locator('.btn.small.primary:has-text("Start")').first().click();
   await p.waitForTimeout(800);
-  await p.goto(`${BASE}/#/today`);
-  await p.waitForSelector('.plan-strip', { timeout: 8000 }).catch(() => fail(`Today should show the chosen plan at ${vp.width}`));
-  const day1 = await p.locator('.plan-strip .eyebrow').innerText();
+  await p.goto(`${BASE}/#/today`); await p.waitForTimeout(1500);
+  if (await p.locator('.reading-bar').count()) fail('Today stays a single calm page: the plan belongs in the Bible tab and the reader');
   await p.goto(`${BASE}/#/read/webc/GEN/1`);
-  await p.waitForSelector('.plan-strip', { timeout: 8000 }).catch(() => fail('the reader should show the chosen plan'));
-  await p.locator('.plan-strip button:has-text("Done")').click();
+  await p.waitForSelector('.reading-bar', { timeout: 8000 }).catch(() => fail('the reader should show the chosen plan'));
+  const day1 = await p.locator('.reading-bar .rb-label').innerText();
+  await p.locator('.reading-bar button[aria-label="Mark today’s reading done"]').click();
   await p.waitForTimeout(600);
-  const day2 = await p.locator('.plan-strip .eyebrow').innerText();
+  const day2 = await p.locator('.reading-bar .rb-label').innerText();
   if (day1 === day2) fail(`marking done should move on (${day1})`);
+  // switching: the picker lists the podcast first, one tap changes the plan, no other dialog appears
+  await p.locator('.reading-bar .rb-change').first().click();
+  await p.waitForSelector('.plan-opt');
+  const first = await p.locator('.plan-opt').first().innerText();
+  if (!/podcast/i.test(first)) fail(`the Bible in a Year podcast should be the first plan, got ${first}`);
+  await p.locator('.plan-opt', { hasText: 'John in 21 days' }).first().click();
+  await p.waitForTimeout(700);
+  if (await p.locator('.modal').count()) fail('picking a plan should close the picker');
+  if (!/John/i.test(await p.locator('.reading-bar .rb-label').innerText())) fail('the bar should now show the John plan');
   if (errs.length) fail(errs[0]);
+  await ctx.close();
+}
+{
+  const ctx = await b.newContext({ viewport: { width: 390, height: 800 } });
+  await ctx.addInitScript(() => { if (sessionStorage.getItem('i')) return; sessionStorage.setItem('i', '1'); localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); });
+  const p = await ctx.newPage();
+  await p.goto(`${BASE}/#/read/webc/GEN/1`);
+  await p.waitForSelector('.reading-bar', { timeout: 10000 }).catch(() => fail('a brand-new reader should already follow the Bible in a Year podcast'));
+  if (!/day 1\//.test(await p.locator('.reading-bar .rb-label').innerText())) fail('a new reader starts at day 1');
   await ctx.close();
 }
 await b.close();

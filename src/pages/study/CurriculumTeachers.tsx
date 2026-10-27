@@ -7,7 +7,7 @@ export default function CurriculumTeachers() {
     <div className="page cur-handbook">
       <Link to="/study/curriculum" className="small no-print">← Curriculum</Link>
       <h1>Handbook for teachers and parents</h1>
-      <p className="lede">How to plan, teach, check and adapt these lessons. It is short on purpose: read the first two sections, and come back to the rest when you need them.</p>
+      <p className="lede">How to plan, teach, check and adapt these lessons.</p>
       <nav className="no-print cur-toc" aria-label="Sections">
         {[['start', 'Start here'], ['plan', 'Planning the year'], ['lesson', 'Teaching a lesson'], ['ask', 'Asking good questions'], ['assess', 'Assessing'], ['include', 'Including everyone'], ['hard', 'Hard questions'], ['parents', 'Working with parents'], ['prayer', 'Prayer and the Church year'], ['safe', 'Safe environment'], ['modes', 'Ways to deliver'], ['resources', 'More resources']].map(([id, l]) => <a key={id} href={`#${id}`}>{l}</a>)}
       </nav>
@@ -141,7 +141,7 @@ export default function CurriculumTeachers() {
         <ul>{RESOURCES.map((r) => <li key={r.url}><a href={r.url} target="_blank" rel="noreferrer">{r.name}</a> <span className="muted small">{r.note}</span></li>)}</ul>
         <h3>The thinking behind the program</h3>
         <ul>{PRINCIPLES.map((p) => <li key={p.title}><strong>{p.title}.</strong> {p.why}</li>)}</ul>
-        <div className="notice info">This program has not been reviewed or approved by a bishop or a diocese. It cites the Catechism so that every lesson can be checked, but if you teach in a parish or school, follow the texts and requirements your diocese sets.</div>
+        <div className="notice info">Not reviewed or approved by a bishop or diocese. If you teach in a parish or school, follow your diocese’s requirements.</div>
       </section>
     </div>
   );

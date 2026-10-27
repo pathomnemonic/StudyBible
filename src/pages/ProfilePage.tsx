@@ -13,7 +13,7 @@ export default function ProfilePage() {
   const marks = useLiveQuery(() => db.highlights.count(), []) ?? 0;
   return (
     <div className="page hub">
-      <HubHeader title="You" sub={sync.user ? `Signed in as ${sync.user.email}.` : `${notes} note${notes === 1 ? '' : 's'} and ${marks} highlight${marks === 1 ? '' : 's'}, kept on this device.`} />
+      <HubHeader quiet title="You" sub={sync.user ? `Signed in as ${sync.user.email}.` : `${notes} note${notes === 1 ? '' : 's'} and ${marks} highlight${marks === 1 ? '' : 's'}, kept on this device.`} />
       <WeekCard />
       <Group title="Make it yours"><QuickSettings /></Group>
       <Group title="Your things">
@@ -22,9 +22,13 @@ export default function ProfilePage() {
       <Group title="The app">
         <Tiles ids={['you.settings', 'you.downloads', 'you.account', 'you.privacy', 'you.about']} />
       </Group>
-      <p className="hub-hint">
-        <Link to="/more">Every page in the app</Link> · <Link to="/profile#tour" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('studybible:tour')); }}>Take the tour again</Link> · <Link to="/study/sources">Sources and licensing</Link>
-      </p>
+      <Group title="More">
+        <div className="btn-row">
+          <Link className="btn" to="/more">Every page in the app</Link>
+          <button className="btn" onClick={() => window.dispatchEvent(new Event('studybible:tour'))}>Take the tour again</button>
+          <Link className="btn" to="/study/sources">Sources and licensing</Link>
+        </div>
+      </Group>
     </div>
   );
 }

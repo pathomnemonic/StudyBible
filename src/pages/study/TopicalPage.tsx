@@ -23,7 +23,7 @@ export default function TopicalPage() {
   return (
     <div className="page">
       <h1>Topical index</h1>
-      <p className="lede">Topics and the passages readers connected to them. This is a community-voted aid for finding passages; it is not Church teaching. For doctrine, use the Doctrine & Catechism pages.</p>
+      <p className="lede">Topics and the passages readers connected to them.</p>
       {topic ? (
         <div className="card">
           <div className="row between">

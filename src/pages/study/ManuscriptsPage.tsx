@@ -59,7 +59,7 @@ export default function ManuscriptsPage() {
   return (
     <div className="page">
       <h1>Manuscripts</h1>
-      <p className="lede">Real pages, from a fourth-century fragment of John to medieval Bibles, Gospel books and Psalters. Choose one to look closely; zoom in on the writing.</p>
+      <p className="lede">Real pages, from a fourth-century fragment of John to medieval Bibles, Gospel books and Psalters.</p>
       <div className="ms-grid">
         {list.map((m) => (
           <button key={m.id} className="ms-card" onClick={() => setSp({ m: String(m.id) })}>

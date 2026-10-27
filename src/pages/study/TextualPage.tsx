@@ -34,9 +34,9 @@ export default function TextualPage() {
       <h1>Scripture textual history</h1>
       {!v ? (
         <>
-          <p className="lede">Where the oldest manuscripts, the Greek and Hebrew texts, and the Latin Vulgate differ, and how that shows in the translations you can read here.</p>
+          <p className="lede">Where the oldest manuscripts and translations differ.</p>
           <div className="notice info">
-            Manuscripts differ in small ways. The great majority of differences are spelling and word order and affect no doctrine. The Council of Trent received Scripture as read in the Church and in the Vulgate; in 1943 Pius XII’s <em>Divino Afflante Spiritu</em> encouraged study of the original-language texts and of textual criticism. This page is a study aid, written cautiously; check a critical edition before quoting manuscript details.
+            Most differences are spelling and word order and affect no doctrine. A study aid: check a critical edition before quoting details.
           </div>
           <div className="segmented" role="tablist" style={{ margin: '10px 0' }}>
             {(['all', 'NT', 'OT'] as const).map((k) => <button key={k} role="tab" aria-selected={filter === k} onClick={() => setFilter(k)}>{k === 'all' ? 'All' : k === 'NT' ? 'New Testament' : 'Old Testament'}</button>)}

@@ -44,7 +44,7 @@ export default function KidsPage() {
   return (
     <div className="page kids">
       <h1>Children’s Bible</h1>
-      <p className="lede">Bible stories to read, or read aloud, at the right level. Every story points to the real passage, so a child can grow into the Bible itself.</p>
+      <p className="lede">Bible stories to read, or read aloud, at the right level.</p>
       <AgePicker />
       {groups.map(([name, list]) => (
         <section key={name}>

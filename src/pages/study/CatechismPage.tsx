@@ -68,7 +68,7 @@ export default function CatechismPage() {
   return (
     <div className="page ccc-page">
       <h1>Catechism of the Catholic Church</h1>
-      <p className="lede">The text of the Catechism, paragraph by paragraph. The small numbers at the end of a paragraph are its footnotes; Scripture references open in the Bible. The text is © Libreria Editrice Vaticana and is shown with permission.</p>
+      <p className="lede">The text of the Catechism, paragraph by paragraph.</p>
       <form className="row" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 10 }} onSubmit={(e) => { e.preventDefault(); const v = parseInt(new FormData(e.currentTarget).get('para') as string, 10); if (v) nav(`/study/catechism/${v}`); }}>
         <label>Go to paragraph <input name="para" type="number" min={1} max={MAX_PARA} defaultValue={target} style={{ width: 90 }} /></label>
         <button className="btn">Go</button>

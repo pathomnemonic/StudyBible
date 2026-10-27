@@ -14,7 +14,7 @@ export default function DivineLiturgyPage() {
     <div className="page office">
       <h1>Divine Liturgy of St John Chrysostom</h1>
       <p className="lede">The Byzantine Liturgy, for following along at church or praying with. The Epistle, Gospel and the hymns that change each day are not here: today’s readings are on the <Link to="/pray/readings">Readings</Link> page, and the Church’s books give the hymns.</p>
-      <div className="notice info" role="note"><strong>About this text.</strong> This is an English rendering published in London in 1914 (public domain). Your own Church uses its approved translation, and its wording, the commemorations and some responses will differ (the Slavonic, Melkite, Ukrainian, Romanian and other Churches each have their own). Where this edition named the rulers of its time, they are replaced by “our rulers”. Treat it as a guide to the order of the service, not as your Church’s official text.</div>
+      <div className="notice info" role="note"><strong>A guide to the order of the service.</strong> An English rendering of 1914 (public domain); your Church’s own wording differs.</div>
       {err && <p role="alert" className="card">Could not load the Liturgy ({err}).</p>}
       {!d && !err && <p className="muted">Loading…</p>}
       {d?.blocks.map((b, i) => b.who === 'rubric'

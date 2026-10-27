@@ -4868,10 +4868,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 /* Today never scrolls: when even the smallest type does not fit, drop the least important blocks in turn */
 .home[data-tight='1'] .home-saint, .home[data-tight='2'] .home-saint, .home[data-tight='3'] .home-saint, .home[data-tight='4'] .home-saint, .home[data-tight='5'] .home-saint, .home[data-tight='6'] .home-saint { display: none; }
 .home[data-tight='2'] .reflect, .home[data-tight='3'] .reflect, .home[data-tight='4'] .reflect, .home[data-tight='5'] .reflect, .home[data-tight='6'] .reflect { display: none; }
-.home[data-tight='3'] .home-extras > :not(.home-cta):not(.plan-strip), .home[data-tight='4'] .home-extras > :not(.home-cta):not(.plan-strip), .home[data-tight='5'] .home-extras > :not(.home-cta):not(.plan-strip), .home[data-tight='6'] .home-extras > :not(.home-cta):not(.plan-strip) { display: none; }
+.home[data-tight='3'] .home-extras > :not(.home-cta), .home[data-tight='4'] .home-extras > :not(.home-cta), .home[data-tight='5'] .home-extras > :not(.home-cta), .home[data-tight='6'] .home-extras > :not(.home-cta) { display: none; }
 .home[data-tight='4'] .home-actions, .home[data-tight='5'] .home-actions, .home[data-tight='6'] .home-actions { display: none; }
 .home[data-tight='5'] .memento-card, .home[data-tight='6'] .memento-card { display: none; }
-.home[data-tight='6'] .plan-strip { display: none; }
 
 /* lesson of the day: one quiet line, not a banner */
 .lod { display: flex; align-items: baseline; gap: 10px; padding: 10px 14px; margin: 0 0 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); text-decoration: none; color: inherit; }
@@ -4978,11 +4977,6 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 /* waiting for Today to load: a soft shimmer, not an ellipsis */
 .home-wait { height: 4.5em; width: min(520px, 90%); border-radius: 16px; color: transparent; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--text) 10%, transparent), transparent); background-size: 200% 100%; animation: skel 1.4s linear infinite; }
 /* on Today the plan is a compact line, not a card */
-.home .plan-strip { padding: 8px 12px; margin: 0; font-size: .85rem; }
-.home .plan-strip .eyebrow { font-size: .68rem; }
-@media (max-height: 700px) { .home .plan-strip .btn, .home .plan-strip button { min-height: 32px; padding: 4px 10px; } }
-.home .plan-strip a.btn.primary { color: var(--accent-text); }
-.home .plan-strip a.btn:not(.primary) { color: var(--text); }
 /* the sliding pill behind the active tab */
 .tabs { --pill-o: 0; }
 .tab-pill { position: absolute; left: 0; top: 0; width: var(--pill-w, 42px); height: var(--pill-h, 28px); border-radius: 14px; background: var(--accent-soft); transform: translate(var(--pill-x, 0), var(--pill-y, 0)); opacity: var(--pill-o); pointer-events: none; transition: transform var(--d3) var(--ease-spring), width var(--d3) var(--ease-out), opacity var(--d2); }
@@ -5007,3 +5001,65 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .gallery-card .galaxy-x { position: sticky; top: 4px; float: right; right: auto; z-index: 3; margin: -4px -4px 0 8px; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); }
 /* every dialog's title row, with its Close button, stays visible while the dialog scrolls */
 .modal > .row.between:first-child { position: sticky; top: -18px; z-index: 5; background: var(--surface); margin: -18px -20px 8px; padding: 14px 20px 8px; }
+
+/* one slim bar above the chapter: Listen, today's plan reading, a tick */
+.reading-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0 0 10px; padding: 6px 10px; border: 1px solid var(--hairline, #8884); border-radius: 14px; background: color-mix(in srgb, var(--surface) 70%, transparent); font-size: .85rem; }
+.reading-bar .rb-listen { flex: none; }
+.rb-plan { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; min-width: 0; flex: 1 1 160px; }
+.rb-label { color: var(--muted); font-size: .78rem; }
+.rb-refs { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.rb-refs .chip { padding: 2px 10px; min-height: 28px; font-size: .8rem; }
+.rb-refs .chip[aria-current='true'] { background: var(--accent-soft); border-color: var(--accent); }
+.rb-acts { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; }
+.rb-change { font-size: .78rem; color: var(--muted); }
+/* tab front pages start with their content, not a title */
+.hub-head.quiet { margin: 0; display: block; }
+.hub-quiet-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 0 0 12px; }
+.hub-quiet-row .hub-sub { margin: 0; font-size: .85rem; }
+.page.hub { padding-top: 14px; }
+/* featured blocks on Learn: a title, one line, one action */
+.feat { display: block; margin: 0 0 14px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 18px; background: color-mix(in srgb, var(--surface) 80%, transparent); color: inherit; text-decoration: none; }
+.feat-t { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.2; }
+.feat-d { margin: 4px 0 12px; color: var(--muted); font-size: .9rem; }
+.feat-acts { display: flex; flex-wrap: wrap; gap: 8px; }
+.feat .level-chips { margin-top: 12px; }
+.feat-link { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; }
+.feat-link .feat-go { font-size: 1.6rem; color: var(--muted); }
+@media (hover: hover) { .feat-link:hover { border-color: var(--accent); } }
+.btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---- one size scale for controls: compact, still easy to tap ---- */
+.btn { padding: 6px 14px; min-height: 34px; font-size: 13.5px; font-weight: 600; }
+.btn.small { padding: 3px 11px; min-height: 30px; font-size: .8rem; }
+.btn.big { padding: 9px 18px; min-height: 42px; font-size: 1rem; }
+.btn.icon, .icon-btn { min-width: 34px; min-height: 34px; }
+.btn.primary { box-shadow: 0 4px 14px -8px color-mix(in srgb, var(--accent) 70%, transparent); }
+.chip { min-height: 30px; padding: 3px 12px; font-size: .85rem; }
+.tabbar button { min-height: 34px; padding: 5px 12px !important; font-size: .85rem !important; }
+@media (pointer: coarse) {
+  .btn { min-height: 38px; padding-block: 7px; }
+  .btn.small { min-height: 34px; padding-block: 5px; }
+  .btn.big { min-height: 44px; }
+  .btn.icon, .icon-btn { min-width: 38px; min-height: 38px; }
+  .chip { min-height: 34px; }
+}
+.hub-tile { min-height: 96px; padding: 12px 12px 11px; gap: 2px; border-radius: 14px; }
+.hub-ico { width: 32px; height: 32px; border-radius: 10px; font-size: 1rem; margin-bottom: 4px; }
+.hub-tile-t { font-size: .92rem; }
+.hub-tile-d { font-size: .76rem; -webkit-line-clamp: 2; }
+.hub-tiles { gap: 8px; }
+.feat { padding: 14px 16px; margin-bottom: 10px; border-radius: 16px; }
+.feat-t { font-size: 1.15rem; }
+.feat-d { margin: 2px 0 10px; font-size: .85rem; }
+.feat-link { padding: 12px 16px; }
+.fold > summary { min-height: 46px; padding: 10px 14px; }
+.fold-t { font-size: 1.05rem; }
+.hub-group { margin-bottom: 18px; }
+.reading-bar .btn.icon { min-width: 32px; min-height: 32px; padding: 0; }
+.feat-link { min-height: 0 !important; }
+.plan-pick { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 6px; }
+.plan-opt { width: 100%; text-align: left; display: grid; gap: 1px; padding: 9px 12px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; font: inherit; }
+.plan-opt.on { border-color: var(--accent); background: var(--accent-soft); }
+.plan-opt-t { font-weight: 600; font-size: .92rem; }
+.plan-opt-d { color: var(--muted); font-size: .78rem; }
+.rb-change { background: none; border: 0; padding: 0; font: inherit; font-size: .78rem; color: var(--muted); text-decoration: underline; cursor: pointer; }

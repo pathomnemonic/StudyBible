@@ -43,7 +43,7 @@ export default function VoicesPage() {
   return (
     <div className="page">
       <h1>Voices through time</h1>
-      <p className="lede">Each line is a writer in the library, from the first generation after the apostles to the early modern saints. A dot is a work; the line spans the years they wrote. Dates are approximate. Choose a dot to open the work. The vertical lines are the ecumenical councils.</p>
+      <p className="lede">Writers in the library, from the apostles’ first generation to the early modern saints.</p>
       <div className="voices-scroll">
         <svg viewBox={`0 0 ${X1 + 60} ${H}`} className="voices" role="group" aria-label="Timeline of Church writers" style={{ minWidth: 760 }}>
           {ticks.map((t) => (

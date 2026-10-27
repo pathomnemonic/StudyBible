@@ -40,12 +40,32 @@ export function dropAt(x: number, y: number) {
   window.setTimeout(() => wrap.remove(), 1400);
 }
 
+/**
+ * A drop only falls on a real tap: a finger that lands and lifts in place. A touch that turns into a scroll or a swipe (the browser then cancels the
+ * pointer) makes nothing, and neither does a long press, so scrolling never sets anything off.
+ */
 export function installRipples(): () => void {
-  const h = (e: PointerEvent) => {
+  let start: { x: number; y: number; t: number; el: HTMLElement; id: number } | null = null;
+  const down = (e: PointerEvent) => {
     const el = (e.target as HTMLElement | null)?.closest?.(TARGETS) as HTMLElement | null;
-    if (!el || (el as HTMLButtonElement).disabled) return;
+    if (!el || (el as HTMLButtonElement).disabled) { start = null; return; }
+    start = { x: e.clientX, y: e.clientY, t: performance.now(), el, id: e.pointerId };
+  };
+  const up = (e: PointerEvent) => {
+    const s0 = start; start = null;
+    if (!s0 || s0.id !== e.pointerId) return;
+    if (Math.hypot(e.clientX - s0.x, e.clientY - s0.y) > 10 || performance.now() - s0.t > 600) return;
     dropAt(e.clientX, e.clientY);
   };
-  document.addEventListener('pointerdown', h, { passive: true });
-  return () => document.removeEventListener('pointerdown', h);
+  const cancel = () => { start = null; };
+  document.addEventListener('pointerdown', down, { passive: true });
+  document.addEventListener('pointerup', up, { passive: true });
+  document.addEventListener('pointercancel', cancel, { passive: true });
+  window.addEventListener('scroll', cancel, { passive: true, capture: true });
+  return () => {
+    document.removeEventListener('pointerdown', down);
+    document.removeEventListener('pointerup', up);
+    document.removeEventListener('pointercancel', cancel);
+    window.removeEventListener('scroll', cancel, true);
+  };
 }

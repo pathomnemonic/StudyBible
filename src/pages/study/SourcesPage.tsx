@@ -20,7 +20,7 @@ export default function SourcesPage() {
   return (
     <div className="page">
       <h1>Sources & licensing</h1>
-      <p className="lede">Nothing here is copied without permission. Each source records its authority, period, language, rights and format; anything not public domain or openly licensed is only linked.</p>
+      <p className="lede">Nothing here is copied without permission.</p>
       <div className="row" style={{ marginBottom: 10 }}>
         <select value={auth} onChange={(e) => setAuth(e.target.value)} aria-label="Authority"><option value="">Any authority</option>{['doctrine', 'magisterial', 'father', 'saint', 'scholarship', 'historical', 'reflection', 'media'].map((a) => <option key={a}>{a}</option>)}</select>
         <select value={rights} onChange={(e) => setRights(e.target.value)} aria-label="Rights"><option value="">Any rights status</option>{['public-domain', 'open-license', 'metadata-only', 'external-link', 'licensed'].map((a) => <option key={a}>{a}</option>)}</select>

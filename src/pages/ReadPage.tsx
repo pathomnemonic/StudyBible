@@ -14,9 +14,8 @@ import { useWakeLock } from '../lib/wakeLock';
 import { db, type HighlightColor, type Target } from '../db/db';
 import { newCard } from '../lib/srs';
 import { useToast } from '../components/Toast';
-import BiayBar from '../components/BiayBar';
 import ChapterDone from '../components/ChapterDone';
-import PlanStrip from '../components/PlanStrip';
+import ReadingBar from '../components/ReadingBar';
 import NextChapters from '../components/NextChapters';
 import ChapterArt from '../art/chapterArt';
 import { FindInChapter, LookUp, ReadProgress } from '../components/ReaderTools';
@@ -719,8 +718,7 @@ export default function ReadPage() {
           </div>
         )}
         {error && <div className="notice">{error}</div>}
-        <PlanStrip book={bk.id} chapters={anchorChapters} />
-        <BiayBar book={bk.id} chapters={anchorChapters} />
+        <ReadingBar book={bk.id} chapters={anchorChapters} />
         {!data && !error && <div className="center-note">Loading {bk.name}…</div>}
         {data && chapterData && !parallelMode && (
           <article className="scripture" aria-label={`${bk.name} chapter ${chNum}`}>

@@ -24,7 +24,7 @@ export default function LiturgyTextPage() {
     <div className="page office">
       <h1>{d?.title ?? 'Liturgy'}</h1>
       <p className="lede">{about.blurb} Rite: {about.family}, {about.churches}.</p>
-      <div className="notice info" role="note"><strong>Read this first.</strong> This is a nineteenth-century English translation of an ancient text, with the additions of later centuries that the translator marked. Your own Church prays an approved, revised text in its own language. Use this to study how the Eucharistic liturgy was prayed, or to pray along at home; for worship, use your parish’s book. See <Link to="/pray/liturgies">the Church’s liturgies</Link>.</div>
+      <div className="notice info" role="note"><strong>For study and prayer at home.</strong> An old English translation, not the text your Church prays today.</div>
       {err && <p role="alert" className="card">Could not load the liturgy ({err}).</p>}
       {!d && !err && <p className="muted">Loading…</p>}
       {d?.blocks.map((b, i) => b.who === 'rubric'

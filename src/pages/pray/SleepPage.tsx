@@ -122,7 +122,7 @@ export default function SleepPage() {
   return (
     <div className="page">
       <h1>Sleep mode</h1>
-      <p className="lede">A psalm read slowly, one verse at a time, while the sound grows quieter and the screen dims. Put the phone down and let it carry you.</p>
+      <p className="lede">A psalm read slowly, one verse at a time, while the sound grows quieter and the screen dims.</p>
       <div className="card">
         <div className="field"><span>What to read</span>
           <div className="chips">

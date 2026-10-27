@@ -26,7 +26,7 @@ export default function CoursePage() {
     return (
       <div className="page">
         <h1>Salvation history in twelve lessons</h1>
-        <p className="lede">Follow the story of the Bible in order, from creation to the new creation. Each lesson has a short reading and three questions. Scores stay on this device.</p>
+        <p className="lede">Follow the story of the Bible in order, from creation to the new creation.</p>
         <ol className="list">
           {COURSE.map((l, i) => (
             <li key={l.id}><Link to={`/study/course/${l.id}`}><strong>{i + 1}. {l.title}</strong></Link> <span className="muted small">— {l.era}</span>{prog[l.id] != null && <span className="chip" style={{ marginLeft: 6 }}>{prog[l.id]}/3</span>}</li>

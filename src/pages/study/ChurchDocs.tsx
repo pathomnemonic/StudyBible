@@ -25,7 +25,7 @@ export default function ChurchDocs() {
     <div className="page">
       <LibraryTabs />
       <h1>Councils and Church documents</h1>
-      <p className="lede">Councils, catechisms and encyclicals. Where an English translation is in the public domain it opens here as a full text you can read, search and note. Most modern documents are under copyright, so for those this page gives the official link and a line about what the document is: it never reproduces them.</p>
+      <p className="lede">Councils, catechisms and encyclicals.</p>
       <div className="row" style={{ marginBottom: 12, gap: 8, flexWrap: 'wrap' }}>
         <input type="search" placeholder="Filter by title, pope, year…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Filter documents" />
         {([['all', 'All'], ['full-text', 'Read here in full'], ['link-only', 'Official link only']] as const).map(([k, l]) => <button key={k} className={`chip${access === k ? ' sel' : ''}`} aria-pressed={access === k} onClick={() => setAccess(k)}>{l}</button>)}

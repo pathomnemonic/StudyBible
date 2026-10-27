@@ -31,7 +31,6 @@ export default function MassModePage() {
   const [gloria, setGloria] = useState(() => big && lit.season !== 'advent' && lit.season !== 'lent');
   const [creed, setCreed] = useState(big);
   const [second, setSecond] = useState(big);
-  const [force, setForce] = useState(false);
   useWakeLock(awake);
   useEffect(() => { readingsFor(st.diocese, date).then(setRd); }, [date, st.diocese]);
   const steps = useMemo(() => OF_STEPS.filter((s) => (s.only === 'gloria' ? gloria : s.only === 'creed' ? creed : s.only === 'second' ? second : true)), [gloria, creed, second]);
@@ -46,14 +45,6 @@ export default function MassModePage() {
     return () => window.removeEventListener('keydown', k);
   }, [idx, steps.length]);
 
-  if (!t.roman && !force) {
-    return (
-      <div className="page"><h1>Mass mode</h1>
-        <p>This guide follows the Roman Mass. {st.tradition === 'byzantine' ? <>For the Byzantine Divine Liturgy use <Link to="/pray/divine-liturgy">the Divine Liturgy page</Link>.</> : <>For the {t.name}, the <Link to="/pray/liturgies">Liturgies page</Link> lists what is in the app and where to find your Church’s books.</>}</p>
-        <p><button className="btn" onClick={() => setForce(true)}>Show the Roman Mass anyway</button></p>
-      </div>
-    );
-  }
   const item = (slot: Slot) => rd?.items.find((x) => x.slot === slot);
   const fill = (s: MassStep) => {
     if (!s.fill) return null;
@@ -67,6 +58,11 @@ export default function MassModePage() {
   const sections = [...new Set(steps.map((s) => s.part))];
   return (
     <div className="page mass-mode" style={{ ['--mass-size' as string]: `${size}px` }}>
+      {!t.roman && (
+        <div className="notice info no-print" role="note">
+          <strong>This is the Roman Mass.</strong> Your Church’s own {t.liturgy} is not in the app yet, so we show the Roman Mass here instead. <Link to="/pray/liturgies">What the app has for your Church</Link>
+        </div>
+      )}
       <div className="row between no-print" style={{ flexWrap: 'wrap', gap: 8 }}>
         <Link to="/pray" className="small">← Pray</Link>
         <div className="row" style={{ gap: 6 }}>
