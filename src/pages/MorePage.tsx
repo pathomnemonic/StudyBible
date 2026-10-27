@@ -14,7 +14,7 @@ export default function MorePage() {
       <HubHeader title="Everything" sub="Every part of the app, grouped like the tabs." />
       <input type="search" className="everything-filter" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a feature: rosary, maps, quiz, export…" aria-label="Find a feature" />
       {found ? (
-        <Group title={found.length ? `${found.length} found` : 'Nothing matches'}><div className="hub-tiles">{found.map((f) => <Tile key={f.id} f={f} />)}</div></Group>
+        <Group open title={found.length ? `${found.length} found` : 'Nothing matches'}><div className="hub-tiles">{found.map((f) => <Tile key={f.id} f={f} />)}</div></Group>
       ) : (
         HUBS.map((h) => (
           <Group key={h.id} title={h.title} hint={h.blurb}>

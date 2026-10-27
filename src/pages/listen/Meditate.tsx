@@ -61,11 +61,11 @@ export default function Meditate() {
       </Link>
       <p className="muted small">Pick something and press play. The timer in the full player stops it after the time you choose, or at the end of the track.</p>
       {tracks === null && <div className="center-note">Loading…</div>}
-      {tracks && SECTIONS.map((s) => {
+      {tracks && SECTIONS.map((s, si) => {
         const list = tracks.filter((t) => t.category === s.cat);
         if (!list.length) return null;
         return (
-          <Group key={s.cat} title={s.title} hint={s.blurb}>
+          <Group key={s.cat} open={si === 0} title={s.title} hint={s.blurb}>
             <div className="row" style={{ marginBottom: 6 }}>
               <button className="btn small" onClick={() => void queueAll(list, s.title)}><Icon name="play" size={14} /> Play all</button>
             </div>

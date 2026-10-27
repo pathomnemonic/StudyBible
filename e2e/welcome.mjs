@@ -59,7 +59,7 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   // Everything page: grouped by tab, filterable
   await p.goto(`${BASE}/#/more`);
   await p.waitForSelector('.everything-filter');
-  const groups = await p.locator('.hub-group').count();
+  const groups = await p.locator('.hub-group, details.fold').count();
   if (groups < 6) fail('groups ' + groups);
   await p.fill('.everything-filter', 'rosary');
   await p.waitForTimeout(200);

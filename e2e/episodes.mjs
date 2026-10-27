@@ -9,10 +9,10 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   const p = await ctx.newPage();
   const errs = []; p.on('pageerror', (e) => errs.push(e.message));
   await p.goto(`${BASE}/#/listen`);
-  await p.waitForSelector('.tabbar [role=tab]:has-text("Up next")', { timeout: 20000 });
-  const names = await p.locator('.tabbar [role=tab]').allInnerTexts();
+  await p.waitForSelector('.seg [role=tab]:has-text("Up next")', { timeout: 20000 });
+  const names = await p.locator('.seg [role=tab]').allInnerTexts();
   if (names.some((n) => /^All episodes$/i.test(n.trim()))) fail('duplicate "All episodes" tab is back');
-  await p.click('text=Coming from another app?');
+  await p.click('.year-bar button[aria-label="More"]'); await p.click('[role=menuitem]:has-text("Catch up")');
   await p.fill('input[aria-label="Last day finished"]', '280');
   await p.click('button:has-text("Mark days 1 to 280 finished")');
   await p.waitForTimeout(1200);
@@ -32,7 +32,7 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
     return lr.bottom > r.top + 1 && lr.top < r.bottom ? `last control ${last.textContent?.slice(0, 20)} sits under the player (${Math.round(lr.top)}-${Math.round(lr.bottom)} vs player ${Math.round(r.top)}-${Math.round(r.bottom)}, ${last.tagName}.${last.className})` : 'ok';
   });
   if (hidden !== 'ok' && hidden !== 'noplayer') fail(hidden);
-  await p.click('text=Coming from another app?').catch(() => {});
+  await p.click('.year-bar button[aria-label="More"]').catch(() => {}); await p.click('[role=menuitem]:has-text("Catch up")').catch(() => {});
   await p.click('button:has-text("Undo all finished marks")').catch(() => {});
   if (errs.length) fail(errs[0]);
   await ctx.close();

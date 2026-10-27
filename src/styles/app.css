@@ -4321,7 +4321,7 @@ input[type='search'], input[type='text'], input:not([type]), select, textarea { 
 .empty { border: 1px dashed var(--hairline, #8886); border-radius: 16px; padding: 22px; text-align: center; color: var(--muted); }
 .modal { border-radius: 22px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
 .tabs { backdrop-filter: blur(16px) saturate(1.4); }
-.tab.active { font-weight: 700; }
+.tab.active { font-weight: inherit; }
 .list > li { padding: 10px 2px; }
 a { text-underline-offset: 3px; }
 @media (max-width: 520px) { .tabbar { width: 100%; overflow-x: visible; } .tabbar button { padding: 8px 12px; } .page { padding-left: 16px; padding-right: 16px; } }
@@ -4950,7 +4950,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .btn.primary { box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--accent) 70%, transparent); }
 .btn.primary:active { box-shadow: 0 2px 6px -3px color-mix(in srgb, var(--accent) 70%, transparent); }
 .tab .ico { transition: background-color var(--d2), transform var(--d2) var(--ease-spring); }
-.tab.active .ico { transform: translateY(-1px); }
+.tab.active .ico { transform: none; }
 .tabbar button { transition: background-color var(--d2), color var(--d2), box-shadow var(--d2), transform var(--d1); }
 .tabbar button:active { transform: scale(.96); }
 @media (hover: hover) {
