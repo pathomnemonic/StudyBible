@@ -25,6 +25,7 @@ import TermPopover from '../components/TermPopover';
 import { loadTerms, makeMatcher, type TermBrief } from '../study/terms';
 import BookPicker from '../components/BookPicker';
 import { useReadingTime } from '../lib/readingTime';
+import ExploreDrawer from '../components/ExploreDrawer';
 import BibleTools from '../components/BibleTools';
 import Icon from '../components/Icon';
 import NoteEditor from '../components/NoteEditor';
@@ -133,6 +134,7 @@ export default function ReadPage() {
   const swipe = useRef<[number, number] | null>(null);
   const [moreMenu, setMoreMenu] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
+  const [explore, setExplore] = useState(false);
   useReadingTime(true);
   const wide = useWide();
   const silentRef = useRef(false);
@@ -630,6 +632,9 @@ export default function ReadPage() {
     <div className={`reader${settings.showVerseNumbers && (!settings.scriptureOnly || settings.focus.numbers) ? '' : ' hide-nums'}${panelOpen ? ' has-panel' : ''}`}>
       <div className="reader-col" onTouchStart={(e) => { swipe.current = e.touches.length === 1 ? [e.touches[0].clientX, e.touches[0].clientY] : null; }} onTouchEnd={(e) => { const a = swipe.current; swipe.current = null; if (!a || window.innerWidth >= 700 || !window.getSelection()?.isCollapsed) return; const dx = e.changedTouches[0].clientX - a[0], dy = e.changedTouches[0].clientY - a[1]; if (Math.abs(dx) > 90 && Math.abs(dy) < 45) (dx < 0 ? next : prev)(); }}>
         <div className="reader-bar">
+          <button className="icon-btn" onClick={() => setExplore(true)} aria-haspopup="dialog" aria-label="Open the Bible menu: study tools, words, people, places" title="Explore the Bible">
+            <span aria-hidden="true" style={{ fontSize: 20, lineHeight: 1 }}>☰</span>
+          </button>
           <button className="icon-btn" onClick={() => setPicker(true)} aria-haspopup="dialog" aria-label="Choose a book or chapter" title="Books and chapters">
             <Icon name="library" />
           </button>
@@ -821,6 +826,7 @@ export default function ReadPage() {
         </div>
       )}
 
+      {explore && <ExploreDrawer onClose={() => setExplore(false)} />}
       {toolsOpen && <BibleTools book={bk} chapter={chNum} onClose={() => setToolsOpen(false)} />}
       {picker && (
         <BookPicker
