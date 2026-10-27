@@ -5063,3 +5063,58 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .plan-opt-t { font-weight: 600; font-size: .92rem; }
 .plan-opt-d { color: var(--muted); font-size: .78rem; }
 .rb-change { background: none; border: 0; padding: 0; font: inherit; font-size: .78rem; color: var(--muted); text-decoration: underline; cursor: pointer; }
+
+/* ======================================================================
+   Compact layout (the default): one control scale, tabs that fit one screen.
+   Rows are 44px, small controls 32px, nothing is bigger without a reason.
+   ====================================================================== */
+:root[data-layout='compact'] { --row-h: 44px; --ctl-h: 36px; --ctl-s: 30px; }
+:root[data-layout='compact'] .hub-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+@media (min-width: 720px) { :root[data-layout='compact'] .hub-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { :root[data-layout='compact'] .hub-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+:root[data-layout='compact'] .hub-tile { display: flex; align-items: center; gap: 10px; min-height: var(--row-h); padding: 6px 12px; border-radius: 12px; }
+:root[data-layout='compact'] .hub-ico { width: 26px; height: 26px; margin: 0; border-radius: 8px; font-size: .9rem; flex: none; }
+:root[data-layout='compact'] .hub-tile-t { font-size: .88rem; font-weight: 600; line-height: 1.2; }
+:root[data-layout='compact'] .hub-tile-d { display: none; }
+:root[data-layout='compact'] .hub-dot { top: 50%; right: 10px; transform: translateY(-50%); }
+:root[data-layout='compact'] .hub-group { margin: 0 0 8px; }
+:root[data-layout='compact'] .hub-group-head { margin-bottom: 6px; }
+:root[data-layout='compact'] .hub-group-head h2 { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+:root[data-layout='compact'] .fold { margin: 6px 0; border-radius: 12px; }
+:root[data-layout='compact'] .fold > summary { min-height: var(--row-h); padding: 6px 14px; }
+:root[data-layout='compact'] .fold-t { font-size: .95rem; font-family: inherit; font-weight: 600; }
+:root[data-layout='compact'] .fold-h { display: none; }
+:root[data-layout='compact'] .fold-body { padding: 8px 10px 10px; }
+:root[data-layout='compact'] .page.hub { padding-top: 10px; padding-bottom: 8px; }
+.rows { display: grid; gap: 6px; margin: 0 0 8px; }
+.rowlink { display: flex; align-items: center; gap: 10px; min-height: var(--row-h, 44px); padding: 6px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); text-decoration: none; }
+.rowlink.strong { border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }
+.rowlink-t { font-weight: 600; font-size: .92rem; flex: 1; min-width: 0; }
+.rowlink-m { color: var(--muted); font-size: .8rem; }
+.rowlink-go { color: var(--muted); font-size: 1.3rem; line-height: 1; }
+@media (hover: hover) { .rowlink:hover { border-color: var(--accent); } }
+.rowform { display: flex; gap: 6px; }
+.rowform input { flex: 1; min-width: 0; min-height: var(--row-h, 44px); padding: 0 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; font-size: .9rem; }
+.rowform .btn { min-height: var(--row-h, 44px); padding-inline: 18px; border-radius: 12px; }
+.rows-sub { margin: 10px 0 6px; color: var(--muted); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+.menu { position: relative; display: inline-block; }
+.menu-list { position: absolute; right: 0; top: calc(100% + 4px); z-index: 60; margin: 0; padding: 4px; list-style: none; min-width: 190px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow-lg, 0 12px 30px rgba(0,0,0,.35)); }
+.menu-list button { width: 100%; display: flex; gap: 8px; align-items: center; text-align: left; padding: 9px 10px; border: 0; border-radius: 8px; background: none; color: var(--text); font: inherit; font-size: .88rem; cursor: pointer; }
+.menu-list button span { width: 14px; color: var(--accent); }
+@media (hover: hover) { .menu-list button:hover { background: var(--surface-2); } }
+.seg { display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 70%, transparent); border: 1px solid var(--hairline, #8884); flex: 1; }
+.seg button { flex: 1; min-height: 30px; padding: 0 10px; border: 0; border-radius: 999px; background: none; color: var(--muted); font: inherit; font-size: .85rem; font-weight: 600; cursor: pointer; }
+.seg button[aria-selected='true'] { background: color-mix(in srgb, var(--accent) 24%, var(--surface)); color: var(--text); }
+.year-bar { display: flex; gap: 8px; align-items: center; margin: 8px 0; }
+:root[data-layout='compact'] .year-card { grid-template-columns: 52px 1fr; gap: 12px; padding: 10px 12px; border-radius: 14px; }
+:root[data-layout='compact'] .year-ring { width: 52px; height: 52px; }
+:root[data-layout='compact'] .year-ring .rn { font-size: 40px; }
+:root[data-layout='compact'] .year-body h2 { font-size: 1.05rem; margin: 0 0 4px; }
+:root[data-layout='compact'] .year-ps { margin: 0 0 8px; gap: 4px; }
+:root[data-layout='compact'] .year-acts { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+:root[data-layout='compact'] .year .list > li { padding: 8px 0; }
+:root[data-layout='compact'] .tabbar:not(:has(> :nth-child(7))) { margin: 6px 0 8px; }
+:root[data-layout='compact'] .lod { min-height: var(--row-h); margin: 0 0 8px; padding: 6px 14px; align-items: center; border-radius: 12px; }
+/* compact: a row of up to six tabs stays on one line */
+:root[data-layout='compact'] .tabbar:has(> :nth-child(5)) { display: flex !important; flex-wrap: nowrap !important; gap: 2px; padding: 3px; border-radius: 999px; }
+:root[data-layout='compact'] .tabbar:has(> :nth-child(5)) button { flex: 1 1 0 !important; min-width: 0; padding: 4px 2px !important; font-size: .76rem !important; white-space: nowrap !important; min-height: 32px; }

@@ -156,6 +156,7 @@ function ThemeApplier() {
       root.dataset.verses = s.verseLines ? 'lines' : 'flow';
       root.dataset.notemarks = s.showNoteMarks ? 'on' : 'off';
       root.dataset.motion = s.motion;
+      root.dataset.layout = s.layout;
       root.lang = s.language;
       if (s.fontFamily === 'hyperlegible') void import('@fontsource/atkinson-hyperlegible/400.css').catch(() => {});
       if (s.fontFamily === 'dyslexic') { void import('@fontsource/opendyslexic/400.css').catch(() => {}); void import('@fontsource/atkinson-hyperlegible/400.css').catch(() => {}); }

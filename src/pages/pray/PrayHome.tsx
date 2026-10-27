@@ -15,7 +15,7 @@ export default function PrayHome() {
   return (
     <div className="page hub">
       <HubHeader quiet title="Pray" />
-      <Group title="Devotions" hint="Bead by bead, with pictures and recordings">
+      <Group open title="Devotions" hint="Bead by bead, with pictures and recordings">
         <Tiles ids={['pray.rosary', 'pray.mercy', 'pray.novenas', 'pray.devotions', 'pray.lectio', 'pray.prayers']} />
       </Group>
       <Group title="The Mass and the Church’s year">

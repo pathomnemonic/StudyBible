@@ -18,6 +18,13 @@ export default function QuickSettings() {
   return (
     <section className="qs" aria-label="Make it yours">
       <div className="qs-block">
+        <h3>Layout</h3>
+        <div className="level-chips" role="group" aria-label="Layout">
+          <button className={`chip${s.layout === 'compact' ? ' sel' : ''}`} aria-pressed={s.layout === 'compact'} onClick={() => updateSettings({ layout: 'compact' })}>Compact</button>
+          <button className={`chip${s.layout === 'classic' ? ' sel' : ''}`} aria-pressed={s.layout === 'classic'} onClick={() => updateSettings({ layout: 'classic' })}>Classic</button>
+        </div>
+      </div>
+      <div className="qs-block">
         <h3>Color</h3>
         <div className="qs-themes" role="group" aria-label="Color theme">
           {THEMES.map(([k, l, bg, fg, ac]) => (

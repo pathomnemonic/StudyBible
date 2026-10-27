@@ -54,6 +54,8 @@ export interface Settings {
   motion: 'full' | 'calm' | 'none';
   /** a short vibration on taps, where the device supports it */
   haptics: boolean;
+  /** compact: every tab fits one screen, groups folded; classic: the earlier roomy layout with groups open and descriptions */
+  layout: 'compact' | 'classic';
   /** a ring of ripples spreads from every tap, like a drop falling into still water */
   tapRipple: boolean;
   /** a very quiet water-drop sound on taps */
@@ -165,6 +167,7 @@ export const DEFAULTS: Settings = {
   plainAlign: false,
   motion: 'calm',
   haptics: false,
+  layout: 'compact',
   tapRipple: true,
   tapSound: false,
   defaultEdition: 'webc',

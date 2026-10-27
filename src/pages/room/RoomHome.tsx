@@ -12,6 +12,7 @@ import { addBookFile, bookMeta, useUserBooks } from '../../data/userBooks';
 import { useScrollMemory } from '../../lib/scrollMemory';
 import { percentSeen, setShelf, STATUS_LABEL, STATUSES, useShelf } from '../../lib/shelf';
 import type { ShelfStatus } from '../../db/db';
+import { useSettings } from '../../lib/store';
 
 const SHELVES: { title: string; blurb: string; ids?: string[]; kinds?: string[] }[] = [
   { title: 'Begin here', blurb: 'Short, rewarding reads from different centuries.', ids: ['lawrence-practice', 'athanasius-incarnation', 'aug-confessions', 'teresa-castle', 'kempis-imitation', 'julian-revelations', 'desales-devout-life', 'therese-story-of-a-soul'] },
@@ -22,6 +23,7 @@ const SHELVES: { title: string; blurb: string; ids?: string[]; kinds?: string[] 
 ];
 /** The reading room: texts and recordings beyond the Bible. */
 export default function RoomHome() {
+  const [st0] = useSettings();
   const [works, setWorks] = useState<LibraryWorkMeta[]>([]);
   const [heard, setHeard] = useState<Set<string>>(new Set());
   const [q, setQ] = useState(() => { try { return sessionStorage.getItem('sb:room:q') ?? ''; } catch { return ''; } });
@@ -86,11 +88,15 @@ export default function RoomHome() {
           )}
           {!filtering && !open && (
             <>
-              <section className="sect">
-                <h2 className="eyebrow-h">{SHELVES[0].title}</h2>
-                <p className="muted small" style={{ margin: '0 0 8px' }}>{SHELVES[0].blurb}</p>
-                <div className="shelf">{listOf(SHELVES[0]).slice(0, 4).map((w) => card(w))}</div>
-              </section>
+              {st0.layout === 'compact'
+                ? <Fold id="room:start" title={SHELVES[0].title}><div className="shelf">{listOf(SHELVES[0]).slice(0, 4).map((w) => card(w))}</div></Fold>
+                : (
+                  <section className="sect">
+                    <h2 className="eyebrow-h">{SHELVES[0].title}</h2>
+                    <p className="muted small" style={{ margin: '0 0 8px' }}>{SHELVES[0].blurb}</p>
+                    <div className="shelf">{listOf(SHELVES[0]).slice(0, 4).map((w) => card(w))}</div>
+                  </section>
+                )}
               <section className="sect">
                 <h2 className="eyebrow-h">Browse</h2>
                 <div className="hub-tiles">

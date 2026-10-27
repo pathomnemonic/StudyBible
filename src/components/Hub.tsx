@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { FEATURES, visible, type Feature } from '../lib/features';
 import { useSync } from '../sync/state';
 import { NewDot } from './Hints';
+import Fold from './Fold';
+import { useSettings } from '../lib/store';
 
 /** One look for every tab's front page: a title, one big thing to do, then a few small groups of tiles. */
 export const ICON: Record<string, string> = {
@@ -45,8 +47,11 @@ export function HubHero({ tone, eyebrow, title, text, children }: { tone: string
   );
 }
 
-export function Group({ title, hint, children }: { title: string; hint?: string; children: ReactNode }) {
-  return <section className="hub-group"><div className="hub-group-head"><h2>{title}</h2>{hint && <span>{hint}</span>}</div>{children}</section>;
+/** A titled set of tiles. In the compact layout only the groups marked `open` show; the rest fold away under their title, so a tab fits one screen. */
+export function Group({ title, hint, children, open }: { title: string; hint?: string; children: ReactNode; open?: boolean }) {
+  const [s] = useSettings();
+  if (s.layout === 'compact' && !open) return <Fold id={`grp:${title}`} title={title}>{children}</Fold>;
+  return <section className="hub-group"><div className="hub-group-head"><h2>{title}</h2>{hint && s.layout !== 'compact' && <span>{hint}</span>}</div>{children}</section>;
 }
 
 export function Tile({ f, icon }: { f: Feature; icon?: string }) {
@@ -65,4 +70,15 @@ export function Tiles({ ids, overrides }: { ids: string[]; overrides?: Record<st
   useSync();
   const list = ids.map((id) => byId.get(id)).filter((f): f is Feature => !!f && visible(f));
   return <div className="hub-tiles">{list.map((f) => <Tile key={f.id} f={overrides?.[f.id] ? { ...f, ...overrides[f.id] } : f} />)}</div>;
+}
+
+/** One full-width row: a title, an optional note on the right, a chevron. The only kind of big tap target on a tab front page, always the same height. */
+export function RowLink({ to, title, meta, strong }: { to: string; title: string; meta?: string; strong?: boolean }) {
+  return (
+    <Link to={to} className={`rowlink${strong ? ' strong' : ''}`}>
+      <span className="rowlink-t">{title}</span>
+      {meta && <span className="rowlink-m">{meta}</span>}
+      <span className="rowlink-go" aria-hidden="true">›</span>
+    </Link>
+  );
 }

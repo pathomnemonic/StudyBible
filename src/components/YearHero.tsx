@@ -8,7 +8,7 @@ import { useEditions } from '../data/EditionsContext';
 import { loadBiay } from '../data/biay';
 import { usePlayer } from '../data/PlayerContext';
 import type { BiayEpisode } from '../data/content';
-import { parseRefId } from '../lib/refs';
+import { formatRef, parseRefId } from '../lib/refs';
 import { readerPath } from '../lib/nav';
 import { dayOfYear } from '../study/verseOfDay';
 import RefLink from './RefLink';
@@ -16,6 +16,7 @@ import Icon from './Icon';
 import ShowSettings from './ShowSettings';
 import { choosePlan } from '../lib/activePlan';
 import PlanPicker from './PlanPicker';
+import Menu from './Menu';
 
 /** Progress ring: the Bible in a Year days you have finished, out of 365. */
 function Ring({ done, day }: { done: number; day: number }) {
@@ -58,25 +59,25 @@ export default function YearHero() {
   const [cfg, setCfg] = useState(false);
   const [pick, setPick] = useState(false);
   return (
-      <section className="year-card" aria-labelledby="year-h">
-        <Ring done={prog?.done.length ?? 0} day={dayN} />
-        <div className="year-body">
-          <div className="eyebrow" id="year-h">Bible in a Year{prog ? '' : ' · today'}</div>
-          <h2>{ep ? ep.short : 'Today’s episode'}</h2>
-          {ep && <p className="year-ps">{ep.passages.slice(0, 5).map((p) => <span key={p} className="chip"><RefLink id={p} /></span>)}</p>}
-          <div className="year-acts">
-            <button className="btn primary big" disabled={!ep} onClick={() => ep && player.play(ep)}><Icon name="play" size={16} /> Listen</button>
-            {ep && <SaveOffline ep={ep} compact />}
-            {first && edition && <Link className="btn" to={readerPath(edition, first)}>Read</Link>}
-            <button className={'btn icon' + (finished ? ' on' : '')} aria-pressed={finished} onClick={toggleDone} title={finished ? 'Finished today' : 'Mark today finished'} aria-label={finished ? 'Finished today. Tap to undo' : 'Mark today finished'}>✓</button>
-            <button className="btn icon" onClick={() => setCfg(true)} title="Skip the intro, speed and skip buttons for this show" aria-label="Bible in a Year settings"><Icon name="gear" size={16} /></button>
-          </div>
-          <p className="year-foot muted small">
-            {prog ? <>{prog.done.length} of 365 days finished · Fr. Mike Schmitz, Ascension · <button className="linklike" onClick={() => setPick(true)}>Switch plan</button></> : <>Following the calendar. <button className="linklike" onClick={startTracking}>Track my progress</button></>}
-          </p>
+    <section className="year-card" aria-label="Bible in a Year, today">
+      <Ring done={prog?.done.length ?? 0} day={dayN} />
+      <div className="year-body">
+        <div className="eyebrow">Day {dayN}{prog ? ` · ${prog.done.length} done` : ''}</div>
+        <h2>{ep ? ep.short : 'Today’s episode'}</h2>
+        {ep && <p className="year-ps">{ep.passages.slice(0, 4).map((p) => <RefLink key={p} id={p}><span className="chip">{(() => { const r = parseRefId(p); return r ? formatRef(r, { abbr: true }) : p; })()}</span></RefLink>)}</p>}
+        <div className="year-acts">
+          <button className="btn primary" disabled={!ep} onClick={() => ep && player.play(ep)}><Icon name="play" size={14} /> Listen</button>
+          {first && edition && <Link className="btn" to={readerPath(edition, first)}>Read</Link>}
+          <button className={'btn icon' + (finished ? ' on' : '')} aria-pressed={finished} onClick={toggleDone} title={finished ? 'Done today' : 'Mark today done'} aria-label={finished ? 'Done today. Tap to undo' : 'Mark today done'}>✓</button>
+          <Menu items={[
+            { label: 'Switch plan', onClick: () => setPick(true) },
+            { label: 'Playback settings', onClick: () => setCfg(true) },
+            ...(!prog ? [{ label: 'Start tracking from day 1', onClick: () => void startTracking() }] : []),
+          ]} />
         </div>
+      </div>
       {pick && <PlanPicker onClose={() => setPick(false)} />}
       {cfg && <ShowSettings showKey="biay" name="Bible in a Year" onClose={() => setCfg(false)} />}
-      </section>
+    </section>
   );
 }

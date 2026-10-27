@@ -19,6 +19,8 @@ import Meditate from './Meditate';
 import YearHero from '../../components/YearHero';
 import { RecordedList } from '../../components/RecordedBooks';
 import PodcastView from './PodcastView';
+import Menu, { type MenuItem } from '../../components/Menu';
+import Fold from '../../components/Fold';
 import ForYou from './ForYou';
 import VideoLibrary from '../study/VideoLibrary';
 import PodcastLibrary from './PodcastLibrary';
@@ -35,7 +37,7 @@ function BiayListen() {
   const player = usePlayer();
   const [view, setView] = useState<View>('next');
   const [hideDone, setHideDone] = useState(loadHide);
-  const [shown, setShown] = useState(12);
+  const [shown, setShown] = useState(typeof window !== "undefined" && window.innerHeight < 800 ? 2 : 3);
   const [bulk, setBulk] = useState(false);
   const [upTo, setUpTo] = useState('');
   const [q, setQ] = useState('');
@@ -101,73 +103,58 @@ function BiayListen() {
   const resumeEp = resumeId ? biay.byId.get(resumeId.episodeId) : null;
   const years = [...new Set(biay.data.episodes.map((e) => e.year).filter(Boolean) as number[])].sort();
 
+  const menuItems: MenuItem[] = [
+    { label: 'Hide finished episodes', on: hideDone, onClick: () => { const v = !hideDone; setHideDone(v); try { localStorage.setItem(HIDE_KEY, v ? '1' : '0'); } catch { /* private mode */ } } },
+    { label: 'Catch up: I’m already part way', onClick: () => { setView('next'); setBulk(true); } },
+    { label: 'Extras', onClick: () => { setView('extras'); setShown(12); } },
+    { label: 'History', onClick: () => { setView('progress'); setShown(12); } },
+  ];
+  const rows = view === 'next' ? filtered.slice(0, shown) : filtered.slice(0, 400);
   return (
-    <div>
+    <div className="year">
       <YearHero />
-      <h2 className="h-sm" style={{ marginTop: 22 }}>Episodes</h2>
-
-      <div className="tabbar" role="tablist">
-        {([['next', 'Up next'], ['plan', 'All 365 days'], ['extras', 'Extras'], ['queue', `Queue ${queue.length}`], ['progress', 'History']] as [View, string][]).map(([k, l]) => (
-          <button key={k} role="tab" aria-selected={view === k} onClick={() => { setView(k); setShown(12); }}>{l}</button>
-        ))}
+      <div className="year-bar">
+        <div className="seg" role="tablist" aria-label="Episodes">
+          {([['next', 'Up next'], ['plan', 'All days'], ['queue', `Queue${queue.length ? ` ${queue.length}` : ''}`]] as [View, string][]).map(([k, l]) => (
+            <button key={k} role="tab" aria-selected={view === k} onClick={() => { setView(k); setShown(3); }}>{l}</button>
+          ))}
+        </div>
+        <Menu items={menuItems} />
       </div>
+      {view === 'extras' && <p className="rows-sub">Extras <button className="linklike" onClick={() => setView('next')}>Back</button></p>}
+      {view === 'progress' && <p className="rows-sub">History <button className="linklike" onClick={() => setView('next')}>Back</button></p>}
       {(view === 'plan' || view === 'extras') && (
         <FilterBar active={year ? 1 : 0}
-          search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Day, title or passage (92, Hezekiah, John 6)" aria-label="Search episodes" />}>
+          search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Day, title or passage (92, John 6)" aria-label="Search episodes" />}>
           <label>Release<select value={year} onChange={(e) => setYear(e.target.value ? +e.target.value : '')} aria-label="Release year">
-            <option value="">Latest release</option>
-            {years.map((y) => <option key={y} value={y}>{y} release</option>)}
+            <option value="">Latest</option>
+            {years.map((y) => <option key={y} value={y}>{y}</option>)}
           </select></label>
         </FilterBar>
       )}
-      {view === 'next' && <p className="muted small" style={{ margin: '6px 0' }}>Your next unfinished days, in order. {finishedIds.size > 0 ? `${finishedIds.size} finished ${finishedIds.size === 1 ? 'episode is' : 'episodes are'} tucked away.` : 'Mark an episode finished with the ✓ and it moves out of the way.'}</p>}
-      {view === 'plan' && <p className="muted small">All 365 days, through the whole Bible. Type a passage to find its episode.</p>}
-      {view === 'extras' && <p className="muted small">Bonus and special episodes that are not one of the 365 days.</p>}
-      {(view === 'next' || view === 'plan' || view === 'extras') && (
-        <div className="row" style={{ gap: 10, flexWrap: 'wrap', margin: '4px 0 8px' }}>
-          <label className="row small" style={{ gap: 6 }}>
-            <input type="checkbox" checked={hideDone} onChange={(e) => { setHideDone(e.target.checked); try { localStorage.setItem(HIDE_KEY, e.target.checked ? '1' : '0'); } catch { /* private mode */ } }} /> Hide finished episodes
-          </label>
-          {(view === 'next' || view === 'plan') && <button className="linklike small" onClick={() => setBulk(!bulk)} aria-expanded={bulk}>Coming from another app?</button>}
-        </div>
-      )}
       {bulk && (
-        <section className="card" aria-label="Catch up">
-          <strong>Already listening somewhere else?</strong>
-          <p className="muted small" style={{ margin: '4px 0 8px' }}>Tell us how far you got and every earlier day is marked finished and tucked away, so the list starts at your next episode. You can undo it.</p>
-          <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
-            <label className="row small" style={{ gap: 6 }}>I have finished through day
-              <input type="number" min={1} max={365} value={upTo} onChange={(e) => setUpTo(e.target.value)} style={{ width: 80 }} aria-label="Last day finished" />
-            </label>
-            <button className="btn primary small" disabled={!(+upTo >= 1)} onClick={() => void markThrough(Math.min(365, +upTo))}>Mark days 1 to {upTo || '…'} finished</button>
-            <button className="btn small" onClick={() => void clearFinished()}>Undo all finished marks</button>
-          </div>
+        <section className="card catchup" aria-label="Catch up">
+          <label className="row small" style={{ gap: 8 }}>Finished through day
+            <input type="number" min={1} max={365} value={upTo} onChange={(e) => setUpTo(e.target.value)} style={{ width: 72 }} aria-label="Last day finished" />
+            <button className="btn small primary" disabled={!(+upTo >= 1)} onClick={() => void markThrough(Math.min(365, +upTo))}>Mark days 1 to {upTo || '…'} finished</button>
+            <button className="btn small" onClick={() => void clearFinished()}>Undo all</button>
+            <button className="linklike small" onClick={() => setBulk(false)}>Close</button>
+          </label>
         </section>
       )}
-      {filtered.length === 0 && <div className="empty">{view === 'queue' ? 'Nothing in your queue — add episodes from any list.' : view === 'next' || view === 'plan' ? (finishedIds.size > 0 ? 'Everything here is finished. Untick “Hide finished episodes” to see them.' : 'No episodes here.') : 'No episodes here.'}</div>}
+      {filtered.length === 0 && <p className="muted small">{view === 'queue' ? 'Your queue is empty.' : view === 'next' || view === 'plan' ? (finishedIds.size > 0 ? 'Everything here is finished.' : 'Nothing found.') : 'Nothing here yet.'}</p>}
       <ul className="list">
-        {(view === 'next' ? filtered.slice(0, shown) : filtered.slice(0, 400)).map((e) => <Row key={e.id} e={e} progress={doneMap.get(e.id)} inQueue={queue.some((x) => x.episodeId === e.id)} />)}
+        {rows.map((e) => <Row key={e.id} e={e} progress={doneMap.get(e.id)} inQueue={queue.some((x) => x.episodeId === e.id)} />)}
       </ul>
-      {view === 'next' && filtered.length > shown && <p><button className="btn" onClick={() => setShown(shown + 20)}>Show the next 20</button> <button className="linklike small" onClick={() => setView('plan')}>or browse all days</button></p>}
+      {view === 'next' && filtered.length > shown && <button className="btn small" onClick={() => setShown(shown + 10)}>More</button>}
       {view === 'queue' && !q && queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length > 0 && (
-        <div className="notice" role="note">
-          {queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length} items in your queue can no longer be found.{' '}
-          <button className="linklike" onClick={() => void db.queue.bulkDelete(queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).map((x) => x.id!))}>Clear them</button>
-        </div>
+        <button className="linklike small" onClick={() => void db.queue.bulkDelete(queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).map((x) => x.id!))}>Clear {queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length} missing items</button>
       )}
-      {filtered.length > 400 && <p className="muted small">Showing the first 400; narrow with search.</p>}
-      <section className="card" style={{ marginTop: 16 }}>
-        <h2 className="card-title">Hear Scripture read aloud</h2>
-        <p className="muted small">
-          In the Read tab, tap <strong>Read aloud</strong> (the headphones icon) to have any chapter read with your device’s speech voices: highlight follows the verse, with speed, voice and skip controls, and it can continue into the next chapter. This is synthesized speech, not a human recording.
-          For recorded readings of public-domain Bibles, volunteer recordings are published by <a href="https://librivox.org/" target="_blank" rel="noreferrer">LibriVox</a> (search for the Douay-Rheims or World English Bible); add any recording’s page or audio file to the media queue below to play it here.
-        </p>
-      </section>
-      <MyMedia />
-      <RecordedList />
-      <div className="notice info">
-        Official sources: <a href={biay.data.meta.page} target="_blank" rel="noreferrer">podcast page</a> · <a href={biay.data.meta.home} target="_blank" rel="noreferrer">Ascension reading plan</a> · <a href="https://www.youtube.com/@AscensionPresents" target="_blank" rel="noreferrer">Ascension Presents on YouTube</a>. Transcripts are not published in the official feed, so none are shown. Passage lists come from the feed metadata (voted across yearly re-releases) and may be corrected by reviewers in <code>data/curated/biay-overrides.json</code>.
-      </div>
+      <Fold id="media:more" title="More audio">
+        <MyMedia />
+        <RecordedList />
+        <p className="muted small">Read aloud: tap the headphones in any chapter. Recorded Bibles: <a href="https://librivox.org/" target="_blank" rel="noreferrer">LibriVox</a>. Sources: <a href={biay.data.meta.page} target="_blank" rel="noreferrer">podcast page</a> · <a href={biay.data.meta.home} target="_blank" rel="noreferrer">Ascension</a></p>
+      </Fold>
     </div>
   );
 }
@@ -185,7 +172,7 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
       <div className="row between">
         <div style={{ minWidth: 0, flex: 1 }}>
           <Link to={`/listen/episode/${e.id}`} className="t" style={{ fontWeight: 600 }}>{e.kind === 'day' ? `Day ${e.day}: ${e.short}` : e.title}</Link>
-          <div className="muted small">{e.date} · {fmtDuration(e.duration)}{e.year ? ` · ${e.year} release` : ''}{progress?.completed ? ' · ✓ completed' : pct > 0 ? ` · ${pct}%` : ''}</div>
+          <div className="muted small">{fmtDuration(e.duration)}{progress?.completed ? ' · done' : pct > 0 ? ` · ${pct}%` : ''}</div>
           <div className="chips" style={{ marginTop: 4 }}>
             {e.passages.slice(0, 6).map((p) => { const r = parseRefId(p); return r ? <RefLink key={p} refv={r}><span className="chip">{formatRef(r, { abbr: true })}</span></RefLink> : null; })}
             {e.passages.length === 0 && e.kind === 'day' && <span className="chip warn">passages not in feed — needs review</span>}
@@ -193,7 +180,6 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
         </div>
         <div className="row">
           <button className="icon-btn" onClick={() => player.play(e)} aria-label={`Play ${e.title}`}><Icon name="play" /></button>
-          <SaveOffline ep={e} compact />
           <button className="icon-btn" aria-pressed={inQueue} onClick={toggleQueue} aria-label={inQueue ? 'Remove from queue' : 'Add to queue'}><Icon name="queue" /></button>
           <button className="icon-btn" aria-pressed={!!progress?.completed} onClick={toggleDone} aria-label={progress?.completed ? 'Mark not completed' : 'Mark completed'}><Icon name="check" /></button>
         </div>

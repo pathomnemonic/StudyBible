@@ -16,7 +16,7 @@ export default function ProfilePage() {
       <HubHeader quiet title="You" sub={sync.user ? `Signed in as ${sync.user.email}.` : `${notes} note${notes === 1 ? '' : 's'} and ${marks} highlight${marks === 1 ? '' : 's'}, kept on this device.`} />
       <WeekCard />
       <Group title="Make it yours"><QuickSettings /></Group>
-      <Group title="Your things">
+      <Group open title="Your things">
         <Tiles ids={['you.library', 'today.plans', 'today.memorize', 'pray.journal', 'pray.intentions', 'you.goals', 'today.days']} />
       </Group>
       <Group title="The app">

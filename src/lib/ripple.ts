@@ -1,7 +1,7 @@
 import { getSettings } from './store';
 
-/** What a tap does, like a drop falling into still water: two soft rings spread out from the fingertip, and (if switched on) a quiet "plip". */
-const TARGETS = '.btn, .tab, .chip, .icon-btn, .hub-tile, .fold > summary, .lod, .welcome-chip, .cta-main, .vis-chips button, .vis-rail button';
+/** What a tap does on the few things that deserve it (switching tabs, the main button, a tick): a drop falling into still water. Everything else stays still. */
+const TARGETS = '.tab, .btn.primary, .btn.icon[aria-pressed], .welcome-chip';
 
 let ctx: AudioContext | null = null;
 /** a short falling tone, like a drop landing: a sine that glides down and fades, kept very quiet */
