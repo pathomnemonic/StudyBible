@@ -9,6 +9,7 @@ import Welcome from './Welcome';
 import { NewDot } from './Hints';
 import { markSeen } from '../lib/seen';
 import { useEnsureActivePlan } from '../lib/activePlan';
+import { useAutoFill } from '../lib/autoFill';
 import { startDriveBackup } from '../sync/drive';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
@@ -62,6 +63,7 @@ const lastRoom = () => { try { return localStorage.getItem(ROOM_KEY) || '/room';
 
 export default function Shell({ children }: { children: ReactNode }) {
   useEnsureActivePlan();
+  useAutoFill();
   const loc = useLocation();
   const nav = useNavigate();
   const [s] = useSettings();

@@ -2637,7 +2637,7 @@ h3,
 /* reader bar: on phones the secondary tools fold into a menu so the chapter title stays readable */
 .more-wrap {
   position: relative;
-  display: none;
+  display: block;
 }
 .more-menu {
   position: absolute;
@@ -5068,7 +5068,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
    Compact layout (the default): one control scale, tabs that fit one screen.
    Rows are 44px, small controls 32px, nothing is bigger without a reason.
    ====================================================================== */
-:root[data-layout='compact'] { --row-h: 44px; --ctl-h: 36px; --ctl-s: 30px; }
+:root[data-layout='compact'] { --row-h: clamp(44px, calc(44px + (100vh - 800px) / 10), 52px); --ctl-h: 36px; --ctl-s: 30px; }
 :root[data-layout='compact'] .hub-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
 @media (min-width: 720px) { :root[data-layout='compact'] .hub-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 1100px) { :root[data-layout='compact'] .hub-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
@@ -5147,7 +5147,8 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .list li.ep { display: flex; align-items: center; gap: 8px; padding: 10px 10px 10px 14px; border: 1px solid var(--line, rgba(255,255,255,.12)); border-radius: 16px; background: color-mix(in srgb, var(--accent) 5%, var(--card, transparent)); }
 .ep-main { flex: 1; min-width: 0; display: grid; gap: 3px; }
 .ep-title { background: none; border: 0; padding: 0; margin: 0; text-align: left; font: inherit; font-weight: 600; font-size: 1rem; line-height: 1.25; color: var(--text); text-decoration: none; cursor: pointer; }
-.ep-title:hover, .ep-title:focus-visible { color: var(--accent); }
+.ep-title:focus-visible { color: var(--accent); }
+@media (hover: hover) { .ep-title:hover { color: var(--accent); } }
 .ep-meta { font-size: .78rem; color: var(--muted); }
 .ep-chips { display: flex; gap: 5px; flex-wrap: wrap; }
 .ep-chips .chip { text-decoration: none; min-height: 26px; padding: 0 9px; font-size: .78rem; }
@@ -5157,8 +5158,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 @media (max-width: 420px) { .ep-acts .icon-btn { width: 34px; min-width: 34px; } }
 /* Media: titles are plain text on tappable rows and cards, not underlined links */
 .page.media a.t, .page.media a.t:visited { color: var(--text); text-decoration: none; font-weight: 600; }
-.page.media a.t:hover, .page.media a.t:focus-visible { color: var(--accent); }
+.page.media a.t:focus-visible { color: var(--accent); }
+@media (hover: hover) { .page.media a.t:hover { color: var(--accent); } }
 .page.media p a:not(.btn):not(.chip) { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted); }
 .page.media .linklike.t { color: var(--text); text-decoration: none; font-weight: 600; }
-.page.media .linklike.t:hover { color: var(--accent); }
+@media (hover: hover) { .page.media .linklike.t:hover { color: var(--accent); } }
 .page.media .linklike:not(.t) { text-decoration: none; border: 1px solid var(--line, rgba(255,255,255,.18)); border-radius: 999px; padding: 3px 12px; font-size: .8rem; color: var(--text); }

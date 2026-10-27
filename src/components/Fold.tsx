@@ -10,7 +10,7 @@ export default function Fold({ id, title, hint, children, open }: { id: string; 
     return () => window.removeEventListener('studybible:foldall', h);
   }, [key]);
   return (
-    <details className="fold" open={on} onToggle={(e) => { const o = (e.currentTarget as HTMLDetailsElement).open; setOn(o); try { sessionStorage.setItem(key, o ? '1' : '0'); } catch { /* private mode */ } }}>
+    <details className="fold" data-fold-key={key} open={on} onToggle={(e) => { const o = (e.currentTarget as HTMLDetailsElement).open; setOn(o); if ((window as unknown as { __sbAuto?: boolean }).__sbAuto) return; try { sessionStorage.setItem(key, o ? '1' : '0'); } catch { /* private mode */ } }}>
       <summary><span className="fold-t">{title}</span>{hint && <span className="fold-h">{hint}</span>}<span className="fold-chev" aria-hidden="true">›</span></summary>
       <div className="fold-body">{children}</div>
     </details>

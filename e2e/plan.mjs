@@ -16,13 +16,15 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   if (await p.locator('.reading-bar').count()) fail('Today stays a single calm page: the plan belongs in the Bible tab and the reader');
   await p.goto(`${BASE}/#/read/webc/GEN/1`);
   await p.waitForSelector('.reading-bar', { timeout: 8000 }).catch(() => fail('the reader should show the chosen plan'));
-  const day1 = await p.locator('.reading-bar .rb-label').innerText();
-  await p.locator('.reading-bar button[aria-label="Mark today’s reading done"]').click();
+  const listen = await p.locator('.reading-bar .rb-listen').innerText();
+  if (!/Day 1\b/.test(listen)) fail(`Genesis 1 should offer the Bible in a Year episode for it, got ${listen}`);
+  // the plan lives in the reader menu, and marking done moves it on
+  const place = async () => { await p.click('button[aria-label="More reading tools"]'); const t = await p.locator('[role=menuitem]:has-text("My place in")').innerText(); await p.click('button[aria-label="More reading tools"]'); return t; };
+  const day1 = await place();
+  await p.click('button[aria-label="More reading tools"]'); await p.click('[role=menuitem]:has-text("Mark today’s plan reading done")');
   await p.waitForTimeout(600);
-  const day2 = await p.locator('.reading-bar .rb-label').innerText();
+  const day2 = await place();
   if (day1 === day2) fail(`marking done should move on (${day1})`);
-  // plan options are hidden for now: no switcher on the reading bar
-  if (await p.locator('.reading-bar .rb-change').count()) fail('plan switching should be hidden');
   if (errs.length) fail(errs[0]);
   await ctx.close();
 }
@@ -32,7 +34,8 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   const p = await ctx.newPage();
   await p.goto(`${BASE}/#/read/webc/GEN/1`);
   await p.waitForSelector('.reading-bar', { timeout: 10000 }).catch(() => fail('a brand-new reader should already follow the Bible in a Year podcast'));
-  if (!/day 1\//.test(await p.locator('.reading-bar .rb-label').innerText())) fail('a new reader starts at day 1');
+  await p.click('button[aria-label="More reading tools"]');
+  if (!/day 1\b/.test(await p.locator('[role=menuitem]:has-text("My place in")').innerText())) fail('a new reader starts at day 1');
   await ctx.close();
 }
 await b.close();

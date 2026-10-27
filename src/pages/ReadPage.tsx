@@ -7,6 +7,7 @@ import { getBookText } from '../data/loader';
 import type { BookData } from '../lib/types';
 import { adjacentBook, getBook, BOOK_BY_ID } from '../lib/canon';
 import { formatRef, parseRefId, refId, type Ref } from '../lib/refs';
+import { readerPath } from '../lib/nav';
 import { anchorChaptersFor, chapterAlignmentNote, bookAlignmentNote, psalmDualLabel, toAnchor } from '../lib/versification';
 import { anchorChapterText, anchorToNative, chapterTitle, flattenChapter, nativeToAnchorRef, type AnchorText } from '../lib/bibleText';
 import { useSettings } from '../lib/store';
@@ -15,6 +16,7 @@ import { db, type HighlightColor, type Target } from '../db/db';
 import { newCard } from '../lib/srs';
 import { useToast } from '../components/Toast';
 import ChapterDone from '../components/ChapterDone';
+import { useActivePlan } from '../lib/activePlan';
 import ReadingBar from '../components/ReadingBar';
 import NextChapters from '../components/NextChapters';
 import ChapterArt from '../art/chapterArt';
@@ -107,6 +109,7 @@ export default function ReadPage() {
   const { edition: edId = 'dra', book = 'JHN', chapter = '1' } = useParams();
   const [sp, setSp] = useSearchParams();
   const nav = useNavigate();
+  const plan = useActivePlan();
   const loc = useLocation();
   type Trail = { path: string; label: string; prev?: Trail };
   const from = (loc.state as { from?: Trail } | null)?.from;
@@ -701,6 +704,8 @@ export default function ReadPage() {
             </button>
             {moreMenu && (
               <div className="more-menu" role="menu" onClick={() => setMoreMenu(false)}>
+                {plan && !plan.finished && plan.next && (() => { const r = plan.next.refs.map((id) => parseRefId(id)).find(Boolean); return r ? <button role="menuitem" onClick={() => nav(readerPath(edition, r))}>My place in {plan.plan.name.replace(/^The whole /, '').replace(/ \(.*\)$/, '')}: day {plan.nextIdx + 1}, {formatRef(r, { abbr: true })}</button> : null; })()}
+                {plan && !plan.finished && <button role="menuitem" onClick={() => void plan.markDone(plan.nextIdx)}>Mark today’s plan reading done</button>}
                 <button role="menuitem" onClick={() => setToolsOpen(true)}>Bible tools: outlines, key words, concordance, topics</button>
                 <button role="menuitem" onClick={() => setEditionPicker(true)}>Translation: {edition.shortName} (and Church-approved Bibles)</button>
                 <button role="menuitem" onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id))}>Parallel translations {parallelMode ? '(on)' : ''}</button>

@@ -24,6 +24,9 @@ export default function LearnPage() {
   const levels = (
     <div className="level-chips" role="group" aria-label="Levels">{grades.map((g) => <Link key={g.id} className="chip" to={`/study/curriculum/${g.id}`} title={`${g.name}: ${g.lessons} lessons`}>{g.id === 'K' ? 'K' : g.id === 'YA' ? 'Adults' : g.id}</Link>)}</div>
   );
+  const tall = typeof window !== 'undefined' && window.innerHeight >= 800;
+  const studentTiles = <Tiles ids={['study.kids', 'study.course', 'study.paths', 'study.story', 'study.prepare', 'study.visual', 'learn.mass']} />;
+  const teacherTiles = <Tiles ids={['teach.classes', 'teach.run', 'teach.handbook', 'teach.join']} />;
   const studentCourse = (
     <RowLink strong to={mineGrade ? `/study/curriculum/${mineGrade.id}` : '/study/curriculum'} title="Student course" meta={mineGrade ? `${gradeLabel(mineGrade.id)} · ${mine!.done.length}/${mineGrade.lessons}` : 'K–12 · by grade'} />
   );
@@ -34,12 +37,17 @@ export default function LearnPage() {
         <h2 id="learn-stu" className="learn-h">Catechism for students<span>K–12 · lessons, teacher guides, slides and games</span></h2>
         <div className="rows">{studentCourse}</div>
         {levels}
-        <Fold id="learn:students" title="Student and teacher resources" hint="Everything for the classroom and the home">
-          <p className="rows-sub">For students and families</p>
-          <Tiles ids={['study.kids', 'study.course', 'study.paths', 'study.story', 'study.prepare', 'study.visual', 'learn.mass']} />
-          <p className="rows-sub">For teachers</p>
-          <Tiles ids={['teach.classes', 'teach.run', 'teach.handbook', 'teach.join']} />
-        </Fold>
+        {tall ? (
+          <>
+            <Fold id="learn:students" title="For students and families" hint="Stories, paths and the Mass explained">{studentTiles}</Fold>
+            <Fold id="learn:teachers" title="For teachers" hint="Classes, handbook and lessons in a tap">{teacherTiles}</Fold>
+          </>
+        ) : (
+          <Fold id="learn:resources" title="Student and teacher resources" hint="Everything for the classroom and the home">
+            <p className="rows-sub">For students and families</p>{studentTiles}
+            <p className="rows-sub">For teachers</p>{teacherTiles}
+          </Fold>
+        )}
       </section>
       <section className="card learn-card adults" aria-labelledby="learn-adu">
         <h2 id="learn-adu" className="learn-h">Catechism for adults<span>The 48-session course and the Catechism itself</span></h2>

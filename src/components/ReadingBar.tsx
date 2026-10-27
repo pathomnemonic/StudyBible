@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
 import { useEditions } from '../data/EditionsContext';
@@ -8,8 +7,7 @@ import { useActivePlan } from '../lib/activePlan';
 import { useBiay } from '../data/biay';
 import { usePlayer } from '../data/PlayerContext';
 import { countsAsRead } from '../lib/finished';
-import { formatRef, parseRefId } from '../lib/refs';
-import { readerPath } from '../lib/nav';
+import { parseRefId } from '../lib/refs';
 import { rangesOverlap } from '../db/ops';
 import Icon from './Icon';
 
@@ -17,8 +15,8 @@ import Icon from './Icon';
 const chaptersOf = (refs: string[]) => refs.flatMap((id) => { const r = parseRefId(id); return r ? Array.from({ length: Math.min(40, r.c2 - r.c1 + 1) }, (_, i) => `${r.book}.${r.c1 + i}`) : []; });
 
 /**
- * One slim bar above the chapter: your reading plan (today's passage, a tick that is set for you once you have finished its chapters) and a
- * Listen button when Fr. Mike's Bible in a Year episode covers this chapter. Nothing shows if you have neither.
+ * One slim bar above the chapter: a Listen button for the Bible in a Year episode that covers this chapter, wherever you are in the plan.
+ * Finishing a plan day's chapters still ticks it off quietly. Your place in the plan is in the reader's menu.
  */
 export default function ReadingBar({ book, chapters }: { book: string; chapters: number[] }) {
   const ap = useActivePlan();
@@ -38,33 +36,13 @@ export default function ReadingBar({ book, chapters }: { book: string; chapters:
         .filter((e) => e.audio && e.passages.some((p) => { const r = parseRefId(p); return r && chapters.some((c) => rangesOverlap(r, { book, c1: c, c2: c })); }))
         .sort((a, b) => (a.day ?? 0) - (b.day ?? 0))[0]
     : undefined;
-  if (!edition || (!ap && !ep)) return null;
-
-  const refs = (ap?.next?.refs ?? []).map((id) => parseRefId(id)).filter(Boolean) as NonNullable<ReturnType<typeof parseRefId>>[];
-  const here = refs.some((r) => r.book === book && chapters.some((c) => c >= r.c1 && c <= r.c2));
-  const behind = ap ? ap.todayIdx - ap.nextIdx : 0;
+  if (!edition || !ep) return null;
   return (
-    <div className="reading-bar" role="region" aria-label="Your reading plan and listening">
-      {ep && (
-        <button className="btn small primary rb-listen" onClick={() => void player.play(ep)} title={`Bible in a Year, day ${ep.day}: ${ep.short || ep.title}`}>
-          <Icon name="play" size={14} /> Listen{ep.duration ? ` · ${Math.round(ep.duration / 60)} min` : ''}
-        </button>
-      )}
-      {ap && !ap.finished && (
-        <div className="rb-plan">
-          <span className="rb-label">{ap.plan.name.replace(/^The whole /, '').replace(/ \(.*\)$/, '')} · day {ap.nextIdx + 1}/{ap.plan.days.length}{behind > 0 ? ` · ${behind} behind` : ''}</span>
-          <span className="rb-refs">
-            {refs.map((r) => <Link key={formatRef(r)} className="chip" to={readerPath(edition, r)} aria-current={here ? 'true' : undefined}>{formatRef(r, { abbr: true })}</Link>)}
-            {refs.length === 0 && <span className="muted small">{ap.next?.note ?? ap.next?.title ?? ''}</span>}
-          </span>
-        </div>
-      )}
-      {ap && ap.finished && <span className="rb-label">You have finished {ap.plan.name}.</span>}
-      {ap && !ap.finished && (
-        <span className="rb-acts">
-          <button className="btn small icon" onClick={() => void ap.markDone(ap.nextIdx)} title="Check off today’s reading" aria-label="Mark today’s reading done">✓</button>
-        </span>
-      )}
+    <div className="reading-bar" role="region" aria-label="Listen to this chapter">
+      <button className="btn small primary rb-listen" onClick={() => void player.play(ep)} title={`Bible in a Year, day ${ep.day}: ${ep.short || ep.title}`}>
+        <Icon name="play" size={14} /> Listen · Day {ep.day}{ep.duration ? ` · ${Math.round(ep.duration / 60)} min` : ''}
+      </button>
+      <span className="rb-label">Bible in a Year: {ep.short || ep.title}</span>
     </div>
   );
 }
