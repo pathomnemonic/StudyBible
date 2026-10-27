@@ -75,7 +75,7 @@ async function build(show: any) {
   if (!show.programme && show.cap) eps = eps.slice(0, show.cap);
   const data = { meta: { id: show.id, title: show.title, host: show.host, publisher: show.publisher, page: show.page, feed: show.feed, retrieved: new Date().toISOString().slice(0, 10), total: String(total), kept: String(eps.length) }, episodes: eps };
   writeFileSync(join(OUT, 'podcast', `${show.id}.json`), JSON.stringify(data));
-  return { id: show.id, title: show.title, host: show.host, publisher: show.publisher, programme: !!show.programme, tradition: show.tradition ?? null, category: show.category ?? 'Faith and culture', note: show.note ?? '', page: show.page, episodes: eps.length, latest: eps[0]?.date ?? '' };
+  return { id: show.id, title: show.title, host: show.host, publisher: show.publisher, programme: !!show.programme, tradition: show.tradition ?? null, works: show.works ?? [], category: show.category ?? 'Faith and culture', note: show.note ?? '', page: show.page, episodes: eps.length, latest: eps[0]?.date ?? '' };
 }
 
 let previous: any[] = [];
@@ -92,4 +92,5 @@ for (const s of shows.filter((x) => !only.length || only.includes(x.id))) {
     if (old) index.push(old);
   }
 }
-if (!only.length) writeFileSync(join(OUT, 'podcasts.json'), JSON.stringify({ generated: new Date().toISOString().slice(0, 10), shows: index }, null, 1));
+if (only.length) { const keep = previous.filter((x) => !index.some((y) => y.id === x.id)); index.splice(0, index.length, ...[...keep, ...index].sort((a, b) => shows.findIndex((s: any) => s.id === a.id) - shows.findIndex((s: any) => s.id === b.id))); }
+writeFileSync(join(OUT, 'podcasts.json'), JSON.stringify({ generated: new Date().toISOString().slice(0, 10), shows: index }, null, 1));

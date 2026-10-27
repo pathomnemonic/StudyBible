@@ -642,5 +642,83 @@
   "category": "Programs",
   "note": "The Roman Catechism read aloud.",
   "cap": 150
+ },
+ {
+  "id": "catholic-classics",
+  "title": "Catholic Classics",
+  "host": "Ascension",
+  "publisher": "Ascension",
+  "feed": "https://feeds.fireside.fm/catholicclassics/rss",
+  "page": "https://ascensionpress.com/",
+  "category": "Catholic classics",
+  "note": "A season for each great spiritual classic, read with commentary in 20 to 30 minute episodes.",
+  "cap": 200,
+  "works": [
+   "kempis-imitation",
+   "desales-devout-life",
+   "teresa-castle",
+   "therese-story-of-a-soul",
+   "lawrence-practice"
+  ]
+ },
+ {
+  "id": "catholic-culture-audiobooks",
+  "title": "Catholic Culture Audiobooks",
+  "host": "CatholicCulture.org",
+  "publisher": "CatholicCulture.org",
+  "feed": "https://rss.libsyn.com/shows/217661/destinations/1581884.xml",
+  "page": "https://www.catholicculture.org/",
+  "category": "Catholic classics",
+  "note": "Newman’s sermons, the Fathers and spiritual writers, read aloud.",
+  "cap": 250,
+  "works": [
+   "leo-sermons-letters"
+  ]
+ },
+ {
+  "id": "audiobook-in-a-month",
+  "title": "Catholic Audiobook in a Month",
+  "host": "Orate Podcasts",
+  "publisher": "Orate Podcasts",
+  "feed": "https://feed.podbean.com/catholicaudiobooks/feed.xml",
+  "page": "https://www.podbean.com/",
+  "category": "Catholic classics",
+  "note": "One classic a month in daily segments, from The Cloud of Unknowing to the mystics.",
+  "cap": 150,
+  "works": [
+   "hilton-scale",
+   "julian-revelations"
+  ]
+ },
+ {
+  "id": "cts-audiobooks",
+  "title": "CTS Catholic Audiobooks",
+  "host": "Catholic Truth Society",
+  "publisher": "Catholic Truth Society",
+  "feed": "https://anchor.fm/s/96fda2dc/podcast/rss",
+  "page": "https://www.ctsbooks.org/",
+  "category": "Catholic classics",
+  "note": "Encyclicals, saints’ lives and short books from the Catholic Truth Society.",
+  "cap": 60,
+  "works": [
+   "leo-xiii-encyclicals"
+  ]
+ },
+ {
+  "id": "traditional-catholic-audiobooks",
+  "title": "Traditional Catholic Audiobooks",
+  "host": "SGZ",
+  "publisher": "Independent",
+  "feed": "https://anchor.fm/s/5c5ed5d8/podcast/rss",
+  "page": "https://www.catholic.com/",
+  "category": "Catholic classics",
+  "note": "The Fathers read aloud: Tertullian, Cyril of Jerusalem, Methodius, John Damascene and more.",
+  "cap": 150,
+  "works": [
+   "cyril-catecheses",
+   "tertullian-ethical",
+   "methodius",
+   "john-damascus"
+  ]
  }
 ]

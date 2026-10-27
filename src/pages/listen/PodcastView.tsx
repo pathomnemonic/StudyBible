@@ -1,3 +1,4 @@
+import { ShowWorks } from '../../components/WorkPodcasts';
 import SaveOffline from '../../components/SaveOffline';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -59,6 +60,7 @@ export default function PodcastView({ show }: { show: Show }) {
       <div className="row between"><h2 className="h-sm" style={{ marginBottom: 2 }}>{show.title}</h2><button className="btn small" onClick={() => setCfg(true)} title="Skip the intro, speed, skip buttons for this show">Settings</button><button className="btn small" aria-pressed={following} onClick={() => toggleFollow(show.id, !following)}>{following ? '✓ Following' : '+ Follow'}</button></div>
       <p className="muted small" style={{ marginTop: 0 }}>{show.host}{show.publisher && show.publisher !== show.host ? ` · ${show.publisher}` : ''}{show.note ? ` · ${show.note}` : ''}</p>
       <p className="muted small">Episode lists come from the publisher’s own public feed, and the audio plays from them; nothing is copied. <a href={show.page} target="_blank" rel="noreferrer noopener">The publisher’s page</a>.{show.tradition ? ' Made for an Eastern Catholic audience.' : ''}</p>
+      <ShowWorks show={show} />
       {data === undefined && <div className="center-note">Loading episodes…</div>}
       {data === null && <div className="notice">The episode list for this show is missing. It is built with <code>npx tsx scripts/podcasts/build.ts</code>.</div>}
       {data && (

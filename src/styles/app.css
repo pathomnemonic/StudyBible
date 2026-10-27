@@ -5164,3 +5164,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .page.media .linklike.t { color: var(--text); text-decoration: none; font-weight: 600; }
 @media (hover: hover) { .page.media .linklike.t:hover { color: var(--accent); } }
 .page.media .linklike:not(.t) { text-decoration: none; border: 1px solid var(--line, rgba(255,255,255,.18)); border-radius: 999px; padding: 3px 12px; font-size: .8rem; color: var(--text); }
+.classics { margin: 8px 0 12px; }
+.classics-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; scroll-snap-type: x proximity; }
+.classic-card { flex: 0 0 230px; scroll-snap-align: start; display: grid; gap: 3px; padding: 10px 12px; border: 1px solid var(--line, rgba(255,255,255,.14)); border-radius: 14px; background: color-mix(in srgb, var(--accent) 6%, var(--card, transparent)); color: var(--text); text-decoration: none; }
+.classic-card strong { font-size: .95rem; }
+.classic-card span { font-size: .78rem; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.show-works { margin: 6px 0 10px; display: grid; gap: 4px; }

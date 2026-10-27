@@ -7,7 +7,7 @@ import FilterBar from '../../components/FilterBar';
 import Fold from '../../components/Fold';
 import { addUserShow, exportOpml, parseOpml, removeUserShow, searchPodcasts } from '../../data/feeds';
 
-const ORDER = ['Programs', 'Apologetics', 'Scripture', 'Theology and philosophy', 'Homilies and daily reflections', 'Spiritual life', 'Prayer', 'Saints and history', 'Faith and culture', 'Family and life', 'News'];
+const ORDER = ['Programs', 'Catholic classics', 'Apologetics', 'Scripture', 'Theology and philosophy', 'Homilies and daily reflections', 'Spiritual life', 'Prayer', 'Saints and history', 'Faith and culture', 'Family and life', 'News'];
 
 /** Every show in the library, by subject, with a search and a Follow button on each. */
 export default function PodcastLibrary({ onOpen }: { onOpen: (id: string) => void }) {

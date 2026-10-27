@@ -13,6 +13,7 @@ import NoteEditor from '../../components/NoteEditor';
 import TextSettings from '../../components/TextSettings';
 import Icon from '../../components/Icon';
 import { RecordedWork } from '../../components/RecordedBooks';
+import { WorkPodcasts } from '../../components/WorkPodcasts';
 import ReadAloud from '../../components/ReadAloud';
 import WorkSelection from '../../components/WorkSelection';
 import { FindInChapter, LookUp, ReadProgress } from '../../components/ReaderTools';
@@ -172,6 +173,7 @@ export default function WorkReader() {
         {quiet && <button className="btn small" style={{ position: 'fixed', top: 8, right: 8, zIndex: 40 }} onClick={() => setSettings({ scriptureOnly: false })}>Exit focus mode</button>}
         {finding && !quiet && <FindInChapter onClose={() => setFinding(false)} />}
         {!quiet && <RecordedWork workId={workId} title={meta.title} />}
+        {!quiet && <WorkPodcasts workId={workId} />}
         {toc && !quiet && (
           <div className="card" style={{ maxWidth: 760, margin: '10px auto' }}>
             <Notebook workId={workId} onJump={(i) => { go(i); setToc(false); }} />

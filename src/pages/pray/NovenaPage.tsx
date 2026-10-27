@@ -3,8 +3,9 @@ import { Link, useParams } from 'react-router-dom';
 import ReadingBlock from '../../components/ReadingBlock';
 import { MORE_PLANS, PLANS as BASE_PLANS } from '../../data/novenas';
 import { EXTRA_PLANS } from '../../data/novenas2';
+import { MORE_PLANS3 } from '../../data/novenas3';
 
-const PLANS = [...BASE_PLANS, ...MORE_PLANS, ...EXTRA_PLANS];
+const PLANS = [...BASE_PLANS, ...MORE_PLANS, ...EXTRA_PLANS, ...MORE_PLANS3];
 import { convertRef } from '../../lib/versification';
 import { parseRefs, type Ref } from '../../lib/refs';
 

@@ -7,7 +7,28 @@ import { allRecordedWorks, type Recording } from '../../data/librivox';
 import { fmtDuration } from '../../data/biay';
 import FilterBar from '../../components/FilterBar';
 import MyAudio from './MyAudio';
+import { useShows } from '../../data/podcasts';
 import { fold } from '../../search/engine';
+
+/** Podcasts that read the Catholic classics, beside the volunteer recordings below. */
+function ClassicsPodcasts() {
+  const shows = useShows();
+  const list = (shows ?? []).filter((s) => s.category === 'Catholic classics');
+  if (!list.length) return null;
+  return (
+    <section className="classics" aria-label="Catholic classics on podcasts">
+      <h2 className="eyebrow-h">Catholic classics on podcasts</h2>
+      <div className="classics-row">
+        {list.map((s) => (
+          <Link key={s.id} className="classic-card" to={`/listen?tab=podcasts&show=${s.id}`}>
+            <strong>{s.title}</strong>
+            <span>{s.note}</span>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 /** Audiobooks: every library work volunteers have recorded, with how far through each you are. */
 export default function Audiobooks() {
@@ -29,6 +50,7 @@ export default function Audiobooks() {
   return (
     <div>
       <MyAudio />
+      <ClassicsPodcasts />
       <p className="muted small" style={{ marginTop: 0 }}>{works.length} works read aloud by volunteers for <a href="https://librivox.org" target="_blank" rel="noreferrer">LibriVox</a> (public domain). Open one to play it in the bar at the bottom; it remembers the part and the minute you stopped, and carries on to the next part.</p>
       <FilterBar active={filter !== 'all' ? 1 : 0}
         search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find an audiobook or an author…" aria-label="Find an audiobook" />}>

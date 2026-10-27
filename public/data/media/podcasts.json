@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25",
+ "generated": "2026-10-27",
  "shows": [
   {
    "id": "catechism-in-a-year",
@@ -767,6 +767,94 @@
    "page": "https://www.catholic.com/",
    "episodes": 129,
    "latest": "2024-12-30"
+  },
+  {
+   "id": "catholic-classics",
+   "title": "Catholic Classics",
+   "host": "Ascension",
+   "publisher": "Ascension",
+   "programme": false,
+   "tradition": null,
+   "works": [
+    "kempis-imitation",
+    "desales-devout-life",
+    "teresa-castle",
+    "therese-story-of-a-soul",
+    "lawrence-practice"
+   ],
+   "category": "Catholic classics",
+   "note": "A season for each great spiritual classic, read with commentary in 20 to 30 minute episodes.",
+   "page": "https://ascensionpress.com/",
+   "episodes": 191,
+   "latest": "2026-06-27"
+  },
+  {
+   "id": "catholic-culture-audiobooks",
+   "title": "Catholic Culture Audiobooks",
+   "host": "CatholicCulture.org",
+   "publisher": "CatholicCulture.org",
+   "programme": false,
+   "tradition": null,
+   "works": [
+    "leo-sermons-letters"
+   ],
+   "category": "Catholic classics",
+   "note": "Newman’s sermons, the Fathers and spiritual writers, read aloud.",
+   "page": "https://www.catholicculture.org/",
+   "episodes": 215,
+   "latest": "2026-10-23"
+  },
+  {
+   "id": "audiobook-in-a-month",
+   "title": "Catholic Audiobook in a Month",
+   "host": "Orate Podcasts",
+   "publisher": "Orate Podcasts",
+   "programme": false,
+   "tradition": null,
+   "works": [
+    "hilton-scale",
+    "julian-revelations"
+   ],
+   "category": "Catholic classics",
+   "note": "One classic a month in daily segments, from The Cloud of Unknowing to the mystics.",
+   "page": "https://www.podbean.com/",
+   "episodes": 100,
+   "latest": "2025-12-29"
+  },
+  {
+   "id": "cts-audiobooks",
+   "title": "CTS Catholic Audiobooks",
+   "host": "Catholic Truth Society",
+   "publisher": "Catholic Truth Society",
+   "programme": false,
+   "tradition": null,
+   "works": [
+    "leo-xiii-encyclicals"
+   ],
+   "category": "Catholic classics",
+   "note": "Encyclicals, saints’ lives and short books from the Catholic Truth Society.",
+   "page": "https://www.ctsbooks.org/",
+   "episodes": 16,
+   "latest": "2025-12-17"
+  },
+  {
+   "id": "traditional-catholic-audiobooks",
+   "title": "Traditional Catholic Audiobooks",
+   "host": "SGZ",
+   "publisher": "Independent",
+   "programme": false,
+   "tradition": null,
+   "works": [
+    "cyril-catecheses",
+    "tertullian-ethical",
+    "methodius",
+    "john-damascus"
+   ],
+   "category": "Catholic classics",
+   "note": "The Fathers read aloud: Tertullian, Cyril of Jerusalem, Methodius, John Damascene and more.",
+   "page": "https://www.catholic.com/",
+   "episodes": 109,
+   "latest": "2022-06-01"
   }
  ]
 }

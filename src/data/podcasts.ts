@@ -12,6 +12,8 @@ export interface Show {
   programme: boolean;
   tradition: string | null;
   category?: string;
+  /** Library works this show reads or discusses */
+  works?: string[];
   note: string;
   page: string;
   episodes: number;
