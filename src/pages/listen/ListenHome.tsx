@@ -16,9 +16,13 @@ import type { BiayEpisode } from '../../data/content';
 import { fold } from '../../search/engine';
 import MyMedia from '../../components/MyMedia';
 import Meditate from './Meditate';
+import ShowSettings from '../../components/ShowSettings';
 import YearHero from '../../components/YearHero';
 import { RecordedList } from '../../components/RecordedBooks';
 import PodcastView from './PodcastView';
+import ProgrammeView from './ProgrammeView';
+import EpisodeRow from './EpisodeRow';
+import { useLocalFlag } from '../../lib/localFlag';
 import Menu, { type MenuItem } from '../../components/Menu';
 import Fold from '../../components/Fold';
 import ForYou from './ForYou';
@@ -37,7 +41,9 @@ function BiayListen() {
   const player = usePlayer();
   const [view, setView] = useState<View>('next');
   const [hideDone, setHideDone] = useState(loadHide);
-  const [shown, setShown] = useState(typeof window !== "undefined" && window.innerHeight < 900 ? 2 : 3);
+  const [showToday, setShowToday] = useLocalFlag('sb:year:today:biay', false);
+  const [cfgBiay, setCfgBiay] = useState(false);
+  const [shown, setShown] = useState(() => Math.max(3, Math.floor(((typeof window === "undefined" ? 800 : window.innerHeight) - 300) / 125)));
   const [bulk, setBulk] = useState(false);
   const [upTo, setUpTo] = useState('');
   const [q, setQ] = useState('');
@@ -105,6 +111,8 @@ function BiayListen() {
 
   const menuItems: MenuItem[] = [
     { label: 'Hide finished episodes', on: hideDone, onClick: () => { const v = !hideDone; setHideDone(v); try { localStorage.setItem(HIDE_KEY, v ? '1' : '0'); } catch { /* private mode */ } } },
+    { label: 'Show today’s episode card', on: showToday, onClick: () => setShowToday(!showToday) },
+    { label: 'Playback settings', onClick: () => setCfgBiay(true) },
     { label: 'Catch up: I’m already part way', onClick: () => { setView('next'); setBulk(true); } },
     { label: 'Extras', onClick: () => { setView('extras'); setShown(12); } },
     { label: 'History', onClick: () => { setView('progress'); setShown(12); } },
@@ -112,17 +120,17 @@ function BiayListen() {
   const rows = view === 'next' ? filtered.slice(0, shown) : filtered.slice(0, 400);
   return (
     <div className="year">
-      <YearHero />
+      {showToday && <YearHero />}
       <div className="year-bar">
         <div className="seg" role="tablist" aria-label="Episodes">
           {([['next', 'Up next'], ['plan', 'All days'], ['queue', `Queue${queue.length ? ` ${queue.length}` : ''}`]] as [View, string][]).map(([k, l]) => (
-            <button key={k} role="tab" aria-selected={view === k} onClick={() => { setView(k); setShown(3); }}>{l}</button>
+            <button key={k} role="tab" aria-selected={view === k} onClick={() => { setView(k); setShown(Math.max(3, Math.floor((window.innerHeight - 300) / 125))); }}>{l}</button>
           ))}
         </div>
         <Menu items={menuItems} />
       </div>
-      {view === 'extras' && <p className="rows-sub">Extras <button className="linklike" onClick={() => setView('next')}>Back</button></p>}
-      {view === 'progress' && <p className="rows-sub">History <button className="linklike" onClick={() => setView('next')}>Back</button></p>}
+      {view === 'extras' && <p className="rows-sub">Extras <button className="btn small ghost" onClick={() => setView("next")}>Back</button></p>}
+      {view === 'progress' && <p className="rows-sub">History <button className="btn small ghost" onClick={() => setView("next")}>Back</button></p>}
       {(view === 'plan' || view === 'extras') && (
         <FilterBar active={year ? 1 : 0}
           search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Day, title or passage (92, John 6)" aria-label="Search episodes" />}>
@@ -138,53 +146,25 @@ function BiayListen() {
             <input type="number" min={1} max={365} value={upTo} onChange={(e) => setUpTo(e.target.value)} style={{ width: 72 }} aria-label="Last day finished" />
             <button className="btn small primary" disabled={!(+upTo >= 1)} onClick={() => void markThrough(Math.min(365, +upTo))}>Mark days 1 to {upTo || '…'} finished</button>
             <button className="btn small" onClick={() => void clearFinished()}>Undo all</button>
-            <button className="linklike small" onClick={() => setBulk(false)}>Close</button>
+            <button className="btn small ghost" onClick={() => setBulk(false)}>Close</button>
           </label>
         </section>
       )}
       {filtered.length === 0 && <p className="muted small">{view === 'queue' ? 'Your queue is empty.' : view === 'next' || view === 'plan' ? (finishedIds.size > 0 ? 'Everything here is finished.' : 'Nothing found.') : 'Nothing here yet.'}</p>}
       <ul className="list">
-        {rows.map((e) => <Row key={e.id} e={e} progress={doneMap.get(e.id)} inQueue={queue.some((x) => x.episodeId === e.id)} />)}
+        {rows.map((e) => <EpisodeRow page key={e.id} e={e} progress={doneMap.get(e.id)} inQueue={queue.some((x) => x.episodeId === e.id)} />)}
       </ul>
       {view === 'next' && filtered.length > shown && <button className="btn small" onClick={() => setShown(shown + 10)}>More</button>}
       {view === 'queue' && !q && queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length > 0 && (
         <button className="linklike small" onClick={() => void db.queue.bulkDelete(queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).map((x) => x.id!))}>Clear {queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length} missing items</button>
       )}
+      {cfgBiay && <ShowSettings showKey="biay" name="Bible in a Year" onClose={() => setCfgBiay(false)} />}
       <Fold id="media:more" title="More audio">
         <MyMedia />
         <RecordedList />
         <p className="muted small">Read aloud: tap the headphones in any chapter. Recorded Bibles: <a href="https://librivox.org/" target="_blank" rel="noreferrer">LibriVox</a>. Sources: <a href={biay.data.meta.page} target="_blank" rel="noreferrer">podcast page</a> · <a href={biay.data.meta.home} target="_blank" rel="noreferrer">Ascension</a></p>
       </Fold>
     </div>
-  );
-}
-
-function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed: boolean; position: number; duration?: number }; inQueue: boolean }) {
-  const player = usePlayer();
-  const pct = progress && progress.duration ? Math.round((100 * progress.position) / progress.duration) : 0;
-  const toggleQueue = async () => {
-    if (inQueue) await db.queue.where('episodeId').equals(e.id).delete();
-    else { void rememberEpisode(e); await db.queue.add({ episodeId: e.id, order: Date.now() }); }
-  };
-  const toggleDone = () => { void rememberEpisode(e); return db.episodeProgress.put({ episodeId: e.id, position: 0, completed: !progress?.completed, updatedAt: Date.now(), duration: progress?.duration }); };
-  return (
-    <li>
-      <div className="row between">
-        <div style={{ minWidth: 0, flex: 1 }}>
-          <Link to={`/listen/episode/${e.id}`} className="t" style={{ fontWeight: 600 }}>{e.kind === 'day' ? `Day ${e.day}: ${e.short}` : e.title}</Link>
-          <div className="muted small">{fmtDuration(e.duration)}{progress?.completed ? ' · done' : pct > 0 ? ` · ${pct}%` : ''}</div>
-          <div className="chips" style={{ marginTop: 4 }}>
-            {e.passages.slice(0, 6).map((p) => { const r = parseRefId(p); return r ? <RefLink key={p} refv={r}><span className="chip">{formatRef(r, { abbr: true })}</span></RefLink> : null; })}
-            {e.passages.length === 0 && e.kind === 'day' && <span className="chip warn">passages not in feed — needs review</span>}
-          </div>
-        </div>
-        <div className="row">
-          <button className="icon-btn" onClick={() => player.play(e)} aria-label={`Play ${e.title}`}><Icon name="play" /></button>
-          <button className="icon-btn" aria-pressed={inQueue} onClick={toggleQueue} aria-label={inQueue ? 'Remove from queue' : 'Add to queue'}><Icon name="queue" /></button>
-          <button className="icon-btn" aria-pressed={!!progress?.completed} onClick={toggleDone} aria-label={progress?.completed ? 'Mark not completed' : 'Mark completed'}><Icon name="check" /></button>
-        </div>
-      </div>
-    </li>
   );
 }
 
@@ -206,7 +186,7 @@ function YearTab({ shows }: { shows: Show[] | null }) {
           {years.map((x) => <button key={x.id} role="tab" aria-selected={cur?.id === x.id} onClick={() => pick(x.id)}>{label(x)}</button>)}
         </div>
       )}
-      {cur ? <PodcastView show={cur} /> : <BiayListen />}
+      {cur ? <ProgrammeView show={cur} /> : <BiayListen />}
     </>
   );
 }
@@ -234,7 +214,7 @@ export default function ListenHome() {
       {tab === 'videos' && <VideoLibrary embedded />}
       {tab === 'meditate' && <Meditate />}
       {tab === 'podcasts' && (open
-        ? <><button className="linklike small" onClick={() => go('podcasts')}>← All podcasts</button><PodcastView show={open} /></>
+        ? <><button className="btn small ghost" onClick={() => go('podcasts')}>← All podcasts</button>{open.programme ? <ProgrammeView show={open} /> : <PodcastView show={open} />}</>
         : <PodcastLibrary onOpen={(id) => go('podcasts', { show: id })} />)}
       {tab === 'audiobooks' && <Audiobooks />}
       {tab === 'programmes' && <div className="embedded-listen"><YearTab shows={shows} /></div>}

@@ -5142,3 +5142,23 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 @keyframes drawer-in { from { transform: translateX(-100%); } to { transform: none; } }
 @keyframes drawer-fade { from { opacity: 0; } to { opacity: 1; } }
 :root[data-motion='none'] .drawer, :root[data-motion='none'] .drawer-back { animation: none; }
+/* episode rows: plain titles with clear buttons, not links */
+.year .list { display: grid; gap: 8px; margin: 6px 0; padding: 0; list-style: none; }
+.list li.ep { display: flex; align-items: center; gap: 8px; padding: 10px 10px 10px 14px; border: 1px solid var(--line, rgba(255,255,255,.12)); border-radius: 16px; background: color-mix(in srgb, var(--accent) 5%, var(--card, transparent)); }
+.ep-main { flex: 1; min-width: 0; display: grid; gap: 3px; }
+.ep-title { background: none; border: 0; padding: 0; margin: 0; text-align: left; font: inherit; font-weight: 600; font-size: 1rem; line-height: 1.25; color: var(--text); text-decoration: none; cursor: pointer; }
+.ep-title:hover, .ep-title:focus-visible { color: var(--accent); }
+.ep-meta { font-size: .78rem; color: var(--muted); }
+.ep-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+.ep-chips .chip { text-decoration: none; min-height: 26px; padding: 0 9px; font-size: .78rem; }
+.ep-acts { display: flex; gap: 2px; flex: 0 0 auto; }
+.year-search { width: 100%; margin: 0 0 6px; }
+.card.today-ep { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; margin: 0 0 6px; }
+@media (max-width: 420px) { .ep-acts .icon-btn { width: 34px; min-width: 34px; } }
+/* Media: titles are plain text on tappable rows and cards, not underlined links */
+.page.media a.t, .page.media a.t:visited { color: var(--text); text-decoration: none; font-weight: 600; }
+.page.media a.t:hover, .page.media a.t:focus-visible { color: var(--accent); }
+.page.media p a:not(.btn):not(.chip) { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--muted); }
+.page.media .linklike.t { color: var(--text); text-decoration: none; font-weight: 600; }
+.page.media .linklike.t:hover { color: var(--accent); }
+.page.media .linklike:not(.t) { text-decoration: none; border: 1px solid var(--line, rgba(255,255,255,.18)); border-radius: 999px; padding: 3px 12px; font-size: .8rem; color: var(--text); }
