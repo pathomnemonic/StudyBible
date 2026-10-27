@@ -53,7 +53,6 @@ const NAV: { label: string; to: string }[] = [
   { label: 'Today’s readings', to: '/pray/readings' },
   { label: 'Pray', to: '/pray' },
   { label: 'Journal', to: '/pray/journal' },
-  { label: 'Reading plans', to: '/pray/plans' },
   { label: 'Memorize Scripture', to: '/memorize' },
   { label: 'My library (notes, highlights, bookmarks)', to: '/library' },
   { label: 'Account & sync', to: '/account' },

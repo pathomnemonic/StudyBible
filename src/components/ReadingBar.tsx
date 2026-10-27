@@ -12,7 +12,6 @@ import { formatRef, parseRefId } from '../lib/refs';
 import { readerPath } from '../lib/nav';
 import { rangesOverlap } from '../db/ops';
 import Icon from './Icon';
-import PlanPicker from './PlanPicker';
 
 /** The chapters (book.chapter keys) a plan day covers. */
 const chaptersOf = (refs: string[]) => refs.flatMap((id) => { const r = parseRefId(id); return r ? Array.from({ length: Math.min(40, r.c2 - r.c1 + 1) }, (_, i) => `${r.book}.${r.c1 + i}`) : []; });
@@ -26,7 +25,6 @@ export default function ReadingBar({ book, chapters }: { book: string; chapters:
   const { get, editions } = useEditions();
   const { biay } = useBiay();
   const player = usePlayer();
-  const [pick, setPick] = useState(false);
   const [s] = useSettings();
   const edition = get(s.defaultEdition) ?? editions[0];
   const since = ap?.startedAt ?? 0;
@@ -61,14 +59,12 @@ export default function ReadingBar({ book, chapters }: { book: string; chapters:
           </span>
         </div>
       )}
-      {ap && ap.finished && <span className="rb-label">You have finished {ap.plan.name}. <button className="rb-change" onClick={() => setPick(true)}>Choose another</button></span>}
+      {ap && ap.finished && <span className="rb-label">You have finished {ap.plan.name}.</span>}
       {ap && !ap.finished && (
         <span className="rb-acts">
           <button className="btn small icon" onClick={() => void ap.markDone(ap.nextIdx)} title="Check off today’s reading" aria-label="Mark today’s reading done">✓</button>
-          <button className="rb-change" onClick={() => setPick(true)} title="Switch your reading plan">Switch plan</button>
         </span>
       )}
-      {pick && <PlanPicker onClose={() => setPick(false)} />}
     </div>
   );
 }

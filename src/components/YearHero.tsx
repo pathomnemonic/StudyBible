@@ -15,7 +15,6 @@ import RefLink from './RefLink';
 import Icon from './Icon';
 import ShowSettings from './ShowSettings';
 import { choosePlan } from '../lib/activePlan';
-import PlanPicker from './PlanPicker';
 import Menu from './Menu';
 
 /** Progress ring: the Bible in a Year days you have finished, out of 365. */
@@ -57,7 +56,6 @@ export default function YearHero() {
     await db.planProgress.put({ ...prog, done });
   };
   const [cfg, setCfg] = useState(false);
-  const [pick, setPick] = useState(false);
   return (
     <section className="year-card" aria-label="Bible in a Year, today">
       <Ring done={prog?.done.length ?? 0} day={dayN} />
@@ -70,13 +68,11 @@ export default function YearHero() {
           {first && edition && <Link className="btn" to={readerPath(edition, first)}>Read</Link>}
           <button className={'btn icon' + (finished ? ' on' : '')} aria-pressed={finished} onClick={toggleDone} title={finished ? 'Done today' : 'Mark today done'} aria-label={finished ? 'Done today. Tap to undo' : 'Mark today done'}>✓</button>
           <Menu items={[
-            { label: 'Switch plan', onClick: () => setPick(true) },
             { label: 'Playback settings', onClick: () => setCfg(true) },
             ...(!prog ? [{ label: 'Start tracking from day 1', onClick: () => void startTracking() }] : []),
           ]} />
         </div>
       </div>
-      {pick && <PlanPicker onClose={() => setPick(false)} />}
       {cfg && <ShowSettings showKey="biay" name="Bible in a Year" onClose={() => setCfg(false)} />}
     </section>
   );

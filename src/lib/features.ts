@@ -126,7 +126,7 @@ export const FEATURES: Feature[] = [
 import { getSync } from '../sync/state';
 /** Accounts only show up where a sync server exists; nothing mentions them otherwise. */
 /** Parts kept out of sight until they are worth showing: their pages still exist, but nothing links to them. */
-const HIDDEN = new Set(['pray.morning', 'pray.pilgrim']);
+const HIDDEN = new Set(['pray.morning', 'pray.pilgrim', 'today.plans']);
 export const visible = (f: Feature) => !HIDDEN.has(f.id) && (f.id !== 'you.account' || getSync().server === 'available' || !!getSync().user);
 const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 /** Every feature that matches the typed words, best first (title matches before description matches). */

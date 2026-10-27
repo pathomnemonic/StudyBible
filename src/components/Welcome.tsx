@@ -10,7 +10,6 @@ import { BRAND } from '../lib/brand';
 import FavoritesPicker from './FavoritesPicker';
 import { saveBackupFile } from '../lib/safety';
 import { db } from '../db/db';
-import { choosePlan } from '../lib/activePlan';
 import { signIn, signUp, useSync } from '../sync/state';
 import { connect as connectDrive, driveAvailable } from '../sync/drive';
 
@@ -21,7 +20,7 @@ const get = (k: string) => { try { return localStorage.getItem(k); } catch { ret
 const put = (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private mode */ } };
 
 const INTERESTS: [string, string, string][] = [
-  ['bible', 'Read the Bible', 'Daily reading, plans and Bible in a Year'],
+  ['bible', 'Read the Bible', 'Daily reading and Bible in a Year'],
   ['pray', 'Pray every day', 'Rosary, Mass, devotions and the Church’s year'],
   ['study', 'Learn the faith', 'Catechism, Fathers, lessons and tough questions'],
   ['listen', 'Listen and watch', 'Podcasts, audiobooks, videos and recorded prayers'],
@@ -86,22 +85,11 @@ export default function Welcome() {
         </>}
 
         {i === 1 && <>
-          <p className="welcome-sub">So that you are not shown lessons made for ten-year-olds if you are an adult, and so your reading plan is ready the first time you open the Bible.</p>
+          <p className="welcome-sub">So that you are not shown lessons made for ten-year-olds if you are an adult.</p>
           <h3 className="welcome-h">Who is the Catechism program for?</h3>
           <div className="welcome-chips" role="group" aria-label="Who is learning">
             {([['adult', 'Me, an adult', 'Adult lessons first; the K–12 grades stay a tap away'], ['youth', 'A student', 'Lessons by grade'], ['parent', 'My children', 'Lessons to do at home, by grade'], ['teacher', 'My class', 'Teacher guides, slides and games']] as [typeof s.audience, string, string][]).map(([id, label, d]) => (
               <button key={id} className={`welcome-chip${s.audience === id ? ' on' : ''}`} aria-pressed={s.audience === id} onClick={() => updateSettings({ audience: id })}>
-                <strong>{label}</strong><span>{d}</span>
-              </button>
-            ))}
-          </div>
-          <h3 className="welcome-h">Follow a Bible reading plan?</h3>
-          <div className="welcome-chips" role="group" aria-label="Reading plan">
-            {([['biay', 'Bible in a Year podcast', 'Read and listen with Fr. Mike Schmitz. The default.'], ['gospels-30', 'The four Gospels in 30 days', 'About three chapters a day'], ['nt-90', 'New Testament in 90 days', 'Three chapters a day'], ['john-21', 'John in 21 days', 'One chapter a day'], ['', 'No plan for now', 'You can pick one later in Pray, then Plans']] as [string, string, string][]).map(([id, label, d]) => (
-              <button key={id || 'none'} className={`welcome-chip${s.activePlan === id ? ' on' : ''}`} aria-pressed={s.activePlan === id} onClick={async () => {
-                if (id) { const have = await db.planProgress.get(id); if (!have) await db.planProgress.put({ planId: id, startedAt: Date.now(), status: 'active', done: [], offsetDays: 0 }); }
-                choosePlan(id);
-              }}>
                 <strong>{label}</strong><span>{d}</span>
               </button>
             ))}

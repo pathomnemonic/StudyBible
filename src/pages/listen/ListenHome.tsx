@@ -25,7 +25,7 @@ import ForYou from './ForYou';
 import VideoLibrary from '../study/VideoLibrary';
 import PodcastLibrary from './PodcastLibrary';
 import Audiobooks from './Audiobooks';
-import { useShows } from '../../data/podcasts';
+import { useShows, type Show } from '../../data/podcasts';
 import { useSettings } from '../../lib/store';
 
 type View = 'next' | 'plan' | 'extras' | 'queue' | 'progress';
@@ -37,7 +37,7 @@ function BiayListen() {
   const player = usePlayer();
   const [view, setView] = useState<View>('next');
   const [hideDone, setHideDone] = useState(loadHide);
-  const [shown, setShown] = useState(typeof window !== "undefined" && window.innerHeight < 800 ? 2 : 3);
+  const [shown, setShown] = useState(typeof window !== "undefined" && window.innerHeight < 900 ? 2 : 3);
   const [bulk, setBulk] = useState(false);
   const [upTo, setUpTo] = useState('');
   const [q, setQ] = useState('');
@@ -189,6 +189,28 @@ function Row({ e, progress, inQueue }: { e: BiayEpisode; progress?: { completed:
 }
 
 type Tab = 'now' | 'podcasts' | 'audiobooks' | 'programmes' | 'videos' | 'meditate';
+const PROG_KEY = 'sb:year:prog';
+
+/** The Year tab: Bible, Catechism or Rosary in a Year, chosen from one row at the top. */
+function YearTab({ shows }: { shows: Show[] | null }) {
+  const [prog, setProg] = useState(() => { try { return localStorage.getItem(PROG_KEY) || 'biay'; } catch { return 'biay'; } });
+  const years = (shows ?? []).filter((x) => x.programme);
+  const cur = years.find((x) => x.id === prog);
+  const pick = (id: string) => { setProg(id); try { localStorage.setItem(PROG_KEY, id); } catch { /* private mode */ } };
+  const label = (x: Show) => x.title.replace(/^The\s+/, '').replace(/\s+in a Year$/i, '');
+  return (
+    <>
+      {years.length > 0 && (
+        <div className="seg year-pick" role="tablist" aria-label="In a Year program">
+          <button role="tab" aria-selected={!cur} onClick={() => pick('biay')}>Bible</button>
+          {years.map((x) => <button key={x.id} role="tab" aria-selected={cur?.id === x.id} onClick={() => pick(x.id)}>{label(x)}</button>)}
+        </div>
+      )}
+      {cur ? <PodcastView show={cur} /> : <BiayListen />}
+    </>
+  );
+}
+
 const TABS: [Tab, string][] = [['programmes', 'Year'], ['now', 'For you'], ['podcasts', 'Podcasts'], ['audiobooks', 'Books'], ['videos', 'Videos'], ['meditate', 'Meditate']];
 
 /** The Media tab: the Bible in a Year first, then what you follow, podcasts, audiobooks and videos. */
@@ -215,7 +237,7 @@ export default function ListenHome() {
         ? <><button className="linklike small" onClick={() => go('podcasts')}>← All podcasts</button><PodcastView show={open} /></>
         : <PodcastLibrary onOpen={(id) => go('podcasts', { show: id })} />)}
       {tab === 'audiobooks' && <Audiobooks />}
-      {tab === 'programmes' && <div className="embedded-listen"><BiayListen /></div>}
+      {tab === 'programmes' && <div className="embedded-listen"><YearTab shows={shows} /></div>}
     </div>
   );
 }

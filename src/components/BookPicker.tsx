@@ -42,7 +42,6 @@ export default function BookPicker({
         <>
           <div className="picker-ways" aria-label="Other ways to read">
             <Link to="/listen" onClick={onClose}>Bible in a Year</Link>
-            <Link to="/pray/plans" onClick={onClose}>Reading plans</Link>
             <Link to="/pray/readings" onClick={onClose}>Mass readings</Link>
             <Link to="/study/paths" onClick={onClose}>Study paths</Link>
             <Link to="/room" onClick={onClose}>Read tab</Link>

@@ -21,15 +21,8 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   await p.waitForTimeout(600);
   const day2 = await p.locator('.reading-bar .rb-label').innerText();
   if (day1 === day2) fail(`marking done should move on (${day1})`);
-  // switching: the picker lists the podcast first, one tap changes the plan, no other dialog appears
-  await p.locator('.reading-bar .rb-change').first().click();
-  await p.waitForSelector('.plan-opt');
-  const first = await p.locator('.plan-opt').first().innerText();
-  if (!/podcast/i.test(first)) fail(`the Bible in a Year podcast should be the first plan, got ${first}`);
-  await p.locator('.plan-opt', { hasText: 'John in 21 days' }).first().click();
-  await p.waitForTimeout(700);
-  if (await p.locator('.modal').count()) fail('picking a plan should close the picker');
-  if (!/John/i.test(await p.locator('.reading-bar .rb-label').innerText())) fail('the bar should now show the John plan');
+  // plan options are hidden for now: no switcher on the reading bar
+  if (await p.locator('.reading-bar .rb-change').count()) fail('plan switching should be hidden');
   if (errs.length) fail(errs[0]);
   await ctx.close();
 }

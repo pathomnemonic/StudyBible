@@ -41,7 +41,7 @@ export default function GoalsPage() {
         <p className="muted small" style={{ marginBottom: 4 }}>Days you opened something this week</p>
         <div className="goal-days" aria-label="Days active">{['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((l, i) => <span key={i} className={`${days[i] ? 'on' : ''}${i === today ? ' today' : ''}`}>{l}</span>)}</div>
       </div>
-      <p><Link className="btn primary" to="/read">Open the Bible</Link> <Link className="btn" to="/pray/plans">Choose a reading plan</Link></p>
+      <p><Link className="btn primary" to="/read">Open the Bible</Link></p>
     </div>
   );
 }

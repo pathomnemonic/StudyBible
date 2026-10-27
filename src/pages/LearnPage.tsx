@@ -4,8 +4,8 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
 import { getGrades, gradeLabel, type GradeMeta } from '../curriculum/model';
 import Fold from '../components/Fold';
-import { Group, HubHeader, RowLink, Tiles } from '../components/Hub';
-import { useSettings, updateSettings } from '../lib/store';
+import { HubHeader, RowLink, Tiles } from '../components/Hub';
+import { useSettings } from '../lib/store';
 import LessonOfDay from '../components/LessonOfDay';
 
 /** Learn: the Catechism course first, then the Catechism itself, then everything else behind a fold. */
@@ -24,38 +24,38 @@ export default function LearnPage() {
   const levels = (
     <div className="level-chips" role="group" aria-label="Levels">{grades.map((g) => <Link key={g.id} className="chip" to={`/study/curriculum/${g.id}`} title={`${g.name}: ${g.lessons} lessons`}>{g.id === 'K' ? 'K' : g.id === 'YA' ? 'Adults' : g.id}</Link>)}</div>
   );
+  const studentCourse = (
+    <RowLink strong to={mineGrade ? `/study/curriculum/${mineGrade.id}` : '/study/curriculum'} title="Student course" meta={mineGrade ? `${gradeLabel(mineGrade.id)} · ${mine!.done.length}/${mineGrade.lessons}` : 'K–12 · by grade'} />
+  );
   return (
-    <div className="page hub">
+    <div className="page hub learn">
       <HubHeader quiet title="Learn" />
-      {adult && <LessonOfDay />}
-      {!st.audience && (
-        <div className="level-chips" role="group" aria-label="Who is this for?">
-          {([['adult', 'Me, an adult'], ['youth', 'A student'], ['parent', 'My children'], ['teacher', 'My class']] as const).map(([id, t]) => <button key={id} className="chip" onClick={() => updateSettings({ audience: id })}>{t}</button>)}
-        </div>
-      )}
-      <div className="rows">
-        {adult
-          ? <RowLink strong to="/study/curriculum/YA" title="Catechism course" meta={adultDone ? `${adultDone} of 48` : '48 sessions'} />
-          : <RowLink strong to={mineGrade ? `/study/curriculum/${mineGrade.id}` : '/study/curriculum'} title="Catechism course" meta={mineGrade ? `${gradeLabel(mineGrade.id)} · ${mine!.done.length}/${mineGrade.lessons}` : 'K–12 and adults'} />}
-        <RowLink to="/study/catechism" title="Catechism of the Catholic Church" />
-        <RowLink to="/study/doctrine" title="Doctrine by topic" />
-        <RowLink to="/study/apologetics" title="Apologetics" />
-        <form className="rowform" onSubmit={(e) => { e.preventDefault(); const n = parseInt(num, 10); if (n >= 1 && n <= 2865) nav(`/study/catechism/${n}`); }}>
-          <label className="sr-only" htmlFor="ccc-n">Catechism paragraph number</label>
-          <input id="ccc-n" type="number" inputMode="numeric" min={1} max={2865} placeholder="Go to Catechism §" value={num} onChange={(e) => setNum(e.target.value)} />
-          <button className="btn" type="submit" disabled={!(parseInt(num, 10) >= 1)}>Go</button>
-        </form>
-      </div>
-      {(teach || family) && (
-        <Group open title={teach ? 'Teaching' : 'Family'}>
-          <Tiles ids={teach ? ['teach.classes', 'teach.run', 'teach.handbook', 'teach.join'] : ['study.kids', 'pray.rosary', 'study.prepare']} />
-        </Group>
-      )}
-      <Fold id="learn:more" title="More">
-        <Tiles ids={['study.visual', 'learn.mass', 'study.ya', 'study.prepare', 'study.kids', 'study.course', 'study.paths', 'study.story', ...(teach ? [] : ['teach.classes', 'teach.handbook', 'teach.join'])]} />
-        <p className="rows-sub">Lessons by grade</p>
+      <section className="card learn-card students" aria-labelledby="learn-stu">
+        <h2 id="learn-stu" className="learn-h">Catechism for students<span>K–12 · lessons, teacher guides, slides and games</span></h2>
+        <div className="rows">{studentCourse}</div>
         {levels}
-      </Fold>
+        <Fold id="learn:students" title="Student and teacher resources" hint="Everything for the classroom and the home">
+          <p className="rows-sub">For students and families</p>
+          <Tiles ids={['study.kids', 'study.course', 'study.paths', 'study.story', 'study.prepare', 'study.visual', 'learn.mass']} />
+          <p className="rows-sub">For teachers</p>
+          <Tiles ids={['teach.classes', 'teach.run', 'teach.handbook', 'teach.join']} />
+        </Fold>
+      </section>
+      <section className="card learn-card adults" aria-labelledby="learn-adu">
+        <h2 id="learn-adu" className="learn-h">Catechism for adults<span>The 48-session course and the Catechism itself</span></h2>
+        {adult && <LessonOfDay />}
+        <div className="rows">
+          <RowLink strong to="/study/curriculum/YA" title="Adult course" meta={adultDone ? `${adultDone} of 48` : '48 sessions'} />
+          <RowLink to="/study/catechism" title="Catechism of the Catholic Church" />
+          <RowLink to="/study/doctrine" title="Doctrine by topic" />
+          <RowLink to="/study/apologetics" title="Apologetics" />
+          <form className="rowform" onSubmit={(e) => { e.preventDefault(); const n = parseInt(num, 10); if (n >= 1 && n <= 2865) nav(`/study/catechism/${n}`); }}>
+            <label className="sr-only" htmlFor="ccc-n">Catechism paragraph number</label>
+            <input id="ccc-n" type="number" inputMode="numeric" min={1} max={2865} placeholder="Go to Catechism §" value={num} onChange={(e) => setNum(e.target.value)} />
+            <button className="btn" type="submit" disabled={!(parseInt(num, 10) >= 1)}>Go</button>
+          </form>
+        </div>
+      </section>
     </div>
   );
 }
