@@ -5182,3 +5182,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .tabbar button, .seg button, .fold > summary { position: relative; }
 .tabbar button .new-dot, .seg button .new-dot { top: 3px; right: 5px; width: 7px; height: 7px; box-shadow: none; background: color-mix(in srgb, var(--accent) 85%, #fff); }
 .fold > summary .new-dot { top: 50%; right: 46px; width: 7px; height: 7px; margin-top: -3px; box-shadow: none; background: color-mix(in srgb, var(--accent) 85%, #fff); }
+.feast-card .feast-hero { max-width: 640px; margin: 0 auto; display: grid; gap: 8px; }
+.feast-art { margin: -12px -12px 4px; border-radius: 16px 16px 0 0; overflow: hidden; position: relative; }
+.feast-art img { display: block; width: 100%; max-height: 260px; object-fit: cover; }
+.feast-art figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 12px 6px; font-size: .7rem; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.65)); }
+.feast-card h1 { margin: 0; font-size: 1.5rem; }
+.feast-card p { margin: 0; }
