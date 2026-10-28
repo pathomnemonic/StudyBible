@@ -20,7 +20,7 @@ export default function ProfilePage() {
       <WeekCard />
       <Group title="Make it yours"><QuickSettings /></Group>
       <Group open title="Your things">
-        <Tiles ids={['you.library', 'you.history', 'today.memorize', 'pray.journal', 'pray.intentions', 'you.goals', 'today.days']} />
+        <Tiles ids={['you.library', 'you.year', 'you.history', 'today.memorize', 'pray.journal', 'pray.intentions', 'you.goals', 'today.days']} />
       </Group>
       <Group title="The app">
         <Tiles ids={['you.settings', 'you.downloads', 'you.account', 'you.privacy', 'you.about']} />

@@ -1,0 +1,21 @@
+// One search across Bible in a Year, podcasts, audiobooks and videos.
+import { chromium } from 'playwright';
+const BASE = process.env.BASE || 'http://localhost:4173';
+const b = await chromium.launch();
+const fail = (m) => { console.error('FAIL', m); process.exit(1); };
+const ctx = await b.newContext({ viewport: { width: 390, height: 844 } });
+await ctx.addInitScript(() => { localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); });
+const p = await ctx.newPage();
+const errs = []; p.on('pageerror', (e) => errs.push(e.message));
+await p.goto(`${BASE}/#/listen`); await p.waitForSelector('.year-bar');
+await p.click('.year-bar button[aria-label="More"]'); await p.click('[role=menuitem]:has-text("Search all media")');
+await p.waitForSelector('#ms-q');
+await p.fill('#ms-q', 'rosary'); await p.keyboard.press('Enter');
+await p.waitForSelector('.media-search h2', { timeout: 20000 }).catch(() => fail('rosary should find something'));
+const kinds = await p.locator('.media-search h2').allInnerTexts();
+if (!kinds.some((k) => /Podcast/i.test(k))) fail(`rosary should find a podcast, got ${kinds}`);
+await p.fill('#ms-q', 'Confessions'); await p.keyboard.press('Enter');
+await p.waitForSelector('.media-search h2:has-text("Audiobook")', { timeout: 20000 }).catch(() => fail('Confessions should find an audiobook'));
+if (errs.length) fail(errs[0]);
+await b.close();
+console.log('media search e2e ok');

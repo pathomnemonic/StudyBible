@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { usePlayer } from '../../data/PlayerContext';
@@ -19,6 +20,7 @@ const fitRows = () => (typeof window === 'undefined' ? 3 : Math.max(3, Math.floo
 /** Rosary in a Year, Catechism in a Year: the same layout as the Bible in a Year, with the next episode first. */
 export default function ProgrammeView({ show }: { show: Show }) {
   const player = usePlayer();
+  const nav = useNavigate();
   const following = useFollows().has(show.id);
   const [data, setData] = useState<ShowData | null | undefined>(undefined);
   const [view, setView] = useState<View>('next');
@@ -55,6 +57,7 @@ export default function ProgrammeView({ show }: { show: Show }) {
   const dayNo = (() => { const start = new Date(new Date().getFullYear(), 0, 1); return Math.floor((Date.now() - start.getTime()) / 86400000) + 1; })();
   const todaysEp = days.find((e) => e.day === dayNo);
   const menu: MenuItem[] = [
+    { label: 'Search all media', onClick: () => nav('/listen-search') },
     { label: 'Hide finished episodes', on: hideDone, onClick: () => setHideDone(!hideDone) },
     { label: 'Show today’s episode by the calendar', on: today, onClick: () => setToday(!today) },
     { label: 'History', onClick: () => { setView('progress'); setShown(12); } },

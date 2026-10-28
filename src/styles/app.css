@@ -5209,3 +5209,11 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .compare-cols { display: grid; gap: 10px; grid-template-columns: 1fr; margin-top: 10px; }
 @media (min-width: 900px) { .compare-cols { grid-template-columns: repeat(3, 1fr); } }
 .compare-cols .card p { margin: 0 0 8px; font-size: .92rem; }
+.stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 10px 0; }
+.stat { display: grid; gap: 2px; padding: 10px 12px; }
+.stat strong { font-size: 1.7rem; font-family: var(--serif, inherit); color: var(--accent); line-height: 1.1; }
+.stat span { font-size: .82rem; font-weight: 600; }
+.stat em { font-size: .74rem; color: var(--muted); font-style: normal; }
+.bars { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; height: 120px; align-items: end; }
+.bar { display: grid; grid-template-rows: 1fr auto; height: 100%; gap: 3px; text-align: center; font-size: .7rem; color: var(--muted); }
+.bar i { align-self: end; background: var(--accent); border-radius: 4px 4px 0 0; opacity: .85; min-height: 3px; }

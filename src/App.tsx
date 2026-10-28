@@ -70,6 +70,8 @@ const HistoryPage = lazy(() => import('./pages/HistoryPage'));
 const GlossaryPage = lazy(() => import('./pages/study/GlossaryPage'));
 const AskPage = lazy(() => import('./pages/study/AskPage'));
 const FeastCardPage = lazy(() => import('./pages/FeastCardPage'));
+const YearPage = lazy(() => import('./pages/YearPage'));
+const MediaSearch = lazy(() => import('./pages/listen/MediaSearch'));
 const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
 const ComparePage = lazy(() => import('./pages/study/ComparePage'));
 const ShareVersePage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.ShareVersePage })));
@@ -306,6 +308,8 @@ export default function App() {
               <Route path="/memento" element={<MementoPage />} />
               <Route path="/goals" element={<GoalsPage />} />
               <Route path="/history" element={<HistoryPage />} />
+              <Route path="/your-year" element={<YearPage />} />
+              <Route path="/listen-search" element={<MediaSearch />} />
               <Route path="/study/glossary" element={<GlossaryPage />} />
               <Route path="/study/ask" element={<AskPage />} />
               <Route path="/feast/:date?" element={<FeastCardPage />} />

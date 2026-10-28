@@ -4,7 +4,7 @@ import SaveOffline from '../../components/SaveOffline';
 import { useMemo, useState, useEffect } from 'react';
 import { Tip, StartHere } from '../../components/Hints';
 import RefLink from '../../components/RefLink';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { fmtDuration, useBiay } from '../../data/biay';
@@ -38,6 +38,7 @@ const HIDE_KEY = 'sb:biay:hidedone';
 const loadHide = () => { try { return localStorage.getItem(HIDE_KEY) !== '0'; } catch { return true; } };
 
 function BiayListen() {
+  const nav = useNavigate();
   const { biay, loaded } = useBiay();
   const player = usePlayer();
   const [view, setView] = useState<View>('next');
@@ -110,7 +111,9 @@ function BiayListen() {
   const resumeEp = resumeId ? biay.byId.get(resumeId.episodeId) : null;
   const years = [...new Set(biay.data.episodes.map((e) => e.year).filter(Boolean) as number[])].sort();
 
+  const goSearch = () => nav('/listen-search');
   const menuItems: MenuItem[] = [
+    { label: 'Search all media', onClick: goSearch },
     { label: 'Hide finished episodes', on: hideDone, onClick: () => { const v = !hideDone; setHideDone(v); try { localStorage.setItem(HIDE_KEY, v ? '1' : '0'); } catch { /* private mode */ } } },
     { label: 'Show today’s episode card', on: showToday, onClick: () => setShowToday(!showToday) },
     { label: 'Playback settings', onClick: () => setCfgBiay(true) },
