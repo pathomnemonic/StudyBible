@@ -639,6 +639,7 @@ export default function ReadPage() {
     { label: parallelMode ? 'Close the second translation' : 'Compare translations side by side', onClick: () => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id)) },
     { label: 'Find in this chapter', onClick: () => setFinding(true) },
     { label: aloud ? 'Stop reading aloud' : 'Read aloud', onClick: () => setAloud((x) => !x) },
+    { label: settings.ambience.kind === 'off' ? 'Turn on the chapter’s soundscape' : 'Turn off the soundscape', onClick: () => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'auto' : 'off' }, ambienceTipSeen: true }) },
     { label: settings.scriptureOnly ? 'Leave focus mode' : 'Focus mode', onClick: () => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); } },
     { label: 'The Fathers on this chapter', onClick: () => nav(`/study/fathers-on?ref=${bk.id}.${primaryAnchorChapter}`) },
     { label: 'Bible tools: outlines, words, topics', onClick: () => setToolsOpen(true) },
