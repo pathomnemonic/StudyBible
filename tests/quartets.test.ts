@@ -3,7 +3,7 @@ import { QUARTETS } from '../src/data/quartets';
 
 describe('quartets', () => {
   it('every puzzle has sixteen different tiles, four sets of four, and one set at each level', () => {
-    expect(QUARTETS.length).toBeGreaterThanOrEqual(30);
+    expect(QUARTETS.length).toBeGreaterThanOrEqual(50);
     expect(new Set(QUARTETS.map((q) => q.id)).size).toBe(QUARTETS.length);
     for (const q of QUARTETS) {
       const all = q.groups.flatMap((g) => g.words);

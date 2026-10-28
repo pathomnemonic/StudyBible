@@ -1,4 +1,5 @@
 import { MORE_QUARTETS } from './quartets2';
+import { MORE_QUARTETS_3 } from './quartets3';
 
 /** Sixteen tiles, four sets of four. Each set is a truth about the Bible or the Church; some tiles tempt you into the wrong set on purpose. */
 export interface QuartetGroup { name: string; level: 0 | 1 | 2 | 3; words: [string, string, string, string] }
@@ -67,4 +68,4 @@ const BASE: Quartet[] = [
     { name: 'Days of Holy Week', level: 3, words: ['Palm Sunday', 'Holy Thursday', 'Good Friday', 'Holy Saturday'] } ] },
 ];
 
-export const QUARTETS: Quartet[] = [...BASE, ...MORE_QUARTETS];
+export const QUARTETS: Quartet[] = [...BASE, ...MORE_QUARTETS, ...MORE_QUARTETS_3];
