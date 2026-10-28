@@ -7,6 +7,7 @@ const LIST: { to: string; title: string; daily?: string }[] = [
   { to: '/play/verbum', title: 'Verbum', daily: 'verbum' },
   { to: '/play/quartets', title: 'Quartets', daily: 'quartets' },
   { to: '/play/saintguess', title: 'Saint Guess', daily: 'saintguess' },
+  { to: '/play/whoami', title: 'Who Am I?', daily: 'whoami' },
   { to: '/play/whosaid', title: 'Who Said It?', daily: 'whosaid' },
   { to: '/play/whichbook', title: 'Which Book?', daily: 'whichbook' },
   { to: '/play/chain', title: 'Chain of Grace', daily: 'chain' },

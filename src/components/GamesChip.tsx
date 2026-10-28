@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { dailyDone } from '../lib/dailyGame';
 
-export const DAILY_GAMES = ['verbum', 'quartets', 'saintguess', 'whosaid', 'whichbook', 'chain', 'pilgrim'];
+export const DAILY_GAMES = ['verbum', 'quartets', 'saintguess', 'whoami', 'whosaid', 'whichbook', 'chain', 'pilgrim'];
 export const dailiesLeft = () => DAILY_GAMES.filter((g) => !dailyDone(g)).length;
 
 /** One line that leads to the Games page and says how many of today's puzzles are still to play. */

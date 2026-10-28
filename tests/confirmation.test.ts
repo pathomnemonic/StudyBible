@@ -32,3 +32,23 @@ describe('Saint Guess clues', () => {
   });
   it('hides a name inside a description', () => { expect(redact('Francis gave up wealth.', 'Francis of Assisi')).toBe('___ gave up wealth.'); });
 });
+
+import { WHO_AM_I } from '../src/data/whoami';
+import { accepts } from '../src/pages/play/WhoAmIPage';
+describe('Who Am I', () => {
+  it('has distinct people, five clues each, and never names them in a clue', () => {
+    expect(WHO_AM_I.length).toBeGreaterThanOrEqual(40);
+    expect(new Set(WHO_AM_I.map((p) => p.name)).size).toBe(WHO_AM_I.length);
+    for (const p of WHO_AM_I) {
+      expect(p.clues.length, p.name).toBe(5);
+      const first = p.name.split(' ')[0].toLowerCase();
+      for (const c of p.clues.slice(0, 4)) expect(new RegExp(`\\b${first}\\b`, 'i').test(c), `${p.name}: ${c}`).toBe(false);
+    }
+  });
+  it('accepts alternative names and ignores case and “the”', () => {
+    const peter = WHO_AM_I.find((p) => p.name === 'Peter')!;
+    expect(accepts(peter, 'simon peter')).toBe(true);
+    expect(accepts(peter, ' PETER ')).toBe(true);
+    expect(accepts(peter, 'paul')).toBe(false);
+  });
+});

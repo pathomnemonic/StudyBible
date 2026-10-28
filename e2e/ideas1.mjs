@@ -49,6 +49,10 @@ await p.fill('.sg-input', 'ma'); await p.locator('.sg-matches button').first().c
 for (let i = 0; i < 8 && !(await p.locator('.ws-score').count()); i++) await p.click('button:has-text("Another clue"), button:has-text("Give up")');
 await p.waitForSelector('.ws-score'); if (!(await p.locator('.share-wrap button').count())) fail('saint guess share');
 
+await p.goto(`${BASE}/#/play/whoami`); await p.waitForSelector('.sg-clues li');
+for (let i = 0; i < 5; i++) { await p.fill('input[aria-label="Your guess"]', 'zzz'); await p.click('button:has-text("Guess")'); }
+await p.waitForSelector('.ws-score'); if (!(await p.locator('.share-wrap button').count())) fail('who am i share');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();
