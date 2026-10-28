@@ -1,5 +1,6 @@
 import FilterBar from '../../components/FilterBar';
 import { Group, HubHeader, Tiles } from '../../components/Hub';
+import ContinueStrip from '../../components/ContinueStrip';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -64,6 +65,7 @@ export default function RoomHome() {
   return (
     <div className="page room">
       <HubHeader quiet title="Read" />
+      <ContinueStrip kinds={['work', 'catechism']} />
       <div className="tabbar" role="tablist">
         <button role="tab" aria-selected={tab === 'discover'} onClick={() => setParam('tab', '')}>Discover</button>
         <button role="tab" aria-selected={tab === 'mine'} onClick={() => setParam('tab', 'mine')}>My shelves</button>

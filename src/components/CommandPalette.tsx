@@ -6,6 +6,7 @@ import { parseRefs, formatRef } from '../lib/refs';
 import { useSettings } from '../lib/store';
 import { FEATURES, searchFeatures } from '../lib/features';
 import { markSeen } from '../lib/seen';
+import { surpriseTarget } from '../lib/surprise';
 
 interface Cmd {
   id: string;
@@ -99,6 +100,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
     };
     if (lc) for (const f of searchFeatures(lc, 10)) add(f.id, f.title, f.to, f.blurb.slice(0, 60));
     for (const n of NAV.filter((n) => !lc || n.label.toLowerCase().includes(lc))) add('nav', n.label, n.to);
+    if (!lc || 'surprise me random'.includes(lc)) out.push({ id: 'surprise', group: 'Go to', label: 'Surprise me', hint: 'A random chapter, work, prayer or feast', run: () => { onClose(); void surpriseTarget().then((to) => nav(to)); } });
     if (!lc) for (const f of FEATURES.filter((f) => f.hot).slice(0, 8)) add(f.id, f.title, f.to, f.blurb.slice(0, 60));
     return out;
   }, [q, nav, onClose, s.defaultEdition, s.last]);

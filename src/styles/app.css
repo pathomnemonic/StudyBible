@@ -5170,3 +5170,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .classic-card strong { font-size: .95rem; }
 .classic-card span { font-size: .78rem; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .show-works { margin: 6px 0 10px; display: grid; gap: 4px; }
+.continue-strip { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 0 0 8px; }
+.continue-chip { flex: 1 1 0; min-width: 150px; max-width: 280px; display: grid; gap: 1px; padding: 8px 12px; border: 1px solid var(--line, rgba(255,255,255,.14)); border-radius: 14px; background: color-mix(in srgb, var(--accent) 7%, var(--card, transparent)); color: var(--text); text-decoration: none; }
+.continue-k { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.continue-t { font-size: .92rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

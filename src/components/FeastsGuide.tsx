@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { FEASTS, type Feast } from '../data/feasts';
 import { parseRefs } from '../lib/refs';
@@ -11,7 +12,8 @@ const SEASONS: Feast['season'][] = ['Advent', 'Christmas', 'Lent', 'Triduum', 'E
 /** The great feasts of the Roman calendar, each explained, with the readings to pray with. */
 export default function FeastsGuide() {
   const [season, setSeason] = useState<Feast['season'] | ''>('');
-  const [open, setOpen] = useState('');
+  const [sp] = useSearchParams();
+  const [open, setOpen] = useState(sp.get('feast') ?? '');
   const [s] = useSettings();
   const { get, editions } = useEditions();
   const edition = get(s.defaultEdition) ?? editions[0];
