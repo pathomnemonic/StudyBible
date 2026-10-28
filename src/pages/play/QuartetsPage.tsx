@@ -1,3 +1,4 @@
+import { markDailyDone } from '../../lib/dailyGame';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { QUARTETS, type Quartet, type QuartetGroup } from '../../data/quartets';
@@ -32,7 +33,7 @@ export default function QuartetsPage() {
       </div>
     );
   }
-  return <Board key={picked.id} q={picked} daily={picked.id === today.id} onDone={(won, mistakes) => { const d = { ...loadDone(), [picked.id]: { won, mistakes } }; try { localStorage.setItem(KEY, JSON.stringify(d)); } catch { /* private mode */ } setDone(d); }} back={() => setSp({})} />;
+  return <Board key={picked.id} q={picked} daily={picked.id === today.id} onDone={(won, mistakes) => { if (picked.id === today.id) markDailyDone('quartets', won ? (mistakes ? `${mistakes} mistake${mistakes === 1 ? '' : 's'}` : 'perfect') : 'tried'); const d = { ...loadDone(), [picked.id]: { won, mistakes } }; try { localStorage.setItem(KEY, JSON.stringify(d)); } catch { /* private mode */ } setDone(d); }} back={() => setSp({})} />;
 }
 
 function Board({ q, daily, onDone, back }: { q: Quartet; daily: boolean; onDone: (won: boolean, mistakes: number) => void; back: () => void }) {

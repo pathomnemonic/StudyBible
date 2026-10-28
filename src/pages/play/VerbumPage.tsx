@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { getJson } from '../../data/loader';
 import { THEMED } from '../../data/cloister';
 import { ANSWERS } from '../../data/verbum';
+import { markDailyDone } from '../../lib/dailyGame';
 import { buzz } from '../../lib/haptics';
 
 type Mark = 'hit' | 'near' | 'miss';
@@ -51,6 +52,7 @@ export default function VerbumPage() {
       const streak = w ? (st.last === today - 1 ? st.streak + 1 : 1) : 0;
       s = { ...s, counted: true, played: st.played + 1, won: st.won + (w ? 1 : 0), streak, best: Math.max(st.best, streak), last: today };
     }
+    if (finished && !st.counted) markDailyDone('verbum', cur === answer ? `${g.length}/${ROWS}` : 'missed');
     save(s);
     buzz(cur === answer ? 30 : 10);
   }, [cur, valid, practice, st, answer, today]);

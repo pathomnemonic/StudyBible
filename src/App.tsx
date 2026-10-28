@@ -83,6 +83,11 @@ const PlayHome = lazy(() => import('./pages/play/PlayHome'));
 const QuartetsPage = lazy(() => import('./pages/play/QuartetsPage'));
 const CloisterPage = lazy(() => import('./pages/play/CloisterPage'));
 const VerbumPage = lazy(() => import('./pages/play/VerbumPage'));
+const WhoSaidPage = lazy(() => import('./pages/play/WhoSaidPage'));
+const ChainPage = lazy(() => import('./pages/play/ChainPage'));
+const WhichBookPage = lazy(() => import('./pages/play/WhichBookPage'));
+const CrosswordPage = lazy(() => import('./pages/play/CrosswordPage'));
+const PinPlacePage = lazy(() => import('./pages/play/PilgrimPage'));
 const ProphetPage = lazy(() => import('./pages/play/ProphetPage'));
 const MediaSearch = lazy(() => import('./pages/listen/MediaSearch'));
 const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
@@ -329,6 +334,11 @@ export default function App() {
               <Route path="/play" element={<PlayHome />} />
               <Route path="/play/charades" element={<CharadesPage />} />
               <Route path="/play/quartets" element={<QuartetsPage />} />
+              <Route path="/play/whosaid" element={<WhoSaidPage />} />
+              <Route path="/play/chain" element={<ChainPage />} />
+              <Route path="/play/whichbook" element={<WhichBookPage />} />
+              <Route path="/play/crossword" element={<CrosswordPage />} />
+              <Route path="/play/pilgrim" element={<PinPlacePage />} />
               <Route path="/play/verbum" element={<VerbumPage />} />
               <Route path="/play/cloister" element={<CloisterPage />} />
               <Route path="/play/prophet" element={<ProphetPage />} />
