@@ -34,7 +34,10 @@ export default function GlossaryLayer() {
   if (!g && word) {
     return (
       <div className="glossary-pop" style={{ left: hit.x, top: hit.y }} onMouseDown={(e) => e.preventDefault()}>
-        <Link className="btn small" to={`/study/concordance?w=${encodeURIComponent(word)}`} onClick={() => setHit(null)}>Where else is “{word}”?</Link>
+        <div className="row" style={{ gap: 6 }}>
+          <Link className="btn small" to={`/study/concordance?w=${encodeURIComponent(word)}`} onClick={() => setHit(null)}>Where else is “{word}”?</Link>
+          {typeof speechSynthesis !== 'undefined' && <button className="btn small ghost" onClick={() => { try { speechSynthesis.cancel(); speechSynthesis.speak(new SpeechSynthesisUtterance(word)); } catch { /* no speech */ } }} aria-label={`Hear ${word}`}>Hear it</button>}
+        </div>
       </div>
     );
   }
