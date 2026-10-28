@@ -126,6 +126,13 @@ await p.click('button:has-text("Change settings")'); await p.click('button:has-t
 await p.click('button:has-text("Reveal the answer")'); await p.click('button:has-text("+1 Team 1")');
 await p.waitForSelector('button:has-text("Next question")');
 
+await p.goto(`${BASE}/#/downloads/plan`); await p.waitForSelector('.chip:has-text("A long flight")');
+await p.click('.chip:has-text("A long flight")');
+await p.waitForSelector('text=to download', { timeout: 10000 });
+if ((await p.locator('input[type=checkbox]:checked').count()) < 3) fail('the preset ticks packs');
+await p.click('button:has-text("Download these")');
+await p.waitForSelector('text=Everything you chose is on this device', { timeout: 120000 }).catch(() => fail('plan download should finish'));
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

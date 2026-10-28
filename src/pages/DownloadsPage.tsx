@@ -133,6 +133,7 @@ export default function DownloadsPage() {
 
       <section className="card">
         <h2 className="card-title">Get ready to go offline</h2>
+        <p className="small"><Link to="/downloads/plan">Plan it for a trip, retreat or class</Link>, choosing what to save and seeing the size first.</p>
         <p className="small">Saves your Bible and all the study data below: {man ? fmtBytes(dataBytes) : '…'} of study data plus your Bible (about 5 MB).</p>
         {metered && <p className="small" role="note">You look to be on mobile data. Wi-Fi is better for this.</p>}
         <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>

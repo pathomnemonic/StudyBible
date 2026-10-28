@@ -50,6 +50,7 @@ const CompanionPage = lazy(() => import('./pages/CompanionPage'));
 const StickerBookPage = lazy(() => import('./pages/StickerBookPage'));
 const ActivityPackPage = lazy(() => import('./pages/ActivityPackPage'));
 const BulletinPage = lazy(() => import('./pages/BulletinPage'));
+const OfflinePlanPage = lazy(() => import('./pages/OfflinePlanPage'));
 const SaintsPage = lazy(() => import('./pages/study/SaintsPage'));
 const ApologeticsPage = lazy(() => import('./pages/study/ApologeticsPage'));
 const KidsPage = lazy(() => import('./pages/study/KidsPage'));
@@ -355,6 +356,7 @@ export default function App() {
               <Route path="/pray" element={<PrayHome />} />
               <Route path="/presenter" element={<PresenterView />} />
               <Route path="/downloads" element={<DownloadsPage />} />
+              <Route path="/downloads/plan" element={<OfflinePlanPage />} />
               <Route path="/study/lexicon" element={<LexiconPage />} />
               <Route path="/learn" element={<LearnPage />} />
               <Route path="/memento" element={<MementoPage />} />
