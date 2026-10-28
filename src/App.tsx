@@ -16,6 +16,7 @@ import UpdateBanner from './components/UpdateBanner';
 import ScrollMemory from './components/ScrollMemory';
 import { db, TRASH_DAYS } from './db/db';
 import { scheduleReminder } from './liturgy/reminders';
+import { seasonName } from './lib/season';
 
 const DivineLiturgyPage = lazy(() => import('./pages/pray/DivineLiturgyPage'));
 const YoungAdultsPage = lazy(() => import('./pages/study/YoungAdultsPage'));
@@ -160,6 +161,7 @@ function ThemeApplier() {
         const more = matchMedia('(prefers-contrast: more)').matches;
         t = more ? (dark ? 'contrast-dark' : 'contrast') : dark ? 'twilight' : 'dawn';
       }
+      if (t === 'season') t = `season-${seasonName(new Date())}`;
       root.dataset.theme = t;
       root.dataset.margin = s.margin;
       root.style.setProperty('--read-size', `${s.fontSize}px`);
@@ -179,11 +181,13 @@ function ThemeApplier() {
       meta?.setAttribute('content', getComputedStyle(root).getPropertyValue('--bg').trim() || '#121110');
     };
     apply();
+    const hourly = window.setInterval(apply, 3600_000); // the season can turn over at midnight
     const mq = matchMedia('(prefers-color-scheme: dark)');
     const mc = matchMedia('(prefers-contrast: more)');
     mq.addEventListener('change', apply);
     mc.addEventListener('change', apply);
     return () => {
+      window.clearInterval(hourly);
       mq.removeEventListener('change', apply);
       mc.removeEventListener('change', apply);
     };

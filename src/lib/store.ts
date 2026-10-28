@@ -2,10 +2,11 @@ import type { SoundKind } from './ambience';
 import { defaultLang, type Lang } from './i18n';
 import { useSyncExternalStore } from 'react';
 
-export type ThemeName = 'twilight' | 'ocean' | 'dawn' | 'mist' | 'dark' | 'midnight' | 'amoled' | 'forest' | 'mocha' | 'nord' | 'light' | 'paper' | 'rose' | 'sepia' | 'solarized' | 'contrast' | 'contrast-dark' | 'zen' | 'system';
+export type ThemeName = 'season' | 'twilight' | 'ocean' | 'dawn' | 'mist' | 'dark' | 'midnight' | 'amoled' | 'forest' | 'mocha' | 'nord' | 'light' | 'paper' | 'rose' | 'sepia' | 'solarized' | 'contrast' | 'contrast-dark' | 'zen' | 'system';
 
 /** Themes offered in Settings: [id, label, background, text, accent] (colors are preview swatches only). */
 export const THEMES: [ThemeName, string, string, string, string][] = [
+  ['season', 'Follows the Church’s year (default)', '#120a1f', '#f2ecf8', '#f0c36a'],
   ['twilight', 'Twilight (default)', '#0a0c1c', '#ecebf8', '#b7a8ff'],
   ['ocean', 'Ocean', '#06131b', '#e4f1f5', '#7fd6d0'],
   ['dark', 'Ember', '#121110', '#ecebe6', '#e28d95'],
@@ -155,7 +156,7 @@ export interface Settings {
 }
 
 export const DEFAULTS: Settings = {
-  theme: 'twilight',
+  theme: 'season',
   language: defaultLang(),
   spelling: 'us',
   fontSize: 19,
