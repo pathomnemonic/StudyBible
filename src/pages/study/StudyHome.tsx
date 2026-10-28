@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Icon from '../../components/Icon';
 import { Group, HubHeader, Tiles } from '../../components/Hub';
+import { refId } from '../../lib/refs';
 import { clearRecentSearches, useRecentSearches } from '../../lib/recent';
 import { readingsFor } from '../../liturgy/readings';
 import { useSettings } from '../../lib/store';
@@ -20,7 +21,7 @@ export default function StudyHome({ embedded = false }: { embedded?: boolean } =
     const now = new Date();
     const d0 = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
     const sun = addDays(d0, (7 - d0.getUTCDay()) % 7 || 7);
-    const gospel = async (d: Date) => { const r = await readingsFor(s.diocese, iso(d)).catch(() => null); const it = r?.items.find((i) => i.slot === 'gospel'); const f = it?.refs[0]; return it && f ? { text: it.text, to: `/study/passage/${f.book}.${f.c1}${f.v1 ? '.' + f.v1 : ''}` } : undefined; };
+    const gospel = async (d: Date) => { const r = await readingsFor(s.diocese, iso(d)).catch(() => null); const it = r?.items.find((i) => i.slot === 'gospel'); const f = it?.refs[0]; return it && f ? { text: it.text, to: `/study/passage/${refId(f)}` } : undefined; };
     Promise.all([gospel(d0), gospel(sun)]).then(([today, sunday]) => setGos({ today, sunday }));
   }, [s.diocese]);
   return (

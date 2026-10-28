@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Modal from './Modal';
+import Fold from './Fold';
 import { useSettings, THEMES, DEFAULTS, type ThemeName } from '../lib/store';
 import { startQuiet } from '../lib/quiet';
 import { loadTracks, onTrack, type Track } from '../lib/ambience';
@@ -18,6 +19,39 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
   );
   return (
     <Modal title="Reading settings" onClose={onClose}>
+      <div className="ts-quick">
+      <label className="row between" style={{ margin: '10px 0' }}>
+        <span>Text size</span>
+        <input type="range" min={14} max={44} value={s.fontSize} onChange={(e) => set({ fontSize: +e.target.value })} aria-label="Font size" />
+      </label>
+      <div className="row between" style={{ margin: '10px 0' }}>
+        <span>Typeface</span>
+        <div className="chips">{([['serif', 'serif'], ['sans', 'sans'], ['hyperlegible', 'Atkinson Hyperlegible'], ['dyslexic', 'OpenDyslexic']] as const).map(([m, l]) => chip(s.fontFamily === m, l, () => set({ fontFamily: m })))}</div>
+      </div>
+      <label className="row between" style={{ margin: '10px 0' }}>
+        <span>Theme</span>
+        <select value={s.theme} onChange={(e) => set({ theme: e.target.value as ThemeName })} aria-label="Theme">
+          {THEMES.map(([k, l]) => <option key={k} value={k}>{l}</option>)}
+        </select>
+      </label>
+      <label className="row between" style={{ margin: '10px 0' }}>
+        <span>Verse numbers</span>
+        <input type="checkbox" checked={s.showVerseNumbers} onChange={(e) => set({ showVerseNumbers: e.target.checked })} />
+      </label>
+
+      <label className="row between" style={{ margin: '6px 0' }}>
+        <span>Just the text (focus mode)</span>
+        <input type="checkbox" checked={s.scriptureOnly} onChange={(e) => set({ scriptureOnly: e.target.checked })} aria-label="Focus mode" />
+      </label>
+      <div className="row between" style={{ margin: '10px 0' }}>
+        <span>Quiet sound while reading</span>
+        <div className="chips">
+          {chip(s.ambience.kind === 'off', 'Off', () => set({ ambience: { ...s.ambience, kind: 'off' }, ambienceTipSeen: true }))}
+          {chip(s.ambience.kind !== 'off', 'On', () => set({ ambience: { ...s.ambience, kind: s.ambience.kind === 'off' ? 'auto' : s.ambience.kind }, ambienceTipSeen: true }))}
+        </div>
+      </div>
+      </div>
+      <Fold dot={false} id="ts:comfort" title="Comfort and spacing" hint="Presets for large print and dyslexia">
       <div className="row" style={{ margin: '0 0 6px', flexWrap: 'wrap', gap: 6 }}>
         <span className="muted small" style={{ width: '100%' }}>Comfort presets</span>
         {chip(false, 'Standard', () => set({ fontSize: 19, lineHeight: 1.65, fontFamily: 'serif', letterSpacing: 0, wordSpacing: 0, plainAlign: false, margin: 'normal' }))}
@@ -26,10 +60,6 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         {chip(false, 'Low vision (zen contrast, large)', () => set({ fontSize: 32, lineHeight: 1.9, fontFamily: 'hyperlegible', letterSpacing: 0.02, wordSpacing: 0.08, plainAlign: true, margin: 'wide', theme: 'zen', wordFx: false, motes: false, motion: 'none' }))}
       </div>
       <div style={{ margin: '0 0 6px' }}><button className="btn" onClick={() => set({ theme: DEFAULTS.theme, fontSize: DEFAULTS.fontSize, lineHeight: DEFAULTS.lineHeight, fontFamily: DEFAULTS.fontFamily, letterSpacing: DEFAULTS.letterSpacing, wordSpacing: DEFAULTS.wordSpacing, plainAlign: DEFAULTS.plainAlign, margin: DEFAULTS.margin, motion: DEFAULTS.motion, wordFx: DEFAULTS.wordFx, redLetters: DEFAULTS.redLetters, motes: DEFAULTS.motes })}>Reset reading look to the original</button></div>
-      <label className="row between" style={{ margin: '10px 0' }}>
-        <span>Text size</span>
-        <input type="range" min={14} max={44} value={s.fontSize} onChange={(e) => set({ fontSize: +e.target.value })} aria-label="Font size" />
-      </label>
       <label className="row between" style={{ margin: '10px 0' }}>
         <span>Line spacing</span>
         <input type="range" min={1.3} max={2.2} step={0.05} value={s.lineHeight} onChange={(e) => set({ lineHeight: +e.target.value })} aria-label="Line spacing" />
@@ -50,16 +80,8 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <span>Plain left-aligned lines, shorter measure</span>
         <input type="checkbox" checked={s.plainAlign} onChange={(e) => set({ plainAlign: e.target.checked })} aria-label="Plain left-aligned lines" />
       </label>
-      <div className="row between" style={{ margin: '10px 0' }}>
-        <span>Typeface</span>
-        <div className="chips">{([['serif', 'serif'], ['sans', 'sans'], ['hyperlegible', 'Atkinson Hyperlegible'], ['dyslexic', 'OpenDyslexic']] as const).map(([m, l]) => chip(s.fontFamily === m, l, () => set({ fontFamily: m })))}</div>
-      </div>
-      <label className="row between" style={{ margin: '10px 0' }}>
-        <span>Theme</span>
-        <select value={s.theme} onChange={(e) => set({ theme: e.target.value as ThemeName })} aria-label="Theme">
-          {THEMES.map(([k, l]) => <option key={k} value={k}>{l}</option>)}
-        </select>
-      </label>
+      </Fold>
+      <Fold dot={false} id="ts:display" title="What shows in the text">
       <label className="row between" style={{ margin: '10px 0' }}>
         <span>Show minutes left and progress while reading</span>
         <input type="checkbox" checked={s.readProgress} onChange={(e) => set({ readProgress: e.target.checked })} aria-label="Reading progress" />
@@ -84,16 +106,33 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <span>Keep the screen on while reading</span>
         <input type="checkbox" checked={s.keepAwake} onChange={(e) => set({ keepAwake: e.target.checked })} aria-label="Keep the screen on" />
       </label>
-      <label className="row between" style={{ margin: '10px 0' }}>
-        <span>Verse numbers</span>
-        <input type="checkbox" checked={s.showVerseNumbers} onChange={(e) => set({ showVerseNumbers: e.target.checked })} />
-      </label>
-
       <div className="row between" style={{ margin: '10px 0' }}>
         <span>Moving between chapters</span>
         <div className="chips">{chip(s.scrollMode === 'pages', 'One at a time', () => set({ scrollMode: 'pages' }))}{chip(s.scrollMode === 'infinite', 'Keep scrolling', () => set({ scrollMode: 'infinite' }))}</div>
       </div>
 
+      <label className="row between" style={{ margin: '4px 0' }}>
+        <span>Words of Jesus in red</span>
+        <input type="checkbox" checked={s.redLetters} onChange={(e) => set({ redLetters: e.target.checked })} aria-label="Words of Jesus in red" />
+      </label>
+      <label className="row between" style={{ margin: '4px 0' }}>
+        <span>Paintings of the scene, inline</span>
+        <input type="checkbox" checked={s.inlineArt} onChange={(e) => set({ inlineArt: e.target.checked })} aria-label="Inline paintings" />
+      </label>
+      <label className="row between" style={{ margin: '4px 0' }}>
+        <span>Sparkle on key words (tap for what they mean)</span>
+        <input type="checkbox" checked={s.sparkles} onChange={(e) => set({ sparkles: e.target.checked })} aria-label="Sparkling key words" />
+      </label>
+      <label className="row between" style={{ margin: '4px 0' }}>
+        <span>Let words act out their meaning (fire flickers, water ripples, light glows)</span>
+        <input type="checkbox" checked={s.wordFx} onChange={(e) => set({ wordFx: e.target.checked })} aria-label="Words that act out their meaning" />
+      </label>
+      <label className="row between" style={{ margin: '10px 0 4px' }}>
+        <span>Slowly drifting color behind the text</span>
+        <input type="checkbox" checked={s.motes} onChange={(e) => set({ motes: e.target.checked })} aria-label="Soft moving light" />
+      </label>
+      </Fold>
+      <Fold dot={false} id="ts:sound" title="Atmosphere and sound">
       <h3 className="modal-sub">Atmosphere</h3>
       <p className="muted small" style={{ margin: '0 0 6px' }}>A soft backdrop that suits the book, and for a few passages the moment (desert light, a storm sky for Job, dawn for the Resurrection). Only the background changes.</p>
       <div className="chips">
@@ -137,31 +176,13 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         </>
       )}
 
-      <label className="row between" style={{ margin: '10px 0 4px' }}>
-        <span>Slowly drifting color behind the text</span>
-        <input type="checkbox" checked={s.motes} onChange={(e) => set({ motes: e.target.checked })} aria-label="Soft moving light" />
-      </label>
-      <label className="row between" style={{ margin: '4px 0' }}>
-        <span>Sparkle on key words (tap for what they mean)</span>
-        <input type="checkbox" checked={s.sparkles} onChange={(e) => set({ sparkles: e.target.checked })} aria-label="Sparkling key words" />
-      </label>
-      <label className="row between" style={{ margin: '4px 0' }}>
-        <span>Let words act out their meaning (fire flickers, water ripples, light glows)</span>
-        <input type="checkbox" checked={s.wordFx} onChange={(e) => set({ wordFx: e.target.checked })} aria-label="Words that act out their meaning" />
-      </label>
-      <label className="row between" style={{ margin: '4px 0' }}>
-        <span>Words of Jesus in red</span>
-        <input type="checkbox" checked={s.redLetters} onChange={(e) => set({ redLetters: e.target.checked })} aria-label="Words of Jesus in red" />
-      </label>
-      <label className="row between" style={{ margin: '4px 0' }}>
-        <span>Paintings of the scene, inline</span>
-        <input type="checkbox" checked={s.inlineArt} onChange={(e) => set({ inlineArt: e.target.checked })} aria-label="Inline paintings" />
-      </label>
       <details className="small" style={{ margin: '6px 0' }}>
         <summary>Sound credits and licenses</summary>
         <ul className="list">{tracks.map((t) => <li key={t.id}>{t.title}{t.artist ? ` — ${t.artist}` : ''} · {t.sourceUrl ? <a href={t.sourceUrl} target="_blank" rel="noreferrer">{t.license}</a> : t.license}{t.note ? `. ${t.note}` : ''}</li>)}</ul>
       </details>
 
+      </Fold>
+      <Fold dot={false} id="ts:motion" title="Motion and taps">
       <div className="row between" style={{ margin: '10px 0' }}>
         <span>Animation</span>
         <div className="chips">{([['full', 'Full'], ['calm', 'Calm'], ['none', 'Still']] as const).map(([m, l]) => chip(s.motion === m, l, () => set({ motion: m })))}</div>
@@ -180,11 +201,9 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <input type="checkbox" checked={s.tapSound} onChange={(e) => set({ tapSound: e.target.checked })} aria-label="Water-drop sound on taps" />
       </label>
 
+      </Fold>
+      <Fold dot={false} id="ts:focus" title="Focus sessions and what focus mode hides">
       <h3 className="modal-sub">Focus mode</h3>
-      <label className="row between" style={{ margin: '6px 0' }}>
-        <span>Just the text: no study panel, prompts or progress</span>
-        <input type="checkbox" checked={s.scriptureOnly} onChange={(e) => set({ scriptureOnly: e.target.checked })} aria-label="Focus mode" />
-      </label>
       <details className="small" style={{ margin: '6px 0' }} open>
         <summary>What focus mode means for you</summary>
         {([['scroll', 'Keep scrolling from chapter to chapter, with no buttons between them'], ['numbers', 'Show verse numbers'], ['markers', 'Show the small counts of notes beside verses'], ['art', 'Show paintings of the scene'], ['effects', 'Let words act out their meaning'], ['sparkles', 'Sparkle on key words'], ['sound', 'Keep the reading sound playing']] as const).map(([k, l]) => (
@@ -211,6 +230,8 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         Begin a focus session
       </button>
       <p className="muted small">Focus mode on, with a soft bell when the time is up. No streaks, counts or notifications.</p>
+
+      </Fold>
     </Modal>
   );
 }

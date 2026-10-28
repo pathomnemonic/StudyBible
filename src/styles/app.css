@@ -5217,3 +5217,8 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .bars { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; height: 120px; align-items: end; }
 .bar { display: grid; grid-template-rows: 1fr auto; height: 100%; gap: 3px; text-align: center; font-size: .7rem; color: var(--muted); }
 .bar i { align-self: end; background: var(--accent); border-radius: 4px 4px 0 0; opacity: .85; min-height: 3px; }
+.ts-quick > label, .ts-quick > div { margin: 8px 0 !important; }
+.ts-quick { padding-bottom: 4px; }
+.drawer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.drawer-grid .btn { justify-content: flex-start; text-align: left; min-height: 40px; height: auto; white-space: normal; line-height: 1.2; padding-top: 6px; padding-bottom: 6px; }
+.drawer-grid .drawer-wide { grid-column: 1 / -1; }

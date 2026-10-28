@@ -27,7 +27,7 @@ import TermPopover from '../components/TermPopover';
 import { loadTerms, makeMatcher, type TermBrief } from '../study/terms';
 import BookPicker from '../components/BookPicker';
 import { useReadingTime } from '../lib/readingTime';
-import ExploreDrawer from '../components/ExploreDrawer';
+import ExploreDrawer, { type DrawerItem } from '../components/ExploreDrawer';
 import BibleTools from '../components/BibleTools';
 import Icon from '../components/Icon';
 import NoteEditor from '../components/NoteEditor';
@@ -135,7 +135,6 @@ export default function ReadPage() {
   const [noteFor, setNoteFor] = useState<Target[] | null>(null);
   const [panel, setPanel] = useState(false);
   const swipe = useRef<[number, number] | null>(null);
-  const [moreMenu, setMoreMenu] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
   const [explore, setExplore] = useState(false);
   useReadingTime(true);
@@ -631,6 +630,16 @@ export default function ReadPage() {
     </>
   );
 
+  const chapterItems: DrawerItem[] = [
+    ...(plan && !plan.finished && plan.next ? (() => { const r = plan.next.refs.map((id) => parseRefId(id)).find(Boolean); return r ? [{ label: `My place in ${plan.plan.name.replace(/^The whole /, '').replace(/ \(.*\)$/, '')}: day ${plan.nextIdx + 1}, ${formatRef(r, { abbr: true })}`, primary: true, onClick: () => nav(readerPath(edition, r)) }] : []; })() : []),
+    ...(plan && !plan.finished ? [{ label: 'Mark today’s plan reading done', onClick: () => void plan.markDone(plan.nextIdx) }] : []),
+    { label: `Translation: ${edition.shortName}`, onClick: () => setEditionPicker(true) },
+    { label: parallelMode ? 'Close the second translation' : 'Compare translations side by side', onClick: () => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id)) },
+    { label: 'Find in this chapter', onClick: () => setFinding(true) },
+    { label: aloud ? 'Stop reading aloud' : 'Read aloud', onClick: () => setAloud((x) => !x) },
+    { label: settings.scriptureOnly ? 'Leave focus mode' : 'Focus mode', onClick: () => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); } },
+    { label: 'Bible tools: outlines, words, topics', onClick: () => setToolsOpen(true) },
+  ];
   return (
     <div className={`reader${settings.showVerseNumbers && (!settings.scriptureOnly || settings.focus.numbers) ? '' : ' hide-nums'}${panelOpen ? ' has-panel' : ''}`}>
       <div className="reader-col" onTouchStart={(e) => { swipe.current = e.touches.length === 1 ? [e.touches[0].clientX, e.touches[0].clientY] : null; }} onTouchEnd={(e) => { const a = swipe.current; swipe.current = null; if (!a || window.innerWidth >= 700 || !window.getSelection()?.isCollapsed) return; const dx = e.changedTouches[0].clientX - a[0], dy = e.changedTouches[0].clientY - a[1]; if (Math.abs(dx) > 90 && Math.abs(dy) < 45) (dx < 0 ? next : prev)(); }}>
@@ -682,7 +691,7 @@ export default function ReadPage() {
           <button className="icon-btn tool-sm" aria-pressed={settings.ambience.kind !== 'off'} onClick={() => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'auto' : 'off' }, ambienceTipSeen: true })} aria-label={settings.ambience.kind === 'off' ? t('reader.soundOn') : t('reader.soundOff')} title="Reading sound: on/off">
             <Icon name="music" />
           </button>
-          <button className="icon-btn tool-sm" onClick={() => setTextSettings(true)} aria-label={t('reader.settings')} title="Text, theme, atmosphere, sound and quiet reading">
+          <button className="icon-btn" onClick={() => setTextSettings(true)} aria-label={t('reader.settings')} title="Text, theme, atmosphere, sound and quiet reading">
             <Icon name="text" />
           </button>
           <button
@@ -698,24 +707,6 @@ export default function ReadPage() {
             <Icon name="expand" />
           </button>
           <button className="icon-btn" onClick={() => setToolsOpen(true)} aria-label="Bible tools: book outlines, key words, concordance and more" title="Bible tools: book outlines, key words, concordance, topics"><Icon name="study" /></button>
-          <span className="more-wrap">
-            <button className="icon-btn more-btn" aria-haspopup="menu" aria-expanded={moreMenu} onClick={() => setMoreMenu((m) => !m)} aria-label="More reading tools" title="More">
-              <span aria-hidden="true" style={{ fontSize: 20, lineHeight: 1 }}>⋯</span>
-            </button>
-            {moreMenu && (
-              <div className="more-menu" role="menu" onClick={() => setMoreMenu(false)}>
-                {plan && !plan.finished && plan.next && (() => { const r = plan.next.refs.map((id) => parseRefId(id)).find(Boolean); return r ? <button role="menuitem" onClick={() => nav(readerPath(edition, r))}>My place in {plan.plan.name.replace(/^The whole /, '').replace(/ \(.*\)$/, '')}: day {plan.nextIdx + 1}, {formatRef(r, { abbr: true })}</button> : null; })()}
-                {plan && !plan.finished && <button role="menuitem" onClick={() => void plan.markDone(plan.nextIdx)}>Mark today’s plan reading done</button>}
-                <button role="menuitem" onClick={() => setToolsOpen(true)}>Bible tools: outlines, key words, concordance, topics</button>
-                <button role="menuitem" onClick={() => setEditionPicker(true)}>Translation: {edition.shortName} (and Church-approved Bibles)</button>
-                <button role="menuitem" onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id))}>Parallel translations {parallelMode ? '(on)' : ''}</button>
-                <button role="menuitem" onClick={() => setFinding(true)}>Find in this chapter ( / )</button>
-                <button role="menuitem" onClick={() => setAloud((a) => !a)}>Read aloud {aloud ? '(on)' : ''}</button>
-                <button role="menuitem" onClick={() => setTextSettings(true)}>Reading settings, atmosphere and sound</button>
-                <button role="menuitem" onClick={() => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); }}>Focus mode</button>
-              </div>
-            )}
-          </span>
           <button className="icon-btn" onClick={next} aria-label="Next chapter">
             <Icon name="chevR" />
           </button>
@@ -831,7 +822,7 @@ export default function ReadPage() {
         </div>
       )}
 
-      {explore && <ExploreDrawer onClose={() => setExplore(false)} />}
+      {explore && <ExploreDrawer items={chapterItems} onClose={() => setExplore(false)} />}
       {toolsOpen && <BibleTools book={bk} chapter={chNum} onClose={() => setToolsOpen(false)} />}
       {picker && (
         <BookPicker

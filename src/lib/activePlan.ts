@@ -4,6 +4,7 @@ import { db } from '../db/db';
 import { useEditions } from '../data/EditionsContext';
 import { builtinPlans, type PlanDay, type PlanDef } from '../plans/builtin';
 import { updateSettings, useSettings } from './store';
+import { useBiay } from '../data/biay';
 
 export interface ActivePlan {
   plan: PlanDef;
@@ -27,6 +28,8 @@ export function useActivePlan(): ActivePlan | null {
   const { get } = useEditions();
   const rows = useLiveQuery(() => db.planProgress.toArray(), []);
   const userPlans = useLiveQuery(() => db.userPlans.toArray(), []);
+  const { biay } = useBiay();
+  const epRows = useLiveQuery(() => db.episodeProgress.toArray(), []);
   const [built, setBuilt] = useState<PlanDef[]>([]);
   const v = get('vulgate');
   useEffect(() => { if (v) void builtinPlans(v).then(setBuilt); }, [v?.id]);
@@ -40,15 +43,22 @@ export function useActivePlan(): ActivePlan | null {
     : built.find((p) => p.id === chosen) ?? null;
   if (!plan) return null;
   const todayIdx = Math.max(0, Math.min(plan.days.length - 1, Math.floor((Date.now() - prog.startedAt) / 86400000) + prog.offsetDays));
-  const firstOpen = plan.days.findIndex((_, i) => !prog.done.includes(i));
+  // the Bible in a Year counts a day as done when you ticked it in the plan or finished its episode in the list, whichever you used
+  const heard = new Set((epRows ?? []).filter((r) => r.completed).map((r) => r.episodeId));
+  const doneSet = new Set(prog.done);
+  if (chosen === 'biay' && biay) plan.days.forEach((_, i) => { if ((biay.releases.get(i + 1) ?? [biay.dayEpisode.get(i + 1)]).some((e) => e && heard.has(e.id))) doneSet.add(i); });
+  const firstOpen = plan.days.findIndex((_, i) => !doneSet.has(i));
   const nextIdx = firstOpen < 0 ? plan.days.length - 1 : Math.min(firstOpen, Math.max(todayIdx, firstOpen));
   return {
     plan, todayIdx, nextIdx,
     next: firstOpen < 0 ? null : plan.days[nextIdx],
     finished: firstOpen < 0,
-    doneCount: prog.done.length,
+    doneCount: doneSet.size,
     startedAt: prog.startedAt,
-    markDone: async (i) => { const cur = await db.planProgress.get(chosen); if (cur && !cur.done.includes(i)) { const done = [...cur.done, i]; await db.planProgress.put({ ...cur, done, status: done.length >= plan.days.length ? 'finished' : cur.status }); } },
+    markDone: async (i) => {
+      const ep = chosen === 'biay' ? biay?.dayEpisode.get(i + 1) : undefined;
+      if (ep) await db.episodeProgress.put({ episodeId: ep.id, position: 0, completed: true, updatedAt: Date.now(), duration: ep.duration ?? undefined });
+      const cur = await db.planProgress.get(chosen); if (cur && !cur.done.includes(i)) { const done = [...cur.done, i]; await db.planProgress.put({ ...cur, done, status: done.length >= plan.days.length ? 'finished' : cur.status }); } },
   };
 }
 

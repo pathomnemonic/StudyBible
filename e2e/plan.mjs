@@ -19,9 +19,9 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   const listen = await p.locator('.reading-bar .rb-listen').innerText();
   if (!/Day 1\b/.test(listen)) fail(`Genesis 1 should offer the Bible in a Year episode for it, got ${listen}`);
   // the plan lives in the reader menu, and marking done moves it on
-  const place = async () => { await p.click('button[aria-label="More reading tools"]'); const t = await p.locator('[role=menuitem]:has-text("My place in")').innerText(); await p.click('button[aria-label="More reading tools"]'); return t; };
+  const place = async () => { await p.click('button[aria-label^="Open the Bible menu"]'); const t = await p.locator('.drawer button:has-text("My place in")').innerText(); await p.keyboard.press('Escape'); await p.waitForSelector('.drawer', { state: 'detached' }); return t; };
   const day1 = await place();
-  await p.click('button[aria-label="More reading tools"]'); await p.click('[role=menuitem]:has-text("Mark today’s plan reading done")');
+  await p.click('button[aria-label^="Open the Bible menu"]'); await p.click('.drawer button:has-text("Mark today’s plan reading done")');
   await p.waitForTimeout(600);
   const day2 = await place();
   if (day1 === day2) fail(`marking done should move on (${day1})`);
@@ -34,8 +34,17 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   const p = await ctx.newPage();
   await p.goto(`${BASE}/#/read/webc/GEN/1`);
   await p.waitForSelector('.reading-bar', { timeout: 10000 }).catch(() => fail('a brand-new reader should already follow the Bible in a Year podcast'));
-  await p.click('button[aria-label="More reading tools"]');
-  if (!/day 1\b/.test(await p.locator('[role=menuitem]:has-text("My place in")').innerText())) fail('a new reader starts at day 1');
+  await p.click('button[aria-label^="Open the Bible menu"]');
+  if (!/day 1\b/.test(await p.locator('.drawer button:has-text("My place in")').innerText())) fail('a new reader starts at day 1');
+  await p.keyboard.press('Escape');
+  // days finished in the episode list count toward your place, however they were marked
+  await p.goto(`${BASE}/#/listen`); await p.waitForSelector('.year-bar');
+  await p.click('.year-bar button[aria-label="More"]'); await p.click('[role=menuitem]:has-text("Catch up")');
+  await p.fill('input[aria-label="Last day finished"]', '3'); await p.click('button:has-text("finished")');
+  await p.waitForTimeout(800);
+  await p.goto(`${BASE}/#/read/webc/GEN/1`); await p.waitForSelector('.reading-bar, .reader-bar');
+  await p.click('button[aria-label^="Open the Bible menu"]');
+  if (!/day 4\b/.test(await p.locator('.drawer button:has-text("My place in")').innerText())) fail('after finishing days 1 to 3 the place should be day 4');
   await ctx.close();
 }
 await b.close();
