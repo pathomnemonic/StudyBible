@@ -107,6 +107,12 @@ await p.locator('a[href*="/study/kids/"]').first().click(); await p.waitForSelec
 await p.click('button:has-text("Get a sticker")'); await p.waitForSelector('.trophy-toast:has-text("sticker")', { timeout: 4000 }).catch(() => fail('sticker toast'));
 await p.goto(`${BASE}/#/kids/stickers`); await p.waitForSelector('.sticker-grid li.got');
 
+await p.goto(`${BASE}/#/print/pack`); await p.waitForSelector('text=Advent');
+await p.goto(`${BASE}/#/print/pack/lent`); await p.waitForSelector('.pk-page');
+if ((await p.locator('.pk-page').count()) !== 5) fail('five pages in a pack');
+if ((await p.locator('.pk-ws span').count()) !== 121) fail('wordsearch grid');
+if ((await p.locator('.pack svg line').count()) < 100) fail('maze drawn');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

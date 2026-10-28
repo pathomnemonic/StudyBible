@@ -5445,3 +5445,19 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .sticker-grid li.locked { opacity: .55; }
 .sticker-ico { font-size: 2.2rem; }
 .sticker-grid em { font-size: .72rem; color: var(--muted); font-style: normal; }
+
+/* Printable activity packs */
+.pack-sheet .pk-page { margin-bottom: 24px; }
+.pk-sub { color: var(--muted); margin: 2px 0 8px; }
+.pk-line { margin-top: 14px; letter-spacing: .02em; }
+.pk-ws { display: grid; gap: 2px; max-width: 440px; margin: 8px auto; font: 700 1.05rem/1 monospace; text-align: center; }
+.pk-ws span { padding: 5px 0; border: 1px solid #8884; }
+.pk-words { text-align: center; font-size: .9rem; letter-spacing: .06em; }
+.pk-cw { display: grid; gap: 1px; margin: 8px 0; }
+.pk-cell { aspect-ratio: 1; border: 1.5px solid #000; position: relative; font-weight: 700; display: grid; place-items: center; text-transform: uppercase; }
+.pk-cell i { position: absolute; top: 0; left: 2px; font: 600 .55rem/1 inherit; font-style: normal; }
+.pk-block { aspect-ratio: 1; }
+.pk-clues { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: .85rem; } .pk-clues p { margin: 2px 0; }
+.pk-verse { font-size: 1.6rem; line-height: 1.4; text-align: center; margin: 18px 0; }
+.pk-draw { height: 300px; border: 2px solid #000; border-radius: 8px; }
+@media print { .pack-sheet .pk-page { break-after: page; margin: 0; } .pack-sheet .pk-page:last-child { break-after: auto; } .pk-ws span, .pk-cell { border-color: #000 !important; background: #fff !important; } .pack-sheet, .pack-sheet * { color: #000 !important; } }

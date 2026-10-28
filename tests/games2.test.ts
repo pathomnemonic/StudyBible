@@ -50,3 +50,13 @@ describe('wordsearch', () => {
     }
   });
 });
+
+import { makeMaze, mazeLines, solvable } from '../src/lib/maze';
+describe('mazes', () => {
+  it('are reproducible and always solvable', () => {
+    for (const seed of [1, 7, 11, 99]) {
+      const a = makeMaze(14, 14, seed), b = makeMaze(14, 14, seed);
+      expect(a).toEqual(b); expect(solvable(a)).toBe(true); expect(mazeLines(a).length).toBeGreaterThan(100);
+    }
+  });
+});
