@@ -68,3 +68,12 @@ describe('family sheet', () => {
     expect(quoteOf('No quote here.')).toBeNull();
   });
 });
+
+import { cardsFor } from '../src/pages/BellRingersPage';
+describe('bell ringers', () => {
+  it('turns a lesson into a think, recall, check and myth card', () => {
+    const c = cardsFor({ title: 'Sacraments', question: 'What is a sign?', mem: '“Take heart.”', quiz: ['A sacrament…|A sign|A school|A rule|A song|0|CCC 1131.'], misc: ['“Sacraments are magic.”'] }, 'Unit 1');
+    expect(c.map((x) => x.kind)).toEqual(['think', 'recall', 'check', 'myth']);
+    expect(c[2].answer).toBe('A sign');
+  });
+});

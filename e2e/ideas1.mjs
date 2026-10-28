@@ -56,6 +56,9 @@ await p.waitForSelector('.ws-score'); if (!(await p.locator('.share-wrap button'
 await p.goto(`${BASE}/#/family-sheet?d=2026-11-08`); await p.waitForSelector('.fs-text', { timeout: 15000 }).catch(() => fail('family sheet gospel'));
 if ((await p.locator('.fs-level').count()) !== 3) fail('three age levels');
 
+await p.goto(`${BASE}/#/teach/bell`); await p.waitForSelector('.bell-card', { timeout: 10000 }).catch(() => fail('bell ringer card'));
+if ((await p.locator('.bell-week li').count()) !== 5) fail('five cards for the week');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

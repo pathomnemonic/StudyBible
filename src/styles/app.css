@@ -5419,3 +5419,11 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .fs-quote { font-style: italic; }
 .fs-level ol { margin: 0; padding-left: 1.3em; display: grid; gap: 4px; }
 @media print { .fs-text { font-size: 11pt; } .fs-level { break-inside: avoid; } }
+
+/* Bell ringers */
+.bell { max-width: 640px; margin-inline: auto; }
+.bell-card { margin: 12px 0; }
+.bell-text { font-size: 1.15rem; line-height: 1.5; margin: 4px 0 8px; }
+.bell-opts { margin: 0 0 8px; padding-left: 1.4em; }
+.bell-week { display: grid; gap: 8px; padding-left: 1.2em; }
+.bell-inline { display: block; color: var(--muted); font-size: .9em; }
