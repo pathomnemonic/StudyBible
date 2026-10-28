@@ -10,7 +10,9 @@ const errs = []; p.on('pageerror', (e) => errs.push(e.message));
 await p.goto(`${BASE}/#/play/charades`); await p.waitForSelector('.charades-deck');
 if ((await p.locator('.charades-deck').count()) < 6) fail('several decks expected');
 await p.click('.charades-deck:has-text("Saints")');
-await p.click('button:has-text("Start")');
+await p.waitForSelector('.charades-startbar button');
+if (!(await p.locator('.charades-startbar button').isVisible())) fail('Start must be visible');
+await p.click('.charades-startbar button');
 await p.waitForSelector('.charades-stage.play', { timeout: 8000 });
 const w1 = await p.locator('.charades-word').innerText();
 if (w1.length < 2) fail('a word should show');
@@ -20,9 +22,19 @@ await p.click('.charades-btns button:has-text("Pass")');
 await p.waitForTimeout(700);
 // a tilt: the screen turned down counts as right, and it must return to upright before the next one counts
 const tilt = (z) => p.evaluate((zz) => window.dispatchEvent(Object.assign(new Event('devicemotion'), { accelerationIncludingGravity: { x: 0, y: 0, z: zz } })), z);
-await tilt(0); await tilt(-9); await p.waitForTimeout(600); await tilt(-9); await p.waitForTimeout(100);
-const score = await p.locator('.charades-top span').nth(1).innerText();
-if (!/^2/.test(score)) fail(`two right answers expected (button and tilt, not twice without returning), got ${score}`);
+await p.waitForTimeout(1300);
+await tilt(0); await tilt(-9); await p.waitForTimeout(80); await tilt(-9);   // too brief: not a tilt yet
+if (!/^1/.test(await p.locator('.charades-top span').nth(1).innerText())) fail('a brief tilt must not count');
+await p.waitForTimeout(250); await tilt(-9);                                   // held long enough
+await p.waitForTimeout(100);
+if (!/^2/.test(await p.locator('.charades-top span').nth(1).innerText())) fail('a held tilt should count');
+await p.waitForTimeout(600);
+if (!(await p.locator('.charades-word').innerText()).includes('forehead')) fail('the next word should wait for the phone to be back on the forehead');
+await tilt(9); await p.waitForTimeout(300); await tilt(9);                    // tilting again before resetting must not count
+await tilt(0); await p.waitForTimeout(800); await tilt(0);                     // upright and still
+await p.waitForTimeout(100);
+if ((await p.locator('.charades-word').innerText()).includes('forehead')) fail('the next word should appear once reset');
+if (!/^2/.test(await p.locator('.charades-top span').nth(1).innerText())) fail('no extra answers while resetting');
 await p.click('button:has-text("Stop")');
 await p.waitForSelector('h1:has-text("right")');
 if (!(await p.locator('li:has-text("✓")').count())) fail('results list the right answers');

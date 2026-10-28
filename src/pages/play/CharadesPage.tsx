@@ -26,6 +26,11 @@ export default function CharadesPage() {
   const [passed, setPassed] = useState<string[]>([]);
   const queue = useRef<string[]>([]);
   const armed = useRef(true);
+  const motionSeen = useRef(false);
+  const beyond = useRef<{ dir: 1 | -1; since: number } | null>(null);
+  const upright = useRef(0);
+  const [gate, setGate] = useState(false);
+  const gateRef = useRef(false);
   const rightRef = useRef<string[]>([]);
   const passedRef = useRef<string[]>([]);
   const phaseRef = useRef<Phase>('pick');
@@ -38,7 +43,8 @@ export default function CharadesPage() {
     if (ok) { rightRef.current = [...rightRef.current, w]; setRight(rightRef.current); } else { passedRef.current = [...passedRef.current, w]; setPassed(passedRef.current); }
     setFlash(ok ? 'right' : 'pass'); buzz(ok ? 30 : 12);
     window.setTimeout(() => setFlash(''), 450);
-    nextWord();
+    // with a tilting phone the next word waits until it is back on the forehead, upright and still
+    if (motionSeen.current) { gateRef.current = true; setGate(true); setWord(''); upright.current = 0; } else nextWord();
   }, [word, nextWord]);
 
   const start = async () => {
@@ -46,7 +52,7 @@ export default function CharadesPage() {
     try { const D = DeviceMotionEvent as unknown as { requestPermission?: () => Promise<string> }; if (typeof D?.requestPermission === 'function') await D.requestPermission(); } catch { /* buttons still work */ }
     queue.current = shuffle(deck.words);
     rightRef.current = []; passedRef.current = []; setRight([]); setPassed([]);
-    setCount(3); setPhase('ready');
+    setCount(3); gateRef.current = false; setGate(false); motionSeen.current = false; beyond.current = null; setPhase('ready');
   };
   useEffect(() => {
     if (phase !== 'ready') return;
@@ -59,20 +65,35 @@ export default function CharadesPage() {
     const t = window.setInterval(() => setLeft((l) => { if (l <= 1) { window.clearInterval(t); setPhase('done'); return 0; } return l - 1; }), 1000);
     return () => window.clearInterval(t);
   }, [phase]);
-  // tilt: the screen turned toward the floor is a right answer, toward the ceiling a pass. A tilt must come back to upright before the next counts.
+  // tilt: the screen turned toward the floor is a right answer, toward the ceiling a pass. It has to be a clear, held tilt (about 55 degrees for a fifth of a second),
+  // and afterwards the next word only appears once the phone is back upright on the forehead and still.
   useEffect(() => {
     if (phase !== 'play') return;
+    const started = Date.now();
     const h = (e: DeviceMotionEvent) => {
       const z = e.accelerationIncludingGravity?.z;
       if (z == null) return;
+      motionSeen.current = true;
       const v = flip ? -z : z;
-      if (Math.abs(v) < 3.5) { armed.current = true; return; }
+      const now = Date.now();
+      if (gateRef.current) {
+        if (Math.abs(v) < 2.5) {
+          if (!upright.current) upright.current = now;
+          if (now - upright.current >= 700) { gateRef.current = false; setGate(false); armed.current = true; beyond.current = null; nextWord(); }
+        } else upright.current = 0;
+        return;
+      }
+      if (now - started < 1200) return;
+      if (Math.abs(v) < 4) { armed.current = true; beyond.current = null; return; }
       if (!armed.current) return;
-      if (v <= -6.5) { armed.current = false; answer(true); } else if (v >= 6.5) { armed.current = false; answer(false); }
+      const dir: 1 | -1 | 0 = v <= -8 ? -1 : v >= 8 ? 1 : 0;
+      if (!dir) { beyond.current = null; return; }
+      if (!beyond.current || beyond.current.dir !== dir) { beyond.current = { dir, since: now }; return; }
+      if (now - beyond.current.since >= 200) { armed.current = false; beyond.current = null; answer(dir === -1); }
     };
     window.addEventListener('devicemotion', h);
     return () => window.removeEventListener('devicemotion', h);
-  }, [phase, answer, flip]);
+  }, [phase, answer, flip, nextWord]);
   useEffect(() => {
     if (phase !== 'done') return;
     const n = rightRef.current.length;
@@ -84,7 +105,7 @@ export default function CharadesPage() {
     return (
       <div className="page charades">
         <h1>Charades</h1>
-        <p className="muted">Hold the phone to your forehead. Your friends act out or describe the word. Tilt down when you get it, up to pass.</p>
+        <p className="muted">Hold the phone to your forehead. Your friends act out or describe the word. Tilt down when you get it, up to pass. After each word, put the phone back on your forehead and hold still for the next one. Pick a deck, then press Start.</p>
         <div className="charades-decks" role="radiogroup" aria-label="Deck">
           {CHARADES_DECKS.map((d) => (
             <button key={d.id} role="radio" aria-checked={deck.id === d.id} className={`charades-deck${deck.id === d.id ? ' on' : ''}`} onClick={() => setDeck(d)}>
@@ -100,7 +121,7 @@ export default function CharadesPage() {
           <span>Flip the tilt (if down and up feel the wrong way round)</span>
           <input type="checkbox" checked={flip} onChange={(e) => { setFlip(e.target.checked); try { localStorage.setItem('sb:charades:flip', e.target.checked ? '1' : '0'); } catch { /* private mode */ } }} />
         </label>
-        <button className="btn primary big" onClick={() => void start()}>Start</button>
+        <div className="charades-startbar"><span>{deck.name}</span><button className="btn primary big" onClick={() => void start()}>Start</button></div>
       </div>
     );
   }
@@ -111,7 +132,7 @@ export default function CharadesPage() {
     return (
       <div className={`charades-stage play${flash ? ` flash-${flash}` : ''}`}>
         <div className="charades-top"><span>{deck.name}</span><span>{right.length} ✓</span><span className={left <= 10 ? 'low' : ''}>{left}</span></div>
-        <div className="charades-word" aria-live="polite">{flash === 'right' ? 'Correct!' : flash === 'pass' ? 'Pass' : word}</div>
+        <div className="charades-word" aria-live="polite">{flash === 'right' ? 'Correct!' : flash === 'pass' ? 'Pass' : gate ? 'Back on your forehead, hold still…' : word}</div>
         <div className="charades-btns">
           <button className="btn big" onClick={() => answer(false)}>Pass</button>
           <button className="btn primary big" onClick={() => answer(true)}>Got it</button>

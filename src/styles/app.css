@@ -5364,3 +5364,8 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 :root[data-layout='compact'] .page.learn { gap: 6px; }
 @media (max-height: 900px) { :root[data-layout='compact'] .page.learn .learn-h span { display: none; } }
 .pg-map.leaflet-container { background: #bfd8e6; }
+
+/* Charades: the Start button stays in view while the decks scroll */
+.charades-startbar { position: sticky; bottom: calc(env(safe-area-inset-bottom, 0px) + 74px); z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 16px; background: color-mix(in srgb, var(--surface) 94%, transparent); box-shadow: 0 6px 20px #0005; }
+.charades-startbar span { font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.charades-startbar .btn { flex: 0 0 auto; min-width: 120px; }
