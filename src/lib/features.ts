@@ -45,6 +45,7 @@ export const FEATURES: Feature[] = [
   { id: 'read.papal', title: 'Papal writings', blurb: 'Encyclicals and letters.', to: '/study/papal', hub: 'read', keywords: 'pope encyclical' },
   { id: 'read.saints', title: 'Saints', blurb: 'Lives of the saints and the saint of the day.', to: '/study/saints', hub: 'read', keywords: 'saint of the day biography' },
   { id: 'read.saintnames', title: 'Find a saint by name', blurb: 'Type a name to see the saints who share it and their days.', to: '/study/saint-names', hub: 'read', keywords: 'name patron baptism confirmation first name' },
+  { id: 'read.choosesaint', title: 'Choose a saint’s name', blurb: 'A short quiz that suggests saints for a confirmation name or a patron.', to: '/study/choose-saint', hub: 'read', keywords: 'confirmation name sponsor patron quiz' },
   { id: 'read.encyclopedia', title: 'Catholic encyclopedia', blurb: 'Articles on the Church’s history, doctrine and life.', to: '/study/encyclopedia', hub: 'read', keywords: 'reference' },
   { id: 'read.mine', title: 'My books', blurb: 'Import your own EPUB or text books and read them here.', to: '/room?tab=mine', hub: 'read', keywords: 'epub import kindle shelf' },
   { id: 'study.visual', title: 'Visual Catechism', blurb: 'The faith as tappable diagrams: Trinity, sacraments, Mass, the Church’s year, salvation history.', to: '/study/visual', hub: 'learn', keywords: 'diagram chart timeline infographic trinity sacraments commandments virtues', hot: true, interest: ['study', 'teach', 'family'] },

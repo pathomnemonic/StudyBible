@@ -31,6 +31,11 @@ await p.goto(`${BASE}/#/calendar?y=2027&m=3`); await p.waitForSelector('.cal-cel
 if ((await p.locator('.cal-cell:not(.blank)').count()) !== 31) fail('March has 31 days');
 if (!(await p.locator('.cal-name').count())) fail('calendar shows some feasts offline');
 
+await p.goto(`${BASE}/#/study/choose-saint`); await p.waitForSelector('.cq .chip');
+await p.click('.cq .chip:has-text("Courage")'); await p.click('.cq .chip:has-text("A young person")');
+await p.click('button:has-text("Show saints")');
+if ((await p.locator('.list li').count()) < 3) fail('confirmation name suggestions');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();
