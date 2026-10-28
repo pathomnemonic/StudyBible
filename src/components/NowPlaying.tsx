@@ -42,6 +42,7 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
         <div className="row" style={{ gap: 10, flexWrap: 'wrap' }}>
           <label>Speed <select value={p.rate} onChange={(ev) => p.setRate(+ev.target.value)}>{SPEEDS.map((r) => <option key={r} value={r}>{r}×</option>)}</select></label>
           <label>Sleep <select value={p.sleep.mode === 'off' ? 'off' : p.sleep.mode === 'end' ? 'end' : 'min'} onChange={(ev) => p.setSleep(ev.target.value === 'off' ? 'off' : ev.target.value === 'end' ? 'end' : 15)}><option value="off">Off</option><option value="end">End of this episode</option><option value="min">{p.sleep.mode === 'minutes' ? `${Math.ceil(p.sleep.left / 60)} min left` : 'In minutes…'}</option></select></label>
+          {p.sleep.mode === 'minutes' && <button className="btn small ghost" onClick={() => p.setSleep(Math.ceil(p.sleep.left / 60) + 5)}>+5 min</button>}
           {p.sleep.mode !== 'end' && <label>Minutes <select value="" onChange={(ev) => ev.target.value && p.setSleep(+ev.target.value)}><option value="">choose</option>{[5, 10, 15, 30, 45, 60, 90].map((m) => <option key={m} value={m}>{m}</option>)}</select></label>}
           {p.showKey && <button className="btn small" onClick={() => setCfg(true)}>This show’s settings</button>}
         </div>
