@@ -48,9 +48,11 @@ export const PRECIOUS_BLOOD: Devotion = {
 export const HUMILITY: Devotion = {
   id: 'litany-humility', name: 'Litany of Humility', blurb: 'A short, searching prayer to be freed from the need for praise. About three minutes.',
   steps: [
+    { title: 'Before you begin', text: 'Pray this slowly, and pause after each line. Let the words search you rather than rushing to the end.' },
     { title: 'The prayer', text: 'O Jesus, meek and humble of heart, hear me.' },
     litany('From the desire of…', ['From the desire of being esteemed', 'From the desire of being loved', 'From the desire of being extolled', 'From the desire of being honored', 'From the desire of being praised', 'From the desire of being preferred to others', 'From the desire of being consulted', 'From the desire of being approved'], 'deliver me, Jesus'),
     litany('From the fear of…', ['From the fear of being humiliated', 'From the fear of being despised', 'From the fear of suffering rebukes', 'From the fear of being calumniated', 'From the fear of being forgotten', 'From the fear of being ridiculed', 'From the fear of being wronged', 'From the fear of being suspected'], 'deliver me, Jesus'),
     litany('That others may be…', ['That others may be loved more than I', 'That others may be esteemed more than I', 'That, in the opinion of the world, others may increase and I may decrease', 'That others may be chosen and I set aside', 'That others may be praised and I unnoticed', 'That others may be preferred to me in everything', 'That others may become holier than I, provided that I become as holy as I should'], 'Jesus, grant me the grace to desire it'),
+    { title: 'Closing', text: 'Jesus, meek and humble of heart, make my heart like yours. Amen.' },
   ],
 };
