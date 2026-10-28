@@ -5436,3 +5436,4 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .ws-cell.found { background: #c9a227; color: #1b1405; }
 .ws-words { display: flex; flex-wrap: wrap; gap: 6px 12px; list-style: none; padding: 0; margin: 8px 0; font-size: .85rem; letter-spacing: .04em; }
 .ws-words li.done { text-decoration: line-through; opacity: .5; }
+.ad-img { width: 100%; max-height: 52vh; object-fit: contain; border-radius: 10px; background: #0002; margin: 4px 0 10px; }

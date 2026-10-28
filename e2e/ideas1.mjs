@@ -78,6 +78,13 @@ await p.mouse.move(a.x + a.width / 2, a.y + a.height / 2); await p.mouse.down();
 if (!(await p.locator('.ws-cell.found').count())) fail('dragging across a word should find it');
 await p.click('button:has-text("Show all")'); await p.waitForSelector('.ws-score');
 
+await p.goto(`${BASE}/#/play/artdetective`); await p.waitForSelector('.ad-img', { timeout: 15000 });
+for (let k = 0; k < 5; k++) {
+  for (const o of await p.locator('.ws-opt').all()) { if (await p.locator('.ws-after').count()) break; await o.click().catch(() => {}); }
+  await p.click('.ws-after .btn.primary');
+}
+await p.waitForSelector('.ws-score'); if (!(await p.locator('.share-wrap button').count())) fail('art detective share');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();
