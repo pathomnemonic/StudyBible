@@ -115,6 +115,7 @@ export const FEATURES: Feature[] = [
   { id: 'teach.handbook', title: 'Teacher handbook', blurb: 'Methods, pacing and support for every grade.', to: '/study/curriculum/teachers', hub: 'teach', keywords: 'handbook parents' },
   { id: 'teach.run', title: 'Run a lesson in one tap', blurb: 'Open any lesson and tap Run this lesson: a timed running order with what to say and ask.', to: '/study/curriculum/5', hub: 'teach', keywords: 'lesson in a box timer teach now plan', hot: true, interest: ['teach'] },
   // You
+  { id: 'you.mysaints', title: 'My saints and days', blurb: 'The saints of your birthday and baptism, with a yearly reminder.', to: '/my-saints', hub: 'you', keywords: 'birthday baptism anniversary saint name day' },
   { id: 'you.goals', title: 'Reading goal', blurb: 'A weekly chapter goal counted from what you read. No streak to lose.', to: '/goals', hub: 'you', keywords: 'target progress weekly habit', interest: ['bible'] },
   { id: 'you.downloads', title: 'Downloads and offline', blurb: 'Save Bibles, study data and audio for no-signal use, with real sizes.', to: '/downloads', hub: 'you', keywords: 'offline save storage space audio plane travel', hot: true },
   { id: 'you.privacy', title: 'Privacy', blurb: 'What stays on your device and exactly when anything leaves it.', to: '/privacy', hub: 'you', keywords: 'data tracking analytics safe' },
