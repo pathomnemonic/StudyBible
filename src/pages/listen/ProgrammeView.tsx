@@ -11,6 +11,8 @@ import Menu, { type MenuItem } from '../../components/Menu';
 import ShowSettings from '../../components/ShowSettings';
 import { toggleFollow, useFollows } from '../../lib/follow';
 import { useLocalFlag } from '../../lib/localFlag';
+import { copyText } from '../../lib/clipboard';
+import { queueLink } from '../../data/playlist';
 import EpisodeRow from './EpisodeRow';
 
 type View = 'next' | 'plan' | 'queue' | 'progress';
@@ -58,6 +60,7 @@ export default function ProgrammeView({ show }: { show: Show }) {
   const todaysEp = days.find((e) => e.day === dayNo);
   const menu: MenuItem[] = [
     { label: 'Search all media', onClick: () => nav('/listen-search') },
+    ...(queue.length ? [{ label: 'Share my queue as a link', onClick: () => void copyText(queueLink(queue.map((x) => x.episodeId))) }] : []),
     { label: 'Hide finished episodes', on: hideDone, onClick: () => setHideDone(!hideDone) },
     { label: 'Show today’s episode by the calendar', on: today, onClick: () => setToday(!today) },
     { label: 'History', onClick: () => { setView('progress'); setShown(12); } },

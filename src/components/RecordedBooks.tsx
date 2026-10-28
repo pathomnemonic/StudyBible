@@ -8,7 +8,7 @@ import { registerEpisodes } from '../data/podcasts';
 import { db } from '../db/db';
 import type { BiayEpisode } from '../data/content';
 
-const epOf = (workId: string, workTitle: string, rec: Recording, i: number): BiayEpisode => ({
+export const epOf = (workId: string, workTitle: string, rec: Recording, i: number): BiayEpisode => ({
   id: `lv:${rec.id}:${i}`, day: null, year: null, kind: 'bonus', title: `${workTitle}: ${rec.parts[i][0]}`, short: rec.parts[i][0], date: '', duration: rec.parts[i][2] || null,
   audio: rec.parts[i][1], page: rec.page, description: `Read by ${rec.reader || 'volunteers'} for LibriVox.`, passages: [], passageSource: 'librivox',
   link: `/room/work/${workId}/0`, artist: `${rec.reader || 'LibriVox volunteers'} · LibriVox`, album: workTitle,

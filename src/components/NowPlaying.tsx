@@ -5,6 +5,8 @@ import { db } from '../db/db';
 import { resolveEpisode, usePlayer } from '../data/PlayerContext';
 import type { BiayEpisode } from '../data/content';
 import Modal from './Modal';
+import { useSettings } from '../lib/store';
+import { parseRefId } from '../lib/refs';
 import ShowSettings from './ShowSettings';
 
 export const SPEEDS = [0.5, 0.7, 0.85, 1, 1.1, 1.25, 1.5, 1.75, 2, 2.5, 3];
@@ -18,6 +20,9 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
   const [cfg, setCfg] = useState(false);
   useEffect(() => { void Promise.all(q.map(async (x) => [x.episodeId, await resolveEpisode(x.episodeId)] as const)).then((r) => setEps(Object.fromEntries(r.filter((x): x is [string, BiayEpisode] => !!x[1])))); }, [q.map((x) => x.episodeId).join()]);
   const e = p.current;
+  const [st] = useSettings();
+  // a Bible in a Year day opens its first passage; a part of a recorded book opens the book. The audio keeps playing while you read.
+  const readAlong = e ? (e.passages[0] ? (() => { const r = parseRefId(e.passages[0]); return r ? `/read/${st.defaultEdition}/${r.book}/${r.c1}` : null; })() : e.id.startsWith('lv:') ? e.link ?? null : null) : null;
   if (!e) return null;
   const share = async () => { const url = e.page || location.href; try { if (navigator.share) await navigator.share({ title: e.title, url }); else await navigator.clipboard.writeText(`${e.title} ${url}`); } catch { /* cancelled */ } };
   return (
@@ -44,6 +49,7 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
         <div className="row" style={{ gap: 8 }}>
           <button className="btn small" onClick={share}>Share</button>
           <button className="btn small" onClick={() => { void db.episodeProgress.put({ episodeId: e.id, position: 0, completed: true, updatedAt: Date.now(), duration: p.duration }); }}>Mark played</button>
+          {readAlong && <Link className="btn small primary" to={readAlong} onClick={onClose}>Read along</Link>}
           {e.link && <Link className="btn small" to={e.link} onClick={onClose}>Open the page</Link>}
         </div>
         {e.description && <details open><summary>Show notes</summary><p className="small" style={{ whiteSpace: 'pre-wrap' }}>{e.description}</p></details>}

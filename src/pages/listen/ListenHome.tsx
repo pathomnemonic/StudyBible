@@ -31,6 +31,8 @@ import PodcastLibrary from './PodcastLibrary';
 import Audiobooks from './Audiobooks';
 import { useShows, type Show } from '../../data/podcasts';
 import { useSettings } from '../../lib/store';
+import { copyText } from '../../lib/clipboard';
+import { queueLink } from '../../data/playlist';
 import { NewDot } from '../../components/Hints';
 
 type View = 'next' | 'plan' | 'extras' | 'queue' | 'progress';
@@ -114,6 +116,7 @@ function BiayListen() {
   const goSearch = () => nav('/listen-search');
   const menuItems: MenuItem[] = [
     { label: 'Search all media', onClick: goSearch },
+    ...(queue.length ? [{ label: 'Share my queue as a link', onClick: () => void copyText(queueLink(queue.map((x) => x.episodeId))) }] : []),
     { label: 'Hide finished episodes', on: hideDone, onClick: () => { const v = !hideDone; setHideDone(v); try { localStorage.setItem(HIDE_KEY, v ? '1' : '0'); } catch { /* private mode */ } } },
     { label: 'Show today’s episode card', on: showToday, onClick: () => setShowToday(!showToday) },
     { label: 'Playback settings', onClick: () => setCfgBiay(true) },
