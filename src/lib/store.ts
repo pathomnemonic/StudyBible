@@ -67,6 +67,8 @@ export interface Settings {
   enabledEditions: string[];
   showVerseNumbers: boolean;
   scriptureOnly: boolean;
+  /** a child's version of the app: stories, simple prayers and games only, left with a grown-up question */
+  kidMode: boolean;
   /** one chapter at a time, or an unbroken scroll through the chapters that follow */
   scrollMode: 'pages' | 'infinite';
   /** a quiet progress line in the corner while reading: minutes left in the chapter and how far */
@@ -176,6 +178,7 @@ export const DEFAULTS: Settings = {
   enabledEditions: [],
   showVerseNumbers: true,
   scriptureOnly: false,
+  kidMode: false,
   scrollMode: 'pages',
   readProgress: true,
   kidsAge: '7-9',

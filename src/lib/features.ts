@@ -128,6 +128,7 @@ export const FEATURES: Feature[] = [
   { id: 'learn.cloister', title: 'Cloister', blurb: 'Link letters into words; words of the faith score extra.', to: '/play/cloister', hub: 'learn', keywords: 'word game letters boggle daily' },
   { id: 'learn.prophet', title: 'The Prophet', blurb: 'Guess dates and numbers from Scripture and Church history.', to: '/play/prophet', hub: 'learn', keywords: 'estimate guess trivia game' },
   { id: 'learn.charades', title: 'Charades', blurb: 'Hold the phone to your forehead and guess saints, Bible stories and more.', to: '/play/charades', hub: 'learn', keywords: 'game heads up play party family kids fun', hot: true },
+  { id: 'you.kid', title: 'Kid mode', blurb: 'A simple version for a child: stories, basic prayers and games.', to: '/kid-mode', hub: 'you', keywords: 'children child family safe lock' },
   { id: 'you.year', title: 'Your year', blurb: 'Chapters read, hours listened and days here, counted on your device.', to: '/your-year', hub: 'you', keywords: 'stats statistics progress summary review wrapped' },
   { id: 'you.history', title: 'History', blurb: 'What you read, heard and opened recently.', to: '/history', hub: 'you', keywords: 'recent recently opened listened viewed' },
   { id: 'you.library', title: 'Notes, highlights and bookmarks', blurb: 'Everything you have written or marked.', to: '/library', hub: 'you', keywords: 'my notes export' },

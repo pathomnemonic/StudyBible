@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Icon from './Icon';
-import { useSettings } from '../lib/store';
+import { getSettings, useSettings } from '../lib/store';
 import CommandPalette from './CommandPalette';
 import Modal from './Modal';
 import Tour from './Tour';
@@ -33,6 +33,9 @@ const TABS = [
   { to: '/pray', label: 'Pray', key: 'nav.pray' as Key, icon: 'pray', match: [] as string[] },
   { to: '/listen', label: 'Media', key: 'nav.listen' as Key, icon: 'listen', match: ['/listen'] },
 ];
+
+const KID_OK = ['/kids', '/study/kids', '/pray/prayers', '/pray/devotions', '/pray/sleep', '/play', '/s', '/study/story', '/study/passage'];
+const KID_TABS = [{ to: '/kids', label: 'Home', icon: '🏠' }, { to: '/study/kids', label: 'Stories', icon: '📖' }, { to: '/pray/prayers', label: 'Prayers', icon: '🙏' }, { to: '/play', label: 'Play', icon: '🎲' }];
 
 /** Sub-menu shown across the daily-practice pages. */
 const DAILY = [
@@ -70,13 +73,14 @@ export default function Shell({ children }: { children: ReactNode }) {
   const [s] = useSettings();
   const sync = useSync();
   const t = useT();
+  const kid = s.kidMode;
   const [palette, setPalette] = useState(false);
   const [keys, setKeys] = useState(false);
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
       const tg = e.target as HTMLElement | null;
       if (e.key === '?' && !/INPUT|TEXTAREA|SELECT/.test(tg?.tagName ?? '') && !tg?.isContentEditable && !location.hash.startsWith('#/read')) setKeys(true);
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k' && !getSettings().kidMode) {
         e.preventDefault();
         setPalette((p) => !p);
       }
@@ -89,6 +93,12 @@ export default function Shell({ children }: { children: ReactNode }) {
       window.removeEventListener('studybible:search', open);
     };
   }, []);
+  // kid mode: only a few places are open, and anywhere else leads back to the child's front page
+  useEffect(() => {
+    if (!kid) return;
+    const p = loc.pathname;
+    if (!KID_OK.some((x) => p === x || p.startsWith(x + '/'))) nav('/kids', { replace: true });
+  }, [kid, loc.pathname, nav]);
   // the Read tab returns to the work you were reading, not the front page
   useEffect(() => {
     const p = loc.pathname;
@@ -147,6 +157,17 @@ export default function Shell({ children }: { children: ReactNode }) {
       <a className="skip" href="#main">
         {t('nav.skip')}
       </a>
+      {kid ? (
+      <nav className="tabs kid-tabs" aria-label={t('nav.main')} ref={navRef}>
+        <span className="tab-pill" aria-hidden="true" />
+        {KID_TABS.map((tb) => {
+          const p = loc.pathname;
+          const active = tb.to === '/kids' ? p === '/kids' : p === tb.to || p.startsWith(tb.to + '/');
+          return <NavLink key={tb.to} to={tb.to} className={() => `tab${active ? ' active' : ''}`} aria-current={active ? 'page' : undefined}><span className="ico" aria-hidden="true" style={{ fontSize: 20 }}>{tb.icon}</span><span>{tb.label}</span></NavLink>;
+        })}
+        <div className="tab-spacer" />
+      </nav>
+      ) : (
       <nav className="tabs" aria-label={t('nav.main')} ref={navRef}>
         <span className="tab-pill" aria-hidden="true" />
         <div className="brand" aria-hidden="true">
@@ -177,6 +198,7 @@ export default function Shell({ children }: { children: ReactNode }) {
         })}
         <div className="tab-spacer" />
       </nav>
+      )}
       <main id="main" className="main">
         {!home && <BackupBanner />}
         {inDaily(loc.pathname) && !fullscreenReader && (

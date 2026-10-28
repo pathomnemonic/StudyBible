@@ -25,7 +25,7 @@ export default function ProfilePage() {
         <Tiles ids={['you.library', 'you.year', 'you.history', 'today.memorize', 'pray.journal', 'pray.intentions', 'you.goals', 'today.days']} />
       </Group>
       <Group title="The app">
-        <Tiles ids={['you.settings', 'you.downloads', 'you.account', 'you.privacy', 'you.about']} />
+        <Tiles ids={['you.settings', 'you.downloads', 'you.kid', 'you.account', 'you.privacy', 'you.about']} />
       </Group>
       <Group title="More">
         <div className="btn-row">
