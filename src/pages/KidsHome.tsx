@@ -10,6 +10,7 @@ const TILES: { to: string; title: string; icon: string; tone: string }[] = [
   { to: '/play/charades', title: 'Charades', icon: '🎭', tone: 'k4' },
   { to: '/play/quartets', title: 'Quartets', icon: '🔶', tone: 'k5' },
   { to: '/pray/sleep', title: 'Bedtime psalm', icon: '🌙', tone: 'k6' },
+  { to: '/kids/stickers', title: 'My stickers', icon: '⭐', tone: 'k1' },
 ];
 
 /** A child's front page: big pictures, a few safe places, and a grown-up question to leave. */

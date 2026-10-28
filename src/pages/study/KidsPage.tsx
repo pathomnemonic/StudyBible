@@ -10,6 +10,7 @@ import { readerPath } from '../../lib/nav';
 import { moreArtFor } from '../../study/inlineArt';
 import { videosFor, type Video } from '../../data/videos';
 import InlinePlayer from '../../components/InlinePlayer';
+import { finishStory, storyDone } from '../../lib/stickers';
 import { embedFor } from '../../lib/embed';
 
 type Age = '4-6' | '7-9' | '10-12';
@@ -76,6 +77,8 @@ function StoryView({ story, stories }: { story?: Story; stories: Story[] }) {
   const [playing, setPlaying] = useState<string | null>(null);
   const [aloud, setAloud] = useState(false);
   const refs = useMemo(() => (story ? anchorRefs(story) : []), [story]);
+  const [finished, setFinished] = useState(false);
+  useEffect(() => setFinished(false), [story?.id]);
   useEffect(() => {
     setAloud(false); setPlaying(null);
     try { speechSynthesis.cancel(); } catch { /* none */ }
@@ -111,6 +114,7 @@ function StoryView({ story, stories }: { story?: Story; stories: Story[] }) {
         <div className="kids-art">{art.map((a) => <figure key={a.id}><img src={import.meta.env.BASE_URL + (a as { file: string }).file} alt={a.title} loading="lazy" /><figcaption className="small muted">{a.title}, {a.artist}</figcaption></figure>)}</div>
       )}
       {mem && <blockquote className="kids-verse"><p>{mem}</p><footer>{story.memory}</footer></blockquote>}
+      <p><button className="btn primary big" onClick={() => { finishStory(story.id); setFinished(true); }}>{finished || storyDone(story.id) ? '⭐ You finished this story' : 'I read it! Get a sticker'}</button> {(finished || storyDone(story.id)) && <Link className="btn ghost" to="/kids/stickers">My stickers</Link>}</p>
       <section className="kids-talk"><h2>Talk about it</h2><ul>{story.talk.map((q) => <li key={q}>{q}</li>)}</ul></section>
       {vids.length > 0 && (
         <section><h2>Watch</h2>

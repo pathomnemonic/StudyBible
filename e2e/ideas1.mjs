@@ -102,6 +102,11 @@ await p.goto(`${BASE}/#/listen?tab=meditate`); await p.waitForSelector('button:h
 await p.click('button:has-text("Chant and hymns") >> nth=0');
 await p.waitForSelector('.player', { timeout: 8000 }).catch(() => fail('sacred radio should start the player'));
 
+await p.goto(`${BASE}/#/study/kids`); await p.waitForSelector('a[href*="/study/kids/"]');
+await p.locator('a[href*="/study/kids/"]').first().click(); await p.waitForSelector('button:has-text("Get a sticker")', { timeout: 10000 });
+await p.click('button:has-text("Get a sticker")'); await p.waitForSelector('.trophy-toast:has-text("sticker")', { timeout: 4000 }).catch(() => fail('sticker toast'));
+await p.goto(`${BASE}/#/kids/stickers`); await p.waitForSelector('.sticker-grid li.got');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

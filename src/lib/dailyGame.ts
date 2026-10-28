@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { gameSticker } from './stickers';
 
 /** Today's number, in the player's own time zone, so a daily puzzle changes at their midnight. */
 export const dayIndex = () => Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 864e5);
@@ -66,6 +67,7 @@ export function recordPlay(game: string, opts: { perfect?: boolean; solved?: boo
     };
     const fresh = TROPHY_LIST.filter((t) => earned[t.id] && !have[t.id]);
     if (fresh.length) { for (const t of fresh) have[t.id] = today; localStorage.setItem(TROPHIES, JSON.stringify(have)); }
+    gameSticker(game, today);
     if (fresh.length && typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('studybible:trophy', { detail: fresh }));
     return fresh;
   } catch { return []; }

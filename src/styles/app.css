@@ -5437,3 +5437,11 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .ws-words { display: flex; flex-wrap: wrap; gap: 6px 12px; list-style: none; padding: 0; margin: 8px 0; font-size: .85rem; letter-spacing: .04em; }
 .ws-words li.done { text-decoration: line-through; opacity: .5; }
 .ad-img { width: 100%; max-height: 52vh; object-fit: contain; border-radius: 10px; background: #0002; margin: 4px 0 10px; }
+
+/* Sticker book */
+.sticker-grid { list-style: none; padding: 0; margin: 12px 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+.sticker-grid li { display: grid; gap: 2px; justify-items: center; text-align: center; padding: 12px 6px; border-radius: 16px; border: 2px dashed var(--border); background: var(--surface); }
+.sticker-grid li.got { border-style: solid; border-color: #c9a227; background: color-mix(in srgb, #c9a227 10%, var(--surface)); }
+.sticker-grid li.locked { opacity: .55; }
+.sticker-ico { font-size: 2.2rem; }
+.sticker-grid em { font-size: .72rem; color: var(--muted); font-style: normal; }

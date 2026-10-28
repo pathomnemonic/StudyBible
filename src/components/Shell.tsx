@@ -12,6 +12,7 @@ import { useEnsureActivePlan } from '../lib/activePlan';
 import { useAutoFill } from '../lib/autoFill';
 import GlossaryLayer from './GlossaryLayer';
 import TrophyToast from './TrophyToast';
+import StickerToast from './StickerToast';
 import { installPrintPrep } from '../lib/printPrep';
 import { startDriveBackup } from '../sync/drive';
 import { useSync } from '../sync/state';
@@ -222,6 +223,7 @@ export default function Shell({ children }: { children: ReactNode }) {
         {children}
         <GlossaryLayer />
         <TrophyToast />
+        <StickerToast />
       </main>
       {keys && (
         <Modal title="Keyboard shortcuts" onClose={() => setKeys(false)}>

@@ -47,6 +47,7 @@ const FamilySheetPage = lazy(() => import('./pages/FamilySheetPage'));
 const BellRingersPage = lazy(() => import('./pages/BellRingersPage'));
 const CouncilsPage = lazy(() => import('./pages/study/CouncilsPage'));
 const CompanionPage = lazy(() => import('./pages/CompanionPage'));
+const StickerBookPage = lazy(() => import('./pages/StickerBookPage'));
 const SaintsPage = lazy(() => import('./pages/study/SaintsPage'));
 const ApologeticsPage = lazy(() => import('./pages/study/ApologeticsPage'));
 const KidsPage = lazy(() => import('./pages/study/KidsPage'));
@@ -386,6 +387,7 @@ export default function App() {
               <Route path="/s/feast/:id" element={<ShareFeastPage />} />
               <Route path="/s/queue" element={<QueueImportPage />} />
               <Route path="/kids" element={<KidsHome />} />
+              <Route path="/kids/stickers" element={<StickerBookPage />} />
               <Route path="/bible-progress" element={<BibleProgressPage />} />
               <Route path="/kid-mode" element={<KidModeStart />} />
               <Route path="/print/:kind/:id?" element={<PrintPage />} />
