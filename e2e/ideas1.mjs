@@ -44,6 +44,11 @@ await p.goto(`${BASE}/#/study/glossary`); await p.waitForSelector('.glossary li 
 // download one Bible, then the cleaner lists it
 await p.goto(`${BASE}/#/downloads`); await p.waitForSelector('h1:has-text("Downloads")');
 
+await p.goto(`${BASE}/#/play/saintguess`); await p.waitForSelector('.sg-clues li');
+await p.fill('.sg-input', 'ma'); await p.locator('.sg-matches button').first().click();
+for (let i = 0; i < 8 && !(await p.locator('.ws-score').count()); i++) await p.click('button:has-text("Another clue"), button:has-text("Give up")');
+await p.waitForSelector('.ws-score'); if (!(await p.locator('.share-wrap button').count())) fail('saint guess share');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

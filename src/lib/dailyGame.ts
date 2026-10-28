@@ -20,7 +20,7 @@ export const loadPlays = (): Plays => { try { return { ...emptyPlays(), ...(JSON
 export const loadTrophies = (): Record<string, number> => { try { return JSON.parse(localStorage.getItem(TROPHIES) ?? '{}') as Record<string, number>; } catch { return {}; } };
 
 export interface Trophy { id: string; icon: string; title: string; how: string }
-export const DAILY_IDS = ['verbum', 'quartets', 'whosaid', 'whichbook', 'chain', 'pilgrim'];
+export const DAILY_IDS = ['verbum', 'quartets', 'saintguess', 'whosaid', 'whichbook', 'chain', 'pilgrim'];
 export const ALL_GAMES = ['verbum', 'quartets', 'whosaid', 'whichbook', 'chain', 'pilgrim', 'crossword', 'cloister', 'prophet', 'charades', 'wordsearch', 'saintguess', 'whoami', 'artdetective', 'doctrineladder', 'familyquiz'];
 export const TROPHY_LIST: Trophy[] = [
   { id: 'first', icon: '🌱', title: 'First steps', how: 'Finish any game.' },

@@ -5,6 +5,7 @@ interface Game { to: string; title: string; blurb: string; icon: string; daily?:
 const GAMES: Game[] = [
   { to: '/play/verbum', title: 'Verbum', blurb: 'The word of the day: five letters from the faith, six tries.', icon: '🟨', daily: 'verbum' },
   { to: '/play/quartets', title: 'Quartets', blurb: 'Sixteen tiles, four hidden sets. A new puzzle every day.', icon: '🔶', daily: 'quartets' },
+  { to: '/play/saintguess', title: 'Saint Guess', blurb: 'Name the saint from clues that get easier.', icon: '🕊️', daily: 'saintguess' },
   { to: '/play/whosaid', title: 'Who Said It?', blurb: 'Five quotations from the saints: who said each?', icon: '💬', daily: 'whosaid' },
   { to: '/play/whichbook', title: 'Which Book?', blurb: 'Name the book of the Bible a verse comes from.', icon: '📖', daily: 'whichbook' },
   { to: '/play/chain', title: 'Chain of Grace', blurb: 'Change one letter at a time to turn one word into another.', icon: '🔗', daily: 'chain' },

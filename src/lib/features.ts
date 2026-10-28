@@ -136,6 +136,7 @@ export const FEATURES: Feature[] = [
   { id: 'learn.whichbook', title: 'Which Book?', blurb: 'Name the book of the Bible a verse comes from.', to: '/play/whichbook', hub: 'learn', keywords: 'bible quiz game verse daily' },
   { id: 'learn.crossword', title: 'Crossword', blurb: 'A small crossword of the faith, new each week.', to: '/play/crossword', hub: 'learn', keywords: 'puzzle game weekly clues' },
   { id: 'learn.pilgrim', title: 'Pin the Place', blurb: 'Tap the map to place a city or mountain from Scripture.', to: '/play/pilgrim', hub: 'learn', keywords: 'map geography game places' },
+  { id: 'learn.saintguess', title: 'Saint Guess', blurb: 'Name the saint from five clues, a new one every day.', to: '/play/saintguess', hub: 'learn', keywords: 'saint quiz game daily guess' },
   { id: 'learn.verbum', title: 'Verbum', blurb: 'The word of the day: five letters from the faith, six tries.', to: '/play/verbum', hub: 'learn', keywords: 'wordle word game daily' },
   { id: 'learn.cloister', title: 'Cloister', blurb: 'Link letters into words; words of the faith score extra.', to: '/play/cloister', hub: 'learn', keywords: 'word game letters boggle daily' },
   { id: 'learn.prophet', title: 'The Prophet', blurb: 'Guess dates and numbers from Scripture and Church history.', to: '/play/prophet', hub: 'learn', keywords: 'estimate guess trivia game' },

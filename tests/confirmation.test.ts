@@ -21,3 +21,14 @@ describe('confirmation name saints', () => {
     expect(r[0].tags.includes('youth') && r[0].tags.includes('courage')).toBe(true);
   });
 });
+
+import { clueFor, redact } from '../src/pages/play/SaintGuessPage';
+describe('Saint Guess clues', () => {
+  it('never give the name away before the last clue', () => {
+    for (const s of NAME_SAINTS) {
+      const key = s.name.replace(/\(.*?\)/g, ' ').split(/\s+/).filter((w) => w.length > 3 && !/^(of|the|and|great)$/i.test(w));
+      for (let n = 0; n < 4; n++) for (const w of key) expect(clueFor(s, n).toLowerCase().includes(w.toLowerCase()), `${s.name} clue ${n}`).toBe(false);
+    }
+  });
+  it('hides a name inside a description', () => { expect(redact('Francis gave up wealth.', 'Francis of Assisi')).toBe('___ gave up wealth.'); });
+});

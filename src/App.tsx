@@ -93,6 +93,7 @@ const WhichBookPage = lazy(() => import('./pages/play/WhichBookPage'));
 const CrosswordPage = lazy(() => import('./pages/play/CrosswordPage'));
 const PinPlacePage = lazy(() => import('./pages/play/PilgrimPage'));
 const TrophiesPage = lazy(() => import('./pages/play/TrophiesPage'));
+const SaintGuessPage = lazy(() => import('./pages/play/SaintGuessPage'));
 const ProphetPage = lazy(() => import('./pages/play/ProphetPage'));
 const MediaSearch = lazy(() => import('./pages/listen/MediaSearch'));
 const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
@@ -352,6 +353,7 @@ export default function App() {
               <Route path="/play/crossword" element={<CrosswordPage />} />
               <Route path="/play/pilgrim" element={<PinPlacePage />} />
               <Route path="/play/trophies" element={<TrophiesPage />} />
+              <Route path="/play/saintguess" element={<SaintGuessPage />} />
               <Route path="/play/verbum" element={<VerbumPage />} />
               <Route path="/play/cloister" element={<CloisterPage />} />
               <Route path="/play/prophet" element={<ProphetPage />} />

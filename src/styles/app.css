@@ -5404,3 +5404,10 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
   details > summary { list-style: none; font-weight: 700; }
   p, li { orphans: 3; widows: 3; }
 }
+
+/* Saint Guess */
+.saintguess { max-width: 520px; margin-inline: auto; }
+.sg-clues { padding-left: 1.2em; display: grid; gap: 6px; }
+.sg-input { width: 100%; min-height: 44px; margin: 8px 0 4px; }
+.sg-matches { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 6px; }
+.sg-matches .btn { width: 100%; justify-content: flex-start; text-align: left; }
