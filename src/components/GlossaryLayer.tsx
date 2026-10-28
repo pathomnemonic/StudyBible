@@ -5,7 +5,7 @@ import { popupY } from '../lib/popupPos';
 
 /** Select a word or phrase anywhere (a reader, a lesson, a work) and, if it is a term of the faith, a small "Define" button appears. */
 export default function GlossaryLayer() {
-  const [hit, setHit] = useState<{ g: GlossaryEntry; x: number; y: number } | null>(null);
+  const [hit, setHit] = useState<{ g?: GlossaryEntry; word?: string; x: number; y: number } | null>(null);
   const [open, setOpen] = useState(false);
   useEffect(() => {
     let t: number | undefined;
@@ -17,9 +17,12 @@ export default function GlossaryLayer() {
         if (!s || s.isCollapsed || txt.length < 4 || txt.length > 40 || txt.split(/\s+/).length > 4) { setHit(null); setOpen(false); return; }
         if (s.anchorNode?.parentElement?.closest('input, textarea, [contenteditable], .glossary-pop')) return;
         const g = lookupTerm(txt);
-        if (!g) { setHit(null); return; }
+        // a single word picked out of the Bible text: offer to see where else it appears
+        const inBible = !!s.anchorNode?.parentElement?.closest('.reader .v, .reader .verse');
+        const word = !g && inBible && /^[A-Za-z]{4,20}$/.test(txt) ? txt.toLowerCase() : undefined;
+        if (!g && !word) { setHit(null); return; }
         const r = s.getRangeAt(0).getBoundingClientRect();
-        setHit({ g, x: Math.max(8, Math.min(window.innerWidth - 300, r.left + r.width / 2 - 140)), y: popupY(r, 40) + (matchMedia('(pointer: coarse)').matches ? 0 : 46) });
+        setHit({ g, word, x: Math.max(8, Math.min(window.innerWidth - 300, r.left + r.width / 2 - 140)), y: popupY(r, 40) + (matchMedia('(pointer: coarse)').matches ? 0 : 46) });
         setOpen(false);
       }, 250);
     };
@@ -27,7 +30,15 @@ export default function GlossaryLayer() {
     return () => { window.clearTimeout(t); document.removeEventListener('selectionchange', f); };
   }, []);
   if (!hit) return null;
-  const { g } = hit;
+  const { g, word } = hit;
+  if (!g && word) {
+    return (
+      <div className="glossary-pop" style={{ left: hit.x, top: hit.y }} onMouseDown={(e) => e.preventDefault()}>
+        <Link className="btn small" to={`/study/concordance?w=${encodeURIComponent(word)}`} onClick={() => setHit(null)}>Where else is “{word}”?</Link>
+      </div>
+    );
+  }
+  if (!g) return null;
   return (
     <div className="glossary-pop" style={{ left: hit.x, top: hit.y }} role="dialog" aria-label={`Meaning of ${g.term}`} onMouseDown={(e) => e.preventDefault()}>
       {!open

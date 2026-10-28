@@ -75,6 +75,7 @@ const YearPage = lazy(() => import('./pages/YearPage'));
 const FathersOnPage = lazy(() => import('./pages/study/FathersOnPage'));
 const QueueImportPage = lazy(() => import('./pages/listen/QueueImportPage'));
 const PrintPage = lazy(() => import('./pages/PrintPage'));
+const BibleProgressPage = lazy(() => import('./pages/BibleProgressPage'));
 const KidsHome = lazy(() => import('./pages/KidsHome'));
 const KidModeStart = lazy(() => import('./pages/KidsHome').then((m) => ({ default: m.KidModeStart })));
 const CharadesPage = lazy(() => import('./pages/play/CharadesPage'));
@@ -339,6 +340,7 @@ export default function App() {
               <Route path="/s/prayer/:id" element={<SharePrayerPage />} />
               <Route path="/s/queue" element={<QueueImportPage />} />
               <Route path="/kids" element={<KidsHome />} />
+              <Route path="/bible-progress" element={<BibleProgressPage />} />
               <Route path="/kid-mode" element={<KidModeStart />} />
               <Route path="/print/:kind/:id?" element={<PrintPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />

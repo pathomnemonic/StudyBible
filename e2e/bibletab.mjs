@@ -1,0 +1,23 @@
+// Chapter companion, Your Bible progress and the word lookup.
+import { chromium } from 'playwright';
+const BASE = process.env.BASE || 'http://localhost:4173';
+const b = await chromium.launch();
+const fail = (m) => { console.error('FAIL', m); process.exit(1); };
+const ctx = await b.newContext({ viewport: { width: 390, height: 844 } });
+await ctx.addInitScript(() => { localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); });
+const p = await ctx.newPage();
+const errs = []; p.on('pageerror', (e) => errs.push(e.message));
+await p.goto(`${BASE}/#/read/webc/LUK/8`); await p.waitForSelector('.chapter-companion summary');
+await p.click('.chapter-companion summary');
+await p.waitForSelector('.cc-body .chip', { timeout: 15000 }).catch(() => fail('Luke 8 should have connections (parallels, places, Mass, key verses)'));
+const txt = await p.locator('.cc-body').innerText();
+if (!/Connected|Where|Read at Mass|Key verses/.test(txt)) fail(`companion empty: ${txt}`);
+await p.goto(`${BASE}/#/bible-progress`); await p.waitForSelector('.bp-book');
+if ((await p.locator('.bp-book').count()) !== 73) fail('73 books');
+await p.goto(`${BASE}/#/read/webc/JHN/1`); await p.waitForSelector('.v');
+const before = await p.locator('.v').first().textContent();
+await p.evaluate(() => { const v = document.querySelector('.v'); const w = /\b(beginning)\b/.exec(v.textContent); const tn = document.createTreeWalker(v, NodeFilter.SHOW_TEXT); let n; while ((n = tn.nextNode())) { const i = n.textContent.indexOf('beginning'); if (i >= 0) { const r = document.createRange(); r.setStart(n, i); r.setEnd(n, i + 9); const s = getSelection(); s.removeAllRanges(); s.addRange(r); break; } } });
+await p.waitForSelector('.glossary-pop a:has-text("Where else")', { timeout: 4000 }).catch(() => fail('a single word should offer a concordance lookup'));
+if (errs.length) fail(errs[0]);
+await b.close();
+console.log('bible tab e2e ok');

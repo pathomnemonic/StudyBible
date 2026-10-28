@@ -5281,3 +5281,11 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .kid-tile { display: grid; place-items: center; gap: 6px; padding: 18px 8px; min-height: 120px; border-radius: 22px; color: #1b1630; text-decoration: none; text-align: center; font-size: 1.05rem; }
 .kid-tile span { font-size: 2.6rem; } .k1 { background: #f6d77a; } .k2 { background: #b9e3a4; } .k3 { background: #f2b3c6; } .k4 { background: #a9cdf2; } .k5 { background: #d6bff0; } .k6 { background: #c8d3f7; }
 .kid-tabs .tab { font-size: 12px; }
+.chapter-companion { margin: 4px 0 10px; font-size: .88rem; } .chapter-companion summary { cursor: pointer; color: var(--muted); }
+.cc-body { display: grid; gap: 8px; padding-top: 6px; } .cc-body .eyebrow { display: block; margin-bottom: 3px; }
+.bp-total { height: 10px; border-radius: 6px; background: color-mix(in srgb, var(--text) 12%, transparent); overflow: hidden; margin: 8px 0 12px; } .bp-total i { display: block; height: 100%; background: var(--accent); }
+.bp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; margin-bottom: 8px; }
+.bp-book { position: relative; overflow: hidden; display: grid; place-items: center; align-content: center; gap: 1px; min-height: 58px; border: 1px solid var(--line, rgba(255,255,255,.16)); border-radius: 12px; color: var(--text); text-decoration: none; background: color-mix(in srgb, var(--accent) 4%, var(--card, transparent)); }
+.bp-book strong, .bp-book span { position: relative; z-index: 1; } .bp-book span { font-size: .7rem; color: var(--muted); }
+.bp-book i { position: absolute; left: 0; right: 0; bottom: 0; background: color-mix(in srgb, var(--accent) 32%, transparent); }
+.bp-book.full { border-color: var(--accent); }

@@ -20,6 +20,7 @@ import { useActivePlan } from '../lib/activePlan';
 import ReadingBar from '../components/ReadingBar';
 import NextChapters from '../components/NextChapters';
 import ChapterCatechism from '../components/ChapterCatechism';
+import ChapterCompanion from '../components/ChapterCompanion';
 import ChapterArt from '../art/chapterArt';
 import { FindInChapter, LookUp, ReadProgress } from '../components/ReaderTools';
 import { setHighlight, toggleBookmark, rangesOverlap } from '../db/ops';
@@ -744,6 +745,7 @@ export default function ReadPage() {
                 </div>
               ) : null;
             })()}
+            {!settings.scriptureOnly && <ChapterCompanion book={bk.id} anchorChapters={anchorChapters} chapterRef={chapterRef} />}
             {chNum === 1 && bookInfo && <div className="notice info"><strong>{bk.name}.</strong> {bookInfo.intro}</div>}
             {psalmDual && <div className="subtitle">Hebrew / English numbering: Psalm {psalmDual}</div>}
             {bk.id === 'PSA' && edition.scheme === 'english' && anchorChapters[0] !== chNum && <div className="subtitle">Vulgate (Douay) numbering: Psalm {anchorChapters.join('–')}</div>}
