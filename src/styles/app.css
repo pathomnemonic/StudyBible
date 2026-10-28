@@ -4342,7 +4342,7 @@ a { text-underline-offset: 3px; }
 .big-clock { font: 800 clamp(2.4rem, 9vw, 4.5rem) var(--font-display, serif); text-align: center; font-variant-numeric: tabular-nums; }
 .test-page { margin-top: 14px; padding: 16px; border: 1px solid var(--hairline, #8884); border-radius: 12px; } .test-opts { padding-left: 1.4em; } .test-page ol > li { margin: 10px 0; break-inside: avoid; }
 .rubric-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--hairline, #8884); } .rubric-row strong { min-width: 130px; }
-@media print { .test-page.key { break-before: page; } .tool-card { border: 0; } body * { visibility: hidden; } .test-sheet, .test-sheet * { visibility: visible; } .test-sheet { position: absolute; left: 0; top: 0; width: 100%; } .no-print { display: none !important; } }
+@media print { .test-page.key { break-before: page; } .tool-card { border: 0; } body:has(.test-sheet) * { visibility: hidden; } body:has(.test-sheet) .test-sheet, body:has(.test-sheet) .test-sheet * { visibility: visible; } .test-sheet { position: absolute; left: 0; top: 0; width: 100%; } .no-print { display: none !important; } }
 .read-stats { display: flex; gap: 12px 22px; align-items: center; flex-wrap: wrap; padding: 12px 14px; border-radius: 16px; border: 1px solid var(--hairline, #8884); margin-bottom: 8px; }
 .read-stats > div { display: grid; min-width: 90px; } .read-stats strong { font: 700 1.7rem var(--font-display); line-height: 1; } .read-stats span { font-size: .78rem; color: var(--muted); }
 .read-stats .bar { display: block; height: 6px; border-radius: 6px; background: color-mix(in srgb, var(--text) 14%, transparent); margin-top: 4px; overflow: hidden; } .read-stats .bar b { display: block; height: 100%; background: var(--accent); }
@@ -4547,7 +4547,7 @@ button, a, [role='button'] { touch-action: manipulation; }
 /* Slide handout (print only) */
 .sl-handout { display: none; }
 @media print {
-  body > *:not(.sl-handout) { display: none !important; }
+  body:has(> .sl-handout) > *:not(.sl-handout) { display: none !important; }
   .sl-handout { display: block !important; color: #000; background: #fff; font: 12pt/1.4 Georgia, serif; padding: 0; }
   .sl-handout h1 { font-size: 20pt; margin: 0; } .sl-handout > p { margin: 0 0 12pt; color: #555; }
   .sl-h-box { break-inside: avoid; border: 1px solid #999; border-radius: 6px; margin: 0 0 10pt; padding: 8pt 10pt; }
@@ -5276,7 +5276,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .ps-note { color: #555; font-size: .88rem; font-style: italic; } .ps-foot { text-align: center; color: #888; font-size: .75rem; margin-top: 18px !important; }
 .ps-steps li { margin: 4px 0; } .ps-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 20px; } .ps-cols ol { margin: 0; padding-left: 20px; } .ps-cols span { color: #666; font-size: .8rem; }
 .ps-prayer { break-inside: avoid; }
-@media print { body * { visibility: hidden; } .print-sheet, .print-sheet * { visibility: visible; } .print-sheet { position: absolute; left: 0; top: 0; width: 100%; border-radius: 0; padding: 0 12mm; } .no-print { display: none !important; } }
+@media print { body:has(.print-sheet) * { visibility: hidden; } body:has(.print-sheet) .print-sheet, body:has(.print-sheet) .print-sheet * { visibility: visible; } .print-sheet { position: absolute; left: 0; top: 0; width: 100%; border-radius: 0; padding: 0 12mm; } .no-print { display: none !important; } }
 .kid-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
 .kid-tile { display: grid; place-items: center; gap: 6px; padding: 18px 8px; min-height: 120px; border-radius: 22px; color: #1b1630; text-decoration: none; text-align: center; font-size: 1.05rem; }
 .kid-tile span { font-size: 2.6rem; } .k1 { background: #f6d77a; } .k2 { background: #b9e3a4; } .k3 { background: #f2b3c6; } .k4 { background: #a9cdf2; } .k5 { background: #d6bff0; } .k6 { background: #c8d3f7; }
@@ -5392,3 +5392,15 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .cal-marks { font-size: .58rem; color: var(--muted); }
 .cal-key { font-size: .7rem; color: var(--muted); margin: 8px 0 0; }
 @media print { .cal-cell { min-height: 24mm; background: #fff !important; border-color: #999; } .cal-name { font-size: 7pt; -webkit-line-clamp: 4; } .cal-sheet { padding: 0 8mm; } }
+
+/* Printing anything: plain, black on white, no buttons or menus, links readable */
+@media print {
+  .btn, button, .chip, .tabbar, .tabs, nav, .fold-chev, .glossary-pop, .trophy-toast, .install-banner, .backup-banner, select, input[type='search'], .filterbar, .continue-strip, .hub-head .action { display: none !important; }
+  .page, .page * { box-shadow: none !important; text-shadow: none !important; }
+  .page { padding: 0 6mm !important; }
+  .card { border: 0 !important; background: transparent !important; padding: 0 !important; break-inside: avoid; }
+  .page h1 { font-size: 20pt !important; margin: 0 0 6pt !important; }
+  .page h2 { font-size: 14pt !important; break-after: avoid; }
+  details > summary { list-style: none; font-weight: 700; }
+  p, li { orphans: 3; widows: 3; }
+}

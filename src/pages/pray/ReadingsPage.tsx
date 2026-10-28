@@ -1,3 +1,4 @@
+import PrintButton from '../../components/PrintButton';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { db } from '../../db/db';
@@ -56,7 +57,7 @@ export default function ReadingsPage() {
   return (
     <div className="page">
       <Link to="/pray" className="small">← Pray</Link>
-      <h1>{t('readings.title')}</h1>
+      <h1>{t('readings.title')} <PrintButton /></h1>
       {!traditionOf(s.tradition).roman && (s.tradition === 'byzantine'
         ? <div className="notice info" role="note"><strong>Your day is shown first.</strong> The Roman (Latin) readings further down are for reference; the Byzantine cycle differs.</div>
         : <div className="notice info" role="note"><strong>Roman readings.</strong> Your Church’s own cycle isn’t in the app yet.</div>)}

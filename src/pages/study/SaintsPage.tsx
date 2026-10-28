@@ -1,3 +1,4 @@
+import PrintButton from '../../components/PrintButton';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { butlerDay, nameScore, nameTokens, type ButlerEntry } from '../../study/butler';
@@ -21,7 +22,7 @@ export default function SaintsPage() {
   useEffect(() => { setList(null); butlerDay(day).then((l) => { setList(l); const w = nameTokens(sp.get('name') ?? ''); let i = -1, top = 0.6; l.forEach((e, k) => { const sc = nameScore(nameTokens(e.name), w); if (sc > top) { top = sc; i = k; } }); setOpen(i >= 0 ? i : l.length === 1 ? 0 : null); setHit(i); }); }, [day]);
   return (
     <div className="page">
-      <h1>Lives of the Saints</h1>
+      <h1>Lives of the Saints <PrintButton /></h1>
       <p className="lede">Alban Butler’s eighteenth-century lives, day by day. <Link to="/study/saint-names">Find a saint by name</Link></p>
       <div className="row" style={{ gap: 8, marginBottom: 10 }}>
         <button className="icon-btn" onClick={() => nav(`/study/saints/${shift(day, -1)}`)} aria-label="Previous day"><Icon name="chevL" /></button>

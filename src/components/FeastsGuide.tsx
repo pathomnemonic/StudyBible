@@ -1,3 +1,4 @@
+import PrintButton from './PrintButton';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -21,6 +22,7 @@ export default function FeastsGuide() {
   const shown = FEASTS.filter((f) => !season || f.season === season);
   return (
     <div>
+      <p style={{ margin: 0, textAlign: 'right' }}><PrintButton /></p>
       <div className="chips" role="group" aria-label="Season" style={{ margin: '4px 0 10px' }}>
         <button className={`chip${!season ? ' sel' : ''}`} aria-pressed={!season} onClick={() => setSeason('')}>All</button>
         {SEASONS.map((x) => <button key={x} className={`chip${season === x ? ' sel' : ''}`} aria-pressed={season === x} onClick={() => setSeason(x)}>{x}</button>)}

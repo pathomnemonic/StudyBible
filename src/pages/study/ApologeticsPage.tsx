@@ -1,3 +1,4 @@
+import PrintButton from '../../components/PrintButton';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getJson } from '../../data/loader';
@@ -88,7 +89,7 @@ function TopicView({ t, all }: { t: ApoTopic; all: ApoTopic[] }) {
     <div className="page apo">
       <Link to="/study/apologetics" className="small">← Questions about the faith</Link>
       <div className="kicker">{t.category}</div>
-      <h1>{t.title}</h1>
+      <h1>{t.title} <PrintButton /></h1>
       <blockquote className="apo-q"><strong>The question.</strong> {t.objection}</blockquote>
       <p className="muted small">This page does not answer the question itself. It gathers what Catholic authors and teachers have written and said about it, so you can read them in their own words, with the verses and Catechism paragraphs they appeal to.</p>
       <Resources items={t.reading} />

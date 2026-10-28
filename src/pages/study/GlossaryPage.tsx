@@ -1,3 +1,4 @@
+import PrintButton from '../../components/PrintButton';
 import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import ShareLinkButton from '../../components/ShareLinkButton';
@@ -14,7 +15,7 @@ export default function GlossaryPage() {
   }, [q]);
   return (
     <div className="page glossary">
-      <h1>Glossary</h1>
+      <h1>Glossary <PrintButton /></h1>
       <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a term" aria-label="Find a term" />
       <p className="muted small">{list.length} terms. Select a word anywhere in the app to see its meaning.</p>
       <ul className="list">

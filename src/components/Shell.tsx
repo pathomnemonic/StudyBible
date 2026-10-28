@@ -12,6 +12,7 @@ import { useEnsureActivePlan } from '../lib/activePlan';
 import { useAutoFill } from '../lib/autoFill';
 import GlossaryLayer from './GlossaryLayer';
 import TrophyToast from './TrophyToast';
+import { installPrintPrep } from '../lib/printPrep';
 import { startDriveBackup } from '../sync/drive';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
@@ -69,6 +70,7 @@ const lastRoom = () => { try { return localStorage.getItem(ROOM_KEY) || '/room';
 export default function Shell({ children }: { children: ReactNode }) {
   useEnsureActivePlan();
   useAutoFill();
+  useEffect(() => installPrintPrep(), []);
   const loc = useLocation();
   const nav = useNavigate();
   const [s] = useSettings();
