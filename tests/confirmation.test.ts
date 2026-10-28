@@ -77,3 +77,16 @@ describe('bell ringers', () => {
     expect(c[2].answer).toBe('A sign');
   });
 });
+
+import { liturgicalDay, parseIso } from '../src/liturgy/compute';
+import { seasonCaption } from '../src/components/SeasonMark';
+describe('season captions', () => {
+  const cap = (iso: string) => seasonCaption(liturgicalDay(parseIso(iso), 'usa'));
+  it('counts Advent candles, days to Easter and days of Easter', () => {
+    expect(cap('2026-12-06')).toMatch(/Advent: week 2, 2 candles/);
+    expect(cap('2027-03-01')).toBe('Lent: 27 days to Easter');
+    expect(cap('2027-03-28')).toBe('Easter: day 1 of fifty');
+    expect(cap('2026-12-27')).toBe('Christmas season');
+    expect(cap('2026-10-28')).toBe('Ordinary Time');
+  });
+});

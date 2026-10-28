@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import SeasonMark, { seasonCaption } from '../../components/SeasonMark';
 import { Link, useSearchParams } from 'react-router-dom';
 import { liturgicalDay, parseIso, COLOR_NAME, type Season } from '../../liturgy/compute';
 import { useSettings } from '../../lib/store';
@@ -76,6 +77,7 @@ function RomanYear() {
   return (
     <div className="page">
       <h1>The Church’s year</h1>
+      <p className="row" style={{ gap: 10, alignItems: 'center' }}><SeasonMark ld={liturgicalDay(new Date(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate())))} size={48} /><strong>{seasonCaption(liturgicalDay(new Date(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()))))}</strong></p>
       <p className="lede">The cycle of seasons and great days that the readings, prayers and saints follow. Dates are for the {nation === 'usa' ? 'United States' : 'universal'} calendar; change it in Settings.</p>
       <ol className="list year-seasons">
         {segments.map((g) => (

@@ -1,3 +1,4 @@
+import SeasonMark from '../components/SeasonMark';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useSettings } from '../lib/store';
@@ -140,7 +141,7 @@ export default function TodayPage() {
       <header className="home-date">
         <button className="icon-btn" onClick={() => go(-1)} aria-label={t('home.prev')}><Icon name="chevL" /></button>
         <div>
-          <div className="eyebrow">{dateLabel}</div>
+          <div className="eyebrow"><SeasonMark ld={ld} /> {dateLabel}</div>
           <h1 className="season">{ld.dayName}</h1>
         </div>
         <button className="icon-btn" onClick={() => go(1)} aria-label={t('home.next')}><Icon name="chevR" /></button>
