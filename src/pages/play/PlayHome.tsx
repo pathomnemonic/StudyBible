@@ -14,6 +14,7 @@ const GAMES: Game[] = [
   { to: '/play/pilgrim', title: 'Pin the Place', blurb: 'Tap the map to place a city or mountain from Scripture.', icon: '📍', daily: 'pilgrim' },
   { to: '/play/wordsearch', title: 'Wordsearch', blurb: 'A weekly theme: find the hidden words.', icon: '🔍' },
   { to: '/play/doctrineladder', title: 'Doctrine ladder', blurb: 'Three levels of questions on what the Church teaches.', icon: '🪜' },
+  { to: '/play/quiznight', title: 'Quiz night', blurb: 'Pass the phone around the family, or host a room.', icon: '🎉' },
   { to: '/play/crossword', title: 'Crossword', blurb: 'A small crossword of the faith, new each week.', icon: '✏️' },
   { to: '/play/cloister', title: 'Cloister', blurb: 'Link letters into words. Words of the faith score extra.', icon: '🔤' },
   { to: '/play/prophet', title: 'The Prophet', blurb: 'Guess the year, the number or the count. Closer scores more.', icon: '🔮' },

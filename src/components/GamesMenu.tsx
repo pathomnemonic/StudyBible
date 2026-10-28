@@ -15,6 +15,7 @@ const LIST: { to: string; title: string; daily?: string }[] = [
   { to: '/play/pilgrim', title: 'Pin the Place', daily: 'pilgrim' },
   { to: '/play/wordsearch', title: 'Wordsearch' },
   { to: '/play/doctrineladder', title: 'Doctrine ladder' },
+  { to: '/play/quiznight', title: 'Quiz night' },
   { to: '/play/crossword', title: 'Crossword' },
   { to: '/play/cloister', title: 'Cloister' },
   { to: '/play/prophet', title: 'The Prophet' },

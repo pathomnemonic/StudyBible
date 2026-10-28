@@ -5466,3 +5466,10 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .bulletin { max-width: 640px; margin-inline: auto; }
 .bul-parish { font: 700 1.1rem/1.2 var(--serif, inherit); text-transform: uppercase; letter-spacing: .08em; margin: 0 0 6px; }
 .bul-sheet h3 { margin: 12px 0 2px; font-size: 1rem; }
+
+/* Quiz night */
+.quiznight { max-width: 560px; margin-inline: auto; }
+.qn-turn { font-weight: 700; font-size: 1.1rem; margin: 6px 0; }
+.qn-q { font-size: 1.2rem; line-height: 1.45; margin: 8px 0 12px; }
+.qn-host { margin: 12px 0; }
+.qn-team { display: inline-flex; align-items: center; gap: 6px; }

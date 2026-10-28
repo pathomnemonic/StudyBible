@@ -117,6 +117,15 @@ await p.goto(`${BASE}/#/bulletin?d=2026-11-08`); await p.waitForSelector('.bul-s
 await p.waitForSelector('.bul-sheet li:has-text("Gospel")', { timeout: 10000 }).catch(() => fail('bulletin lists the readings'));
 await p.fill('.bulletin input >> nth=1', 'St Anne Parish').catch(() => {});
 
+await p.goto(`${BASE}/#/play/quiznight`); await p.waitForSelector('button:has-text("Start the quiz")');
+await p.click('button:has-text("Start the quiz")'); await p.waitForSelector('.qn-q', { timeout: 15000 });
+if (!(await p.locator('.qn-turn').innerText()).includes('Player 1')) fail('first turn');
+for (let k = 0; k < 10; k++) { await p.locator('.ws-opt').first().click(); await p.click('button:has-text("Next question"), button:has-text("See the scores")'); }
+await p.waitForSelector('text=Share the scores');
+await p.click('button:has-text("Change settings")'); await p.click('button:has-text("I’m the host")'); await p.click('button:has-text("Start the quiz")'); await p.waitForSelector('.qn-q');
+await p.click('button:has-text("Reveal the answer")'); await p.click('button:has-text("+1 Team 1")');
+await p.waitForSelector('button:has-text("Next question")');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();
