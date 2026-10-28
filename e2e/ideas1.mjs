@@ -113,6 +113,10 @@ if ((await p.locator('.pk-page').count()) !== 5) fail('five pages in a pack');
 if ((await p.locator('.pk-ws span').count()) !== 121) fail('wordsearch grid');
 if ((await p.locator('.pack svg line').count()) < 100) fail('maze drawn');
 
+await p.goto(`${BASE}/#/bulletin?d=2026-11-08`); await p.waitForSelector('.bul-sheet h2');
+await p.waitForSelector('.bul-sheet li:has-text("Gospel")', { timeout: 10000 }).catch(() => fail('bulletin lists the readings'));
+await p.fill('.bulletin input >> nth=1', 'St Anne Parish').catch(() => {});
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

@@ -5461,3 +5461,8 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .pk-verse { font-size: 1.6rem; line-height: 1.4; text-align: center; margin: 18px 0; }
 .pk-draw { height: 300px; border: 2px solid #000; border-radius: 8px; }
 @media print { .pack-sheet .pk-page { break-after: page; margin: 0; } .pack-sheet .pk-page:last-child { break-after: auto; } .pk-ws span, .pk-cell { border-color: #000 !important; background: #fff !important; } .pack-sheet, .pack-sheet * { color: #000 !important; } }
+
+/* Parish bulletin */
+.bulletin { max-width: 640px; margin-inline: auto; }
+.bul-parish { font: 700 1.1rem/1.2 var(--serif, inherit); text-transform: uppercase; letter-spacing: .08em; margin: 0 0 6px; }
+.bul-sheet h3 { margin: 12px 0 2px; font-size: 1rem; }
