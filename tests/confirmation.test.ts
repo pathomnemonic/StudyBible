@@ -113,3 +113,23 @@ describe('councils', () => {
     COUNCILS.forEach((c, i) => { expect(c.n).toBe(i + 1); expect(c.settled.length, c.name).toBeGreaterThan(0); expect(c.why.length, c.name).toBeGreaterThan(30); expect(c.matters.length, c.name).toBeGreaterThan(20); });
   });
 });
+
+import { ADVENT, LENT } from '../src/data/companion';
+import { companionFor } from '../src/pages/CompanionPage';
+describe('Advent and Lent companion', () => {
+  it('keeps its fixed days where they belong', () => {
+    expect(ADVENT.length).toBe(28); expect(LENT.length).toBe(46);
+    expect(ADVENT[27].title).toBe('Christmas Eve'); expect(ADVENT[20].title).toBe('O Wisdom'); expect(ADVENT[26].title).toBe('Emmanuel');
+    expect(LENT[0].title).toMatch(/Ash Wednesday/); expect(LENT[39].title).toBe('Palm Sunday'); expect(LENT[43].title).toBe('Holy Thursday'); expect(LENT[45].title).toBe('Holy Saturday');
+    for (const d of [...ADVENT, ...LENT]) for (const k of ['title', 'ref', 'reflection', 'action', 'prayer'] as const) expect(d[k].length, d.title).toBeGreaterThan(5);
+  });
+  it('finds the right entry for a date', () => {
+    expect(companionFor('2026-12-17')?.entry.title).toBe('O Wisdom');
+    expect(companionFor('2026-12-24')?.entry.title).toBe('Christmas Eve');
+    expect(companionFor('2027-02-10')?.entry.title).toMatch(/Ash Wednesday/);
+    expect(companionFor('2027-03-21')?.entry.title).toBe('Palm Sunday');
+    expect(companionFor('2027-03-27')?.entry.title).toBe('Holy Saturday');
+    expect(companionFor('2026-10-28')).toBeNull();
+    expect(companionFor('2026-12-26')).toBeNull();
+  });
+});

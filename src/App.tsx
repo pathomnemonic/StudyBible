@@ -46,6 +46,7 @@ const ConfirmationNamePage = lazy(() => import('./pages/study/ConfirmationNamePa
 const FamilySheetPage = lazy(() => import('./pages/FamilySheetPage'));
 const BellRingersPage = lazy(() => import('./pages/BellRingersPage'));
 const CouncilsPage = lazy(() => import('./pages/study/CouncilsPage'));
+const CompanionPage = lazy(() => import('./pages/CompanionPage'));
 const SaintsPage = lazy(() => import('./pages/study/SaintsPage'));
 const ApologeticsPage = lazy(() => import('./pages/study/ApologeticsPage'));
 const KidsPage = lazy(() => import('./pages/study/KidsPage'));
@@ -285,6 +286,7 @@ export default function App() {
               <Route path="/calendar" element={<CalendarMonthPage />} />
               <Route path="/family-sheet" element={<FamilySheetPage />} />
               <Route path="/teach/bell" element={<BellRingersPage />} />
+              <Route path="/companion" element={<CompanionPage />} />
               <Route path="/my-saints" element={<MySaintsPage />} />
               <Route path="/study/choose-saint" element={<ConfirmationNamePage />} />
               <Route path="/study/councils" element={<CouncilsPage />} />
