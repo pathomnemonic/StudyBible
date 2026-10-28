@@ -5378,3 +5378,17 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .trophy-grid em { font-size: .74rem; color: var(--muted); font-style: normal; }
 .trophy-toast { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 10px); left: 50%; transform: translateX(-50%); z-index: 900; display: flex; gap: 10px; align-items: center; padding: 10px 16px; border: 1px solid #c9a227; border-radius: 999px; background: var(--surface); box-shadow: 0 8px 24px #0006; max-width: calc(100vw - 24px); }
 .streak-chip { display: inline-block; margin-left: 8px; padding: 2px 10px; border-radius: 999px; background: color-mix(in srgb, #c9a227 25%, transparent); font-size: .8rem; font-weight: 600; text-decoration: none; color: inherit; }
+
+/* Church calendar month */
+.cal-month .cal-title { text-align: center; margin: 4px 0 8px; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; }
+.cal-dow { text-align: center; font-size: .72rem; font-weight: 700; color: var(--muted); }
+.cal-cell { position: relative; min-height: 62px; padding: 3px 4px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); display: grid; align-content: start; gap: 1px; overflow: hidden; }
+.cal-cell.blank { border: 0; background: transparent; }
+.cal-cell.sun { background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
+.cal-num { font-weight: 700; font-size: .85rem; }
+.cal-dot { position: absolute; top: 5px; right: 5px; width: 9px; height: 9px; border-radius: 50%; border: 1px solid #8886; }
+.cal-name { font-size: .62rem; line-height: 1.15; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.cal-marks { font-size: .58rem; color: var(--muted); }
+.cal-key { font-size: .7rem; color: var(--muted); margin: 8px 0 0; }
+@media print { .cal-cell { min-height: 24mm; background: #fff !important; border-color: #999; } .cal-name { font-size: 7pt; -webkit-line-clamp: 4; } .cal-sheet { padding: 0 8mm; } }

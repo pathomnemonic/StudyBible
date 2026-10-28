@@ -27,6 +27,10 @@ if (!(await p.locator('.streak-chip').innerText()).includes('1 day')) fail('stre
 
 await p.goto(`${BASE}/#/pray/prayers?tag=home`); await p.waitForSelector('text=Blessing of a new home', { timeout: 8000 }).catch(() => fail('home prayers'));
 
+await p.goto(`${BASE}/#/calendar?y=2027&m=3`); await p.waitForSelector('.cal-cell');
+if ((await p.locator('.cal-cell:not(.blank)').count()) !== 31) fail('March has 31 days');
+if (!(await p.locator('.cal-name').count())) fail('calendar shows some feasts offline');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();
