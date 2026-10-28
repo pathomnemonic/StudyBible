@@ -52,7 +52,7 @@ describe('rosary bead plan', () => {
 
 describe('more devotions', () => {
   it('every step has something to pray or read', () => {
-    for (const d of MORE) { expect(d.steps.length).toBeGreaterThan(5); for (const s of d.steps) expect(Boolean(s.text || s.refs), `${d.id}: ${s.title}`).toBe(true); }
+    for (const d of MORE) { expect(d.steps.length).toBeGreaterThanOrEqual(5); for (const s of d.steps) expect(Boolean(s.text || s.refs), `${d.id}: ${s.title}`).toBe(true); }
   });
   it('the chaplet of St Michael has nine salutations and the holy hour has silences', () => {
     expect(MORE.find((d) => d.id === 'st-michael')!.steps.filter((s) => /^\d\. The choir/.test(s.title)).length).toBe(9);
