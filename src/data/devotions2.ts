@@ -95,4 +95,5 @@ export const CONFESSION: Devotion = {
     { title: 'Thank God and do your penance', text: 'Thank him in the church, and do your penance soon. If you forgot a sin, it is forgiven; mention it next time. If you can, make amends to anyone you have wronged.', note: 'Welcome home.' },
   ],
 };
-export const MORE: Devotion[] = [HOLY_HOUR, LORETO, JOSEPH, MICHAEL];
+import { SACRED_HEART, HOLY_NAME, PRECIOUS_BLOOD, HUMILITY } from './devotions3';
+export const MORE: Devotion[] = [HOLY_HOUR, LORETO, JOSEPH, MICHAEL, SACRED_HEART, HOLY_NAME, PRECIOUS_BLOOD, HUMILITY];

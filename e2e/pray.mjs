@@ -91,7 +91,7 @@ for (const [vw, vh, tag] of [[1280, 900, 'wide'], [390, 800, 'narrow']]) {
   await p.locator('.rosary-bar .btn.primary').click();
   await p.waitForSelector('.rosary-art img', { timeout: 6000 }).catch(() => fail('stations: no picture at the first station'));
   await over('stations');
-  for (const more of ['holy-hour', 'loreto', 'litany-st-joseph', 'st-michael']) {
+  for (const more of ['holy-hour', 'loreto', 'litany-st-joseph', 'st-michael', 'litany-sacred-heart', 'litany-holy-name', 'litany-precious-blood', 'litany-humility']) {
     await p.goto(`${BASE}/#/pray/devotions/${more}`);
     await p.waitForSelector('.rosary-card');
     for (let n = 0; n < 3; n++) await p.locator('.rosary-bar .btn.primary').click();
