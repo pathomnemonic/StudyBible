@@ -70,6 +70,8 @@ const HistoryPage = lazy(() => import('./pages/HistoryPage'));
 const GlossaryPage = lazy(() => import('./pages/study/GlossaryPage'));
 const AskPage = lazy(() => import('./pages/study/AskPage'));
 const FeastCardPage = lazy(() => import('./pages/FeastCardPage'));
+const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
+const ComparePage = lazy(() => import('./pages/study/ComparePage'));
 const ShareVersePage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.ShareVersePage })));
 const SharePrayerPage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.SharePrayerPage })));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
@@ -307,6 +309,8 @@ export default function App() {
               <Route path="/study/glossary" element={<GlossaryPage />} />
               <Route path="/study/ask" element={<AskPage />} />
               <Route path="/feast/:date?" element={<FeastCardPage />} />
+              <Route path="/study/doctrine-map" element={<DoctrineMapPage />} />
+              <Route path="/study/compare" element={<ComparePage />} />
               <Route path="/s/verse" element={<ShareVersePage />} />
               <Route path="/s/prayer/:id" element={<SharePrayerPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />

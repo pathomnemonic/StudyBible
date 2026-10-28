@@ -27,6 +27,10 @@ export default function DoctrinePage() {
     <div className="page">
       <h1>Doctrine & Catechism</h1>
       <p className="lede">Scripture and Church teaching, connected in both directions.</p>
+      <div className="row" style={{ gap: 8, flexWrap: 'wrap', margin: '0 0 8px' }}>
+        <Link className="btn small" to="/study/doctrine-map">The Catechism in one view</Link>
+        <Link className="btn small" to="/study/compare">Compare the sources</Link>
+      </div>
       <Fold id="doctrine:labels" title="How teaching is labelled">
         <ul className="list small">
           {Object.entries(d.levels).map(([k, v]) => (

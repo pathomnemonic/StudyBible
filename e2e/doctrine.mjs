@@ -1,0 +1,20 @@
+// The doctrine map opens its parts; the comparison shows the Catechism, documents and Fathers for a topic.
+import { chromium } from 'playwright';
+const BASE = process.env.BASE || 'http://localhost:4173';
+const b = await chromium.launch();
+const fail = (m) => { console.error('FAIL', m); process.exit(1); };
+const ctx = await b.newContext({ viewport: { width: 390, height: 844 } });
+await ctx.addInitScript(() => { localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); });
+const p = await ctx.newPage();
+const errs = []; p.on('pageerror', (e) => errs.push(e.message));
+await p.goto(`${BASE}/#/study/doctrine-map`); await p.waitForSelector('.dmap-part');
+if ((await p.locator('.dmap-part').count()) !== 4) fail('four parts expected');
+await p.click('.dmap-creed .dmap-head'); await p.waitForSelector('.dmap-creed .dmap-body a');
+if (!(await p.locator('.dmap-creed .chip').count())) fail('the Creed part should list doctrine topics');
+await p.goto(`${BASE}/#/study/compare?topic=eucharist`);
+await p.waitForSelector('.compare-cols section[aria-label="The Catechism"] p:has(a)', { timeout: 15000 }).catch(() => fail('Catechism column empty'));
+await p.waitForSelector('.compare-cols section[aria-label="Church documents"] p strong', { timeout: 15000 }).catch(() => fail('documents column empty'));
+await p.waitForSelector('.compare-cols section[aria-label="The Fathers"] p strong', { timeout: 30000 }).catch(() => fail('Fathers column empty'));
+if (errs.length) fail(errs[0]);
+await b.close();
+console.log('doctrine e2e ok');

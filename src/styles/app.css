@@ -5197,3 +5197,15 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
   .tabs { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: var(--surface) !important; }
   .tabs .tab { transform: none !important; }
 }
+.dmap { list-style: none; margin: 10px 0; padding: 0; display: grid; gap: 4px; }
+.dmap-part { position: relative; border: 1px solid var(--line, rgba(255,255,255,.14)); border-radius: 16px; padding: 10px 12px; background: color-mix(in srgb, var(--accent) 6%, var(--card, transparent)); }
+.dmap-head { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: baseline; width: 100%; text-align: left; background: none; border: 0; padding: 0; color: var(--text); cursor: pointer; }
+.dmap-verb { font-family: var(--serif, inherit); font-size: 1.25rem; color: var(--accent); }
+.dmap-title { font-weight: 600; }
+.dmap-range { font-size: .75rem; color: var(--muted); }
+.dmap-blurb { margin: 4px 0 0; font-size: .85rem; color: var(--muted); }
+.dmap-body { margin-top: 8px; display: grid; gap: 6px; }
+.dmap-arrow { display: block; text-align: center; color: var(--muted); margin-bottom: -22px; position: relative; top: 14px; font-size: 1rem; }
+.compare-cols { display: grid; gap: 10px; grid-template-columns: 1fr; margin-top: 10px; }
+@media (min-width: 900px) { .compare-cols { grid-template-columns: repeat(3, 1fr); } }
+.compare-cols .card p { margin: 0 0 8px; font-size: .92rem; }
