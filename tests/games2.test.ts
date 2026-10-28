@@ -5,23 +5,24 @@ import { CROSSWORDS } from '../src/data/crosswords';
 import { shortest } from '../src/pages/play/ChainPage';
 import { layout } from '../src/pages/play/CrosswordPage';
 
-const words = new Set<string>((JSON.parse(readFileSync('public/data/play/words.json', 'utf8')).words as string[]).filter((w) => w.length === 4));
+const words = new Set<string>((JSON.parse(readFileSync('public/data/play/words.json', 'utf8')).words as string[]).filter((w) => w.length >= 3 && w.length <= 5));
 
 describe('Chain of Grace', () => {
-  it('every ladder can be solved in three to six steps', () => {
+  it('has plenty of puzzles', () => { expect(LADDERS.length).toBeGreaterThanOrEqual(60); });
+  it('every ladder can be solved in three to seven steps', () => {
     for (const [a, b] of LADDERS) {
-      expect(words.has(a) && words.has(b), `${a} ${b}`).toBe(true);
+      expect(words.has(a) && words.has(b) && a.length === b.length, `${a} ${b}`).toBe(true);
       const p = shortest(a, b, words);
       expect(p, `${a} → ${b}`).not.toBeNull();
       expect(p!.length - 1).toBeGreaterThanOrEqual(3);
-      expect(p!.length - 1).toBeLessThanOrEqual(6);
+      expect(p!.length - 1).toBeLessThanOrEqual(7);
     }
   });
 });
 
 describe('crosswords', () => {
   it('have only the words they list: every run of two or more letters is a listed word', () => {
-    expect(CROSSWORDS.length).toBeGreaterThanOrEqual(12);
+    expect(CROSSWORDS.length).toBeGreaterThanOrEqual(50);
     for (const [n, p] of CROSSWORDS.entries()) {
       const { cells } = layout(p);
       const listed = new Set(p.words.map((w) => `${w.d}:${w.r},${w.c}:${w.w}`));

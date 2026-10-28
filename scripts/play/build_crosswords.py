@@ -6,8 +6,8 @@ root = os.path.join(os.path.dirname(__file__), '..', '..')
 clues = {}
 for l in open(os.path.join(root, 'scripts/play/clues.txt'), encoding='utf-8'):
     w, c = l.rstrip('\n').split('|'); clues[w] = c
-words = [w for w in clues if 3 <= len(w) <= 9]
-N = 11
+words = [w for w in clues if 3 <= len(w) <= 10]
+N = 12
 
 def try_build(rnd):
     pool = words[:]; rnd.shuffle(pool)
@@ -59,14 +59,14 @@ def crop(placed):
 rnd = random.Random(2026)
 puzzles, seen = [], set()
 tries = 0
-while len(puzzles) < 24 and tries < 4000:
+while len(puzzles) < 80 and tries < 30000:
     tries += 1
     p = try_build(rnd)
     if len(p) < 9: continue
     p, h, w = crop(p)
-    if h > 10 or w > 10: continue
+    if h > 11 or w > 11: continue
     key = frozenset(x[0] for x in p)
-    if any(len(key & s) > 4 for s in seen): continue
+    if any(len(key & s) > 3 for s in seen): continue
     seen.add(key)
     puzzles.append({'rows': h, 'cols': w, 'words': [{'w': x[0], 'r': x[1], 'c': x[2], 'd': x[3], 'clue': clues[x[0]]} for x in p]})
 print(len(puzzles), 'puzzles in', tries, 'tries', file=sys.stderr)

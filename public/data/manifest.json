@@ -9029,13 +9029,15 @@
   {
    "id": "more",
    "label": "Everything else (art lists, licenses, manuscripts and small tables)",
-   "bytes": 402399,
+   "bytes": 496940,
    "files": [
     "art-more.json",
     "art.json",
     "editions.json",
     "licenses.json",
     "manuscripts.json",
+    "play/basemap.json",
+    "play/verses.json",
     "play/words.json",
     "versification.json"
    ],
@@ -9043,8 +9045,10 @@
     223821,
     14195,
     35453,
-    8506,
+    8646,
     14683,
+    84916,
+    9485,
     92312,
     13429
    ],
@@ -9052,8 +9056,10 @@
     "d9d052672f8ebbd3",
     "a53d74769abc96df",
     "1e673142be542701",
-    "f7db12214d3e1ce4",
+    "fde25344cc44aeb1",
     "f8ce45df7d0ffcf2",
+    "54570d0110779949",
+    "7c9b28acbeb29d2b",
     "e4dd48868810673b",
     "cf5ab83405e8c008"
    ]

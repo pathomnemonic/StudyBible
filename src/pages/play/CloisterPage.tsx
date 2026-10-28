@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getJson } from '../../data/loader';
 import { THEMED } from '../../data/cloister';
+import ShareButton from '../../components/ShareButton';
 import { buzz } from '../../lib/haptics';
 
 const N = 5, TIME = 180;
@@ -115,7 +116,8 @@ export default function CloisterPage() {
           <h2 className="eyebrow-h">Words you missed</h2>
           <div className="cl-found">{[...possible].filter((w) => !found.includes(w)).sort((a, b) => score(b) - score(a)).slice(0, 24).map((w) => <span key={w} className={`chip${THEMED.has(w) ? ' sel' : ''}`}>{w}</span>)}</div>
           <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginTop: 10 }}>
-            <button className="btn primary" onClick={() => begin(false)}>A new board</button>
+            <ShareButton text={`Cloister ${daily ? '#' + seed : 'practice'} 🔤 ${total} points\n${found.length} of ${possible.size} words · ${found.filter((w) => THEMED.has(w)).length} of the faith ✝️\n${'🟨'.repeat(Math.min(10, Math.round((found.length / Math.max(1, possible.size)) * 10)))}${'⬜'.repeat(10 - Math.min(10, Math.round((found.length / Math.max(1, possible.size)) * 10)))}`} path="/play/cloister" />
+            <button className="btn" onClick={() => begin(false)}>A new board</button>
             <button className="btn" onClick={() => setPhase('start')}>Back</button>
           </div>
         </>

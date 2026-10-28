@@ -8,7 +8,7 @@ await ctx.addInitScript(() => { localStorage.setItem('sb:setup', '2'); localStor
 const p = await ctx.newPage();
 const errs = []; p.on('pageerror', (e) => errs.push(e.message));
 await p.goto(`${BASE}/#/play`); await p.waitForSelector('.play-card');
-if ((await p.locator('.play-card').count()) !== 4) fail('four games expected');
+if ((await p.locator('.play-card').count()) < 10) fail('ten games expected');
 // Quartets: solve puzzle q1 by clicking the right tiles
 await p.goto(`${BASE}/#/play/quartets?p=q1`); await p.waitForSelector('.q-tile');
 if ((await p.locator('.q-tile').count()) !== 16) fail('sixteen tiles');
@@ -18,7 +18,7 @@ for (const t of ['Frogs', 'Locusts', 'Darkness', 'Joy']) await p.click(`.q-tile:
 await p.click('button:has-text("Submit")');
 if (!/One away/.test(await p.locator('.q-msg').innerText())) fail('three of four should say one away');
 for (const s of sets) { for (const t of s) await p.click(`.q-tile:text-is("${t}")`); await p.click('button:has-text("Submit")'); await p.waitForTimeout(150); }
-await p.waitForSelector('button:has-text("Copy my result")');
+await p.waitForSelector('button:has-text("Share my result")');
 if ((await p.locator('.q-row').count()) !== 4) fail('four solved rows');
 // Cloister: the board loads and the solver finds words
 await p.goto(`${BASE}/#/play/cloister`); await p.waitForSelector('button:has-text("Today’s board"):not([disabled])', { timeout: 15000 });

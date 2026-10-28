@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CROSSWORDS, type Crossword } from '../../data/crosswords';
+import ShareButton from '../../components/ShareButton';
 import { dayIndex } from '../../lib/dailyGame';
 
 const weekNo = () => Math.floor((dayIndex() + 3) / 7);
@@ -29,6 +30,10 @@ export default function CrosswordPage() {
   const [sel, setSel] = useState<string | null>(null);
   const [dir, setDir] = useState<'a' | 'd'>('a');
   const [checked, setChecked] = useState(false);
+  const [note, setNote] = useState('');
+  const [revealed, setRevealed] = useState<Set<string>>(new Set());
+  const [checks, setChecks] = useState(0);
+  const started = useRef(Date.now());
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => { if (weekly) try { localStorage.setItem(SAVE, JSON.stringify({ week: weekNo(), fill } satisfies Saved)); } catch { /* private mode */ } }, [fill, weekly]);
   const solved = [...L.cells].every(([k, ch]) => fill[k] === ch);
@@ -46,10 +51,18 @@ export default function CrosswordPage() {
     const cs = cellsOf(w), at = cs.indexOf(k) + step;
     if (at >= 0 && at < cs.length) setSel(cs[at]);
   };
-  const type = (ch: string) => { if (!sel) return; setFill((f) => ({ ...f, [sel]: ch })); setChecked(false); move(sel, 1); };
+  const type = (ch: string) => { if (!sel) return; setFill((f) => ({ ...f, [sel]: ch })); setChecked(false); setNote(''); move(sel, 1); };
   const back = () => { if (!sel) return; if (fill[sel]) setFill((f) => { const g = { ...f }; delete g[sel]; return g; }); else { move(sel, -1); } };
-  const reveal = () => { if (!sel) return; const ch = L.cells.get(sel); if (ch) setFill((f) => ({ ...f, [sel]: ch })); };
-  const share = () => { const t = `Crossword, week ${weekNo()}: solved`; if (navigator.share) navigator.share({ text: t }).catch(() => undefined); else navigator.clipboard?.writeText(t).catch(() => undefined); };
+  const reveal = () => { if (!sel) { setNote('Tap a square first, then Reveal letter.'); return; } const ch = L.cells.get(sel); if (ch) { setFill((f) => ({ ...f, [sel]: ch })); setRevealed((r) => new Set(r).add(sel)); setNote(''); } };
+  const check = () => {
+    const all = [...L.cells.keys()];
+    const wrong = all.filter((k) => fill[k] && fill[k] !== L.cells.get(k)).length;
+    const empty = all.filter((k) => !fill[k]).length;
+    setChecked(true); setChecks((c) => c + 1);
+    setNote(wrong ? `${wrong} letter${wrong === 1 ? ' is' : 's are'} wrong, marked in red.` : empty ? `Everything so far is right. ${empty} square${empty === 1 ? '' : 's'} still empty.` : 'All correct!');
+  };
+  const mins = Math.max(1, Math.round((Date.now() - started.current) / 60000));
+  const shareText = () => `Crossword, week ${weekNo()} ✏️ solved in about ${mins} min${revealed.size ? ` · ${revealed.size} letter${revealed.size === 1 ? '' : 's'} revealed` : ' · no reveals'}${checks ? ` · ${checks} check${checks === 1 ? '' : 's'}` : ''}\n` + Array.from({ length: p.rows }, (_, r) => Array.from({ length: p.cols }, (_, c) => { const k = `${r},${c}`; return !L.cells.has(k) ? '⬛' : revealed.has(k) ? '🟦' : '🟨'; }).join('')).join('\n');
   const across = p.words.filter((w) => w.d === 'a').sort((a, b) => L.num(a) - L.num(b));
   const down = p.words.filter((w) => w.d === 'd').sort((a, b) => L.num(a) - L.num(b));
   const clueRow = (w: Crossword['words'][number]) => <li key={`${w.d}${w.r}${w.c}`}><button className={`cw-clue${active === w ? ' on' : ''}`} onClick={() => { setSel(cellsOf(w)[0]); setDir(w.d); input.current?.focus(); }}><b>{L.num(w)}</b> {w.clue} <span className="muted">({w.w.length})</span></button></li>;
@@ -72,10 +85,11 @@ export default function CrosswordPage() {
       </div>
       <input ref={input} className="cw-input" aria-label="Type a letter" autoCapitalize="none" autoCorrect="off" spellCheck={false} value="" onChange={(e) => { const ch = e.target.value.slice(-1).toLowerCase(); if (/^[a-z]$/.test(ch)) type(ch); }} onKeyDown={(e) => { if (e.key === 'Backspace') { e.preventDefault(); back(); } }} />
       {solved ? (
-        <div className="ws-end"><p className="ws-score">Solved</p><div className="row" style={{ justifyContent: 'center', gap: 8 }}><button className="btn" onClick={share}>Share</button><button className="btn ghost" onClick={() => { setIdx((x) => (x + 1) % CROSSWORDS.length); setFill({}); setSel(null); setChecked(false); }}>Another puzzle</button></div></div>
+        <div className="ws-end"><p className="ws-score">Solved</p><div className="row" style={{ justifyContent: 'center', gap: 8 }}><ShareButton text={shareText()} path="/play/crossword" label="Share my solve" className="btn" /><button className="btn ghost" onClick={() => { setIdx((x) => (x + 1) % CROSSWORDS.length); setFill({}); setSel(null); setChecked(false); }}>Another puzzle</button></div></div>
       ) : (
-        <div className="row" style={{ gap: 8, margin: '10px 0' }}><button className="btn small" onClick={() => setChecked(true)}>Check</button><button className="btn small ghost" onClick={reveal} disabled={!sel}>Reveal letter</button></div>
+        <div className="row" style={{ gap: 8, margin: '10px 0' }}><button className="btn small" onClick={check}>Check</button><button className="btn small ghost" onClick={reveal}>Reveal letter</button></div>
       )}
+      <p className="vb-msg" aria-live="polite">{note}</p>
       <div className="cw-clues">
         <div><h2>Across</h2><ul className="list">{across.map(clueRow)}</ul></div>
         <div><h2>Down</h2><ul className="list">{down.map(clueRow)}</ul></div>

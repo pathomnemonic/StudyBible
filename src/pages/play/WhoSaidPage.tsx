@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { loadDaily } from '../../study/daily';
+import ShareButton from '../../components/ShareButton';
 import { dayIndex, markDailyDone, seeded, shuffled } from '../../lib/dailyGame';
 
 const ROUNDS = 5;
@@ -18,7 +19,7 @@ export default function WhoSaidPage() {
   useEffect(() => {
     loadDaily().then((d) => {
       const seen = new Set<string>();
-      const all = Object.values(d?.generic ?? {}).map((e) => e.saint).filter((s) => s && s.verified !== false && !s.misattributed && s.text && s.who && !s.who.includes('(') && s.text.length <= 240);
+      const all = [...Object.values(d?.generic ?? {}), ...Object.values(d?.seasonal ?? {})].map((e) => e.saint).filter((s) => s && s.verified !== false && !s.misattributed && s.text && s.who && !s.who.includes('(') && s.text.length <= 240);
       setPool(all.filter((s) => (seen.has(s.text) ? false : (seen.add(s.text), true))));
     });
   }, []);
@@ -34,7 +35,7 @@ export default function WhoSaidPage() {
   const choose = (o: string) => { if (picked || !q) return; setPicked(o); const ok = o === q.who; if (ok) setScore((s) => s + 1); setMarks((m) => [...m, ok]); };
   const next = () => { setPicked(null); setI((n) => n + 1); };
   const again = () => { setDaily(false); setSeed(Math.floor(Math.random() * 1e6)); setI(0); setScore(0); setMarks([]); setPicked(null); };
-  const share = () => { const text = `Who Said It? ${daily ? dayIndex() : 'practice'} ${score}/${ROUNDS}\n${marks.map((m) => (m ? '🟨' : '⬛')).join('')}`; if (navigator.share) navigator.share({ text }).catch(() => undefined); else navigator.clipboard?.writeText(text).catch(() => undefined); };
+  const shareText = () => `Who Said It? ${daily ? '#' + dayIndex() : 'practice'} ${score}/${ROUNDS}\n${marks.map((m) => (m ? '🟨' : '⬛')).join('')}`;
 
   if (!pool) return <div className="page"><h1>Who Said It?</h1><p className="muted">Loading…</p></div>;
   return (
@@ -60,7 +61,7 @@ export default function WhoSaidPage() {
         <div className="ws-end">
           <p className="ws-score">{score} of {ROUNDS}</p>
           <p className="muted">{score === ROUNDS ? 'A true student of the saints.' : score >= 3 ? 'Well read.' : 'Keep reading: they are good company.'}</p>
-          <div className="row" style={{ justifyContent: 'center', gap: 8 }}><button className="btn" onClick={share}>Share result</button><button className="btn ghost" onClick={again}>Play another five</button></div>
+          <div className="row" style={{ justifyContent: 'center', gap: 8 }}><ShareButton text={shareText()} path="/play/whosaid" label="Share result" className="btn" /><button className="btn ghost" onClick={again}>Play another five</button></div>
           <p className="small"><Link to="/study/saints">Read more from the saints</Link></p>
         </div>
       )}

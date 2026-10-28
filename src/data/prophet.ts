@@ -1,8 +1,11 @@
+import { MORE_PROPHET } from './prophet2';
+
 /** Questions for The Prophet. A guess scores 100 at the right answer and halves for every `scale` it is off. Count questions are worked out from the app's own text. */
 export interface ProphetQ { q: string; answer: number; unit: string; scale: number; note: string; year?: boolean }
 export interface CountQ { book: string; word: string; bookName: string; scale: (n: number) => number }
 
 export const PROPHET: ProphetQ[] = [
+  ...(MORE_PROPHET),
   { q: 'In what year did the Council of Nicaea meet?', answer: 325, unit: 'AD', scale: 40, year: true, note: 'It gave us the Nicene Creed’s first form and settled the question of Christ’s divinity against Arius.' },
   { q: 'In what year did the Edict of Milan grant Christians freedom of worship?', answer: 313, unit: 'AD', scale: 40, year: true, note: 'Constantine and Licinius agreed it.' },
   { q: 'In what year was the Council of Chalcedon held?', answer: 451, unit: 'AD', scale: 40, year: true, note: 'It defined Christ as one Person in two natures.' },

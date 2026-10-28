@@ -3,6 +3,7 @@ import { getJson } from '../../data/loader';
 import { THEMED } from '../../data/cloister';
 import { ANSWERS } from '../../data/verbum';
 import { markDailyDone } from '../../lib/dailyGame';
+import ShareButton from '../../components/ShareButton';
 import { buzz } from '../../lib/haptics';
 
 type Mark = 'hit' | 'near' | 'miss';
@@ -75,11 +76,9 @@ export default function VerbumPage() {
     return m;
   }, [guesses, answer]);
   const press = (k: string) => { if (over) return; if (k === '⏎') submit(); else if (k === '⌫') setCur((c) => c.slice(0, -1)); else setCur((c) => (c.length < LEN ? c + k : c)); };
-  const share = () => {
+  const shareText = () => {
     const sq = { hit: '🟨', near: '⬜', miss: '⬛' } as const;
-    const text = `Verbum ${practice ? 'practice' : today} ${won ? guesses.length : 'X'}/${ROWS}\n` + guesses.map((g) => mark(g, answer).map((m) => sq[m]).join('')).join('\n');
-    if (navigator.share) navigator.share({ text }).catch(() => undefined);
-    else navigator.clipboard?.writeText(text).then(() => setMsg('Copied'), () => undefined);
+    return `Verbum ${practice ? 'practice' : '#' + today} ${won ? guesses.length : 'X'}/${ROWS}\n` + guesses.map((g) => mark(g, answer).map((m) => sq[m]).join('')).join('\n');
   };
   const again = () => { const pool = ANSWERS.filter((w) => w !== answer); setPractice(pool[Math.floor(Math.random() * pool.length)]); setPGuesses([]); setCur(''); setMsg(''); };
 
@@ -98,7 +97,7 @@ export default function VerbumPage() {
       <p className="vb-msg" aria-live="polite">{msg || (over ? (won ? `Yes: ${answer.toUpperCase()}. ${guesses.length === 1 ? 'First try!' : `${guesses.length} of ${ROWS}.`}` : `The word was ${answer.toUpperCase()}.`) : '')}</p>
       {over ? (
         <div className="row" style={{ justifyContent: 'center', gap: 8 }}>
-          <button className="btn" onClick={share}>Share result</button>
+          <ShareButton text={shareText()} path="/play/verbum" label="Share result" className="btn" />
           <button className="btn ghost" onClick={again}>Play another</button>
         </div>
       ) : (

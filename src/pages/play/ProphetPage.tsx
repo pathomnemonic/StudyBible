@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PROPHET, COUNTS, type ProphetQ } from '../../data/prophet';
+import ShareButton from '../../components/ShareButton';
 import { getBookText } from '../../data/loader';
 import { flattenChapter } from '../../lib/bibleText';
 
@@ -23,6 +24,7 @@ export default function ProphetPage() {
   const [guess, setGuess] = useState('');
   const [shown, setShown] = useState<{ pts: number; off: number } | null>(null);
   const [total, setTotal] = useState(0);
+  const [log, setLog] = useState<number[]>([]);
   const [phase, setPhase] = useState<'start' | 'play' | 'done'>('start');
   const [busy, setBusy] = useState(false);
   const start = async () => {
@@ -34,7 +36,7 @@ export default function ProphetPage() {
       return { q: `How many times does the word “${c.word}” appear in ${c.bookName} (WEB-C text in this app)?`, answer: n, unit: 'times', scale: Math.max(2, c.scale(n)), note: `Counted from the text on your device: ${n}.` };
     }));
     setDeck(shuffle([...shuffle(PROPHET).slice(0, ROUNDS - counted.length), ...counted]));
-    setI(0); setTotal(0); setGuess(''); setShown(null); setPhase('play'); setBusy(false);
+    setI(0); setTotal(0); setLog([]); setGuess(''); setShown(null); setPhase('play'); setBusy(false);
   };
   useEffect(() => { if (phase === 'done') { try { if (total > best()) localStorage.setItem(BEST, String(total)); } catch { /* private mode */ } } }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
   const q = deck?.[i];
@@ -42,7 +44,7 @@ export default function ProphetPage() {
     e.preventDefault();
     if (!q || shown || guess.trim() === '' || Number.isNaN(+guess)) return;
     const pts = points(+guess, q);
-    setShown({ pts, off: Math.abs(+guess - q.answer) }); setTotal((t) => t + pts);
+    setShown({ pts, off: Math.abs(+guess - q.answer) }); setTotal((t) => t + pts); setLog((l) => [...l, pts]);
   };
   const next = () => { if (i + 1 >= (deck?.length ?? 0)) setPhase('done'); else { setI(i + 1); setGuess(''); setShown(null); } };
   const verdict = useMemo(() => (total >= 600 ? 'A true prophet.' : total >= 400 ? 'A sound sense of things.' : total >= 200 ? 'Learning.' : 'Keep guessing.'), [total]);
@@ -63,7 +65,8 @@ export default function ProphetPage() {
         <h1>{total} points</h1>
         <p className="muted">{verdict} Best: {Math.max(best(), total)}.</p>
         <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
-          <button className="btn primary" onClick={() => void start()}>Play again</button>
+          <ShareButton text={`The Prophet 🔮 ${total}/${log.length * 100}\n${log.map((p) => (p >= 80 ? '🟩' : p >= 50 ? '🟨' : p >= 20 ? '🟧' : '🟥')).join('')}`} path="/play/prophet" />
+          <button className="btn" onClick={() => void start()}>Play again</button>
           <Link className="btn ghost" to="/play">All games</Link>
         </div>
       </div>

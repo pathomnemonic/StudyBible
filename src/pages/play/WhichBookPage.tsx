@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useEditions } from '../../data/EditionsContext';
 import { loadDaily } from '../../study/daily';
-import { passageText } from '../../lib/bibleText';
-import { parseRefId } from '../../lib/refs';
+import { getJson } from '../../data/loader';
+import { passageText, nativeToAnchorRef } from '../../lib/bibleText';
+import { parseRefId, refId } from '../../lib/refs';
 import { BOOK_BY_ID, BOOKS } from '../../lib/canon';
+import ShareButton from '../../components/ShareButton';
 import { dayIndex, markDailyDone, seeded, shuffled } from '../../lib/dailyGame';
 import { useSettings } from '../../lib/store';
 
@@ -23,7 +25,20 @@ export default function WhichBookPage() {
   const [wrong, setWrong] = useState<string[]>([]);
   const [score, setScore] = useState(0);
   const [marks, setMarks] = useState<number[]>([]);
-  useEffect(() => { loadDaily().then((d) => setRefs([...new Set(Object.values(d?.generic ?? {}).map((e) => e.ref))])); }, []);
+  const webc = get('webc');
+  useEffect(() => {
+    if (!webc) return;
+    // the curated daily verses, and a few quotable verses from every book (listed in the WEB-C numbering, turned into anchor references)
+    Promise.all([loadDaily(), getJson<Record<string, string[]>>('play/verses.json', true)]).then(([d, v]) => {
+      const out = new Set(Object.values(d?.generic ?? {}).map((e) => e.ref));
+      for (const list of Object.values(v ?? {})) for (const id of list) {
+        const [b, c, n] = id.split('.');
+        const a = nativeToAnchorRef(webc, b, +c, +n, +n);
+        if (a.exact && a.ref.c1 === a.ref.c2) out.add(refId(a.ref));
+      }
+      setRefs([...out]);
+    });
+  }, [webc]);
   const picks = useMemo(() => {
     if (!refs) return [];
     const r = seeded(seed + 5);
@@ -59,7 +74,7 @@ export default function WhichBookPage() {
   };
   const next = () => { setWrong([]); setI((n) => n + 1); };
   const again = () => { setDaily(false); setSeed(Math.floor(Math.random() * 1e6)); setI(0); setScore(0); setMarks([]); setWrong([]); };
-  const share = () => { const t = `Which Book? ${daily ? dayIndex() : 'practice'} ${score}/${total * 2}\n${marks.map((m) => ['⬛', '🟨', '🟨🟨'][m]).join(' ')}`; if (navigator.share) navigator.share({ text: t }).catch(() => undefined); else navigator.clipboard?.writeText(t).catch(() => undefined); };
+  const shareText = () => `Which Book? ${daily ? '#' + dayIndex() : 'practice'} ${score}/${total * 2}\n${marks.map((m) => ['⬛', '🟨', '🟨🟨'][m]).join(' ')}`;
 
   return (
     <div className="page whosaid">
@@ -79,7 +94,7 @@ export default function WhichBookPage() {
         <div className="ws-end">
           <p className="ws-score">{score} of {total * 2}</p>
           <p className="muted">{score >= total * 2 - 1 ? 'You know your Bible.' : 'Every chapter you read makes the next round easier.'}</p>
-          <div className="row" style={{ justifyContent: 'center', gap: 8 }}><button className="btn" onClick={share}>Share result</button><button className="btn ghost" onClick={again}>Play another five</button></div>
+          <div className="row" style={{ justifyContent: 'center', gap: 8 }}><ShareButton text={shareText()} path="/play/whichbook" label="Share result" className="btn" /><button className="btn ghost" onClick={again}>Play another five</button></div>
         </div>
       )}
     </div>

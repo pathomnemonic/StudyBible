@@ -1,7 +1,9 @@
+import { MORE_DECKS } from './charades2';
+
 /** Word lists for the charades game: things a group of Catholics can act out or describe without a word of the answer. */
 export interface CharadesDeck { id: string; name: string; blurb: string; words: string[] }
 
-export const CHARADES_DECKS: CharadesDeck[] = [
+const BASE: CharadesDeck[] = [
   { id: 'saints', name: 'Saints', blurb: 'Famous saints, from fishermen to doctors of the Church.', words: [
     'St Francis of Assisi', 'St Patrick', 'Joan of Arc', 'St Thomas Aquinas', 'Mother Teresa', 'St Thérèse of Lisieux', 'St Augustine', 'St Monica', 'St Ignatius of Loyola', 'St Peter', 'St Paul', 'St Joseph',
     'St Michael the Archangel', 'St Nicholas', 'St Valentine', 'St Anthony of Padua', 'St Jude', 'St Cecilia', 'St Lucy', 'St Catherine of Siena', 'St Teresa of Avila', 'St John Paul II', 'St Maximilian Kolbe',
@@ -37,3 +39,5 @@ export const CHARADES_DECKS: CharadesDeck[] = [
     'The Jesuits', 'The Franciscans', 'The Dominicans', 'The Benedictines', 'The Catechism', 'An encyclical', 'The Council of Nicaea', 'The Holy Land', 'Jerusalem', 'Bethlehem', 'Nazareth', 'Rome', 'Lourdes', 'Fatima',
     'Assisi', 'The Camino de Santiago', 'The Holy Door', 'A papal blessing', 'The Nicene Creed', 'The Ten Commandments', 'Michelangelo', 'The Last Judgment'] },
 ];
+
+export const CHARADES_DECKS: CharadesDeck[] = [...BASE, ...MORE_DECKS];

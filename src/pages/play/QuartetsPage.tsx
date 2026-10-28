@@ -1,3 +1,4 @@
+import ShareButton from '../../components/ShareButton';
 import { markDailyDone } from '../../lib/dailyGame';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
@@ -57,7 +58,7 @@ function Board({ q, daily, onDone, back }: { q: Quartet; daily: boolean; onDone:
   };
   const reveal = () => { const rest = q.groups.filter((g) => !solved.includes(g)); setSolved((s) => [...s, ...rest]); };
   useEffect(() => { if (mistakes >= 4 && solved.length < 4) reveal(); }, [mistakes]); // eslint-disable-line react-hooks/exhaustive-deps
-  const share = async () => { const rows = log.map((l) => LEVEL_EMOJI[l].repeat(4)); await copyText(`Quartets · ${q.title}\n${solved.length === 4 && mistakes < 4 ? 'Solved' : 'Not this time'}, ${mistakes} mistake${mistakes === 1 ? '' : 's'}\n${rows.join('\n')}`); setMsg('Result copied'); };
+  const shareText = `Quartets 🔶 ${q.title}\n${solved.length === 4 && mistakes < 4 ? 'Solved' : 'Not this time'}, ${mistakes} mistake${mistakes === 1 ? '' : 's'}\n${log.map((l) => LEVEL_EMOJI[l].repeat(4)).join('\n')}`;
   const byLevel = [...solved].sort((a, b) => a.level - b.level);
   const lost = mistakes >= 4;
   return (
@@ -80,7 +81,7 @@ function Board({ q, daily, onDone, back }: { q: Quartet; daily: boolean; onDone:
         </div>
       ) : (
         <div className="row" style={{ gap: 8, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button className="btn primary" onClick={() => void share()}>Copy my result</button>
+          <ShareButton text={shareText} path="/play/quartets" label="Share my result" />
           <button className="btn" onClick={back}>More puzzles</button>
         </div>
       )}

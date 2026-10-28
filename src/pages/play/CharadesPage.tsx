@@ -1,3 +1,4 @@
+import ShareButton from '../../components/ShareButton';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CHARADES_DECKS, type CharadesDeck } from '../../data/charades';
@@ -126,7 +127,8 @@ export default function CharadesPage() {
       {right.length > 0 && <><h2 className="eyebrow-h">Got it</h2><ul className="list">{right.map((w, i) => <li key={i}>✓ {w}</li>)}</ul></>}
       {passed.length > 0 && <><h2 className="eyebrow-h">Passed</h2><ul className="list">{passed.map((w, i) => <li key={i} className="muted">{w}</li>)}</ul></>}
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginTop: 10 }}>
-        <button className="btn primary" onClick={() => void start()}>Play again</button>
+        <ShareButton text={`Charades 🎭 ${deck.name}: ${right.length} right, ${passed.length} passed in ${secs}s\n${'🟨'.repeat(Math.min(right.length, 20))}${'⬛'.repeat(Math.min(passed.length, 10))}`} path="/play/charades" />
+        <button className="btn" onClick={() => void start()}>Play again</button>
         <button className="btn" onClick={() => setPhase('pick')}>Choose another deck</button>
         <Link className="btn ghost" to="/learn">Done</Link>
       </div>

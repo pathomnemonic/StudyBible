@@ -129,3 +129,166 @@ magi|Wise men from the East
 manger|Where the infant Jesus lay
 star|It led the Magi
 shepherd|Visited the newborn at night
+abraham|Father of faith, called from Ur
+absolution|Forgiveness given by the priest in confession
+acolyte|Server who carries the candles at Mass
+adoration|Prayer before the Blessed Sacrament
+alb|White robe worn at Mass
+alpha|First letter of the Greek alphabet, with omega
+ambo|Lectern from which the Word is proclaimed
+andrew|Peter's brother, a fisherman
+annunciation|Gabriel's visit to Mary
+anointing|Sacrament of the sick, with oil
+apse|Rounded end of a church
+aquinas|Doctor who wrote the Summa
+ascension|Christ returns to the Father, forty days after Easter
+assumption|Mary taken body and soul into heaven
+augustine|Bishop of Hippo who wrote the Confessions
+baptist|John, who prepared the way
+barnabas|Son of encouragement, companion of Paul
+benedict|Founder of Western monasticism
+bethlehem|City of David where Christ was born
+bethany|Home of Martha, Mary and Lazarus
+beatitude|Blessing from the Sermon on the Mount
+blessing|Words that call down God's favour
+breviary|Book of the Liturgy of the Hours
+calvary|Hill of the crucifixion
+canticle|Biblical song used in the Office
+cardinal|Prince of the Church, in red
+catechism|Summary of Catholic teaching
+cathedral|Church with the bishop's chair
+cenacle|Upper room of the Last Supper
+chalice|Cup for the Precious Blood
+chaplet|Short string of prayer beads
+charity|The greatest of the three virtues
+chasuble|Outer vestment worn by the priest at Mass
+cherub|Winged heavenly being
+christ|The Anointed One
+ciborium|Vessel that holds consecrated hosts
+clare|Foundress of the Poor Ladies of Assisi
+columba|Irish saint of Iona
+communion|Receiving the Eucharist
+compline|Night prayer
+confession|Sacrament of reconciliation
+confirmation|Sacrament that seals the gift of the Spirit
+conscience|Inner voice that judges right and wrong
+consecration|The moment bread and wine become Christ
+contrition|Sorrow for sin
+corinth|City that received two letters from Paul
+covenant|Sacred bond between God and his people
+creation|God's work in Genesis
+crucifix|Cross with the figure of Christ
+cyril|Doctor of Alexandria, defender of Mary
+damascus|Where Saul was struck blind on the road
+daniel|Prophet in the lions' den
+deborah|Judge and prophetess of Israel
+decalogue|The Ten Commandments
+dominic|Founder of the Order of Preachers
+doxology|Short hymn of praise to the Trinity
+elizabeth|Mother of John the Baptist
+emmaus|Village where two disciples met the risen Lord
+ephesus|City of the third ecumenical council
+epiphany|Feast of the Magi
+epistle|A letter in the New Testament
+eucharist|The sacrament of the Body and Blood
+evangelist|Writer of a Gospel
+exodus|Israel's flight from Egypt
+ezekiel|Prophet of the dry bones
+fatima|Where Mary appeared to three children in 1917
+fiat|"Let it be done": Mary's yes
+francis|Saint of Assisi, who loved creation
+gabriel|Archangel of the Annunciation
+galilee|Region where Jesus preached
+gethsemane|Garden of the agony
+gideon|Judge who defeated Midian with 300 men
+golgotha|Place of the Skull
+gregory|Pope and doctor who gave chant its name
+habakkuk|Prophet of "the just shall live by faith"
+heresy|Obstinate denial of a revealed truth
+hosanna|Cry of the crowd on Palm Sunday
+humility|Virtue of seeing oneself truly
+ignatius|Founder of the Jesuits
+immaculate|Word for Mary's conception without sin
+incarnation|God becoming man
+indulgence|Remission of temporal punishment
+isaiah|Prophet of Emmanuel
+israel|The name given to Jacob
+jeremiah|Weeping prophet
+jericho|City whose walls fell
+jerome|Translator of the Vulgate
+jerusalem|The holy city
+joachim|Father of Mary, husband of Anne
+joshua|Leader who followed Moses
+justice|Cardinal virtue of giving each his due
+lazarus|Raised from the dead at Bethany
+lectionary|Book of Mass readings
+leviticus|Third book of the Bible
+liturgy|The Church's public worship
+lucy|Virgin martyr whose name means light
+magnificat|Mary's canticle
+maranatha|"Come, Lord" in Aramaic
+matins|Office of readings
+messiah|Hebrew for the Anointed One
+michael|Archangel who cast down Satan
+miracle|Wonder that shows God's power
+missal|Book of the Mass prayers
+monstrance|Vessel that displays the host
+nativity|Christ's birth
+nicodemus|Pharisee who came to Jesus by night
+nineveh|City that repented at Jonah's preaching
+oblate|One offered to a monastery
+offertory|Bringing up the gifts at Mass
+ordination|Sacrament of holy orders
+palm|Waved on the Sunday before Easter
+parable|Story told by Jesus to teach
+paradise|Where the good thief was promised to be
+passion|Christ's suffering and death
+pastor|Shepherd of a parish
+patience|A fruit of the Spirit
+penance|Sacrament and act of reparation
+pentecost|Descent of the Spirit
+philip|Apostle from Bethsaida
+pilgrim|Traveller to a holy place
+prophet|One who speaks for God
+proverbs|Book of Solomon's wisdom
+providence|God's care for all things
+purgatory|Final purification after death
+pyx|Small case for carrying the host
+rebecca|Wife of Isaac
+redeemer|Title of Christ who buys back
+requiem|Mass for the dead
+resurrection|Rising of Christ from the tomb
+revelation|Last book of the Bible
+rosary|Fifteen decades, or twenty
+sacrament|Outward sign of inward grace
+sacrifice|Offering made to God
+sacristy|Room where vestments are kept
+samuel|Prophet who anointed Saul and David
+sanctuary|Holy place around the altar
+scapular|Devotional garment of two cloths
+scripture|The inspired writings
+seraphim|Six-winged beings of Isaiah's vision
+solomon|Son of David who built the Temple
+sorrowful|Kind of mystery of the rosary, with the agony
+sower|Parable of seed on four soils
+stations|Fourteen on the way of the cross
+steadfast|Faithful and unmoving
+suffering|What Christ took on for us
+tabernacle|Where the Blessed Sacrament is kept
+tertullian|Early Latin Father of Carthage
+theology|Study of God
+theotokos|Greek title for Mary: God-bearer
+tradition|What the Church hands on
+transfiguration|Christ shining on Tabor
+trent|Council of the sixteenth century
+unleavened|Bread without yeast
+vatican|City-state of the pope
+veronica|Wiped the face of Jesus, by tradition
+viaticum|Holy Communion for the dying
+vigil|Evening Mass before a feast
+vocation|A calling from God
+vulgate|Jerome's Latin Bible
+wisdom|Book of Solomon, and a gift of the Spirit
+worship|Giving God what is due
+zechariah|Father of John the Baptist
+zacchaeus|Tax collector up a sycamore

@@ -11,6 +11,7 @@ const errs = []; p.on('pageerror', (e) => errs.push(e.message));
 await p.goto(`${BASE}/#/play/whosaid`); await p.waitForSelector('.ws-opt');
 for (let i = 0; i < 5; i++) { await p.locator('.ws-opt').first().click(); await p.click('.ws-after .btn.primary'); }
 await p.waitForSelector('.ws-score');
+if (!(await p.locator('.share-wrap button').count())) fail('no share button after Who Said It');
 
 await p.goto(`${BASE}/#/play/whichbook`); await p.waitForSelector('.ws-opt', { timeout: 15000 });
 for (let i = 0; i < 5; i++) {
@@ -32,11 +33,21 @@ await p.keyboard.type('a');
 await p.click('button:has-text("Reveal letter")');
 if ((await p.locator('.cw-clue').count()) < 6) fail('clues missing');
 
+// the Check button always answers
+await p.goto(`${BASE}/#/play/crossword`); await p.waitForSelector('.cw-cell');
+await p.click('button:has-text("Check")');
+if (!(await p.locator('.vb-msg').innerText()).trim()) fail('Check said nothing');
+await p.locator('.cw-cell').first().click(); await p.keyboard.type('q');
+await p.click('button:has-text("Check")');
+if (!(await p.locator('.vb-msg').innerText()).includes('wrong')) fail('Check did not flag a wrong letter');
+
 await p.goto(`${BASE}/#/play/pilgrim`); await p.waitForSelector('.pg-map .leaflet-container, .pg-map.leaflet-container', { timeout: 10000 });
 const box = await p.locator('.pg-map').boundingBox();
 await p.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
 await p.click('button:has-text("Lock in my guess")');
 await p.waitForSelector('text=km away');
+if ((await p.locator('.pg-map svg path').count()) < 20) fail('base map not drawn');
+await p.waitForTimeout(200);
 
 await p.goto(`${BASE}/#/play`); await p.waitForSelector('.play-card');
 if ((await p.locator('.play-card').count()) < 10) fail('games missing from the list');
