@@ -12,6 +12,26 @@ import ShowSettings from './ShowSettings';
 export const SPEEDS = [0.5, 0.7, 0.85, 1, 1.1, 1.25, 1.5, 1.75, 2, 2.5, 3];
 const fmt = (s: number) => { const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60); return `${h ? h + ':' + String(m).padStart(2, '0') : m}:${String(Math.floor(s % 60)).padStart(2, '0')}`; };
 
+const marksKey = (id: string) => `sb:marks:${id}`;
+const loadMarks = (id: string): number[] => { try { return (JSON.parse(localStorage.getItem(marksKey(id)) ?? '[]') as number[]).filter((n) => typeof n === 'number'); } catch { return []; } };
+
+/** Moments the listener marked in an episode: tap to jump back, or share the title and the time. Kept on this device. */
+function Marks({ id, title, page }: { id: string; title: string; page?: string }) {
+  const p = usePlayer();
+  const [marks, setMarks] = useState<number[]>(() => loadMarks(id));
+  useEffect(() => setMarks(loadMarks(id)), [id]);
+  const save = (m: number[]) => { setMarks(m); try { localStorage.setItem(marksKey(id), JSON.stringify(m)); } catch { /* private mode */ } };
+  const shareAt = async (t: number) => { const text = `${title} at ${fmt(t)}${page ? ` ${page}` : ''}`; try { if (navigator.share) await navigator.share({ text }); else await navigator.clipboard.writeText(text); } catch { /* cancelled */ } };
+  return (
+    <details open={marks.length > 0}><summary>Marked moments ({marks.length})</summary>
+      <button className="btn small" onClick={() => save([...new Set([...marks, Math.floor(p.position)])].sort((a, b) => a - b))}>Mark this moment ({fmt(p.position)})</button>
+      <ul className="list">{marks.map((t) => (
+        <li key={t} className="row between"><button className="btn small ghost" onClick={() => p.seek(t)}>{fmt(t)}</button><span className="row" style={{ gap: 4 }}><button className="btn small ghost" onClick={() => void shareAt(t)}>Share</button><button className="icon-btn" aria-label={`Remove the mark at ${fmt(t)}`} onClick={() => save(marks.filter((x) => x !== t))}>×</button></span></li>
+      ))}</ul>
+    </details>
+  );
+}
+
 /** The full player: large controls, speed (remembered for each show), sleep timer, skip intro, show notes, what plays next. */
 export default function NowPlaying({ onClose }: { onClose: () => void }) {
   const p = usePlayer();
@@ -53,6 +73,7 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
           {readAlong && <Link className="btn small primary" to={readAlong} onClick={onClose}>Read along</Link>}
           {e.link && <Link className="btn small" to={e.link} onClick={onClose}>Open the page</Link>}
         </div>
+        <Marks id={e.id} title={e.title} page={e.page} />
         {e.description && <details open><summary>Show notes</summary><p className="small" style={{ whiteSpace: 'pre-wrap' }}>{e.description}</p></details>}
         <details open={q.length > 0}><summary>Up next ({q.length})</summary>
           <ol className="list">{q.map((x) => <li key={x.id} className="row between"><span style={{ minWidth: 0 }}>{eps[x.episodeId]?.title ?? x.episodeId}</span><button className="icon-btn" aria-label="Remove from queue" onClick={() => db.queue.delete(x.id!)}>✕</button></li>)}</ol>
