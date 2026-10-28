@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { cccUrl, CCC_OFFICIAL, getCccLinks, getDoctrine, type DoctrineData } from '../../data/content';
 import { parseRefId, formatRef } from '../../lib/refs';
 import RefLink from '../../components/RefLink';
+import Fold from '../../components/Fold';
 import { fold } from '../../search/engine';
 import { db } from '../../db/db';
 
@@ -26,15 +27,14 @@ export default function DoctrinePage() {
     <div className="page">
       <h1>Doctrine & Catechism</h1>
       <p className="lede">Scripture and Church teaching, connected in both directions.</p>
-      <div className="card">
-        <h3>How the Church’s teaching is labelled here</h3>
+      <Fold id="doctrine:labels" title="How teaching is labelled">
         <ul className="list small">
           {Object.entries(d.levels).map(([k, v]) => (
             <li key={k}><strong>{k}</strong> — {v}</li>
           ))}
         </ul>
         <p className="muted small">A <em>direct citation</em> means the source itself quotes the verse. A <em>suggested topical connection</em> is an editorial pointer. They are never mixed.</p>
-      </div>
+      </Fold>
 
       <h2 style={{ fontSize: '1.2rem' }}>Topics</h2>
       <input type="search" placeholder="Filter doctrine index (e.g. Mary, grace, sacrifice)…" value={q} onChange={(e) => setQ(e.target.value)} style={{ width: '100%', marginBottom: 10 }} aria-label="Filter topics" />

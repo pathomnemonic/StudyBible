@@ -4939,14 +4939,13 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
   .btn.icon.on, .chip.sel, .chip[aria-pressed='true'], .welcome-chip.on { animation: mo-pop var(--d3) var(--ease-spring); }
   .btn.icon.on { position: relative; }
   .btn.icon.on::after { content: ''; position: absolute; inset: 0; border-radius: inherit; border: 2px solid var(--accent); pointer-events: none; animation: mo-ring 520ms var(--ease-out) forwards; }
-  .tab.active .ico { animation: mo-pop var(--d3) var(--ease-spring); }
   .year-ring circle:nth-of-type(2) { animation: mo-dial 1100ms var(--ease-out) 200ms backwards; }
   .memento-bar i, .goal-bar i, .plan-bar i { transform-origin: left; animation: mo-grow-x 900ms var(--ease-out) 150ms backwards; }
 }
 
 /* touch and pointer feedback */
-.btn, .chip, .icon-btn, .hub-tile, .tab, .fold > summary, .lod { transition: transform var(--d1) var(--ease-out), background-color var(--d2), border-color var(--d2), box-shadow var(--d2), color var(--d2), opacity var(--d2); -webkit-tap-highlight-color: transparent; }
-.btn:active, .chip:active, .icon-btn:active, .hub-tile:active, .tab:active, .fold > summary:active, .lod:active { transform: scale(.97); }
+.btn, .chip, .icon-btn, .hub-tile, .fold > summary, .lod { transition: transform var(--d1) var(--ease-out), background-color var(--d2), border-color var(--d2), box-shadow var(--d2), color var(--d2), opacity var(--d2); -webkit-tap-highlight-color: transparent; }
+.btn:active, .chip:active, .icon-btn:active, .hub-tile:active, .fold > summary:active, .lod:active { transform: scale(.97); }
 .btn.primary { box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--accent) 70%, transparent); }
 .btn.primary:active { box-shadow: 0 2px 6px -3px color-mix(in srgb, var(--accent) 70%, transparent); }
 .tab .ico { transition: background-color var(--d2), transform var(--d2) var(--ease-spring); }
@@ -5192,3 +5191,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .share-card-page blockquote { margin: 0; font-size: 1.15rem; line-height: 1.6; }
 .share-card-page blockquote p { margin: 0 0 6px; }
 .share-card-page h1 { margin: 0; }
+
+/* The phone's bottom tab bar is plain and opaque: a blurred, fixed bar can lose its contents while pages change on some Android browsers. */
+@media (max-width: 899px) {
+  .tabs { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: var(--surface) !important; }
+  .tabs .tab { transform: none !important; }
+}
