@@ -59,6 +59,9 @@ if ((await p.locator('.fs-level').count()) !== 3) fail('three age levels');
 await p.goto(`${BASE}/#/teach/bell`); await p.waitForSelector('.bell-card', { timeout: 10000 }).catch(() => fail('bell ringer card'));
 if ((await p.locator('.bell-week li').count()) !== 5) fail('five cards for the week');
 
+await p.goto(`${BASE}/#/share?q=Hello`); await p.waitForSelector('canvas.share-canvas', { timeout: 15000 }).catch(() => fail('saint quote card'));
+if (!(await p.locator('h1:has-text("saint")').count())) fail('quote mode heading');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

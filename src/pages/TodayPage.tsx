@@ -157,7 +157,7 @@ export default function TodayPage() {
             {saint && (
               <figure className="home-saint">
                 <blockquote>“{saint.text}”</blockquote>
-                <figcaption>— {saint.who}{saint.work && !saint.who.includes(saint.work) ? `, ${saint.work}` : ''}{saint.src && (saint.src.work ? <> · <Link to={`/study/works/${saint.src.work}/${saint.src.section ?? 0}`}>{t('home.context')}</Link></> : saint.src.url ? <> · <a href={saint.src.url} target="_blank" rel="noreferrer">{t('home.context')} ↗</a></> : null)}</figcaption>
+                <figcaption>— {saint.who}{saint.work && !saint.who.includes(saint.work) ? `, ${saint.work}` : ''}{saint.verified && <> · <Link to={`/share?q=${encodeURIComponent(saint.text)}`}>Card</Link></>}{saint.src && (saint.src.work ? <> · <Link to={`/study/works/${saint.src.work}/${saint.src.section ?? 0}`}>{t('home.context')}</Link></> : saint.src.url ? <> · <a href={saint.src.url} target="_blank" rel="noreferrer">{t('home.context')} ↗</a></> : null)}</figcaption>
               </figure>
             )}
             <Reflect date={date} question={entry.q} refId={entry.ref} />

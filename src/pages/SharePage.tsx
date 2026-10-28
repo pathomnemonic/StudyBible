@@ -8,6 +8,7 @@ import { convertRef } from '../lib/versification';
 import { readerPath } from '../lib/nav';
 import { useToast } from '../components/Toast';
 import { getJson } from '../data/loader';
+import { loadDaily } from '../study/daily';
 
 interface Painting { id: number | string; theme: string; title: string; artist: string; date: string; credit: string; img: string; file: string; page: string }
 
@@ -76,6 +77,11 @@ export default function SharePage() {
   const [imgErr, setImgErr] = useState(false);
   const [cite, setCite] = useState(false);
   const [verse, setVerse] = useState<{ text: string; label: string; edName?: string; link: string } | null>(null);
+  // a saint's words instead of a verse: pick from the verified quotes, or arrive from a link with ?q=…&by=…
+  const [mode, setMode] = useState<'verse' | 'quote'>(sp.get('q') ? 'quote' : 'verse');
+  const [quotes, setQuotes] = useState<{ text: string; who: string; work?: string }[]>([]);
+  const [qi, setQi] = useState(0);
+  useEffect(() => { if (mode !== 'quote' || quotes.length) return; loadDaily().then((d) => { const seen = new Set<string>(); const list = [...Object.values(d?.generic ?? {}), ...Object.values(d?.seasonal ?? {})].map((e) => e.saint).filter((x) => x && x.verified !== false && !x.misattributed && x.text.length <= 260 && !seen.has(x.text) && (seen.add(x.text), true)); setQuotes(list); const want = sp.get('q'); if (want) { const k = list.findIndex((x) => x.text.startsWith(want.slice(0, 30))); if (k >= 0) setQi(k); else setQi(Math.floor(Math.random() * Math.max(1, list.length))); } else setQi(Math.floor(Math.random() * Math.max(1, list.length))); }); }, [mode]); // eslint-disable-line react-hooks/exhaustive-deps
   const [err, setErr] = useState('');
   const canvas = useRef<HTMLCanvasElement>(null);
   const ed = get(edId) ?? editions[0];
@@ -95,6 +101,15 @@ export default function SharePage() {
   }, []);
 
   useEffect(() => {
+    if (mode !== 'quote') return;
+    const q = quotes[qi];
+    if (!q) return;
+    setErr('');
+    setVerse({ text: q.text, label: `${q.who}${q.work ? `, ${q.work}` : ''}`, link: location.href.split('#')[0] });
+  }, [mode, quotes, qi]);
+
+  useEffect(() => {
+    if (mode !== 'verse') return;
     let live = true;
     (async () => {
       setErr('');
@@ -111,7 +126,7 @@ export default function SharePage() {
     return () => {
       live = false;
     };
-  }, [refText, ed.id]);
+  }, [refText, ed.id, mode]);
 
   useEffect(() => {
     const c = canvas.current;
@@ -242,12 +257,17 @@ export default function SharePage() {
   const shown = art.filter((a) => theme === 'All' || a.theme === theme).sort((a, b) => Number(b.id === paint?.id) - Number(a.id === paint?.id)).slice(0, 96);
   return (
     <div className="page share-page">
-      <h1>Share a verse</h1>
-      <div className="row" style={{ marginBottom: 8 }}>
+      <h1>{mode === 'quote' ? 'Share a saint’s words' : 'Share a verse'}</h1>
+      <div className="chips" role="group" aria-label="What to share" style={{ marginBottom: 8 }}>
+        <button className={`chip${mode === 'verse' ? ' sel' : ''}`} aria-pressed={mode === 'verse'} onClick={() => setMode('verse')}>A verse</button>
+        <button className={`chip${mode === 'quote' ? ' sel' : ''}`} aria-pressed={mode === 'quote'} onClick={() => setMode('quote')}>A saint’s words</button>
+        {mode === 'quote' && <button className="chip" onClick={() => setQi((i) => (quotes.length ? (i + 1 + Math.floor(Math.random() * (quotes.length - 1))) % quotes.length : 0))}>Another quote</button>}
+      </div>
+      {mode === 'verse' && <div className="row" style={{ marginBottom: 8 }}>
         <input type="text" value={refText} onChange={(e) => setRefText(e.target.value)} aria-label="Reference" style={{ flex: 1, minWidth: 180 }} />
         <label className="row" style={{ gap: 6 }}><input type="checkbox" checked={cite} onChange={(e) => setCite(e.target.checked)} /> <span className="small">Add translation and source, in small print</span></label>
         <select value={edId} onChange={(e) => setEdId(e.target.value)} aria-label="Translation">{editions.filter((e) => (e.language === 'en' || e.id === 'vulgate') && (!e.offByDefault || s.enabledEditions.includes(e.id) || e.id === s.defaultEdition || e.id === edId)).map((e) => <option key={e.id} value={e.id}>{e.shortName}</option>)}</select>
-      </div>
+      </div>}
       {err && <p className="notice">{err}</p>}
       {verse && (
         <div className="share-grid">
