@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { butlerDay, nameScore, nameTokens, type ButlerEntry } from '../../study/butler';
+import ShareLinkButton from '../../components/ShareLinkButton';
 import Icon from '../../components/Icon';
 
 const today = () => { const d = new Date(); return `${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
@@ -35,6 +36,7 @@ export default function SaintsPage() {
         <article key={i} className="card" style={i === hit ? { outline: '2px solid var(--accent)' } : undefined} ref={(el) => { if (el && i === hit && !el.dataset.seen) { el.dataset.seen = '1'; el.scrollIntoView({ block: 'start' }); } }}>
           <h2 className="card-title">{e.name}</h2>
           {(open === i ? e.text : e.text.slice(0, 2)).map((p, k) => <p key={k}>{p}</p>)}
+          <ShareLinkButton path={`/s/saint/${day}?i=${i}`} title={e.name} />
           {e.text.length > 2 && <button className="btn small" onClick={() => setOpen(open === i ? null : i)}>{open === i ? 'Show less' : 'Read the whole life'}</button>}
         </article>
       ))}

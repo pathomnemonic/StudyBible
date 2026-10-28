@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import ShareLinkButton from './ShareLinkButton';
 import { FEASTS, type Feast } from '../data/feasts';
 import { parseRefs } from '../lib/refs';
 import { useSettings } from '../lib/store';
@@ -33,6 +34,7 @@ export default function FeastsGuide() {
               <div className="card" style={{ marginTop: 6 }}>
                 <p style={{ margin: '0 0 6px' }}>{f.about}</p>
                 {f.customs && <p className="small" style={{ margin: '0 0 6px' }}><strong>Customs.</strong> {f.customs}</p>}
+                <p style={{ margin: '0 0 6px' }}><ShareLinkButton path={`/s/feast/${f.id}`} title={f.name} /></p>
                 <p className="small chips" style={{ margin: 0 }}>
                   {f.scripture.map((r) => {
                     const p = parseRefs(r);

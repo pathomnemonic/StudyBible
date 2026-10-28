@@ -1,3 +1,4 @@
+import ShareLinkButton from './ShareLinkButton';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { lookupTerm, type GlossaryEntry } from '../data/glossary';
@@ -53,6 +54,7 @@ export default function GlossaryLayer() {
             <div className="row" style={{ gap: 8 }}>
               <Link className="btn small" to={`/study/catechism/${g.ccc}`} onClick={() => setHit(null)}>Catechism §{g.ccc}</Link>
               <Link className="btn small ghost" to={`/study/glossary?t=${encodeURIComponent(g.term)}`} onClick={() => setHit(null)}>Glossary</Link>
+              <ShareLinkButton path={`/s/term/${encodeURIComponent(g.term)}`} title={g.term} />
               <button className="btn small ghost" onClick={() => { setHit(null); window.getSelection()?.removeAllRanges(); }}>Close</button>
             </div>
           </div>

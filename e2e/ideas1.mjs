@@ -36,6 +36,11 @@ await p.click('.cq .chip:has-text("Courage")'); await p.click('.cq .chip:has-tex
 await p.click('button:has-text("Show saints")');
 if ((await p.locator('.list li').count()) < 3) fail('confirmation name suggestions');
 
+for (const [path, text] of [['/s/term/Faith', 'Catechism'], ['/s/saint/03-19?i=0', 'Read the whole life'], ['/s/feast/immaculate-conception', 'Church year']]) {
+  await p.goto(`${BASE}/#${path}`); await p.waitForSelector(`text=${text}`, { timeout: 8000 }).catch(() => fail(`share page ${path}`));
+}
+await p.goto(`${BASE}/#/study/glossary`); await p.waitForSelector('.glossary li button:has-text("Share")');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

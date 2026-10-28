@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import ShareLinkButton from '../../components/ShareLinkButton';
 import { GLOSSARY } from '../../data/glossary';
 
 /** Terms of the faith in plain language, A to Z, each with the Catechism paragraph that treats it. */
@@ -21,7 +22,7 @@ export default function GlossaryPage() {
           <li key={g.term} id={g.term} className={open === g.term ? 'glossary-open' : undefined}>
             <strong>{g.term}</strong>
             <p style={{ margin: '2px 0 4px' }}>{g.definition}</p>
-            <Link className="chip" to={`/study/catechism/${g.ccc}`}>Catechism §{g.ccc}</Link>
+            <Link className="chip" to={`/study/catechism/${g.ccc}`}>Catechism §{g.ccc}</Link> <ShareLinkButton path={`/s/term/${encodeURIComponent(g.term)}`} title={g.term} />
           </li>
         ))}
         {!list.length && <li className="empty">No matching term.</li>}

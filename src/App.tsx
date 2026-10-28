@@ -99,6 +99,9 @@ const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
 const ComparePage = lazy(() => import('./pages/study/ComparePage'));
 const ShareVersePage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.ShareVersePage })));
 const SharePrayerPage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.SharePrayerPage })));
+const ShareSaintPage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.ShareSaintPage })));
+const ShareTermPage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.ShareTermPage })));
+const ShareFeastPage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.ShareFeastPage })));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const IntentionsPage = lazy(() => import('./pages/pray/IntentionsPage'));
 const PilgrimPage = lazy(() => import('./pages/pray/PilgrimPage'));
@@ -360,6 +363,9 @@ export default function App() {
               <Route path="/study/compare" element={<ComparePage />} />
               <Route path="/s/verse" element={<ShareVersePage />} />
               <Route path="/s/prayer/:id" element={<SharePrayerPage />} />
+              <Route path="/s/saint/:md" element={<ShareSaintPage />} />
+              <Route path="/s/term/:term" element={<ShareTermPage />} />
+              <Route path="/s/feast/:id" element={<ShareFeastPage />} />
               <Route path="/s/queue" element={<QueueImportPage />} />
               <Route path="/kids" element={<KidsHome />} />
               <Route path="/bible-progress" element={<BibleProgressPage />} />
