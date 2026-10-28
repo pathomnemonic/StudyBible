@@ -20,7 +20,9 @@ const read = (): Record<string, 1> => {
 };
 const emit = () => { try { window.dispatchEvent(new Event(EVT)); } catch { /* server render */ } };
 
-export const isSeen = (id: string) => !!read()[id];
+/** Dots on tabs and folds are made up as the app goes (`m.*`, `fold.*`), so "clear every dot" stores one flag for them all. */
+const dynamic = (id: string) => id.startsWith('m.') || id.startsWith('fold.');
+export const isSeen = (id: string) => !!read()[id] || (dynamic(id) && !!read()['*dyn']);
 export function markSeen(...ids: string[]) {
   const m = read();
   let changed = false;
@@ -36,6 +38,6 @@ export const useSeen = (id: string) => useSyncExternalStore(subscribe, () => isS
 export const hintsOn = () => getSettings().hints !== false;
 /** Clear every dot and tip at once: marks every feature and tip in the registry as opened. */
 export function markAllSeen() {
-  import('./features').then(({ FEATURES, HUBS }) => markSeen(...FEATURES.map((f) => f.id), ...HUBS.map((h) => `tab.${h.to}`), 'tab./pray', 'tab./room', 'tab./study', 'tab./read', 'tab./listen',
+  import('./features').then(({ FEATURES, HUBS }) => markSeen('*dyn', ...FEATURES.map((f) => f.id), ...HUBS.map((h) => `tab.${h.to}`), 'tab./pray', 'tab./room', 'tab./study', 'tab./read', 'tab./listen',
     ...['pray', 'read', 'listen', 'study', 'memorize'].map((t) => `tip.${t}`)));
 }

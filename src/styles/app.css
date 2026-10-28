@@ -5178,3 +5178,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .glossary-card { background: var(--glass-strong, var(--card, #1b2030)); border: 1px solid var(--hairline, rgba(255,255,255,.18)); border-radius: 14px; padding: 10px 12px; box-shadow: var(--shadow-lg, 0 10px 30px rgba(0,0,0,.4)); display: grid; gap: 6px; }
 .glossary-card p { margin: 0; font-size: .9rem; }
 .glossary li.glossary-open { background: var(--accent-soft); border-radius: 12px; padding-left: 8px; }
+/* dots on tabs and folds the reader has not opened: they sit in a corner and never change a control's size */
+.tabbar button, .seg button, .fold > summary { position: relative; }
+.tabbar button .new-dot, .seg button .new-dot { top: 3px; right: 5px; width: 7px; height: 7px; box-shadow: none; background: color-mix(in srgb, var(--accent) 85%, #fff); }
+.fold > summary .new-dot { top: 50%; right: 46px; width: 7px; height: 7px; margin-top: -3px; box-shadow: none; background: color-mix(in srgb, var(--accent) 85%, #fff); }

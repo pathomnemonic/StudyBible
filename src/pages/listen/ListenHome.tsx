@@ -31,6 +31,7 @@ import PodcastLibrary from './PodcastLibrary';
 import Audiobooks from './Audiobooks';
 import { useShows, type Show } from '../../data/podcasts';
 import { useSettings } from '../../lib/store';
+import { NewDot } from '../../components/Hints';
 
 type View = 'next' | 'plan' | 'extras' | 'queue' | 'progress';
 const HIDE_KEY = 'sb:biay:hidedone';
@@ -183,7 +184,7 @@ function YearTab({ shows }: { shows: Show[] | null }) {
       {years.length > 0 && (
         <div className="seg year-pick" role="tablist" aria-label="In a Year program">
           <button role="tab" aria-selected={!cur} onClick={() => pick('biay')}>Bible</button>
-          {years.map((x) => <button key={x.id} role="tab" aria-selected={cur?.id === x.id} onClick={() => pick(x.id)}>{label(x)}</button>)}
+          {years.map((x) => <button key={x.id} role="tab" aria-selected={cur?.id === x.id} data-seen={`m.year.${x.id}`} onClick={() => pick(x.id)}>{label(x)}<NewDot id={`m.year.${x.id}`} label={`New: ${label(x)}`} /></button>)}
         </div>
       )}
       {cur ? <ProgrammeView show={cur} /> : <BiayListen />}
@@ -208,7 +209,7 @@ export default function ListenHome() {
     <div className="page media">
       <HubHeader quiet title="Media" />
       <div className="tabbar" role="tablist" aria-label="Media">
-        {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => go(k)}>{l}</button>)}
+        {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} data-seen={k === 'programmes' ? undefined : `m.${k}`} onClick={() => go(k)}>{l}{k !== 'programmes' && <NewDot id={`m.${k}`} label={`New: ${l}`} />}</button>)}
       </div>
       {tab === 'now' && <ForYou />}
       {tab === 'videos' && <VideoLibrary embedded />}
