@@ -98,6 +98,10 @@ await p.goto(`${BASE}/#/companion?d=2026-12-17`); await p.waitForSelector('text=
 await p.goto(`${BASE}/#/companion?d=2027-02-10`); await p.waitForSelector('text=Ash Wednesday');
 await p.click('button:has-text("Mark as done")'); await p.waitForSelector('button:has-text("Done")');
 
+await p.goto(`${BASE}/#/listen?tab=meditate`); await p.waitForSelector('button:has-text("Chant and hymns")');
+await p.click('button:has-text("Chant and hymns") >> nth=0');
+await p.waitForSelector('.player', { timeout: 8000 }).catch(() => fail('sacred radio should start the player'));
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

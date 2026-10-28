@@ -45,8 +45,32 @@ export default function Meditate() {
     await queueAll(list, album);
     p.setSleep(75);
   };
+  /** Sacred radio: a shuffled run of chant and hymns, long enough for an afternoon, with no sleep timer. */
+  const radio = async (pick: (t: Track) => boolean, album: string) => {
+    if (!tracks) return;
+    const pool = tracks.filter((t) => pick(t) && (t.durationSec ?? 0) >= 30);
+    if (!pool.length) return;
+    const list: Track[] = [];
+    let last = '';
+    while (list.reduce((n, t) => n + (t.durationSec ?? 180), 0) < 4 * 3600) {
+      const round = [...pool].sort(() => Math.random() - 0.5);
+      if (round.length > 1 && round[0].id === last) round.push(round.shift()!);
+      list.push(...round); last = round[round.length - 1].id;
+    }
+    p.setSleep('off');
+    await queueAll(list, album);
+  };
   return (
     <div className="meditate">
+      <Group open title="Sacred radio" hint="A shuffled run of real recordings that keeps going for hours. Stop it any time.">
+        <div className="row" style={{ flexWrap: 'wrap', gap: 8 }}>
+          <button className="btn primary" onClick={() => void radio((t) => t.category === 'chant' || t.category === 'hymn', 'Sacred radio')}><Icon name="play" size={14} /> Chant and hymns</button>
+          <button className="btn" onClick={() => void radio((t) => /ave-maria|salve|stabat|tantum|salutaris/.test(t.id), 'Marian and Eucharistic')}>Mary and the Eucharist</button>
+          <button className="btn" onClick={() => void radio((t) => /resurrexi|haec-dies|alleluia|victimae|terra-tremuit/.test(t.id), 'Easter chant')}>Easter chant</button>
+          <button className="btn" onClick={() => void radio((t) => /adeste|silent-night|holy-night/.test(t.id), 'Christmas hymns')}>Christmas hymns</button>
+          <button className="btn" onClick={() => void radio((t) => t.category !== 'nature', 'Sacred radio: everything')}>Everything quiet</button>
+        </div>
+      </Group>
       <Group title="To fall asleep to" hint="Real recordings, not a synthetic voice. Each runs for about an hour and then stops by itself.">
         <div className="row" style={{ flexWrap: 'wrap', gap: 8 }}>
           <button className="btn primary" onClick={() => void sleepMix(['chant'], 'Chant for sleep')}><Icon name="play" size={14} /> Monastic chant</button>
