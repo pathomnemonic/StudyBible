@@ -40,6 +40,13 @@ await p.waitForSelector('text=km away');
 
 await p.goto(`${BASE}/#/play`); await p.waitForSelector('.play-card');
 if ((await p.locator('.play-card').count()) < 10) fail('games missing from the list');
+await p.goto(`${BASE}/#/learn`); await p.waitForSelector('.games-menu-btn');
+const vis = await p.locator('.games-menu-btn').boundingBox();
+if (!vis || vis.x + vis.width > 360) fail('games button off screen');
+await p.click('.games-menu-btn');
+if ((await p.locator('.games-menu-list a').count()) < 10) fail('games list incomplete');
+await p.click('.games-menu-list a:has-text("Verbum")');
+await p.waitForSelector('.vb-grid');
 if (errs.length) fail(errs.join('; '));
 console.log('ok games2');
 await b.close();

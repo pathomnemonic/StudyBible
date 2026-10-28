@@ -35,7 +35,7 @@ export default function PilgrimPage() {
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', { maxZoom: 9, attribution: '© OpenStreetMap contributors © CARTO' }).addTo(m);
     layer.current = L.layerGroup().addTo(m);
     map.current = m;
-    return () => { m.remove(); map.current = null; };
+    return () => { m.stop(); m.off(); m.remove(); map.current = null; };
   }, [done, !!pool]); // eslint-disable-line react-hooks/exhaustive-deps
   const answered = useRef(false);
   useEffect(() => {
@@ -54,12 +54,12 @@ export default function PilgrimPage() {
     if (last && q) {
       const a: [number, number] = [q.lat, q.lon];
       L.circleMarker(a, { radius: 7, color: '#1b1405', fillColor: '#c9a227', fillOpacity: 1 }).bindTooltip(q.n, { permanent: true }).addTo(g);
-      if (guess) { L.polyline([guess, a], { color: '#6b1f29', dashArray: '4 6' }).addTo(g); map.current?.fitBounds(L.latLngBounds([guess, a]).pad(0.5), { maxZoom: 8 }); }
+      if (guess) { L.polyline([guess, a], { color: '#6b1f29', dashArray: '4 6' }).addTo(g); map.current?.fitBounds(L.latLngBounds([guess, a]).pad(0.5), { maxZoom: 8, animate: false }); }
     }
   }, [guess, last, q]);
 
   const lock = () => { if (!q || !guess) return; const d = km(guess, [q.lat, q.lon]); const pts = points(d); setScore((s) => s + pts); setLast({ d, pts }); };
-  const next = () => { setGuess(null); setLast(null); setHint(false); setI((n) => n + 1); map.current?.setView([33, 35], 4); };
+  const next = () => { setGuess(null); setLast(null); setHint(false); setI((n) => n + 1); map.current?.setView([33, 35], 4, { animate: false }); };
   useEffect(() => { if (done && daily) markDailyDone('pilgrim', `${score}/${ROUNDS * 100}`); }, [done]); // eslint-disable-line
   const again = () => { setDaily(false); setSeed(Math.floor(Math.random() * 1e6)); setI(0); setScore(0); setGuess(null); setLast(null); };
   const share = () => { const t = `Pin the Place ${daily ? dayIndex() : 'practice'}: ${score}/${ROUNDS * 100}`; if (navigator.share) navigator.share({ text: t }).catch(() => undefined); else navigator.clipboard?.writeText(t).catch(() => undefined); };
