@@ -53,6 +53,9 @@ await p.goto(`${BASE}/#/play/whoami`); await p.waitForSelector('.sg-clues li');
 for (let i = 0; i < 5; i++) { await p.fill('input[aria-label="Your guess"]', 'zzz'); await p.click('button:has-text("Guess")'); }
 await p.waitForSelector('.ws-score'); if (!(await p.locator('.share-wrap button').count())) fail('who am i share');
 
+await p.goto(`${BASE}/#/family-sheet?d=2026-11-08`); await p.waitForSelector('.fs-text', { timeout: 15000 }).catch(() => fail('family sheet gospel'));
+if ((await p.locator('.fs-level').count()) !== 3) fail('three age levels');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

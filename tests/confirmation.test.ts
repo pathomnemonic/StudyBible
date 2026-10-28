@@ -52,3 +52,19 @@ describe('Who Am I', () => {
     expect(accepts(peter, 'paul')).toBe(false);
   });
 });
+
+import { actionFor, genreOf, questionsFor, quoteOf } from '../src/lib/familySheet';
+describe('family sheet', () => {
+  it('recognizes a parable, a miracle and a teaching', () => {
+    expect(genreOf('Jesus told them a parable: the kingdom of heaven is like ten virgins')).toBe('parable');
+    expect(genreOf('He healed the blind man and the leper')).toBe('miracle');
+    expect(genreOf('“I am the bread of life,” he said. Truly, truly, I say to you')).toBe('teaching');
+    expect(genreOf('They went to the town and stayed the night.')).toBe('story');
+  });
+  it('gives questions for every age and genre, and finds the first words spoken', () => {
+    for (const g of ['parable', 'miracle', 'teaching', 'story'] as const) for (const l of ['little', 'middle', 'older'] as const) expect(questionsFor(g, l).length).toBeGreaterThanOrEqual(4);
+    expect(actionFor('miracle').length).toBeGreaterThan(20);
+    expect(quoteOf('He said, “Let the children come to me and do not hinder them.”')).toBe('Let the children come to me and do not hinder them.');
+    expect(quoteOf('No quote here.')).toBeNull();
+  });
+});

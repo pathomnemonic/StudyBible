@@ -5411,3 +5411,11 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .sg-input { width: 100%; min-height: 44px; margin: 8px 0 4px; }
 .sg-matches { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 6px; }
 .sg-matches .btn { width: 100%; justify-content: flex-start; text-align: left; }
+
+/* Family Gospel sheet */
+.family-sheet { max-width: 680px; margin-inline: auto; }
+.fs-sheet h3 { margin: 14px 0 4px; font-size: 1.05rem; }
+.fs-text { margin: 6px 0; line-height: 1.55; }
+.fs-quote { font-style: italic; }
+.fs-level ol { margin: 0; padding-left: 1.3em; display: grid; gap: 4px; }
+@media print { .fs-text { font-size: 11pt; } .fs-level { break-inside: avoid; } }

@@ -86,6 +86,7 @@ export const FEATURES: Feature[] = [
   { id: 'pray.confession', title: 'Going to Confession', blurb: 'A step-by-step guide with what to say.', to: '/pray/devotions/confession', hub: 'pray', keywords: 'reconciliation penance sin' },
   { id: 'pray.examination', title: 'Examination of conscience', blurb: 'A private checklist before Confession.', to: '/pray/examination', hub: 'pray', keywords: 'sins' },
   { id: 'pray.home', title: 'Prayers for the home', blurb: 'Blessings for a house, a child, a car, the Advent wreath and the family table.', to: '/pray/prayers?tag=home', hub: 'pray', keywords: 'family blessing meal grace home house children advent wreath travel' },
+  { id: 'pray.familysheet', title: 'Family Gospel sheet', blurb: 'Sunday’s Gospel with questions for three ages and one thing to do this week. Print it.', to: '/family-sheet', hub: 'pray', keywords: 'family sunday gospel discussion kids print table' },
   { id: 'pray.examen', title: 'Daily Examen', blurb: 'Five quiet steps at the end of the day.', to: '/pray/examen', hub: 'pray', keywords: 'ignatian' },
   { id: 'pray.office', title: 'Divine Office', blurb: 'Lauds, Vespers, Compline and the little hours.', to: '/pray/office', hub: 'pray', keywords: 'liturgy of the hours breviary' },
   { id: 'pray.prayers', title: 'Prayer book', blurb: 'Traditional prayers searchable by need.', to: '/pray/prayers', hub: 'pray', keywords: 'our father hail mary memorare' },
