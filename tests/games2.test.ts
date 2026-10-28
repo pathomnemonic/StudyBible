@@ -36,3 +36,17 @@ describe('crosswords', () => {
     }
   });
 });
+
+import { makeGrid } from '../src/pages/play/WordsearchPage';
+import { WS_THEMES } from '../src/data/wordsearch';
+describe('wordsearch', () => {
+  it('places every word of every theme, reproducibly, with each word readable along its line', () => {
+    for (const [i, t] of WS_THEMES.entries()) {
+      expect(t.words.every((w) => /^[A-Z]+$/.test(w)), t.id).toBe(true);
+      const a = makeGrid(t.words, 11, i * 97 + 13), b = makeGrid(t.words, 11, i * 97 + 13);
+      expect(a.grid).toEqual(b.grid);
+      expect(a.placed.length, `${t.id} places all`).toBe(t.words.filter((w) => w.length <= 11).length);
+      for (const p of a.placed) expect(Array.from({ length: p.word.length }, (_, k) => a.grid[p.r + p.dr * k][p.c + p.dc * k]).join(''), `${t.id} ${p.word}`).toBe(p.word);
+    }
+  });
+});

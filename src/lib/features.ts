@@ -140,6 +140,7 @@ export const FEATURES: Feature[] = [
   { id: 'learn.pilgrim', title: 'Pin the Place', blurb: 'Tap the map to place a city or mountain from Scripture.', to: '/play/pilgrim', hub: 'learn', keywords: 'map geography game places' },
   { id: 'learn.saintguess', title: 'Saint Guess', blurb: 'Name the saint from five clues, a new one every day.', to: '/play/saintguess', hub: 'learn', keywords: 'saint quiz game daily guess' },
   { id: 'learn.whoami', title: 'Who Am I?', blurb: 'Name the Bible person from five clues, a new one each day.', to: '/play/whoami', hub: 'learn', keywords: 'bible people quiz game daily guess' },
+  { id: 'learn.wordsearch', title: 'Wordsearch', blurb: 'A new themed wordsearch every week: apostles, sacraments, the Mass and more.', to: '/play/wordsearch', hub: 'learn', keywords: 'word search puzzle game weekly' },
   { id: 'learn.verbum', title: 'Verbum', blurb: 'The word of the day: five letters from the faith, six tries.', to: '/play/verbum', hub: 'learn', keywords: 'wordle word game daily' },
   { id: 'learn.cloister', title: 'Cloister', blurb: 'Link letters into words; words of the faith score extra.', to: '/play/cloister', hub: 'learn', keywords: 'word game letters boggle daily' },
   { id: 'learn.prophet', title: 'The Prophet', blurb: 'Guess dates and numbers from Scripture and Church history.', to: '/play/prophet', hub: 'learn', keywords: 'estimate guess trivia game' },

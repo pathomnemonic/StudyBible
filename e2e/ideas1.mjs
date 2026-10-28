@@ -62,6 +62,22 @@ if ((await p.locator('.bell-week li').count()) !== 5) fail('five cards for the w
 await p.goto(`${BASE}/#/share?q=Hello`); await p.waitForSelector('canvas.share-canvas', { timeout: 15000 }).catch(() => fail('saint quote card'));
 if (!(await p.locator('h1:has-text("saint")').count())) fail('quote mode heading');
 
+await p.goto(`${BASE}/#/play/wordsearch`); await p.waitForSelector('.ws-cell');
+const spot = await p.evaluate(() => {
+  const g = [...document.querySelectorAll('.ws-cell')].map((e) => e.textContent); const n = 11;
+  const words = [...document.querySelectorAll('.ws-words li')].map((e) => e.textContent);
+  for (const w of words) for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) for (const [dr, dc] of [[0,1],[1,0],[1,1],[-1,1],[0,-1],[-1,0],[-1,-1],[1,-1]]) {
+    let ok = true; for (let i = 0; i < w.length && ok; i++) { const rr = r + dr * i, cc = c + dc * i; if (rr < 0 || cc < 0 || rr >= n || cc >= n || g[rr * n + cc] !== w[i]) ok = false; }
+    if (ok) return { from: r * n + c, to: (r + dr * (w.length - 1)) * n + (c + dc * (w.length - 1)) };
+  }
+  return null;
+});
+if (!spot) fail('a word is in the grid');
+const cells = p.locator('.ws-cell'); const a = await cells.nth(spot.from).boundingBox(); const z = await cells.nth(spot.to).boundingBox();
+await p.mouse.move(a.x + a.width / 2, a.y + a.height / 2); await p.mouse.down(); await p.mouse.move(z.x + z.width / 2, z.y + z.height / 2, { steps: 6 }); await p.mouse.up();
+if (!(await p.locator('.ws-cell.found').count())) fail('dragging across a word should find it');
+await p.click('button:has-text("Show all")'); await p.waitForSelector('.ws-score');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();
