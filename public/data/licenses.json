@@ -233,5 +233,11 @@
   "attribution": "Divinum Officium contributors",
   "redistribution": "yes",
   "notes": "Order of Mass and propers of the 1962 books in English; some texts missing in the source are shown as such"
+ },
+ "play": {
+  "license": "Word list derived from public-domain text (WEB-C Bible and Butler's Lives of the Saints); game content written for this app",
+  "attribution": "None required",
+  "redistribution": "yes",
+  "notes": "Built by scripts/play/build_words.py. Only single words are kept, no running text."
  }
 }
