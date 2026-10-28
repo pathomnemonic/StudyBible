@@ -71,7 +71,7 @@ export default function ActivityPackPage() {
           <p className="pk-words">{placed.map((x) => x.word).join('   ·   ')}</p></section>
         <section className="pk-page"><h2>Crossword</h2><CrosswordSheet p={cw} answers={false} /><p className="pk-sub" style={{ marginTop: 10 }}>Answers: {cw.words.map((w) => w.w.toUpperCase()).join(', ')}</p></section>
         <section className="pk-page"><h2>Maze</h2><p className="pk-sub">Find the way from the start to the end.</p>
-          <svg viewBox="-0.5 -0.5 15 15" width="100%" style={{ maxWidth: 460, display: 'block', margin: '0 auto' }} role="img" aria-label="A maze"><g stroke="#000" strokeWidth="0.14" strokeLinecap="round">{lines.map(([a, b, c, d], i) => <line key={i} x1={a} y1={b} x2={c} y2={d} />)}</g><text x="0.2" y="-0.15" fontSize="0.6">Start</text><text x="12.8" y="14.8" fontSize="0.6">End</text></svg></section>
+          <svg viewBox="-0.5 -1 15.5 16.4" width="100%" style={{ maxWidth: 460, display: 'block', margin: '0 auto' }} role="img" aria-label="A maze"><g stroke="#000" strokeWidth="0.14" strokeLinecap="round">{lines.map(([a, b, c, d], i) => <line key={i} x1={a} y1={b} x2={c} y2={d} />)}</g><text x="0.2" y="-0.15" fontSize="0.6">Start</text><text x="12.8" y="15.1" fontSize="0.6">End</text></svg></section>
         <section className="pk-page"><h2>Learn by heart</h2><blockquote className="pk-verse">“{pack.verse}”<br /><small>{pack.verseRef}</small></blockquote>
           <p className="pk-sub">{pack.draw}</p><div className="pk-draw" /><p className="pk-line">My prayer: {pack.prayer}</p></section>
       </div>
