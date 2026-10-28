@@ -41,6 +41,9 @@ for (const [path, text] of [['/s/term/Faith', 'Catechism'], ['/s/saint/03-19?i=0
 }
 await p.goto(`${BASE}/#/study/glossary`); await p.waitForSelector('.glossary li button:has-text("Share")');
 
+// download one Bible, then the cleaner lists it
+await p.goto(`${BASE}/#/downloads`); await p.waitForSelector('h1:has-text("Downloads")');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

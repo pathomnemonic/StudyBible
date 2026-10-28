@@ -112,6 +112,25 @@ export default function DownloadsPage() {
         <p className="muted small">Your notes and highlights take almost nothing. <Link to="/settings">Storage and backup</Link> shows whether the browser has promised to keep them.</p>
       </section>
 
+      {(() => {
+        const items: { key: string; label: string; bytes: number; drop: () => void }[] = [
+          ...editions.filter((e) => ed[e.id]).map((e) => ({ key: `e:${e.id}`, label: e.name, bytes: sum(man?.editions?.[e.id]?.sizes), drop: () => void dropEdition(e.id) })),
+          ...(man?.packs ?? []).filter((p) => pk[p.id]).map((p) => ({ key: `p:${p.id}`, label: p.label, bytes: p.bytes, drop: () => void dropPack(p) })),
+          ...saved.map((x) => ({ key: `a:${x.id}`, label: x.title, bytes: x.bytes, drop: () => void removeAudio(x.id, x.audio) })),
+        ].sort((a, b) => b.bytes - a.bytes);
+        if (!items.length) return null;
+        const total = items.reduce((n, x) => n + x.bytes, 0);
+        return (
+          <section className="card">
+            <h2 className="card-title">Free up space</h2>
+            <p className="small">What you have saved, biggest first: {fmtBytes(total)} in all. Removing something never touches your notes, highlights or progress, and you can download it again later.</p>
+            <ul className="dl-list">
+              {items.slice(0, 6).map((x) => <li key={x.key}><span>{x.label} <span className="muted small">{fmtBytes(x.bytes)}</span></span><span className="dl-act"><button className="btn small ghost" onClick={() => { if (confirm(`Remove “${x.label}” (${fmtBytes(x.bytes)}) from this device?`)) x.drop(); }}>Remove</button></span></li>)}
+            </ul>
+          </section>
+        );
+      })()}
+
       <section className="card">
         <h2 className="card-title">Get ready to go offline</h2>
         <p className="small">Saves your Bible and all the study data below: {man ? fmtBytes(dataBytes) : '…'} of study data plus your Bible (about 5 MB).</p>
