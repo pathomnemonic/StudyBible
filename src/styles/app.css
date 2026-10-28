@@ -5188,3 +5188,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .feast-art figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 12px 6px; font-size: .7rem; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.65)); }
 .feast-card h1 { margin: 0; font-size: 1.5rem; }
 .feast-card p { margin: 0; }
+.share-card-page { max-width: 640px; margin: 8px auto; display: grid; gap: 10px; }
+.share-card-page blockquote { margin: 0; font-size: 1.15rem; line-height: 1.6; }
+.share-card-page blockquote p { margin: 0 0 6px; }
+.share-card-page h1 { margin: 0; }

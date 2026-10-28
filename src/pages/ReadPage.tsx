@@ -531,7 +531,7 @@ export default function ReadPage() {
   const copyLink = async () => {
     const [a, b] = parallelMode ? [selAnchor[0], selAnchor[selAnchor.length - 1]] : [Math.min(...selNative), Math.max(...selNative)];
     const base = location.href.split('?')[0].split('#')[0];
-    await safeCopy(`${base}#/read/${edition.id}/${bk.id}/${chNum}?v=${a}${b !== a ? '-' + b : ''}`);
+    await safeCopy(`${base}#/s/verse?ed=${edition.id}&b=${bk.id}&c=${chNum}&v=${a}${b !== a ? '-' + b : ''}`);
   };
 
   const markSpeaking = useCallback((n: number | null) => {
@@ -622,7 +622,7 @@ export default function ReadPage() {
           <button className="icon-btn" onClick={() => nav(`/share?ref=${encodeURIComponent(refId(selRefs[0]))}`)} aria-label="Share as image" title="Share this passage as an image">
             <Icon name="expand" />
           </button>
-          <button className="icon-btn" onClick={copyLink} aria-label="Copy link" title="Copy link to this passage">
+          <button className="icon-btn" onClick={copyLink} aria-label="Copy link" title="Copy a link that shows just this passage">
             <Icon name="link" />
           </button>
           <button className="icon-btn" onClick={clearSel} aria-label="Clear selection">

@@ -1,0 +1,21 @@
+// Shared links open a clean verse or prayer for anyone, with a way into the app.
+import { chromium } from 'playwright';
+const BASE = process.env.BASE || 'http://localhost:4173';
+const b = await chromium.launch();
+const fail = (m) => { console.error('FAIL', m); process.exit(1); };
+const ctx = await b.newContext({ viewport: { width: 390, height: 844 } });
+await ctx.addInitScript(() => { localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); });
+const p = await ctx.newPage();
+const errs = []; p.on('pageerror', (e) => errs.push(e.message));
+await p.goto(`${BASE}/#/s/verse?ed=webc&b=JHN&c=3&v=16-17`);
+await p.waitForSelector('.share-card-page blockquote');
+const t = await p.locator('.share-card-page blockquote').innerText();
+if (!/loved the world/i.test(t) || !/John 3:16-17/.test(await p.locator('.share-card-page').innerText())) fail(`verse card wrong: ${t.slice(0, 80)}`);
+await p.click('.share-card-page a:has-text("in context")'); await p.waitForURL(/read\/webc\/JHN\/3/);
+await p.goto(`${BASE}/#/s/prayer/ave`); await p.waitForSelector('.share-card-page h1');
+if (!/Hail Mary/.test(await p.locator('.share-card-page h1').innerText())) fail('prayer card wrong');
+await p.goto(`${BASE}/#/s/prayer/nope`); await p.waitForTimeout(800);
+if (!/could not be found/.test(await p.locator('.page').innerText())) fail('unknown prayer should say so');
+if (errs.length) fail(errs[0]);
+await b.close();
+console.log('share links e2e ok');

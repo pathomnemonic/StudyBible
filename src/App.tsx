@@ -70,6 +70,8 @@ const HistoryPage = lazy(() => import('./pages/HistoryPage'));
 const GlossaryPage = lazy(() => import('./pages/study/GlossaryPage'));
 const AskPage = lazy(() => import('./pages/study/AskPage'));
 const FeastCardPage = lazy(() => import('./pages/FeastCardPage'));
+const ShareVersePage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.ShareVersePage })));
+const SharePrayerPage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.SharePrayerPage })));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const IntentionsPage = lazy(() => import('./pages/pray/IntentionsPage'));
 const PilgrimPage = lazy(() => import('./pages/pray/PilgrimPage'));
@@ -305,6 +307,8 @@ export default function App() {
               <Route path="/study/glossary" element={<GlossaryPage />} />
               <Route path="/study/ask" element={<AskPage />} />
               <Route path="/feast/:date?" element={<FeastCardPage />} />
+              <Route path="/s/verse" element={<ShareVersePage />} />
+              <Route path="/s/prayer/:id" element={<SharePrayerPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/pray/intentions" element={<IntentionsPage />} />
               <Route path="/pray/pilgrim/:id?" element={<PilgrimPage />} />
