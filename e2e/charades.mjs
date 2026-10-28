@@ -1,0 +1,31 @@
+// Charades: pick a deck, play with buttons and with a tilt, and see the results.
+import { chromium } from 'playwright';
+const BASE = process.env.BASE || 'http://localhost:4173';
+const b = await chromium.launch();
+const fail = (m) => { console.error('FAIL', m); process.exit(1); };
+const ctx = await b.newContext({ viewport: { width: 844, height: 390 }, hasTouch: true, isMobile: true });
+await ctx.addInitScript(() => { localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); });
+const p = await ctx.newPage();
+const errs = []; p.on('pageerror', (e) => errs.push(e.message));
+await p.goto(`${BASE}/#/play/charades`); await p.waitForSelector('.charades-deck');
+if ((await p.locator('.charades-deck').count()) < 6) fail('several decks expected');
+await p.click('.charades-deck:has-text("Saints")');
+await p.click('button:has-text("Start")');
+await p.waitForSelector('.charades-stage.play', { timeout: 8000 });
+const w1 = await p.locator('.charades-word').innerText();
+if (w1.length < 2) fail('a word should show');
+await p.click('.charades-btns button:has-text("Got it")');
+await p.waitForTimeout(700);
+await p.click('.charades-btns button:has-text("Pass")');
+await p.waitForTimeout(700);
+// a tilt: the screen turned down counts as right, and it must return to upright before the next one counts
+const tilt = (z) => p.evaluate((zz) => window.dispatchEvent(Object.assign(new Event('devicemotion'), { accelerationIncludingGravity: { x: 0, y: 0, z: zz } })), z);
+await tilt(0); await tilt(-9); await p.waitForTimeout(600); await tilt(-9); await p.waitForTimeout(100);
+const score = await p.locator('.charades-top span').nth(1).innerText();
+if (!/^2/.test(score)) fail(`two right answers expected (button and tilt, not twice without returning), got ${score}`);
+await p.click('button:has-text("Stop")');
+await p.waitForSelector('h1:has-text("right")');
+if (!(await p.locator('li:has-text("✓")').count())) fail('results list the right answers');
+if (errs.length) fail(errs[0]);
+await b.close();
+console.log('charades e2e ok');

@@ -122,6 +122,7 @@ export const FEATURES: Feature[] = [
   { id: 'learn.compare', title: 'Compare the sources', blurb: 'The Catechism, Church documents and the Fathers side by side on one doctrine.', to: '/study/compare', hub: 'learn', keywords: 'compare side by side fathers council doctrine' },
   { id: 'learn.glossary', title: 'Glossary', blurb: 'Terms of the faith in plain language, each with its Catechism paragraph.', to: '/study/glossary', hub: 'learn', keywords: 'define meaning transubstantiation purgatory indulgence dogma terms dictionary' },
   { id: 'listen.search', title: 'Search Media', blurb: 'One search across Bible in a Year, podcasts, audiobooks and videos.', to: '/listen-search', hub: 'listen', keywords: 'find episode podcast video audiobook search' },
+  { id: 'learn.charades', title: 'Charades', blurb: 'Hold the phone to your forehead and guess saints, Bible stories and more.', to: '/play/charades', hub: 'learn', keywords: 'game heads up play party family kids fun', hot: true },
   { id: 'you.year', title: 'Your year', blurb: 'Chapters read, hours listened and days here, counted on your device.', to: '/your-year', hub: 'you', keywords: 'stats statistics progress summary review wrapped' },
   { id: 'you.history', title: 'History', blurb: 'What you read, heard and opened recently.', to: '/history', hub: 'you', keywords: 'recent recently opened listened viewed' },
   { id: 'you.library', title: 'Notes, highlights and bookmarks', blurb: 'Everything you have written or marked.', to: '/library', hub: 'you', keywords: 'my notes export' },

@@ -25,7 +25,7 @@ export default function LearnPage() {
     <div className="level-chips" role="group" aria-label="Levels">{grades.map((g) => <Link key={g.id} className="chip" to={`/study/curriculum/${g.id}`} title={`${g.name}: ${g.lessons} lessons`}>{g.id === 'K' ? 'K' : g.id === 'YA' ? 'Adults' : g.id}</Link>)}</div>
   );
   const tall = typeof window !== 'undefined' && window.innerHeight >= 800;
-  const studentTiles = <Tiles ids={['study.kids', 'study.course', 'study.paths', 'study.story', 'study.prepare', 'study.visual', 'learn.mass']} />;
+  const studentTiles = <Tiles ids={['study.kids', 'study.course', 'study.paths', 'study.story', 'study.prepare', 'study.visual', 'learn.mass', 'learn.charades']} />;
   const teacherTiles = <Tiles ids={['teach.classes', 'teach.run', 'teach.handbook', 'teach.join']} />;
   const studentCourse = (
     <RowLink strong to={mineGrade ? `/study/curriculum/${mineGrade.id}` : '/study/curriculum'} title="Student course" meta={mineGrade ? `${gradeLabel(mineGrade.id)} · ${mine!.done.length}/${mineGrade.lessons}` : 'K–12 · by grade'} />
