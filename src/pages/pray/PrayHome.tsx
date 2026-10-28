@@ -1,4 +1,7 @@
+import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { Group, HubHeader, Tiles } from '../../components/Hub';
+import { unfinishedPrayer } from '../../pray/resumeSpot';
 import { useSettings } from '../../lib/store';
 import { liturgyFor } from '../../lib/tradition';
 
@@ -6,6 +9,7 @@ import { liturgyFor } from '../../lib/tradition';
 export default function PrayHome() {
   const [st] = useSettings();
   const lit = liturgyFor(st.tradition);
+  const left = useMemo(() => unfinishedPrayer(), []);
   // the first tile follows your Church: the Mass, the Divine Liturgy, or (where the app has no text for your rite) the Roman Mass, called that
   const overrides = lit.kind === 'byzantine'
     ? { 'pray.mass': { title: 'Divine Liturgy', blurb: 'The Liturgy of St John Chrysostom to follow along.', to: '/pray/divine-liturgy' } }
@@ -15,6 +19,11 @@ export default function PrayHome() {
   return (
     <div className="page hub">
       <HubHeader quiet title="Pray" />
+      {left && (
+        <nav className="continue-strip" aria-label="Carry on praying">
+          <Link className="continue-chip" to={left.to}><span className="continue-k">Continue</span><span className="continue-t">{left.title} · {left.detail}</span></Link>
+        </nav>
+      )}
       <Group open title="Devotions" hint="Bead by bead, with pictures and recordings">
         <Tiles ids={['pray.rosary', 'pray.mercy', 'pray.novenas', 'pray.devotions', 'pray.lectio', 'pray.prayers']} />
       </Group>
