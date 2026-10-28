@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { db } from '../../db/db';
 import { saveNote } from '../../db/ops';
 import { parseRefs, refId } from '../../lib/refs';
@@ -23,7 +23,8 @@ export default function PrayerBookPage() {
   // Eastern readers see the prayers of their own tradition first
   const PRAYERS = st.tradition === 'latin' ? BOOK_PRAYERS : [...BOOK_PRAYERS].sort((a, b) => Number(b.tags.includes('eastern')) - Number(a.tags.includes('eastern')));
   const [q, setQ] = useState('');
-  const [tag, setTag] = useState('');
+  const [sp] = useSearchParams();
+  const [tag, setTag] = useState(sp.get('tag') ?? '');
   const [open, setOpen] = useState<string | null>(null);
   const [copied, setCopied] = useState('');
   const [saved, setSaved] = useState('');

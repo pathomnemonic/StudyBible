@@ -5,6 +5,7 @@
 export interface BookPrayer { id: string; title: string; text: string; tags: string[]; note?: string }
 
 import { MORE_PRAYERS } from './prayerbook2';
+import { HOME_PRAYERS } from './prayerbook3';
 
 const CORE_PRAYERS: BookPrayer[] = [
   { id: 'sign', title: 'Sign of the Cross', tags: ['basic', 'morning', 'evening', 'daily'], text: 'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.' },
@@ -56,6 +57,6 @@ const CORE_PRAYERS: BookPrayer[] = [
   { id: 'pope', title: 'For the Pope and the Church', tags: ['church', 'pope', 'intercession', 'bishops'], text: 'Let us pray for our Pope. May the Lord preserve him, give him life, make him blessed upon the earth, and deliver him not up to the will of his enemies. Our Father, Hail Mary. Almighty and everlasting God, have mercy upon thy servant our Pope, and direct him according to thy loving kindness in the way of everlasting salvation, that of thy gift he may desire what is pleasing to thee and perform it with all his strength. Through Christ our Lord. Amen.' },
 ];
 
-export const BOOK_PRAYERS: BookPrayer[] = [...CORE_PRAYERS, ...MORE_PRAYERS];
+export const BOOK_PRAYERS: BookPrayer[] = [...CORE_PRAYERS, ...MORE_PRAYERS, ...HOME_PRAYERS];
 
 export const PRAYER_TAGS = ['eastern', 'morning', 'evening', 'mary', 'eucharist', 'confession', 'sick', 'dead', 'peace', 'study', 'family', 'angels', 'holy-spirit', 'travel', 'work', 'anxiety', 'basic'] as const;

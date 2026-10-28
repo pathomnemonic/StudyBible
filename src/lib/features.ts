@@ -84,6 +84,7 @@ export const FEATURES: Feature[] = [
   { id: 'pray.life', title: 'Catholic life', blurb: 'Today’s obligations, holy days, a Confession guide and indulgences.', to: '/pray/life', hub: 'pray', keywords: 'fasting abstinence friday lent holy day obligation indulgence find mass', hot: true, interest: ['pray'] },
   { id: 'pray.confession', title: 'Going to Confession', blurb: 'A step-by-step guide with what to say.', to: '/pray/devotions/confession', hub: 'pray', keywords: 'reconciliation penance sin' },
   { id: 'pray.examination', title: 'Examination of conscience', blurb: 'A private checklist before Confession.', to: '/pray/examination', hub: 'pray', keywords: 'sins' },
+  { id: 'pray.home', title: 'Prayers for the home', blurb: 'Blessings for a house, a child, a car, the Advent wreath and the family table.', to: '/pray/prayers?tag=home', hub: 'pray', keywords: 'family blessing meal grace home house children advent wreath travel' },
   { id: 'pray.examen', title: 'Daily Examen', blurb: 'Five quiet steps at the end of the day.', to: '/pray/examen', hub: 'pray', keywords: 'ignatian' },
   { id: 'pray.office', title: 'Divine Office', blurb: 'Lauds, Vespers, Compline and the little hours.', to: '/pray/office', hub: 'pray', keywords: 'liturgy of the hours breviary' },
   { id: 'pray.prayers', title: 'Prayer book', blurb: 'Traditional prayers searchable by need.', to: '/pray/prayers', hub: 'pray', keywords: 'our father hail mary memorare' },

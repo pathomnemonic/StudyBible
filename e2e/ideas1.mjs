@@ -25,6 +25,8 @@ if (!(await p.locator('.trophy-grid li.got').count())) fail('first trophy missin
 await p.goto(`${BASE}/#/play`); await p.waitForSelector('.streak-chip');
 if (!(await p.locator('.streak-chip').innerText()).includes('1 day')) fail('streak chip');
 
+await p.goto(`${BASE}/#/pray/prayers?tag=home`); await p.waitForSelector('text=Blessing of a new home', { timeout: 8000 }).catch(() => fail('home prayers'));
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();
