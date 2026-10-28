@@ -142,6 +142,7 @@ export const FEATURES: Feature[] = [
   { id: 'learn.whoami', title: 'Who Am I?', blurb: 'Name the Bible person from five clues, a new one each day.', to: '/play/whoami', hub: 'learn', keywords: 'bible people quiz game daily guess' },
   { id: 'learn.wordsearch', title: 'Wordsearch', blurb: 'A new themed wordsearch every week: apostles, sacraments, the Mass and more.', to: '/play/wordsearch', hub: 'learn', keywords: 'word search puzzle game weekly' },
   { id: 'learn.artdetective', title: 'Art Detective', blurb: 'Which Bible scene does this engraving show? Five a day.', to: '/play/artdetective', hub: 'learn', keywords: 'art painting engraving dore quiz game daily' },
+  { id: 'learn.doctrineladder', title: 'Doctrine ladder', blurb: 'Quiz yourself on what the Church teaches, from beginner to advanced, with the Catechism behind each answer.', to: '/play/doctrineladder', hub: 'learn', keywords: 'quiz doctrine catechism test beginner advanced' },
   { id: 'learn.verbum', title: 'Verbum', blurb: 'The word of the day: five letters from the faith, six tries.', to: '/play/verbum', hub: 'learn', keywords: 'wordle word game daily' },
   { id: 'learn.cloister', title: 'Cloister', blurb: 'Link letters into words; words of the faith score extra.', to: '/play/cloister', hub: 'learn', keywords: 'word game letters boggle daily' },
   { id: 'learn.prophet', title: 'The Prophet', blurb: 'Guess dates and numbers from Scripture and Church history.', to: '/play/prophet', hub: 'learn', keywords: 'estimate guess trivia game' },

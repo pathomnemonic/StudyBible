@@ -85,6 +85,12 @@ for (let k = 0; k < 5; k++) {
 }
 await p.waitForSelector('.ws-score'); if (!(await p.locator('.share-wrap button').count())) fail('art detective share');
 
+await p.goto(`${BASE}/#/play/doctrineladder`); await p.waitForSelector('.play-card');
+if (!(await p.locator('.play-card:disabled').count())) fail('upper levels start locked');
+await p.click('.play-card >> nth=0');
+for (let k = 0; k < 10; k++) { await p.locator('.ws-opt').first().click(); await p.click('.ws-after .btn.primary'); }
+await p.waitForSelector('.ws-score'); if (!(await p.locator('.share-wrap button').count())) fail('ladder share');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

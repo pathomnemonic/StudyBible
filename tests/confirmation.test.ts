@@ -90,3 +90,18 @@ describe('season captions', () => {
     expect(cap('2026-10-28')).toBe('Ordinary Time');
   });
 });
+
+import { LADDER } from '../src/data/doctrineLadder';
+describe('doctrine ladder', () => {
+  it('has well-formed questions: four distinct answers, a valid Catechism paragraph, enough to fill a round', () => {
+    expect(LADDER.map((l) => l.id)).toEqual(['beginner', 'intermediate', 'advanced']);
+    for (const l of LADDER) {
+      expect(l.questions.length, l.id).toBeGreaterThanOrEqual(10);
+      for (const q of l.questions) {
+        expect(q.a.length, q.q).toBe(4);
+        expect(new Set(q.a).size, q.q).toBe(4);
+        expect(q.ccc, q.q).toBeGreaterThan(0); expect(q.ccc, q.q).toBeLessThanOrEqual(2865);
+      }
+    }
+  });
+});

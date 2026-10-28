@@ -99,6 +99,7 @@ const SaintGuessPage = lazy(() => import('./pages/play/SaintGuessPage'));
 const WhoAmIPage = lazy(() => import('./pages/play/WhoAmIPage'));
 const WordsearchPage = lazy(() => import('./pages/play/WordsearchPage'));
 const ArtDetectivePage = lazy(() => import('./pages/play/ArtDetectivePage'));
+const DoctrineLadderPage = lazy(() => import('./pages/play/DoctrineLadderPage'));
 const ProphetPage = lazy(() => import('./pages/play/ProphetPage'));
 const MediaSearch = lazy(() => import('./pages/listen/MediaSearch'));
 const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
@@ -364,6 +365,7 @@ export default function App() {
               <Route path="/play/whoami" element={<WhoAmIPage />} />
               <Route path="/play/wordsearch" element={<WordsearchPage />} />
               <Route path="/play/artdetective" element={<ArtDetectivePage />} />
+              <Route path="/play/doctrineladder" element={<DoctrineLadderPage />} />
               <Route path="/play/verbum" element={<VerbumPage />} />
               <Route path="/play/cloister" element={<CloisterPage />} />
               <Route path="/play/prophet" element={<ProphetPage />} />
