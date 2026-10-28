@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PROPHET, COUNTS, type ProphetQ } from '../../data/prophet';
 import ShareButton from '../../components/ShareButton';
+import { recordPlay } from '../../lib/dailyGame';
 import { getBookText } from '../../data/loader';
 import { flattenChapter } from '../../lib/bibleText';
 
@@ -38,7 +39,7 @@ export default function ProphetPage() {
     setDeck(shuffle([...shuffle(PROPHET).slice(0, ROUNDS - counted.length), ...counted]));
     setI(0); setTotal(0); setLog([]); setGuess(''); setShown(null); setPhase('play'); setBusy(false);
   };
-  useEffect(() => { if (phase === 'done') { try { if (total > best()) localStorage.setItem(BEST, String(total)); } catch { /* private mode */ } } }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (phase === 'done') { recordPlay('prophet', { perfect: total >= 600 }); try { if (total > best()) localStorage.setItem(BEST, String(total)); } catch { /* private mode */ } } }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
   const q = deck?.[i];
   const submit = (e: React.FormEvent) => {
     e.preventDefault();

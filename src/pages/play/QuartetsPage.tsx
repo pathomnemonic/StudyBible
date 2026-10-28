@@ -34,7 +34,7 @@ export default function QuartetsPage() {
       </div>
     );
   }
-  return <Board key={picked.id} q={picked} daily={picked.id === today.id} onDone={(won, mistakes) => { if (picked.id === today.id) markDailyDone('quartets', won ? (mistakes ? `${mistakes} mistake${mistakes === 1 ? '' : 's'}` : 'perfect') : 'tried'); const d = { ...loadDone(), [picked.id]: { won, mistakes } }; try { localStorage.setItem(KEY, JSON.stringify(d)); } catch { /* private mode */ } setDone(d); }} back={() => setSp({})} />;
+  return <Board key={picked.id} q={picked} daily={picked.id === today.id} onDone={(won, mistakes) => { if (picked.id === today.id) markDailyDone('quartets', won ? (mistakes ? `${mistakes} mistake${mistakes === 1 ? '' : 's'}` : 'perfect') : 'tried', won && mistakes === 0); const d = { ...loadDone(), [picked.id]: { won, mistakes } }; try { localStorage.setItem(KEY, JSON.stringify(d)); } catch { /* private mode */ } setDone(d); }} back={() => setSp({})} />;
 }
 
 function Board({ q, daily, onDone, back }: { q: Quartet; daily: boolean; onDone: (won: boolean, mistakes: number) => void; back: () => void }) {

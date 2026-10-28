@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { dailyDone } from '../../lib/dailyGame';
+import { currentStreak, dailyDone } from '../../lib/dailyGame';
 
 interface Game { to: string; title: string; blurb: string; icon: string; daily?: string }
 const GAMES: Game[] = [
@@ -22,6 +22,7 @@ export default function PlayHome() {
   return (
     <div className="page play-home">
       <h1>Games</h1>
+      <p className="muted small" style={{ margin: 0 }}><Link className="streak-chip" to="/play/trophies">🔥 {currentStreak()} day streak · trophies</Link></p>
       {dailies.length > 0 && <p className="muted small">{left === 0 ? 'All of today’s puzzles are done. Come back tomorrow.' : `${left} of today’s ${dailies.length} daily puzzles still to play.`}</p>}
       <ul className="play-list">
         {GAMES.map((g) => {

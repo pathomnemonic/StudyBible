@@ -71,7 +71,7 @@ export default function PilgrimPage() {
 
   const lock = () => { if (!q || !guess) return; const d = km(guess, [q.lat, q.lon]); const pts = points(d); setScore((s) => s + pts); setLog((l) => [...l, pts]); setLast({ d, pts }); };
   const next = () => { setGuess(null); setLast(null); setHint(false); setI((n) => n + 1); map.current?.setView([33, 35], 4, { animate: false }); };
-  useEffect(() => { if (done && daily) markDailyDone('pilgrim', `${score}/${ROUNDS * 100}`); }, [done]); // eslint-disable-line
+  useEffect(() => { if (done && daily) markDailyDone('pilgrim', `${score}/${ROUNDS * 100}`, score >= 400); }, [done]); // eslint-disable-line
   const again = () => { setDaily(false); setSeed(Math.floor(Math.random() * 1e6)); setI(0); setScore(0); setLog([]); setGuess(null); setLast(null); };
   const shareText = () => `Pin the Place ${daily ? '#' + dayIndex() : 'practice'} 📍 ${score}/${ROUNDS * 100}\n${log.map((p) => (p >= 80 ? '🟩' : p >= 50 ? '🟨' : p >= 20 ? '🟧' : '🟥')).join('')}`;
   const first = q?.v?.[0] ? parseRefId(q.v[0]) : null;

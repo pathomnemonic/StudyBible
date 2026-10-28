@@ -16,6 +16,15 @@ await p.locator('input[type=date]').first().fill('1990-03-19');
 await p.waitForSelector('text=Saints of my birthday');
 await p.waitForSelector('.card .list li', { timeout: 8000 }).catch(() => fail('birthday saints'));
 
+// finishing a game earns the first trophy and starts a streak
+await p.goto(`${BASE}/#/play/whosaid`); await p.waitForSelector('.ws-opt');
+for (let i = 0; i < 5; i++) { await p.locator('.ws-opt').first().click(); await p.click('.ws-after .btn.primary'); }
+await p.waitForSelector('.trophy-toast', { timeout: 5000 }).catch(() => fail('no trophy toast'));
+await p.goto(`${BASE}/#/play/trophies`); await p.waitForSelector('.trophy-grid');
+if (!(await p.locator('.trophy-grid li.got').count())) fail('first trophy missing');
+await p.goto(`${BASE}/#/play`); await p.waitForSelector('.streak-chip');
+if (!(await p.locator('.streak-chip').innerText()).includes('1 day')) fail('streak chip');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

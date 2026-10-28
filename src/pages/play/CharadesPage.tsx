@@ -2,6 +2,7 @@ import ShareButton from '../../components/ShareButton';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CHARADES_DECKS, type CharadesDeck } from '../../data/charades';
+import { recordPlay } from '../../lib/dailyGame';
 import { buzz } from '../../lib/haptics';
 
 type Phase = 'pick' | 'ready' | 'play' | 'done';
@@ -98,6 +99,7 @@ export default function CharadesPage() {
     if (phase !== 'done') return;
     const n = rightRef.current.length;
     try { if (n > best(deck.id)) localStorage.setItem(bestKey(deck.id), String(n)); } catch { /* private mode */ }
+    recordPlay('charades', { perfect: n >= 10 });
     buzz(60);
   }, [phase, deck.id]);
 

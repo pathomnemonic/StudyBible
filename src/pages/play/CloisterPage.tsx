@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { getJson } from '../../data/loader';
 import { THEMED } from '../../data/cloister';
 import ShareButton from '../../components/ShareButton';
+import { recordPlay } from '../../lib/dailyGame';
 import { buzz } from '../../lib/haptics';
 
 const N = 5, TIME = 180;
@@ -61,7 +62,7 @@ export default function CloisterPage() {
     const t = window.setInterval(() => setLeft((l) => { if (l <= 1) { window.clearInterval(t); setPhase('done'); return 0; } return l - 1; }), 1000);
     return () => window.clearInterval(t);
   }, [phase]);
-  useEffect(() => { if (phase === 'done') { try { if (total > loadBest(daily)) localStorage.setItem(bestKey(daily), String(total)); } catch { /* private mode */ } } }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (phase === 'done') { recordPlay('cloister', { perfect: total >= 100 }); try { if (total > loadBest(daily)) localStorage.setItem(bestKey(daily), String(total)); } catch { /* private mode */ } } }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const add = useCallback((i: number) => setPath((p) => {
     if (p.includes(i)) return p.length > 1 && p[p.length - 2] === i ? p.slice(0, -1) : p;

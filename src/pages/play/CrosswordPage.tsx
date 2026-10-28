@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CROSSWORDS, type Crossword } from '../../data/crosswords';
 import ShareButton from '../../components/ShareButton';
-import { dayIndex } from '../../lib/dailyGame';
+import { dayIndex, recordPlay } from '../../lib/dailyGame';
 
 const weekNo = () => Math.floor((dayIndex() + 3) / 7);
 const SAVE = 'sb:crossword:v1';
@@ -37,6 +37,7 @@ export default function CrosswordPage() {
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => { if (weekly) try { localStorage.setItem(SAVE, JSON.stringify({ week: weekNo(), fill } satisfies Saved)); } catch { /* private mode */ } }, [fill, weekly]);
   const solved = [...L.cells].every(([k, ch]) => fill[k] === ch);
+  useEffect(() => { if (solved) recordPlay('crossword', { solved: true, perfect: revealed.size === 0 }); }, [solved]); // eslint-disable-line react-hooks/exhaustive-deps
   const wordAt = (k: string, d: 'a' | 'd') => p.words.find((w) => w.d === d && cellsOf(w).includes(k));
   const active = sel ? wordAt(sel, dir) ?? wordAt(sel, dir === 'a' ? 'd' : 'a') : undefined;
   const activeCells = new Set(active ? cellsOf(active) : []);

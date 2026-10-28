@@ -30,7 +30,7 @@ export default function WhoSaidPage() {
     return shuffled(pool, r).slice(0, ROUNDS).map((p) => ({ ...p, options: shuffled([p.who, ...shuffled(names.filter((n) => n !== p.who), r).slice(0, 3)], r) }));
   }, [pool, seed]);
   const done = i >= ROUNDS;
-  useEffect(() => { if (done) markDailyDone('whosaid', `${score}/${ROUNDS}`); }, [done]); // eslint-disable-line
+  useEffect(() => { if (done) markDailyDone('whosaid', `${score}/${ROUNDS}`, score === ROUNDS); }, [done]); // eslint-disable-line
   const q = qs[i];
   const choose = (o: string) => { if (picked || !q) return; setPicked(o); const ok = o === q.who; if (ok) setScore((s) => s + 1); setMarks((m) => [...m, ok]); };
   const next = () => { setPicked(null); setI((n) => n + 1); };

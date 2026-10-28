@@ -41,7 +41,7 @@ export default function ChainPage() {
   const won = last === to;
   const steps = chain.length - 1;
   const par = best ? best.length - 1 : 0;
-  useEffect(() => { if (won && daily) markDailyDone('chain', `${steps} steps (best ${par})`); }, [won]); // eslint-disable-line
+  useEffect(() => { if (won && daily) markDailyDone('chain', `${steps} steps (best ${par})`, steps <= par); }, [won]); // eslint-disable-line
 
   const submit = () => {
     const w = text.toLowerCase().trim();

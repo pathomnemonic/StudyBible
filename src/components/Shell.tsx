@@ -11,6 +11,7 @@ import { markSeen } from '../lib/seen';
 import { useEnsureActivePlan } from '../lib/activePlan';
 import { useAutoFill } from '../lib/autoFill';
 import GlossaryLayer from './GlossaryLayer';
+import TrophyToast from './TrophyToast';
 import { startDriveBackup } from '../sync/drive';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
@@ -218,6 +219,7 @@ export default function Shell({ children }: { children: ReactNode }) {
         })()}
         {children}
         <GlossaryLayer />
+        <TrophyToast />
       </main>
       {keys && (
         <Modal title="Keyboard shortcuts" onClose={() => setKeys(false)}>
