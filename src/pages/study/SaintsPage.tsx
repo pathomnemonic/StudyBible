@@ -21,7 +21,7 @@ export default function SaintsPage() {
   return (
     <div className="page">
       <h1>Lives of the Saints</h1>
-      <p className="lede">Alban Butler’s eighteenth-century lives, day by day.</p>
+      <p className="lede">Alban Butler’s eighteenth-century lives, day by day. <Link to="/study/saint-names">Find a saint by name</Link></p>
       <div className="row" style={{ gap: 8, marginBottom: 10 }}>
         <button className="icon-btn" onClick={() => nav(`/study/saints/${shift(day, -1)}`)} aria-label="Previous day"><Icon name="chevL" /></button>
         <strong>{label(day)}</strong>
