@@ -68,6 +68,7 @@ const MementoPage = lazy(() => import('./pages/MementoPage'));
 const GoalsPage = lazy(() => import('./pages/GoalsPage'));
 const HistoryPage = lazy(() => import('./pages/HistoryPage'));
 const GlossaryPage = lazy(() => import('./pages/study/GlossaryPage'));
+const AskPage = lazy(() => import('./pages/study/AskPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const IntentionsPage = lazy(() => import('./pages/pray/IntentionsPage'));
 const PilgrimPage = lazy(() => import('./pages/pray/PilgrimPage'));
@@ -301,6 +302,7 @@ export default function App() {
               <Route path="/goals" element={<GoalsPage />} />
               <Route path="/history" element={<HistoryPage />} />
               <Route path="/study/glossary" element={<GlossaryPage />} />
+              <Route path="/study/ask" element={<AskPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/pray/intentions" element={<IntentionsPage />} />
               <Route path="/pray/pilgrim/:id?" element={<PilgrimPage />} />

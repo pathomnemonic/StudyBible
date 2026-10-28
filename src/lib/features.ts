@@ -117,6 +117,7 @@ export const FEATURES: Feature[] = [
   { id: 'you.goals', title: 'Reading goal', blurb: 'A weekly chapter goal counted from what you read. No streak to lose.', to: '/goals', hub: 'you', keywords: 'target progress weekly habit', interest: ['bible'] },
   { id: 'you.downloads', title: 'Downloads and offline', blurb: 'Save Bibles, study data and audio for no-signal use, with real sizes.', to: '/downloads', hub: 'you', keywords: 'offline save storage space audio plane travel', hot: true },
   { id: 'you.privacy', title: 'Privacy', blurb: 'What stays on your device and exactly when anything leaves it.', to: '/privacy', hub: 'you', keywords: 'data tracking analytics safe' },
+  { id: 'learn.ask', title: 'Ask the Catechism', blurb: 'Ask a question in your own words and read the Catechism’s own paragraphs on it.', to: '/study/ask', hub: 'learn', keywords: 'question why how what answer faith', hot: true },
   { id: 'learn.glossary', title: 'Glossary', blurb: 'Terms of the faith in plain language, each with its Catechism paragraph.', to: '/study/glossary', hub: 'learn', keywords: 'define meaning transubstantiation purgatory indulgence dogma terms dictionary' },
   { id: 'you.history', title: 'History', blurb: 'What you read, heard and opened recently.', to: '/history', hub: 'you', keywords: 'recent recently opened listened viewed' },
   { id: 'you.library', title: 'Notes, highlights and bookmarks', blurb: 'Everything you have written or marked.', to: '/library', hub: 'you', keywords: 'my notes export' },
