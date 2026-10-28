@@ -69,7 +69,7 @@ function AddPodcast() {
   const run = async (f: () => Promise<void>) => { setBusy(true); setMsg(''); try { await f(); } catch (e) { setMsg((e as Error).message); } finally { setBusy(false); } };
   const isLink = /^(https?|feed):\/\//i.test(q.trim());
   return (
-    <Fold id="pod:add" title="Add a podcast of your own" hint="Search for any show, paste its feed link, or import a list from another app.">
+    <Fold rare id="pod:add" title="Add a podcast of your own" hint="Search for any show, paste its feed link, or import a list from another app.">
       <form className="row" style={{ gap: 8, flexWrap: 'wrap' }} onSubmit={(e) => { e.preventDefault(); void run(async () => { if (isLink) { const sh = await addUserShow(q); setMsg(`Added ${sh.title}.`); setQ(''); } else setRes(await searchPodcasts(q)); }); }}>
         <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="A show’s name, or a feed link (https://…)" aria-label="Search for a podcast or paste a feed link" style={{ flex: 1, minWidth: 220 }} />
         <button className="btn primary" disabled={busy || !q.trim()}>{isLink ? 'Add this feed' : 'Search'}</button>

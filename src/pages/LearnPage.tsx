@@ -40,10 +40,10 @@ export default function LearnPage() {
         {tall ? (
           <>
             <Fold id="learn:students" title="For students and families" hint="Stories, paths and the Mass explained">{studentTiles}</Fold>
-            <Fold id="learn:teachers" title="For teachers" hint="Classes, handbook and lessons in a tap">{teacherTiles}</Fold>
+            <Fold rare id="learn:teachers" title="For teachers" hint="Classes, handbook and lessons in a tap">{teacherTiles}</Fold>
           </>
         ) : (
-          <Fold id="learn:resources" title="Student and teacher resources" hint="Everything for the classroom and the home">
+          <Fold rare id="learn:resources" title="Student and teacher resources" hint="Everything for the classroom and the home">
             <p className="rows-sub">For students and families</p>{studentTiles}
             <p className="rows-sub">For teachers</p>{teacherTiles}
           </Fold>

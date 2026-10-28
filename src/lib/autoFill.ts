@@ -12,7 +12,7 @@ const overflow = () => (document.scrollingElement?.scrollHeight ?? 0) - window.i
  * and closed again at once if it does not fit, so a section that will not fit never flashes open.
  */
 function fill() {
-  const folds = [...document.querySelectorAll<HTMLDetailsElement>('.page details.fold:not([open])')];
+  const folds = [...document.querySelectorAll<HTMLDetailsElement>('.page details.fold:not([open]):not([data-rare])')];
   (window as unknown as { __sbAuto?: boolean }).__sbAuto = true;
   try {
     // a smaller screen than before: give back what no longer fits, last opened first

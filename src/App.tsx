@@ -82,6 +82,7 @@ const CharadesPage = lazy(() => import('./pages/play/CharadesPage'));
 const PlayHome = lazy(() => import('./pages/play/PlayHome'));
 const QuartetsPage = lazy(() => import('./pages/play/QuartetsPage'));
 const CloisterPage = lazy(() => import('./pages/play/CloisterPage'));
+const VerbumPage = lazy(() => import('./pages/play/VerbumPage'));
 const ProphetPage = lazy(() => import('./pages/play/ProphetPage'));
 const MediaSearch = lazy(() => import('./pages/listen/MediaSearch'));
 const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
@@ -328,6 +329,7 @@ export default function App() {
               <Route path="/play" element={<PlayHome />} />
               <Route path="/play/charades" element={<CharadesPage />} />
               <Route path="/play/quartets" element={<QuartetsPage />} />
+              <Route path="/play/verbum" element={<VerbumPage />} />
               <Route path="/play/cloister" element={<CloisterPage />} />
               <Route path="/play/prophet" element={<ProphetPage />} />
               <Route path="/listen-search" element={<MediaSearch />} />

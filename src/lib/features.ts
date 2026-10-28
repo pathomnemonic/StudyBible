@@ -126,6 +126,7 @@ export const FEATURES: Feature[] = [
   { id: 'listen.search', title: 'Search Media', blurb: 'One search across Bible in a Year, podcasts, audiobooks and videos.', to: '/listen-search', hub: 'listen', keywords: 'find episode podcast video audiobook search' },
   { id: 'learn.games', title: 'Games', blurb: 'Quartets, Cloister, The Prophet and Charades, with Catholic and biblical themes.', to: '/play', hub: 'learn', keywords: 'game play puzzle word connections quiz fun family', hot: true },
   { id: 'learn.quartets', title: 'Quartets', blurb: 'Sort sixteen tiles into four hidden sets. A new puzzle every day.', to: '/play/quartets', hub: 'learn', keywords: 'connections puzzle game daily' },
+  { id: 'learn.verbum', title: 'Verbum', blurb: 'The word of the day: five letters from the faith, six tries.', to: '/play/verbum', hub: 'learn', keywords: 'wordle word game daily' },
   { id: 'learn.cloister', title: 'Cloister', blurb: 'Link letters into words; words of the faith score extra.', to: '/play/cloister', hub: 'learn', keywords: 'word game letters boggle daily' },
   { id: 'learn.prophet', title: 'The Prophet', blurb: 'Guess dates and numbers from Scripture and Church history.', to: '/play/prophet', hub: 'learn', keywords: 'estimate guess trivia game' },
   { id: 'learn.charades', title: 'Charades', blurb: 'Hold the phone to your forehead and guess saints, Bible stories and more.', to: '/play/charades', hub: 'learn', keywords: 'game heads up play party family kids fun', hot: true },

@@ -106,7 +106,7 @@ export default function RoomHome() {
                 </div>
               </section>
               <Group title="More to read" hint="Beyond the Fathers"><Tiles ids={['read.saints', 'read.encyclopedia', 'read.papal', 'read.church', 'read.gallery']} /></Group>
-              <Fold id="room:books" title={`Your own books (${mine.length})`} hint="Add an EPUB, text or HTML file and read it here, with highlights, notes and your place remembered." open={mine.length > 0}>
+              <Fold rare id="room:books" title={`Your own books (${mine.length})`} hint="Add an EPUB, text or HTML file and read it here, with highlights, notes and your place remembered." open={mine.length > 0}>
                 <AddBooks />
                 <div className="shelf">{mine.map((b) => <div key={b.id} className="shelf-card"><Link to={`/room/work/${b.id}/${shelf.get(b.id)?.section ?? 0}`} className="t">{b.title}</Link><span className="d">{b.author || 'Your book'} · {b.sections.length} sections · {Math.round(b.words / 250)} min</span><button className="linklike small" onClick={() => confirm(`Remove “${b.title}” from this device? Your notes on it stay.`) && db.userBooks.delete(b.id)}>Remove</button></div>)}</div>
               </Fold>

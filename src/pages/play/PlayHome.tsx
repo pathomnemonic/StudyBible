@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const GAMES: { to: string; title: string; blurb: string; icon: string }[] = [
+  { to: '/play/verbum', title: 'Verbum', blurb: 'The word of the day: five letters from the faith, six tries.', icon: '🟨' },
   { to: '/play/quartets', title: 'Quartets', blurb: 'Sixteen tiles, four hidden sets. A new puzzle every day.', icon: '🔶' },
   { to: '/play/cloister', title: 'Cloister', blurb: 'Link letters into words. Words of the faith score extra.', icon: '🔤' },
   { to: '/play/prophet', title: 'The Prophet', blurb: 'Guess the year, the number or the count. Closer scores more.', icon: '🔮' },

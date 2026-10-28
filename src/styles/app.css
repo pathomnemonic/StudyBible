@@ -5289,3 +5289,21 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .bp-book strong, .bp-book span { position: relative; z-index: 1; } .bp-book span { font-size: .7rem; color: var(--muted); }
 .bp-book i { position: absolute; left: 0; right: 0; bottom: 0; background: color-mix(in srgb, var(--accent) 32%, transparent); }
 .bp-book.full { border-color: var(--accent); }
+
+/* Verbum */
+.verbum { max-width: 420px; margin-inline: auto; text-align: center; }
+.vb-grid { display: grid; gap: 5px; justify-content: center; margin: 10px 0; }
+.vb-row { display: grid; grid-template-columns: repeat(5, minmax(0, 52px)); gap: 5px; }
+.vb-cell { aspect-ratio: 1; display: grid; place-items: center; font: 700 1.5rem/1 var(--font-ui, inherit); text-transform: uppercase; border: 2px solid var(--line, #8884); border-radius: 6px; }
+.vb-cell.typed { border-color: var(--ink, currentColor); }
+.vb-cell.hit { background: #c9a227; border-color: #c9a227; color: #1b1405; }
+.vb-cell.near { background: #e8e2d0; border-color: #e8e2d0; color: #3a3320; }
+.vb-cell.miss { background: #555; border-color: #555; color: #fff; }
+.vb-msg { min-height: 1.4em; margin: 4px 0; font-weight: 600; }
+.vb-keys { display: grid; gap: 5px; }
+.vb-keyrow { display: flex; justify-content: center; gap: 4px; }
+.vb-key { flex: 1 1 0; max-width: 38px; min-height: 44px; padding: 0; border-radius: 6px; border: 1px solid var(--line, #8884); background: var(--card, #8881); color: inherit; font: 600 1rem/1 inherit; text-transform: uppercase; }
+.vb-key.wide { max-width: 56px; flex-grow: 1.5; }
+.vb-key.hit { background: #c9a227; color: #1b1405; }
+.vb-key.near { background: #e8e2d0; color: #3a3320; }
+.vb-key.miss { background: #555; color: #fff; opacity: .7; }

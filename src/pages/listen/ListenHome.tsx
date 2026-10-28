@@ -166,7 +166,7 @@ function BiayListen() {
         <button className="linklike small" onClick={() => void db.queue.bulkDelete(queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).map((x) => x.id!))}>Clear {queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length} missing items</button>
       )}
       {cfgBiay && <ShowSettings showKey="biay" name="Bible in a Year" onClose={() => setCfgBiay(false)} />}
-      <Fold id="media:more" title="More audio">
+      <Fold rare id="media:more" title="More audio">
         <MyMedia />
         <RecordedList />
         <p className="muted small">Read aloud: tap the headphones in any chapter. Recorded Bibles: <a href="https://librivox.org/" target="_blank" rel="noreferrer">LibriVox</a>. Sources: <a href={biay.data.meta.page} target="_blank" rel="noreferrer">podcast page</a> · <a href={biay.data.meta.home} target="_blank" rel="noreferrer">Ascension</a></p>
