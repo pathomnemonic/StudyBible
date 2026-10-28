@@ -91,6 +91,9 @@ await p.click('.play-card >> nth=0');
 for (let k = 0; k < 10; k++) { await p.locator('.ws-opt').first().click(); await p.click('.ws-after .btn.primary'); }
 await p.waitForSelector('.ws-score'); if (!(await p.locator('.share-wrap button').count())) fail('ladder share');
 
+await p.goto(`${BASE}/#/study/councils?n=4`); await p.waitForSelector('text=Chalcedon'); await p.waitForSelector('text=Why it met');
+if ((await p.locator('ol.councils > li').count()) !== 21) fail('21 councils');
+
 if (errs.length) fail(errs.join('; '));
 console.log('ok ideas1');
 await b.close();

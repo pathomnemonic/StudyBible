@@ -105,3 +105,11 @@ describe('doctrine ladder', () => {
     }
   });
 });
+
+import { COUNCILS } from '../src/data/councils';
+describe('councils', () => {
+  it('lists the twenty-one in order, each fully told', () => {
+    expect(COUNCILS.length).toBe(21);
+    COUNCILS.forEach((c, i) => { expect(c.n).toBe(i + 1); expect(c.settled.length, c.name).toBeGreaterThan(0); expect(c.why.length, c.name).toBeGreaterThan(30); expect(c.matters.length, c.name).toBeGreaterThan(20); });
+  });
+});
