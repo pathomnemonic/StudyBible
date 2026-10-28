@@ -10,6 +10,7 @@ import { NewDot } from './Hints';
 import { markSeen } from '../lib/seen';
 import { useEnsureActivePlan } from '../lib/activePlan';
 import { useAutoFill } from '../lib/autoFill';
+import GlossaryLayer from './GlossaryLayer';
 import { startDriveBackup } from '../sync/drive';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
@@ -194,6 +195,7 @@ export default function Shell({ children }: { children: ReactNode }) {
           return c ? <nav className="crumbs" aria-label="Breadcrumb"><NavLink to={c[0]}>← {c[1]}</NavLink></nav> : null;
         })()}
         {children}
+        <GlossaryLayer />
       </main>
       {keys && (
         <Modal title="Keyboard shortcuts" onClose={() => setKeys(false)}>

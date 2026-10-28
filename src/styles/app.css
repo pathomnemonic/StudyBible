@@ -5174,3 +5174,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .continue-chip { flex: 1 1 0; min-width: 150px; max-width: 280px; display: grid; gap: 1px; padding: 8px 12px; border: 1px solid var(--line, rgba(255,255,255,.14)); border-radius: 14px; background: color-mix(in srgb, var(--accent) 7%, var(--card, transparent)); color: var(--text); text-decoration: none; }
 .continue-k { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .continue-t { font-size: .92rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.glossary-pop { position: fixed; z-index: 250; max-width: min(300px, calc(100vw - 16px)); }
+.glossary-card { background: var(--glass-strong, var(--card, #1b2030)); border: 1px solid var(--hairline, rgba(255,255,255,.18)); border-radius: 14px; padding: 10px 12px; box-shadow: var(--shadow-lg, 0 10px 30px rgba(0,0,0,.4)); display: grid; gap: 6px; }
+.glossary-card p { margin: 0; font-size: .9rem; }
+.glossary li.glossary-open { background: var(--accent-soft); border-radius: 12px; padding-left: 8px; }
