@@ -67,6 +67,7 @@ export default function PrayerBookPage() {
             <div className="row" style={{ gap: 6 }}>
               <Speak title={p.title} text={p.text} />
               <button className="btn small" onClick={() => copy(p.id, `${p.title}\n\n${p.text}`)}>{copied === p.id ? 'Copied' : 'Copy'}</button>
+              <Link className="btn small ghost" to={`/print/prayer/${p.id}`}>Print</Link>
               <button className="btn small ghost" onClick={() => copy(`link-${p.id}`, `${location.href.split('#')[0]}#/s/prayer/${p.id}`)}>{copied === `link-${p.id}` ? 'Link copied' : 'Link'}</button>
               <button className="btn small" disabled={saved === p.id} onClick={() => save(p)}>{saved === p.id ? <>Saved · <Link to="/pray/journal">open</Link></> : 'Save'}</button>
             </div>

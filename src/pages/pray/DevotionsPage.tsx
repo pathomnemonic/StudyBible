@@ -47,6 +47,7 @@ export default function DevotionsPage() {
           <h2 className="card-title" style={{ margin: 0 }}>The Rosary</h2>
           <div className="row" style={{ gap: 6, flexWrap: 'wrap' }}>
             <Link to={`/pray/devotions/rosary?set=${set.id}`} className="btn primary">Pray it</Link>
+            <Link to="/print/rosary" className="btn ghost">Print the guide</Link>
             {hasAudio && <Link to={`/pray/devotions/rosary?set=${set.id}&mode=audio`} className="btn">Pray with me <span className="muted small">· Creedal</span></Link>}
           </div>
         </div>

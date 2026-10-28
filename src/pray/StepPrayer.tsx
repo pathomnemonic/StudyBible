@@ -64,7 +64,7 @@ export default function StepPrayer({ d, back, art, bells }: { d: Devotion; back:
   const stepNo = tick.step + 1;
   return (
     <div className="page rosary-page">
-      <p><Link to={back}>← Devotions</Link></p>
+      <p><Link to={back}>← Devotions</Link> <Link className="btn small ghost" to={`/print/devotion/${d.id}`}>Print</Link></p>
       <h1>{d.name}</h1>
       <div className="rosary-modes" role="radiogroup" aria-label="How would you like to pray?">
         {([['tap', 'I’ll tap', 'Tap Next at each step'], ['pace', 'Set the pace', 'Moves at a steady speed'], ['voice', 'Lead me', 'Your device reads each prayer']] as [Mode, string, string][]).map(([m, l, x]) => (

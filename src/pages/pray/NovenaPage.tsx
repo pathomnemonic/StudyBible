@@ -51,6 +51,7 @@ export default function NovenaPage() {
     <div className="page">
       <p><Link to="/pray/novenas">← Novenas</Link></p>
       <h1>{plan.name}</h1>
+      <p><Link className="btn small ghost" to={`/print/novena/${plan.id}`}>Print this novena</Link></p>
       {plan.opening && <p className="muted small">{plan.opening}</p>}
       <div className="row" style={{ gap: 6, flexWrap: 'wrap', marginBottom: 10 }}>
         {plan.days.map((_, i) => (

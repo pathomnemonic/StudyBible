@@ -74,6 +74,7 @@ const FeastCardPage = lazy(() => import('./pages/FeastCardPage'));
 const YearPage = lazy(() => import('./pages/YearPage'));
 const FathersOnPage = lazy(() => import('./pages/study/FathersOnPage'));
 const QueueImportPage = lazy(() => import('./pages/listen/QueueImportPage'));
+const PrintPage = lazy(() => import('./pages/PrintPage'));
 const CharadesPage = lazy(() => import('./pages/play/CharadesPage'));
 const PlayHome = lazy(() => import('./pages/play/PlayHome'));
 const QuartetsPage = lazy(() => import('./pages/play/QuartetsPage'));
@@ -335,6 +336,7 @@ export default function App() {
               <Route path="/s/verse" element={<ShareVersePage />} />
               <Route path="/s/prayer/:id" element={<SharePrayerPage />} />
               <Route path="/s/queue" element={<QueueImportPage />} />
+              <Route path="/print/:kind/:id?" element={<PrintPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
               <Route path="/pray/intentions" element={<IntentionsPage />} />
               <Route path="/pray/pilgrim/:id?" element={<PilgrimPage />} />
