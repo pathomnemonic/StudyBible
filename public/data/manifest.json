@@ -9029,13 +9029,14 @@
   {
    "id": "more",
    "label": "Everything else (art lists, licenses, manuscripts and small tables)",
-   "bytes": 309775,
+   "bytes": 402087,
    "files": [
     "art-more.json",
     "art.json",
     "editions.json",
     "licenses.json",
     "manuscripts.json",
+    "play/words.json",
     "versification.json"
    ],
    "sizes": [
@@ -9044,6 +9045,7 @@
     35453,
     8194,
     14683,
+    92312,
     13429
    ],
    "sums": [
@@ -9052,6 +9054,7 @@
     "1e673142be542701",
     "76c6db1bda43e4af",
     "f8ce45df7d0ffcf2",
+    "e4dd48868810673b",
     "cf5ab83405e8c008"
    ]
   }
