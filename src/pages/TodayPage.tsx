@@ -1,4 +1,3 @@
-import GamesChip from '../components/GamesChip';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useSettings } from '../lib/store';
@@ -175,7 +174,6 @@ export default function TodayPage() {
         </aside>
       )}
 
-      <GamesChip />
       <MementoCard />
       <HomeExtras date={date} season={ld.season} ref={ref} label={verse?.label ?? ''} onRandom={random} />
       <footer className="home-actions">

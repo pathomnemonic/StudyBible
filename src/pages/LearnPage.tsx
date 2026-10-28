@@ -1,4 +1,4 @@
-import GamesMenu from '../components/GamesMenu';
+import GamesBar from '../components/GamesMenu';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -34,8 +34,8 @@ export default function LearnPage() {
   return (
     <div className="page hub learn">
       <HubHeader quiet title="Learn" />
+      <GamesBar />
       <section className="card learn-card students" aria-labelledby="learn-stu">
-        <GamesMenu />
         <h2 id="learn-stu" className="learn-h">Catechism for students<span>K–12 · lessons, teacher guides, slides and games</span></h2>
         <div className="rows">{studentCourse}</div>
         {levels}

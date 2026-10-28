@@ -5351,15 +5351,15 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 /* Games chip */
 .games-chip { display: flex; align-items: center; gap: 8px; margin: 8px auto; width: min(560px, calc(100% - 24px)); padding: 8px 14px; border: 1px solid var(--border); border-radius: 14px; background: color-mix(in srgb, var(--surface) 80%, transparent); color: var(--text); text-decoration: none; }
 .games-chip .games-chip-go { margin-left: auto; opacity: .6; }
-.home[data-tight='4'] .games-chip, .home[data-tight='5'] .games-chip, .home[data-tight='6'] .games-chip { display: none; }
 
-/* Games menu: small, always in the corner of the page */
-.learn-card.students { position: relative; }
-.learn-card.students .learn-h { padding-right: 96px; }
-.games-menu { position: absolute; top: 6px; right: 8px; z-index: 5; }
-.games-menu-btn { display: inline-flex; align-items: center; gap: 4px; min-height: 32px; padding: 0 10px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); font: 600 .8rem/1 inherit; }
-.games-menu-n { background: #c9a227; color: #1b1405; border-radius: 999px; min-width: 16px; padding: 1px 4px; font-size: .68rem; text-align: center; }
-.games-menu-list { position: absolute; right: 0; top: calc(100% + 4px); margin: 0; padding: 4px; list-style: none; min-width: 170px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); box-shadow: 0 8px 24px #0004; }
-.games-menu-list a { display: block; padding: 10px 12px; border-radius: 8px; color: var(--text); text-decoration: none; min-height: 40px; }
-.games-menu-list .games-menu-all { border-top: 1px solid var(--border); border-radius: 0 0 8px 8px; font-weight: 600; }
-@media (hover: hover) { .games-menu-list a:hover { background: color-mix(in srgb, var(--accent) 14%, transparent); } }
+/* Games bar on Learn */
+.games-bar { margin: 6px 12px; }
+.games-bar details.fold { margin: 0; }
+.games-menu-n { background: #c9a227; color: #1b1405; border-radius: 999px; min-width: 16px; padding: 1px 5px; margin-left: 8px; font-size: .68rem; text-align: center; }
+.games-bar-list { display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 2px 8px; }
+
+/* Learn carries nine rows plus the games bar, so its rows are a little shorter than elsewhere */
+:root[data-layout='compact'] .page.learn { --row-h: clamp(35px, calc(35px + (100vh - 740px) / 12), 48px); }
+:root[data-layout='compact'] .page.learn .games-bar summary { padding-block: 3px; }
+:root[data-layout='compact'] .page.learn { gap: 6px; }
+@media (max-height: 900px) { :root[data-layout='compact'] .page.learn .learn-h span { display: none; } }
