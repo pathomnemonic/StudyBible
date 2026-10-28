@@ -89,11 +89,21 @@ export async function exportAll(): Promise<string> {
   for (const t of TABLES) { const rows = await (db as any)[t].toArray(); out[t] = rows; (out.counts as Record<string, number>)[t] = rows.length; }
   // reading and accessibility preferences live outside the database; include them so a restore feels the same
   try { const raw = localStorage.getItem(SETTINGS_KEY); if (raw) out.settings = JSON.parse(raw); } catch { /* storage unavailable */ }
+  const local = collectLocal();
+  if (Object.keys(local).length) out.local = local;
   try { localStorage.setItem('sb:lastExport', String(Date.now())); } catch { /* storage unavailable */ }
   return JSON.stringify(out, null, 1);
 }
 
 const SETTINGS_KEY = 'studybible.settings.v1';
+/** Things kept in the browser's own storage (game streaks and bests, marked moments, your birthday, lesson notes) that a backup should carry across. */
+const LOCAL_PREFIXES = ['sb:plays', 'sb:trophies', 'sb:daily:', 'sb:verbum', 'sb:crossword', 'sb:quartets', 'sb:prophet', 'sb:cloister', 'sb:charades:best', 'sb:marks:', 'sb:me:', 'sb:pray:done:', 'sb:cur:note:', 'sb:sticker'];
+const isLocalKey = (k: string) => LOCAL_PREFIXES.some((p) => k.startsWith(p));
+function collectLocal(): Record<string, string> {
+  const out: Record<string, string> = {};
+  try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && isLocalKey(k)) { const v = localStorage.getItem(k); if (v != null) out[k] = v; } } } catch { /* storage unavailable */ }
+  return out;
+}
 const safeUrl = (u: unknown) => typeof u === 'string' && /^https?:\/\//i.test(u);
 
 export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge'): Promise<number> {
@@ -163,6 +173,13 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
   syncFlags.onLocalChange();
   if (mode === 'replace' && data.settings && typeof data.settings === 'object') {
     try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(data.settings)); } catch { /* storage unavailable */ }
+  }
+  // game streaks, bests and the like: a merge only fills in what this device does not have; a replace overwrites
+  if (data.local && typeof data.local === 'object') {
+    for (const [k, v] of Object.entries(data.local as Record<string, unknown>)) {
+      if (typeof v !== 'string' || !isLocalKey(k)) continue;
+      try { if (mode === 'replace' || localStorage.getItem(k) === null) localStorage.setItem(k, v); } catch { /* storage unavailable */ }
+    }
   }
   return n;
 }

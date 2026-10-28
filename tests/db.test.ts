@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 // a tiny localStorage for the code that keeps preferences outside the database
 const store = new Map<string, string>();
-vi.stubGlobal('localStorage', { getItem: (k: string) => store.get(k) ?? null, setItem: (k: string, v: string) => void store.set(k, v), removeItem: (k: string) => void store.delete(k) });
+vi.stubGlobal('localStorage', { getItem: (k: string) => store.get(k) ?? null, setItem: (k: string, v: string) => void store.set(k, v), removeItem: (k: string) => void store.delete(k), get length() { return store.size; }, key: (i: number) => [...store.keys()][i] ?? null });
 
 describe('IndexedDB upgrades', () => {
   beforeEach(async () => { await Dexie.delete('studybible'); vi.resetModules(); });
@@ -42,6 +42,23 @@ describe('IndexedDB upgrades', () => {
 
 describe('backup round trip', () => {
   beforeEach(async () => { await Dexie.delete('studybible'); vi.resetModules(); store.clear(); });
+
+  it('carries game streaks, trophies and personal dates in a backup, and nothing else from the browser', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    await db.open();
+    store.clear();
+    store.set('sb:plays:v1', '{"days":[1,2,3]}'); store.set('sb:trophies:v1', '{"first":1}'); store.set('sb:me:dates', '{"birthday":"1990-03-19"}'); store.set('sb:drive:token', 'secret');
+    const json = await ops.exportAll();
+    expect(JSON.parse(json).local).toEqual({ 'sb:plays:v1': '{"days":[1,2,3]}', 'sb:trophies:v1': '{"first":1}', 'sb:me:dates': '{"birthday":"1990-03-19"}' });
+    store.clear(); store.set('sb:plays:v1', '{"days":[9]}');
+    await ops.importAll(json, 'merge');
+    expect(store.get('sb:plays:v1')).toBe('{"days":[9]}');
+    expect(store.get('sb:trophies:v1')).toBe('{"first":1}');
+    await ops.importAll(json, 'replace');
+    expect(store.get('sb:plays:v1')).toBe('{"days":[1,2,3]}');
+    expect(store.has('sb:drive:token')).toBe(false);
+  });
 
   it('exports and restores every kind of record, including Unicode, and keeps timestamps', async () => {
     const { db } = await import('../src/db/db');
