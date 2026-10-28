@@ -19,6 +19,7 @@ import ChapterDone from '../components/ChapterDone';
 import { useActivePlan } from '../lib/activePlan';
 import ReadingBar from '../components/ReadingBar';
 import NextChapters from '../components/NextChapters';
+import ChapterCatechism from '../components/ChapterCatechism';
 import ChapterArt from '../art/chapterArt';
 import { FindInChapter, LookUp, ReadProgress } from '../components/ReaderTools';
 import { setHighlight, toggleBookmark, rangesOverlap } from '../db/ops';
@@ -638,6 +639,7 @@ export default function ReadPage() {
     { label: 'Find in this chapter', onClick: () => setFinding(true) },
     { label: aloud ? 'Stop reading aloud' : 'Read aloud', onClick: () => setAloud((x) => !x) },
     { label: settings.scriptureOnly ? 'Leave focus mode' : 'Focus mode', onClick: () => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); } },
+    { label: 'The Fathers on this chapter', onClick: () => nav(`/study/fathers-on?ref=${bk.id}.${primaryAnchorChapter}`) },
     { label: 'Bible tools: outlines, words, topics', onClick: () => setToolsOpen(true) },
   ];
   return (
@@ -760,6 +762,7 @@ export default function ReadPage() {
                 {edition.attribution}
               </p>
             )}
+            {!settings.scriptureOnly && <ChapterCatechism book={bk.id} anchorChapters={anchorChapters} />}
             {<ChapterDone book={bk.id} anchorChapter={primaryAnchorChapter} label={`${bk.name} ${chNum}`} words={flat.reduce((n, v) => n + v.text.split(/\s+/).length, 0)} />}
             {infinite ? (
               <NextChapters editionId={edition.id} chapters={edition.chapters} lang={edition.language} book={bk.id} chapter={chNum} wordFx={settings.wordFx && (!settings.scriptureOnly || settings.focus.effects)} redLetters={settings.redLetters !== false} />

@@ -9,6 +9,7 @@ import { renderMarkdown } from '../../lib/markdown';
 import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import { decryptBackup, encryptBackup, isEncryptedBackup } from '../../db/crypto';
+import { newCard } from '../../lib/srs';
 import { download, exportAll, exportMarks, exportNotesMarkdown, importAll, previewImport } from '../../db/ops';
 import { useSettings } from '../../lib/store';
 import { fold } from '../../search/engine';
@@ -149,7 +150,7 @@ function Highlights() {
       </div>
       {list.length === 0 && <div className="empty-hero"><h2>No highlights yet</h2><p>Select a verse in the reader and choose a color to mark it. Highlights stay with the verse in every translation.</p><Link className="btn primary" to="/read">Open the Bible</Link></div>}
       <ul className="list">
-        {list.map((h) => { const r = parseRefId(h.ref)!; return <li key={h.id} className="row between"><span><span className="chip" style={{ background: `var(--hl-${h.color})` }}>&nbsp;</span> <RefLink refv={r} /></span><button className="btn small ghost" onClick={() => db.highlights.delete(h.id!)}>Remove</button></li>; })}
+        {list.map((h) => { const r = parseRefId(h.ref)!; return <li key={h.id} className="row between"><span><span className="chip" style={{ background: `var(--hl-${h.color})` }}>&nbsp;</span> <RefLink refv={r} /></span><span className="row" style={{ gap: 6 }}><button className="btn small ghost" onClick={async () => { if (!(await db.memory.where('ref').equals(h.ref).count())) await db.memory.add({ ref: h.ref, ...newCard(), createdAt: Date.now() } as any); }}>Memorize</button><button className="btn small ghost" onClick={() => db.highlights.delete(h.id!)}>Remove</button></span></li>; })}
       </ul>
     </>
   );

@@ -72,6 +72,7 @@ const GlossaryPage = lazy(() => import('./pages/study/GlossaryPage'));
 const AskPage = lazy(() => import('./pages/study/AskPage'));
 const FeastCardPage = lazy(() => import('./pages/FeastCardPage'));
 const YearPage = lazy(() => import('./pages/YearPage'));
+const FathersOnPage = lazy(() => import('./pages/study/FathersOnPage'));
 const CharadesPage = lazy(() => import('./pages/play/CharadesPage'));
 const PlayHome = lazy(() => import('./pages/play/PlayHome'));
 const QuartetsPage = lazy(() => import('./pages/play/QuartetsPage'));
@@ -304,6 +305,7 @@ export default function App() {
               <Route path="/study/doctrine" element={<DoctrinePage />} />
               <Route path="/study/sources" element={<SourcesPage />} />
               <Route path="/study/fathers" element={<RedirectKeepSearch to="/room" />} />
+              <Route path="/study/fathers-on" element={<FathersOnPage />} />
               <Route path="/study/works/:workId/:section?" element={<WorkReader />} />
               <Route path="/study/passage/:refId" element={<PassageStudy />} />
               <Route path="/study/dossier" element={<DossierPage />} />

@@ -46,7 +46,7 @@ export default function StudyHome({ embedded = false }: { embedded?: boolean } =
         <Tiles ids={['study.lexicon', 'bible.concordance', 'bible.topical', 'bible.terms', 'bible.quotations', 'bible.fulfilment']} />
       </Group>
       <Group open={embedded} title="Books and passages" hint="Understand what you are reading">
-        <Tiles ids={['bible.books', 'bible.synopsis', 'bible.pauline', 'bible.dossier']} />
+        <Tiles ids={['bible.books', 'bible.synopsis', 'bible.pauline', 'bible.dossier', 'bible.fathers']} />
       </Group>
       <Group open={embedded} title="People and places" hint="The world the text was written in">
         <Tiles ids={['study.maps', 'study.world', 'study.timespace', 'study.people', 'read.gallery']} />

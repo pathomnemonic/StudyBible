@@ -3,6 +3,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
 import { useSync } from '../sync/state';
 import WeekCard from '../components/WeekCard';
+import HighlightOfDay from '../components/HighlightOfDay';
 import ContinueStrip from '../components/ContinueStrip';
 import { Group, HubHeader, Tiles } from '../components/Hub';
 import QuickSettings from '../components/QuickSettings';
@@ -17,6 +18,7 @@ export default function ProfilePage() {
     <div className="page hub">
       <HubHeader quiet title="You" sub={sync.user ? `Signed in as ${sync.user.email}.` : `${notes} note${notes === 1 ? '' : 's'} and ${marks} highlight${marks === 1 ? '' : 's'}, kept on this device.`} />
       <ContinueStrip kinds={['read', 'episode', 'work']} />
+      <HighlightOfDay />
       <WeekCard />
       <Group title="Make it yours"><QuickSettings /></Group>
       <Group open title="Your things">
