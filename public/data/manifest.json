@@ -3490,7 +3490,7 @@
   {
    "id": "commentary",
    "label": "Commentary (Haydock, Challoner, Catena Aurea, Glossa)",
-   "bytes": 32597717,
+   "bytes": 32646044,
    "files": [
     "commentary/catena/JHN.json",
     "commentary/catena/LUK.json",
@@ -3945,7 +3945,7 @@
     27238,
     39669,
     23892,
-    271915,
+    320242,
     219773,
     251800,
     18441,
@@ -4223,7 +4223,7 @@
     "7dc34bb67574954a",
     "d4cd829ef1d210b3",
     "ba55cfd3936414d5",
-    "07f117c862907f6b",
+    "69b47bd6c15efc84",
     "bc745014fbc60824",
     "710644148f79a319",
     "a8e70cd7b184df02",
