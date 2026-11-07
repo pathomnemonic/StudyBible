@@ -14,6 +14,8 @@ export interface Step {
   /** Library work id (public/data/library/works/<id>.json) and its section id */
   work?: string;
   section?: string;
+  /** Butler's Lives of the Saints entry, "MM-DD:index" as in public/data/saints/butler/MM.json days[DD][index] */
+  butler?: string;
   /** Catechism paragraph number */
   ccc?: number;
   /** Verbatim words from the source. Use "…" between separate stretches of the same section. */
@@ -46,3 +48,11 @@ export const MODES: Record<ChainMode, { title: string; blurb: string; path: stri
   words: { title: 'Key words, followed through time', blurb: 'The Greek, Hebrew and Latin words that carry the faith: where each appears, what it meant, and how the Fathers and councils used it.', path: '/study/words' },
   heresies: { title: 'The Heresy Lab', blurb: 'Each major error made at its strongest, in the words of those who answered it, then shown where it breaks against Scripture and the councils.', path: '/study/heresies' },
 };
+
+/** A saint who lived through something, matched to a situation in a person's life. */
+export interface Mentor { name: string; lifespan: string; why: string; step: Step }
+export interface Situation { id: string; title: string; ask: string; intro: string; mentors: Mentor[]; readNext?: number[] }
+
+/** A saint's life laid out in time, set against what was happening in the world. */
+export interface LifeEvent { year: number; text: string; kind: 'turning' | 'setback' | 'work' | 'writing' | 'world'; step?: Step }
+export interface Life { id: string; name: string; lifespan: string; sketch: string; butler?: string; events: LifeEvent[] }

@@ -1,0 +1,787 @@
+[
+  {
+    "id": "logos",
+    "title": "Logos: the Word",
+    "question": "What does Logos mean, and how did the Church use it?",
+    "summary": "John opens his Gospel by naming the Son of God the Logos, the Word who was with God and was God, and who became flesh. The Fathers read this as meaning that the Son is eternal, uncreated, and the one through whom God made and speaks to the world; the Catechism receives it as the foundation of the doctrine of the Incarnation.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Logos (λόγος), John 1:1-3",
+        "ref": "JHN.1.1-3",
+        "quote": "In the beginning was the Word, and the Word was with God, and the Word was God.… All things were made through him. Without him, nothing was made that has been made.",
+        "note": "The Greek word logos can mean a spoken word, an account, or reason itself. John uses it as a name for a divine person who already was in the beginning, is distinct from God (“with God”), and yet is God, and who is the Maker of everything."
+      },
+      {
+        "kind": "scripture",
+        "label": "Logos made flesh, John 1:14",
+        "ref": "JHN.1.14",
+        "quote": "The Word became flesh and lived among us.",
+        "note": "The eternal Word is not only a principle behind the world: he enters history as a human being. This verse is the root of the Church’s teaching on the Incarnation."
+      },
+      {
+        "kind": "scripture",
+        "label": "God speaks by his Son, Hebrews 1:1-2",
+        "ref": "HEB.1.1-2",
+        "quote": "has at the end of these days spoken to us by his Son, whom he appointed heir of all things, through whom also he made the worlds.",
+        "note": "Hebrews gives the same pattern in other words: God’s final speech to us is a Son, and that Son is also the one through whom the worlds were made."
+      },
+      {
+        "kind": "father",
+        "label": "Justin Martyr, First Apology",
+        "when": "c. 155",
+        "year": 155,
+        "work": "justin-martyr",
+        "section": "viii.ii",
+        "quote": "We have been taught that Christ is the first-born of God, and we have declared above that He is the Word of whom every race of men were partakers",
+        "note": "Writing for pagan readers, Justin identifies Christ with the Logos and says that human reason itself shares in him, so that whatever is true and reasonable in human thought is a gift of the Word."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, Tractates on John 1",
+        "when": "c. 414",
+        "year": 414,
+        "work": "aug-tractates-john",
+        "section": "iii.ii",
+        "quote": "If He was, He was not made; that all things might be made by it, and without Him nothing be made.",
+        "note": "Augustine reasons directly from John’s verb: the Word “was” in the beginning, so he did not come to be. The Logos belongs to the Creator’s side, not to creation."
+      },
+      {
+        "kind": "father",
+        "label": "Athanasius, On the Incarnation",
+        "when": "c. 318",
+        "year": 318,
+        "work": "athanasius-incarnation",
+        "section": "vii.ii.xx",
+        "quote": "None, then, could bestow incorruption, but He Who had made, none restore the likeness of God, save His Own Image, none quicken, but the Life, none teach, but the Word.",
+        "note": "Athanasius shows why it matters that the Word is divine: only the one who made us, the Word himself, can renew us and teach us the truth about God."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church §241",
+        "ccc": 241,
+        "quote": "For this reason the apostles confess Jesus to be the Word: “In the beginning was the Word, and the Word was with God, and the Word was God”",
+        "note": "The Catechism places “Word” among the apostolic confessions of Christ’s divinity, alongside “image of the invisible God.”"
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church §461",
+        "ccc": 461,
+        "quote": "The Church calls “Incarnation” the fact that the Son of God assumed a human nature in order to accomplish our salvation in it.",
+        "note": "Here the Church’s own doctrinal word, Incarnation, is explicitly drawn from John’s phrase “The Word became flesh.”"
+      }
+    ],
+    "objections": [
+      {
+        "q": "Logos is a Greek philosophical idea. Didn’t the Church simply borrow Greek philosophy and dress Jesus in it?",
+        "a": "John and the Fathers did use a word familiar to Greek readers, but they filled it with a meaning no philosopher had given it: a divine person who becomes a man and dies. Justin treats the reasonable element in pagan thought as a seed sown by the Word, not as the source of the Christian message. The Catechism says the same about its technical terms: the Church used them without submitting faith to human wisdom.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Justin Martyr, Second Apology",
+            "when": "c. 160",
+            "year": 160,
+            "work": "justin-martyr",
+            "section": "viii.iii",
+            "quote": "on account of the seed of reason [the Logos] implanted in every race of men",
+            "note": "For Justin, whatever is good in pagan thought comes from the Logos, not the other way round."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church §251",
+            "ccc": 251,
+            "quote": "she did not submit the faith to human wisdom, but gave a new and unprecedented meaning to these terms",
+            "note": "The Catechism states the principle plainly: borrowed words are given a new meaning by the revelation they serve."
+          }
+        ]
+      },
+      {
+        "q": "A word is spoken and then it is gone. If the Son is God’s Word, wasn’t he produced by God at some point, as the Arians said?",
+        "a": "Augustine meets this directly: human words sound and pass away, but John says the Word was God and that all things were made through him, so the Word cannot be a passing sound. Athanasius adds that the Son is not a creature or work but an offspring proper to the Father’s own being.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Augustine, Tractates on John 1",
+            "when": "c. 414",
+            "year": 414,
+            "work": "aug-tractates-john",
+            "section": "iii.ii",
+            "quote": "Did not those words which we uttered sound and pass away? Did God’s Word, then, sound and come to an end?",
+            "note": "Augustine asks whether the Word could be a passing sound, then answers from John: the Word through whom everything was made cannot have ended."
+          },
+          {
+            "kind": "father",
+            "label": "Athanasius, Against the Arians, Discourse 1",
+            "when": "c. 358",
+            "year": 358,
+            "work": "athanasius-arians",
+            "section": "xxi.ii.i",
+            "quote": "not a creature or work, but an offspring proper to the Father’s essence",
+            "note": "Athanasius insists that “Word” and “Son” describe what the Father eternally is toward him, not something God made."
+          }
+        ]
+      },
+      {
+        "q": "Isn’t “the Word” just a title for God’s message or for Scripture, not a person?",
+        "a": "Scripture itself rules this out. John says the Word became flesh and “we saw his glory,” and Revelation says that the one clothed in a garment sprinkled with blood is named “The Word of God.” A message cannot become flesh or be clothed; a person can.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "The Word of God as a name, Revelation 19:13",
+            "ref": "REV.19.13",
+            "quote": "He is clothed in a garment sprinkled with blood.",
+            "note": "The Word appears here as a rider with a body and a name, which the Church has always read as Christ."
+          }
+        ]
+      }
+    ],
+    "readNext": [241, 291, 461]
+  },
+  {
+    "id": "ekklesia",
+    "title": "Ekklesia: the Church",
+    "question": "What does ekklesia mean, and how did the Church use it?",
+    "summary": "Ekklesia means a people called together, an assembly. Jesus promises to build his ekklesia on Peter and gives it authority to bind and loose; the apostles use the word of the local and the whole community of believers, and the Fathers insist that this assembly is one, visible, and the mother of Christians.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Ekklesia (ἐκκλησία), Matthew 16:18",
+        "ref": "MAT.16.18",
+        "quote": "on this rock I will build my assembly, and the gates of Hades will not prevail against it.",
+        "note": "The Greek word is ekklesia; this edition renders it “assembly,” where many translations say “church.” Jesus says it is his, that he builds it, and that death cannot overcome it."
+      },
+      {
+        "kind": "scripture",
+        "label": "Ekklesia with authority, Matthew 18:17-18",
+        "ref": "MAT.18.17-18",
+        "quote": "If he refuses to hear the assembly also, let him be to you as a Gentile or a tax collector.",
+        "note": "The ekklesia here is a definite community that can hear a dispute and give a binding verdict. It is more than a loose gathering of individual believers."
+      },
+      {
+        "kind": "scripture",
+        "label": "Ekklesia in the apostolic community, Acts 2:47",
+        "ref": "ACT.2.47",
+        "quote": "The Lord added to the assembly day by day those who were being saved.",
+        "note": "After Pentecost the word names the community of the baptized, to which people are added by the Lord himself."
+      },
+      {
+        "kind": "scripture",
+        "label": "Ekklesia of the Lord, Acts 20:28",
+        "ref": "ACT.20.28",
+        "quote": "Take heed, therefore, to yourselves and to all the flock, in which the Holy Spirit has made you overseers, to shepherd the assembly of the Lord and God which he purchased with his own blood.",
+        "note": "Paul tells the elders of Ephesus that the Spirit has made them overseers (the Greek word is episkopoi, from which “bishop” comes) of an ekklesia that belongs to the Lord."
+      },
+      {
+        "kind": "scripture",
+        "label": "Ekklesia as Christ’s body, Ephesians 1:22-23",
+        "ref": "EPH.1.22-23",
+        "quote": "gave him to be head over all things for the assembly, which is his body, the fullness of him who fills all in all.",
+        "note": "Paul takes the word beyond a local meeting: the ekklesia is the body of which Christ is head."
+      },
+      {
+        "kind": "father",
+        "label": "Ignatius of Antioch, Letter to the Smyrnaeans",
+        "when": "c. 107",
+        "year": 107,
+        "work": "ignatius-letters",
+        "section": "v.vii",
+        "quote": "Let no man do anything connected with the Church without the bishop.",
+        "note": "Within a generation of the apostles, Ignatius treats the local church as an ordered community gathered around its bishop, in step with the presbyters and deacons."
+      },
+      {
+        "kind": "father",
+        "label": "Cyprian, On the Unity of the Church",
+        "when": "251",
+        "year": 251,
+        "work": "cyprian",
+        "section": "iv.v.i",
+        "quote": "He can no longer have God for his Father, who has not the Church for his mother.",
+        "note": "For Cyprian the Church is not an optional extra: she is the mother through whom Christians are born and nourished, and her unity must be guarded."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church §751",
+        "ccc": 751,
+        "quote": "Ekklesia is used frequently in the Greek Old Testament for the assembly of the Chosen People before God",
+        "note": "The Catechism explains the word’s background: the first Christians called themselves ekklesia because they saw themselves as heirs of Israel’s assembly before God."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church §752",
+        "ccc": 752,
+        "quote": "In Christian usage, the word “church” designates the liturgical assembly, but also the local community or the whole universal community of believers.",
+        "note": "The Church’s usage keeps three meanings together: the worshipping assembly, the local community, and the whole people of God."
+      }
+    ],
+    "objections": [
+      {
+        "q": "The ekklesia is just the invisible community of all true believers. Why talk about bishops, rules and visible unity?",
+        "a": "The New Testament pictures a visible assembly with real shepherds: Paul says the Holy Spirit made the elders of Ephesus overseers of the assembly, and Paul describes the assembly as the pillar and ground of the truth. Ignatius and Cyprian only make explicit what was already there. The Catechism holds that the Church exists in local communities, made real above all in the Eucharistic assembly.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "The household of God, 1 Timothy 3:15",
+            "ref": "1TI.3.15",
+            "quote": "God’s house, which is the assembly of the living God, the pillar and ground of the truth.",
+            "note": "Paul calls the assembly itself the pillar and ground of the truth, language that points to a visible, trustworthy body."
+          }
+        ]
+      },
+      {
+        "q": "Ekklesia only means “a gathering.” Why should Matthew 16 mean a lasting institution?",
+        "a": "In ordinary Greek it can mean any gathering, but Jesus joins it to a building (“I will build”), to a promise that Hades will not prevail, and to the power of binding and loosing, which make no sense for a passing meeting. Matthew 18 then shows the assembly acting with authority over a member.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "The keys, Matthew 16:19",
+            "ref": "MAT.16.19",
+            "quote": "I will give to you the keys of the Kingdom of Heaven",
+            "note": "Keys, binding and loosing are given to the community Jesus is building, which is why it is a lasting institution."
+          }
+        ]
+      }
+    ],
+    "readNext": [751, 752, 753, 771]
+  },
+  {
+    "id": "mysterion-sacramentum",
+    "title": "Mysterion and Sacramentum",
+    "question": "What does mysterion-sacramentum mean, and how did the Church use it?",
+    "summary": "Paul uses mysterion for God’s hidden plan, revealed and centered in Christ. Latin translators rendered it sacramentum, a word that already meant an oath. The Fathers joined the two senses, and the Church came to use sacrament for the visible sign through which Christ’s saving work reaches us.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Mysterion (μυστήριον), Colossians 1:26-27",
+        "ref": "COL.1.26-27",
+        "quote": "the mystery which has been hidden for ages and generations. But now it has been revealed to his saints… which is Christ in you, the hope of glory.",
+        "note": "In Paul a mysterion is not a puzzle but a hidden plan of God now made known, and that plan is a person, Christ."
+      },
+      {
+        "kind": "scripture",
+        "label": "Mysterion of godliness, 1 Timothy 3:16",
+        "ref": "1TI.3.16",
+        "quote": "the mystery of godliness is great",
+        "note": "Paul calls the whole Christian faith a mystery, which the verses after it go on to describe as Christ’s incarnation, death and glory."
+      },
+      {
+        "kind": "scripture",
+        "label": "Mysterion of marriage and Church, Ephesians 5:32",
+        "ref": "EPH.5.32",
+        "quote": "This mystery is great, but I speak concerning Christ and the assembly.",
+        "note": "Paul sees in the union of husband and wife a sign of the deeper union of Christ and the Church. This verse is one of the sources of the Church’s language of sacrament for marriage."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, On Idolatry",
+        "when": "c. 211",
+        "year": 211,
+        "work": "tertullian-apologetic",
+        "section": "iv.iv",
+        "quote": "from our sacrament itself we would draw our interpretation that arts of that kind are opposed to the faith. For how have we renounced the devil and his angels, if we make them?",
+        "note": "In Latin sacramentum was a soldier’s binding oath. Tertullian applies it to the baptismal promises, where a Christian renounces the devil and pledges loyalty to Christ."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, Tractates on John 80",
+        "when": "c. 417",
+        "year": 417,
+        "work": "aug-tractates-john",
+        "section": "iii.lxxxi",
+        "quote": "The word is added to the element, and there results the Sacrament, as if itself also a kind of visible word.",
+        "note": "Augustine explains how a sacrament works: a plain element such as water becomes a sacrament when the word of Christ is joined to it, so that it becomes a visible word."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, Marriage and Concupiscence",
+        "when": "c. 420",
+        "year": 420,
+        "work": "aug-pelagian",
+        "section": "xvi.vi",
+        "quote": "the great sacrament of Christ and the Church, which the institution prefigured",
+        "note": "Augustine reads Paul’s “great mystery” of Ephesians 5 as the great sacrament, showing that the two words were used interchangeably for the same reality."
+      },
+      {
+        "kind": "magisterium",
+        "label": "Roman Catechism (Catechism of the Council of Trent): the word “sacrament”",
+        "when": "1566",
+        "year": 1566,
+        "work": "roman-catechism",
+        "section": "s14",
+        "quote": "amongst the Latin Fathers, who have written on divine things, the word sacrament signifies some sacred thing that lies concealed; as the Greeks, to express the same idea, used the word “mystery.”",
+        "note": "The Council of Trent’s catechism states the history in one sentence: sacrament is the Latin Fathers’ equivalent of the Greek mysterion."
+      },
+      {
+        "kind": "magisterium",
+        "label": "Roman Catechism: definition of a sacrament",
+        "when": "1566",
+        "year": 1566,
+        "work": "roman-catechism",
+        "section": "s14",
+        "quote": "A sacrament is a visible sign of an invisible grace, instituted for our justification.",
+        "note": "Building on Augustine, the Church fixed the technical meaning: a visible sign that gives what it signifies."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church §774",
+        "ccc": 774,
+        "quote": "The Greek word mysterion was translated into Latin by two terms",
+        "note": "The Catechism confirms that the two words are one idea in two languages, and that sacramentum later stressed the visible sign of the hidden reality."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Isn’t a sacrament just a symbol, a sign that reminds us of something?",
+        "a": "The Church teaches that a sacrament does what it signifies. Augustine’s “visible word” and the Catechism’s phrase “efficacious signs of grace” both say that the sign carries the gift. This is why the Catechism says the rites “signify and make present” the grace of each sacrament.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church §1131",
+            "ccc": 1131,
+            "quote": "The sacraments are efficacious signs of grace, instituted by Christ and entrusted to the Church, by which divine life is dispensed to us.",
+            "note": "The Catechism uses “efficacious” to exclude a merely symbolic reading."
+          }
+        ]
+      },
+      {
+        "q": "Paul speaks of one mystery, Christ. Where do seven sacraments come from?",
+        "a": "The Church does not treat the seven as rivals to the one mystery. The Catechism says Christ himself is the mystery of salvation, and the seven sacraments are the signs and instruments by which his grace reaches the members of his body.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church §1116",
+            "ccc": 1116,
+            "quote": "They are actions of the Holy Spirit at work in his Body, the Church.",
+            "note": "The sacraments flow from the one Christ through his Body, which is why they do not compete with the one mystery."
+          }
+        ]
+      },
+      {
+        "q": "Sacramentum was a pagan military word. Why would Christians take it over?",
+        "a": "Tertullian shows the reason: a soldier’s oath is a binding, solemn commitment, and baptism is exactly that kind of pledge. The Roman Catechism observes that the word was used in both ways, and that the Latin Fathers settled on the sense of a sacred hidden thing.",
+        "steps": [
+          {
+            "kind": "magisterium",
+            "label": "Roman Catechism: the oath sense",
+            "when": "1566",
+            "year": 1566,
+            "work": "roman-catechism",
+            "section": "s14",
+            "quote": "by the word sacrament some authors wished to express the obligation of an oath, binding to the performance of some service",
+            "note": "The catechism acknowledges the oath meaning openly before explaining the Christian sense."
+          }
+        ]
+      }
+    ],
+    "readNext": [774, 1075, 1116, 1131]
+  },
+  {
+    "id": "metanoia",
+    "title": "Metanoia: Repentance",
+    "question": "What does metanoia mean, and how did the Church use it?",
+    "summary": "Metanoia means a change of mind that turns a person toward God. Jesus opens his preaching with the call to repent, and the apostles tie it to baptism and to works that show it. The Fathers taught that the Church can receive the repentant and forgive sins, and the Catechism describes conversion as a lifelong task.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Metanoeite (μετανοεῖτε), Mark 1:15",
+        "ref": "MRK.1.14-15",
+        "quote": "The time is fulfilled, and God’s Kingdom is at hand! Repent, and believe in the Good News.",
+        "note": "The verb metanoeo is built from meta (after, change) and noeo (to think), and the lexicon glosses it as “to think differently or afterwards, i.e. reconsider.” Jesus’ first public word is this call."
+      },
+      {
+        "kind": "scripture",
+        "label": "Metanoia’s fruit, Luke 3:8",
+        "ref": "LUK.3.8",
+        "quote": "produce fruits worthy of repentance",
+        "note": "John the Baptist makes clear that a real change of mind shows itself in changed living. It is more than a feeling."
+      },
+      {
+        "kind": "scripture",
+        "label": "Metanoeo at Pentecost, Acts 2:37-38",
+        "ref": "ACT.2.37-38",
+        "quote": "Repent and be baptized, every one of you, in the name of Jesus Christ for the forgiveness of sins",
+        "note": "Peter links repentance to baptism and to the forgiveness of sins, giving the word its place in the life of the Church."
+      },
+      {
+        "kind": "scripture",
+        "label": "Metanoia as godly sorrow, 2 Corinthians 7:10",
+        "ref": "2CO.7.10",
+        "quote": "godly sorrow produces repentance leading to salvation, which brings no regret.",
+        "note": "Paul distinguishes sorrow that leads to repentance from worldly regret that leads only to death."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, On Repentance",
+        "when": "c. 200",
+        "year": 200,
+        "work": "tertullian-ethical",
+        "section": "vi.ii.ii",
+        "quote": "where there is no amendment, repentance is of necessity vain, for it lacks the fruit for which God sowed it; that is, man’s salvation.",
+        "note": "Writing the first Latin treatise on the subject, Tertullian insists that repentance is judged by amendment of life, not by emotion."
+      },
+      {
+        "kind": "father",
+        "label": "Cyprian, Letter to Antonianus",
+        "when": "c. 252",
+        "year": 252,
+        "work": "cyprian",
+        "section": "iv.iv.li",
+        "quote": "if He shall find the repentance of the sinners full and sound, He will then ratify what shall have been here determined by us.",
+        "note": "Cyprian defends receiving back those who denied the faith under persecution, if their repentance is real, and treats the Church’s judgment as something God ratifies."
+      },
+      {
+        "kind": "father",
+        "label": "Ambrose, Concerning Repentance",
+        "when": "c. 384",
+        "year": 384,
+        "work": "ambrose-works",
+        "section": "iv.vi.ii",
+        "quote": "The Church holds fast its obedience on either side, by both retaining and remitting sin",
+        "note": "Against the Novatians, who refused forgiveness to some sinners, Ambrose argues that the Lord gave the Church power both to bind and to loose."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Trent, Session 14: contrition",
+        "when": "1551",
+        "year": 1551,
+        "work": "trent-canons-decrees",
+        "section": "s14",
+        "quote": "is a sorrow of mind, and a detestation for sin committed, with the purpose of not sinning for the future.",
+        "note": "Trent defines the inner part of repentance (contrition) in terms of sorrow, rejection of sin, and the resolve not to sin again."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church §1427",
+        "ccc": 1427,
+        "quote": "Jesus calls to conversion. This call is an essential part of the proclamation of the kingdom",
+        "note": "The Catechism restates Mark 1:15 and treats metanoia as the heart of the Gospel proclamation."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church §1431",
+        "ccc": 1431,
+        "quote": "Interior repentance is a radical reorientation of our whole life, a return, a conversion to God with all our heart, an end of sin, a turning away from evil",
+        "note": "This is the Church’s fullest explanation of what the Greek word asks: a turn of the whole life, not just a change of opinion."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Metanoia only means a change of mind. “Penance” is a later Latin mistranslation that adds punishments the Gospel never asked for.",
+        "a": "The Greek root does mean a change of mind, but in the New Testament it is never only intellectual: John demands fruits worthy of repentance, and Paul preached works worthy of repentance. The Catechism accordingly says conversion begins in the heart but presses toward visible signs. The editor of the bundled Ambrose translation also notes that Latin paenitentia could mean both “penance” and “repentance,” which is why the English has to vary.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Repentance with works, Acts 26:20",
+            "ref": "ACT.26.20",
+            "quote": "they should repent and turn to God, doing works worthy of repentance.",
+            "note": "Paul pairs repentance with turning to God and with deeds."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church §1430",
+            "ccc": 1430,
+            "quote": "interior conversion urges expression in visible signs, gestures and works of penance.",
+            "note": "The Catechism holds the two together: the heart first, with visible works following."
+          }
+        ]
+      },
+      {
+        "q": "Only God can forgive sins. Why involve the Church in repentance?",
+        "a": "The Church’s claim is not that it forgives in its own right but that Christ gave the apostles a share in his authority after the resurrection. Ambrose argues that those who deny this power of loosing are also denying the power of binding.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Christ’s commission, John 20:21-23",
+            "ref": "JHN.20.21-23",
+            "note": "The risen Christ breathes on the apostles and gives them the Spirit with authority to forgive and retain sins."
+          }
+        ]
+      },
+      {
+        "q": "Isn’t repentance done once, at baptism?",
+        "a": "Baptism is the first and fundamental conversion, but the Catechism teaches that the call continues in the lives of Christians as a second, lifelong conversion. Paul’s own letter to the Corinthians, written to believers, speaks of repentance.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church §1428",
+            "ccc": 1428,
+            "quote": "Christ’s call to conversion continues to resound in the lives of Christians.",
+            "note": "Conversion remains an ongoing task for the whole Church."
+          }
+        ]
+      }
+    ],
+    "readNext": [1427, 1428, 1431, 1440]
+  },
+  {
+    "id": "homoousios",
+    "title": "Homoousios: Of One Substance",
+    "question": "What does homoousios mean, and how did the Church use it?",
+    "summary": "Homoousios, “of one substance” or “consubstantial,” was placed in the Creed at Nicaea in 325 to state that the Son is truly God, sharing the Father’s own being and not a creature. The word is not in Scripture, but the Church used it to protect what Scripture says, and Constantinople I and Chalcedon kept it.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Oneness of Father and Son, John 10:30",
+        "ref": "JHN.10.30",
+        "quote": "I and the Father are one.",
+        "note": "The Gospel states the unity in plain words, and the sentences that follow show that the hearers understood it as a claim to divinity."
+      },
+      {
+        "kind": "scripture",
+        "label": "Hypostasis and substance, Hebrews 1:3",
+        "ref": "HEB.1.3",
+        "quote": "His Son is the radiance of his glory, the very image of his substance",
+        "note": "Hebrews describes the Son as the exact expression of God’s own substance, which is the idea that homoousios later named."
+      },
+      {
+        "kind": "scripture",
+        "label": "Equal with God, John 5:18",
+        "ref": "JHN.5.18",
+        "quote": "called God his own Father, making himself equal with God.",
+        "note": "Jesus calls God his own Father in a way that his opponents understand as equality with God."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Nicaea I, Creed",
+        "when": "325",
+        "year": 325,
+        "work": "council-nicaea-1",
+        "section": "vii.iii",
+        "quote": "the only-begotten of his Father, of the substance of the Father, God of God, Light of Light, very God of very God… not made, being of one substance",
+        "note": "Nicaea answered Arius, who said the Son was made, by saying that the Son is begotten and of the Father’s own substance. The word homoousios put that in a form no one could evade."
+      },
+      {
+        "kind": "father",
+        "label": "Socrates, Church History: the debate at Nicaea",
+        "when": "325",
+        "year": 325,
+        "work": "socrates-sozomen",
+        "section": "ii.iv.viii",
+        "quote": "the meaning of these terms was clearly defined; when it was generally admitted that ousias (of the essence or substance) simply implied that the Son is of the Father indeed, but does not subsist as a part of the Father.",
+        "note": "In the account of Eusebius of Caesarea’s letter, the bishops ask what the key words mean and agree that they exclude any division of the Father’s being."
+      },
+      {
+        "kind": "father",
+        "label": "Athanasius, Against the Arians, Discourse 1",
+        "when": "c. 358",
+        "year": 358,
+        "work": "athanasius-arians",
+        "section": "xxi.ii.i",
+        "quote": "not a creature or work, but an offspring proper to the Father’s essence.",
+        "note": "Athanasius, the great defender of Nicaea, argues for the same meaning: the Son is of the Father’s essence, and the word is needed to say so."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Constantinople I, Creed",
+        "when": "381",
+        "year": 381,
+        "work": "council-constantinople-1",
+        "section": "ix.iii",
+        "quote": "begotten not made, being of one substance with the Father, by whom all things were made.",
+        "note": "Fifty-six years later the Council of Constantinople kept the word in the Creed that Catholics still pray at Mass."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Chalcedon, Definition of Faith",
+        "when": "451",
+        "year": 451,
+        "work": "council-chalcedon",
+        "section": "xi.xiii",
+        "quote": "consubstantial with the Father as touching his Godhead, and consubstantial with us as touching his manhood",
+        "note": "Chalcedon applies the same word twice: Christ is of one substance with the Father in his divinity and with us in his humanity."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church §242",
+        "ccc": 242,
+        "quote": "the Church confessed at the first ecumenical council at Nicaea (325) that the Son is “consubstantial” with the Father, that is, one only God with him.",
+        "note": "The Catechism gives the plain meaning: consubstantial means the Son is one God with the Father."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Homoousios isn’t in the Bible. How can a word from outside Scripture become part of the Creed?",
+        "a": "The Arians could accept every biblical phrase and still say the Son was a creature, so the Council needed a word that left no room for that reading. The Catechism says the Church gave philosophical terms a new meaning in order to protect what the Bible says.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church §251",
+            "ccc": 251,
+            "quote": "she did not submit the faith to human wisdom, but gave a new and unprecedented meaning to these terms",
+            "note": "The Church uses words from outside Scripture to guard the content of Scripture."
+          }
+        ]
+      },
+      {
+        "q": "Consubstantial suggests the Father is divided into parts, with the Son as a piece of him. Didn’t some bishops reject it for that reason?",
+        "a": "That was the objection of a few, and the Council answered it directly: the word says the Son is of the Father but is not a part of him. The historian Socrates records the objection and the explanation.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Socrates, Church History: the objection",
+            "when": "325",
+            "year": 325,
+            "work": "socrates-sozomen",
+            "section": "ii.iv.viii",
+            "quote": "Five only would not receive it, objecting to the term homoousios",
+            "note": "Only five bishops refused the word, and their worry was division of the Father’s substance."
+          },
+          {
+            "kind": "father",
+            "label": "Theodoret, Church History",
+            "when": "c. 450",
+            "year": 450,
+            "work": "theodoret-history",
+            "section": "iv.viii.i",
+            "quote": "the word consubstantial signifies that the Son is of the Father, but not as being a part of the Father.",
+            "note": "Theodoret reports the same clarification."
+          }
+        ]
+      },
+      {
+        "q": "If Father and Son are one substance, aren’t they just one person?",
+        "a": "No. The Church uses “substance” for what is one in God and “person” for the real distinction among Father, Son and Holy Spirit. Sharing one divine being does not remove their relations to one another.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church §252",
+            "ccc": 252,
+            "quote": "(II) the term “person” or “hypostasis” to designate the Father, Son and Holy Spirit in the real distinction among them",
+            "note": "The Church’s vocabulary keeps unity of substance and distinction of persons together."
+          }
+        ]
+      }
+    ],
+    "readNext": [242, 252, 465]
+  },
+  {
+    "id": "theotokos",
+    "title": "Theotokos: Mother of God",
+    "question": "What does Theotokos mean, and how did the Church use it?",
+    "summary": "Theotokos, “God-bearer,” was affirmed at Ephesus in 431 to say that the child Mary bore is truly the Son of God, one person, not two. The title is about who Jesus is, not about Mary’s origin or about Mary being the source of his divinity.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Mother of my Lord, Luke 1:43",
+        "ref": "LUK.1.43",
+        "quote": "Why am I so favored, that the mother of my Lord should come to me?",
+        "note": "Elizabeth, speaking by the Holy Spirit, calls Mary the mother of her Lord. In the Greek Bible “Lord” is the title used for God."
+      },
+      {
+        "kind": "scripture",
+        "label": "Son of the Most High, Luke 1:31-35",
+        "ref": "LUK.1.31-35",
+        "quote": "the holy one who is born from you will be called the Son of God.",
+        "note": "The angel says that the child Mary will bear is the Son of the Most High, so she bears the Son of God himself."
+      },
+      {
+        "kind": "scripture",
+        "label": "Born of a woman, Galatians 4:4",
+        "ref": "GAL.4.4",
+        "quote": "God sent out his Son, born to a woman, born under the law",
+        "note": "Paul says God’s Son was born of a woman, which is the same fact the title Theotokos expresses."
+      },
+      {
+        "kind": "father",
+        "label": "Cyril of Alexandria, Letter to Nestorius",
+        "when": "430",
+        "year": 430,
+        "work": "council-ephesus",
+        "section": "x.v",
+        "quote": "they ventured to call the holy Virgin, the Mother of God, not as if the nature of the Word or his divinity had its beginning from the holy Virgin, but because of her was born that holy body with a rational soul, to which the Word being personally united is said to be born according to the flesh.",
+        "note": "Cyril defines the title carefully: Mary is not the source of God’s divinity, but the person she bore is the Word himself, personally united to a human body."
+      },
+      {
+        "kind": "father",
+        "label": "Cyril of Alexandria, First Anathematism",
+        "when": "430",
+        "year": 430,
+        "work": "council-ephesus",
+        "section": "x.ix",
+        "quote": "If anyone will not confess that the Emmanuel is very God, and that therefore the Holy Virgin is the Mother of God",
+        "note": "Cyril makes the title a test of faith in the Incarnation: to deny it is to deny that Emmanuel (“God with us”) is truly God."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Chalcedon, Definition of Faith",
+        "when": "451",
+        "year": 451,
+        "work": "council-chalcedon",
+        "section": "xi.xiii",
+        "quote": "born into the world of the Virgin Mary, the Mother of God according to his manhood",
+        "note": "Twenty years after Ephesus, Chalcedon repeats the title in its definition, adding “according to his manhood” so that the two natures of Christ are respected."
+      },
+      {
+        "kind": "saint",
+        "label": "John of Damascus, Exact Exposition of the Orthodox Faith",
+        "when": "c. 743",
+        "year": 743,
+        "work": "john-damascus",
+        "section": "iii.iv.iii",
+        "quote": "if she who bore Him is the Mother of God, assuredly He Who was born of her is God and likewise also man.",
+        "note": "John of Damascus shows what the title protects: if Mary bore the Son of God, then the Son of God is truly man and the man is truly God."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church §495",
+        "ccc": 495,
+        "quote": "the Church confesses that Mary is truly “Mother of God” (Theotokos).",
+        "note": "The Catechism ties the title to Elizabeth’s greeting and to the eternal identity of the one Mary conceived."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church §466",
+        "ccc": 466,
+        "quote": "Christ’s humanity has no other subject than the divine person of the Son of God, who assumed it and made it his own, from his conception.",
+        "note": "The Catechism explains why the title is a statement about Christ: he is one subject, not two."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Mary was the mother of Jesus’ humanity only. Calling her Mother of God makes her the source of God.",
+        "a": "That was Nestorius’ objection, and Cyril answers it in the same letter: the title does not say the Word’s nature began from her, only that the one she bore is the Word. A mother is mother of a person, not of a nature, and her Son is one person.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Cyril of Alexandria, Letter to Nestorius with the Twelve Anathematisms",
+            "when": "430",
+            "year": 430,
+            "work": "council-ephesus",
+            "section": "x.viii",
+            "quote": "we also call her Mother of God, not as if the nature of the Word had the beginning of its existence from the flesh.",
+            "note": "Cyril states in plain words what the title does not mean."
+          }
+        ]
+      },
+      {
+        "q": "The title isn’t in the Bible, and honoring Mary this way takes something away from Christ.",
+        "a": "The title is Elizabeth’s Lord-language made exact. John of Damascus argues that the name embraces the whole mystery of salvation, because to deny it is to deny that the one born of her is God. Far from taking from Christ, it protects his divinity.",
+        "steps": [
+          {
+            "kind": "saint",
+            "label": "John of Damascus, Exact Exposition of the Orthodox Faith",
+            "when": "c. 743",
+            "year": 743,
+            "work": "john-damascus",
+            "section": "iii.iv.iii",
+            "quote": "For this name embraces the whole mystery of the dispensation.",
+            "note": "For John, Theotokos is a short summary of the whole doctrine of the Incarnation."
+          }
+        ]
+      },
+      {
+        "q": "Does the title make Mary divine, or put her on the same level as God?",
+        "a": "No. Mary is a creature, a human mother, and the Church’s title speaks of her Son. In the Catechism she is the mother of the eternal Son of God made man, and the rest of her honor flows from that.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church §509",
+            "ccc": 509,
+            "quote": "Mary is truly “Mother of God” since she is the mother of the eternal Son of God made man, who is God himself.",
+            "note": "The title rests on who her Son is, not on any claim that Mary herself is divine."
+          }
+        ]
+      }
+    ],
+    "readNext": [466, 495, 509]
+  }
+]

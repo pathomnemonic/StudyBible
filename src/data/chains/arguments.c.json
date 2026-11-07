@@ -1,0 +1,894 @@
+[
+ {
+  "id": "purgatory",
+  "title": "Why the Church prays for the dead",
+  "question": "Why does the Church pray for the dead and teach purification after death?",
+  "summary": "Christians have always prayed for their departed, which only makes sense if some who die in God’s friendship still need to be made ready for the full joy of heaven. The Church calls this final cleansing Purgatory. It is not a second chance and not a lesser hell; it is the completion of grace in those already saved.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "2 Maccabees 12:43-45",
+    "ref": "2MA.12.43-45",
+    "quote": "it would be superfluous and idle to pray for the dead",
+    "note": "Judas Maccabeus offers a sacrifice for fallen soldiers, trusting in the resurrection. Praying for the dead is presented as “holy and godly,” long before Christ."
+   },
+   {
+    "kind": "scripture",
+    "label": "Matthew 12:32",
+    "ref": "MAT.12.31-32",
+    "quote": "it will not be forgiven him, either in this age, or in that which is to come",
+    "note": "Jesus speaks of forgiveness “in that which is to come,” which the Church has long read as implying that some sins may still be dealt with after death."
+   },
+   {
+    "kind": "scripture",
+    "label": "1 Corinthians 3:13-15",
+    "ref": "1CO.3.11-15",
+    "quote": "he himself will be saved, but as through fire",
+    "note": "Paul describes a person whose work is burned, who suffers loss yet is saved “as through fire.” The Church has read this as a pointer to purification, while recognising that the image is debated."
+   },
+   {
+    "kind": "father",
+    "label": "John Chrysostom, Homily 42 on 1 Corinthians",
+    "when": "c. 392",
+    "year": 392,
+    "work": "chrys-1cor",
+    "section": "iv.xlii",
+    "quote": "Let us then give them aid and perform commemoration for them. For if the children of Job were purged by the sacrifice of their father, why dost thou doubt that when we too offer for the departed, some consolation arises to them?",
+    "note": "Chrysostom treats offering the Eucharist for the departed as an established practice and urges the faithful not to doubt it helps them."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Confessions 9 (Monica’s last request)",
+    "when": "c. 400",
+    "year": 400,
+    "work": "aug-confessions",
+    "section": "x.xi",
+    "quote": "this only I request, that you would remember me at the Lord's altar, wherever you be",
+    "note": "Augustine’s mother, a woman of deep faith, asks only to be remembered at the altar. Prayer for the dead was ordinary family devotion, not a late invention."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Enchiridion 69",
+    "when": "c. 421",
+    "year": 421,
+    "work": "aug-doctrinal",
+    "section": "iv.ii.lxxi",
+    "quote": "it is not impossible that something of the same kind may take place even after this life … whether some believers shall pass through a kind of purgatorial fire",
+    "note": "Augustine states the idea cautiously, as a question open to inquiry. The Church later defined what he left open."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Enchiridion 110",
+    "when": "c. 421",
+    "year": 421,
+    "work": "aug-doctrinal",
+    "section": "iv.ii.cxii",
+    "quote": "the souls of the dead are benefited by the piety of their living friends, who offer the sacrifice of the Mediator, or give alms in the church on their behalf",
+    "note": "Augustine explains who is helped: those who died in grace but still in need of help. The Church’s prayers do not change anyone’s eternal destiny."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Decree on Purgatory",
+    "when": "1563",
+    "year": 1563,
+    "work": "trent-canons-decrees",
+    "section": "s25",
+    "quote": "but principally by the acceptable sacrifice of the altar … the sound doctrine concerning Purgatory, transmitted by the holy Fathers and sacred Councils, be believed, maintained, taught",
+    "note": "Trent defines that the souls in Purgatory are helped by the prayers of the faithful, above all the Mass. It also warns bishops against superstition and curiosity."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 1030",
+    "ccc": 1030,
+    "quote": "after death they undergo purification, so as to achieve the holiness necessary to enter the joy of heaven",
+    "note": "The Catechism states the teaching plainly: those in Purgatory are already assured of salvation and are being made ready for heaven."
+   }
+  ],
+  "objections": [
+   {
+    "q": "If the blood of Christ cleanses us from all sin, isn’t Purgatory an insult to the Cross?",
+    "a": "The Church does not say Christ’s sacrifice is insufficient. Every purification in Purgatory is the fruit of the Cross. The Catechism says the lingering effect of sin is an unhealthy attachment to created things, which has to be healed, not a debt God extracts out of anger.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 1472",
+      "ccc": 1472,
+      "quote": "These two punishments must not be conceived of as a kind of vengeance inflicted by God from without, but as following from the very nature of sin",
+      "note": "Purification is described as the healing of sin’s effects in us, not as payment added to what Christ did."
+     }
+    ]
+   },
+   {
+    "q": "Purgatory is never mentioned in the Bible, so isn’t it a human invention?",
+    "a": "The word is not in Scripture, as neither is “Trinity.” The doctrine grows from the biblical practice of praying for the dead and from the Church’s constant liturgical memory of them. The Catechism grounds it in exactly that practice.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 1032",
+      "ccc": 1032,
+      "quote": "From the beginning the Church has honored the memory of the dead and offered prayers in suffrage for them, above all the Eucharistic sacrifice",
+      "note": "The earliest Christian worship already commemorated the dead at the Eucharist."
+     }
+    ]
+   },
+   {
+    "q": "Hebrews says that after death comes judgment. Does Purgatory offer a second chance?",
+    "a": "No. Judgment settles a person’s destiny at death. Purgatory belongs only to those already saved. Augustine insists that merit and demerit are decided in this life.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, Enchiridion 110",
+      "when": "c. 421",
+      "year": 421,
+      "work": "aug-doctrinal",
+      "section": "iv.ii.cxii",
+      "quote": "it is in this life that all the merit or demerit is acquired",
+      "note": "Augustine rules out any second chance after death; the Church’s prayers help only those who died in grace."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1030,
+   1031,
+   1032,
+   1471,
+   1472,
+   958
+  ]
+ },
+ {
+  "id": "intercession-of-saints",
+  "title": "Can the saints in heaven pray for us?",
+  "question": "Can the saints in heaven pray for us?",
+  "summary": "Christians pray for one another on earth, and death does not break the Body of Christ. Scripture shows the departed and the angels caring about the living, and from the earliest centuries the Church has asked the saints for their prayers. This takes nothing from Christ, the one Mediator, because the saints pray in him and through him.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "James 5:16",
+    "ref": "JAS.5.16",
+    "quote": "pray for one another, that you may be healed. The insistent prayer of a righteous person is powerfully effective",
+    "note": "Asking others to pray for us is plain Christian practice. The question is whether death ends that bond."
+   },
+   {
+    "kind": "scripture",
+    "label": "Luke 20:38",
+    "ref": "LUK.20.37-38",
+    "quote": "he is not the God of the dead, but of the living, for all are alive to him",
+    "note": "Jesus teaches that those who have died in God are alive to him. They are not cut off from the communion of the faithful."
+   },
+   {
+    "kind": "scripture",
+    "label": "2 Maccabees 15:12-14",
+    "ref": "2MA.15.12-14",
+    "quote": "This is the lover of the kindred, he who prays much for the people and the holy city",
+    "note": "In Judas Maccabeus’s vision the dead high priest Onias and the prophet Jeremiah intercede for Israel."
+   },
+   {
+    "kind": "scripture",
+    "label": "Revelation 5:8",
+    "ref": "REV.5.8",
+    "quote": "golden bowls full of incense, which are the prayers of the saints",
+    "note": "In heaven the elders present the prayers of God’s people before the Lamb, so heaven is not indifferent to our prayers."
+   },
+   {
+    "kind": "scripture",
+    "label": "Hebrews 12:1",
+    "ref": "HEB.12.1",
+    "quote": "seeing we are surrounded by so great a cloud of witnesses",
+    "note": "The Church on earth runs her race in the company of those who have finished theirs."
+   },
+   {
+    "kind": "father",
+    "label": "Cyril of Jerusalem, Mystagogic Catechesis 5",
+    "when": "c. 350",
+    "year": 350,
+    "work": "cyril-catecheses",
+    "section": "ii.xxvii",
+    "quote": "we commemorate also those who have fallen asleep before us, first Patriarchs, Prophets, Apostles, Martyrs, that at their prayers and intercessions God would receive our petition",
+    "note": "At the liturgy the saints are named so that God may hear our prayer through theirs."
+   },
+   {
+    "kind": "father",
+    "label": "Ambrose, On Widows 55",
+    "when": "c. 377",
+    "year": 377,
+    "work": "ambrose-works",
+    "section": "iv.viii.x",
+    "quote": "Let us not be ashamed to take them as intercessors for our weakness, for they themselves knew the weaknesses of the body, even when they overcame.",
+    "note": "Ambrose openly asks the martyrs to intercede, reasoning that those who shared our weakness can sympathise with it."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On Care for the Dead 20",
+    "when": "c. 421",
+    "year": 421,
+    "work": "aug-moral",
+    "section": "v.ix.xxi",
+    "quote": "it is a question which surpasses the strength of my understanding, after what manner the Martyrs aid them who by them, it is certain, are helped",
+    "note": "Augustine is unsure how the martyrs help, but treats it as certain that they do."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 25",
+    "when": "1563",
+    "year": 1563,
+    "work": "trent-canons-decrees",
+    "section": "s25",
+    "quote": "that it is good and useful suppliantly to invoke them, and to have recourse to their prayers … through His Son, Jesus Christ our Lord, who is our alone Redeemer and Saviour",
+    "note": "Trent teaches that the saints pray for us and may be asked to, and that all this flows from Christ, the only Redeemer."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 2683",
+    "ccc": 2683,
+    "quote": "They contemplate God, praise him and constantly care for those whom they have left on earth. … We can and should ask them to intercede for us and for the whole world.",
+    "note": "The Catechism sums up: the saints’ intercession is part of God’s plan, and asking for it is encouraged."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Scripture says there is one mediator between God and men. Doesn’t asking saints to pray undercut Christ?",
+    "a": "Paul calls Christ the one mediator, yet also asks others to pray for him. Intercession by the saints shares in Christ’s mediation and does not compete with it. Trent states the same point.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "1 Timothy 2:5",
+      "ref": "1TI.2.5-6",
+      "quote": "there is one God and one mediator between God and men, the man Christ Jesus",
+      "note": "Christ’s unique mediation is the ground of all Christian prayer, including the prayer of the saints."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 956",
+      "ccc": 956,
+      "quote": "They do not cease to intercede with the Father for us, as they proffer the merits which they acquired on earth through the one mediator between God and men, Christ Jesus",
+      "note": "The saints’ prayers depend entirely on Christ’s mediation."
+     }
+    ]
+   },
+   {
+    "q": "The Law forbids consulting the dead. Isn’t praying to saints necromancy?",
+    "a": "Necromancy tries to extract hidden knowledge or power from spirits. Asking a member of Christ’s family to pray for us is a different act, like asking a friend. Jesus himself speaks of Moses and Elijah in glory with him.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Deuteronomy 18:10-12",
+      "ref": "DEU.18.10-12",
+      "quote": "someone who consults with a familiar spirit, or a wizard, or a necromancer",
+      "note": "The forbidden practice is seeking secret knowledge from the dead."
+     },
+     {
+      "kind": "scripture",
+      "label": "Luke 9:30-31",
+      "ref": "LUK.9.30-31",
+      "quote": "two men were talking with him, who were Moses and Elijah, who appeared in glory",
+      "note": "Moses and Elijah converse with Christ about his coming Passion, showing the departed are alive and concerned with God’s saving work."
+     }
+    ]
+   },
+   {
+    "q": "How could the saints possibly hear millions of prayers?",
+    "a": "The Church does not claim to know how. Augustine admitted the question was beyond him but did not doubt the fact. Scripture shows heaven rejoicing over repentant sinners on earth and sharing in the Church’s prayer.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Luke 15:10",
+      "ref": "LUK.15.10-10",
+      "quote": "there is joy in the presence of the angels of God over one sinner repenting",
+      "note": "Heaven knows what happens on earth."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   946,
+   956,
+   957,
+   2683,
+   2684,
+   1161
+  ]
+ },
+ {
+  "id": "veneration-of-images",
+  "title": "Why the Church uses sacred images",
+  "question": "Why does the Church use sacred images, when the Bible forbids idols?",
+  "summary": "The commandment forbids making idols and giving them divine worship. Since God became visible in Jesus Christ, his image can be painted without falsehood. The Second Council of Nicaea (787), drawing on John of Damascus and the Fathers, taught that honour paid to an image passes to the person it represents, and that this honour is different from the worship due to God alone.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Exodus 20:4-5",
+    "ref": "EXO.20.4-5",
+    "quote": "You shall not make for yourselves an idol, nor any image of anything that is in the heavens above",
+    "note": "The commandment against images must be taken seriously. The question is what exactly it forbids."
+   },
+   {
+    "kind": "scripture",
+    "label": "Exodus 25:18-20",
+    "ref": "EXO.25.18-20",
+    "quote": "You shall make two cherubim of hammered gold.",
+    "note": "God himself commands carved images of cherubim in the tent of meeting, so the commandment cannot forbid every image."
+   },
+   {
+    "kind": "scripture",
+    "label": "John 1:14",
+    "ref": "JHN.1.14",
+    "quote": "The Word became flesh and lived among us. We saw his glory",
+    "note": "Because the Word has become flesh, the invisible God has a visible human face that can be seen and depicted."
+   },
+   {
+    "kind": "father",
+    "label": "John of Damascus, On the Orthodox Faith 4.16",
+    "when": "c. 743",
+    "year": 743,
+    "work": "john-damascus",
+    "section": "iii.iv.iv",
+    "quote": "who can make an imitation of the invisible, incorporeal, uncircumscribed, formless God? Therefore to give form to the Deity is the height of folly and impiety.",
+    "note": "John agrees that God as he is in himself cannot be portrayed. His defence of images rests on the Incarnation, which changed what can rightly be depicted."
+   },
+   {
+    "kind": "father",
+    "label": "John of Damascus, On the Orthodox Faith 4.16",
+    "when": "c. 743",
+    "year": 743,
+    "work": "john-damascus",
+    "section": "iii.iv.iv",
+    "quote": "that the Apostles handed down much that was unwritten, Paul, the Apostle of the Gentiles, tells us in these words",
+    "note": "John answers the charge of novelty: not everything handed down from the apostles was written down, as Paul says."
+   },
+   {
+    "kind": "council",
+    "label": "Second Council of Nicaea, Definition",
+    "when": "787",
+    "year": 787,
+    "work": "council-nicaea-2",
+    "section": "xvi.xii",
+    "quote": "we keep unchanged all the ecclesiastical traditions handed down to us, whether in writing or verbally, one of which is the making of pictorial representations … that so the incarnation of the Word of God is shown forth as real and not merely phantastic",
+    "note": "Nicaea II ties sacred images to the reality of the Incarnation. It treats them as an apostolic tradition, not an invention."
+   },
+   {
+    "kind": "council",
+    "label": "Second Council of Nicaea, Definition",
+    "when": "787",
+    "year": 787,
+    "work": "council-nicaea-2",
+    "section": "xvi.xii",
+    "quote": "the honour which is paid to the image passes on to that which the image represents, and he who reveres the image reveres in it the subject represented",
+    "note": "This is the key principle. Veneration goes through the image to the person, and is not given to wood or paint."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 25",
+    "when": "1563",
+    "year": 1563,
+    "work": "trent-canons-decrees",
+    "section": "s25",
+    "quote": "not that any divinity or virtue is believed to be in them … by means of the histories of the mysteries of our Redemption, portrayed by paintings or other representations, the people is instructed",
+    "note": "Trent repeats Nicaea II and says images teach and remind, while forbidding superstition and images that suggest false doctrine."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 2132",
+    "ccc": 2132,
+    "quote": "The honor paid to sacred images is a \"respectful veneration,\" not the adoration due to God alone",
+    "note": "The Catechism keeps the line Nicaea II drew between veneration and adoration."
+   }
+  ],
+  "objections": [
+   {
+    "q": "The first commandment forbids bowing down to images. Isn’t kissing icons and lighting candles before them exactly that?",
+    "a": "Nicaea II distinguishes the “true worship of faith,” which belongs to God alone, from the honour shown to holy things such as the Gospel book, the Cross and images. What is forbidden is treating a created thing as God.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Second Council of Nicaea, Definition",
+      "when": "787",
+      "year": 787,
+      "work": "council-nicaea-2",
+      "section": "xvi.xii",
+      "quote": "not indeed that true worship of faith … which pertains alone to the divine nature; but to these, as to the figure of the precious and life-giving Cross and to the Book of the Gospels",
+      "note": "The Council expressly separates adoration of God from the respect given to images."
+     }
+    ]
+   },
+   {
+    "q": "Didn’t the early Church reject images?",
+    "a": "Some early Christians were wary of images because of pagan idolatry, and the Old Testament use of images was limited. John of Damascus explains that this changed once God became visible in Christ. The Council held that images followed the Church’s ancient practice.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 1159",
+      "ccc": 1159,
+      "quote": "now that he has made himself visible in the flesh and has lived with men, I can make an image of what I have seen of God",
+      "note": "The Catechism quotes John of Damascus: the Incarnation opens a “new economy” of images."
+     }
+    ]
+   },
+   {
+    "q": "Don’t images tempt simple people into superstition?",
+    "a": "The Church admits abuses can happen and has always insisted on correcting them. Trent orders bishops to remove every superstition and any image that suggests false doctrine.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Session 25",
+      "when": "1563",
+      "year": 1563,
+      "work": "trent-canons-decrees",
+      "section": "s25",
+      "quote": "no images, (suggestive) of false doctrine, and furnishing occasion of dangerous error to the uneducated, be set up",
+      "note": "Trent corrects abuses rather than abolishing images."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1159,
+   1160,
+   1161,
+   1162,
+   1192,
+   2129,
+   2131,
+   2141
+  ]
+ },
+ {
+  "id": "original-sin",
+  "title": "Why the Church teaches original sin",
+  "question": "Why does the Church teach original sin?",
+  "summary": "Scripture and Christian experience both say that humanity enters the world wounded, in need of a Saviour, and that this is linked to Adam. Augustine defended this against Pelagius, and Trent defined it. The Church does not say that infants are personally guilty or that human nature is wholly corrupted. She says that we are born deprived of the holiness God intended and inclined to sin.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Psalm 51:5",
+    "ref": "PSA.51.5",
+    "quote": "I was born in iniquity",
+    "note": "The psalmist, confessing his own sin, sees it as reaching back to his very beginnings."
+   },
+   {
+    "kind": "scripture",
+    "label": "Romans 5:12",
+    "ref": "ROM.5.12",
+    "quote": "as sin entered into the world through one man, and death through sin, so death passed to all men because all sinned",
+    "note": "Paul traces the universal reign of sin and death to one man’s act. This is the main biblical foundation of the doctrine."
+   },
+   {
+    "kind": "scripture",
+    "label": "Romans 5:18-19",
+    "ref": "ROM.5.18-19",
+    "quote": "through the one man’s disobedience many were made sinners, even so through the obedience of the one, many will be made righteous",
+    "note": "The parallel between Adam and Christ shows that what Adam lost is restored only in Christ."
+   },
+   {
+    "kind": "scripture",
+    "label": "Ephesians 2:3",
+    "ref": "EPH.2.3",
+    "quote": "were by nature children of wrath, even as the rest",
+    "note": "Paul says that before grace, all stand in this condition."
+   },
+   {
+    "kind": "father",
+    "label": "Irenaeus, Against Heresies 5.12",
+    "when": "c. 180",
+    "year": 180,
+    "work": "irenaeus-heresies",
+    "section": "ix.vii.xiii",
+    "quote": "as in Adam we do all die, as being of an animal nature, in Christ we may all live, as being spiritual",
+    "note": "Long before Augustine, Irenaeus sees humanity bound up with Adam and renewed in Christ."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On the Merits and Remission of Sins 1",
+    "when": "412",
+    "year": 412,
+    "work": "aug-pelagian",
+    "section": "x.iii",
+    "quote": "What does my exorcism work in that babe, if he be not held in the devil’s family? … How would it be possible then for him to declare that he renounced the devil, if there was no devil in him?",
+    "note": "Augustine argues from the liturgy: the Church baptizes babies, exorcises them and has them renounce Satan, which makes sense only if they need freeing from inherited sin."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On the Merits and Remission of Sins 1",
+    "when": "412",
+    "year": 412,
+    "work": "aug-pelagian",
+    "section": "x.iii",
+    "quote": "nothing frees us but the grace of God through our Lord Jesus Christ",
+    "note": "Against Pelagius, who made Adam’s fault a bad example, Augustine insists that only grace heals."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Decree on Original Sin",
+    "when": "1546",
+    "year": 1546,
+    "work": "trent-canons-decrees",
+    "section": "s5",
+    "quote": "this sin of Adam, — which in its origin is one, and being transfused into all by propagation, not by imitation, is in each one as his own",
+    "note": "Trent defines that original sin is passed on by descent, not by copying, and that Christ’s merit alone removes it."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Decree on Original Sin",
+    "when": "1546",
+    "year": 1546,
+    "work": "trent-canons-decrees",
+    "section": "s5",
+    "quote": "in the baptised there remains concupiscence, or an incentive (to sin) … cannot injure those who consent not, but resist manfully by the grace of Jesus Christ",
+    "note": "Trent also says baptism removes original sin, though an inclination to sin remains for us to struggle against."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 405",
+    "ccc": 405,
+    "quote": "human nature has not been totally corrupted: it is wounded in the natural powers proper to it, subject to ignorance, suffering and the dominion of death, and inclined to sin",
+    "note": "The Catechism shows the balance: human nature is wounded, not destroyed."
+   }
+  ],
+  "objections": [
+   {
+    "q": "It seems unjust to blame people for something Adam did.",
+    "a": "The Church does not teach that we are personally guilty of Adam’s act. The Catechism says original sin is “contracted” and not “committed,” a state of lost holiness rather than a personal fault.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Ezekiel 18:20",
+      "ref": "EZK.18.20-20",
+      "quote": "The son shall not bear the iniquity of the father",
+      "note": "Ezekiel rules out inherited personal guilt for actual sins, which is why the Church describes original sin differently."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 405",
+      "ccc": 405,
+      "quote": "original sin does not have the character of a personal fault in any of Adam's descendants",
+      "note": "Original sin is a deprivation, not a personal crime."
+     }
+    ]
+   },
+   {
+    "q": "Isn’t this an idea Augustine invented?",
+    "a": "Augustine sharpened the doctrine in debate with Pelagius, but he appealed to the existing practice of baptizing infants and to Paul. Trent insisted it follows what the Church “hath always understood.”",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Decree on Original Sin",
+      "when": "1546",
+      "year": 1546,
+      "work": "trent-canons-decrees",
+      "section": "s5",
+      "quote": "is not to be understood otherwise than as the Catholic Church spread everywhere hath always understood it",
+      "note": "Trent appeals to the Church’s continuous understanding of Romans 5:12."
+     }
+    ]
+   },
+   {
+    "q": "Newborn babies have done nothing wrong. Why baptize them?",
+    "a": "Baptism gives a child the life of grace, which the child has not had since Adam. The Church has always baptized infants; she does not claim they have sinned personally.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 403",
+      "ccc": 403,
+      "quote": "the Church baptizes for the remission of sins even tiny infants who have not committed personal sin",
+      "note": "The Catechism rests the practice on the same Pauline teaching."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   388,
+   396,
+   397,
+   402,
+   403,
+   404,
+   405,
+   406,
+   407
+  ]
+ },
+ {
+  "id": "grace-and-free-will",
+  "title": "How grace and free will work together",
+  "question": "How do grace and free will work together?",
+  "summary": "God’s grace always comes first: without it, we can do nothing toward salvation. But grace does not replace human choice. It heals and strengthens it, and we are free to accept or refuse. Augustine defended both truths against Pelagius, and Trent and the Catechism state the same balance.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Sirach 15:14-17",
+    "ref": "SIR.15.14-17",
+    "quote": "If you choose, you can keep the commandments.",
+    "note": "Scripture treats human beings as responsible agents who choose."
+   },
+   {
+    "kind": "scripture",
+    "label": "John 15:5",
+    "ref": "JHN.15.5",
+    "quote": "apart from me you can do nothing",
+    "note": "Christ says all fruitful life depends on union with him."
+   },
+   {
+    "kind": "scripture",
+    "label": "Philippians 2:12-13",
+    "ref": "PHP.2.12-13",
+    "quote": "work out your own salvation with fear and trembling. For it is God who works in you both to will and to work for his good pleasure",
+    "note": "Paul asks us to act and says it is God who works in us. Both are true at once."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On the Spirit and the Letter",
+    "when": "412",
+    "year": 412,
+    "work": "aug-pelagian",
+    "section": "xi.lv",
+    "quote": "Do we then by grace make void free will? God forbid! Nay, rather we establish free will. For even as the law by faith, so free will by grace, is not made void, but established.",
+    "note": "Augustine denies that grace destroys freedom; grace is what makes freedom healthy."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On Grace and Free Will",
+    "when": "c. 426",
+    "year": 426,
+    "work": "aug-pelagian",
+    "section": "xix.iv",
+    "quote": "there are some persons who so defend God’s grace as to deny man’s free will, or who suppose that free will is denied when grace is defended",
+    "note": "Augustine names both errors and wants neither."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On Grace and Free Will",
+    "when": "c. 426",
+    "year": 426,
+    "work": "aug-pelagian",
+    "section": "xix.iv",
+    "quote": "it is plain that when it has been given, also our good merits begin to be,—yet only by means of it",
+    "note": "Even what is good in us comes from grace."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Decree on Justification (ch. 5)",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "neither is man himself utterly without doing anything while he receives that inspiration, forasmuch as he is also able to reject it ; yet is he not able, by his own free will, without the grace of God, to move himself unto justice in His sight",
+    "note": "Trent defines the same balance. God moves first, and we remain free to refuse him."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Canon 4 on Justification",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "If anyone saith that man's free will, moved and excited by God, by assenting to God exciting and calling, nowise co-operates towards disposing and preparing itself for obtaining the grace of Justification",
+    "note": "Trent condemns the view that the human will is merely passive."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 2001",
+    "ccc": 2001,
+    "quote": "Indeed we also work, but we are only collaborating with God who works, for his mercy has gone before us. It has gone before us so that we may be healed, and follows us so that once healed, we may be given life",
+    "note": "The Catechism quotes Augustine: grace both precedes and follows our cooperation."
+   }
+  ],
+  "objections": [
+   {
+    "q": "If we can do something toward our salvation, haven’t we earned it?",
+    "a": "No. Even the willingness to turn to God is itself grace. Merit exists only because God chooses to let his gifts count as ours.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 2008",
+      "ccc": 2008,
+      "quote": "the merit of good works is to be attributed in the first place to the grace of God, then to the faithful",
+      "note": "The Catechism says all merit begins in grace."
+     }
+    ]
+   },
+   {
+    "q": "After the Fall, isn’t the human will so corrupted that it is not free at all?",
+    "a": "Trent condemns that view. The Fall weakened free will but did not destroy it. The Catechism notes that Pelagians went too far one way and the first Reformers too far the other.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Decree on Justification (ch. 1)",
+      "when": "1547",
+      "year": 1547,
+      "work": "trent-canons-decrees",
+      "section": "s6",
+      "quote": "free will, attenuated as it was in its powers, and bent down, was by no means extinguished in them",
+      "note": "Trent teaches that freedom was weakened by sin, not lost."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 406",
+      "ccc": 406,
+      "quote": "pelagius held that man could, by the natural power of free will and without the necessary help of God's grace, lead a morally good life",
+      "note": "The Catechism names the errors on both sides of the debate."
+     }
+    ]
+   },
+   {
+    "q": "If God commands something, doesn’t that prove we can do it without his help?",
+    "a": "Augustine and Trent say commandments are real and that God gives the help to keep them. “God commands not impossibilities.”",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Decree on Justification (ch. 11)",
+      "when": "1547",
+      "year": 1547,
+      "work": "trent-canons-decrees",
+      "section": "s6",
+      "quote": "God commands not impossibilities, but, by commanding, both admonishes thee to do what thou art able, and to pray for what thou art not able (to do), and aids thee that thou mayest be able",
+      "note": "Trent quotes Augustine: the command and the grace go together."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1987,
+   1993,
+   1996,
+   2001,
+   2002,
+   2008,
+   406
+  ]
+ },
+ {
+  "id": "faith-and-works",
+  "title": "Is salvation by faith alone?",
+  "question": "Is salvation by faith alone?",
+  "summary": "The Church agrees with Paul: we are saved by grace, as a gift, through faith, and not by earning it. She also agrees with James: a faith with no love and no works is dead. Trent teaches that faith is the beginning and root of justification, and that living faith works through love.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Romans 3:28",
+    "ref": "ROM.3.28",
+    "quote": "a man is justified by faith apart from the works of the law",
+    "note": "Paul’s great statement: nothing we do first earns God’s favour."
+   },
+   {
+    "kind": "scripture",
+    "label": "Ephesians 2:8-10",
+    "ref": "EPH.2.8-10",
+    "quote": "by grace you have been saved through faith, and that not of yourselves; it is the gift of God, not of works … created in Christ Jesus for good works",
+    "note": "Grace is a gift, and its purpose is a life of good works that God prepared for us."
+   },
+   {
+    "kind": "scripture",
+    "label": "Galatians 5:6",
+    "ref": "GAL.5.6",
+    "quote": "faith working through love",
+    "note": "The only faith that counts in Christ is faith expressed in love."
+   },
+   {
+    "kind": "scripture",
+    "label": "James 2:24",
+    "ref": "JAS.2.21-24",
+    "quote": "You see then that by works a man is justified, and not only by faith.",
+    "note": "James says the same truth from the other side: a faith without works does not justify."
+   },
+   {
+    "kind": "father",
+    "label": "John Chrysostom, Homily 4 on Ephesians",
+    "when": "c. 400",
+    "year": 400,
+    "work": "chrys-eph",
+    "section": "iii.iv.v",
+    "quote": "Was faith then, you will say, enough to save us? No; but God, saith he, hath required this, lest He should save us, barren and without work at all.",
+    "note": "Chrysostom reads Ephesians 2 as Catholics do: salvation is a gift, and God wants a life of works to follow."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Enchiridion 67",
+    "when": "c. 421",
+    "year": 421,
+    "work": "aug-doctrinal",
+    "section": "iv.ii.lxix",
+    "quote": "the faith which saves us is that which the Apostle Paul clearly enough describes when he says: “For in Jesus Christ neither circumcision availeth anything, nor uncircumcision, but faith which worketh by love.”",
+    "note": "Augustine sets out the same view: saving faith is faith that works through love."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Decree on Justification (ch. 8)",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "we are therefore said to be justified by faith, because faith is the beginning of human salvation, the foundation, and the root of all Justification",
+    "note": "Trent affirms the central role of faith in the strongest terms."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Decree on Justification (ch. 8)",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "we are therefore said to be justified freely because that none of those things which precede Justification— whether faith or works — merit the grace itself of Justification",
+    "note": "It then says that neither faith nor works earns the first grace. Justification is a free gift."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Canon 9 on Justification",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "If anyone saith that by faith alone the impious is justified ; in such wise as to mean that nothing else is required to co-operate in order to the obtaining the grace of Justification",
+    "note": "What Trent condemns is “faith alone” understood to mean that nothing else, even the movement of the will, is involved."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 1815",
+    "ccc": 1815,
+    "quote": "\"faith apart from works is dead\": when it is deprived of hope and love, faith does not fully unite the believer to Christ and does not make him a living member of his Body",
+    "note": "The Catechism ties faith to hope and love: saving faith is alive."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Paul says we are justified apart from works. How can the Church say works matter?",
+    "a": "Paul’s point is that no work earns the first grace. The Church agrees. Trent says nothing before justification, whether faith or works, merits it. But the justified are called to grow in love through works, and Paul himself speaks of faith working through love.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Romans 4:4-5",
+      "ref": "ROM.4.2-5",
+      "quote": "to him who doesn’t work, but believes in him who justifies the ungodly, his faith is accounted for righteousness",
+      "note": "Paul is talking about how a sinner first receives righteousness, not about how a Christian should live afterwards."
+     }
+    ]
+   },
+   {
+    "q": "If good works contribute at all, aren’t we earning our salvation?",
+    "a": "No. Works done in grace are God’s gift working in us. No one can merit the first grace.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 2010",
+      "ccc": 2010,
+      "quote": "no one can merit the initial grace of forgiveness and justification, at the beginning of conversion",
+      "note": "The Catechism affirms that the beginning of salvation is God’s free gift."
+     }
+    ]
+   },
+   {
+    "q": "Shouldn’t a believer be certain of being saved?",
+    "a": "Christians can and should hope in God’s mercy, but the Church does not teach that anyone is certain by faith alone. Trent warns against “vain confidence.” Presumption is as dangerous as despair.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Decree on Justification (ch. 9)",
+      "when": "1547",
+      "year": 1547,
+      "work": "trent-canons-decrees",
+      "section": "s6",
+      "quote": "yet is it not to be said, that sins are forgiven, or have been forgiven, to anyone who boasts of his confidence and certainty of the remission of his sins, and rests on that alone",
+      "note": "Trent warns against resting on a feeling of certainty."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 2005",
+      "ccc": 2005,
+      "quote": "We cannot therefore rely on our feelings or our works to conclude that we are justified and saved.",
+      "note": "The Catechism offers the same caution, recommending humble trust."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   161,
+   162,
+   1814,
+   1815,
+   1987,
+   1991,
+   1992,
+   2010
+  ]
+ }
+]

@@ -1,0 +1,659 @@
+[
+ {
+  "id": "hesed",
+  "title": "Hesed: covenant love",
+  "question": "What does hesed mean, and how did the Church use it?",
+  "summary": "Hesed is the Hebrew word for God's faithful, covenant love: a love that binds itself to a people and keeps its word even when they fail. English Bibles render it \"loving kindness,\" \"steadfast love\" or \"mercy.\" The Church hears in it the very heart of the divine name and sees it fulfilled in Christ.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Hesed (חֶסֶד), Exodus 34:6-7",
+    "ref": "EXO.34.6-7",
+    "quote": "a merciful and gracious God, slow to anger, and abundant in loving kindness and truth",
+    "note": "After Israel breaks the covenant with the golden calf, God proclaims his own name. Hesed (\"loving kindness\") stands at the centre of it, joined to truth, and God keeps it \"for thousands.\""
+   },
+   {
+    "kind": "scripture",
+    "label": "Hesed (חֶסֶד), Psalm 136:1-3",
+    "ref": "PSA.136.1-3",
+    "quote": "Give thanks to the LORD, for he is good",
+    "note": "The psalm repeats hesed as a refrain after every act of God. Israel learns to read creation and history as one long story of covenant faithfulness."
+   },
+   {
+    "kind": "scripture",
+    "label": "Hesed (חֶסֶד), Hosea 6:1-6",
+    "ref": "HOS.6.1-6",
+    "quote": "For I desire mercy, and not sacrifice",
+    "note": "The prophet uses hesed for the love God wants from his people, a faithfulness of heart and not mere ritual. Their own \"love\" is like a morning cloud, while God's love does not vanish."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Psalm 136 (Greek eleos, Latin misericordia)",
+    "when": "c. 415",
+    "work": "aug-psalms",
+    "section": "ii.CXXXVI",
+    "quote": "although many things are related here in praise of God, yet His mercy is most commended",
+    "note": "Augustine's Latin Bible renders the refrain as \"mercy.\" He sees that among all of God's works the psalm singles out his mercy as the thing most worth praising."
+   },
+   {
+    "kind": "father",
+    "label": "John Chrysostom on 2 Timothy: resembling God",
+    "when": "c. 400",
+    "work": "chrys-2tim",
+    "section": "v.iv.vi",
+    "quote": "Herein we are able to resemble God, in showing mercy and pity.",
+    "note": "Chrysostom takes up Hosea's \"I will have mercy, and not sacrifice\" and draws the practical conclusion: the people who have received God's hesed are meant to show it to others."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism §214: love and faithfulness",
+    "ccc": 214,
+    "quote": "God, \"HE WHO IS\", revealed himself to Israel as the one \"abounding in steadfast love and faithfulness\".",
+    "note": "The Catechism takes Exodus 34:6 as a summary of the riches of the divine name. Hesed (steadfast love) and truth (faithfulness) belong together in God."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism §211: faithful despite sin",
+    "ccc": 211,
+    "quote": "despite the faithlessness of men's sin and the punishment it deserves, he keeps \"steadfast love for thousands\"",
+    "note": "The Church reads God's hesed as fully revealed when the Father gives up his own Son. It is the love that persists through human unfaithfulness."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Hesed is just legal loyalty to a contract. Why read it as love?",
+    "a": "The covenant is a bond like a family bond, not a business deal. In Hosea God's faithfulness is pictured as the love of one who cares for a wayward partner, and he says he wants \"mercy\" more than outward sacrifice. The Catechism joins \"steadfast love\" with \"faithfulness\" because both are true of God.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism §220: everlasting love",
+      "ccc": 220,
+      "quote": "\"I have loved you with an everlasting love; therefore I have continued my faithfulness to you.\"",
+      "note": "God's covenant faithfulness is explicitly named as the fruit of an everlasting love."
+     }
+    ]
+   },
+   {
+    "q": "Exodus 34 says God \"will by no means clear the guilty.\" Doesn't that contradict a God of steadfast love?",
+    "a": "The same sentence that proclaims hesed also says God does not ignore evil. His love is not indifference. The Church holds that God's mercy and justice are both real, and that his hesed is shown above all in forgiving \"iniquity and disobedience and sin.\"",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Exodus 34:7",
+      "ref": "EXO.34.7",
+      "quote": "forgiving iniquity and disobedience and sin; and who will by no means clear the guilty",
+      "note": "Forgiveness and the refusal to excuse sin stand side by side in God's own self-description."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   210,
+   211,
+   214,
+   220,
+   231
+  ]
+ },
+ {
+  "id": "eucharistia",
+  "title": "Eucharistia: thanksgiving",
+  "question": "What does eucharistia mean, and how did the Church use it?",
+  "summary": "Eucharistia is the Greek word for thanksgiving. The Gospels use its verb when Jesus gives thanks over the bread at the Last Supper, and the earliest Christians took it as the name of the sacrament itself. The Church still names the Mass this way because it is a great act of thanks to the Father through Christ.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Eucharisteo (εὐχαριστέω), Luke 22:19",
+    "ref": "LUK.22.19",
+    "quote": "He took bread, and when he had given thanks, he broke and gave it to them, saying, “This is my body which is given for you. Do this in memory of me.”",
+    "note": "The verb for \"given thanks\" is the root of eucharistia. Jesus' thanksgiving over the bread is joined to the gift of his body and to the command to repeat it."
+   },
+   {
+    "kind": "scripture",
+    "label": "Eucharisteo (εὐχαριστέω), 1 Corinthians 11:23-26",
+    "ref": "1CO.11.23-26",
+    "quote": "When he had given thanks, he broke it and said, “Take, eat. This is my body, which is broken for you.",
+    "note": "Paul passes on what he received from the Lord, and the thanksgiving is part of it. By the 50s the Church was already doing this \"until he comes.\""
+   },
+   {
+    "kind": "scripture",
+    "label": "Koinonia of the cup and bread, 1 Corinthians 10:16-17",
+    "ref": "1CO.10.16-17",
+    "quote": "The cup of blessing which we bless, isn’t it a sharing of the blood of Christ? The bread which we break, isn’t it a sharing of the body of Christ?",
+    "note": "Paul says the thanksgiving (\"blessing\") is more than a prayer. It is a real sharing in Christ's body and blood, and it makes the many one body."
+   },
+   {
+    "kind": "father",
+    "label": "Ignatius of Antioch, Philadelphians",
+    "when": "c. 107",
+    "work": "ignatius-letters",
+    "section": "v.vi",
+    "quote": "Take ye heed, then, to have but one Eucharist. For there is one flesh of our Lord Jesus Christ",
+    "note": "Within about eighty years of the Last Supper, \"the Eucharist\" is already the settled name of the Church's meal, and Ignatius ties it to the flesh of Christ and the unity of the Church."
+   },
+   {
+    "kind": "father",
+    "label": "Justin Martyr, Dialogue with Trypho",
+    "when": "c. 160",
+    "work": "justin-martyr",
+    "section": "viii.iv",
+    "quote": "the bread of the Eucharist, the celebration of which our Lord Jesus Christ prescribed, in remembrance of the suffering which He endured",
+    "note": "Justin explains the name: Christians give thanks to God for creation and redemption, and the thanksgiving is a remembrance of Christ's suffering that he himself commanded."
+   },
+   {
+    "kind": "father",
+    "label": "Justin Martyr, Dialogue with Trypho: the offering",
+    "when": "c. 160",
+    "work": "justin-martyr",
+    "section": "viii.iv",
+    "quote": "the sacrifices which we offer through this name, and which Jesus the Christ enjoined us to offer, i.e., in the Eucharist of the bread and the cup",
+    "note": "For Justin the thanksgiving is also the pure offering foretold by Malachi, made by Christians in every place. The word already carries the idea of sacrifice."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism §1328: why \"Eucharist\"",
+    "ccc": 1328,
+    "quote": "It is called: Eucharist, because it is an action of thanksgiving to God.",
+    "note": "The Catechism names the Greek verbs eucharistein and eulogein, which recall Jewish meal blessings that proclaim God's works of creation, redemption and sanctification."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism §1360: a sacrifice of thanksgiving",
+    "ccc": 1360,
+    "quote": "Eucharist means first of all \"thanksgiving.\"",
+    "note": "The Church's whole eucharistic prayer is gratitude to the Father for all he has done, and so the name has not changed meaning since the apostles."
+   }
+  ],
+  "objections": [
+   {
+    "q": "If \"eucharist\" just means thanksgiving, isn't it only a prayer of thanks, with Communion as a symbol?",
+    "a": "The word names the prayer, but the prayer is over the bread and cup that Jesus called his body and blood. Paul says the cup and bread are a real sharing in them and that eating unworthily makes one \"guilty of the body and the blood of the Lord.\" Ignatius links the Eucharist directly to the flesh of Christ.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "1 Corinthians 11:27",
+      "ref": "1CO.11.27",
+      "quote": "whoever eats this bread or drinks the Lord’s cup in a way unworthy of the Lord will be guilty of the body and the blood of the Lord",
+      "note": "One can only be guilty of the body and blood if they are truly present, not merely symbolised."
+     }
+    ]
+   },
+   {
+    "q": "The word \"Eucharist\" is not a name for the sacrament in the Gospels. Isn't it a later invention?",
+    "a": "The Gospels give the verb in the institution accounts, and by the early second century Ignatius and Justin already use the noun as a fixed name. The name grew naturally out of what Jesus did and said."
+   }
+  ],
+  "readNext": [
+   1328,
+   1329,
+   1352,
+   1358,
+   1359,
+   1360
+  ]
+ },
+ {
+  "id": "episkopos",
+  "title": "Episkopos: overseer",
+  "question": "What does episkopos mean, and how did the Church use it?",
+  "summary": "Episkopos means \"overseer,\" someone who watches over a flock. In the New Testament it appears next to \"elder\" (presbyteros), and by the early second century it names the single pastor of each local Church, successor to the apostles. The Church has understood the bishop as the one who carries on the apostles' ministry of teaching, sanctifying and ruling.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Episkopoi (ἐπίσκοποι), Philippians 1:1",
+    "ref": "PHP.1.1",
+    "quote": "with the overseers and servants",
+    "note": "Paul greets the Church at Philippi along with its overseers (episkopoi) and servants (diakonoi), so these offices exist in the apostolic Church."
+   },
+   {
+    "kind": "scripture",
+    "label": "Episkopoi (ἐπίσκοποι), Acts 20:28",
+    "ref": "ACT.20.28",
+    "quote": "Take heed, therefore, to yourselves and to all the flock, in which the Holy Spirit has made you overseers, to shepherd the assembly of the Lord and God which he purchased with his own blood.",
+    "note": "Paul tells the elders of Ephesus that the Holy Spirit has made them overseers. The task is shepherding, and the authority comes from God."
+   },
+   {
+    "kind": "scripture",
+    "label": "Episkopos (ἐπίσκοπος), 1 Timothy 3:1-2",
+    "ref": "1TI.3.1-2",
+    "quote": "someone who seeks to be an overseer desires a good work. The overseer therefore must be without reproach",
+    "note": "The office is called a \"good work,\" and Paul lists the character it requires, including being \"good at teaching.\""
+   },
+   {
+    "kind": "scripture",
+    "label": "Presbyteros and episkopos, Titus 1:5-9",
+    "ref": "TIT.1.5-9",
+    "quote": "For the overseer must be blameless, as God’s steward",
+    "note": "Titus is told to appoint elders in every city, and in the next breath the same men are called overseer. In the New Testament the two titles are used closely together."
+   },
+   {
+    "kind": "father",
+    "label": "Ignatius of Antioch, Magnesians",
+    "when": "c. 107",
+    "work": "ignatius-letters",
+    "section": "v.iii",
+    "quote": "neither do ye anything without the bishop and presbyters",
+    "note": "By about 107 the picture is fixed: one bishop in each Church, with presbyters and deacons, and the community's common life centred on him."
+   },
+   {
+    "kind": "father",
+    "label": "Ignatius of Antioch, Smyrnaeans",
+    "when": "c. 107",
+    "work": "ignatius-letters",
+    "section": "v.vii",
+    "quote": "See that ye all follow the bishop, even as Christ Jesus does the Father, and the presbytery as ye would the apostles.",
+    "note": "Ignatius sees the bishop as the visible centre of unity, standing in the place of the Father's own sent Son."
+   },
+   {
+    "kind": "father",
+    "label": "John Chrysostom on 1 Timothy",
+    "when": "c. 400",
+    "work": "chrys-1tim",
+    "section": "v.iii.xii",
+    "quote": "between Presbyters and Bishops there was no great difference. Both had undertaken the office of Teachers and Presidents in the Church",
+    "note": "Chrysostom explains why Paul moves from bishops straight to deacons. He also notes what set the bishop apart: the power of ordination."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism §862: successors of the apostles",
+    "ccc": 862,
+    "quote": "\"the bishops have by divine institution taken the place of the apostles as pastors of the Church\"",
+    "note": "The Church teaches that the apostolic office of shepherding continues without interruption in the order of bishops."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Paul uses \"elder\" and \"overseer\" for the same men. Doesn't that prove there were no bishops as the Church understands them?",
+    "a": "Early on the titles overlapped, as Titus 1 and Chrysostom both note. But the office itself, with the apostles' own authority passed on, is already present, and Ignatius shows one bishop at the head of each local Church within a generation. The Church has always seen a development in vocabulary, not an invention of the office.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Ignatius, Trallians",
+      "when": "c. 107",
+      "work": "ignatius-letters",
+      "section": "v.iv",
+      "quote": "without the bishop ye should do nothing, but should also be subject to the presbytery",
+      "note": "The bishop and the presbytery are distinguished clearly in Ignatius' letters, only a few decades after Paul."
+     }
+    ]
+   },
+   {
+    "q": "Isn't the bishop a human institution added later, not something Christ established?",
+    "a": "The Catechism teaches that the apostles themselves designated successors to continue their ministry. The office was not invented to run an organisation; it carries the apostolic mission of teaching and shepherding.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism §861",
+      "ccc": 861,
+      "quote": "They accordingly designated such men and then made the ruling that likewise on their death other proven men should take over their ministry.",
+      "note": "The Church says the succession goes back to the apostles' own decision."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   77,
+   861,
+   862,
+   1558,
+   1560
+  ]
+ },
+ {
+  "id": "pistis-faith",
+  "title": "Pistis: faith",
+  "question": "What does pistis (faith) mean, and how did the Church use it?",
+  "summary": "Pistis means both trust and the thing believed. In Scripture faith is the obedient response of the whole person to God who reveals himself, and Abraham and Mary are its models. The Church teaches that faith is a gift of grace, a free human act, and the beginning of salvation.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Pistis (πίστις), Romans 1:5",
+    "ref": "ROM.1.5",
+    "quote": "for obedience of faith among all the nations for his name’s sake",
+    "note": "Paul describes his whole mission as bringing about \"obedience of faith.\" Faith here is not only agreement with a statement but a hearing that turns into obedience."
+   },
+   {
+    "kind": "scripture",
+    "label": "Pistis (πίστις), Hebrews 11:1-3",
+    "ref": "HEB.11.1-3",
+    "quote": "Now faith is assurance of things hoped for, proof of things not seen.",
+    "note": "Hebrews gives the classic description of faith: confidence in what God has promised even where we cannot yet see it, followed by a long list of those who trusted him."
+   },
+   {
+    "kind": "scripture",
+    "label": "Pistis (πίστις), Galatians 5:6",
+    "ref": "GAL.5.6",
+    "quote": "faith working through love",
+    "note": "Paul shows that real faith is not idle. It becomes active in love."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Faith and the Creed",
+    "when": "393",
+    "work": "aug-doctrinal",
+    "section": "iv.iv.ii",
+    "quote": "“Unless ye believe, ye shall not understand.”",
+    "note": "Augustine, quoting Isaiah in the Greek Old Testament, says trust comes first and opens the way to understanding. Faith is where the search for truth starts, not where it ends."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, The Predestination of the Saints",
+    "when": "428",
+    "work": "aug-pelagian",
+    "section": "xxi.ii",
+    "quote": "Faith, then, as well in its beginning as in its completion, is God’s gift",
+    "note": "Against Pelagius, Augustine teaches that faith is not merely something we produce. God begins it by grace and brings it to completion."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Decree on Justification",
+    "when": "1547",
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "faith is the beginning of human salvation, the foundation, and the root of all Justification",
+    "note": "Trent fixes how the Church uses the word. Faith is the start of the Christian life, which then grows through hope and love."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism §143: the obedience of faith",
+    "ccc": 143,
+    "quote": "By faith, man completely submits his intellect and his will to God.",
+    "note": "The Catechism sums up the biblical meaning: faith engages the whole person and is the response to God's revelation."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism §150: trust and assent",
+    "ccc": 150,
+    "quote": "Faith is first of all a personal adherence of man to God. At the same time, and inseparably, it is a free assent to the whole truth that God has revealed.",
+    "note": "The two senses of pistis, trust and belief, are held together as one act."
+   }
+  ],
+  "objections": [
+   {
+    "q": "James says \"by works a man is justified, and not only by faith.\" Doesn't that contradict Paul?",
+    "a": "Paul and James are speaking about different things: Paul against reliance on works of the law, James against a faith that never acts. Both agree that living faith works through love. The Catechism says that \"faith apart from works is dead\" when it is deprived of hope and love.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "James 2:17",
+      "ref": "JAS.2.17",
+      "quote": "Even so faith, if it has no works, is dead in itself.",
+      "note": "James describes a faith that is only talk as dead."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism §1815",
+      "ccc": 1815,
+      "quote": "\"faith apart from works is dead\": when it is deprived of hope and love, faith does not fully unite the believer to Christ",
+      "note": "The Church teaches that faith is the root, but it must live in hope and love to be complete."
+     }
+    ]
+   },
+   {
+    "q": "If faith is a gift from God, isn't it unfair, or no longer a free choice of mine?",
+    "a": "The Church holds both: it is only possible by grace, and yet it is an authentically human act. The Catechism says believing is \"contrary neither to human freedom nor to human reason,\" and Augustine treats grace as the help that makes the free response possible.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism §154",
+      "ccc": 154,
+      "quote": "it is no less true that believing is an authentically human act",
+      "note": "Grace does not replace the person's free assent; it enables it."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   142,
+   143,
+   144,
+   145,
+   146,
+   147,
+   148,
+   149,
+   150,
+   153,
+   154
+  ]
+ },
+ {
+  "id": "parousia-and-eschaton",
+  "title": "Parousia and eschaton: Christ's coming and the end",
+  "question": "What does parousia mean, and how did the Church use it?",
+  "summary": "Parousia is the Greek word for \"coming\" or \"presence,\" used in the New Testament for Christ's return in glory at the end of the age (the eschaton). The Fathers spoke of two advents, the first in humility and the second in glory, and the Church confesses in the Creed that \"he shall come again with glory to judge both the quick and the dead.\"",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Parousia (παρουσία), Matthew 24:36-39",
+    "ref": "MAT.24.36-39",
+    "quote": "But no one knows of that day and hour, not even the angels of heaven, but my Father only.",
+    "note": "Jesus uses parousia (\"the coming of the Son of Man\") for his return, and warns that its day is not known. The word calls for readiness, not calculation."
+   },
+   {
+    "kind": "scripture",
+    "label": "Parousia (παρουσία), 1 Thessalonians 4:13-17",
+    "ref": "1TH.4.13-17",
+    "quote": "For the Lord himself will descend from heaven with a shout, with the voice of the archangel and with God’s trumpet.",
+    "note": "Paul uses the word for Christ's coming and shows its effect: the dead in Christ rise first and all are gathered to the Lord, so Christians do not grieve \"like the rest, who have no hope.\""
+   },
+   {
+    "kind": "scripture",
+    "label": "The promise at the Ascension, Acts 1:9-11",
+    "ref": "ACT.1.9-11",
+    "quote": "This Jesus, who was received up from you into the sky, will come back in the same way as you saw him going into the sky.",
+    "note": "Angels link the Ascension to the return: the same Jesus who departed in his body will come back."
+   },
+   {
+    "kind": "father",
+    "label": "Justin Martyr, First Apology: two advents",
+    "when": "c. 155",
+    "work": "justin-martyr",
+    "section": "viii.ii",
+    "quote": "the prophets have proclaimed two advents of His: the one, that which is already past, when He came as a dishonoured and suffering Man; but the second, when, according to prophecy, He shall come from heaven with glory",
+    "note": "Justin is the earliest bundled witness to the idea of two advents, and he already ties the second to the resurrection of bodies and the judgment."
+   },
+   {
+    "kind": "father",
+    "label": "Hippolytus, On Christ and Antichrist",
+    "when": "c. 200",
+    "work": "hippolytus",
+    "section": "iii.iv.ii",
+    "quote": "as two advents of our Lord and Saviour are indicated in the Scriptures, the one being His first advent in the flesh",
+    "note": "Hippolytus uses the same pattern and ties the second advent to the Antichrist and the end of the age."
+   },
+   {
+    "kind": "father",
+    "label": "Cyril of Jerusalem, Catechetical Lectures",
+    "when": "c. 350",
+    "work": "cyril-catecheses",
+    "section": "ii.xix",
+    "quote": "We preach not one advent only of Christ, but a second also, far more glorious than the former.",
+    "note": "Cyril teaches new Christians that the second coming is part of the preaching itself. The first showed Christ's patience; the second brings the crown of his kingdom."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Constantinople I, the Creed",
+    "when": "381",
+    "work": "council-constantinople-1",
+    "section": "ix.iii",
+    "quote": "he shall come again with glory to judge both the quick and the dead. Whose kingdom shall have no end.",
+    "note": "The Council places the parousia in the Creed that Christians say at Mass, making it a fixed article of faith."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism §681: the day of judgment",
+    "ccc": 681,
+    "quote": "On Judgement Day at the end of the world, Christ will come in glory to achieve the definitive triumph of good over evil",
+    "note": "The Catechism connects the parousia to the final judgment and the ultimate victory of good over evil."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism §673: imminent but unknown",
+    "ccc": 673,
+    "quote": "Since the Ascension Christ's coming in glory has been imminent, even though \"it is not for you to know times or seasons which the Father has fixed by his own authority.\"",
+    "note": "The Church teaches that the return could happen at any moment and that no one can know when."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Christians have been waiting two thousand years. Hasn't the promise failed?",
+    "a": "Peter anticipates this exact question. Delay is patience, not failure: God wants everyone to have time to repent. The Catechism says the coming \"could be accomplished at any moment,\" even if it is \"delayed.\"",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "2 Peter 3:8-9",
+      "ref": "2PE.3.8-9",
+      "quote": "The Lord is not slow concerning his promise, as some count slowness; but he is patient with us, not wishing that anyone should perish, but that all should come to repentance.",
+      "note": "The apostles faced the same objection, and Scripture answers it."
+     }
+    ]
+   },
+   {
+    "q": "Won't the Church eventually bring about the kingdom of Christ on earth through progress?",
+    "a": "The Church teaches no. The kingdom is fulfilled by God's victory over evil at the end, not by a historic triumph of the Church or any human movement. The Catechism rejects even modified forms of earthly messianism.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism §677",
+      "ccc": 677,
+      "quote": "The kingdom will be fulfilled, then, not by a historic triumph of the Church through a progressive ascendancy, but only by God's victory over the final unleashing of evil",
+      "note": "The kingdom comes by God's act at the parousia, not by human achievement."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   668,
+   670,
+   671,
+   673,
+   675,
+   676,
+   677,
+   680,
+   681,
+   682,
+   1001
+  ]
+ },
+ {
+  "id": "kenosis-and-incarnation",
+  "title": "Kenosis and incarnation: the Son emptied himself",
+  "question": "What does kenosis mean, and how did the Church use it?",
+  "summary": "Kenosis, from Philippians 2:7, means that the Son of God \"emptied himself\" by taking the form of a servant. The Fathers insisted this was not a loss of his divinity but the addition of a human nature, so that he became truly man while remaining truly God. The Church sees the Incarnation as the way God saves us from within our own condition.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Ekenosen (ἐκένωσεν), Philippians 2:5-8",
+    "ref": "PHP.2.5-8",
+    "quote": "but emptied himself, taking the form of a servant, being made in the likeness of men.",
+    "note": "Paul's hymn says the Son who was in the form of God \"emptied himself.\" The emptying is described by what he took, a servant's form, and by his obedience to death on a cross."
+   },
+   {
+    "kind": "scripture",
+    "label": "Sarx egeneto (σὰρξ ἐγένετο), John 1:14",
+    "ref": "JHN.1.14",
+    "quote": "The Word became flesh and lived among us.",
+    "note": "John says the same thing from the other side: the Word did not stop being the Word, but \"became flesh.\""
+   },
+   {
+    "kind": "father",
+    "label": "Athanasius, On the Incarnation",
+    "when": "c. 318",
+    "work": "athanasius-incarnation",
+    "section": "vii.ii.ix",
+    "quote": "The Word, since death alone could stay the plague, took a mortal body which, united with Him, should avail for all",
+    "note": "Athanasius explains why the Word took a body: only by sharing our mortality could he die for all and free us from death."
+   },
+   {
+    "kind": "father",
+    "label": "Athanasius, On the Incarnation: becoming man",
+    "when": "c. 318",
+    "work": "athanasius-incarnation",
+    "section": "vii.ii.liv",
+    "quote": "For He was made man that we might be made God",
+    "note": "Athanasius states the purpose of the Incarnation in one line, to share our humanity so that we might share his divine life."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Faith and the Creed",
+    "when": "393",
+    "work": "aug-doctrinal",
+    "section": "iv.i.ix",
+    "quote": "“He emptied Himself;” not by changing His own divinity, but by assuming our changeableness",
+    "note": "Augustine reads kenosis as addition and not subtraction. God does not become less divine; he takes on what is ours."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Tractates on John",
+    "when": "c. 416",
+    "work": "aug-tractates-john",
+    "section": "iii.lxxix",
+    "quote": "inasmuch as He emptied Himself, without losing the form of God, but assuming that of a servant",
+    "note": "Augustine states the point plainly: the emptying does not mean losing the form of God."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Chalcedon, Cyril to John of Antioch",
+    "when": "433, received 451",
+    "work": "council-chalcedon",
+    "section": "xi.v",
+    "quote": "He “made himself of no reputation, and took upon him the form of a servant,” and was called the Son of Man, yet remaining what he was, that is to say God.",
+    "note": "The Council receives this letter as a statement of faith. Kenosis is fully compatible with the Son remaining unchangeably God."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism §461: Philippians 2 and the Incarnation",
+    "ccc": 461,
+    "quote": "The Church calls \"Incarnation\" the fact that the Son of God assumed a human nature in order to accomplish our salvation in it.",
+    "note": "The Catechism quotes the Philippians hymn and identifies its theme with the Incarnation."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism §463: the sign of the faith",
+    "ccc": 463,
+    "quote": "Belief in the true Incarnation of the Son of God is the distinctive sign of Christian faith",
+    "note": "The Church treats the Incarnation not as a side issue but as the mark of authentic Christian faith."
+   }
+  ],
+  "objections": [
+   {
+    "q": "If the Son \"emptied himself,\" did he stop being God?",
+    "a": "No. The Fathers and Councils consistently say that kenosis is not loss or change of divinity. The Catechism states that \"he became truly man while remaining truly God.\"",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism §464",
+      "ccc": 464,
+      "quote": "He became truly man while remaining truly God.",
+      "note": "This is the fixed teaching drawn from Chalcedon and the earlier councils."
+     }
+    ]
+   },
+   {
+    "q": "Isn't it unworthy of God to take a human body and die?",
+    "a": "Athanasius answers that it was fitting for the Word to do so, because only by taking a mortal body could he die for all and renew us. What seems unworthy is the very proof of his love, and the Catechism calls it the heart of the Christian faith.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Athanasius, On the Incarnation",
+      "when": "c. 318",
+      "work": "athanasius-incarnation",
+      "section": "vii.ii.ix",
+      "quote": "By being above all, He made His Flesh an offering for our souls",
+      "note": "The humility of the Incarnation is the means by which the Word offers himself for others."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   461,
+   462,
+   463,
+   464,
+   466,
+   470
+  ]
+ }
+]

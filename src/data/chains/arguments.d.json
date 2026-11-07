@@ -1,0 +1,875 @@
+[
+  {
+    "id": "resurrection-of-the-body",
+    "title": "Will We Rise Bodily?",
+    "question": "Do Christians believe only in the survival of the soul, or will we rise bodily?",
+    "summary": "The Church has always confessed the resurrection of the flesh, not merely the survival of the soul. Christ rose with a real body, Paul teaches that our perishable bodies will be raised imperishable, and the Fathers defended this against those who despised the body. The Catechism sums it up: the same flesh we now have will be raised and transformed.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "1 Corinthians 15: sown perishable, raised imperishable",
+        "when": "c. 55",
+        "year": 55,
+        "ref": "1CO.15.42-44",
+        "quote": "The body is sown perishable; it is raised imperishable",
+        "note": "Paul answers how the dead are raised: it is the body itself that is sown and raised, changed from perishable to imperishable."
+      },
+      {
+        "kind": "scripture",
+        "label": "Luke 24: the risen Lord has flesh and bones",
+        "when": "c. 80",
+        "year": 80,
+        "ref": "LUK.24.39",
+        "quote": "a spirit doesn’t have flesh and bones, as you see that I have",
+        "note": "Christ's own resurrection is the pattern: he shows his disciples that he is no ghost but truly risen in his body."
+      },
+      {
+        "kind": "father",
+        "label": "Justin Martyr, First Apology",
+        "when": "c. 155",
+        "year": 155,
+        "work": "justin-martyr",
+        "section": "viii.ii",
+        "quote": "He shall raise the bodies of all men who have lived, and shall clothe those of the worthy with immortality",
+        "note": "Already in the mid-second century, a Christian apologist tells the pagan emperor that at Christ's return our bodies are raised, not merely our souls preserved."
+      },
+      {
+        "kind": "father",
+        "label": "Irenaeus, Against Heresies 2.29",
+        "when": "c. 180",
+        "year": 180,
+        "work": "irenaeus-heresies",
+        "section": "ix.iii.xxx",
+        "quote": "God, when He resuscitates our mortal bodies which preserved righteousness, will render them incorruptible and immortal",
+        "note": "Irenaeus argues against Gnostics who wanted salvation for souls alone: the body shares in the good done in it, so it shares in the reward."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, On the Resurrection of the Flesh",
+        "when": "c. 210",
+        "year": 210,
+        "work": "tertullian-marcion",
+        "section": "v.viii",
+        "quote": "the flesh is the very condition on which salvation hinges",
+        "note": "Tertullian points out that every sacrament touches the body, so body and soul cannot be separated in their final reward."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, Sermon on the Creed",
+        "when": "c. 400",
+        "year": 400,
+        "work": "aug-doctrinal",
+        "section": "iv.vii.xvii",
+        "quote": "We believe also “the resurrection of the flesh,” which went before in Christ: that the body too may have hope of that which went before in its Head",
+        "note": "Augustine ties our hope to Christ's: the Head has risen, so the members will follow, and not in the way Lazarus returned to die again."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 1015",
+        "ccc": 1015,
+        "quote": "We believe in God who is creator of the flesh; we believe in the Word made flesh in order to redeem the flesh; we believe in the resurrection of the flesh, the fulfillment of both the creation and the redemption of the flesh.",
+        "note": "The Catechism quotes Tertullian to show that bodily resurrection follows from creation, incarnation and redemption together."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 1017",
+        "ccc": 1017,
+        "quote": "We believe in the true resurrection of this flesh that we now possess",
+        "note": "The Church's faith is in the real, identical body, raised and transformed, not a replacement or a symbol."
+      }
+    ],
+    "objections": [
+      {
+        "q": "The body decays and its matter is scattered. How can the same body possibly be raised?",
+        "a": "Augustine took this objection seriously and answered that the question is about God's power, not the body's state. A sculptor can remake a statue from the same metal however it was broken up, and God can restore each person whole. The Catechism adds that the how exceeds our imagination and is accessible only to faith.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Augustine, Enchiridion",
+            "when": "c. 421",
+            "year": 421,
+            "work": "aug-doctrinal",
+            "section": "iv.ii.xci",
+            "quote": "if a statue of some soluble metal were either melted by fire, or broken into dust, or reduced to a shapeless mass, and a sculptor wished to restore it from the same quantity of metal",
+            "note": "Augustine's image shows that the identity of a body does not depend on every particle staying where it was."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism 1000",
+            "ccc": 1000,
+            "quote": "This how exceeds our imagination and understanding; it is accessible only to faith.",
+            "note": "The Church does not claim to explain the mechanism, only to hold what God has revealed."
+          }
+        ]
+      },
+      {
+        "q": "Isn't the body the problem? Surely salvation means escaping matter, and Paul says flesh and blood cannot inherit the kingdom.",
+        "a": "Paul does not set body against soul but the perishable against the imperishable. Irenaeus asks what could stop living flesh from sharing in incorruption, and Paul himself says this perishable body must put on imperishability. The body is transformed, not discarded.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "1 Corinthians 15:51-53",
+            "ref": "1CO.15.51-53",
+            "quote": "this perishable body must become imperishable, and this mortal must put on immortality",
+            "note": "It is this body, Paul says, that must be clothed with imperishability, so the same body is the subject of the change."
+          },
+          {
+            "kind": "father",
+            "label": "Irenaeus, Against Heresies 5.3",
+            "when": "c. 180",
+            "year": 180,
+            "work": "irenaeus-heresies",
+            "section": "ix.vii.iv",
+            "quote": "since the flesh is capable of being quickened, what remains to prevent its participating in incorruption, which is a blissful and never-ending life granted by God?",
+            "note": "Irenaeus replies that if God gives life to flesh, nothing in the flesh as such stands in the way of eternal life."
+          }
+        ]
+      },
+      {
+        "q": "Does the Catechism say that souls simply live on, so that the body is optional?",
+        "a": "No. The soul lives on after death, but the Church teaches that it awaits reunion with its body, and that the glorified body is part of the full blessedness we are promised.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism 997",
+            "ccc": 997,
+            "quote": "the human body decays and the soul goes to meet God, while awaiting its reunion with its glorified body",
+            "note": "The soul's survival is an interim state; the goal is the whole person raised."
+          }
+        ]
+      }
+    ],
+    "readNext": [988, 999, 1016, 1005]
+  },
+  {
+    "id": "hell",
+    "title": "Why Is Hell Real?",
+    "question": "Why does the Church teach that hell is real, and eternal?",
+    "summary": "Hell is taught because Christ himself taught it, repeatedly and solemnly, and the Fathers took his words at face value. The Church explains it as the final result of a free and lasting choice to refuse God's love, never as God predestining anyone to damnation. It is a warning that makes our freedom matter.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Matthew 25: depart from me into the eternal fire",
+        "when": "c. 70",
+        "year": 70,
+        "ref": "MAT.25.41-46",
+        "quote": "These will go away into eternal punishment, but the righteous into eternal life.",
+        "note": "In the great judgment scene Jesus uses the same word, eternal, for the punishment of the lost and for the life of the saved."
+      },
+      {
+        "kind": "scripture",
+        "label": "Mark 9: the fire that is not quenched",
+        "when": "c. 65",
+        "year": 65,
+        "ref": "MRK.9.43-48",
+        "quote": "where their worm doesn’t die, and the fire is not quenched",
+        "note": "Jesus uses the most serious language to show that the stakes of sin are final, and that no price is too high to avoid it."
+      },
+      {
+        "kind": "father",
+        "label": "Justin Martyr, First Apology",
+        "when": "c. 155",
+        "year": 155,
+        "work": "justin-martyr",
+        "section": "viii.ii",
+        "quote": "each man goes to everlasting punishment or salvation according to the value of his actions",
+        "note": "One of the earliest Christian writers tells the emperor plainly that human choices lead to an everlasting outcome."
+      },
+      {
+        "kind": "father",
+        "label": "Irenaeus, Against Heresies 5.27",
+        "when": "c. 180",
+        "year": 180,
+        "work": "irenaeus-heresies",
+        "section": "ix.vii.xxviii",
+        "quote": "separation from God is death, and separation from light is darkness; and separation from God consists in the loss of all the benefits which He has in store",
+        "note": "Irenaeus explains hell as the consequence of leaving God, so that the punishment comes from what the sinner has chosen rather than from divine cruelty."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, Apology",
+        "when": "c. 197",
+        "year": 197,
+        "work": "tertullian-apologetic",
+        "section": "iv.iii",
+        "quote": "the greatness of the threatened torment, not merely long-enduring but everlasting",
+        "note": "Christians of the second century openly said that their moral seriousness came from believing in a final judgment."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, Enchiridion",
+        "when": "c. 421",
+        "year": 421,
+        "work": "aug-doctrinal",
+        "section": "iv.ii.lxix",
+        "quote": "seem to me to be led astray by a kind of benevolent feeling natural to humanity. For Holy Scripture, when consulted, gives a very different answer.",
+        "note": "Augustine addresses Catholics who hoped that hell would end, and says that kindness of heart cannot overrule what Scripture says."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 1033",
+        "ccc": 1033,
+        "quote": "We cannot be united with God unless we freely choose to love him.",
+        "note": "The Church grounds hell in freedom: love cannot be forced, so it can be refused."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 1035",
+        "ccc": 1035,
+        "quote": "The teaching of the Church affirms the existence of hell and its eternity.",
+        "note": "The Catechism states the doctrine directly, and names the chief punishment as eternal separation from God."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 1037",
+        "ccc": 1037,
+        "quote": "God predestines no one to go to hell; for this, a willful turning away from God (a mortal sin) is necessary, and persistence in it until the end.",
+        "note": "Hell is never God's desire for anyone. It requires a deliberate and persistent rejection of him."
+      }
+    ],
+    "objections": [
+      {
+        "q": "A loving God would never condemn anyone forever.",
+        "a": "The Church agrees that God wants no one to perish. Hell is not God inflicting something on people against their will, but the permanent form of a choice that someone makes against him. Irenaeus compares it to people who have blinded themselves and so lose the light they refused.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "2 Peter 3:9",
+            "ref": "2PE.3.9",
+            "quote": "not wishing that anyone should perish, but that all should come to repentance",
+            "note": "Scripture insists on God's desire to save everyone, which is why the Church treats hell as a call to conversion."
+          },
+          {
+            "kind": "father",
+            "label": "Irenaeus, Against Heresies 5.27",
+            "when": "c. 180",
+            "year": 180,
+            "work": "irenaeus-heresies",
+            "section": "ix.vii.xxviii",
+            "quote": "It is not, [however], that the light has inflicted upon them the penalty of blindness, but it is that the blindness itself has brought calamity upon them",
+            "note": "The punishment follows from the loss of what the sinner rejected, which answers the charge that God is vindictive."
+          }
+        ]
+      },
+      {
+        "q": "A finite life of sin cannot deserve infinite punishment.",
+        "a": "Augustine replies that we measure the sin badly: it was committed against the source of all good, and when it could have been so easily avoided. The Catechism adds that freedom has the power to make choices for ever.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Augustine, City of God, Book 14",
+            "when": "c. 420",
+            "year": 420,
+            "work": "aug-city-of-god",
+            "section": "iv.XIV",
+            "quote": "Whoever thinks such punishment either excessive or unjust shows his inability to measure the great iniquity of sinning where sin might so easily have been avoided.",
+            "note": "Augustine says that the seriousness of a sin depends on whom it offends and how easily it could have been avoided."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism 1861",
+            "ccc": 1861,
+            "quote": "our freedom has the power to make choices for ever, with no turning back",
+            "note": "The Catechism links the permanence of hell to the weight of human freedom."
+          }
+        ]
+      },
+      {
+        "q": "Won't everyone be saved in the end?",
+        "a": "The Church prays and hopes for the salvation of all, but does not teach that it is guaranteed. Jesus warns that the way to destruction is broad and many take it, and the Catechism says his warnings are an urgent call to conversion.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Matthew 7:13-14",
+            "ref": "MAT.7.13-14",
+            "quote": "the gate is wide and the way is broad that leads to destruction, and there are many who enter in by it",
+            "note": "Jesus does not present salvation as automatic."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism 1036",
+            "ccc": 1036,
+            "quote": "They are at the same time an urgent call to conversion",
+            "note": "The teaching on hell is pastoral: its purpose is to move people toward God while there is time."
+          }
+        ]
+      }
+    ],
+    "readNext": [1022, 1034, 1021, 1861]
+  },
+  {
+    "id": "marriage-indissoluble",
+    "title": "Why Is Marriage Lifelong?",
+    "question": "Why does the Church teach that a valid marriage can only be ended by death?",
+    "summary": "The Church teaches this because Jesus did. He pointed back to the beginning, when God made two one flesh, and he forbade remarriage after divorce. The apostles, the Fathers and the Council of Trent held the same, and the Catechism explains it by the faithfulness of God to his covenant.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Matthew 19: what God has joined together",
+        "when": "c. 70",
+        "year": 70,
+        "ref": "MAT.19.4-6",
+        "quote": "What therefore God has joined together, don’t let man tear apart.",
+        "note": "Jesus roots marriage in creation itself, not in a legal contract that people may undo."
+      },
+      {
+        "kind": "scripture",
+        "label": "1 Corinthians 7: the Lord's command",
+        "when": "c. 55",
+        "year": 55,
+        "ref": "1CO.7.10-11",
+        "quote": "to the married I command—not I, but the Lord—that the wife not leave her husband",
+        "note": "Paul passes on Jesus's rule as a command of the Lord, and says that if a separation happens, remarriage is not an option."
+      },
+      {
+        "kind": "father",
+        "label": "Clement of Alexandria, Stromata 2",
+        "when": "c. 200",
+        "year": 200,
+        "work": "clement-alex",
+        "section": "vi.iv.ii",
+        "quote": "the Scripture counsels marriage, and allows no release from the union",
+        "note": "An early Christian teacher reads the Gospel plainly: marriage is not dissolved while both spouses are alive."
+      },
+      {
+        "kind": "father",
+        "label": "John Chrysostom, Homilies on Matthew 17",
+        "when": "c. 390",
+        "year": 390,
+        "work": "chrys-matthew",
+        "section": "iii.XVII",
+        "quote": "when cast out she continues to be the wife of him that expelled her",
+        "note": "Chrysostom shows that a wife who has been sent away remains truly the wife of the man who sent her."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, On the Good of Marriage 17",
+        "when": "c. 401",
+        "year": 401,
+        "work": "aug-moral",
+        "section": "v.ii.xviii",
+        "quote": "marriage bears a certain sacramental character, can no way be dissolved but by the death of one of them",
+        "note": "Augustine names the reason: marriage among Christians is a sacred sign, which is why it is more than a human arrangement."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Trent, Session 24 (doctrine on Matrimony)",
+        "when": "1563",
+        "year": 1563,
+        "work": "trent-canons-decrees",
+        "section": "s24",
+        "quote": "What therefore God hath joined together, let no man put asunder.",
+        "note": "Trent gathers the biblical and patristic witness and confirms that Christ gave grace to perfect and strengthen this union."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Trent, Session 24, Canon 7",
+        "when": "1563",
+        "year": 1563,
+        "work": "trent-canons-decrees",
+        "section": "s24",
+        "quote": "the bond of matrimony cannot be dissolved on account of the adultery of one of the married parties",
+        "note": "Trent defines that even adultery does not dissolve the bond, answering the view that it allows remarriage."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 1640",
+        "ccc": 1640,
+        "quote": "a marriage concluded and consummated between baptized persons can never be dissolved",
+        "note": "The Catechism says the bond is established by God himself and so lies beyond the spouses' power to cancel."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 1647",
+        "ccc": 1647,
+        "quote": "The deepest reason is found in the fidelity of God to his covenant, in that of Christ to his Church.",
+        "note": "The deepest reason for lifelong marriage is that it is meant to be a sign of God's own unbreakable faithfulness."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Moses allowed divorce, and Jesus himself seems to allow it for sexual immorality.",
+        "a": "Jesus says that Moses allowed it only because of hardness of heart, and that from the beginning it was not so. Augustine notes that the Lord permitted a wife to be put away for fornication without commanding it, and the Church allows separation in such cases while the bond remains.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Matthew 19:8-9",
+            "ref": "MAT.19.8-9",
+            "quote": "Moses, because of the hardness of your hearts, allowed you to divorce your wives, but from the beginning it has not been so.",
+            "note": "Jesus places the original design above the later concession."
+          },
+          {
+            "kind": "father",
+            "label": "Augustine, Sermon on the Mount 1.16",
+            "when": "c. 394",
+            "year": 394,
+            "work": "aug-sermon-mount",
+            "section": "v.ii.xvi",
+            "quote": "the Lord permitted a wife to be put away for the cause of fornication; but in permitting, He did not command it",
+            "note": "Augustine reads the exception as permission to separate, not a mandate and not clearly a licence to remarry."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism 1649",
+            "ccc": 1649,
+            "quote": "the spouses do not cease to be husband and wife before God and so are not free to contract a new union",
+            "note": "The Church permits separation in hard cases while the marriage bond remains."
+          }
+        ]
+      },
+      {
+        "q": "Isn't this an impossible burden for people whose marriages have failed?",
+        "a": "The Catechism admits the teaching may seem a demand impossible to meet, and answers that Christ gives the grace to live it. The Church also examines whether a valid marriage ever existed, and can declare that it did not, which is not divorce.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism 1615",
+            "ccc": 1615,
+            "quote": "Jesus has not placed on spouses a burden impossible to bear, or too heavy",
+            "note": "The same Lord who gives the command gives the strength to keep it."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism 1629",
+            "ccc": 1629,
+            "quote": "the Church, after an examination of the situation by the competent ecclesiastical tribunal, can declare the nullity of a marriage, i.e., that the marriage never existed",
+            "note": "An annulment is a finding that no valid marriage was formed, so it does not break a bond that existed."
+          }
+        ]
+      },
+      {
+        "q": "Love can't be forced. Why bind people to promises when the love has gone?",
+        "a": "The Church replies that married love is by its nature a gift of the whole self, and a gift made only until further notice is not the gift that marriage promises. Fidelity is part of what the spouses promise to give.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism 1646",
+            "ccc": 1646,
+            "quote": "Love seeks to be definitive; it cannot be an arrangement “until further notice.”",
+            "note": "Lifelong commitment is what total self-gift means, which is why a promise to love is made at the wedding."
+          }
+        ]
+      }
+    ],
+    "readNext": [1601, 1644, 2382, 2384]
+  },
+  {
+    "id": "sanctity-of-life",
+    "title": "The Dignity of Human Life",
+    "question": "What did the early Church teach about the dignity of human life?",
+    "summary": "From the beginning Christians refused to take innocent life, including the lives of unborn and newborn children, at a time when the surrounding culture allowed it. The Scriptures ground this in man being made in God's image, and the Fathers apply it to exposure of infants, abortion and killing. The Catechism says the Church has affirmed this since the first century.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Genesis 9: made in his own image",
+        "ref": "GEN.9.5-6",
+        "quote": "for God made man in his own image",
+        "note": "Human life is sacred because each person bears God's image, and God will require an account of it."
+      },
+      {
+        "kind": "scripture",
+        "label": "Psalm 139: formed in the womb",
+        "ref": "PSA.139.13-16",
+        "quote": "you formed my inmost being",
+        "note": "Scripture speaks of God's care for each person before birth."
+      },
+      {
+        "kind": "scripture",
+        "label": "Jeremiah 1:5",
+        "ref": "JER.1.5",
+        "quote": "Before I formed you in the womb, I knew you.",
+        "note": "God knows and calls a person from the womb onward."
+      },
+      {
+        "kind": "father",
+        "label": "Justin Martyr, First Apology",
+        "when": "c. 155",
+        "year": 155,
+        "work": "justin-martyr",
+        "section": "viii.ii",
+        "quote": "we have been taught that to expose newly-born children is the part of wicked men",
+        "note": "Justin tells the emperor that Christians do not expose infants, which was common in the Roman world, because it harms the child and offends God."
+      },
+      {
+        "kind": "father",
+        "label": "Lactantius, Epitome of the Divine Institutes",
+        "when": "c. 315",
+        "year": 315,
+        "work": "lactantius",
+        "section": "iii.ii.viii",
+        "quote": "it will not be permitted us to apply peril of death by word, nor to put to death or expose an infant",
+        "note": "Lactantius reads the commandment not to kill broadly, to forbid even killing or exposing a newborn."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, On Marriage and Concupiscence",
+        "when": "c. 419",
+        "year": 419,
+        "work": "aug-pelagian",
+        "section": "xvi.v",
+        "quote": "to destroy the conceived seed by some means previous to birth, preferring that its offspring should rather perish than receive vitality",
+        "note": "Augustine condemns procuring the death of a child before birth, and says that couples who do so have abandoned the honest purpose of marriage."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 2258",
+        "ccc": 2258,
+        "quote": "God alone is the Lord of life from its beginning until its end",
+        "note": "The Catechism summarizes the teaching: life is God's gift and no one may directly destroy an innocent human being."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 2271",
+        "ccc": 2271,
+        "quote": "Since the first century the Church has affirmed the moral evil of every procured abortion.",
+        "note": "The Church sees her teaching as continuous with the earliest Christian witness, and the Catechism quotes an early Christian text against killing the embryo."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Augustine wasn't sure when a fetus became a human being. Doesn't that show the early Church was unsure?",
+        "a": "Augustine does discuss the question of formation and the resurrection of those who die in the womb, and he admits uncertainty. But uncertainty about the stage of development never led the Fathers to approve of killing, and Augustine still condemns it. The Catechism concludes that from conception the child must be treated as a person.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Augustine, Enchiridion",
+            "when": "c. 421",
+            "year": 421,
+            "work": "aug-doctrinal",
+            "section": "iv.ii.lxxxvii",
+            "quote": "But who will dare to deny, though he may not dare to affirm, that at the resurrection every defect in the form shall be supplied",
+            "note": "Augustine cautiously leaves open the question of the unformed, but hopes for their completion, which shows he did not treat them as nothing."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism 2274",
+            "ccc": 2274,
+            "quote": "Since it must be treated from conception as a person, the embryo must be defended in its integrity",
+            "note": "The Church does not rest the teaching on a theory of when the soul arrives, but on respecting what may be a person."
+          }
+        ]
+      },
+      {
+        "q": "Isn't this teaching simply harsh toward women in difficult situations?",
+        "a": "The Church holds that the teaching protects the weakest, and says plainly that her penalties are not meant to limit mercy. She acknowledges the gravity of the act and also God's readiness to forgive.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism 2272",
+            "ccc": 2272,
+            "quote": "The Church does not thereby intend to restrict the scope of mercy.",
+            "note": "The canonical penalty is a statement of seriousness, and mercy remains open to those who repent."
+          }
+        ]
+      },
+      {
+        "q": "Does this only concern abortion, or the whole dignity of life?",
+        "a": "It concerns all innocent life. The Fathers apply the commandment to infants, to the victims of the arena, and to suicide, and the Catechism speaks of every human life from conception to death.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism 2319",
+            "ccc": 2319,
+            "quote": "Every human life, from the moment of conception until death, is sacred",
+            "note": "The same principle covers life at every stage and condition."
+          }
+        ]
+      }
+    ],
+    "readNext": [2270, 2273, 2261, 2322]
+  },
+  {
+    "id": "christ-two-natures",
+    "title": "Fully God and Fully Man",
+    "question": "How did the Church say that Christ is both God and man?",
+    "summary": "The Church says that Jesus Christ is one person with two natures, divine and human, neither mixed nor divided. This was worked out against Arians, Nestorians and Monophysites at Nicaea, Ephesus and Chalcedon, with Cyril of Alexandria and Pope Leo the Great doing the main work. Its purpose is to protect what Scripture says: the Word became flesh.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "John 1: the Word became flesh",
+        "when": "c. 90",
+        "year": 90,
+        "ref": "JHN.1.14",
+        "quote": "The Word became flesh and lived among us.",
+        "note": "John says that the eternal Word, who is God, became a human being, which sets the question the councils would answer."
+      },
+      {
+        "kind": "scripture",
+        "label": "Philippians 2: form of God, form of a servant",
+        "when": "c. 60",
+        "year": 60,
+        "ref": "PHP.2.6-8",
+        "quote": "existing in the form of God, didn’t consider equality with God a thing to be grasped, but emptied himself, taking the form of a servant",
+        "note": "Paul describes one subject who is in the form of God and takes the form of a servant."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Nicaea, Creed",
+        "when": "325",
+        "year": 325,
+        "work": "council-nicaea-1",
+        "section": "vii.iii",
+        "quote": "begotten, not made, being of one substance … with the Father. … came down [from heaven] and was incarnate and was made man",
+        "note": "Nicaea defines that the Son is truly God, of one substance with the Father, and that this same Son became man."
+      },
+      {
+        "kind": "council",
+        "label": "Cyril of Alexandria, Second Letter to Nestorius (read at Ephesus)",
+        "when": "431",
+        "year": 431,
+        "work": "council-ephesus",
+        "section": "x.v",
+        "quote": "the difference of the natures is not taken away by the union, but rather the divinity and the humanity make perfect for us the one Lord Jesus Christ",
+        "note": "Cyril insists that Christ is one person, and that the union does not erase either nature."
+      },
+      {
+        "kind": "council",
+        "label": "Cyril of Alexandria, First Anathema",
+        "when": "431",
+        "year": 431,
+        "work": "council-ephesus",
+        "section": "x.ix",
+        "quote": "If anyone will not confess that the Emmanuel is very God, and that therefore the Holy Virgin is the Mother of God",
+        "note": "Mary is called Mother of God because the child she bore is the Word himself, a claim about Christ rather than about Mary's origin."
+      },
+      {
+        "kind": "council",
+        "label": "Leo the Great, Tome to Flavian (read at Chalcedon)",
+        "when": "449",
+        "year": 449,
+        "work": "council-chalcedon",
+        "section": "xi.vii",
+        "quote": "each of the natures retains its proper character without defect; and as the form of God does not take away the form of a servant, so the form of a servant does not impair the form of God",
+        "note": "Leo explains the union so as to avoid both confusion and division: each nature stays what it is and acts together with the other in one person."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Chalcedon, Definition of Faith",
+        "when": "451",
+        "year": 451,
+        "work": "council-chalcedon",
+        "section": "xi.xiii",
+        "quote": "that he is perfect in Godhead and perfect in manhood, very God and very man, of a reasonable soul and [human] body consisting, consubstantial with the Father as touching his Godhead, and consubstantial with us as touching his manhood",
+        "note": "The fathers at Chalcedon gather these threads into one confession of a single Christ in two natures."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 467",
+        "ccc": 467,
+        "quote": "The Monophysites affirmed that the human nature had ceased to exist as such in Christ when the divine person of God's Son assumed it.",
+        "note": "The Catechism summarizes the error Chalcedon answered, and so shows what the two-natures formula protects."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 481",
+        "ccc": 481,
+        "quote": "Jesus Christ possesses two natures, one divine and the other human, not confused, but united in the one person of God's Son.",
+        "note": "The Church's faith is stated briefly: two natures, one person."
+      }
+    ],
+    "objections": [
+      {
+        "q": "If Christ has two natures, aren't there really two persons, a divine one and a human one?",
+        "a": "That was the Nestorian view, which Ephesus rejected. Cyril taught that the divine Word took flesh and made it his own, so that Christ is one subject. The Church confesses one person, one of the Trinity, to whom all of Christ's actions belong.",
+        "steps": [
+          {
+            "kind": "council",
+            "label": "Cyril of Alexandria, Letter to Nestorius",
+            "when": "431",
+            "year": 431,
+            "work": "council-ephesus",
+            "section": "x.v",
+            "quote": "the Word having personally united to himself flesh animated by a rational soul, did in an ineffable and inconceivable manner become man",
+            "note": "The human nature belongs to the Word himself, and is not a separate person united to him."
+          }
+        ]
+      },
+      {
+        "q": "God cannot suffer or die, so how can the Church say that the Son of God was crucified?",
+        "a": "Leo answers that the Son of God was crucified, but not in his Godhead, in which he is coeternal and consubstantial with the Father, but in the weakness of the human nature that he took. Because the person is one, what is true of either nature may be said of him.",
+        "steps": [
+          {
+            "kind": "council",
+            "label": "Leo the Great, Tome to Flavian",
+            "when": "449",
+            "year": 449,
+            "work": "council-chalcedon",
+            "section": "xi.vii",
+            "quote": "the Son of God is said to have been crucified and buried, inasmuch as he underwent this, not in his actual Godhead; wherein the Only-begotten is coeternal and consubstantial with the Father, but in the weakness of human nature",
+            "note": "Leo shows how one person can truly suffer in one nature while remaining impassible in the other."
+          }
+        ]
+      },
+      {
+        "q": "Did the Church invent this, or is it in Scripture?",
+        "a": "The councils did not add a new doctrine. They stated what the New Testament already says: the Son is God, and he is also truly human, tempted and weak like us yet without sin.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Hebrews 4:15",
+            "ref": "HEB.4.15",
+            "quote": "one who has been in all points tempted like we are, yet without sin",
+            "note": "The New Testament affirms a real human experience in the one who is also the Son of God."
+          },
+          {
+            "kind": "scripture",
+            "label": "Colossians 2:9",
+            "ref": "COL.2.9",
+            "quote": "in him all the fullness of the Deity dwells bodily",
+            "note": "Paul says the fullness of God dwells in Christ in a bodily way."
+          }
+        ]
+      }
+    ],
+    "readNext": [464, 466, 469, 470]
+  },
+  {
+    "id": "why-the-cross",
+    "title": "Why Did Christ Have to Die?",
+    "question": "Why did Christ have to die, and why on a cross?",
+    "summary": "Christ died because humanity had fallen under sin and death, and only God could repair that; yet only a man owed the debt. In the Word made flesh, God did what neither could do alone. Athanasius explains it as the Life undoing death, Anselm as the debt of sin paid by the God-man, and the Catechism as the free gift of the Father's love.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Romans 5: Christ died for us while we were sinners",
+        "when": "c. 57",
+        "year": 57,
+        "ref": "ROM.5.8-10",
+        "quote": "God commends his own love toward us, in that while we were yet sinners, Christ died for us.",
+        "note": "Paul starts with God's love: the cross is a gift from God, not a price extracted from him."
+      },
+      {
+        "kind": "scripture",
+        "label": "Hebrews 2: to bring death to nothing",
+        "when": "c. 65",
+        "year": 65,
+        "ref": "HEB.2.14-17",
+        "quote": "through death he might bring to nothing him who had the power of death",
+        "note": "He took flesh and blood precisely in order to die and defeat death from the inside."
+      },
+      {
+        "kind": "father",
+        "label": "Athanasius, On the Incarnation 9",
+        "when": "c. 318",
+        "year": 318,
+        "work": "athanasius-incarnation",
+        "section": "vii.ii.ix",
+        "quote": "by offering unto death the body He Himself had taken, as an offering and sacrifice free from any stain, straightway He put away death from all His peers by the offering of an equivalent",
+        "note": "The Word, who cannot die, takes a body that can, and offers it in the place of everyone."
+      },
+      {
+        "kind": "father",
+        "label": "Athanasius, On the Incarnation 20",
+        "when": "c. 318",
+        "year": 318,
+        "work": "athanasius-incarnation",
+        "section": "vii.ii.xx",
+        "quote": "it was in the power of none other to turn the corruptible to incorruption, except the Saviour Himself, that had at the beginning also made all things out of nought",
+        "note": "Only the Creator could re-create fallen man, which is why it had to be the Word himself."
+      },
+      {
+        "kind": "father",
+        "label": "Anselm, Why God Became Man, Book 1",
+        "when": "c. 1098",
+        "year": 1098,
+        "work": "anselm-basic-works",
+        "section": "vi.ii",
+        "quote": "without satisfaction, that is, without voluntary payment of the debt, God can neither pass by the sin unpunished, nor can the sinner attain that happiness",
+        "note": "Anselm starts with the seriousness of sin: it is not erased by a mere decision to overlook it."
+      },
+      {
+        "kind": "father",
+        "label": "Anselm, Why God Became Man, Book 2",
+        "when": "c. 1098",
+        "year": 1098,
+        "work": "anselm-basic-works",
+        "section": "vi.iii",
+        "quote": "which none but God can make and none but man ought to make, it is necessary for the God-man to make it",
+        "note": "Only God could pay it and only man owed it, so the debt could be paid only by one who is both."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 604",
+        "ccc": 604,
+        "quote": "God manifests that his plan for us is one of benevolent love, prior to any merit on our part",
+        "note": "The Catechism ensures the doctrine is not heard as a story of an angry Father: the Father gives the Son out of love."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 615",
+        "ccc": 615,
+        "quote": "Jesus atoned for our faults and made satisfaction for our sins to the Father.",
+        "note": "The Church uses the language of atonement and satisfaction, as Anselm did, to describe what the obedience of Christ achieved."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 616",
+        "ccc": 616,
+        "quote": "It is love “to the end” that confers on Christ's sacrifice its value as redemption and reparation, as atonement and satisfaction.",
+        "note": "What gives the cross its worth is the love with which Christ gave himself."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Why couldn't God simply forgive, or call people to repent, without anyone having to die?",
+        "a": "Athanasius answers that repentance does not undo corruption or restore a fallen nature, and Anselm adds that forgiveness without repair would treat sin as nothing. God chose a way that heals what is wrong at its root, and which also shows his love.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Athanasius, On the Incarnation 7",
+            "when": "c. 318",
+            "year": 318,
+            "work": "athanasius-incarnation",
+            "section": "vii.ii.vii",
+            "quote": "repentance cannot avert the execution of a law; still less can it remedy a fallen nature",
+            "note": "Athanasius argues that the problem is deeper than a lack of sorrow: human nature itself needed to be healed."
+          }
+        ]
+      },
+      {
+        "q": "Doesn't this make the Father look like a God who demands blood?",
+        "a": "The Church says the opposite: the Father gave his Son out of love, and the Son offered himself freely. It is God who reconciles the world to himself, not a God who has to be placated by someone else.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism 620",
+            "ccc": 620,
+            "quote": "Our salvation flows from God's initiative of love for us",
+            "note": "The first move is God's own love."
+          },
+          {
+            "kind": "scripture",
+            "label": "Mark 10:45",
+            "ref": "MRK.10.45",
+            "quote": "the Son of Man also came not to be served but to serve, and to give his life as a ransom for many",
+            "note": "Jesus himself describes his death as his own free act of service."
+          }
+        ]
+      },
+      {
+        "q": "Why a cross, of all deaths?",
+        "a": "Athanasius gives reasons: the cross bears the curse of the law on our behalf, it opens arms to draw all peoples, and it is the place where death is defeated openly. The Catechism sees in it the sacrifice that completes and surpasses all others.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Athanasius, On the Incarnation 25",
+            "when": "c. 318",
+            "year": 318,
+            "work": "athanasius-incarnation",
+            "section": "vii.ii.xxv",
+            "quote": "if He came Himself to bear the curse laid upon us",
+            "note": "Athanasius says that death on a cross was fitting because it carried the curse that fell on sinners."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism 614",
+            "ccc": 614,
+            "quote": "This sacrifice of Christ is unique; it completes and surpasses all other sacrifices.",
+            "note": "Everything the old sacrifices pointed toward is fulfilled once and for all on the cross."
+          }
+        ]
+      }
+    ],
+    "readNext": [601, 606, 613, 617]
+  }
+]

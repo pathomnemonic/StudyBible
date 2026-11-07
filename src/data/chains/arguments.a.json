@@ -1,0 +1,485 @@
+[
+  {
+    "id": "real-presence",
+    "title": "The Real Presence",
+    "question": "Is Christ really present in the Eucharist?",
+    "summary": "Catholics believe that after the consecration the bread and wine become the Body and Blood of Christ, not a mere symbol. The belief rests on Christ's own words in John 6 and at the Last Supper, on Paul's warnings to the Corinthians, and on a line of Fathers who speak as plainly as the Church does today.",
+    "steps": [
+      {
+        "kind": "scripture", "label": "John 6:53-56", "when": "c. 30", "year": 30, "ref": "JHN.6.53-56",
+        "quote": "For my flesh is food indeed, and my blood is drink indeed.",
+        "note": "Jesus insists on eating his flesh and drinking his blood, and he does not soften the words when his hearers object."
+      },
+      {
+        "kind": "scripture", "label": "1 Corinthians 11:23-26", "when": "c. 55", "year": 55, "ref": "1CO.11.23-26",
+        "quote": "Take, eat. This is my body, which is broken for you.",
+        "note": "Paul hands on the words of institution as something he received from the Lord, so the belief is as old as the apostolic preaching."
+      },
+      {
+        "kind": "scripture", "label": "1 Corinthians 11:27-29", "when": "c. 55", "year": 55, "ref": "1CO.11.27-29",
+        "quote": "will be guilty of the body and the blood of the Lord",
+        "note": "Paul warns that profaning the bread and cup makes a person guilty of the Lord's own body and blood, which makes no sense if they were only symbols."
+      },
+      {
+        "kind": "father", "label": "Irenaeus, Against Heresies 5.2", "when": "c. 180", "year": 180, "work": "irenaeus-heresies", "section": "ix.vii.iii",
+        "quote": "nor is the cup of the Eucharist the communion of His blood, nor the bread which we break the communion of His body.",
+        "note": "Irenaeus argues against Gnostics that the Eucharist really is communion in Christ's body and blood, and that this is why our flesh can be saved."
+      },
+      {
+        "kind": "father", "label": "Cyril of Jerusalem, Mystagogical Catechesis 4", "when": "c. 350", "year": 350, "work": "cyril-catecheses", "section": "ii.xxvi",
+        "quote": "the seeming bread is not bread, though sensible to taste, but the Body of Christ; and that the seeming wine is not wine, though the taste will have it so, but the Blood of Christ",
+        "note": "Cyril tells the newly baptized that what looks and tastes like bread and wine is, in reality, the Body and Blood of Christ."
+      },
+      {
+        "kind": "father", "label": "John Chrysostom, Homilies on Matthew 82", "when": "c. 390", "year": 390, "work": "chrys-matthew", "section": "iii.LXXVIII",
+        "quote": "Since then the word saith, “This is my body,” let us both be persuaded and believe, and look at it with the eyes of the mind.",
+        "note": "Chrysostom asks the faithful to trust Christ's word over what their senses report."
+      },
+      {
+        "kind": "council", "label": "Council of Trent, Session 13", "when": "1551", "year": 1551, "work": "trent-canons-decrees", "section": "s13",
+        "quote": "our Lord Jesus Christ, true God and man, is truly, really, and substantially contained under the species of those sensible things.",
+        "note": "Trent states the Church's belief in precise terms: Christ is present truly, really, and substantially, not only in sign or by faith."
+      },
+      {
+        "kind": "catechism", "label": "Catechism of the Catholic Church 1374", "when": "1992", "year": 1992, "ccc": 1374,
+        "quote": "the body and blood, together with the soul and divinity, of our Lord Jesus Christ and, therefore, the whole Christ is truly, really, and substantially contained.",
+        "note": "The Catechism teaches that the whole Christ is present, which is why Catholics adore him in the Blessed Sacrament."
+      }
+    ],
+    "objections": [
+      {
+        "q": "In John 6:63 Jesus says, “The flesh profits nothing.” Doesn't that show he was speaking only symbolically?",
+        "a": "Jesus has just said that his flesh is real food, and he says the “spirit” gives life, not that his body is useless. The text itself shows how his hearers took him: they understood him literally, and he let them go rather than retract. The words describe the new, spiritual way that his flesh is given to us, not a retreat from what he said.",
+        "steps": [
+          {
+            "kind": "scripture", "label": "John 6:60-66", "when": "c. 30", "year": 30, "ref": "JHN.6.60-66",
+            "quote": "At this, many of his disciples went back and walked no more with him.",
+            "note": "Jesus does not call after those who leave to explain that he meant a figure of speech."
+          }
+        ]
+      },
+      {
+        "q": "After the consecration it still looks, smells and tastes like bread and wine. How can it be Christ?",
+        "a": "The Church agrees that the appearances remain; that is exactly what the doctrine says. What changes is the underlying reality, which the senses cannot reach, so the Church asks us to trust Christ's word. Chrysostom made the same point sixteen centuries ago.",
+        "steps": [
+          {
+            "kind": "father", "label": "John Chrysostom, Homilies on Matthew 82", "when": "c. 390", "year": 390, "work": "chrys-matthew", "section": "iii.LXXVIII",
+            "quote": "For His word cannot deceive, but our senses are easily beguiled.",
+            "note": "Chrysostom places Christ's word above the testimony of the senses when it comes to the mysteries."
+          }
+        ]
+      },
+      {
+        "q": "Isn't “transubstantiation” a medieval invention?",
+        "a": "The word is later, but the belief is not. Cyril, Irenaeus and Chrysostom already speak of the gifts as the Body and Blood of Christ. The term was chosen to name what changes and what does not, and Trent explains that it fittingly names a conversion already believed.",
+        "steps": [
+          {
+            "kind": "catechism", "label": "Catechism of the Catholic Church 1376", "when": "1992", "year": 1992, "ccc": 1376,
+            "quote": "it has always been the conviction of the Church of God",
+            "note": "The Catechism, quoting Trent, says the belief has always been held, and that the term only names it fittingly."
+          }
+        ]
+      }
+    ],
+    "readNext": [1373, 1375, 1376, 1413]
+  },
+  {
+    "id": "eucharist-sacrifice",
+    "title": "The Mass as Sacrifice",
+    "question": "Is the Mass a sacrifice?",
+    "summary": "The Church teaches that the Mass is not a new sacrifice added to Calvary but the one sacrifice of Christ made present on the altar. This was foretold by Malachi, taught by Paul, and spoken of by the Fathers as the Church's offering from the earliest centuries.",
+    "steps": [
+      {
+        "kind": "scripture", "label": "Malachi 1:11", "when": "c. 450 BC", "year": -450, "ref": "MAL.1.11",
+        "quote": "in every place incense will be offered to my name, and a pure offering",
+        "note": "God promises a pure offering among the nations in every place, which the Fathers read as the Eucharist."
+      },
+      {
+        "kind": "scripture", "label": "1 Corinthians 10:16-21", "when": "c. 55", "year": 55, "ref": "1CO.10.16-21",
+        "quote": "those who eat the sacrifices participate in the altar",
+        "note": "Paul compares the Christian table to Israel's altar, speaking of the Eucharist in the language of sacrifice."
+      },
+      {
+        "kind": "father", "label": "Irenaeus, Against Heresies 4.18", "when": "c. 180", "year": 180, "work": "irenaeus-heresies", "section": "ix.vi.xix",
+        "quote": "Sacrifices there were among the people; sacrifices there are, too, in the Church: but the species alone has been changed",
+        "note": "Irenaeus says the Church has real sacrifices, continuous with the old ones but offered in a new way."
+      },
+      {
+        "kind": "father", "label": "Cyprian, Letter 62", "when": "253", "year": 253, "work": "cyprian", "section": "iv.iv.lxii",
+        "quote": "for the Lord’s passion is the sacrifice which we offer",
+        "note": "Cyprian ties the offering at the altar directly to Christ's passion, which is the heart of the Catholic teaching."
+      },
+      {
+        "kind": "father", "label": "Cyril of Jerusalem, Mystagogical Catechesis 5", "when": "c. 350", "year": 350, "work": "cyril-catecheses", "section": "ii.xxvii",
+        "quote": "after the spiritual sacrifice, the bloodless service, is completed, over that sacrifice of propitiation",
+        "note": "Cyril describes the liturgy as a bloodless sacrifice of propitiation over which the Church prays for all."
+      },
+      {
+        "kind": "council", "label": "Council of Trent, Session 22", "when": "1562", "year": 1562, "work": "trent-canons-decrees", "section": "s22",
+        "quote": "in this divine sacrifice which is celebrated in the mass, that same Christ is contained and immolated in an unbloody manner, who once offered Himself in a bloody manner on the altar of the cross",
+        "note": "Trent explains that the Mass is the same victim as Calvary, offered in a different manner."
+      },
+      {
+        "kind": "catechism", "label": "Catechism of the Catholic Church 1367", "when": "1992", "year": 1992, "ccc": 1367,
+        "quote": "The sacrifice of Christ and the sacrifice of the Eucharist are one single sacrifice",
+        "note": "The Catechism states the heart of the matter: one sacrifice, not two."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Hebrews says Christ offered himself “once for all.” Doesn't a daily sacrifice deny that?",
+        "a": "Catholics agree that Calvary happened once and cannot be repeated. The Mass does not add to it; it makes that one offering present and applies its fruit. Chrysostom raised the same worry himself and answered it in the same way.",
+        "steps": [
+          {
+            "kind": "scripture", "label": "Hebrews 10:10-14", "when": "c. 65", "year": 65, "ref": "HEB.10.10-14",
+            "quote": "through the offering of the body of Jesus Christ once for all",
+            "note": "The text insists on the once-for-all character of Christ's offering, which the Church fully affirms."
+          },
+          {
+            "kind": "father", "label": "John Chrysostom, Homilies on Hebrews 17", "when": "c. 400", "year": 400, "work": "chrys-hebrews", "section": "v.xxi",
+            "quote": "What then? do not we offer every day? We offer indeed, but making a remembrance of His death",
+            "note": "Chrysostom explains the daily offering as a memorial of the one sacrifice, not as a rival to it."
+          }
+        ]
+      },
+      {
+        "q": "Doesn't the Mass claim to sacrifice Christ again?",
+        "a": "No. The Church says the Mass re-presents the sacrifice of the cross, which means it makes the same offering present and does not repeat the suffering. The victim and the priest are the same Christ; only the manner of offering differs.",
+        "steps": [
+          {
+            "kind": "catechism", "label": "Catechism of the Catholic Church 1366", "when": "1992", "year": 1992, "ccc": 1366,
+            "quote": "because it re-presents (makes present) the sacrifice of the cross, because it is its memorial and because it applies its fruit",
+            "note": "The Catechism gives three reasons why the Eucharist is rightly called a sacrifice."
+          }
+        ]
+      }
+    ],
+    "readNext": [1362, 1364, 1365, 1368]
+  },
+  {
+    "id": "trinity",
+    "title": "One God in Three Persons",
+    "question": "Why do Christians believe God is three Persons?",
+    "summary": "The Church believes in one God who is Father, Son and Holy Spirit, three Persons who are really distinct yet share one divine nature. This belief was not invented in the fourth century; it comes from the baptismal command of Christ and was set out by the Fathers and the councils in defence of what Christians already prayed and baptized in.",
+    "steps": [
+      {
+        "kind": "scripture", "label": "Matthew 28:19", "when": "c. 30", "year": 30, "ref": "MAT.28.19",
+        "quote": "baptizing them in the name of the Father and of the Son and of the Holy Spirit",
+        "note": "Christ gives one name, not three, in which all nations are to be baptized, and it names Father, Son and Holy Spirit together."
+      },
+      {
+        "kind": "scripture", "label": "2 Corinthians 13:14", "when": "c. 56", "year": 56, "ref": "2CO.13.14",
+        "quote": "The grace of the Lord Jesus Christ… and the fellowship of the Holy Spirit be with you all.",
+        "note": "Paul closes a letter with a blessing that names all three, showing that the pattern was already part of Christian worship."
+      },
+      {
+        "kind": "father", "label": "Irenaeus, Demonstration of the Apostolic Preaching 7", "when": "c. 190", "year": 190, "work": "irenaeus-demonstration", "section": "iv-1",
+        "quote": "the baptism of our regeneration proceeds through these three points: God the Father bestowing on us regeneration through His Son by the Holy Spirit.",
+        "note": "Irenaeus, long before Nicaea, describes the Christian faith as a threefold rule received at baptism."
+      },
+      {
+        "kind": "council", "label": "Council of Nicaea, Creed", "when": "325", "year": 325, "work": "council-nicaea-1", "section": "vii.iii",
+        "quote": "of the substance of the Father, God of God, Light of Light, very God of very God, begotten… not made, being of one substance",
+        "note": "Nicaea confesses that the Son is truly God and of one substance with the Father."
+      },
+      {
+        "kind": "father", "label": "Athanasius, Against the Arians 1", "when": "c. 358", "year": 358, "work": "athanasius-arians", "section": "xxi.ii.i",
+        "quote": "the Triad is not originated; but there is an eternal and one Godhead in a Triad, and there is one Glory of the Holy Triad.",
+        "note": "Athanasius defends the unity of the Godhead while confessing the Triad."
+      },
+      {
+        "kind": "council", "label": "Council of Constantinople, Creed", "when": "381", "year": 381, "work": "council-constantinople-1", "section": "ix.iii",
+        "quote": "And in the Holy Ghost, the Lord and Giver of life, who proceedeth from the Father; who, with the Father and the Son together is worshipped and glorified, who spake by the prophets",
+        "note": "Constantinople completes the picture by confessing the Holy Spirit as worshipped together with the Father and the Son."
+      },
+      {
+        "kind": "catechism", "label": "Catechism of the Catholic Church 253", "when": "1992", "year": 1992, "ccc": 253,
+        "quote": "We do not confess three Gods, but one God in three persons, the “consubstantial Trinity”.",
+        "note": "The Catechism sums up the faith: the Persons are not parts of God, and each is God whole and entire."
+      }
+    ],
+    "objections": [
+      {
+        "q": "The word “Trinity” isn't in the Bible, and the doctrine was imposed by councils centuries later.",
+        "a": "The word is later, but the realities are in Scripture and in the baptismal practice of the earliest Church. The councils did not invent the doctrine; they chose language to exclude readings, like Arianism, that denied what Christians had always worshipped and baptized in. Irenaeus already spoke of three points of faith in the second century.",
+        "steps": [
+          {
+            "kind": "catechism", "label": "Catechism of the Catholic Church 254", "when": "1992", "year": 1992, "ccc": 254,
+            "quote": "God is one but not solitary.",
+            "note": "The Catechism shows that the Persons are real and distinct, not just names for different roles."
+          }
+        ]
+      },
+      {
+        "q": "Isn't this just believing in three gods?",
+        "a": "No. Christians confess one God, one divine nature, and three Persons who are really distinct by their relations. Gregory of Nyssa answers the charge by condemning anyone who teaches three Gods.",
+        "steps": [
+          {
+            "kind": "father", "label": "Gregory of Nyssa, Against Eunomius", "when": "c. 380", "year": 380, "work": "gregory-nyssa-dogmatic", "section": "viii.iv",
+            "quote": "we anathematize any man who says that there are three Gods, and hold him to be not even a Christian",
+            "note": "Gregory rejects tritheism in the strongest terms."
+          }
+        ]
+      },
+      {
+        "q": "Jesus said, “The Father is greater than I.” How can the Son be equal to the Father?",
+        "a": "The Church reads such texts in two ways: as spoken of Christ in his humanity, and as pointing to the Father as the source from whom the Son is eternally begotten. Elsewhere Jesus says that he and the Father are one, and the Fathers hold both texts together.",
+        "steps": [
+          {
+            "kind": "scripture", "label": "John 10:30", "when": "c. 30", "year": 30, "ref": "JHN.10.30",
+            "quote": "I and the Father are one.",
+            "note": "Jesus claims a oneness with the Father that his hearers understood as a claim to divinity."
+          }
+        ]
+      }
+    ],
+    "readNext": [232, 234, 253, 254, 261]
+  },
+  {
+    "id": "divinity-of-christ",
+    "title": "Did the Early Church Believe Jesus Is God?",
+    "question": "Did the early Church believe Jesus is God?",
+    "summary": "Yes. From the New Testament onward Christians worshipped Jesus as God, and writers within a generation of the apostles say so plainly. Nicaea in 325 did not invent this belief; it defended it against Arius, and Chalcedon later stated how Jesus can be both fully God and fully man.",
+    "steps": [
+      {
+        "kind": "scripture", "label": "John 1:1-3", "when": "c. 95", "year": 95, "ref": "JHN.1.1-3",
+        "quote": "the Word was with God, and the Word was God.",
+        "note": "John begins his Gospel by calling the Word God and by saying that all things were made through him."
+      },
+      {
+        "kind": "scripture", "label": "John 20:28", "when": "c. 95", "year": 95, "ref": "JHN.20.28",
+        "quote": "My Lord and my God!",
+        "note": "Thomas addresses the risen Jesus as God and is not corrected."
+      },
+      {
+        "kind": "father", "label": "Ignatius of Antioch, Letter to the Ephesians", "when": "c. 110", "year": 110, "work": "ignatius-letters", "section": "v.ii",
+        "quote": "There is one Physician who is possessed both of flesh and spirit; both made and not made; God existing in flesh; true life in death; both of Mary and of God",
+        "note": "Ignatius, a bishop who knew the apostles' generation, calls Christ God existing in flesh."
+      },
+      {
+        "kind": "father", "label": "Pliny's report on Christians, in Eusebius, Church History 3", "when": "c. 112", "year": 112, "work": "eusebius-history", "section": "iii.viii",
+        "quote": "to sing responsively a song unto Christ as God",
+        "note": "A Roman governor, writing as an outsider, reports that Christians sang to Christ as to a god."
+      },
+      {
+        "kind": "father", "label": "Origen, Against Celsus", "when": "c. 248", "year": 248, "work": "origen-celsus", "section": "vi.ix.viii",
+        "quote": "we worship with all our power the one God, and His only Son, the Word and the Image of God",
+        "note": "Origen explains to a pagan critic that Christians worship the Son together with the Father."
+      },
+      {
+        "kind": "council", "label": "Council of Nicaea, Creed", "when": "325", "year": 325, "work": "council-nicaea-1", "section": "vii.iii",
+        "quote": "God of God, Light of Light, very God of very God, begotten",
+        "note": "Nicaea answers Arius by confessing the Son as true God from true God."
+      },
+      {
+        "kind": "council", "label": "Council of Chalcedon, Definition", "when": "451", "year": 451, "work": "council-chalcedon", "section": "xi.xiii",
+        "quote": "he is perfect in Godhead and perfect in manhood, very God and very man",
+        "note": "Chalcedon declares that Jesus is fully God and fully man in one Person."
+      },
+      {
+        "kind": "catechism", "label": "Catechism of the Catholic Church 464", "when": "1992", "year": 1992, "ccc": 464,
+        "quote": "He became truly man while remaining truly God.",
+        "note": "The Catechism sums up the faith that the Church defended in the early centuries."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Wasn't Jesus' divinity invented at Nicaea under Constantine?",
+        "a": "Nicaea settled the wording, not the belief. Ignatius, the Roman report of Christians singing to Christ as God, and Origen all come long before 325, and the Catechism notes that the Church had already condemned Paul of Samosata for denying that Christ is Son of God by nature.",
+        "steps": [
+          {
+            "kind": "catechism", "label": "Catechism of the Catholic Church 465", "when": "1992", "year": 1992, "ccc": 465,
+            "quote": "Jesus Christ is Son of God by nature and not by adoption.",
+            "note": "The Church had affirmed this against Paul of Samosata in the third century, before Nicaea."
+          }
+        ]
+      },
+      {
+        "q": "Jesus said, “The Father is greater than I.” Doesn't that mean he is less than God?",
+        "a": "The Church reads this in two ways: Christ speaks as man, in whom he is less than the Father, and as Son, who receives all from the Father. Elsewhere he says that he and the Father are one, and Thomas calls him God. Chalcedon holds both together.",
+        "steps": [
+          {
+            "kind": "scripture", "label": "John 14:28", "when": "c. 95", "year": 95, "ref": "JHN.14.28",
+            "quote": "for the Father is greater than I.",
+            "note": "The saying is real, and the Church reads it alongside the verses that assert his oneness with the Father."
+          }
+        ]
+      },
+      {
+        "q": "Arius said the Son is the highest of creatures, not God. What was wrong with that?",
+        "a": "If the Son were a creature, worship of him would be idolatry and he could not save us as God. Athanasius argued that the Son must have all that belongs to the Father, apart from being the Father.",
+        "steps": [
+          {
+            "kind": "father", "label": "Athanasius, Against the Arians 1", "when": "c. 358", "year": 358, "work": "athanasius-arians", "section": "xxi.ii.i",
+            "quote": "The Father is eternal, immortal, powerful, light, King, Sovereign, God, Lord, Creator, and Maker.",
+            "note": "Athanasius lists the attributes of the Father and argues that the Son, as his Image, must share them."
+          }
+        ]
+      }
+    ],
+    "readNext": [464, 465, 466, 469]
+  },
+  {
+    "id": "theotokos",
+    "title": "Mary, Mother of God",
+    "question": "Why call Mary the Mother of God?",
+    "summary": "Mary is called Mother of God, in Greek Theotokos, because the Son she bore is God. The title does not say that Mary is the source of Christ's divinity; it protects the truth that Jesus is one Person, who is truly God and truly man.",
+    "steps": [
+      {
+        "kind": "scripture", "label": "Luke 1:43", "when": "c. 60", "year": 60, "ref": "LUK.1.43",
+        "quote": "the mother of my Lord",
+        "note": "Elizabeth, filled with the Spirit, calls Mary the mother of her Lord, and “Lord” is the title used for God."
+      },
+      {
+        "kind": "father", "label": "Ignatius of Antioch, Letter to the Ephesians", "when": "c. 110", "year": 110, "work": "ignatius-letters", "section": "v.ii",
+        "quote": "God existing in flesh; true life in death; both of Mary and of God",
+        "note": "Ignatius already speaks of Christ as both of Mary and of God, the same Person on both sides."
+      },
+      {
+        "kind": "council", "label": "Cyril of Alexandria, Second Letter to Nestorius", "when": "430", "year": 430, "work": "council-ephesus", "section": "x.viii",
+        "quote": "since the holy Virgin brought forth corporally God made one with flesh according to nature, for this reason we also call her Mother of God, not as if the nature of the Word had the beginning of its existence from the flesh.",
+        "note": "Cyril, whose letter Ephesus approved, explains the title and excludes the idea that Mary is the source of the Word's divinity."
+      },
+      {
+        "kind": "council", "label": "Council of Ephesus, Anathema 1", "when": "431", "year": 431, "work": "council-ephesus", "section": "x.ix",
+        "quote": "If anyone will not confess that the Emmanuel is very God, and that therefore the Holy Virgin is the Mother of God",
+        "note": "Ephesus makes the title a mark of right faith about who Jesus is."
+      },
+      {
+        "kind": "council", "label": "Council of Chalcedon, Definition", "when": "451", "year": 451, "work": "council-chalcedon", "section": "xi.xiii",
+        "quote": "born [into the world] of the Virgin Mary, the Mother of God according to his manhood",
+        "note": "Chalcedon repeats the title and explains in what sense it is true: Mary is mother of the Son who is God, in his humanity."
+      },
+      {
+        "kind": "father", "label": "John of Damascus, Exact Exposition of the Orthodox Faith 3.12", "when": "c. 743", "year": 743, "work": "john-damascus", "section": "iii.iv.iii",
+        "quote": "For if she who bore Him is the Mother of God, assuredly He Who was born of her is God and likewise also man.",
+        "note": "John of Damascus shows that the title protects the truth about the Son who was born."
+      },
+      {
+        "kind": "catechism", "label": "Catechism of the Catholic Church 495", "when": "1992", "year": 1992, "ccc": 495,
+        "quote": "Hence the Church confesses that Mary is truly “Mother of God” (Theotokos).",
+        "note": "The Catechism gives the reason: her Son is the eternal Son of God made man."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Mary gave birth only to Jesus' human nature. Wasn't she mother of the man, not of God?",
+        "a": "A mother does not give birth to a nature, but to a person. The Person she bore is the eternal Son, who took a human nature from her, so she is the mother of God the Son as man. Denying this splits Christ into two persons, which is what Ephesus condemned.",
+        "steps": [
+          {
+            "kind": "catechism", "label": "Catechism of the Catholic Church 466", "when": "1992", "year": 1992, "ccc": 466,
+            "quote": "Mary truly became the Mother of God by the human conception of the Son of God in her womb",
+            "note": "The Catechism explains that the title follows from the unity of Christ's Person."
+          }
+        ]
+      },
+      {
+        "q": "Doesn't this make Mary a goddess, or the origin of God?",
+        "a": "No. The Church says the Word has no beginning, and the title speaks of the one who was born from her, not of the divine nature. Cyril states in the same letter that the Word did not receive his existence from the Virgin.",
+        "steps": [
+          {
+            "kind": "council", "label": "Cyril of Alexandria, Letter to Nestorius", "when": "430", "year": 430, "work": "council-ephesus", "section": "x.v",
+            "quote": "not as if the nature of the Word or his divinity had its beginning from the holy Virgin, but because of her was born that holy body with a rational soul",
+            "note": "Cyril marks the limits of the title: Mary is the mother of the Word's humanity in one Person, not of his divinity."
+          }
+        ]
+      },
+      {
+        "q": "Is this a late invention of the fifth century?",
+        "a": "The word became a test of faith only in 431, but Cyril said that earlier Fathers had used it, and Ignatius in about 110 spoke of Christ as both of Mary and of God. Luke 1:43 gives the root of the idea.",
+        "steps": [
+          {
+            "kind": "council", "label": "Cyril of Alexandria, Letter to Nestorius", "when": "430", "year": 430, "work": "council-ephesus", "section": "x.v",
+            "quote": "This was the sentiment of the holy Fathers; therefore they ventured to call the holy Virgin, the Mother of God",
+            "note": "Cyril appeals to the earlier Fathers, as the title was already in use before the dispute."
+          }
+        ]
+      }
+    ],
+    "readNext": [466, 495, 509, 971]
+  },
+  {
+    "id": "infant-baptism",
+    "title": "Why Baptize Infants?",
+    "question": "Why baptize infants?",
+    "summary": "The Church baptizes infants because baptism is a gift of grace that does not depend on what a person can do. The practice follows Christ's welcome of children and the apostles' baptism of whole households, and by the third century it was so firmly established that bishops debated only how soon after birth it should be given.",
+    "steps": [
+      {
+        "kind": "scripture", "label": "Luke 18:15-16", "when": "c. 60", "year": 60, "ref": "LUK.18.15-16",
+        "quote": "They were also bringing their babies to him, that he might touch them.",
+        "note": "Babies are brought to Jesus, and he tells his disciples not to hinder them."
+      },
+      {
+        "kind": "scripture", "label": "Colossians 2:11-12", "when": "c. 60", "year": 60, "ref": "COL.2.11-12",
+        "quote": "In him you were also circumcised with a circumcision not made with hands",
+        "note": "Paul links baptism to circumcision, which under the old covenant was given to infants."
+      },
+      {
+        "kind": "scripture", "label": "Acts 2:38-39", "when": "c. 63", "year": 63, "ref": "ACT.2.38-39",
+        "quote": "For the promise is to you and to your children",
+        "note": "Peter extends the promise tied to baptism to the children of those who believe."
+      },
+      {
+        "kind": "scripture", "label": "Acts 16:33", "when": "c. 63", "year": 63, "ref": "ACT.16.33",
+        "quote": "was immediately baptized, he and all his household.",
+        "note": "Whole households are baptized together, which probably included children."
+      },
+      {
+        "kind": "father", "label": "Cyprian, Letter 58 to Fidus", "when": "c. 253", "year": 253, "work": "cyprian", "section": "iv.iv.lviii",
+        "quote": "we all rather judge that the mercy and grace of God is not to be refused to any one born of man.",
+        "note": "A council of bishops answers a question about waiting until the eighth day and decides that infants should not be kept from baptism at all."
+      },
+      {
+        "kind": "father", "label": "Augustine, Merits and Forgiveness of Sins and Baptism of Infants", "when": "412", "year": 412, "work": "aug-pelagian", "section": "x.iii",
+        "quote": "by examining the Scriptures, and considering the authority of the whole Church as well as the form of the sacrament itself, have clearly seen that by baptism remission of sins accrues to infants",
+        "note": "Augustine appeals to Scripture and the practice of the whole Church, which both sides in the controversy accepted."
+      },
+      {
+        "kind": "council", "label": "Council of Trent, Session 5", "when": "1546", "year": 1546, "work": "trent-canons-decrees", "section": "s5",
+        "quote": "even infants, who could not as yet commit any sin of themselves, are for this cause truly baptised for the remission of sins",
+        "note": "Trent grounds the practice in apostolic tradition and in the need of every child of Adam for new birth."
+      },
+      {
+        "kind": "catechism", "label": "Catechism of the Catholic Church 1282", "when": "1992", "year": 1992, "ccc": 1282,
+        "quote": "Since the earliest times, Baptism has been administered to children, for it is a grace and a gift of God that does not presuppose any human merit",
+        "note": "The Catechism gives the reason: baptism is a gift, and children are baptized in the faith of the Church."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Jesus said, “He who believes and is baptized will be saved.” Infants cannot believe.",
+        "a": "That verse speaks of those who can hear and believe the Gospel. For infants the Church acts on the faith of the Church and the family, as Jesus acted on the faith of the friends who carried the paralytic. The child is then raised in that faith.",
+        "steps": [
+          {
+            "kind": "scripture", "label": "Mark 2:5", "when": "c. 60", "year": 60, "ref": "MRK.2.5",
+            "quote": "Jesus, seeing their faith, said to the paralytic",
+            "note": "Jesus forgives a man because of the faith of those who brought him."
+          }
+        ]
+      },
+      {
+        "q": "Babies haven't sinned, so what do they need baptism for?",
+        "a": "The Church does not say infants have committed personal sins. Baptism frees them from the effects of the sin of Adam and makes them children of God. Paul teaches that sin entered the world through one man and that death has spread to all.",
+        "steps": [
+          {
+            "kind": "catechism", "label": "Catechism of the Catholic Church 1250", "when": "1992", "year": 1992, "ccc": 1250,
+            "quote": "Born with a fallen human nature and tainted by original sin, children also have need of the new birth in Baptism",
+            "note": "The Catechism states why children need new birth, and why it is a pure gift."
+          }
+        ]
+      },
+      {
+        "q": "Isn't infant baptism a later practice that the apostles never taught?",
+        "a": "The New Testament reports the baptism of whole households, and the early Church treated infant baptism as settled. Cyprian's council did not debate whether to baptize infants but whether to wait until the eighth day, and rejected any delay.",
+        "steps": [
+          {
+            "kind": "father", "label": "Cyprian, Letter 58 to Fidus", "when": "c. 253", "year": 253, "work": "cyprian", "section": "iv.iv.lviii",
+            "quote": "by us no one ought to be hindered from baptism and from the grace of God",
+            "note": "The council applies the principle to infants and newly born persons especially."
+          }
+        ]
+      }
+    ],
+    "readNext": [403, 1250, 1252, 1282]
+  }
+]

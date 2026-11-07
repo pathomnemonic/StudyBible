@@ -1,0 +1,884 @@
+[
+ {
+  "id": "trinity-development",
+  "title": "How the Church came to define the Trinity",
+  "question": "Was the Trinity invented at Nicaea, or did the Church already believe it and only later find the words?",
+  "summary": "From the baptismal command of Christ, the Church always named Father, Son and Spirit together. Heresies forced her to say precisely what that means: the Son is of one substance with the Father (Nicaea, 325) and the Spirit is worshipped and glorified with them (Constantinople, 381). The faith stayed the same; the vocabulary grew sharper to protect it.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Matthew 28:19",
+    "when": "c. 80",
+    "year": 80,
+    "ref": "MAT.28.19-20",
+    "quote": "baptizing them in the name of the Father and of the Son and of the Holy Spirit",
+    "note": "Question: what did the first Christians confess about God? The risen Lord commands baptism in one name that holds Father, Son and Holy Spirit together."
+   },
+   {
+    "kind": "father",
+    "label": "Ignatius of Antioch, Letter to the Magnesians",
+    "when": "c. 107",
+    "year": 107,
+    "work": "ignatius-letters",
+    "section": "v.iii",
+    "quote": "in faith and love; in the Son, and in the Father, and in the Spirit",
+    "note": "Question: was this threefold pattern only a later liturgical habit? Within a generation of the apostles, a bishop on his way to martyrdom already joins Son, Father and Spirit in a single exhortation."
+   },
+   {
+    "kind": "father",
+    "label": "Justin Martyr, First Apology",
+    "when": "c. 155",
+    "year": 155,
+    "work": "justin-martyr",
+    "section": "viii.ii",
+    "quote": "in the name of God, the Father and Lord of the universe, and of our Saviour Jesus Christ, and of the Holy Spirit, they then receive the washing with water",
+    "note": "Question: how did Christians actually baptize? Justin, writing to pagans, reports the threefold name as ordinary practice at Rome."
+   },
+   {
+    "kind": "father",
+    "label": "Irenaeus, Against Heresies",
+    "when": "c. 180",
+    "year": 180,
+    "work": "irenaeus-heresies",
+    "section": "ix.ii.xi",
+    "quote": "in one God, the Father Almighty, Maker of heaven, and earth, and the sea, and all things that are in them; and in one Christ Jesus, the Son of God, who became incarnate for our salvation; and in the Holy Spirit",
+    "note": "Error answered: Gnostic teachers invented secret doctrines about many aeons. Irenaeus replies that the Church everywhere holds one shared, public faith received from the apostles, shaped as Father, Son and Spirit."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Nicaea I, Creed",
+    "when": "325",
+    "year": 325,
+    "work": "council-nicaea-1",
+    "section": "vii.iii",
+    "quote": "of the substance of the Father, God of God, Light of Light, very God of very God, begotten (γεννηθέντα), not made, being of one substance (ὁμοούσιον, consubstantialem) with the Father",
+    "note": "Error answered: Arius taught that the Son was a creature and that there was a time when he was not. Nicaea, against this, confesses that the Son is begotten, not made, and of one substance with the Father."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Nicaea I, Creed (anathema)",
+    "when": "325",
+    "year": 325,
+    "work": "council-nicaea-1",
+    "section": "vii.iii",
+    "quote": "whosoever shall say that there was a time when the Son of God was not",
+    "note": "The same creed names the error it excludes, so that no one could keep the Nicene words while emptying them of meaning."
+   },
+   {
+    "kind": "saint",
+    "label": "Athanasius, Orations against the Arians",
+    "when": "c. 358",
+    "year": 358,
+    "work": "athanasius-arians",
+    "section": "xxi.ii.i",
+    "quote": "the Triad is not originated; but there is an eternal and one Godhead in a Triad, and there is one Glory of the Holy Triad",
+    "note": "Question: after Nicaea, were Arian bishops still arguing the Son and Spirit were lesser? Athanasius defends the creed by insisting the whole Triad is one eternal Godhead, not a creator with creatures."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Constantinople I, Creed",
+    "when": "381",
+    "year": 381,
+    "work": "council-constantinople-1",
+    "section": "ix.iii",
+    "quote": "the Lord and Giver-of-Life, who proceedeth from the Father, who with the Father and the Son together is worshipped and glorified, who spake by the prophets",
+    "note": "Error answered: the Pneumatomachi denied that the Holy Spirit is God. The council completes the Nicene faith by confessing the Spirit as Lord, Giver of life, and worshipped with the Father and the Son."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 253",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 253,
+    "quote": "We do not confess three Gods, but one God in three persons, the \"consubstantial Trinity\".",
+    "note": "The Catechism gathers the whole development into one sentence: the teaching is the same, now stated with the precision the councils won."
+   }
+  ],
+  "objections": [
+   {
+    "q": "The word \"homoousios\" is not in the Bible. Surely the Council added something foreign to Scripture?",
+    "a": "The council added a word, not a doctrine. Scripture already says the Word was God and that Jesus and the Father are one; when Arians accepted every biblical phrase while denying its plain sense, the bishops chose a word that could not be bent that way. The creed protects what the Gospel already says.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "John 1:1",
+      "when": "c. 90",
+      "year": 90,
+      "ref": "JHN.1.1-3",
+      "quote": "In the beginning was the Word, and the Word was with God, and the Word was God",
+      "note": "The Gospel itself says the Word was with God and was God, and that nothing was made without him, so the Word cannot be a creature."
+     },
+     {
+      "kind": "scripture",
+      "label": "John 10:30",
+      "when": "c. 90",
+      "year": 90,
+      "ref": "JHN.10.30",
+      "quote": "I and the Father are one.",
+      "note": "Jesus states a oneness with the Father that Nicaea later names as one substance."
+     }
+    ]
+   },
+   {
+    "q": "Does \"three persons in one God\" really mean three gods in disguise?",
+    "a": "No. The Church teaches one divine nature, whole and entire in each person, and the persons are distinguished only by their relations of origin, not by dividing the Godhead.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism of the Catholic Church 254",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 254,
+      "quote": "God is one but not solitary.",
+      "note": "The Catechism rules out both three gods and one God wearing three masks."
+     }
+    ]
+   },
+   {
+    "q": "Was the divinity of the Holy Spirit only decided in 381, long after the apostles?",
+    "a": "The decision of 381 was a clarification, not a new belief. The Spirit was already named with Father and Son in baptism from the apostolic age, as Matthew, Ignatius and Justin show; Constantinople confessed in words what that worship already implied."
+   }
+  ],
+  "readNext": [
+   232,
+   233,
+   253,
+   254,
+   245,
+   246
+  ]
+ },
+ {
+  "id": "christ-natures-development",
+  "title": "How the Church defined who Christ is",
+  "question": "How did the Church come to say that Christ is one person in two natures, truly God and truly man?",
+  "summary": "The apostles proclaimed that the Word became flesh. Each century raised a new question: is the Son truly God (Nicaea), is Christ one person (Ephesus), are both natures real and unmixed (Chalcedon), and does he have a human will (Constantinople III). The Church answered each time by guarding the same Gospel, never by adding a new revelation.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "John 1:14",
+    "when": "c. 90",
+    "year": 90,
+    "ref": "JHN.1.14",
+    "quote": "The Word became flesh and lived among us. We saw his glory",
+    "note": "The starting point of every later debate: the divine Word truly became flesh and lived among us."
+   },
+   {
+    "kind": "father",
+    "label": "Athanasius, On the Incarnation",
+    "when": "c. 318",
+    "year": 318,
+    "work": "athanasius-incarnation",
+    "section": "vii.ii.liv",
+    "quote": "For He was made man that we might be made God",
+    "note": "Question: why must the Savior be both God and man? Athanasius answers from salvation itself: only God made man can bring humanity into the life of God."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Nicaea I, Creed",
+    "when": "325",
+    "year": 325,
+    "work": "council-nicaea-1",
+    "section": "vii.iii",
+    "quote": "of the substance of the Father, God of God, Light of Light, very God of very God, begotten (γεννηθέντα), not made, being of one substance (ὁμοούσιον, consubstantialem) with the Father",
+    "note": "Error answered: Arius made the Son a creature. Nicaea confesses him as true God, of one substance with the Father, who for our salvation was incarnate and made man."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Ephesus, Letter of Cyril to Nestorius",
+    "when": "431",
+    "year": 431,
+    "work": "council-ephesus",
+    "section": "x.v",
+    "quote": "the Word having personally united to himself flesh animated by a rational soul, did in an ineffable and inconceivable manner become man",
+    "note": "Error answered: Nestorius spoke as if the Word and the man Jesus were two subjects loosely joined. Cyril, whose letter was read at the council, says the Word himself personally united flesh to himself and so is one Christ."
+   },
+   {
+    "kind": "council",
+    "label": "Tome of Leo, received at Chalcedon",
+    "when": "449",
+    "year": 449,
+    "work": "council-chalcedon",
+    "section": "xi.vii",
+    "quote": "in the entire and perfect nature of very man was born very God, whole in what was his, whole in what was ours",
+    "note": "Error answered: Eutyches taught that Christ's humanity was absorbed into his divinity. Pope Leo answers that each nature stays whole in the one person."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Chalcedon, Definition of Faith",
+    "when": "451",
+    "year": 451,
+    "work": "council-chalcedon",
+    "section": "xi.xiii",
+    "quote": "that he is perfect in Godhead and perfect in manhood, very God and very man, of a reasonable soul and [human] body consisting, consubstantial with the Father as touching his Godhead, and consubstantial with us as touching his manhood",
+    "note": "The council gathers the earlier answers into one formula: one and the same Christ, perfect God and perfect man, and not a mixture of the two."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Constantinople II, Capitula",
+    "when": "553",
+    "year": 553,
+    "work": "council-constantinople-2",
+    "section": "xii.vii",
+    "quote": "since one of the Holy Trinity has been made man, viz.: God the Word, the Holy Trinity has not been increased by the addition of another person or hypostasis",
+    "note": "Question: if Christ is one person, who is it? The council answers that the one person is the eternal Word, so the Incarnation adds no fourth person to the Trinity."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Constantinople III, Definition of Faith",
+    "when": "681",
+    "year": 681,
+    "work": "council-constantinople-3",
+    "section": "xiii.x",
+    "quote": "we confess two wills and two operations, concurring most fitly in him for the salvation of the human race",
+    "note": "Error answered: the Monothelites said Christ had only one will. The council holds that a nature without a will would not be a full human nature, so Christ has a divine and a human will."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 464",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 464,
+    "quote": "He became truly man while remaining truly God. Jesus Christ is true God and true man.",
+    "note": "The Catechism summarizes what the councils fixed: nothing taken from his divinity, nothing taken from his humanity."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Are \"natures\" and \"persons\" just Greek philosophy imposed on a simple Gospel?",
+    "a": "The councils borrow words but defend Scripture's own claims: he was in the form of God and took the form of a servant, and he is called both Lord and God. The terms are a fence around that biblical paradox, not a replacement for it.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Philippians 2:6-8",
+      "when": "c. 61",
+      "year": 61,
+      "ref": "PHP.2.6-8",
+      "quote": "existing in the form of God, didn't consider equality with God a thing to be grasped, but emptied himself, taking the form of a servant",
+      "note": "Paul already speaks of one subject who exists in the form of God and takes the form of a servant."
+     }
+    ]
+   },
+   {
+    "q": "If Christ has two wills, has the Church split him into two persons, as Nestorius did?",
+    "a": "No. Constantinople III says the two natures shine forth in one subsistence and each does what is proper to it without division or confusion. It is one person who wills and acts in both ways.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Constantinople III, Definition of Faith",
+      "when": "681",
+      "year": 681,
+      "work": "council-constantinople-3",
+      "section": "xiii.x",
+      "quote": "we say that his two natures shone forth in his one subsistence in which he both performed the miracles and endured the sufferings",
+      "note": "The one subject is the same in miracles and in suffering; the council explicitly keeps unity of person while affirming two wills."
+     }
+    ]
+   },
+   {
+    "q": "Did these debates really matter, or were they only quarrels over words?",
+    "a": "They concerned salvation. If Christ were not truly God, he could not unite us to God; if not truly man, he could not redeem human nature. Athanasius and Leo both argue exactly this.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Galatians 4:4",
+      "when": "c. 55",
+      "year": 55,
+      "ref": "GAL.4.4",
+      "quote": "God sent out his Son, born to a woman, born under the law",
+      "note": "The apostolic message itself ties the Son's coming to redemption."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   464,
+   465,
+   466,
+   467,
+   470,
+   475
+  ]
+ },
+ {
+  "id": "mary-development",
+  "title": "How the Church came to understand Mary",
+  "question": "How did the Church move from Mary the obedient virgin of the Gospel to the dogmas of Mother of God and the Immaculate Conception?",
+  "summary": "Luke presents Mary as highly favored and as the mother of the Lord. Irenaeus saw her obedience as the answer to Eve's disobedience; Ephesus defined her as Theotokos to protect the truth about Christ; and later reflection on her being \"full of grace\" led Pius IX to define the Immaculate Conception in 1854. Each step flows from who Christ is and what grace does.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Luke 1:28",
+    "when": "c. 80",
+    "year": 80,
+    "ref": "LUK.1.28",
+    "quote": "Rejoice, you highly favored one! The Lord is with you.",
+    "note": "Question: who is Mary in God's plan? The angel greets her with a title of grace and says the Lord is with her."
+   },
+   {
+    "kind": "father",
+    "label": "Irenaeus, Against Heresies 3.22",
+    "when": "c. 180",
+    "year": 180,
+    "work": "irenaeus-heresies",
+    "section": "ix.iv.xxiii",
+    "quote": "Mary the Virgin is found obedient, saying, “Behold the handmaid of the Lord; be it unto me according to thy word.”",
+    "note": "Error answered: some Gnostics said Christ only passed through Mary like water through a tube and took nothing from her. Irenaeus holds that she truly gave him his human nature and answered God in obedience."
+   },
+   {
+    "kind": "father",
+    "label": "Irenaeus, Against Heresies 5.19",
+    "when": "c. 180",
+    "year": 180,
+    "work": "irenaeus-heresies",
+    "section": "ix.vii.xx",
+    "quote": "that virgin Eve, who was already espoused to a man, was unhappily misled",
+    "note": "Question: how does Christ's victory undo Adam and Eve's fall? Irenaeus pairs the virgin Eve, misled by deception, with the Virgin Mary, who receives the angel's truth."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Ephesus, Letter of Cyril to Nestorius",
+    "when": "431",
+    "year": 431,
+    "work": "council-ephesus",
+    "section": "x.v",
+    "quote": "they ventured to call the holy Virgin, the Mother of God, not as if the nature of the Word or his divinity had its beginning from the holy Virgin",
+    "note": "Error answered: Nestorius refused the title Theotokos. Cyril answers that Mary is Mother of God not because divinity began in her, but because the child she bore is the Word himself."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Constantinople II, Capitula",
+    "when": "553",
+    "year": 553,
+    "work": "council-constantinople-2",
+    "section": "xii.vii",
+    "quote": "being made flesh of the holy and glorious Mary, Mother of God and always a virgin",
+    "note": "Question: how should the Church speak of Mary in confessing the two births of the Word? The council names her Mother of God and ever-virgin."
+   },
+   {
+    "kind": "saint",
+    "label": "John Damascene, Exact Exposition of the Orthodox Faith",
+    "when": "c. 743",
+    "year": 743,
+    "work": "john-damascus",
+    "section": "iii.iv.iv",
+    "quote": "strictly and truly she is and is called the Mother of God",
+    "note": "Question: is the title Mother of God only a figure of speech? The great Eastern doctor says it is strictly true, because of who her Son is."
+   },
+   {
+    "kind": "magisterium",
+    "label": "Pius IX, Ineffabilis Deus",
+    "when": "1854",
+    "year": 1854,
+    "work": "ineffabilis-deus",
+    "section": "s1",
+    "quote": "Blessed Virgin Mary to have been, from the first moment of her conception, by a singular grace and privilege of Almighty God, in view of the merits of Christ Jesus the Saviour of mankind, preserved free from all stain of original sin",
+    "note": "Question: if Mary was herself redeemed, was she ever touched by sin? The Pope defines that she was preserved from original sin from her conception, by the merits of Christ."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 492",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 492,
+    "quote": "redeemed, in a more exalted fashion, by reason of the merits of her Son",
+    "note": "The Catechism stresses what stays fixed: Mary's holiness comes wholly from Christ, so the dogma honors the Savior as well as his mother."
+   }
+  ],
+  "objections": [
+   {
+    "q": "The Eve-and-Mary parallel is later pious invention, not apostolic teaching.",
+    "a": "It appears already in the second century in Irenaeus, who is receiving the faith from the apostolic churches, and it rests on Luke's account of her obedient answer to the angel.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Luke 1:38",
+      "when": "c. 80",
+      "year": 80,
+      "ref": "LUK.1.38",
+      "quote": "Behold, the servant of the Lord; let it be done to me according to your word.",
+      "note": "Luke records the \"let it be done\" that Irenaeus sets against Eve's disobedience."
+     }
+    ]
+   },
+   {
+    "q": "Calling Mary the Mother of God exalts her above Christ and makes her a goddess.",
+    "a": "The title was defined to protect Christ's identity, not to make Mary divine. Cyril explicitly says the Word's divinity did not begin in her; she is mother of the person, not the source of his Godhead.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism of the Catholic Church 495",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 495,
+      "quote": "Hence the Church confesses that Mary is truly \"Mother of God\" (Theotokos).",
+      "note": "The Catechism draws the same conclusion from Elizabeth's greeting and the unity of Christ's person."
+     }
+    ]
+   },
+   {
+    "q": "The Immaculate Conception is not in Scripture or the early Fathers.",
+    "a": "It is not stated in those words. The Church reads Luke's \"highly favored\" together with the Eastern Fathers' title All-Holy, and holds that the doctrine was implicit in the faith and then defined in 1854 on that basis.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism of the Catholic Church 493",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 493,
+      "quote": "The Fathers of the Eastern tradition call the Mother of God \"the All-Holy\" (Panagia)",
+      "note": "The Catechism points to the patristic title that underlies the later definition."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   487,
+   488,
+   491,
+   492,
+   493,
+   495
+  ]
+ },
+ {
+  "id": "real-presence-development",
+  "title": "How the Church defined the Real Presence",
+  "question": "How did the Church come to teach that Christ is truly present, body and blood, in the Eucharist?",
+  "summary": "Paul and John say that the bread and cup are a sharing in Christ's body and blood, and the early Fathers speak the same way. When later teachers reduced this to a mere sign, councils and especially Trent defined that Christ is truly, really and substantially present. The faith stayed the same; the language of transubstantiation was added to guard it.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "1 Corinthians 11:23-26",
+    "when": "c. 55",
+    "year": 55,
+    "ref": "1CO.11.23-26",
+    "quote": "This is my body, which is broken for you",
+    "note": "Question: what happened at the Last Supper? Paul hands on the words \"This is my body\" and \"This cup is the new covenant in my blood\"."
+   },
+   {
+    "kind": "scripture",
+    "label": "John 6:53-56",
+    "when": "c. 90",
+    "year": 90,
+    "ref": "JHN.6.53-56",
+    "quote": "my flesh is food indeed, and my blood is drink indeed",
+    "note": "Question: what does it mean to eat Christ's flesh? Jesus insists his flesh is \"food indeed\" and his blood \"drink indeed\"."
+   },
+   {
+    "kind": "father",
+    "label": "Ignatius of Antioch, Letter to the Romans",
+    "when": "c. 107",
+    "year": 107,
+    "work": "ignatius-letters",
+    "section": "v.xii",
+    "quote": "I seek the bread of God, which is the flesh of Jesus Christ; and I seek His blood, a drink which is love incorruptible",
+    "note": "Question: what did the earliest generation after the apostles believe? Ignatius calls the bread of God the flesh of Christ."
+   },
+   {
+    "kind": "father",
+    "label": "Irenaeus, Against Heresies 5.2",
+    "when": "c. 180",
+    "year": 180,
+    "work": "irenaeus-heresies",
+    "section": "ix.vii.iii",
+    "quote": "nor is the cup of the Eucharist the communion of His blood, nor the bread which we break the communion of His body… When, therefore, the mingled cup and the manufactured bread receives the Word of God, and the Eucharist of the blood and the body of Christ is made",
+    "note": "Error answered: Gnostics despised the body and flesh. Irenaeus argues that if flesh cannot be saved, the Eucharist would not be a communion in Christ's body and blood, but it is."
+   },
+   {
+    "kind": "father",
+    "label": "Cyril of Jerusalem, Mystagogic Catechesis 4",
+    "when": "c. 350",
+    "year": 350,
+    "work": "cyril-catecheses",
+    "section": "ii.xxvi",
+    "quote": "Consider therefore the Bread and the Wine not as bare elements, for they are, according to the Lord's declaration, the Body and Blood of Christ",
+    "note": "Question: how should newly baptized Christians understand what they receive? Cyril tells them to trust the Lord's word more than the evidence of taste."
+   },
+   {
+    "kind": "father",
+    "label": "Ambrose, On the Mysteries",
+    "when": "c. 390",
+    "year": 390,
+    "work": "ambrose-works",
+    "section": "iv.v.x",
+    "quote": "It is the true Flesh of Christ which crucified and buried, this is then truly the Sacrament of His Body.",
+    "note": "Question: how can bread become Christ's body? Ambrose points to the Incarnation, which also did not follow the usual course of nature."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Exposition of Psalm 34",
+    "when": "c. 392",
+    "year": 392,
+    "work": "aug-psalms",
+    "section": "ii.XXXIV",
+    "quote": "Now will He speak openly of the same Sacrament, whereby He was carried in His Own Hands.",
+    "note": "Question: how do the Fathers read the Psalms in light of the Supper? Augustine finds in the Psalm a figure of the sacrament in which Christ held himself in his own hands."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 13, Decree on the Eucharist",
+    "when": "1551",
+    "year": 1551,
+    "work": "trent-canons-decrees",
+    "section": "s13",
+    "quote": "our Lord Jesus Christ, true God and man, is truly, really, and substantially contained under the species of those sensible things",
+    "note": "Error answered: sixteenth-century reformers denied that Christ is substantially present, treating the Eucharist as a sign. Trent defines the real presence in the plainest terms."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 1374",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 1374,
+    "quote": "the body and blood, together with the soul and divinity, of our Lord Jesus Christ and, therefore, the whole Christ is truly, really, and substantially contained",
+    "note": "The Catechism repeats Trent: the presence is \"real\" in the fullest sense, because it is the whole Christ."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Augustine and other Fathers call the Eucharist a sign and speak of eating by faith. Isn't that just a symbol?",
+    "a": "They do use sign language, but they never say Christ is absent. Augustine's point is that faith is needed to receive the sacrament fruitfully, and Trent explicitly rejects the claim that Christ is present \"only in a sign\". Both truths are held together.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, Tractate 26 on John",
+      "when": "c. 410",
+      "year": 410,
+      "work": "aug-tractates-john",
+      "section": "iii.xxvi",
+      "quote": "To what purpose dost thou make ready teeth and stomach? Believe, and thou hast eaten already.",
+      "note": "Augustine stresses that the real nourishment is received by faith, which the Church affirms alongside the sacramental eating."
+     },
+     {
+      "kind": "council",
+      "label": "Council of Trent, Session 13, Canon 8",
+      "when": "1551",
+      "year": 1551,
+      "work": "trent-canons-decrees",
+      "section": "s13",
+      "quote": "If anyone saith that Christ, given§ in the Eucharist, is eaten spiritually only, and not also sacramentally and really; let him be anathema.",
+      "note": "Trent keeps both truths: spiritual eating by faith, and also real sacramental eating."
+     }
+    ]
+   },
+   {
+    "q": "I can see, smell and taste bread. Why believe it is anything else?",
+    "a": "The Fathers face this same objection and answer that sense reports the appearance while faith rests on Christ's word. Ambrose and Cyril both appeal to the Lord's power to change nature.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Ambrose, On the Mysteries",
+      "when": "c. 390",
+      "year": 390,
+      "work": "ambrose-works",
+      "section": "iv.v.x",
+      "quote": "Perhaps you will say, “I see something else, how is it that you assert that I receive the Body of Christ?”",
+      "note": "Ambrose states the objection in the first person and then answers it with the power of Christ's blessing."
+     }
+    ]
+   },
+   {
+    "q": "\"Transubstantiation\" is a medieval philosophical word, so isn't the doctrine itself a medieval invention?",
+    "a": "The word is later, but the belief is not. Trent says it has always been the Church's firm belief that the bread and wine are changed, and the Fathers already speak of change; the term was adopted to name that change precisely.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Session 13, Canon 2",
+      "when": "1551",
+      "year": 1551,
+      "work": "trent-canons-decrees",
+      "section": "s13",
+      "quote": "denieth that wonderful and singular conversion of the whole substance of the bread into the Body, and of the whole substance of the wine into the Blood",
+      "note": "Trent names the change and the term that the Church uses for it."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1373,
+   1374,
+   1376,
+   1377,
+   1413,
+   1333
+  ]
+ },
+ {
+  "id": "canon-development",
+  "title": "How the canon of Scripture was recognized",
+  "question": "How did the Church come to recognize which books belong in the Bible?",
+  "summary": "From the start the Church read the Scriptures as inspired, and the four Gospels were recognized early. For other books the Church tested what was read in the churches and received from the apostles, with some local differences, until Trent and Vatican I stated the list as a matter of faith. The books are not given their authority by a vote; the Church recognizes what God inspired.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "2 Timothy 3:16",
+    "when": "c. 65",
+    "year": 65,
+    "ref": "2TI.3.15-17",
+    "quote": "Every Scripture is God-breathed and profitable for teaching",
+    "note": "Question: do the apostles already treat some writings as Scripture? Paul says every Scripture is God-breathed and useful."
+   },
+   {
+    "kind": "father",
+    "label": "Irenaeus, Against Heresies 3.11",
+    "when": "c. 180",
+    "year": 180,
+    "work": "irenaeus-heresies",
+    "section": "ix.iv.xii",
+    "quote": "It is not possible that the Gospels can be either more or fewer in number than they are.",
+    "note": "Error answered: Marcion and Gnostic sects used their own gospels. Irenaeus defends the four received Gospels as the Church's fixed number."
+   },
+   {
+    "kind": "father",
+    "label": "Origen, Commentary on Matthew",
+    "when": "c. 245",
+    "year": 245,
+    "work": "origen-matthew",
+    "section": "xvi.ii.i",
+    "quote": "Concerning the four Gospels which alone are uncontroverted in the Church of God under heaven",
+    "note": "Question: which writings were accepted everywhere? Origen reports that only the four Gospels were beyond dispute in his day."
+   },
+   {
+    "kind": "father",
+    "label": "Eusebius, Church History 3.25",
+    "when": "c. 325",
+    "year": 325,
+    "work": "eusebius-history",
+    "section": "iii.viii",
+    "quote": "it is proper to sum up the writings of the New Testament which have been already mentioned. First then must be put the holy quaternion of the Gospels",
+    "note": "Question: which books were agreed upon and which still disputed? Eusebius sorts the New Testament writings into accepted, disputed and rejected."
+   },
+   {
+    "kind": "father",
+    "label": "Cyril of Jerusalem, Catechesis 4",
+    "when": "c. 350",
+    "year": 350,
+    "work": "cyril-catecheses",
+    "section": "ii.viii",
+    "quote": "Of these read the two and twenty books, but have nothing to do with the apocryphal writings. Study earnestly these only which we read openly in the Church.",
+    "note": "Question: what should catechumens read? Cyril gives a list based on what the Church reads openly and warns against false books; his list differs from the later canon in some points, showing the process was still settling."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On Christian Doctrine 2.8",
+    "when": "c. 397",
+    "year": 397,
+    "work": "aug-christian-doctrine",
+    "section": "v.v.viii",
+    "quote": "Now the whole canon of Scripture on which we say this judgment is to be exercised, is contained in the following books",
+    "note": "Question: how to decide when churches differ? Augustine gives a rule (follow the greater number and greater authority of catholic churches) and a list that includes Tobias, Judith and Maccabees."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 4, Decree on the Canonical Scriptures",
+    "when": "1546",
+    "year": 1546,
+    "work": "trent-canons-decrees",
+    "section": "s4",
+    "quote": "Tobias, Judith, Esther, Job, the Davidical Psalter",
+    "note": "Error answered: sixteenth-century reformers set aside some Old Testament books. Trent lists the full canon as a matter of faith."
+   },
+   {
+    "kind": "council",
+    "label": "Vatican I, Dei Filius",
+    "when": "1870",
+    "year": 1870,
+    "work": "vatican-i-constitutions",
+    "section": "s3",
+    "quote": "not because, having been carefully composed by mere human industry, they were afterward approved by her authority",
+    "note": "Question: does the Church create Scripture by approving it? Vatican I says the books are canonical because God is their author, not because the Church gave them authority."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 120",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 120,
+    "quote": "It was by the apostolic Tradition that the Church discerned which writings are to be included in the list of the sacred books.",
+    "note": "The Catechism states the principle: the Church discerns the canon from apostolic Tradition."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Didn't the Catholic Church add the deuterocanonical books at Trent?",
+    "a": "Trent defined the list, but the books were in use long before. Augustine, writing in the late fourth century, already counted Tobias, Judith and Maccabees in his list; some Fathers hesitated over them, which is why a clear definition came later."
+   },
+   {
+    "q": "If the Church decided the canon, isn't the Church above Scripture?",
+    "a": "The Church recognizes Scripture; it does not make it inspired. Vatican I says the books are canonical because they have God for their author, and the Church discerns this through apostolic Tradition.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "2 Thessalonians 2:15",
+      "when": "c. 51",
+      "year": 51,
+      "ref": "2TH.2.15",
+      "quote": "hold the traditions which you were taught by us, whether by word or by letter",
+      "note": "Paul tells believers to hold both written and oral apostolic tradition."
+     }
+    ]
+   },
+   {
+    "q": "There was no early council fixing the canon, so how can it be certain?",
+    "a": "The bundled sources show a gradual, shared recognition rather than a single early decree: Irenaeus and Origen on the Gospels, Eusebius on accepted and disputed books, Augustine's criterion of the greater number of churches. The Church later declared what had been received."
+   }
+  ],
+  "readNext": [
+   105,
+   120,
+   121,
+   134,
+   138
+  ]
+ },
+ {
+  "id": "icons-development",
+  "title": "How the Church came to defend holy images",
+  "question": "Does the Church's veneration of icons contradict the commandment against graven images?",
+  "summary": "Israel was forbidden to worship images, yet God commanded sacred figures in the tabernacle. With the Incarnation God became visible, and Christians depicted Christ. When the iconoclasts condemned this, John Damascene and the Second Council of Nicaea (787) answered that honor given to an image passes to the person it represents, and is not the worship due to God alone.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Exodus 20:4-5",
+    "when": "c. 1250 BC",
+    "year": -1250,
+    "ref": "EXO.20.4-5",
+    "quote": "you shall not bow yourself down to them, nor serve them",
+    "note": "Question: is making images forbidden? God forbids images made to be worshipped as gods."
+   },
+   {
+    "kind": "scripture",
+    "label": "Exodus 25:18-20",
+    "when": "c. 1250 BC",
+    "year": -1250,
+    "ref": "EXO.25.18-20",
+    "quote": "You shall make two cherubim of hammered gold.",
+    "note": "Question: if all images are forbidden, why did God command carved cherubim? The same law orders sacred figures for the tabernacle."
+   },
+   {
+    "kind": "scripture",
+    "label": "John 1:14",
+    "when": "c. 90",
+    "year": 90,
+    "ref": "JHN.1.14",
+    "quote": "The Word became flesh and lived among us. We saw his glory",
+    "note": "Question: what changes when God becomes visible? The Word became flesh and was seen."
+   },
+   {
+    "kind": "saint",
+    "label": "John Damascene, Exact Exposition 4.16",
+    "when": "c. 743",
+    "year": 743,
+    "work": "john-damascus",
+    "section": "iii.iv.iv",
+    "quote": "who can make an imitation of the invisible, incorporeal, uncircumscribed, formless God? Therefore to give form to the Deity is the height of folly and impiety.",
+    "note": "Question: how can God be depicted? Damascene agrees that the invisible God cannot be imitated, which is why images were rare under the Old Testament."
+   },
+   {
+    "kind": "saint",
+    "label": "John Damascene, Exact Exposition 4.16",
+    "when": "c. 743",
+    "year": 743,
+    "work": "john-damascus",
+    "section": "iii.iv.iv",
+    "quote": "we worship even the image of the precious and life-giving Cross, although made of another tree, not honouring the tree (God forbid) but the image as a symbol of Christ",
+    "note": "Question: is honoring an object idolatry? Damascene distinguishes honoring the object itself from honoring what it signifies."
+   },
+   {
+    "kind": "council",
+    "label": "Iconoclast Council of Hieria (754), as quoted at Nicaea II",
+    "when": "754",
+    "year": 754,
+    "work": "council-nicaea-2",
+    "section": "xvi.x",
+    "quote": "the unlawful art of painting living creatures blasphemed the fundamental doctrine of our salvation",
+    "note": "Error stated: the iconoclasts claimed that sacred images contradict the Incarnation. The Church did not accept this council as ecumenical, and Nicaea II answered it."
+   },
+   {
+    "kind": "council",
+    "label": "Second Council of Nicaea, Decree",
+    "when": "787",
+    "year": 787,
+    "work": "council-nicaea-2",
+    "section": "xvi.xii",
+    "quote": "the making of pictorial representations, agreeable to the history of the preaching of the Gospel, a tradition useful in many respects, but especially in this, that so the incarnation of the Word of God is shown forth as real and not merely phantastic",
+    "note": "Answer to the iconoclasts: images are a tradition tied to the Incarnation, showing that God really became man."
+   },
+   {
+    "kind": "council",
+    "label": "Second Council of Nicaea, Decree",
+    "when": "787",
+    "year": 787,
+    "work": "council-nicaea-2",
+    "section": "xvi.xii",
+    "quote": "For the honour which is paid to the image passes on to that which the image represents, and he who reveres the image reveres in it the subject represented.",
+    "note": "Question: is this idolatry? The council distinguishes veneration of images from worship, which belongs to God alone."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 2132",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 2132,
+    "quote": "The honor paid to sacred images is a \"respectful veneration,\" not the adoration due to God alone",
+    "note": "The Catechism restates the principle: honor given to an image goes to the person portrayed."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Doesn't the first commandment forbid all images, and doesn't veneration look like idolatry?",
+    "a": "The commandment forbids images made to be worshipped as gods. Scripture itself also commands carved cherubim for the tabernacle. Nicaea II distinguishes honor from the worship due to God alone.",
+    "steps": [
+     {
+      "kind": "saint",
+      "label": "John Damascene, Exact Exposition 4.16",
+      "when": "c. 743",
+      "year": 743,
+      "work": "john-damascus",
+      "section": "iii.iv.iv",
+      "quote": "the divine Scripture blames those who worship graven images, but also those who sacrifice to demons",
+      "note": "Damascene observes that what Scripture condemns is worship wrongly directed."
+     }
+    ]
+   },
+   {
+    "q": "The early Church had no icons. Isn't this a later corruption?",
+    "a": "The Fathers at Nicaea II appeal to the unwritten tradition handed down, as Paul commands. Damascene likewise cites Paul on the traditions handed down by word. Images are part of what the Church received, not an addition.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "2 Thessalonians 2:15",
+      "when": "c. 51",
+      "year": 51,
+      "ref": "2TH.2.15",
+      "quote": "hold the traditions which you were taught by us, whether by word or by letter",
+      "note": "Paul authorizes holding the traditions handed down, whether spoken or written."
+     }
+    ]
+   },
+   {
+    "q": "If God cannot be depicted, how can Christ be depicted?",
+    "a": "Christ is the visible image of the invisible God; because the Word took a human body, he can be seen and depicted in that humanity. Denying this would imply the Incarnation was only an appearance.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Colossians 1:15",
+      "when": "c. 61",
+      "year": 61,
+      "ref": "COL.1.15",
+      "quote": "He is the image of the invisible God, the firstborn of all creation.",
+      "note": "Paul calls Christ the image of the invisible God."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   2129,
+   2130,
+   2131,
+   2132,
+   2141
+  ]
+ }
+]

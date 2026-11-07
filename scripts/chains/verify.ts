@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Chain, Step } from '../../src/chains/types';
+import type { Chain, Life, Situation, Step } from '../../src/chains/types';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DATA = join(ROOT, 'public', 'data');
@@ -31,6 +31,12 @@ function verseText(ref: string): string | undefined {
 /** The source text a step points at, or an error */
 export function sourceText(s: Step): { text?: string; err?: string } {
   if (s.kind === 'catechism' || (s.ccc && !s.work)) { const t = s.ccc ? ccc(s.ccc) : undefined; return t ? { text: t } : { err: `no Catechism paragraph ${s.ccc}` }; }
+  if (s.butler) {
+    const m = /^(\d\d)-(\d\d):(\d+)$/.exec(s.butler); if (!m) return { err: `butler must look like 01-10:0, got ${s.butler}` };
+    const f = join(DATA, 'saints', 'butler', `${m[1]}.json`); if (!existsSync(f)) return { err: `no Butler month ${m[1]}` };
+    const e = JSON.parse(readFileSync(f, 'utf8')).days?.[m[2]]?.[+m[3]]; if (!e) return { err: `no Butler entry ${s.butler}` };
+    return { text: [e.name, ...e.text].join(' ') };
+  }
   if (s.work) {
     const w = work(s.work); if (!w) return { err: `no work ${s.work}` };
     const sec = w.sections.find((x: any) => x.id === s.section); if (!sec) return { err: `no section ${s.section} in ${s.work}` };
@@ -68,4 +74,27 @@ export function loadChains(mode: string): Chain[] {
   if (!existsSync(dir)) return [];
   return readdirSync(dir).filter((f) => f === `${mode}.json` || (f.startsWith(`${mode}.`) && f.endsWith('.json'))).sort()
     .flatMap((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')) as Chain[]);
+}
+
+export function verifySituation(c: Situation): string[] {
+  const bad: string[] = [];
+  if (!c.id || !c.title || !c.ask || !c.intro) bad.push(`${c.id}: missing id/title/ask/intro`);
+  if (!c.mentors?.length || c.mentors.length < 3) bad.push(`${c.id}: needs at least 3 mentors`);
+  (c.mentors ?? []).forEach((m, i) => { if (!m.name || !m.lifespan || !m.why || m.why.length < 40) bad.push(`${c.id} mentor ${i + 1}: name/lifespan/why incomplete`); bad.push(...verifyStep(m.step, `${c.id} mentor ${i + 1} (${m.name})`)); });
+  return bad;
+}
+export function verifyLife(c: Life): string[] {
+  const bad: string[] = [];
+  if (!c.id || !c.name || !c.lifespan || !c.sketch) bad.push(`${c.id}: missing id/name/lifespan/sketch`);
+  if (!c.events || c.events.length < 8) bad.push(`${c.id}: needs at least 8 events`);
+  let last = -9999;
+  (c.events ?? []).forEach((e, i) => { if (e.year < last) bad.push(`${c.id} event ${i + 1}: out of order`); last = e.year; if (!e.text || e.text.length < 15) bad.push(`${c.id} event ${i + 1}: text too short`); if (e.step) bad.push(...verifyStep(e.step, `${c.id} event ${i + 1}`)); });
+  if (!(c.events ?? []).some((e) => e.kind === 'setback')) bad.push(`${c.id}: include at least one setback`);
+  if (!(c.events ?? []).some((e) => e.kind === 'world')) bad.push(`${c.id}: include world events for context`);
+  return bad;
+}
+export function loadFiles<T>(prefix: string): T[] {
+  const dir = join(ROOT, 'src', 'data', 'chains');
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir).filter((f) => f === `${prefix}.json` || (f.startsWith(`${prefix}.`) && f.endsWith('.json'))).sort().flatMap((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')) as T[]);
 }
