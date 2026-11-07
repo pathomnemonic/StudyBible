@@ -5495,3 +5495,28 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .to-plan ol { margin: 6px 0 10px; padding-left: 22px; }
 .to-over { color: #c4553a; font-weight: 600; }
 @media print { .teach-opts .to-tabs, .teach-opts .to-setup { display: none; } }
+
+/* sourced chains: arguments, development, heresies */
+.chain-steps{list-style:none;margin:12px 0;padding:0}
+.chain-step{display:grid;grid-template-columns:22px 1fr;gap:10px;position:relative}
+.chain-rail{position:relative;display:flex;justify-content:center}
+.chain-rail::before{content:"";position:absolute;top:0;bottom:0;width:2px;background:var(--line,rgba(128,128,128,.35))}
+.chain-step:first-child .chain-rail::before{top:14px}
+.chain-step:last-child .chain-rail::before{bottom:calc(100% - 14px)}
+.chain-dot{position:relative;margin-top:8px;width:12px;height:12px;border-radius:50%;background:var(--accent,#7a5)}
+.chain-body{padding:0 0 18px;min-width:0}
+.chain-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:2px 0 0;font-size:.78rem}
+.chain-kind{padding:1px 8px;border-radius:999px;border:1px solid currentColor;font-weight:600;letter-spacing:.02em;text-transform:uppercase;font-size:.68rem}
+.chain-kind.k-scripture{color:#4a7bd0}.chain-kind.k-father{color:#b9772e}.chain-kind.k-council{color:#8a5ac2}.chain-kind.k-catechism{color:#2f8f6b}.chain-kind.k-magisterium{color:#2f8f6b}.chain-kind.k-saint{color:#c0507a}.chain-kind.k-liturgy{color:#5a8f9a}.chain-kind.k-heresy{color:#c05050}
+.chain-when{opacity:.75}.chain-when.big{font-size:1.05rem;font-weight:700;opacity:1}
+.chain-label{margin:4px 0 4px;font-size:1.02rem}
+.chain-quote{margin:6px 0;padding:8px 12px;border-left:3px solid var(--accent,#7a5);background:rgba(128,128,128,.08);border-radius:0 8px 8px 0}
+.chain-quote p{margin:0;font-style:italic}
+.chain-note{margin:4px 0}
+.chain-h2{font-size:1.1rem;margin:22px 0 4px}
+.chain-obj{margin:8px 0;padding:8px 12px;border:1px solid var(--line,rgba(128,128,128,.35));border-radius:10px}
+.chain-obj summary{cursor:pointer;font-weight:600}
+.chain-error{border-left:4px solid #c05050}
+.chain-summary{border-left:4px solid var(--accent,#7a5)}
+.chain-list li{margin:10px 0}
+@media print{.chain-quote{background:none}}
