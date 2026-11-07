@@ -8,6 +8,7 @@ import { chapterToAnchorRefs, convertRef, fromAnchor, loadVersification, psalmDu
 const D = join(__dirname, '../public/data');
 const have = existsSync(join(D, 'editions.json'));
 const json = (p: string) => JSON.parse(readFileSync(join(D, p), 'utf8'));
+const licenses = JSON.parse(readFileSync(join(D, 'licenses.json'), 'utf8'));
 const d = have ? describe : describe.skip;
 
 d('generated data', () => {
@@ -42,7 +43,12 @@ d('generated data', () => {
   });
   it('every edition records rights, attribution and a source', () => {
     for (const e of editions.editions) {
-      expect(e.rights).toBe('public-domain');
+      // Only public-domain texts are bundled, with one recorded exception: a licensed edition the project owner has
+      // permission for. It must say so in its rights basis and be named in the bible licence record.
+      if (e.rights === 'licensed') {
+        expect(e.rightsBasis, `${e.id} is licensed`).toMatch(/permission/i);
+        expect(licenses.bible.license, `licence record must name ${e.shortName}`).toContain(e.shortName);
+      } else expect(e.rights).toBe('public-domain');
       expect(e.rightsBasis.length).toBeGreaterThan(20);
       expect(e.attribution.length).toBeGreaterThan(10);
       expect(e.sourceUrl).toMatch(/^https:/);

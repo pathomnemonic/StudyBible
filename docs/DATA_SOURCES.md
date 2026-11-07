@@ -16,7 +16,8 @@ Checksums and retrieval dates: `data/provenance/fetched.json`.
 
 | Edition | Why | What it would take |
 |---|---|---|
-| RSV-CE, RSV-2CE | © (Ignatius Press / NCC) | License + text; the `english` scheme mapping is ready |
+| RSV-2CE (Ignatius Bible) | © Ignatius Press / NCC USA | **Bundled (71 of 73 books)** from the owner's scan, with the owner's stated permission; verse breaks rebuilt automatically. See docs/RSV2CE.md |
+| RSV-CE | © (Ignatius Press / NCC) | License + text; the `english` scheme mapping is ready |
 | NABRE | © CCD/USCCB; USCCB limits reproduction | Written permission; add a `hebrew` scheme (NABRE counts psalm titles as verses) |
 | Jerusalem Bible / NJB | © Darton, Longman & Todd | License |
 | CPDV (Catholic Public Domain Version) | Dedicated to the public domain, but a machine-readable authoritative source and rights statement were not verified | Verify, then add an entry to `data/registry/editions.json` |

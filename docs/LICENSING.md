@@ -11,7 +11,8 @@
 | Brother Lawrence | Bundled, flagged | CCEL rights field "Public Domain"; translator/edition not identified |
 | Peers (Dark Night), 1949 Imitation, Devout Life (CCEL) | **Not bundled** | Translation date/status unverified |
 | Catechism text | Not bundled | © LEV/USCCB; only numbers and check phrases stored |
-| Lectionary / NABRE / RSV / NJB | Not bundled | Copyrighted |
+| RSV-2CE (Ignatius Bible) | **Bundled, licensed** | Included on the project owner's statement (Nov 2026) that permission has been obtained; licence reference still to be recorded in docs/RSV2CE.md. Text read from the owner's scan. |
+| Lectionary / NABRE / RSV-CE / NJB | Not bundled | Copyrighted |
 | Bible in a Year, Word on Fire, Catholic Answers, Ascension | Metadata/links only | No reuse license |
 | Traditional prayers (Our Father, Hail Mary, Memorare, …) | Bundled | Long-established traditional wording; ICEL liturgical texts excluded |
 

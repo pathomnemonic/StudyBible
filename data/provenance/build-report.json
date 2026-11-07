@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25",
+ "generated": "2026-11-07",
  "errors": [],
  "warnings": [
   "[cpdv] book “Prayer of Manasses” is not in the 73-book canon; skipped",
@@ -559,6 +559,10 @@
    {
     "id": "brenton",
     "books": 30
+   },
+   {
+    "id": "rsv2ce",
+    "books": 71
    }
   ],
   "xrefs": {
@@ -594,7 +598,7 @@
    "bonus": 92,
    "unresolved": 1,
    "missingDays": [],
-   "dayVariantCount": 94
+   "dayVariantCount": 93
   },
   "haydock": {
    "entries": 19085,
@@ -937,7 +941,7 @@
   "cite-index": 1321,
   "paths": 15,
   "galaxy-library": 107,
-  "art-more": 532,
+  "art-more": 607,
   "jesus": {
    "books": 9,
    "spans": 2290,
@@ -1237,7 +1241,7 @@
   },
   "church-docs": 122,
   "curated": {
-   "topics": 18,
+   "topics": 38,
    "cccLinksShipped": 29
   },
   "church": {
@@ -1339,7 +1343,7 @@
   },
   "editorial": {
    "books": 73,
-   "references": 1535,
+   "references": 1600,
    "persons": 134,
    "synopsisRows": 90,
    "parables": 37,
@@ -1366,7 +1370,7 @@
   },
   "art": 39,
   "manuscripts": 13,
-  "glossa-en": 7886,
+  "glossa-en": 9466,
   "terms": 32,
   "daily": 517,
   "lectionary-days": 297,

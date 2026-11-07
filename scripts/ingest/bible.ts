@@ -88,7 +88,39 @@ function buildJsonEdition(cfg: EditionConfig, src: any, report: Report): BuiltEd
   return { edition: { ...pub, chapters, verseCounts }, books };
 }
 
+/**
+ * Licensed editions whose text was prepared once, outside the build, by a script that needs a source file we
+ * cannot ship (scripts/rsv/*, from the owner's licensed scan).  The finished books live in
+ * data/curated/<curatedDir>/<BOOK>.json and are validated here exactly like any other edition.
+ */
+function buildCuratedEdition(cfg: EditionConfig & { curatedDir?: string }, report: Report): BuiltEdition {
+  const dir = join('data/curated', cfg.curatedDir ?? cfg.id);
+  const books = new Map<string, BookData>();
+  for (const b of BOOKS) {
+    const f = join(dir, `${b.id}.json`);
+    if (!exists(f)) continue;
+    const bd = readJson(f) as BookData;
+    if (bd.id !== b.id) { report.error(`[${cfg.id}] ${f}: id ${bd.id} does not match file name`); continue; }
+    books.set(b.id, { ...bd, edition: cfg.id });
+  }
+  const chapters: Record<string, number> = {};
+  const verseCounts: Record<string, number[]> = {};
+  for (const b of BOOKS) {
+    const bd = books.get(b.id);
+    if (!bd) { if (!(cfg as any).partial) report.error(`[${cfg.id}] missing book ${b.id} (${b.name})`); continue; }
+    chapters[b.id] = bd.chapters.length;
+    verseCounts[b.id] = bd.chapters.map(maxVerse);
+    bd.chapters.forEach((c, i) => {
+      if (c.n !== i + 1) report.error(`[${cfg.id}] ${b.id}: chapter sequence broken at index ${i} (found ${c.n})`);
+      if (verseCounts[b.id][i] === 0) report.error(`[${cfg.id}] ${b.id} ${c.n}: chapter has no verses`);
+    });
+  }
+  const { source: _s, usfmPattern: _p, bookCodeMap: _m, curatedDir: _c, ...pub } = cfg as any;
+  return { edition: { ...pub, chapters, verseCounts }, books };
+}
+
 export function buildEdition(cfg: EditionConfig, report: Report): BuiltEdition {
+  if (cfg.source === 'curated-json') return buildCuratedEdition(cfg, report);
   const zipPath = join(RAW, SOURCE_FILES[cfg.source]);
   if (!exists(zipPath)) throw new Error(`Missing ${zipPath}; run "npm run data:fetch" first.`);
   if (zipPath.endsWith('.json')) return buildJsonEdition(cfg, readJson(zipPath), report);

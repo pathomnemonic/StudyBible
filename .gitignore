@@ -9,3 +9,6 @@ data/licensed
 
 __pycache__/
 *.pyc
+
+# RSV-2CE: intermediate aligner output (rebuilt from data/licensed/*); the shipped pack is data/curated/rsv2ce
+data/curated/rsv2ce-raw/
