@@ -69,7 +69,8 @@ function pick(moves: Move[], c: Ctx, setup: Setup, used: Set<string>, key: strin
 
 export function ideasOf(l: LessonSpec): string[] {
   const t = (l.teach ?? []).filter((x) => x.trim().length > 20);
-  if (t.length) return t.slice(0, 4);
+  // K-2 teacher notes carry a fourth (pitfall) and fifth (check) point that are guidance, not extra ideas to teach
+  if (t.length) return t.slice(0, /^(K|1|2)-/.test(l.id) ? 3 : 4);
   const sc = (l.script?.teach ?? []).filter((x) => x.trim().length > 20);
   if (sc.length) return sc.slice(0, 4);
   return [l.idea];
