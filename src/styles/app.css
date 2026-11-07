@@ -4011,7 +4011,8 @@ html[data-notemarks='off'] .fn, html[data-notemarks='off'] .rm-std { display: no
 .slides { position: fixed; inset: 0; z-index: 210; display: flex; flex-direction: column; background: var(--bg); color: var(--text); outline: none; --sl-a: var(--accent); }
 .slides .sl-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 18px; }
 .slides .sl-label { font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; color: var(--sl-a); font-weight: 700; }
-.slides .sl-tools { display: flex; gap: 6px; }
+.slides .sl-tools { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; min-width: 0; }
+.slides .sl-label { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .sl-stage { flex: 1; display: flex; align-items: center; justify-content: center; padding: 2vh 7vw; cursor: pointer; overflow: auto; }
 .sl-body { width: 100%; max-width: 1100px; animation: slIn .25s ease; }
 @keyframes slIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
