@@ -13,6 +13,7 @@ import LessonSlides, { buildSlides } from '../../curriculum/LessonSlides';
 import { isKeyLesson } from '../../curriculum/keyLessons';
 import LessonRun from '../../curriculum/LessonRun';
 import LessonPlay from '../../curriculum/LessonPlay';
+import TeachingOptions from '../../curriculum/TeachingOptions';
 import StartLive from '../../live/StartLive';
 import { toLiveSlides } from '../../live/slides';
 import { embedFor } from '../../lib/embed';
@@ -182,6 +183,7 @@ export default function CurriculumLesson() {
               ))}
             </ol>
           </section>
+          <TeachingOptions lesson={lesson} band={g.band} gl={gl} minutes={minutes} />
           <section className="sect">
             <h2 className="eyebrow-h">Background for the teacher</h2>
             <p className="muted small">Read these before you teach. The Catechism paragraphs are the Church’s own words; check your understanding against them.</p>

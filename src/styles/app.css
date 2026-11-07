@@ -5473,3 +5473,24 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .qn-q { font-size: 1.2rem; line-height: 1.45; margin: 8px 0 12px; }
 .qn-host { margin: 12px 0; }
 .qn-team { display: inline-flex; align-items: center; gap: 6px; }
+
+/* Teaching options (curriculum teacher view) */
+.teach-opts .to-setup { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.teach-opts .to-setup .chip { cursor: pointer; }
+.teach-opts .to-setup .chip.on { background: var(--accent, #7a2e2e); color: #fff; border-color: transparent; }
+.to-idea { margin-top: 14px; border-top: 1px solid var(--border, rgba(127,127,127,.25)); padding-top: 6px; }
+.to-gist { font-weight: 500; font-size: .95em; }
+.to-chooser { margin: 6px 0 12px; }
+.to-tabs { flex-wrap: wrap; }
+.to-tabs button { text-align: left; }
+.to-tabs .to-picked { font-weight: 700; }
+.to-card { border: 1px solid var(--border, rgba(127,127,127,.3)); border-radius: 12px; padding: 12px 14px; background: var(--surface, transparent); }
+.to-meta { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; margin-bottom: 6px; }
+.to-kit { font-size: .82em; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--border, rgba(127,127,127,.35)); }
+.to-steps { margin: 6px 0 8px; padding-left: 22px; }
+.to-steps li { margin-bottom: 5px; }
+.to-without { border-left: 3px solid var(--accent, #7a2e2e); padding-left: 8px; }
+.to-plan { margin-top: 16px; padding: 12px 14px; border-radius: 12px; border: 1px dashed var(--border, rgba(127,127,127,.45)); }
+.to-plan ol { margin: 6px 0 10px; padding-left: 22px; }
+.to-over { color: #c4553a; font-weight: 600; }
+@media print { .teach-opts .to-tabs, .teach-opts .to-setup { display: none; } }
