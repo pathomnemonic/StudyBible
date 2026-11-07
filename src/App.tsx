@@ -112,6 +112,8 @@ const MediaSearch = lazy(() => import('./pages/listen/MediaSearch'));
 const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
 const ChainsPage = lazy(() => import('./pages/study/ChainsPage'));
 const ZoomPage = lazy(() => import('./pages/study/ZoomPage'));
+const MentorsPage = lazy(() => import('./pages/study/MentorsPage'));
+const LivesPage = lazy(() => import('./pages/study/LivesPage'));
 const ConversationPage = lazy(() => import('./pages/study/ConversationPage'));
 const ComparePage = lazy(() => import('./pages/study/ComparePage'));
 const ShareVersePage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.ShareVersePage })));
@@ -394,6 +396,8 @@ export default function App() {
               <Route path="/study/heresies/:id?" element={<ChainsPage mode="heresies" />} />
               <Route path="/study/words/:id?" element={<ChainsPage mode="words" />} />
               <Route path="/study/zoom/:term?" element={<ZoomPage />} />
+              <Route path="/study/mentors/:id?" element={<MentorsPage />} />
+              <Route path="/study/lives/:id?" element={<LivesPage />} />
               <Route path="/study/conversation" element={<ConversationPage />} />
               <Route path="/study/compare" element={<ComparePage />} />
               <Route path="/s/verse" element={<ShareVersePage />} />

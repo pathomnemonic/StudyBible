@@ -1,0 +1,920 @@
+[
+ {
+  "id": "papal-primacy-development",
+  "title": "The primacy of Peter and his successors: how it came to be defined",
+  "question": "Did the Catholic teaching on the pope come from nowhere in 1870, or can it be traced back to the Church's first centuries?",
+  "summary": "Christ gave Simon a special place among the apostles, and from the first century the Church of Rome acts and is spoken of with unusual weight. The question of how far that authority reaches was argued over the centuries, and Vatican I defined the pope's primacy of jurisdiction in 1870, while also affirming that the bishops' own authority is protected by it. What stayed the same is the claim of the Gospel itself: Peter is the rock and shepherd, and his office continues.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Matthew 16:18-19",
+    "when": "c. 30",
+    "year": 30,
+    "ref": "MAT.16.18-19",
+    "quote": "I also tell you that you are Peter, and on this rock I will build my assembly, and the gates of Hades will not prevail against it.",
+    "note": "The seed of the doctrine: a question about who Jesus is draws a promise to one man, Simon, who is renamed and given the keys. Every later step is an attempt to say what that promise means for a Church that must outlast its first apostles."
+   },
+   {
+    "kind": "scripture",
+    "label": "Luke 22:31-32",
+    "when": "c. 30",
+    "year": 30,
+    "ref": "LUK.22.31-32",
+    "quote": "I prayed for you, that your faith wouldn’t fail. You, when once you have turned again, establish your brothers.",
+    "note": "Answers the worry that Peter's role was merely honorary: Christ prays for Simon and gives him a task toward the others, to strengthen the brethren."
+   },
+   {
+    "kind": "father",
+    "label": "Clement of Rome, First Epistle to the Corinthians 57",
+    "when": "c. 96",
+    "year": 96,
+    "work": "clement-rome",
+    "section": "ii.ii.lvii",
+    "quote": "Ye therefore, who laid the foundation of this sedition, submit yourselves to the presbyters, and receive correction so as to repent, bending the knees of your hearts.",
+    "note": "Pressure: a quarrel at Corinth had deposed its presbyters. The Church of Rome writes to a distant church and expects to be heeded. Clement does not name a title, but the pattern of Rome counselling other churches is already here."
+   },
+   {
+    "kind": "father",
+    "label": "Ignatius of Antioch, Epistle to the Romans",
+    "when": "c. 107",
+    "year": 107,
+    "work": "ignatius-letters",
+    "section": "v.v",
+    "quote": "which also presides in the place of the region of the Romans … Ye have never envied any one; ye have taught others.",
+    "note": "Pressure: Ignatius, on his way to martyrdom, must address many churches and chooses a distinctive wording for Rome, the church that \"presides\" and \"teaches\". It is an early sign of how Rome was regarded, though Ignatius says nothing explicit about jurisdiction."
+   },
+   {
+    "kind": "father",
+    "label": "Irenaeus, Against Heresies 3.3",
+    "when": "c. 180",
+    "year": 180,
+    "work": "irenaeus-heresies",
+    "section": "ix.iv.iv",
+    "quote": "the very great, the very ancient, and universally known Church founded and organized at Rome by the two most glorious apostles, Peter and Paul … For it is a matter of necessity that every Church should agree with this Church, on account of its pre-eminent authority",
+    "note": "Pressure: Gnostic teachers claimed secret apostolic traditions. Irenaeus points to the church at Rome as a touchstone of apostolic teaching, so that all churches must agree with it. The exact Latin phrase is debated, but the weight he gives to Rome is clear."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, Letter 73 to Jubaianus",
+    "when": "256",
+    "year": 256,
+    "work": "cyprian",
+    "section": "iv.iv.lxxii",
+    "quote": "For first of all the Lord gave that power to Peter, upon whom He built the Church, and whence He appointed and showed the source of unity",
+    "note": "Pressure: a dispute with Rome over baptism forced Cyprian to explain why unity exists at all. He roots it in Peter, while holding that every bishop shares in the one episcopate."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Ephesus, Session 3 (the legate Philip)",
+    "when": "431",
+    "year": 431,
+    "work": "council-ephesus",
+    "section": "x.xv",
+    "quote": "received the keys of the kingdom from our Lord Jesus Christ, the Saviour and Redeemer of the human race, and that to him was given the power of loosing and binding sins: who down even to to-day and forever both lives and judges",
+    "note": "Pressure: the condemnation of Nestorius. The pope's legate states, and the council receives without objection, that Peter lives and judges in his successors. This is the passage Vatican I later cites."
+   },
+   {
+    "kind": "father",
+    "label": "Leo the Great, Sermon 3 on his anniversary",
+    "when": "c. 441",
+    "year": 441,
+    "work": "leo-sermons-letters",
+    "section": "ii.v.iii",
+    "quote": "For he was ordained before the rest in such a way that from his being called the Rock, from his being pronounced the Foundation, from his being constituted the Doorkeeper of the kingdom of heaven",
+    "note": "Pressure: Leo had to explain on what ground he, as bishop of Rome, spoke for the whole Church. His answer is that Peter's office abides in his see."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Chalcedon, Session 2",
+    "when": "451",
+    "year": 451,
+    "work": "council-chalcedon",
+    "section": "xi.viii",
+    "quote": "Peter has spoken thus through Leo.",
+    "note": "Pressure: Eutyches's error about Christ. After the Tome of Leo was read, the bishops of the whole Church acclaimed it as the faith of Peter and the apostles."
+   },
+   {
+    "kind": "council",
+    "label": "Vatican I, Pastor Aeternus, chapter 1",
+    "when": "1870",
+    "year": 1870,
+    "work": "vatican-i-constitutions",
+    "section": "s7",
+    "quote": "the primacy of jurisdiction over the universal Church of God was immediately and directly promised and given to Blessed Peter",
+    "note": "Pressure: Gallican and conciliarist views said the pope's primacy was only one of honour or came from the Church. The council defines it as true jurisdiction given by Christ to Peter himself."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 882",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 882,
+    "quote": "The Pope, Bishop of Rome and Peter's successor, \"is the perpetual and visible source and foundation of the unity both of the bishops and of the whole company of the faithful.\"",
+    "note": "The settled teaching today: the pope is the visible principle of unity for bishops and faithful alike."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Cyprian himself said that Peter did not claim to hold a primacy over the others. Does that not show the early Church did not believe in papal authority?",
+    "a": "Cyprian is a real witness that the question was disputed. In his own day he opposed Pope Stephen over rebaptism, and he insisted that Peter did not behave arrogantly. But the same Cyprian holds that Peter was chosen first and that Christ founded the Church on him, and he never denies that Peter had a unique place. The Church did not follow Cyprian on baptism, and the later definition of Vatican I sets Peter's authority beside the bishops' own, as chapter 3 explains.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Cyprian, Letter 71 to Quintus",
+      "when": "255",
+      "year": 255,
+      "work": "cyprian",
+      "section": "iv.iv.lxx",
+      "quote": "For neither did Peter, whom first the Lord chose, and upon whom He built His Church, when Paul disputed with him afterwards about circumcision, claim anything to himself insolently, nor arrogantly assume anything",
+      "note": "Cyprian recognises that Peter was chosen first and that the Church is built on him, while arguing that Peter used his place without arrogance."
+     }
+    ]
+   },
+   {
+    "q": "Ignatius and Irenaeus speak of Rome's importance, not of a pope with power over all. Is Vatican I not a nineteenth-century invention?",
+    "a": "It is true the early texts do not speak the language of 1870, and the Church admits that the teaching was clarified over time. But the council did not claim a new revelation. It appealed to the same Gospel texts and to Fathers like Irenaeus, Ephesus and Leo, and it said it was defining what had always been held when it was denied.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Vatican I, Pastor Aeternus, chapter 2",
+      "when": "1870",
+      "year": 1870,
+      "work": "vatican-i-constitutions",
+      "section": "s8",
+      "quote": "whosoever succeeds to Peter in this see does by the institution of Christ Himself obtain the primacy of Peter over the whole Church",
+      "note": "The council itself ties its definition to Peter's office continuing in his successors, citing Irenaeus, Ephesus and Leo in its notes."
+     }
+    ]
+   },
+   {
+    "q": "Does the doctrine make the pope the sole bishop and the other bishops mere deputies?",
+    "a": "No. Vatican I says the opposite: the pope's power does not harm the ordinary and immediate power of the bishops, but asserts and supports it.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Vatican I, Pastor Aeternus, chapter 3",
+      "when": "1870",
+      "year": 1870,
+      "work": "vatican-i-constitutions",
+      "section": "s9",
+      "quote": "that ordinary and immediate power of episcopal jurisdiction, by which bishops, who have been set by the Holy Ghost to succeed and hold the place of the Apostles",
+      "note": "The bishops hold their own real authority from the Holy Spirit, and the primacy protects it."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   880,
+   881,
+   882,
+   883,
+   891
+  ]
+ },
+ {
+  "id": "original-sin-development",
+  "title": "Original sin: from Paul to the Catechism",
+  "question": "How did the Church come to teach that every person is born without original holiness, and what exactly does that mean?",
+  "summary": "Scripture links the human condition of sin and death to Adam, and the Fathers read it that way. When Pelagius and Cœlestius taught that Adam only gave a bad example, Augustine and the councils stated that Adam's sin is passed on by propagation, not imitation, and Trent repeated it against the Reformers. The Church has always held that this is a state we are born into and not a personal fault, and that human nature is wounded rather than destroyed.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Psalm 51:5",
+    "when": "c. 1000 BC",
+    "year": -1000,
+    "ref": "PSA.51.5",
+    "quote": "Behold, I was born in iniquity.",
+    "note": "The Old Testament already speaks of sinfulness reaching back to the beginning of a person's life, not just to his own acts."
+   },
+   {
+    "kind": "scripture",
+    "label": "Romans 5:18",
+    "when": "c. 57",
+    "year": 57,
+    "ref": "ROM.5.18",
+    "quote": "So then as through one trespass, all men were condemned; even so through one act of righteousness, all men were justified to life.",
+    "note": "The anchor text: Paul sets one man's trespass and one man's obedience side by side, and the parallel makes sense only if Adam's sin really affected everyone."
+   },
+   {
+    "kind": "father",
+    "label": "Irenaeus, Demonstration of the Apostolic Preaching",
+    "when": "c. 190",
+    "year": 190,
+    "work": "irenaeus-demonstration",
+    "section": "iv-22",
+    "quote": "because in the original formation of Adam all of us were tied and bound up with death through his disobedience, it was right that through the obedience of Him who was made man for us we should be released from death",
+    "note": "Pressure: Gnostics saw the human problem as matter or ignorance. Irenaeus answers that all are bound up with Adam in death and freed by Christ, who \"recapitulates\" Adam."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On the Merits and Forgiveness of Sins 1",
+    "when": "412",
+    "year": 412,
+    "work": "aug-pelagian",
+    "section": "x.iii",
+    "quote": "And from this we gather that we have derived from Adam, in whom we all have sinned, not all our actual sins, but only original sin; whereas from Christ, in whom we are all justified, we obtain the remission not merely of that original sin, but of the rest of our sins also, which we have added.",
+    "note": "Pressure: friends in Carthage asked why infants are baptized if they have not sinned. Augustine distinguishes the sin derived from Adam from the sins we later add, and ties it to the Church's practice of baptizing infants."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On Original Sin (quoting Cœlestius)",
+    "when": "418",
+    "year": 418,
+    "work": "aug-pelagian",
+    "section": "xv.iv",
+    "quote": "That infants, however, must be baptized for the remission of sins, was not admitted by us with the view of our seeming to affirm sin by transmission.",
+    "note": "The challenge in the Pelagian's own words: Cœlestius would baptize infants but denied that sin is transmitted. Augustine and the African councils replied that if baptism is truly for the remission of sins, there must be a sin to remit."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 5, Decree on Original Sin",
+    "when": "1546",
+    "year": 1546,
+    "work": "trent-canons-decrees",
+    "section": "s5",
+    "quote": "If anyone asserts, that the prevarication of Adam injured himself alone, and not his posterity … even infants, who could not as yet commit any sin of themselves, are for this cause truly baptised for the remission of sins, that in them that may be cleansed away by regeneration, which they have contracted by generation.",
+    "note": "Pressure: Reformers said that original sin is the very corruption of nature and that it remains as true sin after baptism. Trent restates the older teaching: sin passes by generation, baptism truly removes its guilt, and concupiscence remains as a trial."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 5 (concupiscence)",
+    "when": "1546",
+    "year": 1546,
+    "work": "trent-canons-decrees",
+    "section": "s5",
+    "quote": "this holy Synod confesses and is sensible that in the baptised there remains concupiscence, or an incentive (to sin)",
+    "note": "Trent adds the careful limit: what remains in the baptized is an inclination to sin, left for their struggle, and it is not itself condemnation."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 405",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 405,
+    "quote": "original sin does not have the character of a personal fault in any of Adam's descendants. It is a deprivation of original holiness and justice, but human nature has not been totally corrupted",
+    "note": "The current summary: original sin is a state we are born into, a loss of original holiness, and human nature is wounded but not destroyed."
+   }
+  ],
+  "objections": [
+   {
+    "q": "It is unjust for me to be blamed for what Adam did thousands of years ago.",
+    "a": "The Church does not teach that anyone is personally guilty of Adam's act. The Catechism calls original sin a sin \"contracted\" rather than \"committed,\" a deprivation of the holiness Adam received for all of us. It adds plainly that the way it is transmitted is a mystery.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism of the Catholic Church 404",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 404,
+      "quote": "the transmission of original sin is a mystery that we cannot fully understand",
+      "note": "The Church does not claim to explain how it is transmitted, only that, by Revelation, it is."
+     }
+    ]
+   },
+   {
+    "q": "Perhaps Adam simply gave a bad example, and \"all sinned\" in Romans 5 only means we follow him.",
+    "a": "This was exactly the Pelagian reading. Augustine replied that on that reading Abel, not Christ, would stand at the head of the righteous, because he was first to be righteous. If sin were only imitation, Paul's contrast between Adam and Christ would lose its force, and infant baptism \"for the remission of sins\" would be empty.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, On Nature and Grace 10",
+      "when": "415",
+      "year": 415,
+      "work": "aug-pelagian",
+      "section": "xii.xiv",
+      "quote": "If, therefore, Adam is said to be the author of all the sins which followed his own, because he was the first sinner of the human race, then how is it that Abel, rather than Christ, is not placed at the head of all the righteous, because he was the first righteous man?",
+      "note": "Augustine exposes a weakness in the \"bad example\" reading: Paul's parallel with Christ would collapse."
+     }
+    ]
+   },
+   {
+    "q": "The Reformers said human nature was totally corrupted. Is that not closer to Paul?",
+    "a": "The Church answered that nature is wounded but not destroyed, so free will and real goodness remain. The Catechism describes the Church as steering between two extremes: Pelagius, who thought nature needed no healing, and the Reformers, who thought it was ruined.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism of the Catholic Church 406",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 406,
+      "quote": "Pelagius held that man could, by the natural power of free will and without the necessary help of God's grace, lead a morally good life",
+      "note": "The Catechism places Pelagius and the Reformers at the two extremes the Church steered between."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   385,
+   396,
+   397,
+   402,
+   403,
+   404,
+   405,
+   406,
+   1250
+  ]
+ },
+ {
+  "id": "grace-development",
+  "title": "Grace: the answer to Pelagius and to Trent's decree",
+  "question": "Is salvation God's free gift or something we achieve, and how did the Church learn to say both that grace comes first and that we truly cooperate?",
+  "summary": "Paul says that we have nothing we did not receive, and that God works in us both to will and to work. Pelagius claimed that we can keep the commandments by our own will, so Augustine insisted that even the beginning of good is God's gift while free will is established, not abolished. Trent, answering the Reformers, taught that grace always comes first and calls for our free assent, and the Catechism repeats that teaching.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "1 Corinthians 4:7",
+    "when": "c. 55",
+    "year": 55,
+    "ref": "1CO.4.7",
+    "quote": "what do you have that you didn’t receive? But if you did receive it, why do you boast as if you had not received it?",
+    "note": "The seed of the doctrine: anything good in a person is received. Augustine later describes how this verse converted him from thinking that faith began with himself."
+   },
+   {
+    "kind": "scripture",
+    "label": "Ephesians 2:8-9",
+    "when": "c. 60",
+    "year": 60,
+    "ref": "EPH.2.8-9",
+    "quote": "for by grace you have been saved through faith, and that not of yourselves; it is the gift of God",
+    "note": "Salvation is by grace through faith, and it is a gift. The question of how a gift can also call for our free response is what the later steps answer."
+   },
+   {
+    "kind": "scripture",
+    "label": "Philippians 2:13",
+    "when": "c. 61",
+    "year": 61,
+    "ref": "PHP.2.13",
+    "quote": "For it is God who works in you both to will and to work for his good pleasure.",
+    "note": "Pressure: if grace is a gift, is our willing irrelevant? Paul in the same passage tells us to \"work out\" our salvation, because God is the one who works in us even in the act of willing."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On the Spirit and the Letter 52",
+    "when": "412",
+    "year": 412,
+    "work": "aug-pelagian",
+    "section": "xi.lv",
+    "quote": "Do we then by grace make void free will? God forbid! Nay, rather we establish free will.",
+    "note": "Pressure: Pelagian teaching made the law and our own will sufficient. Augustine insists that grace heals the will and so makes real freedom possible."
+   },
+   {
+    "kind": "father",
+    "label": "Pelagius, as quoted by Augustine (Proceedings of Pelagius 54)",
+    "when": "415",
+    "year": 415,
+    "work": "aug-pelagian",
+    "section": "xiv.lviii",
+    "quote": "a man is able to be without sin, and easily to keep the commandments of God, if he wishes",
+    "note": "The challenge in Pelagius's own words: human nature is by itself enough, and grace is only an added help. Augustine points out that this makes Christ's cross unnecessary."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On Grace and Free Will",
+    "when": "c. 426",
+    "year": 426,
+    "work": "aug-pelagian",
+    "section": "xix.iv",
+    "quote": "since there are some persons who so defend God’s grace as to deny man’s free will, or who suppose that free will is denied when grace is defended … From these and similar passages of Scripture, we gather the proof that God’s grace is not given according to our merits.",
+    "note": "Pressure: monks at Adrumetum had begun to deny free will in the name of grace. Augustine holds both: grace is not earned, and free will is real."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 6, Decree on Justification",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "although free will, attenuated as it was in its powers, and bent down, was by no means extinguished in them … yet is he not able, by his own free will, without the grace of God, to move himself unto justice in His sight",
+    "note": "Pressure: some Reformers taught that free will was lost and that man is purely passive, while others stressed works. Trent says free will is weakened but alive, and justification begins with God's call."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 6, Canon 3",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "If anyone saith that without the prevenient inspiration of the Holy Ghost, and without His help, man can believe, hope, love, or be penitent as he ought, so as that the grace of Justification may be bestowed upon him ; let him be anathema.",
+    "note": "The same council also condemns the Pelagian error: even the first movement of faith needs the Spirit's prior help."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 2001",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 2001,
+    "quote": "The preparation of man for the reception of grace is already a work of grace.",
+    "note": "The Catechism states the settled teaching, quoting Augustine: God begins the work and brings it to completion, with our cooperation."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Scripture tells us to \"work out your own salvation.\" Does that not show we contribute to it?",
+    "a": "Yes, we are called to work, but Paul grounds the work in God. The same passage says that \"it is God who works in you both to will and to work.\" The Church's teaching is that grace comes first and our free cooperation is a response that grace itself makes possible.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Philippians 2:12",
+      "when": "c. 61",
+      "year": 61,
+      "ref": "PHP.2.12",
+      "quote": "work out your own salvation with fear and trembling",
+      "note": "Paul commands real effort, which is why the Church refuses to say that free will is abolished."
+     }
+    ]
+   },
+   {
+    "q": "If grace is first, then free will must be a fiction, as some Reformers taught.",
+    "a": "The Council of Trent condemned that conclusion. Grace does not override the will but moves it to consent freely.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Session 6, Canon 5",
+      "when": "1547",
+      "year": 1547,
+      "work": "trent-canons-decrees",
+      "section": "s6",
+      "quote": "since Adam's sin, the free will of man is lost and extinguished",
+      "note": "Trent names the claim that free will is lost as an error. Man is weakened by sin but still free."
+     }
+    ]
+   },
+   {
+    "q": "Saying we can \"merit\" eternal life contradicts grace as a free gift.",
+    "a": "The Catechism says the opposite: no one can merit the first grace, and all later merit is itself a gift of God.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism of the Catholic Church 2010",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 2010,
+      "quote": "Since the initiative belongs to God in the order of grace, no one can merit the initial grace of forgiveness and justification, at the beginning of conversion.",
+      "note": "Even the Church's language of merit rests on the prior gift of grace."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1996,
+   1997,
+   1998,
+   1999,
+   2000,
+   2001,
+   2008,
+   2010
+  ]
+ },
+ {
+  "id": "purgatory-development",
+  "title": "Purgatory: from praying for the dead to Trent",
+  "question": "Where does the Church's teaching on purgatory come from, and how did it become a defined doctrine?",
+  "summary": "The practice of praying for the dead appears in Scripture and in the earliest Christian practice, and the Fathers speak of a purifying fire. Augustine admitted uncertainty about the nature of that fire but affirmed that the dead are helped by the prayers and sacrifice of the living. Trent defined that there is a purgatory and that the souls there are helped, and told preachers to avoid speculation. The Catechism calls it the final purification of the elect.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "2 Maccabees 12:43-45",
+    "when": "c. 124 BC",
+    "year": -124,
+    "ref": "2MA.12.43-45",
+    "quote": "For if he wasn’t expecting that those who had fallen would rise again, it would be superfluous and idle to pray for the dead.",
+    "note": "The root of the practice: Judas Maccabeus offers a sacrifice for fallen soldiers, which makes sense only if the dead can still be helped."
+   },
+   {
+    "kind": "scripture",
+    "label": "1 Corinthians 3:13-15",
+    "when": "c. 55",
+    "year": 55,
+    "ref": "1CO.3.13-15",
+    "quote": "If any man’s work is burned, he will suffer loss, but he himself will be saved, but as through fire.",
+    "note": "Pressure: how can someone be saved yet suffer loss? Later writers read Paul's image of a testing fire as pointing to purification after death, though the verse is also read of the Day of Judgment."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, Letter 1",
+    "when": "c. 250",
+    "year": 250,
+    "work": "cyprian",
+    "section": "iv.iv.lxv",
+    "quote": "no offering should be made for him, nor any sacrifice be celebrated for his repose.",
+    "note": "Pressure: a man had broken a council's rule. The bishops decided to withhold prayer and the Eucharist for his repose. The penalty only makes sense if the Church ordinarily offered the Eucharist for the dead."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Confessions 9",
+    "when": "c. 400",
+    "year": 400,
+    "work": "aug-confessions",
+    "section": "x.xi",
+    "quote": "this only I request, that you would remember me at the Lord's altar, wherever you be.",
+    "note": "Pressure: grief at the death of his mother, Monica. Her dying request shows that remembering the dead at the altar was the ordinary custom of Christian families."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Enchiridion 69",
+    "when": "421",
+    "year": 421,
+    "work": "aug-doctrinal",
+    "section": "iv.ii.lxxi",
+    "quote": "It is a matter that may be inquired into, and either ascertained or left doubtful, whether some believers shall pass through a kind of purgatorial fire, and in proportion as they have loved with more or less devotion the goods that perish, be less or more quickly delivered from it.",
+    "note": "Pressure: Laurentius asked what 1 Corinthians 3 means. Augustine is cautious about the nature of the fire but takes the idea seriously."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Enchiridion 110",
+    "when": "421",
+    "year": 421,
+    "work": "aug-doctrinal",
+    "section": "iv.ii.cxii",
+    "quote": "Nor can it be denied that the souls of the dead are benefited by the piety of their living friends, who offer the sacrifice of the Mediator, or give alms in the church on their behalf.",
+    "note": "Augustine is firm on the practical point: the Eucharist and alms help the dead. He calls the Church's custom something that \"cannot be denied\"."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 25, Decree on Purgatory",
+    "when": "1563",
+    "year": 1563,
+    "work": "trent-canons-decrees",
+    "section": "s25",
+    "quote": "the holy Synod enjoins on bishops that they diligently endeavour that the sound doctrine concerning Purgatory, transmitted by the holy Fathers and sacred Councils, be believed, maintained, taught, and everywhere proclaimed by the faithful of Christ.",
+    "note": "Pressure: Reformers denied purgatory, and popular preaching had also grown excessive. Trent defines the doctrine in simple terms and tells bishops to avoid speculation and abuse."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 1031",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 1031,
+    "quote": "The Church gives the name Purgatory to this final purification of the elect, which is entirely different from the punishment of the damned.",
+    "note": "The Catechism makes clear that purgatory is not a second chance or a lesser hell but the completion of holiness for those already saved."
+   }
+  ],
+  "objections": [
+   {
+    "q": "2 Maccabees is not in the Protestant Bible, and 1 Corinthians 3 does not mention purgatory. Is the doctrine just a medieval invention?",
+    "a": "The Catholic canon includes 2 Maccabees, and the early practice of offering the Eucharist for the dead, which Cyprian, Monica and Augustine attest, does not depend on that book alone. What developed later is the precise vocabulary and the careful definitions, not the practice. Cyprian also speaks of being \"cleansed and long purged by fire\" as different from going straight to glory, though scholars debate how far he means purification after death.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Cyprian, Letter 55",
+      "when": "c. 252",
+      "year": 252,
+      "work": "cyprian",
+      "section": "iv.iv.li",
+      "quote": "It is one thing, tortured by long suffering for sins, to be cleansed and long purged by fire",
+      "note": "A third-century bishop distinguishes cleansing by suffering from immediate entry to glory."
+     }
+    ]
+   },
+   {
+    "q": "Augustine was unsure about purgatory. Why is it a defined doctrine?",
+    "a": "Augustine hesitated over the nature of the fire and who passes through it, not over the help the living can give the dead. The Church did the same: Trent defines only that there is a purgatory and that the souls there are helped, and it tells preachers to leave out \"the more difficult and subtle questions.\"",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Session 25",
+      "when": "1563",
+      "year": 1563,
+      "work": "trent-canons-decrees",
+      "section": "s25",
+      "quote": "let the more difficult and subtle questions, and which tend not to edification, and from which for the most part there is no increase of piety, be excluded from popular discourses",
+      "note": "The council deliberately defines little and warns against speculation and superstition."
+     }
+    ]
+   },
+   {
+    "q": "Does purgatory mean we must earn our way into heaven, or that indulgences pay for it?",
+    "a": "No. The Catechism says punishment is not vengeance but the consequence of sin's attachment to creatures, and Trent itself told bishops to forbid anything that \"savours of filthy lucre.\"",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism of the Catholic Church 1472",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 1472,
+      "quote": "These two punishments must not be conceived of as a kind of vengeance inflicted by God from without, but as following from the very nature of sin.",
+      "note": "Purification is healing of an unhealthy attachment, not a debt owed to an angry God."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1030,
+   1031,
+   1032,
+   1472,
+   1473
+  ]
+ },
+ {
+  "id": "baptism-development",
+  "title": "Baptism: from the Gospel to Trent",
+  "question": "What has the Church always taught about baptism, and how did controversies sharpen that teaching?",
+  "summary": "Christ commanded baptism and linked it to new birth and forgiveness, and the Church baptized with water in the name of the Trinity from the start. Disputes arose about whether baptism is necessary, whether infants should receive it and whether baptism given by heretics counts, and the Church answered that it is necessary, that infants are rightly baptized, and that baptism once validly given cannot be repeated. Trent settled these points and the Catechism teaches them today.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Matthew 28:19",
+    "when": "c. 30",
+    "year": 30,
+    "ref": "MAT.28.19",
+    "quote": "baptizing them in the name of the Father and of the Son and of the Holy Spirit",
+    "note": "The command from the risen Christ gives both the rite and the Trinitarian formula that never changes."
+   },
+   {
+    "kind": "scripture",
+    "label": "John 3:5",
+    "when": "c. 30",
+    "year": 30,
+    "ref": "JHN.3.5",
+    "quote": "unless one is born of water and Spirit, he can’t enter into God’s Kingdom.",
+    "note": "Christ ties entry to the Kingdom to new birth by water and Spirit. Later disputes about necessity all return to this verse."
+   },
+   {
+    "kind": "scripture",
+    "label": "Acts 2:38",
+    "when": "c. 30",
+    "year": 30,
+    "ref": "ACT.2.38",
+    "quote": "Repent and be baptized, every one of you, in the name of Jesus Christ for the forgiveness of sins",
+    "note": "Peter's first sermon joins repentance, baptism, forgiveness and the gift of the Spirit."
+   },
+   {
+    "kind": "father",
+    "label": "Justin Martyr, First Apology 61",
+    "when": "c. 155",
+    "year": 155,
+    "work": "justin-martyr",
+    "section": "viii.ii",
+    "quote": "Then they are brought by us where there is water, and are regenerated in the same manner in which we were ourselves regenerated.",
+    "note": "Pressure: pagan readers wondered what Christians did in secret. Justin describes a plain rite of washing in the name of the Trinity, and cites John 3:5, as the means of new birth."
+   },
+   {
+    "kind": "father",
+    "label": "Tertullian, On Baptism 12",
+    "when": "c. 203",
+    "year": 203,
+    "work": "tertullian-ethical",
+    "section": "vi.iii.xii",
+    "quote": "the prescript is laid down that “without baptism, salvation is attainable by none”",
+    "note": "Pressure: a group in Carthage belittled baptism as too simple. Tertullian defends it, arguing from John 3:5 that baptism is necessary for salvation."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, Letter 64 to Fidus",
+    "when": "253",
+    "year": 253,
+    "work": "cyprian",
+    "section": "iv.iv.lviii",
+    "quote": "we all rather judge that the mercy and grace of God is not to be refused to any one born of man.",
+    "note": "Pressure: Fidus asked whether an infant should wait until the eighth day, as with circumcision. A council of bishops answers that no one should be kept from baptism, even a newborn."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, Letter 73 to Jubaianus",
+    "when": "256",
+    "year": 256,
+    "work": "cyprian",
+    "section": "iv.iv.lxxiii",
+    "quote": "all who are converted from any heresy whatever to the Church must be baptized by the only and lawful baptism of the Church",
+    "note": "Pressure: Novatian's group was baptizing outside the Church. Cyprian's African bishops held that baptism by heretics was void. Rome, under Pope Stephen, held that it should not be repeated."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On Baptism, Against the Donatists",
+    "when": "c. 400",
+    "year": 400,
+    "work": "aug-donatist",
+    "section": "v.iv.iii",
+    "quote": "the baptized person, if he depart from the unity of the Church, does not thereby lose the sacrament of baptism",
+    "note": "Pressure: the Donatists rebaptized converts. Augustine argues that the sacrament belongs to Christ, so it remains valid and unrepeatable even when given outside the Church."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 7, Canons on Baptism",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s7",
+    "quote": "If anyone saith that true and natural water is not of necessity for baptism … If anyone saith that the baptism which is even given by heretics in the name of the Father, and of the Son, and of the Holy Ghost, with the intention of doing what the Church doth, is not true baptism ; let him be anathema.",
+    "note": "Pressure: some Reformers treated water as a metaphor or the rite as optional. Trent states what the earlier centuries had held: real water, the Trinitarian form, and valid baptism even when administered by heretics."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 1257",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 1257,
+    "quote": "God has bound salvation to the sacrament of Baptism, but he himself is not bound by his sacraments.",
+    "note": "The Catechism says baptism is necessary, but not that God cannot save by other means."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Tertullian advised delaying baptism for small children, and infants cannot believe. Is infant baptism a later change?",
+    "a": "Tertullian's own advice shows that infants were already being baptized in his time, and the African council of Cyprian wrote that none should be refused. The Church baptizes infants in the faith of the Church, and the Catechism explains why: they too are born with a fallen nature and need new birth.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism of the Catholic Church 1250",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 1250,
+      "quote": "Born with a fallen human nature and tainted by original sin, children also have need of the new birth in Baptism to be freed from the power of darkness",
+      "note": "The reason the Church baptizes infants is original sin and God's free gift."
+     }
+    ]
+   },
+   {
+    "q": "Cyprian, a great saint and bishop, rejected baptism by heretics. Doesn't that make Trent contradict a Father?",
+    "a": "Cyprian held a position that was not yet settled, and he said himself that each bishop was free to follow his own judgment while keeping unity. The Church later followed Rome and Augustine, who showed that Christ, not the minister, gives the sacrament. The Catechism says baptism \"cannot be repeated.\"",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism of the Catholic Church 1272",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 1272,
+      "quote": "Given once for all, Baptism cannot be repeated.",
+      "note": "Baptism leaves an indelible mark, so a validly baptized person is not baptized again."
+     }
+    ]
+   },
+   {
+    "q": "If baptism is necessary for salvation, what about those who die without it?",
+    "a": "The Church teaches that baptism is the ordinary means, but not the only one that God can use. A catechumen who dies is assured of salvation by desire, and for infants who die unbaptized the Church trusts in God's mercy.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism of the Catholic Church 1259",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 1259,
+      "quote": "For catechumens who die before their Baptism, their explicit desire to receive it, together with repentance for their sins, and charity, assures them the salvation that they were not able to receive through the sacrament.",
+      "note": "Baptism of desire has long been recognised alongside baptism of water."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1213,
+   1214,
+   1250,
+   1257,
+   1259,
+   1261,
+   1272
+  ]
+ },
+ {
+  "id": "confession-development",
+  "title": "Confession: from Christ's gift to Trent",
+  "question": "Did Christ give his Church the power to forgive sins, and how did confession to a priest take its present shape?",
+  "summary": "Christ gave his apostles the power to forgive and retain sins, and the Church has exercised it from the beginning, though the form has changed from public penance to private confession. When early Christians faced sins after baptism, and especially after the persecution, bishops like Cyprian required confession and reconciliation through the priests. At Trent the Church defined that confession of mortal sins to a priest is of divine right, and the Catechism restates it.",
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "John 20:21-23",
+    "when": "c. 30",
+    "year": 30,
+    "ref": "JHN.20.21-23",
+    "quote": "If you forgive anyone’s sins, they have been forgiven them. If you retain anyone’s sins, they have been retained.",
+    "note": "The root of the doctrine: the risen Christ sends the apostles as the Father sent him and gives them the power to forgive and retain sins."
+   },
+   {
+    "kind": "scripture",
+    "label": "James 5:16",
+    "when": "c. 60",
+    "year": 60,
+    "ref": "JAS.5.16",
+    "quote": "Confess your sins to one another and pray for one another, that you may be healed.",
+    "note": "The early Church practised confession of sins within the community, in connection with the elders."
+   },
+   {
+    "kind": "father",
+    "label": "Ignatius of Antioch, Epistle to the Philadelphians",
+    "when": "c. 107",
+    "year": 107,
+    "work": "ignatius-letters",
+    "section": "v.vi",
+    "quote": "And as many as shall, in the exercise of repentance, return into the unity of the Church, these, too, shall belong to God, that they may live according to Jesus Christ.",
+    "note": "Pressure: how can those who have fallen away be restored? Ignatius ties repentance to returning into the unity of the Church under its bishop."
+   },
+   {
+    "kind": "father",
+    "label": "Tertullian, On Repentance 9",
+    "when": "c. 203",
+    "year": 203,
+    "work": "tertullian-ethical",
+    "section": "vi.ii.ix",
+    "quote": "The narrower, then, the sphere of action of this second and only (remaining) repentance, the more laborious is its probation; in order that it may not be exhibited in the conscience alone, but may likewise be carried out in some (external) act.",
+    "note": "Pressure: what of sins committed after baptism? Tertullian describes a second repentance that involves an external act of confession, and it is stricter than the first."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, Letter 18",
+    "when": "c. 250",
+    "year": 250,
+    "work": "cyprian",
+    "section": "iv.iv.xii",
+    "quote": "be able to make confession of their sin, that, with the imposition of hands upon them for repentance, they should come to the Lord with the peace",
+    "note": "Pressure: the Decian persecution had left many apostates, and some were dying. Cyprian lets the dying confess to a presbyter, or even a deacon if none is present, and receive reconciliation by laying on of hands."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, On the Lapsed 29",
+    "when": "251",
+    "year": 251,
+    "work": "cyprian",
+    "section": "iv.v.iii",
+    "quote": "I entreat you, beloved brethren, that each one should confess his own sin, while he who has sinned is still in this world, while his confession may be received, while the satisfaction and remission made by the priests are pleasing to the Lord.",
+    "note": "Pressure: some of the lapsed expected restoration without repentance. Cyprian insists on confession, satisfaction and the priests' remission."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 1447",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 1447,
+    "quote": "Over the centuries the concrete form in which the Church has exercised this power received from the Lord has varied considerably.",
+    "note": "What changed: public penance, performed once in a lifetime for grave sins, gradually gave way to the private confession brought by Irish missionaries. What did not change is the power itself."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 14, Doctrine on Penance",
+    "when": "1551",
+    "year": 1551,
+    "work": "trent-canons-decrees",
+    "section": "s14",
+    "quote": "the universal Church has always understood that the entire confession of sins was also instituted by the Lord, and is of divine right necessary for all who have fallen after baptism … If anyone denieth, either that sacramental confession was instituted, or is necessary to salvation, of divine right ; or saith that the manner of confessing secretly to a priest alone, which the Church hath ever observed from the beginning, and doth observe, is alien from the institution and command of Christ, and is a human invention",
+    "note": "Pressure: the Reformers held that confession was a human invention. Trent defines that confession of mortal sins to a priest, with absolution, is of divine institution, as a judgment given with the keys."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism of the Catholic Church 1456",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 1456,
+    "quote": "Confession to a priest is an essential part of the sacrament of Penance",
+    "note": "The Catechism repeats Trent's teaching that mortal sins must be confessed to a priest."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Only God can forgive sins. Why do I need a priest?",
+    "a": "The Church agrees that only God forgives. The Catechism teaches that Jesus gave this divine power to men to exercise in his name, as John 20 shows. The priest is the minister, and God is the one who forgives.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism of the Catholic Church 1441",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 1441,
+      "quote": "Only God forgives sins.",
+      "note": "Priestly absolution is an exercise of Christ's own authority and not an independent power."
+     }
+    ]
+   },
+   {
+    "q": "Private confession did not exist in the early Church. It came later from Irish monks.",
+    "a": "The Church admits that the form changed. Public penance was the early discipline for grave sins, and the private form spread later. But the power to forgive sins, the need to confess and the role of the priests were already there in Cyprian's day, and Trent itself acknowledged that public confession was never commanded as the only form.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Acts 19:18",
+      "when": "c. 57",
+      "year": 57,
+      "ref": "ACT.19.18",
+      "quote": "Many also of those who had believed came, confessing and declaring their deeds.",
+      "note": "Believers confessed their deeds openly in the apostolic age, which shows that confession is not a medieval novelty."
+     }
+    ]
+   },
+   {
+    "q": "1 John 1:9 says that if we confess our sins, God forgives. Why add confession to a priest?",
+    "a": "The Church does not set 1 John aside. It teaches that God forgives the penitent and that Christ has chosen to give that forgiveness through the apostles and their successors, as John 20:23 says.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "1 John 1:9",
+      "when": "c. 100",
+      "year": 100,
+      "ref": "1JN.1.9",
+      "quote": "If we confess our sins, he is faithful and righteous to forgive us the sins and to cleanse us from all unrighteousness.",
+      "note": "Confession is the way of forgiveness, and the Church teaches that the sacrament is the ordinary form of it for grave sins."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1422,
+   1441,
+   1446,
+   1447,
+   1456,
+   1461
+  ]
+ }
+]

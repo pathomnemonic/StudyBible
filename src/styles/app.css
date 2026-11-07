@@ -5529,3 +5529,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .conv-era.empty{opacity:.4;cursor:default}
 .conv-n{font-size:1.4rem;font-weight:700}
 .conv-l{font-size:.82rem;font-weight:600}
+.mentor-list{list-style:none;margin:14px 0;padding:0;display:grid;gap:12px}
+.mentor-name{margin:0 0 4px;font-size:1.1rem}
+.life-kind{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.03em;padding:1px 8px;border-radius:999px;border:1px solid currentColor}
+.life-kind.k-turning{color:#2f8f6b}.life-kind.k-setback{color:#c05050}.life-kind.k-work{color:#b9772e}.life-kind.k-writing{color:#4a7bd0}.life-kind.k-world{color:#888}
+.life-world .chain-note{opacity:.75;font-style:italic}
+.life-setback .chain-dot{background:#c05050}.life-turning .chain-dot{background:#2f8f6b}.life-world .chain-dot{background:#999;width:8px;height:8px;margin-top:10px}

@@ -1,19 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { loadChains } from '../../chains/load';
+import { contextLink } from '../../chains/links';
 import { MODES, type Chain, type ChainMode, type Step } from '../../chains/types';
 import ShareLinkButton from '../../components/ShareLinkButton';
 import PrintButton from '../../components/PrintButton';
 
 const KIND: Record<Step['kind'], string> = { scripture: 'Scripture', father: 'Father', council: 'Council', catechism: 'Catechism', magisterium: 'Church teaching', saint: 'Saint', liturgy: 'Liturgy' };
-
-function contextLink(s: Step): { to: string; text: string } | null {
-  if (s.work && s.section) return { to: `/room/work/${s.work}/${s.section}`, text: 'Read it in context' };
-  if (s.ccc) return { to: `/study/catechism/${s.ccc}`, text: `Catechism §${s.ccc}` };
-  const m = s.ref && /^([A-Z0-9]{3})\.(\d+)\.(\d+)(?:-(\d+))?$/.exec(s.ref);
-  if (m) return { to: `/read/webc/${m[1]}/${m[2]}?v=${m[3]}${m[4] ? `-${m[4]}` : ''}`, text: 'Read it in the Bible' };
-  return null;
-}
 
 function StepCard({ s, timeline }: { s: Step; timeline?: boolean }) {
   const link = contextLink(s);
