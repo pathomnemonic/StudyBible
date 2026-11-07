@@ -5,7 +5,7 @@ import { db } from '../../db/db';
 import { getGrade, gradeLabel, progressId, type GradeData } from '../../curriculum/model';
 import { starsOf, xpId } from '../../curriculum/LessonPlay';
 import { bandOf } from '../../curriculum/pedagogy';
-import { isKeyLesson, keyLessonsOf } from '../../curriculum/keyLessons';
+import { isKeyLesson, isLifeLesson, keyLessonsOf } from '../../curriculum/keyLessons';
 
 export default function CurriculumGrade() {
   const { grade = '' } = useParams();
@@ -24,6 +24,7 @@ export default function CurriculumGrade() {
   const weeks = Math.ceil(total * 1.25);
   const keys = keyLessonsOf(g.id);
   const keyList = g.units.flatMap((u) => u.lessons).filter((l) => keys.includes(l.id));
+  const lifeList = g.units.flatMap((u) => u.lessons).filter((l) => isLifeLesson(l.id));
   return (
     <div className="page">
       <Link to="/study/curriculum" className="small no-print">← All grades</Link>
@@ -34,9 +35,16 @@ export default function CurriculumGrade() {
         <Link className="btn" to={`/study/curriculum/${g.id}/packet`}>Print the whole grade</Link>
         <span className="muted small" style={{ alignSelf: 'center' }}>{done.size} of {total} done · ★ {[...stars.values()].reduce((a, b) => a + b, 0)} stars earned</span>
       </div>
+      {lifeList.length > 0 && (
+        <section className="card key-lessons no-print" aria-label="Life essentials">
+          <h2 style={{ marginTop: 0, fontSize: '1.1rem' }}>★ Short on time? Start with these {lifeList.length} life lessons</h2>
+          <p className="muted small">Each pulls together several parts of the Catechism around something people really face, and each is a complete lesson on its own.</p>
+          <ol className="list">{lifeList.map((l) => <li key={l.id}><Link className="t" to={`/study/curriculum/${g.id}/${l.id}`}>{l.title}</Link></li>)}</ol>
+        </section>
+      )}
       {keyList.length > 0 && (
         <section className="card key-lessons no-print" aria-label="Key lessons">
-          <h2 style={{ marginTop: 0, fontSize: '1.1rem' }}>★ Short on time? Start with the {keyList.length} key lessons</h2>
+          <h2 style={{ marginTop: 0, fontSize: '1.1rem' }}>The {keyList.length} core lessons no student should miss</h2>
           <p className="muted small">The lessons that carry this grade’s core. Each is a complete lesson on its own.</p>
           <ol className="list">{keyList.map((l) => <li key={l.id}><Link className="t" to={`/study/curriculum/${g.id}/${l.id}`}>{l.title}</Link></li>)}</ol>
           <label className="row small"><input type="checkbox" checked={keyOnly} onChange={(e) => setKeyOnly(e.target.checked)} /> <span>Show only the key lessons in the list below</span></label>
@@ -50,7 +58,7 @@ export default function CurriculumGrade() {
             {u.lessons.map((l) => { k++; return (
               <li key={l.id} hidden={keyOnly && !isKeyLesson(g.id, l.id)} style={{ display: keyOnly && !isKeyLesson(g.id, l.id) ? 'none' : 'flex', gap: 8, alignItems: 'baseline' }}>
                 <span aria-hidden="true">{done.has(k) ? '✓' : '○'}</span>
-                <span><Link className="t" to={`/study/curriculum/${g.id}/${l.id}`}>{l.title}</Link>{isKeyLesson(g.id, l.id) && <span className="key-badge" title="A key lesson"> ★ Key</span>}<span className="muted small"> · {l.scripture.split(';')[0]} · CCC {l.ccc.split(',')[0]}</span>{stars.get(k) ? <span className="lesson-stars" aria-label={`${stars.get(k)} stars`}> {'★'.repeat(stars.get(k)!)}{'☆'.repeat(3 - stars.get(k)!)}</span> : null}</span>
+                <span><Link className="t" to={`/study/curriculum/${g.id}/${l.id}`}>{l.title}</Link>{isLifeLesson(l.id) && <span className="key-badge" title="A short-on-time life lesson"> ★ Life</span>}{isKeyLesson(g.id, l.id) && <span className="key-badge" title="A core lesson"> ★ Core</span>}<span className="muted small"> · {l.scripture.split(';')[0]} · CCC {l.ccc.split(',')[0]}</span>{stars.get(k) ? <span className="lesson-stars" aria-label={`${stars.get(k)} stars`}> {'★'.repeat(stars.get(k)!)}{'☆'.repeat(3 - stars.get(k)!)}</span> : null}</span>
               </li>
             ); })}
           </ol>

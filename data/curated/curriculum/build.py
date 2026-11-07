@@ -45,7 +45,7 @@ index, used, problems = [], set(), []
 for g in order:
     m = importlib.import_module(f'g_{g}')
     G_ = m.GRADE
-    G_['units'] = list(G_['units']) + importlib.import_module('h_hard').EXTRA.get(G_['id'], []) + importlib.import_module('h_gap').EXTRA.get(G_['id'], []) + importlib.import_module('h_adult').EXTRA.get(G_['id'], [])
+    G_['units'] = list(G_['units']) + importlib.import_module('h_hard').EXTRA.get(G_['id'], []) + importlib.import_module('h_gap').EXTRA.get(G_['id'], []) + importlib.import_module('h_adult').EXTRA.get(G_['id'], []) + importlib.import_module('h_life').EXTRA.get(G_['id'], [])
     units = []
     for ui, u in enumerate(G_['units'], 1):
         ls = []
@@ -56,7 +56,7 @@ for g in order:
             if l['prayer'] and l['prayer'] not in prayers: problems.append(f"{G_['id']}.{ui}.{li}: unknown prayer {l['prayer']}")
             nums = [int(x) for x in re.findall(r'\d+', l['ccc'].replace('-', ','))]
             if any(n < 1 or n > 2865 for n in nums): problems.append(f"{G_['id']}.{ui}.{li}: ccc out of range")
-            lid = f"{G_['id']}-{ui}-{li}"
+            lid = l.get('id') or f"{G_['id']}-{ui}-{li}"
             row = dict(id=lid, title=l['title'], idea=l['idea'], ccc=squash(spec_nums(l['ccc'] + (',' + CCC_X[lid] if lid in CCC_X else ''))), scripture=l['scripture'], vocab=l['vocab'], question=l['question'], activity=l['activity'], prayer=l['prayer'] or None)
             for k in ('teach', 'talk', 'quiz', 'life', 'saint', 'misc', 'deeper', 'mem', 'hook', 'assess', 'script', 'tryit', 'saintStory'):
                 v = REWRITE.get(lid, {}).get(k) or l.get(k) or ENRICH.get(lid, {}).get(k)

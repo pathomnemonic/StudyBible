@@ -22,3 +22,6 @@ export const KEY_LESSONS: Record<string, string[]> = {
 };
 export const keyLessonsOf = (grade: string): string[] => KEY_LESSONS[grade] ?? [];
 export const isKeyLesson = (grade: string, id: string) => keyLessonsOf(grade).includes(id);
+
+/** Life essentials: short lessons that draw on several parts of the Catechism around how people actually live. Their ids look like YA-L1. */
+export const isLifeLesson = (id: string) => /^[^-]+-L\d+$/.test(id);
