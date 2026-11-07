@@ -1,3 +1,4 @@
+import InstallCard from '../components/InstallCard';
 import Fold, { FoldControls } from '../components/Fold';
 import { resetSeen, markAllSeen } from '../lib/seen';
 import { useState } from 'react';
@@ -42,6 +43,7 @@ export default function SettingsPage() {
     <div className="page">
       <h1>Settings</h1>
       <input type="search" className="settings-search" placeholder="Find a setting (try “font”, “sound”, “offline”)" aria-label="Find a setting" onChange={(e) => { const q = e.target.value.trim().toLowerCase(); document.querySelectorAll<HTMLElement>('.page > .card').forEach((c) => { c.hidden = !!q && !(c.textContent ?? '').toLowerCase().includes(q) && !(c.querySelector('select,input') && [...c.querySelectorAll('[aria-label]')].some((n) => (n.getAttribute('aria-label') ?? '').toLowerCase().includes(q))); }); }} />
+      <InstallCard />
       <div className="card more-links">
         <Link to="/downloads">Downloads and offline</Link>
         {(sync.server === 'available' || sync.user) && <Link to="/account">Account and sync</Link>}

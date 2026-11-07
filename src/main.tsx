@@ -10,8 +10,10 @@ import '@fontsource/cormorant-garamond/400-italic.css';
 import '@fontsource/cormorant-garamond/500.css';
 import './styles/app.css';
 import { initUpdates } from './lib/update';
+import { initInstall } from './lib/install';
 
 initUpdates();
+initInstall();
 
 createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

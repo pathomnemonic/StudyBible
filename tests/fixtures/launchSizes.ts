@@ -1,0 +1,16 @@
+export const PNG_SIZES: Record<string, [number, number]> = {
+  'public/icon-192.png': [192, 192],
+  'public/icon-512.png': [512, 512],
+  'public/icon-maskable-512.png': [512, 512],
+  'public/apple-touch-icon.png': [180, 180],
+  'store/android/play/play-store-icon-512.png': [512, 512],
+  'store/android/play/feature-graphic-1024x500.png': [1024, 500],
+  'store/android/res/ic_launcher_foreground_432.png': [432, 432],
+  'store/android/res/ic_launcher_background_432.png': [432, 432],
+  'store/ios/AppIcon/AppIcon-1024.png': [1024, 1024],
+  'store/ios/AppIcon/AppIcon-180.png': [180, 180],
+  'store/ios/screenshots/iphone-6.7-today.png': [1290, 2796],
+  'store/ios/screenshots/iphone-6.5-today.png': [1242, 2688],
+  'store/ios/screenshots/ipad-12.9-today.png': [2048, 2732],
+  'store/android/screenshots/phone-today.png': [1080, 1920],
+};
