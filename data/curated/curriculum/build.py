@@ -17,9 +17,13 @@ ENRICH = {}
 # professional rewrites of a lesson's core text: r_<grade>.py holds R = {lesson id: dict(idea, hook, activity, teach, misc, mem, assess, ...)}
 REWRITE = {}
 CCC_X = importlib.import_module('x_ccc').X
+# extra quiz questions: q_<band>.py holds Q = {lesson id: ["question|a|b|c|d|index|why", ...]}, appended after a lesson's own quiz
+QX = {}
 for f in sorted(os.listdir(os.path.dirname(__file__) or '.')):
     if re.match(r'^e_\w+\.py$', f):
         ENRICH.update(importlib.import_module(f[:-3]).E)
+    if re.match(r'^q_\w+\.py$', f):
+        [QX.setdefault(k, []).extend(v) for k, v in importlib.import_module(f[:-3]).Q.items()]
     if re.match(r'^r_\w+\.py$', f):
         [REWRITE.setdefault(k, {}).update(v) for k, v in importlib.import_module(f[:-3]).R.items()]
 
@@ -61,6 +65,7 @@ for g in order:
             for k in ('teach', 'talk', 'quiz', 'life', 'saint', 'misc', 'deeper', 'mem', 'hook', 'assess', 'script', 'tryit', 'saintStory'):
                 v = REWRITE.get(lid, {}).get(k) or l.get(k) or ENRICH.get(lid, {}).get(k)
                 if v: row[k] = v
+            if QX.get(lid): row['quiz'] = list(row.get('quiz', [])) + [q for q in QX[lid] if q not in row.get('quiz', [])]
             for k in ('idea', 'activity'):
                 if REWRITE.get(lid, {}).get(k): row[k] = REWRITE[lid][k]
             for d in row.get('deeper', []):
