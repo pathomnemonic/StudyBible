@@ -5523,3 +5523,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .zoom-seg{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
 .zoom-range{width:100%;margin:2px 0 12px}
 .zoom-sentence{font-size:1.2rem;line-height:1.45;margin:0}
+.conv-strip{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:14px 0;padding:0}
+.conv-era{width:100%;display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:8px 10px;border:1px solid var(--line,rgba(128,128,128,.35));border-radius:10px;background:transparent;color:inherit;text-align:left;cursor:pointer}
+.conv-era.sel{border-color:var(--accent,#7a5);box-shadow:0 0 0 1px var(--accent,#7a5) inset}
+.conv-era.empty{opacity:.4;cursor:default}
+.conv-n{font-size:1.4rem;font-weight:700}
+.conv-l{font-size:.82rem;font-weight:600}
