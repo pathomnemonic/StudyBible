@@ -5520,3 +5520,6 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .chain-summary{border-left:4px solid var(--accent,#7a5)}
 .chain-list li{margin:10px 0}
 @media print{.chain-quote{background:none}}
+.zoom-seg{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.zoom-range{width:100%;margin:2px 0 12px}
+.zoom-sentence{font-size:1.2rem;line-height:1.45;margin:0}

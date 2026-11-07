@@ -111,6 +111,7 @@ const ProphetPage = lazy(() => import('./pages/play/ProphetPage'));
 const MediaSearch = lazy(() => import('./pages/listen/MediaSearch'));
 const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
 const ChainsPage = lazy(() => import('./pages/study/ChainsPage'));
+const ZoomPage = lazy(() => import('./pages/study/ZoomPage'));
 const ComparePage = lazy(() => import('./pages/study/ComparePage'));
 const ShareVersePage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.ShareVersePage })));
 const SharePrayerPage = lazy(() => import('./pages/ShareLinkPage').then((m) => ({ default: m.SharePrayerPage })));
@@ -391,6 +392,7 @@ export default function App() {
               <Route path="/study/development/:id?" element={<ChainsPage mode="development" />} />
               <Route path="/study/heresies/:id?" element={<ChainsPage mode="heresies" />} />
               <Route path="/study/words/:id?" element={<ChainsPage mode="words" />} />
+              <Route path="/study/zoom/:term?" element={<ZoomPage />} />
               <Route path="/study/compare" element={<ComparePage />} />
               <Route path="/s/verse" element={<ShareVersePage />} />
               <Route path="/s/prayer/:id" element={<SharePrayerPage />} />
