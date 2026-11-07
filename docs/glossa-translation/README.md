@@ -1,8 +1,12 @@
-# Finishing the Latin → English translation of the Glossa notes
+# Latin → English translation of the Glossa notes (complete)
+
+**Status: finished.** All ~13,800 notes have an English translation in `data/curated/glossa-en/`; the 48 batches in `todo/` were
+translated and merged. The translations are AI-assisted and the Latin always stays beside them. The rest of this file is kept as the
+recipe for re-translating or correcting any note.
 
 The Glossa Ordinaria notes are shipped in Latin (`public/data/commentary/glossa/<BOOK>.json`). English translations live in
-`data/curated/glossa-en/<BOOK>.json` and are shown inline. About 8,000 of the ~13,800 notes are done; **5,889 notes (~288,000 Latin
-words) remain**, split into 48 files in `todo/` (about 6,000 Latin words each, so each fits comfortably in one conversation with a
+`data/curated/glossa-en/<BOOK>.json` and are shown inline. The 5,889 notes (~288,000 Latin
+words) that were once outstanding were split into 48 files in `todo/` (about 6,000 Latin words each, so each fits comfortably in one conversation with a
 long-context model).
 
 ## What to give the other AI
