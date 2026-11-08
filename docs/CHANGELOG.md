@@ -5,6 +5,7 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 ## Unreleased
 
 ### App
+* **The slow Bible** (`/slow-bible`): the whole Catholic Bible, Genesis to Revelation, over about seven years (2,447 daily readings of 4 to 31 verses, median 13, cut at natural breaks and never across books). Each day shows the passage, a Father of the Church on it, and where it is read at Mass (from the daily readings the app has for 2026 to 2028). Progress stays on the device. `tests/slowBible.test.ts` checks that every verse is covered exactly once, in order.
 * **Crown Quest** (`/play/trivia`): a trivia game with a spinning wheel of six categories (Scripture, Saints, Church history, Doctrine, Mass and sacraments, Prayer and devotion). Three right answers in a category win its crown; first to six crowns wins. Play against Brother Bot, pass the phone with up to four players, or play alone with three lives. 600 questions, each with a source quotation that is machine-checked against the text in the app.
 * **A livelier games home** (`/play`): a "play this next" banner, a Surprise me button, and big colorful tiles grouped by mood (quick hits, brain teasers, explore, play together) with time and player counts.
 * **Widgets** (`/widgets`, `/widget/<kind>`): today's verse, verses to review, game streak and reading plan as widgets; a Windows 11 widget (manifest and service worker); Android and iOS home-screen widget source in `store/widgets/` for the store builds. See `docs/WIDGETS.md` for what is tested and what the owner must build.

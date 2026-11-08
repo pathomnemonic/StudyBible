@@ -5627,3 +5627,10 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .wg-big{margin:0;font-size:3rem;line-height:1;font-weight:800}
 .wg-meta{margin:6px 0 0;font-size:.82rem;opacity:.9}
 .wg-page{max-width:360px;margin:0 auto}.wg-page .wg{min-height:180px}.wg-links{text-align:center}
+
+/* the slow Bible */
+.sb-head{margin:10px 0}
+.sb-bar{height:10px;border-radius:99px;background:rgba(128,128,128,.25);overflow:hidden;margin:8px 0}.sb-bar i{display:block;height:100%;background:var(--accent,#7a5)}
+.sb-ref{margin:10px 0 0;font-size:1.35rem}
+.sb-passage{margin:8px 0}.sb-text p{margin:.4em 0;line-height:1.7}
+.sb-years{padding-left:1.1em}.sb-years li{margin:6px 0}
