@@ -121,3 +121,8 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 
 ## The apostolic chain
 - A tappable chart of teachers and pupils from the apostles to Augustine. Every link carries a quotation checked against the library text; links no text states are shown dashed and labelled.
+
+## Teachers and families
+- Quick quiz now: one tap from a lesson opens a live room with 8 mixed questions; optional bonus questions from the Crown Quest bank.
+- Teacher dashboard at Teach: lessons taught, session averages, most-missed questions, who has not joined, and lessons to reteach.
+- Family week plan: children, a weekly grid, print and share as text.

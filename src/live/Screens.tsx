@@ -4,10 +4,98 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { randomName, useCountdown } from './client';
 import { useHostLink, usePlayerLink } from './hooks';
 import { joinRoom, peekRoom, type HostLink, type PlayerLink } from './link';
-import type { LiveSlide, LiveView } from './types';
+import type { CrownTrack, LiveSlide, LiveView } from './types';
 import InlinePlayer from '../components/InlinePlayer';
 import { recordSession, type HostMeta } from '../teach/store';
 import { embedFor } from '../lib/embed';
+import { CATS } from '../lib/trivia';
+import QrCode from './QrCode';
+
+/** Always-visible connection status: what is wrong, in plain words, and a button that makes a fresh connection. */
+export function ConnChip({ state, link, host }: { state: string; link: { reconnect(): void; relayHost?: () => string } | null; host?: boolean }) {
+  if (state === 'live') return <span className="live-chip lv-ok" role="status" title={link?.relayHost?.() ? `Connected through ${link.relayHost()}` : 'Connected'}>● Connected</span>;
+  const label = state === 'away' ? 'Host is away, waiting…' : state === 'lost' ? (host ? 'Offline, trying again…' : 'Connection lost, trying again…') : 'Connecting…';
+  return <span className="live-chip warn lv-chip" role="status">{label}{link && <button type="button" className="btn small" onClick={() => link.reconnect()}>Reconnect</button>}</span>;
+}
+
+const catOf = (id: string) => CATS.find((c) => c.id === id);
+/** one player's crowns: a crown for each finished category, and 1 of 3 style progress for the rest */
+function CrownRack({ cats, crowns, progress, need }: { cats: string[]; crowns: string[]; progress: Record<string, number>; need: number }) {
+  return (
+    <span className="lv-rack" role="img" aria-label={`${crowns.length} of ${cats.length} crowns`}>
+      {cats.map((c) => { const k = catOf(c), got = crowns.includes(c); return <span key={c} className={`lv-crown${got ? ' got' : ''}`} style={{ ['--c' as string]: k?.color ?? '#888' }} title={`${k?.name ?? c}: ${got ? 'crown earned' : `${progress[c] ?? 0} of ${need}`}`}>{got ? '👑' : <i>{k?.icon ?? '?'}<b>{progress[c] ?? 0}</b></i>}</span>; })}
+    </span>
+  );
+}
+function CrownBoard({ v, me }: { v: LiveView; me?: string }) {
+  const c = v.crowns!;
+  return (
+    <ol className="lv-crownboard" aria-label="Race to six crowns">
+      {c.track.map((t: CrownTrack, i) => (
+        <li key={t.id} className={`${t.id === me ? 'me' : ''}${t.finished ? ' won' : ''}`}>
+          <span className="rank">{i + 1}</span><span className="nm">{t.name}{t.finished ? ' 🏁' : t.streak >= 3 ? ` 🔥${t.streak}` : ''}</span>
+          <CrownRack cats={c.cats} crowns={t.crowns} progress={t.progress} need={c.need} />
+          <span className="pts">{t.crowns.length}/{c.goal}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+const mmss = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+
+/** The player's side of Crown Quest: spin, answer in the category, three right answers earn its crown. */
+function CrownsPlay({ v, link, now }: { v: LiveView; link: PlayerLink; now: () => number }) {
+  const c = v.crowns!, mine = c.mine;
+  const left = useCountdown(c.deadline, now);
+  const [busy, setBusy] = useState(false);
+  const [text, setText] = useState('');
+  const key = `${mine?.step}:${mine?.cat}:${mine?.feedback?.n}:${mine?.landed}`;
+  useEffect(() => { setBusy(false); setText(''); }, [key]);
+  const send = async (val: unknown) => { setBusy(true); try { await link.answer(val); } catch { setBusy(false); } };
+  const fb = mine?.feedback, q = mine?.question, cat = mine?.cat ? catOf(mine.cat) : undefined;
+  const open = c.cats.filter((x) => !mine?.crowns.includes(x));
+  return (
+    <div className="lv-crowns">
+      <div className="live-clock" role="timer">⏳ {mmss(left)}</div>
+      {mine && <CrownRack cats={c.cats} crowns={mine.crowns} progress={mine.progress} need={c.need} />}
+      {fb && <div className={`run-fb ${fb.ok ? 'ok' : 'no'}`} role="status" key={fb.n}><strong>{fb.crowned ? `👑 You earned the ${catOf(fb.crowned)?.name ?? fb.crowned} crown!` : fb.ok ? '✓ Right!' : '✗ Not quite.'}</strong>{!fb.ok && <> Right answer: <em>{fb.correct.map((x) => (fb.options ? fb.options[Number(x)] : String(x))).join(', ')}</em>.</>}{fb.why && <span className="muted"> {fb.why}</span>}</div>}
+      {mine?.step === 'spin' && <div className="live-center"><p className="muted">{mine.crowns.length ? `${mine.crowns.length} of ${c.goal} crowns. ` : ''}Spin the wheel to find your category.</p><button className="btn primary big" disabled={busy} onClick={() => void send({ spin: true })}>🎡 Spin the wheel</button></div>}
+      {mine?.step === 'pick' && <div className="live-center"><p><strong>Your pick!</strong> Choose any category you have not crowned.</p><div className="chips">{open.map((id) => { const k = catOf(id); return <button key={id} className="chip" disabled={busy} style={{ ['--c' as string]: k?.color }} onClick={() => void send({ pick: id })}>{k?.icon} {k?.name ?? id} <span className="muted small">{mine.progress[id] ?? 0}/{c.need}</span></button>; })}</div></div>}
+      {mine?.step === 'question' && q && (
+        <>
+          <p className="muted small">{cat?.icon} {cat?.name ?? q.cat} · {mine.progress[q.cat] ?? 0} of {c.need} for the crown</p>
+          <h2 className="live-q">{q.q}</h2>
+          {(q.type === 'mc' || q.type === 'tf') && <div className={`live-opts n${q.options!.length}`}>{q.options!.map((o, i) => <button key={i} disabled={busy} className={`live-opt o${i % 4}`} onClick={() => void send(i)}><span className="shape" aria-hidden="true">{SHAPES[i]}</span>{o}</button>)}</div>}
+          {q.type === 'text' && <form onSubmit={(e) => { e.preventDefault(); if (text.trim()) void send([text.trim()]); }} className="live-form"><input value={text} onChange={(e) => setText(e.target.value)} maxLength={80} placeholder="Type your answer" aria-label="Your answer" /><button className="btn primary big" disabled={!text.trim() || busy}>Lock in</button></form>}
+        </>
+      )}
+      <CrownBoard v={v} me={v.me?.id} />
+    </div>
+  );
+}
+function CrownsHost({ v, now, onEnd }: { v: LiveView; now: () => number; onEnd: () => void }) {
+  const left = useCountdown(v.crowns!.deadline, now);
+  return (
+    <div className="live-center" style={{ maxWidth: 900 }}>
+      <div className="live-clock" role="timer">⏳ {mmss(left)}</div>
+      <h2 style={{ margin: '4px 0' }}>Crown Quest: first to {v.crowns!.goal} crowns</h2>
+      <p className="muted small">Three right answers in a category earn its crown.</p>
+      <CrownBoard v={v} />
+      <button className="btn" onClick={() => confirm('End the game now?') && onEnd()}>End now</button>
+    </div>
+  );
+}
+/** Who Am I?: the clues that have appeared so far, newest last, with a note on when the next one comes */
+function Clues({ q, now }: { q: NonNullable<LiveView['question']>; now: () => number }) {
+  const left = useCountdown(q.clueEndsAt ?? 0, now);
+  if (!q.clues) return null;
+  return (
+    <div className="lv-clues">
+      <ol>{q.clues.map((c, i) => <li key={i} className={i === q.clues!.length - 1 ? 'new' : ''}>{c}</li>)}</ol>
+      <p className="muted small">Clue {(q.clueIndex ?? 0) + 1} of {q.clueCount}. {q.clueEndsAt ? `Next clue in ${Math.max(0, Math.ceil(left))}s. Fewer clues, more points.` : 'That is the last clue.'}</p>
+    </div>
+  );
+}
 
 const SHAPES = ['A', 'B', 'C', 'D', 'E', 'F'];
 const keyOf = (code: string) => `sb:live:host:${code}`;
@@ -114,7 +202,7 @@ export function PlayPage() {
   useEffect(() => { setSel([]); setText(''); setSent(false); }, [qKey]);
   if (!token) return <div className="page"><p>You have not joined this class yet.</p><Link className="btn primary" to={`/join/${code}`}>Join</Link></div>;
   if (state === 'gone') return <div className="page"><h1>This session has ended</h1><p className="muted">The teacher closed it, or it timed out.</p><Link className="btn" to="/join">Join another</Link></div>;
-  if (!v) return <div className="page"><p className="muted" aria-busy="true">Connecting…</p></div>;
+  if (!v) return <div className="page"><p className="muted" aria-busy="true">Connecting…</p><p><ConnChip state={state} link={link} /></p><p className="muted small">If this stays here, your host may have closed the game. <Link to="/join">Join again</Link></p></div>;
   const me = v.me;
   const q = v.question;
   const send = async (value: unknown) => { setSent(true); try { await link!.answer(value); } catch { setSent(false); } };
@@ -122,7 +210,9 @@ export function PlayPage() {
   const toggle = (i: number) => setSel((s) => (q?.type === 'order' ? (s.includes(i) ? s.filter((x) => x !== i) : [...s, i]) : s.includes(i) ? s.filter((x) => x !== i) : [...s, i]));
   return (
     <div className="page live-play" aria-live="polite">
-      <header className="live-top"><span className="live-who">{me?.name}</span><span>{me?.score.toLocaleString()} pts</span>{v.settings.teams > 0 && me?.team !== undefined && <span className={`live-chip t${me.team}`}>{['Red', 'Blue', 'Gold', 'Green', 'Purple', 'Orange'][me.team]} team</span>}{state === 'lost' && <span className="live-chip warn">Reconnecting…</span>}</header>
+      <header className="live-top"><span className="live-who">{me?.name}</span><span>{me?.score.toLocaleString()} pts</span>{v.settings.teams > 0 && me?.team !== undefined && <span className={`live-chip t${me.team}`}>{['Red', 'Blue', 'Gold', 'Green', 'Purple', 'Orange'][me.team]} team</span>}<ConnChip state={state} link={link} /></header>
+      {state === 'away' && <div className="notice warn" role="status"><strong>Host is away, waiting.</strong> Their device may be asleep. Your name and score are safe, and the game carries on when they are back.</div>}
+      {v.phase === 'run' && v.crowns && <CrownsPlay v={v} link={link!} now={serverNow} />}
       {v.phase === 'run' && v.run && <RunPlay v={v} link={link!} now={serverNow} />}
       {(v.phase === 'exam' || (v.phase === 'ended' && v.exam)) && v.exam && <ExamView v={v} link={link!} now={serverNow} />}
       {v.phase === 'lobby' && <div className="live-center"><h1>You’re in!</h1><p className="lede">{v.title}</p><p className="muted">Waiting for your teacher to start. Look at the big screen.</p><div className="live-bounce" aria-hidden="true">✝</div></div>}
@@ -131,7 +221,8 @@ export function PlayPage() {
         <div>
           <Timer deadline={q.deadline} total={q.time} now={serverNow} />
           <p className="muted small">Question {v.qIndex + 1} of {v.qCount}{q.points === 2 ? ' · double points' : q.points === 0 ? ' · no points' : ''}</p>
-          <h2 className="live-q">{q.q}</h2>
+          {q.clues ? <Clues q={q} now={serverNow} /> : <h2 className="live-q">{q.q}</h2>}
+          {q.clues && !answered && (me?.guesses ?? 0) > 0 && <p className="live-wrong" role="status">Not that one. Try again ({me!.guesses} of 3 guesses used).</p>}
           {me?.out ? <div className="live-center"><h3>You are out, but you can still watch</h3><p className="muted">{q.answered}/{q.total} answered</p></div> : answered ? <div className="live-center"><h3>Answer locked in</h3><p className="muted">Waiting for the others… {q.answered}/{q.total} answered</p></div> : (
             <>
               {(q.type === 'mc' || q.type === 'tf') && <div className={`live-opts n${q.options!.length}`}>{q.options!.map((o, i) => <button key={i} className={`live-opt o${i % 4}`} onClick={() => send(i)}><span className="shape" aria-hidden="true">{SHAPES[i]}</span>{o}</button>)}</div>}
@@ -147,7 +238,7 @@ export function PlayPage() {
           <h1 className={me.last?.correct ? 'live-right' : 'live-wrong'}>{me.last?.correct ? '✓ Correct!' : me.answered ? '✗ Not quite' : '⏱ Time’s up'}</h1>
           {me.out && <p className="live-wrong"><strong>You are out of this round. Cheer on the others!</strong></p>}
           {me.last?.correct && <p className="live-gain">+{(me.last.points + me.last.bonus).toLocaleString()}{me.last.bonus ? ` (streak bonus ${me.last.bonus})` : ''}</p>}
-          {!me.last?.correct && v.reveal && <p>Right answer: <strong>{v.reveal.correct.map((c) => (q.options ? q.options[Number(c)] : String(c))).join(q.type === 'order' ? ' → ' : ', ')}</strong></p>}
+          {!me.last?.correct && v.reveal && <p>Right answer: <strong>{(q.clues ? v.reveal.correct.slice(0, 1) : v.reveal.correct).map((c) => (q.options ? q.options[Number(c)] : String(c))).join(q.type === 'order' ? ' → ' : ', ')}</strong></p>}
           {v.reveal?.why && <p className="muted">{v.reveal.why}</p>}
           <p className="live-rank">You are {ordinal(me.rank)} · {me.score.toLocaleString()} points{me.streak >= 2 ? ` · 🔥 ${me.streak} in a row` : ''}</p>
         </div>
@@ -160,7 +251,15 @@ export function PlayPage() {
           <Link className="btn" to="/study/curriculum">Back to lessons</Link>
         </div>
       )}
-      {v.phase === 'ended' && me && !v.exam && !v.run && (
+      {v.phase === 'ended' && v.crowns && me && (
+        <div className="live-center">
+          <h1>{v.crowns.track[0]?.finished ? (v.crowns.track[0].id === me.id ? '👑 You won the race!' : `👑 ${v.crowns.track[0].name} won the race`) : '⏳ Time’s up'}</h1>
+          <p className="lede">You earned {me.id ? v.crowns.track.find((t) => t.id === me.id)?.crowns.length ?? 0 : 0} of {v.crowns.goal} crowns.</p>
+          <CrownBoard v={v} me={me.id} />
+          <Link className="btn" to="/play">Back to games</Link>
+        </div>
+      )}
+      {v.phase === 'ended' && me && !v.exam && !v.run && !v.crowns && (
         <div className="live-center">
           <h1>{me.rank <= 3 ? ['🥇', '🥈', '🥉'][me.rank - 1] : '🎉'} You finished {ordinal(me.rank)}</h1>
           <p className="lede">{me.score.toLocaleString()} points</p>
@@ -186,6 +285,7 @@ export function HostPage() {
     const t = setTimeout(() => { lastSaved.current = key; void recordSession(v, meta); }, v.phase === 'ended' ? 0 : 2500);
     return () => clearTimeout(t);
   }, [v, meta]);
+  const [copied, setCopied] = useState(false);
   const joinUrl = useMemo(() => `${location.origin}${location.pathname}#/join/${code}`, [code]);
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
@@ -208,7 +308,7 @@ export function HostPage() {
         <span className="live-who">{v.title}</span>
         <span>Code <strong className="live-code-sm">{v.code}</strong></span>
         <span>{connected} joined</span>
-        {state === 'lost' && <span className="live-chip warn">Reconnecting…</span>}
+        <ConnChip state={state} link={link} host />
         <button className="btn small" onClick={() => confirm('End this session for everyone?') && act('end')} disabled={v.phase === 'ended'}>End</button>
       </header>
 
@@ -216,11 +316,12 @@ export function HostPage() {
         <div className="live-center">
           <p className="muted">On your own device open <strong>{location.host}</strong>, choose <strong>Play online with a code</strong> (or <strong>Join a class</strong>), or open</p>
           <p className="live-url">{joinUrl}</p>
-          <p className="muted">and enter the code</p>
-          <div className="row" style={{ justifyContent: 'center', margin: '0 0 8px' }}><ShareButton text={`Join my game on Cathology with the code ${v.code}`} path={`/join/${v.code}`} label="Share the invitation" className="btn" /></div>
+          <p className="muted">and enter the code, or point a phone camera at this square.</p>
+          <div className="lv-qrbox"><QrCode text={joinUrl} label={`QR code that opens the join page for game ${v.code}`} /></div>
+          <div className="row" style={{ justifyContent: 'center', gap: 8, flexWrap: 'wrap', margin: '0 0 8px' }}><button type="button" className="btn" onClick={() => { const done = () => { setCopied(true); setTimeout(() => setCopied(false), 2000); }; try { void navigator.clipboard.writeText(joinUrl).then(done, done); } catch { done(); } }}>{copied ? 'Link copied ✓' : 'Copy link'}</button><ShareButton text={`Join my game on Cathology with the code ${v.code}`} path={`/join/${v.code}`} label="Share the invitation" className="btn" /></div>
           <div className="live-code" aria-label={`Game code ${v.code.split('').join(' ')}`}>{v.code}</div>
           <div className="row" style={{ gap: 8, justifyContent: 'center', flexWrap: 'wrap', margin: '12px 0' }}>
-            <button className="btn primary big" onClick={() => act('start')} disabled={!v.slideCount && !v.qCount}>{v.settings.mode === 'exam' ? `Start the exam (${v.settings.examMinutes} min)` : v.settings.mode === 'race' ? 'Start the race' : v.settings.mode === 'build' ? 'Start building' : v.slideCount ? 'Start the lesson' : 'Start the game'}</button>
+            <button className="btn primary big" onClick={() => act('start')} disabled={!v.slideCount && !v.qCount}>{v.settings.mode === 'exam' ? `Start the exam (${v.settings.examMinutes} min)` : v.settings.mode === 'race' ? 'Start the race' : v.settings.mode === 'crowns' ? 'Start the Crown Quest race' : v.settings.mode === 'whoami' ? 'Start Who Am I?' : v.settings.mode === 'build' ? 'Start building' : v.slideCount ? 'Start the lesson' : 'Start the game'}</button>
             {v.slideCount > 0 && v.qCount > 0 && v.settings.mode === 'game' && <button className="btn" onClick={() => act('quiz')}>Skip to the quiz</button>}
             <button className="btn" aria-pressed={v.locked} onClick={() => act('lock', !v.locked)}>{v.locked ? '🔒 Locked' : '🔓 Lock the room'}</button>
           </div>
@@ -246,7 +347,8 @@ export function HostPage() {
         <div>
           <Timer deadline={q.deadline} total={q.time} now={serverNow} />
           <p className="muted">Question {v.qIndex + 1} of {v.qCount} · {q.answered}/{q.total} answered{q.points === 2 ? ' · double points' : ''}</p>
-          <h2 className="live-q big">{q.q}</h2>
+          {q.clues ? <Clues q={q} now={serverNow} /> : <h2 className="live-q big">{q.q}</h2>}
+          {q.clues && <ul className="live-players lv-who">{v.players.map((p) => <li key={p.id} className={p.answered ? 'done' : ''}>{p.answered ? '✓ ' : ''}{p.name}</li>)}</ul>}
           {q.options && <div className={`live-opts n${q.options.length}`}>{q.options.map((o, i) => <div key={i} className={`live-opt o${i % 4} static`}><span className="shape" aria-hidden="true">{q.type === 'order' ? '·' : SHAPES[i % 4]}</span>{o}</div>)}</div>}
           {q.type === 'text' && <p className="muted">Students type their answer.</p>}
           {q.type === 'multi' && <p className="muted">Select all that apply.</p>}
@@ -255,6 +357,7 @@ export function HostPage() {
         </div>
       )}
 
+      {v.phase === 'run' && v.crowns && <CrownsHost v={v} now={serverNow} onEnd={() => act('end')} />}
       {v.phase === 'run' && v.run && <RunHost v={v} now={serverNow} onEnd={() => act('end')} />}
 
       {v.phase === 'exam' && (
@@ -287,7 +390,8 @@ export function HostPage() {
           {meta && <p className="notice ok small">Saved to your class record: attendance, participation and scores. <Link to={`/teach/${meta.classId}`}>Open the class</Link></p>}
           {v.settings.mode === 'exam' && v.results && <ol className="live-board">{v.results.players.map((p, k) => <li key={p.id}><span className="rank">{k + 1}</span><span className="nm">{p.name}{p.submitted ? '' : ' (not handed in)'}</span><span className="pts">{Math.round(p.score)}%</span></li>)}</ol>}
           {v.settings.mode === 'build' && v.run && <Cathedral done={v.run.classSteps} goal={v.run.classGoal} />}
-          {v.settings.mode !== 'exam' && v.settings.mode !== 'build' && v.qCount > 0 && <><div className="live-podium">{[1, 0, 2].map((i) => v.board[i] && <div key={i} className={`step s${i + 1}`}><span className="medal">{['🥇', '🥈', '🥉'][i]}</span><strong>{v.board[i].name}</strong><span>{v.board[i].score.toLocaleString()}</span></div>)}</div>
+          {v.settings.mode === 'crowns' && v.crowns && <><p className="lede">{v.crowns.track[0]?.finished ? `${v.crowns.track[0].name} collected all ${v.crowns.goal} crowns first.` : 'Time ran out before anyone had every crown.'}</p><CrownBoard v={v} /></>}
+          {v.settings.mode !== 'exam' && v.settings.mode !== 'build' && v.settings.mode !== 'crowns' && v.qCount > 0 && <><div className="live-podium">{[1, 0, 2].map((i) => v.board[i] && <div key={i} className={`step s${i + 1}`}><span className="medal">{['🥇', '🥈', '🥉'][i]}</span><strong>{v.board[i].name}</strong><span>{v.board[i].score.toLocaleString()}</span></div>)}</div>
           <Board v={v} /><Teams v={v} /></>}
           {v.settings.mode === 'game' && !v.qCount && <p className="muted">{v.players.length} students took part.</p>}
           <div className="row" style={{ gap: 8, justifyContent: 'center' }}>

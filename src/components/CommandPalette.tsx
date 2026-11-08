@@ -7,6 +7,8 @@ import { useSettings } from '../lib/store';
 import { FEATURES, searchFeatures } from '../lib/features';
 import { markSeen } from '../lib/seen';
 import { surpriseTarget } from '../lib/surprise';
+import { getIndex } from '../search/useIndex';
+import { rank } from '../search/rank';
 
 interface Cmd {
   id: string;
@@ -69,6 +71,27 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
   const [s] = useSettings();
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => input.current?.focus(), []);
+  // "Best answers": ranked after a short pause, indexes loaded on first use; stale searches are dropped
+  const [dq, setDq] = useState('');
+  const [answers, setAnswers] = useState<{ title: string; to: string; badge: string }[]>([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    const t = q.trim();
+    if (t.length < 3) { setDq(''); setAnswers([]); setLoading(false); return; }
+    const timer = setTimeout(() => setDq(t), 150);
+    return () => clearTimeout(timer);
+  }, [q]);
+  useEffect(() => {
+    if (!dq) return;
+    let live = true;
+    setLoading(true);
+    getIndex('library').then((ix) => {
+      if (!live) return;
+      setAnswers(rank(ix, dq, { limit: 40, groups: ['best', 'teaching', 'fathers'] }).slice(0, 4).map((h) => ({ title: h.doc.title, to: h.doc.href, badge: h.doc.badge })));
+      setLoading(false);
+    }).catch(() => live && setLoading(false));
+    return () => { live = false; };
+  }, [dq]);
 
   const cmds = useMemo<Cmd[]>(() => {
     const out: Cmd[] = [];
@@ -85,6 +108,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
           out.push({ id: 'ref', group: 'Go to passage', label: formatRef(ref), hint: 'Open in reader', run: go(`/read/${s.defaultEdition}/${ref.book}/${ref.c1}${v}`) });
         }
       }
+      if (dq === t) for (const a of answers) out.push({ id: 'ans' + a.to, group: 'Best answers', label: a.title, hint: a.badge, run: go(a.to) });
       out.push({ id: 'search', group: 'Search', label: `Search everything for “${t}”`, hint: 'Scripture, teaching, Fathers', run: go(`/study/search?q=${encodeURIComponent(t)}`) });
       const lc = t.toLowerCase();
       for (const b of BOOKS.filter((b) => b.name.toLowerCase().includes(lc)).slice(0, 5)) {
@@ -103,7 +127,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
     if (!lc || 'surprise me random'.includes(lc)) out.push({ id: 'surprise', group: 'Go to', label: 'Surprise me', hint: 'A random chapter, work, prayer or feast', run: () => { onClose(); void surpriseTarget().then((to) => nav(to)); } });
     if (!lc) for (const f of FEATURES.filter((f) => f.hot).slice(0, 8)) add(f.id, f.title, f.to, f.blurb.slice(0, 60));
     return out;
-  }, [q, nav, onClose, s.defaultEdition, s.last]);
+  }, [q, dq, answers, nav, onClose, s.defaultEdition, s.last]);
 
   useEffect(() => setSel(0), [q]);
   const key = (e: React.KeyboardEvent) => {
@@ -117,16 +141,17 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
     <div className="palette-back" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
       <div className="palette" role="dialog" aria-modal="true" aria-label="Command palette">
         <button className="icon-btn palette-x" onClick={onClose} aria-label="Close search">✕</button>
-        <input ref={input} value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={key} placeholder="Type a passage (Jn 6:51-58), a topic, or a page…" aria-label="Command palette input" />
-        <ul role="listbox">
+        <input ref={input} value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={key} placeholder="Ask a question, or type a passage (Jn 6:51-58) or a page…" aria-label="Command palette input" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list" aria-activedescendant={cmds[sel] ? `palette-opt-${sel}` : undefined} />
+        <div role="status" aria-live="polite" className="muted small" style={{ padding: loading ? '4px 14px' : 0, height: loading ? undefined : 0, overflow: 'hidden' }}>{loading ? 'Searching the library…' : ''}</div>
+        <ul role="listbox" id="palette-list" aria-label="Results">
           {cmds.map((c, i) => {
             const head = c.group !== last ? <li key={'g' + c.group} className="group" role="presentation">{c.group}</li> : null;
             last = c.group;
             return (
               <Fragment key={c.id}>
                 {head}
-                <li key={c.id} role="option" aria-selected={i === sel} onMouseEnter={() => setSel(i)} onClick={c.run}>
-                  <Icon name={c.group === 'Search' ? 'search' : c.group === 'Go to' ? 'chevR' : 'read'} size={16} />
+                <li key={c.id} id={`palette-opt-${i}`} role="option" aria-selected={i === sel} ref={i === sel ? (el) => el?.scrollIntoView({ block: 'nearest' }) : undefined} onMouseEnter={() => setSel(i)} onClick={c.run}>
+                  <Icon name={c.group === 'Search' || c.group === 'Best answers' ? 'search' : c.group === 'Go to' ? 'chevR' : 'read'} size={16} />
                   <span style={{ flex: 1 }}>{c.label}</span>
                   {c.hint && <span className="muted small">{c.hint}</span>}
                 </li>
