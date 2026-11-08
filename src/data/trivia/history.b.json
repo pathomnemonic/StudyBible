@@ -21,7 +21,7 @@
  },
  {
   "id": "history-b002",
-  "d": 2,
+  "d": 1,
   "q": "On which street in Damascus did the Lord tell Ananias to look for Saul?",
   "o": [
    "The one called Long",
@@ -41,7 +41,7 @@
  },
  {
   "id": "history-b003",
-  "d": 2,
+  "d": 1,
   "q": "Who laid hands on Saul at Damascus so that he might receive his sight?",
   "o": [
    "Ananias",
@@ -61,7 +61,7 @@
  },
  {
   "id": "history-b004",
-  "d": 2,
+  "d": 1,
   "q": "Who was the servant girl who came to answer when Peter knocked at the gate after his release?",
   "o": [
    "Dorcas",
@@ -101,7 +101,7 @@
  },
  {
   "id": "history-b006",
-  "d": 2,
+  "d": 1,
   "q": "At Lystra the crowds called Barnabas 'Jupiter'. What name did they give Paul, the chief speaker?",
   "o": [
    "Mercury",
@@ -141,7 +141,7 @@
  },
  {
   "id": "history-b008",
-  "d": 2,
+  "d": 1,
   "q": "What made the Jews of Berea 'more noble' than those in Thessalonica?",
   "o": [
    "They gave Paul silver and gold",
@@ -161,7 +161,7 @@
  },
  {
   "id": "history-b009",
-  "d": 2,
+  "d": 1,
   "q": "Apollos, an eloquent man mighty in the Scriptures, came to Ephesus. By race he was from which city?",
   "o": [
    "Alexandria",
@@ -241,7 +241,7 @@
  },
  {
   "id": "history-b013",
-  "d": 2,
+  "d": 1,
   "q": "Barnabas, the Levite who sold a field and gave the money to the apostles, was by race a man of which island?",
   "o": [
    "Crete",
@@ -261,7 +261,7 @@
  },
  {
   "id": "history-b014",
-  "d": 2,
+  "d": 1,
   "q": "Which Pharisee, a teacher of the law honored by all the people, rose in the council to speak about the apostles?",
   "o": [
    "Nicodemus",
@@ -281,7 +281,7 @@
  },
  {
   "id": "history-b015",
-  "d": 2,
+  "d": 1,
   "q": "Which king said to Paul, 'With a little persuasion are you trying to make me a Christian?'",
   "o": [
    "Agrippa",
@@ -321,7 +321,7 @@
  },
  {
   "id": "history-b017",
-  "d": 2,
+  "d": 1,
   "q": "Which emperor had commanded all the Jews to leave Rome, bringing Aquila and Priscilla to Corinth?",
   "o": [
    "Nero",
@@ -361,7 +361,7 @@
  },
  {
   "id": "history-b019",
-  "d": 2,
+  "d": 1,
   "q": "The canons of Nicaea are headed as those of how many holy fathers?",
   "o": [
    "150",
@@ -382,7 +382,7 @@
  },
  {
   "id": "history-b020",
-  "d": 3,
+  "d": 2,
   "q": "Nicaea's sixth canon confirmed Alexandria's jurisdiction over Egypt, Libya and which third region?",
   "o": [
    "Palestine",
@@ -403,7 +403,7 @@
  },
  {
   "id": "history-b021",
-  "d": 2,
+  "d": 1,
   "q": "In what posture did Nicaea direct that prayer be made on the Lord's Day and in the days of Pentecost?",
   "o": [
    "Standing",
@@ -424,7 +424,7 @@
  },
  {
   "id": "history-b022",
-  "d": 2,
+  "d": 1,
   "q": "If distance made it hard to gather every bishop of a province, at least how many were to meet to appoint a bishop?",
   "o": [
    "Two",
@@ -466,7 +466,7 @@
  },
  {
   "id": "history-b024",
-  "d": 3,
+  "d": 2,
   "q": "Nicaea's eighth canon deals with clergy joining the Church from a group that called itself by which name?",
   "o": [
    "Cathari",
@@ -487,7 +487,7 @@
  },
  {
   "id": "history-b025",
-  "d": 3,
+  "d": 2,
   "q": "Constantinople I anathematized the Semi-Arians under which Greek name?",
   "o": [
    "Docetists",
@@ -571,7 +571,7 @@
  },
  {
   "id": "history-b029",
-  "d": 3,
+  "d": 2,
   "q": "The letter of Ibas to Maris the Persian, one of the Three Chapters, was written by Ibas of which city?",
   "o": [
    "Antioch",
@@ -634,7 +634,7 @@
  },
  {
   "id": "history-b032",
-  "d": 2,
+  "d": 1,
   "q": "Trent taught that images of Christ, the Virgin Mother of God and the saints are to be retained particularly where?",
   "o": [
    "In private homes",
@@ -676,7 +676,7 @@
  },
  {
   "id": "history-b034",
-  "d": 2,
+  "d": 1,
   "q": "On what date in 1854 was the Immaculate Conception defined in Ineffabilis Deus?",
   "o": [
    "8 September",
@@ -697,7 +697,7 @@
  },
  {
   "id": "history-b035",
-  "d": 3,
+  "d": 2,
   "q": "Which constitution of the First Vatican Council treats faith and reason?",
   "o": [
    "Pastor Aeternus",
@@ -718,7 +718,7 @@
  },
  {
   "id": "history-b036",
-  "d": 2,
+  "d": 1,
   "q": "Which Leo XIII encyclical of 1891 addressed the condition of the working classes?",
   "o": [
    "Rerum Novarum",
@@ -823,7 +823,7 @@
  },
  {
   "id": "history-b041",
-  "d": 2,
+  "d": 1,
   "q": "The apostolic constitution Sacram unctionem infirmorum, on the Anointing of the Sick, followed which council?",
   "o": [
    "The Council of Trent",
@@ -883,7 +883,7 @@
  },
  {
   "id": "history-b044",
-  "d": 3,
+  "d": 2,
   "q": "Bede describes which large isle on the east of Kent, divided from the mainland by the river Wantsum?",
   "o": [
    "Wight",
@@ -904,7 +904,7 @@
  },
  {
   "id": "history-b045",
-  "d": 2,
+  "d": 1,
   "q": "In Bede's story, whom did a figure in a dream address with the words 'sing me something'?",
   "o": [
    "Cædmon",
@@ -925,7 +925,7 @@
  },
  {
   "id": "history-b046",
-  "d": 3,
+  "d": 2,
   "q": "Bede says the synod on Easter and the tonsure met at a monastery whose name, Streanaeshalch, signifies what?",
   "o": [
    "The Valley of Saints",
@@ -946,7 +946,7 @@
  },
  {
   "id": "history-b047",
-  "d": 2,
+  "d": 1,
   "q": "Which abbess ruled the monastery of Streanaeshalch when the synod on Easter was held there?",
   "o": [
    "Etheldreda",
@@ -967,7 +967,7 @@
  },
  {
   "id": "history-b048",
-  "d": 2,
+  "d": 1,
   "q": "Which bishop does Bede describe as a man of singular gentleness, piety, and moderation?",
   "o": [
    "Aidan",
@@ -1051,7 +1051,7 @@
  },
  {
   "id": "history-b052",
-  "d": 3,
+  "d": 2,
   "q": "Whom does Bede call the holy archbishop of the Frisians?",
   "o": [
    "Boniface",
@@ -1072,7 +1072,7 @@
  },
  {
   "id": "history-b053",
-  "d": 3,
+  "d": 2,
   "q": "Bede says Germanus first quelled a tempest of the sea and then the heresy of whom?",
   "o": [
    "The Arians",
@@ -1093,7 +1093,7 @@
  },
  {
   "id": "history-b054",
-  "d": 2,
+  "d": 1,
   "q": "Which king of the Northumbrians received the Word of faith through the preaching of Paulinus?",
   "o": [
    "Edwin",
@@ -1303,7 +1303,7 @@
  },
  {
   "id": "history-b064",
-  "d": 3,
+  "d": 2,
   "q": "In one of Catherine of Siena's letters, Brother Raimondo of Capua is addressed at which city?",
   "o": [
    "Florence",
@@ -1513,7 +1513,7 @@
  },
  {
   "id": "history-b074",
-  "d": 3,
+  "d": 2,
   "q": "In 369 which pope condemned Auxentius in a council held at Rome?",
   "o": [
    "Liberius",
@@ -1595,7 +1595,7 @@
  },
  {
   "id": "history-b078",
-  "d": 3,
+  "d": 2,
   "q": "Who commanded the centre of the Christian fleet at Lepanto, according to Butler?",
   "o": [
    "Don John",
