@@ -7,7 +7,7 @@ import ShareLinkButton from '../../components/ShareLinkButton';
 import PrintButton from '../../components/PrintButton';
 
 /** Holy men and women the Church has not canonized: shown as examples, not called saints. */
-const NOT_CANONIZED = ['Brother Lawrence', 'Julian of Norwich', 'Thomas à Kempis', 'Walter Hilton'];
+const NOT_CANONIZED = ['Brother Lawrence', 'Julian of Norwich', 'Thomas à Kempis', 'Walter Hilton', 'Mechtildes'];
 
 /** Saints who faced what you are facing, with their own words, matched by situation and not by feast day. */
 export default function MentorsPage() {

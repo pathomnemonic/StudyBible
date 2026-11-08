@@ -1,6 +1,8 @@
 /** A short glossary of Catholic terms, written for this app in plain language, each with the Catechism paragraph that treats it. */
-export interface GlossaryEntry { term: string; aliases: string[]; definition: string; ccc: number }
-export const GLOSSARY: GlossaryEntry[] = [
+import { GLOSSARY2 } from './glossary2';
+/** `related` names other glossary terms; `near` marks a Catechism paragraph that treats the topic without naming the term. */
+export interface GlossaryEntry { term: string; aliases: string[]; definition: string; ccc: number; related?: string[]; near?: boolean }
+const GLOSSARY1: GlossaryEntry[] = [
   { term: "Transubstantiation", aliases: ["transubstantiate"], definition: "At the consecration the whole substance of the bread and wine becomes the Body and Blood of Christ, while the appearances of bread and wine remain.", ccc: 1376 },
   { term: "Real Presence", aliases: ["real presence"], definition: "The teaching that Christ is truly, really and substantially present, body, blood, soul and divinity, in the Eucharist.", ccc: 1373 },
   { term: "Eucharist", aliases: ["eucharistic"], definition: "The sacrament in which the bread and wine become the Body and Blood of Christ, the source and summit of Christian life. The word means thanksgiving.", ccc: 1322 },
@@ -196,6 +198,8 @@ export const GLOSSARY: GlossaryEntry[] = [
   { term: "Hierarchy", aliases: [], definition: "The ordered ministry in the Church of bishops, priests and deacons, through which Christ governs and teaches his people.", ccc: 874 },
   { term: "Clergy", aliases: ["cleric", "clerics"], definition: "The ordained ministers of the Church: bishops, priests and deacons.", ccc: 934 },
 ];
+/** The original terms plus the larger set in glossary2.ts. */
+export const GLOSSARY: GlossaryEntry[] = [...GLOSSARY1, ...GLOSSARY2];
 
 const norm = (s: string) => s.toLowerCase().replace(/[“”"’']/g, '').replace(/\s+/g, ' ').trim();
 const stems = (s: string) => [s, s.replace(/(es|s)$/, ''), s.replace(/ed$/, ''), s.replace(/ing$/, '')];

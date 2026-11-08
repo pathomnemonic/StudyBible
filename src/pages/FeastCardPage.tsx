@@ -6,6 +6,7 @@ import { useSettings } from '../lib/store';
 import { litDay } from '../liturgy/litcal';
 import { butlerDay, butlerFor, nameScore, nameTokens, type ButlerEntry } from '../study/butler';
 import { FEASTS, type Feast } from '../data/feasts';
+import { FEAST_FATHERS } from '../data/feastFathers';
 import { getJson } from '../data/loader';
 import { formatRef, parseRefs } from '../lib/refs';
 import { readerPath } from '../lib/nav';
@@ -82,6 +83,14 @@ export default function FeastCardPage() {
         {life && (feast || !sameAsName) && <h2 className="feast-saint">{life.name.replace(/\.$/, '')}</h2>}
         {life && paras.map((t, i) => <p key={i}>{t}</p>)}
         {feast?.customs && <p className="muted"><strong>How it is kept.</strong> {feast.customs}</p>}
+        {feast && FEAST_FATHERS[feast.id] && (() => { const f = FEAST_FATHERS[feast.id]; return (
+          <figure className="feast-fathers" aria-label="From the Fathers">
+            <p className="eyebrow">From the Fathers</p>
+            <blockquote>{f.quote}</blockquote>
+            <figcaption><Link to={`/study/works/${f.work}/${f.section}`}>{f.author}, {f.source}</Link></figcaption>
+            <p className="muted">{f.note}</p>
+          </figure>
+        ); })()}
         {feast && feast.scripture.length > 0 && edition && (
           <div className="chips" aria-label="Readings for the feast">
             {feast.scripture.map((r) => { const p = parseRefs(r); return p.ok ? <Link key={r} className="chip" to={readerPath(edition, p.refs[0].ref)}>{formatRef(p.refs[0].ref, { abbr: true })}</Link> : null; })}

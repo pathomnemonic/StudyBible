@@ -5958,3 +5958,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .lv-who li.done { background: var(--ok-soft); color: var(--ok); }
 .lv-resume { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .chain-plain strong{font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;opacity:.8}
+
+/* feast card: From the Fathers */
+.feast-fathers { margin: 12px 0 4px; padding: 10px 0 0; border-top: 1px solid var(--line, rgba(128,128,128,.25)); }
+.feast-fathers blockquote { margin: 4px 0 6px; padding-left: 12px; border-left: 3px solid var(--accent, #8a6d3b); font-family: var(--font-read, Georgia, serif); line-height: 1.55; overflow-wrap: anywhere; }
+.feast-fathers figcaption { font-size: .8rem; margin-bottom: 4px; }
+.feast-fathers p.muted { font-size: .85rem; margin: 0; }

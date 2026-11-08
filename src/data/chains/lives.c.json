@@ -552,7 +552,7 @@
    },
    {
     "year": 379,
-    "text": "Basil dies on 1 January, worn out at about fifty. Crowds of Christians, Jews and pagans fill the streets. Gregory cannot attend because of illness and writes the funeral oration later.",
+    "text": "Basil dies on 1 January, worn out at about fifty. Gregory says the whole city poured out around him. Gregory cannot attend because of illness and writes the funeral oration later.",
     "kind": "turning",
     "step": {
      "kind": "father",
@@ -647,7 +647,7 @@
      "year": 358,
      "butler": "05-09:3",
      "quote": "He accordingly, in 358, joined St. Basil in the solitude into which he had retreated",
-     "note": "The two friends together compiled passages from Origen, but they stayed together only a short time."
+     "note": "Butler adds that Gregory enjoyed this solitude only briefly before his father called him home."
     }
    },
    {
@@ -754,7 +754,7 @@
      "label": "Butler, St. Gregory Nazianzen",
      "when": "382",
      "year": 382,
-     "butler": "05-09:1",
+     "butler": "05-09:9",
      "quote": "he, in 382, passed the forty days of Lent in absolute silence",
      "note": "Butler reports the Lenten silence in 382."
     }
@@ -771,6 +771,382 @@
      "butler": "05-09:9",
      "quote": "his happydeath in 389, or, according to others, in 391",
      "note": "Butler leaves the year open between 389 and 391."
+    }
+   }
+  ]
+ },
+ {
+  "id": "cyprian-of-carthage",
+  "name": "Cyprian of Carthage",
+  "lifespan": "c. 200 – 258",
+  "butler": "09-16:0",
+  "sketch": "Cyprian was a well-educated Carthaginian lawyer and teacher who was baptized as an adult, made bishop within two years, and then led his church through persecution, plague and a bitter quarrel over the lapsed and over baptism. His deacon Pontius wrote the account of his death.",
+  "events": [
+   {
+    "year": 200,
+    "text": "Cyprian is born, probably about this year, to a respectable family in Carthage, and trained as a rhetorician.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Introductory Notice to Cyprian",
+     "when": "c. 200",
+     "year": 200,
+     "work": "cyprian",
+     "section": "iv.ii",
+     "quote": "born probably about 200 a.d.",
+     "note": "The editor says the date is only a probable one, and that little is certain about his early life."
+    }
+   },
+   {
+    "year": 246,
+    "text": "Through his friend, the presbyter Caecilius, he is brought from his worldly errors to Christ. At baptism he takes his friend's name. His first letter, to Donatus, was written soon after.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Pontius, Life and Passion of Cyprian 4",
+     "when": "246",
+     "year": 246,
+     "work": "cyprian",
+     "section": "iv.iii",
+     "quote": "who had converted him from his worldly errors to the acknowledgment of the true divinity",
+     "note": "The Introductory Notice dates his conversion to 246."
+    }
+   },
+   {
+    "year": 248,
+    "text": "Still a new Christian, he is chosen bishop of Carthage by the people, against the wishes of some of the older presbyters.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Introductory Notice to Cyprian",
+     "when": "248",
+     "year": 248,
+     "work": "cyprian",
+     "section": "iv.ii",
+     "quote": "the popular urgency constrained him to accept the office of Bishop of Carthage",
+     "note": "The Notice gives 248 for his election."
+    }
+   },
+   {
+    "year": 249,
+    "text": "Decius becomes emperor and the next year orders every citizen to offer sacrifice. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 250,
+    "text": "When the Decian persecution breaks out, Cyprian goes into hiding and directs the church by letter. The Roman clergy sharply criticize him for leaving.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Introductory Notice to Cyprian",
+     "when": "250",
+     "year": 250,
+     "work": "cyprian",
+     "section": "iv.ii",
+     "quote": "induced Cyprian to retire into concealment for a time",
+     "note": "Pontius defends the withdrawal as God's will; Cyprian's critics saw it as flight."
+    }
+   },
+   {
+    "year": 250,
+    "text": "Many fall away under pressure. Cyprian writes to the lapsed, who write back humbly, and works out how and when they can be restored.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Cyprian, Epistle 26",
+     "when": "250",
+     "year": 250,
+     "work": "cyprian",
+     "section": "iv.iv.xxvi",
+     "quote": "some who are of the lapsed have lately written to me, and are humble and meek and trembling and fearing God",
+     "note": "The bundled text dates the letter 250."
+    }
+   },
+   {
+    "year": 251,
+    "text": "Back in Carthage, he writes On the Unity of the Church against the schismatic groups that had grown up. It contains his best-known line about the Church as mother.",
+    "kind": "writing",
+    "step": {
+     "kind": "father",
+     "label": "Cyprian, On the Unity of the Church",
+     "when": "c. 251",
+     "year": 251,
+     "work": "cyprian",
+     "section": "iv.v.i",
+     "quote": "He can no longer have God for his Father, who has not the Church for his mother.",
+     "note": "The date 251 is the usual one and is not given in this passage."
+    }
+   },
+   {
+    "year": 252,
+    "text": "A plague sweeps through Carthage. Pagans abandon the sick and dying in the street. Cyprian organizes the Christians to care for them, friend or enemy.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Pontius, Life and Passion of Cyprian 9",
+     "when": "c. 252",
+     "year": 252,
+     "work": "cyprian",
+     "section": "iv.iii",
+     "quote": "Afterwards there broke out a dreadful plague",
+     "note": "Pontius gives no year. Modern historians usually place the plague about 252."
+    }
+   },
+   {
+    "year": 255,
+    "text": "A council of African bishops decides that people baptized by heretics must be baptized again. Cyprian writes to Rome's bishop Stephen, who disagrees. The two churches come close to a break.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Cyprian, Epistle 71",
+     "when": "255",
+     "year": 255,
+     "work": "cyprian",
+     "section": "iv.iv.lxxi",
+     "quote": "those who have been dipped abroad outside the Church, and have been stained among heretics and schismatics with the taint of profane water",
+     "note": "The heading dates the letter 255. The Church later settled the question differently; Cyprian remains a martyr and saint."
+    }
+   },
+   {
+    "year": 257,
+    "text": "The emperor Valerian forbids Christian assemblies and begins to exile bishops. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 257,
+    "text": "Cyprian is banished to Curubis, a small town on the coast. His deacon Pontius goes with him.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Pontius, Life and Passion of Cyprian 11",
+     "when": "257",
+     "year": 257,
+     "work": "cyprian",
+     "section": "iv.iii",
+     "quote": "Banishment followed these actions, so good and so benevolent.",
+     "note": "The Notice mentions banishment to Curubis by Valerian; the year 257 comes from the letters associated with it."
+    }
+   },
+   {
+    "year": 258,
+    "text": "A second edict sentences bishops, priests and deacons to death. Cyprian writes to a fellow bishop that he and his clergy are ready, and that everyone should think less of death than of immortality.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Cyprian, Epistle 81",
+     "when": "258",
+     "year": 258,
+     "work": "cyprian",
+     "section": "iv.iv.lxxxi",
+     "quote": "every one of us may think less of death than of immortality",
+     "note": "The bundled heading says he wrote this near the close of his life, in 258."
+    }
+   },
+   {
+    "year": 258,
+    "text": "Cyprian is beheaded at Carthage in September. The proconsul's sentence calls him a standard-bearer of the sect and an enemy of the gods. Pontius says he was the first of the African bishops to receive the martyr's crown.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Pontius, Life and Passion of Cyprian 17",
+     "when": "258",
+     "year": 258,
+     "work": "cyprian",
+     "section": "iv.iii",
+     "quote": "a standard-bearer of the sect, and an enemy of the gods",
+     "note": "The Introductory Notice dates his martyrdom to 258; Pontius records the sentence."
+    }
+   }
+  ]
+ },
+ {
+  "id": "perpetua",
+  "name": "Perpetua of Carthage",
+  "lifespan": "c. 181 – 203",
+  "butler": "03-07:1",
+  "sketch": "Vibia Perpetua was a young mother of good family, arrested at Carthage as a catechumen under the persecution of Septimius Severus. She kept a prison diary, the first part of the Passion that bears her name. A friend, Saturus, and an unnamed eyewitness completed it. The year of birth is not known; Butler gives her age as twenty-two, so \"c. 181\" is only an estimate.",
+  "events": [
+   {
+    "year": 180,
+    "text": "A group of Christians from Scilli in North Africa is tried at Carthage on 17 July before the proconsul Saturninus, and sentenced to be beheaded. It is among the earliest dated records of African martyrs.",
+    "kind": "world",
+    "step": {
+     "kind": "father",
+     "label": "Passion of the Scillitan Martyrs",
+     "when": "180",
+     "year": 180,
+     "work": "scillitan-martyrs",
+     "section": "xiv.iii",
+     "quote": "on the seventeenth day of July, at Carthage",
+     "note": "The text names the consuls but not the year; 180 is the settled date."
+    }
+   },
+   {
+    "year": 202,
+    "text": "The emperor Severus launches a violent persecution; it reaches Africa the following year.",
+    "kind": "world",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, SS. Perpetua and Felicitas",
+     "when": "202-203",
+     "year": 202,
+     "butler": "03-07:1",
+     "quote": "A VIOLENT persecution being set on foot by the emperor Severus, in 202, reached Africa the following year",
+     "note": "Butler cites the Acts quoted by Tertullian and Augustine."
+    }
+   },
+   {
+    "year": 203,
+    "text": "Five catechumens are arrested at Carthage, among them Perpetua, twenty-two, with a baby at the breast, and Felicitas, a slave, who is pregnant.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, SS. Perpetua and Felicitas",
+     "when": "203",
+     "year": 203,
+     "butler": "03-07:1",
+     "quote": "Perpetua had an infant at her breast, was of a good family, twenty-two years of age, and married to a person of quality in the city",
+     "note": "Butler adds that her father was a pagan and loved her more than his other children."
+    }
+   },
+   {
+    "year": 203,
+    "text": "Her father begs her to give up her faith. She asks him if a pot can be called by any other name than what it is, and says she cannot call herself anything but a Christian.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Perpetua's diary, in Butler",
+     "when": "203",
+     "year": 203,
+     "butler": "03-07:1",
+     "quote": "Nor can I call myself any other than I am, that is to say, a Christian.",
+     "note": "Butler quotes the part of the Acts that Perpetua wrote herself."
+    }
+   },
+   {
+    "year": 203,
+    "text": "While still under guard she and her companions receive baptism. She prays only for patience under bodily pain.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Perpetua's diary, in Butler",
+     "when": "203",
+     "year": 203,
+     "butler": "03-07:1",
+     "quote": "after this we enjoyed a little repose, and in that interval received baptism",
+     "note": "She writes that the Holy Spirit moved her to ask only for patience."
+    }
+   },
+   {
+    "year": 203,
+    "text": "They are moved into prison. She is shocked by the darkness and the crowd. She is also tortured by worry for her baby, until the deacons pay for her to nurse him.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Perpetua's diary, in Butler",
+     "when": "203",
+     "year": 203,
+     "butler": "03-07:1",
+     "quote": "I was shocked at the horror and darkness of the place; for till then I knew not what such sort of places were.",
+     "note": "She writes that after a few days her prison itself seemed agreeable."
+    }
+   },
+   {
+    "year": 203,
+    "text": "She asks to know whether she will be martyred. She sees a vision of a golden ladder to heaven guarded by a dragon, and she and her brother understand that she will die.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Perpetua's diary, in Butler",
+     "when": "203",
+     "year": 203,
+     "butler": "03-07:1",
+     "quote": "I saw a golden ladder which reached from earth to the heavens",
+     "note": "The first of her four recorded visions."
+    }
+   },
+   {
+    "year": 203,
+    "text": "At the trial the governor Hilarian urges her to sacrifice for the emperor, and her father appears with her child. She says \"Yes, I am\" a Christian. The sentence is wild beasts in the games.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Perpetua's diary, in Butler",
+     "when": "203",
+     "year": 203,
+     "butler": "03-07:1",
+     "quote": "Then the judge pronounced our sentence, by which we were all condemned to be exposed to wild beasts.",
+     "note": "The proconsul had just died, so the procurator Hilarian presided."
+    }
+   },
+   {
+    "year": 203,
+    "text": "She prays for her dead little brother Dinocrates and sees him in a vision healed and refreshed. She understands that her prayer has relieved his suffering.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Perpetua's diary, in Butler",
+     "when": "203",
+     "year": 203,
+     "butler": "03-07:1",
+     "quote": "I awoke, and I knew he was relieved from his pain.",
+     "note": "Butler includes the whole vision from her diary."
+    }
+   },
+   {
+    "year": 203,
+    "text": "In labor in prison, Felicitas is told she will not be able to bear the beasts if she cannot bear childbirth. She answers that another will suffer in her.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, SS. Perpetua and Felicitas",
+     "when": "203",
+     "year": 203,
+     "butler": "03-07:1",
+     "quote": "It is I that suffer what I now suffer; but then there will be another in me that will suffer for me, because I shall suffer for him.",
+     "note": "Her daughter is raised by a Christian woman. This part of the Acts was written by the eyewitness."
+    }
+   },
+   {
+    "year": 203,
+    "text": "On the eve of the games she dreams that she is wrestling an Egyptian in the amphitheatre and wins. She understands the fight is not with beasts but with the devil.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Perpetua's diary, in Butler",
+     "when": "203",
+     "year": 203,
+     "butler": "03-07:1",
+     "quote": "found that I was not so much to combat with wild beasts as with the devils.",
+     "note": "This is the last entry she wrote."
+    }
+   },
+   {
+    "year": 203,
+    "text": "On 7 March they are led into the arena. Perpetua is tossed by a wild cow, helps Felicitas to her feet, and dies by the sword of an inexperienced gladiator.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, SS. Perpetua and Felicitas",
+     "when": "203",
+     "year": 203,
+     "butler": "03-07:1",
+     "quote": "The day of their martyrdom was the 7th of March",
+     "note": "Butler says the most ancient martyrologies and the Roman calendar of 354 mark that day."
+    }
+   },
+   {
+    "year": 354,
+    "text": "More than a century and a half later, the feast of Perpetua and Felicitas is listed in the Roman calendar of 354, and the saints are named in the canon of the Mass. Augustine says their feast drew more people every year.",
+    "kind": "world",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, SS. Perpetua and Felicitas",
+     "when": "354",
+     "year": 354,
+     "butler": "03-07:1",
+     "quote": "They are mentioned in the canon of the Mass.",
+     "note": "Butler cites Augustine's sermons on their feast."
     }
    }
   ]
