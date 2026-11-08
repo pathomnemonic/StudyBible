@@ -131,6 +131,10 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <span>Slowly drifting color behind the text</span>
         <input type="checkbox" checked={s.motes} onChange={(e) => set({ motes: e.target.checked })} aria-label="Soft moving light" />
       </label>
+      <label className="row between" style={{ margin: '4px 0' }}>
+        <span>The glossed page: a chapter with the medieval Glossa in the margins (adds it to the Bible tools)</span>
+        <input type="checkbox" checked={s.glossedPage} onChange={(e) => set({ glossedPage: e.target.checked })} aria-label="Enable the glossed page" />
+      </label>
       </Fold>
       <Fold dot={false} id="ts:sound" title="Atmosphere and sound">
       <h3 className="modal-sub">Atmosphere</h3>

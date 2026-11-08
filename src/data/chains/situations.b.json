@@ -639,7 +639,7 @@
     "lifespan": "1614-1691",
     "why": "Lawrence was a cook in a monastery. He did not like the kitchen, and by his own account he learned to do his work as an offering. His story is about a job he disliked, not a difficult boss.",
     "step": {
-     "kind": "saint",
+     "kind": "writer",
      "label": "Brother Lawrence, Practice of the Presence of God",
      "work": "lawrence-practice",
      "section": "iii.ii",
@@ -710,7 +710,7 @@
     "lifespan": "1614-1691",
     "why": "Lawrence taught that prayer can be a habit of remembering God in the middle of daily work.",
     "step": {
-     "kind": "saint",
+     "kind": "writer",
      "label": "Brother Lawrence, Practice of the Presence of God",
      "work": "lawrence-practice",
      "section": "iv.v",
@@ -723,7 +723,7 @@
     "lifespan": "c. 1342-after 1416",
     "why": "Julian, an anchoress in Norwich, wrote about prayer after a series of visions.",
     "step": {
-     "kind": "saint",
+     "kind": "writer",
      "label": "Julian of Norwich, Revelations of Divine Love",
      "work": "julian-revelations",
      "section": "ii.iii",

@@ -257,7 +257,7 @@
         "note": "Ignatius, a bishop who knew the apostles' generation, calls Christ God existing in flesh."
       },
       {
-        "kind": "father", "label": "Pliny the Younger to Trajan (c. 112), quoted in Eusebius, Church History 3.33", "when": "c. 112", "year": 112, "work": "eusebius-history", "section": "iii.viii",
+        "kind": "writer", "label": "Pliny the Younger to Trajan (c. 112), quoted in Eusebius, Church History 3.33", "when": "c. 112", "year": 112, "work": "eusebius-history", "section": "iii.viii",
         "quote": "to sing responsively a song unto Christ as God",
         "note": "Pliny, a Roman governor writing as an outsider, reports that Christians sang a hymn to Christ as to a god."
       },
@@ -341,7 +341,7 @@
         "note": "Cyril explains the title: Mary is called Mother of God because the Word united flesh to himself in her womb, not because the Word's divine nature began from her."
       },
       {
-        "kind": "council", "label": "Cyril of Alexandria, First Anathema (Third Letter to Nestorius)", "when": "431", "year": 431, "work": "council-ephesus", "section": "x.ix",
+        "kind": "father", "label": "Cyril of Alexandria, First Anathema (Third Letter to Nestorius)", "when": "431", "year": 431, "work": "council-ephesus", "section": "x.ix",
         "quote": "If anyone will not confess that the Emmanuel is very God, and that therefore the Holy Virgin is the Mother of God",
         "note": "Cyril makes the title a test of right faith about who Jesus is; the Council of Ephesus (431) upheld it by approving his Second Letter and condemning Nestorius."
       },

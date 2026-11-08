@@ -87,6 +87,8 @@ export interface Settings {
   sparkles: boolean;
   /** a few soft drifting lights behind the text */
   motes: boolean;
+  /** the glossed page (a chapter with the medieval Glossa in the margins) is available; off until switched on */
+  glossedPage: boolean;
   /** the one-time note about ambience has been shown */
   ambienceTipSeen: boolean;
   /** paintings of the scene shown inline in the text */
@@ -188,6 +190,7 @@ export const DEFAULTS: Settings = {
   showOtherLanguages: false,
   sparkles: true,
   motes: true,
+  glossedPage: false,
   ambienceTipSeen: false,
   inlineArt: true,
   wordFx: true,

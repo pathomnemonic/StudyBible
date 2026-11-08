@@ -1,5 +1,5 @@
 /** A "sourced chain": a line of reasoning laid out as real sources in order. Every quotation is checked against the app's own text by tests/chains.test.ts. */
-export type StepKind = 'scripture' | 'father' | 'council' | 'catechism' | 'magisterium' | 'saint' | 'liturgy';
+export type StepKind = 'scripture' | 'father' | 'council' | 'catechism' | 'magisterium' | 'saint' | 'liturgy' | 'writer';
 
 export interface Step {
   kind: StepKind;

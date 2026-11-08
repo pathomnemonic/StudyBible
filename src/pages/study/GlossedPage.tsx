@@ -5,6 +5,7 @@ import { getGlossa, getGlossaEn } from '../../data/content';
 import { flattenChapter } from '../../lib/bibleText';
 import { BOOKS, BOOK_BY_ID } from '../../lib/canon';
 import { convertRef } from '../../lib/versification';
+import { useSettings } from '../../lib/store';
 import ShareLinkButton from '../../components/ShareLinkButton';
 
 interface Gloss { en: string; la?: string }
@@ -20,6 +21,7 @@ function Note({ g, latin }: { g: Gloss; latin: boolean }) {
 /** A chapter laid out like a medieval glossed Bible: the sacred text at the centre, the Glossa Ordinaria in the margins, notes alternating left and right. */
 export default function GlossedPage() {
   const { book = 'JHN', chapter = '1' } = useParams();
+  const [settings, setSettings] = useSettings();
   const nav = useNavigate();
   const c = Math.max(1, +chapter || 1);
   const info = BOOK_BY_ID[book];
@@ -48,6 +50,9 @@ export default function GlossedPage() {
 
   const total = useMemo(() => Object.values(notes ?? {}).reduce((n, l) => n + l.length, 0), [notes]);
   const books = BOOKS.filter((b) => true);
+  if (!settings.glossedPage) return (
+    <div className="page"><h1>The glossed page</h1><p className="lede">A chapter set like a medieval glossed Bible, with the <em>Glossa Ordinaria</em> in the margins. It is switched off by default.</p><p><button className="btn" onClick={() => setSettings({ glossedPage: true })}>Turn it on</button> <span className="muted small">You can turn it off again in the reading settings.</span></p></div>
+  );
   if (!info) return <div className="page"><p>That book could not be found. <Link to="/study/glossed/JHN/1">Open John 1</Link></p></div>;
   return (
     <div className="page glossed">

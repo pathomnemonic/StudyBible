@@ -6,7 +6,7 @@ import { MODES, type Chain, type ChainMode, type Step } from '../../chains/types
 import ShareLinkButton from '../../components/ShareLinkButton';
 import PrintButton from '../../components/PrintButton';
 
-const KIND: Record<Step['kind'], string> = { scripture: 'Scripture', father: 'Father', council: 'Council', catechism: 'Catechism', magisterium: 'Church teaching', saint: 'Saint', liturgy: 'Liturgy' };
+const KIND: Record<Step['kind'], string> = { scripture: 'Scripture', father: 'Father', council: 'Council', catechism: 'Catechism', magisterium: 'Church teaching', saint: 'Saint', liturgy: 'Liturgy', writer: 'Writer' };
 
 function StepCard({ s, timeline }: { s: Step; timeline?: boolean }) {
   const link = contextLink(s);
