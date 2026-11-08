@@ -13,8 +13,8 @@ import { parseRefs } from '../lib/refs';
 
 type Size = 'a5' | 'letter' | 'a4';
 const SIZES: Record<Size, { label: string; css: string; page: string; font: string; h: string }> = {
-  a5: { label: 'A5 booklet pages', css: 'A5', page: '148mm', font: '10.5pt', h: '186mm' },
-  letter: { label: 'Letter, one column', css: 'letter', page: '8.5in', font: '12pt', h: '9.2in' },
+  a5: { label: 'A5 booklet pages', css: 'A5', page: '148mm', font: '10.5pt', h: '172mm' },
+  letter: { label: 'Letter, one column', css: 'letter', page: '8.5in', font: '12pt', h: '9.3in' },
   a4: { label: 'A4, one column', css: 'A4', page: '210mm', font: '12pt', h: '255mm' },
 };
 const KINDS = Object.keys(KIND_LABEL) as BookletKind[];
@@ -102,7 +102,7 @@ export default function PrintBookletPage() {
 
   return (
     <div className="page bk-page">
-      <style>{`@media print { @page { size: ${sz.css}; margin: 14mm 13mm; } }
+      <style>{`@page { size: ${sz.css}; margin: 14mm 13mm; }
 .bk-sheet { --bk-font: ${sz.font}; --bk-w: ${sz.page}; --bk-h: ${sz.h}; }`}</style>
       <div className="no-print bk-controls">
         <h1>Print a study booklet</h1>

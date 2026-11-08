@@ -90,7 +90,7 @@ export default function MassAlongPage() {
   return (
     <div className="page ma-page" style={{ ['--ma-size' as string]: `${size}px` }}>
       <div className="row between ma-bar no-print">
-        <Link to="/pray" className="small">← Pray</Link>
+        <span />
         <div className="row ma-controls">
           <button className="btn small" onClick={() => set({ fontSize: Math.max(18, st.fontSize - 2) })} aria-label="Smaller text">A−</button>
           <button className="btn small" onClick={() => set({ fontSize: Math.min(44, st.fontSize + 2) })} aria-label="Larger text">A+</button>

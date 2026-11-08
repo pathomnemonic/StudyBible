@@ -50,7 +50,6 @@ export default function ReadingsTogetherPage() {
 
   return (
     <div className="page rt-page">
-      <Link to="/pray" className="small">← Pray</Link>
       <h1>Why these readings together</h1>
       <p className="muted">On Sundays and great feasts the Church chooses the readings so that they speak to one another. Here is where the Bible’s own cross-references join them, what a Father of the Church said about the Gospel, and the Catechism’s frame.</p>
       <div className="row between rt-date">

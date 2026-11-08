@@ -1,6 +1,6 @@
 /** Nicknames and group codes: short, plain, and kept clean. Pure functions, no network. */
 
-const BAD = ['fuck', 'shit', 'cunt', 'bitch', 'bastard', 'asshole', 'dick', 'cock', 'pussy', 'whore', 'slut', 'nigg', 'fag', 'retard', 'rape', 'nazi', 'porn', 'sex', 'penis', 'vagina', 'damn', 'piss', 'twat', 'wank'];
+const BAD = ['fuck', 'shit', 'cunt', 'bitch', 'bastard', 'asshole', 'pussy', 'whore', 'slut', 'nigg', 'retard', 'nazi', 'porn', 'penis', 'vagina', 'twat', 'wank'];
 const LEET: Record<string, string> = { '0': 'o', '1': 'i', '3': 'e', '4': 'a', '5': 's', '7': 't', '@': 'a', '$': 's', '!': 'i' };
 
 /** Lower-case, letters only, with common number-for-letter swaps undone. */

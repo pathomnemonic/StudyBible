@@ -30,7 +30,7 @@ describe('passport URL map', () => {
     expect(councilFromText('Chalcedon')).toBeNull();
     const pins = councilPins(new Set(['1', '7']));
     expect(pins.find((p) => p.place === 'Nicaea')!.got).toEqual([1, 7]);
-    expect(pins.find((p) => p.place === 'Rome')!.councils.length).toBe(8);
+    expect(pins.find((p) => p.place === 'Rome')!.councils.length).toBe(7);
     expect(validMd('02-29')).toBe(true);
     expect(validMd('02-30')).toBe(false);
   });

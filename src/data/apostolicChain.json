@@ -1,0 +1,1133 @@
+{
+ "nodes": [
+  {
+   "id": "peter",
+   "name": "Peter",
+   "years": "died c. 64",
+   "from": -5,
+   "to": 64,
+   "role": "Apostle; Irenaeus says he and Paul founded the Church at Rome.",
+   "place": "Galilee, Antioch, Rome",
+   "branch": "rome"
+  },
+  {
+   "id": "paul",
+   "name": "Paul",
+   "years": "c. 5 – c. 65",
+   "from": 5,
+   "to": 65,
+   "role": "Apostle to the Gentiles; wrote letters to Timothy and Titus.",
+   "place": "Tarsus, Asia Minor, Greece, Rome",
+   "branch": "paul"
+  },
+  {
+   "id": "john",
+   "name": "John",
+   "years": "died c. 100",
+   "from": -5,
+   "to": 100,
+   "role": "Apostle and evangelist; the early writers place his later years at Ephesus.",
+   "place": "Galilee, Ephesus",
+   "branch": "asia"
+  },
+  {
+   "id": "mark",
+   "name": "Mark",
+   "years": "1st century",
+   "from": 30,
+   "to": 70,
+   "role": "Called Peter's \"son\" in 1 Peter; later writers call him Peter's interpreter.",
+   "place": "Jerusalem, Rome",
+   "branch": "rome"
+  },
+  {
+   "id": "timothy",
+   "name": "Timothy",
+   "years": "1st century",
+   "from": 30,
+   "to": 100,
+   "role": "Paul's younger co-worker; recipient of two letters.",
+   "place": "Lystra, Ephesus",
+   "branch": "paul"
+  },
+  {
+   "id": "titus",
+   "name": "Titus",
+   "years": "1st century",
+   "from": 30,
+   "to": 100,
+   "role": "Paul's co-worker, left in Crete.",
+   "place": "Crete",
+   "branch": "paul"
+  },
+  {
+   "id": "linus",
+   "name": "Linus",
+   "years": "1st century",
+   "from": 60,
+   "to": 80,
+   "role": "Named by Irenaeus as the first bishop of Rome after the apostles.",
+   "place": "Rome",
+   "branch": "rome"
+  },
+  {
+   "id": "anacletus",
+   "name": "Anacletus",
+   "years": "1st century",
+   "from": 75,
+   "to": 95,
+   "role": "Second in Irenaeus's list of the bishops of Rome.",
+   "place": "Rome",
+   "branch": "rome"
+  },
+  {
+   "id": "clement-rome",
+   "name": "Clement of Rome",
+   "years": "fl. c. 96",
+   "from": 60,
+   "to": 100,
+   "role": "Bishop of Rome; wrote to the Corinthians about discord.",
+   "place": "Rome",
+   "authorId": "clement-rome",
+   "read": {
+    "work": "clement-rome",
+    "section": "ii.i",
+    "label": "First Epistle to the Corinthians"
+   },
+   "words": [
+    {
+     "quote": "Our apostles also knew, through our Lord Jesus Christ",
+     "work": "clement-rome",
+     "section": "ii.ii.xliv",
+     "note": "Chapter 44 of his letter, on the apostles providing for orderly ministry. The bundled text of this chapter is cut short at its footnote marks, so we quote only the words that survive."
+    },
+    {
+     "quote": "there would be strife on account of the office",
+     "work": "clement-rome",
+     "section": "ii.ii.xliv",
+     "note": "The same chapter, a later stretch of the same sentence in the bundled text."
+    }
+   ],
+   "branch": "rome"
+  },
+  {
+   "id": "ignatius",
+   "name": "Ignatius of Antioch",
+   "years": "died c. 107",
+   "from": 35,
+   "to": 107,
+   "role": "Bishop of Antioch; wrote seven letters on the road to martyrdom at Rome.",
+   "place": "Antioch, Smyrna, Rome",
+   "authorId": "ignatius-antioch",
+   "read": {
+    "work": "ignatius-letters",
+    "section": "v.viii",
+    "label": "Letter to Polycarp"
+   },
+   "branch": "asia"
+  },
+  {
+   "id": "polycarp",
+   "name": "Polycarp of Smyrna",
+   "years": "c. 69 – c. 155",
+   "from": 69,
+   "to": 155,
+   "role": "Bishop of Smyrna; his letter and the account of his martyrdom survive.",
+   "place": "Smyrna",
+   "authorId": "polycarp",
+   "read": {
+    "work": "polycarp",
+    "section": "iv.iv.i",
+    "label": "Martyrdom of Polycarp"
+   },
+   "words": [
+    {
+     "quote": "But the most admirable Polycarp, when he first heard [that he was sought for], was in no measure disturbed",
+     "work": "polycarp",
+     "section": "iv.iv.v",
+     "note": "From the church of Smyrna's account of his martyrdom."
+    }
+   ],
+   "branch": "asia"
+  },
+  {
+   "id": "papias",
+   "name": "Papias of Hierapolis",
+   "years": "c. 70 – c. 140",
+   "from": 70,
+   "to": 140,
+   "role": "Bishop who collected sayings of the Lord from those who had known the apostles. Only fragments survive.",
+   "place": "Hierapolis",
+   "authorId": "papias",
+   "read": {
+    "work": "papias",
+    "section": "vii.ii.i",
+    "label": "Fragments of Papias"
+   },
+   "branch": "asia"
+  },
+  {
+   "id": "john-presbyter",
+   "name": "John the Presbyter",
+   "years": "1st-2nd century",
+   "from": 60,
+   "to": 120,
+   "role": "An \"elder John\" whom Papias says he heard. Eusebius thought him a different man from the apostle.",
+   "place": "Asia Minor",
+   "branch": "asia"
+  },
+  {
+   "id": "justin",
+   "name": "Justin Martyr",
+   "years": "c. 100 – c. 165",
+   "from": 100,
+   "to": 165,
+   "role": "Philosopher and apologist; martyred at Rome.",
+   "place": "Neapolis, Ephesus, Rome",
+   "authorId": "justin",
+   "read": {
+    "work": "justin-martyr",
+    "section": "viii.iv",
+    "label": "Dialogue with Trypho"
+   },
+   "branch": "apol"
+  },
+  {
+   "id": "tatian",
+   "name": "Tatian",
+   "years": "2nd century",
+   "from": 120,
+   "to": 180,
+   "role": "Hearer of Justin; later left the Church.",
+   "place": "Rome, Syria",
+   "authorId": "tatian",
+   "read": {
+    "work": "tatian-address",
+    "section": "iii.ii.i",
+    "label": "Address to the Greeks"
+   },
+   "branch": "apol"
+  },
+  {
+   "id": "rhodo",
+   "name": "Rhodo",
+   "years": "2nd century",
+   "from": 150,
+   "to": 200,
+   "role": "Writer against the heretics; listed by Jerome as a disciple of Tatian.",
+   "place": "Asia, Rome",
+   "branch": "apol"
+  },
+  {
+   "id": "irenaeus",
+   "name": "Irenaeus of Lyons",
+   "years": "c. 130 – c. 202",
+   "from": 130,
+   "to": 202,
+   "role": "Bishop of Lyons; wrote Against Heresies and appealed to the succession of bishops.",
+   "place": "Smyrna, Lyons",
+   "authorId": "irenaeus",
+   "read": {
+    "work": "irenaeus-heresies",
+    "section": "ix.iv.iv",
+    "label": "Against Heresies 3.3"
+   },
+   "branch": "asia"
+  },
+  {
+   "id": "hippolytus",
+   "name": "Hippolytus of Rome",
+   "years": "c. 170 – 236",
+   "from": 170,
+   "to": 236,
+   "role": "Roman presbyter and writer, whom later editors call Irenaeus's pupil.",
+   "place": "Rome",
+   "authorId": "hippolytus",
+   "read": {
+    "work": "hippolytus",
+    "section": "iii.ii",
+    "label": "Works of Hippolytus"
+   },
+   "branch": "asia"
+  },
+  {
+   "id": "pantaenus",
+   "name": "Pantaenus",
+   "years": "died before c. 200",
+   "from": 150,
+   "to": 200,
+   "role": "First known head of the catechetical school at Alexandria.",
+   "place": "Alexandria",
+   "branch": "alex"
+  },
+  {
+   "id": "clement-alex",
+   "name": "Clement of Alexandria",
+   "years": "c. 150 – c. 215",
+   "from": 150,
+   "to": 215,
+   "role": "Teacher at Alexandria; wrote the Instructor and Stromata.",
+   "place": "Athens, Alexandria",
+   "authorId": "clement-alexandria",
+   "read": {
+    "work": "clement-alex",
+    "section": "vi.iv.i",
+    "label": "Stromata, Book 1"
+   },
+   "words": [
+    {
+     "quote": "Well, they preserving the tradition of the blessed doctrine derived directly from the holy apostles, Peter, James, John, and Paul",
+     "work": "clement-alex",
+     "section": "vi.iv.i",
+     "note": "Clement describes his own teachers in this way. He does not name them in this sentence; an editor's note in our text suggests the last of them was Pantaenus."
+    }
+   ],
+   "branch": "alex"
+  },
+  {
+   "id": "origen",
+   "name": "Origen",
+   "years": "c. 185 – c. 253",
+   "from": 185,
+   "to": 253,
+   "role": "Teacher and biblical scholar at Alexandria and Caesarea.",
+   "place": "Alexandria, Caesarea",
+   "authorId": "origen",
+   "read": {
+    "work": "origen-john",
+    "section": "xv.i",
+    "label": "Commentary on John"
+   },
+   "branch": "alex"
+  },
+  {
+   "id": "heraclas",
+   "name": "Heraclas",
+   "years": "died c. 247",
+   "from": 180,
+   "to": 247,
+   "role": "Origen's assistant, later bishop of Alexandria.",
+   "place": "Alexandria",
+   "branch": "alex"
+  },
+  {
+   "id": "gregory-thaum",
+   "name": "Gregory Thaumaturgus",
+   "years": "c. 213 – c. 270",
+   "from": 213,
+   "to": 270,
+   "role": "Pupil of Origen; bishop of Neo-Caesarea in Pontus.",
+   "place": "Caesarea, Neo-Caesarea",
+   "authorId": "gregory-thaumaturgus",
+   "read": {
+    "work": "gregory-thaum",
+    "section": "iii.iii.iv",
+    "label": "Oration and Panegyric to Origen"
+   },
+   "branch": "alex"
+  },
+  {
+   "id": "pamphilus",
+   "name": "Pamphilus of Caesarea",
+   "years": "c. 240 – 310",
+   "from": 240,
+   "to": 310,
+   "role": "Presbyter and martyr; friend of Eusebius.",
+   "place": "Caesarea",
+   "branch": "alex"
+  },
+  {
+   "id": "eusebius",
+   "name": "Eusebius of Caesarea",
+   "years": "c. 260 – c. 339",
+   "from": 260,
+   "to": 339,
+   "role": "Bishop and historian; wrote the Church History.",
+   "place": "Caesarea",
+   "authorId": "eusebius",
+   "read": {
+    "work": "eusebius-history",
+    "section": "iii.x",
+    "label": "Church History, Book 5"
+   },
+   "branch": "alex"
+  },
+  {
+   "id": "tertullian",
+   "name": "Tertullian",
+   "years": "c. 155 – c. 220",
+   "from": 155,
+   "to": 220,
+   "role": "Carthaginian writer, the first great Latin Father.",
+   "place": "Carthage",
+   "authorId": "tertullian",
+   "read": {
+    "work": "tertullian-apologetic",
+    "section": "iv.iii",
+    "label": "Apology"
+   },
+   "branch": "africa"
+  },
+  {
+   "id": "caecilius",
+   "name": "Caecilius",
+   "years": "3rd century",
+   "from": 200,
+   "to": 250,
+   "role": "Carthaginian presbyter who led Cyprian to the faith.",
+   "place": "Carthage",
+   "branch": "africa"
+  },
+  {
+   "id": "cyprian",
+   "name": "Cyprian of Carthage",
+   "years": "c. 200 – 258",
+   "from": 200,
+   "to": 258,
+   "role": "Bishop of Carthage and martyr.",
+   "place": "Carthage",
+   "authorId": "cyprian",
+   "read": {
+    "work": "cyprian",
+    "section": "iv.iii",
+    "label": "Life and Passion of Cyprian"
+   },
+   "branch": "africa"
+  },
+  {
+   "id": "pontius",
+   "name": "Pontius the Deacon",
+   "years": "3rd century",
+   "from": 210,
+   "to": 270,
+   "role": "Cyprian's deacon, who wrote his Life.",
+   "place": "Carthage",
+   "branch": "africa"
+  },
+  {
+   "id": "cornelius",
+   "name": "Cornelius of Rome",
+   "years": "died 253",
+   "from": 200,
+   "to": 253,
+   "role": "Bishop of Rome; Cyprian wrote to him about Novatian.",
+   "place": "Rome",
+   "branch": "rome"
+  },
+  {
+   "id": "alexander-alex",
+   "name": "Alexander of Alexandria",
+   "years": "died c. 326",
+   "from": 250,
+   "to": 326,
+   "role": "Bishop of Alexandria at the time of Arius.",
+   "place": "Alexandria",
+   "authorId": "alexander-alexandria",
+   "read": {
+    "work": "alexander-alexandria",
+    "section": "x.ii",
+    "label": "Letters on Arius"
+   },
+   "branch": "alex"
+  },
+  {
+   "id": "athanasius",
+   "name": "Athanasius of Alexandria",
+   "years": "c. 296 – 373",
+   "from": 296,
+   "to": 373,
+   "role": "Bishop of Alexandria; defender of Nicaea; author of the Life of Antony.",
+   "place": "Alexandria",
+   "authorId": "athanasius",
+   "read": {
+    "work": "athanasius-antony",
+    "section": "xvi.ii.i",
+    "label": "Life of Antony"
+   },
+   "branch": "alex"
+  },
+  {
+   "id": "antony",
+   "name": "Antony of Egypt",
+   "years": "c. 251 – 356",
+   "from": 251,
+   "to": 356,
+   "role": "Desert monk whose Life shaped early monasticism.",
+   "place": "Egypt",
+   "branch": "alex"
+  },
+  {
+   "id": "basil",
+   "name": "Basil the Great",
+   "years": "c. 330 – 379",
+   "from": 330,
+   "to": 379,
+   "role": "Bishop of Caesarea in Cappadocia.",
+   "place": "Caesarea in Cappadocia",
+   "authorId": "basil",
+   "read": {
+    "work": "basil-letters",
+    "section": "ix.i",
+    "label": "Letters of Basil"
+   },
+   "branch": "cappa"
+  },
+  {
+   "id": "gregory-naz",
+   "name": "Gregory of Nazianzus",
+   "years": "c. 329 – 390",
+   "from": 329,
+   "to": 390,
+   "role": "Friend of Basil; bishop and theologian.",
+   "place": "Nazianzus, Constantinople",
+   "authorId": "gregory-nazianzus",
+   "read": {
+    "work": "gregory-nazianzen-orations",
+    "section": "iii.xxvi",
+    "label": "Funeral Oration on Basil"
+   },
+   "branch": "cappa"
+  },
+  {
+   "id": "gregory-nyssa",
+   "name": "Gregory of Nyssa",
+   "years": "c. 335 – c. 395",
+   "from": 335,
+   "to": 395,
+   "role": "Basil's younger brother; bishop of Nyssa.",
+   "place": "Nyssa",
+   "authorId": "gregory-nyssa",
+   "read": {
+    "work": "gregory-nyssa-dogmatic",
+    "section": "viii.i.iii",
+    "label": "Against Eunomius, Book 1"
+   },
+   "branch": "cappa"
+  },
+  {
+   "id": "jerome",
+   "name": "Jerome",
+   "years": "c. 347 – 420",
+   "from": 347,
+   "to": 420,
+   "role": "Scholar who translated the Latin Bible.",
+   "place": "Rome, Bethlehem",
+   "authorId": "jerome",
+   "read": {
+    "work": "jerome-letters",
+    "section": "v.LII",
+    "label": "Letter 52"
+   },
+   "branch": "cappa"
+  },
+  {
+   "id": "simplicianus",
+   "name": "Simplicianus",
+   "years": "died 400",
+   "from": 320,
+   "to": 400,
+   "role": "Elder priest at Milan, later bishop; counselled Augustine.",
+   "place": "Milan",
+   "branch": "west"
+  },
+  {
+   "id": "ambrose",
+   "name": "Ambrose of Milan",
+   "years": "c. 339 – 397",
+   "from": 339,
+   "to": 397,
+   "role": "Bishop of Milan.",
+   "place": "Trier, Milan",
+   "authorId": "ambrose",
+   "read": {
+    "work": "ambrose-letters",
+    "section": "v.i",
+    "label": "Letters of Ambrose"
+   },
+   "branch": "west"
+  },
+  {
+   "id": "augustine",
+   "name": "Augustine of Hippo",
+   "years": "354 – 430",
+   "from": 354,
+   "to": 430,
+   "role": "Bishop of Hippo; wrote the Confessions.",
+   "place": "Thagaste, Milan, Hippo",
+   "authorId": "augustine",
+   "read": {
+    "work": "aug-confessions",
+    "section": "vi.xiii",
+    "label": "Confessions, the meeting with Ambrose"
+   },
+   "branch": "west"
+  },
+  {
+   "id": "valerius",
+   "name": "Valerius of Hippo",
+   "years": "died c. 397",
+   "from": 330,
+   "to": 397,
+   "role": "Bishop of Hippo who ordained Augustine presbyter.",
+   "place": "Hippo",
+   "branch": "west"
+  },
+  {
+   "id": "possidius",
+   "name": "Possidius of Calama",
+   "years": "c. 370 – c. 437",
+   "from": 370,
+   "to": 437,
+   "role": "Bishop of Calama, friend of Augustine and author of his Life.",
+   "place": "Calama",
+   "branch": "west"
+  },
+  {
+   "id": "alypius",
+   "name": "Alypius of Thagaste",
+   "years": "c. 360 – c. 430",
+   "from": 360,
+   "to": 430,
+   "role": "Augustine's friend from boyhood; later a bishop.",
+   "place": "Thagaste",
+   "branch": "west"
+  }
+ ],
+ "edges": [
+  {
+   "from": "paul",
+   "to": "timothy",
+   "kind": "wrote-to",
+   "quote": "to Timothy, my beloved child: Grace, mercy, and peace",
+   "ref": "2TI.1.2",
+   "voice": "scripture",
+   "note": "Paul addresses Timothy as his child in the faith. Scripture states this, not a later tradition."
+  },
+  {
+   "from": "paul",
+   "to": "timothy",
+   "kind": "taught",
+   "quote": "The things which you have heard from me among many witnesses, commit the same things to faithful men who will be able to teach others also.",
+   "ref": "2TI.2.2",
+   "voice": "scripture",
+   "note": "Paul asks Timothy to hand on what he heard. This is the clearest line in Scripture about passing teaching on."
+  },
+  {
+   "from": "paul",
+   "to": "titus",
+   "kind": "wrote-to",
+   "quote": "to Titus, my true child according to a common faith",
+   "ref": "TIT.1.4",
+   "voice": "scripture",
+   "note": "Paul writes to Titus and later tells him to appoint elders in every city."
+  },
+  {
+   "from": "peter",
+   "to": "mark",
+   "kind": "taught",
+   "quote": "So does Mark, my son.",
+   "ref": "1PE.5.13",
+   "voice": "scripture",
+   "note": "Peter calls Mark his son. Later writers add that Mark was his interpreter."
+  },
+  {
+   "from": "peter",
+   "to": "linus",
+   "kind": "succeeded",
+   "quote": "committed into the hands of Linus the office of the episcopate",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "voice": "text",
+   "note": "Irenaeus says the Church at Rome was founded by Peter and Paul, and that the apostles then gave the office to Linus. These are his words, not our claim."
+  },
+  {
+   "from": "paul",
+   "to": "linus",
+   "kind": "succeeded",
+   "quote": "founded and organized at Rome by the two most glorious apostles, Peter and Paul",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "voice": "text",
+   "note": "The same passage names Paul together with Peter as founders of the Roman Church. Irenaeus adds that Paul mentions Linus in the letters to Timothy."
+  },
+  {
+   "from": "linus",
+   "to": "anacletus",
+   "kind": "succeeded",
+   "quote": "To him succeeded Anacletus",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "voice": "text",
+   "note": "Irenaeus lists the bishops of Rome in order. Early lists differ in the order of the first names."
+  },
+  {
+   "from": "anacletus",
+   "to": "clement-rome",
+   "kind": "succeeded",
+   "quote": "in the third place from the apostles, Clement was allotted the bishopric",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "voice": "text",
+   "note": "Irenaeus puts Clement third from the apostles."
+  },
+  {
+   "from": "peter",
+   "to": "clement-rome",
+   "kind": "heard",
+   "quote": "as he had seen the blessed apostles, and had been conversant with them",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "voice": "text",
+   "note": "Irenaeus says \"the apostles\", and does not name Peter alone. We join Peter and Paul to Clement because Irenaeus named them as the founders at Rome."
+  },
+  {
+   "from": "paul",
+   "to": "clement-rome",
+   "kind": "heard",
+   "quote": "as he had seen the blessed apostles, and had been conversant with them",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "voice": "text",
+   "note": "Same sentence as the edge from Peter. See that note."
+  },
+  {
+   "from": "clement-rome",
+   "to": "paul",
+   "kind": "wrote-about",
+   "quote": "Take up the epistle of the blessed Apostle Paul.",
+   "work": "clement-rome",
+   "section": "ii.ii.xlvii",
+   "voice": "text",
+   "note": "Clement points the Corinthians back to Paul's letter to them."
+  },
+  {
+   "from": "john",
+   "to": "polycarp",
+   "kind": "taught",
+   "quote": "the accounts which he gave of his intercourse with John and with the others who had seen the Lord",
+   "work": "eusebius-history",
+   "section": "iii.x",
+   "voice": "text",
+   "note": "Irenaeus, in a letter quoted by Eusebius, recalls Polycarp telling of his time with John."
+  },
+  {
+   "from": "john",
+   "to": "polycarp",
+   "kind": "succeeded",
+   "quote": "by apostles in Asia, appointed bishop of the Church in Smyrna",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "voice": "text",
+   "note": "Irenaeus says apostles in Asia appointed Polycarp. He says \"apostles\", not John by name."
+  },
+  {
+   "from": "polycarp",
+   "to": "irenaeus",
+   "kind": "heard",
+   "quote": "I am able to describe the very place in which the blessed Polycarp sat as he discoursed",
+   "work": "eusebius-history",
+   "section": "iii.x",
+   "voice": "text",
+   "note": "Irenaeus, writing to Florinus, remembers hearing Polycarp as a boy."
+  },
+  {
+   "from": "polycarp",
+   "to": "irenaeus",
+   "kind": "heard",
+   "quote": "whom I also saw in my early youth",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "voice": "text",
+   "note": "In Against Heresies 3.3.4 Irenaeus says he saw Polycarp when he was young."
+  },
+  {
+   "from": "papias",
+   "to": "john",
+   "kind": "heard",
+   "quote": "Papias, an ancient man, who was a hearer of John, and a friend of Polycarp",
+   "work": "papias",
+   "section": "vii.ii.i",
+   "voice": "text",
+   "disputed": true,
+   "note": "This is what Irenaeus says, as quoted by Eusebius. Eusebius then doubts that Papias heard an apostle. See the next edge."
+  },
+  {
+   "from": "papias",
+   "to": "john",
+   "kind": "heard",
+   "quote": "makes it manifest that he was not himself a hearer and eye-witness of the holy apostles",
+   "work": "papias",
+   "section": "vii.ii.i",
+   "voice": "text",
+   "disputed": true,
+   "note": "Eusebius, in the same passage, reads Papias's own preface differently. So the link between Papias and the apostle John is disputed in our sources."
+  },
+  {
+   "from": "papias",
+   "to": "john-presbyter",
+   "kind": "heard",
+   "quote": "he heard in person Aristion and the presbyter John",
+   "work": "papias",
+   "section": "vii.ii.vi",
+   "voice": "text",
+   "note": "Eusebius reports that Papias heard \"the presbyter John\". Eusebius took this to be a second John."
+  },
+  {
+   "from": "eusebius",
+   "to": "papias",
+   "kind": "wrote-about",
+   "quote": "received the sayings of the apostles from those who accompanied them",
+   "work": "papias",
+   "section": "vii.ii.vi",
+   "voice": "text",
+   "note": "Eusebius's own summary of Papias's preface."
+  },
+  {
+   "from": "ignatius",
+   "to": "polycarp",
+   "kind": "wrote-to",
+   "quote": "Ignatius, who is also called Theophorus, to Polycarp, Bishop of the Church of the Smyrnæans",
+   "work": "ignatius-letters",
+   "section": "v.viii",
+   "voice": "text",
+   "note": "Ignatius's letter to Polycarp. It shows the two men knew each other; it does not say who taught whom."
+  },
+  {
+   "from": "polycarp",
+   "to": "ignatius",
+   "kind": "wrote-about",
+   "quote": "not only in the case of the blessed Ignatius, and Zosimus, and Rufus",
+   "work": "polycarp",
+   "section": "iv.ii.ix",
+   "voice": "text",
+   "note": "Polycarp's letter to the Philippians holds up Ignatius as an example of patience."
+  },
+  {
+   "from": "justin",
+   "to": "tatian",
+   "kind": "taught",
+   "quote": "He was a hearer of Justin's",
+   "work": "irenaeus-heresies",
+   "section": "ix.ii.xxix",
+   "voice": "text",
+   "note": "Irenaeus says Tatian heard Justin, and that he fell away after Justin's martyrdom."
+  },
+  {
+   "from": "tatian",
+   "to": "rhodo",
+   "kind": "taught",
+   "quote": "Rhodo, the disciple of Tatian",
+   "work": "jerome-lives",
+   "section": "v.iii.ii",
+   "voice": "text",
+   "note": "Jerome's list of writers gives this heading. Only the list survives in our bundle of the Lives, not the full entry."
+  },
+  {
+   "from": "irenaeus",
+   "to": "hippolytus",
+   "kind": "taught",
+   "quote": "He is the disciple of Irenæus",
+   "work": "hippolytus",
+   "section": "iii.ii",
+   "voice": "editor",
+   "note": "This is the editor's opening note in our volume of Hippolytus. It is a later scholar's statement, not Hippolytus's own words."
+  },
+  {
+   "from": "pantaenus",
+   "to": "clement-alex",
+   "kind": "taught",
+   "quote": "he was the teacher of Clement",
+   "work": "eusebius-history",
+   "section": "iii.x",
+   "voice": "editor",
+   "note": "The translator's note on Eusebius says this about Pantaenus. Clement himself names no teacher in the passage we have."
+  },
+  {
+   "from": "clement-alex",
+   "to": "origen",
+   "kind": "taught",
+   "quote": "since Origen was one of his pupils he can hardly have left long before that time",
+   "work": "eusebius-history",
+   "section": "iii.xi",
+   "voice": "editor",
+   "note": "A note by the translator of Eusebius. Eusebius himself says Origen taught in the school at Alexandria."
+  },
+  {
+   "from": "origen",
+   "to": "heraclas",
+   "kind": "taught",
+   "quote": "he selected Heraclas, who was a zealous student of divine things … made him his associate in the work of instruction",
+   "work": "eusebius-history",
+   "section": "iii.xi",
+   "voice": "text",
+   "note": "Eusebius says Origen chose Heraclas from his pupils to share the teaching."
+  },
+  {
+   "from": "origen",
+   "to": "gregory-thaum",
+   "kind": "taught",
+   "quote": "many pupils came to him not only from the vicinity, but also from other countries. Among these Theodorus, the same that was distinguished among the bishops of our day under the name of Gregory",
+   "work": "eusebius-history",
+   "section": "iii.xi",
+   "voice": "text",
+   "note": "Eusebius names Gregory (called Theodorus) among Origen's pupils."
+  },
+  {
+   "from": "origen",
+   "to": "gregory-thaum",
+   "kind": "taught",
+   "quote": "after many years’ instruction under that teacher",
+   "work": "gregory-thaum",
+   "section": "iii.iii.iv",
+   "voice": "editor",
+   "note": "The heading to Gregory's farewell oration to Origen, in the translators' volume."
+  },
+  {
+   "from": "gregory-nyssa",
+   "to": "gregory-thaum",
+   "kind": "wrote-about",
+   "quote": "Gregory of Nyssa about a century later wrote a life of Gregory Thaumaturgus",
+   "work": "eusebius-history",
+   "section": "iii.xi",
+   "voice": "editor",
+   "note": "The translator's note. This is a second link: Nyssa wrote about the earlier Gregory."
+  },
+  {
+   "from": "eusebius",
+   "to": "pamphilus",
+   "kind": "wrote-about",
+   "quote": "a Life of Pamphilus the Martyr, from whom on account of friendship he took his surname, in three books",
+   "work": "eusebius-history",
+   "section": "iii.iv",
+   "voice": "text",
+   "note": "From the old testimonies gathered in our volume of Eusebius."
+  },
+  {
+   "from": "eusebius",
+   "to": "origen",
+   "kind": "wrote-about",
+   "quote": "Six Apologies in Behalf of Origen",
+   "work": "eusebius-history",
+   "section": "iii.iv",
+   "voice": "text",
+   "note": "The same testimony lists his defence of Origen."
+  },
+  {
+   "from": "pamphilus",
+   "to": "origen",
+   "kind": "wrote-about",
+   "quote": "the elaborate Defense of Origen, composed by Pamphilus and himself",
+   "work": "eusebius-history",
+   "section": "iii.iii",
+   "voice": "editor",
+   "note": "The translator's introduction to Eusebius says Pamphilus and Eusebius wrote the Defense together."
+  },
+  {
+   "from": "tertullian",
+   "to": "cyprian",
+   "kind": "taught",
+   "quote": "Cyprian is the spiritual son and pupil of Tertullian",
+   "work": "cyprian",
+   "section": "iv.ii",
+   "voice": "editor",
+   "note": "The editor's introduction says this. Our bundled texts do not give Cyprian's own words about it."
+  },
+  {
+   "from": "caecilius",
+   "to": "cyprian",
+   "kind": "taught",
+   "quote": "who had converted him from his worldly errors to the acknowledgment of the true divinity",
+   "work": "cyprian",
+   "section": "iv.iii",
+   "voice": "text",
+   "note": "Pontius says the presbyter Caecilius brought Cyprian to the faith."
+  },
+  {
+   "from": "pontius",
+   "to": "cyprian",
+   "kind": "wrote-about",
+   "quote": "The Life and Passion of Cyprian, Bishop and Martyr. By Pontius the Deacon.",
+   "work": "cyprian",
+   "section": "iv.iii",
+   "voice": "text",
+   "note": "Pontius was Cyprian's deacon and wrote his Life."
+  },
+  {
+   "from": "cyprian",
+   "to": "cornelius",
+   "kind": "wrote-to",
+   "quote": "To Cornelius, on His Refusal to Receive Novatian",
+   "work": "cyprian",
+   "section": "iv.iv.xl",
+   "voice": "text",
+   "note": "One of Cyprian's letters to the bishop of Rome."
+  },
+  {
+   "from": "alexander-alex",
+   "to": "athanasius",
+   "kind": "succeeded",
+   "quote": "Athanasius succeeded him at the end of the same year",
+   "work": "socrates-sozomen",
+   "section": "ii.iv.xv",
+   "voice": "editor",
+   "note": "The editor's note to Socrates. The original sentence is not in our bundled text."
+  },
+  {
+   "from": "athanasius",
+   "to": "antony",
+   "kind": "wrote-about",
+   "quote": "Athanasius, Bishop of Alexandria, hath lately set forth in a several volume, intituled of his life, his manners and converasiton",
+   "work": "athanasius-antony",
+   "section": "xvi.ii.i",
+   "voice": "text",
+   "note": "Socrates, in an old English translation quoted in our volume, says Athanasius wrote Antony's Life."
+  },
+  {
+   "from": "antony",
+   "to": "athanasius",
+   "kind": "heard",
+   "quote": "But when he was departing, and we were setting him forth on his way",
+   "work": "athanasius-antony",
+   "section": "xvi.ii.xxxii",
+   "voice": "text",
+   "note": "Inside the Life, the narrator says \"we\" saw Antony off. An editor's note takes the narrator to be Athanasius."
+  },
+  {
+   "from": "antony",
+   "to": "augustine",
+   "kind": "wrote-about",
+   "quote": "a conversation arose (suggested by his account) on Antony the Egyptian monk",
+   "work": "aug-confessions",
+   "section": "ix.vi",
+   "voice": "text",
+   "note": "Augustine tells how a friend's story of Antony, and a copy of his Life, moved them before his conversion."
+  },
+  {
+   "from": "gregory-naz",
+   "to": "basil",
+   "kind": "wrote-about",
+   "quote": "For it brought me to know Basil more perfectly",
+   "work": "gregory-nazianzen-orations",
+   "section": "iii.xxvi",
+   "voice": "text",
+   "note": "Gregory's funeral oration says Athens is where he came to know Basil."
+  },
+  {
+   "from": "gregory-naz",
+   "to": "basil",
+   "kind": "wrote-to",
+   "quote": "To Basil His Comrade",
+   "work": "gregory-nazianzen-letters",
+   "section": "iv.iii.i",
+   "voice": "text",
+   "note": "The heading of Gregory's first letter to Basil."
+  },
+  {
+   "from": "gregory-nyssa",
+   "to": "basil",
+   "kind": "wrote-about",
+   "quote": "that man of God, that mouth of piety, Basil",
+   "work": "gregory-nyssa-dogmatic",
+   "section": "viii.i.iii",
+   "voice": "text",
+   "note": "Gregory of Nyssa speaks of Basil in Against Eunomius."
+  },
+  {
+   "from": "gregory-naz",
+   "to": "jerome",
+   "kind": "taught",
+   "quote": "My teacher, Gregory of Nazianzus, when I once asked him to explain Luke",
+   "work": "jerome-letters",
+   "section": "v.LII",
+   "voice": "text",
+   "note": "Jerome calls Gregory his teacher in Letter 52."
+  },
+  {
+   "from": "augustine",
+   "to": "jerome",
+   "kind": "wrote-to",
+   "quote": "To Jerome, His Most Beloved Lord, and Brother and Fellow-Presbyter",
+   "work": "aug-letters",
+   "section": "vii.1.XXVIII",
+   "voice": "text",
+   "note": "Augustine's first letter to Jerome."
+  },
+  {
+   "from": "simplicianus",
+   "to": "ambrose",
+   "kind": "taught",
+   "quote": "the father of Ambrose (a Bishop now) in receiving Thy grace",
+   "work": "aug-confessions",
+   "section": "ix.ii",
+   "voice": "text",
+   "note": "Augustine says Simplicianus was like a father to Ambrose in the faith."
+  },
+  {
+   "from": "simplicianus",
+   "to": "augustine",
+   "kind": "heard",
+   "quote": "when that man of Thine, Simplicianus, related to me this of Victorinus, I was on fire to imitate him",
+   "work": "aug-confessions",
+   "section": "ix.v",
+   "voice": "text",
+   "note": "Augustine went to Simplicianus for counsel and heard him tell of Victorinus."
+  },
+  {
+   "from": "ambrose",
+   "to": "augustine",
+   "kind": "taught",
+   "quote": "To him was I unknowing led by Thee, that by him I might knowingly be led to Thee. That man of God received me as a father",
+   "work": "aug-confessions",
+   "section": "vi.xiii",
+   "voice": "text",
+   "note": "Augustine's own words about meeting Ambrose at Milan."
+  },
+  {
+   "from": "augustine",
+   "to": "valerius",
+   "kind": "wrote-to",
+   "quote": "To My Lord Bishop Valerius, Most Blessed and Venerable, My Father Most Warmly Cherished",
+   "work": "aug-letters",
+   "section": "vii.1.XXI",
+   "voice": "text",
+   "note": "Augustine, then a presbyter, writes to the bishop who ordained him."
+  },
+  {
+   "from": "possidius",
+   "to": "augustine",
+   "kind": "wrote-about",
+   "quote": "Possidius, in his Life of Augustin, ch. 18, says",
+   "work": "aug-pelagian",
+   "section": "xv.iv",
+   "voice": "editor",
+   "note": "A translator's note in our Augustine volume cites Possidius's Life of Augustine. The Life itself is not in the library."
+  },
+  {
+   "from": "augustine",
+   "to": "alypius",
+   "kind": "wrote-about",
+   "quote": "chiefly and most familiarly did I speak thereof with Alypius and Nebridius",
+   "work": "aug-confessions",
+   "section": "vii.vii",
+   "voice": "text",
+   "note": "Augustine names Alypius as a close friend in the Confessions."
+  }
+ ],
+ "traditional": [
+  {
+   "from": "peter",
+   "to": "ignatius",
+   "note": "Later writers say Ignatius followed Peter (or Evodius) as bishop of Antioch. No text in our library states it plainly, so we draw no quote."
+  },
+  {
+   "from": "john",
+   "to": "ignatius",
+   "note": "An editor in our Polycarp volume guesses Ignatius and Polycarp were fellow pupils of John. This is a conjecture, not a source statement."
+  },
+  {
+   "from": "mark",
+   "to": "papias",
+   "note": "Later writers link Mark, Peter and Papias through a saying about Mark as Peter's interpreter. That saying is not intact in our bundled text, so we draw no quote."
+  }
+ ]
+}

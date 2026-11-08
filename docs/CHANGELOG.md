@@ -110,3 +110,11 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 - New page /kids/questions: 80 real questions with two-level answers, grown-up notes and verified sources.
 - Writer step kind has a legend on argument pages and a test that every kind is styled.
 - Plain words toggle on the argument-map pages.
+
+## Ask the Fathers and Compare two Fathers
+- Ask a plain question and read matching passages from the library (retrieval only, nothing generated), grouped by century, with filters.
+- Compare two Fathers on one topic, side by side, with a plain count of shared key words and the date gap.
+
+## Play together: co-op Verbum and weekly group leaderboard
+- Solve today's Verbum together with a six-digit code; every guess shows for everyone.
+- A weekly leaderboard by group code, opt-in, nickname only.

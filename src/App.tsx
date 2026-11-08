@@ -106,7 +106,12 @@ const WhoAmIPage = lazy(() => import('./pages/play/WhoAmIPage'));
 const WordsearchPage = lazy(() => import('./pages/play/WordsearchPage'));
 const ArtDetectivePage = lazy(() => import('./pages/play/ArtDetectivePage'));
 const DoctrineLadderPage = lazy(() => import('./pages/play/DoctrineLadderPage'));
+import PassportWatcher from './components/PassportWatcher';
 const QuizNightPage = lazy(() => import('./pages/play/QuizNightPage'));
+const LeaderboardPage = lazy(() => import('./pages/play/LeaderboardPage'));
+const CoopDailyPage = lazy(() => import('./pages/play/CoopDailyPage'));
+const CompareFathersPage = lazy(() => import('./pages/study/CompareFathersPage'));
+const AskFathersPage = lazy(() => import('./pages/study/AskFathersPage'));
 const KidsQuestionsPage = lazy(() => import('./pages/KidsQuestionsPage'));
 const PrintBookletPage = lazy(() => import('./pages/PrintBookletPage'));
 const CompareTranslationsPage = lazy(() => import('./pages/study/CompareTranslationsPage'));
@@ -299,6 +304,7 @@ export default function App() {
       <Gate>
         <PlayerProvider>
         <Shell>
+          <PassportWatcher />
           <Suspense fallback={<div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>}>
             <ErrorBoundary resetKey={loc.pathname}><Settle><Routes>
               <Route path="/" element={<TodayPage />} />
@@ -400,6 +406,10 @@ export default function App() {
               <Route path="/play/artdetective" element={<ArtDetectivePage />} />
               <Route path="/play/doctrineladder" element={<DoctrineLadderPage />} />
               <Route path="/play/quiznight" element={<QuizNightPage />} />
+              <Route path="/play/leaderboard" element={<LeaderboardPage />} />
+              <Route path="/play/coop" element={<CoopDailyPage />} />
+              <Route path="/study/compare-fathers" element={<CompareFathersPage />} />
+              <Route path="/study/ask-fathers" element={<AskFathersPage />} />
               <Route path="/kids/questions" element={<KidsQuestionsPage />} />
               <Route path="/print/booklet" element={<PrintBookletPage />} />
               <Route path="/study/compare-translations" element={<CompareTranslationsPage />} />

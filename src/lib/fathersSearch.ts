@@ -141,7 +141,7 @@ export class FathersEngine {
     return [...m.values()].map((e) => ({ id: e.id, name: [...e.names.entries()].sort((a, b) => b[1] - a[1] || a[0].length - b[0].length)[0][0], works: e.works, year: e.year })).sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  async search(question: string, loadWork: LoadWork, f: Filters = {}, limit = 24): Promise<SearchResult> {
+  async search(question: string, loadWork: LoadWork, f: Filters = {}, limit = 40): Promise<SearchResult> {
     const words = queryWords(question);
     const empty: SearchResult = { words, matchedWords: [], unmatchedWords: words, hits: [], sectionsMatched: 0 };
     const groups: TermGroup[] = [];
