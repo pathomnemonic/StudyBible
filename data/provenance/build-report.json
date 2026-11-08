@@ -1031,15 +1031,51 @@
   "library.sulpitius-severus": {
    "sections": 43
   },
-  "library.total": {
-   "works": 140,
-   "sections": 8232,
-   "indexedWords": 82507
+  "library.bede-history": {
+   "sections": 140
   },
-  "plain-titles": 297,
+  "library.chesterton-orthodoxy": {
+   "sections": 9
+  },
+  "library.chesterton-everlasting-man": {
+   "sections": 14
+  },
+  "library.chesterton-st-francis": {
+   "sections": 13
+  },
+  "library.boethius-consolation": {
+   "sections": 13
+  },
+  "library.newman-apologia": {
+   "sections": 35
+  },
+  "library.newman-grammar-of-assent": {
+   "sections": 34
+  },
+  "library.newman-idea-of-a-university": {
+   "sections": 40
+  },
+  "library.newman-development": {
+   "sections": 19
+  },
+  "library.liguori-glories-of-mary": {
+   "sections": 31
+  },
+  "library.catherine-letters": {
+   "sections": 32
+  },
+  "library.gibbons-faith-of-our-fathers": {
+   "sections": 31
+  },
+  "library.total": {
+   "works": 152,
+   "sections": 8643,
+   "indexedWords": 91141
+  },
+  "plain-titles": 521,
   "cite-index": 1683,
   "paths": 15,
-  "galaxy-library": 140,
+  "galaxy-library": 152,
   "art-more": 607,
   "jesus": {
    "books": 9,
