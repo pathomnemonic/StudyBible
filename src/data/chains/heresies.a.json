@@ -1,0 +1,1201 @@
+[
+  {
+    "id": "arianism",
+    "title": "Arianism: “There was a time when the Son was not”",
+    "question": "Is the Son of God the eternal God, or the first and greatest of God’s creatures?",
+    "summary": "The Church teaches that the Son is begotten, not made: of one substance with the Father, eternal, and truly God. Only if the one who became man is himself God can he save us, be worshipped, and be the Creator through whom all things were made.",
+    "heresy": {
+      "era": "c. 318–381 (condemned at Nicaea, 325)",
+      "who": "Arius, a presbyter of Alexandria, with Eusebius of Nicomedia and many bishops who followed them; later the Anomoeans (Aetius and Eunomius).",
+      "claim": "God alone is without beginning, so the Son, though the first and most exalted of all that God made, was brought into being by the Father’s will: “there was when he was not.” He is called God and Son by grace and participation, not by nature, and is unlike the Father in essence. Arius and his friends insisted he was “a creature, but not as one of the creatures.”",
+      "appeal": "It protected the unity and uniqueness of the one God in a form that sounded simple and philosophical. It could quote real texts (“The Father is greater than I”, “The Lord created me”). It also left Christ high above ordinary creatures, so devout people could honour him with great titles while still thinking they had kept God one. For several decades it enjoyed imperial favour and was taught by capable, serious bishops.",
+      "advocate": [
+        {
+          "kind": "father",
+          "label": "Athanasius quoting Arius’s Thalia",
+          "when": "c. 340–358",
+          "year": 350,
+          "work": "athanasius-arians",
+          "section": "xxi.ii.i",
+          "quote": "the Word is not the very God;’ ‘though He is called God, yet He is not very God,’ but ‘by participation of grace, He, as others, is God only in name.’ … ‘even to the Son the Father is invisible,’ and ‘the Word cannot perfectly and exactly either see or know His own Father;’",
+          "note": "Athanasius reports Arius’s verse-treatise: the Word is God in name only, and cannot even know the Father fully."
+        },
+        {
+          "kind": "father",
+          "label": "Athanasius quoting the Arian slogan",
+          "when": "c. 340–358",
+          "year": 350,
+          "work": "athanasius-arians",
+          "section": "xxi.ii.i",
+          "quote": "ye have maintained and ye think, that ‘there was once when the Son was not;’",
+          "note": "The formula that became the banner of the movement, stated in the form Athanasius puts to his opponents."
+        },
+        {
+          "kind": "father",
+          "label": "Athanasius quoting the Arian reply to Alexander",
+          "when": "c. 340–358",
+          "year": 350,
+          "work": "athanasius-arians",
+          "section": "xxi.ii.iii",
+          "quote": "He is a creature, but not as one of the creatures; a work, but not as one of the works; an offspring, but not as one of the offsprings",
+          "note": "Arius and his friends tried to call the Son a creature while setting him apart from all other creatures. Athanasius asks what that distinction can mean."
+        },
+        {
+          "kind": "father",
+          "label": "Eusebius of Nicomedia to Paulinus (in Theodoret)",
+          "when": "c. 321",
+          "year": 321,
+          "work": "theodoret-history",
+          "section": "iv.viii.i",
+          "quote": "If He had been from Him or of Him, as a portion of Him, or by an emanation of His substance, it could not be said that He was created or established",
+          "note": "An Arian leader’s own argument from the text of Proverbs: to be “created” is incompatible with being “of” the Father’s substance."
+        }
+      ],
+      "whyItFails": "If the Son is a creature, then “All things were made through him” cannot be said of him, since a creature cannot be the maker of creatures. Scripture gives him the divine titles and worship that belong to God alone, and the whole work of salvation depends on God himself coming to us. Athanasius saw that if the Son is not God, he can neither reveal the Father nor bring us into God’s life. Nicaea answered by confessing that the Son is “begotten, not made”, of one substance with the Father."
+    },
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "John 1:1-3",
+        "ref": "JHN.1.1-3",
+        "quote": "In the beginning was the Word, and the Word was with God, and the Word was God. … All things were made through him. Without him, nothing was made that has been made.",
+        "note": "The Word already “was” in the beginning, is distinguished from the Father (“with God”) and is called God, and nothing that has been made was made without him. He is on the Creator’s side of the line."
+      },
+      {
+        "kind": "scripture",
+        "label": "Colossians 1:15-17",
+        "ref": "COL.1.15-17",
+        "quote": "For by him all things were created in the heavens and on the earth … All things have been created through him and for him. He is before all things",
+        "note": "Paul says the Son is “before all things” and that “all things” were created through him. Arians leaned on “firstborn of all creation”, but the same sentence makes him the creator of creation."
+      },
+      {
+        "kind": "scripture",
+        "label": "John 5:18-23",
+        "ref": "JHN.5.18-23",
+        "quote": "making himself equal with God … that all may honor the Son, even as they honor the Father. He who doesn’t honor the Son doesn’t honor the Father who sent him.",
+        "note": "The Son is to be honoured exactly as the Father is. Honour of that kind, given to a creature, would be idolatry."
+      },
+      {
+        "kind": "father",
+        "label": "Athanasius, Orations against the Arians I",
+        "when": "c. 340–358",
+        "year": 350,
+        "work": "athanasius-arians",
+        "section": "xxi.ii.i",
+        "quote": "Very Son of the Father, natural and genuine, proper to His essence, Wisdom Only-begotten, and Very and Only Word of God is He; not a creature or work, but an offspring proper to the Father’s essence.",
+        "note": "Athanasius sets out the Church’s answer in one sentence: the Son is the Father’s own offspring, not something made from outside."
+      },
+      {
+        "kind": "father",
+        "label": "Athanasius, Orations against the Arians I",
+        "when": "c. 340–358",
+        "year": 350,
+        "work": "athanasius-arians",
+        "section": "xxi.ii.i",
+        "quote": "If the Saviour be not God, nor Word, nor Son, you shall have leave to say what you will, and so shall the Gentiles, and the present Jews.",
+        "note": "He puts the stakes bluntly: deny the Son’s true divinity and the quarrel with pagans and Jews is lost as well."
+      },
+      {
+        "kind": "father",
+        "label": "Athanasius, On the Incarnation 7",
+        "when": "c. 335",
+        "year": 335,
+        "work": "athanasius-incarnation",
+        "section": "vii.ii.vii",
+        "quote": "None could renew but He Who had created.",
+        "note": "The saving argument: humanity was falling back into corruption, and only the Creator could remake it. A created mediator cannot re-create."
+      },
+      {
+        "kind": "father",
+        "label": "Athanasius, On the Incarnation 54",
+        "when": "c. 335",
+        "year": 335,
+        "work": "athanasius-incarnation",
+        "section": "vii.ii.liv",
+        "quote": "For He was made man that we might be made God",
+        "note": "The purpose of the Incarnation is to share God’s life with us. That cannot be done by one who is not himself God."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Nicaea, the Creed and anathemas",
+        "when": "325",
+        "year": 325,
+        "work": "council-nicaea-1",
+        "section": "vii.iii",
+        "quote": "begotten (γεννηθέντα), not made, being of one substance (ὁμοούσιον, consubstantialem) with the Father",
+        "note": "The council answered the Arian slogans with the words “begotten, not made” and “of one substance”, and anathematized the claim that there was a time when the Son was not."
+      },
+      {
+        "kind": "council",
+        "label": "Nicaea, the synodal letter on Arius",
+        "when": "325",
+        "year": 325,
+        "work": "council-nicaea-1",
+        "section": "vii.ix",
+        "quote": "saying that he is from things that are not, and that before he was begotten he was not, and that there was a time when he was not",
+        "note": "The council’s own letter to the churches reports exactly which Arian teachings it rejected and why."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 465",
+        "ccc": 465,
+        "quote": "the first ecumenical council of Nicaea in 325 confessed in its Creed that the Son of God is “begotten, not made, of the same substance (homoousios) as the Father”",
+        "note": "The Catechism summarizes Nicaea: the Son is “begotten, not made”, and Arius was condemned."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Proverbs 8:22 says, in the Greek Bible, “The Lord created me as the beginning of his ways.” Isn’t that Scripture saying that the Son was created?",
+        "a": "Wisdom in Proverbs 8 is a poetic figure, and Athanasius spends a long chapter on this text. The Hebrew verb is rendered “possessed” in this translation, and the passage speaks of Wisdom present “by his side” when God made the world, which is the very thing Arians denied of any creature. Athanasius also points out that the Arian formula was a dodge: if the Word is a creature, he belongs with the rest of the works.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Proverbs 8:22-30",
+            "ref": "PRO.8.22-30",
+            "quote": "When he established the heavens, I was there. … then I was the craftsman by his side.",
+            "note": "Wisdom is described as present at creation and working beside God, not as one of the things made."
+          },
+          {
+            "kind": "father",
+            "label": "Athanasius, Orations against the Arians II",
+            "when": "c. 340–358",
+            "year": 350,
+            "work": "athanasius-arians",
+            "section": "xxi.ii.iii",
+            "quote": "Let the Word then be excepted from the works, and as Creator be restored to the Father, and be confessed to be Son by nature",
+            "note": "Athanasius presses the Arians: either the Word is outside the creatures as Creator, or he must be counted among them without the qualifications they invented."
+          }
+        ]
+      },
+      {
+        "q": "Jesus himself says, “The Father is greater than I.” Doesn’t that prove the Son is lesser?",
+        "a": "The Fathers read such sayings as spoken of the Son as man, in the “form of a servant”, while sayings like “I and the Father are one” speak of his divine nature. Athanasius gives this as his rule for reading the Gospels. The Church can say both: the Father is the source of the Son, and the Son in his humanity has taken a lowly place.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "John 14:28",
+            "ref": "JHN.14.28",
+            "quote": "for the Father is greater than I.",
+            "note": "The text the Arians relied on, in its context of Jesus “going to the Father”."
+          },
+          {
+            "kind": "scripture",
+            "label": "Philippians 2:5-8",
+            "ref": "PHP.2.5-8",
+            "quote": "existing in the form of God, didn’t consider equality with God a thing to be grasped, but emptied himself, taking the form of a servant",
+            "note": "Paul explains how the one in the form of God can speak from a lowly place: he emptied himself and became a servant."
+          },
+          {
+            "kind": "father",
+            "label": "Athanasius, Orations against the Arians III",
+            "when": "c. 340–358",
+            "year": 350,
+            "work": "athanasius-arians",
+            "section": "xxi.ii.iv",
+            "quote": "they ought, when they hear ‘I and the Father are one,’ to see in Him the oneness of the Godhead and the propriety of the Father’s Essence; and again when they hear, ‘He wept’ and the like, to say that these are proper to the body",
+            "note": "Athanasius gives the interpretive key: some sayings belong to the Godhead and some to the humanity he took."
+          }
+        ]
+      },
+      {
+        "q": "Doesn’t “of one substance” make the Father and the Son simply the same thing, so that there is no Son at all?",
+        "a": "No. The Church condemns that mistake as well. Athanasius ties Arius and Sabellius together as opposite errors, and the Catechism says the persons are really distinct while sharing one divine nature.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Athanasius, Orations against the Arians IV",
+            "when": "c. 340–358",
+            "year": 350,
+            "work": "athanasius-arians",
+            "section": "xxi.ii.vi",
+            "quote": "Arius then raves in saying that the Son is from nothing, and that once He was not, while Sabellius also raves in saying that the Father is Son, and again, the Son Father",
+            "note": "Athanasius names both errors together: one makes the Son a creature, the other denies that Father and Son are distinct."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism 254",
+            "ccc": 254,
+            "quote": "The divine persons are really distinct from one another.",
+            "note": "Homoousios means one nature, not one person."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      242,
+      465,
+      252,
+      253
+    ]
+  },
+  {
+    "id": "gnosticism-docetism",
+    "title": "Gnosticism and Docetism: Salvation from the body",
+    "question": "Did the Son of God really become flesh, suffer and die, and is the body part of what is saved?",
+    "summary": "The Church teaches that the Word truly became flesh, was born of Mary, really suffered and rose, and that the body is God’s good creation, destined for resurrection. Salvation is not an escape from matter but its healing.",
+    "heresy": {
+      "era": "1st–3rd centuries (Simon, Saturninus, Basilides, Valentinus and their schools)",
+      "who": "The many teachers Irenaeus describes under “Gnostic” names: Saturninus (Antioch), Basilides (Alexandria), Valentinus and Ptolemy (Rome). The Docetists are those who said Christ only appeared to have a body.",
+      "claim": "The material world was made by lesser powers and is a flaw or prison, and the supreme God is unknown. The Saviour therefore came without real birth or a real body, was a man “by supposition”, and did not truly suffer. Salvation belongs to the soul or to the spiritual seed; the body, being material, cannot share in it. As Irenaeus reports it, only those who have the secret knowledge are saved.",
+      "appeal": "It offered an answer to the problem of evil and the body, and promised a higher, inner knowledge to those who felt that ordinary faith was too simple. It could present itself as a more spiritual, more refined Christianity, and it flattered the “spiritual” into thinking they were saved by nature. Its stories also kept God from being involved in suffering and death.",
+      "advocate": [
+        {
+          "kind": "father",
+          "label": "Irenaeus reporting Saturninus (AH I.24)",
+          "when": "c. 180",
+          "year": 180,
+          "work": "irenaeus-heresies",
+          "section": "ix.ii.xxv",
+          "quote": "the Saviour was without birth, without body, and without figure, but was, by supposition, a visible man",
+          "note": "Irenaeus states what Saturninus taught about Christ: his humanity was a supposition, not a birth."
+        },
+        {
+          "kind": "father",
+          "label": "Irenaeus reporting Basilides (AH I.24)",
+          "when": "c. 180",
+          "year": 180,
+          "work": "irenaeus-heresies",
+          "section": "ix.ii.xxv",
+          "quote": "Wherefore he did not himself suffer death, but Simon, a certain man of Cyrene, being compelled, bore the cross in his stead",
+          "note": "In Basilides’s account, someone else was crucified in Jesus’ place while Jesus stood by, so the Cross was an illusion played on the powers."
+        },
+        {
+          "kind": "father",
+          "label": "Irenaeus reporting Basilides (AH I.24)",
+          "when": "c. 180",
+          "year": 180,
+          "work": "irenaeus-heresies",
+          "section": "ix.ii.xxv",
+          "quote": "Salvation belongs to the soul alone, for the body is by nature subject to corruption.",
+          "note": "The principle behind the denial of the body: what is material cannot be saved."
+        },
+        {
+          "kind": "father",
+          "label": "Irenaeus on the Gnostic Christ (AH III.11)",
+          "when": "c. 180",
+          "year": 180,
+          "work": "irenaeus-heresies",
+          "section": "ix.iv.xii",
+          "quote": "passed through Mary just as water through a tube",
+          "note": "Irenaeus reports that some Gnostics said Jesus passed through Mary as water passes through a pipe, taking nothing from her."
+        }
+      ],
+      "whyItFails": "Everything depends on the Word being truly one of us. If Christ only seemed to suffer, the Cross is a stage play, the martyrs died for nothing, and the Eucharist is a lie. Ignatius and Irenaeus pressed the point: if his flesh was not real, nothing we receive from him is real. Scripture also calls the creation good, so contempt for matter is a different religion from the Gospel."
+    },
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "John 1:14",
+        "ref": "JHN.1.14",
+        "quote": "The Word became flesh and lived among us.",
+        "note": "The center of the Gospel: not “appeared in flesh” but “became flesh”, and was seen, heard and touched."
+      },
+      {
+        "kind": "scripture",
+        "label": "1 John 4:2-3",
+        "ref": "1JN.4.2-3",
+        "quote": "every spirit who confesses that Jesus Christ has come in the flesh is of God",
+        "note": "John makes confession of the real incarnation the test of the Spirit, as if answering the first Docetists."
+      },
+      {
+        "kind": "scripture",
+        "label": "Luke 24:39",
+        "ref": "LUK.24.39",
+        "quote": "See my hands and my feet, that it is truly me. Touch me and see, for a spirit doesn’t have flesh and bones, as you see that I have.",
+        "note": "The risen Christ insists on his body. Resurrection is not the release of a spirit from matter."
+      },
+      {
+        "kind": "father",
+        "label": "Ignatius, Letter to the Smyrnaeans",
+        "when": "c. 110",
+        "year": 110,
+        "work": "ignatius-letters",
+        "section": "v.vii",
+        "quote": "For if the Lord were in the body in appearance only, and were crucified in appearance only, then am I also bound in appearance only.",
+        "note": "Ignatius, on his way to martyrdom, argues that if the Cross were an appearance, his own chains and death would be one too."
+      },
+      {
+        "kind": "father",
+        "label": "Irenaeus, Against Heresies III.18",
+        "when": "c. 180",
+        "year": 180,
+        "work": "irenaeus-heresies",
+        "section": "ix.iv.xix",
+        "quote": "For if He did not truly suffer, no thanks to Him, since there was no suffering at all",
+        "note": "Without real suffering there is no love shown, and no example for the martyrs who were asked to suffer for Christ."
+      },
+      {
+        "kind": "father",
+        "label": "Irenaeus, Against Heresies III.22",
+        "when": "c. 180",
+        "year": 180,
+        "work": "irenaeus-heresies",
+        "section": "ix.iv.xxiii",
+        "quote": "For if He did not receive the substance of flesh from a human being, He neither was made man nor the Son of man; and if He was not made what we were, He did no great thing in what He suffered and endured.",
+        "note": "Redemption requires that he shared our actual nature. Only then do his sufferings change anything for us."
+      },
+      {
+        "kind": "father",
+        "label": "Irenaeus, Against Heresies V.2",
+        "when": "c. 180",
+        "year": 180,
+        "work": "irenaeus-heresies",
+        "section": "ix.vii.iii",
+        "quote": "if this indeed do not attain salvation, then neither did the Lord redeem us with His blood, nor is the cup of the Eucharist the communion of His blood, nor the bread which we break the communion of His body.",
+        "note": "If the flesh cannot be saved, then the Eucharist loses its meaning, because it is the communion of his body and blood."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 1015",
+        "ccc": 1015,
+        "quote": "We believe in God who is creator of the flesh; we believe in the Word made flesh in order to redeem the flesh; we believe in the resurrection of the flesh, the fulfillment of both the creation and the redemption of the flesh.",
+        "note": "The Catechism summarizes the Church’s consistent position: creation, incarnation and resurrection all honour the body."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Paul says, “flesh and blood can’t inherit God’s Kingdom.” Doesn’t that mean the body is excluded from salvation?",
+        "a": "Irenaeus takes this very text and shows what Paul means: flesh without the Spirit is dead, and the body is saved when the Spirit of God gives it life. Paul himself says in the same chapter that the perishable will put on the imperishable.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "1 Corinthians 15:50",
+            "ref": "1CO.15.50",
+            "quote": "flesh and blood can’t inherit God’s Kingdom; neither does the perishable inherit imperishable.",
+            "note": "The text the Gnostics quoted. In context Paul is describing how a body is transformed, not discarded."
+          },
+          {
+            "kind": "father",
+            "label": "Irenaeus, Against Heresies V.9",
+            "when": "c. 180",
+            "year": 180,
+            "work": "irenaeus-heresies",
+            "section": "ix.vii.x",
+            "quote": "The flesh, therefore, when destitute of the Spirit of God, is dead, not having life, and cannot possess the kingdom of God",
+            "note": "Irenaeus says Paul is describing flesh without the Spirit, and promises the Spirit raising the body to the life of God."
+          }
+        ]
+      },
+      {
+        "q": "The Gnostics claimed to hold secret teachings from the apostles that ordinary Christians had never heard. How can anyone prove that is false?",
+        "a": "Irenaeus replies that the apostles’ teaching was open and public, and that anyone can trace the churches they founded and the bishops who succeeded them. If the apostles had had secret mysteries for the “perfect”, they would have handed them to the men they left in charge of the churches.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Irenaeus, Against Heresies III.3",
+            "when": "c. 180",
+            "year": 180,
+            "work": "irenaeus-heresies",
+            "section": "ix.iv.iv",
+            "quote": "It is within the power of all, therefore, in every Church, who may wish to see the truth, to contemplate clearly the tradition of the apostles manifested throughout the whole world",
+            "note": "The test Irenaeus proposes is public: the tradition the churches received from the apostles and the succession of their bishops."
+          }
+        ]
+      },
+      {
+        "q": "The body decays and suffers, and matter seems to be the root of so much evil. Isn’t it reasonable to think it is the problem?",
+        "a": "The Bible’s answer is that God made it and called it good, and that sin, not matter, is the problem. Paul even names contempt for food and marriage as a sign of false teaching. In Christ God healed what was made, rather than discarding it.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Genesis 1:31",
+            "ref": "GEN.1.31",
+            "quote": "God saw everything that he had made, and, behold, it was very good.",
+            "note": "Creation, including the body, is declared good by its Maker."
+          },
+          {
+            "kind": "scripture",
+            "label": "1 Timothy 4:1-5",
+            "ref": "1TI.4.1-5",
+            "quote": "every creature of God is good, and nothing is to be rejected if it is received with thanksgiving.",
+            "note": "Paul warns that teachers who forbid what God created are among those who “fall away from the faith”."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      464,
+      465,
+      1015,
+      362
+    ]
+  },
+  {
+    "id": "marcionism",
+    "title": "Marcionism: Two Gods, two Testaments",
+    "question": "Is the God of the Old Testament a different, lesser god from the Father of Jesus Christ?",
+    "summary": "The Church teaches that there is one God, who made heaven and earth, spoke through the Law and the Prophets and sent his Son in the fullness of time. The Old Testament is the Church’s own Scripture, read in the light of Christ, who came not to destroy but to fulfil.",
+    "heresy": {
+      "era": "c. 140–160 (Rome); flourished into the 4th century",
+      "who": "Marcion of Pontus, who built on the ideas of Cerdo, and the Marcionite churches that followed him.",
+      "claim": "The God of the Law and the Prophets is a different, inferior being from the Father of Jesus, whom Marcion presents as the good, unknown God. The creator is just, quarrelsome and responsible for evil; Jesus came from the higher Father to abolish the Law, the Prophets and the creator’s works. Marcion kept only an edited Gospel of Luke and edited letters of Paul, and taught that salvation was for souls, not bodies.",
+      "appeal": "He seemed to take seriously real contrasts between the harshness of some Old Testament stories and the mercy of Jesus. His Antitheses lined the Old and New Testaments against each other, and Paul’s teaching on Law and grace could seem to support him. He promised a God who was only love and never wrath. He also gave a short, clear list of Scriptures and a strong sense of what was new in Christ.",
+      "advocate": [
+        {
+          "kind": "father",
+          "label": "Justin Martyr, First Apology",
+          "when": "c. 155",
+          "year": 155,
+          "work": "justin-martyr",
+          "section": "viii.ii",
+          "quote": "is even now teaching men to deny that God is the maker of all things in heaven and on earth, and that the Christ predicted by the prophets is His Son, and preaches another god besides the Creator of all, and likewise another son",
+          "note": "A near-contemporary describes the heart of Marcion’s teaching: another god beyond the Creator, and another son."
+        },
+        {
+          "kind": "father",
+          "label": "Irenaeus on Marcion (AH I.27)",
+          "when": "c. 180",
+          "year": 180,
+          "work": "irenaeus-heresies",
+          "section": "ix.ii.xxviii",
+          "quote": "declaring Him to be the author of evils, to take delight in war, to be infirm of purpose, and even to be contrary to Himself. But Jesus being derived from that father who is above the God that made the world",
+          "note": "Irenaeus’s summary: the Old Testament God is accused of evil and weakness, and Jesus comes from a higher Father."
+        },
+        {
+          "kind": "father",
+          "label": "Irenaeus on Marcion (AH I.27)",
+          "when": "c. 180",
+          "year": 180,
+          "work": "irenaeus-heresies",
+          "section": "ix.ii.xxviii",
+          "quote": "he mutilates the Gospel which is according to Luke, removing all that is written respecting the generation of the Lord",
+          "note": "Marcion’s own Bible was an edited Luke, with passages about Christ’s birth and the Father as Creator removed."
+        },
+        {
+          "kind": "father",
+          "label": "Irenaeus on Marcion (AH I.27)",
+          "when": "c. 180",
+          "year": 180,
+          "work": "irenaeus-heresies",
+          "section": "ix.ii.xxviii",
+          "quote": "Salvation will be the attainment only of those souls which had learned his doctrine; while the body, as having been taken from the earth, is incapable of sharing in salvation.",
+          "note": "The same denial of the body that marks Gnostic teaching appears in Marcion."
+        }
+      ],
+      "whyItFails": "The Gospel Marcion kept still calls the Father “Lord of heaven and earth”, and Jesus says plainly that he came to fulfil the Law and the Prophets. A God who is “only good” and never judges is no more than a convenient fiction, and Irenaeus shows that dividing the just God from the good God destroys both. The Scriptures Marcion cut were witnesses to Christ, and the God who spoke in the Law is the one who sent his Son."
+    },
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Luke 10:21-22",
+        "ref": "LUK.10.21-22",
+        "quote": "I thank you, O Father, Lord of heaven and earth",
+        "note": "Jesus calls his Father “Lord of heaven and earth”. A note in the bundled Tertullian records that Marcion’s text left these words out."
+      },
+      {
+        "kind": "scripture",
+        "label": "Matthew 5:17-18",
+        "ref": "MAT.5.17-18",
+        "quote": "Don’t think that I came to destroy the law or the prophets. I didn’t come to destroy, but to fulfill.",
+        "note": "Jesus denies the very thing Marcion said he came to do."
+      },
+      {
+        "kind": "scripture",
+        "label": "Romans 1:1-3",
+        "ref": "ROM.1.1-3",
+        "quote": "set apart for the Good News of God, which he promised before through his prophets in the holy Scriptures, concerning his Son",
+        "note": "Even Paul, Marcion’s favourite, says the Gospel was promised beforehand through the prophets."
+      },
+      {
+        "kind": "father",
+        "label": "Irenaeus, Against Heresies III.25",
+        "when": "c. 180",
+        "year": 180,
+        "work": "irenaeus-heresies",
+        "section": "ix.iv.xxvi",
+        "quote": "Marcion, therefore, himself, by dividing God into two, maintaining one to be good and the other judicial, does in fact, on both sides, put an end to deity.",
+        "note": "A God who is not good is no God, and a God with no justice is not good. Splitting them destroys both."
+      },
+      {
+        "kind": "father",
+        "label": "Irenaeus, Against Heresies IV.6",
+        "when": "c. 180",
+        "year": 180,
+        "work": "irenaeus-heresies",
+        "section": "ix.vi.vii",
+        "quote": "How is it that He is unknown, who is known by them? for, whatever is known even by a few, is not unknown.",
+        "note": "The “unknown God” of Marcion is described in great detail by the people who claim he is unknown."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, Against Marcion I.27",
+        "when": "c. 207",
+        "year": 207,
+        "work": "tertullian-marcion",
+        "section": "v.iv",
+        "quote": "A better god has been discovered, who never takes offence, is never angry, never inflicts punishment, who has prepared no fire in hell, no gnashing of teeth in the outer darkness!",
+        "note": "Tertullian sketches the moral result: a god who only forbids sin “in word” gives sinners no reason to fear it."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Nicaea, the Creed",
+        "when": "325",
+        "year": 325,
+        "work": "council-nicaea-1",
+        "section": "vii.iii",
+        "quote": "We believe in one God, the Father Almighty, maker of all things visible and invisible",
+        "note": "The Creed fixes the Church’s answer in its first line: one God, who is both Father and Creator."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 123",
+        "ccc": 123,
+        "quote": "the Church has always vigorously opposed the idea of rejecting the Old Testament under the pretext that the New has rendered it void (Marcionism).",
+        "note": "The Catechism names Marcionism directly and refuses it."
+      }
+    ],
+    "objections": [
+      {
+        "q": "The God of the Old Testament commands wars and punishes, while Jesus preaches forgiveness. Aren’t these two different characters?",
+        "a": "The Old Testament itself describes God as merciful and gracious before it describes him as judge, and the New Testament also warns of judgment. Irenaeus tells readers to read both the Gospel and the prophets with care and see that the whole life and passion of Christ were announced through the prophets.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Exodus 34:6-7",
+            "ref": "EXO.34.6-7",
+            "quote": "The LORD! The LORD, a merciful and gracious God, slow to anger, and abundant in loving kindness and truth",
+            "note": "The Old Testament’s own self-portrait of God puts mercy first, alongside justice."
+          },
+          {
+            "kind": "father",
+            "label": "Irenaeus, Against Heresies IV.34",
+            "when": "c. 180",
+            "year": 180,
+            "work": "irenaeus-heresies",
+            "section": "ix.vi.xxxv",
+            "quote": "read with earnest care that Gospel which has been conveyed to us by the apostles, and read with earnest care the prophets, and you will find that the whole conduct, and all the doctrine, and all the sufferings of our Lord, were predicted through them",
+            "note": "Irenaeus invites the Marcionite to compare the texts and find the agreement."
+          }
+        ]
+      },
+      {
+        "q": "Paul sets Law against grace. Isn’t Marcion just taking Paul seriously?",
+        "a": "Paul himself calls the Law “holy, righteous, and good”, and he says that the same God was working through Peter and through himself. Irenaeus makes this very point against those who claimed Paul alone knew the truth.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Romans 7:12-14",
+            "ref": "ROM.7.12-14",
+            "quote": "the law indeed is holy, and the commandment holy, righteous, and good.",
+            "note": "Paul’s verdict on the Law is positive: the trouble lies with sin, not with the Law."
+          },
+          {
+            "kind": "scripture",
+            "label": "Galatians 2:7-9",
+            "ref": "GAL.2.7-9",
+            "quote": "he who worked through Peter in the apostleship with the circumcised also worked through me with the Gentiles",
+            "note": "Paul counts himself in one apostolic mission with Peter, under the one God."
+          }
+        ]
+      },
+      {
+        "q": "Why should anyone trust the longer Gospels rather than Marcion’s shorter Luke?",
+        "a": "Irenaeus argues that picking out the parts of Luke one likes is arbitrary, and that Marcion’s own claim to the Gospel is a claim to a mutilated one. The Church received the Gospels from the apostles and their successors, not from a later editor.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Irenaeus, Against Heresies III.14",
+            "when": "c. 180",
+            "year": 180,
+            "work": "irenaeus-heresies",
+            "section": "ix.iv.xv",
+            "quote": "no persons of common sense can permit them to receive some things recounted by Luke as being true, and to set others aside, as if he had not known the truth",
+            "note": "If Luke is a reliable witness at all, he cannot be trusted only where convenient."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      121,
+      123,
+      129,
+      295
+    ]
+  },
+  {
+    "id": "modalism-sabellianism",
+    "title": "Modalism: Is the Father the Son?",
+    "question": "Are Father, Son and Holy Spirit three persons, or one God wearing three masks?",
+    "summary": "The Church teaches one God in three distinct persons: the Father is not the Son and the Son is not the Spirit, yet all three share one divine nature. It was the Son, not the Father, who became man, suffered and died.",
+    "heresy": {
+      "era": "c. 190–260 (Rome, Asia, Carthage)",
+      "who": "Noetus of Smyrna and his disciple Cleomenes, Praxeas (against whom Tertullian wrote), and later Sabellius.",
+      "claim": "There is one God, and the names Father and Son name the same subject at different times and in different roles. As Hippolytus reports Noetus, the Father “became His own Son”; as Tertullian describes Praxeas, the Father came down into the Virgin, was born, suffered, and was Jesus Christ himself.",
+      "appeal": "It sounded like the strictest defence of the oneness of God against any hint of two or three gods. Its supporters could quote “The LORD our God is one” and “You shall have no other gods before me”. They also said they were glorifying Christ, since in their view he was the one God himself. For people who feared polytheism, it seemed the safe position.",
+      "advocate": [
+        {
+          "kind": "father",
+          "label": "Tertullian, Against Praxeas 1",
+          "when": "c. 213",
+          "year": 213,
+          "work": "tertullian-marcion",
+          "section": "v.ix",
+          "quote": "He says that the Father Himself came down into the Virgin, was Himself born of her, Himself suffered, indeed was Himself Jesus Christ.",
+          "note": "Tertullian states plainly what the Praxean position says about the Incarnation."
+        },
+        {
+          "kind": "father",
+          "label": "Tertullian, Against Praxeas 2",
+          "when": "c. 213",
+          "year": 213,
+          "work": "tertullian-marcion",
+          "section": "v.ix",
+          "quote": "the Father forsooth was born, and the Father suffered, God Himself, the Lord Almighty, whom in their preaching they declare to be Jesus Christ",
+          "note": "Another summary of their preaching. Tertullian’s opponents were called “Patripassians” for the conclusion that the Father suffered."
+        },
+        {
+          "kind": "father",
+          "label": "Hippolytus quoting Noetus (Refutation IX)",
+          "when": "c. 225",
+          "year": 225,
+          "work": "hippolytus",
+          "section": "iii.iii.vii",
+          "quote": "When indeed, then, the Father had not been born, He yet was justly styled Father; and when it pleased Him to undergo generation, having been begotten, He Himself became His own Son, not another’s.",
+          "note": "The words attributed to Noetus himself: one God who becomes his own Son at a point in time."
+        },
+        {
+          "kind": "father",
+          "label": "Hippolytus, Against Noetus 2",
+          "when": "c. 215",
+          "year": 215,
+          "work": "hippolytus",
+          "section": "iii.iv.ii",
+          "quote": "Now they seek to exhibit the foundation for their dogma by citing the word in the law, “I am the God of your fathers: ye shall have no other gods beside me;”",
+          "note": "Their starting point is the Bible’s own insistence on one God; they cite Exodus and Isaiah against any distinction."
+        }
+      ],
+      "whyItFails": "In the Gospels the Father and Son speak to each other. At the baptism the Father’s voice, the Son in the water and the Spirit as a dove appear together, and Jesus prays to the Father for glory he had “with you before the world existed”. If the Father were the Son, the Son’s prayer would be a pretence. The Church’s faith in one God is not weakened by the persons being three; Tertullian and Hippolytus argue that the unity is preserved by the one divine substance, not by erasing the distinctions."
+    },
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Matthew 3:16-17",
+        "ref": "MAT.3.16-17",
+        "quote": "He saw the Spirit of God descending as a dove, and coming on him. Behold, a voice out of the heavens said, “This is my beloved Son, with whom I am well pleased.”",
+        "note": "At Jesus’ baptism three are presented together: the Son in the water, the Spirit descending, the Father speaking."
+      },
+      {
+        "kind": "scripture",
+        "label": "John 17:1-5",
+        "ref": "JHN.17.1-5",
+        "quote": "Father, the time has come. Glorify your Son, that your Son may also glorify you … Now, Father, glorify me with your own self with the glory which I had with you before the world existed.",
+        "note": "Jesus addresses the Father as another, and speaks of a shared glory “before the world existed”."
+      },
+      {
+        "kind": "scripture",
+        "label": "John 14:16-17",
+        "ref": "JHN.14.16-17",
+        "quote": "I will pray to the Father, and he will give you another Counselor, that he may be with you forever",
+        "note": "The Son prays to the Father, the Father gives, and the Spirit is called “another” Counselor."
+      },
+      {
+        "kind": "scripture",
+        "label": "Matthew 28:19",
+        "ref": "MAT.28.19",
+        "quote": "baptizing them in the name of the Father and of the Son and of the Holy Spirit",
+        "note": "The Church’s baptismal formula, one “name” with three persons named."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, Against Praxeas 9",
+        "when": "c. 213",
+        "year": 213,
+        "work": "tertullian-marcion",
+        "section": "v.ix",
+        "quote": "my assertion is that the Father is one, and the Son one, and the Spirit one, and that They are distinct from Each Other.",
+        "note": "Tertullian states the Catholic rule of faith: three who are distinct, yet inseparable."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, Against Praxeas 29",
+        "when": "c. 213",
+        "year": 213,
+        "work": "tertullian-marcion",
+        "section": "v.ix",
+        "quote": "Let us be content with saying that Christ died, the Son of the Father; and let this suffice, because the Scriptures have told us so much.",
+        "note": "The consequence of Praxeas’s teaching is that the Father suffered. Tertullian refuses it: the Son died."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, Against Praxeas 31",
+        "when": "c. 213",
+        "year": 213,
+        "work": "tertullian-marcion",
+        "section": "v.ix",
+        "quote": "if thenceforward the Father, the Son, and the Spirit are not both believed in as Three, and as making One Only God? God was pleased to renew His covenant with man in such a way as that His Unity might be believed in, after a new manner, through the Son and the Spirit",
+        "note": "The new covenant reveals the unity of God in a new way, through the Son and the Spirit, so that the Trinity is the Gospel’s own discovery."
+      },
+      {
+        "kind": "father",
+        "label": "Hippolytus, Against Noetus 8",
+        "when": "c. 215",
+        "year": 215,
+        "work": "hippolytus",
+        "section": "iii.iv.ii",
+        "quote": "A man, therefore, even though he will it not, is compelled to acknowledge God the Father Almighty, and Christ Jesus the Son of God, who, being God, became man, to whom also the Father made all things subject, Himself excepted, and the Holy Spirit; and that these, therefore, are three.",
+        "note": "Hippolytus concludes from Scripture that Father, Son and Spirit are three, while God is one."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 254",
+        "ccc": 254,
+        "quote": "“Father”, “Son”, “Holy Spirit” are not simply names designating modalities of the divine being, for they are really distinct from one another",
+        "note": "The Catechism rejects modalism by name: the names are not mere modes of one person."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Scripture is emphatic that there is only one God. Doesn’t speaking of the Father and the Son as distinct make two Gods?",
+        "a": "Not for the writers who answered Noetus and Praxeas. They held the one God and said the Word is God with the Father: John’s opening line, “the Word was with God, and the Word was God,” already contains the distinction and the unity.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "John 1:1-3",
+            "ref": "JHN.1.1-3",
+            "quote": "the Word was with God, and the Word was God.",
+            "note": "Distinct (“with”) and yet God (“was God”)."
+          },
+          {
+            "kind": "father",
+            "label": "Hippolytus, Against Noetus 14",
+            "when": "c. 215",
+            "year": 215,
+            "work": "hippolytus",
+            "section": "iii.iv.ii",
+            "quote": "If, then, the Word was with God, and was also God, what follows? Would one say that he speaks of two Gods?",
+            "note": "Hippolytus poses the question directly and answers it from the same Gospel: one God in three persons."
+          }
+        ]
+      },
+      {
+        "q": "Jesus says, “I and the Father are one” and “He who has seen me has seen the Father.” Doesn’t that mean they are the same?",
+        "a": "The same Gospel says “I am in the Father, and the Father in me”, which already speaks of two. In the Greek the word is neuter and the verb plural, “we are one thing”, which is different from saying “I am the Father”. Tertullian replies that the Father is not the Son in such a way that each is the other.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "John 14:9-11",
+            "ref": "JHN.14.9-11",
+            "quote": "He who has seen me has seen the Father. … Don’t you believe that I am in the Father, and the Father in me?",
+            "note": "The sentence that seems to identify them also describes them as dwelling in each other, which requires two."
+          },
+          {
+            "kind": "father",
+            "label": "Tertullian, Against Praxeas 10",
+            "when": "c. 213",
+            "year": 213,
+            "work": "tertullian-marcion",
+            "section": "v.ix",
+            "quote": "nor is the Father the same as the Son, in such a way that Both of them should be One, and One or the Other should be Both",
+            "note": "Tertullian states the logical impossibility of the Praxean reading in a single sentence."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      253,
+      254,
+      255,
+      249
+    ]
+  },
+  {
+    "id": "nestorianism",
+    "title": "Nestorianism: Mother of God or Mother of Christ?",
+    "question": "Is Mary the Mother of God, and is the Son of Mary the same person as the eternal Son of God?",
+    "summary": "The Church teaches that Jesus Christ is one person, the eternal Son of God, who took a human nature as his own. Mary is called Theotokos, “Mother of God”, because the one she bore is God the Son, not because she is the source of his divinity.",
+    "heresy": {
+      "era": "428–431 (Council of Ephesus, 431)",
+      "who": "Nestorius, patriarch of Constantinople from 428, in the Antiochene tradition of Theodore of Mopsuestia.",
+      "claim": "Mary is properly the mother of Christ (Christotokos), not of God (Theotokos): the Godhead has no mother and is not born in time. The humanity and the Word are joined by a conjunction of honour and authority, so that the man is “worshipped together with” God the Word. Formulas Cyril quotes from this circle say that “the assumed as well as the assuming have the name of God”, and the council reports Nestorius preaching “I do not confess a two or three months old God.”",
+      "appeal": "It protected something true: that God is eternal, unchanging and cannot be created in time, and that the Godhead did not begin in Mary. It was a strong reaction to Arian and Apollinarian ideas that blurred the Son’s two realities. It also kept the Gospel’s picture of Jesus the man, who grows, hungers and suffers, vivid and distinct.",
+      "advocate": [
+        {
+          "kind": "council",
+          "label": "Council of Ephesus, report of Nestorius’s sermon",
+          "when": "431",
+          "year": 431,
+          "work": "council-ephesus",
+          "section": "x.xvi",
+          "quote": "I do not confess a two or three months old God",
+          "note": "The council records the line from Nestorius’s own preaching which showed what he refused to say about the child in Mary’s arms."
+        },
+        {
+          "kind": "council",
+          "label": "Cyril quoting Nestorian formulas (Third Letter)",
+          "when": "430",
+          "year": 430,
+          "work": "council-ephesus",
+          "section": "x.viii",
+          "quote": "“I worship the One clothed on account of the One clothing him, and on account of the Unseen, I worship the Seen.” It is horrible to say in this connexion as follows: “The assumed as well as the assuming have the name of God.”",
+          "note": "Cyril quotes formulas used in Nestorius’s circle and objects that they put the man and God “separately by himself”."
+        },
+        {
+          "kind": "council",
+          "label": "Nestorius’s counter-anathema to Cyril",
+          "when": "430",
+          "year": 430,
+          "work": "council-ephesus",
+          "section": "x.ix",
+          "quote": "if anyone calls Mary the mother of God the Word, and not rather mother of him who is Emmanuel",
+          "note": "Nestorius’s own reply to Cyril’s first anathema: Mary is mother of “Emmanuel”, not of the Word."
+        },
+        {
+          "kind": "council",
+          "label": "Constantinople II on Theodore of Mopsuestia",
+          "when": "553",
+          "year": 553,
+          "work": "council-constantinople-2",
+          "section": "xii.vii",
+          "quote": "who has said that the Word of God is one person, but that another person is Christ",
+          "note": "The later council summarizes the earlier teaching that Nestorius’s school was built on: the Word and Christ as two persons."
+        }
+      ],
+      "whyItFails": "The Gospel never speaks of two subjects. It is the one Son who is born of Mary, hungers, is crucified and rises. If the person born of Mary is only a man joined to the Word, then God the Son did not become man, did not die for us, and the Eucharist is only the flesh of a man. Cyril’s answer at Ephesus was that the Son of God made the humanity his own from the womb, so that what is said of the man can be said of the Word, and Mary, who bore that Word in the flesh, is Mother of God."
+    },
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Luke 1:43",
+        "ref": "LUK.1.43",
+        "quote": "Why am I so favored, that the mother of my Lord should come to me?",
+        "note": "Elizabeth, under the Spirit, calls Mary “the mother of my Lord”; for Luke, “Lord” is the divine title."
+      },
+      {
+        "kind": "scripture",
+        "label": "Galatians 4:4-5",
+        "ref": "GAL.4.4-5",
+        "quote": "God sent out his Son, born to a woman, born under the law",
+        "note": "The one sent from God is the one born of a woman: one subject, not two."
+      },
+      {
+        "kind": "scripture",
+        "label": "John 1:14",
+        "ref": "JHN.1.14",
+        "quote": "The Word became flesh and lived among us.",
+        "note": "John says that the Word himself became flesh, not that he joined himself to a man."
+      },
+      {
+        "kind": "scripture",
+        "label": "1 Corinthians 2:8",
+        "ref": "1CO.2.8",
+        "quote": "they wouldn’t have crucified the Lord of glory.",
+        "note": "The one crucified is called “the Lord of glory”, a title of God."
+      },
+      {
+        "kind": "council",
+        "label": "Cyril, Second Letter to Nestorius",
+        "when": "430",
+        "year": 430,
+        "work": "council-ephesus",
+        "section": "x.v",
+        "quote": "not as though his divine nature received its beginning of existence in the holy Virgin",
+        "note": "Cyril answers Nestorius’s worry directly: calling Mary Theotokos does not say that she is the origin of the Word’s divinity."
+      },
+      {
+        "kind": "council",
+        "label": "Cyril, Second Letter to Nestorius",
+        "when": "430",
+        "year": 430,
+        "work": "council-ephesus",
+        "section": "x.v",
+        "quote": "the two natures being brought together in a true union, there is of both one Christ and one Son; for the difference of the natures is not taken away by the union",
+        "note": "Cyril insists that the natures remain different even as the person is one."
+      },
+      {
+        "kind": "council",
+        "label": "Cyril, Third Letter to Nestorius",
+        "when": "430",
+        "year": 430,
+        "work": "council-ephesus",
+        "section": "x.viii",
+        "quote": "we do not divide the God from the man, nor separate him into parts",
+        "note": "The positive claim: one Christ, not a man and a God sharing a title."
+      },
+      {
+        "kind": "council",
+        "label": "Cyril’s First Anathema",
+        "when": "430",
+        "year": 430,
+        "work": "council-ephesus",
+        "section": "x.ix",
+        "quote": "If anyone will not confess that the Emmanuel is very God, and that therefore the Holy Virgin is the Mother of God",
+        "note": "The first of the twelve anathemas puts the matter in a single sentence."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Ephesus, report on the deposition",
+        "when": "431",
+        "year": 431,
+        "work": "council-ephesus",
+        "section": "x.xvi",
+        "quote": "an impious and most pestilent heresy, which perverts our most pure religion … and which overthrows from the foundation the whole economy of the mystery",
+        "note": "The council judged that the new doctrine undermines the Incarnation itself, not only a point of vocabulary."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 466",
+        "ccc": 466,
+        "quote": "Christ’s humanity has no other subject than the divine person of the Son of God, who assumed it and made it his own, from his conception.",
+        "note": "The Catechism states the answer to the Nestorian question: the subject of Christ’s humanity is the Son of God."
+      }
+    ],
+    "objections": [
+      {
+        "q": "To say Mary is “Mother of God” seems to make the Godhead begin in her. Isn’t “Mother of Christ” safer?",
+        "a": "That worry is understandable, and Cyril shared it. He says plainly that the title does not mean the divine nature began in Mary: it means that the one she bore, in the flesh, is the eternal Word.",
+        "steps": [
+          {
+            "kind": "council",
+            "label": "Cyril, Third Letter to Nestorius",
+            "when": "430",
+            "year": 430,
+            "work": "council-ephesus",
+            "section": "x.viii",
+            "quote": "we also call her Mother of God, not as if the nature of the Word had the beginning of its existence from the flesh.",
+            "note": "Cyril addresses the objection in the same sentence in which he states the title."
+          }
+        ]
+      },
+      {
+        "q": "God cannot suffer or die. Doesn’t saying God was born and crucified insult his nature?",
+        "a": "The Church has never said that the divine nature suffers in itself. It says the Son of God suffered in the flesh he made his own. Paul and Luke both speak of God’s own blood and the Lord of glory crucified.",
+        "steps": [
+          {
+            "kind": "council",
+            "label": "Cyril, Third Letter to Nestorius",
+            "when": "430",
+            "year": 430,
+            "work": "council-ephesus",
+            "section": "x.viii",
+            "quote": "although according to his own nature he was not subject to suffering, yet he suffered for us in the flesh according to the Scriptures",
+            "note": "Cyril holds both truths: the Godhead is impassible, and the Son suffered in his flesh."
+          },
+          {
+            "kind": "scripture",
+            "label": "Acts 20:28",
+            "ref": "ACT.20.28",
+            "quote": "the assembly of the Lord and God which he purchased with his own blood.",
+            "note": "The apostle speaks of God’s blood, showing that one subject owns both the Godhead and the blood."
+          }
+        ]
+      },
+      {
+        "q": "Doesn’t Cyril’s stress on unity blur the human and divine natures together?",
+        "a": "The council rejected that conclusion too. The union of Cyril’s own settlement with John of Antioch, read at Chalcedon, speaks of “a union of two natures”, and the Second Letter keeps the difference.",
+        "steps": [
+          {
+            "kind": "council",
+            "label": "Cyril, Letter to John of Antioch",
+            "when": "433",
+            "year": 433,
+            "work": "council-chalcedon",
+            "section": "xi.v",
+            "quote": "for there became a union of two natures. Wherefore we confess one Christ, one Son, one Lord.",
+            "note": "Cyril’s agreed statement with the Antiochene bishops was later read at Chalcedon, and it keeps both unity and distinction."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      466,
+      495,
+      487,
+      469
+    ]
+  },
+  {
+    "id": "monophysitism-eutychianism",
+    "title": "Monophysitism: One nature after the union?",
+    "question": "After the Incarnation, is there in Christ one nature, or does he remain truly God and truly man?",
+    "summary": "The Church teaches that Christ is one person in two natures, divine and human, “without confusion, change, division or separation”. He is consubstantial with the Father as to his Godhead and consubstantial with us as to his manhood.",
+    "heresy": {
+      "era": "448–451 (Council of Chalcedon, 451)",
+      "who": "Eutyches, an archimandrite at Constantinople, and Dioscorus of Alexandria, who defended him; the Monophysite churches grew from these disputes.",
+      "claim": "As Leo reports Eutyches’ answer at his examination: “I confess that our Lord was of two natures before the union, but after the union I confess one nature.” The humanity was so joined to the Godhead that it no longer remained a distinct nature. Eutyches himself said he held the faith of Nicaea and Ephesus and rejected the idea that Christ’s flesh came from heaven.",
+      "appeal": "It was a reaction against Nestorius and so looked like loyalty to Cyril of Alexandria and to the unity of Christ. It could be defended with Cyril’s language about a union of the Word with the flesh. It also carried the deep devotion that wants no distance between Christ’s humanity and his glory. A simple old monk like Eutyches could genuinely think he was defending the faith.",
+      "advocate": [
+        {
+          "kind": "council",
+          "label": "Leo’s Tome quoting Eutyches",
+          "when": "449",
+          "year": 449,
+          "work": "council-chalcedon",
+          "section": "xi.vii",
+          "quote": "“I confess that our Lord was of two natures before the union, but after the union I confess one nature;”",
+          "note": "Leo quotes the answer Eutyches gave at his examination in Constantinople."
+        },
+        {
+          "kind": "father",
+          "label": "Flavian’s report of Eutyches (Letter 26)",
+          "when": "449",
+          "year": 449,
+          "work": "leo-sermons-letters",
+          "section": "ii.iv.xxvi",
+          "quote": "saying that before the Incarnation indeed, our Saviour Jesus Christ had two natures, Godhead and manhood: but that after the union they became one nature",
+          "note": "Flavian, bishop of Constantinople, describes Eutyches’ position in the letter he wrote to Leo."
+        },
+        {
+          "kind": "father",
+          "label": "Eutyches to Leo (Letter 21)",
+          "when": "448",
+          "year": 448,
+          "work": "leo-sermons-letters",
+          "section": "ii.iv.xxi",
+          "quote": "anathematizing Apollinaris, Valentinus, Manes, and Nestorius, and those who say that the flesh of our Lord Jesus Christ, the Saviour, descended from heaven and not from the Holy Ghost and from the holy Virgin",
+          "note": "Eutyches’ own account of himself: he claims to reject the other Christological errors, which is why Leo calls him confused rather than malicious."
+        },
+        {
+          "kind": "council",
+          "label": "Chalcedon, Session 5",
+          "when": "451",
+          "year": 451,
+          "work": "council-chalcedon",
+          "section": "xi.xii",
+          "quote": "Dioscorus acknowledged that he accepted the expression “of two natures,” but not that there were two natures.",
+          "note": "The imperial judges summarize the dispute at the council: “of two natures” was acceptable to Dioscorus, but “in two natures” was not."
+        }
+      ],
+      "whyItFails": "If after the union the humanity is absorbed or changed, then Christ no longer shares our nature and cannot be our mediator, and what the Gospels say about his hunger, tears, death and wounds cannot be said of him. Leo argues from the plain words of the Gospels and the Creed: the risen Christ shows his wounds so that “the properties of the Divine and the human nature” might be acknowledged to remain in him. Chalcedon confessed the opposite of confusion and the opposite of division: one person, two natures."
+    },
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "1 John 4:2-3",
+        "ref": "1JN.4.2-3",
+        "quote": "every spirit who confesses that Jesus Christ has come in the flesh is of God",
+        "note": "John makes the confession of a real human nature, which Christ keeps, part of the test of faith."
+      },
+      {
+        "kind": "scripture",
+        "label": "Luke 24:39",
+        "ref": "LUK.24.39",
+        "quote": "See my hands and my feet, that it is truly me. Touch me and see, for a spirit doesn’t have flesh and bones",
+        "note": "The risen Lord still has a human body that can be touched."
+      },
+      {
+        "kind": "scripture",
+        "label": "Hebrews 2:14-17",
+        "ref": "HEB.2.14-17",
+        "quote": "he also himself in the same way partook of the same … Therefore he was obligated in all things to be made like his brothers",
+        "note": "To be our high priest he had to be like us in all things, which requires a real human nature."
+      },
+      {
+        "kind": "scripture",
+        "label": "Philippians 2:5-8",
+        "ref": "PHP.2.5-8",
+        "quote": "existing in the form of God, didn’t consider equality with God a thing to be grasped, but emptied himself, taking the form of a servant",
+        "note": "Both “forms” are named in one subject: he is in the form of God and takes the form of a servant."
+      },
+      {
+        "kind": "council",
+        "label": "Leo’s Tome",
+        "when": "449",
+        "year": 449,
+        "work": "council-chalcedon",
+        "section": "xi.vii",
+        "quote": "while the distinctness of both natures and substances was preserved, and both met in one Person",
+        "note": "Leo’s key sentence: two natures preserved, one Person."
+      },
+      {
+        "kind": "council",
+        "label": "Leo’s Tome",
+        "when": "449",
+        "year": 449,
+        "work": "council-chalcedon",
+        "section": "xi.vii",
+        "quote": "the properties of the Divine and the human nature might be acknowledged to remain in him without causing a division, and that we might in such sort know that the Word is not what the flesh is, as to confess that the one Son of God is both Word and flesh",
+        "note": "Leo’s reading of the risen Christ: the wounds and the touch are given so that both natures may be recognised in one Lord."
+      },
+      {
+        "kind": "council",
+        "label": "Leo’s Tome",
+        "when": "449",
+        "year": 449,
+        "work": "council-chalcedon",
+        "section": "xi.vii",
+        "quote": "to deny his true flesh is also to deny his bodily sufferings",
+        "note": "The practical consequence: the Passion is real because the flesh is real."
+      },
+      {
+        "kind": "council",
+        "label": "The Definition of Chalcedon",
+        "when": "451",
+        "year": 451,
+        "work": "council-chalcedon",
+        "section": "xi.xiii",
+        "quote": "consubstantial with the Father as touching his Godhead, and consubstantial with us as touching his manhood",
+        "note": "The council states both consubstantialities in one clause."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism 467",
+        "ccc": 467,
+        "quote": "We confess that one and the same Christ, Lord, and only-begotten Son, is to be acknowledged in two natures without confusion, change, division or separation.",
+        "note": "The Catechism quotes the Chalcedonian formula, the four negatives that rule out both Nestorianism and Eutychianism."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Isn’t “one nature” the best way to protect the unity of Christ, which Nestorius broke?",
+        "a": "The unity of Christ is in the person, and Cyril himself, the champion of unity, confessed “a union of two natures” and one Christ. The Council did not reject unity; it rejected confusion.",
+        "steps": [
+          {
+            "kind": "council",
+            "label": "Cyril, Letter to John of Antioch",
+            "when": "433",
+            "year": 433,
+            "work": "council-chalcedon",
+            "section": "xi.v",
+            "quote": "for there became a union of two natures. Wherefore we confess one Christ, one Son, one Lord.",
+            "note": "Cyril’s own language, read at Chalcedon, joins two natures and one Christ."
+          }
+        ]
+      },
+      {
+        "q": "Doesn’t “two natures” just bring back Nestorius, who divided Christ into two?",
+        "a": "Chalcedon rejects that division in the same sentence: “one and the same” Son, “in two natures”, one Person. The earlier Council of Ephesus had condemned the division of Christ into a man and a God.",
+        "steps": [
+          {
+            "kind": "council",
+            "label": "The Definition of Chalcedon",
+            "when": "451",
+            "year": 451,
+            "work": "council-chalcedon",
+            "section": "xi.xiii",
+            "quote": "is to be confessed as one and the same [Person], that he is perfect in Godhead and perfect in manhood, very God and very man",
+            "note": "Perfect in both, and one and the same: the definition is built to exclude both extremes."
+          }
+        ]
+      },
+      {
+        "q": "If Christ’s human nature stays distinct, how can the Son of God really suffer? Doesn’t a single nature secure that it was God himself who died?",
+        "a": "Leo’s answer is that suffering belongs to the person, through the nature that can suffer. One and the same Christ is “capable of dying” in one nature and not in the other, so the Son truly suffers and the Godhead is not changed. Scripture calls Christ “the man Christ Jesus” in the same breath as “one mediator”.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "1 Timothy 2:5",
+            "ref": "1TI.2.5",
+            "quote": "there is one God and one mediator between God and men, the man Christ Jesus",
+            "note": "One mediator, who is truly a man."
+          },
+          {
+            "kind": "council",
+            "label": "Leo’s Tome",
+            "when": "449",
+            "year": 449,
+            "work": "council-chalcedon",
+            "section": "xi.vii",
+            "quote": "one and the same “Mediator between God and man, the Man Christ Jesus,” might from one element be capable of dying and also from the other be incapable",
+            "note": "The one Mediator can die because of his human nature, and remain God because of his divine nature."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      467,
+      468,
+      469,
+      480
+    ]
+  }
+]

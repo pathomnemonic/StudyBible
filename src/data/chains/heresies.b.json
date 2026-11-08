@@ -1,0 +1,1234 @@
+[
+ {
+  "id": "pelagianism",
+  "title": "Pelagianism: can we save ourselves?",
+  "question": "Can a person keep God’s commandments and be justified by free will alone, and did Adam’s sin harm only Adam?",
+  "summary": "The Church teaches that Adam’s sin wounded the whole human race, so that no one can begin, continue or finish the way of salvation without the prior help of God’s grace. Free will is real and is not destroyed, but it is healed and carried forward by grace, which is always a gift and never a wage. Good works are ours, but they are first of all the fruit of what God has done in us.",
+  "heresy": {
+   "era": "Early fifth century; Rome, North Africa and Palestine",
+   "who": "Pelagius, a British ascetic and moral teacher active in Rome; his disciple Cœlestius; later Julian of Eclanum.",
+   "claim": "Adam was created mortal and his sin injured only himself, so each child is born in the state Adam was in before the fall. Human nature is whole, and since a person ought to avoid sin, he is able to avoid it: with free will, the law and the teaching of Christ, a man can live without sin. Grace is therefore understood chiefly as the gift of free will and of instruction, and is bestowed in proportion to merit. (Pelagius himself disowned some of these statements at Diospolis in 415, while holding fast to the core claim that a man can be without sin.)",
+   "appeal": "Pelagius was a serious moralist, scandalised by Christians who excused slackness by pleading human weakness. His reasoning is easy to feel the force of: a command that cannot be obeyed seems unjust, a sin that cannot be avoided seems no sin at all, and so honouring God’s justice and human responsibility seems to demand that we are able. It sounds like a call to holiness and to take our moral lives seriously.",
+   "advocate": [
+    {
+     "kind": "father",
+     "label": "Cœlestius, as quoted by Augustine, Perfection of Man’s Righteousness",
+     "when": "c. 415",
+     "year": 415,
+     "work": "aug-pelagian",
+     "section": "xiii.v",
+     "quote": "If it is unavoidable, then it is not sin; if it can be avoided, then a man can live without the sin which can be avoided.",
+     "note": "Augustine records the opening argument of Cœlestius’s Definitions: sin must be avoidable, so a man can live without it."
+    },
+    {
+     "kind": "father",
+     "label": "Cœlestius, as quoted by Augustine, Perfection of Man’s Righteousness",
+     "when": "c. 415",
+     "year": 415,
+     "work": "aug-pelagian",
+     "section": "xiii.ix",
+     "quote": "If he ought, he is able; if he is not able, then he ought not.",
+     "note": "The same argument pressed to its end: obligation cannot exceed ability, so no help beyond nature is needed to obey."
+    },
+    {
+     "kind": "father",
+     "label": "Cœlestius, as reported in Augustine, Proceedings of Pelagius",
+     "when": "417",
+     "year": 417,
+     "work": "aug-pelagian",
+     "section": "xiv.xxvii",
+     "quote": "Adam was created mortal, and would have died whether he had sinned or not sinned; that Adam’s sin injured only himself and not the human race;…that new-born infants are in the same condition as Adam was before the fall",
+     "note": "Augustine lists the propositions laid against Pelagius from the writings of Cœlestius: Adam’s sin harmed only himself, and infants are born as Adam was before the fall."
+    },
+    {
+     "kind": "father",
+     "label": "Cœlestius, as reported in Augustine, Proceedings of Pelagius",
+     "when": "417",
+     "year": 417,
+     "work": "aug-pelagian",
+     "section": "xiv.xxxiv",
+     "quote": "That God’s grace and assistance is not given for single actions, but is imparted in the freedom of the will, or in the law and in doctrine.",
+     "note": "Grace is reduced to nature and teaching, and, in the next charge, is said to be given in proportion to our deserts."
+    }
+   ],
+   "whyItFails": "It makes Christ’s saving work unnecessary in the one place where Scripture says it is needed, for if nature suffices then, as Augustine saw, “Without me you can do nothing” is an empty saying. It also denies that death and sin came to all through Adam, which would leave no reason for infants to be baptised for the remission of sins. Finally it turns grace into a reward for merit, so that salvation is something we first earn from God instead of something he first gives."
+  },
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Romans 5:12",
+    "ref": "ROM.5.12",
+    "quote": "as sin entered into the world through one man, and death through sin, so death passed to all men because all sinned",
+    "note": "Paul says that sin and death came to all through one man, which is the text Augustine presses against the claim that Adam’s fall harmed only himself."
+   },
+   {
+    "kind": "scripture",
+    "label": "John 15:5",
+    "ref": "JHN.15.5",
+    "quote": "apart from me you can do nothing",
+    "note": "Christ himself says that no fruitful action is done apart from him, which cannot be squared with the claim that nature alone is enough."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On the Spirit and the Letter 5",
+    "when": "412",
+    "year": 412,
+    "work": "aug-pelagian",
+    "section": "xi.viii",
+    "quote": "We, however, on our side affirm that the human will is so divinely aided in the pursuit of righteousness…he receives the Holy Ghost, by whom there is formed in his mind a delight in, and a love of, that supreme and unchangeable good which is God",
+    "note": "Augustine states the alternative: the will is real and free, but it is moved to love the good by the gift of the Holy Spirit."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Perfection of Man’s Righteousness",
+    "when": "c. 415",
+    "year": 415,
+    "work": "aug-pelagian",
+    "section": "xiii.v",
+    "quote": "Our answer to this is, that sin can be avoided, if our corrupted nature be healed by God’s grace, through our Lord Jesus Christ.",
+    "note": "Augustine grants that sin is avoidable, and then says how: not by nature unaided but by nature healed."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Confessions",
+    "when": "c. 400",
+    "year": 400,
+    "work": "aug-confessions",
+    "section": "xi.xxix",
+    "quote": "Give what Thou enjoinest, and enjoin what Thou wilt.",
+    "note": "This prayer was written before the controversy and shows what Augustine had always believed: that God commands, and God must also give what he commands."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Decree on Original Sin, canon 2",
+    "when": "1546",
+    "year": 1546,
+    "work": "trent-canons-decrees",
+    "section": "s5",
+    "quote": "If anyone asserts, that the prevarication of Adam injured himself alone, and not his posterity",
+    "note": "The Church condemns the Pelagian claim about Adam in terms close to those attributed to Cœlestius."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Decree on Justification, canon 1",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "If anyone saith that man may be justified before God by his own works, whether done through the teaching of human nature, or that of the law, without the grace of God through Jesus Christ; let him be anathema.",
+    "note": "Trent defines that no one is justified by his own works apart from grace, rejecting both natural effort and the unaided law."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 406",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 406,
+    "quote": "Pelagius held that man could, by the natural power of free will and without the necessary help of God’s grace, lead a morally good life; he thus reduced the influence of Adam’s fault to bad example.",
+    "note": "The Catechism names the error and summarises how the Church answered it at Orange in 529 and at Trent."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 2001",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 2001,
+    "quote": "The preparation of man for the reception of grace is already a work of grace.",
+    "note": "Even the first movement toward God is God’s gift, so no part of salvation begins with merit."
+   }
+  ],
+  "objections": [
+   {
+    "q": "If we cannot help sinning, how can God command us or hold us guilty? Surely “ought” means “can.”",
+    "a": "Augustine replies that the ability was lost through a wound, not through God’s design, and is restored by the healer. A man may be rightly told he ought not to be lame even though he cannot cure himself by wishing. The command shows us what we need, and grace supplies it.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, Perfection of Man’s Righteousness",
+      "when": "c. 415",
+      "year": 415,
+      "work": "aug-pelagian",
+      "section": "xiii.ix",
+      "quote": "When we see a lame man who has the opportunity of being cured of his lameness, we of course have a right to say: “That man ought not to be lame; and if he ought, he is able.” And yet whenever he wishes he is not immediately able; but only after he has been cured by the application of the remedy",
+      "note": "The lame-man picture answers the “ought implies can” argument directly: ability is given by the remedy, not found in the wound."
+     }
+    ]
+   },
+   {
+    "q": "Doesn’t Augustine’s emphasis on grace destroy free will and make us puppets?",
+    "a": "No. The Church condemns that mistake as firmly as it condemns Pelagianism. Grace moves the will without overriding it, so a person truly assents and truly co-operates, and truly could refuse.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Decree on Justification, canon 5",
+      "when": "1547",
+      "year": 1547,
+      "work": "trent-canons-decrees",
+      "section": "s6",
+      "quote": "If anyone saith that, since Adam’s sin, the free will of man is lost and extinguished",
+      "note": "Trent condemns the opposite error that free will is lost altogether."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 1993",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 1993,
+      "quote": "When God touches man’s heart through the illumination of the Holy Spirit, man himself is not inactive while receiving that inspiration, since he could reject it",
+      "note": "Grace and freedom work together: God acts first, and the person freely responds."
+     }
+    ]
+   },
+   {
+    "q": "A newborn baby has done nothing wrong. How can he be said to have sin?",
+    "a": "The Church does not say that an infant has committed a personal fault. Original sin is a deprivation of the holiness and justice human nature was meant to have, passed on by descent and not by imitation, and baptism restores what was lost.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 405",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 405,
+      "quote": "original sin does not have the character of a personal fault in any of Adam’s descendants. It is a deprivation of original holiness and justice",
+      "note": "The Catechism is careful to distinguish a state inherited from a sin personally committed."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   388,
+   405,
+   406,
+   1993,
+   2001
+  ]
+ },
+ {
+  "id": "donatism",
+  "title": "Donatism: does a sinful minister spoil the sacrament?",
+  "question": "Is the Church only for the pure, and do the sacraments depend on the holiness of the person who gives them?",
+  "summary": "The Church teaches that Christ himself is the true minister of every sacrament, so a valid baptism or ordination does not depend on the personal holiness of the minister. The Church on earth is a mixed body of saints and sinners, wheat and weeds together until the harvest, and breaking unity in order to be pure is itself a grave sin. The unworthiness of the minister may harm him, but it does not cancel Christ’s gift.",
+  "heresy": {
+   "era": "311 to the 5th century; Roman North Africa",
+   "who": "Majorinus and Donatus the Great, then Parmenian, Petilian of Constantina, Cresconius and Gaudentius.",
+   "claim": "After the Great Persecution the party of Donatus rejected the Catholic bishop of Carthage and those in communion with him, charging them with being traditores, men who had handed the sacred books to the persecutors. The Donatists taught that the Church must be holy in its ministers, that a sacrament given by an unworthy or “traditor” minister is empty, and that the recipient is stained by the minister’s guilt. They therefore rebaptised those who came to them from the Catholic Church and held that they alone were the true Church.",
+   "appeal": "The Donatists remembered the martyrs of the persecution and were ashamed of those who had given in. They wanted a Church whose bishops lived up to the Gospel, and they had the authority of Cyprian, the great African martyr-bishop, who had held that baptism outside the Church was void. To many Africans it looked like fidelity against compromise.",
+   "advocate": [
+    {
+     "kind": "father",
+     "label": "Petilian, as quoted by Augustine, Answer to the Letters of Petilian",
+     "when": "c. 400",
+     "year": 400,
+     "work": "aug-donatist",
+     "section": "v.v.iii",
+     "quote": "What we look for is the conscience of the giver to cleanse that of the recipient.",
+     "note": "Petilian ties the effect of baptism to the conscience of the one who baptises."
+    },
+    {
+     "kind": "father",
+     "label": "Petilian, as quoted by Augustine, Answer to the Letters of Petilian",
+     "when": "c. 400",
+     "year": 400,
+     "work": "aug-donatist",
+     "section": "v.v.iii",
+     "quote": "For he who receives faith from the faithless receives not faith, but guilt.",
+     "note": "He draws the conclusion that a baptism given by a faithless minister imparts guilt, not faith."
+    },
+    {
+     "kind": "father",
+     "label": "Petilian, as quoted by Augustine, Answer to the Letters of Petilian",
+     "when": "c. 400",
+     "year": 400,
+     "work": "aug-donatist",
+     "section": "v.v.iii",
+     "quote": "everything consists of an origin and root; and if it have not something for a head, it is nothing.",
+     "note": "The “root and head” image makes the minister the source of the sacrament’s validity."
+    },
+    {
+     "kind": "father",
+     "label": "Petilian, as quoted by Augustine, Answer to the Letters of Petilian",
+     "when": "c. 400",
+     "year": 400,
+     "work": "aug-donatist",
+     "section": "v.v.iv",
+     "quote": "We must consider, I say, and declare how far the treacherous traditor is to be accounted dead while yet in life.",
+     "note": "Petilian argues that a bishop who surrendered the Scriptures is spiritually dead and so cannot give life to others."
+    }
+   ],
+   "whyItFails": "If a sacrament depended on the minister’s worthiness no one could ever be sure he had been baptised, since nobody sees another’s conscience. Scripture says that Christ is the one who baptises, and that weeds are to be left among the wheat until the harvest, not pulled up beforehand by those who think they can tell the difference. Cutting the body of Christ in two to keep one half pure is the worse offence."
+  },
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Matthew 13:28-30",
+    "ref": "MAT.13.28-30",
+    "quote": "Let both grow together until the harvest",
+    "note": "Christ forbids the servants to separate the wheat from the weeds before the harvest, because they might root up the wheat as well."
+   },
+   {
+    "kind": "scripture",
+    "label": "John 1:33",
+    "ref": "JHN.1.33",
+    "quote": "is he who baptizes in the Holy Spirit",
+    "note": "John the Baptist points out that the real baptiser is Christ, whoever pours the water."
+   },
+   {
+    "kind": "scripture",
+    "label": "1 Corinthians 1:12-13",
+    "ref": "1CO.1.12-13",
+    "quote": "Is Christ divided? Was Paul crucified for you? Or were you baptized into the name of Paul?",
+    "note": "Paul rebukes those who attach baptism to the name of a minister: it belongs to Christ."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, Letter 51 (to Antonianus)",
+    "when": "252",
+    "year": 252,
+    "work": "cyprian",
+    "section": "iv.iv.li",
+    "quote": "that he should think that he can discern the tares from the wheat, or, as if it were granted to him to bear the fan and to purge the threshing-floor, should endeavour to separate the chaff from the wheat",
+    "note": "Cyprian, the Donatists’ own hero, condemns the pride of those who try to purge the Church before the judgment."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On Baptism, Against the Donatists",
+    "when": "c. 400",
+    "year": 400,
+    "work": "aug-donatist",
+    "section": "v.iv.iii",
+    "quote": "We do not acknowledge any baptism of yours; for it is not the baptism of schismatics or heretics, but of God and of the Church, wheresoever it may be found",
+    "note": "Augustine’s principle: baptism is Christ’s and the Church’s, so it is not the property of the sect that happens to hold it."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Answer to Petilian",
+    "when": "c. 400",
+    "year": 400,
+    "work": "aug-donatist",
+    "section": "v.v.iii",
+    "quote": "according to their judgment, the salvation of the spirit is made uncertain",
+    "note": "He points out the pastoral cost of the Donatist view: nobody can be certain that his baptism is real."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Answer to Petilian",
+    "when": "c. 400",
+    "year": 400,
+    "work": "aug-donatist",
+    "section": "v.v.v",
+    "quote": "although the chaff may be bruised together with the wheat, it shall not be gathered into the barn; although the bad fish may swim in company with the good within the Lord’s nets, they shall not be gathered into vessels",
+    "note": "Augustine adds that the mixture is real but temporary, and that the unworthy do not share in the good they handle."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, On the Unity of the Church",
+    "when": "251",
+    "year": 251,
+    "work": "cyprian",
+    "section": "iv.v.i",
+    "quote": "He can no longer have God for his Father, who has not the Church for his mother.",
+    "note": "Cyprian’s well-known sentence on schism turns against the Donatists who left the Church throughout the world."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 1128",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 1128,
+    "quote": "the sacrament is not wrought by the righteousness of either the celebrant or the recipient, but by the power of God",
+    "note": "The Catechism states the doctrine of ex opere operato that answered Donatism."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 827",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 827,
+    "quote": "The Church is therefore holy, though having sinners in her midst",
+    "note": "The Church is holy because of Christ’s life in her, even though her members and ministers are sinners."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Cyprian himself taught that baptism given outside the Church is void and rebaptised heretics. Aren’t the Donatists just following the martyr?",
+    "a": "Cyprian did hold that view, and Augustine says so openly. But Cyprian refused to break communion over it, and the question was later settled by the whole Church after his death. The Donatists kept his opinion while discarding his charity and his teaching on unity.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Cyprian, Opening Address, Council of Carthage",
+      "when": "256",
+      "year": 256,
+      "work": "cyprian",
+      "section": "iv.vi.i",
+      "quote": "judging no man, nor rejecting any one from the right of communion, if he should think differently from us",
+      "note": "Cyprian declared that no bishop should be cast out of communion for holding another view on rebaptism."
+     },
+     {
+      "kind": "father",
+      "label": "Augustine, On Baptism, Against the Donatists",
+      "when": "c. 400",
+      "year": 400,
+      "work": "aug-donatist",
+      "section": "v.iv.iii",
+      "quote": "till at length the most wholesome opinion was established, to the removal of all doubts, by a plenary Council of the whole world",
+      "note": "Augustine explains that the matter was later closed by the universal Church, not by any single local council."
+     }
+    ]
+   },
+   {
+    "q": "Scripture says to “come out from among them.” Shouldn’t the pure separate from a Church that tolerates grave sinners?",
+    "a": "Paul wrote to the Corinthians as a Church although they were full of faults, and he told them to correct the offenders, not to leave the Church. Augustine asks the Donatists to look at what Cyprian himself accepted: he stayed in communion with a Church that included men like Judas, and was not defiled by it.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, On Baptism, Against the Donatists",
+      "when": "c. 400",
+      "year": 400,
+      "work": "aug-donatist",
+      "section": "v.iv.ix",
+      "quote": "if Cyprian held communion with such as was the traitor Judas, and yet was not defiled by them",
+      "note": "Augustine uses Cyprian’s own practice against the idea that communion with sinners pollutes."
+     }
+    ]
+   },
+   {
+    "q": "Augustine and the emperor used force against the Donatists. Isn’t that a bad sign for the Catholic position?",
+    "a": "It is a fair criticism and the Church does not pretend otherwise. The use of state pressure in these controversies is a historical failure, and the Catechism says plainly that no one may be forced to act against his conscience in religious matters. The theological case against Donatism does not rest on coercion, and it stands without it.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 2106",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 2106,
+      "quote": "Nobody may be forced to act against his convictions, nor is anyone to be restrained from acting in accordance with his conscience in religious matters",
+      "note": "The Church teaches a right to religious liberty and rejects compelling belief."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 817",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 817,
+      "quote": "much more serious dissensions appeared and large communities became separated from full communion with the Catholic Church - for which, often enough, men of both sides were to blame",
+      "note": "The Catechism admits that blame for divisions has often lain on both sides."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   771,
+   827,
+   1128,
+   1584
+  ]
+ },
+ {
+  "id": "manichaeism",
+  "title": "Manichaeism: two gods, good and evil?",
+  "question": "Is evil an eternal opposing power, and is matter and the body evil?",
+  "summary": "The Church teaches that there is one God, the maker of all things visible and invisible, and that everything he made is good. Evil is not a rival substance but the lack of a good that should be there, and it enters the world through the abuse of freedom by creatures. The Word became flesh, so the body and the material world are honoured, not escaped.",
+  "heresy": {
+   "era": "3rd to 6th century; Persia, the Roman Empire, and above all North Africa",
+   "who": "Mani (died c. 276) and his followers, including Adimantus, Faustus of Milevis and Fortunatus.",
+   "claim": "There are two uncreated principles from the beginning, light under God the Father and darkness, and the world is a mixture in which fragments of light are trapped in matter. Evil is therefore a real, eternal nature opposed to God. Souls are fragments of divine light imprisoned in matter, matter belongs to the dark, and Christ was not truly born of a woman; he came to free the light. The Old Testament belongs to another god and must be rejected, and the “elect” live by a strict rule that separates them from matter.",
+   "appeal": "The Manichaeans claimed to answer the question that troubled many thoughtful people, “Whence is evil?” They offered knowledge by reason instead of belief on authority, a sober ascetic elect, and a way to disown the troubling passages of the Old Testament. Augustine was one of them for about nine years, and writes honestly of how strong a pull it had.",
+   "advocate": [
+    {
+     "kind": "father",
+     "label": "Mani, Epistle of the Foundation, as quoted by Augustine",
+     "when": "3rd century (quoted c. 397)",
+     "year": 397,
+     "work": "aug-manichaean",
+     "section": "iv.viii.xiv",
+     "quote": "In the beginning, then,…these two substances were divided. The empire of light was held by God the Father",
+     "note": "Augustine quotes the opening of Mani’s own Fundamental Epistle: two substances from the beginning, with God confined to the realm of light."
+    },
+    {
+     "kind": "father",
+     "label": "Fortunatus, in Augustine, Disputation against Fortunatus",
+     "when": "392",
+     "year": 392,
+     "work": "aug-manichaean",
+     "section": "iv.vii.ii",
+     "quote": "I submit, that there were two substances.",
+     "note": "In a public debate at Hippo, the Manichaean presbyter states the doctrine plainly, with a “contrary nature of darkness.”"
+    },
+    {
+     "kind": "father",
+     "label": "Faustus, in Augustine, Reply to Faustus",
+     "when": "c. 400",
+     "year": 400,
+     "work": "aug-manichaean",
+     "section": "iv.ix.iv",
+     "quote": "Do I therefore believe that Christ was born? Certainly not.",
+     "note": "Faustus accepts the Gospel as he reads it but denies that Christ was born of Mary, since God could not be mixed with flesh."
+    },
+    {
+     "kind": "father",
+     "label": "Faustus, in Augustine, Reply to Faustus",
+     "when": "c. 400",
+     "year": 400,
+     "work": "aug-manichaean",
+     "section": "iv.ix.vi",
+     "quote": "Do I believe the Old Testament? If it bequeaths anything to me, I believe it; if not, I reject it.",
+     "note": "The same Manichaean teacher sets aside the Old Testament as a book of someone else’s inheritance."
+    }
+   ],
+   "whyItFails": "A second eternal power limits God and makes him vulnerable, since he must be mixed with, and defiled by, the very darkness the Manichaeans say he cannot touch. Evil needs something good to corrupt, so it cannot be a substance on its own. Finally, if matter is evil then the Incarnation is impossible, and the Gospel claim that the Word became flesh for our salvation falls apart."
+  },
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Genesis 1:31",
+    "ref": "GEN.1.31",
+    "quote": "God saw everything that he had made, and, behold, it was very good.",
+    "note": "The Bible’s first page says that all created things, matter included, are good."
+   },
+   {
+    "kind": "scripture",
+    "label": "Colossians 1:15-16",
+    "ref": "COL.1.15-16",
+    "quote": "all things were created in the heavens and on the earth, visible things and invisible things",
+    "note": "Everything, visible and invisible, was made through Christ, so there is no second creator."
+   },
+   {
+    "kind": "scripture",
+    "label": "John 1:14",
+    "ref": "JHN.1.14",
+    "quote": "The Word became flesh and lived among us.",
+    "note": "If the Word truly took flesh, flesh cannot be the work of the enemy of God."
+   },
+   {
+    "kind": "scripture",
+    "label": "1 Timothy 4:1-4",
+    "ref": "1TI.4.1-4",
+    "quote": "For every creature of God is good, and nothing is to be rejected if it is received with thanksgiving.",
+    "note": "Paul describes forbidding marriage and certain foods as a mark of “doctrines of demons,” which is the Manichaean rule of life in outline."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Nicaea, Creed",
+    "when": "325",
+    "year": 325,
+    "work": "council-nicaea-1",
+    "section": "vii.iii",
+    "quote": "We believe in one God, the Father Almighty, maker of all things visible and invisible",
+    "note": "The first creed of the Church confesses one God as maker of all things, rejecting any second principle."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Disputation against Fortunatus",
+    "when": "392",
+    "year": 392,
+    "work": "aug-manichaean",
+    "section": "iv.vii.ii",
+    "quote": "I regard it as the height of error to believe that Almighty God, in whom is our one hope, is in any part either violable, or contaminable, or corruptible.",
+    "note": "Augustine presses the point that the Manichaean system makes God corruptible."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On the Morals of the Manichaeans",
+    "when": "388",
+    "year": 388,
+    "work": "aug-manichaean",
+    "section": "iv.v.iv",
+    "quote": "You ask me, Whence is evil? I ask you in return, What is evil?",
+    "note": "Augustine turns the question: before looking for evil’s origin, one must say what it is."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Confessions",
+    "when": "c. 400",
+    "year": 400,
+    "work": "aug-confessions",
+    "section": "iv.vii",
+    "quote": "I knew not that evil was nothing but a privation of good, until at last a thing ceases altogether to be",
+    "note": "From his own experience Augustine gives the solution: evil is the lack of a good, not a substance."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, The Nature of the Good",
+    "when": "399",
+    "year": 399,
+    "work": "aug-manichaean",
+    "section": "iv.x.iii",
+    "quote": "every nature, so far as it is nature, is good",
+    "note": "Every real being comes from God and is good as far as it exists; evil is a falling away from that being."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 299",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 299,
+    "quote": "Because creation comes forth from God’s goodness, it shares in that goodness",
+    "note": "The Catechism repeats the biblical judgment that creation is good, and notes that the Church has had to defend this many times."
+   }
+  ],
+  "objections": [
+   {
+    "q": "If God is good and all-powerful, where does evil come from? Isn’t two principles the simplest answer?",
+    "a": "It is the easiest answer to state, and Augustine admits it was the one that first drew him in. But it fails because it limits God and cannot explain how a second principle could exist. The Church’s answer is that evil is a privation, entering through the free choice of creatures who turn from the highest good to lesser goods, and the Catechism admits that this remains a real mystery.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, Confessions",
+      "when": "c. 400",
+      "year": 400,
+      "work": "aug-confessions",
+      "section": "viii.xvi",
+      "quote": "the perversion of the will, turned aside from Thee, O God, the Supreme, towards these lower things",
+      "note": "He found that evil is not a thing in itself but a will turned away from God towards lesser things."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 385",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 385,
+      "quote": "“I sought whence evil comes and there was no solution”, said St. Augustine, and his own painful quest would only be resolved by his conversion to the living God.",
+      "note": "The Catechism notes that the question is answered fully only in the light of Christ."
+     }
+    ]
+   },
+   {
+    "q": "Doesn’t the Church also teach fasting, virginity and discipline of the body? Isn’t that the same contempt for matter?",
+    "a": "The Church honours celibacy and fasting as free gifts and means of growth, never as a rejection of the body. Augustine insists that marriage, children and property are allowed to the baptised, which the Manichaeans denied.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, On the Morals of the Catholic Church",
+      "when": "388",
+      "year": 388,
+      "work": "aug-manichaean",
+      "section": "iv.iv.xxxvii",
+      "quote": "Why do you reproach us by saying that men renewed in baptism ought no longer to beget children, or to possess fields, and houses, and money? Paul allows it.",
+      "note": "Augustine defends the goodness of marriage and property against the Manichaean rule."
+     }
+    ]
+   },
+   {
+    "q": "The Old Testament has troubling passages about violence and multiple wives. Didn’t the Manichaeans have a point?",
+    "a": "Augustine felt exactly that and says so. What changed his mind was hearing such passages explained by Ambrose “in a figure,” in line with Paul’s “the letter kills, but the Spirit gives life.” The difficulty is real, but it is an argument for careful reading, not for rejecting the book.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, Confessions",
+      "when": "c. 400",
+      "year": 400,
+      "work": "aug-confessions",
+      "section": "vi.xiv",
+      "quote": "especially after I had heard one or two places of the Old Testament resolved, and ofttimes “in a figure,” which when I understood literally, I was slain spiritually",
+      "note": "Augustine records that reading the Old Testament spiritually, as the Church does, answered the Manichaean objections."
+     },
+     {
+      "kind": "scripture",
+      "label": "2 Corinthians 3:6",
+      "ref": "2CO.3.6",
+      "quote": "the letter kills, but the Spirit gives life",
+      "note": "Paul himself gives the principle of reading the Old Testament in the light of Christ."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   285,
+   299,
+   385,
+   396
+  ]
+ },
+ {
+  "id": "novatianism-rigorism",
+  "title": "Novatianism: is some sin beyond the Church’s forgiveness?",
+  "question": "Can the Church forgive every sin, including apostasy under persecution, or are some sinners beyond her reach?",
+  "summary": "The Church teaches that Christ gave her the power to forgive all sins, so that no one who repents is turned away, however grave the fall. Penance can be demanding and long, but it always leads somewhere: toward reconciliation. To refuse absolution altogether is to deny the keys Christ entrusted to the apostles, and to forbid hope is to contradict the Gospel itself.",
+  "heresy": {
+   "era": "251 onward; Rome, Carthage and across the empire",
+   "who": "Novatian, a Roman presbyter and theologian who was set up as a rival bishop of Rome in 251 against Cornelius; allied with Novatus and other rigorists, whose followers called themselves the Cathari, “the pure.”",
+   "claim": "After the persecution under Decius, those who had denied the faith were not to be restored to communion, however sincere their penance. The Church could exhort them to repent, but forgiveness of such a sin was a power reserved to God alone, not one the Church could use. The Church is a communion of the pure, so receiving the lapsed back pollutes it. Those who came over from the Catholic Church were baptised again.",
+   "appeal": "The persecution had left real martyrs and confessors, and many saw that welcoming back those who sacrificed to idols might cheapen their sufferings. Some African bishops before them had also refused peace to adulterers, and the letter to the Hebrews (6:4-6) seemed to say plainly that there was no second repentance. It looked like seriousness about holiness and respect for God’s prerogative.",
+   "advocate": [
+    {
+     "kind": "father",
+     "label": "Eusebius, Church History, on Novatus",
+     "when": "c. 325",
+     "year": 325,
+     "work": "eusebius-history",
+     "section": "iii.xi",
+     "quote": "being lifted up with arrogance against these persons, as if there was no longer for them a hope of salvation, not even if they should do all things pertaining to a genuine and pure conversion",
+     "note": "Eusebius records the heart of the Novatian position: for the lapsed there is no hope, even with a pure conversion."
+    },
+    {
+     "kind": "father",
+     "label": "Cyprian, Letter 51, describing the Novatian practice",
+     "when": "252",
+     "year": 252,
+     "work": "cyprian",
+     "section": "iv.iv.li",
+     "quote": "Mourn and shed tears, and groan day and night, and labour largely and frequently for the washing away and cleansing of your sin; but, after all these things, you shall die without the pale of the Church.",
+     "note": "Cyprian sets out in their own style what the rigorist message came to: repent, but expect no reconciliation."
+    },
+    {
+     "kind": "father",
+     "label": "Ambrose, Concerning Repentance 1",
+     "when": "c. 384",
+     "year": 384,
+     "work": "ambrose-works",
+     "section": "iv.vi.ii",
+     "quote": "They affirm that they are showing great reverence for God, to Whom alone they reserve the power of forgiving sins.",
+     "note": "Ambrose records the motive the Novatians gave: respect for God, to whom alone such forgiveness belongs."
+    },
+    {
+     "kind": "father",
+     "label": "Ambrose, Concerning Repentance 2",
+     "when": "c. 384",
+     "year": 384,
+     "work": "ambrose-works",
+     "section": "iv.vi.iii",
+     "quote": "For it is impossible that those who were once enlightened, and have tasted the heavenly gift, and have been made partakers of the Holy Spirit",
+     "note": "Ambrose notes the text on which they relied, Hebrews 6, which they took to forbid any second repentance."
+    }
+   ],
+   "whyItFails": "Christ gave the apostles the Holy Spirit and the power both to forgive and to retain sins, so a Church that refuses ever to forgive has thrown away half of what she was given. The rigorist reading of Hebrews 6 contradicts the whole of Scripture, where the Father runs to meet the returning son and Paul himself tells the Corinthians to restore a repentant sinner. A Church that holds out no hope drives the fallen into despair or into schism, which is precisely what Cyprian saw happening."
+  },
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "John 20:21-23",
+    "ref": "JHN.20.21-23",
+    "quote": "If you forgive anyone’s sins, they have been forgiven them. If you retain anyone’s sins, they have been retained.",
+    "note": "The risen Christ gives the apostles the Spirit and a real power over sins, both to forgive and to retain."
+   },
+   {
+    "kind": "scripture",
+    "label": "Matthew 18:18",
+    "ref": "MAT.18.18",
+    "quote": "whatever things you release on earth will have been released in heaven",
+    "note": "The power of binding and loosing is given to the Church; “releasing” is as much part of it as “binding.”"
+   },
+   {
+    "kind": "scripture",
+    "label": "2 Corinthians 2:6-8",
+    "ref": "2CO.2.6-8",
+    "quote": "you should rather forgive him and comfort him",
+    "note": "Paul himself tells the Church at Corinth to restore a sinner who had been disciplined, lest he be swallowed up with sorrow."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, Letter 51 (to Antonianus)",
+    "when": "252",
+    "year": 252,
+    "work": "cyprian",
+    "section": "iv.iv.li",
+    "quote": "we ought not to be so bitter, nor cruel, nor inhuman in cherishing the brethren…neither being too ungentle and pertinacious in repelling their repentance; nor, again, being too lax and easy in rashly yielding communion",
+    "note": "Cyprian himself had been strict about the lapsed, but here he insists on a middle way between harshness and laxity."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, Letter 51 (to Antonianus)",
+    "when": "252",
+    "year": 252,
+    "work": "cyprian",
+    "section": "iv.iv.li",
+    "quote": "This is to shut up and to cut off the way of grief and of repentance",
+    "note": "He argues that refusing peace to those who repent makes repentance pointless and drives them to despair."
+   },
+   {
+    "kind": "father",
+    "label": "Ambrose, Concerning Repentance 1",
+    "when": "c. 384",
+    "year": 384,
+    "work": "ambrose-works",
+    "section": "iv.vi.ii",
+    "quote": "For the Lord willed that the power of binding and of loosing should be alike, and sanctioned each by a similar condition. So he who has not the power to loose has not the power to bind.",
+    "note": "Ambrose answers the Novatians directly: a Church that claims to bind but not to loose has misread what Christ gave."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Nicaea, Canon 8",
+    "when": "325",
+    "year": 325,
+    "work": "council-nicaea-1",
+    "section": "vii.vi",
+    "quote": "let them first make profession that they are willing to communicate with the twice married, and to grant pardon to the lapsed",
+    "note": "Nicaea requires returning Cathari to accept the Church’s practice of pardoning those who lapsed in persecution."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 979",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 979,
+    "quote": "the Church must be able to forgive all penitents their offenses, even if they should sin until the last moment of their lives",
+    "note": "The Catechism states the doctrine that the Church’s power of the keys reaches every penitent sinner."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 1447",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 1447,
+    "quote": "During the first centuries the reconciliation of Christians who had committed particularly grave sins after their Baptism (for example, idolatry, murder, or adultery) was tied to a very rigorous discipline",
+    "note": "The Church has always asked serious penance for serious sin; what she refused was to close the door."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Hebrews 6 says it is impossible to renew to repentance those who have fallen away. Isn’t that exactly what Novatian taught?",
+    "a": "Ambrose met this text and gave two answers. The passage speaks of the impossibility of being baptised a second time, since there is only one baptism, and “the things which are impossible with men are possible with God.” It cannot cancel the Gospel promises of forgiveness for the returning sinner.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Hebrews 6:4-6",
+      "ref": "HEB.6.4-6",
+      "quote": "it is impossible to renew them again to repentance",
+      "note": "The text is real and strongly worded, and the Church does not dodge it."
+     },
+     {
+      "kind": "father",
+      "label": "Ambrose, Concerning Repentance 2",
+      "when": "c. 384",
+      "year": 384,
+      "work": "ambrose-works",
+      "section": "iv.vi.iii",
+      "quote": "that the writer was speaking of baptism is evident from the very words in which it is stated that it is impossible to renew unto repentance those who were fallen, inasmuch as we are renewed by means of the laver of baptism, whereby we are born again",
+      "note": "Ambrose reads Hebrews 6 as about baptism, which is received once and cannot be repeated."
+     },
+     {
+      "kind": "father",
+      "label": "Ambrose, Concerning Repentance 2",
+      "when": "c. 384",
+      "year": 384,
+      "work": "ambrose-works",
+      "section": "iv.vi.iii",
+      "quote": "God is able whensoever He wills to forgive us our sins, even those which we think cannot be forgiven.",
+      "note": "His second answer: what is impossible for men to obtain is not impossible for God to give."
+     }
+    ]
+   },
+   {
+    "q": "If the Church forgives apostasy easily, won’t it cheapen martyrdom and encourage people to sin?",
+    "a": "Cyprian considered this and rejected it: the strength of the faithful does not depend on closing the door to the penitent. The Church has not forgiven cheaply but through hard, public penance. Mercy offered through a real conversion is a different thing from indifference.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Cyprian, Letter 51 (to Antonianus)",
+      "when": "252",
+      "year": 252,
+      "work": "cyprian",
+      "section": "iv.iv.li",
+      "quote": "do not think, dearest brother, that either the courage of the brethren will be lessened, or that martyrdoms will fail for this cause, that repentance is relaxed to the lapsed",
+      "note": "Cyprian answers the worry that mercy will weaken courage."
+     }
+    ]
+   },
+   {
+    "q": "Some earlier African bishops refused peace to adulterers. Weren’t the Novatians just following the strict tradition?",
+    "a": "Cyprian admits the practice. But those bishops did not separate from the unity of the Church or rebaptise those who differed from them. The error of Novatian was not strictness but breaking communion over it and rejecting the Church’s power to forgive.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Cyprian, Letter 51 (to Antonianus)",
+      "when": "252",
+      "year": 252,
+      "work": "cyprian",
+      "section": "iv.iv.li",
+      "quote": "some of the bishops here in our province thought that peace was not to be granted to adulterers, and wholly closed the gate of repentance against adultery. Still they did not withdraw from the assembly of their co-bishops, nor break the unity of the Catholic Church",
+      "note": "Cyprian acknowledges earlier severity but stresses that it did not become schism."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   979,
+   980,
+   981,
+   1446,
+   1447
+  ]
+ },
+ {
+  "id": "iconoclasm",
+  "title": "Iconoclasm: may we make and honour images of Christ?",
+  "question": "Does the Second Commandment forbid sacred images, and does honouring an icon of Christ divide or mix his two natures?",
+  "summary": "The Church teaches that images of Christ, the Mother of God and the saints may be made and honoured, because the Word became flesh and can be seen, touched and depicted. The honour paid to an image passes to the person it represents and is veneration, never the worship that belongs to God alone. Far from denying the Incarnation, sacred images confess it.",
+  "heresy": {
+   "era": "8th and early 9th century; the Byzantine Empire",
+   "who": "The emperor Constantine V and the bishops of the Council of Hieria in 754, continuing the policy begun under Leo III.",
+   "claim": "To paint Christ is either to circumscribe the Godhead, which cannot be depicted, or to represent his flesh apart from the Godhead; in either case it falls into the old Christological errors (Monophysite or Nestorian). The only true image of Christ is the Eucharistic bread and wine, and the veneration of material images is idolatry. Images were therefore to be cursed and removed, and those who made or venerated them were to be punished.",
+   "appeal": "The commandment against graven images is clear, and idolatry was a real danger when popular piety could treat pictures almost like charms. There was a respectable Christological argument: God is beyond all depiction. Iconoclasm also looked like a purification, appealing to Scripture and to the councils.",
+   "advocate": [
+    {
+     "kind": "council",
+     "label": "Council of Hieria (754), in Nicaea II’s epitome",
+     "when": "754",
+     "year": 754,
+     "work": "council-nicaea-2",
+     "section": "xvi.x",
+     "quote": "we found that the unlawful art of painting living creatures blasphemed the fundamental doctrine of our salvation—namely, the Incarnation of Christ…He makes an image and calls it Christ. The name Christ signifies God and man. Consequently it is an image of God and man",
+     "note": "The synod’s main argument is Christological: an image of Christ must depict either the divinity or only the humanity."
+    },
+    {
+     "kind": "council",
+     "label": "Council of Hieria (754), in Nicaea II’s epitome",
+     "when": "754",
+     "year": 754,
+     "work": "council-nicaea-2",
+     "section": "xvi.x",
+     "quote": "The only admissible figure of the humanity of Christ, however, is bread and wine in the holy Supper.",
+     "note": "The synod allows one image of Christ, the Eucharist, and no other."
+    },
+    {
+     "kind": "council",
+     "label": "Council of Hieria (754), in Nicaea II’s epitome",
+     "when": "754",
+     "year": 754,
+     "work": "council-nicaea-2",
+     "section": "xvi.x",
+     "quote": "Christianity has rejected the whole of heathenism, and so not merely heathen sacrifices, but also the heathen worship of images.",
+     "note": "The same fear of idolatry is applied to images of Mary and the saints."
+    },
+    {
+     "kind": "council",
+     "label": "Council of Hieria (754), in Nicaea II’s epitome",
+     "when": "754",
+     "year": 754,
+     "work": "council-nicaea-2",
+     "section": "xvi.x",
+     "quote": "there shall be rejected and removed and cursed out of the Christian Church every likeness which is made out of any material and colour whatever by the evil art of painters.",
+     "note": "The decree orders the removal and curse of all sacred images."
+    }
+   ],
+   "whyItFails": "The argument proves too much: the Gospel says that the Word became flesh and was seen and touched, so to depict him is to confess that he truly became man, and the person depicted is the one Son, not a nature. God did command images in the tabernacle and the Church has always distinguished honour given to a likeness from worship given to God. A synod that excluded the patriarchates of Rome and the East could not bind the whole Church, and Nicaea II reversed it."
+  },
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Exodus 20:4-5",
+    "ref": "EXO.20.4-5",
+    "quote": "You shall not make for yourselves an idol, nor any image of anything that is in the heavens above",
+    "note": "The commandment is real, and aims at idols that take God’s place and are worshipped."
+   },
+   {
+    "kind": "scripture",
+    "label": "Exodus 25:18-20",
+    "ref": "EXO.25.18-20",
+    "quote": "You shall make two cherubim of hammered gold.",
+    "note": "The same God who forbade idols commanded carved figures over the mercy seat, so the commandment cannot forbid every image."
+   },
+   {
+    "kind": "scripture",
+    "label": "1 John 1:1-2",
+    "ref": "1JN.1.1-2",
+    "quote": "that which we saw, and our hands touched, concerning the Word of life",
+    "note": "The apostles saw and touched the Word made flesh, so what they saw can be depicted."
+   },
+   {
+    "kind": "saint",
+    "label": "John Damascene, Exposition of the Orthodox Faith 4.16",
+    "when": "c. 743",
+    "year": 743,
+    "work": "john-damascus",
+    "section": "iii.iv.iv",
+    "quote": "who can make an imitation of the invisible, incorporeal, uncircumscribed, formless God? Therefore to give form to the Deity is the height of folly and impiety.",
+    "note": "Damascene fully agrees that the Godhead cannot be depicted, so the iconodule never claims to depict it."
+   },
+   {
+    "kind": "council",
+    "label": "Second Council of Nicaea, Decree",
+    "when": "787",
+    "year": 787,
+    "work": "council-nicaea-2",
+    "section": "xvi.xii",
+    "quote": "one of which is the making of pictorial representations, agreeable to the history of the preaching of the Gospel, a tradition useful in many respects, but especially in this, that so the incarnation of the Word of God is shown forth as real and not merely phantastic",
+    "note": "Nicaea II turns the Christological argument around: images witness that the Incarnation was real."
+   },
+   {
+    "kind": "council",
+    "label": "Second Council of Nicaea, Decree",
+    "when": "787",
+    "year": 787,
+    "work": "council-nicaea-2",
+    "section": "xvi.xii",
+    "quote": "For the honour which is paid to the image passes on to that which the image represents, and he who reveres the image reveres in it the subject represented.",
+    "note": "The council draws the line between veneration, which passes to the person, and worship, which is God’s alone."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 1159",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 1159,
+    "quote": "now that he has made himself visible in the flesh and has lived with men, I can make an image of what I have seen of God",
+    "note": "The Catechism quotes Damascene on the “new economy of images” opened by the Incarnation."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 2132",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 2132,
+    "quote": "The honor paid to sacred images is a “respectful veneration,” not the adoration due to God alone",
+    "note": "The Church today teaches the same distinction that Nicaea II drew."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Doesn’t bowing, kissing and lighting candles before an icon look like idolatry?",
+    "a": "The council anticipated this and distinguished reverence from the worship of faith, which belongs to God alone. Scripture itself shows that an image can be a sign without being worshipped, as with the bronze serpent, which healed only because of God.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Wisdom 16:7",
+      "ref": "WIS.16.7",
+      "quote": "he who turned toward it was not saved because of that which was seen",
+      "note": "The Book of Wisdom says that those who looked on the bronze serpent were saved by God and not by the thing seen."
+     },
+     {
+      "kind": "saint",
+      "label": "John Damascene, Exposition of the Orthodox Faith 4.11",
+      "when": "c. 743",
+      "year": 743,
+      "work": "john-damascus",
+      "section": "iii.iv.iv",
+      "quote": "Moreover we worship even the image of the precious and life-giving Cross, although made of another tree, not honouring the tree (God forbid) but the image as a symbol of Christ.",
+      "note": "Damascene explains that honour given to the sign is given to Christ."
+     }
+    ]
+   },
+   {
+    "q": "Wasn’t the 754 synod a council of bishops too? Why does Nicaea II outrank it?",
+    "a": "Hieria claimed to be ecumenical, but the sees of Rome and the Eastern patriarchates were not represented, and the Eastern patriarchs rejected its decree. Nicaea II, in which all the patriarchates took part, is counted as the seventh ecumenical council.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Nicaea II, Excursus on the Conciliabulum of 754",
+      "when": "787",
+      "year": 787,
+      "work": "council-nicaea-2",
+      "section": "xvi.xi",
+      "quote": "The Patriarchates of Rome, Alexandria, Antioch, and Jerusalem were not represented",
+      "note": "The record shows that the 754 synod did not represent the Churches of the East or of Rome."
+     }
+    ]
+   },
+   {
+    "q": "Does depicting Christ not separate his humanity from his divinity, or mix them?",
+    "a": "No. What is depicted is the one Person, the Son who is God and man, as he appeared in the humanity by which he was seen. Chalcedon teaches that the one Christ is truly man, “like us” in all things but sin, and being seen in his manhood does not divide him from his divinity.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Chalcedon, Definition of Faith",
+      "when": "451",
+      "year": 451,
+      "work": "council-chalcedon",
+      "section": "xi.xiii",
+      "quote": "consubstantial with us as touching his manhood; made in all things like unto us, sin only excepted",
+      "note": "Chalcedon teaches that the one Christ is truly like us in his manhood, which is why he can be seen."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1159,
+   1160,
+   1161,
+   2131,
+   2132
+  ]
+ },
+ {
+  "id": "monothelitism",
+  "title": "Monothelitism: did Christ have only one will?",
+  "question": "Does Christ have a human will as well as a divine will, or only one will and one operation?",
+  "summary": "The Church teaches, with the Sixth Ecumenical Council, that Christ has two natural wills and two natural operations, divine and human, which are not opposed but concur, the human will freely following the divine. If he had no human will he would not be fully human, and what is not assumed is not saved. His “Not my will, but yours” is the obedience of a real human will.",
+  "heresy": {
+   "era": "7th century; Constantinople, Alexandria and Antioch",
+   "who": "Sergius of Constantinople and his successors Pyrrhus, Paul and Peter, Cyrus of Alexandria, Theodore of Pharan, and Macarius of Antioch.",
+   "claim": "Christ has two natures but one will and one “theandric” (divine-human) operation, because the person is one and a person cannot have two wills. Whatever his human nature does is moved and governed by the divine will of the Word. The formula was offered as a way to confess Chalcedon while reconciling those who rejected it.",
+   "appeal": "It seemed to guard the unity of Christ’s person against Nestorian division, and it was hoped it would draw back those who had left the Church over Chalcedon. Two wills in one person looked like two persons, and Gethsemane might sound like a struggle between them. It also enjoyed the backing of the patriarchs of Constantinople, Alexandria and Antioch.",
+   "advocate": [
+    {
+     "kind": "council",
+     "label": "The Monothelites’ answer, Constantinople III, Session 1",
+     "when": "680",
+     "year": 680,
+     "work": "council-constantinople-3",
+     "section": "xiii.iii",
+     "quote": "We have brought out no new method of speech, but have taught whatever we have received from the holy Ecumenical Synods, and from the holy approved Fathers…with reference to will and operation",
+     "note": "When called before the council, the Monothelites claim that they have only taught what the Fathers did."
+    },
+    {
+     "kind": "council",
+     "label": "Macarius of Antioch, Constantinople III, Session 8",
+     "when": "681",
+     "year": 681,
+     "work": "council-constantinople-3",
+     "section": "xiii.vii",
+     "quote": "I do not say that there are two wills or two operations in the dispensation of the incarnation of our Lord Jesus Christ, but one will and one theandric operation.",
+     "note": "Macarius states the doctrine in full before the council and refuses to yield."
+    }
+   ],
+   "whyItFails": "A nature without a will is not a complete human nature, so if Christ had no human will he would not be fully man as Chalcedon says he is. Scripture shows him praying “not my will, but yours,” which cannot be said by one will speaking to itself. Having two wills does not make two persons: the one Person wills in each nature, and the human will follows the divine freely and without resistance."
+  },
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Luke 22:42",
+    "ref": "LUK.22.42",
+    "quote": "Nevertheless, not my will, but yours, be done.",
+    "note": "In Gethsemane Jesus speaks of “my will” and the Father’s will, which distinguishes the human will from the divine."
+   },
+   {
+    "kind": "scripture",
+    "label": "John 6:38",
+    "ref": "JHN.6.38",
+    "quote": "not to do my own will, but the will of him who sent me",
+    "note": "Jesus again distinguishes his human will from the will of the one who sent him."
+   },
+   {
+    "kind": "scripture",
+    "label": "Philippians 2:5-8",
+    "ref": "PHP.2.5-8",
+    "quote": "he humbled himself, becoming obedient to the point of death, yes, the death of the cross",
+    "note": "Obedience belongs to a creaturely will, and Christ is said to have been obedient."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Chalcedon, Definition of Faith",
+    "when": "451",
+    "year": 451,
+    "work": "council-chalcedon",
+    "section": "xi.xiii",
+    "quote": "perfect in Godhead and perfect in manhood, very God and very man, of a reasonable soul and human body consisting",
+    "note": "Chalcedon defines that Christ has a complete human nature, including a rational soul, the seat of the will."
+   },
+   {
+    "kind": "council",
+    "label": "Tome of Leo, read at Chalcedon",
+    "when": "449",
+    "year": 449,
+    "work": "council-chalcedon",
+    "section": "xi.vii",
+    "quote": "the distinctness of both natures and substances was preserved, and both met in one Person",
+    "note": "Leo’s Tome, accepted at Chalcedon, says the properties of each nature remain in the union."
+   },
+   {
+    "kind": "council",
+    "label": "Letter of Pope Agatho to the Sixth Council",
+    "when": "680",
+    "year": 680,
+    "work": "council-constantinople-3",
+    "section": "xiii.v",
+    "quote": "From all which it is evident that he had a human will by which he obeyed his Father, and that he had in himself this same human will immaculate from all sin, as true God and man.",
+    "note": "Agatho appeals to the Fathers to show that Christ had a real human will, and that it was sinless."
+   },
+   {
+    "kind": "council",
+    "label": "Constantinople III, Definition of Faith",
+    "when": "681",
+    "year": 681,
+    "work": "council-constantinople-3",
+    "section": "xiii.x",
+    "quote": "although joined together yet each nature wills and does the things proper to it and that indivisibly and inconfusedly. Wherefore we confess two wills and two operations, concurring most fitly in him for the salvation of the human race.",
+    "note": "The Sixth Council states the doctrine: two wills and two operations, working together without division or confusion."
+   },
+   {
+    "kind": "council",
+    "label": "Constantinople III, Prosphoneticus to the Emperor",
+    "when": "681",
+    "year": 681,
+    "work": "council-constantinople-3",
+    "section": "xiii.xi",
+    "quote": "should we say that the human nature of our Lord is without will and operation, how could we affirm in safety the perfect humanity?",
+    "note": "The council argues that to deny Christ a human will is to deny him a full humanity."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 475",
+    "when": "1992",
+    "year": 1992,
+    "ccc": 475,
+    "quote": "Christ possesses two wills and two natural operations, divine and human. They are not opposed to each other, but co-operate",
+    "note": "The Catechism sums up the teaching of the Sixth Council and explains that the human will submits freely."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Two wills in one person looks like two persons, or a Christ divided against himself. Isn’t one will the only way to keep Christ one?",
+    "a": "The unity of Christ is in the person, not in the will. The one Son wills divinely and humanly. Because the human will is not opposed to the divine but follows it, there is no division in him; this is what “concurring” means.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 470",
+      "when": "1992",
+      "year": 1992,
+      "ccc": 470,
+      "quote": "He acted with a human will, and with a human heart he loved.",
+      "note": "The Catechism puts the point simply: the one divine Person acts through a truly human will and heart."
+     }
+    ]
+   },
+   {
+    "q": "Is this not hair-splitting about the inner life of Christ? Why did it matter?",
+    "a": "Because salvation is at stake. If the Word had not assumed a human will, the part of man that fell in Adam through disobedience would not have been healed by Christ’s obedience. The council says denying it would take away “the chief thing of the dispensation for our salvation.”",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Constantinople III, Prosphoneticus to the Emperor",
+      "when": "681",
+      "year": 681,
+      "work": "council-constantinople-3",
+      "section": "xiii.xi",
+      "quote": "lest we also deny what is the chief thing of the dispensation for our salvation, and lest we attribute passions to the Godhead",
+      "note": "The council states the stakes: Christ’s human will is part of how he saves us."
+     }
+    ]
+   },
+   {
+    "q": "The Sixth Council anathematised Pope Honorius. Doesn’t that disprove papal infallibility?",
+    "a": "The council did condemn Honorius’s letters as foreign to apostolic teaching, and the Church does not hide that. But Catholic teaching limits infallibility to a pope’s solemn definitions as teacher of the whole Church, and theologians have long distinguished those from Honorius’s correspondence with Sergius, though the council itself judged those letters harshly and the case is still discussed. What the council shows is that the see of Rome, in Agatho’s letter, stood with the true faith.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Constantinople III, Session 13",
+      "when": "681",
+      "year": 681,
+      "work": "council-constantinople-3",
+      "section": "xiii.viii",
+      "quote": "we find that these documents are quite foreign to the apostolic dogmas, to the declarations of the holy Councils, and to all the accepted Fathers",
+      "note": "The council’s own words on the letters of Sergius and Honorius."
+     },
+     {
+      "kind": "council",
+      "label": "Vatican I, Pastor Aeternus",
+      "when": "1870",
+      "year": 1870,
+      "work": "vatican-i-constitutions",
+      "section": "s10",
+      "quote": "the Roman Pontiff, when he speaks ex cathedra, that is, when, in discharge of the office of pastor and teacher of all Christians, by virtue of his supreme Apostolic authority, he defines a doctrine regarding faith or morals to be held by the universal Church",
+      "note": "Vatican I states exactly when the pope is infallible, which is a narrow condition."
+     },
+     {
+      "kind": "council",
+      "label": "Constantinople III, Prosphoneticus to the Emperor",
+      "when": "681",
+      "year": 681,
+      "work": "council-constantinople-3",
+      "section": "xiii.xi",
+      "quote": "But the highest prince of the Apostles fought with us: for we had on our side his imitator and the successor in his see, who also had set forth in his letter the mystery of the divine word",
+      "note": "The council itself says that Rome, in Agatho’s letter, stood with the council’s teaching."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   464,
+   470,
+   475,
+   478
+  ]
+ }
+]
