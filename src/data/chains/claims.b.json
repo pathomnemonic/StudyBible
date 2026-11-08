@@ -1,0 +1,1280 @@
+[
+ {
+  "id": "church-opposed-science-galileo",
+  "title": "The Church opposed science and persecuted Galileo for being right",
+  "question": "Did the Church oppose science, and was Galileo punished for being right?",
+  "summary": "The Church teaches that faith and reason cannot truly contradict one another, because the same God is the source of both. The Galileo affair was a real and regrettable failure by Church officials, but it was not a statement of Catholic doctrine, and it does not show that the Church is against science.",
+  "verdict": {
+   "label": "Partly true",
+   "why": "The Roman Inquisition did condemn Galileo in 1633 for teaching that the earth moves, and Pope John Paul II acknowledged in 1992 that the judges had erred. But no pope or council ever defined the earth's position as a truth of faith, and the Church's own teaching is that real science can never conflict with faith.",
+   "origin": "The case was a collision of a new scientific claim with a literal reading of certain Bible passages, tangled up with personal and political quarrels of the day. It later became the standard picture of \"Church versus science\", and the broader story, including the many clergy who were scientists, is usually left out."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 159: faith and science",
+    "ccc": 159,
+    "when": "1992",
+    "year": 1992,
+    "quote": "Though faith is above reason, there can never be any real discrepancy between faith and reason. … God cannot deny himself, nor can truth ever contradict truth.",
+    "note": "The Church's settled principle: one God is the author of both revelation and nature, so a true discovery cannot overturn a true doctrine."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On Christian Doctrine 2",
+    "when": "c. 397",
+    "year": 397,
+    "work": "aug-christian-doctrine",
+    "section": "v.v.xviii",
+    "quote": "let every good and true Christian understand that wherever truth may be found, it belongs to his Master",
+    "note": "Augustine taught Christians long before Galileo to welcome truth from any source, because all truth belongs to God."
+   },
+   {
+    "kind": "scripture",
+    "label": "Joshua 10:12-13",
+    "when": "c. 1200 BC",
+    "year": -1200,
+    "ref": "JOS.10.12-13",
+    "quote": "Sun, stand still on Gibeon!",
+    "note": "Passages like this one, which speak as an observer on the ground would, were read literally by those who resisted the moving earth."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 110: reading Scripture rightly",
+    "ccc": 110,
+    "when": "1992",
+    "year": 1992,
+    "quote": "In order to discover the sacred authors' intention, the reader must take into account the conditions of their time and culture, the literary genres in use at that time",
+    "note": "The Church asks readers to ask what the sacred writer was actually affirming, which is why Scripture is not read as a textbook of astronomy."
+   },
+   {
+    "kind": "council",
+    "label": "Vatican I, Dei Filius 4",
+    "when": "1870",
+    "year": 1870,
+    "work": "vatican-i-constitutions",
+    "section": "s5",
+    "quote": "The false appearance of such a contradiction is mainly due, either to the dogmas of faith not having been understood and expounded according to the mind of the Church, or to the inventions of opinion having been taken for the verdicts of reason.",
+    "note": "A council names the cause of such conflicts: a misreading of faith, or a mere opinion taken for proven fact. This is the principle later applied to the Galileo case."
+   },
+   {
+    "kind": "magisterium",
+    "label": "Leo XIII, Immortale Dei",
+    "when": "1885",
+    "year": 1885,
+    "work": "leo-xiii-encyclicals",
+    "section": "s6",
+    "quote": "In these pursuits, should the human intellect discover anything not known before, the Church makes no opposition.",
+    "note": "A pope states plainly that new discoveries about nature do not provoke Church opposition."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 283: what science gives us",
+    "ccc": 283,
+    "when": "1992",
+    "year": 1992,
+    "quote": "These discoveries invite us to even greater admiration for the greatness of the Creator, prompting us to give him thanks for all his works",
+    "note": "Today's Catechism treats scientific study of the cosmos as a reason to praise the Creator more, not as a threat."
+   }
+  ],
+  "objections": [
+   {
+    "q": "But the Church did condemn Galileo. Isn't that proof she fights science?",
+    "a": "The condemnation happened and it was a mistake; the Church has said so. It was a judgment by a Roman tribunal about how to read Scripture, not a defined teaching of the faith, and the Church's official principle (above) is that truth cannot contradict truth. One error by officials in one case is not the same as a settled doctrine of hostility to science.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Vatican I, Dei Filius 4",
+      "when": "1870",
+      "year": 1870,
+      "work": "vatican-i-constitutions",
+      "section": "s5",
+      "quote": "there can never be any real discrepancy between faith and reason",
+      "note": "The Church's formal teaching: no real conflict is possible between faith and reason."
+     }
+    ]
+   },
+   {
+    "q": "Doesn't the Bible say the sun stood still? Didn't the Church simply put the Bible above evidence?",
+    "a": "The Church holds that the sacred text teaches the truths God revealed for our salvation. She also asks readers to look at how an author is speaking, as we still say \"sunrise\" and \"sunset\" today. Taking such wording as a lesson in astronomy is the very misreading her principles warn about.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 337: what Genesis teaches",
+      "ccc": 337,
+      "when": "1992",
+      "year": 1992,
+      "quote": "On the subject of creation, the sacred text teaches the truths revealed by God for our salvation",
+      "note": "The purpose of the sacred text is to teach saving truth, which frees the reader to accept sound science."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   159,
+   283,
+   337,
+   110
+  ]
+ },
+ {
+  "id": "church-young-earth-rejects-evolution",
+  "title": "The Church teaches the earth is 6,000 years old and rejects evolution",
+  "question": "Does the Catholic Church teach a young earth and reject evolution?",
+  "summary": "The Church has never defined the age of the earth, and the Catechism welcomes scientific study of the universe and of the origin of life. What she insists on are truths that science cannot measure: God made everything, every human soul is created directly by him, and the fall of the first humans was a real event.",
+  "verdict": {
+   "label": "Mostly false",
+   "why": "There is no Catholic teaching that the earth is 6,000 years old, and the Catechism does not condemn evolution as a scientific account. The Church does hold firmly that the human soul is created directly by God and that the human race has a real origin and a real fall.",
+   "origin": "Some Church Fathers, including Augustine, counted roughly six thousand years from Adam using the genealogies available to them, and some Catholics still read Genesis very literally. That was a calculation of history, not a defined doctrine, and it is easily mistaken for one."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 283: science and creation",
+    "ccc": 283,
+    "when": "1992",
+    "year": 1992,
+    "quote": "The question about the origins of the world and of man has been the object of many scientific studies which have splendidly enriched our knowledge of the age and dimensions of the cosmos, the development of life-forms and the appearance of man.",
+    "note": "The Catechism speaks warmly of research into the age of the cosmos and the development of life, and sets no date."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 284: a different kind of question",
+    "ccc": 284,
+    "when": "1992",
+    "year": 1992,
+    "quote": "It is not only a question of knowing when and how the universe arose physically, or when man appeared, but rather of discovering the meaning of such an origin",
+    "note": "The Church says the \"when and how\" belongs to the natural sciences; her own concern is the meaning of the world's origin."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 337: six days",
+    "ccc": 337,
+    "when": "1992",
+    "year": 1992,
+    "quote": "Scripture presents the work of the Creator symbolically as a succession of six days of divine \"work\", concluded by the \"rest\" of the seventh day.",
+    "note": "The Catechism itself calls the six days a symbolic presentation, not a stopwatch record."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 289: Genesis 1-3",
+    "ccc": 289,
+    "when": "1992",
+    "year": 1992,
+    "quote": "the inspired authors have placed them at the beginning of Scripture to express in their solemn language the truths of creation - its origin and its end in God, its order and goodness, the vocation of man, and finally the drama of sin and the hope of salvation.",
+    "note": "These chapters are read for their truths about God, the world and man, in solemn language rather than as a geological timeline."
+   },
+   {
+    "kind": "scripture",
+    "label": "Genesis 1:1-5",
+    "when": "c. 1000 BC",
+    "year": -1000,
+    "ref": "GEN.1.1-5",
+    "quote": "In the beginning, God created the heavens and the earth.",
+    "note": "The faith claim at the heart of Genesis is that everything that exists has God as its Creator."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, City of God 11",
+    "when": "c. 417",
+    "year": 417,
+    "work": "aug-city-of-god",
+    "section": "iv.XI",
+    "quote": "not because God required a protracted time, as if He could not at once create all things",
+    "note": "Fifteen centuries ago Augustine already denied that the \"six days\" meant six stretches of time God needed in order to work."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, City of God 12",
+    "when": "c. 418",
+    "year": 418,
+    "work": "aug-city-of-god",
+    "section": "iv.XVIII",
+    "quote": "it is not yet six thousand years since the first man, who is called Adam",
+    "note": "An honest note: Augustine did reckon under six thousand years from Adam. He was reasoning from the history he had, which is how this figure entered Christian thinking."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 366: the human soul",
+    "ccc": 366,
+    "when": "1992",
+    "year": 1992,
+    "quote": "every spiritual soul is created immediately by God - it is not \"produced\" by the parents",
+    "note": "This is the point the Church will not give up: whatever the bodily history of man, the soul comes directly from God."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Didn't the Fathers teach that the world was about six thousand years old?",
+    "a": "Some did, in the sense of a rough historical count from the genealogies of the time. Lactantius is one example. But a Father's estimate of dates is not a teaching of the Church, and Augustine himself, as shown above, read the \"days\" of creation in a non-literal way. The Church binds us to what is revealed, not to ancient chronologies.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Lactantius, Divine Institutes (Epitome)",
+      "when": "c. 310",
+      "year": 310,
+      "work": "lactantius",
+      "section": "iii.ii.viii",
+      "quote": "For six thousand years have not yet been completed",
+      "note": "Lactantius gives the older reckoning, which shows the number was a Christian assumption of the time."
+     }
+    ]
+   },
+   {
+    "q": "So does the Church accept evolution?",
+    "a": "The Catechism does not pronounce on the biological mechanism, which it leaves to science. It does rule out any account that makes the world a product of blind chance with no Creator, and it holds that each soul is directly created by God. Beyond those two points, Catholics are free to think about how God's creating took place.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 285: rival accounts of origins",
+      "ccc": 285,
+      "when": "1992",
+      "year": 1992,
+      "quote": "Since the beginning the Christian faith has been challenged by responses to the question of origins that differ from its own.",
+      "note": "The Church challenges only accounts that deny God's creation or make the world divine or evil."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   282,
+   283,
+   289,
+   337,
+   366,
+   390
+  ]
+ },
+ {
+  "id": "celibacy-invented-middle-ages",
+  "title": "Celibacy was invented in the Middle Ages and has no basis in Scripture",
+  "question": "Is priestly celibacy a medieval invention with no basis in Scripture?",
+  "summary": "Priestly celibacy in the Latin Church is a discipline, a rule the Church can change, not a doctrine of the faith. It rests on Christ's praise of those who give up marriage for the Kingdom, and married men are ordained in the Eastern Catholic Churches.",
+  "verdict": {
+   "label": "Partly true",
+   "why": "It is true that the obligation of celibacy for all Latin priests is a Church law, not a revealed doctrine, and that the Church's legislation on it grew over many centuries. It is not true that celibacy has no scriptural basis or that it appeared out of nowhere in the Middle Ages.",
+   "origin": "Church law on clerical continence developed gradually and was tightened by medieval councils, so many people assume it started then. In the earlier centuries there was a mix of practices: Peter was married, and bishops, priests and deacons were often married men in the early Church."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 1579: Latin Church practice",
+    "ccc": 1579,
+    "when": "1992",
+    "year": 1992,
+    "quote": "All the ordained ministers of the Latin Church, with the exception of permanent deacons, are normally chosen from among men of faith who live a celibate life and who intend to remain celibate \"for the sake of the kingdom of heaven.\"",
+    "note": "The present rule of the Latin Church, stated as the normal practice, with permanent deacons expressly excepted."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 1580: the Eastern discipline",
+    "ccc": 1580,
+    "when": "1992",
+    "year": 1992,
+    "quote": "In the Eastern Churches a different discipline has been in force for many centuries: while bishops are chosen solely from among celibates, married men can be ordained as deacons and priests.",
+    "note": "Because other legitimate Catholic traditions ordain married men, the rule is clearly a discipline and not a doctrine."
+   },
+   {
+    "kind": "scripture",
+    "label": "Matthew 19:10-12",
+    "when": "c. AD 30",
+    "year": 30,
+    "ref": "MAT.19.10-12",
+    "quote": "there are eunuchs who made themselves eunuchs for the Kingdom of Heaven's sake. He who is able to receive it, let him receive it.",
+    "note": "Christ himself speaks of those who give up marriage for the Kingdom and calls it a gift not all can receive."
+   },
+   {
+    "kind": "scripture",
+    "label": "1 Corinthians 7:32-35",
+    "when": "c. AD 55",
+    "year": 55,
+    "ref": "1CO.7.32-35",
+    "quote": "He who is unmarried is concerned for the things of the Lord, how he may please the Lord",
+    "note": "Paul gives the reason: an undivided heart for the Lord. The Church later joined this reasoning to her ministers."
+   },
+   {
+    "kind": "scripture",
+    "label": "1 Corinthians 9:5",
+    "when": "c. AD 55",
+    "year": 55,
+    "ref": "1CO.9.5",
+    "quote": "Have we no right to take along a wife who is a believer, even as the rest of the apostles, and the brothers of the Lord, and Cephas?",
+    "note": "Honestly, this shows that some apostles, Peter included, were married. Celibacy was never claimed to be the rule for every apostle."
+   },
+   {
+    "kind": "father",
+    "label": "Jerome, Letter 50 to Domnio",
+    "when": "c. 394",
+    "year": 394,
+    "work": "jerome-letters",
+    "section": "v.L",
+    "quote": "I do not condemn marriage",
+    "note": "Even a champion of virginity like Jerome insisted on this: the Church honors celibacy without condemning marriage."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 24, Canon 9",
+    "when": "1563",
+    "year": 1563,
+    "work": "trent-canons-decrees",
+    "section": "s24",
+    "quote": "If anyone saith that clerics constituted in sacred orders, or Regulars, who have solemnly professed chastity, are able to contract marriage, and that being contracted it is valid, notwithstanding the ecclesiastical law or vow",
+    "note": "Trent says in so many words that the obligation rests on \"ecclesiastical law or vow\", which is an honest admission that it is Church discipline."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Paul says a bishop must be \"the husband of one wife.\" Doesn't that settle it?",
+    "a": "It shows that married men served as bishops in the first generation, and the Church admits that. Chrysostom, reading the verse in the fourth century, took it as a limit on remarriage, not as a command to marry. The Church's later rule in the West is a different, disciplinary step, and she treats it as one.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "1 Timothy 3:2",
+      "when": "c. AD 65",
+      "year": 65,
+      "ref": "1TI.3.2",
+      "quote": "The overseer therefore must be without reproach, the husband of one wife",
+      "note": "The verse that is often cited, which does show married overseers."
+     },
+     {
+      "kind": "father",
+      "label": "Chrysostom, Homily 10 on 1 Timothy",
+      "when": "c. 400",
+      "year": 400,
+      "work": "chrys-1tim",
+      "section": "v.iii.xi",
+      "quote": "This he does not lay down as a rule, as if he must not be without one, but as prohibiting his having more than one.",
+      "note": "Chrysostom read the phrase as barring a second marriage, not as requiring a wife."
+     }
+    ]
+   },
+   {
+    "q": "If it's only a rule, why does the Church keep it?",
+    "a": "Because she sees it as a fitting sign of the Kingdom and a gift that lets a priest give himself wholly to God and to people. She teaches that it is not for every man; Christ called it a gift for those able to receive it, which is why the Church asks that it be chosen freely.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Chrysostom, Homily 62 on Matthew",
+      "when": "c. 390",
+      "year": 390,
+      "work": "chrys-matthew",
+      "section": "iii.LIX",
+      "quote": "that on this ground too they might the rather choose virginity and continence",
+      "note": "Chrysostom stresses that Christ meant virginity to be chosen freely, not forced by law."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1579,
+   1580,
+   1599,
+   1618
+  ]
+ },
+ {
+  "id": "trinity-word-not-in-the-bible",
+  "title": "The Catholic Church is not biblical because the word \"Trinity\" is not in the Bible",
+  "question": "Is the doctrine of the Trinity unbiblical because the word is not in the Bible?",
+  "summary": "The word \"Trinity\" does not appear in Scripture, but the truth it names does: Father, Son and Holy Spirit are named together as one God from the apostolic age. The Church coined the word to protect what Scripture says when other readings arose.",
+  "verdict": {
+   "label": "Mostly false",
+   "why": "The word is indeed absent from the Bible, but a missing word is not a missing teaching. The New Testament names Father, Son and Spirit together in baptism and blessings, and calls Christ God, while insisting there is one God.",
+   "origin": "Those who say this are often applying a good instinct: to test teaching against Scripture. The word \"Trinity\" first appears in surviving Christian writers around the late second century, so it is a later label for something already present in the text."
+  },
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "Matthew 28:19",
+    "when": "1st century",
+    "year": 70,
+    "ref": "MAT.28.19",
+    "quote": "baptizing them in the name of the Father and of the Son and of the Holy Spirit",
+    "note": "One \"name\" and three Persons, in the very formula of baptism."
+   },
+   {
+    "kind": "scripture",
+    "label": "2 Corinthians 13:14",
+    "when": "c. AD 57",
+    "year": 57,
+    "ref": "2CO.13.14",
+    "quote": "The grace of the Lord Jesus Christ, God's love, and the fellowship of the Holy Spirit be with you all.",
+    "note": "A blessing that places Father, Son and Spirit side by side as the source of grace."
+   },
+   {
+    "kind": "scripture",
+    "label": "1 Corinthians 12:4-6",
+    "when": "c. AD 55",
+    "year": 55,
+    "ref": "1CO.12.4-6",
+    "quote": "various kinds of gifts, but the same Spirit. … various kinds of service, and the same Lord. … but the same God who works all things in all.",
+    "note": "Paul names Spirit, Lord and God together as the one source of all that happens in the Church."
+   },
+   {
+    "kind": "father",
+    "label": "Tertullian, Against Praxeas 3",
+    "when": "c. 213",
+    "year": 213,
+    "work": "tertullian-marcion",
+    "section": "v.ix",
+    "quote": "If the number of the Trinity also offends you, as if it were not connected in the simple Unity, I ask you how it is possible for a Being who is merely and absolutely One and Singular, to speak in plural phrase",
+    "note": "One of the earliest writers to use the word, defending three Persons in one God from the Bible's own plural language."
+   },
+   {
+    "kind": "father",
+    "label": "Origen, On First Principles 1",
+    "when": "c. 225",
+    "year": 225,
+    "work": "origen-celsus",
+    "section": "vi.v.ii",
+    "quote": "divine benefits bestowed upon us by Father, Son, and Holy Spirit, which Trinity is the fountain of all holiness",
+    "note": "Origen speaks of \"the Trinity\" as a matter of course, so the word was in settled use by the early third century."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Nicaea, Creed",
+    "when": "325",
+    "year": 325,
+    "work": "council-nicaea-1",
+    "section": "vii.iii",
+    "quote": "God of God, Light of Light, very God of very God, begotten",
+    "note": "The Church uses careful language to guard what Scripture says about the Son, against those who read it otherwise."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 249: the Trinity in the apostolic writings",
+    "ccc": 249,
+    "when": "1992",
+    "year": 1992,
+    "quote": "From the beginning, the revealed truth of the Holy Trinity has been at the very root of the Church's living faith, principally by means of Baptism.",
+    "note": "The Church says the doctrine grew out of her baptismal faith, which the apostolic writings already express."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 251: why new words",
+    "ccc": 251,
+    "when": "1992",
+    "year": 1992,
+    "quote": "In order to articulate the dogma of the Trinity, the Church had to develop her own terminology with the help of certain notions of philosophical origin",
+    "note": "The Catechism openly says the vocabulary is the Church's own, formed to express, not alter, what was revealed."
+   }
+  ],
+  "objections": [
+   {
+    "q": "If it isn't in the Bible, why must a Christian accept it?",
+    "a": "Because the Church has always held that Scripture and apostolic Tradition come from the same source, and that the Church that wrote and gathered the New Testament is also the one entrusted with interpreting it. Paul himself tells Christians to hold the traditions they were taught \"by word or by letter.\"",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 82: Scripture and Tradition",
+      "ccc": 82,
+      "when": "1992",
+      "year": 1992,
+      "quote": "does not derive her certainty about all revealed truths from the holy Scriptures alone. Both Scripture and Tradition must be accepted and honoured with equal sentiments of devotion and reverence.",
+      "note": "The Church's stated position on how Scripture and Tradition work together."
+     },
+     {
+      "kind": "scripture",
+      "label": "2 Thessalonians 2:15",
+      "when": "c. AD 51",
+      "year": 51,
+      "ref": "2TH.2.15",
+      "quote": "stand firm and hold the traditions which you were taught by us, whether by word or by letter",
+      "note": "Paul himself puts spoken teaching on the same level as written teaching."
+     }
+    ]
+   },
+   {
+    "q": "Didn't the councils just add Greek philosophy to the Gospel?",
+    "a": "The councils took a few existing words and fixed their meaning so that a clever reading of Scripture could not empty it. The Nicene bishops condemned Arius for saying the Son is a creature, which Scripture's own language about Christ as God does not allow.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Nicaea, Synodal Letter",
+      "when": "325",
+      "year": 325,
+      "work": "council-nicaea-1",
+      "section": "vii.ix",
+      "quote": "saying also that he is a creature. All these things the holy Synod has anathematized",
+      "note": "The target of the council's wording was a specific claim that the Son is a creature."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   232,
+   234,
+   249,
+   251,
+   252
+  ]
+ },
+ {
+  "id": "constantine-invented-christ-divinity",
+  "title": "Constantine invented Christ's divinity at Nicaea",
+  "question": "Did Emperor Constantine invent the doctrine that Jesus is God at the Council of Nicaea?",
+  "summary": "Christians worshipped Jesus as God long before Constantine, and the New Testament itself calls him God. At Nicaea in 325 the bishops did not create the belief, but answered Arius, who denied that the Son is eternally God, by stating the faith in precise words.",
+  "verdict": {
+   "label": "False",
+   "why": "Writings from the first and second centuries already call Christ God, and the bishops at Nicaea defended an existing faith against a new denial. Constantine called the council and attended it, but the question was whether the Son is truly God, which was already the Church's faith.",
+   "origin": "Nicaea was a major public event under imperial sponsorship, and its creed fixed the word \"consubstantial\" (homoousios). People sometimes read that moment as the origin of the belief rather than its defence. The emperor's role was real, but it was in convening and keeping order."
+  },
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "John 1:1",
+    "when": "c. AD 90",
+    "year": 90,
+    "ref": "JHN.1.1",
+    "quote": "In the beginning was the Word, and the Word was with God, and the Word was God.",
+    "note": "The Gospel opens by calling the Word God, over two centuries before Nicaea."
+   },
+   {
+    "kind": "scripture",
+    "label": "John 20:28",
+    "when": "c. AD 90",
+    "year": 90,
+    "ref": "JHN.20.28",
+    "quote": "Thomas answered him, \"My Lord and my God!\"",
+    "note": "An apostle addresses the risen Jesus as God, and Jesus accepts it."
+   },
+   {
+    "kind": "scripture",
+    "label": "Philippians 2:5-6",
+    "when": "c. AD 60",
+    "year": 60,
+    "ref": "PHP.2.5-6",
+    "quote": "existing in the form of God, didn't consider equality with God a thing to be grasped",
+    "note": "An early hymn quoted by Paul says Christ existed in the form of God before becoming man."
+   },
+   {
+    "kind": "father",
+    "label": "Ignatius of Antioch, Letter to the Romans",
+    "when": "c. 110",
+    "year": 110,
+    "work": "ignatius-letters",
+    "section": "v.v",
+    "quote": "the love of Jesus Christ our God",
+    "note": "A bishop writing about 215 years before Nicaea simply calls Jesus Christ \"our God\"."
+   },
+   {
+    "kind": "father",
+    "label": "Justin Martyr, Dialogue with Trypho",
+    "when": "c. 155",
+    "year": 155,
+    "work": "justin-martyr",
+    "section": "viii.iv",
+    "quote": "to prove that Christ is called both God and Lord of hosts",
+    "note": "Justin argues from the Old Testament that Christ is God, as an ordinary Christian position and not a new one."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Nicaea, Creed",
+    "when": "325",
+    "year": 325,
+    "work": "council-nicaea-1",
+    "section": "vii.iii",
+    "quote": "very God of very God, begotten (γεννηθέντα), not made, being of one substance (ὁμοούσιον, consubstantialem) with the Father",
+    "note": "The creed that the council issued, stating in exact words what Christians already believed."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 242: following apostolic tradition",
+    "ccc": 242,
+    "when": "1992",
+    "year": 1992,
+    "quote": "Following this apostolic tradition, the Church confessed at the first ecumenical council at Nicaea (325) that the Son is \"consubstantial\" with the Father, that is, one only God with him.",
+    "note": "The Church sees Nicaea as the confession of an already existing faith in the face of a challenge."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Wasn't the divinity of Christ decided by a vote at Nicaea?",
+    "a": "The council was occasioned by Arius, who taught that there was a time when the Son was not. The bishops condemned that teaching and wrote the creed to exclude it. They were not deciding whether to start calling Jesus God, but whether to allow a denial of what the Church already held.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Nicaea, Synodal Letter",
+      "when": "325",
+      "year": 325,
+      "work": "council-nicaea-1",
+      "section": "vii.ix",
+      "quote": "saying that he is from things that are not, and that before he was begotten he was not, and that there was a time when he was not",
+      "note": "The bishops themselves record that the issue was Arius's new claim that the Son had a beginning."
+     }
+    ]
+   },
+   {
+    "q": "But Constantine presided and even later emperors shaped the Church's decisions, didn't they?",
+    "a": "Constantine did call the council and was present, and later emperors did interfere, sometimes in favour of Arian bishops, who exiled defenders of Nicaea. The emperors' politics cut both ways. That is a sign that the doctrine did not come from the throne but was held against pressure from it.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Nicaea, Synodal Letter",
+      "when": "325",
+      "year": 325,
+      "work": "council-nicaea-1",
+      "section": "vii.ix",
+      "quote": "First of all, then, in the presence of our most religious Sovereign Constantine, investigation was made of matters concerning the impiety and transgression of Arius and his adherents",
+      "note": "The council's own letter shows both Constantine's presence and that the subject was Arius's teaching."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 465: before and at Nicaea",
+      "ccc": 465,
+      "when": "1992",
+      "year": 1992,
+      "quote": "already in the third century, the Church in a council at Antioch had to affirm against Paul of Samosata that Jesus Christ is Son of God by nature and not by adoption.",
+      "note": "Debate over Christ's nature was happening within the Church a century before Constantine's time."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   241,
+   242,
+   449,
+   465
+  ]
+ },
+ {
+  "id": "saved-by-baptism-alone",
+  "title": "Catholics think they are saved by being baptized and nothing more",
+  "question": "Do Catholics believe baptism alone guarantees salvation?",
+  "summary": "The Church teaches that baptism is necessary for salvation and a real beginning of new life, not a guarantee. Faith has to grow and show itself in love and obedience, and a baptized person can lose grace by grave sin.",
+  "verdict": {
+   "label": "Mostly false",
+   "why": "Catholics do believe baptism truly forgives sin and makes one a child of God. But the Catechism and the councils say plainly that faith without works is dead and that baptism is the start of a life to be lived, not a one-time pass.",
+   "origin": "The Church does teach that baptism \"saves\" and that infants may be baptized, which can sound like a mechanical rule. The caricature forgets that the Church always joined the sacrament to faith, repentance and charity."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 1257: the necessity of baptism",
+    "ccc": 1257,
+    "when": "1992",
+    "year": 1992,
+    "quote": "Baptism is necessary for salvation for those to whom the Gospel has been proclaimed and who have had the possibility of asking for this sacrament.",
+    "note": "The Church teaches that baptism is necessary, but with the limits that she herself states."
+   },
+   {
+    "kind": "scripture",
+    "label": "Mark 16:16",
+    "when": "c. AD 65",
+    "year": 65,
+    "ref": "MRK.16.16",
+    "quote": "He who believes and is baptized will be saved; but he who disbelieves will be condemned.",
+    "note": "The Gospel puts belief and baptism together; neither is set against the other."
+   },
+   {
+    "kind": "scripture",
+    "label": "Titus 3:5",
+    "when": "c. AD 65",
+    "year": 65,
+    "ref": "TIT.3.5",
+    "quote": "he saved us through the washing of regeneration and renewing by the Holy Spirit",
+    "note": "Paul says baptism is the washing in which God saves, as a gift of mercy and not a human achievement."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 1254: faith must grow",
+    "ccc": 1254,
+    "when": "1992",
+    "year": 1992,
+    "quote": "For all the baptized, children or adults, faith must grow after Baptism.",
+    "note": "The Church says baptism is where Christian life begins, not where it ends."
+   },
+   {
+    "kind": "scripture",
+    "label": "Matthew 7:21",
+    "when": "c. AD 30",
+    "year": 30,
+    "ref": "MAT.7.21",
+    "quote": "Not everyone who says to me, 'Lord, Lord,' will enter into the Kingdom of Heaven, but he who does the will of my Father who is in heaven.",
+    "note": "Christ himself says that a mere profession is not enough without doing the Father's will."
+   },
+   {
+    "kind": "scripture",
+    "label": "Galatians 5:6",
+    "when": "c. AD 55",
+    "year": 55,
+    "ref": "GAL.5.6",
+    "quote": "faith working through love",
+    "note": "Paul's own summary of the Christian life: a living faith that acts in love."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 6, on Justification",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "it is most truly said, that Faith without works is dead and profitless",
+    "note": "Trent explicitly rejects the idea that faith alone, and certainly not a rite alone, completes salvation."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 1272: the baptismal seal",
+    "ccc": 1272,
+    "when": "1992",
+    "year": 1992,
+    "quote": "No sin can erase this mark, even if sin prevents Baptism from bearing the fruits of salvation.",
+    "note": "Even though baptism leaves a permanent mark, the Church admits sin can prevent it from bearing fruit."
+   }
+  ],
+  "objections": [
+   {
+    "q": "So are baptized babies guaranteed heaven?",
+    "a": "No. Baptism gives a baby a new life with God, but the child must grow in faith and live it. The Church teaches that \"faith apart from works is dead,\" and that sin can separate even the baptized person from Christ.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 1815: living faith",
+      "ccc": 1815,
+      "when": "1992",
+      "year": 1992,
+      "quote": "\"faith apart from works is dead\": when it is deprived of hope and love, faith does not fully unite the believer to Christ and does not make him a living member of his Body.",
+      "note": "A baptized believer can lose the living union with Christ without hope and love."
+     }
+    ]
+   },
+   {
+    "q": "Then what about people who never get baptized?",
+    "a": "The Church teaches that God is not bound by his sacraments. A catechumen who dies before baptism, a martyr, and a person who seeks God sincerely without knowing the Gospel can all be saved. Trent itself speaks of the \"laver of regeneration, or the desire thereof.\"",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Session 6, on Justification",
+      "when": "1547",
+      "year": 1547,
+      "work": "trent-canons-decrees",
+      "section": "s6",
+      "quote": "cannot be effected, without the laver of regeneration, or the desire thereof",
+      "note": "Trent itself admits that the desire for baptism can take the place of the rite when the rite is impossible."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 1260: those who seek the truth",
+      "ccc": 1260,
+      "when": "1992",
+      "year": 1992,
+      "quote": "Every man who is ignorant of the Gospel of Christ and of his Church, but seeks the truth and does the will of God in accordance with his understanding of it, can be saved.",
+      "note": "The Catechism extends hope of salvation to those who sincerely seek God."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1213,
+   1257,
+   1259,
+   1815,
+   1989
+  ]
+ },
+ {
+  "id": "non-catholics-cannot-be-saved",
+  "title": "The Church says non-Catholics cannot be saved",
+  "question": "Does the Catholic Church teach that only Catholics can be saved?",
+  "summary": "The Church teaches that all salvation comes from Christ through the Church, which is his Body, but she does not teach that everyone outside her visible boundaries is lost. Those who through no fault of their own do not know Christ or his Church, yet seek God sincerely, can be saved.",
+  "verdict": {
+   "label": "Mostly false",
+   "why": "The old phrase \"no salvation outside the Church\" is real, and the Church does say that anyone who knows she was founded by Christ and refuses to enter cannot be saved. But the Catechism and Vatican II explicitly teach that sincere people who do not know Christ, and sincere Christians outside Catholic communion, are not excluded from God's mercy.",
+   "origin": "The phrase comes from early Fathers such as Cyprian, who were addressing baptized Christians who had deliberately split from the Church. Later centuries heard the phrase in a harsher sense, and some preachers did use it that way."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 846: outside the Church no salvation",
+    "ccc": 846,
+    "when": "1992",
+    "year": 1992,
+    "quote": "Hence they could not be saved who, knowing that the Catholic Church was founded as necessary by God through Christ, would refuse either to enter it or to remain in it.",
+    "note": "This is the real core of the phrase: it applies to those who know and still refuse."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 847: through no fault of their own",
+    "ccc": 847,
+    "when": "1992",
+    "year": 1992,
+    "quote": "Those who, through no fault of their own, do not know the Gospel of Christ or his Church, but who nevertheless seek God with a sincere heart, and, moved by grace, try in their actions to do his will as they know it through the dictates of their conscience - those too may achieve eternal salvation.",
+    "note": "Quoting Vatican II (Lumen Gentium 16), the Catechism says plainly that salvation is not closed to such people."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 838: other Christians",
+    "ccc": 838,
+    "when": "1992",
+    "year": 1992,
+    "quote": "Those \"who believe in Christ and have been properly baptized are put in a certain, although imperfect, communion with the Catholic Church.\"",
+    "note": "Baptized Protestant and Orthodox Christians are not treated as outsiders to Christ."
+   },
+   {
+    "kind": "scripture",
+    "label": "Acts 4:12",
+    "when": "c. AD 33",
+    "year": 33,
+    "ref": "ACT.4.12",
+    "quote": "There is salvation in no one else, for there is no other name under heaven that is given among men, by which we must be saved!",
+    "note": "The firm base of the teaching: all salvation is through Christ alone."
+   },
+   {
+    "kind": "scripture",
+    "label": "Acts 10:34-35",
+    "when": "c. AD 40",
+    "year": 40,
+    "ref": "ACT.10.34-35",
+    "quote": "in every nation he who fears him and works righteousness is acceptable to him",
+    "note": "Peter, at the home of a Gentile, sees that God accepts those who seek him sincerely."
+   },
+   {
+    "kind": "scripture",
+    "label": "Romans 2:14-16",
+    "when": "c. AD 57",
+    "year": 57,
+    "ref": "ROM.2.14-16",
+    "quote": "they show the work of the law written in their hearts, their conscience testifying with them",
+    "note": "Paul says God judges people by the law written on their consciences, which is the root of the teaching about the unevangelized."
+   },
+   {
+    "kind": "father",
+    "label": "Justin Martyr, First Apology",
+    "when": "c. 155",
+    "year": 155,
+    "work": "justin-martyr",
+    "section": "viii.ii",
+    "quote": "Christ is the first-born of God, and we have declared above that He is the Word of whom every race of men were partakers",
+    "note": "Justin taught that the Word is present in every human mind, and so reason itself can lead people toward Christ."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, On the Unity of the Church",
+    "when": "c. 251",
+    "year": 251,
+    "work": "cyprian",
+    "section": "iv.v.i",
+    "quote": "He can no longer have God for his Father, who has not the Church for his mother. If any one could escape who was outside the ark of Noah, then he also may escape who shall be outside of the Church.",
+    "note": "The strict form of the phrase, written against Christians who knowingly broke from the Church."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Cyprian and others said flatly that there is no salvation outside the Church. Hasn't the Church changed her mind?",
+    "a": "The formula is the same, but her explanation of it has been clarified. Cyprian was speaking to baptized Christians who had cut themselves off. The Church has long taught that baptism can be received by desire, and Trent says justification needs \"the laver of regeneration, or the desire thereof\". The Catechism applies this to those who sincerely seek God.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Session 6, on Justification",
+      "when": "1547",
+      "year": 1547,
+      "work": "trent-canons-decrees",
+      "section": "s6",
+      "quote": "cannot be effected, without the laver of regeneration, or the desire thereof",
+      "note": "Desire counts when the sacrament cannot be had."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 1281: saved without baptism",
+      "ccc": 1281,
+      "when": "1992",
+      "year": 1992,
+      "quote": "all those who, without knowing of the Church but acting under the inspiration of grace, seek God sincerely and strive to fulfill his will, are saved even if they have not been baptized",
+      "note": "The Catechism says explicitly that such people can be saved."
+     }
+    ]
+   },
+   {
+    "q": "If non-Catholics can be saved, why evangelize at all?",
+    "a": "Because the Church holds that Christ and the fullness of the means of grace are given in her, and no one should be deprived of them. Salvation for the unevangelized is a hope entrusted to God's mercy, not a reason to stop sharing the Gospel.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 848: the duty to evangelize",
+      "ccc": 848,
+      "when": "1992",
+      "year": 1992,
+      "quote": "the Church still has the obligation and also the sacred right to evangelize all men.",
+      "note": "The possibility of salvation for the ignorant does not cancel the Church's mission."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   836,
+   838,
+   846,
+   847,
+   848,
+   1260
+  ]
+ },
+ {
+  "id": "catholics-worship-the-pope",
+  "title": "Catholics worship the pope",
+  "question": "Do Catholics worship the pope?",
+  "summary": "No. Catholics worship God alone, Father, Son and Holy Spirit. The pope is honoured as the successor of Peter and the visible centre of the Church's unity, and the Church teaches that his authority serves the faith and cannot add to it.",
+  "verdict": {
+   "label": "False",
+   "why": "Adoration belongs to God alone in Catholic teaching, and the pope is held to be a servant and a man like any other. His office has real teaching authority, and he is shown great respect, but respect for an office is not worship.",
+   "origin": "The misunderstanding grows from the pope's high titles, the formal ceremony around his office, and the claim of infallibility. These can look like divine honours to an outsider, though the Church draws a firm line between honour and worship."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 2096: adoration",
+    "ccc": 2096,
+    "when": "1992",
+    "year": 1992,
+    "quote": "To adore God is to acknowledge him as God, as the Creator and Savior, the Lord and Master of everything that exists",
+    "note": "Adoration is defined as something offered to God alone as Creator and Savior."
+   },
+   {
+    "kind": "scripture",
+    "label": "Matthew 4:10",
+    "when": "c. AD 30",
+    "year": 30,
+    "ref": "MAT.4.10",
+    "quote": "You shall worship the Lord your God, and you shall serve him only.",
+    "note": "Jesus's own rule, which every Catholic is bound by."
+   },
+   {
+    "kind": "scripture",
+    "label": "Acts 10:25-26",
+    "when": "c. AD 40",
+    "year": 40,
+    "ref": "ACT.10.25-26",
+    "quote": "Stand up! I myself am also a man.",
+    "note": "The first pope refuses worship from Cornelius. Catholics hold up this reaction as the model for his successors."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 882: the pope's office",
+    "ccc": 882,
+    "when": "1992",
+    "year": 1992,
+    "quote": "The Pope, Bishop of Rome and Peter's successor, \"is the perpetual and visible source and foundation of the unity both of the bishops and of the whole company of the faithful.\"",
+    "note": "The office is about unity and pastoral care, not divinity."
+   },
+   {
+    "kind": "council",
+    "label": "Vatican I, Pastor Aeternus 4",
+    "when": "1870",
+    "year": 1870,
+    "work": "vatican-i-constitutions",
+    "section": "s10",
+    "quote": "the Holy Spirit was not promised to the successors of Peter, that by His revelation they might make known new doctrine, but that by His assistance they might inviolably keep and faithfully expound the revelation or deposit of faith",
+    "note": "The council that defined papal infallibility limits it to guarding what was revealed. The pope cannot invent doctrine."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 891: when infallibility applies",
+    "ccc": 891,
+    "when": "1992",
+    "year": 1992,
+    "quote": "The Roman Pontiff, head of the college of bishops, enjoys this infallibility in virtue of his office, when, as supreme pastor and teacher of all the faithful … he proclaims by a definitive act a doctrine pertaining to faith or morals.",
+    "note": "The Catechism confines infallibility to definitive acts of teaching on faith or morals, not to the pope's opinions or private life."
+   },
+   {
+    "kind": "father",
+    "label": "Gregory the Great, to the Roman citizens",
+    "when": "c. 603",
+    "year": 603,
+    "work": "gregory-letters",
+    "section": "ii.ix.i",
+    "quote": "Gregory, servant of the servants of God",
+    "note": "A great pope introduces himself with the title popes still use: servant of the servants of God."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Don't people kneel, kiss his ring and call him \"Holy Father\"? That looks like worship.",
+    "a": "Respectful gestures are signs of honour for his office. The Church distinguishes the veneration due to holy persons and things from the adoration due to God alone. Peter refused to be worshipped by Cornelius, and Catholics expect the pope to do the same.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 2132: veneration versus adoration",
+      "ccc": 2132,
+      "when": "1992",
+      "year": 1992,
+      "quote": "The honor paid to sacred images is a \"respectful veneration,\" not the adoration due to God alone",
+      "note": "The Catechism states the same distinction in the case of images: honour is not adoration."
+     }
+    ]
+   },
+   {
+    "q": "Doesn't \"Vicar of Christ\" and infallibility put a man in God's place?",
+    "a": "The title means that the pope acts for Christ, as Peter was given the keys, not that he replaces him. Infallibility is a narrow gift of the Holy Spirit to preserve the Church's teaching, not a personal perfection; popes go to confession and can be sinners.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Matthew 16:18-19",
+      "when": "c. AD 30",
+      "year": 30,
+      "ref": "MAT.16.18-19",
+      "quote": "on this rock I will build my assembly, and the gates of Hades will not prevail against it",
+      "note": "The promise to Peter on which the Church bases the pope's office."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   2096,
+   2132,
+   882,
+   891
+  ]
+ },
+ {
+  "id": "sunday-worship-invented-by-the-church",
+  "title": "Sunday worship was invented by the Church, not the Bible",
+  "question": "Is Sunday worship an invention of the Church rather than something found in the Bible?",
+  "summary": "The New Testament shows the first Christians gathering on the first day of the week, the day of the Resurrection, and the Church has kept Sunday as the Lord's Day from the apostolic age. The Bible does not give an explicit command to move the Sabbath, and the Church says this practice comes from apostolic Tradition and Christ's Resurrection.",
+  "verdict": {
+   "label": "Partly true",
+   "why": "It is true that there is no verse in the Bible saying \"worship on Sunday instead of Saturday\", and the Church bases Sunday on apostolic Tradition as well as Scripture. It is not true that the Church invented it later: the New Testament already shows first-day gatherings, and early Christian writers treat Sunday as established.",
+   "origin": "The Ten Commandments command the seventh day, and Constantine's 321 law made Sunday a day of civil rest. Both facts lead people to think the day was changed by a decree, when the change by Christians to the first day was, as far as the sources show, much older."
+  },
+  "steps": [
+   {
+    "kind": "scripture",
+    "label": "John 20:19",
+    "when": "c. AD 90",
+    "year": 90,
+    "ref": "JHN.20.19",
+    "quote": "the first day of the week, and when the doors were locked where the disciples were assembled, for fear of the Jews, Jesus came and stood in the middle",
+    "note": "The risen Christ appears to the assembled disciples on the first day of the week."
+   },
+   {
+    "kind": "scripture",
+    "label": "Acts 20:7",
+    "when": "c. AD 60",
+    "year": 60,
+    "ref": "ACT.20.7",
+    "quote": "On the first day of the week, when the disciples were gathered together to break bread",
+    "note": "Luke records a gathering on the first day to break bread, which is the Eucharist."
+   },
+   {
+    "kind": "scripture",
+    "label": "1 Corinthians 16:2",
+    "when": "c. AD 55",
+    "year": 55,
+    "ref": "1CO.16.2",
+    "quote": "On the first day of every week, let each one of you save as he may prosper",
+    "note": "Paul assumes a weekly first-day gathering, in which a collection is gathered."
+   },
+   {
+    "kind": "scripture",
+    "label": "Revelation 1:10",
+    "when": "c. AD 95",
+    "year": 95,
+    "ref": "REV.1.10",
+    "quote": "I was in the Spirit on the Lord's day",
+    "note": "By the end of the first century \"the Lord's day\" is already a known name for a day."
+   },
+   {
+    "kind": "scripture",
+    "label": "Colossians 2:16-17",
+    "when": "c. AD 60",
+    "year": 60,
+    "ref": "COL.2.16-17",
+    "quote": "Let no one therefore judge you in eating or drinking, or with respect to a feast day or a new moon or a Sabbath day",
+    "note": "Paul tells Christians not to be judged on Sabbath observance, treating it as a \"shadow\" now fulfilled in Christ."
+   },
+   {
+    "kind": "father",
+    "label": "Origen, Against Celsus 8",
+    "when": "c. 248",
+    "year": 248,
+    "work": "origen-celsus",
+    "section": "vi.ix.viii",
+    "quote": "we ourselves are accustomed to observe certain days, as for example the Lord’s day, the Preparation, the Passover, or Pentecost",
+    "note": "By the mid-third century, Origen takes the Christian observance of the Lord's day for granted."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Nicaea, Canon 20",
+    "when": "325",
+    "year": 325,
+    "work": "council-nicaea-1",
+    "section": "vii.vi",
+    "quote": "On Lord’s days and at Pentecost all must pray standing and not kneeling.",
+    "note": "The council regulates how to pray on the Lord's days as a settled practice, in a text that regulates posture, not the day itself."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 2175: Sunday and the Sabbath",
+    "ccc": 2175,
+    "when": "1992",
+    "year": 1992,
+    "quote": "In Christ's Passover, Sunday fulfills the spiritual truth of the Jewish sabbath and announces man's eternal rest in God.",
+    "note": "The Church's own reasoning: Sunday fulfills the Sabbath rather than abolishing the idea of a holy day."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Didn't the Emperor Constantine make Sunday the day of worship?",
+    "a": "Constantine's law in 321 made Sunday a day of rest in the empire. That was a civil law added to something that was already observed; the New Testament and writers like Origen show Christians keeping the day over two centuries earlier. The Church does not claim it began with him.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Origen, Against Celsus 8",
+      "when": "c. 248",
+      "year": 248,
+      "work": "origen-celsus",
+      "section": "vi.ix.viii",
+      "quote": "we ourselves are accustomed to observe certain days, as for example the Lord’s day",
+      "note": "Christians kept the Lord's day before any imperial law."
+     }
+    ]
+   },
+   {
+    "q": "The Ten Commandments say to keep the seventh day. Who gave the Church the right to change it?",
+    "a": "The Church answers that Christ rose on the first day, and the apostolic Church took that as the new centre of worship. She does not say the Sabbath commandment was cancelled but that its deepest meaning, rest in God, is fulfilled in Christ's Resurrection and kept on his day.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 2174: the first day",
+      "ccc": 2174,
+      "when": "1992",
+      "year": 1992,
+      "quote": "Jesus rose from the dead \"on the first day of the week.\" Because it is the \"first day,\" the day of Christ's Resurrection recalls the first creation.",
+      "note": "The Catechism gives the Resurrection as the reason for Sunday."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 2189: the Sabbath commandment",
+      "ccc": 2189,
+      "when": "1992",
+      "year": 1992,
+      "quote": "\"Observe the sabbath day, to keep it holy\" (Deut 5:12).",
+      "note": "The Catechism itself places the Sabbath command in view when speaking of Sunday."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   2174,
+   2175,
+   2177,
+   2178,
+   2185
+  ]
+ },
+ {
+  "id": "catholics-dont-read-the-bible",
+  "title": "Catholics don't read the Bible",
+  "question": "Do Catholics read the Bible?",
+  "summary": "The Church urges every Catholic to read Scripture often, and the Mass is built from it. Many individual Catholics may not read it as much as they should, but that is a failure of practice, not of teaching.",
+  "verdict": {
+   "label": "Mostly false",
+   "why": "The Catechism urges \"frequent reading of the divine Scriptures\", and the Church's liturgy is full of Scripture every day. What may be true is that many Catholics, like many other Christians, read the Bible less than the Church hopes.",
+   "origin": "Before printing, few people of any faith owned books, and in some periods the Church restricted unauthorized vernacular translations. Over time this left an impression that Catholics were told not to read the Bible, which is not the Church's teaching."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 133: frequent reading",
+    "ccc": 133,
+    "when": "1992",
+    "year": 1992,
+    "quote": "The Church \"forcefully and specifically exhorts all the Christian faithful... to learn the surpassing knowledge of Jesus Christ, by frequent reading of the divine Scriptures. Ignorance of the Scriptures is ignorance of Christ.",
+    "note": "A direct exhortation in the Catechism to every Catholic to read Scripture often."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 131: open access",
+    "ccc": 131,
+    "when": "1992",
+    "year": 1992,
+    "quote": "access to Sacred Scripture ought to be open wide to the Christian faithful",
+    "note": "The Church states the principle that the Bible must be open to all the faithful."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 1100: Scripture in the liturgy",
+    "ccc": 1100,
+    "when": "1992",
+    "year": 1992,
+    "quote": "In the celebration of the liturgy, Sacred Scripture is extremely important. From it come the lessons that are read and explained in the homily and the psalms that are sung.",
+    "note": "Every Mass is built from Scripture, so Catholics hear it read whenever they attend."
+   },
+   {
+    "kind": "scripture",
+    "label": "2 Timothy 3:16-17",
+    "when": "c. AD 66",
+    "year": 66,
+    "ref": "2TI.3.16-17",
+    "quote": "Every Scripture is God-breathed and profitable for teaching, for reproof, for correction, and for instruction in righteousness",
+    "note": "The verse underlying all Catholic reading of the Bible: it is God's word and useful for every Christian."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Confessions 8",
+    "when": "c. 400",
+    "year": 400,
+    "work": "aug-confessions",
+    "section": "ix.xii",
+    "quote": "Take up and read; Take up and read.",
+    "note": "The famous moment of Augustine's conversion came from taking up the Scriptures and reading them."
+   },
+   {
+    "kind": "father",
+    "label": "Jerome, Letter 52 to Nepotian",
+    "when": "c. 394",
+    "year": 394,
+    "work": "jerome-letters",
+    "section": "v.LII",
+    "quote": "Read the divine scriptures constantly; never, indeed, let the sacred volume be out of your hand.",
+    "note": "Jerome, the Church's great translator of the Bible, urged constant reading."
+   },
+   {
+    "kind": "father",
+    "label": "Chrysostom, Homily 9 on Colossians",
+    "when": "c. 400",
+    "year": 400,
+    "work": "chrys-col",
+    "section": "iv.iv.ix",
+    "quote": "procure books that will be medicines for the soul. If ye will not any other, yet get you at least the New Testament, the Apostolic Epistles, the Acts, the Gospels, for your constant teachers.",
+    "note": "Chrysostom told ordinary people in the pews to get Bibles for their own homes."
+   },
+   {
+    "kind": "saint",
+    "label": "Gregory the Great, Letter to Theodorus",
+    "when": "595",
+    "year": 595,
+    "work": "gregory-pastoral-rule",
+    "section": "iii.v.iv",
+    "quote": "For what is sacred Scripture but a kind of epistle of Almighty God to His creature?",
+    "note": "A pope compares the Bible to a letter from God and says it should be read daily."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Wasn't the Bible kept from ordinary Catholics for centuries?",
+    "a": "The Church honestly admits that in some times and places, access was limited by cost, by the lack of printing, or by rules against unauthorized translations. These were failings of practice, and they do not match the teaching of the Fathers above, who urged lay people to read Scripture themselves. The modern Church has restated the principle that access must be \"open wide\"."
+   },
+   {
+    "q": "Surveys say many Catholics rarely open a Bible. Doesn't that settle it?",
+    "a": "It may well say something true about habits, and the Church would not deny it. But the claim that Catholics \"don't read the Bible\" is about what she teaches, and that is the opposite. The remedy she proposes is the one in the Catechism: frequent reading, supported by the liturgy.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 132: Scripture as the soul of theology",
+      "ccc": 132,
+      "when": "1992",
+      "year": 1992,
+      "quote": "the study of the sacred page should be the very soul of sacred theology.",
+      "note": "The Church places Scripture at the centre of theology and preaching."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   101,
+   131,
+   133,
+   141
+  ]
+ }
+]

@@ -45,7 +45,7 @@ for (const vp of (process.env.WIDTHS || '390,1280').split(',').map((w) => ({ wid
         const out = {};
         out.overflow = document.documentElement.scrollWidth - innerWidth;
         const m = document.querySelector('.modal-back .modal, [role=dialog]');
-        if (m) { const c = [...m.querySelectorAll('button')].find((x) => /close|done|cancel|got it|×|✕|back/i.test((x.getAttribute('aria-label') || '') + x.textContent)); const rr = c?.getBoundingClientRect(); out.modal = { hasClose: !!c, onScreen: !!rr && rr.top >= 0 && rr.bottom <= innerHeight && rr.left >= 0 && rr.right <= innerWidth, tall: m.getBoundingClientRect().height > innerHeight + 2 }; }
+        if (m) { const c = [...m.querySelectorAll('button')].find((x) => /close|done|cancel|got it|×|✕|back/i.test((x.getAttribute('aria-label') || '') + x.textContent)); const rr = c?.getBoundingClientRect(); out.modalInfo = { aria: m.getAttribute('aria-label'), cls: String(m.className).slice(0, 40), box: (() => { const q = m.getBoundingClientRect(); return [Math.round(q.top), Math.round(q.bottom)]; })(), close: c ? (() => { const q = c.getBoundingClientRect(); return [Math.round(q.top), Math.round(q.bottom), (c.getAttribute('aria-label') || c.textContent || '').trim().slice(0, 16)]; })() : null, vh: innerHeight }; out.modal = { hasClose: !!c, onScreen: !!rr && rr.top >= 0 && rr.bottom <= innerHeight && rr.left >= 0 && rr.right <= innerWidth, tall: m.getBoundingClientRect().height > innerHeight + 2 }; }
         out.url = location.href;
         return out;
       }).catch(() => ({}));
@@ -53,7 +53,7 @@ for (const vp of (process.env.WIDTHS || '390,1280').split(',').map((w) => ({ wid
       if (st.modal && (!st.modal.hasClose || !st.modal.onScreen) && !/welcome|tour/i.test(await p.locator('[role=dialog]').first().getAttribute('aria-label').catch(() => ''))) {
         await p.keyboard.press('Escape'); await p.waitForTimeout(200);
         const still = await p.locator('.modal-back .modal').count();
-        bad.push(`${tag}: after “${label}” an overlay has ${st.modal.hasClose ? 'its close button off screen' : 'no close button'}${still ? ' and Escape did not close it' : ' (Escape works)'}`);
+        bad.push(`${tag}: after “${label}” an overlay has ${st.modal.hasClose ? 'its close button off screen' : 'no close button'}${still ? ' and Escape did not close it' : ' (Escape works)'} ${JSON.stringify(st.modalInfo)}`);
       }
       if (st.url && !st.url.startsWith(BASE)) { await p.goto(`${BASE}/#/${r}`).catch(() => {}); }
       if (errs.length) { bad.push(`${tag}: after “${label}” script error: ${errs[0]}`); errs.length = 0; }
