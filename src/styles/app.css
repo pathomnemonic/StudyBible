@@ -5546,3 +5546,11 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .walk-stop{border-left:4px solid #c9a227}
 .chapters .now-chapter{font-weight:700;color:var(--accent,#7a5)}
 .chapters li{margin:4px 0}
+.chain-verdict{border-left:4px solid #888}
+.chain-verdict-label{font-size:1.25rem;font-weight:700;margin:2px 0 6px}
+.chain-verdict.v-false,.chain-verdict.v-mostly-false{border-left-color:#c05050}
+.chain-verdict.v-partly-true,.chain-verdict.v-true-but-incomplete,.chain-verdict.v-disputed{border-left-color:#d4a017}
+.chain-verdict.v-true{border-left-color:#2f8f6b}
+.chain-kind.k-verdict{color:#d4a017}
+.hd-prayer{font-size:1.25rem;line-height:1.5;margin:4px 0}
+.hd-verse blockquote{margin:0}

@@ -1,7 +1,7 @@
 import { loadChains, loadFiles, verifyChain, verifyLife, verifySituation } from './verify';
 import type { Life, Situation } from '../../src/chains/types';
 const mode = process.argv[2];
-const modes = mode && !['situations', 'lives'].includes(mode) ? [mode] : mode ? [] : ['arguments', 'development', 'heresies', 'words'];
+const modes = mode && !['situations', 'lives'].includes(mode) ? [mode] : mode ? [] : ['arguments', 'development', 'heresies', 'words', 'claims'];
 let bad = 0;
 for (const m of modes) {
   const cs = loadChains(m); const ids = new Set<string>();

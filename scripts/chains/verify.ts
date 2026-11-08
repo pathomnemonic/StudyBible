@@ -66,6 +66,7 @@ export function verifyChain(c: Chain): string[] {
   if (!c.id || !c.title || !c.question || !c.summary) bad.push(`${c.id}: missing id/title/question/summary`);
   c.steps.forEach((s, i) => bad.push(...verifyStep(s, `${c.id} step ${i + 1}`)));
   (c.objections ?? []).forEach((o, i) => { if (!o.q || !o.a) bad.push(`${c.id} objection ${i + 1} incomplete`); (o.steps ?? []).forEach((s, j) => bad.push(...verifyStep(s, `${c.id} objection ${i + 1} step ${j + 1}`))); });
+  if (c.verdict) { if (!c.verdict.label || !c.verdict.why || c.verdict.why.length < 40 || !c.verdict.origin || c.verdict.origin.length < 40) bad.push(`${c.id}: verdict needs label, why and origin`); }
   if (c.heresy) { c.heresy.advocate.forEach((s, i) => bad.push(...verifyStep(s, `${c.id} advocate ${i + 1}`))); for (const k of ['era', 'who', 'claim', 'appeal', 'whyItFails'] as const) if (!c.heresy[k]) bad.push(`${c.id}: heresy.${k} missing`); }
   return bad;
 }

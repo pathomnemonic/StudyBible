@@ -3,7 +3,7 @@ import { loadChains, loadFiles, verifyChain, verifyLife, verifySituation } from 
 import type { Life, Situation } from '../src/chains/types';
 
 describe('sourced chains', () => {
-  for (const mode of ['arguments', 'development', 'heresies', 'words']) {
+  for (const mode of ['arguments', 'development', 'heresies', 'words', 'claims']) {
     it(`${mode}: every quotation is found in the source it cites`, () => {
       const cs = loadChains(mode);
       const ids = cs.map((c) => c.id);
@@ -24,4 +24,15 @@ describe('church timeline', () => {
 import { checkWalks, loadWalks } from '../scripts/chains/check-walks';
 describe('bible walks', () => {
   it('every stop is a real place with a verified quotation from its passage', () => { expect(checkWalks(loadWalks()).slice(0, 20)).toEqual([]); });
+});
+
+import { HARD_KINDS } from '../src/data/hardDay';
+import { sourceText } from '../scripts/chains/verify';
+describe('hard day page', () => {
+  it('every verse reference exists, and every situation it links to exists', () => {
+    const sits = loadFiles<Situation>('situations').map((x) => x.id);
+    const bad: string[] = [];
+    for (const k of HARD_KINDS) { if (!sits.includes(k.situation)) bad.push(`${k.id}: no situation ${k.situation}`); for (const v of k.verses) { const r = sourceText({ kind: 'scripture', label: v, ref: v, note: '' } as any); if (r.err) bad.push(`${k.id} ${v}: ${r.err}`); } }
+    expect(bad).toEqual([]);
+  });
 });

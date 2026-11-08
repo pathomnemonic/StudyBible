@@ -112,6 +112,7 @@ const MediaSearch = lazy(() => import('./pages/listen/MediaSearch'));
 const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
 const ChainsPage = lazy(() => import('./pages/study/ChainsPage'));
 const ZoomPage = lazy(() => import('./pages/study/ZoomPage'));
+const HardDayPage = lazy(() => import('./pages/HardDayPage'));
 const WalksPage = lazy(() => import('./pages/study/WalksPage'));
 const ChurchTimelapsePage = lazy(() => import('./pages/study/ChurchTimelapsePage'));
 const MentorsPage = lazy(() => import('./pages/study/MentorsPage'));
@@ -397,7 +398,9 @@ export default function App() {
               <Route path="/study/development/:id?" element={<ChainsPage mode="development" />} />
               <Route path="/study/heresies/:id?" element={<ChainsPage mode="heresies" />} />
               <Route path="/study/words/:id?" element={<ChainsPage mode="words" />} />
+              <Route path="/study/claims/:id?" element={<ChainsPage mode="claims" />} />
               <Route path="/study/zoom/:term?" element={<ZoomPage />} />
+              <Route path="/pray/hard-day" element={<HardDayPage />} />
               <Route path="/study/walks/:id?" element={<WalksPage />} />
               <Route path="/study/church-timelapse" element={<ChurchTimelapsePage />} />
               <Route path="/study/mentors/:id?" element={<MentorsPage />} />

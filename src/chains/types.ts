@@ -35,16 +35,19 @@ export interface Chain {
   summary: string;
   steps: Step[];
   objections?: Objection[];
+  /** Claim check only: an honest verdict on a claim people often make */
+  verdict?: { label: 'False' | 'Mostly false' | 'Partly true' | 'True, but incomplete' | 'True' | 'Disputed'; why: string; origin: string };
   /** Heresy lab only */
   heresy?: { era: string; who: string; claim: string; appeal: string; advocate: Step[]; whyItFails: string };
   /** CCC paragraphs to read next */
   readNext?: number[];
 }
 
-export type ChainMode = 'arguments' | 'development' | 'heresies' | 'words';
+export type ChainMode = 'arguments' | 'development' | 'heresies' | 'words' | 'claims';
 export const MODES: Record<ChainMode, { title: string; blurb: string; path: string }> = {
   arguments: { title: 'The Argument Map', blurb: 'Each teaching as a chain of real sources, from Scripture through the Fathers and councils to the Catechism, with the strongest objections.', path: '/study/arguments' },
   development: { title: 'How a teaching developed', blurb: 'Follow a doctrine through time: where it first appears, what forced it to be stated precisely, and the words the Church settled on.', path: '/study/development' },
+  claims: { title: 'Is that true?', blurb: 'Common claims about the Church, checked fairly against what she actually teaches and the sources: what is true, what is not, and where the misunderstanding comes from.', path: '/study/claims' },
   words: { title: 'Key words, followed through time', blurb: 'The Greek, Hebrew and Latin words that carry the faith: where each appears, what it meant, and how the Fathers and councils used it.', path: '/study/words' },
   heresies: { title: 'The Heresy Lab', blurb: 'Each major error made at its strongest, in the words of those who answered it, then shown where it breaks against Scripture and the councils.', path: '/study/heresies' },
 };

@@ -35,6 +35,14 @@ function ChainView({ c, mode }: { c: Chain; mode: ChainMode }) {
       <p className="small no-print"><Link to={MODES[mode].path}>← {MODES[mode].title}</Link></p>
       <h1>{c.title} <PrintButton /></h1>
       <p className="lede">{c.question}</p>
+      {c.verdict && (
+        <section className={`card chain-verdict v-${c.verdict.label.toLowerCase().replace(/[^a-z]+/g, '-')}`} aria-label="Verdict">
+          <p className="chain-meta"><span className="chain-kind k-verdict">Verdict</span></p>
+          <p className="chain-verdict-label">{c.verdict.label}</p>
+          <p>{c.verdict.why}</p>
+          <p><strong>Where it comes from.</strong> {c.verdict.origin}</p>
+        </section>
+      )}
       {h && (
         <section className="card chain-error" aria-label="The error at its strongest">
           <p className="chain-meta"><span className="chain-kind k-heresy">The error</span><span className="chain-when">{h.era}</span></p>
@@ -48,7 +56,7 @@ function ChainView({ c, mode }: { c: Chain; mode: ChainMode }) {
         </section>
       )}
       <section className="card chain-summary" aria-label="The short answer">
-        <strong>{h ? 'What the Church teaches instead' : 'The short answer'}</strong>
+        <strong>{h ? 'What the Church teaches instead' : c.verdict ? 'What the Church actually teaches' : 'The short answer'}</strong>
         <p>{c.summary}</p>
       </section>
       <h2 className="chain-h2">{h ? 'Where it breaks' : mode === 'development' ? 'The teaching, in time order' : 'The chain of sources'}</h2>
@@ -91,7 +99,7 @@ export default function ChainsPage({ mode }: { mode: ChainMode }) {
           {chains.map((x) => (
             <li key={x.id}>
               <Link className="t" to={`${m.path}/${x.id}`}>{x.title}</Link>
-              <p className="muted small" style={{ margin: '2px 0 0' }}>{x.heresy ? `${x.heresy.era} · ${x.heresy.who}` : x.question}</p>
+              <p className="muted small" style={{ margin: '2px 0 0' }}>{x.heresy ? `${x.heresy.era} · ${x.heresy.who}` : x.verdict ? `${x.verdict.label}: ${x.question}` : x.question}</p>
             </li>
           ))}
         </ul>
