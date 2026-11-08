@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { useSettings } from '../../lib/store';
+import RelatedSources from '../../curriculum/RelatedSources';
 import { getGlossary, getGrade, flatLessons, gradeLabel, progressId, toggleDone, vocabQuiz, reviewTerms, cccList, parseQuiz, type GradeData, type Glossary, type LessonSpec, type Question } from '../../curriculum/model';
 import { bandOf, FAMILY_DAYS, type Band } from '../../curriculum/pedagogy';
 import { activityName } from '../../curriculum/LessonSlides';
@@ -326,6 +327,7 @@ export default function CurriculumLesson() {
         <ul>
           <li><Link to={`/study/catechism/${cccNums[0]}`}>The Catechism at §{cccNums[0]}</Link></li>
           {(lesson.deeper ?? []).map((d) => { const [k, id] = d.split(':'); return k === 'apol' ? <li key={d}><Link to={`/study/apologetics/${id}`}>Questions about the faith: {id.replace(/-/g, ' ')}</Link></li> : <li key={d}><Link to={`/room/work/${id}/0`}>Read in the Reading room: {id.replace(/-/g, ' ')}</Link></li>; })}
+          {(g.band === 'middle' || g.band === 'high' || g.band === 'adult') && <RelatedSources ccc={cccNums} />}
           {!primary && <li><Link to="/room">Read: saints and Fathers</Link></li>}
           {(g.band === 'high' || g.band === 'middle') && <li><Link to="/study/apologetics">Questions about the faith</Link></li>}
           <li><Link to="/study/kids">The Children’s Bible</Link></li>
