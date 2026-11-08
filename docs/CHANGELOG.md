@@ -5,6 +5,15 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 ## Unreleased
 
 ### App
+* **Sourced chains** (`/study/arguments`, `/study/development`, `/study/heresies`, `/study/words`): a teaching laid out as real sources in order. 24 arguments (Real Presence, the Trinity, papal primacy, purgatory and others, each with its strongest objections), 12 developments through time (the Trinity, Christ’s natures, the canon and others), 12 heresies shown in their own words and where they break, and 12 key words (*logos*, *ekklesia*, *homoousios* and others). Every quotation is checked against the text of the Father, council, Catechism paragraph or Bible verse it cites (`npx tsx scripts/chains/check.ts`, enforced by `tests/chains.test.ts`).
+* **A verse across the centuries** (`/study/conversation`): one passage read by commentators in time order, from the Fathers to the medieval schools to later writers.
+* **Doctrine at different distances** (`/study/zoom`): any glossary teaching as one sentence, a paragraph, a page, the sources behind it, then where to read on.
+* **Saints for what you’re facing** (`/study/mentors`): 28 situations (grief, addiction, doubt, a new baby, a hard boss and more) with 102 saints and their own words from Butler’s Lives or their writings, each quotation verified. Includes plain safety notes where a situation may need a doctor or other people.
+* **Lives in time** (`/study/lives`): 16 saints year by year, with setbacks left in and the world around them.
+* **Walks through the Bible** (`/study/walks`): 8 threads (the mountain, water and Baptism, bread, the shepherd and others) followed across the map, stop by stop, each with a verified Bible quotation.
+* **The Church across the centuries** (`/study/church-timelapse`): a map from Pentecost to 1600 with 180 events (councils, martyrs, missions, foundations) appearing in date order, with play and a year slider.
+* **Podcast chapters**: read from a feed’s Podcasting 2.0 chapters file or from timestamps in the show notes; tap a chapter in the full player to jump.
+* **Glossary**: 59 more terms, each tied to a verified Catechism paragraph.
 * **RSV-2CE (The Ignatius Bible)** added to the translation picker: the Revised Standard Version, Second Catholic Edition, 71 of 73 books, offline. It is a licensed text included with the owner's stated permission, read from a scan, so the edition's description says plainly that verse breaks were rebuilt automatically and a few can be off by a clause; Esther and Zechariah are left out. See docs/RSV2CE.md.
 * **More devotions** in Prayer → Devotions: a Holy Hour guide with timed silences and Scripture, the Litany of Loreto (with the 2020 additions), the Litany of St Joseph, the Chaplet of St Michael, and a step-by-step guide to going to Confession. **Catholic life** page (Prayer → Catholic life): today's obligations (Sunday and holy-day Mass with the U.S. Saturday and Monday exceptions, fast and abstinence on Ash Wednesday, Good Friday and Lenten Fridays, Friday penance), the next holy days, a private last-Confession note, a plain guide to indulgences, and links to find a Mass.
 * **Lesson slides redesigned as a real deck**: title slide with art, section dividers (Explore, Understand, Practice, Live it), one idea per slide, big key-point numerals with Catechism chips, cards that build one by one, quote layouts for Scripture and the Catechism, lettered answer tiles, a slide overview (G), and controls that hide while presenting.
@@ -36,6 +45,10 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 * Server: byte-range requests, cached compression, more file types.
 
 ### Content
+* **Life essentials**: 48 short lessons that combine several parts of the Catechism around how to live (rest, attention, money, anger and forgiveness, truth, friendship, suffering, decisions, death, and age-fitted versions for every grade). Each grade page opens with a “Short on time? Start with these” card.
+* **Quiz depth**: every one of the 456 lessons now has 4–6 quiz questions (balanced so the longest answer is not the tell), and the live-class question bank covers every lesson.
+* **Teacher notes for K–2**: five fuller points per lesson (the one thing to get across, the doctrine, wording for the child, a pitfall, how to tell it landed).
+* **Daily Mass readings for 2028** through 16 May (the USCCB had not yet published later dates).
 * Divine Office psalter data from Divinum Officium (MIT license), Douay-Rheims psalm text, with seasonal chapters, responsories, hymns, versicles and collects for Advent, Lent, Passiontide and Eastertide.
 * Video library and catalog of about 1,560 Catholic videos; LibriVox recordings for the Bible and about 55 library works; apologetics resource directory.
 * Offline pack manifest now lists each file's size and checksum.
