@@ -36,3 +36,8 @@ describe('hard day page', () => {
     expect(bad).toEqual([]);
   });
 });
+
+import { TRIVIA_CATS, checkTrivia, loadTrivia } from '../scripts/chains/check-trivia';
+describe('trivia bank', () => {
+  for (const c of TRIVIA_CATS) it(`${c}: every question has four distinct options and a source quotation that is found`, () => { expect(checkTrivia(c, loadTrivia(c)).slice(0, 20)).toEqual([]); });
+});

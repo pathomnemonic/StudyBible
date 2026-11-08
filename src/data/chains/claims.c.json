@@ -1,0 +1,1084 @@
+[
+  {
+    "id": "mary-sinless-romans-3-23",
+    "title": "Mary was sinless, but the Bible says all have sinned",
+    "question": "Does the Catholic teaching that Mary was sinless contradict Romans 3:23?",
+    "summary": "The Church teaches that Mary was saved by Christ like everyone else, but in a unique way: she was preserved from original sin from the first moment of her conception, in view of what her Son would do, and she remained free from personal sin by God’s grace. Paul’s “all have sinned” is a general statement, and every Christian already makes exceptions to it, beginning with Jesus himself.",
+    "verdict": {
+      "label": "Partly true",
+      "why": "Both halves of the sentence are real: the Church does teach that Mary was sinless, and Paul does write that all have sinned. What is not true is that the two clash, because the Church teaches that Mary’s sinlessness is itself a gift of Christ’s saving work, not an escape from it.",
+      "origin": "Romans 3:23 sounds like a rule with no exceptions, and the Immaculate Conception is easy to hear as “Mary did not need a Savior.” The doctrine says the opposite: she needed one so completely that she was saved in advance."
+    },
+    "steps": [
+      {
+        "kind": "catechism",
+        "label": "Catechism §491",
+        "ccc": 491,
+        "quote": "Mary, \"full of grace\" through God, was redeemed from the moment of her conception.",
+        "note": "The Catechism begins by saying Mary was redeemed. The dogma does not put her outside salvation; it describes how she was saved: from the very first moment, rather than after falling."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §492",
+        "ccc": 492,
+        "quote": "redeemed, in a more exalted fashion, by reason of the merits of her Son",
+        "note": "Her holiness “comes wholly from Christ.” Nothing in the doctrine gives Mary a goodness of her own apart from him."
+      },
+      {
+        "kind": "magisterium",
+        "label": "Pius IX, Ineffabilis Deus",
+        "when": "1854",
+        "year": 1854,
+        "work": "ineffabilis-deus",
+        "section": "s1",
+        "quote": "Blessed Virgin Mary to have been, from the first moment of her conception, by a singular grace and privilege of Almighty God, in view of the merits of Christ Jesus the Saviour of mankind, preserved free from all stain of original sin",
+        "note": "The 1854 definition is itself careful to say that this was “in view of the merits of Christ Jesus the Saviour of mankind.” It is a “singular grace and privilege,” not a claim that Mary earned it."
+      },
+      {
+        "kind": "scripture",
+        "label": "Luke 1:28, the angel’s greeting",
+        "ref": "LUK.1.28",
+        "quote": "Rejoice, you highly favored one! The Lord is with you.",
+        "note": "Gabriel greets Mary with a title instead of her name, “highly favored” (the Latin tradition translates this “full of grace”). The Church reads this as pointing to a standing fullness of God’s favor, not only a passing one."
+      },
+      {
+        "kind": "scripture",
+        "label": "Luke 1:46-47, Mary’s own words",
+        "ref": "LUK.1.46-47",
+        "quote": "My spirit has rejoiced in God my Savior",
+        "note": "Mary herself says God is her Savior. Catholics agree: she was saved by Christ, only in the way a person is saved who is kept from falling into a pit rather than pulled out of it."
+      },
+      {
+        "kind": "scripture",
+        "label": "Romans 3:23",
+        "ref": "ROM.3.23",
+        "quote": "for all have sinned, and fall short of the glory of God",
+        "note": "This is the verse the claim rests on. Paul is speaking of humanity as a whole, and even those who reject the Immaculate Conception read “all” as excluding Jesus. The question is whether Mary too can be an exception by grace, which Paul’s sentence alone does not settle."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, On Nature and Grace 42",
+        "when": "c. 415",
+        "year": 415,
+        "work": "aug-pelagian",
+        "section": "xii.xlvi",
+        "quote": "We must except the holy Virgin Mary, concerning whom I wish to raise no question when it touches the subject of sins, out of honour to the Lord",
+        "note": "Around 415 Augustine, arguing that every human being is a sinner, makes a deliberate exception for Mary “out of honour to the Lord.” This is not the full later doctrine, but it shows that the instinct to set Mary apart from the “all” goes back to the Fathers."
+      }
+    ],
+    "objections": [
+      {
+        "q": "But if Mary was kept from sin, she did not need to be saved. Doesn’t that make Christ’s death optional for her?",
+        "a": "The Church’s answer is that she needed Christ’s work fully, and received its fruit ahead of time. The Catechism calls her “the most excellent fruit of redemption.” Preventing a fall is a form of rescue, and it is the Savior’s merits that do it.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §508",
+            "ccc": 508,
+            "quote": "from the first instant of her conception, she was totally preserved from the stain of original sin and she remained pure from all personal sin throughout her life",
+            "note": "Here the Catechism ties her preservation to redemption: she is the first and greatest example of what Christ’s saving work can do."
+          }
+        ]
+      },
+      {
+        "q": "Isn’t this a nineteenth-century invention? It was only defined in 1854.",
+        "a": "It is true that the dogma was defined in 1854, and that Christians before then debated how best to state it; honest history has to say so. The Church’s claim is that it was already present in what the earliest Christians believed about Mary’s holiness, and that definition came late in the way the doctrine of the Trinity was spelled out late, after centuries of use. Whether that fits the evidence is the real question to weigh, and the Catechism points to Eastern Fathers who already spoke of her this way.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §493",
+            "ccc": 493,
+            "quote": "free from any stain of sin, as though fashioned by the Holy Spirit and formed as a new creature",
+            "note": "The Catechism names the Eastern tradition’s title for Mary, “the All-Holy,” as evidence of a very old way of speaking of her."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      490,
+      411,
+      966
+    ]
+  },
+  {
+    "id": "confess-to-priest-small-sins",
+    "title": "The Church teaches you must confess to a priest to be forgiven even for small sins",
+    "question": "Does the Church require confession to a priest for every small sin?",
+    "summary": "The Church requires sacramental confession for serious (mortal) sin, and recommends it, without requiring it, for everyday faults. Small, or venial, sins can be forgiven in other ways: through prayer, the Eucharist, acts of love and sorrow.",
+    "verdict": {
+      "label": "Mostly false",
+      "why": "Confession to a priest is required for grave sin that a person is conscious of, and it is required at least once a year in that case. For venial sins, the Catechism and the Council of Trent both say it is not necessary, only strongly recommended.",
+      "origin": "Many Catholics grew up being told to confess every little thing, and the Church does encourage regular confession as a help to the soul. The difference between “encouraged” and “required” is often lost, especially for people with a scrupulous conscience."
+    },
+    "steps": [
+      {
+        "kind": "catechism",
+        "label": "Catechism §1855",
+        "ccc": 1855,
+        "quote": "Venial sin allows charity to subsist, even though it offends and wounds it.",
+        "note": "This sets the distinction behind everything else: mortal sin destroys the friendship with God, venial sin wounds but does not break it."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1456",
+        "ccc": 1456,
+        "quote": "All mortal sins of which penitents after a diligent self-examination are conscious must be recounted by them in confession",
+        "note": "Here is what is actually required: the serious sins a person is aware of must be confessed to a priest."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1458",
+        "ccc": 1458,
+        "quote": "Without being strictly necessary, confession of everyday faults (venial sins) is nevertheless strongly recommended by the Church.",
+        "note": "The Catechism says in plain words that confessing small sins is not strictly necessary. It recommends it because it helps form conscience and bring healing."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Trent, Session 14: on Penance",
+        "when": "1551",
+        "year": 1551,
+        "work": "trent-canons-decrees",
+        "section": "s14",
+        "quote": "although they be rightly and profitably, and without any presumption declared in confession, as the custom of pious persons demonstrates, yet may they be omitted without guilt, and be expiated by many other remedies",
+        "note": "The same teaching is in the sixteenth-century council: venial sins “may be omitted without guilt,” since there are other remedies for them."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1394",
+        "ccc": 1394,
+        "quote": "this living charity wipes away venial sins",
+        "note": "One of the “other remedies” is the Eucharist: the love it strengthens is itself what wipes away everyday faults."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, Enchiridion 71",
+        "when": "c. 421",
+        "year": 421,
+        "work": "aug-doctrinal",
+        "section": "iv.ii.lxxiii",
+        "quote": "the daily prayer of the believer makes satisfaction for those daily sins of a momentary and trivial kind which are necessary incidents of this life",
+        "note": "Augustine, c. 421, says the same thing in his own words: the Lord’s Prayer, prayed daily, takes care of the small, everyday failings."
+      },
+      {
+        "kind": "scripture",
+        "label": "John 20:21-23, why a priest at all",
+        "ref": "JHN.20.21-23",
+        "quote": "If you forgive anyone’s sins, they have been forgiven them. If you retain anyone’s sins, they have been retained.",
+        "note": "This is the Church’s ground for sacramental confession: the risen Christ gives the apostles a real ministry of forgiving serious sin, which the Church understands to continue in bishops and priests."
+      }
+    ],
+    "objections": [
+      {
+        "q": "The Bible says “if we confess our sins, he is faithful and righteous to forgive us.” It says to confess to God, not to a man.",
+        "a": "The Church agrees that only God forgives, and teaches that perfect sorrow motivated by love of God wins forgiveness even before confession. What it adds is that Christ gave a visible ministry for this, and that someone aware of a mortal sin should use it. Where confession is genuinely impossible, the Catechism states plainly that perfect contrition still reaches God.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "1 John 1:8-9",
+            "ref": "1JN.1.8-9",
+            "quote": "If we confess our sins, he is faithful and righteous to forgive us the sins and to cleanse us from all unrighteousness.",
+            "note": "This is the verse Protestant friends rightly stress. Catholics read it as true and as compatible with the sacrament."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism §1452",
+            "ccc": 1452,
+            "quote": "Such contrition remits venial sins; it also obtains forgiveness of mortal sins if it includes the firm resolution to have recourse to sacramental confession as soon as possible.",
+            "note": "Perfect contrition, sorrow out of love for God, is itself forgiving; the sacrament is where it normally comes to completion."
+          }
+        ]
+      },
+      {
+        "q": "But some Catholics are made to feel that every small slip must be taken to confession. Isn’t that what the Church teaches in practice?",
+        "a": "It is true that many Catholics have felt that way, and some have been taught that, which has caused real anxiety. The teaching itself is gentler: venial sin does not cut a person off from God. The Church’s hope is that confession is a source of peace, not a burden of dread.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §1863",
+            "ccc": 1863,
+            "quote": "Venial sin does not deprive the sinner of sanctifying grace, friendship with God, charity, and consequently eternal happiness.",
+            "note": "A person who has only everyday faults on the conscience is still in God’s friendship; nothing about the sacrament’s schedule changes that."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      1422,
+      1446,
+      1457,
+      1862
+    ]
+  },
+  {
+    "id": "church-treats-women-lesser",
+    "title": "The Church treats women as lesser",
+    "question": "Does the Catholic Church teach that women are lesser than men?",
+    "summary": "The Church teaches that man and woman share one and the same dignity as persons made in God’s image, and she holds up a woman, Mary, as the highest of all creatures. She also teaches that only baptized men can be ordained priests, and she says this concerns Christ’s choice of the Twelve, not women’s worth.",
+    "verdict": {
+      "label": "Mostly false",
+      "why": "As teaching, the Church says in the plainest terms that men and women are equal in dignity, and history shows women as foundresses, teachers, martyrs and saints. But the priesthood is reserved to men, and many people understandably read that as inequality; the Church says it is a difference of calling, not of worth.",
+      "origin": "The claim grows out of a true thing, the all-male priesthood and clergy, and a sadder one: in every era many Christians, as many societies, have fallen short in how they treated women, and some respected writers used language that sounds demeaning today."
+    },
+    "steps": [
+      {
+        "kind": "catechism",
+        "label": "Catechism §369",
+        "ccc": 369,
+        "quote": "Man and woman are both with one and the same dignity \"in the image of God\".",
+        "note": "The Catechism begins with equal dignity “immediately from God their Creator.” This is the baseline of the Church’s teaching on the subject."
+      },
+      {
+        "kind": "scripture",
+        "label": "Galatians 3:28",
+        "ref": "GAL.3.28",
+        "quote": "there is neither male nor female; for you are all one in Christ Jesus",
+        "note": "Paul states that in Christ and in baptism, women stand fully equal with men before God."
+      },
+      {
+        "kind": "scripture",
+        "label": "John 20:16-18, the first witness",
+        "ref": "JHN.20.16-18",
+        "quote": "Mary Magdalene came and told the disciples that she had seen the Lord",
+        "note": "In John’s Gospel the first person sent to announce the Resurrection to the apostles is a woman."
+      },
+      {
+        "kind": "scripture",
+        "label": "Romans 16:1-3, women in Paul’s ministry",
+        "ref": "ROM.16.1-3",
+        "quote": "I commend to you Phoebe, our sister, who is a servant of the assembly that is at Cenchreae",
+        "note": "Paul commends Phoebe, a woman with a formal service in the Church, and calls Prisca “my fellow worker in Christ Jesus.” Women were active in the apostolic Church."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §773",
+        "ccc": 773,
+        "quote": "Mary goes before us all in the holiness that is the Church's mystery as \"the bride without spot or wrinkle.\" This is why the \"Marian\" dimension of the Church precedes the \"Petrine.\"",
+        "note": "In the Church’s own self-understanding, holiness comes before office, and its greatest example is a woman. The Catechism says the Marian dimension “precedes” the Petrine."
+      },
+      {
+        "kind": "saint",
+        "label": "Butler, St. Macrina",
+        "when": "c. 379",
+        "year": 379,
+        "butler": "07-19:3",
+        "quote": "Macrina drew up the rules for the nunnery with admirable prudence and piety",
+        "note": "Macrina taught her brothers Basil and Gregory of Nyssa, two of the greatest Fathers. Butler tells how they “learned from her their early contempt of the world, dread of its dangers, and application to prayer and the word of God.”"
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1577",
+        "ccc": 1577,
+        "quote": "The Lord Jesus chose men (viri) to form the college of the twelve apostles, and the apostles did the same when they chose collaborators to succeed them in their ministry.",
+        "note": "This is the Church’s stated reason for a male priesthood: it holds itself bound by Christ’s own choice, not by a judgment that women are less capable or less holy."
+      }
+    ],
+    "objections": [
+      {
+        "q": "If men and women are equal, why can’t women be priests? Doesn’t that prove the claim?",
+        "a": "The Church’s reply is that priesthood is a service, not a prize, and that nobody has a right to it: not even men. She also teaches that the highest human being, Mary, was not a priest. Many people find this reasoning unconvincing, and it is fair to say that the Church’s teaching on this point is settled and not open to change in the way some wish.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §1578",
+            "ccc": 1578,
+            "quote": "No one has a right to receive the sacrament of Holy Orders.",
+            "note": "The Catechism describes ordination as a gift to be received, not an honor to be claimed. Men have no more right to it than women."
+          }
+        ]
+      },
+      {
+        "q": "But Church Fathers and saints wrote harsh things about women. Doesn’t that show what the Church really thought?",
+        "a": "It is true that some ancient writers, including saints, wrote about women in ways that reflect the assumptions of their age. For instance, Jerome praises a woman by saying she has become “a man” and “an equal.” These are the opinions of individuals, not Church teaching, and the Catechism, not those passages, is where the Church states her own mind.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Jerome, Letter 71 to Lucinius",
+            "when": "c. 398",
+            "year": 398,
+            "work": "jerome-letters",
+            "section": "v.LXXI",
+            "quote": "once your wife but now your sister; once a woman but now a man; once an inferior but now an equal",
+            "note": "Jerome writes this as praise of Theodora’s spiritual progress, but the phrase takes for granted that “woman” means “inferior.” It illustrates the ancient assumption the Church’s teaching does not share."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      2334,
+      2335,
+      1598,
+      967
+    ]
+  },
+  {
+    "id": "transubstantiation-magical-thinking",
+    "title": "Catholics believe the bread becomes a different substance but still looks like bread, so it is magical thinking",
+    "question": "Is the Catholic belief about the Eucharist, that bread and wine become Christ’s body and blood while still looking like bread and wine, magical thinking?",
+    "summary": "The Church teaches that at the consecration the whole substance of the bread and wine is changed into the body and blood of Christ, while the appearances remain. She does not claim this can be seen or tested; she says it is received on Christ’s word, and that the change is God’s work, not a priest’s spell.",
+    "verdict": {
+      "label": "Partly true",
+      "why": "The first half is an accurate summary of what the Church teaches: the appearances stay and the substance is changed. Whether to call that “magical thinking” is a judgment, but the Church does not present it as a technique or as something observable: it is a belief about what God does in response to Christ’s own words.",
+      "origin": "Transubstantiation uses the philosophical vocabulary of “substance” and “appearance,” which does not match how most people use those words today. Said in modern terms, it can easily sound like a claim about chemistry, when it is a claim about what the sacrament is."
+    },
+    "steps": [
+      {
+        "kind": "catechism",
+        "label": "Catechism §1376",
+        "ccc": 1376,
+        "quote": "a change of the whole substance of the bread into the substance of the body of Christ our Lord and of the whole substance of the wine into the substance of his blood",
+        "note": "This is the doctrine as the Catechism gives it, quoting Trent: the word “transubstantiation” names the change, and the change is of substance, not of what the senses measure."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Trent, Session 13: the Eucharist",
+        "when": "1551",
+        "year": 1551,
+        "work": "trent-canons-decrees",
+        "section": "s13",
+        "quote": "by the consecration of the bread and of the wine, a conversion is made of the whole substance of the bread into the substance of the body of Christ our Lord, and of the whole substance of the wine into the substance of His blood… the species only of the bread and wine remaining",
+        "note": "Trent says openly that what remains is the “species,” the appearances. The Church never claimed that the bread would look or test differently."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1381",
+        "ccc": 1381,
+        "quote": "cannot be apprehended by the senses,\" says St. Thomas, \"but only by faith, which relies on divine authority.",
+        "note": "Thomas Aquinas is quoted for the Church’s own admission that this is a matter of faith in Christ’s word, not something to be verified by looking or tasting."
+      },
+      {
+        "kind": "scripture",
+        "label": "Matthew 26:26-28, the words of Christ",
+        "ref": "MAT.26.26-28",
+        "quote": "Take, eat; this is my body.",
+        "note": "The doctrine rests on these words. Catholics take “this is my body” to mean exactly what it says, as the Church read them from the beginning."
+      },
+      {
+        "kind": "scripture",
+        "label": "John 6:53-56, the Bread of Life",
+        "ref": "JHN.6.53-56",
+        "quote": "For my flesh is food indeed, and my blood is drink indeed.",
+        "note": "Jesus teaches that his flesh is “food indeed.” Catholics read this chapter together with the Last Supper."
+      },
+      {
+        "kind": "father",
+        "label": "Cyril of Jerusalem, Mystagogic Catechesis IV",
+        "when": "c. 350",
+        "year": 350,
+        "work": "cyril-catecheses",
+        "section": "ii.xxvi",
+        "quote": "Consider therefore the Bread and the Wine not as bare elements, for they are, according to the Lord’s declaration, the Body and Blood of Christ; for even though sense suggests this to thee, yet let faith establish thee. Judge not the matter from the taste",
+        "note": "About 350 Cyril tells new Christians that their senses will still report bread and wine, and that faith in Christ’s word is what tells them otherwise."
+      },
+      {
+        "kind": "father",
+        "label": "Ambrose, On the Mysteries 9",
+        "when": "c. 390",
+        "year": 390,
+        "work": "ambrose-works",
+        "section": "iv.v.x",
+        "quote": "shall not the word of Christ have power to change the nature of the elements?",
+        "note": "About 390 Ambrose argues that if the word of a prophet could change things in Scripture, Christ’s word can all the more. The change is God’s doing, brought about by his word."
+      }
+    ],
+    "objections": [
+      {
+        "q": "If nothing about it changes (taste, weight, chemistry), how is this anything other than a claim no one could ever test?",
+        "a": "That is exactly right, and the Church agrees. She does not present it as a scientific claim, but as a mystery that rests on Christ’s word. Whether that is a good reason to believe it is a fair question, and it is the same question as whether Jesus is trustworthy.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §1375",
+            "ccc": 1375,
+            "quote": "Be convinced that this is not what nature has formed, but what the blessing has consecrated.",
+            "note": "The Catechism quotes Ambrose: the change is brought about by blessing, meaning God’s action, not by the natural order. It is not tested because it is not claimed to be a natural event."
+          }
+        ]
+      },
+      {
+        "q": "Isn’t “This is my body” simply symbolic? Many Christians read it that way.",
+        "a": "Many sincere Christians do, and Catholics do not dismiss that reading as foolish. Catholics respond that the earliest Christians took the words literally, that Jesus did not soften the hard saying in John 6 when disciples left over it, and that the Fathers insisted it was more than a figure.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "John 6:60-66, the disciples who left",
+            "ref": "JHN.6.60-66",
+            "quote": "This is a hard saying! Who can listen to it?",
+            "note": "John records that many disciples left over this teaching and that Jesus did not call them back to say he meant a figure of speech."
+          },
+          {
+            "kind": "father",
+            "label": "John of Damascus, On the Orthodox Faith 4",
+            "when": "c. 743",
+            "year": 743,
+            "work": "john-damascus",
+            "section": "iii.iv.iv",
+            "quote": "The bread and the wine are not merely figures of the body and blood of Christ (God forbid!) but the deified body of the Lord itself",
+            "note": "In the eighth century the great Eastern writer states directly what he thinks of the “mere figure” reading. This is a witness of the East as well as the West."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      1374,
+      1377,
+      1413,
+      1333
+    ]
+  },
+  {
+    "id": "divorce-forbidden-annulment",
+    "title": "The Church forbids divorce because it is cruel; annulment is just Catholic divorce",
+    "question": "Why does the Church not allow divorce, and is an annulment just a divorce by another name?",
+    "summary": "The Church does not forbid divorce out of cruelty. She teaches, following Jesus, that a valid marriage between baptized persons cannot be dissolved by anyone. She does allow separation, tolerates civil divorce when needed, and can declare that a marriage was never valid in the first place; that is what an annulment is.",
+    "verdict": {
+      "label": "Mostly false",
+      "why": "The Church’s reason is Jesus’ own teaching on marriage, not a wish to trap people, and she allows separation and civil divorce where necessary. An annulment is not a divorce, because it declares that no valid marriage ever existed; however, it is fair to say that the process is a human one and has often confused and hurt people.",
+      "origin": "From outside, a ban on divorce looks like a rule that traps unhappy spouses, and a Church tribunal that can “nullify” a marriage of twenty years looks like a loophole. The Church’s claim is much narrower than either impression."
+    },
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Matthew 19:3-9, the teaching of Jesus",
+        "ref": "MAT.19.3-9",
+        "quote": "Moses, because of the hardness of your hearts, allowed you to divorce your wives, but from the beginning it has not been so.",
+        "note": "Asked about divorce, Jesus points back to creation, “what God has joined together, don’t let man tear apart,” and says Moses’ allowance was a concession. This is the Church’s whole basis."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1640",
+        "ccc": 1640,
+        "quote": "a marriage concluded and consummated between baptized persons can never be dissolved",
+        "note": "The Catechism states the teaching: the bond is established by God and the Church “does not have the power to contravene” it. The reason is fidelity to Christ, not severity."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, On the Good of Marriage 17",
+        "when": "c. 401",
+        "year": 401,
+        "work": "aug-moral",
+        "section": "v.ii.xviii",
+        "quote": "marriage bears a certain sacramental character, can no way be dissolved but by the death of one of them",
+        "note": "Around 401 Augustine already teaches that marriage is a permanent bond with a sacramental character. This was not invented by the later Church."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Trent, Session 24: Matrimony",
+        "when": "1563",
+        "year": 1563,
+        "work": "trent-canons-decrees",
+        "section": "s24",
+        "quote": "The first parent of the human race, under the influence of the divine Spirit, pronounced the bond of matrimony perpetual and indissoluble",
+        "note": "Trent grounds the teaching in Genesis and in Christ, and adds that the Church may allow separation for many reasons while the bond remains."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §2383",
+        "ccc": 2383,
+        "quote": "If civil divorce remains the only possible way of ensuring certain legal rights, the care of the children, or the protection of inheritance, it can be tolerated and does not constitute a moral offense.",
+        "note": "The Church does not ask a spouse to remain in danger or legal limbo. Civil divorce can be used to protect people, and it is not itself a sin."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §2386",
+        "ccc": 2386,
+        "quote": "There is a considerable difference between a spouse who has sincerely tried to be faithful to the sacrament of marriage and is unjustly abandoned, and one who through his own grave fault destroys a canonically valid marriage.",
+        "note": "The Catechism distinguishes the innocent victim of a divorce from the person who caused it, and does not hold the first responsible."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1628",
+        "ccc": 1628,
+        "quote": "No human power can substitute for this consent. If this freedom is lacking the marriage is invalid.",
+        "note": "This is the key to annulment: a marriage exists only by free consent. Where that consent was lacking from the beginning, there was no valid marriage."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1629",
+        "ccc": 1629,
+        "quote": "the Church, after an examination of the situation by the competent ecclesiastical tribunal, can declare the nullity of a marriage, i.e., that the marriage never existed.",
+        "note": "An annulment is a finding about the past, not an act of ending a marriage. It says the marriage “never existed” in the full sense, which is different from dissolving a marriage that did exist."
+      }
+    ],
+    "objections": [
+      {
+        "q": "In practice an annulment is granted so often that it is divorce with paperwork.",
+        "a": "The Church is open to the fairness of this concern. Tribunals are human, and many Catholics have experienced the process as slow, confusing or painful; Church leaders themselves have called for reform of how it works. What the Church maintains is the principle: a nullity decision declares what was true at the wedding, and nothing else can end a valid marriage.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §1626",
+            "ccc": 1626,
+            "quote": "If consent is lacking there is no marriage.",
+            "note": "The principle is simple: consent makes the marriage. If it was lacking or compromised, an annulment recognizes that fact; it is not a mere procedure."
+          }
+        ]
+      },
+      {
+        "q": "Isn’t it cruel to tell someone trapped in an abusive marriage they cannot leave?",
+        "a": "The Church does not say that. Spouses can separate, and the Catechism says the bond remains; that is different from being required to stay in danger. The Church’s hope is for reconciliation where possible and her call is for the community to support those in this situation.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §1649",
+            "ccc": 1649,
+            "quote": "In such cases the Church permits the physical separation of the couple and their living apart.",
+            "note": "When living together becomes “practically impossible,” the Church permits separation. What it does not permit is remarriage while the first marriage stands."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      1601,
+      1644,
+      1650,
+      1651
+    ]
+  },
+  {
+    "id": "catholics-not-allowed-to-think",
+    "title": "Catholics are not allowed to question or think for themselves",
+    "question": "Does the Catholic Church forbid questioning and independent thinking?",
+    "summary": "The Church teaches that faith and reason come from the same God and can never truly contradict each other, and that believers are meant to seek understanding. She also holds that some teachings are definitive and that a Catholic cannot simply deny them, and in history she has sometimes restricted inquiry in ways she later regretted.",
+    "verdict": {
+      "label": "Mostly false",
+      "why": "The Church’s own documents call for questioning, study and “faith seeking understanding.” The truer part of the claim is that she does not treat every question as equally open: a Catholic who rejects defined teaching has left the Catholic position, and past censorship has sometimes done real harm.",
+      "origin": "A faith that claims to hold revealed truth can look like it forbids inquiry, and history provides examples: the Index of Forbidden Books, and the 1633 condemnation of Galileo, which the Church has since acknowledged was a mistake."
+    },
+    "steps": [
+      {
+        "kind": "catechism",
+        "label": "Catechism §159",
+        "ccc": 159,
+        "quote": "God cannot deny himself, nor can truth ever contradict truth.",
+        "note": "The Catechism sets out the basic principle: faith and reason cannot really be opposed, and honest research “can never conflict with the faith.”"
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §158",
+        "ccc": 158,
+        "quote": "it is intrinsic to faith that a believer desires to know better the One in whom he has put his faith, and to understand better what He has revealed",
+        "note": "Questioning is built into faith: wanting to understand more is called part of faith itself. The Catechism quotes Augustine, “I believe, in order to understand; and I understand, the better to believe.”"
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §156",
+        "ccc": 156,
+        "quote": "the assent of faith is \"by no means a blind impulse of the mind\"",
+        "note": "The Church says faith is not meant to be blind. It rests on signs and reasons, which the Catechism calls “motives of credibility.”"
+      },
+      {
+        "kind": "scripture",
+        "label": "Acts 17:11, the Bereans",
+        "ref": "ACT.17.11",
+        "quote": "examining the Scriptures daily to see whether these things were so",
+        "note": "Luke praises the Bereans as “more noble” because they checked even Paul’s preaching against Scripture. Testing what is taught is held up as a virtue."
+      },
+      {
+        "kind": "scripture",
+        "label": "1 Thessalonians 5:21",
+        "ref": "1TH.5.21",
+        "quote": "Test all things, and hold firmly that which is good.",
+        "note": "Paul’s instruction has two parts: test everything, and hold on to what proves good."
+      },
+      {
+        "kind": "father",
+        "label": "Anselm, Proslogium 1",
+        "when": "1078",
+        "year": 1078,
+        "work": "anselm-basic-works",
+        "section": "iii.ii",
+        "quote": "I do not seek to understand that I may believe, but I believe in order to understand.",
+        "note": "In 1077-78 Anselm gives the classic formula: faith that goes looking for understanding. He originally titled the work “Faith Seeking Understanding.”"
+      },
+      {
+        "kind": "council",
+        "label": "Vatican I, Dei Filius 4: Faith and Reason",
+        "when": "1870",
+        "year": 1870,
+        "work": "vatican-i-constitutions",
+        "section": "s5",
+        "quote": "Reason, indeed, enlightened by faith, when it seeks earnestly, piously and calmly, attains by a gift from God some, and that a very fruitful, understanding of mysteries",
+        "note": "The 1870 council says that reason is a gift to be used, and that it will reach real understanding of the mysteries even though it cannot exhaust them."
+      }
+    ],
+    "objections": [
+      {
+        "q": "But a Catholic has to accept what the Church teaches whether or not they agree. That is not thinking for yourself.",
+        "a": "It is fair to say that the Church holds some teachings as binding, and a Catholic who denies them is not in full agreement with the faith. What the Church distinguishes is doubt and difficulty from denial. A person may have many questions and still be a faithful Catholic; the Church’s line falls at obstinate denial of defined doctrine, not at asking.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §157",
+            "ccc": 157,
+            "quote": "Ten thousand difficulties do not make one doubt.",
+            "note": "The Catechism quotes Newman’s line that difficulties and doubts are different things. A Catholic can find much hard to understand without abandoning faith."
+          }
+        ]
+      },
+      {
+        "q": "Didn’t the Church ban books and punish people for their ideas?",
+        "a": "Yes. The Index of Forbidden Books was a real system of restriction, and the Galileo case is the best-known example of the Church acting wrongly in a scientific question. Pope John Paul II publicly acknowledged in 1992 that mistakes had been made. The Index was abolished in 1966. Saying so is a sign that the Church does not claim these actions were right.",
+        "steps": [
+          {
+            "kind": "council",
+            "label": "Council of Trent, Session 25: the Index of Books",
+            "when": "1563",
+            "year": 1563,
+            "work": "trent-canons-decrees",
+            "section": "s25",
+            "quote": "commissioned certain chosen Fathers to consider what ought to be done touching various censures, and books either suspected or pernicious",
+            "note": "The Council of Trent records the beginning of the Index. This is a real case of the Church restricting what could be read, done to protect the faithful from error as the Council saw it."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      31,
+      35,
+      36,
+      50
+    ]
+  },
+  {
+    "id": "hell-medieval-scare-tactic",
+    "title": "Hell is just a medieval scare tactic",
+    "question": "Is the Church’s teaching on hell a medieval invention to frighten people?",
+    "summary": "The teaching on hell does not come from the Middle Ages: it is in the preaching of Jesus and in the earliest Fathers. The Church teaches that hell is the state of definitive self-exclusion from God, that God predestines no one to it, and that the warnings are a call to freedom and conversion.",
+    "verdict": {
+      "label": "Mostly false",
+      "why": "Hell is taught in the Gospels and by Fathers of the second and fourth centuries, long before the Middle Ages. It is true that medieval preaching and art sometimes dwelt on terrifying imagery, and that fear has sometimes been used to pressure people; but the Catechism itself presents hell as the result of a free refusal of love.",
+      "origin": "Dante, cathedral paintings and fiery sermons gave many people their picture of hell, and these are medieval. The doctrine behind them is much older, and much more restrained than the pictures."
+    },
+    "steps": [
+      {
+        "kind": "catechism",
+        "label": "Catechism §1033",
+        "ccc": 1033,
+        "quote": "To die in mortal sin without repenting and accepting God's merciful love means remaining separated from him for ever by our own free choice. This state of definitive self-exclusion from communion with God and the blessed is called \"hell.\"",
+        "note": "The Catechism defines hell as a free choice that is not reversed, not as an arbitrary sentence imposed from outside."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1037",
+        "ccc": 1037,
+        "quote": "God predestines no one to go to hell; for this, a willful turning away from God (a mortal sin) is necessary, and persistence in it until the end.",
+        "note": "The Church denies that God sends anyone to hell by decree. Hell takes a deliberate, persisting refusal."
+      },
+      {
+        "kind": "scripture",
+        "label": "Matthew 25:41-46, Jesus on the last judgment",
+        "ref": "MAT.25.41-46",
+        "quote": "These will go away into eternal punishment, but the righteous into eternal life.",
+        "note": "The warning is Jesus’ own, and it is given in the context of failing to feed, welcome and visit the poor. This is a judgment about love, not primarily about ritual."
+      },
+      {
+        "kind": "scripture",
+        "label": "1 Timothy 2:4",
+        "ref": "1TI.2.4",
+        "quote": "who desires all people to be saved and come to full knowledge of the truth.",
+        "note": "Alongside the warnings stands God’s desire that all be saved, which the Church holds together with the reality of hell."
+      },
+      {
+        "kind": "father",
+        "label": "Justin Martyr, Second Apology",
+        "when": "c. 155",
+        "year": 155,
+        "work": "justin-martyr",
+        "section": "viii.iii",
+        "quote": "an intimation of the punishment in eternal fire which is to be inflicted on themselves and those who serve them",
+        "note": "Around 155, in a defense of the faith to the pagan emperor, Justin already says this is what the prophets and Jesus taught."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, Enchiridion 67",
+        "when": "c. 421",
+        "year": 421,
+        "work": "aug-doctrinal",
+        "section": "iv.ii.lxix",
+        "quote": "led astray by a kind of benevolent feeling natural to humanity. For Holy Scripture, when consulted, gives a very different answer",
+        "note": "Around 421 Augustine rejects the hope that punishment will not be everlasting for those who die unrepentant. He presents this as what Scripture says, not as his preference."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1036",
+        "ccc": 1036,
+        "quote": "The affirmations of Sacred Scripture and the teachings of the Church on the subject of hell are a call to the responsibility incumbent upon man to make use of his freedom in view of his eternal destiny.",
+        "note": "The Catechism describes the purpose of these teachings as a call to responsibility and conversion, not as a threat for its own sake."
+      }
+    ],
+    "objections": [
+      {
+        "q": "The fire, the demons, the torture: that is all medieval imagery, not anything Jesus said.",
+        "a": "There is truth in this. A great deal of the vivid imagery in preaching and art does come from later centuries and poetry. The Catechism puts the weight elsewhere: the chief punishment of hell is separation from God, and fire is the language Jesus himself uses.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §1035",
+            "ccc": 1035,
+            "quote": "The chief punishment of hell is eternal separation from God, in whom alone man can possess the life and happiness for which he was created and for which he longs.",
+            "note": "The Church’s core claim is that hell is the loss of God, not an invented system of tortures."
+          }
+        ]
+      },
+      {
+        "q": "A loving God would not allow anyone to be lost forever. Isn’t hell inconsistent with that?",
+        "a": "This is the question that has troubled Christians most. The Church does not claim to know that anyone is in hell; she teaches that the possibility is real because love cannot be forced. The Church prays “that no one should be lost.” Some in the early Church, notably Origen, hoped everyone would eventually be restored, and the Church rejected that view as contrary to what Scripture says.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "2 Peter 3:9",
+            "ref": "2PE.3.9",
+            "quote": "not wishing that anyone should perish, but that all should come to repentance",
+            "note": "God’s will is that no one be lost. The Church holds that this will can be refused."
+          },
+          {
+            "kind": "council",
+            "label": "Anathemas against Origen (sixth century)",
+            "when": "553",
+            "year": 553,
+            "work": "council-constantinople-2",
+            "section": "xii.x",
+            "quote": "If anyone says or thinks that the punishment of demons and of impious men is only temporary, and will one day have an end, and that a restoration (ἀποκατάστασις) will take place of demons and of impious men, let him be anathema.",
+            "note": "These sixth-century anathemas, associated with the Emperor Justinian and the Council of 553, rule out the view that all will finally be restored. Historians debate exactly how they relate to the council itself, but they show how the Church read this question."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      1034,
+      1058,
+      1861,
+      1021
+    ]
+  },
+  {
+    "id": "suffering-is-gods-punishment",
+    "title": "The Church says suffering is God’s punishment",
+    "question": "Does the Church teach that suffering is God’s punishment for sin?",
+    "summary": "The Church does not teach that a person’s suffering is a punishment for that person’s sin. She teaches that suffering and death entered the world through sin in general, that God does not will evil but can bring good out of it, and that in Christ suffering can be united to his own. The Bible’s own answer, in Job and in the Gospels, rejects the simple idea that the sufferer must be guilty.",
+    "verdict": {
+      "label": "Mostly false",
+      "why": "Jesus himself denies it when asked about a man born blind, and the Book of Job is largely about the error of Job’s friends. The Church does hold that suffering is connected to the fallen state of the world, and the Old Testament often links sin and suffering, but she does not say that your suffering means you were bad.",
+      "origin": "Many people, in the Bible’s world and ours, assume that bad things come to bad people. Some Catholics have said this to the sick, with painful results, and the phrase “offer it up” can be said carelessly."
+    },
+    "steps": [
+      {
+        "kind": "catechism",
+        "label": "Catechism §311",
+        "ccc": 311,
+        "quote": "God is in no way, directly or indirectly, the cause of moral evil. He permits it, however, because he respects the freedom of his creatures and, mysteriously, knows how to derive good from it",
+        "note": "The Catechism begins by denying that God causes evil. Evil is permitted because of human freedom, and God can bring good from it."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1502",
+        "ccc": 1502,
+        "quote": "It is the experience of Israel that illness is mysteriously linked to sin and evil",
+        "note": "The Catechism admits the kernel of truth in the claim: Israel saw a link between sickness and sin. It says “mysteriously,” and goes on to say that the prophets saw suffering as possibly redemptive."
+      },
+      {
+        "kind": "scripture",
+        "label": "John 9:1-3, the man born blind",
+        "ref": "JHN.9.1-3",
+        "quote": "This man didn’t sin, nor did his parents, but that the works of God might be revealed in him.",
+        "note": "The disciples ask exactly the question in the claim. Jesus rejects the connection between this man’s blindness and anyone’s sin."
+      },
+      {
+        "kind": "scripture",
+        "label": "Luke 13:1-5, the tower of Siloam",
+        "ref": "LUK.13.1-5",
+        "quote": "Do you think that these Galileans were worse sinners than all the other Galileans, because they suffered such things? I tell you, no",
+        "note": "Asked about victims of a massacre and of a collapsing tower, Jesus again refuses to say the victims were worse sinners."
+      },
+      {
+        "kind": "scripture",
+        "label": "Job 42:7, God on Job’s friends",
+        "ref": "JOB.42.7",
+        "quote": "you have not spoken of me the thing that is right, as my servant Job has",
+        "note": "The friends spent the book arguing that Job must have sinned. God ends it by saying they were wrong and Job was right."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, Tractates on John 44",
+        "when": "c. 416",
+        "year": 416,
+        "work": "aug-tractates-john",
+        "section": "iii.xlv",
+        "quote": "For his parents had sin; but not by reason of the sin itself did it come about that he was born blind.",
+        "note": "Augustine takes care to say that the blind man’s parents were sinners like everyone, and that this still was not why he was blind. Sin in general and one person’s suffering are not tied."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1505",
+        "ccc": 1505,
+        "quote": "By his passion and death on the cross Christ has given a new meaning to suffering: it can henceforth configure us to him and unite us with his redemptive Passion.",
+        "note": "The Church’s central answer is not an explanation but a presence: Christ himself took on suffering and gave it a share in his redemption."
+      },
+      {
+        "kind": "scripture",
+        "label": "2 Corinthians 1:3-5",
+        "ref": "2CO.1.3-5",
+        "quote": "the Father of mercies and God of all comfort, who comforts us in all our affliction",
+        "note": "Paul describes God as the one who comforts those in affliction, not the one who inflicts it as a penalty."
+      }
+    ],
+    "objections": [
+      {
+        "q": "The Catechism talks about the “temporal punishment of sin.” Isn’t that exactly this claim?",
+        "a": "No, it is a different subject. Temporal punishment refers to the lingering effects of sin that need healing, and the Catechism says plainly that it is not a punishment God inflicts from outside. It is not a theory about why anyone gets cancer or loses a child.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §1472",
+            "ccc": 1472,
+            "quote": "These two punishments must not be conceived of as a kind of vengeance inflicted by God from without, but as following from the very nature of sin.",
+            "note": "The Catechism itself rules out the picture of God handing out suffering as vengeance."
+          }
+        ]
+      },
+      {
+        "q": "Then why do Catholics tell suffering people to “offer it up”? That sounds like they must deserve it.",
+        "a": "The Church’s teaching is that suffering united to Christ can have meaning, as Paul says, and not that the sufferer has earned it. It must be admitted that the phrase has sometimes been said without care, and has hurt people who needed comfort first.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Colossians 1:24",
+            "ref": "COL.1.24",
+            "quote": "fill up on my part that which is lacking of the afflictions of Christ in my flesh for his body’s sake",
+            "note": "Paul sees his own suffering as a share in Christ’s suffering for the Church, an invitation to meaning rather than a verdict."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      309,
+      1521,
+      1503,
+      2447
+    ]
+  },
+  {
+    "id": "indulgences-buy-your-way-out",
+    "title": "Indulgences let you buy your way out of sin",
+    "question": "Can a Catholic buy forgiveness of sin with an indulgence?",
+    "summary": "An indulgence is not forgiveness of sin and cannot be bought. It is the Church’s remission of the temporal punishment that remains after a sin has already been forgiven, and it requires the person’s own conversion. In the sixteenth century, money was wrongly tied to indulgences, and the Council of Trent ordered those “evil gains” abolished.",
+    "verdict": {
+      "label": "Partly true",
+      "why": "As doctrine, the claim is false: an indulgence presupposes that guilt is already forgiven and depends on the person’s own disposition. But as history it names a real scandal: in the early sixteenth century indulgences were linked with monetary gifts, and the Church’s own council called that an abuse and ordered it stopped.",
+      "origin": "The preaching of indulgences with money offerings, including for the rebuilding of St. Peter’s in Rome, provoked Martin Luther’s protest in 1517. The Catholic doctrine was later restated and the abuse condemned at Trent."
+    },
+    "steps": [
+      {
+        "kind": "catechism",
+        "label": "Catechism §1471",
+        "ccc": 1471,
+        "quote": "An indulgence is a remission before God of the temporal punishment due to sins whose guilt has already been forgiven",
+        "note": "The definition itself says it concerns sins already forgiven. It cannot forgive guilt."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1472",
+        "ccc": 1472,
+        "quote": "These two punishments must not be conceived of as a kind of vengeance inflicted by God from without, but as following from the very nature of sin.",
+        "note": "The Catechism explains what “temporal punishment” means: the healing still needed after forgiveness, not a bill to be paid."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism §1478",
+        "ccc": 1478,
+        "quote": "the Church does not want simply to come to the aid of these Christians, but also to spur them to works of devotion, penance, and charity",
+        "note": "The point of an indulgence is conversion: it asks something of the person, in prayer, penance or charity."
+      },
+      {
+        "kind": "scripture",
+        "label": "Matthew 18:18, binding and loosing",
+        "ref": "MAT.18.18",
+        "quote": "whatever things you bind on earth will have been bound in heaven, and whatever things you release on earth will have been released in heaven",
+        "note": "The Church claims her authority over indulgences from the power of binding and loosing Christ gave to his disciples."
+      },
+      {
+        "kind": "father",
+        "label": "Cyprian, Letter 13",
+        "when": "250",
+        "year": 250,
+        "work": "cyprian",
+        "section": "iv.iv.xiii",
+        "quote": "when they have made confession, and have received the imposition of hands on them by you in acknowledgment of their penitence, should be remitted to the Lord with the peace promised to them by the martyrs",
+        "note": "About 250 Cyprian describes lapsed Christians being helped by the martyrs’ intercession, but only after confession and penance. Early forerunners of indulgences were about repentance and the Church’s help, not payment."
+      },
+      {
+        "kind": "scripture",
+        "label": "Acts 8:18-23, Simon the magician",
+        "ref": "ACT.8.18-23",
+        "quote": "May your silver perish with you, because you thought you could obtain the gift of God with money!",
+        "note": "Scripture itself condemns anyone who tries to buy a spiritual gift. The Church later named this sin “simony,” and used the same standard against the abuses of indulgences."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Trent, Session 25: Decree on Indulgences",
+        "when": "1563",
+        "year": 1563,
+        "work": "trent-canons-decrees",
+        "section": "s25",
+        "quote": "It ordains generally by this decree, that all evil gains for the obtaining thereof — whence a most prolific cause of abuses amongst the Christian people has been derived — be wholly abolished",
+        "note": "In 1563 the Council itself admitted that abuses had come in and ordered the money-making to stop, while keeping the practice of indulgences."
+      }
+    ],
+    "objections": [
+      {
+        "q": "But preachers like Tetzel sold indulgences for money. Isn’t that buying forgiveness?",
+        "a": "Yes, money was connected to indulgences in a way that led many to believe forgiveness could be purchased, and the Church had to admit this was an abuse. Trent’s decree condemns exactly that practice. Defending the doctrine is not the same as defending those who preached it that way.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §1459",
+            "ccc": 1459,
+            "quote": "Absolution takes away sin, but it does not remedy all the disorders sin has caused.",
+            "note": "The Catechism says it is absolution, not an indulgence, that takes away sin. Indulgences work on what is left over."
+          }
+        ]
+      },
+      {
+        "q": "If God forgives, why is there any punishment left over? That seems to be a human invention.",
+        "a": "The Church’s reasoning is that sin leaves damage, and that healing takes time even after forgiveness, like a wound after the cause is removed. People may find that idea reasonable or not; it is certainly different from the claim that God demands a payment.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism §1473",
+            "ccc": 1473,
+            "quote": "The forgiveness of sin and restoration of communion with God entail the remission of the eternal punishment of sin, but temporal punishment of sin remains.",
+            "note": "This is the Catechism’s statement of the distinction: forgiveness and healing are not the same thing."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      1498,
+      1475,
+      1030,
+      1032
+    ]
+  },
+  {
+    "id": "early-christians-no-bishops-or-priests",
+    "title": "The early Christians had no bishops or priests, just equals",
+    "question": "Were the earliest Christian communities led by equals, with no bishops or priests?",
+    "summary": "The New Testament already shows appointed leaders in the communities: overseers, elders and deacons, ordained by the laying on of hands. By about the year 107 Ignatius of Antioch describes each church with a bishop, presbyters and deacons, and Irenaeus around 180 lists bishops in succession from the apostles. The Church holds that all the baptized share in Christ’s priesthood, and that some are also ordained to a ministerial priesthood.",
+    "verdict": {
+      "label": "Mostly false",
+      "why": "Every New Testament community shows appointed leaders, and within a generation the sources show a single bishop leading each church. What is true is that the New Testament uses “elder” and “overseer” loosely, and historians debate how soon one bishop stood over the presbyters in every city.",
+      "origin": "The New Testament does not use the later titles in their later senses, and Jesus tells his disciples they are all brothers. The claim reads the gap between New Testament vocabulary and later vocabulary as the absence of the offices themselves."
+    },
+    "steps": [
+      {
+        "kind": "catechism",
+        "label": "Catechism §1593",
+        "ccc": 1593,
+        "quote": "Since the beginning, the ordained ministry has been conferred and exercised in three degrees: that of bishops, that of presbyters, and that of deacons.",
+        "note": "The Catholic claim is stated plainly. The Catechism says the three ministries have existed from the beginning."
+      },
+      {
+        "kind": "scripture",
+        "label": "Philippians 1:1",
+        "ref": "PHP.1.1",
+        "quote": "to all the saints in Christ Jesus who are at Philippi, with the overseers and servants",
+        "note": "About the year 60, Paul addresses the church of Philippi with its “overseers” (episkopoi) and “servants” (diakonoi) named alongside the congregation. Leaders were present from the start."
+      },
+      {
+        "kind": "scripture",
+        "label": "Acts 14:23",
+        "ref": "ACT.14.23",
+        "quote": "When they had appointed elders for them in every assembly, and had prayed with fasting, they commended them to the Lord",
+        "note": "Paul and Barnabas appoint elders in every community, so leadership was appointed, not simply assumed."
+      },
+      {
+        "kind": "scripture",
+        "label": "1 Timothy 4:14",
+        "ref": "1TI.4.14",
+        "quote": "Don’t neglect the gift that is in you, which was given to you by prophecy with the laying on of the hands of the elders.",
+        "note": "Timothy received a gift of ministry through the laying on of hands, the sign the Church still uses in ordination."
+      },
+      {
+        "kind": "father",
+        "label": "Ignatius of Antioch, Letter to the Smyrnaeans 8",
+        "when": "c. 107",
+        "year": 107,
+        "work": "ignatius-letters",
+        "section": "v.vii",
+        "quote": "See that ye all follow the bishop, even as Christ Jesus does the Father, and the presbytery as ye would the apostles. Do ye also reverence the deacons, as those that carry out [through their office] the appointment of God. Let no man do anything connected with the Church without the bishop.",
+        "note": "Around 107, a bishop writing from the second generation after the apostles takes it for granted that each church has a bishop, presbyters and deacons."
+      },
+      {
+        "kind": "father",
+        "label": "Irenaeus, Against Heresies 3.3",
+        "when": "c. 180",
+        "year": 180,
+        "work": "irenaeus-heresies",
+        "section": "ix.iv.iv",
+        "quote": "we are in a position to reckon up those who were by the apostles instituted bishops in the Churches, and [to demonstrate] the succession of these men to our own times",
+        "note": "About 180, Irenaeus argues against the heretics by pointing to lists of bishops going back to the apostles. This only works if everyone in the second century knew the offices went back that far."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Trent, Session 23: Order",
+        "when": "1563",
+        "year": 1563,
+        "work": "trent-canons-decrees",
+        "section": "s23",
+        "quote": "If anyone saith that in the Catholic Church there is not a hierarchy by divine ordination instituted",
+        "note": "Trent states the Catholic claim as dogma: this threefold structure is by divine institution, not only a human development."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Doesn’t the New Testament use “elder” and “overseer” for the same people? Then there was no bishop above the elders.",
+        "a": "Yes, in places the two terms seem to describe the same office, and the Church does not hide this. Jerome noticed it himself in the fourth century. What the Church says is that the offices existed, and that titles settled over time; the later one-bishop-per-city structure is already there by Ignatius around 107, and the Church believes it came from the apostles.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Titus 1:5-7",
+            "ref": "TIT.1.5-7",
+            "quote": "appoint elders in every city, as I directed you",
+            "note": "Titus is told to appoint elders and then the passage speaks of “the overseer,” so the two words overlap here."
+          },
+          {
+            "kind": "father",
+            "label": "Jerome, Letter 146 to Evangelus",
+            "when": "c. 400",
+            "year": 400,
+            "work": "jerome-letters",
+            "section": "v.CXLVI",
+            "quote": "Of the names presbyter and bishop the first denotes age, the second rank.",
+            "note": "About 400 Jerome argues that the two names once meant the same, yet in the same letter he says that “bishops, presbyters and deacons occupy in the church the same positions as those which were occupied by Aaron, his sons, and the Levites in the temple.” Even the writer who most blurs the line sees three offices."
+          }
+        ]
+      },
+      {
+        "q": "Jesus says “you are all brothers,” and Peter calls all Christians “a royal priesthood.” Doesn’t that show that nobody stood above anyone else?",
+        "a": "The Church agrees that all the baptized share in Christ’s priesthood. What she adds is that Scripture also shows some appointed to lead and to serve, and the Catechism says the two are “ordered one to another” without being the same.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "1 Peter 2:9",
+            "ref": "1PE.2.9",
+            "quote": "But you are a chosen race, a royal priesthood, a holy nation",
+            "note": "All Christians are called a priestly people. Catholics affirm this."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism §1547",
+            "ccc": 1547,
+            "quote": "the ministerial priesthood is at the service of the common priesthood",
+            "note": "The Catechism says the ordained priesthood exists for the sake of the whole people’s priesthood, so it is a service within the Church, not a rival to it."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      861,
+      1554,
+      1555,
+      1546
+    ]
+  }
+]

@@ -1,0 +1,1168 @@
+[
+ {
+  "id": "catholics-worship-mary",
+  "title": "Catholics worship Mary",
+  "question": "Do Catholics worship Mary?",
+  "summary": "The Church teaches that adoration belongs to God alone: Father, Son and Holy Spirit. Mary is honored as the Mother of God and asked to pray for us, but the Church says plainly that this honor differs in kind from the adoration given to God.",
+  "verdict": {
+   "label": "False",
+   "why": "Catholic teaching draws a firm line between adoration, which is given to God alone, and the honor and request for prayer given to Mary and the saints. The Church has said so at councils and in the Catechism, and Fathers such as Ambrose and Augustine said it long before.",
+   "origin": "Catholic devotion to Mary is warm and visible: rosaries, shrines, hymns, titles such as Queen of Heaven. To someone who does not share the framework, that can look like worship. Some individual Catholics have also spoken carelessly, and the Church has had to correct that."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 971, devotion to Mary",
+    "ccc": 971,
+    "quote": "differs essentially from the adoration which is given to the incarnate Word and equally to the Father and the Holy Spirit, and greatly fosters this adoration",
+    "note": "This is the Church’s own statement. Devotion to Mary is real and honored, but it is declared to be different in kind from the adoration given to God, and meant to lead people toward him."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 2096, adoration",
+    "ccc": 2096,
+    "quote": "You shall worship the Lord your God, and him only shall you serve",
+    "note": "The Church starts from the first commandment: adoration is the first act of the virtue of religion and is owed to God alone."
+   },
+   {
+    "kind": "scripture",
+    "label": "The angel refuses worship, Revelation 22:8-9",
+    "ref": "REV.22.8-9",
+    "quote": "You must not do that! I am a fellow bondservant with you",
+    "note": "Scripture itself shows the pattern the Church follows: even a glorious heavenly creature refuses worship and points to God, and the Church teaches the same of Mary and the saints."
+   },
+   {
+    "kind": "father",
+    "label": "Ambrose, On the Holy Spirit 3",
+    "when": "c. 381",
+    "year": 381,
+    "work": "ambrose-works",
+    "section": "iv.ii.iv",
+    "quote": "Mary was the temple of God, not the God of the temple. And therefore He alone is to be worshipped Who was working in His temple.",
+    "note": "A bishop of the fourth century, writing in the Church’s own voice, says in so many words that Mary is not to be worshipped. Honor for the Mother never became worship of the Mother."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Against Faustus 20",
+    "when": "c. 398",
+    "year": 398,
+    "work": "aug-manichaean",
+    "section": "iv.ix.xxii",
+    "quote": "What is properly divine worship, which the Greeks call latria, and for which there is no word in Latin, both in doctrine and in practice, we give only to God.",
+    "note": "Augustine names the distinction the Church still uses: one kind of worship, latria, is for God only, and other kinds of honor are not that."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Ephesus, anathemas of Cyril",
+    "when": "431",
+    "year": 431,
+    "work": "council-ephesus",
+    "section": "x.ix",
+    "quote": "If anyone will not confess that the Emmanuel is very God, and that therefore the Holy Virgin is the Mother of God",
+    "note": "Ephesus called Mary Theotokos, “Mother of God”. The point of the title is to protect the truth about her Son, that the child she bore is God, not to raise Mary to divinity."
+   },
+   {
+    "kind": "scripture",
+    "label": "Mary’s own words, Luke 1:46-49",
+    "ref": "LUK.1.46-49",
+    "quote": "My spirit has rejoiced in God my Savior",
+    "note": "In the Magnificat Mary herself gives all the glory to God and calls him her Savior. The Church’s prayer to her takes up this same attitude."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 2677, asking Mary to pray",
+    "ccc": 2677,
+    "quote": "By asking Mary to pray for us, we acknowledge ourselves to be poor sinners",
+    "note": "What Catholics actually do when they say the Hail Mary is ask a fellow creature, the Mother of the Lord, to pray with them, and the result is to hand themselves over to God’s will, as she did."
+   }
+  ],
+  "objections": [
+   {
+    "q": "But Catholics pray to Mary, kneel before her statues, and call her Queen of Heaven. Isn’t that worship?",
+    "a": "Kneeling and praying are not worship by themselves; they depend on what they mean. In the Hail Mary the second half is a request, “pray for us sinners”, the same kind of request Christians make of one another. Titles such as Queen reflect her place beside her Son, the King, and the Catechism says her influence rests wholly on Christ’s mediation and takes nothing from it.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 970, Mary and the one Mediator",
+      "ccc": 970,
+      "quote": "Mary’s function as mother of men in no way obscures or diminishes this unique mediation of Christ, but rather shows its power",
+      "note": "The Church says explicitly that Mary’s role depends on Christ and cannot rival him."
+     }
+    ]
+   },
+   {
+    "q": "Some Catholics do seem to treat Mary as a goddess. What then?",
+    "a": "That does happen, and the Church does not defend it. Catholics are taught that honoring a creature in place of God is idolatry, and a person who does this is going against the Church’s own teaching, not following it. The right response is to teach, which is what the Church has aimed at since the councils.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 2113, what idolatry is",
+      "ccc": 2113,
+      "quote": "Man commits idolatry whenever he honors and reveres a creature in place of God",
+      "note": "This is the standard the Church sets for her own people, and it applies to devotion to Mary as to anything else."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   963,
+   971,
+   2096,
+   2677
+  ]
+ },
+ {
+  "id": "catholics-worship-statues",
+  "title": "Catholics worship statues and images",
+  "question": "Do Catholics worship statues and images?",
+  "summary": "The Church condemns idolatry and says religious worship is not directed to images as things. Statues and icons are honored because of the person they represent, and the honor given to an image passes to the person shown; adoration is reserved to God.",
+  "verdict": {
+   "label": "False",
+   "why": "The Second Council of Nicaea (787) taught that images are to receive honor and veneration, not the true worship that belongs to God alone, and the Catechism repeats this. Nothing in the teaching asks anyone to adore a statue.",
+   "origin": "Catholic churches are full of images, and people kiss, kneel before and light candles at them. That looks like the pagan idol worship Scripture condemns. The Church explains it as honor to the person represented, in the same way people treasure a photograph, and she admits that individuals can fall into error."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 2112, the first commandment",
+    "ccc": 2112,
+    "quote": "The first commandment condemns polytheism. It requires man neither to believe in, nor to venerate, other divinities than the one true God.",
+    "note": "The Church affirms the Old Testament ban on idols without softening it."
+   },
+   {
+    "kind": "scripture",
+    "label": "The commandment, Exodus 20:4-5",
+    "ref": "EXO.20.4-5",
+    "quote": "you shall not bow yourself down to them, nor serve them",
+    "note": "The strongest Protestant objection starts here, and the Church takes it seriously. The prohibition is against making images to be served as gods."
+   },
+   {
+    "kind": "scripture",
+    "label": "God commands images, Exodus 25:18-20",
+    "ref": "EXO.25.18-20",
+    "quote": "You shall make two cherubim of hammered gold.",
+    "note": "In the same book God commands carved golden cherubim for the ark. So the commandment cannot mean that every sacred image is forbidden."
+   },
+   {
+    "kind": "scripture",
+    "label": "The bronze serpent, Numbers 21:8-9",
+    "ref": "NUM.21.8-9",
+    "quote": "Moses made a serpent of bronze, and set it on the pole.",
+    "note": "God also had Moses make an image that people looked at to be healed. The healing came from God, not the bronze, which is the logic behind Christian use of sacred images."
+   },
+   {
+    "kind": "council",
+    "label": "Second Council of Nicaea, decree",
+    "when": "787",
+    "year": 787,
+    "work": "council-nicaea-2",
+    "section": "xvi.xii",
+    "quote": "not indeed that true worship of faith (λατρείαν) which pertains alone to the divine nature… For the honour which is paid to the image passes on to that which the image represents",
+    "note": "The seventh ecumenical council settled the question against the iconoclasts. It allowed honor to images and denied them the worship that belongs only to God."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 2132, veneration of images",
+    "ccc": 2132,
+    "quote": "The honor paid to sacred images is a “respectful veneration,” not the adoration due to God alone",
+    "note": "The Catechism repeats Nicaea II for today: the movement toward the image does not stop at the image but goes on to the one it represents."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 25",
+    "when": "1563",
+    "year": 1563,
+    "work": "trent-canons-decrees",
+    "section": "s25",
+    "quote": "not that any divinity or virtue is believed to be in them, on account of which they are to be worshipped… or that anything is to be asked of them",
+    "note": "Trent repeated the rule in the sixteenth century in answer to Protestant charges, and ordered bishops to remove any superstition from the use of images."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Exodus 20 says no graven images, full stop. How can the Church say otherwise?",
+    "a": "Because the same God who gave that commandment ordered the cherubim of the ark and the bronze serpent. Christians also believe the Incarnation changed things: God, who had no face, took a human face in Christ. The Catechism says the ban was against representing the invisible God, and that the new situation allows images of Christ and his saints.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 1159, the new economy of images",
+      "ccc": 1159,
+      "quote": "But now that he has made himself visible in the flesh and has lived with men, I can make an image of what I have seen of God",
+      "note": "The Church bases her use of images on the Incarnation, not on ignoring the commandment."
+     }
+    ]
+   },
+   {
+    "q": "Didn’t early Christian writers oppose images?",
+    "a": "Some did, and honestly it was a real debate. Clement of Alexandria, for instance, wrote against images as aids to worship, in the setting of the pagan temples around him. The Church worked this out over centuries, and it was decided at Nicaea II, after the controversy with the iconoclasts, that honor to images is lawful so long as worship is reserved to God.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Clement of Alexandria, Stromata 5",
+      "when": "c. 200",
+      "year": 200,
+      "work": "clement-alex",
+      "section": "vi.iv.v",
+      "quote": "as Moses ages before enacted expressly, that neither a graven, nor molten, nor moulded, nor painted likeness should be made",
+      "note": "An early writer who read the commandment strictly. The fact that this was a live question is why a council had to settle it."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1159,
+   1161,
+   2129,
+   2131,
+   2132
+  ]
+ },
+ {
+  "id": "church-banned-the-bible",
+  "title": "The Church banned the Bible / kept it from the people",
+  "question": "Did the Church ban the Bible or keep it from ordinary people?",
+  "summary": "The Church copied, preserved, translated and read the Bible aloud from the beginning, and today she urges every Catholic to read it. At certain times and places, however, church authorities did restrict unapproved vernacular translations, and that part of the story should be told honestly.",
+  "verdict": {
+   "label": "Mostly false",
+   "why": "The Church never banned the Bible as such; the Scriptures are the center of the Mass, Fathers such as Chrysostom pressed ordinary lay people to read them, and Augustine knew the Bible in a Latin translation made for ordinary readers. But some medieval councils and later authorities did forbid lay people to own unapproved vernacular translations, and that restriction was real.",
+   "origin": "Most people in the Middle Ages could not read, and Bibles were hand-copied and very costly. In the 1200s and 1400s some church authorities, fearing heresy, restricted unapproved translations. Later Protestant writers turned those local restrictions into the story that the Church hid the Bible."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 131, access to Scripture",
+    "ccc": 131,
+    "quote": "access to Sacred Scripture ought to be open wide to the Christian faithful",
+    "note": "The Church’s present teaching, taken from Vatican II, is that Scripture should be open to all the faithful, in good translations."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 133, reading Scripture",
+    "ccc": 133,
+    "quote": "to learn the surpassing knowledge of Jesus Christ, by frequent reading of the divine Scriptures",
+    "note": "The Church urges all Christians, not only clergy, to read the Bible often, and cites Jerome: ignorance of the Scriptures is ignorance of Christ."
+   },
+   {
+    "kind": "scripture",
+    "label": "All Scripture is useful, 2 Timothy 3:14-17",
+    "ref": "2TI.3.14-17",
+    "quote": "Every Scripture is God-breathed and profitable for teaching, for reproof, for correction, and for instruction in righteousness",
+    "note": "The Church holds Scripture to be God’s word for the whole people of God. This is the belief behind urging everyone to read it."
+   },
+   {
+    "kind": "father",
+    "label": "Chrysostom, Homilies on Romans 1",
+    "when": "c. 391",
+    "year": 391,
+    "work": "chrys-romans",
+    "section": "vii.ii",
+    "quote": "For from this it is that our countless evils have arisen—from ignorance of the Scriptures; from this it is that the plague of heresies has broken out",
+    "note": "Chrysostom preaches to ordinary married people with children and tells them that their troubles come from not knowing the Scriptures. He wants them to read, not to leave it to the clergy."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Confessions 8",
+    "when": "c. 397",
+    "year": 397,
+    "work": "aug-confessions",
+    "section": "ix.xii",
+    "quote": "Take up and read; Take up and read.",
+    "note": "The turning point of Augustine’s life, the moment of his conversion, comes when he picks up Paul’s letter and reads it for himself."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On Christian Doctrine 2",
+    "when": "c. 397",
+    "year": 397,
+    "work": "aug-christian-doctrine",
+    "section": "v.v.xi",
+    "quote": "the Latin translators are out of all number",
+    "note": "Already in Augustine’s day Christians were making Latin translations so that Scripture could be read in the language people spoke."
+   }
+  ],
+  "objections": [
+   {
+    "q": "But didn’t the Church forbid vernacular Bibles and burn them?",
+    "a": "In some places and times, yes. In 1229 a council at Toulouse, dealing with a heresy in southern France, forbade lay people to have vernacular Scripture, and in England in the early 1400s unapproved translations were banned because of the Lollard movement. The fear was of mistranslation and heresy, but the effect was to keep many from the text, and the Church cannot defend that as a good way to treat the Word of God. It was also never the whole picture: printed Catholic Bibles in German and other languages existed before Luther, and the Church required only that translations and notes be approved.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Session 4",
+      "when": "1546",
+      "year": 1546,
+      "work": "trent-canons-decrees",
+      "section": "s4",
+      "quote": "it shall not be lawful for anyone to print, or cause to be printed, any books, whatever, on sacred matters, without the name of the author",
+      "note": "Trent’s rule concerned the control of printing and notes. It is a sample of how the Church regulated publishing of Scripture, not a ban on reading it."
+     }
+    ]
+   },
+   {
+    "q": "Why was the Bible in Latin, a language ordinary people could not follow?",
+    "a": "Latin was the ordinary language of the western Roman world when Jerome made his translation around 400; it is why the Vulgate is called the “common” edition. Later Latin outlasted the languages people spoke, and the gap grew. The Church now provides the Bible and the liturgy in the languages of the people.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, City of God 18",
+      "when": "c. 420",
+      "year": 420,
+      "work": "aug-city-of-god",
+      "section": "iv.XVIII",
+      "quote": "Our times, however, have enjoyed the advantage of the presbyter Jerome, a man most learned, and skilled in all three languages, who translated these same Scriptures into the Latin speech",
+      "note": "Augustine praises Jerome’s translation into Latin as a gift to the Church of his day."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   104,
+   131,
+   133,
+   141
+  ]
+ },
+ {
+  "id": "catholics-pray-to-the-dead",
+  "title": "Catholics pray to the dead / necromancy",
+  "question": "Is asking the saints to pray for us a form of necromancy?",
+  "summary": "The Church condemns necromancy and every attempt to conjure the dead. Catholics ask the saints in heaven, who are alive in Christ, to pray for them, in the way they ask a friend on earth to pray. This is a matter on which Christians do disagree.",
+  "verdict": {
+   "label": "Partly true",
+   "why": "It is true that Catholics ask departed saints to intercede for them. It is not true that this is necromancy, which the Church forbids: Catholics do not summon the dead or seek hidden knowledge from them, and they hold that the saints live in Christ.",
+   "origin": "Many Christians believe the dead cannot be asked for anything, and Deuteronomy 18 does forbid consulting the dead. The Church answers that the saints are with God and are part of one Church with us, so asking their prayers is an act of communion, not of conjuring."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 2683, the saints’ intercession",
+    "ccc": 2683,
+    "quote": "We can and should ask them to intercede for us and for the whole world.",
+    "note": "The Church’s teaching stated plainly: the saints share in the Church’s prayer, and we ask them to intercede, not to act on their own power."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 2116, divination",
+    "ccc": 2116,
+    "quote": "All forms of divination are to be rejected: recourse to Satan or demons, conjuring up the dead or other practices falsely supposed to “unveil” the future.",
+    "note": "The Church herself forbids conjuring the dead. The thing the Bible condemns is not what Catholics claim to do."
+   },
+   {
+    "kind": "scripture",
+    "label": "The ban, Deuteronomy 18:10-12",
+    "ref": "DEU.18.10-12",
+    "quote": "or a charmer, or someone who consults with a familiar spirit, or a wizard, or a necromancer.",
+    "note": "Scripture’s ban is against consulting the dead for secret knowledge and power, as pagan nations did."
+   },
+   {
+    "kind": "scripture",
+    "label": "God of the living, Luke 20:37-38",
+    "ref": "LUK.20.37-38",
+    "quote": "he is not the God of the dead, but of the living, for all are alive to him.",
+    "note": "Jesus says that Abraham, Isaac and Jacob are alive to God. The saints are not departed in the sense of having ceased to be, and the Church counts them as members of her own body."
+   },
+   {
+    "kind": "scripture",
+    "label": "Prayers of the saints, Revelation 5:8",
+    "ref": "REV.5.8",
+    "quote": "golden bowls full of incense, which are the prayers of the saints.",
+    "note": "In heaven the elders present the prayers of the saints before the Lamb. Scripture shows heaven and earth joined in one prayer."
+   },
+   {
+    "kind": "scripture",
+    "label": "Onias and Jeremiah pray, 2 Maccabees 15:12-14",
+    "ref": "2MA.15.12-14",
+    "quote": "This is the lover of the kindred, he who prays much for the people and the holy city: Jeremiah the prophet of God.",
+    "note": "In Judas Maccabeus’s vision, a dead high priest and a dead prophet are praying for the living. The Church receives this book as Scripture; those who do not will weigh it as a witness to Jewish belief before Christ."
+   },
+   {
+    "kind": "father",
+    "label": "Ambrose, Concerning Widows 9",
+    "when": "c. 377",
+    "year": 377,
+    "work": "ambrose-works",
+    "section": "iv.viii.x",
+    "quote": "Let us not be ashamed to take them as intercessors for our weakness, for they themselves knew the weaknesses of the body, even when they overcame.",
+    "note": "By the fourth century a bishop advises ordinary Christians to ask the martyrs to pray for them. This shows how early the practice was."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Against Faustus 20",
+    "when": "c. 398",
+    "year": 398,
+    "work": "aug-manichaean",
+    "section": "iv.ix.xxii",
+    "quote": "But we build altars not to any martyr, but to the God of martyrs, although it is to the memory of the martyrs.",
+    "note": "Augustine rejects the charge that Christians treat martyrs as gods. He says Christians honor them, ask for their prayers, and offer sacrifice to God alone."
+   }
+  ],
+  "objections": [
+   {
+    "q": "1 Timothy 2:5 says there is one mediator between God and men. Why add others?",
+    "a": "In the same passage Paul tells Christians to make intercessions for all people, so he does not mean that no one else may pray for anyone. Christ is the one mediator in the sense that he alone reconciles us to the Father; the saints’ prayers share in his and draw all their power from his. The Catechism puts it this way: intercession is a way of taking part in Christ’s own.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "One mediator, 1 Timothy 2:1-5",
+      "ref": "1TI.2.1-5",
+      "quote": "I exhort therefore, first of all, that petitions, prayers, intercessions, and givings of thanks be made for all men",
+      "note": "The same chapter that names Christ as the one mediator begins by urging intercessions for others."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 2635, intercession",
+      "ccc": 2635,
+      "quote": "Christian intercession participates in Christ’s, as an expression of the communion of saints.",
+      "note": "The saints’ prayer is a sharing in Christ’s work, not a second mediation beside it."
+     }
+    ]
+   },
+   {
+    "q": "But the saints are dead. How would they hear us at all, and isn’t this what Saul tried at Endor?",
+    "a": "Catholics believe the saints are alive in Christ, in the presence of God, not wandering spirits to be questioned. We do not command them or ask them to tell the future; we ask for their prayers, as we would ask a friend, within the one communion of the Church. That the saints can hear is a matter of faith, supported by passages such as Revelation 5 and Hebrews 12, but Christians do disagree about it.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "A cloud of witnesses, Hebrews 12:1",
+      "ref": "HEB.12.1",
+      "quote": "seeing we are surrounded by so great a cloud of witnesses",
+      "note": "The writer of Hebrews pictures the saints of the old covenant as a crowd that surrounds the Church as it runs."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 957, communion with the saints",
+      "ccc": 957,
+      "quote": "our communion with the saints joins us to Christ, from whom as from its fountain and head issues all grace",
+      "note": "The Church sees asking the saints as an act of union in Christ, not as an independent line to the dead."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   946,
+   956,
+   957,
+   2683
+  ]
+ },
+ {
+  "id": "pope-claims-to-be-sinless",
+  "title": "The pope claims to be sinless",
+  "question": "Does the pope claim to be sinless?",
+  "summary": "No. The Church teaches that the pope can be preserved from error when he solemnly defines a doctrine of faith or morals for the whole Church. That is infallibility, which has nothing to do with being free from sin, and popes go to confession like everyone else.",
+  "verdict": {
+   "label": "False",
+   "why": "Infallibility and sinlessness are different things. The Church says the pope can teach error in private opinion and can sin, and Vatican I limits infallibility to solemn definitions of faith and morals. No council or catechism says the pope is without sin.",
+   "origin": "Many people confuse infallibility with impeccability, and the title “Holy Father” sounds like a claim to holiness. History also shows some popes sinning gravely, which is why the confusion has to be cleared up honestly."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 891, infallibility",
+    "ccc": 891,
+    "quote": "The Roman Pontiff, head of the college of bishops, enjoys this infallibility in virtue of his office, when, as supreme pastor and teacher of all the faithful",
+    "note": "This is what the Church actually claims: the pope is protected from error when he defines a doctrine of faith or morals, a rare and narrowly defined act."
+   },
+   {
+    "kind": "council",
+    "label": "First Vatican Council, Pastor Aeternus",
+    "when": "1870",
+    "year": 1870,
+    "work": "vatican-i-constitutions",
+    "section": "s10",
+    "quote": "For the Holy Spirit was not promised to the successors of Peter, that by His revelation they might make known new doctrine, but that by His assistance they might inviolably keep and faithfully expound the revelation or deposit of faith",
+    "note": "Even this charism is limited. It does not make the pope inspired or sinless; it keeps him from changing the faith handed down."
+   },
+   {
+    "kind": "scripture",
+    "label": "Peter’s faith, Luke 22:31-32",
+    "ref": "LUK.22.31-32",
+    "quote": "I prayed for you, that your faith wouldn’t fail. You, when once you have turned again, establish your brothers.",
+    "note": "Christ prays for Peter’s faith, and the same passage has Peter turning again after his coming fall. The promise concerns faith, and Peter’s weakness is assumed."
+   },
+   {
+    "kind": "scripture",
+    "label": "Peter confesses sin, Luke 5:8",
+    "ref": "LUK.5.8",
+    "quote": "Depart from me, for I am a sinful man, Lord.",
+    "note": "The first pope in the Gospel begins by calling himself a sinner. Nothing in the Church’s teaching tries to make him otherwise."
+   },
+   {
+    "kind": "scripture",
+    "label": "Paul corrects Peter, Galatians 2:11-14",
+    "ref": "GAL.2.11-14",
+    "quote": "But when Peter came to Antioch, I resisted him to his face, because he stood condemned.",
+    "note": "Paul rebukes Peter publicly for his conduct. The Church reads this as proof that the first pope could sin and be corrected, without any claim that his teaching was changed."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 827, a Church of sinners",
+    "ccc": 827,
+    "quote": "All members of the Church, including her ministers, must acknowledge that they are sinners.",
+    "note": "The Catechism states that the Church’s own ministers, popes among them, are sinners who need conversion and forgiveness."
+   },
+   {
+    "kind": "saint",
+    "label": "Pope Gregory the Great, Letter to Eulogius",
+    "when": "c. 600",
+    "year": 600,
+    "work": "gregory-letters",
+    "section": "ii.vi.viii",
+    "quote": "Nor it is surprising that, grievous sinner as I am, I am long kept confined in the prison of such corruption.",
+    "note": "One of the greatest popes calls himself a grievous sinner in a letter and asks another bishop for prayers. This is how popes have spoken of themselves."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Vatican I says the pope has the infallibility of Christ’s Church. Isn’t that being incapable of error?",
+    "a": "Only in a narrow sense. The definition covers the pope speaking ex cathedra, as pastor and teacher of all Christians, defining a doctrine of faith or morals to be held by the whole Church. It does not cover his private opinions, his judgments on politics or science, or his personal conduct. Ex cathedra definitions are rare.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "First Vatican Council, Pastor Aeternus",
+      "when": "1870",
+      "year": 1870,
+      "work": "vatican-i-constitutions",
+      "section": "s10",
+      "quote": "when he speaks ex cathedra, that is, when, in discharge of the office of pastor and teacher of all Christians, by virtue of his supreme Apostolic authority, he defines a doctrine regarding faith or morals to be held by the universal Church",
+      "note": "The wording itself marks the limits: only a solemn act of teaching the whole Church, about faith or morals."
+     }
+    ]
+   },
+   {
+    "q": "Some popes lived scandalously. Doesn’t that disprove the claim?",
+    "a": "It disproves a claim the Church does not make. The Church has never said popes are sinless, and history includes popes who lived badly; the Church does not hide or defend that. What she says is that Christ keeps his promise to preserve the faith through them, whatever their personal failings.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 1428, the Church always needs conversion",
+      "ccc": 1428,
+      "quote": "at once holy and always in need of purification, (and) follows constantly the path of penance and renewal",
+      "note": "The Church describes herself, in all her members, as in need of continual repentance."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   882,
+   891,
+   892,
+   827
+  ]
+ },
+ {
+  "id": "catholics-believe-works-earn-salvation",
+  "title": "Catholics believe works earn salvation, not grace",
+  "question": "Do Catholics believe that good works earn salvation instead of grace?",
+  "summary": "The Church teaches that salvation begins and ends with God’s free grace. Good works are the fruit of that grace, done with God’s help, and nothing we do before justification earns it.",
+  "verdict": {
+   "label": "False",
+   "why": "The Catechism says our justification comes from grace and that no one can merit the first grace of forgiveness. The Council of Trent condemned the idea that a person can be justified by his own works without grace. What Catholics do add is that grace is meant to bear fruit in a life of love, and that God rewards it.",
+   "origin": "Catholics talk of merit, penance, the sacraments and good works, which sounds like earning. The Church uses “merit” in a specific sense: God freely makes our cooperation count. The real difference with many Protestants concerns what justification is and whether it can be lost, not whether grace comes first."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 1996, justification and grace",
+    "ccc": 1996,
+    "quote": "Our justification comes from the grace of God. Grace is favor, the free and undeserved help that God gives us",
+    "note": "The Catechism begins with grace, free and undeserved."
+   },
+   {
+    "kind": "catechism",
+    "label": "Catechism 2010, no merit for the first grace",
+    "ccc": 2010,
+    "quote": "no one can merit the initial grace of forgiveness and justification, at the beginning of conversion",
+    "note": "Even the Church’s teaching on merit begins by denying that anyone can earn the start of salvation."
+   },
+   {
+    "kind": "scripture",
+    "label": "Saved by grace, Ephesians 2:8-9",
+    "ref": "EPH.2.8-9",
+    "quote": "for by grace you have been saved through faith, and that not of yourselves; it is the gift of God, not of works, that no one would boast",
+    "note": "Paul says salvation is a gift. Catholics hold this as firmly as anyone."
+   },
+   {
+    "kind": "scripture",
+    "label": "Created for good works, Ephesians 2:10",
+    "ref": "EPH.2.10",
+    "quote": "For we are his workmanship, created in Christ Jesus for good works, which God prepared before that we would walk in them.",
+    "note": "The same passage says good works are the purpose of the gift, and that God prepared them. The Church reads the two verses together."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Against Two Letters of the Pelagians",
+    "when": "c. 420",
+    "year": 420,
+    "work": "aug-pelagian",
+    "section": "xviii.iii",
+    "quote": "they are so hostile to God’s grace, which comes through Jesus Christ our Lord, as to say that it is given not freely, but according to our merits, and thus grace is no more grace",
+    "note": "Augustine, the Church’s great teacher of grace, treats the claim that we earn grace as a heresy."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 6",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "Canon i. — If anyone saith that man may be justified before God by his own works, whether done through the teaching of human nature, or that of the law, without the grace of God through Jesus Christ; let him be anathema.",
+    "note": "This is the Church’s own definition against exactly the charge: justification by one’s own works, without grace, is condemned."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 6",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "we are therefore said to be justified freely because that none of those things which precede Justification— whether faith or works — merit the grace itself of Justification",
+    "note": "Trent teaches that neither faith nor works earns the first grace of justification. It is given freely."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 6",
+    "when": "1547",
+    "year": 1547,
+    "work": "trent-canons-decrees",
+    "section": "s6",
+    "quote": "that He will have the things which are His own gifts be their merits",
+    "note": "Trent explains merit as God crowning his own gifts, not as a payment owed to us."
+   }
+  ],
+  "objections": [
+   {
+    "q": "But James 2:24 says a man is justified by works and not by faith alone, and Catholics are told to cooperate. Doesn’t that make works part of the cause?",
+    "a": "James and Paul are speaking of different things: Paul of the works of the law before faith, James of a faith that is alive. The Church says we cooperate with grace, but even our cooperation is grace at work: God gives both the will and the doing. The Catechism says that our preparation for grace is itself a work of grace.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Works and faith together, James 2:24",
+      "ref": "JAS.2.24",
+      "quote": "You see then that by works a man is justified, and not only by faith.",
+      "note": "James states the point the objection raises. The Church does not hide it: a living faith produces works, and those works are part of how the justified person is shown and kept in grace."
+     },
+     {
+      "kind": "scripture",
+      "label": "Faith working through love, Galatians 5:6",
+      "ref": "GAL.5.6",
+      "quote": "neither circumcision nor uncircumcision amounts to anything, but faith working through love",
+      "note": "Paul himself describes saving faith as faith that works through love, which is what Catholic teaching claims."
+     },
+     {
+      "kind": "scripture",
+      "label": "God works in you, Philippians 2:12-13",
+      "ref": "PHP.2.12-13",
+      "quote": "For it is God who works in you both to will and to work for his good pleasure.",
+      "note": "Our working out of salvation is God working in us."
+     }
+    ]
+   },
+   {
+    "q": "If it’s all grace, why do Catholics talk about merit and earning heaven?",
+    "a": "“Merit” in Catholic usage means that God, by his promise, makes our graced acts count toward a reward. The Catechism says that with regard to God there is no strict right to any merit on man’s part. We have received everything from him. It remains a place where Catholics and Protestants really differ, but the claim that Catholics think they pay for salvation misstates it.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 2007, no strict right to merit",
+      "ccc": 2007,
+      "quote": "With regard to God, there is no strict right to any merit on the part of man.",
+      "note": "The Church denies outright that anyone can claim heaven as a debt."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1996,
+   2001,
+   2010,
+   2011
+  ]
+ },
+ {
+  "id": "eucharist-just-a-symbol",
+  "title": "The Eucharist is just a symbol, the early Church did not think otherwise",
+  "question": "Did the early Church treat the Eucharist as only a symbol?",
+  "summary": "From the New Testament onward, Christians took Jesus’ words “This is my body” to mean that the Eucharist is truly his body and blood. The Fathers speak of it as a sign, but also as the real flesh of Christ, and the Church defined this in the same terms.",
+  "verdict": {
+   "label": "False",
+   "why": "The evidence from the apostolic age through the Fathers is that Christians believed they received the body and blood of Christ, and the Fathers use strong words such as “this is truly the Flesh of Christ.” They also call it a sign or sacrament, because it is a sign that really contains what it signifies.",
+   "origin": "The Fathers sometimes call the bread and wine “symbols”, “figures” or “sacraments”, and Augustine speaks of eating as a sign of unity with Christ. Those words can be read as saying that it is only a symbol. But the same writers say with equal clarity that what is received is the body and blood."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 1374, the real presence",
+    "ccc": 1374,
+    "quote": "the body and blood, together with the soul and divinity, of our Lord Jesus Christ and, therefore, the whole Christ is truly, really, and substantially contained",
+    "note": "The Church’s teaching in its sharpest form: Christ is truly present, not in a figure only."
+   },
+   {
+    "kind": "scripture",
+    "label": "The bread of life, John 6:53-56",
+    "ref": "JHN.6.53-56",
+    "quote": "For my flesh is food indeed, and my blood is drink indeed.",
+    "note": "Jesus insists on eating his flesh and drinking his blood, and does not soften it when many disciples leave. The Church takes the words as meant."
+   },
+   {
+    "kind": "scripture",
+    "label": "A sharing in the body, 1 Corinthians 10:16",
+    "ref": "1CO.10.16",
+    "quote": "The bread which we break, isn’t it a sharing of the body of Christ?",
+    "note": "Paul, writing about twenty years after the Last Supper, calls the bread a real sharing in Christ’s body."
+   },
+   {
+    "kind": "scripture",
+    "label": "Guilty of the body and blood, 1 Corinthians 11:27-29",
+    "ref": "1CO.11.27-29",
+    "quote": "whoever eats this bread or drinks the Lord’s cup in a way unworthy of the Lord will be guilty of the body and the blood of the Lord",
+    "note": "One is not guilty of the body and blood of the Lord for mistreating a symbol. Paul speaks of a real presence."
+   },
+   {
+    "kind": "father",
+    "label": "Ignatius of Antioch, Letter to the Romans",
+    "when": "c. 110",
+    "year": 110,
+    "work": "ignatius-letters",
+    "section": "v.xii",
+    "quote": "I seek the bread of God, which is the flesh of Jesus Christ; and I seek His blood, a drink which is love incorruptible.",
+    "note": "Ignatius, a disciple of the apostles, writing on the way to martyrdom, calls the bread of God the flesh of Christ."
+   },
+   {
+    "kind": "father",
+    "label": "Irenaeus, Against Heresies 5",
+    "when": "c. 180",
+    "year": 180,
+    "work": "irenaeus-heresies",
+    "section": "ix.vii.iii",
+    "quote": "When, therefore, the mingled cup and the manufactured bread receives the Word of God, and the Eucharist of the blood and the body of Christ is made",
+    "note": "Irenaeus uses the Eucharist as proof that Christ’s flesh is real, and says that bread and wine become his body and blood."
+   },
+   {
+    "kind": "father",
+    "label": "Ambrose, On the Mysteries 9",
+    "when": "c. 390",
+    "year": 390,
+    "work": "ambrose-works",
+    "section": "iv.v.x",
+    "quote": "It is the true Flesh of Christ which crucified and buried, this is then truly the Sacrament of His Body.",
+    "note": "Ambrose teaches that what lies on the altar is the same flesh that was crucified."
+   },
+   {
+    "kind": "father",
+    "label": "Chrysostom, Homilies on Matthew 82",
+    "when": "c. 390",
+    "year": 390,
+    "work": "chrys-matthew",
+    "section": "iii.LXXVIII",
+    "quote": "Since then the word saith, “This is my body,” let us both be persuaded and believe, and look at it with the eyes of the mind.",
+    "note": "Chrysostom tells the congregation to believe Christ’s words over what their senses report."
+   },
+   {
+    "kind": "father",
+    "label": "John of Damascus, Exact Exposition 4",
+    "when": "c. 743",
+    "year": 743,
+    "work": "john-damascus",
+    "section": "iii.iv.iv",
+    "quote": "the bread itself and the wine are changed into God’s body and blood",
+    "note": "A summary of the Eastern Fathers’ teaching at the end of the patristic age."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Didn’t Augustine and others call the Eucharist a sign or figure?",
+    "a": "Yes, and the Church uses the same language, because a sacrament is a sign. The question is whether the sign contains what it signifies. Augustine is warning against receiving the sacrament unworthily and without union with Christ; he does not say that Christ is absent from it. The Fathers in the other steps say in plain words that it is his flesh.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, Tractate 26 on John",
+      "when": "c. 417",
+      "year": 417,
+      "work": "aug-tractates-john",
+      "section": "iii.xxvii",
+      "quote": "we are made better by participation of the Son, through the unity of His body and blood, which thing that eating and drinking signifies",
+      "note": "Augustine calls eating and drinking a sign of union with Christ. The Church affirms both: the sign, and the reality it signifies."
+     }
+    ]
+   },
+   {
+    "q": "Didn’t Trent invent transubstantiation in the 1500s?",
+    "a": "The word “transubstantiation” is from the Middle Ages, and Trent used it to define the change precisely. The belief behind it, that the bread and wine become the body and blood, is much older. Trent did answer the claim that Christ is present only in a sign.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Session 13",
+      "when": "1551",
+      "year": 1551,
+      "work": "trent-canons-decrees",
+      "section": "s13",
+      "quote": "but saith that He is only therein as in a sign, or in figure, or virtue; let him be anathema",
+      "note": "Trent names and condemns the view that the presence is only a sign."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1322,
+   1374,
+   1376,
+   1381
+  ]
+ },
+ {
+  "id": "catholics-add-books-to-the-bible",
+  "title": "Catholics add books to the Bible that were never there",
+  "question": "Did the Catholic Church add books to the Old Testament?",
+  "summary": "Catholic Bibles contain seven Old Testament books (Tobit, Judith, Wisdom, Sirach, Baruch, 1 and 2 Maccabees) that Protestant Bibles omit. Christians were reading them in the Greek Old Testament long before the Reformation, and it was in the sixteenth century that Protestants removed them.",
+  "verdict": {
+   "label": "Mostly false",
+   "why": "These books were part of the Greek Old Testament the early Church used, and they were quoted and read by Fathers such as Ambrose and Augustine. Trent in 1546 defined the canon but did not invent it. Honesty requires adding that they are not in the Hebrew Bible and that some early Christians knew it and questioned them.",
+   "origin": "Protestant Reformers followed the Hebrew canon, which Jewish tradition fixed after the time of Christ, and dropped the books that exist only in Greek. Many people now read that as “Catholics added books”, when historically it was the other way round."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 120, the canon",
+    "ccc": 120,
+    "quote": "It was by the apostolic Tradition that the Church discerned which writings are to be included in the list of the sacred books.",
+    "note": "The Church treats the canon as something received and discerned, not made up. The list includes 46 Old Testament books."
+   },
+   {
+    "kind": "scripture",
+    "label": "Martyrs and a better resurrection, Hebrews 11:35",
+    "ref": "HEB.11.35",
+    "quote": "Women received their dead by resurrection. Others were tortured, not accepting their deliverance, that they might obtain a better resurrection.",
+    "note": "The New Testament alludes to the mother and sons tortured in 2 Maccabees 7, which suggests the story was well known to first-century Christians."
+   },
+   {
+    "kind": "father",
+    "label": "Hippolytus, Commentary on Daniel",
+    "when": "c. 204",
+    "year": 204,
+    "work": "hippolytus",
+    "section": "iii.iv.i",
+    "quote": "as they have been all clearly described in the books of the Maccabees",
+    "note": "A third-century Roman writer reads Maccabees as a reliable account of the history Daniel foretold."
+   },
+   {
+    "kind": "father",
+    "label": "Origen, Letter to Africanus",
+    "when": "c. 240",
+    "year": 240,
+    "work": "origen-celsus",
+    "section": "vi.vii",
+    "quote": "the History of Susanna, which is found in every Church of Christ in that Greek copy which the Greeks use, but is not in the Hebrew",
+    "note": "Origen admits that the book is not in the Hebrew copies and says the Churches use it anyway. That is both the honest difficulty and the evidence of Christian usage."
+   },
+   {
+    "kind": "father",
+    "label": "Ambrose, On the Duties of the Clergy 3",
+    "when": "c. 391",
+    "year": 391,
+    "work": "ambrose-works",
+    "section": "iv.i.iv",
+    "quote": "as is written in the book of the Maccabees",
+    "note": "Ambrose cites 2 Maccabees as Scripture in his teaching."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, On Christian Doctrine 2",
+    "when": "c. 397",
+    "year": 397,
+    "work": "aug-christian-doctrine",
+    "section": "v.v.viii",
+    "quote": "Now the whole canon of Scripture on which we say this judgment is to be exercised, is contained in the following books",
+    "note": "Augustine’s list of the whole canon, drawn up more than a thousand years before Trent, includes Tobit, Judith and the Maccabees."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 4",
+    "when": "1546",
+    "year": 1546,
+    "work": "trent-canons-decrees",
+    "section": "s4",
+    "quote": "Tobias, Judith, Esther, Job… Wisdom, Ecclesiasticus, Isaias, Jeremias, with Baruch… two books of the Machabees, the first and the second",
+    "note": "Trent’s decree lists the books the Church receives. The council confirmed what the Church had been using for centuries and defined it in answer to Luther."
+   }
+  ],
+  "objections": [
+   {
+    "q": "The Jews never accepted these books, and the Old Testament is the Jews’ Bible. Why not follow their canon?",
+    "a": "It is a fair point and Christians have long known it. Augustine noted that the Jews are said not to have received Judith into the canon. But the Church of the apostles used the Greek translation, which contained these books, and the Jewish canon in its final form was settled after the Church had already separated from the synagogue. Catholics hold that the Church, not the later rabbis, has the authority to determine her Old Testament.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, City of God 18",
+      "when": "c. 420",
+      "year": 420,
+      "work": "aug-city-of-god",
+      "section": "iv.XVIII",
+      "quote": "the book of Judith, which, indeed, the Jews are said not to have received into the canon of the Scriptures",
+      "note": "Augustine records the Jewish difference and keeps using the book."
+     }
+    ]
+   },
+   {
+    "q": "Wasn’t the Catholic canon only fixed at Trent in reaction to Luther?",
+    "a": "The first formal, universal definition by a council was at Trent, yes. But lists identical to the Catholic canon were in use in the late fourth and fifth centuries, as in Augustine’s list, and the Greek Old Testament was the Bible of the early Church. Trent drew a line where the Reformers had challenged it.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Session 4",
+      "when": "1546",
+      "year": 1546,
+      "work": "trent-canons-decrees",
+      "section": "s4",
+      "quote": "receives and venerates with an equal affection of piety, and reverence… all the books both of the Old and of the New Testament",
+      "note": "Trent defines what the Church had received, and anathematizes only those who reject the books as they had been read in the Church."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   120,
+   105,
+   138
+  ]
+ },
+ {
+  "id": "purgatory-invented-to-make-money",
+  "title": "Purgatory was invented in the Middle Ages to make money",
+  "question": "Was Purgatory invented in the Middle Ages as a way to raise money?",
+  "summary": "Purgatory is the Church’s name for the final purification of those who die in God’s friendship but are not yet fully holy. Its roots are in Scripture and in the ancient Christian practice of praying for the dead, though the word and the detailed teaching developed later, and the sale of indulgences did produce real abuses.",
+  "verdict": {
+   "label": "Mostly false",
+   "why": "Prayer for the dead is found in 2 Maccabees and in the practice of the early Church, and Augustine and Chrysostom both speak of it. The word “Purgatory” and the councils that defined it are medieval, and indulgence-selling was a real abuse that the Church itself condemned. But the belief was not invented to raise money.",
+   "origin": "The late Middle Ages did have scandals: indulgences were linked to donations, and money was raised in the name of the dead. Luther’s protest was against these. Critics later read the whole teaching as a fund-raising device, rather than as an old belief that was later abused."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 1031, what Purgatory is",
+    "ccc": 1031,
+    "quote": "The Church gives the name Purgatory to this final purification of the elect, which is entirely different from the punishment of the damned.",
+    "note": "The Church describes it as the last step of salvation for those already saved, and not as a second chance or a place of punishment like hell."
+   },
+   {
+    "kind": "scripture",
+    "label": "Prayer for the dead, 2 Maccabees 12:43-46",
+    "ref": "2MA.12.43-46",
+    "quote": "it would be superfluous and idle to pray for the dead",
+    "note": "Judas Maccabeus offers a sacrifice for fallen soldiers, long before Christ. The practice of praying for the dead is Jewish in origin."
+   },
+   {
+    "kind": "scripture",
+    "label": "Saved as through fire, 1 Corinthians 3:13-15",
+    "ref": "1CO.3.13-15",
+    "quote": "he himself will be saved, but as through fire",
+    "note": "Paul speaks of a person whose work is burned yet who is saved. The Church has read this, along with Matthew 12:32, as pointing to purification after death."
+   },
+   {
+    "kind": "father",
+    "label": "Chrysostom, Homily 42 on 1 Corinthians",
+    "when": "c. 392",
+    "year": 392,
+    "work": "chrys-1cor",
+    "section": "iv.xlii",
+    "quote": "help him as far as possible, not by tears, but by prayers and supplications and alms and offerings",
+    "note": "A fourth-century bishop tells his congregation to help their dead by prayer and offerings, as a custom of the Church. This is centuries before the medieval councils that gave the doctrine its fixed form."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, Confessions 9",
+    "when": "c. 397",
+    "year": 397,
+    "work": "aug-confessions",
+    "section": "x.xi",
+    "quote": "this only I request, that you would remember me at the Lord's altar, wherever you be",
+    "note": "Monica, dying, asks only to be remembered at the altar. Prayer for the dead is taken as a matter of course."
+   },
+   {
+    "kind": "father",
+    "label": "Augustine, City of God 21",
+    "when": "c. 426",
+    "year": 426,
+    "work": "aug-city-of-god",
+    "section": "iv.XXI",
+    "quote": "For some of the dead, indeed, the prayer of the Church or of pious individuals is heard; but it is for those who, having been regenerated in Christ, did not spend their life so wickedly that they can be judged unworthy of such compassion, nor so well that they can be considered to have no need of it.",
+    "note": "Augustine describes in outline what the Church later named: some of the dead are helped by the Church’s prayer."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 25",
+    "when": "1563",
+    "year": 1563,
+    "work": "trent-canons-decrees",
+    "section": "s25",
+    "quote": "the sound doctrine concerning Purgatory, transmitted by the holy Fathers and sacred Councils, be believed, maintained, taught… which savour of filthy lucre, let them prohibit as scandals and stumbling-blocks of the faithful",
+    "note": "Trent defines the doctrine and in the same sentence orders bishops to prohibit anything that smacks of money-making."
+   }
+  ],
+  "objections": [
+   {
+    "q": "The word “Purgatory” isn’t in the Bible, and the early Fathers don’t agree on it. Doesn’t that show it was invented later?",
+    "a": "The word is later, as the Catechism says; it was formulated at the councils of Florence and Trent. The Fathers do not speak with one voice about the details, and Augustine himself calls the passage on being saved as through fire an obscure question. What they share is prayer for the dead and the belief that some who die are not yet fit for heaven. The Church sees the doctrine as a development of that, not an invention.",
+    "steps": [
+     {
+      "kind": "father",
+      "label": "Augustine, Expositions of the Psalms, Psalm 81",
+      "when": "c. 410",
+      "year": 410,
+      "work": "aug-psalms",
+      "section": "ii.LXXXI",
+      "quote": "An obscure question indeed that, but as I am able I tell you briefly.",
+      "note": "Augustine is open about how hard he finds 1 Corinthians 3, which shows that the Fathers were still exploring the question."
+     }
+    ]
+   },
+   {
+    "q": "Weren’t indulgences sold, and didn’t that fund building projects?",
+    "a": "Yes, in the late Middle Ages, money was connected to indulgences in ways that were scandalous, and the Church later admitted it. The Council of Trent abolished money-gains in connection with indulgences. An indulgence, correctly understood, is a remission of temporal punishment granted by the Church; it cannot be bought.",
+    "steps": [
+     {
+      "kind": "council",
+      "label": "Council of Trent, Session 25",
+      "when": "1563",
+      "year": 1563,
+      "work": "trent-canons-decrees",
+      "section": "s25",
+      "quote": "that all evil gains for the obtaining thereof — whence a most prolific cause of abuses amongst the Christian people has been derived — be wholly abolished",
+      "note": "Trent itself names money-making as the cause of the abuses and orders it ended."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 1471, what an indulgence is",
+      "ccc": 1471,
+      "quote": "An indulgence is a remission before God of the temporal punishment due to sins whose guilt has already been forgiven",
+      "note": "The teaching, stated without reference to payment."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1030,
+   1031,
+   1032,
+   1471
+  ]
+ },
+ {
+  "id": "priests-forgive-sins-instead-of-god",
+  "title": "Priests forgive sins instead of God",
+  "question": "Do Catholic priests forgive sins in place of God?",
+  "summary": "The Church teaches that only God forgives sins. In the sacrament of Penance, Christ gives this forgiveness through the ministry of bishops and priests, who act in his name, as he promised the apostles.",
+  "verdict": {
+   "label": "Mostly false",
+   "why": "The Catechism begins with “Only God forgives sins” and treats the priest as God’s instrument. Christ gave the apostles the power to forgive sins in his name, and the Fathers recognized that. What is true is that priests say “I absolve you”, and that confessing to a priest is part of the sacrament.",
+   "origin": "The words “I absolve you” sound as if the priest is acting on his own authority, and many Christians believe confession should be made to God alone. The Church answers that Christ chose to give his forgiveness through a visible ministry, as he did with the paralytic and with the apostles after the Resurrection."
+  },
+  "steps": [
+   {
+    "kind": "catechism",
+    "label": "Catechism 1441, only God forgives",
+    "ccc": 1441,
+    "quote": "Only God forgives sins. Since he is the Son of God, Jesus says of himself, “The Son of man has authority on earth to forgive sins”",
+    "note": "The Church’s teaching begins where the objection does. The power is God’s alone, and Jesus exercises it as God."
+   },
+   {
+    "kind": "scripture",
+    "label": "Who can forgive but God alone? Mark 2:5-7",
+    "ref": "MRK.2.5-7",
+    "quote": "Who can forgive sins but God alone?",
+    "note": "The scribes’ question is correct, and Jesus answers it by claiming that power for himself."
+   },
+   {
+    "kind": "scripture",
+    "label": "Given to men, Matthew 9:6-8",
+    "ref": "MAT.9.6-8",
+    "quote": "the multitudes saw it, they marveled and glorified God, who had given such authority to men.",
+    "note": "Matthew notes that the crowd glorified God for giving such authority to men, not only to the one man Jesus. The Church sees the beginning of what Jesus gives to the apostles."
+   },
+   {
+    "kind": "scripture",
+    "label": "Sent as the Father sent him, John 20:21-23",
+    "ref": "JHN.20.21-23",
+    "quote": "If you forgive anyone’s sins, they have been forgiven them. If you retain anyone’s sins, they have been retained.",
+    "note": "On Easter night Jesus breathes on the apostles and gives them this power directly. The Church has always read this as the institution of the sacrament of Penance."
+   },
+   {
+    "kind": "scripture",
+    "label": "Ambassadors of reconciliation, 2 Corinthians 5:18-20",
+    "ref": "2CO.5.18-20",
+    "quote": "having committed to us the word of reconciliation. We are therefore ambassadors on behalf of Christ",
+    "note": "Paul describes the apostolic ministry as one of reconciliation. An ambassador speaks with the king’s authority, not his own."
+   },
+   {
+    "kind": "father",
+    "label": "Cyprian, On the Lapsed",
+    "when": "c. 251",
+    "year": 251,
+    "work": "cyprian",
+    "section": "iv.v.iii",
+    "quote": "with grief and simplicity confess this very thing to God’s priests, and make the conscientious avowal, put off from them the load of their minds",
+    "note": "In the third century Cyprian speaks of Christians confessing even troubled thoughts to the priests of God and receiving relief."
+   },
+   {
+    "kind": "father",
+    "label": "Ambrose, Concerning Repentance 1",
+    "when": "c. 390",
+    "year": 390,
+    "work": "ambrose-works",
+    "section": "iv.vi.ii",
+    "quote": "They affirm that they are showing great reverence for God, to Whom alone they reserve the power of forgiving sins. But in truth none do Him greater injury than they who choose to prune His commandments and reject the office entrusted to them.",
+    "note": "Ambrose meets the same objection from the Novatians and answers that refusing the power Christ gave is itself an insult to God."
+   },
+   {
+    "kind": "council",
+    "label": "Council of Trent, Session 14",
+    "when": "1551",
+    "year": 1551,
+    "work": "trent-canons-decrees",
+    "section": "s14",
+    "quote": "although the absolution of the priest is the dispensation of another's bounty",
+    "note": "Trent makes the same point: the priest dispenses a gift that belongs to God."
+   }
+  ],
+  "objections": [
+   {
+    "q": "Why not confess straight to God? Why do I need a priest?",
+    "a": "Catholics also confess to God, and the Church teaches that perfect contrition, sorrow out of love for God, obtains forgiveness even before confession, provided the person intends to go to confession. The sacrament is the ordinary way Christ has given, in the way that baptism is, and James tells Christians to confess their sins to one another.",
+    "steps": [
+     {
+      "kind": "scripture",
+      "label": "Confess to one another, James 5:14-16",
+      "ref": "JAS.5.14-16",
+      "quote": "Confess your sins to one another and pray for one another, that you may be healed.",
+      "note": "James directs the sick to the elders of the church and tells Christians to confess to one another."
+     },
+     {
+      "kind": "catechism",
+      "label": "Catechism 1452, perfect contrition",
+      "ccc": 1452,
+      "quote": "Such contrition remits venial sins; it also obtains forgiveness of mortal sins if it includes the firm resolution to have recourse to sacramental confession as soon as possible.",
+      "note": "The Church does not say God can forgive only through a priest. She says Christ has given the sacrament as the ordinary path."
+     }
+    ]
+   },
+   {
+    "q": "Didn’t the early Church practice public penance, not private confession to a priest?",
+    "a": "Yes. In the early centuries serious sins were confessed and atoned for publicly in a structured penance, and the practice of private confession developed gradually. But the bishop and presbyters were the ones who reconciled the penitent from the start, as Ambrose and Cyprian show. The Church holds that the power is the same while the form changed.",
+    "steps": [
+     {
+      "kind": "catechism",
+      "label": "Catechism 1449, the form of absolution",
+      "ccc": 1449,
+      "quote": "the Father of mercies is the source of all forgiveness",
+      "note": "Even the words of absolution say that the Father is the source of forgiveness, and the priest speaks through the Church’s ministry."
+     }
+    ]
+   }
+  ],
+  "readNext": [
+   1441,
+   1442,
+   1449,
+   1461
+  ]
+ }
+]
