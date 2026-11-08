@@ -1,0 +1,1602 @@
+[
+ {
+  "id": "scripture-b001",
+  "d": 1,
+  "q": "From what did the LORD God form the first man?",
+  "o": [
+   "Sand from the sea shore",
+   "Clay from the river bank",
+   "The dust of the ground",
+   "Stone from the mountain"
+  ],
+  "a": 2,
+  "why": "God formed man from the dust of the ground and breathed into him the breath of life.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 2:7",
+   "ref": "GEN.2.7",
+   "quote": "The LORD God formed man from the dust of the ground, and breathed into his nostrils the breath of life; and man became a living soul.",
+   "note": "God formed man from the dust of the ground and breathed into him the breath of life."
+  }
+ },
+ {
+  "id": "scripture-b002",
+  "d": 1,
+  "q": "From what did the LORD God make the first woman?",
+  "o": [
+   "Clay from the garden",
+   "The dust of the ground",
+   "A branch of the tree of life",
+   "A rib taken from the man"
+  ],
+  "a": 3,
+  "why": "God made the woman from the rib he had taken from the man.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 2:22",
+   "ref": "GEN.2.22",
+   "quote": "The LORD God made a woman from the rib which he had taken from the man, and brought her to the man.",
+   "note": "God made the woman from the rib he had taken from the man."
+  }
+ },
+ {
+  "id": "scripture-b003",
+  "d": 1,
+  "q": "Which creature spoke to the woman in the garden of Eden?",
+  "o": [
+   "The lion",
+   "The serpent",
+   "The donkey",
+   "The raven"
+  ],
+  "a": 1,
+  "why": "The serpent was the one who questioned the woman about the tree.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 3:1",
+   "ref": "GEN.3.1",
+   "quote": "Now the serpent was more subtle than any animal of the field which the LORD God had made. He said to the woman, “Has God really said, ‘You shall not eat of any tree of the garden’?”",
+   "note": "The serpent was the one who questioned the woman about the tree."
+  }
+ },
+ {
+  "id": "scripture-b004",
+  "d": 1,
+  "q": "What was the name of the city where the LORD confused the language of all the earth?",
+  "o": [
+   "Haran",
+   "Sodom",
+   "Babel",
+   "Nineveh"
+  ],
+  "a": 2,
+  "why": "The city was called Babel because the LORD confused the language of all the earth there.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 11:9",
+   "ref": "GEN.11.9",
+   "quote": "Therefore its name was called Babel, because there the LORD confused the language of all the earth. From there, the LORD scattered them abroad on the surface of all the earth.",
+   "note": "The city was called Babel because the LORD confused the language of all the earth there."
+  }
+ },
+ {
+  "id": "scripture-b005",
+  "d": 1,
+  "q": "What did Esau receive from Jacob in exchange for his birthright?",
+  "o": [
+   "A bag of silver",
+   "Bread and lentil stew",
+   "A flock of sheep",
+   "A field of barley"
+  ],
+  "a": 1,
+  "why": "Esau despised his birthright and traded it for bread and lentil stew.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 25:34",
+   "ref": "GEN.25.34",
+   "quote": "Jacob gave Esau bread and lentil stew. He ate and drank, rose up, and went his way. So Esau despised his birthright.",
+   "note": "Esau despised his birthright and traded it for bread and lentil stew."
+  }
+ },
+ {
+  "id": "scripture-b006",
+  "d": 1,
+  "q": "What special garment did Israel make for his son Joseph?",
+  "o": [
+   "A cloak of camel hair",
+   "A linen priestly tunic",
+   "A tunic of many colors",
+   "A purple royal robe"
+  ],
+  "a": 2,
+  "why": "Israel loved Joseph most and made him a tunic of many colors.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 37:3",
+   "ref": "GEN.37.3",
+   "quote": "Now Israel loved Joseph more than all his children, because he was the son of his old age, and he made him a tunic of many colors.",
+   "note": "Israel loved Joseph most and made him a tunic of many colors."
+  }
+ },
+ {
+  "id": "scripture-b007",
+  "d": 1,
+  "q": "In what did the LORD's angel appear to Moses at the burning bush?",
+  "o": [
+   "A pillar of cloud",
+   "A shining star",
+   "A rushing wind",
+   "A flame of fire"
+  ],
+  "a": 3,
+  "why": "The angel appeared in a flame of fire from the middle of a bush that was not consumed.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 3:2",
+   "ref": "EXO.3.2",
+   "quote": "The LORD’s angel appeared to him in a flame of fire out of the middle of a bush. He looked, and behold, the bush burned with fire, and the bush was not consumed.",
+   "note": "The angel appeared in a flame of fire from the middle of a bush that was not consumed."
+  }
+ },
+ {
+  "id": "scripture-b008",
+  "d": 1,
+  "q": "Which day does the commandment say to remember and keep holy?",
+  "o": [
+   "The day of the new moon",
+   "The Sabbath day",
+   "The day of Passover",
+   "The first day of the week"
+  ],
+  "a": 1,
+  "why": "The commandment tells Israel to remember the Sabbath day and keep it holy.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 20:8",
+   "ref": "EXO.20.8",
+   "quote": "“Remember the Sabbath day, to keep it holy.",
+   "note": "The commandment tells Israel to remember the Sabbath day and keep it holy."
+  }
+ },
+ {
+  "id": "scripture-b009",
+  "d": 1,
+  "q": "In Moses' song after the crossing, into what were Pharaoh's chariots and army cast?",
+  "o": [
+   "A desert pit",
+   "The river Nile",
+   "The sea",
+   "A burning furnace"
+  ],
+  "a": 2,
+  "why": "The song says the LORD cast Pharaoh's chariots and his army into the sea.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 15:4",
+   "ref": "EXO.15.4",
+   "quote": "He has cast Pharaoh’s chariots and his army into the sea.",
+   "note": "The song says the LORD cast Pharaoh's chariots and his army into the sea."
+  }
+ },
+ {
+  "id": "scripture-b010",
+  "d": 1,
+  "q": "How many smooth stones did David choose from the brook before facing the Philistine?",
+  "o": [
+   "Three",
+   "Twelve",
+   "Seven",
+   "Five"
+  ],
+  "a": 3,
+  "why": "David chose five smooth stones from the brook and put them in his shepherd's bag.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Samuel 17:40",
+   "ref": "1SA.17.40",
+   "quote": "He took his staff in his hand, and chose for himself five smooth stones out of the brook, and put them in the pouch of his shepherd’s bag which he had. His sling was in his hand; and he came near to the Philistine.",
+   "note": "David chose five smooth stones from the brook and put them in his shepherd's bag."
+  }
+ },
+ {
+  "id": "scripture-b011",
+  "d": 1,
+  "q": "Which king of Israel began to build the LORD's house in Jerusalem?",
+  "o": [
+   "Hezekiah",
+   "Solomon",
+   "David",
+   "Saul"
+  ],
+  "a": 1,
+  "why": "In the fourth year of his reign Solomon began to build the LORD's house.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Kings 6:1",
+   "ref": "1KI.6.1",
+   "quote": "In the four hundred and eightieth year after the children of Israel had come out of the land of Egypt, in the fourth year of Solomon’s reign over Israel, in the month Ziv, which is the second month, he began to build the LORD’s house.",
+   "note": "In the fourth year of his reign Solomon began to build the LORD's house."
+  }
+ },
+ {
+  "id": "scripture-b012",
+  "d": 1,
+  "q": "Complete the opening of the best-known psalm: \"The LORD is my ___.\"",
+  "o": [
+   "Judge",
+   "Rock",
+   "Fortress",
+   "Shepherd"
+  ],
+  "a": 3,
+  "why": "Psalm 23 opens by calling the LORD a shepherd.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 23:1",
+   "ref": "PSA.23.1",
+   "quote": "The LORD is my shepherd;",
+   "note": "Psalm 23 opens by calling the LORD a shepherd."
+  }
+ },
+ {
+  "id": "scripture-b013",
+  "d": 1,
+  "q": "Complete the psalm: \"Your word is a lamp to my ___.\"",
+  "o": [
+   "Steps",
+   "Eyes",
+   "Feet",
+   "Hands"
+  ],
+  "a": 2,
+  "why": "Psalm 119 praises God's word as a lamp to the psalmist's feet.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 119:105",
+   "ref": "PSA.119.105",
+   "quote": "Your word is a lamp to my feet,",
+   "note": "Psalm 119 praises God's word as a lamp to the psalmist's feet."
+  }
+ },
+ {
+  "id": "scripture-b014",
+  "d": 1,
+  "q": "Into what place was Daniel cast by King Darius's command?",
+  "o": [
+   "A fiery furnace",
+   "A prison tower",
+   "The den of lions",
+   "A deep dry well"
+  ],
+  "a": 2,
+  "why": "The king commanded that Daniel be cast into the den of lions.",
+  "src": {
+   "kind": "scripture",
+   "label": "Daniel 6:16",
+   "ref": "DAN.6.16",
+   "quote": "Then the king commanded, and they brought Daniel, and cast him into the den of lions. The king spoke and said to Daniel, “Your God whom you serve continually, he will deliver you.”",
+   "note": "The king commanded that Daniel be cast into the den of lions."
+  }
+ },
+ {
+  "id": "scripture-b015",
+  "d": 1,
+  "q": "What name was Joseph told to give to Mary's son?",
+  "o": [
+   "John",
+   "Matthias",
+   "Joseph",
+   "Jesus"
+  ],
+  "a": 3,
+  "why": "The angel said Joseph should name him Jesus, for he would save his people from their sins.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 1:21",
+   "ref": "MAT.1.21",
+   "quote": "She shall give birth to a son. You shall name him Jesus, for it is he who shall save his people from their sins.”",
+   "note": "The angel said Joseph should name him Jesus, for he would save his people from their sins."
+  }
+ },
+ {
+  "id": "scripture-b016",
+  "d": 1,
+  "q": "Complete Jesus' words to his disciples: \"You are the light of the ___.\"",
+  "o": [
+   "World",
+   "Earth",
+   "Nations",
+   "Temple"
+  ],
+  "a": 0,
+  "why": "In the Sermon on the Mount Jesus calls his disciples the light of the world.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 5:14",
+   "ref": "MAT.5.14",
+   "quote": "“You are the light of the world. A city located on a hill can’t be hidden.",
+   "note": "In the Sermon on the Mount Jesus calls his disciples the light of the world."
+  }
+ },
+ {
+  "id": "scripture-b017",
+  "d": 1,
+  "q": "Complete the prayer Jesus taught: \"Our Father in ___, may your name be kept holy.\"",
+  "o": [
+   "Heaven",
+   "Israel",
+   "Glory",
+   "Zion"
+  ],
+  "a": 0,
+  "why": "Jesus taught his disciples to begin by addressing \"Our Father in heaven.\"",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 6:9-10",
+   "ref": "MAT.6.9-10",
+   "quote": "Pray like this: Let your Kingdom come.",
+   "note": "Jesus taught his disciples to begin by addressing \"Our Father in heaven.\""
+  }
+ },
+ {
+  "id": "scripture-b018",
+  "d": 1,
+  "q": "On what was the wise man's house founded, so that it did not fall in the storm?",
+  "o": [
+   "The clay bank",
+   "The rock",
+   "The sand",
+   "The hill of grass"
+  ],
+  "a": 1,
+  "why": "The house did not fall because it was founded on the rock.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 7:25",
+   "ref": "MAT.7.25",
+   "quote": "The rain came down, the floods came, and the winds blew and beat on that house; and it didn’t fall, for it was founded on the rock.",
+   "note": "The house did not fall because it was founded on the rock."
+  }
+ },
+ {
+  "id": "scripture-b019",
+  "d": 1,
+  "q": "What did Peter do at Jesus' call of \"Come!\" on the stormy sea?",
+  "o": [
+   "He cast a net toward Jesus",
+   "He walked on the water toward Jesus",
+   "He rowed the boat to Jesus",
+   "He swam through the waves to Jesus"
+  ],
+  "a": 1,
+  "why": "Peter stepped out of the boat and walked on the water to come to Jesus.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 14:28-29",
+   "ref": "MAT.14.28-29",
+   "quote": "Peter answered him and said, “Lord, if it is you, command me to come to you on the waters.” He said, “Come!”",
+   "note": "Peter stepped out of the boat and walked on the water to come to Jesus."
+  }
+ },
+ {
+  "id": "scripture-b020",
+  "d": 1,
+  "q": "Whom did Jesus tell his disciples not to forbid from coming to him?",
+  "o": [
+   "The scribes",
+   "The tax collectors",
+   "The Roman soldiers",
+   "The little children"
+  ],
+  "a": 3,
+  "why": "Jesus said the Kingdom of Heaven belongs to ones like the little children.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 19:14",
+   "ref": "MAT.19.14",
+   "quote": "But Jesus said, “Allow the little children, and don’t forbid them to come to me; for the Kingdom of Heaven belongs to ones like these.”",
+   "note": "Jesus said the Kingdom of Heaven belongs to ones like the little children."
+  }
+ },
+ {
+  "id": "scripture-b021",
+  "d": 1,
+  "q": "Complete Jesus' commission: \"baptizing them in the name of the Father and of the Son and of the ___.\"",
+  "o": [
+   "Holy Spirit",
+   "Heavenly Host",
+   "Holy Church",
+   "Living God"
+  ],
+  "a": 0,
+  "why": "The risen Jesus sent the disciples to baptize in the name of the Father, Son and Holy Spirit.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 28:19",
+   "ref": "MAT.28.19",
+   "quote": "Go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit,",
+   "note": "The risen Jesus sent the disciples to baptize in the name of the Father, Son and Holy Spirit."
+  }
+ },
+ {
+  "id": "scripture-b022",
+  "d": 1,
+  "q": "What did Jesus say to the sea when he rebuked the storm?",
+  "o": [
+   "\"Return to your place!\"",
+   "\"Peace! Be still!\"",
+   "\"Rise up and be quiet!\"",
+   "\"Be calm and wait!\""
+  ],
+  "a": 1,
+  "why": "Jesus rebuked the wind, told the sea \"Peace! Be still!\" and there was a great calm.",
+  "src": {
+   "kind": "scripture",
+   "label": "Mark 4:39",
+   "ref": "MRK.4.39",
+   "quote": "He awoke and rebuked the wind, and said to the sea, “Peace! Be still!”The wind ceased and there was a great calm.",
+   "note": "Jesus rebuked the wind, told the sea \"Peace! Be still!\" and there was a great calm."
+  }
+ },
+ {
+  "id": "scripture-b023",
+  "d": 1,
+  "q": "In what did Mary lay her newborn firstborn son?",
+  "o": [
+   "A bed of straw mats",
+   "A woven basket",
+   "A carved cradle",
+   "A feeding trough, or manger"
+  ],
+  "a": 3,
+  "why": "Because there was no room in the inn, she laid him in a feeding trough.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 2:7",
+   "ref": "LUK.2.7",
+   "quote": "She gave birth to her firstborn son. She wrapped him in bands of cloth and laid him in a feeding trough, because there was no room for them in the inn.",
+   "note": "Because there was no room in the inn, she laid him in a feeding trough."
+  }
+ },
+ {
+  "id": "scripture-b024",
+  "d": 1,
+  "q": "To whom did an angel of the Lord first appear on the night Jesus was born?",
+  "o": [
+   "Wise men following a star",
+   "Shepherds keeping watch over their flock",
+   "Fishermen mending their nets",
+   "Priests serving at the temple"
+  ],
+  "a": 1,
+  "why": "Shepherds in the field were keeping watch by night when the angel stood by them.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 2:8-9",
+   "ref": "LUK.2.8-9",
+   "quote": "There were shepherds in the same country staying in the field, and keeping watch by night over their flock. Behold, an angel of the Lord stood by them, and the glory of the Lord shone around them, and they were terrified.",
+   "note": "Shepherds in the field were keeping watch by night when the angel stood by them."
+  }
+ },
+ {
+  "id": "scripture-b025",
+  "d": 1,
+  "q": "In the parable of the lost son, what work was he given in the far country?",
+  "o": [
+   "Digging a well",
+   "Feeding pigs",
+   "Tending sheep",
+   "Selling grain"
+  ],
+  "a": 1,
+  "why": "A citizen of that country sent the younger son into his fields to feed pigs.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 15:15",
+   "ref": "LUK.15.15",
+   "quote": "He went and joined himself to one of the citizens of that country, and he sent him into his fields to feed pigs.",
+   "note": "A citizen of that country sent the younger son into his fields to feed pigs."
+  }
+ },
+ {
+  "id": "scripture-b026",
+  "d": 1,
+  "q": "Complete Jesus' words: \"I am the bread of ___.\"",
+  "o": [
+   "Peace",
+   "Heaven",
+   "Truth",
+   "Life"
+  ],
+  "a": 3,
+  "why": "Jesus said whoever comes to him will not be hungry, for he is the bread of life.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 6:35",
+   "ref": "JHN.6.35",
+   "quote": "Jesus said to them, “I am the bread of life. Whoever comes to me will not be hungry, and whoever believes in me will never be thirsty.",
+   "note": "Jesus said whoever comes to him will not be hungry, for he is the bread of life."
+  }
+ },
+ {
+  "id": "scripture-b027",
+  "d": 1,
+  "q": "Complete Jesus' words: \"I am the way, the truth, and the ___.\"",
+  "o": [
+   "Life",
+   "Light",
+   "Shepherd",
+   "Door"
+  ],
+  "a": 0,
+  "why": "Jesus said no one comes to the Father except through him, the way, the truth and the life.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 14:6",
+   "ref": "JHN.14.6",
+   "quote": "Jesus said to him, “I am the way, the truth, and the life. No one comes to the Father, except through me.",
+   "note": "Jesus said no one comes to the Father except through him, the way, the truth and the life."
+  }
+ },
+ {
+  "id": "scripture-b028",
+  "d": 1,
+  "q": "Complete Jesus' words: \"I am the vine. You are the ___.\"",
+  "o": [
+   "Branches",
+   "Roots",
+   "Fruit",
+   "Harvesters"
+  ],
+  "a": 0,
+  "why": "Jesus told the disciples that those who remain in him bear much fruit.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 15:5",
+   "ref": "JHN.15.5",
+   "quote": "I am the vine. You are the branches. He who remains in me and I in him bears much fruit, for apart from me you can do nothing.",
+   "note": "Jesus told the disciples that those who remain in him bear much fruit."
+  }
+ },
+ {
+  "id": "scripture-b029",
+  "d": 1,
+  "q": "What received Jesus out of the apostles' sight when he was taken up?",
+  "o": [
+   "A whirlwind",
+   "A chariot of fire",
+   "A bright star",
+   "A cloud"
+  ],
+  "a": 3,
+  "why": "As they were looking, he was taken up and a cloud received him out of their sight.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 1:9",
+   "ref": "ACT.1.9",
+   "quote": "When he had said these things, as they were looking, he was taken up, and a cloud received him out of their sight.",
+   "note": "As they were looking, he was taken up and a cloud received him out of their sight."
+  }
+ },
+ {
+  "id": "scripture-b030",
+  "d": 1,
+  "q": "On the road to Damascus, what did the voice ask Saul: \"Saul, Saul, why do you ___ me?\"",
+  "o": [
+   "Reject",
+   "Persecute",
+   "Doubt",
+   "Forsake"
+  ],
+  "a": 1,
+  "why": "Saul fell to the earth and heard the voice of Jesus asking why he persecuted him.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 9:4",
+   "ref": "ACT.9.4",
+   "quote": "He fell on the earth, and heard a voice saying to him, “Saul, Saul, why do you persecute me?”",
+   "note": "Saul fell to the earth and heard the voice of Jesus asking why he persecuted him."
+  }
+ },
+ {
+  "id": "scripture-b031",
+  "d": 1,
+  "q": "Complete John's words: \"God is ___.\"",
+  "o": [
+   "Truth",
+   "Light",
+   "Spirit",
+   "Love"
+  ],
+  "a": 3,
+  "why": "John writes that whoever does not love does not know God, for God is love.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 John 4:8",
+   "ref": "1JN.4.8",
+   "quote": "He who doesn’t love doesn’t know God, for God is love.",
+   "note": "John writes that whoever does not love does not know God, for God is love."
+  }
+ },
+ {
+  "id": "scripture-b032",
+  "d": 1,
+  "q": "Complete the Lord's words in Revelation: \"Behold, I stand at the ___ and knock.\"",
+  "o": [
+   "Door",
+   "Window",
+   "Gate",
+   "Altar"
+  ],
+  "a": 0,
+  "why": "The risen Lord says that if anyone opens the door he will come in and dine with him.",
+  "src": {
+   "kind": "scripture",
+   "label": "Revelation 3:20",
+   "ref": "REV.3.20",
+   "quote": "Behold, I stand at the door and knock. If anyone hears my voice and opens the door, then I will come in to him and will dine with him, and he with me.",
+   "note": "The risen Lord says that if anyone opens the door he will come in and dine with him."
+  }
+ },
+ {
+  "id": "scripture-b033",
+  "d": 1,
+  "q": "What will God wipe away from the eyes of his people in the new creation?",
+  "o": [
+   "Every memory",
+   "Every sin",
+   "Every tear",
+   "Every shadow"
+  ],
+  "a": 2,
+  "why": "John sees that God will wipe away every tear and death will be no more.",
+  "src": {
+   "kind": "scripture",
+   "label": "Revelation 21:4",
+   "ref": "REV.21.4",
+   "quote": "He will wipe away every tear from their eyes. Death will be no more; neither will there be mourning, nor crying, nor pain any more. The first things have passed away.”",
+   "note": "John sees that God will wipe away every tear and death will be no more."
+  }
+ },
+ {
+  "id": "scripture-b034",
+  "d": 2,
+  "q": "What new name did God give Abram, meaning father of a multitude of nations?",
+  "o": [
+   "Israel",
+   "Ishmael",
+   "Abraham",
+   "Isaac"
+  ],
+  "a": 2,
+  "why": "God changed Abram's name to Abraham because he would be the father of a multitude of nations.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 17:5",
+   "ref": "GEN.17.5",
+   "quote": "Your name will no more be called Abram, but your name will be Abraham; for I have made you the father of a multitude of nations.",
+   "note": "God changed Abram's name to Abraham because he would be the father of a multitude of nations."
+  }
+ },
+ {
+  "id": "scripture-b035",
+  "d": 2,
+  "q": "What happened to Lot's wife when she looked back at Sodom?",
+  "o": [
+   "She was struck blind",
+   "She was swallowed by the earth",
+   "She became a pillar of salt",
+   "She was turned into a stone altar"
+  ],
+  "a": 2,
+  "why": "Lot's wife looked back from behind him and became a pillar of salt.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 19:26",
+   "ref": "GEN.19.26",
+   "quote": "But Lot’s wife looked back from behind him, and she became a pillar of salt.",
+   "note": "Lot's wife looked back from behind him and became a pillar of salt."
+  }
+ },
+ {
+  "id": "scripture-b036",
+  "d": 2,
+  "q": "What was the tenth plague that struck Egypt at midnight?",
+  "o": [
+   "Darkness over the land",
+   "Boils on man and beast",
+   "The death of the firstborn",
+   "Swarms of locusts"
+  ],
+  "a": 2,
+  "why": "At midnight the LORD struck all the firstborn in the land of Egypt.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 12:29",
+   "ref": "EXO.12.29",
+   "quote": "At midnight, the LORD struck all the firstborn in the land of Egypt, from the firstborn of Pharaoh who sat on his throne to the firstborn of the captive who was in the dungeon, and all the firstborn of livestock.",
+   "note": "At midnight the LORD struck all the firstborn in the land of Egypt."
+  }
+ },
+ {
+  "id": "scripture-b037",
+  "d": 2,
+  "q": "What did the people say Aaron made from their gold while Moses was on the mountain?",
+  "o": [
+   "A molded calf",
+   "A golden lampstand",
+   "A bronze serpent",
+   "A carved ark"
+  ],
+  "a": 0,
+  "why": "Aaron fashioned the gold into a molded calf, and the people called it the god who brought them out of Egypt.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 32:4",
+   "ref": "EXO.32.4",
+   "quote": "He received what they handed him, fashioned it with an engraving tool, and made it a molded calf. Then they said, “These are your gods, Israel, which brought you up out of the land of Egypt.”",
+   "note": "Aaron fashioned the gold into a molded calf, and the people called it the god who brought them out of Egypt."
+  }
+ },
+ {
+  "id": "scripture-b038",
+  "d": 2,
+  "q": "What did Moses make and set on a pole so that bitten Israelites who looked at it lived?",
+  "o": [
+   "A golden cherub",
+   "A staff of almond wood",
+   "A scroll of the law",
+   "A serpent of bronze"
+  ],
+  "a": 3,
+  "why": "Moses made a serpent of bronze, and anyone bitten who looked at it lived.",
+  "src": {
+   "kind": "scripture",
+   "label": "Numbers 21:9",
+   "ref": "NUM.21.9",
+   "quote": "Moses made a serpent of bronze, and set it on the pole. If a serpent had bitten any man, when he looked at the serpent of bronze, he lived.",
+   "note": "Moses made a serpent of bronze, and anyone bitten who looked at it lived."
+  }
+ },
+ {
+  "id": "scripture-b039",
+  "d": 2,
+  "q": "From which mountain did the LORD show Moses the land before his death?",
+  "o": [
+   "Mount Nebo",
+   "Mount Carmel",
+   "Mount Hermon",
+   "Mount Tabor"
+  ],
+  "a": 0,
+  "why": "Moses went up to Mount Nebo, to the top of Pisgah, and the LORD showed him the land.",
+  "src": {
+   "kind": "scripture",
+   "label": "Deuteronomy 34:1",
+   "ref": "DEU.34.1",
+   "quote": "Moses went up from the plains of Moab to Mount Nebo, to the top of Pisgah, that is opposite Jericho. The LORD showed him all the land of Gilead to Dan,",
+   "note": "Moses went up to Mount Nebo, to the top of Pisgah, and the LORD showed him the land."
+  }
+ },
+ {
+  "id": "scripture-b040",
+  "d": 2,
+  "q": "Which prophetess judged Israel at the time of Barak?",
+  "o": [
+   "Deborah",
+   "Miriam",
+   "Hannah",
+   "Huldah"
+  ],
+  "a": 0,
+  "why": "Deborah, a prophetess, the wife of Lappidoth, judged Israel at that time.",
+  "src": {
+   "kind": "scripture",
+   "label": "Judges 4:4",
+   "ref": "JDG.4.4",
+   "quote": "Now Deborah, a prophetess, the wife of Lappidoth, judged Israel at that time.",
+   "note": "Deborah, a prophetess, the wife of Lappidoth, judged Israel at that time."
+  }
+ },
+ {
+  "id": "scripture-b041",
+  "d": 2,
+  "q": "Complete: \"Man looks at the outward appearance, but the LORD looks at the ___.\"",
+  "o": [
+   "Heart",
+   "Deeds",
+   "Hands",
+   "Family"
+  ],
+  "a": 0,
+  "why": "The LORD told Samuel not to judge by appearance because he looks at the heart.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Samuel 16:7",
+   "ref": "1SA.16.7",
+   "quote": "But the LORD said to Samuel, “Don’t look on his face, or on the height of his stature, because I have rejected him; for I don’t see as man sees. For man looks at the outward appearance, but the LORD looks at the heart.”",
+   "note": "The LORD told Samuel not to judge by appearance because he looks at the heart."
+  }
+ },
+ {
+  "id": "scripture-b042",
+  "d": 2,
+  "q": "Which prophet told King David, \"You are the man!\"?",
+  "o": [
+   "Gad",
+   "Samuel",
+   "Nathan",
+   "Elijah"
+  ],
+  "a": 2,
+  "why": "Nathan confronted David after David's sin with Bathsheba and against Uriah.",
+  "src": {
+   "kind": "scripture",
+   "label": "2 Samuel 12:7",
+   "ref": "2SA.12.7",
+   "quote": "Nathan said to David, “You are the man! This is what the LORD, the God of Israel, says: ‘I anointed you king over Israel, and I delivered you out of the hand of Saul.",
+   "note": "Nathan confronted David after David's sin with Bathsheba and against Uriah."
+  }
+ },
+ {
+  "id": "scripture-b043",
+  "d": 2,
+  "q": "Elijah did not find the LORD in the wind, earthquake or fire. What followed the fire?",
+  "o": [
+   "A loud trumpet blast",
+   "A column of cloud",
+   "A still small voice",
+   "A rain of manna"
+  ],
+  "a": 2,
+  "why": "After the fire there was a still small voice, in which Elijah met the LORD.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Kings 19:12",
+   "ref": "1KI.19.12",
+   "quote": "After the earthquake a fire passed; but the LORD was not in the fire. After the fire, there was a still small voice.",
+   "note": "After the fire there was a still small voice, in which Elijah met the LORD."
+  }
+ },
+ {
+  "id": "scripture-b044",
+  "d": 2,
+  "q": "How many times did Naaman dip himself in the Jordan to be cleansed of leprosy?",
+  "o": [
+   "Ten times",
+   "Twelve times",
+   "Seven times",
+   "Three times"
+  ],
+  "a": 2,
+  "why": "Naaman dipped seven times in the Jordan and his flesh was restored.",
+  "src": {
+   "kind": "scripture",
+   "label": "2 Kings 5:14",
+   "ref": "2KI.5.14",
+   "quote": "Then went he down and dipped himself seven times in the Jordan, according to the saying of the man of God; and his flesh was restored like the flesh of a little child, and he was clean.",
+   "note": "Naaman dipped seven times in the Jordan and his flesh was restored."
+  }
+ },
+ {
+  "id": "scripture-b045",
+  "d": 2,
+  "q": "Complete the psalm of repentance: \"Create in me a clean ___, O God.\"",
+  "o": [
+   "Heart",
+   "Mind",
+   "Soul",
+   "Spirit"
+  ],
+  "a": 0,
+  "why": "Psalm 51 asks God to create in the sinner a clean heart.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 51:10",
+   "ref": "PSA.51.10",
+   "quote": "Create in me a clean heart, O God.",
+   "note": "Psalm 51 asks God to create in the sinner a clean heart."
+  }
+ },
+ {
+  "id": "scripture-b046",
+  "d": 2,
+  "q": "To which great city did the LORD tell Jonah to go and preach?",
+  "o": [
+   "Tyre",
+   "Babylon",
+   "Damascus",
+   "Nineveh"
+  ],
+  "a": 3,
+  "why": "The LORD told Jonah to arise and go to Nineveh, that great city.",
+  "src": {
+   "kind": "scripture",
+   "label": "Jonah 1:2",
+   "ref": "JON.1.2",
+   "quote": "“Arise, go to Nineveh, that great city, and preach against it, for their wickedness has come up before me.”",
+   "note": "The LORD told Jonah to arise and go to Nineveh, that great city."
+  }
+ },
+ {
+  "id": "scripture-b047",
+  "d": 2,
+  "q": "To which country did Joseph take the child Jesus and Mary to escape Herod?",
+  "o": [
+   "Egypt",
+   "Syria",
+   "Persia",
+   "Moab"
+  ],
+  "a": 0,
+  "why": "An angel told Joseph in a dream to flee into Egypt because Herod would seek the child.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 2:13-14",
+   "ref": "MAT.2.13-14",
+   "quote": "Now when they had departed, behold, an angel of the Lord appeared to Joseph in a dream, saying, “Arise and take the young child and his mother, and flee into Egypt, and stay there until I tell you, for Herod will seek the young child to destroy him.” He arose and took the young child and his mother ",
+   "note": "An angel told Joseph in a dream to flee into Egypt because Herod would seek the child."
+  }
+ },
+ {
+  "id": "scripture-b048",
+  "d": 2,
+  "q": "In Jesus' parable, which very small seed grows into a great plant of the Kingdom?",
+  "o": [
+   "A fig pit",
+   "A grain of mustard seed",
+   "A seed of barley",
+   "A kernel of wheat"
+  ],
+  "a": 1,
+  "why": "Jesus compared the Kingdom of Heaven to a mustard seed smaller than all seeds that grows large.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 13:31-32",
+   "ref": "MAT.13.31-32",
+   "quote": "He set another parable before them, saying, “The Kingdom of Heaven is like a grain of mustard seed which a man took, and sowed in his field,  which indeed is smaller than all seeds. But when it is grown, it is greater than the herbs and becomes a tree, so that the birds of the air come and lodge in ",
+   "note": "Jesus compared the Kingdom of Heaven to a mustard seed smaller than all seeds that grows large."
+  }
+ },
+ {
+  "id": "scripture-b049",
+  "d": 2,
+  "q": "In Jesus' parable of the ten virgins, how many were wise?",
+  "o": [
+   "Five",
+   "Two",
+   "Seven",
+   "Ten"
+  ],
+  "a": 0,
+  "why": "Five of the virgins were foolish and five were wise.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 25:1-2",
+   "ref": "MAT.25.1-2",
+   "quote": "“Then the Kingdom of Heaven will be like ten virgins who took their lamps and went out to meet the bridegroom.  Five of them were foolish, and five were wise.",
+   "note": "Five of the virgins were foolish and five were wise."
+  }
+ },
+ {
+  "id": "scripture-b050",
+  "d": 2,
+  "q": "Where did Jesus go with his disciples to pray before his arrest?",
+  "o": [
+   "Gethsemane",
+   "Capernaum",
+   "Bethany",
+   "Emmaus"
+  ],
+  "a": 0,
+  "why": "Jesus came with them to a place called Gethsemane and told them to sit while he prayed.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 26:36",
+   "ref": "MAT.26.36",
+   "quote": "Then Jesus came with them to a place called Gethsemane, and said to his disciples, “Sit here, while I go there and pray.”",
+   "note": "Jesus came with them to a place called Gethsemane and told them to sit while he prayed."
+  }
+ },
+ {
+  "id": "scripture-b051",
+  "d": 2,
+  "q": "What was the name of the blind beggar who sat by the road outside Jericho?",
+  "o": [
+   "Zacchaeus",
+   "Jairus",
+   "Lazarus",
+   "Bartimaeus"
+  ],
+  "a": 3,
+  "why": "Bartimaeus, the son of Timaeus, was a blind beggar sitting by the road at Jericho.",
+  "src": {
+   "kind": "scripture",
+   "label": "Mark 10:46",
+   "ref": "MRK.10.46",
+   "quote": "They came to Jericho. As he went out from Jericho with his disciples and a great multitude, the son of Timaeus, Bartimaeus, a blind beggar, was sitting by the road.",
+   "note": "Bartimaeus, the son of Timaeus, was a blind beggar sitting by the road at Jericho."
+  }
+ },
+ {
+  "id": "scripture-b052",
+  "d": 2,
+  "q": "Which man was made unable to speak because he did not believe the angel's words about a son?",
+  "o": [
+   "Joseph",
+   "Simeon",
+   "Joachim",
+   "Zechariah"
+  ],
+  "a": 3,
+  "why": "The angel told Zechariah he would be silent until the day his son John was born.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 1:20",
+   "ref": "LUK.1.20",
+   "quote": "Behold, you will be silent and not able to speak until the day that these things will happen, because you didn’t believe my words, which will be fulfilled in their proper time.”",
+   "note": "The angel told Zechariah he would be silent until the day his son John was born."
+  }
+ },
+ {
+  "id": "scripture-b053",
+  "d": 2,
+  "q": "To what village were two disciples walking on the day of the resurrection when Jesus joined them?",
+  "o": [
+   "Nain",
+   "Emmaus",
+   "Cana",
+   "Bethany"
+  ],
+  "a": 1,
+  "why": "Two of them were going that day to a village named Emmaus, sixty stadia from Jerusalem.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 24:13",
+   "ref": "LUK.24.13",
+   "quote": "Behold, two of them were going that very day to a village named Emmaus, which was sixty stadia from Jerusalem.",
+   "note": "Two of them were going that day to a village named Emmaus, sixty stadia from Jerusalem."
+  }
+ },
+ {
+  "id": "scripture-b054",
+  "d": 2,
+  "q": "Which Pharisee and ruler of the Jews came to Jesus by night?",
+  "o": [
+   "Caiaphas",
+   "Joseph of Arimathea",
+   "Gamaliel",
+   "Nicodemus"
+  ],
+  "a": 3,
+  "why": "Nicodemus came to Jesus by night and said he was a teacher come from God.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 3:1-2",
+   "ref": "JHN.3.1-2",
+   "quote": "Now there was a man of the Pharisees named Nicodemus, a ruler of the Jews. He came to Jesus by night and said to him, “Rabbi, we know that you are a teacher who has come from God, for no one can do these signs that you do, unless God is with him.”",
+   "note": "Nicodemus came to Jesus by night and said he was a teacher come from God."
+  }
+ },
+ {
+  "id": "scripture-b055",
+  "d": 2,
+  "q": "After the resurrection, what did Jesus tell Peter to do three times when Peter said he loved him?",
+  "o": [
+   "Build his church",
+   "Forgive his brothers",
+   "Follow the crowds",
+   "Feed his sheep"
+  ],
+  "a": 3,
+  "why": "Jesus asked Peter three times if he loved him, and each time charged him to care for his sheep.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 21:15-17",
+   "ref": "JHN.21.15-17",
+   "quote": "So when they had eaten their breakfast, Jesus said to Simon Peter, “Simon, son of Jonah, do you love me more than these?” He said to him again a second time, “Simon, son of Jonah, do you love me?” He said to him the third time, “Simon, son of Jonah, do you have affection for me?”",
+   "note": "Jesus asked Peter three times if he loved him, and each time charged him to care for his sheep."
+  }
+ },
+ {
+  "id": "scripture-b056",
+  "d": 2,
+  "q": "At which temple gate was the lame man laid daily, whom Peter and John healed?",
+  "o": [
+   "The Sheep Gate of Jerusalem",
+   "The Fountain Gate",
+   "The Golden Gate of mercy",
+   "The gate called Beautiful"
+  ],
+  "a": 3,
+  "why": "The man was laid daily at the temple door called Beautiful to ask gifts for the needy.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 3:2",
+   "ref": "ACT.3.2",
+   "quote": "A certain man who was lame from his mother’s womb was being carried, whom they laid daily at the door of the temple which is called Beautiful, to ask gifts for the needy of those who entered into the temple.",
+   "note": "The man was laid daily at the temple door called Beautiful to ask gifts for the needy."
+  }
+ },
+ {
+  "id": "scripture-b057",
+  "d": 2,
+  "q": "Who sold a possession with his wife Sapphira and kept back part of the price?",
+  "o": [
+   "Cornelius",
+   "Barnabas",
+   "Demetrius",
+   "Ananias"
+  ],
+  "a": 3,
+  "why": "Ananias, with Sapphira his wife, sold a possession in the early Church.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 5:1",
+   "ref": "ACT.5.1",
+   "quote": "But a certain man named Ananias, with Sapphira his wife, sold a possession,",
+   "note": "Ananias, with Sapphira his wife, sold a possession in the early Church."
+  }
+ },
+ {
+  "id": "scripture-b058",
+  "d": 2,
+  "q": "What inscription did Paul find on an altar in Athens?",
+  "o": [
+   "\"To an unknown god\"",
+   "\"To all the heavenly powers\"",
+   "\"To the god of the sea\"",
+   "\"To the Lord of hosts\""
+  ],
+  "a": 0,
+  "why": "Paul used the altar inscribed \"To an unknown god\" to introduce the true God to the Athenians.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 17:23",
+   "ref": "ACT.17.23",
+   "quote": "For as I passed along and observed the objects of your worship, I also found an altar with this inscription: ‘TO AN UNKNOWN GOD.’ What therefore you worship in ignorance, I announce to you.",
+   "note": "Paul used the altar inscribed \"To an unknown god\" to introduce the true God to the Athenians."
+  }
+ },
+ {
+  "id": "scripture-b059",
+  "d": 2,
+  "q": "Complete Paul's words: \"For the wages of sin is ___.\"",
+  "o": [
+   "Death",
+   "Shame",
+   "Exile",
+   "Sorrow"
+  ],
+  "a": 0,
+  "why": "Paul writes that the wages of sin is death, but God's free gift is eternal life in Christ.",
+  "src": {
+   "kind": "scripture",
+   "label": "Romans 6:23",
+   "ref": "ROM.6.23",
+   "quote": "For the wages of sin is death, but the free gift of God is eternal life in Christ Jesus our Lord.",
+   "note": "Paul writes that the wages of sin is death, but God's free gift is eternal life in Christ."
+  }
+ },
+ {
+  "id": "scripture-b060",
+  "d": 2,
+  "q": "According to Paul, every Scripture is what, and profitable for teaching and correction?",
+  "o": [
+   "Hidden in the heart",
+   "Handed down by elders",
+   "God-breathed",
+   "Written on stone"
+  ],
+  "a": 2,
+  "why": "Paul says every Scripture is God-breathed and profitable for teaching, reproof, correction and instruction.",
+  "src": {
+   "kind": "scripture",
+   "label": "2 Timothy 3:16",
+   "ref": "2TI.3.16",
+   "quote": "Every Scripture is God-breathed and profitable for teaching, for reproof, for correction, and for instruction in righteousness,",
+   "note": "Paul says every Scripture is God-breathed and profitable for teaching, reproof, correction and instruction."
+  }
+ },
+ {
+  "id": "scripture-b061",
+  "d": 2,
+  "q": "According to James, what do the elders do for a sick person besides praying over him?",
+  "o": [
+   "Anoint him with oil in the Lord's name",
+   "Wash his feet with water",
+   "Lay palms on his head and fast",
+   "Place ashes on his brow"
+  ],
+  "a": 0,
+  "why": "James tells the sick to call the elders, who pray and anoint with oil in the name of the Lord.",
+  "src": {
+   "kind": "scripture",
+   "label": "James 5:14",
+   "ref": "JAS.5.14",
+   "quote": "Is any among you sick? Let him call for the elders of the assembly, and let them pray over him, anointing him with oil in the name of the Lord;",
+   "note": "James tells the sick to call the elders, who pray and anoint with oil in the name of the Lord."
+  }
+ },
+ {
+  "id": "scripture-b062",
+  "d": 2,
+  "q": "To what animal does Peter compare the devil, who seeks whom he may devour?",
+  "o": [
+   "A prowling wolf",
+   "A roaring lion",
+   "A coiled serpent",
+   "A circling hawk"
+  ],
+  "a": 1,
+  "why": "Peter says the adversary walks around like a roaring lion, seeking whom he may devour.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Peter 5:8",
+   "ref": "1PE.5.8",
+   "quote": "Be sober and self-controlled. Be watchful. Your adversary, the devil, walks around like a roaring lion, seeking whom he may devour.",
+   "note": "Peter says the adversary walks around like a roaring lion, seeking whom he may devour."
+  }
+ },
+ {
+  "id": "scripture-b063",
+  "d": 2,
+  "q": "The Lord God in Revelation says he is the Alpha and the what?",
+  "o": [
+   "Amen",
+   "Lamb",
+   "Omega",
+   "Beginning"
+  ],
+  "a": 2,
+  "why": "The Lord God says he is the Alpha and the Omega, who is and was and is to come.",
+  "src": {
+   "kind": "scripture",
+   "label": "Revelation 1:8",
+   "ref": "REV.1.8",
+   "quote": "“I am the Alpha and the Omega,”says the Lord God, “who is and who was and who is to come, the Almighty.”",
+   "note": "The Lord God says he is the Alpha and the Omega, who is and was and is to come."
+  }
+ },
+ {
+  "id": "scripture-b064",
+  "d": 3,
+  "q": "What length did God tell Noah to make the ship?",
+  "o": [
+   "Fifty cubits",
+   "Three hundred cubits",
+   "One hundred cubits",
+   "Five hundred cubits"
+  ],
+  "a": 1,
+  "why": "God gave the length as three hundred cubits, its width fifty and its height thirty.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 6:15",
+   "ref": "GEN.6.15",
+   "quote": "This is how you shall make it. The length of the ship shall be three hundred cubits, its width fifty cubits, and its height thirty cubits.",
+   "note": "God gave the length as three hundred cubits, its width fifty and its height thirty."
+  }
+ },
+ {
+  "id": "scripture-b065",
+  "d": 3,
+  "q": "How old was Sarah when she died?",
+  "o": [
+   "One hundred forty years",
+   "One hundred ten years",
+   "Ninety years",
+   "One hundred twenty-seven years"
+  ],
+  "a": 3,
+  "why": "Sarah lived one hundred twenty-seven years.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 23:1",
+   "ref": "GEN.23.1",
+   "quote": "Sarah lived one hundred twenty-seven years. This was the length of Sarah’s life.",
+   "note": "Sarah lived one hundred twenty-seven years."
+  }
+ },
+ {
+  "id": "scripture-b066",
+  "d": 3,
+  "q": "Which craftsman of the tribe of Judah did the LORD call by name to build the tabernacle?",
+  "o": [
+   "Abinadab",
+   "Bezalel",
+   "Oholiab",
+   "Hiram"
+  ],
+  "a": 1,
+  "why": "The LORD said he had called Bezalel the son of Uri by name.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 31:2",
+   "ref": "EXO.31.2",
+   "quote": "“Behold, I have called by name Bezalel the son of Uri, the son of Hur, of the tribe of Judah.",
+   "note": "The LORD said he had called Bezalel the son of Uri by name."
+  }
+ },
+ {
+  "id": "scripture-b067",
+  "d": 3,
+  "q": "With what weapon did Samson strike a thousand men?",
+  "o": [
+   "A bronze spear",
+   "A fresh jawbone of a donkey",
+   "An ox goad",
+   "A sling and stones"
+  ],
+  "a": 1,
+  "why": "Samson found a fresh jawbone of a donkey and struck a thousand men with it.",
+  "src": {
+   "kind": "scripture",
+   "label": "Judges 15:15",
+   "ref": "JDG.15.15",
+   "quote": "He found a fresh jawbone of a donkey, put out his hand, took it, and struck a thousand men with it.",
+   "note": "Samson found a fresh jawbone of a donkey and struck a thousand men with it."
+  }
+ },
+ {
+  "id": "scripture-b068",
+  "d": 3,
+  "q": "On which mountain were Saul and his three sons found fallen by the Philistines?",
+  "o": [
+   "Mount Gilboa",
+   "Mount Carmel",
+   "Mount Moriah",
+   "Mount Ebal"
+  ],
+  "a": 0,
+  "why": "The Philistines found Saul and his three sons fallen on Mount Gilboa.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Samuel 31:8",
+   "ref": "1SA.31.8",
+   "quote": "On the next day, when the Philistines came to strip the slain, they found Saul and his three sons fallen on Mount Gilboa.",
+   "note": "The Philistines found Saul and his three sons fallen on Mount Gilboa."
+  }
+ },
+ {
+  "id": "scripture-b069",
+  "d": 3,
+  "q": "At the brook Cherith, what brought Elijah bread and meat morning and evening?",
+  "o": [
+   "Angels",
+   "Ravens",
+   "Wild goats",
+   "Doves"
+  ],
+  "a": 1,
+  "why": "The ravens brought him bread and meat in the morning and in the evening.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Kings 17:6",
+   "ref": "1KI.17.6",
+   "quote": "The ravens brought him bread and meat in the morning, and bread and meat in the evening; and he drank from the brook.",
+   "note": "The ravens brought him bread and meat in the morning and in the evening."
+  }
+ },
+ {
+  "id": "scripture-b070",
+  "d": 3,
+  "q": "Which high priest told the scribe Shaphan, \"I have found the book of the law in the LORD's house\"?",
+  "o": [
+   "Zadok",
+   "Hilkiah",
+   "Eli",
+   "Jehoiada"
+  ],
+  "a": 1,
+  "why": "Hilkiah the high priest found the book of the law during the reign of Josiah.",
+  "src": {
+   "kind": "scripture",
+   "label": "2 Kings 22:8",
+   "ref": "2KI.22.8",
+   "quote": "Hilkiah the high priest said to Shaphan the scribe, “I have found the book of the law in the LORD’s house.” Hilkiah delivered the book to Shaphan, and he read it.",
+   "note": "Hilkiah the high priest found the book of the law during the reign of Josiah."
+  }
+ },
+ {
+  "id": "scripture-b071",
+  "d": 3,
+  "q": "On what was Haman hanged?",
+  "o": [
+   "A tree in the royal garden",
+   "A wall of the palace",
+   "The gallows prepared for Mordecai",
+   "A cross at the city gate"
+  ],
+  "a": 2,
+  "why": "Haman was hanged on the gallows that had been prepared for Mordecai.",
+  "src": {
+   "kind": "scripture",
+   "label": "Esther 7:10",
+   "ref": "EST.7.10",
+   "quote": "So Haman was hanged on the gallows that had been prepared for Mordecai. Then the king’s wrath was abated.",
+   "note": "Haman was hanged on the gallows that had been prepared for Mordecai."
+  }
+ },
+ {
+  "id": "scripture-b072",
+  "d": 3,
+  "q": "What Babylonian name was given to Daniel?",
+  "o": [
+   "Meshach",
+   "Abednego",
+   "Belteshazzar",
+   "Shadrach"
+  ],
+  "a": 2,
+  "why": "The prince of the eunuchs gave Daniel the name Belteshazzar.",
+  "src": {
+   "kind": "scripture",
+   "label": "Daniel 1:7",
+   "ref": "DAN.1.7",
+   "quote": "The prince of the eunuchs gave names to them: to Daniel he gave the name Belteshazzar; to Hananiah, Shadrach; to Mishael, Meshach; and to Azariah, Abednego.",
+   "note": "The prince of the eunuchs gave Daniel the name Belteshazzar."
+  }
+ },
+ {
+  "id": "scripture-b073",
+  "d": 3,
+  "q": "Which prophet did Peter say had spoken of the outpouring of the Spirit on Pentecost?",
+  "o": [
+   "Amos",
+   "Joel",
+   "Micah",
+   "Hosea"
+  ],
+  "a": 1,
+  "why": "Peter said Pentecost was what was spoken through the prophet Joel.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 2:16-17",
+   "ref": "ACT.2.16-17",
+   "quote": "But this is what has been spoken through the prophet Joel: ‘It will be in the last days, says God,",
+   "note": "Peter said Pentecost was what was spoken through the prophet Joel."
+  }
+ },
+ {
+  "id": "scripture-b074",
+  "d": 3,
+  "q": "What did Jesus say to Jairus' daughter, which means \"Girl, I tell you, get up!\"?",
+  "o": [
+   "Maranatha",
+   "Eloi Eloi",
+   "Ephphatha",
+   "Talitha cumi"
+  ],
+  "a": 3,
+  "why": "Jesus took the child by the hand and said \"Talitha cumi,\" meaning \"Girl, I tell you, get up!\"",
+  "src": {
+   "kind": "scripture",
+   "label": "Mark 5:41",
+   "ref": "MRK.5.41",
+   "quote": "Taking the child by the hand, he said to her, “Talitha cumi!” which means, being interpreted, “Girl, I tell you, get up!”",
+   "note": "Jesus took the child by the hand and said \"Talitha cumi,\" meaning \"Girl, I tell you, get up!\""
+  }
+ },
+ {
+  "id": "scripture-b075",
+  "d": 3,
+  "q": "How many years did the Jews say it took to build the temple?",
+  "o": [
+   "Eighty",
+   "Seven",
+   "Forty-six",
+   "Twenty-two"
+  ],
+  "a": 2,
+  "why": "The Jews said it took forty-six years to build the temple, but Jesus spoke of the temple of his body.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 2:20",
+   "ref": "JHN.2.20",
+   "quote": "The Jews therefore said, “It took forty-six years to build this temple! Will you raise it up in three days?”",
+   "note": "The Jews said it took forty-six years to build the temple, but Jesus spoke of the temple of his body."
+  }
+ },
+ {
+  "id": "scripture-b076",
+  "d": 3,
+  "q": "In which three languages was the title on Jesus' cross written?",
+  "o": [
+   "Hebrew, Latin and Greek",
+   "Aramaic, Syriac and Hebrew",
+   "Greek, Egyptian and Latin",
+   "Hebrew, Persian and Greek"
+  ],
+  "a": 0,
+  "why": "John says the title was written in Hebrew, in Latin and in Greek.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 19:20",
+   "ref": "JHN.19.20",
+   "quote": "Therefore many of the Jews read this title, for the place where Jesus was crucified was near the city; and it was written in Hebrew, in Latin, and in Greek.",
+   "note": "John says the title was written in Hebrew, in Latin and in Greek."
+  }
+ },
+ {
+  "id": "scripture-b077",
+  "d": 3,
+  "q": "Which king said to Paul, \"With a little persuasion are you trying to make me a Christian?\"",
+  "o": [
+   "Herod the Great",
+   "Festus",
+   "Agrippa",
+   "Felix"
+  ],
+  "a": 2,
+  "why": "King Agrippa made this remark while Paul defended himself.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 26:28",
+   "ref": "ACT.26.28",
+   "quote": "Agrippa said to Paul, “With a little persuasion are you trying to make me a Christian?”",
+   "note": "King Agrippa made this remark while Paul defended himself."
+  }
+ },
+ {
+  "id": "scripture-b078",
+  "d": 3,
+  "q": "How many times does Paul say he suffered shipwreck?",
+  "o": [
+   "Twice",
+   "Once",
+   "Seven times",
+   "Three times"
+  ],
+  "a": 3,
+  "why": "Paul lists that he was beaten with rods three times, stoned once and shipwrecked three times.",
+  "src": {
+   "kind": "scripture",
+   "label": "2 Corinthians 11:25",
+   "ref": "2CO.11.25",
+   "quote": "Three times I was beaten with rods. Once I was stoned. Three times I suffered shipwreck. I have been a night and a day in the deep.",
+   "note": "Paul lists that he was beaten with rods three times, stoned once and shipwrecked three times."
+  }
+ },
+ {
+  "id": "scripture-b079",
+  "d": 3,
+  "q": "Which church is told, \"Because you are lukewarm, and neither hot nor cold, I will vomit you out of my mouth\"?",
+  "o": [
+   "Smyrna",
+   "Laodicea",
+   "Sardis",
+   "Ephesus"
+  ],
+  "a": 1,
+  "why": "The Lord rebukes the assembly in Laodicea as neither hot nor cold.",
+  "src": {
+   "kind": "scripture",
+   "label": "Revelation 3:14-16",
+   "ref": "REV.3.14-16",
+   "quote": "“To the angel of the assembly in Laodicea write: “I know your works, that you are neither cold nor hot. I wish you were cold or hot.  So, because you are lukewarm, and neither hot nor cold, I will vomit you out of my mouth.",
+   "note": "The Lord rebukes the assembly in Laodicea as neither hot nor cold."
+  }
+ },
+ {
+  "id": "scripture-b080",
+  "d": 3,
+  "q": "On which island did Paul leave Titus to set things in order and appoint elders?",
+  "o": [
+   "Cyprus",
+   "Crete",
+   "Malta",
+   "Patmos"
+  ],
+  "a": 1,
+  "why": "Paul writes that he left Titus in Crete to appoint elders in every city.",
+  "src": {
+   "kind": "scripture",
+   "label": "Titus 1:5",
+   "ref": "TIT.1.5",
+   "quote": "I left you in Crete for this reason, that you would set in order the things that were lacking and appoint elders in every city, as I directed you—",
+   "note": "Paul writes that he left Titus in Crete to appoint elders in every city."
+  }
+ }
+]

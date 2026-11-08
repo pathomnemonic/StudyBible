@@ -1,3 +1,4 @@
+import { MORE_WS_THEMES } from './wordsearch2';
 /** Themes for the Bible wordsearch. Words are single words, letters only. */
 export interface WsTheme { id: string; title: string; words: string[] }
 export const WS_THEMES: WsTheme[] = [
@@ -21,4 +22,5 @@ export const WS_THEMES: WsTheme[] = [
   { id: 'prayer', title: 'Prayer', words: ['ROSARY', 'ANGELUS', 'NOVENA', 'LITANY', 'VESPERS', 'COMPLINE', 'LAUDS', 'MATINS', 'PSALM', 'AMEN', 'GLORIA'] },
   { id: 'sins', title: 'Seven Deadly Sins', words: ['PRIDE', 'ENVY', 'WRATH', 'SLOTH', 'GREED', 'LUST', 'GLUTTONY', 'HUMILITY', 'KINDNESS', 'DILIGENCE'] },
   { id: 'exodus', title: 'Exodus', words: ['MOSES', 'AARON', 'PHARAOH', 'PASSOVER', 'MANNA', 'SINAI', 'COMMANDMENTS', 'QUAIL', 'MIRIAM', 'JOSHUA', 'REDSEA'] },
+  ...MORE_WS_THEMES,
 ];

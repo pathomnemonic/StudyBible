@@ -1,0 +1,1602 @@
+[
+ {
+  "id": "saints-b001",
+  "d": 1,
+  "q": "Which saint did Pope Urban VIII style \"the apostle of the Indies\"?",
+  "o": [
+   "Francis Xavier",
+   "Francis Borgia",
+   "Francis de Sales",
+   "Francis Solano"
+  ],
+  "a": 0,
+  "why": "Butler says Urban VIII justly styled Xavier the apostle of the Indies.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis Xavier",
+   "butler": "12-03:0",
+   "quote": "whom Urban VIII. justly styled the apostle of the Indies",
+   "note": "Butler says Urban VIII justly styled Xavier the apostle of the Indies."
+  }
+ },
+ {
+  "id": "saints-b002",
+  "d": 1,
+  "q": "Boniface is known as the apostle of which land?",
+  "o": [
+   "Ireland",
+   "Germany",
+   "Scotland",
+   "Poland"
+  ],
+  "a": 1,
+  "why": "Boniface, an Englishman, labored to convert the Germans and is called their apostle.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Boniface",
+   "butler": "06-05:0",
+   "quote": "Apostle of Germany and Martyr",
+   "note": "Boniface, an Englishman, labored to convert the Germans and is called their apostle."
+  }
+ },
+ {
+  "id": "saints-b003",
+  "d": 1,
+  "q": "The valley where Bernard built his abbey was named Clara-vallis. By what name is that abbey known?",
+  "o": [
+   "Clairvaux",
+   "Fontevrault",
+   "Monte Cassino",
+   "Cluny"
+  ],
+  "a": 0,
+  "why": "Butler says the valley received the name Clara-vallis, or Clarval, from Bernard's house.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Bernard",
+   "butler": "08-20:0",
+   "quote": "the country gave this valley the name of Clara-vallis or Clarval",
+   "note": "Butler says the valley received the name Clara-vallis, or Clarval, from Bernard's house."
+  }
+ },
+ {
+  "id": "saints-b004",
+  "d": 1,
+  "q": "Thomas Becket was martyred as archbishop of which English see?",
+  "o": [
+   "Winchester",
+   "Lincoln",
+   "Canterbury",
+   "York"
+  ],
+  "a": 2,
+  "why": "Thomas Becket, born in London, was archbishop of Canterbury when he was slain.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Thomas Becket",
+   "butler": "12-29:0",
+   "quote": "Archbishop of Canterbury",
+   "note": "Thomas Becket, born in London, was archbishop of Canterbury when he was slain."
+  }
+ },
+ {
+  "id": "saints-b005",
+  "d": 1,
+  "q": "Of which city was Polycarp a bishop and martyr?",
+  "o": [
+   "Ephesus",
+   "Philippi",
+   "Smyrna",
+   "Corinth"
+  ],
+  "a": 2,
+  "why": "Polycarp was bishop of Smyrna and died a martyr.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Polycarp",
+   "butler": "01-26:0",
+   "quote": "Bishop of Smyrna",
+   "note": "Polycarp was bishop of Smyrna and died a martyr."
+  }
+ },
+ {
+  "id": "saints-b006",
+  "d": 1,
+  "q": "Of which city was Ignatius, the martyr devoured by lions, bishop?",
+  "o": [
+   "Jerusalem",
+   "Alexandria",
+   "Rome",
+   "Antioch"
+  ],
+  "a": 3,
+  "why": "Ignatius was bishop of Antioch and was condemned to the beasts.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Ignatius of Antioch",
+   "butler": "02-01:0",
+   "quote": "Bishop of Antioch",
+   "note": "Ignatius was bishop of Antioch and was condemned to the beasts."
+  }
+ },
+ {
+  "id": "saints-b007",
+  "d": 1,
+  "q": "In which kingdom was St. Elizabeth, a princess who cared for the poor, born in 1207?",
+  "o": [
+   "Bohemia",
+   "Hungary",
+   "Poland",
+   "Portugal"
+  ],
+  "a": 1,
+  "why": "Elizabeth was born a princess of Hungary and later lived in Thuringia.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Elizabeth of Hungary",
+   "butler": "11-19:0",
+   "quote": "was born in Hungary in 1207",
+   "note": "Elizabeth was born a princess of Hungary and later lived in Thuringia."
+  }
+ },
+ {
+  "id": "saints-b008",
+  "d": 1,
+  "q": "St. David is the patron saint of which country?",
+  "o": [
+   "Scotland",
+   "Cornwall",
+   "Ireland",
+   "Wales"
+  ],
+  "a": 3,
+  "why": "David is the patron of Wales, where his feast is kept.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. David",
+   "butler": "03-01:0",
+   "quote": "Patron of Wales",
+   "note": "David is the patron of Wales, where his feast is kept."
+  }
+ },
+ {
+  "id": "saints-b009",
+  "d": 1,
+  "q": "St. Casimir, a young saint of the Jagiellon house, was a prince of which kingdom?",
+  "o": [
+   "Hungary",
+   "Lithuania",
+   "Bohemia",
+   "Poland"
+  ],
+  "a": 3,
+  "why": "Casimir was the third of thirteen children of the king of Poland.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Casimir",
+   "butler": "03-04:0",
+   "quote": "Prince of Poland",
+   "note": "Casimir was the third of thirteen children of the king of Poland."
+  }
+ },
+ {
+  "id": "saints-b010",
+  "d": 1,
+  "q": "For which feat of endurance is St. Simeon Stylites remembered, living on top of a what?",
+  "o": [
+   "A ship's mast",
+   "A pillar",
+   "A tower of stone",
+   "A mountain peak"
+  ],
+  "a": 1,
+  "why": "Simeon erected a pillar and lived on it for decades.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Simeon Stylites",
+   "butler": "01-05:0",
+   "quote": "In 423, he erected a pillar six cubits high, and on it he dwelt four years",
+   "note": "Simeon erected a pillar and lived on it for decades."
+  }
+ },
+ {
+  "id": "saints-b011",
+  "d": 1,
+  "q": "Bruno founded which order of monks?",
+  "o": [
+   "The Carthusians",
+   "The Camaldolese",
+   "The Cistercians",
+   "The Trinitarians"
+  ],
+  "a": 0,
+  "why": "Bruno founded the Carthusian order, which began at the Chartreuse.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Bruno",
+   "butler": "10-06:0",
+   "quote": "Founder of the Carthusian Monks",
+   "note": "Bruno founded the Carthusian order, which began at the Chartreuse."
+  }
+ },
+ {
+  "id": "saints-b012",
+  "d": 1,
+  "q": "In which city of Peru was St. Rose born in 1586?",
+  "o": [
+   "Seville",
+   "Lima",
+   "Quito",
+   "Cuzco"
+  ],
+  "a": 1,
+  "why": "Rose, of Spanish extraction, was born at Lima.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Rose of Lima",
+   "butler": "08-30:0",
+   "quote": "born at Lima, the capital of Pera, in 1586",
+   "note": "Rose, of Spanish extraction, was born at Lima."
+  }
+ },
+ {
+  "id": "saints-b013",
+  "d": 1,
+  "q": "St. Bridget, who founded a monastery at Wastein, was a princess of which kingdom?",
+  "o": [
+   "Poland",
+   "Sweden",
+   "Norway",
+   "Denmark"
+  ],
+  "a": 1,
+  "why": "Bridget was daughter of a prince of the royal blood of Sweden.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Bridget",
+   "butler": "10-08:0",
+   "quote": "was daughter of Birger, a prince of the royal blood of Sweden",
+   "note": "Bridget was daughter of a prince of the royal blood of Sweden."
+  }
+ },
+ {
+  "id": "saints-b014",
+  "d": 1,
+  "q": "With what was St. Sebastian's body covered when he was left for dead?",
+  "o": [
+   "Thorns",
+   "Chains",
+   "Stones",
+   "Arrows"
+  ],
+  "a": 3,
+  "why": "Sebastian's body was covered with arrows, and he was left for dead.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Sebastian",
+   "butler": "01-20:1",
+   "quote": "His body was covered with arrows, and he left for dead.",
+   "note": "Sebastian's body was covered with arrows, and he was left for dead."
+  }
+ },
+ {
+  "id": "saints-b015",
+  "d": 1,
+  "q": "St. Alban is honored as the protomartyr of which land?",
+  "o": [
+   "Ireland",
+   "Britain",
+   "Gaul",
+   "Spain"
+  ],
+  "a": 1,
+  "why": "Alban is the first martyr of Britain.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Alban",
+   "butler": "06-22:1",
+   "quote": "Protomartyr of Britain",
+   "note": "Alban is the first martyr of Britain."
+  }
+ },
+ {
+  "id": "saints-b016",
+  "d": 1,
+  "q": "What are the nuns who follow the order of St. Clare commonly called?",
+  "o": [
+   "The Visitandines",
+   "The Poor Clares",
+   "The Carmelites",
+   "The Ursulines"
+  ],
+  "a": 1,
+  "why": "Butler says the Poor Clares date their Order from Clare's entry into religious life.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Clare",
+   "butler": "08-12:0",
+   "quote": "The Poor Clares date from this epoch the foundation of their Order.",
+   "note": "Butler says the Poor Clares date their Order from Clare's entry into religious life."
+  }
+ },
+ {
+  "id": "saints-b017",
+  "d": 1,
+  "q": "Which religious order did Aloysius Gonzaga, a young marquis' son, enter?",
+  "o": [
+   "The Franciscans",
+   "The Dominicans",
+   "The Society of Jesus",
+   "The Carthusians"
+  ],
+  "a": 2,
+  "why": "Aloysius determined to enter the Society of Jesus, and was sent to Rome for his novitiate.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Aloysius Gonzaga",
+   "butler": "06-21:0",
+   "quote": "determined to enter into tbe Society of Jesus",
+   "note": "Aloysius determined to enter the Society of Jesus, and was sent to Rome for his novitiate."
+  }
+ },
+ {
+  "id": "saints-b018",
+  "d": 1,
+  "q": "Charles Borromeo was a cardinal and archbishop of which Italian city?",
+  "o": [
+   "Naples",
+   "Turin",
+   "Bologna",
+   "Milan"
+  ],
+  "a": 3,
+  "why": "Charles Borromeo was archbishop of Milan.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Charles Borromeo",
+   "butler": "11-04:0",
+   "quote": "Archbishop of Milan",
+   "note": "Charles Borromeo was archbishop of Milan."
+  }
+ },
+ {
+  "id": "saints-b019",
+  "d": 1,
+  "q": "Of which city in Lycia was St. Nicholas archbishop?",
+  "o": [
+   "Antioch",
+   "Myra",
+   "Patara",
+   "Ephesus"
+  ],
+  "a": 1,
+  "why": "Nicholas was archbishop of Myra.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Nicholas",
+   "butler": "12-06:0",
+   "quote": "Archbishop of Myra",
+   "note": "Nicholas was archbishop of Myra."
+  }
+ },
+ {
+  "id": "saints-b020",
+  "d": 1,
+  "q": "Which saint, reforming the Carmelites, recruited Brother John to found reformed houses of men?",
+  "o": [
+   "Catherine of Siena",
+   "Bridget of Sweden",
+   "Clare of Assisi",
+   "Teresa of Avila"
+  ],
+  "a": 3,
+  "why": "Teresa, hearing of the virtue of brother John, invited him to the reform.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. John of the Cross",
+   "butler": "11-24:0",
+   "quote": "coming to Medina del Campo heard speak of the extraordinary virtue of brother John",
+   "note": "Teresa, hearing of the virtue of brother John, invited him to the reform."
+  }
+ },
+ {
+  "id": "saints-b021",
+  "d": 1,
+  "q": "How were the Forty Martyrs of Sebaste exposed to suffering in the cold?",
+  "o": [
+   "They were tied to mountain rocks",
+   "They were thrown into the sea",
+   "They were left on a frozen pond",
+   "They were buried in snow"
+  ],
+  "a": 2,
+  "why": "A pond under the town walls was frozen so hard it would bear walking upon.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, The Forty Martyrs of Sebaste",
+   "butler": "03-10:0",
+   "quote": "Under the walls of the town stood a pond, which was frozen so hard that it would bear walking upon with safety.",
+   "note": "A pond under the town walls was frozen so hard it would bear walking upon."
+  }
+ },
+ {
+  "id": "saints-b022",
+  "d": 1,
+  "q": "How did John the Baptist greet Jesus when he saw him coming to him?",
+  "o": [
+   "\"Behold, the Lamb of God\"",
+   "\"Behold, the Holy One\"",
+   "\"Behold, the Son of David\"",
+   "\"Behold, the King of Israel\""
+  ],
+  "a": 0,
+  "why": "John called Jesus the Lamb of God who takes away the sin of the world.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 1:29",
+   "ref": "JHN.1.29",
+   "quote": "The next day, he saw Jesus coming to him, and said, “Behold, the Lamb of God, who takes away the sin of the world!",
+   "note": "John called Jesus the Lamb of God who takes away the sin of the world."
+  }
+ },
+ {
+  "id": "saints-b023",
+  "d": 1,
+  "q": "What trade did the people of Nazareth attribute to Jesus' foster father, Joseph?",
+  "o": [
+   "Fisherman",
+   "Shepherd",
+   "Carpenter",
+   "Potter"
+  ],
+  "a": 2,
+  "why": "They asked \"Isn't this the carpenter's son?\"",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 13:55",
+   "ref": "MAT.13.55",
+   "quote": "Isn’t this the carpenter’s son? Isn’t his mother called Mary, and his brothers James, Joses, Simon, and Judas?",
+   "note": "They asked \"Isn't this the carpenter's son?\""
+  }
+ },
+ {
+  "id": "saints-b024",
+  "d": 2,
+  "q": "In which region of Spain was Francis Xavier born?",
+  "o": [
+   "Andalusia",
+   "Navarre",
+   "Catalonia",
+   "Galicia"
+  ],
+  "a": 1,
+  "why": "Xavier was born at the castle of Xavier in Navarre in 1506.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis Xavier",
+   "butler": "12-03:0",
+   "quote": "This great saint was born in Navarre, at the castle of Xavier, eight leagues from Pampelona, in 1506.",
+   "note": "Xavier was born at the castle of Xavier in Navarre in 1506."
+  }
+ },
+ {
+  "id": "saints-b025",
+  "d": 2,
+  "q": "At Paris, Francis Xavier mocked which poor companion before being won to God?",
+  "o": [
+   "Peter Faber of Paris",
+   "Ignatius of Loyola",
+   "Philip Neri",
+   "Dominic"
+  ],
+  "a": 1,
+  "why": "Xavier bantered and rallied Ignatius, but later became his companion.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis Xavier",
+   "butler": "12-03:0",
+   "quote": "made a long and vigorous resistance, and bantered and rallied Ignatius on all occasions",
+   "note": "Xavier bantered and rallied Ignatius, but later became his companion."
+  }
+ },
+ {
+  "id": "saints-b026",
+  "d": 2,
+  "q": "At which Indian port did Francis Xavier land on 6 May 1542?",
+  "o": [
+   "Calicut",
+   "Madras",
+   "Goa",
+   "Bombay"
+  ],
+  "a": 2,
+  "why": "They landed at Goa on 6 May 1542.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis Xavier",
+   "butler": "12-03:0",
+   "quote": "landed at Goa on tne 6th of May, in 1542",
+   "note": "They landed at Goa on 6 May 1542."
+  }
+ },
+ {
+  "id": "saints-b027",
+  "d": 2,
+  "q": "Basil the Great was born at Caesarea, the metropolis of which province?",
+  "o": [
+   "Pontus",
+   "Cappadocia",
+   "Bithynia",
+   "Galatia"
+  ],
+  "a": 1,
+  "why": "Basil was born near the close of 329 at Caesarea in Cappadocia.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Basil the Great",
+   "butler": "06-14:0",
+   "quote": "was born towards the close of the year 329 at CoBsarea, the metropolis of Cappadocia",
+   "note": "Basil was born near the close of 329 at Caesarea in Cappadocia."
+  }
+ },
+ {
+  "id": "saints-b028",
+  "d": 2,
+  "q": "At which city of learning was Basil soon regarded as an oracle in sacred and profane learning?",
+  "o": [
+   "Alexandria",
+   "Rome",
+   "Antioch",
+   "Athens"
+  ],
+  "a": 3,
+  "why": "Butler says Basil was soon regarded at Athens as an oracle.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Basil the Great",
+   "butler": "06-14:0",
+   "quote": "Basil was soon regarded at Athens as an oracle in sacred and profane learning.",
+   "note": "Butler says Basil was soon regarded at Athens as an oracle."
+  }
+ },
+ {
+  "id": "saints-b029",
+  "d": 1,
+  "q": "At the request of the whole city of Rome, Pope Leo went out to meet which leader?",
+  "o": [
+   "Alaric the Goth",
+   "Odoacer",
+   "Attila the Hun",
+   "Theodoric"
+  ],
+  "a": 2,
+  "why": "Leo went to meet Attila at the request of the Romans.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Leo the Great",
+   "butler": "04-11:0",
+   "quote": "Leo, at the request of the whole city of Rome, went to meet Attila",
+   "note": "Leo went to meet Attila at the request of the Romans."
+  }
+ },
+ {
+  "id": "saints-b030",
+  "d": 2,
+  "q": "Which general council, opened on 8 October 451, was held by Leo's authority?",
+  "o": [
+   "Nicaea",
+   "Chalcedon",
+   "Ephesus",
+   "Constantinople"
+  ],
+  "a": 1,
+  "why": "Butler says the council of Chalcedon opened on 8 October 451 by his authority.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Leo the Great",
+   "butler": "04-11:0",
+   "quote": "By his authority the general council of Chalcedon, consisting of six hundred or six hundred and thirty bishops, was opened on the 8th of October in 451.",
+   "note": "Butler says the council of Chalcedon opened on 8 October 451 by his authority."
+  }
+ },
+ {
+  "id": "saints-b031",
+  "d": 2,
+  "q": "Bernard wrote a treatise On the Errors of which scholar?",
+  "o": [
+   "Peter Abelard",
+   "Berengar of Tours",
+   "Roscelin",
+   "Peter Lombard"
+  ],
+  "a": 0,
+  "why": "Bernard's treatise was written against the errors of Abelard.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Bernard",
+   "butler": "08-20:0",
+   "quote": "Bernard’s treatise On the Errors of Abelard",
+   "note": "Bernard's treatise was written against the errors of Abelard."
+  }
+ },
+ {
+  "id": "saints-b032",
+  "d": 2,
+  "q": "How many noblemen and gentlemen, including his brothers, went with Bernard to Citeaux?",
+  "o": [
+   "Fifty",
+   "Seven",
+   "Twelve",
+   "Thirty"
+  ],
+  "a": 3,
+  "why": "Bernard was seconded by thirty noblemen and gentlemen, including his brothers.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Bernard",
+   "butler": "08-20:0",
+   "quote": "Bernard was seconded in his resolutions by thirty noblemen and gentlemen, including his brothers",
+   "note": "Bernard was seconded by thirty noblemen and gentlemen, including his brothers."
+  }
+ },
+ {
+  "id": "saints-b033",
+  "d": 2,
+  "q": "In which city was Thomas Becket born, in 1117?",
+  "o": [
+   "Rouen",
+   "York",
+   "London",
+   "Canterbury"
+  ],
+  "a": 2,
+  "why": "Butler records that Becket was born in London on 21 December 1117.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Thomas Becket",
+   "butler": "12-29:0",
+   "quote": "Thomas Becket was born in London in 1117",
+   "note": "Butler records that Becket was born in London on 21 December 1117."
+  }
+ },
+ {
+  "id": "saints-b034",
+  "d": 2,
+  "q": "Which high office of the realm did King Henry II give Thomas Becket in 1157?",
+  "o": [
+   "Treasurer of the Exchequer",
+   "Justiciar of Normandy",
+   "Lord chancellor of England",
+   "Master of the king's horse"
+  ],
+  "a": 2,
+  "why": "Archbishop Theobald recommended him, and Henry made him lord chancellor in 1157.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Thomas Becket",
+   "butler": "12-29:0",
+   "quote": "recommended him to the high office of lord-chancellor of England",
+   "note": "Archbishop Theobald recommended him, and Henry made him lord chancellor in 1157."
+  }
+ },
+ {
+  "id": "saints-b035",
+  "d": 2,
+  "q": "Polycarp, bishop of Smyrna, was a disciple of which apostle?",
+  "o": [
+   "Paul",
+   "John the Evangelist",
+   "Andrew",
+   "Peter"
+  ],
+  "a": 1,
+  "why": "Polycarp was a disciple of John, who made him bishop of Smyrna.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Polycarp",
+   "butler": "01-26:0",
+   "quote": "John the Evangelist, and was constituted by him bishop of Smyrna",
+   "note": "Polycarp was a disciple of John, who made him bishop of Smyrna."
+  }
+ },
+ {
+  "id": "saints-b036",
+  "d": 2,
+  "q": "Facing the lions in Rome, Ignatius said, \"I am the ___ of the Lord.\"",
+  "o": [
+   "Vine",
+   "Lamb",
+   "Light",
+   "Wheat"
+  ],
+  "a": 3,
+  "why": "He said he must be ground by the beasts to become the pure bread of Christ.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Ignatius of Antioch",
+   "butler": "02-01:0",
+   "quote": "I am the wheat of the Lord; I must be ground by the teeth of these beasts to be made the pure bread of Christ.",
+   "note": "He said he must be ground by the beasts to become the pure bread of Christ."
+  }
+ },
+ {
+  "id": "saints-b037",
+  "d": 2,
+  "q": "Palermo and Catania are rival claimants for the birthplace of St. Agatha in which island?",
+  "o": [
+   "Crete",
+   "Sicily",
+   "Sardinia",
+   "Malta"
+  ],
+  "a": 1,
+  "why": "Butler says the cities of Palermo and Catana in Sicily dispute the honor of her birth.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Agatha",
+   "butler": "02-05:0",
+   "quote": "THE cities of Palermo and Catana, in Sicily, dispute the honor of her birth",
+   "note": "Butler says the cities of Palermo and Catana in Sicily dispute the honor of her birth."
+  }
+ },
+ {
+  "id": "saints-b038",
+  "d": 2,
+  "q": "At what age was Patrick carried into captivity by barbarians?",
+  "o": [
+   "Sixteen",
+   "Twelve",
+   "Ten",
+   "Twenty"
+  ],
+  "a": 0,
+  "why": "In his sixteenth year Patrick was carried into captivity.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Patrick",
+   "butler": "03-17:0",
+   "quote": "In his sixteenth year he was carried into captivity by certain barbarians",
+   "note": "In his sixteenth year Patrick was carried into captivity."
+  }
+ },
+ {
+  "id": "saints-b039",
+  "d": 2,
+  "q": "Columba, whose name is pronounced Colm, is called the apostle of which people?",
+  "o": [
+   "The Saxons",
+   "The Franks",
+   "The Goths",
+   "The Picts"
+  ],
+  "a": 3,
+  "why": "Butler calls Columba the apostle of the Picts.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Columba",
+   "butler": "06-09:1",
+   "quote": "and the apostle of the Ficts",
+   "note": "Butler calls Columba the apostle of the Picts."
+  }
+ },
+ {
+  "id": "saints-b040",
+  "d": 2,
+  "q": "In which province was Justin, in the ancient city of Sichem, born?",
+  "o": [
+   "Cappadocia",
+   "Samaria",
+   "Judea",
+   "Galilee"
+  ],
+  "a": 1,
+  "why": "Justin was born at Neapolis, the ancient Sichem, in Samaria.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Justin Martyr",
+   "butler": "06-01:0",
+   "quote": "Justin was born at Neapolis, now Naplosa, the ancient Sichem, and formerly the capital of the province of Samaria.",
+   "note": "Justin was born at Neapolis, the ancient Sichem, in Samaria."
+  }
+ },
+ {
+  "id": "saints-b041",
+  "d": 2,
+  "q": "At four years old, Elizabeth was sent to the court of the landgrave of which land?",
+  "o": [
+   "Bohemia",
+   "Bavaria",
+   "Saxony",
+   "Thuringia"
+  ],
+  "a": 3,
+  "why": "She was promised to the landgrave Herman's son Lewis and raised at his court.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Elizabeth of Hungary",
+   "butler": "11-19:0",
+   "quote": "Herman, landgrave of Thuringia and Hesse, had a son born about the same time, and named Lewis…the princess, at four years of age, was sent to his court",
+   "note": "She was promised to the landgrave Herman's son Lewis and raised at his court."
+  }
+ },
+ {
+  "id": "saints-b042",
+  "d": 2,
+  "q": "How many monasteries did St. David found?",
+  "o": [
+   "Twelve",
+   "Three",
+   "Forty",
+   "Seven"
+  ],
+  "a": 0,
+  "why": "David founded twelve monasteries, the chief in the vale of Ross near Menevia.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. David",
+   "butler": "03-01:0",
+   "quote": "He founded twelve monasteries, the principal of which was in the vale of Ross, near Menevia",
+   "note": "David founded twelve monasteries, the chief in the vale of Ross near Menevia."
+  }
+ },
+ {
+  "id": "saints-b043",
+  "d": 2,
+  "q": "In honor of whom did St. Casimir compose or often recite a long hymn?",
+  "o": [
+   "The Blessed Virgin",
+   "St. Stanislaus",
+   "St. Michael",
+   "St. Joseph"
+  ],
+  "a": 0,
+  "why": "Casimir had singular devotion to the Blessed Virgin.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Casimir",
+   "butler": "03-04:0",
+   "quote": "And as a mark of his singular devotion to the Blessed Virgin, he composed, or at least frequently recited, the long hymn that bears his name",
+   "note": "Casimir had singular devotion to the Blessed Virgin."
+  }
+ },
+ {
+  "id": "saints-b044",
+  "d": 2,
+  "q": "In which country was John of God, founder of the Order of Charity, born in 1495?",
+  "o": [
+   "Italy",
+   "Portugal",
+   "France",
+   "Spain"
+  ],
+  "a": 1,
+  "why": "John was born in Portugal in 1495, though he served in Granada.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. John of God",
+   "butler": "03-08:0",
+   "quote": "JOHN, surnamed of God, was born in Portugal, in 1495.",
+   "note": "John was born in Portugal in 1495, though he served in Granada."
+  }
+ },
+ {
+  "id": "saints-b045",
+  "d": 2,
+  "q": "Under which emperor did the Forty Martyrs of Sebaste suffer in the year 320?",
+  "o": [
+   "Decius",
+   "Licinius",
+   "Constantine",
+   "Nero"
+  ],
+  "a": 1,
+  "why": "Butler says they suffered under the emperor Licinius.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, The Forty Martyrs of Sebaste",
+   "butler": "03-10:0",
+   "quote": "THESE holy martyrs suffered at Sebaste, in the Lesser Armenia, under the emperor Licinius, in 320.",
+   "note": "Butler says they suffered under the emperor Licinius."
+  }
+ },
+ {
+  "id": "saints-b046",
+  "d": 2,
+  "q": "In which region of Asia Minor was St. Nicholas born, in Patara?",
+  "o": [
+   "Cilicia",
+   "Lycia",
+   "Galatia",
+   "Cappadocia"
+  ],
+  "a": 1,
+  "why": "All accounts agree he was a native of Patara in Lycia.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Nicholas",
+   "butler": "12-06:0",
+   "quote": "All accounts agree that he was a native of Patara, in Lycia.",
+   "note": "All accounts agree he was a native of Patara in Lycia."
+  }
+ },
+ {
+  "id": "saints-b047",
+  "d": 2,
+  "q": "What did St. Nicholas secretly leave through a window on three nights for three poor young women?",
+  "o": [
+   "Sacred books",
+   "Money for their marriage portions",
+   "Bolts of cloth",
+   "Loaves of bread"
+  ],
+  "a": 1,
+  "why": "He gave them money so that they would not fall into vicious courses.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Nicholas",
+   "butler": "12-06:0",
+   "quote": "when three young virgins were exposed through distress to the danger of falling into vicious courses, he, for three successive nights, conveyed to them through the window a competent sum of money",
+   "note": "He gave them money so that they would not fall into vicious courses."
+  }
+ },
+ {
+  "id": "saints-b048",
+  "d": 2,
+  "q": "Philip Neri's love of poverty showed when he came first to Rome. What did he keep in his little room?",
+  "o": [
+   "A harp and a lute",
+   "A poor bed, a few books and a little linen",
+   "A fine desk and silver plate",
+   "A map of the Indies"
+  ],
+  "a": 1,
+  "why": "Butler says he kept nothing but a poor bed, a few books and a little linen.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Philip Neri",
+   "butler": "05-27:1",
+   "quote": "he kept nothing in his little room but a poor bed, a few books, and a little linen",
+   "note": "Butler says he kept nothing but a poor bed, a few books and a little linen."
+  }
+ },
+ {
+  "id": "saints-b049",
+  "d": 1,
+  "q": "Near which Japanese city were the martyrs crucified in 1597?",
+  "o": [
+   "Kyoto",
+   "Osaka",
+   "Nagasaki",
+   "Edo"
+  ],
+  "a": 2,
+  "why": "Three Jesuits and six Franciscans were crucified on a hill near Nangasaqui.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, The Martyrs of Japan",
+   "butler": "02-05:1",
+   "quote": "Three Jesuits and six Franciscans were crucified on a hill near Nangasaqui in 1597.",
+   "note": "Three Jesuits and six Franciscans were crucified on a hill near Nangasaqui."
+  }
+ },
+ {
+  "id": "saints-b050",
+  "d": 2,
+  "q": "How many martyrs of Japan, including three boys, were crucified?",
+  "o": [
+   "Thirty",
+   "Nine",
+   "Fifty",
+   "Twenty-six"
+  ],
+  "a": 3,
+  "why": "Butler says the martyrs were twenty-six in number, three of them boys.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, The Martyrs of Japan",
+   "butler": "02-05:1",
+   "quote": "The martyrs were twenty-six in number, and among them were three boys",
+   "note": "Butler says the martyrs were twenty-six in number, three of them boys."
+  }
+ },
+ {
+  "id": "saints-b051",
+  "d": 1,
+  "q": "Which apostle, Simon Peter's brother, pointed out the boy with five barley loaves and two fish?",
+  "o": [
+   "Andrew",
+   "Bartholomew",
+   "Thomas",
+   "Philip"
+  ],
+  "a": 0,
+  "why": "Andrew told Jesus about the boy with five loaves and two fish.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 6:8-9",
+   "ref": "JHN.6.8-9",
+   "quote": "One of his disciples, Andrew, Simon Peter’s brother, said to him, “There is a boy here who has five barley loaves and two fish, but what are these among so many?”",
+   "note": "Andrew told Jesus about the boy with five loaves and two fish."
+  }
+ },
+ {
+  "id": "saints-b052",
+  "d": 1,
+  "q": "Which apostle said, \"Let's also go, that we may die with him\"?",
+  "o": [
+   "Thomas",
+   "Philip",
+   "Peter",
+   "Judas Iscariot"
+  ],
+  "a": 0,
+  "why": "Thomas, called Didymus, spoke before Jesus went to Lazarus.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 11:16",
+   "ref": "JHN.11.16",
+   "quote": "Thomas therefore, who is called Didymus, said to his fellow disciples, “Let’s also go, that we may die with him.”",
+   "note": "Thomas, called Didymus, spoke before Jesus went to Lazarus."
+  }
+ },
+ {
+  "id": "saints-b053",
+  "d": 2,
+  "q": "Which sister of Lazarus confessed, \"I have come to believe that you are the Christ, God's Son\"?",
+  "o": [
+   "Mary of Bethany",
+   "Martha",
+   "Susanna",
+   "Salome"
+  ],
+  "a": 1,
+  "why": "Martha made this confession at Bethany.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 11:27",
+   "ref": "JHN.11.27",
+   "quote": "She said to him, “Yes, Lord. I have come to believe that you are the Christ, God’s Son, he who comes into the world.”",
+   "note": "Martha made this confession at Bethany."
+  }
+ },
+ {
+  "id": "saints-b054",
+  "d": 2,
+  "q": "Which disciple at Damascus laid his hands on Saul so that he regained his sight?",
+  "o": [
+   "Barnabas",
+   "Silas",
+   "Stephen",
+   "Ananias"
+  ],
+  "a": 3,
+  "why": "Ananias was sent by the Lord to Saul after his vision on the road.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 9:17",
+   "ref": "ACT.9.17",
+   "quote": "Ananias departed and entered into the house. Laying his hands on him, he said, “Brother Saul, the Lord, who appeared to you on the road by which you came, has sent me that you may receive your sight and be filled with the Holy Spirit.”",
+   "note": "Ananias was sent by the Lord to Saul after his vision on the road."
+  }
+ },
+ {
+  "id": "saints-b055",
+  "d": 1,
+  "q": "Which rich disciple from Arimathaea asked Pilate for the body of Jesus?",
+  "o": [
+   "Nicodemus",
+   "Joseph",
+   "Simon of Cyrene",
+   "Cleopas"
+  ],
+  "a": 1,
+  "why": "Joseph of Arimathaea took the body and laid it in his own tomb.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 27:57-60",
+   "ref": "MAT.27.57-60",
+   "quote": "When evening had come, a rich man from Arimathaea named Joseph, who himself was also Jesus’ disciple, came. This man went to Pilate and asked for Jesus’ body. Then Pilate commanded the body to be given up. Joseph took the body and wrapped it in a clean linen cloth and laid it in his own new tomb, wh",
+   "note": "Joseph of Arimathaea took the body and laid it in his own tomb."
+  }
+ },
+ {
+  "id": "saints-b056",
+  "d": 1,
+  "q": "Which angel told Zechariah, \"I am ___, who stands in the presence of God\"?",
+  "o": [
+   "Michael",
+   "Uriel",
+   "Gabriel",
+   "Raphael"
+  ],
+  "a": 2,
+  "why": "The angel who spoke to Zechariah was Gabriel.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 1:19",
+   "ref": "LUK.1.19",
+   "quote": "The angel answered him, “I am Gabriel, who stands in the presence of God. I was sent to speak to you and to bring you this good news.",
+   "note": "The angel who spoke to Zechariah was Gabriel."
+  }
+ },
+ {
+  "id": "saints-b057",
+  "d": 1,
+  "q": "What did Stephen cry out with a loud voice as he fell asleep in death?",
+  "o": [
+   "\"Lord, save your people!\"",
+   "\"Father, receive my spirit!\"",
+   "\"My God, why have you forsaken me?\"",
+   "\"Lord, don't hold this sin against them!\""
+  ],
+  "a": 3,
+  "why": "Stephen prayed for his killers as he died.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 7:60",
+   "ref": "ACT.7.60",
+   "quote": "He kneeled down and cried with a loud voice, “Lord, don’t hold this sin against them!” When he had said this, he fell asleep.",
+   "note": "Stephen prayed for his killers as he died."
+  }
+ },
+ {
+  "id": "saints-b058",
+  "d": 2,
+  "q": "By what trade did Paul work with Aquila and Priscilla at Corinth?",
+  "o": [
+   "Carpentry",
+   "Tent making",
+   "Fishing",
+   "Tax collecting"
+  ],
+  "a": 1,
+  "why": "Because Paul practiced the same trade, he lived with them and worked as a tent maker.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 18:3",
+   "ref": "ACT.18.3",
+   "quote": "and because he practiced the same trade, he lived with them and worked, for by trade they were tent makers.",
+   "note": "Because Paul practiced the same trade, he lived with them and worked as a tent maker."
+  }
+ },
+ {
+  "id": "saints-b059",
+  "d": 3,
+  "q": "In what year did Francis Xavier land in Japan, in the kingdom of Saxuma?",
+  "o": [
+   "1542",
+   "1552",
+   "1506",
+   "1549"
+  ],
+  "a": 3,
+  "why": "Butler dates his arrival in Japan to 15 August 1549.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis Xavier",
+   "butler": "12-03:0",
+   "quote": "Saxuma, in Japan, on the i5th of August, 1549",
+   "note": "Butler dates his arrival in Japan to 15 August 1549."
+  }
+ },
+ {
+  "id": "saints-b060",
+  "d": 3,
+  "q": "Basil's grandparents hid in the forests of Pontus for seven years. What fed them?",
+  "o": [
+   "Wild goats",
+   "Stags",
+   "Ravens",
+   "Doves"
+  ],
+  "a": 1,
+  "why": "Gregory Nazianzen assures us that they were wonderfully fed by stags.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Basil the Great",
+   "butler": "06-14:0",
+   "quote": "where they were wonderfully fed by stags",
+   "note": "Gregory Nazianzen assures us that they were wonderfully fed by stags."
+  }
+ },
+ {
+  "id": "saints-b061",
+  "d": 3,
+  "q": "In what year was Aloysius Gonzaga born at the castle of Castiglione?",
+  "o": [
+   "1550",
+   "1600",
+   "1591",
+   "1568"
+  ],
+  "a": 3,
+  "why": "Butler records that he was born on 9 March 1568.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Aloysius Gonzaga",
+   "butler": "06-21:0",
+   "quote": "Our saint was bom in the castle of Castiglione, in the diocess of Brescia, on the 9th of March, 1568.",
+   "note": "Butler records that he was born on 9 March 1568."
+  }
+ },
+ {
+  "id": "saints-b062",
+  "d": 3,
+  "q": "In what year did Clare escape from home and go to the Portiuncula?",
+  "o": [
+   "1226",
+   "1212",
+   "1193",
+   "1253"
+  ],
+  "a": 1,
+  "why": "Butler dates her escape to 18 March 1212.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Clare",
+   "butler": "08-12:0",
+   "quote": "being the 18th of March, 1212, she made her escape from home",
+   "note": "Butler dates her escape to 18 March 1212."
+  }
+ },
+ {
+  "id": "saints-b063",
+  "d": 2,
+  "q": "How many years did Polycarp say he had served Christ?",
+  "o": [
+   "Forty",
+   "Sixty",
+   "One hundred",
+   "Eighty-six"
+  ],
+  "a": 3,
+  "why": "Polycarp himself said he had served Christ eighty-six years.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Polycarp",
+   "butler": "01-26:0",
+   "quote": "Polycarp says himself, \"That he had served Christ eighty-six years.\"",
+   "note": "Polycarp himself said he had served Christ eighty-six years."
+  }
+ },
+ {
+  "id": "saints-b064",
+  "d": 3,
+  "q": "Three days before his martyrdom, what did Polycarp see in a vision, understanding he would be burnt alive?",
+  "o": [
+   "His pillow on fire",
+   "A lion at his door",
+   "A broken cross",
+   "A river of blood"
+  ],
+  "a": 0,
+  "why": "He foretold to his companions that he would be burnt alive.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Polycarp",
+   "butler": "01-26:0",
+   "quote": "Three days before his martyrdom, he in a vision saw his pillow on fire",
+   "note": "He foretold to his companions that he would be burnt alive."
+  }
+ },
+ {
+  "id": "saints-b065",
+  "d": 2,
+  "q": "By what Greek surname is Ignatius of Antioch known?",
+  "o": [
+   "Chrysostom",
+   "Soter",
+   "Eusebius",
+   "Theophorus"
+  ],
+  "a": 3,
+  "why": "Butler says Ignatius was surnamed Theophorus.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Ignatius of Antioch",
+   "butler": "02-01:0",
+   "quote": "IGNATIUS, surnamed Theophorus, a word implying a divine or heavenly person",
+   "note": "Butler says Ignatius was surnamed Theophorus."
+  }
+ },
+ {
+  "id": "saints-b066",
+  "d": 2,
+  "q": "In which Gaulish city was Sebastian born, though his parents were of Milan?",
+  "o": [
+   "Arles",
+   "Lyon",
+   "Narbonne",
+   "Paris"
+  ],
+  "a": 2,
+  "why": "Sebastian was born at Narbonne in Gaul and raised in Milan.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Sebastian",
+   "butler": "01-20:1",
+   "quote": "SEBASTIAN was born at Narbonne, in Gaul, but his parents were of Milan, in Italy",
+   "note": "Sebastian was born at Narbonne in Gaul and raised in Milan."
+  }
+ },
+ {
+  "id": "saints-b067",
+  "d": 3,
+  "q": "What was Boniface called at his baptism?",
+  "o": [
+   "Willibrord",
+   "Winwaloe",
+   "Winfrid",
+   "Wilfrid"
+  ],
+  "a": 2,
+  "why": "He was born at Crediton in Devonshire and baptized Winfrid.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Boniface",
+   "butler": "06-05:0",
+   "quote": "Boniface was bom at Crediton or Kirton in Devonshire about the year 680, and at hU baptism named Winfrid.",
+   "note": "He was born at Crediton in Devonshire and baptized Winfrid."
+  }
+ },
+ {
+  "id": "saints-b068",
+  "d": 2,
+  "q": "Which city was made the metropolitan church of all Germany in the time of Boniface?",
+  "o": [
+   "Fulda",
+   "Trier",
+   "Cologne",
+   "Mainz"
+  ],
+  "a": 3,
+  "why": "Butler says Mentz, or Mainz, was pitched upon in 745.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Boniface",
+   "butler": "06-05:0",
+   "quote": "Thus was Mentz made the metropolitan church of all Germany",
+   "note": "Butler says Mentz, or Mainz, was pitched upon in 745."
+  }
+ },
+ {
+  "id": "saints-b069",
+  "d": 3,
+  "q": "Justin was a pupil of an Academic who taught which philosophy?",
+  "o": [
+   "Stoic philosophy",
+   "Pythagorean philosophy",
+   "Epicurean philosophy",
+   "Platonic philosophy"
+  ],
+  "a": 3,
+  "why": "Under an Academic Justin made great progress in Platonic philosophy.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Justin Martyr",
+   "butler": "06-01:0",
+   "quote": "preferred the school of an Academic, under whom he made great progress in the Platonic philosophy",
+   "note": "Under an Academic Justin made great progress in Platonic philosophy."
+  }
+ },
+ {
+  "id": "saints-b070",
+  "d": 3,
+  "q": "At which Norman abbey did Anselm become a monk at age twenty-seven?",
+  "o": [
+   "Jumieges",
+   "Bec",
+   "Cluny",
+   "Fecamp"
+  ],
+  "a": 1,
+  "why": "Anselm entered the monastery of Bec under the abbot Herluin.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Anselm",
+   "butler": "04-21:0",
+   "quote": "enter the monastic state at Bee, and accordingly became a member of that house, at the age of twenty-seven, in 1060",
+   "note": "Anselm entered the monastery of Bec under the abbot Herluin."
+  }
+ },
+ {
+  "id": "saints-b071",
+  "d": 3,
+  "q": "Which work of Anselm, written at Bec, is so called because in it he speaks alone?",
+  "o": [
+   "Cur Deus Homo",
+   "Proslogium",
+   "Monologium",
+   "De Veritate"
+  ],
+  "a": 2,
+  "why": "The Monologium explains the metaphysical proofs of God's existence.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Anselm",
+   "butler": "04-21:0",
+   "quote": "he wrote his Monologium, so called, because in this Work he speaks alone, explaining the metaphysical proofs of the existence and nature of God",
+   "note": "The Monologium explains the metaphysical proofs of God's existence."
+  }
+ },
+ {
+  "id": "saints-b072",
+  "d": 3,
+  "q": "Which pope, once Bruno's pupil at Rheims, summoned him to Rome?",
+  "o": [
+   "Leo IX",
+   "Victor III",
+   "Gregory VII",
+   "Urban II"
+  ],
+  "a": 3,
+  "why": "Urban II had been Bruno's scholar at Rheims.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Bruno",
+   "butler": "10-06:0",
+   "quote": "pope Urban II., who had formerly been his scholar at Rheims",
+   "note": "Urban II had been Bruno's scholar at Rheims."
+  }
+ },
+ {
+  "id": "saints-b073",
+  "d": 3,
+  "q": "Which learned scholar of Philip Neri entered his oratory?",
+  "o": [
+   "Peter Canisius",
+   "Caesar Baronius",
+   "Robert Bellarmine",
+   "Francis Suarez"
+  ],
+  "a": 1,
+  "why": "Philip commanded his scholar Baronius to take up studies.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Philip Neri",
+   "butler": "05-27:1",
+   "quote": "his pious and learned scholar C^sar Baronius",
+   "note": "Philip commanded his scholar Baronius to take up studies."
+  }
+ },
+ {
+  "id": "saints-b074",
+  "d": 3,
+  "q": "In which city's prison was John of the Cross held, where he said God gave him high ideas of suffering?",
+  "o": [
+   "Seville",
+   "Avila",
+   "Segovia",
+   "Toledo"
+  ],
+  "a": 3,
+  "why": "He said he learned the merit of sufferings in the prison of Toledo.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. John of the Cross",
+   "butler": "11-24:0",
+   "quote": "when I was in the prison of Toledo",
+   "note": "He said he learned the merit of sufferings in the prison of Toledo."
+  }
+ },
+ {
+  "id": "saints-b075",
+  "d": 3,
+  "q": "Besides the three usual vows, what did Peter Nolasco add as a fourth?",
+  "o": [
+   "To eat no meat all year",
+   "To preach to unbelievers abroad",
+   "To live in strict silence for life",
+   "To ransom slaves, even at the cost of his own liberty"
+  ],
+  "a": 3,
+  "why": "Nolasco devoted his substance and his very liberty to the ransoming of slaves.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Peter Nolasco",
+   "butler": "01-31:0",
+   "quote": "the saint added a fourth, to devote his whole substance and his very liberty, if necessary, to the ransoming of slaves",
+   "note": "Nolasco devoted his substance and his very liberty to the ransoming of slaves."
+  }
+ },
+ {
+  "id": "saints-b076",
+  "d": 3,
+  "q": "Romuald, founder of the Camaldolese, was born in which Italian city?",
+  "o": [
+   "Ravenna",
+   "Arezzo",
+   "Venice",
+   "Florence"
+  ],
+  "a": 0,
+  "why": "Romuald was of the dukes of Ravenna and born in that capital about 956.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Romuald",
+   "butler": "02-07:0",
+   "quote": "ROMUALD, of the family of the dukes of Ravenna, called Honesti, was born in that capital about the year 956.",
+   "note": "Romuald was of the dukes of Ravenna and born in that capital about 956."
+  }
+ },
+ {
+  "id": "saints-b077",
+  "d": 3,
+  "q": "Francis Borgia, later a Jesuit general, was fourth duke of which Spanish city?",
+  "o": [
+   "Seville",
+   "Gandia",
+   "Valencia",
+   "Toledo"
+  ],
+  "a": 1,
+  "why": "Butler calls him fourth duke of Gandia and third general of the Jesuits.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis Borgia",
+   "butler": "10-10:0",
+   "quote": "Francis Borgia, fourth duke of Gandia",
+   "note": "Butler calls him fourth duke of Gandia and third general of the Jesuits."
+  }
+ },
+ {
+  "id": "saints-b078",
+  "d": 3,
+  "q": "What was St. Rose of Lima's baptismal name?",
+  "o": [
+   "Agnes",
+   "Teresa",
+   "Catherine",
+   "Isabel"
+  ],
+  "a": 3,
+  "why": "She was christened Isabel.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Rose of Lima",
+   "butler": "08-30:0",
+   "quote": "She was christened Isabel",
+   "note": "She was christened Isabel."
+  }
+ },
+ {
+  "id": "saints-b079",
+  "d": 2,
+  "q": "Which eloquent Jew, an Alexandrian by race, came to Ephesus mighty in the Scriptures?",
+  "o": [
+   "Silas",
+   "Timothy",
+   "Apollos",
+   "Titus"
+  ],
+  "a": 2,
+  "why": "Luke describes Apollos as an eloquent Alexandrian.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 18:24",
+   "ref": "ACT.18.24",
+   "quote": "Now a certain Jew named Apollos, an Alexandrian by race, an eloquent man, came to Ephesus. He was mighty in the Scriptures.",
+   "note": "Luke describes Apollos as an eloquent Alexandrian."
+  }
+ },
+ {
+  "id": "saints-b080",
+  "d": 2,
+  "q": "Peter went to the house of Mary, the mother of which Evangelist, where many were praying?",
+  "o": [
+   "Silas",
+   "Barnabas",
+   "Luke",
+   "John Mark"
+  ],
+  "a": 3,
+  "why": "Mary was the mother of John, called Mark.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 12:12",
+   "ref": "ACT.12.12",
+   "quote": "Thinking about that, he came to the house of Mary, the mother of John who was called Mark, where many were gathered together and were praying.",
+   "note": "Mary was the mother of John, called Mark."
+  }
+ }
+]

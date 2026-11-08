@@ -1,0 +1,1602 @@
+[
+ {
+  "id": "doctrine-b001",
+  "d": 2,
+  "q": "The Catechism calls the Trinity the source of all the other mysteries of faith and the what that enlightens them?",
+  "o": [
+   "Seal",
+   "Crown",
+   "Mirror",
+   "Light"
+  ],
+  "a": 3,
+  "why": "The Trinity is the source of all the other mysteries of faith and the light that enlightens them.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 234",
+   "ccc": 234,
+   "quote": "the light that enlightens them",
+   "note": "The Trinity is the source of all the other mysteries of faith and the light that enlightens them."
+  }
+ },
+ {
+  "id": "doctrine-b002",
+  "d": 2,
+  "q": "The Catechism describes the one God in three persons as which kind of Trinity?",
+  "o": [
+   "Hierarchical",
+   "Successive",
+   "Consubstantial",
+   "Provisional"
+  ],
+  "a": 2,
+  "why": "We do not confess three Gods, but one God in three persons, the consubstantial Trinity.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 253",
+   "ccc": 253,
+   "quote": "the \"consubstantial Trinity\"",
+   "note": "We do not confess three Gods, but one God in three persons, the consubstantial Trinity."
+  }
+ },
+ {
+  "id": "doctrine-b003",
+  "d": 1,
+  "q": "Complete the Catechism's phrase about God: 'God is one but not ___.'",
+  "o": [
+   "Divided",
+   "Solitary",
+   "Hidden",
+   "Silent"
+  ],
+  "a": 1,
+  "why": "The persons are really distinct, so God is one but not solitary.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 254",
+   "ccc": 254,
+   "quote": "God is one but not solitary",
+   "note": "The persons are really distinct, so God is one but not solitary."
+  }
+ },
+ {
+  "id": "doctrine-b004",
+  "d": 2,
+  "q": "Jesus revealed God as Father in an unheard-of sense: eternally Father by his relationship to whom?",
+  "o": [
+   "The people of Israel",
+   "His only Son",
+   "The king of Israel",
+   "All creation"
+  ],
+  "a": 1,
+  "why": "Jesus is eternally Son of the Father, so God is eternally Father in relation to him.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 240",
+   "ccc": 240,
+   "quote": "he is eternally Father by his relationship to his only Son",
+   "note": "Jesus is eternally Son of the Father, so God is eternally Father in relation to him."
+  }
+ },
+ {
+  "id": "doctrine-b005",
+  "d": 1,
+  "q": "In whose name are Christians baptized, according to the Catechism?",
+  "o": [
+   "Of the Father, of the Son and of the Holy Spirit",
+   "Of Jesus Christ alone",
+   "Of the Church and her saints",
+   "Of the Father and of Mary"
+  ],
+  "a": 0,
+  "why": "Baptism is conferred in the name of the Father, the Son and the Holy Spirit.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 232",
+   "ccc": 232,
+   "quote": "in the name of the Father and of the Son and of the Holy Spirit",
+   "note": "Baptism is conferred in the name of the Father, the Son and the Holy Spirit."
+  }
+ },
+ {
+  "id": "doctrine-b006",
+  "d": 2,
+  "q": "The Word became flesh so that we might become partakers of what?",
+  "o": [
+   "The heavenly court",
+   "The first covenant",
+   "The angelic choirs",
+   "The divine nature"
+  ],
+  "a": 3,
+  "why": "The Word became flesh to make us partakers of the divine nature.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 460",
+   "ccc": 460,
+   "quote": "partakers of the divine nature",
+   "note": "The Word became flesh to make us partakers of the divine nature."
+  }
+ },
+ {
+  "id": "doctrine-b007",
+  "d": 1,
+  "q": "The Catechism says Jesus is not part God and part man, but true God and true what?",
+  "o": [
+   "Prophet",
+   "Angel",
+   "Man",
+   "Priest"
+  ],
+  "a": 2,
+  "why": "The Incarnation means Christ became truly man while remaining truly God.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 464",
+   "ccc": 464,
+   "quote": "Jesus Christ is true God and true man",
+   "note": "The Incarnation means Christ became truly man while remaining truly God."
+  }
+ },
+ {
+  "id": "doctrine-b008",
+  "d": 3,
+  "q": "Apollinarius of Laodicaea asserted that in Christ what had replaced the soul or spirit?",
+  "o": [
+   "The Holy Spirit",
+   "The angel Gabriel",
+   "The divine Word",
+   "The human will"
+  ],
+  "a": 2,
+  "why": "The Church answered that the eternal Son also assumed a rational, human soul.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 471",
+   "ccc": 471,
+   "quote": "in Christ the divine Word had replaced the soul or spirit",
+   "note": "The Church answered that the eternal Son also assumed a rational, human soul."
+  }
+ },
+ {
+  "id": "doctrine-b009",
+  "d": 1,
+  "q": "With what kind of heart does the Catechism say Jesus has loved us all?",
+  "o": [
+   "An angelic heart",
+   "A human heart",
+   "A hidden heart",
+   "A heart of stone"
+  ],
+  "a": 1,
+  "why": "Jesus loved each of us with a human heart, which is why the Sacred Heart is honored.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 478",
+   "ccc": 478,
+   "quote": "He has loved us all with a human heart",
+   "note": "Jesus loved each of us with a human heart, which is why the Sacred Heart is honored."
+  }
+ },
+ {
+  "id": "doctrine-b010",
+  "d": 1,
+  "q": "Because he is true God and true man, Jesus is the one and only what between God and men?",
+  "o": [
+   "Mediator",
+   "Ruler",
+   "Witness",
+   "Interpreter"
+  ],
+  "a": 0,
+  "why": "Christ is the one and only mediator between God and men.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 480",
+   "ccc": 480,
+   "quote": "he is the one and only mediator between God and men",
+   "note": "Christ is the one and only mediator between God and men."
+  }
+ },
+ {
+  "id": "doctrine-b011",
+  "d": 2,
+  "q": "What does the Annunciation to Mary inaugurate, in the Catechism's words?",
+  "o": [
+   "The year of jubilee",
+   "The age of the prophets",
+   "The new moon",
+   "The fullness of time"
+  ],
+  "a": 3,
+  "why": "The Annunciation opens the fullness of time, when God's promises are fulfilled.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 484",
+   "ccc": 484,
+   "quote": "inaugurates \"the fullness of time\"",
+   "note": "The Annunciation opens the fullness of time, when God's promises are fulfilled."
+  }
+ },
+ {
+  "id": "doctrine-b012",
+  "d": 2,
+  "q": "Mary responded to the angel with the obedience of what?",
+  "o": [
+   "Law",
+   "Fear",
+   "Custom",
+   "Faith"
+  ],
+  "a": 3,
+  "why": "Mary said yes with the obedience of faith, certain that with God nothing is impossible.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 494",
+   "ccc": 494,
+   "quote": "Mary responded with the obedience of faith",
+   "note": "Mary said yes with the obedience of faith, certain that with God nothing is impossible."
+  }
+ },
+ {
+  "id": "doctrine-b013",
+  "d": 2,
+  "q": "In which year did Pope Pius IX proclaim the dogma of the Immaculate Conception, according to the Catechism?",
+  "o": [
+   "1830",
+   "1870",
+   "1854",
+   "1907"
+  ],
+  "a": 2,
+  "why": "The Catechism dates Pius IX's proclamation of the Immaculate Conception to 1854.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 491",
+   "ccc": 491,
+   "quote": "as Pope Pius IX proclaimed in 1854",
+   "note": "The Catechism dates Pius IX's proclamation of the Immaculate Conception to 1854."
+  }
+ },
+ {
+  "id": "doctrine-b014",
+  "d": 3,
+  "q": "Which Greek title do the Fathers of the Eastern tradition use to call Mary 'the All-Holy'?",
+  "o": [
+   "Theotokos",
+   "Panagia",
+   "Hodegetria",
+   "Orans"
+  ],
+  "a": 1,
+  "why": "Eastern Fathers call the Mother of God the All-Holy, in Greek Panagia.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 493",
+   "ccc": 493,
+   "quote": "call the Mother of God \"the All-Holy\" (Panagia)",
+   "note": "Eastern Fathers call the Mother of God the All-Holy, in Greek Panagia."
+  }
+ },
+ {
+  "id": "doctrine-b015",
+  "d": 1,
+  "q": "Elizabeth, prompted by the Spirit, acclaimed Mary as the mother of whom?",
+  "o": [
+   "My Lord",
+   "The Messiah's herald",
+   "The Most High's servant",
+   "The promised King"
+  ],
+  "a": 0,
+  "why": "Elizabeth called Mary the mother of my Lord before the birth of her Son.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 495",
+   "ccc": 495,
+   "quote": "the mother of my Lord",
+   "note": "Elizabeth called Mary the mother of my Lord before the birth of her Son."
+  }
+ },
+ {
+  "id": "doctrine-b016",
+  "d": 2,
+  "q": "The Church confesses that Jesus was conceived by the Holy Spirit without human what?",
+  "o": [
+   "Seed",
+   "Hands",
+   "Consent",
+   "Witness"
+  ],
+  "a": 0,
+  "why": "The virginal conception is a divine work: Jesus was conceived by the Holy Spirit without human seed.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 496",
+   "ccc": 496,
+   "quote": "by the Holy Spirit without human seed",
+   "note": "The virginal conception is a divine work: Jesus was conceived by the Holy Spirit without human seed."
+  }
+ },
+ {
+  "id": "doctrine-b017",
+  "d": 3,
+  "q": "The Catechism says James and Joseph, 'brothers of Jesus', are sons of whom?",
+  "o": [
+   "Joseph by an earlier marriage",
+   "Mary's sister Salome",
+   "Zebedee and his wife",
+   "Another Mary, a disciple of Christ"
+  ],
+  "a": 3,
+  "why": "The Church understands the brothers of Jesus as sons of another Mary, not other children of the Virgin.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 500",
+   "ccc": 500,
+   "quote": "the sons of another Mary, a disciple of Christ",
+   "note": "The Church understands the brothers of Jesus as sons of another Mary, not other children of the Virgin."
+  }
+ },
+ {
+  "id": "doctrine-b018",
+  "d": 2,
+  "q": "Jesus is Mary's only son, but her spiritual motherhood extends to whom?",
+  "o": [
+   "Only the apostles",
+   "Only her kinsfolk",
+   "All men",
+   "Only the baptized clergy"
+  ],
+  "a": 2,
+  "why": "Mary's spiritual motherhood reaches all whom her Son came to save.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 501",
+   "ccc": 501,
+   "quote": "her spiritual motherhood extends to all men",
+   "note": "Mary's spiritual motherhood reaches all whom her Son came to save."
+  }
+ },
+ {
+  "id": "doctrine-b019",
+  "d": 1,
+  "q": "Jesus was conceived by the Holy Spirit because he is the New what?",
+  "o": [
+   "Moses",
+   "Adam",
+   "David",
+   "Abraham"
+  ],
+  "a": 1,
+  "why": "As the New Adam, Jesus inaugurates the new creation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 504",
+   "ccc": 504,
+   "quote": "he is the New Adam",
+   "note": "As the New Adam, Jesus inaugurates the new creation."
+  }
+ },
+ {
+  "id": "doctrine-b020",
+  "d": 1,
+  "q": "By her obedience, Mary became the new what, mother of the living?",
+  "o": [
+   "Sarah",
+   "Eve",
+   "Eliza",
+   "Hannah"
+  ],
+  "a": 1,
+  "why": "Mary's yes made her the new Eve, mother of the living.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 511",
+   "ccc": 511,
+   "quote": "she became the new Eve, mother of the living",
+   "note": "Mary's yes made her the new Eve, mother of the living."
+  }
+ },
+ {
+  "id": "doctrine-b021",
+  "d": 2,
+  "q": "Mary is called the symbol and most perfect realization of what?",
+  "o": [
+   "The Church",
+   "The Law",
+   "The Temple",
+   "The Covenant"
+  ],
+  "a": 0,
+  "why": "At once virgin and mother, Mary is the symbol and most perfect realization of the Church.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 507",
+   "ccc": 507,
+   "quote": "symbol and the most perfect realization of the Church",
+   "note": "At once virgin and mother, Mary is the symbol and most perfect realization of the Church."
+  }
+ },
+ {
+  "id": "doctrine-b022",
+  "d": 1,
+  "q": "Who were the first witnesses to Jesus' birth, according to the Catechism?",
+  "o": [
+   "The wise men",
+   "The temple priests",
+   "The Roman soldiers",
+   "Simple shepherds"
+  ],
+  "a": 3,
+  "why": "Jesus was born in a humble stable, and simple shepherds were the first witnesses.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 525",
+   "ccc": 525,
+   "quote": "Simple shepherds were the first witnesses to this event",
+   "note": "Jesus was born in a humble stable, and simple shepherds were the first witnesses."
+  }
+ },
+ {
+  "id": "doctrine-b023",
+  "d": 1,
+  "q": "On which day after his birth was Jesus circumcised?",
+  "o": [
+   "The third day",
+   "The seventh day",
+   "The eighth day",
+   "The fortieth day"
+  ],
+  "a": 2,
+  "why": "The Catechism notes Jesus' circumcision on the eighth day after his birth.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 527",
+   "ccc": 527,
+   "quote": "on the eighth day after his birth",
+   "note": "The Catechism notes Jesus' circumcision on the eighth day after his birth."
+  }
+ },
+ {
+  "id": "doctrine-b024",
+  "d": 3,
+  "q": "By Baptism original sin and all personal sins are forgiven, along with what else?",
+  "o": [
+   "All future temptation",
+   "All bodily suffering",
+   "All punishment for sin",
+   "All need of the other sacraments"
+  ],
+  "a": 2,
+  "why": "Baptism removes sin and all punishment for sin.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1263",
+   "ccc": 1263,
+   "quote": "as well as all punishment for sin",
+   "note": "Baptism removes sin and all punishment for sin."
+  }
+ },
+ {
+  "id": "doctrine-b025",
+  "d": 1,
+  "q": "The name 'Christian' means what?",
+  "o": [
+   "Baptized",
+   "Anointed",
+   "Faithful",
+   "Chosen"
+  ],
+  "a": 1,
+  "why": "The anointing in Confirmation highlights the name Christian, which means anointed.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1289",
+   "ccc": 1289,
+   "quote": "the name \"Christian,\" which means \"anointed\"",
+   "note": "The anointing in Confirmation highlights the name Christian, which means anointed."
+  }
+ },
+ {
+  "id": "doctrine-b026",
+  "d": 1,
+  "q": "What is the perfumed oil used to anoint in Confirmation called?",
+  "o": [
+   "Chrism",
+   "Nard",
+   "Myrrh",
+   "Balm"
+  ],
+  "a": 0,
+  "why": "A perfumed oil called chrism was added to the laying on of hands.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1289",
+   "ccc": 1289,
+   "quote": "an anointing with perfumed oil (chrism)",
+   "note": "A perfumed oil called chrism was added to the laying on of hands."
+  }
+ },
+ {
+  "id": "doctrine-b027",
+  "d": 1,
+  "q": "The Eucharist is called the 'source and ___ of the Christian life.'",
+  "o": [
+   "Seal",
+   "Ground",
+   "Rule",
+   "Summit"
+  ],
+  "a": 3,
+  "why": "The other sacraments and ministries are bound up with and oriented toward the Eucharist.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1324",
+   "ccc": 1324,
+   "quote": "the source and summit of the Christian life",
+   "note": "The other sacraments and ministries are bound up with and oriented toward the Eucharist."
+  }
+ },
+ {
+  "id": "doctrine-b028",
+  "d": 1,
+  "q": "During which Jewish feast did Jesus celebrate the Last Supper with his apostles?",
+  "o": [
+   "Pentecost",
+   "Tabernacles",
+   "Hanukkah",
+   "Passover"
+  ],
+  "a": 3,
+  "why": "Jesus gave the Passover meal its definitive meaning at the Last Supper.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1340",
+   "ccc": 1340,
+   "quote": "celebrating the Last Supper with his apostles in the course of the Passover meal",
+   "note": "Jesus gave the Passover meal its definitive meaning at the Last Supper."
+  }
+ },
+ {
+  "id": "doctrine-b029",
+  "d": 3,
+  "q": "Christ's Eucharistic presence endures for as long as what subsist?",
+  "o": [
+   "The consecrated vessels",
+   "The faithful gathered",
+   "The Eucharistic species",
+   "The words of the Mass"
+  ],
+  "a": 2,
+  "why": "Christ's presence begins at the consecration and endures while the species subsist.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1377",
+   "ccc": 1377,
+   "quote": "endures as long as the Eucharistic species subsist",
+   "note": "Christ's presence begins at the consecration and endures while the species subsist."
+  }
+ },
+ {
+  "id": "doctrine-b030",
+  "d": 1,
+  "q": "Before receiving Communion, what does St Paul urge each person to do?",
+  "o": [
+   "Fast for three days",
+   "Examine his conscience",
+   "Confess publicly",
+   "Give alms"
+  ],
+  "a": 1,
+  "why": "Paul urges self-examination before eating the bread and drinking the cup.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1385",
+   "ccc": 1385,
+   "quote": "St. Paul urges us to examine our conscience",
+   "note": "Paul urges self-examination before eating the bread and drinking the cup."
+  }
+ },
+ {
+  "id": "doctrine-b031",
+  "d": 2,
+  "q": "What is the principal fruit of receiving Holy Communion?",
+  "o": [
+   "Intimate union with Christ Jesus",
+   "Release from every temptation",
+   "Knowledge of the future",
+   "Freedom from all sorrow"
+  ],
+  "a": 0,
+  "why": "Communion augments our union with Christ.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1391",
+   "ccc": 1391,
+   "quote": "intimate union with Christ Jesus",
+   "note": "Communion augments our union with Christ."
+  }
+ },
+ {
+  "id": "doctrine-b032",
+  "d": 3,
+  "q": "Receiving Communion forgives venial sins and preserves the communicant from what?",
+  "o": [
+   "Grave sins",
+   "Every hardship",
+   "All doubt",
+   "Public scandal"
+  ],
+  "a": 0,
+  "why": "Communion strengthens charity, forgives venial sins and guards from grave sin.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1416",
+   "ccc": 1416,
+   "quote": "forgives his venial sins, and preserves him from grave sins",
+   "note": "Communion strengthens charity, forgives venial sins and guards from grave sin."
+  }
+ },
+ {
+  "id": "doctrine-b033",
+  "d": 1,
+  "q": "Who alone forgives sins, according to the Catechism?",
+  "o": [
+   "The priest",
+   "The bishop",
+   "The penitent",
+   "God"
+  ],
+  "a": 3,
+  "why": "Only God forgives sins; Jesus, as Son of God, exercises this divine power.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1441",
+   "ccc": 1441,
+   "quote": "Only God forgives sins.",
+   "note": "Only God forgives sins; Jesus, as Son of God, exercises this divine power."
+  }
+ },
+ {
+  "id": "doctrine-b034",
+  "d": 2,
+  "q": "Among the penitent's acts, which takes first place?",
+  "o": [
+   "Satisfaction",
+   "Examination",
+   "Contrition",
+   "Absolution"
+  ],
+  "a": 2,
+  "why": "The Catechism gives contrition the first place among the penitent's acts.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1451",
+   "ccc": 1451,
+   "quote": "contrition occupies first place",
+   "note": "The Catechism gives contrition the first place among the penitent's acts."
+  }
+ },
+ {
+  "id": "doctrine-b035",
+  "d": 3,
+  "q": "What is imperfect contrition, born of the fear of damnation, also called?",
+  "o": [
+   "Remorse",
+   "Attrition",
+   "Scruple",
+   "Penance"
+  ],
+  "a": 1,
+  "why": "Attrition is also a gift of God, a prompting of the Holy Spirit.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1453",
+   "ccc": 1453,
+   "quote": "The contrition called \"imperfect\" (or \"attrition\")",
+   "note": "Attrition is also a gift of God, a prompting of the Holy Spirit."
+  }
+ },
+ {
+  "id": "doctrine-b036",
+  "d": 2,
+  "q": "What must a priest who hears confessions keep regarding the sins confessed?",
+  "o": [
+   "A written record",
+   "Absolute secrecy",
+   "A report to the bishop",
+   "A brief summary"
+  ],
+  "a": 1,
+  "why": "The Church binds every confessor to absolute secrecy under very severe penalties.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1467",
+   "ccc": 1467,
+   "quote": "to keep absolute secrecy regarding the sins",
+   "note": "The Church binds every confessor to absolute secrecy under very severe penalties."
+  }
+ },
+ {
+  "id": "doctrine-b037",
+  "d": 3,
+  "q": "Grave sin deprives us of communion with God and so makes us incapable of what?",
+  "o": [
+   "Eternal life",
+   "Natural friendship",
+   "Further repentance",
+   "Receiving any grace"
+  ],
+  "a": 0,
+  "why": "Sin has a double consequence; grave sin deprives us of communion with God and of eternal life.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1472",
+   "ccc": 1472,
+   "quote": "makes us incapable of eternal life",
+   "note": "Sin has a double consequence; grave sin deprives us of communion with God and of eternal life."
+  }
+ },
+ {
+  "id": "doctrine-b038",
+  "d": 3,
+  "q": "An indulgence is the remission before God of what, for sins whose guilt is already forgiven?",
+  "o": [
+   "The eternal guilt of sin",
+   "The need for confession",
+   "The effects of original sin",
+   "The temporal punishment due to sins"
+  ],
+  "a": 3,
+  "why": "An indulgence concerns temporal punishment, not the guilt of sin.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1471",
+   "ccc": 1471,
+   "quote": "a remission before God of the temporal punishment due to sins whose guilt has already been forgiven",
+   "note": "An indulgence concerns temporal punishment, not the guilt of sin."
+  }
+ },
+ {
+  "id": "doctrine-b039",
+  "d": 2,
+  "q": "Which apostle's letter attests the apostolic Church's own rite for the sick?",
+  "o": [
+   "St. Peter",
+   "St. John",
+   "St. James",
+   "St. Jude"
+  ],
+  "a": 2,
+  "why": "James tells the sick to call the elders of the Church, who pray and anoint with oil.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1510",
+   "ccc": 1510,
+   "quote": "attested to by St. James",
+   "note": "James tells the sick to call the elders of the Church, who pray and anoint with oil."
+  }
+ },
+ {
+  "id": "doctrine-b040",
+  "d": 1,
+  "q": "Who is the author of marriage, according to the Catechism?",
+  "o": [
+   "The Roman state",
+   "The Old Testament law",
+   "God himself",
+   "The early Church"
+  ],
+  "a": 2,
+  "why": "Marriage was established by the Creator and endowed with its own proper laws.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1603",
+   "ccc": 1603,
+   "quote": "God himself is the author of marriage",
+   "note": "Marriage was established by the Creator and endowed with its own proper laws."
+  }
+ },
+ {
+  "id": "doctrine-b041",
+  "d": 1,
+  "q": "At what event did Jesus perform his first sign, at his mother's request?",
+  "o": [
+   "A funeral",
+   "A wedding feast",
+   "A Sabbath meal",
+   "A temple feast"
+  ],
+  "a": 1,
+  "why": "At Cana Jesus changed water into wine, and the Church sees there the goodness of marriage.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1613",
+   "ccc": 1613,
+   "quote": "performs his first sign - at his mother's request - during a wedding feast",
+   "note": "At Cana Jesus changed water into wine, and the Church sees there the goodness of marriage."
+  }
+ },
+ {
+  "id": "doctrine-b042",
+  "d": 2,
+  "q": "A valid marriage produces a bond that by its nature is perpetual and what?",
+  "o": [
+   "Exclusive",
+   "Temporary",
+   "Public",
+   "Hereditary"
+  ],
+  "a": 0,
+  "why": "From valid marriage arises a bond that is perpetual and exclusive.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1638",
+   "ccc": 1638,
+   "quote": "by its very nature is perpetual and exclusive",
+   "note": "From valid marriage arises a bond that is perpetual and exclusive."
+  }
+ },
+ {
+  "id": "doctrine-b043",
+  "d": 1,
+  "q": "What does the Catechism say conjugal love requires of the spouses by its very nature?",
+  "o": [
+   "Equal wealth",
+   "Shared ancestry",
+   "Public ceremony",
+   "Inviolable fidelity"
+  ],
+  "a": 3,
+  "why": "Fidelity is the consequence of the gift of themselves the spouses make to each other.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1646",
+   "ccc": 1646,
+   "quote": "conjugal love requires the inviolable fidelity of the spouses",
+   "note": "Fidelity is the consequence of the gift of themselves the spouses make to each other."
+  }
+ },
+ {
+  "id": "doctrine-b044",
+  "d": 1,
+  "q": "Human virtues are purified and elevated by what?",
+  "o": [
+   "Public praise",
+   "Human law",
+   "Good fortune",
+   "Divine grace"
+  ],
+  "a": 3,
+  "why": "Virtues acquired by effort are purified and elevated by grace.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1810",
+   "ccc": 1810,
+   "quote": "are purified and elevated by divine grace",
+   "note": "Virtues acquired by effort are purified and elevated by grace."
+  }
+ },
+ {
+  "id": "doctrine-b045",
+  "d": 2,
+  "q": "Who infuses the theological virtues into the souls of the faithful?",
+  "o": [
+   "The priest",
+   "The parents",
+   "God",
+   "The bishop"
+  ],
+  "a": 2,
+  "why": "The theological virtues are infused by God to make the faithful capable of acting as his children.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1813",
+   "ccc": 1813,
+   "quote": "They are infused by God into the souls of the faithful",
+   "note": "The theological virtues are infused by God to make the faithful capable of acting as his children."
+  }
+ },
+ {
+  "id": "doctrine-b046",
+  "d": 1,
+  "q": "Which virtue does the Catechism say is superior to all the virtues?",
+  "o": [
+   "Prudence",
+   "Charity",
+   "Fortitude",
+   "Temperance"
+  ],
+  "a": 1,
+  "why": "Charity is the first of the theological virtues.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1826",
+   "ccc": 1826,
+   "quote": "Charity is superior to all the virtues",
+   "note": "Charity is the first of the theological virtues."
+  }
+ },
+ {
+  "id": "doctrine-b047",
+  "d": 3,
+  "q": "The capital sins were distinguished by Christian experience following St John Cassian and which pope?",
+  "o": [
+   "St. Gregory the Great",
+   "St. Leo the Great",
+   "St. Pius V",
+   "St. Clement"
+  ],
+  "a": 0,
+  "why": "Vices can be linked to the capital sins that Cassian and Gregory the Great distinguished.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1866",
+   "ccc": 1866,
+   "quote": "following St. John Cassian and St. Gregory the Great",
+   "note": "Vices can be linked to the capital sins that Cassian and Gregory the Great distinguished."
+  }
+ },
+ {
+  "id": "doctrine-b048",
+  "d": 3,
+  "q": "Which of these is listed among the 'sins that cry to heaven'?",
+  "o": [
+   "The blood of Abel",
+   "Neglect of Sunday Mass",
+   "Eating meat on Fridays",
+   "Idle talk"
+  ],
+  "a": 0,
+  "why": "The catechetical tradition lists the blood of Abel among the sins that cry to heaven.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1867",
+   "ccc": 1867,
+   "quote": "The blood of Abel",
+   "note": "The catechetical tradition lists the blood of Abel among the sins that cry to heaven."
+  }
+ },
+ {
+  "id": "doctrine-b049",
+  "d": 2,
+  "q": "Conscience calls man ever to love and to do what?",
+  "o": [
+   "What is lawful and avoid scandal",
+   "What is easy and avoid pain",
+   "What is useful and avoid loss",
+   "What is good and avoid evil"
+  ],
+  "a": 3,
+  "why": "The voice of conscience calls man to love and do good and to avoid evil.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1776",
+   "ccc": 1776,
+   "quote": "to love and to do what is good and to avoid evil",
+   "note": "The voice of conscience calls man to love and do good and to avoid evil."
+  }
+ },
+ {
+  "id": "doctrine-b050",
+  "d": 2,
+  "q": "What kind of judgment is conscience, according to the Catechism?",
+  "o": [
+   "A feeling of the heart",
+   "A rule of the state",
+   "A judgment of reason",
+   "A custom of the community"
+  ],
+  "a": 2,
+  "why": "Conscience is a judgment of reason by which a person recognizes the moral quality of an act.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1778",
+   "ccc": 1778,
+   "quote": "Conscience is a judgment of reason",
+   "note": "Conscience is a judgment of reason by which a person recognizes the moral quality of an act."
+  }
+ },
+ {
+  "id": "doctrine-b051",
+  "d": 2,
+  "q": "A well-formed conscience is upright and what?",
+  "o": [
+   "Strict",
+   "Truthful",
+   "Cautious",
+   "Quiet"
+  ],
+  "a": 1,
+  "why": "It forms judgments according to reason and the true good willed by the Creator.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1783",
+   "ccc": 1783,
+   "quote": "A well-formed conscience is upright and truthful",
+   "note": "It forms judgments according to reason and the true good willed by the Creator."
+  }
+ },
+ {
+  "id": "doctrine-b052",
+  "d": 2,
+  "q": "Conscience is man's most secret core and his what?",
+  "o": [
+   "Fortress",
+   "Sanctuary",
+   "Treasury",
+   "Witness"
+  ],
+  "a": 1,
+  "why": "There man is alone with God, whose voice echoes in his depths.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1795",
+   "ccc": 1795,
+   "quote": "Conscience is man's most secret core, and his sanctuary",
+   "note": "There man is alone with God, whose voice echoes in his depths."
+  }
+ },
+ {
+  "id": "doctrine-b053",
+  "d": 2,
+  "q": "The natural law is universal in its precepts. Whose authority does it extend to?",
+  "o": [
+   "All men",
+   "Only believers",
+   "Only citizens",
+   "Only the baptized"
+  ],
+  "a": 0,
+  "why": "The natural law is present in every heart and established by reason.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1956",
+   "ccc": 1956,
+   "quote": "universal in its precepts and its authority extends to all men",
+   "note": "The natural law is present in every heart and established by reason."
+  }
+ },
+ {
+  "id": "doctrine-b054",
+  "d": 3,
+  "q": "How does the Catechism describe the natural law across the variations of history?",
+  "o": [
+   "Changing with each era",
+   "Binding only in some nations",
+   "Known only through revelation",
+   "Immutable and permanent"
+  ],
+  "a": 3,
+  "why": "It subsists under the flux of ideas and customs.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1958",
+   "ccc": 1958,
+   "quote": "The natural law is immutable and permanent throughout the variations of history",
+   "note": "It subsists under the flux of ideas and customs."
+  }
+ },
+ {
+  "id": "doctrine-b055",
+  "d": 1,
+  "q": "What is the first work of the grace of the Holy Spirit?",
+  "o": [
+   "Martyrdom",
+   "Prophecy",
+   "Conversion",
+   "Healing"
+  ],
+  "a": 2,
+  "why": "Moved by grace, man turns toward God and away from sin.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1989",
+   "ccc": 1989,
+   "quote": "The first work of the grace of the Holy Spirit is conversion",
+   "note": "Moved by grace, man turns toward God and away from sin."
+  }
+ },
+ {
+  "id": "doctrine-b056",
+  "d": 1,
+  "q": "Grace is a participation in whose life?",
+  "o": [
+   "The angels'",
+   "The saints'",
+   "God's",
+   "The Church's"
+  ],
+  "a": 2,
+  "why": "Grace introduces us into the intimacy of Trinitarian life.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1997",
+   "ccc": 1997,
+   "quote": "Grace is a participation in the life of God",
+   "note": "Grace introduces us into the intimacy of Trinitarian life."
+  }
+ },
+ {
+  "id": "doctrine-b057",
+  "d": 3,
+  "q": "What initial grace, at the beginning of conversion, can no one merit?",
+  "o": [
+   "Perseverance in prayer",
+   "Forgiveness and justification",
+   "Strength in suffering",
+   "Eternal glory"
+  ],
+  "a": 1,
+  "why": "The initiative belongs to God in the order of grace.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2010",
+   "ccc": 2010,
+   "quote": "no one can merit the initial grace of forgiveness and justification",
+   "note": "The initiative belongs to God in the order of grace."
+  }
+ },
+ {
+  "id": "doctrine-b058",
+  "d": 2,
+  "q": "Justification includes remission of sins, renewal of the inner man and what else?",
+  "o": [
+   "Sanctification",
+   "Canonization",
+   "Absolution",
+   "Excommunication"
+  ],
+  "a": 0,
+  "why": "Justification is more than forgiveness; it also sanctifies.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2019",
+   "ccc": 2019,
+   "quote": "Justification includes the remission of sins, sanctification, and the renewal of the inner man",
+   "note": "Justification is more than forgiveness; it also sanctifies."
+  }
+ },
+ {
+  "id": "doctrine-b059",
+  "d": 3,
+  "q": "St Augustine thought the justification of the wicked a greater work than what?",
+  "o": [
+   "The healing of the blind",
+   "The founding of Rome",
+   "The parting of the sea",
+   "The creation of heaven and earth"
+  ],
+  "a": 3,
+  "why": "Justification is the most excellent work of God's love.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1994",
+   "ccc": 1994,
+   "quote": "the justification of the wicked is a greater work than the creation of heaven and",
+   "note": "Justification is the most excellent work of God's love."
+  }
+ },
+ {
+  "id": "doctrine-b060",
+  "d": 2,
+  "q": "Those perfectly purified who die in God's grace 'see him as he is'. How?",
+  "o": [
+   "Through a veil",
+   "In a dream",
+   "By words alone",
+   "Face to face"
+  ],
+  "a": 3,
+  "why": "The blessed live for ever with Christ and see God face to face.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1023",
+   "ccc": 1023,
+   "quote": "\"see him as he is,\" face to face",
+   "note": "The blessed live for ever with Christ and see God face to face."
+  }
+ },
+ {
+  "id": "doctrine-b061",
+  "d": 1,
+  "q": "By his death and Resurrection, what has Jesus done to heaven for us?",
+  "o": [
+   "Created it",
+   "Hidden it",
+   "Opened it",
+   "Closed it"
+  ],
+  "a": 2,
+  "why": "The life of the blessed is the full possession of the fruits of Christ's redemption.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1026",
+   "ccc": 1026,
+   "quote": "Jesus Christ has \"opened\" heaven to us",
+   "note": "The life of the blessed is the full possession of the fruits of Christ's redemption."
+  }
+ },
+ {
+  "id": "doctrine-b062",
+  "d": 1,
+  "q": "What is the perfect life of communion with the Trinity, Mary, the angels and all the blessed called?",
+  "o": [
+   "Paradise lost",
+   "Heaven",
+   "Limbo",
+   "The Sabbath"
+  ],
+  "a": 1,
+  "why": "Heaven is the ultimate end and fulfilment of man's deepest longings.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1024",
+   "ccc": 1024,
+   "quote": "is called \"heaven.\"",
+   "note": "Heaven is the ultimate end and fulfilment of man's deepest longings."
+  }
+ },
+ {
+  "id": "doctrine-b063",
+  "d": 2,
+  "q": "Which of these does Scripture use as an image of heavenly communion?",
+  "o": [
+   "The wedding feast",
+   "The harvest field",
+   "The royal army",
+   "The desert camp"
+  ],
+  "a": 0,
+  "why": "Scripture speaks of the mystery of heaven in images such as the wedding feast.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1027",
+   "ccc": 1027,
+   "quote": "wedding feast, wine of the kingdom, the Father's house",
+   "note": "Scripture speaks of the mystery of heaven in images such as the wedding feast."
+  }
+ },
+ {
+  "id": "doctrine-b064",
+  "d": 2,
+  "q": "Which Old Testament figure made atonement for the dead, as the Catechism recalls in speaking of prayer for them?",
+  "o": [
+   "Judas Maccabeus",
+   "Judas of Galilee",
+   "Joshua son of Nun",
+   "Zerubbabel"
+  ],
+  "a": 0,
+  "why": "The practice of praying for the dead is already found in Sacred Scripture.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1032",
+   "ccc": 1032,
+   "quote": "made atonement for the dead, that they might be delivered from their sin",
+   "note": "The practice of praying for the dead is already found in Sacred Scripture."
+  }
+ },
+ {
+  "id": "doctrine-b065",
+  "d": 2,
+  "q": "Which word does Jesus often use for the place of unquenchable fire?",
+  "o": [
+   "Sheol",
+   "Tartarus",
+   "Hades",
+   "Gehenna"
+  ],
+  "a": 3,
+  "why": "Jesus speaks of Gehenna as reserved for those who refuse to believe and be converted.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1034",
+   "ccc": 1034,
+   "quote": "Jesus often speaks of \"Gehenna\"",
+   "note": "Jesus speaks of Gehenna as reserved for those who refuse to believe and be converted."
+  }
+ },
+ {
+  "id": "doctrine-b066",
+  "d": 1,
+  "q": "What does Scripture call the mysterious renewal that will transform humanity and the world?",
+  "o": [
+   "A second Eden",
+   "A restored Israel",
+   "New heavens and a new earth",
+   "A golden age of kings"
+  ],
+  "a": 2,
+  "why": "Scripture speaks of a new heavens and a new earth at the end of time.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1043",
+   "ccc": 1043,
+   "quote": "\"new heavens and a new earth.\"",
+   "note": "Scripture speaks of a new heavens and a new earth at the end of time."
+  }
+ },
+ {
+  "id": "doctrine-b067",
+  "d": 1,
+  "q": "In the new universe, God will wipe away what from every eye?",
+  "o": [
+   "Every sin",
+   "Every tear",
+   "Every shadow",
+   "Every name"
+  ],
+  "a": 1,
+  "why": "The Catechism cites Revelation's promise that death shall be no more.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1044",
+   "ccc": 1044,
+   "quote": "He will wipe away every tear from their eyes",
+   "note": "The Catechism cites Revelation's promise that death shall be no more."
+  }
+ },
+ {
+  "id": "doctrine-b068",
+  "d": 1,
+  "q": "Faith sees bodily death as, in Paul's words, the wages of what?",
+  "o": [
+   "Pride",
+   "Sin",
+   "Law",
+   "Idolatry"
+  ],
+  "a": 1,
+  "why": "In a sense death is natural, but for faith it is the wages of sin.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1006",
+   "ccc": 1006,
+   "quote": "for faith it is in fact \"the wages of sin.\"",
+   "note": "In a sense death is natural, but for faith it is the wages of sin."
+  }
+ },
+ {
+  "id": "doctrine-b069",
+  "d": 1,
+  "q": "Complete Paul's words: 'For to me to live is Christ, and to die is ___.'",
+  "o": [
+   "Gain",
+   "Rest",
+   "Peace",
+   "Glory"
+  ],
+  "a": 0,
+  "why": "Christian death has a positive meaning because of Christ.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1010",
+   "ccc": 1010,
+   "quote": "For to me to live is Christ, and to die is gain",
+   "note": "Christian death has a positive meaning because of Christ."
+  }
+ },
+ {
+  "id": "doctrine-b070",
+  "d": 2,
+  "q": "Tertullian called the flesh the hinge of what?",
+  "o": [
+   "The Sacraments",
+   "The Law",
+   "The Creed",
+   "Salvation"
+  ],
+  "a": 3,
+  "why": "We believe in the resurrection of the flesh.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1015",
+   "ccc": 1015,
+   "quote": "The flesh is the hinge of salvation",
+   "note": "We believe in the resurrection of the flesh."
+  }
+ },
+ {
+  "id": "doctrine-b071",
+  "d": 2,
+  "q": "The word 'Church' comes from a Greek word meaning to do what?",
+  "o": [
+   "Gather up",
+   "Lead forth",
+   "Call out of",
+   "Set apart"
+  ],
+  "a": 2,
+  "why": "Ecclesia means a convocation or assembly.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 751",
+   "ccc": 751,
+   "quote": "from the Greek ek-ka-lein, to \"call out of\"",
+   "note": "Ecclesia means a convocation or assembly."
+  }
+ },
+ {
+  "id": "doctrine-b072",
+  "d": 1,
+  "q": "In the image of the sheepfold, who is the sole and necessary gateway of the Church?",
+  "o": [
+   "Peter",
+   "The apostles",
+   "Christ",
+   "The prophets"
+  ],
+  "a": 2,
+  "why": "The Church is a sheepfold whose gateway is Christ.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 754",
+   "ccc": 754,
+   "quote": "sole and necessary gateway to which is Christ",
+   "note": "The Church is a sheepfold whose gateway is Christ."
+  }
+ },
+ {
+  "id": "doctrine-b073",
+  "d": 2,
+  "q": "The Catechism says the Church is both a hierarchical society and the ___ of Christ.",
+  "o": [
+   "Earthly Kingdom",
+   "Mystical Body",
+   "Final Witness",
+   "Holy Temple"
+  ],
+  "a": 1,
+  "why": "The Church is both visible and spiritual, human and divine.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 779",
+   "ccc": 779,
+   "quote": "a hierarchical society and the Mystical Body of Christ",
+   "note": "The Church is both visible and spiritual, human and divine."
+  }
+ },
+ {
+  "id": "doctrine-b074",
+  "d": 2,
+  "q": "In which three offices of Christ does the whole People of God share?",
+  "o": [
+   "Priest, prophet and king",
+   "Shepherd, judge and lawgiver",
+   "Teacher, healer and judge",
+   "Apostle, martyr and virgin"
+  ],
+  "a": 0,
+  "why": "The whole People of God participates in these three offices.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 783",
+   "ccc": 783,
+   "quote": "established as priest, prophet, and king",
+   "note": "The whole People of God participates in these three offices."
+  }
+ },
+ {
+  "id": "doctrine-b075",
+  "d": 1,
+  "q": "How does one enter the People of God?",
+  "o": [
+   "By family descent",
+   "By civil citizenship",
+   "By a pilgrimage",
+   "By faith and Baptism"
+  ],
+  "a": 3,
+  "why": "All men are called to belong to the new People of God.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 804",
+   "ccc": 804,
+   "quote": "One enters into the People of God by faith and Baptism.",
+   "note": "All men are called to belong to the new People of God."
+  }
+ },
+ {
+  "id": "doctrine-b076",
+  "d": 1,
+  "q": "The Catechism says Christ placed which apostle at the head of the Twelve as a college?",
+  "o": [
+   "John",
+   "Andrew",
+   "James",
+   "Peter"
+  ],
+  "a": 3,
+  "why": "The Twelve were constituted as a college with Peter as head.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 880",
+   "ccc": 880,
+   "quote": "at the head of which he placed Peter",
+   "note": "The Twelve were constituted as a college with Peter as head."
+  }
+ },
+ {
+  "id": "doctrine-b077",
+  "d": 3,
+  "q": "The pope is described as the perpetual and visible source and foundation of what?",
+  "o": [
+   "The wealth of the Church",
+   "The calendar of feasts",
+   "The unity of the bishops and of the faithful",
+   "The translation of Scripture"
+  ],
+  "a": 2,
+  "why": "The Roman Pontiff is Peter's successor and Vicar of Christ.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 882",
+   "ccc": 882,
+   "quote": "perpetual and visible source and foundation of the unity both of the bishops and of the whole company of the faithful",
+   "note": "The Roman Pontiff is Peter's successor and Vicar of Christ."
+  }
+ },
+ {
+  "id": "doctrine-b078",
+  "d": 2,
+  "q": "What do bishops have as their first task, according to the Catechism?",
+  "o": [
+   "To govern church property",
+   "To preach the Gospel of God to all men",
+   "To appoint civil rulers",
+   "To judge civil disputes"
+  ],
+  "a": 1,
+  "why": "Bishops are heralds of faith and authentic teachers.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 888",
+   "ccc": 888,
+   "quote": "to preach the Gospel of God to all men",
+   "note": "Bishops are heralds of faith and authentic teachers."
+  }
+ },
+ {
+  "id": "doctrine-b079",
+  "d": 2,
+  "q": "The Catechism quotes: 'What is the Church if not the assembly of all the ___?'",
+  "o": [
+   "Saints",
+   "Nations",
+   "Apostles",
+   "Prophets"
+  ],
+  "a": 0,
+  "why": "The communion of saints is the Church.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 946",
+   "ccc": 946,
+   "quote": "What is the Church if not the assembly of all the saints?",
+   "note": "The communion of saints is the Church."
+  }
+ },
+ {
+  "id": "doctrine-b080",
+  "d": 3,
+  "q": "In 'communion of saints', the 'holy things' (sancta) refer chiefly to which sacrament?",
+  "o": [
+   "The Eucharist",
+   "Baptism",
+   "Penance",
+   "Matrimony"
+  ],
+  "a": 0,
+  "why": "The communion of saints refers first to the holy things, chiefly the Eucharist.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 960",
+   "ccc": 960,
+   "quote": "the \"holy things\" (sancta)",
+   "note": "The communion of saints refers first to the holy things, chiefly the Eucharist."
+  }
+ }
+]

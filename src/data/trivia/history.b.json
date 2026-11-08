@@ -1,0 +1,1656 @@
+[
+ {
+  "id": "history-b001",
+  "d": 1,
+  "q": "Which prophet was the Ethiopian official reading when Philip ran up to him?",
+  "o": [
+   "Jeremiah",
+   "Isaiah",
+   "Ezekiel",
+   "Daniel"
+  ],
+  "a": 1,
+  "why": "Philip heard the official reading Isaiah and asked if he understood.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 8:30",
+   "ref": "ACT.8.30",
+   "quote": "heard him reading Isaiah the prophet",
+   "note": "Philip heard the official reading Isaiah and asked if he understood."
+  }
+ },
+ {
+  "id": "history-b002",
+  "d": 2,
+  "q": "On which street in Damascus did the Lord tell Ananias to look for Saul?",
+  "o": [
+   "The one called Long",
+   "The one called Royal",
+   "The one called Straight",
+   "The one called Golden"
+  ],
+  "a": 2,
+  "why": "Saul was praying in the house of Judah on the street called Straight.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 9:11",
+   "ref": "ACT.9.11",
+   "quote": "the street which is called Straight",
+   "note": "Saul was praying in the house of Judah on the street called Straight."
+  }
+ },
+ {
+  "id": "history-b003",
+  "d": 2,
+  "q": "Who laid hands on Saul at Damascus so that he might receive his sight?",
+  "o": [
+   "Ananias",
+   "Barnabas",
+   "Silas",
+   "Philip"
+  ],
+  "a": 0,
+  "why": "Ananias laid his hands on Saul, who regained his sight and was filled with the Holy Spirit.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 9:17",
+   "ref": "ACT.9.17",
+   "quote": "Brother Saul, the Lord, who appeared to you on the road by which you came, has sent me",
+   "note": "Ananias laid his hands on Saul, who regained his sight and was filled with the Holy Spirit."
+  }
+ },
+ {
+  "id": "history-b004",
+  "d": 2,
+  "q": "Who was the servant girl who came to answer when Peter knocked at the gate after his release?",
+  "o": [
+   "Dorcas",
+   "Rhoda",
+   "Lydia",
+   "Priscilla"
+  ],
+  "a": 1,
+  "why": "Rhoda answered Peter's knock at the gate.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 12:13",
+   "ref": "ACT.12.13",
+   "quote": "a servant girl named Rhoda came to answer",
+   "note": "Rhoda answered Peter's knock at the gate."
+  }
+ },
+ {
+  "id": "history-b005",
+  "d": 3,
+  "q": "On Cyprus, which proconsul, a man of understanding, summoned Barnabas and Saul?",
+  "o": [
+   "Gallio",
+   "Felix",
+   "Sergius Paulus",
+   "Festus"
+  ],
+  "a": 2,
+  "why": "At Paphos the proconsul Sergius Paulus sought to hear the word of God.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 13:6-7",
+   "ref": "ACT.13.6-7",
+   "quote": "the proconsul, Sergius Paulus, a man of understanding",
+   "note": "At Paphos the proconsul Sergius Paulus sought to hear the word of God."
+  }
+ },
+ {
+  "id": "history-b006",
+  "d": 2,
+  "q": "At Lystra the crowds called Barnabas 'Jupiter'. What name did they give Paul, the chief speaker?",
+  "o": [
+   "Mercury",
+   "Apollo",
+   "Neptune",
+   "Mars"
+  ],
+  "a": 0,
+  "why": "The people of Lystra took the two apostles for gods.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 14:12",
+   "ref": "ACT.14.12",
+   "quote": "They called Barnabas “Jupiter”, and Paul “Mercury”, because he was the chief speaker.",
+   "note": "The people of Lystra took the two apostles for gods."
+  }
+ },
+ {
+  "id": "history-b007",
+  "d": 1,
+  "q": "What were Paul and Silas doing at midnight in the prison at Philippi?",
+  "o": [
+   "Writing letters to the churches",
+   "Praying and singing hymns to God",
+   "Arguing with the guards",
+   "Mending their chains"
+  ],
+  "a": 1,
+  "why": "The prisoners were listening as Paul and Silas prayed and sang.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 16:25",
+   "ref": "ACT.16.25",
+   "quote": "Paul and Silas were praying and singing hymns to God",
+   "note": "The prisoners were listening as Paul and Silas prayed and sang."
+  }
+ },
+ {
+  "id": "history-b008",
+  "d": 2,
+  "q": "What made the Jews of Berea 'more noble' than those in Thessalonica?",
+  "o": [
+   "They gave Paul silver and gold",
+   "They drove out the Roman guards",
+   "They examined the Scriptures daily",
+   "They fasted on every Sabbath"
+  ],
+  "a": 2,
+  "why": "The Bereans received the word with readiness and tested it against Scripture.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 17:11",
+   "ref": "ACT.17.11",
+   "quote": "examining the Scriptures daily to see whether these things were so",
+   "note": "The Bereans received the word with readiness and tested it against Scripture."
+  }
+ },
+ {
+  "id": "history-b009",
+  "d": 2,
+  "q": "Apollos, an eloquent man mighty in the Scriptures, came to Ephesus. By race he was from which city?",
+  "o": [
+   "Alexandria",
+   "Antioch",
+   "Tarsus",
+   "Corinth"
+  ],
+  "a": 0,
+  "why": "Acts calls Apollos an Alexandrian by race.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 18:24",
+   "ref": "ACT.18.24",
+   "quote": "named Apollos, an Alexandrian by race",
+   "note": "Acts calls Apollos an Alexandrian by race."
+  }
+ },
+ {
+  "id": "history-b010",
+  "d": 1,
+  "q": "During the riot at Ephesus, what did the crowd cry out?",
+  "o": [
+   "Great is Zeus of the Greeks!",
+   "Great is Artemis of the Ephesians!",
+   "Great is Caesar of the Romans!",
+   "Great is Apollo of Delphi!"
+  ],
+  "a": 1,
+  "why": "The craftsmen's anger at Paul's preaching set the city in uproar.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 19:28",
+   "ref": "ACT.19.28",
+   "quote": "Great is Artemis of the Ephesians!",
+   "note": "The craftsmen's anger at Paul's preaching set the city in uproar."
+  }
+ },
+ {
+  "id": "history-b011",
+  "d": 1,
+  "q": "Which young man fell from a third-floor window while Paul spoke at great length?",
+  "o": [
+   "Timothy",
+   "Trophimus",
+   "Eutychus",
+   "Gaius"
+  ],
+  "a": 2,
+  "why": "Eutychus, weighed down by sleep, fell from the third floor.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 20:9",
+   "ref": "ACT.20.9",
+   "quote": "A certain young man named Eutychus sat in the window",
+   "note": "Eutychus, weighed down by sleep, fell from the third floor."
+  }
+ },
+ {
+  "id": "history-b012",
+  "d": 3,
+  "q": "Which prophet came down from Judea while Paul's party stayed some days at Caesarea?",
+  "o": [
+   "Agabus",
+   "Silas",
+   "Simeon Niger",
+   "Judas Barsabbas"
+  ],
+  "a": 0,
+  "why": "Acts names the prophet Agabus.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 21:10",
+   "ref": "ACT.21.10",
+   "quote": "a certain prophet named Agabus came down from Judea",
+   "note": "Acts names the prophet Agabus."
+  }
+ },
+ {
+  "id": "history-b013",
+  "d": 2,
+  "q": "Barnabas, the Levite who sold a field and gave the money to the apostles, was by race a man of which island?",
+  "o": [
+   "Crete",
+   "Cyprus",
+   "Rhodes",
+   "Sicily"
+  ],
+  "a": 1,
+  "why": "Acts says Barnabas was a Levite from Cyprus.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 4:36-37",
+   "ref": "ACT.4.36-37",
+   "quote": "a Levite, a man of Cyprus by race",
+   "note": "Acts says Barnabas was a Levite from Cyprus."
+  }
+ },
+ {
+  "id": "history-b014",
+  "d": 2,
+  "q": "Which Pharisee, a teacher of the law honored by all the people, rose in the council to speak about the apostles?",
+  "o": [
+   "Nicodemus",
+   "Caiaphas",
+   "Gamaliel",
+   "Annas"
+  ],
+  "a": 2,
+  "why": "Gamaliel stood in the council and asked that the apostles be put out for a little while.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 5:34",
+   "ref": "ACT.5.34",
+   "quote": "a Pharisee named Gamaliel, a teacher of the law, honored by all the people",
+   "note": "Gamaliel stood in the council and asked that the apostles be put out for a little while."
+  }
+ },
+ {
+  "id": "history-b015",
+  "d": 2,
+  "q": "Which king said to Paul, 'With a little persuasion are you trying to make me a Christian?'",
+  "o": [
+   "Agrippa",
+   "Felix",
+   "Festus",
+   "Aretas"
+  ],
+  "a": 0,
+  "why": "King Agrippa spoke these words as Paul defended himself.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 26:28",
+   "ref": "ACT.26.28",
+   "quote": "With a little persuasion are you trying to make me a Christian?",
+   "note": "King Agrippa spoke these words as Paul defended himself."
+  }
+ },
+ {
+  "id": "history-b016",
+  "d": 3,
+  "q": "The brothers from Rome met Paul as far as the Market of Appius and which other place?",
+  "o": [
+   "The Appian Gate",
+   "The Three Taverns",
+   "The Forum of Caesar",
+   "The Ostian Gate"
+  ],
+  "a": 1,
+  "why": "The Roman Christians came out to meet Paul, and he thanked God and took courage.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 28:15",
+   "ref": "ACT.28.15",
+   "quote": "as far as The Market of Appius and The Three Taverns",
+   "note": "The Roman Christians came out to meet Paul, and he thanked God and took courage."
+  }
+ },
+ {
+  "id": "history-b017",
+  "d": 2,
+  "q": "Which emperor had commanded all the Jews to leave Rome, bringing Aquila and Priscilla to Corinth?",
+  "o": [
+   "Nero",
+   "Tiberius",
+   "Claudius",
+   "Caligula"
+  ],
+  "a": 2,
+  "why": "Aquila and Priscilla had recently come from Italy because of Claudius's command.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 18:2-3",
+   "ref": "ACT.18.2-3",
+   "quote": "because Claudius had commanded all the Jews to depart from Rome",
+   "note": "Aquila and Priscilla had recently come from Italy because of Claudius's command."
+  }
+ },
+ {
+  "id": "history-b018",
+  "d": 1,
+  "q": "Paul reminded the elders of Ephesus of which saying of the Lord Jesus?",
+  "o": [
+   "It is more blessed to give than to receive",
+   "Blessed are the meek",
+   "The sabbath was made for man",
+   "Love one another as I have loved you"
+  ],
+  "a": 0,
+  "why": "Paul used his own labor as an example of helping the weak.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 20:35",
+   "ref": "ACT.20.35",
+   "quote": "It is more blessed to give than to receive.",
+   "note": "Paul used his own labor as an example of helping the weak."
+  }
+ },
+ {
+  "id": "history-b019",
+  "d": 2,
+  "q": "The canons of Nicaea are headed as those of how many holy fathers?",
+  "o": [
+   "150",
+   "318",
+   "200",
+   "630"
+  ],
+  "a": 1,
+  "why": "The canons are titled as the canons of the 318 Holy Fathers assembled in Nicaea.",
+  "src": {
+   "kind": "council",
+   "work": "council-nicaea-1",
+   "label": "Canons of Nicaea",
+   "quote": "The Canons of the 318 Holy Fathers Assembled in the City of Nice, in Bithynia",
+   "section": "vii.vi",
+   "note": "The canons are titled as the canons of the 318 Holy Fathers assembled in Nicaea."
+  }
+ },
+ {
+  "id": "history-b020",
+  "d": 3,
+  "q": "Nicaea's sixth canon confirmed Alexandria's jurisdiction over Egypt, Libya and which third region?",
+  "o": [
+   "Palestine",
+   "Cappadocia",
+   "Pentapolis",
+   "Thessaly"
+  ],
+  "a": 2,
+  "why": "Canon VI says the Bishop of Alexandria has jurisdiction in these regions, as the Bishop of Rome has in his.",
+  "src": {
+   "kind": "council",
+   "work": "council-nicaea-1",
+   "label": "Nicaea, Canon VI",
+   "quote": "Let the ancient customs in Egypt, Libya and Pentapolis prevail",
+   "section": "vii.vi",
+   "note": "Canon VI says the Bishop of Alexandria has jurisdiction in these regions, as the Bishop of Rome has in his."
+  }
+ },
+ {
+  "id": "history-b021",
+  "d": 2,
+  "q": "In what posture did Nicaea direct that prayer be made on the Lord's Day and in the days of Pentecost?",
+  "o": [
+   "Standing",
+   "Kneeling",
+   "Prostrate",
+   "Seated"
+  ],
+  "a": 0,
+  "why": "To keep practice uniform, Canon XX asks that prayer be made standing.",
+  "src": {
+   "kind": "council",
+   "work": "council-nicaea-1",
+   "label": "Nicaea, Canon XX",
+   "quote": "prayer be made to God standing",
+   "section": "vii.vi",
+   "note": "To keep practice uniform, Canon XX asks that prayer be made standing."
+  }
+ },
+ {
+  "id": "history-b022",
+  "d": 2,
+  "q": "If distance made it hard to gather every bishop of a province, at least how many were to meet to appoint a bishop?",
+  "o": [
+   "Two",
+   "Three",
+   "Five",
+   "Seven"
+  ],
+  "a": 1,
+  "why": "Canon IV allows three bishops to proceed with the written consent of the absent.",
+  "src": {
+   "kind": "council",
+   "work": "council-nicaea-1",
+   "label": "Nicaea, Canon IV",
+   "quote": "three at least should meet together",
+   "section": "vii.vi",
+   "note": "Canon IV allows three bishops to proceed with the written consent of the absent."
+  }
+ },
+ {
+  "id": "history-b023",
+  "d": 3,
+  "q": "Nicaea's canon on those who fell without compulsion refers to the tyranny of which emperor?",
+  "o": [
+   "Diocletian",
+   "Maximian",
+   "Licinius",
+   "Galerius"
+  ],
+  "a": 2,
+  "why": "The council asked that those who lapsed without compulsion be treated with mercy.",
+  "src": {
+   "kind": "council",
+   "work": "council-nicaea-1",
+   "label": "Nicaea, Canon XI",
+   "quote": "during the tyranny of Licinius",
+   "section": "vii.vi",
+   "note": "The council asked that those who lapsed without compulsion be treated with mercy."
+  }
+ },
+ {
+  "id": "history-b024",
+  "d": 3,
+  "q": "Nicaea's eighth canon deals with clergy joining the Church from a group that called itself by which name?",
+  "o": [
+   "Cathari",
+   "Donatists",
+   "Meletians",
+   "Montanists"
+  ],
+  "a": 0,
+  "why": "Canon VIII allows ordained Cathari who come over to the Church to continue as they are in the clergy.",
+  "src": {
+   "kind": "council",
+   "work": "council-nicaea-1",
+   "label": "Nicaea, Canon VIII",
+   "quote": "Concerning those who call themselves Cathari",
+   "section": "vii.vi",
+   "note": "Canon VIII allows ordained Cathari who come over to the Church to continue as they are in the clergy."
+  }
+ },
+ {
+  "id": "history-b025",
+  "d": 3,
+  "q": "Constantinople I anathematized the Semi-Arians under which Greek name?",
+  "o": [
+   "Docetists",
+   "Pneumatomachi",
+   "Marcionites",
+   "Montanists"
+  ],
+  "a": 1,
+  "why": "The first canon names the Semi-Arians or Pneumatomachi among the heresies anathematized.",
+  "src": {
+   "kind": "council",
+   "work": "council-constantinople-1",
+   "label": "Constantinople I, Canon I",
+   "quote": "the Semi-Arians or Pneumatomachi",
+   "section": "ix.viii.i",
+   "note": "The first canon names the Semi-Arians or Pneumatomachi among the heresies anathematized."
+  }
+ },
+ {
+  "id": "history-b026",
+  "d": 3,
+  "q": "Who appointed Count Candidian as protector of the Council of Ephesus?",
+  "o": [
+   "Valentinian III",
+   "Marcian",
+   "Theodosius II",
+   "Honorius"
+  ],
+  "a": 2,
+  "why": "Candidian sat in the room of the emperors but was not to take part in matters of faith.",
+  "src": {
+   "kind": "council",
+   "work": "council-ephesus",
+   "label": "Council of Ephesus, imperial edict",
+   "quote": "Theodosius II. appointed the Count Candidian, Captain of the imperial bodyguard, the protector of the council",
+   "section": "x.iii",
+   "note": "Candidian sat in the room of the emperors but was not to take part in matters of faith."
+  }
+ },
+ {
+  "id": "history-b027",
+  "d": 3,
+  "q": "At Chalcedon, directions from the Apostolic See said which bishop was not to be allowed a seat in the assembly?",
+  "o": [
+   "Dioscorus",
+   "Eutyches",
+   "Flavian",
+   "Juvenal"
+  ],
+  "a": 0,
+  "why": "The legates of the Apostolic See objected to Dioscorus sitting as a judge.",
+  "src": {
+   "kind": "council",
+   "work": "council-chalcedon",
+   "label": "Council of Chalcedon, Session I",
+   "quote": "Dioscorus is not to be allowed a seat in this assembly",
+   "section": "xi.iii",
+   "note": "The legates of the Apostolic See objected to Dioscorus sitting as a judge."
+  }
+ },
+ {
+  "id": "history-b028",
+  "d": 3,
+  "q": "Which bishop and legate of the Apostolic See spoke against Dioscorus at Chalcedon?",
+  "o": [
+   "Anatolius",
+   "Paschasinus",
+   "Maximus",
+   "Basil of Seleucia"
+  ],
+  "a": 1,
+  "why": "Paschasinus, a legate, said objection must be made to Dioscorus.",
+  "src": {
+   "kind": "council",
+   "work": "council-chalcedon",
+   "label": "Council of Chalcedon, Session I",
+   "quote": "Paschasinus, the most reverend bishop and legate of the Apostolic See, said",
+   "section": "xi.iii",
+   "note": "Paschasinus, a legate, said objection must be made to Dioscorus."
+  }
+ },
+ {
+  "id": "history-b029",
+  "d": 3,
+  "q": "The letter of Ibas to Maris the Persian, one of the Three Chapters, was written by Ibas of which city?",
+  "o": [
+   "Antioch",
+   "Nisibis",
+   "Edessa",
+   "Seleucia"
+  ],
+  "a": 2,
+  "why": "The Three Chapters concerned Theodore of Mopsuestia, Theodoret against Cyril, and Ibas's letter.",
+  "src": {
+   "kind": "council",
+   "work": "council-constantinople-2",
+   "label": "Constantinople II, Acts",
+   "quote": "the letter of Ibas of Edessa to Maris the Persian",
+   "section": "xii.ii",
+   "note": "The Three Chapters concerned Theodore of Mopsuestia, Theodoret against Cyril, and Ibas's letter."
+  }
+ },
+ {
+  "id": "history-b030",
+  "d": 2,
+  "q": "Constantinople II anathematized Arius, Eunomius, Macedonius, Apollinaris, Nestorius, Eutyches and which Alexandrian teacher?",
+  "o": [
+   "Origen",
+   "Athanasius",
+   "Cyril",
+   "Clement"
+  ],
+  "a": 0,
+  "why": "The council's anathema lists these heretics and their writings.",
+  "src": {
+   "kind": "council",
+   "work": "council-constantinople-2",
+   "label": "Constantinople II, Anathema",
+   "quote": "Arius, Eunomius, Macedonius, Apollinaris, Nestorius, Eutyches and Origen",
+   "section": "xii.vii",
+   "note": "The council's anathema lists these heretics and their writings."
+  }
+ },
+ {
+  "id": "history-b031",
+  "d": 3,
+  "q": "At Constantinople III, the presbyter George held the place of which pope?",
+  "o": [
+   "Martin I",
+   "Agatho",
+   "Vitalian",
+   "Honorius I"
+  ],
+  "a": 1,
+  "why": "Roman legates represented Pope Agatho at the council.",
+  "src": {
+   "kind": "council",
+   "work": "council-constantinople-3",
+   "label": "Constantinople III, Session I",
+   "quote": "holding the place of the most blessed Agatho",
+   "section": "xiii.ii",
+   "note": "Roman legates represented Pope Agatho at the council."
+  }
+ },
+ {
+  "id": "history-b032",
+  "d": 2,
+  "q": "Trent taught that images of Christ, the Virgin Mother of God and the saints are to be retained particularly where?",
+  "o": [
+   "In private homes",
+   "In public squares",
+   "In churches",
+   "In monastery cells"
+  ],
+  "a": 2,
+  "why": "Trent said due honour and veneration are given to such images.",
+  "src": {
+   "kind": "council",
+   "work": "trent-canons-decrees",
+   "label": "Trent, Session XXV",
+   "quote": "are to be had and retained particularly in temples",
+   "section": "s25",
+   "note": "Trent said due honour and veneration are given to such images."
+  }
+ },
+ {
+  "id": "history-b033",
+  "d": 2,
+  "q": "Into what language did Trent say bishops should have the sacramental catechism translated?",
+  "o": [
+   "The vulgar tongue",
+   "Greek",
+   "Hebrew",
+   "Church Slavonic"
+  ],
+  "a": 0,
+  "why": "The sacramental forms were to be explained to the people by parish priests in their own language.",
+  "src": {
+   "kind": "council",
+   "work": "trent-canons-decrees",
+   "label": "Trent, Session XXIV",
+   "quote": "bishops shall take care to have faithfully translated into the vulgar tongue",
+   "section": "s24",
+   "note": "The sacramental forms were to be explained to the people by parish priests in their own language."
+  }
+ },
+ {
+  "id": "history-b034",
+  "d": 2,
+  "q": "On what date in 1854 was the Immaculate Conception defined in Ineffabilis Deus?",
+  "o": [
+   "8 September",
+   "8 December",
+   "25 March",
+   "15 August"
+  ],
+  "a": 1,
+  "why": "Pius IX defined the Immaculate Conception on 8 December 1854.",
+  "src": {
+   "kind": "father",
+   "work": "ineffabilis-deus",
+   "label": "Ineffabilis Deus",
+   "quote": "The definition of 8 December 1854",
+   "section": "s1",
+   "note": "Pius IX defined the Immaculate Conception on 8 December 1854."
+  }
+ },
+ {
+  "id": "history-b035",
+  "d": 3,
+  "q": "Which constitution of the First Vatican Council treats faith and reason?",
+  "o": [
+   "Pastor Aeternus",
+   "Lumen Gentium",
+   "Dei Filius",
+   "Gaudium et Spes"
+  ],
+  "a": 2,
+  "why": "Chapter 4 of Dei Filius concerns faith and reason.",
+  "src": {
+   "kind": "council",
+   "work": "vatican-i-constitutions",
+   "label": "Vatican I, Dei Filius",
+   "quote": "Chapter 4 — Of Faith and Reason",
+   "section": "s5",
+   "note": "Chapter 4 of Dei Filius concerns faith and reason."
+  }
+ },
+ {
+  "id": "history-b036",
+  "d": 2,
+  "q": "Which Leo XIII encyclical of 1891 addressed the condition of the working classes?",
+  "o": [
+   "Rerum Novarum",
+   "Aeterni Patris",
+   "Inscrutabili",
+   "Arcanum Divinae"
+  ],
+  "a": 0,
+  "why": "Rerum Novarum was issued on 15 May 1891.",
+  "src": {
+   "kind": "father",
+   "work": "leo-xiii-encyclicals",
+   "label": "Leo XIII, Rerum Novarum",
+   "quote": "Rerum Novarum (1891): The Condition of the Working Classes",
+   "section": "s10",
+   "note": "Rerum Novarum was issued on 15 May 1891."
+  }
+ },
+ {
+  "id": "history-b037",
+  "d": 2,
+  "q": "Leo XIII's Aeterni Patris of 1879 urged the study of which philosophy?",
+  "o": [
+   "Platonic idealism",
+   "Scholastic philosophy",
+   "Stoic ethics",
+   "Cartesian rationalism"
+  ],
+  "a": 1,
+  "why": "The encyclical was issued on 4 August 1879.",
+  "src": {
+   "kind": "father",
+   "work": "leo-xiii-encyclicals",
+   "label": "Leo XIII, Aeterni Patris",
+   "quote": "Aeterni Patris (1879): The Study of Scholastic Philosophy",
+   "section": "s3",
+   "note": "The encyclical was issued on 4 August 1879."
+  }
+ },
+ {
+  "id": "history-b038",
+  "d": 2,
+  "q": "Whom did Aeterni Patris call the chief and master of the scholastic doctors?",
+  "o": [
+   "Bonaventure",
+   "Anselm",
+   "Thomas Aquinas",
+   "Albert the Great"
+  ],
+  "a": 2,
+  "why": "Leo XIII held up Aquinas as the master of the scholastics.",
+  "src": {
+   "kind": "father",
+   "work": "leo-xiii-encyclicals",
+   "label": "Leo XIII, Aeterni Patris",
+   "quote": "Among the scholastic doctors, the chief and master of all, towers Thomas Aquinas",
+   "section": "s3",
+   "note": "Leo XIII held up Aquinas as the master of the scholastics."
+  }
+ },
+ {
+  "id": "history-b039",
+  "d": 2,
+  "q": "Whose doctrines does Pius X's encyclical Pascendi Dominici Gregis analyze and condemn?",
+  "o": [
+   "The Modernists",
+   "The Jansenists",
+   "The Gallicans",
+   "The Quietists"
+  ],
+  "a": 0,
+  "why": "Pascendi describes and refutes the teaching of the Modernists.",
+  "src": {
+   "kind": "father",
+   "work": "pascendi-dominici-gregis",
+   "label": "Pascendi Dominici Gregis",
+   "quote": "one of the cleverest devices of the Modernists (as they are commonly and rightly called)",
+   "section": "s1",
+   "note": "Pascendi describes and refutes the teaching of the Modernists."
+  }
+ },
+ {
+  "id": "history-b040",
+  "d": 3,
+  "q": "The Syllabus of Errors opens with errors concerning which subject?",
+  "o": [
+   "Socialism and communism",
+   "Pantheism, naturalism and rationalism",
+   "Christian marriage",
+   "The civil power of the pope"
+  ],
+  "a": 1,
+  "why": "The first section lists errors of pantheism, naturalism and absolute rationalism.",
+  "src": {
+   "kind": "father",
+   "work": "syllabus-of-errors",
+   "label": "Syllabus of Errors",
+   "quote": "Pantheism, Naturalism and Absolute Rationalism",
+   "section": "s1",
+   "note": "The first section lists errors of pantheism, naturalism and absolute rationalism."
+  }
+ },
+ {
+  "id": "history-b041",
+  "d": 2,
+  "q": "The apostolic constitution Sacram unctionem infirmorum, on the Anointing of the Sick, followed which council?",
+  "o": [
+   "The Council of Trent",
+   "The First Vatican Council",
+   "The Second Vatican Council",
+   "The Council of Florence"
+  ],
+  "a": 2,
+  "why": "After Vatican II, this constitution set the rite for the Roman Church.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1513",
+   "ccc": 1513,
+   "quote": "Sacram unctionem infirmorum, following upon the Second Vatican Council",
+   "note": "After Vatican II, this constitution set the rite for the Roman Church."
+  }
+ },
+ {
+  "id": "history-b042",
+  "d": 3,
+  "q": "According to the Second Vatican Council, the fullness of Holy Orders is conferred by what?",
+  "o": [
+   "Episcopal consecration",
+   "Priestly ordination alone",
+   "Papal appointment",
+   "Religious profession"
+  ],
+  "a": 0,
+  "why": "The Council teaches that episcopal consecration confers the fullness of the sacrament.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1557",
+   "ccc": 1557,
+   "quote": "the fullness of the sacrament of Holy Orders is conferred by episcopal consecration",
+   "note": "The Council teaches that episcopal consecration confers the fullness of the sacrament."
+  }
+ },
+ {
+  "id": "history-b043",
+  "d": 2,
+  "q": "The Catechism's treatment of the Church opens with the Council's wish to proclaim the Gospel to whom?",
+  "o": [
+   "Every nation's ruler",
+   "Every creature",
+   "The Roman Empire",
+   "The baptized only"
+  ],
+  "a": 1,
+  "why": "The quotation from the Council begins: Christ is the light of humanity.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 748",
+   "ccc": 748,
+   "quote": "by proclaiming his Gospel to every creature",
+   "note": "The quotation from the Council begins: Christ is the light of humanity."
+  }
+ },
+ {
+  "id": "history-b044",
+  "d": 3,
+  "q": "Bede describes which large isle on the east of Kent, divided from the mainland by the river Wantsum?",
+  "o": [
+   "Wight",
+   "Sheppey",
+   "Thanet",
+   "Lindisfarne"
+  ],
+  "a": 2,
+  "why": "Bede notes the isle of Thanet lies off the Kentish coast.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History I",
+   "quote": "On the east of Kent is the large Isle of Thanet",
+   "section": "s25",
+   "note": "Bede notes the isle of Thanet lies off the Kentish coast."
+  }
+ },
+ {
+  "id": "history-b045",
+  "d": 2,
+  "q": "In Bede's story, whom did a figure in a dream address with the words 'sing me something'?",
+  "o": [
+   "Cædmon",
+   "Aldhelm",
+   "Wilfrid",
+   "Chad"
+  ],
+  "a": 0,
+  "why": "Cædmon received his gift of song in a dream.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History IV",
+   "quote": "Cædmon, sing me something.",
+   "section": "s108",
+   "note": "Cædmon received his gift of song in a dream."
+  }
+ },
+ {
+  "id": "history-b046",
+  "d": 3,
+  "q": "Bede says the synod on Easter and the tonsure met at a monastery whose name, Streanaeshalch, signifies what?",
+  "o": [
+   "The Valley of Saints",
+   "The Bay of the Lighthouse",
+   "The Hill of Prayer",
+   "The Harbour of Kings"
+  ],
+  "a": 1,
+  "why": "Streanaeshalch is the place where Abbess Hilda ruled.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History III",
+   "quote": "which signifies the Bay of the Lighthouse, where the Abbess Hilda",
+   "section": "s79",
+   "note": "Streanaeshalch is the place where Abbess Hilda ruled."
+  }
+ },
+ {
+  "id": "history-b047",
+  "d": 2,
+  "q": "Which abbess ruled the monastery of Streanaeshalch when the synod on Easter was held there?",
+  "o": [
+   "Etheldreda",
+   "Ebba",
+   "Hilda",
+   "Ethelburga"
+  ],
+  "a": 2,
+  "why": "Bede calls Hilda a woman devoted to the service of God.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History III",
+   "quote": "where the Abbess Hilda,(466) a woman devoted to the service of God, then ruled",
+   "section": "s79",
+   "note": "Bede calls Hilda a woman devoted to the service of God."
+  }
+ },
+ {
+  "id": "history-b048",
+  "d": 2,
+  "q": "Which bishop does Bede describe as a man of singular gentleness, piety, and moderation?",
+  "o": [
+   "Aidan",
+   "Colman",
+   "Cedd",
+   "Chad"
+  ],
+  "a": 0,
+  "why": "Aidan was given an episcopal see in the Isle of Lindisfarne.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History III",
+   "quote": "Bishop Aidan, a man of singular gentleness, piety, and moderation",
+   "section": "s57",
+   "note": "Aidan was given an episcopal see in the Isle of Lindisfarne."
+  }
+ },
+ {
+  "id": "history-b049",
+  "d": 3,
+  "q": "Which archbishop dedicated the church in honor of the blessed Peter the Apostle, according to Bede?",
+  "o": [
+   "Augustine",
+   "Theodore",
+   "Laurence",
+   "Honorius"
+  ],
+  "a": 1,
+  "why": "Bede names Archbishop Theodore as the one who dedicated the church.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History IV",
+   "quote": "dedicated in honour of the blessed Peter the Apostle, by the most reverend Archbishop Theodore",
+   "section": "s79",
+   "note": "Bede names Archbishop Theodore as the one who dedicated the church."
+  }
+ },
+ {
+  "id": "history-b050",
+  "d": 1,
+  "q": "Which British martyr does Bede quote the poet Fortunatus as celebrating?",
+  "o": [
+   "Patrick",
+   "Columba",
+   "Alban",
+   "Aidan"
+  ],
+  "a": 2,
+  "why": "Bede cites Fortunatus in praise of Alban.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History I",
+   "quote": "And fruitful Britain noble Alban rears.",
+   "section": "s7",
+   "note": "Bede cites Fortunatus in praise of Alban."
+  }
+ },
+ {
+  "id": "history-b051",
+  "d": 3,
+  "q": "Paulinus, formerly Bishop of York, died as bishop of which city, according to Bede?",
+  "o": [
+   "Rochester",
+   "Lincoln",
+   "Winchester",
+   "Canterbury"
+  ],
+  "a": 0,
+  "why": "Bede records his death on the 10th of October.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History III",
+   "quote": "the most reverend Father Paulinus, formerly Bishop of York, but at that time Bishop of the city of Rochester",
+   "section": "s68",
+   "note": "Bede records his death on the 10th of October."
+  }
+ },
+ {
+  "id": "history-b052",
+  "d": 3,
+  "q": "Whom does Bede call the holy archbishop of the Frisians?",
+  "o": [
+   "Boniface",
+   "Wilbrord",
+   "Wilfrid",
+   "Chad"
+  ],
+  "a": 1,
+  "why": "Bede says Acca heard Wilbrord tell of wonders in that province.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History III",
+   "quote": "the holy archbishop of the Frisians",
+   "section": "s67",
+   "note": "Bede says Acca heard Wilbrord tell of wonders in that province."
+  }
+ },
+ {
+  "id": "history-b053",
+  "d": 3,
+  "q": "Bede says Germanus first quelled a tempest of the sea and then the heresy of whom?",
+  "o": [
+   "The Arians",
+   "The Donatists",
+   "The Pelagians",
+   "The Manichaeans"
+  ],
+  "a": 2,
+  "why": "Bede credits Divine power in both victories.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History I",
+   "quote": "first quelled the tempest of the sea, and afterwards that of the Pelagians",
+   "section": "s17",
+   "note": "Bede credits Divine power in both victories."
+  }
+ },
+ {
+  "id": "history-b054",
+  "d": 2,
+  "q": "Which king of the Northumbrians received the Word of faith through the preaching of Paulinus?",
+  "o": [
+   "Edwin",
+   "Oswald",
+   "Oswy",
+   "Ethelbert"
+  ],
+  "a": 0,
+  "why": "Bede describes the conversion of King Edwin and his people.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History II",
+   "quote": "received the Word of faith through the preaching of Paulinus",
+   "section": "s43",
+   "note": "Bede describes the conversion of King Edwin and his people."
+  }
+ },
+ {
+  "id": "history-b055",
+  "d": 2,
+  "q": "Which Northumbrian king does Bede call 'most Christian'?",
+  "o": [
+   "Edwin",
+   "Oswald",
+   "Oswy",
+   "Penda"
+  ],
+  "a": 1,
+  "why": "Bede lists Oswald as the sixth to hold imperial rule among the English.",
+  "src": {
+   "kind": "father",
+   "work": "bede-history",
+   "label": "Bede, Ecclesiastical History II",
+   "quote": "Oswald, the most Christian king of the Northumbrians",
+   "section": "s39",
+   "note": "Bede lists Oswald as the sixth to hold imperial rule among the English."
+  }
+ },
+ {
+  "id": "history-b056",
+  "d": 3,
+  "q": "Where was the emperor Constantine buried, according to the editor's introduction to Eusebius?",
+  "o": [
+   "Hagia Sophia",
+   "The Church of the Holy Sepulchre",
+   "The Church of the Apostles at Constantinople",
+   "St. Peter's in Rome"
+  ],
+  "a": 2,
+  "why": "Constantine died in 337 and was buried at Constantinople.",
+  "src": {
+   "kind": "father",
+   "work": "eusebius-constantine",
+   "label": "Eusebius, Life of Constantine (introduction)",
+   "quote": "was buried in the Church of the Apostles, at Constantinople",
+   "section": "iv.iii.i",
+   "note": "Constantine died in 337 and was buried at Constantinople."
+  }
+ },
+ {
+  "id": "history-b057",
+  "d": 3,
+  "q": "Constantine died in 337 at a place near which city?",
+  "o": [
+   "Nicomedia",
+   "Rome",
+   "Antioch",
+   "Milan"
+  ],
+  "a": 0,
+  "why": "He was preparing for an expedition against the Persians.",
+  "src": {
+   "kind": "father",
+   "work": "eusebius-constantine",
+   "label": "Eusebius, Life of Constantine (introduction)",
+   "quote": "In 337 the Great Emperor died at Ancyrona, near Nicomedia",
+   "section": "iv.iii.i",
+   "note": "He was preparing for an expedition against the Persians."
+  }
+ },
+ {
+  "id": "history-b058",
+  "d": 2,
+  "q": "What name do the Romans give to the standard of the cross described by Eusebius?",
+  "o": [
+   "The Chi-Rho",
+   "The Labarum",
+   "The Ichthys",
+   "The Crux ansata"
+  ],
+  "a": 1,
+  "why": "Eusebius describes this standard of the cross in the Life of Constantine.",
+  "src": {
+   "kind": "father",
+   "work": "eusebius-constantine",
+   "label": "Eusebius, Life of Constantine",
+   "quote": "the Standard of the Cross, which the Romans now call the Labarum",
+   "section": "iv.vi.i",
+   "note": "Eusebius describes this standard of the cross in the Life of Constantine."
+  }
+ },
+ {
+  "id": "history-b059",
+  "d": 1,
+  "q": "Augustine came to Milan to which bishop, known to the whole world as among the best of men?",
+  "o": [
+   "Jerome",
+   "Basil",
+   "Ambrose",
+   "Damasus"
+  ],
+  "a": 2,
+  "why": "Augustine came to Ambrose, who received him as a father.",
+  "src": {
+   "kind": "father",
+   "work": "aug-confessions",
+   "label": "Augustine, Confessions V",
+   "quote": "To Milan I came, to Ambrose the Bishop, known to the whole world as among the best of men",
+   "section": "vi.xiii",
+   "note": "Augustine came to Ambrose, who received him as a father."
+  }
+ },
+ {
+  "id": "history-b060",
+  "d": 2,
+  "q": "Gregory the Great calls the government of souls the art of what?",
+  "o": [
+   "Arts",
+   "Healing",
+   "War",
+   "Teaching"
+  ],
+  "a": 0,
+  "why": "Gregory warns the unskilled against taking up pastoral authority.",
+  "src": {
+   "kind": "father",
+   "work": "gregory-pastoral-rule",
+   "label": "Gregory, Pastoral Rule",
+   "quote": "the government of souls is the art of arts",
+   "section": "iii.iv.ii",
+   "note": "Gregory warns the unskilled against taking up pastoral authority."
+  }
+ },
+ {
+  "id": "history-b061",
+  "d": 2,
+  "q": "In the Proslogion Anselm calls God a being than which nothing greater can be what?",
+  "o": [
+   "Defined",
+   "Conceived",
+   "Measured",
+   "Counted"
+  ],
+  "a": 1,
+  "why": "This phrase begins Anselm's argument for God's existence.",
+  "src": {
+   "kind": "father",
+   "work": "anselm-basic-works",
+   "label": "Anselm, Proslogion",
+   "quote": "thou art a being than which nothing greater can be conceived",
+   "section": "iii.iii",
+   "note": "This phrase begins Anselm's argument for God's existence."
+  }
+ },
+ {
+  "id": "history-b062",
+  "d": 1,
+  "q": "On what day does Justin Martyr say Christians gather for worship?",
+  "o": [
+   "Saturday",
+   "Friday",
+   "Sunday",
+   "Monday"
+  ],
+  "a": 2,
+  "why": "Justin describes the weekly Christian assembly.",
+  "src": {
+   "kind": "father",
+   "work": "justin-martyr",
+   "label": "Justin Martyr, First Apology",
+   "quote": "And on the day called Sunday",
+   "section": "viii.ii",
+   "note": "Justin describes the weekly Christian assembly."
+  }
+ },
+ {
+  "id": "history-b063",
+  "d": 2,
+  "q": "Cyprian asks how one can have God for a Father without first having the Church for his what?",
+  "o": [
+   "Mother",
+   "Teacher",
+   "Shepherd",
+   "Judge"
+  ],
+  "a": 0,
+  "why": "For Cyprian, no one has God as Father who lacks the Church as Mother.",
+  "src": {
+   "kind": "father",
+   "work": "cyprian",
+   "label": "Cyprian, Letter 73",
+   "quote": "before he has had the Church for his Mother",
+   "section": "iv.iv.lxxiii",
+   "note": "For Cyprian, no one has God as Father who lacks the Church as Mother."
+  }
+ },
+ {
+  "id": "history-b064",
+  "d": 3,
+  "q": "In one of Catherine of Siena's letters, Brother Raimondo of Capua is addressed at which city?",
+  "o": [
+   "Florence",
+   "Avignon",
+   "Pisa",
+   "Naples"
+  ],
+  "a": 1,
+  "why": "Catherine wrote to Raimondo at Avignon, and also to Pope Gregory XI.",
+  "src": {
+   "kind": "father",
+   "work": "catherine-letters",
+   "label": "Catherine of Siena, Letters",
+   "quote": "To Brother Raimondo of Capua, at Avignon",
+   "section": "s1",
+   "note": "Catherine wrote to Raimondo at Avignon, and also to Pope Gregory XI."
+  }
+ },
+ {
+  "id": "history-b065",
+  "d": 2,
+  "q": "The Letter to Diognetus says that what the soul is in the body, Christians are to the what?",
+  "o": [
+   "Church",
+   "Kingdom",
+   "World",
+   "Temple"
+  ],
+  "a": 2,
+  "why": "The letter compares Christians to the soul within the body.",
+  "src": {
+   "kind": "father",
+   "work": "diognetus",
+   "label": "Letter to Diognetus",
+   "quote": "what the soul is in the body, that are Christians in the world",
+   "section": "iii.ii.vi",
+   "note": "The letter compares Christians to the soul within the body."
+  }
+ },
+ {
+  "id": "history-b066",
+  "d": 1,
+  "q": "Tertullian told the pagans, 'We are but of ___, and we have filled every place among you.'",
+  "o": [
+   "Yesterday",
+   "Tomorrow",
+   "This hour",
+   "Last year"
+  ],
+  "a": 0,
+  "why": "Tertullian points to the rapid spread of Christians.",
+  "src": {
+   "kind": "father",
+   "work": "tertullian-apologetic",
+   "label": "Tertullian, Apology",
+   "quote": "We are but of yesterday, and we have filled every place among you",
+   "section": "iv.iii",
+   "note": "Tertullian points to the rapid spread of Christians."
+  }
+ },
+ {
+  "id": "history-b067",
+  "d": 1,
+  "q": "The Principle and Foundation says man is created to praise, reverence and what God our Lord?",
+  "o": [
+   "Fear",
+   "Serve",
+   "Appease",
+   "Contemplate"
+  ],
+  "a": 1,
+  "why": "Ignatius adds that by this means man is to save his soul.",
+  "src": {
+   "kind": "father",
+   "work": "ignatius-exercises",
+   "label": "Ignatius, Spiritual Exercises",
+   "quote": "Man is created to praise, reverence, and serve God our Lord",
+   "section": "xii.i",
+   "note": "Ignatius adds that by this means man is to save his soul."
+  }
+ },
+ {
+  "id": "history-b068",
+  "d": 2,
+  "q": "About how many years did Antony spend in the ruined fort, beginning about the year 285?",
+  "o": [
+   "Five",
+   "Ten",
+   "Twenty",
+   "Forty"
+  ],
+  "a": 2,
+  "why": "The editor dates Antony's long seclusion from about 285.",
+  "src": {
+   "kind": "father",
+   "work": "athanasius-antony",
+   "label": "Athanasius, Life of Antony",
+   "quote": "About the year 285 he began his twenty years’ sojourn in the ruined fort.",
+   "section": "xvi.i",
+   "note": "The editor dates Antony's long seclusion from about 285."
+  }
+ },
+ {
+  "id": "history-b069",
+  "d": 2,
+  "q": "Cassian's Institutes gives remedies for how many principal faults?",
+  "o": [
+   "Eight",
+   "Three",
+   "Seven",
+   "Twelve"
+  ],
+  "a": 0,
+  "why": "The Institutes treats the monasteries' rules and the eight principal faults.",
+  "src": {
+   "kind": "father",
+   "work": "cassian-works",
+   "label": "Cassian, Institutes",
+   "quote": "the remedies for the eight principal faults",
+   "section": "iv.i.i",
+   "note": "The Institutes treats the monasteries' rules and the eight principal faults."
+  }
+ },
+ {
+  "id": "history-b070",
+  "d": 1,
+  "q": "Which town became Jerome's home for the rest of his life?",
+  "o": [
+   "Rome",
+   "Bethlehem",
+   "Antioch",
+   "Alexandria"
+  ],
+  "a": 1,
+  "why": "Jerome settled at Bethlehem after leaving Rome.",
+  "src": {
+   "kind": "father",
+   "work": "jerome-letters",
+   "label": "Jerome, Letters",
+   "quote": "It is written from Bethlehem, which now becomes Jerome’s home for the remainder of his life.",
+   "section": "v.XLVI",
+   "note": "Jerome settled at Bethlehem after leaving Rome."
+  }
+ },
+ {
+  "id": "history-b071",
+  "d": 2,
+  "q": "Which emperor invited Lactantius to settle at Nicomedia?",
+  "o": [
+   "Constantine",
+   "Galerius",
+   "Diocletian",
+   "Licinius"
+  ],
+  "a": 2,
+  "why": "Lactantius went to Nicomedia to practise his art.",
+  "src": {
+   "kind": "father",
+   "work": "lactantius",
+   "label": "Lactantius, introduction",
+   "quote": "he was invited by the Emperor Diocletian to settle at Nicomedia",
+   "section": "iii.i",
+   "note": "Lactantius went to Nicomedia to practise his art."
+  }
+ },
+ {
+  "id": "history-b072",
+  "d": 2,
+  "q": "What religious name did Teresa of Avila take for the first time in the Reform of the Carmelites?",
+  "o": [
+   "Teresa of Jesus",
+   "Teresa of the Cross",
+   "Teresa of Carmel",
+   "Teresa of Seville"
+  ],
+  "a": 0,
+  "why": "Teresa began to use the name Teresa of Jesus in the Reform.",
+  "src": {
+   "kind": "father",
+   "work": "teresa-life",
+   "label": "Teresa of Avila, Life",
+   "quote": "she took for the first time the name of Teresa of Jesus",
+   "section": "viii.ii",
+   "note": "Teresa began to use the name Teresa of Jesus in the Reform."
+  }
+ },
+ {
+  "id": "history-b073",
+  "d": 2,
+  "q": "The introduction to Polycarp's Epistle calls which church 'the firstborn of European churches'?",
+  "o": [
+   "Corinth",
+   "Philippi",
+   "Thessalonica",
+   "Athens"
+  ],
+  "a": 1,
+  "why": "Polycarp wrote to the church of Philippi.",
+  "src": {
+   "kind": "father",
+   "work": "polycarp",
+   "label": "Polycarp, Epistle to the Philippians",
+   "quote": "that beloved church, the firstborn of European churches",
+   "section": "iv.i",
+   "note": "Polycarp wrote to the church of Philippi."
+  }
+ },
+ {
+  "id": "history-b074",
+  "d": 3,
+  "q": "In 369 which pope condemned Auxentius in a council held at Rome?",
+  "o": [
+   "Liberius",
+   "Siricius",
+   "Damasus",
+   "Julius"
+  ],
+  "a": 2,
+  "why": "The note says Damasus condemned Auxentius.",
+  "src": {
+   "kind": "father",
+   "work": "jerome-letters",
+   "label": "Jerome, Letters",
+   "quote": "in 369 condemned Auxentius in a council held at Rome",
+   "section": "v.I",
+   "note": "The note says Damasus condemned Auxentius."
+  }
+ },
+ {
+  "id": "history-b075",
+  "d": 2,
+  "q": "Basil's Hexaemeron comments on which opening words of Scripture?",
+  "o": [
+   "In the beginning God made the heaven and the earth",
+   "Let there be light",
+   "In the beginning was the Word",
+   "Hear, O Israel"
+  ],
+  "a": 0,
+  "why": "The Hexaemeron is a series of homilies on the six days of creation.",
+  "src": {
+   "kind": "father",
+   "work": "basil-hexaemeron",
+   "label": "Basil, Hexaemeron",
+   "quote": "In the Beginning God made the Heaven and the Earth.",
+   "section": "viii.ii",
+   "note": "The Hexaemeron is a series of homilies on the six days of creation."
+  }
+ },
+ {
+  "id": "history-b076",
+  "d": 3,
+  "q": "In Butler's account of Leo IX, whose obstinacy drew most of the Eastern churches into schism?",
+  "o": [
+   "Photius",
+   "Cerularius",
+   "Humbert",
+   "Isaac Comnenus"
+  ],
+  "a": 1,
+  "why": "Butler says Leo IX could not overcome Cerularius.",
+  "src": {
+   "kind": "saint",
+   "butler": "04-19:0",
+   "label": "Butler, St Leo IX",
+   "quote": "obstinacy of Cerularius, whose artifices drew the greater part of the Oriental churches into his schism",
+   "note": "Butler says Leo IX could not overcome Cerularius."
+  }
+ },
+ {
+  "id": "history-b077",
+  "d": 3,
+  "q": "Which cardinal did Leo IX send as legate to Constantinople?",
+  "o": [
+   "Peter Damian",
+   "Lanfranc",
+   "Humbert",
+   "Anselm"
+  ],
+  "a": 2,
+  "why": "Humbert went to vindicate the Latin Church against the Greeks.",
+  "src": {
+   "kind": "saint",
+   "butler": "04-19:0",
+   "label": "Butler, St Leo IX",
+   "quote": "cardinal Humbert, his legate, to Constantinople",
+   "note": "Humbert went to vindicate the Latin Church against the Greeks."
+  }
+ },
+ {
+  "id": "history-b078",
+  "d": 3,
+  "q": "Who commanded the centre of the Christian fleet at Lepanto, according to Butler?",
+  "o": [
+   "Don John",
+   "Colonna",
+   "Barbarigo",
+   "Andrew Doria"
+  ],
+  "a": 0,
+  "why": "Butler lists the commanders of the Christian fleet.",
+  "src": {
+   "kind": "saint",
+   "butler": "05-05:2",
+   "label": "Butler, St Pius V",
+   "quote": "Don John kept the centre, and had for seconds Colonna",
+   "note": "Butler lists the commanders of the Christian fleet."
+  }
+ },
+ {
+  "id": "history-b079",
+  "d": 2,
+  "q": "Which Jesuit, a native of Nimeguen, labored in Germany and Bohemia?",
+  "o": [
+   "Robert Bellarmine",
+   "Peter Canisius",
+   "Francis Borgia",
+   "Edmund Campion"
+  ],
+  "a": 1,
+  "why": "Butler singles out Canisius among the disciples of Ignatius.",
+  "src": {
+   "kind": "saint",
+   "butler": "07-31:0",
+   "label": "Butler, St Ignatius of Loyola",
+   "quote": "Peter Canisius, who was a native of Nimeguen, in the Low Countries",
+   "note": "Butler singles out Canisius among the disciples of Ignatius."
+  }
+ },
+ {
+  "id": "history-b080",
+  "d": 2,
+  "q": "Which saint founded the Carthusian monks?",
+  "o": [
+   "Benedict",
+   "Romuald",
+   "Bruno",
+   "Norbert"
+  ],
+  "a": 2,
+  "why": "Butler titles Bruno the founder of the Carthusian monks.",
+  "src": {
+   "kind": "saint",
+   "butler": "10-06:0",
+   "label": "Butler, St Bruno",
+   "quote": "St. Bruno, Confessor. Founder of the Carthusian Monks.",
+   "note": "Butler titles Bruno the founder of the Carthusian monks."
+  }
+ }
+]

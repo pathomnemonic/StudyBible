@@ -1,3 +1,4 @@
+import { WHO_AM_I_2 } from './whoami2';
 /** People of the Bible for Who Am I?, each with five clues from hard to easy. The name never appears in a clue. */
 export interface WhoAmI { name: string; also?: string[]; clues: [string, string, string, string, string] }
 
@@ -46,4 +47,5 @@ export const WHO_AM_I: WhoAmI[] = [
   { name: 'Simeon', clues: ['I lived in Jerusalem and was righteous and devout.', 'The Holy Spirit had told me I would not die before I saw the Lord’s Christ.', 'I took a child in my arms in the Temple.', 'I said that a sword would pierce his mother’s soul.', 'I prayed, “Now, Lord, you let your servant go in peace.”'] },
   { name: 'Hannah', clues: ['I was one of the two wives of Elkanah.', 'I wept and prayed in the temple at Shiloh while the priest thought I was drunk.', 'I promised to give my son to the Lord.', 'I sang a song of thanksgiving that echoes in the Magnificat.', 'I was the mother of the prophet Samuel.'] },
   { name: 'Samuel', clues: ['I was born after my mother’s prayer.', 'I slept in the temple near the ark.', 'I heard a voice in the night and thought it was Eli.', 'I said, “Speak, Lord, for your servant is listening.”', 'I anointed Saul and then David as king.'] },
+  ...WHO_AM_I_2,
 ];

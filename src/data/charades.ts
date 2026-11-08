@@ -1,4 +1,5 @@
 import { MORE_DECKS } from './charades2';
+import { EVEN_MORE_DECKS } from './charades3';
 
 /** Word lists for the charades game: things a group of Catholics can act out or describe without a word of the answer. */
 export interface CharadesDeck { id: string; name: string; blurb: string; words: string[] }
@@ -40,4 +41,4 @@ const BASE: CharadesDeck[] = [
     'Assisi', 'The Camino de Santiago', 'The Holy Door', 'A papal blessing', 'The Nicene Creed', 'The Ten Commandments', 'Michelangelo', 'The Last Judgment'] },
 ];
 
-export const CHARADES_DECKS: CharadesDeck[] = [...BASE, ...MORE_DECKS];
+export const CHARADES_DECKS: CharadesDeck[] = [...BASE, ...MORE_DECKS, ...EVEN_MORE_DECKS];

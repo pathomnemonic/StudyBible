@@ -1,0 +1,1632 @@
+[
+ {
+  "id": "liturgy-b001",
+  "d": 1,
+  "q": "Which sacramental does the Baltimore Catechism call the chief sacramental used in the Church?",
+  "o": [
+   "Holy water at the church door",
+   "The blessed candle",
+   "The rosary of five decades",
+   "The sign of the cross"
+  ],
+  "a": 3,
+  "why": "The Baltimore Catechism names the sign of the cross as the chief sacramental used in the Church.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1063",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "The chief sacramental used in the Church is the sign of the cross.",
+   "note": "The Baltimore Catechism names the sign of the cross as the chief sacramental used in the Church."
+  }
+ },
+ {
+  "id": "liturgy-b002",
+  "d": 1,
+  "q": "When making the sign of the cross, to which part of the body does the right hand go first?",
+  "o": [
+   "The breast",
+   "The left shoulder",
+   "The forehead",
+   "The lips"
+  ],
+  "a": 2,
+  "why": "The hand is put to the forehead, then the breast, then the left and right shoulders.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1064",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "putting the right hand to the forehead, then on the breast, and then to the left and right shoulders",
+   "note": "The hand is put to the forehead, then the breast, then the left and right shoulders."
+  }
+ },
+ {
+  "id": "liturgy-b003",
+  "d": 1,
+  "q": "What does a crucifix have that a plain cross does not?",
+  "o": [
+   "A circle of stars",
+   "A figure of Our Lord",
+   "Four arms of equal length",
+   "A carved palm branch"
+  ],
+  "a": 1,
+  "why": "A cross has no figure on it, while a crucifix bears a figure of Our Lord.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1079",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "A cross has no figure on it and a crucifix has a figure of Our Lord.",
+   "note": "A cross has no figure on it, while a crucifix bears a figure of Our Lord."
+  }
+ },
+ {
+  "id": "liturgy-b004",
+  "d": 1,
+  "q": "The Baltimore Catechism calls Vespers a portion of which daily prayer of the Church?",
+  "o": [
+   "The Way of the Cross",
+   "The divine office",
+   "The nuptial blessing",
+   "The rite of Baptism"
+  ],
+  "a": 1,
+  "why": "Vespers is part of the divine office, the daily prayer of the Church, also known as the Liturgy of the Hours.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 954",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "Vespers is a portion of the divine office or daily prayer of the Church.",
+   "note": "Vespers is part of the divine office, the daily prayer of the Church, also known as the Liturgy of the Hours."
+  }
+ },
+ {
+  "id": "liturgy-b005",
+  "d": 1,
+  "q": "What does the Church renew each year at the Easter Vigil?",
+  "o": [
+   "The baptismal promises",
+   "The marriage vows",
+   "The vows of ordination",
+   "The promises of the catechumens only"
+  ],
+  "a": 0,
+  "why": "Each year at the Easter Vigil the Church renews the promises made at Baptism.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1254",
+   "ccc": 1254,
+   "quote": "the Church celebrates each year at the Easter Vigil the renewal of baptismal promises",
+   "note": "Each year at the Easter Vigil the Church renews the promises made at Baptism."
+  }
+ },
+ {
+  "id": "liturgy-b006",
+  "d": 1,
+  "q": "The word Baptism comes from the Greek baptizein. What does it mean?",
+  "o": [
+   "To anoint with oil",
+   "To purify with fire",
+   "To sprinkle with ashes",
+   "To plunge or immerse"
+  ],
+  "a": 3,
+  "why": "The Greek verb baptizein means to plunge or immerse, after the central rite of the sacrament.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1214",
+   "ccc": 1214,
+   "quote": "to baptize (Greek baptizein) means to",
+   "note": "The Greek verb baptizein means to plunge or immerse, after the central rite of the sacrament."
+  }
+ },
+ {
+  "id": "liturgy-b007",
+  "d": 1,
+  "q": "At a Baptism, from which candle is the newly baptized person's candle lit?",
+  "o": [
+   "The sanctuary lamp",
+   "The Advent wreath candle",
+   "The Easter candle",
+   "The server's torch"
+  ],
+  "a": 2,
+  "why": "The candle lit from the Easter candle signifies that Christ has enlightened the newly baptized.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1243",
+   "ccc": 1243,
+   "quote": "the candle, lit from the Easter candle, signifies that Christ has enlightened the neophyte",
+   "note": "The candle lit from the Easter candle signifies that Christ has enlightened the newly baptized."
+  }
+ },
+ {
+  "id": "liturgy-b008",
+  "d": 1,
+  "q": "According to Acts 20:7, on which day of the week were the disciples gathered to break bread?",
+  "o": [
+   "The Sabbath day",
+   "The day of Preparation",
+   "The first day of the week",
+   "The fourth day of the week"
+  ],
+  "a": 2,
+  "why": "Acts shows the disciples gathering to break bread on the first day of the week, the Lord's Day.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 20:7",
+   "ref": "ACT.20.7",
+   "quote": "On the first day of the week, when the disciples were gathered together to break bread",
+   "note": "Acts shows the disciples gathering to break bread on the first day of the week, the Lord's Day."
+  }
+ },
+ {
+  "id": "liturgy-b009",
+  "d": 1,
+  "q": "Which three gifts did the Magi offer the child Jesus, as recalled at Epiphany?",
+  "o": [
+   "Gold, silver and precious stones",
+   "Gold, frankincense and myrrh",
+   "Wheat, wine and oil of the harvest",
+   "Frankincense, cedar and spikenard"
+  ],
+  "a": 1,
+  "why": "Matthew says the Magi opened their treasures and offered gold, frankincense and myrrh.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 2:11",
+   "ref": "MAT.2.11",
+   "quote": "gifts: gold, frankincense, and myrrh",
+   "note": "Matthew says the Magi opened their treasures and offered gold, frankincense and myrrh."
+  }
+ },
+ {
+  "id": "liturgy-b010",
+  "d": 1,
+  "q": "Complete the angel's message to the shepherds: \"There is born to you today, in David's city, a ___, who is Christ the Lord.\"",
+  "o": [
+   "Savior",
+   "King",
+   "Prophet",
+   "Shepherd"
+  ],
+  "a": 0,
+  "why": "The angel announced the birth of a Savior, Christ the Lord, which the Church celebrates at Christmas.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 2:11",
+   "ref": "LUK.2.11",
+   "quote": "For there is born to you today, in David’s city, a Savior, who is Christ the Lord.",
+   "note": "The angel announced the birth of a Savior, Christ the Lord, which the Church celebrates at Christmas."
+  }
+ },
+ {
+  "id": "liturgy-b011",
+  "d": 1,
+  "q": "At the empty tomb the angel said, \"He is not here, for he has ___, just like he said.\"",
+  "o": [
+   "ascended",
+   "departed",
+   "withdrawn",
+   "risen"
+  ],
+  "a": 3,
+  "why": "The angel announced the Resurrection, which the Church celebrates at Easter.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 28:6",
+   "ref": "MAT.28.6",
+   "quote": "He is not here, for he has risen, just like he said.",
+   "note": "The angel announced the Resurrection, which the Church celebrates at Easter."
+  }
+ },
+ {
+  "id": "liturgy-b012",
+  "d": 1,
+  "q": "Complete the crowd's cry on Palm Sunday: \"Hosanna! Blessed is he who comes in the ___ of the Lord!\"",
+  "o": [
+   "power",
+   "house",
+   "glory",
+   "name"
+  ],
+  "a": 3,
+  "why": "The crowd with palm branches cried out, \"Blessed is he who comes in the name of the Lord.\"",
+  "src": {
+   "kind": "scripture",
+   "label": "John 12:13",
+   "ref": "JHN.12.13",
+   "quote": "Hosanna! Blessed is he who comes in the name of the Lord, the King of Israel!",
+   "note": "The crowd with palm branches cried out, \"Blessed is he who comes in the name of the Lord.\""
+  }
+ },
+ {
+  "id": "liturgy-b013",
+  "d": 1,
+  "q": "What name did the angel tell Joseph to give the child who would save his people from their sins?",
+  "o": [
+   "Michael",
+   "Elijah",
+   "Jesus",
+   "Samuel"
+  ],
+  "a": 2,
+  "why": "The name Jesus means that he saves his people from their sins.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 1:21",
+   "ref": "MAT.1.21",
+   "quote": "You shall name him Jesus, for it is he who shall save his people from their sins.",
+   "note": "The name Jesus means that he saves his people from their sins."
+  }
+ },
+ {
+  "id": "liturgy-b014",
+  "d": 1,
+  "q": "Complete Psalm 98: \"Sing to the LORD a new ___.\"",
+  "o": [
+   "name",
+   "song",
+   "covenant",
+   "law"
+  ],
+  "a": 1,
+  "why": "The psalmist calls God's people to sing to the LORD a new song, a text often heard in the liturgy.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 98:1",
+   "ref": "PSA.98.1",
+   "quote": "Sing to the LORD a new song",
+   "note": "The psalmist calls God's people to sing to the LORD a new song, a text often heard in the liturgy."
+  }
+ },
+ {
+  "id": "liturgy-b015",
+  "d": 1,
+  "q": "The Catechism quotes the saying, \"He who sings prays ___.\"",
+  "o": [
+   "twice",
+   "best",
+   "longest",
+   "louder"
+  ],
+  "a": 0,
+  "why": "Song joined to words is a necessary part of solemn liturgy, so the saying runs that he who sings prays twice.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1156",
+   "ccc": 1156,
+   "quote": "He who sings prays twice.",
+   "note": "Song joined to words is a necessary part of solemn liturgy, so the saying runs that he who sings prays twice."
+  }
+ },
+ {
+  "id": "liturgy-b016",
+  "d": 1,
+  "q": "After the Last Supper, what did Jesus and the disciples do before going out to the Mount of Olives?",
+  "o": [
+   "They sang a hymn together",
+   "They washed each other's feet",
+   "They offered a sacrifice",
+   "They read the Law aloud"
+  ],
+  "a": 0,
+  "why": "Mark records that they had sung a hymn before going out to the Mount of Olives.",
+  "src": {
+   "kind": "scripture",
+   "label": "Mark 14:26",
+   "ref": "MRK.14.26",
+   "quote": "When they had sung a hymn, they went out to the Mount of Olives.",
+   "note": "Mark records that they had sung a hymn before going out to the Mount of Olives."
+  }
+ },
+ {
+  "id": "liturgy-b017",
+  "d": 1,
+  "q": "To what place did Jesus carry his cross, as remembered on Good Friday?",
+  "o": [
+   "The Mount of Olives outside the city",
+   "The village of Bethany near Jerusalem",
+   "The garden of Gethsemane by the brook",
+   "Golgotha, the Place of a Skull"
+  ],
+  "a": 3,
+  "why": "John says Jesus went out bearing his cross to Golgotha, the Place of a Skull.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 19:17",
+   "ref": "JHN.19.17",
+   "quote": "He went out, bearing his cross, to the place called “The Place of a Skull”, which is called in Hebrew, “Golgotha”",
+   "note": "John says Jesus went out bearing his cross to Golgotha, the Place of a Skull."
+  }
+ },
+ {
+  "id": "liturgy-b018",
+  "d": 1,
+  "q": "In Revelation 7, what color are the robes of the great multitude standing before the throne?",
+  "o": [
+   "Scarlet",
+   "Violet",
+   "White",
+   "Green"
+  ],
+  "a": 2,
+  "why": "The great multitude stands before the throne and the Lamb dressed in white robes, a sign still used in liturgical vesture.",
+  "src": {
+   "kind": "scripture",
+   "label": "Revelation 7:9",
+   "ref": "REV.7.9",
+   "quote": "dressed in white robes, with palm branches in their hands",
+   "note": "The great multitude stands before the throne and the Lamb dressed in white robes, a sign still used in liturgical vesture."
+  }
+ },
+ {
+  "id": "liturgy-b019",
+  "d": 1,
+  "q": "According to Psalm 150, God is praised with the sounding of which instrument?",
+  "o": [
+   "The bagpipe",
+   "The trumpet",
+   "The church bell",
+   "The drum kit"
+  ],
+  "a": 1,
+  "why": "Psalm 150 calls for praise of God with the sounding of the trumpet, with tambourine and with cymbals.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 150:3-5",
+   "ref": "PSA.150.3-5",
+   "quote": "Praise him with the sounding of the trumpet!",
+   "note": "Psalm 150 calls for praise of God with the sounding of the trumpet, with tambourine and with cymbals."
+  }
+ },
+ {
+  "id": "liturgy-b020",
+  "d": 1,
+  "q": "Complete Jesus' words about the Temple: \"My house shall be called a house of ___.\"",
+  "o": [
+   "sacrifice",
+   "prayer",
+   "study",
+   "pilgrims"
+  ],
+  "a": 1,
+  "why": "Jesus quotes Scripture to say that God's house is a house of prayer, which the Church applies to her churches.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 21:13",
+   "ref": "MAT.21.13",
+   "quote": "My house shall be called a house of prayer",
+   "note": "Jesus quotes Scripture to say that God's house is a house of prayer, which the Church applies to her churches."
+  }
+ },
+ {
+  "id": "liturgy-b021",
+  "d": 1,
+  "q": "In Acts 6, what did the apostles do after praying over the seven men chosen to serve?",
+  "o": [
+   "They laid their hands on them",
+   "They washed the feet of each man",
+   "They gave each of them a new name",
+   "They sent them away to Rome at once"
+  ],
+  "a": 0,
+  "why": "Laying on of hands after prayer foreshadows the sign used in Holy Orders.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 6:6",
+   "ref": "ACT.6.6",
+   "quote": "When they had prayed, they laid their hands on them.",
+   "note": "Laying on of hands after prayer foreshadows the sign used in Holy Orders."
+  }
+ },
+ {
+  "id": "liturgy-b022",
+  "d": 1,
+  "q": "Which name for the Eucharist recalls the supper Jesus ate with his disciples on the eve of his Passion?",
+  "o": [
+   "The Holy Sacrifice",
+   "Holy Communion",
+   "Holy Mass",
+   "The Lord's Supper"
+  ],
+  "a": 3,
+  "why": "The Lord's Supper is named for its connection with the supper Jesus took with his disciples before his Passion.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1329",
+   "ccc": 1329,
+   "quote": "The Lord's Supper, because of its connection with the supper which the Lord took with his disciples on the eve of his Passion",
+   "note": "The Lord's Supper is named for its connection with the supper Jesus took with his disciples before his Passion."
+  }
+ },
+ {
+  "id": "liturgy-b023",
+  "d": 1,
+  "q": "Along with the bread and wine, what did Christians from the very beginning bring to the Eucharist?",
+  "o": [
+   "Palm branches to adorn the altar of God",
+   "Candles to light the sanctuary at night",
+   "Gifts to share with those in need",
+   "Relics of the martyrs to lay in the altar"
+  ],
+  "a": 2,
+  "why": "The custom of the collection goes back to the earliest days and is inspired by the example of Christ.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1351",
+   "ccc": 1351,
+   "quote": "From the very beginning Christians have brought, along with the bread and wine for the Eucharist, gifts to share with those in need.",
+   "note": "The custom of the collection goes back to the earliest days and is inspired by the example of Christ."
+  }
+ },
+ {
+  "id": "liturgy-b024",
+  "d": 1,
+  "q": "Which gesture does the Catechism name as a sign of adoration of Christ's real presence at Mass?",
+  "o": [
+   "Raising both arms high overhead",
+   "Turning around to greet a neighbor",
+   "Genuflecting or bowing deeply",
+   "Tapping the pew three times"
+  ],
+  "a": 2,
+  "why": "The faithful express their faith in the real presence by genuflecting or bowing deeply.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1378",
+   "ccc": 1378,
+   "quote": "genuflecting or bowing deeply as a sign of adoration of the Lord",
+   "note": "The faithful express their faith in the real presence by genuflecting or bowing deeply."
+  }
+ },
+ {
+  "id": "liturgy-b025",
+  "d": 1,
+  "q": "The letters I.N.R.I. over a crucifix stand for which words?",
+  "o": [
+   "Jesus, Nazarene, Redeemer of Israel",
+   "Jesus of Nazareth, King of the Jews",
+   "In the name of the Redeemer, Immanuel",
+   "Jesus, Name Revered Infinitely"
+  ],
+  "a": 1,
+  "why": "The letters are the first letters of four Latin words meaning Jesus of Nazareth, King of the Jews.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1088",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "are the first letters of four Latin words that mean Jesus of Nazareth, King of the Jews",
+   "note": "The letters are the first letters of four Latin words meaning Jesus of Nazareth, King of the Jews."
+  }
+ },
+ {
+  "id": "liturgy-b026",
+  "d": 1,
+  "q": "In Benediction, what is done with the Blessed Sacrament in the monstrance?",
+  "o": [
+   "It is lifted up to bless the people",
+   "It is carried through the streets to the sick",
+   "It is consumed by the priest at the altar",
+   "It is buried beneath the altar stone"
+  ],
+  "a": 0,
+  "why": "In Benediction the Blessed Sacrament is exposed for adoration and lifted up to bless the people.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 949",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "is exposed for the adoration of the people and is lifted up to bless them",
+   "note": "In Benediction the Blessed Sacrament is exposed for adoration and lifted up to bless the people."
+  }
+ },
+ {
+  "id": "liturgy-b027",
+  "d": 1,
+  "q": "According to the Baltimore Catechism, who blesses holy water with solemn prayer?",
+  "o": [
+   "The sacristan",
+   "The altar server",
+   "A parish council",
+   "A priest"
+  ],
+  "a": 3,
+  "why": "Holy water is blessed by the priest with solemn prayer for God's blessing and protection.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1071",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "Holy water is water blessed by the priest with solemn prayer",
+   "note": "Holy water is blessed by the priest with solemn prayer for God's blessing and protection."
+  }
+ },
+ {
+  "id": "liturgy-b028",
+  "d": 1,
+  "q": "Complete the third commandment: \"Remember the Sabbath day, to keep it ___.\"",
+  "o": [
+   "quiet",
+   "free",
+   "secret",
+   "holy"
+  ],
+  "a": 3,
+  "why": "The commandment to keep the Sabbath holy underlies the Church's keeping of the Lord's Day.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 20:8",
+   "ref": "EXO.20.8",
+   "quote": "Remember the Sabbath day, to keep it holy.",
+   "note": "The commandment to keep the Sabbath holy underlies the Church's keeping of the Lord's Day."
+  }
+ },
+ {
+  "id": "liturgy-b029",
+  "d": 1,
+  "q": "According to Luke 2:7, where did Mary lay her newborn son?",
+  "o": [
+   "In a cradle of cedar",
+   "On the temple steps",
+   "In a feeding trough",
+   "In a shepherd's tent"
+  ],
+  "a": 2,
+  "why": "Luke says she wrapped him in bands of cloth and laid him in a feeding trough, a manger.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 2:7",
+   "ref": "LUK.2.7",
+   "quote": "She wrapped him in bands of cloth and laid him in a feeding trough",
+   "note": "Luke says she wrapped him in bands of cloth and laid him in a feeding trough, a manger."
+  }
+ },
+ {
+  "id": "liturgy-b030",
+  "d": 1,
+  "q": "Who baptized Jesus in the Jordan, an event remembered in the liturgical year?",
+  "o": [
+   "Peter",
+   "John",
+   "Andrew",
+   "James"
+  ],
+  "a": 1,
+  "why": "Mark says Jesus came from Nazareth and was baptized by John in the Jordan.",
+  "src": {
+   "kind": "scripture",
+   "label": "Mark 1:9",
+   "ref": "MRK.1.9",
+   "quote": "Jesus came from Nazareth of Galilee, and was baptized by John in the Jordan.",
+   "note": "Mark says Jesus came from Nazareth and was baptized by John in the Jordan."
+  }
+ },
+ {
+  "id": "liturgy-b031",
+  "d": 1,
+  "q": "What greeting did the risen Jesus give his disciples on Easter evening?",
+  "o": [
+   "Peace be to you",
+   "Rejoice in the Lord",
+   "Blessed are you",
+   "Follow me"
+  ],
+  "a": 0,
+  "why": "Jesus came and stood among them and said, \"Peace be to you,\" a greeting echoed in the Mass.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 20:19",
+   "ref": "JHN.20.19",
+   "quote": "Jesus came and stood in the middle and said to them, “Peace be to you.”",
+   "note": "Jesus came and stood among them and said, \"Peace be to you,\" a greeting echoed in the Mass."
+  }
+ },
+ {
+  "id": "liturgy-b032",
+  "d": 1,
+  "q": "Complete the priestly blessing in Numbers: \"The LORD bless you, and ___ you.\"",
+  "o": [
+   "keep",
+   "guide",
+   "hold",
+   "save"
+  ],
+  "a": 0,
+  "why": "The ancient blessing of Aaron begins, \"The LORD bless you, and keep you.\"",
+  "src": {
+   "kind": "scripture",
+   "label": "Numbers 6:24-26",
+   "ref": "NUM.6.24-26",
+   "quote": "The LORD bless you, and keep you.",
+   "note": "The ancient blessing of Aaron begins, \"The LORD bless you, and keep you.\""
+  }
+ },
+ {
+  "id": "liturgy-b033",
+  "d": 2,
+  "q": "According to the Baltimore Catechism, the amice worn by the priest signifies what?",
+  "o": [
+   "Innocence and purity of heart",
+   "Chastity of the priest",
+   "Immortality of the soul",
+   "Resistance to temptation"
+  ],
+  "a": 3,
+  "why": "The amice is a white cloth around the shoulders that signifies resistance to temptation.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 942",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The Amice, a white cloth around the shoulders to signify resistance to temptation",
+   "note": "The amice is a white cloth around the shoulders that signifies resistance to temptation."
+  }
+ },
+ {
+  "id": "liturgy-b034",
+  "d": 2,
+  "q": "The Baltimore Catechism says the cincture, a cord about the waist, signifies what?",
+  "o": [
+   "Sorrow for sin",
+   "Love of God",
+   "Chastity",
+   "Hope in heaven"
+  ],
+  "a": 2,
+  "why": "The cincture is a cord about the waist signifying chastity.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 942",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The Cincture, a cord about the waist, to signify chastity",
+   "note": "The cincture is a cord about the waist signifying chastity."
+  }
+ },
+ {
+  "id": "liturgy-b035",
+  "d": 2,
+  "q": "In the Baltimore Catechism, the stole worn about the neck signifies what?",
+  "o": [
+   "Sorrow for sin",
+   "Immortality",
+   "Humility",
+   "Martyrdom"
+  ],
+  "a": 1,
+  "why": "The stole is the long vestment about the neck and signifies immortality.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 942",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The Stole or long vestment about the neck, to signify immortality",
+   "note": "The stole is the long vestment about the neck and signifies immortality."
+  }
+ },
+ {
+  "id": "liturgy-b036",
+  "d": 2,
+  "q": "What is the corporal used at Mass?",
+  "o": [
+   "A decorative veil that covers the whole tabernacle door",
+   "A linen cloth on which the chalice and host rest",
+   "A small cloth used for wiping the inside of the chalice",
+   "A cord worn at the waist to signify chastity"
+  ],
+  "a": 1,
+  "why": "The corporal is the linen cloth on which the chalice and host rest during Mass.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 939",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The corporal or linen cloth on which the chalice and host rest",
+   "note": "The corporal is the linen cloth on which the chalice and host rest during Mass."
+  }
+ },
+ {
+  "id": "liturgy-b037",
+  "d": 2,
+  "q": "What is the purificator used with the chalice at Mass?",
+  "o": [
+   "A cloth for wiping the inside of the chalice",
+   "A white card that covers the mouth of the chalice",
+   "A small silver plate for handling the host",
+   "A linen cloth on which the chalice and host rest"
+  ],
+  "a": 0,
+  "why": "The purificator is the cloth used for wiping the inside of the chalice.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 939",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The purificator or cloth for wiping the inside",
+   "note": "The purificator is the cloth used for wiping the inside of the chalice."
+  }
+ },
+ {
+  "id": "liturgy-b038",
+  "d": 2,
+  "q": "A Mass sung by a bishop, assisted by a deacon and sub-deacon, is called what in the Baltimore Catechism?",
+  "o": [
+   "A Votive Mass of Saints",
+   "A Nuptial Mass",
+   "A low or private Mass",
+   "A Pontifical Mass"
+  ],
+  "a": 3,
+  "why": "A Mass sung by a bishop with deacon and sub-deacon is a Pontifical Mass.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 925",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "When the Mass is sung by a bishop, assisted by a deacon and sub-deacon, it is called a Pontifical Mass",
+   "note": "A Mass sung by a bishop with deacon and sub-deacon is a Pontifical Mass."
+  }
+ },
+ {
+  "id": "liturgy-b039",
+  "d": 2,
+  "q": "How many colors of vestments does the Baltimore Catechism list?",
+  "o": [
+   "Three",
+   "Four",
+   "Five",
+   "Seven"
+  ],
+  "a": 2,
+  "why": "It lists white, red, green, violet or purple, and black.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 943",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "Five colors of vestments are used, namely, white, red, green, violet or purple, and black.",
+   "note": "It lists white, red, green, violet or purple, and black."
+  }
+ },
+ {
+  "id": "liturgy-b040",
+  "d": 2,
+  "q": "At a Solemn Mass, what is the person who directs the ceremonies called?",
+  "o": [
+   "The celebrant of the Mass",
+   "The acolyte at the altar",
+   "The master of ceremonies",
+   "The sacristan of the church"
+  ],
+  "a": 2,
+  "why": "The Baltimore Catechism names the one who directs the ceremonies as the master of ceremonies.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 953",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "the one who directs the ceremonies is called the master of ceremonies",
+   "note": "The Baltimore Catechism names the one who directs the ceremonies as the master of ceremonies."
+  }
+ },
+ {
+  "id": "liturgy-b041",
+  "d": 2,
+  "q": "According to the Baltimore Catechism, who instituted the sacraments, as distinct from the sacramentals?",
+  "o": [
+   "The Council of Trent",
+   "Jesus Christ",
+   "The apostles at Jerusalem",
+   "The early bishops"
+  ],
+  "a": 1,
+  "why": "The sacraments were instituted by Jesus Christ; the sacramentals were instituted by the Church.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1061",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "The Sacraments were instituted by Jesus Christ and the sacramentals were instituted by the Church",
+   "note": "The sacraments were instituted by Jesus Christ; the sacramentals were instituted by the Church."
+  }
+ },
+ {
+  "id": "liturgy-b042",
+  "d": 2,
+  "q": "The letters I.H.S. on an altar or sacred things stand for what?",
+  "o": [
+   "The name Jesus",
+   "Jesus, Holy Savior",
+   "In His Service",
+   "The Holy Sacrament"
+  ],
+  "a": 0,
+  "why": "The letters are the Holy Name of Jesus as it is written in Greek with some letters left out.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1092",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "The letters I.H.S. on an altar or sacred things mean the name Jesus",
+   "note": "The letters are the Holy Name of Jesus as it is written in Greek with some letters left out."
+  }
+ },
+ {
+  "id": "liturgy-b043",
+  "d": 2,
+  "q": "Of what material is a scapular made, according to the Baltimore Catechism?",
+  "o": [
+   "Silk and gold thread",
+   "Linen and hemp cord",
+   "Beeswax and linen",
+   "Woolen cloth"
+  ],
+  "a": 3,
+  "why": "The scapular is a long, broad piece of woolen cloth worn over the shoulders as part of a religious habit; small scapulars imitate it.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1093",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "The scapular is a long, broad piece of woolen cloth",
+   "note": "The scapular is a long, broad piece of woolen cloth worn over the shoulders as part of a religious habit; small scapulars imitate it."
+  }
+ },
+ {
+  "id": "liturgy-b044",
+  "d": 2,
+  "q": "What does a church doorway symbolize, according to the Catechism?",
+  "o": [
+   "The long journey of the martyrs through persecution",
+   "The separation of the clergy from the lay faithful",
+   "The wall that guards the sanctuary from the nave",
+   "Passing from a world wounded by sin to new Life"
+  ],
+  "a": 3,
+  "why": "To enter the house of God we cross a threshold that symbolizes passing from a world wounded by sin to the world of new Life.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1186",
+   "ccc": 1186,
+   "quote": "To enter into the house of God, we must cross a threshold, which symbolizes passing from the world wounded by sin to the world of the new Life",
+   "note": "To enter the house of God we cross a threshold that symbolizes passing from a world wounded by sin to the world of new Life."
+  }
+ },
+ {
+  "id": "liturgy-b045",
+  "d": 2,
+  "q": "Sacred song should have beauty expressive of prayer, the unanimous participation of the assembly, and what else?",
+  "o": [
+   "Novelty and variety in every new composition",
+   "A full orchestra and choir at every Mass",
+   "The solemn character of the celebration",
+   "One single language used by all the nations"
+  ],
+  "a": 2,
+  "why": "The Catechism gives three principal criteria for sacred song, the third being the solemn character of the celebration.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1157",
+   "ccc": 1157,
+   "quote": "beauty expressive of prayer, the unanimous participation of the assembly at the designated moments, and the solemn character of the celebration",
+   "note": "The Catechism gives three principal criteria for sacred song, the third being the solemn character of the celebration."
+  }
+ },
+ {
+  "id": "liturgy-b046",
+  "d": 2,
+  "q": "Which of these is a liturgical sign taken from human life, according to the Catechism?",
+  "o": [
+   "Candle light",
+   "Anointing",
+   "Fire kindled",
+   "Blessed water"
+  ],
+  "a": 1,
+  "why": "Candles, water and fire are signs from creation; washing, anointing and breaking bread are signs from human life.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1189",
+   "ccc": 1189,
+   "quote": "human life (washing, anointing, breaking bread)",
+   "note": "Candles, water and fire are signs from creation; washing, anointing and breaking bread are signs from human life."
+  }
+ },
+ {
+  "id": "liturgy-b047",
+  "d": 2,
+  "q": "From the time of the Mosaic law, the People of God observed fixed feasts, beginning with which one?",
+  "o": [
+   "Passover",
+   "Pentecost",
+   "Booths",
+   "Day of Atonement"
+  ],
+  "a": 0,
+  "why": "Passover was the first of the fixed feasts, commemorating the astonishing actions of the Savior God.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1164",
+   "ccc": 1164,
+   "quote": "have observed fixed feasts, beginning with Passover",
+   "note": "Passover was the first of the fixed feasts, commemorating the astonishing actions of the Savior God."
+  }
+ },
+ {
+  "id": "liturgy-b048",
+  "d": 2,
+  "q": "What word does the Catechism say marks the Church's prayer when she celebrates the mystery of Christ?",
+  "o": [
+   "Today",
+   "Forever",
+   "Amen",
+   "Behold"
+  ],
+  "a": 0,
+  "why": "The word \"Today!\" marks the Church's prayer, for the mystery of Christ is made present in her celebration.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1165",
+   "ccc": 1165,
+   "quote": "there is a word that marks her prayer",
+   "note": "The word \"Today!\" marks the Church's prayer, for the mystery of Christ is made present in her celebration."
+  }
+ },
+ {
+  "id": "liturgy-b049",
+  "d": 2,
+  "q": "On which day after his birth was the child named Jesus, according to Luke?",
+  "o": [
+   "The third day",
+   "The fortieth day",
+   "The seventh day",
+   "The eighth day"
+  ],
+  "a": 3,
+  "why": "Luke says that when eight days were fulfilled for the circumcision, his name was called Jesus.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 2:21",
+   "ref": "LUK.2.21",
+   "quote": "When eight days were fulfilled for the circumcision of the child, his name was called Jesus",
+   "note": "Luke says that when eight days were fulfilled for the circumcision, his name was called Jesus."
+  }
+ },
+ {
+  "id": "liturgy-b050",
+  "d": 2,
+  "q": "Simeon's words about the child Jesus, recalled when candles are blessed on February 2, call him what?",
+  "o": [
+   "A sword to pierce the hearts of the proud",
+   "A shepherd gathering the lost sheep of Israel",
+   "A light for revelation to the nations",
+   "A rock rejected by the builders of old"
+  ],
+  "a": 2,
+  "why": "Simeon called the child a light for revelation to the nations, which is why candles are blessed on the Presentation.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 2:32",
+   "ref": "LUK.2.32",
+   "quote": "a light for revelation to the nations",
+   "note": "Simeon called the child a light for revelation to the nations, which is why candles are blessed on the Presentation."
+  }
+ },
+ {
+  "id": "liturgy-b051",
+  "d": 2,
+  "q": "For whom is the Liturgy of the Hours intended to become the prayer?",
+  "o": [
+   "Monks and nuns alone",
+   "The whole People of God",
+   "Bishops alone",
+   "Priests of the cathedral"
+  ],
+  "a": 1,
+  "why": "The Catechism says the Liturgy of the Hours is meant to be the prayer of the whole People of God.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1175",
+   "ccc": 1175,
+   "quote": "The Liturgy of the Hours is intended to become the prayer of the whole People of God.",
+   "note": "The Catechism says the Liturgy of the Hours is meant to be the prayer of the whole People of God."
+  }
+ },
+ {
+  "id": "liturgy-b052",
+  "d": 2,
+  "q": "Which rite is the principal rite of the Latin Church?",
+  "o": [
+   "The Ambrosian rite",
+   "The Roman rite",
+   "The Byzantine rite",
+   "The Maronite rite"
+  ],
+  "a": 1,
+  "why": "The Latin rites are principally the Roman rite, with others such as the Ambrosian.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1203",
+   "ccc": 1203,
+   "quote": "the Latin (principally the Roman rite, but also the rites of certain local churches, such as the Ambrosian rite",
+   "note": "The Latin rites are principally the Roman rite, with others such as the Ambrosian."
+  }
+ },
+ {
+  "id": "liturgy-b053",
+  "d": 2,
+  "q": "Who is the principal agent of every Eucharistic celebration?",
+  "o": [
+   "Christ himself",
+   "The bishop of the place",
+   "The assembly of the faithful",
+   "The celebrating deacon"
+  ],
+  "a": 0,
+  "why": "At the head of the Eucharistic assembly is Christ himself, the principal agent of the Eucharist.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1348",
+   "ccc": 1348,
+   "quote": "At its head is Christ himself, the principal agent of the Eucharist.",
+   "note": "At the head of the Eucharistic assembly is Christ himself, the principal agent of the Eucharist."
+  }
+ },
+ {
+  "id": "liturgy-b054",
+  "d": 2,
+  "q": "The tabernacle was first intended for the reservation of the Eucharist so that it could be brought to whom?",
+  "o": [
+   "Pilgrims traveling on the road",
+   "Prisoners and those living in exile",
+   "Newly ordained priests and deacons",
+   "The sick and those absent from Mass"
+  ],
+  "a": 3,
+  "why": "The tabernacle first served to keep the Eucharist for the sick and those absent outside of Mass.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1379",
+   "ccc": 1379,
+   "quote": "The tabernacle was first intended for the reservation of the Eucharist in a worthy place so that it could be brought to the sick and those absent outside of Mass.",
+   "note": "The tabernacle first served to keep the Eucharist for the sick and those absent outside of Mass."
+  }
+ },
+ {
+  "id": "liturgy-b055",
+  "d": 2,
+  "q": "The Christian altar represents which two aspects of the same mystery?",
+  "o": [
+   "The tomb of Christ and the throne of the Virgin Mary",
+   "The temple of Solomon and the synagogue of Nazareth",
+   "The altar of sacrifice and the table of the Lord",
+   "The cradle of Bethlehem and the cross of Calvary"
+  ],
+  "a": 2,
+  "why": "The altar is both the place of the sacrifice and the table of the Lord, and is a symbol of Christ himself.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1383",
+   "ccc": 1383,
+   "quote": "represents the two aspects of the same mystery: the altar of the sacrifice and the table of the Lord",
+   "note": "The altar is both the place of the sacrifice and the table of the Lord, and is a symbol of Christ himself."
+  }
+ },
+ {
+  "id": "liturgy-b056",
+  "d": 2,
+  "q": "Before Communion, whose words do the faithful echo: \"Lord, I am not worthy that you should enter under my roof\"?",
+  "o": [
+   "The tax collector's",
+   "The prodigal son's",
+   "The centurion's",
+   "The Canaanite woman's"
+  ],
+  "a": 2,
+  "why": "The faithful echo the centurion's words with humble and ardent faith before receiving Communion.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1386",
+   "ccc": 1386,
+   "quote": "the faithful can only echo humbly and with ardent faith the words of the Centurion",
+   "note": "The faithful echo the centurion's words with humble and ardent faith before receiving Communion."
+  }
+ },
+ {
+  "id": "liturgy-b057",
+  "d": 2,
+  "q": "Which miracle at Cana already announces the Hour of Jesus' glorification, according to the Catechism?",
+  "o": [
+   "The healing of the official's son",
+   "Water turned into wine",
+   "The multiplication of the loaves",
+   "The calming of the storm"
+  ],
+  "a": 1,
+  "why": "The sign of water turned into wine at Cana looks ahead to the wedding feast in the Father's kingdom.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1335",
+   "ccc": 1335,
+   "quote": "The sign of water turned into wine at Cana already announces the Hour of Jesus' glorification.",
+   "note": "The sign of water turned into wine at Cana looks ahead to the wedding feast in the Father's kingdom."
+  }
+ },
+ {
+  "id": "liturgy-b058",
+  "d": 2,
+  "q": "In the Eucharistic Prayer, which part gives thanks to the Father for creation, redemption and sanctification?",
+  "o": [
+   "The preface",
+   "The intercessions",
+   "The epiclesis",
+   "The anamnesis"
+  ],
+  "a": 0,
+  "why": "In the preface the Church gives thanks to the Father, through Christ in the Holy Spirit, for all his works.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1352",
+   "ccc": 1352,
+   "quote": "In the preface, the Church gives thanks to the Father, through Christ, in the Holy Spirit, for all his works: creation, redemption, and sanctification.",
+   "note": "In the preface the Church gives thanks to the Father, through Christ in the Holy Spirit, for all his works."
+  }
+ },
+ {
+  "id": "liturgy-b059",
+  "d": 2,
+  "q": "Which part of the Eucharistic Prayer shows that the Eucharist is celebrated in communion with the whole Church in heaven and on earth?",
+  "o": [
+   "The preface prayer",
+   "The Sanctus hymn",
+   "The doxology",
+   "The intercessions"
+  ],
+  "a": 3,
+  "why": "In the intercessions the Church names the living and the dead and the pastors united in the celebration.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1354",
+   "ccc": 1354,
+   "quote": "In the intercessions, the Church indicates that the Eucharist is celebrated in communion with the whole Church in heaven and on earth",
+   "note": "In the intercessions the Church names the living and the dead and the pastors united in the celebration."
+  }
+ },
+ {
+  "id": "liturgy-b060",
+  "d": 2,
+  "q": "What is the Church's term for martyrdom suffered by an unbaptized believer, which brings the fruits of Baptism?",
+  "o": [
+   "Baptism of fire",
+   "Baptism of tears",
+   "Baptism of witness",
+   "Baptism of blood"
+  ],
+  "a": 3,
+  "why": "Those who die for the faith without Baptism are baptized by their death; this Baptism of blood is not a sacrament.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1258",
+   "ccc": 1258,
+   "quote": "This Baptism of blood, like the desire for Baptism, brings about the fruits of Baptism without being a sacrament.",
+   "note": "Those who die for the faith without Baptism are baptized by their death; this Baptism of blood is not a sacrament."
+  }
+ },
+ {
+  "id": "liturgy-b061",
+  "d": 2,
+  "q": "How do sacramentals differ from the sacraments in conferring grace?",
+  "o": [
+   "They confer grace more abundantly than the sacraments do themselves",
+   "They were instituted directly by Christ himself, just as the sacraments were",
+   "They prepare us for grace instead of conferring it as the sacraments do",
+   "They may be received only once in a lifetime, like Baptism"
+  ],
+  "a": 2,
+  "why": "Sacramentals do not confer the grace of the Holy Spirit as the sacraments do, but prepare us to receive it.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1670",
+   "ccc": 1670,
+   "quote": "Sacramentals do not confer the grace of the Holy Spirit in the way that the sacraments do",
+   "note": "Sacramentals do not confer the grace of the Holy Spirit as the sacraments do, but prepare us to receive it."
+  }
+ },
+ {
+  "id": "liturgy-b062",
+  "d": 2,
+  "q": "Who may preside at certain blessings, since sacramentals derive from the baptismal priesthood?",
+  "o": [
+   "Only bishops",
+   "Lay people",
+   "Only deacons",
+   "Only monks"
+  ],
+  "a": 1,
+  "why": "The more a blessing concerns ecclesial and sacramental life, the more it is reserved to the ordained, but lay people may preside at some.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1669",
+   "ccc": 1669,
+   "quote": "Hence lay people may preside at certain blessings",
+   "note": "The more a blessing concerns ecclesial and sacramental life, the more it is reserved to the ordained, but lay people may preside at some."
+  }
+ },
+ {
+  "id": "liturgy-b063",
+  "d": 2,
+  "q": "At a Christian funeral held in church, what is the heart of the celebration?",
+  "o": [
+   "The Eucharist",
+   "The eulogy",
+   "The procession with candles",
+   "The burial rite"
+  ],
+  "a": 0,
+  "why": "In church the Eucharist is the heart of the Paschal reality of Christian death.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1689",
+   "ccc": 1689,
+   "quote": "the Eucharist is the heart of the Paschal reality of Christian death",
+   "note": "In church the Eucharist is the heart of the Paschal reality of Christian death."
+  }
+ },
+ {
+  "id": "liturgy-b064",
+  "d": 2,
+  "q": "What does the Catechism say a Christian funeral confers on the deceased?",
+  "o": [
+   "Neither a sacrament nor a sacramental",
+   "The sacrament of Anointing of the Sick",
+   "A plenary indulgence for the soul",
+   "The sacrament of Penance and Reconciliation"
+  ],
+  "a": 0,
+  "why": "The deceased has passed beyond the sacramental economy, yet the funeral is a liturgical celebration of the Church.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1684",
+   "ccc": 1684,
+   "quote": "The Christian funeral confers on the deceased neither a sacrament nor a sacramental",
+   "note": "The deceased has passed beyond the sacramental economy, yet the funeral is a liturgical celebration of the Church."
+  }
+ },
+ {
+  "id": "liturgy-b065",
+  "d": 3,
+  "q": "According to the Baltimore Catechism, which prayer or text is said before the Offertory?",
+  "o": [
+   "The Canon",
+   "The Preface",
+   "The last Gospel",
+   "The Creed"
+  ],
+  "a": 3,
+  "why": "The Introit, Kyrie, Gloria, Prayers, Epistle, Gospel and Creed come before the Offertory.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 933",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The parts of the Mass said before it are: The Introit, Kyrie, Gloria, Prayers, Epistle, Gospel and Creed.",
+   "note": "The Introit, Kyrie, Gloria, Prayers, Epistle, Gospel and Creed come before the Offertory."
+  }
+ },
+ {
+  "id": "liturgy-b066",
+  "d": 3,
+  "q": "A Mass sung by a priest without deacon and sub-deacon is called what in the Baltimore Catechism?",
+  "o": [
+   "A Solemn Mass with deacon",
+   "A Pontifical Mass of a bishop",
+   "A Missa Cantata or High Mass",
+   "A Requiem Mass for the dead"
+  ],
+  "a": 2,
+  "why": "A sung Mass with only a priest is a Missa Cantata, also called a High Mass.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 925",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "When sung by a priest without deacon and sub-deacon, it is called a Missa Cantata or High Mass",
+   "note": "A sung Mass with only a priest is a Missa Cantata, also called a High Mass."
+  }
+ },
+ {
+  "id": "liturgy-b067",
+  "d": 3,
+  "q": "The Baltimore Catechism says the maniple, worn on the left arm, signifies what?",
+  "o": [
+   "Love",
+   "Penance",
+   "Hope",
+   "Innocence"
+  ],
+  "a": 1,
+  "why": "The maniple is the hanging vestment on the left arm signifying penance.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 942",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The Maniple or hanging vestment on the left arm, to signify penance",
+   "note": "The maniple is the hanging vestment on the left arm signifying penance."
+  }
+ },
+ {
+  "id": "liturgy-b068",
+  "d": 3,
+  "q": "What is the pall used with the chalice at Mass?",
+  "o": [
+   "A cloth for wiping the chalice",
+   "A white card used for covering the chalice",
+   "A small silver plate for the host",
+   "A linen cloth beneath the chalice"
+  ],
+  "a": 1,
+  "why": "The pall is the white card used for covering the chalice at Mass.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 939",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The pall or white card used for covering the chalice at Mass",
+   "note": "The pall is the white card used for covering the chalice at Mass."
+  }
+ },
+ {
+  "id": "liturgy-b069",
+  "d": 3,
+  "q": "Which two vestments does the Baltimore Catechism name for the priest at Benediction?",
+  "o": [
+   "A cope and a humeral veil",
+   "A chasuble and a long stole",
+   "An alb and a hanging maniple",
+   "An amice and a cord cincture"
+  ],
+  "a": 0,
+  "why": "The vestments used at Benediction are a cope or large silk cloak and a humeral or shoulder veil.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 949",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "A cope or large silk cloak and a humeral or shoulder veil",
+   "note": "The vestments used at Benediction are a cope or large silk cloak and a humeral or shoulder veil."
+  }
+ },
+ {
+  "id": "liturgy-b070",
+  "d": 3,
+  "q": "What is an Agnus Dei, according to the Baltimore Catechism?",
+  "o": [
+   "A silver medal stamped with the Good Shepherd",
+   "A white vestment worn by the newly baptized",
+   "A small bell rung at the Consecration of the Mass",
+   "A small piece of beeswax stamped with a lamb and cross"
+  ],
+  "a": 3,
+  "why": "An Agnus Dei is a small piece of beeswax stamped with the image of a lamb and cross, solemnly blessed by the Pope.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1097",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "An Agnus Dei is a small piece of beeswax stamped with the image of a lamb and cross.",
+   "note": "An Agnus Dei is a small piece of beeswax stamped with the image of a lamb and cross, solemnly blessed by the Pope."
+  }
+ },
+ {
+  "id": "liturgy-b071",
+  "d": 3,
+  "q": "Which element of the Liturgy of the Hours expresses the symbolism of the time of day, the season or the feast?",
+  "o": [
+   "The invitatory psalm",
+   "The final blessing",
+   "Hymns and litanies",
+   "The long silence"
+  ],
+  "a": 2,
+  "why": "The hymns and litanies of the Hours express the symbolism of the time of day, the liturgical season or the feast.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1177",
+   "ccc": 1177,
+   "quote": "expressing the symbolism of the time of day, the liturgical season, or the feast being celebrated",
+   "note": "The hymns and litanies of the Hours express the symbolism of the time of day, the liturgical season or the feast."
+  }
+ },
+ {
+  "id": "liturgy-b072",
+  "d": 3,
+  "q": "When the Church keeps the memorials of martyrs and other saints, what mystery does she proclaim in them?",
+  "o": [
+   "The mystery of the Trinity",
+   "The mystery of Pentecost",
+   "The Paschal mystery",
+   "The mystery of the Assumption"
+  ],
+  "a": 2,
+  "why": "In the saints who have suffered and been glorified with Christ, the Church proclaims the Paschal mystery.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1173",
+   "ccc": 1173,
+   "quote": "she proclaims the Paschal mystery in those",
+   "note": "In the saints who have suffered and been glorified with Christ, the Church proclaims the Paschal mystery."
+  }
+ },
+ {
+  "id": "liturgy-b073",
+  "d": 3,
+  "q": "Which three places correspond to the three types of funeral celebration in the Roman liturgy?",
+  "o": [
+   "The cathedral, the parish and the chapel",
+   "The home, the church and the cemetery",
+   "The hospital, the church and the grave",
+   "The chapel, the hall and the road"
+  ],
+  "a": 1,
+  "why": "The Order of Christian Funerals gives three types of celebration, matching the home, the church and the cemetery.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1686",
+   "ccc": 1686,
+   "quote": "corresponding to the three places in which they are conducted (the home, the church, and the cemetery)",
+   "note": "The Order of Christian Funerals gives three types of celebration, matching the home, the church and the cemetery."
+  }
+ },
+ {
+  "id": "liturgy-b074",
+  "d": 3,
+  "q": "In Cyril of Jerusalem's account, the priest says, \"Let us give thanks unto the Lord.\" What do the people answer?",
+  "o": [
+   "It is meet and right",
+   "Thanks be to God for ever",
+   "Glory to you, O Lord Jesus",
+   "Lord, have mercy on us all"
+  ],
+  "a": 0,
+  "why": "Cyril says the people reply, \"It is meet and right,\" because giving thanks is a right and fitting thing.",
+  "src": {
+   "kind": "father",
+   "label": "Cyril of Jerusalem, Mystagogic Catechesis V",
+   "work": "cyril-catecheses",
+   "section": "ii.xxvii",
+   "quote": "Then ye say, “It is meet and right:”",
+   "note": "Cyril says the people reply, \"It is meet and right,\" because giving thanks is a right and fitting thing."
+  }
+ },
+ {
+  "id": "liturgy-b075",
+  "d": 3,
+  "q": "What is the traditional name of the dialogue beginning \"Lift up your hearts\"?",
+  "o": [
+   "Kyrie eleison",
+   "Dominus vobiscum",
+   "Agnus Dei",
+   "Sursum corda"
+  ],
+  "a": 3,
+  "why": "The Sursum corda, \"Lift up your hearts,\" is found in all the ancient liturgies.",
+  "src": {
+   "kind": "father",
+   "label": "Early Liturgies, Liturgy of St. James",
+   "work": "early-liturgies",
+   "section": "xii.ii",
+   "quote": "The Sursum corda, found in all liturgies.",
+   "note": "The Sursum corda, \"Lift up your hearts,\" is found in all the ancient liturgies."
+  }
+ },
+ {
+  "id": "liturgy-b076",
+  "d": 3,
+  "q": "In Cyril of Jerusalem's description of the liturgy, the priest cries aloud, \"Holy things to ___.\"",
+  "o": [
+   "all peoples",
+   "the faithful dead",
+   "the humble",
+   "holy men"
+  ],
+  "a": 3,
+  "why": "Cyril explains that the holy gifts correspond to holy persons: holy things to holy men.",
+  "src": {
+   "kind": "father",
+   "label": "Cyril of Jerusalem, Mystagogic Catechesis V",
+   "work": "cyril-catecheses",
+   "section": "ii.xxvii",
+   "quote": "After this the Priest says, “Holy things to holy men.”",
+   "note": "Cyril explains that the holy gifts correspond to holy persons: holy things to holy men."
+  }
+ },
+ {
+  "id": "liturgy-b077",
+  "d": 3,
+  "q": "Which words of Psalm 34 does Cyril say the chanter sings to invite the people to Communion?",
+  "o": [
+   "The Lord is my shepherd, I shall not want",
+   "Out of the depths I have cried to you, LORD",
+   "O taste and see that the Lord is good",
+   "Let my prayer be set before you like incense"
+  ],
+  "a": 2,
+  "why": "Cyril says the chanter invites the faithful to the holy mysteries with Psalm 34: \"O taste and see that the Lord is good.\"",
+  "src": {
+   "kind": "father",
+   "label": "Cyril of Jerusalem, Mystagogic Catechesis V",
+   "work": "cyril-catecheses",
+   "section": "ii.xxvii",
+   "quote": "O taste and see that the Lord is good",
+   "note": "Cyril says the chanter invites the faithful to the holy mysteries with Psalm 34: \"O taste and see that the Lord is good.\""
+  }
+ },
+ {
+  "id": "liturgy-b078",
+  "d": 3,
+  "q": "According to Cyril, in what posture should one approach the Cup of the Lord's Blood?",
+  "o": [
+   "Kneeling with hands outstretched",
+   "Standing in a bowing posture",
+   "Prostrate on the floor",
+   "Seated with head covered"
+  ],
+  "a": 1,
+  "why": "Cyril tells the communicant to approach the Cup not kneeling, but standing in a bowing posture.",
+  "src": {
+   "kind": "father",
+   "label": "Cyril of Jerusalem, Mystagogic Catechesis V",
+   "work": "cyril-catecheses",
+   "section": "ii.xxvii",
+   "quote": "but standing in a bowing posture",
+   "note": "Cyril tells the communicant to approach the Cup not kneeling, but standing in a bowing posture."
+  }
+ },
+ {
+  "id": "liturgy-b079",
+  "d": 3,
+  "q": "Before the Eucharistic prayer in Cyril's account, what does the deacon call the people to do with one another?",
+  "o": [
+   "Receive one another and kiss one another",
+   "Fast together for three days before the feast",
+   "Offer incense together before the altar",
+   "Sing the Gloria together in procession"
+  ],
+  "a": 0,
+  "why": "The deacon cries aloud for the people to receive one another and kiss one another, a sign of peace and reconciliation.",
+  "src": {
+   "kind": "father",
+   "label": "Cyril of Jerusalem, Mystagogic Catechesis V",
+   "work": "cyril-catecheses",
+   "section": "ii.xxvii",
+   "quote": "Receive ye one another; and let us kiss one another",
+   "note": "The deacon cries aloud for the people to receive one another and kiss one another, a sign of peace and reconciliation."
+  }
+ },
+ {
+  "id": "liturgy-b080",
+  "d": 3,
+  "q": "In the sense of Sacred Scripture, a memorial is not merely what?",
+  "o": [
+   "The recollection of past events",
+   "A public feast of the people",
+   "The offering of first fruits and lambs",
+   "A sign of mourning for the dead"
+  ],
+  "a": 0,
+  "why": "A memorial proclaims the mighty works of God for men, making them present in the liturgy.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1363",
+   "ccc": 1363,
+   "quote": "In the sense of Sacred Scripture the memorial is not merely the recollection of past events but the proclamation of the mighty works wrought by God for men.",
+   "note": "A memorial proclaims the mighty works of God for men, making them present in the liturgy."
+  }
+ }
+]
