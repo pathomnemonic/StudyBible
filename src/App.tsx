@@ -112,6 +112,9 @@ const MediaSearch = lazy(() => import('./pages/listen/MediaSearch'));
 const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
 const ChainsPage = lazy(() => import('./pages/study/ChainsPage'));
 const ZoomPage = lazy(() => import('./pages/study/ZoomPage'));
+const WidgetsPage = lazy(() => import('./pages/WidgetsPage'));
+const WidgetView = lazy(() => import('./pages/WidgetsPage').then((m) => ({ default: m.WidgetView })));
+const TriviaPage = lazy(() => import('./pages/play/TriviaPage'));
 const HardDayPage = lazy(() => import('./pages/HardDayPage'));
 const WalksPage = lazy(() => import('./pages/study/WalksPage'));
 const ChurchTimelapsePage = lazy(() => import('./pages/study/ChurchTimelapsePage'));
@@ -373,6 +376,7 @@ export default function App() {
               <Route path="/your-year" element={<YearPage />} />
               <Route path="/play" element={<PlayHome />} />
               <Route path="/play/charades" element={<CharadesPage />} />
+              <Route path="/play/trivia" element={<TriviaPage />} />
               <Route path="/play/quartets" element={<QuartetsPage />} />
               <Route path="/play/whosaid" element={<WhoSaidPage />} />
               <Route path="/play/chain" element={<ChainPage />} />
@@ -457,6 +461,8 @@ export default function App() {
               <Route path="/memorize" element={<MemorizePage />} />
               <Route path="/share" element={<SharePage />} />
               <Route path="/widget" element={<WidgetPage />} />
+              <Route path="/widget/:kind" element={<WidgetView />} />
+              <Route path="/widgets" element={<WidgetsPage />} />
               <Route path="/session" element={<SessionPage />} />
               <Route path="/today" element={<TodayPage />} />
               <Route path="/account" element={<AccountPage />} />

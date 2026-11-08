@@ -1,0 +1,2020 @@
+[
+ {
+  "id": "prayer-001",
+  "d": 1,
+  "q": "Who gave the Church the prayer we call the Lord's Prayer, or Our Father?",
+  "o": [
+   "John the Baptist",
+   "The apostle Paul",
+   "Jesus Christ",
+   "The prophet Moses"
+  ],
+  "a": 2,
+  "why": "It is called the Lord's Prayer because it comes to us from the Lord Jesus, the master and model of our prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2775",
+   "ccc": 2775,
+   "quote": "It is called \"the Lord's Prayer\" because it comes to us from the Lord Jesus",
+   "note": "It is called the Lord's Prayer because it comes to us from the Lord Jesus, the master and model of our prayer."
+  }
+ },
+ {
+  "id": "prayer-002",
+  "d": 1,
+  "q": "How many petitions are there in the Our Father?",
+  "o": [
+   "Seven",
+   "Three",
+   "Five",
+   "Ten"
+  ],
+  "a": 0,
+  "why": "The Spirit of adoption stirs up in our hearts seven petitions, seven blessings.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2803",
+   "ccc": 2803,
+   "quote": "the Spirit of adoption stirs up in our hearts seven petitions, seven blessings",
+   "note": "The Spirit of adoption stirs up in our hearts seven petitions, seven blessings."
+  }
+ },
+ {
+  "id": "prayer-003",
+  "d": 1,
+  "q": "Complete the line from Matthew 6: \"Give us today our daily ___.\"",
+  "o": [
+   "water",
+   "manna",
+   "grace",
+   "bread"
+  ],
+  "a": 3,
+  "why": "Jesus teaches us to ask the Father for our daily bread.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 6:11",
+   "ref": "MAT.6.11",
+   "quote": "Give us today our daily bread.",
+   "note": "Jesus teaches us to ask the Father for our daily bread."
+  }
+ },
+ {
+  "id": "prayer-004",
+  "d": 1,
+  "q": "The last petition of the Our Father asks God to do what?",
+  "o": [
+   "Forgive us our trespasses",
+   "Deliver us from evil",
+   "Give us our daily bread",
+   "Let his kingdom come"
+  ],
+  "a": 1,
+  "why": "The last petition is \"but deliver us from evil.\"",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2864",
+   "ccc": 2864,
+   "quote": "In the last petition, \"but deliver us from evil,\"",
+   "note": "The last petition is \"but deliver us from evil.\""
+  }
+ },
+ {
+  "id": "prayer-005",
+  "d": 2,
+  "q": "How many of the seven petitions of the Our Father seek the glory of the Father first of all?",
+  "o": [
+   "The first petition only",
+   "The first five",
+   "The last three",
+   "The first three"
+  ],
+  "a": 3,
+  "why": "The first three petitions (name, kingdom, will) concern the glory of the Father; the other four present our wants.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2857",
+   "ccc": 2857,
+   "quote": "the object of the first three petitions is the glory of the Father",
+   "note": "The first three petitions (name, kingdom, will) concern the glory of the Father; the other four present our wants."
+  }
+ },
+ {
+  "id": "prayer-006",
+  "d": 2,
+  "q": "Which petition is the only one that the Lord returns to and develops explicitly in the Sermon on the Mount?",
+  "o": [
+   "Give us our daily bread",
+   "Forgive us our trespasses",
+   "Thy kingdom come",
+   "Lead us not into temptation"
+  ],
+  "a": 1,
+  "why": "The Catechism notes that the petition about forgiveness is so important that Jesus alone develops it afterward.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2841",
+   "ccc": 2841,
+   "quote": "This petition is so important that it is the only one to which the Lord returns and which he develops explicitly in the Sermon on the Mount",
+   "note": "The Catechism notes that the petition about forgiveness is so important that Jesus alone develops it afterward."
+  }
+ },
+ {
+  "id": "prayer-007",
+  "d": 3,
+  "q": "The Greek word epiousios, translated \"daily\" in \"daily bread\", is found where in the New Testament?",
+  "o": [
+   "Nowhere else",
+   "In every Gospel",
+   "Only in Acts",
+   "In most of Paul's letters"
+  ],
+  "a": 0,
+  "why": "The Catechism notes that \"daily\" (epiousios) occurs nowhere else in the New Testament.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2837",
+   "ccc": 2837,
+   "quote": "\"Daily\" (epiousios) occurs nowhere else in the New Testament.",
+   "note": "The Catechism notes that \"daily\" (epiousios) occurs nowhere else in the New Testament."
+  }
+ },
+ {
+  "id": "prayer-008",
+  "d": 1,
+  "q": "What does the final \"Amen\" of the Our Father mean?",
+  "o": [
+   "Praise the Lord",
+   "Glory to God",
+   "So be it",
+   "Lord, have mercy"
+  ],
+  "a": 2,
+  "why": "Amen means \"So be it,\" ratifying what is contained in the prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2856",
+   "ccc": 2856,
+   "quote": "which means \"So be it,\" thus ratifying with our \"Amen\" what is contained in the prayer that God has taught us",
+   "note": "Amen means \"So be it,\" ratifying what is contained in the prayer."
+  }
+ },
+ {
+  "id": "prayer-009",
+  "d": 2,
+  "q": "According to the Catechism, \"who art in heaven\" does not name a place but refers to what?",
+  "o": [
+   "The sky above us",
+   "God's majesty",
+   "The cloud of Sinai",
+   "The Temple in Jerusalem"
+  ],
+  "a": 1,
+  "why": "Heaven here means the Father's majesty and his presence in the hearts of the just.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2802",
+   "ccc": 2802,
+   "quote": "\"Who art in heaven\" does not refer to a place but to God's majesty and his presence in the hearts of the just.",
+   "note": "Heaven here means the Father's majesty and his presence in the hearts of the just."
+  }
+ },
+ {
+  "id": "prayer-010",
+  "d": 3,
+  "q": "In the Eucharistic liturgy, the Lord's Prayer is placed between the Eucharistic prayer and what?",
+  "o": [
+   "The Gloria",
+   "The homily",
+   "The Creed",
+   "The communion"
+  ],
+  "a": 3,
+  "why": "It stands between the anaphora (Eucharistic prayer) and the communion.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2770",
+   "ccc": 2770,
+   "quote": "Placed between the anaphora (the Eucharistic prayer) and the communion",
+   "note": "It stands between the anaphora (Eucharistic prayer) and the communion."
+  }
+ },
+ {
+  "id": "prayer-011",
+  "d": 2,
+  "q": "The Catechism calls the Lord's Prayer the summary of what?",
+  "o": [
+   "The Ten Commandments",
+   "The Psalter",
+   "The whole gospel",
+   "The Church's creed"
+  ],
+  "a": 2,
+  "why": "The Lord's Prayer \"is truly the summary of the whole gospel.\"",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2761",
+   "ccc": 2761,
+   "quote": "The Lord's Prayer \"is truly the summary of the whole gospel.\"",
+   "note": "The Lord's Prayer \"is truly the summary of the whole gospel.\""
+  }
+ },
+ {
+  "id": "prayer-012",
+  "d": 2,
+  "q": "The third petition, \"Thy will be done\", asks the Father to unite our will to whose will?",
+  "o": [
+   "His Son's",
+   "The Church's",
+   "The angels'",
+   "The prophets'"
+  ],
+  "a": 0,
+  "why": "We ask our Father to unite our will to that of his Son so as to fulfill his plan of salvation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2860",
+   "ccc": 2860,
+   "quote": "In the third petition, we ask our Father to unite our will to that of his Son",
+   "note": "We ask our Father to unite our will to that of his Son so as to fulfill his plan of salvation."
+  }
+ },
+ {
+  "id": "prayer-013",
+  "d": 2,
+  "q": "According to the Catechism, who is meant by \"evil\" in the petition \"deliver us from evil\"?",
+  "o": [
+   "Pontius Pilate",
+   "King Herod",
+   "Satan, the Evil One",
+   "Judas Iscariot"
+  ],
+  "a": 2,
+  "why": "The Catechism says that in this petition evil is not an abstraction but refers to Satan, the Evil One.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2851",
+   "ccc": 2851,
+   "quote": "evil is not an abstraction, but refers to a person, Satan, the Evil One",
+   "note": "The Catechism says that in this petition evil is not an abstraction but refers to Satan, the Evil One."
+  }
+ },
+ {
+  "id": "prayer-014",
+  "d": 3,
+  "q": "The cry \"Marana tha\" (\"Come, Lord Jesus\") corresponds to which petition of the Our Father?",
+  "o": [
+   "Thy kingdom come",
+   "Hallowed be thy name",
+   "Thy will be done",
+   "Give us this day our daily bread"
+  ],
+  "a": 0,
+  "why": "The Catechism says the petition \"Thy kingdom come\" is the cry \"Marana tha.\"",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2817",
+   "ccc": 2817,
+   "quote": "This petition is \"Marana tha,\" the cry of the Spirit and the Bride: \"Come, Lord Jesus.\"",
+   "note": "The Catechism says the petition \"Thy kingdom come\" is the cry \"Marana tha.\""
+  }
+ },
+ {
+  "id": "prayer-015",
+  "d": 3,
+  "q": "Which early Christian text gives the ending \"For yours are the power and the glory for ever\" with the Lord's Prayer?",
+  "o": [
+   "The Shepherd of Hermas",
+   "The Letter of Barnabas",
+   "The Apostolic Tradition",
+   "The Didache"
+  ],
+  "a": 3,
+  "why": "The Didache already concludes the Lord's Prayer with this doxology.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2760",
+   "ccc": 2760,
+   "quote": "In the Didache, we find, \"For yours are the power and the glory for ever.\"",
+   "note": "The Didache already concludes the Lord's Prayer with this doxology."
+  }
+ },
+ {
+  "id": "prayer-016",
+  "d": 3,
+  "q": "What does the Latin phrase oratio Dominica mean?",
+  "o": [
+   "The prayer of the hours",
+   "The Lord's Prayer",
+   "The Sunday prayer",
+   "The prayer of the Church"
+  ],
+  "a": 1,
+  "why": "The traditional expression means that the prayer is taught and given to us by the Lord Jesus.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2765",
+   "ccc": 2765,
+   "quote": "The traditional expression \"the Lord's Prayer\" - oratio Dominica - means that the prayer to our Father is taught and given to us by the Lord Jesus.",
+   "note": "The traditional expression means that the prayer is taught and given to us by the Lord Jesus."
+  }
+ },
+ {
+  "id": "prayer-017",
+  "d": 1,
+  "q": "Which angel's greeting begins the Hail Mary?",
+  "o": [
+   "Michael",
+   "Raphael",
+   "Uriel",
+   "Gabriel"
+  ],
+  "a": 3,
+  "why": "The greeting of the angel Gabriel opens this prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2676",
+   "ccc": 2676,
+   "quote": "the greeting of the angel Gabriel opens this prayer",
+   "note": "The greeting of the angel Gabriel opens this prayer."
+  }
+ },
+ {
+  "id": "prayer-018",
+  "d": 1,
+  "q": "Complete the line from Luke 1: \"Blessed are you among ___.\"",
+  "o": [
+   "mothers",
+   "women",
+   "virgins",
+   "daughters"
+  ],
+  "a": 1,
+  "why": "Both Gabriel's greeting and Elizabeth's greeting call Mary blessed among women.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 1:42",
+   "ref": "LUK.1.42",
+   "quote": "Blessed are you among women, and blessed is the fruit of your womb!",
+   "note": "Both Gabriel's greeting and Elizabeth's greeting call Mary blessed among women."
+  }
+ },
+ {
+  "id": "prayer-019",
+  "d": 2,
+  "q": "Who said to Mary, \"Blessed are you among women, and blessed is the fruit of your womb\"?",
+  "o": [
+   "Elizabeth",
+   "Anna",
+   "Martha",
+   "Mary Magdalene"
+  ],
+  "a": 0,
+  "why": "Elizabeth, filled with the Holy Spirit, greeted Mary at the Visitation.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 1:41-42",
+   "ref": "LUK.1.41-42",
+   "quote": "Elizabeth was filled with the Holy Spirit",
+   "note": "Elizabeth, filled with the Holy Spirit, greeted Mary at the Visitation."
+  }
+ },
+ {
+  "id": "prayer-020",
+  "d": 1,
+  "q": "What is Mary's song of praise in Luke 1 called?",
+  "o": [
+   "The Benedictus",
+   "The Gloria",
+   "The Magnificat",
+   "The Te Deum"
+  ],
+  "a": 2,
+  "why": "The Canticle of Mary is called the Magnificat in Latin.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2619",
+   "ccc": 2619,
+   "quote": "the Canticle of Mary, The Magnificat (Latin)",
+   "note": "The Canticle of Mary is called the Magnificat in Latin."
+  }
+ },
+ {
+  "id": "prayer-021",
+  "d": 1,
+  "q": "Complete Mary's reply to Gabriel: \"let it be done to me according to your ___.\"",
+  "o": [
+   "will",
+   "word",
+   "wish",
+   "promise"
+  ],
+  "a": 1,
+  "why": "Mary's Fiat: \"Behold, the servant of the Lord; let it be done to me according to your word.\"",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 1:38",
+   "ref": "LUK.1.38",
+   "quote": "let it be done to me according to your word",
+   "note": "Mary's Fiat: \"Behold, the servant of the Lord; let it be done to me according to your word.\""
+  }
+ },
+ {
+  "id": "prayer-022",
+  "d": 1,
+  "q": "Which Gospel tells of the Annunciation, the first Joyful Mystery?",
+  "o": [
+   "Mark",
+   "John",
+   "Matthew",
+   "Luke"
+  ],
+  "a": 3,
+  "why": "The angel's visit to Mary is told in Luke 1.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 1:30-31",
+   "ref": "LUK.1.30-31",
+   "quote": "you will conceive in your womb and give birth to a son, and shall name him ‘Jesus.’",
+   "note": "The angel's visit to Mary is told in Luke 1."
+  }
+ },
+ {
+  "id": "prayer-023",
+  "d": 2,
+  "q": "According to Butler's Lives of the Saints, how many Hail Marys did the Rosary instituted by St. Dominic contain?",
+  "o": [
+   "50",
+   "100",
+   "150",
+   "200"
+  ],
+  "a": 2,
+  "why": "Butler says Dominic's Rosary consisted of fifteen Our Fathers and a hundred and fifty Hail Marys.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler: St. Dominic",
+   "butler": "08-04:0",
+   "quote": "fifteen Our Fathers and a hundred and fifty Hail Marys",
+   "note": "Butler says Dominic's Rosary consisted of fifteen Our Fathers and a hundred and fifty Hail Marys."
+  }
+ },
+ {
+  "id": "prayer-024",
+  "d": 3,
+  "q": "The Feast of the Rosary commemorates the victory at which battle in 1571?",
+  "o": [
+   "Lepanto",
+   "Tours",
+   "Vienna",
+   "Poitiers"
+  ],
+  "a": 0,
+  "why": "Butler says the feast gives thanks for the victory of Lepanto in 1571, obtained with the Rosary.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler: Festival of the Rosary",
+   "butler": "10-01:5",
+   "quote": "victory of Lepanto in 1571",
+   "note": "Butler says the feast gives thanks for the victory of Lepanto in 1571, obtained with the Rosary."
+  }
+ },
+ {
+  "id": "prayer-025",
+  "d": 2,
+  "q": "The Angelus, the \"triple salutation\" to the Virgin, was ordered by Pope Urban II to be signaled by a bell at what times?",
+  "o": [
+   "Dawn and dusk only",
+   "Sunday morning only",
+   "Morning, noon and night",
+   "Midnight and noon"
+  ],
+  "a": 2,
+  "why": "Butler records that Urban II ordered the bell rung daily for the Angelus Domini at morning, noon and night.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler: The Annunciation",
+   "butler": "03-25:0",
+   "quote": "ordered the bell to be rung every day for the triple Angelical Salutation, called Angelus Domini, at morning, noon, and night",
+   "note": "Butler records that Urban II ordered the bell rung daily for the Angelus Domini at morning, noon and night."
+  }
+ },
+ {
+  "id": "prayer-026",
+  "d": 3,
+  "q": "Which Franciscan saint and Doctor ordered the Angelus to be recited every evening at six o'clock?",
+  "o": [
+   "St. Bonaventure",
+   "St. Anthony of Padua",
+   "St. Francis of Assisi",
+   "St. Thomas Aquinas"
+  ],
+  "a": 0,
+  "why": "Bonaventure, at a general chapter, ordered the triple salutation called the Angelus Domini to be said each evening.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler: St. Bonaventure",
+   "butler": "07-14:0",
+   "quote": "he ordered the triple salutation of the Blessed Virgin called the Angelus Domini to be recited every evening at six o’clock",
+   "note": "Bonaventure, at a general chapter, ordered the triple salutation called the Angelus Domini to be said each evening."
+  }
+ },
+ {
+  "id": "prayer-027",
+  "d": 2,
+  "q": "The Catechism says medieval piety developed the Rosary as a popular substitute for what?",
+  "o": [
+   "The Mass",
+   "The Stations of the Cross",
+   "The Litany of the Saints",
+   "The Liturgy of the Hours"
+  ],
+  "a": 3,
+  "why": "Medieval Western piety made the Rosary a popular counterpart to the choral Divine Office.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2678",
+   "ccc": 2678,
+   "quote": "Medieval piety in the West developed the prayer of the rosary as a popular substitute for the Liturgy of the Hours.",
+   "note": "Medieval Western piety made the Rosary a popular counterpart to the choral Divine Office."
+  }
+ },
+ {
+  "id": "prayer-028",
+  "d": 1,
+  "q": "From the Cross, Jesus said to his mother, \"Woman, behold, ___.\"",
+  "o": [
+   "your Lord",
+   "your son",
+   "your child",
+   "your servant"
+  ],
+  "a": 1,
+  "why": "Jesus entrusted the beloved disciple to Mary, saying \"Woman, behold, your son!\"",
+  "src": {
+   "kind": "scripture",
+   "label": "John 19:26",
+   "ref": "JHN.19.26-27",
+   "quote": "Woman, behold, your son!",
+   "note": "Jesus entrusted the beloved disciple to Mary, saying \"Woman, behold, your son!\""
+  }
+ },
+ {
+  "id": "prayer-029",
+  "d": 1,
+  "q": "In Luke 2, what did Mary do with the sayings of the shepherds?",
+  "o": [
+   "Wrote them in a scroll",
+   "Told them to Joseph",
+   "Sang them in the Temple",
+   "Pondered them in her heart"
+  ],
+  "a": 3,
+  "why": "Luke records that Mary kept all these sayings, pondering them in her heart.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 2:19",
+   "ref": "LUK.2.19",
+   "quote": "Mary kept all these sayings, pondering them in her heart.",
+   "note": "Luke records that Mary kept all these sayings, pondering them in her heart."
+  }
+ },
+ {
+  "id": "prayer-030",
+  "d": 2,
+  "q": "According to the Catechism, from whom did Jesus learn to pray in his human heart?",
+  "o": [
+   "Zechariah the priest",
+   "His mother Mary",
+   "His cousin John",
+   "The scribes of Nazareth"
+  ],
+  "a": 1,
+  "why": "The Son of God learned to pray in his human heart, from his mother and in the words of his people.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2599",
+   "ccc": 2599,
+   "quote": "He learns to pray from his mother",
+   "note": "The Son of God learned to pray in his human heart, from his mother and in the words of his people."
+  }
+ },
+ {
+  "id": "prayer-031",
+  "d": 2,
+  "q": "Into how many books were the psalms gradually collected to form the Psalter?",
+  "o": [
+   "Five",
+   "Three",
+   "Seven",
+   "Twelve"
+  ],
+  "a": 0,
+  "why": "The psalms were gathered into the five books of the Psalter, or \"Praises.\"",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2585",
+   "ccc": 2585,
+   "quote": "the psalms were gradually collected into the five books of the Psalter (or \"Praises\")",
+   "note": "The psalms were gathered into the five books of the Psalter, or \"Praises.\""
+  }
+ },
+ {
+  "id": "prayer-032",
+  "d": 2,
+  "q": "The Catechism notes the Psalter's traditional title means what?",
+  "o": [
+   "The Songs of Zion",
+   "The Lamentations",
+   "The Praises",
+   "The Hymns of David"
+  ],
+  "a": 2,
+  "why": "The title handed down for the collection is \"The Praises,\" because the psalms are sustained by praise.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2589",
+   "ccc": 2589,
+   "quote": "the prayer of the psalms is always sustained by praise; that is why the title of this collection as handed down to us is so fitting: \"The Praises.\"",
+   "note": "The title handed down for the collection is \"The Praises,\" because the psalms are sustained by praise."
+  }
+ },
+ {
+  "id": "prayer-033",
+  "d": 1,
+  "q": "Which king is called \"par excellence the king after God's own heart\" and the first prophet of Jewish and Christian prayer in the Psalms?",
+  "o": [
+   "Solomon",
+   "David",
+   "Saul",
+   "Hezekiah"
+  ],
+  "a": 1,
+  "why": "David, inspired by the Holy Spirit, is the first prophet of Jewish and Christian prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2579",
+   "ccc": 2579,
+   "quote": "David is par excellence the king \"after God's own heart,\"",
+   "note": "David, inspired by the Holy Spirit, is the first prophet of Jewish and Christian prayer."
+  }
+ },
+ {
+  "id": "prayer-034",
+  "d": 1,
+  "q": "Complete Psalm 23: \"The LORD is my ___.\"",
+  "o": [
+   "rock",
+   "fortress",
+   "shield",
+   "shepherd"
+  ],
+  "a": 3,
+  "why": "Psalm 23 opens with this image of God as shepherd.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 23:1",
+   "ref": "PSA.23.1",
+   "quote": "The LORD is my shepherd",
+   "note": "Psalm 23 opens with this image of God as shepherd."
+  }
+ },
+ {
+  "id": "prayer-035",
+  "d": 1,
+  "q": "Complete Psalm 51: \"Create in me a clean ___, O God.\"",
+  "o": [
+   "spirit",
+   "mind",
+   "heart",
+   "soul"
+  ],
+  "a": 2,
+  "why": "David's penitential prayer asks God for a clean heart.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 51:10",
+   "ref": "PSA.51.10",
+   "quote": "Create in me a clean heart, O God.",
+   "note": "David's penitential prayer asks God for a clean heart."
+  }
+ },
+ {
+  "id": "prayer-036",
+  "d": 2,
+  "q": "Complete Psalm 119: \"Your word is a lamp to my ___.\"",
+  "o": [
+   "feet",
+   "eyes",
+   "hands",
+   "path"
+  ],
+  "a": 0,
+  "why": "Psalm 119:105 calls God's word a lamp to the psalmist's feet.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 119:105",
+   "ref": "PSA.119.105",
+   "quote": "Your word is a lamp to my feet",
+   "note": "Psalm 119:105 calls God's word a lamp to the psalmist's feet."
+  }
+ },
+ {
+  "id": "prayer-037",
+  "d": 2,
+  "q": "Which psalm begins, \"Out of the depths I have cried to you, LORD\"?",
+  "o": [
+   "Psalm 23",
+   "Psalm 51",
+   "Psalm 130",
+   "Psalm 150"
+  ],
+  "a": 2,
+  "why": "Psalm 130, the De Profundis, begins with this cry from the depths.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 130:1",
+   "ref": "PSA.130.1",
+   "quote": "Out of the depths I have cried to you, LORD.",
+   "note": "Psalm 130, the De Profundis, begins with this cry from the depths."
+  }
+ },
+ {
+  "id": "prayer-038",
+  "d": 1,
+  "q": "Complete Psalm 19: \"The heavens declare the ___ of God.\"",
+  "o": [
+   "glory",
+   "power",
+   "wonder",
+   "love"
+  ],
+  "a": 0,
+  "why": "Psalm 19 opens by praising God's glory shown in the heavens.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 19:1",
+   "ref": "PSA.19.1",
+   "quote": "The heavens declare the glory of God.",
+   "note": "Psalm 19 opens by praising God's glory shown in the heavens."
+  }
+ },
+ {
+  "id": "prayer-039",
+  "d": 2,
+  "q": "Which psalm opens with the words Jesus cried on the Cross, \"My God, my God, why have you forsaken me?\"",
+  "o": [
+   "Psalm 27",
+   "Psalm 42",
+   "Psalm 91",
+   "Psalm 22"
+  ],
+  "a": 3,
+  "why": "Psalm 22 begins with these words.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 22:1",
+   "ref": "PSA.22.1",
+   "quote": "My God, my God, why have you forsaken me?",
+   "note": "Psalm 22 begins with these words."
+  }
+ },
+ {
+  "id": "prayer-040",
+  "d": 2,
+  "q": "In Psalm 42, which animal pants for the water brooks?",
+  "o": [
+   "The lamb",
+   "The deer",
+   "The eagle",
+   "The dove"
+  ],
+  "a": 1,
+  "why": "Psalm 42 begins, \"As the deer pants for the water brooks.\"",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 42:1",
+   "ref": "PSA.42.1",
+   "quote": "As the deer pants for the water brooks",
+   "note": "Psalm 42 begins, \"As the deer pants for the water brooks.\""
+  }
+ },
+ {
+  "id": "prayer-041",
+  "d": 3,
+  "q": "How many times a day does the psalmist of Psalm 119 say he praises God?",
+  "o": [
+   "Three times",
+   "Five times",
+   "Twelve times",
+   "Seven times"
+  ],
+  "a": 3,
+  "why": "Psalm 119:164 says, \"Seven times a day, I praise you.\"",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 119:164",
+   "ref": "PSA.119.164",
+   "quote": "Seven times a day, I praise you",
+   "note": "Psalm 119:164 says, \"Seven times a day, I praise you.\""
+  }
+ },
+ {
+  "id": "prayer-042",
+  "d": 2,
+  "q": "Complete Psalm 141: \"Let my prayer be set before you like ___.\"",
+  "o": [
+   "a lamp",
+   "incense",
+   "a river",
+   "a banner"
+  ],
+  "a": 1,
+  "why": "Psalm 141:2 compares prayer to incense.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 141:2",
+   "ref": "PSA.141.2",
+   "quote": "Let my prayer be set before you like incense",
+   "note": "Psalm 141:2 compares prayer to incense."
+  }
+ },
+ {
+  "id": "prayer-043",
+  "d": 1,
+  "q": "Complete Psalm 46: \"Be still, and ___ that I am God.\"",
+  "o": [
+   "know",
+   "pray",
+   "believe",
+   "hear"
+  ],
+  "a": 0,
+  "why": "Psalm 46:10 invites stillness before God.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 46:10",
+   "ref": "PSA.46.10",
+   "quote": "Be still, and know that I am God.",
+   "note": "Psalm 46:10 invites stillness before God."
+  }
+ },
+ {
+  "id": "prayer-044",
+  "d": 2,
+  "q": "Which form of prayer is \"the first attitude of man acknowledging that he is a creature before his Creator\"?",
+  "o": [
+   "Petition",
+   "Thanksgiving",
+   "Adoration",
+   "Intercession"
+  ],
+  "a": 2,
+  "why": "The Catechism describes adoration as this first attitude.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2628",
+   "ccc": 2628,
+   "quote": "Adoration is the first attitude of man acknowledging that he is a creature before his Creator.",
+   "note": "The Catechism describes adoration as this first attitude."
+  }
+ },
+ {
+  "id": "prayer-045",
+  "d": 1,
+  "q": "Which form of prayer lauds God \"simply because HE IS\"?",
+  "o": [
+   "Petition",
+   "Praise",
+   "Intercession",
+   "Contrition"
+  ],
+  "a": 1,
+  "why": "Praise gives God glory for his own sake, quite beyond what he has done.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2639",
+   "ccc": 2639,
+   "quote": "Praise is the form of prayer which recognizes most immediately that God is God.",
+   "note": "Praise gives God glory for his own sake, quite beyond what he has done."
+  }
+ },
+ {
+  "id": "prayer-046",
+  "d": 1,
+  "q": "What do we call prayer that asks on behalf of another person?",
+  "o": [
+   "Adoration",
+   "Thanksgiving",
+   "Meditation",
+   "Intercession"
+  ],
+  "a": 3,
+  "why": "Intercession is asking on behalf of another, characteristic of a heart attuned to God's mercy.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2635",
+   "ccc": 2635,
+   "quote": "intercession - asking on behalf of another has been characteristic of a heart attuned to God's mercy",
+   "note": "Intercession is asking on behalf of another, characteristic of a heart attuned to God's mercy."
+  }
+ },
+ {
+  "id": "prayer-047",
+  "d": 3,
+  "q": "According to the Catechism, what is the first movement of the prayer of petition?",
+  "o": [
+   "Asking for daily bread",
+   "Asking for healing",
+   "Asking forgiveness",
+   "Asking for the Kingdom"
+  ],
+  "a": 2,
+  "why": "Asking forgiveness is a prerequisite for righteous and pure prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2631",
+   "ccc": 2631,
+   "quote": "The first movement of the prayer of petition is asking forgiveness, like the tax collector in the parable",
+   "note": "Asking forgiveness is a prerequisite for righteous and pure prayer."
+  }
+ },
+ {
+  "id": "prayer-048",
+  "d": 1,
+  "q": "In Jesus' parable, who prayed, \"God, be merciful to me, a sinner!\"?",
+  "o": [
+   "The tax collector",
+   "The Pharisee",
+   "The prodigal son",
+   "The rich young man"
+  ],
+  "a": 0,
+  "why": "The tax collector stood far off and beat his chest as he prayed.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 18:13",
+   "ref": "LUK.18.13",
+   "quote": "God, be merciful to me, a sinner!",
+   "note": "The tax collector stood far off and beat his chest as he prayed."
+  }
+ },
+ {
+  "id": "prayer-049",
+  "d": 2,
+  "q": "Which letter of St. Paul says, \"Pray without ceasing\"?",
+  "o": [
+   "Romans",
+   "Galatians",
+   "First Thessalonians",
+   "Philemon"
+  ],
+  "a": 2,
+  "why": "The exhortation comes in 1 Thessalonians 5:17.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Thessalonians 5:17",
+   "ref": "1TH.5.17",
+   "quote": "Pray without ceasing.",
+   "note": "The exhortation comes in 1 Thessalonians 5:17."
+  }
+ },
+ {
+  "id": "prayer-050",
+  "d": 2,
+  "q": "What does the Catechism name the \"habitual difficulty in prayer\"?",
+  "o": [
+   "Distraction",
+   "Scrupulosity",
+   "Impatience",
+   "Boredom"
+  ],
+  "a": 0,
+  "why": "The Catechism says the habitual difficulty in prayer is distraction.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2729",
+   "ccc": 2729,
+   "quote": "The habitual difficulty in prayer is distraction.",
+   "note": "The Catechism says the habitual difficulty in prayer is distraction."
+  }
+ },
+ {
+  "id": "prayer-051",
+  "d": 3,
+  "q": "What word do spiritual writers use for a form of depression due to lax ascetical practice and carelessness of heart?",
+  "o": [
+   "Avarice",
+   "Envy",
+   "Gluttony",
+   "Acedia"
+  ],
+  "a": 3,
+  "why": "The Catechism names acedia as a temptation against prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2733",
+   "ccc": 2733,
+   "quote": "Another temptation, to which presumption opens the gate, is acedia.",
+   "note": "The Catechism names acedia as a temptation against prayer."
+  }
+ },
+ {
+  "id": "prayer-052",
+  "d": 1,
+  "q": "Complete the Jesus Prayer: \"Lord Jesus Christ, Son of God, have mercy on me, a ___.\"",
+  "o": [
+   "servant",
+   "sinner",
+   "child",
+   "pilgrim"
+  ],
+  "a": 1,
+  "why": "The Jesus Prayer is the Eastern prayer of the heart.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 435",
+   "ccc": 435,
+   "quote": "the Jesus Prayer, says: \"Lord Jesus Christ, Son of God, have mercy on me, a sinner.\"",
+   "note": "The Jesus Prayer is the Eastern prayer of the heart."
+  }
+ },
+ {
+  "id": "prayer-053",
+  "d": 3,
+  "q": "The Jesus Prayer was handed on by spiritual writers of Sinai, Syria and which other holy mountain?",
+  "o": [
+   "Mount Carmel",
+   "Monte Cassino",
+   "Mount Tabor",
+   "Mount Athos"
+  ],
+  "a": 3,
+  "why": "The most usual formulation is transmitted by the spiritual writers of the Sinai, Syria and Mt. Athos.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2667",
+   "ccc": 2667,
+   "quote": "transmitted by the spiritual writers of the Sinai, Syria, and Mt. Athos",
+   "note": "The most usual formulation is transmitted by the spiritual writers of the Sinai, Syria and Mt. Athos."
+  }
+ },
+ {
+  "id": "prayer-054",
+  "d": 3,
+  "q": "According to the Catechism, which saint died with the single word \"Jesus\" on her lips?",
+  "o": [
+   "Teresa of Avila",
+   "Joan of Arc",
+   "Catherine of Siena",
+   "Clare of Assisi"
+  ],
+  "a": 1,
+  "why": "Many Christians, such as St. Joan of Arc, have died with the name of Jesus on their lips.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 435",
+   "ccc": 435,
+   "quote": "Many Christians, such as St. Joan of Arc, have died with the one word \"Jesus\" on their lips.",
+   "note": "Many Christians, such as St. Joan of Arc, have died with the name of Jesus on their lips."
+  }
+ },
+ {
+  "id": "prayer-055",
+  "d": 2,
+  "q": "The Catechism says prayer is the raising of one's mind and heart to God. Which saint is quoted for this definition?",
+  "o": [
+   "St. John Damascene",
+   "St. Augustine",
+   "St. Gregory the Great",
+   "St. Ambrose"
+  ],
+  "a": 0,
+  "why": "The definition is cited from St. John Damascene.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2590",
+   "ccc": 2590,
+   "quote": "(St. John Damascene, Defide orth. 3, 24",
+   "note": "The definition is cited from St. John Damascene."
+  }
+ },
+ {
+  "id": "prayer-056",
+  "d": 2,
+  "q": "In biblical language, from what place within us does prayer spring?",
+  "o": [
+   "The memory",
+   "The will",
+   "The heart",
+   "The conscience"
+  ],
+  "a": 2,
+  "why": "Scripture speaks most often of the heart as the source of prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2562",
+   "ccc": 2562,
+   "quote": "Scripture speaks sometimes of the soul or the spirit, but most often of the heart",
+   "note": "Scripture speaks most often of the heart as the source of prayer."
+  }
+ },
+ {
+  "id": "prayer-057",
+  "d": 2,
+  "q": "The Catechism says all the great figures of prayer teach that prayer is a what?",
+  "o": [
+   "Burden",
+   "Battle",
+   "Mystery",
+   "Habit"
+  ],
+  "a": 1,
+  "why": "Prayer is both a gift of grace and a determined response, and it always presupposes effort.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2725",
+   "ccc": 2725,
+   "quote": "prayer is a battle.",
+   "note": "Prayer is both a gift of grace and a determined response, and it always presupposes effort."
+  }
+ },
+ {
+  "id": "prayer-058",
+  "d": 1,
+  "q": "The Catechism calls what the first place of education in prayer?",
+  "o": [
+   "The parish school",
+   "The monastery",
+   "The seminary",
+   "The Christian family"
+  ],
+  "a": 3,
+  "why": "The Christian family is the first place for education in prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2694",
+   "ccc": 2694,
+   "quote": "The Christian family is the first place for education in prayer.",
+   "note": "The Christian family is the first place for education in prayer."
+  }
+ },
+ {
+  "id": "prayer-059",
+  "d": 3,
+  "q": "A peasant of Ars described his prayer before the tabernacle with which words?",
+  "o": [
+   "\"I speak to him and he answers\"",
+   "\"I kneel to him and he lifts me\"",
+   "\"I look at him and he looks at me\"",
+   "\"I wait for him and he finds me\""
+  ],
+  "a": 2,
+  "why": "The Catechism quotes this simple description of contemplation as a gaze of faith fixed on Jesus.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2715",
+   "ccc": 2715,
+   "quote": "\"I look at him and he looks at me\": this is what a certain peasant of Ars used to say to his holy cure about his prayer before the tabernacle.",
+   "note": "The Catechism quotes this simple description of contemplation as a gaze of faith fixed on Jesus."
+  }
+ },
+ {
+  "id": "prayer-060",
+  "d": 1,
+  "q": "Who is called \"the interior Master of Christian prayer\"?",
+  "o": [
+   "The Holy Spirit",
+   "The guardian angel",
+   "The parish priest",
+   "The Blessed Virgin"
+  ],
+  "a": 0,
+  "why": "The Holy Spirit, whose anointing permeates our whole being, is the interior Master of prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2672",
+   "ccc": 2672,
+   "quote": "The Holy Spirit, whose anointing permeates our whole being, is the interior Master of Christian prayer.",
+   "note": "The Holy Spirit, whose anointing permeates our whole being, is the interior Master of prayer."
+  }
+ },
+ {
+  "id": "prayer-061",
+  "d": 1,
+  "q": "In Romans 8, who helps us because \"we don't know how to pray as we ought\"?",
+  "o": [
+   "The angels",
+   "The saints",
+   "The Spirit",
+   "The apostles"
+  ],
+  "a": 2,
+  "why": "Paul says the Spirit himself makes intercession for us.",
+  "src": {
+   "kind": "scripture",
+   "label": "Romans 8:26",
+   "ref": "ROM.8.26",
+   "quote": "we don’t know how to pray as we ought",
+   "note": "Paul says the Spirit himself makes intercession for us."
+  }
+ },
+ {
+  "id": "prayer-062",
+  "d": 3,
+  "q": "The long prayer of Jesus in John 17 is traditionally called what?",
+  "o": [
+   "His priestly prayer",
+   "His farewell psalm",
+   "His prayer of anguish",
+   "His high feast prayer"
+  ],
+  "a": 0,
+  "why": "Christian Tradition rightly calls this prayer the \"priestly\" prayer of Jesus.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2747",
+   "ccc": 2747,
+   "quote": "Christian Tradition rightly calls this prayer the \"priestly\" prayer of Jesus.",
+   "note": "Christian Tradition rightly calls this prayer the \"priestly\" prayer of Jesus."
+  }
+ },
+ {
+  "id": "prayer-063",
+  "d": 1,
+  "q": "Complete Jesus' words: \"Ask, and it will be given you. Seek, and you will find. ___, and it will be opened for you.\"",
+  "o": [
+   "Pray",
+   "Wait",
+   "Believe",
+   "Knock"
+  ],
+  "a": 3,
+  "why": "Matthew 7:7 encourages persistent prayer.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 7:7",
+   "ref": "MAT.7.7",
+   "quote": "Ask, and it will be given you. Seek, and you will find. Knock, and it will be opened for you.",
+   "note": "Matthew 7:7 encourages persistent prayer."
+  }
+ },
+ {
+  "id": "prayer-064",
+  "d": 2,
+  "q": "The parable of the persistent widow was told to teach the disciples to do what?",
+  "o": [
+   "Forgive seventy times",
+   "Always pray and not give up",
+   "Give alms in secret",
+   "Watch for the bridegroom"
+  ],
+  "a": 1,
+  "why": "Luke introduces the parable as teaching that they must always pray and not give up.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 18:1",
+   "ref": "LUK.18.1",
+   "quote": "they must always pray and not give up",
+   "note": "Luke introduces the parable as teaching that they must always pray and not give up."
+  }
+ },
+ {
+  "id": "prayer-065",
+  "d": 1,
+  "q": "In Gethsemane Jesus prayed, \"Father, if you are willing, remove this ___ from me.\"",
+  "o": [
+   "trial",
+   "burden",
+   "hour",
+   "cup"
+  ],
+  "a": 3,
+  "why": "Luke 22:42 records Jesus' prayer, ending \"not my will, but yours, be done.\"",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 22:42",
+   "ref": "LUK.22.42",
+   "quote": "Father, if you are willing, remove this cup from me.",
+   "note": "Luke 22:42 records Jesus' prayer, ending \"not my will, but yours, be done.\""
+  }
+ },
+ {
+  "id": "prayer-066",
+  "d": 1,
+  "q": "On the Cross, Jesus prayed, \"Father, forgive them, for they don't know what they are ___.\"",
+  "o": [
+   "saying",
+   "doing",
+   "seeking",
+   "thinking"
+  ],
+  "a": 1,
+  "why": "Luke 23:34 records this prayer for his executioners.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 23:34",
+   "ref": "LUK.23.34",
+   "quote": "Father, forgive them, for they don’t know what they are doing.",
+   "note": "Luke 23:34 records this prayer for his executioners."
+  }
+ },
+ {
+  "id": "prayer-067",
+  "d": 1,
+  "q": "How did Jesus spend the night on the mountain before he chose the Twelve?",
+  "o": [
+   "In prayer to God",
+   "In fasting alone",
+   "In teaching crowds",
+   "In healing the sick"
+  ],
+  "a": 0,
+  "why": "Luke says he continued all night in prayer to God, and in the morning chose twelve.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 6:12-13",
+   "ref": "LUK.6.12-13",
+   "quote": "he continued all night in prayer to God",
+   "note": "Luke says he continued all night in prayer to God, and in the morning chose twelve."
+  }
+ },
+ {
+  "id": "prayer-068",
+  "d": 2,
+  "q": "How many times a day did Daniel kneel to pray and give thanks to God?",
+  "o": [
+   "Two",
+   "Five",
+   "Three",
+   "Seven"
+  ],
+  "a": 2,
+  "why": "Daniel 6:10 says he knelt three times a day.",
+  "src": {
+   "kind": "scripture",
+   "label": "Daniel 6:10",
+   "ref": "DAN.6.10",
+   "quote": "he kneeled on his knees three times a day, and prayed, and gave thanks before his God",
+   "note": "Daniel 6:10 says he knelt three times a day."
+  }
+ },
+ {
+  "id": "prayer-069",
+  "d": 1,
+  "q": "Where did Jonah pray to the LORD his God?",
+  "o": [
+   "On a mountaintop",
+   "From the belly of the fish",
+   "In the Temple",
+   "In the city of Nineveh"
+  ],
+  "a": 1,
+  "why": "Jonah 2:1 says he prayed out of the fish's belly.",
+  "src": {
+   "kind": "scripture",
+   "label": "Jonah 2:1",
+   "ref": "JON.2.1",
+   "quote": "Then Jonah prayed to the LORD, his God, out of the fish’s belly.",
+   "note": "Jonah 2:1 says he prayed out of the fish's belly."
+  }
+ },
+ {
+  "id": "prayer-070",
+  "d": 2,
+  "q": "Which mother said, \"I prayed for this child, and the LORD has given me my petition\"?",
+  "o": [
+   "Sarah",
+   "Rebekah",
+   "Ruth",
+   "Hannah"
+  ],
+  "a": 3,
+  "why": "Hannah spoke these words of Samuel when she brought him to Eli.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Samuel 1:27",
+   "ref": "1SA.1.27",
+   "quote": "I prayed for this child, and the LORD has given me my petition which I asked of him.",
+   "note": "Hannah spoke these words of Samuel when she brought him to Eli."
+  }
+ },
+ {
+  "id": "prayer-071",
+  "d": 2,
+  "q": "Which prophetess worshiped in the Temple \"with fastings and petitions night and day\"?",
+  "o": [
+   "Deborah",
+   "Miriam",
+   "Anna",
+   "Huldah"
+  ],
+  "a": 2,
+  "why": "Luke 2:37 describes Anna, a widow who never left the Temple.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 2:36-37",
+   "ref": "LUK.2.36-37",
+   "quote": "worshiping with fastings and petitions night and day",
+   "note": "Luke 2:37 describes Anna, a widow who never left the Temple."
+  }
+ },
+ {
+  "id": "prayer-072",
+  "d": 1,
+  "q": "For how many days and nights did Jesus fast in the wilderness?",
+  "o": [
+   "Forty",
+   "Seven",
+   "Twelve",
+   "Three"
+  ],
+  "a": 0,
+  "why": "Matthew 4:2 says he fasted forty days and forty nights.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 4:2",
+   "ref": "MAT.4.2",
+   "quote": "When he had fasted forty days and forty nights, he was hungry afterward.",
+   "note": "Matthew 4:2 says he fasted forty days and forty nights."
+  }
+ },
+ {
+  "id": "prayer-073",
+  "d": 2,
+  "q": "Scripture and the Fathers insist on three forms of penance: fasting, prayer and what?",
+  "o": [
+   "Pilgrimage",
+   "Silence",
+   "Almsgiving",
+   "Confession"
+  ],
+  "a": 2,
+  "why": "The three express conversion in relation to oneself, to God and to others.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1434",
+   "ccc": 1434,
+   "quote": "Scripture and the Fathers insist above all on three forms, fasting, prayer, and almsgiving",
+   "note": "The three express conversion in relation to oneself, to God and to others."
+  }
+ },
+ {
+  "id": "prayer-074",
+  "d": 1,
+  "q": "Besides Lent, which day of every week is a penitential day in memory of the Lord's death?",
+  "o": [
+   "Friday",
+   "Wednesday",
+   "Saturday",
+   "Monday"
+  ],
+  "a": 0,
+  "why": "The Catechism names Lent and each Friday as intense moments of penitential practice.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1438",
+   "ccc": 1438,
+   "quote": "The seasons and days of penance in the course of the liturgical year (Lent, and each Friday in memory of the death of the Lord)",
+   "note": "The Catechism names Lent and each Friday as intense moments of penitential practice."
+  }
+ },
+ {
+  "id": "prayer-075",
+  "d": 3,
+  "q": "In the Book of Tobit, prayer is called good when joined with fasting and what?",
+  "o": [
+   "Silence",
+   "Sacrifice",
+   "Thanksgiving",
+   "Alms"
+  ],
+  "a": 3,
+  "why": "Tobit 12:8 says \"Good is prayer with fasting, alms, and righteousness.\"",
+  "src": {
+   "kind": "scripture",
+   "label": "Tobit 12:8",
+   "ref": "TOB.12.8",
+   "quote": "Good is prayer with fasting, alms, and righteousness.",
+   "note": "Tobit 12:8 says \"Good is prayer with fasting, alms, and righteousness.\""
+  }
+ },
+ {
+  "id": "prayer-076",
+  "d": 3,
+  "q": "Which prophet records the LORD's call, \"Turn to me with all your heart\"?",
+  "o": [
+   "Amos",
+   "Joel",
+   "Hosea",
+   "Micah"
+  ],
+  "a": 1,
+  "why": "Joel 2:12 is the call to repentance read each Ash Wednesday.",
+  "src": {
+   "kind": "scripture",
+   "label": "Joel 2:12",
+   "ref": "JOL.2.12",
+   "quote": "turn to me with all your heart",
+   "note": "Joel 2:12 is the call to repentance read each Ash Wednesday."
+  }
+ },
+ {
+  "id": "prayer-077",
+  "d": 3,
+  "q": "According to Isaiah 58, the fast God chooses includes sharing bread with whom?",
+  "o": [
+   "The priests",
+   "The elders",
+   "The stranger at the gate",
+   "The hungry"
+  ],
+  "a": 3,
+  "why": "Isaiah 58 describes the true fast as distributing bread to the hungry.",
+  "src": {
+   "kind": "scripture",
+   "label": "Isaiah 58:6-7",
+   "ref": "ISA.58.6-7",
+   "quote": "Isn’t this the fast that I have chosen: Isn’t it to distribute your bread to the hungry",
+   "note": "Isaiah 58 describes the true fast as distributing bread to the hungry."
+  }
+ },
+ {
+  "id": "prayer-078",
+  "d": 2,
+  "q": "In The Imitation of Christ, Jesus has many lovers of his kingdom but few bearers of what?",
+  "o": [
+   "His poverty",
+   "His Cross",
+   "His name",
+   "His silence"
+  ],
+  "a": 1,
+  "why": "Thomas a Kempis writes that Jesus has many lovers of his heavenly kingdom, but few bearers of his Cross.",
+  "src": {
+   "kind": "saint",
+   "label": "Imitation of Christ",
+   "work": "kempis-imitation",
+   "section": "s36",
+   "quote": "Jesus hath many lovers of His heavenly kingdom, but few bearers of His Cross.",
+   "note": "Thomas a Kempis writes that Jesus has many lovers of his heavenly kingdom, but few bearers of his Cross."
+  }
+ },
+ {
+  "id": "prayer-079",
+  "d": 2,
+  "q": "What is the Liturgy of the Hours also called?",
+  "o": [
+   "The divine office",
+   "The Great Entrance",
+   "The Paschal vigil",
+   "The stations"
+  ],
+  "a": 0,
+  "why": "The Catechism calls it \"the divine office\", the public prayer of the Church through the day.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1174",
+   "ccc": 1174,
+   "quote": "the Liturgy of the Hours, \"the divine office.\"",
+   "note": "The Catechism calls it \"the divine office\", the public prayer of the Church through the day."
+  }
+ },
+ {
+  "id": "prayer-080",
+  "d": 3,
+  "q": "According to the Catechism, which of the principal Hours should especially be celebrated in common in church on Sundays?",
+  "o": [
+   "Matins",
+   "Compline",
+   "Vespers",
+   "Terce"
+  ],
+  "a": 2,
+  "why": "The Catechism says pastors should see that the principal hours, especially Vespers, are celebrated in common.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1175",
+   "ccc": 1175,
+   "quote": "the principal hours, especially Vespers, are celebrated in common in church",
+   "note": "The Catechism says pastors should see that the principal hours, especially Vespers, are celebrated in common."
+  }
+ },
+ {
+  "id": "prayer-081",
+  "d": 2,
+  "q": "The Catechism says the Liturgy of the Hours is like an extension of which celebration?",
+  "o": [
+   "The Easter Vigil",
+   "The Eucharistic celebration",
+   "The sacrament of Penance",
+   "The rosary"
+  ],
+  "a": 1,
+  "why": "It does not exclude the people's devotions, especially adoration of the Blessed Sacrament.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1178",
+   "ccc": 1178,
+   "quote": "The Liturgy of the Hours, which is like an extension of the Eucharistic celebration",
+   "note": "It does not exclude the people's devotions, especially adoration of the Blessed Sacrament."
+  }
+ },
+ {
+  "id": "prayer-082",
+  "d": 2,
+  "q": "St. Therese of Lisieux describes prayer as an uplifting of the what?",
+  "o": [
+   "Voice",
+   "Mind",
+   "Hands",
+   "Heart"
+  ],
+  "a": 3,
+  "why": "In her autobiography she writes that prayer is \"an uplifting of the heart; a glance towards heaven.\"",
+  "src": {
+   "kind": "saint",
+   "label": "Story of a Soul",
+   "work": "therese-story-of-a-soul",
+   "section": "xviii",
+   "quote": "With me prayer is an uplifting of the heart; a glance towards heaven",
+   "note": "In her autobiography she writes that prayer is \"an uplifting of the heart; a glance towards heaven.\""
+  }
+ },
+ {
+  "id": "prayer-083",
+  "d": 1,
+  "q": "By what modest nickname did St. Therese call herself in her autobiography?",
+  "o": [
+   "The Little Dove",
+   "The Little Lamb",
+   "The Little Flower",
+   "The Little Star"
+  ],
+  "a": 2,
+  "why": "She calls herself the Little Flower, emblematic of her humility, purity and simplicity.",
+  "src": {
+   "kind": "saint",
+   "label": "Story of a Soul",
+   "work": "therese-story-of-a-soul",
+   "section": "vii",
+   "quote": "she calls herself by this modest name of the Little Flower",
+   "note": "She calls herself the Little Flower, emblematic of her humility, purity and simplicity."
+  }
+ },
+ {
+  "id": "prayer-084",
+  "d": 2,
+  "q": "In The Interior Castle, St. Teresa of Avila pictures the soul as a castle made of what?",
+  "o": [
+   "A single diamond",
+   "Pure gold",
+   "White marble",
+   "Polished silver"
+  ],
+  "a": 0,
+  "why": "Teresa thought of the soul as a castle formed of a single diamond or very transparent crystal.",
+  "src": {
+   "kind": "saint",
+   "label": "Interior Castle",
+   "work": "teresa-castle",
+   "section": "v.i",
+   "quote": "I thought of the soul as resembling a castle, formed of a single diamond or a very transparent crystal",
+   "note": "Teresa thought of the soul as a castle formed of a single diamond or very transparent crystal."
+  }
+ },
+ {
+  "id": "prayer-085",
+  "d": 1,
+  "q": "How many mansions does St. Teresa describe in The Interior Castle?",
+  "o": [
+   "Three",
+   "Nine",
+   "Seven",
+   "Twelve"
+  ],
+  "a": 2,
+  "why": "Teresa writes of seven mansions, each containing many more rooms.",
+  "src": {
+   "kind": "saint",
+   "label": "Interior Castle",
+   "work": "teresa-castle",
+   "section": "xii",
+   "quote": "Although I have only mentioned seven mansions",
+   "note": "Teresa writes of seven mansions, each containing many more rooms."
+  }
+ },
+ {
+  "id": "prayer-086",
+  "d": 2,
+  "q": "St. Teresa of Avila says mental prayer is nothing else but being on terms of what with God?",
+  "o": [
+   "Friendship",
+   "Obedience",
+   "Fear",
+   "Silence"
+  ],
+  "a": 0,
+  "why": "Teresa defines mental prayer as friendship, frequently conversing in secret with one who loves us.",
+  "src": {
+   "kind": "saint",
+   "label": "Life of Teresa",
+   "work": "teresa-life",
+   "section": "viii.ix",
+   "quote": "mental prayer is nothing else, in my opinion, but being on terms of friendship with God",
+   "note": "Teresa defines mental prayer as friendship, frequently conversing in secret with one who loves us."
+  }
+ },
+ {
+  "id": "prayer-087",
+  "d": 3,
+  "q": "According to Butler, what devotion did the child Teresa of Avila say with great devotion in her long prayers?",
+  "o": [
+   "The Angelus",
+   "The Litany of Loreto",
+   "The Stations of the Cross",
+   "The Rosary"
+  ],
+  "a": 3,
+  "why": "Butler says Teresa as a child said very long prayers, especially the Rosary.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler: St. Teresa",
+   "butler": "10-15:0",
+   "quote": "said very long prayers with great devotion, especially the Rosary",
+   "note": "Butler says Teresa as a child said very long prayers, especially the Rosary."
+  }
+ },
+ {
+  "id": "prayer-088",
+  "d": 1,
+  "q": "What was Brother Lawrence's work in the monastery kitchen?",
+  "o": [
+   "Gardener",
+   "Cook",
+   "Baker",
+   "Porter"
+  ],
+  "a": 1,
+  "why": "Lawrence was cook to the community, and prayed through his work.",
+  "src": {
+   "kind": "saint",
+   "label": "Practice of the Presence of God",
+   "work": "lawrence-practice",
+   "section": "iii.iv",
+   "quote": "he was cook to the society",
+   "note": "Lawrence was cook to the community, and prayed through his work."
+  }
+ },
+ {
+  "id": "prayer-089",
+  "d": 1,
+  "q": "Complete the title of Brother Lawrence's classic: The Practice of the Presence of ___.",
+  "o": [
+   "Christ",
+   "Mary",
+   "Grace",
+   "God"
+  ],
+  "a": 3,
+  "why": "Brother Lawrence taught keeping oneself in God's presence at all times.",
+  "src": {
+   "kind": "saint",
+   "label": "Practice of the Presence of God",
+   "work": "lawrence-practice",
+   "section": "iv.v",
+   "quote": "Were I a preacher, I should above all other things preach the practice of the presence of God",
+   "note": "Brother Lawrence taught keeping oneself in God's presence at all times."
+  }
+ },
+ {
+  "id": "prayer-090",
+  "d": 3,
+  "q": "Before entering the monastery, what had Brother Lawrence been, according to his conversations?",
+  "o": [
+   "A soldier",
+   "A footman",
+   "A shepherd",
+   "A tailor"
+  ],
+  "a": 1,
+  "why": "His first conversation records that he had been footman to M. Fieubert, the treasurer.",
+  "src": {
+   "kind": "saint",
+   "label": "Practice of the Presence of God",
+   "work": "lawrence-practice",
+   "section": "iii.i",
+   "quote": "he had been footman to M. Fieubert, the treasurer",
+   "note": "His first conversation records that he had been footman to M. Fieubert, the treasurer."
+  }
+ },
+ {
+  "id": "prayer-091",
+  "d": 3,
+  "q": "What sight gave Brother Lawrence a high view of God's Providence and Power?",
+  "o": [
+   "A tree stripped of leaves in winter",
+   "A sunrise over the sea",
+   "A field ready for harvest",
+   "A river in flood"
+  ],
+  "a": 0,
+  "why": "He considered that the leaves would soon be renewed and later flower and bear fruit.",
+  "src": {
+   "kind": "saint",
+   "label": "Practice of the Presence of God",
+   "work": "lawrence-practice",
+   "section": "iii.i",
+   "quote": "seeing a tree stripped of its leaves, and considering that within a little time, the leaves would be renewed",
+   "note": "He considered that the leaves would soon be renewed and later flower and bear fruit."
+  }
+ },
+ {
+  "id": "prayer-092",
+  "d": 3,
+  "q": "St. Francis de Sales says that for those with a gift for it, which prayer should always take the chief place?",
+  "o": [
+   "Vocal prayer",
+   "Litanies",
+   "Mental prayer",
+   "The Rosary"
+  ],
+  "a": 2,
+  "why": "In the Introduction to the Devout Life he advises letting mental prayer take the chief place.",
+  "src": {
+   "kind": "saint",
+   "label": "Introduction to the Devout Life",
+   "work": "desales-devout-life",
+   "section": "iv.i",
+   "quote": "if you have a gift for mental prayer, let that always take the chief place",
+   "note": "In the Introduction to the Devout Life he advises letting mental prayer take the chief place."
+  }
+ },
+ {
+  "id": "prayer-093",
+  "d": 3,
+  "q": "Which book did the young Francis de Sales never fail to carry about with him, according to Butler?",
+  "o": [
+   "The Imitation of Christ",
+   "The Spiritual Combat",
+   "The Confessions",
+   "The Interior Castle"
+  ],
+  "a": 1,
+  "why": "Butler notes he carried that excellent book, called the Spiritual Combat.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler: St. Francis de Sales",
+   "butler": "01-29:0",
+   "quote": "he never failed to carry about him that excellent book, called the Spiritual Combat",
+   "note": "Butler notes he carried that excellent book, called the Spiritual Combat."
+  }
+ },
+ {
+  "id": "prayer-094",
+  "d": 2,
+  "q": "In the Spiritual Exercises, St. Ignatius says man is created to praise, reverence, and ___ God.",
+  "o": [
+   "adore",
+   "obey",
+   "love",
+   "serve"
+  ],
+  "a": 3,
+  "why": "The Principle and Foundation begins: man is created to praise, reverence, and serve God our Lord.",
+  "src": {
+   "kind": "saint",
+   "label": "Spiritual Exercises",
+   "work": "ignatius-exercises",
+   "section": "xii.i",
+   "quote": "Man is created to praise, reverence, and serve God our Lord, and by this means to save his soul.",
+   "note": "The Principle and Foundation begins: man is created to praise, reverence, and serve God our Lord."
+  }
+ },
+ {
+  "id": "prayer-095",
+  "d": 2,
+  "q": "Complete the prayer of St. Ignatius: \"Take, Lord, and receive all my liberty, my memory, my intellect, and all my ___.\"",
+  "o": [
+   "heart",
+   "strength",
+   "will",
+   "life"
+  ],
+  "a": 2,
+  "why": "This is the Suscipe, an offering of liberty, memory, intellect and will.",
+  "src": {
+   "kind": "saint",
+   "label": "Spiritual Exercises",
+   "work": "ignatius-exercises",
+   "section": "xvi",
+   "quote": "Take, Lord, and receive all my liberty, my memory, my intellect, and all my will",
+   "note": "This is the Suscipe, an offering of liberty, memory, intellect and will."
+  }
+ },
+ {
+  "id": "prayer-096",
+  "d": 3,
+  "q": "In the Spiritual Exercises, what name is given to the heart-to-heart conversation with Christ on the Cross?",
+  "o": [
+   "The Colloquy",
+   "The Examen",
+   "The Annotation",
+   "The Prelude"
+  ],
+  "a": 0,
+  "why": "Ignatius asks the exercitant to make a Colloquy before Christ on the Cross.",
+  "src": {
+   "kind": "saint",
+   "label": "Spiritual Exercises",
+   "work": "ignatius-exercises",
+   "section": "xii.v",
+   "quote": "Colloquy. Imagining Christ our Lord present and placed on the Cross, let me make a Colloquy",
+   "note": "Ignatius asks the exercitant to make a Colloquy before Christ on the Cross."
+  }
+ },
+ {
+  "id": "prayer-097",
+  "d": 2,
+  "q": "How many Weeks are spent in the Spiritual Exercises of St. Ignatius?",
+  "o": [
+   "Two",
+   "Six",
+   "Four",
+   "Seven"
+  ],
+  "a": 2,
+  "why": "Ignatius structures the Exercises in four Weeks.",
+  "src": {
+   "kind": "saint",
+   "label": "Spiritual Exercises",
+   "work": "ignatius-exercises",
+   "section": "ix",
+   "quote": "Though four weeks, to correspond to this division, are spent in the Exercises",
+   "note": "Ignatius structures the Exercises in four Weeks."
+  }
+ },
+ {
+  "id": "prayer-098",
+  "d": 2,
+  "q": "In his Confessions, St. Augustine says our heart is restless until it does what?",
+  "o": [
+   "Reposes in God",
+   "Finds worldly success",
+   "Is satisfied by learning",
+   "Reaches old age"
+  ],
+  "a": 0,
+  "why": "Augustine prays, \"Thou madest us for Thyself, and our heart is restless, until it repose in Thee.\"",
+  "src": {
+   "kind": "saint",
+   "label": "Confessions",
+   "work": "aug-confessions",
+   "section": "ii.i",
+   "quote": "Thou madest us for Thyself, and our heart is restless, until it repose in Thee",
+   "note": "Augustine prays, \"Thou madest us for Thyself, and our heart is restless, until it repose in Thee.\""
+  }
+ },
+ {
+  "id": "prayer-099",
+  "d": 2,
+  "q": "In her Dialogue, St. Catherine of Siena says the soul should remain in the cell of what?",
+  "o": [
+   "Silence",
+   "Penance",
+   "Obedience",
+   "Self-knowledge"
+  ],
+  "a": 3,
+  "why": "Catherine writes of remaining in the cell of self-knowledge to know better the goodness of God.",
+  "src": {
+   "kind": "saint",
+   "label": "Dialogue",
+   "work": "catherine-dialogue",
+   "section": "iv.ii.i",
+   "quote": "remaining in the cell of self-knowledge, in order to know better the goodness of God towards her",
+   "note": "Catherine writes of remaining in the cell of self-knowledge to know better the goodness of God."
+  }
+ },
+ {
+  "id": "prayer-100",
+  "d": 3,
+  "q": "Julian of Norwich says prayer is a right understanding of that fulness of what that is to come?",
+  "o": [
+   "Glory",
+   "Joy",
+   "Peace",
+   "Mercy"
+  ],
+  "a": 1,
+  "why": "Julian writes that prayer is a right understanding of that fulness of joy that is to come.",
+  "src": {
+   "kind": "saint",
+   "label": "Revelations of Divine Love",
+   "work": "julian-revelations",
+   "section": "xv.ii",
+   "quote": "For prayer is a right understanding of that fulness of joy that is to come",
+   "note": "Julian writes that prayer is a right understanding of that fulness of joy that is to come."
+  }
+ }
+]

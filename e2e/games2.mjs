@@ -49,8 +49,8 @@ await p.waitForSelector('text=km away');
 if ((await p.locator('.pg-map svg path').count()) < 20) fail('base map not drawn');
 await p.waitForTimeout(200);
 
-await p.goto(`${BASE}/#/play`); await p.waitForSelector('.play-card');
-if ((await p.locator('.play-card').count()) < 10) fail('games missing from the list');
+await p.goto(`${BASE}/#/play`); await p.waitForSelector('.pf-tile');
+if ((await p.locator('.pf-tile').count()) < 10) fail('games missing from the list');
 await p.goto(`${BASE}/#/learn`); await p.waitForSelector('.games-bar summary');
 if (await p.locator('.games-bar .chip').first().isVisible()) fail('games bar should start folded');
 await p.click('.games-bar summary');

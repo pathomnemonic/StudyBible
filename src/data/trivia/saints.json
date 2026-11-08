@@ -1,0 +1,2024 @@
+[
+ {
+  "id": "saints-001",
+  "d": 1,
+  "q": "In which Italian town was St. Francis, founder of the Friars Minor, born?",
+  "o": [
+   "Assisi",
+   "Siena",
+   "Padua",
+   "Florence"
+  ],
+  "a": 0,
+  "why": "Francis was born at Assisi (Assisium) in Umbria.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis of Assisi",
+   "butler": "10-04:0",
+   "quote": "He was born at Assisium, in Umbria, in the Ecclesiastical State",
+   "note": "Butler states where Francis was born."
+  }
+ },
+ {
+  "id": "saints-002",
+  "d": 3,
+  "q": "What was the name of St. Francis of Assisi's mother?",
+  "o": [
+   "Clare",
+   "Agnes",
+   "Theodora",
+   "Pica"
+  ],
+  "a": 3,
+  "why": "Francis's mother was called Pica.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis of Assisi",
+   "butler": "10-04:0",
+   "quote": "The saint's mother was called Pica.",
+   "note": "Butler names his mother."
+  }
+ },
+ {
+  "id": "saints-003",
+  "d": 3,
+  "q": "What name was Francis of Assisi given at his baptism, before he was called Francis?",
+  "o": [
+   "Peter",
+   "Bernard",
+   "John",
+   "Anthony"
+  ],
+  "a": 2,
+  "why": "He was baptized John but was called Francis because he learned French so readily.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis of Assisi",
+   "butler": "10-04:0",
+   "quote": "he was called Francis, though the name of John had been given him at his baptism",
+   "note": "Butler gives his baptismal name."
+  }
+ },
+ {
+  "id": "saints-004",
+  "d": 2,
+  "q": "A voice from a crucifix told Francis, 'go and repair my house, which thou seest falling.' In which church was he praying?",
+  "o": [
+   "St. Peter's in Rome",
+   "St. Damian's, outside Assisi",
+   "The Cathedral of Florence",
+   "St. Clare's in Padua"
+  ],
+  "a": 1,
+  "why": "Francis heard the call at the church of St. Damian outside the walls of Assisi.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis of Assisi",
+   "butler": "10-04:0",
+   "quote": "One day as he was praying in the church of St. Damian, without the walls of Assisium. before a crucifix, he seemed to hear a voice coming from it, which said to him three times : \" Francis, go and repair my house, which thou seest falling.\"",
+   "note": "Butler records the crucifix scene at St. Damian's."
+  }
+ },
+ {
+  "id": "saints-005",
+  "d": 2,
+  "q": "Which little church near Assisi did the Benedictines give Francis, to remain the head church of his order?",
+  "o": [
+   "San Francesco Nuovo",
+   "The Portiuncula",
+   "The Lateran",
+   "Monte Cassino"
+  ],
+  "a": 1,
+  "why": "The Portiuncula was to remain the head church of the Franciscan order.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis of Assisi",
+   "butler": "10-04:0",
+   "quote": "bestowed on the founder the church of the Portiuncula, upon condition that it should always continue the head church of his order",
+   "note": "Butler states the gift and its condition."
+  }
+ },
+ {
+  "id": "saints-006",
+  "d": 3,
+  "q": "With how many disciples did Francis leave Rome after the pope orally approved his way of life?",
+  "o": [
+   "Twelve",
+   "Seventy-two",
+   "Thirty",
+   "Forty"
+  ],
+  "a": 0,
+  "why": "Francis left Rome with his twelve disciples and returned to Assisi.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis of Assisi",
+   "butler": "10-04:0",
+   "quote": "Francis having obtained of his holiness an oral approbation of his institute, left Rome with his twelve disciples",
+   "note": "Butler gives the number."
+  }
+ },
+ {
+  "id": "saints-007",
+  "d": 1,
+  "q": "Which saint compiled the monastic rule that Pope Gregory the Great preferred to all other rules?",
+  "o": [
+   "Ignatius Loyola",
+   "Dominic",
+   "Francis",
+   "Benedict"
+  ],
+  "a": 3,
+  "why": "Gregory the Great preferred the rule of St. Benedict for its wisdom and discretion.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Benedict",
+   "butler": "03-21:0",
+   "quote": "compiled a monastic rule, which, for wisdom and discretion, St. Gregory the Great preferred to all other rules",
+   "note": "Butler credits Benedict with the rule Gregory preferred."
+  }
+ },
+ {
+  "id": "saints-008",
+  "d": 3,
+  "q": "Before Mount Cassino, Benedict lived as a hermit in a cave near which place?",
+  "o": [
+   "Ostia",
+   "Norcia",
+   "Sublacum (Subiaco)",
+   "Ravenna"
+  ],
+  "a": 2,
+  "why": "Benedict lived in a cave among the mountains of Sublacum, near forty miles from Rome.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Benedict",
+   "butler": "03-21:0",
+   "quote": "pursued his journey alone to the desert mountains of Sublacum, near forty miles from Rome",
+   "note": "Butler places his hermitage at Sublacum."
+  }
+ },
+ {
+  "id": "saints-009",
+  "d": 3,
+  "q": "At Sublacum, which monk gave Benedict the monastic habit and brought him bread by a line and bell?",
+  "o": [
+   "Maurus",
+   "Placidus",
+   "Romanus",
+   "Martin"
+  ],
+  "a": 2,
+  "why": "Romanus gave Benedict the habit and let down his bread to the cave by a cord with a bell.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Benedict",
+   "butler": "03-21:0",
+   "quote": "Near this place the saint met a monk of a neighboring monastery, called Romanus, who gave him the monastic habit",
+   "note": "Butler names Romanus."
+  }
+ },
+ {
+  "id": "saints-010",
+  "d": 2,
+  "q": "When someone mixed poison in Benedict's wine, what happened as he made the sign of the cross over the glass?",
+  "o": [
+   "The wine turned to water",
+   "The glass broke",
+   "The wine froze",
+   "The glass floated"
+  ],
+  "a": 1,
+  "why": "The glass broke as if a stone had fallen upon it.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Benedict",
+   "butler": "03-21:0",
+   "quote": "he made the sign of the cross over the glass, it broke as if a stone had fallen upon it",
+   "note": "Butler records the miracle."
+  }
+ },
+ {
+  "id": "saints-011",
+  "d": 1,
+  "q": "Scholastica, whose feast is 10 February, was the sister of which great founder of monks?",
+  "o": [
+   "St. Benedict",
+   "St. Dominic Guzman",
+   "St. Basil",
+   "St. Francis"
+  ],
+  "a": 0,
+  "why": "Scholastica was the sister of St. Benedict.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Scholastica",
+   "butler": "02-10:0",
+   "quote": "THIS saint was sister to the great St. Benedict.",
+   "note": "This passage states the fact: Scholastica was the sister of St. Benedict."
+  }
+ },
+ {
+  "id": "saints-012",
+  "d": 2,
+  "q": "In what shape did Benedict see his sister Scholastica's soul rising to heaven?",
+  "o": [
+   "A star",
+   "A flame",
+   "A lily",
+   "A dove"
+  ],
+  "a": 3,
+  "why": "From Mount Cassino Benedict saw her soul ascending in the shape of a dove.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Scholastica",
+   "butler": "02-10:0",
+   "quote": "lifting up his eyes to heaven, he saw the soul of his sister ascending thither in the shape of a dove",
+   "note": "Butler gives the vision."
+  }
+ },
+ {
+  "id": "saints-013",
+  "d": 2,
+  "q": "When Benedict wanted to leave, Scholastica prayed and such a storm broke that he stayed. What kind of storm?",
+  "o": [
+   "Snow and ice",
+   "A sandstorm",
+   "A hailstorm only",
+   "Rain, thunder and lightning"
+  ],
+  "a": 3,
+  "why": "Her prayer was scarcely ended when a storm of rain, thunder and lightning arose.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Scholastica",
+   "butler": "02-10:0",
+   "quote": "Her prayer was scarce ended, when there happened such a storm of rain, thunder, and lightning",
+   "note": "Butler states the storm."
+  }
+ },
+ {
+  "id": "saints-014",
+  "d": 1,
+  "q": "St. Patrick is called the Apostle of which country?",
+  "o": [
+   "Scotland",
+   "Wales",
+   "Ireland",
+   "England"
+  ],
+  "a": 2,
+  "why": "Patrick converted Ireland, which became a land of saints.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Patrick",
+   "butler": "03-17:0",
+   "quote": "the church of Ireland, planted by his labors in the most remote corner of the then known world",
+   "note": "Butler credits Patrick with planting the church in Ireland."
+  }
+ },
+ {
+  "id": "saints-015",
+  "d": 2,
+  "q": "Where did Patrick fix his metropolitan see in Ireland?",
+  "o": [
+   "Dublin",
+   "Armagh",
+   "Cork",
+   "Kildare"
+  ],
+  "a": 1,
+  "why": "Patrick fixed his metropolitan see at Armagh.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Patrick",
+   "butler": "03-17:0",
+   "quote": "St. Patrick fixed his metropolitan see at Armagh.",
+   "note": "Butler names Armagh."
+  }
+ },
+ {
+  "id": "saints-016",
+  "d": 3,
+  "q": "Roughly how long did Patrick continue his missions over the provinces of Ireland?",
+  "o": [
+   "Forty years",
+   "Ten years",
+   "Twenty years",
+   "Sixty years"
+  ],
+  "a": 0,
+  "why": "He continued his missions over all the provinces of Ireland for forty years.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Patrick",
+   "butler": "03-17:0",
+   "quote": "he continued his missions over all the provinces of Ireland, during forty years",
+   "note": "Butler gives the duration."
+  }
+ },
+ {
+  "id": "saints-017",
+  "d": 2,
+  "q": "To which abbey did the count of Aquino bring his five-year-old son Thomas to be taught by monks?",
+  "o": [
+   "Mount Cassino",
+   "Cluny Abbey",
+   "Clairvaux",
+   "Monte Oliveto"
+  ],
+  "a": 0,
+  "why": "Thomas was taken at five to the abbey of Mount Cassino.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Thomas Aquinas",
+   "butler": "03-07:0",
+   "quote": "The count of Aquino conducted him to the abbey of Mount Cassino, when he was but five years old",
+   "note": "Butler gives the place and age."
+  }
+ },
+ {
+  "id": "saints-018",
+  "d": 1,
+  "q": "What nickname did Thomas's schoolfellows give him because of his silence?",
+  "o": [
+   "The quiet lamb",
+   "The little owl",
+   "The sleeping lion",
+   "The dumb ox"
+  ],
+  "a": 3,
+  "why": "They called him the Dumb Ox; Albertus said his learning would be heard all over the world.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Thomas Aquinas",
+   "butler": "03-07:0",
+   "quote": "on account of his silence, called him The dumb Ox",
+   "note": "Butler records the nickname."
+  }
+ },
+ {
+  "id": "saints-019",
+  "d": 1,
+  "q": "Who was the great Dominican teacher of Thomas Aquinas, known as 'the Great'?",
+  "o": [
+   "Peter Lombard",
+   "Bonaventure of Bagnoregio",
+   "Albertus Magnus",
+   "Anselm"
+  ],
+  "a": 2,
+  "why": "Albertus Magnus taught Thomas at Cologne.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Thomas Aquinas",
+   "butler": "03-07:0",
+   "quote": "Albertus Magnus teaching then at Cologne, the general, John the Teutonic, took the saint with him from Rome to Paris, and thence to Cologne.",
+   "note": "Butler names Thomas's master."
+  }
+ },
+ {
+  "id": "saints-020",
+  "d": 3,
+  "q": "In what year, aged seventeen, did Thomas receive the Dominican habit at Naples?",
+  "o": [
+   "1215",
+   "1243",
+   "1265",
+   "1274"
+  ],
+  "a": 1,
+  "why": "He received the habit in the convent of Naples in 1243.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Thomas Aquinas",
+   "butler": "03-07:0",
+   "quote": "received the habit in the convent of Naples, in 1243, being then seventeen years old",
+   "note": "Butler gives the year."
+  }
+ },
+ {
+  "id": "saints-021",
+  "d": 3,
+  "q": "Thomas's brothers shut him up to stop his vocation. In what building was he confined?",
+  "o": [
+   "A convent cell in Paris",
+   "A tower of the family castle",
+   "The count's dungeon in Naples",
+   "A cave at Mount Cassino"
+  ],
+  "a": 1,
+  "why": "His brothers Landulph and Reynold began their assault by shutting him up in a tower of the castle.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Thomas Aquinas",
+   "butler": "03-07:0",
+   "quote": "They would needs undertake to overcome him, and began their assault by shutting him up in a tower of the castle.",
+   "note": "Butler describes the imprisonment."
+  }
+ },
+ {
+  "id": "saints-022",
+  "d": 3,
+  "q": "To which council, summoned by the pope, was Thomas travelling when he fell ill in 1274?",
+  "o": [
+   "The second Council of Lyons",
+   "The Council of Trent",
+   "The Council of Nicaea",
+   "The Council of Constance"
+  ],
+  "a": 0,
+  "why": "The pope had called the second council of Lyons to heal the Greek schism; it met in May 1274.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Thomas Aquinas",
+   "butler": "03-07:0",
+   "quote": "had called a general council, the second of Lyons, with the view of extinguishing the Greek schism",
+   "note": "Butler names the council."
+  }
+ },
+ {
+  "id": "saints-023",
+  "d": 2,
+  "q": "With what title did Pope Gregory the Great sign his letters?",
+  "o": [
+   "Vicar of the poor",
+   "Shepherd of all nations",
+   "Father of the faithful",
+   "Servant of the servants of God"
+  ],
+  "a": 3,
+  "why": "He subscribed all his letters 'Servant of the servants of God'.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Gregory the Great",
+   "butler": "03-12:0",
+   "quote": "He subscribed himself in all his letters, Servant of the servants of God",
+   "note": "Butler gives the title."
+  }
+ },
+ {
+  "id": "saints-024",
+  "d": 2,
+  "q": "In which country was St. Antony, the Patriarch of Monks, born?",
+  "o": [
+   "Syria",
+   "Italy",
+   "Egypt",
+   "Greece"
+  ],
+  "a": 2,
+  "why": "Antony was born at Coma in Upper Egypt in 251.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Antony",
+   "butler": "01-17:0",
+   "quote": "ANTONY was born at Coma, a village near Heraclea, or Great Heracleopolis, in Upper Egypt",
+   "note": "Butler gives his birthplace."
+  }
+ },
+ {
+  "id": "saints-025",
+  "d": 3,
+  "q": "Around the year 305 Antony came down from his mountain and founded his first monastery where?",
+  "o": [
+   "Alexandria",
+   "Nitria",
+   "Phaium",
+   "Pispir"
+  ],
+  "a": 2,
+  "why": "At about fifty-five he founded his first monastery at Phaium.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Antony",
+   "butler": "01-17:0",
+   "quote": "he came down from his mountain, and founded his first monastery at Phaium",
+   "note": "Butler names Phaium."
+  }
+ },
+ {
+  "id": "saints-026",
+  "d": 1,
+  "q": "Which bird brought a daily loaf of bread to St. Paul the First Hermit?",
+  "o": [
+   "A dove",
+   "A raven",
+   "An eagle",
+   "A pelican"
+  ],
+  "a": 1,
+  "why": "Like Elias, Paul was miraculously fed with bread brought by a raven.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Paul the First Hermit",
+   "butler": "01-15:0",
+   "quote": "like Elias, he was miraculously fed with bread brought him every day by a raven",
+   "note": "This passage states the fact: Like Elias, Paul was miraculously fed with bread brought by a raven."
+  }
+ },
+ {
+  "id": "saints-027",
+  "d": 1,
+  "q": "At about what age did St. Agnes of Rome die as a martyr?",
+  "o": [
+   "Thirteen",
+   "Seven and a half",
+   "Twenty",
+   "Thirty"
+  ],
+  "a": 0,
+  "why": "Ambrose and Augustine say she was only thirteen at her death.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Agnes",
+   "butler": "01-21:0",
+   "quote": "She was only thirteen years of age at the time of her glorious death",
+   "note": "Butler gives her age."
+  }
+ },
+ {
+  "id": "saints-028",
+  "d": 2,
+  "q": "Augustine noted the name Agnes means 'chaste' in Greek. What does it mean in Latin?",
+  "o": [
+   "Dove",
+   "Lily of the valley",
+   "Rose",
+   "Lamb"
+  ],
+  "a": 3,
+  "why": "Agnes signifies chaste in Greek and lamb in Latin.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Agnes",
+   "butler": "01-21:0",
+   "quote": "her name signifies chaste in Greek, and lamb in Latin",
+   "note": "This passage states the fact: Agnes signifies chaste in Greek and lamb in Latin."
+  }
+ },
+ {
+  "id": "saints-029",
+  "d": 1,
+  "q": "St. Lawrence, deacon of Rome, was martyred by being roasted on what?",
+  "o": [
+   "A wheel of knives",
+   "A cross",
+   "A pillar",
+   "A gridiron"
+  ],
+  "a": 3,
+  "why": "The persecutor had a great gridiron made ready with coals beneath it.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Laurence",
+   "butler": "08-10:0",
+   "quote": "Then he caused a great gridiron to be made ready, and live coals almost extinguished to be thrown under it",
+   "note": "Butler records the gridiron."
+  }
+ },
+ {
+  "id": "saints-030",
+  "d": 2,
+  "q": "Lawrence was in charge of the Church's treasury at Rome. What did he do with its treasures?",
+  "o": [
+   "Hid them in the catacombs",
+   "Sent them to the emperor",
+   "Gave them to the poor",
+   "Melted them for coins"
+  ],
+  "a": 2,
+  "why": "He distributed the Church's treasures among the poor lest the persecutors seize them.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Laurence",
+   "butler": "08-10:0",
+   "quote": "He added a charge to distribute immediately among the poor the treasures of the Church which were committed to his care",
+   "note": "This passage states the fact: He distributed the Church's treasures among the poor lest the persecutors seize them."
+  }
+ },
+ {
+  "id": "saints-031",
+  "d": 1,
+  "q": "St. Valentine, commemorated on 14 February, was a priest martyred in which city?",
+  "o": [
+   "Milan",
+   "Rome",
+   "Athens",
+   "Carthage"
+  ],
+  "a": 1,
+  "why": "Valentine was a holy priest in Rome who assisted the martyrs.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Valentine",
+   "butler": "02-14:0",
+   "quote": "VALENTINE was a holy priest in Rome",
+   "note": "This passage states the fact: Valentine was a holy priest in Rome who assisted the martyrs."
+  }
+ },
+ {
+  "id": "saints-032",
+  "d": 1,
+  "q": "After being beaten with clubs, how was St. Valentine put to death?",
+  "o": [
+   "He was beheaded",
+   "He was burned",
+   "He was thrown to lions",
+   "He was crucified"
+  ],
+  "a": 0,
+  "why": "Valentine was beaten with clubs and then beheaded on 14 February about the year 270.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Valentine",
+   "butler": "02-14:0",
+   "quote": "commanded him to be beaten with clubs, and afterwards to be beheaded",
+   "note": "Butler gives the manner."
+  }
+ },
+ {
+  "id": "saints-033",
+  "d": 2,
+  "q": "In which North African city were Perpetua and Felicity arrested for the faith?",
+  "o": [
+   "Carthage",
+   "Alexandria",
+   "Hippo",
+   "Tagaste"
+  ],
+  "a": 0,
+  "why": "Five catechumens including Felicitas and Vibia Perpetua were seized at Carthage.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, SS. Perpetua and Felicitas",
+   "butler": "03-07:1",
+   "quote": "five catechumens were apprehended at Carthage for the faith: namely, Rovocatus, and his fellow-slave Felicitas, Saturninus, and Secundulus, and Vibia Perpetua",
+   "note": "Butler names the city."
+  }
+ },
+ {
+  "id": "saints-034",
+  "d": 2,
+  "q": "St. Cecilia was made to marry a nobleman. What was his name?",
+  "o": [
+   "Tiburtius",
+   "Maximus",
+   "Urban",
+   "Valerian"
+  ],
+  "a": 3,
+  "why": "Her spouse Valerian and his brother Tiburtius were martyred with her.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Cecily",
+   "butler": "11-22:0",
+   "quote": "impelled by her parents to marry a nobleman named Valerian",
+   "note": "This passage states the fact: Her spouse Valerian and his brother Tiburtius were martyred with her."
+  }
+ },
+ {
+  "id": "saints-035",
+  "d": 1,
+  "q": "How did St. Stephen, the first martyr, die?",
+  "o": [
+   "He was beheaded",
+   "He was crucified",
+   "He was stoned",
+   "He was burned"
+  ],
+  "a": 2,
+  "why": "Stephen was stoned, praying 'Lord Jesus, receive my spirit!'",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 7:59-60",
+   "ref": "ACT.7.59-60",
+   "quote": "They stoned Stephen as he called out, saying, “Lord Jesus, receive my spirit!”",
+   "note": "Acts records his stoning."
+  }
+ },
+ {
+  "id": "saints-036",
+  "d": 2,
+  "q": "At whose feet did the witnesses of Stephen's stoning lay their garments?",
+  "o": [
+   "A man named Barnabas",
+   "A young man named Saul",
+   "A man named Philip",
+   "A young man named Mark"
+  ],
+  "a": 1,
+  "why": "The witnesses placed their garments at the feet of Saul.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 7:58",
+   "ref": "ACT.7.58",
+   "quote": "The witnesses placed their garments at the feet of a young man named Saul.",
+   "note": "This passage states the fact: The witnesses placed their garments at the feet of Saul."
+  }
+ },
+ {
+  "id": "saints-037",
+  "d": 1,
+  "q": "On the road to which city did a light from the sky stop Saul?",
+  "o": [
+   "Antioch",
+   "Damascus",
+   "Tarsus",
+   "Jerusalem"
+  ],
+  "a": 1,
+  "why": "Saul heard 'Why do you persecute me?' as he neared Damascus.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 9:3-5",
+   "ref": "ACT.9.3-5",
+   "quote": "he got close to Damascus, and suddenly a light from the sky shone around him",
+   "note": "Acts places his conversion near Damascus."
+  }
+ },
+ {
+  "id": "saints-038",
+  "d": 1,
+  "q": "In which city were the disciples first called Christians?",
+  "o": [
+   "Antioch",
+   "Jerusalem",
+   "Rome",
+   "Corinth"
+  ],
+  "a": 0,
+  "why": "Acts says the disciples were first called Christians in Antioch.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 11:26",
+   "ref": "ACT.11.26",
+   "quote": "The disciples were first called Christians in Antioch.",
+   "note": "This passage states the fact: Acts says the disciples were first called Christians in Antioch."
+  }
+ },
+ {
+  "id": "saints-039",
+  "d": 1,
+  "q": "Which apostle cried to the risen Jesus, 'My Lord and my God!'?",
+  "o": [
+   "Peter the Rock",
+   "Philip",
+   "Andrew",
+   "Thomas"
+  ],
+  "a": 3,
+  "why": "Thomas answered 'My Lord and my God!'",
+  "src": {
+   "kind": "scripture",
+   "label": "John 20:28",
+   "ref": "JHN.20.28",
+   "quote": "Thomas answered him, “My Lord and my God!”",
+   "note": "This passage states the fact: Thomas answered 'My Lord and my God!'"
+  }
+ },
+ {
+  "id": "saints-040",
+  "d": 1,
+  "q": "Complete Jesus' words to Simon: 'you are Peter, and on this ___ I will build my assembly.'",
+  "o": [
+   "Mountain",
+   "Stone",
+   "Rock",
+   "Hill"
+  ],
+  "a": 2,
+  "why": "Jesus said, on this rock I will build my assembly.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 16:18",
+   "ref": "MAT.16.18",
+   "quote": "you are Peter, and on this rock I will build my assembly",
+   "note": "Matthew gives the saying."
+  }
+ },
+ {
+  "id": "saints-041",
+  "d": 1,
+  "q": "What was the trade of Simon (Peter) and his brother Andrew when Jesus called them?",
+  "o": [
+   "Tax collectors",
+   "Shepherds",
+   "Fishermen",
+   "Carpenters"
+  ],
+  "a": 2,
+  "why": "They were casting a net into the sea of Galilee; they were fishermen.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 4:18-19",
+   "ref": "MAT.4.18-19",
+   "quote": "he saw two brothers: Simon, who is called Peter, and Andrew, his brother, casting a net into the sea; for they were fishermen",
+   "note": "This passage states the fact: They were casting a net into the sea of Galilee; they were fishermen."
+  }
+ },
+ {
+  "id": "saints-042",
+  "d": 1,
+  "q": "Who brought his brother Simon to Jesus, saying 'We have found the Messiah!'?",
+  "o": [
+   "James the Greater",
+   "Andrew",
+   "Philip",
+   "John"
+  ],
+  "a": 1,
+  "why": "Andrew found Simon and brought him to Jesus, who named him Cephas, Peter.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 1:40-42",
+   "ref": "JHN.1.40-42",
+   "quote": "He first found his own brother, Simon, and said to him, “We have found the Messiah!”",
+   "note": "This passage states the fact: Andrew found Simon and brought him to Jesus, who named him Cephas, Peter."
+  }
+ },
+ {
+  "id": "saints-043",
+  "d": 1,
+  "q": "What was Matthew's job when Jesus said to him, 'Follow me'?",
+  "o": [
+   "Tax collector",
+   "Fisherman of Galilee",
+   "Physician",
+   "Scribe"
+  ],
+  "a": 0,
+  "why": "Matthew was sitting at the tax collection office.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 9:9",
+   "ref": "MAT.9.9",
+   "quote": "he saw a man called Matthew sitting at the tax collection office. He said to him, “Follow me.”",
+   "note": "Matthew describes his calling."
+  }
+ },
+ {
+  "id": "saints-044",
+  "d": 2,
+  "q": "Which man was chosen by lot to join the eleven apostles?",
+  "o": [
+   "Barsabbas",
+   "Barnabas",
+   "Timothy",
+   "Matthias"
+  ],
+  "a": 3,
+  "why": "The lot fell on Matthias, who was counted with the eleven.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 1:26",
+   "ref": "ACT.1.26",
+   "quote": "They drew lots for them, and the lot fell on Matthias; and he was counted with the eleven apostles.",
+   "note": "Acts records the choice."
+  }
+ },
+ {
+  "id": "saints-045",
+  "d": 3,
+  "q": "What does the name 'Barnabas' mean, according to Acts?",
+  "o": [
+   "Son of Thunder",
+   "Son of Peace",
+   "Son of Consolation Lost",
+   "Son of Encouragement"
+  ],
+  "a": 3,
+  "why": "Joses was called Barnabas by the apostles, meaning Son of Encouragement.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 4:36",
+   "ref": "ACT.4.36",
+   "quote": "Joses, who by the apostles was also called Barnabas (which is, being interpreted, Son of Encouragement)",
+   "note": "Acts gives the meaning."
+  }
+ },
+ {
+  "id": "saints-046",
+  "d": 2,
+  "q": "Which apostle, the brother of John, did Herod kill with the sword?",
+  "o": [
+   "Philip",
+   "Thomas",
+   "James",
+   "Bartholomew"
+  ],
+  "a": 2,
+  "why": "Herod killed James, the brother of John, with the sword.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 12:2",
+   "ref": "ACT.12.2",
+   "quote": "He killed James, the brother of John, with the sword.",
+   "note": "This passage states the fact: Herod killed James, the brother of John, with the sword."
+  }
+ },
+ {
+  "id": "saints-047",
+  "d": 1,
+  "q": "Which companion of St. Paul is called 'the beloved physician'?",
+  "o": [
+   "Mark",
+   "Luke",
+   "Timothy",
+   "Titus"
+  ],
+  "a": 1,
+  "why": "Paul calls Luke the beloved physician.",
+  "src": {
+   "kind": "scripture",
+   "label": "Colossians 4:14",
+   "ref": "COL.4.14",
+   "quote": "Luke the beloved physician and Demas greet you.",
+   "note": "This passage states the fact: Paul calls Luke the beloved physician."
+  }
+ },
+ {
+  "id": "saints-048",
+  "d": 1,
+  "q": "From which woman, who first saw the risen Jesus, had he cast out seven demons?",
+  "o": [
+   "Mary Magdalene",
+   "Martha of Bethany",
+   "Salome",
+   "Joanna"
+  ],
+  "a": 0,
+  "why": "Jesus appeared first to Mary Magdalene, from whom he had cast out seven demons.",
+  "src": {
+   "kind": "scripture",
+   "label": "Mark 16:9",
+   "ref": "MRK.16.9",
+   "quote": "he appeared first to Mary Magdalene, from whom he had cast out seven demons",
+   "note": "This passage states the fact: Jesus appeared first to Mary Magdalene, from whom he had cast out seven demons."
+  }
+ },
+ {
+  "id": "saints-049",
+  "d": 1,
+  "q": "Which angel was sent to the virgin Mary at Nazareth?",
+  "o": [
+   "Gabriel",
+   "Michael the Archangel",
+   "Raphael",
+   "Uriel"
+  ],
+  "a": 0,
+  "why": "The angel Gabriel was sent to a city of Galilee named Nazareth.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 1:26-27",
+   "ref": "LUK.1.26-27",
+   "quote": "the angel Gabriel was sent from God to a city of Galilee named Nazareth",
+   "note": "Luke names angel and town."
+  }
+ },
+ {
+  "id": "saints-050",
+  "d": 1,
+  "q": "At Cana, what did Mary tell the servants?",
+  "o": [
+   "'Fill the jars to the brim.'",
+   "'Take the wine to the master.'",
+   "'Wait until the third day.'",
+   "'Whatever he says to you, do it.'"
+  ],
+  "a": 3,
+  "why": "Mary said, 'Whatever he says to you, do it.'",
+  "src": {
+   "kind": "scripture",
+   "label": "John 2:5",
+   "ref": "JHN.2.5",
+   "quote": "His mother said to the servants, “Whatever he says to you, do it.”",
+   "note": "John records Mary's words."
+  }
+ },
+ {
+  "id": "saints-051",
+  "d": 1,
+  "q": "What was the food of John the Baptist in the wilderness?",
+  "o": [
+   "Figs and goat's milk",
+   "Bread and dried fish",
+   "Locusts and wild honey",
+   "Dates and olives"
+  ],
+  "a": 2,
+  "why": "John's food was locusts and wild honey.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 3:4",
+   "ref": "MAT.3.4",
+   "quote": "His food was locusts and wild honey.",
+   "note": "This passage states the fact: John's food was locusts and wild honey."
+  }
+ },
+ {
+  "id": "saints-052",
+  "d": 3,
+  "q": "Which apostle found Nathanael and said, 'We have found him of whom Moses in the law ... wrote'?",
+  "o": [
+   "Andrew",
+   "Philip",
+   "Bartholomew",
+   "James"
+  ],
+  "a": 1,
+  "why": "Philip found Nathanael and told him of Jesus of Nazareth.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 1:45-46",
+   "ref": "JHN.1.45-46",
+   "quote": "Philip found Nathanael, and said to him, “We have found him of whom Moses in the law and also the prophets, wrote",
+   "note": "This passage states the fact: Philip found Nathanael and told him of Jesus of Nazareth."
+  }
+ },
+ {
+  "id": "saints-053",
+  "d": 3,
+  "q": "At the cross, Jesus said to his mother, 'Woman, behold, your son!' To whom did he entrust her?",
+  "o": [
+   "Simon Peter",
+   "The disciple whom he loved",
+   "Joseph of Arimathea",
+   "Mary Magdalene"
+  ],
+  "a": 1,
+  "why": "The disciple took Mary to his own home from that hour.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 19:26-27",
+   "ref": "JHN.19.26-27",
+   "quote": "Therefore when Jesus saw his mother, and the disciple whom he loved standing there, he said to his mother, “Woman, behold, your son!”",
+   "note": "This passage states the fact: The disciple took Mary to his own home from that hour."
+  }
+ },
+ {
+  "id": "saints-054",
+  "d": 1,
+  "q": "What does 'Chrysostom', the name of St. John of Antioch, mean?",
+  "o": [
+   "Golden Mouth",
+   "Silver Tongue",
+   "Iron Will",
+   "Bright Star"
+  ],
+  "a": 0,
+  "why": "He was surnamed Chrysostom, or Golden Mouth, for his eloquence.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. John Chrysostom",
+   "butler": "01-27:0",
+   "quote": "obtained soon after his death the surname of Chrysostom, or Golden Mouth",
+   "note": "Butler gives the meaning."
+  }
+ },
+ {
+  "id": "saints-055",
+  "d": 1,
+  "q": "St. Martin of Tours is famous for cutting what in two to share with a beggar?",
+  "o": [
+   "His sword hilt",
+   "His bread",
+   "His boots",
+   "His cloak"
+  ],
+  "a": 3,
+  "why": "Martin cut his cloak with his sword, gave half to the beggar and wrapped himself in the rest.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Martin",
+   "butler": "11-11:0",
+   "quote": "drawing his sword, he cut his cloak into two pieces, gave one to the beggar",
+   "note": "This passage states the fact: Martin cut his cloak with his sword, gave half to the beggar and wrapped himself in the rest."
+  }
+ },
+ {
+  "id": "saints-056",
+  "d": 2,
+  "q": "Martin was chosen the third bishop of which city in the year 371?",
+  "o": [
+   "Poitiers",
+   "Paris",
+   "Tours",
+   "Lyons"
+  ],
+  "a": 2,
+  "why": "Martin was chosen third bishop of Tours and consecrated on 3 July.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Martin",
+   "butler": "11-11:0",
+   "quote": "in the year 371 he was chosen the third bishop of Tours",
+   "note": "This passage states the fact: Martin was chosen third bishop of Tours and consecrated on 3 July."
+  }
+ },
+ {
+  "id": "saints-057",
+  "d": 2,
+  "q": "A swarm of what creatures flew around infant Ambrose's cradle, entering his mouth?",
+  "o": [
+   "Doves",
+   "Butterflies",
+   "Bees",
+   "Sparrows"
+  ],
+  "a": 2,
+  "why": "While the child slept a swarm of bees flew about his cradle.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Ambrose",
+   "butler": "12-07:0",
+   "quote": "a swarm of bees flew about his cradle, and some of them crept in and out at his mouth",
+   "note": "Butler records the sign."
+  }
+ },
+ {
+  "id": "saints-058",
+  "d": 1,
+  "q": "Which Doctor of the Church made Bethlehem his usual residence in the Holy Land?",
+  "o": [
+   "Ambrose",
+   "Jerome",
+   "Gregory",
+   "Basil"
+  ],
+  "a": 1,
+  "why": "Jerome visited the holy places but made Bethlehem his most usual residence.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Jerome",
+   "butler": "09-30:0",
+   "quote": "visited the principal holy places situated in different parts of that country, but made Bethlehem his most usual residence",
+   "note": "This passage states the fact: Jerome visited the holy places but made Bethlehem his most usual residence."
+  }
+ },
+ {
+  "id": "saints-059",
+  "d": 3,
+  "q": "Which famous pagan grammarian was St. Jerome's tutor at Rome?",
+  "o": [
+   "Donatus",
+   "Quintilian",
+   "Symmachus",
+   "Libanius"
+  ],
+  "a": 0,
+  "why": "At Rome Jerome studied under the grammarian Donatus.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Jerome",
+   "butler": "09-30:0",
+   "quote": "St. Jerom had there, for tutor, the famous pagan grammarian Donatus",
+   "note": "Butler names the tutor."
+  }
+ },
+ {
+  "id": "saints-060",
+  "d": 3,
+  "q": "To tame his passions Jerome became a pupil of a converted Jew to learn which language's alphabet?",
+  "o": [
+   "Syriac",
+   "Aramaic",
+   "Coptic",
+   "Hebrew"
+  ],
+  "a": 3,
+  "why": "He learned the Hebrew alphabet from a monk who had been a Jew.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Jerome",
+   "butler": "09-30:0",
+   "quote": "to learn of a converted Jew the Hebrew alphabet",
+   "note": "This passage states the fact: He learned the Hebrew alphabet from a monk who had been a Jew."
+  }
+ },
+ {
+  "id": "saints-061",
+  "d": 1,
+  "q": "St. Augustine was born in 354 at which small African town?",
+  "o": [
+   "Carthage",
+   "Hippo",
+   "Madaura",
+   "Tagaste"
+  ],
+  "a": 3,
+  "why": "Augustine was born at Tagaste in Numidia, not far from Hippo.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Augustine",
+   "butler": "08-28:0",
+   "quote": "at Tagaste, a small town of Numilia, in Africa, not far from Hippo",
+   "note": "Butler names Tagaste."
+  }
+ },
+ {
+  "id": "saints-062",
+  "d": 1,
+  "q": "Who baptized Augustine at Milan on Easter-eve in 387?",
+  "o": [
+   "St. Jerome",
+   "St. Monica of Tagaste",
+   "St. Ambrose",
+   "Simplician"
+  ],
+  "a": 2,
+  "why": "Austin was baptised by Ambrose on Easter-eve 387 with Alipius and Adeodatus.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Augustine",
+   "butler": "08-28:0",
+   "quote": "St. Austin was baptised by St. Ambrose on Easter-eve in 387",
+   "note": "This passage states the fact: Austin was baptised by Ambrose on Easter-eve 387 with Alipius and Adeodatus."
+  }
+ },
+ {
+  "id": "saints-063",
+  "d": 1,
+  "q": "Which saint is honored as the mother whose tears and prayers won St. Augustine's conversion?",
+  "o": [
+   "Perpetua",
+   "Monica",
+   "Helena",
+   "Paula"
+  ],
+  "a": 1,
+  "why": "Monica won the conversion of her son Augustine.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Monica",
+   "butler": "05-04:0",
+   "quote": "The church is doubly indebted, under God, to the saint of this day, namely, for the birth, and still more so for the conversion of the great St. Austin",
+   "note": "This passage states the fact: Monica won the conversion of her son Augustine."
+  }
+ },
+ {
+  "id": "saints-064",
+  "d": 2,
+  "q": "What was the name of Monica's husband, a citizen of Tagaste who was not yet a Christian?",
+  "o": [
+   "Patricius",
+   "Navigius",
+   "Valerian",
+   "Alipius"
+  ],
+  "a": 0,
+  "why": "Monica was given to Patricius, an honorable man but an idolater, whom she later converted.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Monica",
+   "butler": "05-04:0",
+   "quote": "she was disposed of to one Patricius, a citizen of Tagaste, a man of honor and probity, but an idolater",
+   "note": "This passage states the fact: Monica was given to Patricius, an honorable man but an idolater, whom she later converted."
+  }
+ },
+ {
+  "id": "saints-065",
+  "d": 1,
+  "q": "Monica fell sick and died at which port city on the way back to Africa?",
+  "o": [
+   "Ostia",
+   "Genoa",
+   "Carthage",
+   "Brindisi"
+  ],
+  "a": 0,
+  "why": "Monica died at Ostia where they were to embark.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Monica",
+   "butler": "05-04:0",
+   "quote": "Monica on the road, who fell sick and died at Ostia, where they were to embark",
+   "note": "This passage states the fact: Monica died at Ostia where they were to embark."
+  }
+ },
+ {
+  "id": "saints-066",
+  "d": 1,
+  "q": "Ignatius of Loyola founded which religious order?",
+  "o": [
+   "The Order of Preachers",
+   "The Friars Minor",
+   "The Carmelites",
+   "The Society of Jesus"
+  ],
+  "a": 3,
+  "why": "Ignatius is the founder of the Society of Jesus (Jesuits).",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Ignatius of Loyola",
+   "butler": "07-31:0",
+   "quote": "St. Ignatius of Loyola, C. Founder of the Society of Jesus.",
+   "note": "Butler's heading names the order."
+  }
+ },
+ {
+  "id": "saints-067",
+  "d": 2,
+  "q": "At the siege of which city was the soldier Ignatius struck in the leg by a cannon shot?",
+  "o": [
+   "Barcelona",
+   "Seville",
+   "Pampeluna (Pamplona)",
+   "Toledo"
+  ],
+  "a": 2,
+  "why": "The siege of Pampeluna, capital of Navarre, ended his soldiering and began his conversion.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Ignatius of Loyola",
+   "butler": "07-31:0",
+   "quote": "laid siege to Pampeluna, the capital of Navarre…a shot from a cannon broke from the wall a bit of stone, which struck and bruised his left leg",
+   "note": "Butler recounts the siege and wound."
+  }
+ },
+ {
+  "id": "saints-068",
+  "d": 2,
+  "q": "Which young companion of Ignatius carried the faith to the East Indies?",
+  "o": [
+   "Peter Faber",
+   "Francis Xavier",
+   "Francis Borgia",
+   "Francis of Sales"
+  ],
+  "a": 1,
+  "why": "Francis Xavier went into the East Indies and gained a new world to the faith of Christ.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Ignatius of Loyola",
+   "butler": "07-31:0",
+   "quote": "Francis Xavier into the East-Indies, where he gained a new world to the faith of Christ",
+   "note": "This passage states the fact: Francis Xavier went into the East Indies and gained a new world to the faith of Christ."
+  }
+ },
+ {
+  "id": "saints-069",
+  "d": 2,
+  "q": "Catherine of Siena received the habit of the Third Order of which saint?",
+  "o": [
+   "St. Francis",
+   "St. Dominic",
+   "St. Benedict",
+   "St. Augustine"
+  ],
+  "a": 1,
+  "why": "In 1365 she took the habit of the Third Order of St. Dominic.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Catharine of Siena",
+   "butler": "04-30:0",
+   "quote": "she received the habit of the third Order of St. Dominic",
+   "note": "This passage states the fact: In 1365 she took the habit of the Third Order of St. Dominic."
+  }
+ },
+ {
+  "id": "saints-070",
+  "d": 3,
+  "q": "What was the trade of Catherine of Siena's father, James Benincasa?",
+  "o": [
+   "Dyer",
+   "Baker",
+   "Weaver",
+   "Merchant"
+  ],
+  "a": 0,
+  "why": "Her father was a dyer and a virtuous man.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Catharine of Siena",
+   "butler": "04-30:0",
+   "quote": "Her father, James Benincasa, by trade a dyer, was a virtuous man",
+   "note": "This passage states the fact: Her father was a dyer and a virtuous man."
+  }
+ },
+ {
+  "id": "saints-071",
+  "d": 2,
+  "q": "At what age did Catherine of Siena die in Rome in 1380?",
+  "o": [
+   "Twenty-one",
+   "Forty-five",
+   "Fifty-two",
+   "Thirty-three"
+  ],
+  "a": 3,
+  "why": "She died at Rome on 29 April 1380, being thirty-three years old.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Catharine of Siena",
+   "butler": "04-30:0",
+   "quote": "she died at Rome on the 29th of April, in 1380, being thirty-three years old",
+   "note": "This passage states the fact: She died at Rome on 29 April 1380, being thirty-three years old."
+  }
+ },
+ {
+  "id": "saints-072",
+  "d": 2,
+  "q": "Dominic, founder of the Friar Preachers, was born at Calaruega in which country?",
+  "o": [
+   "France",
+   "Italy",
+   "Spain (Old Castile)",
+   "Portugal"
+  ],
+  "a": 2,
+  "why": "Dominic was born in 1170 at Calaruega in Old Castile.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Dominic",
+   "butler": "08-04:0",
+   "quote": "Dominic was born, in 1170, at Calaruega, anciently called Calaroga, in Old Castille",
+   "note": "This passage states the fact: Dominic was born in 1170 at Calaruega in Old Castile."
+  }
+ },
+ {
+  "id": "saints-073",
+  "d": 2,
+  "q": "Antony of Padua was a native of Lisbon. What was his baptismal name?",
+  "o": [
+   "Francis",
+   "Anthony",
+   "Ferdinand",
+   "Peter"
+  ],
+  "a": 2,
+  "why": "He was christened Ferdinand and took the name Antony on entering the Franciscans.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Antony of Padua",
+   "butler": "06-13:0",
+   "quote": "christened by the name of Ferdinand, which he changed for that of Antony",
+   "note": "This passage states the fact: He was christened Ferdinand and took the name Antony on entering the Franciscans."
+  }
+ },
+ {
+  "id": "saints-074",
+  "d": 3,
+  "q": "On the banks of which river did Bede's monastery of Jarrow stand?",
+  "o": [
+   "The Thames",
+   "The Tyne",
+   "The Humber",
+   "The Severn"
+  ],
+  "a": 1,
+  "why": "Jarrow lay on the banks of the river Tyne.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Bede",
+   "butler": "05-28:3",
+   "quote": "now Jarrow, in 680, on the banks of the river Tyne",
+   "note": "Butler places Jarrow."
+  }
+ },
+ {
+  "id": "saints-075",
+  "d": 2,
+  "q": "Francis de Sales wrote which famous book, first letters to a lady in the world?",
+  "o": [
+   "Introduction to a Devout Life",
+   "The Imitation of Christ",
+   "The Spiritual Exercises",
+   "The Interior Castle"
+  ],
+  "a": 0,
+  "why": "His book began as letters to a lady and showed devotion suits Christians in secular life.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Francis of Sales",
+   "butler": "01-29:0",
+   "quote": "His incomparable book, the Introduction to a Devout Life, was originally letters to a lady in the world",
+   "note": "This passage states the fact: His book began as letters to a lady and showed devotion suits Christians in secular life."
+  }
+ },
+ {
+  "id": "saints-076",
+  "d": 2,
+  "q": "Which saint, born at Avila in Old Castile, reformed the Carmelites?",
+  "o": [
+   "Clare",
+   "Catherine",
+   "Bridget",
+   "Teresa"
+  ],
+  "a": 3,
+  "why": "Teresa of Avila founded the Reformation of the Barefooted Carmelites.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Teresa",
+   "butler": "10-15:0",
+   "quote": "Teresa was born at Avila in Old Castile",
+   "note": "Butler gives her birthplace and the heading names her reform."
+  }
+ },
+ {
+  "id": "saints-077",
+  "d": 2,
+  "q": "Whom did Teresa of Avila choose as chief patron of her order?",
+  "o": [
+   "St. Michael",
+   "St. Peter",
+   "St. Anne",
+   "St. Joseph"
+  ],
+  "a": 3,
+  "why": "Teresa chose Joseph as the chief patron of her order.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Joseph",
+   "butler": "03-19:0",
+   "quote": "Teresa chose him the chief patron of her order.",
+   "note": "This passage states the fact: Teresa chose Joseph as the chief patron of her order."
+  }
+ },
+ {
+  "id": "saints-078",
+  "d": 3,
+  "q": "Vincent de Paul founded which congregation of priests, also called Lazarists?",
+  "o": [
+   "Oratory of Divine Love",
+   "Order of the Visitation",
+   "Congregation of the Mission",
+   "Society of the Divine Word"
+  ],
+  "a": 2,
+  "why": "His order is the Lazarites, or Fathers of the Mission.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St. Vincent de Paul",
+   "butler": "07-19:0",
+   "quote": "Founder of the Lazarites, or Fathers of the Mission",
+   "note": "Butler's heading names it."
+  }
+ },
+ {
+  "id": "saints-079",
+  "d": 1,
+  "q": "Complete Augustine's line: 'Thou madest us for Thyself, and our heart is ___, until it repose in Thee.'",
+  "o": [
+   "Empty and cold",
+   "Restless",
+   "Silent",
+   "Broken"
+  ],
+  "a": 1,
+  "why": "Confessions opens with this line about the restless heart.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, Confessions",
+   "work": "aug-confessions",
+   "section": "ii.i",
+   "quote": "for Thou madest us for Thyself, and our heart is restless, until it repose in Thee",
+   "note": "This passage states the fact: Confessions opens with this line about the restless heart."
+  }
+ },
+ {
+  "id": "saints-080",
+  "d": 2,
+  "q": "In Augustine's conversion in the garden, what words did he hear a child chant?",
+  "o": [
+   "'Take up and read'",
+   "'Come and see'",
+   "'Rise and walk'",
+   "'Follow me'"
+  ],
+  "a": 0,
+  "why": "He heard a voice chanting 'Take up and read' and opened the Apostle's book.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, Confessions",
+   "work": "aug-confessions",
+   "section": "ix.xii",
+   "quote": "I heard from a neighbouring house a voice, as of boy or girl, I know not, chanting, and oft repeating, “Take up and read",
+   "note": "Augustine describes the voice."
+  }
+ },
+ {
+  "id": "saints-081",
+  "d": 2,
+  "q": "In Confessions, what fruit did Augustine and his friends steal from a neighbour's tree?",
+  "o": [
+   "Pears",
+   "Apples",
+   "Grapes",
+   "Figs"
+  ],
+  "a": 0,
+  "why": "The famous theft was of pears.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, Confessions",
+   "work": "aug-confessions",
+   "section": "iii.iv",
+   "quote": "A pear tree there was near our vineyard, laden with fruit, tempting neither for colour nor taste.",
+   "note": "This passage states the fact: The famous theft was of pears."
+  }
+ },
+ {
+  "id": "saints-082",
+  "d": 3,
+  "q": "Reading which book of Cicero stirred Augustine at nineteen to an earnest love of wisdom?",
+  "o": [
+   "De Officiis",
+   "The Republic",
+   "Timaeus",
+   "Hortensius"
+  ],
+  "a": 3,
+  "why": "Reading Cicero's Hortensius stirred him to love wisdom.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, Confessions",
+   "work": "aug-confessions",
+   "section": "ix.vii",
+   "quote": "since my nineteenth, when, upon the reading of Cicero's Hortensius, I was stirred to an earnest love of wisdom",
+   "note": "This passage states the fact: Reading Cicero's Hortensius stirred him to love wisdom."
+  }
+ },
+ {
+  "id": "saints-083",
+  "d": 2,
+  "q": "At which port did Augustine say 'my mother departed this life'?",
+  "o": [
+   "Carthage",
+   "Rome",
+   "Ostia",
+   "Tagaste"
+  ],
+  "a": 2,
+  "why": "Monica died at Ostia.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, Confessions",
+   "work": "aug-confessions",
+   "section": "x.viii",
+   "quote": "whitherward being as far as Ostia, my mother departed this life",
+   "note": "This passage states the fact: Monica died at Ostia."
+  }
+ },
+ {
+  "id": "saints-084",
+  "d": 2,
+  "q": "Which Confessions line begins 'Too late loved I Thee, O Thou ___ of ancient days, yet ever new!'?",
+  "o": [
+   "Light of the world",
+   "Beauty",
+   "Wisdom",
+   "Mercy"
+  ],
+  "a": 1,
+  "why": "Augustine regrets loving God late: 'Beauty of ancient days'.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, Confessions",
+   "work": "aug-confessions",
+   "section": "xi.xxvii",
+   "quote": "Too late loved I Thee, O Thou Beauty of ancient days, yet ever new!",
+   "note": "This passage states the fact: Augustine regrets loving God late: 'Beauty of ancient days'."
+  }
+ },
+ {
+  "id": "saints-085",
+  "d": 1,
+  "q": "St. Thérèse of Lisieux calls herself by what modest name?",
+  "o": [
+   "The Little Rose",
+   "The Little Flower",
+   "The Little Lamb",
+   "The Little Star"
+  ],
+  "a": 1,
+  "why": "She calls herself the Little Flower of Jesus.",
+  "src": {
+   "kind": "saint",
+   "label": "Story of a Soul",
+   "work": "therese-story-of-a-soul",
+   "section": "vii",
+   "quote": "she calls herself by this modest name of the Little Flower",
+   "note": "This passage states the fact: She calls herself the Little Flower of Jesus."
+  }
+ },
+ {
+  "id": "saints-086",
+  "d": 2,
+  "q": "Thérèse wrote: 'In the heart of the Church, my Mother, I will be ___!'",
+  "o": [
+   "Love",
+   "Joy",
+   "Prayer",
+   "Silence"
+  ],
+  "a": 0,
+  "why": "She found her vocation in the heart of the Church as love.",
+  "src": {
+   "kind": "saint",
+   "label": "Story of a Soul",
+   "work": "therese-story-of-a-soul",
+   "section": "xix",
+   "quote": "in the heart of the Church, my Mother, I will be LOVE!",
+   "note": "This passage states the fact: She found her vocation in the heart of the Church as love."
+  }
+ },
+ {
+  "id": "saints-087",
+  "d": 2,
+  "q": "Thérèse promised, 'I will spend my Heaven in doing ___ upon earth.'",
+  "o": [
+   "Penance",
+   "Miracles",
+   "Prayer",
+   "Good"
+  ],
+  "a": 3,
+  "why": "Her promise: spending heaven doing good upon earth.",
+  "src": {
+   "kind": "saint",
+   "label": "Story of a Soul",
+   "work": "therese-story-of-a-soul",
+   "section": "xx",
+   "quote": "I WILL SPEND MY HEAVEN IN DOING GOOD UPON EARTH.",
+   "note": "This passage states the fact: Her promise: spending heaven doing good upon earth."
+  }
+ },
+ {
+  "id": "saints-088",
+  "d": 3,
+  "q": "On what date, in 1897, did Thérèse die?",
+  "o": [
+   "1 October",
+   "15 August",
+   "30 September",
+   "8 December"
+  ],
+  "a": 2,
+  "why": "She died Thursday 30 September 1897.",
+  "src": {
+   "kind": "saint",
+   "label": "Story of a Soul",
+   "work": "therese-story-of-a-soul",
+   "section": "xx",
+   "quote": "It was Thursday, September 30, 1897.",
+   "note": "This passage states the fact: She died Thursday 30 September 1897."
+  }
+ },
+ {
+  "id": "saints-089",
+  "d": 3,
+  "q": "To see which bishop did Thérèse travel to on 31 October 1887, with her father, to ask to enter Carmel early?",
+  "o": [
+   "Bishop of Lisieux",
+   "Bishop of Rouen",
+   "The Bishop of Bayeux",
+   "Bishop of Paris"
+  ],
+  "a": 2,
+  "why": "She travelled to Bayeux with her father on 31 Oct 1887.",
+  "src": {
+   "kind": "saint",
+   "label": "Story of a Soul",
+   "work": "therese-story-of-a-soul",
+   "section": "xiii",
+   "quote": "On October 31, 1887, alone with Papa, I started for Bayeux",
+   "note": "This passage states the fact: She travelled to Bayeux with her father on 31 Oct 1887."
+  }
+ },
+ {
+  "id": "saints-090",
+  "d": 2,
+  "q": "Which saint's Confessions did St. Teresa of Avila read and think she saw herself described?",
+  "o": [
+   "St. Jerome",
+   "St. Augustine",
+   "St. Ambrose",
+   "St. Gregory the Great"
+  ],
+  "a": 1,
+  "why": "Teresa read the Confessions of St. Augustine.",
+  "src": {
+   "kind": "saint",
+   "label": "Teresa, Life",
+   "work": "teresa-life",
+   "section": "viii.x",
+   "quote": "At this time, the Confessions of St. Augustine were given me.",
+   "note": "This passage states the fact: Teresa read the Confessions of St. Augustine."
+  }
+ },
+ {
+  "id": "saints-091",
+  "d": 3,
+  "q": "Which friar, a Franciscan, did Teresa say God sent to relieve her distress?",
+  "o": [
+   "Peter of Alcantara",
+   "John of the Cross",
+   "Francis Solano",
+   "Peter Regalado"
+  ],
+  "a": 0,
+  "why": "Teresa credits Peter of Alcantara.",
+  "src": {
+   "kind": "saint",
+   "label": "Teresa, Life",
+   "work": "teresa-life",
+   "section": "viii.xxxi",
+   "quote": "by bringing to the place where I was that blessed friar, Peter of Alcantara",
+   "note": "This passage states the fact: Teresa credits Peter of Alcantara."
+  }
+ },
+ {
+  "id": "saints-092",
+  "d": 3,
+  "q": "For how many years was Teresa a professed nun in the Monastery of the Incarnation?",
+  "o": [
+   "Twelve",
+   "Forty",
+   "Fifty",
+   "Twenty-eight"
+  ],
+  "a": 3,
+  "why": "She was professed there for twenty-eight years.",
+  "src": {
+   "kind": "saint",
+   "label": "Teresa, Life",
+   "work": "teresa-life",
+   "section": "viii.ii",
+   "quote": "In the Monastery of the Incarnation, where she was a professed nun for twenty-eight years",
+   "note": "This passage states the fact: She was professed there for twenty-eight years."
+  }
+ },
+ {
+  "id": "saints-093",
+  "d": 2,
+  "q": "In Catherine of Siena's Dialogue, God says he made a Bridge of what?",
+  "o": [
+   "The Church",
+   "The cross alone",
+   "The Holy Spirit",
+   "His Word, his only-begotten Son"
+  ],
+  "a": 3,
+  "why": "God says: 'I have made a Bridge of My Word, of My only-begotten Son'.",
+  "src": {
+   "kind": "saint",
+   "label": "Catherine, Dialogue",
+   "work": "catherine-dialogue",
+   "section": "iv.iii.vii",
+   "quote": "I have told you that I have made a Bridge of My Word, of My only-begotten Son",
+   "note": "Catherine's Dialogue."
+  }
+ },
+ {
+  "id": "saints-094",
+  "d": 3,
+  "q": "In what year was Catherine of Siena declared a Doctor of the Church?",
+  "o": [
+   "1870",
+   "1920",
+   "1970",
+   "1946"
+  ],
+  "a": 2,
+  "why": "She was declared Doctor on 4 October 1970.",
+  "src": {
+   "kind": "saint",
+   "label": "Catherine, Dialogue",
+   "work": "catherine-dialogue",
+   "section": "i",
+   "quote": "Saint Catherine of Siena (1347-1380) was declared a Doctor of the Church on October 4, 1970.",
+   "note": "This passage states the fact: She was declared Doctor on 4 October 1970."
+  }
+ },
+ {
+  "id": "saints-095",
+  "d": 2,
+  "q": "Catherine's Dialogue was dictated while in ecstasy in conversation with whom?",
+  "o": [
+   "The Archangel Gabriel",
+   "God the Father",
+   "St. Dominic",
+   "Pope Gregory XI"
+  ],
+  "a": 1,
+  "why": "Dictated in ecstasy while in dialogue with God the Father.",
+  "src": {
+   "kind": "saint",
+   "label": "Catherine, Dialogue",
+   "work": "catherine-dialogue",
+   "section": "i",
+   "quote": "This work was dictated by Saint Catherine of Siena during a state of ecstasy while in dialogue with God the Father.",
+   "note": "This passage states the fact: Dictated in ecstasy while in dialogue with God the Father."
+  }
+ },
+ {
+  "id": "saints-096",
+  "d": 2,
+  "q": "According to Ignatius's Spiritual Exercises, man is created to praise, reverence and serve God, and by this means to do what?",
+  "o": [
+   "Save his soul",
+   "Know the truth",
+   "Gain heaven's crown",
+   "Possess peace"
+  ],
+  "a": 0,
+  "why": "Principle and Foundation.",
+  "src": {
+   "kind": "saint",
+   "label": "Ignatius, Spiritual Exercises",
+   "work": "ignatius-exercises",
+   "section": "xii.i",
+   "quote": "Man is created to praise, reverence, and serve God our Lord, and by this means to save his soul.",
+   "note": "The Principle and Foundation."
+  }
+ },
+ {
+  "id": "saints-097",
+  "d": 3,
+  "q": "In the Two Standards meditation, whose standard is set against that of Christ?",
+  "o": [
+   "Lucifer",
+   "Herod",
+   "Pilate",
+   "Satan's servant Cain"
+  ],
+  "a": 0,
+  "why": "The other standard is of Lucifer.",
+  "src": {
+   "kind": "saint",
+   "label": "Ignatius, Spiritual Exercises",
+   "work": "ignatius-exercises",
+   "section": "xiii.v",
+   "quote": "TWO STANDARDS The one of Christ, our Commander-in-chief and Lord",
+   "note": "Names Christ's standard."
+  }
+ },
+ {
+  "id": "saints-098",
+  "d": 1,
+  "q": "In what part of the monastery did Brother Lawrence of the Resurrection work as cook?",
+  "o": [
+   "The monastery garden",
+   "The library",
+   "The chapel",
+   "The kitchen"
+  ],
+  "a": 3,
+  "why": "Brother Lawrence did his work in the kitchen.",
+  "src": {
+   "kind": "saint",
+   "label": "Practice of the Presence of God",
+   "work": "lawrence-practice",
+   "section": "iii.iv",
+   "quote": "he went to his work appointed in the kitchen (for he was cook to the society)",
+   "note": "This passage states the fact: Brother Lawrence did his work in the kitchen."
+  }
+ },
+ {
+  "id": "saints-099",
+  "d": 2,
+  "q": "Brother Lawrence said his prayer was nothing else but a sense of what?",
+  "o": [
+   "The mercy of God",
+   "The fear of God",
+   "The presence of God",
+   "The silence of God"
+  ],
+  "a": 2,
+  "why": "Prayer is a sense of the presence of God.",
+  "src": {
+   "kind": "saint",
+   "label": "Practice of the Presence of God",
+   "work": "lawrence-practice",
+   "section": "iii.iv",
+   "quote": "his prayer was nothing else but a sense of the presence of God",
+   "note": "This passage states the fact: Prayer is a sense of the presence of God."
+  }
+ },
+ {
+  "id": "saints-100",
+  "d": 2,
+  "q": "To which island was St. John the apostle exiled around the years 94-95?",
+  "o": [
+   "Crete or Rhodes",
+   "Patmos",
+   "Cyprus",
+   "Malta"
+  ],
+  "a": 1,
+  "why": "John was exiled to Patmos.",
+  "src": {
+   "kind": "saint",
+   "label": "Jerome, Lives of Illustrious Men",
+   "work": "jerome-lives",
+   "section": "v.iii.xi",
+   "quote": "John, Exiled to Patmos 94–95.",
+   "note": "This passage states the fact: John was exiled to Patmos."
+  }
+ }
+]

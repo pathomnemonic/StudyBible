@@ -1,0 +1,2002 @@
+[
+ {
+  "id": "scripture-001",
+  "d": 1,
+  "q": "On which day of creation did God rest from his work?",
+  "o": [
+   "The seventh day",
+   "The fifth day",
+   "The sixth day",
+   "The third day"
+  ],
+  "a": 0,
+  "why": "God finished his work and rested on the seventh day.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 2:2",
+   "ref": "GEN.2.2",
+   "quote": "On the seventh day God finished his work which he had done; and he rested on the seventh day from all his work which he had done.",
+   "note": "God finished his work and rested on the seventh day."
+  }
+ },
+ {
+  "id": "scripture-002",
+  "d": 1,
+  "q": "Who built the ark at God's command?",
+  "o": [
+   "Abraham",
+   "Noah",
+   "Moses",
+   "Jacob"
+  ],
+  "a": 1,
+  "why": "Noah built the ship as God commanded him.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 6:13-14",
+   "ref": "GEN.6.13-14",
+   "quote": "God said to Noah, “I will bring an end to all flesh, for the earth is filled with violence through them. Behold, I will destroy them and the earth. Make a ship of gopher wood. You shall make rooms in the ship, and shall seal it inside and outside with pitch.",
+   "note": "Noah built the ship as God commanded him."
+  }
+ },
+ {
+  "id": "scripture-003",
+  "d": 1,
+  "q": "What was the name of Adam's wife?",
+  "o": [
+   "Sarah",
+   "Rachel",
+   "Eve",
+   "Miriam"
+  ],
+  "a": 2,
+  "why": "Adam named his wife Eve because she was the mother of all the living.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 3:20",
+   "ref": "GEN.3.20",
+   "quote": "The man called his wife Eve because she would be the mother of all the living.",
+   "note": "Adam named his wife Eve because she was the mother of all the living."
+  }
+ },
+ {
+  "id": "scripture-004",
+  "d": 1,
+  "q": "Which of Adam's sons killed his brother Abel?",
+  "o": [
+   "Seth",
+   "Esau",
+   "Ishmael",
+   "Cain"
+  ],
+  "a": 3,
+  "why": "Cain rose up against his brother Abel and killed him.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 4:8",
+   "ref": "GEN.4.8",
+   "quote": "Cain said to Abel, his brother, “Let’s go into the field.” While they were in the field, Cain rose up against Abel, his brother, and killed him.",
+   "note": "Cain rose up against his brother Abel and killed him."
+  }
+ },
+ {
+  "id": "scripture-005",
+  "d": 1,
+  "q": "What did God set in the clouds as the sign of his covenant after the flood?",
+  "o": [
+   "A rainbow",
+   "A star",
+   "A pillar of fire",
+   "A dove"
+  ],
+  "a": 0,
+  "why": "God set his bow in the cloud as the sign of the covenant with the earth.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 9:13",
+   "ref": "GEN.9.13",
+   "quote": "I set my rainbow in the cloud, and it will be a sign of a covenant between me and the earth.",
+   "note": "God set his bow in the cloud as the sign of the covenant with the earth."
+  }
+ },
+ {
+  "id": "scripture-006",
+  "d": 1,
+  "q": "Who did God send to bring the Israelites out of Egypt?",
+  "o": [
+   "Joshua",
+   "Moses",
+   "Aaron",
+   "Samuel"
+  ],
+  "a": 1,
+  "why": "God told Moses he was sending him to Pharaoh to bring his people out of Egypt.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 3:10",
+   "ref": "EXO.3.10",
+   "quote": "Come now therefore, and I will send you to Pharaoh, that you may bring my people, the children of Israel, out of Egypt.”",
+   "note": "God told Moses he was sending him to Pharaoh to bring his people out of Egypt."
+  }
+ },
+ {
+  "id": "scripture-007",
+  "d": 1,
+  "q": "On which mountain did God give the law to Moses?",
+  "o": [
+   "Mount Carmel",
+   "Mount Zion",
+   "Mount Sinai",
+   "Mount Hermon"
+  ],
+  "a": 2,
+  "why": "Yahweh came down on Mount Sinai, to the top of the mountain.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 19:20",
+   "ref": "EXO.19.20",
+   "quote": "The LORD came down on Mount Sinai, to the top of the mountain. The LORD called Moses to the top of the mountain, and Moses went up.",
+   "note": "Yahweh came down on Mount Sinai, to the top of the mountain."
+  }
+ },
+ {
+  "id": "scripture-008",
+  "d": 1,
+  "q": "What was the name of the food that appeared on the ground each morning for the Israelites in the wilderness?",
+  "o": [
+   "Honey cakes",
+   "Quail eggs",
+   "Barley loaves",
+   "Manna"
+  ],
+  "a": 3,
+  "why": "The house of Israel called the food manna; it was like coriander seed, white, and tasted like wafers with honey.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 16:31",
+   "ref": "EXO.16.31",
+   "quote": "The house of Israel called its name “Manna”, and it was like coriander seed, white; and its taste was like wafers with honey.",
+   "note": "The house of Israel called the food manna; it was like coriander seed, white, and tasted like wafers with honey."
+  }
+ },
+ {
+  "id": "scripture-009",
+  "d": 1,
+  "q": "Which Philistine champion of Gath did David defeat?",
+  "o": [
+   "Goliath",
+   "Og",
+   "Sisera",
+   "Holofernes"
+  ],
+  "a": 0,
+  "why": "The Philistine champion of Gath named Goliath was struck down by David.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Samuel 17:4",
+   "ref": "1SA.17.4",
+   "quote": "A champion out of the camp of the Philistines named Goliath of Gath, whose height was six cubits and a span went out.",
+   "note": "The Philistine champion of Gath named Goliath was struck down by David."
+  }
+ },
+ {
+  "id": "scripture-010",
+  "d": 1,
+  "q": "Which prophet was swallowed by a great fish?",
+  "o": [
+   "Elijah",
+   "Jonah",
+   "Isaiah",
+   "Amos"
+  ],
+  "a": 1,
+  "why": "Yahweh prepared a great fish to swallow up Jonah.",
+  "src": {
+   "kind": "scripture",
+   "label": "Jonah 1:17",
+   "ref": "JON.1.17",
+   "quote": "The LORD prepared a huge fish to swallow up Jonah, and Jonah was in the belly of the fish three days and three nights.",
+   "note": "Yahweh prepared a great fish to swallow up Jonah."
+  }
+ },
+ {
+  "id": "scripture-011",
+  "d": 1,
+  "q": "Where was Jesus born?",
+  "o": [
+   "Nazareth",
+   "Jerusalem",
+   "Bethlehem",
+   "Capernaum"
+  ],
+  "a": 2,
+  "why": "Jesus was born in Bethlehem of Judea in the days of King Herod.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 2:1",
+   "ref": "MAT.2.1",
+   "quote": "Now when Jesus was born in Bethlehem of Judea in the days of King Herod, behold, wise men from the east came to Jerusalem, saying,",
+   "note": "Jesus was born in Bethlehem of Judea in the days of King Herod."
+  }
+ },
+ {
+  "id": "scripture-012",
+  "d": 1,
+  "q": "What gifts did the wise men bring to the child Jesus?",
+  "o": [
+   "Gold, silver and bronze",
+   "Wheat, oil and wine",
+   "Frankincense, spices and silk",
+   "Gold, frankincense and myrrh"
+  ],
+  "a": 3,
+  "why": "The wise men offered him gifts of gold, frankincense and myrrh.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 2:11",
+   "ref": "MAT.2.11",
+   "quote": "They came into the house and saw the young child with Mary, his mother, and they fell down and worshiped him. Opening their treasures, they offered to him gifts: gold, frankincense, and myrrh.",
+   "note": "The wise men offered him gifts of gold, frankincense and myrrh."
+  }
+ },
+ {
+  "id": "scripture-013",
+  "d": 1,
+  "q": "Which angel announced to Mary that she would conceive Jesus?",
+  "o": [
+   "Gabriel",
+   "Michael",
+   "Raphael",
+   "Uriel"
+  ],
+  "a": 0,
+  "why": "The angel Gabriel was sent to a virgin named Mary.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 1:26-27",
+   "ref": "LUK.1.26-27",
+   "quote": "Now in the sixth month, the angel Gabriel was sent from God to a city of Galilee named Nazareth, to a virgin pledged to be married to a man whose name was Joseph, of David’s house. The virgin’s name was Mary.",
+   "note": "The angel Gabriel was sent to a virgin named Mary."
+  }
+ },
+ {
+  "id": "scripture-014",
+  "d": 1,
+  "q": "Who baptized Jesus in the Jordan River?",
+  "o": [
+   "Peter",
+   "John the Baptist",
+   "Andrew",
+   "Philip"
+  ],
+  "a": 1,
+  "why": "Jesus came from Galilee to the Jordan to John, to be baptized by him.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 3:13",
+   "ref": "MAT.3.13",
+   "quote": "Then Jesus came from Galilee to the Jordan to John, to be baptized by him.",
+   "note": "Jesus came from Galilee to the Jordan to John, to be baptized by him."
+  }
+ },
+ {
+  "id": "scripture-015",
+  "d": 1,
+  "q": "What did Jesus turn water into at the wedding in Cana?",
+  "o": [
+   "Milk",
+   "Oil",
+   "Wine",
+   "Honey"
+  ],
+  "a": 2,
+  "why": "The steward tasted the water that had become wine.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 2:9",
+   "ref": "JHN.2.9",
+   "quote": "When the ruler of the feast tasted the water now become wine, and didn’t know where it came from (but the servants who had drawn the water knew), the ruler of the feast called the bridegroom",
+   "note": "The steward tasted the water that had become wine."
+  }
+ },
+ {
+  "id": "scripture-016",
+  "d": 1,
+  "q": "Complete the shortest verse of the Bible: \"Jesus ___.\"",
+  "o": [
+   "slept",
+   "prayed",
+   "sighed",
+   "wept"
+  ],
+  "a": 3,
+  "why": "At the tomb of Lazarus, Jesus wept.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 11:34-35",
+   "ref": "JHN.11.34-35",
+   "quote": "and said, “Where have you laid him?” Jesus wept.",
+   "note": "At the tomb of Lazarus, Jesus wept."
+  }
+ },
+ {
+  "id": "scripture-017",
+  "d": 1,
+  "q": "How many apostles did Jesus appoint?",
+  "o": [
+   "Twelve",
+   "Seven",
+   "Ten",
+   "Seventy"
+  ],
+  "a": 0,
+  "why": "Jesus appointed twelve to be with him.",
+  "src": {
+   "kind": "scripture",
+   "label": "Mark 3:14",
+   "ref": "MRK.3.14",
+   "quote": "He appointed twelve, that they might be with him, and that he might send them out to preach",
+   "note": "Jesus appointed twelve to be with him."
+  }
+ },
+ {
+  "id": "scripture-018",
+  "d": 1,
+  "q": "Which disciple betrayed Jesus for thirty pieces of silver?",
+  "o": [
+   "Thomas",
+   "Judas Iscariot",
+   "Simon Peter",
+   "Bartholomew"
+  ],
+  "a": 1,
+  "why": "Judas Iscariot, one of the twelve, went to the chief priests to betray Jesus.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 26:14-15",
+   "ref": "MAT.26.14-15",
+   "quote": "Then one of the twelve, who was called Judas Iscariot, went to the chief priests and said, “What are you willing to give me if I deliver him to you?” So they weighed out for him thirty pieces of silver.",
+   "note": "Judas Iscariot, one of the twelve, went to the chief priests to betray Jesus."
+  }
+ },
+ {
+  "id": "scripture-019",
+  "d": 1,
+  "q": "Which apostle denied Jesus three times before the rooster crowed?",
+  "o": [
+   "John",
+   "James",
+   "Peter",
+   "Andrew"
+  ],
+  "a": 2,
+  "why": "Peter remembered Jesus' word, that before the rooster crowed he would deny him three times.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 26:75",
+   "ref": "MAT.26.75",
+   "quote": "Peter remembered the word which Jesus had said to him, “Before the rooster crows, you will deny me three times.”Then he went out and wept bitterly.",
+   "note": "Peter remembered Jesus' word, that before the rooster crowed he would deny him three times."
+  }
+ },
+ {
+  "id": "scripture-020",
+  "d": 1,
+  "q": "What was the name of the place where Jesus was crucified, meaning \"place of a skull\"?",
+  "o": [
+   "Gethsemane",
+   "Bethany",
+   "Gilgal",
+   "Golgotha"
+  ],
+  "a": 3,
+  "why": "They came to a place called Golgotha, that is to say, the place of a skull.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 27:33",
+   "ref": "MAT.27.33",
+   "quote": "When they came to a place called “Golgotha”, that is to say, “The place of a skull,”",
+   "note": "They came to a place called Golgotha, that is to say, the place of a skull."
+  }
+ },
+ {
+  "id": "scripture-021",
+  "d": 1,
+  "q": "Who was the first to see the risen Jesus, according to John's Gospel?",
+  "o": [
+   "Mary Magdalene",
+   "Peter",
+   "Salome",
+   "Martha"
+  ],
+  "a": 0,
+  "why": "Mary Magdalene turned and saw Jesus standing there and he spoke her name.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 20:14-16",
+   "ref": "JHN.20.14-16",
+   "quote": "When she had said this, she turned around and saw Jesus standing, and didn’t know that it was Jesus. Jesus said to her, “Woman, why are you weeping? Who are you looking for?” Jesus said to her, “Mary.”",
+   "note": "Mary Magdalene turned and saw Jesus standing there and he spoke her name."
+  }
+ },
+ {
+  "id": "scripture-022",
+  "d": 1,
+  "q": "Who filled the apostles at Pentecost?",
+  "o": [
+   "An angel",
+   "The Holy Spirit",
+   "Elijah",
+   "The prophet Joel"
+  ],
+  "a": 1,
+  "why": "They were all filled with the Holy Spirit and began to speak in other languages.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 2:4",
+   "ref": "ACT.2.4",
+   "quote": "They were all filled with the Holy Spirit and began to speak with other languages, as the Spirit gave them the ability to speak.",
+   "note": "They were all filled with the Holy Spirit and began to speak in other languages."
+  }
+ },
+ {
+  "id": "scripture-023",
+  "d": 1,
+  "q": "Complete the line: \"For God so loved the world, that he gave his only born ___\"",
+  "o": [
+   "Servant",
+   "Prophet",
+   "Son",
+   "Child"
+  ],
+  "a": 2,
+  "why": "John 3:16 says God gave his only born Son so that whoever believes may have eternal life.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 3:16",
+   "ref": "JHN.3.16",
+   "quote": "For God so loved the world, that he gave his only born Son, that whoever believes in him should not perish, but have eternal life.",
+   "note": "John 3:16 says God gave his only born Son so that whoever believes may have eternal life."
+  }
+ },
+ {
+  "id": "scripture-024",
+  "d": 1,
+  "q": "Which Gospel begins with the words \"In the beginning was the Word\"?",
+  "o": [
+   "Matthew",
+   "Mark",
+   "Luke",
+   "John"
+  ],
+  "a": 3,
+  "why": "John's Gospel opens by declaring that in the beginning was the Word.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 1:1",
+   "ref": "JHN.1.1",
+   "quote": "In the beginning was the Word, and the Word was with God, and the Word was God.",
+   "note": "John's Gospel opens by declaring that in the beginning was the Word."
+  }
+ },
+ {
+  "id": "scripture-025",
+  "d": 1,
+  "q": "In the parable Jesus told, who stopped to help the man beaten by robbers?",
+  "o": [
+   "A Samaritan",
+   "A priest",
+   "A Levite",
+   "A Pharisee"
+  ],
+  "a": 0,
+  "why": "A Samaritan had compassion, bandaged the wounds and cared for the man.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 10:33-34",
+   "ref": "LUK.10.33-34",
+   "quote": "But a certain Samaritan, as he traveled, came where he was. When he saw him, he was moved with compassion, came to him, and bound up his wounds, pouring on oil and wine. He set him on his own animal, brought him to an inn, and took care of him.",
+   "note": "A Samaritan had compassion, bandaged the wounds and cared for the man."
+  }
+ },
+ {
+  "id": "scripture-026",
+  "d": 1,
+  "q": "How many loaves and fish did Jesus use to feed the five thousand?",
+  "o": [
+   "Seven loaves and a few fish",
+   "Five loaves and two fish",
+   "Twelve loaves and three fish",
+   "Two loaves and five fish"
+  ],
+  "a": 1,
+  "why": "The disciples had only five loaves and two fish.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 14:17",
+   "ref": "MAT.14.17",
+   "quote": "They told him, “We only have here five loaves and two fish.”",
+   "note": "The disciples had only five loaves and two fish."
+  }
+ },
+ {
+  "id": "scripture-027",
+  "d": 1,
+  "q": "Which tax collector did Jesus call to follow him, who became an apostle?",
+  "o": [
+   "Zacchaeus",
+   "Levi's brother Simon",
+   "Matthew",
+   "Nicodemus"
+  ],
+  "a": 2,
+  "why": "Jesus saw a man named Matthew sitting at the tax collection office and said, \"Follow me.\"",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 9:9",
+   "ref": "MAT.9.9",
+   "quote": "As Jesus passed by from there, he saw a man called Matthew sitting at the tax collection office. He said to him, “Follow me.”He got up and followed him.",
+   "note": "Jesus saw a man named Matthew sitting at the tax collection office and said, \"Follow me.\""
+  }
+ },
+ {
+  "id": "scripture-028",
+  "d": 1,
+  "q": "Which short man climbed a sycamore tree to see Jesus?",
+  "o": [
+   "Bartimaeus",
+   "Nicodemus",
+   "Jairus",
+   "Zacchaeus"
+  ],
+  "a": 3,
+  "why": "Zacchaeus climbed up into a sycamore tree to see Jesus pass by.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 19:1-4",
+   "ref": "LUK.19.1-4",
+   "quote": "He entered and was passing through Jericho. There was a man named Zacchaeus. He was a chief tax collector, and he was rich. He was trying to see who Jesus was, and couldn’t because of the crowd, because he was short. He ran on ahead and climbed up into a sycamore tree to see him, for he was going to pass that way.",
+   "note": "Zacchaeus climbed up into a sycamore tree to see Jesus pass by."
+  }
+ },
+ {
+  "id": "scripture-029",
+  "d": 1,
+  "q": "What did Jesus call Simon and Andrew to become?",
+  "o": [
+   "Fishers of men",
+   "Shepherds of sheep",
+   "Keepers of the law",
+   "Builders of the temple"
+  ],
+  "a": 0,
+  "why": "Jesus told the two fishermen he would make them fishers of men.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 4:18-19",
+   "ref": "MAT.4.18-19",
+   "quote": "Walking by the sea of Galilee, he saw two brothers: Simon, who is called Peter, and Andrew, his brother, casting a net into the sea; for they were fishermen. He said to them, “Come after me, and I will make you fishers for men.”",
+   "note": "Jesus told the two fishermen he would make them fishers of men."
+  }
+ },
+ {
+  "id": "scripture-030",
+  "d": 1,
+  "q": "Whom did Jesus raise from the dead after four days in the tomb?",
+  "o": [
+   "Jairus' daughter",
+   "Lazarus",
+   "The widow's son",
+   "Tabitha"
+  ],
+  "a": 1,
+  "why": "Lazarus had been in the tomb four days when Jesus called him out.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 11:39-44",
+   "ref": "JHN.11.39-44",
+   "quote": "Jesus said, “Take away the stone.” Jesus said to her, “Didn’t I tell you that if you believed, you would see God’s glory?” So they took away the stone from the place where the dead man was lying. Jesus lifted up his eyes and said, “Father, I thank you that you listened to me. I know that you always listen to me, but because of the multitude standing around I said this, that they may believe that you sent me.” When he had said this, he cried with a loud voice, “Lazarus, come out!” He who was dead came out, bound hand and foot with wrappings, and his face was wrapped around with a cloth.",
+   "note": "Lazarus had been in the tomb four days when Jesus called him out."
+  }
+ },
+ {
+  "id": "scripture-031",
+  "d": 1,
+  "q": "Complete the first Beatitude: \"Blessed are the poor in ___.\"",
+  "o": [
+   "heart",
+   "faith",
+   "spirit",
+   "hope"
+  ],
+  "a": 2,
+  "why": "The first Beatitude reads: Blessed are the poor in spirit.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 5:3",
+   "ref": "MAT.5.3",
+   "quote": "“Blessed are the poor in spirit,",
+   "note": "The first Beatitude reads: Blessed are the poor in spirit."
+  }
+ },
+ {
+  "id": "scripture-032",
+  "d": 1,
+  "q": "Complete Jesus' second great commandment: \"You shall love your neighbor as ___.\"",
+  "o": [
+   "your brother",
+   "the Lord",
+   "God's people",
+   "yourself"
+  ],
+  "a": 3,
+  "why": "Jesus said the second great commandment is to love your neighbor as yourself.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 22:39",
+   "ref": "MAT.22.39",
+   "quote": "A second likewise is this, ‘You shall love your neighbor as yourself.’",
+   "note": "Jesus said the second great commandment is to love your neighbor as yourself."
+  }
+ },
+ {
+  "id": "scripture-033",
+  "d": 1,
+  "q": "Who was the first Christian martyr, stoned to death in Jerusalem?",
+  "o": [
+   "Stephen",
+   "James",
+   "Barnabas",
+   "Philip"
+  ],
+  "a": 0,
+  "why": "As they stoned Stephen he called on the Lord Jesus to receive his spirit.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 7:59-60",
+   "ref": "ACT.7.59-60",
+   "quote": "They stoned Stephen as he called out, saying, “Lord Jesus, receive my spirit!” He kneeled down and cried with a loud voice, “Lord, don’t hold this sin against them!” When he had said this, he fell asleep.",
+   "note": "As they stoned Stephen he called on the Lord Jesus to receive his spirit."
+  }
+ },
+ {
+  "id": "scripture-034",
+  "d": 1,
+  "q": "What was Saul's new name after he became an apostle of Jesus?",
+  "o": [
+   "Silas",
+   "Paul",
+   "Barnabas",
+   "Timothy"
+  ],
+  "a": 1,
+  "why": "Saul, who is also called Paul, was filled with the Holy Spirit.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 13:9",
+   "ref": "ACT.13.9",
+   "quote": "But Saul, who is also called Paul, filled with the Holy Spirit, fastened his eyes on him",
+   "note": "Saul, who is also called Paul, was filled with the Holy Spirit."
+  }
+ },
+ {
+  "id": "scripture-035",
+  "d": 1,
+  "q": "Where were Jesus' disciples first called Christians?",
+  "o": [
+   "Jerusalem",
+   "Rome",
+   "Antioch",
+   "Damascus"
+  ],
+  "a": 2,
+  "why": "The disciples were first called Christians at Antioch.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 11:26",
+   "ref": "ACT.11.26",
+   "quote": "When he had found him, he brought him to Antioch. For a whole year they were gathered together with the assembly, and taught many people. The disciples were first called Christians in Antioch.",
+   "note": "The disciples were first called Christians at Antioch."
+  }
+ },
+ {
+  "id": "scripture-036",
+  "d": 1,
+  "q": "On which day after his death did Jesus rise from the dead?",
+  "o": [
+   "The first day",
+   "The seventh day",
+   "The fortieth day",
+   "The third day"
+  ],
+  "a": 3,
+  "why": "Paul says Christ was raised on the third day according to the Scriptures.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Corinthians 15:3-4",
+   "ref": "1CO.15.3-4",
+   "quote": "For I delivered to you first of all that which I also received: that Christ died for our sins according to the Scriptures, that he was buried, that he was raised on the third day according to the Scriptures,",
+   "note": "Paul says Christ was raised on the third day according to the Scriptures."
+  }
+ },
+ {
+  "id": "scripture-037",
+  "d": 2,
+  "q": "Who was the son of promise born to Abraham and Sarah in their old age?",
+  "o": [
+   "Isaac",
+   "Ishmael",
+   "Jacob",
+   "Esau"
+  ],
+  "a": 0,
+  "why": "Abraham called the son Sarah bore him Isaac.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 21:3",
+   "ref": "GEN.21.3",
+   "quote": "Abraham called his son who was born to him, whom Sarah bore to him, Isaac.",
+   "note": "Abraham called the son Sarah bore him Isaac."
+  }
+ },
+ {
+  "id": "scripture-038",
+  "d": 2,
+  "q": "To which land did God send Abraham to offer Isaac as a sacrifice?",
+  "o": [
+   "The land of Goshen",
+   "The land of Moriah",
+   "The land of Canaan",
+   "The land of Midian"
+  ],
+  "a": 1,
+  "why": "God told Abraham to go to the land of Moriah and offer his son there.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 22:2",
+   "ref": "GEN.22.2",
+   "quote": "He said, “Now take your son, your only son, Isaac, whom you love, and go into the land of Moriah. Offer him there as a burnt offering on one of the mountains which I will tell you of.”",
+   "note": "God told Abraham to go to the land of Moriah and offer his son there."
+  }
+ },
+ {
+  "id": "scripture-039",
+  "d": 2,
+  "q": "What new name did Jacob receive after wrestling with a man until daybreak?",
+  "o": [
+   "Judah",
+   "Joseph",
+   "Israel",
+   "Ephraim"
+  ],
+  "a": 2,
+  "why": "The man said Jacob's name would no longer be Jacob but Israel.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 32:28",
+   "ref": "GEN.32.28",
+   "quote": "He said, “Your name will no longer be called Jacob, but Israel; for you have fought with God and with men, and have prevailed.”",
+   "note": "The man said Jacob's name would no longer be Jacob but Israel."
+  }
+ },
+ {
+  "id": "scripture-040",
+  "d": 2,
+  "q": "To whom did Joseph's brothers sell him for twenty pieces of silver?",
+  "o": [
+   "Philistines",
+   "Midianite kings",
+   "Egyptian soldiers",
+   "Ishmaelites"
+  ],
+  "a": 3,
+  "why": "They sold Joseph to the Ishmaelites for twenty pieces of silver.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 37:28",
+   "ref": "GEN.37.28",
+   "quote": "Midianites who were merchants passed by, and they drew and lifted up Joseph out of the pit, and sold Joseph to the Ishmaelites for twenty pieces of silver. The merchants brought Joseph into Egypt.",
+   "note": "They sold Joseph to the Ishmaelites for twenty pieces of silver."
+  }
+ },
+ {
+  "id": "scripture-041",
+  "d": 2,
+  "q": "How many years did Jacob first serve Laban for Rachel?",
+  "o": [
+   "Seven years",
+   "Three years",
+   "Ten years",
+   "Twelve years"
+  ],
+  "a": 0,
+  "why": "Jacob served seven years for Rachel and they seemed like a few days because of his love.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 29:20",
+   "ref": "GEN.29.20",
+   "quote": "Jacob served seven years for Rachel. They seemed to him but a few days, for the love he had for her.",
+   "note": "Jacob served seven years for Rachel and they seemed like a few days because of his love."
+  }
+ },
+ {
+  "id": "scripture-042",
+  "d": 2,
+  "q": "Who was Moses' brother and spokesman before Pharaoh?",
+  "o": [
+   "Hur",
+   "Aaron",
+   "Caleb",
+   "Eleazar"
+  ],
+  "a": 1,
+  "why": "God said Aaron the Levite, Moses' brother, could speak well.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 4:14",
+   "ref": "EXO.4.14",
+   "quote": "The LORD’s anger burned against Moses, and he said, “What about Aaron, your brother, the Levite? I know that he can speak well. Also, behold, he is coming out to meet you. When he sees you, he will be glad in his heart.",
+   "note": "God said Aaron the Levite, Moses' brother, could speak well."
+  }
+ },
+ {
+  "id": "scripture-043",
+  "d": 2,
+  "q": "Where did the Israelites put the blood of the Passover lamb?",
+  "o": [
+   "On the altar of the temple",
+   "On the gate of the city",
+   "On the doorposts and lintel",
+   "On the foreheads of the firstborn"
+  ],
+  "a": 2,
+  "why": "They were to take some of the blood and put it on the two side posts and on the lintel.",
+  "src": {
+   "kind": "scripture",
+   "label": "Exodus 12:7",
+   "ref": "EXO.12.7",
+   "quote": "They shall take some of the blood, and put it on the two door posts and on the lintel, on the houses in which they shall eat it.",
+   "note": "They were to take some of the blood and put it on the two side posts and on the lintel."
+  }
+ },
+ {
+  "id": "scripture-044",
+  "d": 2,
+  "q": "What happened to the walls of Jericho when the people shouted?",
+  "o": [
+   "They burned with fire",
+   "They sank into the earth",
+   "They were washed away",
+   "They fell down flat"
+  ],
+  "a": 3,
+  "why": "The wall fell down flat, and the people went up into the city.",
+  "src": {
+   "kind": "scripture",
+   "label": "Joshua 6:20",
+   "ref": "JOS.6.20",
+   "quote": "So the people shouted and the priests blew the trumpets. When the people heard the sound of the trumpet, the people shouted with a great shout, and the wall fell down flat, so that the people went up into the city, every man straight in front of him, and they took the city.",
+   "note": "The wall fell down flat, and the people went up into the city."
+  }
+ },
+ {
+  "id": "scripture-045",
+  "d": 2,
+  "q": "With how many men did Gideon defeat the Midianites?",
+  "o": [
+   "Three hundred",
+   "One hundred",
+   "Five hundred",
+   "One thousand"
+  ],
+  "a": 0,
+  "why": "Yahweh said he would save Israel by the three hundred men who lapped the water.",
+  "src": {
+   "kind": "scripture",
+   "label": "Judges 7:7",
+   "ref": "JDG.7.7",
+   "quote": "The LORD said to Gideon, “I will save you by the three hundred men who lapped, and deliver the Midianites into your hand. Let all the other people go, each to his own place.”",
+   "note": "Yahweh said he would save Israel by the three hundred men who lapped the water."
+  }
+ },
+ {
+  "id": "scripture-046",
+  "d": 2,
+  "q": "According to the book of Judges, what was the secret of Samson's strength?",
+  "o": [
+   "His staff",
+   "His uncut hair",
+   "His prayer",
+   "His belt"
+  ],
+  "a": 1,
+  "why": "Samson said that if his head were shaved, his strength would leave him.",
+  "src": {
+   "kind": "scripture",
+   "label": "Judges 16:17",
+   "ref": "JDG.16.17",
+   "quote": "He told her all his heart and said to her, “No razor has ever come on my head; for I have been a Nazirite to God from my mother’s womb. If I am shaved, then my strength will go from me and I will become weak, and be like any other man.”",
+   "note": "Samson said that if his head were shaved, his strength would leave him."
+  }
+ },
+ {
+  "id": "scripture-047",
+  "d": 2,
+  "q": "Who said to Naomi, \"Where you go, I will go\"?",
+  "o": [
+   "Orpah",
+   "Esther",
+   "Ruth",
+   "Hannah"
+  ],
+  "a": 2,
+  "why": "Ruth told Naomi her people would be Ruth's people and her God Ruth's God.",
+  "src": {
+   "kind": "scripture",
+   "label": "Ruth 1:16",
+   "ref": "RUT.1.16",
+   "quote": "Ruth said, “Don’t urge me to leave you, and to return from following you, for where you go, I will go; and where you stay, I will stay. Your people will be my people, and your God my God.",
+   "note": "Ruth told Naomi her people would be Ruth's people and her God Ruth's God."
+  }
+ },
+ {
+  "id": "scripture-048",
+  "d": 2,
+  "q": "Who was the mother of the prophet Samuel?",
+  "o": [
+   "Peninnah",
+   "Abigail",
+   "Michal",
+   "Hannah"
+  ],
+  "a": 3,
+  "why": "Hannah conceived and bore a son, and named him Samuel.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Samuel 1:20",
+   "ref": "1SA.1.20",
+   "quote": "When the time had come, Hannah conceived, and bore a son; and she named him Samuel, saying, “Because I have asked him of the LORD.”",
+   "note": "Hannah conceived and bore a son, and named him Samuel."
+  }
+ },
+ {
+  "id": "scripture-049",
+  "d": 2,
+  "q": "Who was the first king of Israel?",
+  "o": [
+   "Saul",
+   "David",
+   "Solomon",
+   "Samuel"
+  ],
+  "a": 0,
+  "why": "The people made Saul king before the LORD at Gilgal.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Samuel 11:15",
+   "ref": "1SA.11.15",
+   "quote": "All the people went to Gilgal; and there they made Saul king before the LORD in Gilgal. There they offered sacrifices of peace offerings before the LORD; and there Saul and all the men of Israel rejoiced greatly.",
+   "note": "The people made Saul king before the LORD at Gilgal."
+  }
+ },
+ {
+  "id": "scripture-050",
+  "d": 2,
+  "q": "What was the name of David's father?",
+  "o": [
+   "Obed",
+   "Jesse",
+   "Boaz",
+   "Kish"
+  ],
+  "a": 1,
+  "why": "God sent Samuel to Jesse the Bethlehemite, for he had chosen a king among Jesse's sons.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Samuel 16:1",
+   "ref": "1SA.16.1",
+   "quote": "The LORD said to Samuel, “How long will you mourn for Saul, since I have rejected him from being king over Israel? Fill your horn with oil, and go. I will send you to Jesse the Bethlehemite, for I have provided a king for myself among his sons.”",
+   "note": "God sent Samuel to Jesse the Bethlehemite, for he had chosen a king among Jesse's sons."
+  }
+ },
+ {
+  "id": "scripture-051",
+  "d": 2,
+  "q": "What did Solomon ask God to give him?",
+  "o": [
+   "Long life",
+   "Great riches",
+   "An understanding heart",
+   "Victory over his enemies"
+  ],
+  "a": 2,
+  "why": "Solomon asked for an understanding heart to judge God's people.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Kings 3:9",
+   "ref": "1KI.3.9",
+   "quote": "Give your servant therefore an understanding heart to judge your people, that I may discern between good and evil; for who is able to judge this great people of yours?”",
+   "note": "Solomon asked for an understanding heart to judge God's people."
+  }
+ },
+ {
+  "id": "scripture-052",
+  "d": 2,
+  "q": "On which mountain did Elijah challenge the prophets of Baal?",
+  "o": [
+   "Mount Gerizim",
+   "Mount Nebo",
+   "Mount Tabor",
+   "Mount Carmel"
+  ],
+  "a": 3,
+  "why": "Elijah told Ahab to gather the prophets of Baal at Mount Carmel.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Kings 18:19",
+   "ref": "1KI.18.19",
+   "quote": "Now therefore send, and gather to me all Israel to Mount Carmel, and four hundred fifty of the prophets of Baal, and four hundred of the prophets of the Asherah, who eat at Jezebel’s table.”",
+   "note": "Elijah told Ahab to gather the prophets of Baal at Mount Carmel."
+  }
+ },
+ {
+  "id": "scripture-053",
+  "d": 2,
+  "q": "Which prophet succeeded Elijah after Elijah was taken up in a whirlwind?",
+  "o": [
+   "Elisha",
+   "Elihu",
+   "Isaiah",
+   "Micaiah"
+  ],
+  "a": 0,
+  "why": "A chariot of fire parted them and Elijah went up by a whirlwind into the sky, with Elisha watching.",
+  "src": {
+   "kind": "scripture",
+   "label": "2 Kings 2:9-11",
+   "ref": "2KI.2.9-11",
+   "quote": "When they had gone over, Elijah said to Elisha, “Ask what I shall do for you, before I am taken from you.” He said, “You have asked a hard thing. If you see me when I am taken from you, it will be so for you; but if not, it will not be so.” As they continued on and talked, behold, a chariot of fire and horses of fire separated them; and Elijah went up by a whirlwind into heaven.",
+   "note": "A chariot of fire parted them and Elijah went up by a whirlwind into the sky, with Elisha watching."
+  }
+ },
+ {
+  "id": "scripture-054",
+  "d": 2,
+  "q": "Who was Esther's cousin and guardian?",
+  "o": [
+   "Haman",
+   "Mordecai",
+   "Ahasuerus",
+   "Nehemiah"
+  ],
+  "a": 1,
+  "why": "Mordecai brought up Esther, his father's brother's daughter, as his own.",
+  "src": {
+   "kind": "scripture",
+   "label": "Esther 2:5-7",
+   "ref": "EST.2.5-7",
+   "quote": "Now there was a Jew in the city Susa, and his name was Mordecai, the son of Jairus, the son of Shimei, the son of Kish, of the tribe of Benjamin. He had been brought as a prisoner from Jerusalem, whom Nebuchadnezzar king of Babylon had carried into captivity. He had a foster child, daughter of Aminadab his father’s brother. Her name was Esther. When her parents died, he brought her up to womanhood as his own. This lady was beautiful.",
+   "note": "Mordecai brought up Esther, his father's brother's daughter, as his own."
+  }
+ },
+ {
+  "id": "scripture-055",
+  "d": 2,
+  "q": "Complete Job's words: \"The LORD gave, and the LORD has ___.\"",
+  "o": [
+   "given more",
+   "hidden his face",
+   "taken away",
+   "forgotten us"
+  ],
+  "a": 2,
+  "why": "Job blessed the LORD's name even after losing everything.",
+  "src": {
+   "kind": "scripture",
+   "label": "Job 1:21",
+   "ref": "JOB.1.21",
+   "quote": "He said, “Naked I came out of my mother’s womb, and naked will I return there. The LORD gave, and the LORD has taken away. Blessed be the LORD’s name.”",
+   "note": "Job blessed the LORD's name even after losing everything."
+  }
+ },
+ {
+  "id": "scripture-056",
+  "d": 2,
+  "q": "Which prophet foretold that a virgin would conceive and bear a son called Immanuel?",
+  "o": [
+   "Jeremiah",
+   "Ezekiel",
+   "Micah",
+   "Isaiah"
+  ],
+  "a": 3,
+  "why": "Isaiah said the virgin will conceive, bear a son and call his name Immanuel.",
+  "src": {
+   "kind": "scripture",
+   "label": "Isaiah 7:14",
+   "ref": "ISA.7.14",
+   "quote": "Therefore the Lord himself will give you a sign. Behold, the virgin will conceive, and bear a son, and shall call his name Immanuel.",
+   "note": "Isaiah said the virgin will conceive, bear a son and call his name Immanuel."
+  }
+ },
+ {
+  "id": "scripture-057",
+  "d": 2,
+  "q": "Which three young men were thrown into the fiery furnace in Babylon?",
+  "o": [
+   "Shadrach, Meshach and Abednego",
+   "Daniel, Hananiah and Mishael",
+   "Ezra, Nehemiah and Haggai",
+   "Elijah, Elisha and Amos"
+  ],
+  "a": 0,
+  "why": "Shadrach, Meshach and Abednego were bound and cast into the burning fiery furnace.",
+  "src": {
+   "kind": "scripture",
+   "label": "Daniel 3:20-23",
+   "ref": "DAN.3.20-23",
+   "quote": "He commanded certain mighty men who were in his army to bind Shadrach, Meshach, and Abednego, and to cast them into the burning fiery furnace. Then these men were bound in their pants, their tunics, their mantles, and their other clothes, and were cast into the middle of the burning fiery furnace. Therefore because the king’s commandment was urgent, and the furnace exceedingly hot, the flame of the fire killed those men who took up Shadrach, Meshach, and Abednego. These three men, Shadrach, Meshach, and Abednego, fell down bound into the middle of the burning fiery furnace.",
+   "note": "Shadrach, Meshach and Abednego were bound and cast into the burning fiery furnace."
+  }
+ },
+ {
+  "id": "scripture-058",
+  "d": 2,
+  "q": "How many days did it take to finish rebuilding the wall of Jerusalem in Nehemiah's time?",
+  "o": [
+   "Seven days",
+   "Fifty-two days",
+   "Forty days",
+   "One hundred days"
+  ],
+  "a": 1,
+  "why": "The wall was finished on the twenty-fifth day of Elul, in fifty-two days.",
+  "src": {
+   "kind": "scripture",
+   "label": "Nehemiah 6:15",
+   "ref": "NEH.6.15",
+   "quote": "So the wall was finished in the twenty-fifth day of Elul, in fifty-two days.",
+   "note": "The wall was finished on the twenty-fifth day of Elul, in fifty-two days."
+  }
+ },
+ {
+  "id": "scripture-059",
+  "d": 2,
+  "q": "Who said to Mary, \"Blessed are you among women, and blessed is the fruit of your womb\"?",
+  "o": [
+   "Anna",
+   "Martha",
+   "Elizabeth",
+   "Salome"
+  ],
+  "a": 2,
+  "why": "Elizabeth cried out with a loud voice when Mary visited her.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 1:41-42",
+   "ref": "LUK.1.41-42",
+   "quote": "When Elizabeth heard Mary’s greeting, the baby leaped in her womb; and Elizabeth was filled with the Holy Spirit. She called out with a loud voice and said, “Blessed are you among women, and blessed is the fruit of your womb!",
+   "note": "Elizabeth cried out with a loud voice when Mary visited her."
+  }
+ },
+ {
+  "id": "scripture-060",
+  "d": 2,
+  "q": "How old was Jesus when he was found among the teachers in the temple?",
+  "o": [
+   "Eight",
+   "Ten",
+   "Thirteen",
+   "Twelve"
+  ],
+  "a": 3,
+  "why": "When Jesus was twelve years old the family went up to Jerusalem for the feast.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 2:42",
+   "ref": "LUK.2.42",
+   "quote": "When he was twelve years old, they went up to Jerusalem according to the custom of the feast;",
+   "note": "When Jesus was twelve years old the family went up to Jerusalem for the feast."
+  }
+ },
+ {
+  "id": "scripture-061",
+  "d": 2,
+  "q": "How long did Jesus fast in the wilderness before the devil tempted him?",
+  "o": [
+   "Forty days and forty nights",
+   "Seven days and seven nights",
+   "Three days and three nights",
+   "Twenty days and twenty nights"
+  ],
+  "a": 0,
+  "why": "After Jesus fasted forty days and forty nights, he was hungry.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 4:2",
+   "ref": "MAT.4.2",
+   "quote": "When he had fasted forty days and forty nights, he was hungry afterward.",
+   "note": "After Jesus fasted forty days and forty nights, he was hungry."
+  }
+ },
+ {
+  "id": "scripture-062",
+  "d": 2,
+  "q": "Which two figures appeared with Jesus at the Transfiguration?",
+  "o": [
+   "Abraham and Isaac",
+   "Moses and Elijah",
+   "David and Solomon",
+   "Isaiah and Jeremiah"
+  ],
+  "a": 1,
+  "why": "Moses and Elijah appeared to them, talking with Jesus.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 17:1-3",
+   "ref": "MAT.17.1-3",
+   "quote": "After six days, Jesus took with him Peter, James, and John his brother, and brought them up into a high mountain by themselves. He was changed before them. His face shone like the sun, and his garments became as white as the light. Behold, Moses and Elijah appeared to them talking with him.",
+   "note": "Moses and Elijah appeared to them, talking with Jesus."
+  }
+ },
+ {
+  "id": "scripture-063",
+  "d": 2,
+  "q": "Which apostle said, \"Unless I see the marks of the nails, I will not believe\"?",
+  "o": [
+   "Philip",
+   "Nathanael",
+   "Thomas",
+   "Simon the Zealot"
+  ],
+  "a": 2,
+  "why": "Thomas said he would not believe until he saw the nail marks in Jesus' hands.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 20:24-25",
+   "ref": "JHN.20.24-25",
+   "quote": "But Thomas, one of the twelve, called Didymus, wasn’t with them when Jesus came. The other disciples therefore said to him, “We have seen the Lord!”",
+   "note": "Thomas said he would not believe until he saw the nail marks in Jesus' hands."
+  }
+ },
+ {
+  "id": "scripture-064",
+  "d": 2,
+  "q": "Complete Jesus' words: \"I am the good ___. The good one lays down his life for the sheep.\"",
+  "o": [
+   "gate",
+   "vine",
+   "teacher",
+   "shepherd"
+  ],
+  "a": 3,
+  "why": "Jesus calls himself the good shepherd who lays down his life for the sheep.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 10:11",
+   "ref": "JHN.10.11",
+   "quote": "“I am the good shepherd.The good shepherd lays down his life for the sheep.",
+   "note": "Jesus calls himself the good shepherd who lays down his life for the sheep."
+  }
+ },
+ {
+  "id": "scripture-065",
+  "d": 2,
+  "q": "To whom did Jesus entrust his mother from the cross?",
+  "o": [
+   "The disciple whom he loved",
+   "Peter",
+   "Joseph of Arimathea",
+   "Mary Magdalene"
+  ],
+  "a": 0,
+  "why": "Jesus said to the disciple, \"Behold, your mother!\"",
+  "src": {
+   "kind": "scripture",
+   "label": "John 19:26-27",
+   "ref": "JHN.19.26-27",
+   "quote": "Therefore when Jesus saw his mother, and the disciple whom he loved standing there, he said to his mother, “Woman, behold, your son!” Then he said to the disciple, “Behold, your mother!”From that hour, the disciple took her to his own home.",
+   "note": "Jesus said to the disciple, \"Behold, your mother!\""
+  }
+ },
+ {
+  "id": "scripture-066",
+  "d": 2,
+  "q": "Which Roman centurion in Caesarea was told by an angel to send for Peter?",
+  "o": [
+   "Julius",
+   "Cornelius",
+   "Sergius Paulus",
+   "Claudius Lysias"
+  ],
+  "a": 1,
+  "why": "Cornelius, a centurion at Caesarea, was told to send men to Joppa to bring Simon Peter.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 10:1-5",
+   "ref": "ACT.10.1-5",
+   "quote": "Now there was a certain man in Caesarea, Cornelius by name, a centurion of what was called the Italian Regiment, a devout man, and one who feared God with all his house, who gave gifts for the needy generously to the people, and always prayed to God. At about the ninth hour of the day, he clearly saw in a vision an angel of God coming to him and saying to him, “Cornelius!” He, fastening his eyes on him and being frightened, said, “What is it, Lord?” Now send men to Joppa, and get Simon, who is also called Peter.",
+   "note": "Cornelius, a centurion at Caesarea, was told to send men to Joppa to bring Simon Peter."
+  }
+ },
+ {
+  "id": "scripture-067",
+  "d": 2,
+  "q": "Whom did Philip meet on the desert road from Jerusalem to Gaza?",
+  "o": [
+   "A Roman soldier",
+   "A Samaritan woman",
+   "An Ethiopian eunuch",
+   "A Greek merchant"
+  ],
+  "a": 2,
+  "why": "Philip met an Ethiopian eunuch, a court official of the queen, on the road to Gaza.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 8:26-27",
+   "ref": "ACT.8.26-27",
+   "quote": "Then an angel of the Lord spoke to Philip, saying, “Arise, and go toward the south to the way that goes down from Jerusalem to Gaza. This is a desert.” He arose and went; and behold, there was a man of Ethiopia, a eunuch of great authority under Candace, queen of the Ethiopians, who was over all her treasure, who had come to Jerusalem to worship.",
+   "note": "Philip met an Ethiopian eunuch, a court official of the queen, on the road to Gaza."
+  }
+ },
+ {
+  "id": "scripture-068",
+  "d": 2,
+  "q": "Which seller of purple from Thyatira had her heart opened by the Lord to listen to Paul?",
+  "o": [
+   "Priscilla",
+   "Phoebe",
+   "Damaris",
+   "Lydia"
+  ],
+  "a": 3,
+  "why": "Lydia, a seller of purple, listened and the Lord opened her heart.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 16:14",
+   "ref": "ACT.16.14",
+   "quote": "A certain woman named Lydia, a seller of purple, of the city of Thyatira, one who worshiped God, heard us. The Lord opened her heart to listen to the things which were spoken by Paul.",
+   "note": "Lydia, a seller of purple, listened and the Lord opened her heart."
+  }
+ },
+ {
+  "id": "scripture-069",
+  "d": 2,
+  "q": "Complete: \"Now faith is assurance of things ___, proof of things not seen.\"",
+  "o": [
+   "hoped for",
+   "unseen",
+   "promised",
+   "to come"
+  ],
+  "a": 0,
+  "why": "Hebrews defines faith as assurance of things hoped for.",
+  "src": {
+   "kind": "scripture",
+   "label": "Hebrews 11:1",
+   "ref": "HEB.11.1",
+   "quote": "Now faith is assurance of things hoped for, proof of things not seen.",
+   "note": "Hebrews defines faith as assurance of things hoped for."
+  }
+ },
+ {
+  "id": "scripture-070",
+  "d": 2,
+  "q": "According to Paul, which of faith, hope and love is the greatest?",
+  "o": [
+   "Faith",
+   "Love",
+   "Hope",
+   "Knowledge"
+  ],
+  "a": 1,
+  "why": "Paul says that now faith, hope and love remain, and the greatest of these is love.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Corinthians 13:13",
+   "ref": "1CO.13.13",
+   "quote": "But now faith, hope, and love remain—these three. The greatest of these is love.",
+   "note": "Paul says that now faith, hope and love remain, and the greatest of these is love."
+  }
+ },
+ {
+  "id": "scripture-071",
+  "d": 2,
+  "q": "Which runaway slave did Paul send back to his master Philemon?",
+  "o": [
+   "Epaphras",
+   "Tychicus",
+   "Onesimus",
+   "Archippus"
+  ],
+  "a": 2,
+  "why": "Paul appealed to Philemon on behalf of his child Onesimus.",
+  "src": {
+   "kind": "scripture",
+   "label": "Philemon 1:10",
+   "ref": "PHM.1.10",
+   "quote": "I appeal to you for my child Onesimus, whom I have become the father of in my chains,",
+   "note": "Paul appealed to Philemon on behalf of his child Onesimus."
+  }
+ },
+ {
+  "id": "scripture-072",
+  "d": 2,
+  "q": "According to James, faith without works is what?",
+  "o": [
+   "Weak",
+   "Hidden",
+   "Incomplete",
+   "Dead"
+  ],
+  "a": 3,
+  "why": "James says that faith apart from works is dead.",
+  "src": {
+   "kind": "scripture",
+   "label": "James 2:26",
+   "ref": "JAS.2.26",
+   "quote": "For as the body apart from the spirit is dead, even so faith apart from works is dead.",
+   "note": "James says that faith apart from works is dead."
+  }
+ },
+ {
+  "id": "scripture-073",
+  "d": 2,
+  "q": "Who were Timothy's mother and grandmother?",
+  "o": [
+   "Eunice and Lois",
+   "Lydia and Phoebe",
+   "Priscilla and Chloe",
+   "Martha and Mary"
+  ],
+  "a": 0,
+  "why": "Paul recalls the faith that lived first in Timothy's grandmother Lois and his mother Eunice.",
+  "src": {
+   "kind": "scripture",
+   "label": "2 Timothy 1:5",
+   "ref": "2TI.1.5",
+   "quote": "having been reminded of the sincere faith that is in you, which lived first in your grandmother Lois and your mother Eunice and, I am persuaded, in you also.",
+   "note": "Paul recalls the faith that lived first in Timothy's grandmother Lois and his mother Eunice."
+  }
+ },
+ {
+  "id": "scripture-074",
+  "d": 2,
+  "q": "To how many churches in Asia does John address Revelation?",
+  "o": [
+   "Three",
+   "Seven",
+   "Twelve",
+   "Four"
+  ],
+  "a": 1,
+  "why": "John writes to the seven assemblies that are in Asia.",
+  "src": {
+   "kind": "scripture",
+   "label": "Revelation 1:4",
+   "ref": "REV.1.4",
+   "quote": "John, to the seven assemblies that are in Asia: Grace to you and peace from God, who is and who was and who is to come; and from the seven Spirits who are before his throne;",
+   "note": "John writes to the seven assemblies that are in Asia."
+  }
+ },
+ {
+  "id": "scripture-075",
+  "d": 3,
+  "q": "In the book of Tobit, which archangel travels with Tobias in disguise?",
+  "o": [
+   "Gabriel",
+   "Michael",
+   "Raphael",
+   "Uriel"
+  ],
+  "a": 2,
+  "why": "The angel reveals himself as Raphael, one of the seven holy angels.",
+  "src": {
+   "kind": "scripture",
+   "label": "Tobit 12:15",
+   "ref": "TOB.12.15",
+   "quote": "I am Raphael, one of the seven holy angels which present the prayers of the saints and go in before the glory of the Holy One.”",
+   "note": "The angel reveals himself as Raphael, one of the seven holy angels."
+  }
+ },
+ {
+  "id": "scripture-076",
+  "d": 3,
+  "q": "In Tobit, which evil spirit had killed the seven husbands of Sarah?",
+  "o": [
+   "Beelzebul",
+   "Belial",
+   "Mammon",
+   "Asmodaeus"
+  ],
+  "a": 3,
+  "why": "Asmodeus, the evil spirit, had killed her husbands before they slept with her.",
+  "src": {
+   "kind": "scripture",
+   "label": "Tobit 3:8",
+   "ref": "TOB.3.8",
+   "quote": "because that she had been given to seven husbands, and Asmodaeus the evil spirit killed them, before they had lain with her. And they said to her, “Do you not know that you strangle your husbands? You have had already seven husbands, and you haven’t borne the name of any one of them.",
+   "note": "Asmodeus, the evil spirit, had killed her husbands before they slept with her."
+  }
+ },
+ {
+  "id": "scripture-077",
+  "d": 3,
+  "q": "In Tobit, what caused the blindness of Tobit?",
+  "o": [
+   "Warm droppings from sparrows",
+   "A fall from a ladder",
+   "A wound in battle",
+   "A desert sandstorm"
+  ],
+  "a": 0,
+  "why": "Warm droppings from sparrows fell into his eyes and white films formed.",
+  "src": {
+   "kind": "scripture",
+   "label": "Tobit 2:10",
+   "ref": "TOB.2.10",
+   "quote": "I didn’t know that there were sparrows in the wall. My eyes were open and the sparrows dropped warm dung into my eyes, and white films came over my eyes. I went to the physicians, and they didn’t help me; but Achiacharus nourished me, until I went into Elymais.",
+   "note": "Warm droppings from sparrows fell into his eyes and white films formed."
+  }
+ },
+ {
+  "id": "scripture-078",
+  "d": 3,
+  "q": "In the book of Judith, which general of Nebuchadnezzar did Judith kill?",
+  "o": [
+   "Sisera",
+   "Holofernes",
+   "Nebuzaradan",
+   "Rabshakeh"
+  ],
+  "a": 1,
+  "why": "Judith struck Holofernes' neck twice and took off his head.",
+  "src": {
+   "kind": "scripture",
+   "label": "Judith 13:8",
+   "ref": "JDT.13.8",
+   "quote": "She struck twice upon his neck with all her might and cut off his head,",
+   "note": "Judith struck Holofernes' neck twice and took off his head."
+  }
+ },
+ {
+  "id": "scripture-079",
+  "d": 3,
+  "q": "Which priest who lived at Modin was the father of Judas Maccabeus?",
+  "o": [
+   "Eleazar",
+   "Onias",
+   "Mattathias",
+   "Jonathan"
+  ],
+  "a": 2,
+  "why": "Mattathias, son of John, a priest of the sons of Joarib, lived in Modein.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Maccabees 2:1-4",
+   "ref": "1MA.2.1-4",
+   "quote": "In those days Mattathias the son of John, the son of Simeon, a priest of the sons of Joarib, from Jerusalem rose up; and he lived at Modin. And he had five sons: John, who was surnamed Gaddis; Simon, who was called Thassi; Judas, who was called Maccabaeus;",
+   "note": "Mattathias, son of John, a priest of the sons of Joarib, lived in Modein."
+  }
+ },
+ {
+  "id": "scripture-080",
+  "d": 3,
+  "q": "What did Judas Maccabeus and his men build anew when they rededicated the sanctuary?",
+  "o": [
+   "A new ark of the covenant",
+   "A new bronze sea",
+   "A new tent of meeting",
+   "A new altar of burnt offerings"
+  ],
+  "a": 3,
+  "why": "They rose early and offered sacrifice on the new altar of burnt offerings they had built.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Maccabees 4:52-53",
+   "ref": "1MA.4.52-53",
+   "quote": "They rose up early in the morning, on the twenty-fifth day of the ninth month, which is the month Chislev, in the one hundred forty eighth year, and offered sacrifice according to the law on the new altar of burnt offerings which they had made.",
+   "note": "They rose early and offered sacrifice on the new altar of burnt offerings they had built."
+  }
+ },
+ {
+  "id": "scripture-081",
+  "d": 3,
+  "q": "Which book speaks of Judas Maccabeus taking a collection to offer a sacrifice for the dead?",
+  "o": [
+   "2 Maccabees",
+   "1 Maccabees",
+   "Wisdom",
+   "Sirach"
+  ],
+  "a": 0,
+  "why": "Judas took up a collection for a sin offering, thinking well about the resurrection.",
+  "src": {
+   "kind": "scripture",
+   "label": "2 Maccabees 12:43-44",
+   "ref": "2MA.12.43-44",
+   "quote": "When he had made a collection man by man to the sum of two thousand drachmas of silver, he sent to Jerusalem to offer a sacrifice for sin, doing very well and honorably in this, in that he took thought for the resurrection. For if he wasn’t expecting that those who had fallen would rise again, it would be superfluous and idle to pray for the dead.",
+   "note": "Judas took up a collection for a sin offering, thinking well about the resurrection."
+  }
+ },
+ {
+  "id": "scripture-082",
+  "d": 3,
+  "q": "In 2 Maccabees 7, how many brothers were martyred with their mother?",
+  "o": [
+   "Three",
+   "Seven",
+   "Five",
+   "Twelve"
+  ],
+  "a": 1,
+  "why": "It happened that seven brothers with their mother were arrested by the king.",
+  "src": {
+   "kind": "scripture",
+   "label": "2 Maccabees 7:1",
+   "ref": "2MA.7.1",
+   "quote": "It came to pass that seven brothers and their mother were at the king’s command taken and shamefully handled with scourges and cords, to compel them to taste of the abominable swine’s flesh.",
+   "note": "It happened that seven brothers with their mother were arrested by the king."
+  }
+ },
+ {
+  "id": "scripture-083",
+  "d": 3,
+  "q": "Complete the line from Wisdom: \"But the souls of the righteous are in the hand of ___\"",
+  "o": [
+   "the angels",
+   "the Lord's temple",
+   "God",
+   "the faithful"
+  ],
+  "a": 2,
+  "why": "Wisdom 3:1 teaches that no torment will touch the souls of the righteous.",
+  "src": {
+   "kind": "scripture",
+   "label": "Wisdom 3:1",
+   "ref": "WIS.3.1",
+   "quote": "But the souls of the righteous are in the hand of God,",
+   "note": "Wisdom 3:1 teaches that no torment will touch the souls of the righteous."
+  }
+ },
+ {
+  "id": "scripture-084",
+  "d": 3,
+  "q": "Which deuterocanonical book begins \"Let us now praise famous men\"?",
+  "o": [
+   "Wisdom",
+   "Baruch",
+   "Tobit",
+   "Sirach"
+  ],
+  "a": 3,
+  "why": "Sirach opens its hymn to the fathers by praising famous men.",
+  "src": {
+   "kind": "scripture",
+   "label": "Sirach 44:1",
+   "ref": "SIR.44.1",
+   "quote": "Let us now praise famous men,",
+   "note": "Sirach opens its hymn to the fathers by praising famous men."
+  }
+ },
+ {
+  "id": "scripture-085",
+  "d": 3,
+  "q": "Who is named as the scribe and author of the book of Baruch?",
+  "o": [
+   "Baruch son of Neriah",
+   "Baruch son of Zabbai",
+   "Baruch son of Shaphan",
+   "Baruch son of Hilkiah"
+  ],
+  "a": 0,
+  "why": "The book begins with the words Baruch the son of Neriah wrote.",
+  "src": {
+   "kind": "scripture",
+   "label": "Baruch 1:1",
+   "ref": "BAR.1.1",
+   "quote": "These are the words of the book which Baruch the son of Nerias, the son of Maaseas, the son of Sedekias, the son of Asadias, the son of Helkias, wrote in Babylon,",
+   "note": "The book begins with the words Baruch the son of Neriah wrote."
+  }
+ },
+ {
+  "id": "scripture-086",
+  "d": 3,
+  "q": "In Daniel 13, who saved Susanna after two elders falsely accused her?",
+  "o": [
+   "Joakim",
+   "Daniel",
+   "Nebuchadnezzar",
+   "Ezekiel"
+  ],
+  "a": 1,
+  "why": "The Lord raised up the holy spirit of a young man named Daniel.",
+  "src": {
+   "kind": "scripture",
+   "label": "Daniel 13:45",
+   "ref": "DAN.13.45",
+   "quote": "Therefore when she was led away to be put to death, God raised up the holy spirit of a young youth, whose name was Daniel.",
+   "note": "The Lord raised up the holy spirit of a young man named Daniel."
+  }
+ },
+ {
+  "id": "scripture-087",
+  "d": 3,
+  "q": "How old was Methuselah when he died, the longest life recorded in Genesis?",
+  "o": [
+   "900 years",
+   "777 years",
+   "969 years",
+   "950 years"
+  ],
+  "a": 2,
+  "why": "All the days of Methuselah were nine hundred sixty-nine years.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 5:27",
+   "ref": "GEN.5.27",
+   "quote": "All the days of Methuselah were nine hundred sixty-nine years, then he died.",
+   "note": "All the days of Methuselah were nine hundred sixty-nine years."
+  }
+ },
+ {
+  "id": "scripture-088",
+  "d": 3,
+  "q": "Who was the priest-king of Salem who blessed Abram?",
+  "o": [
+   "Abimelech",
+   "Adonizedek",
+   "Hiram",
+   "Melchizedek"
+  ],
+  "a": 3,
+  "why": "Melchizedek king of Salem brought out bread and wine and blessed Abram.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 14:18-19",
+   "ref": "GEN.14.18-19",
+   "quote": "Melchizedek king of Salem brought out bread and wine. He was priest of God Most High. He blessed him, and said, “Blessed be Abram of God Most High, possessor of heaven and earth.",
+   "note": "Melchizedek king of Salem brought out bread and wine and blessed Abram."
+  }
+ },
+ {
+  "id": "scripture-089",
+  "d": 3,
+  "q": "Which patriarch walked with God and was not found, because God took him?",
+  "o": [
+   "Enoch",
+   "Methuselah",
+   "Lamech",
+   "Seth"
+  ],
+  "a": 0,
+  "why": "Enoch walked with God, and he was not, for God took him.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 5:24",
+   "ref": "GEN.5.24",
+   "quote": "Enoch walked with God, and he was not found, for God took him.",
+   "note": "Enoch walked with God, and he was not, for God took him."
+  }
+ },
+ {
+  "id": "scripture-090",
+  "d": 3,
+  "q": "Who was asked by his own donkey, \"What have I done to you, that you have struck me these three times?\"",
+  "o": [
+   "Laban",
+   "Balaam",
+   "Balak",
+   "Nabal"
+  ],
+  "a": 1,
+  "why": "Yahweh opened the mouth of the donkey, and she spoke to Balaam.",
+  "src": {
+   "kind": "scripture",
+   "label": "Numbers 22:28",
+   "ref": "NUM.22.28",
+   "quote": "The LORD opened the mouth of the donkey, and she said to Balaam, “What have I done to you, that you have struck me these three times?”",
+   "note": "Yahweh opened the mouth of the donkey, and she spoke to Balaam."
+  }
+ },
+ {
+  "id": "scripture-091",
+  "d": 3,
+  "q": "Which prophet wrote, \"But you, Bethlehem Ephrathah\", about the town from which a ruler would come?",
+  "o": [
+   "Hosea",
+   "Nahum",
+   "Micah",
+   "Amos"
+  ],
+  "a": 2,
+  "why": "Micah addresses Bethlehem Ephrathah in the prophecy of a coming ruler in Israel.",
+  "src": {
+   "kind": "scripture",
+   "label": "Micah 5:2",
+   "ref": "MIC.5.2",
+   "quote": "But you, Bethlehem Ephrathah,",
+   "note": "Micah addresses Bethlehem Ephrathah in the prophecy of a coming ruler in Israel."
+  }
+ },
+ {
+  "id": "scripture-092",
+  "d": 3,
+  "q": "Which prophet wrote, \"The righteous will live by his faith\"?",
+  "o": [
+   "Zephaniah",
+   "Joel",
+   "Obadiah",
+   "Habakkuk"
+  ],
+  "a": 3,
+  "why": "Habakkuk says the righteous shall live by his faith.",
+  "src": {
+   "kind": "scripture",
+   "label": "Habakkuk 2:4",
+   "ref": "HAB.2.4",
+   "quote": "Behold, his soul is puffed up. It is not upright in him, but the righteous will live by his faith.",
+   "note": "Habakkuk says the righteous shall live by his faith."
+  }
+ },
+ {
+  "id": "scripture-093",
+  "d": 3,
+  "q": "Which Old Testament book begins \"By the rivers of Babylon, there we sat down\"?",
+  "o": [
+   "The Psalms",
+   "Lamentations",
+   "Jeremiah",
+   "Ezekiel"
+  ],
+  "a": 0,
+  "why": "Psalm 137 opens with exiles weeping by the rivers of Babylon.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 137:1",
+   "ref": "PSA.137.1",
+   "quote": "By the rivers of Babylon, there we sat down.",
+   "note": "Psalm 137 opens with exiles weeping by the rivers of Babylon."
+  }
+ },
+ {
+  "id": "scripture-094",
+  "d": 3,
+  "q": "How many fish did the disciples haul ashore in the great catch after the resurrection?",
+  "o": [
+   "120",
+   "153",
+   "144",
+   "200"
+  ],
+  "a": 1,
+  "why": "The net was full of one hundred fifty-three large fish.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 21:11",
+   "ref": "JHN.21.11",
+   "quote": "Simon Peter went up, and drew the net to land, full of one hundred fifty-three great fish. Even though there were so many, the net wasn’t torn.",
+   "note": "The net was full of one hundred fifty-three large fish."
+  }
+ },
+ {
+  "id": "scripture-095",
+  "d": 3,
+  "q": "Which young man fell from a window while Paul spoke at length in Troas?",
+  "o": [
+   "Timothy",
+   "Trophimus",
+   "Eutychus",
+   "Apollos"
+  ],
+  "a": 2,
+  "why": "A young man named Eutychus sank into deep sleep and fell down from the third story.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 20:9",
+   "ref": "ACT.20.9",
+   "quote": "A certain young man named Eutychus sat in the window, weighed down with deep sleep. As Paul spoke still longer, being weighed down by his sleep, he fell down from the third floor and was taken up dead.",
+   "note": "A young man named Eutychus sank into deep sleep and fell down from the third story."
+  }
+ },
+ {
+  "id": "scripture-096",
+  "d": 3,
+  "q": "Which woman, also called Dorcas, did Peter raise from the dead at Joppa?",
+  "o": [
+   "Rhoda",
+   "Damaris",
+   "Drusilla",
+   "Tabitha"
+  ],
+  "a": 3,
+  "why": "In Joppa there was a disciple named Tabitha, which means Dorcas.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 9:36",
+   "ref": "ACT.9.36",
+   "quote": "Now there was at Joppa a certain disciple named Tabitha, which when translated means Dorcas. This woman was full of good works and acts of mercy which she did.",
+   "note": "In Joppa there was a disciple named Tabitha, which means Dorcas."
+  }
+ },
+ {
+  "id": "scripture-097",
+  "d": 3,
+  "q": "On which island was Paul shipwrecked on his way to Rome?",
+  "o": [
+   "Malta",
+   "Crete",
+   "Cyprus",
+   "Patmos"
+  ],
+  "a": 0,
+  "why": "After escaping, they learned that the island was called Malta.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 28:1",
+   "ref": "ACT.28.1",
+   "quote": "When we had escaped, then they learned that the island was called Malta.",
+   "note": "After escaping, they learned that the island was called Malta."
+  }
+ },
+ {
+  "id": "scripture-098",
+  "d": 3,
+  "q": "How many generations does Matthew count from Abraham to David?",
+  "o": [
+   "Twelve",
+   "Fourteen",
+   "Seven",
+   "Forty"
+  ],
+  "a": 1,
+  "why": "There are fourteen generations from Abraham to David.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 1:17",
+   "ref": "MAT.1.17",
+   "quote": "So all the generations from Abraham to David are fourteen generations; from David to the exile to Babylon fourteen generations; and from the carrying away to Babylon to the Christ, fourteen generations.",
+   "note": "There are fourteen generations from Abraham to David."
+  }
+ },
+ {
+  "id": "scripture-099",
+  "d": 3,
+  "q": "Which archangel does the letter of Jude say contended with the devil over the body of Moses?",
+  "o": [
+   "Gabriel",
+   "Raphael",
+   "Michael",
+   "Uriel"
+  ],
+  "a": 2,
+  "why": "Michael the archangel disputed with the devil about the body of Moses.",
+  "src": {
+   "kind": "scripture",
+   "label": "Jude 1:9",
+   "ref": "JUD.1.9",
+   "quote": "But Michael, the archangel, when contending with the devil and arguing about the body of Moses, dared not bring against him an abusive condemnation, but said, “May the Lord rebuke you!”",
+   "note": "Michael the archangel disputed with the devil about the body of Moses."
+  }
+ },
+ {
+  "id": "scripture-100",
+  "d": 3,
+  "q": "In Revelation, what number is given as the number of the beast?",
+  "o": [
+   "777",
+   "616",
+   "144",
+   "666"
+  ],
+  "a": 3,
+  "why": "Let him who has understanding calculate the number of the beast, 666.",
+  "src": {
+   "kind": "scripture",
+   "label": "Revelation 13:18",
+   "ref": "REV.13.18",
+   "quote": "Here is wisdom. He who has understanding, let him calculate the number of the beast, for it is the number of a man. His number is six hundred sixty-six.",
+   "note": "Let him who has understanding calculate the number of the beast, 666."
+  }
+ }
+]

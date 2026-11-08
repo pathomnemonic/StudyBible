@@ -1,0 +1,2024 @@
+[
+ {
+  "id": "liturgy-001",
+  "d": 1,
+  "q": "How many sacraments are there in the Catholic Church?",
+  "o": [
+   "Seven",
+   "Five",
+   "Nine",
+   "Twelve"
+  ],
+  "a": 0,
+  "why": "The Church has seven sacraments: Baptism, Confirmation, Eucharist, Penance, Anointing of the Sick, Holy Orders and Matrimony.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1113",
+   "ccc": 1113,
+   "quote": "There are seven sacraments in the Church: Baptism, Confirmation or Chrismation, Eucharist, Penance, Anointing of the Sick, Holy Orders, and Matrimony.",
+   "note": "The Church has seven sacraments: Baptism, Confirmation, Eucharist, Penance, Anointing of the Sick, Holy Orders and Matrimony."
+  }
+ },
+ {
+  "id": "liturgy-002",
+  "d": 1,
+  "q": "Which sacrament is called the gateway to life in the Spirit and the door to the other sacraments?",
+  "o": [
+   "Confirmation",
+   "Baptism",
+   "Matrimony",
+   "Anointing of the Sick"
+  ],
+  "a": 1,
+  "why": "Baptism is the gateway to the Christian life and gives access to the other sacraments.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1213",
+   "ccc": 1213,
+   "quote": "Holy Baptism is the basis of the whole Christian life, the gateway to life in the Spirit (vitae spiritualis ianua), and the door which gives access to the other sacraments.",
+   "note": "Baptism is the gateway to the Christian life and gives access to the other sacraments."
+  }
+ },
+ {
+  "id": "liturgy-003",
+  "d": 1,
+  "q": "In Baptism, what is poured three times over the candidate's head (or in which the candidate is immersed)?",
+  "o": [
+   "Sacred chrism",
+   "Blessed salt",
+   "Water",
+   "Ashes"
+  ],
+  "a": 2,
+  "why": "The essential rite of Baptism is the triple immersion in water or the triple pouring of water over the head.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1239",
+   "ccc": 1239,
+   "quote": "Baptism is performed in the most expressive way by triple immersion in the baptismal water. However, from ancient times it has also been able to be conferred by pouring the water three times over the candidate's head.",
+   "note": "The essential rite of Baptism is the triple immersion in water or the triple pouring of water over the head."
+  }
+ },
+ {
+  "id": "liturgy-004",
+  "d": 1,
+  "q": "In whose name does Jesus tell his disciples to baptize?",
+  "o": [
+   "Peter, Paul and John",
+   "Jesus, Mary, Joseph and the saints",
+   "The Creator, the Son and the Holy Church",
+   "The Father, the Son and the Holy Spirit"
+  ],
+  "a": 3,
+  "why": "Christ's command in Matthew 28 gives the Trinitarian baptismal formula.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 28:19",
+   "ref": "MAT.28.19",
+   "quote": "baptizing them in the name of the Father and of the Son and of the Holy Spirit",
+   "note": "Christ's command in Matthew 28 gives the Trinitarian baptismal formula."
+  }
+ },
+ {
+  "id": "liturgy-005",
+  "d": 1,
+  "q": "In the Latin Rite, who is the ordinary minister of Confirmation?",
+  "o": [
+   "The deacon",
+   "The bishop",
+   "The sacristan",
+   "The godparent"
+  ],
+  "a": 1,
+  "why": "The bishop, a successor of the apostles, is the ordinary minister of Confirmation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1313",
+   "ccc": 1313,
+   "quote": "In the Latin Rite, the ordinary minister of Confirmation is the bishop.",
+   "note": "The bishop, a successor of the apostles, is the ordinary minister of Confirmation."
+  }
+ },
+ {
+  "id": "liturgy-006",
+  "d": 1,
+  "q": "With what is the forehead anointed in the sacrament of Confirmation?",
+  "o": [
+   "Blessed holy water",
+   "Incense smoke",
+   "Sacred chrism",
+   "Blessed ashes"
+  ],
+  "a": 2,
+  "why": "Confirmation is conferred through anointing the forehead with chrism and the laying on of the hand.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1300",
+   "ccc": 1300,
+   "quote": "the sacrament of Confirmation is conferred through the anointing with chrism on the forehead, which is done by the laying on of the hand",
+   "note": "Confirmation is conferred through anointing the forehead with chrism and the laying on of the hand."
+  }
+ },
+ {
+  "id": "liturgy-007",
+  "d": 1,
+  "q": "Which two elements are the essential signs of the Eucharist?",
+  "o": [
+   "Barley bread and olive oil",
+   "Rice cake and fruit juice",
+   "Honey bread and spring water",
+   "Wheat bread and grape wine"
+  ],
+  "a": 3,
+  "why": "The essential signs of the Eucharist are wheat bread and grape wine.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1412",
+   "ccc": 1412,
+   "quote": "The essential signs of the Eucharistic sacrament are wheat bread and grape wine",
+   "note": "The essential signs of the Eucharist are wheat bread and grape wine."
+  }
+ },
+ {
+  "id": "liturgy-008",
+  "d": 1,
+  "q": "Who alone can consecrate the bread and wine so they become the Body and Blood of the Lord?",
+  "o": [
+   "A validly ordained priest",
+   "Any baptized adult",
+   "A religious sister",
+   "A trained parish catechist"
+  ],
+  "a": 0,
+  "why": "Only validly ordained priests can preside at the Eucharist and consecrate.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1411",
+   "ccc": 1411,
+   "quote": "Only validly ordained priests can preside at the Eucharist and consecrate the bread and the wine so that they become the Body and Blood of the Lord.",
+   "note": "Only validly ordained priests can preside at the Eucharist and consecrate."
+  }
+ },
+ {
+  "id": "liturgy-009",
+  "d": 1,
+  "q": "In the Anointing of the Sick, what is applied to the sick person's forehead and hands?",
+  "o": [
+   "Holy water",
+   "Burning incense",
+   "Blessed oil",
+   "Blessed ashes"
+  ],
+  "a": 2,
+  "why": "The sick are anointed on the forehead and hands with duly blessed oil, usually pressed from olives.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1513",
+   "ccc": 1513,
+   "quote": "The sacrament of Anointing of the Sick is given to those who are seriously ill by anointing them on the forehead and hands with duly blessed oil",
+   "note": "The sick are anointed on the forehead and hands with duly blessed oil, usually pressed from olives."
+  }
+ },
+ {
+  "id": "liturgy-010",
+  "d": 1,
+  "q": "Complete the line: the Eucharist is \"the source and ___ of the Christian life.\"",
+  "o": [
+   "symbol",
+   "servant",
+   "seal",
+   "summit"
+  ],
+  "a": 3,
+  "why": "The Church calls the Eucharist the source and summit of the Christian life.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1324",
+   "ccc": 1324,
+   "quote": "The Eucharist is \"the source and summit of the Christian life.\"",
+   "note": "The Church calls the Eucharist the source and summit of the Christian life."
+  }
+ },
+ {
+  "id": "liturgy-011",
+  "d": 1,
+  "q": "The Mass has two great parts. What are they?",
+  "o": [
+   "The Liturgy of the Word and the Liturgy of the Eucharist",
+   "The Liturgy of the Hours and the Liturgy of the Holy Cross",
+   "The Introductory Rites and the Rosary",
+   "The Liturgy of Baptism and the Liturgy of Reconciliation"
+  ],
+  "a": 0,
+  "why": "The Eucharistic celebration unfolds in the liturgy of the Word and the liturgy of the Eucharist.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1346",
+   "ccc": 1346,
+   "quote": "It displays two great parts that form a fundamental unity: - the gathering, the liturgy of the Word, with readings, homily and general intercessions; - the liturgy of the Eucharist",
+   "note": "The Eucharistic celebration unfolds in the liturgy of the Word and the liturgy of the Eucharist."
+  }
+ },
+ {
+  "id": "liturgy-012",
+  "d": 1,
+  "q": "At the Last Supper, what did Jesus tell his disciples to do after he gave them his body?",
+  "o": [
+   "\"Go and tell no one.\"",
+   "\"Do this in memory of me.\"",
+   "\"Fast and pray for forty days.\"",
+   "\"Build a house of prayer.\""
+  ],
+  "a": 1,
+  "why": "In Luke's account Jesus commands the apostles to repeat the action in his memory.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 22:19",
+   "ref": "LUK.22.19",
+   "quote": "This is my body which is given for you. Do this in memory of me.",
+   "note": "In Luke's account Jesus commands the apostles to repeat the action in his memory."
+  }
+ },
+ {
+  "id": "liturgy-013",
+  "d": 1,
+  "q": "Complete Jesus' words over the bread at the Last Supper: \"Take, eat; this is my ___.\"",
+  "o": [
+   "gift",
+   "bread",
+   "life",
+   "body"
+  ],
+  "a": 3,
+  "why": "Matthew records the words over the bread as \"this is my body.\"",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 26:26",
+   "ref": "MAT.26.26",
+   "quote": "Take, eat; this is my body.",
+   "note": "Matthew records the words over the bread as \"this is my body.\""
+  }
+ },
+ {
+  "id": "liturgy-014",
+  "d": 1,
+  "q": "Complete Jesus' words in John 6: \"I am the living ___ which came down out of heaven.\"",
+  "o": [
+   "bread",
+   "water",
+   "shepherd",
+   "light"
+  ],
+  "a": 0,
+  "why": "Jesus calls himself the living bread, pointing to the Eucharist.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 6:51",
+   "ref": "JHN.6.51",
+   "quote": "I am the living bread which came down out of heaven.",
+   "note": "Jesus calls himself the living bread, pointing to the Eucharist."
+  }
+ },
+ {
+  "id": "liturgy-015",
+  "d": 1,
+  "q": "What does the Church celebrate every Sunday, the Lord's Day?",
+  "o": [
+   "The birth of Jesus",
+   "The resurrection of the Lord",
+   "The coming of the Holy Spirit",
+   "The ascension into heaven"
+  ],
+  "a": 1,
+  "why": "Since apostolic times the Church celebrates the Paschal mystery every seventh day.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1166",
+   "ccc": 1166,
+   "quote": "the Church celebrates the Paschal mystery every seventh day, which day is appropriately called the Lord's Day or Sunday.",
+   "note": "Since apostolic times the Church celebrates the Paschal mystery every seventh day."
+  }
+ },
+ {
+  "id": "liturgy-016",
+  "d": 1,
+  "q": "Which feast is called the \"Feast of feasts\" and the \"Solemnity of solemnities\"?",
+  "o": [
+   "Christmas",
+   "Pentecost",
+   "Easter",
+   "All Saints"
+  ],
+  "a": 2,
+  "why": "Easter is not simply one feast among others but the Feast of feasts.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1169",
+   "ccc": 1169,
+   "quote": "Easter is not simply one feast among others, but the \"Feast of feasts,\" the \"Solemnity of solemnities,\"",
+   "note": "Easter is not simply one feast among others but the Feast of feasts."
+  }
+ },
+ {
+  "id": "liturgy-017",
+  "d": 1,
+  "q": "Which liturgical season renews the ancient longing for the Messiah and prepares for Christ's coming?",
+  "o": [
+   "Advent",
+   "Lent",
+   "Easter",
+   "Ordinary Time"
+  ],
+  "a": 0,
+  "why": "In Advent the Church makes present Israel's expectancy of the Messiah.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 524",
+   "ccc": 524,
+   "quote": "When the Church celebrates the liturgy of Advent each year, she makes present this ancient expectancy of the Messiah",
+   "note": "In Advent the Church makes present Israel's expectancy of the Messiah."
+  }
+ },
+ {
+  "id": "liturgy-018",
+  "d": 1,
+  "q": "How long did Jesus fast in the wilderness, the model for the season of Lent?",
+  "o": [
+   "Seven days and seven nights",
+   "Forty days and forty nights",
+   "Three days and three nights",
+   "Twelve days and twelve nights"
+  ],
+  "a": 1,
+  "why": "Jesus fasted forty days and forty nights; Lent unites the Church to this mystery.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 4:2",
+   "ref": "MAT.4.2",
+   "quote": "When he had fasted forty days and forty nights, he was hungry afterward.",
+   "note": "Jesus fasted forty days and forty nights; Lent unites the Church to this mystery."
+  }
+ },
+ {
+  "id": "liturgy-019",
+  "d": 1,
+  "q": "On which day are ashes blessed and placed on the faithful to begin Lent?",
+  "o": [
+   "Palm Sunday",
+   "Pentecost Sunday",
+   "Ash Wednesday",
+   "Shrove Tuesday"
+  ],
+  "a": 2,
+  "why": "Ashes are blessed on Ash Wednesday as a reminder of death and of the need for penance.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1077",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "Ashes are blessed in the Church on Ash Wednesday.",
+   "note": "Ashes are blessed on Ash Wednesday as a reminder of death and of the need for penance."
+  }
+ },
+ {
+  "id": "liturgy-020",
+  "d": 1,
+  "q": "What is blessed on Palm Sunday to recall Jesus' triumphal entry into Jerusalem?",
+  "o": [
+   "Blessed candles",
+   "Ashes",
+   "Holy oils",
+   "Palm branches"
+  ],
+  "a": 3,
+  "why": "Palms are blessed on Palm Sunday and recall the people greeting Jesus with palm branches.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1078",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "Palms are blessed on Palm Sunday.",
+   "note": "Palms are blessed on Palm Sunday and recall the people greeting Jesus with palm branches."
+  }
+ },
+ {
+  "id": "liturgy-021",
+  "d": 1,
+  "q": "What came upon the apostles on Pentecost in the form of tongues of fire?",
+  "o": [
+   "The glory of the Father",
+   "The Holy Spirit",
+   "An angel of the Lord",
+   "The Ark of the Covenant"
+  ],
+  "a": 1,
+  "why": "On Pentecost the apostles were filled with the Holy Spirit.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 2:3-4",
+   "ref": "ACT.2.3-4",
+   "quote": "Tongues like fire appeared and were distributed to them, and one sat on each of them. They were all filled with the Holy Spirit",
+   "note": "On Pentecost the apostles were filled with the Holy Spirit."
+  }
+ },
+ {
+  "id": "liturgy-022",
+  "d": 1,
+  "q": "Which vestment color signifies penance and is used in Lent and Advent?",
+  "o": [
+   "Deep green",
+   "Red",
+   "Violet",
+   "Bright white"
+  ],
+  "a": 2,
+  "why": "Violet signifies penance and is used in Lent and Advent.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 943",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "Violet signifies penance, and is used in Lent and Advent.",
+   "note": "Violet signifies penance and is used in Lent and Advent."
+  }
+ },
+ {
+  "id": "liturgy-023",
+  "d": 1,
+  "q": "What is the place in a church where the Blessed Sacrament is reserved?",
+  "o": [
+   "The baptismal font",
+   "The sacristy",
+   "The ambo",
+   "The tabernacle"
+  ],
+  "a": 3,
+  "why": "The Eucharist is reserved in the tabernacle, which should foster adoration.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1183",
+   "ccc": 1183,
+   "quote": "The tabernacle is to be situated \"in churches in a most worthy place with the greatest honor.\"",
+   "note": "The Eucharist is reserved in the tabernacle, which should foster adoration."
+  }
+ },
+ {
+  "id": "liturgy-024",
+  "d": 1,
+  "q": "The sprinkling of holy water recalls which sacrament?",
+  "o": [
+   "Baptism",
+   "Matrimony",
+   "Holy Orders",
+   "Penance"
+  ],
+  "a": 0,
+  "why": "Holy water, a common sacramental, recalls Baptism.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1668",
+   "ccc": 1668,
+   "quote": "the sprinkling of holy water (which recalls Baptism).",
+   "note": "Holy water, a common sacramental, recalls Baptism."
+  }
+ },
+ {
+  "id": "liturgy-025",
+  "d": 1,
+  "q": "What did Jesus say from the cross just before he bowed his head and gave up his spirit?",
+  "o": [
+   "\"Follow me.\"",
+   "\"Peace be with you.\"",
+   "\"It is finished!\"",
+   "\"Do not be afraid.\""
+  ],
+  "a": 2,
+  "why": "On Good Friday Jesus said \"It is finished!\" before he died.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 19:30",
+   "ref": "JHN.19.30",
+   "quote": "It is finished!",
+   "note": "On Good Friday Jesus said \"It is finished!\" before he died."
+  }
+ },
+ {
+  "id": "liturgy-026",
+  "d": 1,
+  "q": "Complete the angels' song at Christ's birth, from which the Gloria begins: \"Glory to God in the ___.\"",
+  "o": [
+   "heavens",
+   "beginning",
+   "morning",
+   "highest"
+  ],
+  "a": 3,
+  "why": "The Gloria at Mass begins with the song of the angels in Luke 2.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 2:14",
+   "ref": "LUK.2.14",
+   "quote": "Glory to God in the highest",
+   "note": "The Gloria at Mass begins with the song of the angels in Luke 2."
+  }
+ },
+ {
+  "id": "liturgy-027",
+  "d": 1,
+  "q": "Who said, \"Behold, the Lamb of God, who takes away the sin of the world!\"?",
+  "o": [
+   "John the Baptist",
+   "Peter the fisherman",
+   "Andrew",
+   "Simeon"
+  ],
+  "a": 0,
+  "why": "John the Baptist pointed out Jesus with these words, which the priest echoes before Communion.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 1:29",
+   "ref": "JHN.1.29",
+   "quote": "Behold, the Lamb of God, who takes away the sin of the world!",
+   "note": "John the Baptist pointed out Jesus with these words, which the priest echoes before Communion."
+  }
+ },
+ {
+  "id": "liturgy-028",
+  "d": 1,
+  "q": "In what form did the Spirit of God descend on Jesus at his baptism?",
+  "o": [
+   "A flame",
+   "A dove",
+   "A cloud",
+   "A rushing wind"
+  ],
+  "a": 1,
+  "why": "The Spirit descended like a dove on Jesus at the Jordan.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 3:16",
+   "ref": "MAT.3.16",
+   "quote": "He saw the Spirit of God descending as a dove, and coming on him.",
+   "note": "The Spirit descended like a dove on Jesus at the Jordan."
+  }
+ },
+ {
+  "id": "liturgy-029",
+  "d": 1,
+  "q": "In which town was Jesus born, as celebrated at Christmas?",
+  "o": [
+   "Nazareth of Galilee",
+   "Capernaum",
+   "Jericho",
+   "Bethlehem"
+  ],
+  "a": 3,
+  "why": "Jesus was born in Bethlehem of Judea.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 2:1",
+   "ref": "MAT.2.1",
+   "quote": "Jesus was born in Bethlehem of Judea in the days of King Herod",
+   "note": "Jesus was born in Bethlehem of Judea."
+  }
+ },
+ {
+  "id": "liturgy-030",
+  "d": 1,
+  "q": "What is the foremost holy day of obligation in the universal Church?",
+  "o": [
+   "Sunday",
+   "Christmas",
+   "Epiphany",
+   "The Ascension"
+  ],
+  "a": 0,
+  "why": "Sunday is to be observed as the foremost holy day of obligation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2177",
+   "ccc": 2177,
+   "quote": "Sunday is the day on which the paschal mystery is celebrated in light of the apostolic tradition and is to be observed as the foremost holy day of obligation in the universal Church.",
+   "note": "Sunday is to be observed as the foremost holy day of obligation."
+  }
+ },
+ {
+  "id": "liturgy-031",
+  "d": 1,
+  "q": "Which part of a church is its center, where the sacrifice of the Cross is made present?",
+  "o": [
+   "The font",
+   "The altar",
+   "The choir loft",
+   "The porch"
+  ],
+  "a": 1,
+  "why": "The altar is the center of the church and the table of the Lord.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1182",
+   "ccc": 1182,
+   "quote": "On the altar, which is the center of the church, the sacrifice of the Cross is made present under sacramental signs.",
+   "note": "The altar is the center of the church and the table of the Lord."
+  }
+ },
+ {
+  "id": "liturgy-032",
+  "d": 1,
+  "q": "What is the small plate used to hold the host at Mass called?",
+  "o": [
+   "Pall",
+   "Cruet",
+   "Paten",
+   "Thurible"
+  ],
+  "a": 2,
+  "why": "The paten is the small plate used in handling the host.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 939",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The paten or small silver plate used in handling the host",
+   "note": "The paten is the small plate used in handling the host."
+  }
+ },
+ {
+  "id": "liturgy-033",
+  "d": 1,
+  "q": "What does the word \"Eucharist\" mean, from the Greek eucharistein?",
+  "o": [
+   "Thanksgiving",
+   "Sacrifice",
+   "Gathering together",
+   "Remembrance"
+  ],
+  "a": 0,
+  "why": "The Eucharist is so named because it is an action of thanksgiving to God.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1328",
+   "ccc": 1328,
+   "quote": "Eucharist, because it is an action of thanksgiving to God.",
+   "note": "The Eucharist is so named because it is an action of thanksgiving to God."
+  }
+ },
+ {
+  "id": "liturgy-034",
+  "d": 1,
+  "q": "Which sacrament gives sinners after Baptism a new possibility to convert and recover grace?",
+  "o": [
+   "Confirmation",
+   "Penance",
+   "Matrimony",
+   "Holy Orders"
+  ],
+  "a": 1,
+  "why": "Christ instituted Penance for members who have fallen into grave sin after Baptism.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1446",
+   "ccc": 1446,
+   "quote": "Christ instituted the sacrament of Penance for all sinful members of his Church: above all for those who, since Baptism, have fallen into grave sin",
+   "note": "Christ instituted Penance for members who have fallen into grave sin after Baptism."
+  }
+ },
+ {
+  "id": "liturgy-035",
+  "d": 1,
+  "q": "How many weeks of preparation before Christmas does Advent traditionally last?",
+  "o": [
+   "Two",
+   "Six",
+   "Four",
+   "Seven"
+  ],
+  "a": 2,
+  "why": "Advent is the four weeks of preparation preceding Christmas.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1343",
+   "work": "baltimore-catechism",
+   "section": "s36",
+   "quote": "Advent is the four weeks of preparation preceding Christmas.",
+   "note": "Advent is the four weeks of preparation preceding Christmas."
+  }
+ },
+ {
+  "id": "liturgy-036",
+  "d": 2,
+  "q": "Which three sacraments together are called the sacraments of Christian initiation?",
+  "o": [
+   "Baptism, Penance and Matrimony",
+   "Confirmation, Holy Orders and Anointing",
+   "Eucharist, Penance and Anointing",
+   "Baptism, Confirmation and Eucharist"
+  ],
+  "a": 3,
+  "why": "Baptism, Confirmation and the Eucharist form a unity called the sacraments of Christian initiation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1525",
+   "ccc": 1525,
+   "quote": "the sacraments of Baptism, Confirmation, and the Eucharist form a unity called \"the sacraments of Christian initiation,\"",
+   "note": "Baptism, Confirmation and the Eucharist form a unity called the sacraments of Christian initiation."
+  }
+ },
+ {
+  "id": "liturgy-037",
+  "d": 2,
+  "q": "On Easter evening Jesus breathed on the apostles and said, \"If you forgive anyone's sins, they have been forgiven.\" Which sacrament does this recall?",
+  "o": [
+   "Baptism",
+   "Penance",
+   "Matrimony",
+   "Confirmation"
+  ],
+  "a": 1,
+  "why": "The risen Lord gave the apostles power to forgive sins, the ministry exercised in Penance.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 20:22-23",
+   "ref": "JHN.20.22-23",
+   "quote": "If you forgive anyone’s sins, they have been forgiven them.",
+   "note": "The risen Lord gave the apostles power to forgive sins, the ministry exercised in Penance."
+  }
+ },
+ {
+  "id": "liturgy-038",
+  "d": 2,
+  "q": "The Church treats which three days as the \"source of light\" for the whole liturgical year?",
+  "o": [
+   "The Advent Ember days",
+   "The Christmas Octave",
+   "The Easter Triduum",
+   "The Rogation days"
+  ],
+  "a": 2,
+  "why": "The Easter Triduum is the source of light that fills the whole liturgical year.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1168",
+   "ccc": 1168,
+   "quote": "Beginning with the Easter Triduum as its source of light, the new age of the Resurrection fills the whole liturgical year with its brilliance.",
+   "note": "The Easter Triduum is the source of light that fills the whole liturgical year."
+  }
+ },
+ {
+  "id": "liturgy-039",
+  "d": 2,
+  "q": "For how many days did the risen Jesus appear to his disciples before his Ascension?",
+  "o": [
+   "Thirty-three",
+   "Fifty",
+   "Seven",
+   "Forty"
+  ],
+  "a": 3,
+  "why": "Acts says Jesus appeared over a period of forty days after his Passion.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 1:3",
+   "ref": "ACT.1.3",
+   "quote": "appearing to them over a period of forty days and speaking about God’s Kingdom",
+   "note": "Acts says Jesus appeared over a period of forty days after his Passion."
+  }
+ },
+ {
+  "id": "liturgy-040",
+  "d": 2,
+  "q": "Which vestment color is used for feasts of martyrs and the Holy Spirit?",
+  "o": [
+   "Red",
+   "White",
+   "Green",
+   "Violet"
+  ],
+  "a": 0,
+  "why": "Red signifies love and is used on feasts of the Holy Spirit and of martyrs.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 943",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "Red signifies love, and is used on the feasts of the Holy Ghost, and of martyrs.",
+   "note": "Red signifies love and is used on feasts of the Holy Spirit and of martyrs."
+  }
+ },
+ {
+  "id": "liturgy-041",
+  "d": 2,
+  "q": "Which vestment color signifies innocence and is used on feasts of Our Lord and of the Blessed Virgin?",
+  "o": [
+   "Red",
+   "Violet",
+   "White",
+   "Green"
+  ],
+  "a": 2,
+  "why": "White signifies innocence and is used on feasts of Our Lord and Our Lady.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 943",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "White signifies innocence and is used on the feasts of Our Blessed Lord, of the Blessed Virgin, and of some saints.",
+   "note": "White signifies innocence and is used on feasts of Our Lord and Our Lady."
+  }
+ },
+ {
+  "id": "liturgy-042",
+  "d": 2,
+  "q": "According to the Baltimore Catechism, which vestment color signifies hope?",
+  "o": [
+   "Black",
+   "Gold",
+   "Violet",
+   "Green"
+  ],
+  "a": 3,
+  "why": "Green signifies hope in the Baltimore Catechism's account of vestment colors.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 943",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "Green signifies hope",
+   "note": "Green signifies hope in the Baltimore Catechism's account of vestment colors."
+  }
+ },
+ {
+  "id": "liturgy-043",
+  "d": 2,
+  "q": "Which long white garment worn by the priest at Mass signifies innocence?",
+  "o": [
+   "The alb",
+   "The stole",
+   "The chasuble",
+   "The cincture"
+  ],
+  "a": 0,
+  "why": "The alb is the long white garment signifying innocence.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 942",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The Alb, a long white garment to signify innocence",
+   "note": "The alb is the long white garment signifying innocence."
+  }
+ },
+ {
+  "id": "liturgy-044",
+  "d": 2,
+  "q": "What is the large vessel that holds the Blessed Sacrament in the tabernacle and from which Communion is given to the people?",
+  "o": [
+   "The thurible",
+   "The ciborium",
+   "The aspergillum",
+   "The cruet"
+  ],
+  "a": 1,
+  "why": "The ciborium is the vessel that contains the Blessed Sacrament in the tabernacle.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 944",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The Ciborium is the large silver or gold vessel which contains the Blessed Sacrament while in the Tabernacle, and from which the priest gives Holy Communion to the people.",
+   "note": "The ciborium is the vessel that contains the Blessed Sacrament in the tabernacle."
+  }
+ },
+ {
+  "id": "liturgy-045",
+  "d": 2,
+  "q": "What is the vessel in which the Blessed Sacrament is exposed for adoration and Benediction?",
+  "o": [
+   "The ciborium or pyx",
+   "The chalice",
+   "The censer",
+   "The monstrance"
+  ],
+  "a": 3,
+  "why": "The monstrance (ostensorium) is used for exposition during Benediction.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 945",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The Ostensorium or Monstrance is the beautiful wheel-like vessel in which the Blessed Sacrament is exposed and kept during the Benediction.",
+   "note": "The monstrance (ostensorium) is used for exposition during Benediction."
+  }
+ },
+ {
+  "id": "liturgy-046",
+  "d": 2,
+  "q": "What is the lectern from which the Word of God is proclaimed in church called?",
+  "o": [
+   "The ambo",
+   "The cathedra",
+   "The credence",
+   "The sedilia"
+  ],
+  "a": 0,
+  "why": "The ambo is the place for announcing the Word of God during the liturgy.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1184",
+   "ccc": 1184,
+   "quote": "The lectern (ambo): \"The dignity of the Word of God requires the church to have a suitable place for announcing his message",
+   "note": "The ambo is the place for announcing the Word of God during the liturgy."
+  }
+ },
+ {
+  "id": "liturgy-047",
+  "d": 2,
+  "q": "What is the chair of the bishop, expressing his office of presiding, called?",
+  "o": [
+   "The ambo",
+   "The cathedra",
+   "The altar of sacrifice",
+   "The kneeler"
+  ],
+  "a": 1,
+  "why": "The cathedra is the bishop's chair; the word gives us \"cathedral\".",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1184",
+   "ccc": 1184,
+   "quote": "The chair (cathedra) of the bishop or the priest \"should express his office of presiding over the assembly and of directing prayer.\"",
+   "note": "The cathedra is the bishop's chair; the word gives us \"cathedral\"."
+  }
+ },
+ {
+  "id": "liturgy-048",
+  "d": 2,
+  "q": "What is the place in a church for the celebration of Baptism called?",
+  "o": [
+   "The sanctuary lamp area",
+   "The nave",
+   "The baptistry",
+   "The transept"
+  ],
+  "a": 2,
+  "why": "A church must have a place for Baptism, the baptistry, with a holy water font.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1185",
+   "ccc": 1185,
+   "quote": "a church must have a place for the celebration of Baptism (baptistry) and for fostering remembrance of the baptismal promises (holy water font).",
+   "note": "A church must have a place for Baptism, the baptistry, with a holy water font."
+  }
+ },
+ {
+  "id": "liturgy-049",
+  "d": 2,
+  "q": "What are \"sacred signs which bear a resemblance to the sacraments\" and are instituted by the Church?",
+  "o": [
+   "Sacramentals",
+   "Indulgences",
+   "Sacraments of the Old Law",
+   "Evangelical counsels"
+  ],
+  "a": 0,
+  "why": "Sacramentals are sacred signs instituted by the Church that dispose us to receive grace.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1667",
+   "ccc": 1667,
+   "quote": "Holy Mother Church has, moreover, instituted sacramentals. These are sacred signs which bear a resemblance to the sacraments.",
+   "note": "Sacramentals are sacred signs instituted by the Church that dispose us to receive grace."
+  }
+ },
+ {
+  "id": "liturgy-050",
+  "d": 2,
+  "q": "Among the sacramentals, which come first?",
+  "o": [
+   "Pilgrimages",
+   "Blessings",
+   "Processions",
+   "Novenas"
+  ],
+  "a": 1,
+  "why": "Among sacramentals, blessings of persons, meals, objects and places come first.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1671",
+   "ccc": 1671,
+   "quote": "Among sacramentals blessings (of persons, meals, objects, and places) come first.",
+   "note": "Among sacramentals, blessings of persons, meals, objects and places come first."
+  }
+ },
+ {
+  "id": "liturgy-051",
+  "d": 2,
+  "q": "What is another name for the Liturgy of the Hours?",
+  "o": [
+   "The Paschal vigil",
+   "The holy sacrifice",
+   "The divine office",
+   "The rite of reconciliation"
+  ],
+  "a": 2,
+  "why": "The Liturgy of the Hours is also called the divine office.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1174",
+   "ccc": 1174,
+   "quote": "permeates and transfigures the time of each day, through the celebration of the Liturgy of the Hours, \"the divine office.\"",
+   "note": "The Liturgy of the Hours is also called the divine office."
+  }
+ },
+ {
+  "id": "liturgy-052",
+  "d": 2,
+  "q": "Understanding of the Liturgy of the Hours depends especially on knowing which book of the Bible?",
+  "o": [
+   "The Book of Proverbs",
+   "Revelation",
+   "The Book of Leviticus",
+   "The Psalms"
+  ],
+  "a": 3,
+  "why": "The Liturgy of the Hours rests on the Psalms and a deeper understanding of the Bible.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1176",
+   "ccc": 1176,
+   "quote": "a deeper \"understanding of the liturgy and of the Bible, especially of the Psalms.\"",
+   "note": "The Liturgy of the Hours rests on the Psalms and a deeper understanding of the Bible."
+  }
+ },
+ {
+  "id": "liturgy-053",
+  "d": 2,
+  "q": "What follows the homily in the Liturgy of the Word?",
+  "o": [
+   "The presentation of the gifts and wine",
+   "The intercessions for all people",
+   "The Our Father prayer",
+   "The sign of peace"
+  ],
+  "a": 1,
+  "why": "After the homily come the intercessions for all men.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1349",
+   "ccc": 1349,
+   "quote": "After the homily, which is an exhortation to accept this Word as what it truly is, the Word of God, and to put it into practice, come the intercessions for all men",
+   "note": "After the homily come the intercessions for all men."
+  }
+ },
+ {
+  "id": "liturgy-054",
+  "d": 2,
+  "q": "What is the bringing of bread and wine to the altar at Mass called?",
+  "o": [
+   "The epiclesis",
+   "The anamnesis",
+   "The presentation of the offerings",
+   "The final dismissal blessing"
+  ],
+  "a": 2,
+  "why": "The presentation of the offerings (Offertory) brings the bread and wine to the altar.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1350",
+   "ccc": 1350,
+   "quote": "The presentation of the offerings (the Offertory). Then, sometimes in procession, the bread and wine are brought to the altar",
+   "note": "The presentation of the offerings (Offertory) brings the bread and wine to the altar."
+  }
+ },
+ {
+  "id": "liturgy-055",
+  "d": 2,
+  "q": "Which prayer comes just before the breaking of the bread and Communion?",
+  "o": [
+   "The Nicene Creed",
+   "The Gloria",
+   "The Confiteor prayer",
+   "The Lord's Prayer"
+  ],
+  "a": 3,
+  "why": "Communion is preceded by the Lord's prayer and the breaking of the bread.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1355",
+   "ccc": 1355,
+   "quote": "In the communion, preceded by the Lord's prayer and the breaking of the bread",
+   "note": "Communion is preceded by the Lord's prayer and the breaking of the bread."
+  }
+ },
+ {
+  "id": "liturgy-056",
+  "d": 2,
+  "q": "Complete Jesus' words over the cup in Luke: \"This cup is the new ___ in my blood.\"",
+  "o": [
+   "covenant",
+   "kingdom",
+   "testimony",
+   "sacrifice"
+  ],
+  "a": 0,
+  "why": "Luke records the cup as the new covenant in Christ's blood.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 22:20",
+   "ref": "LUK.22.20",
+   "quote": "This cup is the new covenant in my blood",
+   "note": "Luke records the cup as the new covenant in Christ's blood."
+  }
+ },
+ {
+  "id": "liturgy-057",
+  "d": 2,
+  "q": "Which apostle wrote, \"I received from the Lord that which I also delivered to you,\" before describing the Lord's Supper?",
+  "o": [
+   "Peter",
+   "John",
+   "Paul",
+   "James"
+  ],
+  "a": 2,
+  "why": "Paul passes on the institution narrative in 1 Corinthians 11.",
+  "src": {
+   "kind": "scripture",
+   "label": "1 Corinthians 11:23",
+   "ref": "1CO.11.23",
+   "quote": "For I received from the Lord that which also I delivered to you, that the Lord Jesus on the night in which he was betrayed took bread.",
+   "note": "Paul passes on the institution narrative in 1 Corinthians 11."
+  }
+ },
+ {
+  "id": "liturgy-058",
+  "d": 2,
+  "q": "At which Jewish feast did Jesus eat the Last Supper with his apostles?",
+  "o": [
+   "Pentecost",
+   "Tabernacles",
+   "Purim",
+   "Passover"
+  ],
+  "a": 3,
+  "why": "Jesus desired to eat the Passover with the twelve before he suffered.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 22:14-15",
+   "ref": "LUK.22.14-15",
+   "quote": "I have earnestly desired to eat this Passover with you before I suffer",
+   "note": "Jesus desired to eat the Passover with the twelve before he suffered."
+  }
+ },
+ {
+  "id": "liturgy-059",
+  "d": 2,
+  "q": "On the road to Emmaus, how did the two disciples recognize the risen Jesus?",
+  "o": [
+   "When he took bread, gave thanks and broke it",
+   "When he showed them the wounds in his hands",
+   "When he called them by name",
+   "When he opened the Scriptures to them"
+  ],
+  "a": 0,
+  "why": "Their eyes were opened as Jesus took the bread, gave thanks and broke it.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 24:30-31",
+   "ref": "LUK.24.30-31",
+   "quote": "he took the bread and gave thanks. Breaking it, he gave it to them. Their eyes were opened and they recognized him",
+   "note": "Their eyes were opened as Jesus took the bread, gave thanks and broke it."
+  }
+ },
+ {
+  "id": "liturgy-060",
+  "d": 2,
+  "q": "What did Jesus do for his disciples during supper, as recalled on Holy Thursday?",
+  "o": [
+   "He anointed their heads",
+   "He washed their feet",
+   "He blessed their children",
+   "He gave them keys"
+  ],
+  "a": 1,
+  "why": "On the night before he died Jesus washed his disciples' feet.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 13:4-5",
+   "ref": "JHN.13.4-5",
+   "quote": "began to wash the disciples’ feet and to wipe them with the towel that was wrapped around him",
+   "note": "On the night before he died Jesus washed his disciples' feet."
+  }
+ },
+ {
+  "id": "liturgy-061",
+  "d": 2,
+  "q": "What name does the Church give to the change of the bread and wine into the Body and Blood of Christ?",
+  "o": [
+   "Consubstantiation",
+   "Incarnation",
+   "Epiphany of the Lord",
+   "Transubstantiation"
+  ],
+  "a": 3,
+  "why": "By the consecration the bread and wine are changed by transubstantiation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1413",
+   "ccc": 1413,
+   "quote": "By the consecration the transubstantiation of the bread and wine into the Body and Blood of Christ is brought about.",
+   "note": "By the consecration the bread and wine are changed by transubstantiation."
+  }
+ },
+ {
+  "id": "liturgy-062",
+  "d": 2,
+  "q": "The ancient saying \"lex orandi, lex credendi\" means the law of ___ is the law of faith.",
+  "o": [
+   "prayer",
+   "love",
+   "Scripture",
+   "custom"
+  ],
+  "a": 0,
+  "why": "The Church believes as she prays.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1124",
+   "ccc": 1124,
+   "quote": "The law of prayer is the law of faith: the Church believes as she prays.",
+   "note": "The Church believes as she prays."
+  }
+ },
+ {
+  "id": "liturgy-063",
+  "d": 2,
+  "q": "What name is given to Holy Communion received by someone in danger of death?",
+  "o": [
+   "Benediction",
+   "Viaticum",
+   "Reposition",
+   "Oblation"
+  ],
+  "a": 1,
+  "why": "Viaticum is the Eucharist received at the moment of passing over to the Father.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1524",
+   "ccc": 1524,
+   "quote": "the Church offers those who are about to leave this life the Eucharist as viaticum.",
+   "note": "Viaticum is the Eucharist received at the moment of passing over to the Father."
+  }
+ },
+ {
+  "id": "liturgy-064",
+  "d": 2,
+  "q": "Sacred chrism is perfumed oil consecrated by whom?",
+  "o": [
+   "The deacon",
+   "The pope alone",
+   "The bishop",
+   "The parish priest"
+  ],
+  "a": 2,
+  "why": "Sacred chrism is perfumed oil consecrated by the bishop.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1241",
+   "ccc": 1241,
+   "quote": "The anointing with sacred chrism, perfumed oil consecrated by the bishop",
+   "note": "Sacred chrism is perfumed oil consecrated by the bishop."
+  }
+ },
+ {
+  "id": "liturgy-065",
+  "d": 2,
+  "q": "In case of necessity, who can validly baptize?",
+  "o": [
+   "Any person with the right intention",
+   "Only a deacon or a catechist",
+   "Only a baptized adult Catholic",
+   "Only a nurse or doctor"
+  ],
+  "a": 0,
+  "why": "In necessity anyone who intends what the Church does and uses the Trinitarian formula can baptize.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1256",
+   "ccc": 1256,
+   "quote": "In case of necessity, any person, even someone not baptized, can baptize, if he has the required intention.",
+   "note": "In necessity anyone who intends what the Church does and uses the Trinitarian formula can baptize."
+  }
+ },
+ {
+  "id": "liturgy-066",
+  "d": 2,
+  "q": "Who are the ministers of the Anointing of the Sick?",
+  "o": [
+   "Priests and deacons",
+   "Bishops and priests",
+   "Any baptized Christian",
+   "Priests and religious brothers"
+  ],
+  "a": 1,
+  "why": "Only priests (bishops and presbyters) are ministers of the Anointing of the Sick.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1516",
+   "ccc": 1516,
+   "quote": "Only priests (bishops and presbyters) are ministers of the Anointing of the Sick.",
+   "note": "Only priests (bishops and presbyters) are ministers of the Anointing of the Sick."
+  }
+ },
+ {
+  "id": "liturgy-067",
+  "d": 2,
+  "q": "Which New Testament letter tells the sick to call the elders to pray over them and anoint them with oil?",
+  "o": [
+   "Romans",
+   "Hebrews",
+   "James",
+   "Jude"
+  ],
+  "a": 2,
+  "why": "James 5 is the New Testament witness to the anointing of the sick.",
+  "src": {
+   "kind": "scripture",
+   "label": "James 5:14",
+   "ref": "JAS.5.14",
+   "quote": "Is any among you sick? Let him call for the elders of the assembly, and let them pray over him, anointing him with oil in the name of the Lord",
+   "note": "James 5 is the New Testament witness to the anointing of the sick."
+  }
+ },
+ {
+  "id": "liturgy-068",
+  "d": 2,
+  "q": "In Acts 8, how did Peter and John help the Samaritans receive the Holy Spirit?",
+  "o": [
+   "They poured water on their heads",
+   "They broke bread with them",
+   "They anointed them with myrrh and oil",
+   "They laid their hands on them"
+  ],
+  "a": 3,
+  "why": "The laying on of hands is the apostolic sign behind Confirmation.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 8:17",
+   "ref": "ACT.8.17",
+   "quote": "Then they laid their hands on them, and they received the Holy Spirit.",
+   "note": "The laying on of hands is the apostolic sign behind Confirmation."
+  }
+ },
+ {
+  "id": "liturgy-069",
+  "d": 2,
+  "q": "In the Latin Church, who ordinarily confer the sacrament of Matrimony on each other?",
+  "o": [
+   "The priest",
+   "The spouses",
+   "The witnesses",
+   "The bishop"
+  ],
+  "a": 1,
+  "why": "The spouses, as ministers of Christ's grace, confer Matrimony on each other by their consent.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1623",
+   "ccc": 1623,
+   "quote": "In the Latin Church, it is ordinarily understood that the spouses, as ministers of Christ's grace, mutually confer upon each other the sacrament of Matrimony by expressing their consent before the Church.",
+   "note": "The spouses, as ministers of Christ's grace, confer Matrimony on each other by their consent."
+  }
+ },
+ {
+  "id": "liturgy-070",
+  "d": 2,
+  "q": "Which day of the week, besides Lent, is a regular day of penance in memory of the Lord's death?",
+  "o": [
+   "Wednesday",
+   "Thursday",
+   "Friday",
+   "Saturday"
+  ],
+  "a": 2,
+  "why": "Each Friday is a day of penance in memory of the death of the Lord.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1438",
+   "ccc": 1438,
+   "quote": "The seasons and days of penance in the course of the liturgical year (Lent, and each Friday in memory of the death of the Lord)",
+   "note": "Each Friday is a day of penance in memory of the death of the Lord."
+  }
+ },
+ {
+  "id": "liturgy-071",
+  "d": 2,
+  "q": "How many Stations make up the Way of the Cross?",
+  "o": [
+   "Seven",
+   "Twelve or thirteen",
+   "Fifteen",
+   "Fourteen"
+  ],
+  "a": 3,
+  "why": "The Way of the Cross has fourteen stations along the passion.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1057",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "Fourteen crosses or stations, each with a picture of some scene in the passion",
+   "note": "The Way of the Cross has fourteen stations along the passion."
+  }
+ },
+ {
+  "id": "liturgy-072",
+  "d": 2,
+  "q": "What are the chief parts of the Mass according to the Baltimore Catechism?",
+  "o": [
+   "Offertory, Consecration and Communion",
+   "Gloria, Creed, Sanctus and Agnus Dei",
+   "Introit, Gospel and Dismissal",
+   "Kyrie, Homily and Blessing"
+  ],
+  "a": 0,
+  "why": "The chief parts are the Offertory, the Consecration and the Communion.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 932",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The chief parts of the Mass are: (1) The Offertory",
+   "note": "The chief parts are the Offertory, the Consecration and the Communion."
+  }
+ },
+ {
+  "id": "liturgy-073",
+  "d": 2,
+  "q": "On which day of Holy Week does the bishop consecrate the sacred chrism at the Chrism Mass?",
+  "o": [
+   "Palm Sunday morning",
+   "Good Friday",
+   "Holy Thursday",
+   "Holy Saturday"
+  ],
+  "a": 2,
+  "why": "The bishop consecrates the chrism during the Chrism Mass of Holy Thursday.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1297",
+   "ccc": 1297,
+   "quote": "It is the bishop who, in the course of the Chrism Mass of Holy Thursday, consecrates the sacred chrism for his whole diocese.",
+   "note": "The bishop consecrates the chrism during the Chrism Mass of Holy Thursday."
+  }
+ },
+ {
+  "id": "liturgy-074",
+  "d": 2,
+  "q": "Jesus told Nicodemus that one must be born of water and of what to enter the Kingdom of God?",
+  "o": [
+   "The Word of God",
+   "Holy fire",
+   "Blood",
+   "The Spirit"
+  ],
+  "a": 3,
+  "why": "Birth of water and the Spirit is the new birth of Baptism.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 3:5",
+   "ref": "JHN.3.5",
+   "quote": "unless one is born of water and Spirit, he can’t enter into God’s Kingdom",
+   "note": "Birth of water and the Spirit is the new birth of Baptism."
+  }
+ },
+ {
+  "id": "liturgy-075",
+  "d": 2,
+  "q": "What are the three degrees of Holy Orders?",
+  "o": [
+   "Episcopate, presbyterate and diaconate",
+   "Papacy, episcopate and presbyterate",
+   "Priesthood, diaconate and acolyte",
+   "Cardinalate, episcopate and diaconate"
+  ],
+  "a": 0,
+  "why": "Holy Orders includes bishops, priests and deacons.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1536",
+   "ccc": 1536,
+   "quote": "It includes three degrees: episcopate, presbyterate, and diaconate.",
+   "note": "Holy Orders includes bishops, priests and deacons."
+  }
+ },
+ {
+  "id": "liturgy-076",
+  "d": 3,
+  "q": "Which Council, in 325, agreed that Easter should be celebrated on the Sunday after the first full moon following the spring equinox?",
+  "o": [
+   "Ephesus",
+   "Nicaea",
+   "Chalcedon",
+   "Trent"
+  ],
+  "a": 1,
+  "why": "At Nicaea in 325 all the Churches agreed on this rule for Easter.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1170",
+   "ccc": 1170,
+   "quote": "At the Council of Nicaea in 325, all the Churches agreed that Easter, the Christian Passover, should be celebrated on the Sunday following the first full moon",
+   "note": "At Nicaea in 325 all the Churches agreed on this rule for Easter."
+  }
+ },
+ {
+  "id": "liturgy-077",
+  "d": 3,
+  "q": "Which pope's 1582 calendar reform caused a discrepancy of several days with the Eastern calendar?",
+  "o": [
+   "Gregory the Great",
+   "Pius V",
+   "Leo XIII",
+   "Gregory XIII"
+  ],
+  "a": 3,
+  "why": "The Gregorian reform of 1582 is named after Pope Gregory XIII.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1170",
+   "ccc": 1170,
+   "quote": "the reform of the Western calendar, called \"Gregorian\" after Pope Gregory XIII (1582)",
+   "note": "The Gregorian reform of 1582 is named after Pope Gregory XIII."
+  }
+ },
+ {
+  "id": "liturgy-078",
+  "d": 3,
+  "q": "In the Eucharistic Prayer, what is the epiclesis?",
+  "o": [
+   "The prayer asking the Father to send his Holy Spirit on the gifts",
+   "The prayer of thanks that begins the Preface dialogue",
+   "The recalling of Christ's Passion and glorious return",
+   "The list of prayers for the living and the dead"
+  ],
+  "a": 0,
+  "why": "In the epiclesis the Church asks the Father to send his Spirit on the bread and wine.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1353",
+   "ccc": 1353,
+   "quote": "In the epiclesis, the Church asks the Father to send his Holy Spirit (or the power of his blessing) on the bread and wine",
+   "note": "In the epiclesis the Church asks the Father to send his Spirit on the bread and wine."
+  }
+ },
+ {
+  "id": "liturgy-079",
+  "d": 3,
+  "q": "What is the part of the Eucharistic Prayer called in which the Church calls to mind Christ's Passion, resurrection and glorious return?",
+  "o": [
+   "The epiclesis of the Spirit",
+   "The anamnesis",
+   "The preface",
+   "The doxology"
+  ],
+  "a": 1,
+  "why": "The anamnesis is the Church's remembrance of Christ's Passion, resurrection and return.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1354",
+   "ccc": 1354,
+   "quote": "In the anamnesis that follows, the Church calls to mind the Passion, resurrection, and glorious return of Christ Jesus",
+   "note": "The anamnesis is the Church's remembrance of Christ's Passion, resurrection and return."
+  }
+ },
+ {
+  "id": "liturgy-080",
+  "d": 3,
+  "q": "What Greek name is given to the Eucharistic Prayer, the \"heart and summit of the celebration\"?",
+  "o": [
+   "The apologia of the Church",
+   "The antiphon of the psalm",
+   "The anaphora",
+   "The anathema of the council"
+  ],
+  "a": 2,
+  "why": "The anaphora is the Eucharistic Prayer of thanksgiving and consecration.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1352",
+   "ccc": 1352,
+   "quote": "The anaphora: with the Eucharistic Prayer - the prayer of thanksgiving and consecration - we come to the heart and summit of the celebration",
+   "note": "The anaphora is the Eucharistic Prayer of thanksgiving and consecration."
+  }
+ },
+ {
+  "id": "liturgy-081",
+  "d": 3,
+  "q": "What Latin phrase says that sacraments act \"by the very fact of the action's being performed\"?",
+  "o": [
+   "Ex opere operato",
+   "Ex cathedra",
+   "Lex orandi",
+   "In persona Christi"
+  ],
+  "a": 0,
+  "why": "The sacraments act by the saving work of Christ, not by the holiness of the minister.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1128",
+   "ccc": 1128,
+   "quote": "the sacraments act ex opere operato (literally: \"by the very fact of the action's being performed\")",
+   "note": "The sacraments act by the saving work of Christ, not by the holiness of the minister."
+  }
+ },
+ {
+  "id": "liturgy-082",
+  "d": 3,
+  "q": "The word \"Mass\" (Missa) comes from the Latin missio, meaning what?",
+  "o": [
+   "The sacrifice of the paschal lamb",
+   "The sending forth of the faithful",
+   "The gathering of the whole assembly",
+   "The breaking of the bread"
+  ],
+  "a": 1,
+  "why": "The liturgy ends with the sending forth of the faithful, hence the name Mass.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1332",
+   "ccc": 1332,
+   "quote": "Holy Mass (Missa), because the liturgy in which the mystery of salvation is accomplished concludes with the sending forth (missio) of the faithful",
+   "note": "The liturgy ends with the sending forth of the faithful, hence the name Mass."
+  }
+ },
+ {
+  "id": "liturgy-083",
+  "d": 3,
+  "q": "In the Latin Rite, which words accompany the anointing with chrism in Confirmation?",
+  "o": [
+   "\"Receive the Spirit of fire and love.\"",
+   "\"I sign you with the cross of Christ.\"",
+   "\"Be sealed with the Gift of the Holy Spirit.\"",
+   "\"Be strong in the faith of the apostles.\""
+  ],
+  "a": 2,
+  "why": "The Latin form is \"Be sealed with the Gift of the Holy Spirit.\"",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1300",
+   "ccc": 1300,
+   "quote": "Be sealed with the Gift of the Holy Spirit",
+   "note": "The Latin form is \"Be sealed with the Gift of the Holy Spirit.\""
+  }
+ },
+ {
+  "id": "liturgy-084",
+  "d": 3,
+  "q": "What is the essential rite of Holy Orders for all three degrees?",
+  "o": [
+   "The anointing of the head and hands with chrism",
+   "The presentation of the chalice and paten to the ordinand",
+   "The handing over of the book of the Gospels to the deacon",
+   "The bishop's laying on of hands and consecratory prayer"
+  ],
+  "a": 3,
+  "why": "The essential rite is the bishop's imposition of hands and consecratory prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1573",
+   "ccc": 1573,
+   "quote": "consists in the bishop's imposition of hands on the head of the ordinand and in the bishop's specific consecratory prayer",
+   "note": "The essential rite is the bishop's imposition of hands and consecratory prayer."
+  }
+ },
+ {
+  "id": "liturgy-085",
+  "d": 3,
+  "q": "Which three sacraments confer an indelible character and so can never be repeated?",
+  "o": [
+   "Baptism, Eucharist, Penance and Matrimony",
+   "Baptism, Confirmation and Holy Orders",
+   "Confirmation, Penance, Eucharist and Anointing",
+   "Eucharist, Holy Orders, Matrimony and Anointing"
+  ],
+  "a": 1,
+  "why": "Baptism, Confirmation and Holy Orders imprint a sacramental character.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1121",
+   "ccc": 1121,
+   "quote": "The three sacraments of Baptism, Confirmation, and Holy Orders confer, in addition to grace, a sacramental character or \"seal\"",
+   "note": "Baptism, Confirmation and Holy Orders imprint a sacramental character."
+  }
+ },
+ {
+  "id": "liturgy-086",
+  "d": 3,
+  "q": "Which three feasts does the Catechism list in the cycle surrounding the mystery of the incarnation?",
+  "o": [
+   "Advent, Christmas and Candlemas",
+   "Christmas, Epiphany and Pentecost",
+   "Annunciation, Christmas and Epiphany",
+   "Annunciation, Visitation and Assumption"
+  ],
+  "a": 2,
+  "why": "The Annunciation, Christmas and Epiphany commemorate the beginning of our salvation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1171",
+   "ccc": 1171,
+   "quote": "the cycle of feasts surrounding the mystery of the incarnation (Annunciation, Christmas, Epiphany)",
+   "note": "The Annunciation, Christmas and Epiphany commemorate the beginning of our salvation."
+  }
+ },
+ {
+  "id": "liturgy-087",
+  "d": 3,
+  "q": "On which feast, kept on February 2, are candles traditionally blessed?",
+  "o": [
+   "The Annunciation of the Lord",
+   "The Visitation to Elizabeth",
+   "The Assumption of Mary into heaven",
+   "The Purification of the Blessed Virgin"
+  ],
+  "a": 3,
+  "why": "Candles are blessed on the feast of the Purification of Our Lady, February 2.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1075",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "Candles are blessed in the Church on the feast of the Purification of the Blessed Virgin--February 2nd.",
+   "note": "Candles are blessed on the feast of the Purification of Our Lady, February 2."
+  }
+ },
+ {
+  "id": "liturgy-088",
+  "d": 3,
+  "q": "What name is given to the part of the Mass in which the words of Consecration are found?",
+  "o": [
+   "The Canon",
+   "The Introit",
+   "The Gradual",
+   "The Offertory"
+  ],
+  "a": 0,
+  "why": "The Canon is the most solemn part of the Mass and contains the words of Consecration.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 934",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The part of the Mass in which the words of Consecration are found is called the Canon.",
+   "note": "The Canon is the most solemn part of the Mass and contains the words of Consecration."
+  }
+ },
+ {
+  "id": "liturgy-089",
+  "d": 3,
+  "q": "The relics sealed in the altar stone recall that early persecuted Christians used what as altars?",
+  "o": [
+   "The ruins of pagan temples",
+   "The decks of ships",
+   "The tombs of the martyrs",
+   "The stones of the Jordan"
+  ],
+  "a": 2,
+  "why": "The altar stone recalls the martyrs' tombs used as altars.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 937",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The altar stone reminds us of the early history of the Church, when the martyrs' tombs were used for altars by the persecuted Christians.",
+   "note": "The altar stone recalls the martyrs' tombs used as altars."
+  }
+ },
+ {
+  "id": "liturgy-090",
+  "d": 3,
+  "q": "How does the Mass represent Christ's death on the Cross, according to the Baltimore Catechism?",
+  "o": [
+   "Through the burning of incense over the altar at the Offertory",
+   "Through the washing of the priest's hands at the Offertory",
+   "Through the lighting of the paschal candle at the Gospel",
+   "Through the separate consecration of the bread and the wine"
+  ],
+  "a": 3,
+  "why": "The separate consecration of bread and wine represents Christ's death without a new shedding of blood.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 931",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "the sacrifice of the Mass, through the separate consecration of the bread and the wine, represents His death on the Cross.",
+   "note": "The separate consecration of bread and wine represents Christ's death without a new shedding of blood."
+  }
+ },
+ {
+  "id": "liturgy-091",
+  "d": 3,
+  "q": "Which book of the Bible shows four living creatures crying, \"Holy, holy, holy is the Lord God, the Almighty\"?",
+  "o": [
+   "Revelation",
+   "The Book of Daniel",
+   "The Letter to the Hebrews",
+   "The Letter of Jude"
+  ],
+  "a": 0,
+  "why": "The heavenly worship of Revelation 4 stands behind the Sanctus at Mass.",
+  "src": {
+   "kind": "scripture",
+   "label": "Revelation 4:8",
+   "ref": "REV.4.8",
+   "quote": "Holy, holy, holy is the Lord God, the Almighty, who was and who is and who is to come!",
+   "note": "The heavenly worship of Revelation 4 stands behind the Sanctus at Mass."
+  }
+ },
+ {
+  "id": "liturgy-092",
+  "d": 3,
+  "q": "According to the Roman Catechism, what must ministers use and intend for a sacrament to be valid, whether they are good or bad?",
+  "o": [
+   "Only vestments blessed by a bishop",
+   "The matter and form of the Church, intending what she does",
+   "The Latin language of the Roman rite",
+   "A church building consecrated for worship"
+  ],
+  "a": 1,
+  "why": "Valid sacraments require the proper matter and form and the intention to do what the Church does.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Roman Catechism (On the Sacraments in General)",
+   "work": "roman-catechism",
+   "section": "s14",
+   "quote": "provided they make use of the matter and form always observed in the Catholic Church, according to the institution of Christ, and intend to do what the Church",
+   "note": "Valid sacraments require the proper matter and form and the intention to do what the Church does."
+  }
+ },
+ {
+  "id": "liturgy-093",
+  "d": 3,
+  "q": "According to the Roman Catechism, how much water should priests mingle with the wine?",
+  "o": [
+   "An equal quantity",
+   "More water than wine",
+   "None, it is forbidden",
+   "A small quantity"
+  ],
+  "a": 3,
+  "why": "The Roman Catechism says the water must be mingled in small quantity.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Roman Catechism (On the Eucharist)",
+   "work": "roman-catechism",
+   "section": "s17",
+   "quote": "priests must be mindful to mingle water with the wine, so, also, must they take care to mingle it in small quantity",
+   "note": "The Roman Catechism says the water must be mingled in small quantity."
+  }
+ },
+ {
+  "id": "liturgy-094",
+  "d": 3,
+  "q": "What did the priest-king Melchizedek bring out to Abram, prefiguring the Eucharist?",
+  "o": [
+   "Bread and wine",
+   "Oil and incense",
+   "A lamb and a dove",
+   "Water and salt"
+  ],
+  "a": 0,
+  "why": "Melchizedek, priest of God Most High, brought out bread and wine.",
+  "src": {
+   "kind": "scripture",
+   "label": "Genesis 14:18",
+   "ref": "GEN.14.18",
+   "quote": "Melchizedek king of Salem brought out bread and wine. He was priest of God Most High.",
+   "note": "Melchizedek, priest of God Most High, brought out bread and wine."
+  }
+ },
+ {
+  "id": "liturgy-095",
+  "d": 3,
+  "q": "What does the lit paschal candle, dipped into the water blessed on Holy Saturday, represent?",
+  "o": [
+   "The light of the Magi's star",
+   "Our Lord risen from the dead",
+   "The flame of Pentecost",
+   "The prayers of the faithful departed"
+  ],
+  "a": 1,
+  "why": "The paschal candle represents Christ risen from the dead.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1072",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "the paschal candle, which represents Our Lord risen from the dead",
+   "note": "The paschal candle represents Christ risen from the dead."
+  }
+ },
+ {
+  "id": "liturgy-096",
+  "d": 3,
+  "q": "At minimum, how often does the Church oblige the faithful to receive the Eucharist, if possible during the Easter season?",
+  "o": [
+   "At least once a month",
+   "At least once a week",
+   "At least once a year",
+   "Only once in a lifetime"
+  ],
+  "a": 2,
+  "why": "The Church requires reception of the Eucharist at least once a year, if possible in the Easter season.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1389",
+   "ccc": 1389,
+   "quote": "to receive the Eucharist at least once a year, if possible during the Easter season.",
+   "note": "The Church requires reception of the Eucharist at least once a year, if possible in the Easter season."
+  }
+ },
+ {
+  "id": "liturgy-097",
+  "d": 3,
+  "q": "For whom is a Requiem Mass offered, with special prayers and black vestments in the older rite?",
+  "o": [
+   "The dead",
+   "The sick",
+   "Newly married couples",
+   "Missionaries"
+  ],
+  "a": 0,
+  "why": "A Requiem Mass is said with special prayers for the dead.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 927",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "A Requiem Mass is one said in black vestments and with special prayers for the dead.",
+   "note": "A Requiem Mass is said with special prayers for the dead."
+  }
+ },
+ {
+  "id": "liturgy-098",
+  "d": 3,
+  "q": "According to the Catechism, what is true of Christ's presence in the consecrated host when it is broken?",
+  "o": [
+   "Only a portion of Christ is in each part",
+   "Christ is whole and entire in each part",
+   "Christ is present only until the host is divided",
+   "Christ is present only in the largest part"
+  ],
+  "a": 1,
+  "why": "Christ is present whole and entire in each species and in each of their parts.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1377",
+   "ccc": 1377,
+   "quote": "Christ is present whole and entire in each of the species and whole and entire in each of their parts, in such a way that the breaking of the bread does not divide Christ.",
+   "note": "Christ is present whole and entire in each species and in each of their parts."
+  }
+ },
+ {
+  "id": "liturgy-099",
+  "d": 3,
+  "q": "Who may perform a solemn (major) exorcism?",
+  "o": [
+   "Any baptized adult Catholic",
+   "A deacon acting alone",
+   "A priest with the bishop's permission",
+   "Any religious brother or sister"
+  ],
+  "a": 2,
+  "why": "A major exorcism can be performed only by a priest with the bishop's permission.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1673",
+   "ccc": 1673,
+   "quote": "the solemn exorcism, called \"a major exorcism,\" can be performed only by a priest and with the permission of the bishop.",
+   "note": "A major exorcism can be performed only by a priest with the bishop's permission."
+  }
+ },
+ {
+  "id": "liturgy-100",
+  "d": 3,
+  "q": "Which long vestment is worn over all the others and bears a cross on front and back, recalling the Passion?",
+  "o": [
+   "The alb, a white garment",
+   "The amice, a cloth",
+   "The stole, a long band",
+   "The chasuble"
+  ],
+  "a": 3,
+  "why": "The chasuble is the outer vestment signifying love and recalling the Lord's Passion.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 942",
+   "work": "baltimore-catechism",
+   "section": "s25",
+   "quote": "The Chasuble or long vestment over all, to signify love and remind the priest, by its cross on front and back, of the Passion of Our Lord.",
+   "note": "The chasuble is the outer vestment signifying love and recalling the Lord's Passion."
+  }
+ }
+]

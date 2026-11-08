@@ -22,7 +22,7 @@ export const loadTrophies = (): Record<string, number> => { try { return JSON.pa
 
 export interface Trophy { id: string; icon: string; title: string; how: string }
 export const DAILY_IDS = ['verbum', 'quartets', 'saintguess', 'whoami', 'artdetective', 'whosaid', 'whichbook', 'chain', 'pilgrim'];
-export const ALL_GAMES = ['verbum', 'quartets', 'whosaid', 'whichbook', 'chain', 'pilgrim', 'crossword', 'cloister', 'prophet', 'charades', 'wordsearch', 'saintguess', 'whoami', 'artdetective', 'doctrineladder', 'familyquiz'];
+export const ALL_GAMES = ['trivia', 'verbum', 'quartets', 'whosaid', 'whichbook', 'chain', 'pilgrim', 'crossword', 'cloister', 'prophet', 'charades', 'wordsearch', 'saintguess', 'whoami', 'artdetective', 'doctrineladder', 'familyquiz'];
 export const TROPHY_LIST: Trophy[] = [
   { id: 'first', icon: '🌱', title: 'First steps', how: 'Finish any game.' },
   { id: 'streak3', icon: '🔥', title: 'Three in a row', how: 'Play on 3 days in a row.' },

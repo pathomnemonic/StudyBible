@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { GradeData, LessonSpec } from '../curriculum/model';
 import { createHost } from './link';
@@ -16,6 +16,8 @@ interface Props {
 
 /** The teacher's setup for a live class: what to cover, how hard, how many questions, and the room's settings. */
 export default function StartLive({ grade, lesson, slides, onClose }: Props) {
+  const box = useRef<HTMLDivElement>(null);
+  useEffect(() => { box.current?.scrollIntoView({ block: 'start', behavior: 'smooth' }); }, []);
   const nav = useNavigate();
   const [scope, setScope] = useState<Scope>('lesson');
   const [count, setCount] = useState(10);
@@ -44,7 +46,7 @@ export default function StartLive({ grade, lesson, slides, onClose }: Props) {
     } catch (e) { setErr((e as Error).message); setBusy(false); }
   };
   return (
-    <div className="live-setup card" role="dialog" aria-label="Start a live class">
+    <div className="live-setup card" role="region" aria-label="Start a live class" ref={box}>
       <div className="row between"><h2 style={{ margin: 0 }}>Start a live class</h2><button className="btn small" onClick={onClose}>Close</button></div>
       <p className="muted small">Your students open the app, choose <strong>Join a class</strong> and type the code you will see. They follow the lesson together on their own screens, then play the quiz. Needs the sync server.</p>
       <div className="live-form" style={{ maxWidth: 'none' }}>

@@ -1,0 +1,2002 @@
+[
+ {
+  "id": "doctrine-001",
+  "d": 1,
+  "q": "How many gifts of the Holy Spirit does the Catechism list?",
+  "o": [
+   "Seven",
+   "Three",
+   "Nine",
+   "Twelve"
+  ],
+  "a": 0,
+  "why": "The Catechism lists seven gifts of the Holy Spirit, from wisdom to fear of the Lord.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1831",
+   "ccc": 1831,
+   "quote": "The seven gifts of the Holy Spirit are wisdom, understanding, counsel, fortitude, knowledge, piety, and fear of the Lord.",
+   "note": "The Catechism lists seven gifts of the Holy Spirit, from wisdom to fear of the Lord."
+  }
+ },
+ {
+  "id": "doctrine-002",
+  "d": 2,
+  "q": "How many fruits of the Holy Spirit does the tradition of the Church list?",
+  "o": [
+   "Seven",
+   "Nine",
+   "Twelve",
+   "Fifteen"
+  ],
+  "a": 2,
+  "why": "The tradition of the Church lists twelve fruits of the Spirit, beginning with charity, joy and peace.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1832",
+   "ccc": 1832,
+   "quote": "the tradition of the Church lists twelve of them",
+   "note": "The tradition of the Church lists twelve fruits of the Spirit, beginning with charity, joy and peace."
+  }
+ },
+ {
+  "id": "doctrine-003",
+  "d": 1,
+  "q": "Which of these is one of the seven gifts of the Holy Spirit?",
+  "o": [
+   "Humility",
+   "Understanding",
+   "Obedience",
+   "Self-discipline"
+  ],
+  "a": 1,
+  "why": "Understanding is one of the seven gifts, along with wisdom, counsel, fortitude, knowledge, piety and fear of the Lord.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1831",
+   "ccc": 1831,
+   "quote": "wisdom, understanding, counsel, fortitude, knowledge, piety, and fear of the Lord",
+   "note": "Understanding is one of the seven gifts, along with wisdom, counsel, fortitude, knowledge, piety and fear of the Lord."
+  }
+ },
+ {
+  "id": "doctrine-004",
+  "d": 1,
+  "q": "Which four marks does the Creed give for the Church?",
+  "o": [
+   "One, holy, merciful, apostolic",
+   "One, true, catholic, ancient",
+   "Holy, universal, visible, eternal",
+   "One, holy, catholic, apostolic"
+  ],
+  "a": 3,
+  "why": "In the Creed we profess the Church to be one, holy, catholic and apostolic.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 811",
+   "ccc": 811,
+   "quote": "in the Creed we profess to be one, holy, catholic and apostolic",
+   "note": "In the Creed we profess the Church to be one, holy, catholic and apostolic."
+  }
+ },
+ {
+  "id": "doctrine-005",
+  "d": 1,
+  "q": "Which three virtues are the theological virtues?",
+  "o": [
+   "Faith, hope and prudence",
+   "Hope, charity and justice",
+   "Faith, charity and temperance",
+   "Faith, hope and charity"
+  ],
+  "a": 3,
+  "why": "The theological virtues, which relate directly to God, are faith, hope, and charity.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1813",
+   "ccc": 1813,
+   "quote": "There are three theological virtues: faith, hope, and charity.",
+   "note": "The theological virtues, which relate directly to God, are faith, hope, and charity."
+  }
+ },
+ {
+  "id": "doctrine-006",
+  "d": 1,
+  "q": "How many cardinal virtues are there?",
+  "o": [
+   "Four",
+   "Three",
+   "Five",
+   "Seven"
+  ],
+  "a": 0,
+  "why": "The four cardinal virtues are prudence, justice, fortitude, and temperance.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1805",
+   "ccc": 1805,
+   "quote": "They are: prudence, justice, fortitude, and temperance.",
+   "note": "The four cardinal virtues are prudence, justice, fortitude, and temperance."
+  }
+ },
+ {
+  "id": "doctrine-007",
+  "d": 1,
+  "q": "Which of these is a cardinal virtue?",
+  "o": [
+   "Faith",
+   "Hope",
+   "Temperance",
+   "Perseverance"
+  ],
+  "a": 2,
+  "why": "Temperance is one of the four cardinal virtues; faith, hope and charity are the theological virtues.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1805",
+   "ccc": 1805,
+   "quote": "They are: prudence, justice, fortitude, and temperance.",
+   "note": "Temperance is one of the four cardinal virtues; faith, hope and charity are the theological virtues."
+  }
+ },
+ {
+  "id": "doctrine-008",
+  "d": 1,
+  "q": "What does the word \"catholic\" mean?",
+  "o": [
+   "Ancient",
+   "Universal",
+   "Orderly",
+   "Traditional"
+  ],
+  "a": 1,
+  "why": "The Catechism explains that \"catholic\" means universal, according to the totality.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 830",
+   "ccc": 830,
+   "quote": "The word \"catholic\" means \"universal,\"",
+   "note": "The Catechism explains that \"catholic\" means universal, according to the totality."
+  }
+ },
+ {
+  "id": "doctrine-009",
+  "d": 1,
+  "q": "How many sacraments are there in the Church?",
+  "o": [
+   "Three",
+   "Seven",
+   "Five",
+   "Twelve"
+  ],
+  "a": 1,
+  "why": "Christ instituted seven sacraments of the new law.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1210",
+   "ccc": 1210,
+   "quote": "There are seven: Baptism, Confirmation (or Chrismation), the Eucharist, Penance, the Anointing of the Sick, Holy Orders and Matrimony.",
+   "note": "Christ instituted seven sacraments of the new law."
+  }
+ },
+ {
+  "id": "doctrine-010",
+  "d": 1,
+  "q": "What does the word \"Decalogue\" mean literally?",
+  "o": [
+   "Ten laws",
+   "Two tablets",
+   "Holy mountain",
+   "Ten words"
+  ],
+  "a": 3,
+  "why": "\"Decalogue\" means literally \"ten words\", the Ten Commandments.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2056",
+   "ccc": 2056,
+   "quote": "The word \"Decalogue\" means literally \"ten words.\"",
+   "note": "\"Decalogue\" means literally \"ten words\", the Ten Commandments."
+  }
+ },
+ {
+  "id": "doctrine-011",
+  "d": 2,
+  "q": "Which command did Jesus call the greatest and first commandment?",
+  "o": [
+   "Love the Lord your God with all your heart",
+   "Honor your father and your mother",
+   "Keep holy the sabbath day",
+   "Love your neighbor and forgive every offense"
+  ],
+  "a": 0,
+  "why": "Jesus named love of God with all one's heart, soul and mind as the greatest and first commandment.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2055",
+   "ccc": 2055,
+   "quote": "You shall love the Lord your God with all your heart, and with all your soul, and with all your mind. This is the greatest and first commandment.",
+   "note": "Jesus named love of God with all one's heart, soul and mind as the greatest and first commandment."
+  }
+ },
+ {
+  "id": "doctrine-012",
+  "d": 1,
+  "q": "What does the name Jesus mean in Hebrew?",
+  "o": [
+   "God is with us",
+   "Anointed one",
+   "God saves",
+   "Prince of peace"
+  ],
+  "a": 2,
+  "why": "Jesus means in Hebrew \"God saves\".",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 430",
+   "ccc": 430,
+   "quote": "Jesus means in Hebrew: \"God saves.\"",
+   "note": "Jesus means in Hebrew \"God saves\"."
+  }
+ },
+ {
+  "id": "doctrine-013",
+  "d": 1,
+  "q": "What does the word \"Christ\" mean?",
+  "o": [
+   "Son of David",
+   "Teacher",
+   "Anointed",
+   "Shepherd"
+  ],
+  "a": 2,
+  "why": "\"Christ\" comes from the Greek for the Hebrew Messiah, which means anointed.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 436",
+   "ccc": 436,
+   "quote": "which means \"anointed\"",
+   "note": "\"Christ\" comes from the Greek for the Hebrew Messiah, which means anointed."
+  }
+ },
+ {
+  "id": "doctrine-014",
+  "d": 2,
+  "q": "How many conditions must be met together for a sin to be mortal?",
+  "o": [
+   "Two",
+   "Three",
+   "Four",
+   "Twelve"
+  ],
+  "a": 1,
+  "why": "Mortal sin needs grave matter, full knowledge and deliberate consent.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1857",
+   "ccc": 1857,
+   "quote": "For a sin to be mortal, three conditions must together be met",
+   "note": "Mortal sin needs grave matter, full knowledge and deliberate consent."
+  }
+ },
+ {
+  "id": "doctrine-015",
+  "d": 1,
+  "q": "Which Greek title, meaning \"Mother of God\", does the Church give to Mary?",
+  "o": [
+   "Panagia",
+   "Kyrios",
+   "Hodegetria",
+   "Theotokos"
+  ],
+  "a": 3,
+  "why": "The Church confesses that Mary is truly Mother of God (Theotokos).",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 495",
+   "ccc": 495,
+   "quote": "Hence the Church confesses that Mary is truly \"Mother of God\" (Theotokos).",
+   "note": "The Church confesses that Mary is truly Mother of God (Theotokos)."
+  }
+ },
+ {
+  "id": "doctrine-016",
+  "d": 2,
+  "q": "Which pope proclaimed the dogma of the Immaculate Conception?",
+  "o": [
+   "Pius IX",
+   "Leo the Great",
+   "Pius XII",
+   "Gregory the Great"
+  ],
+  "a": 0,
+  "why": "Pope Pius IX proclaimed the dogma of the Immaculate Conception in 1854.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 491",
+   "ccc": 491,
+   "quote": "as Pope Pius IX proclaimed in 1854",
+   "note": "Pope Pius IX proclaimed the dogma of the Immaculate Conception in 1854."
+  }
+ },
+ {
+  "id": "doctrine-017",
+  "d": 2,
+  "q": "What does the dogma of the Assumption teach about Mary?",
+  "o": [
+   "She was taken up body and soul into heavenly glory",
+   "She never experienced suffering or death in her life",
+   "She was raised up as one of the apostles",
+   "She was made a saint at the Council of Ephesus"
+  ],
+  "a": 0,
+  "why": "At the end of her earthly life Mary was taken up body and soul into heavenly glory.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 966",
+   "ccc": 966,
+   "quote": "was taken up body and soul into heavenly glory",
+   "note": "At the end of her earthly life Mary was taken up body and soul into heavenly glory."
+  }
+ },
+ {
+  "id": "doctrine-018",
+  "d": 1,
+  "q": "How many Gods do Christians confess?",
+  "o": [
+   "Three gods in one temple",
+   "Two gods united under one Spirit",
+   "One God in three persons",
+   "One God in two persons"
+  ],
+  "a": 2,
+  "why": "The Trinity is one God in three persons, not three Gods.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 253",
+   "ccc": 253,
+   "quote": "We do not confess three Gods, but one God in three persons",
+   "note": "The Trinity is one God in three persons, not three Gods."
+  }
+ },
+ {
+  "id": "doctrine-019",
+  "d": 2,
+  "q": "What does the Catechism call the central mystery of Christian faith and life?",
+  "o": [
+   "The Incarnation of the Son",
+   "The Most Holy Trinity",
+   "The Resurrection of the dead",
+   "The Real Presence"
+  ],
+  "a": 1,
+  "why": "The mystery of the Most Holy Trinity is the central mystery of Christian faith and life.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 234",
+   "ccc": 234,
+   "quote": "The mystery of the Most Holy Trinity is the central mystery of Christian faith and life.",
+   "note": "The mystery of the Most Holy Trinity is the central mystery of Christian faith and life."
+  }
+ },
+ {
+  "id": "doctrine-020",
+  "d": 2,
+  "q": "Whom did the Council of Nicaea in 325 condemn for denying that the Son is of the same substance as the Father?",
+  "o": [
+   "Nestorius",
+   "Pelagius",
+   "Sabellius",
+   "Arius"
+  ],
+  "a": 3,
+  "why": "Nicaea confessed the Son as \"of the same substance\" as the Father and condemned Arius.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 465",
+   "ccc": 465,
+   "quote": "and condemned Arius",
+   "note": "Nicaea confessed the Son as \"of the same substance\" as the Father and condemned Arius."
+  }
+ },
+ {
+  "id": "doctrine-021",
+  "d": 3,
+  "q": "Which ecumenical council in 431 confessed that the Word, uniting flesh to himself, became man, against the Nestorian heresy?",
+  "o": [
+   "Nicaea",
+   "Chalcedon",
+   "Trent",
+   "Ephesus"
+  ],
+  "a": 3,
+  "why": "The third ecumenical council, at Ephesus in 431, answered Nestorius.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 466",
+   "ccc": 466,
+   "quote": "the third ecumenical council, at Ephesus in 431",
+   "note": "The third ecumenical council, at Ephesus in 431, answered Nestorius."
+  }
+ },
+ {
+  "id": "doctrine-022",
+  "d": 3,
+  "q": "Which council of 451 confessed Christ as truly God and truly man, against the Monophysites?",
+  "o": [
+   "Chalcedon",
+   "Ephesus",
+   "Lateran IV",
+   "Florence"
+  ],
+  "a": 0,
+  "why": "The fourth ecumenical council, at Chalcedon in 451, answered the Monophysites.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 467",
+   "ccc": 467,
+   "quote": "the fourth ecumenical council, at Chalcedon in 451",
+   "note": "The fourth ecumenical council, at Chalcedon in 451, answered the Monophysites."
+  }
+ },
+ {
+  "id": "doctrine-023",
+  "d": 3,
+  "q": "In what year did the fifth ecumenical council, at Constantinople, teach that Christ is one person?",
+  "o": [
+   "325",
+   "431",
+   "553",
+   "1054"
+  ],
+  "a": 2,
+  "why": "The fifth ecumenical council (Constantinople, 553) taught that there is one hypostasis, our Lord Jesus Christ.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 468",
+   "ccc": 468,
+   "quote": "the fifth ecumenical council, at Constantinople in 553",
+   "note": "The fifth ecumenical council (Constantinople, 553) taught that there is one hypostasis, our Lord Jesus Christ."
+  }
+ },
+ {
+  "id": "doctrine-024",
+  "d": 2,
+  "q": "How many capital sins does the Catechism list?",
+  "o": [
+   "Three",
+   "Seven",
+   "Ten",
+   "Twelve"
+  ],
+  "a": 1,
+  "why": "The capital sins are pride, avarice, envy, wrath, lust, gluttony and sloth.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1866",
+   "ccc": 1866,
+   "quote": "They are pride, avarice, envy, wrath, lust, gluttony, and sloth or acedia.",
+   "note": "The capital sins are pride, avarice, envy, wrath, lust, gluttony and sloth."
+  }
+ },
+ {
+  "id": "doctrine-025",
+  "d": 2,
+  "q": "Which of these is one of the capital sins?",
+  "o": [
+   "Cowardice",
+   "Sloth",
+   "Hypocrisy",
+   "Ingratitude"
+  ],
+  "a": 1,
+  "why": "Sloth, or acedia, is among the seven capital sins.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1866",
+   "ccc": 1866,
+   "quote": "They are pride, avarice, envy, wrath, lust, gluttony, and sloth or acedia.",
+   "note": "Sloth, or acedia, is among the seven capital sins."
+  }
+ },
+ {
+  "id": "doctrine-026",
+  "d": 1,
+  "q": "Which of these is a corporal work of mercy?",
+  "o": [
+   "Instructing the ignorant",
+   "Consoling the sorrowful",
+   "Forgiving injuries",
+   "Feeding the hungry"
+  ],
+  "a": 3,
+  "why": "Feeding the hungry is a corporal work of mercy.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2447",
+   "ccc": 2447,
+   "quote": "the corporal works of mercy consist especially in feeding the hungry, sheltering the homeless, clothing the naked, visiting the sick and imprisoned, and burying the dead",
+   "note": "Feeding the hungry is a corporal work of mercy."
+  }
+ },
+ {
+  "id": "doctrine-027",
+  "d": 2,
+  "q": "Which of these is a spiritual work of mercy?",
+  "o": [
+   "Consoling",
+   "Burying the dead",
+   "Clothing the naked",
+   "Visiting the imprisoned"
+  ],
+  "a": 0,
+  "why": "Instructing, advising, consoling and comforting are spiritual works of mercy.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2447",
+   "ccc": 2447,
+   "quote": "Instructing, advising, consoling, comforting are spiritual works of mercy",
+   "note": "Instructing, advising, consoling and comforting are spiritual works of mercy."
+  }
+ },
+ {
+  "id": "doctrine-028",
+  "d": 2,
+  "q": "Which corporal work of mercy honors those who have died?",
+  "o": [
+   "Advising the doubtful",
+   "Bearing wrongs patiently",
+   "Burying the dead",
+   "Comforting the sorrowful"
+  ],
+  "a": 2,
+  "why": "Burying the dead is a corporal work of mercy.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2447",
+   "ccc": 2447,
+   "quote": "visiting the sick and imprisoned, and burying the dead",
+   "note": "Burying the dead is a corporal work of mercy."
+  }
+ },
+ {
+  "id": "doctrine-029",
+  "d": 1,
+  "q": "According to the Beatitudes, what will the pure in heart do?",
+  "o": [
+   "Inherit the earth",
+   "Obtain mercy",
+   "See God",
+   "Be comforted"
+  ],
+  "a": 2,
+  "why": "Blessed are the pure in heart, for they shall see God.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1716",
+   "ccc": 1716,
+   "quote": "Blessed are the pure in heart, for they shall see God.",
+   "note": "Blessed are the pure in heart, for they shall see God."
+  }
+ },
+ {
+  "id": "doctrine-030",
+  "d": 1,
+  "q": "According to the Beatitudes, what will the meek inherit?",
+  "o": [
+   "The kingdom of heaven",
+   "The earth",
+   "The mercy of God",
+   "Eternal comfort"
+  ],
+  "a": 1,
+  "why": "Blessed are the meek, for they shall inherit the earth.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1716",
+   "ccc": 1716,
+   "quote": "Blessed are the meek, for they shall inherit the earth.",
+   "note": "Blessed are the meek, for they shall inherit the earth."
+  }
+ },
+ {
+  "id": "doctrine-031",
+  "d": 2,
+  "q": "According to the Beatitudes, what will the merciful obtain?",
+  "o": [
+   "Comfort",
+   "Satisfaction",
+   "The earth",
+   "Mercy"
+  ],
+  "a": 3,
+  "why": "Blessed are the merciful, for they shall obtain mercy.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1716",
+   "ccc": 1716,
+   "quote": "Blessed are the merciful, for they shall obtain mercy.",
+   "note": "Blessed are the merciful, for they shall obtain mercy."
+  }
+ },
+ {
+  "id": "doctrine-032",
+  "d": 2,
+  "q": "According to the Beatitudes, what will the peacemakers be called?",
+  "o": [
+   "Sons of God",
+   "Friends of God",
+   "Servants of the Lord",
+   "Children of light"
+  ],
+  "a": 0,
+  "why": "Blessed are the peacemakers, for they shall be called sons of God.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1716",
+   "ccc": 1716,
+   "quote": "Blessed are the peacemakers, for they shall be called sons of God",
+   "note": "Blessed are the peacemakers, for they shall be called sons of God."
+  }
+ },
+ {
+  "id": "doctrine-033",
+  "d": 1,
+  "q": "Whose first sin brought original sin into the world?",
+  "o": [
+   "Adam's",
+   "Cain's",
+   "Noah's",
+   "Abraham's"
+  ],
+  "a": 0,
+  "why": "All men are implicated in Adam's sin, from which comes original sin.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 402",
+   "ccc": 402,
+   "quote": "All men are implicated in Adam's sin",
+   "note": "All men are implicated in Adam's sin, from which comes original sin."
+  }
+ },
+ {
+  "id": "doctrine-034",
+  "d": 2,
+  "q": "Why does the Church baptize even tiny infants?",
+  "o": [
+   "To make them members of a parish",
+   "To bless their parents",
+   "For the remission of sins",
+   "To give them a saint's name"
+  ],
+  "a": 2,
+  "why": "Born with original sin, infants are baptized for the remission of sins.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 403",
+   "ccc": 403,
+   "quote": "the Church baptizes for the remission of sins even tiny infants who have not committed personal sin",
+   "note": "Born with original sin, infants are baptized for the remission of sins."
+  }
+ },
+ {
+  "id": "doctrine-035",
+  "d": 3,
+  "q": "What is the inclination to sin that remains after Baptism called?",
+  "o": [
+   "Contrition",
+   "Concupiscence",
+   "Presumption",
+   "Rebelliousness"
+  ],
+  "a": 1,
+  "why": "The inclination to evil left in human nature is called concupiscence.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 405",
+   "ccc": 405,
+   "quote": "an inclination to evil that is called concupiscence",
+   "note": "The inclination to evil left in human nature is called concupiscence."
+  }
+ },
+ {
+  "id": "doctrine-036",
+  "d": 1,
+  "q": "To whom did Jesus promise the keys of the kingdom of heaven?",
+  "o": [
+   "Judas Iscariot",
+   "John",
+   "Paul",
+   "Simon Peter"
+  ],
+  "a": 3,
+  "why": "Jesus gave Peter the keys of the kingdom of heaven.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 553",
+   "ccc": 553,
+   "quote": "I will give you the keys of the kingdom of heaven",
+   "note": "Jesus gave Peter the keys of the kingdom of heaven."
+  }
+ },
+ {
+  "id": "doctrine-037",
+  "d": 1,
+  "q": "Which creed is the ancient baptismal symbol of the Church of Rome?",
+  "o": [
+   "The Nicene Creed",
+   "The Athanasian Creed",
+   "The Lateran Creed",
+   "The Apostles' Creed"
+  ],
+  "a": 3,
+  "why": "The Apostles' Creed is the ancient baptismal symbol of the Church of Rome.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 194",
+   "ccc": 194,
+   "quote": "It is the ancient baptismal symbol of the Church of Rome.",
+   "note": "The Apostles' Creed is the ancient baptismal symbol of the Church of Rome."
+  }
+ },
+ {
+  "id": "doctrine-038",
+  "d": 2,
+  "q": "The word \"creed\" comes from which Latin word?",
+  "o": [
+   "Credo",
+   "Credens",
+   "Cura",
+   "Corpus"
+  ],
+  "a": 0,
+  "why": "Creeds are named from their first word in Latin, credo, meaning \"I believe\".",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 187",
+   "ccc": 187,
+   "quote": "They are called \"creeds\" on account of what is usually their first word in Latin: credo",
+   "note": "Creeds are named from their first word in Latin, credo, meaning \"I believe\"."
+  }
+ },
+ {
+  "id": "doctrine-039",
+  "d": 1,
+  "q": "What does the Catechism call the Eucharist?",
+  "o": [
+   "The first step and foundation of the Christian life",
+   "The seal of the Christian life",
+   "The source and summit of the Christian life",
+   "The shadow of the Christian life"
+  ],
+  "a": 2,
+  "why": "The Eucharist is the source and summit of the Christian life.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1324",
+   "ccc": 1324,
+   "quote": "The Eucharist is \"the source and summit of the Christian life.\"",
+   "note": "The Eucharist is the source and summit of the Christian life."
+  }
+ },
+ {
+  "id": "doctrine-040",
+  "d": 2,
+  "q": "Which council declared that the bread and wine change in substance, called transubstantiation?",
+  "o": [
+   "Council of Nicaea",
+   "Council of Trent",
+   "Council of Chalcedon",
+   "Second Vatican Council"
+  ],
+  "a": 1,
+  "why": "The Council of Trent said the Church fittingly calls this change transubstantiation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1376",
+   "ccc": 1376,
+   "quote": "This change the holy Catholic Church has fittingly and properly called transubstantiation.",
+   "note": "The Council of Trent said the Church fittingly calls this change transubstantiation."
+  }
+ },
+ {
+  "id": "doctrine-041",
+  "d": 2,
+  "q": "Which three sacraments are the sacraments of Christian initiation?",
+  "o": [
+   "Baptism, Penance, Eucharist",
+   "Baptism, Confirmation, Eucharist",
+   "Confirmation, Matrimony, Eucharist",
+   "Baptism, Confirmation, Holy Orders"
+  ],
+  "a": 1,
+  "why": "Baptism, the Eucharist and Confirmation together make up the sacraments of initiation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1285",
+   "ccc": 1285,
+   "quote": "Baptism, the Eucharist, and the sacrament of Confirmation together constitute the \"sacraments of Christian initiation,\"",
+   "note": "Baptism, the Eucharist and Confirmation together make up the sacraments of initiation."
+  }
+ },
+ {
+  "id": "doctrine-042",
+  "d": 3,
+  "q": "Which three sacraments imprint an indelible character and cannot be repeated?",
+  "o": [
+   "Baptism, Penance, Matrimony",
+   "Eucharist, Confirmation, Orders",
+   "Baptism, Anointing of the Sick, Holy Orders",
+   "Baptism, Confirmation, Holy Orders"
+  ],
+  "a": 3,
+  "why": "The seal expresses the indelible character of Baptism, Confirmation and Holy Orders.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 698",
+   "ccc": 698,
+   "quote": "Baptism, Confirmation, and Holy Orders",
+   "note": "The seal expresses the indelible character of Baptism, Confirmation and Holy Orders."
+  }
+ },
+ {
+  "id": "doctrine-043",
+  "d": 3,
+  "q": "What are the three degrees of Holy Orders?",
+  "o": [
+   "Episcopate, presbyterate, diaconate",
+   "Papacy, episcopate, priesthood, diaconate",
+   "Deaconate, acolyte, lector",
+   "Cardinal, bishop, priest"
+  ],
+  "a": 0,
+  "why": "Holy Orders has three degrees: bishop, priest and deacon.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1536",
+   "ccc": 1536,
+   "quote": "It includes three degrees: episcopate, presbyterate, and diaconate.",
+   "note": "Holy Orders has three degrees: bishop, priest and deacon."
+  }
+ },
+ {
+  "id": "doctrine-044",
+  "d": 1,
+  "q": "Which sacrament commends the ill to the suffering and glorified Lord?",
+  "o": [
+   "Sacrament of Reconciliation",
+   "Matrimony",
+   "Anointing of the Sick",
+   "Holy Orders"
+  ],
+  "a": 2,
+  "why": "The Anointing of the Sick commends the ill to the Lord, that he may raise them up and save them.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1499",
+   "ccc": 1499,
+   "quote": "the whole Church commends those who are ill to the suffering and glorified Lord",
+   "note": "The Anointing of the Sick commends the ill to the Lord, that he may raise them up and save them."
+  }
+ },
+ {
+  "id": "doctrine-045",
+  "d": 2,
+  "q": "How many books does the Catholic canon of the Old Testament include?",
+  "o": [
+   "39",
+   "150",
+   "46",
+   "73"
+  ],
+  "a": 2,
+  "why": "The canon includes 46 books for the Old Testament and 27 for the New.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 120",
+   "ccc": 120,
+   "quote": "It includes 46 books for the Old Testament",
+   "note": "The canon includes 46 books for the Old Testament and 27 for the New."
+  }
+ },
+ {
+  "id": "doctrine-046",
+  "d": 2,
+  "q": "How many books of the New Testament are in the canon?",
+  "o": [
+   "108",
+   "27",
+   "24",
+   "39"
+  ],
+  "a": 1,
+  "why": "The canon has 27 books of the New Testament.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 120",
+   "ccc": 120,
+   "quote": "and 27 for the New",
+   "note": "The canon has 27 books of the New Testament."
+  }
+ },
+ {
+  "id": "doctrine-047",
+  "d": 2,
+  "q": "How does the Catechism describe the relation of Sacred Tradition and Sacred Scripture?",
+  "o": [
+   "Scripture alone is sufficient for all revealed truths",
+   "Tradition replaces Scripture",
+   "They are independent sources",
+   "They flow from the same divine wellspring"
+  ],
+  "a": 3,
+  "why": "Scripture and Tradition flow from the same divine well-spring and are bound closely together.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 80",
+   "ccc": 80,
+   "quote": "flowing out from the same divine well-spring, come together in some fashion to form one thing",
+   "note": "Scripture and Tradition flow from the same divine well-spring and are bound closely together."
+  }
+ },
+ {
+  "id": "doctrine-048",
+  "d": 3,
+  "q": "To whom is the authentic interpretation of the Word of God entrusted?",
+  "o": [
+   "The living teaching office of the Church",
+   "Each believer privately",
+   "Scholars of Scripture alone",
+   "Scholars and theologians in every university"
+  ],
+  "a": 0,
+  "why": "The task of authentic interpretation belongs to the Church's living Magisterium.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 85",
+   "ccc": 85,
+   "quote": "has been entrusted to the living teaching office of the Church alone",
+   "note": "The task of authentic interpretation belongs to the Church's living Magisterium."
+  }
+ },
+ {
+  "id": "doctrine-049",
+  "d": 3,
+  "q": "Who enjoys infallibility when defining a doctrine of faith or morals by a definitive act?",
+  "o": [
+   "The Roman Pontiff",
+   "Every parish priest",
+   "Any single bishop",
+   "Each theologian"
+  ],
+  "a": 0,
+  "why": "The Roman Pontiff enjoys infallibility in virtue of his office when he proclaims a doctrine by a definitive act.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 891",
+   "ccc": 891,
+   "quote": "The Roman Pontiff, head of the college of bishops, enjoys this infallibility in virtue of his office",
+   "note": "The Roman Pontiff enjoys infallibility in virtue of his office when he proclaims a doctrine by a definitive act."
+  }
+ },
+ {
+  "id": "doctrine-050",
+  "d": 2,
+  "q": "How many spiritual senses of Scripture does the Catechism name besides the literal?",
+  "o": [
+   "Two",
+   "Four",
+   "Three",
+   "Twelve"
+  ],
+  "a": 2,
+  "why": "The spiritual sense is subdivided into the allegorical, moral and anagogical senses.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 115",
+   "ccc": 115,
+   "quote": "the latter being subdivided into the allegorical, moral and anagogical senses",
+   "note": "The spiritual sense is subdivided into the allegorical, moral and anagogical senses."
+  }
+ },
+ {
+  "id": "doctrine-051",
+  "d": 3,
+  "q": "Whom does the Catechism name as the author of Sacred Scripture?",
+  "o": [
+   "The apostles",
+   "God",
+   "The early bishops",
+   "The Church Fathers"
+  ],
+  "a": 1,
+  "why": "God is the author of Sacred Scripture.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 105",
+   "ccc": 105,
+   "quote": "God is the author of Sacred Scripture.",
+   "note": "God is the author of Sacred Scripture."
+  }
+ },
+ {
+  "id": "doctrine-052",
+  "d": 2,
+  "q": "When does the particular judgment take place?",
+  "o": [
+   "On the last day",
+   "At Baptism",
+   "At the end of the world",
+   "At the moment of death"
+  ],
+  "a": 3,
+  "why": "Each man receives his eternal retribution at the moment of death in the particular judgment.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1022",
+   "ccc": 1022,
+   "quote": "at the very moment of his death, in a particular judgment",
+   "note": "Each man receives his eternal retribution at the moment of death in the particular judgment."
+  }
+ },
+ {
+  "id": "doctrine-053",
+  "d": 2,
+  "q": "Who alone knows the day and the hour of the Last Judgment?",
+  "o": [
+   "The angels",
+   "The Son",
+   "The apostles",
+   "The Father"
+  ],
+  "a": 3,
+  "why": "Only the Father knows the day and the hour of the Last Judgment.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1040",
+   "ccc": 1040,
+   "quote": "Only the Father knows the day and the hour",
+   "note": "Only the Father knows the day and the hour of the Last Judgment."
+  }
+ },
+ {
+  "id": "doctrine-054",
+  "d": 1,
+  "q": "What is the state of supreme, definitive happiness called?",
+  "o": [
+   "Heaven",
+   "Purgatory",
+   "Limbo",
+   "Paradise lost"
+  ],
+  "a": 0,
+  "why": "Perfect life with the Trinity, the Virgin Mary, angels and the blessed is called heaven.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1024",
+   "ccc": 1024,
+   "quote": "is called \"heaven.\"",
+   "note": "Perfect life with the Trinity, the Virgin Mary, angels and the blessed is called heaven."
+  }
+ },
+ {
+  "id": "doctrine-055",
+  "d": 2,
+  "q": "What does the Church call the contemplation of God in his heavenly glory?",
+  "o": [
+   "The particular judgment",
+   "The Parousia",
+   "The beatific vision",
+   "The communion of saints"
+  ],
+  "a": 2,
+  "why": "The beatific vision is the contemplation of God in his glory.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1028",
+   "ccc": 1028,
+   "quote": "the beatific vision",
+   "note": "The beatific vision is the contemplation of God in his glory."
+  }
+ },
+ {
+  "id": "doctrine-056",
+  "d": 3,
+  "q": "At which councils did the Church especially formulate her doctrine of Purgatory?",
+  "o": [
+   "Nicaea and Ephesus",
+   "Florence and Trent",
+   "Lateran and Lyons",
+   "Chalcedon and Vatican I"
+  ],
+  "a": 1,
+  "why": "The doctrine of Purgatory was formulated especially at the Councils of Florence and Trent.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1031",
+   "ccc": 1031,
+   "quote": "The Church formulated her doctrine of faith on Purgatory especially at the Councils of Florence and Trent.",
+   "note": "The doctrine of Purgatory was formulated especially at the Councils of Florence and Trent."
+  }
+ },
+ {
+  "id": "doctrine-057",
+  "d": 1,
+  "q": "What is the chief punishment of hell?",
+  "o": [
+   "Endless bodily torment without rest",
+   "Eternal separation from God",
+   "Loss of earthly memory",
+   "Exile from all creation"
+  ],
+  "a": 1,
+  "why": "The chief punishment of hell is eternal separation from God.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1035",
+   "ccc": 1035,
+   "quote": "The chief punishment of hell is eternal separation from God",
+   "note": "The chief punishment of hell is eternal separation from God."
+  }
+ },
+ {
+  "id": "doctrine-058",
+  "d": 3,
+  "q": "What does the Catechism say about God's predestination of anyone to hell?",
+  "o": [
+   "God predestines the wicked to hell",
+   "God predestines one in ten to hell",
+   "God predestines only the unbaptized",
+   "God predestines no one to hell"
+  ],
+  "a": 3,
+  "why": "A willful turning away from God in mortal sin is necessary for hell.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1037",
+   "ccc": 1037,
+   "quote": "God predestines no one to go to hell",
+   "note": "A willful turning away from God in mortal sin is necessary for hell."
+  }
+ },
+ {
+  "id": "doctrine-059",
+  "d": 2,
+  "q": "What will precede the Last Judgment?",
+  "o": [
+   "The resurrection of all the dead",
+   "The final reign of the Antichrist on earth",
+   "A new Pentecost",
+   "The return of Elijah"
+  ],
+  "a": 0,
+  "why": "The resurrection of both the just and the unjust precedes the Last Judgment.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1038",
+   "ccc": 1038,
+   "quote": "The resurrection of all the dead, \"of both the just and the unjust,\" will precede the Last Judgment.",
+   "note": "The resurrection of both the just and the unjust precedes the Last Judgment."
+  }
+ },
+ {
+  "id": "doctrine-060",
+  "d": 1,
+  "q": "On which feast was the Holy Spirit poured out on the apostles?",
+  "o": [
+   "Easter",
+   "Christmas Day",
+   "Pentecost",
+   "Ascension"
+  ],
+  "a": 2,
+  "why": "On Pentecost Christ's Passover is fulfilled in the outpouring of the Holy Spirit.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 731",
+   "ccc": 731,
+   "quote": "On the day of Pentecost",
+   "note": "On Pentecost Christ's Passover is fulfilled in the outpouring of the Holy Spirit."
+  }
+ },
+ {
+  "id": "doctrine-061",
+  "d": 2,
+  "q": "According to the Latin Creed, the Holy Spirit proceeds from whom?",
+  "o": [
+   "The Father alone",
+   "The Son alone",
+   "The Father and the Son",
+   "The Father through Mary"
+  ],
+  "a": 2,
+  "why": "The Latin tradition confesses that the Spirit proceeds from the Father and the Son (filioque).",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 246",
+   "ccc": 246,
+   "quote": "The Latin tradition of the Creed confesses that the Spirit \"proceeds from the Father and the Son (filioque)\".",
+   "note": "The Latin tradition confesses that the Spirit proceeds from the Father and the Son (filioque)."
+  }
+ },
+ {
+  "id": "doctrine-062",
+  "d": 3,
+  "q": "Which council in 1438 explained that the Holy Spirit proceeds eternally from Father and Son?",
+  "o": [
+   "Council of Trent",
+   "Council of Florence",
+   "Council of Ephesus",
+   "Council of Constantinople"
+  ],
+  "a": 1,
+  "why": "The Council of Florence in 1438 explained the filioque.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 246",
+   "ccc": 246,
+   "quote": "the Council of Florence in 1438 explains",
+   "note": "The Council of Florence in 1438 explained the filioque."
+  }
+ },
+ {
+  "id": "doctrine-063",
+  "d": 2,
+  "q": "What does the symbol of fire express about the Holy Spirit?",
+  "o": [
+   "His gentle comfort in sorrow",
+   "His hidden presence",
+   "His birth-giving water",
+   "His transforming energy"
+  ],
+  "a": 3,
+  "why": "Fire symbolizes the transforming energy of the Holy Spirit's actions.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 696",
+   "ccc": 696,
+   "quote": "fire symbolizes the transforming energy of the Holy Spirit's actions",
+   "note": "Fire symbolizes the transforming energy of the Holy Spirit's actions."
+  }
+ },
+ {
+  "id": "doctrine-064",
+  "d": 3,
+  "q": "Which sacrament has anointing as its sacramental sign in Christian initiation?",
+  "o": [
+   "Confirmation",
+   "Baptism",
+   "Penance",
+   "Reconciliation"
+  ],
+  "a": 0,
+  "why": "In Christian initiation, anointing is the sacramental sign of Confirmation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 695",
+   "ccc": 695,
+   "quote": "anointing is the sacramental sign of Confirmation",
+   "note": "In Christian initiation, anointing is the sacramental sign of Confirmation."
+  }
+ },
+ {
+  "id": "doctrine-065",
+  "d": 3,
+  "q": "Which Father, called the Theologian, described the gradual revelation of the Holy Spirit?",
+  "o": [
+   "Gregory of Nazianzus",
+   "Basil the Great of Caesarea",
+   "Cyril of Alexandria",
+   "Gregory the Great"
+  ],
+  "a": 0,
+  "why": "Gregory of Nazianzus explained that the Spirit is the last divine person to be revealed.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 684",
+   "ccc": 684,
+   "quote": "St. Gregory of Nazianzus, the Theologian, explains this progression",
+   "note": "Gregory of Nazianzus explained that the Spirit is the last divine person to be revealed."
+  }
+ },
+ {
+  "id": "doctrine-066",
+  "d": 1,
+  "q": "How does the Catechism describe grace?",
+  "o": [
+   "A reward earned by good works alone",
+   "A feeling of peace",
+   "Free and undeserved help from God",
+   "A gift only for saints"
+  ],
+  "a": 2,
+  "why": "Grace is the free and undeserved help God gives us to respond to his call.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1996",
+   "ccc": 1996,
+   "quote": "Grace is favor, the free and undeserved help that God gives us",
+   "note": "Grace is the free and undeserved help God gives us to respond to his call."
+  }
+ },
+ {
+  "id": "doctrine-067",
+  "d": 2,
+  "q": "What is the permanent disposition to live in keeping with God's call called?",
+  "o": [
+   "Actual grace",
+   "Habitual or sanctifying grace",
+   "Sacramental charism",
+   "Special inspiration of the Spirit"
+  ],
+  "a": 1,
+  "why": "Habitual grace is the permanent disposition, unlike actual graces, which are God's interventions.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2000",
+   "ccc": 2000,
+   "quote": "Sanctifying grace is an habitual gift, a stable and supernatural disposition",
+   "note": "Habitual grace is the permanent disposition, unlike actual graces, which are God's interventions."
+  }
+ },
+ {
+  "id": "doctrine-068",
+  "d": 3,
+  "q": "For whom are charisms, special graces of the Holy Spirit, intended?",
+  "o": [
+   "The private reward of the holy ones",
+   "The clergy alone",
+   "Those who suffer",
+   "The common good of the Church"
+  ],
+  "a": 3,
+  "why": "Charisms are intended for the common good of the Church.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2024",
+   "ccc": 2024,
+   "quote": "intended for the common good of the Church",
+   "note": "Charisms are intended for the common good of the Church."
+  }
+ },
+ {
+  "id": "doctrine-069",
+  "d": 2,
+  "q": "How does the Catechism define charity?",
+  "o": [
+   "Giving alms generously to the poor and the needy",
+   "Obeying the Church's laws",
+   "Trusting in God's promises",
+   "Loving God above all and neighbor as oneself"
+  ],
+  "a": 3,
+  "why": "Charity is the virtue by which we love God above all things for his own sake and neighbor as ourselves.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1822",
+   "ccc": 1822,
+   "quote": "Charity is the theological virtue by which we love God above all things for his own sake, and our neighbor as ourselves for the love of God.",
+   "note": "Charity is the virtue by which we love God above all things for his own sake and neighbor as ourselves."
+  }
+ },
+ {
+  "id": "doctrine-070",
+  "d": 2,
+  "q": "Which theological virtue desires the kingdom of heaven as our happiness?",
+  "o": [
+   "Hope",
+   "Faith",
+   "Charity",
+   "Prudence"
+  ],
+  "a": 0,
+  "why": "Hope desires the kingdom of heaven and eternal life as our happiness.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1817",
+   "ccc": 1817,
+   "quote": "Hope is the theological virtue by which we desire the kingdom of heaven and eternal life as our happiness",
+   "note": "Hope desires the kingdom of heaven and eternal life as our happiness."
+  }
+ },
+ {
+  "id": "doctrine-071",
+  "d": 2,
+  "q": "Which theological virtue lets us believe all that God has revealed?",
+  "o": [
+   "Hope",
+   "Charity",
+   "Faith",
+   "Justice"
+  ],
+  "a": 2,
+  "why": "Faith is the virtue by which we believe in God and all that he has revealed.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1814",
+   "ccc": 1814,
+   "quote": "Faith is the theological virtue by which we believe in God and believe all that he has said and revealed to us",
+   "note": "Faith is the virtue by which we believe in God and all that he has revealed."
+  }
+ },
+ {
+  "id": "doctrine-072",
+  "d": 2,
+  "q": "Which cardinal virtue is called \"right reason in action\"?",
+  "o": [
+   "Justice",
+   "Prudence",
+   "Fortitude",
+   "Temperance"
+  ],
+  "a": 1,
+  "why": "Prudence is right reason in action, in the words of St. Thomas Aquinas.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1806",
+   "ccc": 1806,
+   "quote": "Prudence is \"right reason in action,\"",
+   "note": "Prudence is right reason in action, in the words of St. Thomas Aquinas."
+  }
+ },
+ {
+  "id": "doctrine-073",
+  "d": 2,
+  "q": "Which cardinal virtue gives to God and neighbor their due?",
+  "o": [
+   "Prudence",
+   "Justice",
+   "Fortitude",
+   "Temperance"
+  ],
+  "a": 1,
+  "why": "Justice is the constant and firm will to give their due to God and neighbor.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1807",
+   "ccc": 1807,
+   "quote": "Justice is the moral virtue that consists in the constant and firm will to give their due to God and neighbor.",
+   "note": "Justice is the constant and firm will to give their due to God and neighbor."
+  }
+ },
+ {
+  "id": "doctrine-074",
+  "d": 2,
+  "q": "Which cardinal virtue ensures firmness in difficulties?",
+  "o": [
+   "Prudence",
+   "Justice",
+   "Temperance",
+   "Fortitude"
+  ],
+  "a": 3,
+  "why": "Fortitude ensures firmness in difficulties and constancy in pursuing the good.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1808",
+   "ccc": 1808,
+   "quote": "Fortitude is the moral virtue that ensures firmness in difficulties",
+   "note": "Fortitude ensures firmness in difficulties and constancy in pursuing the good."
+  }
+ },
+ {
+  "id": "doctrine-075",
+  "d": 2,
+  "q": "Which cardinal virtue moderates the attraction of pleasures?",
+  "o": [
+   "Temperance",
+   "Prudence",
+   "Justice",
+   "Fortitude"
+  ],
+  "a": 0,
+  "why": "Temperance moderates the attraction of pleasures and balances use of created goods.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1809",
+   "ccc": 1809,
+   "quote": "Temperance is the moral virtue that moderates the attraction of pleasures",
+   "note": "Temperance moderates the attraction of pleasures and balances use of created goods."
+  }
+ },
+ {
+  "id": "doctrine-076",
+  "d": 3,
+  "q": "What is justice toward God called?",
+  "o": [
+   "The virtue of piety",
+   "The virtue of obedience",
+   "The virtue of religion",
+   "The virtue of worship"
+  ],
+  "a": 2,
+  "why": "Justice toward God is called the virtue of religion.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1807",
+   "ccc": 1807,
+   "quote": "Justice toward God is called the \"virtue of religion.\"",
+   "note": "Justice toward God is called the virtue of religion."
+  }
+ },
+ {
+  "id": "doctrine-077",
+  "d": 1,
+  "q": "Which commandment forbids direct and intentional killing?",
+  "o": [
+   "The third",
+   "The seventh",
+   "The fifth",
+   "The ninth"
+  ],
+  "a": 2,
+  "why": "The fifth commandment forbids direct and intentional killing as gravely sinful.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2268",
+   "ccc": 2268,
+   "quote": "The fifth commandment forbids direct and intentional killing as gravely sinful.",
+   "note": "The fifth commandment forbids direct and intentional killing as gravely sinful."
+  }
+ },
+ {
+  "id": "doctrine-078",
+  "d": 1,
+  "q": "Which commandment recalls the holiness of the sabbath?",
+  "o": [
+   "The first",
+   "The third",
+   "The fourth",
+   "The eighth"
+  ],
+  "a": 1,
+  "why": "The third commandment recalls the holiness of the sabbath.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2168",
+   "ccc": 2168,
+   "quote": "The third commandment of the Decalogue recalls the holiness of the sabbath",
+   "note": "The third commandment recalls the holiness of the sabbath."
+  }
+ },
+ {
+  "id": "doctrine-079",
+  "d": 1,
+  "q": "Which commandment tells us to honor our parents?",
+  "o": [
+   "The second",
+   "The fifth",
+   "The seventh",
+   "The fourth"
+  ],
+  "a": 3,
+  "why": "The fourth commandment tells us to honor our parents.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2197",
+   "ccc": 2197,
+   "quote": "we should honor our parents",
+   "note": "The fourth commandment tells us to honor our parents."
+  }
+ },
+ {
+  "id": "doctrine-080",
+  "d": 1,
+  "q": "Which commandment forbids unjustly taking the goods of one's neighbor?",
+  "o": [
+   "The seventh",
+   "The sixth",
+   "The eighth",
+   "The tenth"
+  ],
+  "a": 0,
+  "why": "The seventh commandment forbids unjustly taking or keeping the goods of one's neighbor.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2401",
+   "ccc": 2401,
+   "quote": "The seventh commandment forbids unjustly taking or keeping the goods of one's neighbor",
+   "note": "The seventh commandment forbids unjustly taking or keeping the goods of one's neighbor."
+  }
+ },
+ {
+  "id": "doctrine-081",
+  "d": 2,
+  "q": "Which commandment forbids misrepresenting the truth in our relations with others?",
+  "o": [
+   "The eighth",
+   "The fifth",
+   "The seventh",
+   "The ninth"
+  ],
+  "a": 0,
+  "why": "The eighth commandment forbids misrepresenting the truth.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2464",
+   "ccc": 2464,
+   "quote": "The eighth commandment forbids misrepresenting the truth in our relations with others.",
+   "note": "The eighth commandment forbids misrepresenting the truth."
+  }
+ },
+ {
+  "id": "doctrine-082",
+  "d": 1,
+  "q": "Which commandment prescribes respect for the Lord's name?",
+  "o": [
+   "The first",
+   "The third",
+   "The second",
+   "The seventh"
+  ],
+  "a": 2,
+  "why": "The second commandment prescribes respect for the Lord's name.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2142",
+   "ccc": 2142,
+   "quote": "The second commandment prescribes respect for the Lord's name.",
+   "note": "The second commandment prescribes respect for the Lord's name."
+  }
+ },
+ {
+  "id": "doctrine-083",
+  "d": 3,
+  "q": "In the Catholic catechetical tradition, which commandment forbids carnal concupiscence?",
+  "o": [
+   "The sixth",
+   "The ninth",
+   "The seventh",
+   "The tenth"
+  ],
+  "a": 1,
+  "why": "The ninth forbids carnal concupiscence; the tenth forbids coveting another's goods.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2514",
+   "ccc": 2514,
+   "quote": "the ninth commandment forbids carnal concupiscence",
+   "note": "The ninth forbids carnal concupiscence; the tenth forbids coveting another's goods."
+  }
+ },
+ {
+  "id": "doctrine-084",
+  "d": 3,
+  "q": "Which commandment forbids adultery?",
+  "o": [
+   "The fourth",
+   "The fifth",
+   "The ninth",
+   "The sixth"
+  ],
+  "a": 3,
+  "why": "The sixth commandment and the New Testament forbid adultery absolutely.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2380",
+   "ccc": 2380,
+   "quote": "The sixth commandment and the New Testament forbid adultery absolutely.",
+   "note": "The sixth commandment and the New Testament forbid adultery absolutely."
+  }
+ },
+ {
+  "id": "doctrine-085",
+  "d": 3,
+  "q": "What is the first precept of the Church?",
+  "o": [
+   "Fast and abstain on every Friday of the whole year",
+   "Receive Communion every Sunday",
+   "Pray the Rosary every day",
+   "Attend Mass on Sundays and holy days of obligation"
+  ],
+  "a": 3,
+  "why": "The first precept of the Church is to attend Mass on Sundays and holy days of obligation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2042",
+   "ccc": 2042,
+   "quote": "The first precept (“You shall attend Mass on Sundays and holy days of obligation.\")",
+   "note": "The first precept of the Church is to attend Mass on Sundays and holy days of obligation."
+  }
+ },
+ {
+  "id": "doctrine-086",
+  "d": 2,
+  "q": "How often must the faithful confess their sins at least, by the second precept of the Church?",
+  "o": [
+   "Once a year",
+   "Once a month",
+   "Every Sunday",
+   "Once in a lifetime"
+  ],
+  "a": 0,
+  "why": "The second precept requires confessing sins at least once a year.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2042",
+   "ccc": 2042,
+   "quote": "You shall confess your sins at least once a year.",
+   "note": "The second precept requires confessing sins at least once a year."
+  }
+ },
+ {
+  "id": "doctrine-087",
+  "d": 1,
+  "q": "Why do Christians keep Sunday as the Lord's Day?",
+  "o": [
+   "God finished creation on that day",
+   "Moses received the law on that day",
+   "Jesus rose from the dead on the first day of the week",
+   "The Church was publicly founded on that very day by the apostles"
+  ],
+  "a": 2,
+  "why": "Jesus rose on the first day of the week, so Sunday is the Lord's Day.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2174",
+   "ccc": 2174,
+   "quote": "Jesus rose from the dead \"on the first day of the week.\"",
+   "note": "Jesus rose on the first day of the week, so Sunday is the Lord's Day."
+  }
+ },
+ {
+  "id": "doctrine-088",
+  "d": 3,
+  "q": "How does the Catechism define idolatry?",
+  "o": [
+   "Refusing to worship God in public",
+   "Divinizing what is not God",
+   "Doubting God's existence",
+   "Misusing God's name"
+  ],
+  "a": 1,
+  "why": "Idolatry consists in divinizing what is not God.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2113",
+   "ccc": 2113,
+   "quote": "Idolatry consists in divinizing what is not God.",
+   "note": "Idolatry consists in divinizing what is not God."
+  }
+ },
+ {
+  "id": "doctrine-089",
+  "d": 3,
+  "q": "What does the title Aeiparthenos, given to Mary, mean?",
+  "o": [
+   "All-holy",
+   "Ever-virgin",
+   "Mother of God",
+   "Queen of heaven"
+  ],
+  "a": 1,
+  "why": "The liturgy celebrates Mary as Aeiparthenos, the Ever-virgin.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 499",
+   "ccc": 499,
+   "quote": "the liturgy of the Church celebrates Mary as Aeiparthenos, the \"Ever-virgin\"",
+   "note": "The liturgy celebrates Mary as Aeiparthenos, the Ever-virgin."
+  }
+ },
+ {
+  "id": "doctrine-090",
+  "d": 3,
+  "q": "Mary is invoked as Advocate, Helper, Benefactress, and under which fourth title?",
+  "o": [
+   "Protectress of nations",
+   "Redeemer",
+   "Lawgiver",
+   "Mediatrix"
+  ],
+  "a": 3,
+  "why": "The Blessed Virgin is invoked as Advocate, Helper, Benefactress, and Mediatrix.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 969",
+   "ccc": 969,
+   "quote": "the titles of Advocate, Helper, Benefactress, and Mediatrix",
+   "note": "The Blessed Virgin is invoked as Advocate, Helper, Benefactress, and Mediatrix."
+  }
+ },
+ {
+  "id": "doctrine-091",
+  "d": 1,
+  "q": "By whose power was Jesus conceived in the womb of the Virgin Mary?",
+  "o": [
+   "The Holy Spirit",
+   "The angel Gabriel",
+   "The prophet Isaiah",
+   "The patriarch Joseph"
+  ],
+  "a": 0,
+  "why": "Jesus was conceived solely by the power of the Holy Spirit in the Virgin Mary.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 496",
+   "ccc": 496,
+   "quote": "Jesus was conceived solely by the power of the Holy Spirit in the womb of the Virgin Mary",
+   "note": "Jesus was conceived solely by the power of the Holy Spirit in the Virgin Mary."
+  }
+ },
+ {
+  "id": "doctrine-092",
+  "d": 1,
+  "q": "Where is Christ now seated, according to the Creed?",
+  "o": [
+   "On the throne of David in Jerusalem",
+   "Among the angels of heaven",
+   "At the right hand of the Father",
+   "Within the Temple of heaven"
+  ],
+  "a": 2,
+  "why": "Henceforth Christ is seated at the right hand of the Father.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 663",
+   "ccc": 663,
+   "quote": "Henceforth Christ is seated at the right hand of the Father",
+   "note": "Henceforth Christ is seated at the right hand of the Father."
+  }
+ },
+ {
+  "id": "doctrine-093",
+  "d": 3,
+  "q": "Which Greek word does the New Testament use for \"Lord\", applied to both the Father and Jesus?",
+  "o": [
+   "Logos",
+   "Christos",
+   "Kyrios",
+   "Soter"
+  ],
+  "a": 2,
+  "why": "The Hebrew name YHWH is rendered Kyrios, \"Lord\", and used of Jesus.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 446",
+   "ccc": 446,
+   "quote": "is rendered as Kyrios, \"Lord\"",
+   "note": "The Hebrew name YHWH is rendered Kyrios, \"Lord\", and used of Jesus."
+  }
+ },
+ {
+  "id": "doctrine-094",
+  "d": 2,
+  "q": "What does Christ's Resurrection confirm?",
+  "o": [
+   "His kingship over Israel",
+   "His divinity",
+   "His mother's sinlessness",
+   "The end of the law"
+  ],
+  "a": 1,
+  "why": "The truth of Jesus' divinity is confirmed by his Resurrection.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 653",
+   "ccc": 653,
+   "quote": "The truth of Jesus' divinity is confirmed by his Resurrection.",
+   "note": "The truth of Jesus' divinity is confirmed by his Resurrection."
+  }
+ },
+ {
+  "id": "doctrine-095",
+  "d": 2,
+  "q": "Which divine person is begotten, according to the Catechism?",
+  "o": [
+   "The Father",
+   "The Holy Spirit",
+   "All three persons",
+   "The Son"
+  ],
+  "a": 3,
+  "why": "The Father generates, the Son is begotten, and the Holy Spirit proceeds.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 254",
+   "ccc": 254,
+   "quote": "It is the Father who generates, the Son who is begotten, and the Holy Spirit who proceeds.",
+   "note": "The Father generates, the Son is begotten, and the Holy Spirit proceeds."
+  }
+ },
+ {
+  "id": "doctrine-096",
+  "d": 2,
+  "q": "What is the purpose of Christ's Transfiguration?",
+  "o": [
+   "To strengthen the apostles' faith before his Passion",
+   "To reveal Mary's glory",
+   "To establish the Eucharist before his Passion and death",
+   "To commission the Twelve"
+  ],
+  "a": 0,
+  "why": "The Transfiguration strengthened the apostles' faith in anticipation of the Passion.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 568",
+   "ccc": 568,
+   "quote": "Christ's Transfiguration aims at strengthening the apostles' faith in anticipation of his Passion",
+   "note": "The Transfiguration strengthened the apostles' faith in anticipation of the Passion."
+  }
+ },
+ {
+  "id": "doctrine-097",
+  "d": 3,
+  "q": "What does the Catechism say the Church must pass through before Christ's second coming?",
+  "o": [
+   "A final trial that will shake the faith of many",
+   "A thousand years of peace and earthly prosperity",
+   "A general council of all bishops",
+   "A complete conversion of the nations"
+  ],
+  "a": 0,
+  "why": "Before the second coming the Church must pass through a final trial.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 675",
+   "ccc": 675,
+   "quote": "the Church must pass through a final trial that will shake the faith of many believers",
+   "note": "Before the second coming the Church must pass through a final trial."
+  }
+ },
+ {
+  "id": "doctrine-098",
+  "d": 2,
+  "q": "What does mortal sin destroy in the heart of man?",
+  "o": [
+   "Hope",
+   "Memory",
+   "Charity",
+   "Knowledge"
+  ],
+  "a": 2,
+  "why": "Mortal sin destroys charity in the heart by a grave violation of God's law.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1855",
+   "ccc": 1855,
+   "quote": "Mortal sin destroys charity in the heart of man",
+   "note": "Mortal sin destroys charity in the heart by a grave violation of God's law."
+  }
+ },
+ {
+  "id": "doctrine-099",
+  "d": 3,
+  "q": "What does venial sin not do to our relationship with God?",
+  "o": [
+   "Weaken charity",
+   "Break the covenant with him",
+   "Impede the soul's progress in the virtues",
+   "Offend and wound charity"
+  ],
+  "a": 1,
+  "why": "Venial sin does not break the covenant with God and is humanly reparable with grace.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1863",
+   "ccc": 1863,
+   "quote": "it does not break the covenant with God",
+   "note": "Venial sin does not break the covenant with God and is humanly reparable with grace."
+  }
+ },
+ {
+  "id": "doctrine-100",
+  "d": 1,
+  "q": "How does the Catechism describe Christ's presence in the Eucharist?",
+  "o": [
+   "A symbol of his love and presence among us",
+   "A pious memory of the Last Supper and its meal",
+   "A spiritual presence in the hearts of believers only",
+   "The whole Christ is truly and substantially present"
+  ],
+  "a": 3,
+  "why": "In the Eucharist the body and blood, soul and divinity, of Christ are truly, really and substantially contained.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 1374",
+   "ccc": 1374,
+   "quote": "the whole Christ is truly, really, and substantially contained",
+   "note": "In the Eucharist the body and blood, soul and divinity, of Christ are truly, really and substantially contained."
+  }
+ }
+]

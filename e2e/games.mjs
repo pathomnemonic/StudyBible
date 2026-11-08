@@ -7,8 +7,8 @@ const ctx = await b.newContext({ viewport: { width: 390, height: 844 } });
 await ctx.addInitScript(() => { localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); });
 const p = await ctx.newPage();
 const errs = []; p.on('pageerror', (e) => errs.push(e.message));
-await p.goto(`${BASE}/#/play`); await p.waitForSelector('.play-card');
-if ((await p.locator('.play-card').count()) < 10) fail('ten games expected');
+await p.goto(`${BASE}/#/play`); await p.waitForSelector('.pf-tile');
+if ((await p.locator('.pf-tile').count()) < 10) fail('ten games expected');
 // Quartets: solve puzzle q1 by clicking the right tiles
 await p.goto(`${BASE}/#/play/quartets?p=q1`); await p.waitForSelector('.q-tile');
 if ((await p.locator('.q-tile').count()) !== 16) fail('sixteen tiles');
