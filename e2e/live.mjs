@@ -29,8 +29,8 @@ try {
   for (const n of names) {
     const s = await ctx();
     await s.goto(`${BASE}/#/join`);
-    await s.getByLabel('Class code').fill(code);
-    await s.getByPlaceholder('A name your class will know').fill(n);
+    await s.getByLabel('Game code').fill(code);
+    await s.getByPlaceholder('A name everyone will know').fill(n);
     await s.getByRole('button', { name: 'Join', exact: true }).click();
     await s.waitForSelector('text=You’re in!');
     students.push(s);
@@ -67,7 +67,7 @@ try {
     await t.getByRole('button', { name: 'Open the room' }).click();
     await t.waitForSelector('.live-code');
     const c2 = (await t.locator('.live-code').innerText()).trim();
-    const s = await ctx(); await s.goto(`${BASE}/#/join/${c2}`); await s.getByPlaceholder('A name your class will know').fill('Racer'); await s.getByRole('button', { name: 'Join', exact: true }).click(); await s.waitForSelector('text=You’re in!');
+    const s = await ctx(); await s.goto(`${BASE}/#/join/${c2}`); await s.getByPlaceholder('A name everyone will know').fill('Racer'); await s.getByRole('button', { name: 'Join', exact: true }).click(); await s.waitForSelector('text=You’re in!');
     await t.getByRole('button', { name: label }).click();
     await t.waitForTimeout(1500); if (process.env.DEBUG_LIVE) console.error(kind, (await t.innerText('body')).slice(0, 400).replace(/\n+/g, ' | '));
     await s.waitForSelector('.live-opts button, .live-form input, .live-order button');

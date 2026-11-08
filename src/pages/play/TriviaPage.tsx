@@ -1,3 +1,4 @@
+import { loadTriviaBank } from '../../lib/triviaBank';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CATS, LEVELS, NEED, SLICE, WHEEL, bestPick, botRight, hasWon, levelOf, newPlayer, nextQuestion, shuffleOptions, wheelRotation, type CatId, type Level, type Player, type TQ } from '../../lib/trivia';
@@ -75,7 +76,7 @@ export default function TriviaPage() {
   useEffect(() => () => timers.current.forEach(clearTimeout), []);
   useEffect(() => {
     let live = true;
-    Promise.all(CATS.map((c) => import(`../../data/trivia/${c.id}.json`).then((m) => [c.id, m.default as TQ[]] as const).catch(() => [c.id, [] as TQ[]] as const))).then((e) => live && setBank(Object.fromEntries(e)));
+    loadTriviaBank().then((b) => live && setBank(b)).catch(() => live && setBank(Object.fromEntries(CATS.map((c) => [c.id, [] as TQ[]]))));
     return () => { live = false; };
   }, []);
   const size = bank ? Object.values(bank).reduce((n, l) => n + l.length, 0) : 0;

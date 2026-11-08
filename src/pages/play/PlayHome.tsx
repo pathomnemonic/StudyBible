@@ -29,6 +29,7 @@ const GROUPS: Group[] = [
   ] },
   { id: 'together', title: 'Play together', sub: 'One phone, a family, a classroom, a crowd.', games: [
     G('/play/trivia', 'Crown Quest', 'Spin the wheel, win six crowns. Play a friend, the Bot, or alone.', '👑', '#8a5ac2', '10 min', '1 to 4', { isNew: true }),
+    G('/play/online', 'Play online with a code', 'Open a room, share six digits, and friends join from their own phones. No account.', '🌐', '#2f8f6b', '15 min', '2 to 50', { isNew: true }),
     G('/play/quiznight', 'Quiz night', 'Pass the phone around the family, or host a room.', '🎉', '#e8812b', '15 min', '2 or more'),
     G('/play/charades', 'Charades', 'Phone on your forehead: guess saints, stories and more.', '🎭', '#c0507a', '5 min', '2 or more'),
   ] },

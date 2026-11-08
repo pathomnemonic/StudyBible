@@ -83,3 +83,10 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 - Not added, on rights grounds: the Doyle Rule of St Benedict (1948), the Pensées edition with T. S. Eliot's 1958 introduction, and Bernard's On Loving God (translator unidentified).
 - The glossed page is now off until switched on in the reading settings.
 - New `writer` kind for argument-map steps that are not Fathers or canonized saints (Brother Lawrence, Julian of Norwich, Pliny).
+
+## Play online with a code
+- **Play online together** (`/play/online`): one person opens a quiz room (categories, number of questions, difficulty, time, teams, last-one-standing) and shares a six-digit code or a share-sheet invitation; everyone else joins from their own device at `Join` with the code. No account and no Study Bible server: the host's device runs the room and messages go through a free public relay, sealed with a key made from the code. The same engine runs live classes.
+- Crown Quest now reads every trivia file, so the 480 new questions (1,080 in all) appear in the wheel. Before, only the first file of each category was loaded.
+- The join page and the host lobby say "game or class" and "code" rather than only "class", and the lobby no longer says a server is needed.
+- Tests: `e2e/online.mjs` (host plus three players, answering every question to the final results) and `e2e/live.mjs` both run against a local relay.
+- Not verifiable from the build sandbox: the public relays (emqx, hivemq, mosquitto, eclipse) were unreachable here, so real-world reach should be tried on two phones before launch. Hosts can set their own relay in `localStorage['sb:live:brokers']`.

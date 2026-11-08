@@ -1,3 +1,4 @@
+import ShareButton from '../components/ShareButton';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { randomName, useCountdown } from './client';
@@ -82,10 +83,10 @@ export function JoinPage() {
   };
   return (
     <div className="page live-join">
-      <h1>Join a class</h1>
-      <p className="lede">Type the number your teacher is showing.</p>
+      <h1>Join a game or class</h1>
+      <p className="lede">Type the six-digit code the host is showing. No account needed.</p>
       <form onSubmit={submit} className="live-form">
-        <label>Class code<input inputMode="numeric" autoComplete="off" pattern="\d{6}" maxLength={6} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))} placeholder="123456" aria-label="Class code" className="live-code-input" autoFocus /></label>
+        <label>Code<input inputMode="numeric" autoComplete="off" pattern="\d{6}" maxLength={6} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))} placeholder="123456" aria-label="Game code" className="live-code-input" autoFocus /></label>
         {title && <p className="muted small">Session: <strong>{title}</strong></p>}
         {roster.length > 0 ? (
           <fieldset className="live-roster"><legend>Tap your name</legend>
@@ -93,7 +94,7 @@ export function JoinPage() {
             {!rosterOnly && <label>Not on the list?<input value={roster.includes(name) ? '' : name} maxLength={20} onChange={(e) => setName(e.target.value)} placeholder="Type your name" /></label>}
           </fieldset>
         ) : (
-          <label>Your name<div className="row" style={{ gap: 6 }}><input value={name} maxLength={20} onChange={(e) => setName(e.target.value)} placeholder="A name your class will know" style={{ flex: 1 }} /><button type="button" className="btn small" onClick={() => setName(randomName())}>🎲 Surprise me</button></div></label>
+          <label>Your name<div className="row" style={{ gap: 6 }}><input value={name} maxLength={20} onChange={(e) => setName(e.target.value)} placeholder="A name everyone will know" style={{ flex: 1 }} /><button type="button" className="btn small" onClick={() => setName(randomName())}>🎲 Surprise me</button></div></label>
         )}
         {err && <div className="notice warn" role="alert">{err}</div>}
         <button className="btn primary big" disabled={busy || code.length !== 6 || (roster.length > 0 && rosterOnly && !roster.includes(name))}>{busy ? 'Joining…' : 'Join'}</button>
@@ -213,10 +214,11 @@ export function HostPage() {
 
       {v.phase === 'lobby' && (
         <div className="live-center">
-          <p className="muted">Go to <strong>{location.host}</strong> and choose <strong>Join a class</strong>, or open</p>
+          <p className="muted">On your own device open <strong>{location.host}</strong>, choose <strong>Play online with a code</strong> (or <strong>Join a class</strong>), or open</p>
           <p className="live-url">{joinUrl}</p>
           <p className="muted">and enter the code</p>
-          <div className="live-code" aria-label={`Class code ${v.code.split('').join(' ')}`}>{v.code}</div>
+          <div className="row" style={{ justifyContent: 'center', margin: '0 0 8px' }}><ShareButton text={`Join my game on Cathology with the code ${v.code}`} path={`/join/${v.code}`} label="Share the invitation" className="btn" /></div>
+          <div className="live-code" aria-label={`Game code ${v.code.split('').join(' ')}`}>{v.code}</div>
           <div className="row" style={{ gap: 8, justifyContent: 'center', flexWrap: 'wrap', margin: '12px 0' }}>
             <button className="btn primary big" onClick={() => act('start')} disabled={!v.slideCount && !v.qCount}>{v.settings.mode === 'exam' ? `Start the exam (${v.settings.examMinutes} min)` : v.settings.mode === 'race' ? 'Start the race' : v.settings.mode === 'build' ? 'Start building' : v.slideCount ? 'Start the lesson' : 'Start the game'}</button>
             {v.slideCount > 0 && v.qCount > 0 && v.settings.mode === 'game' && <button className="btn" onClick={() => act('quiz')}>Skip to the quiz</button>}
