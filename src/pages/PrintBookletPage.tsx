@@ -102,7 +102,7 @@ export default function PrintBookletPage() {
 
   return (
     <div className="page bk-page">
-      <style>{`@page { size: ${sz.css}; margin: 14mm 13mm; }
+      <style>{`@page { size: ${sz.css}; margin: 14mm 0; }
 .bk-sheet { --bk-font: ${sz.font}; --bk-w: ${sz.page}; --bk-h: ${sz.h}; }`}</style>
       <div className="no-print bk-controls">
         <h1>Print a study booklet</h1>

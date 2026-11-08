@@ -5743,13 +5743,13 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 @media print {
   body * { visibility: visible; }
   .bk-page { padding: 0 !important; }
-  .bk-sheet { width: 100% !important; margin: 0 !important; padding: 0 !important; border: 0 !important; border-radius: 0; box-shadow: none !important; }
+  .bk-sheet { width: 100% !important; margin: 0 !important; padding: 0 13mm !important; box-sizing: border-box; border: 0 !important; border-radius: 0; box-shadow: none !important; }
   .bk-sheet, .bk-sheet * { color: #000 !important; background: transparent; }
   .bk-pg { border: 0; padding: 0; break-after: page; }
   .bk-cover { min-height: var(--bk-h); }
   .bk-break { break-before: page; }
   .bk-sec { orphans: 3; widows: 3; }
-  .bk-lines { height: 2.2em; }
+  .bk-lines { height: 2em; } .bk-questions li:last-child { margin-bottom: 0; }
 }
 
 /* Pilgrim's Passport (pp-) */
@@ -5926,11 +5926,35 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
   .ap-n-name{font-size:.8rem;font-weight:600;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .ap-n-yrs{font-size:.7rem;color:var(--muted);white-space:nowrap}
   .ap-lane-label{position:absolute;left:6px;width:98px;font-size:.72rem;color:var(--muted);line-height:1.2;height:44px;display:flex;align-items:center}
-  .ap-tick{position:absolute;top:0;bottom:0;border-left:1px dashed var(--border-strong)}
-  .ap-tick span{position:absolute;top:2px;left:4px;font-size:.72rem;color:var(--muted)}
   .ap-legend{display:flex;flex-wrap:wrap;gap:14px;margin:8px 0}
   .lg{display:inline-flex;align-items:center;gap:6px}
   .lg::before{content:'';width:22px;border-top:3px solid currentColor}
   .lg.k-taught{color:#8a2f39}.lg.k-heard{color:#b0691a}.lg.k-succeeded{color:#2e6b45}.lg.k-wrote-to{color:#3a5f9a}.lg.k-wrote-about{color:#7a5aa0}.lg.trad{color:var(--muted)}.lg.trad::before{border-top-style:dashed}
 }
 @media (hover:hover){.ap-node:hover,.ap-item:hover{border-color:var(--accent)}}
+
+/* live: connection chip, QR, Crown Quest race, Who Am I? (lv-) */
+.live-chip.lv-ok { background: var(--ok-soft); color: var(--ok); }
+.live-chip.lv-chip { display: inline-flex; align-items: center; gap: 8px; }
+.live-chip.lv-chip .btn { padding: 1px 8px; min-height: 0; font-size: .8rem; background: #fff; color: #7a3d00; }
+.lv-qrbox { display: flex; justify-content: center; margin: 8px 0; }
+.lv-qr { display: block; border: 1px solid var(--border-strong); }
+.lv-rack { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+.lv-crown { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; height: 30px; border-radius: 8px; border: 2px solid var(--c, #888); font-size: 1rem; background: color-mix(in srgb, var(--c, #888) 10%, var(--surface)); }
+.lv-crown.got { background: color-mix(in srgb, var(--c, #888) 35%, var(--surface)); }
+.lv-crown i { font-style: normal; font-size: .85rem; display: inline-flex; gap: 2px; align-items: baseline; padding: 0 4px; }
+.lv-crown i b { font-size: .7rem; font-weight: 700; }
+.lv-crowns { display: grid; gap: 12px; }
+.lv-crownboard { list-style: none; margin: 8px 0; padding: 0; display: grid; gap: 8px; width: 100%; }
+.lv-crownboard li { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding: 8px 12px; border-radius: 12px; background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
+.lv-crownboard li.me { outline: 2px solid var(--accent); }
+.lv-crownboard li.won { background: color-mix(in srgb, #d4a017 30%, var(--surface)); }
+.lv-crownboard .rank { font-weight: 700; min-width: 1.4em; }
+.lv-crownboard .nm { flex: 1 1 8em; font-weight: 600; text-align: left; overflow-wrap: anywhere; }
+.lv-crownboard .pts { font-variant-numeric: tabular-nums; font-weight: 700; }
+.lv-clues ol { list-style: none; margin: 8px 0; padding: 0; display: grid; gap: 8px; }
+.lv-clues li { padding: 10px 14px; border-radius: 12px; background: color-mix(in srgb, var(--accent) 8%, var(--surface)); font-size: 1.05rem; text-align: left; }
+.lv-clues li.new { outline: 2px solid var(--accent); }
+.lv-who li.done { background: var(--ok-soft); color: var(--ok); }
+.lv-resume { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.chain-plain strong{font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;opacity:.8}

@@ -6,9 +6,16 @@ import { MODES, type Chain, type ChainMode, type Step } from '../../chains/types
 import ShareLinkButton from '../../components/ShareLinkButton';
 import PrintButton from '../../components/PrintButton';
 
+/** Plain-language version of a chain (summary, a line per step, objection answers). Quotations are never changed. */
+export interface Plain { summary: string; steps: Record<string, string>; objections: string[] }
+const plainFiles = import.meta.glob('../../data/chains/plain/*.json', { import: 'default' }) as Record<string, () => Promise<Record<string, Plain>>>;
+const loadPlain = (mode: ChainMode) => { const f = plainFiles[`../../data/chains/plain/${mode}.json`]; return f ? f() : Promise.resolve({} as Record<string, Plain>); };
+const PLAIN_KEY = 'sb:plainWords';
+const readPlainPref = () => { try { return localStorage.getItem(PLAIN_KEY) === '1'; } catch { return false; } };
+
 const KIND: Record<Step['kind'], string> = { scripture: 'Scripture', father: 'Father', council: 'Council', catechism: 'Catechism', magisterium: 'Church teaching', saint: 'Saint', liturgy: 'Liturgy', writer: 'Writer' };
 
-function StepCard({ s, timeline }: { s: Step; timeline?: boolean }) {
+function StepCard({ s, timeline, plain }: { s: Step; timeline?: boolean; plain?: string }) {
   const link = contextLink(s);
   return (
     <li className={`chain-step k-${s.kind}`}>
@@ -20,7 +27,7 @@ function StepCard({ s, timeline }: { s: Step; timeline?: boolean }) {
         </p>
         <h3 className="chain-label">{s.label}</h3>
         {s.quote && <blockquote className="chain-quote"><p>{s.quote}</p></blockquote>}
-        <p className="chain-note">{s.note}</p>
+        {plain ? <p className="chain-note chain-plain"><strong>What this says.</strong> {plain}</p> : <p className="chain-note">{s.note}</p>}
         {link && <p className="small no-print"><Link to={link.to}>{link.text}</Link></p>}
       </div>
     </li>
@@ -40,13 +47,23 @@ function KindLegend({ steps }: { steps: Step[] }) {
 }
 
 function ChainView({ c, mode }: { c: Chain; mode: ChainMode }) {
-  const steps = mode === 'development' ? [...c.steps].sort((a, b) => (a.year ?? 0) - (b.year ?? 0)) : c.steps;
+  const [on, setOn] = useState(readPlainPref);
+  const [plainAll, setPlainAll] = useState<Record<string, Plain> | null>(null);
+  useEffect(() => { loadPlain(mode).then(setPlainAll); }, [mode]);
+  const pl = on ? plainAll?.[c.id] : undefined;
+  const toggle = () => { const v = !on; setOn(v); try { localStorage.setItem(PLAIN_KEY, v ? '1' : '0'); } catch { /* ignore */ } };
+  const indexed = c.steps.map((s, i) => ({ s, i }));
+  const steps = mode === 'development' ? [...indexed].sort((a, b) => (a.s.year ?? 0) - (b.s.year ?? 0)) : indexed;
+  const note = (i: number) => pl?.steps?.[String(i)];
   const h = c.heresy;
   return (
     <article className="chain">
       <p className="small no-print"><Link to={MODES[mode].path}>← {MODES[mode].title}</Link></p>
       <h1>{c.title} <PrintButton /></h1>
       <p className="lede">{c.question}</p>
+      {plainAll?.[c.id] && (
+        <p className="no-print"><button className={`chip${on ? ' sel' : ''}`} aria-pressed={on} onClick={toggle} title="Swap the summary and notes for a simpler version. Quotations stay exactly as they are.">Plain words</button>{on && <span className="small muted"> Simpler wording. The quotations are unchanged.</span>}</p>
+      )}
       {c.verdict && (
         <section className={`card chain-verdict v-${c.verdict.label.toLowerCase().replace(/[^a-z]+/g, '-')}`} aria-label="Verdict">
           <p className="chain-meta"><span className="chain-kind k-verdict">Verdict</span></p>
@@ -69,11 +86,11 @@ function ChainView({ c, mode }: { c: Chain; mode: ChainMode }) {
       )}
       <section className="card chain-summary" aria-label="The short answer">
         <strong>{h ? 'What the Church teaches instead' : c.verdict ? 'What the Church actually teaches' : 'The short answer'}</strong>
-        <p>{c.summary}</p>
+        <p>{pl?.summary ?? c.summary}</p>
       </section>
       <h2 className="chain-h2">{h ? 'Where it breaks' : mode === 'development' ? 'The teaching, in time order' : 'The chain of sources'}</h2>
-      <KindLegend steps={steps} />
-      <ol className="chain-steps">{steps.map((s, i) => <StepCard key={i} s={s} timeline={mode === 'development'} />)}</ol>
+      <KindLegend steps={c.steps} />
+      <ol className="chain-steps">{steps.map(({ s, i }) => <StepCard key={i} s={s} timeline={mode === 'development'} plain={note(i)} />)}</ol>
       {h && <section className="card"><strong>Why it fails</strong><p>{h.whyItFails}</p></section>}
       {c.objections && c.objections.length > 0 && (
         <section aria-label="Objections">
@@ -81,7 +98,7 @@ function ChainView({ c, mode }: { c: Chain; mode: ChainMode }) {
           {c.objections.map((o, i) => (
             <details key={i} className="chain-obj">
               <summary>{o.q}</summary>
-              <p>{o.a}</p>
+              <p>{pl?.objections?.[i] ?? o.a}</p>
               {o.steps && o.steps.length > 0 && <ol className="chain-steps">{o.steps.map((s, j) => <StepCard key={j} s={s} />)}</ol>}
             </details>
           ))}

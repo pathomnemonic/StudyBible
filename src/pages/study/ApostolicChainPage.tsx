@@ -22,16 +22,24 @@ const VOICE: Record<string, string> = { text: 'The writer’s own words', editor
 const CENTURIES = [1, 2, 3, 4, 5];
 const active = (n: Node, c: number) => n.from <= c * 100 && n.to >= (c - 1) * 100;
 
-const LANE_H = 74, PAD_X = 20, TOP = 8, NODE_W = 128, SCALE = 3.6;
+const LANE_H = 74, PAD_X = 12, TOP = 8, NODE_W = 124, STEP = 140;
 function layout() {
+  // column = how many hands from the apostles, but never earlier than the person's own time
+  const order = [...nodes].sort((a, c) => a.from + a.to - (c.from + c.to));
+  const col = new Map<string, number>();
+  for (const n of order) {
+    let c = Math.floor(Math.max(0, (n.from + n.to) / 2) / 60);
+    for (const e of edges) if (e.to === n.id && ['taught', 'heard', 'succeeded'].includes(e.kind) && col.has(e.from)) c = Math.max(c, col.get(e.from)! + 1);
+    col.set(n.id, c);
+  }
   const pos = new Map<string, { x: number; y: number }>();
   let width = 0;
   BRANCHES.forEach((b, li) => {
-    const list = nodes.filter((n) => n.branch === b.id).sort((a, c) => a.from + a.to - (c.from + c.to));
+    const list = nodes.filter((n) => n.branch === b.id).sort((a, c) => col.get(a.id)! - col.get(c.id)! || a.from - c.from);
     let last = -1e9;
     for (const n of list) {
-      let x = PAD_X + Math.max(0, (n.from + n.to) / 2) * SCALE;
-      if (x < last + NODE_W + 10) x = last + NODE_W + 10;
+      let x = PAD_X + col.get(n.id)! * STEP;
+      if (x < last + STEP) x = last + STEP;
       last = x; pos.set(n.id, { x, y: TOP + li * LANE_H }); width = Math.max(width, x + NODE_W + PAD_X);
     }
   });
@@ -39,13 +47,20 @@ function layout() {
 }
 const L = layout();
 
+function headline(e: Edge, other: string, who: 'in' | 'out') {
+  const m: Record<string, [string, string]> = {
+    taught: [`Taught by ${other}`, `Taught ${other}`], heard: [`Heard ${other}`, `Was heard by ${other}`],
+    succeeded: [`Succeeded ${other}`, `Followed in office by ${other}`], 'wrote-to': [`Letter from ${other}`, `Wrote to ${other}`], 'wrote-about': [`Written about by ${other}`, `Wrote about ${other}`],
+  };
+  return <strong>{m[e.kind][who === 'in' ? 0 : 1]}</strong>;
+}
 function EdgeCard({ e, who }: { e: Edge; who: 'in' | 'out' }) {
   const other = byId.get(who === 'in' ? e.from : e.to)!;
   const step: Step = { kind: e.ref ? 'scripture' : 'father', label: '', work: e.work, section: e.section, ref: e.ref, note: '' } as Step;
   const link = contextLink(step);
   return (
     <li className="ap-edge">
-      <p className="ap-edge-h"><strong>{KIND_LABEL[e.kind]}</strong> {who === 'in' ? 'by' : 'to'} {other.name}{e.disputed && <span className="ap-badge warn">Disputed</span>}</p>
+      <p className="ap-edge-h">{headline(e, other.name, who)}{e.disputed && <span className="ap-badge warn">Disputed</span>}</p>
       <blockquote className="ap-quote"><p>{e.quote}</p></blockquote>
       <p className="ap-note">{e.note}</p>
       <p className="ap-meta"><span className={`ap-badge v-${e.voice}`}>{VOICE[e.voice]}</span>{link && <Link to={link.to}>{link.text}</Link>}</p>
@@ -108,15 +123,15 @@ export default function ApostolicChainPage() {
       </div>
 
       <div className="ap-wide">
-        <div className="ap-scroll" tabIndex={0} aria-label="Chart of teachers and pupils, scrolls sideways">
+        <p className="small muted">Columns run left to right through time. Scroll the chart sideways. Tap a person to bring their links forward; letters and writings about people show only then.</p>
+        <div className="ap-scroll" tabIndex={0} aria-label="Chart of teachers and pupils. Scrolls sideways.">
           <div className="ap-canvas" style={{ width: L.width + 120, height: L.height + 28 }}>
-            {CENTURIES.map((c) => <div key={c} className="ap-tick" style={{ left: 110 + PAD_X + c * 100 * SCALE - 100 * SCALE }}><span>{c === 1 ? '1st' : c === 2 ? '2nd' : c === 3 ? '3rd' : c + 'th'} c.</span></div>)}
             {BRANCHES.map((b, i) => <div key={b.id} className="ap-lane-label" style={{ top: 28 + TOP + i * LANE_H }}>{b.name}</div>)}
             <svg className="ap-svg" width={L.width + 120} height={L.height + 28} aria-hidden="true">
               <defs><marker id="ap-arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="currentColor" /></marker></defs>
               <g transform="translate(110,28)">
                 {traditional.map((t, i) => { const a = L.pos.get(t.from)!, b = L.pos.get(t.to)!; return <path key={'t' + i} d={path(a, b)} className="ap-line trad" markerEnd="url(#ap-arr)" opacity={node && !(related.has(t.from) && related.has(t.to)) ? 0.1 : 0.7} />; })}
-                {edges.map((e, i) => { const a = L.pos.get(e.from)!, b = L.pos.get(e.to)!; const hot = node && (e.from === node.id || e.to === node.id); return <path key={i} d={path(a, b)} className={`ap-line k-${e.kind}${hot ? ' hot' : ''}`} markerEnd="url(#ap-arr)" opacity={node && !hot ? 0.08 : 0.8} />; })}
+                {edges.map((e, i) => { const a = L.pos.get(e.from)!, b = L.pos.get(e.to)!; const hot = node && (e.from === node.id || e.to === node.id); return <path key={i} d={path(a, b)} className={`ap-line k-${e.kind}${hot ? ' hot' : ''}`} markerEnd="url(#ap-arr)" opacity={node ? (hot ? 0.95 : 0.06) : e.kind.startsWith('wrote') ? 0.18 : 0.7} />; })}
               </g>
             </svg>
             {nodes.map((n) => { const p = L.pos.get(n.id)!; return (

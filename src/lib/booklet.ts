@@ -65,7 +65,7 @@ export function fromWork(meta: LibraryWorkMeta, secs: { id: string; title: strin
       if (used + n > maxWords && paras.length + sections.length > 0) { trimmed = true; break; }
       paras.push(p); used += n;
     }
-    sections.push({ heading: s.title, items: paras.map((p) => ({ kind: 'text' as const, label: '', quote: p, cite: `${meta.author}, ${meta.title}, ${s.title}` })) });
+    sections.push({ heading: s.title, items: paras.map((p, i) => ({ kind: 'text' as const, label: '', quote: p, cite: i === paras.length - 1 ? `${meta.author}, ${meta.title}, ${s.title}` : '' })) });
     if (trimmed) break;
   }
   return { kind: 'work', title: meta.title, subtitle: `${meta.author}${meta.year ? `, ${meta.year}` : ''}`, sections, trimmed };

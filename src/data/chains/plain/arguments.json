@@ -1,0 +1,454 @@
+{
+ "real-presence": {
+  "summary": "Catholics believe that at Mass the bread and wine become the Body and Blood of Jesus. It still looks like bread and wine. But Catholics believe it is really Jesus. The belief comes from what Jesus said in John 6 and at the Last Supper. The early Church writers say the same thing.",
+  "steps": {
+   "0": "Jesus says we must eat his flesh. He does not take the words back.",
+   "1": "Paul tells what Jesus did at the Last Supper. He says he got it from the Lord.",
+   "2": "Paul warns people not to treat the bread and cup lightly. They are the Lord’s body and blood.",
+   "3": "Irenaeus says the Eucharist is a real sharing in Christ’s body and blood.",
+   "4": "Cyril says that what looks like bread is really the Body of Christ.",
+   "5": "Chrysostom says to trust Christ’s word more than what our eyes see.",
+   "6": "Trent says Christ is truly there, and not only as a sign.",
+   "7": "The Catechism says the whole Christ is there. That is why Catholics adore him."
+  },
+  "objections": [
+   "Jesus has just said his flesh is real food. He says the Spirit gives life. He does not say his body is useless. The people heard him plainly, and he did not take it back.",
+   "The Church agrees it still looks like bread. The change is deeper than our eyes can see. So we trust Jesus’ word. Chrysostom said this long ago.",
+   "The word is newer, but the belief is old. Early writers already call the gifts the Body and Blood of Christ. The word was picked to say what changes and what stays the same."
+  ]
+ },
+ "eucharist-sacrifice": {
+  "summary": "Catholics say the Mass is not a new sacrifice. It makes the one sacrifice of Jesus on the cross present on the altar. The prophet Malachi spoke of it, Paul wrote about it, and the early Church writers taught it.",
+  "steps": {
+   "0": "God promises a pure offering in every place. The Fathers read this as the Eucharist.",
+   "1": "Paul speaks of the Christian table like an altar.",
+   "2": "Irenaeus says the Church has a real offering, in a new way.",
+   "3": "Cyprian ties the offering at the altar to Christ’s suffering.",
+   "4": "Cyril calls the liturgy an offering without blood.",
+   "5": "Trent says it is the same offering as Calvary, in a different way.",
+   "6": "The Catechism says there is one sacrifice, not two."
+  },
+  "objections": [
+   "Catholics agree Calvary happened once. The Mass does not add to it. It makes that one offering present for us today.",
+   "No. The Church says the Mass makes the same offering present. It does not repeat the suffering. It is the same Christ, offered in a different way."
+  ]
+ },
+ "trinity": {
+  "summary": "Catholics believe in one God who is Father, Son and Holy Spirit. They are three Persons, but one God. This is not a new idea from the fourth century. It comes from Jesus’ words about baptism, and the Church put it into careful words to protect it.",
+  "steps": {
+   "0": "Jesus gives one name for baptism. It names the Father, the Son and the Holy Spirit.",
+   "1": "Paul ends a letter with a blessing that names all three.",
+   "2": "Irenaeus describes the faith as having three parts, from baptism.",
+   "3": "Nicaea says the Son is truly God, of one being with the Father.",
+   "4": "Athanasius defends one God, and also the three Persons.",
+   "5": "Constantinople says the Holy Spirit is worshipped with the Father and the Son.",
+   "6": "The Catechism says each Person is the whole God."
+  },
+  "objections": [
+   "The word came later. The truth is in the Bible and in how the first Christians baptized. The councils picked words to rule out mistakes.",
+   "No. Christians say there is one God and three Persons. Gregory of Nyssa said clearly that there are not three gods.",
+   "Some words of Jesus speak of him as a man. Some speak of the Father as the source. Jesus also says he and the Father are one. The Fathers keep all of these together."
+  ]
+ },
+ "divinity-of-christ": {
+  "summary": "Yes. Christians worshipped Jesus as God from the start. Writers soon after the apostles say it plainly. Nicaea did not invent this belief. It defended it against Arius.",
+  "steps": {
+   "0": "John begins by calling the Word God.",
+   "1": "Thomas calls the risen Jesus God, and Jesus does not correct him.",
+   "2": "Ignatius calls Christ God in the flesh.",
+   "3": "Pliny, an outsider, says Christians sang to Christ as to a god.",
+   "4": "Origen says Christians worship the Son with the one God.",
+   "5": "Nicaea says the Son is true God from true God.",
+   "6": "Chalcedon says Jesus is fully God and fully man.",
+   "7": "The Catechism sums up the faith the Church defended."
+  },
+  "objections": [
+   "Nicaea fixed the words, not the belief. Ignatius, Pliny and Origen all wrote long before 325.",
+   "Jesus speaks as a man here, and as a Son who receives all from the Father. He also says he and the Father are one. The Church holds both.",
+   "If the Son were only a creature, worshipping him would be wrong. He also could not save us as God. Athanasius argued this."
+  ]
+ },
+ "theotokos": {
+  "summary": "Mary is called Mother of God because her Son is God. This does not mean Mary made God. It protects the truth that Jesus is one Person, truly God and truly man.",
+  "steps": {
+   "0": "Elizabeth calls Mary the mother of her Lord.",
+   "1": "Ignatius says Christ is both from Mary and from God.",
+   "2": "Cyril says the Word joined flesh to himself in Mary’s womb.",
+   "3": "Cyril makes the title a test of right belief about Jesus.",
+   "4": "Chalcedon repeats the title and explains it.",
+   "5": "John of Damascus says the title protects the truth about the Son.",
+   "6": "The Catechism gives the reason: her Son is the Son of God made man."
+  },
+  "objections": [
+   "A mother has a child, not just a part of a child. Mary bore the Person who is God the Son. Splitting Jesus in two is what Ephesus rejected.",
+   "No. The Word has no beginning. The title is about the Child she bore, not about where God comes from.",
+   "The title became a test in 431. But earlier writers used it, and Ignatius spoke this way about 110."
+  ]
+ },
+ "infant-baptism": {
+  "summary": "The Church baptizes babies because baptism is a gift. It does not depend on what a person can do. This follows how Jesus welcomed children. By the third century it was well known.",
+  "steps": {
+   "0": "People bring babies to Jesus. He says do not stop them.",
+   "1": "Paul links baptism with circumcision, which was given to babies.",
+   "2": "Peter says the promise is also for the children of believers.",
+   "3": "Whole households were baptized. The Church sees this as fitting for children too.",
+   "4": "Bishops in Cyprian’s time said no child should be kept from baptism.",
+   "5": "Augustine says even his opponents agreed that baptism helps infants.",
+   "6": "Trent grounds the practice in what the apostles handed on.",
+   "7": "The Catechism says baptism is a gift, and children are baptized in the faith of the Church."
+  },
+  "objections": [
+   "That verse is about people who can hear and believe. For babies, the Church acts in faith for the child. The child is then raised in that faith.",
+   "The Church does not say babies have done wrong. Original sin is something we are born into, not something we do. Baptism takes it away and makes the child God’s child.",
+   "The New Testament tells of whole households being baptized. The early Church argued about when to baptize, not whether to."
+  ]
+ },
+ "papal-primacy": {
+  "summary": "Jesus gave Simon a new name, the keys and the job of feeding his flock. The Church has long held that this job was meant to pass on after Peter. Early Christians looked to Rome as a test of the apostles’ faith.",
+  "steps": {
+   "0": "Jesus renames Peter and gives him the keys.",
+   "1": "Jesus prays for Simon and tells him to strengthen the others.",
+   "2": "Jesus asks Peter three times if he loves him, and gives him the flock.",
+   "3": "Irenaeus points to Rome as the Church where the apostles’ faith is kept.",
+   "4": "Cyprian says Christ began the Church’s unity with one man, Peter.",
+   "5": "Augustine points to the line of bishops in Rome.",
+   "6": "At Ephesus the pope’s helper says Peter lives on in his successors.",
+   "7": "At Chalcedon the bishops say Peter spoke through Pope Leo.",
+   "8": "Vatican I defines Peter’s role as a real office.",
+   "9": "The Catechism says the office serves the unity of bishops and people."
+  },
+  "objections": [
+   "The Church teaches the opposite. The pope serves the unity of the bishops. He does not replace them.",
+   "Nicaea dealt with local rules, and it pointed to Rome’s custom. That does not prove everything alone. But it shows Rome’s practice was respected.",
+   "Councils the East also honours spoke strongly of the see of Rome. At one council the bishops welcomed the pope’s letter as Peter’s voice."
+  ]
+ },
+ "apostolic-succession": {
+  "summary": "The apostles chose someone to take Judas’ place. They laid hands on helpers and told them to appoint others. About 180, Irenaeus could list the bishops of Rome back to Peter and Paul. The Church holds that this shepherding job continues.",
+  "steps": {
+   "0": "The apostles choose a replacement for Judas.",
+   "1": "Paul and Barnabas appoint leaders in each new church.",
+   "2": "Paul’s hands give Timothy a gift to keep alive.",
+   "3": "Paul’s teaching passes through four steps, from Paul to later teachers.",
+   "4": "Titus is told to appoint elders.",
+   "5": "Irenaeus says the apostles left successors in their place.",
+   "6": "Irenaeus knew Polycarp, who was chosen by apostles.",
+   "7": "Tertullian says the teaching was passed down step by step.",
+   "8": "Vatican I says bishops take the apostles’ place as shepherds.",
+   "9": "The Catechism gathers the evidence together."
+  },
+  "objections": [
+   "That is true. What the apostles could not pass on was being first eyewitnesses. They passed on the job of shepherding and teaching.",
+   "Irenaeus says a failing bishop would be a sad thing. The claim is not that every bishop is holy. It is that the office and the teaching it guards do not depend on one man’s goodness.",
+   "The New Testament uses the words for leaders in a mixed way. The Church admits titles settled over time. By about 110 the pattern of a bishop with elders was clear."
+  ]
+ },
+ "bishops-and-unity": {
+  "summary": "Jesus prayed that his followers would be one. The first Christians took this to mean a visible unity. Ignatius, Irenaeus and Cyprian point to the bishop as a sign and guardian of that unity.",
+  "steps": {
+   "0": "Jesus links his followers’ unity to the world believing in him.",
+   "1": "Christ gives teachers so the body is held together.",
+   "2": "Ignatius pictures the Church gathered at one altar.",
+   "3": "Ignatius ties one Eucharist to one bishop.",
+   "4": "Irenaeus says the list of bishops shows the same faith in every place.",
+   "5": "Cyprian says bishops must keep the Church one when it is divided.",
+   "6": "Cyprian says that if you leave the Church, you cannot call God Father in the same way.",
+   "7": "Vatican I says the pope’s office keeps the flock together.",
+   "8": "The Catechism lists succession as one of the bonds that hold the Church together."
+  },
+  "objections": [
+   "Jesus prayed for a unity the world could see. The Fathers pointed to his seamless coat as a picture of one Church.",
+   "Cyprian said all bishops share in one body. The Church agrees. He also disagreed with Pope Stephen about one question, and that is part of history.",
+   "No. The Church speaks differently about people who leave knowingly and people born into other Christian groups. It calls them brothers and sisters in Christ."
+  ]
+ },
+ "confession-absolution": {
+  "summary": "Jesus forgave sins on earth. On Easter evening he gave the apostles the power to forgive sins. The early Church used this power through bishops and priests. Priests forgive in Christ’s name, not by their own power.",
+  "steps": {
+   "0": "Jesus forgives sins to show he has the right to.",
+   "1": "Jesus sends the apostles and gives them power over sins.",
+   "2": "Paul says God reconciles us through those he sends.",
+   "3": "Cyprian says Christians confessed to priests and were forgiven.",
+   "4": "Ambrose answers people who said grave sins could not be forgiven.",
+   "5": "Ambrose says refusing to use Christ’s gift would be the real insult.",
+   "6": "Chrysostom says Christian priests do more than declare people clean.",
+   "7": "Trent bases the sacrament on John 20.",
+   "8": "The Catechism says only God forgives, and Christ shares this work.",
+   "9": "The Catechism ties Confession to the bishops and priests."
+  },
+  "objections": [
+   "Some people said this to Jesus too. The Church agrees only God forgives. The priest is the instrument God uses.",
+   "James speaks of confessing to each other. The Church’s case also uses John 20 and 2 Corinthians 5. James also shows the elders praying for forgiveness.",
+   "The practice did change a lot. Early on, serious sins often had a long public penance. Later, private confession became normal. But early writers already show Christians confessing and being forgiven."
+  ]
+ },
+ "tradition-and-scripture": {
+  "summary": "Christ gave the whole Gospel to the apostles. They handed it on in writing and in preaching. The bishops after them guard and explain it. Irenaeus and Vincent say the Bible must be read inside the Church’s faith.",
+  "steps": {
+   "0": "The Ethiopian says he needs someone to guide his reading. God sends Philip.",
+   "1": "Paul puts what he taught by word beside what he wrote.",
+   "2": "The Church is called the pillar of truth.",
+   "3": "Irenaeus meets heretics who quote the Bible and reject tradition.",
+   "4": "Irenaeus says the apostles left the truth in the Church.",
+   "5": "Vincent lists heretics who each quoted the Bible for their own view.",
+   "6": "Vincent gives a rule: what is held everywhere, always, by all.",
+   "7": "Trent says who has the last word on disputed readings.",
+   "8": "Vatican I repeats Trent.",
+   "9": "The Catechism says the Church guards the faith. She cannot invent it."
+  },
+  "objections": [
+   "The Church agrees the Bible is fully inspired. Vincent asks the same question. People read it in different ways, so the Church’s reading is needed.",
+   "Jesus spoke against human customs that dodge God’s commands. The Church says apostolic Tradition is different. Paul told people to hold to what he taught.",
+   "The Church’s claim is about history. Christ started a community before the New Testament was written. That community carried the Gospel and later recognised the books."
+  ]
+ },
+ "canon-of-scripture": {
+  "summary": "No one person made the Bible. Christians got the Old Testament from Israel. The churches recognised which writings came from the apostles. Early writers and councils reported that list.",
+  "steps": {
+   "0": "Israel was trusted with God’s words. The Church inherited them.",
+   "1": "Peter treats Paul’s letters as Scripture.",
+   "2": "By about 180 the four Gospels were fixed.",
+   "3": "Eusebius tells which books were accepted everywhere.",
+   "4": "Cyril tells new Christians the books come from the apostles.",
+   "5": "Augustine says the canon is known by the common judgment of the churches.",
+   "6": "Augustine’s list includes books Catholic Bibles still have.",
+   "7": "Trent made the list formal to settle doubts.",
+   "8": "Vatican I says the Church recognises books, and does not give them authority.",
+   "9": "The Catechism describes this as careful discernment."
+  },
+  "objections": [
+   "The sources show a slow recognition, not an invention. Irenaeus held to four Gospels in 180, long before any council.",
+   "Augustine says the Jews are said not to have received Judith. The Church says that early Christians mostly used the Greek Old Testament, which had these books.",
+   "The Church says the opposite. It serves what it receives. Books are not inspired because the Church approved them."
+  ]
+ },
+ "purgatory": {
+  "summary": "Christians have always prayed for the dead. This makes sense if some who die in God’s friendship still need to be made ready for heaven. The Church calls this last cleansing Purgatory. It is not a second chance and not a smaller hell. It finishes what God began in people who are already saved.",
+  "steps": {
+   "0": "Judas Maccabeus offers a sacrifice for fallen soldiers. Praying for the dead is old.",
+   "1": "Jesus speaks of forgiveness in the age to come.",
+   "2": "Paul speaks of a person saved “as through fire”.",
+   "3": "Chrysostom says offering the Eucharist for the dead is an old practice.",
+   "4": "Monica asks only to be remembered at the altar.",
+   "5": "Augustine speaks of this carefully, as a question still open.",
+   "6": "Augustine says who is helped: those who died in grace.",
+   "7": "Trent says the prayers of the faithful help the souls in Purgatory.",
+   "8": "The Catechism says they are already sure of salvation and are being made holy."
+  },
+  "objections": [
+   "The Church does not say Christ’s sacrifice is not enough. All cleansing comes from the cross. The Catechism says sin leaves a hold on us that needs to be healed.",
+   "The word is not in the Bible, and neither is “Trinity”. The teaching grows from praying for the dead, which is in Scripture and in the Church’s worship.",
+   "No. Judgment decides a person’s end at death. Purgatory is only for those already saved."
+  ]
+ },
+ "intercession-of-saints": {
+  "summary": "Christians pray for each other on earth. Death does not break the Body of Christ. From early times the Church has asked the saints to pray for us. This takes nothing from Christ, the one Mediator, because the saints pray in him.",
+  "steps": {
+   "0": "Asking others to pray for us is normal. The question is whether death ends that.",
+   "1": "Jesus says the dead in God are alive to him.",
+   "2": "Onias and Jeremiah pray for Israel in a vision.",
+   "3": "In heaven the elders offer up the prayers of God’s people.",
+   "4": "The Church on earth runs in the company of those who finished.",
+   "5": "At Mass the saints are named so God hears our prayer with theirs.",
+   "6": "Ambrose asks the martyrs to pray for us.",
+   "7": "Augustine does not know how martyrs help us, but treats it as sure that they do.",
+   "8": "Trent says the saints pray for us and we may ask them.",
+   "9": "The Catechism says asking the saints is part of God’s plan."
+  },
+  "objections": [
+   "Paul calls Christ the one Mediator, and still asks others to pray for him. The saints share in Christ’s work. They do not compete with it.",
+   "Necromancy tries to get secret power from spirits. Asking a friend in Christ’s family to pray is different. Moses and Elijah spoke with Jesus in glory.",
+   "The Church does not claim to know how. Augustine said he did not understand it, and trusted that God makes it possible."
+  ]
+ },
+ "veneration-of-images": {
+  "summary": "The commandment forbids idols and worshipping them. But God became visible in Jesus, so his image can be painted. The Second Council of Nicaea said that honour given to an image goes to the person it shows. It is not worship.",
+  "steps": {
+   "0": "The commandment against images is serious. What does it forbid?",
+   "1": "God himself commands carved cherubim in the tent.",
+   "2": "The Word became flesh, so God has a face that can be shown.",
+   "3": "John of Damascus says God in himself cannot be shown. His defence rests on Jesus becoming man.",
+   "4": "John says not everything from the apostles was written down.",
+   "5": "Nicaea II ties holy images to the Incarnation.",
+   "6": "Honour goes through the image to the person.",
+   "7": "Trent says images teach and remind. It forbids superstition.",
+   "8": "The Catechism keeps the line between honour and worship."
+  },
+  "objections": [
+   "Nicaea II separates worship, which is for God alone, from honour for holy things like the Gospel book and the cross. Treating a created thing as God is what is forbidden.",
+   "Some early Christians were careful about images because of idols. John of Damascus says things changed when God became visible in Christ.",
+   "The Church admits abuses can happen and must be fixed. Trent tells bishops to remove superstition."
+  ]
+ },
+ "original-sin": {
+  "summary": "The Bible and our own experience say we are born wounded and need a Saviour. This is linked to Adam. Augustine defended it and Trent defined it. The Church does not say babies are personally guilty. It does not say human nature is wholly bad.",
+  "steps": {
+   "0": "The psalmist sees sin reaching back to his beginning.",
+   "1": "Paul traces sin and death to one man.",
+   "2": "Adam and Christ are set side by side. What Adam lost, Christ restores.",
+   "3": "Paul says that before grace we are all in this state.",
+   "4": "Irenaeus sees humanity tied to Adam and renewed in Christ.",
+   "5": "Augustine points to baptizing babies as a sign of this belief.",
+   "6": "Augustine says only grace heals.",
+   "7": "Trent says original sin is passed on by birth, not by copying.",
+   "8": "Trent says baptism removes it, but a pull toward sin remains.",
+   "9": "The Catechism says human nature is wounded, not destroyed."
+  },
+  "objections": [
+   "The Church does not say we are guilty of Adam’s act. The Catechism says original sin is something we are born into, not something we commit.",
+   "Augustine made the teaching sharper in a debate. But he pointed to baptism of babies and to Paul. Trent says it is what the Church has always understood.",
+   "Baptism gives the child the life of grace. The Church does not say babies have sinned on their own."
+  ]
+ },
+ "grace-and-free-will": {
+  "summary": "God’s grace always comes first. Without it we can do nothing toward salvation. But grace does not take away our choice. It heals and strengthens it. Augustine, Trent and the Catechism all keep both truths.",
+  "steps": {
+   "0": "The Bible treats people as able to choose.",
+   "1": "Jesus says we bear fruit only by staying joined to him.",
+   "2": "Paul says to work, and that God is working in us.",
+   "3": "Augustine says grace makes freedom healthy.",
+   "4": "Augustine names both mistakes and wants neither.",
+   "5": "Even what is good in us comes from grace.",
+   "6": "Trent says God moves first and we can still refuse.",
+   "7": "Trent rejects the idea that our will does nothing.",
+   "8": "The Catechism quotes Augustine: grace comes before and after what we do."
+  },
+  "objections": [
+   "No. Even our wish to turn to God is a gift. God lets his gifts count as ours.",
+   "Trent rejects that. The Fall weakened free will but did not destroy it.",
+   "Augustine and Trent say God’s commands are real, and he gives the help to keep them."
+  ]
+ },
+ "faith-and-works": {
+  "summary": "The Church agrees with Paul. We are saved by grace, as a gift, through faith. We cannot earn it. The Church also agrees with James. Faith without love and works is dead. Trent says faith is the root, and living faith acts in love.",
+  "steps": {
+   "0": "Nothing we do first earns God’s favour.",
+   "1": "Grace is a gift. It is meant to lead to good works.",
+   "2": "Only faith that shows itself in love counts.",
+   "3": "James says faith without works does not save.",
+   "4": "Chrysostom reads Ephesians the way the Church later taught.",
+   "5": "Augustine says saving faith works through love.",
+   "6": "Trent says faith is central.",
+   "7": "Trent says neither faith nor works earns the first grace.",
+   "8": "Trent rejects “faith alone” if it means the will plays no part.",
+   "9": "The Catechism ties faith to hope and love. Saving faith is alive."
+  },
+  "objections": [
+   "Paul means no work earns the first grace. The Church agrees. But those who are saved are called to grow in love through what they do.",
+   "No. Works done in grace are God’s gift working in us. No one earns the first grace.",
+   "We can hope in God’s mercy. The Church does not teach that anyone is certain by faith alone. Trent warns against vain confidence."
+  ]
+ },
+ "resurrection-of-the-body": {
+  "summary": "The Church has always said we will rise in the body. It is not only that the soul lives on. Christ rose with a real body. Paul says our bodies will be raised, no longer able to decay. The Church writers defended this against people who looked down on the body.",
+  "steps": {
+   "0": "Paul says the body is sown weak and raised strong, changed.",
+   "1": "The risen Jesus shows he is no ghost.",
+   "2": "Justin tells the emperor that our bodies will rise when Christ returns.",
+   "3": "Irenaeus says the body shares in the good done in it, so it shares in salvation.",
+   "4": "Tertullian says every sacrament touches the body.",
+   "5": "Augustine says the Head has risen, so the members will follow.",
+   "6": "The Catechism says rising follows from creation, the Incarnation and redemption.",
+   "7": "The Church believes in the same real body, raised and changed."
+  },
+  "objections": [
+   "Augustine took this seriously. He said it is about God’s power, not the state of the body. A sculptor can remake a statue from the same metal. God can make each person whole.",
+   "Paul does not set body against soul. He sets what decays against what lasts. “Flesh and blood” means our weak, dying condition. He says this will be changed.",
+   "No. The soul lives on after death. But the Church says it waits to be joined to its body again. The raised body is part of the happiness we are promised."
+  ]
+ },
+ "hell": {
+  "summary": "The Church teaches about hell because Jesus did, many times and in serious words. The early writers took his words as they stand. The Church explains hell as the end of a free and lasting choice to say no to God’s love. God does not choose anyone for hell. The teaching is a warning that makes our choices matter.",
+  "steps": {
+   "0": "Jesus uses the word “eternal” for both the lost and the saved.",
+   "1": "Jesus uses very serious words to show the stakes are final.",
+   "2": "Justin tells the emperor that our choices lead to a lasting end.",
+   "3": "Irenaeus says hell comes from leaving God.",
+   "4": "Early Christians said their serious lives came from believing in a final judgment.",
+   "5": "Augustine answers those who thought baptized people living in grave sin would be saved anyway.",
+   "6": "The Catechism says love cannot be forced, so it can be refused.",
+   "7": "The Catechism says hell is the lasting loss of God.",
+   "8": "The Catechism says God never wants hell for anyone. It needs a deliberate, lasting no to him."
+  },
+  "objections": [
+   "The Church agrees that God wants no one to be lost. Hell is not God forcing it on someone. It is the lasting form of a choice a person makes against him.",
+   "Augustine answers that a punishment is not measured by how long the wrong took. It is weighed by what is given up. The more a person had of God, the greater the loss.",
+   "The Church hopes and prays that all are saved. But she does not teach it is certain. Jesus warns that many take the wide road, and the Catechism calls these warnings an urgent call to turn back."
+  ]
+ },
+ "marriage-indissoluble": {
+  "summary": "The Church teaches this because Jesus did. He pointed back to the beginning, when God made two into one flesh. He said not to remarry after divorce. Most early writers agreed. A few early writers allowed remarriage in cases of adultery. Trent and the Catechism keep the Church’s teaching.",
+  "steps": {
+   "0": "Jesus roots marriage in creation, not in a contract people can undo.",
+   "1": "Paul passes on Jesus’ rule as a command from the Lord.",
+   "2": "Clement reads the Gospel plainly: marriage lasts while both live.",
+   "3": "Chrysostom says a wife sent away is still that man’s wife.",
+   "4": "Augustine says Christian marriage is a holy sign.",
+   "5": "Trent gathers the evidence and says Christ gives grace to married people.",
+   "6": "Trent says adultery does not end the bond.",
+   "7": "The Catechism says God makes the bond, so spouses cannot cancel it.",
+   "8": "The deepest reason is that marriage is a sign of God’s faithful love."
+  },
+  "objections": [
+   "Jesus says Moses allowed it because of hard hearts. He says it was not so from the beginning. Augustine notes that Jesus allowed a wife to be sent away, but did not command it.",
+   "The Catechism admits this may seem too hard. It says Christ gives the grace to live it. The Church also looks at whether a true marriage ever began. If not, she can declare that.",
+   "The Church says married love is giving the whole self. A gift given only until further notice is not what marriage promises. Faithfulness is part of the promise."
+  ]
+ },
+ "sanctity-of-life": {
+  "summary": "From the start, Christians refused to take innocent life. That included unborn and newborn children, when the culture around them allowed it. The Bible says every person is made in God’s image. The Church writers applied this to leaving babies out to die, to abortion and to killing.",
+  "steps": {
+   "0": "Every person bears God’s image, so life is holy.",
+   "1": "God cares for each person before birth.",
+   "2": "God knows and calls a person from the womb.",
+   "3": "Justin says Christians do not leave babies out to die.",
+   "4": "Lactantius says “do not kill” includes newborns.",
+   "5": "Augustine condemns drugs used to stop a birth, or to end a child before birth.",
+   "6": "The Catechism says life is God’s gift. No one may directly destroy an innocent human being.",
+   "7": "The Church sees her teaching as joined to the earliest Christian witness."
+  },
+  "objections": [
+   "Some writers, Augustine among them, were unsure about the early stages of the unborn child. But none of them approved of abortion. Augustine calls it a cruel and sinful act.",
+   "The Church knows women can face fear, pressure and hardship. She also calls the community to help mothers. And she offers God’s mercy to anyone who is sorry.",
+   "It is about all innocent life. The Fathers applied it to babies and to suicide. The Catechism speaks of every human life from conception to death."
+  ]
+ },
+ "christ-two-natures": {
+  "summary": "The Church says Jesus Christ is one Person with two natures, God and man. They are not mixed, and they are not split. This was worked out at Nicaea, Ephesus and Chalcedon, with Cyril and Pope Leo doing much of the work. The aim was to protect what the Bible says.",
+  "steps": {
+   "0": "John says the eternal Word, who is God, became a human being.",
+   "1": "Paul speaks of one person who is in the form of God and takes the form of a servant.",
+   "2": "Nicaea says the Son is truly God and became man.",
+   "3": "Cyril says Christ is one person and the two natures are not wiped out.",
+   "4": "Cyril says Mary is the mother of God because her Son is God.",
+   "5": "Leo says each nature stays what it is, and they act together.",
+   "6": "Chalcedon gathers these into one belief: one Christ in two natures.",
+   "7": "The Catechism names the errors Chalcedon answered.",
+   "8": "The faith in short: two natures, one Person."
+  },
+  "objections": [
+   "That was the view of Nestorius, and Ephesus rejected it. Cyril taught that the Word took flesh as his own. So Christ is one subject, one Person of the Trinity.",
+   "Leo says the Son of God was crucified, not in his God-nature but in the weakness of the human nature he took. Because he is one Person, what is true of each nature is true of him.",
+   "The councils did not add a new teaching. They said what the New Testament says: the Son is God, and truly human. They used philosophy words that are not in the Bible to guard that."
+  ]
+ },
+ "why-the-cross": {
+  "summary": "Christ died because the human race had fallen under sin and death. Church tradition sees his death as the fitting way for God to repair this. Only God could heal what was broken, yet a man should answer for the debt. In the Word made flesh, God did what neither could do alone.",
+  "steps": {
+   "0": "Paul starts with God’s love. The cross is a gift from God.",
+   "1": "He took flesh and blood so he could die and defeat death from within.",
+   "2": "The Word cannot die, so he takes a body that can, and offers it for everyone.",
+   "3": "Only the Creator could make fallen people new, so it had to be the Word.",
+   "4": "Anselm says sin is serious. It is not wiped away by just overlooking it.",
+   "5": "Only God could pay, and only a man owed it. So one who is both pays it.",
+   "6": "The Catechism says the Father gives the Son out of love. This is not an angry Father.",
+   "7": "The Church speaks of atonement as Anselm did. It describes Christ’s obedience.",
+   "8": "The cross has worth because of the love with which Christ gave himself."
+  },
+  "objections": [
+   "Athanasius says that being sorry does not fix what is broken in us. Anselm says forgiving with no repair would treat sin as nothing. God chose a way that heals the root.",
+   "The Church says the opposite. The Father gave his Son out of love, and the Son gave himself freely. God is not bought off. God reconciles the world to himself.",
+   "Athanasius gives reasons. The cross takes the curse on our behalf, opens arms to all peoples, and defeats death in the open. The Catechism sees the sacrifice that completes the old ones."
+  ]
+ }
+}

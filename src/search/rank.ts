@@ -241,7 +241,9 @@ export function rank(ix: DocIndex, raw: string, opts: SearchOptions = {}): Hit[]
   };
   let hits = score(n <= 1 ? 0.01 : 0.55);
   if (hits.length < 3 && n > 1) hits = score(0.01);
-  return hits.slice(0, opts.limit ?? 200);
+  // drop the long tail of weak matches
+  const cut = hits.length ? hits[0].score * 0.12 : 0;
+  return hits.filter((h) => h.score >= cut).slice(0, opts.limit ?? 200);
 }
 
 /** Hits split into the display groups, in display order. */

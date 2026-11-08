@@ -81,13 +81,15 @@ export default function SearchPage() {
       setBusy('Searching the library…');
       const quick = await getIndex('library');
       if (!ok()) return;
-      setHits(rank(quick, qParam));
-      setMean(didYouMean(quick, qParam));
+      const m = didYouMean(quick, qParam);
+      setMean(m);
+      const used = m ?? qParam;
+      setHits(rank(quick, used));
       // 2. lessons arrive later and are merged in
       setLessonsLoading(true);
       const full = await getIndex('full');
       if (!ok()) return;
-      setHits(rank(full, qParam));
+      setHits(rank(full, used));
       setLessonsLoading(false);
     })().catch(() => ok() && setLessonsLoading(false));
     // 3. passages, in parallel
@@ -275,7 +277,7 @@ export default function SearchPage() {
               ?
             </div>
           )}
-          {mean && <div className="notice info">Did you mean <Link to={`/study/search?q=${encodeURIComponent(mean)}`}>{mean}</Link>?</div>}
+          {mean && <div className="notice info">Showing answers for <Link to={`/study/search?q=${encodeURIComponent(mean)}`}>{mean}</Link>, the closest spelling in the library.</div>}
 
           <div className="row" style={{ margin: '8px 0 14px', gap: 8, flexWrap: 'wrap' }}>
             <select value={kind} onChange={(e) => setKind(e.target.value as Kind)} aria-label="What to show">

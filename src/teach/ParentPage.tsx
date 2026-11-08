@@ -11,7 +11,7 @@ import { uid, today } from './model';
 import { GRADE_IDS, addDaysIso, buildPlan, checksKey, gradeForAge, loadFamily, mondayOf, nextLesson, planText, saveFamily, weekDates, weekNumber, type Kid, type PlanItem } from './parent';
 
 /** True once the kids' questions page is in the app; the plan links to it only then. */
-const KIDS_QUESTIONS = false;
+const KIDS_QUESTIONS = true;
 const label = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 
 function KidForm({ onAdd }: { onAdd: (k: Kid) => void }) {
