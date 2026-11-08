@@ -1,0 +1,509 @@
+[
+ {
+  "id": "scandal-in-the-church",
+  "title": "Scandal in the Church",
+  "ask": "Someone in the Church did something terrible, and I am losing my trust.",
+  "intro": "Anger, disgust and a loss of trust are fair responses to wrongdoing by priests, bishops or other leaders. The Fathers and saints did not look away from it. Augustine grieved over a scandal in his own household, Catherine of Siena wrote bluntly to the pope about corrupt clergy, and Gregory the Great said plainly what a pastor owes his people. The Catechism says the Church is holy yet has sinners in her midst, ministers included (827). It also says that Christ's gifts are not spoiled by the unworthiness of a minister (1584). That does not ask anyone to stay silent. If you or someone you know was harmed, tell the police or your country's child-protection or safeguarding authority, and look for a counsellor who can help you carry it. Whether to stay in a parish is a separate question, and you can take time over it.",
+  "mentors": [
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354–430",
+    "why": "Augustine wrote to his people in Hippo when a scandal over a presbyter troubled them. He did not tell them to feel nothing. He told them to grieve, to pray, and not to let their love grow cold. In this letter he admits he cannot tell which of two men is guilty, so it is not a case of known abuse.",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Letter 78 (to the clergy and people of Hippo)",
+     "work": "aug-letters",
+     "section": "vii.1.LXXVIII",
+     "quote": "Grieve for these things, for they are to be lamented; but do not so grieve as to let your love grow cold, and yourselves be indifferent to holy living.",
+     "note": "A bishop's counsel to a church shaken by a scandal: grief is right, and so is staying faithful."
+    }
+   },
+   {
+    "name": "Catherine of Siena",
+    "lifespan": "1347–1380",
+    "why": "Catherine lived when many clergy were openly corrupt. She did not leave the Church. She wrote to the pope himself, told him that vice was abundant among those meant to be fragrant flowers in the garden of the Church, and urged him to uproot it.",
+    "step": {
+     "kind": "saint",
+     "label": "Catherine of Siena, Letters (Part 22, to the pope)",
+     "work": "catherine-letters",
+     "section": "s22",
+     "quote": "uprooting vices and implanting virtues… vices are so abundant, especially among those who were put in the garden of Holy Church to be fragrant flowers, shedding the fragrance of virtue",
+     "note": "A lay woman's plain speech to the highest authority about the sins of the clergy, spoken from inside the Church."
+    }
+   },
+   {
+    "name": "Gregory the Great",
+    "lifespan": "c. 540–604",
+    "why": "Gregory wrote a rule for bishops. It is a reminder that the Church has always held its leaders to a high standard, and that failing it is a fault in them rather than a sign that the standard is false.",
+    "step": {
+     "kind": "father",
+     "label": "Gregory the Great, Pastoral Rule, Part II",
+     "work": "gregory-pastoral-rule",
+     "section": "iii.iv.iii",
+     "quote": "the hand that would cleanse from dirt must needs be clean, lest, being itself sordid with clinging mire, it soil whatever it touches all the more.",
+     "note": "Gregory says a pastor's own life must be clean, because his work is to cleanse others."
+    }
+   },
+   {
+    "name": "Peter the Apostle",
+    "lifespan": "d. c. 64",
+    "why": "In John 6 many disciples walk away from Jesus. Peter, who will himself fail badly in the Gospels, answers that he has nowhere else to go. This is not about a scandal in the Church, but it is the Gospel's own picture of staying when others leave.",
+    "step": {
+     "kind": "scripture",
+     "label": "John 6:67-69",
+     "ref": "JHN.6.67-69",
+     "quote": "Lord, to whom would we go? You have the words of eternal life.",
+     "note": "Peter answers for the Twelve when many disciples have turned back."
+    }
+   }
+  ],
+  "readNext": [
+   827,
+   1428,
+   1584
+  ]
+ },
+ {
+  "id": "chronic-pain",
+  "title": "Chronic pain",
+  "ask": "I live with pain that does not go away.",
+  "intro": "Pain that lasts for months or years wears down patience, sleep and hope, and the people who love you may not see how much it costs. These saints knew long illness from the inside, and none of them pretends it was easy. Their stories do not mean you must put up with pain that can be treated. The Catechism teaches that illness can lead to anguish and even despair, as well as to a search for God (1501), and it calls palliative care and the relief of pain acts of charity (2279). Please keep seeing a doctor or a pain clinic. If the pain has made you think of ending your life, tell someone today: a doctor, a priest, a friend, or an emergency or crisis line in your country.",
+  "mentors": [
+   {
+    "name": "Paul the Apostle",
+    "lifespan": "c. 5–c. 65",
+    "why": "Paul had a 'thorn in the flesh' and never says what it was. He asked for it to be taken away three times. The text records the answer he was given, but does not say the thorn was removed.",
+    "step": {
+     "kind": "scripture",
+     "label": "2 Corinthians 12:7-10",
+     "ref": "2CO.12.7-10",
+     "quote": "I begged the Lord three times that it might depart from me. He has said to me, “My grace is sufficient for you, for my power is made perfect in weakness.”",
+     "note": "An honest prayer for relief and the answer that came, in Paul's own words."
+    }
+   },
+   {
+    "name": "Gregory the Great",
+    "lifespan": "c. 540–604",
+    "why": "Butler records that Gregory suffered for many years from weakness of the breast and stomach, slow fevers and gout. Once it kept him in bed for two whole years. Butler also says he governed the Church for a little over thirteen years, until his death in 604.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory the Great",
+     "butler": "03-12:0",
+     "quote": "This holy pope had labored many years under a great weakness of his breast and stomach, and was afflicted with slow fevers, and frequent fits of the gout, which once confined him to his bed two whole years.",
+     "note": "Butler's summary of Gregory's long ill health."
+    }
+   },
+   {
+    "name": "Benedict Biscop",
+    "lifespan": "c. 628–690",
+    "why": "Butler says Benedict spent three years paralysed, much of it in bed. Unable to sing the daily prayers himself, he had monks sing them beside him and joined as well as he could. His case shows a way to keep praying when the body cannot do what it used to.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Benedict Biscop",
+     "butler": "01-12:1",
+     "quote": "he lay sick of this distemper three years, and for a considerable time was entirely confined to his bed. During this long illness, not being able to raise his voice to the usual course of singing the divine office, at every canonical hour he sent for some of his monks",
+     "note": "Butler describes how a bed-bound abbot kept the hours of prayer."
+    }
+   },
+   {
+    "name": "Mechtildes of Diessen",
+    "lifespan": "died after 1300",
+    "why": "Butler reports that Mechtildes, ill in bed, complained to the Lord that she could not join her sisters in the night office. Butler adds that in a vision she was told her desire and obedience pleased God more than any sacrifice she could offer. He tells this as a pious tradition, not as proven fact.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, B. Mechtildes",
+     "butler": "04-10:0",
+     "quote": "Once when confined to her bed by sickness she complained to her Redeemer, that, like an excommunicated person and altogether unworthy, she was excluded from joining her voice with her sisters in singing his praises at the midnight office",
+     "note": "A sick nun brings her complaint straight to God, and Butler relates the answer."
+    }
+   }
+  ],
+  "readNext": [
+   1500,
+   1501,
+   1503,
+   2279
+  ]
+ },
+ {
+  "id": "envy-and-comparison",
+  "title": "Envy and comparison",
+  "ask": "I keep comparing myself with other people and it makes me bitter.",
+  "intro": "Almost everyone feels envy at times, and it is usually a sign of something that hurts rather than of a bad heart. The Church has always named it as a real danger, because it eats away at gratitude and at friendship. These sources do not offer a quick cure. They show Peter being told to look to his own path, Paul refusing to be shaken by rivals, Thérèse making peace with being small, and Cassian describing plainly what envy does to the mind. If the comparing has settled into a long low mood, shame about yourself, or thoughts of harming yourself, please talk to a doctor, counsellor or priest.",
+  "mentors": [
+   {
+    "name": "Peter the Apostle",
+    "lifespan": "d. c. 64",
+    "why": "After the Resurrection Jesus tells Peter what his own end will be. Peter looks at John and asks what will happen to him. Jesus' answer sends Peter back to his own calling.",
+    "step": {
+     "kind": "scripture",
+     "label": "John 21:20-22",
+     "ref": "JHN.21.20-22",
+     "quote": "Lord, what about this man?”… what is that to you? You follow me.",
+     "note": "Comparison is answered in one line."
+    }
+   },
+   {
+    "name": "Paul the Apostle",
+    "lifespan": "c. 5–c. 65",
+    "why": "Paul wrote from prison. He says some people preached Christ from envy and strife, and that they thought this would add to his chains. His answer is that he rejoices that Christ is proclaimed. He does not say it cost him nothing.",
+    "step": {
+     "kind": "scripture",
+     "label": "Philippians 1:15-18",
+     "ref": "PHP.1.15-18",
+     "quote": "Some indeed preach Christ even out of envy and strife… What does it matter? Only that in every way, whether in pretense or in truth, Christ is proclaimed. I rejoice in this, yes, and will rejoice.",
+     "note": "Paul meets other people's envy of him with a decision to rejoice in the good being done."
+    }
+   },
+   {
+    "name": "Thérèse of Lisieux",
+    "lifespan": "1873–1897",
+    "why": "Thérèse struggled with the thought that others were greater saints than she. She writes that she came to see that God does not want every flower to be a rose.",
+    "step": {
+     "kind": "saint",
+     "label": "Thérèse, Story of a Soul, Chapter 1",
+     "work": "therese-story-of-a-soul",
+     "section": "ix",
+     "quote": "the brilliance of the rose and the whiteness of the lily do not lessen the perfume of the violet or the sweet simplicity of the daisy. I understood that if all the lowly flowers wished to be roses, nature would lose its springtide beauty",
+     "note": "The image of the garden is her own answer to feeling small next to the great saints."
+    }
+   },
+   {
+    "name": "John Cassian",
+    "lifespan": "c. 360–435",
+    "why": "Cassian lists envy among the faults that monks must fight. He describes what it does inside a person. In this passage he names the problem and does not give the remedy.",
+    "step": {
+     "kind": "father",
+     "label": "Cassian, Institutes, Book 5 (on the eight faults)",
+     "work": "cassian-works",
+     "section": "iv.iii.v",
+     "quote": "Envy is a food of the mind, corrupting it with its poisonous juices and never ceasing to make it wretched and miserable at the prosperity and success of another.",
+     "note": "A fifth-century monk's blunt description of envy."
+    }
+   }
+  ]
+ },
+ {
+  "id": "busyness-and-rest",
+  "title": "Busyness and rest",
+  "ask": "I am always busy and I cannot rest.",
+  "intro": "Many people feel that stopping would let someone down, or that their worth is what they get done. The sources here do not say work is bad. They say that anxious haste is a different thing from diligence, and that Jesus himself called his friends to rest. The Catechism says human life has a rhythm of work and rest and that the Lord's Day exists to help everyone enjoy adequate rest and leisure (2184). If you cannot rest because you cannot stop worrying, cannot sleep, or feel exhausted all the time, see a doctor. These can be signs of illness, and they are not a failure of faith.",
+  "mentors": [
+   {
+    "name": "Jesus, with the apostles",
+    "lifespan": "Gospel of Mark",
+    "why": "The apostles come back from their work and report all they did. Mark says they had no time even to eat. Jesus tells them to come away with him and rest. He does not say the work was wrong.",
+    "step": {
+     "kind": "scripture",
+     "label": "Mark 6:30-32",
+     "ref": "MRK.6.30-32",
+     "quote": "“Come away into a deserted place, and rest awhile.”",
+     "note": "An invitation to rest given to tired workers."
+    }
+   },
+   {
+    "name": "Martha of Bethany",
+    "lifespan": "Gospel of Luke",
+    "why": "Martha is busy serving and is cross that her sister is not helping. Jesus does not tell her that serving is wrong. He names the anxiety and the many things pulling at her.",
+    "step": {
+     "kind": "scripture",
+     "label": "Luke 10:38-42",
+     "ref": "LUK.10.38-42",
+     "quote": "“Martha, Martha, you are anxious and troubled about many things, but one thing is needed. Mary has chosen the good part, which will not be taken away from her.”",
+     "note": "The Lord speaks gently to a woman who is overloaded."
+    }
+   },
+   {
+    "name": "Brother Lawrence",
+    "lifespan": "c. 1614–1691",
+    "why": "Lawrence worked in a monastery kitchen. His conversations record that he did things without haste and without dawdling, in his own words by keeping God in mind during the work. He is not describing a day off.",
+    "step": {
+     "kind": "writer",
+     "label": "Brother Lawrence, Fourth Conversation",
+     "work": "lawrence-practice",
+     "section": "iii.iv",
+     "quote": "He was never hasty nor loitering, but did each thing in its season, with an even uninterrupted composure and tranquillity of spirit.",
+     "note": "A cook who found calm in the middle of a noisy, busy job."
+    }
+   },
+   {
+    "name": "Francis de Sales",
+    "lifespan": "1567–1622",
+    "why": "Francis wrote for people with ordinary jobs and households. He separates diligence, which he asks for, from anxiety and bustle, which he says damage the work itself.",
+    "step": {
+     "kind": "saint",
+     "label": "Francis de Sales, Introduction to the Devout Life, Part 3, Chapter 10",
+     "work": "desales-devout-life",
+     "section": "v.x",
+     "quote": "be careful and diligent in all your affairs; God, Who commits them to you, wills you to give them your best attention; but strive not to be anxious and solicitous",
+     "note": "Care for your tasks without being consumed by them."
+    }
+   }
+  ],
+  "readNext": [
+   2184,
+   2185
+  ]
+ },
+ {
+  "id": "a-friendship-that-has-ended",
+  "title": "A friendship that has ended",
+  "ask": "A close friend and I have drifted apart, or fallen out.",
+  "intro": "Losing a friend can hurt like a bereavement, and it is rarely tidy. Some of the closest friendships in the Bible and in the early Church had breaks, and the sources are honest about it. Paul and Barnabas parted over a disagreement, and Basil and Gregory of Nazianzus, the great friends of Cappadocia, wrote to each other with real hurt. These accounts show that a rift does not mean the love was false. They do not promise that every friendship is repaired. Not every friend must be kept: if someone was controlling, cruel or unsafe, stepping away is allowed, and a counsellor or priest can help you grieve it.",
+  "mentors": [
+   {
+    "name": "Paul and Barnabas",
+    "lifespan": "1st century",
+    "why": "Luke records that Paul and Barnabas disagreed over whether to take Mark with them on a second journey. Luke does not say who was right. The disagreement was sharp enough that they went separate ways.",
+    "step": {
+     "kind": "scripture",
+     "label": "Acts 15:36-40",
+     "ref": "ACT.15.36-40",
+     "quote": "Then the contention grew so sharp that they separated from each other.",
+     "note": "A sharp dispute between two of the Church's first leaders ends with them parting."
+    }
+   },
+   {
+    "name": "Paul and Mark",
+    "lifespan": "1st century",
+    "why": "Near the end of his life Paul asks Timothy to bring Mark to him. Paul had once refused to take Mark along. The text does not say whether Paul and Barnabas were reconciled, but it shows Paul wanting Mark's help.",
+    "step": {
+     "kind": "scripture",
+     "label": "2 Timothy 4:9-11",
+     "ref": "2TI.4.9-11",
+     "quote": "Only Luke is with me. Take Mark and bring him with you, for he is useful to me for service.",
+     "note": "A man Paul had set aside is later called useful."
+    }
+   },
+   {
+    "name": "Basil of Caesarea",
+    "lifespan": "c. 330–379",
+    "why": "Basil answers a letter from his old friend Gregory that had hurt him. The editor says Basil was 'somewhat wounded'. Basil does not hide the hurt, and he says he will not let it win.",
+    "step": {
+     "kind": "father",
+     "label": "Basil, Letter 71 (to Gregory)",
+     "work": "basil-letters",
+     "section": "ix.lxxii",
+     "quote": "However, since I have determined that my affection for you shall outweigh my pain, whatever it is, I have accepted it as I ought to do",
+     "note": "A bishop decides that love will outweigh the pain."
+    }
+   },
+   {
+    "name": "Gregory of Nazianzus",
+    "lifespan": "c. 329–390",
+    "why": "The editor says Basil made Gregory bishop of Sasima against his will, and that Gregory felt he had been badly used. His letter to Basil is open about the hurt. It shows that a friend can say what has pained him without ceasing to be a friend, though the letter does not tell us how the friendship ended.",
+    "step": {
+     "kind": "father",
+     "label": "Gregory of Nazianzus, Letter 48 (to Basil)",
+     "work": "gregory-nazianzen-letters",
+     "section": "iv.iii.xviii",
+     "quote": "You yourself would admit that I have not done wrong in any other respect, and my own conscience does not reproach me with having been unkind to you in either great or small matters",
+     "note": "One side of a painful quarrel between two saints, written with candour."
+    }
+   }
+  ]
+ },
+ {
+  "id": "prison-for-a-wrong-you-did",
+  "title": "Prison, or shame over a crime",
+  "ask": "I did something wrong, and I am in prison or ashamed of what is on my record.",
+  "intro": "Some people in these pages were guilty of real wrongs, and the Church does not pretend wrongs do not matter. The Catechism says that where there is harm, one must do what is possible to repair it (1459), and that includes owning what you did. But the same sources insist that mercy is not closed to anyone. If you are in custody, ask for the chaplain. If you are out and carrying shame, a priest can hear your confession and walk with you, and a counsellor can help too. If you feel you cannot go on, tell staff, a chaplain or a crisis line today.",
+  "mentors": [
+   {
+    "name": "The repentant criminal",
+    "lifespan": "Gospel of Luke",
+    "why": "One of the two men crucified with Jesus admits that he is receiving what he deserves. Luke does not name him, though later tradition calls him Dismas. He asks Jesus for nothing more than to be remembered, and Jesus answers him.",
+    "step": {
+     "kind": "scripture",
+     "label": "Luke 23:39-43",
+     "ref": "LUK.23.39-43",
+     "quote": "And we indeed justly, for we receive the due reward for our deeds… Lord, remember me when you come into your Kingdom.”… today you will be with me in Paradise.",
+     "note": "A man who has no time left to make amends asks for mercy and is given it."
+    }
+   },
+   {
+    "name": "Paul the Apostle",
+    "lifespan": "c. 5–c. 65",
+    "why": "Paul had persecuted the Church. In a letter he calls himself the worst of sinners, and he treats his own mercy as a sign for others.",
+    "step": {
+     "kind": "scripture",
+     "label": "1 Timothy 1:13-16",
+     "ref": "1TI.1.13-16",
+     "quote": "although I used to be a blasphemer, a persecutor, and insolent. However, I obtained mercy because I did it ignorantly in unbelief.",
+     "note": "A man who did serious harm says plainly what he was, and what he received."
+    }
+   },
+   {
+    "name": "Francis di Girolamo",
+    "lifespan": "1642–1716",
+    "why": "Butler says Francis spent years in the prisons and galleys of Naples, and credits him with changing the lives of many who were held there. He was not himself a prisoner. He shows that some saints went into the places others avoid.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis di Girolamo",
+     "butler": "05-11:6",
+     "quote": "He was in constant attendance on the hospitals, prisons, and galleys, besides visiting the sick in their houses",
+     "note": "A priest who chose to be present among prisoners and galley slaves."
+    }
+   },
+   {
+    "name": "Vincent de Paul",
+    "lifespan": "1581-1660",
+    "why": "Butler records that Vincent founded a hospital at Marseilles for galley slaves. It is not about people who regret their deeds, but it shows a saint insisting that even convicts deserve care of body and soul.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Vincent de Paul",
+     "butler": "07-19:0",
+     "quote": "at Marseilles the stately hospital for the galley-slaves, who, when sick, are there abundantly furnished with every help both corporal and spiritual.",
+     "note": "Convicts are included in the care of a great charity."
+    }
+   }
+  ],
+  "readNext": [
+   1459,
+   1469,
+   2447
+  ]
+ },
+ {
+  "id": "a-child-who-has-left-the-faith",
+  "title": "A grown child who has left the faith",
+  "ask": "My grown child has walked away from the Church, and I am afraid for them.",
+  "intro": "Many parents carry this quietly. You cannot make an adult believe, and arguing often pushes them further away. Monica is the saint most often named here, and her own son records her tears. Her story did end well, but nothing in the sources promises that every story will. What the sources do show is a mother who kept praying, kept the family together, and rejoiced when her son came back. If your child is in danger, for example from addiction or thoughts of self-harm, that is a separate emergency: contact a doctor, an emergency service or a crisis line first.",
+  "mentors": [
+   {
+    "name": "Monica",
+    "lifespan": "c. 331–387",
+    "why": "Augustine says his mother wept for him as mothers weep for the dead, and that she had a dream which comforted her. He records that nearly nine years passed before things changed.",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions, Book 3, Chapter 11",
+     "work": "aug-confessions",
+     "section": "iv.xi",
+     "quote": "my mother, Thy faithful one, weeping to Thee for me, more than mothers weep the bodily deaths of their children.",
+     "note": "A son's own account of what his mother's faithfulness cost her."
+    }
+   },
+   {
+    "name": "The father in the parable",
+    "lifespan": "Gospel of Luke",
+    "why": "In Jesus' story the younger son leaves and wastes what he has. Jesus pictures the father running to meet him while he is still far off. It is a picture of God's welcome, not a set of instructions for parents.",
+    "step": {
+     "kind": "scripture",
+     "label": "Luke 15:20",
+     "ref": "LUK.15.20",
+     "quote": "But while he was still far off, his father saw him and was moved with compassion, and ran, fell on his neck, and kissed him.",
+     "note": "The father meets the returning son with compassion and not with a lecture."
+    }
+   },
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354–430",
+    "why": "After his conversion Augustine went in to tell his mother. He says she leapt for joy, and that God had given her more than she had begged for.",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions, Book 8, Chapter 12",
+     "work": "aug-confessions",
+     "section": "ix.xii",
+     "quote": "Thence we go in to my mother; we tell her; she rejoiceth: we relate in order how it took place; she leaps for joy, and triumpheth",
+     "note": "The other end of Monica's story, told by her son."
+    }
+   }
+  ]
+ },
+ {
+  "id": "after-a-divorce",
+  "title": "After a divorce or separation",
+  "ask": "My marriage has ended, and I do not know where I stand.",
+  "intro": "A broken marriage brings grief, anger, and often a fear that you have lost your place in the Church. The Catechism teaches that marriage is a lasting bond, and it also says plainly that the Church permits separation in some situations, and that spouses who have divorced are not to feel cut off from the Church (1649, 1651). It says civil divorce can be tolerated when it is the only way to protect legal rights, children or property (2383). If you were hurt or are afraid, your safety comes first. Please speak with a priest, and ask whether your situation should be looked at by the Church's marriage tribunal. A counsellor or a support group can help with the grief.",
+  "mentors": [
+   {
+    "name": "The Samaritan woman",
+    "lifespan": "Gospel of John",
+    "why": "John does not say why she had had five husbands, so we should not guess. Jesus speaks to her about her life with honesty and without contempt, and she is the one who tells her town about him.",
+    "step": {
+     "kind": "scripture",
+     "label": "John 4:16-18, 28-29",
+     "ref": "JHN.4.28-29",
+     "quote": "“Come, see a man who told me everything that I have done. Can this be the Christ?”",
+     "note": "A woman with a complicated marriage history becomes the first to tell her town about Jesus."
+    }
+   },
+   {
+    "name": "Hagar",
+    "lifespan": "Book of Genesis",
+    "why": "Hagar was sent away with her child with only bread and water. This is not a divorce. It is the story of a woman put out of a household who finds God has seen her.",
+    "step": {
+     "kind": "scripture",
+     "label": "Genesis 21:14-19",
+     "ref": "GEN.21.14-19",
+     "quote": "God heard the voice of the boy… God opened her eyes, and she saw a well of water.",
+     "note": "An abandoned woman in the wilderness is shown water."
+    }
+   },
+   {
+    "name": "Fabiola",
+    "lifespan": "died 399",
+    "why": "Jerome, writing her eulogy, says she left a husband whose faults he calls terrible, remarried, and later did public penance. Jerome counts the second marriage as a fault. His account is a story from the fourth century and does not settle what the Church asks today (see Catechism 1650-1651).",
+    "step": {
+     "kind": "father",
+     "label": "Jerome, Letter 77 (to Oceanus)",
+     "work": "jerome-letters",
+     "section": "v.LXXVII",
+     "quote": "As Fabiola was not ashamed of the Lord on earth, so He shall not be ashamed of her in heaven.",
+     "note": "A woman's life after a failed marriage, and the mercy Jerome says she received."
+    }
+   }
+  ],
+  "readNext": [
+   1649,
+   1650,
+   1651,
+   2383
+  ]
+ },
+ {
+  "id": "leaving-home",
+  "title": "Leaving home",
+  "ask": "I am leaving home, or I have just left, and I feel unsure and a little lost.",
+  "intro": "Leaving home for study, work or a new life brings freedom and loneliness together. These figures are not all examples to copy. Abraham left because he believed he was called, and Ruth chose to follow a family that was not her own. Augustine went to a city that stirred up his worst habits and he says so honestly. If you are in a place where you feel unsafe, or you have no money, or you have stopped eating or sleeping, tell a friend, a family member or a local services line today.",
+  "mentors": [
+   {
+    "name": "Abraham",
+    "lifespan": "early 2nd millennium BC",
+    "why": "Genesis says the Lord told Abram to leave his country, his relatives and his father's house. Abram went at seventy-five. The call and the promise came together, and the text says nothing about his feelings.",
+    "step": {
+     "kind": "scripture",
+     "label": "Genesis 12:1-4",
+     "ref": "GEN.12.1-4",
+     "quote": "Leave your country, and your relatives, and your father’s house, and go to the land that I will show you.",
+     "note": "The Bible's first leaving of home is a call to go to a place not yet shown."
+    }
+   },
+   {
+    "name": "Ruth",
+    "lifespan": "Book of Ruth",
+    "why": "Ruth left her own people to stay with her mother-in-law, Naomi. The book says she did it out of loyalty and not because she had a plan.",
+    "step": {
+     "kind": "scripture",
+     "label": "Ruth 1:14-17",
+     "ref": "RUT.1.14-17",
+     "quote": "where you go, I will go; and where you stay, I will stay. Your people will be my people, and your God my God.",
+     "note": "A young woman chooses a new home and a new people."
+    }
+   },
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354–430",
+    "why": "Augustine went to Carthage as a student. He says honestly that the city stirred up appetites he did not yet understand. He wrote this looking back, not at the time.",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions, Book 3, Chapter 1",
+     "work": "aug-confessions",
+     "section": "iv.i",
+     "quote": "To Carthage I came, where there sang all around me in my ears a cauldron of unholy loves.",
+     "note": "A warning from someone who left home young and wandered."
+    }
+   }
+  ]
+ }
+]

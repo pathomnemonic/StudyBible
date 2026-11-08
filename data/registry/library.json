@@ -3349,9 +3349,15 @@
     "file": "gutenberg_63084.txt",
     "sourceName": "Project Gutenberg (ebook #63084)",
     "sourceUrl": "https://www.gutenberg.org/ebooks/63084",
-    "heading": "^\\u0000$",
-    "introTitle": "St. Francis of Assisi",
-    "partWords": 3500
+    "start": "^(?= *_Chapter I_$)",
+    "heading": "^_Chapter [IVX]+_$",
+    "titleLines": 1,
+    "fixTitles": [
+     [
+      "_",
+      ""
+     ]
+    ]
    }
   },
   {
@@ -3372,10 +3378,43 @@
     "file": "gutenberg_14328.txt",
     "sourceName": "Project Gutenberg (ebook #14328)",
     "sourceUrl": "https://www.gutenberg.org/ebooks/14328",
-    "heading": "^BOOK [IVX]+\\.$",
+    "start": "^(?=BOOK I\\.\\n+THE SORROWS OF BOETHIUS\\.\\n+\\s+SUMMARY)",
+    "strip": [
+     "^BOOK [IVX]+\\.\\n+(?=SONG [IVX]+\\.|I\\.\\n)"
+    ],
+    "groupHeading": "^BOOK [IVX]+\\.$",
+    "groupTitleLines": 1,
+    "groupIntro": "Summary",
+    "lowerSmallWords": true,
+    "heading": "^(?:SONG [IVX]+\\.(?:\\[I\\])?|I\\.)$",
+    "bareHeading": "^I\\.$",
     "titleLines": 1,
-    "start": "^(?=BOOK I\\.\\n+SONG I\\.)",
-    "partWords": 4500
+    "fixTitles": [
+     [
+      "— I$",
+      "— Prose I"
+     ],
+     [
+      "\\.?\\[[A-Z]\\]",
+      ""
+     ],
+     [
+      "^BOOK ([IVX]+) —",
+      "Book $1 —"
+     ],
+     [
+      "Song ([IVX]+)\\. —",
+      "Song $1 —"
+     ],
+     [
+      "\\bILL\\b",
+      "Ill"
+     ],
+     [
+      "\\.$",
+      ""
+     ]
+    ]
    }
   },
   {
@@ -3396,9 +3435,26 @@
     "file": "gutenberg_22088.txt",
     "sourceName": "Project Gutenberg (ebook #22088)",
     "sourceUrl": "https://www.gutenberg.org/ebooks/22088",
-    "heading": "^\\u0000$",
-    "introTitle": "Apologia pro Vita Sua",
-    "partWords": 4000
+    "start": "^PREFACE\\.$",
+    "strip": [
+     "^CONTENTS\\.$[\\s\\S]*?^MY RELIGIOUS OPINIONS\\.$"
+    ],
+    "introTitle": "Preface",
+    "heading": "^(CHAPTER [IVX]+\\.|NOTE [A-G]\\. ON PAGE \\d+\\.|SUPPLEMENTAL MATTER\\.|ADDITIONAL NOTES\\.)$",
+    "titleLines": 1,
+    "dropTitles": [
+     "^Supplemental Matter"
+    ],
+    "fixTitles": [
+     [
+      "^(Additional Notes) — .*$",
+      "Additional Notes"
+     ],
+     [
+      "^Note ([A-G])\\. On Page \\d+ — ",
+      "Note $1 — "
+     ]
+    ]
    }
   },
   {
@@ -3419,9 +3475,21 @@
     "file": "gutenberg_34022.txt",
     "sourceName": "Project Gutenberg (ebook #34022)",
     "sourceUrl": "https://www.gutenberg.org/ebooks/34022",
-    "heading": "^\\u0000$",
-    "introTitle": "A Grammar of Assent",
-    "partWords": 4000
+    "start": "^PART I\\. ASSENT AND APPREHENSION\\.$",
+    "groupHeading": "^Chapter [IVX]+\\. ",
+    "groupIntro": "Introduction",
+    "heading": "^(?:§ \\d\\. |NOTE\\.$)",
+    "titleLines": 0,
+    "fixTitles": [
+     [
+      "^(Chapter (?:II|III|IX)\\. [^—]*?) — Introduction$",
+      "$1"
+     ],
+     [
+      "^Chapter X\\. [^—]* — Note$",
+      "Note on Chillingworth (appended to Chapter X)"
+     ]
+    ]
    }
   },
   {
@@ -3442,9 +3510,34 @@
     "file": "gutenberg_24526.txt",
     "sourceName": "Project Gutenberg (ebook #24526)",
     "sourceUrl": "https://www.gutenberg.org/ebooks/24526",
-    "heading": "^\\u0000$",
-    "introTitle": "The Idea of a University",
-    "partWords": 4000
+    "start": "^PREFACE\\.$",
+    "introTitle": "Preface",
+    "groupHeading": "^UNIVERSITY (?:TEACHING|SUBJECTS, DISCUSSED IN OCCASIONAL LECTURES AND ESSAYS)\\.$",
+    "groupIntro": "Introductory Letter and Advertisement",
+    "heading": "^(?:(?:Discourse|Lecture) [IVX]+\\.|NOTE ON PAGE 478\\.|INDEX\\.|FOOTNOTES)$",
+    "bareHeading": "^(?:NOTE ON PAGE|INDEX|FOOTNOTES)",
+    "titleLines": 3,
+    "dropTitles": [
+     "^Index"
+    ],
+    "fixTitles": [
+     [
+      "^University (?:Teaching|Subjects, Discussed In Occasional Lectures And Essays) — ",
+      ""
+     ],
+     [
+      " — (?:And|and|Of|of|In|in|The|the|Medicine)$",
+      ""
+     ],
+     [
+      "\\. An? (?:Lecture|Address)[^—]*",
+      ""
+     ],
+     [
+      "\\s*— (?:Letters|School of Science)$",
+      ""
+     ]
+    ]
    }
   },
   {
@@ -3513,9 +3606,158 @@
     "file": "gutenberg_7403.txt",
     "sourceName": "Project Gutenberg (ebook #7403)",
     "sourceUrl": "https://www.gutenberg.org/ebooks/7403",
-    "heading": "^\\u0000$",
-    "introTitle": "Letters of Catherine of Siena",
-    "partWords": 3500
+    "start": "^(?=ST\\. CATHERINE OF SIENA AS SEEN IN HER LETTERS$)",
+    "heading": "^(?:ST\\. CATHERINE OF SIENA AS SEEN IN HER LETTERS|CHIEF EVENTS IN THE LIFE OF SAINT CATHERINE|BRIEF TABLE OF CONTEMPORARY PUBLIC EVENTS|LETTERS (?:ON|IN|TO|WRITTEN|ANNOUNCING|DESCRIBING) [A-Z' ]+|TO [A-Z][A-Z ,.'()-]*)$",
+    "titleLines": 0,
+    "titleContinue": "^[A-Z][A-Z ,.'()-]*$",
+    "numberDuplicates": true,
+    "fixTitles": [
+     [
+      "^St\\. Catherine of Siena As Seen in Her Letters$",
+      "Introduction (V. D. Scudder): St. Catherine of Siena as seen in her letters"
+     ],
+     [
+      "^Chief Events in the Life of Saint Catherine$",
+      "Chief events in the life of St. Catherine"
+     ],
+     [
+      "^Brief Table of Contemporary Public Events$",
+      "Contemporary public events"
+     ],
+     [
+      "^Letters Written From Rocca D'Orcia$",
+      "Letters written from Rocca d'Orcia"
+     ],
+     [
+      "^(To the Venerable Religious, Brother Antonio of Nizza), .*$",
+      "$1"
+     ],
+     [
+      "^(To Monna Lapa Her Mother and to Monna Cecca).*$",
+      "$1"
+     ],
+     [
+      ",$",
+      ""
+     ],
+     [
+      "^(To Messer John, the Soldier of Fortune) .*$",
+      "$1"
+     ],
+     [
+      "^(To the Eight of War Chosen by the Commune of Florence), .*$",
+      "$1"
+     ],
+     [
+      "^(To Sister Daniella of Orvieto) clothed.*$",
+      "$1 (on her great penances)"
+     ],
+     [
+      "^(To Sister Daniella of Orvieto) Clothed.*$",
+      "$1 (on her great penances)"
+     ],
+     [
+      " Of The Order Of The Preach(?:ers|ing Order)( When He Was (?:Bible Reader At Florence|in Genoa))?",
+      ""
+     ],
+     [
+      " [Oo]f the Order of the Preach(?:ers|ing Order)",
+      ""
+     ],
+     [
+      " [Oo]f the Hermit Brothers [Oo]f (?:Saint|St\\.) Augustine.*$",
+      ""
+     ],
+     [
+      ", Doctor In Decretals \\(Written In Trance\\)",
+      ", Doctor in Decretals (written in trance)"
+     ],
+     [
+      " [Ww]ho (?:was|Was) .*$",
+      ""
+     ],
+     [
+      " [Cc]lothed [Ww]ith .*$",
+      ""
+     ],
+     [
+      " [Ww]ho [Nn]ot .*$",
+      ""
+     ],
+     [
+      " [Ww]ho [Ww]as .*$",
+      ""
+     ],
+     [
+      ", [Aa]t [Ww]hose .*$",
+      ""
+     ],
+     [
+      " [Ww]hen (?:she|She|he|He|the|The) .*$",
+      ""
+     ],
+     [
+      " [Ww]hile [Ss]he .*$",
+      ""
+     ],
+     [
+      " [Aa]t [Ll]ecceto.*$",
+      ""
+     ],
+     [
+      " [Ww]ho [Hh]ad .*$",
+      ""
+     ],
+     [
+      " [Nn]un [Ii]n .*$",
+      ""
+     ],
+     [
+      " [Ww]ho [Ww]ere .*$",
+      ""
+     ],
+     [
+      "\\bWritten From Rocca D' ?orcia",
+      "written from Rocca d'Orcia"
+     ],
+     [
+      " Who Was Shocked.*$",
+      ""
+     ],
+     [
+      " and [Hh]ead [Oo]f .*$",
+      ""
+     ],
+     [
+      " In The Monastery .*$",
+      ""
+     ],
+     [
+      " Who Had Been Invited.*$",
+      ""
+     ],
+     [
+      " (A|a) [Ll]ittle [Mm]aid.*$",
+      ""
+     ],
+     [
+      " [Hh]er [Nn]iece At .*$",
+      " her niece"
+     ],
+     [
+      " Who Being.*$",
+      ""
+     ],
+     [
+      "D'orcia",
+      "d'Orcia"
+     ],
+     [
+      "^Letters Written from",
+      "Letters written from"
+     ]
+    ],
+    "lowerSmallWords": true
    }
   },
   {
@@ -3536,9 +3778,49 @@
     "file": "gutenberg_27435.txt",
     "sourceName": "Project Gutenberg (ebook #27435)",
     "sourceUrl": "https://www.gutenberg.org/ebooks/27435",
-    "heading": "^\\u0000$",
-    "introTitle": "The Faith of Our Fathers",
-    "partWords": 4000
+    "start": "^DEDICATION\\.$",
+    "end": "^INDEX\\.$",
+    "introTitle": "Dedication",
+    "groupHeading": "^Chapter [IVXL]+\\.$",
+    "groupTitleLines": 2,
+    "groupIntro": "Introduction",
+    "heading": "^(?:PREFACE[A-Z -]*\\.|INTRODUCTION\\.|[IVX]{1,3}\\. [A-Z][a-z]+,? [A-Z][a-z]+.*[.?])$",
+    "bareHeading": "^(?:PREFACE|INTRODUCTION|[IVX]+\\.)",
+    "lowerSmallWords": true,
+    "fixTitles": [
+     [
+      "^(Chapter [IVXL]+ — .*) — Introduction$",
+      "$1"
+     ],
+     [
+      "^Chapter XIV — .*? As a Model — ",
+      "Chapter XIV — The Blessed Virgin Mary — "
+     ],
+     [
+      "Chapter XIX — .*$",
+      "Chapter XIX — Grace and the Sacraments: Original Sin and Baptism"
+     ],
+     [
+      "The Incarnation, Etc$",
+      "the Incarnation"
+     ],
+     [
+      "CIVIL and",
+      "Civil and"
+     ],
+     [
+      "Blessed Trinity, The",
+      "Blessed Trinity and"
+     ],
+     [
+      "Trinity, the Incarnation, Etc$",
+      "Trinity and the Incarnation"
+     ],
+     [
+      "Trinity, The Incarnation, Etc$",
+      "Trinity and the Incarnation"
+     ]
+    ]
    }
   }
  ],
