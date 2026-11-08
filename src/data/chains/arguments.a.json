@@ -18,7 +18,7 @@
       {
         "kind": "scripture", "label": "1 Corinthians 11:27-29", "when": "c. 55", "year": 55, "ref": "1CO.11.27-29",
         "quote": "will be guilty of the body and the blood of the Lord",
-        "note": "Paul warns that profaning the bread and cup makes a person guilty of the Lord's own body and blood, which makes no sense if they were only symbols."
+        "note": "Paul warns that profaning the bread and cup makes a person guilty of the Lord's own body and blood, which the Church reads as showing they are more than ordinary bread and wine."
       },
       {
         "kind": "father", "label": "Irenaeus, Against Heresies 5.2", "when": "c. 180", "year": 180, "work": "irenaeus-heresies", "section": "ix.vii.iii",
@@ -183,7 +183,7 @@
         "note": "Nicaea confesses that the Son is truly God and of one substance with the Father."
       },
       {
-        "kind": "father", "label": "Athanasius, Against the Arians 1", "when": "c. 358", "year": 358, "work": "athanasius-arians", "section": "xxi.ii.i",
+        "kind": "father", "label": "Athanasius, Against the Arians 1", "when": "c. 340-360", "year": 358, "work": "athanasius-arians", "section": "xxi.ii.i",
         "quote": "the Triad is not originated; but there is an eternal and one Godhead in a Triad, and there is one Glory of the Holy Triad.",
         "note": "Athanasius defends the unity of the Godhead while confessing the Triad."
       },
@@ -215,7 +215,7 @@
         "a": "No. Christians confess one God, one divine nature, and three Persons who are really distinct by their relations. Gregory of Nyssa answers the charge by condemning anyone who teaches three Gods.",
         "steps": [
           {
-            "kind": "father", "label": "Gregory of Nyssa, Against Eunomius", "when": "c. 380", "year": 380, "work": "gregory-nyssa-dogmatic", "section": "viii.iv",
+            "kind": "father", "label": "Gregory of Nyssa, On the Holy Trinity (to Eustathius)", "when": "c. 380", "year": 380, "work": "gregory-nyssa-dogmatic", "section": "viii.iv",
             "quote": "we anathematize any man who says that there are three Gods, and hold him to be not even a Christian",
             "note": "Gregory rejects tritheism in the strongest terms."
           }
@@ -257,14 +257,14 @@
         "note": "Ignatius, a bishop who knew the apostles' generation, calls Christ God existing in flesh."
       },
       {
-        "kind": "father", "label": "Pliny's report on Christians, in Eusebius, Church History 3", "when": "c. 112", "year": 112, "work": "eusebius-history", "section": "iii.viii",
+        "kind": "father", "label": "Pliny the Younger to Trajan (c. 112), quoted in Eusebius, Church History 3.33", "when": "c. 112", "year": 112, "work": "eusebius-history", "section": "iii.viii",
         "quote": "to sing responsively a song unto Christ as God",
-        "note": "A Roman governor, writing as an outsider, reports that Christians sang to Christ as to a god."
+        "note": "Pliny, a Roman governor writing as an outsider, reports that Christians sang a hymn to Christ as to a god."
       },
       {
         "kind": "father", "label": "Origen, Against Celsus", "when": "c. 248", "year": 248, "work": "origen-celsus", "section": "vi.ix.viii",
         "quote": "we worship with all our power the one God, and His only Son, the Word and the Image of God",
-        "note": "Origen explains to a pagan critic that Christians worship the Son together with the Father."
+        "note": "Origen tells a pagan critic that Christians worship the Son, the Word and Image of God, together with the one God, though his own account of how the Son relates to the Father was still unsettled before Nicaea."
       },
       {
         "kind": "council", "label": "Council of Nicaea, Creed", "when": "325", "year": 325, "work": "council-nicaea-1", "section": "vii.iii",
@@ -310,7 +310,7 @@
         "a": "If the Son were a creature, worship of him would be idolatry and he could not save us as God. Athanasius argued that the Son must have all that belongs to the Father, apart from being the Father.",
         "steps": [
           {
-            "kind": "father", "label": "Athanasius, Against the Arians 1", "when": "c. 358", "year": 358, "work": "athanasius-arians", "section": "xxi.ii.i",
+            "kind": "father", "label": "Athanasius, Against the Arians 1", "when": "c. 340-360", "year": 358, "work": "athanasius-arians", "section": "xxi.ii.i",
             "quote": "The Father is eternal, immortal, powerful, light, King, Sovereign, God, Lord, Creator, and Maker.",
             "note": "Athanasius lists the attributes of the Father and argues that the Son, as his Image, must share them."
           }
@@ -336,14 +336,14 @@
         "note": "Ignatius already speaks of Christ as both of Mary and of God, the same Person on both sides."
       },
       {
-        "kind": "council", "label": "Cyril of Alexandria, Second Letter to Nestorius", "when": "430", "year": 430, "work": "council-ephesus", "section": "x.viii",
+        "kind": "council", "label": "Cyril of Alexandria, Third Letter to Nestorius", "when": "430", "year": 430, "work": "council-ephesus", "section": "x.viii",
         "quote": "since the holy Virgin brought forth corporally God made one with flesh according to nature, for this reason we also call her Mother of God, not as if the nature of the Word had the beginning of its existence from the flesh.",
-        "note": "Cyril, whose letter Ephesus approved, explains the title and excludes the idea that Mary is the source of the Word's divinity."
+        "note": "Cyril explains the title: Mary is called Mother of God because the Word united flesh to himself in her womb, not because the Word's divine nature began from her."
       },
       {
-        "kind": "council", "label": "Council of Ephesus, Anathema 1", "when": "431", "year": 431, "work": "council-ephesus", "section": "x.ix",
+        "kind": "council", "label": "Cyril of Alexandria, First Anathema (Third Letter to Nestorius)", "when": "431", "year": 431, "work": "council-ephesus", "section": "x.ix",
         "quote": "If anyone will not confess that the Emmanuel is very God, and that therefore the Holy Virgin is the Mother of God",
-        "note": "Ephesus makes the title a mark of right faith about who Jesus is."
+        "note": "Cyril makes the title a test of right faith about who Jesus is; the Council of Ephesus (431) upheld it by approving his Second Letter and condemning Nestorius."
       },
       {
         "kind": "council", "label": "Council of Chalcedon, Definition", "when": "451", "year": 451, "work": "council-chalcedon", "section": "xi.xiii",
@@ -375,10 +375,10 @@
       },
       {
         "q": "Doesn't this make Mary a goddess, or the origin of God?",
-        "a": "No. The Church says the Word has no beginning, and the title speaks of the one who was born from her, not of the divine nature. Cyril states in the same letter that the Word did not receive his existence from the Virgin.",
+        "a": "No. The Church says the Word has no beginning, and the title speaks of the one who was born from her, not of the divine nature. Cyril states in his Second Letter to Nestorius, which Ephesus approved, that the Word did not receive his divinity from the Virgin.",
         "steps": [
           {
-            "kind": "council", "label": "Cyril of Alexandria, Letter to Nestorius", "when": "430", "year": 430, "work": "council-ephesus", "section": "x.v",
+            "kind": "council", "label": "Cyril of Alexandria, Second Letter to Nestorius", "when": "430", "year": 430, "work": "council-ephesus", "section": "x.v",
             "quote": "not as if the nature of the Word or his divinity had its beginning from the holy Virgin, but because of her was born that holy body with a rational soul",
             "note": "Cyril marks the limits of the title: Mary is the mother of the Word's humanity in one Person, not of his divinity."
           }
@@ -389,7 +389,7 @@
         "a": "The word became a test of faith only in 431, but Cyril said that earlier Fathers had used it, and Ignatius in about 110 spoke of Christ as both of Mary and of God. Luke 1:43 gives the root of the idea.",
         "steps": [
           {
-            "kind": "council", "label": "Cyril of Alexandria, Letter to Nestorius", "when": "430", "year": 430, "work": "council-ephesus", "section": "x.v",
+            "kind": "council", "label": "Cyril of Alexandria, Second Letter to Nestorius", "when": "430", "year": 430, "work": "council-ephesus", "section": "x.v",
             "quote": "This was the sentiment of the holy Fathers; therefore they ventured to call the holy Virgin, the Mother of God",
             "note": "Cyril appeals to the earlier Fathers, as the title was already in use before the dispute."
           }
@@ -402,7 +402,7 @@
     "id": "infant-baptism",
     "title": "Why Baptize Infants?",
     "question": "Why baptize infants?",
-    "summary": "The Church baptizes infants because baptism is a gift of grace that does not depend on what a person can do. The practice follows Christ's welcome of children and the apostles' baptism of whole households, and by the third century it was so firmly established that bishops debated only how soon after birth it should be given.",
+    "summary": "The Church baptizes infants because baptism is a gift of grace that does not depend on what a person can do. The practice follows Christ's welcome of children and the apostles' baptism of whole households, and by the third century the practice was well attested. When Cyprian's council of bishops was asked in about 253 whether to wait until the eighth day, it answered that no child should be kept from baptism (a few writers, such as Tertullian, had urged delay).",
     "steps": [
       {
         "kind": "scripture", "label": "Luke 18:15-16", "when": "c. 60", "year": 60, "ref": "LUK.18.15-16",
@@ -422,7 +422,7 @@
       {
         "kind": "scripture", "label": "Acts 16:33", "when": "c. 63", "year": 63, "ref": "ACT.16.33",
         "quote": "was immediately baptized, he and all his household.",
-        "note": "Whole households are baptized together, which probably included children."
+        "note": "Whole households are baptized together; the text does not say whether children were among them, but the Church has read these accounts as consistent with the baptism of children."
       },
       {
         "kind": "father", "label": "Cyprian, Letter 58 to Fidus", "when": "c. 253", "year": 253, "work": "cyprian", "section": "iv.iv.lviii",
@@ -432,7 +432,7 @@
       {
         "kind": "father", "label": "Augustine, Merits and Forgiveness of Sins and Baptism of Infants", "when": "412", "year": 412, "work": "aug-pelagian", "section": "x.iii",
         "quote": "by examining the Scriptures, and considering the authority of the whole Church as well as the form of the sacrament itself, have clearly seen that by baptism remission of sins accrues to infants",
-        "note": "Augustine appeals to Scripture and the practice of the whole Church, which both sides in the controversy accepted."
+        "note": "Augustine notes that even some of his opponents, looking at Scripture, the authority of the whole Church and the form of the sacrament, admit that baptism remits sin in infants; they refuse only to call that sin original."
       },
       {
         "kind": "council", "label": "Council of Trent, Session 5", "when": "1546", "year": 1546, "work": "trent-canons-decrees", "section": "s5",
@@ -459,7 +459,7 @@
       },
       {
         "q": "Babies haven't sinned, so what do they need baptism for?",
-        "a": "The Church does not say infants have committed personal sins. Baptism frees them from the effects of the sin of Adam and makes them children of God. Paul teaches that sin entered the world through one man and that death has spread to all.",
+        "a": "The Church does not say infants have committed personal sins. Original sin is contracted, not committed: a lack of the holiness and justice God intended. Baptism takes that sin away and makes the child a child of God, though its consequences, such as suffering and death, remain. Paul teaches that sin entered the world through one man and that death has spread to all.",
         "steps": [
           {
             "kind": "catechism", "label": "Catechism of the Catholic Church 1250", "when": "1992", "year": 1992, "ccc": 1250,

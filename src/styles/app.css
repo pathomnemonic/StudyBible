@@ -5662,3 +5662,6 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
   .gl-row.side-right .gl-verse{grid-column:1;grid-row:1}.gl-row.side-right .gl-note-wide{grid-column:2;grid-row:1}
   .gl-note-narrow{display:none}
 }
+.gl-long summary{cursor:pointer;list-style:none}.gl-long summary::-webkit-details-marker{display:none}
+.gl-more{color:var(--accent,#7a5);text-decoration:underline;white-space:nowrap}
+.gl-long[open] summary{display:none}

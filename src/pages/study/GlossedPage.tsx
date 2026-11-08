@@ -8,7 +8,14 @@ import { convertRef } from '../../lib/versification';
 import ShareLinkButton from '../../components/ShareLinkButton';
 
 interface Gloss { en: string; la?: string }
+const LONG = 700;
 const strip = (t: string) => t.replace(/^\d+\.\d+\s*/, '');
+
+function Note({ g, latin }: { g: Gloss; latin: boolean }) {
+  const body = <>{g.en}{latin && g.la && <span className="gl-la" lang="la">{g.la}</span>}</>;
+  if (g.en.length <= LONG) return <p>{body}</p>;
+  return <details className="gl-long"><summary>{g.en.slice(0, 260).replace(/\s+\S*$/, '')}… <span className="gl-more">Read the whole gloss</span></summary><p>{body}</p></details>;
+}
 
 /** A chapter laid out like a medieval glossed Bible: the sacred text at the centre, the Glossa Ordinaria in the margins, notes alternating left and right. */
 export default function GlossedPage() {
@@ -63,12 +70,12 @@ export default function GlossedPage() {
             const side = (i + (ns.length ? 0 : 1)) % 2 === 0 ? 'left' : 'right';
             return (
               <div key={v.n} className={`gl-row${ns.length ? ' has-note' : ''} side-${side}`}>
-                {ns.length > 0 && <aside className="gl-note gl-note-wide" aria-label={`Gloss on verse ${v.n}`}>{ns.map((g, k) => <p key={k}>{g.en}{latin && g.la && <span className="gl-la" lang="la">{g.la}</span>}</p>)}</aside>}
+                {ns.length > 0 && <aside className="gl-note gl-note-wide" aria-label={`Gloss on verse ${v.n}`}>{ns.map((g, k) => <Note key={k} g={g} latin={latin} />)}</aside>}
                 <p className="gl-verse"><span className="gl-num">{v.n}</span> {v.text}</p>
                 {ns.length > 0 && (
                   <div className="gl-note gl-note-narrow">
                     <button className="gl-toggle" aria-expanded={!!open[v.n]} onClick={() => setOpen((o) => ({ ...o, [v.n]: !o[v.n] }))}>{open[v.n] ? 'Hide the gloss' : 'The gloss'}</button>
-                    {open[v.n] && ns.map((g, k) => <p key={k}>{g.en}{latin && g.la && <span className="gl-la" lang="la">{g.la}</span>}</p>)}
+                    {open[v.n] && ns.map((g, k) => <Note key={k} g={g} latin={latin} />)}
                   </div>
                 )}
               </div>
