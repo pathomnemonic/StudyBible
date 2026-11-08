@@ -1,0 +1,1638 @@
+[
+ {
+  "id": "prayer-b001",
+  "d": 1,
+  "q": "Why is the Hail Mary also called the Angelical Salutation?",
+  "o": [
+   "Because only angels may recite it",
+   "Because an angel wrote it for the apostles",
+   "Because Saint Michael composed it",
+   "Because it was given by an angel"
+  ],
+  "a": 3,
+  "why": "The first words of the Hail Mary are the greeting of the angel Gabriel, so it is called Angelical.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 29",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "This salutation is called Angelical because it was given by an angel.",
+   "note": "The first words of the Hail Mary are the greeting of the angel Gabriel, so it is called Angelical."
+  }
+ },
+ {
+  "id": "prayer-b002",
+  "d": 1,
+  "q": "In what form of prayer is the Hail Mary most frequently repeated?",
+  "o": [
+   "The Divine Office",
+   "The Confiteor",
+   "The Rosary",
+   "The Stations of the Cross"
+  ],
+  "a": 2,
+  "why": "The Baltimore Catechism says the Hail Mary is most frequently repeated in the recitation of the Rosary or beads.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 42",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "The \"Hail Mary\" is most frequently repeated in the recitation of the rosary or beads.",
+   "note": "The Baltimore Catechism says the Hail Mary is most frequently repeated in the recitation of the Rosary or beads."
+  }
+ },
+ {
+  "id": "prayer-b003",
+  "d": 1,
+  "q": "The Baltimore Catechism says the Angelus gives a brief history of which mystery?",
+  "o": [
+   "The Resurrection",
+   "The Incarnation",
+   "The Ascension",
+   "The Last Judgment"
+  ],
+  "a": 1,
+  "why": "The Angelus is a prayer giving a brief history of the Incarnation.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 43",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "The Angelus is a prayer giving a brief history of the Incarnation.",
+   "note": "The Angelus is a prayer giving a brief history of the Incarnation."
+  }
+ },
+ {
+  "id": "prayer-b004",
+  "d": 1,
+  "q": "Each decade of the Rosary consists of an Our Father and how many Hail Marys?",
+  "o": [
+   "Three",
+   "Ten",
+   "Five",
+   "Fifteen"
+  ],
+  "a": 1,
+  "why": "Each decade is one Our Father and ten Hail Marys, said while meditating on a mystery.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1080",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "before each Our Father and ten Hail Marys",
+   "note": "Each decade is one Our Father and ten Hail Marys, said while meditating on a mystery."
+  }
+ },
+ {
+  "id": "prayer-b005",
+  "d": 1,
+  "q": "Which event is the first of the Sorrowful Mysteries of the Rosary?",
+  "o": [
+   "The Agony in the Garden",
+   "The Scourging at the Pillar",
+   "The Crowning with Thorns",
+   "The Carrying of the Cross"
+  ],
+  "a": 0,
+  "why": "The Sorrowful Mysteries begin with the Agony in the Garden.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1085",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "The Agony in the Garden--Our Lord was in dreadful anguish and bathed in a bloody sweat",
+   "note": "The Sorrowful Mysteries begin with the Agony in the Garden."
+  }
+ },
+ {
+  "id": "prayer-b006",
+  "d": 1,
+  "q": "The Baltimore Catechism names two kinds of prayer. What are they?",
+  "o": [
+   "Private prayer and public worship",
+   "Morning prayer and evening prayer",
+   "Prayer of petition and prayer of praise",
+   "Mental prayer and vocal prayer"
+  ],
+  "a": 3,
+  "why": "Mental prayer is meditation; vocal prayer expresses pious thoughts in words.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1100",
+   "work": "baltimore-catechism",
+   "section": "s29",
+   "quote": "There are two kinds of prayer: (1) Mental prayer, called meditation",
+   "note": "Mental prayer is meditation; vocal prayer expresses pious thoughts in words."
+  }
+ },
+ {
+  "id": "prayer-b007",
+  "d": 1,
+  "q": "What does the Baltimore Catechism call the most suitable place for prayer?",
+  "o": [
+   "A mountain top",
+   "A quiet garden",
+   "The church",
+   "A pilgrim road"
+  ],
+  "a": 2,
+  "why": "The church, the house of prayer, is made holy by special blessings and especially by the Real Presence in the tabernacle.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1123",
+   "work": "baltimore-catechism",
+   "section": "s29",
+   "quote": "The most suitable place for prayer is in the Church",
+   "note": "The church, the house of prayer, is made holy by special blessings and especially by the Real Presence in the tabernacle."
+  }
+ },
+ {
+  "id": "prayer-b008",
+  "d": 1,
+  "q": "Complete Jesus' promise: \"Where two or three are gathered together in my name, there I am in the ___ of them.\"",
+  "o": [
+   "sight",
+   "hearing",
+   "middle",
+   "care"
+  ],
+  "a": 2,
+  "why": "Jesus promises his presence to those who gather in his name, a promise that grounds common prayer.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 18:20",
+   "ref": "MAT.18.20",
+   "quote": "where two or three are gathered together in my name, there I am in the middle of them",
+   "note": "Jesus promises his presence to those who gather in his name, a promise that grounds common prayer."
+  }
+ },
+ {
+  "id": "prayer-b009",
+  "d": 1,
+  "q": "Who asked Jesus, \"Lord, teach us to pray\"?",
+  "o": [
+   "A Pharisee of the city",
+   "One of his disciples",
+   "A scribe of the Law",
+   "A crowd on the hillside"
+  ],
+  "a": 1,
+  "why": "After Jesus finished praying, one of his disciples asked him to teach them to pray.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 11:1",
+   "ref": "LUK.11.1",
+   "quote": "one of his disciples said to him, “Lord, teach us to pray",
+   "note": "After Jesus finished praying, one of his disciples asked him to teach them to pray."
+  }
+ },
+ {
+  "id": "prayer-b010",
+  "d": 1,
+  "q": "Where does Jesus tell us to go when we pray, so as to pray to the Father in secret?",
+  "o": [
+   "Into our inner room, with the door shut",
+   "Into the synagogue on the Sabbath day",
+   "To the street corner where crowds gather",
+   "Up to the Temple at the hour of prayer"
+  ],
+  "a": 0,
+  "why": "Jesus teaches us to enter our inner room, shut the door and pray to our Father in secret.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 6:6",
+   "ref": "MAT.6.6",
+   "quote": "enter into your inner room, and having shut your door, pray to your Father who is in secret",
+   "note": "Jesus teaches us to enter our inner room, shut the door and pray to our Father in secret."
+  }
+ },
+ {
+  "id": "prayer-b011",
+  "d": 1,
+  "q": "When did Jesus rise and go out to a deserted place to pray, according to Mark 1?",
+  "o": [
+   "At noon on the Sabbath day, before the crowds",
+   "Late at night after the evening supper",
+   "At sunset on the day of Preparation",
+   "Early in the morning, while it was still dark"
+  ],
+  "a": 3,
+  "why": "Mark shows Jesus rising before dawn to pray alone.",
+  "src": {
+   "kind": "scripture",
+   "label": "Mark 1:35",
+   "ref": "MRK.1.35",
+   "quote": "Early in the morning, while it was still dark, he rose up and went out, and departed into a deserted place, and prayed there.",
+   "note": "Mark shows Jesus rising before dawn to pray alone."
+  }
+ },
+ {
+  "id": "prayer-b012",
+  "d": 1,
+  "q": "Complete Paul's advice: \"In everything, by prayer and petition with ___, let your requests be made known to God.\"",
+  "o": [
+   "fasting and tears",
+   "great patience",
+   "humble sorrow",
+   "thanksgiving"
+  ],
+  "a": 3,
+  "why": "Paul tells the Philippians to bring their requests to God with thanksgiving.",
+  "src": {
+   "kind": "scripture",
+   "label": "Philippians 4:6",
+   "ref": "PHP.4.6",
+   "quote": "in everything, by prayer and petition with thanksgiving, let your requests be made known to God",
+   "note": "Paul tells the Philippians to bring their requests to God with thanksgiving."
+  }
+ },
+ {
+  "id": "prayer-b013",
+  "d": 1,
+  "q": "Who joined the apostles in prayer in the days before Pentecost?",
+  "o": [
+   "Mary Magdalene and Salome",
+   "John the Baptist's mother",
+   "Mary the mother of Jesus",
+   "Nicodemus and Joseph of Arimathea"
+  ],
+  "a": 2,
+  "why": "Acts says the apostles continued in prayer along with the women and Mary the mother of Jesus.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 1:14",
+   "ref": "ACT.1.14",
+   "quote": "along with the women and Mary the mother of Jesus",
+   "note": "Acts says the apostles continued in prayer along with the women and Mary the mother of Jesus."
+  }
+ },
+ {
+  "id": "prayer-b014",
+  "d": 1,
+  "q": "Complete the psalm: \"Praise the LORD, my ___!\"",
+  "o": [
+   "heart",
+   "soul",
+   "people",
+   "king"
+  ],
+  "a": 1,
+  "why": "Psalm 103 begins with the call to praise the LORD with one's whole soul.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 103:1",
+   "ref": "PSA.103.1",
+   "quote": "Praise the LORD, my soul!",
+   "note": "Psalm 103 begins with the call to praise the LORD with one's whole soul."
+  }
+ },
+ {
+  "id": "prayer-b015",
+  "d": 1,
+  "q": "Complete Psalm 5: \"LORD, in the ___ you will hear my voice.\"",
+  "o": [
+   "morning",
+   "evening",
+   "midnight",
+   "desert"
+  ],
+  "a": 0,
+  "why": "The psalmist offers his prayer at dawn, a verse often used in morning prayer.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 5:3",
+   "ref": "PSA.5.3",
+   "quote": "LORD, in the morning you will hear my voice.",
+   "note": "The psalmist offers his prayer at dawn, a verse often used in morning prayer."
+  }
+ },
+ {
+  "id": "prayer-b016",
+  "d": 1,
+  "q": "Complete the last verse of the Psalter: \"Let everything that has breath praise the ___!\"",
+  "o": [
+   "LORD",
+   "king",
+   "earth",
+   "name"
+  ],
+  "a": 0,
+  "why": "Psalm 150 ends the Psalter with a call for every living thing to praise the LORD.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 150:6",
+   "ref": "PSA.150.6",
+   "quote": "Let everything that has breath praise the LORD!",
+   "note": "Psalm 150 ends the Psalter with a call for every living thing to praise the LORD."
+  }
+ },
+ {
+  "id": "prayer-b017",
+  "d": 1,
+  "q": "Complete Psalm 118: \"This is the day that the LORD has ___.\"",
+  "o": [
+   "given",
+   "blessed",
+   "chosen",
+   "made"
+  ],
+  "a": 3,
+  "why": "The psalm proclaims the day that the LORD has made, a verse the Church sings with Easter joy.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 118:24",
+   "ref": "PSA.118.24",
+   "quote": "This is the day that the LORD has made.",
+   "note": "The psalm proclaims the day that the LORD has made, a verse the Church sings with Easter joy."
+  }
+ },
+ {
+  "id": "prayer-b018",
+  "d": 1,
+  "q": "Complete Psalm 121: \"I will lift up my eyes to the ___.\"",
+  "o": [
+   "heavens",
+   "stars",
+   "hills",
+   "temple"
+  ],
+  "a": 2,
+  "why": "The pilgrim psalm opens with eyes lifted to the hills, asking where help comes from.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 121:1",
+   "ref": "PSA.121.1",
+   "quote": "I will lift up my eyes to the hills.",
+   "note": "The pilgrim psalm opens with eyes lifted to the hills, asking where help comes from."
+  }
+ },
+ {
+  "id": "prayer-b019",
+  "d": 1,
+  "q": "Hebrews invites us to draw near with boldness to the throne of what?",
+  "o": [
+   "Judgment",
+   "Grace",
+   "Glory",
+   "Majesty"
+  ],
+  "a": 1,
+  "why": "We approach in prayer with boldness to the throne of grace to receive mercy and find help.",
+  "src": {
+   "kind": "scripture",
+   "label": "Hebrews 4:16",
+   "ref": "HEB.4.16",
+   "quote": "draw near with boldness to the throne of grace",
+   "note": "We approach in prayer with boldness to the throne of grace to receive mercy and find help."
+  }
+ },
+ {
+  "id": "prayer-b020",
+  "d": 1,
+  "q": "What were Jesus' last words on the Cross, according to Luke?",
+  "o": [
+   "It is finished, and he bowed his head",
+   "Father, into your hands I commit my spirit",
+   "I thirst, and he received the sour wine",
+   "My God, my God, why have you forsaken me"
+  ],
+  "a": 1,
+  "why": "Luke records this prayer from Psalm 31, spoken with a loud voice before Jesus breathed his last.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 23:46",
+   "ref": "LUK.23.46",
+   "quote": "Father, into your hands I commit my spirit!",
+   "note": "Luke records this prayer from Psalm 31, spoken with a loud voice before Jesus breathed his last."
+  }
+ },
+ {
+  "id": "prayer-b021",
+  "d": 1,
+  "q": "Complete Jesus' warning to his disciples: \"Watch and pray, that you don't enter into ___.\"",
+  "o": [
+   "temptation",
+   "trial and judgment",
+   "deep sorrow",
+   "grave danger"
+  ],
+  "a": 0,
+  "why": "Jesus links prayer with watchfulness against temptation, as in the sixth petition of the Our Father.",
+  "src": {
+   "kind": "scripture",
+   "label": "Matthew 26:41",
+   "ref": "MAT.26.41",
+   "quote": "Watch and pray, that you don’t enter into temptation.",
+   "note": "Jesus links prayer with watchfulness against temptation, as in the sixth petition of the Our Father."
+  }
+ },
+ {
+  "id": "prayer-b022",
+  "d": 1,
+  "q": "According to James, what should we do for one another so that we may be healed?",
+  "o": [
+   "Fast",
+   "Sing",
+   "Teach",
+   "Pray"
+  ],
+  "a": 3,
+  "why": "James urges believers to confess sins to one another and pray for one another.",
+  "src": {
+   "kind": "scripture",
+   "label": "James 5:16",
+   "ref": "JAS.5.16",
+   "quote": "Confess your sins to one another and pray for one another, that you may be healed.",
+   "note": "James urges believers to confess sins to one another and pray for one another."
+  }
+ },
+ {
+  "id": "prayer-b023",
+  "d": 1,
+  "q": "Which of these does the Catechism name among the daily rhythms of prayer?",
+  "o": [
+   "A monthly day of silence and fasting",
+   "An annual novena before Pentecost",
+   "Grace before and after meals",
+   "A weekly pilgrimage to a shrine"
+  ],
+  "a": 2,
+  "why": "The Church proposes daily rhythms such as morning and evening prayer, grace before and after meals, and the Liturgy of the Hours.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2698",
+   "ccc": 2698,
+   "quote": "Some are daily, such as morning and evening prayer, grace before and after meals, the Liturgy of the Hours.",
+   "note": "The Church proposes daily rhythms such as morning and evening prayer, grace before and after meals, and the Liturgy of the Hours."
+  }
+ },
+ {
+  "id": "prayer-b024",
+  "d": 1,
+  "q": "Which devotion traces the way from the Praetorium to Golgotha and the tomb?",
+  "o": [
+   "The Angelus said at noon each day",
+   "Eucharistic Adoration before the monstrance",
+   "The Stations of the Cross",
+   "The Divine Mercy chaplet on rosary beads"
+  ],
+  "a": 2,
+  "why": "Christian prayer loves to follow the way of the cross; the stations trace the way of Jesus.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2669",
+   "ccc": 2669,
+   "quote": "the stations from the Praetorium to Golgotha and the tomb trace the way of Jesus",
+   "note": "Christian prayer loves to follow the way of the cross; the stations trace the way of Jesus."
+  }
+ },
+ {
+  "id": "prayer-b025",
+  "d": 1,
+  "q": "What does the Baltimore Catechism call little prayers such as \"Holy Spirit, enlighten me\" that we can say even at work?",
+  "o": [
+   "Litany prayers",
+   "Aspirations",
+   "Novena prayers",
+   "Rosary decades"
+  ],
+  "a": 1,
+  "why": "Short aspirations lift the mind to God in the middle of daily work.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1119",
+   "work": "baltimore-catechism",
+   "section": "s29",
+   "quote": "Even at work we may say little aspirations such as",
+   "note": "Short aspirations lift the mind to God in the middle of daily work."
+  }
+ },
+ {
+  "id": "prayer-b026",
+  "d": 1,
+  "q": "How did Our Lord sometimes spend a whole night, according to the Baltimore Catechism?",
+  "o": [
+   "In prayer",
+   "In fasting",
+   "In teaching",
+   "In healing"
+  ],
+  "a": 0,
+  "why": "The Baltimore Catechism says our Lord very frequently prayed, often spending the whole night in prayer, to set us an example.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1120",
+   "work": "baltimore-catechism",
+   "section": "s29",
+   "quote": "Our Lord Himself very frequently prayed, often spending the whole night in prayer.",
+   "note": "The Baltimore Catechism says our Lord very frequently prayed, often spending the whole night in prayer, to set us an example."
+  }
+ },
+ {
+  "id": "prayer-b027",
+  "d": 1,
+  "q": "Complete the opening of Mary's song: \"My spirit has rejoiced in God my ___.\"",
+  "o": [
+   "Maker",
+   "King",
+   "Shepherd",
+   "Savior"
+  ],
+  "a": 3,
+  "why": "The Magnificat begins with Mary's rejoicing in God her Savior.",
+  "src": {
+   "kind": "scripture",
+   "label": "Luke 1:46-47",
+   "ref": "LUK.1.46-47",
+   "quote": "My spirit has rejoiced in God my Savior",
+   "note": "The Magnificat begins with Mary's rejoicing in God her Savior."
+  }
+ },
+ {
+  "id": "prayer-b028",
+  "d": 1,
+  "q": "While Peter was in prison, what did the assembly make to God for him?",
+  "o": [
+   "A solemn public vow",
+   "A pilgrimage to Rome",
+   "A collection of alms",
+   "Constant prayer"
+  ],
+  "a": 3,
+  "why": "Acts says constant prayer was made by the assembly to God for Peter.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 12:5",
+   "ref": "ACT.12.5",
+   "quote": "constant prayer was made by the assembly to God for him",
+   "note": "Acts says constant prayer was made by the assembly to God for Peter."
+  }
+ },
+ {
+  "id": "prayer-b029",
+  "d": 1,
+  "q": "In what must true worshipers worship God, according to John 4:24?",
+  "o": [
+   "Fear and trembling",
+   "Silence and fasting",
+   "Spirit and truth",
+   "Joy and song"
+  ],
+  "a": 2,
+  "why": "Jesus says that God is spirit and those who worship him must worship in spirit and truth.",
+  "src": {
+   "kind": "scripture",
+   "label": "John 4:24",
+   "ref": "JHN.4.24",
+   "quote": "those who worship him must worship in spirit and truth",
+   "note": "Jesus says that God is spirit and those who worship him must worship in spirit and truth."
+  }
+ },
+ {
+  "id": "prayer-b030",
+  "d": 1,
+  "q": "Complete Jesus' words: \"This kind can come out by nothing but by prayer and ___.\"",
+  "o": [
+   "almsgiving",
+   "fasting",
+   "faith",
+   "patience"
+  ],
+  "a": 1,
+  "why": "Jesus joins prayer with fasting when he speaks of casting out a stubborn demon.",
+  "src": {
+   "kind": "scripture",
+   "label": "Mark 9:29",
+   "ref": "MRK.9.29",
+   "quote": "This kind can come out by nothing but by prayer and fasting.",
+   "note": "Jesus joins prayer with fasting when he speaks of casting out a stubborn demon."
+  }
+ },
+ {
+  "id": "prayer-b031",
+  "d": 1,
+  "q": "Complete Psalm 8: \"LORD, our Lord, how majestic is your name in all the ___!\"",
+  "o": [
+   "earth",
+   "heavens",
+   "world",
+   "land"
+  ],
+  "a": 0,
+  "why": "Psalm 8 begins in praise of the LORD's majestic name in all the earth.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 8:1",
+   "ref": "PSA.8.1",
+   "quote": "how majestic is your name in all the earth",
+   "note": "Psalm 8 begins in praise of the LORD's majestic name in all the earth."
+  }
+ },
+ {
+  "id": "prayer-b032",
+  "d": 1,
+  "q": "Complete Psalm 100: \"Enter into his gates with ___.\"",
+  "o": [
+   "thanksgiving",
+   "trembling",
+   "silence",
+   "burnt offerings"
+  ],
+  "a": 0,
+  "why": "Psalm 100 calls the people to enter the gates of the LORD with thanksgiving.",
+  "src": {
+   "kind": "scripture",
+   "label": "Psalm 100:4",
+   "ref": "PSA.100.4",
+   "quote": "Enter into his gates with thanksgiving",
+   "note": "Psalm 100 calls the people to enter the gates of the LORD with thanksgiving."
+  }
+ },
+ {
+  "id": "prayer-b033",
+  "d": 2,
+  "q": "Why does the Baltimore Catechism call the Our Father the most excellent of all prayers?",
+  "o": [
+   "It is the shortest prayer of the Church",
+   "It was written by the apostle Peter",
+   "It is said only at Mass",
+   "Our Lord made it, and its petitions ask for all we need"
+  ],
+  "a": 3,
+  "why": "The Our Father is the most excellent prayer because Our Lord himself made it and its petitions ask for all we can need for soul or body.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 3",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "The \"Our Father\" is the most excellent of all prayers because Our Lord Himself made it and because its petitions ask for all we can need for soul or body.",
+   "note": "The Our Father is the most excellent prayer because Our Lord himself made it and its petitions ask for all we can need for soul or body."
+  }
+ },
+ {
+  "id": "prayer-b034",
+  "d": 2,
+  "q": "Why do we say \"our\" Father rather than \"my\" Father, according to the Baltimore Catechism?",
+  "o": [
+   "Because only the clergy and religious may say \"my\" to God",
+   "Because the prayer is meant for large groups, not individuals",
+   "Because we are all members of one human family of which God is Father",
+   "Because Jesus never called God his own Father at all"
+  ],
+  "a": 2,
+  "why": "We say \"our\" to remember that we are all members of one human family and should pray for and help one another.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 6",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "We say \"our\" and not \"my\" Father to remind us that through our creation and redemption, we are all members of the great human family of which God is the Father",
+   "note": "We say \"our\" to remember that we are all members of one human family and should pray for and help one another."
+  }
+ },
+ {
+  "id": "prayer-b035",
+  "d": 2,
+  "q": "In the Baltimore Catechism, what does \"hallowed\" mean in \"Hallowed be Thy name\"?",
+  "o": [
+   "Made greater in power and might",
+   "Set apart for a holy or sacred use",
+   "Kept secret from the unworthy ones",
+   "Spoken aloud only by the priests"
+  ],
+  "a": 1,
+  "why": "Hallowed means set apart for a holy use, and so treated or praised as holy.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 9",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "Hallowed means set apart for a holy or sacred use",
+   "note": "Hallowed means set apart for a holy use, and so treated or praised as holy."
+  }
+ },
+ {
+  "id": "prayer-b036",
+  "d": 2,
+  "q": "In \"forgive us our trespasses,\" what do \"trespasses\" mean, according to the Baltimore Catechism?",
+  "o": [
+   "Debts of money that are owed to others",
+   "Injuries done or offenses given to another",
+   "Breaking the Sabbath rest of the Lord",
+   "Mistakes made by accident or chance"
+  ],
+  "a": 1,
+  "why": "Trespasses mean injuries or offenses, and when God is the person offended they mean sins.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 14",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "\"Trespasses\" mean here injuries done or offenses given to another",
+   "note": "Trespasses mean injuries or offenses, and when God is the person offended they mean sins."
+  }
+ },
+ {
+  "id": "prayer-b037",
+  "d": 2,
+  "q": "Does God tempt us to sin, according to the Baltimore Catechism?",
+  "o": [
+   "No, but he permits us to be tempted",
+   "Yes, in order to test our strength",
+   "Yes, but only those who are proud",
+   "No, and he never allows any temptation"
+  ],
+  "a": 0,
+  "why": "God does not tempt us to sin, but permits temptation to try our fidelity and give us an opportunity to merit.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 19",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "God does not tempt us to sin; but He permits us to be tempted",
+   "note": "God does not tempt us to sin, but permits temptation to try our fidelity and give us an opportunity to merit."
+  }
+ },
+ {
+  "id": "prayer-b038",
+  "d": 2,
+  "q": "According to the Baltimore Catechism, when is temptation sinful?",
+  "o": [
+   "As soon as it first comes to mind",
+   "Only if it happens on Sundays and holy days",
+   "Only if it lasts for a whole day",
+   "When we consent or yield to it"
+  ],
+  "a": 3,
+  "why": "It is not a sin to be tempted; it is sinful only to consent or yield or needlessly expose ourselves to it.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 21",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "It is not a sin to be tempted, because we cannot prevent it.",
+   "note": "It is not a sin to be tempted; it is sinful only to consent or yield or needlessly expose ourselves to it."
+  }
+ },
+ {
+  "id": "prayer-b039",
+  "d": 2,
+  "q": "According to the Baltimore Catechism, what does \"hail\" mean in the Hail Mary?",
+  "o": [
+   "I praise you highly",
+   "I give you my obedience",
+   "I wish you health",
+   "I stand in fear of you"
+  ],
+  "a": 2,
+  "why": "\"Hail\" is an exclamation of respectful greeting meaning, I wish you health.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 30",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "\"Hail\" means, I wish you health.",
+   "note": "\"Hail\" is an exclamation of respectful greeting meaning, I wish you health."
+  }
+ },
+ {
+  "id": "prayer-b040",
+  "d": 2,
+  "q": "The Baltimore Catechism says the second part of the Hail Mary was added by whom?",
+  "o": [
+   "Saint Elizabeth",
+   "The angel Gabriel",
+   "The Church",
+   "Saint Dominic"
+  ],
+  "a": 2,
+  "why": "The first part comes from Gabriel and Elizabeth; the second part, begging Mary's intercession, was added by the Church.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 31",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "The first part, made by the Angel Gabriel and St. Elizabeth, contains the praises of the Mother of God; and the second part, added by the Church",
+   "note": "The first part comes from Gabriel and Elizabeth; the second part, begging Mary's intercession, was added by the Church."
+  }
+ },
+ {
+  "id": "prayer-b041",
+  "d": 2,
+  "q": "At which hour of the Church's prayer is the Magnificat usually sung, according to the Baltimore Catechism?",
+  "o": [
+   "Matins",
+   "Vespers",
+   "Compline",
+   "Prime"
+  ],
+  "a": 1,
+  "why": "The Magnificat, Mary's canticle of praise, is usually sung at Vespers in the Church.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 35",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "It is usually sung at Vespers in the Church.",
+   "note": "The Magnificat, Mary's canticle of praise, is usually sung at Vespers in the Church."
+  }
+ },
+ {
+  "id": "prayer-b042",
+  "d": 2,
+  "q": "In the Litany of the Blessed Virgin, what do we ask after each title?",
+  "o": [
+   "That she pray for us",
+   "That she forgive our sins",
+   "That she hear our confession",
+   "That she bless the Church"
+  ],
+  "a": 0,
+  "why": "In the litany we address Our Lady by many titles, asking her after each to pray for us.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 47",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "asking her after each to pray for us",
+   "note": "In the litany we address Our Lady by many titles, asking her after each to pray for us."
+  }
+ },
+ {
+  "id": "prayer-b043",
+  "d": 2,
+  "q": "What position of the body does the Baltimore Catechism call the most becoming for prayer?",
+  "o": [
+   "Lying face down",
+   "Standing with arms crossed",
+   "Sitting at ease",
+   "Kneeling upright"
+  ],
+  "a": 3,
+  "why": "Kneeling upright is the most becoming position, though other positions that show reverence are allowed.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1108",
+   "work": "baltimore-catechism",
+   "section": "s29",
+   "quote": "At prayer the most becoming position of the body is kneeling upright",
+   "note": "Kneeling upright is the most becoming position, though other positions that show reverence are allowed."
+  }
+ },
+ {
+  "id": "prayer-b044",
+  "d": 2,
+  "q": "According to the Baltimore Catechism, why do we pray, since God knows our needs?",
+  "o": [
+   "To remind him of what we need and want",
+   "To earn payment for our good works",
+   "To inform him of all the troubles we have",
+   "To acknowledge that he is the Supreme Giver"
+  ],
+  "a": 3,
+  "why": "We pray not to remind God but to acknowledge that he is the Supreme Giver and to show our dependence on him.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1118",
+   "work": "baltimore-catechism",
+   "section": "s29",
+   "quote": "We pray not to remind God or tell Him of what we need, but to acknowledge that He is the Supreme Giver",
+   "note": "We pray not to remind God but to acknowledge that he is the Supreme Giver and to show our dependence on him."
+  }
+ },
+ {
+  "id": "prayer-b045",
+  "d": 2,
+  "q": "Why does the Church conclude most of her prayers \"through Jesus Christ Our Lord\"?",
+  "o": [
+   "Because the apostles all used this ending on the day of Pentecost",
+   "Because every one of the Psalms ends in this way",
+   "Because it is only through his merits that we obtain grace",
+   "Because it makes the prayer shorter for the people"
+  ],
+  "a": 2,
+  "why": "Grace comes only through the merits of Christ, and there is no other name given to men whereby we must be saved.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1121",
+   "work": "baltimore-catechism",
+   "section": "s29",
+   "quote": "because it is only through His merits that we can obtain grace",
+   "note": "Grace comes only through the merits of Christ, and there is no other name given to men whereby we must be saved."
+  }
+ },
+ {
+  "id": "prayer-b046",
+  "d": 2,
+  "q": "Which of these is a fruit of prayer, according to the Baltimore Catechism?",
+  "o": [
+   "It guarantees every request",
+   "It keeps us humble",
+   "It replaces the sacraments",
+   "It earns earthly wealth"
+  ],
+  "a": 1,
+  "why": "Prayer strengthens faith, nourishes hope, increases love for God, keeps us humble, merits grace and atones for sin.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1117",
+   "work": "baltimore-catechism",
+   "section": "s29",
+   "quote": "It strengthens our faith, nourishes our hope, increases our love for God, keeps us humble, merits grace and atones for sin.",
+   "note": "Prayer strengthens faith, nourishes hope, increases love for God, keeps us humble, merits grace and atones for sin."
+  }
+ },
+ {
+  "id": "prayer-b047",
+  "d": 2,
+  "q": "In biblical language, the heart is the place to which what?",
+  "o": [
+   "I withdraw",
+   "I confess",
+   "I return",
+   "I pray in public"
+  ],
+  "a": 0,
+  "why": "The heart is the hidden center, the dwelling place where I am and the place to which I withdraw.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2563",
+   "ccc": 2563,
+   "quote": "The heart is the dwelling-place where I am, where I live",
+   "note": "The heart is the hidden center, the dwelling place where I am and the place to which I withdraw."
+  }
+ },
+ {
+  "id": "prayer-b048",
+  "d": 2,
+  "q": "How does Scripture say the Lord used to speak to Moses?",
+  "o": [
+   "Face to face, as a man speaks to his friend",
+   "Only through the voice of an angel",
+   "In a dream by night while he slept",
+   "Through the mouths of the later prophets"
+  ],
+  "a": 0,
+  "why": "Moses' prayer is an example of contemplative prayer in intimacy with God.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2576",
+   "ccc": 2576,
+   "quote": "Thus the Lord used to speak to Moses face to face, as a man speaks to his friend.",
+   "note": "Moses' prayer is an example of contemplative prayer in intimacy with God."
+  }
+ },
+ {
+  "id": "prayer-b049",
+  "d": 2,
+  "q": "For the People of God, what was the Temple to be, in the matter of prayer?",
+  "o": [
+   "A place reserved for silence only",
+   "A refuge for exiles and strangers",
+   "A tomb for the burial of prophets",
+   "The place of their education in prayer"
+  ],
+  "a": 3,
+  "why": "Pilgrimages, feasts and sacrifices in the Temple formed Israel in prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2581",
+   "ccc": 2581,
+   "quote": "For the People of God, the Temple was to be the place of their education in prayer",
+   "note": "Pilgrimages, feasts and sacrifices in the Temple formed Israel in prayer."
+  }
+ },
+ {
+  "id": "prayer-b050",
+  "d": 2,
+  "q": "The Catechism calls the Psalter the book in which what becomes man's prayer?",
+  "o": [
+   "The law of Moses",
+   "The voice of the angels",
+   "The Word of God",
+   "The song of the prophets"
+  ],
+  "a": 2,
+  "why": "In the Psalter the Word of God becomes man's prayer, and in Christ the psalms continue to teach us how to pray.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2587",
+   "ccc": 2587,
+   "quote": "The Psalter is the book in which the Word of God becomes man's prayer.",
+   "note": "In the Psalter the Word of God becomes man's prayer, and in Christ the psalms continue to teach us how to pray."
+  }
+ },
+ {
+  "id": "prayer-b051",
+  "d": 2,
+  "q": "According to the Catechism, where and when did Jesus often draw apart to pray?",
+  "o": [
+   "In the Temple courts, at midday",
+   "In solitude, on a mountain, preferably at night",
+   "In the synagogue on the Sabbath day",
+   "On the lake shore, at the break of dawn"
+  ],
+  "a": 1,
+  "why": "Jesus often drew apart to pray in solitude, and he included all men in his prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2602",
+   "ccc": 2602,
+   "quote": "Jesus often draws apart to pray in solitude, on a mountain, preferably at night.",
+   "note": "Jesus often drew apart to pray in solitude, and he included all men in his prayer."
+  }
+ },
+ {
+  "id": "prayer-b052",
+  "d": 2,
+  "q": "The Catechism says the one name that contains everything is the name the Son of God received in what?",
+  "o": [
+   "His Baptism",
+   "His Incarnation",
+   "His Transfiguration",
+   "His Ascension"
+  ],
+  "a": 1,
+  "why": "That name is Jesus, which is invoked in the Jesus Prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2666",
+   "ccc": 2666,
+   "quote": "But the one name that contains everything is the one that the Son of God received in his incarnation: JESUS.",
+   "note": "That name is Jesus, which is invoked in the Jesus Prayer."
+  }
+ },
+ {
+  "id": "prayer-b053",
+  "d": 2,
+  "q": "What does the Catechism call the simplest way of praying always?",
+  "o": [
+   "Invoking the holy name of Jesus",
+   "Reciting the whole Psalter daily",
+   "Fasting on Wednesdays and Fridays",
+   "Keeping a vigil through the night"
+  ],
+  "a": 0,
+  "why": "When the holy name is repeated often by a humbly attentive heart, the prayer is not lost by heaping up empty phrases.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2668",
+   "ccc": 2668,
+   "quote": "The invocation of the holy name of Jesus is the simplest way of praying always.",
+   "note": "When the holy name is repeated often by a humbly attentive heart, the prayer is not lost by heaping up empty phrases."
+  }
+ },
+ {
+  "id": "prayer-b054",
+  "d": 2,
+  "q": "The Catechism says what kind of prayer is an essential element of the Christian life?",
+  "o": [
+   "Silent prayer only",
+   "Prayer in tongues",
+   "Prayer without words",
+   "Vocal prayer"
+  ],
+  "a": 3,
+  "why": "Jesus teaches vocal prayer in the Our Father, and it is the form most readily accessible to groups.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2701",
+   "ccc": 2701,
+   "quote": "Vocal prayer is an essential element of the Christian life.",
+   "note": "Jesus teaches vocal prayer in the Our Father, and it is the form most readily accessible to groups."
+  }
+ },
+ {
+  "id": "prayer-b055",
+  "d": 2,
+  "q": "In meditation, what does the mind seek to understand, according to the Catechism?",
+  "o": [
+   "The hidden date of the Lord's return",
+   "The meaning of every liturgical rite",
+   "The why and how of the Christian life",
+   "The names of all the angels"
+  ],
+  "a": 2,
+  "why": "Meditation is a quest: the mind seeks to understand the why and how of the Christian life in order to respond to what the Lord is asking.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2705",
+   "ccc": 2705,
+   "quote": "the mind seeks to understand the why and how of the Christian life",
+   "note": "Meditation is a quest: the mind seeks to understand the why and how of the Christian life in order to respond to what the Lord is asking."
+  }
+ },
+ {
+  "id": "prayer-b056",
+  "d": 2,
+  "q": "Which three major expressions of the life of prayer does the Catechism name?",
+  "o": [
+   "Praise, fasting and almsgiving in daily life",
+   "Reading, writing and singing in common",
+   "Vocal prayer, meditation and contemplative prayer",
+   "Petition, thanks and silent adoration of God"
+  ],
+  "a": 2,
+  "why": "The Christian tradition comprises vocal prayer, meditation and contemplative prayer.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2721",
+   "ccc": 2721,
+   "quote": "The Christian tradition comprises three major expressions of the life of prayer: vocal prayer, meditation, and contemplative prayer.",
+   "note": "The Christian tradition comprises vocal prayer, meditation and contemplative prayer."
+  }
+ },
+ {
+  "id": "prayer-b057",
+  "d": 2,
+  "q": "Besides distraction, what does the Catechism name as another difficulty for those who sincerely want to pray?",
+  "o": [
+   "Tiredness",
+   "Dryness",
+   "Hurry",
+   "Noise"
+  ],
+  "a": 1,
+  "why": "Dryness is the heart separated from God, with no taste for thoughts, memories or feelings.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2731",
+   "ccc": 2731,
+   "quote": "Another difficulty, especially for those who sincerely want to pray, is dryness.",
+   "note": "Dryness is the heart separated from God, with no taste for thoughts, memories or feelings."
+  }
+ },
+ {
+  "id": "prayer-b058",
+  "d": 2,
+  "q": "What does the Catechism call the most common yet most hidden temptation in prayer?",
+  "o": [
+   "Our lack of faith",
+   "Our love of comfort",
+   "Our fear of silence",
+   "Our habit of speed"
+  ],
+  "a": 0,
+  "why": "Lack of faith shows itself less by declared incredulity than by our actual preferences.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2732",
+   "ccc": 2732,
+   "quote": "The most common yet most hidden temptation is our lack of faith.",
+   "note": "Lack of faith shows itself less by declared incredulity than by our actual preferences."
+  }
+ },
+ {
+  "id": "prayer-b059",
+  "d": 2,
+  "q": "The Catechism says prayer is what, as it relates to the Christian life?",
+  "o": [
+   "An optional devotion",
+   "A task for religious only",
+   "A reward for the holy",
+   "A vital necessity"
+  ],
+  "a": 3,
+  "why": "If we do not allow the Spirit to lead us, we fall back into the slavery of sin.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2744",
+   "ccc": 2744,
+   "quote": "Prayer is a vital necessity.",
+   "note": "If we do not allow the Spirit to lead us, we fall back into the slavery of sin."
+  }
+ },
+ {
+  "id": "prayer-b060",
+  "d": 2,
+  "q": "The Catechism says Jesus does not give us the Our Father as what?",
+  "o": [
+   "A hymn for the liturgy alone",
+   "A secret for the initiated few",
+   "A law binding only the priesthood",
+   "A formula to repeat mechanically"
+  ],
+  "a": 3,
+  "why": "As in every vocal prayer, it is through the Word of God that the Holy Spirit teaches the children of God to pray.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2766",
+   "ccc": 2766,
+   "quote": "But Jesus does not give us a formula to repeat mechanically.",
+   "note": "As in every vocal prayer, it is through the Word of God that the Holy Spirit teaches the children of God to pray."
+  }
+ },
+ {
+  "id": "prayer-b061",
+  "d": 2,
+  "q": "In speaking of the boldness to say \"Our Father,\" the Catechism recalls which Old Testament scene?",
+  "o": [
+   "Noah building the great ark",
+   "Jacob dreaming at Bethel by night",
+   "Moses at the burning bush",
+   "Elijah offering sacrifice on Carmel"
+  ],
+  "a": 2,
+  "why": "From the burning bush Moses heard, \"put off your shoes from your feet\"; only Jesus crossed that threshold of the divine holiness for us.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2777",
+   "ccc": 2777,
+   "quote": "From the burning bush Moses heard a voice saying to him",
+   "note": "From the burning bush Moses heard, \"put off your shoes from your feet\"; only Jesus crossed that threshold of the divine holiness for us."
+  }
+ },
+ {
+  "id": "prayer-b062",
+  "d": 2,
+  "q": "Which advice does the Catechism quote for the petition for daily bread?",
+  "o": [
+   "Fast first and ask afterward, trusting nothing to your own effort",
+   "Pray as if everything depended on God and work as if everything depended on you",
+   "Ask only once and then wait in silence, doing no work at all",
+   "Give away all that you receive and keep nothing for yourself"
+  ],
+  "a": 1,
+  "why": "Even when we have done our work, the food we receive is still a gift from our Father.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2834",
+   "ccc": 2834,
+   "quote": "Pray as if everything depended on God and work as if everything depended on you",
+   "note": "Even when we have done our work, the food we receive is still a gift from our Father."
+  }
+ },
+ {
+  "id": "prayer-b063",
+  "d": 2,
+  "q": "At what hour of prayer did Peter and John go up to the Temple in Acts 3?",
+  "o": [
+   "The ninth hour",
+   "The first hour of the day",
+   "The third hour",
+   "The sixth hour"
+  ],
+  "a": 0,
+  "why": "Acts places the apostles in the Temple at the hour of prayer, the ninth hour.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 3:1",
+   "ref": "ACT.3.1",
+   "quote": "Peter and John were going up into the temple at the hour of prayer, the ninth hour.",
+   "note": "Acts places the apostles in the Temple at the hour of prayer, the ninth hour."
+  }
+ },
+ {
+  "id": "prayer-b064",
+  "d": 2,
+  "q": "A novena is traditionally modeled on the apostles' prayer with Mary between the Ascension and which feast?",
+  "o": [
+   "Pentecost",
+   "Easter",
+   "Christmas",
+   "The Epiphany"
+  ],
+  "a": 0,
+  "why": "Acts shows the apostles continuing in prayer and supplication with Mary before Pentecost; novenas, nine days of prayer, are traditionally modeled on this.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 1:14",
+   "ref": "ACT.1.14",
+   "quote": "All these with one accord continued steadfastly in prayer and supplication",
+   "note": "Acts shows the apostles continuing in prayer and supplication with Mary before Pentecost; novenas, nine days of prayer, are traditionally modeled on this."
+  }
+ },
+ {
+  "id": "prayer-b065",
+  "d": 3,
+  "q": "The spiritual writers paraphrase Matthew 7:7 this way: \"Seek in reading and you will find in meditating; knock in mental prayer and it will be opened by what?\"",
+  "o": [
+   "Divine revelation",
+   "Holy intercession",
+   "Patient perseverance",
+   "Contemplation"
+  ],
+  "a": 3,
+  "why": "This summary describes the movement of lectio divina from reading to meditation, prayer and contemplation.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2654",
+   "ccc": 2654,
+   "quote": "Seek in reading and you will find in meditating; knock in mental prayer and it will be opened to you by contemplation.",
+   "note": "This summary describes the movement of lectio divina from reading to meditation, prayer and contemplation."
+  }
+ },
+ {
+  "id": "prayer-b066",
+  "d": 3,
+  "q": "The Catechism calls contemplative prayer silence, the symbol of what?",
+  "o": [
+   "The desert fathers",
+   "The hidden life of Nazareth",
+   "The world to come",
+   "The Passion"
+  ],
+  "a": 2,
+  "why": "Contemplative prayer is silence, \"the symbol of the world to come\" or \"silent love.\"",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2717",
+   "ccc": 2717,
+   "quote": "Contemplative prayer is silence, the symbol of the world to come",
+   "note": "Contemplative prayer is silence, \"the symbol of the world to come\" or \"silent love.\""
+  }
+ },
+ {
+  "id": "prayer-b067",
+  "d": 3,
+  "q": "What does the handing on (traditio) of the Lord's Prayer signify in Baptism and Confirmation?",
+  "o": [
+   "Entry into the ordained priesthood",
+   "New birth into the divine life",
+   "Forgiveness of every mortal sin",
+   "The special gift of tongues"
+  ],
+  "a": 1,
+  "why": "Since Christian prayer is our speaking to God with the very word of God, those born anew learn to call upon their Father.",
+  "src": {
+   "kind": "catechism",
+   "label": "CCC 2769",
+   "ccc": 2769,
+   "quote": "In Baptism and Confirmation, the handing on (traditio) of the Lord's Prayer signifies new birth into the divine life.",
+   "note": "Since Christian prayer is our speaking to God with the very word of God, those born anew learn to call upon their Father."
+  }
+ },
+ {
+  "id": "prayer-b068",
+  "d": 3,
+  "q": "Whom do we address when we say \"Our Father,\" according to the Baltimore Catechism?",
+  "o": [
+   "God the Father alone, apart from the Son and Spirit",
+   "Almighty God: Father, Son and Holy Ghost united in the Trinity",
+   "Christ in his humanity as our elder brother",
+   "The Father together with the Blessed Virgin Mary"
+  ],
+  "a": 1,
+  "why": "When we say \"Our Father\" we address the one God in the adorable Trinity.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 5",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "When we say \"Our Father\" in the Lord's Prayer we address Almighty God, Father, Son and Holy Ghost united in the adorable Trinity.",
+   "note": "When we say \"Our Father\" we address the one God in the adorable Trinity."
+  }
+ },
+ {
+  "id": "prayer-b069",
+  "d": 3,
+  "q": "According to the Baltimore Catechism, what do we ask for in \"Thy kingdom come\"?",
+  "o": [
+   "That God may reign in the souls of all men by his grace",
+   "That the world come soon to its final end",
+   "That all earthly rulers be cast down from power",
+   "That the Church may own more land and wealth"
+  ],
+  "a": 0,
+  "why": "We ask that God reign in souls by grace for their salvation and that the true Church spread over the earth.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 10",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "we ask (1) that God may reign in the souls of all men by His grace",
+   "note": "We ask that God reign in souls by grace for their salvation and that the true Church spread over the earth."
+  }
+ },
+ {
+  "id": "prayer-b070",
+  "d": 3,
+  "q": "What does the word \"daily\" teach us in \"our daily bread,\" according to the Baltimore Catechism?",
+  "o": [
+   "To fast from bread on certain days of the week",
+   "To store up goods for the whole year ahead",
+   "To pray the Our Father only once each day",
+   "Great confidence in the providence of God"
+  ],
+  "a": 3,
+  "why": "We say \"daily\" to teach us to be prudent, not avaricious, and to trust in God's providence.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 13",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "We say \"daily\" to teach us that we are not to be avaricious but only prudent in providing for our wants; and that we are to have great confidence in the providence of God.",
+   "note": "We say \"daily\" to teach us to be prudent, not avaricious, and to trust in God's providence."
+  }
+ },
+ {
+  "id": "prayer-b071",
+  "d": 3,
+  "q": "What does the Baltimore Catechism say is the best means of overcoming temptation?",
+  "o": [
+   "To argue with it at length",
+   "To wait until it fades",
+   "To resist its very beginning",
+   "To seek it out and conquer it"
+  ],
+  "a": 2,
+  "why": "Resist at the beginning, turn your attention away, pray for help, and do the opposite of what you are tempted to do.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 18",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "The best means of overcoming temptation is to resist its very beginning",
+   "note": "Resist at the beginning, turn your attention away, pray for help, and do the opposite of what you are tempted to do."
+  }
+ },
+ {
+  "id": "prayer-b072",
+  "d": 3,
+  "q": "According to the Baltimore Catechism, for what is the Angelus said in the morning?",
+  "o": [
+   "In memory of the Passion of Christ",
+   "In memory of the Incarnation of Christ",
+   "In memory of the Resurrection",
+   "In memory of the Nativity at Bethlehem"
+  ],
+  "a": 2,
+  "why": "The Angelus is said in the morning for the Resurrection, at noon for the Passion and in the evening for the Incarnation.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 45",
+   "work": "baltimore-catechism",
+   "section": "s1",
+   "quote": "in the morning, in memory of the Resurrection",
+   "note": "The Angelus is said in the morning for the Resurrection, at noon for the Passion and in the evening for the Incarnation."
+  }
+ },
+ {
+  "id": "prayer-b073",
+  "d": 3,
+  "q": "The Baltimore Catechism records a pious custom of saying the Sorrowful Mysteries on which days?",
+  "o": [
+   "Mondays and Thursdays",
+   "Tuesdays and Fridays",
+   "Sundays and Wednesdays",
+   "Saturdays only"
+  ],
+  "a": 1,
+  "why": "According to this custom the joyful mysteries were said on Mondays and Thursdays, the sorrowful on Tuesdays and Fridays and the glorious on the remaining days.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1087",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "the sorrowful on Tuesdays and Fridays",
+   "note": "According to this custom the joyful mysteries were said on Mondays and Thursdays, the sorrowful on Tuesdays and Fridays and the glorious on the remaining days."
+  }
+ },
+ {
+  "id": "prayer-b074",
+  "d": 3,
+  "q": "In the Baltimore Catechism's list of the Seven Dolors of Our Lady, what is the second?",
+  "o": [
+   "Her flight into Egypt",
+   "The Circumcision of Our Lord",
+   "The loss of Jesus for three days",
+   "Her meeting Jesus on the way of the cross"
+  ],
+  "a": 0,
+  "why": "The second dolor is the flight into Egypt to save the Infant Jesus from Herod.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Baltimore Catechism Q. 1095",
+   "work": "baltimore-catechism",
+   "section": "s28",
+   "quote": "(2) her flight into Egypt--to save the life of the Infant Jesus, when Herod sought to kill Him",
+   "note": "The second dolor is the flight into Egypt to save the Infant Jesus from Herod."
+  }
+ },
+ {
+  "id": "prayer-b075",
+  "d": 3,
+  "q": "Which word does Cyril of Jerusalem use for the bread in the Our Father: \"Give us this day our ___ bread\"?",
+  "o": [
+   "Ordinary",
+   "Heavenly",
+   "Supernatural",
+   "Substantial"
+  ],
+  "a": 3,
+  "why": "Cyril explains that the Holy Bread is substantial, appointed for the substance of the soul.",
+  "src": {
+   "kind": "father",
+   "label": "Cyril of Jerusalem, Mystagogic Catechesis V",
+   "work": "cyril-catecheses",
+   "section": "ii.xxvii",
+   "quote": "Give us this day our substantial bread.",
+   "note": "Cyril explains that the Holy Bread is substantial, appointed for the substance of the soul."
+  }
+ },
+ {
+  "id": "prayer-b076",
+  "d": 3,
+  "q": "In Cyril of Jerusalem's explanation of \"deliver us from the evil,\" who is the evil?",
+  "o": [
+   "Sickness and death itself",
+   "Our own sinful pride and vanity",
+   "The pagan world around us",
+   "Our adversary the devil"
+  ],
+  "a": 3,
+  "why": "Cyril says that evil is our adversary the devil, from whom we pray to be delivered.",
+  "src": {
+   "kind": "father",
+   "label": "Cyril of Jerusalem, Mystagogic Catechesis V",
+   "work": "cyril-catecheses",
+   "section": "ii.xxvii",
+   "quote": "Now evil is our adversary the devil, from whom we pray to be delivered",
+   "note": "Cyril says that evil is our adversary the devil, from whom we pray to be delivered."
+  }
+ },
+ {
+  "id": "prayer-b077",
+  "d": 3,
+  "q": "A note on the Didache's chapter on fasting and prayer says Wednesday and Friday recall what?",
+  "o": [
+   "The days of Pentecost and Easter",
+   "The days of Baptism and Chrismation",
+   "The days of betrayal and of burial",
+   "The days of the Last Supper and the Ascension"
+  ],
+  "a": 2,
+  "why": "The note explains that the Apostolic Constitutions give the reasons for fasting on these days as the betrayal and the burial.",
+  "src": {
+   "kind": "father",
+   "label": "The Didache, chapter 8 (editor's note)",
+   "work": "didache",
+   "section": "viii.iii.viii",
+   "quote": "The reasons for fasting on Wednesday and Friday are given in Apostolic Constitutions (the days of betrayal and of burial).",
+   "note": "The note explains that the Apostolic Constitutions give the reasons for fasting on these days as the betrayal and the burial."
+  }
+ },
+ {
+  "id": "prayer-b078",
+  "d": 3,
+  "q": "St. Augustine, as cited in the Roman Catechism, calls prayer the key of what?",
+  "o": [
+   "Wisdom",
+   "Heaven",
+   "Mercy",
+   "Paradise"
+  ],
+  "a": 1,
+  "why": "Augustine says that prayer ascends and the mercy of God descends.",
+  "src": {
+   "kind": "magisterium",
+   "label": "Roman Catechism (On the Utility of Prayer)",
+   "work": "roman-catechism",
+   "section": "s33",
+   "quote": "prayer is the key of heaven",
+   "note": "Augustine says that prayer ascends and the mercy of God descends."
+  }
+ },
+ {
+  "id": "prayer-b079",
+  "d": 3,
+  "q": "St. Francis de Sales says morning prayer opens the windows of the soul to what?",
+  "o": [
+   "The sunshine of Righteousness",
+   "The golden light of all the saints",
+   "The gentle breath of the Holy Spirit",
+   "The sweet music of the holy angels"
+  ],
+  "a": 0,
+  "why": "He writes that by morning prayer you open your soul's windows to the sunshine of Righteousness and by evening devotions close them against the shades of hell.",
+  "src": {
+   "kind": "saint",
+   "label": "St. Francis de Sales, Introduction to the Devout Life",
+   "work": "desales-devout-life",
+   "section": "iv.xi",
+   "quote": "by your morning prayer you open your soul’s windows to the sunshine of Righteousness",
+   "note": "He writes that by morning prayer you open your soul's windows to the sunshine of Righteousness and by evening devotions close them against the shades of hell."
+  }
+ },
+ {
+  "id": "prayer-b080",
+  "d": 3,
+  "q": "What did Brother Lawrence say about the set times of prayer compared with other times?",
+  "o": [
+   "They were not different from other times",
+   "They were far better than all other times",
+   "They required total silence and solitude",
+   "They were reserved for the whole community"
+  ],
+  "a": 0,
+  "why": "His greatest business did not divert him from God, so he did not need retirement for prayer.",
+  "src": {
+   "kind": "saint",
+   "label": "Brother Lawrence, The Practice of the Presence of God",
+   "work": "lawrence-practice",
+   "section": "iii.ii",
+   "quote": "the set times of prayer were not different from other times",
+   "note": "His greatest business did not divert him from God, so he did not need retirement for prayer."
+  }
+ }
+]
