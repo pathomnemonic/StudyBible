@@ -39,7 +39,7 @@
     "work": "ambrose-works",
     "section": "iv.ii.iv",
     "quote": "Mary was the temple of God, not the God of the temple. And therefore He alone is to be worshipped Who was working in His temple.",
-    "note": "A bishop of the fourth century, writing in the Church’s own voice, says in so many words that Mary is not to be worshipped. Honor for the Mother never became worship of the Mother."
+    "note": "A bishop of the fourth century, writing in the Church’s own voice, says in so many words that Mary is not to be worshipped. Honor for the Mother was never allowed to become worship of the Mother; when a fringe group in the fourth century did offer her worship, Epiphanius condemned it."
    },
    {
     "kind": "father",
@@ -53,13 +53,13 @@
    },
    {
     "kind": "council",
-    "label": "Council of Ephesus, anathemas of Cyril",
+    "label": "Cyril of Alexandria, First Anathema against Nestorius (Ephesus, 431)",
     "when": "431",
     "year": 431,
     "work": "council-ephesus",
     "section": "x.ix",
     "quote": "If anyone will not confess that the Emmanuel is very God, and that therefore the Holy Virgin is the Mother of God",
-    "note": "Ephesus called Mary Theotokos, “Mother of God”. The point of the title is to protect the truth about her Son, that the child she bore is God, not to raise Mary to divinity."
+    "note": "Cyril, whose teaching the Council of Ephesus (431) upheld against Nestorius, insists that Mary is Theotokos, “Mother of God”. The anathemas themselves were Cyril’s own letter to Nestorius, not a canon of the council, and not every bishop accepted them at the time. The point of the title is to protect the truth about her Son, that the child she bore is God, not to raise Mary to divinity."
    },
    {
     "kind": "scripture",
@@ -221,11 +221,11 @@
   "id": "church-banned-the-bible",
   "title": "The Church banned the Bible / kept it from the people",
   "question": "Did the Church ban the Bible or keep it from ordinary people?",
-  "summary": "The Church copied, preserved, translated and read the Bible aloud from the beginning, and today she urges every Catholic to read it. At certain times and places, however, church authorities did restrict unapproved vernacular translations, and that part of the story should be told honestly.",
+  "summary": "The Church copied, preserved, translated and read the Bible aloud from the beginning, and today she urges every Catholic to read it. At certain times and places, however, church authorities did restrict lay ownership of the Bible and unapproved vernacular translations, and that part of the story should be told honestly.",
   "verdict": {
    "label": "Mostly false",
-   "why": "The Church never banned the Bible as such; the Scriptures are the center of the Mass, Fathers such as Chrysostom pressed ordinary lay people to read them, and Augustine knew the Bible in a Latin translation made for ordinary readers. But some medieval councils and later authorities did forbid lay people to own unapproved vernacular translations, and that restriction was real.",
-   "origin": "Most people in the Middle Ages could not read, and Bibles were hand-copied and very costly. In the 1200s and 1400s some church authorities, fearing heresy, restricted unapproved translations. Later Protestant writers turned those local restrictions into the story that the Church hid the Bible."
+   "why": "The Church never banned the Bible as such; the Scriptures are the center of the Mass, Fathers such as Chrysostom pressed ordinary lay people to read them, and Augustine read the Bible in Latin translations, in the language of the people around him. But some councils and authorities, medieval and later, did forbid or restrict lay people’s owning vernacular Bibles without approval, and those restrictions were real.",
+   "origin": "Most people in the Middle Ages could not read, and Bibles were hand-copied and very costly. In the 1200s and early 1400s some church authorities, fearing heresy, restricted lay ownership of Bibles and unapproved translations. After the Reformation, the Index of Forbidden Books (from 1559, and Rule 4 of 1564) required permission from a bishop or inquisitor for lay people to read vernacular Bibles, a rule enforced in some places until the eighteenth century. Later Protestant writers exaggerated all this into the story that the Church hid the Bible altogether, but the restrictions themselves were real."
   },
   "steps": [
    {
@@ -262,8 +262,8 @@
    {
     "kind": "father",
     "label": "Augustine, Confessions 8",
-    "when": "c. 397",
-    "year": 397,
+    "when": "c. 397–400",
+    "year": 398,
     "work": "aug-confessions",
     "section": "ix.xii",
     "quote": "Take up and read; Take up and read.",
@@ -277,13 +277,13 @@
     "work": "aug-christian-doctrine",
     "section": "v.v.xi",
     "quote": "the Latin translators are out of all number",
-    "note": "Already in Augustine’s day Christians were making Latin translations so that Scripture could be read in the language people spoke."
+    "note": "Already in Augustine’s day there were Latin translations in great numbers, which is how Latin-speaking Christians read Scripture in the language they spoke."
    }
   ],
   "objections": [
    {
     "q": "But didn’t the Church forbid vernacular Bibles and burn them?",
-    "a": "In some places and times, yes. In 1229 a council at Toulouse, dealing with a heresy in southern France, forbade lay people to have vernacular Scripture, and in England in the early 1400s unapproved translations were banned because of the Lollard movement. The fear was of mistranslation and heresy, but the effect was to keep many from the text, and the Church cannot defend that as a good way to treat the Word of God. It was also never the whole picture: printed Catholic Bibles in German and other languages existed before Luther, and the Church required only that translations and notes be approved.",
+    "a": "In some places and times, yes. In 1229 a regional council at Toulouse, dealing with the Cathar and Waldensian heresies in southern France, forbade lay people to own the books of the Old and New Testament (apart from a Psalter and the Hours of the Virgin, and never in the vernacular), and in England Archbishop Arundel’s Constitutions of Oxford (1407–1409) forbade unapproved English translations because of the Lollard movement. The fear was of mistranslation and heresy, but the effect was to keep many from the text, and the Church cannot defend that as a good way to treat the Word of God. It was also never the whole picture: printed Catholic Bibles in German and other languages existed before Luther, and the Church required only that translations and notes be approved. After the Reformation, Rome’s own rules on vernacular Bibles became stricter in some countries for a time, as the origin above notes.",
     "steps": [
      {
       "kind": "council",
@@ -328,7 +328,7 @@
   "summary": "The Church condemns necromancy and every attempt to conjure the dead. Catholics ask the saints in heaven, who are alive in Christ, to pray for them, in the way they ask a friend on earth to pray. This is a matter on which Christians do disagree.",
   "verdict": {
    "label": "Partly true",
-   "why": "It is true that Catholics ask departed saints to intercede for them. It is not true that this is necromancy, which the Church forbids: Catholics do not summon the dead or seek hidden knowledge from them, and they hold that the saints live in Christ.",
+   "why": "The charge of necromancy is false; what is true is that Catholics do ask the departed saints to intercede for them. The Church forbids necromancy: Catholics do not summon the dead or seek hidden knowledge from them, and they hold that the saints live in Christ.",
    "origin": "Many Christians believe the dead cannot be asked for anything, and Deuteronomy 18 does forbid consulting the dead. The Church answers that the saints are with God and are part of one Church with us, so asking their prayers is an act of communion, not of conjuring."
   },
   "steps": [
@@ -382,7 +382,7 @@
     "work": "ambrose-works",
     "section": "iv.viii.x",
     "quote": "Let us not be ashamed to take them as intercessors for our weakness, for they themselves knew the weaknesses of the body, even when they overcame.",
-    "note": "By the fourth century a bishop advises ordinary Christians to ask the martyrs to pray for them. This shows how early the practice was."
+    "note": "By the fourth century a bishop advises ordinary Christians to ask the martyrs to pray for them."
    },
    {
     "kind": "father",
@@ -715,7 +715,7 @@
     "label": "Guilty of the body and blood, 1 Corinthians 11:27-29",
     "ref": "1CO.11.27-29",
     "quote": "whoever eats this bread or drinks the Lord’s cup in a way unworthy of the Lord will be guilty of the body and the blood of the Lord",
-    "note": "One is not guilty of the body and blood of the Lord for mistreating a symbol. Paul speaks of a real presence."
+    "note": "Paul says that whoever eats or drinks unworthily is guilty of the body and the blood of the Lord. The Church reads this as pointing to a real presence."
    },
    {
     "kind": "father",
@@ -771,13 +771,13 @@
   "objections": [
    {
     "q": "Didn’t Augustine and others call the Eucharist a sign or figure?",
-    "a": "Yes, and the Church uses the same language, because a sacrament is a sign. The question is whether the sign contains what it signifies. Augustine is warning against receiving the sacrament unworthily and without union with Christ; he does not say that Christ is absent from it. The Fathers in the other steps say in plain words that it is his flesh.",
+    "a": "Yes, and the Church uses the same language, because a sacrament is a sign. Some readers, especially among Protestants, take Augustine’s language as purely symbolic, and scholars still discuss it. The Church reads him in light of his plain statements elsewhere, such as Sermon 227, where he says that what is on the altar is the body of Christ, and takes him here to be warning against receiving the sacrament without union with Christ, not denying Christ’s presence. The Fathers in the other steps say in plain words that it is his flesh.",
     "steps": [
      {
       "kind": "father",
       "label": "Augustine, Tractate 26 on John",
-      "when": "c. 417",
-      "year": 417,
+      "when": "c. 407",
+      "year": 407,
       "work": "aug-tractates-john",
       "section": "iii.xxvii",
       "quote": "we are made better by participation of the Son, through the unity of His body and blood, which thing that eating and drinking signifies",
@@ -817,7 +817,7 @@
   "verdict": {
    "label": "Mostly false",
    "why": "These books were part of the Greek Old Testament the early Church used, and they were quoted and read by Fathers such as Ambrose and Augustine. Trent in 1546 defined the canon but did not invent it. Honesty requires adding that they are not in the Hebrew Bible and that some early Christians knew it and questioned them.",
-   "origin": "Protestant Reformers followed the Hebrew canon, which Jewish tradition fixed after the time of Christ, and dropped the books that exist only in Greek. Many people now read that as “Catholics added books”, when historically it was the other way round."
+   "origin": "Protestant Reformers followed the Hebrew canon, which Jewish tradition fixed after the time of Christ, and set aside the seven books the early Church had received in the Greek Old Testament. Those books are not in the Hebrew Bible, though several have Hebrew or Aramaic roots (Sirach and Tobit survive in Hebrew and Aramaic fragments, and 1 Maccabees was composed in Hebrew), and some early Christians, Jerome among them, preferred the Hebrew list. Protestants therefore take the Hebrew canon as the original and the Greek books as later additions in Christian use, which is why many read the Catholic Bible as having “added” books. Catholics hold that the Church was keeping the Old Testament she had received."
   },
   "steps": [
    {
@@ -888,7 +888,7 @@
   "objections": [
    {
     "q": "The Jews never accepted these books, and the Old Testament is the Jews’ Bible. Why not follow their canon?",
-    "a": "It is a fair point and Christians have long known it. Augustine noted that the Jews are said not to have received Judith into the canon. But the Church of the apostles used the Greek translation, which contained these books, and the Jewish canon in its final form was settled after the Church had already separated from the synagogue. Catholics hold that the Church, not the later rabbis, has the authority to determine her Old Testament.",
+    "a": "It is a fair point and Christians have long known it. Augustine noted that the Jews are said not to have received Judith into the canon. But the Church of the apostles used the Greek translation, which contained these books, and the Jewish canon was not clearly closed until well after the Church and the synagogue had begun to part ways. Catholics hold that the Church, not the later rabbis, has the authority to determine her Old Testament.",
     "steps": [
      {
       "kind": "father",
@@ -932,7 +932,7 @@
   "summary": "Purgatory is the Church’s name for the final purification of those who die in God’s friendship but are not yet fully holy. Its roots are in Scripture and in the ancient Christian practice of praying for the dead, though the word and the detailed teaching developed later, and the sale of indulgences did produce real abuses.",
   "verdict": {
    "label": "Mostly false",
-   "why": "Prayer for the dead is found in 2 Maccabees and in the practice of the early Church, and Augustine and Chrysostom both speak of it. The word “Purgatory” and the councils that defined it are medieval, and indulgence-selling was a real abuse that the Church itself condemned. But the belief was not invented to raise money.",
+   "why": "Prayer for the dead is found in 2 Maccabees and in the practice of the early Church, and Augustine and Chrysostom both speak of it. The word “Purgatory” and the councils that defined it (Lyons II in 1274, Florence in 1439, Trent in 1563) come from the later Middle Ages and the Reformation era, and indulgence-selling was a real abuse that the Church itself condemned. But the belief was not invented to raise money.",
    "origin": "The late Middle Ages did have scandals: indulgences were linked to donations, and money was raised in the name of the dead. Luther’s protest was against these. Critics later read the whole teaching as a fund-raising device, rather than as an old belief that was later abused."
   },
   "steps": [
@@ -995,13 +995,13 @@
     "work": "trent-canons-decrees",
     "section": "s25",
     "quote": "the sound doctrine concerning Purgatory, transmitted by the holy Fathers and sacred Councils, be believed, maintained, taught… which savour of filthy lucre, let them prohibit as scandals and stumbling-blocks of the faithful",
-    "note": "Trent defines the doctrine and in the same sentence orders bishops to prohibit anything that smacks of money-making."
+    "note": "Trent states the doctrine and, in the same decree, orders bishops to prohibit anything that smacks of filthy lucre."
    }
   ],
   "objections": [
    {
     "q": "The word “Purgatory” isn’t in the Bible, and the early Fathers don’t agree on it. Doesn’t that show it was invented later?",
-    "a": "The word is later, as the Catechism says; it was formulated at the councils of Florence and Trent. The Fathers do not speak with one voice about the details, and Augustine himself calls the passage on being saved as through fire an obscure question. What they share is prayer for the dead and the belief that some who die are not yet fit for heaven. The Church sees the doctrine as a development of that, not an invention.",
+    "a": "The word is later, as the Catechism says; it was formulated at the councils of Lyons II (1274), Florence and Trent. The Fathers do not speak with one voice about the details, and Augustine himself calls the passage on being saved as through fire an obscure question. What they share is prayer for the dead and the belief that some who die are not yet fit for heaven. The Church sees the doctrine as a development of that, not an invention.",
     "steps": [
      {
       "kind": "father",
@@ -1083,7 +1083,7 @@
     "label": "Sent as the Father sent him, John 20:21-23",
     "ref": "JHN.20.21-23",
     "quote": "If you forgive anyone’s sins, they have been forgiven them. If you retain anyone’s sins, they have been retained.",
-    "note": "On Easter night Jesus breathes on the apostles and gives them this power directly. The Church has always read this as the institution of the sacrament of Penance."
+    "note": "On Easter night Jesus breathes on the apostles and gives them this power directly. The Council of Trent teaches that Christ instituted the sacrament of Penance on this occasion."
    },
    {
     "kind": "scripture",
@@ -1146,7 +1146,7 @@
    },
    {
     "q": "Didn’t the early Church practice public penance, not private confession to a priest?",
-    "a": "Yes. In the early centuries serious sins were confessed and atoned for publicly in a structured penance, and the practice of private confession developed gradually. But the bishop and presbyters were the ones who reconciled the penitent from the start, as Ambrose and Cyprian show. The Church holds that the power is the same while the form changed.",
+    "a": "Yes. In the early centuries serious sins were confessed and atoned for publicly in a structured penance, and the practice of private confession developed gradually. By the third and fourth centuries, as Cyprian and Ambrose show, the bishop and his presbyters were the ones who reconciled the penitent, though practice varied and Cyprian’s own time saw disputes over whether confessors could reconcile the lapsed. The Church holds that the power is the same while the form changed.",
     "steps": [
      {
       "kind": "catechism",

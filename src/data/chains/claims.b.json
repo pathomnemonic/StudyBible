@@ -6,7 +6,7 @@
   "summary": "The Church teaches that faith and reason cannot truly contradict one another, because the same God is the source of both. The Galileo affair was a real and regrettable failure by Church officials, but it was not a statement of Catholic doctrine, and it does not show that the Church is against science.",
   "verdict": {
    "label": "Partly true",
-   "why": "The Roman Inquisition did condemn Galileo in 1633 for teaching that the earth moves, and Pope John Paul II acknowledged in 1992 that the judges had erred. But no pope or council ever defined the earth's position as a truth of faith, and the Church's own teaching is that real science can never conflict with faith.",
+   "why": "The Roman Inquisition condemned Galileo in 1633 as “vehemently suspected of heresy” for teaching that the earth moves, and Pope Urban VIII approved the sentence. In 1616 the Holy Office’s consultants had called the idea of a motionless sun “formally heretical”, Pope Paul V had backed the decree that followed, and Copernicus’s book was put on the Index until corrected; Copernican works stayed restricted until the eighteenth century. Pope John Paul II acknowledged in 1992 that the theologians who condemned Galileo had erred. But no pope or council ever defined the earth’s position as a truth of faith, and the Church’s own teaching is that real science can never conflict with faith.",
    "origin": "The case was a collision of a new scientific claim with a literal reading of certain Bible passages, tangled up with personal and political quarrels of the day. It later became the standard picture of \"Church versus science\", and the broader story, including the many clergy who were scientists, is usually left out."
   },
   "steps": [
@@ -55,7 +55,7 @@
     "work": "vatican-i-constitutions",
     "section": "s5",
     "quote": "The false appearance of such a contradiction is mainly due, either to the dogmas of faith not having been understood and expounded according to the mind of the Church, or to the inventions of opinion having been taken for the verdicts of reason.",
-    "note": "A council names the cause of such conflicts: a misreading of faith, or a mere opinion taken for proven fact. This is the principle later applied to the Galileo case."
+    "note": "A council names the cause of such conflicts: a misreading of faith, or a mere opinion taken for proven fact."
    },
    {
     "kind": "magisterium",
@@ -80,7 +80,7 @@
   "objections": [
    {
     "q": "But the Church did condemn Galileo. Isn't that proof she fights science?",
-    "a": "The condemnation happened and it was a mistake; the Church has said so. It was a judgment by a Roman tribunal about how to read Scripture, not a defined teaching of the faith, and the Church's official principle (above) is that truth cannot contradict truth. One error by officials in one case is not the same as a settled doctrine of hostility to science.",
+    "a": "The condemnation happened and it was a mistake; the Church has said so. It was a judgment by a Roman tribunal, with the approval of the popes of the day, about how to read Scripture; it was not a defined teaching of the faith, and the Church's official principle (above) is that truth cannot contradict truth. One error by officials in one case is not the same as a settled doctrine of hostility to science.",
     "steps": [
      {
       "kind": "council",
@@ -191,7 +191,7 @@
     "work": "aug-city-of-god",
     "section": "iv.XVIII",
     "quote": "it is not yet six thousand years since the first man, who is called Adam",
-    "note": "An honest note: Augustine did reckon under six thousand years from Adam. He was reasoning from the history he had, which is how this figure entered Christian thinking."
+    "note": "An honest note: Augustine did reckon under six thousand years from Adam. He was reasoning from the chronologies available to him, as earlier Christian writers had done."
    },
    {
     "kind": "catechism",
@@ -222,7 +222,7 @@
    },
    {
     "q": "So does the Church accept evolution?",
-    "a": "The Catechism does not pronounce on the biological mechanism, which it leaves to science. It does rule out any account that makes the world a product of blind chance with no Creator, and it holds that each soul is directly created by God. Beyond those two points, Catholics are free to think about how God's creating took place.",
+    "a": "The Catechism does not pronounce on the biological mechanism, which it leaves to science. The Church does hold that the world was created by God and is not the product of blind chance (CCC 295), that each human soul is created directly by God (366), and that the human race has a single origin and a real Fall (360, 390). Within those limits Catholics are free to think about how God’s creating took place; Pius XII’s Humani Generis (1950) allowed inquiry into the evolution of the human body while keeping those points.",
     "steps": [
      {
       "kind": "catechism",
@@ -252,8 +252,8 @@
   "summary": "Priestly celibacy in the Latin Church is a discipline, a rule the Church can change, not a doctrine of the faith. It rests on Christ's praise of those who give up marriage for the Kingdom, and married men are ordained in the Eastern Catholic Churches.",
   "verdict": {
    "label": "Partly true",
-   "why": "It is true that the obligation of celibacy for all Latin priests is a Church law, not a revealed doctrine, and that the Church's legislation on it grew over many centuries. It is not true that celibacy has no scriptural basis or that it appeared out of nowhere in the Middle Ages.",
-   "origin": "Church law on clerical continence developed gradually and was tightened by medieval councils, so many people assume it started then. In the earlier centuries there was a mix of practices: Peter was married, and bishops, priests and deacons were often married men in the early Church."
+   "why": "It is true that the obligation of celibacy for all Latin priests is a Church law, not a revealed doctrine, and that the Church’s legislation on it grew over many centuries. It is not true that celibacy has no scriptural basis or that it appeared out of nowhere in the Middle Ages: by the end of the fourth century, councils and popes in the West were already asking bishops, priests and deacons to observe continence.",
+   "origin": "Church law on clerical continence developed gradually and was tightened by medieval councils, so many people assume it started then. In the earlier centuries there was a mix of practices: Peter was married, and bishops, priests and deacons were often married men in the early Church. The Second Lateran Council (1139) later made clerical marriage invalid in the Latin Church, which is the medieval step people remember."
   },
   "steps": [
    {
@@ -313,13 +313,23 @@
    },
    {
     "kind": "council",
+    "label": "Elvira (c. 305) and a proposed law at Nicaea (325), as Hefele reports them",
+    "when": "c. 305–325",
+    "year": 325,
+    "work": "council-nicaea-1",
+    "section": "vii.viii",
+    "quote": "a law was proposed to the Council of Nicæa the same as one which had been carried twenty years previously at Elvira, in Spain",
+    "note": "Hefele, summarizing Socrates and Sozomen, says that Elvira (canon 33) had already asked married clergy to abstain from relations with their wives, and that the same was proposed at Nicaea but not carried, after Paphnutius objected. The accounts are disputed. Pope Siricius (385) and a council at Carthage (390) then spoke of the continence of bishops, priests and deacons as apostolic tradition."
+   },
+   {
+    "kind": "council",
     "label": "Council of Trent, Session 24, Canon 9",
     "when": "1563",
     "year": 1563,
     "work": "trent-canons-decrees",
     "section": "s24",
     "quote": "If anyone saith that clerics constituted in sacred orders, or Regulars, who have solemnly professed chastity, are able to contract marriage, and that being contracted it is valid, notwithstanding the ecclesiastical law or vow",
-    "note": "Trent says in so many words that the obligation rests on \"ecclesiastical law or vow\", which is an honest admission that it is Church discipline."
+    "note": "Trent speaks of the obligation as resting on \"ecclesiastical law or vow\", the language of Church discipline."
    }
   ],
   "objections": [
@@ -422,13 +432,13 @@
    },
    {
     "kind": "father",
-    "label": "Origen, On First Principles 1",
+    "label": "Origen, On First Principles 1 (in Rufinus’s Latin translation)",
     "when": "c. 225",
     "year": 225,
     "work": "origen-celsus",
     "section": "vi.v.ii",
     "quote": "divine benefits bestowed upon us by Father, Son, and Holy Spirit, which Trinity is the fountain of all holiness",
-    "note": "Origen speaks of \"the Trinity\" as a matter of course, so the word was in settled use by the early third century."
+    "note": "Origen, here in Rufinus’s Latin translation (which Jerome said altered some of his wording), speaks of \"the Trinity\" as a matter of course. Tertullian above is the firmer witness that the word was in use by the early third century."
    },
    {
     "kind": "council",
@@ -486,7 +496,7 @@
    },
    {
     "q": "Didn't the councils just add Greek philosophy to the Gospel?",
-    "a": "The councils took a few existing words and fixed their meaning so that a clever reading of Scripture could not empty it. The Nicene bishops condemned Arius for saying the Son is a creature, which Scripture's own language about Christ as God does not allow.",
+    "a": "Yes, in part: the Church used philosophical terms such as “substance” and “person”, as the Catechism says (251). “Homoousios” was not a scriptural word, and a synod at Antioch in 268 is said to have rejected it in a different sense in the case of Paul of Samosata. The councils did not add a new doctrine; they chose these words to exclude readings, such as Arius’s, that Scripture’s language about Christ as God does not allow. The vocabulary is philosophical, and the claim is that its meaning remains scriptural.",
     "steps": [
      {
       "kind": "council",
@@ -516,8 +526,8 @@
   "summary": "Christians worshipped Jesus as God long before Constantine, and the New Testament itself calls him God. At Nicaea in 325 the bishops did not create the belief, but answered Arius, who denied that the Son is eternally God, by stating the faith in precise words.",
   "verdict": {
    "label": "False",
-   "why": "Writings from the first and second centuries already call Christ God, and the bishops at Nicaea defended an existing faith against a new denial. Constantine called the council and attended it, but the question was whether the Son is truly God, which was already the Church's faith.",
-   "origin": "Nicaea was a major public event under imperial sponsorship, and its creed fixed the word \"consubstantial\" (homoousios). People sometimes read that moment as the origin of the belief rather than its defence. The emperor's role was real, but it was in convening and keeping order."
+   "why": "Writings from the first and second centuries already call Christ God, and the bishops at Nicaea defended an existing faith against a new denial. Constantine called the council and attended it, and by Eusebius of Caesarea’s account he backed the word “consubstantial”, but the question was whether the Son is truly God, which was already the Church’s faith.",
+   "origin": "Nicaea was a major public event under imperial sponsorship, and its creed fixed the word “consubstantial” (homoousios). People sometimes read that moment as the origin of the belief rather than its defence. The emperor called the council and kept order, and according to Eusebius of Caesarea he supported the word “consubstantial” being included. Historians debate how far that was his own view or the advice of bishops such as Ossius. But the question had already been raised by Arius, and the great majority of the bishops, not the emperor, judged that this wording expressed the Church’s existing faith."
   },
   "steps": [
    {
@@ -576,6 +586,16 @@
     "section": "vii.iii",
     "quote": "very God of very God, begotten (γεννηθέντα), not made, being of one substance (ὁμοούσιον, consubstantialem) with the Father",
     "note": "The creed that the council issued, stating in exact words what Christians already believed."
+   },
+   {
+    "kind": "father",
+    "label": "Eusebius of Caesarea, letter to his church on the Nicene Creed",
+    "when": "325",
+    "year": 325,
+    "work": "socrates-sozomen",
+    "section": "ii.iv.viii",
+    "quote": "our most pious emperor himself was the first to admit that they were perfectly correct",
+    "note": "The best fact a sceptic can cite, and the Church should concede it: Eusebius reports that the emperor welcomed the creed and himself explained the word “homoousios”. It shows an emperor taking part, but the bishops were the ones who judged the wording, in answer to Arius."
    },
    {
     "kind": "catechism",
@@ -710,7 +730,7 @@
     "work": "trent-canons-decrees",
     "section": "s6",
     "quote": "it is most truly said, that Faith without works is dead and profitless",
-    "note": "Trent explicitly rejects the idea that faith alone, and certainly not a rite alone, completes salvation."
+    "note": "Trent teaches that faith without works is dead, so faith alone does not complete salvation."
    },
    {
     "kind": "catechism",
@@ -780,7 +800,7 @@
   "verdict": {
    "label": "Mostly false",
    "why": "The old phrase \"no salvation outside the Church\" is real, and the Church does say that anyone who knows she was founded by Christ and refuses to enter cannot be saved. But the Catechism and Vatican II explicitly teach that sincere people who do not know Christ, and sincere Christians outside Catholic communion, are not excluded from God's mercy.",
-   "origin": "The phrase comes from early Fathers such as Cyprian, who were addressing baptized Christians who had deliberately split from the Church. Later centuries heard the phrase in a harsher sense, and some preachers did use it that way."
+   "origin": "The phrase comes from early Fathers such as Cyprian, who were addressing baptized Christians who had deliberately split from the Church. In later centuries councils and popes (Lateran IV in 1215, Boniface VIII’s Unam Sanctam in 1302, the Council of Florence in 1442) repeated it in strict terms, saying that pagans, Jews, heretics and schismatics cannot share eternal life unless they are joined to the Church before death, and these texts were long read to mean that no one outside the visible Church could be saved. The Church’s teaching was then clarified, notably by the Holy Office in 1949 (the Feeney case) and by Vatican II."
   },
   "steps": [
    {
@@ -861,7 +881,7 @@
   "objections": [
    {
     "q": "Cyprian and others said flatly that there is no salvation outside the Church. Hasn't the Church changed her mind?",
-    "a": "The formula is the same, but her explanation of it has been clarified. Cyprian was speaking to baptized Christians who had cut themselves off. The Church has long taught that baptism can be received by desire, and Trent says justification needs \"the laver of regeneration, or the desire thereof\". The Catechism applies this to those who sincerely seek God.",
+    "a": "The formula is the same, but her explanation of it has been clarified, and the Church should admit that later councils and popes stated it more strictly than Cyprian did. Cyprian was speaking to baptized Christians who had cut themselves off. The Church has long taught that baptism can be received by desire, and Trent says justification needs \"the laver of regeneration, or the desire thereof\". The Catechism applies this to those who sincerely seek God.",
     "steps": [
      {
       "kind": "council",
@@ -916,8 +936,8 @@
   "summary": "No. Catholics worship God alone, Father, Son and Holy Spirit. The pope is honoured as the successor of Peter and the visible centre of the Church's unity, and the Church teaches that his authority serves the faith and cannot add to it.",
   "verdict": {
    "label": "False",
-   "why": "Adoration belongs to God alone in Catholic teaching, and the pope is held to be a servant and a man like any other. His office has real teaching authority, and he is shown great respect, but respect for an office is not worship.",
-   "origin": "The misunderstanding grows from the pope's high titles, the formal ceremony around his office, and the claim of infallibility. These can look like divine honours to an outsider, though the Church draws a firm line between honour and worship."
+   "why": "Adoration belongs to God alone in Catholic teaching, and the pope is held to be a servant of the servants of God and a man, himself a sinner in need of grace. His office has real teaching authority, and he is shown great respect, but respect for an office is not worship.",
+   "origin": "The misunderstanding grows from the pope's high titles, the formal ceremony around his office, and the claim of infallibility. These can look like divine honours to an outsider, though the Church draws a firm line between honour and worship. Until the twentieth century the ceremonies for a new pope included a rite the Latin books called adoratio and the kissing of his foot, words and gestures that were honor for his office, not worship, but easily misunderstood."
   },
   "steps": [
    {
@@ -1052,7 +1072,7 @@
     "year": 60,
     "ref": "ACT.20.7",
     "quote": "On the first day of the week, when the disciples were gathered together to break bread",
-    "note": "Luke records a gathering on the first day to break bread, which is the Eucharist."
+    "note": "Luke records a gathering on the first day to break bread, which the Church has understood to mean the Eucharist."
    },
    {
     "kind": "scripture",
@@ -1070,7 +1090,7 @@
     "year": 95,
     "ref": "REV.1.10",
     "quote": "I was in the Spirit on the Lord's day",
-    "note": "By the end of the first century \"the Lord's day\" is already a known name for a day."
+    "note": "Most readers, from the early Church on, understand “the Lord’s day” as Sunday, which would make it by the end of the first century a known name for a day."
    },
    {
     "kind": "scripture",
@@ -1080,6 +1100,16 @@
     "ref": "COL.2.16-17",
     "quote": "Let no one therefore judge you in eating or drinking, or with respect to a feast day or a new moon or a Sabbath day",
     "note": "Paul tells Christians not to be judged on Sabbath observance, treating it as a \"shadow\" now fulfilled in Christ."
+   },
+   {
+    "kind": "father",
+    "label": "Justin Martyr, First Apology 67",
+    "when": "c. 155",
+    "year": 155,
+    "work": "justin-martyr",
+    "section": "viii.ii",
+    "quote": "And on the day called Sunday",
+    "note": "Within about sixty years of the last apostle, Justin begins his account of Christian worship at Rome with Sunday, and goes on to describe the weekly gathering, the readings and the Eucharist. Earlier hints are in the Didache (ch. 14) and Ignatius (Magnesians 9)."
    },
    {
     "kind": "father",
@@ -1114,7 +1144,7 @@
   "objections": [
    {
     "q": "Didn't the Emperor Constantine make Sunday the day of worship?",
-    "a": "Constantine's law in 321 made Sunday a day of rest in the empire. That was a civil law added to something that was already observed; the New Testament and writers like Origen show Christians keeping the day over two centuries earlier. The Church does not claim it began with him.",
+    "a": "Constantine's law in 321 made Sunday a day of rest in the empire. That was a civil law added to something that was already observed; the New Testament shows Christians meeting on the first day more than two hundred years earlier, and writers such as Justin (c. 155) and Origen (c. 248) describe the practice well before any imperial law. The Church does not claim it began with him.",
     "steps": [
      {
       "kind": "father",
@@ -1167,8 +1197,8 @@
   "question": "Do Catholics read the Bible?",
   "summary": "The Church urges every Catholic to read Scripture often, and the Mass is built from it. Many individual Catholics may not read it as much as they should, but that is a failure of practice, not of teaching.",
   "verdict": {
-   "label": "Mostly false",
-   "why": "The Catechism urges \"frequent reading of the divine Scriptures\", and the Church's liturgy is full of Scripture every day. What may be true is that many Catholics, like many other Christians, read the Bible less than the Church hopes.",
+   "label": "Partly true",
+   "why": "The Church teaches and urges frequent Bible reading, the Catechism says so in as many words, and the Mass is full of Scripture every day, so it is false that Catholics are told not to read it. It is true that many Catholics read the Bible less than the Church hopes, as surveys regularly show.",
    "origin": "Before printing, few people of any faith owned books, and in some periods the Church restricted unauthorized vernacular translations. Over time this left an impression that Catholics were told not to read the Bible, which is not the Church's teaching."
   },
   "steps": [
@@ -1211,8 +1241,8 @@
    {
     "kind": "father",
     "label": "Augustine, Confessions 8",
-    "when": "c. 400",
-    "year": 400,
+    "when": "c. 397–400",
+    "year": 398,
     "work": "aug-confessions",
     "section": "ix.xii",
     "quote": "Take up and read; Take up and read.",
@@ -1252,11 +1282,11 @@
   "objections": [
    {
     "q": "Wasn't the Bible kept from ordinary Catholics for centuries?",
-    "a": "The Church honestly admits that in some times and places, access was limited by cost, by the lack of printing, or by rules against unauthorized translations. These were failings of practice, and they do not match the teaching of the Fathers above, who urged lay people to read Scripture themselves. The modern Church has restated the principle that access must be \"open wide\"."
+    "a": "In some times and places access was limited by cost, by the lack of printing, and by rules against unauthorized translations (see “Did the Church ban the Bible?”). Those rules were real; they do not match the teaching of the Fathers above, who urged lay people to read Scripture themselves. The modern Church has restated the principle that access must be \"open wide\"."
    },
    {
     "q": "Surveys say many Catholics rarely open a Bible. Doesn't that settle it?",
-    "a": "It may well say something true about habits, and the Church would not deny it. But the claim that Catholics \"don't read the Bible\" is about what she teaches, and that is the opposite. The remedy she proposes is the one in the Catechism: frequent reading, supported by the liturgy.",
+    "a": "It may well say something true about habits, and the Church would not deny it. If the claim means that the Church tells Catholics not to read the Bible, what she teaches is the opposite. If it means that many Catholics rarely do, surveys suggest it is often true. The remedy she proposes is the one in the Catechism: frequent reading, supported by the liturgy.",
     "steps": [
      {
       "kind": "catechism",

@@ -82,7 +82,7 @@
     "work": "council-constantinople-1",
     "section": "ix.iii",
     "quote": "the Lord and Giver-of-Life, who proceedeth from the Father, who with the Father and the Son together is worshipped and glorified, who spake by the prophets",
-    "note": "Error answered: the Pneumatomachi denied that the Holy Spirit is God. The council completes the Nicene faith by confessing the Spirit as Lord, Giver of life, and worshipped with the Father and the Son."
+    "note": "Error answered: the Pneumatomachi denied that the Holy Spirit is God. The council completes the Nicene faith by confessing the Spirit as Lord, Giver of life, and worshipped with the Father and the Son. The words \"and the Son\" (the Filioque) were added later in the West and are disputed by the East; see CCC 246."
    },
    {
     "kind": "catechism",
@@ -97,7 +97,7 @@
   "objections": [
    {
     "q": "The word \"homoousios\" is not in the Bible. Surely the Council added something foreign to Scripture?",
-    "a": "The council added a word, not a doctrine. Scripture already says the Word was God and that Jesus and the Father are one; when Arians accepted every biblical phrase while denying its plain sense, the bishops chose a word that could not be bent that way. The creed protects what the Gospel already says.",
+    "a": "The council added a word, not a doctrine. Scripture already says the Word was God and that Jesus and the Father are one; when Arians accepted every biblical phrase while denying its plain sense, the bishops chose a word that could not be bent that way. The creed protects what the Gospel already says. The word was itself debated, even rejected in one sense at a council at Antioch in 268, which is why Nicaea tied its meaning to its own plain statements that the Son is of the Father's substance.",
     "steps": [
      {
       "kind": "scripture",
@@ -152,7 +152,7 @@
   "id": "christ-natures-development",
   "title": "How the Church defined who Christ is",
   "question": "How did the Church come to say that Christ is one person in two natures, truly God and truly man?",
-  "summary": "The apostles proclaimed that the Word became flesh. Each century raised a new question: is the Son truly God (Nicaea), is Christ one person (Ephesus), are both natures real and unmixed (Chalcedon), and does he have a human will (Constantinople III). The Church answered each time by guarding the same Gospel, never by adding a new revelation.",
+  "summary": "The apostles proclaimed that the Word became flesh. Each century raised a new question: is the Son truly God (Nicaea), is Christ one person (Ephesus), are both natures real and unmixed (Chalcedon), and does he have a human will (Constantinople III). The Church answered each time by guarding the same Gospel, never by adding a new revelation. The Church of the East did not accept Ephesus, and the Oriental Orthodox churches did not accept Chalcedon; Catholic statements with them (such as the 1994 Common Christological Declaration with the Assyrian Church of the East) recognise that they hold the same Christological faith in different words.",
   "steps": [
    {
     "kind": "scripture",
@@ -191,7 +191,7 @@
     "work": "council-ephesus",
     "section": "x.v",
     "quote": "the Word having personally united to himself flesh animated by a rational soul, did in an ineffable and inconceivable manner become man",
-    "note": "Error answered: Nestorius spoke as if the Word and the man Jesus were two subjects loosely joined. Cyril, whose letter was read at the council, says the Word himself personally united flesh to himself and so is one Christ."
+    "note": "Error answered: Nestorius' opponents, Cyril above all, understood his language to treat the Word and the man Jesus as two subjects loosely joined (Nestorius himself denied this, and scholars still debate it). Cyril, whose letter was read at the council, says the Word himself personally united flesh to himself and so is one Christ."
    },
    {
     "kind": "council",
@@ -304,7 +304,7 @@
   "id": "mary-development",
   "title": "How the Church came to understand Mary",
   "question": "How did the Church move from Mary the obedient virgin of the Gospel to the dogmas of Mother of God and the Immaculate Conception?",
-  "summary": "Luke presents Mary as highly favored and as the mother of the Lord. Irenaeus saw her obedience as the answer to Eve's disobedience; Ephesus defined her as Theotokos to protect the truth about Christ; and later reflection on her being \"full of grace\" led Pius IX to define the Immaculate Conception in 1854. Each step flows from who Christ is and what grace does.",
+  "summary": "Luke presents Mary as highly favored (in Greek, kecharitomene, which the Latin renders \"full of grace\") and as the mother of the Lord. Irenaeus saw her obedience as the answer to Eve's disobedience; Ephesus defined her as Theotokos to protect the truth about Christ; and later reflection on her being \"full of grace\" led Pius IX to define the Immaculate Conception in 1854. Each step flows from who Christ is and what grace does.",
   "steps": [
    {
     "kind": "scripture",
@@ -343,7 +343,7 @@
     "work": "council-ephesus",
     "section": "x.v",
     "quote": "they ventured to call the holy Virgin, the Mother of God, not as if the nature of the Word or his divinity had its beginning from the holy Virgin",
-    "note": "Error answered: Nestorius refused the title Theotokos. Cyril answers that Mary is Mother of God not because divinity began in her, but because the child she bore is the Word himself."
+    "note": "Error answered: Nestorius objected to calling Mary Theotokos without qualification and preferred Christotokos. Cyril answers that Mary is Mother of God not because divinity began in her, but because the child she bore is the Word himself."
    },
    {
     "kind": "council",
@@ -418,7 +418,7 @@
    },
    {
     "q": "The Immaculate Conception is not in Scripture or the early Fathers.",
-    "a": "It is not stated in those words. The Church reads Luke's \"highly favored\" together with the Eastern Fathers' title All-Holy, and holds that the doctrine was implicit in the faith and then defined in 1854 on that basis.",
+    "a": "It is not stated in those words. The Church reads Luke's \"highly favored\" together with the Eastern Fathers' title All-Holy, and holds that the doctrine was implicit in the faith and then defined in 1854 on that basis. It was debated in the Middle Ages (Bernard of Clairvaux and Thomas Aquinas had difficulties with it; Duns Scotus showed how Mary could be redeemed by being preserved from sin), and the Church only defined it in 1854.",
     "steps": [
      {
       "kind": "catechism",
@@ -445,7 +445,7 @@
   "id": "real-presence-development",
   "title": "How the Church defined the Real Presence",
   "question": "How did the Church come to teach that Christ is truly present, body and blood, in the Eucharist?",
-  "summary": "Paul and John say that the bread and cup are a sharing in Christ's body and blood, and the early Fathers speak the same way. When later teachers reduced this to a mere sign, councils and especially Trent defined that Christ is truly, really and substantially present. The faith stayed the same; the language of transubstantiation was added to guard it.",
+  "summary": "Paul and John say that the bread and cup are Christ's body and blood and that his flesh is true food and his blood true drink, and the early Fathers speak the same way. When later teachers reduced this to a mere sign, the Church, notably at Lateran IV (1215) and Trent, defined that Christ is truly, really and substantially present. The faith stayed the same; the language of transubstantiation was added to guard it.",
   "steps": [
    {
     "kind": "scripture",
@@ -508,12 +508,12 @@
    {
     "kind": "father",
     "label": "Augustine, Exposition of Psalm 34",
-    "when": "c. 392",
-    "year": 392,
+    "when": "c. 400",
+    "year": 400,
     "work": "aug-psalms",
     "section": "ii.XXXIV",
     "quote": "Now will He speak openly of the same Sacrament, whereby He was carried in His Own Hands.",
-    "note": "Question: how do the Fathers read the Psalms in light of the Supper? Augustine finds in the Psalm a figure of the sacrament in which Christ held himself in his own hands."
+    "note": "Question: how do the Fathers read the Psalms in light of the Supper? Augustine reads the Psalm's David carried in his own hands as a figure of the Eucharist, in which Christ held himself in his own hands."
    },
    {
     "kind": "council",
@@ -523,7 +523,7 @@
     "work": "trent-canons-decrees",
     "section": "s13",
     "quote": "our Lord Jesus Christ, true God and man, is truly, really, and substantially contained under the species of those sensible things",
-    "note": "Error answered: sixteenth-century reformers denied that Christ is substantially present, treating the Eucharist as a sign. Trent defines the real presence in the plainest terms."
+    "note": "Error answered: Zwingli and others treated the Eucharist as a sign or memorial (Luther kept a real presence but rejected the change of substance, and Calvin taught a spiritual presence). Trent defines the real presence in the plainest terms."
    },
    {
     "kind": "catechism",
@@ -608,7 +608,7 @@
   "id": "canon-development",
   "title": "How the canon of Scripture was recognized",
   "question": "How did the Church come to recognize which books belong in the Bible?",
-  "summary": "From the start the Church read the Scriptures as inspired, and the four Gospels were recognized early. For other books the Church tested what was read in the churches and received from the apostles, with some local differences, until Trent and Vatican I stated the list as a matter of faith. The books are not given their authority by a vote; the Church recognizes what God inspired.",
+  "summary": "From the start the Church read the Scriptures as inspired, and the four Gospels were recognized early. For other books the Church tested what was read in the churches and received from the apostles, with some local differences, until regional councils (Hippo, Carthage) and Florence listed the books and Trent defined the list as a matter of faith. The books are not given their authority by a vote; the Church recognizes what God inspired.",
   "steps": [
    {
     "kind": "scripture",
@@ -706,7 +706,7 @@
    },
    {
     "q": "If the Church decided the canon, isn't the Church above Scripture?",
-    "a": "The Church recognizes Scripture; it does not make it inspired. Vatican I says the books are canonical because they have God for their author, and the Church discerns this through apostolic Tradition.",
+    "a": "The Church recognizes Scripture; it does not make it inspired. Vatican I says the books are canonical because they have God for their author, and the Catechism (120) adds that the Church discerns the list through apostolic Tradition.",
     "steps": [
      {
       "kind": "scripture",
@@ -721,7 +721,7 @@
    },
    {
     "q": "There was no early council fixing the canon, so how can it be certain?",
-    "a": "The bundled sources show a gradual, shared recognition rather than a single early decree: Irenaeus and Origen on the Gospels, Eusebius on accepted and disputed books, Augustine's criterion of the greater number of churches. The Church later declared what had been received."
+    "a": "No ecumenical council fixed the canon in the early centuries, but regional councils at Hippo (393) and Carthage (397, 419) listed the books, and Pope Innocent I (405) sent a list that matches. The bundled sources show the same gradual, shared recognition: Irenaeus and Origen on the Gospels, Eusebius on accepted and disputed books, Augustine's criterion of the greater number of churches. The Church later declared what had been received, at Florence (1442) and finally at Trent (1546)."
    }
   ],
   "readNext": [
@@ -777,7 +777,7 @@
    },
    {
     "kind": "saint",
-    "label": "John Damascene, Exact Exposition 4.16",
+    "label": "John Damascene, Exact Exposition 4.11",
     "when": "c. 743",
     "year": 743,
     "work": "john-damascus",
@@ -844,7 +844,7 @@
    },
    {
     "q": "The early Church had no icons. Isn't this a later corruption?",
-    "a": "The Fathers at Nicaea II appeal to the unwritten tradition handed down, as Paul commands. Damascene likewise cites Paul on the traditions handed down by word. Images are part of what the Church received, not an addition.",
+    "a": "There is early evidence for Christian images (catacomb paintings, the house church at Dura-Europos), but some early Christians opposed them (the Council of Elvira, c. 300, and Eusebius in his letter to Constantia). The Fathers at Nicaea II therefore rest the case on the tradition handed down and on the Incarnation, as Paul commands. Damascene likewise cites Paul on the traditions handed down by word.",
     "steps": [
      {
       "kind": "scripture",

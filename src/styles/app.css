@@ -5634,3 +5634,31 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .sb-ref{margin:10px 0 0;font-size:1.35rem}
 .sb-passage{margin:8px 0}.sb-text p{margin:.4em 0;line-height:1.7}
 .sb-years{padding-left:1.1em}.sb-years li{margin:6px 0}
+.mentor-tag{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:99px;border:1px solid currentColor;font-size:.68rem;font-weight:600;opacity:.8;vertical-align:middle}
+
+/* the glossed page */
+.gl-controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin:10px 0}
+.gl-page{--ink:var(--fg,#e9e2cf);position:relative;margin:14px 0;padding:22px 20px;border-radius:14px;border:3px double color-mix(in srgb,#b9772e 70%,transparent);background:color-mix(in srgb,#e9dfc2 9%,transparent)}
+.gl-title{margin:0 0 14px;font-family:var(--font-serif,Georgia,serif);font-size:1.5rem;text-align:center}
+.gl-rubric{color:#c05050}.gl-chap{color:#c05050;font-weight:700}
+.gl-row{display:block;margin:.5em 0}
+.gl-verse{margin:0;font-family:var(--font-serif,Georgia,serif);font-size:1.15rem;line-height:1.7}
+.gl-num{color:#c05050;font-weight:700;font-size:.78em;vertical-align:super;margin-right:3px}
+.gl-verse::first-letter{color:inherit}
+.gl-row:first-of-type .gl-verse::first-letter{color:#c05050;font-size:1.6em;font-weight:700}
+.gl-note{font-size:.84rem;line-height:1.5;opacity:.92}
+.gl-note p{margin:.3em 0}
+.gl-la{display:block;margin-top:.3em;font-style:italic;opacity:.8}
+.gl-note-wide{display:none}
+.gl-note-narrow{margin:.2em 0 .6em;padding-left:12px;border-left:3px solid color-mix(in srgb,#b9772e 55%,transparent)}
+.gl-toggle{background:none;border:0;color:var(--accent,#7a5);cursor:pointer;font:inherit;font-size:.82rem;padding:0;text-decoration:underline}
+@media (min-width:900px){
+  .gl-page{padding:26px 28px}
+  .gl-row.has-note{display:grid;gap:22px;align-items:start}
+  .gl-row.has-note.side-left{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)}
+  .gl-row.has-note.side-right{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+  .gl-row.has-note .gl-note-wide{display:block;padding:6px 0 6px 12px;border-left:2px solid color-mix(in srgb,#b9772e 55%,transparent);background:color-mix(in srgb,#b9772e 7%,transparent);border-radius:4px}
+  .gl-row.side-left .gl-note-wide{grid-column:1;grid-row:1}.gl-row.side-left .gl-verse{grid-column:2;grid-row:1}
+  .gl-row.side-right .gl-verse{grid-column:1;grid-row:1}.gl-row.side-right .gl-note-wide{grid-column:2;grid-row:1}
+  .gl-note-narrow{display:none}
+}

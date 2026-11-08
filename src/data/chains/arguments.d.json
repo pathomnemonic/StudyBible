@@ -56,8 +56,8 @@
       {
         "kind": "father",
         "label": "Augustine, Sermon on the Creed",
-        "when": "c. 400",
-        "year": 400,
+        "when": "c. 393",
+        "year": 393,
         "work": "aug-doctrinal",
         "section": "iv.vii.xvii",
         "quote": "We believe also “the resurrection of the flesh,” which went before in Christ: that the body too may have hope of that which went before in its Head",
@@ -104,7 +104,7 @@
       },
       {
         "q": "Isn't the body the problem? Surely salvation means escaping matter, and Paul says flesh and blood cannot inherit the kingdom.",
-        "a": "Paul does not set body against soul but the perishable against the imperishable. Irenaeus asks what could stop living flesh from sharing in incorruption, and Paul himself says this perishable body must put on imperishability. The body is transformed, not discarded.",
+        "a": "Paul does not set body against soul but the perishable against the imperishable. In 1 Corinthians 15:50 “flesh and blood” means our mortal, corruptible condition, not the body as such; he goes on at once to say that this perishable body must put on imperishability. Irenaeus asks what could stop living flesh from sharing in incorruption. The body is transformed, not discarded.",
         "steps": [
           {
             "kind": "scripture",
@@ -145,7 +145,7 @@
     "id": "hell",
     "title": "Why Is Hell Real?",
     "question": "Why does the Church teach that hell is real, and eternal?",
-    "summary": "Hell is taught because Christ himself taught it, repeatedly and solemnly, and the Fathers took his words at face value. The Church explains it as the final result of a free and lasting choice to refuse God's love, never as God predestining anyone to damnation. It is a warning that makes our freedom matter.",
+    "summary": "Hell is taught because Christ himself taught it, repeatedly and solemnly, and the Fathers, with few exceptions, took his words at face value. The Church explains it as the final result of a free and lasting choice to refuse God's love, never as God predestining anyone to damnation. It is a warning that makes our freedom matter.",
     "steps": [
       {
         "kind": "scripture",
@@ -197,13 +197,13 @@
       },
       {
         "kind": "father",
-        "label": "Augustine, Enchiridion",
+        "label": "Augustine, Enchiridion 67",
         "when": "c. 421",
         "year": 421,
         "work": "aug-doctrinal",
         "section": "iv.ii.lxix",
         "quote": "seem to me to be led astray by a kind of benevolent feeling natural to humanity. For Holy Scripture, when consulted, gives a very different answer.",
-        "note": "Augustine addresses Catholics who hoped that hell would end, and says that kindness of heart cannot overrule what Scripture says."
+        "note": "Augustine answers Catholics who thought that baptized persons living in grave sin to the end would be saved after a temporary fire. He calls this a kindly thought, but one that Scripture contradicts."
       },
       {
         "kind": "catechism",
@@ -253,17 +253,17 @@
       },
       {
         "q": "A finite life of sin cannot deserve infinite punishment.",
-        "a": "Augustine replies that we measure the sin badly: it was committed against the source of all good, and when it could have been so easily avoided. The Catechism adds that freedom has the power to make choices for ever.",
+        "a": "Augustine replies, in City of God 21, that no law measures a penalty by how long the offence took, and that the wrong is weighed by what is abandoned: the more man enjoyed God, the greater the wickedness of leaving him. (Of the first sin he adds that it was the graver because it could so easily have been avoided.) This is a theologian’s argument rather than a defined doctrine. The Catechism adds that freedom has the power to make choices for ever.",
         "steps": [
           {
             "kind": "father",
-            "label": "Augustine, City of God, Book 14",
+            "label": "Augustine, City of God 21.11-12",
             "when": "c. 420",
             "year": 420,
             "work": "aug-city-of-god",
-            "section": "iv.XIV",
-            "quote": "Whoever thinks such punishment either excessive or unjust shows his inability to measure the great iniquity of sinning where sin might so easily have been avoided.",
-            "note": "Augustine says that the seriousness of a sin depends on whom it offends and how easily it could have been avoided."
+            "section": "iv.XXI",
+            "quote": "The more enjoyment man found in God, the greater was his wickedness in abandoning Him; and he who destroyed in himself a good which might have been eternal, became worthy of eternal evil.",
+            "note": "Augustine says the gravity of a sin is measured by what it abandons, not by how long the act lasted."
           },
           {
             "kind": "catechism",
@@ -300,8 +300,8 @@
   {
     "id": "marriage-indissoluble",
     "title": "Why Is Marriage Lifelong?",
-    "question": "Why does the Church teach that a valid marriage can only be ended by death?",
-    "summary": "The Church teaches this because Jesus did. He pointed back to the beginning, when God made two one flesh, and he forbade remarriage after divorce. The apostles, the Fathers and the Council of Trent held the same, and the Catechism explains it by the faithfulness of God to his covenant.",
+    "question": "Why does the Church teach that a valid, sacramental marriage that has been consummated can be ended only by death?",
+    "summary": "The Church teaches this because Jesus did. He pointed back to the beginning, when God made two one flesh, and he forbade remarriage after divorce. The Fathers overwhelmingly taught the same, though a few early writers tolerated remarriage in cases of adultery; Trent confirmed the Church’s own teaching and practice, and the Catechism explains it by the faithfulness of God to his covenant. The teaching concerns a valid marriage between baptized persons that has been consummated (CCC 1640). Other marriages can in some cases be dissolved, as in the Pauline privilege (1 Cor 7:12-15) or, by solemn religious profession, a marriage not yet consummated (Trent, Session 24, Canon 6).",
     "steps": [
       {
         "kind": "scripture",
@@ -369,7 +369,7 @@
         "work": "trent-canons-decrees",
         "section": "s24",
         "quote": "the bond of matrimony cannot be dissolved on account of the adultery of one of the married parties",
-        "note": "Trent defines that even adultery does not dissolve the bond, answering the view that it allows remarriage."
+        "note": "Trent teaches that the bond is not dissolved by a spouse’s adultery and anathematizes anyone who says the Church errs in holding this. It permits separation (Canon 8) but not remarriage. Its wording was chosen with care not to condemn the differing discipline of the Eastern Churches."
       },
       {
         "kind": "catechism",
@@ -389,7 +389,7 @@
     "objections": [
       {
         "q": "Moses allowed divorce, and Jesus himself seems to allow it for sexual immorality.",
-        "a": "Jesus says that Moses allowed it only because of hardness of heart, and that from the beginning it was not so. Augustine notes that the Lord permitted a wife to be put away for fornication without commanding it, and the Church allows separation in such cases while the bond remains.",
+        "a": "Jesus says that Moses allowed it only because of hardness of heart, and that from the beginning it was not so. Augustine notes that the Lord permitted a wife to be put away for fornication without commanding it, and the Church allows separation in such cases while the bond remains. The clause in Matthew 19:9 (“except for sexual immorality”) is the most debated verse here. The Church reads it as allowing separation, not remarriage, and other Christian traditions read it differently.",
         "steps": [
           {
             "kind": "scripture",
@@ -406,7 +406,7 @@
             "work": "aug-sermon-mount",
             "section": "v.ii.xvi",
             "quote": "the Lord permitted a wife to be put away for the cause of fornication; but in permitting, He did not command it",
-            "note": "Augustine reads the exception as permission to separate, not a mandate and not clearly a licence to remarry."
+            "note": "Augustine reads the exception as permission to separate, not to remarry."
           },
           {
             "kind": "catechism",
@@ -508,7 +508,7 @@
         "work": "aug-pelagian",
         "section": "xvi.v",
         "quote": "to destroy the conceived seed by some means previous to birth, preferring that its offspring should rather perish than receive vitality",
-        "note": "Augustine condemns procuring the death of a child before birth, and says that couples who do so have abandoned the honest purpose of marriage."
+        "note": "Augustine condemns couples who use drugs to prevent birth and, if that fails, destroy the child before it is born; he says such spouses are not truly husband and wife."
       },
       {
         "kind": "catechism",
@@ -528,7 +528,7 @@
     "objections": [
       {
         "q": "Augustine wasn't sure when a fetus became a human being. Doesn't that show the early Church was unsure?",
-        "a": "Augustine does discuss the question of formation and the resurrection of those who die in the womb, and he admits uncertainty. But uncertainty about the stage of development never led the Fathers to approve of killing, and Augustine still condemns it. The Catechism concludes that from conception the child must be treated as a person.",
+        "a": "Some Fathers, Augustine among them, distinguished the formed from the unformed fetus and were uncertain about its status. But they never approved of procuring abortion, and Augustine condemns it as a cruel and sinful act (On Marriage and Concupiscence 1.17). The Church today does not decide when the soul arrives, but protects the embryo from conception (CCC 2274).",
         "steps": [
           {
             "kind": "father",
@@ -538,7 +538,7 @@
             "work": "aug-doctrinal",
             "section": "iv.ii.lxxxvii",
             "quote": "But who will dare to deny, though he may not dare to affirm, that at the resurrection every defect in the form shall be supplied",
-            "note": "Augustine cautiously leaves open the question of the unformed, but hopes for their completion, which shows he did not treat them as nothing."
+            "note": "Augustine here discusses whether miscarried fetuses will rise. He thinks the unformed likely perish, which shows that the Fathers did distinguish formed and unformed fetuses."
           },
           {
             "kind": "catechism",
@@ -551,7 +551,7 @@
       },
       {
         "q": "Isn't this teaching simply harsh toward women in difficult situations?",
-        "a": "The Church holds that the teaching protects the weakest, and says plainly that her penalties are not meant to limit mercy. She acknowledges the gravity of the act and also God's readiness to forgive.",
+        "a": "The Church recognizes that women often face fear, pressure and hardship, and does not stop at condemning the act: she also calls the community to help mothers, and she holds out God’s mercy and forgiveness to anyone who repents. The canonical penalty exists to make the gravity of the act plain, and the Catechism says it does not intend to restrict the scope of mercy, noting the harm done to the child, the parents and society.",
         "steps": [
           {
             "kind": "catechism",
@@ -564,7 +564,7 @@
       },
       {
         "q": "Does this only concern abortion, or the whole dignity of life?",
-        "a": "It concerns all innocent life. The Fathers apply the commandment to infants, to the victims of the arena, and to suicide, and the Catechism speaks of every human life from conception to death.",
+        "a": "It concerns all innocent life. The Fathers apply the commandment to infants and even to suicide (Lactantius), and the Catechism speaks of every human life from conception to death.",
         "steps": [
           {
             "kind": "catechism",
@@ -623,14 +623,14 @@
         "note": "Cyril insists that Christ is one person, and that the union does not erase either nature."
       },
       {
-        "kind": "council",
-        "label": "Cyril of Alexandria, First Anathema",
+        "kind": "father",
+        "label": "Cyril of Alexandria, First Anathema (from his Third Letter, read at Ephesus)",
         "when": "431",
         "year": 431,
         "work": "council-ephesus",
         "section": "x.ix",
         "quote": "If anyone will not confess that the Emmanuel is very God, and that therefore the Holy Virgin is the Mother of God",
-        "note": "Mary is called Mother of God because the child she bore is the Word himself, a claim about Christ rather than about Mary's origin."
+        "note": "Cyril’s own anathema, not a decree of the council, states the point the council affirmed: Mary is Theotokos because the child she bore is the Word himself."
       },
       {
         "kind": "council",
@@ -702,7 +702,7 @@
       },
       {
         "q": "Did the Church invent this, or is it in Scripture?",
-        "a": "The councils did not add a new doctrine. They stated what the New Testament already says: the Son is God, and he is also truly human, tempted and weak like us yet without sin.",
+        "a": "The councils did not add a new doctrine. They stated what the New Testament already says: the Son is God, and he is also truly human, tempted and weak like us yet without sin. The councils used philosophical words that are not in the Bible, such as “nature” and “person”, to exclude readings that contradicted what Scripture says.",
         "steps": [
           {
             "kind": "scripture",
@@ -727,7 +727,7 @@
     "id": "why-the-cross",
     "title": "Why Did Christ Have to Die?",
     "question": "Why did Christ have to die, and why on a cross?",
-    "summary": "Christ died because humanity had fallen under sin and death, and only God could repair that; yet only a man owed the debt. In the Word made flesh, God did what neither could do alone. Athanasius explains it as the Life undoing death, Anselm as the debt of sin paid by the God-man, and the Catechism as the free gift of the Father's love.",
+    "summary": "Christ died because humanity had fallen under sin and death, and the tradition sees his death as the fitting way for God to repair it: only God could heal what was broken, yet it was fitting that a man should answer for the debt. In the Word made flesh, God did what neither could do alone. Athanasius explains it as the Life undoing death, Anselm as the debt of sin paid by the God-man, and the Catechism as the free gift of the Father’s love. The Church does not say God was bound to save us this way; the Fathers and Aquinas call it the most fitting way (ST III q.46), and the Catechism describes it as the free gift of the Father’s love (CCC 604, 620).",
     "steps": [
       {
         "kind": "scripture",
@@ -785,7 +785,7 @@
         "work": "anselm-basic-works",
         "section": "vi.iii",
         "quote": "which none but God can make and none but man ought to make, it is necessary for the God-man to make it",
-        "note": "Only God could pay it and only man owed it, so the debt could be paid only by one who is both."
+        "note": "Only God could pay it and only man owed it, so the debt could be paid only by one who is both. Anselm’s “necessity” is a theologian’s argument, not Church teaching: Aquinas (ST III q.46) held that God could have redeemed us otherwise and chose the cross as most fitting."
       },
       {
         "kind": "catechism",
@@ -828,7 +828,7 @@
       },
       {
         "q": "Doesn't this make the Father look like a God who demands blood?",
-        "a": "The Church says the opposite: the Father gave his Son out of love, and the Son offered himself freely. It is God who reconciles the world to himself, not a God who has to be placated by someone else.",
+        "a": "The Church says the opposite: the Father gave his Son out of love, and the Son offered himself freely. The Church says the Father is not an angry God to be bought off: it is God who reconciles the world to himself, and Christ’s offering of love is the means by which he does so, which the tradition calls atonement and propitiation.",
         "steps": [
           {
             "kind": "catechism",

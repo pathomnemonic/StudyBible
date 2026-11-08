@@ -112,6 +112,7 @@ const MediaSearch = lazy(() => import('./pages/listen/MediaSearch'));
 const DoctrineMapPage = lazy(() => import('./pages/study/DoctrineMapPage'));
 const ChainsPage = lazy(() => import('./pages/study/ChainsPage'));
 const ZoomPage = lazy(() => import('./pages/study/ZoomPage'));
+const GlossedPage = lazy(() => import('./pages/study/GlossedPage'));
 const SlowBiblePage = lazy(() => import('./pages/SlowBiblePage'));
 const WidgetsPage = lazy(() => import('./pages/WidgetsPage'));
 const WidgetView = lazy(() => import('./pages/WidgetsPage').then((m) => ({ default: m.WidgetView })));
@@ -405,6 +406,7 @@ export default function App() {
               <Route path="/study/words/:id?" element={<ChainsPage mode="words" />} />
               <Route path="/study/claims/:id?" element={<ChainsPage mode="claims" />} />
               <Route path="/study/zoom/:term?" element={<ZoomPage />} />
+              <Route path="/study/glossed/:book?/:chapter?" element={<GlossedPage />} />
               <Route path="/slow-bible" element={<SlowBiblePage />} />
               <Route path="/pray/hard-day" element={<HardDayPage />} />
               <Route path="/study/walks/:id?" element={<WalksPage />} />

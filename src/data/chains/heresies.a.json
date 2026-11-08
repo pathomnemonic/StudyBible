@@ -146,7 +146,7 @@
     "objections": [
       {
         "q": "Proverbs 8:22 says, in the Greek Bible, “The Lord created me as the beginning of his ways.” Isn’t that Scripture saying that the Son was created?",
-        "a": "Wisdom in Proverbs 8 is a poetic figure, and Athanasius spends a long chapter on this text. The Hebrew verb is rendered “possessed” in this translation, and the passage speaks of Wisdom present “by his side” when God made the world, which is the very thing Arians denied of any creature. Athanasius also points out that the Arian formula was a dodge: if the Word is a creature, he belongs with the rest of the works.",
+        "a": "Athanasius does not deny that the Greek Bible says “created” here, and he spends a long chapter on the text. The Hebrew verb is “possessed” or “acquired” (as in this translation), which does not mean “made”. In Orations II he reads the Greek word of the Word’s taking a creaturely, human existence for the sake of God’s works, and he argues that “created” cannot describe the Word’s eternal being, because the same Wisdom is the one “by his side” as craftsman and is the Creator of all things. If the Word is a creature, he belongs with the rest of the works, and the Arian formula that he is “a creature, but not as one of the creatures” is a dodge.",
         "steps": [
           {
             "kind": "scripture",
@@ -203,7 +203,7 @@
         "steps": [
           {
             "kind": "father",
-            "label": "Athanasius, Orations against the Arians IV",
+            "label": "Orations against the Arians IV (traditionally ascribed to Athanasius)",
             "when": "c. 340–358",
             "year": 350,
             "work": "athanasius-arians",
@@ -236,7 +236,7 @@
     "heresy": {
       "era": "1st–3rd centuries (Simon, Saturninus, Basilides, Valentinus and their schools)",
       "who": "The many teachers Irenaeus describes under “Gnostic” names: Saturninus (Antioch), Basilides (Alexandria), Valentinus and Ptolemy (Rome). The Docetists are those who said Christ only appeared to have a body.",
-      "claim": "The material world was made by lesser powers and is a flaw or prison, and the supreme God is unknown. The Saviour therefore came without real birth or a real body, was a man “by supposition”, and did not truly suffer. Salvation belongs to the soul or to the spiritual seed; the body, being material, cannot share in it. As Irenaeus reports it, only those who have the secret knowledge are saved.",
+      "claim": "The material world was made by lesser powers and is a flaw or prison, and the supreme God is unknown. The Saviour therefore came without real birth or a real body, was a man “by supposition”, and did not truly suffer. Salvation belongs to the soul or to the spiritual seed; the body, being material, cannot share in it. As Irenaeus reports it, only those who have the secret knowledge are saved. The schools differed from one another, and what we have here is chiefly the report of their Catholic opponent Irenaeus; Gnostic writings found at Nag Hammadi in 1945 confirm the broad outline (a lesser creator, salvation by knowledge) while differing in detail.",
       "appeal": "It offered an answer to the problem of evil and the body, and promised a higher, inner knowledge to those who felt that ordinary faith was too simple. It could present itself as a more spiritual, more refined Christianity, and it flattered the “spiritual” into thinking they were saved by nature. Its stories also kept God from being involved in suffering and death.",
       "advocate": [
         {
@@ -295,7 +295,7 @@
         "label": "1 John 4:2-3",
         "ref": "1JN.4.2-3",
         "quote": "every spirit who confesses that Jesus Christ has come in the flesh is of God",
-        "note": "John makes confession of the real incarnation the test of the Spirit, as if answering the first Docetists."
+        "note": "John makes confession of the real incarnation the test of the Spirit, which later writers such as Ignatius applied against the Docetists."
       },
       {
         "kind": "scripture",
@@ -472,7 +472,7 @@
           "note": "The same denial of the body that marks Gnostic teaching appears in Marcion."
         }
       ],
-      "whyItFails": "The Gospel Marcion kept still calls the Father “Lord of heaven and earth”, and Jesus says plainly that he came to fulfil the Law and the Prophets. A God who is “only good” and never judges is no more than a convenient fiction, and Irenaeus shows that dividing the just God from the good God destroys both. The Scriptures Marcion cut were witnesses to Christ, and the God who spoke in the Law is the one who sent his Son."
+      "whyItFails": "The Gospel of Luke that Marcion edited still has Jesus thank the Father as “Lord of heaven”, and in the Church’s Luke, “Lord of heaven and earth”. Jesus says plainly that he came to fulfil the Law and the Prophets. A God who is only good and never judges cannot be good in the full sense, and Irenaeus argues that dividing the just God from the good God destroys both. The Scriptures Marcion cut were witnesses to Christ, and the God who spoke in the Law is the one who sent his Son."
     },
     "steps": [
       {
@@ -480,7 +480,7 @@
         "label": "Luke 10:21-22",
         "ref": "LUK.10.21-22",
         "quote": "I thank you, O Father, Lord of heaven and earth",
-        "note": "Jesus calls his Father “Lord of heaven and earth”. A note in the bundled Tertullian records that Marcion’s text left these words out."
+        "note": "Jesus calls his Father “Lord of heaven and earth”. According to the editor’s note in the bundled Tertullian, Marcion’s text dropped “and of the earth” (and the first “Father”) so that Jesus could not call the Father Lord of this world."
       },
       {
         "kind": "scripture",
@@ -620,7 +620,7 @@
     "heresy": {
       "era": "c. 190–260 (Rome, Asia, Carthage)",
       "who": "Noetus of Smyrna and his disciple Cleomenes, Praxeas (against whom Tertullian wrote), and later Sabellius.",
-      "claim": "There is one God, and the names Father and Son name the same subject at different times and in different roles. As Hippolytus reports Noetus, the Father “became His own Son”; as Tertullian describes Praxeas, the Father came down into the Virgin, was born, suffered, and was Jesus Christ himself.",
+      "claim": "There is one God, and the names Father and Son name the same subject at different times and in different roles. As Hippolytus reports Noetus, the Father “became His own Son”; as Tertullian describes Praxeas, the Father came down into the Virgin, was born, suffered, and was Jesus Christ himself. Sabellius, in Rome early in the third century, as later writers report him, taught one God (a single monad) who shows himself in three successive roles: as Father in creation and law, as Son in redemption, as Spirit in giving life.",
       "appeal": "It sounded like the strictest defence of the oneness of God against any hint of two or three gods. Its supporters could quote “The LORD our God is one” and “You shall have no other gods before me”. They also said they were glorifying Christ, since in their view he was the one God himself. For people who feared polytheism, it seemed the safe position.",
       "advocate": [
         {
@@ -664,7 +664,7 @@
           "note": "Their starting point is the Bible’s own insistence on one God; they cite Exodus and Isaiah against any distinction."
         }
       ],
-      "whyItFails": "In the Gospels the Father and Son speak to each other. At the baptism the Father’s voice, the Son in the water and the Spirit as a dove appear together, and Jesus prays to the Father for glory he had “with you before the world existed”. If the Father were the Son, the Son’s prayer would be a pretence. The Church’s faith in one God is not weakened by the persons being three; Tertullian and Hippolytus argue that the unity is preserved by the one divine substance, not by erasing the distinctions."
+      "whyItFails": "In the Gospels the Father and Son speak to each other. At the baptism the Father’s voice, the Son in the water and the Spirit as a dove appear together, and Jesus prays to the Father for glory he had “with you before the world existed”. If the Father were the Son, the Son’s prayer would be a pretence. The Church’s faith in one God is not weakened by the persons being three; Tertullian argues that the unity is preserved by one divine substance, and Hippolytus by one divine power, not by erasing the distinctions."
     },
     "steps": [
       {
@@ -723,7 +723,7 @@
         "work": "tertullian-marcion",
         "section": "v.ix",
         "quote": "if thenceforward the Father, the Son, and the Spirit are not both believed in as Three, and as making One Only God? God was pleased to renew His covenant with man in such a way as that His Unity might be believed in, after a new manner, through the Son and the Spirit",
-        "note": "The new covenant reveals the unity of God in a new way, through the Son and the Spirit, so that the Trinity is the Gospel’s own discovery."
+        "note": "Tertullian says God renewed his covenant so that his unity might be believed “after a new manner, through the Son and the Spirit”, and so Father, Son and Spirit are three who make one God."
       },
       {
         "kind": "father",
@@ -850,7 +850,7 @@
           "note": "The later council summarizes the earlier teaching that Nestorius’s school was built on: the Word and Christ as two persons."
         }
       ],
-      "whyItFails": "The Gospel never speaks of two subjects. It is the one Son who is born of Mary, hungers, is crucified and rises. If the person born of Mary is only a man joined to the Word, then God the Son did not become man, did not die for us, and the Eucharist is only the flesh of a man. Cyril’s answer at Ephesus was that the Son of God made the humanity his own from the womb, so that what is said of the man can be said of the Word, and Mary, who bore that Word in the flesh, is Mother of God."
+      "whyItFails": "The Gospel never speaks of two subjects. It is the one Son who is born of Mary, hungers, is crucified and rises. If the person born of Mary is only a man joined to the Word, then God the Son did not become man, did not die for us, and the Eucharist is only the flesh of a man. Cyril’s answer at Ephesus was that the Son of God made the humanity his own from the womb, so that what is said of the man can be said of the Word, and Mary, who bore that Word in the flesh, is Mother of God. Nestorius himself denied that he taught two Sons and said he would accept “Theotokos” if it did not mean that the Godhead began in Mary, and historians still discuss whether his own teaching matched what Ephesus condemned. In 1994 the Catholic Church and the Assyrian Church of the East signed a Common Christological Declaration affirming a shared faith in Christ. What Ephesus condemned is the doctrine of two subjects, whoever held it."
     },
     "steps": [
       {
@@ -903,23 +903,23 @@
       },
       {
         "kind": "council",
-        "label": "Cyril, Third Letter to Nestorius",
+        "label": "Cyril, Third Letter to Nestorius (his own letter)",
         "when": "430",
         "year": 430,
         "work": "council-ephesus",
         "section": "x.viii",
         "quote": "we do not divide the God from the man, nor separate him into parts",
-        "note": "The positive claim: one Christ, not a man and a God sharing a title."
+        "note": "The positive claim: one Christ, not a man and a God sharing a title. Ephesus read it, but the council’s formal approval was given to the Second Letter."
       },
       {
         "kind": "council",
-        "label": "Cyril’s First Anathema",
+        "label": "Cyril’s First Anathema (his own, approved later)",
         "when": "430",
         "year": 430,
         "work": "council-ephesus",
         "section": "x.ix",
         "quote": "If anyone will not confess that the Emmanuel is very God, and that therefore the Holy Virgin is the Mother of God",
-        "note": "The first of the twelve anathemas puts the matter in a single sentence."
+        "note": "The first of the twelve anathemas puts the matter in a single sentence. These anathemas were Cyril’s own: Ephesus approved the Second Letter and did not formally adopt the twelve, which Constantinople II (553) later endorsed."
       },
       {
         "kind": "council",
@@ -958,7 +958,7 @@
       },
       {
         "q": "God cannot suffer or die. Doesn’t saying God was born and crucified insult his nature?",
-        "a": "The Church has never said that the divine nature suffers in itself. It says the Son of God suffered in the flesh he made his own. Paul and Luke both speak of God’s own blood and the Lord of glory crucified.",
+        "a": "The Church has never said that the divine nature suffers in itself. It says the Son of God suffered in the flesh he made his own. Paul speaks of the “Lord of glory” crucified (1 Corinthians 2:8), and Acts 20:28, on one reading of its disputed text, of the Church purchased “with his own blood”.",
         "steps": [
           {
             "kind": "council",
@@ -975,13 +975,13 @@
             "label": "Acts 20:28",
             "ref": "ACT.20.28",
             "quote": "the assembly of the Lord and God which he purchased with his own blood.",
-            "note": "The apostle speaks of God’s blood, showing that one subject owns both the Godhead and the blood."
+            "note": "The text is variously read (“church of God” or “of the Lord”), but on this reading one subject owns both the Godhead and the blood."
           }
         ]
       },
       {
         "q": "Doesn’t Cyril’s stress on unity blur the human and divine natures together?",
-        "a": "The council rejected that conclusion too. The union of Cyril’s own settlement with John of Antioch, read at Chalcedon, speaks of “a union of two natures”, and the Second Letter keeps the difference.",
+        "a": "The Church rejected that conclusion too, at Chalcedon. Cyril’s own settlement with John of Antioch (433), read at Chalcedon, speaks of “a union of two natures”, and the Second Letter keeps the difference.",
         "steps": [
           {
             "kind": "council",
@@ -1010,7 +1010,7 @@
     "summary": "The Church teaches that Christ is one person in two natures, divine and human, “without confusion, change, division or separation”. He is consubstantial with the Father as to his Godhead and consubstantial with us as to his manhood.",
     "heresy": {
       "era": "448–451 (Council of Chalcedon, 451)",
-      "who": "Eutyches, an archimandrite at Constantinople, and Dioscorus of Alexandria, who defended him; the Monophysite churches grew from these disputes.",
+      "who": "Eutyches, an archimandrite at Constantinople, and Dioscorus of Alexandria, who defended him. The Oriental Orthodox churches (Coptic, Syriac, Armenian, Ethiopian and others) that separated after Chalcedon trace their break to these disputes, but they reject Eutyches by name, hold Cyril’s formula of “one incarnate nature of the Word” and affirm Christ’s full humanity. Joint declarations with Rome (Paul VI and Shenouda III, 1973; John Paul II and Patriarch Zakka I, 1984) call the disagreement largely verbal.",
       "claim": "As Leo reports Eutyches’ answer at his examination: “I confess that our Lord was of two natures before the union, but after the union I confess one nature.” The humanity was so joined to the Godhead that it no longer remained a distinct nature. Eutyches himself said he held the faith of Nicaea and Ephesus and rejected the idea that Christ’s flesh came from heaven.",
       "appeal": "It was a reaction against Nestorius and so looked like loyalty to Cyril of Alexandria and to the unity of Christ. It could be defended with Cyril’s language about a union of the Word with the flesh. It also carried the deep devotion that wants no distance between Christ’s humanity and his glory. A simple old monk like Eutyches could genuinely think he was defending the faith.",
       "advocate": [
@@ -1055,7 +1055,7 @@
           "note": "The imperial judges summarize the dispute at the council: “of two natures” was acceptable to Dioscorus, but “in two natures” was not."
         }
       ],
-      "whyItFails": "If after the union the humanity is absorbed or changed, then Christ no longer shares our nature and cannot be our mediator, and what the Gospels say about his hunger, tears, death and wounds cannot be said of him. Leo argues from the plain words of the Gospels and the Creed: the risen Christ shows his wounds so that “the properties of the Divine and the human nature” might be acknowledged to remain in him. Chalcedon confessed the opposite of confusion and the opposite of division: one person, two natures."
+      "whyItFails": "If after the union the humanity is absorbed or changed (as his opponents understood him), then Christ no longer shares our nature and cannot be our mediator, and what the Gospels say about his hunger, tears, death and wounds cannot be said of him. Leo argues from the plain words of the Gospels and the Creed: the risen Christ shows his wounds so that “the properties of the Divine and the human nature” might be acknowledged to remain in him. Chalcedon confessed the opposite of confusion and the opposite of division: one person, two natures."
     },
     "steps": [
       {

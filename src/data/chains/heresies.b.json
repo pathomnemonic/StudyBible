@@ -7,7 +7,7 @@
   "heresy": {
    "era": "Early fifth century; Rome, North Africa and Palestine",
    "who": "Pelagius, a British ascetic and moral teacher active in Rome; his disciple Cœlestius; later Julian of Eclanum.",
-   "claim": "Adam was created mortal and his sin injured only himself, so each child is born in the state Adam was in before the fall. Human nature is whole, and since a person ought to avoid sin, he is able to avoid it: with free will, the law and the teaching of Christ, a man can live without sin. Grace is therefore understood chiefly as the gift of free will and of instruction, and is bestowed in proportion to merit. (Pelagius himself disowned some of these statements at Diospolis in 415, while holding fast to the core claim that a man can be without sin.)",
+   "claim": "Adam was created mortal and his sin injured only himself, so each child is born in the state Adam was in before the fall. Human nature is whole, and since a person ought to avoid sin, he is able to avoid it: with free will, the law and the teaching of Christ, a man can live without sin. Grace is therefore understood chiefly as the gift of free will and of instruction, and is bestowed in proportion to merit. (Pelagius himself disowned, at Diospolis in 415, the propositions that grace is given according to merit and that Adam’s sin harmed only himself, while holding firmly to the claim that a man can be without sin.)",
    "appeal": "Pelagius was a serious moralist, scandalised by Christians who excused slackness by pleading human weakness. His reasoning is easy to feel the force of: a command that cannot be obeyed seems unjust, a sin that cannot be avoided seems no sin at all, and so honouring God’s justice and human responsibility seems to demand that we are able. It sounds like a call to holiness and to take our moral lives seriously.",
    "advocate": [
     {
@@ -211,7 +211,7 @@
   "heresy": {
    "era": "311 to the 5th century; Roman North Africa",
    "who": "Majorinus and Donatus the Great, then Parmenian, Petilian of Constantina, Cresconius and Gaudentius.",
-   "claim": "After the Great Persecution the party of Donatus rejected the Catholic bishop of Carthage and those in communion with him, charging them with being traditores, men who had handed the sacred books to the persecutors. The Donatists taught that the Church must be holy in its ministers, that a sacrament given by an unworthy or “traditor” minister is empty, and that the recipient is stained by the minister’s guilt. They therefore rebaptised those who came to them from the Catholic Church and held that they alone were the true Church.",
+   "claim": "After the Great Persecution the party of Donatus rejected Caecilian, the Catholic bishop of Carthage, and those in communion with him, charging that his consecrator Felix of Aptunga was a traditor, one who had handed the sacred books to the persecutors (a charge later examined and rejected at Rome and Arles). The Donatists taught that the Church must be holy in its ministers, that a sacrament given by an unworthy or “traditor” minister is empty, and that the recipient is stained by the minister’s guilt. They therefore rebaptised those who came to them from the Catholic Church and held that they alone were the true Church.",
    "appeal": "The Donatists remembered the martyrs of the persecution and were ashamed of those who had given in. They wanted a Church whose bishops lived up to the Gospel, and they had the authority of Cyprian, the great African martyr-bishop, who had held that baptism outside the Church was void. To many Africans it looked like fidelity against compromise.",
    "advocate": [
     {
@@ -377,7 +377,7 @@
    },
    {
     "q": "Scripture says to “come out from among them.” Shouldn’t the pure separate from a Church that tolerates grave sinners?",
-    "a": "Paul wrote to the Corinthians as a Church although they were full of faults, and he told them to correct the offenders, not to leave the Church. Augustine asks the Donatists to look at what Cyprian himself accepted: he stayed in communion with a Church that included men like Judas, and was not defiled by it.",
+    "a": "Paul wrote to the Corinthians as a Church although they were full of faults, and he told them to correct the offenders, not to leave the Church. Augustine asks the Donatists to look at what Cyprian himself accepted: he stayed in communion with bishops he disagreed with over baptism. Augustine also points out that Christ kept even Judas among the Twelve.",
     "steps": [
      {
       "kind": "father",
@@ -393,7 +393,7 @@
    },
    {
     "q": "Augustine and the emperor used force against the Donatists. Isn’t that a bad sign for the Catholic position?",
-    "a": "It is a fair criticism and the Church does not pretend otherwise. The use of state pressure in these controversies is a historical failure, and the Catechism says plainly that no one may be forced to act against his conscience in religious matters. The theological case against Donatism does not rest on coercion, and it stands without it.",
+    "a": "It is a fair criticism, and the Church does not pretend otherwise. Augustine at first opposed compulsion and later, after Donatist violence (including that of the circumcellions), accepted imperial pressure. The Church today regrets such use of force in matters of faith (John Paul II, Tertio Millennio Adveniente 35), and the Catechism says no one may be forced to act against his conscience in religious matters (CCC 2106). The theological case against Donatism does not rest on coercion, and it stands without it.",
     "steps": [
      {
       "kind": "catechism",
@@ -431,8 +431,8 @@
   "heresy": {
    "era": "3rd to 6th century; Persia, the Roman Empire, and above all North Africa",
    "who": "Mani (died c. 276) and his followers, including Adimantus, Faustus of Milevis and Fortunatus.",
-   "claim": "There are two uncreated principles from the beginning, light under God the Father and darkness, and the world is a mixture in which fragments of light are trapped in matter. Evil is therefore a real, eternal nature opposed to God. Souls are fragments of divine light imprisoned in matter, matter belongs to the dark, and Christ was not truly born of a woman; he came to free the light. The Old Testament belongs to another god and must be rejected, and the “elect” live by a strict rule that separates them from matter.",
-   "appeal": "The Manichaeans claimed to answer the question that troubled many thoughtful people, “Whence is evil?” They offered knowledge by reason instead of belief on authority, a sober ascetic elect, and a way to disown the troubling passages of the Old Testament. Augustine was one of them for about nine years, and writes honestly of how strong a pull it had.",
+   "claim": "There are two uncreated principles from the beginning, light under God the Father and darkness, and the world is a mixture in which fragments of light are trapped in matter. Evil is therefore a real, eternal nature opposed to God. Souls are fragments of divine light imprisoned in matter, matter belongs to the dark, and Christ was not truly born of a woman; he came to free the light. The Old Testament comes from the inferior, material creator or from the powers of darkness, and must be rejected, and the “elect” live by a strict rule that separates them from matter.",
+   "appeal": "The Manichaeans claimed to answer the question that troubled many thoughtful people, “Whence is evil?” They offered knowledge by reason instead of belief on authority, a sober ascetic elect, and a way to disown the troubling passages of the Old Testament. Augustine was a Manichaean hearer for about nine years, and writes honestly of how strong a pull it had.",
    "advocate": [
     {
      "kind": "father",
@@ -594,7 +594,7 @@
    },
    {
     "q": "Doesn’t the Church also teach fasting, virginity and discipline of the body? Isn’t that the same contempt for matter?",
-    "a": "The Church honours celibacy and fasting as free gifts and means of growth, never as a rejection of the body. Augustine insists that marriage, children and property are allowed to the baptised, which the Manichaeans denied.",
+    "a": "The Church honours celibacy and fasting as free gifts and means of growth, never as a rejection of the body. Augustine insists that marriage and children are good, whereas the Manichaean “elect” rejected them and the “hearers” were discouraged from having children.",
     "steps": [
      {
       "kind": "father",
@@ -646,8 +646,8 @@
   "summary": "The Church teaches that Christ gave her the power to forgive all sins, so that no one who repents is turned away, however grave the fall. Penance can be demanding and long, but it always leads somewhere: toward reconciliation. To refuse absolution altogether is to deny the keys Christ entrusted to the apostles, and to forbid hope is to contradict the Gospel itself.",
   "heresy": {
    "era": "251 onward; Rome, Carthage and across the empire",
-   "who": "Novatian, a Roman presbyter and theologian who was set up as a rival bishop of Rome in 251 against Cornelius; allied with Novatus and other rigorists, whose followers called themselves the Cathari, “the pure.”",
-   "claim": "After the persecution under Decius, those who had denied the faith were not to be restored to communion, however sincere their penance. The Church could exhort them to repent, but forgiveness of such a sin was a power reserved to God alone, not one the Church could use. The Church is a communion of the pure, so receiving the lapsed back pollutes it. Those who came over from the Catholic Church were baptised again.",
+   "who": "Novatian, a Roman presbyter and theologian who was set up as a rival bishop of Rome in 251 against Cornelius; Novatus, a Carthaginian presbyter who opposed Cyprian from the lenient side, supported him against Cornelius for his own reasons. The followers of Novatian called themselves the Cathari, “the pure.”",
+   "claim": "After the persecution under Decius, those who had denied the faith were not to be restored to communion, however sincere their penance. The Church could exhort them to repent, but forgiveness of such a sin was a power reserved to God alone, not one the Church could use. The Church is a communion of the pure, so receiving the lapsed back pollutes it. Novatianist communities commonly rebaptised those who came over from the Catholic Church.",
    "appeal": "The persecution had left real martyrs and confessors, and many saw that welcoming back those who sacrificed to idols might cheapen their sufferings. Some African bishops before them had also refused peace to adulterers, and the letter to the Hebrews (6:4-6) seemed to say plainly that there was no second repentance. It looked like seriousness about holiness and respect for God’s prerogative.",
    "advocate": [
     {
@@ -658,7 +658,7 @@
      "work": "eusebius-history",
      "section": "iii.xi",
      "quote": "being lifted up with arrogance against these persons, as if there was no longer for them a hope of salvation, not even if they should do all things pertaining to a genuine and pure conversion",
-     "note": "Eusebius records the heart of the Novatian position: for the lapsed there is no hope, even with a pure conversion."
+     "note": "Eusebius calls the Roman leader “Novatus” (a common confusion with Novatian) and records the heart of the Novatian position: for the lapsed there is no hope, even with a pure conversion."
     },
     {
      "kind": "father",
@@ -691,7 +691,7 @@
      "note": "Ambrose notes the text on which they relied, Hebrews 6, which they took to forbid any second repentance."
     }
    ],
-   "whyItFails": "Christ gave the apostles the Holy Spirit and the power both to forgive and to retain sins, so a Church that refuses ever to forgive has thrown away half of what she was given. The rigorist reading of Hebrews 6 contradicts the whole of Scripture, where the Father runs to meet the returning son and Paul himself tells the Corinthians to restore a repentant sinner. A Church that holds out no hope drives the fallen into despair or into schism, which is precisely what Cyprian saw happening."
+   "whyItFails": "Christ gave the apostles the Holy Spirit and the power both to forgive and to retain sins, so a Church that refuses ever to forgive has thrown away half of what she was given. The rigorist reading of Hebrews 6 cannot be squared with the Gospel promises, where the Father runs to meet the returning son and Paul himself tells the Corinthians to restore a repentant sinner. A Church that holds out no hope drives the fallen into despair or into schism, which is precisely what Cyprian saw happening."
   },
   "steps": [
    {
@@ -855,7 +855,7 @@
   "question": "Does the Second Commandment forbid sacred images, and does honouring an icon of Christ divide or mix his two natures?",
   "summary": "The Church teaches that images of Christ, the Mother of God and the saints may be made and honoured, because the Word became flesh and can be seen, touched and depicted. The honour paid to an image passes to the person it represents and is veneration, never the worship that belongs to God alone. Far from denying the Incarnation, sacred images confess it.",
   "heresy": {
-   "era": "8th and early 9th century; the Byzantine Empire",
+   "era": "726–787 and 814–843; the Byzantine Empire",
    "who": "The emperor Constantine V and the bishops of the Council of Hieria in 754, continuing the policy begun under Leo III.",
    "claim": "To paint Christ is either to circumscribe the Godhead, which cannot be depicted, or to represent his flesh apart from the Godhead; in either case it falls into the old Christological errors (Monophysite or Nestorian). The only true image of Christ is the Eucharistic bread and wine, and the veneration of material images is idolatry. Images were therefore to be cursed and removed, and those who made or venerated them were to be punished.",
    "appeal": "The commandment against graven images is clear, and idolatry was a real danger when popular piety could treat pictures almost like charms. There was a respectable Christological argument: God is beyond all depiction. Iconoclasm also looked like a purification, appealing to Scripture and to the councils.",
@@ -888,7 +888,7 @@
      "work": "council-nicaea-2",
      "section": "xvi.x",
      "quote": "Christianity has rejected the whole of heathenism, and so not merely heathen sacrifices, but also the heathen worship of images.",
-     "note": "The same fear of idolatry is applied to images of Mary and the saints."
+     "note": "The synod appeals to Christianity’s rejection of heathen image-worship, and its decree extends the ban to images of Mary and the saints."
     },
     {
      "kind": "council",
@@ -1000,7 +1000,7 @@
    },
    {
     "q": "Wasn’t the 754 synod a council of bishops too? Why does Nicaea II outrank it?",
-    "a": "Hieria claimed to be ecumenical, but the sees of Rome and the Eastern patriarchates were not represented, and the Eastern patriarchs rejected its decree. Nicaea II, in which all the patriarchates took part, is counted as the seventh ecumenical council.",
+    "a": "Hieria claimed to be ecumenical, but the sees of Rome and the Eastern patriarchates were not represented, and the Eastern patriarchs rejected its decree. Nicaea II had papal legates and representatives of the Eastern sees (though the Eastern delegates were two monks acting for patriarchs who could not attend), and it was received by the Church as the seventh ecumenical council.",
     "steps": [
      {
       "kind": "council",
@@ -1107,7 +1107,7 @@
    },
    {
     "kind": "council",
-    "label": "Tome of Leo, read at Chalcedon",
+    "label": "Tome of Leo (449), read and accepted at Chalcedon (451)",
     "when": "449",
     "year": 449,
     "work": "council-chalcedon",
@@ -1189,7 +1189,7 @@
    },
    {
     "q": "The Sixth Council anathematised Pope Honorius. Doesn’t that disprove papal infallibility?",
-    "a": "The council did condemn Honorius’s letters as foreign to apostolic teaching, and the Church does not hide that. But Catholic teaching limits infallibility to a pope’s solemn definitions as teacher of the whole Church, and theologians have long distinguished those from Honorius’s correspondence with Sergius, though the council itself judged those letters harshly and the case is still discussed. What the council shows is that the see of Rome, in Agatho’s letter, stood with the true faith.",
+    "a": "The council did anathematise Honorius by name, together with Sergius and the others, because of his letters to Sergius, and Pope Leo II confirmed the condemnation, charging Honorius with negligence in failing to suppress the error by apostolic authority. Catholic teaching limits papal infallibility to solemn definitions addressed to the whole Church (Vatican I, Pastor Aeternus), and most theologians hold that Honorius’s private letters to Sergius were not such a definition; historians and theologians still discuss the case. What the council also shows is that the see of Rome, in Agatho’s letter, taught the true faith.",
     "steps": [
      {
       "kind": "council",

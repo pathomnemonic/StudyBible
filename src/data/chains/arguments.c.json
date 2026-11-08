@@ -206,7 +206,7 @@
     "work": "aug-moral",
     "section": "v.ix.xxi",
     "quote": "it is a question which surpasses the strength of my understanding, after what manner the Martyrs aid them who by them, it is certain, are helped",
-    "note": "Augustine is unsure how the martyrs help, but treats it as certain that they do."
+    "note": "Augustine confesses he does not understand how the martyrs help the living, but treats it as certain that they do. (In the same work he doubts that the dead know what the living are doing unless told, and so suggests God acts on their behalf.)"
    },
    {
     "kind": "council",
@@ -249,7 +249,7 @@
    },
    {
     "q": "The Law forbids consulting the dead. Isn’t praying to saints necromancy?",
-    "a": "Necromancy tries to extract hidden knowledge or power from spirits. Asking a member of Christ’s family to pray for us is a different act, like asking a friend. Jesus himself speaks of Moses and Elijah in glory with him.",
+    "a": "Necromancy tries to extract hidden knowledge or power from spirits. Asking a member of Christ’s family to pray for us is a different act, like asking a friend. The Gospels show Moses and Elijah appearing in glory and speaking with Jesus.",
     "steps": [
      {
       "kind": "scripture",
@@ -269,7 +269,7 @@
    },
    {
     "q": "How could the saints possibly hear millions of prayers?",
-    "a": "The Church does not claim to know how. Augustine admitted the question was beyond him but did not doubt the fact. Scripture shows heaven rejoicing over repentant sinners on earth and sharing in the Church’s prayer.",
+    "a": "The Church does not claim to know how. Augustine, in On Care for the Dead, confessed that how the martyrs help the living is beyond his understanding, and suggested that God, who is everywhere present, may act on their prayers in ways we cannot see. Scripture shows heaven attentive to earth: the angels rejoice over a repentant sinner, and the elders offer the prayers of the saints.",
     "steps": [
      {
       "kind": "scripture",
@@ -294,7 +294,7 @@
   "id": "veneration-of-images",
   "title": "Why the Church uses sacred images",
   "question": "Why does the Church use sacred images, when the Bible forbids idols?",
-  "summary": "The commandment forbids making idols and giving them divine worship. Since God became visible in Jesus Christ, his image can be painted without falsehood. The Second Council of Nicaea (787), drawing on John of Damascus and the Fathers, taught that honour paid to an image passes to the person it represents, and that this honour is different from the worship due to God alone.",
+  "summary": "The commandment forbids making idols and giving them divine worship. Since God became visible in Jesus Christ, his image can be painted without falsehood. The Second Council of Nicaea (787), in line with John of Damascus and the Fathers, taught that honour paid to an image passes to the person it represents, and that this honour is different from the worship due to God alone.",
   "steps": [
    {
     "kind": "scripture",
@@ -689,7 +689,7 @@
    },
    {
     "q": "After the Fall, isn’t the human will so corrupted that it is not free at all?",
-    "a": "Trent condemns that view. The Fall weakened free will but did not destroy it. The Catechism notes that Pelagians went too far one way and the first Reformers too far the other.",
+    "a": "Trent condemns that view. The Fall weakened free will but did not destroy it. The Catechism describes Pelagius as holding that we can live well by the natural power of free will without grace, and the first Protestant reformers as holding that original sin destroyed our freedom; the Church’s teaching lies between these.",
     "steps": [
      {
       "kind": "council",
@@ -779,7 +779,7 @@
     "work": "chrys-eph",
     "section": "iii.iv.v",
     "quote": "Was faith then, you will say, enough to save us? No; but God, saith he, hath required this, lest He should save us, barren and without work at all.",
-    "note": "Chrysostom reads Ephesians 2 as Catholics do: salvation is a gift, and God wants a life of works to follow."
+    "note": "Chrysostom reads Ephesians 2 in the way the Church later taught: salvation is a gift, and God wants a life of works to follow."
    },
    {
     "kind": "father",
@@ -839,7 +839,7 @@
       "label": "Romans 4:4-5",
       "ref": "ROM.4.2-5",
       "quote": "to him who doesn’t work, but believes in him who justifies the ungodly, his faith is accounted for righteousness",
-      "note": "Paul is talking about how a sinner first receives righteousness, not about how a Christian should live afterwards."
+      "note": "Paul’s point is that no work, and especially no work of the Law, earns righteousness. The Church reads this as true of the first reception of grace, and holds that those already justified grow in it through love (Gal 5:6)."
      }
     ]
    },

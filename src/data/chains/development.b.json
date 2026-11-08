@@ -3,7 +3,7 @@
   "id": "papal-primacy-development",
   "title": "The primacy of Peter and his successors: how it came to be defined",
   "question": "Did the Catholic teaching on the pope come from nowhere in 1870, or can it be traced back to the Church's first centuries?",
-  "summary": "Christ gave Simon a special place among the apostles, and from the first century the Church of Rome acts and is spoken of with unusual weight. The question of how far that authority reaches was argued over the centuries, and Vatican I defined the pope's primacy of jurisdiction in 1870, while also affirming that the bishops' own authority is protected by it. What stayed the same is the claim of the Gospel itself: Peter is the rock and shepherd, and his office continues.",
+  "summary": "Christ gave Simon a special place among the apostles, and from the first century the Church of Rome acts, and in the second century is spoken of, with unusual weight. The question of how far that authority reaches was argued over the centuries, and Vatican I defined the pope's primacy of jurisdiction in 1870, while also affirming that the bishops' own authority is protected by it. Eastern Churches have long accepted a primacy of Rome in honour while disputing its jurisdiction; Vatican I defined the jurisdiction. What stayed the same is the claim of the Gospel itself: Peter is the rock and shepherd, and his office continues.",
   "steps": [
    {
     "kind": "scripture",
@@ -175,7 +175,7 @@
   "id": "original-sin-development",
   "title": "Original sin: from Paul to the Catechism",
   "question": "How did the Church come to teach that every person is born without original holiness, and what exactly does that mean?",
-  "summary": "Scripture links the human condition of sin and death to Adam, and the Fathers read it that way. When Pelagius and Cœlestius taught that Adam only gave a bad example, Augustine and the councils stated that Adam's sin is passed on by propagation, not imitation, and Trent repeated it against the Reformers. The Church has always held that this is a state we are born into and not a personal fault, and that human nature is wounded rather than destroyed.",
+  "summary": "Scripture links the human condition of sin and death to Adam, and the Fathers read it that way. When Pelagius and Cœlestius taught that Adam only gave a bad example, Augustine, the African councils (Carthage, 418) and the Second Council of Orange (529) stated that Adam's sin is passed on by propagation, not imitation, and Trent repeated it against the Reformers. The Church has always held that this is a state we are born into and not a personal fault, and that human nature is wounded rather than destroyed.",
   "steps": [
    {
     "kind": "scripture",
@@ -319,7 +319,7 @@
   "id": "grace-development",
   "title": "Grace: the answer to Pelagius and to Trent's decree",
   "question": "Is salvation God's free gift or something we achieve, and how did the Church learn to say both that grace comes first and that we truly cooperate?",
-  "summary": "Paul says that we have nothing we did not receive, and that God works in us both to will and to work. Pelagius claimed that we can keep the commandments by our own will, so Augustine insisted that even the beginning of good is God's gift while free will is established, not abolished. Trent, answering the Reformers, taught that grace always comes first and calls for our free assent, and the Catechism repeats that teaching.",
+  "summary": "Paul says that we have nothing we did not receive, and that God works in us both to will and to work. Pelagius claimed that we can keep the commandments by our own will, so Augustine insisted that even the beginning of good is God's gift while free will is established, not abolished. Trent, answering the Reformers, taught that grace always comes first and calls for our free assent, and the Catechism repeats that teaching. The Second Council of Orange (529) had already confirmed this against the semi-Pelagians, so Trent repeats an older teaching.",
   "steps": [
    {
     "kind": "scripture",
@@ -328,7 +328,7 @@
     "year": 55,
     "ref": "1CO.4.7",
     "quote": "what do you have that you didn’t receive? But if you did receive it, why do you boast as if you had not received it?",
-    "note": "The seed of the doctrine: anything good in a person is received. Augustine later describes how this verse converted him from thinking that faith began with himself."
+    "note": "The seed of the doctrine: anything good in a person is received. Augustine later wrote that this verse persuaded him that even the beginning of faith is God's gift (Retractations 2.1)."
    },
    {
     "kind": "scripture",
@@ -471,13 +471,13 @@
   "id": "purgatory-development",
   "title": "Purgatory: from praying for the dead to Trent",
   "question": "Where does the Church's teaching on purgatory come from, and how did it become a defined doctrine?",
-  "summary": "The practice of praying for the dead appears in Scripture and in the earliest Christian practice, and the Fathers speak of a purifying fire. Augustine admitted uncertainty about the nature of that fire but affirmed that the dead are helped by the prayers and sacrifice of the living. Trent defined that there is a purgatory and that the souls there are helped, and told preachers to avoid speculation. The Catechism calls it the final purification of the elect.",
+  "summary": "The practice of praying for the dead appears in Scripture and in the earliest Christian practice, and the Fathers speak of a purifying fire. Augustine said it is not impossible that some pass through a purifying fire after death, and left it open whether this is so; he was firm that the dead are helped by the prayers and sacrifice of the living. After medieval theologians developed the vocabulary, the Church professed the belief at Lyons II (1274) and Florence (1439). Trent restated it against the Reformers, defining that there is a purgatory and that the souls there are helped, and told preachers to avoid speculation and abuse. The Catechism calls it the final purification of the elect.",
   "steps": [
    {
     "kind": "scripture",
     "label": "2 Maccabees 12:43-45",
-    "when": "c. 124 BC",
-    "year": -124,
+    "when": "c. 164 BC",
+    "year": -164,
     "ref": "2MA.12.43-45",
     "quote": "For if he wasn’t expecting that those who had fallen would rise again, it would be superfluous and idle to pray for the dead.",
     "note": "The root of the practice: Judas Maccabeus offers a sacrifice for fallen soldiers, which makes sense only if the dead can still be helped."
@@ -519,7 +519,7 @@
     "work": "aug-doctrinal",
     "section": "iv.ii.lxxi",
     "quote": "It is a matter that may be inquired into, and either ascertained or left doubtful, whether some believers shall pass through a kind of purgatorial fire, and in proportion as they have loved with more or less devotion the goods that perish, be less or more quickly delivered from it.",
-    "note": "Pressure: Laurentius asked what 1 Corinthians 3 means. Augustine is cautious about the nature of the fire but takes the idea seriously."
+    "note": "Pressure: Laurentius asked what 1 Corinthians 3 means. Augustine is cautious: he calls it a question that may be inquired into and either settled or left doubtful whether such a fire exists, yet he takes the idea seriously."
    },
    {
     "kind": "father",
@@ -554,7 +554,7 @@
   "objections": [
    {
     "q": "2 Maccabees is not in the Protestant Bible, and 1 Corinthians 3 does not mention purgatory. Is the doctrine just a medieval invention?",
-    "a": "The Catholic canon includes 2 Maccabees, and the early practice of offering the Eucharist for the dead, which Cyprian, Monica and Augustine attest, does not depend on that book alone. What developed later is the precise vocabulary and the careful definitions, not the practice. Cyprian also speaks of being \"cleansed and long purged by fire\" as different from going straight to glory, though scholars debate how far he means purification after death.",
+    "a": "The Catholic canon includes 2 Maccabees, and the early practice of offering the Eucharist for the dead, which Cyprian, Monica and Augustine attest, does not depend on that book alone. What developed later is the precise vocabulary and the careful definitions, not the practice. Cyprian also speaks of being \"cleansed and long purged by fire\" in a passage whose Latin is read two ways (\"purged divinely\" or \"purged for a long while\"), and scholars debate whether he means penance in this life or purification after death.",
     "steps": [
      {
       "kind": "father",
@@ -564,13 +564,13 @@
       "work": "cyprian",
       "section": "iv.iv.li",
       "quote": "It is one thing, tortured by long suffering for sins, to be cleansed and long purged by fire",
-      "note": "A third-century bishop distinguishes cleansing by suffering from immediate entry to glory."
+      "note": "Cyprian contrasts being cleansed by long suffering, as by fire, with the immediate reward of martyrdom. Whether he means penance in this life or purification after death is debated (the Latin is read \"purged divinely\" or \"purged for a long while\"), so this is at most an early hint, not proof."
      }
     ]
    },
    {
     "q": "Augustine was unsure about purgatory. Why is it a defined doctrine?",
-    "a": "Augustine hesitated over the nature of the fire and who passes through it, not over the help the living can give the dead. The Church did the same: Trent defines only that there is a purgatory and that the souls there are helped, and it tells preachers to leave out \"the more difficult and subtle questions.\"",
+    "a": "Augustine hesitated over whether and how a purifying fire after death is to be understood, not over the help the living can give the dead. The Church did the same: Trent defines only that there is a purgatory and that the souls there are helped, and it tells preachers to leave out \"the more difficult and subtle questions.\"",
     "steps": [
      {
       "kind": "council",
@@ -673,13 +673,13 @@
    },
    {
     "kind": "father",
-    "label": "Cyprian, Letter 73 to Jubaianus",
+    "label": "Cyprian, Letter 74 to Pompey (Against the Epistle of Stephen)",
     "when": "256",
     "year": 256,
     "work": "cyprian",
     "section": "iv.iv.lxxiii",
     "quote": "all who are converted from any heresy whatever to the Church must be baptized by the only and lawful baptism of the Church",
-    "note": "Pressure: Novatian's group was baptizing outside the Church. Cyprian's African bishops held that baptism by heretics was void. Rome, under Pope Stephen, held that it should not be repeated."
+    "note": "Pressure: Novatian's group was baptizing outside the Church. Cyprian's African bishops held that baptism by heretics was void. Rome, under Pope Stephen, held that it should not be repeated; the letter was written against Stephen's epistle."
    },
    {
     "kind": "father",
@@ -849,7 +849,7 @@
     "work": "trent-canons-decrees",
     "section": "s14",
     "quote": "the universal Church has always understood that the entire confession of sins was also instituted by the Lord, and is of divine right necessary for all who have fallen after baptism … If anyone denieth, either that sacramental confession was instituted, or is necessary to salvation, of divine right ; or saith that the manner of confessing secretly to a priest alone, which the Church hath ever observed from the beginning, and doth observe, is alien from the institution and command of Christ, and is a human invention",
-    "note": "Pressure: the Reformers held that confession was a human invention. Trent defines that confession of mortal sins to a priest, with absolution, is of divine institution, as a judgment given with the keys."
+    "note": "Pressure: many Reformers denied that auricular confession of all mortal sins was instituted by Christ or required by divine law (Luther kept private confession and absolution, but not as an obligation). Trent defines that confession of mortal sins to a priest, with absolution, is of divine institution, as a judgment given with the keys."
    },
    {
     "kind": "catechism",
@@ -888,7 +888,7 @@
       "year": 57,
       "ref": "ACT.19.18",
       "quote": "Many also of those who had believed came, confessing and declaring their deeds.",
-      "note": "Believers confessed their deeds openly in the apostolic age, which shows that confession is not a medieval novelty."
+      "note": "Believers at Ephesus confessed their deeds openly, an early example of confession of sins, though it does not by itself show the later sacramental form."
      }
     ]
    },

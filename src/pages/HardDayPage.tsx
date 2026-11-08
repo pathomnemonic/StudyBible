@@ -53,8 +53,8 @@ export default function HardDayPage() {
           <p className="small muted">The Jesus Prayer. Say it slowly, as often as you like, or only think it.</p>
         </section>
         {energy >= 2 && mentor && (
-          <section className="card" aria-label="A saint who has been here">
-            <p className="chain-meta"><span className="chain-kind k-saint">A saint who has been here</span></p>
+          <section className="card" aria-label="Someone who has been here">
+            <p className="chain-meta"><span className="chain-kind k-saint">Someone who has been here</span></p>
             <h2 className="mentor-name">{mentor.name} <span className="muted small">{mentor.lifespan}</span></h2>
             <p>{mentor.why}</p>
             {mentor.step.quote && <blockquote className="chain-quote"><p>{mentor.step.quote}</p></blockquote>}

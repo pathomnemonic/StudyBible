@@ -3,12 +3,12 @@
   "id": "new-parent",
   "title": "Becoming a parent",
   "ask": "I just became a parent.",
-  "intro": "Nothing prepares you for it: the joy, the exhaustion, the fear that you will get it wrong. The saints who raised children did it in ordinary houses, some of them in courts and some of them in prison cells. They do not offer a technique, but they show what a parent can give: patient presence, example, and prayer.",
+  "intro": "Nothing prepares you for it: the joy, the exhaustion, the fear that you will get it wrong. The saints who raised children did it in ordinary houses, some of them in courts and some of them in prison cells. They do not offer a technique, but they show what a parent can give, whatever the age of the child: patient presence, example, and prayer.",
   "mentors": [
    {
     "name": "Monica",
     "lifespan": "c. 331-387",
-    "why": "Monica raised Augustine, who for years rejected the faith she taught him and lived apart from her. She kept praying, and a bishop she consulted told her not to lose hope.",
+    "why": "Monica raised Augustine, who for years rejected the faith she taught him and once slipped away from her to sail for Rome. She kept praying, and a bishop she consulted told her not to lose hope.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Monica",
@@ -20,7 +20,7 @@
    {
     "name": "Margaret of Scotland",
     "lifespan": "c. 1045-1093",
-    "why": "Queen Margaret had a large family and treated their upbringing as her first duty, not something to delegate.",
+    "why": "Queen Margaret had a large family and treated their upbringing as her first duty. Butler says she chose their tutors with great care, watched over them, examined her children's progress, and often taught them herself.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Margaret, Queen of Scotland",
@@ -38,7 +38,7 @@
      "label": "Butler, SS. Perpetua and Felicitas",
      "butler": "03-07:1",
      "quote": "I was moreover tortured with concern, for that I had not my infant.",
-     "note": "A young mother's own words from prison; she was relieved when the deacons arranged for her to have the child with her."
+     "note": "A young mother's own words from prison. Butler records that the deacons paid for the prisoners to spend some hours in a better part of the prison, where her starving baby was brought to her and she nursed him."
     }
    }
   ]
@@ -47,18 +47,18 @@
   "id": "a-difficult-marriage-or-divorce",
   "title": "A difficult marriage",
   "ask": "My marriage is hard, and I do not know how much more I can take.",
-  "intro": "Some saints were married to people who were hot-tempered, unfaithful or careless with money, and their lives were not tidy. The Church takes marriage seriously, and it also does not ask anyone to pretend that suffering in a marriage is easy or minor. These lives show people who stayed honest and kept praying in a hard house. They are not a rule for every case, and anyone in danger should seek safety and wise counsel.",
+  "intro": "Some saints were married to people who were hot-tempered, unfaithful or careless with money, and their lives were not tidy. The Church takes marriage seriously, and it also does not ask anyone to pretend that suffering in a marriage is easy or minor. These lives show people who stayed honest and kept praying in a hard house. They are not a rule for every case. Patience is not the same as putting up with abuse: if you or your children are being hurt or are afraid, the Church does not ask you to stay in danger. She permits spouses to separate when living together becomes unsafe or practically impossible (Catechism 1649), and the spouses remain married before God. Seek safety first, then a priest, counsellor or helpline you trust.",
   "mentors": [
    {
     "name": "Monica",
     "lifespan": "c. 331-387",
-    "why": "Monica was married to Patricius, a man Butler describes as generous but hasty and choleric, and she also had a difficult mother-in-law. Butler credits her patience, and not argument in the heat of the moment, with winning both of them over in time.",
+    "why": "Monica was married to Patricius, whom Butler calls good-natured and loving but hasty and choleric; Butler adds that he was unfaithful, and that it was never known that he struck her. She also had a difficult mother-in-law. Butler credits her patience, not argument in the heat of the moment, with winning both of them over in time.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Monica",
      "butler": "05-04:0",
      "quote": "Monica never thwarted him by the least action or word while she saw him in anger ; but when the fit was over and he was calm, she mildly gave him her reasons",
-     "note": "Butler's account of how she handled her husband's temper."
+     "note": "Butler on how she handled a husband's temper. He stresses that Patricius never struck her, so this is not a model for living with violence."
     }
    },
    {
@@ -76,7 +76,7 @@
    {
     "name": "Catherine of Genoa",
     "lifespan": "1447-1510",
-    "why": "Catherine was married by her father to Julian Adorno, and Butler says his temper and ambitions caused her ten years of grief. She turned to prayer and works of mercy in that time.",
+    "why": "Catherine was married by her father to Julian Adorno, and Butler says his temper, extravagance and ambitions caused her ten years of grief. She met it with prayer and patience, and Butler says that in the end her husband died a penitent. Her years of hospital work came afterwards.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Catherine of Genoa",
@@ -85,6 +85,9 @@
      "note": "Butler on the first years of her marriage."
     }
    }
+  ],
+  "readNext": [
+   1649
   ]
  },
  {
@@ -121,7 +124,7 @@
    {
     "name": "Clare of Assisi",
     "lifespan": "1194-1253",
-    "why": "Clare came from a wealthy family and was drawn by the preaching of Francis. Butler gives the date she left home as 18 March 1212, the night after Palm Sunday.",
+    "why": "Clare came from a wealthy family and was drawn by the preaching of Francis. Butler gives the date she left home as 18 March 1212, the evening of Palm Sunday.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Clare",
@@ -140,7 +143,7 @@
      "work": "therese-story-of-a-soul",
      "section": "xiii",
      "quote": "My extreme sensitiveness made me almost unbearable. All arguments were useless. I simply could not correct myself of this miserable fault.",
-     "note": "Her honest description of her own temperament as a teenager."
+     "note": "Her honest description of her own temperament in the years before Christmas 1886."
     }
    }
   ]
@@ -180,7 +183,7 @@
    {
     "name": "Thérèse of Lisieux",
     "lifespan": "1873-1897",
-    "why": "Thérèse wanted to be a missionary, a priest, a martyr, and a teacher, and felt none of those fitted her. She wrote that she found her place by reflecting on love.",
+    "why": "Thérèse felt drawn to be a missionary, a priest, a martyr and a teacher all at once, and could not see how one life could hold them. She writes that she found her place by reading 1 Corinthians 12-13 and reflecting on love.",
     "step": {
      "kind": "saint",
      "label": "Thérèse, Story of a Soul",
@@ -248,15 +251,15 @@
     }
    },
    {
-    "name": "Ignatius of Loyola",
-    "lifespan": "1491-1556",
-    "why": "Ignatius's military career ended when his leg was shattered at Pamplona. During the long recovery he began reading, and that reading turned him toward a new life.",
+    "name": "Peter the Apostle",
+    "lifespan": "died c. 64-67",
+    "why": "Peter had promised he would never abandon Jesus, and then denied that he knew him three times in one night. Luke records the look Jesus gave him, and what Peter did next. Later accounts show him forgiven and given work to do.",
     "step": {
-     "kind": "saint",
-     "label": "Butler, St. Ignatius of Loyola",
-     "butler": "07-31:0",
-     "quote": "a book of the lives of our Saviour, and of the saints, was brought him. He read them first, only to pass away the time, but afterward began to relish them and to spend whole days in reading them.",
-     "note": "A failure that ended one plan became the start of another."
+     "kind": "scripture",
+     "label": "Luke 22:60-62",
+     "ref": "LUK.22.60-62",
+     "quote": "He went out, and wept bitterly.",
+     "note": "Peter did not excuse himself; he faced what he had done."
     }
    }
   ]
@@ -283,7 +286,7 @@
    {
     "name": "Francis Borgia",
     "lifespan": "1510-1572",
-    "why": "Borgia was a duke and a favourite at the court of Charles V. When he had to identify the dead empress, he began to ask what he was chasing.",
+    "why": "Borgia was a duke and a favourite at the court of Charles V. When he had to take oath that the disfigured body of the dead empress was hers, he began to ask what he was chasing.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Francis Borgia",
@@ -451,7 +454,7 @@
    {
     "name": "Vincent de Paul",
     "lifespan": "1581-1660",
-    "why": "Vincent was captured by pirates and sold as a slave in Tunis. He later spent his life serving the poor.",
+    "why": "According to a traditional account that Butler repeats, Vincent was captured by pirates and sold as a slave in Tunis. He later spent his life serving the poor.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Vincent de Paul",
@@ -466,7 +469,7 @@
   "id": "war-and-violence-around-you",
   "title": "War and violence around you",
   "ask": "There is violence near me and I do not know what a Christian should do.",
-  "intro": "The saints answered war differently: some refused to fight, some fought and tried to limit it, and some tried to stop it by talking. Their stories do not agree on every point, but all of them refused to treat violence as normal.",
+  "intro": "If you or someone near you is in danger, get to safety and call for help first. These stories are about soldiers and rulers; they are not a call to take up arms. The saints answered war differently: some refused to fight, some fought and tried to limit it, and some tried to stop it by talking. Their stories do not agree on every point, but all of them refused to treat violence as normal. The Catechism asks everyone to work to avoid war, allows lawful defence only under strict conditions, honours soldiers who serve honourably, and asks public authorities to make fair provision for those who refuse to bear arms for reasons of conscience (Catechism 2308-2311).",
   "mentors": [
    {
     "name": "Martin of Tours",
@@ -483,7 +486,7 @@
    {
     "name": "Maximilian of Tebessa",
     "lifespan": "died 295/296",
-    "why": "Maximilian was the son of a soldier. Called up at twenty-one, he refused the mark of army service and was beheaded. Butler gives his reason as the pagan practices of the army.",
+    "why": "Maximilian was the son of a soldier. Called up at twenty-one, he refused the mark of army service (a print on the band and a leaden collar bearing the emperor's name) and was beheaded. Butler gives his reason as the pagan practices of the army; the early account of his trial is usually read as having him say that he could not serve as a soldier, because he was a Christian. His choice cost him his life and is not a rule for every Christian.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Maximilian",
@@ -514,9 +517,15 @@
      "work": "aug-letters",
      "section": "vii.1.CLXXXIX",
      "quote": "Peace should be the object of your desire; war should be waged only as a necessity, and waged only that God may by it deliver men from the necessity and preserve them in peace.",
-     "note": "The mainstream Christian teaching that war is a grave evil to be limited."
+     "note": "Augustine, writing to a Roman general, says war may be waged only out of necessity and for the sake of peace. He does not treat it as a good."
     }
    }
+  ],
+  "readNext": [
+   2308,
+   2309,
+   2310,
+   2311
   ]
  },
  {
@@ -558,7 +567,7 @@
      "label": "Butler, St. Columban",
      "butler": "11-21:1",
      "quote": "He was so humble that he always contended with his twelve companions for the lowest place.",
-     "note": "Strangers in a new land, living simply and in peace."
+     "note": "Strangers in a new land, living simply and drawing admiration at first."
     }
    },
    {
@@ -596,7 +605,7 @@
    {
     "name": "Bede",
     "lifespan": "c. 673-735",
-    "why": "Bede, in his last days, kept dictating a translation of John's Gospel to his students. He worried that they would not have a correct text.",
+    "why": "Bede, in his last days, kept dictating an English translation of John's Gospel to his students. Butler quotes him as saying he would not have his scholars read a falsehood after his death.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Bede",
@@ -608,7 +617,7 @@
    {
     "name": "Gregory of Nazianzus",
     "lifespan": "c. 329-390",
-    "why": "After years of church politics and slander, Gregory retired to the country near his home. Butler says he was very old and infirm but kept advising the local church.",
+    "why": "After years of church politics and slander, and in poor health, Gregory retired to the family estate near Arianzum. Butler calls him very old and infirm, though by the usual dates he was in his fifties; the point is that he was sick and out of public life, yet still advised the local church.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Gregory Nazianzen",
@@ -623,12 +632,12 @@
   "id": "a-hard-boss-or-job-you-dislike",
   "title": "A hard boss or a job you dislike",
   "ask": "My boss is difficult and I dread going to work.",
-  "intro": "Most saints did ordinary work. Some had cruel employers, some had jobs they did not like, and they did not find an easy answer, but each found a way to do the work without losing their peace.",
+  "intro": "Most holy men and women did ordinary work. Some had cruel employers, some had jobs they did not like, and they did not find an easy answer, but each found a way to do the work without losing their peace. If your work is unsafe or abusive, seek help and consider leaving.",
   "mentors": [
    {
     "name": "Brother Lawrence",
     "lifespan": "1614-1691",
-    "why": "Lawrence was a cook in a monastery. He did not like the kitchen, and by his own account he learned to do his work as an offering.",
+    "why": "Lawrence was a cook in a monastery. He did not like the kitchen, and by his own account he learned to do his work as an offering. His story is about a job he disliked, not a difficult boss.",
     "step": {
      "kind": "saint",
      "label": "Brother Lawrence, Practice of the Presence of God",
@@ -641,7 +650,7 @@
    {
     "name": "Zita",
     "lifespan": "c. 1212-1272",
-    "why": "Zita was a household servant in Lucca. For years the family and other servants misjudged and mistreated her. She kept serving faithfully, and in time they came to trust her.",
+    "why": "Zita was a household servant in Lucca. For years the family and other servants misjudged and mistreated her, and Butler says she was often beaten, which no worker should be asked to accept. Her story is about the peace of her heart, not a rule that abuse must be endured. She kept serving faithfully, and in time they came to trust her.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Zita",
@@ -668,7 +677,7 @@
   "id": "wanting-to-be-closer-to-god",
   "title": "Wanting to be closer to God",
   "ask": "I want to pray and I do not know how to start.",
-  "intro": "The saints who wrote about prayer were beginners too. Several admit they gave it up at times. Their advice is simple: keep at it, trust God, and do not wait until you feel ready.",
+  "intro": "The holy men and women who wrote about prayer were beginners too. Several admit they gave it up at times. Their advice is simple: keep at it, trust God, and do not wait until you feel ready.",
   "mentors": [
    {
     "name": "Augustine of Hippo",

@@ -6,6 +6,9 @@ import type { Situation } from '../../chains/types';
 import ShareLinkButton from '../../components/ShareLinkButton';
 import PrintButton from '../../components/PrintButton';
 
+/** Holy men and women the Church has not canonized: shown as examples, not called saints. */
+const NOT_CANONIZED = ['Brother Lawrence', 'Julian of Norwich', 'Thomas à Kempis', 'Walter Hilton'];
+
 /** Saints who faced what you are facing, with their own words, matched by situation and not by feast day. */
 export default function MentorsPage() {
   const { id } = useParams();
@@ -26,7 +29,7 @@ export default function MentorsPage() {
             const link = contextLink(m.step);
             return (
               <li key={m.name} className="card mentor">
-                <h2 className="mentor-name">{m.name} <span className="muted small">{m.lifespan}</span></h2>
+                <h2 className="mentor-name">{m.name} <span className="muted small">{m.lifespan}</span>{NOT_CANONIZED.some((n) => m.name.includes(n)) && <span className="mentor-tag">holy example, not canonized</span>}</h2>
                 <p>{m.why}</p>
                 {m.step.quote && <blockquote className="chain-quote"><p>{m.step.quote}</p></blockquote>}
                 <p className="small muted" style={{ margin: 0 }}>{m.step.label}. {m.step.note}</p>
@@ -46,7 +49,7 @@ export default function MentorsPage() {
   return (
     <div className="page mentors">
       <h1>Saints for what you’re facing</h1>
-      <p className="lede">Find saints who lived through something like your situation, and read their own words.</p>
+      <p className="lede">Find saints, and a few other holy men and women, who lived through something like your situation, and read their own words.</p>
       <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search a situation" aria-label="Search a situation" />
       {id && <p className="callout">We couldn’t find that one. Here is the list.</p>}
       {list.length === 0 && <p className="muted">Coming soon.</p>}
