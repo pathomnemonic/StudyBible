@@ -642,6 +642,7 @@ export default function ReadPage() {
     { label: settings.ambience.kind === 'off' ? 'Turn on the chapter’s soundscape' : 'Turn off the soundscape', onClick: () => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'auto' : 'off' }, ambienceTipSeen: true }) },
     { label: settings.scriptureOnly ? 'Leave focus mode' : 'Focus mode', onClick: () => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); } },
     { label: 'The Fathers on this chapter', onClick: () => nav(`/study/fathers-on?ref=${bk.id}.${primaryAnchorChapter}`) },
+    { label: 'Compare this chapter in three translations', onClick: () => nav(`/study/compare-translations?ref=${bk.id}.${primaryAnchorChapter}`) },
     { label: 'Bible tools: outlines, words, topics', onClick: () => setToolsOpen(true) },
   ];
   return (

@@ -3,8 +3,11 @@
 import { createServer } from 'node:http';
 import { createHash } from 'node:crypto';
 
+// Also keeps retained messages (an empty retained payload clears one) and accepts a trailing "/+" in a subscription.
+const matches = (filter, topic) => filter === topic || (filter.endsWith('/+') && topic.startsWith(filter.slice(0, -1)) && !topic.slice(filter.length - 1).includes('/'));
 export function startBroker(port = 0) {
   const clients = new Set();
+  const retained = new Map();
   const server = createServer((_, res) => { res.writeHead(426).end(); });
   server.on('upgrade', (req, socket) => {
     const key = req.headers['sec-websocket-key'];
@@ -19,12 +22,18 @@ export function startBroker(port = 0) {
     const handleMqtt = (first, body) => {
       const type = first >> 4;
       if (type === 1) wsSend(Buffer.from([0x20, 2, 0, 0]));
-      else if (type === 8) { let o = 2; const out = []; while (o < body.length) { const l = body.readUInt16BE(o); c.subs.add(body.toString('utf8', o + 2, o + 2 + l)); o += 2 + l + 1; out.push(0); } wsSend(Buffer.from([0x90, 2 + out.length, body[0], body[1], ...out])); }
+      else if (type === 8) {
+        let o = 2; const out = []; const added = [];
+        while (o < body.length) { const l = body.readUInt16BE(o); const f = body.toString('utf8', o + 2, o + 2 + l); c.subs.add(f); added.push(f); o += 2 + l + 1; out.push(0); }
+        wsSend(Buffer.from([0x90, 2 + out.length, body[0], body[1], ...out]));
+        for (const f of added) for (const [t, pkt] of retained) if (matches(f, t)) wsSend(pkt);
+      }
       else if (type === 3) {
         const l = body.readUInt16BE(0); const topic = body.toString('utf8', 2, 2 + l);
         const rem = []; let n = body.length; do { let b = n % 128; n = Math.floor(n / 128); if (n > 0) b |= 128; rem.push(b); } while (n > 0);
         const pkt = Buffer.concat([Buffer.from([0x30, ...rem]), body]);
-        for (const o of clients) if (o.subs.has(topic)) { const len = pkt.length; let head; if (len < 126) head = Buffer.from([0x82, len]); else if (len < 65536) head = Buffer.from([0x82, 126, len >> 8, len & 255]); else { head = Buffer.alloc(10); head[0] = 0x82; head[1] = 127; head.writeBigUInt64BE(BigInt(len), 2); } o.socket.write(Buffer.concat([head, pkt])); }
+        if (first & 1) { if (body.length === 2 + l) retained.delete(topic); else retained.set(topic, pkt); }
+        for (const o of clients) if ([...o.subs].some((f) => matches(f, topic))) { const len = pkt.length; let head; if (len < 126) head = Buffer.from([0x82, len]); else if (len < 65536) head = Buffer.from([0x82, 126, len >> 8, len & 255]); else { head = Buffer.alloc(10); head[0] = 0x82; head[1] = 127; head.writeBigUInt64BE(BigInt(len), 2); } o.socket.write(Buffer.concat([head, pkt])); }
       } else if (type === 12) wsSend(Buffer.from([0xd0, 0]));
     };
     const drainMqtt = () => {

@@ -21,6 +21,9 @@ export class Mqtt {
   private wantOpen = true;
   private waiters: { ok: () => void; fail: (e: Error) => void }[] = [];
   state: MqttState = 'connecting';
+  /** the relay in use (or being tried), and when anything last arrived from it */
+  url = '';
+  lastRx = Date.now();
   onState: (s: MqttState) => void = () => undefined;
   private id = `sb-${Math.random().toString(36).slice(2, 10)}${Date.now().toString(36)}`;
   private pid = 1;
@@ -32,17 +35,39 @@ export class Mqtt {
     if (!this.wantOpen) return;
     const url = this.urls[this.tries % this.urls.length];
     this.tries++;
+    this.url = url;
     this.set('connecting');
     let ws: WebSocket;
     try { ws = new this.WS(url, 'mqtt'); } catch { this.scheduleRetry(); return; }
     ws.binaryType = 'arraybuffer';
     this.ws = ws; this.buf = [];
     ws.onopen = () => ws.send(packet(0x10, [...str('MQTT'), 4, 2, 0, 60, ...str(this.id)]));
-    ws.onmessage = (e) => { this.buf.push(...new Uint8Array(e.data as ArrayBuffer)); this.drain(); };
+    ws.onmessage = (e) => { this.lastRx = Date.now(); this.buf.push(...new Uint8Array(e.data as ArrayBuffer)); this.drain(); };
     const lost = () => { if (this.ws !== ws) return; this.ws = null; if (this.ping) clearInterval(this.ping); this.set('closed'); for (const w of this.waiters.splice(0)) w.fail(new Error('Could not reach a class server.')); this.scheduleRetry(); };
     ws.onclose = lost; ws.onerror = () => { try { ws.close(); } catch { /* already closed */ } };
   }
   private scheduleRetry() { if (!this.wantOpen || this.retry) return; this.retry = setTimeout(() => { this.retry = null; this.open(); }, Math.min(8000, 400 * this.tries)); }
+
+  /**
+   * Drop whatever connection there is and start again from the first relay in the list. Used by the Reconnect button, and when a phone
+   * wakes up and its old connection turns out to be dead. Subscriptions are put back once the new connection is open.
+   */
+  reconnect() {
+    this.wantOpen = true;
+    if (this.retry) { clearTimeout(this.retry); this.retry = null; }
+    const old = this.ws; this.ws = null;
+    if (old) { old.onclose = null; old.onerror = null; try { old.close(); } catch { /* already closed */ } }
+    if (this.ping) clearInterval(this.ping);
+    this.tries = 0;
+    this.open();
+  }
+  /** After a sleep or a switch of apps: if the connection is not open, reconnect now; if it looks open, ping it and reconnect if nothing comes back. */
+  probe(ms = 3000) {
+    if (this.state !== 'open' || this.ws?.readyState !== 1) { this.reconnect(); return; }
+    const sent = Date.now();
+    try { this.ws.send(Uint8Array.from([0xc0, 0])); } catch { this.reconnect(); return; }
+    setTimeout(() => { if (this.state === 'open' && this.lastRx < sent) this.reconnect(); }, ms);
+  }
 
   private drain() {
     for (;;) {

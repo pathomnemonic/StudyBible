@@ -15,7 +15,7 @@ import { isKeyLesson, isLifeLesson } from '../../curriculum/keyLessons';
 import LessonRun from '../../curriculum/LessonRun';
 import LessonPlay from '../../curriculum/LessonPlay';
 import TeachingOptions from '../../curriculum/TeachingOptions';
-import StartLive from '../../live/StartLive';
+import StartLive, { QuickQuizButton } from '../../live/StartLive';
 import { toLiveSlides } from '../../live/slides';
 import { embedFor } from '../../lib/embed';
 
@@ -128,6 +128,7 @@ export default function CurriculumLesson() {
         <button className="btn small primary" onClick={() => setRunning(true)}>🎒 Run this lesson</button>
         <button className="btn small" onClick={() => setPresent(true)}>▶ Present as slides</button>
         <button className="btn small" onClick={() => setLiveOpen(true)}>📡 Host live</button>
+        <QuickQuizButton grade={g} lesson={lesson} />
         <button className={`btn small${done ? ' primary' : ''}`} aria-pressed={done} onClick={() => toggleDone(g.id, idx, !done)}>{done ? '✓ Done' : 'Mark done'}</button>
         <details className="act-more"><summary className="btn small">More</summary>
           <div className="act-more-list">

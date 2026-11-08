@@ -32,7 +32,8 @@ export function sanitizeContent(raw: any): LiveContent {
     if (!correct.length) continue;
     if ((type === 'mc' || type === 'tf') && correct.length !== 1) continue;
     if (type === 'order' && correct.length !== options!.length) continue;
-    questions.push({ type, q, options, correct, time: Math.min(120, Math.max(5, Math.round(Number(r.time) || 20))), points: r.points === 0 ? 0 : r.points === 2 ? 2 : 1, why: clean(r.why, 400) || undefined });
+    const clues = type === 'text' ? strs(r.clues, 6, 240) : [];
+    questions.push({ type, q, options, correct, time: Math.min(120, Math.max(5, Math.round(Number(r.time) || 20))), points: r.points === 0 ? 0 : r.points === 2 ? 2 : 1, why: clean(r.why, 400) || undefined, cat: clean(r.cat, 24).replace(/[^\w-]/g, '') || undefined, clues: clues.length ? clues : undefined });
   }
   return { title: clean(raw?.title, 120) || 'Class session', slides, questions };
 }
@@ -40,12 +41,16 @@ export function sanitizeRoster(raw: unknown): string[] { return [...new Set((Arr
 export function sanitizeSettings(raw: any): LiveSettings {
   return {
     teams: Math.min(6, Math.max(0, Math.round(Number(raw?.teams) || 0))), shuffleQuestions: !!raw?.shuffleQuestions, shuffleOptions: raw?.shuffleOptions !== false, lateJoin: raw?.lateJoin !== false, showNames: raw?.showNames !== false,
-    mode: ['exam', 'race', 'build'].includes(raw?.mode) ? raw.mode : 'game', elimination: !!raw?.elimination, runMinutes: Math.min(60, Math.max(2, Math.round(Number(raw?.runMinutes) || 10))), goal: Math.min(200, Math.max(3, Math.round(Number(raw?.goal) || 12))), examMinutes: Math.min(180, Math.max(1, Math.round(Number(raw?.examMinutes) || 30))),
+    mode: ['exam', 'race', 'build', 'crowns', 'whoami'].includes(raw?.mode) ? raw.mode : 'game', elimination: !!raw?.elimination, clueSeconds: Math.min(30, Math.max(4, Math.round(Number(raw?.clueSeconds) || 12))), runMinutes: Math.min(60, Math.max(2, Math.round(Number(raw?.runMinutes) || 10))), goal: Math.min(200, Math.max(3, Math.round(Number(raw?.goal) || 12))), examMinutes: Math.min(180, Math.max(1, Math.round(Number(raw?.examMinutes) || 30))),
     showResults: raw?.showResults !== false, showAnswers: !!raw?.showAnswers, rosterOnly: raw?.rosterOnly !== false,
   };
 }
 
-interface Player { id: string; token: string; name: string; score: number; streak: number; team?: number; joinedAt: number; lastSeen: number; answer?: { value: (number | string)[]; at: number }; last?: { correct: boolean; points: number; bonus: number } | null; log: { q: number; correct: boolean; points: number; answered: boolean }[]; exam: ((number | string)[] | null)[]; out?: boolean; queue: number[]; qi: number; steps: number; ran: number; finishedAt?: number; feedback?: { ok: boolean; why?: string; correct: (number | string)[]; q: string; options?: string[]; n: number }; submitted?: boolean; examResult?: { percent: number; correct: number; total: number } }
+interface Player { id: string; token: string; name: string; score: number; streak: number; team?: number; joinedAt: number; lastSeen: number; answer?: { value: (number | string)[]; at: number }; last?: { correct: boolean; points: number; bonus: number } | null; log: { q: number; correct: boolean; points: number; answered: boolean }[]; exam: ((number | string)[] | null)[]; out?: boolean; queue: number[]; qi: number; steps: number; ran: number; guesses?: number; cr?: CrownState; finishedAt?: number; feedback?: { ok: boolean; why?: string; correct: (number | string)[]; q: string; options?: string[]; n: number }; submitted?: boolean; examResult?: { percent: number; correct: number; total: number } }
+
+/** Crown Quest: one player's crowns, progress and where they are in a turn. */
+interface CrownState { crowns: string[]; progress: Record<string, number>; cat: string | null; landed: string | null; pick: boolean; qi: number; used: number[]; right: number; wrong: number; feedback?: { ok: boolean; why?: string; correct: (number | string)[]; q: string; options?: string[]; n: number; crowned?: string } }
+export const CROWN_NEED = 3;
 
 /** One class session: who is in it, where it is up to, and the scores. No I/O here; the server feeds it time and requests. */
 export class LiveRoom {
@@ -133,10 +138,21 @@ export class LiveRoom {
     this.qIndex = i;
     const q = this.content.questions[i];
     this.phase = 'question';
-    this.deadline = this.now() + q.time * 1000;
+    this.clueShown = 0;
+    this.deadline = this.now() + this.qSeconds(q) * 1000;
     this.counts = new Array(q.options?.length ?? 0).fill(0);
     this.textCounts = {};
-    for (const p of this.players.values()) { p.answer = undefined; p.last = null; }
+    for (const p of this.players.values()) { p.answer = undefined; p.last = null; p.guesses = 0; }
+  }
+  private whoami() { return this.settings.mode === 'whoami'; }
+  /** Who Am I? gives every clue its own time, so the question lasts as long as all its clues together */
+  private qSeconds(q: LiveQuestion) { return this.whoami() && q.clues?.length ? q.clues.length * this.settings.clueSeconds : q.time; }
+  /** which clue is showing now (0 is the first, hardest one) */
+  private clueIndex(): number {
+    const q = this.content.questions[this.qIndex];
+    if (!q?.clues?.length) return 0;
+    const ms = this.settings.clueSeconds * 1000, start = this.deadline - q.clues.length * ms;
+    return Math.min(q.clues.length - 1, Math.max(0, Math.floor((this.now() - start) / ms)));
   }
 
   private finishQuestion() {
@@ -145,11 +161,14 @@ export class LiveRoom {
     for (const p of this.players.values()) {
       const a = p.answer;
       let correct = false;
-      if (a) correct = isRight(q, a.value);
+      if (a) correct = isRight(q, a.value, this.whoami());
       let points = 0, bonus = 0;
       if (correct && q.points > 0) {
-        const frac = Math.min(1, Math.max(0, (a!.at - (this.deadline - q.time * 1000)) / (q.time * 1000)));
-        points = Math.round(1000 * q.points * (1 - frac / 2));
+        const ms = this.qSeconds(q) * 1000;
+        const frac = Math.min(1, Math.max(0, (a!.at - (this.deadline - ms)) / ms));
+        // Who Am I?: the points fall with every extra clue (all of them on the first clue, a fifth on the last of five)
+        if (this.whoami() && q.clues?.length) { const n = q.clues.length; points = Math.round(1000 * q.points * (n - Math.min(n - 1, Math.floor(frac * n))) / n); }
+        else points = Math.round(1000 * q.points * (1 - frac / 2));
         bonus = Math.min(p.streak, 5) * 100;
         p.score += points + bonus;
       }
@@ -173,6 +192,7 @@ export class LiveRoom {
     this.touch();
   }
   private lastRound = false;
+  private clueShown = 0;
 
   // ---- exam: every student works alone against one clock
   private examScore(p: Player) {
@@ -211,6 +231,7 @@ export class LiveRoom {
   runAnswer(token: string, value: unknown): boolean {
     const p = this.playerByToken(token);
     if (!p || this.phase !== 'run' || p.finishedAt) return false;
+    if (this.settings.mode === 'crowns') return this.crownAct(p, value);
     this.nextQuestion(p);
     const qi = p.queue[p.qi];
     const q = this.content.questions[qi];
@@ -235,10 +256,76 @@ export class LiveRoom {
     this.touch();
     return true;
   }
+  // ---- Crown Quest: spin, answer in the category, three right answers earn its crown, first to all of them wins
+  /** the categories in this room, in the order they first appear */
+  crownCats(): string[] { return [...new Set(this.content.questions.map((q) => q.cat).filter((c): c is string => !!c))]; }
+  private cr(p: Player): CrownState { return (p.cr ??= { crowns: [], progress: {}, cat: null, landed: null, pick: false, qi: -1, used: [], right: 0, wrong: 0 }); }
+  private askIn(p: Player, cat: string): boolean {
+    const c = this.cr(p);
+    const all = this.content.questions.map((q, i) => (q.cat === cat ? i : -1)).filter((i) => i >= 0);
+    if (!all.length) return false;
+    let fresh = all.filter((i) => !c.used.includes(i));
+    if (!fresh.length) { c.used = c.used.filter((i) => !all.includes(i)); fresh = all; }
+    c.qi = fresh[randomInt(fresh.length)]; c.used.push(c.qi); c.cat = cat; c.pick = false;
+    return true;
+  }
+  /** One move in a Crown Quest turn: spin the wheel, choose a category when the wheel says so, or answer the question. */
+  private crownAct(p: Player, value: unknown): boolean {
+    const c = this.cr(p), cats = this.crownCats();
+    if (!cats.length) return false;
+    const open = cats.filter((x) => !c.crowns.includes(x));
+    const move = value && typeof value === 'object' && !Array.isArray(value) ? (value as { spin?: unknown; pick?: unknown }) : null;
+    if (move?.spin) {
+      if (c.cat !== null || c.pick) return false; // already mid-turn (a repeated message)
+      // seven slices: one per category, and "your pick". A crowned category is spun again.
+      const slices = [...cats, 'pick'];
+      let hit = slices[randomInt(slices.length)];
+      while (hit !== 'pick' && c.crowns.includes(hit)) hit = slices[randomInt(slices.length)];
+      c.landed = hit;
+      if (hit === 'pick') c.pick = true; else this.askIn(p, hit);
+      this.touch();
+      return true;
+    }
+    if (move?.pick !== undefined) {
+      const want = String(move.pick);
+      if (!c.pick || !open.includes(want)) return false;
+      c.landed = want; this.askIn(p, want); this.touch();
+      return true;
+    }
+    if (c.cat === null || c.qi < 0) return false;
+    const q = this.content.questions[c.qi];
+    let v: (number | string)[];
+    if (q.type === 'text') v = [clean(Array.isArray(value) ? value[0] : value, 80)];
+    else {
+      v = (Array.isArray(value) ? value : [value]).map(Number).filter((n) => Number.isInteger(n) && n >= 0 && n < (q.options?.length ?? 0));
+      if (q.type === 'order') { if (new Set(v).size !== q.options!.length) return false; } else v = [...new Set(v)];
+      if (!v.length || ((q.type === 'mc' || q.type === 'tf') && v.length !== 1)) return false;
+    }
+    if (q.type === 'text' && !v[0]) return false;
+    const ok = isRight(q, v);
+    const cat = c.cat;
+    p.ran++;
+    let crowned: string | undefined;
+    if (ok) {
+      p.steps++; p.streak++; c.right++;
+      c.progress[cat] = (c.progress[cat] ?? 0) + 1;
+      if (c.progress[cat] >= CROWN_NEED && !c.crowns.includes(cat)) { c.crowns.push(cat); crowned = cat; }
+    } else { p.streak = 0; c.wrong++; }
+    p.log.push({ q: c.qi, correct: ok, points: ok ? 1 : 0, answered: true });
+    const st = (this.qstats[c.qi] ??= { correct: 0, answered: 0 }); st.answered++; if (ok) st.correct++;
+    c.feedback = { ok, why: q.why, correct: q.correct, q: q.q, options: q.options, n: p.ran, crowned };
+    // crowns count most; right answers towards an unfinished crown break ties
+    p.score = c.crowns.length * CROWN_NEED + Object.entries(c.progress).filter(([k]) => !c.crowns.includes(k)).reduce((n, [, x]) => n + x, 0);
+    c.cat = null; c.qi = -1; c.landed = null; c.pick = false;
+    if (c.crowns.length >= cats.length) { p.finishedAt = this.now(); this.phase = 'ended'; }
+    this.touch();
+    return true;
+  }
   submit(token: string): boolean { const p = this.playerByToken(token); if (!p || this.phase !== 'exam') return false; this.submitPlayer(p); this.touch(); return true; }
 
   answer(token: string, value: unknown): boolean {
     if (this.phase === 'slides') return this.vote(token, value);
+    if (this.phase === 'run') return this.runAnswer(token, value);
     const p = this.playerByToken(token);
     if (!p || this.phase !== 'question' || p.answer || p.out) return false;
     const q = this.content.questions[this.qIndex];
@@ -251,6 +338,8 @@ export class LiveRoom {
       if (!v.length || ((q.type === 'mc' || q.type === 'tf') && v.length !== 1)) return false;
     }
     if (q.type === 'text' && !v[0]) return false;
+    // Who Am I?: a wrong guess is not final; three wrong guesses lock the answer in
+    if (this.whoami() && !isRight(q, v, true)) { p.guesses = (p.guesses ?? 0) + 1; this.touch(); if (p.guesses < 3) return true; }
     p.answer = { value: v, at: Math.min(this.now(), this.deadline) };
     this.touch();
     if ([...this.players.values()].filter((x) => !x.out).every((x) => x.answer)) this.finishQuestion();
@@ -284,6 +373,7 @@ export class LiveRoom {
   /** Called on a timer: ends a question when its time is up, and counts players who dropped off. */
   tick(): boolean {
     if (this.phase === 'question' && this.now() >= this.deadline) { this.finishQuestion(); return true; }
+    if (this.phase === 'question' && this.whoami() && this.clueIndex() !== this.clueShown) { this.clueShown = this.clueIndex(); this.touch(); return true; }
     if (this.phase === 'run' && this.now() >= this.deadline) { this.phase = 'ended'; this.touch(); return true; }
     if (this.phase === 'exam' && this.now() >= this.deadline) { for (const p of this.players.values()) this.submitPlayer(p); this.phase = 'ended'; this.touch(); return true; }
     return false;
@@ -292,7 +382,7 @@ export class LiveRoom {
   host(action: string, arg?: any): void {
     const last = this.content.questions.length - 1;
     switch (action) {
-      case 'start': if (this.phase !== 'lobby') return; this.startedAt = this.now(); if (this.settings.mode === 'race' || this.settings.mode === 'build') { if (!this.content.questions.length) return; this.phase = 'run'; this.deadline = this.now() + this.settings.runMinutes * 60_000; } else if (this.settings.mode === 'exam') { if (!this.content.questions.length) return; this.phase = 'exam'; this.deadline = this.now() + this.settings.examMinutes * 60_000; } else if (this.content.slides.length) { this.phase = 'slides'; this.slideIndex = 0; } else if (last >= 0) this.startQuestion(0); else return; break;
+      case 'start': if (this.phase !== 'lobby') return; this.startedAt = this.now(); if (this.settings.mode === 'race' || this.settings.mode === 'build' || this.settings.mode === 'crowns') { if (!this.content.questions.length) return; this.phase = 'run'; this.deadline = this.now() + this.settings.runMinutes * 60_000; } else if (this.settings.mode === 'exam') { if (!this.content.questions.length) return; this.phase = 'exam'; this.deadline = this.now() + this.settings.examMinutes * 60_000; } else if (this.content.slides.length) { this.phase = 'slides'; this.slideIndex = 0; } else if (last >= 0) this.startQuestion(0); else return; break;
       case 'slide': if (this.phase !== 'slides') return; this.slideIndex = Math.min(this.content.slides.length - 1, Math.max(0, Math.round(Number(arg) || 0))); break;
       case 'quiz': if ((this.phase !== 'slides' && this.phase !== 'lobby') || last < 0 || this.settings.mode !== 'game') return; this.startedAt ||= this.now(); this.startQuestion(0); break;
       case 'skip': this.finishQuestion(); return;
@@ -324,11 +414,12 @@ export class LiveRoom {
   results(): { players: PlayerResult[]; questions: QStat[]; startedAt: number } {
     const nQ = this.content.questions.length;
     const exam = this.settings.mode === 'exam';
-    const run = this.settings.mode === 'race' || this.settings.mode === 'build';
+    const run = this.settings.mode === 'race' || this.settings.mode === 'build' || this.settings.mode === 'crowns';
+    const crowns = this.settings.mode === 'crowns';
     const players = this.ranked().map((p): PlayerResult => {
       if (exam) { const r = p.examResult ?? this.examScore(p); return { id: p.id, name: p.name, score: Math.round(r.percent * 10) / 10, correct: r.correct, answered: p.exam.filter(Boolean).length, total: r.total, joinedAt: p.joinedAt, submitted: !!p.submitted, team: p.team }; }
       const done = p.log.length;
-      if (run) return { id: p.id, name: p.name, score: p.steps, correct: p.steps, answered: p.ran, total: p.ran, joinedAt: p.joinedAt, submitted: true, team: p.team };
+      if (run) return { id: p.id, name: p.name, score: crowns ? (p.cr?.crowns.length ?? 0) : p.steps, correct: p.steps, answered: p.ran, total: p.ran, joinedAt: p.joinedAt, submitted: true, team: p.team };
       return { id: p.id, name: p.name, score: p.score, correct: p.log.filter((l) => l.correct).length, answered: p.log.filter((l) => l.answered).length, total: Math.max(done, this.qIndex >= 0 ? (this.phase === 'ended' ? nQ : done) : 0), joinedAt: p.joinedAt, submitted: this.phase === 'ended', team: p.team };
     });
     const questions: QStat[] = this.content.questions.map((q, i) => {
@@ -378,6 +469,15 @@ export class LiveRoom {
       }
       if (role === 'player') v.run.track = v.run.track.map((t) => ({ ...t, name: this.settings.showNames ? t.name : '' }));
     }
+    if (this.settings.mode === 'crowns') {
+      const cats = this.crownCats();
+      v.crowns = { deadline: this.deadline, goal: cats.length, need: CROWN_NEED, cats, track: [...this.players.values()].sort((a, b) => (b.cr?.crowns.length ?? 0) - (a.cr?.crowns.length ?? 0) || b.score - a.score || a.name.localeCompare(b.name)).map((p) => ({ id: p.id, name: p.name, crowns: p.cr?.crowns ?? [], progress: p.cr?.progress ?? {}, right: p.cr?.right ?? 0, wrong: p.cr?.wrong ?? 0, finished: !!p.finishedAt, streak: p.streak })) };
+      if (role === 'player') v.crowns.track = v.crowns.track.map((t) => ({ ...t, name: this.settings.showNames ? t.name : '' }));
+      if (role === 'player' && me) {
+        const c = this.cr(me), q = c.qi >= 0 ? this.content.questions[c.qi] : undefined;
+        v.crowns.mine = { crowns: c.crowns, progress: c.progress, step: q && c.cat ? 'question' : c.pick ? 'pick' : 'spin', landed: c.landed, cat: c.cat, question: q && c.cat && this.phase === 'run' ? { type: q.type, q: q.q, options: q.options, cat: c.cat } : undefined, feedback: c.feedback };
+      }
+    }
     if (role === 'host' && this.roster.length) v.roster = this.roster;
     if (this.phase === 'exam' || (this.phase === 'ended' && this.settings.mode === 'exam')) {
       v.question = undefined;
@@ -391,19 +491,42 @@ export class LiveRoom {
       }
     }
     if (q && (this.phase === 'question' || showAnswers)) {
-      v.question = { type: q.type, q: q.q, options: q.options, time: q.time, points: q.points, deadline: this.deadline, answered, total: this.players.size, multiHint: q.type === 'multi' ? (q.correct as number[]).length : undefined };
+      v.question = { type: q.type, q: q.q, options: q.options, time: this.qSeconds(q), points: q.points, deadline: this.deadline, answered, total: this.players.size, multiHint: q.type === 'multi' ? (q.correct as number[]).length : undefined };
+      if (this.whoami() && q.clues?.length) {
+        const ci = this.phase === 'question' ? this.clueIndex() : q.clues.length - 1, ms = this.settings.clueSeconds * 1000;
+        // the clues not yet shown stay on the host's device until their turn
+        Object.assign(v.question, { clues: q.clues.slice(0, ci + 1), clueIndex: ci, clueCount: q.clues.length, clueEndsAt: this.phase === 'question' && ci < q.clues.length - 1 ? this.deadline - (q.clues.length - ci - 1) * ms : undefined });
+      }
       if (showAnswers) v.reveal = { correct: q.correct, why: q.why, counts: this.counts, text: q.type === 'text' ? this.textCounts : undefined };
     }
     if (this.settings.teams > 0) {
       v.teams = Array.from({ length: this.settings.teams }, (_, t) => { const m = [...this.players.values()].filter((p) => p.team === t); return { team: t, members: m.length, score: m.length ? Math.round(m.reduce((a, p) => a + p.score, 0) / m.length) : 0 }; });
     }
-    if (me) v.me = { id: me.id, name: me.name, score: me.score, rank: rankOf.get(me.id)!, streak: me.streak, answered: !!me.answer, out: !!me.out, team: me.team, last: showAnswers ? me.last : null, picked: me.answer?.value };
+    if (me) v.me = { id: me.id, name: me.name, score: me.score, rank: rankOf.get(me.id)!, streak: me.streak, answered: !!me.answer, guesses: me.guesses, out: !!me.out, team: me.team, last: showAnswers ? me.last : null, picked: me.answer?.value };
     return v;
   }
 }
 
-export function isRight(q: LiveQuestion, v: (number | string)[]): boolean {
-  if (q.type === 'text') { const a = fold(String(v[0] ?? '')); return !!a && (q.correct as string[]).some((c) => fold(c) === a); }
+const TITLES = /^(the|st|saint|king|queen|prophet|apostle|blessed|mr|mrs) /;
+const bare = (s: string) => fold(s).replace(TITLES, '').replace(TITLES, '');
+function edits(a: string, b: string): number {
+  if (Math.abs(a.length - b.length) > 2) return 3;
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) { const cur = [i]; for (let j = 1; j <= b.length; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); prev = cur; }
+  return prev[b.length];
+}
+/** A typed name against the accepted ones. With `loose` (Who Am I?) titles such as "Saint" or "King" do not matter, and one slip of the keys is forgiven in a long name. */
+export function textMatches(accepted: string[], typed: string, loose = false): boolean {
+  const a = loose ? bare(typed) : fold(typed);
+  if (!a) return false;
+  return accepted.some((c) => {
+    const b = loose ? bare(c) : fold(c);
+    if (a === b) return true;
+    return loose && b.length >= 7 && a.length >= 7 && edits(a, b) <= (b.length >= 12 ? 2 : 1);
+  });
+}
+export function isRight(q: LiveQuestion, v: (number | string)[], loose = false): boolean {
+  if (q.type === 'text') return textMatches(q.correct as string[], String(v[0] ?? ''), loose);
   if (q.type === 'order') return v.length === q.correct.length && v.every((x, i) => Number(x) === Number(q.correct[i]));
   const a = [...v].map(Number).sort((x, y) => x - y), b = [...q.correct].map(Number).sort((x, y) => x - y);
   return a.length === b.length && a.every((x, i) => x === b[i]);

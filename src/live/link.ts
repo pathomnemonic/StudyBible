@@ -10,11 +10,12 @@ import type { LiveContent, LiveSettings, LiveView } from './types';
  *    message sealed by a key made from the class code. Needs no server of ours, so it works from any copy of the app.
  *  - the Study Bible server, when there is one: the server runs the session and everyone connects to it.
  */
-export type LinkState = 'connecting' | 'live' | 'lost' | 'gone';
-interface Base { code: string; via: 'p2p' | 'server'; view: LiveView | null; state: LinkState; subscribe(fn: () => void): () => void; serverNow(): number; close(): void }
+/** 'lost': this device cannot reach the relay. 'away': the relay is fine but the host's device has gone quiet (asleep, or the app is in the background). */
+export type LinkState = 'connecting' | 'live' | 'lost' | 'away' | 'gone';
+interface Base { code: string; via: 'p2p' | 'server'; view: LiveView | null; state: LinkState; subscribe(fn: () => void): () => void; serverNow(): number; close(): void; /** drop the connection and make a fresh one now */ reconnect(): void; /** which relay is carrying the session, when known */ relayHost?: () => string }
 export interface HostLink extends Base { key: string; act(action: string, arg?: unknown): Promise<void>; csv(): Promise<string> }
 export interface PlayerLink extends Base { token: string; answer(value: unknown, q?: number): Promise<void>; submit(): Promise<void> }
-export interface RoomInfo { title: string; phase: string; locked: boolean; mode: 'game' | 'exam' | 'race' | 'build'; roster: string[]; rosterOnly: boolean }
+export interface RoomInfo { title: string; phase: string; locked: boolean; mode: LiveSettings['mode']; roster: string[]; rosterOnly: boolean }
 
 class Emitter {
   private fns = new Set<() => void>();
@@ -23,6 +24,15 @@ class Emitter {
 }
 
 let shared: Mqtt | null = null;
+/** Run `fn` whenever the page comes back to the front, the network returns, or the page is restored from the back-forward cache. */
+export function onWake(fn: () => void): () => void {
+  if (typeof document === 'undefined') return () => undefined;
+  const vis = () => { if (document.visibilityState === 'visible') fn(); };
+  document.addEventListener('visibilitychange', vis);
+  window.addEventListener('pageshow', fn); window.addEventListener('online', fn); window.addEventListener('focus', fn);
+  return () => { document.removeEventListener('visibilitychange', vis); window.removeEventListener('pageshow', fn); window.removeEventListener('online', fn); window.removeEventListener('focus', fn); };
+}
+export const relayName = (mq: Mqtt) => { try { return new URL(mq.url).host; } catch { return ''; } };
 export function relay(): Mqtt { if (!shared || shared.state === 'closed') { try { shared?.close(); } catch { /* closed */ } shared = new Mqtt(brokers()); } return shared; }
 const rid = () => Math.random().toString(36).slice(2, 12);
 
@@ -61,7 +71,8 @@ export async function hostP2P(content: LiveContent, settings: LiveSettings, rost
     subscribe: (f) => em.subscribe(f), serverNow: () => Date.now(),
     act: async (a, arg) => { room.host(a, arg); flush(); },
     csv: async () => room.csv(),
-    close: () => { closed = true; clearInterval(timer); off(); void sendAll({ t: 'gone' }); try { localStorage.removeItem(SNAP(code)); } catch { /* storage unavailable */ } hosts.delete(code); link.state = 'gone'; em.emit(); },
+    reconnect: () => { mq.reconnect(); }, relayHost: () => relayName(mq),
+    close: () => { closed = true; clearInterval(timer); offWake(); off(); void sendAll({ t: 'gone' }); try { localStorage.removeItem(SNAP(code)); } catch { /* storage unavailable */ } hosts.delete(code); link.state = 'gone'; em.emit(); },
   };
   const send = async (topic: string, data: unknown) => { mq.publish(topic, await seal(code, data)); };
   const sendAll = async (msg: unknown) => { for (const t of room.tokens()) await send(`${root}/p/${t}`, msg); };
@@ -85,7 +96,7 @@ export async function hostP2P(content: LiveContent, settings: LiveSettings, rost
     else if (m.t === 'ans' && m.token) {
       if (room.settings.mode === 'exam' && m.submit) room.submit(m.token);
       else if (room.settings.mode === 'exam') room.examAnswer(m.token, Number(m.q), m.value);
-      else if (room.settings.mode === 'race' || room.settings.mode === 'build') room.runAnswer(m.token, m.value);
+      else if (room.phase === 'run') room.runAnswer(m.token, m.value);
       else room.answer(m.token, m.value);
       flush();
     }
@@ -96,6 +107,8 @@ export async function hostP2P(content: LiveContent, settings: LiveSettings, rost
     room.touched = Math.max(room.touched, Date.now() - 1);
   }, 500);
   mq.onState = () => flush(true);
+  // the host's device slept or the app was in the background: check the relay, catch up on the clock, and tell every player where things stand
+  const offWake = onWake(() => { mq.probe(); room.tick(); flush(true); });
   try { localStorage.setItem(`sb:live:via:${code}`, 'p2p'); localStorage.setItem(SNAP(code), room.snapshot()); } catch { /* storage unavailable */ }
   hosts.set(code, link);
   flush(true);
@@ -135,9 +148,10 @@ export async function playerP2P(code: string, token: string, mq: Mqtt = relay(),
   let last = Date.now(), skew = 0, closed = false;
   const link: PlayerLink = {
     code, token, via: 'p2p', view: null, state: 'connecting', subscribe: (f) => em.subscribe(f), serverNow: () => Date.now() + skew,
+    reconnect: () => { mq.reconnect(); }, relayHost: () => relayName(mq),
     answer: async (value, q) => { const mid = rid(); const p = await seal(code, { t: 'ans', token, value, q, mid }); mq.publish(`${root}/in`, p); setTimeout(() => mq.publish(`${root}/in`, p), 1500); },
     submit: async () => { const mid = rid(); const p = await seal(code, { t: 'ans', token, submit: true, mid }); mq.publish(`${root}/in`, p); setTimeout(() => mq.publish(`${root}/in`, p), 1500); },
-    close: () => { closed = true; clearInterval(timer); off(); },
+    close: () => { closed = true; clearInterval(timer); offWake(); off(); },
   };
   const hello = async () => { mq.publish(`${root}/in`, await seal(code, { t: 'hello', token })); };
   const off = mq.subscribe(`${root}/p/${token}`, async (payload) => {
@@ -147,8 +161,15 @@ export async function playerP2P(code: string, token: string, mq: Mqtt = relay(),
     if (m.t === 'gone') { link.state = 'gone'; em.emit(); return; }
     if (m.view) { skew = m.view.now - Date.now(); link.view = m.view; link.state = 'live'; em.emit(); }
   });
-  mq.onState = (s) => { if (s === 'open') void hello(); else if (link.state === 'live') { link.state = 'lost'; em.emit(); } };
-  const timer = setInterval(() => { if (!closed && link.state === 'live' && Date.now() - last > 35_000) { link.state = 'lost'; em.emit(); void hello(); } }, 5000);
+  // 'lost' when this device cannot reach the relay; 'away' when the relay is fine but the host has been quiet (the host sends a heartbeat every ten seconds)
+  const judge = () => {
+    if (closed || link.state === 'gone') return;
+    const next: LinkState = mq.state !== 'open' ? (link.view ? 'lost' : 'connecting') : link.view && Date.now() - last > 30_000 ? 'away' : link.view ? 'live' : 'connecting';
+    if (next !== link.state) { link.state = next; em.emit(); }
+  };
+  mq.onState = (s) => { if (s === 'open') { last = Date.now(); void hello(); } judge(); };
+  const offWake = onWake(() => { mq.probe(); void hello(); setTimeout(judge, 1500); });
+  const timer = setInterval(() => { judge(); if (!closed && mq.state === 'open' && link.state !== 'live' && link.state !== 'gone') void hello(); }, 5000);
   void hello();
   setTimeout(() => { if (!link.view && !closed) void hello(); }, 1500);
   return link;
@@ -158,7 +179,7 @@ export async function playerP2P(code: string, token: string, mq: Mqtt = relay(),
 function serverLink<T extends Base>(code: string, who: { key?: string; token?: string }, extra: (l: Base) => Omit<T, keyof Base>): T {
   const em = new Emitter();
   let skew = 0, es: EventSource | null = null, stopped = false, tries = 0;
-  const base: Base = { code, via: 'server', view: null, state: 'connecting', subscribe: (f) => em.subscribe(f), serverNow: () => Date.now() + skew, close: () => { stopped = true; es?.close(); } };
+  const base: Base = { code, via: 'server', view: null, state: 'connecting', subscribe: (f) => em.subscribe(f), serverNow: () => Date.now() + skew, close: () => { stopped = true; es?.close(); }, reconnect: () => { es?.close(); tries = 0; if (!stopped) openStream(); } };
   const openStream = () => {
     es = new EventSource(live.eventsUrl(code, who));
     es.onmessage = (e) => { const v = JSON.parse(e.data) as LiveView; skew = v.now - Date.now(); tries = 0; base.view = v; base.state = 'live'; em.emit(); };

@@ -97,7 +97,7 @@ export async function exportAll(): Promise<string> {
 
 const SETTINGS_KEY = 'studybible.settings.v1';
 /** Things kept in the browser's own storage (game streaks and bests, marked moments, your birthday, lesson notes) that a backup should carry across. */
-const LOCAL_PREFIXES = ['sb:plays', 'sb:trophies', 'sb:daily:', 'sb:verbum', 'sb:crossword', 'sb:quartets', 'sb:prophet', 'sb:cloister', 'sb:charades:best', 'sb:marks:', 'sb:me:', 'sb:pray:done:', 'sb:cur:note:', 'sb:sticker'];
+const LOCAL_PREFIXES = ['sb:plays', 'sb:trophies', 'sb:daily:', 'sb:verbum', 'sb:crossword', 'sb:quartets', 'sb:prophet', 'sb:cloister', 'sb:charades:best', 'sb:marks:', 'sb:me:', 'sb:pray:done:', 'sb:cur:note:', 'sb:sticker', 'sb:passport', 'sb:slowBible'];
 const isLocalKey = (k: string) => LOCAL_PREFIXES.some((p) => k.startsWith(p));
 function collectLocal(): Record<string, string> {
   const out: Record<string, string> = {};

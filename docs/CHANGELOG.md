@@ -90,3 +90,23 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 - The join page and the host lobby say "game or class" and "code" rather than only "class", and the lobby no longer says a server is needed.
 - Tests: `e2e/online.mjs` (host plus three players, answering every question to the final results) and `e2e/live.mjs` both run against a local relay.
 - Not verifiable from the build sandbox: the public relays (emqx, hivemq, mosquitto, eclipse) were unreachable here, so real-world reach should be tried on two phones before launch. Hosts can set their own relay in `localStorage['sb:live:brokers']`.
+
+## Daily Office Companion
+- Guided Morning and Evening Prayer with large-print Pray now steps, a note on why we pray each part, and the saint of the day.
+
+## Readings together and Mass along
+- Why these readings together: cross-references between a Sunday's readings, a Father's comment on the Gospel (Catena Aurea) and the Catechism's frame, for Sundays and major feasts 2026-2028.
+- Read the Mass along: large-print, one-part-at-a-time Mass with today's readings and optional Catechism lines.
+
+## Pilgrim’s Passport
+- New page /passport: private, on-device stamps for saints, councils, feasts, arguments, lives, library works, games and each part of the app, with a map of councils and a list of stamps still to find.
+- You: “Move my place” saves or pastes a small code with your reading position, memorized verses, Slow Bible progress, passport, game streaks, favorite days and setup choices, to move to a new phone without an account.
+
+## Compare translations and study booklets
+- Compare a passage in up to three bundled translations, verse by verse, with differing words marked.
+- Print a study booklet (A5, Letter or A4) with cover, contents, cited quotations, a sources page and fixed-template questions.
+
+## Questions children ask, writer label, plain words
+- New page /kids/questions: 80 real questions with two-level answers, grown-up notes and verified sources.
+- Writer step kind has a legend on argument pages and a test that every kind is styled.
+- Plain words toggle on the argument-map pages.

@@ -8,6 +8,7 @@ import ContinueStrip from '../components/ContinueStrip';
 import { Group, HubHeader, Tiles } from '../components/Hub';
 import QuickSettings from '../components/QuickSettings';
 import SurpriseButton from '../components/SurpriseButton';
+import MovePlace from '../components/MovePlace';
 
 /** Everything that is yours: your writing, your plans and the settings. Where you left off is on Today. */
 export default function ProfilePage() {
@@ -22,7 +23,11 @@ export default function ProfilePage() {
       <WeekCard />
       <Group title="Make it yours"><QuickSettings /></Group>
       <Group open title="Your things">
-        <Tiles ids={['you.library', 'you.year', 'you.history', 'today.memorize', 'pray.journal', 'pray.intentions', 'you.goals', 'today.days']} />
+        <Tiles ids={['you.library', 'you.year', 'you.history', 'today.memorize', 'pray.journal', 'pray.intentions', 'you.goals', 'today.days', 'you.passport']} />
+      </Group>
+      <Group title="Backup">
+        <p className="muted small">Save everything as a file from <Link to="/library?tab=export">Library → Export</Link>, or carry just your place to a new phone.</p>
+        <MovePlace />
       </Group>
       <Group title="The app">
         <Tiles ids={['you.settings', 'you.downloads', 'you.kid', 'you.account', 'you.privacy', 'you.about']} />
