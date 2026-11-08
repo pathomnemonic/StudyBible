@@ -108,6 +108,7 @@ const ArtDetectivePage = lazy(() => import('./pages/play/ArtDetectivePage'));
 const DoctrineLadderPage = lazy(() => import('./pages/play/DoctrineLadderPage'));
 import PassportWatcher from './components/PassportWatcher';
 const QuizNightPage = lazy(() => import('./pages/play/QuizNightPage'));
+const ApostolicChainPage = lazy(() => import('./pages/study/ApostolicChainPage'));
 const LeaderboardPage = lazy(() => import('./pages/play/LeaderboardPage'));
 const CoopDailyPage = lazy(() => import('./pages/play/CoopDailyPage'));
 const CompareFathersPage = lazy(() => import('./pages/study/CompareFathersPage'));
@@ -406,6 +407,7 @@ export default function App() {
               <Route path="/play/artdetective" element={<ArtDetectivePage />} />
               <Route path="/play/doctrineladder" element={<DoctrineLadderPage />} />
               <Route path="/play/quiznight" element={<QuizNightPage />} />
+              <Route path="/study/apostolic-chain" element={<ApostolicChainPage />} />
               <Route path="/play/leaderboard" element={<LeaderboardPage />} />
               <Route path="/play/coop" element={<CoopDailyPage />} />
               <Route path="/study/compare-fathers" element={<CompareFathersPage />} />

@@ -13,10 +13,14 @@ import {
   type Snip, type VerseHit,
 } from '../../search/engine';
 import RefLink from '../../components/RefLink';
+import { getIndex } from '../../search/useIndex';
+import { didYouMean, groupHits, queryTerms, rank, GROUPS, type Hit, type Group } from '../../search/rank';
+import { SAMPLE_QUESTIONS } from '../../search/synonyms';
+import { askCatechism, type Answer } from '../../study/ask';
 import Icon from '../../components/Icon';
 
-type Kind = 'all' | 'scripture' | 'teaching' | 'fathers' | 'commentary' | 'episodes' | 'mine';
-const KINDS: [Kind, string][] = [['all', 'All'], ['scripture', 'Scripture'], ['teaching', 'Teaching & topics'], ['fathers', 'Fathers & saints'], ['commentary', 'Commentary'], ['episodes', 'Episodes'], ['mine', 'My notes']];
+type Kind = 'all' | Group;
+const KINDS: [Kind, string][] = [['all', 'All'], ...GROUPS.map((g) => [g.id, g.label] as [Kind, string])];
 
 export default function SearchPage() {
   const [sp, setSp] = useSearchParams();

@@ -31,8 +31,8 @@ const GROUPS: Group[] = [
     G('/play/trivia', 'Crown Quest', 'Spin the wheel, win six crowns. Play a friend, the Bot, or alone.', '👑', '#8a5ac2', '10 min', '1 to 4', { isNew: true }),
     G('/play/online', 'Play online with a code', 'Open a room, share six digits, and friends join from their own phones. No account.', '🌐', '#2f8f6b', '15 min', '2 to 50', { isNew: true }),
     G('/play/quiznight', 'Quiz night', 'Pass the phone around the family, or host a room.', '🎉', '#e8812b', '15 min', '2 or more'),
-    G('/play/leaderboard', 'Weekly leaderboard', 'A Monday to Sunday board for your group, by code. Opt in, nickname only.', '🏅', '#b58a1f', '1 min', 'A group')
-    G('/play/coop', 'Verbum together', 'Solve today’s word with family or friends, one shared board.', '🤝', '#2f8a5b', '5 min', '2 or more')
+    G('/play/leaderboard', 'Weekly leaderboard', 'A Monday to Sunday board for your group, by code. Opt in, nickname only.', '🏅', '#b58a1f', '1 min', 'A group'),
+    G('/play/coop', 'Verbum together', 'Solve today’s word with family or friends, one shared board.', '🤝', '#2f8a5b', '5 min', '2 or more'),
     G('/play/charades', 'Charades', 'Phone on your forehead: guess saints, stories and more.', '🎭', '#c0507a', '5 min', '2 or more'),
   ] },
 ];

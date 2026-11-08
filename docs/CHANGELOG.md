@@ -118,3 +118,6 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 ## Play together: co-op Verbum and weekly group leaderboard
 - Solve today's Verbum together with a six-digit code; every guess shows for everyone.
 - A weekly leaderboard by group code, opt-in, nickname only.
+
+## The apostolic chain
+- A tappable chart of teachers and pupils from the apostles to Augustine. Every link carries a quotation checked against the library text; links no text states are shown dashed and labelled.

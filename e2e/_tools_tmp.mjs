@@ -23,7 +23,7 @@ for (const [w, h] of [[390, 800], [1280, 900]]) {
   if (w === 1280) for (const [k, id, size] of [['argument', 'real-presence', 'a5'], ['argument', 'real-presence', 'letter'], ['life', 'augustine', 'a4'], ['work', 'aug-tractates-john', 'a5'], ['lesson', 'noah', 'letter'], ['mentor', 'grief', 'a5']]) {
     await p.goto(base + `/print/booklet?k=${k}&id=${id}&size=${size}`); await p.waitForTimeout(1500);
     await p.emulateMedia({ media: 'print' });
-    await p.pdf({ path: `${S}/bk-${k}-${size}.pdf`, preferCSSPageSize: true, printBackground: true });
+    await p.pdf({ path: `${S}/bk-${k}-${size}.pdf`, preferCSSPageSize: true, printBackground: true, margin: { top: '14mm', bottom: '14mm', left: '13mm', right: '13mm' } });
     await p.emulateMedia({ media: 'screen' });
   }
 }
