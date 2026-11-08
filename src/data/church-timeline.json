@@ -1,0 +1,2217 @@
+[
+ {
+  "id": "pentecost-in-jerusalem-30",
+  "year": 30,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.235,
+  "kind": "foundation",
+  "title": "Pentecost in Jerusalem",
+  "text": "According to the Acts of the Apostles, the Holy Spirit came upon the disciples at the feast of Pentecost, c. 30, and Peter preached to the crowds in Jerusalem. Christians count this as the beginning of the Church's public mission."
+ },
+ {
+  "id": "conversion-of-paul-34",
+  "year": 34,
+  "place": "Damascus",
+  "lat": 33.511,
+  "lon": 36.292,
+  "kind": "saint",
+  "title": "Conversion of Paul",
+  "text": "Saul, a Pharisee who had persecuted the first Christians, was converted on the road to Damascus, c. 34. He became the apostle to the Gentiles.",
+  "step": {
+   "kind": "saint",
+   "label": "Conversion of St Paul",
+   "butler": "01-25:0",
+   "quote": "almost at the end of his journey to Damascus, when about noon, he and his company were on a sudden surrounded by a great light from heaven, brighter than the sun",
+   "note": "Butler's account follows the Acts of the Apostles and shows how Paul's life turned on this one encounter."
+  }
+ },
+ {
+  "id": "antioch-the-name-christians-43",
+  "year": 43,
+  "place": "Antioch",
+  "lat": 36.202,
+  "lon": 36.16,
+  "kind": "foundation",
+  "title": "Antioch: the name 'Christians'",
+  "text": "In the Syrian city of Antioch, c. 43, the disciples were first called 'Christians' (Acts 11:26). Barnabas and Paul taught there, and the city became the base of the first missions to the Gentiles."
+ },
+ {
+  "id": "james-the-great-is-put-to-death-44",
+  "year": 44,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.235,
+  "kind": "martyrdom",
+  "title": "James the Great is put to death",
+  "text": "The apostle James, son of Zebedee, was killed by the sword under Herod Agrippa I, c. 44 (Acts 12). He is the only apostle whose death is recorded in the New Testament."
+ },
+ {
+  "id": "paul-s-first-missionary-journey-46",
+  "year": 46,
+  "place": "Paphos, Cyprus",
+  "lat": 34.756,
+  "lon": 32.41,
+  "kind": "mission",
+  "title": "Paul's first missionary journey",
+  "text": "Sent out from Antioch with Barnabas, c. 46, Paul preached in Cyprus and then in southern Asia Minor. This journey opened the way to preaching the Gospel to non-Jews across the Roman world."
+ },
+ {
+  "id": "the-apostolic-council-of-jerusalem-49",
+  "year": 49,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.235,
+  "kind": "mission",
+  "title": "The Apostolic Council of Jerusalem",
+  "text": "About 49 the apostles and elders met in Jerusalem and decided that Gentile converts need not be circumcised or keep the whole Mosaic law (Acts 15). This made the Church open to all nations."
+ },
+ {
+  "id": "the-gospel-comes-to-europe-at-philippi-50",
+  "year": 50,
+  "place": "Philippi",
+  "lat": 41.013,
+  "lon": 24.287,
+  "kind": "mission",
+  "title": "The Gospel comes to Europe at Philippi",
+  "text": "On his second journey, c. 50, Paul founded a church at Philippi in Macedonia, the first known Christian community in Europe. He later wrote to it the Letter to the Philippians."
+ },
+ {
+  "id": "paul-founds-the-church-in-corinth-51",
+  "year": 51,
+  "place": "Corinth",
+  "lat": 37.906,
+  "lon": 22.879,
+  "kind": "foundation",
+  "title": "Paul founds the Church in Corinth",
+  "text": "Paul stayed in Corinth about eighteen months, c. 50-52, and founded a lively and troubled church. From there he wrote 1 Thessalonians, probably the earliest New Testament writing."
+ },
+ {
+  "id": "paul-in-ephesus-53",
+  "year": 53,
+  "place": "Ephesus",
+  "lat": 37.94,
+  "lon": 27.341,
+  "kind": "mission",
+  "title": "Paul in Ephesus",
+  "text": "Paul worked in Ephesus for about three years, c. 53-56, making it a centre of Christianity in Asia Minor. Tradition later links John and Mary with the city."
+ },
+ {
+  "id": "paul-writes-to-the-romans-57",
+  "year": 57,
+  "place": "Corinth",
+  "lat": 37.906,
+  "lon": 22.879,
+  "kind": "text",
+  "title": "Paul writes to the Romans",
+  "text": "From Corinth, c. 57, Paul wrote his Letter to the Romans, his fullest account of faith, grace and justification. It was sent to a Christian community in Rome that he had not yet visited."
+ },
+ {
+  "id": "paul-arrives-in-rome-60",
+  "year": 60,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "foundation",
+  "title": "Paul arrives in Rome",
+  "text": "After appealing to Caesar and surviving shipwreck on Malta, Paul reached Rome c. 60 and preached there under house arrest (Acts 28). A Christian community already existed in the capital."
+ },
+ {
+  "id": "james-the-just-is-martyred-62",
+  "year": 62,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.235,
+  "kind": "martyrdom",
+  "title": "James the Just is martyred",
+  "text": "James, called 'the brother of the Lord' and first leader of the Jerusalem church, was put to death c. 62, according to Josephus and Hegesippus. His death shows the pressure the early church faced in Judea."
+ },
+ {
+  "id": "nero-s-persecution-at-rome-64",
+  "year": 64,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "martyrdom",
+  "title": "Nero's persecution at Rome",
+  "text": "After the great fire of Rome in July 64, Nero blamed the Christians, and Tacitus reports that many were killed. It was the first major Roman persecution of Christians."
+ },
+ {
+  "id": "martyrdom-of-peter-and-paul-67",
+  "year": 67,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "martyrdom",
+  "title": "Martyrdom of Peter and Paul",
+  "text": "Early tradition holds that Peter and Paul both died at Rome under Nero, c. 64-67. Peter is traditionally buried on the Vatican hill and Paul on the road to Ostia.",
+  "step": {
+   "kind": "father",
+   "label": "Peter and Paul at Rome",
+   "work": "eusebius-history",
+   "section": "iii.vii",
+   "quote": "Ignatius (Ad Rom. chap. 4) connects Paul and Peter in an especial way with the Roman Church, which seems plainly to imply that Peter had been in Rome.",
+   "note": "This is an early witness for the tradition that both apostles taught and died in Rome."
+  }
+ },
+ {
+  "id": "destruction-of-the-temple-70",
+  "year": 70,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.235,
+  "kind": "state",
+  "title": "Destruction of the Temple",
+  "text": "Roman forces under Titus took Jerusalem and destroyed the Temple in 70, at the end of the Jewish revolt. This reshaped both Judaism and the Church, which now stood apart from Temple worship."
+ },
+ {
+  "id": "clement-of-rome-writes-to-corinth-96",
+  "year": 96,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "text",
+  "title": "Clement of Rome writes to Corinth",
+  "text": "c. 96 the Roman church, in a letter traditionally by Clement, urged the church of Corinth to end a dispute and restore its presbyters. It is among the earliest Christian writings outside the New Testament.",
+  "step": {
+   "kind": "father",
+   "label": "Clement's First Epistle",
+   "work": "clement-rome",
+   "section": "ii.i",
+   "quote": "Clement was probably a Gentile and a Roman.",
+   "note": "The editor's note introduces the earliest known letter from the church of Rome to another church."
+  }
+ },
+ {
+  "id": "john-at-ephesus-100",
+  "year": 100,
+  "place": "Ephesus",
+  "lat": 37.94,
+  "lon": 27.341,
+  "kind": "saint",
+  "title": "John at Ephesus",
+  "text": "Irenaeus and other early writers say that the apostle John lived at Ephesus into old age, dying c. 100. He is traditionally the author of the fourth Gospel.",
+  "step": {
+   "kind": "saint",
+   "label": "St John the Apostle",
+   "butler": "12-27:0",
+   "quote": "John visited Lesser Asia, making those parts his peculiar care, and residing at Ephesus, the capital of that country",
+   "note": "Butler records the old tradition that John ended his life at Ephesus."
+  }
+ },
+ {
+  "id": "ignatius-of-antioch-dies-in-rome-107",
+  "year": 107,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "martyrdom",
+  "title": "Ignatius of Antioch dies in Rome",
+  "text": "Ignatius, bishop of Antioch, was taken to Rome and killed by wild beasts, c. 107. On the way he wrote seven letters on Christ, the Eucharist and the bishop's role.",
+  "step": {
+   "kind": "saint",
+   "label": "St Ignatius of Antioch",
+   "butler": "02-01:0",
+   "quote": "I am the wheat of God, and I am to be ground by the teeth of the wild beasts, that I may be found the pure bread of Christ",
+   "note": "This quotation from his letter to the Romans shows his readiness for martyrdom."
+  }
+ },
+ {
+  "id": "letters-of-ignatius-107",
+  "year": 107,
+  "place": "Troas",
+  "lat": 39.758,
+  "lon": 26.16,
+  "kind": "text",
+  "title": "Letters of Ignatius",
+  "text": "On his journey to Rome Ignatius wrote to churches at Ephesus, Smyrna, Rome and elsewhere. In one letter he uses the phrase 'catholic church', one of the earliest uses of the term."
+ },
+ {
+  "id": "pliny-s-letter-on-the-christians-112",
+  "year": 112,
+  "place": "Nicomedia",
+  "lat": 40.767,
+  "lon": 29.917,
+  "kind": "state",
+  "title": "Pliny's letter on the Christians",
+  "text": "c. 112 Pliny, governor of Bithynia and Pontus, wrote to the emperor Trajan about how to treat Christians. His letter shows that Christians were numerous in Asia Minor and met regularly to worship Christ."
+ },
+ {
+  "id": "marcion-is-expelled-from-rome-144",
+  "year": 144,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "heresy",
+  "title": "Marcion is expelled from Rome",
+  "text": "The shipowner Marcion, who rejected the Old Testament and much of the New, was excluded from the Roman church c. 144 and founded his own communities. His challenge pushed the Church to define its canon of Scripture.",
+  "step": {
+   "kind": "father",
+   "label": "Tertullian against Marcion",
+   "work": "tertullian-marcion",
+   "section": "v.ii",
+   "quote": "In the treatise against Marcion, written late in his career, Tertullian identifies himself with the Church and strenuously defends its faith and its apostolic order.",
+   "note": "Tertullian's long reply shows how the Church answered Marcion."
+  }
+ },
+ {
+  "id": "polycarp-of-smyrna-is-martyred-155",
+  "year": 155,
+  "place": "Smyrna",
+  "lat": 38.423,
+  "lon": 27.143,
+  "kind": "martyrdom",
+  "title": "Polycarp of Smyrna is martyred",
+  "text": "Polycarp, bishop of Smyrna and a disciple of John, was burned c. 155 (Butler gives 166). His Martyrdom is among the oldest surviving accounts of a Christian martyr's death.",
+  "step": {
+   "kind": "saint",
+   "label": "St Polycarp",
+   "butler": "01-26:0",
+   "quote": "That he had served Christ eighty-six years",
+   "note": "Polycarp's own words at his trial reveal the age and steadfastness of this link to the apostles."
+  }
+ },
+ {
+  "id": "justin-martyr-is-put-to-death-165",
+  "year": 165,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "martyrdom",
+  "title": "Justin Martyr is put to death",
+  "text": "Justin, a philosopher who became a Christian and defended the faith to the emperors, was beheaded in Rome c. 165. His Apologies describe early Christian worship.",
+  "step": {
+   "kind": "saint",
+   "label": "St Justin Martyr",
+   "butler": "06-01:0",
+   "quote": "St. Justin was born at Neapolis, now Naplosa, the ancient Sichem, and formerly the capital of the province of Samaria.",
+   "note": "Butler's life gives the background of the first great Christian philosopher."
+  }
+ },
+ {
+  "id": "martyrs-of-lyon-and-vienne-177",
+  "year": 177,
+  "place": "Lyon",
+  "lat": 45.764,
+  "lon": 4.836,
+  "kind": "martyrdom",
+  "title": "Martyrs of Lyon and Vienne",
+  "text": "In 177 the Christians of Lugdunum and Vienne in Gaul, among them the bishop Pothinus and the slave Blandina, were tortured and killed. A surviving letter from the churches describes their witness.",
+  "step": {
+   "kind": "saint",
+   "label": "Pothinus, Blandina and the martyrs of Lyons",
+   "butler": "06-02:0",
+   "quote": "violent persecution which was raised three years after the aforesaid victory, at Vienne and Lyons in Gaul, in 177",
+   "note": "Butler dates the persecution that took the lives of the first known Christians in Gaul."
+  }
+ },
+ {
+  "id": "scillitan-martyrs-180",
+  "year": 180,
+  "place": "Carthage",
+  "lat": 36.853,
+  "lon": 10.323,
+  "kind": "martyrdom",
+  "title": "Scillitan martyrs",
+  "text": "In 180 twelve Christians from Scillium were beheaded at Carthage for refusing to swear by the emperor. Their acts are the earliest dated record of Christianity in Roman Africa.",
+  "step": {
+   "kind": "saint",
+   "label": "The Scillitan Martyrs",
+   "butler": "07-17:1",
+   "quote": "The first who suffered at Carthage were twelve persons, commonly called the Scillitan Martyrs, probably because they were of Scillita, a town of the proconsular Africa",
+   "note": "Butler marks them as the first African martyrs on record."
+  }
+ },
+ {
+  "id": "irenaeus-writes-against-heresies-180",
+  "year": 180,
+  "place": "Lyon",
+  "lat": 45.764,
+  "lon": 4.836,
+  "kind": "text",
+  "title": "Irenaeus writes Against Heresies",
+  "text": "Irenaeus, bishop of Lyon, wrote Against Heresies c. 180 to refute Gnostic teachers. He appealed to the teaching handed down from the apostles in churches such as Rome.",
+  "step": {
+   "kind": "father",
+   "label": "Irenaeus on the Roman church",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "quote": "every Church should agree with this Church, on account of its pre-eminent authority",
+   "note": "This is the famous passage on the apostolic tradition and the Church of Rome, discussed by scholars."
+  }
+ },
+ {
+  "id": "catechetical-school-of-alexandria-190",
+  "year": 190,
+  "place": "Alexandria",
+  "lat": 31.2,
+  "lon": 29.919,
+  "kind": "foundation",
+  "title": "Catechetical school of Alexandria",
+  "text": "By c. 190 Pantaenus, then Clement and Origen, taught Christian doctrine to educated inquirers in Alexandria. The school became a leading centre of biblical study."
+ },
+ {
+  "id": "tertullian-s-apology-197",
+  "year": 197,
+  "place": "Carthage",
+  "lat": 36.853,
+  "lon": 10.323,
+  "kind": "text",
+  "title": "Tertullian's Apology",
+  "text": "Tertullian of Carthage wrote his Apology c. 197, defending Christians against false charges before Roman magistrates. He is the first major Christian author to write in Latin.",
+  "step": {
+   "kind": "father",
+   "label": "Tertullian",
+   "work": "tertullian-apologetic",
+   "section": "iv.iii",
+   "quote": "The blood of Christians is the seed of the Church.",
+   "note": "This is Tertullian's most quoted line on martyrdom."
+  }
+ },
+ {
+  "id": "perpetua-and-felicity-are-martyred-203",
+  "year": 203,
+  "place": "Carthage",
+  "lat": 36.853,
+  "lon": 10.323,
+  "kind": "martyrdom",
+  "title": "Perpetua and Felicity are martyred",
+  "text": "Two young women, Vibia Perpetua and her slave Felicity, were killed in the arena at Carthage in 203. Perpetua's prison diary is among the oldest texts written by a Christian woman.",
+  "step": {
+   "kind": "saint",
+   "label": "SS Perpetua and Felicitas",
+   "butler": "03-07:1",
+   "quote": "five catechumens were apprehended at Carthage for the faith",
+   "note": "Butler describes the arrest of those who died with them."
+  }
+ },
+ {
+  "id": "origen-settles-in-caesarea-231",
+  "year": 231,
+  "place": "Caesarea Maritima",
+  "lat": 32.5,
+  "lon": 34.893,
+  "kind": "saint",
+  "title": "Origen settles in Caesarea",
+  "text": "Origen, the great biblical scholar of Alexandria, moved to Caesarea in Palestine c. 231 and founded a school there. He wrote commentaries and the Hexapla on the Old Testament.",
+  "step": {
+   "kind": "father",
+   "label": "Origen of Alexandria",
+   "work": "origen-celsus",
+   "section": "vi.ii.ii",
+   "quote": "Origen, surnamed Adamantinus, was born in all probability at Alexandria, about the year 185 a.d.",
+   "note": "The editor's note gives the origin of the scholar who later taught in Caesarea."
+  }
+ },
+ {
+  "id": "decian-persecution-and-pope-fabian-250",
+  "year": 250,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "martyrdom",
+  "title": "Decian persecution and Pope Fabian",
+  "text": "The emperor Decius ordered all citizens to sacrifice to the gods in 250, the first empire-wide persecution. Pope Fabian was among its first victims.",
+  "step": {
+   "kind": "saint",
+   "label": "St Fabian",
+   "butler": "01-20:0",
+   "quote": "He succeeded St. Anterus in the pontificate, in the year 236",
+   "note": "Butler gives the background of the pope who died at its start."
+  }
+ },
+ {
+  "id": "novatian-schism-251",
+  "year": 251,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "schism",
+  "title": "Novatian schism",
+  "text": "After Cornelius was chosen pope in 251, the priest Novatian set himself up as a rival and refused to readmit Christians who had lapsed in persecution. The dispute raised the question of forgiveness for serious sin.",
+  "step": {
+   "kind": "father",
+   "label": "Cornelius and Novatian",
+   "work": "novatian",
+   "section": "vi.ii",
+   "quote": "Cornelius was made bishop June 4, a.d. 251",
+   "note": "The editor's note dates the election that produced the split."
+  }
+ },
+ {
+  "id": "cyprian-of-carthage-is-martyred-258",
+  "year": 258,
+  "place": "Carthage",
+  "lat": 36.853,
+  "lon": 10.323,
+  "kind": "martyrdom",
+  "title": "Cyprian of Carthage is martyred",
+  "text": "Cyprian, bishop of Carthage, was beheaded on 14 September 258 under the emperor Valerian. His writings on the unity of the Church were widely read.",
+  "step": {
+   "kind": "father",
+   "label": "Cyprian on the Church as Mother",
+   "work": "cyprian",
+   "section": "iv.iv.lxxiii",
+   "quote": "that he should have God as his Father, before he has had the Church for his Mother?",
+   "note": "This reflects his teaching that unity with the Church is bound up with life in Christ."
+  }
+ },
+ {
+  "id": "laurence-deacon-of-rome-is-martyred-258",
+  "year": 258,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "martyrdom",
+  "title": "Laurence, deacon of Rome, is martyred",
+  "text": "Pope Sixtus II and his deacons were put to death in 258, and Laurence, the deacon in charge of the Church's charity, died days later. He was widely honoured from the fourth century.",
+  "step": {
+   "kind": "saint",
+   "label": "St Laurence",
+   "butler": "08-10:0",
+   "quote": "There are few martyrs in the church whose names are so famous as that of the glorious St. Laurence",
+   "note": "Butler shows how widely he was venerated."
+  }
+ },
+ {
+  "id": "paul-of-samosata-condemned-at-antioch-268",
+  "year": 268,
+  "place": "Antioch",
+  "lat": 36.202,
+  "lon": 36.16,
+  "kind": "heresy",
+  "title": "Paul of Samosata condemned at Antioch",
+  "text": "c. 268 a synod at Antioch deposed Paul of Samosata, its bishop, for teaching that Christ was a mere man. The case foreshadowed the fourth-century debates on Christ's divinity."
+ },
+ {
+  "id": "antony-begins-the-desert-life-270",
+  "year": 270,
+  "place": "Mount Colzim, Egypt",
+  "lat": 28.95,
+  "lon": 32.35,
+  "kind": "monastery",
+  "title": "Antony begins the desert life",
+  "text": "Antony of Egypt, born in 251, left his village c. 270 for a life of prayer in the desert. He is called the father of monks.",
+  "step": {
+   "kind": "saint",
+   "label": "St Antony",
+   "butler": "01-17:0",
+   "quote": "ST. ANTONY was born at Coma, a village near Heraclea, or Great Heracleopolis, in Upper Egypt, on the borders of Arcadia, or Middle Egypt, in 251.",
+   "note": "Butler follows the Life by Athanasius."
+  }
+ },
+ {
+  "id": "armenia-becomes-christian-301",
+  "year": 301,
+  "place": "Vagharshapat, Armenia",
+  "lat": 40.16,
+  "lon": 44.29,
+  "kind": "mission",
+  "title": "Armenia becomes Christian",
+  "text": "According to tradition Gregory the Illuminator converted King Tiridates III c. 301, making Armenia the first state to adopt Christianity. Dates are debated."
+ },
+ {
+  "id": "great-persecution-begins-303",
+  "year": 303,
+  "place": "Nicomedia",
+  "lat": 40.767,
+  "lon": 29.917,
+  "kind": "martyrdom",
+  "title": "Great Persecution begins",
+  "text": "In February 303 Diocletian ordered churches destroyed and Scriptures burned. The last and fiercest imperial persecution lasted in places until 311-313."
+ },
+ {
+  "id": "agnes-of-rome-is-martyred-304",
+  "year": 304,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "martyrdom",
+  "title": "Agnes of Rome is martyred",
+  "text": "Agnes, a girl of about twelve, was martyred at Rome c. 304 during Diocletian's persecution. She was honoured from early times and is named in the Roman canon.",
+  "step": {
+   "kind": "saint",
+   "label": "St Agnes",
+   "butler": "01-21:0",
+   "quote": "overcame both the cruelty of the tyrant and the tenderness of her age",
+   "note": "Butler quotes Jerome's praise of her."
+  }
+ },
+ {
+  "id": "donatist-schism-begins-311",
+  "year": 311,
+  "place": "Carthage",
+  "lat": 36.853,
+  "lon": 10.323,
+  "kind": "schism",
+  "title": "Donatist schism begins",
+  "text": "A dispute over the consecration of Caecilian as bishop of Carthage in 311 led to a rival line of bishops led later by Donatus. The schism divided African Christians for a century."
+ },
+ {
+  "id": "constantine-s-victory-at-the-milvian-bridge-312",
+  "year": 312,
+  "place": "Rome, Milvian Bridge",
+  "lat": 41.935,
+  "lon": 12.47,
+  "kind": "state",
+  "title": "Constantine's victory at the Milvian Bridge",
+  "text": "Constantine defeated Maxentius on 28 October 312 and attributed his victory to the Christian God. He soon granted Christians favour."
+ },
+ {
+  "id": "edict-of-milan-313",
+  "year": 313,
+  "place": "Milan",
+  "lat": 45.464,
+  "lon": 9.19,
+  "kind": "state",
+  "title": "Edict of Milan",
+  "text": "In 313 Constantine and Licinius agreed to give Christians and all others freedom to follow their religion and to return seized church property. Christianity could now be practised openly."
+ },
+ {
+  "id": "arius-begins-to-teach-in-alexandria-318",
+  "year": 318,
+  "place": "Alexandria",
+  "lat": 31.2,
+  "lon": 29.919,
+  "kind": "heresy",
+  "title": "Arius begins to teach in Alexandria",
+  "text": "c. 318 the priest Arius taught that the Son is a creature who had a beginning. Bishop Alexander opposed him, and the dispute soon spread across the empire."
+ },
+ {
+  "id": "pachomius-founds-communal-monasteries-323",
+  "year": 323,
+  "place": "Tabennisi, Egypt",
+  "lat": 26.14,
+  "lon": 32.65,
+  "kind": "monastery",
+  "title": "Pachomius founds communal monasteries",
+  "text": "Pachomius gathered monks into a community with a written rule at Tabennisi in Upper Egypt, c. 323. His model of communal life spread through Egypt and beyond.",
+  "step": {
+   "kind": "saint",
+   "label": "St Pachomius",
+   "butler": "05-14:3",
+   "quote": "St. Pachomius was the first who drew up a monastic rule in writing.",
+   "note": "Butler credits him with the first written monastic rule."
+  }
+ },
+ {
+  "id": "eusebius-completes-his-church-history-324",
+  "year": 324,
+  "place": "Caesarea Maritima",
+  "lat": 32.5,
+  "lon": 34.893,
+  "kind": "text",
+  "title": "Eusebius completes his Church History",
+  "text": "Eusebius, bishop of Caesarea, finished his Ecclesiastical History c. 324, the first history of the Church. It preserves many documents on the early martyrs and bishops."
+ },
+ {
+  "id": "lateran-basilica-founded-324",
+  "year": 324,
+  "place": "Rome",
+  "lat": 41.886,
+  "lon": 12.506,
+  "kind": "foundation",
+  "title": "Lateran Basilica founded",
+  "text": "Constantine gave the Lateran palace to the bishop of Rome and built the basilica of the Saviour, c. 324. It is still the cathedral of Rome."
+ },
+ {
+  "id": "council-of-nicaea-i-325",
+  "year": 325,
+  "place": "Nicaea",
+  "lat": 40.43,
+  "lon": 29.72,
+  "kind": "council",
+  "title": "Council of Nicaea I",
+  "text": "Over 300 bishops met at Nicaea under Constantine and confessed that the Son is 'of one substance' with the Father against Arius. The council also fixed the rules for the date of Easter.",
+  "council": 1,
+  "step": {
+   "kind": "council",
+   "label": "Nicene Creed (325)",
+   "work": "council-nicaea-1",
+   "section": "vii.iii",
+   "quote": "being of one substance … with the Father",
+   "note": "The original creed uses the word that came to define Christian teaching on Christ's divinity."
+  }
+ },
+ {
+  "id": "athanasius-becomes-bishop-of-alexandria-328",
+  "year": 328,
+  "place": "Alexandria",
+  "lat": 31.2,
+  "lon": 29.919,
+  "kind": "saint",
+  "title": "Athanasius becomes bishop of Alexandria",
+  "text": "Athanasius became bishop of Alexandria in 328 and defended Nicaea against Arianism, suffering several exiles. The Church honours him as a doctor.",
+  "step": {
+   "kind": "saint",
+   "label": "St Athanasius",
+   "butler": "05-02:0",
+   "quote": "When I praise Athanasius, virtue itself is my theme",
+   "note": "Gregory Nazianzen's tribute shows Athanasius's reputation."
+  }
+ },
+ {
+  "id": "constantinople-dedicated-330",
+  "year": 330,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "state",
+  "title": "Constantinople dedicated",
+  "text": "Constantine dedicated his new capital on the Bosphorus on 11 May 330. It became the centre of the Christian Roman East for over a thousand years."
+ },
+ {
+  "id": "frumentius-brings-the-gospel-to-aksum-330",
+  "year": 330,
+  "place": "Aksum",
+  "lat": 14.13,
+  "lon": 38.72,
+  "kind": "mission",
+  "title": "Frumentius brings the Gospel to Aksum",
+  "text": "c. 330 Frumentius was consecrated bishop by Athanasius and began the conversion of the kingdom of Aksum (Ethiopia). The Ethiopian church dates from this time."
+ },
+ {
+  "id": "church-of-the-holy-sepulchre-dedicated-335",
+  "year": 335,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.23,
+  "kind": "foundation",
+  "title": "Church of the Holy Sepulchre dedicated",
+  "text": "Constantine built a church over the traditional site of Christ's tomb, dedicated in 335. Tradition says his mother Helena visited the holy places c. 326-328."
+ },
+ {
+  "id": "athanasius-exiled-to-trier-335",
+  "year": 335,
+  "place": "Trier",
+  "lat": 49.75,
+  "lon": 6.637,
+  "kind": "saint",
+  "title": "Athanasius exiled to Trier",
+  "text": "After the Council of Tyre in 335, the emperor Constantine exiled Athanasius to Trier. He returned to Alexandria after Constantine's death in 337."
+ },
+ {
+  "id": "catechetical-lectures-of-cyril-of-jerusalem-350",
+  "year": 350,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.235,
+  "kind": "text",
+  "title": "Catechetical lectures of Cyril of Jerusalem",
+  "text": "c. 350 Cyril, bishop of Jerusalem, gave instructions on the creed and sacraments to candidates for baptism. They are a precious witness to fourth-century liturgy."
+ },
+ {
+  "id": "athanasius-writes-the-life-of-antony-357",
+  "year": 357,
+  "place": "Alexandria",
+  "lat": 31.2,
+  "lon": 29.919,
+  "kind": "text",
+  "title": "Athanasius writes the Life of Antony",
+  "text": "Athanasius wrote the Life of Antony c. 357, soon after the hermit's death. The book spread the monastic ideal across the Greek and Latin worlds.",
+  "step": {
+   "kind": "saint",
+   "label": "St Antony",
+   "butler": "01-17:0",
+   "quote": "It contributed to the conversion of St. Austin.",
+   "note": "Butler notes that the Life moved Augustine to conversion."
+  }
+ },
+ {
+  "id": "martin-founds-liguge-361",
+  "year": 361,
+  "place": "Ligugé",
+  "lat": 46.52,
+  "lon": 0.31,
+  "kind": "monastery",
+  "title": "Martin founds Ligugé",
+  "text": "Martin, a former soldier, founded the first known monastery in Gaul at Ligugé near Poitiers c. 361. He became bishop of Tours in 371.",
+  "step": {
+   "kind": "saint",
+   "label": "St Martin of Tours",
+   "butler": "11-11:0",
+   "quote": "The great St. Martin, the glory of Gaul, and the light of the western church in the fourth age",
+   "note": "Butler shows the esteem for the apostle of Gaul."
+  }
+ },
+ {
+  "id": "ephrem-settles-at-edessa-363",
+  "year": 363,
+  "place": "Edessa",
+  "lat": 37.159,
+  "lon": 38.792,
+  "kind": "saint",
+  "title": "Ephrem settles at Edessa",
+  "text": "Ephrem, the Syriac deacon and poet, came to Edessa c. 363. His hymns and commentaries shaped Syriac Christianity, and he is a doctor of the Church.",
+  "step": {
+   "kind": "father",
+   "label": "Ephrem at Edessa",
+   "work": "ephrem-hymns",
+   "section": "iii.iii.ii",
+   "quote": "Ephraim finally settled at Edessa, and took up his abode as a “Solitary” in a cell on the “Mount of Edessa”",
+   "note": "The note records where the poet spent his later years."
+  }
+ },
+ {
+  "id": "basil-becomes-bishop-of-caesarea-370",
+  "year": 370,
+  "place": "Caesarea, Cappadocia",
+  "lat": 38.72,
+  "lon": 35.48,
+  "kind": "saint",
+  "title": "Basil becomes bishop of Caesarea",
+  "text": "Basil, a founder of Eastern monastic rules, became bishop in 370. He built a large charitable complex and opposed Arianism.",
+  "step": {
+   "kind": "saint",
+   "label": "St Basil the Great",
+   "butler": "06-14:0",
+   "quote": "St. Basil the Great, the illustnous doctor and intrepid champion of the Church",
+   "note": "Butler honours Basil as a defender of the faith."
+  }
+ },
+ {
+  "id": "ambrose-becomes-bishop-of-milan-374",
+  "year": 374,
+  "place": "Milan",
+  "lat": 45.464,
+  "lon": 9.19,
+  "kind": "saint",
+  "title": "Ambrose becomes bishop of Milan",
+  "text": "Ambrose, the governor of Milan, was chosen bishop in 374 while still unbaptized. He became a major pastor and teacher of the West."
+ },
+ {
+  "id": "edict-of-thessalonica-380",
+  "year": 380,
+  "place": "Thessalonica",
+  "lat": 40.64,
+  "lon": 22.94,
+  "kind": "state",
+  "title": "Edict of Thessalonica",
+  "text": "On 27 February 380 Theodosius I, Gratian and Valentinian II ordered all their subjects to follow the faith of Rome and Alexandria. Nicene Christianity became the imperial religion."
+ },
+ {
+  "id": "council-of-constantinople-i-381",
+  "year": 381,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "council",
+  "title": "Council of Constantinople I",
+  "text": "Bishops met in 381 to affirm the divinity of the Holy Spirit and finish the creed we call Nicene. The council also raised Constantinople above older sees in honour.",
+  "council": 2,
+  "step": {
+   "kind": "council",
+   "label": "Holy Spirit in the Creed",
+   "work": "council-constantinople-1",
+   "section": "ix.iii",
+   "quote": "And [we believe] in the Holy Ghost, the Lord and Giver-of-Life, who proceedeth from the Father, who with the Father and the Son together is worshipped and glorified, who spake by the prophets.",
+   "note": "This is the article on the Spirit that the council added."
+  }
+ },
+ {
+  "id": "jerome-settles-at-bethlehem-386",
+  "year": 386,
+  "place": "Bethlehem",
+  "lat": 31.704,
+  "lon": 35.203,
+  "kind": "monastery",
+  "title": "Jerome settles at Bethlehem",
+  "text": "Jerome moved from Rome to Bethlehem in 386 and lived as a monk there for the rest of his life. He translated the Bible into Latin, the Vulgate.",
+  "step": {
+   "kind": "father",
+   "label": "Letter from Bethlehem",
+   "work": "jerome-letters",
+   "section": "v.XLVI",
+   "quote": "which now becomes Jerome’s home",
+   "note": "This note marks the year he settled there."
+  }
+ },
+ {
+  "id": "augustine-is-baptized-387",
+  "year": 387,
+  "place": "Milan",
+  "lat": 45.464,
+  "lon": 9.19,
+  "kind": "saint",
+  "title": "Augustine is baptized",
+  "text": "Augustine, a teacher of rhetoric from Africa, was baptized by Ambrose at Easter 387. He then returned to Africa and became its greatest bishop.",
+  "step": {
+   "kind": "saint",
+   "label": "St Augustine",
+   "butler": "08-28:0",
+   "quote": "So great is the veneration which popes, councils, and the whole church have paid to the memory of this glorious saint",
+   "note": "Butler shows his esteem across the centuries."
+  }
+ },
+ {
+  "id": "augustine-becomes-bishop-of-hippo-396",
+  "year": 396,
+  "place": "Hippo Regius",
+  "lat": 36.89,
+  "lon": 7.76,
+  "kind": "saint",
+  "title": "Augustine becomes bishop of Hippo",
+  "text": "Augustine was made bishop of Hippo in 395-396 and remained there until his death. His writings shaped Western theology."
+ },
+ {
+  "id": "council-of-carthage-lists-the-books-of-scripture-397",
+  "year": 397,
+  "place": "Carthage",
+  "lat": 36.853,
+  "lon": 10.323,
+  "kind": "text",
+  "title": "Council of Carthage lists the books of Scripture",
+  "text": "African bishops meeting at Carthage in 397 listed the books of the Old and New Testaments accepted in the Church. The list matches the Catholic canon."
+ },
+ {
+  "id": "john-chrysostom-becomes-patriarch-398",
+  "year": 398,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "saint",
+  "title": "John Chrysostom becomes patriarch",
+  "text": "The preacher John, called Chrysostom ('golden mouth'), became bishop of Constantinople in 398. His homilies are among the finest of the Fathers.",
+  "step": {
+   "kind": "saint",
+   "label": "St John Chrysostom",
+   "butler": "01-27:0",
+   "quote": "obtained soon after his death the surname of Chrysostom, or Golden Mouth",
+   "note": "Butler explains the name."
+  }
+ },
+ {
+  "id": "augustine-s-confessions-400",
+  "year": 400,
+  "place": "Hippo Regius",
+  "lat": 36.89,
+  "lon": 7.76,
+  "kind": "text",
+  "title": "Augustine's Confessions",
+  "text": "Augustine wrote the Confessions c. 400, an account of his search for God. It opens with the line about the restless heart.",
+  "step": {
+   "kind": "father",
+   "label": "Augustine's Confessions",
+   "work": "aug-confessions",
+   "section": "ii.i",
+   "quote": "Thou madest us for Thyself, and our heart is restless, until it repose in Thee.",
+   "note": "This is the most famous line of the book."
+  }
+ },
+ {
+  "id": "alaric-sacks-rome-410",
+  "year": 410,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "state",
+  "title": "Alaric sacks Rome",
+  "text": "The Visigoths under Alaric entered Rome on 24 August 410. The shock led Augustine to write the City of God."
+ },
+ {
+  "id": "lerins-founded-410",
+  "year": 410,
+  "place": "Lérins",
+  "lat": 43.51,
+  "lon": 7.05,
+  "kind": "monastery",
+  "title": "Lérins founded",
+  "text": "Honoratus founded a monastery on the island of Lérins off the Riviera c. 410. It trained many bishops and spread monastic life in Gaul."
+ },
+ {
+  "id": "church-of-the-east-organized-in-persia-410",
+  "year": 410,
+  "place": "Seleucia-Ctesiphon",
+  "lat": 33.09,
+  "lon": 44.58,
+  "kind": "foundation",
+  "title": "Church of the East organized in Persia",
+  "text": "At a synod in 410 the bishops of the Persian empire accepted the Nicene faith and a catholicos at Seleucia-Ctesiphon. This ordered the church that later spread across Asia."
+ },
+ {
+  "id": "augustine-begins-the-city-of-god-413",
+  "year": 413,
+  "place": "Hippo Regius",
+  "lat": 36.89,
+  "lon": 7.76,
+  "kind": "text",
+  "title": "Augustine begins the City of God",
+  "text": "Augustine began The City of God in 413 and finished it c. 426. He contrasted the earthly city with the city of God.",
+  "step": {
+   "kind": "father",
+   "label": "The City of God",
+   "work": "aug-city-of-god",
+   "section": "iv.i",
+   "quote": "the first four contain an account of the origin of these two cities—the city of God, and the city of the world",
+   "note": "He describes the plan of the book."
+  }
+ },
+ {
+  "id": "pelagianism-condemned-at-carthage-418",
+  "year": 418,
+  "place": "Carthage",
+  "lat": 36.853,
+  "lon": 10.323,
+  "kind": "heresy",
+  "title": "Pelagianism condemned at Carthage",
+  "text": "A council at Carthage in 418, backed by Pope Zosimus, condemned the teaching of Pelagius that humans can do good without grace. Augustine's writings on grace were the main reply."
+ },
+ {
+  "id": "simeon-stylites-on-his-pillar-423",
+  "year": 423,
+  "place": "Qal'at Sim'an, Syria",
+  "lat": 36.34,
+  "lon": 36.84,
+  "kind": "monastery",
+  "title": "Simeon Stylites on his pillar",
+  "text": "c. 423 Simeon began living atop a pillar near Antioch, drawing pilgrims for decades. He died in 459.",
+  "step": {
+   "kind": "saint",
+   "label": "St Simeon Stylites",
+   "butler": "01-05:0",
+   "quote": "The Persians, Medes, Saracens, Ethiopians, Iberians, and Scythians, had the highest veneration for him",
+   "note": "Butler shows how far his fame spread."
+  }
+ },
+ {
+  "id": "nestorius-becomes-patriarch-428",
+  "year": 428,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "heresy",
+  "title": "Nestorius becomes patriarch",
+  "text": "Nestorius became patriarch in 428 and objected to the title Theotokos, 'Mother of God'. Cyril of Alexandria opposed him."
+ },
+ {
+  "id": "death-of-augustine-at-hippo-430",
+  "year": 430,
+  "place": "Hippo Regius",
+  "lat": 36.89,
+  "lon": 7.76,
+  "kind": "saint",
+  "title": "Death of Augustine at Hippo",
+  "text": "Augustine died on 28 August 430 while the Vandals besieged Hippo. His writings still shape Latin Christianity."
+ },
+ {
+  "id": "council-of-ephesus-431",
+  "year": 431,
+  "place": "Ephesus",
+  "lat": 37.94,
+  "lon": 27.341,
+  "kind": "council",
+  "title": "Council of Ephesus",
+  "text": "Called by Theodosius II in 431, the council taught that Christ is one Person and that Mary is rightly called Theotokos. Nestorius was deposed.",
+  "council": 3,
+  "step": {
+   "kind": "council",
+   "label": "Mother of God",
+   "work": "council-ephesus",
+   "section": "x.v",
+   "quote": "they ventured to call the holy Virgin, the Mother of God",
+   "note": "The council text defends the title for Mary and explains why."
+  }
+ },
+ {
+  "id": "vincent-of-lerins-writes-the-commonitory-434",
+  "year": 434,
+  "place": "Lérins",
+  "lat": 43.51,
+  "lon": 7.05,
+  "kind": "text",
+  "title": "Vincent of Lérins writes the Commonitory",
+  "text": "Vincent of Lérins wrote the Commonitory in 434 to set a test for true faith. He proposed 'what has been believed everywhere, always and by all'.",
+  "step": {
+   "kind": "father",
+   "label": "The Vincentian canon",
+   "work": "vincent-commonitory",
+   "section": "iii.iii",
+   "quote": "that faith which has been believed everywhere, always, by all",
+   "note": "This is the rule he proposed for recognizing Catholic teaching."
+  }
+ },
+ {
+  "id": "vandals-take-carthage-439",
+  "year": 439,
+  "place": "Carthage",
+  "lat": 36.853,
+  "lon": 10.323,
+  "kind": "state",
+  "title": "Vandals take Carthage",
+  "text": "The Vandal king Gaiseric captured Carthage in 439. The Arian Vandals pressed Catholic clergy for decades."
+ },
+ {
+  "id": "council-of-chalcedon-451",
+  "year": 451,
+  "place": "Chalcedon",
+  "lat": 40.99,
+  "lon": 29.03,
+  "kind": "council",
+  "title": "Council of Chalcedon",
+  "text": "Some 500 bishops met in 451 and defined that Christ is one Person in two natures, divine and human. Several Eastern churches did not accept it.",
+  "council": 4,
+  "step": {
+   "kind": "council",
+   "label": "Two natures",
+   "work": "council-chalcedon",
+   "section": "xi.xiii",
+   "quote": "the only-begotten Son [of God] must be confessed to be in two natures",
+   "note": "This is the heart of Chalcedon's definition."
+  }
+ },
+ {
+  "id": "pope-leo-meets-attila-452",
+  "year": 452,
+  "place": "near Mantua",
+  "lat": 45.1,
+  "lon": 10.8,
+  "kind": "saint",
+  "title": "Pope Leo meets Attila",
+  "text": "In 452 Pope Leo I met Attila the Hun near Mantua, and Attila turned back from Italy. Leo's Tome also guided the Council of Chalcedon."
+ },
+ {
+  "id": "end-of-the-western-empire-476",
+  "year": 476,
+  "place": "Ravenna",
+  "lat": 44.418,
+  "lon": 12.2,
+  "kind": "state",
+  "title": "End of the Western Empire",
+  "text": "In 476 Odoacer deposed the last western emperor, Romulus Augustulus. The Church and bishops became central to order in the West."
+ },
+ {
+  "id": "acacian-schism-484",
+  "year": 484,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "schism",
+  "title": "Acacian schism",
+  "text": "From 484 to 519 Rome and Constantinople were out of communion over a dispute about Chalcedon, sparked by Patriarch Acacius. It ended with Justin I's formula."
+ },
+ {
+  "id": "clovis-is-baptized-496",
+  "year": 496,
+  "place": "Reims",
+  "lat": 49.258,
+  "lon": 4.032,
+  "kind": "mission",
+  "title": "Clovis is baptized",
+  "text": "Clovis, king of the Franks, was baptized by Remigius at Reims, traditionally in 496. His conversion made the Franks Catholic."
+ },
+ {
+  "id": "dionysius-exiguus-and-the-anno-domini-525",
+  "year": 525,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "text",
+  "title": "Dionysius Exiguus and the Anno Domini",
+  "text": "The monk Dionysius Exiguus worked out the Easter tables in Rome c. 525 and numbered years from Christ's birth. This became the Christian calendar."
+ },
+ {
+  "id": "benedict-founds-monte-cassino-529",
+  "year": 529,
+  "place": "Monte Cassino",
+  "lat": 41.49,
+  "lon": 13.814,
+  "kind": "monastery",
+  "title": "Benedict founds Monte Cassino",
+  "text": "c. 529 Benedict of Nursia founded a monastery on Monte Cassino. His Rule, written soon after, became the basic rule of Western monasticism.",
+  "step": {
+   "kind": "saint",
+   "label": "St Benedict",
+   "butler": "03-21:0",
+   "quote": "St. Benedict, or Kennet, was a native of Norcia",
+   "note": "Butler tells of the patriarch of Western monks."
+  }
+ },
+ {
+  "id": "council-of-orange-on-grace-529",
+  "year": 529,
+  "place": "Orange",
+  "lat": 44.137,
+  "lon": 4.81,
+  "kind": "heresy",
+  "title": "Council of Orange on grace",
+  "text": "The Council of Orange in 529 rejected semi-Pelagianism and affirmed that even the beginning of faith is a gift of grace. Pope Boniface II confirmed it."
+ },
+ {
+  "id": "hagia-sophia-dedicated-537",
+  "year": 537,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.98,
+  "kind": "foundation",
+  "title": "Hagia Sophia dedicated",
+  "text": "Justinian dedicated the great church of Holy Wisdom on 27 December 537. It became the centre of Byzantine worship."
+ },
+ {
+  "id": "council-of-constantinople-ii-553",
+  "year": 553,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "council",
+  "title": "Council of Constantinople II",
+  "text": "Justinian called a council in 553 to condemn the 'Three Chapters' and win back those who rejected Chalcedon. Pope Vigilius was pressed and eventually assented.",
+  "council": 5,
+  "step": {
+   "kind": "council",
+   "label": "The Three Chapters",
+   "work": "council-constantinople-2",
+   "section": "xii.ii",
+   "quote": "The three chapters were the point in question; that is, respecting Theodore of Mopsuestia, Theodoret’s writings against Cyril, and the letter of Ibas of Edessa to Maris the Persian.",
+   "note": "This names the writings the council examined."
+  }
+ },
+ {
+  "id": "third-council-of-toledo-589",
+  "year": 589,
+  "place": "Toledo",
+  "lat": 39.863,
+  "lon": -4.027,
+  "kind": "state",
+  "title": "Third Council of Toledo",
+  "text": "In 589 King Reccared and the Visigoths gave up Arianism for the Catholic faith at Toledo. Spain became a Catholic kingdom."
+ },
+ {
+  "id": "gregory-the-great-becomes-pope-590",
+  "year": 590,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "saint",
+  "title": "Gregory the Great becomes pope",
+  "text": "Gregory, a monk and former prefect of Rome, was elected pope in 590. He reformed the Church, wrote the Pastoral Rule and sent missionaries to England."
+ },
+ {
+  "id": "columbanus-founds-luxeuil-590",
+  "year": 590,
+  "place": "Luxeuil",
+  "lat": 47.82,
+  "lon": 6.38,
+  "kind": "monastery",
+  "title": "Columbanus founds Luxeuil",
+  "text": "The Irish monk Columbanus came to Gaul c. 590 and founded Luxeuil in the Vosges. His houses carried Irish penitential discipline to the Continent."
+ },
+ {
+  "id": "augustine-of-canterbury-lands-in-kent-597",
+  "year": 597,
+  "place": "Canterbury",
+  "lat": 51.28,
+  "lon": 1.08,
+  "kind": "mission",
+  "title": "Augustine of Canterbury lands in Kent",
+  "text": "Sent by Pope Gregory, Augustine arrived in Kent in 597 and baptized King Ethelbert. Canterbury became the seat of the English church.",
+  "step": {
+   "kind": "saint",
+   "label": "St Augustine of Canterbury",
+   "butler": "05-27:7",
+   "quote": "The Saxons, English, and Jutes, pagan Germans, who in this island began in 454 to expel the old Britons into the mountainous part of the country, had reigned here about one hundred and fifty years, when God was pleased to open their eyes to the light of the gospel",
+   "note": "Butler tells how the Anglo-Saxons first heard the Gospel."
+  }
+ },
+ {
+  "id": "persians-take-jerusalem-614",
+  "year": 614,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.235,
+  "kind": "state",
+  "title": "Persians take Jerusalem",
+  "text": "Sassanid Persian forces captured Jerusalem in 614 and carried off the relic of the Cross. Emperor Heraclius recovered it in 630."
+ },
+ {
+  "id": "isidore-of-seville-writes-the-etymologies-620",
+  "year": 620,
+  "place": "Seville",
+  "lat": 37.389,
+  "lon": -5.984,
+  "kind": "text",
+  "title": "Isidore of Seville writes the Etymologies",
+  "text": "Isidore, bishop of Seville, compiled the Etymologies c. 620, a summary of ancient learning. It was a standard reference in the Middle Ages."
+ },
+ {
+  "id": "the-hijra-622",
+  "year": 622,
+  "place": "Medina",
+  "lat": 24.47,
+  "lon": 39.61,
+  "kind": "state",
+  "title": "The Hijra",
+  "text": "Muhammad migrated from Mecca to Medina in 622. Muslims count this as the beginning of their calendar and of the first Muslim community."
+ },
+ {
+  "id": "jerusalem-surrenders-to-the-caliph-umar-637",
+  "year": 637,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.235,
+  "kind": "state",
+  "title": "Jerusalem surrenders to the caliph Umar",
+  "text": "In 637 (some sources say 638) Patriarch Sophronius surrendered Jerusalem to Caliph Umar. Christians kept their churches under protection terms."
+ },
+ {
+  "id": "arab-conquest-of-alexandria-641",
+  "year": 641,
+  "place": "Alexandria",
+  "lat": 31.2,
+  "lon": 29.919,
+  "kind": "state",
+  "title": "Arab conquest of Alexandria",
+  "text": "Arab forces took Alexandria in 641-642, ending Byzantine rule in Egypt. Egyptian Christians lived under new rulers."
+ },
+ {
+  "id": "pope-martin-i-dies-in-exile-655",
+  "year": 655,
+  "place": "Cherson",
+  "lat": 44.61,
+  "lon": 33.49,
+  "kind": "martyrdom",
+  "title": "Pope Martin I dies in exile",
+  "text": "Martin I opposed the imperial formula of Monothelitism, was arrested and exiled to Cherson in the Crimea. He died there in 655.",
+  "step": {
+   "kind": "saint",
+   "label": "Pope St Martin I",
+   "butler": "11-12:0",
+   "quote": "Martin continued in the prison of Diomedes near three months, to the 10th of March, 655, when he was ordained to be banished to the Taurica Chersonesus on the 15th of May",
+   "note": "Butler tells of his imprisonment and banishment."
+  }
+ },
+ {
+  "id": "theodore-of-tarsus-becomes-archbishop-of-canterbury-669",
+  "year": 669,
+  "place": "Canterbury",
+  "lat": 51.28,
+  "lon": 1.08,
+  "kind": "saint",
+  "title": "Theodore of Tarsus becomes Archbishop of Canterbury",
+  "text": "Pope Vitalian sent Theodore, a Greek monk from Tarsus, to Canterbury in 669. He organized dioceses, councils and schools in England.",
+  "step": {
+   "kind": "saint",
+   "label": "St Theodore of Canterbury",
+   "butler": "09-19:1",
+   "quote": "sent a virtuous and learned priest, named Wighard, to Rome, that he might be consecrated bishop, and duly confirmed to that important see by the pope himself",
+   "note": "Butler gives the background to Theodore's appointment."
+  }
+ },
+ {
+  "id": "council-of-constantinople-iii-680",
+  "year": 680,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "council",
+  "title": "Council of Constantinople III",
+  "text": "The council of 680-681 taught that Christ has two wills, divine and human, against Monothelitism. Pope Agatho's letter was received.",
+  "council": 6,
+  "step": {
+   "kind": "council",
+   "label": "Two wills",
+   "work": "council-constantinople-3",
+   "section": "xiii.v",
+   "quote": "she also confesses and preaches that there are in him two natural wills and two natural operations.",
+   "note": "The text shows the doctrine the council taught."
+  }
+ },
+ {
+  "id": "willibrord-founds-echternach-698",
+  "year": 698,
+  "place": "Echternach",
+  "lat": 49.812,
+  "lon": 6.42,
+  "kind": "monastery",
+  "title": "Willibrord founds Echternach",
+  "text": "Willibrord, an Anglo-Saxon missionary, founded the abbey of Echternach in 698. He worked among the Frisians."
+ },
+ {
+  "id": "carthage-falls-to-the-arabs-698",
+  "year": 698,
+  "place": "Carthage",
+  "lat": 36.853,
+  "lon": 10.323,
+  "kind": "state",
+  "title": "Carthage falls to the Arabs",
+  "text": "Arab armies took Carthage in 698. The African church, once strong, shrank over later centuries."
+ },
+ {
+  "id": "muslim-forces-cross-into-spain-711",
+  "year": 711,
+  "place": "Gibraltar",
+  "lat": 36.14,
+  "lon": -5.35,
+  "kind": "state",
+  "title": "Muslim forces cross into Spain",
+  "text": "In 711 Tariq ibn Ziyad crossed from Africa into Spain and defeated the Visigothic king Roderic. Most of the peninsula came under Muslim rule within a few years."
+ },
+ {
+  "id": "boniface-fells-the-oak-at-geismar-723",
+  "year": 723,
+  "place": "Geismar",
+  "lat": 51.13,
+  "lon": 9.28,
+  "kind": "mission",
+  "title": "Boniface fells the oak at Geismar",
+  "text": "Around 723 Boniface cut down a sacred oak at Geismar in Hesse and built a chapel from its wood. The event is a symbol of his mission to the Germans."
+ },
+ {
+  "id": "iconoclasm-begins-726",
+  "year": 726,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "state",
+  "title": "Iconoclasm begins",
+  "text": "From c. 726 Emperor Leo III opposed the veneration of images, beginning the iconoclast controversy. It divided the Byzantine world for over a century."
+ },
+ {
+  "id": "john-of-damascus-defends-holy-images-730",
+  "year": 730,
+  "place": "Mar Saba",
+  "lat": 31.71,
+  "lon": 35.33,
+  "kind": "text",
+  "title": "John of Damascus defends holy images",
+  "text": "John of Damascus, a monk near Jerusalem, wrote defences of icons c. 730. He taught that honour to an image passes to the person shown.",
+  "step": {
+   "kind": "father",
+   "label": "John of Damascus",
+   "work": "john-damascus",
+   "section": "iii.iv.i",
+   "quote": "images and types and symbols derived from our own life",
+   "note": "His text explains why images lead the mind to God."
+  }
+ },
+ {
+  "id": "battle-of-tours-732",
+  "year": 732,
+  "place": "Tours",
+  "lat": 47.38,
+  "lon": 0.69,
+  "kind": "state",
+  "title": "Battle of Tours",
+  "text": "Charles Martel defeated a Muslim army between Tours and Poitiers in 732. The battle halted a raid into Frankish lands."
+ },
+ {
+  "id": "fulda-founded-744",
+  "year": 744,
+  "place": "Fulda",
+  "lat": 50.553,
+  "lon": 9.676,
+  "kind": "monastery",
+  "title": "Fulda founded",
+  "text": "Boniface's follower Sturm founded the abbey of Fulda in 744. Boniface was later buried there after his martyrdom in Frisia in 754."
+ },
+ {
+  "id": "pope-stephen-ii-meets-pepin-754",
+  "year": 754,
+  "place": "Ponthion",
+  "lat": 48.75,
+  "lon": 4.73,
+  "kind": "state",
+  "title": "Pope Stephen II meets Pepin",
+  "text": "In 754 Pope Stephen II met the Frankish king Pepin the Short at Ponthion and anointed him at Saint-Denis. Pepin promised to protect Rome, laying the base of the Papal States."
+ },
+ {
+  "id": "council-of-nicaea-ii-787",
+  "year": 787,
+  "place": "Nicaea",
+  "lat": 40.43,
+  "lon": 29.72,
+  "kind": "council",
+  "title": "Council of Nicaea II",
+  "text": "The council of 787, called by Empress Irene, restored the veneration of holy images and taught the difference between veneration and worship.",
+  "council": 7,
+  "step": {
+   "kind": "council",
+   "label": "Veneration of images",
+   "work": "council-nicaea-2",
+   "section": "xvi.ii",
+   "quote": "The council decreed that similar veneration and honour should be paid to the representations of the Lord and of the Saints",
+   "note": "The decree explains the honour due images."
+  }
+ },
+ {
+  "id": "charlemagne-crowned-emperor-800",
+  "year": 800,
+  "place": "Rome",
+  "lat": 41.902,
+  "lon": 12.454,
+  "kind": "state",
+  "title": "Charlemagne crowned emperor",
+  "text": "Pope Leo III crowned Charlemagne emperor in St Peter's on Christmas Day 800. The coronation shaped the medieval empire and its relation to the papacy."
+ },
+ {
+  "id": "triumph-of-orthodoxy-843",
+  "year": 843,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "state",
+  "title": "Triumph of Orthodoxy",
+  "text": "In 843 the regency of Theodora restored the veneration of icons, a day still commemorated in the East. The iconoclast controversy ended."
+ },
+ {
+  "id": "cyril-and-methodius-go-to-moravia-863",
+  "year": 863,
+  "place": "Mikulčice, Moravia",
+  "lat": 48.81,
+  "lon": 17.03,
+  "kind": "mission",
+  "title": "Cyril and Methodius go to Moravia",
+  "text": "The brothers Cyril and Methodius from Thessalonica were sent to Moravia in 863. They translated Scripture and liturgy into Slavonic."
+ },
+ {
+  "id": "boris-i-of-bulgaria-is-baptized-864",
+  "year": 864,
+  "place": "Pliska",
+  "lat": 43.37,
+  "lon": 27.1,
+  "kind": "mission",
+  "title": "Boris I of Bulgaria is baptized",
+  "text": "Khan Boris I of Bulgaria was baptized c. 864. Bulgaria became Christian and later adopted Slavonic liturgy."
+ },
+ {
+  "id": "photian-schism-867",
+  "year": 867,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "schism",
+  "title": "Photian schism",
+  "text": "Photius became patriarch in 858, and Pope Nicholas I disputed the appointment. In 867 each side excommunicated the other.",
+  "step": {
+   "kind": "saint",
+   "label": "St Ignatius of Constantinople",
+   "butler": "10-23:3",
+   "quote": "At last, however, Bardas declared Photius, the eunuch, patriarch, without so much as the formality of an election.",
+   "note": "Butler's account sets out the dispute that led to the break."
+  }
+ },
+ {
+  "id": "council-of-constantinople-iv-869",
+  "year": 869,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "council",
+  "title": "Council of Constantinople IV",
+  "text": "The council of 869-870 deposed Photius and restored Ignatius. Catholics count it as ecumenical, the Orthodox do not.",
+  "council": 8
+ },
+ {
+  "id": "cluny-founded-910",
+  "year": 910,
+  "place": "Cluny",
+  "lat": 46.434,
+  "lon": 4.659,
+  "kind": "monastery",
+  "title": "Cluny founded",
+  "text": "Duke William of Aquitaine founded Cluny in 910 under the abbot Berno. It led a reform of monastic life across Europe.",
+  "step": {
+   "kind": "saint",
+   "label": "St Odo of Cluny",
+   "butler": "11-18:2",
+   "quote": "Odo was born at Tours in 879, and was brought up first in the family of Fulk II.",
+   "note": "Butler tells of Cluny's second abbot."
+  }
+ },
+ {
+  "id": "otto-i-crowned-emperor-962",
+  "year": 962,
+  "place": "Rome",
+  "lat": 41.902,
+  "lon": 12.454,
+  "kind": "state",
+  "title": "Otto I crowned emperor",
+  "text": "Pope John XII crowned Otto I emperor in Rome in 962. This began the Holy Roman Empire."
+ },
+ {
+  "id": "adalbert-becomes-bishop-of-prague-983",
+  "year": 983,
+  "place": "Prague",
+  "lat": 50.088,
+  "lon": 14.42,
+  "kind": "saint",
+  "title": "Adalbert becomes bishop of Prague",
+  "text": "Adalbert became bishop of Prague in 983. He later worked among the Hungarians and Prussians and died a martyr in 997."
+ },
+ {
+  "id": "vladimir-of-kyiv-is-baptized-988",
+  "year": 988,
+  "place": "Kyiv",
+  "lat": 50.45,
+  "lon": 30.523,
+  "kind": "mission",
+  "title": "Vladimir of Kyiv is baptized",
+  "text": "Prince Vladimir of Kyiv accepted baptism in 988 and Christianized the people of Rus'. The Kyivan church followed the Byzantine tradition."
+ },
+ {
+  "id": "stephen-crowned-king-of-hungary-1000",
+  "year": 1000,
+  "place": "Esztergom",
+  "lat": 47.79,
+  "lon": 18.74,
+  "kind": "state",
+  "title": "Stephen crowned king of Hungary",
+  "text": "Stephen was crowned king of Hungary c. 1000-1001 with the approval of Pope Sylvester II. He organized dioceses and spread the Faith."
+ },
+ {
+  "id": "holy-sepulchre-destroyed-1009",
+  "year": 1009,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.23,
+  "kind": "state",
+  "title": "Holy Sepulchre destroyed",
+  "text": "The Fatimid caliph al-Hakim ordered the Church of the Holy Sepulchre destroyed in 1009. It was later rebuilt."
+ },
+ {
+  "id": "synod-of-sutri-1046",
+  "year": 1046,
+  "place": "Sutri",
+  "lat": 42.242,
+  "lon": 12.215,
+  "kind": "state",
+  "title": "Synod of Sutri",
+  "text": "In 1046 Emperor Henry III held a synod at Sutri that ended a three-way contest for the papacy. It began the reform of the papacy."
+ },
+ {
+  "id": "east-west-schism-1054",
+  "year": 1054,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.98,
+  "kind": "schism",
+  "title": "East-West Schism",
+  "text": "On 16 July 1054 papal legates led by Cardinal Humbert laid a bull of excommunication on the altar of Hagia Sophia against Patriarch Cerularius. The mutual excommunications mark the break between Rome and Constantinople."
+ },
+ {
+  "id": "gregory-vii-becomes-pope-1073",
+  "year": 1073,
+  "place": "Rome",
+  "lat": 41.902,
+  "lon": 12.454,
+  "kind": "saint",
+  "title": "Gregory VII becomes pope",
+  "text": "Hildebrand became Pope Gregory VII in 1073 and pressed reforms against simony and lay investiture."
+ },
+ {
+  "id": "henry-iv-at-canossa-1077",
+  "year": 1077,
+  "place": "Canossa",
+  "lat": 44.58,
+  "lon": 10.45,
+  "kind": "state",
+  "title": "Henry IV at Canossa",
+  "text": "In January 1077 Emperor Henry IV came to Canossa to seek absolution from Pope Gregory VII. The conflict over investiture continued."
+ },
+ {
+  "id": "anselm-s-proslogion-1077",
+  "year": 1077,
+  "place": "Bec",
+  "lat": 49.23,
+  "lon": 0.72,
+  "kind": "text",
+  "title": "Anselm's Proslogion",
+  "text": "Anselm wrote the Proslogion c. 1077 at Bec, arguing that God is that than which nothing greater can be thought.",
+  "step": {
+   "kind": "father",
+   "label": "Anselm",
+   "work": "anselm-basic-works",
+   "section": "iii.v",
+   "quote": "God is that than which a greater cannot be conceived.",
+   "note": "This is the formula at the centre of the argument."
+  }
+ },
+ {
+  "id": "bruno-founds-the-carthusians-1084",
+  "year": 1084,
+  "place": "La Grande Chartreuse",
+  "lat": 45.33,
+  "lon": 5.81,
+  "kind": "monastery",
+  "title": "Bruno founds the Carthusians",
+  "text": "Bruno of Cologne and companions settled in the Chartreuse mountains in 1084. The Carthusians became a hermit-monk order."
+ },
+ {
+  "id": "university-of-bologna-1088",
+  "year": 1088,
+  "place": "Bologna",
+  "lat": 44.494,
+  "lon": 11.343,
+  "kind": "foundation",
+  "title": "University of Bologna",
+  "text": "Students gathered in Bologna to study law c. 1088, creating Europe's oldest university."
+ },
+ {
+  "id": "pope-urban-ii-preaches-at-clermont-1095",
+  "year": 1095,
+  "place": "Clermont",
+  "lat": 45.777,
+  "lon": 3.087,
+  "kind": "state",
+  "title": "Pope Urban II preaches at Clermont",
+  "text": "At Clermont in November 1095 Pope Urban II called Christians to aid the Byzantine East and free Jerusalem. The First Crusade followed."
+ },
+ {
+  "id": "citeaux-founded-1098",
+  "year": 1098,
+  "place": "Cîteaux",
+  "lat": 47.14,
+  "lon": 5.1,
+  "kind": "monastery",
+  "title": "Cîteaux founded",
+  "text": "Robert of Molesme and companions founded the New Monastery of Cîteaux in 1098, aiming for strict Benedictine observance."
+ },
+ {
+  "id": "crusaders-take-jerusalem-1099",
+  "year": 1099,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.23,
+  "kind": "state",
+  "title": "Crusaders take Jerusalem",
+  "text": "Crusader forces captured Jerusalem on 15 July 1099 after a siege. Many Muslim and Jewish inhabitants were killed, and a Latin kingdom was set up."
+ },
+ {
+  "id": "bernard-founds-clairvaux-1115",
+  "year": 1115,
+  "place": "Clairvaux",
+  "lat": 48.15,
+  "lon": 4.79,
+  "kind": "monastery",
+  "title": "Bernard founds Clairvaux",
+  "text": "Bernard of Fontaines founded Clairvaux in 1115 and became its abbot. He was among the most influential figures of the century."
+ },
+ {
+  "id": "knights-templar-founded-1119",
+  "year": 1119,
+  "place": "Jerusalem",
+  "lat": 31.778,
+  "lon": 35.235,
+  "kind": "foundation",
+  "title": "Knights Templar founded",
+  "text": "Hugh de Payens and companions formed the Knights Templar in Jerusalem c. 1119 to protect pilgrims. The order was approved in 1129."
+ },
+ {
+  "id": "concordat-of-worms-1122",
+  "year": 1122,
+  "place": "Worms",
+  "lat": 49.632,
+  "lon": 8.36,
+  "kind": "state",
+  "title": "Concordat of Worms",
+  "text": "The Concordat of Worms in 1122 ended the Investiture Controversy by separating spiritual and secular investiture."
+ },
+ {
+  "id": "first-lateran-council-1123",
+  "year": 1123,
+  "place": "Rome, Lateran",
+  "lat": 41.886,
+  "lon": 12.506,
+  "kind": "council",
+  "title": "First Lateran Council",
+  "text": "Pope Callixtus II confirmed the Concordat of Worms at the first Lateran council in 1123.",
+  "council": 9
+ },
+ {
+  "id": "second-lateran-council-1139",
+  "year": 1139,
+  "place": "Rome, Lateran",
+  "lat": 41.886,
+  "lon": 12.506,
+  "kind": "council",
+  "title": "Second Lateran Council",
+  "text": "Pope Innocent II ended the schism of antipope Anacletus II at the council of 1139.",
+  "council": 10
+ },
+ {
+  "id": "gratian-s-decretum-1140",
+  "year": 1140,
+  "place": "Bologna",
+  "lat": 44.494,
+  "lon": 11.343,
+  "kind": "text",
+  "title": "Gratian's Decretum",
+  "text": "Gratian compiled the Decretum c. 1140, a collection of church law that began canon law as a science."
+ },
+ {
+  "id": "peter-lombard-s-sentences-1150",
+  "year": 1150,
+  "place": "Paris",
+  "lat": 48.853,
+  "lon": 2.349,
+  "kind": "text",
+  "title": "Peter Lombard's Sentences",
+  "text": "Peter Lombard wrote the Sentences c. 1150, a textbook of theology. Every later medieval theologian commented on it."
+ },
+ {
+  "id": "thomas-becket-is-murdered-1170",
+  "year": 1170,
+  "place": "Canterbury",
+  "lat": 51.28,
+  "lon": 1.08,
+  "kind": "martyrdom",
+  "title": "Thomas Becket is murdered",
+  "text": "Archbishop Thomas Becket was killed in Canterbury Cathedral on 29 December 1170 by knights of Henry II. He was canonized in 1173."
+ },
+ {
+  "id": "third-lateran-council-1179",
+  "year": 1179,
+  "place": "Rome, Lateran",
+  "lat": 41.886,
+  "lon": 12.506,
+  "kind": "council",
+  "title": "Third Lateran Council",
+  "text": "Pope Alexander III set the rule of a two-thirds vote of cardinals to elect a pope at the council of 1179.",
+  "council": 11
+ },
+ {
+  "id": "waldensians-condemned-1184",
+  "year": 1184,
+  "place": "Verona",
+  "lat": 45.438,
+  "lon": 10.992,
+  "kind": "heresy",
+  "title": "Waldensians condemned",
+  "text": "Pope Lucius III condemned the Waldensians at Verona in 1184. Peter Waldo had founded the group in Lyon."
+ },
+ {
+  "id": "university-of-paris-receives-its-charter-1200",
+  "year": 1200,
+  "place": "Paris",
+  "lat": 48.853,
+  "lon": 2.349,
+  "kind": "foundation",
+  "title": "University of Paris receives its charter",
+  "text": "King Philip II granted a charter to the masters and students of Paris in 1200. It became the leading centre of theology."
+ },
+ {
+  "id": "fourth-crusade-sacks-constantinople-1204",
+  "year": 1204,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "state",
+  "title": "Fourth Crusade sacks Constantinople",
+  "text": "In 1204 crusaders diverted from the Holy Land took and plundered Constantinople. The act deepened the East-West division."
+ },
+ {
+  "id": "albigensian-crusade-begins-1209",
+  "year": 1209,
+  "place": "Béziers",
+  "lat": 43.343,
+  "lon": 3.216,
+  "kind": "heresy",
+  "title": "Albigensian Crusade begins",
+  "text": "In 1209 the pope called a crusade against the Cathars in southern France after the murder of a legate. Béziers fell in July."
+ },
+ {
+  "id": "francis-and-the-first-franciscans-1209",
+  "year": 1209,
+  "place": "Assisi",
+  "lat": 43.07,
+  "lon": 12.617,
+  "kind": "foundation",
+  "title": "Francis and the first Franciscans",
+  "text": "Francis of Assisi and his first companions received oral approval of their way of life from Pope Innocent III c. 1209."
+ },
+ {
+  "id": "dominic-founds-the-order-of-preachers-1215",
+  "year": 1215,
+  "place": "Toulouse",
+  "lat": 43.604,
+  "lon": 1.444,
+  "kind": "foundation",
+  "title": "Dominic founds the Order of Preachers",
+  "text": "Dominic Guzmán gathered preachers at Toulouse in 1215. The order was confirmed in 1216."
+ },
+ {
+  "id": "fourth-lateran-council-1215",
+  "year": 1215,
+  "place": "Rome, Lateran",
+  "lat": 41.886,
+  "lon": 12.506,
+  "kind": "council",
+  "title": "Fourth Lateran Council",
+  "text": "Innocent III's council of 1215 required yearly confession and Easter Communion and used the word transubstantiation.",
+  "council": 12
+ },
+ {
+  "id": "francis-receives-the-stigmata-1224",
+  "year": 1224,
+  "place": "La Verna",
+  "lat": 43.7,
+  "lon": 11.93,
+  "kind": "saint",
+  "title": "Francis receives the stigmata",
+  "text": "In September 1224 Francis prayed at La Verna and received the marks of Christ's wounds. Contemporary accounts describe it."
+ },
+ {
+  "id": "elizabeth-of-hungary-dies-at-marburg-1231",
+  "year": 1231,
+  "place": "Marburg",
+  "lat": 50.81,
+  "lon": 8.77,
+  "kind": "saint",
+  "title": "Elizabeth of Hungary dies at Marburg",
+  "text": "Elizabeth of Hungary, who cared for the poor and sick at Marburg, died in 1231 aged 24. She was canonized in 1235."
+ },
+ {
+  "id": "first-council-of-lyon-1245",
+  "year": 1245,
+  "place": "Lyon",
+  "lat": 45.764,
+  "lon": 4.836,
+  "kind": "council",
+  "title": "First Council of Lyon",
+  "text": "Innocent IV held a council at Lyon in 1245 to settle conflict with Emperor Frederick II.",
+  "council": 13
+ },
+ {
+  "id": "aquinas-begins-the-summa-theologiae-1266",
+  "year": 1266,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "text",
+  "title": "Aquinas begins the Summa Theologiae",
+  "text": "Thomas Aquinas began his Summa Theologiae c. 1266, a synthesis of Catholic theology."
+ },
+ {
+  "id": "second-council-of-lyon-1274",
+  "year": 1274,
+  "place": "Lyon",
+  "lat": 45.764,
+  "lon": 4.836,
+  "kind": "council",
+  "title": "Second Council of Lyon",
+  "text": "The council of 1274 briefly reunited Greeks and Latins and set rules for papal conclaves.",
+  "council": 14,
+  "step": {
+   "kind": "saint",
+   "label": "St Bonaventure",
+   "butler": "07-14:0",
+   "quote": "came from Orvietto to Florence, and there meeting Bonaventure ordained him bishop with his own hands; then ordered him to prepare himself to speak in the general council which he had called to meet at Lyons for the reunion of the Greeks",
+   "note": "Butler tells of Bonaventure's role."
+  }
+ },
+ {
+  "id": "thomas-aquinas-dies-1274",
+  "year": 1274,
+  "place": "Fossanova",
+  "lat": 41.48,
+  "lon": 13.2,
+  "kind": "saint",
+  "title": "Thomas Aquinas dies",
+  "text": "Thomas Aquinas died at Fossanova abbey on 7 March 1274 on his way to Lyon.",
+  "step": {
+   "kind": "saint",
+   "label": "St Thomas Aquinas",
+   "butler": "03-07:0",
+   "quote": "he was forced to stop at Fossa-Nuova, a famous abbey of the Cistercians, in the diocese of Terracina",
+   "note": "Butler tells of his last illness."
+  }
+ },
+ {
+  "id": "papacy-moves-to-avignon-1309",
+  "year": 1309,
+  "place": "Avignon",
+  "lat": 43.949,
+  "lon": 4.806,
+  "kind": "state",
+  "title": "Papacy moves to Avignon",
+  "text": "Clement V settled at Avignon in 1309; the popes stayed there until 1377."
+ },
+ {
+  "id": "council-of-vienne-1311",
+  "year": 1311,
+  "place": "Vienne",
+  "lat": 45.525,
+  "lon": 4.874,
+  "kind": "council",
+  "title": "Council of Vienne",
+  "text": "The council of 1311-1312 suppressed the Knights Templar and dealt with church reform.",
+  "council": 15
+ },
+ {
+  "id": "the-black-death-reaches-europe-1347",
+  "year": 1347,
+  "place": "Messina",
+  "lat": 38.194,
+  "lon": 15.554,
+  "kind": "state",
+  "title": "The Black Death reaches Europe",
+  "text": "The plague reached Sicily in 1347 and killed a large share of Europe's people by 1351."
+ },
+ {
+  "id": "catherine-of-siena-goes-to-avignon-1376",
+  "year": 1376,
+  "place": "Avignon",
+  "lat": 43.949,
+  "lon": 4.806,
+  "kind": "saint",
+  "title": "Catherine of Siena goes to Avignon",
+  "text": "Catherine of Siena went to Avignon in 1376 to urge Gregory XI to return to Rome. He returned in January 1377.",
+  "step": {
+   "kind": "father",
+   "label": "Catherine's Dialogue",
+   "work": "catherine-dialogue",
+   "section": "iv.i",
+   "quote": "with the distant Pope at Avignon",
+   "note": "The introduction describes her ties to the papacy."
+  }
+ },
+ {
+  "id": "western-schism-begins-1378",
+  "year": 1378,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "schism",
+  "title": "Western Schism begins",
+  "text": "After the election of 1378 two lines of popes claimed legitimacy until 1417."
+ },
+ {
+  "id": "wycliffe-s-teachings-condemned-1382",
+  "year": 1382,
+  "place": "London",
+  "lat": 51.507,
+  "lon": -0.1,
+  "kind": "heresy",
+  "title": "Wycliffe's teachings condemned",
+  "text": "A synod in London in 1382 condemned propositions of John Wycliffe."
+ },
+ {
+  "id": "council-of-constance-1414",
+  "year": 1414,
+  "place": "Constance",
+  "lat": 47.66,
+  "lon": 9.175,
+  "kind": "council",
+  "title": "Council of Constance",
+  "text": "The council of 1414-1418 ended the Western Schism and elected Martin V.",
+  "council": 16
+ },
+ {
+  "id": "jan-hus-is-condemned-and-burned-1415",
+  "year": 1415,
+  "place": "Constance",
+  "lat": 47.66,
+  "lon": 9.175,
+  "kind": "heresy",
+  "title": "Jan Hus is condemned and burned",
+  "text": "The Council of Constance condemned Jan Hus and he was burned on 6 July 1415. Many Czechs honour him."
+ },
+ {
+  "id": "joan-of-arc-is-executed-1431",
+  "year": 1431,
+  "place": "Rouen",
+  "lat": 49.443,
+  "lon": 1.099,
+  "kind": "saint",
+  "title": "Joan of Arc is executed",
+  "text": "Joan of Arc was burned at Rouen on 30 May 1431. A later trial cleared her and she was canonized in 1920."
+ },
+ {
+  "id": "council-of-basel-ferrara-florence-1431",
+  "year": 1431,
+  "place": "Basel",
+  "lat": 47.56,
+  "lon": 7.59,
+  "kind": "council",
+  "title": "Council of Basel-Ferrara-Florence",
+  "text": "The council opened at Basel in 1431 and moved to Ferrara and Florence, dealing with reunion with the Greeks.",
+  "council": 17
+ },
+ {
+  "id": "union-of-florence-1439",
+  "year": 1439,
+  "place": "Florence",
+  "lat": 43.773,
+  "lon": 11.255,
+  "kind": "schism",
+  "title": "Union of Florence",
+  "text": "On 6 July 1439 Latin and Greek bishops signed a decree of union at Florence. The union was not accepted in the East."
+ },
+ {
+  "id": "fall-of-constantinople-1453",
+  "year": 1453,
+  "place": "Constantinople",
+  "lat": 41.009,
+  "lon": 28.978,
+  "kind": "state",
+  "title": "Fall of Constantinople",
+  "text": "Ottoman forces under Mehmed II took Constantinople on 29 May 1453, ending the Byzantine Empire."
+ },
+ {
+  "id": "gutenberg-prints-the-bible-1455",
+  "year": 1455,
+  "place": "Mainz",
+  "lat": 50,
+  "lon": 8.271,
+  "kind": "text",
+  "title": "Gutenberg prints the Bible",
+  "text": "Johannes Gutenberg printed the Latin Bible at Mainz c. 1455. Printing spread learning and later religious debate."
+ },
+ {
+  "id": "granada-falls-jews-expelled-from-spain-1492",
+  "year": 1492,
+  "place": "Granada",
+  "lat": 37.177,
+  "lon": -3.599,
+  "kind": "state",
+  "title": "Granada falls; Jews expelled from Spain",
+  "text": "Granada surrendered in January 1492, ending Muslim rule in Spain. In March the monarchs ordered Jews to convert or leave."
+ },
+ {
+  "id": "new-st-peter-s-begun-1506",
+  "year": 1506,
+  "place": "Rome",
+  "lat": 41.902,
+  "lon": 12.454,
+  "kind": "foundation",
+  "title": "New St Peter's begun",
+  "text": "Pope Julius II laid the foundation stone of the new St Peter's on 18 April 1506."
+ },
+ {
+  "id": "fifth-lateran-council-1512",
+  "year": 1512,
+  "place": "Rome, Lateran",
+  "lat": 41.886,
+  "lon": 12.506,
+  "kind": "council",
+  "title": "Fifth Lateran Council",
+  "text": "The council of 1512-1517 met amid calls for reform, and ended months before Luther's protest.",
+  "council": 18
+ },
+ {
+  "id": "erasmus-publishes-the-greek-new-testament-1516",
+  "year": 1516,
+  "place": "Basel",
+  "lat": 47.56,
+  "lon": 7.59,
+  "kind": "text",
+  "title": "Erasmus publishes the Greek New Testament",
+  "text": "Erasmus published the first printed Greek New Testament at Basel in 1516."
+ },
+ {
+  "id": "luther-s-ninety-five-theses-1517",
+  "year": 1517,
+  "place": "Wittenberg",
+  "lat": 51.867,
+  "lon": 12.65,
+  "kind": "schism",
+  "title": "Luther's Ninety-five Theses",
+  "text": "On 31 October 1517 Martin Luther published his theses on indulgences at Wittenberg. The Reformation followed."
+ },
+ {
+  "id": "luther-at-the-diet-of-worms-1521",
+  "year": 1521,
+  "place": "Worms",
+  "lat": 49.632,
+  "lon": 8.36,
+  "kind": "state",
+  "title": "Luther at the Diet of Worms",
+  "text": "Luther refused to recant at the Diet of Worms in April 1521 and was placed under the imperial ban."
+ },
+ {
+  "id": "act-of-supremacy-in-england-1534",
+  "year": 1534,
+  "place": "London",
+  "lat": 51.507,
+  "lon": -0.127,
+  "kind": "schism",
+  "title": "Act of Supremacy in England",
+  "text": "Parliament declared Henry VIII head of the Church of England in 1534."
+ },
+ {
+  "id": "society-of-jesus-approved-1540",
+  "year": 1540,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "foundation",
+  "title": "Society of Jesus approved",
+  "text": "Pope Paul III approved the Society of Jesus on 27 September 1540. Ignatius of Loyola was its first general."
+ },
+ {
+  "id": "calvin-returns-to-geneva-1541",
+  "year": 1541,
+  "place": "Geneva",
+  "lat": 46.204,
+  "lon": 6.143,
+  "kind": "schism",
+  "title": "Calvin returns to Geneva",
+  "text": "John Calvin returned to Geneva in 1541 and shaped Reformed Protestantism."
+ },
+ {
+  "id": "council-of-trent-1545",
+  "year": 1545,
+  "place": "Trent",
+  "lat": 46.067,
+  "lon": 11.121,
+  "kind": "council",
+  "title": "Council of Trent",
+  "text": "Pope Paul III opened the Council of Trent in December 1545 to answer the Reformation.",
+  "council": 19,
+  "step": {
+   "kind": "council",
+   "label": "Opening of Trent",
+   "work": "trent-canons-decrees",
+   "section": "s2",
+   "quote": "The sacred and holy Synod of Trent — lawfully assembled in the Holy Ghost, the same three legates of the Apostolic See presiding therein",
+   "note": "The opening decree names the assembly."
+  }
+ },
+ {
+  "id": "peace-of-augsburg-1555",
+  "year": 1555,
+  "place": "Augsburg",
+  "lat": 48.37,
+  "lon": 10.898,
+  "kind": "state",
+  "title": "Peace of Augsburg",
+  "text": "The Peace of Augsburg in 1555 let German princes choose Lutheranism or Catholicism for their territories."
+ },
+ {
+  "id": "teresa-founds-st-joseph-s-avila-1562",
+  "year": 1562,
+  "place": "Ávila",
+  "lat": 40.657,
+  "lon": -4.699,
+  "kind": "foundation",
+  "title": "Teresa founds St Joseph's, Ávila",
+  "text": "Teresa of Ávila founded the reformed Carmelite convent of St Joseph in 1562.",
+  "step": {
+   "kind": "father",
+   "label": "Teresa of Jesus",
+   "work": "teresa-life",
+   "section": "viii.ii",
+   "quote": "when she left her monastery for the new foundation of St. Joseph, of the Reform of the Carmelites, she took for the first time the name of Teresa of Jesus",
+   "note": "The note records her new foundation."
+  }
+ },
+ {
+  "id": "battle-of-lepanto-1571",
+  "year": 1571,
+  "place": "Gulf of Patras",
+  "lat": 38.35,
+  "lon": 21.1,
+  "kind": "state",
+  "title": "Battle of Lepanto",
+  "text": "A Holy League fleet defeated the Ottoman fleet at Lepanto on 7 October 1571."
+ },
+ {
+  "id": "gregorian-calendar-1582",
+  "year": 1582,
+  "place": "Rome",
+  "lat": 41.893,
+  "lon": 12.482,
+  "kind": "state",
+  "title": "Gregorian calendar",
+  "text": "Pope Gregory XIII issued the reformed calendar in 1582."
+ }
+]

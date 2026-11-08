@@ -1,0 +1,1489 @@
+[
+ {
+  "id": "benedict",
+  "name": "St. Benedict of Nursia",
+  "lifespan": "c. 480 – 543",
+  "sketch": "Benedict was a young man from Umbria who fled the licence of Rome to live as a hermit, was betrayed by monks who first asked him to lead them, and only slowly became a teacher of many. His Rule, written for ordinary people seeking God together, shaped monastic life in the West for centuries.",
+  "butler": "03-21:0",
+  "events": [
+   {
+    "year": 476,
+    "text": "Odoacer deposes the last Western emperor, Romulus Augustulus; Italy is now ruled by Gothic and other kings, and the old Roman order is passing away.",
+    "kind": "world"
+   },
+   {
+    "year": 480,
+    "text": "Benedict is born at Nursia (Norcia) in Umbria, of a family of note, about this year, and is sent to Rome for his studies.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Benedict",
+     "when": "480",
+     "year": 480,
+     "butler": "03-21:0",
+     "quote": "ST. BENEDICT, or KENNET, was a native of Norcia, formerly an episcopal see in Umbria, and was descended from a family of note, and born about the year 480.",
+     "note": "Butler gives Benedict's origin and approximate birth year."
+    }
+   },
+   {
+    "year": 494,
+    "text": "Shocked by the morals of some Roman students, he leaves the city quietly while still a boy and goes to the wild mountains of Subiaco to live as a hermit.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Benedict",
+     "when": "494",
+     "year": 494,
+     "butler": "03-21:0",
+     "quote": "He therefore left the city privately, and made the best of his way towards the deserts.",
+     "note": "Butler tells how he fled Rome for the desert, as a boy of about fourteen or fifteen."
+    }
+   },
+   {
+    "year": 497,
+    "text": "After three years hidden in a cave, known only to the monk Romanus, he is found by a priest on Easter day, and shepherds soon begin to seek his advice.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Benedict",
+     "when": "497",
+     "year": 497,
+     "butler": "03-21:0",
+     "quote": "Bennet was surprised to see a man come to him; but before he would enter into conversation with him, he desired they might pray together.",
+     "note": "The first recorded meeting after his hidden years shows his habit of beginning with prayer."
+    }
+   },
+   {
+    "year": 522,
+    "text": "Noble Roman families begin to send him their sons, among them the boys Maurus and Placidus, to be raised in his care.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Benedict",
+     "when": "522",
+     "year": 522,
+     "butler": "03-21:0",
+     "quote": "Eutychius, or rather Equitius, and Tertullus, committed to his care their two sons Maurus, then twelve years old, and Placidus, also a child, in 522.",
+     "note": "Butler dates the arrival of his best-known early disciples."
+    }
+   },
+   {
+    "year": 527,
+    "text": "Justinian becomes emperor at Constantinople and soon sets out to win back the West.",
+    "kind": "world"
+   },
+   {
+    "year": 529,
+    "text": "The jealous priest Florentius slanders him, and Benedict, who answers only with silence, leaves Subiaco rather than inflame the quarrel.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Benedict",
+     "when": "529",
+     "year": 529,
+     "butler": "03-21:0",
+     "quote": "Bennet, being a true disciple of Christ, knew no revenge but that of meekness and silence: and not to inflame the envy of his adversary, left Sublacum, and repaired to Mount Cassino.",
+     "note": "The setback behind the move to Monte Cassino: slander met by silence."
+    }
+   },
+   {
+    "year": 529,
+    "text": "He founds the abbey of Monte Cassino on a hill where pagan worship still lingered; it becomes the mother house of Western monasticism.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Benedict",
+     "when": "529",
+     "year": 529,
+     "butler": "03-21:0",
+     "quote": "This was the origin of the celebrated abbey of Mount Cassino, the foundation of which the saint laid in 529, the forty-eighth year of his age",
+     "note": "Butler records the founding of Monte Cassino and his age."
+    }
+   },
+   {
+    "year": 542,
+    "text": "When the Gothic king Totila sends an officer dressed in royal robes to test him, Benedict sees through the trick; the real king then comes humbly to him.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Benedict",
+     "when": "542",
+     "year": 542,
+     "butler": "03-21:0",
+     "quote": "Put off, my son, those robes which you wear, and which belong not to you.",
+     "note": "Butler's account of Benedict's encounter with Totila, as told by Gregory."
+    }
+   },
+   {
+    "year": 543,
+    "text": "Before his death he has composed the Rule for monks, built on silence, prayer, humility and obedience, which Gregory the Great preferred to all other rules.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Benedict",
+     "when": "543",
+     "year": 543,
+     "butler": "03-21:0",
+     "quote": "It is principally founded on silence, solitude, prayer, humility, and obedience.",
+     "note": "Butler summarises what the Rule stresses."
+    }
+   },
+   {
+    "year": 543,
+    "text": "Benedict dies at Monte Cassino, standing in prayer in the chapel after receiving communion, probably in this year.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Benedict",
+     "when": "543",
+     "year": 543,
+     "butler": "03-21:0",
+     "quote": "he calmly expired, in prayer, on Saturday, the 21st of March, probably in the year 543",
+     "note": "Butler describes his death."
+    }
+   },
+   {
+    "year": 546,
+    "text": "Totila's Goths take Rome during the long war between Justinian and the Goths for control of Italy.",
+    "kind": "world"
+   },
+   {
+    "year": 568,
+    "text": "The Lombards, under Alboin, enter Italy and begin a long occupation of much of the peninsula.",
+    "kind": "world"
+   },
+   {
+    "year": 580,
+    "text": "The Lombards destroy Monte Cassino, as Benedict was said to have foreseen with tears, though the monks escape.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Benedict",
+     "when": "580",
+     "year": 580,
+     "butler": "03-21:0",
+     "quote": "He foretold, with many tears, that this monastery should be profaned and destroyed",
+     "note": "Butler reports the prediction; the destruction followed about forty years later."
+    }
+   },
+   {
+    "year": 594,
+    "text": "Pope Gregory the Great, writing around 593-594, preserves Benedict's life in his Dialogues, drawing on four of the saint's own disciples.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Benedict",
+     "when": "594",
+     "year": 594,
+     "butler": "03-21:0",
+     "quote": "he is said by St. Gregory the Great to have been learnedly ignorant and wisely unlettered.",
+     "note": "Gregory, whom Butler follows, is the source for nearly everything known of Benedict."
+    }
+   }
+  ]
+ },
+ {
+  "id": "thomas-aquinas",
+  "name": "St. Thomas Aquinas",
+  "lifespan": "c. 1225 – 1274",
+  "sketch": "Thomas was a nobleman's son whose family tried to stop him becoming a Dominican friar; he was locked in a tower for about a year and then went on to teach in Paris, Rome and Naples. His quiet, prayerful manner earned him the nickname \"the dumb ox\", and he left his great Summa unfinished.",
+  "butler": "03-07:0",
+  "events": [
+   {
+    "year": 1215,
+    "text": "Magna Carta is sealed in England and the Fourth Lateran Council meets in Rome.",
+    "kind": "world"
+   },
+   {
+    "year": 1226,
+    "text": "Thomas is born to the counts of Aquino in the kingdom of Naples, towards the end of the year by Butler's account.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Thomas Aquinas",
+     "when": "1226",
+     "year": 1226,
+     "butler": "03-07:0",
+     "quote": "The saint was born towards the end of the year 1226.",
+     "note": "Butler gives his birth year (modern writers often say about 1225)."
+    }
+   },
+   {
+    "year": 1243,
+    "text": "Against his family's wishes, he receives the Dominican habit at Naples, aged seventeen.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Thomas Aquinas",
+     "when": "1243",
+     "year": 1243,
+     "butler": "03-07:0",
+     "quote": "and accordingly received the habit in the convent of Naples, in 1243, being then seventeen years old.",
+     "note": "Butler dates his decision to join the Dominicans."
+    }
+   },
+   {
+    "year": 1244,
+    "text": "On the road north his brothers, soldiers of the emperor, seize him and hold him at the family castle of Rocca Secca, trying to make him give up the habit.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Thomas Aquinas",
+     "when": "1244",
+     "year": 1244,
+     "butler": "03-07:0",
+     "quote": "They endeavored to pull off his habit, but he resisted them so violently that they conducted him in it to the seat of his parents, called Rocca-Secca.",
+     "note": "Butler describes the family's attempt to undo his vocation."
+    }
+   },
+   {
+    "year": 1245,
+    "text": "After a year or more of confinement he is let down from the tower in a basket and rejoins the Dominicans, then studies under Albert the Great.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Thomas Aquinas",
+     "when": "1245",
+     "year": 1245,
+     "butler": "03-07:0",
+     "quote": "his sister, knowing that the countess no longer opposed his escape, contrived his being let down out of his tower in a basket.",
+     "note": "Butler tells of the escape that freed him to study."
+    }
+   },
+   {
+    "year": 1248,
+    "text": "At Cologne, his silent manner leads classmates to call him the dumb ox, until Albert recognises his gifts.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Thomas Aquinas",
+     "when": "1248",
+     "year": 1248,
+     "butler": "03-07:0",
+     "quote": "Albertus, not able to contain his joy and admiration, said, We call him the dumb ox, but he will give such a bellow in learning as will be heard all over the world.",
+     "note": "Albert's famous remark about his quiet student."
+    }
+   },
+   {
+    "year": 1252,
+    "text": "He is sent to Paris to lecture, first on Scripture and on the Sentences of Peter Lombard, the standard theology textbook.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Thomas Aquinas",
+     "when": "1252",
+     "year": 1252,
+     "butler": "03-07:0",
+     "quote": "St. Thomas, after teaching four years at Cologne, was sent, in 1252, to Paris.",
+     "note": "Butler dates his move to the University of Paris."
+    }
+   },
+   {
+    "year": 1257,
+    "text": "Reluctantly, out of obedience, he is admitted as a doctor (master) of theology at Paris.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Thomas Aquinas",
+     "when": "1257",
+     "year": 1257,
+     "butler": "03-07:0",
+     "quote": "St. Thomas, with great reluctancy, compelled by holy obedience consented to be admitted doctor, on the 23d of October, in 1257, being then thirty-one years old.",
+     "note": "Butler's account of his reluctance to accept the honour."
+    }
+   },
+   {
+    "year": 1261,
+    "text": "The Byzantine Greeks recapture Constantinople from the Latin rulers who had held it since 1204.",
+    "kind": "world"
+   },
+   {
+    "year": 1265,
+    "text": "He refuses the pope's offer of the archbishopric of Naples and begins his great Summa of theology.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Thomas Aquinas",
+     "when": "1265",
+     "year": 1265,
+     "butler": "03-07:0",
+     "quote": "Pope Clement IV. had such a regard for him, that, in 1265, among other ecclesiastical preferments, he made him an offer of the archbishopric of Naples, but could not prevail with him to accept of that or any other.",
+     "note": "Butler shows Thomas turning down high office to keep teaching."
+    }
+   },
+   {
+    "year": 1270,
+    "text": "King Louis IX of France, whom Thomas had advised, dies on crusade at Tunis.",
+    "kind": "world"
+   },
+   {
+    "year": 1273,
+    "text": "On 6 December he stops dictating and writing on theology; the Summa remains unfinished.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Thomas Aquinas",
+     "when": "1273",
+     "year": 1273,
+     "butler": "03-07:0",
+     "quote": "From the 6th of December, in 1273, to the 7th of March following, the day of his death, he neither dictated nor wrote any thing on theological matters.",
+     "note": "Butler records the sudden end of his writing about three months before death."
+    }
+   },
+   {
+    "year": 1274,
+    "text": "Summoned to the Council of Lyons, he falls ill on the way and dies at the abbey of Fossanova on 7 March, after receiving the Eucharist.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Thomas Aquinas",
+     "when": "1274",
+     "year": 1274,
+     "butler": "03-07:0",
+     "quote": "I firmly believe that Jesus Christ, true God and true Man, is present in this august sacrament.",
+     "note": "Butler preserves his profession of faith at the moment of Viaticum."
+    }
+   },
+   {
+    "year": 1277,
+    "text": "The bishop of Paris condemns a long list of propositions, and some of Thomas's teachings are caught up in the censure, three years after his death.",
+    "kind": "setback"
+   },
+   {
+    "year": 1323,
+    "text": "Pope John XXII canonizes Thomas; his writings become a standard for Catholic theology.",
+    "kind": "turning"
+   }
+  ]
+ },
+ {
+  "id": "john-chrysostom",
+  "name": "St. John Chrysostom",
+  "lifespan": "c. 347 – 407",
+  "sketch": "John, the \"golden-mouthed\" preacher of Antioch, was raised by a widowed mother and trained as a rhetorician. He lived as a monk until illness drove him back, then preached for years in Antioch. As archbishop of Constantinople his plain speech against luxury cost him his see; he died in exile.",
+  "butler": "01-27:0",
+  "events": [
+   {
+    "year": 347,
+    "text": "John is born at Antioch in Syria; Butler places the birth about 344, modern writers a few years later. His mother Anthusa, widowed young, raises him.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John Chrysostom",
+     "when": "347",
+     "year": 347,
+     "butler": "01-27:0",
+     "quote": "Her example in this respect made such an impression on our saint's master, a celebrated pagan sophist, that he could not forbear crying out, What wonderful women have the Christians!",
+     "note": "His pagan teacher Libanius marvelled at his mother."
+    }
+   },
+   {
+    "year": 370,
+    "text": "After years of study with the orator Libanius and a catechumenate, he is baptized by Bishop Meletius and turns toward a life of prayer and Scripture.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Schaff, Life of Chrysostom",
+     "when": "370",
+     "year": 370,
+     "work": "chrys-minor",
+     "section": "iii.iii",
+     "quote": "He entered the class of catechumens, and after the usual period of three years of instruction and probation, he was baptized by Meletius in his twenty-third year (369 or 370).",
+     "note": "Schaff's biography dates his baptism and the change it made."
+    }
+   },
+   {
+    "year": 374,
+    "text": "He withdraws to the mountains near Antioch to live among hermits, and later spends two years alone in a cave.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John Chrysostom",
+     "when": "374",
+     "year": 374,
+     "butler": "01-27:0",
+     "quote": "Four years after, in 374, he retired into the mountains near Antioch, among certain holy anchorets who peopled them",
+     "note": "Butler dates his years as a monk."
+    }
+   },
+   {
+    "year": 378,
+    "text": "The Eastern emperor Valens is killed fighting the Goths at Adrianople.",
+    "kind": "world"
+   },
+   {
+    "year": 381,
+    "text": "The damp of the cave ruins his health; he has to return to the city, ordained deacon that same year.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John Chrysostom",
+     "when": "381",
+     "year": 381,
+     "butler": "01-27:0",
+     "quote": "The dampness of this abode brought on him a dangerous distemper, and for the recovery of his health he was obliged to return into the city.",
+     "note": "His monastic life ended by illness, not choice, and he was given to the Church instead."
+    }
+   },
+   {
+    "year": 386,
+    "text": "Ordained priest, he becomes the bishop's preacher at Antioch and begins the long series of homilies on Scripture that make his name.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John Chrysostom",
+     "when": "386",
+     "year": 386,
+     "butler": "01-27:0",
+     "quote": "He was ordained deacon by St. Meletius that very year, and priest by Flavian in 386, who at the same time constituted him his vicar and preacher",
+     "note": "Butler dates his priesthood and his appointment as preacher."
+    }
+   },
+   {
+    "year": 387,
+    "text": "When rioters in Antioch smash the emperor's statues, John preaches to a frightened city while Bishop Flavian pleads with Theodosius for mercy.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John Chrysostom",
+     "when": "387",
+     "year": 387,
+     "butler": "01-27:0",
+     "quote": "the populace of Antioch, provoked at the demand, mutinied, and discharged their rage on the emperor's statue",
+     "note": "Butler sets out the crisis of the statues in which John preached."
+    }
+   },
+   {
+    "year": 395,
+    "text": "Emperor Theodosius dies and the empire is divided between his sons Arcadius in the East and Honorius in the West.",
+    "kind": "world"
+   },
+   {
+    "year": 398,
+    "text": "Seized and carried to Constantinople against his will, he is consecrated archbishop there on 26 February.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John Chrysostom",
+     "when": "398",
+     "year": 398,
+     "butler": "01-27:0",
+     "quote": "Whereupon he was glad to desist from his intrigues, and thus John was consecrated by him on the 26th of February, in 398.",
+     "note": "Butler records the consecration after the secret removal from Antioch."
+    }
+   },
+   {
+    "year": 401,
+    "text": "He travels to Ephesus, holds a synod and deposes six bishops for simony, a step his enemies later use against him.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Schaff, Life of Chrysostom",
+     "when": "401",
+     "year": 401,
+     "work": "chrys-minor",
+     "section": "iii.vii",
+     "quote": "he visited that city in January, 401, held a synod and deposed six bishops convicted of shameful simony.",
+     "note": "Schaff records the Ephesus visit that became a charge against him."
+    }
+   },
+   {
+    "year": 403,
+    "text": "Patriarch Theophilus of Alexandria arrives with his own bishops and a packed synod (the Synod of the Oak) condemns John on frivolous charges.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John Chrysostom",
+     "when": "403",
+     "year": 403,
+     "butler": "01-27:0",
+     "quote": "landed at Constantinople in June, 403, with several Egyptian bishops his creatures, refused to see or lodge with John, and got together a packed cabal of thirty-six bishops, the saint's enemies, in a church at Chalcedon, calling themselves the synod at the Oak",
+     "note": "Butler narrates the unjust trial by his enemies."
+    }
+   },
+   {
+    "year": 404,
+    "text": "Banished again after Easter, he leaves the church calmly, saying farewell to the \"angel of the church\".",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John Chrysostom",
+     "when": "404",
+     "year": 404,
+     "butler": "01-27:0",
+     "quote": "Come, let us pray, and take leave of the angel of the church.",
+     "note": "His reaction when the order of exile reached him."
+    }
+   },
+   {
+    "year": 405,
+    "text": "From exile in Cucusus he writes letters to bishops, monks and friends; 242 survive, nearly all from these years.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Schaff, Life of Chrysostom",
+     "when": "405",
+     "year": 405,
+     "work": "chrys-minor",
+     "section": "iii.x",
+     "quote": "His 242 extant letters are nearly all from the three years of his exile, and breathe a noble Christian spirit",
+     "note": "Schaff on the letters from exile."
+    }
+   },
+   {
+    "year": 407,
+    "text": "Forced on a hard march toward a harsher place of exile, he dies on 14 September, his last words being a doxology.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John Chrysostom",
+     "when": "407",
+     "year": 407,
+     "butler": "01-27:0",
+     "quote": "he sweetly gave up his soul to God on the feast of the exaltation of the holy cross, the 14th of September, as appears from the Menaea, in 407, having been bishop nine years and almost seven months.",
+     "note": "Butler describes his death."
+    }
+   },
+   {
+    "year": 410,
+    "text": "Alaric and the Goths sack Rome.",
+    "kind": "world"
+   },
+   {
+    "year": 438,
+    "text": "His body is brought back to Constantinople; the emperor Theodosius II asks forgiveness for the wrong done to him.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Schaff, Life of Chrysostom",
+     "when": "438",
+     "year": 438,
+     "work": "chrys-minor",
+     "section": "iii.x",
+     "quote": "Thirty-one years afterwards, January 27, 438, his body was translated with great pomp to Constantinople",
+     "note": "Schaff on the restoration of his honour."
+    }
+   }
+  ]
+ },
+ {
+  "id": "athanasius",
+  "name": "St. Athanasius of Alexandria",
+  "lifespan": "c. 296 – 373",
+  "sketch": "Athanasius served as secretary to Bishop Alexander, defended the Nicene faith at the great council, and became bishop of Alexandria while young. For nearly fifty years he stood for the full divinity of Christ against Arians and emperors, and was driven from his see several times.",
+  "butler": "05-02:0",
+  "events": [
+   {
+    "year": 296,
+    "text": "Athanasius is born in Alexandria to Christian parents and is brought up under the eye of Bishop Alexander.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Athanasius",
+     "when": "296",
+     "year": 296,
+     "butler": "05-02:0",
+     "quote": "St. Athanasius was a native of Alexandria, and seems to have been born about the year 296.",
+     "note": "Butler on his origins; birth dates are approximate."
+    }
+   },
+   {
+    "year": 315,
+    "text": "He spends time in the desert serving the hermit St. Antony, and returns to Alexandria to enter the ministry.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Athanasius",
+     "when": "315",
+     "year": 315,
+     "butler": "05-02:0",
+     "quote": "The desire of grounding himself in the most perfect practice of virtue drew St. Athanasius into the deserts to the great St. Antony, about the year 315",
+     "note": "Butler on his time with Antony."
+    }
+   },
+   {
+    "year": 318,
+    "text": "He writes On the Incarnation (Butler dates it to about 318): God's Word became man to restore a humanity that was perishing.",
+    "kind": "writing",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, On the Incarnation",
+     "when": "318",
+     "year": 318,
+     "work": "athanasius-incarnation",
+     "section": "vii.ii.liv",
+     "quote": "For He was made man that we might be made God",
+     "note": "A line from the translator's notes summing up the treatise's thought."
+    }
+   },
+   {
+    "year": 325,
+    "text": "As a young deacon he goes with Alexander to the Council of Nicaea and argues against Arius and his protectors.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Athanasius",
+     "when": "325",
+     "year": 325,
+     "butler": "05-02:0",
+     "quote": "In 325, he took the holy deacon with him to the council of Nice, who there distinguished himself by the extraordinary zeal and learning with which he encountered not only Arius, but also Eusebius of Nicomedia, Theognis, and Maris, the principal protectors of that heresiarch",
+     "note": "Butler on his part at Nicaea."
+    }
+   },
+   {
+    "year": 326,
+    "text": "Alexander dies after naming him; the bishops and people of Egypt choose Athanasius, who had tried to avoid the office.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Athanasius",
+     "when": "326",
+     "year": 326,
+     "butler": "05-02:1",
+     "quote": "In consequence of this recommendation, the bishops of all Egypt assembled at Alexandria, and finding the people and clergy unanimous in their choice of Athanasius for patriarch, they confirmed the election about the middle of the year 326",
+     "note": "Butler on his election."
+    }
+   },
+   {
+    "year": 330,
+    "text": "Constantine dedicates Constantinople as his new capital.",
+    "kind": "world"
+   },
+   {
+    "year": 335,
+    "text": "At a council at Tyre made up mostly of his enemies he is tried as a criminal, and the emperor Constantine is persuaded to exile him.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Athanasius",
+     "when": "335",
+     "year": 335,
+     "butler": "05-02:2",
+     "quote": "The council met there in August, 335, consisting of sixty bishops, chiefly Arians.",
+     "note": "Butler on the hostile council at Tyre."
+    }
+   },
+   {
+    "year": 336,
+    "text": "His first exile takes him to Trier in Gaul.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Athanasius",
+     "when": "336",
+     "year": 336,
+     "butler": "05-02:3",
+     "quote": "banished him, in consequence, to Triers, then the chief city of the Belgic Gaul.",
+     "note": "Butler on the banishment to Trier."
+    }
+   },
+   {
+    "year": 337,
+    "text": "Constantine dies; his sons divide the empire and the exiled bishops begin to return.",
+    "kind": "world"
+   },
+   {
+    "year": 341,
+    "text": "Driven out again when an Arian rival is installed, he goes to Rome, where Pope Julius and a council acquit him.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Athanasius",
+     "when": "341",
+     "year": 341,
+     "butler": "05-02:3",
+     "quote": "Here the pope acquitted him in a council of fifty bishops, held in 341, and confirmed him in his see",
+     "note": "Butler on the support of Rome during exile."
+    }
+   },
+   {
+    "year": 356,
+    "text": "Constantius sends the army against him and his people; Athanasius escapes into hiding among the Egyptian desert monks for six years.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Athanasius",
+     "when": "356",
+     "year": 356,
+     "butler": "05-02:3",
+     "quote": "Constantius next turned all his rage against him and against the city of Alexandria, sending orders to Syrianus, the duke, that is, general of the troops of Egypt, to persecute the archbishop and his clergy.",
+     "note": "Butler on the persecution leading to his third exile."
+    }
+   },
+   {
+    "year": 362,
+    "text": "After Constantius dies and the Arian usurper is killed, he returns to his flock; he soon holds a council that shows mercy to bishops who had lapsed.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Athanasius",
+     "when": "362",
+     "year": 362,
+     "butler": "05-02:4",
+     "quote": "our saint returned to his flock in August, after an absence of above six years.",
+     "note": "Butler on the return from hiding."
+    }
+   },
+   {
+    "year": 363,
+    "text": "The emperor Julian, who had tried to restore paganism, is killed in Persia and his policies end.",
+    "kind": "world"
+   },
+   {
+    "year": 373,
+    "text": "Athanasius dies at Alexandria on 2 May after about forty-six years as bishop; Gregory Nazianzen calls him the pillar of the Church.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Athanasius",
+     "when": "373",
+     "year": 373,
+     "butler": "05-02:0",
+     "quote": "When I praise Athanasius, virtue itself is my theme",
+     "note": "Butler quotes Gregory Nazianzen's tribute at the start of the life."
+    }
+   },
+   {
+    "year": 381,
+    "text": "The Council of Constantinople confirms the Nicene faith that Athanasius had defended.",
+    "kind": "world"
+   }
+  ]
+ },
+ {
+  "id": "gregory-the-great",
+  "name": "St. Gregory the Great",
+  "lifespan": "c. 540 – 604",
+  "sketch": "Gregory was born into a rich Roman family, became prefect of the city, and then gave up his wealth to live as a monk. Called back to serve the Church, he tried to avoid being made pope and hid in the woods. As pope he fed the poor of Rome, wrote the Pastoral Rule, and sent missionaries to England.",
+  "butler": "03-12:0",
+  "events": [
+   {
+    "year": 540,
+    "text": "Gregory is born at Rome of a noble family.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "540",
+     "year": 540,
+     "butler": "03-12:0",
+     "quote": "GREGORY, from his illustrious actions and extraordinary virtues, surnamed the Great, was born at Rome, about the year 540.",
+     "note": "Butler gives his approximate birth year."
+    }
+   },
+   {
+    "year": 565,
+    "text": "The emperor Justinian dies after a long reign that reconquered much of Italy.",
+    "kind": "world"
+   },
+   {
+    "year": 568,
+    "text": "The Lombards invade Italy, beginning decades of war and hardship around Rome.",
+    "kind": "world",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "568",
+     "year": 568,
+     "butler": "03-12:0",
+     "quote": "easily made themselves masters of Milan, under their king Alboinus, in 568",
+     "note": "Butler on the Lombard invasion."
+    }
+   },
+   {
+    "year": 574,
+    "text": "At about thirty-four he is made prefect (chief magistrate) of Rome by the emperor.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "574",
+     "year": 574,
+     "butler": "03-12:0",
+     "quote": "He was only thirty-four years old when, in 574, he was made, by the emperor Justin the Younger, pretor, or governor and chief magistrate of Rome.",
+     "note": "Butler on his civil career."
+    }
+   },
+   {
+    "year": 575,
+    "text": "He founds monasteries on his family estates and takes the monastic habit himself at St. Andrew's on the Caelian hill; fasting ruins his stomach for life.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "575",
+     "year": 575,
+     "butler": "03-12:0",
+     "quote": "The first abbot of this house was Hilarion, the second Valentinus, under whom St. Gregory himself took the monastic habit, in 575, he being thirty-five years old.",
+     "note": "Butler on his entrance into religious life."
+    }
+   },
+   {
+    "year": 582,
+    "text": "Serving as papal envoy at Constantinople, he composes his Morals on the Book of Job, a long guide to the moral and inner life.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "582",
+     "year": 582,
+     "butler": "03-12:0",
+     "quote": "Besides his Comments or Morals on the book of Job, which he wrote at Constantinople, about the year 582",
+     "note": "Butler on his best-known early work."
+    }
+   },
+   {
+    "year": 584,
+    "text": "Pope Pelagius recalls him to Rome; he returns happily to the quiet of his monastery.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "584",
+     "year": 584,
+     "butler": "03-12:0",
+     "quote": "Pope Pelagius recalled St. Gregory in 584.",
+     "note": "Butler on his return from Constantinople."
+    }
+   },
+   {
+    "year": 590,
+    "text": "Pelagius dies in a plague; the people elect Gregory, who resists with all his power, writes to the emperor begging him to refuse, and hides in the woods in a basket.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "590",
+     "year": 590,
+     "butler": "03-12:0",
+     "quote": "Pope Pelagius II. dying in the beginning of the great pestilence, in January, 590, the clergy, senate, and Roman people unanimously agreed to choose St. Gregory for their bishop, although he opposed his election with all his power.",
+     "note": "Butler on his unwilling election."
+    }
+   },
+   {
+    "year": 590,
+    "text": "Consecrated on 3 September, he tells a friend that the office feels like a storm after the calm of the cloister.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "590",
+     "year": 590,
+     "butler": "03-12:0",
+     "quote": "I have lost the comfort of my calm, and, appearing to be outwardly exalted, I am inwardly and really fallen.",
+     "note": "His letter to the emperor's sister Theoctista."
+    }
+   },
+   {
+    "year": 591,
+    "text": "He writes the Pastoral Rule, a guide for bishops and priests, which becomes a standard book of the Church for centuries.",
+    "kind": "writing",
+    "step": {
+     "kind": "father",
+     "label": "Gregory, Pastoral Rule",
+     "when": "591",
+     "year": 591,
+     "work": "gregory-pastoral-rule",
+     "section": "iii.iv.ii",
+     "quote": "No one presumes to teach an art till he has first, with intent meditation, learnt it. What rashness is it, then, for the unskilful to assume pastoral authority, since the government of souls is the art of arts!",
+     "note": "Gregory's opening argument about the weight of leading souls."
+    }
+   },
+   {
+    "year": 592,
+    "text": "While Rome is threatened by the Lombards he preaches his homilies on Ezekiel and looks after the poor and prisoners of the city.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "592",
+     "year": 592,
+     "butler": "03-12:0",
+     "quote": "The same may be said of his twenty-two homilies on Ezekiel, which he preached while Rome was besieged by the Lombards, in 592.",
+     "note": "Butler on his preaching in a besieged city."
+    }
+   },
+   {
+    "year": 592,
+    "text": "The imperial governor breaks a treaty with the Lombards; Gregory is left to negotiate peace and feed Rome on his own.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "592",
+     "year": 592,
+     "butler": "03-12:0",
+     "quote": "In 592, Romanus, exarch, or governor of Italy for the emperor, with a view to his own private interest, perfidiously broke the solemn treaty which he had made with the Lombards, and took Perugia and several other towns.",
+     "note": "Butler on the failure of imperial protection."
+    }
+   },
+   {
+    "year": 596,
+    "text": "Remembering the English boys he had once seen for sale in Rome, he sends the monk Augustine and companions to England.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "596",
+     "year": 596,
+     "butler": "03-12:0",
+     "quote": "It was before his advancement to the see of Rome, or even to the government of his monastery, that he first, as Paul the deacon testifies, projected the conversion of the English nation.",
+     "note": "Butler on the origin of the English mission."
+    }
+   },
+   {
+    "year": 597,
+    "text": "Augustine lands in Kent and is received by King Ethelbert; Gregory later writes to him with joy at the English conversions.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Gregory, Letter to Augustine",
+     "when": "597",
+     "year": 597,
+     "work": "gregory-letters",
+     "section": "ii.vii.v",
+     "quote": "the nation of the Angli through the operation of the grace of Almighty God and the labour of thy Fraternity has cast away the darkness of error, and been suffused with the light of holy faith",
+     "note": "Gregory's letter celebrates the mission's fruit."
+    }
+   },
+   {
+    "year": 602,
+    "text": "The soldiers overthrow the emperor Maurice and set up Phocas.",
+    "kind": "world",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "602",
+     "year": 602,
+     "butler": "03-12:0",
+     "quote": "His avarice and extortions had rendered him odious to all his subjects; and, in 602, he ordered the army to take winter quarters in the enemy's country, and to subsist on freebooting, without pay.",
+     "note": "Butler on the events that toppled Maurice."
+    }
+   },
+   {
+    "year": 604,
+    "text": "Worn out by illness and gout, Gregory dies on 12 March after thirteen years as pope.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Gregory the Great",
+     "when": "604",
+     "year": 604,
+     "butler": "03-12:0",
+     "quote": "God called him to himself on the 12th of March, the same year, about the sixty-fourth of his age, after he had governed the church thirteen years, six months, and ten days.",
+     "note": "Butler on his death."
+    }
+   }
+  ]
+ },
+ {
+  "id": "francis-de-sales",
+  "name": "St. Francis de Sales",
+  "lifespan": "1567 – 1622",
+  "sketch": "Francis was a nobleman's son trained as a lawyer who instead became a priest, against his father's wishes. He won back many Calvinists in Savoy by patience and gentleness, then as bishop of Geneva wrote the Introduction to the Devout Life to show that holiness is for ordinary people.",
+  "butler": "01-29:0",
+  "events": [
+   {
+    "year": 1563,
+    "text": "The Council of Trent closes, leaving a programme of Catholic reform in Francis's time.",
+    "kind": "world"
+   },
+   {
+    "year": 1567,
+    "text": "Francis is born in the castle of Thorens in Savoy, the eldest son of a noble family.",
+    "kind": "turning"
+   },
+   {
+    "year": 1578,
+    "text": "At eleven he receives the tonsure with his father's reluctant consent and goes to school at Annecy.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Francis de Sales",
+     "when": "1578",
+     "year": 1578,
+     "butler": "01-29:0",
+     "quote": "He showed an early inclination for the ecclesiastical state, and obtained his father's consent, though not without some reluctance, for his receiving tonsure in the year 1578, and the eleventh of his age.",
+     "note": "Butler on his early inclination to the Church."
+    }
+   },
+   {
+    "year": 1584,
+    "text": "Sent from Paris to Padua to study law, he keeps a written rule of life and takes a Jesuit as spiritual director.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Francis de Sales",
+     "when": "1584",
+     "year": 1584,
+     "butler": "01-29:0",
+     "quote": "He was now eighteen years old, when his father recalled him from Paris, and sent him to Padua, to study the law",
+     "note": "Butler on his legal studies (he prints the year as 1554, an apparent misprint)."
+    }
+   },
+   {
+    "year": 1586,
+    "text": "While in Paris he is overtaken by a long period of darkness and spiritual dryness that brings him close to despair, before it lifts.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Francis de Sales",
+     "when": "1586",
+     "year": 1586,
+     "butler": "01-29:0",
+     "quote": "God, to purify his heart, permitted a thick darkness insensibly to overspread his mind, and a spiritual dryness and melancholy to overwhelm him.",
+     "note": "Butler on the interior trial of his student years; the exact year is uncertain."
+    }
+   },
+   {
+    "year": 1593,
+    "text": "After a struggle with his father, who wanted a legal career for him, he is ordained priest and takes up preaching.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Francis de Sales",
+     "when": "1593",
+     "year": 1593,
+     "butler": "01-29:0",
+     "quote": "He studied as much at the foot of the crucifix as in books, being persuaded that the essential quality of a preacher is to be a man of prayer.",
+     "note": "Butler on his preaching life after ordination."
+    }
+   },
+   {
+    "year": 1594,
+    "text": "He volunteers for the Chablais, a region around Lake Geneva held by Calvinists, and finds only seven Catholics in Thonon; some even try to kill him.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Francis de Sales",
+     "when": "1594",
+     "year": 1594,
+     "butler": "01-29:0",
+     "quote": "On his arrival at Thonon, the capital of Chablais, situate on the lake of Geneva, he found in it only seven Catholics.",
+     "note": "Butler on the hard beginning of the mission."
+    }
+   },
+   {
+    "year": 1597,
+    "text": "After nearly four years with little visible fruit, many begin to return to the Catholic faith through his patience.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Francis de Sales",
+     "when": "1597",
+     "year": 1597,
+     "butler": "01-29:0",
+     "quote": "He was near four years, however, without any great fruit among the inhabitants, till the year 1597, when God was pleased to touch several of them with his grace.",
+     "note": "Butler on the slow success in the Chablais."
+    }
+   },
+   {
+    "year": 1598,
+    "text": "Henry IV of France issues the Edict of Nantes, ending the French wars of religion for a time.",
+    "kind": "world"
+   },
+   {
+    "year": 1602,
+    "text": "He is consecrated bishop of Geneva (residing in Annecy) on 3 December, after a period of prayer and fasting.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Francis de Sales",
+     "when": "1602",
+     "year": 1602,
+     "butler": "01-29:0",
+     "quote": "He redoubled his fasts, austerities, and prayers, as the time of his consecration drew nearer. This was performed on the 3d of December, 1602.",
+     "note": "Butler on his consecration."
+    }
+   },
+   {
+    "year": 1608,
+    "text": "He publishes the Introduction to the Devout Life, written first as letters to a lay woman, arguing that holiness belongs in every walk of life.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Francis de Sales, Introduction to the Devout Life",
+     "when": "1608",
+     "year": 1608,
+     "work": "desales-devout-life",
+     "section": "iii.iii",
+     "quote": "It is an error, nay more, a very heresy, to seek to banish the devout life from the soldier's guardroom, the mechanic's workshop, the prince's court, or the domestic hearth.",
+     "note": "Francis states his central claim about devotion in ordinary vocations."
+    }
+   },
+   {
+    "year": 1610,
+    "text": "With Jane de Chantal he founds the Order of the Visitation, designed so that even the sickly and weak could enter it.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Francis de Sales",
+     "when": "1610",
+     "year": 1610,
+     "butler": "01-29:0",
+     "quote": "Saint Francis designing his new Order to be such, that all, even the sickly and weak, might be admitted into it, he chose for it the rule of St. Austin",
+     "note": "Butler on the founding principles of the Visitation."
+    }
+   },
+   {
+    "year": 1610,
+    "text": "Henry IV of France is assassinated in Paris.",
+    "kind": "world"
+   },
+   {
+    "year": 1616,
+    "text": "He publishes the Treatise on the Love of God, a longer and more demanding work than the Introduction.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Francis de Sales",
+     "when": "1616",
+     "year": 1616,
+     "butler": "01-29:0",
+     "quote": "His book of the Love of God cost him much more reading, study, and meditation. In it he paints his own soul.",
+     "note": "Butler on the book's depth."
+    }
+   },
+   {
+    "year": 1622,
+    "text": "Francis dies at Lyons on 28 December, aged fifty-five, after a stroke.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Francis de Sales",
+     "when": "1622",
+     "year": 1622,
+     "butler": "01-29:0",
+     "quote": "happily expired on the feast of Holy Innocents, the 28th of December, at eight o'clock at night, in the year 1622",
+     "note": "Butler on his death."
+    }
+   },
+   {
+    "year": 1665,
+    "text": "He is canonized by Pope Alexander VII; he is later declared a Doctor of the Church (1877).",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. Francis de Sales",
+     "when": "1665",
+     "year": 1665,
+     "butler": "01-29:0",
+     "quote": "He was canonized in 1665 by the same pope, and his feast fixed to the 29th of January",
+     "note": "Butler on his canonization."
+    }
+   }
+  ]
+ },
+ {
+  "id": "john-of-the-cross",
+  "name": "St. John of the Cross",
+  "lifespan": "1542 – 1591",
+  "sketch": "John was a Carmelite friar who joined Teresa of Avila in reforming his order. For this his own brothers imprisoned him in a dark cell for nine months. He later wrote poetry and prose on the soul's journey to God through darkness, and died disgraced and sidelined by his own order.",
+  "butler": "11-24:0",
+  "events": [
+   {
+    "year": 1542,
+    "text": "John Yepes is born at Fontiveros near Avila, the youngest child of a poor family.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John of the Cross",
+     "when": "1542",
+     "year": 1542,
+     "butler": "11-24:0",
+     "quote": "John, by his family name called Yepes, was youngest child of Gonzales of Yepes, and born at Fontibere, near Avila, in Old Castile, in 1542.",
+     "note": "Butler on his birth."
+    }
+   },
+   {
+    "year": 1563,
+    "text": "At twenty-one he enters the Carmelites at Medina del Campo, with austerities his superiors have to moderate.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John of the Cross",
+     "when": "1563",
+     "year": 1563,
+     "butler": "11-24:0",
+     "quote": "Never did any novice give greater proofs of obedience, humility, fervor, and love of the cross.",
+     "note": "Butler on his novitiate."
+    }
+   },
+   {
+    "year": 1563,
+    "text": "The Council of Trent ends, with reform of religious orders high on its list.",
+    "kind": "world"
+   },
+   {
+    "year": 1567,
+    "text": "Ordained priest, he thinks of the Carthusians until he meets Teresa of Avila, who asks him to help found reformed Carmelite houses for men.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John of the Cross",
+     "when": "1567",
+     "year": 1567,
+     "butler": "11-24:0",
+     "quote": "Whereupon she desired to see him, admired his spirit, and told him that God had called him to sanctify himself in the order of our Lady of Mount Carmel",
+     "note": "Butler on the meeting with Teresa."
+    }
+   },
+   {
+    "year": 1568,
+    "text": "At Duruelo, a poor farmhouse, he and companions begin the Discalced (barefoot) Carmelite men on Advent Sunday.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John of the Cross",
+     "when": "1568",
+     "year": 1568,
+     "butler": "11-24:0",
+     "quote": "John, who had acquiesced in hei proposal, entered this new Bethlehem, in a perfect spirit of sacrifice, and about two months after was joined by some others, who all renewed their profession on Advent Sunday, 1568.",
+     "note": "Butler on the beginning of the reform."
+    }
+   },
+   {
+    "year": 1571,
+    "text": "The Christian fleet defeats the Ottomans at the Battle of Lepanto.",
+    "kind": "world"
+   },
+   {
+    "year": 1577,
+    "text": "Brothers of the older observance seize him at Avila, carry him to Toledo and hold him in a dark cell for nine months.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John of the Cross",
+     "when": "1577",
+     "year": 1577,
+     "butler": "11-24:0",
+     "quote": "Be not surprised, if I show so great a love for sufferings: God gave me a high dea of their merit and value when I was in the prison of Toledo.",
+     "note": "Butler quotes his own later words about the Toledo prison."
+    }
+   },
+   {
+    "year": 1578,
+    "text": "Escaping from Toledo in the summer, he carries the first stanzas of his poem the Spiritual Canticle, composed in prison.",
+    "kind": "writing"
+   },
+   {
+    "year": 1581,
+    "text": "He is chosen prior of Granada, later vicar-provincial of Andalusia and a governing officer of the order.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John of the Cross",
+     "when": "1581",
+     "year": 1581,
+     "butler": "11-24:0",
+     "quote": "In 1581, he was chosen prior of Granada, in 1585, vicar-provincial of Andalusia, and in 1588, first definitor of the order.",
+     "note": "Butler on his offices."
+    }
+   },
+   {
+    "year": 1582,
+    "text": "Teresa dies; John loses his closest friend and collaborator.",
+    "kind": "setback"
+   },
+   {
+    "year": 1582,
+    "text": "Pope Gregory XIII introduces the Gregorian calendar.",
+    "kind": "world"
+   },
+   {
+    "year": 1585,
+    "text": "In these years he writes the Dark Night and the Ascent of Mount Carmel, describing the soul's purification by interior darkness.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John of the Cross",
+     "when": "1585",
+     "year": 1585,
+     "butler": "11-24:0",
+     "quote": "He describes admirably what a soul feels in this trial in his book called The Obscure Night.",
+     "note": "Butler on The Dark Night."
+    }
+   },
+   {
+    "year": 1588,
+    "text": "The English defeat the Spanish Armada.",
+    "kind": "world"
+   },
+   {
+    "year": 1591,
+    "text": "At a chapter of his order he opposes harsh treatment of the Teresian nuns and Fr. Gratian; he is stripped of office and sent to a remote convent.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John of the Cross",
+     "when": "1591",
+     "year": 1591,
+     "butler": "11-24:0",
+     "quote": "This gave offence to some whom envy and jealousy had indisposed against him, and by their means the servant of God was thrust out of all employments in his order.",
+     "note": "Butler on his disgrace."
+    }
+   },
+   {
+    "year": 1591,
+    "text": "He dies at Ubeda on the night of 13-14 December, aged forty-nine, with the words of Psalm 31 on his lips.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of St. John of the Cross",
+     "when": "1591",
+     "year": 1591,
+     "butler": "11-24:0",
+     "quote": "with which words he calmly breathed forth his soul on the 14th of December in 1591, being forty-nine years old",
+     "note": "Butler on his death."
+    }
+   },
+   {
+    "year": 1726,
+    "text": "John is canonized; Pius XI names him a Doctor of the Church in 1926.",
+    "kind": "turning"
+   }
+  ]
+ },
+ {
+  "id": "thomas-more",
+  "name": "St. Thomas More",
+  "lifespan": "1478 – 1535",
+  "sketch": "Thomas More was a London lawyer, scholar and father of a household, who rose to be Lord Chancellor of England. When Henry VIII broke with Rome, More resigned and would not swear the oath to the new succession; he was imprisoned in the Tower and beheaded, \"the king's good servant, but God's first\".",
+  "events": [
+   {
+    "year": 1478,
+    "text": "Thomas More is born in London, son of the lawyer John More.",
+    "kind": "turning"
+   },
+   {
+    "year": 1485,
+    "text": "Henry Tudor wins at Bosworth and becomes Henry VII.",
+    "kind": "world"
+   },
+   {
+    "year": 1492,
+    "text": "Columbus sails west and reaches the Caribbean.",
+    "kind": "world"
+   },
+   {
+    "year": 1499,
+    "text": "He meets Erasmus; the two become lifelong friends in the circle of English and Continental humanists.",
+    "kind": "turning"
+   },
+   {
+    "year": 1503,
+    "text": "For some years he lives near the London Charterhouse and shares the monks' prayers, considering the religious life before choosing marriage and the law. He kept up severe private penance, and Butler cites him as a witness to its value.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Life of Peter Damian",
+     "when": "1503",
+     "year": 1503,
+     "butler": "02-23:3",
+     "quote": "Sir Thomas More, St. Francis of Sales, and others, testify that such means of mortification are great helps to tame the flesh, and inure it to the labors of penance",
+     "note": "Butler names More as a witness to the practice of bodily penance."
+    }
+   },
+   {
+    "year": 1505,
+    "text": "He marries Jane Colt; she dies in 1511 and he soon marries Alice Middleton, taking in her daughter as well as his own four children.",
+    "kind": "turning"
+   },
+   {
+    "year": 1509,
+    "text": "Henry VIII becomes king.",
+    "kind": "world"
+   },
+   {
+    "year": 1516,
+    "text": "His Utopia is published at Louvain, a satire about an imagined island that criticises the greed and violence of European society.",
+    "kind": "writing"
+   },
+   {
+    "year": 1517,
+    "text": "Martin Luther posts his Ninety-five Theses at Wittenberg, and the Reformation begins.",
+    "kind": "world"
+   },
+   {
+    "year": 1518,
+    "text": "He enters the king's service as councillor, later knighted and appointed under-treasurer (1521).",
+    "kind": "work"
+   },
+   {
+    "year": 1529,
+    "text": "He becomes Lord Chancellor of England, the first layman to hold the post, and also writes against Protestant writings such as Tyndale's.",
+    "kind": "turning",
+    "step": {
+     "kind": "scripture",
+     "label": "Matthew 16:26",
+     "when": "1529",
+     "year": 1529,
+     "ref": "MAT.16.26",
+     "quote": "For what will it profit a man if he gains the whole world and forfeits his life?",
+     "note": "The question that sets worldly success against the soul; More's own career put it to the test."
+    }
+   },
+   {
+    "year": 1532,
+    "text": "When the clergy submit to the king's control of the Church, he resigns the chancellorship and with it most of his income.",
+    "kind": "setback",
+    "step": {
+     "kind": "catechism",
+     "label": "Catechism, conscience",
+     "when": "1532",
+     "year": 1532,
+     "ccc": 1782,
+     "quote": "He must not be forced to act contrary to his conscience.",
+     "note": "The Church's teaching that conscience may not be coerced, the principle More's resignation turned on."
+    }
+   },
+   {
+    "year": 1534,
+    "text": "He refuses to swear the oath required by the Act of Succession, which repudiated papal authority, and is imprisoned in the Tower of London on 17 April.",
+    "kind": "setback",
+    "step": {
+     "kind": "catechism",
+     "label": "Catechism, obedience to civil authority",
+     "when": "1534",
+     "year": 1534,
+     "ccc": 2242,
+     "quote": "The citizen is obliged in conscience not to follow the directives of civil authorities when they are contrary to the demands of the moral order, to the fundamental rights of persons or the teachings of the Gospel.",
+     "note": "The Church's statement of the principle More acted on when he refused the oath."
+    }
+   },
+   {
+    "year": 1534,
+    "text": "In the Tower he writes A Dialogue of Comfort against Tribulation and letters to his daughter Margaret Roper.",
+    "kind": "writing",
+    "step": {
+     "kind": "scripture",
+     "label": "Matthew 10:28",
+     "when": "1534",
+     "year": 1534,
+     "ref": "MAT.10.28",
+     "quote": "Don’t be afraid of those who kill the body, but are not able to kill the soul.",
+     "note": "A verse on the fear of death, the subject of his Tower writings."
+    }
+   },
+   {
+    "year": 1535,
+    "text": "Tried for treason in July and beheaded on 6 July, he says on the scaffold that he dies the king's good servant, but God's first.",
+    "kind": "turning",
+    "step": {
+     "kind": "catechism",
+     "label": "Catechism, martyrdom",
+     "when": "1535",
+     "year": 1535,
+     "ccc": 2473,
+     "quote": "Martyrdom is the supreme witness given to the truth of the faith: it means bearing witness even unto death.",
+     "note": "The Church's understanding of martyrdom, the category in which More is honoured."
+    }
+   },
+   {
+    "year": 1935,
+    "text": "Pope Pius XI canonizes Thomas More together with John Fisher; in 2000 John Paul II names him patron of statesmen and politicians.",
+    "kind": "turning"
+   }
+  ]
+ }
+]

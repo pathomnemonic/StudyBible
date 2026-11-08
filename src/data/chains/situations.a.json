@@ -1,0 +1,860 @@
+[
+ {
+  "id": "grief",
+  "title": "Grief",
+  "ask": "I'm grieving someone I loved.",
+  "intro": "Grief is not a problem to be solved; it is what love does when the one it loves is gone. The saints did not hurry past it. They wept, said so plainly, and some of them argued with themselves about whether tears were allowed. Their honesty may give you leave to mourn at your own pace.",
+  "mentors": [
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354–430",
+    "why": "When a close friend of his youth died, Augustine wrote that the whole world turned to death for him, and he later set that grief down without dressing it up. He lost his mother Monica at Ostia too, and found he could not simply master the sorrow.",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions IV.4",
+     "when": "c. 385",
+     "year": 385,
+     "work": "aug-confessions",
+     "section": "v.iv",
+     "quote": "At this grief my heart was utterly darkened; and whatever I beheld was death.",
+     "note": "Augustine describes the first days after his friend's death with no consolation attached, only the blackness of it."
+    }
+   },
+   {
+    "name": "Ambrose of Milan",
+    "lifespan": "c. 339–397",
+    "why": "Ambrose delivered a funeral address for his brother Satyrus, who had been his closest companion and helper. In it he asks whether Christians may weep at all, and answers from his own sorrow.",
+    "step": {
+     "kind": "father",
+     "label": "Ambrose, On the Decease of His Brother Satyrus",
+     "when": "379",
+     "year": 379,
+     "work": "ambrose-works",
+     "section": "iv.iii.ii",
+     "quote": "Natural grief is one thing, distrustful sadness is another, and there is a very great difference between longing for what you have lost and lamenting that you have lost it.",
+     "note": "Ambrose separates grief that belongs to love from despair, and does not ask the mourner to stop feeling."
+    }
+   },
+   {
+    "name": "Jane Frances de Chantal",
+    "lifespan": "1572–1641",
+    "why": "Her husband, the Baron de Chantal, was accidentally shot while hunting and lived nine more days, forgiving the man who shot him. Jane was left a young widow with small children, and Butler records that she was shaken to the depths.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Jane Frances de Chantal",
+     "when": "1601",
+     "year": 1601,
+     "butler": "08-21:0",
+     "quote": "Her grief was not to be expressed",
+     "note": "Butler does not claim she felt nothing; he says her grief could not be put into words, even though she bore it with composure."
+    }
+   },
+   {
+    "name": "Thérèse of Lisieux",
+    "lifespan": "1873–1897",
+    "why": "Thérèse lost her mother when she was four. She writes that the loss changed her whole disposition, turning a lively child into a timid and tearful one.",
+    "step": {
+     "kind": "saint",
+     "label": "Thérèse, Story of a Soul, ch. 2",
+     "when": "1877",
+     "year": 1877,
+     "work": "therese-story-of-a-soul",
+     "section": "x",
+     "quote": "I must tell you that after my Mother's death my naturally happy disposition completely changed.",
+     "note": "A grief that arrived in childhood is still real grief, and it shaped her for years."
+    }
+   }
+  ]
+ },
+ {
+  "id": "addiction-and-compulsion",
+  "title": "Addiction and compulsion",
+  "ask": "I can't stop doing something that is destroying me.",
+  "intro": "Nobody here is offering a diagnosis or a cure, and a habit that has hold of your body may need doctors and other people, not only prayer. What the saints can honestly offer is company: several of them describe being held by a habit they did not want, without excuse and without despair. Each of them also sought other people's help.",
+  "mentors": [
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354–430",
+    "why": "For years Augustine begged for freedom while putting off the change, and he is exact about how a habit tightens. He did not break free by clever resolve but by being helped, through a friend's example, a mother's prayers and finally grace.",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions VIII.5",
+     "when": "397",
+     "year": 397,
+     "work": "aug-confessions",
+     "section": "ix.v",
+     "quote": "For of a forward will, was a lust made; and a lust served, became custom; and custom not resisted, became necessity.",
+     "note": "Augustine's own account of how a choice hardens into a chain."
+    }
+   },
+   {
+    "name": "Camillus de Lellis",
+    "lifespan": "1550–1614",
+    "why": "Camillus was a soldier whose passion for gambling cost him even his necessities. Reduced to working as a labourer, he was turned around after a talk with a Capuchin guardian, and he spent the rest of his life serving the sick.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Camillus de Lellis",
+     "when": "1574",
+     "year": 1574,
+     "butler": "07-14:1",
+     "quote": "He had contracted so violent a passion for cards and gaming, that he sometimes lost even necessaries.",
+     "note": "Butler states plainly that it was a compulsion that cost him what he needed to live on."
+    }
+   },
+   {
+    "name": "Monica",
+    "lifespan": "c. 331–387",
+    "why": "Augustine's mother. Butler records that in her youth she slipped into a habit of sipping wine drawn for the family, and that a servant's sharp rebuke made her see it and stop.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Monica",
+     "when": "c. 345",
+     "year": 345,
+     "butler": "05-04:0",
+     "quote": "the young Monica contracted insensibly an inclination to wine",
+     "note": "Even a saint's habit began in small, unnoticed steps, and was ended by someone telling her the truth."
+    }
+   },
+   {
+    "name": "Jerome",
+    "lifespan": "c. 347–420",
+    "why": "Jerome lived for years as a hermit in the Syrian desert, and wrote openly of temptations that would not leave him. He does not hide them or claim to have beaten them by his own strength.",
+    "step": {
+     "kind": "father",
+     "label": "Jerome, Letter 22 to Eustochium",
+     "when": "384",
+     "year": 384,
+     "work": "jerome-letters",
+     "section": "v.XXII",
+     "quote": "Helpless, I cast myself at the feet of Jesus, I watered them with my tears, I wiped them with my hair: and then I subdued my rebellious body with weeks of abstinence.",
+     "note": "Jerome admits he was helpless, and turns to Christ rather than to his own resolve."
+    }
+   }
+  ]
+ },
+ {
+  "id": "depression-and-darkness",
+  "title": "Depression and darkness",
+  "ask": "Everything feels dark and I can't pray or feel anything.",
+  "intro": "Spiritual darkness and clinical depression are not always the same thing, and if you are struggling to function or have thoughts of harming yourself, please tell a doctor or someone close to you today. The saints below describe a time when prayer gave them nothing and sadness pressed on them. None of them found it noble in itself; they found that they were not left alone in it.",
+  "mentors": [
+   {
+    "name": "Ignatius of Loyola",
+    "lifespan": "1491–1556",
+    "why": "At Manresa, after his conversion, Ignatius went through a long stretch of fear and sadness in which nothing helped. Butler says he was close to despair, and that he came out of it able to help others in the same state.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius of Loyola",
+     "when": "1522",
+     "year": 1522,
+     "butler": "07-31:0",
+     "quote": "He found no comfort in prayer, no relief in fasting, no remedy in disciplines, no consolation from the sacraments, and his soul was overwhelmed with bitter sadness.",
+     "note": "He described the experience without softening it: the usual helps did nothing."
+    }
+   },
+   {
+    "name": "Thérèse of Lisieux",
+    "lifespan": "1873–1897",
+    "why": "In the last eighteen months of her life Thérèse, then dying of tuberculosis, lost all felt sense of heaven and could only keep choosing to believe. She says she was in darkness for months.",
+    "step": {
+     "kind": "saint",
+     "label": "Thérèse, Story of a Soul, ch. 9",
+     "when": "1896",
+     "year": 1896,
+     "work": "therese-story-of-a-soul",
+     "section": "xvii",
+     "quote": "He allowed my soul to be overwhelmed with darkness, and the thought of Heaven, which had consoled me from my earliest childhood, now became a subject of conflict and torture.",
+     "note": "She refuses to pretend, writing that the trial lasted months and she still awaited deliverance."
+    }
+   },
+   {
+    "name": "John of the Cross",
+    "lifespan": "1542–1591",
+    "why": "John was imprisoned by fellow friars in Toledo in a dark cell, and Butler says he later went through a deeper trial of interior darkness in which God seemed to have abandoned him.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. John of the Cross",
+     "when": "1578",
+     "year": 1578,
+     "butler": "11-24:0",
+     "quote": "This was again succeeded by another more grievous trial of spiritual darkness which spread itself over his soul, accompanied with interior pains and temptations, in which God seemed to have forsaken him, and to be become deaf to his sighs and tears.",
+     "note": "The writer who became famous for the dark night lived through it as bewilderment, not as understanding."
+    }
+   },
+   {
+    "name": "Jane Frances de Chantal",
+    "lifespan": "1572–1641",
+    "why": "For long periods this widow, foundress and spiritual friend of Francis de Sales lived in inner dryness and anguish that her letters describe.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Jane Frances de Chantal",
+     "when": "1610",
+     "year": 1610,
+     "butler": "08-21:0",
+     "quote": "Exterior trials, how severe soever, were light in comparison of the interior anguish, darkness, and spiritual dryness which she sometimes experienced for a considerable time",
+     "note": "Butler says this inner darkness weighed more with her than outward trials, and it lasted a long time."
+    }
+   }
+  ]
+ },
+ {
+  "id": "anxiety-and-fear",
+  "title": "Anxiety and fear",
+  "ask": "I'm anxious all the time and I can't switch my mind off.",
+  "intro": "Anxiety can be a matter of temperament, health or circumstance, and a doctor can help with all three. The saints who knew fear also left some practical wisdom: they spoke to someone about it, they refused to feed the panic, and they went on doing the next small thing.",
+  "mentors": [
+   {
+    "name": "Francis de Sales",
+    "lifespan": "1567–1622",
+    "why": "As bishop and spiritual director de Sales saw anxiety in many of his penitents, and gave it a whole chapter. He did not treat it as a sin to be scolded but as a trap that makes every problem worse.",
+    "step": {
+     "kind": "saint",
+     "label": "Francis de Sales, Introduction to the Devout Life IV.11",
+     "when": "1609",
+     "year": 1609,
+     "work": "desales-devout-life",
+     "section": "vi.xi",
+     "quote": "If you can lay your anxiety before your spiritual guide, or at least before some trusty and devout friend, you may be sure that you will find great solace.",
+     "note": "He recommends telling another person, which anxiety usually tells us not to do."
+    }
+   },
+   {
+    "name": "Brother Lawrence",
+    "lifespan": "c. 1614–1691",
+    "why": "A Carmelite lay brother who worked in a monastery kitchen. He spent four years convinced he was damned, and wrote that the trouble did not lift by argument but by choosing to keep acting out of love.",
+    "step": {
+     "kind": "saint",
+     "label": "Brother Lawrence, The Practice of the Presence of God, Second Conversation",
+     "when": "1666",
+     "year": 1666,
+     "work": "lawrence-practice",
+     "section": "iii.ii",
+     "quote": "That this trouble of mind had lasted four years; during which time he had suffered much.",
+     "note": "Lawrence does not claim a quick cure; he says he suffered for four years before peace returned."
+    }
+   },
+   {
+    "name": "Ignatius of Loyola",
+    "lifespan": "1491–1556",
+    "why": "After his conversion at Manresa, Ignatius was plagued by scruples, the sense that he had sinned in every step. Butler says that afterwards he had a special gift for helping scrupulous people.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius of Loyola",
+     "when": "1522",
+     "year": 1522,
+     "butler": "07-31:0",
+     "quote": "After enjoying peace of mind and heavenly consolations from the time of his conversion, he was here visited with the most terrible trial of fears and scruples.",
+     "note": "The fear came after a period of peace, which is often what people do not expect."
+    }
+   },
+   {
+    "name": "Jane Frances de Chantal",
+    "lifespan": "1572–1641",
+    "why": "Even this practised director of souls was troubled by anxious worries about her own conduct, which she brought to Francis de Sales.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Jane Frances de Chantal",
+     "when": "1605",
+     "year": 1605,
+     "butler": "08-21:0",
+     "quote": "At the same time she suffered.severe interior trials by desolation of soul, and alarming anxieties about her conduct.",
+     "note": "Butler names the anxieties directly and connects them with her need of a guide."
+    }
+   }
+  ]
+ },
+ {
+  "id": "loneliness",
+  "title": "Loneliness",
+  "ask": "I feel completely alone.",
+  "intro": "Loneliness is one of the oldest human sorrows, and many saints knew it: in the desert, in prison, in a house full of people. They did not always get relief. Some of them found one faithful presence in it, and some found that it opened them to others.",
+  "mentors": [
+   {
+    "name": "Paul the Apostle",
+    "lifespan": "c. 5–c. 65",
+    "why": "Writing near the end of his life, probably from a Roman prison, Paul says that no one stood by him at his first hearing.",
+    "step": {
+     "kind": "scripture",
+     "label": "Paul, 2 Timothy 4:16-17",
+     "ref": "2TI.4.16-17",
+     "quote": "At my first defense, no one came to help me, but all left me. May it not be held against them. But the Lord stood by me and strengthened me",
+     "note": "Paul is plain about being abandoned, and still asks that it not be held against the others.",
+     "when": "c. 65"
+    }
+   },
+   {
+    "name": "Jerome",
+    "lifespan": "c. 347–420",
+    "why": "Jerome withdrew to the desert, and found its solitude unbearable: his body was worn down and his mind filled with the city he had left.",
+    "step": {
+     "kind": "father",
+     "label": "Jerome, Letter 22 to Eustochium",
+     "when": "384",
+     "year": 384,
+     "work": "jerome-letters",
+     "section": "v.XXII",
+     "quote": "I used to sit alone because I was filled with bitterness.",
+     "note": "He admits that being alone did not make him holy; it made him bitter, until he turned to Christ."
+    }
+   },
+   {
+    "name": "Thérèse of Lisieux",
+    "lifespan": "1873–1897",
+    "why": "As a child Thérèse was heartbroken when her older sister Pauline, her second mother, entered the Carmel. She writes of the anguish with no attempt to make it small.",
+    "step": {
+     "kind": "saint",
+     "label": "Thérèse, Story of a Soul, ch. 3",
+     "when": "1882",
+     "year": 1882,
+     "work": "therese-story-of-a-soul",
+     "section": "xi",
+     "quote": "I must tell you of the mournful parting which crushed my heart when Our Lord took from me my little Mother whom I loved so dearly.",
+     "note": "She does not hurry to the lesson. She says the parting crushed her."
+    }
+   },
+   {
+    "name": "Gregory Nazianzen",
+    "lifespan": "c. 329–390",
+    "why": "Gregory loved a quiet life of study and friendship with Basil, but was called away to serve as priest and bishop. Butler notes that in solitude he missed his friends.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "c. 360",
+     "year": 360,
+     "butler": "05-09:9",
+     "quote": "In his solitude he testifies,'\" that he regretted the absence of his friends",
+     "note": "Even a person who chose solitude felt the lack of friends."
+    }
+   }
+  ]
+ },
+ {
+  "id": "failure-and-shame",
+  "title": "Failure and shame",
+  "ask": "I've failed, and I'm ashamed of who I've been.",
+  "intro": "Shame says that you are your worst moment. The saints knew real failure, some of it serious. None of them was told to forget it, and none was told it was the end. Notice what they did next.",
+  "mentors": [
+   {
+    "name": "Peter the Apostle",
+    "lifespan": "d. c. 64",
+    "why": "Peter swore he would never abandon Jesus, and then denied him three times on the night of the arrest. The Gospel does not hide it or shorten it.",
+    "step": {
+     "kind": "scripture",
+     "label": "Luke 22:61-62",
+     "ref": "LUK.22.61-62",
+     "quote": "The Lord turned and looked at Peter. Then Peter remembered the Lord’s word, how he said to him, “Before the rooster crows you will deny me three times.” He went out, and wept bitterly.",
+     "note": "The look of Jesus is the turning point, and the failure is told in full.",
+     "when": "c. 30"
+    }
+   },
+   {
+    "name": "Francis de Sales",
+    "lifespan": "1567–1622",
+    "why": "He taught people to be gentle with themselves after a fall. He knew from experience that being angry at yourself keeps you stuck.",
+    "step": {
+     "kind": "saint",
+     "label": "Francis de Sales, Introduction to the Devout Life III.9",
+     "when": "1609",
+     "year": 1609,
+     "work": "desales-devout-life",
+     "section": "v.ix",
+     "quote": "Many people fall into the error of being angry because they have been angry, vexed because they have given way to vexation, thus keeping up a chronic state of irritation",
+     "note": "He names the loop of shame about shame, and says it only makes the next fall likelier."
+    }
+   },
+   {
+    "name": "Teresa of Avila",
+    "lifespan": "1515–1582",
+    "why": "Teresa believed she had wasted many years of her religious life in half-hearted prayer. She says so without excuses, and says that God bore with her through it.",
+    "step": {
+     "kind": "saint",
+     "label": "Teresa of Avila, Life, ch. 4",
+     "when": "1565",
+     "year": 1565,
+     "work": "teresa-life",
+     "section": "viii.v",
+     "quote": "Thou, O my Lord, hast been willing to bear with me for almost twenty years of my evil using of Thy graces, till I might become better.",
+     "note": "Her account of failure ends on God's patience, and it becomes the start of her mature writing."
+    }
+   },
+   {
+    "name": "Thérèse of Lisieux",
+    "lifespan": "1873–1897",
+    "why": "Thérèse never became the model of perfection she wanted to be. Her discovery was that her weakness did not have to be hidden from God.",
+    "step": {
+     "kind": "saint",
+     "label": "Thérèse, Story of a Soul, ch. 9",
+     "when": "1896",
+     "year": 1896,
+     "work": "therese-story-of-a-soul",
+     "section": "xvii",
+     "quote": "I do not even distress myself because I am so weak. On the contrary I glory therein, and expect each day to find fresh imperfections.",
+     "note": "She meets her limits without panic and treats them as a reason to trust."
+    }
+   }
+  ]
+ },
+ {
+  "id": "anger-and-resentment",
+  "title": "Anger and resentment",
+  "ask": "I'm angry, and I can't let go of it.",
+  "intro": "Anger is not always sinful; it can mean something wrong has been done to you. The danger comes when it sets hard and becomes resentment. These saints were not calm people by nature, and what they did with their anger is worth looking at.",
+  "mentors": [
+   {
+    "name": "Francis de Sales",
+    "lifespan": "1567–1622",
+    "why": "Butler says de Sales was by nature hasty and passionate, as he admitted himself, and that he worked from youth to turn that temper into gentleness.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis of Sales",
+     "when": "1590s",
+     "year": 1590,
+     "butler": "01-29:0",
+     "quote": "He was indeed naturally of a hasty and passionate temper, as he himself confesses",
+     "note": "The gentlest bishop of his age began with a short temper, and made meekness his chosen work."
+    }
+   },
+   {
+    "name": "John Gualbert",
+    "lifespan": "c. 995–1073",
+    "why": "A Florentine nobleman whose brother Hugo was murdered. On Good Friday he met the killer on a narrow road with his sword drawn, and spared him when the man begged for mercy in the name of Christ.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. John Gualbert",
+     "when": "c. 1012",
+     "year": 1012,
+     "butler": "07-12:0",
+     "quote": "The remembrance of Christ, who prayed for his murderers on the cross, exceedingly affected the young nobleman; and meekly raising the supplicant from the ground with his hand, he said, “I can refuse nothing that is asked of me for the sake of Jesus Christ.",
+     "note": "Rage was stopped at the last moment by remembering Christ on the cross."
+    }
+   },
+   {
+    "name": "John Cassian",
+    "lifespan": "c. 360–435",
+    "why": "Cassian collected the experience of the desert monks, who knew how anger festers in solitude. He insists that anger kept quietly in the heart does as much harm as anger shouted aloud.",
+    "step": {
+     "kind": "father",
+     "label": "Cassian, Institutes VIII",
+     "when": "c. 420",
+     "year": 420,
+     "work": "cassian-works",
+     "section": "iv.iii.viii",
+     "quote": "For wrath that is nursed in the heart, although it may not injure men who stand by, yet excludes the splendour of the radiance of the Holy Ghost, equally with wrath that is openly manifested.",
+     "note": "Hidden resentment is treated as just as serious as open rage."
+    }
+   }
+  ]
+ },
+ {
+  "id": "serious-illness",
+  "title": "Serious illness",
+  "ask": "I'm seriously ill and frightened.",
+  "intro": "Illness takes away control, energy and often hope, and it is not a gift in disguise merely because it is hard. The saints below were ill in ways that changed their lives for good, and they were frank about the pain and the fear.",
+  "mentors": [
+   {
+    "name": "Teresa of Avila",
+    "lifespan": "1515–1582",
+    "why": "As a young nun Teresa fell so ill that she lay insensible for four days and was thought to be dying, then spent nearly three years paralysed. She suffered ill health for the rest of her life.",
+    "step": {
+     "kind": "saint",
+     "label": "Teresa of Avila, Life, ch. 6",
+     "when": "1537",
+     "year": 1537,
+     "work": "teresa-life",
+     "section": "viii.vii",
+     "quote": "After those four days, during which I was insensible, so great was my distress, that our Lord alone knoweth the intolerable sufferings I endured.",
+     "note": "She says the pain was beyond description."
+    }
+   },
+   {
+    "name": "Julian of Norwich",
+    "lifespan": "c. 1342–after 1416",
+    "why": "At thirty and a half Julian fell gravely ill, was given the last rites and thought she would die. The visions she later wrote about came during that illness.",
+    "step": {
+     "kind": "saint",
+     "label": "Julian, Revelations of Divine Love, ch. 3",
+     "when": "1373",
+     "year": 1373,
+     "work": "julian-revelations",
+     "section": "i.iii",
+     "quote": "AND when I was thirty years old and a half, God sent me a bodily sickness, in which I lay three days and three nights",
+     "note": "This is the beginning of her whole book: she was sick and expected to die."
+    }
+   },
+   {
+    "name": "Ignatius of Loyola",
+    "lifespan": "1491–1556",
+    "why": "A cannonball broke his leg at the siege of Pamplona in 1521. The surgeons had to break it again, and he stayed lame all his life. In the long recovery he began to read the lives of saints.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius of Loyola",
+     "when": "1521",
+     "year": 1521,
+     "butler": "07-31:0",
+     "quote": "Because his right leg remained shorter than the left, he would be for many days together put upon a kind of rack, and with an iron engine he violently stretched and drew out that leg; but all to little purpose, for he remained lame his whole life after.",
+     "note": "The treatment was harsh, and it did not fully work."
+    }
+   },
+   {
+    "name": "Camillus de Lellis",
+    "lifespan": "1550–1614",
+    "why": "Camillus carried a leg wound for forty-six years and had other chronic ailments, yet he kept caring for other sick people.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Camillus de Lellis",
+     "when": "1614",
+     "year": 1614,
+     "butler": "07-14:1",
+     "quote": "He was himself afflicted with many corporal infirmities, as a sore in his leg for forty-six years",
+     "note": "A long, unrelieved illness did not stop him from serving others."
+    }
+   }
+  ]
+ },
+ {
+  "id": "caring-for-a-dying-or-disabled-person",
+  "title": "Caring for someone dying or disabled",
+  "ask": "I'm caring for someone who is dying or who needs me every day, and I'm exhausted.",
+  "intro": "Caregiving is hard, repetitive and often unseen. The saints below spent much of their lives doing what you may be doing now. They don't make it easy, but they show that it is real work, and that tired and tearful carers are in good company.",
+  "mentors": [
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354–430",
+    "why": "Augustine was with his mother Monica through her last illness at Ostia, and he wrote about her death with a grown man's tears.",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions IX.11",
+     "when": "387",
+     "year": 387,
+     "work": "aug-confessions",
+     "section": "x.xi",
+     "quote": "On the ninth day then of her sickness, and the fifty-sixth year of her age, and the three-and-thirtieth of mine",
+     "note": "He counts the days of her illness, as carers do."
+    }
+   },
+   {
+    "name": "John of God",
+    "lifespan": "1495–1550",
+    "why": "A Portuguese-born soldier turned hospital founder who opened a hospital in Granada and spent his days serving the sick. Butler says he worked at it all day and went out at night to find more people in need.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. John of God",
+     "when": "1540s",
+     "year": 1540,
+     "butler": "03-08:0",
+     "quote": "John was occupied all day in serving his patients: in the night he went out to carry in new objects of charity",
+     "note": "Butler describes work that never really stopped."
+    }
+   },
+   {
+    "name": "Elizabeth of Hungary",
+    "lifespan": "1207–1231",
+    "why": "A young widowed princess who personally nursed the poor and sick in the hospital she built.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Elizabeth of Hungary",
+     "when": "1220s",
+     "year": 1225,
+     "butler": "11-19:0",
+     "quote": "In attending the poor and the sick, she cheerfully washed and cleansed the most filthy sores",
+     "note": "She did the unpleasant physical work of care herself."
+    }
+   },
+   {
+    "name": "Fabiola",
+    "lifespan": "d. 399",
+    "why": "A Roman noblewoman and a friend of Jerome who founded one of the first hospitals in the West. Jerome wrote her eulogy.",
+    "step": {
+     "kind": "father",
+     "label": "Jerome, Letter 77 to Oceanus",
+     "when": "399",
+     "year": 399,
+     "work": "jerome-letters",
+     "section": "v.LXXVII",
+     "quote": "which Fabiola so wonderfully alleviated in the suffering poor that many of the healthy fell to envying the sick.",
+     "note": "Jerome praises her care of the suffering."
+    }
+   }
+  ]
+ },
+ {
+  "id": "losing-your-job-or-money",
+  "title": "Losing your job or your money",
+  "ask": "I've lost my job and I don't know how I'll provide.",
+  "intro": "Losing work is not only about money; it shakes how you see yourself and what you can promise to those who depend on you. Several saints lost their income, their position or their home, some through no fault of their own. They did not pretend it was nothing.",
+  "mentors": [
+   {
+    "name": "Paul the Apostle",
+    "lifespan": "c. 5–c. 65",
+    "why": "Paul earned his living by tent-making, and often went hungry. He writes from prison to friends who had sent help.",
+    "step": {
+     "kind": "scripture",
+     "label": "Philippians 4:11-13",
+     "ref": "PHP.4.11-13",
+     "quote": "for I have learned in whatever state I am, to be content in it. I know how to be humbled, and I also know how to abound.",
+     "note": "Paul says that contentment is learned, over time, in both plenty and need.",
+     "when": "c. 61"
+    }
+   },
+   {
+    "name": "Elizabeth of Hungary",
+    "lifespan": "1207–1231",
+    "why": "After her husband died, Elizabeth was driven out of her castle by her brother-in-law, left with her children and without food or lodging.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Elizabeth of Hungary",
+     "when": "1228",
+     "year": 1228,
+     "butler": "11-19:0",
+     "quote": "Henry got possession, and turned Elizabeth out of the castle without furniture, provision, or necessaries for the support of nature",
+     "note": "This is the plain statement of a sudden fall from security to destitution."
+    }
+   },
+   {
+    "name": "Camillus de Lellis",
+    "lifespan": "1550–1614",
+    "why": "After gambling away everything, Camillus was reduced to working as a labourer on a Capuchin building site, and it was there that his life turned.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Camillus de Lellis",
+     "when": "1575",
+     "year": 1575,
+     "butler": "07-14:1",
+     "quote": "he at length was reduced to such straits, that for a subsistence he was obliged to drive two asses",
+     "note": "Poverty was the beginning of change rather than its end."
+    }
+   },
+   {
+    "name": "Paulinus of Nola",
+    "lifespan": "353–431",
+    "why": "Paulinus, a consul and one of the richest men in Gaul, gave his estates to the poor. His own family turned on him for it.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Paulinus of Nola",
+     "when": "c. 394",
+     "year": 394,
+     "butler": "06-22:0",
+     "quote": "The saint sold all his estates, and distributed the price among the poor",
+     "note": "His fall was chosen, but the isolation it brought was real."
+    }
+   }
+  ]
+ },
+ {
+  "id": "infertility-miscarriage-or-the-death-of-a-child",
+  "title": "Infertility, miscarriage or the death of a child",
+  "ask": "I wanted a child, or I've lost one.",
+  "intro": "This is among the deepest sorrows there is, and it deserves gentleness. Nothing here will explain it away. The Scriptures and the saints record women and men who wept, begged and sometimes had no answer, and who were not rebuked for it.",
+  "mentors": [
+   {
+    "name": "Hannah",
+    "lifespan": "11th century BC",
+    "why": "Hannah was childless and provoked by a rival wife for it. She went to the sanctuary and prayed so intensely that the priest thought she was drunk.",
+    "step": {
+     "kind": "scripture",
+     "label": "1 Samuel 1:15-16",
+     "ref": "1SA.1.15-16",
+     "quote": "I am a woman of a sorrowful spirit.",
+     "note": "She names her sorrow exactly and pours it out before the Lord.",
+     "when": "c. 1100 BC"
+    }
+   },
+   {
+    "name": "Elizabeth, mother of John the Baptist",
+    "lifespan": "1st century BC–1st century AD",
+    "why": "Elizabeth was old and had no child, which in her world carried public shame. Luke records that she later conceived, and how she spoke of it.",
+    "step": {
+     "kind": "scripture",
+     "label": "Luke 1:24-25",
+     "ref": "LUK.1.24-25",
+     "quote": "Thus has the Lord done to me in the days in which he looked at me, to take away my reproach among men.",
+     "note": "She names the long reproach she had borne.",
+     "when": "c. 6 BC"
+    }
+   },
+   {
+    "name": "Paulinus of Nola",
+    "lifespan": "353–431",
+    "why": "Paulinus and his wife Therasia lost their only infant son. Butler says that this loss was part of what turned them toward giving up their wealth and taking a new life together.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Paulinus of Nola",
+     "when": "c. 390",
+     "year": 390,
+     "butler": "06-22:0",
+     "quote": "There they lost their only son an infant",
+     "note": "The loss is told briefly, and it stands near the centre of their story."
+    }
+   },
+   {
+    "name": "Jerome",
+    "lifespan": "c. 347–420",
+    "why": "Jerome wrote to Paula, a mother who had lost her daughter Blesilla, and admitted that he was weeping as he wrote.",
+    "step": {
+     "kind": "father",
+     "label": "Jerome, Letter 39 to Paula",
+     "when": "389",
+     "year": 389,
+     "work": "jerome-letters",
+     "section": "v.XXXIX",
+     "quote": "I make no secret of my feelings; this entire letter is written in tears. Even Jesus wept for Lazarus because He loved him.",
+     "note": "A priest who comforts a grieving mother does so in tears, and points to Jesus weeping."
+    }
+   }
+  ]
+ },
+ {
+  "id": "betrayal-and-being-wronged",
+  "title": "Betrayal and being wronged",
+  "ask": "Someone I trusted has wronged me.",
+  "intro": "To be betrayed is to be hurt twice: by the act, and by finding out who someone was. Forgiveness in the saints was rarely quick or easy, and it did not mean pretending nothing happened. These examples are about what each of them did with an injury.",
+  "mentors": [
+   {
+    "name": "Monica",
+    "lifespan": "c. 331–387",
+    "why": "Monica was married to a hot-tempered husband who was unfaithful to her. Augustine describes how she endured it without open quarrel and prayed for his conversion.",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions IX.9",
+     "when": "387",
+     "year": 387,
+     "work": "aug-confessions",
+     "section": "x.ix",
+     "quote": "And she so endured the wronging of her bed as never to have any quarrel with her husband thereon.",
+     "note": "Augustine states the betrayal in so many words."
+    }
+   },
+   {
+    "name": "Stephen the Martyr",
+    "lifespan": "d. c. 36",
+    "why": "The first Christian martyr was stoned by a crowd, and as he died he prayed for the men killing him.",
+    "step": {
+     "kind": "scripture",
+     "label": "Acts 7:59-60",
+     "ref": "ACT.7.59-60",
+     "quote": "Lord, don’t hold this sin against them!",
+     "note": "He asks for their forgiveness while still being hurt.",
+     "when": "c. 36"
+    }
+   },
+   {
+    "name": "John Chrysostom",
+    "lifespan": "c. 347–407",
+    "why": "Chrysostom, archbishop of Constantinople, was removed from his see and exiled through the plotting of the empress Eudoxia and of Theophilus, patriarch of Alexandria. He died in exile.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. John Chrysostom",
+     "when": "404",
+     "year": 404,
+     "butler": "01-27:0",
+     "quote": "The holy man, who received it in the church, said to those about him, \"Come, let us pray, and take leave of the angel of the church.\"",
+     "note": "He received the order of exile by praying, not by raging."
+    }
+   }
+  ]
+ },
+ {
+  "id": "doubt-and-unbelief",
+  "title": "Doubt and unbelief",
+  "ask": "I have doubts and I'm not sure I believe.",
+  "intro": "Doubt is not the same as rejecting faith. Some of the saints who knew most about doubt were not afraid of it. They did not always get answers, but they were honest about what they did not know.",
+  "mentors": [
+   {
+    "name": "Thomas the Apostle",
+    "lifespan": "1st century",
+    "why": "Thomas missed the first appearance of the risen Jesus and said he would not believe unless he could touch the wounds. A week later Jesus came and let him.",
+    "step": {
+     "kind": "scripture",
+     "label": "John 20:26-28",
+     "ref": "JHN.20.26-29",
+     "quote": "Reach here your finger, and see my hands.",
+     "note": "Jesus does not rebuke the demand for evidence; he meets it.",
+     "when": "c. 30"
+    }
+   },
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354–430",
+    "why": "For years Augustine wavered between Manichaeism, skepticism and Christianity. He writes that doubt, and the shame of earlier certainties, gnawed him.",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions VI.4",
+     "when": "397",
+     "year": 397,
+     "work": "aug-confessions",
+     "section": "vii.iv",
+     "quote": "Doubt, then, what to hold for certain, the more sharply gnawed my heart",
+     "note": "He describes doubt as painful and urgent, not a pose."
+    }
+   },
+   {
+    "name": "Thérèse of Lisieux",
+    "lifespan": "1873–1897",
+    "why": "In her last months Thérèse felt as if a wall stood between her and heaven. She says that she went on acting in faith without any consolation.",
+    "step": {
+     "kind": "saint",
+     "label": "Thérèse, Story of a Soul, ch. 9",
+     "when": "1896",
+     "year": 1896,
+     "work": "therese-story-of-a-soul",
+     "section": "xvii",
+     "quote": "He knows that I try to live by Faith, though it does not afford me the least consolation.",
+     "note": "She keeps believing in the absence of any felt assurance."
+    }
+   }
+  ]
+ },
+ {
+  "id": "feeling-far-from-god",
+  "title": "Feeling far from God",
+  "ask": "God feels far away.",
+  "intro": "Many believers go through long dry stretches in which prayer feels like speaking into an empty room. The great teachers of prayer all say it happens, and that it is not proof of failure. What they ask is faithfulness, and often patience.",
+  "mentors": [
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354–430",
+    "why": "Augustine looked for God in everything outside himself for years. When he finally found him, he saw that he had been near all the time.",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions X.27",
+     "when": "397",
+     "year": 397,
+     "work": "aug-confessions",
+     "section": "xi.xxvii",
+     "quote": "Too late loved I Thee, O Thou Beauty of ancient days, yet ever new! too late I loved Thee! And behold, Thou wert within, and I abroad, and there I searched for Thee",
+     "note": "He describes the distance as his, not God's."
+    }
+   },
+   {
+    "name": "Teresa of Avila",
+    "lifespan": "1515–1582",
+    "why": "Teresa endured years of aridity in prayer, and in her Life she says it lasted eighteen years. She advises beginners who feel nothing to keep going.",
+    "step": {
+     "kind": "saint",
+     "label": "Teresa of Avila, Life, ch. 11",
+     "when": "1565",
+     "year": 1565,
+     "work": "teresa-life",
+     "section": "viii.xii",
+     "quote": "let him resolve, if this aridity should last even his whole life long, never to let Christ fall down beneath the Cross.",
+     "note": "She counsels faithfulness through dryness, not forcing feeling."
+    }
+   },
+   {
+    "name": "Francis de Sales",
+    "lifespan": "1567–1622",
+    "why": "De Sales gives practical counsel to people who find meditation dry. He tells them not to be troubled but to keep presenting themselves to God.",
+    "step": {
+     "kind": "saint",
+     "label": "Francis de Sales, Introduction to the Devout Life II.9",
+     "when": "1609",
+     "year": 1609,
+     "work": "desales-devout-life",
+     "section": "iv.ix",
+     "quote": "do not be disturbed at your dryness, however great it be, but continue striving after a devout attitude in God’s Sight.",
+     "note": "Showing up counts, even when nothing is felt."
+    }
+   }
+  ]
+ }
+]

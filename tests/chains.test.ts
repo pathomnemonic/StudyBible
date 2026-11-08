@@ -20,3 +20,8 @@ import { checkTimeline, loadTimeline } from '../scripts/chains/check-timeline';
 describe('church timeline', () => {
   it('events are ordered, inside the map, match the councils, and every quotation is found', () => { expect(checkTimeline(loadTimeline()).slice(0, 20)).toEqual([]); });
 });
+
+import { checkWalks, loadWalks } from '../scripts/chains/check-walks';
+describe('bible walks', () => {
+  it('every stop is a real place with a verified quotation from its passage', () => { expect(checkWalks(loadWalks()).slice(0, 20)).toEqual([]); });
+});

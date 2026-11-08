@@ -1,0 +1,727 @@
+[
+ {
+  "id": "new-parent",
+  "title": "Becoming a parent",
+  "ask": "I just became a parent.",
+  "intro": "Nothing prepares you for it: the joy, the exhaustion, the fear that you will get it wrong. The saints who raised children did it in ordinary houses, some of them in courts and some of them in prison cells. They do not offer a technique, but they show what a parent can give: patient presence, example, and prayer.",
+  "mentors": [
+   {
+    "name": "Monica",
+    "lifespan": "c. 331-387",
+    "why": "Monica raised Augustine, who for years rejected the faith she taught him and lived apart from her. She kept praying, and a bishop she consulted told her not to lose hope.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Monica",
+     "butler": "05-04:0",
+     "quote": "Go : contmue to do as you do ; it is impossible that a child of such tears should perish",
+     "note": "The bishop's advice to a mother who had prayed for years over a wayward son."
+    }
+   },
+   {
+    "name": "Margaret of Scotland",
+    "lifespan": "c. 1045-1093",
+    "why": "Queen Margaret had a large family and treated their upbringing as her first duty, not something to delegate.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Margaret, Queen of Scotland",
+     "butler": "06-10:0",
+     "quote": "No sooner were the young princesses of an age capable of profiting by her example, than she made them her companions in her spiritual exercises and good works.",
+     "note": "Butler stresses that she taught her children by what they saw her do."
+    }
+   },
+   {
+    "name": "Perpetua",
+    "lifespan": "died 203",
+    "why": "Perpetua was twenty-two, married, and nursing her baby when she was arrested at Carthage. Her own account records how much the separation from her infant cost her.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, SS. Perpetua and Felicitas",
+     "butler": "03-07:1",
+     "quote": "I was moreover tortured with concern, for that I had not my infant.",
+     "note": "A young mother's own words from prison; she was relieved when the deacons arranged for her to have the child with her."
+    }
+   }
+  ]
+ },
+ {
+  "id": "a-difficult-marriage-or-divorce",
+  "title": "A difficult marriage",
+  "ask": "My marriage is hard, and I do not know how much more I can take.",
+  "intro": "Some saints were married to people who were hot-tempered, unfaithful or careless with money, and their lives were not tidy. The Church takes marriage seriously, and it also does not ask anyone to pretend that suffering in a marriage is easy or minor. These lives show people who stayed honest and kept praying in a hard house. They are not a rule for every case, and anyone in danger should seek safety and wise counsel.",
+  "mentors": [
+   {
+    "name": "Monica",
+    "lifespan": "c. 331-387",
+    "why": "Monica was married to Patricius, a man Butler describes as generous but hasty and choleric, and she also had a difficult mother-in-law. Butler credits her patience, and not argument in the heat of the moment, with winning both of them over in time.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Monica",
+     "butler": "05-04:0",
+     "quote": "Monica never thwarted him by the least action or word while she saw him in anger ; but when the fit was over and he was calm, she mildly gave him her reasons",
+     "note": "Butler's account of how she handled her husband's temper."
+    }
+   },
+   {
+    "name": "Elizabeth of Portugal",
+    "lifespan": "1271-1336",
+    "why": "Her husband King Denis was unfaithful in his youth. Jealous rumour later led him to banish her from court. She kept on caring for him, and she worked to reconcile him with their rebellious son.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Elizabeth, Queen of Portugal",
+     "butler": "07-08:0",
+     "quote": "she made it her principal study to pay to her husband the most dutiful respect, love, and obedience, and bore his injuries with invincible meekness and patience.",
+     "note": "Butler's summary of her conduct toward a husband who wronged her."
+    }
+   },
+   {
+    "name": "Catherine of Genoa",
+    "lifespan": "1447-1510",
+    "why": "Catherine was married by her father to Julian Adorno, and Butler says his temper and ambitions caused her ten years of grief. She turned to prayer and works of mercy in that time.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Catherine of Genoa",
+     "butler": "09-14:1",
+     "quote": "Her husband, drunk with youth, and giddy with ambition, brought on her a long series of grievous afflictions, which she suffered during ten years",
+     "note": "Butler on the first years of her marriage."
+    }
+   }
+  ]
+ },
+ {
+  "id": "teenager-finding-your-way",
+  "title": "Finding your way as a teenager",
+  "ask": "I am a teenager and I do not know who I am or what I want.",
+  "intro": "Being young is confusing, and the saints went through it too. Some made foolish choices, some were bullied for being serious about God, and some simply wrestled with their own character. They were not born finished.",
+  "mentors": [
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354-430",
+    "why": "At sixteen Augustine joined friends in stealing pears he did not even want. Decades later he used the memory to ask what he was really looking for.",
+    "step": {
+     "kind": "saint",
+     "label": "Augustine, Confessions 2",
+     "work": "aug-confessions",
+     "section": "iii.vi",
+     "quote": "What then did wretched I so love in thee, thou theft of mine, thou deed of darkness, in that sixteenth year of my age?",
+     "note": "Augustine looks back on a teenage prank as a question about desire and belonging."
+    }
+   },
+   {
+    "name": "Stanislaus Kostka",
+    "lifespan": "1550-1568",
+    "why": "As a student in Vienna Stanislaus lived with an older brother who resented his piety. He was treated harshly for taking his faith seriously.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Stanislas Kostka",
+     "butler": "11-13:2",
+     "quote": "looking upon his brother's conduct as a censure of his own, treated him continually with injuries, and often struck and beat him.",
+     "note": "Butler on what his brother did to him at school."
+    }
+   },
+   {
+    "name": "Clare of Assisi",
+    "lifespan": "1194-1253",
+    "why": "Clare came from a wealthy family and was drawn by the preaching of Francis. Butler gives the date she left home as 18 March 1212, the night after Palm Sunday.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Clare",
+     "butler": "08-12:0",
+     "quote": "the evening following it, being the 18th of March, 1212, she made her escape from home, accompanied with another devout young woman, and went a mile out of the town to the Portiuncula, where St. Francis lived with his little community.",
+     "note": "A young woman's decisive night, described by Butler."
+    }
+   },
+   {
+    "name": "Thérèse of Lisieux",
+    "lifespan": "1873-1897",
+    "why": "As a girl Thérèse was so sensitive that tears came easily. She felt stuck, until what she calls a turning on Christmas Day 1886, when she was thirteen.",
+    "step": {
+     "kind": "saint",
+     "label": "Thérèse, Story of a Soul",
+     "work": "therese-story-of-a-soul",
+     "section": "xiii",
+     "quote": "My extreme sensitiveness made me almost unbearable. All arguments were useless. I simply could not correct myself of this miserable fault.",
+     "note": "Her honest description of her own temperament as a teenager."
+    }
+   }
+  ]
+ },
+ {
+  "id": "choosing-a-vocation",
+  "title": "Choosing a vocation",
+  "ask": "What am I supposed to do with my life?",
+  "intro": "Marriage, priesthood, religious life, single life, a trade or a profession: the question is real and the saints asked it too. Some got an answer slowly and some got a surprising one. Their writings ask for honest intentions more than for a sign from heaven.",
+  "mentors": [
+   {
+    "name": "Ignatius of Loyola",
+    "lifespan": "1491-1556",
+    "why": "Ignatius was a wounded soldier who wanted romances to read in bed. They only had lives of Christ and the saints, and that reading began to change him. He later wrote guidance for making life decisions.",
+    "step": {
+     "kind": "saint",
+     "label": "Ignatius, Spiritual Exercises",
+     "work": "ignatius-exercises",
+     "section": "xiii.vii",
+     "quote": "In every good election, as far as depends on us, the eye of our intention ought to be simple, only looking at what we are created for, namely, the praise of God our Lord and the salvation of our soul.",
+     "note": "Ignatius's test for any big choice is where it leads, not whether it is exciting."
+    }
+   },
+   {
+    "name": "Francis de Sales",
+    "lifespan": "1567-1622",
+    "why": "As bishop Francis wrote for lay people and insisted that holiness is not reserved for monasteries.",
+    "step": {
+     "kind": "saint",
+     "label": "Francis de Sales, Introduction to the Devout Life",
+     "work": "desales-devout-life",
+     "section": "iii.iii",
+     "quote": "It is an error, nay more, a very heresy, to seek to banish the devout life from the soldier’s guardroom, the mechanic’s workshop, the prince’s court, or the domestic hearth.",
+     "note": "A reminder that an ordinary calling can be a path to God."
+    }
+   },
+   {
+    "name": "Thérèse of Lisieux",
+    "lifespan": "1873-1897",
+    "why": "Thérèse wanted to be a missionary, a priest, a martyr, and a teacher, and felt none of those fitted her. She wrote that she found her place by reflecting on love.",
+    "step": {
+     "kind": "saint",
+     "label": "Thérèse, Story of a Soul",
+     "work": "therese-story-of-a-soul",
+     "section": "xix",
+     "quote": "O Jesus, my Love, at last I have found my vocation. My vocation is love!",
+     "note": "Her own account of the moment her questions settled."
+    }
+   },
+   {
+    "name": "Francis of Assisi",
+    "lifespan": "1181/82-1226",
+    "why": "Before his calling was clear, Francis was drawn toward the poor and the sick. Butler's account of his meeting with a leper is a turning point in his story.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis of Assisi",
+     "butler": "10-04:0",
+     "quote": "Riding one day in the plains of Assisium, he met a leper whose sores were so loathsome, that at the sight of them he was struck with horror, and suddenly recoiled ; but overcoming himself he alighted",
+     "note": "He did something that frightened him, and that began to change his direction."
+    }
+   }
+  ]
+ },
+ {
+  "id": "starting-over-after-a-big-mistake",
+  "title": "Starting over after a big mistake",
+  "ask": "I made a terrible mistake and I do not know how to begin again.",
+  "intro": "The Church has always honoured people who changed course. Gamblers, soldiers and people who wasted years became saints. They did not erase what they had done, but they began again and let God use the rest of their lives.",
+  "mentors": [
+   {
+    "name": "Camillus de Lellis",
+    "lifespan": "1550-1614",
+    "why": "Camillus was a soldier addicted to cards, to the point of losing necessities. After a Capuchin's exhortation, he repented, and he eventually founded an order to care for the sick.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Camillus de Lellis",
+     "butler": "07-14:1",
+     "quote": "He had contracted so violent a passion for cards and gaming, that he sometimes lost even necessaries.",
+     "note": "Butler is frank about the habit he had to overcome."
+    }
+   },
+   {
+    "name": "Margaret of Cortona",
+    "lifespan": "c. 1247-1297",
+    "why": "Margaret lived in grave sin, then repented. Butler says she went first to her father, then to public penance, and spent the rest of her life as a penitent.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Margaret of Cortona",
+     "butler": "02-22:1",
+     "quote": "The first thing she did was to throw herself at her father's feet, bathed in tears, to beg his pardon for her contempt of his authority and fatherly admonitions.",
+     "note": "Her first step was to face the person she had hurt."
+    }
+   },
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354-430",
+    "why": "Augustine spent years in ambition, an unwed relationship and false teachings before he gave himself to God. He later wrote about how late it came.",
+    "step": {
+     "kind": "saint",
+     "label": "Augustine, Confessions 10",
+     "work": "aug-confessions",
+     "section": "xi.xxvii",
+     "quote": "Too late loved I Thee, O Thou Beauty of ancient days, yet ever new! too late I loved Thee!",
+     "note": "Regret and gratitude together, written years after his conversion."
+    }
+   },
+   {
+    "name": "Ignatius of Loyola",
+    "lifespan": "1491-1556",
+    "why": "Ignatius's military career ended when his leg was shattered at Pamplona. During the long recovery he began reading, and that reading turned him toward a new life.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius of Loyola",
+     "butler": "07-31:0",
+     "quote": "a book of the lives of our Saviour, and of the saints, was brought him. He read them first, only to pass away the time, but afterward began to relish them and to spend whole days in reading them.",
+     "note": "A failure that ended one plan became the start of another."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ambition-and-pride",
+  "title": "Ambition and pride",
+  "ask": "I want to get ahead, and I worry that I am proud.",
+  "intro": "Wanting to do well is not a sin, but the saints noticed how easily it turns into wanting to be admired. Several of them held real power, and their stories show what it takes to hold it lightly.",
+  "mentors": [
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354-430",
+    "why": "As a professor of rhetoric in Milan, Augustine was about to give a speech praising the emperor. He admits he knew it would include lies, and he saw a cheerful beggar on the street.",
+    "step": {
+     "kind": "saint",
+     "label": "Augustine, Confessions 6",
+     "work": "aug-confessions",
+     "section": "vii.vi",
+     "quote": "I was preparing to recite a panegyric of the Emperor, wherein I was to utter many a lie, and lying, was to be applauded by those who knew I lied",
+     "note": "His honest account of what career success was costing him."
+    }
+   },
+   {
+    "name": "Francis Borgia",
+    "lifespan": "1510-1572",
+    "why": "Borgia was a duke and a favourite at the court of Charles V. When he had to identify the dead empress, he began to ask what he was chasing.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis Borgia",
+     "butler": "10-10:0",
+     "quote": "How long shall I pursue and grasp at shadows",
+     "note": "Butler records his prayer after seeing the empress's coffin."
+    }
+   },
+   {
+    "name": "Gregory the Great",
+    "lifespan": "c. 540-604",
+    "why": "Gregory had left a public career for a monastery. When he was elected pope he tried to avoid it, even leaving Rome in a basket, and was found and consecrated.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory the Great",
+     "butler": "03-12:0",
+     "quote": "he prevailed with certain merchants to carry him off disguised, and shut up in a wicker basket.",
+     "note": "Gregory's attempt to flee the papacy."
+    }
+   }
+  ]
+ },
+ {
+  "id": "wealth-and-generosity",
+  "title": "Having money and wanting to give",
+  "ask": "I have more than I need and I am not sure what to do with it.",
+  "intro": "Money is not condemned in the saints' lives, but they treated it as something held for others. Some gave away everything, others kept their duties as rulers and gave from what they had. Their stories are honest that generosity can cost friendships.",
+  "mentors": [
+   {
+    "name": "Paulinus of Nola",
+    "lifespan": "c. 354-431",
+    "why": "Paulinus was a senator, a consul, and married to a rich wife. He sold his estates for the poor, and Butler records that his own family turned against him.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Paulinus of Nola",
+     "butler": "06-22:0",
+     "quote": "The saint sold all his estates, and distributed the price among the poor",
+     "note": "Butler adds that relatives and former friends rejected him for it."
+    }
+   },
+   {
+    "name": "Antony the Abbot",
+    "lifespan": "c. 251-356",
+    "why": "Antony inherited land when about twenty, and one Sunday heard the story of the rich young man. He took it as spoken to him.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Antony, Abbot",
+     "butler": "01-17:0",
+     "quote": "He considered these words as addressed to himself; going home, he made over to his neighbors three hundred aruras",
+     "note": "He gave away the land, kept enough for his sister, and began a new life."
+    }
+   },
+   {
+    "name": "Paula",
+    "lifespan": "347-404",
+    "why": "A Roman noblewoman, Paula spent her money on the needy. Butler says she regarded it as a loss if anyone else gave help in her place.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Paula",
+     "butler": "01-26:1",
+     "quote": "gave every thing to the poor which it was in her power to dispose of. She was careful in inquiring after the necessitous, and deemed it a loss on her side if any other hands than her own administered relief to them.",
+     "note": "She sought out the people who needed help."
+    }
+   },
+   {
+    "name": "Louis IX of France",
+    "lifespan": "1214-1270",
+    "why": "King Louis ran a kingdom and an army. Butler stresses that he lived simply and served the poor in person.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Lewis, King of France",
+     "butler": "08-25:0",
+     "quote": "more particularly towards the poor, often serving them at table, washing their feet, and visiting them in the hospitals.",
+     "note": "A man with power who chose to do the lowest service himself."
+    }
+   }
+  ]
+ },
+ {
+  "id": "poverty-and-need",
+  "title": "Poverty and need",
+  "ask": "I am struggling to make ends meet.",
+  "intro": "The saints do not say that being poor is good in itself. Several of them were poor, hungry or driven out of their homes, and they found work to do, and a way to pray, without pretending that it was easy.",
+  "mentors": [
+   {
+    "name": "Isidore the Farmer",
+    "lifespan": "c. 1070-1130",
+    "why": "Isidore was a day labourer in Madrid, born to poor parents who could not afford schooling for him.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Isidore of Madrid",
+     "butler": "05-10:3",
+     "quote": "He was born at Madrid, of poor but very devout parents, and was christened Isidore from the name of their patron, St. Isidore of Seville.",
+     "note": "Butler stresses that his poverty did not keep him from a rich prayer life."
+    }
+   },
+   {
+    "name": "Elizabeth of Hungary",
+    "lifespan": "1207-1231",
+    "why": "A princess who fed hundreds each day, Elizabeth was driven out of her castle after her husband died. She and her children had to beg shelter.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Elizabeth of Hungary",
+     "butler": "11-19:0",
+     "quote": "Thus she, who had entertained thousands of poor, could find no entertainment or harbor",
+     "note": "Butler on the winter she lost everything."
+    }
+   },
+   {
+    "name": "John of God",
+    "lifespan": "1495-1550",
+    "why": "After a dramatic conversion in Granada, John began selling wood in the market to feed poor people, and then opened a house for the sick.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. John of God",
+     "butler": "03-08:0",
+     "quote": "he began by selling wood in the market-place, to feed some poor by the means of his labor.",
+     "note": "He started with what he had, a day's labour."
+    }
+   }
+  ]
+ },
+ {
+  "id": "imprisonment-or-persecution",
+  "title": "Imprisonment or persecution",
+  "ask": "I am being held, silenced or persecuted.",
+  "intro": "Many saints were chained, exiled or killed for their faith. Their accounts are honest about fear, hunger and cold, and also about a quiet hope that did not depend on being freed.",
+  "mentors": [
+   {
+    "name": "Perpetua",
+    "lifespan": "died 203",
+    "why": "Perpetua was twenty-two and a new mother when she was imprisoned in Carthage. The prison account that bears her name is among the earliest writings attributed to a Christian woman.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, SS. Perpetua and Felicitas",
+     "butler": "03-07:1",
+     "quote": "I was shocked at the horror and darkness of the place; for till then I knew not what such sort of places were.",
+     "note": "Her first reaction to the cell, in her own words."
+    }
+   },
+   {
+    "name": "Ignatius of Antioch",
+    "lifespan": "died c. 107",
+    "why": "Ignatius was condemned in Antioch and taken in chains to Rome. According to Butler, he thanked God for the chains.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius of Antioch",
+     "butler": "02-01:0",
+     "quote": "I thank thee, O Lord, for vouchsafing to honor me with this token of perfect love for thee, and to be bound with chains of iron, in imitation of thy apostle Paul, for thy sake.",
+     "note": "His words on hearing the sentence."
+    }
+   },
+   {
+    "name": "Martin I",
+    "lifespan": "died 655",
+    "why": "Pope Martin was arrested by the emperor, mistreated, and exiled to the Crimea, where there was famine.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Martin I",
+     "butler": "11-12:0",
+     "quote": "St. Martin was more afflicted at the injuries which his benefactors received than at his own sufferings.",
+     "note": "He worried about the people who had been kind to him."
+    }
+   },
+   {
+    "name": "Vincent de Paul",
+    "lifespan": "1581-1660",
+    "why": "Vincent was captured by pirates and sold as a slave in Tunis. He later spent his life serving the poor.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Vincent de Paul",
+     "butler": "07-19:0",
+     "quote": "Then they gave to every slave a pair of loose breeches, a linen jerkin, and a bonnet. In this garb they were led five or six times through the city of Tunis to be shown",
+     "note": "Butler on what the slave market was like."
+    }
+   }
+  ]
+ },
+ {
+  "id": "war-and-violence-around-you",
+  "title": "War and violence around you",
+  "ask": "There is violence near me and I do not know what a Christian should do.",
+  "intro": "The saints answered war differently: some refused to fight, some fought and tried to limit it, and some tried to stop it by talking. Their stories do not agree on every point, but all of them refused to treat violence as normal.",
+  "mentors": [
+   {
+    "name": "Martin of Tours",
+    "lifespan": "c. 316-397",
+    "why": "Martin was a Roman soldier who asked for discharge before a battle. Butler says he offered to stand unarmed in front of the troops instead of fighting.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Martin of Tours",
+     "butler": "11-11:0",
+     "quote": "He therefore begged that his donative might be bestowed on some other person, and asked his dismission, that he might give himself up totally to the service of Christ.",
+     "note": "He chose to leave the army."
+    }
+   },
+   {
+    "name": "Maximilian of Tebessa",
+    "lifespan": "died 295/296",
+    "why": "Maximilian was the son of a soldier. Called up at twenty-one, he refused the mark of army service and was beheaded. Butler gives his reason as the pagan practices of the army.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Maximilian",
+     "butler": "03-12:2",
+     "quote": "His plea was, that in the Roman army superstitions, contrary to the Christian faith, were often practised, with which he could not defile his soul.",
+     "note": "A young man who accepted death rather than serve."
+    }
+   },
+   {
+    "name": "Leo the Great",
+    "lifespan": "c. 400-461",
+    "why": "When Attila marched toward Rome, the city sent Pope Leo to meet him. Butler says Attila received him honourably and agreed to a treaty.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Leo the Great",
+     "butler": "04-11:0",
+     "quote": "in hopes of mollifying his rage, and averting the danger that threatened his country.",
+     "note": "A bishop went unarmed to face an invader."
+    }
+   },
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354-430",
+    "why": "Augustine wrote to a Roman general about how to conduct himself in war.",
+    "step": {
+     "kind": "saint",
+     "label": "Augustine, Letter 189",
+     "work": "aug-letters",
+     "section": "vii.1.CLXXXIX",
+     "quote": "Peace should be the object of your desire; war should be waged only as a necessity, and waged only that God may by it deliver men from the necessity and preserve them in peace.",
+     "note": "The mainstream Christian teaching that war is a grave evil to be limited."
+    }
+   }
+  ]
+ },
+ {
+  "id": "being-a-stranger-or-immigrant",
+  "title": "Being a stranger in a new land",
+  "ask": "I live in a place that is not my own.",
+  "intro": "Many saints were far from home, by capture, by calling, or by choice. They knew loneliness, strange languages and suspicion, and some of them also became important to the places that received them.",
+  "mentors": [
+   {
+    "name": "Patrick",
+    "lifespan": "5th century",
+    "why": "At sixteen Patrick was captured and taken to Ireland, where he herded cattle. He later returned there as a bishop.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Patrick",
+     "butler": "03-17:0",
+     "quote": "They took him into Ireland, where he was obliged to keep cattle on the mountains and in the forests, in hunger and nakedness, amidst snows, rain, and ice.",
+     "note": "Butler on his years as a slave."
+    }
+   },
+   {
+    "name": "Vincent de Paul",
+    "lifespan": "1581-1660",
+    "why": "Vincent was sold as a slave in Tunis, far from France. Butler describes how he and the other captives were paraded and examined.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Vincent de Paul",
+     "butler": "07-19:0",
+     "quote": "as men do at the sale of a horse or an ox. They examined who could eat well, felt their sides, looked at their teeth",
+     "note": "His first days in a foreign land were humiliating."
+    }
+   },
+   {
+    "name": "Columban",
+    "lifespan": "c. 543-615",
+    "why": "Columban left Ireland with twelve companions and settled in Gaul. Butler reports that they were noticed for their gentleness.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Columban",
+     "butler": "11-21:1",
+     "quote": "He was so humble that he always contended with his twelve companions for the lowest place.",
+     "note": "Strangers in a new land, living simply and in peace."
+    }
+   },
+   {
+    "name": "Paula",
+    "lifespan": "347-404",
+    "why": "Paula left Rome, her home, and moved to Bethlehem. Butler quotes her words on first seeing the manger.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Paula",
+     "butler": "01-26:1",
+     "quote": "I, a miserable sinner, am made worthy to kiss the manger, in which my Lord was pleased to be laid an infant babe weeping for me!",
+     "note": "She found her home in a foreign city."
+    }
+   }
+  ]
+ },
+ {
+  "id": "old-age-and-being-forgotten",
+  "title": "Old age and being forgotten",
+  "ask": "I am getting old, and I feel like nobody needs me.",
+  "intro": "Age brings loss of strength, loss of work, and sometimes loss of attention. The saints who lived long did not pretend otherwise. They kept doing what they could and kept praying.",
+  "mentors": [
+   {
+    "name": "Polycarp of Smyrna",
+    "lifespan": "c. 69-155",
+    "why": "Polycarp was a very old man when the proconsul urged him to deny Christ. He spoke of his long years of service.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Polycarp",
+     "butler": "01-26:0",
+     "quote": "I have served him these fourscore and six years, and he never did me any harm, but much good",
+     "note": "A lifetime of faith, summed up in one sentence."
+    }
+   },
+   {
+    "name": "Bede",
+    "lifespan": "c. 673-735",
+    "why": "Bede, in his last days, kept dictating a translation of John's Gospel to his students. He worried that they would not have a correct text.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Bede",
+     "butler": "05-28:3",
+     "quote": "Go on quickly ; I know not how long I shall hold out, and whether my Maker will soon take me away.",
+     "note": "He worked up to the end, calmly."
+    }
+   },
+   {
+    "name": "Gregory of Nazianzus",
+    "lifespan": "c. 329-390",
+    "why": "After years of church politics and slander, Gregory retired to the country near his home. Butler says he was very old and infirm but kept advising the local church.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "butler": "05-09:9",
+     "quote": "spent the remainder of his life in retirement near Arianzum ; still continuing to aid that church with his advice, though at that time very old and infirm.",
+     "note": "He found a quieter way to be useful."
+    }
+   }
+  ]
+ },
+ {
+  "id": "a-hard-boss-or-job-you-dislike",
+  "title": "A hard boss or a job you dislike",
+  "ask": "My boss is difficult and I dread going to work.",
+  "intro": "Most saints did ordinary work. Some had cruel employers, some had jobs they did not like, and they did not find an easy answer, but each found a way to do the work without losing their peace.",
+  "mentors": [
+   {
+    "name": "Brother Lawrence",
+    "lifespan": "1614-1691",
+    "why": "Lawrence was a cook in a monastery. He did not like the kitchen, and by his own account he learned to do his work as an offering.",
+    "step": {
+     "kind": "saint",
+     "label": "Brother Lawrence, Practice of the Presence of God",
+     "work": "lawrence-practice",
+     "section": "iii.ii",
+     "quote": "So, likewise, in his business in the kitchen (to which he had naturally a great aversion), having accustomed himself to do everything there for the love of God, and with prayer, upon all occasions, for His grace to do his work well, he had found everything easy, during the fifteen years that he had been employed there.",
+     "note": "A hated job became bearable when he changed what it was for."
+    }
+   },
+   {
+    "name": "Zita",
+    "lifespan": "c. 1212-1272",
+    "why": "Zita was a household servant in Lucca. For years the family and other servants misjudged and mistreated her. She kept serving faithfully, and in time they came to trust her.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Zita",
+     "butler": "04-27:2",
+     "quote": "So unjustly despised, overburdened, reviled, and often beaten, she never repined nor lost her patience",
+     "note": "Butler on her early years in service."
+    }
+   },
+   {
+    "name": "Isidore the Farmer",
+    "lifespan": "c. 1070-1130",
+    "why": "Isidore was a farm labourer who faced the envy of other workers. Butler says he answered it with kindness.",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Isidore of Madrid",
+     "butler": "05-10:3",
+     "quote": "His patience in bearing all injuries and in overcoming the envy of fellow-servants by cordial kindnesses",
+     "note": "Butler's summary of how he handled workplace resentment."
+    }
+   }
+  ]
+ },
+ {
+  "id": "wanting-to-be-closer-to-god",
+  "title": "Wanting to be closer to God",
+  "ask": "I want to pray and I do not know how to start.",
+  "intro": "The saints who wrote about prayer were beginners too. Several admit they gave it up at times. Their advice is simple: keep at it, trust God, and do not wait until you feel ready.",
+  "mentors": [
+   {
+    "name": "Augustine of Hippo",
+    "lifespan": "354-430",
+    "why": "Augustine is known for a sentence he wrote at the start of the Confessions.",
+    "step": {
+     "kind": "saint",
+     "label": "Augustine, Confessions 1",
+     "work": "aug-confessions",
+     "section": "ii.i",
+     "quote": "Thou madest us for Thyself, and our heart is restless, until it repose in Thee.",
+     "note": "The desire for God is part of being human."
+    }
+   },
+   {
+    "name": "Teresa of Avila",
+    "lifespan": "1515-1582",
+    "why": "Teresa stopped praying for a time because she felt unworthy, and she later said that was a mistake.",
+    "step": {
+     "kind": "saint",
+     "label": "Teresa of Avila, Life",
+     "work": "teresa-life",
+     "section": "viii.ix",
+     "quote": "let him never cease from prayer who has once begun it, be his life ever so wicked; for prayer is the way to amend it, and without prayer such amendment will be much more difficult.",
+     "note": "Her advice, from her own failure, not to give up."
+    }
+   },
+   {
+    "name": "Brother Lawrence",
+    "lifespan": "1614-1691",
+    "why": "Lawrence taught that prayer can be a habit of remembering God in the middle of daily work.",
+    "step": {
+     "kind": "saint",
+     "label": "Brother Lawrence, Practice of the Presence of God",
+     "work": "lawrence-practice",
+     "section": "iv.v",
+     "quote": "Were I a preacher, I should above all other things preach the practice of the presence of God; and were I a director, I should advise all the world to do it: so necessary do I think it, and so easy too.",
+     "note": "A simple practice open to anyone."
+    }
+   },
+   {
+    "name": "Julian of Norwich",
+    "lifespan": "c. 1342-after 1416",
+    "why": "Julian, an anchoress in Norwich, wrote about prayer after a series of visions.",
+    "step": {
+     "kind": "saint",
+     "label": "Julian of Norwich, Revelations of Divine Love",
+     "work": "julian-revelations",
+     "section": "ii.iii",
+     "quote": "Then saw I truly that it is more worship to God, and more very delight, that we faithfully pray to Himself of His Goodness and cleave thereunto by His Grace, with true understanding, and steadfast by love, than if we took all the means that heart can think.",
+     "note": "Prayer does not need to be elaborate."
+    }
+   }
+  ]
+ }
+]

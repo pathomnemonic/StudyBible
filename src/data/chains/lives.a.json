@@ -1,0 +1,1535 @@
+[
+ {
+  "id": "augustine",
+  "name": "Augustine of Hippo",
+  "lifespan": "354-430",
+  "butler": "08-28:0",
+  "sketch": "Augustine was a gifted, restless young teacher who spent years chasing success, pleasure and a philosophy that could not satisfy him. Led by his mother Monica's prayers, by Ambrose in Milan and by Scripture, he was baptized at thirty-two and later became bishop of Hippo in North Africa. His Confessions tell the story of that long, honest search.",
+  "events": [
+   {
+    "year": 354,
+    "text": "Augustine is born on 13 November at Thagaste in North Africa, to a pagan father, Patricius, and a Christian mother, Monica.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Augustine",
+     "when": "354",
+     "year": 354,
+     "butler": "08-28:0",
+     "quote": "in the year 354, at Tagaste, a small town",
+     "note": "Butler dates his birth to 354 at Tagaste in Africa."
+    }
+   },
+   {
+    "year": 370,
+    "text": "At sixteen, idle at home, he joins in stealing pears for no reason except the thrill of it, and later calls this a wound of his own will.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions II",
+     "when": "370",
+     "year": 370,
+     "work": "aug-confessions",
+     "section": "iii.iv",
+     "quote": "I loved to perish, I loved mine own fault, not that for which I was faulty, but my fault itself.",
+     "note": "Augustine looks back on the pear theft as love of wrongdoing for its own sake."
+    }
+   },
+   {
+    "year": 373,
+    "text": "Reading Cicero's Hortensius at nineteen kindles a burning love of wisdom, though the name of Christ is missing from it.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions III",
+     "when": "373",
+     "year": 373,
+     "work": "aug-confessions",
+     "section": "iv.iv",
+     "quote": "But this book altered my affections, and turned my prayers to Thyself O Lord; and made me have other purposes and desires.",
+     "note": "The Hortensius first turns his heart toward the search for truth."
+    }
+   },
+   {
+    "year": 373,
+    "text": "He joins the Manichaeans and spends nine years in a sect that promised reason but could not answer his questions.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions IV",
+     "when": "373",
+     "year": 373,
+     "work": "aug-confessions",
+     "section": "v.i",
+     "quote": "For this space of nine years (from my nineteenth year to my eight-and-twentieth) we lived seduced and seducing, deceived and deceiving, in divers lusts",
+     "note": "He names the nine years of Manichaean error himself."
+    }
+   },
+   {
+    "year": 380,
+    "text": "Emperor Theodosius issues the Edict of Thessalonica, making the Nicene faith the faith of the empire.",
+    "kind": "world"
+   },
+   {
+    "year": 384,
+    "text": "Augustine takes the post of professor of rhetoric in Milan and begins to hear Bishop Ambrose preach.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions V",
+     "when": "384",
+     "year": 384,
+     "work": "aug-confessions",
+     "section": "vi.xiii",
+     "quote": "To Milan I came, to Ambrose the Bishop, known to the whole world as among the best of men",
+     "note": "He meets Ambrose, whose preaching begins to loosen his objections to the Church."
+    }
+   },
+   {
+    "year": 386,
+    "text": "Even as his mind accepts the faith, his will holds back; he prays for chastity, but \"not yet.\"",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions VIII",
+     "when": "386",
+     "year": 386,
+     "work": "aug-confessions",
+     "section": "ix.vii",
+     "quote": "Give me chastity and continency, only not yet.",
+     "note": "He remembers praying this half-hearted prayer."
+    }
+   },
+   {
+    "year": 386,
+    "text": "In a garden in Milan he hears a child's voice chanting \"Take up and read,\" opens Paul's letter, and is converted.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions VIII",
+     "when": "386",
+     "year": 386,
+     "work": "aug-confessions",
+     "section": "ix.xii",
+     "quote": "chanting, and oft repeating, “Take up and read; Take up and read.",
+     "note": "The famous scene in the garden is told in his own words."
+    }
+   },
+   {
+    "year": 387,
+    "text": "Ambrose baptizes Augustine at Easter, together with his friend Alypius and his son Adeodatus.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Augustine",
+     "when": "387",
+     "year": 387,
+     "butler": "08-28:0",
+     "quote": "St. Austin was baptised by St. Ambrose on Easter-eve in 387, together with Alipius and his son Adeodatus",
+     "note": "Butler records the baptism and who was baptized with him."
+    }
+   },
+   {
+    "year": 387,
+    "text": "On the way home to Africa his mother Monica dies at Ostia, after the two of them had shared a vision of eternal life at a window.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions IX",
+     "when": "387",
+     "year": 387,
+     "work": "aug-confessions",
+     "section": "x.viii",
+     "quote": "whitherward being as far as Ostia, my mother departed this life.",
+     "note": "He tells of losing Monica at the port of Ostia."
+    }
+   },
+   {
+    "year": 395,
+    "text": "After years as priest in Hippo he is made bishop, forming his clergy into a community that shares everything.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Augustine",
+     "when": "395",
+     "year": 395,
+     "butler": "08-28:0",
+     "quote": "St. Austin was no sooner consecrated bishop, but being obliged to live with his clergy in the city, he formed them into a regular community",
+     "note": "Butler describes the common life he set up as bishop."
+    }
+   },
+   {
+    "year": 397,
+    "text": "Around these years he begins the Confessions, a prayer addressed to God that opens with his best-known line.",
+    "kind": "writing",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions I",
+     "when": "397",
+     "year": 397,
+     "work": "aug-confessions",
+     "section": "ii.i",
+     "quote": "Thou madest us for Thyself, and our heart is restless, until it repose in Thee.",
+     "note": "The opening of the Confessions names the restlessness of the human heart."
+    }
+   },
+   {
+    "year": 410,
+    "text": "Alaric's Goths sack Rome; refugees reach Africa and Augustine begins to answer pagan charges in the City of God.",
+    "kind": "world"
+   },
+   {
+    "year": 426,
+    "text": "Aged seventy-one he begins the Retractations, reviewing and correcting his own books.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Augustine",
+     "when": "426",
+     "year": 426,
+     "butler": "08-28:0",
+     "quote": "This work of his Retractations he began in the year 426, the seventy-second of his age, reviewing his writings",
+     "note": "Butler notes how he went back over his earlier writings with humility."
+    }
+   },
+   {
+    "year": 429,
+    "text": "Vandals cross from Spain into North Africa.",
+    "kind": "world"
+   },
+   {
+    "year": 430,
+    "text": "The Vandals besiege Hippo; in the third month of the siege Augustine falls ill and dies on 28 August, in his seventy-sixth year.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Augustine",
+     "when": "430",
+     "year": 430,
+     "butler": "08-28:0",
+     "quote": "about the end of May, 430, besieging it by land",
+     "note": "Butler dates the siege of Hippo, during which Augustine died."
+    }
+   }
+  ]
+ },
+ {
+  "id": "monica",
+  "name": "Monica",
+  "lifespan": "332-387",
+  "butler": "05-04:0",
+  "sketch": "Monica was a Christian wife and mother in Tagaste whose husband was hot-tempered and whose eldest son Augustine drifted far from the faith. She answered with patience, tears and persistent prayer, and lived long enough to see him baptized. She died at Ostia on the way home to Africa.",
+  "events": [
+   {
+    "year": 332,
+    "text": "Monica is born in a pious Christian family and taught early to fear God by a strict household servant.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Monica",
+     "when": "332",
+     "year": 332,
+     "butler": "05-04:0",
+     "quote": "She was born in 332, in a pious family, and early instructed in the fear of God.",
+     "note": "Butler dates her birth and describes her upbringing."
+    }
+   },
+   {
+    "year": 337,
+    "text": "Emperor Constantine, who had ended the persecutions, dies.",
+    "kind": "world"
+   },
+   {
+    "year": 354,
+    "text": "Her son Augustine is born at Tagaste; she enrolls him among the catechumens, though his baptism is later put off.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Monica",
+     "when": "354",
+     "year": 354,
+     "butler": "05-04:0",
+     "quote": "In his infancy she had ranked him among the catechumens ; and once in an illness, all things were prepared for his baptism, but it was deferred.",
+     "note": "Butler records that his baptism was prepared and then postponed."
+    }
+   },
+   {
+    "year": 371,
+    "text": "Her husband Patricius, whom she had won by patience and gentleness, is baptized and dies the following year.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Monica",
+     "when": "371",
+     "year": 371,
+     "butler": "05-04:0",
+     "quote": "Patricius died about the year 371.",
+     "note": "Butler dates Patricius's death."
+    }
+   },
+   {
+    "year": 373,
+    "text": "Augustine joins the Manichaeans. Monica grieves more bitterly than for a death and for a time will not let him share her table.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Monica",
+     "when": "373",
+     "year": 373,
+     "butler": "05-04:0",
+     "quote": "in 373, he was seduced by the Manichees, and drawn into that heresy",
+     "note": "Butler dates the beginning of the Manichaean years."
+    }
+   },
+   {
+    "year": 377,
+    "text": "A dream and a bishop's word give her hope: \"Your son is with you,\" and \"a child of such tears\" will not perish.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Monica",
+     "when": "377",
+     "year": 377,
+     "butler": "05-04:0",
+     "quote": "This happened about the end of the year 377",
+     "note": "Butler dates her consoling dream."
+    }
+   },
+   {
+    "year": 380,
+    "text": "The Edict of Thessalonica makes the Nicene faith the religion of the empire.",
+    "kind": "world"
+   },
+   {
+    "year": 383,
+    "text": "Augustine deceives her and sails for Rome while she prays at a chapel by the shore; she wakes to find him gone.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Monica",
+     "when": "383",
+     "year": 383,
+     "butler": "05-04:0",
+     "quote": "But you graciously heard her main desire, namely, that I might be engaged in your service, and refused to grant what she asked then, in order to give what she always asked.",
+     "note": "Augustine saw later that God answered what she truly wanted."
+    }
+   },
+   {
+    "year": 385,
+    "text": "She crosses the sea to follow him to Milan, comforts the sailors in a storm, and hangs on the preaching of Ambrose.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions V",
+     "when": "385",
+     "year": 385,
+     "work": "aug-confessions",
+     "section": "vii.ii",
+     "quote": "she was constant at church",
+     "note": "Augustine remembers her faithfulness at church in Milan."
+    }
+   },
+   {
+    "year": 386,
+    "text": "She sees Augustine converted in the autumn and goes with him to the country house at Cassiciacum.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Monica",
+     "when": "386",
+     "year": 386,
+     "butler": "05-04:0",
+     "quote": "She had the joy to see St. Austin perfectly converted in August, 386.",
+     "note": "Butler records that she lived to see his conversion."
+    }
+   },
+   {
+    "year": 387,
+    "text": "At Ostia, mother and son talk at a window about eternal life; she says there is nothing left for her to do here.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions IX",
+     "when": "387",
+     "year": 387,
+     "work": "aug-confessions",
+     "section": "x.xi",
+     "quote": "when she said, “What do I here any longer?”",
+     "note": "Augustine reports her words in the garden-window conversation."
+    }
+   },
+   {
+    "year": 387,
+    "text": "She falls ill and dies nine days later, asking only to be remembered at the altar of the Lord.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Monica",
+     "when": "387",
+     "year": 387,
+     "butler": "05-04:0",
+     "quote": "Lay this body anywhere ; be not concerned about that.",
+     "note": "Butler preserves her last request to her sons."
+    }
+   }
+  ]
+ },
+ {
+  "id": "jerome",
+  "name": "Jerome",
+  "lifespan": "c. 347-420",
+  "butler": "09-30:0",
+  "sketch": "Jerome was a brilliant, sharp-tongued scholar who loved the classics, was shaken by a conversion and by desert hardship, and gave his life to the Bible. He translated Scripture into Latin from the Hebrew and Greek and settled in Bethlehem, where he worked for decades despite quarrels, illness and violence.",
+  "events": [
+   {
+    "year": 370,
+    "text": "Studying in Trier, the faith of his childhood is reawakened and he resolves to give himself wholly to God.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Jerom",
+     "when": "370",
+     "year": 370,
+     "butler": "09-30:0",
+     "quote": "it was in that city that the sentiments of piety which he imbibed in his infancy, were awakened",
+     "note": "Butler places his conversion at Trier, around 370."
+    }
+   },
+   {
+    "year": 375,
+    "text": "He goes to the Syrian desert near Chalcis, where illness and temptation test him, and he takes up the hard study of Hebrew.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Jerom",
+     "when": "c. 375",
+     "year": 375,
+     "butler": "09-30:0",
+     "quote": "I became a scholar to a monk who had been a Jew, to learn of him the Hebrew alphabet",
+     "note": "Jerome's own account of learning Hebrew as a discipline."
+    }
+   },
+   {
+    "year": 376,
+    "text": "Torn between rival church parties at Antioch, he writes to Pope Damasus for direction in the faith.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Jerome, Letter 15 to Damasus",
+     "when": "376",
+     "year": 376,
+     "work": "jerome-letters",
+     "section": "v.XV",
+     "quote": "I communicate with none but your blessedness, that is with the chair of Peter.",
+     "note": "Jerome appeals to the see of Rome in a time of division."
+    }
+   },
+   {
+    "year": 377,
+    "text": "He is ordained priest at Antioch, on condition that he not be bound to serve any one church.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Jerom",
+     "when": "377",
+     "year": 377,
+     "butler": "09-30:0",
+     "quote": "received from his hands at Antioch the holy order of priesthood before the end of the year 377",
+     "note": "Butler dates his ordination."
+    }
+   },
+   {
+    "year": 380,
+    "text": "Edict of Thessalonica: the Nicene creed becomes the faith of the empire.",
+    "kind": "world"
+   },
+   {
+    "year": 381,
+    "text": "The First Council of Constantinople meets and completes the Nicene Creed.",
+    "kind": "world"
+   },
+   {
+    "year": 384,
+    "text": "In his Letter 22 to the young Eustochium he confesses how he loved Cicero more than the prophets.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Jerome, Letter 22 to Eustochium",
+     "when": "384",
+     "year": 384,
+     "work": "jerome-letters",
+     "section": "v.XXII",
+     "quote": "And so, miserable man that I was, I would fast only that I might afterwards read Cicero.",
+     "note": "Jerome admits that his love of the classics once rivaled his love of Scripture."
+    }
+   },
+   {
+    "year": 385,
+    "text": "After Pope Damasus dies, criticism of his strict advice to Roman ladies drives him from Rome.",
+    "kind": "setback"
+   },
+   {
+    "year": 388,
+    "text": "He settles at Bethlehem, near the cave of the Nativity, and builds a monastery for men with houses for women led by Paula.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Jerom",
+     "when": "388",
+     "year": 388,
+     "butler": "09-30:0",
+     "quote": "St. Jerom coming to settle at Bethlehem in 388",
+     "note": "Butler dates his permanent settlement in Bethlehem."
+    }
+   },
+   {
+    "year": 404,
+    "text": "His friend and patron Paula dies at Bethlehem; he writes her biography in a letter to her daughter Eustochium.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Jerome, Letter 108 to Eustochium",
+     "when": "404",
+     "year": 404,
+     "work": "jerome-letters",
+     "section": "v.CVIII",
+     "quote": "she yet preferred Bethlehem to Rome, and left her palace glittering with gold to dwell in a mud cabin",
+     "note": "Jerome praises Paula's choice of the poor life at Bethlehem."
+    }
+   },
+   {
+    "year": 405,
+    "text": "After about fifteen years of labor he finishes translating the Old Testament from Hebrew, the core of what becomes the Latin Vulgate.",
+    "kind": "work"
+   },
+   {
+    "year": 410,
+    "text": "Alaric sacks Rome; refugees pour into Bethlehem, and Jerome writes that the city that had taken the world was itself taken.",
+    "kind": "world"
+   },
+   {
+    "year": 416,
+    "text": "He writes his Dialogue against the Pelagians, defending the necessity of grace.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Jerom",
+     "when": "416",
+     "year": 416,
+     "butler": "09-30:0",
+     "quote": "I will answer them that I never spared heretics, and have done my utmost endeavours that the enemies of the church should be also my enemies.",
+     "note": "Jerome's own words about his fight against heresy."
+    }
+   },
+   {
+    "year": 417,
+    "text": "Followers of Pelagius attack Bethlehem, burn the monasteries and kill a deacon; Jerome flees to a stronghold.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Jerom",
+     "when": "417",
+     "year": 417,
+     "butler": "09-30:0",
+     "quote": "The heretics set fire to all the monasteries, and reduced them to ashes.",
+     "note": "Butler tells of the violence against his monasteries."
+    }
+   },
+   {
+    "year": 420,
+    "text": "Jerome dies at Bethlehem on 30 September, an old man, still at his translations and letters.",
+    "kind": "turning"
+   }
+  ]
+ },
+ {
+  "id": "francis-of-assisi",
+  "name": "Francis of Assisi",
+  "lifespan": "c. 1181-1226",
+  "butler": "10-04:0",
+  "sketch": "Francis was a cloth merchant's son who wanted to be a knight. War, prison, illness and an encounter with a leper turned him toward poverty and the service of the poor. He founded the Friars Minor, tried again and again to carry the gospel abroad, and watched his order change in ways he did not choose.",
+  "events": [
+   {
+    "year": 1202,
+    "text": "Taken prisoner in a war between Assisi and Perugia, he spends a year in captivity and is later gravely ill.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "c. 1202",
+     "year": 1202,
+     "butler": "10-04:0",
+     "quote": "he, with several others, was carried away prisoner by the Perugians",
+     "note": "Butler records his year in captivity."
+    }
+   },
+   {
+    "year": 1204,
+    "text": "The Fourth Crusade sacks Constantinople.",
+    "kind": "world"
+   },
+   {
+    "year": 1205,
+    "text": "He meets a leper on the plain below Assisi and, overcoming his horror, dismounts and kisses his sores.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "c. 1205",
+     "year": 1205,
+     "butler": "10-04:0",
+     "quote": "he met a leper whose sores were so loathsome, that at the sight of them he was struck with horror, and suddenly recoiled ; but overcoming himself he alighted",
+     "note": "Butler tells the encounter that changed him."
+    }
+   },
+   {
+    "year": 1205,
+    "text": "Praying before the crucifix in the ruined church of San Damiano, he hears: \"Francis, go and repair my house, which thou seest falling.\"",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "c. 1205",
+     "year": 1205,
+     "butler": "10-04:0",
+     "quote": "Francis, go and repair my house, which thou seest falling.",
+     "note": "Butler gives the words he heard at San Damiano."
+    }
+   },
+   {
+    "year": 1206,
+    "text": "His father drags him before the bishop of Assisi; Francis gives back his clothes and his inheritance and says, \"Our Father, who art in heaven.\"",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "1206",
+     "year": 1206,
+     "butler": "10-04:0",
+     "quote": "but now I say with more confidence, Our Father, who art in heaven, in whom I place all my hope and treasure",
+     "note": "Butler gives the words with which he renounced his father's name."
+    }
+   },
+   {
+    "year": 1209,
+    "text": "Bernard of Quintavalle, a respected citizen, is the first to join him; others follow, and the little brotherhood takes shape.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "1209",
+     "year": 1209,
+     "butler": "10-04:0",
+     "quote": "The first of these was Bernard of Quintaval, a rich tradesman of Assisium",
+     "note": "Butler names his first companion."
+    }
+   },
+   {
+    "year": 1210,
+    "text": "Pope Innocent III, hesitant at first, approves the brothers' simple rule by word of mouth.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "1210",
+     "year": 1210,
+     "butler": "10-04:0",
+     "quote": "approved his rule, but only by word of mouth, in 1210",
+     "note": "Butler dates the verbal approval of the rule."
+    }
+   },
+   {
+    "year": 1212,
+    "text": "Clare of Assisi receives the habit from him and begins the Poor Clares.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "1212",
+     "year": 1212,
+     "butler": "10-04:1",
+     "quote": "In 1212 he gave his habit to St. Clare, who. under his direction, founded the institute of holy virgins",
+     "note": "Butler dates Clare's religious profession."
+    }
+   },
+   {
+    "year": 1214,
+    "text": "He sets out for Morocco hoping to preach to the Muslim ruler, but illness stops him in Spain and he turns back.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "1214",
+     "year": 1214,
+     "butler": "10-04:1",
+     "quote": "it pleased God that in Spain he was detained by a grievous fit of sickness",
+     "note": "Butler records the failed mission to Morocco."
+    }
+   },
+   {
+    "year": 1215,
+    "text": "The Fourth Lateran Council meets and Magna Carta is sealed in England.",
+    "kind": "world"
+   },
+   {
+    "year": 1219,
+    "text": "He sails to the East and, during the Fifth Crusade, goes to meet the Sultan of Egypt, hoping to preach peace and Christ.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "1219",
+     "year": 1219,
+     "butler": "10-04:1",
+     "quote": "in 1219 set sail with B. Illuminatus of Reate, and other companions, from Ancona",
+     "note": "Butler dates his journey east."
+    }
+   },
+   {
+    "year": 1220,
+    "text": "On his return he finds the order divided and a vicar, Elias, introducing mitigations he never intended.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "1220",
+     "year": 1220,
+     "butler": "10-04:1",
+     "quote": "he had the affliction to find that Elias, whom he had left vicar-general of his order, had introduced several novelties and mitigations",
+     "note": "Butler records the strain within the order."
+    }
+   },
+   {
+    "year": 1224,
+    "text": "On Mount La Verna, in prayer, he receives the wounds of Christ in his hands and feet.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "1224",
+     "year": 1224,
+     "butler": "10-04:1",
+     "quote": "these miraculous wounds were seen by several during the two years which he survived, from 1224 to 1226",
+     "note": "Butler dates the stigmata and notes that others saw them."
+    }
+   },
+   {
+    "year": 1225,
+    "text": "Nearly blind and in pain, he composes the Canticle of the Creatures, praising God for sun, moon, fire and water.",
+    "kind": "writing"
+   },
+   {
+    "year": 1226,
+    "text": "Francis dies at the Portiuncula on 3 October; in his last sickness he tells the brothers to begin again.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Francis",
+     "when": "1226",
+     "year": 1226,
+     "butler": "10-04:1",
+     "quote": "Let us begin to serve the Lord our God; for hitherto we have made very little progress.",
+     "note": "Butler preserves his words in his last illness."
+    }
+   },
+   {
+    "year": 1228,
+    "text": "Pope Gregory IX canonizes him, only two years after his death.",
+    "kind": "turning"
+   }
+  ]
+ },
+ {
+  "id": "teresa-of-avila",
+  "name": "Teresa of Avila",
+  "lifespan": "1515-1582",
+  "butler": "10-15:0",
+  "sketch": "Teresa was a charming, talented young Spanish nun who spent almost twenty years in lukewarm prayer, ill health and distraction. A deeper conversion brought her into intense prayer and then into reforming the Carmelites against fierce opposition. She wrote the Life and the Interior Castle in obedience to her confessors.",
+  "events": [
+   {
+    "year": 1515,
+    "text": "Teresa de Ahumada is born in Avila on 28 March and baptized on 4 April.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Teresa, Life (Prologue note)",
+     "when": "1515",
+     "year": 1515,
+     "work": "teresa-life",
+     "section": "viii.ii",
+     "quote": "The Saint was born March 28, 1515, and baptized on the 4th of April",
+     "note": "The edition's note gives her birth and baptism."
+    }
+   },
+   {
+    "year": 1522,
+    "text": "At seven she sets out with her brother Rodrigo to be martyred among the Moors but is brought back by an uncle.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Teresa",
+     "when": "1522",
+     "year": 1522,
+     "butler": "10-15:0",
+     "quote": "they were met by an uncle, and brought back to their mother",
+     "note": "Butler tells of the childhood runaway."
+    }
+   },
+   {
+    "year": 1535,
+    "text": "She enters the Carmelite convent of the Incarnation in Avila, leaving her father's house against his wishes.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Teresa",
+     "when": "1535",
+     "year": 1535,
+     "butler": "10-15:0",
+     "quote": "went privately to the convent of the Incarnation of the Carmelite nuns without the walls of Avila",
+     "note": "Butler describes her entry into the Incarnation."
+    }
+   },
+   {
+    "year": 1536,
+    "text": "A grave illness and paralysis leave her crippled for nearly three years.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Teresa, Life 6 (note)",
+     "when": "1536",
+     "year": 1536,
+     "work": "teresa-life",
+     "section": "viii.vii",
+     "quote": "She had been seized with paralysis there, and laboured under it nearly three years, from 1536 to 1539",
+     "note": "The edition's note dates her paralysis and cure."
+    }
+   },
+   {
+    "year": 1545,
+    "text": "The Council of Trent opens; it will close in 1563.",
+    "kind": "world"
+   },
+   {
+    "year": 1554,
+    "text": "After years of being drawn between prayer and worldly conversation she describes living on \"a stormy sea, falling and rising.\"",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Teresa, Life 8",
+     "when": "by 1554",
+     "year": 1554,
+     "work": "teresa-life",
+     "section": "viii.ix",
+     "quote": "I passed nearly twenty years on this stormy sea, falling and rising",
+     "note": "She describes her long period of unsteadiness in prayer."
+    }
+   },
+   {
+    "year": 1554,
+    "text": "Before a statue of the wounded Christ, she throws herself on the ground in tears and begs for strength; around this time she also reads the Confessions of Augustine.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Teresa, Life 9",
+     "when": "c. 1554",
+     "year": 1554,
+     "work": "teresa-life",
+     "section": "viii.x",
+     "quote": "It was a representation of Christ most grievously wounded",
+     "note": "Her conversion scene before the wounded Christ."
+    }
+   },
+   {
+    "year": 1559,
+    "text": "She has the vision of an angel with a golden spear that pierces her heart, and meets suspicion from confessors and friends.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Teresa, Life 29",
+     "when": "c. 1559",
+     "year": 1559,
+     "work": "teresa-life",
+     "section": "viii.xxx",
+     "quote": "I saw in his hand a long spear of gold, and at the iron's point there seemed to be a little fire.",
+     "note": "The transverberation as she describes it."
+    }
+   },
+   {
+    "year": 1562,
+    "text": "She founds the small convent of St. Joseph in Avila, the first house of the Discalced reform, and finishes the first version of her Life.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Teresa",
+     "when": "1562",
+     "year": 1562,
+     "butler": "10-15:0",
+     "quote": "towards he end of the year 1562 the bishop prevailed with the provincial to send Teresa to this new convent",
+     "note": "Butler describes her move to the new convent."
+    }
+   },
+   {
+    "year": 1563,
+    "text": "The Council of Trent closes, having called for reform of religious life.",
+    "kind": "world"
+   },
+   {
+    "year": 1567,
+    "text": "She founds a second convent at Medina del Campo and there meets John of the Cross.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Teresa",
+     "when": "1567",
+     "year": 1567,
+     "butler": "10-15:0",
+     "quote": "In August, 1567, St. Teresa went to Medina del Campo",
+     "note": "Butler dates the second foundation."
+    }
+   },
+   {
+    "year": 1568,
+    "text": "With John of the Cross she opens the first house of reformed friars at Duruelo.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Teresa",
+     "when": "1568",
+     "year": 1568,
+     "butler": "10-15:0",
+     "quote": "she founded a convent for religious men at a poor village called Durvelo, in 1568",
+     "note": "Butler dates the Duruelo foundation."
+    }
+   },
+   {
+    "year": 1577,
+    "text": "In a few weeks, between June and November, she writes the Interior Castle at her confessor's command.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Teresa, Interior Castle",
+     "when": "1577",
+     "year": 1577,
+     "work": "teresa-castle",
+     "section": "v.i",
+     "quote": "I thought of the soul as resembling a castle, formed of a single diamond or a very transparent crystal, and containing many rooms",
+     "note": "Her image for the soul and its journey to God."
+    }
+   },
+   {
+    "year": 1582,
+    "text": "The Gregorian calendar begins: Thursday 4 October is followed by Friday 15 October.",
+    "kind": "world"
+   },
+   {
+    "year": 1582,
+    "text": "Teresa dies at Alba de Tormes during the night of 4-15 October, having kept instructing her sisters to the end.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Teresa",
+     "when": "1582",
+     "year": 1582,
+     "butler": "10-15:0",
+     "quote": "She gave every day many wholesome instructions to her nuns, with greater energy and tenderness than usual.",
+     "note": "Butler describes her last days."
+    }
+   }
+  ]
+ },
+ {
+  "id": "therese-of-lisieux",
+  "name": "Thérèse of Lisieux",
+  "lifespan": "1873-1897",
+  "sketch": "Thérèse was a sensitive, strong-willed girl from Normandy who lost her mother young, was healed of a deep fragility at fourteen, and entered Carmel at fifteen. She lived a hidden life, suffering long dryness and doubt and then illness. She wrote Story of a Soul in obedience to her prioress, and died at twenty-four.",
+  "events": [
+   {
+    "year": 1873,
+    "text": "Thérèse is born in Alençon on 2 January, the ninth child of Louis and Zélie Martin.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul, Prologue",
+     "when": "1873",
+     "year": 1873,
+     "work": "therese-story-of-a-soul",
+     "section": "vii",
+     "quote": "it was, however, in mid-winter, January 2, 1873, that this ninth child of Louis Martin and Zélie Guérin was born.",
+     "note": "The editor's prologue records her birth."
+    }
+   },
+   {
+    "year": 1877,
+    "text": "Her mother dies of cancer when Thérèse is four, and the cheerful child becomes shy and easily hurt.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul 2",
+     "when": "1877",
+     "year": 1877,
+     "work": "therese-story-of-a-soul",
+     "section": "x",
+     "quote": "My dear Mother died on August 28, 1877, in her forty-sixth year.",
+     "note": "She dates the loss that began the saddest period of her life."
+    }
+   },
+   {
+    "year": 1886,
+    "text": "On Christmas night, at thirteen, she is suddenly freed from her tears and over-sensitivity, which she calls her conversion.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul 5",
+     "when": "1886",
+     "year": 1886,
+     "work": "therese-story-of-a-soul",
+     "section": "xiii",
+     "quote": "God worked this long-desired miracle on Christmas Day, 1886.",
+     "note": "She marks Christmas 1886 as the day her strength of character came."
+    }
+   },
+   {
+    "year": 1887,
+    "text": "Barred by her age from entering Carmel, she kneels before Pope Leo XIII on pilgrimage and asks to be admitted; he answers only, \"You will enter if it is God's will.\"",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul 6",
+     "when": "1887",
+     "year": 1887,
+     "work": "therese-story-of-a-soul",
+     "section": "xiv",
+     "quote": "Well, well! You will enter if it is God's Will.",
+     "note": "The pope's answer, which seemed to refuse her."
+    }
+   },
+   {
+    "year": 1888,
+    "text": "At fifteen she enters the Carmel of Lisieux on 9 April.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul 7",
+     "when": "1888",
+     "year": 1888,
+     "work": "therese-story-of-a-soul",
+     "section": "xv",
+     "quote": "Monday, April 9, 1888, being the Feast of the Annunciation, transferred from Passiontide, was the day chosen for me to enter the Carmel.",
+     "note": "She names the day of her entrance."
+    }
+   },
+   {
+    "year": 1889,
+    "text": "The Eiffel Tower opens for the Paris World's Fair.",
+    "kind": "world"
+   },
+   {
+    "year": 1890,
+    "text": "She makes her profession on 8 September after a retreat of utter dryness.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul 8",
+     "when": "1890",
+     "year": 1890,
+     "work": "therese-story-of-a-soul",
+     "section": "xvi",
+     "quote": "It was the Nativity of Mary. What a beautiful feast on which to become the Spouse of Jesus!",
+     "note": "She recalls her profession day with joy after a dry retreat."
+    }
+   },
+   {
+    "year": 1891,
+    "text": "Pope Leo XIII issues Rerum Novarum on the dignity of workers.",
+    "kind": "world"
+   },
+   {
+    "year": 1894,
+    "text": "Her father, paralysed for two years, dies on 29 July; her sister Céline soon joins her in Carmel.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul 8",
+     "when": "1894",
+     "year": 1894,
+     "work": "therese-story-of-a-soul",
+     "section": "xvi",
+     "quote": "On July 29, 1894, God called my saintly and much-tried Father to Himself.",
+     "note": "She records her father's death."
+    }
+   },
+   {
+    "year": 1894,
+    "text": "Alfred Dreyfus is arrested in France, beginning a divisive public affair.",
+    "kind": "world"
+   },
+   {
+    "year": 1895,
+    "text": "She offers herself to God's merciful love instead of to his justice alone, a prayer that shapes her \"little way.\"",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul 8",
+     "when": "1895",
+     "year": 1895,
+     "work": "therese-story-of-a-soul",
+     "section": "xvi",
+     "quote": "shall Thy Justice alone receive victims of holocaust? Has not Thy Merciful Love also need thereof?",
+     "note": "Her prayer of offering to merciful love."
+    }
+   },
+   {
+    "year": 1896,
+    "text": "In the early hours of Good Friday she coughs blood, the first sign of tuberculosis, and welcomes it as a call.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul 9",
+     "when": "1896",
+     "year": 1896,
+     "work": "therese-story-of-a-soul",
+     "section": "xvii",
+     "quote": "Scarcely was my head laid on the pillow when I felt a hot stream rise to my lips.",
+     "note": "She narrates the first hemorrhage."
+    }
+   },
+   {
+    "year": 1896,
+    "text": "Soon after, a long trial of faith begins; she writes of living as in a land of thick fog, hearing of the sun she cannot see.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul 9",
+     "when": "1896",
+     "year": 1896,
+     "work": "therese-story-of-a-soul",
+     "section": "xvii",
+     "quote": "Let me suppose that I had been born in a land of thick fogs",
+     "note": "She uses this image for her darkness of faith."
+    }
+   },
+   {
+    "year": 1896,
+    "text": "In a letter written in September she describes finding her vocation: \"in the heart of the Church, my Mother, I will be Love.\"",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul 11",
+     "when": "1896",
+     "year": 1896,
+     "work": "therese-story-of-a-soul",
+     "section": "xix",
+     "quote": "in the heart of the Church, my Mother, I will be LOVE!",
+     "note": "She names her vocation."
+    }
+   },
+   {
+    "year": 1897,
+    "text": "After months of increasing pain she dies on 30 September, aged twenty-four.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Story of a Soul, Epilogue",
+     "when": "1897",
+     "year": 1897,
+     "work": "therese-story-of-a-soul",
+     "section": "xx",
+     "quote": "From August 16 to September 30, the happy day of her death, she was unable to receive Holy Communion, because of her continual sickness.",
+     "note": "The epilogue describes her last weeks."
+    }
+   },
+   {
+    "year": 1898,
+    "text": "Story of a Soul, edited from her manuscripts, is published and quickly read around the world.",
+    "kind": "writing"
+   }
+  ]
+ },
+ {
+  "id": "ignatius-of-loyola",
+  "name": "Ignatius of Loyola",
+  "lifespan": "1491-1556",
+  "butler": "07-31:0",
+  "sketch": "Ignatius was a proud Basque soldier whose leg was shattered at Pamplona. While recovering he read the lives of the saints and began to change. He went through scruples, imprisonment and poverty, studied late in life at Paris, and with a few friends founded the Society of Jesus. His Spiritual Exercises are the lasting fruit.",
+  "events": [
+   {
+    "year": 1491,
+    "text": "Born in the castle of Loyola in the Basque country, the youngest of a large noble family.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius",
+     "when": "1491",
+     "year": 1491,
+     "butler": "07-31:0",
+     "quote": "St. Ignatius was born in 1491, in the castle of Loyola, in Guipuscoa",
+     "note": "Butler dates his birth at Loyola."
+    }
+   },
+   {
+    "year": 1517,
+    "text": "Martin Luther posts his Ninety-five Theses.",
+    "kind": "world"
+   },
+   {
+    "year": 1521,
+    "text": "A cannonball wound at Pamplona brings him to Loyola, where reading the lives of the saints begins to change his heart.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius",
+     "when": "1521",
+     "year": 1521,
+     "butler": "07-31:0",
+     "quote": "returning to the lives of the saints, he perceived in his own heart the emptiness of all worldly glory, and that only God could content the soul",
+     "note": "Butler describes the turn that began during his recovery."
+    }
+   },
+   {
+    "year": 1522,
+    "text": "He keeps a vigil at Montserrat on the feast of the Annunciation, leaves his sword and begins life as a pilgrim.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius",
+     "when": "1522",
+     "year": 1522,
+     "butler": "07-31:0",
+     "quote": "He received the blessed eucharist early in the morning on the feast of the Annunciation of our Lady in 1522",
+     "note": "Butler dates his Montserrat vigil."
+    }
+   },
+   {
+    "year": 1522,
+    "text": "At Manresa he is overwhelmed by scruples and sadness, finding no comfort in prayer, fasting or the sacraments, and writes the first notes of the Spiritual Exercises.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius",
+     "when": "1522",
+     "year": 1522,
+     "butler": "07-31:0",
+     "quote": "he was here visited with the most terrible trial of fears and scruples",
+     "note": "Butler records the dark period at Manresa."
+    }
+   },
+   {
+    "year": 1523,
+    "text": "In Jerusalem he hopes to stay and serve, but the Franciscan provincial orders him to leave the Holy Land.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius",
+     "when": "1523",
+     "year": 1523,
+     "butler": "07-31:0",
+     "quote": "on the last day of August, 1523, forty days after he had left Venice",
+     "note": "Butler dates his arrival at Jaffa."
+    }
+   },
+   {
+    "year": 1527,
+    "text": "At Salamanca, suspected of dangerous teaching, he is held in prison for twenty-two days before being cleared.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius",
+     "when": "c. 1527",
+     "year": 1527,
+     "butler": "07-31:0",
+     "quote": "the grand-vicar of Salamanca imprisoned him; but, after two-and-twenty days, declared him innocent",
+     "note": "Butler tells of his imprisonment and acquittal."
+    }
+   },
+   {
+    "year": 1527,
+    "text": "Imperial troops sack Rome.",
+    "kind": "world"
+   },
+   {
+    "year": 1528,
+    "text": "At thirty-six he begins formal studies at the University of Paris, begging his way through.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius",
+     "when": "1528",
+     "year": 1528,
+     "butler": "07-31:0",
+     "quote": "arrived in the beginning of February, 1528",
+     "note": "Butler dates his arrival in Paris."
+    }
+   },
+   {
+    "year": 1534,
+    "text": "On the Assumption, Ignatius and six companions, including Francis Xavier, take vows together at Montmartre.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius",
+     "when": "1534",
+     "year": 1534,
+     "butler": "07-31:0",
+     "quote": "pronounced this vow aloud, in the holy subterraneous chapel at Montmartre",
+     "note": "Butler describes the vow of the first companions."
+    }
+   },
+   {
+    "year": 1540,
+    "text": "Pope Paul III approves the Society of Jesus.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius",
+     "when": "1540",
+     "year": 1540,
+     "butler": "07-31:0",
+     "quote": "pope Paul III. approved it under the title of “The Society of Jesus,” by a bull, dated the 27th of September, 1540",
+     "note": "Butler dates the papal approval."
+    }
+   },
+   {
+    "year": 1541,
+    "text": "Reluctantly elected the first Superior General, he begins to write the Constitutions.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius",
+     "when": "1541",
+     "year": 1541,
+     "butler": "07-31:0",
+     "quote": "He entered upon his office on Easter-day, 1541",
+     "note": "Butler dates his entry upon office."
+    }
+   },
+   {
+    "year": 1545,
+    "text": "The Council of Trent opens.",
+    "kind": "world"
+   },
+   {
+    "year": 1548,
+    "text": "The Spiritual Exercises are printed and approved by Pope Paul III; the book begins with the principle that we are created to praise, reverence and serve God.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Spiritual Exercises, Principle and Foundation",
+     "when": "1548",
+     "year": 1548,
+     "work": "ignatius-exercises",
+     "section": "xii.i",
+     "quote": "Man is created to praise, reverence, and serve God our Lord, and by this means to save his soul.",
+     "note": "The opening principle of the Exercises."
+    }
+   },
+   {
+    "year": 1556,
+    "text": "Ignatius dies in Rome on 31 July after fifteen years as General, leaving a Society of about a thousand men.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ignatius",
+     "when": "1556",
+     "year": 1556,
+     "butler": "07-31:0",
+     "quote": "St. Ignatius was general of the Society fifteen years, three months, and nine days",
+     "note": "Butler records the length of his generalate."
+    }
+   }
+  ]
+ },
+ {
+  "id": "catherine-of-siena",
+  "name": "Catherine of Siena",
+  "lifespan": "1347-1380",
+  "butler": "04-30:0",
+  "sketch": "Catherine was a dyer's daughter in Siena who gave herself to prayer as a child and became a Dominican tertiary. Her service to the poor and sick and her counsel to rulers drew crowds, and she was misjudged and slandered along the way. She worked for peace between Florence and the pope and for the pope's return to Rome, and she dictated the Dialogue.",
+  "events": [
+   {
+    "year": 1347,
+    "text": "Catherine Benincasa is born in Siena, the youngest of many children of a dyer.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Catharine",
+     "when": "1347",
+     "year": 1347,
+     "butler": "04-30:0",
+     "quote": "St. Catharine was born at Sienna, in 1347.",
+     "note": "Butler dates her birth."
+    }
+   },
+   {
+    "year": 1348,
+    "text": "The Black Death sweeps through Italy and Europe.",
+    "kind": "world"
+   },
+   {
+    "year": 1359,
+    "text": "At twelve her parents press her toward marriage, take away her cell and burden her with housework; she keeps a \"cell in the heart.\"",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Catharine",
+     "when": "c. 1359",
+     "year": 1359,
+     "butler": "04-30:0",
+     "quote": "At twelve years of age, her parents thought of",
+     "note": "Butler tells of her parents' plan and her resistance."
+    }
+   },
+   {
+    "year": 1365,
+    "text": "She receives the habit of the Dominican third order, but she endures years of dark temptations alone with God.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Catharine",
+     "when": "1365",
+     "year": 1365,
+     "butler": "04-30:0",
+     "quote": "she received the habit of the third Order of St. Dominic",
+     "note": "Butler dates her habit."
+    }
+   },
+   {
+    "year": 1374,
+    "text": "During the plague she nurses the sick, among them two Dominicans, and her fame spreads.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Catharine",
+     "when": "1374",
+     "year": 1374,
+     "butler": "04-30:0",
+     "quote": "A pestilence laying waste the country in 1 374, Catharine devoted herself to serve the infected",
+     "note": "Butler records her service in the plague."
+    }
+   },
+   {
+    "year": 1375,
+    "text": "Florence and other cities rebel against the pope; Catherine, in Pisa, begins her letters urging peace.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Catharine",
+     "when": "1375",
+     "year": 1375,
+     "butler": "04-30:0",
+     "quote": "Whilst she was at Pisa, in 1375",
+     "note": "Butler dates the rising of the league against the Holy See."
+    }
+   },
+   {
+    "year": 1376,
+    "text": "She goes to the pope at Avignon, on behalf of Florence, and urges him to return to Rome.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Catharine",
+     "when": "1376",
+     "year": 1376,
+     "butler": "04-30:0",
+     "quote": "The saint arrived at Avignon on the 18th of June, 1376",
+     "note": "Butler dates her arrival at Avignon."
+    }
+   },
+   {
+    "year": 1376,
+    "text": "The Florentine envoys arrive late and speak insolently; the peace she was commissioned to bring is deferred.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Catharine",
+     "when": "1376",
+     "year": 1376,
+     "butler": "04-30:0",
+     "quote": "But the Florentines sought not peace sincerely",
+     "note": "Butler notes the failure of the first mission."
+    }
+   },
+   {
+    "year": 1377,
+    "text": "Pope Gregory XI returns the papacy from Avignon to Rome.",
+    "kind": "world"
+   },
+   {
+    "year": 1377,
+    "text": "She dictates the Dialogue, using the image of Christ as a bridge across the river of this life.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Catherine, Dialogue (on the Bridge)",
+     "when": "c. 1377-78",
+     "year": 1377,
+     "work": "catherine-dialogue",
+     "section": "iv.iii.vii",
+     "quote": "I have made a Bridge of My Word, of My only-begotten Son",
+     "note": "God the Father speaks of the Bridge of Christ in the Dialogue."
+    }
+   },
+   {
+    "year": 1378,
+    "text": "Gregory XI dies and the Great Western Schism begins with rival popes at Rome and Avignon.",
+    "kind": "world"
+   },
+   {
+    "year": 1378,
+    "text": "She finally helps broker peace with Florence, then writes to cardinals and princes begging them to support Urban VI and end the schism.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Catharine",
+     "when": "1378",
+     "year": 1378,
+     "butler": "04-30:0",
+     "quote": "This memorable reconciliation was effected in 1378",
+     "note": "Butler dates the reconciliation with Florence."
+    }
+   },
+   {
+    "year": 1380,
+    "text": "Worn out by illness and anxiety for the Church, she dies in Rome on 29 April at thirty-three.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Catharine",
+     "when": "1380",
+     "year": 1380,
+     "butler": "04-30:0",
+     "quote": "she died at Rome on the 29th of April, in 1380, being thirty-three years old",
+     "note": "Butler records the date and age."
+    }
+   },
+   {
+    "year": 1461,
+    "text": "Pope Pius II canonizes her.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Catharine",
+     "when": "1461",
+     "year": 1461,
+     "butler": "04-30:0",
+     "quote": "She was canonized by Pope Pius II. in 1461.",
+     "note": "Butler dates the canonization."
+    }
+   },
+   {
+    "year": 1970,
+    "text": "Pope Paul VI names her a Doctor of the Church on 4 October.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Dialogue, front matter",
+     "when": "1970",
+     "year": 1970,
+     "work": "catherine-dialogue",
+     "section": "i",
+     "quote": "declared a Doctor of the Church on October 4, 1970",
+     "note": "The edition notes her declaration as Doctor of the Church."
+    }
+   }
+  ]
+ }
+]

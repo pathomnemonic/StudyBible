@@ -46,7 +46,7 @@ export default function ZoomPage() {
         <p className="lede">Pick a teaching and zoom: one sentence, a paragraph, a page, the sources behind it, then where to read on.</p>
         <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a teaching" aria-label="Find a teaching" />
         <ul className="list chain-list">{list.map((x) => <li key={x.term}><Link className="t" to={`/study/zoom/${slug(x.term)}`}>{x.term}</Link><p className="muted small" style={{ margin: '2px 0 0' }}>{sentences(x.definition, 1)}</p></li>)}</ul>
-        {term && <p className="callout">We couldn’t find “{term}”. Pick one above.</p>}
+        {term && <p className="callout">We couldn’t find “{term}”. Pick a teaching from the list.</p>}
       </div>
     );
   }
@@ -76,7 +76,7 @@ export default function ZoomPage() {
       {level >= 4 && <section className="card" aria-label="The sources">
         <h2 className="chain-h2" style={{ marginTop: 0 }}>The sources behind it</h2>
         {chains.length > 0 ? <ul className="list">{chains.map((c) => <li key={c.mode + c.id}><Link to={`${MODES[c.mode].path}/${c.id}`}>{c.title}</Link> <span className="muted small">· {MODES[c.mode].title}</span><p className="muted small" style={{ margin: '2px 0 0' }}>{c.summary}</p></li>)}</ul>
-          : <p className="muted">No source chain for this teaching yet. See the Catechism’s own footnotes below.</p>}
+          : <p className="muted">No source chain for this teaching yet. The Catechism’s own footnotes are listed with these paragraphs.</p>}
         {around.some((p) => p.fn?.length) && <details><summary>Footnotes in these paragraphs</summary><ul className="small">{around.flatMap((p) => p.fn ?? []).slice(0, 12).map((f) => <li key={f.id}>{f.t}</li>)}</ul></details>}
       </section>}
       {level >= 5 && <section className="card" aria-label="Go deeper">
