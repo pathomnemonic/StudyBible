@@ -205,8 +205,9 @@ export function PlayPage() {
   if (!v) return <div className="page"><p className="muted" aria-busy="true">Connecting…</p><p><ConnChip state={state} link={link} /></p><p className="muted small">If this stays here, your host may have closed the game. <Link to="/join">Join again</Link></p></div>;
   const me = v.me;
   const q = v.question;
-  const send = async (value: unknown) => { setSent(true); try { await link!.answer(value); } catch { setSent(false); } };
-  const answered = sent || me?.answered;
+  // in Who Am I? a wrong guess is not final, so the host's word on whether the answer is locked in is the only one that counts
+  const send = async (value: unknown) => { if (!q?.clues) setSent(true); try { await link!.answer(value); setText(''); } catch { setSent(false); } };
+  const answered = (q?.clues ? false : sent) || me?.answered;
   const toggle = (i: number) => setSel((s) => (q?.type === 'order' ? (s.includes(i) ? s.filter((x) => x !== i) : [...s, i]) : s.includes(i) ? s.filter((x) => x !== i) : [...s, i]));
   return (
     <div className="page live-play" aria-live="polite">

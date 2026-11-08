@@ -19,6 +19,16 @@ export interface TextSource {
   heading: string;
   /** How many consecutive non-blank lines after the heading line (past any blank lines) also belong to the title (default 1; 0 for none). */
   titleLines?: number;
+  /** Regex: heading lines matching this (and `heading`) take no title lines after them, whatever `titleLines` says (e.g. "PREFACE." followed directly by text). */
+  bareHeading?: string;
+  /** For `groupHeading` lines whose subtitle is on the next non-blank line(s): how many consecutive non-blank lines to join (with spaces) into the group title (the subtitle is case-corrected if all capitals). */
+  groupTitleLines?: number;
+  /** Regex: lines directly after a heading line (no blank line between) that match this continue the heading's title (a title wrapped over several lines). */
+  titleContinue?: string;
+  /** Lower-case the small words (of, the, and, at…) inside capitalised all-caps titles, e.g. "To The King Of France" becomes "To the King of France". */
+  lowerSmallWords?: boolean;
+  /** Title that occurs more than once get " (k of n)" so that section titles stay distinct (e.g. several letters "To Gregory XI"). */
+  numberDuplicates?: boolean;
   /** Regex for a higher-level heading (e.g. "THE FIRST BOOK") whose line, plus the line after it if `groupSubtitle`, prefixes the titles that follow. */
   groupHeading?: string;
   groupSubtitle?: boolean;
@@ -75,6 +85,8 @@ export function parsePlainText(raw: string, cfg: TextSource): PlainSection[] {
   const out: PlainSection[] = [];
   let title = cfg.introTitle ?? '';
   let group = '';
+  const contRe = cfg.titleContinue ? new RegExp(cfg.titleContinue) : null;
+  const bareRe = cfg.bareHeading ? new RegExp(cfg.bareHeading) : null;
   const groupRe = cfg.groupHeading ? new RegExp(cfg.groupHeading) : null;
   const fixTitle = (t: string) => (cfg.fixTitles ?? []).reduce((acc, [re, to]) => acc.replace(new RegExp(re, 'g'), to), t);
   const seenHeads = new Set<string>();
@@ -96,6 +108,16 @@ export function parsePlainText(raw: string, cfg: TextSource): PlainSection[] {
       title = cfg.groupIntro ?? '';
       group = ln.replace(/[.:]$/, '');
       if (cfg.groupSubtitle && lines[i + 1]?.trim()) group += ` — ${lines[++i].trim().replace(/[.:]$/, '')}`;
+      if (cfg.groupTitleLines) {
+        let j = i + 1;
+        while (j < lines.length && !lines[j].trim() && j - i < 6) j++;
+        const sub: string[] = [];
+        while (sub.length < cfg.groupTitleLines && j < lines.length && lines[j].trim()) sub.push(lines[j++].trim());
+        if (sub.length) {
+          group += ` — ${niceCase(sub.join(' ').replace(/[.:]$/, ''))}`;
+          i = j - 1;
+        }
+      }
       if (cfg.groupIntro) title = fixTitle(`${niceCase(group)} — ${cfg.groupIntro}`.replace(/\s+/g, ' '));
       continue;
     }
@@ -106,7 +128,7 @@ export function parsePlainText(raw: string, cfg: TextSource): PlainSection[] {
       }
       flush();
       const parts = [ln.replace(/[.:]$/, '')];
-      let need = cfg.titleLines ?? 1;
+      let need = bareRe?.test(ln) ? 0 : cfg.titleLines ?? 1;
       let j = i + 1;
       while (need > 0 && j < lines.length && !lines[j].trim() && j - i < 6) j++;
       while (need > 0 && j < lines.length && lines[j].trim()) {
@@ -115,13 +137,29 @@ export function parsePlainText(raw: string, cfg: TextSource): PlainSection[] {
         j++;
       }
       if (parts.length > 1) i = j - 1;
+      if (contRe) {
+        while (i + 1 < lines.length && lines[i + 1].trim() && contRe.test(lines[i + 1].trim())) parts[parts.length - 1] += ' ' + lines[++i].trim().replace(/[.:]$/, '');
+      }
       title = (group ? [group, ...parts] : parts).map((p) => niceCase(p.replace(/\s+/g, ' ')).replace(/[,.'"’]+$/, '')).join(' — ');
+      if (cfg.lowerSmallWords) title = title.replace(/(?<=\S )(Of|The|And|At|In|On|To|From|A|An|For|By|With|Who|When|Not|Being|Into|Di|Dei|Del|Della|Da) /g, (w) => w.toLowerCase());
       title = fixTitle(title);
       continue;
     }
     buf.push(lines[i]);
   }
   flush();
+  if (cfg.numberDuplicates) {
+    const total = new Map<string, number>();
+    for (const o of out) total.set(o.title, (total.get(o.title) ?? 0) + 1);
+    const seen = new Map<string, number>();
+    for (const o of out) {
+      const n = total.get(o.title)!;
+      if (n < 2) continue;
+      const k = (seen.get(o.title) ?? 0) + 1;
+      seen.set(o.title, k);
+      o.title = `${o.title} (${k} of ${n})`;
+    }
+  }
   return cfg.partWords ? splitLong(out, cfg.partWords) : out;
 }
 
