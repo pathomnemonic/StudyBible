@@ -41,3 +41,13 @@ import { TRIVIA_CATS, checkTrivia, loadTrivia } from '../scripts/chains/check-tr
 describe('trivia bank', () => {
   for (const c of TRIVIA_CATS) it(`${c}: every question has four distinct options and a source quotation that is found`, () => { expect(checkTrivia(c, loadTrivia(c)).slice(0, 20)).toEqual([]); });
 });
+
+import { readFileSync as rf } from 'node:fs';
+import { VERSE_OF_DAY } from '../src/study/verseOfDay';
+describe('widget verses', () => {
+  it('public/widgets/verses.json matches the app’s verse of the day list, in order', () => {
+    const list = JSON.parse(rf('public/widgets/verses.json', 'utf8')) as { ref: string; text: string }[];
+    expect(list).toHaveLength(VERSE_OF_DAY.length);
+    for (const v of list) { expect(v.text.length).toBeGreaterThan(10); expect(v.ref.length).toBeGreaterThan(3); }
+  });
+});

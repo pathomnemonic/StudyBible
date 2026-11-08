@@ -1,0 +1,13 @@
+{
+  "type": "AdaptiveCard",
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.5",
+  "body": [
+    { "type": "TextBlock", "text": "Verse of the day", "size": "Small", "weight": "Bolder", "isSubtle": true },
+    { "type": "TextBlock", "text": "${verse}", "wrap": true, "size": "Medium", "spacing": "Small" },
+    { "type": "TextBlock", "text": "${ref}", "isSubtle": true, "spacing": "Small" }
+  ],
+  "actions": [
+    { "type": "Action.Execute", "title": "Open today", "verb": "open" }
+  ]
+}

@@ -1,0 +1,2058 @@
+[
+ {
+  "id": "history-001",
+  "d": 1,
+  "q": "Who was chosen by lot to take the place of Judas among the twelve apostles?",
+  "o": [
+   "Barsabbas",
+   "Barnabas",
+   "Matthias",
+   "Silas"
+  ],
+  "a": 2,
+  "why": "The lot fell on Matthias, who was counted with the eleven apostles.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 1:26",
+   "ref": "ACT.1.26",
+   "quote": "the lot fell on Matthias; and he was counted with the eleven apostles.",
+   "note": "Acts names Matthias as Judas's replacement."
+  }
+ },
+ {
+  "id": "history-002",
+  "d": 1,
+  "q": "At Pentecost, what appeared and settled on each of the disciples?",
+  "o": [
+   "Rays of golden light",
+   "Tongues like fire",
+   "A white dove",
+   "Pillars of cloud"
+  ],
+  "a": 1,
+  "why": "Tongues like fire were distributed, one sitting on each of them, as they were filled with the Holy Spirit.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 2:3",
+   "ref": "ACT.2.3",
+   "quote": "Tongues like fire appeared and were distributed to them, and one sat on each of them.",
+   "note": "Acts describes the fire at Pentecost."
+  }
+ },
+ {
+  "id": "history-003",
+  "d": 1,
+  "q": "About how many souls were baptized on the day of Pentecost?",
+  "o": [
+   "Five hundred",
+   "Five thousand",
+   "Twelve thousand",
+   "Three thousand"
+  ],
+  "a": 3,
+  "why": "Acts says about three thousand souls were added that day.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 2:41",
+   "ref": "ACT.2.41",
+   "quote": "There were added that day about three thousand souls.",
+   "note": "Acts gives the number baptized at Pentecost."
+  }
+ },
+ {
+  "id": "history-004",
+  "d": 1,
+  "q": "Who was the first Christian martyr, stoned while praying 'Lord Jesus, receive my spirit'?",
+  "o": [
+   "Philip",
+   "Barnabas",
+   "Timothy",
+   "Stephen"
+  ],
+  "a": 3,
+  "why": "Stephen was stoned and prayed that the Lord would not hold the sin against his killers.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 7:59-60",
+   "ref": "ACT.7.59-60",
+   "quote": "They stoned Stephen as he called out, saying, “Lord Jesus, receive my spirit!” He kneeled down and cried with a loud voice, “Lord, don’t hold this sin against them!” When he had said this, he fell asleep.",
+   "note": "Acts records the stoning of Stephen."
+  }
+ },
+ {
+  "id": "history-005",
+  "d": 1,
+  "q": "In which city were the disciples first called Christians?",
+  "o": [
+   "Jerusalem",
+   "Antioch",
+   "Rome",
+   "Corinth"
+  ],
+  "a": 1,
+  "why": "Acts says the disciples were first called Christians in Antioch.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 11:26",
+   "ref": "ACT.11.26",
+   "quote": "The disciples were first called Christians in Antioch.",
+   "note": "Acts names the city."
+  }
+ },
+ {
+  "id": "history-006",
+  "d": 1,
+  "q": "Near which city did a light from the sky stop Saul, who heard 'Why do you persecute me?'",
+  "o": [
+   "Tarsus",
+   "Antioch",
+   "Damascus",
+   "Jerusalem"
+  ],
+  "a": 2,
+  "why": "Saul was close to Damascus when the light shone and Christ spoke to him.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 9:3-4",
+   "ref": "ACT.9.3-4",
+   "quote": "he got close to Damascus, and suddenly a light from the sky shone around him.",
+   "note": "Acts places Saul's conversion at Damascus."
+  }
+ },
+ {
+  "id": "history-007",
+  "d": 2,
+  "q": "Which centurion of the Italian Regiment at Caesarea was told by an angel to send for Peter?",
+  "o": [
+   "Cornelius",
+   "Julius",
+   "Claudius Lysias",
+   "Longinus"
+  ],
+  "a": 0,
+  "why": "Cornelius, a devout God-fearing centurion, received a vision of an angel; Peter later baptized his household.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 10:1-3",
+   "ref": "ACT.10.1-3",
+   "quote": "Cornelius by name, a centurion of what was called the Italian Regiment, a devout man, and one who feared God with all his house, who gave gifts for the needy generously to the people, and always prayed to God.",
+   "note": "Acts introduces Cornelius."
+  }
+ },
+ {
+  "id": "history-008",
+  "d": 1,
+  "q": "Which apostle did King Herod kill with the sword?",
+  "o": [
+   "James, brother of John",
+   "Peter, the Rock",
+   "Andrew, brother of Peter",
+   "Philip of Bethsaida"
+  ],
+  "a": 0,
+  "why": "Herod killed James, the brother of John, with the sword.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 12:1-2",
+   "ref": "ACT.12.1-2",
+   "quote": "He killed James, the brother of John, with the sword.",
+   "note": "Acts records the death of James."
+  }
+ },
+ {
+  "id": "history-009",
+  "d": 2,
+  "q": "What does the name Barnabas mean, according to Acts?",
+  "o": [
+   "Son of Thunder",
+   "Son of David",
+   "Son of Encouragement",
+   "Son of Light"
+  ],
+  "a": 2,
+  "why": "The apostles called Joses Barnabas, which is interpreted Son of Encouragement.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 4:36",
+   "ref": "ACT.4.36",
+   "quote": "Barnabas (which is, being interpreted, Son of Encouragement)",
+   "note": "Acts gives the meaning of the name."
+  }
+ },
+ {
+  "id": "history-010",
+  "d": 2,
+  "q": "What inscription did Paul say he found on an altar in Athens?",
+  "o": [
+   "To the Twelve Gods",
+   "To an Unknown God",
+   "To the Great Artemis",
+   "To Zeus the Highest"
+  ],
+  "a": 1,
+  "why": "Paul used the altar 'TO AN UNKNOWN GOD' to introduce the true God to the Areopagus.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 17:23",
+   "ref": "ACT.17.23",
+   "quote": "TO AN UNKNOWN GOD.’ What therefore you worship in ignorance, I announce to you.",
+   "note": "Acts quotes the inscription."
+  }
+ },
+ {
+  "id": "history-011",
+  "d": 1,
+  "q": "What was the trade of Paul, Aquila and Priscilla?",
+  "o": [
+   "Fishing",
+   "Silversmithing",
+   "Pottery",
+   "Tent making"
+  ],
+  "a": 3,
+  "why": "Acts says Paul worked with Aquila and Priscilla because they were tent makers.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 18:3",
+   "ref": "ACT.18.3",
+   "quote": "by trade they were tent makers.",
+   "note": "Acts names their trade."
+  }
+ },
+ {
+  "id": "history-012",
+  "d": 1,
+  "q": "Which disciple at Joppa did Peter raise from the dead, saying 'get up'?",
+  "o": [
+   "Lydia",
+   "Priscilla",
+   "Eunice",
+   "Tabitha (Dorcas)"
+  ],
+  "a": 3,
+  "why": "Peter knelt, prayed, and told Tabitha to rise, and she sat up.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 9:36-40",
+   "ref": "ACT.9.36-40",
+   "quote": "Tabitha, which when translated means Dorcas.",
+   "note": "Acts tells the raising of Tabitha."
+  }
+ },
+ {
+  "id": "history-013",
+  "d": 3,
+  "q": "Paul told the crowd in Jerusalem he was brought up at the feet of which teacher?",
+  "o": [
+   "Hillel",
+   "Gamaliel",
+   "Caiaphas",
+   "Annas"
+  ],
+  "a": 1,
+  "why": "Paul said he was instructed at the feet of Gamaliel in the strict tradition of the law.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 22:3",
+   "ref": "ACT.22.3",
+   "quote": "brought up in this city at the feet of Gamaliel, instructed according to the strict tradition of the law of our fathers, being zealous for God, even as you all are today.",
+   "note": "Acts gives Paul's teacher."
+  }
+ },
+ {
+  "id": "history-014",
+  "d": 2,
+  "q": "On which island did the shipwrecked Paul find 'uncommon kindness' from the natives?",
+  "o": [
+   "Crete",
+   "Cyprus",
+   "Malta",
+   "Patmos"
+  ],
+  "a": 2,
+  "why": "After the shipwreck they learned the island was called Malta.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 28:1-2",
+   "ref": "ACT.28.1-2",
+   "quote": "the island was called Malta.",
+   "note": "Acts names the island."
+  }
+ },
+ {
+  "id": "history-015",
+  "d": 3,
+  "q": "Which seller of purple from Thyatira had her heart opened by the Lord to heed Paul's words?",
+  "o": [
+   "Lydia",
+   "Priscilla",
+   "Phoebe",
+   "Dorcas"
+  ],
+  "a": 0,
+  "why": "Lydia, a worshiper of God from Thyatira, listened to Paul at Philippi.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 16:14",
+   "ref": "ACT.16.14",
+   "quote": "named Lydia, a seller of purple, of the city of Thyatira, one who worshiped God, heard us.",
+   "note": "Acts introduces Lydia."
+  }
+ },
+ {
+  "id": "history-016",
+  "d": 1,
+  "q": "Which couple fell dead after lying to Peter about the price of a field?",
+  "o": [
+   "Ananias and Sapphira",
+   "Aquila and Priscilla",
+   "Joachim and Anna",
+   "Zechariah and Elizabeth"
+  ],
+  "a": 0,
+  "why": "Ananias kept back part of the price and was told he had lied to the Holy Spirit and to God.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 5:1-5",
+   "ref": "ACT.5.1-5",
+   "quote": "Ananias, with Sapphira his wife, sold a possession, and kept back part of the price, his wife also being aware of it, then brought a certain part and laid it at the apostles’ feet.",
+   "note": "Acts tells the story."
+  }
+ },
+ {
+  "id": "history-017",
+  "d": 2,
+  "q": "Which two men did the Holy Spirit tell the church at Antioch to set apart for his work?",
+  "o": [
+   "Peter and John",
+   "Silas and Timothy",
+   "Barnabas and Saul",
+   "Philip and Stephen"
+  ],
+  "a": 2,
+  "why": "While the Antioch church fasted, the Spirit said to separate Barnabas and Saul.",
+  "src": {
+   "kind": "scripture",
+   "label": "Acts 13:2",
+   "ref": "ACT.13.2",
+   "quote": "Separate Barnabas and Saul for me",
+   "note": "Acts records the Spirit's call."
+  }
+ },
+ {
+  "id": "history-018",
+  "d": 1,
+  "q": "The Council of Nicaea condemned the teaching of which priest, who said the Son 'was not' before he was begotten?",
+  "o": [
+   "Nestorius",
+   "Arius",
+   "Eutyches",
+   "Macedonius"
+  ],
+  "a": 1,
+  "why": "Nicaea (325) anathematized Arius and his opinion that there was a time when the Son was not.",
+  "src": {
+   "kind": "council",
+   "label": "Synodal Letter of Nicaea",
+   "work": "council-nicaea-1",
+   "section": "vii.ix",
+   "quote": "investigation was made of matters concerning the impiety and transgression of Arius and his adherents; and it was unanimously decreed that he and his impious opinion should be anathematized",
+   "note": "The letter reports Arius's condemnation."
+  }
+ },
+ {
+  "id": "history-019",
+  "d": 1,
+  "q": "Which emperor gathered the bishops together at the Council of Nicaea?",
+  "o": [
+   "Diocletian",
+   "Theodosius",
+   "Justinian",
+   "Constantine"
+  ],
+  "a": 3,
+  "why": "The Council of Nicaea was assembled through the call of the Emperor Constantine.",
+  "src": {
+   "kind": "council",
+   "label": "Synodal Letter of Nicaea",
+   "work": "council-nicaea-1",
+   "section": "vii.ix",
+   "quote": "our most religious Sovereign Constantine, who brought us together from our several provinces and cities, has considered matters which concern the faith of the Church, it seemed to us to be necessary that certain things should be communicated from us to you in writing, so that you might have the means of knowing what has been mooted and investigated, and also what has been decreed and confirmed.",
+   "note": "The bishops name Constantine as the one who convened them."
+  }
+ },
+ {
+  "id": "history-020",
+  "d": 1,
+  "q": "Complete the Nicene Creed: the Son is 'begotten, not made, being of one ___ with the Father.'",
+  "o": [
+   "Mind",
+   "Name",
+   "Glory",
+   "Substance"
+  ],
+  "a": 3,
+  "why": "The Nicene Creed teaches the Son is of one substance (homoousios) with the Father.",
+  "src": {
+   "kind": "council",
+   "label": "The Nicene Creed",
+   "work": "council-nicaea-1",
+   "section": "vii.iii",
+   "quote": "not made, being of one substance (ὁμοούσιον, consubstantialem) with the Father.",
+   "note": "The creed's wording."
+  }
+ },
+ {
+  "id": "history-021",
+  "d": 2,
+  "q": "What did Nicaea settle about the date of Easter?",
+  "o": [
+   "Each city would choose its own date",
+   "All would keep Easter on the same day",
+   "Easter would follow the Jewish calendar",
+   "Easter would move to December"
+  ],
+  "a": 1,
+  "why": "The bishops announced that the East would keep Easter together with Rome and the others.",
+  "src": {
+   "kind": "council",
+   "label": "Synodal Letter of Nicaea",
+   "work": "council-nicaea-1",
+   "section": "vii.ix",
+   "quote": "all our brethren in the East who formerly followed the custom of the Jews are henceforth to celebrate the said most sacred feast of Easter at the same time with the Romans and yourselves and all those who have observed Easter from the beginning.",
+   "note": "The council united the churches on one date."
+  }
+ },
+ {
+  "id": "history-022",
+  "d": 3,
+  "q": "Nicaea's canons forbade clergy from taking what kind of profit on loans?",
+  "o": [
+   "Gifts from the poor",
+   "Fees for burial",
+   "Usury (interest)",
+   "Rent from church land"
+  ],
+  "a": 2,
+  "why": "Canon 17 deposed clerics who lent money at interest.",
+  "src": {
+   "kind": "council",
+   "label": "Nicaea, Canon 17",
+   "work": "council-nicaea-1",
+   "section": "vii.vi",
+   "quote": "following covetousness and lust of gain, have forgotten the divine Scripture, which says, “He hath not given his money upon usury,” and in lending money ask the hundredth of the sum [as monthly interest], the holy and great Synod thinks it just that if after this decree any one be found to receive usury",
+   "note": "Canon 17 forbids clerical usury."
+  }
+ },
+ {
+  "id": "history-023",
+  "d": 2,
+  "q": "In what year was the First Council of Constantinople, the second ecumenical council, held?",
+  "o": [
+   "381",
+   "325",
+   "431",
+   "451"
+  ],
+  "a": 0,
+  "why": "The Council of Constantinople met in 381 and affirmed the Nicene faith.",
+  "src": {
+   "kind": "council",
+   "label": "Council of Constantinople I",
+   "work": "council-constantinople-1",
+   "section": "ix.iii",
+   "quote": "seven years before this Second Ecumenical Council which was held at Constantinople in 381.",
+   "note": "The introductory note gives the year."
+  }
+ },
+ {
+  "id": "history-024",
+  "d": 2,
+  "q": "Complete the Creed of Constantinople: 'the Holy Ghost, the Lord and ___'.",
+  "o": [
+   "Giver-of-Life",
+   "Lawgiver",
+   "Sanctifier",
+   "Comforter"
+  ],
+  "a": 0,
+  "why": "The creed of 381 calls the Holy Spirit the Lord and Giver of Life.",
+  "src": {
+   "kind": "council",
+   "label": "Creed of Constantinople",
+   "work": "council-constantinople-1",
+   "section": "ix.iii",
+   "quote": "the Holy Ghost, the Lord and Giver-of-Life, who proceedeth from the Father, who with the Father and the Son together is worshipped and glorified, who spake by the prophets.",
+   "note": "The creed of 381 calls the Holy Spirit the Lord and Giver of Life."
+  }
+ },
+ {
+  "id": "history-025",
+  "d": 3,
+  "q": "Constantinople I gave Constantinople the prerogative of honour after which see, because it is 'New Rome'?",
+  "o": [
+   "Alexandria",
+   "Antioch",
+   "The Bishop of Rome",
+   "Jerusalem"
+  ],
+  "a": 2,
+  "why": "Canon 3 placed the bishop of Constantinople next in honour after the bishop of Rome.",
+  "src": {
+   "kind": "council",
+   "label": "Constantinople I, Canon 3",
+   "work": "council-constantinople-1",
+   "section": "ix.viii.iv",
+   "quote": "shall have the prerogative of honour after the Bishop of Rome; because Constantinople is New Rome.",
+   "note": "Canon 3 placed the bishop of Constantinople next in honour after the bishop of Rome."
+  }
+ },
+ {
+  "id": "history-026",
+  "d": 1,
+  "q": "The Council of Ephesus defended which title of the Virgin Mary, in Greek Theotokos?",
+  "o": [
+   "Mother of the Church",
+   "Mother of God",
+   "Queen of Angels",
+   "Mother of Sorrows"
+  ],
+  "a": 1,
+  "why": "Ephesus (431) affirmed Mary as Theotokos because her Son Emmanuel is truly God.",
+  "src": {
+   "kind": "council",
+   "label": "Cyril's Anathematisms at Ephesus",
+   "work": "council-ephesus",
+   "section": "x.ix",
+   "quote": "the Holy Virgin is the Mother of God (Θεοτόκος), inasmuch as in the flesh she bore the Word of God made flesh [as it is written, “The Word was made flesh”] let him be anathema.",
+   "note": "First anathema of Cyril."
+  }
+ },
+ {
+  "id": "history-027",
+  "d": 2,
+  "q": "Nestorius, who divided the person of Christ, was bishop of which city?",
+  "o": [
+   "Antioch",
+   "Alexandria",
+   "Ephesus",
+   "Constantinople"
+  ],
+  "a": 3,
+  "why": "Nestorius, bishop of Constantinople, was condemned at Ephesus.",
+  "src": {
+   "kind": "council",
+   "label": "Council of Ephesus",
+   "work": "council-ephesus",
+   "section": "x.ii",
+   "quote": "The innovation of Nestorius, Bishop of Constantinople, is known; how he divided into two the person of Christ.",
+   "note": "Historical introduction."
+  }
+ },
+ {
+  "id": "history-028",
+  "d": 3,
+  "q": "Who presided at Ephesus, representing Pope Celestine?",
+  "o": [
+   "Theodoret of Cyrus",
+   "John of Antioch",
+   "Flavian of Constantinople",
+   "Cyril of Alexandria"
+  ],
+  "a": 3,
+  "why": "Cyril of Alexandria presided as the pope's appointed representative.",
+  "src": {
+   "kind": "council",
+   "label": "Council of Ephesus",
+   "work": "council-ephesus",
+   "section": "x.ii",
+   "quote": "the universal Council began, Cyril being president, and representing Celestine, as being appointed by the Pontiff himself to execute his sentence.",
+   "note": "Historical introduction."
+  }
+ },
+ {
+  "id": "history-029",
+  "d": 2,
+  "q": "Chalcedon (451) taught that Christ is perfect in Godhead and perfect in what else?",
+  "o": [
+   "Knowledge",
+   "Manhood",
+   "Holiness",
+   "Majesty"
+  ],
+  "a": 1,
+  "why": "The Definition of Chalcedon: one Christ, perfect God and perfect man, in two natures.",
+  "src": {
+   "kind": "council",
+   "label": "Definition of Chalcedon",
+   "work": "council-chalcedon",
+   "section": "xi.xiii",
+   "quote": "he is perfect in Godhead and perfect in manhood, very God and very man, of a reasonable soul and [human] body consisting, consubstantial with the Father as touching his Godhead, and consubstantial with us as touching his manhood; made in all things like unto us, sin only excepted; begotten of his Father before the worlds according to his Godhead; but in these last days for us men and for our salva",
+   "note": "The Definition of Chalcedon: one Christ, perfect God and perfect man, in two natures."
+  }
+ },
+ {
+  "id": "history-030",
+  "d": 2,
+  "q": "At Chalcedon the bishops cried, 'Peter has spoken thus through ___.'",
+  "o": [
+   "Cyril",
+   "Flavian",
+   "Leo",
+   "Dioscorus"
+  ],
+  "a": 2,
+  "why": "They hailed Pope Leo's Tome as the faith of the Apostles.",
+  "src": {
+   "kind": "council",
+   "label": "Acts of Chalcedon",
+   "work": "council-chalcedon",
+   "section": "xi.viii",
+   "quote": "Peter has spoken thus through Leo.",
+   "note": "They hailed Pope Leo's Tome as the faith of the Apostles."
+  }
+ },
+ {
+  "id": "history-031",
+  "d": 3,
+  "q": "The Council of Chalcedon met in the martyry of which martyr?",
+  "o": [
+   "Euphemia",
+   "Agnes",
+   "Lucy",
+   "Thecla"
+  ],
+  "a": 0,
+  "why": "The council met at Chalcedon in the church of St Euphemia.",
+  "src": {
+   "kind": "council",
+   "label": "Definition of Chalcedon",
+   "work": "council-chalcedon",
+   "section": "xi.xiii",
+   "quote": "in the martyry of the holy and victorious martyr Euphemia, has decreed as follows: Our Lord and Saviour Jesus Christ, when strengthening the knowledge of the Faith in his disciples, to the end that no one might disagree with his neighbour concerning the doctrines of religion, and that the proclamation of the truth might be set forth equally to all men, said, “My peace I leave with you, my peace I",
+   "note": "The definition's preamble."
+  }
+ },
+ {
+  "id": "history-032",
+  "d": 3,
+  "q": "Eutyches, condemned before Chalcedon, taught that after the union Christ had how many natures?",
+  "o": [
+   "One",
+   "Two",
+   "Three",
+   "None"
+  ],
+  "a": 0,
+  "why": "Eutyches held two natures before the union but only one afterward; Leo's Tome answered him.",
+  "src": {
+   "kind": "council",
+   "label": "Introduction to Leo's letters",
+   "work": "leo-sermons-letters",
+   "section": "ii.iii.i",
+   "quote": "our Lord was of two natures before the union, but that after the union there was but one nature (see Letter XXVIII.",
+   "note": "Leo's letters introduction."
+  }
+ },
+ {
+  "id": "history-033",
+  "d": 3,
+  "q": "Which emperor sent for Pope Vigilius over the Three Chapters, leading to the Fifth Council?",
+  "o": [
+   "Constantine",
+   "Theodosius",
+   "Justinian",
+   "Marcian"
+  ],
+  "a": 2,
+  "why": "Justinian summoned Vigilius to Constantinople; the council followed in 553.",
+  "src": {
+   "kind": "council",
+   "label": "Council of Constantinople II",
+   "work": "council-constantinople-2",
+   "section": "xii.ii",
+   "quote": "The Emperor Justinian desired that the question concerning the above-mentioned Three Chapters should be considered in the Church. He therefore sent for Pope Vigilius to Constantinople.",
+   "note": "Historical introduction."
+  }
+ },
+ {
+  "id": "history-034",
+  "d": 3,
+  "q": "In what year did the Fifth Ecumenical Council open at Constantinople?",
+  "o": [
+   "431",
+   "553",
+   "680",
+   "787"
+  ],
+  "a": 1,
+  "why": "The Second Council of Constantinople was opened on 5 May 553.",
+  "src": {
+   "kind": "council",
+   "label": "Council of Constantinople II",
+   "work": "council-constantinople-2",
+   "section": "xii.ii",
+   "quote": "the synod was opened on the 5th of May a.d. 553, in the Secretarium of the Cathedral Church at Constantinople.",
+   "note": "Historical introduction."
+  }
+ },
+ {
+  "id": "history-035",
+  "d": 2,
+  "q": "Constantinople III confessed in Christ a divine operation and what else?",
+  "o": [
+   "An angelic operation",
+   "No second operation",
+   "A merged operation",
+   "A human operation"
+  ],
+  "a": 3,
+  "why": "Against Monothelitism, the council confessed two natural wills and operations in Christ.",
+  "src": {
+   "kind": "council",
+   "label": "Definition of Constantinople III",
+   "work": "council-constantinople-3",
+   "section": "xiii.x",
+   "quote": "We glorify two natural operations indivisibly, immutably, inconfusedly, inseparably in the same our Lord Jesus Christ our true God, that is to say a divine operation and a human operation, according to the divine preacher Leo, who most distinctly asserts as follows: “For each form (μορφὴ) does in communion with the other what pertains properly to it, the Word, namely, doing that which pertains to",
+   "note": "Against Monothelitism, the council confessed two natural wills and operations in Christ."
+  }
+ },
+ {
+  "id": "history-036",
+  "d": 3,
+  "q": "Constantinople III met in the imperial palace hall known by what name?",
+  "o": [
+   "Blachernae",
+   "Studion",
+   "Lateran",
+   "Trullus"
+  ],
+  "a": 3,
+  "why": "The Sixth Council met in the Hall called Trullus of the imperial Palace.",
+  "src": {
+   "kind": "council",
+   "label": "Definition of Constantinople III",
+   "work": "council-constantinople-3",
+   "section": "xiii.x",
+   "quote": "in the Hall of the imperial Palace, called Trullus, has decreed as follows.",
+   "note": "The definition's preamble."
+  }
+ },
+ {
+  "id": "history-037",
+  "d": 1,
+  "q": "Which practice did the Second Council of Nicaea (787) defend against the iconoclasts?",
+  "o": [
+   "Communion under both kinds",
+   "Veneration of holy images",
+   "Clerical marriage",
+   "Public penance"
+  ],
+  "a": 1,
+  "why": "Nicaea II defined that holy images should be set forth in churches and given honourable reverence.",
+  "src": {
+   "kind": "council",
+   "label": "Decree of Nicaea II",
+   "work": "council-nicaea-2",
+   "section": "xvi.xii",
+   "quote": "the venerable and holy images, as well in painting and mosaic as of other fit materials, should be set forth in the holy churches of God, and on the sacred vessels and on the vestments and on hangings and in pictures both in houses and by the wayside, to wit, the figure of our Lord God and Saviour Jesus Christ, of our spotless Lady, the Mother of God, of the honourable Angels, of all Saints and of",
+   "note": "Nicaea II defined that holy images should be set forth in churches and given honourable reverence."
+  }
+ },
+ {
+  "id": "history-038",
+  "d": 2,
+  "q": "Which empress, with her son Constantine, convened the Second Council of Nicaea?",
+  "o": [
+   "Theodora",
+   "Pulcheria",
+   "Irene",
+   "Helena"
+  ],
+  "a": 2,
+  "why": "The council met by the will of the Emperors Constantine and Irene, his mother.",
+  "src": {
+   "kind": "council",
+   "label": "Decree of Nicaea II",
+   "work": "council-nicaea-2",
+   "section": "xvi.xii",
+   "quote": "the pious and Christ-loving Emperors, Constantine and Irene, his mother, was gathered together for the second time at Nice, the illustrious metropolis of Bithynia, in the holy church of God which is named Sophia, having followed the tradition of the Catholic Church, hath defined as follows: Christ our Lord, who hath bestowed upon us the light of the knowledge of himself, and hath redeemed us from",
+   "note": "The decree's preamble."
+  }
+ },
+ {
+  "id": "history-039",
+  "d": 3,
+  "q": "Nicaea II said true worship of faith (latreia) belongs only to whom?",
+  "o": [
+   "The divine nature",
+   "The saints",
+   "The Church",
+   "The angels"
+  ],
+  "a": 0,
+  "why": "Images receive honourable reverence, not the worship due to God alone.",
+  "src": {
+   "kind": "council",
+   "label": "Decree of Nicaea II",
+   "work": "council-nicaea-2",
+   "section": "xvi.xii",
+   "quote": "not indeed that true worship of faith…which pertains alone to the divine nature",
+   "note": "The decree distinguishes honour from latreia."
+  }
+ },
+ {
+  "id": "history-040",
+  "d": 2,
+  "q": "Under which pope was the Council of Trent opened in December 1545?",
+  "o": [
+   "Paul III",
+   "Pius IV",
+   "Leo X",
+   "Julius III"
+  ],
+  "a": 0,
+  "why": "Trent opened on 13 December 1545 under Pope Paul III.",
+  "src": {
+   "kind": "council",
+   "label": "Trent, Session 1",
+   "work": "trent-canons-decrees",
+   "section": "s1",
+   "quote": "Celebrated under the Sovereign Pontiff, Paid III., on tlie thirteenth day of the month of December, in the year of the Lord MDXLV.",
+   "note": "Trent's first session."
+  }
+ },
+ {
+  "id": "history-041",
+  "d": 1,
+  "q": "How many sacraments did the Council of Trent define?",
+  "o": [
+   "Five",
+   "Nine",
+   "Seven",
+   "Twelve"
+  ],
+  "a": 2,
+  "why": "Trent taught that the sacraments of the New Law are seven.",
+  "src": {
+   "kind": "council",
+   "label": "Trent, Session 7, Canon 1",
+   "work": "trent-canons-decrees",
+   "section": "s7",
+   "quote": "or that they are more or less than seven, to wit. Baptism, Confirmation, the Eucharist, Penance, Extreme Unction, Order, and Matrimony ; or even that any one of these seven is not truly and properly a sacrament ; let him be anathema.",
+   "note": "Trent taught that the sacraments of the New Law are seven."
+  }
+ },
+ {
+  "id": "history-042",
+  "d": 1,
+  "q": "What term did Trent use for the conversion of bread and wine into the Body and Blood of Christ?",
+  "o": [
+   "Consubstantiation",
+   "Transubstantiation",
+   "Transfiguration",
+   "Transformation"
+  ],
+  "a": 1,
+  "why": "Trent called the change of the whole substance Transubstantiation.",
+  "src": {
+   "kind": "council",
+   "label": "Trent, Session 13",
+   "work": "trent-canons-decrees",
+   "section": "s13",
+   "quote": "which conversion is, by the holy Catholic Church, suitably and properly called Transubstantiation.",
+   "note": "Trent called the change of the whole substance Transubstantiation."
+  }
+ },
+ {
+  "id": "history-043",
+  "d": 2,
+  "q": "Which Latin Bible did Trent declare authentic for public lectures and sermons?",
+  "o": [
+   "The Septuagint",
+   "The Itala",
+   "Wycliffe's version",
+   "The old Vulgate"
+  ],
+  "a": 3,
+  "why": "Trent declared the old Vulgate edition authentic in public use.",
+  "src": {
+   "kind": "council",
+   "label": "Trent, Session 4",
+   "work": "trent-canons-decrees",
+   "section": "s4",
+   "quote": "the said old and Vulgate edition, which, by the lengthened usage of so many ages, has been approved of in ' the Church,^ be, in public lectures, disputations, sermons, and expositions, held as authentic ; and that no one is to dare or presume to reject it under any pretext whatever.",
+   "note": "Trent declared the old Vulgate edition authentic in public use."
+  }
+ },
+ {
+  "id": "history-044",
+  "d": 3,
+  "q": "Trent held a marriage invalid unless made before the parish priest and how many witnesses?",
+  "o": [
+   "One",
+   "Five",
+   "Twelve",
+   "Two or three"
+  ],
+  "a": 3,
+  "why": "The decree on marriage requires the parish priest and two or three witnesses.",
+  "src": {
+   "kind": "council",
+   "label": "Trent, Session 24",
+   "work": "trent-canons-decrees",
+   "section": "s24",
+   "quote": "Whosoever contracts marriage, otherwise than in the presence of the Parish Priest and of two or three witnesses, contracts it invalidly.",
+   "note": "The decree on marriage requires the parish priest and two or three witnesses."
+  }
+ },
+ {
+  "id": "history-045",
+  "d": 2,
+  "q": "Which institution for training future priests did Trent order bishops to found?",
+  "o": [
+   "Guilds",
+   "Seminaries",
+   "Hospitals",
+   "Universities"
+  ],
+  "a": 1,
+  "why": "Trent's reform decree set out how to establish seminaries for clerics.",
+  "src": {
+   "kind": "council",
+   "label": "Trent, Session 23",
+   "work": "trent-canons-decrees",
+   "section": "s23",
+   "quote": "Method of establishing Seminaries for Clerics, and of educating the same therein.",
+   "note": "Trent's reform decree set out how to establish seminaries for clerics."
+  }
+ },
+ {
+  "id": "history-046",
+  "d": 3,
+  "q": "To which Italian city did the council transfer in 1547 for health and safety?",
+  "o": [
+   "Florence",
+   "Venice",
+   "Bologna",
+   "Milan"
+  ],
+  "a": 2,
+  "why": "Session 8 moved the council to Bologna.",
+  "src": {
+   "kind": "council",
+   "label": "Trent, Session 8",
+   "work": "trent-canons-decrees",
+   "section": "s8",
+   "quote": "this Council be transferred for a time to the city of Bologna, as being a place better provided, more healthy and fit, and that the translation have effect from this day forth, and that the Session, already indicted for the twentyfirst of April, ought to be celebrated, and be celebrated, there on that appointed day ; and that the further matters be proceeded with in order, until it shall seem expe",
+   "note": "Session 8 moved the council to Bologna."
+  }
+ },
+ {
+  "id": "history-047",
+  "d": 2,
+  "q": "What did Trent teach is offered to God in the Mass?",
+  "o": [
+   "A true and proper sacrifice",
+   "A mere memorial meal",
+   "A symbol of faith alone",
+   "A thanksgiving of praise only"
+  ],
+  "a": 0,
+  "why": "Trent anathematized denying that a true and proper sacrifice is offered in the Mass.",
+  "src": {
+   "kind": "council",
+   "label": "Trent, Session 22, Canon 1",
+   "work": "trent-canons-decrees",
+   "section": "s22",
+   "quote": "in the mass a true and proper sacrifice is not offered to God ; or that to be offered is nothing else but that Christ is given us to eat ; let him be anathema.",
+   "note": "Trent anathematized denying that a true and proper sacrifice is offered in the Mass."
+  }
+ },
+ {
+  "id": "history-048",
+  "d": 1,
+  "q": "Which council defined that the pope is infallible when he speaks ex cathedra?",
+  "o": [
+   "First Vatican Council",
+   "Council of Trent",
+   "Council of Chalcedon",
+   "Second Council of Nicaea"
+  ],
+  "a": 0,
+  "why": "Vatican I's Pastor Aeternus defined papal infallibility in 1870.",
+  "src": {
+   "kind": "council",
+   "label": "Vatican I, Pastor Aeternus 4",
+   "work": "vatican-i-constitutions",
+   "section": "s10",
+   "quote": "the Roman Pontiff, when he speaks ex cathedra, that is, when, in discharge of the office of pastor and teacher of all Christians, by virtue of his supreme Apostolic authority, he defines a doctrine regarding faith or morals to be held by the universal Church, is, by the divine assistance promised to him in Blessed Peter, possessed of that infallibility with which the divine Redeemer willed that Hi",
+   "note": "Vatican I's Pastor Aeternus defined papal infallibility in 1870."
+  }
+ },
+ {
+  "id": "history-049",
+  "d": 2,
+  "q": "In what year was Pastor Aeternus solemnly promulgated at the Vatican Basilica?",
+  "o": [
+   "1854",
+   "1878",
+   "1870",
+   "1869"
+  ],
+  "a": 2,
+  "why": "The session was held on 18 July 1870.",
+  "src": {
+   "kind": "council",
+   "label": "Vatican I, Pastor Aeternus 4",
+   "work": "vatican-i-constitutions",
+   "section": "s10",
+   "quote": "in the year of our Lord one thousand eight hundred and seventy, on the eighteenth day of July, in the twenty-fifth year of Our Pontificate.",
+   "note": "The session was held on 18 July 1870."
+  }
+ },
+ {
+  "id": "history-050",
+  "d": 3,
+  "q": "Vatican I taught that Christ gave Peter a primacy of what kind?",
+  "o": [
+   "Of honour only",
+   "Of jurisdiction",
+   "Of Rome alone",
+   "Of election"
+  ],
+  "a": 1,
+  "why": "Pastor Aeternus: a true and proper primacy of jurisdiction, not honour only.",
+  "src": {
+   "kind": "council",
+   "label": "Vatican I, Pastor Aeternus 1",
+   "work": "vatican-i-constitutions",
+   "section": "s7",
+   "quote": "the primacy of jurisdiction over the universal Church of God was immediately and directly promised and given to Blessed Peter the 'Apostle by Christ the Lord.",
+   "note": "Pastor Aeternus: a true and proper primacy of jurisdiction, not honour only."
+  }
+ },
+ {
+  "id": "history-051",
+  "d": 3,
+  "q": "Vatican I said Peter's successors were promised the Holy Spirit to keep and expound what?",
+  "o": [
+   "New revelations",
+   "Civil authority",
+   "The Mass rubrics",
+   "The deposit of faith"
+  ],
+  "a": 3,
+  "why": "The Spirit was not promised to make known new doctrine but to guard the deposit of faith.",
+  "src": {
+   "kind": "council",
+   "label": "Vatican I, Pastor Aeternus 4",
+   "work": "vatican-i-constitutions",
+   "section": "s10",
+   "quote": "inviolably keep and faithfully expound the revelation or deposit of faith delivered through the Apostles.",
+   "note": "The Spirit was not promised to make known new doctrine but to guard the deposit of faith."
+  }
+ },
+ {
+  "id": "history-052",
+  "d": 2,
+  "q": "Ignatius of Antioch wrote that he would be ground by wild beasts to be found what?",
+  "o": [
+   "A lamp for the Church",
+   "The cup of salvation",
+   "A rock of the faith",
+   "The pure bread of Christ"
+  ],
+  "a": 3,
+  "why": "Ignatius, on the way to martyrdom, called himself the wheat of God.",
+  "src": {
+   "kind": "father",
+   "label": "Ignatius, To the Romans",
+   "work": "ignatius-letters",
+   "section": "v.v",
+   "quote": "I am the wheat of God, and let me be ground by the teeth of the wild beasts, that I may be found the pure bread of Christ.",
+   "note": "Ignatius, on the way to martyrdom, called himself the wheat of God."
+  }
+ },
+ {
+  "id": "history-053",
+  "d": 2,
+  "q": "How many years had Polycarp served Christ when he refused to revile him?",
+  "o": [
+   "Forty",
+   "Eighty-six",
+   "Sixty",
+   "One hundred"
+  ],
+  "a": 1,
+  "why": "Polycarp answered 'Fourscore and six years'.",
+  "src": {
+   "kind": "father",
+   "label": "Eusebius, Martyrdom of Polycarp",
+   "work": "eusebius-history",
+   "section": "iii.ix",
+   "quote": "Fourscore and six years See above, chap.",
+   "note": "Polycarp answered 'Fourscore and six years'."
+  }
+ },
+ {
+  "id": "history-054",
+  "d": 2,
+  "q": "Irenaeus says Polycarp was appointed bishop of which church?",
+  "o": [
+   "Ephesus",
+   "Antioch",
+   "Smyrna",
+   "Rome"
+  ],
+  "a": 2,
+  "why": "Polycarp, instructed by apostles, was appointed bishop at Smyrna.",
+  "src": {
+   "kind": "father",
+   "label": "Irenaeus, Against Heresies 3.3",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "quote": "appointed bishop of the Church in Smyrna, whom I also saw in my early youth, for he tarried [on earth] a very long time, and, when a very old man, gloriously and most nobly suffering martyrdom, Polycarp suffered about the year 167, in the reign of Marcus Aurelius.",
+   "note": "Polycarp, instructed by apostles, was appointed bishop at Smyrna."
+  }
+ },
+ {
+  "id": "history-055",
+  "d": 2,
+  "q": "Irenaeus says the Church at Rome was founded and organized by which two apostles?",
+  "o": [
+   "Peter and Paul",
+   "Peter and John",
+   "Paul and Barnabas",
+   "Peter and Andrew"
+  ],
+  "a": 0,
+  "why": "He cites Rome's tradition from Peter and Paul.",
+  "src": {
+   "kind": "father",
+   "label": "Irenaeus, Against Heresies 3.3",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "quote": "Church founded and organized at Rome by the two most glorious apostles, Peter and Paul; as also [by pointing out] the faith preached to men, which comes down to our time by means of the successions of the bishops.",
+   "note": "He cites Rome's tradition from Peter and Paul."
+  }
+ },
+ {
+  "id": "history-056",
+  "d": 3,
+  "q": "To whom did the apostles first entrust the office of bishop at Rome, according to Irenaeus?",
+  "o": [
+   "Linus",
+   "Clement",
+   "Evaristus",
+   "Cornelius"
+  ],
+  "a": 0,
+  "why": "Irenaeus names Linus first, then Anacletus, then Clement.",
+  "src": {
+   "kind": "father",
+   "label": "Irenaeus, Against Heresies 3.3",
+   "work": "irenaeus-heresies",
+   "section": "ix.iv.iv",
+   "quote": "committed into the hands of Linus the office of the episcopate.",
+   "note": "Irenaeus names Linus first, then Anacletus, then Clement."
+  }
+ },
+ {
+  "id": "history-057",
+  "d": 2,
+  "q": "Under which emperor's persecution, says Eusebius, were Paul and Peter martyred at Rome?",
+  "o": [
+   "Domitian",
+   "Trajan",
+   "Nero",
+   "Decius"
+  ],
+  "a": 2,
+  "why": "Eusebius ties their martyrdom to Nero.",
+  "src": {
+   "kind": "father",
+   "label": "Eusebius, Church History 2.25",
+   "work": "eusebius-history",
+   "section": "iii.vii",
+   "quote": "The Persecution under Nero in which Paul and Peter were honored at Rome with Martyrdom in Behalf of Religion.",
+   "note": "Eusebius ties their martyrdom to Nero."
+  }
+ },
+ {
+  "id": "history-058",
+  "d": 1,
+  "q": "Which Evangelist, says Eusebius, first proclaimed Christianity in Egypt?",
+  "o": [
+   "Luke",
+   "Mark",
+   "Matthew",
+   "John"
+  ],
+  "a": 1,
+  "why": "Eusebius credits Mark with first preaching in Egypt.",
+  "src": {
+   "kind": "father",
+   "label": "Eusebius, Church History 2.16",
+   "work": "eusebius-history",
+   "section": "iii.vii",
+   "quote": "Mark first proclaimed Christianity to the Inhabitants of Egypt.",
+   "note": "Eusebius credits Mark with first preaching in Egypt."
+  }
+ },
+ {
+  "id": "history-059",
+  "d": 2,
+  "q": "In Diocletian's persecution, what did authorities do to the Scriptures, per Eusebius?",
+  "o": [
+   "Hid them in temples",
+   "Copied them for libraries",
+   "Buried them in the sea",
+   "Burned them in the marketplaces"
+  ],
+  "a": 3,
+  "why": "Eusebius saw churches razed and Scriptures burned.",
+  "src": {
+   "kind": "father",
+   "label": "Eusebius, Church History 8.2",
+   "work": "eusebius-history",
+   "section": "iii.xiii",
+   "quote": "the Divine and Sacred Scriptures committed to the flames in the midst of the market-places, and the shepherds of the churches basely hidden here and there, and some of them captured ignominiously, and mocked by their enemies.",
+   "note": "Eusebius saw churches razed and Scriptures burned."
+  }
+ },
+ {
+  "id": "history-060",
+  "d": 2,
+  "q": "Which martyr of Lyons was filled with power to endure torture from morning till evening?",
+  "o": [
+   "Perpetua",
+   "Felicity",
+   "Agnes",
+   "Blandina"
+  ],
+  "a": 3,
+  "why": "The letter of the Gallic churches praises Blandina's endurance.",
+  "src": {
+   "kind": "father",
+   "label": "Eusebius, Church History 5.1",
+   "work": "eusebius-history",
+   "section": "iii.x",
+   "quote": "Blandina was filled with such power as to be delivered and raised above those who were torturing her by turns from morning till evening in every manner, so that they acknowledged that they were conquered, and could do nothing more to her.",
+   "note": "The letter of the Gallic churches praises Blandina's endurance."
+  }
+ },
+ {
+  "id": "history-061",
+  "d": 1,
+  "q": "Tertullian wrote: 'The blood of Christians is the ___ of the Church.'",
+  "o": [
+   "Wall",
+   "Seed",
+   "Shield",
+   "Crown"
+  ],
+  "a": 1,
+  "why": "Martyrdom, he argued, made the Church grow.",
+  "src": {
+   "kind": "father",
+   "label": "Tertullian, Apology",
+   "work": "tertullian-apologetic",
+   "section": "iv.iii",
+   "quote": "The blood of Christians is the seed of the Church.”] Chapter XXII.",
+   "note": "Martyrdom, he argued, made the Church grow."
+  }
+ },
+ {
+  "id": "history-062",
+  "d": 3,
+  "q": "Vincent of Lérins said Catholic faith is what has been believed everywhere, always, by whom?",
+  "o": [
+   "By bishops",
+   "By Rome",
+   "By all",
+   "By the Fathers"
+  ],
+  "a": 2,
+  "why": "Vincent's canon: everywhere, always, by all.",
+  "src": {
+   "kind": "father",
+   "label": "Vincent of Lérins, Commonitory",
+   "work": "vincent-commonitory",
+   "section": "iii.iii",
+   "quote": "we hold that faith which has been believed everywhere, always, by all.",
+   "note": "Vincent's canon: everywhere, always, by all."
+  }
+ },
+ {
+  "id": "history-063",
+  "d": 3,
+  "q": "Athanasius wrote: 'He was made man that we might be made ___.'",
+  "o": [
+   "God",
+   "Saints",
+   "Kings",
+   "Angels"
+  ],
+  "a": 0,
+  "why": "Athanasius states that the Word became man to divinize us.",
+  "src": {
+   "kind": "father",
+   "label": "Athanasius, On the Incarnation",
+   "work": "athanasius-incarnation",
+   "section": "vii.ii.liv",
+   "quote": "For He was made man that we might be made God θεοποιηθῶμεν.",
+   "note": "Athanasius states that the Word became man to divinize us."
+  }
+ },
+ {
+  "id": "history-064",
+  "d": 1,
+  "q": "Which Father wrote, 'Thou madest us for Thyself, and our heart is restless, until it repose in Thee'?",
+  "o": [
+   "Augustine",
+   "Jerome",
+   "Ambrose",
+   "Gregory the Great"
+  ],
+  "a": 0,
+  "why": "Augustine opens the Confessions with this line.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, Confessions 1.1",
+   "work": "aug-confessions",
+   "section": "ii.i",
+   "quote": "Thou madest us for Thyself, and our heart is restless, until it repose in Thee.",
+   "note": "Augustine opens the Confessions with this line."
+  }
+ },
+ {
+  "id": "history-065",
+  "d": 2,
+  "q": "In the garden, what did Augustine hear a child chant before he opened Scripture?",
+  "o": [
+   "Come and see",
+   "Be still",
+   "Take up and read",
+   "Follow me"
+  ],
+  "a": 2,
+  "why": "The voice led him to read Paul and convert.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, Confessions 8.12",
+   "work": "aug-confessions",
+   "section": "ix.xii",
+   "quote": "Take up and read; Take up and read.",
+   "note": "The voice led him to read Paul and convert."
+  }
+ },
+ {
+  "id": "history-066",
+  "d": 2,
+  "q": "What did Augustine steal in his sixteenth year, recounted in the Confessions?",
+  "o": [
+   "Figs",
+   "Pears",
+   "Grapes",
+   "Coins"
+  ],
+  "a": 1,
+  "why": "The theft of pears shows sin loved for its own sake.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, Confessions 2",
+   "work": "aug-confessions",
+   "section": "iii.vi",
+   "quote": "Fair were the pears we stole, because they were Thy creation, Thou fairest of all, Creator of all, Thou good God; God, the sovereign good and my true good.",
+   "note": "The theft of pears shows sin loved for its own sake."
+  }
+ },
+ {
+  "id": "history-067",
+  "d": 3,
+  "q": "Which book of Cicero turned Augustine's heart toward philosophy?",
+  "o": [
+   "De Officiis",
+   "Tusculan Disputations",
+   "Catiline Orations",
+   "Hortensius"
+  ],
+  "a": 3,
+  "why": "The Hortensius exhorted him to philosophy.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, Confessions 3.4",
+   "work": "aug-confessions",
+   "section": "iv.iv",
+   "quote": "This book of his contains an exhortation to philosophy, and is called “Hortensius.” But this book altered my affections, and turned my prayers to Thyself O Lord; and made me have other purposes and desires.",
+   "note": "The Hortensius exhorted him to philosophy."
+  }
+ },
+ {
+  "id": "history-068",
+  "d": 2,
+  "q": "At which port town did Monica die as she and Augustine prepared to return to Africa?",
+  "o": [
+   "Carthage",
+   "Milan",
+   "Hippo",
+   "Ostia"
+  ],
+  "a": 3,
+  "why": "Monica died at Ostia.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, Confessions 9",
+   "work": "aug-confessions",
+   "section": "x.viii",
+   "quote": "whitherward being as far as Ostia, my mother departed this life.",
+   "note": "Monica died at Ostia."
+  }
+ },
+ {
+  "id": "history-069",
+  "d": 2,
+  "q": "Which Gothic king stormed Rome in A.D. 410, as Augustine records in City of God?",
+  "o": [
+   "Attila",
+   "Alaric",
+   "Theodoric",
+   "Odoacer"
+  ],
+  "a": 1,
+  "why": "Rome was sacked by the Goths under Alaric.",
+  "src": {
+   "kind": "father",
+   "label": "Augustine, City of God",
+   "work": "aug-city-of-god",
+   "section": "iv.i",
+   "quote": "Rome having been stormed and sacked by the Goths under Alaric their king, A.D. 410.",
+   "note": "Rome was sacked by the Goths under Alaric."
+  }
+ },
+ {
+  "id": "history-070",
+  "d": 1,
+  "q": "Which bishop forbade Emperor Theodosius to enter the church after the massacre at Thessalonica?",
+  "o": [
+   "John Chrysostom",
+   "Basil the Great",
+   "Ambrose of Milan",
+   "Athanasius"
+  ],
+  "a": 2,
+  "why": "Ambrose barred him until he repented.",
+  "src": {
+   "kind": "father",
+   "label": "Theodoret, Church History 5.17",
+   "work": "theodoret-history",
+   "section": "iv.viii.v",
+   "quote": "Ambrosius met him outside the outer porch and forbade him to step over the sacred threshold.",
+   "note": "Ambrose barred him until he repented."
+  }
+ },
+ {
+  "id": "history-071",
+  "d": 3,
+  "q": "After the monk Telemachus was killed, which emperor ended gladiatorial combats at Rome?",
+  "o": [
+   "Honorius",
+   "Constantine",
+   "Theodosius",
+   "Arcadius"
+  ],
+  "a": 0,
+  "why": "Honorius ended the spectacles and honoured Telemachus.",
+  "src": {
+   "kind": "father",
+   "label": "Theodoret, Church History 5.26",
+   "work": "theodoret-history",
+   "section": "iv.viii.v",
+   "quote": "Honorius, who inherited the empire of Europe, put a stop to the gladiatorial combats which had long been held at Rome.",
+   "note": "Honorius ended the spectacles and honoured Telemachus."
+  }
+ },
+ {
+  "id": "history-072",
+  "d": 1,
+  "q": "Which emperor, raised Christian, turned to paganism and was called the Apostate?",
+  "o": [
+   "Julian",
+   "Constantius",
+   "Valens",
+   "Jovian"
+  ],
+  "a": 0,
+  "why": "Julian rejected the faith and tried to restore paganism.",
+  "src": {
+   "kind": "father",
+   "label": "Socrates, Church History 3.1",
+   "work": "socrates-sozomen",
+   "section": "ii.vi.i",
+   "quote": "his Apostasy to Paganism Book III.",
+   "note": "Julian rejected the faith and tried to restore paganism."
+  }
+ },
+ {
+  "id": "history-073",
+  "d": 1,
+  "q": "What does Chrysostom mean, as a surname for John of Constantinople?",
+  "o": [
+   "Iron Staff",
+   "Bright Star",
+   "Golden Mouth",
+   "Faithful Shepherd"
+  ],
+  "a": 2,
+  "why": "He earned the title for his eloquence.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St John Chrysostom",
+   "butler": "01-27:0",
+   "quote": "the surname of Chrysostom, or Golden Mouth, which we find given him by St.",
+   "note": "He earned the title for his eloquence."
+  }
+ },
+ {
+  "id": "history-074",
+  "d": 1,
+  "q": "Who, according to Socrates, found the Cross of Christ at Jerusalem?",
+  "o": [
+   "Pulcheria",
+   "Helena, mother of Constantine",
+   "Eudoxia",
+   "Irene"
+  ],
+  "a": 1,
+  "why": "Helena searched at Jerusalem and found the Cross.",
+  "src": {
+   "kind": "father",
+   "label": "Socrates, Church History 1.17",
+   "work": "socrates-sozomen",
+   "section": "ii.iv.xvii",
+   "quote": "The Emperor's Mother Helena having come to Jerusalem, searches for and finds the Cross of Christ, and builds a Church Chapter XVII.—The Emperor’s Mother Helena having come to Jerusalem, searches for and finds the Cross of Christ, and builds a Church.",
+   "note": "Helena searched at Jerusalem and found the Cross."
+  }
+ },
+ {
+  "id": "history-075",
+  "d": 1,
+  "q": "In what year did Constantine defeat Maxentius within sight of Rome?",
+  "o": [
+   "306",
+   "325",
+   "330",
+   "312"
+  ],
+  "a": 3,
+  "why": "The victory was on 28 October 312.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Sylvester",
+   "butler": "12-31:0",
+   "quote": "the victory which Constantine gained over Maxentius within sight of the city of Rome on the 28th of October, 312.",
+   "note": "The victory was on 28 October 312."
+  }
+ },
+ {
+  "id": "history-076",
+  "d": 1,
+  "q": "Which pope went to meet Attila the Hun as he marched against Rome?",
+  "o": [
+   "Gregory the Great",
+   "Pius V",
+   "Gelasius",
+   "Leo the Great"
+  ],
+  "a": 3,
+  "why": "Leo went out at the city's request.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Leo the Great",
+   "butler": "04-11:0",
+   "quote": "In the general consternation, St. Leo, at the request of the whole city of Rome, went to meet Attila, )?ontus : which Theodoret calls (Hist.",
+   "note": "Leo went out at the city's request."
+  }
+ },
+ {
+  "id": "history-077",
+  "d": 2,
+  "q": "What title did Gregory the Great use in his letters, kept by his successors?",
+  "o": [
+   "Vicar of Christ",
+   "Servant of the servants of God",
+   "Prince of Pastors",
+   "Defender of the Faith"
+  ],
+  "a": 1,
+  "why": "Gregory subscribed himself this way.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Gregory the Great",
+   "butler": "03-12:0",
+   "quote": "Servant of the servants of God, which custom has been retained by his successors.",
+   "note": "Gregory subscribed himself this way."
+  }
+ },
+ {
+  "id": "history-078",
+  "d": 2,
+  "q": "Which mountain monastery did Benedict establish after leaving Subiaco?",
+  "o": [
+   "Cluny",
+   "Citeaux",
+   "Monte Cassino",
+   "Clairvaux"
+  ],
+  "a": 2,
+  "why": "Benedict repaired to Mount Cassino and wrote his Rule there.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Benedict",
+   "butler": "03-21:0",
+   "quote": "repaired to Mount Cassino.",
+   "note": "Benedict repaired to Mount Cassino and wrote his Rule there."
+  }
+ },
+ {
+  "id": "history-079",
+  "d": 1,
+  "q": "Who was St Scholastica to St Benedict?",
+  "o": [
+   "His sister",
+   "His mother",
+   "His cousin",
+   "His niece"
+  ],
+  "a": 0,
+  "why": "Scholastica was Benedict's sister and a consecrated virgin.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Scholastica",
+   "butler": "02-10:0",
+   "quote": "THIS saint was sister to the great St. Benedict.",
+   "note": "Scholastica was Benedict's sister and a consecrated virgin."
+  }
+ },
+ {
+  "id": "history-080",
+  "d": 3,
+  "q": "Which pope preferred Benedict's Rule for wisdom and discretion to all other rules?",
+  "o": [
+   "Gregory the Great",
+   "Leo the Great",
+   "Pelagius II",
+   "Boniface I"
+  ],
+  "a": 0,
+  "why": "Butler says Gregory the Great preferred it to all others.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Benedict",
+   "butler": "03-21:0",
+   "quote": "compiled a monastic rule, which, for wisdom and discretion, St. Gregory the Great preferred to all other rules; and which was afterwards adopted, for some time, by all the monks of the West.",
+   "note": "Butler says Gregory the Great preferred it to all others."
+  }
+ },
+ {
+  "id": "history-081",
+  "d": 2,
+  "q": "Who was the first to draw up a monastic rule in writing?",
+  "o": [
+   "Antony",
+   "Basil",
+   "Pachomius",
+   "Benedict"
+  ],
+  "a": 2,
+  "why": "Antony founded the hermit life, Pachomius the first written rule.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Pachomius",
+   "butler": "05-14:3",
+   "quote": "St. Pachomius was the first who drew up a monastic rule in writing.",
+   "note": "Antony founded the hermit life, Pachomius the first written rule."
+  }
+ },
+ {
+  "id": "history-082",
+  "d": 2,
+  "q": "Which Father of Alexandria wrote the life of St Antony the Abbot?",
+  "o": [
+   "Cyril",
+   "Athanasius",
+   "Jerome",
+   "Basil"
+  ],
+  "a": 1,
+  "why": "Butler cites Athanasius's life of Antony.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Antony",
+   "butler": "01-17:0",
+   "quote": "From his life, compiled by the great St. Athanasius, vol.",
+   "note": "Butler cites Athanasius's life of Antony."
+  }
+ },
+ {
+  "id": "history-083",
+  "d": 2,
+  "q": "How old was Patrick when barbarians carried him into captivity in Ireland?",
+  "o": [
+   "Eight",
+   "Twenty-five",
+   "Forty",
+   "Sixteen"
+  ],
+  "a": 3,
+  "why": "Patrick says he was in his sixteenth year when captured.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Patrick",
+   "butler": "03-17:0",
+   "quote": "In his sixteenth year he was carried into captivity by certain barbarians, together with many of his father's vassals and slaves, taken upon his estate.",
+   "note": "Patrick says he was in his sixteenth year when captured."
+  }
+ },
+ {
+  "id": "history-084",
+  "d": 1,
+  "q": "Which Anglo-Saxon saint is called the Apostle of Germany?",
+  "o": [
+   "Bede",
+   "Augustine of Canterbury",
+   "Columba",
+   "Boniface"
+  ],
+  "a": 3,
+  "why": "Boniface preached in Germany and was martyred in 755.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Boniface",
+   "butler": "06-05:0",
+   "quote": "Apostle of Germany and Martyr.",
+   "note": "Boniface preached in Germany and was martyred in 755."
+  }
+ },
+ {
+  "id": "history-085",
+  "d": 2,
+  "q": "At which northern English monastery did Bede study and live?",
+  "o": [
+   "Whitby",
+   "Jarrow",
+   "Lindisfarne",
+   "Glastonbury"
+  ],
+  "a": 1,
+  "why": "Bede was moved to Jarrow and studied under Abbot Ceolfrid.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Bede",
+   "butler": "05-28:3",
+   "quote": "afterwards removed to Jarrow, where he prosecuted his studies under the direction of the abbot Ceolfrid, who had been St.",
+   "note": "Bede was moved to Jarrow and studied under Abbot Ceolfrid."
+  }
+ },
+ {
+  "id": "history-086",
+  "d": 2,
+  "q": "Who sent Augustine, prior of St Andrew's in Rome, to convert the English?",
+  "o": [
+   "Pope Leo I",
+   "Pope Pelagius II",
+   "Pope Gregory the Great",
+   "Pope Boniface IV"
+  ],
+  "a": 2,
+  "why": "Gregory chose Augustine to lead the mission.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Augustine of Canterbury",
+   "butler": "05-27:8",
+   "quote": "For this great work none seemed better qualified than Augustine, then prior of St. Gregory's monastery, dedicated to St. Andrew in Rome.",
+   "note": "Gregory chose Augustine to lead the mission."
+  }
+ },
+ {
+  "id": "history-087",
+  "d": 3,
+  "q": "Gregory's name means what in Greek, according to Butler?",
+  "o": [
+   "Watchman",
+   "Shepherd",
+   "Lion",
+   "Teacher"
+  ],
+  "a": 0,
+  "why": "Butler notes Gregory implies a watchman.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Gregory the Great",
+   "butler": "03-12:0",
+   "quote": "Gregory, which in Greek implies a watchman, as Vigilius and Vigilantius in Latin.",
+   "note": "Butler notes Gregory implies a watchman."
+  }
+ },
+ {
+  "id": "history-088",
+  "d": 2,
+  "q": "Which order did Pius V join at fifteen?",
+  "o": [
+   "Dominicans",
+   "Franciscans",
+   "Jesuits",
+   "Benedictines"
+  ],
+  "a": 0,
+  "why": "He studied with Dominican friars and took their habit.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Pius V",
+   "butler": "05-05:0",
+   "quote": "He studied grammar under the care of the Dominican friars at Voghera ; and giving himself up entirely to the most fervent exercises of religion, took the habit of that order when he was only fifteen years of age.",
+   "note": "He studied with Dominican friars and took their habit."
+  }
+ },
+ {
+  "id": "history-089",
+  "d": 1,
+  "q": "Who founded the Society of Jesus (the Jesuits)?",
+  "o": [
+   "Francis Xavier",
+   "Philip Neri",
+   "Ignatius of Loyola",
+   "Dominic"
+  ],
+  "a": 2,
+  "why": "Ignatius of Loyola founded the Jesuits.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Ignatius of Loyola",
+   "butler": "07-31:0",
+   "quote": "Founder of the Society of Jesus.",
+   "note": "Ignatius of Loyola founded the Jesuits."
+  }
+ },
+ {
+  "id": "history-090",
+  "d": 1,
+  "q": "Which Jesuit saint, born in Navarre, is called the Apostle of the Indies?",
+  "o": [
+   "Peter Canisius",
+   "Francis Xavier",
+   "Robert Bellarmine",
+   "Aloysius Gonzaga"
+  ],
+  "a": 1,
+  "why": "Urban VIII styled him apostle of the Indies.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Francis Xavier",
+   "butler": "12-03:0",
+   "quote": "whom Urban VIII. justly styled the apostle of the Indies.",
+   "note": "Urban VIII styled him apostle of the Indies."
+  }
+ },
+ {
+  "id": "history-091",
+  "d": 3,
+  "q": "Which Archbishop of Milan pressed for Trent's decree on seminaries?",
+  "o": [
+   "Ambrose",
+   "Francis de Sales",
+   "Philip Neri",
+   "Charles Borromeo"
+  ],
+  "a": 3,
+  "why": "He urged bishops to found seminaries as the council decreed.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Charles Borromeo",
+   "butler": "11-04:0",
+   "quote": "pressed earnestly all bishops to found seminaries according to the decree of the council, and set the example by establishing such a seminary at Rome, the care of which was committed to the Jesuits.4 In opposition to the new errors, his holiness published, in 1564, the Creed which bears his name, and commanded all who are preferred to ecclesiastical livings, dignities, &c, to subscribe the same.5",
+   "note": "He urged bishops to found seminaries as the council decreed."
+  }
+ },
+ {
+  "id": "history-092",
+  "d": 1,
+  "q": "Which saint of Assisi founded the Friars Minor?",
+  "o": [
+   "Dominic",
+   "Anthony of Padua",
+   "Bernard",
+   "Francis"
+  ],
+  "a": 3,
+  "why": "Francis of Assisi founded the Friars Minor.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Francis of Assisi",
+   "butler": "10-04:0",
+   "quote": "Saint Francis of Assisium, C. Founder of the Friar Minors.",
+   "note": "Francis of Assisi founded the Friars Minor."
+  }
+ },
+ {
+  "id": "history-093",
+  "d": 2,
+  "q": "Against which heresy in Languedoc and Toulouse did Dominic preach?",
+  "o": [
+   "Arianism",
+   "The Albigensian heresy",
+   "Donatism",
+   "Pelagianism"
+  ],
+  "a": 1,
+  "why": "Dominic grieved at the Albigenses and began preaching.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Dominic",
+   "butler": "08-04:0",
+   "quote": "Languedoc, which was then filled with the abominations of the heresy of the Albigenses.",
+   "note": "Dominic grieved at the Albigenses and began preaching."
+  }
+ },
+ {
+  "id": "history-094",
+  "d": 3,
+  "q": "Who was the teacher of Thomas Aquinas at Cologne?",
+  "o": [
+   "Bonaventure",
+   "Anselm",
+   "Albert the Great",
+   "Bernard"
+  ],
+  "a": 2,
+  "why": "Thomas studied under Albertus Magnus.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Thomas Aquinas",
+   "butler": "03-07:0",
+   "quote": "Albertus Magnus teaching then at Cologne, the general, John the Teutonic, took the saint with him from Rome to Paris, and thence to Cologne.",
+   "note": "Thomas studied under Albertus Magnus."
+  }
+ },
+ {
+  "id": "history-095",
+  "d": 3,
+  "q": "Which Archbishop of Canterbury wrote the Monologium and Proslogium?",
+  "o": [
+   "Anselm",
+   "Lanfranc",
+   "Dunstan",
+   "Thomas Becket"
+  ],
+  "a": 0,
+  "why": "Anselm wrote them while prior at Bec.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Anselm",
+   "butler": "04-21:0",
+   "quote": "he wrote his Monologium, so called, because in this Work he speaks alone, explaining the metaphysical proofs of the existence and nature of God.",
+   "note": "Anselm wrote them while prior at Bec."
+  }
+ },
+ {
+  "id": "history-096",
+  "d": 1,
+  "q": "Which soldier-saint cut his cloak in two to share it with a beggar?",
+  "o": [
+   "Martin of Tours",
+   "George",
+   "Sebastian",
+   "Maurice"
+  ],
+  "a": 0,
+  "why": "Martin gave half his cloak to the poor man.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Martin of Tours",
+   "butler": "11-11:0",
+   "quote": "drawing his sword, he cut his cloak into two pieces, gave one to the beggar, and wrapped himself in the other half.",
+   "note": "Martin gave half his cloak to the poor man."
+  }
+ },
+ {
+  "id": "history-097",
+  "d": 1,
+  "q": "Which Archbishop of Canterbury was slain by assassins?",
+  "o": [
+   "Anselm",
+   "Dunstan",
+   "Thomas Becket",
+   "Lanfranc"
+  ],
+  "a": 2,
+  "why": "Becket was martyred at Canterbury.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Thomas of Canterbury",
+   "butler": "12-29:0",
+   "quote": "saw him wounded by the assassins and expire.",
+   "note": "Becket was martyred at Canterbury."
+  }
+ },
+ {
+  "id": "history-098",
+  "d": 2,
+  "q": "Perpetua and Felicity were sentenced to face wild beasts in which North African city?",
+  "o": [
+   "Alexandria",
+   "Carthage",
+   "Hippo",
+   "Tunis"
+  ],
+  "a": 1,
+  "why": "They were arrested and condemned at Carthage.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, SS Perpetua and Felicitas",
+   "butler": "03-07:1",
+   "quote": "five catechumens were apprehended at Carthage for the faith: namely, Rovocatus, and his fellow-slave Felicitas, Saturninus, and Secundulus, and Vibia Perpetua.",
+   "note": "They were arrested and condemned at Carthage."
+  }
+ },
+ {
+  "id": "history-099",
+  "d": 1,
+  "q": "Teresa of Avila reformed which religious order?",
+  "o": [
+   "Poor Clares",
+   "Benedictines",
+   "Dominicans",
+   "Carmelites"
+  ],
+  "a": 3,
+  "why": "She founded the Reformation of the Barefooted Carmelites.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Teresa",
+   "butler": "10-15:0",
+   "quote": "Foundress of the Reformation of the Barefooted Carmelites.",
+   "note": "She founded the Reformation of the Barefooted Carmelites."
+  }
+ },
+ {
+  "id": "history-100",
+  "d": 2,
+  "q": "Before becoming pope, Gregory VII was known by what name?",
+  "o": [
+   "Anselm",
+   "Bruno",
+   "Odo",
+   "Hildebrand"
+  ],
+  "a": 3,
+  "why": "Butler says he was called Hildebrand.",
+  "src": {
+   "kind": "saint",
+   "label": "Butler, St Gregory VII",
+   "butler": "05-26:5",
+   "quote": "Before his exaltation to the popedom, he was called Hildebrand.",
+   "note": "Butler says he was called Hildebrand."
+  }
+ }
+]

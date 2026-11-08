@@ -1,0 +1,10 @@
+<!-- Add inside <application> in android/app/src/main/AndroidManifest.xml -->
+<receiver android:name=".VerseWidgetProvider" android:exported="false">
+    <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+    <meta-data android:name="android.appwidget.provider" android:resource="@xml/verse_widget_info" />
+</receiver>
+<!-- Add to res/values/strings.xml:
+<string name="widget_title">VERSE OF THE DAY</string>
+<string name="widget_description">Today’s verse, verses to review and your streak.</string>
+<string name="widget_open_app">Open the app once to load today’s verse.</string>
+-->

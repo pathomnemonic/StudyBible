@@ -35,8 +35,11 @@ export default defineConfig({
         shortcuts: [
           { name: 'Today', short_name: 'Today', url: './#/today' },
           { name: 'Memorize', short_name: 'Memorize', url: './#/memorize' },
-          { name: 'Verse widget', short_name: 'Widget', url: './#/widget' },
+          { name: 'Verse widget', short_name: 'Widget', url: './#/widget/verse' },
+          { name: 'Crown Quest trivia', short_name: 'Trivia', url: './#/play/trivia' },
         ],
+        // Windows 11 widgets board (Microsoft Edge): the verse of the day, fed by public/widgets-sw.js
+        ...({ widgets: [{ name: 'Verse of the day', tag: 'verse', description: 'Today\u2019s verse, from the Bible in your app.', ms_ac_template: 'widgets/verse-template.json', data: 'widgets/verse-data.json', type: 'application/json', auth: false, update: 86400, icons: [{ src: 'icon-192.png', sizes: '192x192' }] }] } as Record<string, unknown>),
         icons: [
           { src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
           { src: 'icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
@@ -45,6 +48,7 @@ export default defineConfig({
         ],
       },
       workbox: {
+        importScripts: ['widgets-sw.js'],
         // App shell is precached; Scripture and content packs are cached the first time they are read
         // (or on demand through Settings → Offline), never fetched eagerly.
         globPatterns: ['**/*.{js,css,html,svg,woff2}'],
