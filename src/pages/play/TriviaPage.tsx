@@ -206,6 +206,7 @@ export default function TriviaPage() {
 
   return (
     <div className="page trivia">
+      <h1 className="sr-only">Crown Quest</h1>
       <div className="tv-board">{players.map((p, i) => <Crowns key={p.name + i} p={p} active={i === turn} />)}</div>
       {mode === 'solo' && <p className="tv-hearts" aria-label={`${hearts} lives left`}>{'❤️'.repeat(Math.max(0, hearts))}{'🤍'.repeat(Math.max(0, 3 - hearts))}</p>}
       {(phase === 'spin' || phase === 'spinning' || phase === 'pick') && (
