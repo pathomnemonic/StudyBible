@@ -5544,3 +5544,5 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .tl-pick{margin-top:10px;border-left:4px solid var(--accent,#7a5)}
 .walk-dots{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;padding:0}
 .walk-stop{border-left:4px solid #c9a227}
+.chapters .now-chapter{font-weight:700;color:var(--accent,#7a5)}
+.chapters li{margin:4px 0}

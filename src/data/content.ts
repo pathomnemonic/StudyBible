@@ -41,7 +41,11 @@ export const getLibScripture = (book: string) => getJson<LibScriptureEntry[]>(`l
 export const getWork = (id: string) => getJson<{ id: string; sections: { id: string; title: string; paras: string[]; scripture: string[] }[] }>(`library/works/${id}.json`);
 export const getFulltextIndex = () => getJson<{ sections: [string, number][]; postings: Record<string, number[]> }>('library/fulltext-index.json', true);
 
+export interface EpisodeChapter { t: number; title: string }
 export interface BiayEpisode {
+  /** chapter marks: from the show notes' timestamps, or fetched from the feed's chapters file */
+  chapters?: EpisodeChapter[];
+  chaptersUrl?: string;
   id: string;
   day: number | null;
   year: number | null;

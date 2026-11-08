@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
 import { resolveEpisode, usePlayer } from '../data/PlayerContext';
-import type { BiayEpisode } from '../data/content';
+import type { BiayEpisode, EpisodeChapter } from '../data/content';
+import { fetchChapters } from '../data/feeds';
 import Modal from './Modal';
 import { useSettings } from '../lib/store';
 import { parseRefId } from '../lib/refs';
@@ -28,6 +29,29 @@ function Marks({ id, title, page }: { id: string; title: string; page?: string }
       <ul className="list">{marks.map((t) => (
         <li key={t} className="row between"><button className="btn small ghost" onClick={() => p.seek(t)}>{fmt(t)}</button><span className="row" style={{ gap: 4 }}><button className="btn small ghost" onClick={() => void shareAt(t)}>Share</button><button className="icon-btn" aria-label={`Remove the mark at ${fmt(t)}`} onClick={() => save(marks.filter((x) => x !== t))}>×</button></span></li>
       ))}</ul>
+    </details>
+  );
+}
+
+/** Chapter marks for the episode: from its show notes, or from the feed's chapters file. Tap one to jump there. */
+function Chapters({ e, position, seek }: { e: BiayEpisode; position: number; seek: (t: number) => void }) {
+  const [list, setList] = useState<EpisodeChapter[]>(e.chapters ?? []);
+  useEffect(() => {
+    setList(e.chapters ?? []);
+    if (!e.chapters?.length && e.chaptersUrl) { let live = true; void fetchChapters(e.chaptersUrl).then((c) => live && setList(c)); return () => { live = false; }; }
+  }, [e.id, e.chapters, e.chaptersUrl]);
+  if (list.length < 2) return null;
+  let cur = 0;
+  list.forEach((c, i) => { if (position + 1 >= c.t) cur = i; });
+  return (
+    <details open><summary>Chapters ({list.length})</summary>
+      <ol className="list chapters">
+        {list.map((c, i) => (
+          <li key={c.t + c.title}>
+            <button className={`linklike${i === cur ? ' now-chapter' : ''}`} aria-current={i === cur ? 'true' : undefined} onClick={() => seek(c.t)}><span className="muted small">{fmt(c.t)}</span> {c.title}</button>
+          </li>
+        ))}
+      </ol>
     </details>
   );
 }
@@ -73,6 +97,7 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
           {readAlong && <Link className="btn small primary" to={readAlong} onClick={onClose}>Read along</Link>}
           {e.link && <Link className="btn small" to={e.link} onClick={onClose}>Open the page</Link>}
         </div>
+        <Chapters e={e} position={p.position} seek={p.seek} />
         <Marks id={e.id} title={e.title} page={e.page} />
         {e.description && <details open><summary>Show notes</summary><p className="small" style={{ whiteSpace: 'pre-wrap' }}>{e.description}</p></details>}
         <details open={q.length > 0}><summary>Up next ({q.length})</summary>
