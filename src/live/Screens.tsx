@@ -7,6 +7,7 @@ import { joinRoom, peekRoom, type HostLink, type PlayerLink } from './link';
 import type { CrownTrack, LiveSlide, LiveView } from './types';
 import InlinePlayer from '../components/InlinePlayer';
 import { recordSession, type HostMeta } from '../teach/store';
+import { useSaveResults } from '../teach/useSaveResults';
 import { embedFor } from '../lib/embed';
 import { CATS } from '../lib/trivia';
 import QrCode from './QrCode';
@@ -278,6 +279,7 @@ export function HostPage() {
   const { link, view: v, state, serverNow } = useHostLink(code);
   const act = (a: string, arg?: unknown) => (link ? link.act(a, arg).catch(() => undefined) : Promise.resolve());
   const meta = useMemo<HostMeta | null>(() => { try { const m = localStorage.getItem(`sb:live:meta:${code}`); return m ? (JSON.parse(m) as HostMeta) : null; } catch { return null; } }, [code]);
+  useSaveResults(v);
   const lastSaved = useRef('');
   useEffect(() => {
     if (!v || !meta || !v.results) return;

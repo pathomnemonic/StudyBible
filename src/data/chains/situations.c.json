@@ -34,7 +34,7 @@
    {
     "name": "Gregory the Great",
     "lifespan": "c. 540–604",
-    "why": "Gregory wrote a rule for bishops. It is a reminder that the Church has always held its leaders to a high standard, and that failing it is a fault in them rather than a sign that the standard is false.",
+    "why": "Gregory wrote a rule for bishops. It shows that the Church has long expected a pastor's own life to match his office.",
     "step": {
      "kind": "father",
      "label": "Gregory the Great, Pastoral Rule, Part II",
@@ -67,7 +67,7 @@
   "id": "chronic-pain",
   "title": "Chronic pain",
   "ask": "I live with pain that does not go away.",
-  "intro": "Pain that lasts for months or years wears down patience, sleep and hope, and the people who love you may not see how much it costs. These saints knew long illness from the inside, and none of them pretends it was easy. Their stories do not mean you must put up with pain that can be treated. The Catechism teaches that illness can lead to anguish and even despair, as well as to a search for God (1501), and it calls palliative care and the relief of pain acts of charity (2279). Please keep seeing a doctor or a pain clinic. If the pain has made you think of ending your life, tell someone today: a doctor, a priest, a friend, or an emergency or crisis line in your country.",
+  "intro": "Pain that lasts for months or years wears down patience, sleep and hope, and the people who love you may not see how much it costs. These saints knew long illness from the inside, and none of them pretends it was easy. Their stories do not mean you must put up with pain that can be treated. The Catechism teaches that illness can lead to anguish and even despair, as well as to a search for God (1501), and it calls palliative care a special form of charity (2279). Please keep seeing a doctor or a pain clinic. If the pain has made you think of ending your life, tell someone today: a doctor, a priest, a friend, or an emergency or crisis line in your country.",
   "mentors": [
    {
     "name": "Paul the Apostle",
@@ -95,7 +95,7 @@
    },
    {
     "name": "Benedict Biscop",
-    "lifespan": "c. 628–690",
+    "lifespan": "died 690",
     "why": "Butler says Benedict spent three years paralysed, much of it in bed. Unable to sing the daily prayers himself, he had monks sing them beside him and joined as well as he could. His case shows a way to keep praying when the body cannot do what it used to.",
     "step": {
      "kind": "saint",
@@ -139,7 +139,7 @@
      "kind": "scripture",
      "label": "John 21:20-22",
      "ref": "JHN.21.20-22",
-     "quote": "Lord, what about this man?”… what is that to you? You follow me.",
+     "quote": "“Lord, what about this man?”… what is that to you? You follow me.",
      "note": "Comparison is answered in one line."
     }
    },
@@ -158,14 +158,14 @@
    {
     "name": "Thérèse of Lisieux",
     "lifespan": "1873–1897",
-    "why": "Thérèse struggled with the thought that others were greater saints than she. She writes that she came to see that God does not want every flower to be a rose.",
+    "why": "Thérèse writes that she often wondered why God does not give every soul the same measure of grace. The garden of flowers is the answer she says she was given.",
     "step": {
      "kind": "saint",
      "label": "Thérèse, Story of a Soul, Chapter 1",
      "work": "therese-story-of-a-soul",
      "section": "ix",
      "quote": "the brilliance of the rose and the whiteness of the lily do not lessen the perfume of the violet or the sweet simplicity of the daisy. I understood that if all the lowly flowers wished to be roses, nature would lose its springtide beauty",
-     "note": "The image of the garden is her own answer to feeling small next to the great saints."
+     "note": "Her own image for why a small soul is not a lesser one."
     }
    },
    {
@@ -174,7 +174,7 @@
     "why": "Cassian lists envy among the faults that monks must fight. He describes what it does inside a person. In this passage he names the problem and does not give the remedy.",
     "step": {
      "kind": "father",
-     "label": "Cassian, Institutes, Book 5 (on the eight faults)",
+     "label": "Cassian, Institutes, Book 5",
      "work": "cassian-works",
      "section": "iv.iii.v",
      "quote": "Envy is a food of the mind, corrupting it with its poisonous juices and never ceasing to make it wretched and miserable at the prosperity and success of another.",
@@ -278,7 +278,7 @@
    {
     "name": "Basil of Caesarea",
     "lifespan": "c. 330–379",
-    "why": "Basil answers a letter from his old friend Gregory that had hurt him. The editor says Basil was 'somewhat wounded'. Basil does not hide the hurt, and he says he will not let it win.",
+    "why": "Basil replies to his old friend Gregory, who had asked him to explain a rumour. The editor says Basil was 'somewhat wounded'. Basil does not hide the pain, and he writes that his affection will outweigh it.",
     "step": {
      "kind": "father",
      "label": "Basil, Letter 71 (to Gregory)",
@@ -307,7 +307,7 @@
   "id": "prison-for-a-wrong-you-did",
   "title": "Prison, or shame over a crime",
   "ask": "I did something wrong, and I am in prison or ashamed of what is on my record.",
-  "intro": "Some people in these pages were guilty of real wrongs, and the Church does not pretend wrongs do not matter. The Catechism says that where there is harm, one must do what is possible to repair it (1459), and that includes owning what you did. But the same sources insist that mercy is not closed to anyone. If you are in custody, ask for the chaplain. If you are out and carrying shame, a priest can hear your confession and walk with you, and a counsellor can help too. If you feel you cannot go on, tell staff, a chaplain or a crisis line today.",
+  "intro": "Some people in these pages were guilty of real wrongs, and the Church does not pretend wrongs do not matter. The Catechism says that where there is harm, one must do what is possible to repair it (1459). But the same sources show mercy given to people who had done real harm. If you are in custody, ask for the chaplain. If you are out and carrying shame, a priest can hear your confession and walk with you, and a counsellor can help too. If you feel you cannot go on, tell staff, a chaplain or a crisis line today.",
   "mentors": [
    {
     "name": "The repentant criminal",
@@ -335,8 +335,8 @@
    },
    {
     "name": "Francis di Girolamo",
-    "lifespan": "1642–1716",
-    "why": "Butler says Francis spent years in the prisons and galleys of Naples, and credits him with changing the lives of many who were held there. He was not himself a prisoner. He shows that some saints went into the places others avoid.",
+    "lifespan": "Francis di Girolamo",
+    "why": "Butler says Francis was constantly in the hospitals, prisons and galleys, and credits his work with the amendment of many sinners. He was not himself a prisoner. He shows that some saints went into the places others avoid.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Francis di Girolamo",
@@ -348,7 +348,7 @@
    {
     "name": "Vincent de Paul",
     "lifespan": "1581-1660",
-    "why": "Butler records that Vincent founded a hospital at Marseilles for galley slaves. It is not about people who regret their deeds, but it shows a saint insisting that even convicts deserve care of body and soul.",
+    "why": "Butler records that Vincent procured and directed the founding of many hospitals, among them one at Marseilles for galley slaves. It is not about people who regret their deeds, but it shows a saint insisting that even convicts deserve care of body and soul.",
     "step": {
      "kind": "saint",
      "label": "Butler, St. Vincent de Paul",
@@ -368,7 +368,7 @@
   "id": "a-child-who-has-left-the-faith",
   "title": "A grown child who has left the faith",
   "ask": "My grown child has walked away from the Church, and I am afraid for them.",
-  "intro": "Many parents carry this quietly. You cannot make an adult believe, and arguing often pushes them further away. Monica is the saint most often named here, and her own son records her tears. Her story did end well, but nothing in the sources promises that every story will. What the sources do show is a mother who kept praying, kept the family together, and rejoiced when her son came back. If your child is in danger, for example from addiction or thoughts of self-harm, that is a separate emergency: contact a doctor, an emergency service or a crisis line first.",
+  "intro": "Many parents carry this quietly. You cannot make an adult believe, and arguing often pushes them further away. Monica is the saint most often named here, and her own son records her tears. Her story did end well, but nothing in the sources promises that every story will. What the sources do show is a mother who kept praying and rejoiced when her son came back. If your child is in danger, for example from addiction or thoughts of self-harm, that is a separate emergency: contact a doctor, an emergency service or a crisis line first.",
   "mentors": [
    {
     "name": "Monica",
@@ -414,7 +414,7 @@
   "id": "after-a-divorce",
   "title": "After a divorce or separation",
   "ask": "My marriage has ended, and I do not know where I stand.",
-  "intro": "A broken marriage brings grief, anger, and often a fear that you have lost your place in the Church. The Catechism teaches that marriage is a lasting bond, and it also says plainly that the Church permits separation in some situations, and that spouses who have divorced are not to feel cut off from the Church (1649, 1651). It says civil divorce can be tolerated when it is the only way to protect legal rights, children or property (2383). If you were hurt or are afraid, your safety comes first. Please speak with a priest, and ask whether your situation should be looked at by the Church's marriage tribunal. A counsellor or a support group can help with the grief.",
+  "intro": "A broken marriage brings grief, anger, and often a fear that you have lost your place in the Church. The Catechism teaches that marriage is a lasting bond, and it also says plainly that the Church permits separation in some situations, and that Christians in a broken or remarried situation must not consider themselves separated from the Church (1649, 1651). It says civil divorce can be tolerated when it is the only way to protect legal rights, children or property (2383). If you were hurt or are afraid, your safety comes first. Please speak with a priest, and ask whether your situation should be looked at by the Church's marriage tribunal. A counsellor or a support group can help with the grief.",
   "mentors": [
    {
     "name": "The Samaritan woman",
@@ -443,7 +443,7 @@
    {
     "name": "Fabiola",
     "lifespan": "died 399",
-    "why": "Jerome, writing her eulogy, says she left a husband whose faults he calls terrible, remarried, and later did public penance. Jerome counts the second marriage as a fault. His account is a story from the fourth century and does not settle what the Church asks today (see Catechism 1650-1651).",
+    "why": "Jerome, writing her eulogy, says she left a first husband whose faults he calls so terrible that no one could have put up with them, remarried, and later did public penance. Jerome counts the second marriage as a fault. His account is a story from the fourth century and does not settle what the Church asks today (see Catechism 1650-1651).",
     "step": {
      "kind": "father",
      "label": "Jerome, Letter 77 (to Oceanus)",
@@ -465,11 +465,11 @@
   "id": "leaving-home",
   "title": "Leaving home",
   "ask": "I am leaving home, or I have just left, and I feel unsure and a little lost.",
-  "intro": "Leaving home for study, work or a new life brings freedom and loneliness together. These figures are not all examples to copy. Abraham left because he believed he was called, and Ruth chose to follow a family that was not her own. Augustine went to a city that stirred up his worst habits and he says so honestly. If you are in a place where you feel unsafe, or you have no money, or you have stopped eating or sleeping, tell a friend, a family member or a local services line today.",
+  "intro": "Leaving home for study, work or a new life brings freedom and loneliness together. These figures are not all examples to copy. Abraham left because he believed he was called, and Ruth chose to follow a family that was not her own. Augustine went to a city that he says stirred up his worst habits. If you are in a place where you feel unsafe, or you have no money, or you have stopped eating or sleeping, tell a friend, a family member or a local services line today.",
   "mentors": [
    {
     "name": "Abraham",
-    "lifespan": "early 2nd millennium BC",
+    "lifespan": "Book of Genesis",
     "why": "Genesis says the Lord told Abram to leave his country, his relatives and his father's house. Abram went at seventy-five. The call and the promise came together, and the text says nothing about his feelings.",
     "step": {
      "kind": "scripture",
@@ -482,7 +482,7 @@
    {
     "name": "Ruth",
     "lifespan": "Book of Ruth",
-    "why": "Ruth left her own people to stay with her mother-in-law, Naomi. The book says she did it out of loyalty and not because she had a plan.",
+    "why": "Ruth left her own people to stay with her mother-in-law, Naomi. Naomi urges her to go back to her own people, and Ruth refuses.",
     "step": {
      "kind": "scripture",
      "label": "Ruth 1:14-17",
@@ -494,7 +494,7 @@
    {
     "name": "Augustine of Hippo",
     "lifespan": "354–430",
-    "why": "Augustine went to Carthage as a student. He says honestly that the city stirred up appetites he did not yet understand. He wrote this looking back, not at the time.",
+    "why": "Augustine went to Carthage and describes the city, looking back, as full of 'unholy loves'. He writes it as a confession of his own state, not as a charge against the city.",
     "step": {
      "kind": "father",
      "label": "Augustine, Confessions, Book 3, Chapter 1",

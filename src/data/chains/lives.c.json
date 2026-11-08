@@ -7,6 +7,11 @@
   "sketch": "Antony was a well-off young Egyptian who gave away his inheritance, lived alone among the tombs and then in a ruined fort, and became the father of Christian monks. We know him mainly through the Life that Athanasius wrote soon after his death. Dates for the early part are traditional: the Life gives few years, so they are marked \"c.\" here.",
   "events": [
    {
+    "year": 250,
+    "text": "The emperor Decius orders everyone in the empire to offer sacrifice; the first empire-wide persecution of Christians begins around the time of Antony's birth. Context from settled history.",
+    "kind": "world"
+   },
+   {
     "year": 251,
     "text": "Antony is born, traditionally about this year, at Coma in Upper Egypt, to Christian parents of good family and some wealth.",
     "kind": "turning",
@@ -20,11 +25,6 @@
      "quote": "Antony you must know was by descent an Egyptian: his parents were of good family and possessed considerable wealth",
      "note": "Athanasius gives no year of birth. The date is a later estimate worked back from his reported age of about 105 at death."
     }
-   },
-   {
-    "year": 250,
-    "text": "The emperor Decius orders everyone in the empire to offer sacrifice; the first empire-wide persecution of Christians begins around the time of Antony's birth. Context from settled history.",
-    "kind": "world"
    },
    {
     "year": 271,
@@ -147,21 +147,6 @@
     "kind": "world"
    },
    {
-    "year": 338,
-    "text": "When the Arians claim Antony agrees with them, he comes down from the mountain to Alexandria and publicly denounces them. Crowds, including many pagans, come to see him.",
-    "kind": "turning",
-    "step": {
-     "kind": "father",
-     "label": "Athanasius, Life of Antony 69",
-     "when": "c. 338",
-     "year": 338,
-     "work": "athanasius-antony",
-     "section": "xvi.ii.xxxi",
-     "quote": "he descended from the mountain, and having entered Alexandria",
-     "note": "A note in the bundled text gives July 338 for the visit."
-    }
-   },
-   {
     "year": 336,
     "text": "Emperor Constantine and his sons write to Antony as to a father. He is unimpressed and tells the monks that it is more wonderful that God has written to us.",
     "kind": "world",
@@ -174,6 +159,21 @@
      "section": "xvi.ii.xxxv",
      "quote": "Constantine Augustus, and his sons Constantius and Constans the Augusti wrote letters to him, as to a father",
      "note": "Constantine died in 337, so the letters come before that; the Life gives no exact year."
+    }
+   },
+   {
+    "year": 338,
+    "text": "When the Arians claim Antony agrees with them, he comes down from the mountain to Alexandria and publicly denounces them. Crowds, including many pagans, come to see him.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 69",
+     "when": "c. 338",
+     "year": 338,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.xxxi",
+     "quote": "he descended from the mountain, and having entered Alexandria",
+     "note": "A note in the bundled text gives July 338 for the visit."
     }
    },
    {
@@ -258,11 +258,6 @@
     }
    },
    {
-    "year": 378,
-    "text": "The Gothic victory at Adrianople kills the eastern emperor Valens and shocks the empire. Context from settled history.",
-    "kind": "world"
-   },
-   {
     "year": 377,
     "text": "At the request of the young emperor Gratian he writes On the Faith against the Arians, adding more books in 379.",
     "kind": "writing",
@@ -275,6 +270,11 @@
      "quote": "the holy prelate wrote, in 377, the work entitled, On the Faith, to Gratian",
      "note": "Butler gives 377 for the first books and 379 for the later ones."
     }
+   },
+   {
+    "year": 378,
+    "text": "The Gothic victory at Adrianople kills the eastern emperor Valens and shocks the empire. Context from settled history.",
+    "kind": "world"
    },
    {
     "year": 384,
@@ -353,7 +353,7 @@
    },
    {
     "year": 390,
-    "text": "After the Emperor Theodosius has thousands killed at Thessalonica, Ambrose writes that he cannot offer the sacrifice in his presence until he repents. Theodosius submits to public penance.",
+    "text": "After the Emperor Theodosius has thousands killed at Thessalonica, Ambrose writes that he dare not offer the sacrifice if the emperor is present. Theodosius submits to public penance.",
     "kind": "setback",
     "step": {
      "kind": "father",
@@ -362,7 +362,7 @@
      "year": 390,
      "work": "ambrose-letters",
      "section": "v.xi",
-     "quote": "But I could not close my ears with the wax of the old fables.",
+     "quote": "I dare not offer the sacrifice if you intend to be present.",
      "note": "Butler dates the council on this subject to 390 and says Theodosius spent eight months in penance."
     }
    },
@@ -383,6 +383,394 @@
      "butler": "12-07:0",
      "quote": "I have not so behaved myself among you that I should be ashamed to live longer ; nor am I afraid to die, because we have a good master.",
      "note": "Butler follows Paulinus, his secretary, who was present."
+    }
+   }
+  ]
+ },
+ {
+  "id": "basil-the-great",
+  "name": "Basil the Great",
+  "lifespan": "c. 329 – 379",
+  "butler": "06-14:0",
+  "sketch": "Basil grew up in a Christian family in Cappadocia, studied in Athens with his friend Gregory, and left a career in teaching to live as a monk. As bishop of Caesarea he fed the poor, stood up to an Arian emperor's officials and wrote on the Holy Spirit and the monastic life. Much of what we know of him comes from Gregory of Nazianzus's funeral oration.",
+  "events": [
+   {
+    "year": 329,
+    "text": "Basil is born towards the end of 329 at Caesarea in Cappadocia, into a family that had already suffered for the faith.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Basil",
+     "when": "c. 329",
+     "year": 329,
+     "butler": "06-14:0",
+     "quote": "was born towards the close of the year 329",
+     "note": "Butler's dating; the OCR of the bundled Butler is rough, but the year is clear."
+    }
+   },
+   {
+    "year": 352,
+    "text": "At Athens he meets his old Cappadocian acquaintance Gregory again. They become the closest of friends, known only by the road to church and the road to the schools.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Gregory of Nazianzus, Oration 43",
+     "when": "c. 352",
+     "year": 352,
+     "work": "gregory-nazianzen-orations",
+     "section": "iii.xxvi",
+     "quote": "We were contained by Athens, like two branches of some river-stream",
+     "note": "Gregory's funeral oration for Basil is the main source for their student years. Butler dates Gregory's meeting with Basil at Athens to 352."
+    }
+   },
+   {
+    "year": 356,
+    "text": "Back in Caesarea, he opens a school of rhetoric. His fame as a speaker grows quickly and the city treats him as its second founder.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Gregory of Nazianzus, Oration 43",
+     "when": "c. 356",
+     "year": 356,
+     "work": "gregory-nazianzen-orations",
+     "section": "iii.xxvi",
+     "quote": "The city of Cæsarea took possession of him, as a second founder and patron",
+     "note": "Gregory describes the return from Athens and the pull of public life. Basil soon grows uneasy about it."
+    }
+   },
+   {
+    "year": 357,
+    "text": "Convinced his own life is empty, he tours the monasteries and hermitages of Syria, Mesopotamia and Egypt to learn how the best of them live.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Basil",
+     "when": "357",
+     "year": 357,
+     "butler": "06-14:0",
+     "quote": "in 357 travelled over Syria, Mesopotamia, and Egypt, and visited the most celebrated monasteries",
+     "note": "Butler dates the journey to 357."
+    }
+   },
+   {
+    "year": 358,
+    "text": "He settles on his family estate in Pontus, on the river Iris, and writes frankly to Gregory that his troubles came with him.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Basil, Letter 2",
+     "when": "c. 358",
+     "year": 358,
+     "work": "basil-letters",
+     "section": "ix.iii",
+     "quote": "I have abandoned my life in town, as one sure to lead to countless ills; but I have not yet been able to get quit of myself.",
+     "note": "The bundled letter is placed about 358. Basil admits that a change of place does not change the heart."
+    }
+   },
+   {
+    "year": 361,
+    "text": "Julian, who had once studied at Athens with Basil and Gregory, becomes emperor and tries to restore the old pagan worship. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 363,
+    "text": "His bishop, Eusebius, ordains him priest. Soon they quarrel, and Basil withdraws again to Pontus until the bishop is reconciled to him.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Gregory of Nazianzus, Oration 43",
+     "when": "c. 363",
+     "year": 363,
+     "work": "gregory-nazianzen-orations",
+     "section": "iii.xxvi",
+     "quote": "There arose a disagreement between him and his predecessor",
+     "note": "Gregory gives no date. Butler places Basil's ordination as priest in 363."
+    }
+   },
+   {
+    "year": 364,
+    "text": "The brothers Valentinian and Valens become emperors. Valens rules the East and backs the Arian party. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 368,
+    "text": "In a time of famine he spends his own wealth on grain and soup for the poor. Gregory calls him a second Joseph.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Gregory of Nazianzus, Oration 43",
+     "when": "c. 368",
+     "year": 368,
+     "work": "gregory-nazianzen-orations",
+     "section": "iii.xxvi",
+     "quote": "Such was our young furnisher of corn, and second Joseph",
+     "note": "Gregory gives no year. The great Cappadocian famine is usually placed about 368; Butler mentions an earlier famine around 359, so the date here is only approximate."
+    }
+   },
+   {
+    "year": 370,
+    "text": "When Eusebius dies, Basil is chosen and consecrated archbishop of Caesarea, a church that governs most of the province.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Basil",
+     "when": "370",
+     "year": 370,
+     "butler": "06-14:0",
+     "quote": "the saint was chosen and consecrated archbishop of that metropolitical church",
+     "note": "Butler dates this to the middle of 370."
+    }
+   },
+   {
+    "year": 372,
+    "text": "The prefect Modestus threatens him with confiscation, exile, torture and death if he will not accept the Arian creed. Basil answers that a man with only a few books and torn clothes has nothing to lose.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Gregory of Nazianzus, Oration 43",
+     "when": "c. 372",
+     "year": 372,
+     "work": "gregory-nazianzen-orations",
+     "section": "iii.xxvi",
+     "quote": "No one has ever yet spoken thus, and with such boldness, to Modestus.",
+     "note": "Gregory reports the exchange. The year 372 is the usual modern dating; the bundled text gives none."
+    }
+   },
+   {
+    "year": 378,
+    "text": "The Arian emperor Valens is killed by the Goths at Adrianople on 9 August, and Gratian restores peace to the Church.",
+    "kind": "world",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Basil",
+     "when": "378",
+     "year": 378,
+     "butler": "06-14:0",
+     "quote": "on the 9th of August, 378, peace was restored to the church by the emperor Gratian",
+     "note": "Butler dates the death of Valens to 9 August 378."
+    }
+   },
+   {
+    "year": 379,
+    "text": "Basil dies on 1 January, worn out at about fifty. Crowds of Christians, Jews and pagans fill the streets. Gregory cannot attend because of illness and writes the funeral oration later.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Gregory of Nazianzus, Oration 43",
+     "when": "379",
+     "year": 379,
+     "work": "gregory-nazianzen-orations",
+     "section": "iii.xxvi",
+     "quote": "He lay, drawing his last breath, and awaited by the choir on high",
+     "note": "The editor's note in the bundled text gives the date of death as 1 January 379."
+    }
+   },
+   {
+    "year": 381,
+    "text": "The Council of Constantinople confirms the Nicene faith, including the full divinity of the Holy Spirit that Basil had defended. Context from settled history.",
+    "kind": "world"
+   }
+  ]
+ },
+ {
+  "id": "gregory-of-nazianzus",
+  "name": "Gregory of Nazianzus",
+  "lifespan": "c. 330 – 389 or 391",
+  "butler": "05-09:0",
+  "sketch": "Gregory was a bishop's son who wanted only a quiet life of study and prayer, and was dragged again and again into church office. He was Basil's closest friend, a poet and preacher, and for a short time the bishop of Constantinople who won back the city's Catholics. He gave up the see at the Council of 381 and went home.",
+  "events": [
+   {
+    "year": 330,
+    "text": "Born at Arianzum near Nazianzus in Cappadocia to Nonna and a convert father who later became bishop. His mother had prayed hard for a son and offered him to God at his birth.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "c. 330",
+     "year": 330,
+     "butler": "05-09:1",
+     "quote": "Gregory was the fruit of the most earnest prayers of his mother, who, upon his birth, offered him to God",
+     "note": "Butler gives no birth year here. About 329-330 is the usual estimate."
+    }
+   },
+   {
+    "year": 349,
+    "text": "Sailing to Athens for study, he is caught in a storm for twenty days and, still unbaptized, promises to give his life to God if he survives.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "c. 349",
+     "year": 349,
+     "butler": "05-09:1",
+     "quote": "God was pleased to hear his prayer : the tempest ceased",
+     "note": "Butler gives no year; this is the traditional account from Gregory's own writings. The date is approximate."
+    }
+   },
+   {
+    "year": 352,
+    "text": "At Athens he meets Basil again. Their friendship becomes the model of holy friendship.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Gregory of Nazianzus, Oration 43",
+     "when": "c. 352",
+     "year": 352,
+     "work": "gregory-nazianzen-orations",
+     "section": "iii.xxvi",
+     "quote": "We were contained by Athens, like two branches of some river-stream",
+     "note": "Gregory looks back on the friendship in his funeral oration for Basil."
+    }
+   },
+   {
+    "year": 355,
+    "text": "The future emperor Julian comes to Athens. Gregory sizes him up and fears what kind of ruler he will be.",
+    "kind": "world",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "355",
+     "year": 355,
+     "butler": "05-09:2",
+     "quote": "In 355, Julian, afterwards emperor, came to Athens",
+     "note": "Butler reports Gregory's early misgivings about Julian."
+    }
+   },
+   {
+    "year": 358,
+    "text": "Gregory joins Basil in his retreat on the river Iris in Pontus for prayer, psalmody, Scripture and manual work.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "358",
+     "year": 358,
+     "butler": "05-09:3",
+     "quote": "He accordingly, in 358, joined St. Basil in the solitude into which he had retreated",
+     "note": "The two friends together compiled passages from Origen, but they stayed together only a short time."
+    }
+   },
+   {
+    "year": 361,
+    "text": "His father, then over eighty, ordains him priest by surprise. Gregory flees to Pontus, then comes back at Easter after about ten weeks.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "361",
+     "year": 361,
+     "butler": "05-09:3",
+     "quote": "To draw the greater succor from him he ordained him priest by force, and when he least expected it.",
+     "note": "Butler says the ordination was probably on Christmas Day, 361. Gregory's speech defending his flight is the first of his Orations."
+    }
+   },
+   {
+    "year": 361,
+    "text": "Julian becomes sole emperor and tries to restore pagan worship. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 372,
+    "text": "Basil, needing allies in a contested diocese, makes Gregory bishop of Sasima, a poor staging post. Gregory is never able to take up the place, and feels used by his friend.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "c. 372",
+     "year": 372,
+     "butler": "05-09:4",
+     "quote": "He appointed our saint bishop of Sasima, a small town in that division.",
+     "note": "Butler tells the story; the year 372 is the usual date and is not given in this passage."
+    }
+   },
+   {
+    "year": 374,
+    "text": "His father dies in 374, above ninety years of age, after about forty-five years as bishop of Nazianzus. Gregory had been helping to run the diocese.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "374",
+     "year": 374,
+     "butler": "05-09:1",
+     "quote": "which he held about forty-five years, dying in 374, when he was above ninety years old",
+     "note": "Butler dates the death of the elder Gregory to 374."
+    }
+   },
+   {
+    "year": 378,
+    "text": "The Arian emperor Valens is killed at Adrianople; the new ruler Theodosius backs the Nicene faith. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 379,
+    "text": "A few Nicene Christians invite him to Constantinople, where the Arians hold all the churches. He preaches in a relative's house and calls it Anastasia, the Resurrection.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "379",
+     "year": 379,
+     "butler": "05-09:5",
+     "quote": "He soon after converted it into a church, and gave it the name of Anastasia, or the Resurrection",
+     "note": "Butler describes the small Catholic community that grew around him."
+    }
+   },
+   {
+    "year": 380,
+    "text": "A Cynic philosopher named Maximus, with Egyptian bishops behind him, has himself secretly consecrated bishop of Constantinople. Theodosius throws him out, and Gregory is installed in the great church.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "380",
+     "year": 380,
+     "butler": "05-09:6",
+     "quote": "procured himself to be ordained bishop of Constantinople, in a clandestine manner",
+     "note": "Butler describes the intrigue. Gregory's five Theological Orations belong to these years."
+    }
+   },
+   {
+    "year": 381,
+    "text": "The bishops at the Council of Constantinople turn on him over who should hold the see. Gregory preaches a farewell and resigns.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Gregory of Nazianzus, Oration 42",
+     "when": "381",
+     "year": 381,
+     "work": "gregory-nazianzen-orations",
+     "section": "iii.xxv",
+     "quote": "Give me a respite from my long labours",
+     "note": "The bundled translation says the farewell was spoken during the Second Ecumenical Council in 381."
+    }
+   },
+   {
+    "year": 382,
+    "text": "Back in Cappadocia, he arranges a bishop for Nazianzus and keeps up his writing in retirement, including poems. In Lent 382 he keeps forty days of complete silence.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "382",
+     "year": 382,
+     "butler": "05-09:1",
+     "quote": "he, in 382, passed the forty days of Lent in absolute silence",
+     "note": "Butler reports the Lenten silence in 382."
+    }
+   },
+   {
+    "year": 389,
+    "text": "Gregory dies in 389, or 391 according to some. Later tradition names him \"the Theologian\"; the Church honors him as one of the Cappadocian Fathers.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Gregory Nazianzen",
+     "when": "389 or 391",
+     "year": 389,
+     "butler": "05-09:9",
+     "quote": "his happydeath in 389, or, according to others, in 391",
+     "note": "Butler leaves the year open between 389 and 391."
     }
    }
   ]
