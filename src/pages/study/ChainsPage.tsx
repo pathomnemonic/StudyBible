@@ -27,6 +27,18 @@ function StepCard({ s, timeline }: { s: Step; timeline?: boolean }) {
   );
 }
 
+const KIND_HINT: Partial<Record<Step['kind'], string>> = { writer: 'an early writer outside the Church, or a historian, quoted as a witness. Not Church teaching.' };
+
+function KindLegend({ steps }: { steps: Step[] }) {
+  const kinds = Array.from(new Set(steps.map((s) => s.kind)));
+  if (!kinds.some((k) => KIND_HINT[k])) return null;
+  return (
+    <p className="small muted chain-legend" aria-label="What the labels mean">
+      {kinds.filter((k) => KIND_HINT[k]).map((k) => <span key={k}><span className={`chain-kind k-${k}`}>{KIND[k]}</span> {KIND_HINT[k]} </span>)}
+    </p>
+  );
+}
+
 function ChainView({ c, mode }: { c: Chain; mode: ChainMode }) {
   const steps = mode === 'development' ? [...c.steps].sort((a, b) => (a.year ?? 0) - (b.year ?? 0)) : c.steps;
   const h = c.heresy;
@@ -60,6 +72,7 @@ function ChainView({ c, mode }: { c: Chain; mode: ChainMode }) {
         <p>{c.summary}</p>
       </section>
       <h2 className="chain-h2">{h ? 'Where it breaks' : mode === 'development' ? 'The teaching, in time order' : 'The chain of sources'}</h2>
+      <KindLegend steps={steps} />
       <ol className="chain-steps">{steps.map((s, i) => <StepCard key={i} s={s} timeline={mode === 'development'} />)}</ol>
       {h && <section className="card"><strong>Why it fails</strong><p>{h.whyItFails}</p></section>}
       {c.objections && c.objections.length > 0 && (

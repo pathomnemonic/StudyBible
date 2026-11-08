@@ -5665,3 +5665,4 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .gl-long summary{cursor:pointer;list-style:none}.gl-long summary::-webkit-details-marker{display:none}
 .gl-more{color:var(--accent,#7a5);text-decoration:underline;white-space:nowrap}
 .gl-long[open] summary{display:none}
+.chain-legend{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center}
