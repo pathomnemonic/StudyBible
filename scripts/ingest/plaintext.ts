@@ -88,6 +88,8 @@ export function parsePlainText(raw: string, cfg: TextSource): PlainSection[] {
   const contRe = cfg.titleContinue ? new RegExp(cfg.titleContinue) : null;
   const bareRe = cfg.bareHeading ? new RegExp(cfg.bareHeading) : null;
   const groupRe = cfg.groupHeading ? new RegExp(cfg.groupHeading) : null;
+  const small = (t: string) =>
+    cfg.lowerSmallWords ? t.replace(/(?<=[A-Za-z0-9,)] )(Of|The|And|At|In|On|To|From|A|An|For|By|With|Who|When|Not|Being|Into|Di|Dei|Del|Della|Da) /g, (w) => w.toLowerCase()) : t;
   const fixTitle = (t: string) => (cfg.fixTitles ?? []).reduce((acc, [re, to]) => acc.replace(new RegExp(re, 'g'), to), t);
   const seenHeads = new Set<string>();
   let buf: string[] = [];
@@ -118,7 +120,7 @@ export function parsePlainText(raw: string, cfg: TextSource): PlainSection[] {
           i = j - 1;
         }
       }
-      if (cfg.groupIntro) title = fixTitle(`${niceCase(group)} — ${cfg.groupIntro}`.replace(/\s+/g, ' '));
+      if (cfg.groupIntro) title = fixTitle(small(`${niceCase(group)} — ${cfg.groupIntro}`.replace(/\s+/g, ' ')));
       continue;
     }
     if (ln && headRe.test(ln)) {
@@ -141,7 +143,7 @@ export function parsePlainText(raw: string, cfg: TextSource): PlainSection[] {
         while (i + 1 < lines.length && lines[i + 1].trim() && contRe.test(lines[i + 1].trim())) parts[parts.length - 1] += ' ' + lines[++i].trim().replace(/[.:]$/, '');
       }
       title = (group ? [group, ...parts] : parts).map((p) => niceCase(p.replace(/\s+/g, ' ')).replace(/[,.'"’]+$/, '')).join(' — ');
-      if (cfg.lowerSmallWords) title = title.replace(/(?<=\S )(Of|The|And|At|In|On|To|From|A|An|For|By|With|Who|When|Not|Being|Into|Di|Dei|Del|Della|Da) /g, (w) => w.toLowerCase());
+      title = small(title);
       title = fixTitle(title);
       continue;
     }

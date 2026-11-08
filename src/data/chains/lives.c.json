@@ -1,0 +1,390 @@
+[
+ {
+  "id": "antony-of-egypt",
+  "name": "Antony of Egypt",
+  "lifespan": "c. 251 – 356",
+  "butler": "01-17:0",
+  "sketch": "Antony was a well-off young Egyptian who gave away his inheritance, lived alone among the tombs and then in a ruined fort, and became the father of Christian monks. We know him mainly through the Life that Athanasius wrote soon after his death. Dates for the early part are traditional: the Life gives few years, so they are marked \"c.\" here.",
+  "events": [
+   {
+    "year": 251,
+    "text": "Antony is born, traditionally about this year, at Coma in Upper Egypt, to Christian parents of good family and some wealth.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 1",
+     "when": "c. 251",
+     "year": 251,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.iii",
+     "quote": "Antony you must know was by descent an Egyptian: his parents were of good family and possessed considerable wealth",
+     "note": "Athanasius gives no year of birth. The date is a later estimate worked back from his reported age of about 105 at death."
+    }
+   },
+   {
+    "year": 250,
+    "text": "The emperor Decius orders everyone in the empire to offer sacrifice; the first empire-wide persecution of Christians begins around the time of Antony's birth. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 271,
+    "text": "With both parents dead, he is left to care for a young sister. Hearing the Gospel read in church, he sells the family land, provides for her, and gives the rest to the poor.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 2",
+     "when": "c. 271",
+     "year": 271,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.iii",
+     "quote": "After the death of his father and mother he was left alone with one little sister: his age was about eighteen or twenty",
+     "note": "The Life puts him at eighteen or twenty at the start of his new way of life. The editors of the bundled translation place this about 271."
+    }
+   },
+   {
+    "year": 272,
+    "text": "He learns discipline from the good men around the village, copying one man's prayer, another's gentleness and another's patience.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 4",
+     "when": "c. 272",
+     "year": 272,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.iv",
+     "quote": "He observed the graciousness of one; the unceasing prayer of another; he took knowledge of another's freedom from anger and another's loving-kindness",
+     "note": "He does not invent a new way; he learns from the holy people already near him."
+    }
+   },
+   {
+    "year": 275,
+    "text": "The devil assails him with memories of wealth, family and ease. Later, shut in a tomb, he is beaten so badly that friends carry him away as if dead. He asks to be taken back to the tomb.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 8",
+     "when": "c. 275",
+     "year": 275,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.vii",
+     "quote": "he so cut him with stripes that he lay on the ground speechless from the excessive pain",
+     "note": "Athanasius does not date this. The Life says the trial came in the tombs near his village, soon after he began."
+    }
+   },
+   {
+    "year": 285,
+    "text": "Crossing the Nile, he takes up residence in a deserted fort and stays shut in there for about twenty years, seeing almost no one. Bread is lowered to him twice a year.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 12",
+     "when": "c. 285",
+     "year": 285,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.ix",
+     "quote": "Thus he employed a long time training himself, and received loaves, let down from above, twice in the year.",
+     "note": "The bundled translation guesses 285 for the move to the fort; the Life says \"nearly twenty years\" in solitude."
+    }
+   },
+   {
+    "year": 303,
+    "text": "Diocletian begins the Great Persecution: churches are destroyed, Scriptures burned, clergy imprisoned. It lasts in the East until about 311. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 305,
+    "text": "Friends break down the door. Antony comes out calm and unchanged, heals many, and becomes the guide of a growing number who want to live as he does.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 14",
+     "when": "c. 305",
+     "year": 305,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.x",
+     "quote": "Antony, as from a shrine, came forth initiated in the mysteries and filled with the Spirit of God.",
+     "note": "This is the traditional start of organised monastic life in Egypt."
+    }
+   },
+   {
+    "year": 305,
+    "text": "He teaches the assembled monks. The Life gives his address, which begins by telling them that the Scriptures are enough for instruction.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 16",
+     "when": "c. 305",
+     "year": 305,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.xi",
+     "quote": "The Scriptures are enough for instruction",
+     "note": "The address is given as a speech in Egyptian, rendered into Greek by Athanasius."
+    }
+   },
+   {
+    "year": 311,
+    "text": "During the persecution Antony goes to Alexandria hoping to be martyred. When the persecution ends he returns to his cell, still serving the confessors.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 46",
+     "when": "c. 311",
+     "year": 311,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.xiv",
+     "quote": "After this the Church was seized by the persecution",
+     "note": "The section title in the bundled text dates this visit to the persecution of 311."
+    }
+   },
+   {
+    "year": 313,
+    "text": "The Edict of Milan grants Christians legal toleration across the empire. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 325,
+    "text": "The Council of Nicaea condemns Arius and confesses the Son \"of one substance\" with the Father. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 338,
+    "text": "When the Arians claim Antony agrees with them, he comes down from the mountain to Alexandria and publicly denounces them. Crowds, including many pagans, come to see him.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 69",
+     "when": "c. 338",
+     "year": 338,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.xxxi",
+     "quote": "he descended from the mountain, and having entered Alexandria",
+     "note": "A note in the bundled text gives July 338 for the visit."
+    }
+   },
+   {
+    "year": 336,
+    "text": "Emperor Constantine and his sons write to Antony as to a father. He is unimpressed and tells the monks that it is more wonderful that God has written to us.",
+    "kind": "world",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 81",
+     "when": "before 337",
+     "year": 336,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.xxxv",
+     "quote": "Constantine Augustus, and his sons Constantius and Constans the Augusti wrote letters to him, as to a father",
+     "note": "Constantine died in 337, so the letters come before that; the Life gives no exact year."
+    }
+   },
+   {
+    "year": 356,
+    "text": "Aged about 105, he tells the brethren that his end is near and urges them to avoid the Arians and the Meletian schismatics.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 89",
+     "when": "c. 356",
+     "year": 356,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.xlii",
+     "quote": "At length the time of my departure is at hand, for I am near a hundred and five years old.",
+     "note": "The Life gives his age but not the year of death. The Introduction of the bundled text puts it in 356."
+    }
+   },
+   {
+    "year": 356,
+    "text": "He dies on the inner mountain and is buried in secret, as he had asked, so that his body would not be kept in a house as was the Egyptian custom.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Athanasius, Life of Antony 92",
+     "when": "c. 356",
+     "year": 356,
+     "work": "athanasius-antony",
+     "section": "xvi.ii.xliv",
+     "quote": "he lifted up his feet, and as though he saw friends coming to him and was glad because of them",
+     "note": "Athanasius adds that no one but two companions knew the place of burial."
+    }
+   }
+  ]
+ },
+ {
+  "id": "ambrose",
+  "name": "Ambrose of Milan",
+  "lifespan": "c. 340 – 397",
+  "butler": "12-07:0",
+  "sketch": "Ambrose was a Roman governor who was chosen bishop of Milan by acclamation before he was even baptized. He stood against Arian emperors, defended the Church's freedom, led the people in song, and taught the young Augustine to read Scripture in the Spirit.",
+  "events": [
+   {
+    "year": 340,
+    "text": "Ambrose is born about this year, the son of a Roman official in Gaul.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ambrose",
+     "when": "c. 340",
+     "year": 340,
+     "butler": "12-07:0",
+     "quote": "The saint's birth happened about the year 340.",
+     "note": "Butler gives only an approximate year, and says authors disagree about the city."
+    }
+   },
+   {
+    "year": 368,
+    "text": "He trains as an advocate and becomes known for pleading cases at the court of the praetorian prefect Probus, who makes him his assessor. He is later made governor of the province that includes Milan.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ambrose",
+     "when": "c. 368",
+     "year": 368,
+     "butler": "12-07:0",
+     "quote": "in his court St Ambrose pleaded causes with so much reputation",
+     "note": "Butler dates Probus's office to 368."
+    }
+   },
+   {
+    "year": 374,
+    "text": "The Milan church is torn between Arians and Catholics after the Arian bishop dies. Ambrose, governor and still only a catechumen, is acclaimed bishop. He is baptized and consecrated on 7 December.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ambrose",
+     "when": "374",
+     "year": 374,
+     "butler": "12-07:0",
+     "quote": "the 7th of December in 374, not in 375",
+     "note": "Butler corrects some authors who gave 375."
+    }
+   },
+   {
+    "year": 378,
+    "text": "The Gothic victory at Adrianople kills the eastern emperor Valens and shocks the empire. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 377,
+    "text": "At the request of the young emperor Gratian he writes On the Faith against the Arians, adding more books in 379.",
+    "kind": "writing",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ambrose",
+     "when": "377",
+     "year": 377,
+     "butler": "12-07:0",
+     "quote": "the holy prelate wrote, in 377, the work entitled, On the Faith, to Gratian",
+     "note": "Butler gives 377 for the first books and 379 for the later ones."
+    }
+   },
+   {
+    "year": 384,
+    "text": "The prefect Symmachus asks that the altar of Victory be restored to the Senate House. Ambrose writes to the emperor Valentinian II to refuse. In the same year a young teacher of rhetoric named Augustine arrives in Milan and goes to hear him.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Ambrose, Letter 18",
+     "when": "384",
+     "year": 384,
+     "work": "ambrose-letters",
+     "section": "v.iv",
+     "quote": "Since the illustrious Symmachus, Prefect of the city, has sent petition to your Grace that the altar, which was taken away from the Senate House of the city of Rome, should be restored to its place",
+     "note": "Ambrose replies to the Memorial of Symmachus, which is bundled with the letter."
+    }
+   },
+   {
+    "year": 384,
+    "text": "Augustine writes of reaching Milan: Ambrose is \"known to the whole world as among the best of men\".",
+    "kind": "writing",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions V",
+     "when": "384",
+     "year": 384,
+     "work": "aug-confessions",
+     "section": "vi.xiii",
+     "quote": "To Milan I came, to Ambrose the Bishop, known to the whole world as among the best of men",
+     "note": "Augustine later credits Ambrose's preaching with opening Scripture to him."
+    }
+   },
+   {
+    "year": 386,
+    "text": "The empress Justina, an Arian, demands a basilica for her party. Ambrose refuses and the people keep watch in the church with him for days. He writes to his sister about it.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Ambrose, Letter 20",
+     "when": "386",
+     "year": 386,
+     "work": "ambrose-letters",
+     "section": "v.v",
+     "quote": "I replied, of course, that the temple of God could not be surrendered by a Bishop.",
+     "note": "The bundled translation heads this letter \"Easter, a.d. 385\"; many scholars date it Easter 386. The year is uncertain."
+    }
+   },
+   {
+    "year": 386,
+    "text": "He finds the bodies of the martyrs Gervasius and Protasius and moves them to his new basilica, just as the quarrel over churches is at its sharpest.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Ambrose, Letter 22",
+     "when": "386",
+     "year": 386,
+     "work": "ambrose-letters",
+     "section": "v.viii",
+     "quote": "you must know that we have found some bodies of holy martyrs",
+     "note": "He tells the discovery to his sister Marcellina."
+    }
+   },
+   {
+    "year": 387,
+    "text": "At the Easter vigil he baptizes Augustine, Alypius and Augustine's son Adeodatus.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Augustine, Confessions IX",
+     "when": "387",
+     "year": 387,
+     "work": "aug-confessions",
+     "section": "x.vi",
+     "quote": "and we were baptised, and anxiety for our past life vanished from us",
+     "note": "Augustine says the baptism took away his anxiety about his past life."
+    }
+   },
+   {
+    "year": 390,
+    "text": "After the Emperor Theodosius has thousands killed at Thessalonica, Ambrose writes that he cannot offer the sacrifice in his presence until he repents. Theodosius submits to public penance.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Ambrose, Letter 51",
+     "when": "390",
+     "year": 390,
+     "work": "ambrose-letters",
+     "section": "v.xi",
+     "quote": "But I could not close my ears with the wax of the old fables.",
+     "note": "Butler dates the council on this subject to 390 and says Theodosius spent eight months in penance."
+    }
+   },
+   {
+    "year": 395,
+    "text": "Theodosius dies at Milan; the empire is divided between his sons Arcadius in the East and Honorius in the West. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 397,
+    "text": "Told that Milan will suffer if he dies, Ambrose answers that he is not ashamed to have lived among them and is not afraid to die. He dies in early April.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Ambrose",
+     "when": "397",
+     "year": 397,
+     "butler": "12-07:0",
+     "quote": "I have not so behaved myself among you that I should be ashamed to live longer ; nor am I afraid to die, because we have a good master.",
+     "note": "Butler follows Paulinus, his secretary, who was present."
+    }
+   }
+  ]
+ }
+]
