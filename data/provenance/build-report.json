@@ -932,15 +932,114 @@
   "library.syllabus-of-errors": {
    "sections": 10
   },
+  "library.diognetus": {
+   "sections": 13
+  },
+  "library.polycarp": {
+   "sections": 38
+  },
+  "library.barnabas": {
+   "sections": 22
+  },
+  "library.papias": {
+   "sections": 11
+  },
+  "library.hermas": {
+   "sections": 29
+  },
+  "library.tatian-address": {
+   "sections": 42
+  },
+  "library.theophilus": {
+   "sections": 4
+  },
+  "library.athenagoras": {
+   "sections": 63
+  },
+  "library.tertullian-ethical-2": {
+   "sections": 10
+  },
+  "library.minucius-felix": {
+   "sections": 43
+  },
+  "library.commodianus": {
+   "sections": 80
+  },
+  "library.dionysius-alexandria": {
+   "sections": 11
+  },
+  "library.julius-africanus": {
+   "sections": 29
+  },
+  "library.anatolius-minor": {
+   "sections": 25
+  },
+  "library.archelaus": {
+   "sections": 60
+  },
+  "library.peter-alexandria": {
+   "sections": 28
+  },
+  "library.alexander-alexandria": {
+   "sections": 8
+  },
+  "library.victorinus": {
+   "sections": 21
+  },
+  "library.didache": {
+   "sections": 23
+  },
+  "library.apostolic-constitutions": {
+   "sections": 38
+  },
+  "library.second-clement": {
+   "sections": 3
+  },
+  "library.early-liturgies": {
+   "sections": 5
+  },
+  "library.aristides": {
+   "sections": 3
+  },
+  "library.scillitan-martyrs": {
+   "sections": 2
+  },
+  "library.eusebius-constantine": {
+   "sections": 57
+  },
+  "library.athanasius-antony": {
+   "sections": 46
+  },
+  "library.athanasius-select": {
+   "sections": 23
+  },
+  "library.gregory-nazianzen-orations": {
+   "sections": 26
+  },
+  "library.gregory-nazianzen-letters": {
+   "sections": 37
+  },
+  "library.basil-hexaemeron": {
+   "sections": 10
+  },
+  "library.basil-letters": {
+   "sections": 357
+  },
+  "library.ambrose-letters": {
+   "sections": 15
+  },
+  "library.sulpitius-severus": {
+   "sections": 43
+  },
   "library.total": {
-   "works": 107,
-   "sections": 7007,
-   "indexedWords": 75292
+   "works": 140,
+   "sections": 8232,
+   "indexedWords": 82507
   },
   "plain-titles": 297,
-  "cite-index": 1321,
+  "cite-index": 1683,
   "paths": 15,
-  "galaxy-library": 107,
+  "galaxy-library": 140,
   "art-more": 607,
   "jesus": {
    "books": 9,
