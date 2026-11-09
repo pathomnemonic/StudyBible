@@ -1,5 +1,13 @@
 # What changed
 
+## Lesson appeal pass
+- Every lesson now has up to four public-domain pictures (the passage's own Doré/Gothic/museum art first, then its subject), spread across the steps with credits.
+- Step-by-step lessons end with a recap, "Mark done" and "Next lesson"; quizzes explain each answer, list what you missed and offer Try again; progress is kept so Learn can say "continue where you left off".
+- Deck: Full / Short (15 min) / Fit to my class, picture layouts, and a better print handout with answer key.
+- Teacher: quiz answer key, take-home note to print, hidden empty teaching cards. Go deeper names the apologetics track and level, plus related places in the app.
+- Lists show minutes and teaching depth; lessons are searchable; offline packs know the new data; What's new page.
+- Catechism text: 482 sentence starts regained their capital.
+
 Changes to the **app** and changes to the **content** (data) are listed separately, so you can tell what a rebuilt dataset altered.
 
 ## Unreleased
