@@ -8,6 +8,7 @@ import { readerPath } from '../lib/nav';
 import { cccRange, type CccPara } from '../data/ccc';
 import { videosFor, type Video } from '../data/videos';
 import { moreArtFor } from '../study/inlineArt';
+import { lessonPictures } from './lessonArt';
 import { kidsStoriesFor } from '../pages/study/KidsPage';
 import { BOOK_PRAYERS } from '../data/prayerbook';
 import { relevant } from './match';
@@ -40,7 +41,12 @@ export function useLessonSources(lesson: LessonSpec | undefined, band: BandId | 
     const nums = cccList(lesson.ccc).slice(0, 12);
     Promise.all(nums.map((n) => cccRange(n, n))).then((x) => live && setCcc(x.flat()));
     videosFor(anchors, band === 'primary' || band === 'elementary' ? true : undefined).then((v) => live && setVideos(v.filter((x) => (band === 'primary' || band === 'elementary' ? true : !x.kids)).filter((x) => relevant(lesson, x.title, x.refs.join('; '))).slice(0, 4)));
-    moreArtFor(anchors).then((a) => live && setArt((a as never as (typeof art[number] & { refs?: string[] })[]).filter((w) => relevant(lesson, w.title, (w.refs ?? []).join('; '))).slice(0, 3))).catch(() => undefined);
+    Promise.all([lessonPictures(lesson.id), moreArtFor(anchors).catch(() => [])]).then(([pre, a]) => {
+      if (!live) return;
+      const own = (a as never as (typeof art[number] & { refs?: string[] })[]).filter((w) => relevant(lesson, w.title, (w.refs ?? []).join('; ')));
+      const seen = new Set<string>();
+      setArt([...own, ...pre].filter((w) => !seen.has(w.id) && seen.add(w.id)).slice(0, 4));
+    }).catch(() => undefined);
     if (band === 'primary' || band === 'elementary') kidsStoriesFor(anchors).then((xs) => {
       // the story must overlap the passage itself, not just share a chapter
       const hit = xs.find((x) => x.refs.some((sr) => { const p = parseRefs(sr); return p.ok && p.refs.some((q) => { const a = convertRef('kjv', 'vulgate', q.ref).ref; return anchors.some((b) => refsOverlap(a, b)); }); }));
