@@ -7,6 +7,7 @@ import type { GradeData, Glossary, LessonSpec } from './model';
 import type { Band } from './pedagogy';
 import { cccList } from './model';
 import { contentPoints } from './teachpoints';
+import { saveLessonProgress, clearLessonProgress } from './resume';
 import RelatedSources from './RelatedSources';
 
 type Lesson = LessonSpec & { unit: GradeData['units'][number] };
@@ -165,8 +166,10 @@ export default function LessonPath(p: Props) {
   }, [lesson.id, band.id, gl, src.passages.length, src.ccc.length, src.art?.length, p.kidsText, p.note, p.quiz, p.quick, src.prayer?.title]);
 
   const last = steps.length - 1;
+  const recap = useMemo(() => (lesson.remember && lesson.remember.length ? lesson.remember : contentPoints(lesson)).slice(0, 3), [lesson.id]);
   const at = Math.min(step, last);
   useEffect(() => { try { sessionStorage.setItem(key, String(at)); } catch { /* private mode */ } }, [at, key]);
+  useEffect(() => { if (at >= last) clearLessonProgress(p.grade.id, lesson.id); else if (at > 0) saveLessonProgress({ grade: p.grade.id, lesson: lesson.id, title: lesson.title, step: at, steps: steps.length }); }, [at, last, p.grade.id, lesson.id]);
   const go = (i: number) => { setStep(Math.max(0, Math.min(last, i))); requestAnimationFrame(() => document.getElementById('lp-top')?.scrollIntoView({ block: 'start', behavior: 'smooth' })); };
   const cur = steps[at];
 
@@ -189,11 +192,22 @@ export default function LessonPath(p: Props) {
         <h2 className="lp-title"><span aria-hidden="true">{cur.icon}</span> {cur.label}<small> · step {at + 1} of {steps.length}</small></h2>
         {cur.body}
       </article>
+      {at === last && (
+        <aside className="lp-finish" aria-label="Lesson recap">
+          <h3>{p.done ? '🎉 Lesson complete' : 'Before you go'}</h3>
+          {recap.length > 0 && <><p className="small muted">Three things to carry out of this lesson:</p><ol>{recap.map((t) => <li key={t}>{t}</li>)}</ol></>}
+          {lesson.mem && <p className="small"><strong>Learn by heart:</strong> {lesson.mem}</p>}
+          <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
+            <button type="button" className={`btn${p.done ? '' : ' primary'}`} aria-pressed={p.done} onClick={() => { if (!p.done) p.onDone(); }}>{p.done ? '✓ Marked done' : 'Mark this lesson done'}</button>
+            {p.next && <Link className="btn primary" to={`/study/curriculum/${p.grade.id}/${p.next.id}`}>Next lesson: {p.next.title} →</Link>}
+          </div>
+        </aside>
+      )}
       <div className="lp-nav no-print">
         <button type="button" className="btn" onClick={() => go(at - 1)} disabled={at === 0}>← Back</button>
         {at < last
           ? <button type="button" className="btn primary" onClick={() => go(at + 1)}>Next: {steps[at + 1].label} →</button>
-          : <button type="button" className="btn primary" onClick={() => { if (!p.done) p.onDone(); }}>{p.done ? '✓ Lesson done' : 'Finish this lesson'}</button>}
+          : <span />}
       </div>
     </section>
   );

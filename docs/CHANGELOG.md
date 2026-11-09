@@ -141,3 +141,9 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 - The lesson games now sit in a chip grid that cannot overlap on phones.
 - Games on Learn is a direct link to the games room, with no expanding menu. The games room has a new playful look: letter-block title, a robot with tips, marquee-light hero, sticker cards, doodles, and a Surprise me dice.
 - Verse notes open with "Yours", then "Start here" (the 3 to 5 most relevant items), then grouped lists; "More in this app" links lessons, chains, stories and readings to the verses they discuss. Apologetics tracks (39 topics, 4 levels each) point to verified free resources and the app's own sourced content.
+
+## Lists, search, offline packs and What's new
+- **Lesson lists** show minutes with a group and on your own, a teaching-depth badge and unit totals; grade pages and Learn offer "Continue your lesson" at the saved step.
+- **Search** indexes lesson vocabulary, teaching points and saints, so questions like "why do we go to confession" find the lesson under Learn.
+- **Offline packs**: verse links, hymns, readings together and game word lists now sit in sensible packs with real sizes; new "Children and family" preset.
+- **What's new** page (`/whats-new`) lists recent features by area.

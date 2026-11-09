@@ -152,7 +152,7 @@ export function buildIndex(docs: SearchDoc[]): DocIndex {
 
 export interface Hit { doc: SearchDoc; score: number; matched: number }
 
-const KIND_BOOST: Partial<Record<Kind, number>> = { argument: 1.45, claim: 1.3, apologetics: 1.15, glossary: 1.1, development: 1.0, topic: 1.05, heresy: 0.95, word: 0.95, feature: 1.1, feast: 0.9, council: 1.0, lesson: 0.85, prayer: 0.9, mentor: 0.9, life: 0.9 };
+const KIND_BOOST: Partial<Record<Kind, number>> = { argument: 1.45, claim: 1.3, apologetics: 1.15, glossary: 1.1, development: 1.0, topic: 1.05, heresy: 0.95, word: 0.95, feature: 1.1, feast: 0.9, council: 1.0, lesson: 0.6, prayer: 0.9, mentor: 0.9, life: 0.9 };
 
 /** postings of one stem, plus longer stems it is a prefix of (at a discount) */
 function lookup(ix: DocIndex, st: string): Map<number, number> {

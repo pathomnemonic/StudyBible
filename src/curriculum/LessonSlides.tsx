@@ -1,6 +1,6 @@
 import { worthDefining } from './terms';
 import { contentPoints } from './teachpoints';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import InlinePlayer from '../components/InlinePlayer';
 import { embedFor } from '../lib/embed';
@@ -8,9 +8,20 @@ import type { Video } from '../data/videos';
 import type { CccPara } from '../data/ccc';
 import type { BookPrayer } from '../data/prayerbook';
 import type { Passage } from './useLessonSources';
-import { gradeLabel, type GradeData, type Glossary, type LessonSpec, type Question } from './model';
+import { gradeLabel, type BandId, type GradeData, type Glossary, type LessonSpec, type Question } from './model';
 import type { Band } from './pedagogy';
 import { DECK_CHANNEL, type DeckState } from './PresenterView';
+import { trimmedSlides, estimateTime, SHORT_MINUTES, DECK_MINUTES, type DeckMode } from './duration';
+
+export { trimmedSlides, fitSlides, type DeckMode } from './duration';
+
+const DECK_KEY = 'sb:cur:deck';
+interface DeckPref { mode: DeckMode; minutes: number }
+function readDeckPref(): Partial<DeckPref> {
+  try { const v = JSON.parse(localStorage.getItem(DECK_KEY) ?? '{}') as Partial<DeckPref>; return { mode: v.mode === 'short' || v.mode === 'fit' ? v.mode : 'full', minutes: DECK_MINUTES.includes(v.minutes as number) ? v.minutes : undefined }; } catch { return {}; }
+}
+const nearestMinutes = (m: number) => DECK_MINUTES.reduce((a, b) => (Math.abs(b - m) < Math.abs(a - m) ? b : a));
+const MOTIFS: Record<string, string[]> = { creed: ['✝', '✦', '☀'], sacrament: ['🕯', '✝', '🍞'], moral: ['⚖', '❤', '🌿'], prayer: ['🙏', '✦', '🕊'] };
 
 type Kind = 'poll' | 'myth' | 'debate' | 'timer' | 'exit' | 'meet' | 'title' | 'wonder' | 'idea' | 'goals' | 'vocab' | 'story' | 'scripture' | 'image' | 'church' | 'video' | 'points' | 'point' | 'section' | 'talk' | 'do' | 'saint' | 'quiz' | 'life' | 'prayer' | 'end';
 interface Card { k: string; v: string }
@@ -31,6 +42,12 @@ export interface Slide {
   /** a number shown large (section number, point number) */
   n?: number;
   of?: number;
+  /** the part of the lesson the slide belongs to, for the chip */
+  sec?: string;
+  /** a picture shown beside the text (split layout), with the side it sits on */
+  pic?: { src: string; alt: string; credit: string; side: 'l' | 'r' };
+  /** on the title slide: what the deck needs to trim itself to a class length */
+  meta?: { band: BandId; activity: string; minutes: number };
 }
 
 /** Splits text into pieces of roughly `max` characters on sentence boundaries. */
@@ -79,9 +96,10 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
   const older = !younger;
   const theme = pillarKey(lesson.unit.pillar);
   const s: Slide[] = [];
-  const add = (x: Slide) => { s.push({ theme, ...x }); };
+  let secName = 'Begin';
+  const add = (x: Slide) => { s.push({ theme, sec: secName, ...x }); };
   let sec = 0;
-  const section = (title: string, sub: string) => add({ kind: 'section', label: title, title, body: sub, n: ++sec, bg: art[sec % Math.max(1, art.length)] ? base + art[sec % Math.max(1, art.length)].file : undefined });
+  const section = (title: string, sub: string) => { secName = title; const x = art[sec % Math.max(1, art.length)]; add({ kind: 'section', label: title, title, body: sub, n: ++sec, bg: x ? base + x.file : undefined }); };
   const words = worthDefining(lesson.vocab.filter((v) => gl[v]), band);
   const hi = words.map((v) => gl[v].w);
   const mistaken = (lesson.misc ?? []).map((m) => m.replace(/^[“"‘']+|[”"’']+$/g, '').trim()).filter((m) => m.length > 10 && m.length < 200);
@@ -92,7 +110,7 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
   const storyParts = (lesson.saintStory ?? personLine).split(/\n+/).map((x) => x.trim()).filter(Boolean);
   const personStory = storyParts[0] ?? '';
 
-  add({ kind: 'title', label: `${gradeLabel(grade.id)} · Unit ${lesson.unit.n}`, title: lesson.title, body: lesson.question, chips: [lesson.unit.pillar, lesson.unit.title], bg: art[0] ? base + art[0].file : undefined, notes: [`Essential question: ${lesson.unit.eq}`, `Plan about ${band.minutes} minutes. Start with the opening question, then teach, discuss, practice and pray.`] });
+  add({ kind: 'title', label: `${gradeLabel(grade.id)} · Unit ${lesson.unit.n}`, title: lesson.title, body: lesson.question, chips: [lesson.unit.pillar, lesson.unit.title], bg: art[0] ? base + art[0].file : undefined, meta: { band: grade.band, activity: lesson.activity, minutes: band.minutes }, notes: [`Essential question: ${lesson.unit.eq}`, `Plan about ${band.minutes} minutes. Start with the opening question, then teach, discuss, practice and pray.`] });
   if (mistaken[0]) add({ kind: 'poll', label: 'Hands up!', title: `What do you think? “${mistaken[0]}”`, poll: older ? ['Agree', 'Disagree', 'Not sure'] : ['Yes', 'No', 'Not sure'], notes: ['Have students vote before you teach anything. Come back to this vote at the end and see who changed their mind.'] });
   add({ kind: 'wonder', label: 'Let’s wonder', title: lesson.question, notes: [...(lesson.script?.open ? [`Open: ${lesson.script.open}`] : lesson.hook ? [`Open: ${lesson.hook}`] : []), 'Ask before you teach. Collect two or three answers and write them where everyone can see.'] });
   add({ kind: 'goals', label: 'Today', title: 'Today we will…', cards: [
@@ -154,6 +172,17 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
     pieces.forEach((c, i) => add({ kind: 'prayer', label: prayer.title + (pieces.length > 1 ? ` (${i + 1}/${pieces.length})` : ''), body: c }));
   }
   add({ kind: 'end', label: 'Go in peace', title: 'Thanks be to God', body: 'Make the Sign of the Cross together.', bg: art[0] ? base + art[0].file : undefined });
+  // with pictures to hand, every other idea or key point sits beside one (alternating sides)
+  if (art.length) {
+    let k = 0;
+    s.forEach((x, j) => {
+      if (x.kind !== 'idea' && !(x.kind === 'point' && !/\(continued\)$/.test(x.title ?? ''))) return;
+      if (k++ % 2) return;
+      const p = art[(k >> 1) % art.length];
+      x.pic = { src: base + p.file, alt: p.title, credit: `${p.title}, ${p.artist}`, side: (k >> 1) % 2 ? 'l' : 'r' };
+      void j;
+    });
+  }
   return s;
 }
 
@@ -173,7 +202,7 @@ function Verse({ text }: { text: string }) {
 }
 
 /** The words on a slide, as plain lines, for the printed handout. */
-export function slideLines(sl: Slide): string[] {
+export function slideLines(sl: Slide, keys = true): string[] {
   const out: string[] = [];
   if (sl.title) out.push(sl.title);
   if (sl.word) out.push(`${sl.word.w}: ${sl.word.d}`);
@@ -183,8 +212,8 @@ export function slideLines(sl: Slide): string[] {
   if (sl.poll) out.push(sl.poll.join(' / '));
   if (sl.cards) for (const c of sl.cards) out.push(`${c.k}: ${c.v}`);
   if (sl.items?.length && !sl.cards) out.push(...sl.items);
-  if (sl.q) { out.push(sl.q.q, ...sl.q.options.map((o, j) => `${'ABCD'[j]}. ${o}`), `Answer: ${'ABCD'[sl.q.answer]}. ${sl.q.why}`); }
-  if (sl.reveal) out.push(sl.reveal);
+  if (sl.q) { out.push(sl.q.q, ...sl.q.options.map((o, j) => `${'ABCD'[j]}. ${o}`), ...(keys ? [`Answer: ${'ABCD'[sl.q.answer]}. ${sl.q.why}`] : [])); }
+  if (sl.reveal && keys) out.push(sl.reveal);
   if (sl.sides) out.push(sl.sides.join(' / '));
   if (sl.chips?.length) out.push(sl.chips.join(' · '));
   if (sl.img) out.push(`Picture: ${sl.img.credit}`);
@@ -192,26 +221,80 @@ export function slideLines(sl: Slide): string[] {
   return out;
 }
 
-/** Every slide as a numbered box with its notes, one tap away from "Save as PDF" in the print dialog. */
+/** The printed handout: the deck in order, grouped by the four parts of the lesson, pictures with credits, and an answer key at the end. */
 function Handout({ slides, title }: { slides: Slide[]; title: string }) {
+  const head = slides[0];
+  const meta = head?.meta;
+  const mins = meta ? estimateTime(slides, meta.band, meta.activity).classMinutes : 0;
+  const groups: { name: string; items: Slide[] }[] = [];
+  for (const sl of slides) {
+    if (sl.kind === 'title' || sl.kind === 'section' || sl.kind === 'end') continue;
+    const name = sl.sec ?? 'Begin';
+    if (!groups.length || groups[groups.length - 1].name !== name) groups.push({ name, items: [] });
+    groups[groups.length - 1].items.push(sl);
+  }
+  const quiz = slides.filter((s) => s.kind === 'quiz' && s.q);
+  const myths = slides.filter((s) => s.kind === 'myth');
+  const pics = (sl: Slide) => sl.img ?? sl.pic;
   return createPortal(
     <div className="sl-handout">
-      <h1>{title}</h1>
-      <p>Slide handout with teacher notes</p>
-      {slides.map((sl, n) => (
-        <section key={n} className="sl-h-box">
-          <header><b>{n + 1}</b> {sl.label}</header>
-          <div>{slideLines(sl).map((t, k) => <p key={k}>{t}</p>)}</div>
-          {sl.notes?.length ? <aside><strong>Notes:</strong> {sl.notes.join(' ')}</aside> : null}
+      <header className="sl-h-head">
+        <h1>{title}</h1>
+        <p>{[head?.label, mins ? `About ${mins} minutes` : '', `${slides.length} slides`].filter(Boolean).join(' · ')}</p>
+        {head?.body && <p className="sl-h-q">{head.body}</p>}
+      </header>
+      {groups.map((g, gi) => (
+        <section key={gi} className="sl-h-sec">
+          <h2>{g.name}</h2>
+          <div className="sl-h-cols">
+            {g.items.map((sl, n) => {
+              const p = pics(sl);
+              const notes = sl.notes?.length ? sl.notes.join(' ') : '';
+              return (
+                <div key={n} className={`sl-h-item k-${sl.kind}`}>
+                  <h4>{sl.label}</h4>
+                  {p && <figure><img src={p.src} alt={p.alt} /><figcaption>{p.credit}</figcaption></figure>}
+                  {slideLines(sl, false).filter((l) => !l.startsWith('Picture: ')).map((l, k) => <p key={k}>{l}</p>)}
+                  {notes && <aside>{notes.length > 220 ? notes.slice(0, notes.lastIndexOf(' ', 220)) + '…' : notes}</aside>}
+                </div>
+              );
+            })}
+          </div>
         </section>
       ))}
+      {(quiz.length > 0 || myths.length > 0) && (
+        <section className="sl-h-sec sl-h-key">
+          <h2>Answer key</h2>
+          {myths.length > 0 && <ul>{myths.map((m, k) => <li key={k}><b>{m.reveal?.startsWith('TRUTH') ? 'Truth' : 'Myth'}:</b> {m.title}</li>)}</ul>}
+          {quiz.length > 0 && <ol>{quiz.map((m, k) => <li key={k}><b>{'ABCD'[m.q!.answer]}.</b> {m.q!.options[m.q!.answer]} <i>{m.q!.why}</i></li>)}</ol>}
+        </section>
+      )}
     </div>,
     document.body,
   );
 }
 
+/** Choose the whole deck, the 15-minute version, or one fitted to a class length. */
+function DeckPicker({ pref, set, minutes, count }: { pref: DeckPref; set: (p: DeckPref) => void; minutes?: number; count: number }) {
+  const modes: [DeckMode, string][] = [['full', 'Full'], ['short', `Short (${SHORT_MINUTES} min)`], ['fit', 'Fit to my class']];
+  return (
+    <div className="sl-deckpick" onClick={(e) => e.stopPropagation()}>
+      <div className="sl-seg" role="group" aria-label="Deck length">
+        {modes.map(([m, l]) => <button key={m} className="btn small" aria-pressed={pref.mode === m} onClick={() => set({ ...pref, mode: m })}>{l}</button>)}
+      </div>
+      {pref.mode === 'fit' && <label className="sl-mins">Class length <select value={pref.minutes} onChange={(e) => set({ ...pref, minutes: +e.target.value })}>{DECK_MINUTES.map((m) => <option key={m} value={m}>{m} minutes</option>)}</select></label>}
+      {minutes ? <p className="sl-about">About {minutes} minutes · {count} slides</p> : null}
+    </div>
+  );
+}
+
 /** A real deck: a title with a picture, section dividers, one idea per slide, builds, big numerals, quotes, full-bleed art, a check with answers, a prayer. */
-export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onClose: () => void }) {
+export default function LessonSlides({ slides: allSlides, onClose, mode, minutes }: { slides: Slide[]; onClose: () => void; mode?: DeckMode; minutes?: number }) {
+  const meta = allSlides[0]?.meta;
+  const [pref, setPref] = useState<DeckPref>(() => { const s = readDeckPref(); return { mode: mode ?? s.mode ?? 'full', minutes: minutes ?? s.minutes ?? nearestMinutes(meta?.minutes ?? 45) }; });
+  const slides = useMemo(() => (meta ? trimmedSlides(allSlides, pref.mode, pref.minutes, meta.band, meta.activity) : allSlides), [allSlides, pref, meta]);
+  const about = meta ? estimateTime(slides, meta.band, meta.activity).classMinutes : 0;
+  const setDeck = (p: DeckPref) => { setPref(p); setI(0); setReveal(false); setShown(1); try { localStorage.setItem(DECK_KEY, JSON.stringify(p)); } catch { /* private mode */ } };
   const [i, setI] = useState(0);
   const [printing, setPrinting] = useState(false);
   useEffect(() => {
@@ -277,8 +360,9 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
       onTouchEnd={(e) => { if (touch.current === null) return; const dx = e.changedTouches[0].clientX - touch.current; touch.current = null; if (Math.abs(dx) > 60) (dx < 0 ? next() : back()); }}>
       {sl.bg && <div className="sl-bg" style={{ backgroundImage: `url("${sl.bg}")` }} aria-hidden />}
       <div className="sl-deco" aria-hidden />
+      {!sl.bg && !sl.pic && <span className={`sl-motif mo${i % 3}`} aria-hidden>{MOTIFS[sl.theme ?? 'creed'][(i >> 1) % 3]}</span>}
       <div className="sl-top">
-        <span className="sl-label">{sl.label}</span>
+        <span className="sl-label">{sl.label}{sl.sec && sl.sec !== 'Begin' && sl.kind !== 'section' && sl.kind !== 'title' && <span className="sl-secchip">{sl.sec}</span>}</span>
         <span className="sl-tools">
           <button className="btn small" onClick={() => setGrid(true)} title="All slides (G)">▦</button>
           <button className="btn small" onClick={() => setPrinting(true)} title="Print or save as a PDF handout">PDF</button>
@@ -289,24 +373,25 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
           <button className="btn small" onClick={onClose}>Close (Esc)</button>
         </span>
       </div>
-      <div className="sl-stage" onClick={(e) => { if ((e.target as HTMLElement).closest('button,iframe,a,summary')) return; const r = (e.currentTarget as HTMLElement).getBoundingClientRect(); if (e.clientX - r.left < r.width * 0.3) back(); else next(); }}>
+      <div className="sl-stage" onClick={(e) => { if ((e.target as HTMLElement).closest('button,iframe,a,summary,select,label')) return; const r = (e.currentTarget as HTMLElement).getBoundingClientRect(); if (e.clientX - r.left < r.width * 0.3) back(); else next(); }}>
         <div className={`sl-body ${dir.current < 0 ? 'from-left' : ''}`} key={i}>
           {sl.kind === 'title' && <>
             <div className="sl-chips">{sl.chips?.filter(Boolean).map((c) => <span key={c} className="sl-chip">{c}</span>)}</div>
             <h1 className="sl-title">{sl.title}</h1>
             <p className="sl-sub">{sl.body}</p>
+            {meta && <DeckPicker pref={pref} set={setDeck} minutes={about} count={slides.length} />}
           </>}
           {sl.kind === 'section' && <><span className="sl-numeral">{sl.n}</span><h1 className="sl-title">{sl.title}</h1><p className="sl-sub">{sl.body}</p></>}
           {sl.kind === 'wonder' && <><p className="sl-kicker">Let’s wonder</p><h1 className="sl-big">{sl.title}</h1></>}
-          {sl.kind === 'idea' && <><p className="sl-kicker">The big idea</p><h1 className="sl-big"><Hl text={sl.title ?? ''} hi={sl.hi} /></h1>{sl.body && <p className="sl-support"><Hl text={sl.body} hi={sl.hi} /></p>}</>}
+          {sl.kind === 'idea' && <Split sl={sl}><p className="sl-kicker">The big idea</p><h1 className="sl-big"><Hl text={sl.title ?? ''} hi={sl.hi} /></h1>{sl.body && <p className="sl-support"><Hl text={sl.body} hi={sl.hi} /></p>}</Split>}
           {(sl.kind === 'talk' || sl.kind === 'life') && <><p className="sl-kicker">{sl.label}</p><h1 className="sl-big">{sl.title}</h1></>}
           {sl.kind === 'do' && <div className="sl-do"><span className="sl-do-ico" aria-hidden>✎</span><h1 className="sl-big sm">{sl.title}</h1>{sl.items?.length ? <ol className="sl-do-steps">{sl.items.map((t) => <li key={t}>{t}</li>)}</ol> : null}</div>}
           {sl.kind === 'goals' && <><h1 className="sl-big sm">{sl.title}</h1><div className="sl-cards">{sl.cards!.slice(0, shown).map((c) => <div className="sl-card" key={c.k}><span className="sl-card-k">{c.k}</span><span className="sl-card-v">{c.v}</span></div>)}</div></>}
-          {sl.kind === 'point' && <div className="sl-point">
+          {sl.kind === 'point' && <Split sl={sl}><div className="sl-point">
             <span className="sl-numeral">{sl.n}<small>/{sl.of}</small></span>
             <div><h1 className="sl-big sm"><Hl text={sl.title ?? ''} hi={sl.hi} /></h1>{sl.body && <p className="sl-support"><Hl text={sl.body} hi={sl.hi} /></p>}
               {sl.chips && sl.chips.length > 0 && <div className="sl-chips">{sl.chips.map((c) => <span key={c} className="sl-chip">{c}</span>)}</div>}</div>
-          </div>}
+          </div></Split>}
           {sl.kind === 'vocab' && (sl.words ? <div className="sl-vocab"><p className="sl-kicker">{sl.label}</p>{sl.words.map((x) => <div key={x.w} style={{ margin: '0 0 14px' }}><h2 className="sl-word" style={{ fontSize: '1.6em', margin: 0 }}>{x.w}</h2><p className="sl-def" style={{ margin: '2px 0 0' }}>{x.d}</p></div>)}</div> : <div className="sl-vocab"><p className="sl-kicker">Word to know</p><h1 className="sl-word">{sl.word!.w}</h1><p className="sl-def">{sl.word!.d}</p></div>)}
           {sl.kind === 'story' && <p className="sl-story">{sl.body}</p>}
           {sl.kind === 'scripture' && <blockquote className="sl-verse"><span className="sl-qmark" aria-hidden>“</span><p><Verse text={sl.body ?? ''} /></p><footer>{sl.ref}</footer></blockquote>}
@@ -341,7 +426,7 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
       </div>
       {grid && (
         <div className="sl-grid" role="dialog" aria-label="All slides">
-          <div className="sl-grid-head"><strong>All slides</strong><button className="btn small" onClick={() => setGrid(false)}>Close</button></div>
+          <div className="sl-grid-head"><strong>All slides{about ? ` · about ${about} minutes` : ''}</strong>{meta && <DeckPicker pref={pref} set={setDeck} count={slides.length} />}<button className="btn small" onClick={() => setGrid(false)}>Close</button></div>
           <div className="sl-grid-body">
             {slides.map((x, n) => (
               <button key={n} className={`sl-thumb sk-${x.kind} th-${x.theme ?? 'creed'}${n === i ? ' cur' : ''}`} onClick={() => { setGrid(false); go(n); }} aria-label={`Slide ${n + 1}: ${x.label}`}>
@@ -355,6 +440,17 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
       )}
     </div>,
     document.body,
+  );
+}
+
+/** A slide's text, with its picture beside it (above it on a narrow screen) when it has one. */
+function Split({ sl, children }: { sl: Slide; children: React.ReactNode }) {
+  if (!sl.pic) return <>{children}</>;
+  return (
+    <div className={`sl-split side-${sl.pic.side}`}>
+      <figure className="sl-pic"><img src={sl.pic.src} alt={sl.pic.alt} /><figcaption>{sl.pic.credit}</figcaption></figure>
+      <div className="sl-split-text">{children}</div>
+    </div>
   );
 }
 

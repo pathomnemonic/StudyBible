@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildSlides } from '../src/curriculum/LessonSlides';
-import { estimateTime, activityMinutes } from '../src/curriculum/duration';
+import { estimateTime, activityMinutes, fitSlides, trimmedSlides, deckSeconds } from '../src/curriculum/duration';
 import { bandOf } from '../src/curriculum/pedagogy';
 import { parseQuiz, type GradeData } from '../src/curriculum/model';
 
@@ -31,5 +31,40 @@ describe('lesson length and slide depth', () => {
       expect(r.self / r.n, `${b} self minutes`).toBeGreaterThan(5);
       expect(r.content / r.n, `${b} teaching slides`).toBeGreaterThanOrEqual(b === 'primary' ? 4 : 6);
     }
+  });
+
+  it('fits a deck to a class length: never empty, keeps the core and order, lands near the target', () => {
+    const art = [1, 2, 3, 4].map((n) => ({ file: `a${n}.jpg`, title: `Art ${n}`, artist: 'Someone' }));
+    const bad: string[] = [];
+    let checked = 0;
+    for (const g of grades) for (const u of g.units) for (const l of u.lessons) {
+      if ((checked++ % 7) !== 0) continue;
+      const bnd = bandOf(g.band);
+      const slides = buildSlides({ lesson: { ...l, unit: u }, grade: g, gl, band: bnd, passages: [], ccc: [], videos: [], art: checked % 2 ? art : [], story: '', prayer: null as never, quiz: (l.quiz ?? []).map(parseQuiz), base: '' });
+      for (const mins of [15, bnd.minutes, 30, 45, 60, 75]) {
+        const out = fitSlides(slides, mins, g.band, l.activity);
+        const id = `${g.id} ${l.id} @${mins}`;
+        expect(out.length, id).toBeGreaterThan(3);
+        for (const k of ['title', 'wonder', 'goals', 'do', 'exit', 'end'] as const) expect(out.some((s) => s.kind === k), `${id} keeps ${k}`).toBe(true);
+        expect(out[0].kind).toBe('title'); expect(out[out.length - 1].kind).toBe('end');
+        expect(out.filter((s) => s.kind === 'quiz').length, id).toBeGreaterThanOrEqual(Math.min(3, slides.filter((s) => s.kind === 'quiz').length));
+        // order is kept
+        let at = -1; for (const s of out) { const j = slides.findIndex((x, n) => n > at && x.label !== undefined && x.kind === s.kind && x.title === s.title && x.body === s.body); expect(j, id).toBeGreaterThan(at); at = j; }
+        // section numbers are 1..n
+        expect(out.filter((s) => s.kind === 'section').map((s) => s.n), id).toEqual(out.filter((s) => s.kind === 'section').map((_, n) => n + 1));
+        const t = deckSeconds(out, g.band, l.activity) / 60;
+        const stage = deckSeconds(slides, g.band, l.activity) / 60;
+        const coreOnly = out.every((s) => ['title', 'wonder', 'goals', 'do', 'exit', 'end', 'prayer', 'quiz', 'idea', 'point', 'scripture', 'church'].includes(s.kind)) && ['idea', 'point', 'scripture', 'church'].every((k) => out.filter((s) => s.kind === k).length <= 1) && out.filter((s) => s.kind === 'quiz').length <= 3;
+        if (t > mins * 1.1 && !coreOnly) bad.push(`${id}: ${t.toFixed(0)} min over target (full ${stage.toFixed(0)}), ${out.length} slides`);
+      }
+    }
+    expect(bad, bad.join('\n')).toEqual([]);
+  });
+  it('trimmedSlides returns the full deck unchanged and a shorter one otherwise', () => {
+    const g = grades[0], u = g.units[0], l = u.lessons[0];
+    const slides = buildSlides({ lesson: { ...l, unit: u }, grade: g, gl, band: bandOf(g.band), passages: [], ccc: [], videos: [], art: [], story: '', prayer: null as never, quiz: (l.quiz ?? []).map(parseQuiz), base: '' });
+    expect(trimmedSlides(slides, 'full', 45, g.band, l.activity)).toBe(slides);
+    expect(trimmedSlides(slides, 'short', 45, g.band, l.activity).length).toBeLessThanOrEqual(slides.length);
+    expect(slides[0].meta?.band).toBe(g.band);
   });
 });

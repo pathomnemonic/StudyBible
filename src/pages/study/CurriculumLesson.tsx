@@ -28,24 +28,34 @@ const MODES: [Mode, string, string][] = [['student', 'Student', 'Read, watch, do
 
 function Quiz({ qs, onDone }: { qs: Question[]; onDone?: (score: number) => void }) {
   const [pick, setPick] = useState<Record<number, number>>({});
+  const [round, setRound] = useState(0);
   const answered = Object.keys(pick).length;
   const score = qs.filter((q, i) => pick[i] === q.answer).length;
   useEffect(() => { if (qs.length && answered === qs.length) onDone?.(score); }, [answered]);
   if (!qs.length) return <p className="muted small">No vocabulary questions for this lesson.</p>;
+  const missed = qs.map((q, i) => ({ q, i })).filter(({ q, i }) => pick[i] !== undefined && pick[i] !== q.answer);
   return (
-    <div>
-      {qs.map((q, i) => (
-        <fieldset key={i} className="cur-q">
-          <legend>{i + 1}. {q.q}</legend>
-          {q.options.map((o, j) => {
-            const done = pick[i] !== undefined;
-            const cls = done ? (j === q.answer ? ' right' : pick[i] === j ? ' wrong' : '') : '';
-            return <button key={j} type="button" className={`cur-opt${cls}`} disabled={done} onClick={() => setPick({ ...pick, [i]: j })}>{o}</button>;
-          })}
-        </fieldset>
-      ))}
-      {Object.keys(pick).map((k) => qs[+k].why ? <p key={k} className="muted small">Question {+k + 1}: {qs[+k].why}</p> : null)}
-      {answered === qs.length && <p role="status"><strong>{score} of {qs.length}.</strong> {score === qs.length ? 'Well done.' : 'Look again at the words, then try the lesson’s question aloud.'}</p>}
+    <div key={round}>
+      {qs.map((q, i) => {
+        const done = pick[i] !== undefined;
+        return (
+          <fieldset key={i} className="cur-q">
+            <legend>{i + 1}. {q.q}</legend>
+            {q.options.map((o, j) => {
+              const cls = done ? (j === q.answer ? ' right' : pick[i] === j ? ' wrong' : '') : '';
+              return <button key={j} type="button" className={`cur-opt${cls}`} disabled={done} onClick={() => setPick({ ...pick, [i]: j })}>{o}</button>;
+            })}
+            {done && <p className={`cur-why small${pick[i] === q.answer ? ' ok' : ''}`} role="status"><strong>{pick[i] === q.answer ? 'Yes. ' : `Not quite: ${q.options[q.answer]}. `}</strong>{q.why ?? ''}</p>}
+          </fieldset>
+        );
+      })}
+      {answered === qs.length && (
+        <div className="cur-qsum" role="status">
+          <p><strong>{score} of {qs.length}.</strong> {score === qs.length ? 'Well done, you have this one.' : 'Look back at what you missed, then try again.'}</p>
+          {missed.length > 0 && <ul className="small">{missed.map(({ q, i }) => <li key={i}>{q.q} <em>{q.options[q.answer]}</em></li>)}</ul>}
+          {score < qs.length && <button type="button" className="btn small" onClick={() => { setPick({}); setRound((r) => r + 1); }}>Try again</button>}
+        </div>
+      )}
     </div>
   );
 }
@@ -147,7 +157,7 @@ export default function CurriculumLesson() {
         <button className="btn small" onClick={() => setPresent(true)}>▶ Present as slides</button>
         <button className="btn small" onClick={() => setLiveOpen(true)}>📡 Host live</button>
         <QuickQuizButton grade={g} lesson={lesson} />
-        <button className={`btn small${done ? ' primary' : ''}`} aria-pressed={done} onClick={() => toggleDone(g.id, idx, !done)}>{done ? '✓ Done' : 'Mark done'}</button>
+        {(!usePath || done) && <button className={`btn small${done ? ' primary' : ''}`} aria-pressed={done} onClick={() => toggleDone(g.id, idx, !done)}>{done ? '✓ Done' : 'Mark done'}</button>}
         <details className="act-more"><summary className="btn small">More</summary>
           <div className="act-more-list">
         <Link className="btn small" to="/join">Join a class</Link>
@@ -168,7 +178,7 @@ export default function CurriculumLesson() {
       {usePath && (
         <LessonPath grade={g} lesson={lesson} index={idx} band={band} gl={gl} src={src} kidsText={kidsText} note={note}
           onNote={(v) => { setNote(v); try { localStorage.setItem(`sb:cur:note:${lessonId}`, v); } catch { /* private mode */ } }}
-          done={done} onDone={() => toggleDone(g.id, idx, true)}
+          done={done} onDone={() => toggleDone(g.id, idx, true)} next={next ? { id: next.id, title: next.title } : undefined}
           quick={quiz.length > 3 ? <Quiz key={lesson.id + 'q'} qs={quiz.slice(0, 2)} /> : undefined}
           quiz={<><Quiz key={lesson.id} qs={quiz.length > 3 ? quiz.slice(2) : quiz} />{vocabOnly.length > 0 && <><h3>Words</h3><Quiz key={lesson.id + 'v'} qs={vocabOnly} /></>}{review.length > 0 && <><h3>Remember earlier lessons</h3><Quiz key={lesson.id + 'r'} qs={review} /></>}</>} />
       )}
@@ -368,7 +378,7 @@ export default function CurriculumLesson() {
 
       </>)}
 
-      <nav className="row between no-print" style={{ marginTop: 18 }} aria-label="Previous and next lesson">
+      <nav className="row between no-print" hidden={usePath && !done} style={{ marginTop: 18 }} aria-label="Previous and next lesson">
         {prev ? <Link className="btn" to={`/study/curriculum/${g.id}/${prev.id}`}>← {prev.title}</Link> : <span />}
         {next ? <Link className="btn primary" to={`/study/curriculum/${g.id}/${next.id}`}>{next.title} →</Link> : <Link className="btn primary" to={`/study/curriculum/${g.id}`}>Finish this grade</Link>}
       </nav>

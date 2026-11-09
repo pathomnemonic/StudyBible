@@ -172,7 +172,7 @@ export function docsFromFeatures(list: Feature[]): SearchDoc[] {
   }));
 }
 
-export interface LessonUnit { n: number; title: string; eq?: string; lessons: { id: string; title: string; idea: string; question?: string; scripture?: string }[] }
+export interface LessonUnit { n: number; title: string; eq?: string; lessons: { id: string; title: string; idea: string; question?: string; scripture?: string; vocab?: string[]; teach?: string[]; saint?: string; explain?: string[] }[] }
 export function docsFromLessons(gradeId: string, gradeName: string, units: LessonUnit[]): SearchDoc[] {
   return units.flatMap((u) =>
     u.lessons.map((l) => ({
@@ -181,8 +181,8 @@ export function docsFromLessons(gradeId: string, gradeName: string, units: Lesso
       group: 'learn' as const,
       title: l.title,
       sub: `${gradeName}, unit ${u.n}: ${u.title}`,
-      text: [l.idea, u.eq ?? '', l.scripture ?? ''].join(' '),
-      keys: l.question ?? '',
+      text: [l.idea, u.eq ?? '', l.scripture ?? '', (l.vocab ?? []).map((v) => v.replace(/-/g, ' ')).join(' '), (l.teach ?? []).slice(0, 5).map((t) => clip(t, 220)).join(' '), l.saint ? l.saint.split(':')[0] : '', clip((l.explain ?? [])[0], 300)].join(' '),
+      keys: [l.question ?? '', (l.vocab ?? []).map((v) => v.replace(/-/g, ' ')).join(' ')].join(' '),
       href: `/study/curriculum/${gradeId}/${l.id}`,
       badge: 'Lesson',
     })),

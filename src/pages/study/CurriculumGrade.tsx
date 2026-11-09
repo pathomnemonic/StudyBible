@@ -1,17 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
-import { getGrade, gradeLabel, progressId, type GradeData } from '../../curriculum/model';
+import { getGrade, getGlossary, gradeLabel, progressId, type Glossary, type GradeData } from '../../curriculum/model';
 import { starsOf, xpId } from '../../curriculum/LessonPlay';
 import { bandOf } from '../../curriculum/pedagogy';
+import { gradeStats, depthLabel, timeLabel, hoursLabel } from '../../curriculum/lessonStats';
+import ContinueLesson from '../../components/ContinueLesson';
 import { isKeyLesson, isLifeLesson, keyLessonsOf } from '../../curriculum/keyLessons';
 
 export default function CurriculumGrade() {
   const { grade = '' } = useParams();
   const [g, setG] = useState<GradeData | null | undefined>(undefined);
   const [keyOnly, setKeyOnly] = useState(false);
-  useEffect(() => { getGrade(grade).then((x) => setG(x ?? null)); }, [grade]);
+  const [gl, setGl] = useState<Glossary | null>(null);
+  useEffect(() => { getGrade(grade).then((x) => setG(x ?? null)); getGlossary().then(setGl); }, [grade]);
+  const stats = useMemo(() => (g && gl ? gradeStats(g, gl) : null), [g, gl]);
   const prog = useLiveQuery(() => db.planProgress.get(progressId(grade)), [grade]);
   const stars = starsOf(useLiveQuery(() => db.planProgress.get(xpId(grade)), [grade])?.done);
   if (g === undefined) return <div className="page"><p className="muted">Loading…</p></div>;
@@ -35,6 +39,7 @@ export default function CurriculumGrade() {
         <Link className="btn" to={`/study/curriculum/${g.id}/packet`}>Print the whole grade</Link>
         <span className="muted small" style={{ alignSelf: 'center' }}>{done.size} of {total} done · ★ {[...stars.values()].reduce((a, b) => a + b, 0)} stars earned</span>
       </div>
+      <ContinueLesson grade={g.id} />
       {lifeList.length > 0 && (
         <section className="card key-lessons no-print" aria-label="Life essentials">
           <h2 style={{ marginTop: 0, fontSize: '1.1rem' }}>★ Short on time? Start with these {lifeList.length} life lessons</h2>
@@ -54,11 +59,12 @@ export default function CurriculumGrade() {
         <section key={u.n} className="sect" hidden={keyOnly && !u.lessons.some((l) => isKeyLesson(g.id, l.id))}>
           <h2 className="eyebrow-h">Unit {u.n}: {u.title} <span className="muted">· {u.pillar}</span></h2>
           <p className="muted small">{u.eq}</p>
+          {stats && <p className="small cur-unit-total"><b>{u.lessons.length} lessons, {hoursLabel(u.lessons.reduce((n, l) => n + (stats.get(l.id)?.classMinutes ?? 0), 0))}</b> <span className="muted">with a group</span></p>}
           <ol className="list" start={1}>
             {u.lessons.map((l) => { k++; return (
               <li key={l.id} hidden={keyOnly && !isKeyLesson(g.id, l.id)} style={{ display: keyOnly && !isKeyLesson(g.id, l.id) ? 'none' : 'flex', gap: 8, alignItems: 'baseline' }}>
                 <span aria-hidden="true">{done.has(k) ? '✓' : '○'}</span>
-                <span><Link className="t" to={`/study/curriculum/${g.id}/${l.id}`}>{l.title}</Link>{isLifeLesson(l.id) && <span className="key-badge" title="A short-on-time life lesson"> ★ Life</span>}{isKeyLesson(g.id, l.id) && <span className="key-badge" title="A core lesson"> ★ Core</span>}<span className="muted small"> · {l.scripture.split(';')[0]} · CCC {l.ccc.split(',')[0]}</span>{stars.get(k) ? <span className="lesson-stars" aria-label={`${stars.get(k)} stars`}> {'★'.repeat(stars.get(k)!)}{'☆'.repeat(3 - stars.get(k)!)}</span> : null}</span>
+                <span><Link className="t" to={`/study/curriculum/${g.id}/${l.id}`}>{l.title}</Link>{isLifeLesson(l.id) && <span className="key-badge" title="A short-on-time life lesson"> ★ Life</span>}{isKeyLesson(g.id, l.id) && <span className="key-badge" title="A core lesson"> ★ Core</span>}<span className="muted small"> · {l.scripture.split(';')[0]} · CCC {l.ccc.split(',')[0]}</span>{stats?.get(l.id) && <span className="cur-meta small"><span className="muted">{timeLabel(stats.get(l.id)!)}</span><span className={`cur-depth ${stats.get(l.id)!.depth.toLowerCase()}`}>{depthLabel(stats.get(l.id)!)}</span></span>}{stars.get(k) ? <span className="lesson-stars" aria-label={`${stars.get(k)} stars`}> {'★'.repeat(stars.get(k)!)}{'☆'.repeat(3 - stars.get(k)!)}</span> : null}</span>
               </li>
             ); })}
           </ol>

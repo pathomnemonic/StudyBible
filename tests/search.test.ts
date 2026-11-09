@@ -20,7 +20,9 @@ const chainDir = join(root, 'src/data/chains');
 const modes: ChainMode[] = ['arguments', 'claims', 'development', 'heresies', 'words'];
 const apo = JSON.parse(readFileSync(join(root, 'public/data/apologetics.json'), 'utf8'));
 const doctrine = JSON.parse(readFileSync(join(root, 'public/data/doctrine/doctrine.json'), 'utf8'));
-const g8 = JSON.parse(readFileSync(join(root, 'public/data/curriculum/grade-8.json'), 'utf8'));
+const grade = (id: string) => JSON.parse(readFileSync(join(root, `public/data/curriculum/grade-${id}.json`), 'utf8'));
+const g8 = grade('8');
+const lessonGrades = ['K', '2', '3', '5', '8', '9', '11', 'YA'].map(grade);
 
 const docs = [
   ...modes.flatMap((m) => docsFromChains(m, readAll(chainDir, m))),
@@ -33,7 +35,7 @@ const docs = [
   ...docsFromPrayers(PRAYERS),
   ...docsFromFeasts(FEASTS),
   ...docsFromFeatures(FEATURES),
-  ...docsFromLessons(g8.id, g8.name, g8.units),
+  ...lessonGrades.flatMap((g) => docsFromLessons(g.id, g.name, g.units)),
 ];
 const ix = buildIndex(docs);
 const top = (q: string, n = 5) => rank(ix, q, { limit: n }).map((h) => h.doc.href);
@@ -119,6 +121,27 @@ describe('natural questions land on the right page', () => {
   it('every sample question in the empty state finds something in Best answers', () => {
     for (const q of SAMPLE_QUESTIONS) expect(groupHits(rank(ix, q)).some((g) => g.id === 'best'), q).toBe(true);
   });
+});
+
+/** question -> a lesson id that must be among the first six hits of the Learn group */
+const LESSON_TABLE: [string, string][] = [
+  ['why do we go to confession', 'lesson:11-3-2'],
+  ['why do we go to confession', 'lesson:5-5-2'],
+  ['how did we get the Bible', 'lesson:9-3-3'],
+  ['who decided which books are in the Bible', 'lesson:9-3-3'],
+  ['how does God speak to us', 'lesson:3-1-1'],
+  ['what does the priest say after confession', 'lesson:2-3-3'],
+  ['what is the Council of Trent', 'lesson:8-4-2'],
+  ['my biggest worry about going to confession', 'lesson:YA-4-2'],
+];
+describe('lessons are found by natural questions, under Learn', () => {
+  for (const [q, id] of LESSON_TABLE) {
+    it(`"${q}" finds ${id}`, () => {
+      const learn = groupHits(rank(ix, q, { limit: 60 })).find((g) => g.id === 'learn');
+      const ids = (learn?.hits ?? []).slice(0, 6).map((h) => h.doc.id);
+      expect(ids, ids.join(' | ')).toContain(id);
+    });
+  }
 });
 
 describe('pages and prayers', () => {

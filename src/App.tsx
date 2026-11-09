@@ -108,6 +108,7 @@ const ArtDetectivePage = lazy(() => import('./pages/play/ArtDetectivePage'));
 const DoctrineLadderPage = lazy(() => import('./pages/play/DoctrineLadderPage'));
 import PassportWatcher from './components/PassportWatcher';
 const QuizNightPage = lazy(() => import('./pages/play/QuizNightPage'));
+const WhatsNewPage = lazy(() => import('./pages/WhatsNewPage'));
 const HymnsPage = lazy(() => import('./pages/pray/HymnsPage'));
 const ApologeticsTracksPage = lazy(() => import('./pages/study/ApologeticsTracksPage'));
 const ParentWeekPage = lazy(() => import('./teach/ParentPage'));
@@ -411,6 +412,7 @@ export default function App() {
               <Route path="/play/artdetective" element={<ArtDetectivePage />} />
               <Route path="/play/doctrineladder" element={<DoctrineLadderPage />} />
               <Route path="/play/quiznight" element={<QuizNightPage />} />
+              <Route path="/whats-new" element={<WhatsNewPage />} />
               <Route path="/pray/hymns" element={<HymnsPage />} />
               <Route path="/study/apologetics-tracks/:trackId" element={<ApologeticsTracksPage />} />
               <Route path="/study/apologetics-tracks" element={<ApologeticsTracksPage />} />

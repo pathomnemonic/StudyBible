@@ -6,12 +6,12 @@ import { PUBLIC_DATA, writeJson, today } from './lib/util';
 
 /** Lists the study-data files by pack so the app can offer "download for offline use". */
 const PACKS: { id: string; label: string; dirs: string[] }[] = [
-  { id: 'learn', label: 'Catechism text, the K–12 lessons, children’s stories and apologetics', dirs: ['ccc', 'curriculum', 'kids', 'paths', 'apologetics.json', 'kids_stories.json', 'kids_stories2.json'] },
+  { id: 'learn', label: 'Catechism text, the K–12 lessons and their art list, children’s stories and questions, game word lists and apologetics', dirs: ['ccc', 'curriculum', 'kids', 'paths', 'apologetics.json', 'kids_stories.json', 'kids_stories2.json', 'play'] },
   { id: 'people', label: 'Saints, the Catholic encyclopedia, dictionary and papal writings', dirs: ['saints', 'encyclopedia', 'dictionary', 'papal', 'terms'] },
-  { id: 'prayer', label: 'Divine Office, Latin Mass texts, lectionary and daily data', dirs: ['office', 'missa', 'liturgy', 'lectionary', 'daily', 'usccb', 'jesus', 'lens', 'registry', 'church'] },
+  { id: 'prayer', label: 'Divine Office, Latin Mass texts, lectionary, hymns, readings to share and daily data', dirs: ['office', 'missa', 'liturgy', 'lectionary', 'daily', 'usccb', 'jesus', 'lens', 'registry', 'church', 'hymns', 'readings-together'] },
   { id: 'commentary', label: 'Commentary (Haydock, Challoner, Catena Aurea, Glossa)', dirs: ['commentary'] },
   { id: 'library', label: 'Fathers & saints library', dirs: ['library'] },
-  { id: 'links', label: 'Cross-references, resource links, doctrine, Catechism citations', dirs: ['xrefs', 'resources', 'doctrine'] },
+  { id: 'links', label: 'Cross-references, verse links, resource links, doctrine, Catechism citations', dirs: ['xrefs', 'resources', 'doctrine', 'verse-links'] },
   { id: 'media', label: 'Media lists: Bible in a Year schedule, podcasts, audiobooks and videos (the audio and video themselves are not included)', dirs: ['media'] },
   { id: 'reference', label: 'Book outlines, indexes, synopsis, genealogies, memory sets', dirs: ['reference'] },
   { id: 'places', label: 'Maps data and topical index', dirs: ['maps', 'topics'] },

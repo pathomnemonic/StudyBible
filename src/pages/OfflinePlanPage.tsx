@@ -13,7 +13,8 @@ const PRESETS: { id: string; title: string; blurb: string; packs: string[] }[] =
   { id: 'trip', title: 'A trip or pilgrimage', blurb: 'Your Bible, prayers, the Mass and Office, maps and the saints.', packs: ['prayer', 'places', 'people', 'reference'] },
   { id: 'flight', title: 'A long flight', blurb: 'Your Bible and the things to read and pray with, in a small download.', packs: ['prayer', 'reference', 'links'] },
   { id: 'retreat', title: 'A retreat', blurb: 'The Bible, prayer, the Catechism and the Fathers and saints to read.', packs: ['prayer', 'learn', 'library', 'people', 'reference'] },
-  { id: 'class', title: 'A classroom or home school', blurb: 'The lessons, Catechism, prayers and reference pages.', packs: ['learn', 'prayer', 'reference', 'links'] },
+  { id: 'class', title: 'A classroom or home school', blurb: 'The lessons, Catechism, verse links, hymns, prayers and reference pages.', packs: ['learn', 'prayer', 'reference', 'links'] },
+  { id: 'family', title: 'Children and family', blurb: 'The lessons and children’s stories and questions, game word lists, hymns and readings to share, with the prayers.', packs: ['learn', 'prayer'] },
   { id: 'all', title: 'Everything', blurb: 'All the Bibles you use and every study pack.', packs: ['*'] },
 ];
 
