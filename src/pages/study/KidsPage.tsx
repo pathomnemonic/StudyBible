@@ -14,14 +14,14 @@ import { finishStory, storyDone } from '../../lib/stickers';
 import { embedFor } from '../../lib/embed';
 
 type Age = '4-6' | '7-9' | '10-12';
-interface Story { id: string; title: string; testament: 'OT' | 'NT'; refs: string[]; emoji: string; text: Record<Age, string>; talk: string[]; memory?: string; hue: number }
+interface Story { id: string; title: string; testament: 'OT' | 'NT' | 'saint'; refs: string[]; emoji: string; text: Record<Age, string>; talk: string[]; memory?: string; hue: number; prayer?: string; vocab?: { word: string; means: string }[] }
 const AGES: [Age, string, string][] = [['4-6', 'Ages 4 to 6', 'Short and simple'], ['7-9', 'Ages 7 to 9', 'The whole story'], ['10-12', 'Ages 10 to 12', 'Story and meaning']];
 let cache: Promise<Story[]> | null = null;
-const load = () => (cache ??= getJson<{ stories: Story[] }>('kids_stories.json', true).then((d) => d?.stories ?? []));
+const load = () => (cache ??= Promise.all([getJson<{ stories: Story[] }>('kids_stories.json', true), getJson<{ stories: Story[] }>('kids_stories2.json', true)]).then(([a, b]) => [...(a?.stories ?? []), ...(b?.stories ?? [])]));
 const anchorRefs = (s: Story): Ref[] => s.refs.flatMap((r) => { const p = parseRefs(r); return p.ok ? p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref).ref) : []; });
 /** stories whose passage overlaps this one, for the study panel */
 export async function kidsStoriesFor(sel: Ref[]): Promise<Story[]> {
-  return (await load()).filter((s) => anchorRefs(s).some((a) => sel.some((x) => x.book === a.book && x.c1 <= a.c2 && a.c1 <= x.c2)));
+  return (await load()).filter((s) => s.testament !== 'saint').filter((s) => anchorRefs(s).some((a) => sel.some((x) => x.book === a.book && x.c1 <= a.c2 && a.c1 <= x.c2)));
 }
 
 function AgePicker() {
@@ -41,7 +41,7 @@ export default function KidsPage() {
   const [stories, setStories] = useState<Story[]>([]);
   useEffect(() => { load().then(setStories); }, []);
   if (id) return <StoryView story={stories.find((x) => x.id === id)} stories={stories} />;
-  const groups: [string, Story[]][] = [['Old Testament', stories.filter((x) => x.testament === 'OT')], ['New Testament', stories.filter((x) => x.testament === 'NT')]];
+  const groups: [string, Story[]][] = [['Old Testament', stories.filter((x) => x.testament === 'OT')], ['New Testament', stories.filter((x) => x.testament === 'NT')], ['Stories of the saints', stories.filter((x) => x.testament === 'saint')]];
   return (
     <div className="page kids">
       <h1>Children’s Bible</h1>
@@ -116,6 +116,8 @@ function StoryView({ story, stories }: { story?: Story; stories: Story[] }) {
       {mem && <blockquote className="kids-verse"><p>{mem}</p><footer>{story.memory}</footer></blockquote>}
       <p><button className="btn primary big" onClick={() => { finishStory(story.id); setFinished(true); }}>{finished || storyDone(story.id) ? '⭐ You finished this story' : 'I read it! Get a sticker'}</button> {(finished || storyDone(story.id)) && <Link className="btn ghost" to="/kids/stickers">My stickers</Link>}</p>
       <section className="kids-talk"><h2>Talk about it</h2><ul>{story.talk.map((q) => <li key={q}>{q}</li>)}</ul></section>
+      {story.prayer && <section className="kids-talk"><h2>Pray</h2><p>{story.prayer}</p></section>}
+      {story.vocab && story.vocab.length > 0 && <section className="kids-talk"><h2>Words to know</h2><ul>{story.vocab.map((v) => <li key={v.word}><strong>{v.word}</strong>: {v.means}</li>)}</ul></section>}
       {vids.length > 0 && (
         <section><h2>Watch</h2>
           <div className="kids-vids">{vids.map((v) => (

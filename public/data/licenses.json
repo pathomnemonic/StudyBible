@@ -108,6 +108,12 @@
   "redistribution": "yes",
   "notes": ""
  },
+ "kids_stories2.json": {
+  "license": "App-written retellings",
+  "attribution": "—",
+  "redistribution": "yes",
+  "notes": "Stories of the saints follow Butler (public domain)."
+ },
  "lens": {
   "license": "App-written notes, with public-domain quotations",
   "attribution": "—",

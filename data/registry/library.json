@@ -3842,7 +3842,13 @@
    "psalmTags": "english",
    "description": "Augustine’s preaching to his people at Hippo, sermon by sermon on the Gospels and Epistles.",
    "translator": "R. G. MacMullen, NPNF 1st series vol. 6 (1888)",
-   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
+   "skipTitles": [
+    "Title Page",
+    "Preface",
+    "Index",
+    "Advertisement"
+   ]
   },
   {
    "id": "aug-1john",
@@ -3859,7 +3865,18 @@
    "psalmTags": "english",
    "description": "Ten homilies on love, the heart of the First Letter of John.",
    "translator": "H. Browne, rev. J. H. Myers, NPNF 1st series vol. 7 (1888)",
-   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume.",
+   "skipTitles": [
+    "Title Page",
+    "Preface",
+    "Index",
+    "1 John 5:7",
+    "1 John 5:16",
+    "Liber de",
+    "1 John 5:20",
+    "Collatio",
+    "De Trinitate"
+   ]
   },
   {
    "id": "aug-soliloquies",
@@ -3927,23 +3944,6 @@
    "psalmTags": "english",
    "description": "Rufinus’s Commentary on the Apostles’ Creed, his Apology, and Jerome’s reply in the dispute over Origen.",
    "translator": "W. H. Fremantle, NPNF 2nd series vol. 3 (1892)",
-   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
-  },
-  {
-   "id": "jerome-prefaces",
-   "ccel": "schaff/npnf206",
-   "title": "Prefaces to his translations and commentaries",
-   "author": "Jerome",
-   "authorId": "jerome",
-   "period": "patristic",
-   "authority": "father",
-   "kind": "treatise",
-   "year": "c. 382–420",
-   "rootTitle": "^Prefaces",
-   "scriptureMode": "tags",
-   "psalmTags": "english",
-   "description": "The prefaces Jerome wrote for the books of the Vulgate and for his other works.",
-   "translator": "W. H. Fremantle, NPNF 2nd series vol. 6 (1893)",
    "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
   },
   {
@@ -4393,6 +4393,7 @@
   "camus-maxims-fds": "Gutenberg #73661 (Ella McMahon, Dublin 1884) is rights-sound but is 365 numbered one-paragraph maxims, with no headings to build meaningful sections from. Not imported.",
   "newman-dream-of-gerontius": "Gutenberg #48927 is the 1910 Longmans edition with Maurice Francis Egan's introduction and notes in one file; the poem's speaker-by-speaker layout does not suit sectioning. Not imported.",
   "sabatier-life-francis": "Gutenberg #18787 (Sabatier) is by a Protestant critical historian; not imported to keep the library's Franciscan sources Catholic hagiography. Little Flowers of St Francis, Egeria's Pilgrimage, Dionysius the Areopagite, Faber, Marmion and Manning were searched for on Gutenberg and not found as verifiable pre-1929 text; not imported.",
-  "anf09-epistles-clement": "The pseudo-Clementine Epistles on Virginity (ANF vol. 9) are pseudonymous and of uncertain date; not imported with the apocryphal works of that volume."
+  "anf09-epistles-clement": "The pseudo-Clementine Epistles on Virginity (ANF vol. 9) are pseudonymous and of uncertain date; not imported with the apocryphal works of that volume.",
+  "jerome-prefaces": "CCEL NPNF2-6 'Prefaces' is a single undivided section of about 260 words in the ThML (the prefaces are not marked up as separate parts); not imported."
  }
 }

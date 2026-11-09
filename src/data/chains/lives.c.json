@@ -13,7 +13,7 @@
    },
    {
     "year": 251,
-    "text": "Antony is born, traditionally about this year, at Coma in Upper Egypt, to Christian parents of good family and some wealth.",
+    "text": "Antony is born, traditionally about this year, at Coma in Upper Egypt, to parents of good family and some wealth.",
     "kind": "turning",
     "step": {
      "kind": "father",
@@ -1735,7 +1735,7 @@
      "when": "522",
      "year": 522,
      "work": "boethius-consolation",
-     "section": "s3",
+     "section": "s13",
      "quote": "That day when thou didst see thy two sons ride forth from home joint consuls, followed by a train of senators",
      "note": "The year 522 is from settled history; the text does not give it."
     }
@@ -1750,7 +1750,7 @@
      "when": "c. 523",
      "year": 523,
      "work": "boethius-consolation",
-     "section": "s1",
+     "section": "s6",
      "quote": "I rescued the consular Paulinus from the gaping jaws of the court bloodhounds",
      "note": "He cites this as proof that he served the public and not himself."
     }
@@ -1765,7 +1765,7 @@
      "when": "523",
      "year": 523,
      "work": "boethius-consolation",
-     "section": "s1",
+     "section": "s6",
      "quote": "one of my accusers is Basil, who, after being dismissed from the king's household, was driven by his debts to lodge an information against my name",
      "note": "The text in the bundled file is Boethius's own account, so it is his side of the case."
     }
@@ -1780,7 +1780,7 @@
      "when": "523",
      "year": 523,
      "work": "boethius-consolation",
-     "section": "s1",
+     "section": "s6",
      "quote": "What need to speak of the forged letters by which an attempt is made to prove that I hoped for the freedom of Rome?",
      "note": "A note in the bundled text puts his prison at Pavia."
     }
@@ -1795,7 +1795,7 @@
      "when": "524",
      "year": 524,
      "work": "boethius-consolation",
-     "section": "s1",
+     "section": "s5",
      "quote": "hast thou come down from on high, and entered the solitude of this my exile?",
      "note": "The book alternates between prose and verse, and its argument is closer to Platonism than to a Christian catechism, though he is a Christian."
     }
@@ -1810,14 +1810,14 @@
      "when": "524",
      "year": 524,
      "work": "boethius-consolation",
-     "section": "s1",
+     "section": "s6",
      "quote": "Follow after God.",
      "note": "This is the nearest the opening book comes to naming a faith; his Christian theological tracts are not bundled here."
     }
    },
    {
     "year": 524,
-    "text": "He is put to death in 524, probably in the spring. The manner of his death is uncertain; the later accounts mention a cord and clubs.",
+    "text": "He is put to death in 524. The manner of his death is uncertain; one account mentions a cord tightened round his head.",
     "kind": "turning",
     "step": {
      "kind": "father",
@@ -1825,7 +1825,7 @@
      "when": "524",
      "year": 524,
      "work": "boethius-consolation",
-     "section": "s13",
+     "section": "s49",
      "quote": "of his death there is some uncertainty",
      "note": "The note adds that one account says he was cut down by soldiers before the king's judgment-seat."
     }
@@ -1838,6 +1838,331 @@
    {
     "year": 529,
     "text": "Benedict founds Monte Cassino. The same year the emperor Justinian closes the philosophical school at Athens. Boethius's Consolation becomes one of the most-read books of the Middle Ages. Context from settled history.",
+    "kind": "world"
+   }
+  ]
+ },
+ {
+  "id": "john-henry-newman",
+  "name": "John Henry Newman",
+  "lifespan": "1801 – 1890",
+  "sketch": "Newman was an Oxford scholar and Anglican priest who led the Oxford Movement, spent years in painful doubt, and in 1845 became a Catholic. He later founded the Oratory in England and became a cardinal. His own account of the years to 1845 is the Apologia. Where the Apologia is not bundled for a year, the event is told from settled history and marked as such.",
+  "events": [
+   {
+    "year": 1801,
+    "text": "John Henry Newman is born in London on 21 February 1801, the eldest of six children of a banker. From settled history.",
+    "kind": "turning"
+   },
+   {
+    "year": 1816,
+    "text": "He loves the Bible from childhood but has no real religious convictions until fifteen, when a decisive change comes.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Newman, Apologia pro Vita Sua",
+     "when": "1816",
+     "year": 1816,
+     "work": "newman-apologia",
+     "section": "s2",
+     "quote": "I was brought up from a child to take great delight in reading the Bible; but I had no formed religious convictions till I was fifteen.",
+     "note": "The year follows from his birth in 1801 and his statement that this was at fifteen."
+    }
+   },
+   {
+    "year": 1822,
+    "text": "He is elected a Fellow of Oriel, the most distinguished common room in Oxford. Looking back, he recalls the hour of the handshake with the Provost and Fellows.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Newman, Apologia pro Vita Sua",
+     "when": "1822",
+     "year": 1822,
+     "work": "newman-apologia",
+     "section": "s2",
+     "quote": "The first time that I was in a room with him was on occasion of my election to a fellowship at Oriel",
+     "note": "The Apologia says elsewhere that he saw most of Dr. Hawkins from 1822 to 1825."
+    }
+   },
+   {
+    "year": 1824,
+    "text": "He is ordained and takes a curacy in Oxford. Soon after, he becomes vicar of St. Mary's, the university church, where his sermons draw large crowds.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Newman, Apologia pro Vita Sua",
+     "when": "1824",
+     "year": 1824,
+     "work": "newman-apologia",
+     "section": "s2",
+     "quote": "when I took orders in 1824 and had a curacy in Oxford",
+     "note": "The vicarage of St. Mary's dates from 1828, from settled history."
+    }
+   },
+   {
+    "year": 1829,
+    "text": "Parliament passes the Catholic Emancipation Act, removing most legal bars on Catholics in Britain. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 1833,
+    "text": "Ill on a Mediterranean tour, he tells a Roman prelate, \"We have a work to do in England,\" and writes the lines \"Lead, kindly light\" becalmed in an orange boat in the Straits of Bonifacio.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Newman, Apologia pro Vita Sua",
+     "when": "1833",
+     "year": 1833,
+     "work": "newman-apologia",
+     "section": "s2",
+     "quote": "Then it was that I wrote the lines, \"Lead, kindly light,\"",
+     "note": "He is returning from Sicily to England."
+    }
+   },
+   {
+    "year": 1833,
+    "text": "On 14 July John Keble preaches the Assize Sermon, \"National Apostasy\". Newman always marks that day as the start of the Oxford Movement.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Newman, Apologia pro Vita Sua",
+     "when": "1833",
+     "year": 1833,
+     "work": "newman-apologia",
+     "section": "s2",
+     "quote": "The following Sunday, July 14th, Mr. Keble preached the Assize Sermon in the University Pulpit.",
+     "note": "Newman says he has ever kept the day as the start of the religious movement."
+    }
+   },
+   {
+    "year": 1841,
+    "text": "Tract 90 argues that the Thirty-Nine Articles can be read in a Catholic sense. Bishops condemn it and Newman is shaken. He later calls the next years a state of moral sickness, unable to rest in Anglicanism or go to Rome.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Newman, Apologia pro Vita Sua",
+     "when": "1841",
+     "year": 1841,
+     "work": "newman-apologia",
+     "section": "s3",
+     "quote": "it was my portion for whole years to remain without any satisfactory basis for my religious profession, in a state of moral sickness",
+     "note": "He describes the period 1841-1845."
+    }
+   },
+   {
+    "year": 1843,
+    "text": "He resigns as vicar of St. Mary's and retires to Littlemore, a village outside Oxford. In September he preaches his last Anglican sermon, \"The Parting of Friends\". From settled history.",
+    "kind": "setback"
+   },
+   {
+    "year": 1845,
+    "text": "On 8 October, expecting the Passionist priest Father Dominic at Littlemore, he writes that he is about to ask for admission. The next day, 9 October, he is received into the Catholic Church.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Newman, Apologia pro Vita Sua",
+     "when": "1845",
+     "year": 1845,
+     "work": "newman-apologia",
+     "section": "s5",
+     "quote": "One of my friends at Littlemore had been received into the Church on Michaelmas Day, at the Passionist House at Aston, near Stone, by Father Dominic",
+     "note": "The date of the reception, 9 October, is from settled history; the Apologia gives the letter of 8 October."
+    }
+   },
+   {
+    "year": 1845,
+    "text": "Soon after his conversion he writes to Wiseman, the new bishop, that he will obey the Pope as he obeyed his Anglican bishop.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Newman, Apologia pro Vita Sua",
+     "when": "1845",
+     "year": 1845,
+     "work": "newman-apologia",
+     "section": "s3",
+     "quote": "in 1845, I wrote to Bishop Wiseman, in whose Vicariate I found myself, to announce my conversion",
+     "note": "He says the duty to a superior was his guiding point."
+    }
+   },
+   {
+    "year": 1848,
+    "text": "Ordained a Catholic priest in Rome in 1847, he brings the Oratory of St. Philip Neri to England in 1848 and settles at Birmingham. From settled history.",
+    "kind": "work"
+   },
+   {
+    "year": 1864,
+    "text": "Charles Kingsley accuses him of not caring for truth. Newman answers in a series of pamphlets that become the Apologia pro Vita Sua and win the English public over. From settled history.",
+    "kind": "setback"
+   },
+   {
+    "year": 1879,
+    "text": "Pope Leo XIII makes him a cardinal. He chooses as his motto \"Heart speaks to heart\". From settled history.",
+    "kind": "turning"
+   },
+   {
+    "year": 1890,
+    "text": "He dies at the Birmingham Oratory on 11 August. Pope Benedict XVI beatified him in 2010 and Pope Francis canonized him in 2019. From settled history.",
+    "kind": "turning"
+   }
+  ]
+ },
+ {
+  "id": "leo-the-great",
+  "name": "Leo the Great",
+  "lifespan": "c. 400 – 461",
+  "butler": "04-11:0",
+  "sketch": "Leo was a Roman deacon and diplomat who became pope in 440 and led the Church through the Council of Chalcedon and the threat of Attila. His letter to Flavian, the Tome, fixed the Western teaching about the two natures of Christ and was acclaimed at Chalcedon. His sermons are among the first Roman sermons we have.",
+  "events": [
+   {
+    "year": 400,
+    "text": "Leo is born at Rome, of a noble Tuscan family, around the end of the fourth century. Butler gives no year.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Leo the Great",
+     "when": "c. 400",
+     "year": 400,
+     "butler": "04-11:0",
+     "quote": "Leo, surnamed the Great, was descended of a noble Tuscan family, but born at Rome",
+     "note": "Butler gives no year for his birth; \"c. 400\" is the usual estimate."
+    }
+   },
+   {
+    "year": 410,
+    "text": "Alaric and the Goths sack Rome, the first time in eight centuries. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 440,
+    "text": "While Leo is away in Gaul, mediating between two generals, Pope Sixtus III dies and the Roman clergy elect Leo. He is consecrated on 29 September.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Leo the Great",
+     "when": "440",
+     "year": 440,
+     "butler": "04-11:0",
+     "quote": "he received the episcopal consecration on Sunday the 29th of September, in 440",
+     "note": "Butler says the clergy judged him the first man of his age in sanctity, learning, prudence and eloquence."
+    }
+   },
+   {
+    "year": 440,
+    "text": "He preaches at the Nativity that no one should be sad on the birthday of the Life. His sermons through the year become the earliest large body of papal preaching.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Leo, Sermon on the Nativity",
+     "when": "440s",
+     "year": 440,
+     "work": "leo-sermons-letters",
+     "section": "ii.v.x",
+     "quote": "Our Saviour, dearly-beloved, was born today: let us be glad.",
+     "note": "The year is a guess within the 440s; Leo preached on the Nativity every year of his pontificate."
+    }
+   },
+   {
+    "year": 449,
+    "text": "Leo writes to Flavian, patriarch of Constantinople, a long letter that sets out the faith about the Incarnation: one person in two natures. It is later called the Tome.",
+    "kind": "writing",
+    "step": {
+     "kind": "father",
+     "label": "Leo, Letter 28 (the Tome)",
+     "when": "449",
+     "year": 449,
+     "work": "leo-sermons-letters",
+     "section": "ii.iv.xxviii",
+     "quote": "Not knowing, therefore, what he was bound to think concerning the incarnation of the Word of God",
+     "note": "Leo is writing about Eutyches, who had denied that Christ remains truly human."
+    }
+   },
+   {
+    "year": 449,
+    "text": "A packed council meets at Ephesus under pressure from the emperor. It acquits Eutyches and deposes Flavian, who dies soon after. Leo's legates refuse to sign. Leo calls it a robber synod.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Leo the Great",
+     "when": "449",
+     "year": 449,
+     "butler": "04-11:0",
+     "quote": "This pretended synod, commonly called the Latrocinale, or cabal of Ephesus, met on the 8th of August, 449",
+     "note": "Butler says the legates refused to sign the sentence."
+    }
+   },
+   {
+    "year": 451,
+    "text": "The new emperor Marcian and the empress Pulcheria call the Council of Chalcedon. About six hundred bishops meet. Leo's legates preside, and Flavian is vindicated.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Leo the Great",
+     "when": "451",
+     "year": 451,
+     "butler": "04-11:0",
+     "quote": "the general council of Chalcedon, consisting of six hundred or six hundred and thirty bishops, was opened on the 8th of October in 451",
+     "note": "The bishops are said to have cried out, \"Peter has spoken through Leo\"."
+    }
+   },
+   {
+    "year": 451,
+    "text": "Chalcedon passes a canon giving Constantinople second place of honor after Rome. Leo refuses to accept it and writes to uphold the ancient order of the sees.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Leo the Great",
+     "when": "451",
+     "year": 451,
+     "butler": "04-11:0",
+     "quote": "that St. Leo rejected it",
+     "note": "Butler says the canon was drawn up by clergy of Constantinople."
+    }
+   },
+   {
+    "year": 452,
+    "text": "Attila the Hun invades Italy. At the city's request Leo goes out to meet him, with two Roman officials. Attila withdraws, and soon after retires beyond the Danube.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Leo the Great",
+     "when": "452",
+     "year": 452,
+     "butler": "04-11:0",
+     "quote": "In the general consternation, St. Leo, at the request of the whole city of Rome, went to meet Attila",
+     "note": "Butler also relates a later story that Attila saw Peter and Paul at Leo's side, which rests on an eighth-century writer."
+    }
+   },
+   {
+    "year": 455,
+    "text": "After the murder of the emperor Valentinian III, the Vandals under Genseric come to Rome by sea. Leo goes out to meet them as well. He cannot prevent two weeks of plunder but wins a promise to spare lives and the main churches.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Introduction to Leo's works",
+     "when": "455",
+     "year": 455,
+     "work": "leo-sermons-letters",
+     "section": "ii.iii.i",
+     "quote": "invited the Vandals under Genseric to invade Italy",
+     "note": "The editors date the pillage to 455 and describe Leo's embassy."
+    }
+   },
+   {
+    "year": 461,
+    "text": "Leo dies on 10 November after twenty-one years as pope. The Church later names him a Doctor of the Church.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Leo the Great",
+     "when": "461",
+     "year": 461,
+     "butler": "04-11:0",
+     "quote": "dying on the 10th of November, 461",
+     "note": "Butler counts twenty-one years, one month and thirteen days of pontificate."
+    }
+   },
+   {
+    "year": 476,
+    "text": "The last western emperor is deposed. The pope and the Roman Church become the main continuing institution in Italy. Context from settled history.",
     "kind": "world"
    }
   ]

@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-08",
+ "generated": "2026-11-09",
  "errors": [],
  "warnings": [
   "[cpdv] book “Prayer of Manasses” is not in the 73-book canon; skipped",
@@ -1041,19 +1041,19 @@
    "sections": 14
   },
   "library.chesterton-st-francis": {
-   "sections": 13
+   "sections": 10
   },
   "library.boethius-consolation": {
-   "sections": 13
+   "sections": 49
   },
   "library.newman-apologia": {
-   "sections": 35
+   "sections": 14
   },
   "library.newman-grammar-of-assent": {
-   "sections": 34
+   "sections": 28
   },
   "library.newman-idea-of-a-university": {
-   "sections": 40
+   "sections": 23
   },
   "library.newman-development": {
    "sections": 19
@@ -1062,20 +1062,77 @@
    "sections": 31
   },
   "library.catherine-letters": {
-   "sections": 32
+   "sections": 74
   },
   "library.gibbons-faith-of-our-fathers": {
-   "sections": 31
+   "sections": 44
+  },
+  "library.aug-sermons-nt": {
+   "sections": 97
+  },
+  "library.aug-1john": {
+   "sections": 15
+  },
+  "library.aug-soliloquies": {
+   "sections": 2
+  },
+  "library.gregory-nyssa-philosophical": {
+   "sections": 4
+  },
+  "library.gregory-nyssa-oratorical": {
+   "sections": 2
+  },
+  "library.rufinus-works": {
+   "sections": 12
+  },
+  "library.athanasius-minor-works": {
+   "sections": 15
+  },
+  "library.dionysius-rome": {
+   "sections": 2
+  },
+  "library.asterius-urbanus": {
+   "sections": 2
+  },
+  "library.aquinas-prayer": {
+   "sections": 10
+  },
+  "library.ignatius-autobiography": {
+   "sections": 12
+  },
+  "library.chalippe-francis": {
+   "sections": 8
+  },
+  "library.camus-francis-de-sales": {
+   "sections": 239
+  },
+  "library.albert-union-with-god": {
+   "sections": 17
+  },
+  "library.dante-divine-comedy": {
+   "sections": 100
+  },
+  "library.benson-paradoxes": {
+   "sections": 12
+  },
+  "library.benson-lourdes": {
+   "sections": 10
+  },
+  "library.newman-pps-7": {
+   "sections": 18
+  },
+  "library.newman-pps-8": {
+   "sections": 18
   },
   "library.total": {
-   "works": 152,
-   "sections": 8643,
-   "indexedWords": 91141
+   "works": 171,
+   "sections": 9282,
+   "indexedWords": 94143
   },
-  "plain-titles": 521,
-  "cite-index": 1683,
+  "plain-titles": 750,
+  "cite-index": 1789,
   "paths": 15,
-  "galaxy-library": 152,
+  "galaxy-library": 171,
   "art-more": 607,
   "jesus": {
    "books": 9,

@@ -6,7 +6,7 @@ import { PUBLIC_DATA, writeJson, today } from './lib/util';
 
 /** Lists the study-data files by pack so the app can offer "download for offline use". */
 const PACKS: { id: string; label: string; dirs: string[] }[] = [
-  { id: 'learn', label: 'Catechism text, the K–12 lessons, children’s stories and apologetics', dirs: ['ccc', 'curriculum', 'kids', 'paths', 'apologetics.json', 'kids_stories.json'] },
+  { id: 'learn', label: 'Catechism text, the K–12 lessons, children’s stories and apologetics', dirs: ['ccc', 'curriculum', 'kids', 'paths', 'apologetics.json', 'kids_stories.json', 'kids_stories2.json'] },
   { id: 'people', label: 'Saints, the Catholic encyclopedia, dictionary and papal writings', dirs: ['saints', 'encyclopedia', 'dictionary', 'papal', 'terms'] },
   { id: 'prayer', label: 'Divine Office, Latin Mass texts, lectionary and daily data', dirs: ['office', 'missa', 'liturgy', 'lectionary', 'daily', 'usccb', 'jesus', 'lens', 'registry', 'church'] },
   { id: 'commentary', label: 'Commentary (Haydock, Challoner, Catena Aurea, Glossa)', dirs: ['commentary'] },
