@@ -6,12 +6,13 @@ import { activityName } from './LessonSlides';
 import type { GradeData, Glossary, LessonSpec } from './model';
 import type { Band } from './pedagogy';
 import { cccList } from './model';
+import { contentPoints } from './teachpoints';
 
 type Lesson = LessonSpec & { unit: GradeData['units'][number] };
 interface Src { passages: { label: string; path: string; verses: { c: number; v: number; text: string }[] }[]; refIds: string[]; ccc: { n: number; t: string }[]; prayer?: { title: string; text: string } | null; story?: { id: string; title: string } | null }
 interface Props {
   grade: GradeData; lesson: Lesson; index: number; band: Band; gl: Glossary; src: Src; kidsText: string;
-  note: string; onNote: (v: string) => void; quiz: ReactNode; done: boolean; onDone: () => void; next?: { id: string; title: string };
+  note: string; onNote: (v: string) => void; quiz: ReactNode; quick?: ReactNode; done: boolean; onDone: () => void; next?: { id: string; title: string };
 }
 interface StepDef { id: string; label: string; icon: string; body: ReactNode }
 
@@ -112,15 +113,25 @@ export default function LessonPath(p: Props) {
     const big = (
       <section className="cur-big" aria-label="The big idea"><h2 className="eyebrow-h">The big idea</h2><p className="cur-idea">{lesson.idea}</p><p className="muted small"><strong>Essential question:</strong> {lesson.unit.eq}</p></section>
     );
-    const teachPoints = lesson.teach && lesson.teach.length > 0
-      ? <ol className="lp-points">{lesson.teach.map((t) => <li key={t}>{t}</li>)}</ol>
-      : null;
+    const points = contentPoints(lesson);
+    const teachPoints = lesson.explain && lesson.explain.length > 0
+      ? <div className="lp-explain">{lesson.explain.map((t) => <p key={t}>{t}</p>)}</div>
+      : points.length > 0 ? <ol className="lp-points">{points.map((t) => <li key={t}>{t}</li>)}</ol> : null;
+    const objectives = lesson.objectives && lesson.objectives.length > 0 && (
+      <div className="lp-objectives"><h3>By the end you can</h3><ul>{lesson.objectives.map((t) => <li key={t}>{t}</li>)}</ul></div>
+    );
+    const remember = lesson.remember && lesson.remember.length > 0 && (
+      <div className="lp-remember"><h3>Remember</h3><ul>{lesson.remember.map((t) => <li key={t}>{t}</li>)}</ul></div>
+    );
+    const leaderSay = lesson.script && (
+      <div className="lp-leader"><h3>A grown-up says it like this</h3>{[lesson.script.open, ...lesson.script.teach].filter(Boolean).map((t) => <p key={t}>{t}</p>)}</div>
+    );
     const ccc = src.ccc.slice(0, cccCap).map((c) => <Excerpt key={c.n} n={c.n} text={c.t} />);
     const myths = lesson.misc && lesson.misc.length > 0 && (
       <div className="lp-myths"><h3>Things people often get wrong</h3><ul>{lesson.misc.map((t) => <li key={t}>{t}</li>)}</ul></div>
     );
     if (band.id === 'primary') return [
-      { id: 'story', label: 'Story', icon: '📖', body: <>{p.kidsText ? <p className="cur-story">{p.kidsText}</p> : <p className="cur-idea">{lesson.idea}</p>}{src.story && <p className="muted small">Retold from <Link to={`/study/kids/${src.story.id}`}>{src.story.title}</Link></p>}{termsBlock}</> },
+      { id: 'story', label: 'Story', icon: '📖', body: <>{p.kidsText ? <p className="cur-story">{p.kidsText}</p> : <p className="cur-idea">{lesson.idea}</p>}{leaderSay}{src.story && <p className="muted small">Retold from <Link to={`/study/kids/${src.story.id}`}>{src.story.title}</Link></p>}{termsBlock}</> },
       { id: 'wonder', label: 'Wonder', icon: '💭', body: <>{hookOk && <p className="lp-hook">{lesson.hook}</p>}{talkBlock}</> },
       { id: 'play', label: 'Play', icon: '🎲', body: gamesBlock },
       { id: 'do', label: 'Do', icon: '✂️', body: <>{doBlock}{memBlock}</> },
@@ -129,7 +140,7 @@ export default function LessonPath(p: Props) {
     ];
     if (band.id === 'elementary') return [
       { id: 'listen', label: 'Listen', icon: '📖', body: <>{big}{p.kidsText && <p className="cur-story">{p.kidsText}</p>}{scriptureBlock}</> },
-      { id: 'learn', label: 'Learn', icon: '💡', body: <>{teachPoints}{termsBlock}{ccc}{memBlock}{storyBlock}</> },
+      { id: 'learn', label: 'Learn', icon: '💡', body: <>{objectives}{teachPoints}{termsBlock}{ccc}{remember}{memBlock}{storyBlock}{p.quick}</> },
       { id: 'play', label: 'Play', icon: '🎲', body: gamesBlock },
       { id: 'talk', label: 'Talk', icon: '💬', body: talkBlock },
       { id: 'do', label: 'Do', icon: '✂️', body: doBlock },
@@ -137,15 +148,15 @@ export default function LessonPath(p: Props) {
       { id: 'check', label: 'Check', icon: '⭐', body: <>{checkBlock}{deeper}</> },
     ];
     return [
-      { id: 'begin', label: 'Begin', icon: '🌅', body: <>{hookOk && <p className="lp-hook">{lesson.hook}</p>}{big}<h3 className="lp-ask">Start with this</h3><p className="cur-idea">{lesson.question}</p></> },
+      { id: 'begin', label: 'Begin', icon: '🌅', body: <>{hookOk && <p className="lp-hook">{lesson.hook}</p>}{big}<h3 className="lp-ask">Start with this</h3><p className="cur-idea">{lesson.question}</p>{objectives}</> },
       { id: 'scripture', label: 'Scripture', icon: '📖', body: <><p className="muted small">Read it slowly, and notice the one phrase that stays with you.</p>{scriptureBlock}</> },
-      { id: 'teaching', label: 'Teaching', icon: '🕊️', body: <>{teachPoints ?? <p>{lesson.idea}</p>}{termsBlock}<h3 className="lp-ask">In the Catechism’s own words</h3>{ccc}{cccNums.length > cccCap && <p className="small"><Link to={`/study/catechism/${cccNums[0]}`}>More in the Catechism</Link></p>}</> },
+      { id: 'teaching', label: 'Teaching', icon: '🕊️', body: <>{teachPoints ?? <p>{lesson.idea}</p>}{termsBlock}<h3 className="lp-ask">In the Catechism’s own words</h3>{ccc}{cccNums.length > cccCap && <p className="small"><Link to={`/study/catechism/${cccNums[0]}`}>More in the Catechism</Link></p>}{remember}{p.quick && <><h3 className="lp-ask">Quick check</h3>{p.quick}</>}</> },
       { id: 'witness', label: 'Witness', icon: '⭐', body: <>{storyBlock}{myths}{memBlock}</> },
       { id: 'discuss', label: 'Discuss', icon: '💬', body: talkBlock },
       { id: 'practice', label: 'Practice', icon: '🎯', body: <>{doBlock}{adultish ? <details className="lp-deeper"><summary>Optional: practise with games</summary>{gamesBlock}</details> : gamesBlock}</> },
       { id: 'close', label: 'Pray and check', icon: '🙏', body: <>{prayBlock}<h3 className="lp-ask">Check what you took in</h3>{checkBlock}{deeper}</> },
     ].filter((s) => s.id !== 'witness' || lesson.saint || (lesson.misc && lesson.misc.length) || lesson.mem);
-  }, [lesson.id, band.id, gl, src.passages.length, src.ccc.length, p.kidsText, p.note, p.quiz, src.prayer?.title]);
+  }, [lesson.id, band.id, gl, src.passages.length, src.ccc.length, p.kidsText, p.note, p.quiz, p.quick, src.prayer?.title]);
 
   const last = steps.length - 1;
   const at = Math.min(step, last);

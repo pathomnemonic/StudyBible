@@ -1,4 +1,5 @@
 import type { BandId, LessonSpec } from './model';
+import { contentPoints } from './teachpoints';
 import { KIT_RANK, TECHNIQUES, type Ctx, type Kit, type Move, type Option, type Technique } from './techniques';
 
 /**
@@ -68,9 +69,14 @@ function pick(moves: Move[], c: Ctx, setup: Setup, used: Set<string>, key: strin
 }
 
 export function ideasOf(l: LessonSpec): string[] {
-  const t = (l.teach ?? []).filter((x) => x.trim().length > 20);
-  // K-2 teacher notes carry a fourth (pitfall) and fifth (check) point that are guidance, not extra ideas to teach
-  if (t.length) return t.slice(0, /^(K|1|2)-/.test(l.id) ? 3 : 4);
+  // teacher guidance ("Aim: …", "Watch for …", "Say: …") is not an idea to teach, so it never becomes a concept or a line spoken to the class
+  // for the youngest, the lesson's own idea is already in a child's words: use its sentences, not the adult-level notes
+  if (/^(K|1|2)-/.test(l.id)) {
+    const sentences = (l.idea.match(/[^.!?]+[.!?]+/g) ?? []).map((x) => x.trim()).filter((x) => x.length > 12);
+    if (sentences.length >= 2) return sentences.slice(0, 3);
+  }
+  const t = contentPoints(l);
+  if (t.length) return t.slice(0, 4);
   const sc = (l.script?.teach ?? []).filter((x) => x.trim().length > 20);
   if (sc.length) return sc.slice(0, 4);
   return [l.idea];

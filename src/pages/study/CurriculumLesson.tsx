@@ -86,7 +86,9 @@ export default function CurriculumLesson() {
   const src = useLessonSources(lesson, g?.band);
   const prog = useLiveQuery(() => db.planProgress.get(progressId(grade)), [grade]);
   const done = prog?.done.includes(idx) ?? false;
-  const setM = (m: Mode) => { setMode(m); try { localStorage.setItem('sb:cur:mode', m); } catch { /* private mode */ } };
+  const setM = (m: Mode) => { setMode(m); try { localStorage.setItem('sb:cur:mode', m); localStorage.setItem('sb:cur:mode:chosen', '1'); } catch { /* private mode */ } };
+  // for the youngest, the grown-up leads: open on the leader's view until someone chooses otherwise
+  useEffect(() => { if (g?.band === 'primary') { try { if (!localStorage.getItem('sb:cur:mode:chosen')) setMode('teacher'); } catch { /* private mode */ } } }, [g?.id]);
   useEffect(() => { try { setNote(localStorage.getItem(`sb:cur:note:${lessonId}`) ?? ''); } catch { setNote(''); } setSpeaking(false); try { speechSynthesis.cancel(); } catch { /* none */ } }, [lessonId]);
   useEffect(() => () => { try { speechSynthesis.cancel(); } catch { /* none */ } }, []);
   useEffect(() => { if (sp.get('present') === '1') setPresent(true); }, []);
@@ -101,6 +103,7 @@ export default function CurriculumLesson() {
 
   const minutes = length || band.minutes;
   const usePath = mode === 'student' && view === 'path';
+  const youngest = g.band === 'primary';
   const words = worthDefining(lesson.vocab.filter((v) => gl[v]), band);
   const kidsText = src.story ? src.story.text[st.kidsAge] : '';
   const scriptureText = src.passages.map((p) => `${p.label}. ${p.verses.map((v) => v.text).join(' ')}`).join(' ');
@@ -108,7 +111,8 @@ export default function CurriculumLesson() {
   const prev = flat[idx - 1], next = flat[idx + 1];
   const primary = g.band === 'primary';
   const adult = g.band === 'adult';
-  const modes = adult ? MODES.filter(([m]) => m !== 'family').map(([m, l, d]) => (m === 'student' ? [m, 'Participant', 'Read, pray, discuss, decide'] : m === 'teacher' ? [m, 'Leader', 'A timed plan for leading a group'] : [m, l, d]) as [Mode, string, string]) : MODES;
+  const youngModes: [Mode, string, string][] = [['student', 'Child', 'Pictures, play and prayer'], ['teacher', 'Grown-up leader', 'What to say and do, step by step'], ['family', 'Family', 'A five-day plan for home']];
+  const modes = g.band === 'primary' ? youngModes : adult ? MODES.filter(([m]) => m !== 'family').map(([m, l, d]) => (m === 'student' ? [m, 'Participant', 'Read, pray, discuss, decide'] : m === 'teacher' ? [m, 'Leader', 'A timed plan for leading a group'] : [m, l, d]) as [Mode, string, string]) : MODES;
   const readAloud = () => {
     if (speaking) { try { speechSynthesis.cancel(); } catch { /* none */ } setSpeaking(false); return; }
     setSpeaking(true);
@@ -158,7 +162,8 @@ export default function CurriculumLesson() {
         <LessonPath grade={g} lesson={lesson} index={idx} band={band} gl={gl} src={src} kidsText={kidsText} note={note}
           onNote={(v) => { setNote(v); try { localStorage.setItem(`sb:cur:note:${lessonId}`, v); } catch { /* private mode */ } }}
           done={done} onDone={() => toggleDone(g.id, idx, true)}
-          quiz={<><Quiz key={lesson.id} qs={quiz} />{vocabOnly.length > 0 && <><h3>Words</h3><Quiz key={lesson.id + 'v'} qs={vocabOnly} /></>}{review.length > 0 && <><h3>Remember earlier lessons</h3><Quiz key={lesson.id + 'r'} qs={review} /></>}</>} />
+          quick={quiz.length > 3 ? <Quiz key={lesson.id + 'q'} qs={quiz.slice(0, 2)} /> : undefined}
+          quiz={<><Quiz key={lesson.id} qs={quiz.length > 3 ? quiz.slice(2) : quiz} />{vocabOnly.length > 0 && <><h3>Words</h3><Quiz key={lesson.id + 'v'} qs={vocabOnly} /></>}{review.length > 0 && <><h3>Remember earlier lessons</h3><Quiz key={lesson.id + 'r'} qs={review} /></>}</>} />
       )}
 
       {mode !== 'teacher' && !usePath && <LessonPlay grade={g} lesson={lesson} index={idx} gl={gl} />}
@@ -179,12 +184,12 @@ export default function CurriculumLesson() {
           )}
           <section className="sect">
             <h2 className="eyebrow-h">Objectives</h2>
-            <ul>
+            {lesson.objectives && lesson.objectives.length > 0 ? <ul>{lesson.objectives.map((o) => <li key={o}>{o}</li>)}</ul> : <ul>
               <li>Students will {band.verbs.split(', ').slice(0, 2).join(' or ')} the big idea in their own words.</li>
               {words.length > 0 && <li>Students will use the new words correctly: {words.map((v) => gl[v].w).join(', ')}.</li>}
               <li>Students will connect the lesson to Scripture ({lesson.scripture.replace(/;/g, '; ')}) and the Catechism (§{lesson.ccc}).</li>
               <li>Students will respond in prayer and in one concrete way this week.</li>
-            </ul>
+            </ul>}
           </section>
           <section className="sect">
             <h2 className="eyebrow-h">Plan <select className="no-print" value={length || band.minutes} onChange={(e) => setLength(+e.target.value)} aria-label="Class length" style={{ marginLeft: 8 }}>{[20, 30, 40, 45, 50, 60, 75].map((m) => <option key={m} value={m}>{m} minutes</option>)}</select></h2>
@@ -229,7 +234,7 @@ export default function CurriculumLesson() {
           </section>
           <section className="sect">
             <h2 className="eyebrow-h">Materials</h2>
-            <ul><li>A Bible (the app’s reader works) and the printed handout (use Print).</li><li>For the activity: {lesson.activity.toLowerCase().includes('draw') || lesson.activity.toLowerCase().includes('make') ? 'paper, crayons or markers and simple craft supplies.' : 'whatever the activity names; most need only paper and pencils.'}</li>{src.prayer && <li>The prayer: {src.prayer.title} (printed or on screen).</li>}</ul>
+            {lesson.materials && lesson.materials.length > 0 ? <ul>{lesson.materials.map((m) => <li key={m}>{m}</li>)}</ul> : <ul><li>A Bible (the app’s reader works) and the printed handout (use Print).</li><li>For the activity: {lesson.activity.toLowerCase().includes('draw') || lesson.activity.toLowerCase().includes('make') ? 'paper, crayons or markers and simple craft supplies.' : 'whatever the activity names; most need only paper and pencils.'}</li>{src.prayer && <li>The prayer: {src.prayer.title} (printed or on screen).</li>}</ul>}
           </section>
           <section className="sect">
             <h2 className="eyebrow-h">Family connection (copy home)</h2>

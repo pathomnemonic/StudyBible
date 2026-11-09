@@ -20,6 +20,16 @@ export interface LessonSpec {
   tryit?: string[];
   /** the saint's story in a few sentences: who they were, what they did, why it matters here */
   saintStory?: string;
+  /** the lesson explained to the learner, at the band's reading level: short paragraphs, with the Catechism and Scripture references kept in the text */
+  explain?: string[];
+  /** what the learner will be able to say or do by the end, written for this lesson ("By the end you can …") */
+  objectives?: string[];
+  /** three to five lines to remember */
+  remember?: string[];
+  /** exactly what the leader needs, in order, written for this lesson */
+  materials?: string[];
+  /** a picture or diagram for the lesson */
+  visual?: { kind: 'art' | 'diagram'; ref: string; caption?: string };
 }
 export interface UnitSpec { n: number; title: string; pillar: string; eq: string; lessons: LessonSpec[] }
 export interface GradeData { id: string; name: string; band: BandId; age: string; theme: string; units: UnitSpec[] }

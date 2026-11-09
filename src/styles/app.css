@@ -6154,3 +6154,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 @media (max-width:520px){.gp-title{font-size:1.7rem}.gp-title span{width:1.8rem;height:2.1rem}.gp .pf-tile{box-shadow:4px 4px 0 var(--ink)}.gp-blob{width:3rem;height:3rem;font-size:1.6rem!important}.gp-hero{box-shadow:4px 4px 0 var(--ink)}}
 @media (prefers-reduced-motion:reduce){.gp-doodles span,.gp-title span,.gp-bot,.gp-bulbs,.gp-dice span,.gp-mascot p{animation:none}.gp .pf-tile{transition:none}}
 .gp h1,.gp h2,.gp h3{font-family:inherit}
+.lp-explain p{margin:0 0 .9em;line-height:1.65}
+.lp-objectives,.lp-remember{margin:14px 0;padding:10px 14px;border-radius:14px;border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.lp-objectives h3,.lp-remember h3{margin:0 0 6px;font-size:.95rem;text-transform:uppercase;letter-spacing:.05em}
+.lp-objectives ul,.lp-remember ul{margin:0;padding-left:1.2em}
+.lp-leader{margin:14px 0;padding:10px 14px;border-radius:14px;background:color-mix(in srgb,#e8812b 10%,transparent)}
+.lp-leader h3{margin:0 0 6px;font-size:.95rem}.lp-leader p{margin:0 0 .7em;line-height:1.6}
