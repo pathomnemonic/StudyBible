@@ -6160,3 +6160,4 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .lp-objectives ul,.lp-remember ul{margin:0;padding-left:1.2em}
 .lp-leader{margin:14px 0;padding:10px 14px;border-radius:14px;background:color-mix(in srgb,#e8812b 10%,transparent)}
 .lp-leader h3{margin:0 0 6px;font-size:.95rem}.lp-leader p{margin:0 0 .7em;line-height:1.6}
+.lp-figure{margin:0 0 12px}.lp-figure img{display:block;width:100%;max-height:260px;object-fit:cover;border-radius:12px}.lp-figure figcaption{margin-top:4px}
