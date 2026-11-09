@@ -16,6 +16,7 @@ import { isKeyLesson, isLifeLesson } from '../../curriculum/keyLessons';
 import LessonRun from '../../curriculum/LessonRun';
 import LessonPlay from '../../curriculum/LessonPlay';
 import LessonPath from '../../curriculum/LessonPath';
+import { estimateTime } from '../../curriculum/duration';
 import { worthDefining } from '../../curriculum/terms';
 import TeachingOptions from '../../curriculum/TeachingOptions';
 import StartLive, { QuickQuizButton } from '../../live/StartLive';
@@ -118,6 +119,7 @@ export default function CurriculumLesson() {
     setSpeaking(true);
     speak([`${lesson.title}.`, lesson.idea, kidsText || scriptureText, `Think and talk. ${lesson.question}`], () => setSpeaking(false));
   };
+  const lessonTime = estimateTime(buildSlides({ lesson, grade: g, gl, band, passages: src.passages, ccc: src.ccc, videos: src.videos, art: src.art, story: kidsText, prayer: src.prayer, quiz, base: import.meta.env.BASE_URL }), g.band, lesson.activity);
   const slides = present ? buildSlides({ lesson, grade: g, gl, band, passages: src.passages, ccc: src.ccc, videos: src.videos, art: src.art, story: kidsText, prayer: src.prayer, quiz, base: import.meta.env.BASE_URL }) : [];
 
   const liveSlides = () => toLiveSlides(buildSlides({ lesson, grade: g, gl, band, passages: src.passages, ccc: src.ccc, videos: src.videos, art: src.art, story: kidsText, prayer: src.prayer, quiz, base: import.meta.env.BASE_URL }));
@@ -129,6 +131,11 @@ export default function CurriculumLesson() {
       </nav>
       <div className={`lesson-banner pillar-${pillarKey(lesson.unit.pillar)}`}><span className="pillar-ico" aria-hidden="true">{pillarIcon(lesson.unit.pillar)}</span><div><div className="pillar-name">{lesson.unit.pillar}</div><h1 style={{ margin: 0 }}>{lesson.title}</h1></div></div>
       <p className="muted small" style={{ marginTop: 0 }}>{gradeLabel(g.id)} · {g.theme} · Lesson {idx + 1} of {flat.length}{isLifeLesson(lesson.id) && <span className="key-badge"> ★ Life lesson (short on time)</span>}{isKeyLesson(g.id, lesson.id) && <span className="key-badge"> ★ Core lesson</span>}</p>
+      <p className="lesson-time" aria-label="How long this lesson takes">
+        <span title="Working through the slides with a group, with discussion and the activity">⏱ About {lessonTime.classMinutes} min with a group</span>
+        <span title="Reading, thinking, the activity and the check, working on your own">📖 About {lessonTime.selfMinutes} min on your own</span>
+        <span className="muted small">{lessonTime.slides} slides · {lessonTime.contentSlides} of teaching</span>
+      </p>
       <InTracks type="lesson" id={lesson.id} />
 
       {liveOpen && <StartLive grade={g} lesson={lesson} slides={liveSlides()} onClose={() => setLiveOpen(false)} />}

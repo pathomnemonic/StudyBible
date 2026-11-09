@@ -1,4 +1,5 @@
 import { worthDefining } from './terms';
+import { contentPoints } from './teachpoints';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import InlinePlayer from '../components/InlinePlayer';
@@ -98,12 +99,14 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
     { k: 'Learn', v: headline(lesson.idea, 80).head },
     ...(words.length ? [{ k: 'Words', v: words.slice(0, 3).map((v) => gl[v].w).join(' · ') }] : []),
     { k: 'Hear', v: lesson.scripture.split(';').slice(0, 2).join(' · ') },
+    ...(lesson.objectives?.length ? [{ k: 'You can', v: lesson.objectives[0] }] : []),
     { k: 'Do', v: activityName(lesson.activity) },
   ], items: [`Learn: ${short(lesson.idea, 110)}`], notes: ['Each card appears as you click. Say what each one means for today.'] });
 
   section('Explore', 'See it, hear it, name it');
   if (lesson.saint) add({ kind: 'meet', label: 'Meet someone', title: personName, body: personStory, notes: ['Tell the story in your own words. Ask: what made this person brave, kind or faithful?'] });
   { const { head, rest } = headline(lesson.idea, 120); add({ kind: 'idea', label: 'The big idea', title: head, body: rest, hi, notes: lesson.teach?.slice(0, 1) }); }
+  for (const para of lesson.explain ?? []) for (const c of chunk(para, younger ? 220 : 300)) add({ kind: 'story', label: 'In plain words', body: c, notes: ['Read it aloud, then ask: what is the main thing this says?'] });
   if (younger) { for (const v of words) add({ kind: 'vocab', label: 'Word to know', word: gl[v], notes: ['Say the word, have everyone repeat it, then act it out. Ask for an example from life.'] }); }
   else if (words.length) add({ kind: 'vocab', label: words.length > 1 ? 'Words worth knowing' : 'A word worth knowing', words: words.map((v) => gl[v]), notes: ['Read each meaning, then ask for an example or a non-example.'] });
   if (story) for (const c of chunk(story, younger ? 200 : 280)) add({ kind: 'story', label: 'The story', body: c, notes: ['Read slowly. Pause and ask, “What do you notice?”'] });
@@ -113,16 +116,20 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
     pieces.forEach((c, i) => add({ kind: 'scripture', label: 'Scripture', body: c, ref: `${p.label}${pieces.length > 1 ? ` (${i + 1}/${pieces.length})` : ''}`, bg: art[1] ? base + art[1].file : undefined, notes: i === 0 ? ['Read it aloud twice. The second time, ask students to listen for one word that stands out.'] : undefined }));
   }
   art.slice(0, 2).forEach((x) => add({ kind: 'image', label: 'Look', img: { src: base + x.file, alt: x.title, credit: `${x.title}, ${x.artist}` }, bg: base + x.file, notes: ['See, think, wonder: What do you see? What do you think is happening? What do you wonder?'] }));
-  if (!younger) ccc.slice(0, 3).forEach((p) => add({ kind: 'church', label: 'What the Church teaches', title: `Catechism §${p.n}`, body: chunk(p.t, 330)[0] ?? short(p.t, 330), hi, notes: ['The Church’s own words. Read aloud, then ask a pair to put it in their own words.'] }));
+  if (!younger) ccc.slice(0, 4).forEach((p) => chunk(p.t, 330).slice(0, 2).forEach((piece, k) => add({ kind: 'church', label: 'What the Church teaches', title: `Catechism §${p.n}${k ? ' (continued)' : ''}`, body: piece, hi, notes: ['The Church’s own words. Read aloud, then ask a pair to put it in their own words.'] })));
   else if (ccc[0]) add({ kind: 'church', label: 'What the Church teaches', title: 'We believe', body: headline(lesson.idea, 140).head, hi, notes: [`For you: Catechism §${lesson.ccc.split(',')[0]} says: ${short(ccc[0].t, 300)}`] });
   if (videos[0]) add({ kind: 'video', label: 'Watch', video: videos[0], notes: ['Watch it yourself first. It is a creator’s video, not part of this program. Pause to ask questions.'] });
 
   section('Understand', older ? 'The Church’s teaching, step by step' : 'Talk about it');
-  if (older && lesson.teach?.length) lesson.teach.slice(0, 4).forEach((t, i, all) => {
+  const keyPoints = contentPoints(lesson).slice(0, 6);
+  const sentenceIdeas = (lesson.idea.match(/[^.!?]+[.!?]+/g) ?? []).map((x) => x.trim()).filter((x) => x.length > 12);
+  if (!younger || grade.band === 'elementary') keyPoints.forEach((t, i, all) => {
     const { text, chips } = splitCcc(t);
-    const { head, rest } = headline(text, 100);
-    add({ kind: 'point', label: 'Key point', n: i + 1, of: all.length, title: head, body: short(rest, 230), chips, hi, notes: [text] });
+    const { head, rest } = headline(text, 110);
+    const pieces = rest ? chunk(rest, 300) : [''];
+    pieces.slice(0, 3).forEach((piece, k) => add({ kind: 'point', label: 'Key point', n: i + 1, of: all.length, title: k ? `${head} (continued)` : head, body: piece, chips: k === pieces.length - 1 || k === 2 ? chips : undefined, hi, notes: k ? undefined : [text] }));
   });
+  else if (sentenceIdeas.length > 1) sentenceIdeas.slice(0, 4).forEach((t, i, all) => add({ kind: 'point', label: 'Remember', n: i + 1, of: all.length, title: t.replace(/[.!?]$/, ''), hi, notes: ['Say it, and have everyone say it back. Point to a picture or act it out.'] }));
   (lesson.talk ?? []).forEach((q, i) => add({ kind: 'timer', label: `Think · Pair · Share ${i + 1}`, title: q, seconds: 90, notes: ['One minute alone, thinking. One minute with a partner. Then two or three share with everyone.'] }));
 
   section('Practice', 'Try it, test it, own it');
@@ -132,6 +139,8 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
   round.forEach((r, i) => add({ kind: 'myth', label: `Myth or truth? ${i + 1} of ${round.length}`, title: r.text, reveal: r.truth ? 'TRUTH. This is what the Church teaches.' : `MYTH. ${lesson.idea}`, notes: ['Everyone stands for TRUTH or stays seated for MYTH. Then reveal and ask why.'] }));
   if (older && mistaken[0]) add({ kind: 'debate', label: 'Debate', title: mistaken[0], sides: ['Agree', 'Disagree'], frames: ['I agree because…', 'I see it differently because…', 'The Church would answer…', 'A question I still have…'], reveal: lesson.idea, notes: ['Two corners. Give each side two minutes, then reveal what the Church teaches.'] });
   add({ kind: 'do', label: younger ? 'Let’s play and make' : 'Let’s do it', title: activityName(lesson.activity), items: lesson.tryit, notes: [...(lesson.script?.practice ?? [lesson.activity]), ...(lesson.misc?.length ? [`Listen for: ${lesson.misc.join(' · ')}`] : [])] });
+  { const recap = (lesson.remember?.length ? lesson.remember : (younger && grade.band === 'primary' ? sentenceIdeas : keyPoints.map((t) => headline(splitCcc(t).text, 90).head))).slice(0, 5);
+    if (recap.length >= 2) add({ kind: 'goals', label: 'Remember', title: 'What we learned', cards: recap.map((v, i) => ({ k: String(i + 1), v: v.replace(/[.!?]$/, '') })), notes: ['Each card appears as you click. Ask a student to say each one in their own words before you move on.'] }); }
   quiz.forEach((q, i) => add({ kind: 'quiz', label: `Check · ${i + 1} of ${quiz.length}`, q, notes: ['Let students answer before you reveal. Ask why.'] }));
 
   section('Live it', 'Carry it into the week');
