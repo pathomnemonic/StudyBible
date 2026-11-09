@@ -41,7 +41,7 @@ const cccFor = (spec: string): CccPara[] => {
   return nums.map((n) => ({ n, t: `${'word '.repeat(59)}word.`, fn: [] }));
 };
 
-const depthOf = (n: number): Depth => (n >= 10 ? 'Rich' : n >= 6 ? 'Solid' : 'Light');
+const depthOf = (n: number): Depth => (n >= 24 ? 'Rich' : n >= 14 ? 'Solid' : 'Light');
 
 function statsFor(g: GradeData, l: LessonSpec & { unit: GradeData['units'][number] }, gl: Glossary, pool: string[]): LessonStats {
   const band = bandOf(g.band);
