@@ -1,0 +1,486 @@
+{
+ "id": "bible-reliability-and-canon",
+ "title": "Is the Bible reliable? The canon and its critics",
+ "tagline": "How we got the Bible, why Catholics have 73 books, and what to say about “contradictions”.",
+ "group": "church-and-scripture",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "Many doubts about the faith begin with doubts about the Bible. A calm, informed answer helps friends and strengthens your own reading.",
+ "mindset": [
+  {
+   "tip": "Ask what the person has actually read or heard, then answer that, not a stock objection. (1 Peter 3:15-16)"
+  },
+  {
+   "tip": "Listen to sceptical scholars in their own words; honest doubts deserve honest answers.",
+   "resource": "akin-ehrman"
+  },
+  {
+   "tip": "Admit what is hard. Saying “I do not know yet, let me look” builds trust."
+  },
+  {
+   "tip": "Remember that the Church teaches that Scripture is inspired and true, and also that it must be read with care. (CCC 105-108, 109-114)"
+  }
+ ],
+ "ccc": [
+  105,
+  106,
+  107,
+  120,
+  121,
+  138
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Know what the Bible is and how it reached us.",
+   "minutes": 75,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-2-1",
+     "why": "A short adult lesson on how the Bible came to be."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-trust-gospels",
+     "why": "A short, plain case for the Gospels as history."
+    },
+    {
+     "kind": "resource",
+     "id": "usccb-bible",
+     "why": "Open the Bible itself and read a Gospel straight through."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Canon",
+     "why": "The key word for the list of inspired books."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "reliability-gospels",
+     "why": "A quick Q&A on trusting the Gospels."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "catholics-dont-read-the-bible",
+     "why": "Tests a common myth about Catholics and Scripture."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "Which part of the Bible have you never read all the way through, and why?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Explain how the canon was recognised.",
+   "minutes": 85,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "canon-of-scripture",
+     "why": "Follow the sourced steps from the early lists to the councils."
+    },
+    {
+     "kind": "inapp",
+     "type": "development",
+     "id": "canon-development",
+     "why": "See how recognition of the books grew over the centuries."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-add-bible",
+     "why": "A short reply to “Catholics added books”."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-counting-canon",
+     "why": "How the lists were drawn up, and who used which."
+    },
+    {
+     "kind": "resource",
+     "id": "dei-verbum",
+     "why": "Read what the Church herself says about inspiration and truth."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "canon",
+     "why": "Why Catholic Bibles have 73 books."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "9-3-3",
+     "why": "A classroom lesson on the canon and its formation."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "chain",
+      "id": "canon-of-scripture"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Answer “contradictions”, “added books” and “banned Bible”.",
+   "minutes": 90,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "catholics-add-books-to-the-bible",
+     "why": "Check the charge against the sources."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "church-banned-the-bible",
+     "why": "Check the myth that the Church kept the Bible from the people."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-defend-deutero",
+     "why": "Practical replies about the extra Old Testament books."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-protestant-ot",
+     "why": "Presses the Protestant side on its own Old Testament list."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-gospel-contradictions",
+     "why": "How to handle apparent clashes between the Gospels."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-contradictions-video",
+     "why": "A short video on factual “errors” in the Bible."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "inerrancy",
+     "why": "What the Church means when she says Scripture is without error."
+    },
+    {
+     "kind": "resource",
+     "id": "akin-ehrman",
+     "why": "Hear a sceptic and a Catholic apologist deal with the same texts."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "church-banned-the-bible"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Look at manuscripts, scholarship and the Fathers.",
+   "minutes": 120,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "csntm",
+     "why": "See the manuscripts for yourself and how scholars use them."
+    },
+    {
+     "kind": "resource",
+     "id": "wallace-logos",
+     "why": "An evangelical textual critic on trusting the text."
+    },
+    {
+     "kind": "resource",
+     "id": "tgc-wallace",
+     "why": "A shorter interview on the same question."
+    },
+    {
+     "kind": "resource",
+     "id": "digivatlib",
+     "why": "Page through the Vatican’s ancient Greek Bible."
+    },
+    {
+     "kind": "resource",
+     "id": "pitre-case",
+     "why": "A Catholic scholar’s book-length reply to the sceptics."
+    },
+    {
+     "kind": "resource",
+     "id": "terra-sancta",
+     "why": "See how Holy Land archaeology touches the Bible’s world."
+    },
+    {
+     "kind": "resource",
+     "id": "verbum-domini",
+     "why": "The most recent full papal teaching on the Word of God."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "eusebius-history",
+     "why": "Eusebius reports how the early Church treated the New Testament books.",
+     "section": "iii.viii"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aug-christian-doctrine",
+     "why": "Augustine lists the canonical books and how to study them.",
+     "section": "v.v.viii"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "trent-canons-decrees",
+     "why": "The Council of Trent’s decree on the canon.",
+     "section": "s4"
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "akin-ehrman",
+   "title": "Has Bart Ehrman Disproved the Gospels? (with Jimmy Akin)",
+   "creator": "Catholic Answers",
+   "kind": "podcast",
+   "url": "https://www.catholic.com/audio/cot/has-bart-ehrman-disproved-the-gospels-with-jimmy-akin",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Hear a leading sceptic’s case taken seriously and answered point by point.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers podcast; presents Bart Ehrman’s arguments, who is an agnostic scholar."
+  },
+  {
+   "id": "ca-trust-gospels",
+   "title": "Can I Trust the Gospels?",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/can-i-trust-the-gospels",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A short, plain case for why the Gospels deserve a hearing as history.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "usccb-bible",
+   "title": "Bible (New American Bible, Revised Edition)",
+   "creator": "USCCB",
+   "kind": "site",
+   "url": "https://bible.usccb.org/",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "Read any book of the Catholic Bible online, free, with the Church’s own notes.",
+   "verified": "2026-11-09"
+  },
+  {
+   "id": "ca-add-bible",
+   "title": "Did Catholic Church Add Books to the Bible?",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/qa/didnt-the-catholic-church-add-to-the-bible",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A quick answer to the most common charge about the seven extra Old Testament books.",
+   "verified": "2026-11-09",
+   "minutes": 6,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-counting-canon",
+   "title": "Counting the Canon",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/counting-the-canon",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "How the lists of books were drawn up, and why the Catholic list is the older one.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "dei-verbum",
+   "title": "Dei Verbum (Dogmatic Constitution on Divine Revelation)",
+   "creator": "Second Vatican Council",
+   "kind": "article",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "The Church’s own teaching on revelation, inspiration, Tradition and how to read Scripture.",
+   "verified": "2026-11-09",
+   "minutes": 25
+  },
+  {
+   "id": "ca-defend-deutero",
+   "title": "How to Defend the Deuterocanonicals",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/how-to-defend-the-deuterocanonicals",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "Practical replies to the usual objections to Tobit, Judith, Wisdom, Sirach, Baruch and Maccabees.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-protestant-ot",
+   "title": "Protestantism’s Old Testament Problem",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/protestantisms-old-testament-problem",
+   "free": true,
+   "level": 3,
+   "audience": "any",
+   "why": "Presses the question of why the Protestant Old Testament follows the later Jewish list.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Catholic Answers; argues one side, so read it with a Protestant reply to hand."
+  },
+  {
+   "id": "ca-gospel-contradictions",
+   "title": "How to Resolve Alleged Gospel Contradictions",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/how-to-resolve-alleged-gospel-contradictions",
+   "free": true,
+   "level": 3,
+   "audience": "any",
+   "why": "Shows how ancient writing habits explain many apparent clashes between the Gospels.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-contradictions-video",
+   "title": "How Can We Account for Factual Contradictions in Scripture?",
+   "creator": "Catholic Answers",
+   "kind": "video",
+   "url": "https://www.catholic.com/video/how-can-we-account-for-factual-contradictions-in-scripture",
+   "free": true,
+   "level": 3,
+   "audience": "any",
+   "why": "A short video reply to the “the Bible contradicts itself” objection.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "csntm",
+   "title": "Center for the Study of New Testament Manuscripts",
+   "creator": "CSNTM",
+   "kind": "site",
+   "url": "https://www.csntm.org/",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "See high-resolution images of early Greek manuscripts and learn how the text is checked.",
+   "verified": "2026-11-09",
+   "note": "Run by evangelical Protestant scholars; scholarly and fair."
+  },
+  {
+   "id": "wallace-logos",
+   "title": "Is the New Testament Text Reliable?",
+   "creator": "Daniel B. Wallace (Logos)",
+   "kind": "article",
+   "url": "https://www.logos.com/grow/witw-new-testament-reliability/",
+   "free": true,
+   "level": 4,
+   "audience": "adult",
+   "why": "A textual critic explains manuscript numbers, variants and why the text can be trusted.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "By an evangelical Protestant scholar."
+  },
+  {
+   "id": "tgc-wallace",
+   "title": "An Interview with Daniel B. Wallace on the New Testament Manuscripts",
+   "creator": "The Gospel Coalition",
+   "kind": "article",
+   "url": "https://www.thegospelcoalition.org/blogs/justin-taylor/an-interview-with-daniel-b-wallace-on-the-new-testament-manuscripts/",
+   "free": true,
+   "level": 4,
+   "audience": "adult",
+   "why": "A short, clear interview on what textual criticism does and how many manuscripts survive.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Protestant source; useful for the shared case on the text."
+  },
+  {
+   "id": "digivatlib",
+   "title": "Codex Vaticanus (Vat. gr. 1209), digital edition",
+   "creator": "Vatican Apostolic Library",
+   "kind": "site",
+   "url": "https://digi.vatlib.it/view/MSS_Vat.gr.1209",
+   "free": true,
+   "level": 4,
+   "audience": "any",
+   "why": "Page through one of the oldest Greek Bibles, kept in the Vatican Library.",
+   "verified": "2026-11-09"
+  },
+  {
+   "id": "pitre-case",
+   "title": "The Case for Jesus",
+   "creator": "Brant Pitre",
+   "kind": "book",
+   "url": "https://www.penguinrandomhouse.com/books/219103/the-case-for-jesus-by-brant-pitre-afterword-by-robert-barron/9780770435486",
+   "free": false,
+   "level": 4,
+   "audience": "adult",
+   "why": "A Catholic scholar answers the sceptics on who wrote the Gospels and what they report.",
+   "verified": "2026-11-09",
+   "note": "Book for purchase (Image Books); also in many libraries."
+  },
+  {
+   "id": "terra-sancta",
+   "title": "Terra Sancta Museum",
+   "creator": "Franciscan Custody of the Holy Land",
+   "kind": "site",
+   "url": "https://www.terrasanctamuseum.org/",
+   "free": true,
+   "level": 4,
+   "audience": "any",
+   "why": "Objects from Franciscan excavations in the Holy Land that bear on the Bible’s world.",
+   "verified": "2026-11-09",
+   "note": "Run by Catholic Franciscan archaeologists."
+  },
+  {
+   "id": "verbum-domini",
+   "title": "Verbum Domini",
+   "creator": "Pope Benedict XVI",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/apost_exhortations/documents/hf_ben-xvi_exh_20100930_verbum-domini.html",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "The fullest recent papal teaching on the Bible, its study and its use in prayer.",
+   "verified": "2026-11-09"
+  }
+ ]
+}

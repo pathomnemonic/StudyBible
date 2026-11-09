@@ -1,0 +1,562 @@
+{
+  "id": "atheism",
+  "title": "Answering atheism",
+  "tagline": "Learn to give clear, kind reasons for belief in God and to hear the New Atheists fairly.",
+  "group": "faith-and-reason",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Many people leave the faith because no one ever answered their honest questions about God. A calm, well-informed friend can change that.",
+  "mindset": [
+    {
+      "tip": "Give your reasons with gentleness and respect, and be ready to say \"I do not know yet, let me look into it\". (1 Peter 3:15-16)"
+    },
+    {
+      "tip": "Ask what the person means by \"atheist\" before you answer; many mean \"I am not sure\" or \"I was hurt\".",
+      "resource": "horn-atheism-belief"
+    },
+    {
+      "tip": "Listen to atheists in their own words, in debates and books, so you answer what they really hold.",
+      "resource": "horn-oconnor"
+    },
+    {
+      "tip": "Remember that arguments open doors, but people are won by trust and by a life that shows the faith is good (CCC 2123-2128, 856)."
+    }
+  ],
+  "ccc": [
+    27,
+    28,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    2123,
+    2124,
+    2125,
+    2126,
+    2127,
+    2128
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Know what atheism claims and what reason can say about God.",
+      "minutes": 80,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "god-exists",
+          "why": "Start with the app's own short answer to \"Does God exist?\"."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-atheism-belief",
+          "why": "Learn what \"atheist\" really means and where the burden of proof lies."
+        },
+        {
+          "kind": "resource",
+          "id": "kreeft-can-you-prove",
+          "why": "See what kind of proof is possible for God."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-evidence",
+          "why": "Hear a bishop explain the kind of evidence we should expect."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "9-1-2",
+          "why": "Short catechism lesson on ways to know God by reason."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "9-1-3",
+          "why": "Why faith is both reasonable and free."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Creation",
+          "why": "A plain definition of what Christians mean by creation."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "If a friend said, \"I just don't see any reason to believe in God,\" what is the first question you would ask?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Be able to state three or four good arguments for God in plain words.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "summa-i-2",
+          "why": "Read the five ways in Aquinas's own words."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-cosmological",
+          "why": "See a modern defense of the argument from a first cause."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-finetuning-audio",
+          "why": "Understand the fine-tuning argument."
+        },
+        {
+          "kind": "resource",
+          "id": "kreeft-desire",
+          "why": "Try the argument from desire."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-desire",
+          "why": "Watch the same argument in a short video."
+        },
+        {
+          "kind": "resource",
+          "id": "wof-096",
+          "why": "Hear why Aquinas has not been refuted."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "creation-from-nothing",
+          "why": "What the Church means by creation out of nothing."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "tertullian-apologetic",
+          "why": "Tertullian says even ordinary people know God from the soul itself.",
+          "section": "iv.x"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Meet the strongest objections, including from the New Atheists, and answer them fairly.",
+      "minutes": 240,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "wof-097",
+          "why": "Answer \"Who made God?\" and \"Is this a personal God?\"."
+        },
+        {
+          "kind": "resource",
+          "id": "kreeft-conscience",
+          "why": "Use the moral argument: right and wrong point beyond us."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "problem-of-evil",
+          "why": "The app's answer to the hardest objection."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "science-faith",
+          "why": "Does science make God unnecessary?"
+        },
+        {
+          "kind": "resource",
+          "id": "sep-atheism",
+          "why": "Read a neutral account of what atheists and agnostics hold."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-oconnor",
+          "why": "Watch a Catholic and an atheist debate in their own words."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-oconnor",
+          "why": "Watch a bishop take the hardest questions from an atheist."
+        },
+        {
+          "kind": "resource",
+          "id": "gaudium-et-spes",
+          "why": "Read what the Church says about atheism and its causes (nos. 19-21)."
+        },
+        {
+          "kind": "resource",
+          "id": "lennox-dawkins",
+          "why": "Read about a famous debate with Richard Dawkins."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the classic sources and the best book-length cases.",
+      "minutes": 400,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "horn-answering-atheism",
+          "why": "A full book that goes through the main arguments with charity."
+        },
+        {
+          "kind": "resource",
+          "id": "feser-five-proofs",
+          "why": "Study five classical proofs closely."
+        },
+        {
+          "kind": "resource",
+          "id": "scg",
+          "why": "Read Aquinas on God written for non-Christians."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-finetuning-video",
+          "why": "Follow the detailed fine-tuning case and the multiverse reply."
+        },
+        {
+          "kind": "resource",
+          "id": "fides-et-ratio",
+          "why": "Read the Church's teaching on how faith and reason fit together."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "minucius-felix",
+          "why": "An early Christian dialogue with an unbeliever (the Octavius).",
+          "section": "iv.iii.i"
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "origen-celsus",
+          "why": "Origen answers a pagan critic, line by line (Book 1).",
+          "section": "vi.ix.i"
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "newman-grammar-of-assent",
+          "why": "Newman on how real people come to certain belief.",
+          "section": "s21"
+        },
+        {
+          "kind": "resource",
+          "id": "magis",
+          "why": "Explore science-based arguments for God."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "horn-atheism-belief",
+      "title": "Is Atheism a Belief or a Lack of Belief?",
+      "creator": "Trent Horn",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/is-atheism-a-belief-or-a-lack-of-belief",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Helps you ask the right first question: what exactly does this person hold?",
+      "verified": "2026-11-09",
+      "minutes": 8,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "kreeft-can-you-prove",
+      "title": "Can You Prove God Exists?",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/gods-existence.htm",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A short, friendly look at what proof means and how the classic arguments work.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "barron-evidence",
+      "title": "Where is the evidence for God?",
+      "creator": "Bishop Robert Barron (The Well)",
+      "kind": "talk",
+      "url": "https://www.youtube.com/watch?v=shwMd1x-g1g",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A bishop explains why the question needs a different kind of evidence than a lab test.",
+      "verified": "2026-11-09",
+      "note": "Word on Fire"
+    },
+    {
+      "id": "summa-i-2",
+      "title": "Summa Theologiae I, Question 2: The existence of God",
+      "creator": "Thomas Aquinas",
+      "kind": "book",
+      "url": "https://www.newadvent.org/summa/1002.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "The source of the \"five ways\", in Aquinas's own short, tight articles.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Public-domain English translation on New Advent"
+    },
+    {
+      "id": "horn-cosmological",
+      "title": "New Support for the Cosmological Argument",
+      "creator": "Trent Horn",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/new-support-for-the-cosmological-argument",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "A modern defense of the argument that the universe needed a cause.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "horn-finetuning-audio",
+      "title": "The Argument for God Atheists Fear the Most",
+      "creator": "Trent Horn",
+      "kind": "podcast",
+      "url": "https://www.catholic.com/audio/cot/the-argument-for-god-atheists-fear-the-most",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Explains the fine-tuning argument and answers one common objection.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers (Counsel of Trent)"
+    },
+    {
+      "id": "kreeft-desire",
+      "title": "Argument from Desire",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/desire.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Why a longing nothing here can satisfy may point to something beyond this world.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "barron-desire",
+      "title": "God's Existence and the Argument from Desire",
+      "creator": "Bishop Robert Barron",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=X71Gq9a1qxE",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A short video on why our deep longings may point to God.",
+      "verified": "2026-11-09",
+      "note": "Word on Fire"
+    },
+    {
+      "id": "wof-096",
+      "title": "WOF 096: Aquinas and the Arguments for God (Part 1)",
+      "creator": "Bishop Robert Barron (Word on Fire Show)",
+      "kind": "podcast",
+      "url": "https://wordonfire.libsyn.com/wof-096-aquinas-and-the-arguments-for-god-part-1-of-2",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "A reply to a viral video that says Aquinas has been refuted.",
+      "verified": "2026-11-09",
+      "minutes": 30,
+      "note": "Word on Fire"
+    },
+    {
+      "id": "wof-097",
+      "title": "WOF 097: Did Thomas Aquinas Really Prove God? (Part 2)",
+      "creator": "Bishop Robert Barron (Word on Fire Show)",
+      "kind": "podcast",
+      "url": "https://wordonfire.libsyn.com/wof-097-did-thomas-aquinas-really-prove-god-part-2-of-2",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Answers the questions \"Who made God?\" and \"Is this a personal God?\".",
+      "verified": "2026-11-09",
+      "minutes": 33,
+      "note": "Word on Fire"
+    },
+    {
+      "id": "kreeft-conscience",
+      "title": "Argument from Conscience",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/conscience.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Starts from the sense of right and wrong that nearly everyone has.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "sep-atheism",
+      "title": "Atheism and Agnosticism",
+      "creator": "Stanford Encyclopedia of Philosophy",
+      "kind": "article",
+      "url": "https://plato.stanford.edu/entries/atheism-agnosticism/",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "A careful, neutral survey of what atheists and agnostics actually claim.",
+      "verified": "2026-11-09",
+      "minutes": 45,
+      "note": "Secular scholarly reference; the other side explained fairly"
+    },
+    {
+      "id": "horn-oconnor",
+      "title": "Debate: God's Existence, Alex O'Connor vs Trent Horn",
+      "creator": "Matt Fradd (Pints with Aquinas) channel",
+      "kind": "debate",
+      "url": "https://www.youtube.com/watch?v=5PF1JgXOKDQ",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Hear a thoughtful atheist and a Catholic apologist state their best cases and press each other.",
+      "verified": "2026-11-09",
+      "note": "Includes an atheist speaking in his own words"
+    },
+    {
+      "id": "barron-oconnor",
+      "title": "Bishop Barron and Alex O'Connor debate God's existence",
+      "creator": "Premier Unbelievable? (Justin Brierley)",
+      "kind": "debate",
+      "url": "https://www.youtube.com/watch?v=Ehi0STmMRrg",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A courteous conversation that reaches suffering and the cross as well as the proofs.",
+      "verified": "2026-11-09",
+      "note": "Includes an atheist speaking in his own words"
+    },
+    {
+      "id": "gaudium-et-spes",
+      "title": "Gaudium et Spes (Pastoral Constitution on the Church in the Modern World)",
+      "creator": "Second Vatican Council",
+      "kind": "article",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Paragraphs 19-22 describe atheism, its causes, and how the Church should answer.",
+      "verified": "2026-11-09",
+      "note": "Council text, 1965"
+    },
+    {
+      "id": "lennox-dawkins",
+      "title": "The John Lennox - Richard Dawkins Debate (2008)",
+      "creator": "bethinking.org",
+      "kind": "debate",
+      "url": "https://www.bethinking.org/atheism/the-john-lennox-richard-dawkins-debate",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Account of an Oxford debate between a leading New Atheist and a Christian mathematician.",
+      "verified": "2026-11-09",
+      "minutes": 81,
+      "note": "Christian (Protestant) site; Dawkins speaks in his own words in the debate"
+    },
+    {
+      "id": "horn-answering-atheism",
+      "title": "Answering Atheism: How to Make the Case for God with Logic and Charity",
+      "creator": "Trent Horn",
+      "kind": "book",
+      "url": "https://shop.catholic.com/answering-atheism-how-to-make-the-case-for-god-with-logic-and-charity",
+      "free": false,
+      "level": 4,
+      "audience": "adult",
+      "why": "A full book that goes through the main atheist arguments in a courteous tone.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers Press; paid book, check your library"
+    },
+    {
+      "id": "feser-five-proofs",
+      "title": "Five Proofs of the Existence of God",
+      "creator": "Edward Feser",
+      "kind": "book",
+      "url": "https://shop.catholic.com/five-proofs-of-the-existence-of-god/",
+      "free": false,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A rigorous modern defense of five classical arguments, with replies to the New Atheists.",
+      "verified": "2026-11-09",
+      "note": "Ignatius Press; paid book, check your library; demanding"
+    },
+    {
+      "id": "scg",
+      "title": "Summa Contra Gentiles (English)",
+      "creator": "Thomas Aquinas",
+      "kind": "book",
+      "url": "https://isidore.co/aquinas/ContraGentiles.htm",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Aquinas's longer case for God and creation, written to speak to non-Christians.",
+      "verified": "2026-11-09",
+      "note": "Free English text"
+    },
+    {
+      "id": "horn-finetuning-video",
+      "title": "Rebutting atheist objections to the fine-tuning argument",
+      "creator": "The Counsel of Trent (Trent Horn)",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=bGbbWyd4l7Q",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A long, careful treatment of fine-tuning, the multiverse and the design inference.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers ministry; long episode"
+    },
+    {
+      "id": "fides-et-ratio",
+      "title": "Fides et Ratio (Faith and Reason)",
+      "creator": "Pope St. John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_14091998_fides-et-ratio.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The Church's best-known modern teaching on how faith and reason work together.",
+      "verified": "2026-11-09",
+      "note": "Encyclical, 1998"
+    },
+    {
+      "id": "magis",
+      "title": "Magis Center",
+      "creator": "Fr. Robert Spitzer",
+      "kind": "site",
+      "url": "https://www.magiscenter.com/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Science-based arguments for God from a Jesuit philosopher.",
+      "verified": "2026-11-09",
+      "note": "Catholic; some material is free, some is not"
+    }
+  ]
+}

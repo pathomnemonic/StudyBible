@@ -1,0 +1,475 @@
+{
+  "id": "agnosticism-and-indifference",
+  "title": "Doubt, the \"nones\" and honest seeking",
+  "tagline": "Walk with people who say \"I am spiritual but not religious\", \"I am not sure\", or \"I do not care\".",
+  "group": "faith-and-reason",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "The fastest growing group in many countries is people who belong to no religion. Most are not hostile; they are unconvinced, hurt, or busy, and they are often still searching.",
+  "mindset": [
+    {
+      "tip": "Start by listening to the story; most people do not leave the faith over an argument.",
+      "resource": "pew-nones"
+    },
+    {
+      "tip": "Do not treat doubt as a sin; the Catechism distinguishes honest doubt from refusing to believe (CCC 2088-2089)."
+    },
+    {
+      "tip": "Be gentle, respect their freedom, and do not push (1 Peter 3:15-16; Dignitatis Humanae 2-3).",
+      "resource": "dignitatis-humanae"
+    },
+    {
+      "tip": "Offer a friendship and a place to ask questions, not only an argument.",
+      "resource": "alpha"
+    }
+  ],
+  "ccc": [
+    26,
+    27,
+    28,
+    30,
+    2088,
+    2089,
+    2090,
+    2094,
+    2127,
+    2128,
+    1816
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Understand who the \"nones\" and agnostics are, and why people drift from faith.",
+      "minutes": 90,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "pew-nones",
+          "why": "Look at the data before assuming anything."
+        },
+        {
+          "kind": "resource",
+          "id": "wof-099",
+          "why": "Hear a bishop discuss why people leave and how to reach them."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "9-1-3",
+          "why": "A lesson on why faith is reasonable and free, a good place to start with doubt."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "12-L2",
+          "why": "A lesson on doubt, God's silence and dark seasons."
+        },
+        {
+          "kind": "resource",
+          "id": "kreeft-12-ways",
+          "why": "See that knowing God has many doors."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Faith",
+          "why": "A plain definition of faith."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What is one honest question about God you have never asked anyone out loud?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Give gentle, honest reasons that speak to seekers, not only to debaters.",
+      "minutes": 140,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "god-exists",
+          "why": "The app's short answer to the first question."
+        },
+        {
+          "kind": "resource",
+          "id": "kreeft-pascals-wager",
+          "why": "Pascal's wager and why it is about the heart, not a trick."
+        },
+        {
+          "kind": "resource",
+          "id": "pensees",
+          "why": "Read a seeker's notes: misery, greatness and the hidden God."
+        },
+        {
+          "kind": "resource",
+          "id": "confessions-1",
+          "why": "Augustine's restless heart, in the first pages of his Confessions."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-evidence",
+          "why": "Hear how a bishop approaches the question of evidence."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "4-1-2",
+          "why": "A lesson on faith as a gift and a choice."
+        },
+        {
+          "kind": "resource",
+          "id": "alpha",
+          "why": "See a question-friendly course that many parishes run."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "are-catholics-christian",
+          "why": "A common doubt about the Church itself."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Answer the usual reasons: \"religion hurts\", \"I do not need it\", \"no proof\".",
+      "minutes": 200,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "hell-medieval-scare-tactic",
+          "why": "The \"religion uses fear\" charge, answered with sources."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "catholics-not-allowed-to-think",
+          "why": "The \"you are not allowed to question\" charge."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "claim",
+            "id": "catholics-not-allowed-to-think"
+          }
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "sinful-popes",
+          "why": "How a holy Church can have bad members."
+        },
+        {
+          "kind": "resource",
+          "id": "sep-atheism",
+          "why": "Read how a neutral reference describes agnosticism."
+        },
+        {
+          "kind": "resource",
+          "id": "lumen-fidei",
+          "why": "Francis on faith as light, including questions and doubt (nos. 1-4, 24-25)."
+        },
+        {
+          "kind": "resource",
+          "id": "strange-notions",
+          "why": "Read a Catholic site that welcomes atheist and skeptic comments."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-burden-evil",
+          "why": "Hear the burden of proof and evil handled in plain talk."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the thinkers who took doubt seriously and came out the other side.",
+      "minutes": 300,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "confessions-gutenberg",
+          "why": "Read the whole story of a restless seeker."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "newman-grammar-of-assent",
+          "why": "Newman on why certainty can be reasonable without being a proof.",
+          "section": "s5"
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "newman-apologia",
+          "why": "Newman's own account of his long search."
+        },
+        {
+          "kind": "resource",
+          "id": "sep-kierkegaard",
+          "why": "An introduction to Kierkegaard on doubt, anxiety and faith."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-peterson",
+          "why": "Hear a bishop and a secular-leaning psychologist ask hard questions together."
+        },
+        {
+          "kind": "resource",
+          "id": "spe-salvi",
+          "why": "On hope for people who find faith hard to believe."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "boethius-consolation",
+          "why": "A prisoner finds a reason for hope without easy answers.",
+          "section": "s20"
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-12-3",
+          "why": "A lesson for dryness and the dark night."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "pew-nones",
+      "title": "Religious \"Nones\" in America: Who They Are and What They Believe",
+      "creator": "Pew Research Center",
+      "kind": "article",
+      "url": "https://www.pewresearch.org/religion/2024/01/24/religious-nones-in-america-who-they-are-and-what-they-believe/",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "Plain data showing that many \"nones\" still pray, believe in something, or are open.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Secular research centre; helps you listen accurately"
+    },
+    {
+      "id": "wof-099",
+      "title": "WOF 099: How to Reach the \"Nones\"",
+      "creator": "Bishop Robert Barron (Word on Fire Show)",
+      "kind": "podcast",
+      "url": "https://wordonfire.libsyn.com/wof-099-how-to-reach-the-nones",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "Why many people leave religion and what draws them back.",
+      "verified": "2026-11-09",
+      "note": "Word on Fire"
+    },
+    {
+      "id": "kreeft-12-ways",
+      "title": "12 Ways to Know God",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/12-ways.htm",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Shows that knowing God is more than one argument: it is also beauty, conscience and love.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "kreeft-pascals-wager",
+      "title": "Argument from Pascal's Wager",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/pascals-wager.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Explains Pascal's famous wager and why it is not meant as a trick.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "pensees",
+      "title": "Pensées",
+      "creator": "Blaise Pascal",
+      "kind": "book",
+      "url": "https://www.gutenberg.org/ebooks/18269",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Pascal's notes on human misery and greatness, and why we cannot stop seeking.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on Project Gutenberg"
+    },
+    {
+      "id": "confessions-1",
+      "title": "Confessions, Book I",
+      "creator": "St. Augustine",
+      "kind": "book",
+      "url": "https://www.newadvent.org/fathers/110101.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Opens with the famous line about the restless heart.",
+      "verified": "2026-11-09",
+      "minutes": 25,
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "barron-evidence",
+      "title": "Where is the evidence for God?",
+      "creator": "Bishop Robert Barron (The Well)",
+      "kind": "talk",
+      "url": "https://www.youtube.com/watch?v=shwMd1x-g1g",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A bishop explains why the question needs a different kind of evidence than a lab test.",
+      "verified": "2026-11-09",
+      "note": "Word on Fire"
+    },
+    {
+      "id": "alpha",
+      "title": "Alpha: Explore Faith",
+      "creator": "Alpha International",
+      "kind": "site",
+      "url": "https://www.alpha.org/",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A relaxed, question-friendly introduction to Christianity that many parishes also use.",
+      "verified": "2026-11-09",
+      "note": "Began in the Church of England; widely used by Catholic parishes; check your local course"
+    },
+    {
+      "id": "sep-atheism",
+      "title": "Atheism and Agnosticism",
+      "creator": "Stanford Encyclopedia of Philosophy",
+      "kind": "article",
+      "url": "https://plato.stanford.edu/entries/atheism-agnosticism/",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "A careful, neutral survey of what atheists and agnostics actually claim.",
+      "verified": "2026-11-09",
+      "minutes": 45,
+      "note": "Secular scholarly reference; the other side explained fairly"
+    },
+    {
+      "id": "lumen-fidei",
+      "title": "Lumen Fidei (The Light of Faith)",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20130629_enciclica-lumen-fidei.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Treats faith as light for the seeker, including honest doubt.",
+      "verified": "2026-11-09",
+      "note": "Encyclical, 2013"
+    },
+    {
+      "id": "strange-notions",
+      "title": "Strange Notions",
+      "creator": "Brandon Vogt (Word on Fire)",
+      "kind": "site",
+      "url": "https://strangenotions.com/",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A Catholic site built for open conversation with atheists and skeptics.",
+      "verified": "2026-11-09",
+      "note": "Includes comments and posts from atheists"
+    },
+    {
+      "id": "horn-burden-evil",
+      "title": "Atheism, the Burden of Proof, and the Problem of Evil",
+      "creator": "Trent Horn (Catholic Answers Live)",
+      "kind": "talk",
+      "url": "https://www.youtube.com/watch?v=POqMB3BKHGE",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Shows how to turn the argument from evil into a fair conversation.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "confessions-gutenberg",
+      "title": "The Confessions of St. Augustine",
+      "creator": "St. Augustine",
+      "kind": "book",
+      "url": "https://www.gutenberg.org/ebooks/3296",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The whole story of a restless seeker who finally finds what he was looking for.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on Project Gutenberg"
+    },
+    {
+      "id": "sep-kierkegaard",
+      "title": "Søren Kierkegaard",
+      "creator": "Stanford Encyclopedia of Philosophy",
+      "kind": "article",
+      "url": "https://plato.stanford.edu/entries/kierkegaard/",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "An introduction to the Danish thinker on anxiety, choice and faith.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Secular scholarly reference; Kierkegaard was a Lutheran, not a Catholic"
+    },
+    {
+      "id": "barron-peterson",
+      "title": "Eternal Truth and the Uphill Climb",
+      "creator": "Bishop Robert Barron with Jordan B. Peterson",
+      "kind": "talk",
+      "url": "https://www.youtube.com/watch?v=sd6iCSQep8E",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A long conversation on meaning, truth and the Bible with a secular-leaning psychologist.",
+      "verified": "2026-11-09",
+      "note": "Peterson is not Catholic; useful for hearing a seeker's questions"
+    },
+    {
+      "id": "spe-salvi",
+      "title": "Spe Salvi (Saved in Hope)",
+      "creator": "Pope Benedict XVI",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20071130_spe-salvi.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Part of it asks what a hope that survives suffering and death really looks like.",
+      "verified": "2026-11-09",
+      "note": "Encyclical, 2007"
+    },
+    {
+      "id": "dignitatis-humanae",
+      "title": "Dignitatis Humanae (Declaration on Religious Freedom)",
+      "creator": "Second Vatican Council",
+      "kind": "article",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_en.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The Church's case that conscience must be free precisely because truth matters.",
+      "verified": "2026-11-09",
+      "note": "Council text, 1965"
+    }
+  ]
+}

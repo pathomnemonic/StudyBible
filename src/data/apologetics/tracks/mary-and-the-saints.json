@@ -1,0 +1,437 @@
+{
+ "id": "mary-and-the-saints",
+ "title": "Mary and the saints",
+ "tagline": "The Marian dogmas, the Rosary, praying to the saints, images and relics, and the charge of “worship”.",
+ "group": "church-and-scripture",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "Mary and the saints are among the first things non-Catholics question and among the most loved things for Catholics. Good answers start from Christ.",
+ "mindset": [
+  {
+   "tip": "Say clearly that Catholics adore God alone and honour Mary and the saints. (CCC 971, 2132)"
+  },
+  {
+   "tip": "Remember that early Reformers such as Luther honoured Mary; the gap is smaller than many think.",
+   "resource": "cc-luther-mary"
+  },
+  {
+   "tip": "Ask what “worship” means to your friend before you reply. (Revelation 22:8-9)"
+  },
+  {
+   "tip": "Show how each Marian teaching protects the truth about Jesus.",
+   "resource": "ca-mary-mother"
+  }
+ ],
+ "ccc": [
+  487,
+  490,
+  491,
+  494,
+  495,
+  956,
+  957,
+  964,
+  966,
+  969,
+  971,
+  2132
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Meet Mary and the saints as the Church does.",
+   "minutes": 75,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "ca-marian-dogmas",
+     "why": "The four dogmas in brief."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-mary-mother",
+     "why": "Why “Mother of God” matters."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-saints-tract",
+     "why": "Asking the saints to pray for us."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-rosary-how",
+     "why": "Learn to pray the Rosary."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-11-3",
+     "why": "An adult lesson on why Catholics honour Mary."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Communion of saints",
+     "why": "The communion of saints in plain words."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "Which saint or title of Mary has meant most to you, or puzzled you most?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Explain each teaching from Scripture and the Fathers.",
+   "minutes": 90,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "theotokos",
+     "why": "Follow the sourced steps on Mary as Mother of God."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "intercession-of-saints",
+     "why": "Can the saints in heaven pray for us?"
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "mary-ever-virgin",
+     "why": "The early witnesses to Mary’s virginity."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "assumption-of-mary",
+     "why": "The Assumption in the early Church."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-biblical-marian",
+     "why": "The biblical roots of the Marian doctrines."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-ic-assumption",
+     "why": "The Immaculate Conception and Assumption defended."
+    },
+    {
+     "kind": "inapp",
+     "type": "development",
+     "id": "mary-development",
+     "why": "How the Church’s understanding grew."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "chain",
+      "id": "intercession-of-saints"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Answer “worship”, “not in the Bible” and “vain repetition”.",
+   "minutes": 95,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "catholics-worship-mary",
+     "why": "Tests the charge that Catholics worship Mary."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "catholics-worship-statues",
+     "why": "Tests the charge about statues and images."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "catholics-pray-to-the-dead",
+     "why": "Tests the “necromancy” charge."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "mary-sinless-romans-3-23",
+     "why": "Mary and Romans 3:23."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-marian-bible",
+     "why": "Faces the “not in the Bible” objection honestly."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-vain-rep",
+     "why": "Matthew 6:7 and the Rosary."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-relics",
+     "why": "What the Church says about relics."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "brothers-of-the-lord",
+     "why": "Who were the “brothers” of Jesus?"
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "catholics-worship-mary"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Read the councils, Fathers and ecumenical texts.",
+   "minutes": 120,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "council-ephesus",
+     "why": "The Council of Ephesus on Mary as Theotokos."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "council-nicaea-2",
+     "why": "Nicaea II on the veneration of images."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "jerome-treatises",
+     "why": "Jerome on the perpetual virginity of Mary.",
+     "section": "vi.v"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "ineffabilis-deus",
+     "why": "Pius IX defines the Immaculate Conception."
+    },
+    {
+     "kind": "resource",
+     "id": "rosarium",
+     "why": "John Paul II on the Rosary as contemplating Christ."
+    },
+    {
+     "kind": "resource",
+     "id": "ewtn-rosary",
+     "why": "Each part of the Rosary explained."
+    },
+    {
+     "kind": "resource",
+     "id": "arcic-mary",
+     "why": "Catholics and Anglicans compare views of Mary."
+    },
+    {
+     "kind": "inapp",
+     "type": "heresy",
+     "id": "iconoclasm",
+     "why": "The ancient fight over holy images."
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "cc-luther-mary",
+   "title": "Martin Luther’s Devotion to Mary",
+   "creator": "Catholic Culture",
+   "kind": "article",
+   "url": "https://www.catholicculture.org/culture/library/view.cfm?id=788",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "What the first Reformer said about Mary, which surprises many Protestants and Catholics.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Catholic source; check Luther’s own writings for later changes in tone."
+  },
+  {
+   "id": "ca-mary-mother",
+   "title": "Mary, Mother of God",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/mary-mother-of-god",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "Why calling Mary “Mother of God” protects the truth about Jesus.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-marian-dogmas",
+   "title": "Marian Dogmas: An Overview of the Four Marian Dogmas",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/marian-dogmas-a-comprehensive-list-of-the-four-marian-dogmas",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "The four dogmas explained briefly, with when and why each was defined.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-saints-tract",
+   "title": "Praying to the Saints",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/praying-to-the-saints",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A plain explanation of asking the saints to pray for us.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-rosary-how",
+   "title": "How to Pray the Rosary",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/how-to-pray-the-rosary",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "Step-by-step instructions and the mysteries, for a first try.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-biblical-marian",
+   "title": "The Biblical Roots of the Marian Doctrines",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-biblical-roots-of-the-marian-doctrines",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "Traces each Marian doctrine to Scripture and the early Church.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-ic-assumption",
+   "title": "Immaculate Conception and Assumption",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/immaculate-conception-and-assumption",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "Defends the two later dogmas from Scripture, early belief and reason.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-marian-bible",
+   "title": "‘But Marian Dogmas Aren’t in the Bible!’",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/but-marian-dogmas-arent-in-the-bible",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Faces the objection that the dogmas lack plain biblical text.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers; it admits the texts are not explicit."
+  },
+  {
+   "id": "ca-vain-rep",
+   "title": "The Rosary Is Not a ‘Vain Repetition’",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/do-catholics-pray-vain-repetitions",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "Looks at Matthew 6:7 in its context and at repeated prayer in Scripture.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-relics",
+   "title": "Relics",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/relics",
+   "free": true,
+   "level": 3,
+   "audience": "any",
+   "why": "What relics are, why the Church honours them and how authenticity is handled.",
+   "verified": "2026-11-09",
+   "minutes": 8,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "rosarium",
+   "title": "Rosarium Virginis Mariae",
+   "creator": "Pope John Paul II",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/2002/documents/hf_jp-ii_apl_20021016_rosarium-virginis-mariae.html",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "The pope’s meditation on the Rosary as a school of contemplating Christ with Mary.",
+   "verified": "2026-11-09"
+  },
+  {
+   "id": "ewtn-rosary",
+   "title": "The Rosary Dissected",
+   "creator": "EWTN Catholic Library",
+   "kind": "article",
+   "url": "https://www.ewtn.com/catholicism/library/rosary-dissected-1141",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "Explains the parts of the Rosary and the Scripture behind each.",
+   "verified": "2026-11-09",
+   "minutes": 10
+  },
+  {
+   "id": "arcic-mary",
+   "title": "Response to ‘Mary: Grace and Hope in Christ’",
+   "creator": "USCCB",
+   "kind": "article",
+   "url": "https://www.usccb.org/committees/ecumenical-interreligious-affairs/response-mary-grace-and-hope-christ",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "Catholic bishops answer an Anglican–Catholic study, showing where the two Churches agree and differ on Mary.",
+   "verified": "2026-11-09",
+   "minutes": 20,
+   "note": "An ecumenical dialogue; honest about the hard points."
+  }
+ ]
+}

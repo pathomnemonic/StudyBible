@@ -1,0 +1,533 @@
+{
+  "id": "jehovahs-witnesses",
+  "title": "Talking with Jehovah's Witnesses",
+  "tagline": "Their claims on the Trinity, Christ, the divine name, blood and 1914, heard in their own words and answered kindly.",
+  "group": "christians",
+  "audience": [
+    "adult"
+  ],
+  "whyItMatters": "Witnesses knock on doors because they care about the Bible. A calm Catholic who knows the Church's teaching on Christ can have a real conversation.",
+  "mindset": [
+    {
+      "tip": "See a sincere person who studies the Bible. Be courteous and ready to listen. (1 Peter 3:15-16; CCC 856)",
+      "resource": "jw-who"
+    },
+    {
+      "tip": "Know what they hold from their own pages before you reply.",
+      "resource": "jw-beliefs"
+    },
+    {
+      "tip": "Stay on one topic, usually who Jesus is, and ask questions more than you assert.",
+      "resource": "ca-jw-strategies"
+    },
+    {
+      "tip": "Be gentle: many Witnesses risk losing family and friends if they ask questions. Offer friendship, not pressure. (CCC 2477)"
+    },
+    {
+      "tip": "Keep to the Bible they use and to the Church's early witness about Christ. (CCC 464-465)",
+      "resource": "ca-divinity"
+    }
+  ],
+  "ccc": [
+    202,
+    232,
+    240,
+    253,
+    254,
+    464,
+    465
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Meet Witnesses fairly, from their own pages and a Catholic overview.",
+      "minutes": 80,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "jehovahs-witnesses",
+          "why": "The app's answer, with verses and readings."
+        },
+        {
+          "kind": "resource",
+          "id": "jw-who",
+          "why": "Start with how they introduce themselves."
+        },
+        {
+          "kind": "resource",
+          "id": "jw-beliefs",
+          "why": "Their own summary of belief."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-jw-beliefs",
+          "why": "A Catholic overview of the same beliefs."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-jw-strategies",
+          "why": "What to expect at the door."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-god-jw",
+          "why": "Compares their view of God with the Bible and Church teaching."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Trinity",
+          "why": "A plain definition of the doctrine they reject."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What would make a Witness at your door feel respected, even if you disagree?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Learn the Trinity and the divinity of Christ from Scripture and the early Church.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "jw-believe-jesus",
+          "why": "Read how they say they honour Jesus."
+        },
+        {
+          "kind": "resource",
+          "id": "jw-almighty",
+          "why": "Read their case that Jesus is not Almighty God."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "divinity-of-christ",
+          "why": "The sourced argument that Jesus is God."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-divinity",
+          "why": "What the early Christians believed."
+        },
+        {
+          "kind": "inapp",
+          "type": "words",
+          "id": "logos",
+          "why": "The word \"Logos\" in John 1:1."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-jw",
+          "why": "A talk on engaging Witnesses about Christ's divinity."
+        },
+        {
+          "kind": "resource",
+          "id": "jw-trinity",
+          "why": "Read their objection to the Trinity."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "trinity",
+          "why": "The sourced argument for the Trinity."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "divinity-of-christ"
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Face their other claims: the name, blood, 1914 and the translation.",
+      "minutes": 180,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "heresy",
+          "id": "arianism",
+          "why": "The early heresy closest to the Witness view of the Son."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "constantine-invented-christ-divinity",
+          "why": "Check the claim that Constantine invented Christ's divinity."
+        },
+        {
+          "kind": "resource",
+          "id": "jw-name",
+          "why": "Read their case for \"Jehovah\"."
+        },
+        {
+          "kind": "resource",
+          "id": "jw-blood",
+          "why": "Read their reason for refusing blood."
+        },
+        {
+          "kind": "resource",
+          "id": "jw-1914",
+          "why": "Read their account of 1914."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-jw-history",
+          "why": "A Catholic history of the movement."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-merely-a-god",
+          "why": "A reply on John 1:1."
+        },
+        {
+          "kind": "resource",
+          "id": "pitre-1428",
+          "why": "A reply on John 14:28."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "claim",
+            "id": "constantine-invented-christ-divinity"
+          }
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the fathers, the councils and the Witnesses' main texts.",
+      "minutes": 280,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "athanasius-arians",
+          "why": "Athanasius against the Arians."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "council-nicaea-1",
+          "why": "The creed of Nicaea."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "athanasius-incarnation",
+          "why": "Athanasius on why God became man."
+        },
+        {
+          "kind": "resource",
+          "id": "jw-bible-teach",
+          "why": "Read their Bible-study book."
+        },
+        {
+          "kind": "resource",
+          "id": "jw-nwt",
+          "why": "Check verses in their Bible."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-jw-nt",
+          "why": "A Catholic look at its translation choices."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-watchtower-rome",
+          "why": "A former Witness tells of coming to the Church."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "Which question would you most like to ask a Witness, and how would you ask it kindly?"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "jw-who",
+      "title": "Who Are Jehovah's Witnesses?",
+      "creator": "Jehovah's Witnesses (jw.org)",
+      "kind": "site",
+      "url": "https://www.jw.org/en/jehovahs-witnesses/",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "The Witnesses' own introduction to who they are.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice (jw.org)"
+    },
+    {
+      "id": "jw-beliefs",
+      "title": "What Do Jehovah's Witnesses Believe?",
+      "creator": "Jehovah's Witnesses (jw.org)",
+      "kind": "article",
+      "url": "https://www.jw.org/en/jehovahs-witnesses/faq/jehovah-witness-beliefs/",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Their own summary of their main beliefs.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "The other side's own voice (jw.org)"
+    },
+    {
+      "id": "ca-jw-beliefs",
+      "title": "Distinctive Beliefs of the Jehovah's Witnesses",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/distinctive-beliefs-of-the-jehovahs-witnesses",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "A Catholic overview of what Witnesses teach and where it differs.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-jw-strategies",
+      "title": "Strategies of the Jehovah's Witnesses",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/strategies-of-the-jehovahs-witnesses",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "Prepares you for what a door-to-door visit usually looks like.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "jw-believe-jesus",
+      "title": "Do Jehovah's Witnesses Believe in Jesus?",
+      "creator": "Jehovah's Witnesses (jw.org)",
+      "kind": "article",
+      "url": "https://www.jw.org/en/jehovahs-witnesses/faq/believe-in-jesus/",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Their own account of how they honour Jesus.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "The other side's own voice (jw.org)"
+    },
+    {
+      "id": "jw-almighty",
+      "title": "Is Jesus Almighty God?",
+      "creator": "Jehovah's Witnesses (jw.org)",
+      "kind": "article",
+      "url": "https://www.jw.org/en/bible-teachings/questions/is-jesus-almighty/",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Their arguments that Jesus is not Almighty God; know them before you reply.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "The other side's own voice (jw.org)"
+    },
+    {
+      "id": "jw-trinity",
+      "title": "Is the Trinity Doctrine in the Bible?",
+      "creator": "Jehovah's Witnesses (jw.org)",
+      "kind": "article",
+      "url": "https://www.jw.org/en/bible-teachings/questions/trinity/",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Their objection to the Trinity in their own words.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "The other side's own voice (jw.org)"
+    },
+    {
+      "id": "ca-divinity",
+      "title": "What the Early Church Believed: The Divinity of Christ",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/the-divinity-of-christ",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Shows what the earliest Christians said about Jesus as God.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "horn-jw",
+      "title": "Trent Horn - How to engage Jehovah's Witnesses on the divinity of Christ",
+      "creator": "Trent Horn",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=R995EtlyqOQ",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Practical advice on discussing Christ's divinity with Witnesses.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers Live"
+    },
+    {
+      "id": "ca-god-jw",
+      "title": "The God of the Jehovah's Witnesses",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/the-god-of-the-jehovahs-witnesses",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Compares the Witnesses' view of God and Christ with the Bible and the Church.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "jw-name",
+      "title": "The Tetragrammaton and the Divine Name in the Hebrew Scriptures",
+      "creator": "Jehovah's Witnesses (jw.org)",
+      "kind": "article",
+      "url": "https://www.jw.org/en/library/bible/study-bible/appendix-a/tetragrammaton-divine-name/",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "Their case for using the name \"Jehovah\".",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "The other side's own voice (jw.org)"
+    },
+    {
+      "id": "jw-blood",
+      "title": "Why Don't Jehovah's Witnesses Accept Blood Transfusions?",
+      "creator": "Jehovah's Witnesses (jw.org)",
+      "kind": "article",
+      "url": "https://www.jw.org/en/jehovahs-witnesses/faq/jehovahs-witnesses-why-no-blood-transfusions/",
+      "free": true,
+      "level": 3,
+      "audience": "any",
+      "why": "Their stated reasons, from Scripture, for refusing transfusions.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "The other side's own voice (jw.org); the Church teaches that preserving life is a grave duty, so listen with care"
+    },
+    {
+      "id": "jw-1914",
+      "title": "What Do Daniel 4 and Bible Chronology Indicate About 1914?",
+      "creator": "Jehovah's Witnesses (jw.org)",
+      "kind": "article",
+      "url": "https://www.jw.org/en/bible-teachings/questions/daniel-4-bible-chronology-1914/",
+      "free": true,
+      "level": 3,
+      "audience": "any",
+      "why": "Their account of why 1914 matters.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "The other side's own voice (jw.org)"
+    },
+    {
+      "id": "ca-jw-history",
+      "title": "History of the Jehovah's Witnesses",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/history-of-the-jehovahs-witnesses",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A Catholic account of the Watchtower movement and its date predictions.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-merely-a-god",
+      "title": "Merely \"a\" God? Answering Jehovah's Witnesses on Jesus",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/merely-a-god-answering-jehovahs-witnesses-on-jesus",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A reply on John 1:1 and the claim that Jesus is \"a god\".",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "pitre-1428",
+      "title": "John 14:28 and the Trinity Explained | Dr. Brant Pitre",
+      "creator": "Brant Pitre",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=-Smgo6D1kEs",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Explains John 14:28, \"the Father is greater than I\", a favourite Witness text.",
+      "verified": "2026-11-09",
+      "note": "Catholic Productions"
+    },
+    {
+      "id": "jw-bible-teach",
+      "title": "What Does the Bible Really Teach?",
+      "creator": "Jehovah's Witnesses (jw.org)",
+      "kind": "book",
+      "url": "https://www.jw.org/en/library/books/bible-teach/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The book Witnesses use for Bible studies, free online.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice (jw.org)"
+    },
+    {
+      "id": "jw-nwt",
+      "title": "New World Translation of the Holy Scriptures",
+      "creator": "Jehovah's Witnesses (jw.org)",
+      "kind": "site",
+      "url": "https://www.jw.org/en/library/bible/nwt/books/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Their Bible, so you can check a verse in the version they use.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice (jw.org); its translation choices differ from most scholarly versions"
+    },
+    {
+      "id": "ca-jw-nt",
+      "title": "The Jehovah's Witness New Testament",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/the-jehovahs-witness-new-testament",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A Catholic look at translation choices in the Witnesses' New Testament.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-watchtower-rome",
+      "title": "From the Watchtower to Rome",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/from-the-watchtower-to-rome",
+      "free": true,
+      "level": 4,
+      "audience": "adult",
+      "why": "A former Witness tells the story of coming into the Catholic Church.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    }
+  ]
+}

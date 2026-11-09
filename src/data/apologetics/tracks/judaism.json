@@ -1,0 +1,544 @@
+{
+ "id": "judaism",
+ "title": "Our elder brothers: Judaism, the Jewish roots of the faith, and the Church",
+ "tagline": "Learn the Jewish roots of Christian faith, listen to Jewish voices, and understand what the Church teaches and repents of.",
+ "group": "world-religions",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "Jesus, Mary and the apostles were Jewish, and the Church says she is tied to the Jewish people. Knowing this root deepens the Mass, the Bible and our respect for Jewish neighbours.",
+ "mindset": [
+  {
+   "tip": "Begin with respect and with the Church's own words: the Jews remain beloved by God for the sake of the fathers (Romans 11:28-29; Nostra Aetate 4; CCC 839-840).",
+   "resource": "na"
+  },
+  {
+   "tip": "Never blame Jews today or in general for the death of Christ. The Church teaches this plainly (Nostra Aetate 4; CCC 597-598).",
+   "resource": "shoah"
+  },
+  {
+   "tip": "Let Jews speak for themselves. Read Jewish sources before describing Jewish belief.",
+   "resource": "jewfaq-b"
+  },
+  {
+   "tip": "Speak of fulfilment, not replacement, and avoid caricatures of \"the Law\" or \"the Pharisees\".",
+   "resource": "syn"
+  },
+  {
+   "tip": "Be ready to say honestly that the Church has failed Jews in the past, and to listen to their pain.",
+   "resource": "shoah"
+  }
+ ],
+ "ccc": [
+  63,
+  64,
+  121,
+  122,
+  128,
+  597,
+  598,
+  839,
+  840,
+  1093,
+  1096,
+  1363,
+  2056
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "See the Jewish roots of Jesus, the Mass and the Bible, and what the Church says.",
+   "minutes": 90,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "messianic-prophecy",
+     "why": "Start with the app's answer on Old Testament prophecies of Christ."
+    },
+    {
+     "kind": "resource",
+     "id": "na",
+     "why": "Read paragraph 4 on the Jews in the Church's own words."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "6-3-1",
+     "why": "A lesson on Abraham, father of faith."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "6-4-2",
+     "why": "A lesson on Passover and the Red Sea."
+    },
+    {
+     "kind": "resource",
+     "id": "bbc-jud",
+     "why": "Get a neutral overview of Jewish belief and practice."
+    },
+    {
+     "kind": "resource",
+     "id": "jewfaq-b",
+     "why": "Read what Jews believe, in Jewish words."
+    },
+    {
+     "kind": "resource",
+     "id": "usccb-jroots",
+     "why": "A short bishops' resource on the Passover and the Mass."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Covenant",
+     "why": "A plain definition of covenant, the thread running through both Testaments."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "Which Jewish practice or prayer have you seen at Mass without noticing where it came from?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "See how the Passover leads into the Last Supper and the Eucharist.",
+   "minutes": 140,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "pitre-yt",
+     "why": "Watch Pitre show how the Last Supper fulfils Passover."
+    },
+    {
+     "kind": "resource",
+     "id": "sef-ex",
+     "why": "Read the Passover chapter in Hebrew and English."
+    },
+    {
+     "kind": "resource",
+     "id": "jewfaq-s",
+     "why": "See how the Passover seder is kept by Jews today."
+    },
+    {
+     "kind": "resource",
+     "id": "mjl-seder",
+     "why": "Follow the order of the seder step by step."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "edersheim-temple",
+     "why": "Edersheim on the Passover as it was kept in the Temple.",
+     "section": "xiii"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "edersheim-temple",
+     "why": "Edersheim on the Paschal feast and the Lord's Supper.",
+     "section": "xiv"
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Passover",
+     "why": "A plain definition of the Passover and its fulfilment."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "real-presence",
+     "why": "The sourced case that Christ is really present in the Eucharist."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "eucharist-just-a-symbol"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Meet the hard points: why Jews do not accept Jesus, Isaiah 53, covenant and salvation, and antisemitism.",
+   "minutes": 150,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "syn",
+     "why": "Read the first papal visit to a synagogue and its message."
+    },
+    {
+     "kind": "resource",
+     "id": "shoah",
+     "why": "Read the Church's 1998 reflection on the Shoah and its limits."
+    },
+    {
+     "kind": "resource",
+     "id": "sef-is",
+     "why": "Read Isaiah 53 on a Jewish site and note the Jewish commentary."
+    },
+    {
+     "kind": "resource",
+     "id": "mjl-theo",
+     "why": "Understand what Passover means to Jews."
+    },
+    {
+     "kind": "resource",
+     "id": "icjs",
+     "why": "Read a Jewish statement on Christians and Christianity."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-jews",
+     "why": "Read a short note on how to take recent Vatican statements."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "justin-martyr",
+     "why": "Justin's Dialogue with Trypho, an early Christian and Jewish conversation.",
+     "section": "viii.iv"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "irenaeus-demonstration",
+     "why": "Irenaeus on how the prophets point to Christ.",
+     "section": "iv-41"
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "divinity-of-christ",
+     "why": "A sourced case that the earliest believers worshipped Jesus as God."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "non-catholics-cannot-be-saved"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Study the Church's official reflections and Pitre's scholarship.",
+   "minutes": 200,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "gifts",
+     "why": "Read the 2015 Vatican reflection on covenant, salvation and witness."
+    },
+    {
+     "kind": "resource",
+     "id": "pbc",
+     "why": "Read how the biblical commission describes the link between the Old and New Testaments."
+    },
+    {
+     "kind": "resource",
+     "id": "pitre-book",
+     "why": "Read the book on the Eucharist's Jewish roots."
+    },
+    {
+     "kind": "resource",
+     "id": "pitre-rev",
+     "why": "Read a review that shows Pitre's way of reading Jesus in his Jewish setting."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "edersheim-lifetimes",
+     "why": "Edersheim on what Messiah the Jews expected.",
+     "section": "vii.v"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "edersheim-lifetimes",
+     "why": "Edersheim on the Paschal supper and the institution of the Lord's Supper.",
+     "section": "x.x"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "diognetus",
+     "why": "The early Epistle to Diognetus on Jewish practice, and how not to speak of it.",
+     "section": "iii.ii.iii"
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-11-2",
+     "why": "A lesson on the Church's history of anti-Judaism."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "What is one way you could honour the Jewish roots of your faith this month?"
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "na",
+   "title": "Nostra Aetate: Declaration on the Relation of the Church to Non-Christian Religions",
+   "creator": "Second Vatican Council",
+   "kind": "article",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html",
+   "free": true,
+   "minutes": 12,
+   "level": 1,
+   "audience": "any",
+   "why": "The Church's short foundation text: what is true and holy in other religions, and why Christians must reject hatred.",
+   "verified": "2026-11-09",
+   "note": "Church teaching; paragraph 3 is on Muslims, paragraph 4 on Jews"
+  },
+  {
+   "id": "shoah",
+   "title": "We Remember: A Reflection on the Shoah",
+   "creator": "Commission for Religious Relations with the Jews",
+   "kind": "article",
+   "url": "https://www.christianunity.va/content/unitacristiani/en/commissione-per-i-rapporti-religiosi-con-l-ebraismo/commissione-per-i-rapporti-religiosi-con-l-ebraismo-crre/documenti-della-commissione/en1.html",
+   "free": true,
+   "minutes": 25,
+   "level": 3,
+   "audience": "adult",
+   "why": "The Church's 1998 look at anti-Jewish attitudes among Christians and the Shoah. Jewish readers have had mixed reactions.",
+   "verified": "2026-11-09",
+   "note": "Vatican document (1998)"
+  },
+  {
+   "id": "jewfaq-b",
+   "title": "What Do Jews Believe?",
+   "creator": "Judaism 101 (JewFAQ)",
+   "kind": "site",
+   "url": "https://www.jewfaq.org/jewish-beliefs",
+   "free": true,
+   "minutes": 15,
+   "level": 1,
+   "audience": "any",
+   "why": "A plain account of Jewish belief in Jewish words.",
+   "verified": "2026-11-09",
+   "note": "Jewish voice"
+  },
+  {
+   "id": "syn",
+   "title": "Address to the Jewish Community of Rome (Synagogue, 13 April 1986)",
+   "creator": "John Paul II",
+   "kind": "talk",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/speeches/1986/april/documents/hf_jp-ii_spe_19860413_sinagoga-roma.html",
+   "free": true,
+   "minutes": 20,
+   "level": 2,
+   "audience": "adult",
+   "why": "The first papal visit to a synagogue, where Jews are called \"elder brothers\" and anti-Jewish teaching is rejected.",
+   "verified": "2026-11-09",
+   "note": "Papal address"
+  },
+  {
+   "id": "bbc-jud",
+   "title": "Judaism",
+   "creator": "BBC Religions (archive)",
+   "kind": "site",
+   "url": "https://www.bbc.co.uk/religion/religions/judaism/",
+   "free": true,
+   "minutes": 20,
+   "level": 1,
+   "audience": "any",
+   "why": "A neutral overview of Jewish belief and practice.",
+   "verified": "2026-11-09",
+   "note": "Archived BBC pages; no longer updated"
+  },
+  {
+   "id": "usccb-jroots",
+   "title": "Catechetical Sunday 2011: Jewish Roots of the Mass",
+   "creator": "USCCB",
+   "kind": "article",
+   "url": "https://www.usccb.org/resources/catechetical-sunday-2011-jewish-roots-mass",
+   "free": true,
+   "minutes": 10,
+   "level": 1,
+   "audience": "any",
+   "why": "A short bishops' resource on the Passover and the Mass.",
+   "verified": "2026-11-09",
+   "note": "USCCB"
+  },
+  {
+   "id": "pitre-yt",
+   "title": "Jesus and the Jewish Roots of the Eucharist",
+   "creator": "Brant Pitre",
+   "kind": "talk",
+   "url": "https://www.youtube.com/watch?v=P45BHDRA7pU",
+   "free": true,
+   "minutes": 67,
+   "level": 2,
+   "audience": "any",
+   "why": "Pitre shows how the Last Supper fulfils Passover and the hope for new manna.",
+   "verified": "2026-11-09",
+   "note": "Catholic scholar; video posted by the 4thCup channel; also on Formed (subscription)"
+  },
+  {
+   "id": "sef-ex",
+   "title": "Exodus 12 (Hebrew and English)",
+   "creator": "Sefaria",
+   "kind": "site",
+   "url": "https://www.sefaria.org/Exodus.12?lang=bi",
+   "free": true,
+   "minutes": 10,
+   "level": 1,
+   "audience": "any",
+   "why": "Read the Passover chapter in Hebrew and English on a Jewish library site.",
+   "verified": "2026-11-09",
+   "note": "Jewish library; translation shown may differ from Catholic Bibles"
+  },
+  {
+   "id": "jewfaq-s",
+   "title": "Pesach Seder: How Is This Night Different",
+   "creator": "Judaism 101 (JewFAQ)",
+   "kind": "article",
+   "url": "https://www.jewfaq.org/seder",
+   "free": true,
+   "minutes": 15,
+   "level": 2,
+   "audience": "any",
+   "why": "Walk through the Passover meal as Jews keep it today.",
+   "verified": "2026-11-09",
+   "note": "Jewish voice; the modern seder developed after the Temple; use with care when comparing to the Last Supper"
+  },
+  {
+   "id": "mjl-seder",
+   "title": "The 14 Key Steps of a Passover Seder",
+   "creator": "My Jewish Learning",
+   "kind": "article",
+   "url": "https://www.myjewishlearning.com/article/how-to-conduct-a-seder/",
+   "free": true,
+   "minutes": 10,
+   "level": 2,
+   "audience": "any",
+   "why": "See the order of the seder, step by step.",
+   "verified": "2026-11-09",
+   "note": "Jewish voice"
+  },
+  {
+   "id": "sef-is",
+   "title": "Isaiah 53 (Hebrew and English)",
+   "creator": "Sefaria",
+   "kind": "site",
+   "url": "https://www.sefaria.org/Isaiah.53?lang=bi",
+   "free": true,
+   "minutes": 10,
+   "level": 3,
+   "audience": "any",
+   "why": "Read the Suffering Servant chapter as a Jewish library presents it, with links to Jewish commentary.",
+   "verified": "2026-11-09",
+   "note": "Jewish library; Jewish and Christian readings differ, so listen to both"
+  },
+  {
+   "id": "mjl-theo",
+   "title": "Passover (Pesach) Themes and Theology",
+   "creator": "My Jewish Learning",
+   "kind": "article",
+   "url": "https://www.myjewishlearning.com/article/passover-pesach-themes-and-theology/",
+   "free": true,
+   "minutes": 10,
+   "level": 3,
+   "audience": "any",
+   "why": "How Jews understand the meaning of Passover: freedom, memory and redemption.",
+   "verified": "2026-11-09",
+   "note": "Jewish voice"
+  },
+  {
+   "id": "icjs",
+   "title": "Dabru Emet: A Jewish Statement on Christians and Christianity",
+   "creator": "Jewish scholars (ICJS text)",
+   "kind": "article",
+   "url": "https://icjs.org/dabru-emet-text/",
+   "free": true,
+   "minutes": 10,
+   "level": 3,
+   "audience": "adult",
+   "why": "Hear how a group of Jewish scholars described what Jews and Christians share and where they differ (2000).",
+   "verified": "2026-11-09",
+   "note": "Jewish voice; signed by scholars, not an official Jewish body"
+  },
+  {
+   "id": "ca-jews",
+   "title": "Latest Vatican Statement on the Jews",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/qa/latest-vatican-statement-on-the-jews",
+   "free": true,
+   "minutes": 6,
+   "level": 3,
+   "audience": "adult",
+   "why": "A short apologist's answer on how to read recent Vatican statements on Jews and the covenant.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "gifts",
+   "title": "\"The Gifts and the Calling of God Are Irrevocable\" (Rom 11:29)",
+   "creator": "Commission for Religious Relations with the Jews",
+   "kind": "article",
+   "url": "https://www.christianunity.va/content/unitacristiani/en/commissione-per-i-rapporti-religiosi-con-l-ebraismo/commissione-per-i-rapporti-religiosi-con-l-ebraismo-crre/documenti-della-commissione/en.html",
+   "free": true,
+   "minutes": 60,
+   "level": 4,
+   "audience": "adult",
+   "why": "A Vatican reflection on covenant, salvation and witness to Jews; useful for the hardest questions.",
+   "verified": "2026-11-09",
+   "note": "Vatican commission reflection (2015); it says it is not a doctrinal teaching"
+  },
+  {
+   "id": "pbc",
+   "title": "The Jewish People and Their Sacred Scriptures in the Christian Bible",
+   "creator": "Pontifical Biblical Commission",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_documents/rc_con_cfaith_doc_20020212_popolo-ebraico_en.html",
+   "free": true,
+   "minutes": 120,
+   "level": 4,
+   "audience": "advanced",
+   "why": "The Church's biblical scholars on how the New Testament reads the Old and what is shared with Jewish reading.",
+   "verified": "2026-11-09",
+   "note": "Church commission study (2001)"
+  },
+  {
+   "id": "pitre-book",
+   "title": "Jesus and the Jewish Roots of the Eucharist",
+   "creator": "Brant Pitre",
+   "kind": "book",
+   "url": "https://www.penguinrandomhouse.com/books/131562/jesus-and-the-jewish-roots-of-the-eucharist-by-brant-pitre/",
+   "free": false,
+   "level": 4,
+   "audience": "adult",
+   "why": "The book behind the talk: manna, the bread of the Presence and the Passover.",
+   "verified": "2026-11-09",
+   "note": "Publisher page; buy or borrow"
+  },
+  {
+   "id": "pitre-rev",
+   "title": "Lord, Not Legend: A Review of Brant Pitre's The Case for Jesus",
+   "creator": "Catholic World Report",
+   "kind": "article",
+   "url": "https://www.catholicworldreport.com/2016/05/17/lord-not-legend-a-review-of-brant-pitres/",
+   "free": true,
+   "minutes": 10,
+   "level": 3,
+   "audience": "adult",
+   "why": "A review that shows how Pitre reads Jesus' claims in their Jewish setting.",
+   "verified": "2026-11-09",
+   "note": "Review of a Catholic book"
+  }
+ ]
+}

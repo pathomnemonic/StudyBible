@@ -1,0 +1,571 @@
+{
+  "id": "mormonism",
+  "title": "Talking with Latter-day Saints",
+  "tagline": "Their claims about the Book of Mormon, the apostasy, Joseph Smith and deification, read in their own essays.",
+  "group": "christians",
+  "audience": [
+    "adult"
+  ],
+  "whyItMatters": "Latter-day Saints are known for family and service, and they often welcome serious conversation. Reading their own essays lets you speak about God and Christ without caricature.",
+  "mindset": [
+    {
+      "tip": "Respect the person: Latter-day Saints are neighbours of great sincerity. Give your reasons with gentleness and respect. (1 Peter 3:15-16; Lumen Gentium 16)",
+      "resource": "ca-mormon-bashing"
+    },
+    {
+      "tip": "Read the Church's own Gospel Topics essays; they are candid, and quoting them shows you did your homework.",
+      "resource": "lds-topics"
+    },
+    {
+      "tip": "Ask what they mean by \"God\", \"Christian\" and \"salvation\"; the same words often carry different meanings."
+    },
+    {
+      "tip": "Keep to one question, such as who God is or where authority lies, rather than a list of historical embarrassments.",
+      "resource": "shameless-missionaries"
+    },
+    {
+      "tip": "Know that the Church does not recognise LDS baptism as valid, but does not judge persons. (CCC 1256)",
+      "resource": "cdf-2001"
+    }
+  ],
+  "ccc": [
+    200,
+    202,
+    253,
+    254,
+    460,
+    1239,
+    1240,
+    1256
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Meet Latter-day Saints through their own short statements and a fair Catholic overview.",
+      "minutes": 80,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "mormonism",
+          "why": "The app's answer, with verses and readings."
+        },
+        {
+          "kind": "resource",
+          "id": "lds-living-christ",
+          "why": "A short LDS testimony of Christ."
+        },
+        {
+          "kind": "resource",
+          "id": "lds-aof",
+          "why": "Read the Articles of Faith."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-mormon-christians",
+          "why": "A fair Catholic overview of LDS belief."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-mormon-bashing",
+          "why": "Avoid caricature when you speak."
+        },
+        {
+          "kind": "resource",
+          "id": "shameless-missionaries",
+          "why": "A courteous approach to the missionaries."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Revelation",
+          "why": "A plain definition of revelation, a key LDS word."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What do you already respect about a Latter-day Saint you know?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Learn their sources and the Catholic doctrine of God.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "lds-topics",
+          "why": "Browse the Gospel Topics essays."
+        },
+        {
+          "kind": "resource",
+          "id": "lds-bom-intro",
+          "why": "Read how they present the Book of Mormon."
+        },
+        {
+          "kind": "resource",
+          "id": "lds-jsh",
+          "why": "Read Joseph Smith's own account."
+        },
+        {
+          "kind": "resource",
+          "id": "lds-first-vision",
+          "why": "See the different accounts of the First Vision."
+        },
+        {
+          "kind": "resource",
+          "id": "akin-js",
+          "why": "A Catholic view of Joseph Smith."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-gods",
+          "why": "Compare their teaching on God with the Bible."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-mormon-beliefs",
+          "why": "A summary of the main differences."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "trinity",
+          "why": "The sourced argument for the Trinity."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "trinity"
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Face deification, the apostasy and the Book of Mormon's origin.",
+      "minutes": 180,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "lds-becoming",
+          "why": "Read their essay on becoming like God."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "athanasius-incarnation",
+          "why": "Athanasius on God becoming man, an early Christian view of sharing divine life."
+        },
+        {
+          "kind": "resource",
+          "id": "lds-apostasy",
+          "why": "Read their account of the apostasy."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Apostasy",
+          "why": "A plain definition of the word."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "apostolic-succession",
+          "why": "The sourced argument for continuity of authority."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "irenaeus-heresies",
+          "why": "Irenaeus on the apostolic tradition and false teaching."
+        },
+        {
+          "kind": "resource",
+          "id": "lds-translation",
+          "why": "Read their essay on the Book of Mormon's translation."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-problems-bom",
+          "why": "A Catholic critique of the Book of Mormon."
+        },
+        {
+          "kind": "resource",
+          "id": "pints-bom",
+          "why": "Hear a Latter-day Saint and a Catholic discuss."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the hard essays, the Church's ruling on baptism and the LDS apologists.",
+      "minutes": 280,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "cdf-2001",
+          "why": "The Church's reply on LDS baptism."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-baptism-dead",
+          "why": "Baptism for the dead and 1 Corinthians 15:29."
+        },
+        {
+          "kind": "resource",
+          "id": "lds-dna",
+          "why": "Read their essay on DNA and the Book of Mormon."
+        },
+        {
+          "kind": "resource",
+          "id": "lds-abraham",
+          "why": "Read their essay on the Book of Abraham."
+        },
+        {
+          "kind": "resource",
+          "id": "fair",
+          "why": "See how LDS apologists respond to critics."
+        },
+        {
+          "kind": "resource",
+          "id": "beckwith",
+          "why": "A Catholic philosopher on the LDS view of God."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "vincent-commonitory",
+          "why": "A rule for judging claims of new doctrine."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "Which LDS claim did you find hardest to answer fairly?"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "lds-topics",
+      "title": "Gospel Topics Essays",
+      "creator": "The Church of Jesus Christ of Latter-day Saints",
+      "kind": "site",
+      "url": "https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays?lang=eng",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "The Church's own essays on hard questions of history and doctrine.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice (Church of Jesus Christ of Latter-day Saints)"
+    },
+    {
+      "id": "lds-living-christ",
+      "title": "The Living Christ: The Testimony of the Apostles",
+      "creator": "The Church of Jesus Christ of Latter-day Saints",
+      "kind": "article",
+      "url": "https://www.churchofjesuschrist.org/study/scriptures/the-living-christ-the-testimony-of-the-apostles?lang=eng",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A short testimony of LDS apostles about Jesus Christ; useful for seeing where we agree.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "The other side's own voice (Church of Jesus Christ of Latter-day Saints)"
+    },
+    {
+      "id": "lds-aof",
+      "title": "Articles of Faith 1",
+      "creator": "The Church of Jesus Christ of Latter-day Saints",
+      "kind": "article",
+      "url": "https://www.churchofjesuschrist.org/study/scriptures/pgp/a-of-f/1?lang=eng",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "The thirteen Articles of Faith, the shortest LDS statement of belief.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "The other side's own voice (Church of Jesus Christ of Latter-day Saints)"
+    },
+    {
+      "id": "ca-mormon-christians",
+      "title": "Are Mormons Christians? Catholic Answers Guide to Mormonism",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/mormonism-catholic-answers-guide-to-latter-day-saints",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "A Catholic overview that treats the question fairly.",
+      "verified": "2026-11-09",
+      "minutes": 25,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-mormon-bashing",
+      "title": "Mormon Bashing?",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/mormon-bashing",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "A Catholic reminder to answer LDS claims without caricature.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "shameless-missionaries",
+      "title": "How to Respond to Mormon Missionaries",
+      "creator": "Joe Heschmeyer",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=HNC9RUl5Lxs",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "Practical ideas for a courteous conversation when missionaries call.",
+      "verified": "2026-11-09",
+      "note": "Shameless Popery"
+    },
+    {
+      "id": "lds-bom-intro",
+      "title": "The Book of Mormon: Introduction",
+      "creator": "The Church of Jesus Christ of Latter-day Saints",
+      "kind": "article",
+      "url": "https://www.churchofjesuschrist.org/study/scriptures/bofm/introduction?lang=eng",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "The LDS introduction to the book and to how Latter-day Saints receive it.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "The other side's own voice (Church of Jesus Christ of Latter-day Saints)"
+    },
+    {
+      "id": "lds-jsh",
+      "title": "Joseph Smith - History 1",
+      "creator": "The Church of Jesus Christ of Latter-day Saints",
+      "kind": "article",
+      "url": "https://www.churchofjesuschrist.org/study/scriptures/pgp/js-h/1?lang=eng",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Joseph Smith's own account of the First Vision and the golden plates.",
+      "verified": "2026-11-09",
+      "minutes": 25,
+      "note": "The other side's own voice (Church of Jesus Christ of Latter-day Saints)"
+    },
+    {
+      "id": "lds-first-vision",
+      "title": "First Vision Accounts",
+      "creator": "The Church of Jesus Christ of Latter-day Saints",
+      "kind": "article",
+      "url": "https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/first-vision-accounts?lang=eng",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "An essay that sets out the several accounts of the First Vision.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "The other side's own voice (Church of Jesus Christ of Latter-day Saints)"
+    },
+    {
+      "id": "akin-js",
+      "title": "Joseph Smith, Mormon Prophet - Jimmy Akin's Mysterious World",
+      "creator": "Jimmy Akin",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=iq_muJZvQTY",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "A Catholic apologist looks at Joseph Smith as a historical figure.",
+      "verified": "2026-11-09",
+      "note": "Jimmy Akin's Mysterious World"
+    },
+    {
+      "id": "ca-gods",
+      "title": "The Gods of the Mormon Church",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/the-gods-of-the-mormon-church",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Compares LDS teaching on God and Christ with the Bible and the Church.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-mormon-beliefs",
+      "title": "Distinctive Beliefs of the Mormon Church",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/distinctive-beliefs-of-the-mormon-church",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "A Catholic overview of the main LDS beliefs and where they differ.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "lds-becoming",
+      "title": "Becoming Like God",
+      "creator": "The Church of Jesus Christ of Latter-day Saints",
+      "kind": "article",
+      "url": "https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/becoming-like-god?lang=eng",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The Church's essay on deification and eternal progression; compare it with the Fathers on theosis.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "The other side's own voice (Church of Jesus Christ of Latter-day Saints)"
+    },
+    {
+      "id": "lds-apostasy",
+      "title": "Apostasy",
+      "creator": "The Church of Jesus Christ of Latter-day Saints",
+      "kind": "article",
+      "url": "https://www.churchofjesuschrist.org/study/manual/gospel-topics/apostasy?lang=eng",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The LDS account of the \"Great Apostasy\", the claim that the early Church lost authority.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "The other side's own voice (Church of Jesus Christ of Latter-day Saints)"
+    },
+    {
+      "id": "lds-translation",
+      "title": "Book of Mormon Translation",
+      "creator": "The Church of Jesus Christ of Latter-day Saints",
+      "kind": "article",
+      "url": "https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/book-of-mormon-translation?lang=eng",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The Church's essay on how the Book of Mormon was produced.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "The other side's own voice (Church of Jesus Christ of Latter-day Saints)"
+    },
+    {
+      "id": "ca-problems-bom",
+      "title": "Problems with the Book of Mormon",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/problems-with-the-book-of-mormon",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A Catholic critique; read it after the LDS essays.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "pints-bom",
+      "title": "Is the Book of Mormon Divinely Inspired? w/ @thoughtfulfaith2020 and @TheCounselofTrent",
+      "creator": "Matt Fradd",
+      "kind": "debate",
+      "url": "https://www.youtube.com/watch?v=9V_N0cRqzQU",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A discussion with an LDS voice and a Catholic on whether the Book of Mormon is inspired.",
+      "verified": "2026-11-09",
+      "note": "Pints with Aquinas; includes a Latter-day Saint speaker"
+    },
+    {
+      "id": "cdf-2001",
+      "title": "Response on the Validity of Baptism Conferred by \"Mormons\"",
+      "creator": "Congregation for the Doctrine of the Faith",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_20010605_battesimo_mormoni_en.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The Church's short reply on why Catholics do not accept LDS baptism; it is a doctrinal answer, not a judgement of persons.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Vatican document (2001)"
+    },
+    {
+      "id": "ca-baptism-dead",
+      "title": "Mormonism's Baptism for the Dead",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/mormonisms-baptism-for-the-dead",
+      "free": true,
+      "level": 4,
+      "audience": "adult",
+      "why": "Compares LDS baptism for the dead with 1 Corinthians 15:29 and Church teaching.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "lds-dna",
+      "title": "Book of Mormon and DNA Studies",
+      "creator": "The Church of Jesus Christ of Latter-day Saints",
+      "kind": "article",
+      "url": "https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/book-of-mormon-and-dna-studies?lang=eng",
+      "free": true,
+      "level": 4,
+      "audience": "adult",
+      "why": "The Church's essay on a hard question about the Book of Mormon.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "The other side's own voice (Church of Jesus Christ of Latter-day Saints)"
+    },
+    {
+      "id": "lds-abraham",
+      "title": "Translation and Historicity of the Book of Abraham",
+      "creator": "The Church of Jesus Christ of Latter-day Saints",
+      "kind": "article",
+      "url": "https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/translation-and-historicity-of-the-book-of-abraham?lang=eng",
+      "free": true,
+      "level": 4,
+      "audience": "adult",
+      "why": "The Church's essay on another difficult text.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "The other side's own voice (Church of Jesus Christ of Latter-day Saints)"
+    },
+    {
+      "id": "fair",
+      "title": "FAIR: Faithful Answers, Informed Response",
+      "creator": "FAIR (Latter-day Saint apologetics)",
+      "kind": "site",
+      "url": "https://www.fairlatterdaysaints.org/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A Latter-day Saint apologetics organisation that answers critics.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice; a lay LDS apologetics group, not an official Church site"
+    },
+    {
+      "id": "beckwith",
+      "title": "The Mormon View of God w/ Francis Beckwith | Fr. Bonaventure Chapman & Fr. Patrick Briscoe",
+      "creator": "Godsplaining",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=4FFQR-12SUU",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A Catholic philosopher discusses the LDS view of God.",
+      "verified": "2026-11-09",
+      "note": "Godsplaining; guest Francis Beckwith"
+    }
+  ]
+}

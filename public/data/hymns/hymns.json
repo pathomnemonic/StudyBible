@@ -1,0 +1,556 @@
+{
+ "about": "Public-domain Latin texts with English translations from before 1929. Each translator and source is named. Where no attributable translation was found, the Latin is shown alone and says so.",
+ "hymns": [
+  {
+   "id": "veni-creator",
+   "title": "Veni Creator Spiritus",
+   "english": "Come, Creator Spirit",
+   "seasons": [
+    "Pentecost"
+   ],
+   "feast": "Pentecost, ordinations and confirmations; also the start of great undertakings",
+   "background": "Usually given to Rabanus Maurus in the ninth century. The 1902 collection prints it under Charlemagne, the old tradition. It is the Church’s great prayer to the Holy Spirit.",
+   "backgroundSource": {
+    "label": "The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902), introduction",
+    "url": "https://en.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Veni_Creator_Spiritus"
+   },
+   "latin": {
+    "text": [
+     "VENI, Creator Spiritus,\nMentes tuorum visita,\nImple superna gratia,\nQuæ tu creasti pectora.",
+     "Qui diceris Paraclitus,\nAltissimi donum Dei,\nFons vivus, ignis, charitas,\nEt spiritalis unctio.",
+     "Tu septiformis munere,\nDigitus Paternæ dexteræ,\nTu rite promissum Patris,\nSermone ditans guttura.",
+     "Accende lumen sensibus,\nInfunde amorem cordibus,\nInfirma nostri corporis\nVirtute firmans perpeti.",
+     "Hostem repellas longius,\nPacemque dones protinus:\nDuctore sic te prævio\nVitemus omne noxium.",
+     "Per te sciamus da Patrem,\nNoscamus atque Filium;\nTeque utriusque Spiritum\nCredamus omni tempore.",
+     "Deo Patri sit gloria\nEt Filio qui a mortuis\nSurrexit, ac Paraclito,\nIn sæculorum sæcula."
+    ],
+    "source": {
+     "label": "Latin text as printed in The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902)",
+     "url": "https://la.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Veni_Creator_Spiritus/Charlemagne"
+    },
+    "file": "L_la_The_seven_great_hymns_of_the_mediaeval_church_Veni_Creator_Spiritus_Charlemagne.txt"
+   },
+   "translation": {
+    "text": [
+     "Creator Spirit, by whose aid\nThe world's foundations first were laid,\nCome visit every pious mind,\nCome pour Thy joys on human kind;\nFrom sin and sorrow set us free,\nAnd make Thy temples worthy Thee.",
+     "O source of uncreated light,\nThe Father's promised Paraclete!\nThrice holy fount, thrice holy fire,\nOur hearts with heavenly love inspire;\nCome, and Thy sacred unction bring,\nTo sanctify us while we sing.",
+     "Plenteous of grace, descend from high,\nRich in Thy sevenfold energy!\nThou strength of His almighty hand,\nWhose power does heaven and earth command.\nProceeding Spirit, our defence,\nWho dost the gifts of tongues dispense,",
+     "And crown'st Thy gift with eloquence!\nRefine and purge our earthly parts;\nBut, oh, inflame and fire our hearts!\nOur frailties help, our vice control,\nSubmit the senses to the soul;\nAnd when rebellious they are grown,",
+     "Then lay Thy hand and hold 'em down.\nChase from our minds th' infernal foe,\nAnd peace the fruit of love bestow;\nAnd lest our feet should step astray,\nProtect and guide us on the way.\nMake us eternal truths receive,",
+     "And practise all that we believe;\nGive us Thyself, that we may see\nThe Father and the Son by Thee.\nImmortal honor, endless fame,\nAttend the Almighty Father's name:\nThe Saviour Son be glorified,",
+     "Who for lost man's redemption died;\nAnd equal adoration be,\nEternal Paraclete, to Thee."
+    ],
+    "translator": "John Dryden",
+    "year": "as printed in 1902 (Dryden died in 1700)",
+    "source": {
+     "label": "The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902)",
+     "url": "https://en.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Veni_Creator_Spiritus/Dryden"
+    },
+    "file": "P_The_seven_great_hymns_of_the_mediaeval_church_Veni_Creator_Spiritus_Dryden.txt"
+   }
+  },
+  {
+   "id": "veni-sancte",
+   "title": "Veni Sancte Spiritus",
+   "english": "Come, Holy Spirit",
+   "seasons": [
+    "Pentecost"
+   ],
+   "feast": "Pentecost (the “Golden Sequence”)",
+   "background": "Ascribed in the 1902 collection to King Robert II of France. Others give it to Innocent III or Stephen Langton. Archbishop Trench called it the loveliest of all Latin sacred poems.",
+   "backgroundSource": {
+    "label": "The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902), introduction",
+    "url": "https://en.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Veni_Sancte_Spiritus"
+   },
+   "latin": {
+    "text": [
+     "VENI, Sancte Spiritus,\nEt emitte cœlitus,\nLucis tuæ radium.",
+     "Veni, pater pauperum,\nVeni, dator munerum,\nVeni, lumen cordium.",
+     "Consolator optime,\nDulcis hospes animæ,\nDulce refrigerium.",
+     "In labore requies,\nIn æstu temperies,\nIn fletu solatium.",
+     "O lux beatissima!\nReple cordis intima,\nTuorum fidelium.",
+     "Sine tuo numine,\nNihil est in homine,\nNihil est innoxium.",
+     "Lava quod est sordidum,\nRiga quod est aridum,\nSana quod est saucium.",
+     "Flecte quod est rigidum,\nFove quod est frigidum,\nRege quod est devium.",
+     "Da tuis fidelibus,\nIn te confidentibus,\nSacrum septenarium.",
+     "Da virtutis meritum,\nDa salutis exitum,\nDa perenne gaudium."
+    ],
+    "source": {
+     "label": "Latin text as printed in The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902)",
+     "url": "https://la.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Veni_Sancte_Spiritus/Robert"
+    },
+    "file": "L_la_The_seven_great_hymns_of_the_mediaeval_church_Veni_Sancte_Spiritus_Robert.txt"
+   },
+   "translation": {
+    "text": [
+     "COME, Holy Ghost! Thou fire divine!\nFrom highest heaven on us down shine!\nComforter, be Thy comfort mine!",
+     "Come, Father of the poor, to earth;\nCome with Thy gifts of precious worth;\nCome, Light of all of mortal birth!",
+     "Thou rich in comfort! Ever blest\nThe heart where Thou art constant guest,\nWho giv'st the heavy-laden rest.",
+     "Come Thou in whom our toil is sweet,\nOur shadow in the noon-day heat,\nBefore whom mourning flieth fleet.",
+     "Bright Sun of Grace! Thy sunshine dart\nOn all who cry to Thee apart,\nAnd fill with gladness every heart.",
+     "Whate'er without Thy aid is wrought,\nOr skilful deed, or wiseft thought,\nGod counts it vain and merely naught.",
+     "O cleanse us that we sin no more,\nO'er parchèd souls Thy waters pour;\nHeal the sad heart that acheth sore.",
+     "Thy will be ours in all our ways;\nO melt the frozen with Thy rays;\nCall home the soft in error's maze.",
+     "And grant us, Lord, who cry to Thee,\nAnd hold the Faith in unity,\nThy precious gifts of charity.",
+     "That we may live in holiness,\nAnd find in death our happiness,\nAnd dwell with Thee in lasting bliss!"
+    ],
+    "translator": "Catherine Winkworth",
+    "year": "1875",
+    "source": {
+     "label": "The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902)",
+     "url": "https://en.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Veni_Sancte_Spiritus/Winkworth"
+    },
+    "file": "P_The_seven_great_hymns_of_the_mediaeval_church_Veni_Sancte_Spiritus_Winkworth.txt"
+   }
+  },
+  {
+   "id": "dies-irae",
+   "title": "Dies Irae",
+   "english": "Day of Wrath",
+   "seasons": [
+    "All Souls and the dead"
+   ],
+   "feast": "All Souls; the Requiem Mass",
+   "background": "By Thomas of Celano, a Franciscan friar of the thirteenth century and the friend and biographer of St Francis. It is a prayer for mercy on the Day of Judgment, sung in Requiem Masses.",
+   "backgroundSource": {
+    "label": "The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902), introduction",
+    "url": "https://en.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Dies_Iræ"
+   },
+   "latin": {
+    "text": [
+     "IES IRÆ, DIES ILLA!\nSolvet sæclum in favillâ,\nTeste David cum Sybillâ.",
+     "Quantus tremor est futurus,\nQuando Judex est venturus,\nCuncta stricte discussurus.",
+     "Tuba mirum spargens sonum\nPer sepulcra regionum,\nCoget omnes ante thronum.",
+     "Mors stupebit, et natura,\nQuum resurget creatura,\nJudicanti responsura.",
+     "Liber scriptus proferetur,\nIn quo totum continetur,\nUnde mundus judicetur.",
+     "Judex ergo cum sedebit,\nQuidquid latet, apparebit:\nNil inultum remanebit.",
+     "Quid sum, miser! tunc dicturus,\nQuem patronum rogaturus,\nQuum vix justus sit securus?",
+     "Rex tremendæ majestatis,\nQui salvandos salvas gratis,\nSalva me, fons pietatis!",
+     "Recordare, Jesu pie,\nQuod sum causa tuæ viæ;\nNe me perdas illâ die!",
+     "Quærens me, sedisti lassus,\nRedemisti, crucem passus:\nTantus labor non sit cassus.",
+     "Juste Judex ultionis,\nDonum fac remissionis\nAnte diem rationis.",
+     "Ingemisco tanquam reus,\nCulpâ rubet vultus meus;\nSupplicanti parce, Deus!",
+     "Qui Mariam absolvisti,\nEt latronem exaudisti,\nMihi quoque spem dedisti.",
+     "Preces meæ non sunt dignæ,\nSed Tu bonus fac benigne\nNe perenni cremer igne!",
+     "Inter oves locum præsta,\nEt ab hædis me sequestra,\nStatuens in parte dextrâ.",
+     "Confutatis maledictis,\nFlammis acribus addictis,\nVoca me cum benedictis!",
+     "Oro supplex et acclinis,\nCor contritum quasi cinis,\nGere curam mei finis.",
+     "Lacrymosa dies illa!\nQua resurget ex favillâ.\nJudicandus homo reus;\nHuic ergo parce, Deus!"
+    ],
+    "source": {
+     "label": "Latin text as printed in The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902). Its last lines, “Pie Jesu…”, are not on this page.",
+     "url": "https://la.wikisource.org/wiki/Dies_irae"
+    },
+    "file": "L_la_Dies_irae.txt"
+   },
+   "translation": {
+    "text": [
+     "DAY of Wrath! O Day of mourning!\nSee! once more the Cross returning,\nHeav'n and earth in ashes burning!",
+     "O what fear man's bosom rendeth,\nWhen from Heav'n the Judge descendeth,\nOn whose sentence all dependeth!",
+     "Wondrous sound the Trumpet flingeth,\nThrough earth's sepulchres it ringeth,\nAll before the throne it bringeth!",
+     "Death is struck, and nature quaking,\nAll creation is awaking,\nTo its Judge an answer making!",
+     "Lo, the Book, exactly worded!\nWherein all hath been recorded;\nThence shall judgment be awarded.",
+     "When the Judge His seat attaineth,\nAnd each hidden deed arraigneth,\nNothing unaveng'd remaineth.",
+     "What shall I, frail man, be pleading,\nWho for me be interceding,\nWhen the just are mercy needing?",
+     "King of majesty tremendous,\nWho dost free salvation send us,\nFount of pity! then befriend us!",
+     "Think! Kind Jesu, my salvation\nCaus'd Thy wondrous Incarnation;\nLeave me not to reprobation!",
+     "Faint and weary Thou hast sought me,\nOn the Cross of suffering bought me;\nShall such grace be vainly brought me!",
+     "Righteous Judge of retribution,\nGrant Thy gift of absolution,\nEre that reck'ning day's conclusion!",
+     "Guilty, now I pour my moaning,\nAll my shame with anguish owning;\nSpare, O God, Thy suppliant, groaning!",
+     "Thou, the sinful woman savest,\nThou, the dying thief forgavest;\nAnd to me a hope vouchsafest!",
+     "Worthless are my pray'rs and sighing,\nYet, good Lord, in grace complying,\nRescue me from fires undying!",
+     "With Thy favor'd sheep, O place me!\nNor among the goats abase me;\nBut to Thy right hand upraise me.",
+     "While the wicked are confounded,\nDoom'd to flames of woe unbounded,\nCall me! with Thy saints surrounded.",
+     "Low I kneel, with heart submission;\nSee, like ashes, my contrition;\nHelp me, in my last condition!",
+     "Ah! that Day of tears and mourning!\nFrom the dust of earth returning,\nMan for judgment must prepare him;\nSpare! O God, in mercy, spare him!\nLord, who didst our souls redeem,\nGrant a blessed Requiem! Amen."
+    ],
+    "translator": "William Josiah Irons",
+    "year": "1849",
+    "source": {
+     "label": "The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902)",
+     "url": "https://en.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Dies_Iræ/Irons"
+    },
+    "file": "P_The_seven_great_hymns_of_the_mediaeval_church_Dies_Ir_Irons.txt"
+   }
+  },
+  {
+   "id": "vexilla-regis",
+   "title": "Vexilla Regis",
+   "english": "The Royal Banners",
+   "seasons": [
+    "Lent and Holy Week"
+   ],
+   "feast": "Passiontide, Good Friday, and the Holy Cross (14 September)",
+   "background": "Written about the year 580 by Venantius Fortunatus when relics of the True Cross came to Poitiers. It was later taken up for Passiontide.",
+   "backgroundSource": {
+    "label": "The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902), introduction",
+    "url": "https://en.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Vexilla_Regis"
+   },
+   "latin": {
+    "text": [
+     "VEXILLA regis prodeunt,\nFulget crucis mysterium,\nQuo carne carnis conditor\nSuspensus est patibulo.",
+     "Quo vulneratus insuper\nMucrone diro lanceæ,\nUt nos lavaret crimine\nManavit unda sanguine.",
+     "Impleta sunt quæ concinit\nDavid fideli carmine\nDicens: In nationibus\nRegnavit a ligno Deus.",
+     "Arbor decora et fulgida,\nOrnata regis purpura,\nElecta digno stipite\nTam sancta membra tangere.",
+     "Beata cujus brachiis\nPretium pependit sæculi,\nStatera facta sæculi\nPrædamque tulit tartaris.",
+     "O crux ave, spes unica!\nHoc passionis tempora,\nAuge piis institiam\nReisque dona veniam.",
+     "Te summa Deus Trinitas\nCollaudet omnis spiritus\nQuas per crucis mysterium\nSalvas, rege per sæcula."
+    ],
+    "source": {
+     "label": "Latin text as printed in The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902) (it differs a little from the Breviary form)",
+     "url": "https://la.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Vexilla_Regis/Fortunatus"
+    },
+    "file": "L_la_The_seven_great_hymns_of_the_mediaeval_church_Vexilla_Regis_Fortunatus.txt"
+   },
+   "translation": {
+    "text": [
+     "THE Royal Banners forward go;\nThe Cross shines forth in mystic glow;\nWhere He in flesh, our flesh who made,\nOur sentence bore, our ransom paid.",
+     "Where deep for us the spear was dy'd,\nLife's torrent rushing from His side,\nTo wash us in that precious flood\nWhere mingled water flow'd, and blood.",
+     "Fulfill'd is all that David told\nIn true prophetic song of old;\nAmidst the nations God, saith he,\nHath reign'd and triumph'd from the Tree.",
+     "O Tree of Beauty! Tree of Light!\nO Tree with royal purple dight!\nElect on whose triumphal breast\nThose holy limbs should find their rest!",
+     "On whose dear arms, so widely flung,\nThe weight of this world's ransom hung:\nThe price of human kind to pay,\nAnd spoil the Spoiler of his prey.",
+     "O Cross, our one reliance, hail!\nThis holy Passion-tide, avail\nTo give fresh merit to the faint,\nAnd pardon to the penitent.",
+     "To Thee, Eternal Three in One,\nLet homage meet by all be done;\nWhom by the Cross Thou dost restore,\nPreserve and govern evermore."
+    ],
+    "translator": "John Mason Neale",
+    "year": "as printed in 1902",
+    "source": {
+     "label": "The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902)",
+     "url": "https://en.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Vexilla_Regis/Neale"
+    },
+    "file": "P_The_seven_great_hymns_of_the_mediaeval_church_Vexilla_Regis_Neale.txt"
+   }
+  },
+  {
+   "id": "pange-lingua",
+   "title": "Pange lingua gloriosi corporis mysterium",
+   "english": "Of the Glorious Body Telling",
+   "seasons": [
+    "Corpus Christi and the Eucharist",
+    "Lent and Holy Week"
+   ],
+   "feast": "Corpus Christi; Holy Thursday (processions)",
+   "background": "Written by St Thomas Aquinas in the thirteenth century for Corpus Christi. Its fifth and sixth verses are sung on their own as the Tantum ergo. It borrows its tune and first line from an older Passion hymn by Fortunatus.",
+   "backgroundSource": {
+    "label": "Catholic Encyclopedia (1913), “Pange Lingua Gloriosi”, by H. T. Henry",
+    "url": "https://en.wikisource.org/wiki/Catholic_Encyclopedia_(1913)/Pange_Lingua_Gloriosi"
+   },
+   "latin": {
+    "text": [
+     "Pange, lingua, gloriosi\ncorporis mysterium,\nsanguinisque pretiosi,\nquem in mundi pretium\nfructus ventris generosi\nrex effudit gentium.",
+     "Nobis datus, nobis natus\nex intacta Virgine,\net in mundo conversatus,\nsparso verbi semine,\nsui moras incolatus\nmiro clausit ordine.",
+     "In supremae nocte coenae\nrecumbens cum fratribus,\nobservata lege plene\ncibis in legalibus,\ncibum turbae duodenae\nse dat suis manibus.",
+     "Verbum caro panem verum\nverbo carnem efficit,\nfitque sanguis Christi merum;\net si sensus deficit,\nad firmandum cor sincerum\nsola fides sufficit.",
+     "Tantum ergo sacramentum\nveneremur cernui,\net antiquum documentum\nnovo cedat ritui,\npraestet fides supplementum\nsensuum defectui.",
+     "Genitori Genitoque,\nlaus et iubilatio,\nsalus, honor, virtus quoque\nsit et benedictio.\nProcedenti ab utroque\ncompar sit laudatio.",
+     "Amen."
+    ],
+    "source": {
+     "label": "Latin Wikisource, “Pange lingua”",
+     "url": "https://la.wikisource.org/wiki/Pange_lingua"
+    },
+    "file": "L_la_Pange_lingua.txt"
+   },
+   "translation": {
+    "text": [
+     "Of the glorious Body telling,\nO my tongue, its mysteries sing;\nAnd the Blood, all price excelling,\nWhich for this world's ransoming\nIn a generous womb once dwelling,\nHe shed forth, the Gentiles' King.",
+     "Given for us, for us descending\nOf a Virgin to proceed,\nMan with man in converse blending\nScattered He the Gospel seed:\nTill His sojourn drew to ending,\nWhich He closed in wondrous deed.",
+     "At the last Great Supper seated,\nCircled by His brethren's band,\nAll the Law required, completed\nIn the feast its statutes planned,\nTo the Twelve Himself He meted\nFor their food with His own hand.",
+     "Word made Flesh, by Word He maketh\nVery Bread His Flesh to be;\nMan in wine Christ's Blood partaketh,\nAnd if senses fail to see,\nFaith alone the true heart waketh\nTo behold the Mystery.",
+     "Therefore we, before it bending,\nThis great Sacrament adore:\nTypes and shadows have their ending\nIn the new Rite evermore:\nFaith, our outward sense amending,\nMaketh good defects before.",
+     "Honour, laud, and praise addressing\nTo the Father and the Son,\nMight ascribe we, virtue, blessing,\nAnd eternal benison:\nHoly Ghost, from Both progressing,\nEqual laud to Thee be done! Amen."
+    ],
+    "translator": "John Mason Neale",
+    "year": "1867 edition",
+    "source": {
+     "label": "Mediaeval Hymns and Sequences (Neale)",
+     "url": "https://en.wikisource.org/wiki/Mediaeval_Hymns_and_Sequences/Pange_lingua_gloriosi_(Aquinas)"
+    },
+    "file": "L_en_Mediaeval_Hymns_and_Sequences_Pange_lingua_gloriosi_Aquinas_.txt"
+   }
+  },
+  {
+   "id": "tantum-ergo",
+   "title": "Tantum ergo",
+   "english": "Down in Adoration Falling",
+   "seasons": [
+    "Corpus Christi and the Eucharist"
+   ],
+   "feast": "Benediction of the Blessed Sacrament; Corpus Christi",
+   "background": "The last two verses of the Pange lingua, sung on their own at Benediction.",
+   "backgroundSource": {
+    "label": "Catholic Encyclopedia (1913), “Tantum Ergo”, by H. T. Henry",
+    "url": "https://en.wikisource.org/wiki/Catholic_Encyclopedia_(1913)/Tantum_Ergo"
+   },
+   "latin": {
+    "text": [
+     "Tantum ergo sacramentum\nveneremur cernui,\net antiquum documentum\nnovo cedat ritui,\npraestet fides supplementum\nsensuum defectui.",
+     "Genitori Genitoque,\nlaus et iubilatio,\nsalus, honor, virtus quoque\nsit et benedictio.\nProcedenti ab utroque\ncompar sit laudatio.",
+     "Amen."
+    ],
+    "source": {
+     "label": "Latin Wikisource, “Pange lingua” (verses 5 and 6)",
+     "url": "https://la.wikisource.org/wiki/Pange_lingua"
+    },
+    "file": "L_la_Pange_lingua.txt"
+   },
+   "translation": {
+    "text": [
+     "Down in adoration falling,\nLo, the sacred Host we hail;\nLo, o'er ancient forms departing,\nNewer rites of grace prevail;\nFaith for all defects supplying,\nWhere the feeble senses fail.",
+     "To the everlasting Father,\nAnd the Son who reigns on high,\nWith the Holy Ghost proceeding\nForth from each, eternally,\nBe salvation, honour, blessing,\nMight, and endless majesty."
+    ],
+    "translator": "Edward Caswall",
+    "year": "1849",
+    "source": {
+     "label": "Catholic Hymns (Formby, 1860), “Feast of Corpus Christi”",
+     "url": "https://en.wikisource.org/wiki/Catholic_Hymns_(1860)/Feast_of_Corpus_Christi"
+    },
+    "file": "P_Catholic_Hymns_1860_Feast_of_Corpus_Christi.txt"
+   }
+  },
+  {
+   "id": "o-salutaris",
+   "title": "O salutaris Hostia",
+   "english": "O Saving Victim",
+   "seasons": [
+    "Corpus Christi and the Eucharist"
+   ],
+   "feast": "Benediction of the Blessed Sacrament; Corpus Christi",
+   "background": "The last two verses of Aquinas’s hymn Verbum supernum prodiens, from Lauds of Corpus Christi. They are sung on their own at the opening of Benediction.",
+   "backgroundSource": {
+    "label": "Catholic Encyclopedia (1913), “O Salutaris Hostia”, by H. T. Henry",
+    "url": "https://en.wikisource.org/wiki/Catholic_Encyclopedia_(1913)/O_Salutaris_Hostia"
+   },
+   "latin": {
+    "text": [
+     "O SALUTARIS Hostia,\nQui cœli pandis ostium:\nBella premunt hostilia:\nDa robur, fer, auxilium.",
+     "Uni trinoque Domino\nSit sempiterna gloria,\nQui vitam sine termino\nNobis donet in patria."
+    ],
+    "source": {
+     "label": "A Manual of Prayers for the Use of the Catholic Laity (1889), “Benediction of the Blessed Sacrament”",
+     "url": "https://en.wikisource.org/wiki/A_Manual_of_Prayers_for_the_Use_of_the_Catholic_Laity/Benediction_of_the_Blessed_Sacrament"
+    },
+    "file": "P_A_Manual_of_Prayers_for_the_Use_of_the_Catholic_Laity_Benediction_of_the_Blessed_Sacrament.txt"
+   },
+   "translation": {
+    "text": [
+     "O SAVING Victim! opening wide\nThe gate of Heaven to man below!\nOur foes press on from every side;\nThine aid supply, Thy strength bestow.",
+     "To Thy great Name be endless praise,\nImmortal Godhead! One in Three!\nO grant us endless length of days\nIn our true native land with Thee!"
+    ],
+    "translator": "not named in the 1889 Manual",
+    "year": "1889 (printed in)",
+    "source": {
+     "label": "A Manual of Prayers for the Use of the Catholic Laity (1889)",
+     "url": "https://en.wikisource.org/wiki/A_Manual_of_Prayers_for_the_Use_of_the_Catholic_Laity/Benediction_of_the_Blessed_Sacrament"
+    },
+    "file": "P_A_Manual_of_Prayers_for_the_Use_of_the_Catholic_Laity_Benediction_of_the_Blessed_Sacrament.txt"
+   }
+  },
+  {
+   "id": "adoro-te",
+   "title": "Adoro te devote",
+   "english": "Humbly I Adore Thee",
+   "seasons": [
+    "Corpus Christi and the Eucharist"
+   ],
+   "feast": "Thanksgiving after Communion; Corpus Christi",
+   "background": "A private prayer of St Thomas Aquinas to Christ hidden in the Eucharist. Neale notes it was never used in public worship in the Middle Ages, but was added to most missals as a devotion.",
+   "backgroundSource": {
+    "label": "Mediaeval Hymns and Sequences (Neale, 1867), note on the hymn",
+    "url": "https://en.wikisource.org/wiki/Mediaeval_Hymns_and_Sequences/Adoro_Te_devote,_latens_Deitas"
+   },
+   "latin": {
+    "text": [
+     "Adoro te devote\nsaeculo XIII\neditio: incognita\nfons: incognitus",
+     "Adoro te devote, latens Deitas,\nQuae sub his figuris vere latitas:\nTibi se cor meum totum subiicit,\nQuia te contemplans totum deficit.",
+     "Visus, tactus, gustus in te fallitur,\nSed auditu solo tuto creditur.\nCredo quidquid dixit Dei Filius:\nNil hoc verbo Veritatis verius.",
+     "In cruce latebat sola Deitas,\nAt hic latet simul et humanitas;\nAmbo tamen credens atque confitens,\nPeto quod petivit latro paenitens.",
+     "Plagas, sicut Thomas, non intueor;\nDeum tamen meum te confiteor.\nFac me tibi semper magis credere,\nIn te spem habere, te diligere.",
+     "O memoriale mortis Domini!\nPanis vivus, vitam praestans homini!\nPraesta meae menti de te vivere\nEt te illi semper dulce sapere.",
+     "Pie pellicane, Iesu Domine,\nMe immundum munda tuo sanguine.\nCuius una stilla salvum facere\nTotum mundum quit ab omni scelere.",
+     "Iesu, quem velatum nunc aspicio,\nOro fiat illud quod tam sitio;\nUt te revelata cernens facie,\nVisu sim beatus tuae gloriae."
+    ],
+    "source": {
+     "label": "Latin Wikisource, “Adoro te devote”",
+     "url": "https://la.wikisource.org/wiki/Adoro_te_devote"
+    },
+    "file": "L_la_Adoro_te_devote.txt"
+   },
+   "translation": {
+    "text": [
+     "Humbly I adore Thee, hidden Deity,\nWhich beneath these figures art concealed from me;\nWholly in submission Thee my spirit hails,\nFor in contemplating Thee it wholly fails.",
+     "Taste and touch and vision in Thee are deceived:\nBut the hearing only may be well believed:\nI believe whatever God's own Son declared;\nNothing can be truer than Truth's very Word.",
+     "On the Cross lay hidden but Thy Deity:\nHere is also hidden Thy Humanity:\nBut in both believing and confessing, Lord,\nAsk I what the dying thief of Thee implored.",
+     "Though Thy Wounds, like Thomas, I behold not now,\nThee my Lord confessing, and my God, I bow:\nGive me ever stronger faith in Thee above,\nGive me ever stronger hope and stronger love.",
+     "O most sweet memorial of His death and woe,\nLiving Bread, Which givest life to man below,\nLet my spirit ever eat of Thee and live,\nAnd the blest fruition of Thy sweetness give!",
+     "Pelican of Mercy, Jesu, Lord and God,\nCleanse me, wretched sinner, in Thy Precious Blood:\nBlood, whereof one drop for humankind outpoured\nMight from all transgression have the world restored.",
+     "Jesu, Thou, Whom thus veil'd, I must see below,\nWhen shall that be given which I long for so,\nThat at last beholding Thy uncovered Face,\nThou wouldst satisfy me with Thy fullest grace?"
+    ],
+    "translator": "John Mason Neale",
+    "year": "1867",
+    "source": {
+     "label": "Mediaeval Hymns and Sequences (Neale, 1867)",
+     "url": "https://en.wikisource.org/wiki/Mediaeval_Hymns_and_Sequences/Adoro_Te_devote,_latens_Deitas"
+    },
+    "file": "P_Mediaeval_Hymns_and_Sequences_Adoro_Te_devote_latens_Deitas.txt"
+   }
+  },
+  {
+   "id": "stabat-mater",
+   "title": "Stabat Mater dolorosa",
+   "english": "At the Cross Her Station Keeping",
+   "seasons": [
+    "Lent and Holy Week",
+    "Marian"
+   ],
+   "feast": "Our Lady of Sorrows (15 September); the Stations of the Cross; Good Friday",
+   "background": "Ascribed to Jacopone da Todi, a Franciscan of the thirteenth century. It looks at Mary standing beside the cross.",
+   "backgroundSource": {
+    "label": "The Seven Great Hymns of the Mediaeval Church, ed. Charles Cooper Nott (1902), introduction",
+    "url": "https://en.wikisource.org/wiki/The_seven_great_hymns_of_the_mediaeval_church/Stabat_Mater_and_Mater_Speciosa"
+   },
+   "latin": null,
+   "latinNote": "The Latin text is not included here: no source for it was available to check the text against.",
+   "translation": {
+    "text": [
+     "At the Cross her station keeping,\nStood the mournful mother weeping,\nClose to Jesus to the last.",
+     "Through her heart, His sorrow sharing,\nAll His bitter anguish hearing,\nNow at length the sword had pass'd.",
+     "Oh, how sad and sore distress'd\nWas that Mother, highly blest\nOf the sole begotten One!",
+     "Christ above in torment hangs;\nShe beneath beholds the pangs\nOf her dying glorious Son.",
+     "Is there one who would not weep,\nWhelmed in miseries so deep,\nChrist's dear Mother to behold?",
+     "Can the human heart refrain\nFrom partaking in her pain,\nIn that Mother's pain untold?",
+     "Bruised, derided, cursed, defiled,\nShe beheld her tender Child\nAll with bloody scourges rent;",
+     "For the sins of His own nation,\nSaw Him hang in desolation,\nTill His Spirit forth He sent.",
+     "O thou Mother! fount of love!\nTouch my spirit from above,\nMake my heart with thine accord;",
+     "Make me feel as thou hast felt;\nMake my soul to glow and melt\nWith the love of Christ my Lord.",
+     "Holy Mother! pierce me through;\nIn my heart each wound renew\nOf my Saviour crucified;",
+     "Let me share with thee His pain,\nWho for all my sins was slain,\nWho for me in torments died.",
+     "Let me mingle tears with thee,\nMourning Him who mourn'd for me,\nAll the days that I may live:",
+     "By the Cross with thee to stay;\nThere with thee to weep and pray;\nIs all I ask of thee to give.",
+     "Virgin of all virgins best!\nListen to my fond request:\nLet me share thy grief divine;",
+     "Let me, to my latest breath,\nIn my body bear the death\nOf that dying Son of thine."
+    ],
+    "translator": "Edward Caswall",
+    "year": "1849",
+    "source": {
+     "label": "Catholic Hymns (Formby, 1860), “Stabat Mater”",
+     "url": "https://en.wikisource.org/wiki/Catholic_Hymns_(1860)/Stabat_Mater"
+    },
+    "file": "P_Catholic_Hymns_1860_Stabat_Mater.txt"
+   }
+  },
+  {
+   "id": "ave-maris-stella",
+   "title": "Ave maris stella",
+   "english": "Hail, Thou Star of Ocean",
+   "seasons": [
+    "Marian"
+   ],
+   "feast": "Feasts of Our Lady; Vespers of Our Lady",
+   "background": "An old hymn to Mary, found in a ninth-century manuscript from St Gall. It is older than St Bernard, to whom it was once wrongly ascribed.",
+   "backgroundSource": {
+    "label": "Catholic Encyclopedia (1913), “Ave Maris Stella”, by H. T. Henry",
+    "url": "https://en.wikisource.org/wiki/Catholic_Encyclopedia_(1913)/Ave_Maris_Stella"
+   },
+   "latin": null,
+   "latinNote": "The Latin text is not included here: no source for it was available to check the text against.",
+   "translation": {
+    "text": [
+     "Hail, thou Star of Ocean,\nPortal of the sky,\nEver Virgin Mother\nOf the Lord most high!",
+     "Oh, by Gabriel's Ave,\nUtter'd long ago,\nEva's name reversing,\n'Stablish peace below.",
+     "Break the captive's fetters,\nLight on darkness pour;\nAll our ills expelling,\nEvery bliss implore.",
+     "Show thyself a mother,\nOffer Him our sighs;\nWho for us incarnate\nDid not thee despise.",
+     "Virgin of all virgins,\nTo thy shelter take us;\nGentlest of the gentle,\nChaste and gentle make us.",
+     "Still as on we journey,\nHelp our weak endeavour;\nTill with thee and Jesus\nWe rejoice for ever.",
+     "Through the highest heaven,\nTo the all-holy Three,\nFather, Son, and Spirit,\nOne same glory be."
+    ],
+    "translator": "Edward Caswall",
+    "year": "1849",
+    "source": {
+     "label": "Catholic Hymns (Formby, 1860), “Hail, thou Star of Ocean”",
+     "url": "https://en.wikisource.org/wiki/Catholic_Hymns_(1860)/Hail,_thou_Star_of_Ocean"
+    },
+    "file": "P_Catholic_Hymns_1860_Hail_thou_Star_of_Ocean.txt"
+   }
+  },
+  {
+   "id": "regina-caeli",
+   "title": "Regina caeli",
+   "english": "Queen of Heaven",
+   "seasons": [
+    "Easter",
+    "Marian"
+   ],
+   "feast": "Eastertide, in place of the Angelus",
+   "background": "The Easter anthem to Our Lady, said from Holy Saturday until the Saturday after Pentecost. Its author is unknown. It goes back at least to the twelfth century.",
+   "backgroundSource": {
+    "label": "Catholic Encyclopedia (1913), “Regina Coeli”, by H. T. Henry",
+    "url": "https://en.wikisource.org/wiki/Catholic_Encyclopedia_(1913)/Regina_Coeli_(Queen_of_Heaven)"
+   },
+   "latin": {
+    "text": [
+     "Regina coeli laetare,\nAlleluia,\nQuia quem meruisti portare.\nAlleluia,\nResurrexit,\nSicut dixit,\nAlleluia.\nOra pro nobis Deum.\nAlleluia."
+    ],
+    "source": {
+     "label": "Latin as quoted in the Catholic Encyclopedia (1913)",
+     "url": "https://en.wikisource.org/wiki/Catholic_Encyclopedia_(1913)/Regina_Coeli_(Queen_of_Heaven)"
+    },
+    "file": "Catholic_Encyclopedia_(1913)__Regina_Coeli_(Queen_of_Heaven).txt"
+   },
+   "translation": null,
+   "translationNote": "Translation not included: no public-domain English translation with a named translator was found to check against."
+  },
+  {
+   "id": "salve-regina",
+   "title": "Salve Regina",
+   "english": "Hail, Holy Queen",
+   "seasons": [
+    "Marian"
+   ],
+   "feast": "Night prayer from Trinity Sunday to Advent; the end of the Rosary",
+   "background": "The best known of the four Marian anthems of the Divine Office. It is now generally ascribed to Hermann Contractus, an eleventh-century monk.",
+   "backgroundSource": {
+    "label": "Catholic Encyclopedia (1913), “Salve Regina”, by H. T. Henry",
+    "url": "https://en.wikisource.org/wiki/Catholic_Encyclopedia_(1913)/Salve_Regina"
+   },
+   "latin": {
+    "text": [
+     "Salve, Regína,\nMater misericórdiæ\nvita, dulcédo et spes nostra, salve.\nAd te clamámus,\néxsules filii Evæ,\nAd te suspirámus geméntes et flentes\nin hac lacrimárum valle.\nEia ergo, advocáta nostra,\nillos tuos misericórdes óculos\nad nos convérte.\nEt Iesum, benedíctum fructum\nventris tui,\nnobis, post hoc exsílium osténde.\nO clemens, o pia, o dulcis Virgo María."
+    ],
+    "source": {
+     "label": "Latin Wikisource, “Salve, Regina”",
+     "url": "https://la.wikisource.org/wiki/Salve_Regina"
+    },
+    "file": "L_la_Salve_Regina.txt"
+   },
+   "translation": null,
+   "translationNote": "Translation not included: no public-domain English translation with a named translator was found to check against."
+  },
+  {
+   "id": "te-deum",
+   "title": "Te Deum",
+   "english": "We Praise Thee, O God",
+   "seasons": [
+    "Thanksgiving"
+   ],
+   "feast": "Thanksgiving, great feasts, the end of Matins on Sundays",
+   "background": "A hymn of praise in rhythmic prose. The old story that Ambrose and Augustine made it up at Augustine’s baptism is now generally rejected. Its true author is uncertain.",
+   "backgroundSource": {
+    "label": "Catholic Encyclopedia (1913), “Te Deum”, by H. T. Henry",
+    "url": "https://en.wikisource.org/wiki/Catholic_Encyclopedia_(1913)/Te_Deum"
+   },
+   "latin": {
+    "text": [
+     "Te Deum laudámus:\nte Dóminum confitémur.\nTe ætérnum Patrem,\nomnis terra venerátur.\nTibi omnes ángeli,\ntibi cæli\net univérsæ potestátes:\ntibi chérubim et séraphim\nincessábili voce proclámant:\nSanctus, Sanctus, Sanctus,\nDóminus Deus Sábaoth.\nPleni sunt cæli et terra\nmaiestátis glóriæ tuæ.\nTe gloriósus\napostolòrum chorus,\nte prophetárum\nlaudábilis númerus,\nte mártyrum candidátus\nlaudat exércitus.\nTe per orbem terrárum\nsancta confitétur Ecclésia,\nPatrem imménsæ maiestátis;\nvenerándum tuum verum\net únicum Fílium;\nSanctum quoque\nParáclitum Spíritum.\nTu rex glóriæ, Christe.\nTu Patris sempitérnus es Filius.\nTu, ad liberándum susceptúrus hóminem,\nnon horrúisti Virginis úterum.\nTu, devícto mortis acúleo,\naperuísti credéntibus regna cælórum.\nTu ad déxteram Dei sedes,\nin glória Patris.\nIudex créderis esse ventúrus.\nTe ergo quǽsumus,\ntuis fámulis súbveni,\nquos pretióso sánguine redemísti.\nÆtérna fac cum sanctis tuis\nin glória numerári.\nSalvum fac pópulum tuum, Dómine,\net bénedic hereditáti tuæ.\nEt rege eos, et extólle illos\nusque in ætérnum.\nPer síngulos dies benedícimus te;\net laudámus nomen tuum\nin sǽculum, et in sǽculum sǽculi.\nDignáre, Dómine,\ndie isto sine peccáto nos custodíre.\nMiserére nostri, Dómine, miserére nostri.\nFiat misericórdia tua,\nDómine, super nos,\nquemádmodum sperávimus in te.\nIn te, Dómine, sperávi:\nnon confúndar in ætérnum."
+    ],
+    "source": {
+     "label": "Latin Wikisource, “Te Deum”",
+     "url": "https://la.wikisource.org/wiki/Te_Deum"
+    },
+    "file": "L_la_Te_Deum.txt"
+   },
+   "translation": null,
+   "translationNote": "Translation not included: no public-domain English translation with a named translator was found to check against."
+  }
+ ]
+}

@@ -1,0 +1,512 @@
+{
+  "id": "cults-and-new-movements",
+  "title": "Sects, new movements and high-control groups",
+  "tagline": "Adventists and the Sabbath, Oneness Pentecostals, the prosperity gospel, and how to care for someone in a high-control group.",
+  "group": "christians",
+  "audience": [
+    "adult"
+  ],
+  "whyItMatters": "Many people find meaning and community in groups that teach error, and a few are caught in control. Knowing the difference helps you answer kindly and care wisely.",
+  "mindset": [
+    {
+      "tip": "Meet the person first; most join for community and meaning, not for doctrine. (1 Peter 3:15-16; CCC 856)",
+      "resource": "vat-sects"
+    },
+    {
+      "tip": "Do not label every strict or odd group a cult. Ask whether there is real control of information, relationships and conscience.",
+      "resource": "fom-bite"
+    },
+    {
+      "tip": "Learn what the group says in its own words before you reply.",
+      "resource": "upci"
+    },
+    {
+      "tip": "Offer patient friendship and an open door; never force a person out. (Luke 15:20)",
+      "resource": "icsa"
+    },
+    {
+      "tip": "Answer the hunger that drew them: welcome, belonging and a clear call. (CCC 2113-2117)"
+    }
+  ],
+  "ccc": [
+    2111,
+    2112,
+    2113,
+    2116,
+    2117,
+    2174,
+    2175,
+    2446
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Learn the Church's pastoral approach and the signs of a high-control group.",
+      "minutes": 80,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "vat-sects",
+          "why": "The Holy See's guidance on sects and new movements."
+        },
+        {
+          "kind": "resource",
+          "id": "icsa",
+          "why": "See an independent centre for those affected by cults."
+        },
+        {
+          "kind": "resource",
+          "id": "fom-cult",
+          "why": "A plain explanation of undue influence."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Heresy",
+          "why": "A plain definition, since many groups hold errors without being cults."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "private-revelation",
+          "why": "The app's answer on private revelation and claims of new prophets."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What draws a person to a group you know, and what need is it meeting?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Study the Adventist Sabbath claim and the prosperity gospel.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "fom-bite",
+          "why": "A checklist for spotting control."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-sda",
+          "why": "A Catholic overview of Adventism."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-sda-cult",
+          "why": "Is Adventism a cult? A fair answer."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "sunday-sabbath",
+          "why": "The app's answer on Sunday or Saturday."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "sunday-worship-invented-by-the-church",
+          "why": "Check the claim that the Church invented Sunday worship."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-sabbath-sunday",
+          "why": "The early Christian evidence for Sunday."
+        },
+        {
+          "kind": "resource",
+          "id": "akin-sunday",
+          "why": "Did the Sabbath day move?"
+        },
+        {
+          "kind": "resource",
+          "id": "barron-prosperity",
+          "why": "A bishop on the prosperity gospel."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "claim",
+            "id": "sunday-worship-invented-by-the-church"
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Meet Oneness Pentecostalism, the prosperity gospel and Adventist sources.",
+      "minutes": 180,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "heresy",
+          "id": "modalism-sabellianism",
+          "why": "The early heresy that Oneness groups revive."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-trinity",
+          "why": "What the early Church believed about the Trinity."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-oneness",
+          "why": "A Catholic talk on Oneness Pentecostalism."
+        },
+        {
+          "kind": "resource",
+          "id": "upci",
+          "why": "Read how the largest Oneness body introduces itself."
+        },
+        {
+          "kind": "resource",
+          "id": "tgc-prosperity",
+          "why": "An evangelical scholar on the prosperity gospel."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-health-wealth",
+          "why": "A Catholic reply to the prosperity gospel."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "tithing-and-money",
+          "why": "The app's answer on money, tithing and the prosperity gospel."
+        },
+        {
+          "kind": "resource",
+          "id": "white",
+          "why": "Adventists' own voice on Ellen White."
+        },
+        {
+          "kind": "resource",
+          "id": "dies",
+          "why": "The Church's teaching on the Lord's Day."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the Fathers, the Vatican guidance and the pastoral questions.",
+      "minutes": 240,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "didache",
+          "why": "An early Christian text on the Lord's Day."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "ignatius-letters",
+          "why": "Ignatius on living by the Lord's Day."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "justin-martyr",
+          "why": "Justin describes Christian Sunday worship."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "hippolytus",
+          "why": "Hippolytus wrote against the modalist Noetus; check the contents of this volume."
+        },
+        {
+          "kind": "resource",
+          "id": "lausanne-pros",
+          "why": "A global evangelical critique of the prosperity gospel."
+        },
+        {
+          "kind": "resource",
+          "id": "vat-water",
+          "why": "The Vatican on New Age movements."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-sda-baptism",
+          "why": "A pastoral question for converts from Adventism."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "vincent-commonitory",
+          "why": "A rule for judging new teachings."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "How would you help a friend who feels trapped in a group without pushing them away?"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "vat-sects",
+      "title": "Sects or New Religious Movements: A Pastoral Challenge",
+      "creator": "Vatican Secretariats (1986)",
+      "kind": "article",
+      "url": "https://www.ewtn.com/catholicism/library/sects-of-new-religious-movements-a-pastoral-challenge-11325",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "The Holy See's own guidance: why such groups attract people and how the Church should respond.",
+      "verified": "2026-11-09",
+      "minutes": 45,
+      "note": "Vatican report (1986), hosted on EWTN"
+    },
+    {
+      "id": "icsa",
+      "title": "ICSA: International Cultic Studies Association",
+      "creator": "ICSA",
+      "kind": "site",
+      "url": "https://www.icsahome.com/",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A nonprofit research and support centre for those affected by high-control groups.",
+      "verified": "2026-11-09",
+      "note": "Secular nonprofit; not a Catholic source"
+    },
+    {
+      "id": "fom-cult",
+      "title": "The Cult: the Meaning of Undue Influence",
+      "creator": "Steven Hassan (Freedom of Mind Resource Center)",
+      "kind": "article",
+      "url": "https://freedomofmind.com/cult-mind-control/",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A former member explains undue influence in plain terms.",
+      "verified": "2026-11-09",
+      "note": "By a former Unification Church member and mental-health counsellor; not a Catholic source and not accepted by every scholar"
+    },
+    {
+      "id": "fom-bite",
+      "title": "BITE Model of Authoritarian Control",
+      "creator": "Steven Hassan (Freedom of Mind Resource Center)",
+      "kind": "article",
+      "url": "https://freedomofmind.com/cult-mind-control/bite-model-pdf-download/",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "A checklist for spotting control of behaviour, information, thoughts and emotions.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "By Steven Hassan; a practical tool, but contested by some scholars; use it for care, not for labelling a group"
+    },
+    {
+      "id": "ca-sda",
+      "title": "Seventh-day Adventism",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/seventh-day-adventism",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "A Catholic overview of Adventist belief and its main differences.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-sda-cult",
+      "title": "Is Seventh-day Adventism a cult?",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/qa/is-seventh-day-adventism-a-cult",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A fair answer that separates a heterodox Christian group from a high-control group.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-sabbath-sunday",
+      "title": "What the Early Church Believed: Sabbath or Sunday?",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/sabbath-or-sunday",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "The early Christian evidence for gathering on the Lord's Day.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "akin-sunday",
+      "title": "Is Sunday the Christian Sabbath? Did the Sabbath day move?",
+      "creator": "Jimmy Akin",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=4JKg7zGWqh0",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Asks whether Sunday is the Christian Sabbath and when the day moved.",
+      "verified": "2026-11-09",
+      "note": "Jimmy Akin"
+    },
+    {
+      "id": "tgc-prosperity",
+      "title": "Prosperity Gospel Born in the USA",
+      "creator": "Russell S. Woodbridge (The Gospel Coalition)",
+      "kind": "article",
+      "url": "https://www.thegospelcoalition.org/article/prosperity-gospel-born-in-the-usa/",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "An evangelical scholar traces the origins of the prosperity gospel.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "By a Protestant scholar; useful for seeing how other Christians critique it"
+    },
+    {
+      "id": "barron-prosperity",
+      "title": "Bishop Barron on The Prosperity Gospel",
+      "creator": "Bishop Robert Barron",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=1ip4Jx92F94",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A bishop answers the prosperity gospel from the Gospels.",
+      "verified": "2026-11-09",
+      "note": "Word on Fire"
+    },
+    {
+      "id": "ca-health-wealth",
+      "title": "Health and Wealth - or the Cross?",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/health-and-wealth-or-the-cross",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A Catholic reply to the idea that faith guarantees wealth and health.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-trinity",
+      "title": "What the Early Church Believed: The Trinity",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/the-trinity",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "What the early Christians believed about the Trinity, the point Oneness groups deny.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "horn-oneness",
+      "title": "Oneness Pentecostalism is a modern movement that denies the Trinity—and yes, that’s heresy.",
+      "creator": "Trent Horn",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=IfNZ-KaOvGU",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Explains that Oneness Pentecostalism is a modern movement that denies the Trinity.",
+      "verified": "2026-11-09",
+      "note": "Catholic; the title is blunt but the talk addresses the doctrine"
+    },
+    {
+      "id": "upci",
+      "title": "About the UPCI",
+      "creator": "United Pentecostal Church International",
+      "kind": "site",
+      "url": "https://upci.org/about-the-upci/",
+      "free": true,
+      "level": 3,
+      "audience": "any",
+      "why": "The largest Oneness Pentecostal body introduces itself.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice (UPCI); the page points to a separate beliefs page"
+    },
+    {
+      "id": "white",
+      "title": "Ellen G. White Estate",
+      "creator": "Ellen G. White Estate",
+      "kind": "site",
+      "url": "https://whiteestate.org/",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The Adventist body that keeps the writings of Ellen G. White, whom Adventists see as a prophet.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice (Adventist); the official 28 Fundamental Beliefs page could not be fetched at the time of checking"
+    },
+    {
+      "id": "dies",
+      "title": "Dies Domini",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1998/documents/hf_jp-ii_apl_05071998_dies-domini.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The Church's teaching on the Lord's Day and Sunday rest.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Apostolic Letter, 1998"
+    },
+    {
+      "id": "lausanne-pros",
+      "title": "The Prosperity Gospel: A Critique of the Way the Bible is Used",
+      "creator": "Femi Adeleye (Lausanne Movement)",
+      "kind": "article",
+      "url": "https://www.lausanne.org/content/lga/2017-12/the-prosperity-gospel",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A global evangelical critique of how the prosperity gospel uses the Bible.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "By an evangelical author; useful as a Protestant voice"
+    },
+    {
+      "id": "vat-water",
+      "title": "Jesus Christ, the Bearer of the Water of Life",
+      "creator": "Pontifical Councils for Culture and Interreligious Dialogue",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/pontifical_councils/interelg/documents/rc_pc_interelg_doc_20030203_new-age_en.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A Vatican reflection on the New Age and similar movements.",
+      "verified": "2026-11-09",
+      "minutes": 90,
+      "note": "Vatican document (2003)"
+    },
+    {
+      "id": "ca-sda-baptism",
+      "title": "The Doubtful Validity of Seventh-day Adventist Baptism",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/the-doubtful-validity-of-seventh-day-adventist-baptism",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A Catholic look at a hard pastoral question for converts.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    }
+  ]
+}

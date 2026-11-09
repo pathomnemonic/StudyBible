@@ -1,0 +1,436 @@
+{
+  "id": "abortion-and-the-unborn",
+  "title": "Abortion and the unborn",
+  "tagline": "How to understand and explain the Church's teaching on unborn life, with respect for women and for those who disagree.",
+  "group": "morals-and-life",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Abortion is one of the most painful topics, and many people in any room have been touched by it. This course helps you speak the truth about the unborn child and the mother together, and points to real help.",
+  "mindset": [
+    {
+      "tip": "Assume the person may have a story. Listen first; a friend, sister or you may be carrying a loss. Never use statistics as a weapon (James 1:19)."
+    },
+    {
+      "tip": "Ask questions that invite thought, such as 'what do you think makes a human being valuable?'. Trent Horn's talks model this tone.",
+      "resource": "horn-nine"
+    },
+    {
+      "tip": "Name the woman's needs and fears as real. Offer practical help and know where to send someone (Option Line, Women Deserve Better).",
+      "resource": "option-line"
+    },
+    {
+      "tip": "Do not leave out mercy: the Church offers healing to those who have had an abortion (CCC 2270-2275; Evangelium Vitae 99).",
+      "resource": "project-rachel"
+    },
+    {
+      "tip": "Separate the science of when a human life begins from the question of how we should treat human beings. Be honest about which is which.",
+      "resource": "ewtn-condic"
+    }
+  ],
+  "ccc": [
+    2258,
+    2270,
+    2271,
+    2272,
+    2273,
+    2274,
+    2275,
+    2322,
+    2367,
+    1777
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Learn what the Church teaches and how the first Christians spoke of it.",
+      "minutes": 75,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Sanctity of life",
+          "why": "The plain definition and where it comes from."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-abortion-early",
+          "why": "A quick summary of early Christian witness."
+        },
+        {
+          "kind": "resource",
+          "id": "didache-text",
+          "why": "Read the early Christian text for yourself; it is short."
+        },
+        {
+          "kind": "resource",
+          "id": "respect-life",
+          "why": "The bishops' general pro-life resource, with prayers and ways to help."
+        },
+        {
+          "kind": "resource",
+          "id": "project-rachel",
+          "why": "Start with the mercy: where healing is offered after abortion."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "10-9-1",
+          "why": "A school lesson on the dignity of the unborn."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What would you say to a friend who tells you she is pregnant and afraid?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Understand the argument: science, personhood and equality.",
+      "minutes": 120,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "sanctity-of-life",
+          "why": "The app's sourced chain of Scripture and Fathers on human life."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "sanctity-of-life"
+          }
+        },
+        {
+          "kind": "resource",
+          "id": "ewtn-condic",
+          "why": "A scientist on the biology of when a new organism begins."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-persuasive",
+          "why": "Radio talk on how to make the case persuasively."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-bootcamp",
+          "why": "A training session with common replies."
+        },
+        {
+          "kind": "resource",
+          "id": "secular-pro-life",
+          "why": "See that the case does not rely on faith."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "7-9-2",
+          "why": "A lesson on the gift of every life."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Handle bodily autonomy, hard cases and the claim that men cannot speak.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "horn-nine",
+          "why": "Questions that start a conversation instead of a fight."
+        },
+        {
+          "kind": "resource",
+          "id": "wdb",
+          "why": "A pro-life women's organisation on supporting women so abortion is not the only choice."
+        },
+        {
+          "kind": "resource",
+          "id": "option-line",
+          "why": "Know where to send a woman for practical help."
+        },
+        {
+          "kind": "resource",
+          "id": "decl-abortion",
+          "why": "The Vatican's 1974 declaration, which answers many common objections."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "abortion",
+          "why": "The app's own summary of the topic."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Principle of double effect",
+          "why": "Used in rare cases such as ectopic pregnancy and cancer treatment; read it carefully."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-12-2",
+          "why": "Faith, politics and the common good, for the public side of the debate."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the primary sources and hear a real disagreement.",
+      "minutes": 240,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "ev",
+          "why": "John Paul II's encyclical on life; read chapters 1 and 2 first."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-rauser",
+          "why": "A calm exchange with a Protestant who holds that personhood comes by degrees."
+        },
+        {
+          "kind": "resource",
+          "id": "rachels-vineyard",
+          "why": "Learn how a retreat for healing works, so you can point to it."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "roman-catechism",
+          "why": "The Roman Catechism on the fifth commandment."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "tertullian-apologetic",
+          "why": "Tertullian's early defence of the unborn, in the Apology."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "baltimore-catechism",
+          "why": "See how a traditional catechism teaches the commandment."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "ev",
+      "title": "Evangelium Vitae",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html",
+      "free": true,
+      "minutes": 150,
+      "level": 2,
+      "audience": "adult",
+      "why": "The Church's main teaching on the value and inviolability of human life, from conception to natural death.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 1995"
+    },
+    {
+      "id": "decl-abortion",
+      "title": "Declaration on procured abortion",
+      "creator": "Congregation for the Doctrine of the Faith",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19741118_declaration-abortion_en.html",
+      "free": true,
+      "minutes": 40,
+      "level": 3,
+      "audience": "adult",
+      "why": "A shorter 1974 statement of the reasons the Church gives, including from reason alone.",
+      "verified": "2026-11-09",
+      "note": "Vatican document, 1974"
+    },
+    {
+      "id": "ca-abortion-early",
+      "title": "What the Early Church Believed: Abortion",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/abortion",
+      "free": true,
+      "minutes": 12,
+      "level": 2,
+      "audience": "any",
+      "why": "Short survey of how the first Christians spoke about abortion.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers tract"
+    },
+    {
+      "id": "didache-text",
+      "title": "The Didache",
+      "creator": "Unknown (early Christian text)",
+      "kind": "article",
+      "url": "https://www.newadvent.org/fathers/0714.htm",
+      "free": true,
+      "minutes": 10,
+      "level": 2,
+      "audience": "any",
+      "why": "One of the earliest Christian writings, with a plain prohibition of abortion and infanticide.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "horn-persuasive",
+      "title": "Persuasive Pro-Life",
+      "creator": "Trent Horn / Catholic Answers",
+      "kind": "podcast",
+      "url": "https://www.catholic.com/audio/cal/persuasive-pro-life-2",
+      "free": true,
+      "minutes": 60,
+      "level": 2,
+      "audience": "adult",
+      "why": "Radio episode from the author of the book of the same name: how to talk about abortion calmly and clearly.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers Live episode; the book is sold by Catholic Answers"
+    },
+    {
+      "id": "horn-nine",
+      "title": "Nine Questions to Ask Pro-Choicers",
+      "creator": "Trent Horn / Catholic Answers",
+      "kind": "podcast",
+      "url": "https://www.catholic.com/audio/cot/nine-questions-to-ask-pro-choicers",
+      "free": true,
+      "minutes": 45,
+      "level": 2,
+      "audience": "adult",
+      "why": "A practical list of questions that keep a conversation going instead of a fight.",
+      "verified": "2026-11-09",
+      "note": "Counsel of Trent podcast"
+    },
+    {
+      "id": "horn-bootcamp",
+      "title": "Pro-Life Boot Camp",
+      "creator": "Trent Horn / Catholic Answers",
+      "kind": "podcast",
+      "url": "https://www.catholic.com/audio/cot/pro-life-boot-camp",
+      "free": true,
+      "minutes": 60,
+      "level": 2,
+      "audience": "adult",
+      "why": "A training episode on the basic pro-life argument and the common replies.",
+      "verified": "2026-11-09",
+      "note": "Counsel of Trent podcast"
+    },
+    {
+      "id": "horn-rauser",
+      "title": "Do Humans Gradually Become Persons? (with Randal Rauser)",
+      "creator": "Trent Horn and Randal Rauser / Catholic Answers",
+      "kind": "debate",
+      "url": "https://www.catholic.com/audio/cot/a-thoughtful-dialogue-on-abortion-with-randal-rauser",
+      "free": true,
+      "minutes": 60,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A courteous exchange with a Protestant theologian who thinks personhood comes by degrees.",
+      "verified": "2026-11-09",
+      "note": "Counsel of Trent podcast; the guest disagrees with Horn, which is the point"
+    },
+    {
+      "id": "ewtn-condic",
+      "title": "The Facts of When Human Life Begins",
+      "creator": "Maureen Condic (interview, ZENIT, 2008)",
+      "kind": "article",
+      "url": "https://www.ewtn.com/catholicism/library/facts-of-when-human-life-begins-9731",
+      "free": true,
+      "minutes": 10,
+      "level": 2,
+      "audience": "any",
+      "why": "A neuroscientist explains why biology places the start of a new human organism at fertilisation.",
+      "verified": "2026-11-09",
+      "note": "Interview republished by EWTN; the argument about personhood is a separate step"
+    },
+    {
+      "id": "secular-pro-life",
+      "title": "Secular Pro-Life",
+      "creator": "Secular Pro-Life",
+      "kind": "site",
+      "url": "https://secularprolife.org/",
+      "free": true,
+      "minutes": 30,
+      "level": 2,
+      "audience": "any",
+      "why": "A non-religious pro-life group: shows that the case can be made without appeal to faith.",
+      "verified": "2026-11-09",
+      "note": "Not a Catholic organisation; useful for hearing a secular voice"
+    },
+    {
+      "id": "project-rachel",
+      "title": "Project Rachel: Hope After Abortion",
+      "creator": "U.S. Conference of Catholic Bishops",
+      "kind": "site",
+      "url": "https://hopeafterabortion.com/",
+      "free": true,
+      "minutes": 15,
+      "level": 1,
+      "audience": "any",
+      "why": "Confidential, merciful help for anyone hurting after an abortion, including how to find a Catholic minister or counsellor.",
+      "verified": "2026-11-09",
+      "note": "USCCB ministry"
+    },
+    {
+      "id": "rachels-vineyard",
+      "title": "Rachel's Vineyard",
+      "creator": "Rachel's Vineyard Ministries",
+      "kind": "site",
+      "url": "https://www.rachelsvineyard.org/",
+      "free": true,
+      "minutes": 15,
+      "level": 1,
+      "audience": "any",
+      "why": "Weekend retreats of healing after abortion, open to women and men.",
+      "verified": "2026-11-09",
+      "note": "Catholic-founded ministry"
+    },
+    {
+      "id": "wdb",
+      "title": "Women Deserve Better (formerly Feminists for Life)",
+      "creator": "Women Deserve Better",
+      "kind": "site",
+      "url": "https://womendeservebetter.org/",
+      "free": true,
+      "minutes": 20,
+      "level": 3,
+      "audience": "any",
+      "why": "Presents the case that women deserve support and resources so that no one feels abortion is the only choice.",
+      "verified": "2026-11-09",
+      "note": "Organisation formerly known as Feminists for Life"
+    },
+    {
+      "id": "respect-life",
+      "title": "Respect Life",
+      "creator": "U.S. Conference of Catholic Bishops",
+      "kind": "site",
+      "url": "https://www.respectlife.org/",
+      "free": true,
+      "minutes": 20,
+      "level": 1,
+      "audience": "any",
+      "why": "Bishops' pro-life site with talking points, prayers and help for pregnant women.",
+      "verified": "2026-11-09",
+      "note": "USCCB"
+    },
+    {
+      "id": "option-line",
+      "title": "Option Line",
+      "creator": "Option Line",
+      "kind": "site",
+      "url": "https://www.optionline.org/",
+      "free": true,
+      "minutes": 5,
+      "level": 1,
+      "audience": "any",
+      "why": "A way to connect a pregnant woman with real help near her; worth knowing before a hard conversation.",
+      "verified": "2026-11-09",
+      "note": "Pregnancy-help network"
+    }
+  ]
+}

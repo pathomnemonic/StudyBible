@@ -1,0 +1,479 @@
+{
+  "id": "moral-relativism",
+  "title": "Moral relativism and truth",
+  "tagline": "Answer \"that is true for you\" and show why truth, conscience and natural law matter.",
+  "group": "faith-and-reason",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Most people your age or older live with a quiet relativism: \"who am I to judge?\". It makes moral conversation hard and can excuse real harm.",
+  "mindset": [
+    {
+      "tip": "Start with what the person cares about (fairness, kindness, tolerance) and show that these already assume real moral truth.",
+      "resource": "broussard-intolerant"
+    },
+    {
+      "tip": "Ask questions: \"Is it wrong to be intolerant? Would it be wrong if everyone agreed it was fine?\".",
+      "resource": "koukl-flaws"
+    },
+    {
+      "tip": "Distinguish humility about what we know from denial that anything can be known.",
+      "resource": "horn-dictatorship"
+    },
+    {
+      "tip": "Respect conscience, even a wrongly formed one; we persuade, we do not force (CCC 1782, 1790-1794; Dignitatis Humanae 1-3).",
+      "resource": "dignitatis-humanae"
+    }
+  ],
+  "ccc": [
+    1776,
+    1777,
+    1778,
+    1779,
+    1780,
+    1781,
+    1782,
+    1783,
+    1790,
+    1791,
+    1792,
+    1793,
+    1794,
+    1954,
+    1955,
+    1956,
+    1957,
+    1958,
+    1959,
+    2465,
+    2466
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Understand relativism and see why it fails in everyday life.",
+      "minutes": 80,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Conscience",
+          "why": "A plain definition of conscience."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Natural law",
+          "why": "A plain definition of the natural law."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-dictatorship",
+          "why": "A short, kind answer to relativism."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "8-7-1",
+          "why": "Catechism lesson on conscience and freedom."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "2-L1",
+          "why": "A simple lesson on conscience as a quiet voice."
+        },
+        {
+          "kind": "resource",
+          "id": "mlk-letter",
+          "why": "See a famous appeal to a law higher than human law."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "Think of one thing you believe is truly wrong for everyone. Where does that certainty come from?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Argue that moral truth exists and can be known.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "broussard-refute",
+          "why": "Why relativism breaks down in practice."
+        },
+        {
+          "kind": "resource",
+          "id": "broussard-intolerant",
+          "why": "Answer the claim that absolutes mean intolerance."
+        },
+        {
+          "kind": "resource",
+          "id": "kreeft-conscience",
+          "why": "The moral argument from conscience."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "sanctity-of-life",
+          "why": "A sourced argument showing moral truth on a test case."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "sanctity-of-life"
+          }
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "11-5-2",
+          "why": "Lesson on freedom, conscience and natural law."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-16-1",
+          "why": "Lesson on how to form conscience."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "chesterton-orthodoxy",
+          "why": "Chesterton on the suicide of thought (chapter 3).",
+          "section": "s3"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Answer the strongest arguments for relativism fairly.",
+      "minutes": 220,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "koukl-flaws",
+          "why": "Practical questions for a relativist."
+        },
+        {
+          "kind": "resource",
+          "id": "kreeft-relativism",
+          "why": "Hear a full lecture that answers the usual reasons for relativism."
+        },
+        {
+          "kind": "resource",
+          "id": "newman-conscience",
+          "why": "Newman on conscience as more than a feeling."
+        },
+        {
+          "kind": "resource",
+          "id": "dignitatis-humanae",
+          "why": "The Church's case that conscience must be free."
+        },
+        {
+          "kind": "resource",
+          "id": "gaudium-et-spes",
+          "why": "Read nos. 16-17 on conscience and freedom."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "catholic-inventions",
+          "why": "The charge that the Church invented its moral rules."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "church-treats-women-lesser",
+          "why": "A common cultural objection, answered with sources."
+        },
+        {
+          "kind": "resource",
+          "id": "evangelium-vitae",
+          "why": "Nos. 19-20 and 69-70 describe relativism's effect on law."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Study natural law, the secular case for relativism, and the classic sources.",
+      "minutes": 360,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "veritatis-splendor",
+          "why": "The Church's major teaching on moral truth."
+        },
+        {
+          "kind": "resource",
+          "id": "summa-i-ii-94",
+          "why": "Aquinas on the natural law."
+        },
+        {
+          "kind": "resource",
+          "id": "sep-relativism",
+          "why": "The best philosophical case for relativism, fairly stated."
+        },
+        {
+          "kind": "resource",
+          "id": "sep-natural-law",
+          "why": "A neutral overview of natural law."
+        },
+        {
+          "kind": "resource",
+          "id": "theaetetus",
+          "why": "Plato's old argument that \"true for me\" cannot be right."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "aug-city-of-god",
+          "why": "Augustine on the two cities and what makes a just order.",
+          "section": "iv.XV"
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "newman-grammar-of-assent",
+          "why": "Newman on conscience and certainty (Chapter IX).",
+          "section": "s21"
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "chesterton-orthodoxy",
+          "why": "Chesterton on ethics and the idea of a moral law (chapter 4).",
+          "section": "s4"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "horn-dictatorship",
+      "title": "Defeating the \"Dictatorship of Relativism\"",
+      "creator": "Trent Horn (Counsel of Trent)",
+      "kind": "podcast",
+      "url": "https://www.catholic.com/audio/cot/defeating-the-dictatorship-of-relativism",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Shows why relativism contradicts itself and how to answer it kindly.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "mlk-letter",
+      "title": "Letter from a Birmingham Jail",
+      "creator": "Martin Luther King Jr.",
+      "kind": "article",
+      "url": "https://www.africa.upenn.edu/Articles_Gen/Letter_Birmingham.html",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A famous case that unjust laws can be judged by a standard higher than law.",
+      "verified": "2026-11-09",
+      "minutes": 30,
+      "note": "Baptist minister; text hosted by the University of Pennsylvania"
+    },
+    {
+      "id": "broussard-refute",
+      "title": "How to Refute Moral Relativism",
+      "creator": "Karlo Broussard",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/how-to-refute-moral-relativism",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Explains why living as a relativist breaks down in practice.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "broussard-intolerant",
+      "title": "Who's Intolerant: the Relativist or the Absolutist?",
+      "creator": "Karlo Broussard",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/whos-intolerant-the-relativist-or-the-absolutist",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Answers the claim that believing in absolutes means being intolerant.",
+      "verified": "2026-11-09",
+      "minutes": 8,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "kreeft-conscience",
+      "title": "Argument from Conscience",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/conscience.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Starts from the sense of right and wrong that nearly everyone has.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "koukl-flaws",
+      "title": "Five Fatal Flaws of Moral Relativism",
+      "creator": "Greg Koukl (Stand to Reason)",
+      "kind": "article",
+      "url": "https://www.str.org/w/five-fatal-flaws-of-moral-relativism",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Practical questions to ask someone who says morality is just opinion.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "By a Protestant apologist; used here for the argument only"
+    },
+    {
+      "id": "kreeft-relativism",
+      "title": "A Refutation of Moral Relativism (audio lecture and transcript)",
+      "creator": "Peter Kreeft",
+      "kind": "talk",
+      "url": "https://peterkreeft.com/audio/05_relativism.htm",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A lecture that answers the usual reasons people give for relativism, with a written transcript.",
+      "verified": "2026-11-09",
+      "minutes": 50,
+      "note": "Catholic philosopher; audio quality is plain"
+    },
+    {
+      "id": "newman-conscience",
+      "title": "Letter to the Duke of Norfolk, Section 5: Conscience and the Pope",
+      "creator": "John Henry Newman",
+      "kind": "article",
+      "url": "https://www.newmanreader.org/works/anglicans/volume2/gladstone/section5.html",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "Newman's well-known account of conscience as a messenger, not a mere feeling.",
+      "verified": "2026-11-09",
+      "minutes": 40,
+      "note": "Public-domain text on the Newman Reader"
+    },
+    {
+      "id": "dignitatis-humanae",
+      "title": "Dignitatis Humanae (Declaration on Religious Freedom)",
+      "creator": "Second Vatican Council",
+      "kind": "article",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_en.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The Church's case that conscience must be free precisely because truth matters.",
+      "verified": "2026-11-09",
+      "note": "Council text, 1965"
+    },
+    {
+      "id": "gaudium-et-spes",
+      "title": "Gaudium et Spes (Pastoral Constitution on the Church in the Modern World)",
+      "creator": "Second Vatican Council",
+      "kind": "article",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Paragraphs 19-22 describe atheism, its causes, and how the Church should answer.",
+      "verified": "2026-11-09",
+      "note": "Council text, 1965"
+    },
+    {
+      "id": "evangelium-vitae",
+      "title": "Evangelium Vitae (The Gospel of Life)",
+      "creator": "Pope St. John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Paragraphs 19-20 and 69-70 show how relativism affects law and life.",
+      "verified": "2026-11-09",
+      "note": "Encyclical, 1995"
+    },
+    {
+      "id": "veritatis-splendor",
+      "title": "Veritatis Splendor (The Splendor of Truth)",
+      "creator": "Pope St. John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The Church's main teaching on moral truth, conscience and objective good and evil.",
+      "verified": "2026-11-09",
+      "note": "Encyclical, 1993"
+    },
+    {
+      "id": "summa-i-ii-94",
+      "title": "Summa Theologiae I-II, Question 94: The natural law",
+      "creator": "Thomas Aquinas",
+      "kind": "book",
+      "url": "https://www.newadvent.org/summa/2094.htm",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The classic account of the natural law, in Aquinas's own words.",
+      "verified": "2026-11-09",
+      "minutes": 25,
+      "note": "Public-domain English translation"
+    },
+    {
+      "id": "sep-relativism",
+      "title": "Moral Relativism",
+      "creator": "Stanford Encyclopedia of Philosophy",
+      "kind": "article",
+      "url": "https://plato.stanford.edu/entries/moral-relativism/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The best philosophical case for relativism, fairly stated.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Secular scholarly reference; the other side in its strongest form"
+    },
+    {
+      "id": "sep-natural-law",
+      "title": "Natural Law Theories",
+      "creator": "Stanford Encyclopedia of Philosophy",
+      "kind": "article",
+      "url": "https://plato.stanford.edu/entries/natural-law-theories/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A neutral overview of natural law, including its secular forms.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Secular scholarly reference"
+    },
+    {
+      "id": "theaetetus",
+      "title": "Theaetetus (Plato's reply to Protagoras)",
+      "creator": "Plato",
+      "kind": "book",
+      "url": "https://www.gutenberg.org/ebooks/1726",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The oldest argument that \"truth is relative to each person\" undermines itself.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on Project Gutenberg"
+    }
+  ]
+}

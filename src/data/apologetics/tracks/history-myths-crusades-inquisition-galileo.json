@@ -1,0 +1,430 @@
+{
+ "id": "history-myths-crusades-inquisition-galileo",
+ "title": "Church history: myths and real failures",
+ "tagline": "The Crusades, Inquisition, Galileo, the “Dark Ages”, witch trials, Pius XII and slavery: what happened, and where the Church was wrong.",
+ "group": "church-and-scripture",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "History is often used as a weapon against the faith. Fair-minded answers need both facts and honesty about real sins.",
+ "mindset": [
+  {
+   "tip": "Do not defend the indefensible. Where the Church failed, say so plainly; John Paul II asked forgiveness for past wrongs.",
+   "resource": "jp2-galileo"
+  },
+  {
+   "tip": "Ask which event the person means and where they learned it; then check the sources together."
+  },
+  {
+   "tip": "Use historians of different views, including non-Catholic ones. (Proverbs 18:17)",
+   "resource": "ct-galileo"
+  },
+  {
+   "tip": "Avoid mocking those who hold the myths; most picked them up from school or film. (1 Peter 3:15-16)"
+  }
+ ],
+ "ccc": [
+  817,
+  827,
+  2106,
+  2108,
+  2109,
+  2414,
+  159
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Get the main facts on the big accusations.",
+   "minutes": 80,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "madden-zenit",
+     "why": "A historian’s overview of why the Crusades began."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-inquisition",
+     "why": "A short overview of what the Inquisitions were."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "inquisition",
+     "why": "A Q&A on the Inquisition and the Crusades."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "galileo",
+     "why": "A Q&A on the Galileo case."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "8-9-2",
+     "why": "A lesson on Galileo, the Inquisition and the Crusades."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Heresy",
+     "why": "The word behind the Inquisition."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "Which story about the Church’s past have you heard most often? Where did it come from?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Check the sources on science and slavery.",
+   "minutes": 85,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "church-opposed-science-galileo",
+     "why": "Tests the claim step by step against sources."
+    },
+    {
+     "kind": "resource",
+     "id": "jp2-galileo",
+     "why": "Read the pope’s 1992 words yourself."
+    },
+    {
+     "kind": "resource",
+     "id": "ct-galileo",
+     "why": "A Protestant history magazine retells the case."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-spanish-myth",
+     "why": "What the records show about the Spanish Inquisition."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "slavery-and-the-fathers",
+     "why": "What the early Christians taught about slavery."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-slavery",
+     "why": "Papal teaching on slavery, and Catholic failures."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "church-opposed-science-galileo"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Weigh the harder cases and disputed numbers.",
+   "minutes": 100,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "cc-crusaders",
+     "why": "A review of recent crusade scholarship."
+    },
+    {
+     "kind": "resource",
+     "id": "coyne-galileo",
+     "why": "A Jesuit astronomer on the Galileo “myth” and the Church’s errors."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-atrocity",
+     "why": "Weighs the numbers; read with care."
+    },
+    {
+     "kind": "resource",
+     "id": "cwr-witches",
+     "why": "Witch hunts across Catholic and Protestant lands."
+    },
+    {
+     "kind": "resource",
+     "id": "hfa-dark-ages",
+     "why": "A sceptical historian on the “Dark Ages” label."
+    },
+    {
+     "kind": "resource",
+     "id": "brumley-slavery",
+     "why": "A longer Catholic survey of slavery and the popes."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "catholic-inventions",
+     "why": "Did the Church invent doctrines to suit her interests?"
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Read the specialists, including critics.",
+   "minutes": 120,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "riley-smith",
+     "why": "A scholar’s standard history of the Crusades."
+    },
+    {
+     "kind": "resource",
+     "id": "hfa-galileo",
+     "why": "Check the 1992 statement with a sceptical historian."
+    },
+    {
+     "kind": "resource",
+     "id": "yad-pius",
+     "why": "A Jewish-institution scholar on the Pius XII debate."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "eusebius-history",
+     "why": "Eusebius, a window on the early Church under persecution."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "bede-history",
+     "why": "Bede’s history shows monks and missionaries at work in the supposed Dark Ages."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-11-2",
+     "why": "Slavery, colonialism and anti-Judaism in Church history."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "Which Church failure do you find hardest, and what does it ask of Catholics today?"
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "jp2-galileo",
+   "title": "Address to the Pontifical Academy of Sciences (31 October 1992)",
+   "creator": "Pope John Paul II",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/speeches/1992/october/documents/hf_jp-ii_spe_19921031_accademia-scienze.html",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "The pope’s own words closing the Church’s review of the Galileo case.",
+   "verified": "2026-11-09",
+   "minutes": 20
+  },
+  {
+   "id": "ct-galileo",
+   "title": "Upon Further Review",
+   "creator": "Christian History magazine",
+   "kind": "article",
+   "url": "https://www.christianitytoday.com/2002/10/upon-further-review/",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "A Protestant history magazine retells the Galileo case and the 1992 statement.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Protestant source; helpful as a fair outside view."
+  },
+  {
+   "id": "madden-zenit",
+   "title": "What the Crusades Were Really Like (interview)",
+   "creator": "Thomas Madden (ZENIT, on EWTN)",
+   "kind": "article",
+   "url": "https://www.ewtn.com/catholicism/library/what-the-crusades-were-really-like-1813",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A historian lays out why the Crusades began and how popular myths took hold.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Madden is a Catholic medievalist; some peers dispute parts of his emphasis."
+  },
+  {
+   "id": "ca-inquisition",
+   "title": "What is the Inquisition?",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/the-inquisition",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A short overview of what the Inquisitions were and how they worked.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-spanish-myth",
+   "title": "The Myth of the Spanish Inquisition",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-myth-of-the-spanish-inquisition",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "Looks at the popular picture and what the records show.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers. Estimates of the dead vary between sources, so compare more than one."
+  },
+  {
+   "id": "ca-slavery",
+   "title": "Did the Church Ever Support Slavery?",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/did-the-church-ever-support-slavery",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "Looks at papal statements and at Catholics who defended or profited from slavery.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "cc-crusaders",
+   "title": "Crusaders and Historians",
+   "creator": "Thomas F. Madden (Catholic Culture)",
+   "kind": "article",
+   "url": "https://www.catholicculture.org/culture/library/view.cfm?id=6702",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "A review essay on what recent crusade scholars have overturned.",
+   "verified": "2026-11-09",
+   "minutes": 20,
+   "note": "Madden is a Catholic medievalist; some peers dispute parts of his emphasis."
+  },
+  {
+   "id": "coyne-galileo",
+   "title": "The Church’s Most Recent Attempt to Dispel the Galileo Myth",
+   "creator": "George V. Coyne, S.J.",
+   "kind": "article",
+   "url": "https://www.vaticanobservatory.org/wp-content/uploads/2017/01/Galileo_ed._McMullin.pdf",
+   "free": true,
+   "level": 3,
+   "audience": "advanced",
+   "why": "The Vatican Observatory’s director reflects on John Paul II’s 1992 address and the case.",
+   "verified": "2026-11-09",
+   "minutes": 25,
+   "note": "By a Jesuit astronomer; candid about the Church’s errors."
+  },
+  {
+   "id": "ca-atrocity",
+   "title": "How Many People Did the Catholic Church Kill?",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/protestants-and-atheists-appeal-to-atrocity",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Weighs the numbers and the comparisons often used against the Church.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers; read the numbers with care."
+  },
+  {
+   "id": "cwr-witches",
+   "title": "Who Burned the Witches? (Part 1)",
+   "creator": "Catholic World Report",
+   "kind": "article",
+   "url": "https://www.catholicworldreport.com/2022/10/30/who-burned-the-witches-part-1/",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Sets the witch hunts in their time and place, across Catholic and Protestant lands.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Catholic outlet; check the figures against a scholar such as Brian Levack."
+  },
+  {
+   "id": "hfa-dark-ages",
+   "title": "“The Dark Ages”, the Middle Ages and Periodisation",
+   "creator": "Tim O’Neill (History for Atheists)",
+   "kind": "article",
+   "url": "https://historyforatheists.com/2016/11/the-dark-ages-popery-periodisation-and-pejoratives/",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Separates the real early medieval collapse from the later slur on the whole Middle Ages.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "By an atheist historian; fair to the Church but not an apologist."
+  },
+  {
+   "id": "brumley-slavery",
+   "title": "Let My People Go: the Catholic Church and Slavery",
+   "creator": "Mark Brumley (Catholic Culture)",
+   "kind": "article",
+   "url": "https://www.catholicculture.org/culture/library/view.cfm?id=1201",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Traces Church teaching on slavery from St. Paul to the modern popes.",
+   "verified": "2026-11-09",
+   "minutes": 20,
+   "note": "Apologetic in aim; it should be read with the Church’s real failures in mind."
+  },
+  {
+   "id": "riley-smith",
+   "title": "The Crusades: A History",
+   "creator": "Jonathan Riley-Smith",
+   "kind": "book",
+   "url": "https://yalebooks.yale.edu/book/9780300101287/the-crusades/",
+   "free": false,
+   "level": 4,
+   "audience": "advanced",
+   "why": "A standard scholarly history of the Crusades by a leading historian of the field.",
+   "verified": "2026-11-09",
+   "note": "Book for purchase (Yale University Press); also in libraries."
+  },
+  {
+   "id": "hfa-galileo",
+   "title": "Did the Pope Apologise to Galileo?",
+   "creator": "Tim O’Neill (History for Atheists)",
+   "kind": "article",
+   "url": "https://historyforatheists.com/2025/03/galileo-pope-apologise/",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "A sceptical historian checks what the 1992 statement did and did not say.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "By an atheist historian who often corrects myths on both sides; read critically."
+  },
+  {
+   "id": "yad-pius",
+   "title": "Pius XII and the Holocaust",
+   "creator": "Jonathan Gorsky (Yad Vashem)",
+   "kind": "article",
+   "url": "https://www.yadvashem.org/articles/academic/pius-and-the-holocaust.html",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "A Jewish-institution scholar sets out the debate over Pius XII’s silence and rescue work.",
+   "verified": "2026-11-09",
+   "minutes": 20,
+   "note": "Published by Yad Vashem; the other side’s own scholarly voice."
+  }
+ ]
+}

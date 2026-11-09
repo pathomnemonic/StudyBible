@@ -1,0 +1,531 @@
+{
+  "id": "evangelical-and-pentecostal",
+  "title": "Talking with evangelicals and Pentecostals",
+  "tagline": "\"Born again\", \"Bible only\", altar calls and speaking in tongues: listen first, then answer.",
+  "group": "christians",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Evangelical and Pentecostal friends often share our love of Christ and ask sincere questions about salvation and the Spirit. Knowing their words and the Catholic Charismatic Renewal helps you meet them where they are.",
+  "mindset": [
+    {
+      "tip": "Ask for their story of faith and listen. Give your reasons with gentleness and respect. (1 Peter 3:15-16)",
+      "resource": "nae-evangelical"
+    },
+    {
+      "tip": "Affirm what is good: love of Christ, of Scripture and of mission. Catholics can say \"yes\" to being born again and then explain how.",
+      "resource": "barron-born-again"
+    },
+    {
+      "tip": "Do not mock their worship style. The Church recognises spiritual gifts and asks that they be tested. (CCC 799-801; 1 Corinthians 12-14)",
+      "resource": "ca-ccr"
+    },
+    {
+      "tip": "Answer \"Are you saved?\" with a story of grace, not a lecture.",
+      "resource": "ca-saved-reply"
+    },
+    {
+      "tip": "Invite, do not corner: shared mission is a better start than a debate. (CCC 819)"
+    }
+  ],
+  "ccc": [
+    798,
+    799,
+    800,
+    801,
+    819,
+    1213,
+    1257,
+    1996
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Learn who evangelicals are and how to answer \"Are you born again?\".",
+      "minutes": 90,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "nae-evangelical",
+          "why": "Read how the evangelical association defines itself."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "10-5-1",
+          "why": "The curriculum lesson on evangelization."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "born-again",
+          "why": "The app's answer, with verses and Catechism links."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-born-again",
+          "why": "A short tract for this question."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-born-again",
+          "why": "Hear a bishop talk about new birth."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-personal",
+          "why": "See that \"personal relationship\" is Catholic language too."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Conversion",
+          "why": "A plain definition of the word."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "Where did you first meet Jesus personally, and how would you tell it?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Learn to answer \"saved\", assurance and baptism with kindness.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "once-saved",
+          "why": "The app's answer to \"once saved, always saved\"."
+        },
+        {
+          "kind": "resource",
+          "id": "akin-saved",
+          "why": "Hear a clear, kind reply to \"Have you been saved?\"."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-saved-reply",
+          "why": "A short model reply."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-born-again-baptism",
+          "why": "What the early Christians said about baptism."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "infant-baptism",
+          "why": "The sourced argument for baptising infants."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "saved-by-baptism-alone",
+          "why": "Test the charge that Catholics are \"saved by baptism alone\"."
+        },
+        {
+          "kind": "resource",
+          "id": "foursquare",
+          "why": "Read a Pentecostal statement of belief."
+        },
+        {
+          "kind": "resource",
+          "id": "church-of-god",
+          "why": "Read a second Pentecostal statement."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "claim",
+            "id": "saved-by-baptism-alone"
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Go deeper on grace, assurance and the gifts of the Spirit.",
+      "minutes": 180,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "faith-and-works",
+          "why": "The sourced argument on faith and works."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "grace-and-free-will",
+          "why": "How grace and free will fit together."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-assurance",
+          "why": "The Catholic view of assurance."
+        },
+        {
+          "kind": "resource",
+          "id": "pitre-assurance",
+          "why": "A scholar reads Paul on assurance."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Gifts of the Holy Spirit",
+          "why": "A plain definition of the seven gifts."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-tongues",
+          "why": "The Catholic view of tongues."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-ccr",
+          "why": "How the Church sees the Renewal."
+        },
+        {
+          "kind": "resource",
+          "id": "charis",
+          "why": "Visit the Renewal's international service."
+        },
+        {
+          "kind": "resource",
+          "id": "staples-evangelical",
+          "why": "Hear a former evangelical pastor."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read dialogue reports and the Fathers on the Spirit.",
+      "minutes": 300,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "ect",
+          "why": "See how evangelicals reported the 1994 joint statement."
+        },
+        {
+          "kind": "resource",
+          "id": "rc-evangelical",
+          "why": "A Catholic-evangelical dialogue report."
+        },
+        {
+          "kind": "resource",
+          "id": "rc-pentecostal",
+          "why": "A Catholic-Pentecostal dialogue report."
+        },
+        {
+          "kind": "resource",
+          "id": "eg",
+          "why": "The pope's call to evangelize."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "cyril-catecheses",
+          "why": "Cyril of Jerusalem on baptism and the Holy Spirit."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "basil-works",
+          "why": "Basil on the Holy Spirit."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-who-understands-tongues",
+          "why": "A critical Catholic view on tongues."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What would you want to learn from evangelical or Pentecostal worship?"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "nae-evangelical",
+      "title": "What is an Evangelical?",
+      "creator": "National Association of Evangelicals",
+      "kind": "article",
+      "url": "https://www.nae.org/what-is-an-evangelical/",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "The NAE explains in its own words what evangelicals believe and value.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "The other side's own voice (evangelical association)"
+    },
+    {
+      "id": "ca-born-again",
+      "title": "Are Catholics Born Again?",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/are-catholics-born-again",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A short answer to the question evangelical friends often ask.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "barron-born-again",
+      "title": "Bishop Barron on Being Born Again",
+      "creator": "Bishop Robert Barron",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=ZZ1pLyLdnhM",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A bishop explains what being born again means for a Catholic.",
+      "verified": "2026-11-09",
+      "note": "Word on Fire"
+    },
+    {
+      "id": "barron-personal",
+      "title": "Bishop Barron on Having a “Personal Relationship” with Jesus",
+      "creator": "Bishop Robert Barron",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=w2KZDQSxwF4",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Shows that a personal relationship with Jesus is at home in Catholic faith.",
+      "verified": "2026-11-09",
+      "note": "Word on Fire"
+    },
+    {
+      "id": "akin-saved",
+      "title": "Have You Been Saved? - Jimmy Akin",
+      "creator": "Jimmy Akin",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=D8Gtd06Zrk0",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "How a Catholic can answer \"Have you been saved?\" honestly and kindly.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers Live"
+    },
+    {
+      "id": "ca-saved-reply",
+      "title": "How should a Catholic reply to the question, \"Have you been saved?\"",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/qa/how-should-a-catholic-reply-to-the-question-have-you-been-saved",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A short, practical model reply.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-born-again-baptism",
+      "title": "What the Early Church Believed: Born Again in Baptism",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/born-again-in-baptism",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Shows that the early Christians linked new birth with baptism.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "foursquare",
+      "title": "Beliefs",
+      "creator": "The Foursquare Church",
+      "kind": "site",
+      "url": "https://www.foursquare.org/about/beliefs/",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A Pentecostal denomination states its beliefs, including its teaching on the Spirit.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice (Pentecostal)"
+    },
+    {
+      "id": "church-of-god",
+      "title": "Beliefs",
+      "creator": "Church of God",
+      "kind": "site",
+      "url": "https://churchofgod.org/beliefs/",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A Pentecostal denomination states its beliefs.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice (Pentecostal)"
+    },
+    {
+      "id": "ca-tongues",
+      "title": "Is Speaking in Tongues an Authentic Charism?",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/qa/is-speaking-in-tongues-an-authentic-charism",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A short Catholic answer on tongues as a recognised gift.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-ccr",
+      "title": "The Catholic Charismatic Renewal",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/qa/the-catholic-charismatic-renewal",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "How the Church views the Charismatic Renewal and asks it to stay rooted in her teaching.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "charis",
+      "title": "CHARIS: Catholic Charismatic Renewal International Service",
+      "creator": "CHARIS",
+      "kind": "site",
+      "url": "https://www.charis.international/en/",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The official international service of the Catholic Charismatic Renewal.",
+      "verified": "2026-11-09",
+      "note": "Official Catholic body for the Renewal"
+    },
+    {
+      "id": "ca-assurance",
+      "title": "Assurance of Salvation?",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/assurance-of-salvation",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Explains the Catholic view of salvation as a gift we can hope for with confidence.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "pitre-assurance",
+      "title": "Assurance of Salvation: What Does St. Paul Really Say? | Dr. Brant Pitre",
+      "creator": "Brant Pitre",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=BpUHJSzvDkw",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Reads Paul on assurance of salvation.",
+      "verified": "2026-11-09",
+      "note": "Catholic Productions"
+    },
+    {
+      "id": "staples-evangelical",
+      "title": "Former Evangelical Pastor Answers Your Questions on Evangelicalism w/Tim Staples",
+      "creator": "Catholic Answers",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=71-YObNw4jM",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A former evangelical pastor answers questions about evangelical life and faith.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers Live"
+    },
+    {
+      "id": "ca-who-understands-tongues",
+      "title": "Who Understands Those Tongues?",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/who-understands-those-tongues",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A critical Catholic reading of 1 Corinthians 14; read it with the Renewal's own view.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers; one Catholic view on a question Catholics discuss"
+    },
+    {
+      "id": "ect",
+      "title": "Interfaith Accord: Evangelicals, Catholics Pursue New Cooperation",
+      "creator": "Christianity Today",
+      "kind": "article",
+      "url": "https://www.christianitytoday.com/1994/05/interfaith-accord-evangelicals-catholics-pursue-new/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "An evangelical magazine reports on the 1994 \"Evangelicals and Catholics Together\" statement.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "News report by an evangelical magazine; see also Evangelicals and Catholics Together itself"
+    },
+    {
+      "id": "rc-evangelical",
+      "title": "Church, Evangelization and the Bonds of Koinonia",
+      "creator": "Catholic-Evangelical international consultation",
+      "kind": "article",
+      "url": "https://www.christianunity.va/content/unitacristiani/en/dialoghi/sezione-occidentale/evangelici/dialogo/documenti-di-dialogo/testo-in-inglese1.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A report from a Catholic and World Evangelical Alliance consultation.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Dialogue report, not an official declaration"
+    },
+    {
+      "id": "rc-pentecostal",
+      "title": "Perspectives on Koinonia",
+      "creator": "International Catholic-Pentecostal dialogue",
+      "kind": "article",
+      "url": "https://www.christianunity.va/content/unitacristiani/en/dialoghi/sezione-occidentale/pentecostali/dialogo/documenti-di-dialogo/testo-in-inglese1.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A report from the Catholic-Pentecostal dialogue (1985-1989).",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Dialogue report, not an official declaration"
+    },
+    {
+      "id": "eg",
+      "title": "Evangelii Gaudium",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html",
+      "free": true,
+      "level": 4,
+      "audience": "adult",
+      "why": "The pope's call to joyful evangelization, a common ground with evangelicals.",
+      "verified": "2026-11-09",
+      "minutes": 120,
+      "note": "Apostolic Exhortation, 2013"
+    }
+  ]
+}

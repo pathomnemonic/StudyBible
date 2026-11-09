@@ -1,0 +1,547 @@
+{
+ "id": "comparative-religion-basics",
+ "title": "World religions in their own terms: a foundation",
+ "tagline": "A one-stop start: what each major religion teaches, with neutral overviews, primary texts and the Church's own view.",
+ "group": "world-religions",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "You cannot talk well with a neighbour whose faith you do not understand. This track builds that knowledge fairly before you take up the harder questions.",
+ "mindset": [
+  {
+   "tip": "Describe other religions as their members would. If a Muslim, Jew, Hindu or Buddhist would not recognise your description, it is not yet accurate (1 Peter 3:15-16).",
+   "resource": "bbc-jud"
+  },
+  {
+   "tip": "Do not flatten differences. \"All religions teach the same thing\" is not what the religions themselves say.",
+   "resource": "di"
+  },
+  {
+   "tip": "Notice the real goods in each tradition, as the Church does (Nostra Aetate 2; CCC 843)."
+  },
+  {
+   "tip": "Use neutral sources for the facts and religious sources for the voice, and note which is which.",
+   "resource": "pew-global"
+  },
+  {
+   "tip": "Remember the aim: understanding that leads to respect, friendship and an honest witness to Christ.",
+   "resource": "dp"
+  }
+ ],
+ "ccc": [
+  28,
+  39,
+  839,
+  840,
+  841,
+  842,
+  843,
+  844,
+  845,
+  846,
+  847,
+  848,
+  856
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Get the basic facts about the major religions and the Church's view.",
+   "minutes": 100,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "pew-global",
+     "why": "See how many follow each religion and how that is changing."
+    },
+    {
+     "kind": "resource",
+     "id": "bbc-jud",
+     "why": "Neutral overview of Judaism."
+    },
+    {
+     "kind": "resource",
+     "id": "bbc-islam",
+     "why": "Neutral overview of Islam."
+    },
+    {
+     "kind": "resource",
+     "id": "bbc-hindu",
+     "why": "Neutral overview of Hinduism."
+    },
+    {
+     "kind": "resource",
+     "id": "bbc-bud",
+     "why": "Neutral overview of Buddhism."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "other-religions",
+     "why": "The app's short answer on what the Church teaches about other religions."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-9-3",
+     "why": "A catechism lesson on other religions and other Christians."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "12-5-3",
+     "why": "A catechism lesson on Judaism, Islam and other religions."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "Which religion do you know least about, and what would you like to learn?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Read some primary texts and see how the Church describes the religions.",
+   "minutes": 140,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "bbc-sikh",
+     "why": "Neutral overview of Sikhism."
+    },
+    {
+     "kind": "resource",
+     "id": "jewfaq-b",
+     "why": "Jewish belief in Jewish words."
+    },
+    {
+     "kind": "resource",
+     "id": "q-ikhlas",
+     "why": "A short chapter of the Qur'an in translation."
+    },
+    {
+     "kind": "resource",
+     "id": "dhp",
+     "why": "Buddhist sayings in a monk's translation."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "10-5-2",
+     "why": "A lesson on ecumenism and other religions, drawing on Nostra Aetate."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "chesterton-everlasting-man",
+     "why": "Chesterton on God and comparative religion.",
+     "section": "s4"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aristides",
+     "why": "Aristides compares barbarians, Greeks, Jews and Christians in an early Apology.",
+     "section": "xiii.iv"
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Interreligious dialogue",
+     "why": "A plain definition of dialogue."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "non-catholics-cannot-be-saved",
+     "why": "The sourced answer to a common claim about salvation."
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Meet claims like \"all religions are the same\" and see how the Church answers them.",
+   "minutes": 140,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "di",
+     "why": "Read the Church's clarification on Christ and other religions."
+    },
+    {
+     "kind": "resource",
+     "id": "mike-heaven",
+     "why": "A friendly answer on whether only Catholics are saved."
+    },
+    {
+     "kind": "resource",
+     "id": "gita",
+     "why": "Read part of the Bhagavad Gita in a free translation."
+    },
+    {
+     "kind": "resource",
+     "id": "q-maryam",
+     "why": "Read the Qur'an on Mary and Jesus."
+    },
+    {
+     "kind": "resource",
+     "id": "sef-ex",
+     "why": "Read the Passover chapter on a Jewish library site."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "divinity-of-christ",
+     "why": "Why Christians say Jesus is God, what sets Christianity apart."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "resurrection",
+     "why": "The Resurrection, the event the faith stands on."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "origen-celsus",
+     "why": "Origen answers an ancient critic.",
+     "section": "vi.ix.i"
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "non-catholics-cannot-be-saved"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Read deeper on one religion and the Church's thought about them all.",
+   "minutes": 180,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "dp",
+     "why": "Read how the Church speaks of dialogue and proclamation."
+    },
+    {
+     "kind": "resource",
+     "id": "wings",
+     "why": "Early Buddhist teaching in a monk's selection."
+    },
+    {
+     "kind": "resource",
+     "id": "usccb-islam",
+     "why": "A bishops' guide to Islam made with Muslim scholars."
+    },
+    {
+     "kind": "resource",
+     "id": "icjs",
+     "why": "A Jewish statement about Christians."
+    },
+    {
+     "kind": "resource",
+     "id": "wl",
+     "why": "The Vatican study of the New Age."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "justin-martyr",
+     "why": "Justin's Dialogue with Trypho.",
+     "section": "viii.iv"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aug-city-of-god",
+     "why": "Augustine on the religions of Rome and the true worship.",
+     "section": "iv.VI"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "tertullian-apologetic",
+     "why": "Tertullian on pagan religion."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "Pick one religion and plan three ways to learn from a believer, not just a book."
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "bbc-jud",
+   "title": "Judaism",
+   "creator": "BBC Religions (archive)",
+   "kind": "site",
+   "url": "https://www.bbc.co.uk/religion/religions/judaism/",
+   "free": true,
+   "minutes": 20,
+   "level": 1,
+   "audience": "any",
+   "why": "A neutral overview of Jewish belief and practice.",
+   "verified": "2026-11-09",
+   "note": "Archived BBC pages; no longer updated"
+  },
+  {
+   "id": "di",
+   "title": "Dominus Iesus",
+   "creator": "Congregation for the Doctrine of the Faith",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_20000806_dominus-iesus_en.html",
+   "free": true,
+   "minutes": 40,
+   "level": 3,
+   "audience": "adult",
+   "why": "The Church's clear statement that Christ is the one Saviour, and why that is not contempt for others.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (2000)"
+  },
+  {
+   "id": "pew-global",
+   "title": "The World's Religious Groups: How Their Sizes Changed from 2010 to 2020",
+   "creator": "Pew Research Center",
+   "kind": "article",
+   "url": "https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/",
+   "free": true,
+   "minutes": 20,
+   "level": 1,
+   "audience": "any",
+   "why": "Facts and figures on how many follow each religion today.",
+   "verified": "2026-11-09",
+   "note": "Secular research centre"
+  },
+  {
+   "id": "dp",
+   "title": "Dialogue and Proclamation",
+   "creator": "Pontifical Council for Interreligious Dialogue and Congregation for the Evangelization of Peoples",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/pontifical_councils/interelg/documents/rc_pc_interelg_doc_19051991_dialogue-and-proclamatio_en.html",
+   "free": true,
+   "minutes": 60,
+   "level": 3,
+   "audience": "adult",
+   "why": "Shows how dialogue and proclaiming Christ belong together, with four forms of dialogue.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (1991)"
+  },
+  {
+   "id": "bbc-islam",
+   "title": "Islam",
+   "creator": "BBC Religions (archive)",
+   "kind": "site",
+   "url": "https://www.bbc.co.uk/religion/religions/islam/",
+   "free": true,
+   "minutes": 20,
+   "level": 1,
+   "audience": "any",
+   "why": "A neutral overview of Muslim belief and practice.",
+   "verified": "2026-11-09",
+   "note": "Archived BBC pages; no longer updated"
+  },
+  {
+   "id": "bbc-hindu",
+   "title": "Hinduism",
+   "creator": "BBC Religions (archive)",
+   "kind": "site",
+   "url": "https://www.bbc.co.uk/religion/religions/hinduism/",
+   "free": true,
+   "minutes": 20,
+   "level": 1,
+   "audience": "any",
+   "why": "A clear, neutral overview of Hindu beliefs and practice.",
+   "verified": "2026-11-09",
+   "note": "Archived BBC pages; no longer updated"
+  },
+  {
+   "id": "bbc-bud",
+   "title": "Buddhism",
+   "creator": "BBC Religions (archive)",
+   "kind": "site",
+   "url": "https://www.bbc.co.uk/religion/religions/buddhism/",
+   "free": true,
+   "minutes": 20,
+   "level": 1,
+   "audience": "any",
+   "why": "A clear, neutral overview of Buddhist teaching.",
+   "verified": "2026-11-09",
+   "note": "Archived BBC pages; no longer updated"
+  },
+  {
+   "id": "bbc-sikh",
+   "title": "Sikhism",
+   "creator": "BBC Religions (archive)",
+   "kind": "site",
+   "url": "https://www.bbc.co.uk/religion/religions/sikhism/",
+   "free": true,
+   "minutes": 15,
+   "level": 2,
+   "audience": "any",
+   "why": "A neutral overview of the Sikh faith.",
+   "verified": "2026-11-09",
+   "note": "Archived BBC pages; no longer updated"
+  },
+  {
+   "id": "jewfaq-b",
+   "title": "What Do Jews Believe?",
+   "creator": "Judaism 101 (JewFAQ)",
+   "kind": "site",
+   "url": "https://www.jewfaq.org/jewish-beliefs",
+   "free": true,
+   "minutes": 15,
+   "level": 1,
+   "audience": "any",
+   "why": "A plain account of Jewish belief in Jewish words.",
+   "verified": "2026-11-09",
+   "note": "Jewish voice"
+  },
+  {
+   "id": "q-ikhlas",
+   "title": "Surah Al-Ikhlas (112) in translation",
+   "creator": "The Qur'an, on Quran.com",
+   "kind": "site",
+   "url": "https://quran.com/al-ikhlas",
+   "free": true,
+   "minutes": 3,
+   "level": 1,
+   "audience": "any",
+   "why": "The short chapter Muslims recite on God's oneness; it shows what the Trinity must be explained against.",
+   "verified": "2026-11-09",
+   "note": "Muslim primary source"
+  },
+  {
+   "id": "dhp",
+   "title": "Dhammapada: The Path of Dhamma",
+   "creator": "Access to Insight (Thanissaro Bhikkhu translation)",
+   "kind": "article",
+   "url": "https://accesstoinsight.org/tipitaka/kn/dhp/index.html",
+   "free": true,
+   "minutes": 45,
+   "level": 2,
+   "audience": "any",
+   "why": "A short collection of Buddhist sayings, in a Theravada monk's translation.",
+   "verified": "2026-11-09",
+   "note": "Buddhist primary source"
+  },
+  {
+   "id": "mike-heaven",
+   "title": "Is Heaven ONLY for Catholics?",
+   "creator": "Fr. Mike Schmitz",
+   "kind": "video",
+   "url": "https://www.youtube.com/watch?v=UMFFBrptJv0",
+   "free": true,
+   "level": 1,
+   "audience": "teen",
+   "why": "A friendly answer to whether Catholics think only they are saved.",
+   "verified": "2026-11-09",
+   "note": "Ascension Presents"
+  },
+  {
+   "id": "gita",
+   "title": "The Song Celestial; or, Bhagavad-Gita",
+   "creator": "Sir Edwin Arnold (translator)",
+   "kind": "book",
+   "url": "https://www.gutenberg.org/ebooks/2388",
+   "free": true,
+   "minutes": 120,
+   "level": 3,
+   "audience": "adult",
+   "why": "Read the Hindu classic in a free Victorian verse translation.",
+   "verified": "2026-11-09",
+   "note": "Hindu primary source in an old translation; the English is dated"
+  },
+  {
+   "id": "q-maryam",
+   "title": "Surah Maryam (19) in translation",
+   "creator": "The Qur'an, on Quran.com",
+   "kind": "site",
+   "url": "https://quran.com/maryam",
+   "free": true,
+   "minutes": 15,
+   "level": 1,
+   "audience": "any",
+   "why": "Read how the Qur'an itself speaks of Mary and Jesus, in your own time.",
+   "verified": "2026-11-09",
+   "note": "Muslim primary source; Quran.com offers several English translations. Reading is meant for understanding, not as Catholic teaching"
+  },
+  {
+   "id": "sef-ex",
+   "title": "Exodus 12 (Hebrew and English)",
+   "creator": "Sefaria",
+   "kind": "site",
+   "url": "https://www.sefaria.org/Exodus.12?lang=bi",
+   "free": true,
+   "minutes": 10,
+   "level": 1,
+   "audience": "any",
+   "why": "Read the Passover chapter in Hebrew and English on a Jewish library site.",
+   "verified": "2026-11-09",
+   "note": "Jewish library; translation shown may differ from Catholic Bibles"
+  },
+  {
+   "id": "wings",
+   "title": "Wings to Awakening: An Anthology from the Pali Canon",
+   "creator": "Access to Insight (Thanissaro Bhikkhu)",
+   "kind": "article",
+   "url": "https://accesstoinsight.org/lib/authors/thanissaro/wings.html",
+   "free": true,
+   "minutes": 60,
+   "level": 4,
+   "audience": "advanced",
+   "why": "Buddhist teaching on the path, from the early texts, in a monk's own selection.",
+   "verified": "2026-11-09",
+   "note": "Buddhist primary source"
+  },
+  {
+   "id": "usccb-islam",
+   "title": "Understanding Islam: A Guide for Catholic Educators",
+   "creator": "USCCB Committee for Ecumenical and Interreligious Affairs",
+   "kind": "article",
+   "url": "https://www.usccb.org/resources/2013-Understanding-Islam-Guide-for-Catholic-Educators-Final-Version-09112013.pdf",
+   "free": true,
+   "minutes": 60,
+   "level": 1,
+   "audience": "adult",
+   "why": "A bishops' conference guide produced with Catholic and Muslim scholars.",
+   "verified": "2026-11-09",
+   "note": "USCCB (PDF)"
+  },
+  {
+   "id": "icjs",
+   "title": "Dabru Emet: A Jewish Statement on Christians and Christianity",
+   "creator": "Jewish scholars (ICJS text)",
+   "kind": "article",
+   "url": "https://icjs.org/dabru-emet-text/",
+   "free": true,
+   "minutes": 10,
+   "level": 3,
+   "audience": "adult",
+   "why": "Hear how a group of Jewish scholars described what Jews and Christians share and where they differ (2000).",
+   "verified": "2026-11-09",
+   "note": "Jewish voice; signed by scholars, not an official Jewish body"
+  },
+  {
+   "id": "wl",
+   "title": "Jesus Christ the Bearer of the Water of Life: A Christian Reflection on the New Age",
+   "creator": "Pontifical Councils for Culture and for Interreligious Dialogue",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/pontifical_councils/interelg/documents/rc_pc_interelg_doc_20030203_new-age_en.html",
+   "free": true,
+   "minutes": 90,
+   "level": 3,
+   "audience": "adult",
+   "why": "The Vatican's careful study of the New Age, with its longings, its beliefs and a Christian reply.",
+   "verified": "2026-11-09",
+   "note": "Church document (2003); includes a glossary"
+  }
+ ]
+}

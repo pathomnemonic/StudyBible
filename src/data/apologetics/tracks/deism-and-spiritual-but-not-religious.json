@@ -1,0 +1,409 @@
+{
+ "id": "deism-and-spiritual-but-not-religious",
+ "title": "Deism, pantheism and \"spiritual but not religious\"",
+ "tagline": "Answer the idea that God is distant, or in everything, or that all paths lead to the same place, with patience and clarity.",
+ "group": "world-religions",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "Many people say they believe in \"something\" but not in a Church. The Church asks us to take their search seriously and to show why a personal God who speaks and acts in history makes a difference.",
+ "mindset": [
+  {
+   "tip": "Take the search seriously. Ask what \"spiritual\" means to your friend and what hurt or doubt sits behind \"not religious\" (1 Peter 3:15-16).",
+   "resource": "wof134"
+  },
+  {
+   "tip": "Affirm what is true: the Church sees rays of truth in other religions and honest searching (Nostra Aetate 2; Lumen Gentium 16; CCC 843).",
+   "resource": "lg"
+  },
+  {
+   "tip": "Be clear and kind about the claim that Christ is the one Saviour. It is a claim about Jesus, not contempt for others (CCC 846-848; Dominus Iesus).",
+   "resource": "di"
+  },
+  {
+   "tip": "Do not mock vague beliefs. Offer a story, a book or a friendship, and let your own faith show."
+  },
+  {
+   "tip": "Listen to the facts: Pew shows who the spiritual but not religious are and what they actually believe.",
+   "resource": "pew-spirit"
+  }
+ ],
+ "ccc": [
+  27,
+  28,
+  36,
+  50,
+  54,
+  68,
+  214,
+  215,
+  216,
+  218,
+  843,
+  846,
+  847,
+  848,
+  1146,
+  2084,
+  2112
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Know the terms (deism, pantheism, relativism) and what the Church teaches about other religions.",
+   "minutes": 80,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "other-religions",
+     "why": "The app's short answer on other religions."
+    },
+    {
+     "kind": "resource",
+     "id": "wof134",
+     "why": "Hear Bishop Barron answer \"spiritual but not religious\"."
+    },
+    {
+     "kind": "resource",
+     "id": "mike-heaven",
+     "why": "A friendly answer on whether only Catholics are saved."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "non-catholics-cannot-be-saved",
+     "why": "The app's sourced answer to the claim that non-Catholics cannot be saved."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Revelation",
+     "why": "A plain definition of revelation, which the deist rejects."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Creation",
+     "why": "A plain definition of creation, as against pantheism."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-9-3",
+     "why": "A catechism lesson on other religions and other Christians."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "If a friend said \"I am spiritual, not religious\", what would you ask first?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Show why a personal God who reveals himself is more reasonable than a distant or impersonal one.",
+   "minutes": 130,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "cathen-deism",
+     "why": "An older Catholic definition of Deism."
+    },
+    {
+     "kind": "resource",
+     "id": "pew-spirit",
+     "why": "See what spiritual but not religious Americans actually believe."
+    },
+    {
+     "kind": "resource",
+     "id": "lg",
+     "why": "Read Lumen Gentium 16 on those who seek God with a sincere heart."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "god-exists",
+     "why": "The app's answer on whether God exists."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "miracles",
+     "why": "The app's answer on miracles, which deism denies."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "resurrection",
+     "why": "The app's answer on the Resurrection, God acting in history."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "divinity-of-christ",
+     "why": "The sourced case that God spoke through his Son."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "vatican-i-constitutions",
+     "why": "Dei Filius on God, revelation and faith and reason.",
+     "section": "s3"
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "catholics-not-allowed-to-think"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Answer: \"all paths lead to the same God\", \"doctrine divides\", \"I find God in nature\", \"God is everything\".",
+   "minutes": 140,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "di",
+     "why": "Read the Church's statement on Christ and the unity of salvation."
+    },
+    {
+     "kind": "resource",
+     "id": "sep-pan",
+     "why": "Learn what pantheism says so you can answer it."
+    },
+    {
+     "kind": "resource",
+     "id": "dp",
+     "why": "See how the Church links respect for others with proclaiming Christ."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "syllabus-of-errors",
+     "why": "Pius IX on pantheism, rationalism and indifferentism.",
+     "section": "s3"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "chesterton-everlasting-man",
+     "why": "Chesterton on Man and mythologies.",
+     "section": "s5"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "chesterton-orthodoxy",
+     "why": "Chesterton on why he found the creed more free than vague spirituality."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "tradition-and-scripture",
+     "why": "The sourced reply to \"I will take the Bible but not a Church\"."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "christ-two-natures",
+     "why": "Why Christians say God truly became man, unlike the many-paths picture."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "non-catholics-cannot-be-saved"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Read the Church's key texts and the classic replies to rationalism.",
+   "minutes": 180,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "di",
+     "why": "Read Dominus Iesus again with the Catechism on salvation open."
+    },
+    {
+     "kind": "resource",
+     "id": "wl",
+     "why": "Read the Vatican study of the New Age, which speaks to the spiritual but not religious."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "newman-grammar-of-assent",
+     "why": "Newman on how real faith differs from notional belief."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aug-confessions",
+     "why": "Augustine on a restless search that ends in God.",
+     "section": "ii.i"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "origen-celsus",
+     "why": "Origen answers Celsus, an early critic who held that all religions are one.",
+     "section": "vi.ix.i"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aug-christian-doctrine",
+     "why": "Augustine on how to read truth wherever it is found."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "diognetus",
+     "why": "The Epistle to Diognetus on idols and the Christian way of life.",
+     "section": "iii.ii.ii"
+    },
+    {
+     "kind": "reflect",
+     "prompt": "What would you say to a friend who says \"organised religion\" is the problem?"
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "wof134",
+   "title": "WOF 134: Questions from the Word on Fire Community",
+   "creator": "Bishop Robert Barron",
+   "kind": "video",
+   "url": "https://www.wordonfire.org/videos/wordonfire-show/episode134/",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "Includes a reply to \"I'm spiritual but not religious\" and to the claim that religion is superstition.",
+   "verified": "2026-11-09",
+   "note": "Word on Fire"
+  },
+  {
+   "id": "lg",
+   "title": "Lumen Gentium: Dogmatic Constitution on the Church",
+   "creator": "Second Vatican Council",
+   "kind": "article",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html",
+   "free": true,
+   "minutes": 60,
+   "level": 2,
+   "audience": "adult",
+   "why": "Read paragraph 16 on how those outside the visible Church are related to God's plan of salvation.",
+   "verified": "2026-11-09",
+   "note": "Church teaching; focus on paragraphs 14-16"
+  },
+  {
+   "id": "di",
+   "title": "Dominus Iesus",
+   "creator": "Congregation for the Doctrine of the Faith",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_20000806_dominus-iesus_en.html",
+   "free": true,
+   "minutes": 40,
+   "level": 3,
+   "audience": "adult",
+   "why": "The Church's clear statement that Christ is the one Saviour, and why that is not contempt for others.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (2000)"
+  },
+  {
+   "id": "pew-spirit",
+   "title": "Spirituality Among Americans",
+   "creator": "Pew Research Center",
+   "kind": "article",
+   "url": "https://www.pewresearch.org/religion/2023/12/07/spirituality-among-americans/",
+   "free": true,
+   "minutes": 25,
+   "level": 2,
+   "audience": "any",
+   "why": "Learn what \"spiritual but not religious\" people actually believe and do.",
+   "verified": "2026-11-09",
+   "note": "Secular research centre (2023)"
+  },
+  {
+   "id": "mike-heaven",
+   "title": "Is Heaven ONLY for Catholics?",
+   "creator": "Fr. Mike Schmitz",
+   "kind": "video",
+   "url": "https://www.youtube.com/watch?v=UMFFBrptJv0",
+   "free": true,
+   "level": 1,
+   "audience": "teen",
+   "why": "A friendly answer to whether Catholics think only they are saved.",
+   "verified": "2026-11-09",
+   "note": "Ascension Presents"
+  },
+  {
+   "id": "cathen-deism",
+   "title": "Deism",
+   "creator": "Catholic Encyclopedia (1908)",
+   "kind": "article",
+   "url": "https://www.newadvent.org/cathen/04679b.htm",
+   "free": true,
+   "minutes": 12,
+   "level": 2,
+   "audience": "adult",
+   "why": "An older Catholic definition of Deism and why it falls short.",
+   "verified": "2026-11-09",
+   "note": "Dated in places; read as history"
+  },
+  {
+   "id": "sep-pan",
+   "title": "Pantheism",
+   "creator": "Stanford Encyclopedia of Philosophy",
+   "kind": "article",
+   "url": "https://plato.stanford.edu/entries/pantheism/",
+   "free": true,
+   "minutes": 45,
+   "level": 4,
+   "audience": "advanced",
+   "why": "A scholarly account of pantheism so you can tell it apart from Christian belief.",
+   "verified": "2026-11-09",
+   "note": "Secular academic source"
+  },
+  {
+   "id": "dp",
+   "title": "Dialogue and Proclamation",
+   "creator": "Pontifical Council for Interreligious Dialogue and Congregation for the Evangelization of Peoples",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/pontifical_councils/interelg/documents/rc_pc_interelg_doc_19051991_dialogue-and-proclamatio_en.html",
+   "free": true,
+   "minutes": 60,
+   "level": 3,
+   "audience": "adult",
+   "why": "Shows how dialogue and proclaiming Christ belong together, with four forms of dialogue.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (1991)"
+  },
+  {
+   "id": "wl",
+   "title": "Jesus Christ the Bearer of the Water of Life: A Christian Reflection on the New Age",
+   "creator": "Pontifical Councils for Culture and for Interreligious Dialogue",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/pontifical_councils/interelg/documents/rc_pc_interelg_doc_20030203_new-age_en.html",
+   "free": true,
+   "minutes": 90,
+   "level": 3,
+   "audience": "adult",
+   "why": "The Vatican's careful study of the New Age, with its longings, its beliefs and a Christian reply.",
+   "verified": "2026-11-09",
+   "note": "Church document (2003); includes a glossary"
+  }
+ ]
+}

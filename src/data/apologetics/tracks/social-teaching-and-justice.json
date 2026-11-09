@@ -1,0 +1,478 @@
+{
+  "id": "social-teaching-and-justice",
+  "title": "Catholic social teaching and justice",
+  "tagline": "Dignity, the common good, subsidiarity, solidarity, work, wealth and poverty, migration and creation, explained without taking a party side.",
+  "group": "morals-and-life",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Catholic social teaching is a body of principles for judging how we live together, not a party platform. Faithful Catholics weigh the same principles and reach different policies, and this course aims to help you do that charitably.",
+  "mindset": [
+    {
+      "tip": "Ask which principle the person cares about most and start there. Nearly everyone cares about dignity, work or the family."
+    },
+    {
+      "tip": "Separate the principle from the policy. The Church teaches the first firmly; for the second, the Compendium says the faithful may differ (CCC 2420).",
+      "resource": "compendium"
+    },
+    {
+      "tip": "Do not use the poor as a debating point. Visit, give and serve; the Fathers do not allow comfort to talk about the poor without helping them (Matthew 25:31-46).",
+      "resource": "chrys-50"
+    },
+    {
+      "tip": "Read the sources yourself before repeating a slogan. Quote the document and its paragraph.",
+      "resource": "usccb-seven"
+    },
+    {
+      "tip": "Stay open to the other camp's evidence: markets and state action each have a place in the tradition. Acton and the Catholic Worker are two voices.",
+      "resource": "acton"
+    }
+  ],
+  "ccc": [
+    1877,
+    1878,
+    1905,
+    1906,
+    1907,
+    1913,
+    1939,
+    1940,
+    1942,
+    1943,
+    2402,
+    2403,
+    2406,
+    2419,
+    2426,
+    2427,
+    2428,
+    2429,
+    2430,
+    2431,
+    2436,
+    2437,
+    2438,
+    2439,
+    2446,
+    2448
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Learn the main principles and the places to find them.",
+      "minutes": 90,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Human dignity",
+          "why": "The root of everything else."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Common good",
+          "why": "What it means and what it does not."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Subsidiarity",
+          "why": "The principle that decisions belong at the lowest competent level."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Solidarity",
+          "why": "Not a feeling but a firm commitment."
+        },
+        {
+          "kind": "resource",
+          "id": "usccb-seven",
+          "why": "The seven themes on one page."
+        },
+        {
+          "kind": "resource",
+          "id": "crs-101",
+          "why": "Short lessons for groups."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "See where the principles come from in Scripture and the Fathers.",
+      "minutes": 120,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "wealth-and-poverty",
+          "why": "The app's sourced chain on riches and the poor."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "wealth-and-poverty"
+          }
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "usury-and-lending",
+          "why": "The app's sourced chain on lending, interest and fairness."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-8-3",
+          "why": "An adult lesson on Catholic social teaching."
+        },
+        {
+          "kind": "resource",
+          "id": "clement-rich",
+          "why": "An early homily on wealth and its use."
+        },
+        {
+          "kind": "resource",
+          "id": "chrys-50",
+          "why": "Chrysostom on the poor and the comfortable."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Universal destination of goods",
+          "why": "The Church's teaching that the earth is meant for all."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Meet 'the Church should stay out of politics', 'charity is not justice', and questions on migration, markets and creation.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "social-justice-poor",
+          "why": "The app's summary on the poor and social justice."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "tithing-and-money",
+          "why": "Money, tithing and the prosperity gospel."
+        },
+        {
+          "kind": "resource",
+          "id": "snl",
+          "why": "The bishops' pastoral letter on migration."
+        },
+        {
+          "kind": "resource",
+          "id": "ls",
+          "why": "Laudato Si' on creation and the poor."
+        },
+        {
+          "kind": "resource",
+          "id": "acton",
+          "why": "The market-friendly reading of the tradition."
+        },
+        {
+          "kind": "resource",
+          "id": "catholic-worker",
+          "why": "The hospitality and voluntary-poverty reading."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-12-2",
+          "why": "Faith, politics and the common good."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the main documents in order.",
+      "minutes": 300,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "rn",
+          "why": "Leo XIII on labour, wages and property."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "leo-xiii-encyclicals",
+          "why": "Leo XIII's other encyclicals in the app library."
+        },
+        {
+          "kind": "resource",
+          "id": "qa",
+          "why": "Where subsidiarity is named."
+        },
+        {
+          "kind": "resource",
+          "id": "le",
+          "why": "John Paul II on human work."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-enc",
+          "why": "John Paul II after the fall of communism."
+        },
+        {
+          "kind": "resource",
+          "id": "cv",
+          "why": "Benedict XVI on love and truth in economics."
+        },
+        {
+          "kind": "resource",
+          "id": "dilexi",
+          "why": "Leo XIV on love for the poor."
+        },
+        {
+          "kind": "resource",
+          "id": "compendium",
+          "why": "The whole tradition by principle."
+        },
+        {
+          "kind": "resource",
+          "id": "chesterton-wrong",
+          "why": "Chesterton's comic and serious case for the family and small property."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "compendium",
+      "title": "Compendium of the Social Doctrine of the Church",
+      "creator": "Pontifical Council for Justice and Peace",
+      "kind": "book",
+      "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_en.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The Church's social teaching organised by principle, with the Catechism's paragraphs in view.",
+      "verified": "2026-11-09",
+      "note": "Vatican document, 2004/2006"
+    },
+    {
+      "id": "rn",
+      "title": "Rerum Novarum",
+      "creator": "Pope Leo XIII",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_15051891_rerum-novarum.html",
+      "free": true,
+      "minutes": 90,
+      "level": 3,
+      "audience": "adult",
+      "why": "The founding document of modern Catholic social teaching, on labour, wages and property.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 1891"
+    },
+    {
+      "id": "qa",
+      "title": "Quadragesimo Anno",
+      "creator": "Pope Pius XI",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_19310515_quadragesimo-anno.html",
+      "free": true,
+      "minutes": 100,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Where the principle of subsidiarity is named most clearly.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 1931"
+    },
+    {
+      "id": "le",
+      "title": "Laborem Exercens",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_14091981_laborem-exercens.html",
+      "free": true,
+      "minutes": 90,
+      "level": 3,
+      "audience": "adult",
+      "why": "On work as a way of taking part in creation and as a basis of dignity.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 1981"
+    },
+    {
+      "id": "ca-enc",
+      "title": "Centesimus Annus",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html",
+      "free": true,
+      "minutes": 100,
+      "level": 4,
+      "audience": "advanced",
+      "why": "After 1989: a weighing of markets, socialism and the role of the state.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 1991"
+    },
+    {
+      "id": "cv",
+      "title": "Caritas in Veritate",
+      "creator": "Pope Benedict XVI",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20090629_caritas-in-veritate.html",
+      "free": true,
+      "minutes": 100,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Love joined to truth as the basis for economics and politics, with a stress on gratuitousness.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 2009"
+    },
+    {
+      "id": "ls",
+      "title": "Laudato Si'",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html",
+      "free": true,
+      "minutes": 150,
+      "level": 3,
+      "audience": "adult",
+      "why": "The Church's teaching on care for creation and the link between the earth and the poor.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 2015"
+    },
+    {
+      "id": "dilexi",
+      "title": "Dilexi Te",
+      "creator": "Pope Leo XIV",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/leo-xiv/en/apost_exhortations/documents/20251004-dilexi-te.html",
+      "free": true,
+      "minutes": 90,
+      "level": 3,
+      "audience": "adult",
+      "why": "Leo XIV's 2025 exhortation on love for the poor, drawing on the Fathers and the saints.",
+      "verified": "2026-11-09",
+      "note": "Apostolic exhortation, 2025"
+    },
+    {
+      "id": "usccb-seven",
+      "title": "Seven Themes of Catholic Social Teaching",
+      "creator": "U.S. Conference of Catholic Bishops",
+      "kind": "article",
+      "url": "https://www.usccb.org/beliefs-and-teachings/what-we-believe/catholic-social-teaching/seven-themes-of-catholic-social-teaching",
+      "free": true,
+      "minutes": 10,
+      "level": 1,
+      "audience": "any",
+      "why": "One page that lists the seven themes with short descriptions.",
+      "verified": "2026-11-09",
+      "note": "USCCB"
+    },
+    {
+      "id": "crs-101",
+      "title": "CST 101",
+      "creator": "Catholic Relief Services",
+      "kind": "course",
+      "url": "https://www.crs.org/ways-to-help/pray/catholic-social-teaching-101",
+      "free": true,
+      "minutes": 30,
+      "level": 1,
+      "audience": "any",
+      "why": "Short free lessons for groups and individuals on the main principles.",
+      "verified": "2026-11-09",
+      "note": "Catholic Relief Services"
+    },
+    {
+      "id": "snl",
+      "title": "Strangers No Longer: Together on the Journey of Hope",
+      "creator": "U.S. and Mexican bishops",
+      "kind": "article",
+      "url": "https://www.usccb.org/issues-and-action/human-life-and-dignity/immigration/strangers-no-longer-together-on-the-journey-of-hope",
+      "free": true,
+      "minutes": 60,
+      "level": 3,
+      "audience": "adult",
+      "why": "The bishops' joint pastoral letter on migration, balancing welcome and the rights of nations.",
+      "verified": "2026-11-09",
+      "note": "USCCB; 2003"
+    },
+    {
+      "id": "acton",
+      "title": "Acton Institute",
+      "creator": "Acton Institute",
+      "kind": "site",
+      "url": "https://www.acton.org/",
+      "free": true,
+      "minutes": 30,
+      "level": 3,
+      "audience": "adult",
+      "why": "A Catholic-founded think tank arguing that free markets and human dignity belong together.",
+      "verified": "2026-11-09",
+      "note": "Takes a market-friendly view; useful as one reading of the tradition, not the only one"
+    },
+    {
+      "id": "catholic-worker",
+      "title": "Catholic Worker Movement",
+      "creator": "The Catholic Worker Movement",
+      "kind": "site",
+      "url": "https://catholicworker.org/",
+      "free": true,
+      "minutes": 30,
+      "level": 3,
+      "audience": "any",
+      "why": "Dorothy Day's movement of hospitality, voluntary poverty and nonviolence.",
+      "verified": "2026-11-09",
+      "note": "Reflects a more radical reading of the tradition"
+    },
+    {
+      "id": "chesterton-wrong",
+      "title": "What's Wrong with the World",
+      "creator": "G. K. Chesterton",
+      "kind": "book",
+      "url": "https://www.gutenberg.org/ebooks/1717",
+      "free": true,
+      "minutes": 240,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Chesterton's witty case for the family, small property and ordinary people.",
+      "verified": "2026-11-09",
+      "note": "Public domain on Project Gutenberg"
+    },
+    {
+      "id": "clement-rich",
+      "title": "Who is the Rich Man That Shall Be Saved?",
+      "creator": "Clement of Alexandria",
+      "kind": "article",
+      "url": "https://www.newadvent.org/fathers/0207.htm",
+      "free": true,
+      "minutes": 45,
+      "level": 3,
+      "audience": "adult",
+      "why": "An early Christian homily that says wealth is not condemned but must be used well.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "chrys-50",
+      "title": "Homily 50 on Matthew",
+      "creator": "John Chrysostom",
+      "kind": "article",
+      "url": "https://www.newadvent.org/fathers/200150.htm",
+      "free": true,
+      "minutes": 25,
+      "level": 3,
+      "audience": "adult",
+      "why": "Chrysostom presses the claim of the poor on the comfortable.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    }
+  ]
+}

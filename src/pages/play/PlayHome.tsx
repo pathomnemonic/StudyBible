@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { currentStreak, dailyDone, dayIndex, loadPlays, seeded } from '../../lib/dailyGame';
 
@@ -48,34 +48,42 @@ export default function PlayHome() {
   const featured = useMemo(() => (todo.length ? todo[Math.floor(seeded(dayIndex() + 3)() * todo.length)] : ALL.find((g) => g.isNew)!), [todo.length]); // eslint-disable-line react-hooks/exhaustive-deps
   const surprise = () => { const pool = todo.length ? todo : ALL; nav(pool[Math.floor(Math.random() * pool.length)].to); };
   const played = Object.keys(plays.games ?? {}).length;
+  const TIPS = ['A fresh puzzle lands every day. Come back tomorrow!', 'Not sure? Tap Surprise me and let the dice decide.', 'Friends can join a quiz with just six digits.', 'Three right answers in a category wins a crown.', 'Every game here works without an account.', 'Streaks are kept right here on your device.'];
+  const [tip, setTip] = useState(0);
+  useEffect(() => { const t = window.setInterval(() => setTip((x) => (x + 1) % TIPS.length), 6000); return () => window.clearInterval(t); }, [TIPS.length]);
+  const letters = 'GAMES'.split('');
+  const hues = ['#e8812b', '#4a7bd0', '#c0507a', '#2f8f6b', '#d4a017'];
   return (
-    <div className="page play-home play-fun">
-      <header className="pf-top">
-        <h1>Games</h1>
-        <Link className="streak-chip" to="/play/trophies">🔥 {streak} day streak · trophies</Link>
+    <div className="page play-home play-fun gp">
+      <div className="gp-doodles" aria-hidden="true">{['✨', '🎲', '🕊️', '⭐', '🔔', '🧩', '👑', '📿'].map((d, i) => <span key={i} style={{ ['--x' as string]: `${(i * 13 + 6) % 92}%`, ['--d' as string]: `${i * 1.7}s`, ['--s' as string]: `${1.1 + (i % 3) * 0.5}rem` }}>{d}</span>)}</div>
+      <header className="pf-top gp-top">
+        <h1 className="gp-title" aria-label="Games">{letters.map((l, i) => <span key={i} aria-hidden="true" style={{ ['--h' as string]: hues[i], ['--i' as string]: i }}>{l}</span>)}</h1>
+        <Link className="streak-chip gp-streak" to="/play/trophies">🔥 {streak} day streak · trophies</Link>
       </header>
-      <section className="pf-hero" style={{ ['--c' as string]: featured.color }} aria-label="Play this next">
+      <div className="gp-mascot" role="note"><span className="gp-bot" aria-hidden="true">🤖</span><p key={tip}>{TIPS[tip]}</p></div>
+      <section className="pf-hero gp-hero" style={{ ['--c' as string]: featured.color }} aria-label="Play this next">
+        <i className="gp-bulbs" aria-hidden="true" />
         <span className="pf-hero-ico" aria-hidden="true">{featured.icon}</span>
         <div className="pf-hero-text">
           <p className="pf-kicker">{todo.length ? `${todo.length} daily puzzle${todo.length === 1 ? '' : 's'} waiting` : 'All of today’s puzzles are done'}</p>
-          <h2>{todo.length ? `Play ${featured.title}` : `Try ${featured.title}`}</h2>
+          <h2>{todo.length ? `Play ${featured.title}!` : `Try ${featured.title}!`}</h2>
           <p>{featured.blurb}</p>
-          <p className="pf-hero-actions"><Link className="btn primary big" to={featured.to}>Let’s go</Link> <button className="btn big" onClick={surprise}>🎲 Surprise me</button></p>
+          <p className="pf-hero-actions"><Link className="btn primary big" to={featured.to}>Let’s go →</Link> <button className="btn big gp-dice" onClick={surprise}><span aria-hidden="true">🎲</span> Surprise me</button></p>
         </div>
       </section>
       {GROUPS.map((grp) => (
         <section key={grp.id} className="pf-group" aria-labelledby={`pf-${grp.id}`}>
-          <h2 id={`pf-${grp.id}`}>{grp.title}</h2>
+          <h2 id={`pf-${grp.id}`} className="gp-banner"><span>{grp.title}</span></h2>
           <p className="muted small pf-sub">{grp.sub}</p>
           <ul className="pf-grid">
             {grp.games.map((g, i) => {
               const r = g.daily ? dailyDone(g.daily) : null;
               return (
-                <li key={g.to} style={{ ['--i' as string]: i }}>
+                <li key={g.to} style={{ ['--i' as string]: i, ['--t' as string]: `${[-1.4, 1, -0.6, 1.5, -1, 0.7][i % 6]}deg` }}>
                   <Link className="pf-tile" to={g.to} style={{ ['--c' as string]: g.color }}>
-                    <span className="pf-ico" aria-hidden="true">{g.icon}</span>
-                    {g.isNew && <span className="pf-badge">NEW</span>}
-                    {r && <span className="pf-badge done">✓ {r}</span>}
+                    <span className="pf-ico gp-blob" aria-hidden="true">{g.icon}</span>
+                    {g.isNew && <span className="pf-badge gp-burst">NEW!</span>}
+                    {r && <span className="pf-badge done gp-star">⭐ {r}</span>}
                     <strong className="pf-title">{g.title}</strong>
                     <span className="pf-blurb">{g.blurb}</span>
                     <span className="pf-meta"><span>⏱ {g.time}</span><span>👤 {g.who}</span><span className="pf-play">Play ▶</span></span>

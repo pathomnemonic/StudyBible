@@ -1,0 +1,489 @@
+{
+ "id": "interreligious-dialogue",
+ "title": "Interreligious dialogue: how to speak, listen and bear witness",
+ "tagline": "Learn the Church's way of dialogue: truth with respect, proclamation with listening, and courage for mission.",
+ "group": "world-religions",
+ "audience": [
+  "adult"
+ ],
+ "whyItMatters": "The Church tells us to meet people of other faiths with respect and to tell them about Christ. Both are needed, and they are not in conflict.",
+ "mindset": [
+  {
+   "tip": "Dialogue is not giving up your beliefs. It begins with respect and honest listening (Nostra Aetate 2; Ecclesiam Suam).",
+   "resource": "es"
+  },
+  {
+   "tip": "Dialogue and proclamation belong together. Neither replaces the other (Dialogue and Proclamation).",
+   "resource": "dp"
+  },
+  {
+   "tip": "Do not confuse praying together with praying side by side. Read what Assisi actually was.",
+   "resource": "as86"
+  },
+  {
+   "tip": "Look first for shared goods: the person, peace, the poor, family and creation (CCC 842-844).",
+   "resource": "ft"
+  },
+  {
+   "tip": "Remember the martyrs who loved their neighbours of other faiths and stayed to the end.",
+   "resource": "rm"
+  }
+ ],
+ "ccc": [
+  39,
+  813,
+  819,
+  820,
+  821,
+  839,
+  840,
+  841,
+  842,
+  843,
+  844,
+  845,
+  846,
+  847,
+  848,
+  849,
+  850,
+  851,
+  852,
+  856
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "See what the Church teaches and why dialogue is part of her mission.",
+   "minutes": 80,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "na",
+     "why": "Read Nostra Aetate in full, a short text."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "other-religions",
+     "why": "The app's short answer on other religions."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "10-5-2",
+     "why": "A lesson on ecumenism and other religions."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-9-3",
+     "why": "A lesson on other religions and other Christians."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Interreligious dialogue",
+     "why": "A plain definition of interreligious dialogue."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Evangelization",
+     "why": "A plain definition of evangelization."
+    },
+    {
+     "kind": "resource",
+     "id": "mike-heaven",
+     "why": "A friendly answer on whether only Catholics are saved."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "Which neighbour of another faith do you actually know, and what would you like to learn from them?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Learn the Church's model of dialogue and her call to mission.",
+   "minutes": 130,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "es",
+     "why": "Read the part of Ecclesiam Suam that teaches dialogue."
+    },
+    {
+     "kind": "resource",
+     "id": "as86",
+     "why": "Read the address at Assisi in 1986."
+    },
+    {
+     "kind": "resource",
+     "id": "eg",
+     "why": "Read the passages on interreligious dialogue (250-254)."
+    },
+    {
+     "kind": "resource",
+     "id": "lg",
+     "why": "Read the sections on how others are related to the Church (14-16)."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "salvation-outside-church",
+     "why": "The app's answer on \"no salvation outside the Church\"."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "justin-martyr",
+     "why": "Justin's Apologies show an early Christian speaking to a pagan world.",
+     "section": "viii.ii"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aristides",
+     "why": "Aristides' early Apology to the emperor.",
+     "section": "xiii.iv"
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "non-catholics-cannot-be-saved"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Answer: \"Dialogue means relativism\", \"Mission is disrespect\", \"Assisi was syncretism\".",
+   "minutes": 140,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "dp",
+     "why": "Read the four forms of dialogue and how they relate to proclamation."
+    },
+    {
+     "kind": "resource",
+     "id": "di",
+     "why": "Read the Church's clarification about Christ as the one Saviour."
+    },
+    {
+     "kind": "resource",
+     "id": "as11",
+     "why": "Read how Benedict answered concerns about Assisi."
+    },
+    {
+     "kind": "resource",
+     "id": "rm",
+     "why": "Read the Church's call to mission."
+    },
+    {
+     "kind": "resource",
+     "id": "ft",
+     "why": "Read chapter 8 on religions in the service of fraternity."
+    },
+    {
+     "kind": "resource",
+     "id": "hf",
+     "why": "See a Christian-Muslim statement for peace."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "tertullian-apologetic",
+     "why": "Tertullian's defence of Christians before pagan rulers."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "diognetus",
+     "why": "The Epistle to Diognetus on how Christians live in the world.",
+     "section": "iii.ii.v"
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "war-and-peace",
+     "why": "The sourced chain on war and peace, for questions about religion and violence."
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Study the Church's witness in dialogue and the martyrs of mission.",
+   "minutes": 160,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "syn",
+     "why": "Read the first papal visit to a synagogue."
+    },
+    {
+     "kind": "resource",
+     "id": "gifts",
+     "why": "Read a Vatican reflection on the Jewish-Christian bond."
+    },
+    {
+     "kind": "resource",
+     "id": "reg",
+     "why": "Read the Regensburg lecture, a test case for dialogue."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "john-damascus",
+     "why": "John of Damascus, a Christian writing in an Islamic empire.",
+     "section": "iii.iv.i"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "chesterton-st-francis",
+     "why": "Chesterton on Francis, the saint who sought dialogue with the sultan."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "eusebius-history",
+     "why": "Eusebius on the martyrs of the early Church."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "scillitan-martyrs",
+     "why": "The Scillitan martyrs, among the earliest Latin witnesses."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "polycarp",
+     "why": "The martyrdom of Polycarp."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "How can you pray for people of other faiths and also pray that they come to know Christ?"
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "es",
+   "title": "Ecclesiam Suam",
+   "creator": "Paul VI",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_06081964_ecclesiam.html",
+   "free": true,
+   "minutes": 60,
+   "level": 2,
+   "audience": "adult",
+   "why": "The encyclical that made dialogue a way of the Church: its model of concentric circles and its call to listen first.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (1964)"
+  },
+  {
+   "id": "dp",
+   "title": "Dialogue and Proclamation",
+   "creator": "Pontifical Council for Interreligious Dialogue and Congregation for the Evangelization of Peoples",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/pontifical_councils/interelg/documents/rc_pc_interelg_doc_19051991_dialogue-and-proclamatio_en.html",
+   "free": true,
+   "minutes": 60,
+   "level": 3,
+   "audience": "adult",
+   "why": "Shows how dialogue and proclaiming Christ belong together, with four forms of dialogue.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (1991)"
+  },
+  {
+   "id": "as86",
+   "title": "Address to Representatives of the Churches and World Religions (Assisi 1986)",
+   "creator": "John Paul II",
+   "kind": "talk",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/speeches/1986/october/documents/hf_jp-ii_spe_19861027_prayer-peace-assisi-final.html",
+   "free": true,
+   "minutes": 15,
+   "level": 2,
+   "audience": "adult",
+   "why": "What the first Assisi day of prayer for peace was and was not: praying side by side, not together.",
+   "verified": "2026-11-09",
+   "note": "Papal address"
+  },
+  {
+   "id": "ft",
+   "title": "Fratelli Tutti",
+   "creator": "Francis",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html",
+   "free": true,
+   "minutes": 60,
+   "level": 3,
+   "audience": "adult",
+   "why": "Chapter 8 on religions in the service of fraternity in the world.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (2020); read chapter 8"
+  },
+  {
+   "id": "rm",
+   "title": "Redemptoris Missio",
+   "creator": "John Paul II",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_07121990_redemptoris-missio.html",
+   "free": true,
+   "minutes": 90,
+   "level": 3,
+   "audience": "adult",
+   "why": "Why the Church still goes on mission, and how that fits with respect for other religions.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (1990)"
+  },
+  {
+   "id": "na",
+   "title": "Nostra Aetate: Declaration on the Relation of the Church to Non-Christian Religions",
+   "creator": "Second Vatican Council",
+   "kind": "article",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html",
+   "free": true,
+   "minutes": 12,
+   "level": 1,
+   "audience": "any",
+   "why": "The Church's short foundation text: what is true and holy in other religions, and why Christians must reject hatred.",
+   "verified": "2026-11-09",
+   "note": "Church teaching; paragraph 3 is on Muslims, paragraph 4 on Jews"
+  },
+  {
+   "id": "mike-heaven",
+   "title": "Is Heaven ONLY for Catholics?",
+   "creator": "Fr. Mike Schmitz",
+   "kind": "video",
+   "url": "https://www.youtube.com/watch?v=UMFFBrptJv0",
+   "free": true,
+   "level": 1,
+   "audience": "teen",
+   "why": "A friendly answer to whether Catholics think only they are saved.",
+   "verified": "2026-11-09",
+   "note": "Ascension Presents"
+  },
+  {
+   "id": "eg",
+   "title": "Evangelii Gaudium",
+   "creator": "Francis",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html",
+   "free": true,
+   "minutes": 30,
+   "level": 2,
+   "audience": "adult",
+   "why": "Read paragraphs 250-254 on interreligious dialogue, including the passage on Islam.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (2013); long document, read the named section"
+  },
+  {
+   "id": "lg",
+   "title": "Lumen Gentium: Dogmatic Constitution on the Church",
+   "creator": "Second Vatican Council",
+   "kind": "article",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html",
+   "free": true,
+   "minutes": 60,
+   "level": 2,
+   "audience": "adult",
+   "why": "Read paragraph 16 on how those outside the visible Church are related to God's plan of salvation.",
+   "verified": "2026-11-09",
+   "note": "Church teaching; focus on paragraphs 14-16"
+  },
+  {
+   "id": "di",
+   "title": "Dominus Iesus",
+   "creator": "Congregation for the Doctrine of the Faith",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_20000806_dominus-iesus_en.html",
+   "free": true,
+   "minutes": 40,
+   "level": 3,
+   "audience": "adult",
+   "why": "The Church's clear statement that Christ is the one Saviour, and why that is not contempt for others.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (2000)"
+  },
+  {
+   "id": "as11",
+   "title": "Meeting for Peace in Assisi: Day of Reflection, Dialogue and Prayer",
+   "creator": "Benedict XVI",
+   "kind": "talk",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/speeches/2011/october/documents/hf_ben-xvi_spe_20111027_assisi.html",
+   "free": true,
+   "minutes": 15,
+   "level": 3,
+   "audience": "adult",
+   "why": "Benedict's answer to worries about Assisi, and his call to be pilgrims of truth, including with non-believers.",
+   "verified": "2026-11-09",
+   "note": "Papal address (2011)"
+  },
+  {
+   "id": "hf",
+   "title": "Document on Human Fraternity for World Peace and Living Together",
+   "creator": "Pope Francis and Grand Imam Ahmad al-Tayyeb",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/francesco/en/travels/2019/outside/documents/papa-francesco_20190204_documento-fratellanza-umana.html",
+   "free": true,
+   "minutes": 15,
+   "level": 3,
+   "audience": "adult",
+   "why": "A joint Catholic and Muslim statement; read it to see what the two leaders could say together.",
+   "verified": "2026-11-09",
+   "note": "Joint statement (2019); a witness document, not a doctrinal definition"
+  },
+  {
+   "id": "syn",
+   "title": "Address to the Jewish Community of Rome (Synagogue, 13 April 1986)",
+   "creator": "John Paul II",
+   "kind": "talk",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/speeches/1986/april/documents/hf_jp-ii_spe_19860413_sinagoga-roma.html",
+   "free": true,
+   "minutes": 20,
+   "level": 2,
+   "audience": "adult",
+   "why": "The first papal visit to a synagogue, where Jews are called \"elder brothers\" and anti-Jewish teaching is rejected.",
+   "verified": "2026-11-09",
+   "note": "Papal address"
+  },
+  {
+   "id": "gifts",
+   "title": "\"The Gifts and the Calling of God Are Irrevocable\" (Rom 11:29)",
+   "creator": "Commission for Religious Relations with the Jews",
+   "kind": "article",
+   "url": "https://www.christianunity.va/content/unitacristiani/en/commissione-per-i-rapporti-religiosi-con-l-ebraismo/commissione-per-i-rapporti-religiosi-con-l-ebraismo-crre/documenti-della-commissione/en.html",
+   "free": true,
+   "minutes": 60,
+   "level": 4,
+   "audience": "adult",
+   "why": "A Vatican reflection on covenant, salvation and witness to Jews; useful for the hardest questions.",
+   "verified": "2026-11-09",
+   "note": "Vatican commission reflection (2015); it says it is not a doctrinal teaching"
+  },
+  {
+   "id": "reg",
+   "title": "Faith, Reason and the University (Regensburg lecture)",
+   "creator": "Benedict XVI",
+   "kind": "talk",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/speeches/2006/september/documents/hf_ben-xvi_spe_20060912_university-regensburg.html",
+   "free": true,
+   "minutes": 35,
+   "level": 4,
+   "audience": "advanced",
+   "why": "A famous lecture on reason, violence and God that shaped Catholic-Muslim dialogue afterwards.",
+   "verified": "2026-11-09",
+   "note": "Papal lecture (2006); read with the Muslim reply \"A Common Word\""
+  }
+ ]
+}

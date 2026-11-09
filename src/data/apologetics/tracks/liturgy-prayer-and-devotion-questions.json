@@ -1,0 +1,385 @@
+{
+ "id": "liturgy-prayer-and-devotion-questions",
+ "title": "Mass, prayer and devotion",
+ "tagline": "Why Mass and ritual, “vain repetition”, the Latin Mass, how to pray and Eucharistic adoration.",
+ "group": "church-and-scripture",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "Many people stay away from Mass because it feels like ritual, or want to pray but do not know how. Answering well also helps Catholics love what they do.",
+ "mindset": [
+  {
+   "tip": "Listen to the honest worry behind “it is boring” or “it is just ritual” before answering."
+  },
+  {
+   "tip": "Show that Jesus prayed, repeated words and kept feasts. (Matthew 26:44; Luke 22:19)"
+  },
+  {
+   "tip": "Be even-handed on the Latin Mass; Catholics who love it and those who do not are both sincere.",
+   "resource": "ca-francis-latin"
+  },
+  {
+   "tip": "Offer to pray together rather than just explain. (Matthew 18:20)"
+  }
+ ],
+ "ccc": [
+  1069,
+  1070,
+  1136,
+  1324,
+  1378,
+  2559,
+  2565,
+  2697,
+  2700,
+  2708
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Learn what the Mass is and how to begin praying.",
+   "minutes": 75,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "barron-mass",
+     "why": "A guided walk through the Mass."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-adoration",
+     "why": "What adoration is and how to start."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-3-1",
+     "why": "What prayer is and why it is hard."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-3-3",
+     "why": "The Mass as prayer."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Liturgy",
+     "why": "The word in plain language."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Eucharistic adoration",
+     "why": "The word in plain language."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "When do you find it hardest to pray at Mass or outside it?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Show why Catholics worship as they do.",
+   "minutes": 85,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "eucharist-sacrifice",
+     "why": "The Mass as sacrifice, with sources."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "mass-in-scripture",
+     "why": "The Mass in Scripture."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-13-1",
+     "why": "The Liturgy of the Word."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-13-2",
+     "why": "The Eucharistic Prayer."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-vain-rep",
+     "why": "What Jesus meant by “vain repetition”."
+    },
+    {
+     "kind": "resource",
+     "id": "universalis",
+     "why": "Pray the day’s Liturgy of the Hours."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-3-2",
+     "why": "Praying with Scripture: lectio divina."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "chain",
+      "id": "eucharist-sacrifice"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Answer “ritual”, “Sunday” and the Latin Mass.",
+   "minutes": 95,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "sunday-worship-invented-by-the-church",
+     "why": "Tests the charge about Sunday worship."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "rosary",
+     "why": "The Rosary and “vain repetition”."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "eucharistic-adoration",
+     "why": "A Q&A on Eucharistic adoration."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-ef101",
+     "why": "A plain guide to the older form of the Roman Rite."
+    },
+    {
+     "kind": "resource",
+     "id": "desiderio",
+     "why": "Pope Francis on forming people through the liturgy."
+    },
+    {
+     "kind": "resource",
+     "id": "sc",
+     "why": "Read what Vatican II asks for in the liturgy."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "sign-of-the-cross",
+     "why": "Why Christians sign themselves."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "sunday-worship-invented-by-the-church"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Read early liturgies and the debate about the old rite.",
+   "minutes": 120,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "early-liturgies",
+     "why": "Read the Liturgy of St. James, one of the oldest.",
+     "section": "xii.ii"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "didache",
+     "why": "The Didache on baptism, fasting, prayer and the Lord’s Day.",
+     "section": "viii.iii.viii"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "justin-martyr",
+     "why": "Justin describes Sunday worship in the 150s."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "teresa-castle",
+     "why": "Teresa of Avila on growing in prayer."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "lawrence-practice",
+     "why": "Brother Lawrence on praying while working."
+    },
+    {
+     "kind": "resource",
+     "id": "summorum",
+     "why": "The 2007 text on the older Missal."
+    },
+    {
+     "kind": "resource",
+     "id": "traditionis",
+     "why": "The 2021 text restricting it."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-francis-latin",
+     "why": "A Catholic commentary on the 2021 changes."
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "ca-francis-latin",
+   "title": "Pope Francis’s Changes to the Latin Mass",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/pope-franciss-changes-to-the-latin-mass",
+   "free": true,
+   "level": 4,
+   "audience": "adult",
+   "why": "A Catholic commentary on what the 2021 changes mean in practice.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers; the commentary has a point of view."
+  },
+  {
+   "id": "barron-mass",
+   "title": "The Mass (series)",
+   "creator": "Bishop Robert Barron (Word on Fire)",
+   "kind": "series",
+   "url": "https://mass.wordonfire.org/trailer",
+   "free": false,
+   "level": 1,
+   "audience": "any",
+   "why": "A filmed walk through the Mass, part by part.",
+   "verified": "2026-11-09",
+   "note": "Word on Fire study series; episodes may need purchase or sign-in."
+  },
+  {
+   "id": "ca-adoration",
+   "title": "Adoration & Benediction",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/adoration-benediction-catholic-answers-guide-to-eucharistic-adoration",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "What adoration is, why Catholics do it and how to begin.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-vain-rep",
+   "title": "The Rosary Is Not a ‘Vain Repetition’",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/do-catholics-pray-vain-repetitions",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "Looks at Matthew 6:7 in its context and at repeated prayer in Scripture.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "universalis",
+   "title": "Universalis",
+   "creator": "Universalis",
+   "kind": "site",
+   "url": "https://universalis.com/today.htm",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "The day’s Liturgy of the Hours and Mass readings, free online.",
+   "verified": "2026-11-09"
+  },
+  {
+   "id": "ca-ef101",
+   "title": "Extraordinary Form 101",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/extraordinary-form-101",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "A plain guide to the older form of the Roman Rite and how it differs.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "desiderio",
+   "title": "Desiderio Desideravi",
+   "creator": "Pope Francis",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/francesco/en/apost_letters/documents/20220629-lettera-ap-desiderio-desideravi.html",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "A pastoral letter on the beauty of the liturgy and how to be formed by it.",
+   "verified": "2026-11-09",
+   "minutes": 30
+  },
+  {
+   "id": "sc",
+   "title": "Sacrosanctum Concilium (Constitution on the Sacred Liturgy)",
+   "creator": "Second Vatican Council",
+   "kind": "article",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_en.html",
+   "free": true,
+   "level": 3,
+   "audience": "advanced",
+   "why": "The Council’s teaching on why the Mass matters and how people should take part.",
+   "verified": "2026-11-09",
+   "minutes": 40
+  },
+  {
+   "id": "summorum",
+   "title": "Summorum Pontificum",
+   "creator": "Pope Benedict XVI",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/motu_proprio/documents/hf_ben-xvi_motu-proprio_20070707_summorum-pontificum.html",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "The 2007 text that widened use of the 1962 Missal.",
+   "verified": "2026-11-09",
+   "minutes": 10
+  },
+  {
+   "id": "traditionis",
+   "title": "Traditionis Custodes",
+   "creator": "Pope Francis",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/francesco/en/motu_proprio/documents/20210716-motu-proprio-traditionis-custodes.html",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "The 2021 text that restricted it again; read it beside Summorum Pontificum.",
+   "verified": "2026-11-09",
+   "minutes": 10
+  }
+ ]
+}

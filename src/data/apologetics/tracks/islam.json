@@ -1,0 +1,591 @@
+{
+ "id": "islam",
+ "title": "Understanding Islam and sharing Christ with Muslim friends",
+ "tagline": "Listen first, learn what Muslims believe in their own words, and then speak about Jesus with clarity and love.",
+ "group": "world-religions",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "Muslims are about a quarter of the world and many are our neighbours and friends. The Church asks us to respect them and also to bear witness to Christ.",
+ "mindset": [
+  {
+   "tip": "Listen before you speak. Ask what your friend believes and why (1 Peter 3:15-16: give a reason with gentleness and reverence)."
+  },
+  {
+   "tip": "Start from what the Church says: she looks on Muslims with esteem because they adore the one God (Nostra Aetate 3; CCC 841).",
+   "resource": "na"
+  },
+  {
+   "tip": "Hear Muslims in their own words: read the Qur'an in translation and Muslim writers before you answer them.",
+   "resource": "q-maryam"
+  },
+  {
+   "tip": "Do not argue to win. Name real agreements (one God, prayer, almsgiving, Mary, Jesus as a prophet) and real differences (Trinity, Incarnation, Cross) calmly.",
+   "resource": "ca-gospel-muslims"
+  },
+  {
+   "tip": "Know the history, including the Crusades, but never use it as a weapon or an excuse.",
+   "resource": "madden"
+  }
+ ],
+ "ccc": [
+  232,
+  253,
+  456,
+  464,
+  599,
+  839,
+  841,
+  842,
+  843,
+  844,
+  846,
+  856,
+  2104,
+  2105,
+  2106
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Know what the Church says about Muslims and how Islam describes itself.",
+   "minutes": 90,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "other-religions",
+     "why": "Start with the app's short answer on what the Church teaches about other religions."
+    },
+    {
+     "kind": "resource",
+     "id": "na",
+     "why": "Read the short passage on Muslims (paragraph 3) in the Church's own words."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "12-5-3",
+     "why": "A catechism lesson on Judaism, Islam and other religions."
+    },
+    {
+     "kind": "resource",
+     "id": "bbc-islam",
+     "why": "Get a neutral overview of Muslim belief and practice."
+    },
+    {
+     "kind": "resource",
+     "id": "q-ikhlas",
+     "why": "Read the short chapter on God's oneness that Muslims recite."
+    },
+    {
+     "kind": "resource",
+     "id": "q-maryam",
+     "why": "See how the Qur'an tells of Mary and Jesus."
+    },
+    {
+     "kind": "resource",
+     "id": "yq-jesus",
+     "why": "Hear from a Muslim institute what Muslims believe about Jesus."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Interreligious dialogue",
+     "why": "A plain definition of the Church's idea of dialogue."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "What do you actually know about Islam, and where did that knowledge come from?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Explain who Jesus is and why Christians worship one God in three Persons.",
+   "minutes": 130,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "usccb-islam",
+     "why": "Use the bishops' guide to learn the basics of Islam fairly."
+    },
+    {
+     "kind": "resource",
+     "id": "keating",
+     "why": "A Catholic theologian explains Islam and the differences that matter."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "divinity-of-christ",
+     "why": "The sourced case that the early Church believed Jesus is God."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "trinity",
+     "why": "The sourced case for one God in three Persons."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-gospel-muslims",
+     "why": "Learn practical ways to talk about the Trinity with Muslims."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-islam-cath",
+     "why": "See a Catholic overview of how the two faiths compare."
+    },
+    {
+     "kind": "resource",
+     "id": "q-imran",
+     "why": "Read the Qur'an's account of Jesus and Mary in the chapter of the family of Imran."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aristides",
+     "why": "An early Christian defence of the faith, written for outsiders.",
+     "section": "xiii.iv"
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "trinity-word-not-in-the-bible"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Answer common points: three gods, the Bible was changed, Jesus was not crucified.",
+   "minutes": 150,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "why-the-cross",
+     "why": "The sourced case for why Christ died, to answer the Qur'anic denial."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "christ-two-natures",
+     "why": "How the Church explains that Christ is fully God and fully man."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "canon-of-scripture",
+     "why": "Who settled which books are Scripture, for the claim that the Bible was altered."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "reliability-gospels",
+     "why": "The app's answer on how far the Gospels can be trusted."
+    },
+    {
+     "kind": "resource",
+     "id": "q-nisa",
+     "why": "Read the verses on the crucifixion and on the Trinity in context."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-same-god",
+     "why": "Hear a long discussion of the \"same God\" question and the Trinity."
+    },
+    {
+     "kind": "resource",
+     "id": "horn-same",
+     "why": "Hear a Catholic apologist's short take on the same question."
+    },
+    {
+     "kind": "resource",
+     "id": "madden",
+     "why": "Know the history of the Crusades so you can answer fairly."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "constantine-invented-christ-divinity"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Study serious Catholic and Muslim scholarship and the Church's long encounter with Islam.",
+   "minutes": 200,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "acw",
+     "why": "Read a Muslim open letter to Christians in full."
+    },
+    {
+     "kind": "resource",
+     "id": "yq-paper",
+     "why": "See how a Muslim paper treats Jesus, and where it parts from Christians."
+    },
+    {
+     "kind": "resource",
+     "id": "reg",
+     "why": "Read Benedict XVI's Regensburg lecture, then compare it with the Muslim reply."
+    },
+    {
+     "kind": "resource",
+     "id": "hf",
+     "why": "See what a pope and a Grand Imam could sign together."
+    },
+    {
+     "kind": "resource",
+     "id": "scg",
+     "why": "See Aquinas on speaking with people who do not share your Scriptures."
+    },
+    {
+     "kind": "resource",
+     "id": "damascus",
+     "why": "Read an eighth-century Christian reading of Islam from John of Damascus."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "john-damascus",
+     "why": "John of Damascus's Exposition of the Orthodox Faith, a Christian from the Arabic world stating the Trinity.",
+     "section": "iii.iv.i"
+    },
+    {
+     "kind": "resource",
+     "id": "reynolds",
+     "why": "Meet a Catholic scholar who reads the Qur'an beside the Bible."
+    },
+    {
+     "kind": "resource",
+     "id": "qureshi",
+     "why": "Read a Muslim convert's story (an evangelical voice)."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "How would you invite a Muslim friend to read a Gospel with you, and what would you listen for?"
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "na",
+   "title": "Nostra Aetate: Declaration on the Relation of the Church to Non-Christian Religions",
+   "creator": "Second Vatican Council",
+   "kind": "article",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html",
+   "free": true,
+   "minutes": 12,
+   "level": 1,
+   "audience": "any",
+   "why": "The Church's short foundation text: what is true and holy in other religions, and why Christians must reject hatred.",
+   "verified": "2026-11-09",
+   "note": "Church teaching; paragraph 3 is on Muslims, paragraph 4 on Jews"
+  },
+  {
+   "id": "q-maryam",
+   "title": "Surah Maryam (19) in translation",
+   "creator": "The Qur'an, on Quran.com",
+   "kind": "site",
+   "url": "https://quran.com/maryam",
+   "free": true,
+   "minutes": 15,
+   "level": 1,
+   "audience": "any",
+   "why": "Read how the Qur'an itself speaks of Mary and Jesus, in your own time.",
+   "verified": "2026-11-09",
+   "note": "Muslim primary source; Quran.com offers several English translations. Reading is meant for understanding, not as Catholic teaching"
+  },
+  {
+   "id": "ca-gospel-muslims",
+   "title": "Sharing the Gospel with Muslims",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/sharing-the-gospel-with-muslims",
+   "free": true,
+   "minutes": 12,
+   "level": 2,
+   "audience": "adult",
+   "why": "Practical advice on talking about Christ and the Trinity with Muslim friends.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers Magazine"
+  },
+  {
+   "id": "madden",
+   "title": "What the Crusades Were Really Like",
+   "creator": "Thomas F. Madden",
+   "kind": "article",
+   "url": "https://www.ewtn.com/catholicism/library/what-the-crusades-were-really-like-1813",
+   "free": true,
+   "minutes": 10,
+   "level": 3,
+   "audience": "adult",
+   "why": "A historian's interview on the Crusades; honest history helps in friendly talk.",
+   "verified": "2026-11-09",
+   "note": "Interview on EWTN; a Catholic historian's view, other historians stress different things"
+  },
+  {
+   "id": "bbc-islam",
+   "title": "Islam",
+   "creator": "BBC Religions (archive)",
+   "kind": "site",
+   "url": "https://www.bbc.co.uk/religion/religions/islam/",
+   "free": true,
+   "minutes": 20,
+   "level": 1,
+   "audience": "any",
+   "why": "A neutral overview of Muslim belief and practice.",
+   "verified": "2026-11-09",
+   "note": "Archived BBC pages; no longer updated"
+  },
+  {
+   "id": "q-ikhlas",
+   "title": "Surah Al-Ikhlas (112) in translation",
+   "creator": "The Qur'an, on Quran.com",
+   "kind": "site",
+   "url": "https://quran.com/al-ikhlas",
+   "free": true,
+   "minutes": 3,
+   "level": 1,
+   "audience": "any",
+   "why": "The short chapter Muslims recite on God's oneness; it shows what the Trinity must be explained against.",
+   "verified": "2026-11-09",
+   "note": "Muslim primary source"
+  },
+  {
+   "id": "yq-jesus",
+   "title": "Who is Jesus in Islam?",
+   "creator": "Yaqeen Institute for Islamic Research",
+   "kind": "article",
+   "url": "https://yaqeeninstitute.org/read/blog/who-is-jesus-in-islam",
+   "free": true,
+   "minutes": 8,
+   "level": 1,
+   "audience": "any",
+   "why": "A Muslim research institute states in its own words what Muslims believe about Jesus.",
+   "verified": "2026-11-09",
+   "note": "Muslim voice; compare with the Church's teaching"
+  },
+  {
+   "id": "usccb-islam",
+   "title": "Understanding Islam: A Guide for Catholic Educators",
+   "creator": "USCCB Committee for Ecumenical and Interreligious Affairs",
+   "kind": "article",
+   "url": "https://www.usccb.org/resources/2013-Understanding-Islam-Guide-for-Catholic-Educators-Final-Version-09112013.pdf",
+   "free": true,
+   "minutes": 60,
+   "level": 1,
+   "audience": "adult",
+   "why": "A bishops' conference guide produced with Catholic and Muslim scholars.",
+   "verified": "2026-11-09",
+   "note": "USCCB (PDF)"
+  },
+  {
+   "id": "keating",
+   "title": "What Catholics Should Know About Islam",
+   "creator": "Sandra Toenies Keating",
+   "kind": "book",
+   "url": "https://files.kofc.org/download/assets/CIS317+What+Catholics+Should+Know+about+Islam+Book/cd6aeae8a60b11f0a9bac2e386e54df5",
+   "free": true,
+   "minutes": 90,
+   "level": 2,
+   "audience": "adult",
+   "why": "A Catholic theologian's fair introduction to Islam and to the differences that matter.",
+   "verified": "2026-11-09",
+   "note": "Knights of Columbus Veritas series (PDF)"
+  },
+  {
+   "id": "ca-islam-cath",
+   "title": "Islam and Catholicism",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/islam-and-catholicism",
+   "free": true,
+   "minutes": 12,
+   "level": 2,
+   "audience": "adult",
+   "why": "A Catholic apologist's overview of how the two faiths compare.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers Magazine"
+  },
+  {
+   "id": "q-imran",
+   "title": "Surah Al 'Imran (3) in translation",
+   "creator": "The Qur'an, on Quran.com",
+   "kind": "site",
+   "url": "https://quran.com/ali-imran",
+   "free": true,
+   "minutes": 30,
+   "level": 2,
+   "audience": "any",
+   "why": "See the passages on the family of Imran, Mary, and Jesus as a messenger.",
+   "verified": "2026-11-09",
+   "note": "Muslim primary source"
+  },
+  {
+   "id": "q-nisa",
+   "title": "Surah An-Nisa (4) in translation",
+   "creator": "The Qur'an, on Quran.com",
+   "kind": "site",
+   "url": "https://quran.com/an-nisa",
+   "free": true,
+   "minutes": 40,
+   "level": 3,
+   "audience": "any",
+   "why": "Look at the verses on the crucifixion and on \"Do not say three\" in the Qur'an's own words.",
+   "verified": "2026-11-09",
+   "note": "Muslim primary source; read with a commentary"
+  },
+  {
+   "id": "ca-same-god",
+   "title": "Do Catholics Worship the Same God as Muslims? The Trinity and Salvation",
+   "creator": "Catholic Answers",
+   "kind": "podcast",
+   "url": "https://www.catholic.com/audio/cal/can-catholics-support-muslims-the-trinity-and-salvation",
+   "free": true,
+   "minutes": 50,
+   "level": 3,
+   "audience": "adult",
+   "why": "Callers and an apologist work through the \"same God\" question and what Muslims reject.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers Live"
+  },
+  {
+   "id": "horn-same",
+   "title": "Do Christians and Muslims Worship the Same God?",
+   "creator": "Trent Horn",
+   "kind": "video",
+   "url": "https://www.youtube.com/watch?v=vuDH-16f_aQ",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Horn gives his own answer to a question friends often ask.",
+   "verified": "2026-11-09",
+   "note": "Catholic apologist; The Counsel of Trent channel"
+  },
+  {
+   "id": "acw",
+   "title": "A Common Word Between Us and You",
+   "creator": "138 Muslim scholars and leaders",
+   "kind": "article",
+   "url": "https://www.acommonword.com/the-acw-document/",
+   "free": true,
+   "minutes": 20,
+   "level": 3,
+   "audience": "adult",
+   "why": "A Muslim open letter to Christian leaders built on love of God and neighbour.",
+   "verified": "2026-11-09",
+   "note": "Muslim voice (2007)"
+  },
+  {
+   "id": "yq-paper",
+   "title": "Jesus: A Foundation for Dialogue Between Muslims and Christians",
+   "creator": "Yaqeen Institute for Islamic Research",
+   "kind": "article",
+   "url": "https://www.yaqeeninstitute.org/read/paper/jesus-a-foundation-for-dialogue-between-muslims-and-christians",
+   "free": true,
+   "minutes": 45,
+   "level": 3,
+   "audience": "adult",
+   "why": "A longer Muslim paper that names both the common ground and the differences about Jesus.",
+   "verified": "2026-11-09",
+   "note": "Muslim voice"
+  },
+  {
+   "id": "reg",
+   "title": "Faith, Reason and the University (Regensburg lecture)",
+   "creator": "Benedict XVI",
+   "kind": "talk",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/speeches/2006/september/documents/hf_ben-xvi_spe_20060912_university-regensburg.html",
+   "free": true,
+   "minutes": 35,
+   "level": 4,
+   "audience": "advanced",
+   "why": "A famous lecture on reason, violence and God that shaped Catholic-Muslim dialogue afterwards.",
+   "verified": "2026-11-09",
+   "note": "Papal lecture (2006); read with the Muslim reply \"A Common Word\""
+  },
+  {
+   "id": "hf",
+   "title": "Document on Human Fraternity for World Peace and Living Together",
+   "creator": "Pope Francis and Grand Imam Ahmad al-Tayyeb",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/francesco/en/travels/2019/outside/documents/papa-francesco_20190204_documento-fratellanza-umana.html",
+   "free": true,
+   "minutes": 15,
+   "level": 3,
+   "audience": "adult",
+   "why": "A joint Catholic and Muslim statement; read it to see what the two leaders could say together.",
+   "verified": "2026-11-09",
+   "note": "Joint statement (2019); a witness document, not a doctrinal definition"
+  },
+  {
+   "id": "scg",
+   "title": "Summa Contra Gentiles, Book 1",
+   "creator": "Thomas Aquinas",
+   "kind": "book",
+   "url": "https://isidore.co/aquinas/ContraGentiles1.htm",
+   "free": true,
+   "minutes": 45,
+   "level": 4,
+   "audience": "advanced",
+   "why": "See Aquinas set out how to speak to people who do not share your Scriptures (chapters 2-9).",
+   "verified": "2026-11-09",
+   "note": "Public-domain English text; chapter 6 mentions Muhammad"
+  },
+  {
+   "id": "damascus",
+   "title": "The Heresy of the Ishmaelites",
+   "creator": "John of Damascus (tr. Kevin P. Edgecomb)",
+   "kind": "article",
+   "url": "https://sermonindex.net/ebooks/s/st-john-of-damascus-the-heresy-of-ishmaelites.pdf",
+   "free": true,
+   "minutes": 25,
+   "level": 4,
+   "audience": "advanced",
+   "why": "An eighth-century Christian reading of early Islam, written by someone who knew it.",
+   "verified": "2026-11-09",
+   "note": "Early Christian view, harsh by modern standards; free translation hosted on SermonIndex (PDF)"
+  },
+  {
+   "id": "reynolds",
+   "title": "Gabriel Said Reynolds, Notre Dame (profile and books)",
+   "creator": "University of Notre Dame",
+   "kind": "site",
+   "url": "https://theology.nd.edu/people/gabriel-reynolds/",
+   "free": true,
+   "minutes": 10,
+   "level": 4,
+   "audience": "advanced",
+   "why": "Meet a Catholic scholar of the Qur'an who reads it beside the Bible; his books are listed here.",
+   "verified": "2026-11-09",
+   "note": "University page; see his \"The Qur'an and the Bible\" (Yale)"
+  },
+  {
+   "id": "qureshi",
+   "title": "Seeking Allah, Finding Jesus",
+   "creator": "Nabeel Qureshi",
+   "kind": "book",
+   "url": "https://zondervanacademic.com/products/seeking-allah-finding-jesus",
+   "free": false,
+   "level": 4,
+   "audience": "adult",
+   "why": "A Muslim's own story of coming to Christ, showing what a Muslim friend may feel.",
+   "verified": "2026-11-09",
+   "note": "Evangelical Protestant memoir; not a Catholic source; publisher page"
+  }
+ ]
+}

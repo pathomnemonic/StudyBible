@@ -1,0 +1,499 @@
+{
+  "id": "problem-of-evil",
+  "title": "Suffering and the problem of evil",
+  "tagline": "Face the hardest question: if God is good, why is there so much pain?",
+  "group": "faith-and-reason",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Suffering is the most common reason people give for doubting God. A good answer must be honest about pain and not only clever.",
+  "mindset": [
+    {
+      "tip": "Do not argue with someone in fresh grief; sit with them first.",
+      "resource": "frmike-waiting"
+    },
+    {
+      "tip": "Separate the personal question (\"why me?\") from the philosophical one (\"is God possible?\"); they need different answers.",
+      "resource": "fradd-evil"
+    },
+    {
+      "tip": "Admit what we do not know; the Church says plainly that this is a mystery (CCC 309)."
+    },
+    {
+      "tip": "Point to the cross: God did not stay outside suffering (Hebrews 4:15; CCC 312, 1505).",
+      "resource": "wof-132"
+    }
+  ],
+  "ccc": [
+    272,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    385,
+    1006,
+    1500,
+    1501,
+    1505,
+    164
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Know the problem and the Church's basic reply.",
+      "minutes": 90,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "problem-of-evil",
+          "why": "Start with the app's answer to \"If God is good, why is there evil?\"."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "suffering",
+          "why": "And its answer to \"Why does God allow suffering?\"."
+        },
+        {
+          "kind": "resource",
+          "id": "fradd-evil",
+          "why": "A short, clear reply that evil does not disprove God."
+        },
+        {
+          "kind": "resource",
+          "id": "frmike-brokenness",
+          "why": "A gentle talk about God in our pain."
+        },
+        {
+          "kind": "resource",
+          "id": "lofton-hurt",
+          "why": "Four practical ways Christians face suffering."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "8-9-3",
+          "why": "Catechism lesson: why does a good God allow suffering?"
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What would you want someone to say, and not say, if you were in a time of deep loss?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Understand the main Christian replies: freedom, a world of goods, and the cross.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "kreeft-evil",
+          "why": "Lay out the problem and the standard replies."
+        },
+        {
+          "kind": "resource",
+          "id": "kreeft-suffering",
+          "why": "See God's own answer in Christ."
+        },
+        {
+          "kind": "resource",
+          "id": "wof-132",
+          "why": "Hear Aquinas, the Holocaust and the cross discussed."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-author-evil",
+          "why": "Distinguish what God causes from what he allows."
+        },
+        {
+          "kind": "resource",
+          "id": "job",
+          "why": "Read the Bible's own long argument about the suffering of the innocent."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "why-the-cross",
+          "why": "The sourced case that the cross is God's answer."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "original-sin",
+          "why": "Why the Church links the world's brokenness to the Fall."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Meet the strongest forms of the objection and answer them with respect.",
+      "minutes": 220,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "suffering-is-gods-punishment",
+          "why": "The charge that the Church says suffering is God's punishment."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "claim",
+            "id": "suffering-is-gods-punishment"
+          }
+        },
+        {
+          "kind": "resource",
+          "id": "horn-burden-evil",
+          "why": "Hear the problem of evil turned into a fair conversation."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-oconnor",
+          "why": "Watch a bishop face the question in a debate with an atheist."
+        },
+        {
+          "kind": "resource",
+          "id": "auschwitz",
+          "why": "See how a pope speaks at the site of the worst evil of the century."
+        },
+        {
+          "kind": "resource",
+          "id": "sep-evil",
+          "why": "Read a neutral account of the argument from evil."
+        },
+        {
+          "kind": "resource",
+          "id": "spe-salvi",
+          "why": "Read about hope that survives suffering (nos. 35-40)."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-L7",
+          "why": "A lesson on suffering that is not wasted."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the classic treatments and the strongest literary protest.",
+      "minutes": 360,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "boethius-consolation",
+          "why": "Boethius in prison asks why the wicked prosper (Book IV).",
+          "section": "s34"
+        },
+        {
+          "kind": "resource",
+          "id": "enchiridion",
+          "why": "Augustine on evil as the lack of good."
+        },
+        {
+          "kind": "resource",
+          "id": "summa-i-48",
+          "why": "Aquinas on what evil is."
+        },
+        {
+          "kind": "resource",
+          "id": "summa-i-22",
+          "why": "Aquinas on providence and freedom."
+        },
+        {
+          "kind": "resource",
+          "id": "salvifici-doloris",
+          "why": "John Paul II's letter on the Christian meaning of suffering."
+        },
+        {
+          "kind": "resource",
+          "id": "karamazov",
+          "why": "Read Ivan's protest, the strongest atheist case in literature."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "aug-city-of-god",
+          "why": "Augustine on the creation of the angels and the origin of two cities.",
+          "section": "iv.XII"
+        },
+        {
+          "kind": "inapp",
+          "type": "heresy",
+          "id": "manichaeism",
+          "why": "The early heresy that answered evil with two gods, and why the Church said no."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "fradd-evil",
+      "title": "How to Answer the Problem of Evil",
+      "creator": "Matt Fradd",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/the-problem-of-evil",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A clear short reply that evil does not disprove God.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "frmike-brokenness",
+      "title": "The God of our Brokenness",
+      "creator": "Fr. Mike Schmitz",
+      "kind": "talk",
+      "url": "https://www.youtube.com/watch?v=XuNYgicVvZ0",
+      "free": true,
+      "level": 1,
+      "audience": "teen",
+      "why": "A gentle talk on how God meets us in pain and weakness.",
+      "verified": "2026-11-09",
+      "note": "Word on Fire Institute channel"
+    },
+    {
+      "id": "lofton-hurt",
+      "title": "Hurt, Yet Hopeful: A Christian Response to Suffering",
+      "creator": "Michael Lofton",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/hurt-yet-hopeful-a-christian-response-to-suffering",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Four practical ways Christians can face suffering.",
+      "verified": "2026-11-09",
+      "minutes": 8,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "kreeft-evil",
+      "title": "The Problem of Evil",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/evil.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Lays out the problem clearly and gives a short list of Christian replies.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "kreeft-suffering",
+      "title": "God's Answer to Suffering",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/suffering.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A Christian answer that looks to the cross, not only to a theory.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "wof-132",
+      "title": "WOF 132: Why Does God Allow Evil and Suffering?",
+      "creator": "Bishop Robert Barron (Word on Fire Show)",
+      "kind": "podcast",
+      "url": "https://wordonfire.libsyn.com/wof-132-why-does-god-allow-evil-and-suffering",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Aquinas, the Holocaust and the cross in one honest conversation.",
+      "verified": "2026-11-09",
+      "minutes": 30,
+      "note": "Word on Fire"
+    },
+    {
+      "id": "horn-author-evil",
+      "title": "Is God the Author of Evil?",
+      "creator": "Trent Horn",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/is-god-the-author-of-evil",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Separates moral evil from physical suffering and looks at hard Old Testament verses.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "job",
+      "title": "The Book of Job",
+      "creator": "Sacred Scripture (USCCB, NABRE)",
+      "kind": "article",
+      "url": "https://bible.usccb.org/bible/job/1",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "The Bible's own long argument about the suffering of the innocent.",
+      "verified": "2026-11-09",
+      "note": "Free online Bible"
+    },
+    {
+      "id": "horn-burden-evil",
+      "title": "Atheism, the Burden of Proof, and the Problem of Evil",
+      "creator": "Trent Horn (Catholic Answers Live)",
+      "kind": "talk",
+      "url": "https://www.youtube.com/watch?v=POqMB3BKHGE",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Shows how to turn the argument from evil into a fair conversation.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "barron-oconnor",
+      "title": "Bishop Barron and Alex O'Connor debate God's existence",
+      "creator": "Premier Unbelievable? (Justin Brierley)",
+      "kind": "debate",
+      "url": "https://www.youtube.com/watch?v=Ehi0STmMRrg",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A courteous conversation that reaches suffering and the cross as well as the proofs.",
+      "verified": "2026-11-09",
+      "note": "Includes an atheist speaking in his own words"
+    },
+    {
+      "id": "auschwitz",
+      "title": "Prayer at Auschwitz-Birkenau, 28 May 2006",
+      "creator": "Pope Benedict XVI",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/speeches/2006/may/documents/hf_ben-xvi_spe_20060528_auschwitz-birkenau.html",
+      "free": true,
+      "level": 3,
+      "audience": "any",
+      "why": "A pope stands at the worst evil of the century and asks where God was.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Vatican text"
+    },
+    {
+      "id": "sep-evil",
+      "title": "The Problem of Evil",
+      "creator": "Stanford Encyclopedia of Philosophy",
+      "kind": "article",
+      "url": "https://plato.stanford.edu/entries/evil/",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "A fair survey of the argument from evil and the main replies.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Secular scholarly reference"
+    },
+    {
+      "id": "spe-salvi",
+      "title": "Spe Salvi (Saved in Hope)",
+      "creator": "Pope Benedict XVI",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20071130_spe-salvi.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Part of it asks what a hope that survives suffering and death really looks like.",
+      "verified": "2026-11-09",
+      "note": "Encyclical, 2007"
+    },
+    {
+      "id": "enchiridion",
+      "title": "Enchiridion (Handbook on Faith, Hope and Love)",
+      "creator": "St. Augustine",
+      "kind": "book",
+      "url": "https://www.newadvent.org/fathers/1302.htm",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Augustine's short account of evil as the lack of a good, and how God draws good from it.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "summa-i-48",
+      "title": "Summa Theologiae I, Question 48: Evil",
+      "creator": "Thomas Aquinas",
+      "kind": "book",
+      "url": "https://www.newadvent.org/summa/1048.htm",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Aquinas on what evil is, in short numbered articles.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Public-domain English translation"
+    },
+    {
+      "id": "summa-i-22",
+      "title": "Summa Theologiae I, Question 22: The providence of God",
+      "creator": "Thomas Aquinas",
+      "kind": "book",
+      "url": "https://www.newadvent.org/summa/1022.htm",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "How God can govern all things and still leave real freedom.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Public-domain English translation"
+    },
+    {
+      "id": "salvifici-doloris",
+      "title": "Salvifici Doloris (On the Christian Meaning of Human Suffering)",
+      "creator": "Pope St. John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1984/documents/hf_jp-ii_apl_11021984_salvifici-doloris.html",
+      "free": true,
+      "level": 4,
+      "audience": "adult",
+      "why": "The Church's fullest reflection on why suffering is not wasted.",
+      "verified": "2026-11-09",
+      "note": "Apostolic letter, 1984"
+    },
+    {
+      "id": "karamazov",
+      "title": "The Brothers Karamazov (Ivan's \"Rebellion\")",
+      "creator": "Fyodor Dostoevsky",
+      "kind": "book",
+      "url": "https://www.gutenberg.org/ebooks/28054",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Ivan's protest about a child's suffering is one of the strongest cases against God in literature.",
+      "verified": "2026-11-09",
+      "note": "Orthodox Christian novelist giving an unbeliever's case in full; free on Project Gutenberg"
+    },
+    {
+      "id": "frmike-waiting",
+      "title": "When the Suffering Doesn't End: Waiting Well",
+      "creator": "Fr. Mike Schmitz and Fr. Boniface Hicks",
+      "kind": "talk",
+      "url": "https://www.youtube.com/watch?v=2qLvLfucAIs",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "For people who are still in the middle of suffering rather than looking for an explanation.",
+      "verified": "2026-11-09",
+      "note": "Ascension Presents"
+    }
+  ]
+}

@@ -1,0 +1,450 @@
+{
+  "id": "war-peace-and-the-death-penalty",
+  "title": "War, peace and the death penalty",
+  "tagline": "How the Church weighs just war and pacifism, why the Catechism changed on the death penalty in 2018, and what it says about torture and nuclear weapons.",
+  "group": "morals-and-life",
+  "audience": [
+    "adult"
+  ],
+  "whyItMatters": "These are questions where Catholics of good will disagree about application, and where the Church's own teaching has developed. The course helps you tell the settled from the disputed.",
+  "mindset": [
+    {
+      "tip": "Many listeners have fought, lost someone to violence, or been a victim. Hear them out before arguing (Romans 12:15)."
+    },
+    {
+      "tip": "Say that the Church holds legitimate defence and also the dignity of every person, even the guilty (CCC 2263-2267).",
+      "resource": "letter-2267"
+    },
+    {
+      "tip": "Present both sides in their strongest form: the just war tradition, and Christian nonviolence. Pax Christi and Aquinas disagree in emphasis, not in the goal of peace.",
+      "resource": "pax-christi"
+    },
+    {
+      "tip": "Be honest that CCC 2267 changed in 2018 and that some Catholics ask how that fits with earlier teaching. The Vatican calls it a development.",
+      "resource": "letter-2267"
+    },
+    {
+      "tip": "On torture and nuclear weapons, quote the documents; the language is strong and needs no embellishment.",
+      "resource": "hiroshima"
+    }
+  ],
+  "ccc": [
+    2263,
+    2264,
+    2265,
+    2266,
+    2267,
+    2297,
+    2298,
+    2302,
+    2303,
+    2304,
+    2305,
+    2306,
+    2307,
+    2308,
+    2309,
+    2310,
+    2311,
+    2312,
+    2313,
+    2314,
+    2315,
+    2316,
+    2317
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Learn the basic positions and where they sit in the Catechism.",
+      "minutes": 75,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Just war",
+          "why": "The criteria in short form."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Capital punishment",
+          "why": "How the Catechism now treats it."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "12-3-3",
+          "why": "A school lesson on war and peace."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "12-10-1",
+          "why": "A school lesson on the death penalty, war and peace."
+        },
+        {
+          "kind": "resource",
+          "id": "letter-2267",
+          "why": "The Vatican's own account of the 2018 change."
+        },
+        {
+          "kind": "resource",
+          "id": "usccb-cst",
+          "why": "An official gateway to the bishops' teaching on life and peace."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "See the roots in Scripture and the Fathers.",
+      "minutes": 120,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "war-and-peace",
+          "why": "The app's sourced chain on war and the Christian soldier."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "war-and-peace"
+          }
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "death-penalty",
+          "why": "The app's summary on the death penalty."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "7-9-2",
+          "why": "A lesson on the gift of every life."
+        },
+        {
+          "kind": "resource",
+          "id": "aug-189",
+          "why": "Augustine writes to a soldier about war and mercy."
+        },
+        {
+          "kind": "resource",
+          "id": "st-q40",
+          "why": "Aquinas on war."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "lactantius",
+          "why": "Lactantius, a Christian writer who rejected killing, for an early voice."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Answer 'the Church contradicted itself', 'a just war is a contradiction' and 'the guilty deserve it'.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "cmn",
+          "why": "Catholics who argue for ending the death penalty."
+        },
+        {
+          "kind": "resource",
+          "id": "pax-christi",
+          "why": "The pacifist side of the tradition."
+        },
+        {
+          "kind": "resource",
+          "id": "wdp2017",
+          "why": "Francis on nonviolence."
+        },
+        {
+          "kind": "resource",
+          "id": "ft",
+          "why": "Fratelli Tutti chapter 7 on war, and the criteria for just war."
+        },
+        {
+          "kind": "resource",
+          "id": "gs",
+          "why": "Vatican II on war, paragraphs 78-82."
+        },
+        {
+          "kind": "resource",
+          "id": "hiroshima",
+          "why": "Francis on nuclear weapons."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "inquisition",
+          "why": "The Inquisition and the Crusades, an honest account of the Church's past use of force."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the strongest arguments on each side.",
+      "minutes": 300,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "st-q64",
+          "why": "Aquinas on killing, including the execution of criminals."
+        },
+        {
+          "kind": "resource",
+          "id": "feser-bessette",
+          "why": "The strongest Catholic defence of capital punishment; read it with the Vatican letter."
+        },
+        {
+          "kind": "resource",
+          "id": "pt",
+          "why": "John XXIII on peace."
+        },
+        {
+          "kind": "resource",
+          "id": "vs",
+          "why": "John Paul II on acts that are always wrong, including torture (paragraph 80)."
+        },
+        {
+          "kind": "resource",
+          "id": "ev",
+          "why": "John Paul II on the death penalty in paragraph 56."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "aquinas-summa",
+          "why": "Follow Aquinas's Scripture citations in the app."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "aug-city-of-god",
+          "why": "Augustine's City of God, books 19 on peace."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "st-q40",
+      "title": "Summa Theologiae II-II, Q. 40: War",
+      "creator": "Thomas Aquinas",
+      "kind": "article",
+      "url": "https://www.newadvent.org/summa/3040.htm",
+      "free": true,
+      "minutes": 15,
+      "level": 3,
+      "audience": "advanced",
+      "why": "The root text of the just war tradition: authority, just cause and right intention.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "st-q64",
+      "title": "Summa Theologiae II-II, Q. 64: Murder",
+      "creator": "Thomas Aquinas",
+      "kind": "article",
+      "url": "https://www.newadvent.org/summa/3064.htm",
+      "free": true,
+      "minutes": 20,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Where Aquinas treats killing, self-defence and the execution of criminals.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "vs",
+      "title": "Veritatis Splendor",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html",
+      "free": true,
+      "minutes": 120,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The Church's fullest modern teaching on moral truth, conscience and acts that are always wrong.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 1993"
+    },
+    {
+      "id": "ev",
+      "title": "Evangelium Vitae",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html",
+      "free": true,
+      "minutes": 150,
+      "level": 2,
+      "audience": "adult",
+      "why": "The Church's main teaching on the value and inviolability of human life, from conception to natural death.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 1995"
+    },
+    {
+      "id": "ft",
+      "title": "Fratelli Tutti",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html",
+      "free": true,
+      "minutes": 150,
+      "level": 3,
+      "audience": "adult",
+      "why": "On fraternity and social friendship; chapter 7 treats war, and chapter 4 the stranger.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 2020"
+    },
+    {
+      "id": "gs",
+      "title": "Gaudium et Spes (Pastoral Constitution on the Church in the Modern World)",
+      "creator": "Second Vatican Council",
+      "kind": "article",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html",
+      "free": true,
+      "minutes": 120,
+      "level": 4,
+      "audience": "adult",
+      "why": "Paragraphs 78-82 on peace and war, and 47-52 on marriage.",
+      "verified": "2026-11-09",
+      "note": "Vatican II"
+    },
+    {
+      "id": "usccb-cst",
+      "title": "Catholic Social Teaching",
+      "creator": "U.S. Conference of Catholic Bishops",
+      "kind": "site",
+      "url": "https://www.usccb.org/sjp/catholic-social-teaching",
+      "free": true,
+      "minutes": 15,
+      "level": 1,
+      "audience": "any",
+      "why": "An official gateway to the main themes and the documents behind them.",
+      "verified": "2026-11-09",
+      "note": "USCCB"
+    },
+    {
+      "id": "letter-2267",
+      "title": "Letter to the Bishops regarding the new revision of number 2267 of the Catechism on the death penalty",
+      "creator": "Congregation for the Doctrine of the Faith",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_20180801_lettera-vescovi-penadimorte_en.html",
+      "free": true,
+      "minutes": 15,
+      "level": 2,
+      "audience": "any",
+      "why": "The Vatican's own explanation of the 2018 change to the Catechism, presented as a development.",
+      "verified": "2026-11-09",
+      "note": "Vatican document, 2018"
+    },
+    {
+      "id": "pt",
+      "title": "Pacem in Terris",
+      "creator": "Pope John XXIII",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-xxiii/en/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html",
+      "free": true,
+      "minutes": 90,
+      "level": 3,
+      "audience": "adult",
+      "why": "The 1963 encyclical on peace built on truth, justice, charity and freedom.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical"
+    },
+    {
+      "id": "hiroshima",
+      "title": "Meeting for peace at the Peace Memorial (Hiroshima, 24 November 2019)",
+      "creator": "Pope Francis",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/francesco/en/messages/pont-messages/2019/documents/papa-francesco_20191124_messaggio-incontropace-hiroshima.html",
+      "free": true,
+      "minutes": 10,
+      "level": 3,
+      "audience": "adult",
+      "why": "Francis says that the use, and the possession, of nuclear weapons is immoral.",
+      "verified": "2026-11-09",
+      "note": "Papal address"
+    },
+    {
+      "id": "wdp2017",
+      "title": "World Day of Peace 2017: Nonviolence: a Style of Politics for Peace",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/messages/peace/documents/papa-francesco_20161208_messaggio-l-giornata-mondiale-pace-2017.html",
+      "free": true,
+      "minutes": 20,
+      "level": 3,
+      "audience": "adult",
+      "why": "Francis commends active nonviolence as a Gospel path.",
+      "verified": "2026-11-09",
+      "note": "Papal message"
+    },
+    {
+      "id": "aug-189",
+      "title": "Letter 189 (to Boniface)",
+      "creator": "Augustine of Hippo",
+      "kind": "article",
+      "url": "https://www.newadvent.org/fathers/1102189.htm",
+      "free": true,
+      "minutes": 10,
+      "level": 3,
+      "audience": "adult",
+      "why": "A short letter in which Augustine tells a soldier that war can be waged for peace, and must stay merciful.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "pax-christi",
+      "title": "Pax Christi USA",
+      "creator": "Pax Christi USA",
+      "kind": "site",
+      "url": "https://paxchristiusa.org/",
+      "free": true,
+      "minutes": 20,
+      "level": 3,
+      "audience": "any",
+      "why": "The national Catholic peace movement; one voice from the pacifist side of the tradition.",
+      "verified": "2026-11-09",
+      "note": "Takes a strongly pacifist line"
+    },
+    {
+      "id": "cmn",
+      "title": "Catholic Mobilizing Network",
+      "creator": "Catholic Mobilizing Network",
+      "kind": "site",
+      "url": "https://catholicsmobilizing.org/",
+      "free": true,
+      "minutes": 20,
+      "level": 2,
+      "audience": "any",
+      "why": "Catholic organisation that works to end the use of the death penalty.",
+      "verified": "2026-11-09",
+      "note": "Advocacy for abolition"
+    },
+    {
+      "id": "feser-bessette",
+      "title": "By Man Shall His Blood Be Shed: A Catholic Defense of Capital Punishment",
+      "creator": "Edward Feser and Joseph M. Bessette (Ignatius Press)",
+      "kind": "book",
+      "url": "https://shop.catholic.com/by-man-shall-his-blood-be-shed-a-catholic-defense-of-capital-punishment/",
+      "free": false,
+      "minutes": 600,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The strongest Catholic book defending the death penalty, which lets you hear the other side before the 2018 change.",
+      "verified": "2026-11-09",
+      "note": "Book for purchase; published before the 2018 revision of CCC 2267, so read it alongside the Vatican letter"
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+ "id": "church-scandals-and-sinners",
+ "title": "Scandal, sin and why stay",
+ "tagline": "An honest look at abuse, corrupt leaders and a Church that is holy and full of sinners.",
+ "group": "church-and-scripture",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "For many people, scandal is the real reason they left or doubt. They need truth, accountability and compassion, not slogans.",
+ "mindset": [
+  {
+   "tip": "Listen first. Anger and grief at abuse are fair responses; do not rush to defend. (Psalm 34:18)"
+  },
+  {
+   "tip": "Put survivors before the Church’s image. The popes themselves have said so.",
+   "resource": "francis-letter"
+  },
+  {
+   "tip": "Do not minimise or change the subject. Admit failures plainly, then explain why you still stay. (CCC 827)",
+   "resource": "barron-stay"
+  },
+  {
+   "tip": "Never claim more than you know; point people to proper help and reporting where needed. (CCC 2285)"
+  }
+ ],
+ "ccc": [
+  771,
+  827,
+  865,
+  1428,
+  2284,
+  2285,
+  2286
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Face the problem and hear honest reasons for staying.",
+   "minutes": 70,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "ca-respond-scandal",
+     "why": "A pastoral talk on anger and trust."
+    },
+    {
+     "kind": "resource",
+     "id": "barron-stay",
+     "why": "A bishop gives his reasons after the scandals."
+    },
+    {
+     "kind": "resource",
+     "id": "america-coyne",
+     "why": "A lay woman describes why she stays and what must change."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Scandal",
+     "why": "The Catechism’s word for leading others into sin."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Marks of the Church",
+     "why": "Why the Church is called holy though members sin."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "sinful-popes",
+     "why": "Bad popes and a holy Church."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "What would you most want someone to understand about your hurt or doubt?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Say what the Church teaches and what she has done.",
+   "minutes": 80,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "francis-letter",
+     "why": "The pope calls the whole Church to penance and change."
+    },
+    {
+     "kind": "resource",
+     "id": "benedict-ireland",
+     "why": "A pope speaks to survivors and the guilty."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "9-9-1",
+     "why": "A lesson on sinners in the Church, the abuse crisis and reform."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "pope-claims-to-be-sinless",
+     "why": "Corrects the myth that infallible means sinless."
+    },
+    {
+     "kind": "inapp",
+     "type": "heresy",
+     "id": "donatism",
+     "why": "The old question: does a sinful minister spoil the sacrament?"
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "10-1-2",
+     "why": "The Church as mystery and sacrament, visible and spiritual."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "pope-claims-to-be-sinless"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Handle “hypocrisy”, “cover-up” and “why not leave?”.",
+   "minutes": 90,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "vos-estis",
+     "why": "See the rules for reporting abuse and holding bishops to account."
+    },
+    {
+     "kind": "resource",
+     "id": "cwr-john-jay",
+     "why": "A Catholic commentary on the research into causes."
+    },
+    {
+     "kind": "resource",
+     "id": "bishop-accountability",
+     "why": "See survivors’ documents and data, with care."
+    },
+    {
+     "kind": "inapp",
+     "type": "heresy",
+     "id": "novatianism-rigorism",
+     "why": "The old call for a Church only of the pure."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "are-catholics-christian",
+     "why": "Why the Church counts on sinners to be converted."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "gregory-pastoral-rule",
+     "why": "Gregory the Great on what a pastor owes his flock.",
+     "section": "iii.iv.iii"
+    },
+    {
+     "kind": "inapp",
+     "type": "ask",
+     "id": "Someone in the Church did something terrible and I am losing my trust. What would the Fathers say?",
+     "why": "Ask the Fathers about scandal."
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Read the saints and historians on reform.",
+   "minutes": 110,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "catherine-letters",
+     "why": "Catherine of Siena writes boldly to the pope about corrupt clergy.",
+     "section": "s25"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "catherine-letters",
+     "why": "A second letter to the pope on reform.",
+     "section": "s26"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "dante-divine-comedy",
+     "why": "Dante places corrupt popes in hell, in Inferno XIX.",
+     "section": "s19"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "gregory-pastoral-rule",
+     "why": "Read the whole Pastoral Rule on the shepherd’s duty."
+    },
+    {
+     "kind": "resource",
+     "id": "duffy-saints-sinners",
+     "why": "A Catholic historian tells the papal story, good and bad."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-11-2",
+     "why": "Slavery, colonialism and anti-Judaism in the Church’s history."
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "francis-letter",
+   "title": "Letter to the People of God (2018)",
+   "creator": "Pope Francis",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/francesco/en/letters/2018/documents/papa-francesco_20180820_lettera-popolo-didio.html",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "The pope names abuse, cover-up and clericalism and calls the whole Church to penance.",
+   "verified": "2026-11-09",
+   "minutes": 10
+  },
+  {
+   "id": "barron-stay",
+   "title": "Why Remain Catholic? (With So Much Scandal)",
+   "creator": "Bishop Robert Barron",
+   "kind": "article",
+   "url": "https://www.wordonfire.org/articles/barron/why-remain-catholic-with-so-much-scandal-2018/",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A bishop faces the scandal squarely and gives his reasons for staying.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Word on Fire, 2018."
+  },
+  {
+   "id": "ca-respond-scandal",
+   "title": "How Should Catholics Respond to Church Scandals?",
+   "creator": "Catholic Answers",
+   "kind": "podcast",
+   "url": "https://www.catholic.com/audio/sp/how-should-catholics-respond-to-church-scandals",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A pastoral talk on anger, trust and what to do next.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "america-coyne",
+   "title": "“Why do I stay?” A young Catholic feminist on a church plagued by scandal",
+   "creator": "Delaney Coyne (America)",
+   "kind": "article",
+   "url": "https://www.americamagazine.org/faith/2023/11/10/coyne-sex-abuse-why-i-stay-246456/",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A lay woman’s honest account of anger, loyalty and the call to reform.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "America Magazine; a personal essay that includes calls for change."
+  },
+  {
+   "id": "benedict-ireland",
+   "title": "Pastoral Letter to the Catholics of Ireland (2010)",
+   "creator": "Pope Benedict XVI",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/letters/2010/documents/hf_ben-xvi_let_20100319_church-ireland.html",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "A pope speaks directly to survivors and to the guilty, and admits failures of leadership.",
+   "verified": "2026-11-09",
+   "minutes": 20
+  },
+  {
+   "id": "vos-estis",
+   "title": "Vos estis lux mundi",
+   "creator": "Pope Francis",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/francesco/en/motu_proprio/documents/papa-francesco-motu-proprio-20190507_vos-estis-lux-mundi.html",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "The Church’s law on reporting abuse and holding bishops to account.",
+   "verified": "2026-11-09",
+   "minutes": 15
+  },
+  {
+   "id": "cwr-john-jay",
+   "title": "The John Jay Report",
+   "creator": "Catholic World Report",
+   "kind": "article",
+   "url": "https://www.catholicworldreport.com/2011/06/30/the-john-jay-report/",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "A Catholic commentary on the research commissioned by the US bishops into causes and context.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Commentary; the report itself is contested on some points."
+  },
+  {
+   "id": "bishop-accountability",
+   "title": "BishopAccountability.org",
+   "creator": "BishopAccountability.org",
+   "kind": "site",
+   "url": "https://www.bishop-accountability.org/",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "A survivor-focused archive of documents and data on the abuse crisis.",
+   "verified": "2026-11-09",
+   "note": "An independent advocacy archive; not a Church source, and some material is hard reading."
+  },
+  {
+   "id": "duffy-saints-sinners",
+   "title": "Saints and Sinners: A History of the Popes",
+   "creator": "Eamon Duffy",
+   "kind": "book",
+   "url": "https://yalebooks.yale.edu/book/9780300206128/saints-and-sinners/",
+   "free": false,
+   "level": 4,
+   "audience": "advanced",
+   "why": "A leading Catholic historian tells the popes’ story, good and bad, without flinching.",
+   "verified": "2026-11-09",
+   "note": "Book for purchase (Yale University Press); found in libraries."
+  }
+ ]
+}

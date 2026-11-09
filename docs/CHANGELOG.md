@@ -129,3 +129,7 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 
 ## Apologetics tracks
 - New: Learn to answer. Pick a question (atheism, Protestant friends, Islam, natural law and more) and grow through four levels, with checked free resources, sourced chains and practice cards.
+
+## Fathers on the feast, and hymns
+- Each major feast card now has a short passage from the Fathers, checked against the library.
+- New Hymns and chants page: Latin hymns with named public-domain English translations, filtered by season.

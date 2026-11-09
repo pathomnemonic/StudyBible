@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Marked } from '../study/citations';
 import Icon from './Icon';
@@ -23,6 +23,22 @@ import { loadBiay } from '../data/biay';
 import { getJson } from '../data/loader';
 import { getWork } from '../data/content';
 import { reachOf } from '../study/density';
+import type { Scheme } from '../lib/types';
+import { rankItems, startHere, scoreItem, loadIdSet, saveIdSet, loadShowEverything, saveShowEverything, type Scored, type RelevanceContext } from '../study/relevance';
+
+/**
+ * "More in this app" (what else in the app is tied to this verse) is another component. It is found when the app is built and
+ * left out quietly when the file is not there, so the panel never breaks on it.
+ * TODO: remove the glob once src/components/VerseLinks.tsx is in for good and import it directly.
+ */
+type VerseLinksProps = { book: string; chapter: number; verse?: number; scheme?: Scheme };
+const verseLinksFiles = import.meta.glob<{ default: React.ComponentType<VerseLinksProps> }>('./VerseLinks.tsx');
+const VerseLinks = verseLinksFiles['./VerseLinks.tsx'] ? lazy(verseLinksFiles['./VerseLinks.tsx']) : null;
+
+/** how many items a kind shows before "Show N more" */
+const CAP_NOTES = 3;
+const CAP_TEACH = 2;
+const CAP_TAB = 3;
 
 export const AUTH_LABEL: Record<string, string> = {
   doctrine: 'Official doctrine',
@@ -80,6 +96,15 @@ export default function StudyPanel({
   const [compare, setCompare] = useState(false);
   const [xmap, setXmap] = useState(true);
   const [showAll, setShowAll] = useState(false);
+  const [everything, setEverythingState] = useState(loadShowEverything);
+  const setEverything = (on: boolean) => { setEverythingState(on); saveShowEverything(on); };
+  const [opened, setOpened] = useState<Record<string, boolean>>({});
+  const [dismissed, setDismissed] = useState<Set<string>>(() => loadIdSet('sb:panelDismissed'));
+  // what was read before this passage opened shapes the order; what is read now is remembered for next time, so nothing jumps while reading
+  const seenAtOpen = useRef<Set<string>>(loadIdSet('sb:panelSeen'));
+  const markSeen = (id: string) => { const s = loadIdSet('sb:panelSeen'); if (!s.has(id)) { s.add(id); saveIdSet('sb:panelSeen', s); } };
+  const dismiss = (id: string) => setDismissed((d) => { const n = new Set(d); n.add(id); saveIdSet('sb:panelDismissed', n); return n; });
+  const restoreDismissed = () => { setDismissed(new Set()); saveIdSet('sb:panelDismissed', new Set()); };
   const key = refs.map(refId).join('|');
 
   useEffect(() => {
@@ -87,6 +112,8 @@ export default function StudyPanel({
     setData({});
     setLoading(true);
     setShowAll(false);
+    setOpened({});
+    seenAtOpen.current = loadIdSet('sb:panelSeen');
     gatherAll(refs, (k, items) => live && setData((d) => ({ ...d, [k]: items }))).then(() => live && setLoading(false));
     return () => {
       live = false;
@@ -113,6 +140,46 @@ export default function StudyPanel({
   const hiddenForeign = showOther ? 0 : Object.values(data).flat().filter((i) => i && isReal(i) && foreign(i as StudyItem)).length;
   const activeTab = TABS.find((t) => t.id === tab);
   const filtersOn = !!(authority || period || author || match || format);
+  // ---- relevance: score every item once, then show the best first (the full list stays one tap away)
+  const compact = !everything && !filtersOn;
+  const verseScope = scope === 'passage' && refs.length === 1 && refs[0].v1 !== undefined;
+  const rctx: RelevanceContext = useMemo(() => ({
+    sel: refs, kidMode: settings.kidMode, audience: settings.audience, interests: settings.interests,
+    beginner: settings.kidMode || settings.audience === 'youth' || settings.audience === '',
+    seen: seenAtOpen.current, dismissed,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }), [key, settings.kidMode, settings.audience, settings.interests, dismissed, loading]);
+  const ranking = useMemo(() => {
+    const pool = Object.values(data).flat().filter((i): i is StudyItem => !!i && isReal(i) && passes(i));
+    const r = rankItems(pool, rctx);
+    const byId = new Map<string, Scored>(r.ranked.map((s) => [s.item.id, s]));
+    const sh = startHere(r.ranked, rctx);
+    return { ...r, byId, sh, startIds: new Set(sh.top.map((s) => s.item.id)) };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, rctx, authority, period, author, match, format, showOther, edition.id]);
+  const scoreOf = (i: StudyItem) => ranking.byId.get(i.id)?.score ?? scoreItem(i, rctx).score;
+  const byScore = (l: StudyItem[]) => (compact ? [...l].sort((a, b) => scoreOf(b) - scoreOf(a)) : l);
+  const gone = (i: StudyItem) => compact && (ranking.dropped.has(i.id) || dismissed.has(i.id));
+  const dismissedHere = Object.values(data).flat().filter((i) => i && dismissed.has((i as StudyItem).id)).length;
+  const own = [...(data.mine ?? []), ...(data.links ?? [])].filter(isReal).sort((a, b) => ['Note', 'Highlight', 'Bookmark'].indexOf(a.kind ?? 'z') - ['Note', 'Highlight', 'Bookmark'].indexOf(b.kind ?? 'z'));
+  const startShown = tab === 'notes' && compact && verseScope && ranking.sh.top.length > 0;
+  const allToggle = (
+    <label className="sp-all" title="Off: the best few first, the rest one tap away. On: every note and link, as before.">
+      <input type="checkbox" checked={everything} onChange={(e) => setEverything(e.target.checked)} /> Show everything
+    </label>
+  );
+  const toggle = (k: string) => setOpened((o) => ({ ...o, [k]: !o[k] }));
+  /** the first N of a ranked list with "Show N more" for the rest */
+  const capped = (k: string, list: StudyItem[], cap: number, render: (i: StudyItem, n: number, a: StudyItem[]) => React.ReactNode, noun = 'more') => {
+    if (!compact || list.length <= cap + 1) return list.map(render);
+    const shown = opened[k] ? list : list.slice(0, cap);
+    return (
+      <>
+        {shown.map(render)}
+        <button className="btn small ghost sp-more" aria-expanded={!!opened[k]} onClick={() => toggle(k)}>{opened[k] ? 'Show fewer' : `Show ${list.length - cap} ${noun}`}</button>
+      </>
+    );
+  };
   // Psalm numbers differ (Douay/Vulgate vs most modern Bibles): name the passage the way the open translation numbers it
   const heading = refs.map((r) => {
     if (r.book !== 'PSA' || edition?.scheme === 'vulgate' || r.c1 !== r.c2) return formatRef(r);
@@ -121,16 +188,22 @@ export default function StudyPanel({
   }).join('; ');
   const passageIds = refs.map(refId);
   const onNote = (t: Target) => setNoteTargets([t]);
-  const open = (i: StudyItem, n: number, arr: StudyItem[], opts: { covers?: string; reading?: boolean; autoExpand?: boolean } = {}) => (
-    <Item key={i.id} item={i} edition={edition} onOpenPassage={onOpenPassage} onNote={onNote} covers={opts.covers} reading={opts.reading} autoExpand={opts.autoExpand} />
+  const open = (i: StudyItem, n: number, arr: StudyItem[], opts: { covers?: string; reading?: boolean; autoExpand?: boolean; label?: string; brief?: boolean; dismissable?: boolean } = {}) => (
+    <Item key={i.id} item={i} edition={edition} onOpenPassage={onOpenPassage} onNote={onNote} covers={opts.covers} reading={opts.reading} autoExpand={opts.autoExpand} label={opts.label} brief={opts.brief} onSeen={markSeen} onDismiss={opts.dismissable ? dismiss : undefined} />
   );
 
   // ---- the Notes tab: a reading stream of commentary, most specific first
-  const noteList = NOTE_STREAM.flatMap((k) => items(k)).filter(isReal);
+  const noteList = NOTE_STREAM.flatMap((k) => items(k)).filter(isReal).filter((i) => !gone(i) && !(compact && verseScope && ranking.startIds.has(i.id)));
   const notes = arrange(noteList, refs, false, vcOf);
+  if (compact) {
+    notes.specific.sort((a, b) => scoreOf(b) - scoreOf(a));
+    notes.weak.sort((a, b) => scoreOf(b) - scoreOf(a));
+  }
+  const specCommentary = notes.specific.filter((i) => i.section === 'commentary');
+  const specFathers = notes.specific.filter((i) => i.section !== 'commentary');
   // the Catechism is the Church's own voice: when it speaks to the verse it comes first
   const cccAll = items('catechism').filter(isReal).sort((a, b) => relevance(b, refs) - relevance(a, refs));
-  const cccTop = scope === 'passage' ? cccAll.slice(0, 2) : [];
+  const cccTop = scope === 'passage' && !compact ? cccAll.slice(0, 2) : [];
   const comm = data.commentary ?? [];
   const summary = comm.find((i) => i.kind === 'Chapter summary');
   const intro = comm.find((i) => i.kind === 'Book introduction');
@@ -143,7 +216,6 @@ export default function StudyPanel({
   return (
     <aside className={`panel ${inline ? 'inline' : 'side'}`} aria-label="Study panel">
       <div className="panel-head">
-        {paths.length > 0 && <div className="path-line small muted">Part of a study path: {paths.slice(0, 2).map((p, i) => <span key={p.id}>{i ? ', ' : ''}<Link to={`/study/path/${p.id}`}>{p.title}</Link></span>)}</div>}
         <div className="top">
           <h2>{heading}{scope === 'chapter' && <span className="scope-tag">whole chapter</span>}</h2>
           <button className="icon-btn" onClick={() => setNoteTargets(refs.map((r) => ({ type: 'passage', ref: refId(r) })))} aria-label="Write a note on this passage" title="Write a note on this passage">
@@ -218,6 +290,8 @@ export default function StudyPanel({
           </div>
         )}
 
+        {tab !== 'words' && tab !== 'mine' && !startShown && allToggle}
+
         {tab === 'notes' && (
           <div className="stream">
             {scope === 'chapter' && (summary || readLinks.length > 0 || day) && (
@@ -241,6 +315,29 @@ export default function StudyPanel({
                 <div className="skeleton" style={{ height: 90 }} />
               </>
             )}
+            {own.length > 0 && (
+              <section className="sp-yours" aria-labelledby="sp-yours-h">
+                <h3 id="sp-yours-h" className="sp-h">Yours <span className="n">{own.length}</span></h3>
+                {capped('yours', own, 3, (i, n, a) => open(i, n, a, { reading: true, label: ranking.byId.get(i.id)?.label }), 'more')}
+              </section>
+            )}
+            {compact && verseScope && ranking.sh.top.length > 0 && (
+              <section className="sp-start" aria-labelledby="sp-start-h">
+                <div className="sp-starthead"><h3 id="sp-start-h" className="sp-h">Start here</h3>{allToggle}</div>
+                <p className="sp-sub">The best things for {heading.split(' (')[0]}, one line each on why.</p>
+                {ranking.sh.top.map((s, n, a) => open(s.item, n, a.map((x) => x.item), { reading: true, brief: true, label: s.label, dismissable: true }))}
+              </section>
+            )}
+            {VerseLinks && verseScope && (
+              <div className="sp-more-app">
+                <Suspense fallback={null}>
+                  <VerseLinks book={refs[0].book} chapter={refs[0].c1} verse={refs[0].v1} scheme={edition.scheme} />
+                </Suspense>
+              </div>
+            )}
+            {compact && dismissedHere > 0 && (
+              <p className="muted small">{dismissedHere} put away. <button className="linklike" onClick={restoreDismissed}>Bring {dismissedHere === 1 ? 'it' : 'them'} back</button></p>
+            )}
             {(hiddenForeign > 0 || showOther) && (
               <p className="muted small lang-note">
                 {showOther ? (
@@ -262,9 +359,28 @@ export default function StudyPanel({
                 {cccAll.length > cccTop.length && <p className="muted small">{cccAll.length - cccTop.length} more Catechism {cccAll.length - cccTop.length === 1 ? 'paragraph' : 'paragraphs'} below, under Church teaching.</p>}
               </section>
             )}
-            {shownSpecific.map((i, n, arr) => open(i, n, arr, { reading: true }))}
-            {notes.specific.length > LIMIT && !showAll && (
-              <button className="btn small ghost" onClick={() => setShowAll(true)}>Show {notes.specific.length - LIMIT} more</button>
+            {compact ? (
+              <>
+                {specCommentary.length > 0 && (
+                  <section className="sp-group" aria-labelledby="sp-comm-h">
+                    <h3 id="sp-comm-h" className="sp-h">Commentary <span className="n">{specCommentary.length}</span></h3>
+                    {capped('comm', specCommentary, CAP_NOTES, (i, n, a) => open(i, n, a, { reading: true, label: ranking.byId.get(i.id)?.label }), 'more commentaries')}
+                  </section>
+                )}
+                {specFathers.length > 0 && (
+                  <section className="sp-group" aria-labelledby="sp-fath-h">
+                    <h3 id="sp-fath-h" className="sp-h">Church Fathers and saints <span className="n">{specFathers.length}</span></h3>
+                    {capped('fath', specFathers, CAP_NOTES, (i, n, a) => open(i, n, a, { reading: true, label: ranking.byId.get(i.id)?.label }), 'more')}
+                  </section>
+                )}
+              </>
+            ) : (
+              <>
+                {shownSpecific.map((i, n, arr) => open(i, n, arr, { reading: true }))}
+                {notes.specific.length > LIMIT && !showAll && (
+                  <button className="btn small ghost" onClick={() => setShowAll(true)}>Show {notes.specific.length - LIMIT} more</button>
+                )}
+              </>
             )}
             {notes.units.map((g) => {
               // a note written for several verses belongs to the last of them: tapping that verse opens it in full
@@ -325,7 +441,7 @@ export default function StudyPanel({
             const meta = SECTIONS.find((s) => s.key === sk)!;
             if (settings.studyHidden.includes(sk) && activeTab.sections.length > 1) return null;
             const shownTop = tab === 'notes' && sk === 'catechism' ? new Set(cccTop.map((c) => c.id)) : null;
-            const list = items(sk).filter((i) => !(scope === 'passage' && i.kind && CHAPTER_KINDS.has(i.kind)) && !shownTop?.has(i.id));
+            const list = items(sk).filter((i) => !(scope === 'passage' && i.kind && CHAPTER_KINDS.has(i.kind)) && !shownTop?.has(i.id) && !gone(i) && !(compact && verseScope && ranking.startIds.has(i.id)));
             const real = list.filter(isReal);
             if (!list.length && !(sk in data) && loading) return <div key={sk} className="skeleton" style={{ height: 60 }} />;
             if (!list.length && !['catechism', 'catholic-answers'].includes(sk) && activeTab.sections.length > 1) return null;
@@ -344,9 +460,9 @@ export default function StudyPanel({
                   </>
                 )}
                 {list.length === 0 && <div className="empty">{emptyMessage(sk, refs[0].book)}</div>}
-                {specific.map((i, n, arr) => open(i, n, arr))}
+                {compact ? capped(`s-${sk}`, byScore([...specific, ...weak]), tab === 'notes' ? CAP_TEACH : CAP_TAB, (i, n, arr) => open(i, n, arr), 'more') : specific.map((i, n, arr) => open(i, n, arr))}
                 {units.map((g) => g.items.map((i, n, arr) => open(i, n, arr, { covers: rangeLabel(g.range), autoExpand: (g.range.v2 ?? g.range.v1) === (refs[0].v2 ?? refs[0].v1) })))}
-                {weak.map((i, n, arr) => open(i, n, arr))}
+                {!compact && weak.map((i, n, arr) => open(i, n, arr))}
                 {wide.length > 0 && (
                   <details className="unit">
                     <summary><span>About the whole chapter · {wide.length}</span></summary>
@@ -361,6 +477,7 @@ export default function StudyPanel({
               </section>
             );
           })}
+        {tab === 'notes' && paths.length > 0 && <div className="path-line small muted">Part of a study path: {paths.slice(0, 2).map((p, i) => <span key={p.id}>{i ? ', ' : ''}<Link to={`/study/path/${p.id}`}>{p.title}</Link></span>)}</div>}
         {tab === 'media' && (
           <p className="small"><button className="linklike" onClick={() => setAddLink(true)}>Attach a link you found to this passage</button></p>
         )}
@@ -494,7 +611,7 @@ function CitationContext({ ctx }: { ctx: NonNullable<StudyItem['ctx']> }) {
   );
 }
 
-function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, autoExpand = false }: { item: StudyItem; edition: EditionRecord; onOpenPassage: (r: Ref) => void; onNote: (t: Target) => void; covers?: string; reading?: boolean; autoExpand?: boolean }) {
+function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, autoExpand = false, label, brief = false, onSeen, onDismiss }: { item: StudyItem; edition: EditionRecord; onOpenPassage: (r: Ref) => void; onNote: (t: Target) => void; covers?: string; reading?: boolean; autoExpand?: boolean; /** plain words for why it is shown */ label?: string; /** a short excerpt, for the "Start here" list */ brief?: boolean; onSeen?: (id: string) => void; onDismiss?: (id: string) => void }) {
   const [expanded, setExpanded] = useState(autoExpand);
   useEffect(() => { setExpanded(autoExpand); }, [autoExpand]);
   const [showVerses, setShowVerses] = useState(true);
@@ -516,13 +633,14 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, a
   const foreignItem = !!item.lang && item.lang !== 'en';
   // a non-English item is shown as its English translation (when one exists) with the original beneath
   const full = foreignItem && item.translation ? item.translation : original;
-  const CUT = reading ? 560 : full.includes('⟦') ? 760 : 300;
+  const CUT = brief && !expanded ? 170 : reading ? 560 : full.includes('⟦') ? 760 : 300;
   const long = full.length > CUT + 40;
   const text = expanded || !long ? full : full.slice(0, full.lastIndexOf(' ', CUT)) + '…';
   const head = (item.author ?? item.show ?? item.sourceName).replace(/ \(compiler\)/, '').replace(/ \(.*\)$/, '');
   const noteTarget: Target = item.xrefTarget && item.id.startsWith('ccc-') ? { type: 'catechism', para: +item.xrefTarget, label: item.title } : { type: 'commentary', itemId: item.id, label: `${item.title}${item.author ? ' — ' + item.author : ''}`, url: item.url };
   return (
-    <article className={`item${reading ? ' reading' : ''}`} data-auth={item.authority}>
+    <article className={`item${reading ? ' reading' : ''}${brief ? ' brief' : ''}${expanded ? ' expanded' : ''}`} data-auth={item.authority}>
+      {label && <div className="sp-why">{label}</div>}
       {reading ? (
         <div className="byline">
           <strong>{head}</strong>
@@ -637,8 +755,8 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, a
       )}
       {item.ctx && readCtx && <CitationContext ctx={item.ctx} />}
       <div className="acts">
-        {item.ctx && <button className="act strong" aria-expanded={readCtx} onClick={() => setReadCtx(!readCtx)}>{readCtx ? 'Hide context' : item.ctx.summa ? 'Read the whole article' : 'Read in context'}</button>}
-        {long && <button className="act" onClick={() => setExpanded(!expanded)}>{expanded ? 'Show less' : 'Read more'}</button>}
+        {item.ctx && <button className="act strong" aria-expanded={readCtx} onClick={() => { if (!readCtx) onSeen?.(item.id); setReadCtx(!readCtx); }}>{readCtx ? 'Hide context' : item.ctx.summa ? 'Read the whole article' : 'Read in context'}</button>}
+        {long && <button className="act" aria-expanded={expanded} onClick={() => { if (!expanded) onSeen?.(item.id); setExpanded(!expanded); }}>{expanded ? 'Show less' : 'Read more'}</button>}
         {item.internal && reading === false && <Link className="act" to={item.internal}>Open</Link>}
         {item.episodeId && (
           <button
@@ -667,6 +785,7 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, a
           <button className="act" onClick={async () => { await db.userLinks.delete(item.userLinkId!); toast('Link removed.'); }}>Remove</button>
         )}
         {!['mine', 'xref', 'doctrine', 'links'].includes(item.section) && <button className="act" onClick={() => onNote(noteTarget)}>Note</button>}
+        {onDismiss && <button className="act" onClick={() => onDismiss(item.id)} title="Put this away. You can bring it back.">Not for me</button>}
         <button className="act info-btn" aria-expanded={info} onClick={() => setInfo(!info)} aria-label="About this source" title="Source and why it is here">ⓘ</button>
       </div>
       {info && (

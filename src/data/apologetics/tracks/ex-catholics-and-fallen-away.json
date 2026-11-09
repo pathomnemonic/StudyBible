@@ -1,0 +1,449 @@
+{
+  "id": "ex-catholics-and-fallen-away",
+  "title": "Ex-Catholics and the fallen away",
+  "tagline": "Why people leave, how to listen without defending, and how to invite them home.",
+  "group": "christians",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Most people who leave the Church do not leave because of one argument, and many are hurting. A listening friend and an open door matter more than a perfect reply.",
+  "mindset": [
+    {
+      "tip": "Listen before you speak: ask for their story and do not defend yet. (James 1:19)",
+      "resource": "ca-fostering"
+    },
+    {
+      "tip": "People leave for many reasons, such as disbelief, hurt or drift; ask which it is before you reply.",
+      "resource": "pew-flux"
+    },
+    {
+      "tip": "Remember the father of the Prodigal Son who ran to meet his child; offer welcome, not pressure. (Luke 15:20; CCC 1439)"
+    },
+    {
+      "tip": "Own the Church's real failings with honesty; she is holy and always in need of purification. (CCC 827)"
+    },
+    {
+      "tip": "Invite gently to the sacrament of Reconciliation as the door back, and walk with them. (CCC 1422, 1440)",
+      "resource": "ca-bring-home"
+    }
+  ],
+  "ccc": [
+    827,
+    1422,
+    1439,
+    1440,
+    1468,
+    1846
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Understand why people leave and how to begin a gentle conversation.",
+      "minutes": 70,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "pew-flux",
+          "why": "See what research says about switching religions."
+        },
+        {
+          "kind": "resource",
+          "id": "cna-ggg",
+          "why": "A summary of a study on young Catholics who left."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-fostering",
+          "why": "Simple steps for a first approach."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "9-9-1",
+          "why": "The curriculum lesson on sinners in the Church and reform."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "aug-confessions",
+          "why": "Augustine left and came home; read his story of a restless heart."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Conversion",
+          "why": "A plain definition of conversion."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "Whom do you know who has left, and what might they need to hear first: a question, an apology or an invitation?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Learn practical, parish-based ways to invite people back.",
+      "minutes": 120,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "pew-rls2015",
+          "why": "See where Americans have gone after leaving."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-bring-home",
+          "why": "Why the parish is the place of return."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-secret",
+          "why": "The power of personal invitation."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-sablan",
+          "why": "Practical advice from a radio guest."
+        },
+        {
+          "kind": "resource",
+          "id": "cch",
+          "why": "Look at one well-known invitation ministry (use it with your parish)."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "catholic-inventions",
+          "why": "The app's answer to \"the Church invented its doctrines\"."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "catholics-not-allowed-to-think",
+          "why": "Check a common reason for leaving."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "claim",
+            "id": "catholics-not-allowed-to-think"
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Answer common reasons for leaving, with honesty about failures.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "eg",
+          "why": "A Church that goes out, listens and accompanies."
+        },
+        {
+          "kind": "resource",
+          "id": "mv",
+          "why": "The Church as a house of mercy."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-goodbye",
+          "why": "What to say when someone says \"I am leaving\"."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "sinful-popes",
+          "why": "The app's answer on scandal and sinful leaders."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "inquisition",
+          "why": "The app's answer on the Inquisition and the Crusades."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "indulgences-buy-your-way-out",
+          "why": "Check the charge that the Church sold forgiveness."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "confession-absolution",
+          "why": "The sourced argument for confession and absolution."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Penance",
+          "why": "A plain definition of the sacrament of return."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-personal",
+          "why": "Meeting Christ personally is often what is missing."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read more on mercy, youth and the research.",
+      "minutes": 240,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "cv",
+          "why": "The pope speaks to the young, including the distant."
+        },
+        {
+          "kind": "resource",
+          "id": "dives",
+          "why": "A long reading of the Prodigal Son and mercy."
+        },
+        {
+          "kind": "resource",
+          "id": "cara",
+          "why": "The Church's research centre on who leaves."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "newman-apologia",
+          "why": "Newman's account of a long journey of faith."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "chesterton-orthodoxy",
+          "why": "Chesterton on coming home to the faith."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "12-6-3",
+          "why": "Confession and the papacy in the curriculum."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What would a real welcome home look like in your parish?"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "pew-flux",
+      "title": "Faith in Flux",
+      "creator": "Pew Research Center",
+      "kind": "article",
+      "url": "https://www.pewresearch.org/religion/2009/04/27/faith-in-flux/",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "Research on why people leave and join religions, including former Catholics.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Independent research (2009); the numbers are dated"
+    },
+    {
+      "id": "cna-ggg",
+      "title": "Why do some young people leave the Church? A new study investigates",
+      "creator": "Catholic News Agency",
+      "kind": "article",
+      "url": "https://www.ewtnnews.com/world/us/why-do-some-young-people-leave-the-church-a-new-study-investigates",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "A news summary of the Saint Mary's Press and CARA study \"Going, Going, Gone\" on young Catholics who disaffiliate.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "News summary of a study by Saint Mary's Press and CARA"
+    },
+    {
+      "id": "ca-fostering",
+      "title": "Fostering a Fallen-Away Catholic's Return to the Church",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/qa/fostering-a-fallen-away-catholics-return-to-the-church",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Simple, practical advice: be a friend, ask why they left, and invite gently.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "pew-rls2015",
+      "title": "America's Changing Religious Landscape",
+      "creator": "Pew Research Center",
+      "kind": "article",
+      "url": "https://www.pewresearch.org/religion/2015/05/12/americas-changing-religious-landscape/",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Shows how many Americans have left the Church and where they went.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Independent research (2015)"
+    },
+    {
+      "id": "ca-bring-home",
+      "title": "Bring Them Home",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/bring-them-home",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Argues that the parish is where a real return happens and how to help it.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-secret",
+      "title": "The Secret Weapon of Evangelization",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/the-secret-weapon-of-evangelization",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "A call to simple personal invitation and witness.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-sablan",
+      "title": "Re-Engaging Fallen Away Catholics w/John Sablan",
+      "creator": "Catholic Answers",
+      "kind": "podcast",
+      "url": "https://www.catholic.com/audio/cal/re-engaging-fallen-away-catholics-w-john-sablan",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "A radio guest shares practical ways to reach those who have drifted.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers Live"
+    },
+    {
+      "id": "cch",
+      "title": "Catholics Come Home",
+      "creator": "Catholics Come Home",
+      "kind": "site",
+      "url": "https://www.catholicscomehome.org/",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A lay apostolate whose media invites lapsed Catholics back and points to local parishes.",
+      "verified": "2026-11-09",
+      "note": "Lay apostolate; best used with the support of your local parish"
+    },
+    {
+      "id": "eg",
+      "title": "Evangelii Gaudium",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The pope's call to a Church that goes out, listens and accompanies.",
+      "verified": "2026-11-09",
+      "minutes": 120,
+      "note": "Apostolic Exhortation, 2013"
+    },
+    {
+      "id": "mv",
+      "title": "Misericordiae Vultus",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/bulls/documents/papa-francesco_bolla_20150411_misericordiae-vultus.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The bull proclaiming the Year of Mercy: the Church as home for the returning.",
+      "verified": "2026-11-09",
+      "minutes": 45,
+      "note": "Papal bull, 2015"
+    },
+    {
+      "id": "barron-personal",
+      "title": "Bishop Barron on Having a \"Personal Relationship\" with Jesus",
+      "creator": "Bishop Robert Barron",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=w2KZDQSxwF4",
+      "free": true,
+      "level": 3,
+      "audience": "any",
+      "why": "Many leave without ever meeting Christ personally; this shows how Catholics can speak of it.",
+      "verified": "2026-11-09",
+      "note": "Word on Fire"
+    },
+    {
+      "id": "cv",
+      "title": "Christus Vivit",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20190325_christus-vivit.html",
+      "free": true,
+      "level": 4,
+      "audience": "adult",
+      "why": "The pope speaks to young people, including those who feel far from the Church.",
+      "verified": "2026-11-09",
+      "minutes": 90,
+      "note": "Apostolic Exhortation, 2019"
+    },
+    {
+      "id": "dives",
+      "title": "Dives in Misericordia",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The encyclical on God's mercy, with a long reading of the Prodigal Son.",
+      "verified": "2026-11-09",
+      "minutes": 90,
+      "note": "Encyclical, 1980"
+    },
+    {
+      "id": "cara",
+      "title": "CARA: Center for Applied Research in the Apostolate",
+      "creator": "Georgetown University",
+      "kind": "site",
+      "url": "https://cara.georgetown.edu/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The Church's main research centre in the US; its reports describe who leaves and why.",
+      "verified": "2026-11-09",
+      "note": "Independent Catholic research centre"
+    },
+    {
+      "id": "ca-goodbye",
+      "title": "Good-bye - I'm Leaving!",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/good-bye-im-leaving",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Helps you respond when someone announces they are leaving the Church.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    }
+  ]
+}

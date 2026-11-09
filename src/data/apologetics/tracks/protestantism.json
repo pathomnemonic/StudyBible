@@ -1,0 +1,528 @@
+{
+  "id": "protestantism",
+  "title": "Talking with Protestants",
+  "tagline": "A charitable course on the big questions between Catholics and Protestants, with their best case heard first.",
+  "group": "christians",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Protestants are our fellow Christians, and the conversation is usually about the Bible, grace and the Church. A friend who has listened and read their sources can speak with truth and kindness.",
+  "mindset": [
+    {
+      "tip": "Be gentle and respectful, and ask what they mean by \"saved\", \"Bible alone\" or \"the Church\" before you answer. (1 Peter 3:15-16)",
+      "resource": "ca-howtotalk"
+    },
+    {
+      "tip": "Begin with what we share: baptism, the Creed, love of Christ and of Scripture. The Church calls other baptized Christians brothers and sisters. (CCC 818-819; Unitatis Redintegratio 3)",
+      "resource": "ur"
+    },
+    {
+      "tip": "Read the Protestant confessions yourself, so that you answer what they really hold and not a caricature.",
+      "resource": "wcf"
+    },
+    {
+      "tip": "Be honest that sins on both sides led to division, and that real abuses needed reform. (CCC 817)"
+    },
+    {
+      "tip": "Take one question at a time, and pray for unity: it needs conversion of heart, not only good arguments. (CCC 821)"
+    }
+  ],
+  "ccc": [
+    80,
+    82,
+    85,
+    816,
+    817,
+    818,
+    819,
+    821,
+    838,
+    881,
+    1374,
+    1987
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Meet Protestantism as it is: who they are, what we share, and how to begin kindly.",
+      "minutes": 90,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "12-5-2",
+          "why": "The app's own overview of Protestant communities."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "8-4-1",
+          "why": "Why the Reformation happened and what it split."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-arecatholicschristian",
+          "why": "Start with the question many Protestants quietly ask."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-evangelical",
+          "why": "See a Catholic bishop speak the language of evangelical faith."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Ecumenism",
+          "why": "Learn the Church's word for the work of unity."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-howtotalk",
+          "why": "Practical tips on tone and order before you debate anything."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "are-catholics-christian",
+          "why": "The app's short answer, with verses and Catechism links."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "Which Protestant do you know best, and what do you admire in their faith?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Learn the three big issues: authority, the canon and justification, plus Peter.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "ur",
+          "why": "Read what the Council taught about other Christians."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "tradition-and-scripture",
+          "why": "The app's sourced argument on Scripture and Tradition."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-scripture-tradition",
+          "why": "A short tract that lays out the Catholic view."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "canon-of-scripture",
+          "why": "Who decided which books belong in the Bible?"
+        },
+        {
+          "kind": "resource",
+          "id": "pitre-canon",
+          "why": "A scholar tells how the canon was formed."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "faith-and-works",
+          "why": "The app's sourced argument on faith and works."
+        },
+        {
+          "kind": "resource",
+          "id": "pitre-james",
+          "why": "Hear how Paul and James are read together."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "papal-primacy",
+          "why": "The sourced case for Peter and his successors."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-peter-papacy",
+          "why": "The biblical and early evidence for Peter's role."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "tradition-and-scripture"
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Meet the common charges and practise answering them without heat.",
+      "minutes": 180,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "ca-antimyths",
+          "why": "Separate false claims from honest disagreements."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "catholics-worship-mary",
+          "why": "Check the charge that Catholics worship Mary."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-marian-idolatry",
+          "why": "A reply on Mary that stays close to Scripture."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "catholics-believe-works-earn-salvation",
+          "why": "Check the charge that Catholics try to earn heaven."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "eucharist-just-a-symbol",
+          "why": "Test the \"it is only a symbol\" view against the sources."
+        },
+        {
+          "kind": "resource",
+          "id": "pitre-john6",
+          "why": "John 6 read in context."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "sola-scriptura",
+          "why": "The app's answer to \"the Bible alone\", with readings."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-ten-deficiencies",
+          "why": "A Catholic critique of sola scriptura."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "claim",
+            "id": "eucharist-just-a-symbol"
+          }
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the Protestant texts yourself, then the Catholic sources and the best debates.",
+      "minutes": 300,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "wcf",
+          "why": "Read the Reformed confession on Scripture in its own words."
+        },
+        {
+          "kind": "resource",
+          "id": "augsburg",
+          "why": "Read the Lutheran confession, which is closer to Catholic worship than many expect."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "trent-canons-decrees",
+          "why": "Trent's own words on Scripture, justification and the sacraments."
+        },
+        {
+          "kind": "resource",
+          "id": "ortlund-horn",
+          "why": "Hear a Protestant and a Catholic argue the same question."
+        },
+        {
+          "kind": "resource",
+          "id": "jddj",
+          "why": "See where Catholics and Lutherans have found agreement."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "vincent-commonitory",
+          "why": "A fifth-century rule for telling true tradition from novelty."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "newman-development",
+          "why": "Newman on how doctrine grows without changing."
+        },
+        {
+          "kind": "resource",
+          "id": "called-to-communion",
+          "why": "Essays by Reformed converts to the Church."
+        },
+        {
+          "kind": "resource",
+          "id": "hahn-rsh",
+          "why": "A conversion story from a Presbyterian minister."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "Which Protestant argument did you find strongest, and how would you honestly answer it?"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "ca-arecatholicschristian",
+      "title": "Are Catholics Christian?",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/are-catholics-christian",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A short start: what Catholics and other Christians share, and why the question comes up.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-howtotalk",
+      "title": "How to Talk with Fundamentalists",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/how-to-talk-with-fundamentalists",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "Practical advice on tone and order when a conversation turns to the Bible and the Church.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers; written for conversations with fundamentalist and evangelical Protestants"
+    },
+    {
+      "id": "barron-evangelical",
+      "title": "The Evangelical Message",
+      "creator": "Bishop Robert Barron",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=VAwSoD0Uwg0",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A bishop shows how the Church shares the evangelical heart of the Gospel.",
+      "verified": "2026-11-09",
+      "note": "Word on Fire"
+    },
+    {
+      "id": "ur",
+      "title": "Unitatis Redintegratio (Decree on Ecumenism)",
+      "creator": "Second Vatican Council",
+      "kind": "article",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "The Church's own teaching on other Christians: what we share, what divides us, and how to speak.",
+      "verified": "2026-11-09",
+      "minutes": 45,
+      "note": "Church document"
+    },
+    {
+      "id": "ca-scripture-tradition",
+      "title": "Scripture and Tradition",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/scripture-and-tradition",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "A clear outline of how Scripture and apostolic Tradition work together.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "pitre-canon",
+      "title": "How Was the Bible Canon Formed? | Dr. Brant Pitre",
+      "creator": "Brant Pitre",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=jgonc5Jbacc",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "How the Bible's books were gathered, and why that history raises the question of authority.",
+      "verified": "2026-11-09",
+      "note": "Catholic Productions; Dr. Brant Pitre is a Catholic Scripture scholar"
+    },
+    {
+      "id": "pitre-james",
+      "title": "Does James Contradict Paul on Faith and Works? | Dr. Brant Pitre",
+      "creator": "Brant Pitre",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=RcVi7OMdLOw",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "A scholar's reading of how Paul and James fit together on faith and works.",
+      "verified": "2026-11-09",
+      "note": "Catholic Productions"
+    },
+    {
+      "id": "ca-peter-papacy",
+      "title": "Peter and the Papacy",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/peter-and-the-papacy",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "The biblical and early evidence for Peter's place, set out step by step.",
+      "verified": "2026-11-09",
+      "minutes": 25,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-antimyths",
+      "title": "Anti-Catholic Myths",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/anti-catholic-whoppers",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Sorts common false claims about Catholics from real disagreements, so you answer the right thing.",
+      "verified": "2026-11-09",
+      "minutes": 25,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-marian-idolatry",
+      "title": "Marian Idolatry?",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/marian-idolatry",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Takes the charge that Catholics worship Mary seriously and answers it from Scripture and Church teaching.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "pitre-john6",
+      "title": "John 6 and the Bread of Life Discourse Explained (Part I) | Dr. Brant Pitre",
+      "creator": "Brant Pitre",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=bpvq5jy2_Vs",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Reads John 6 in its Jewish setting, the key text in Eucharistic debates with Protestants.",
+      "verified": "2026-11-09",
+      "note": "Catholic Productions"
+    },
+    {
+      "id": "ca-ten-deficiencies",
+      "title": "Ten Deficiencies of Sola Scriptura as a Rule of Faith",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/ten-deficiencies-of-sola-scriptura-as-a-rule-of-faith",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A concise Catholic critique of the \"Bible alone\" principle; read it after hearing the other side.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "wcf",
+      "title": "The Westminster Confession of Faith (1647), Chapter 1: Of the Holy Scripture",
+      "creator": "Westminster Assembly (text in Philip Schaff, Creeds of Christendom)",
+      "kind": "article",
+      "url": "https://www.ccel.org/ccel/schaff/creeds3.iv.xvii.ii.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The Reformed statement of Scripture's authority in its own words. Read it to hear their best case.",
+      "verified": "2026-11-09",
+      "minutes": 40,
+      "note": "The other side's own voice (Reformed Protestant confession); the page also holds the full Confession"
+    },
+    {
+      "id": "augsburg",
+      "title": "The Augsburg Confession",
+      "creator": "Lutheran Church (Book of Concord)",
+      "kind": "article",
+      "url": "https://bookofconcord.org/augsburg-confession/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The founding Lutheran confession (1530), including its teaching on justification.",
+      "verified": "2026-11-09",
+      "minutes": 45,
+      "note": "The other side's own voice (Lutheran confession)"
+    },
+    {
+      "id": "ortlund-horn",
+      "title": "Gavin Ortlund Vs.Trent Horn: Is Sola Scriptura True",
+      "creator": "Gavin Ortlund and Trent Horn",
+      "kind": "debate",
+      "url": "https://www.youtube.com/watch?v=kn7qdPSHSJk",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A debate where a Protestant scholar and a Catholic apologist each make their case on sola scriptura.",
+      "verified": "2026-11-09",
+      "note": "Hosted by Matt Fradd; Gavin Ortlund is a Baptist pastor and scholar, so you hear the other side's best case"
+    },
+    {
+      "id": "jddj",
+      "title": "Joint Declaration on the Doctrine of Justification (1999)",
+      "creator": "Lutheran World Federation and the Catholic Church",
+      "kind": "article",
+      "url": "https://www.ewtn.com/catholicism/library/joint-declaration-on-the-doctrine-of-justification-28863",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Shows how far Catholics and Lutherans agree on justification, and what remains to discuss.",
+      "verified": "2026-11-09",
+      "minutes": 40,
+      "note": "Hosted on EWTN; signed by the Catholic Church and the Lutheran World Federation"
+    },
+    {
+      "id": "called-to-communion",
+      "title": "Called to Communion: Catholic and Reformed Dialogue",
+      "creator": "Called to Communion (Catholic converts from the Reformed tradition)",
+      "kind": "site",
+      "url": "https://www.calledtocommunion.com/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Careful essays by former Protestants who explain why they became Catholic.",
+      "verified": "2026-11-09",
+      "note": "A blog by converts; read it alongside the Reformed texts"
+    },
+    {
+      "id": "hahn-rsh",
+      "title": "Rome Sweet Home",
+      "creator": "Scott and Kimberly Hahn",
+      "kind": "book",
+      "url": "https://ignatius.com/rome-sweet-home-rshp/",
+      "free": false,
+      "level": 4,
+      "audience": "adult",
+      "why": "A former Presbyterian minister and his wife tell their journey into the Church, with honesty about the cost.",
+      "verified": "2026-11-09",
+      "note": "Ignatius Press; the book is for sale"
+    }
+  ]
+}

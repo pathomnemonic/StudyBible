@@ -1,0 +1,536 @@
+{
+ "id": "hinduism-buddhism-and-new-age",
+ "title": "Eastern religions, meditation and the New Age",
+ "tagline": "Understand Hindu and Buddhist teaching fairly, see how Christian prayer differs, and weigh yoga, mindfulness and energy healing.",
+ "group": "world-religions",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "Many people meet yoga, mindfulness, karma and \"energy\" long before they meet the Gospel. The Church asks us to respect what is true in these traditions and to be clear about what is not Christian.",
+ "mindset": [
+  {
+   "tip": "Begin with respect: the Church rejects nothing that is true and holy in these religions (Nostra Aetate 2; CCC 843).",
+   "resource": "na"
+  },
+  {
+   "tip": "Ask what the practice means to your friend before you judge it. Many come looking for peace, not a new religion."
+  },
+  {
+   "tip": "Learn the real teaching of Hinduism and Buddhism from their own texts, not from caricatures.",
+   "resource": "dhp"
+  },
+  {
+   "tip": "Keep the key difference in view: Christian prayer is a conversation with a personal God who first loves us, not a technique (CCC 2558-2565).",
+   "resource": "of"
+  },
+  {
+   "tip": "Be gentle with the person and clear about the ideas. A friend who tries a class is not a pagan.",
+   "resource": "wl"
+  }
+ ],
+ "ccc": [
+  843,
+  1013,
+  1021,
+  2084,
+  2113,
+  2116,
+  2558,
+  2559,
+  2565,
+  2697,
+  2705,
+  2715
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Know the basic beliefs of Hindus and Buddhists and what Christians believe about death and prayer.",
+   "minutes": 100,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "bbc-hindu",
+     "why": "Get a neutral overview of Hinduism."
+    },
+    {
+     "kind": "resource",
+     "id": "bbc-bud",
+     "why": "Get a neutral overview of Buddhism."
+    },
+    {
+     "kind": "resource",
+     "id": "na",
+     "why": "Read paragraph 2 on Hindus and Buddhists in the Church's words."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "new-age-reincarnation",
+     "why": "The app's short answer on astrology, reincarnation and the New Age."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-reinc-q",
+     "why": "A short answer on whether the Bible teaches reincarnation."
+    },
+    {
+     "kind": "resource",
+     "id": "youcat-reinc",
+     "why": "A youth-friendly answer on reincarnation and karma."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "8-8-1",
+     "why": "A lesson on ways of praying."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Meditation",
+     "why": "A plain definition of Christian meditation."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "What drew you, or someone you know, to yoga, mindfulness or meditation?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "See what the Church says about Eastern methods of prayer, and why Christian prayer is different.",
+   "minutes": 140,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "of",
+     "why": "Read the Church's letter on Christian meditation."
+    },
+    {
+     "kind": "resource",
+     "id": "dhp",
+     "why": "Read Buddhist sayings in a monk's own translation."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-mind",
+     "why": "A short Catholic answer on mindfulness."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-yoga",
+     "why": "Read a Catholic caution about yoga."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-reinc",
+     "why": "Why Christians say we die once."
+    },
+    {
+     "kind": "resource",
+     "id": "ewtn-reinc",
+     "why": "Another brief Catholic reply on reincarnation."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-3-1",
+     "why": "A lesson on what prayer is and why it is hard."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-3-2",
+     "why": "A lesson on praying with Scripture, a Christian way to quiet the mind."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aquinas-prayer",
+     "why": "Aquinas on prayer, to see Christian prayer set out calmly.",
+     "section": "s5"
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "suffering-is-gods-punishment"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Answer: \"All paths are the same\", \"karma is fair\", \"mindfulness is just psychology\", \"Reiki is only relaxation\".",
+   "minutes": 150,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "wl",
+     "why": "Read the Vatican's study of the New Age."
+    },
+    {
+     "kind": "resource",
+     "id": "cwr-mind",
+     "why": "A fuller Catholic discussion of mindfulness."
+    },
+    {
+     "kind": "resource",
+     "id": "reiki",
+     "why": "See why the bishops reject Reiki as a therapy."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-yoga-q",
+     "why": "A short Q&A on yoga from Catholic Answers."
+    },
+    {
+     "kind": "resource",
+     "id": "gita",
+     "why": "Read part of the Bhagavad Gita in a free translation."
+    },
+    {
+     "kind": "resource",
+     "id": "dp",
+     "why": "See how dialogue and proclamation fit together."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "grace-and-free-will",
+     "why": "A sourced answer to the idea that we earn our salvation, as karma suggests."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "resurrection-of-the-body",
+     "why": "The sourced case that we rise bodily and do not return again."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "chain",
+      "id": "faith-and-works"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Study the Buddhist and Hindu texts and the Church's considered response.",
+   "minutes": 200,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "wings",
+     "why": "Read early Buddhist teaching in a monk's selection."
+    },
+    {
+     "kind": "resource",
+     "id": "wl",
+     "why": "Re-read the section that contrasts New Age and Christian faith."
+    },
+    {
+     "kind": "resource",
+     "id": "of",
+     "why": "Re-read the letter on Christian meditation with the Catechism on prayer open."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "teresa-castle",
+     "why": "Teresa of Avila on prayer as friendship with a personal God."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "lawrence-practice",
+     "why": "Brother Lawrence on practising the presence of God in daily life."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "cassian-works",
+     "why": "Cassian's Conferences on prayer in the desert tradition."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "chesterton-everlasting-man",
+     "why": "Chesterton on God and comparative religion.",
+     "section": "s4"
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "11-6-1",
+     "why": "A lesson on the first commandment."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "How could you offer a friend Christian silence and Scripture as a real alternative to a meditation app?"
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "na",
+   "title": "Nostra Aetate: Declaration on the Relation of the Church to Non-Christian Religions",
+   "creator": "Second Vatican Council",
+   "kind": "article",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html",
+   "free": true,
+   "minutes": 12,
+   "level": 1,
+   "audience": "any",
+   "why": "The Church's short foundation text: what is true and holy in other religions, and why Christians must reject hatred.",
+   "verified": "2026-11-09",
+   "note": "Church teaching; paragraph 3 is on Muslims, paragraph 4 on Jews"
+  },
+  {
+   "id": "dhp",
+   "title": "Dhammapada: The Path of Dhamma",
+   "creator": "Access to Insight (Thanissaro Bhikkhu translation)",
+   "kind": "article",
+   "url": "https://accesstoinsight.org/tipitaka/kn/dhp/index.html",
+   "free": true,
+   "minutes": 45,
+   "level": 2,
+   "audience": "any",
+   "why": "A short collection of Buddhist sayings, in a Theravada monk's translation.",
+   "verified": "2026-11-09",
+   "note": "Buddhist primary source"
+  },
+  {
+   "id": "of",
+   "title": "Orationis Formas: Letter on Some Aspects of Christian Meditation",
+   "creator": "Congregation for the Doctrine of the Faith",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19891015_meditazione-cristiana_en.html",
+   "free": true,
+   "minutes": 35,
+   "level": 2,
+   "audience": "adult",
+   "why": "The Church's main guidance on Eastern methods of prayer: what may be learned and what changes the nature of Christian prayer.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (1989)"
+  },
+  {
+   "id": "wl",
+   "title": "Jesus Christ the Bearer of the Water of Life: A Christian Reflection on the New Age",
+   "creator": "Pontifical Councils for Culture and for Interreligious Dialogue",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/pontifical_councils/interelg/documents/rc_pc_interelg_doc_20030203_new-age_en.html",
+   "free": true,
+   "minutes": 90,
+   "level": 3,
+   "audience": "adult",
+   "why": "The Vatican's careful study of the New Age, with its longings, its beliefs and a Christian reply.",
+   "verified": "2026-11-09",
+   "note": "Church document (2003); includes a glossary"
+  },
+  {
+   "id": "bbc-hindu",
+   "title": "Hinduism",
+   "creator": "BBC Religions (archive)",
+   "kind": "site",
+   "url": "https://www.bbc.co.uk/religion/religions/hinduism/",
+   "free": true,
+   "minutes": 20,
+   "level": 1,
+   "audience": "any",
+   "why": "A clear, neutral overview of Hindu beliefs and practice.",
+   "verified": "2026-11-09",
+   "note": "Archived BBC pages; no longer updated"
+  },
+  {
+   "id": "bbc-bud",
+   "title": "Buddhism",
+   "creator": "BBC Religions (archive)",
+   "kind": "site",
+   "url": "https://www.bbc.co.uk/religion/religions/buddhism/",
+   "free": true,
+   "minutes": 20,
+   "level": 1,
+   "audience": "any",
+   "why": "A clear, neutral overview of Buddhist teaching.",
+   "verified": "2026-11-09",
+   "note": "Archived BBC pages; no longer updated"
+  },
+  {
+   "id": "ca-reinc-q",
+   "title": "Does the Bible Teach Reincarnation?",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/qa/does-the-bible-teach-reincarnation",
+   "free": true,
+   "minutes": 4,
+   "level": 1,
+   "audience": "any",
+   "why": "A short answer you can use in conversation.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "youcat-reinc",
+   "title": "Reincarnation or salvation through Christ?",
+   "creator": "YOUCAT",
+   "kind": "article",
+   "url": "https://youcat.org/credopedia/reincarnation-or-salvation-through-christ/",
+   "free": true,
+   "minutes": 5,
+   "level": 1,
+   "audience": "teen",
+   "why": "A youth-friendly answer that includes karma and grace.",
+   "verified": "2026-11-09",
+   "note": "YOUCAT"
+  },
+  {
+   "id": "ca-mind",
+   "title": "Mindfulness Meditation and the Catholic Church",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/qa/mindfulness-meditation-and-the-church",
+   "free": true,
+   "minutes": 6,
+   "level": 2,
+   "audience": "adult",
+   "why": "A short answer that sets out both sides on mindfulness and points to the Church's 1989 letter.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-yoga",
+   "title": "Should Catholics Practice Yoga?",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/should-catholics-practice-yoga",
+   "free": true,
+   "minutes": 12,
+   "level": 2,
+   "audience": "adult",
+   "why": "A former practitioner urges caution; read it beside a more open view to weigh both.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers Magazine; Catholics differ on this question"
+  },
+  {
+   "id": "ca-reinc",
+   "title": "Is Reincarnation Biblical?",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/is-reincarnation-biblical",
+   "free": true,
+   "minutes": 10,
+   "level": 2,
+   "audience": "adult",
+   "why": "Why Christians say we die once, and what the Bible and Church say.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers Magazine"
+  },
+  {
+   "id": "ewtn-reinc",
+   "title": "Reincarnation",
+   "creator": "EWTN (Colin B. Donovan)",
+   "kind": "article",
+   "url": "https://www.ewtn.com/catholicism/answers/reincarnation-24774",
+   "free": true,
+   "minutes": 6,
+   "level": 2,
+   "audience": "adult",
+   "why": "A concise reply from EWTN on why reincarnation cannot be held by a Christian.",
+   "verified": "2026-11-09",
+   "note": "EWTN"
+  },
+  {
+   "id": "cwr-mind",
+   "title": "Catholicism and Mindfulness: Compatible practices or contrary spiritualities?",
+   "creator": "Catholic World Report",
+   "kind": "article",
+   "url": "https://www.catholicworldreport.com/2018/01/07/catholicism-and-mindfulness-compatible-practices-or-contrary-spiritualities/",
+   "free": true,
+   "minutes": 15,
+   "level": 3,
+   "audience": "adult",
+   "why": "A longer look at where mindfulness helps and where it parts from Christian prayer.",
+   "verified": "2026-11-09",
+   "note": "Catholic World Report"
+  },
+  {
+   "id": "reiki",
+   "title": "Guidelines for Evaluating Reiki as an Alternative Therapy",
+   "creator": "USCCB Committee on Doctrine",
+   "kind": "article",
+   "url": "https://www.usccb.org/resources/guidelines-evaluating-reiki-alternative-therapy",
+   "free": true,
+   "minutes": 15,
+   "level": 3,
+   "audience": "adult",
+   "why": "The U.S. bishops explain why Reiki is not a medicine and not compatible with Christian faith.",
+   "verified": "2026-11-09",
+   "note": "USCCB (2009)"
+  },
+  {
+   "id": "ca-yoga-q",
+   "title": "What Does the Church Say About Doing Yoga?",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/qa/what-does-the-church-say-about-yoga",
+   "free": true,
+   "minutes": 5,
+   "level": 2,
+   "audience": "adult",
+   "why": "A brief Q&A on how the Church treats yoga.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "gita",
+   "title": "The Song Celestial; or, Bhagavad-Gita",
+   "creator": "Sir Edwin Arnold (translator)",
+   "kind": "book",
+   "url": "https://www.gutenberg.org/ebooks/2388",
+   "free": true,
+   "minutes": 120,
+   "level": 3,
+   "audience": "adult",
+   "why": "Read the Hindu classic in a free Victorian verse translation.",
+   "verified": "2026-11-09",
+   "note": "Hindu primary source in an old translation; the English is dated"
+  },
+  {
+   "id": "dp",
+   "title": "Dialogue and Proclamation",
+   "creator": "Pontifical Council for Interreligious Dialogue and Congregation for the Evangelization of Peoples",
+   "kind": "article",
+   "url": "https://www.vatican.va/roman_curia/pontifical_councils/interelg/documents/rc_pc_interelg_doc_19051991_dialogue-and-proclamatio_en.html",
+   "free": true,
+   "minutes": 60,
+   "level": 3,
+   "audience": "adult",
+   "why": "Shows how dialogue and proclaiming Christ belong together, with four forms of dialogue.",
+   "verified": "2026-11-09",
+   "note": "Church teaching (1991)"
+  },
+  {
+   "id": "wings",
+   "title": "Wings to Awakening: An Anthology from the Pali Canon",
+   "creator": "Access to Insight (Thanissaro Bhikkhu)",
+   "kind": "article",
+   "url": "https://accesstoinsight.org/lib/authors/thanissaro/wings.html",
+   "free": true,
+   "minutes": 60,
+   "level": 4,
+   "audience": "advanced",
+   "why": "Buddhist teaching on the path, from the early texts, in a monk's own selection.",
+   "verified": "2026-11-09",
+   "note": "Buddhist primary source"
+  }
+ ]
+}

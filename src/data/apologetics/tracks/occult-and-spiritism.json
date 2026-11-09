@@ -1,0 +1,412 @@
+{
+ "id": "occult-and-spiritism",
+ "title": "The occult, astrology and spiritual discernment",
+ "tagline": "Understand why the Church warns against horoscopes, tarot, ouija and mediums, and respond with calm, not fear.",
+ "group": "world-religions",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "Astrology, tarot and mediums are common and often treated as harmless fun. The Church asks Christians to trust God, to avoid seeking hidden knowledge from spirits, and to meet fear with prayer and the sacraments.",
+ "mindset": [
+  {
+   "tip": "Do not mock. Many people turn to these practices from grief, fear or loneliness, so begin with that need (Matthew 9:36)."
+  },
+  {
+   "tip": "Know what the Church actually says: divination and magic are contrary to trust in God (CCC 2115-2117).",
+   "resource": "ncr-astro"
+  },
+  {
+   "tip": "Keep calm. The Church warns about real spiritual danger but does not want us to see demons everywhere.",
+   "resource": "ca-notalways"
+  },
+  {
+   "tip": "Point to the better path: Providence, prayer and the sacraments, and ask a priest when something frightening has happened.",
+   "resource": "csa"
+  },
+  {
+   "tip": "Do not try to deal with a serious case alone. In rare cases the bishop and an exorcist are involved, after medical and psychological help (CCC 1673).",
+   "resource": "ca-poss"
+  }
+ ],
+ "ccc": [
+  395,
+  414,
+  1673,
+  2110,
+  2111,
+  2115,
+  2116,
+  2117,
+  2138
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Know what the Church teaches about divination and why.",
+   "minutes": 80,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "new-age-reincarnation",
+     "why": "The app's short answer on astrology, reincarnation and the New Age."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "exorcism",
+     "why": "The app's short answer on demons and exorcism."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-superst",
+     "why": "Why superstition harms faith."
+    },
+    {
+     "kind": "resource",
+     "id": "cc-ouija",
+     "why": "Why the Church warns against ouija boards and tarot cards."
+    },
+    {
+     "kind": "resource",
+     "id": "ncr-astro",
+     "why": "Why horoscopes are a problem even when read for fun."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "11-6-1",
+     "why": "A lesson on the first commandment, which these practices break."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Idolatry",
+     "why": "A plain definition of idolatry, which includes false trust in other powers."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Providence",
+     "why": "A plain definition of Providence, the Christian answer to wanting to know the future."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "When have you been tempted to look for a sign about the future, and what were you really afraid of?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Be able to explain gently why Christians do not use astrology, tarot or mediums.",
+   "minutes": 110,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "csa",
+     "why": "A priest answers on fortune-tellers, psychics and witches."
+    },
+    {
+     "kind": "resource",
+     "id": "cwr-pew",
+     "why": "See how common these practices are and how Catholics can respond."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "private-revelation",
+     "why": "Compare these with apparitions: how the Church tests private revelation."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "halloween",
+     "why": "The app's answer on Halloween and the occult."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aug-confessions",
+     "why": "Augustine, once drawn to astrologers, writes of his conversion.",
+     "section": "ii.vii"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aug-city-of-god",
+     "why": "Augustine on fate and the astrologers (City of God, Book 5).",
+     "section": "iv.V"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "chesterton-everlasting-man",
+     "why": "Chesterton on the demons and the philosophers.",
+     "section": "s6"
+    },
+    {
+     "kind": "resource",
+     "id": "ca-notalways",
+     "why": "Hear a calm talk on not blaming demons too quickly."
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Answer: \"It is only a game\", \"it works\", \"my horoscope is accurate\", \"mediums give me comfort\".",
+   "minutes": 130,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "cathen-spirit",
+     "why": "An older Catholic account of spiritism and mediums."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-poss",
+     "why": "Learn how real cases are told apart from illness."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "catholics-pray-to-the-dead",
+     "why": "The sourced reply to \"Catholics talk to the dead, so mediums are fine\"."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "guardian-angels",
+     "why": "The Church's teaching on good angels who help us."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "12-12-3",
+     "why": "A lesson on obstacles to prayer and persevering."
+    },
+    {
+     "kind": "resource",
+     "id": "cwr-pew",
+     "why": "Re-read the Church's pastoral response in light of the figures."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "chain",
+      "id": "intercession-of-saints"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Study Aquinas, the signs the Church looks for and the long Christian tradition.",
+   "minutes": 160,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "st95",
+     "why": "Aquinas on divination, astrology and demons."
+    },
+    {
+     "kind": "resource",
+     "id": "st96",
+     "why": "Aquinas on charms and lucky observances."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-signs",
+     "why": "A fuller talk on signs of the demonic and discernment."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "athanasius-antony",
+     "why": "Athanasius on Antony and the desert fathers' stance toward demons."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "cassian-works",
+     "why": "Cassian on discernment of spirits in the Conferences."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "tertullian-apologetic",
+     "why": "Tertullian's defence of the faith against pagan religion."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "minucius-felix",
+     "why": "Octavius: a dialogue that answers pagan religion and its demons."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "How would you speak to a friend who is frightened after trying a ouija board?"
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "ncr-astro",
+   "title": "What the Catholic Church Teaches About Astrology",
+   "creator": "National Catholic Register",
+   "kind": "article",
+   "url": "https://www.ncregister.com/blog/what-the-catholic-church-teaches-about-astrology",
+   "free": true,
+   "minutes": 6,
+   "level": 1,
+   "audience": "adult",
+   "why": "Explains why horoscopes are a problem even when read \"just for fun.\"",
+   "verified": "2026-11-09",
+   "note": "National Catholic Register"
+  },
+  {
+   "id": "ca-notalways",
+   "title": "It's Not Always Demons (with Jimmy Akin)",
+   "creator": "Catholic Answers",
+   "kind": "podcast",
+   "url": "https://www.catholic.com/audio/cot/its-not-always-demons-with-jimmy-akin",
+   "free": true,
+   "minutes": 60,
+   "level": 3,
+   "audience": "adult",
+   "why": "Balanced talk on where Catholics blame demons too quickly.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers podcast"
+  },
+  {
+   "id": "csa",
+   "title": "What does the Church teach about fortunetellers, psychic counselors, and witches?",
+   "creator": "Catholic Straight Answers",
+   "kind": "article",
+   "url": "https://catholicstraightanswers.com/what-does-the-church-teach-about-fortunetellers-psychic-counselors-and-witches/",
+   "free": true,
+   "minutes": 5,
+   "level": 2,
+   "audience": "adult",
+   "why": "A priest's plain answer built on the Catechism.",
+   "verified": "2026-11-09",
+   "note": "Catholic Straight Answers"
+  },
+  {
+   "id": "ca-poss",
+   "title": "How to Tell if Someone is Possessed",
+   "creator": "Catholic Answers (Jimmy Akin)",
+   "kind": "video",
+   "url": "https://www.catholic.com/video/how-to-tell-if-someone-is-possessed",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Calm guidance on the signs the Church looks for and why most cases are something else.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers Video"
+  },
+  {
+   "id": "ca-superst",
+   "title": "The Perils of Superstition",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/the-perils-of-superstition",
+   "free": true,
+   "minutes": 12,
+   "level": 1,
+   "audience": "adult",
+   "why": "Why superstition harms faith, and how it differs from real devotion.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers Magazine"
+  },
+  {
+   "id": "cc-ouija",
+   "title": "Ouija Boards and Tarot Cards",
+   "creator": "Catholic Culture",
+   "kind": "article",
+   "url": "https://www.catholicculture.org/culture/library/view.cfm?id=8760",
+   "free": true,
+   "minutes": 6,
+   "level": 1,
+   "audience": "adult",
+   "why": "A short explanation of why the Church warns against both.",
+   "verified": "2026-11-09",
+   "note": "Catholic Culture"
+  },
+  {
+   "id": "cwr-pew",
+   "title": "Pew study finds astrology, tarot, fortune-telling are popular: How should Catholics respond?",
+   "creator": "Catholic World Report",
+   "kind": "article",
+   "url": "https://www.catholicworldreport.com/2025/05/24/pew-study-finds-astrology-tarot-fortune-telling-are-popular-how-should-catholics-respond/",
+   "free": true,
+   "minutes": 8,
+   "level": 2,
+   "audience": "adult",
+   "why": "Gives the numbers on who uses these practices and a Catholic way to respond.",
+   "verified": "2026-11-09",
+   "note": "Catholic World Report"
+  },
+  {
+   "id": "cathen-spirit",
+   "title": "Spiritism",
+   "creator": "Catholic Encyclopedia (1912)",
+   "kind": "article",
+   "url": "https://www.newadvent.org/cathen/14221a.htm",
+   "free": true,
+   "minutes": 15,
+   "level": 3,
+   "audience": "adult",
+   "why": "An older Catholic account of séances and mediums.",
+   "verified": "2026-11-09",
+   "note": "Dated in places; read as history"
+  },
+  {
+   "id": "st95",
+   "title": "Summa Theologiae II-II, Question 95: Superstition in divinations",
+   "creator": "Thomas Aquinas",
+   "kind": "article",
+   "url": "https://www.newadvent.org/summa/3095.htm",
+   "free": true,
+   "minutes": 25,
+   "level": 4,
+   "audience": "advanced",
+   "why": "Aquinas on astrology, omens and calling on spirits.",
+   "verified": "2026-11-09",
+   "note": "Public-domain English text"
+  },
+  {
+   "id": "st96",
+   "title": "Summa Theologiae II-II, Question 96: Superstition in observances",
+   "creator": "Thomas Aquinas",
+   "kind": "article",
+   "url": "https://www.newadvent.org/summa/3096.htm",
+   "free": true,
+   "minutes": 20,
+   "level": 4,
+   "audience": "advanced",
+   "why": "Aquinas on charms, amulets and \"lucky\" practices.",
+   "verified": "2026-11-09",
+   "note": "Public-domain English text"
+  },
+  {
+   "id": "ca-signs",
+   "title": "Signs of the Demonic",
+   "creator": "Catholic Answers",
+   "kind": "podcast",
+   "url": "https://www.catholic.com/audio/caf/signs-of-the-demonic",
+   "free": true,
+   "minutes": 50,
+   "level": 4,
+   "audience": "advanced",
+   "why": "A fuller discussion of discernment and what to do.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers Focus podcast"
+  }
+ ]
+}

@@ -15,6 +15,8 @@ import LessonSlides, { buildSlides } from '../../curriculum/LessonSlides';
 import { isKeyLesson, isLifeLesson } from '../../curriculum/keyLessons';
 import LessonRun from '../../curriculum/LessonRun';
 import LessonPlay from '../../curriculum/LessonPlay';
+import LessonPath from '../../curriculum/LessonPath';
+import { worthDefining } from '../../curriculum/terms';
 import TeachingOptions from '../../curriculum/TeachingOptions';
 import StartLive, { QuickQuizButton } from '../../live/StartLive';
 import { toLiveSlides } from '../../live/slides';
@@ -74,6 +76,8 @@ export default function CurriculumLesson() {
   const [playing, setPlaying] = useState<string | null>(null);
   const [note, setNote] = useState('');
   const [liveOpen, setLiveOpen] = useState(false);
+  const [view, setView] = useState<'path' | 'whole'>(() => { try { return localStorage.getItem('sb:cur:view') === 'whole' ? 'whole' : 'path'; } catch { return 'path'; } });
+  const setV = (v: 'path' | 'whole') => { setView(v); try { localStorage.setItem('sb:cur:view', v); } catch { /* private mode */ } };
   useEffect(() => { getGrade(grade).then((x) => setG(x ?? null)); getGlossary().then(setGl); }, [grade]);
   const flat = useMemo(() => (g ? flatLessons(g) : []), [g]);
   const idx = flat.findIndex((l) => l.id === lessonId);
@@ -96,7 +100,8 @@ export default function CurriculumLesson() {
   if (!g || !lesson || !band) return <div className="page"><Link to="/study/curriculum">← Curriculum</Link><p>That lesson was not found.</p></div>;
 
   const minutes = length || band.minutes;
-  const words = lesson.vocab.filter((v) => gl[v]);
+  const usePath = mode === 'student' && view === 'path';
+  const words = worthDefining(lesson.vocab.filter((v) => gl[v]), band);
   const kidsText = src.story ? src.story.text[st.kidsAge] : '';
   const scriptureText = src.passages.map((p) => `${p.label}. ${p.verses.map((v) => v.text).join(' ')}`).join(' ');
   const cccNums = cccList(lesson.ccc);
@@ -141,15 +146,24 @@ export default function CurriculumLesson() {
         </details>
       </div>
 
-      <section className="cur-big" aria-label="The big idea">
+      {mode === 'student' && <div className="lp-view no-print" role="group" aria-label="How to read this lesson"><button type="button" className={`btn small${view === 'path' ? ' primary' : ''}`} aria-pressed={view === 'path'} onClick={() => setV('path')}>Step by step</button><button type="button" className={`btn small${view === 'whole' ? ' primary' : ''}`} aria-pressed={view === 'whole'} onClick={() => setV('whole')}>Whole lesson</button></div>}
+
+      {!usePath && <section className="cur-big" aria-label="The big idea">
         <h2 className="eyebrow-h">The big idea</h2>
         <p className="cur-idea">{lesson.idea}</p>
         <p className="muted small"><strong>Essential question:</strong> {lesson.unit.eq}</p>
-      </section>
+      </section>}
 
-      {mode !== 'teacher' && <LessonPlay grade={g} lesson={lesson} index={idx} gl={gl} />}
+      {usePath && (
+        <LessonPath grade={g} lesson={lesson} index={idx} band={band} gl={gl} src={src} kidsText={kidsText} note={note}
+          onNote={(v) => { setNote(v); try { localStorage.setItem(`sb:cur:note:${lessonId}`, v); } catch { /* private mode */ } }}
+          done={done} onDone={() => toggleDone(g.id, idx, true)}
+          quiz={<><Quiz key={lesson.id} qs={quiz} />{vocabOnly.length > 0 && <><h3>Words</h3><Quiz key={lesson.id + 'v'} qs={vocabOnly} /></>}{review.length > 0 && <><h3>Remember earlier lessons</h3><Quiz key={lesson.id + 'r'} qs={review} /></>}</>} />
+      )}
 
-      {mode !== 'teacher' && lesson.mem && <section className="cur-mem" aria-label="Learn by heart"><h2 className="eyebrow-h">Learn by heart</h2><p>{lesson.mem}</p></section>}
+      {mode !== 'teacher' && !usePath && <LessonPlay grade={g} lesson={lesson} index={idx} gl={gl} />}
+
+      {mode !== 'teacher' && !usePath && lesson.mem && <section className="cur-mem" aria-label="Learn by heart"><h2 className="eyebrow-h">Learn by heart</h2><p>{lesson.mem}</p></section>}
 
       {mode === 'teacher' && (
         <>
@@ -240,6 +254,7 @@ export default function CurriculumLesson() {
         </section>
       )}
 
+      {!usePath && (<>
       {words.length > 0 && (
         <section className="sect" aria-label="Words to know">
           <h2 className="eyebrow-h">Words to know</h2>
@@ -338,6 +353,8 @@ export default function CurriculumLesson() {
           <li><Link to="/study/curriculum/teachers">For teachers: the handbook</Link></li>
         </ul>
       </section>
+
+      </>)}
 
       <nav className="row between no-print" style={{ marginTop: 18 }} aria-label="Previous and next lesson">
         {prev ? <Link className="btn" to={`/study/curriculum/${g.id}/${prev.id}`}>← {prev.title}</Link> : <span />}

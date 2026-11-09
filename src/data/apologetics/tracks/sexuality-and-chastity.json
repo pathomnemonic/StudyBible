@@ -1,0 +1,385 @@
+{
+  "id": "sexuality-and-chastity",
+  "title": "Sexuality, chastity and same-sex attraction",
+  "tagline": "What chastity is for, what the Church teaches about same-sex attraction, and how to talk about it with friends with truth and love.",
+  "group": "morals-and-life",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Teaching on the body can sound like a list of no's. Chastity is the Church's name for loving rightly, and every person, whatever their attractions, is called to it and to be treated with respect.",
+  "mindset": [
+    {
+      "tip": "Treat persons as persons. The Catechism says persons with same-sex tendencies must be accepted with respect, compassion and sensitivity (CCC 2358).",
+      "resource": "cdf-1986"
+    },
+    {
+      "tip": "Listen to people who live this teaching, not only to people who write about it.",
+      "resource": "courage"
+    },
+    {
+      "tip": "Do not begin with prohibitions. Begin with what the body and sex are for: a gift of self (Theology of the Body).",
+      "resource": "tob-crash"
+    },
+    {
+      "tip": "Admit that the teaching is hard and that the Church's own people have sometimes spoken badly. Apologise where it is owed."
+    },
+    {
+      "tip": "Know that many friends will hear this as rejection. Stay a friend; friendship is itself part of the Church's answer (CCC 2359)."
+    }
+  ],
+  "ccc": [
+    2331,
+    2332,
+    2337,
+    2338,
+    2339,
+    2348,
+    2351,
+    2357,
+    2358,
+    2359,
+    2360,
+    2361
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Understand chastity as love, not only a rule.",
+      "minutes": 90,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Chastity",
+          "why": "The definition in plain words."
+        },
+        {
+          "kind": "resource",
+          "id": "tob-crash",
+          "why": "Four free sessions that introduce the Theology of the Body."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-6-1",
+          "why": "An adult lesson called 'Made for love'."
+        },
+        {
+          "kind": "resource",
+          "id": "chastity-com",
+          "why": "Practical, hopeful resources for young people and adults."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "10-9-3",
+          "why": "A school lesson on what chastity is for."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What did you learn about sex and the body from your family, friends and culture? What was missing?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "See the Church's reasons and the pastoral approach.",
+      "minutes": 120,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "chastity",
+          "why": "The app's summary on chastity."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "homosexuality",
+          "why": "The app's summary on same-sex attraction and marriage."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-homosexuality",
+          "why": "A short statement of the teaching and its reasons."
+        },
+        {
+          "kind": "resource",
+          "id": "courage",
+          "why": "The Church's own apostolate for people with same-sex attraction and their families."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-6-2",
+          "why": "Dating, discernment and boundaries."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-6-3",
+          "why": "Pornography, healing and freedom."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Answer 'it is natural', 'who does it hurt?' and 'the Church is hateful'.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "cdf-1986",
+          "why": "What the Vatican actually says about respect and unjust discrimination."
+        },
+        {
+          "kind": "resource",
+          "id": "jp2-aud-communion",
+          "why": "A talk from the Theology of the Body on persons in communion."
+        },
+        {
+          "kind": "resource",
+          "id": "jp2-aud-gift",
+          "why": "Another, on the body as a gift."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Human dignity",
+          "why": "The root idea behind the respect the Church asks for."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Modesty",
+          "why": "Often misunderstood; read the Catholic meaning."
+        },
+        {
+          "kind": "inapp",
+          "type": "ask",
+          "id": "What does the Catechism say about how to treat people with same-sex attraction?",
+          "why": "Ask the app and compare with CCC 2358."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read witnesses, the philosophy and the primary teaching.",
+      "minutes": 240,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "mattson",
+          "why": "A Catholic man's account of living the teaching; note the debate over the word 'gay'."
+        },
+        {
+          "kind": "resource",
+          "id": "tushnet",
+          "why": "A different voice in the Catholic conversation; read both and compare."
+        },
+        {
+          "kind": "resource",
+          "id": "ft-what-is-marriage",
+          "why": "The philosophical argument for marriage as a union of man and woman."
+        },
+        {
+          "kind": "resource",
+          "id": "dignitas-infinita",
+          "why": "A 2024 Vatican declaration on human dignity and its modern violations."
+        },
+        {
+          "kind": "resource",
+          "id": "st-q151",
+          "why": "Aquinas on chastity as a virtue."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "clement-alex",
+          "why": "Clement of Alexandria on marriage and self-control in The Instructor."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "tertullian-ethical",
+          "why": "Early Christian moral writing, to see the long root of the teaching."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "st-q151",
+      "title": "Summa Theologiae II-II, Q. 151: Chastity",
+      "creator": "Thomas Aquinas",
+      "kind": "article",
+      "url": "https://www.newadvent.org/summa/3151.htm",
+      "free": true,
+      "minutes": 15,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Chastity as a part of temperance, in Aquinas's own order of thought.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "cdf-1986",
+      "title": "Letter to the Bishops of the Catholic Church on the Pastoral Care of Homosexual Persons",
+      "creator": "Congregation for the Doctrine of the Faith",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19861001_homosexual-persons_en.html",
+      "free": true,
+      "minutes": 30,
+      "level": 3,
+      "audience": "adult",
+      "why": "The Church's formal teaching, stating that persons with same-sex attraction must be treated with respect and not be the object of unjust discrimination.",
+      "verified": "2026-11-09",
+      "note": "Vatican document, 1986"
+    },
+    {
+      "id": "dignitas-infinita",
+      "title": "Declaration Dignitas Infinita on Human Dignity",
+      "creator": "Dicastery for the Doctrine of the Faith",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_ddf_doc_20240402_dignitas-infinita_en.html",
+      "free": true,
+      "minutes": 60,
+      "level": 4,
+      "audience": "adult",
+      "why": "Grounds human dignity in being a person, and applies it to many modern issues.",
+      "verified": "2026-11-09",
+      "note": "Vatican document, 2024"
+    },
+    {
+      "id": "courage",
+      "title": "Courage and EnCourage",
+      "creator": "Courage International",
+      "kind": "site",
+      "url": "https://couragerc.org/",
+      "free": true,
+      "minutes": 20,
+      "level": 1,
+      "audience": "any",
+      "why": "The Church's apostolate for men and women with same-sex attraction who seek to live chastely, and for the families and friends who love them.",
+      "verified": "2026-11-09",
+      "note": "Catholic apostolate"
+    },
+    {
+      "id": "ca-homosexuality",
+      "title": "Homosexuality",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/homosexuality",
+      "free": true,
+      "minutes": 15,
+      "level": 2,
+      "audience": "any",
+      "why": "A short summary of what the Church teaches and why, with Scripture and natural law.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers tract"
+    },
+    {
+      "id": "tob-crash",
+      "title": "Theology of the Body Crash Course",
+      "creator": "Fr. Mike Schmitz / Ascension",
+      "kind": "course",
+      "url": "https://ascensionpress.com/tobtalk",
+      "free": true,
+      "minutes": 120,
+      "level": 1,
+      "audience": "any",
+      "why": "Four free sessions that explain John Paul II's vision of the body, love and gift in plain language.",
+      "verified": "2026-11-09",
+      "note": "Free through Ascension; may ask for contact details"
+    },
+    {
+      "id": "jp2-aud-communion",
+      "title": "General Audience, 14 November 1979: By the Communion of Persons Man Becomes the Image of God",
+      "creator": "Pope John Paul II",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/audiences/1979/documents/hf_jp-ii_aud_19791114.html",
+      "free": true,
+      "minutes": 10,
+      "level": 3,
+      "audience": "adult",
+      "why": "One of the original talks of the Theology of the Body, read in the Pope's own words.",
+      "verified": "2026-11-09",
+      "note": "Papal general audience"
+    },
+    {
+      "id": "jp2-aud-gift",
+      "title": "General Audience, 2 January 1980: Creation As a Fundamental and Original Gift",
+      "creator": "Pope John Paul II",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/audiences/1980/documents/hf_jp-ii_aud_19800102.html",
+      "free": true,
+      "minutes": 10,
+      "level": 3,
+      "audience": "adult",
+      "why": "Another early talk of the Theology of the Body on the body as gift.",
+      "verified": "2026-11-09",
+      "note": "Papal general audience"
+    },
+    {
+      "id": "chastity-com",
+      "title": "Chastity (Chastity Project)",
+      "creator": "Jason Evert",
+      "kind": "site",
+      "url": "https://chastity.com/",
+      "free": true,
+      "minutes": 20,
+      "level": 1,
+      "audience": "teen",
+      "why": "Free articles, Q&A and a podcast on chastity for young people and adults.",
+      "verified": "2026-11-09",
+      "note": "Catholic lay ministry; some items are for sale"
+    },
+    {
+      "id": "mattson",
+      "title": "Why I Don't Call Myself Gay",
+      "creator": "Daniel Mattson (Ignatius Press)",
+      "kind": "book",
+      "url": "https://ignatius.com/why-i-dont-call-myself-gay-wmgcp/",
+      "free": false,
+      "minutes": 300,
+      "level": 4,
+      "audience": "adult",
+      "why": "A Catholic man with same-sex attraction explains how he came to live the Church's teaching.",
+      "verified": "2026-11-09",
+      "note": "Book for purchase; a personal memoir whose approach to the word 'gay' is debated even among Catholics"
+    },
+    {
+      "id": "tushnet",
+      "title": "Gay and Catholic",
+      "creator": "Eve Tushnet (Ave Maria Press)",
+      "kind": "book",
+      "url": "https://www.avemariapress.com/products/Gay-and-Catholic",
+      "free": false,
+      "minutes": 300,
+      "level": 4,
+      "audience": "adult",
+      "why": "A celibate lesbian Catholic describes friendship, vocation and service as ways to live the teaching.",
+      "verified": "2026-11-09",
+      "note": "Book for purchase; the author uses the word 'gay' of herself, which some Catholic writers question"
+    },
+    {
+      "id": "ft-what-is-marriage",
+      "title": "What is Marriage?",
+      "creator": "Sherif Girgis, Ryan T. Anderson and Robert P. George / First Things",
+      "kind": "article",
+      "url": "https://firstthings.com/what-is-marriage/",
+      "free": true,
+      "minutes": 30,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The reasoned, non-religious argument for marriage as a union of man and woman, which lies behind the Church's teaching.",
+      "verified": "2026-11-09",
+      "note": "First Things; the longer book version is sold by Encounter Books"
+    }
+  ]
+}

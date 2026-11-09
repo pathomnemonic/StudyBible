@@ -1,0 +1,453 @@
+{
+  "id": "anglicanism-and-mainline",
+  "title": "Anglicans, Lutherans and Methodists",
+  "tagline": "Dialogue with mainline Christians, using Ut Unum Sint, ARCIC and the Joint Declaration as reference points.",
+  "group": "christians",
+  "audience": [
+    "adult"
+  ],
+  "whyItMatters": "Mainline Christians share much of our worship and history, and the Church has a long record of formal dialogue with them. Knowing it helps you be honest about both agreement and real differences.",
+  "mindset": [
+    {
+      "tip": "Ask which tradition the person belongs to: Anglo-Catholic, evangelical, liberal or something else. Mainline churches are not all alike. (1 Peter 3:15-16)"
+    },
+    {
+      "tip": "Start with shared baptism and prayer: the Church counts baptized Christians as brothers and sisters. (CCC 818, 838; Unitatis Redintegratio 3)",
+      "resource": "ur"
+    },
+    {
+      "tip": "Use dialogue texts honestly: the ARCIC and Lutheran documents are agreements of commissions, not final teaching of either Church.",
+      "resource": "gift-authority"
+    },
+    {
+      "tip": "Read their own standards, such as the Prayer Book and the Augsburg Confession, before you describe what they believe.",
+      "resource": "bcp"
+    },
+    {
+      "tip": "Be honest about hard differences, such as ordination and authority, while working together for the poor and for life. (CCC 821)"
+    }
+  ],
+  "ccc": [
+    816,
+    818,
+    819,
+    820,
+    821,
+    822,
+    838,
+    1400
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Meet the mainline churches through their own words and the Church's teaching on unity.",
+      "minutes": 90,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "12-5-2",
+          "why": "The app's overview of Protestant communities, including Anglicans."
+        },
+        {
+          "kind": "resource",
+          "id": "bcp",
+          "why": "See Anglican worship through its prayer book."
+        },
+        {
+          "kind": "resource",
+          "id": "episcopal",
+          "why": "A short modern statement of Anglican belief."
+        },
+        {
+          "kind": "resource",
+          "id": "umc-articles",
+          "why": "Read the Methodist doctrinal standards."
+        },
+        {
+          "kind": "resource",
+          "id": "small-catechism",
+          "why": "Read Luther's own short teaching."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Ecumenism",
+          "why": "A plain definition of the work for Christian unity."
+        },
+        {
+          "kind": "resource",
+          "id": "ur",
+          "why": "The Council's decree on ecumenism."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What do you already admire in a mainline church you know?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "See how the Church commits to dialogue and how justification was resolved.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "10-5-2",
+          "why": "Ecumenism and other religions in the curriculum."
+        },
+        {
+          "kind": "resource",
+          "id": "uus",
+          "why": "The pope's call to seek unity."
+        },
+        {
+          "kind": "resource",
+          "id": "jddj",
+          "why": "The Catholic-Lutheran agreement on justification."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Justification",
+          "why": "A plain definition of the key word in that agreement."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "faith-and-works",
+          "why": "The sourced argument on faith, works and justification."
+        },
+        {
+          "kind": "inapp",
+          "type": "development",
+          "id": "grace-development",
+          "why": "How the Church's teaching on grace developed."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "trent-canons-decrees",
+          "why": "What Trent said about justification."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "faith-and-works"
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Look at authority, ministry and the Eucharist, where the real differences lie.",
+      "minutes": 180,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "anglican-dialogue",
+          "why": "Browse the Anglican-Catholic dialogue documents."
+        },
+        {
+          "kind": "resource",
+          "id": "gift-authority",
+          "why": "The ARCIC statement on authority."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "apostolic-succession",
+          "why": "The sourced argument for apostolic succession."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "bishops-and-unity",
+          "why": "Why bishops matter for the unity of the Church."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "real-presence",
+          "why": "The sourced argument for the Real Presence."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-episcopal-presence",
+          "why": "How Anglican views on the Eucharist compare."
+        },
+        {
+          "kind": "resource",
+          "id": "dotw",
+          "why": "A recent Catholic-Lutheran statement on church, ministry and Eucharist."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "apostolic-succession"
+          }
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Study the documents and the story of those who crossed the Tiber.",
+      "minutes": 300,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "arcic-commentary",
+          "why": "A commentary on the ARCIC authority statement."
+        },
+        {
+          "kind": "resource",
+          "id": "apostolicae-curae",
+          "why": "The 1896 judgement on Anglican orders."
+        },
+        {
+          "kind": "resource",
+          "id": "anglicanorum-coetibus",
+          "why": "The 2009 path for Anglican groups to enter full communion."
+        },
+        {
+          "kind": "resource",
+          "id": "augsburg",
+          "why": "Read the Lutheran confession itself."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "newman-apologia",
+          "why": "Newman's own account of leaving the Church of England."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "newman-development",
+          "why": "Newman on the development of doctrine."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "Where do you think agreement is real, and where do words hide a deeper difference?"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "bcp",
+      "title": "The Book of Common Prayer",
+      "creator": "Church of England",
+      "kind": "site",
+      "url": "https://www.churchofengland.org/liturgy/book-of-common-prayer",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "The prayer book that has shaped Anglican worship, with the Church of England's own introduction.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice (Church of England)"
+    },
+    {
+      "id": "episcopal",
+      "title": "What We Believe",
+      "creator": "The Episcopal Church",
+      "kind": "site",
+      "url": "https://www.episcopalchurch.org/who-we-are/what-we-believe/",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "The Episcopal Church's short statement of its beliefs.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice (Anglican, USA)"
+    },
+    {
+      "id": "umc-articles",
+      "title": "The Articles of Religion of the Methodist Church",
+      "creator": "The United Methodist Church",
+      "kind": "article",
+      "url": "https://www.umc.org/en/content/articles-of-religion",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Methodist doctrinal standards in their own words.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "The other side's own voice (Methodist)"
+    },
+    {
+      "id": "small-catechism",
+      "title": "The Small Catechism",
+      "creator": "Martin Luther (Book of Concord)",
+      "kind": "article",
+      "url": "https://bookofconcord.org/small-catechism/",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Luther's short teaching on the Creed, the Commandments and the sacraments, still used by Lutherans.",
+      "verified": "2026-11-09",
+      "minutes": 30,
+      "note": "The other side's own voice (Lutheran)"
+    },
+    {
+      "id": "ur",
+      "title": "Unitatis Redintegratio (Decree on Ecumenism)",
+      "creator": "Second Vatican Council",
+      "kind": "article",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "The Council's teaching on other Christians, including the Anglican and Protestant communities.",
+      "verified": "2026-11-09",
+      "minutes": 45,
+      "note": "Church document"
+    },
+    {
+      "id": "uus",
+      "title": "Ut Unum Sint",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25051995_ut-unum-sint.html",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "The pope commits the Catholic Church to the search for unity and to dialogue.",
+      "verified": "2026-11-09",
+      "minutes": 120,
+      "note": "Encyclical, 1995"
+    },
+    {
+      "id": "jddj",
+      "title": "Joint Declaration on the Doctrine of Justification (1999)",
+      "creator": "Lutheran World Federation and the Catholic Church",
+      "kind": "article",
+      "url": "https://www.ewtn.com/catholicism/library/joint-declaration-on-the-doctrine-of-justification-28863",
+      "free": true,
+      "level": 2,
+      "audience": "advanced",
+      "why": "A landmark agreement that the old Catholic-Lutheran condemnations on justification no longer apply to the teaching of the partners.",
+      "verified": "2026-11-09",
+      "minutes": 40,
+      "note": "Hosted on EWTN; later joined by the World Methodist Council"
+    },
+    {
+      "id": "anglican-dialogue",
+      "title": "Anglican Communion: dialogue documents",
+      "creator": "Dicastery for Promoting Christian Unity",
+      "kind": "site",
+      "url": "https://www.christianunity.va/content/unitacristiani/en/dialoghi/sezione-occidentale/comunione-anglicana.html",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "The Vatican's page for the Anglican-Catholic dialogue and its documents (ARCIC and others).",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Official Vatican page"
+    },
+    {
+      "id": "gift-authority",
+      "title": "The Gift of Authority (ARCIC II, 1999)",
+      "creator": "Anglican-Roman Catholic International Commission",
+      "kind": "article",
+      "url": "https://www.ewtn.com/catholicism/library/gift-of-authority-9898",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "An agreed statement on authority in the Church, including the role of the bishop of Rome.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Commission statement, not an official teaching of either Church"
+    },
+    {
+      "id": "ca-episcopal-presence",
+      "title": "Episcopalians and the Real Presence",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/qa/episcopalians-and-the-real-presence",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A Catholic Q&A on how Anglican and Catholic teaching on the Eucharist compare.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "dotw",
+      "title": "Declaration on the Way: Church, Ministry, and Eucharist",
+      "creator": "Catholic and Lutheran bishops of the United States (USCCB and ELCA)",
+      "kind": "article",
+      "url": "https://ms.augsburgfortress.org/downloads/Declaration%20on%20the%20Way.pdf",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "Thirty-two points of agreement on church, ministry and Eucharist, and the differences that remain.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Joint statement (2015) from Augsburg Fortress; a PDF"
+    },
+    {
+      "id": "arcic-commentary",
+      "title": "A Commentary on The Gift of Authority",
+      "creator": "William Henn (Pontifical Council for Promoting Christian Unity)",
+      "kind": "article",
+      "url": "https://www.christianunity.va/content/unitacristiani/en/dialoghi/sezione-occidentale/comunione-anglicana/dialogo/arcic-ii/en2.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A Catholic theologian explains the structure and aims of the ARCIC statement.",
+      "verified": "2026-11-09",
+      "minutes": 45,
+      "note": "Commentary on the Vatican site"
+    },
+    {
+      "id": "apostolicae-curae",
+      "title": "Apostolicae Curae (1896)",
+      "creator": "Pope Leo XIII",
+      "kind": "article",
+      "url": "https://www.newadvent.org/library/docs_le13ac.htm",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The pope's judgement on Anglican ordinations, which still shapes the conversation on ministry.",
+      "verified": "2026-11-09",
+      "minutes": 30,
+      "note": "Papal document, hosted on New Advent"
+    },
+    {
+      "id": "anglicanorum-coetibus",
+      "title": "Anglicanorum Coetuum",
+      "creator": "Pope Benedict XVI",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/apost_constitutions/documents/hf_ben-xvi_apc_20091104_anglicanorum-coetibus.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The constitution that lets groups of Anglicans enter full communion and keep their traditions.",
+      "verified": "2026-11-09",
+      "minutes": 30,
+      "note": "Apostolic Constitution, 2009"
+    },
+    {
+      "id": "augsburg",
+      "title": "The Augsburg Confession",
+      "creator": "Lutheran Church (Book of Concord)",
+      "kind": "article",
+      "url": "https://bookofconcord.org/augsburg-confession/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The founding Lutheran confession, a key reference for Catholic-Lutheran dialogue.",
+      "verified": "2026-11-09",
+      "minutes": 45,
+      "note": "The other side's own voice (Lutheran)"
+    }
+  ]
+}

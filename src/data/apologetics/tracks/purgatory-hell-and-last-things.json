@@ -1,0 +1,447 @@
+{
+ "id": "purgatory-hell-and-last-things",
+ "title": "Purgatory, hell and the last things",
+ "tagline": "Purgatory and indulgences, hell, heaven, judgment and the question of universalism.",
+ "group": "church-and-scripture",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "Death is the question every person faces. The Church’s teaching on judgment, purification and hope gives hard truths and real comfort.",
+ "mindset": [
+  {
+   "tip": "Meet fear and grief with gentleness before doctrine; many ask about death because someone has died."
+  },
+  {
+   "tip": "Keep purgatory and indulgences apart; a friend can accept one and doubt the other.",
+   "resource": "akin-indulgence"
+  },
+  {
+   "tip": "Say plainly that hell is real, God wants all saved and the Church names no one as damned. (CCC 1033-1037)",
+   "resource": "akin-hell"
+  },
+  {
+   "tip": "Listen to Protestant concerns about the sufficiency of Christ’s sacrifice.",
+   "resource": "wcf"
+  }
+ ],
+ "ccc": [
+  1020,
+  1023,
+  1030,
+  1031,
+  1033,
+  1035,
+  1038,
+  1040,
+  1471,
+  1472
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Learn what the Church teaches about death and judgment.",
+   "minutes": 75,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "ca-purgatory",
+     "why": "What purgatory is, with Scripture and early Christian support."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Purgatory",
+     "why": "The word in plain language."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Hell",
+     "why": "The word in plain language."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Heaven",
+     "why": "The word in plain language."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-14-2",
+     "why": "An adult lesson on death, judgment, heaven and hell."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "heaven",
+     "why": "What is heaven like?"
+    },
+    {
+     "kind": "reflect",
+     "prompt": "What do you fear or hope for most when you think of death?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Make the case for purification and judgment.",
+   "minutes": 90,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "purgatory",
+     "why": "Why the Church prays for the dead."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "hell",
+     "why": "Why is hell real?"
+    },
+    {
+     "kind": "inapp",
+     "type": "development",
+     "id": "purgatory-development",
+     "why": "From praying for the dead to Trent."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-logic-purgatory",
+     "why": "A reasoned case for final purification."
+    },
+    {
+     "kind": "resource",
+     "id": "akin-purgatory",
+     "why": "Practical help for talking with Protestants."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-indulgence-video",
+     "why": "A short video on indulgences."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-14-3",
+     "why": "A lesson on purgatory, praying for the dead and the funeral."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "chain",
+      "id": "purgatory"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Answer “money”, “scare tactic” and “who is in hell?”.",
+   "minutes": 100,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "purgatory-invented-to-make-money",
+     "why": "Tests the charge that purgatory was a money scheme."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "indulgences-buy-your-way-out",
+     "why": "Tests the charge about indulgences."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "hell-medieval-scare-tactic",
+     "why": "Tests the “scare tactic” charge."
+    },
+    {
+     "kind": "resource",
+     "id": "akin-indulgence",
+     "why": "What indulgences are, plainly."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-souls-hell",
+     "why": "What the Church has said about who is damned."
+    },
+    {
+     "kind": "resource",
+     "id": "akin-hell",
+     "why": "The Church’s precise teaching on hell."
+    },
+    {
+     "kind": "resource",
+     "id": "spe-salvi",
+     "why": "Benedict XVI on judgment, purification and hope."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "limbo",
+     "why": "What of unbaptised babies?"
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "indulgences-buy-your-way-out"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Read Dante, Trent and the debate over hope for all.",
+   "minutes": 130,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "dante-divine-comedy",
+     "why": "Dante’s Inferno, Canto III, the gate of hell.",
+     "section": "s3"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "dante-divine-comedy",
+     "why": "Dante’s Purgatorio, Canto I, the climb begins.",
+     "section": "s35"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "dante-divine-comedy",
+     "why": "Dante’s Paradiso, Canto I, ascent to heaven.",
+     "section": "s68"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "trent-canons-decrees",
+     "why": "Trent on purgatory, saints, images and indulgences.",
+     "section": "s25"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "origen-celsus",
+     "why": "Origen’s writings, where the idea of universal restoration began."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-fathers-purgatory",
+     "why": "A Catholic reply to a Protestant scholar on the Fathers."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-hopeful",
+     "why": "A critical look at hopeful universalism."
+    },
+    {
+     "kind": "resource",
+     "id": "ft-all-saved",
+     "why": "A sympathetic look at the same hope."
+    },
+    {
+     "kind": "resource",
+     "id": "ft-hell",
+     "why": "Another serious essay on the population of hell."
+    },
+    {
+     "kind": "resource",
+     "id": "wcf",
+     "why": "Reformed chapters on death and judgment."
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "akin-indulgence",
+   "title": "A Primer on Indulgences",
+   "creator": "Jimmy Akin",
+   "kind": "article",
+   "url": "https://jimmyakin.com/a-primer-on-indulgences",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Explains what indulgences are and are not, apart from the abuses of the 1500s.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Jimmy Akin, Catholic Answers apologist."
+  },
+  {
+   "id": "akin-hell",
+   "title": "Being Precise About Church Teaching on Hell",
+   "creator": "Jimmy Akin",
+   "kind": "article",
+   "url": "https://jimmyakin.com/2024/02/being-precise-about-church-teaching-on-hell.html",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Separates what the Church has defined about hell from opinion and hope.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Jimmy Akin, Catholic Answers apologist."
+  },
+  {
+   "id": "wcf",
+   "title": "The Westminster Confession of Faith",
+   "creator": "Orthodox Presbyterian Church",
+   "kind": "site",
+   "url": "https://www.opc.org/wcf.html",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "Chapter 1 is the Reformed statement on Scripture in its own words (also chapters on the sacraments and last things).",
+   "verified": "2026-11-09",
+   "note": "The other side’s own voice: a Reformed Protestant confession."
+  },
+  {
+   "id": "ca-purgatory",
+   "title": "Purgatory",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/purgatory",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "What purgatory is, with the Bible and early Christian evidence.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-logic-purgatory",
+   "title": "The Logical Case For Purgatory",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-logical-case-for-purgatory",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "Argues from God’s holiness and mercy that final purification makes sense.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "akin-purgatory",
+   "title": "How to Explain Purgatory to Protestants",
+   "creator": "Jimmy Akin",
+   "kind": "article",
+   "url": "https://jimmyakin.com/how-to-explain-purgatory-to-protestants",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "Patient, practical help for conversations with Protestant friends.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Jimmy Akin, Catholic Answers apologist."
+  },
+  {
+   "id": "ca-indulgence-video",
+   "title": "How to Explain the Doctrine of Indulgences",
+   "creator": "Catholic Answers",
+   "kind": "video",
+   "url": "https://www.catholic.com/video/how-to-explain-the-doctrine-of-indulgences",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "A short video on the idea behind indulgences.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-souls-hell",
+   "title": "Are There Souls in Hell Right Now?",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/are-there-souls-in-hell-right-now",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Looks at what the Church has and has not said about who is damned.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "spe-salvi",
+   "title": "Spe Salvi",
+   "creator": "Pope Benedict XVI",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20071130_spe-salvi.html",
+   "free": true,
+   "level": 3,
+   "audience": "advanced",
+   "why": "Hope, judgment, purgatory and heaven; paragraphs 41–48 treat judgment and purification.",
+   "verified": "2026-11-09"
+  },
+  {
+   "id": "ca-fathers-purgatory",
+   "title": "Did the Church Fathers Believe in Purgatory? (Response to Gavin Ortlund)",
+   "creator": "Catholic Answers",
+   "kind": "podcast",
+   "url": "https://www.catholic.com/audio/cot/did-the-church-fathers-believe-in-purgatory-response-to-gavin-ortlund",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "A Catholic reply to a Protestant scholar’s case about the Fathers.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers podcast; engages a Protestant critic."
+  },
+  {
+   "id": "ca-hopeful",
+   "title": "What is Hopeful Universalism?",
+   "creator": "Catholic Answers",
+   "kind": "podcast",
+   "url": "https://www.catholic.com/audio/cot/what-is-hopeful-universalism",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "A critical look at the view that we may hope hell is empty.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers; critical of the view. Other Catholic voices defend it."
+  },
+  {
+   "id": "ft-all-saved",
+   "title": "Will All Be Saved?",
+   "creator": "First Things",
+   "kind": "article",
+   "url": "https://firstthings.com/will-all-be-saved/",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "A sympathetic look at von Balthasar’s hope for all, as distinct from certainty.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "First Things; takes the side that hope is permitted."
+  },
+  {
+   "id": "ft-hell",
+   "title": "The Population of Hell",
+   "creator": "First Things",
+   "kind": "article",
+   "url": "https://firstthings.com/the-population-of-hell/",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "Another serious essay on who may be in hell and what we may hope.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "First Things."
+  }
+ ]
+}

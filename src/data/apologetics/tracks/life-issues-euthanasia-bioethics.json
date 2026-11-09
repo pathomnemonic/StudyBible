@@ -1,0 +1,340 @@
+{
+  "id": "life-issues-euthanasia-bioethics",
+  "title": "Euthanasia, IVF and bioethics",
+  "tagline": "What the Church teaches about the end of life, assisted suicide, IVF, embryos and stem cells, and how to speak with people who are suffering or caring for someone who is.",
+  "group": "morals-and-life",
+  "audience": [
+    "adult"
+  ],
+  "whyItMatters": "These questions are rarely abstract: they come when someone is dying, cannot conceive or is afraid of being a burden. The Church's teaching is about protecting life and refusing to abandon people.",
+  "mindset": [
+    {
+      "tip": "Begin with the suffering. People who ask about assisted suicide often fear pain or loneliness. Hear the fear first (Galatians 6:2)."
+    },
+    {
+      "tip": "Know the difference between killing and letting die, and between refusing burdensome treatment and refusing care (CCC 2276-2279).",
+      "resource": "decl-euth"
+    },
+    {
+      "tip": "Hear disability advocates who oppose assisted suicide in their own words.",
+      "resource": "not-dead-yet"
+    },
+    {
+      "tip": "On IVF, be gentle: couples with infertility are carrying a deep grief. Explain the reasons, and show the help the Church supports (CCC 2374-2379).",
+      "resource": "paul-vi-inst"
+    },
+    {
+      "tip": "Send people to qualified help, such as a Catholic bioethics centre, rather than answering a medical question alone.",
+      "resource": "ncbc"
+    }
+  ],
+  "ccc": [
+    2258,
+    2276,
+    2277,
+    2278,
+    2279,
+    2280,
+    2281,
+    2282,
+    2283,
+    2288,
+    2292,
+    2293,
+    2294,
+    2295,
+    2296,
+    2373,
+    2374,
+    2375,
+    2376,
+    2377,
+    2378,
+    2379
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Learn the basic distinctions the Church draws.",
+      "minutes": 90,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Euthanasia",
+          "why": "The definition and where it sits in the Catechism."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Sanctity of life",
+          "why": "The idea behind every bioethical question."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "12-4-2",
+          "why": "A school lesson on end of life."
+        },
+        {
+          "kind": "resource",
+          "id": "ncbc",
+          "why": "Resources and a consultation line for families facing hard choices."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-14-1",
+          "why": "Sickness and the Anointing of the Sick."
+        },
+        {
+          "kind": "inapp",
+          "type": "ask",
+          "id": "What is the difference between refusing treatment and euthanasia?",
+          "why": "Put the question to the app and read the sources."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "See why the Church refuses euthanasia and how it cares for the dying.",
+      "minutes": 120,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "euthanasia",
+          "why": "The app's summary of the topic."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "sanctity-of-life",
+          "why": "Sourced Scripture and Fathers on human life."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "sanctity-of-life"
+          }
+        },
+        {
+          "kind": "resource",
+          "id": "decl-euth",
+          "why": "The 1980 Vatican declaration, which distinguishes ordinary and extraordinary means."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "anointing-of-the-sick",
+          "why": "The sacrament for the seriously ill, with sourced Scripture and Fathers."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-9-1",
+          "why": "Why does God allow suffering?"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Answer 'my body, my choice', 'it is mercy', 'IVF is just help' and 'embryos are only cells'.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "samaritanus",
+          "why": "The Church's latest word on end of life care and accompaniment."
+        },
+        {
+          "kind": "resource",
+          "id": "not-dead-yet",
+          "why": "Disabled people explain why they fear assisted suicide laws."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "ivf",
+          "why": "The app's summary on IVF."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Principle of double effect",
+          "why": "Why strong pain relief can be allowed even if it may shorten life."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "suffering-is-gods-punishment",
+          "why": "A sourced reply to a claim that comes up at every bedside."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "4-7-2",
+          "why": "A younger-grade lesson on virtues and conscience, for a clear sense of how moral learning begins."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the primary teaching on embryos, IVF and stem cells.",
+      "minutes": 240,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "donum-vitae",
+          "why": "The first Vatican instruction on IVF and embryos."
+        },
+        {
+          "kind": "resource",
+          "id": "dignitas-personae",
+          "why": "The 2008 update, including embryo freezing and stem cells."
+        },
+        {
+          "kind": "resource",
+          "id": "ev",
+          "why": "John Paul II on euthanasia in chapter 3."
+        },
+        {
+          "kind": "resource",
+          "id": "paul-vi-inst",
+          "why": "The Church-supported medical alternative for infertility."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "gregory-pastoral-rule",
+          "why": "Gregory the Great on caring for the souls of different people, for pastoral manner."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "roman-catechism",
+          "why": "The Roman Catechism on the fifth commandment."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "ev",
+      "title": "Evangelium Vitae",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html",
+      "free": true,
+      "minutes": 150,
+      "level": 2,
+      "audience": "adult",
+      "why": "The Church's main teaching on the value and inviolability of human life, from conception to natural death.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 1995"
+    },
+    {
+      "id": "donum-vitae",
+      "title": "Instruction on respect for human life (Donum Vitae)",
+      "creator": "Congregation for the Doctrine of the Faith",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19870222_respect-for-human-life_en.html",
+      "free": true,
+      "minutes": 60,
+      "level": 3,
+      "audience": "adult",
+      "why": "The first Vatican instruction on IVF, embryos and genetic technology.",
+      "verified": "2026-11-09",
+      "note": "Vatican document, 1987"
+    },
+    {
+      "id": "dignitas-personae",
+      "title": "Instruction Dignitas Personae on Certain Bioethical Questions",
+      "creator": "Congregation for the Doctrine of the Faith",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_20081208_dignitas-personae_en.html",
+      "free": true,
+      "minutes": 60,
+      "level": 3,
+      "audience": "adult",
+      "why": "Updates the Church's teaching on IVF, embryo freezing, stem cells and cloning.",
+      "verified": "2026-11-09",
+      "note": "Vatican document, 2008"
+    },
+    {
+      "id": "samaritanus",
+      "title": "Letter Samaritanus Bonus on the care of persons in the critical and terminal phases of life",
+      "creator": "Congregation for the Doctrine of the Faith",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_20200714_samaritanus-bonus_en.html",
+      "free": true,
+      "minutes": 50,
+      "level": 3,
+      "audience": "adult",
+      "why": "The Church's most recent word on euthanasia, assisted suicide, palliative care and accompanying the dying.",
+      "verified": "2026-11-09",
+      "note": "Vatican document, 2020"
+    },
+    {
+      "id": "decl-euth",
+      "title": "Declaration on Euthanasia",
+      "creator": "Congregation for the Doctrine of the Faith",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19800505_euthanasia_en.html",
+      "free": true,
+      "minutes": 30,
+      "level": 3,
+      "audience": "adult",
+      "why": "Explains the difference between killing and declining burdensome treatment.",
+      "verified": "2026-11-09",
+      "note": "Vatican document, 1980"
+    },
+    {
+      "id": "paul-vi-inst",
+      "title": "Saint Paul VI Institute",
+      "creator": "Saint Paul VI Institute",
+      "kind": "site",
+      "url": "https://saintpaulvi.com/",
+      "free": true,
+      "minutes": 15,
+      "level": 3,
+      "audience": "any",
+      "why": "Medical research and care (NaProTechnology) for couples facing infertility, in line with Church teaching.",
+      "verified": "2026-11-09",
+      "note": "Catholic medical institute"
+    },
+    {
+      "id": "ncbc",
+      "title": "The National Catholic Bioethics Center",
+      "creator": "National Catholic Bioethics Center",
+      "kind": "site",
+      "url": "https://www.ncbcenter.org/",
+      "free": true,
+      "minutes": 30,
+      "level": 2,
+      "audience": "any",
+      "why": "Catholic bioethics resources, with a consultation line for families facing hard medical choices.",
+      "verified": "2026-11-09",
+      "note": "Catholic bioethics centre"
+    },
+    {
+      "id": "not-dead-yet",
+      "title": "Not Dead Yet",
+      "creator": "Not Dead Yet",
+      "kind": "site",
+      "url": "https://notdeadyet.org/",
+      "free": true,
+      "minutes": 20,
+      "level": 3,
+      "audience": "any",
+      "why": "A disability rights group that opposes assisted suicide laws, for a secular case from people who would be affected.",
+      "verified": "2026-11-09",
+      "note": "Secular disability-rights organisation, not Catholic; hear their reasons in their own words"
+    }
+  ]
+}

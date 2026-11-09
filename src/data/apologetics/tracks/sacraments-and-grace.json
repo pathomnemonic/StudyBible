@@ -1,0 +1,440 @@
+{
+ "id": "sacraments-and-grace",
+ "title": "The sacraments and grace",
+ "tagline": "The Eucharist and Real Presence, confession, baptism and anointing, and answers to “why a priest?”.",
+ "group": "church-and-scripture",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "The sacraments are how Catholics meet Christ, and also where many Protestants and secular friends have questions. Knowing the Scripture and early Church behind them builds confidence.",
+ "mindset": [
+  {
+   "tip": "Ask what the person has seen of the sacraments; many objections are against a caricature."
+  },
+  {
+   "tip": "Remember Lutheran, Anglican and Orthodox Christians also believe in the Real Presence; start from what we share.",
+   "resource": "augsburg"
+  },
+  {
+   "tip": "Never use the Eucharist as a weapon; Christ is truly there. (1 Corinthians 11:27-29)"
+  },
+  {
+   "tip": "Explain that priests act in Christ’s name; God alone forgives. (John 20:21-23; CCC 1441-1445)"
+  }
+ ],
+ "ccc": [
+  1113,
+  1127,
+  1213,
+  1376,
+  1413,
+  1422,
+  1441,
+  1499,
+  1536
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Learn what the sacraments are.",
+   "minutes": 75,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "ca-seven",
+     "why": "A tour of the seven sacraments."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-eucharist",
+     "why": "The Eucharist and transubstantiation in plain terms."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-forgiveness",
+     "why": "Why Christ gave the apostles power to forgive sins."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-anointing",
+     "why": "Who may be anointed, and why."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-5-1",
+     "why": "An adult lesson on what a sacrament is."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-5-2",
+     "why": "A lesson on the Eucharist and real presence."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Sacrament",
+     "why": "The word in plain language."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "Which sacrament do you understand least, and what would you want to ask about it?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Show the Scripture and Fathers behind each.",
+   "minutes": 95,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "real-presence",
+     "why": "Follow the sourced steps on the Real Presence."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "confession-absolution",
+     "why": "The power to forgive sins."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "infant-baptism",
+     "why": "Why baptise infants?"
+    },
+    {
+     "kind": "resource",
+     "id": "ca-real-presence",
+     "why": "Early witnesses to the Real Presence."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-confession",
+     "why": "Early witnesses to confession."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-born-again",
+     "why": "The early Church on John 3:5."
+    },
+    {
+     "kind": "inapp",
+     "type": "development",
+     "id": "real-presence-development",
+     "why": "How the Real Presence was defined."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "chain",
+      "id": "real-presence"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Answer “symbol only”, “why a priest?” and “baptism saves?”.",
+   "minutes": 100,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "eucharist-just-a-symbol",
+     "why": "Tests the “just a symbol” view."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "priests-forgive-sins-instead-of-god",
+     "why": "Tests the charge about priests forgiving sins."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "transubstantiation-magical-thinking",
+     "why": "Tests the “magic” charge."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "saved-by-baptism-alone",
+     "why": "Tests the claim about baptism alone."
+    },
+    {
+     "kind": "resource",
+     "id": "pitre-eucharist",
+     "why": "A scholar reads John 6 and the Last Supper against Jewish worship."
+    },
+    {
+     "kind": "resource",
+     "id": "formed-pitre",
+     "why": "The same case as a talk."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-infant-baptism",
+     "why": "Early evidence for infant baptism."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-communion",
+     "why": "Why Communion has conditions."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "priests-forgive-sins-instead-of-god"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Read the Fathers, Trent and Protestant confessions.",
+   "minutes": 130,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "cyril-catecheses",
+     "why": "Cyril of Jerusalem teaches new Christians about the Body and Blood.",
+     "section": "ii.xxvi"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "didache",
+     "why": "The Didache on the thanksgiving meal.",
+     "section": "viii.iii.ix"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "trent-canons-decrees",
+     "why": "Trent on the Eucharist.",
+     "section": "s13"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "trent-canons-decrees",
+     "why": "Trent on penance and anointing.",
+     "section": "s14"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "roman-catechism",
+     "why": "The Roman Catechism on the Eucharist.",
+     "section": "s17"
+    },
+    {
+     "kind": "resource",
+     "id": "sacr-caritatis",
+     "why": "Benedict XVI on the Eucharist."
+    },
+    {
+     "kind": "resource",
+     "id": "augsburg",
+     "why": "How Lutherans confessed the sacraments."
+    },
+    {
+     "kind": "inapp",
+     "type": "heresy",
+     "id": "donatism",
+     "why": "Does the minister’s sin spoil the sacrament?"
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "augsburg",
+   "title": "The Augsburg Confession",
+   "creator": "Lutheran Reformers (Book of Concord)",
+   "kind": "site",
+   "url": "https://bookofconcord.org/augsburg-confession/",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "Lutheran statements on baptism, the Lord’s Supper and confession in their own words.",
+   "verified": "2026-11-09",
+   "note": "The other side’s own voice: a Lutheran confession."
+  },
+  {
+   "id": "ca-seven",
+   "title": "The Seven Sacraments",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/the-seven-sacraments-a-comprehensive-list",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A one-page tour of the seven sacraments and what each does.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-eucharist",
+   "title": "What Is the Eucharist?",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/eucharist",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "Explains the Real Presence and transubstantiation in plain terms.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-forgiveness",
+   "title": "The Forgiveness of Sins",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/the-forgiveness-of-sins",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "Why Christ gave the apostles authority to forgive sins in his name.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-anointing",
+   "title": "Anointing of the Sick",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/anointing-of-the-sick",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "Who may receive the sacrament, and what James 5 says about it.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-real-presence",
+   "title": "What the Early Church Believed: The Real Presence",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/the-real-presence",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "Gathers early Christian writers on the Eucharist as Christ’s body and blood.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-confession",
+   "title": "What the Early Church Believed: Confession",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/confession",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "Early witnesses to confessing sins and receiving the Church’s absolution.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-born-again",
+   "title": "What the Early Church Believed: Born Again in Baptism",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/born-again-in-baptism",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "Shows how the early Church read John 3:5 as baptism.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "pitre-eucharist",
+   "title": "Jesus and the Jewish Roots of the Eucharist",
+   "creator": "Brant Pitre",
+   "kind": "book",
+   "url": "https://www.penguinrandomhouse.com/books/131562/jesus-and-the-jewish-roots-of-the-eucharist-by-brant-pitre/9780385531849/",
+   "free": false,
+   "level": 3,
+   "audience": "adult",
+   "why": "Reads the Last Supper and John 6 against Passover, manna and the bread of the Presence.",
+   "verified": "2026-11-09",
+   "note": "Book for purchase (Image Books); a talk version is on Formed."
+  },
+  {
+   "id": "formed-pitre",
+   "title": "Jesus and the Jewish Roots of the Eucharist (talk)",
+   "creator": "Brant Pitre (Formed)",
+   "kind": "talk",
+   "url": "https://watch.formed.org/talks-sacraments-mass/videos/jesus-and-the-jewish-roots-of-the-eucharist",
+   "free": false,
+   "level": 3,
+   "audience": "adult",
+   "why": "A video version of the same biblical case, from a Catholic scholar.",
+   "verified": "2026-11-09",
+   "note": "Formed needs a free parish code or a subscription."
+  },
+  {
+   "id": "ca-infant-baptism",
+   "title": "What the Early Church Believed: Infant Baptism",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/early-teachings-on-infant-baptism",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Early evidence for baptising babies.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-communion",
+   "title": "Who Can Receive Holy Communion in the Catholic Church",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/who-can-receive-communion",
+   "free": true,
+   "level": 3,
+   "audience": "any",
+   "why": "Explains why Communion is tied to faith, baptism and the state of one’s soul.",
+   "verified": "2026-11-09",
+   "minutes": 8,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "sacr-caritatis",
+   "title": "Sacramentum Caritatis",
+   "creator": "Pope Benedict XVI",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/apost_exhortations/documents/hf_ben-xvi_exh_20070222_sacramentum-caritatis.html",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "The pope on the Eucharist as the source and summit of the Church’s life.",
+   "verified": "2026-11-09"
+  }
+ ]
+}

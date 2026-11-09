@@ -1,0 +1,495 @@
+{
+  "id": "eastern-orthodoxy",
+  "title": "Talking with Orthodox Christians",
+  "tagline": "Understand the East-West split, the Filioque and the papacy, and what Catholics and Orthodox already share.",
+  "group": "christians",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "The Orthodox have valid sacraments, bishops and a rich liturgy; they are our nearest sister Church. Knowing their view fairly makes real dialogue possible.",
+  "mindset": [
+    {
+      "tip": "Begin with respect and with what we share: the sacraments, apostolic succession and the first seven councils. (CCC 1399; Unitatis Redintegratio 14-15)",
+      "resource": "ur"
+    },
+    {
+      "tip": "Learn Orthodox belief from the Orthodox themselves before you describe it.",
+      "resource": "oca-faith"
+    },
+    {
+      "tip": "Remember the split had causes of language, politics and authority as well as doctrine; do not reduce it to one word.",
+      "resource": "usccb-filioque"
+    },
+    {
+      "tip": "Name the wounds on both sides honestly, and pray for unity. (John 17:20-23)"
+    },
+    {
+      "tip": "Be gentle with those who love their tradition deeply; give reasons with gentleness and respect. (1 Peter 3:15-16)"
+    }
+  ],
+  "ccc": [
+    246,
+    247,
+    248,
+    816,
+    838,
+    839,
+    882,
+    1399
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "See who the Orthodox are and what their worship is like.",
+      "minutes": 80,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "12-5-1",
+          "why": "The app's overview of the Eastern Churches and the Orthodox."
+        },
+        {
+          "kind": "resource",
+          "id": "oca-faith",
+          "why": "Read the Orthodox introduction to their own faith."
+        },
+        {
+          "kind": "resource",
+          "id": "oca-liturgy",
+          "why": "See how the Orthodox describe the Divine Liturgy."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-orth-vs-eastern",
+          "why": "Learn the difference between Orthodox and Eastern Catholics."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Filioque",
+          "why": "A plain definition of the word at the heart of the debate."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-eastern-orth",
+          "why": "A short Catholic overview of the points of difference."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What in Orthodox worship or faith is beautiful or unfamiliar to you?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Understand the schism, the Filioque and the shared apostolic succession.",
+      "minutes": 120,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "8-3-3",
+          "why": "The East-West schism in the curriculum."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "filioque-orthodox",
+          "why": "The app's answer on the Filioque, with readings."
+        },
+        {
+          "kind": "resource",
+          "id": "ur",
+          "why": "The Council on the Eastern Churches (chapter 3)."
+        },
+        {
+          "kind": "resource",
+          "id": "orientale-lumen",
+          "why": "A pope on what the West can learn from the East."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-filioque",
+          "why": "The Catholic case for the Filioque from the Fathers."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "trinity",
+          "why": "The sourced argument for the Trinity, which both Churches confess."
+        },
+        {
+          "kind": "inapp",
+          "type": "development",
+          "id": "trinity-development",
+          "why": "How the Church's language about the Trinity developed."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-orth-succession",
+          "why": "See what both Churches hold together about bishops."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "council-nicaea-1",
+          "why": "The first council both Churches accept."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Face the main Orthodox objections, especially on the papacy, and hear the Orthodox themselves.",
+      "minutes": 180,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "papal-primacy",
+          "why": "The sourced argument for the pope's primacy."
+        },
+        {
+          "kind": "inapp",
+          "type": "development",
+          "id": "papal-primacy-development",
+          "why": "How understanding of the primacy grew over time."
+        },
+        {
+          "kind": "resource",
+          "id": "oca-farley",
+          "why": "An Orthodox priest explains the Filioque objection."
+        },
+        {
+          "kind": "resource",
+          "id": "usccb-filioque",
+          "why": "A joint study that looks for common ground."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "clement-rome",
+          "why": "An early letter from the Church of Rome to Corinth."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "vatican-i-constitutions",
+          "why": "What Vatican I actually defined on the pope."
+        },
+        {
+          "kind": "resource",
+          "id": "akin-leader",
+          "why": "The Catholic case for one visible leader."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-considering-orth",
+          "why": "A Catholic reply to someone attracted to Orthodoxy."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "papal-primacy"
+          }
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the dialogue documents and the Fathers of the East.",
+      "minutes": 300,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "ravenna",
+          "why": "The 2007 joint statement on authority and conciliarity."
+        },
+        {
+          "kind": "resource",
+          "id": "uus",
+          "why": "The pope's invitation to a new look at the papacy."
+        },
+        {
+          "kind": "resource",
+          "id": "pcpcu-1995",
+          "why": "Vatican clarification of the Filioque debate."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "council-nicaea-2",
+          "why": "The council on icons, accepted by both Churches."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "john-damascus",
+          "why": "An eastern Father's summary of the faith."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "cyprian",
+          "why": "Cyprian on unity and bishops in the early Church."
+        },
+        {
+          "kind": "resource",
+          "id": "akin-orthodox",
+          "why": "A calm Catholic comparison of the two Churches."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-reunite",
+          "why": "A discussion of what reunion would require."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "Which difference between East and West seems most about words, and which about authority?"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "ur",
+      "title": "Unitatis Redintegratio (Decree on Ecumenism)",
+      "creator": "Second Vatican Council",
+      "kind": "article",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "The Council's teaching on the Eastern Churches, which it says are very close to the Catholic Church.",
+      "verified": "2026-11-09",
+      "minutes": 45,
+      "note": "Church document"
+    },
+    {
+      "id": "oca-faith",
+      "title": "The Orthodox Faith",
+      "creator": "Orthodox Church in America",
+      "kind": "site",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "The OCA's own guide to Orthodox belief and worship, in four volumes online.",
+      "verified": "2026-11-09",
+      "note": "The other side's own voice (Orthodox Church in America)"
+    },
+    {
+      "id": "oca-liturgy",
+      "title": "The Orthodox Faith: The Divine Liturgy",
+      "creator": "Orthodox Church in America",
+      "kind": "article",
+      "url": "https://www.oca.org/orthodoxy/the-orthodox-faith/worship/the-divine-liturgy",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Walks through the Orthodox Eucharistic liturgy as the Orthodox explain it.",
+      "verified": "2026-11-09",
+      "minutes": 30,
+      "note": "The other side's own voice (Orthodox Church in America)"
+    },
+    {
+      "id": "ca-eastern-orth",
+      "title": "Eastern Orthodoxy",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/eastern-orthodoxy",
+      "free": true,
+      "level": 1,
+      "audience": "adult",
+      "why": "A brief Catholic overview of Orthodox belief, history and the points of difference.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-orth-vs-eastern",
+      "title": "What is the difference between Eastern Orthodoxy and Eastern-rite Catholicism?",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/qa/what-is-the-difference-between-eastern-orthodoxy-and-eastern-rite-catholicism",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Clears up a common confusion between the Orthodox and the Eastern Catholic Churches.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "orientale-lumen",
+      "title": "Orientale Lumen",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1995/documents/hf_jp-ii_apl_19950502_orientale-lumen.html",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "A pope praises the spiritual treasures of the Christian East and urges Catholics to learn from them.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Apostolic Letter, 1995"
+    },
+    {
+      "id": "ca-filioque",
+      "title": "What the Early Church Believed: Filioque",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/filioque",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Lays out the Catholic case for the Filioque from the Fathers.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ca-orth-succession",
+      "title": "The Orthodox Have Apostolic Succession",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/qa/the-orthodox-have-apostolic-succession",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Affirms what Catholics and Orthodox share: valid bishops and sacraments.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "usccb-filioque",
+      "title": "The Filioque: A Church-Dividing Issue?",
+      "creator": "North American Orthodox-Catholic Theological Consultation",
+      "kind": "article",
+      "url": "https://www.usccb.org/resources/filioque-a-church-dividing-issue",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "A joint Orthodox and Catholic study of the Filioque, including proposals; it is not an official ruling.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Agreed statement of a dialogue group of Orthodox and Catholic theologians; not binding on either Church"
+    },
+    {
+      "id": "oca-farley",
+      "title": "The Filioque Clause",
+      "creator": "Fr. Lawrence Farley (Orthodox Church in America)",
+      "kind": "article",
+      "url": "https://www.oca.org/reflections/fr.-lawrence-farley/the-filoque-clause",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "An Orthodox priest explains why the Filioque is a problem for the East.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "The other side's own voice; a personal reflection hosted on oca.org, not a synod statement"
+    },
+    {
+      "id": "akin-orthodox",
+      "title": "Catholic or Orthodox? How to Choose Without a PhD in Church History",
+      "creator": "Jimmy Akin",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=i2yIAkQumMU",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A Catholic apologist compares the two Churches calmly, without needing a degree in history.",
+      "verified": "2026-11-09",
+      "note": "Catholic"
+    },
+    {
+      "id": "akin-leader",
+      "title": "Why Catholic, Not Eastern Orthodox? The Case for One Leader",
+      "creator": "Jimmy Akin",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=0okhsTvMC34",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Makes the Catholic case for a single visible leader in the Church.",
+      "verified": "2026-11-09",
+      "note": "Catholic"
+    },
+    {
+      "id": "ca-considering-orth",
+      "title": "Considering Eastern Orthodoxy?",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/considering-eastern-orthodoxy",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A fair Catholic reply for someone drawn to Orthodoxy.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ravenna",
+      "title": "Ecclesiological and Canonical Consequences of the Sacramental Nature of the Church (Ravenna Document, 2007)",
+      "creator": "Joint International Commission for Theological Dialogue between the Catholic and Orthodox Churches",
+      "kind": "article",
+      "url": "https://www.christianunity.va/content/unitacristiani/en/dialoghi/sezione-orientale/chiese-ortodosse-di-tradizione-bizantina/commissione-mista-internazionale-per-il-dialogo-teologico-tra-la/documenti-di-dialogo/testo-in-inglese.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Joint statement on conciliarity and authority, the key to the question of the papacy.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Commission text, not an official declaration of either Church"
+    },
+    {
+      "id": "uus",
+      "title": "Ut Unum Sint",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25051995_ut-unum-sint.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The pope's encyclical on Christian unity, including his invitation to rethink the exercise of the papacy.",
+      "verified": "2026-11-09",
+      "minutes": 120,
+      "note": "Encyclical, 1995"
+    },
+    {
+      "id": "pcpcu-1995",
+      "title": "The Greek and Latin Traditions Regarding the Procession of the Holy Spirit",
+      "creator": "Pontifical Council for Promoting Christian Unity",
+      "kind": "article",
+      "url": "https://www.ewtn.com/catholicism/library/greek-and-latin-traditions-regarding-the-procession-of-the-holy-spirit-29259",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The Vatican's 1995 clarification of how Greek and Latin language about the Spirit can be reconciled.",
+      "verified": "2026-11-09",
+      "minutes": 30,
+      "note": "Vatican clarification (1995), hosted on EWTN"
+    },
+    {
+      "id": "ca-reunite",
+      "title": "What Would Have to Happen for Catholics and Orthodox to Reunite? AMA Catholicism @WilliamAlbrecht",
+      "creator": "Catholic Answers",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=1KIOsfRyRrI",
+      "free": true,
+      "level": 4,
+      "audience": "adult",
+      "why": "A Catholic discussion of what reunion would actually require.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers Live"
+    }
+  ]
+}

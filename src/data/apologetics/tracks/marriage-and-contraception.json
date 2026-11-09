@@ -1,0 +1,464 @@
+{
+  "id": "marriage-and-contraception",
+  "title": "Marriage, annulment and contraception",
+  "tagline": "Why the Church teaches that marriage is lifelong, what an annulment really is, and the practical side of Humanae Vitae and natural family planning.",
+  "group": "morals-and-life",
+  "audience": [
+    "adult"
+  ],
+  "whyItMatters": "Marriage is where the Church's teaching meets real hardship, and many people carry divorce, infertility or guilt. This course is meant to explain with care and to send people to real help.",
+  "mindset": [
+    {
+      "tip": "Many listeners are divorced, remarried or struggling. Speak as if one of them were in the room (Matthew 11:28)."
+    },
+    {
+      "tip": "Say what the Church teaches about marriage as a covenant, then explain the process of nullity with patience (CCC 1601, 1638-1640).",
+      "resource": "annulment-usccb"
+    },
+    {
+      "tip": "On contraception, explain the positive vision first: married love that is total and open to life. The prohibition makes sense after that.",
+      "resource": "ca-whats-wrong-contra"
+    },
+    {
+      "tip": "Point to practical help: NFP teachers, marriage programmes like Retrouvaille, and doctors who treat infertility.",
+      "resource": "retrouvaille"
+    },
+    {
+      "tip": "Be honest that many Catholics disagree. Do not pretend otherwise; ask what they have been told (CCC 2366-2372)."
+    }
+  ],
+  "ccc": [
+    1601,
+    1603,
+    1638,
+    1639,
+    1640,
+    1644,
+    1646,
+    1650,
+    1651,
+    1664,
+    2366,
+    2368,
+    2370,
+    2399
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Learn what marriage is and who the Church sees a married couple to be.",
+      "minutes": 90,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Matrimony",
+          "why": "The sacrament in a few lines."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "11-4-2",
+          "why": "Marriage as a sacrament, for school-age learners."
+        },
+        {
+          "kind": "resource",
+          "id": "fym",
+          "why": "Short and practical articles for engaged and married couples."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-7-2",
+          "why": "Adult lesson on marriage and family."
+        },
+        {
+          "kind": "resource",
+          "id": "nfp-usccb",
+          "why": "What NFP is, from the bishops."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "What does your own experience of a marriage near you teach you about how hard and good it is?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Understand indissolubility, annulment and the openness to life.",
+      "minutes": 120,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "marriage-indissoluble",
+          "why": "The app's sourced line of Scripture and Fathers on lifelong marriage."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "marriage-indissoluble"
+          }
+        },
+        {
+          "kind": "resource",
+          "id": "annulment-usccb",
+          "why": "What a tribunal actually decides."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "divorce-forbidden-annulment",
+          "why": "A sourced reply to 'annulment is Catholic divorce'."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-whats-wrong-contra",
+          "why": "A short article on contraception."
+        },
+        {
+          "kind": "resource",
+          "id": "jp2-aud-indissol",
+          "why": "John Paul II on Jesus' teaching on marriage."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Answer 'it is cruel to refuse divorce', 'NFP is Catholic contraception' and 'times have changed'.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "ca-birth-control",
+          "why": "A tract with Scripture, history and reason."
+        },
+        {
+          "kind": "resource",
+          "id": "ewtn-may",
+          "why": "A theologian on the difference between contraception and NFP."
+        },
+        {
+          "kind": "resource",
+          "id": "hv",
+          "why": "Paul VI's encyclical in full."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "contraception",
+          "why": "The app's summary of the topic."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "marriage-divorce",
+          "why": "The app's summary on divorce and annulment."
+        },
+        {
+          "kind": "inapp",
+          "type": "ask",
+          "id": "How can the Church's teaching help a couple facing infertility or the loss of a child?",
+          "why": "A pastoral question to put to the app, with care."
+        },
+        {
+          "kind": "resource",
+          "id": "retrouvaille",
+          "why": "Where to send a couple who are hurting."
+        },
+        {
+          "kind": "resource",
+          "id": "fertilitycare",
+          "why": "Practitioners who help couples both to space and to achieve pregnancy."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the primary documents and the practical resources.",
+      "minutes": 240,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "fc",
+          "why": "John Paul II on the family, including care of the divorced."
+        },
+        {
+          "kind": "resource",
+          "id": "al",
+          "why": "Pope Francis on love in the family, and pastoral care of difficult situations."
+        },
+        {
+          "kind": "resource",
+          "id": "mitis",
+          "why": "The 2015 reform of nullity procedure."
+        },
+        {
+          "kind": "resource",
+          "id": "casti",
+          "why": "Pius XI's 1930 encyclical, the root of Humanae Vitae."
+        },
+        {
+          "kind": "resource",
+          "id": "aug-good-marriage",
+          "why": "Augustine on the goods of marriage."
+        },
+        {
+          "kind": "resource",
+          "id": "ccli",
+          "why": "Classes and mentors for learning NFP."
+        },
+        {
+          "kind": "resource",
+          "id": "paul-vi-inst",
+          "why": "Medical help for couples with infertility."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "hv",
+      "title": "Humanae Vitae",
+      "creator": "Pope Paul VI",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_25071968_humanae-vitae.html",
+      "free": true,
+      "minutes": 45,
+      "level": 3,
+      "audience": "adult",
+      "why": "The 1968 encyclical on married love, openness to life and the regulation of births.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical"
+    },
+    {
+      "id": "fc",
+      "title": "Familiaris Consortio",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html",
+      "free": true,
+      "minutes": 120,
+      "level": 4,
+      "audience": "adult",
+      "why": "The Church's fullest teaching on the family, including pastoral care for the divorced.",
+      "verified": "2026-11-09",
+      "note": "Apostolic exhortation, 1981"
+    },
+    {
+      "id": "al",
+      "title": "Amoris Laetitia",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20160319_amoris-laetitia.html",
+      "free": true,
+      "minutes": 180,
+      "level": 4,
+      "audience": "adult",
+      "why": "A pastoral exhortation on love in the family, with a long reflection on 1 Corinthians 13.",
+      "verified": "2026-11-09",
+      "note": "Apostolic exhortation, 2016"
+    },
+    {
+      "id": "casti",
+      "title": "Casti Connubii",
+      "creator": "Pope Pius XI",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_19301231_casti-connubii.html",
+      "free": true,
+      "minutes": 90,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The 1930 encyclical on Christian marriage that Paul VI built on.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical"
+    },
+    {
+      "id": "jp2-aud-indissol",
+      "title": "General Audience, 5 September 1979: The Unity and Indissolubility of Marriage",
+      "creator": "Pope John Paul II",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/audiences/1979/documents/hf_jp-ii_aud_19790905.html",
+      "free": true,
+      "minutes": 10,
+      "level": 3,
+      "audience": "adult",
+      "why": "John Paul II reads Jesus' words on marriage 'from the beginning'.",
+      "verified": "2026-11-09",
+      "note": "Papal general audience"
+    },
+    {
+      "id": "aug-good-marriage",
+      "title": "Of the Good of Marriage",
+      "creator": "Augustine of Hippo",
+      "kind": "article",
+      "url": "https://www.newadvent.org/fathers/1309.htm",
+      "free": true,
+      "minutes": 40,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Augustine names the goods of marriage: children, fidelity and the sacrament.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "ca-birth-control",
+      "title": "Birth Control",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/birth-control",
+      "free": true,
+      "minutes": 20,
+      "level": 2,
+      "audience": "any",
+      "why": "A tract setting out Scripture, Christian history and reason on contraception.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers tract"
+    },
+    {
+      "id": "ca-whats-wrong-contra",
+      "title": "What's Wrong with Contraception, Anyway?",
+      "creator": "Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/whats-wrong-with-contraception-anyway",
+      "free": true,
+      "minutes": 12,
+      "level": 2,
+      "audience": "any",
+      "why": "Explains in short form the Church's reasons and how they fit with natural family planning.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers Magazine"
+    },
+    {
+      "id": "ewtn-may",
+      "title": "Contraception and Catholicism",
+      "creator": "William E. May (EWTN library)",
+      "kind": "article",
+      "url": "https://www.ewtn.com/catholicism/library/contraception-and-catholicism-12021",
+      "free": true,
+      "minutes": 25,
+      "level": 3,
+      "audience": "adult",
+      "why": "A moral theologian explains why contraception differs from natural methods.",
+      "verified": "2026-11-09",
+      "note": "EWTN library"
+    },
+    {
+      "id": "nfp-usccb",
+      "title": "Natural Family Planning",
+      "creator": "U.S. Conference of Catholic Bishops",
+      "kind": "site",
+      "url": "https://www.usccb.org/topics/natural-family-planning",
+      "free": true,
+      "minutes": 20,
+      "level": 1,
+      "audience": "any",
+      "why": "Bishops' overview of what NFP is, how it works and where to learn it.",
+      "verified": "2026-11-09",
+      "note": "USCCB"
+    },
+    {
+      "id": "ccli",
+      "title": "Couple to Couple League International",
+      "creator": "Couple to Couple League",
+      "kind": "site",
+      "url": "https://ccli.org/",
+      "free": true,
+      "minutes": 30,
+      "level": 1,
+      "audience": "any",
+      "why": "Classes and support for learning NFP with a trained couple.",
+      "verified": "2026-11-09",
+      "note": "Catholic NFP organisation; classes may have a fee"
+    },
+    {
+      "id": "fertilitycare",
+      "title": "FertilityCare Centers of America",
+      "creator": "FertilityCare Centers of America",
+      "kind": "site",
+      "url": "https://www.fertilitycare.org/",
+      "free": true,
+      "minutes": 15,
+      "level": 2,
+      "audience": "any",
+      "why": "Finds practitioners of the Creighton Model, used both to avoid and to achieve pregnancy.",
+      "verified": "2026-11-09",
+      "note": "Catholic-founded medical network"
+    },
+    {
+      "id": "paul-vi-inst",
+      "title": "Saint Paul VI Institute",
+      "creator": "Saint Paul VI Institute",
+      "kind": "site",
+      "url": "https://saintpaulvi.com/",
+      "free": true,
+      "minutes": 15,
+      "level": 3,
+      "audience": "any",
+      "why": "Medical research and care (NaProTechnology) for couples facing infertility, in line with Church teaching.",
+      "verified": "2026-11-09",
+      "note": "Catholic medical institute"
+    },
+    {
+      "id": "fym",
+      "title": "For Your Marriage",
+      "creator": "U.S. Conference of Catholic Bishops",
+      "kind": "site",
+      "url": "https://www.foryourmarriage.org/",
+      "free": true,
+      "minutes": 30,
+      "level": 1,
+      "audience": "any",
+      "why": "Short practical articles, videos and prayers for engaged and married couples.",
+      "verified": "2026-11-09",
+      "note": "USCCB"
+    },
+    {
+      "id": "retrouvaille",
+      "title": "Retrouvaille: Hope for a Better Marriage",
+      "creator": "Retrouvaille International",
+      "kind": "site",
+      "url": "https://helpourmarriage.org/",
+      "free": true,
+      "minutes": 15,
+      "level": 2,
+      "audience": "any",
+      "why": "Weekend programme and follow-up for couples whose marriage is in trouble.",
+      "verified": "2026-11-09",
+      "note": "Catholic-founded programme"
+    },
+    {
+      "id": "annulment-usccb",
+      "title": "Annulment",
+      "creator": "U.S. Conference of Catholic Bishops",
+      "kind": "site",
+      "url": "https://www.usccb.org/topics/marriage-and-family-life-ministries/annulment",
+      "free": true,
+      "minutes": 15,
+      "level": 2,
+      "audience": "any",
+      "why": "Plain answers on what a declaration of nullity is, how a tribunal works and what it does not do.",
+      "verified": "2026-11-09",
+      "note": "USCCB"
+    },
+    {
+      "id": "mitis",
+      "title": "Mitis Iudex Dominus Iesus",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/motu_proprio/documents/papa-francesco-motu-proprio_20150815_mitis-iudex-dominus-iesus.html",
+      "free": true,
+      "minutes": 25,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The 2015 reform of the process for marriage nullity cases.",
+      "verified": "2026-11-09",
+      "note": "Motu proprio"
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { worthDefining } from './terms';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import InlinePlayer from '../components/InlinePlayer';
@@ -15,7 +16,7 @@ interface Card { k: string; v: string }
 export interface Slide {
   kind: Kind; label: string; title?: string; body?: string; items?: string[]; ref?: string;
   poll?: string[]; reveal?: string; seconds?: number; sides?: string[]; frames?: string[];
-  img?: { src: string; alt: string; credit: string }; video?: Video; q?: Question; notes?: string[]; word?: { w: string; d: string };
+  img?: { src: string; alt: string; credit: string }; video?: Video; q?: Question; notes?: string[]; word?: { w: string; d: string }; words?: { w: string; d: string }[];
   /** a picture behind the slide, under a scrim */
   bg?: string;
   /** which of the four parts of the Catechism the lesson belongs to, for the colors */
@@ -80,7 +81,7 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
   const add = (x: Slide) => { s.push({ theme, ...x }); };
   let sec = 0;
   const section = (title: string, sub: string) => add({ kind: 'section', label: title, title, body: sub, n: ++sec, bg: art[sec % Math.max(1, art.length)] ? base + art[sec % Math.max(1, art.length)].file : undefined });
-  const words = lesson.vocab.filter((v) => gl[v]);
+  const words = worthDefining(lesson.vocab.filter((v) => gl[v]), band);
   const hi = words.map((v) => gl[v].w);
   const mistaken = (lesson.misc ?? []).map((m) => m.replace(/^[“"‘']+|[”"’']+$/g, '').trim()).filter((m) => m.length > 10 && m.length < 200);
   const sources = lesson.saint ? lesson.saint.split(':') : [];
@@ -103,7 +104,8 @@ export function buildSlides(a: { lesson: LessonSpec & { unit: GradeData['units']
   section('Explore', 'See it, hear it, name it');
   if (lesson.saint) add({ kind: 'meet', label: 'Meet someone', title: personName, body: personStory, notes: ['Tell the story in your own words. Ask: what made this person brave, kind or faithful?'] });
   { const { head, rest } = headline(lesson.idea, 120); add({ kind: 'idea', label: 'The big idea', title: head, body: rest, hi, notes: lesson.teach?.slice(0, 1) }); }
-  for (const v of words) add({ kind: 'vocab', label: 'Word to know', word: gl[v], notes: [younger ? 'Say the word, have everyone repeat it, then act it out. Ask for an example from life.' : 'Say the word, read the meaning, and ask for an example or a non-example.'] });
+  if (younger) { for (const v of words) add({ kind: 'vocab', label: 'Word to know', word: gl[v], notes: ['Say the word, have everyone repeat it, then act it out. Ask for an example from life.'] }); }
+  else if (words.length) add({ kind: 'vocab', label: words.length > 1 ? 'Words worth knowing' : 'A word worth knowing', words: words.map((v) => gl[v]), notes: ['Read each meaning, then ask for an example or a non-example.'] });
   if (story) for (const c of chunk(story, younger ? 200 : 280)) add({ kind: 'story', label: 'The story', body: c, notes: ['Read slowly. Pause and ask, “What do you notice?”'] });
   for (const p of passages) {
     const text = p.verses.map((v) => `[[${v.v}]]${v.text}`).join(' ');
@@ -166,6 +168,7 @@ export function slideLines(sl: Slide): string[] {
   const out: string[] = [];
   if (sl.title) out.push(sl.title);
   if (sl.word) out.push(`${sl.word.w}: ${sl.word.d}`);
+  if (sl.words) for (const x of sl.words) out.push(`${x.w}: ${x.d}`);
   if (sl.body) out.push(sl.body.replace(/\[\[(\d+)\]\]/g, ' $1 ').replace(/\s+/g, ' ').trim());
   if (sl.ref) out.push(`— ${sl.ref}`);
   if (sl.poll) out.push(sl.poll.join(' / '));
@@ -295,7 +298,7 @@ export default function LessonSlides({ slides, onClose }: { slides: Slide[]; onC
             <div><h1 className="sl-big sm"><Hl text={sl.title ?? ''} hi={sl.hi} /></h1>{sl.body && <p className="sl-support"><Hl text={sl.body} hi={sl.hi} /></p>}
               {sl.chips && sl.chips.length > 0 && <div className="sl-chips">{sl.chips.map((c) => <span key={c} className="sl-chip">{c}</span>)}</div>}</div>
           </div>}
-          {sl.kind === 'vocab' && <div className="sl-vocab"><p className="sl-kicker">Word to know</p><h1 className="sl-word">{sl.word!.w}</h1><p className="sl-def">{sl.word!.d}</p></div>}
+          {sl.kind === 'vocab' && (sl.words ? <div className="sl-vocab"><p className="sl-kicker">{sl.label}</p>{sl.words.map((x) => <div key={x.w} style={{ margin: '0 0 14px' }}><h2 className="sl-word" style={{ fontSize: '1.6em', margin: 0 }}>{x.w}</h2><p className="sl-def" style={{ margin: '2px 0 0' }}>{x.d}</p></div>)}</div> : <div className="sl-vocab"><p className="sl-kicker">Word to know</p><h1 className="sl-word">{sl.word!.w}</h1><p className="sl-def">{sl.word!.d}</p></div>)}
           {sl.kind === 'story' && <p className="sl-story">{sl.body}</p>}
           {sl.kind === 'scripture' && <blockquote className="sl-verse"><span className="sl-qmark" aria-hidden>“</span><p><Verse text={sl.body ?? ''} /></p><footer>{sl.ref}</footer></blockquote>}
           {sl.kind === 'church' && <div className="sl-church"><span className="sl-chip big">{sl.title}</span><blockquote><p><Hl text={sl.body ?? ''} hi={sl.hi} /></p></blockquote></div>}

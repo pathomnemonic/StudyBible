@@ -1,0 +1,342 @@
+{
+ "id": "scripture-and-tradition",
+ "title": "Scripture, Tradition and the Church",
+ "tagline": "Sola scriptura or Scripture, Tradition and Magisterium together? And how Catholics read the Bible.",
+ "group": "church-and-scripture",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "Almost every disagreement with Protestant friends rests on who has authority to say what Scripture means. Knowing the Catholic answer, and the Protestant one, makes every other talk clearer.",
+ "mindset": [
+  {
+   "tip": "Start by finding what your friend means by “Scripture alone”; people mean very different things.",
+   "resource": "ca-shifting-sola"
+  },
+  {
+   "tip": "Honour what we share: the Bible is God’s Word, and many Protestants love and know it deeply. (CCC 819, 838)"
+  },
+  {
+   "tip": "Read the other side in its own words.",
+   "resource": "wcf"
+  },
+  {
+   "tip": "Argue from the Bible and the early Church, not only from authority. (2 Thessalonians 2:15)"
+  }
+ ],
+ "ccc": [
+  74,
+  80,
+  81,
+  82,
+  85,
+  86,
+  101,
+  102,
+  115,
+  116,
+  117,
+  119
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "See how Scripture and Tradition fit together.",
+   "minutes": 70,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "ca-scripture-tradition",
+     "why": "A clear overview of the three-part picture."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-why-tradition",
+     "why": "A short video on what Tradition means."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Tradition",
+     "why": "The word in plain language."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Magisterium",
+     "why": "Who the teaching office is and what it does."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-2-2",
+     "why": "An adult lesson on Tradition and the teaching authority."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "sola-scriptura",
+     "why": "The basic question of the Bible alone."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "Where have you met the idea that the Bible alone is enough, and how did it sound?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Give the Catholic reasons.",
+   "minutes": 80,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "tradition-and-scripture",
+     "why": "Follow the sourced steps on who interprets Scripture."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "apostolic-succession",
+     "why": "Why the line of bishops matters for teaching."
+    },
+    {
+     "kind": "resource",
+     "id": "dei-verbum",
+     "why": "Read Dei Verbum chapter 2 on handing on revelation."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "6-1-3",
+     "why": "A lesson on Scripture, Tradition and the Magisterium."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "6-1-2",
+     "why": "How Catholics read: literary forms and the senses of Scripture."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "development-of-doctrine",
+     "why": "How teaching can grow without changing."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "chain",
+      "id": "tradition-and-scripture"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Meet the strongest challenges.",
+   "minutes": 85,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "ca-shifting-sola",
+     "why": "Sort out what “sola scriptura” can mean."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-sola-logic",
+     "why": "A short argument about the principle itself."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "catholics-not-allowed-to-think",
+     "why": "Tests the charge that Catholics may not question."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "fundamentalism",
+     "why": "Where a literal-only reading goes wrong."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "9-3-2",
+     "why": "Interpreting Scripture the way the Church teaches."
+    },
+    {
+     "kind": "inapp",
+     "type": "words",
+     "id": "logos",
+     "why": "Why “the Word” is first a person."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "catholics-not-allowed-to-think"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Read the Fathers and the councils.",
+   "minutes": 120,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "vincent-commonitory",
+     "why": "Vincent’s rule for telling true teaching from novelty.",
+     "section": "iii.iii"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "vincent-commonitory",
+     "why": "Vincent on how Scripture should be interpreted.",
+     "section": "iii.xxviii"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "vincent-commonitory",
+     "why": "Vincent on real growth in doctrine.",
+     "section": "iii.xxiv"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aug-christian-doctrine",
+     "why": "Augustine on how to approach Scripture.",
+     "section": "v.iv.i"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "irenaeus-heresies",
+     "why": "Irenaeus appeals to Scripture and to the apostles’ successors."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "vatican-i-constitutions",
+     "why": "Dei Filius on revelation.",
+     "section": "s3"
+    },
+    {
+     "kind": "resource",
+     "id": "wcf",
+     "why": "Reformed Protestants state their view of Scripture in chapter 1."
+    },
+    {
+     "kind": "resource",
+     "id": "verbum-domini",
+     "why": "Benedict XVI on reading Scripture within the Church."
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "ca-shifting-sola",
+   "title": "The Shifting Definition of Sola Scriptura",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/the-shifting-definition-of-sola-scriptura",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "Shows why it matters which meaning of “Scripture alone” a friend has in mind.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "wcf",
+   "title": "The Westminster Confession of Faith",
+   "creator": "Orthodox Presbyterian Church",
+   "kind": "site",
+   "url": "https://www.opc.org/wcf.html",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "Chapter 1 is the Reformed statement on Scripture in its own words (also chapters on the sacraments and last things).",
+   "verified": "2026-11-09",
+   "note": "The other side’s own voice: a Reformed Protestant confession."
+  },
+  {
+   "id": "ca-scripture-tradition",
+   "title": "Scripture and Tradition",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/scripture-and-tradition",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A clear tract on how Scripture, Tradition and the teaching office work together.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-why-tradition",
+   "title": "Why Do Catholics Use Tradition?",
+   "creator": "Catholic Answers",
+   "kind": "video",
+   "url": "https://www.catholic.com/video/why-do-catholics-use-tradition-wav",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A short video on what Tradition is and is not.",
+   "verified": "2026-11-09",
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "dei-verbum",
+   "title": "Dei Verbum (Dogmatic Constitution on Divine Revelation)",
+   "creator": "Second Vatican Council",
+   "kind": "article",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "The Church’s own teaching on revelation, inspiration, Tradition and how to read Scripture.",
+   "verified": "2026-11-09",
+   "minutes": 25
+  },
+  {
+   "id": "ca-sola-logic",
+   "title": "Sola Scriptura’s Logical Inconsistency",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/qa/sola-scripturas-logical-inconsistency",
+   "free": true,
+   "level": 3,
+   "audience": "any",
+   "why": "A brief argument that the principle cannot be shown from Scripture alone.",
+   "verified": "2026-11-09",
+   "minutes": 5,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "verbum-domini",
+   "title": "Verbum Domini",
+   "creator": "Pope Benedict XVI",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/benedict-xvi/en/apost_exhortations/documents/hf_ben-xvi_exh_20100930_verbum-domini.html",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "The fullest recent papal teaching on the Bible, its study and its use in prayer.",
+   "verified": "2026-11-09"
+  }
+ ]
+}

@@ -1,0 +1,388 @@
+{
+  "id": "women-and-the-church",
+  "title": "Women and the Church",
+  "tagline": "The Church's teaching on the priesthood, Mary, and the dignity of women, with the women saints and doctors who show what it looks like.",
+  "group": "morals-and-life",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Many people think the Church treats women as lesser. The honest answer includes the Church's failures and its record of women who taught and led, alongside a reasoned account of why the priesthood is male.",
+  "mindset": [
+    {
+      "tip": "Listen for the hurt behind the question; some people have been treated badly by Church people (Galatians 3:28)."
+    },
+    {
+      "tip": "Acknowledge failures plainly. John Paul II did so in his Letter to Women.",
+      "resource": "letter-women"
+    },
+    {
+      "tip": "Show the women of the Church: doctors, abbesses, martyrs and mothers. They answer the claim better than an argument alone.",
+      "resource": "bxvi-teresa"
+    },
+    {
+      "tip": "Explain the priesthood as a question about sacramental signs, not about worth (CCC 1577; Ordinatio Sacerdotalis).",
+      "resource": "os"
+    },
+    {
+      "tip": "Admit that thoughtful Catholics ask these questions too, and that the Church has said the matter is settled."
+    }
+  ],
+  "ccc": [
+    369,
+    370,
+    371,
+    372,
+    773,
+    967,
+    1577,
+    1578,
+    2334,
+    2335
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Meet the teaching on dignity and the women who lived it.",
+      "minutes": 75,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "letter-women",
+          "why": "A short letter that thanks women and apologises where the Church failed."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "9-9-2",
+          "why": "A school lesson on why women cannot be priests."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "women-in-church",
+          "why": "The app's summary of the question."
+        },
+        {
+          "kind": "resource",
+          "id": "bxvi-teresa",
+          "why": "A short portrait of Teresa of Avila, a woman Doctor of the Church."
+        },
+        {
+          "kind": "resource",
+          "id": "bxvi-therese",
+          "why": "A short portrait of Thérèse of Lisieux."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "See what women did in the early Church and why only men are ordained.",
+      "minutes": 120,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "women-in-the-early-church",
+          "why": "The app's sourced chain on women in the early Church."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "women-in-the-early-church"
+          }
+        },
+        {
+          "kind": "resource",
+          "id": "bxvi-women-gospel",
+          "why": "The women who served the Gospel in the New Testament."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "women-priests",
+          "why": "The app's summary on why only men are ordained."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-women-priest",
+          "why": "What the first Christians did."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "theotokos",
+          "why": "The app's sourced chain on Mary, the Mother of God, to see the place of Mary in Christian faith."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Answer 'the Church treats women as lesser' and 'it is just tradition'.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "church-treats-women-lesser",
+          "why": "A sourced reply to the central charge."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "claim",
+            "id": "church-treats-women-lesser"
+          }
+        },
+        {
+          "kind": "resource",
+          "id": "inter-insigniores",
+          "why": "The 1976 reasons for the male priesthood."
+        },
+        {
+          "kind": "resource",
+          "id": "os",
+          "why": "The 1994 letter that closes the question."
+        },
+        {
+          "kind": "resource",
+          "id": "bxvi-catherine",
+          "why": "Catherine of Siena, a lay woman who advised popes."
+        },
+        {
+          "kind": "resource",
+          "id": "bxvi-hildegard",
+          "why": "Hildegard of Bingen, abbess, writer and composer."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the Church's major teaching on women and on Mary.",
+      "minutes": 240,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "md",
+          "why": "John Paul II on the dignity and vocation of women."
+        },
+        {
+          "kind": "resource",
+          "id": "rm",
+          "why": "John Paul II on Mary in the Church."
+        },
+        {
+          "kind": "resource",
+          "id": "lg",
+          "why": "Vatican II; read chapter 8 on Mary and chapter 4 on the laity."
+        },
+        {
+          "kind": "resource",
+          "id": "eg",
+          "why": "Francis on women in the Church, paragraphs 103-104."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "tertullian-ethical",
+          "why": "Early Christian writing on women and conduct."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "gregory-pastoral-rule",
+          "why": "Gregory the Great on pastoral care, for the Church's ideal of leadership as service."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "ca-women-priest",
+      "title": "What the Early Church Believed: Women and the Priesthood",
+      "creator": "Catholic Answers",
+      "kind": "tract",
+      "url": "https://www.catholic.com/tract/women-and-the-priesthood",
+      "free": true,
+      "minutes": 12,
+      "level": 2,
+      "audience": "any",
+      "why": "A short look at the practice of the early Church on women and ordination.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers tract"
+    },
+    {
+      "id": "os",
+      "title": "Ordinatio Sacerdotalis",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1994/documents/hf_jp-ii_apl_19940522_ordinatio-sacerdotalis.html",
+      "free": true,
+      "minutes": 15,
+      "level": 3,
+      "audience": "adult",
+      "why": "The 1994 letter stating that the Church has no authority to ordain women.",
+      "verified": "2026-11-09",
+      "note": "Apostolic letter"
+    },
+    {
+      "id": "inter-insigniores",
+      "title": "Declaration on the Question of Admission of Women to the Ministerial Priesthood (Inter Insigniores)",
+      "creator": "Congregation for the Doctrine of the Faith",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_cfaith_doc_19761015_inter-insigniores_en.html",
+      "free": true,
+      "minutes": 30,
+      "level": 3,
+      "audience": "adult",
+      "why": "The 1976 explanation of the reasons, from Christ's own practice and the sacramental sign.",
+      "verified": "2026-11-09",
+      "note": "Vatican document, 1976"
+    },
+    {
+      "id": "md",
+      "title": "Mulieris Dignitatem",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1988/documents/hf_jp-ii_apl_19880815_mulieris-dignitatem.html",
+      "free": true,
+      "minutes": 90,
+      "level": 3,
+      "audience": "adult",
+      "why": "A long reflection on the dignity and vocation of women, from Eve and Mary to the Gospel women.",
+      "verified": "2026-11-09",
+      "note": "Apostolic letter, 1988"
+    },
+    {
+      "id": "letter-women",
+      "title": "Letter to Women",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/letters/1995/documents/hf_jp-ii_let_29061995_women.html",
+      "free": true,
+      "minutes": 20,
+      "level": 1,
+      "audience": "any",
+      "why": "A short, warm letter thanking women and admitting the Church's own failures.",
+      "verified": "2026-11-09",
+      "note": "Papal letter, 1995"
+    },
+    {
+      "id": "rm",
+      "title": "Redemptoris Mater",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031987_redemptoris-mater.html",
+      "free": true,
+      "minutes": 80,
+      "level": 4,
+      "audience": "adult",
+      "why": "The encyclical on Mary's place in the pilgrim Church.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 1987"
+    },
+    {
+      "id": "lg",
+      "title": "Lumen Gentium (Dogmatic Constitution on the Church)",
+      "creator": "Second Vatican Council",
+      "kind": "article",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html",
+      "free": true,
+      "minutes": 90,
+      "level": 4,
+      "audience": "adult",
+      "why": "Chapter 8 is the Council's teaching on Mary; Chapter 4 on the laity.",
+      "verified": "2026-11-09",
+      "note": "Vatican II"
+    },
+    {
+      "id": "bxvi-women-gospel",
+      "title": "General Audience of 14 February 2007: Women at the service of the Gospel",
+      "creator": "Pope Benedict XVI",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/audiences/2007/documents/hf_ben-xvi_aud_20070214.html",
+      "free": true,
+      "minutes": 10,
+      "level": 1,
+      "audience": "any",
+      "why": "Benedict looks at the women who helped Paul and the first communities.",
+      "verified": "2026-11-09",
+      "note": "Papal general audience"
+    },
+    {
+      "id": "bxvi-hildegard",
+      "title": "General Audience of 1 September 2010: Saint Hildegard of Bingen",
+      "creator": "Pope Benedict XVI",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/audiences/2010/documents/hf_ben-xvi_aud_20100901.html",
+      "free": true,
+      "minutes": 10,
+      "level": 2,
+      "audience": "any",
+      "why": "A short portrait of a medieval abbess, writer and composer.",
+      "verified": "2026-11-09",
+      "note": "Papal general audience; she was named a Doctor of the Church in 2012"
+    },
+    {
+      "id": "bxvi-catherine",
+      "title": "General Audience of 24 November 2010: Saint Catherine of Siena",
+      "creator": "Pope Benedict XVI",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/audiences/2010/documents/hf_ben-xvi_aud_20101124.html",
+      "free": true,
+      "minutes": 10,
+      "level": 2,
+      "audience": "any",
+      "why": "Benedict on the lay woman who advised popes.",
+      "verified": "2026-11-09",
+      "note": "Papal general audience"
+    },
+    {
+      "id": "bxvi-teresa",
+      "title": "General Audience of 2 February 2011: Saint Teresa of Avila",
+      "creator": "Pope Benedict XVI",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/audiences/2011/documents/hf_ben-xvi_aud_20110202.html",
+      "free": true,
+      "minutes": 10,
+      "level": 2,
+      "audience": "any",
+      "why": "Benedict on the first woman named a Doctor of the Church (with Catherine).",
+      "verified": "2026-11-09",
+      "note": "Papal general audience"
+    },
+    {
+      "id": "bxvi-therese",
+      "title": "General Audience of 6 April 2011: Saint Theresa of Lisieux",
+      "creator": "Pope Benedict XVI",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/audiences/2011/documents/hf_ben-xvi_aud_20110406.html",
+      "free": true,
+      "minutes": 10,
+      "level": 2,
+      "audience": "any",
+      "why": "Benedict on the young Carmelite who became a Doctor of the Church.",
+      "verified": "2026-11-09",
+      "note": "Papal general audience"
+    },
+    {
+      "id": "eg",
+      "title": "Evangelii Gaudium",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html",
+      "free": true,
+      "minutes": 180,
+      "level": 3,
+      "audience": "adult",
+      "why": "Paragraphs 103-104 speak of women in the Church; much of the rest is on the poor and the common good.",
+      "verified": "2026-11-09",
+      "note": "Apostolic exhortation, 2013"
+    }
+  ]
+}

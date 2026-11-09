@@ -1,0 +1,544 @@
+{
+  "id": "the-meaning-of-life",
+  "title": "The meaning of life",
+  "tagline": "Happiness, death and hope: how seekers like Augustine, Pascal and Chesterton found their answers.",
+  "group": "faith-and-reason",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Under every argument about God is a quieter question: what is my life for? Christianity claims to answer that with a person, not only a theory.",
+  "mindset": [
+    {
+      "tip": "Take the question seriously and do not rush to a slogan; most people are asking it from pain or boredom.",
+      "resource": "kreeft-joy"
+    },
+    {
+      "tip": "Ask what they hope for, and what they are afraid of losing. (Luke 24:17 (Jesus asks the travellers on the road))"
+    },
+    {
+      "tip": "Share books and stories that moved you rather than only giving arguments.",
+      "resource": "confessions-1"
+    },
+    {
+      "tip": "The Catechism begins with the desire for God written in every heart (CCC 1, 27, 30)."
+    }
+  ],
+  "ccc": [
+    1,
+    27,
+    28,
+    30,
+    44,
+    45,
+    1024,
+    1700,
+    1716,
+    1718,
+    1719,
+    1720,
+    1721,
+    1722,
+    1723,
+    1028,
+    1042
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Name the question of meaning and hear the Christian reply in simple terms.",
+      "minutes": 80,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "barron-meaning",
+          "why": "A short article on what makes a life meaningful."
+        },
+        {
+          "kind": "resource",
+          "id": "frmike-hope",
+          "why": "A talk on hope that holds up under hardship."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "heaven",
+          "why": "What the Church says about heaven."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Hope",
+          "why": "A plain definition of hope as a virtue."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Beatific vision",
+          "why": "What \"seeing God\" means."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "12-7-1",
+          "why": "Catechism lesson on death and judgment."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "If you had one year to live, what would you stop doing and start doing?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Show that the longing for happiness points to God.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "kreeft-desire",
+          "why": "Our longings and what they point to."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-desire",
+          "why": "A short video on the same idea."
+        },
+        {
+          "kind": "resource",
+          "id": "confessions-1",
+          "why": "Augustine on the restless heart."
+        },
+        {
+          "kind": "resource",
+          "id": "pensees",
+          "why": "Pascal on misery and greatness."
+        },
+        {
+          "kind": "resource",
+          "id": "ecclesiastes",
+          "why": "The Bible's own tough look at \"vanity\"."
+        },
+        {
+          "kind": "resource",
+          "id": "orthodoxy-gutenberg",
+          "why": "Chesterton on looking for a creed."
+        },
+        {
+          "kind": "resource",
+          "id": "chesterton-society",
+          "why": "Browse Chesterton's life and essays."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "immortality-of-the-soul",
+          "why": "Why the soul lives beyond death."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Meet nihilism, despair and the \"enjoy life, it is all there is\" view.",
+      "minutes": 230,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "tolstoy",
+          "why": "Hear a great novelist's despair and how he escaped it."
+        },
+        {
+          "kind": "resource",
+          "id": "summa-i-ii-2",
+          "why": "See why wealth, honour, pleasure and power cannot satisfy."
+        },
+        {
+          "kind": "resource",
+          "id": "kreeft-pascals-wager",
+          "why": "The wager as an argument about what is at stake."
+        },
+        {
+          "kind": "resource",
+          "id": "sep-kierkegaard",
+          "why": "An introduction to Kierkegaard on anxiety and faith."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-peterson",
+          "why": "A bishop and a psychologist on meaning and truth."
+        },
+        {
+          "kind": "resource",
+          "id": "everlasting-gutenberg",
+          "why": "Chesterton on why Christ is not just another religion."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-L9",
+          "why": "A lesson on living as if death is coming."
+        },
+        {
+          "kind": "resource",
+          "id": "spe-salvi",
+          "why": "Benedict XVI on the hope that overcomes death."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the great answers to the question of meaning.",
+      "minutes": 420,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "confessions-gutenberg",
+          "why": "The whole of Augustine's Confessions."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "boethius-consolation",
+          "why": "Boethius on true happiness (Book III).",
+          "section": "s21"
+        },
+        {
+          "kind": "resource",
+          "id": "summa-i-ii-5",
+          "why": "Aquinas on how happiness is attained."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "chesterton-orthodoxy",
+          "why": "Chesterton on the romance of orthodoxy (chapter 8).",
+          "section": "s8"
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "chesterton-everlasting-man",
+          "why": "The Everlasting Man, Part II: the God in the Cave.",
+          "section": "s9"
+        },
+        {
+          "kind": "resource",
+          "id": "sep-pascal",
+          "why": "A careful modern discussion of Pascal's wager."
+        },
+        {
+          "kind": "resource",
+          "id": "deus-caritas",
+          "why": "Benedict XVI on love as the center of the faith."
+        },
+        {
+          "kind": "resource",
+          "id": "kreeft-heaven",
+          "why": "Peter Kreeft on what we are made for."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "barron-meaning",
+      "title": "How to Live a Meaningful Life",
+      "creator": "Bishop Robert Barron",
+      "kind": "article",
+      "url": "https://www.wordonfire.org/articles/barron/how-to-live-a-meaningful-life/",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Why a meaningful life is one that is aimed at the highest good.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Word on Fire"
+    },
+    {
+      "id": "frmike-hope",
+      "title": "The Reason for Our Hope",
+      "creator": "Fr. Mike Schmitz",
+      "kind": "talk",
+      "url": "https://www.youtube.com/watch?v=3UaFaWldACY",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A talk on hope that is built through hardship rather than around it.",
+      "verified": "2026-11-09",
+      "note": "EWTN channel"
+    },
+    {
+      "id": "kreeft-desire",
+      "title": "Argument from Desire",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/desire.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Why a longing nothing here can satisfy may point to something beyond this world.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "barron-desire",
+      "title": "God's Existence and the Argument from Desire",
+      "creator": "Bishop Robert Barron",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=X71Gq9a1qxE",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A short video on why our deep longings may point to God.",
+      "verified": "2026-11-09",
+      "note": "Word on Fire"
+    },
+    {
+      "id": "confessions-1",
+      "title": "Confessions, Book I",
+      "creator": "St. Augustine",
+      "kind": "book",
+      "url": "https://www.newadvent.org/fathers/110101.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Opens with the famous line about the restless heart.",
+      "verified": "2026-11-09",
+      "minutes": 25,
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "pensees",
+      "title": "Pensées",
+      "creator": "Blaise Pascal",
+      "kind": "book",
+      "url": "https://www.gutenberg.org/ebooks/18269",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Pascal's notes on human misery and greatness, and why we cannot stop seeking.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on Project Gutenberg"
+    },
+    {
+      "id": "ecclesiastes",
+      "title": "The Book of Ecclesiastes",
+      "creator": "Sacred Scripture (USCCB, NABRE)",
+      "kind": "article",
+      "url": "https://bible.usccb.org/bible/ecclesiastes/1",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "The Bible's own honest look at \"vanity\" and what lasts.",
+      "verified": "2026-11-09",
+      "note": "Free online Bible"
+    },
+    {
+      "id": "orthodoxy-gutenberg",
+      "title": "Orthodoxy",
+      "creator": "G. K. Chesterton",
+      "kind": "book",
+      "url": "https://www.gutenberg.org/ebooks/130",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A witty account of looking for a creed and finding that it was there all along.",
+      "verified": "2026-11-09",
+      "note": "Public-domain text on Project Gutenberg"
+    },
+    {
+      "id": "chesterton-society",
+      "title": "American Chesterton Society",
+      "creator": "American Chesterton Society",
+      "kind": "site",
+      "url": "https://www.chesterton.org/",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A starting point for Chesterton's life, quotations and essays.",
+      "verified": "2026-11-09",
+      "note": "Catholic literary society"
+    },
+    {
+      "id": "tolstoy",
+      "title": "A Confession",
+      "creator": "Leo Tolstoy",
+      "kind": "book",
+      "url": "https://standardebooks.org/ebooks/leo-tolstoy/a-confession/aylmer-maude_louise-maude",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A great novelist describes despair at the meaninglessness of life and his way out.",
+      "verified": "2026-11-09",
+      "note": "By an Orthodox-born writer whose later views departed from the Church; free ebook"
+    },
+    {
+      "id": "summa-i-ii-2",
+      "title": "Summa Theologiae I-II, Question 2: What happiness consists in",
+      "creator": "Thomas Aquinas",
+      "kind": "book",
+      "url": "https://www.newadvent.org/summa/2002.htm",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "Tests wealth, honour, pleasure and power as answers, and finds each too small.",
+      "verified": "2026-11-09",
+      "minutes": 25,
+      "note": "Public-domain English translation"
+    },
+    {
+      "id": "kreeft-pascals-wager",
+      "title": "Argument from Pascal's Wager",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/pascals-wager.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Explains Pascal's famous wager and why it is not meant as a trick.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "sep-kierkegaard",
+      "title": "Søren Kierkegaard",
+      "creator": "Stanford Encyclopedia of Philosophy",
+      "kind": "article",
+      "url": "https://plato.stanford.edu/entries/kierkegaard/",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "An introduction to the Danish thinker on anxiety, choice and faith.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Secular scholarly reference; Kierkegaard was a Lutheran, not a Catholic"
+    },
+    {
+      "id": "barron-peterson",
+      "title": "Eternal Truth and the Uphill Climb",
+      "creator": "Bishop Robert Barron with Jordan B. Peterson",
+      "kind": "talk",
+      "url": "https://www.youtube.com/watch?v=sd6iCSQep8E",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A long conversation on meaning, truth and the Bible with a secular-leaning psychologist.",
+      "verified": "2026-11-09",
+      "note": "Peterson is not Catholic; useful for hearing a seeker's questions"
+    },
+    {
+      "id": "everlasting-gutenberg",
+      "title": "The Everlasting Man",
+      "creator": "G. K. Chesterton",
+      "kind": "book",
+      "url": "https://www.gutenberg.org/ebooks/65688",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Chesterton on why Christ is unlike any other story of religion.",
+      "verified": "2026-11-09",
+      "note": "Public-domain text on Project Gutenberg"
+    },
+    {
+      "id": "spe-salvi",
+      "title": "Spe Salvi (Saved in Hope)",
+      "creator": "Pope Benedict XVI",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20071130_spe-salvi.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Part of it asks what a hope that survives suffering and death really looks like.",
+      "verified": "2026-11-09",
+      "note": "Encyclical, 2007"
+    },
+    {
+      "id": "confessions-gutenberg",
+      "title": "The Confessions of St. Augustine",
+      "creator": "St. Augustine",
+      "kind": "book",
+      "url": "https://www.gutenberg.org/ebooks/3296",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The whole story of a restless seeker who finally finds what he was looking for.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on Project Gutenberg"
+    },
+    {
+      "id": "summa-i-ii-5",
+      "title": "Summa Theologiae I-II, Question 5: The attainment of happiness",
+      "creator": "Thomas Aquinas",
+      "kind": "book",
+      "url": "https://www.newadvent.org/summa/2005.htm",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "How and why we can reach lasting happiness.",
+      "verified": "2026-11-09",
+      "minutes": 25,
+      "note": "Public-domain English translation"
+    },
+    {
+      "id": "sep-pascal",
+      "title": "Pascal's Wager",
+      "creator": "Stanford Encyclopedia of Philosophy",
+      "kind": "article",
+      "url": "https://plato.stanford.edu/entries/pascal-wager/",
+      "free": true,
+      "level": 3,
+      "audience": "advanced",
+      "why": "A careful modern discussion of the wager and its critics.",
+      "verified": "2026-11-09",
+      "minutes": 40,
+      "note": "Secular scholarly reference"
+    },
+    {
+      "id": "deus-caritas",
+      "title": "Deus Caritas Est",
+      "creator": "Pope Benedict XVI",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/encyclicals/documents/hf_ben-xvi_enc_20051225_deus-caritas-est.html",
+      "free": true,
+      "level": 4,
+      "audience": "adult",
+      "why": "On love as the answer to what life is for.",
+      "verified": "2026-11-09",
+      "note": "Encyclical, 2005"
+    },
+    {
+      "id": "kreeft-heaven",
+      "title": "Heaven",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/heaven.htm",
+      "free": true,
+      "level": 3,
+      "audience": "any",
+      "why": "Thinks about what we are ultimately made for, and why that changes how we live now.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "kreeft-joy",
+      "title": "Joy",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/joy.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A short reflection on joy as the sign of what we were made for.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic philosopher; free on his own site"
+    }
+  ]
+}

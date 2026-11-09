@@ -1,0 +1,491 @@
+{
+  "id": "science-and-faith",
+  "title": "Science and faith",
+  "tagline": "Evolution, the Big Bang, Galileo and miracles: how the Church and the sciences fit together.",
+  "group": "faith-and-reason",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Many young people believe they must choose between science and faith. The Church has taught for a long time that truth cannot contradict truth.",
+  "mindset": [
+    {
+      "tip": "Separate what science actually shows from the philosophy of \"scientism\" that is sometimes added to it.",
+      "resource": "barron-myth-war"
+    },
+    {
+      "tip": "Do not defend what the Church has never taught; Catholics are not required to hold a young earth (CCC 159, 283-284).",
+      "resource": "jp2-1996"
+    },
+    {
+      "tip": "Admit real mistakes in history, such as the Galileo case, and put them in context.",
+      "resource": "howell-galileo"
+    },
+    {
+      "tip": "Learn from Catholic scientists; their lives show the two can live together.",
+      "resource": "catholic-scientists"
+    }
+  ],
+  "ccc": [
+    159,
+    283,
+    284,
+    285,
+    282,
+    286,
+    341,
+    356,
+    362,
+    364,
+    2293,
+    2294
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "See that the \"war\" between science and the Church is mostly a myth.",
+      "minutes": 90,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "science-faith",
+          "why": "Start with the app's answer on faith, science and evolution."
+        },
+        {
+          "kind": "resource",
+          "id": "barron-myth-war",
+          "why": "Why a created world made science possible."
+        },
+        {
+          "kind": "resource",
+          "id": "check-faith-science",
+          "why": "A short look at one Galileo-era dispute."
+        },
+        {
+          "kind": "resource",
+          "id": "howell-galileo",
+          "why": "What actually happened in 1616 and 1633."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "12-2-1",
+          "why": "Catechism lesson on faith and science."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-9-2",
+          "why": "A second lesson on faith and science for young adults."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "Where did you first hear that the Church is against science, and what was the story?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "State what the Church teaches on creation, evolution and the Big Bang.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "genesis-literal",
+          "why": "How the Church reads Genesis."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "adam-and-eve",
+          "why": "Adam and Eve, evolution and original sin."
+        },
+        {
+          "kind": "resource",
+          "id": "jp2-1996",
+          "why": "The key papal statement on evolution."
+        },
+        {
+          "kind": "resource",
+          "id": "francis-2014",
+          "why": "A short papal statement on evolution and the Big Bang."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "creation-from-nothing",
+          "why": "Creation out of nothing and what it means."
+        },
+        {
+          "kind": "resource",
+          "id": "consolmagno-heavens",
+          "why": "A Vatican astronomer explains how he sees no conflict."
+        },
+        {
+          "kind": "resource",
+          "id": "vatican-observatory",
+          "why": "Browse the Church's own observatory."
+        },
+        {
+          "kind": "resource",
+          "id": "catholic-scientists",
+          "why": "Meet working Catholic scientists."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Answer the usual charges: Galileo, young earth, miracles and scientism.",
+      "minutes": 220,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "church-opposed-science-galileo",
+          "why": "The \"Church persecuted Galileo\" charge, with sources."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "claim",
+            "id": "church-opposed-science-galileo"
+          }
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "church-young-earth-rejects-evolution",
+          "why": "The \"6,000 years\" charge, answered."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "galileo",
+          "why": "The app's longer treatment of the Galileo case."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "miracles",
+          "why": "Do miracles happen, and do they break science?"
+        },
+        {
+          "kind": "resource",
+          "id": "jp2-1992",
+          "why": "Read the pope's own reflection on the Galileo case."
+        },
+        {
+          "kind": "resource",
+          "id": "jesuitical",
+          "why": "Listen to a Jesuit scientist on faith and science."
+        },
+        {
+          "kind": "resource",
+          "id": "lennox-dawkins",
+          "why": "Read about a debate where a Christian mathematician answers Dawkins on science."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the documents and thinkers behind the Church's approach.",
+      "minutes": 360,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "barr-book",
+          "why": "A physicist argues the real conflict is with materialism."
+        },
+        {
+          "kind": "resource",
+          "id": "humani-generis",
+          "why": "The 1950 encyclical that opened the door to evolution carefully."
+        },
+        {
+          "kind": "resource",
+          "id": "cti-communion",
+          "why": "A theologians' document on creation and evolution."
+        },
+        {
+          "kind": "resource",
+          "id": "galileo-letter",
+          "why": "Read Galileo's own letter on science and Scripture."
+        },
+        {
+          "kind": "resource",
+          "id": "summa-i-46",
+          "why": "Aquinas on whether reason can prove the world began."
+        },
+        {
+          "kind": "resource",
+          "id": "regensburg",
+          "why": "Benedict XVI on reason, faith and the university."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "newman-idea-of-a-university",
+          "why": "Newman on why theology belongs in the study of everything else."
+        },
+        {
+          "kind": "resource",
+          "id": "sep-religion-science",
+          "why": "A neutral survey of every major view."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "barron-myth-war",
+      "title": "The Myth of the War Between Science and Religion",
+      "creator": "Bishop Robert Barron",
+      "kind": "article",
+      "url": "https://www.wordonfire.org/articles/barron/the-myth-of-the-war-between-science-and-religion-2-2/",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Why a created, ordered universe made science possible.",
+      "verified": "2026-11-09",
+      "minutes": 8,
+      "note": "Word on Fire"
+    },
+    {
+      "id": "check-faith-science",
+      "title": "Are Faith and Science in Conflict?",
+      "creator": "Christopher Check",
+      "kind": "article",
+      "url": "https://www.catholic.com/news/are-faith-and-science-in-conflict",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Uses one Galileo-era dispute to question the idea of a permanent war.",
+      "verified": "2026-11-09",
+      "minutes": 6,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "howell-galileo",
+      "title": "Why Did the Catholic Church Condemn Galileo?",
+      "creator": "Kenneth Howell",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/why-did-the-catholic-church-condemn-galileo",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A short account of 1616 and 1633 that avoids both myth and excuses.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "jp2-1996",
+      "title": "Message to the Pontifical Academy of Sciences on evolution (1996)",
+      "creator": "Pope St. John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/messages/pont_messages/1996/documents/hf_jp-ii_mes_19961022_evoluzione.html",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "The key modern statement on how the Church treats evolution.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Vatican text"
+    },
+    {
+      "id": "francis-2014",
+      "title": "Address to the Pontifical Academy of Sciences (27 October 2014)",
+      "creator": "Pope Francis",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/francesco/en/speeches/2014/october/documents/papa-francesco_20141027_plenaria-accademia-scienze.html",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A short papal statement that evolution and the Big Bang do not contradict creation.",
+      "verified": "2026-11-09",
+      "minutes": 8,
+      "note": "Vatican text"
+    },
+    {
+      "id": "consolmagno-heavens",
+      "title": "The Heavens Proclaim: Astronomy and the Vatican",
+      "creator": "Br. Guy Consolmagno, SJ",
+      "kind": "talk",
+      "url": "https://www.youtube.com/watch?v=c2Wca2tUQbI",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A Vatican astronomer explains why a scientist sees no clash with faith.",
+      "verified": "2026-11-09",
+      "note": "Franciscan Friars channel"
+    },
+    {
+      "id": "vatican-observatory",
+      "title": "Vatican Observatory",
+      "creator": "Vatican Observatory",
+      "kind": "site",
+      "url": "https://www.vaticanobservatory.org/",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "The Church's own research observatory, with blog posts by Jesuit astronomers.",
+      "verified": "2026-11-09",
+      "note": "Catholic institution"
+    },
+    {
+      "id": "catholic-scientists",
+      "title": "Society of Catholic Scientists",
+      "creator": "Society of Catholic Scientists",
+      "kind": "site",
+      "url": "https://catholicscientists.org/",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Working scientists who are Catholics, with articles and talks.",
+      "verified": "2026-11-09",
+      "note": "Catholic organisation"
+    },
+    {
+      "id": "jp2-1992",
+      "title": "Address on Galileo to the Pontifical Academy of Sciences (1992)",
+      "creator": "Pope St. John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/speeches/1992/october/documents/hf_jp-ii_spe_19921031_accademia-scienze.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "The pope's own reflection on what went wrong in the Galileo case and what to learn from it.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Vatican text"
+    },
+    {
+      "id": "jesuitical",
+      "title": "A Jesuit guide to thinking about science and faith",
+      "creator": "America Media (Jesuitical podcast)",
+      "kind": "podcast",
+      "url": "https://www.youtube.com/watch?v=fyEcGUsfQsg",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A friendly conversation with a Vatican astronomer.",
+      "verified": "2026-11-09",
+      "note": "America Media; Jesuit publication"
+    },
+    {
+      "id": "lennox-dawkins",
+      "title": "The John Lennox - Richard Dawkins Debate (2008)",
+      "creator": "bethinking.org",
+      "kind": "debate",
+      "url": "https://www.bethinking.org/atheism/the-john-lennox-richard-dawkins-debate",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Account of an Oxford debate between a leading New Atheist and a Christian mathematician.",
+      "verified": "2026-11-09",
+      "minutes": 81,
+      "note": "Christian (Protestant) site; Dawkins speaks in his own words in the debate"
+    },
+    {
+      "id": "barr-book",
+      "title": "Modern Physics and Ancient Faith",
+      "creator": "Stephen M. Barr",
+      "kind": "book",
+      "url": "https://undpress.nd.edu/9780268021986/modern-physics-and-ancient-faith",
+      "free": false,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A physicist argues the real conflict is with materialism, not with science.",
+      "verified": "2026-11-09",
+      "note": "University of Notre Dame Press; paid book, check your library"
+    },
+    {
+      "id": "humani-generis",
+      "title": "Humani Generis",
+      "creator": "Pope Pius XII",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/pius-xii/en/encyclicals/documents/hf_p-xii_enc_12081950_humani-generis.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The 1950 encyclical that first set out the Church's careful openness to evolution.",
+      "verified": "2026-11-09",
+      "note": "Encyclical, 1950"
+    },
+    {
+      "id": "cti-communion",
+      "title": "Communion and Stewardship: Human Persons Created in the Image of God",
+      "creator": "International Theological Commission",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/cti_documents/rc_con_cfaith_doc_20040723_communion-stewardship_en.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A theologians' document on creation, evolution and the human person.",
+      "verified": "2026-11-09",
+      "note": "Vatican text, 2004"
+    },
+    {
+      "id": "galileo-letter",
+      "title": "Letter to the Grand Duchess Christina (1615)",
+      "creator": "Galileo Galilei",
+      "kind": "article",
+      "url": "https://sourcebooks.fordham.edu/mod/galileo-tuscany.asp",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Galileo's own argument on how to read Scripture alongside science.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Primary source on Fordham's Sourcebook"
+    },
+    {
+      "id": "summa-i-46",
+      "title": "Summa Theologiae I, Question 46: The beginning of the duration of creatures",
+      "creator": "Thomas Aquinas",
+      "kind": "book",
+      "url": "https://www.newadvent.org/summa/1046.htm",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Why Aquinas thought reason alone cannot prove the world had a beginning.",
+      "verified": "2026-11-09",
+      "minutes": 20,
+      "note": "Public-domain English translation"
+    },
+    {
+      "id": "regensburg",
+      "title": "Faith, Reason and the University (Regensburg lecture, 2006)",
+      "creator": "Pope Benedict XVI",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/speeches/2006/september/documents/hf_ben-xvi_spe_20060912_university-regensburg.html",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A pope's argument that reason and faith need each other; read the whole lecture, not just the headlines.",
+      "verified": "2026-11-09",
+      "minutes": 30,
+      "note": "Vatican text"
+    },
+    {
+      "id": "sep-religion-science",
+      "title": "Religion and Science",
+      "creator": "Stanford Encyclopedia of Philosophy",
+      "kind": "article",
+      "url": "https://plato.stanford.edu/entries/religion-science/",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A neutral survey of every major view on how the two relate.",
+      "verified": "2026-11-09",
+      "minutes": 60,
+      "note": "Secular scholarly reference"
+    }
+  ]
+}

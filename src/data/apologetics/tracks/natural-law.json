@@ -1,0 +1,367 @@
+{
+  "id": "natural-law",
+  "title": "Natural law: morality you can reason about",
+  "tagline": "Why right and wrong are not just opinion, and how to speak about it kindly to people who do not share your faith.",
+  "group": "morals-and-life",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Many people feel that moral claims are either private tastes or religious rules. Natural law says some things about good and harm can be known by reason, and this is how the Church speaks to everyone.",
+  "mindset": [
+    {
+      "tip": "Ask what the person is worried about before you explain anything. Most objections come from a fear of being judged or controlled (1 Peter 3:15-16)."
+    },
+    {
+      "tip": "Start from experience everyone shares: we feel wronged when we are treated unfairly. Kreeft uses exactly this move.",
+      "resource": "kreeft-relativism"
+    },
+    {
+      "tip": "Use reasons the other person can test, not only quotations from Scripture. The Church itself teaches that conscience and reason can find moral truth (CCC 1954-1960; Romans 2:14-15).",
+      "resource": "ca-natural-law"
+    },
+    {
+      "tip": "Keep a clear difference between what the law should forbid and what a person should choose; the second is wider. Admit that hard cases are hard."
+    },
+    {
+      "tip": "Remember that conscience must be formed, not just followed (CCC 1783-1785). Be willing to ask what you have not yet understood.",
+      "resource": "feser-conscience"
+    }
+  ],
+  "ccc": [
+    1704,
+    1776,
+    1778,
+    1783,
+    1950,
+    1954,
+    1955,
+    1956,
+    1957,
+    1958,
+    1959,
+    1960,
+    1978
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Learn what natural law claims, and what it does not claim.",
+      "minutes": 75,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Natural law",
+          "why": "Read the short definition and its Catechism pointer."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Conscience",
+          "why": "See how the Church defines conscience before you meet objections."
+        },
+        {
+          "kind": "resource",
+          "id": "ca-natural-law",
+          "why": "A clear short introduction to the idea."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "11-5-2",
+          "why": "A school-level lesson on freedom, conscience and natural law."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "chastity",
+          "why": "See how natural law is used in one practical question; read it as an example, not yet as a settled opinion."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "Name one moral conviction you hold that you cannot easily ground in a rule from your religion. Where does it come from?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "Hear the argument that morality is real and knowable.",
+      "minutes": 120,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "kreeft-relativism",
+          "why": "A Socratic talk with free transcript; watch how he asks questions."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-16-1",
+          "why": "Adult lesson on forming conscience."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Formation of conscience",
+          "why": "The Church asks us to educate conscience, not to trust feeling alone."
+        },
+        {
+          "kind": "resource",
+          "id": "bxvi-bundestag",
+          "why": "Benedict XVI on nature and reason as the common ground of law."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "8-7-1",
+          "why": "Another lesson on conscience and freedom, to see how it is taught to younger people."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "sanctity-of-life",
+          "why": "See a sourced line of Scripture and Fathers on one basic good, human life."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "sanctity-of-life"
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Meet the usual objections: 'who are you to impose', is/ought, public reason.",
+      "minutes": 150,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "george-reason",
+          "why": "A natural-law thinker on reasoning with secular people."
+        },
+        {
+          "kind": "resource",
+          "id": "feser-conscience",
+          "why": "A philosopher on why conscience can be wrong and how to correct it."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-12-1",
+          "why": "Disagreement, conscience and obedience in an adult course."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "YA-12-2",
+          "why": "Faith, politics and the common good."
+        },
+        {
+          "kind": "inapp",
+          "type": "term",
+          "id": "Principle of double effect",
+          "why": "A tool of natural-law reasoning that people often misunderstand."
+        },
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "catholics-not-allowed-to-think",
+          "why": "A sourced reply to the charge that Catholics may not think for themselves."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the primary sources on law and the Church's modern account.",
+      "minutes": 240,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "st-q90",
+          "why": "Aquinas on what law is."
+        },
+        {
+          "kind": "resource",
+          "id": "st-q91",
+          "why": "The different kinds of law, from eternal to human."
+        },
+        {
+          "kind": "resource",
+          "id": "st-q94",
+          "why": "The natural law itself, with its first precepts."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "aquinas-summa",
+          "why": "The app's index of Summa citations, to follow Aquinas through Scripture."
+        },
+        {
+          "kind": "resource",
+          "id": "iti-nl",
+          "why": "The Vatican commission's modern explanation and replies to objections."
+        },
+        {
+          "kind": "resource",
+          "id": "vs",
+          "why": "John Paul II on moral truth, conscience and acts that are always wrong."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "lactantius",
+          "why": "An early Christian writer on justice, to see the idea before Aquinas."
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "st-q90",
+      "title": "Summa Theologiae I-II, Q. 90: The essence of law",
+      "creator": "Thomas Aquinas",
+      "kind": "article",
+      "url": "https://www.newadvent.org/summa/2090.htm",
+      "free": true,
+      "minutes": 25,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Aquinas defines law as an ordinance of reason for the common good, the starting point for everything else.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "st-q91",
+      "title": "Summa Theologiae I-II, Q. 91: The various kinds of law",
+      "creator": "Thomas Aquinas",
+      "kind": "article",
+      "url": "https://www.newadvent.org/summa/2091.htm",
+      "free": true,
+      "minutes": 25,
+      "level": 4,
+      "audience": "advanced",
+      "why": "Shows how eternal law, natural law and human law fit together.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "st-q94",
+      "title": "Summa Theologiae I-II, Q. 94: The natural law",
+      "creator": "Thomas Aquinas",
+      "kind": "article",
+      "url": "https://www.newadvent.org/summa/2094.htm",
+      "free": true,
+      "minutes": 30,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The classic text: the first precepts of the natural law and how far they can change.",
+      "verified": "2026-11-09",
+      "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "vs",
+      "title": "Veritatis Splendor",
+      "creator": "Pope John Paul II",
+      "kind": "article",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html",
+      "free": true,
+      "minutes": 120,
+      "level": 4,
+      "audience": "advanced",
+      "why": "The Church's fullest modern teaching on moral truth, conscience and acts that are always wrong.",
+      "verified": "2026-11-09",
+      "note": "Papal encyclical, 1993"
+    },
+    {
+      "id": "iti-nl",
+      "title": "In Search of a Universal Ethic: A New Look at the Natural Law",
+      "creator": "International Theological Commission",
+      "kind": "article",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/cti_documents/rc_con_cfaith_doc_20090520_legge-naturale_en.html",
+      "free": true,
+      "minutes": 90,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A Vatican commission explains natural law for a plural world and answers common objections.",
+      "verified": "2026-11-09",
+      "note": "Vatican document, 2009"
+    },
+    {
+      "id": "bxvi-bundestag",
+      "title": "Apostolic Journey to Germany: Visit to the Federal Parliament in the Reichstag Building (Berlin, 22 September 2011)",
+      "creator": "Pope Benedict XVI",
+      "kind": "talk",
+      "url": "https://www.vatican.va/content/benedict-xvi/en/speeches/2011/september/documents/hf_ben-xvi_spe_20110922_reichstag-berlin.html",
+      "free": true,
+      "minutes": 20,
+      "level": 3,
+      "audience": "adult",
+      "why": "Benedict speaks to lawmakers about nature and reason as a basis for law that both believers and unbelievers can share.",
+      "verified": "2026-11-09",
+      "note": "Papal address, 2011"
+    },
+    {
+      "id": "ca-natural-law",
+      "title": "Natural Law",
+      "creator": "Joe Heschmeyer / Catholic Answers",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/natural-law",
+      "free": true,
+      "minutes": 12,
+      "level": 1,
+      "audience": "any",
+      "why": "A short, clear introduction to what natural law is and why it matters for just laws.",
+      "verified": "2026-11-09",
+      "note": "Catholic Answers Magazine"
+    },
+    {
+      "id": "kreeft-relativism",
+      "title": "A Refutation of Moral Relativism",
+      "creator": "Peter Kreeft",
+      "kind": "talk",
+      "url": "https://peterkreeft.com/audio/05_relativism.htm",
+      "free": true,
+      "minutes": 50,
+      "level": 2,
+      "audience": "any",
+      "why": "A Socratic dialogue on why moral relativism cannot be lived; free audio with a transcript.",
+      "verified": "2026-11-09",
+      "note": "Free audio and transcript on Kreeft's own site"
+    },
+    {
+      "id": "george-reason",
+      "title": "From the Archives: Can We Still Reason Together? A Conversation with Robert P. George",
+      "creator": "Serena Sigillito and Robert P. George / Public Discourse",
+      "kind": "article",
+      "url": "https://www.thepublicdiscourse.com/2021/12/79702/",
+      "free": true,
+      "minutes": 20,
+      "level": 3,
+      "audience": "adult",
+      "why": "A leading natural-law thinker explains how believers and secularists can argue from reasons in public.",
+      "verified": "2026-11-09",
+      "note": "Public Discourse"
+    },
+    {
+      "id": "feser-conscience",
+      "title": "What is Conscience and When Should We Follow It?",
+      "creator": "Edward Feser",
+      "kind": "talk",
+      "url": "https://edwardfeser.com/unpublishedpapers/whatisconscience.html",
+      "free": true,
+      "minutes": 30,
+      "level": 3,
+      "audience": "adult",
+      "why": "A philosopher's clear Thomist account of conscience as an act of reason, and why it must be formed.",
+      "verified": "2026-11-09",
+      "note": "Lecture text on the author's site"
+    }
+  ]
+}

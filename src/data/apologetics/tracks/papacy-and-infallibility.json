@@ -1,0 +1,410 @@
+{
+ "id": "papacy-and-infallibility",
+ "title": "The pope: Peter’s chair and infallibility",
+ "tagline": "What the papacy is, what infallibility means (and does not), and how it developed.",
+ "group": "church-and-scripture",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "The papacy is the most misunderstood Catholic teaching, and it is where Catholics, Orthodox and Protestants most differ. A clear grasp avoids caricature on both sides.",
+ "mindset": [
+  {
+   "tip": "Say first what infallibility is not: it is not sinlessness or a claim that every papal word is guaranteed.",
+   "resource": "ca-perfect"
+  },
+  {
+   "tip": "Listen to Orthodox friends; their objection is to jurisdiction more than to Rome’s honour.",
+   "resource": "orthochristian-papal"
+  },
+  {
+   "tip": "Begin from Matthew 16:18-19, Luke 22:31-32 and John 21:15-17, and ask what they mean. (CCC 552-553)"
+  },
+  {
+   "tip": "Admit that bad popes existed; the promise is about teaching, not holiness.",
+   "resource": "ca-sinful-pope"
+  }
+ ],
+ "ccc": [
+  551,
+  552,
+  553,
+  881,
+  882,
+  883,
+  891,
+  892
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Learn what the pope is and what infallibility means.",
+   "minutes": 70,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "ca-perfect",
+     "why": "A direct answer to the usual mistake."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-infallibility",
+     "why": "A clear tract on infallibility."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Infallibility",
+     "why": "The word in the Catechism’s terms."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Pope",
+     "why": "What the office is."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "10-6-1",
+     "why": "A lesson on infallibility."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "papacy",
+     "why": "Is Peter the rock?"
+    },
+    {
+     "kind": "reflect",
+     "prompt": "What did you think infallibility meant before today?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Make the case from Scripture and the early Church.",
+   "minutes": 90,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "papal-primacy",
+     "why": "Follow the sourced steps to the bishop of Rome."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-peter-rock",
+     "why": "A short reply on Matthew 16."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-peters-primacy",
+     "why": "Early witnesses to Peter’s role."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-peter-rome",
+     "why": "Early evidence that Peter was in Rome."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "peter-in-rome",
+     "why": "A Q&A on Peter in Rome."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "papal-primacy-development",
+     "why": "How the teaching on primacy was spelled out."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "chain",
+      "id": "papal-primacy"
+     }
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Meet the standard objections.",
+   "minutes": 90,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "catholics-worship-the-pope",
+     "why": "Tests the charge that Catholics worship the pope."
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "pope-claims-to-be-sinless",
+     "why": "Tests the charge that the pope claims to be sinless."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-sinful-pope",
+     "why": "Why a sinful pope is not a contradiction."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-before-defined",
+     "why": "Replies to “invented in 1870”."
+    },
+    {
+     "kind": "resource",
+     "id": "ca-peter-orthodox",
+     "why": "Orthodox and Catholic readings of Peter compared."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "sinful-popes",
+     "why": "Bad popes and a holy Church."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "bishops-and-unity",
+     "why": "The early Church on unity under bishops."
+    },
+    {
+     "kind": "drill",
+     "source": {
+      "type": "claim",
+      "id": "catholics-worship-the-pope"
+     }
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Read the councils, the Fathers and the dialogues.",
+   "minutes": 130,
+   "steps": [
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "vatican-i-constitutions",
+     "why": "Pastor Aeternus on the primacy of Peter.",
+     "section": "s7"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "vatican-i-constitutions",
+     "why": "Pastor Aeternus on the pope’s infallible teaching.",
+     "section": "s10"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "cyprian",
+     "why": "Cyprian on the unity of the Church.",
+     "section": "iv.v.i"
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "leo-sermons-letters",
+     "why": "Leo the Great on Peter’s see."
+    },
+    {
+     "kind": "resource",
+     "id": "lumen-gentium",
+     "why": "Vatican II places the pope among the bishops."
+    },
+    {
+     "kind": "resource",
+     "id": "ut-unum",
+     "why": "John Paul II asks others to help rethink the papal ministry."
+    },
+    {
+     "kind": "resource",
+     "id": "ravenna",
+     "why": "Catholic and Orthodox theologians on authority."
+    },
+    {
+     "kind": "resource",
+     "id": "orthochristian-papal",
+     "why": "An Orthodox statement of the objection."
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "ca-perfect",
+   "title": "Does Papal Infallibility Mean the Pope is Perfect or Inerrant?",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/qa/does-papal-infallibility-mean-the-pope-is-perfect-or-inerrant",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A direct answer to the commonest misunderstanding.",
+   "verified": "2026-11-09",
+   "minutes": 5,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "orthochristian-papal",
+   "title": "The Papal Claims",
+   "creator": "OrthoChristian.com",
+   "kind": "article",
+   "url": "https://orthochristian.com/150993.html",
+   "free": true,
+   "level": 4,
+   "audience": "adult",
+   "why": "An Orthodox writer states the objections to papal jurisdiction in his own terms.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "The other side’s own voice: an Orthodox site."
+  },
+  {
+   "id": "ca-sinful-pope",
+   "title": "Why a Sinful Pope Can Be Infallible",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/online-edition/why-a-sinful-pope-can-be-infallible",
+   "free": true,
+   "level": 3,
+   "audience": "any",
+   "why": "Explains why a bad pope does not break the promise to Peter.",
+   "verified": "2026-11-09",
+   "minutes": 10,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-infallibility",
+   "title": "Papal Infallibility",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/papal-infallibility",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "The clearest short statement of what infallibility means and the conditions for it.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-peter-rock",
+   "title": "How Can You Say Peter Is the ‘Rock’?",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/qa/how-can-you-say-peter-is-the-rock",
+   "free": true,
+   "level": 2,
+   "audience": "any",
+   "why": "A short reply on the Greek and Aramaic of Matthew 16:18.",
+   "verified": "2026-11-09",
+   "minutes": 5,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-peters-primacy",
+   "title": "What the Early Church Believed: Peter’s Primacy",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/peters-primacy",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "Gathers early Christian witnesses to Peter’s special place.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-peter-rome",
+   "title": "What the Early Church Believed: Peter’s Roman Residency",
+   "creator": "Catholic Answers",
+   "kind": "tract",
+   "url": "https://www.catholic.com/tract/peters-roman-residency",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "Early evidence that Peter was in Rome and died there.",
+   "verified": "2026-11-09",
+   "minutes": 12,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-before-defined",
+   "title": "Before Papal Infallibility Was Defined",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/qa/before-papal-infallibility-was-defined",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Answers the “you invented it in 1870” charge.",
+   "verified": "2026-11-09",
+   "minutes": 5,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "ca-peter-orthodox",
+   "title": "Peter and the Eastern Orthodox",
+   "creator": "Catholic Answers",
+   "kind": "article",
+   "url": "https://www.catholic.com/magazine/print-edition/peter-and-the-eastern-orthodox",
+   "free": true,
+   "level": 3,
+   "audience": "adult",
+   "why": "Sets out where Orthodox and Catholic readings of Peter agree and differ.",
+   "verified": "2026-11-09",
+   "minutes": 15,
+   "note": "Catholic Answers"
+  },
+  {
+   "id": "lumen-gentium",
+   "title": "Lumen Gentium (Dogmatic Constitution on the Church)",
+   "creator": "Second Vatican Council",
+   "kind": "article",
+   "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html",
+   "free": true,
+   "level": 3,
+   "audience": "advanced",
+   "why": "Chapter 3 places the pope within the college of bishops; chapter 8 treats Mary.",
+   "verified": "2026-11-09",
+   "minutes": 40
+  },
+  {
+   "id": "ut-unum",
+   "title": "Ut Unum Sint",
+   "creator": "Pope John Paul II",
+   "kind": "article",
+   "url": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25051995_ut-unum-sint.html",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "The pope invites other Christians to help rethink how the papal office is exercised.",
+   "verified": "2026-11-09"
+  },
+  {
+   "id": "ravenna",
+   "title": "Ravenna Document (2007)",
+   "creator": "Catholic–Orthodox Joint International Commission",
+   "kind": "article",
+   "url": "https://www.christianunity.va/content/unitacristiani/en/dialoghi/sezione-orientale/chiese-ortodosse-di-tradizione-bizantina/commissione-mista-internazionale-per-il-dialogo-teologico-tra-la/documenti-di-dialogo/testo-in-inglese.html",
+   "free": true,
+   "level": 4,
+   "audience": "advanced",
+   "why": "Catholic and Orthodox theologians together on authority, councils and the bishop of Rome.",
+   "verified": "2026-11-09",
+   "minutes": 40,
+   "note": "A commission text, not an official teaching of either Church."
+  }
+ ]
+}

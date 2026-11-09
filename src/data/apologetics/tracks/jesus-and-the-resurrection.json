@@ -1,0 +1,500 @@
+{
+  "id": "jesus-and-the-resurrection",
+  "title": "Jesus and the resurrection",
+  "tagline": "Did Jesus exist, can we trust the Gospels, and did he rise from the dead?",
+  "group": "faith-and-reason",
+  "audience": [
+    "adult",
+    "teen"
+  ],
+  "whyItMatters": "Everything in Christianity depends on whether Jesus is who he said he is and whether he rose. Paul says plainly that without the resurrection faith is empty (1 Corinthians 15:14).",
+  "mindset": [
+    {
+      "tip": "Start from common ground: almost all historians accept that Jesus lived and was crucified.",
+      "resource": "nelson-existed"
+    },
+    {
+      "tip": "Read skeptical scholars in their own words, not only summaries by their opponents.",
+      "resource": "ehrman-blog"
+    },
+    {
+      "tip": "Be honest about what history can and cannot prove; argue for reasonableness, not for a lab result.",
+      "resource": "horn-resurrection"
+    },
+    {
+      "tip": "Pray as well as argue; the resurrection is meant to be met as well as proved (CCC 640-647)."
+    }
+  ],
+  "ccc": [
+    126,
+    456,
+    461,
+    464,
+    512,
+    514,
+    515,
+    638,
+    639,
+    640,
+    641,
+    642,
+    643,
+    644,
+    645,
+    646,
+    647,
+    648,
+    651,
+    652,
+    653,
+    654,
+    655,
+    656,
+    657,
+    658
+  ],
+  "levels": [
+    {
+      "n": 1,
+      "title": "Foundations",
+      "goal": "Know that Jesus existed, and why the Gospels are worth reading as history.",
+      "minutes": 90,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "resurrection",
+          "why": "Start with the app's answer on the resurrection."
+        },
+        {
+          "kind": "resource",
+          "id": "nelson-existed",
+          "why": "A short reply to the claim that Jesus never lived."
+        },
+        {
+          "kind": "resource",
+          "id": "pitre-reliable",
+          "why": "A Catholic scholar on whether the Gospels are reliable."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "reliability-gospels",
+          "why": "The app's answer on trusting the Gospels."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "9-7-2",
+          "why": "Catechism lesson on the Resurrection."
+        },
+        {
+          "kind": "inapp",
+          "type": "lesson",
+          "id": "4-3-2",
+          "why": "A simpler lesson: suffered, died, rose."
+        },
+        {
+          "kind": "reflect",
+          "prompt": "If the resurrection were true, what would change about how you live? If false, what would change?"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Making the case",
+      "goal": "State the main evidence for the resurrection and for Jesus' divine claims.",
+      "minutes": 160,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "kreeft-resurrection",
+          "why": "Weigh each explanation of the empty tomb and the appearances."
+        },
+        {
+          "kind": "resource",
+          "id": "horn-resurrection",
+          "why": "Test the resurrection against fair standards for unusual events."
+        },
+        {
+          "kind": "resource",
+          "id": "kreeft-divinity",
+          "why": "See why Jesus' claims cannot be set aside lightly."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "divinity-of-christ",
+          "why": "Did the early Church believe Jesus is God? Sourced from the Fathers."
+        },
+        {
+          "kind": "inapp",
+          "type": "chain",
+          "id": "resurrection-of-the-body",
+          "why": "Why the Church teaches a bodily resurrection."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "messianic-prophecy",
+          "why": "Old Testament prophecies of Christ."
+        },
+        {
+          "kind": "inapp",
+          "type": "apologetics",
+          "id": "incarnation",
+          "why": "Fully God and fully man."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "justin-martyr",
+          "why": "Justin's First Apology, from about AD 155.",
+          "section": "viii.ii"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Objections and replies",
+      "goal": "Answer mythicism, \"pagan copies\", \"the Gospels were changed\" and \"Constantine invented it\".",
+      "minutes": 260,
+      "steps": [
+        {
+          "kind": "inapp",
+          "type": "claim",
+          "id": "constantine-invented-christ-divinity",
+          "why": "The \"Constantine invented it\" charge, with sources."
+        },
+        {
+          "kind": "drill",
+          "source": {
+            "type": "chain",
+            "id": "divinity-of-christ"
+          }
+        },
+        {
+          "kind": "resource",
+          "id": "broussard-pagan",
+          "why": "Answer the \"borrowed from pagan myths\" claim."
+        },
+        {
+          "kind": "resource",
+          "id": "ehrman-blog",
+          "why": "Hear a skeptical scholar argue against mythicism."
+        },
+        {
+          "kind": "resource",
+          "id": "ehrman-douthat",
+          "why": "Hear Ehrman state his own view of the resurrection evidence."
+        },
+        {
+          "kind": "resource",
+          "id": "pitre-lectio",
+          "why": "Follow a lecture series on who wrote the Gospels."
+        },
+        {
+          "kind": "resource",
+          "id": "tacitus",
+          "why": "Read what a Roman historian said about Christ."
+        },
+        {
+          "kind": "resource",
+          "id": "pliny",
+          "why": "Read a Roman governor on early Christian worship."
+        },
+        {
+          "kind": "resource",
+          "id": "dei-verbum",
+          "why": "Read what the Council teaches on the Gospels as history (no. 19)."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Going deeper",
+      "goal": "Read the scholarly books and primary sources.",
+      "minutes": 420,
+      "steps": [
+        {
+          "kind": "resource",
+          "id": "pitre-book",
+          "why": "The full case in book form."
+        },
+        {
+          "kind": "resource",
+          "id": "bauckham",
+          "why": "The eyewitness argument for the Gospels, by a leading scholar."
+        },
+        {
+          "kind": "resource",
+          "id": "ehrman-bass",
+          "why": "Watch a formal resurrection debate."
+        },
+        {
+          "kind": "resource",
+          "id": "licona-shapiro",
+          "why": "Watch a historian and a skeptical philosopher trade evidence."
+        },
+        {
+          "kind": "resource",
+          "id": "pbc-1964",
+          "why": "The Church's 1964 instruction on the Gospels' historical truth."
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "origen-celsus",
+          "why": "Origen answers a pagan critic who attacks the Gospels (Book 2).",
+          "section": "vi.ix.ii"
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "athanasius-incarnation",
+          "why": "Why the Word became flesh and rose.",
+          "section": "vii.ii.i"
+        },
+        {
+          "kind": "inapp",
+          "type": "library",
+          "id": "chesterton-everlasting-man",
+          "why": "Chesterton on the Man in the cave and the God in the cave.",
+          "section": "s9"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "id": "nelson-existed",
+      "title": "History Shows: Jesus Really Existed",
+      "creator": "Matt Nelson",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/on-historical-evidence-jesus-wins",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A short reply to the claim that Jesus never lived.",
+      "verified": "2026-11-09",
+      "minutes": 6,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "pitre-reliable",
+      "title": "Are the Gospels Reliable? The Case for Jesus",
+      "creator": "Dr. Brant Pitre (Catholic Productions)",
+      "kind": "talk",
+      "url": "https://www.youtube.com/watch?v=eJ1osU9nkJ4",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A Catholic Scripture scholar gives a clear first answer to the question.",
+      "verified": "2026-11-09",
+      "note": "Catholic Productions channel"
+    },
+    {
+      "id": "kreeft-resurrection",
+      "title": "Evidence for the Resurrection of Christ",
+      "creator": "Peter Kreeft and Ronald K. Tacelli",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics-more/resurrection-evidence.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "Weighs the main explanations of the empty tomb and the appearances one by one.",
+      "verified": "2026-11-09",
+      "minutes": 30,
+      "note": "From the Handbook of Christian Apologetics; free on Kreeft's site"
+    },
+    {
+      "id": "horn-resurrection",
+      "title": "Is Belief in the Resurrection Reasonable?",
+      "creator": "Trent Horn",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/print-edition/is-belief-in-the-resurrection-reasonable",
+      "free": true,
+      "level": 2,
+      "audience": "adult",
+      "why": "Tests the resurrection against three common standards for unusual claims.",
+      "verified": "2026-11-09",
+      "minutes": 10,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "kreeft-divinity",
+      "title": "The Divinity of Christ",
+      "creator": "Peter Kreeft",
+      "kind": "article",
+      "url": "https://peterkreeft.com/topics/christ-divinity.htm",
+      "free": true,
+      "level": 2,
+      "audience": "any",
+      "why": "A short case that Jesus claimed to be God and that this claim cannot be set aside lightly.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Catholic philosopher; free on his own site"
+    },
+    {
+      "id": "broussard-pagan",
+      "title": "Jesus' Resurrection Is Not a Pagan Myth",
+      "creator": "Karlo Broussard",
+      "kind": "article",
+      "url": "https://www.catholic.com/magazine/online-edition/why-jesus-resurrection-is-not-borrowed-from-pagan-myths",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Answers the claim that Christians borrowed the idea from dying-and-rising gods.",
+      "verified": "2026-11-09",
+      "minutes": 8,
+      "note": "Catholic Answers"
+    },
+    {
+      "id": "ehrman-blog",
+      "title": "My Book \"Did Jesus Exist?\" (an answer to the mythicists)",
+      "creator": "Bart Ehrman",
+      "kind": "article",
+      "url": "https://ehrmanblog.org/my-book-did-jesus-exist-an-answer-to-the-mythicists/",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A skeptical New Testament scholar explains why he thinks mythicism fails.",
+      "verified": "2026-11-09",
+      "minutes": 6,
+      "note": "By an agnostic scholar who does not accept the resurrection; hear the other side in his own words"
+    },
+    {
+      "id": "ehrman-douthat",
+      "title": "Did Jesus Rise From the Dead? A Debate with Bart Ehrman",
+      "creator": "Interesting Times with Ross Douthat (NYT)",
+      "kind": "debate",
+      "url": "https://www.youtube.com/watch?v=V7EwdZ0Z_gc",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A courteous exchange in which Ehrman states his view of the evidence.",
+      "verified": "2026-11-09",
+      "note": "Ehrman is an agnostic scholar; host is Catholic"
+    },
+    {
+      "id": "pitre-lectio",
+      "title": "Lectio: The Case for Jesus (playlist)",
+      "creator": "Dr. Brant Pitre (Augustine Institute)",
+      "kind": "series",
+      "url": "https://www.youtube.com/playlist?list=PLeqA2iQ3yGOb2htjinMnv42UxhQcy8oTZ",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A lecture series on who wrote the Gospels and how we know.",
+      "verified": "2026-11-09",
+      "note": "Augustine Institute channel; some further courses are on paid Formed"
+    },
+    {
+      "id": "tacitus",
+      "title": "Tacitus, Annals 15.44 (Perseus)",
+      "creator": "Tacitus",
+      "kind": "article",
+      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0078:book=15:chapter=44",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A Roman historian mentions Christ's execution under Pontius Pilate, with no Christian motive.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "Primary source; Latin with English translation options"
+    },
+    {
+      "id": "pliny",
+      "title": "Pliny to Trajan on the Christians (c. AD 112)",
+      "creator": "Pliny the Younger",
+      "kind": "article",
+      "url": "https://sourcebooks.fordham.edu/ancient/pliny-trajan1.asp",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "A Roman governor describes Christians worshipping Christ \"as to a god\" very early.",
+      "verified": "2026-11-09",
+      "minutes": 5,
+      "note": "Primary source on Fordham's Sourcebook"
+    },
+    {
+      "id": "dei-verbum",
+      "title": "Dei Verbum (Dogmatic Constitution on Divine Revelation)",
+      "creator": "Second Vatican Council",
+      "kind": "article",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html",
+      "free": true,
+      "level": 3,
+      "audience": "adult",
+      "why": "Paragraphs 18-19 state the Church's teaching on the historical character of the Gospels.",
+      "verified": "2026-11-09",
+      "note": "Council text, 1965"
+    },
+    {
+      "id": "pitre-book",
+      "title": "The Case for Jesus: The Biblical and Historical Evidence for Christ",
+      "creator": "Brant Pitre",
+      "kind": "book",
+      "url": "https://catholicproductions.com/collections/books/products/the-case-for-jesus-signed-by-dr-pitre",
+      "free": false,
+      "level": 4,
+      "audience": "adult",
+      "why": "The book behind the lectures, written for general readers.",
+      "verified": "2026-11-09",
+      "note": "Image Books; paid book, check your library"
+    },
+    {
+      "id": "bauckham",
+      "title": "Jesus and the Eyewitnesses (2nd ed.)",
+      "creator": "Richard Bauckham",
+      "kind": "book",
+      "url": "https://www.eerdmans.com/9780802874313/jesus-and-the-eyewitnesses/",
+      "free": false,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A leading scholar argues the Gospels rest on eyewitness memory.",
+      "verified": "2026-11-09",
+      "note": "By a Protestant scholar; paid book, check your library"
+    },
+    {
+      "id": "ehrman-bass",
+      "title": "Did Jesus Rise from the Dead? Bart Ehrman vs Justin Bass",
+      "creator": "Dr. Justin Bass",
+      "kind": "debate",
+      "url": "https://www.youtube.com/watch?v=zplesPGjT44",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A formal debate with both sides stating positions and cross-examining.",
+      "verified": "2026-11-09",
+      "note": "Bass is an evangelical Protestant scholar; Ehrman an agnostic"
+    },
+    {
+      "id": "licona-shapiro",
+      "title": "Debate: Larry Shapiro vs Mike Licona (Did Jesus Rise from the Dead?)",
+      "creator": "Mike Licona",
+      "kind": "debate",
+      "url": "https://www.youtube.com/watch?v=ZlDQF4cuDUw",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "A philosopher who doubts and a historian who argues for the resurrection trade evidence.",
+      "verified": "2026-11-09",
+      "note": "Licona is an evangelical Protestant; Shapiro is a skeptic"
+    },
+    {
+      "id": "pbc-1964",
+      "title": "Instruction on the Historical Truth of the Gospels (1964)",
+      "creator": "Pontifical Biblical Commission",
+      "kind": "article",
+      "url": "https://www.catholicculture.org/culture/library/view.cfm?id=1352",
+      "free": true,
+      "level": 4,
+      "audience": "advanced",
+      "why": "How the Church says the Gospels were formed in three stages.",
+      "verified": "2026-11-09",
+      "minutes": 15,
+      "note": "Document text hosted by Catholic Culture"
+    }
+  ]
+}

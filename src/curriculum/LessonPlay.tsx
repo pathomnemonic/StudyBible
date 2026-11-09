@@ -29,8 +29,8 @@ export default function LessonPlay({ grade, lesson, index, gl }: { grade: GradeD
   return (
     <section className="sect lesson-play no-print" aria-label="Play">
       <h2 className="eyebrow-h">Play it!</h2>
-      <div className="tabbar" role="tablist">
-        {([['myth', '🎭 Myth or truth'], ['quiz', '⚡ Challenge'], ['cards', '🃏 Word cards'], ['match', '🧩 Match up'], ['word', '🕯 Mystery word']] as [Tab, string][]).map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => setTab(k)}>{l}</button>)}
+      <div className="lp-games" role="tablist" aria-label="Choose a game">
+        {([['myth', '🎭', 'Myth or truth'], ['quiz', '⚡', 'Challenge'], ['cards', '🃏', 'Word cards'], ['match', '🧩', 'Match up'], ['word', '🕯', 'Mystery word']] as [Tab, string, string][]).map(([k, i, l]) => <button key={k} type="button" role="tab" aria-selected={tab === k} onClick={() => setTab(k)}><span className="lp-g-ico" aria-hidden="true">{i}</span><span>{l}</span></button>)}
       </div>
       {tab === 'myth' && <Myth key={lesson.id} all={all} />}
       {tab === 'quiz' && <Challenge key={lesson.id} all={all} grade={grade} index={index} />}
