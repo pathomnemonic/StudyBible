@@ -158,7 +158,8 @@ export const chainRoute = (type: string, id: string) => ROUTE_MODE[type] ? `${MO
 
 /* ------------------------------------------------------------- reverse index */
 /** InTracks: which tracks mention a chain, claim, heresy, lesson … . Keys look like "chain:real-presence". */
-const reverseKey = (type: string, id: string) => `${type === 'arguments' ? 'chain' : type}:${id}`;
+const TYPE_ALIAS: Record<string, string> = { arguments: 'chain', claims: 'claim', heresies: 'heresy' };
+const reverseKey = (type: string, id: string) => `${TYPE_ALIAS[type] ?? type}:${id}`;
 let revCache: Promise<Map<string, Track[]>> | null = null;
 export function tracksFor(type: string, id: string): Promise<Track[]> {
   revCache ??= loadTracks().then((ts) => {

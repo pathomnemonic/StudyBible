@@ -5,6 +5,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { useSettings } from '../../lib/store';
 import RelatedSources from '../../curriculum/RelatedSources';
+import InTracks from '../../components/apol/InTracks';
 import { getGlossary, getGrade, flatLessons, gradeLabel, progressId, toggleDone, vocabQuiz, reviewTerms, cccList, parseQuiz, type GradeData, type Glossary, type LessonSpec, type Question } from '../../curriculum/model';
 import { bandOf, FAMILY_DAYS, type Band } from '../../curriculum/pedagogy';
 import { activityName } from '../../curriculum/LessonSlides';
@@ -119,6 +120,7 @@ export default function CurriculumLesson() {
       </nav>
       <div className={`lesson-banner pillar-${pillarKey(lesson.unit.pillar)}`}><span className="pillar-ico" aria-hidden="true">{pillarIcon(lesson.unit.pillar)}</span><div><div className="pillar-name">{lesson.unit.pillar}</div><h1 style={{ margin: 0 }}>{lesson.title}</h1></div></div>
       <p className="muted small" style={{ marginTop: 0 }}>{gradeLabel(g.id)} · {g.theme} · Lesson {idx + 1} of {flat.length}{isLifeLesson(lesson.id) && <span className="key-badge"> ★ Life lesson (short on time)</span>}{isKeyLesson(g.id, lesson.id) && <span className="key-badge"> ★ Core lesson</span>}</p>
+      <InTracks type="lesson" id={lesson.id} />
 
       {liveOpen && <StartLive grade={g} lesson={lesson} slides={liveSlides()} onClose={() => setLiveOpen(false)} />}
       <div className="tabbar no-print" role="tablist" aria-label="View">

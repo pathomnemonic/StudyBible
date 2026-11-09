@@ -1,0 +1,1397 @@
+{
+ "_about": "Curated links from a topic's key passages to the app's own pages that discuss the topic. Verses are WEB-Catholic numbering. Read by scripts/launch/make-verse-links.ts; every item id is checked by tests/verselinks.test.ts.",
+ "hooks": [
+  {
+   "topic": "Slavery in the Old Testament",
+   "verses": [
+    "GEN.9.25",
+    "EXO.21.1-11",
+    "LEV.25.39-46",
+    "DEU.15.12-18",
+    "DEU.23.15-16"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "slavery-and-the-fathers"
+    },
+    {
+     "kind": "apologetics",
+     "id": "slavery-bible"
+    },
+    {
+     "kind": "lesson",
+     "id": "YA/YA-11-2"
+    }
+   ],
+   "why": "How Christians have read the Bible's laws on slavery, and what the Fathers said about it.",
+   "note": "These texts belong to the law of ancient Israel. Some limit slavery (release after six years, a runaway slave not to be returned). Some allow it, including of foreigners. Readers still argue about what they mean for us."
+  },
+  {
+   "topic": "Slavery in the New Testament",
+   "verses": [
+    "1CO.7.20-24",
+    "EPH.6.5-9",
+    "COL.3.22-4.1",
+    "PHM.1.1-25",
+    "1TI.1.10",
+    "GAL.3.28"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "slavery-and-the-fathers"
+    },
+    {
+     "kind": "apologetics",
+     "id": "slavery-bible"
+    },
+    {
+     "kind": "lesson",
+     "id": "YA/YA-11-2"
+    }
+   ],
+   "why": "How Christians have read what the apostles say to slaves and masters, and when the Church came to condemn slavery.",
+   "note": "The apostles write to slaves and to masters in a world where slavery was normal. They do not call for its abolition, and they say that in Christ master and slave are brothers. Philemon is the clearest case."
+  },
+  {
+   "topic": "Women in the Church",
+   "verses": [
+    "ROM.16.1-7",
+    "1CO.14.34-35",
+    "1TI.2.11-15",
+    "GAL.3.28",
+    "JHN.20.11-18"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "women-in-the-early-church"
+    },
+    {
+     "kind": "claim",
+     "id": "church-treats-women-lesser"
+    },
+    {
+     "kind": "apologetics",
+     "id": "women-in-church"
+    }
+   ],
+   "why": "What these passages say about women's place in the early Church, and how the Church has read them.",
+   "note": "Paul greets women as co-workers and a deacon (Phoebe), and in other places asks women to be silent in the assembly. Mary Magdalene is the first to see the risen Lord."
+  },
+  {
+   "topic": "Women and ordination",
+   "verses": [
+    "LUK.22.19",
+    "JHN.20.21-23",
+    "1TI.3.1-13",
+    "TIT.1.5-9",
+    "2TI.1.6"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "women-priests"
+    },
+    {
+     "kind": "argument",
+     "id": "apostolic-succession"
+    }
+   ],
+   "why": "Why the Church teaches that only men are ordained priests, and how other Christians disagree.",
+   "note": "These passages describe who Christ commissioned at the Last Supper and after the Resurrection, and the qualities of the early overseers."
+  },
+  {
+   "topic": "War and peace",
+   "verses": [
+    "MAT.5.38-48",
+    "ROM.13.1-7",
+    "LUK.22.36-38",
+    "JOS.6",
+    "DEU.20"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "war-and-peace"
+    },
+    {
+     "kind": "apologetics",
+     "id": "ot-violence"
+    },
+    {
+     "kind": "lesson",
+     "id": "12/12-3-3"
+    },
+    {
+     "kind": "lesson",
+     "id": "12/12-10-1"
+    },
+    {
+     "kind": "mentor",
+     "id": "war-and-violence-around-you"
+    }
+   ],
+   "why": "What Christians have taken from Scripture about war, the sword and peace.",
+   "note": "The Sermon on the Mount speaks of turning the other cheek. Romans 13 gives the ruler the sword. Israel's wars of conquest are in Joshua and Deuteronomy. The tradition holds these together in different ways."
+  },
+  {
+   "topic": "Wealth and poverty",
+   "verses": [
+    "MAT.19.16-30",
+    "LUK.16.19-31",
+    "ACT.2.44-45",
+    "ACT.4.32-37",
+    "1TI.6.6-19",
+    "JAS.5.1-6"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "wealth-and-poverty"
+    },
+    {
+     "kind": "apologetics",
+     "id": "social-justice-poor"
+    },
+    {
+     "kind": "apologetics",
+     "id": "tithing-and-money"
+    },
+    {
+     "kind": "lesson",
+     "id": "YA/YA-8-2"
+    },
+    {
+     "kind": "lesson",
+     "id": "11/11-8-2"
+    },
+    {
+     "kind": "mentor",
+     "id": "wealth-and-generosity"
+    },
+    {
+     "kind": "mentor",
+     "id": "poverty-and-need"
+    }
+   ],
+   "why": "What Scripture and the Church teach about riches, the poor and sharing.",
+   "note": "The rich young man, the rich man and Lazarus, the first Christians holding things in common, and James's warning to the rich are the passages most often cited."
+  },
+  {
+   "topic": "Tithing and giving",
+   "verses": [
+    "MAL.3.8-10",
+    "2CO.9.6-7",
+    "LUK.21.1-4"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "tithing-and-money"
+    }
+   ],
+   "why": "What the Bible says about tithes and gifts, and what the Church asks today."
+  },
+  {
+   "topic": "Lending at interest",
+   "verses": [
+    "EXO.22.25",
+    "LEV.25.35-37",
+    "DEU.23.19-20",
+    "PSA.15.5",
+    "LUK.6.34-35",
+    "EZK.18.8"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "usury-and-lending"
+    }
+   ],
+   "why": "Why the Church once forbade lending at interest, and how that teaching changed.",
+   "note": "The law forbids interest on loans to a poor fellow Israelite, and allows it with foreigners. The Fathers and councils applied this to Christians."
+  },
+  {
+   "topic": "Fasting",
+   "verses": [
+    "MAT.6.16-18",
+    "MAT.9.14-15",
+    "MAT.4.1-2",
+    "ACT.13.2-3",
+    "JOL.2.12-13",
+    "ISA.58.3-7"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "fasting-and-abstinence"
+    },
+    {
+     "kind": "apologetics",
+     "id": "fasting-lent"
+    },
+    {
+     "kind": "lesson",
+     "id": "7/7-4-3"
+    }
+   ],
+   "why": "Why Christians fast, and what the Church asks of Catholics."
+  },
+  {
+   "topic": "The Sign of the Cross",
+   "verses": [
+    "MAT.28.19",
+    "EZK.9.4-6",
+    "REV.7.2-3",
+    "REV.14.1",
+    "GAL.6.14"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "sign-of-the-cross"
+    },
+    {
+     "kind": "kids-question",
+     "id": "why-do-we-make-the-sign-of-the-cross"
+    },
+    {
+     "kind": "lesson",
+     "id": "K/K-7-3"
+    }
+   ],
+   "why": "The Church's reasons for making the Sign of the Cross, and the Bible passages people connect to it.",
+   "note": "The Bible does not describe the gesture. These are the passages about the name of the Trinity, and about a mark placed on the faithful."
+  },
+  {
+   "topic": "The Cross",
+   "verses": [
+    "ISA.53.4-6",
+    "MRK.8.34",
+    "1CO.1.18",
+    "GAL.6.14",
+    "PHP.2.8",
+    "COL.2.14"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "why-the-cross"
+    },
+    {
+     "kind": "apologetics",
+     "id": "atonement"
+    },
+    {
+     "kind": "lesson",
+     "id": "7/7-5-3"
+    },
+    {
+     "kind": "kids-question",
+     "id": "why-did-jesus-have-to-die"
+    }
+   ],
+   "why": "Why Jesus died on the cross, as Christians have understood it."
+  },
+  {
+   "topic": "Mary ever-virgin",
+   "verses": [
+    "MAT.1.25",
+    "MAT.13.55",
+    "MRK.6.3",
+    "LUK.1.34",
+    "JHN.19.25-27"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "mary-ever-virgin"
+    },
+    {
+     "kind": "apologetics",
+     "id": "perpetual-virginity"
+    },
+    {
+     "kind": "apologetics",
+     "id": "virgin-birth"
+    }
+   ],
+   "why": "The case for and against Mary's perpetual virginity, passage by passage.",
+   "note": "People cite these verses on both sides: the word 'until' in Matthew 1:25, the 'brothers' of Jesus, and Jesus giving his mother to John."
+  },
+  {
+   "topic": "Brothers of the Lord",
+   "verses": [
+    "MAT.12.46-50",
+    "MAT.27.56",
+    "MRK.15.40",
+    "JHN.7.5",
+    "ACT.1.14",
+    "1CO.9.5",
+    "GAL.1.19"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "brothers-of-the-lord"
+    },
+    {
+     "kind": "apologetics",
+     "id": "brothers-of-jesus"
+    }
+   ],
+   "why": "Who the 'brothers' and 'sisters' of Jesus were, according to the Church and other readers.",
+   "note": "The Greek word can mean a full brother, a half-brother or a relative. The lists of names and the women at the cross are what the argument turns on."
+  },
+  {
+   "topic": "The Assumption of Mary",
+   "verses": [
+    "REV.12",
+    "2KI.2.1-12",
+    "GEN.5.24",
+    "PSA.132.8",
+    "HEB.11.5",
+    "1CO.15.20-23"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "assumption-of-mary"
+    },
+    {
+     "kind": "development",
+     "id": "mary-development"
+    },
+    {
+     "kind": "apologetics",
+     "id": "assumption"
+    },
+    {
+     "kind": "lesson",
+     "id": "4/4-6-3"
+    }
+   ],
+   "why": "The Church's reasons for believing Mary was taken body and soul into heaven.",
+   "note": "No verse says so. The Church points to Enoch and Elijah taken up, to the ark of the covenant, and to the woman in Revelation 12."
+  },
+  {
+   "topic": "Mary as the new Eve and the Ark",
+   "verses": [
+    "GEN.3.15",
+    "LUK.1.39-45",
+    "2SA.6.9-11",
+    "REV.11.19",
+    "JHN.19.26"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "mary-new-eve-ark"
+    },
+    {
+     "kind": "apologetics",
+     "id": "mary-queen"
+    },
+    {
+     "kind": "argument",
+     "id": "theotokos"
+    }
+   ],
+   "why": "Why the Fathers read Mary as the new Eve and as the ark of the covenant."
+  },
+  {
+   "topic": "Mary, Mother of God",
+   "verses": [
+    "LUK.1.43",
+    "GAL.4.4",
+    "ISA.7.14",
+    "JHN.1.14"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "theotokos"
+    },
+    {
+     "kind": "words",
+     "id": "theotokos"
+    },
+    {
+     "kind": "heresy",
+     "id": "nestorianism"
+    },
+    {
+     "kind": "apologetics",
+     "id": "mary-mother-of-god"
+    },
+    {
+     "kind": "claim",
+     "id": "catholics-worship-mary"
+    }
+   ],
+   "why": "Why the Church calls Mary the Mother of God, and what the council of Ephesus decided."
+  },
+  {
+   "topic": "The Immaculate Conception",
+   "verses": [
+    "LUK.1.28",
+    "GEN.3.15",
+    "LUK.1.42"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "immaculate-conception"
+    },
+    {
+     "kind": "claim",
+     "id": "mary-sinless-romans-3-23"
+    },
+    {
+     "kind": "lesson",
+     "id": "4/4-6-1"
+    }
+   ],
+   "why": "What the Church teaches about Mary's freedom from sin, and the objection from Romans 3:23."
+  },
+  {
+   "topic": "Hail Mary and the Rosary",
+   "verses": [
+    "LUK.1.28",
+    "LUK.1.42",
+    "LUK.1.46-55"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "hail-mary-bible"
+    },
+    {
+     "kind": "apologetics",
+     "id": "rosary"
+    }
+   ],
+   "why": "Where the words of the Hail Mary come from in the Gospel of Luke."
+  },
+  {
+   "topic": "Anointing of the sick",
+   "verses": [
+    "JAS.5.14-15",
+    "MRK.6.13"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "anointing-of-the-sick"
+    },
+    {
+     "kind": "apologetics",
+     "id": "anointing-sick"
+    },
+    {
+     "kind": "lesson",
+     "id": "11/11-3-3"
+    },
+    {
+     "kind": "lesson",
+     "id": "5/5-5-3"
+    }
+   ],
+   "why": "The Church's sacrament for the sick, and the verses it rests on."
+  },
+  {
+   "topic": "Confirmation",
+   "verses": [
+    "ACT.8.14-17",
+    "ACT.19.1-7",
+    "HEB.6.2",
+    "ACT.2.38",
+    "2CO.1.21-22"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "confirmation"
+    },
+    {
+     "kind": "apologetics",
+     "id": "confirmation"
+    },
+    {
+     "kind": "lesson",
+     "id": "8/8-6-3"
+    },
+    {
+     "kind": "lesson",
+     "id": "5/5-2-2"
+    }
+   ],
+   "why": "What the Church teaches about Confirmation, and the passages about the laying on of hands."
+  },
+  {
+   "topic": "Hell",
+   "verses": [
+    "MAT.25.41-46",
+    "MRK.9.43-48",
+    "LUK.16.19-31",
+    "REV.20.10-15",
+    "2TH.1.9",
+    "MAT.10.28"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "hell"
+    },
+    {
+     "kind": "claim",
+     "id": "hell-medieval-scare-tactic"
+    },
+    {
+     "kind": "apologetics",
+     "id": "hell"
+    },
+    {
+     "kind": "lesson",
+     "id": "12/12-7-2"
+    },
+    {
+     "kind": "kids-question",
+     "id": "is-hell-real"
+    }
+   ],
+   "why": "What the Church teaches about hell, and what Jesus says."
+  },
+  {
+   "topic": "Purgatory and prayer for the dead",
+   "verses": [
+    "2MA.12.38-45",
+    "1CO.3.10-15",
+    "MAT.12.32",
+    "MAT.5.25-26"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "purgatory"
+    },
+    {
+     "kind": "development",
+     "id": "purgatory-development"
+    },
+    {
+     "kind": "claim",
+     "id": "purgatory-invented-to-make-money"
+    },
+    {
+     "kind": "apologetics",
+     "id": "purgatory"
+    },
+    {
+     "kind": "apologetics",
+     "id": "praying-for-the-dead"
+    },
+    {
+     "kind": "lesson",
+     "id": "YA/YA-14-3"
+    },
+    {
+     "kind": "lesson",
+     "id": "11/11-10-2"
+    }
+   ],
+   "why": "The passages the Church cites for purgatory, and how that belief developed.",
+   "note": "Second Maccabees is not in Protestant Bibles. The New Testament passages are read differently by Catholics and many Protestants."
+  },
+  {
+   "topic": "The canon of Scripture",
+   "verses": [
+    "2TI.3.16-17",
+    "LUK.24.44",
+    "HEB.11.35",
+    "JUD.1.14-15",
+    "2PE.3.15-16"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "canon-of-scripture"
+    },
+    {
+     "kind": "development",
+     "id": "canon-development"
+    },
+    {
+     "kind": "apologetics",
+     "id": "canon"
+    },
+    {
+     "kind": "claim",
+     "id": "catholics-add-books-to-the-bible"
+    }
+   ],
+   "why": "How the list of books in the Bible was settled, and why Catholic Bibles have more Old Testament books."
+  },
+  {
+   "topic": "Scripture and Tradition",
+   "verses": [
+    "2TH.2.15",
+    "2TI.2.2",
+    "1CO.11.2",
+    "JHN.21.25",
+    "2TI.3.14-17"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "tradition-and-scripture"
+    },
+    {
+     "kind": "apologetics",
+     "id": "sola-scriptura"
+    },
+    {
+     "kind": "claim",
+     "id": "catholics-dont-read-the-bible"
+    }
+   ],
+   "why": "What the Bible says about what is handed on beside it, and the Protestant reply."
+  },
+  {
+   "topic": "Peter and the papacy: the other side",
+   "verses": [
+    "GAL.2.11-14",
+    "ACT.15.6-21",
+    "1PE.5.1-3"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "papal-primacy"
+    },
+    {
+     "kind": "development",
+     "id": "papal-primacy-development"
+    },
+    {
+     "kind": "apologetics",
+     "id": "papacy"
+    },
+    {
+     "kind": "apologetics",
+     "id": "sinful-popes"
+    }
+   ],
+   "why": "Passages people raise when they ask how far Peter's authority went.",
+   "note": "Paul opposes Peter to his face in Antioch, and James seems to give the final word at the council of Jerusalem. Catholics and others read these differently."
+  },
+  {
+   "topic": "The Mass as sacrifice",
+   "verses": [
+    "MAL.1.11",
+    "HEB.13.10",
+    "1CO.10.16-21",
+    "GEN.14.18",
+    "PSA.110.4"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "eucharist-sacrifice"
+    },
+    {
+     "kind": "apologetics",
+     "id": "mass-sacrifice"
+    },
+    {
+     "kind": "apologetics",
+     "id": "mass-in-scripture"
+    }
+   ],
+   "why": "Why the Church calls the Mass a sacrifice, and how it relates to the one sacrifice of Calvary."
+  },
+  {
+   "topic": "The Real Presence",
+   "verses": [
+    "JHN.6.51-58",
+    "MAT.26.26-28",
+    "1CO.11.23-29",
+    "LUK.24.30-35"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "real-presence"
+    },
+    {
+     "kind": "development",
+     "id": "real-presence-development"
+    },
+    {
+     "kind": "claim",
+     "id": "eucharist-just-a-symbol"
+    },
+    {
+     "kind": "claim",
+     "id": "transubstantiation-magical-thinking"
+    },
+    {
+     "kind": "apologetics",
+     "id": "real-presence"
+    }
+   ],
+   "why": "The case that Christ is truly present in the Eucharist, with the strongest objections."
+  },
+  {
+   "topic": "Infant baptism",
+   "verses": [
+    "ACT.2.38-39",
+    "ACT.16.15",
+    "ACT.16.31-33",
+    "1CO.1.16",
+    "MRK.10.14",
+    "COL.2.11-12"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "infant-baptism"
+    },
+    {
+     "kind": "apologetics",
+     "id": "infant-baptism"
+    },
+    {
+     "kind": "development",
+     "id": "baptism-development"
+    }
+   ],
+   "why": "Why the Church baptizes infants, and why other Christians do not.",
+   "note": "The household baptisms in Acts do not say whether children were included. The Church points also to circumcision and to Jesus welcoming children."
+  },
+  {
+   "topic": "Baptism and salvation",
+   "verses": [
+    "JHN.3.5",
+    "ACT.2.38",
+    "1PE.3.21",
+    "TIT.3.5",
+    "ROM.6.3-4",
+    "MRK.16.16"
+   ],
+   "items": [
+    {
+     "kind": "claim",
+     "id": "saved-by-baptism-alone"
+    },
+    {
+     "kind": "apologetics",
+     "id": "baptismal-regeneration"
+    },
+    {
+     "kind": "apologetics",
+     "id": "baptism-immersion"
+    }
+   ],
+   "why": "What the Church teaches that Baptism does, and what it does not claim."
+  },
+  {
+   "topic": "Confession and forgiveness of sins",
+   "verses": [
+    "JHN.20.21-23",
+    "MAT.18.18",
+    "2CO.5.18-20",
+    "JAS.5.16",
+    "1JN.1.9"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "confession-absolution"
+    },
+    {
+     "kind": "claim",
+     "id": "priests-forgive-sins-instead-of-god"
+    },
+    {
+     "kind": "apologetics",
+     "id": "confession"
+    },
+    {
+     "kind": "development",
+     "id": "confession-development"
+    }
+   ],
+   "why": "Why Catholics confess to a priest, and what other Christians say about it."
+  },
+  {
+   "topic": "Faith and works",
+   "verses": [
+    "JAS.2.14-26",
+    "EPH.2.8-10",
+    "ROM.3.28",
+    "GAL.2.16",
+    "ROM.2.6-8"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "faith-and-works"
+    },
+    {
+     "kind": "claim",
+     "id": "catholics-believe-works-earn-salvation"
+    },
+    {
+     "kind": "apologetics",
+     "id": "faith-and-works"
+    },
+    {
+     "kind": "apologetics",
+     "id": "grace-and-merit"
+    }
+   ],
+   "why": "How Paul and James are read together, and what Catholics and Protestants each say."
+  },
+  {
+   "topic": "Grace, free will and predestination",
+   "verses": [
+    "ROM.8.28-30",
+    "ROM.9.10-24",
+    "EPH.1.4-5",
+    "PHP.2.12-13"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "grace-and-free-will"
+    },
+    {
+     "kind": "development",
+     "id": "grace-development"
+    },
+    {
+     "kind": "apologetics",
+     "id": "predestination"
+    }
+   ],
+   "why": "How the Church holds God's grace and human freedom together."
+  },
+  {
+   "topic": "Original sin",
+   "verses": [
+    "ROM.5.12-19",
+    "PSA.51.5",
+    "1CO.15.21-22",
+    "GEN.3.1-24"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "original-sin"
+    },
+    {
+     "kind": "development",
+     "id": "original-sin-development"
+    },
+    {
+     "kind": "apologetics",
+     "id": "original-sin"
+    }
+   ],
+   "why": "What the Church teaches about the first sin, and the passages it relies on."
+  },
+  {
+   "topic": "The saints pray for us",
+   "verses": [
+    "REV.5.8",
+    "REV.6.9-10",
+    "REV.8.3-4",
+    "HEB.12.1",
+    "LUK.20.38",
+    "JAS.5.16"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "intercession-of-saints"
+    },
+    {
+     "kind": "claim",
+     "id": "catholics-pray-to-the-dead"
+    },
+    {
+     "kind": "apologetics",
+     "id": "intercession-of-saints"
+    }
+   ],
+   "why": "Why Catholics ask the saints to pray for them, and the objection that it is forbidden."
+  },
+  {
+   "topic": "Images and statues",
+   "verses": [
+    "EXO.20.4-5",
+    "EXO.25.18-20",
+    "NUM.21.8-9",
+    "1KI.6.23-29"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "veneration-of-images"
+    },
+    {
+     "kind": "development",
+     "id": "icons-development"
+    },
+    {
+     "kind": "heresy",
+     "id": "iconoclasm"
+    },
+    {
+     "kind": "claim",
+     "id": "catholics-worship-statues"
+    },
+    {
+     "kind": "apologetics",
+     "id": "images"
+    }
+   ],
+   "why": "How the Church reconciles the second commandment with images in worship.",
+   "note": "Exodus forbids carved images for worship, and in the same book God commands images of cherubim for the tent. The council of Nicaea II set out the Church's distinction."
+  },
+  {
+   "topic": "The Trinity",
+   "verses": [
+    "DEU.6.4",
+    "GEN.1.26",
+    "GEN.18.1-3",
+    "MAT.3.16-17",
+    "2CO.13.14",
+    "1PE.1.2"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "trinity"
+    },
+    {
+     "kind": "development",
+     "id": "trinity-development"
+    },
+    {
+     "kind": "claim",
+     "id": "trinity-word-not-in-the-bible"
+    },
+    {
+     "kind": "apologetics",
+     "id": "trinity"
+    }
+   ],
+   "why": "How the Church found the Trinity in Scripture, and the word's history.",
+   "note": "The word 'Trinity' is not in the Bible. These are the verses on God's oneness and on Father, Son and Spirit together."
+  },
+  {
+   "topic": "The divinity of Christ",
+   "verses": [
+    "JHN.1.1-3",
+    "JHN.8.58",
+    "JHN.10.30",
+    "JHN.20.28",
+    "PHP.2.5-11",
+    "COL.2.9",
+    "TIT.2.13",
+    "HEB.1.8"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "divinity-of-christ"
+    },
+    {
+     "kind": "heresy",
+     "id": "arianism"
+    },
+    {
+     "kind": "claim",
+     "id": "constantine-invented-christ-divinity"
+    },
+    {
+     "kind": "apologetics",
+     "id": "divinity-of-christ"
+    }
+   ],
+   "why": "The evidence that the first Christians worshipped Jesus as God, and the heresies that denied it."
+  },
+  {
+   "topic": "Marriage, divorce and annulment",
+   "verses": [
+    "MAT.19.3-9",
+    "MRK.10.2-12",
+    "MAT.5.31-32",
+    "1CO.7.10-16",
+    "MAL.2.16"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "marriage-indissoluble"
+    },
+    {
+     "kind": "claim",
+     "id": "divorce-forbidden-annulment"
+    },
+    {
+     "kind": "apologetics",
+     "id": "marriage-divorce"
+    },
+    {
+     "kind": "mentor",
+     "id": "a-difficult-marriage-or-divorce"
+    }
+   ],
+   "why": "What Jesus teaches about divorce, and how the Church reads the 'exception' in Matthew."
+  },
+  {
+   "topic": "The dignity of unborn life",
+   "verses": [
+    "PSA.139.13-16",
+    "JER.1.5",
+    "LUK.1.41-44",
+    "EXO.20.13"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "sanctity-of-life"
+    },
+    {
+     "kind": "apologetics",
+     "id": "abortion"
+    },
+    {
+     "kind": "lesson",
+     "id": "10/10-9-1"
+    }
+   ],
+   "why": "The Scripture the Church draws on to teach that life is sacred from conception."
+  },
+  {
+   "topic": "The death penalty",
+   "verses": [
+    "GEN.9.5-6",
+    "EXO.21.12",
+    "ROM.13.4",
+    "JHN.8.1-11",
+    "MAT.5.38-39"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "death-penalty"
+    },
+    {
+     "kind": "lesson",
+     "id": "12/12-10-1"
+    }
+   ],
+   "why": "What the Bible says about capital punishment, and how the Church's teaching has changed in our time."
+  },
+  {
+   "topic": "Violence in the Old Testament",
+   "verses": [
+    "DEU.7.1-6",
+    "1SA.15.1-3",
+    "NUM.31.1-18",
+    "JOS.10.40"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "ot-violence"
+    },
+    {
+     "kind": "argument",
+     "id": "war-and-peace"
+    }
+   ],
+   "why": "How Christians have read the commands to destroy peoples in the Old Testament.",
+   "note": "These are among the hardest passages in the Bible. Some of the Fathers read them as a picture of the spiritual battle, and others admit them to be a difficulty."
+  },
+  {
+   "topic": "Priestly celibacy",
+   "verses": [
+    "MAT.19.10-12",
+    "1CO.7.1-9",
+    "1CO.7.32-35",
+    "1TI.3.2",
+    "MAT.8.14-15"
+   ],
+   "items": [
+    {
+     "kind": "claim",
+     "id": "celibacy-invented-middle-ages"
+    },
+    {
+     "kind": "apologetics",
+     "id": "celibacy"
+    }
+   ],
+   "why": "Why the Latin Church asks priests to be unmarried, and the passages on both sides.",
+   "note": "Paul commends celibacy; 1 Timothy 3:2 says an overseer should be the husband of one wife; Peter had a wife."
+  },
+  {
+   "topic": "Bishops, priests and deacons",
+   "verses": [
+    "ACT.14.23",
+    "PHP.1.1",
+    "1TI.4.14",
+    "TIT.1.5-9",
+    "ACT.20.17-28"
+   ],
+   "items": [
+    {
+     "kind": "argument",
+     "id": "bishops-and-unity"
+    },
+    {
+     "kind": "argument",
+     "id": "apostolic-succession"
+    },
+    {
+     "kind": "apologetics",
+     "id": "bishops-priests-deacons"
+    },
+    {
+     "kind": "claim",
+     "id": "early-christians-no-bishops-or-priests"
+    }
+   ],
+   "why": "How the offices of the Church appear in the New Testament and the early Fathers."
+  },
+  {
+   "topic": "Sunday and the Sabbath",
+   "verses": [
+    "EXO.20.8-11",
+    "MRK.2.23-28",
+    "ACT.20.7",
+    "1CO.16.2",
+    "REV.1.10",
+    "COL.2.16-17"
+   ],
+   "items": [
+    {
+     "kind": "claim",
+     "id": "sunday-worship-invented-by-the-church"
+    },
+    {
+     "kind": "apologetics",
+     "id": "sunday-sabbath"
+    },
+    {
+     "kind": "lesson",
+     "id": "YA/YA-L1"
+    }
+   ],
+   "why": "Why Christians worship on Sunday, and what became of the Sabbath."
+  },
+  {
+   "topic": "Salvation and other faiths",
+   "verses": [
+    "ACT.4.12",
+    "JHN.14.6",
+    "1TI.2.4-6",
+    "ROM.2.14-16",
+    "MAT.25.31-46"
+   ],
+   "items": [
+    {
+     "kind": "claim",
+     "id": "non-catholics-cannot-be-saved"
+    },
+    {
+     "kind": "apologetics",
+     "id": "salvation-outside-church"
+    },
+    {
+     "kind": "apologetics",
+     "id": "other-religions"
+    },
+    {
+     "kind": "lesson",
+     "id": "12/12-10-3"
+    }
+   ],
+   "why": "What the Church means by 'no salvation outside the Church'."
+  },
+  {
+   "topic": "Why people suffer",
+   "verses": [
+    "JHN.9.1-3",
+    "LUK.13.1-5",
+    "ROM.8.18",
+    "COL.1.24",
+    "JOB.1.1-2.10"
+   ],
+   "items": [
+    {
+     "kind": "claim",
+     "id": "suffering-is-gods-punishment"
+    },
+    {
+     "kind": "apologetics",
+     "id": "suffering"
+    },
+    {
+     "kind": "apologetics",
+     "id": "problem-of-evil"
+    },
+    {
+     "kind": "mentor",
+     "id": "serious-illness"
+    }
+   ],
+   "why": "What Jesus and the apostles say about the meaning of suffering."
+  },
+  {
+   "topic": "Creation and science",
+   "verses": [
+    "GEN.1.1-2.3",
+    "GEN.2.7",
+    "JOS.10.12-14",
+    "PSA.104.5"
+   ],
+   "items": [
+    {
+     "kind": "claim",
+     "id": "church-opposed-science-galileo"
+    },
+    {
+     "kind": "claim",
+     "id": "church-young-earth-rejects-evolution"
+    },
+    {
+     "kind": "apologetics",
+     "id": "galileo"
+    },
+    {
+     "kind": "apologetics",
+     "id": "genesis-literal"
+    }
+   ],
+   "why": "How the Church reads Genesis, and the verses cited in the Galileo case."
+  },
+  {
+   "topic": "Guardian angels",
+   "verses": [
+    "MAT.18.10",
+    "PSA.91.11-12",
+    "ACT.12.15",
+    "HEB.1.14"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "guardian-angels"
+    },
+    {
+     "kind": "kids-question",
+     "id": "do-i-have-a-guardian-angel"
+    },
+    {
+     "kind": "lesson",
+     "id": "1/1-5-3"
+    }
+   ],
+   "why": "What the Church teaches about angels who watch over us."
+  },
+  {
+   "topic": "Being born again, and assurance",
+   "verses": [
+    "JHN.3.3-7",
+    "ROM.8.38-39",
+    "1CO.9.27",
+    "HEB.6.4-6",
+    "PHP.2.12"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "born-again"
+    },
+    {
+     "kind": "apologetics",
+     "id": "once-saved"
+    }
+   ],
+   "why": "How Catholics answer the question 'are you saved?'."
+  },
+  {
+   "topic": "Calling priests 'Father'",
+   "verses": [
+    "MAT.23.8-10",
+    "1CO.4.15"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "call-no-man-father"
+    }
+   ],
+   "why": "Why Catholics call priests 'Father' when Jesus says to call no one father."
+  },
+  {
+   "topic": "The end times",
+   "verses": [
+    "MAT.24.40-41",
+    "1TH.4.16-17",
+    "REV.13",
+    "REV.20.1-6"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "rapture"
+    },
+    {
+     "kind": "apologetics",
+     "id": "revelation-beast"
+    }
+   ],
+   "why": "How the Church reads the passages on the Rapture and the Beast."
+  },
+  {
+   "topic": "Oaths",
+   "verses": [
+    "MAT.5.33-37",
+    "JAS.5.12",
+    "HEB.6.13-17"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "blasphemy-oaths"
+    }
+   ],
+   "why": "Whether Jesus forbids all oaths, and what the Church allows."
+  },
+  {
+   "topic": "Relics and blessed objects",
+   "verses": [
+    "ACT.19.11-12",
+    "2KI.13.20-21",
+    "LUK.8.43-48",
+    "ACT.5.15"
+   ],
+   "items": [
+    {
+     "kind": "apologetics",
+     "id": "relics-and-sacramentals"
+    }
+   ],
+   "why": "The Bible passages people cite for relics and sacramentals."
+  }
+ ]
+}

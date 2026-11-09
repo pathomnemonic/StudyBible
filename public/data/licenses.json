@@ -251,5 +251,11 @@
   "attribution": "OpenBible.info cross-references; Catena Aurea (Thomas Aquinas)",
   "redistribution": "yes",
   "notes": "Built by scripts/launch/make-readings-together.ts"
+ },
+ "verse-links": {
+  "license": "Derived from the app's own content (its chains, lessons, stories and tables) and a small hand-made list of topic links (src/data/verseHooks.json). Contains references, titles and one-line summaries only; no Bible text.",
+  "attribution": "None required",
+  "redistribution": "yes",
+  "notes": "Built by scripts/launch/make-verse-links.ts"
  }
 }

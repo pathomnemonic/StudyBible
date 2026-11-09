@@ -122,6 +122,7 @@ export default function ApologeticsPage() {
     <div className="page apo">
       <h1>Questions about the faith</h1>
       <p className="lede">Straight answers to the questions people ask, with the verses and Catechism paragraphs behind them.</p>
+      <p className="callout">Want to grow step by step? Try <Link to="/study/apologetics-tracks">Learn to answer</Link>: tracks on atheism, Protestant friends, Islam and more.</p>
       <input type="search" placeholder="Search the questions…" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Search questions" />
       {d.categories.map((c) => {
         const list = d.topics.filter((x) => x.category === c && match(x));

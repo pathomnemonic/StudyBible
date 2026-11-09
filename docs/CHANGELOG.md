@@ -126,3 +126,6 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 - Quick quiz now: one tap from a lesson opens a live room with 8 mixed questions; optional bonus questions from the Crown Quest bank.
 - Teacher dashboard at Teach: lessons taught, session averages, most-missed questions, who has not joined, and lessons to reteach.
 - Family week plan: children, a weekly grid, print and share as text.
+
+## Apologetics tracks
+- New: Learn to answer. Pick a question (atheism, Protestant friends, Islam, natural law and more) and grow through four levels, with checked free resources, sourced chains and practice cards.
