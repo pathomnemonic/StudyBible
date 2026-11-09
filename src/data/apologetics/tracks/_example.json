@@ -1,0 +1,192 @@
+{
+ "id": "example",
+ "title": "Example track",
+ "tagline": "A small sample used to develop the pages.",
+ "group": "faith-and-reason",
+ "audience": [
+  "adult",
+  "teen"
+ ],
+ "whyItMatters": "Sample only. It shows how a track looks.",
+ "mindset": [
+  {
+   "tip": "Ask questions before answering. (1 Peter 3:15-16)"
+  },
+  {
+   "tip": "Listen first and be kind.",
+   "resource": "usccb-site"
+  }
+ ],
+ "ccc": [
+  27,
+  28,
+  31
+ ],
+ "levels": [
+  {
+   "n": 1,
+   "title": "Foundations",
+   "goal": "Know what you believe and why it matters.",
+   "minutes": 60,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "ccc-index",
+     "why": "Start with what the Church actually teaches."
+    },
+    {
+     "kind": "inapp",
+     "type": "lesson",
+     "id": "YA-1-1",
+     "why": "A short adult lesson on the question of God."
+    },
+    {
+     "kind": "inapp",
+     "type": "term",
+     "id": "Grace",
+     "why": "A key word you will meet again."
+    },
+    {
+     "kind": "reflect",
+     "prompt": "Why does this question matter to you?"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "title": "Making the case",
+   "goal": "Give a clear reason.",
+   "minutes": 70,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "gutenberg-ortho",
+     "why": "A warm, clear case from a great writer."
+    },
+    {
+     "kind": "inapp",
+     "type": "chain",
+     "id": "trinity",
+     "why": "Follow the sources one step at a time."
+    },
+    {
+     "kind": "inapp",
+     "type": "library",
+     "id": "aug-tractates-john",
+     "why": "Read the Fathers for yourself."
+    },
+    {
+     "kind": "inapp",
+     "type": "ask",
+     "id": "What did the early Christians believe about God?",
+     "why": "Ask the Fathers directly."
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "title": "Objections and replies",
+   "goal": "Answer hard questions.",
+   "minutes": 60,
+   "steps": [
+    {
+     "kind": "drill",
+     "source": {
+      "type": "chain",
+      "id": "real-presence"
+     }
+    },
+    {
+     "kind": "inapp",
+     "type": "claim",
+     "id": "catholics-worship-mary",
+     "why": "See a common claim checked fairly."
+    },
+    {
+     "kind": "resource",
+     "id": "usccb-site",
+     "why": "Official statements on many questions."
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "title": "Going deeper",
+   "goal": "Read the sources.",
+   "minutes": 90,
+   "steps": [
+    {
+     "kind": "resource",
+     "id": "newadvent-summa",
+     "why": "The primary source for classical arguments."
+    },
+    {
+     "kind": "inapp",
+     "type": "apologetics",
+     "id": "trinity",
+     "why": "Questions Catholics are asked, with links."
+    },
+    {
+     "kind": "inapp",
+     "type": "heresy",
+     "id": "arianism",
+     "why": "See an old error at its strongest."
+    }
+   ]
+  }
+ ],
+ "resources": [
+  {
+   "id": "ccc-index",
+   "title": "Catechism of the Catholic Church",
+   "creator": "Holy See",
+   "kind": "site",
+   "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM",
+   "free": true,
+   "minutes": 20,
+   "level": 1,
+   "audience": "any",
+   "why": "The Church's own words, free online, to check any claim.",
+   "verified": "2026-11-09"
+  },
+  {
+   "id": "gutenberg-ortho",
+   "title": "Orthodoxy",
+   "creator": "G. K. Chesterton",
+   "kind": "book",
+   "url": "https://www.gutenberg.org/ebooks/130",
+   "free": true,
+   "minutes": 20,
+   "level": 2,
+   "audience": "any",
+   "why": "A classic, witty account of why the faith makes sense.",
+   "verified": "2026-11-09"
+  },
+  {
+   "id": "newadvent-summa",
+   "title": "Summa Theologiae",
+   "creator": "Thomas Aquinas",
+   "kind": "book",
+   "url": "https://www.newadvent.org/summa/",
+   "free": true,
+   "minutes": 20,
+   "level": 4,
+   "audience": "any",
+   "why": "The primary source for the famous five ways.",
+   "verified": "2026-11-09"
+  },
+  {
+   "id": "usccb-site",
+   "title": "United States Conference of Catholic Bishops",
+   "creator": "USCCB",
+   "kind": "site",
+   "url": "https://www.usccb.org/",
+   "free": true,
+   "minutes": 20,
+   "level": 3,
+   "audience": "any",
+   "why": "Official statements and resources on many questions.",
+   "verified": "2026-11-09"
+  }
+ ]
+}

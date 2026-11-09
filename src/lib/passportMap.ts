@@ -7,7 +7,7 @@ export type Kind =
   | 'argument' | 'heresy' | 'development' | 'claim' | 'word'
   | 'life' | 'mentor' | 'walk'
   | 'feast' | 'feastcard' | 'readings'
-  | 'game' | 'hub' | 'place';
+  | 'game' | 'hub' | 'place' | 'apologetics';
 
 export type Category = 'saints' | 'councils' | 'library' | 'arguments' | 'lives' | 'feasts' | 'games' | 'places';
 
@@ -28,12 +28,12 @@ export const CATEGORY_OF: Record<Kind, Category> = {
   saint: 'saints', council: 'councils', work: 'library', catechism: 'library', lesson: 'library',
   argument: 'arguments', heresy: 'arguments', development: 'arguments', claim: 'arguments', word: 'arguments',
   life: 'lives', mentor: 'lives', walk: 'lives', feast: 'feasts', feastcard: 'feasts', readings: 'feasts',
-  game: 'games', hub: 'places', place: 'places',
+  game: 'games', hub: 'places', place: 'places', apologetics: 'arguments',
 };
 
 export const KIND_ICON: Record<Kind, string> = {
   saint: '🕊️', council: '🏛️', work: '📜', catechism: '✝️', lesson: '🎓', argument: '⚖️', heresy: '🔥', development: '🌱', claim: '❓', word: '🔤',
-  life: '📖', mentor: '🤝', walk: '🥾', feast: '🕯️', feastcard: '🕯️', readings: '📜', game: '🎲', hub: '🧭', place: '📍',
+  life: '📖', mentor: '🤝', walk: '🥾', feast: '🕯️', feastcard: '🕯️', readings: '📜', game: '🎲', hub: '🧭', place: '📍', apologetics: '🛡️',
 };
 
 /** The games that have their own page, with the name shown on the stamp. */
