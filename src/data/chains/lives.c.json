@@ -1429,7 +1429,7 @@
    },
    {
     "year": 371,
-    "text": "The people of Tours demand him as bishop. He is consecrated on 3 July 371, against his own wish and that of some bishops who think him shabby.",
+    "text": "The people of Tours demand him as bishop. He is consecrated on 3 July 371, and Butler says he accepted it reluctantly.",
     "kind": "turning",
     "step": {
      "kind": "saint",
@@ -1503,7 +1503,7 @@
    },
    {
     "year": 397,
-    "text": "Martin knows his death is near and goes to settle a quarrel at Candes. He dies there. Sulpitius, writing to his mother-in-law, says Martin's face shone.",
+    "text": "Martin knows his death is near and sets out to visit the church at Condate (the name the text gives the place) and dies there. Sulpitius describes it in a letter to his mother-in-law.",
     "kind": "turning",
     "step": {
      "kind": "father",
@@ -1514,6 +1514,192 @@
      "section": "ii.iii.iii",
      "quote": "Martin was aware of the period of his own death long before it occurred",
      "note": "Butler gives 397 for his death."
+    }
+   }
+  ]
+ },
+ {
+  "id": "bede",
+  "name": "The Venerable Bede",
+  "lifespan": "673 – 735",
+  "butler": "05-28:3",
+  "sketch": "Bede was given to a monastery at seven and never really left it. In the twin houses of Wearmouth and Jarrow in Northumbria he read, taught and wrote: Scripture commentary, saints' lives, a work on time and the Church History of the English People. He is the only English Doctor of the Church.",
+  "events": [
+   {
+    "year": 597,
+    "text": "Augustine of Canterbury lands in Kent and begins the mission to the English, which Bede tells in Book 1 of his History.",
+    "kind": "world",
+    "step": {
+     "kind": "father",
+     "label": "Bede, Ecclesiastical History I.25",
+     "when": "597",
+     "year": 597,
+     "work": "bede-history",
+     "section": "s25",
+     "quote": "How Augustine, coming into Britain, first preached in the Isle",
+     "note": "The chapter heading carries the date 597."
+    }
+   },
+   {
+    "year": 664,
+    "text": "The Synod of Whitby settles the dispute over the date of Easter in the Northumbrian church in favour of the Roman reckoning. Bede tells the story in Book 3. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 673,
+    "text": "Bede is born in 673 in the lands that soon belong to the new monastery of Wearmouth, founded in 674.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Venerable Bede",
+     "when": "673",
+     "year": 673,
+     "butler": "05-28:3",
+     "quote": "was born in 673, as Mabillon demonstrates from his own writings",
+     "note": "Butler follows Mabillon for the year."
+    }
+   },
+   {
+    "year": 680,
+    "text": "At seven he is handed over by his kinsmen to Abbot Benedict Biscop to be educated, and later to Ceolfrid. The sister house of Jarrow is founded in 680.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Bede, Ecclesiastical History V.24",
+     "when": "680",
+     "year": 680,
+     "work": "bede-history",
+     "section": "s140",
+     "quote": "I was given, by the care of kinsmen, at seven years of age, to be educated by the most reverend Abbot Benedict",
+     "note": "The year follows from his birth year; Butler dates the founding of Jarrow to 680."
+    }
+   },
+   {
+    "year": 680,
+    "text": "He spends the rest of his life as a monk of Wearmouth and Jarrow, keeping the round of services and the learning.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Bede, Ecclesiastical History V.24",
+     "when": "680-735",
+     "year": 680,
+     "work": "bede-history",
+     "section": "s140",
+     "quote": "I always took delight in learning, or teaching, or writing",
+     "note": "He writes this in the last chapter of his History."
+    }
+   },
+   {
+    "year": 691,
+    "text": "He is ordained deacon at nineteen, a little early, because of his learning and holiness.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Venerable Bede",
+     "when": "691",
+     "year": 691,
+     "butler": "05-28:3",
+     "quote": "he was ordained deacon in 691, at nineteen years of age",
+     "note": "Bede himself says he was ordained deacon in his nineteenth year."
+    }
+   },
+   {
+    "year": 702,
+    "text": "At thirty he is ordained priest and begins his long series of commentaries compiled from the Fathers.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Venerable Bede",
+     "when": "702",
+     "year": 702,
+     "butler": "05-28:3",
+     "quote": "at thirty years of age, in 702, he was ordained priest",
+     "note": "Butler again follows Bede's own statement."
+    }
+   },
+   {
+    "year": 731,
+    "text": "In his fifty-ninth year he finishes the Ecclesiastical History and lists his own writings at the end of it.",
+    "kind": "writing",
+    "step": {
+     "kind": "father",
+     "label": "Bede, Ecclesiastical History V.24",
+     "when": "731",
+     "year": 731,
+     "work": "bede-history",
+     "section": "s140",
+     "quote": "From the time when I received priest's orders, till the fifty-ninth year of my age",
+     "note": "59 years from 673 is 731-732. This is the traditional date of completion."
+    }
+   },
+   {
+    "year": 734,
+    "text": "He writes a letter of advice to Egbert, his former pupil, on Egbert's becoming archbishop of York.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Venerable Bede",
+     "when": "734",
+     "year": 734,
+     "butler": "05-28:3",
+     "quote": "lived long enough to write him a letter of advice upon his advancement",
+     "note": "Butler dates Egbert's consecration to 734."
+    }
+   },
+   {
+    "year": 735,
+    "text": "Two weeks before Easter his breathing grows labored, but he stays cheerful, giving thanks day and night, and keeps teaching.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Venerable Bede",
+     "when": "735",
+     "year": 735,
+     "butler": "05-28:3",
+     "quote": "He began to be much troubled with a shortness of breath about two weeks before Easter, yet without pain",
+     "note": "This comes from the letter of his pupil Cuthbert, which Butler summarises."
+    }
+   },
+   {
+    "year": 735,
+    "text": "He keeps dictating a translation of the Gospel of John and of notes from Isidore, saying he will not leave his pupils a falsehood to read after his death.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Venerable Bede",
+     "when": "735",
+     "year": 735,
+     "butler": "05-28:3",
+     "quote": "I will not have my scholars read a falsehood after my death, and labor without advantage",
+     "note": "Cuthbert reports the words."
+    }
+   },
+   {
+    "year": 735,
+    "text": "Bede dies on 26 May 735, the eve of the Ascension, lying on the floor of his cell and praying the Holy Spirit.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Venerable Bede",
+     "when": "735",
+     "year": 735,
+     "butler": "05-28:3",
+     "quote": "Bede died in the year 735, of his age sixty-two",
+     "note": "Butler gives the date as the evening of Wednesday, 26 May 735."
+    }
+   },
+   {
+    "year": 1020,
+    "text": "In 1020 his remains are carried to Durham and laid in the shrine of St. Cuthbert.",
+    "kind": "world",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, Venerable Bede",
+     "when": "1020",
+     "year": 1020,
+     "butler": "05-28:3",
+     "quote": "In 1020 his sacred remains were conveyed to Durham",
+     "note": "Butler adds that they were later enclosed in a richer shrine in 1155."
     }
    }
   ]

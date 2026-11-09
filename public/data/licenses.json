@@ -239,5 +239,11 @@
   "attribution": "None required",
   "redistribution": "yes",
   "notes": "Built by scripts/play/build_words.py, build_verses.py and build_basemap.py. Only single words and references are kept, no running text."
+ },
+ "readings-together": {
+  "license": "Derived from public-domain and openly licensed sources: OpenBible.info cross-references (CC BY), the app's own quoted-in-the-NT notes, and the Catena Aurea (Aquinas, trans. Newman, 1840s; public domain). Lectionary citations only; reading text is shown from the reader's chosen translation.",
+  "attribution": "OpenBible.info cross-references; Catena Aurea (Thomas Aquinas)",
+  "redistribution": "yes",
+  "notes": "Built by scripts/launch/make-readings-together.ts"
  }
 }
