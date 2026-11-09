@@ -90,6 +90,8 @@ export function buildCcc(report: Report) {
     }
   }
   const all = [...paras.values()].sort((a, b) => a.n - b.n);
+  // the source sometimes lowercases the first word of a sentence ("... councils. the Council of ..."): restore the capital
+  for (const p of all) p.t = p.t.replace(/([A-Za-z]{4,}|[)”"’'\]])([.][”"’)]?)(\s+)([a-z])/g, (m, a, b, c, d) => (/^(cf|vol|chap|para|ibid|hom|serm)$/i.test(a) || (a === 'Comp' ) ? m : a + b + c + d.toUpperCase())).replace(/(^|\s)([1-9]\.)(\s+)([a-z])/g, (_m, a, b, c, d) => a + b + c + d.toUpperCase());
   const missing: number[] = [];
   for (let i = 1; i <= 2865; i++) if (!paras.has(i)) missing.push(i);
   if (missing.length) report.warn(`ccc: ${missing.length} paragraphs not found (first: ${missing.slice(0, 12).join(', ')})`);
