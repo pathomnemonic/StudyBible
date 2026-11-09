@@ -133,3 +133,11 @@ Changes to the **app** and changes to the **content** (data) are listed separate
 ## Fathers on the feast, and hymns
 - Each major feast card now has a short passage from the Fathers, checked against the library.
 - New Hymns and chants page: Latin hymns with named public-domain English translations, filtered by season.
+
+## Lessons as a journey, and a whimsical games room
+- Lessons now open as a short step-by-step journey with one part on screen at a time and a progress bar: adults and high school (Begin, Scripture, Teaching, Witness, Discuss, Practice, Pray and check), middle school the same with games in the practice step, elementary (Listen, Learn, Play, Talk, Do, Pray, Check) and primary (Story, Wonder, Play, Do, Pray, Check). "Whole lesson" brings back the long page.
+- Catechism paragraphs show their first two sentences with "Read all"; Scripture passages show the first eight verses with "Keep reading". Facilitator hooks ("Ask the group…") no longer appear for participants.
+- Word definitions: older readers see at most three words worth knowing, folded away, and the slides use one combined slide instead of one per word; common words are no longer defined.
+- The lesson games now sit in a chip grid that cannot overlap on phones.
+- Games on Learn is a direct link to the games room, with no expanding menu. The games room has a new playful look: letter-block title, a robot with tips, marquee-light hero, sticker cards, doodles, and a Surprise me dice.
+- Verse notes open with "Yours", then "Start here" (the 3 to 5 most relevant items), then grouped lists; "More in this app" links lessons, chains, stories and readings to the verses they discuss. Apologetics tracks (39 topics, 4 levels each) point to verified free resources and the app's own sourced content.
