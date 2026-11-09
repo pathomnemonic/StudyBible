@@ -257,5 +257,11 @@
   "attribution": "None required",
   "redistribution": "yes",
   "notes": "Built by scripts/launch/make-verse-links.ts"
+ },
+ "hymns": {
+  "license": "Public-domain Latin hymn texts and named pre-1929 English translations (Dryden, Neale, Caswall, Irons, Winkworth), transcribed from Wikisource (CC BY-SA transcriptions of public-domain works)",
+  "attribution": "Wikisource; Catholic Encyclopedia (1913) for background notes, paraphrased",
+  "redistribution": "yes",
+  "notes": "Each hymn records its source page and translator"
  }
 }
