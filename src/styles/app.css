@@ -6235,3 +6235,4 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .cur-qsum ul{margin:4px 0 8px;padding-left:18px}
 .lp-finish{margin:12px 0;padding:14px 16px;border-radius:16px;background:linear-gradient(135deg,color-mix(in srgb,var(--accent,#7a5c2e) 12%,transparent),transparent);border:1px solid color-mix(in srgb,var(--accent,#7a5c2e) 30%,transparent)}
 .lp-finish h3{margin:0 0 6px}.lp-finish ol{margin:4px 0 10px;padding-left:20px}
+@media print { html:has(.sl-handout), body:has(> .sl-handout) { background: #fff !important; transition: none !important; color-scheme: light !important; } }

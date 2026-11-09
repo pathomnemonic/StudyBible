@@ -249,7 +249,7 @@ function Handout({ slides, title }: { slides: Slide[]; title: string }) {
           <div className="sl-h-cols">
             {g.items.map((sl, n) => {
               const p = pics(sl);
-              const notes = sl.notes?.length ? sl.notes.join(' ') : '';
+              const notes = sl.notes?.length && ['wonder', 'do', 'meet', 'poll'].includes(sl.kind) ? sl.notes.join(' ') : '';
               return (
                 <div key={n} className={`sl-h-item k-${sl.kind}`}>
                   <h4>{sl.label}</h4>

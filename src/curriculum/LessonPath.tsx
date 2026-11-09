@@ -9,6 +9,7 @@ import { cccList } from './model';
 import { contentPoints } from './teachpoints';
 import { saveLessonProgress, clearLessonProgress } from './resume';
 import RelatedSources from './RelatedSources';
+import { TrackLinks, RelatedInApp } from './LessonLinks';
 
 type Lesson = LessonSpec & { unit: GradeData['units'][number] };
 interface Src { art?: { id: string; file: string; title: string; artist: string }[]; passages: { label: string; path: string; verses: { c: number; v: number; text: string }[] }[]; refIds: string[]; ccc: { n: number; t: string }[]; prayer?: { title: string; text: string } | null; story?: { id: string; title: string } | null }
@@ -113,6 +114,8 @@ export default function LessonPath(p: Props) {
         {!younger && <li><Link to="/study/ask-fathers">Ask the Fathers about this</Link></li>}
         {(band.id === 'middle' || band.id === 'high' || band.id === 'adult') && <RelatedSources ccc={cccNums} />}
       </ul>
+      {!younger && <TrackLinks lessonId={lesson.id} topics={(lesson.deeper ?? []).filter((d) => d.startsWith('apol:')).map((d) => d.slice(5))} />}
+      {!younger && <RelatedInApp refId={src.refIds[0]} />}
     </details>
   );
 

@@ -67,7 +67,7 @@ export default function TeachingOptions({ lesson, band, gl, minutes }: { lesson:
       <p className="muted small">{SETUPS.find(([s]) => s === setup)![2]}. Options that need more than this are hidden.</p>
 
       {menu.opening.length > 0 && <><h3>Open the lesson</h3><Chooser label="Opening options" options={menu.opening} sel={picks.open ?? 0} onSel={(i) => set('open', i)} setup={setup} /></>}
-      {menu.concepts.map((cm) => (
+      {menu.concepts.filter((cm) => cm.options.length > 0).map((cm) => (
         <div key={cm.n} className="to-idea">
           <h3>Idea {cm.n + 1}: <span className="to-gist">{cm.gist}</span></h3>
           <Chooser label={`Ways to teach idea ${cm.n + 1}`} options={cm.options} sel={picks[String(cm.n)] ?? 0} onSel={(i) => set(String(cm.n), i)} setup={setup} />

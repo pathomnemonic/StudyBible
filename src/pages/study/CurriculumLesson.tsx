@@ -60,6 +60,15 @@ function Quiz({ qs, onDone }: { qs: Question[]; onDone?: (score: number) => void
   );
 }
 
+function sendHome(lesson: { title: string; idea: string; question: string; scripture?: string; mem?: string; ccc?: string; life?: string }, g: { id: string }, prayer: { title: string; text: string } | null) {
+  const esc = (t: string) => t.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]!);
+  const w = window.open('', '_blank');
+  if (!w) return;
+  const pr = prayer ? `<h2>${esc(prayer.title)}</h2><p style="white-space:pre-line">${esc(prayer.text)}</p>` : '';
+  w.document.write(`<!doctype html><meta charset="utf-8"><title>${esc(lesson.title)}: note for home</title><style>body{font:16px/1.5 Georgia,serif;max-width:640px;margin:24px auto;padding:0 16px}h1{font-size:22px;margin:0 0 4px}h2{font-size:16px;margin:16px 0 4px;text-transform:uppercase;letter-spacing:.05em}.s{color:#555;font-size:13px}.b{border:1px solid #999;border-radius:8px;padding:8px 12px}</style><h1>${esc(lesson.title)}</h1><div class="s">A note for your family${lesson.scripture ? ' · Scripture: ' + esc(lesson.scripture) : ''}${lesson.ccc ? ' · Catechism ' + esc(String(lesson.ccc)) : ''}</div><h2>What we learned</h2><p>${esc(lesson.idea)}</p>${lesson.mem ? `<h2>Learn by heart</h2><div class="b">${esc(lesson.mem)}</div>` : ''}<h2>Talk about it at home</h2><p>${esc(lesson.question)}</p>${lesson.life ? `<h2>Live it this week</h2><p>${esc(lesson.life)}</p>` : ''}${pr}<script>setTimeout(function(){window.print()},300)<\/script>`);
+  w.document.close();
+}
+
 function speak(parts: string[], onEnd: () => void) {
   try {
     speechSynthesis.cancel();
@@ -244,6 +253,12 @@ export default function CurriculumLesson() {
           <section className="sect">
             <h2 className="eyebrow-h">Check for understanding</h2>
             <ul>{band.assess.map((a) => <li key={a}>{a}</li>)}<li>Ask: “{lesson.question}”</li></ul>
+            {quiz.length > 0 && <details className="lp-deeper"><summary>Answer key for the quiz</summary><ol>{quiz.map((q) => <li key={q.q}>{q.q} <strong>{q.options[q.answer]}</strong>{q.why ? <span className="muted small"> {q.why}</span> : null}</li>)}</ol></details>}
+          </section>
+          <section className="sect no-print" aria-label="Send home">
+            <h2 className="eyebrow-h">Send home</h2>
+            <p className="small muted">A half-page note for families: what we learned, one question to talk about, and a prayer.</p>
+            <button className="btn small" onClick={() => sendHome(lesson, g, src.prayer ?? null)}>🖨 Print the take-home note</button>
           </section>
           <section className="sect">
             <h2 className="eyebrow-h">Support and stretch</h2>
