@@ -1150,5 +1150,372 @@
     }
    }
   ]
+ },
+ {
+  "id": "ignatius-of-antioch",
+  "name": "Ignatius of Antioch",
+  "lifespan": "died c. 107 (some say c. 116)",
+  "sketch": "Ignatius was bishop of Antioch in Syria. We know almost nothing of his life before he was arrested and sent to Rome to die. His seven letters, written on the road, are among the earliest Christian writings after the New Testament. The year of his death is disputed (107 or 116), so every date here after 98 is approximate.",
+  "events": [
+   {
+    "year": 70,
+    "text": "The Romans destroy Jerusalem and the Temple. Antioch, where followers of Jesus were first called Christians, becomes a leading centre of the Church. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 70,
+    "text": "Ignatius becomes the second bishop of Antioch. Eusebius's Chronicle dates his episcopate from about 69-72, which the editor of the bundled text judges unreliable. All that is secure is that he held the see.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Eusebius, Church History III.36, editor's note",
+     "when": "uncertain",
+     "year": 70,
+     "work": "eusebius-history",
+     "section": "iii.viii",
+     "quote": "that Ignatius was second bishop of Antioch",
+     "note": "The note says this is the earliest report, and that nothing reliable is known about his life apart from his martyrdom."
+    }
+   },
+   {
+    "year": 98,
+    "text": "Trajan becomes emperor; the persecution under him is the setting for Ignatius's arrest.",
+    "kind": "world",
+    "step": {
+     "kind": "father",
+     "label": "Martyrdom of Ignatius",
+     "when": "98",
+     "year": 98,
+     "work": "ignatius-letters",
+     "section": "v.xxv",
+     "quote": "The date of Trajan's accession was a.d. 98.",
+     "note": "A note in the bundled text gives the date of the accession."
+    }
+   },
+   {
+    "year": 107,
+    "text": "Condemned for being a Christian, Ignatius is taken from Antioch to the port of Seleucia and shipped toward Rome under guard.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Martyrdom of Ignatius",
+     "when": "c. 107",
+     "year": 107,
+     "work": "ignatius-letters",
+     "section": "v.xxv",
+     "quote": "he came down from Antioch to Seleucia, from which place he set sail",
+     "note": "The notes say the date is either 107 or 116, depending on the reading of the emperor's regnal year. The account itself is of disputed date and authorship."
+    }
+   },
+   {
+    "year": 107,
+    "text": "At Smyrna he is welcomed by its bishop Polycarp, whom tradition says was his fellow-disciple of St. John.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Martyrdom of Ignatius",
+     "when": "c. 107",
+     "year": 107,
+     "work": "ignatius-letters",
+     "section": "v.xxv",
+     "quote": "hastened to see the holy Polycarp, [formerly] his fellow-disciple, and [now] bishop of Smyrna",
+     "note": "The Introductory Note calls the common discipleship under John a tradition not inconsistent with anything in the letters."
+    }
+   },
+   {
+    "year": 107,
+    "text": "Guarded by soldiers, he stops at cities along the way, encouraging each church, warning against false teaching and urging them to hold fast to the tradition of the apostles.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Eusebius, Church History III.36",
+     "when": "c. 107",
+     "year": 107,
+     "work": "eusebius-history",
+     "section": "iii.viii",
+     "quote": "he fortified the parishes in the various cities where he stopped by oral homilies and exhortations",
+     "note": "Eusebius is the earliest narrator after Polycarp and Irenaeus."
+    }
+   },
+   {
+    "year": 107,
+    "text": "From Smyrna he writes to the churches at Ephesus, Magnesia and Tralles, and to the Christians of Rome. Later, from Troas, he writes to Philadelphia, to Smyrna and to Polycarp.",
+    "kind": "writing",
+    "step": {
+     "kind": "father",
+     "label": "Eusebius, Church History III.36",
+     "when": "c. 107",
+     "year": 107,
+     "work": "eusebius-history",
+     "section": "iii.viii",
+     "quote": "So when he came to Smyrna, where Polycarp was, he wrote an epistle to the church of Ephesus",
+     "note": "The editor lists seven genuine letters in two groups, four from Smyrna and three from Troas."
+    }
+   },
+   {
+    "year": 107,
+    "text": "He begs the Roman Christians not to save him by influence. He asks to be allowed to die, comparing himself to wheat ground by the teeth of beasts.",
+    "kind": "writing",
+    "step": {
+     "kind": "father",
+     "label": "Ignatius, Letter to the Romans",
+     "when": "c. 107",
+     "year": 107,
+     "work": "ignatius-letters",
+     "section": "v.v",
+     "quote": "Suffer me to become food for the wild beasts, through whose instrumentality it will be granted me to attain to God.",
+     "note": "The same sentence appears in both the shorter and longer versions in the bundled text."
+    }
+   },
+   {
+    "year": 107,
+    "text": "He tells Polycarp to hold firm against teachers who seem trustworthy but teach strange doctrine.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Ignatius, Letter to Polycarp (Syriac)",
+     "when": "c. 107",
+     "year": 107,
+     "work": "ignatius-letters",
+     "section": "v.x",
+     "quote": "stand thou in the truth, as an athlete",
+     "note": "The Greek, as the bundled note says, has \"like an anvil\" here."
+    }
+   },
+   {
+    "year": 107,
+    "text": "He is brought into the amphitheatre at Rome and killed by wild beasts, according to the late account of his martyrdom, on 20 December. The eyewitness claim in that account is disputed.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Martyrdom of Ignatius",
+     "when": "c. 107",
+     "year": 107,
+     "work": "ignatius-letters",
+     "section": "v.xxv",
+     "quote": "Now these things took place on the thirteenth day before the Kalends of January, that is, on the twentieth of December",
+     "note": "The Introductory Note says no reference to this narrative is found in the first six centuries, so treat the details with caution. The Greeks still keep 20 December."
+    }
+   },
+   {
+    "year": 108,
+    "text": "Polycarp writes to the Philippians, holding up Ignatius and others as examples of patient endurance.",
+    "kind": "writing",
+    "step": {
+     "kind": "father",
+     "label": "Polycarp, Letter to the Philippians 9",
+     "when": "c. 108",
+     "year": 108,
+     "work": "polycarp",
+     "section": "iv.ii.ix",
+     "quote": "not only in the case of the blessed Ignatius, and Zosimus, and Rufus",
+     "note": "This letter is the earliest outside witness to Ignatius."
+    }
+   }
+  ]
+ },
+ {
+  "id": "martin-of-tours",
+  "name": "Martin of Tours",
+  "lifespan": "c. 316 – 397",
+  "butler": "11-11:0",
+  "sketch": "Martin was the son of a Roman army officer, a soldier who became a monk and then, against his will, bishop of Tours. His friend Sulpitius Severus wrote his life while he was still living, and Butler follows it. Several of the wonders told of him are legend-like; this timeline keeps to the events Sulpitius and Butler date or place in his life.",
+  "events": [
+   {
+    "year": 316,
+    "text": "Martin is born at Sabaria in Pannonia (modern Hungary), the son of a pagan army officer, and grows up in Pavia in Italy.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Martin of Tours",
+     "when": "c. 316",
+     "year": 316,
+     "butler": "11-11:0",
+     "quote": "St. Gregory of Tours places his birth in the year 316, or before Easter in 317, the eleventh of Constantine the Great.",
+     "note": "Butler gives the year as 316 or early 317."
+    }
+   },
+   {
+    "year": 331,
+    "text": "At fifteen he is forced by an imperial order to take the military oath and is enrolled in the cavalry, though he already wanted the monastic life.",
+    "kind": "setback",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Martin of Tours",
+     "when": "c. 331",
+     "year": 331,
+     "butler": "11-11:0",
+     "quote": "at fifteen years of age he was compelled to take the military oath, and was entered in the cavalry",
+     "note": "The year follows from his birth year; Butler does not give it."
+    }
+   },
+   {
+    "year": 335,
+    "text": "At the gate of Amiens in a hard winter, he cuts his cloak in two and gives half to a naked beggar. That night he sees Christ wearing the half-cloak.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Martin of Tours",
+     "when": "c. 335",
+     "year": 335,
+     "butler": "11-11:0",
+     "quote": "he met at the gate of the city of Amiens a poor man, almost naked, trembling and shaking for cold",
+     "note": "The year is an estimate. Sulpitius says he was baptized soon after."
+    }
+   },
+   {
+    "year": 356,
+    "text": "As the barbarians press into Gaul under Julian the Caesar, Martin asks to leave the army, saying he is a soldier of Christ.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Sulpitius Severus, Life of St. Martin 4",
+     "when": "c. 356",
+     "year": 356,
+     "work": "sulpitius-severus",
+     "section": "ii.ii.v",
+     "quote": "as the barbarians were rushing within the two divisions of Gaul, Julian Cæsar",
+     "note": "The chapter is cut short in the bundled text. The date is an estimate from Julian's command in Gaul."
+    }
+   },
+   {
+    "year": 357,
+    "text": "He joins Hilary, bishop of Poitiers, who wants to ordain him a deacon. Martin's humility refuses; he accepts only the minor order of exorcist.",
+    "kind": "work",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Martin of Tours",
+     "when": "c. 357",
+     "year": 357,
+     "butler": "11-11:0",
+     "quote": "was obliged to be content only to make him exorcist",
+     "note": "Butler says Hilary became bishop of Poitiers in 353 or 354."
+    }
+   },
+   {
+    "year": 358,
+    "text": "In Illyricum he opposes the Arians so strongly that he is publicly whipped and driven out of the city. Hilary himself is banished.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Sulpitius Severus, Life of St. Martin 6",
+     "when": "c. 358",
+     "year": 358,
+     "work": "sulpitius-severus",
+     "section": "ii.ii.vii",
+     "quote": "he was publicly scourged, and at last was compelled to leave the city",
+     "note": "The date is approximate. The same chapter tells how the devil said he would resist him wherever he went."
+    }
+   },
+   {
+    "year": 361,
+    "text": "Julian becomes sole emperor and tries to restore the old worship. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 361,
+    "text": "Reunited with Hilary, Martin founds a monastery a short distance from Poitiers, the first in Gaul.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Sulpitius Severus, Life of St. Martin 7",
+     "when": "c. 361",
+     "year": 361,
+     "work": "sulpitius-severus",
+     "section": "ii.ii.viii",
+     "quote": "he established for himself a monastery not far from the town",
+     "note": "The year is the usual estimate; Sulpitius does not give it."
+    }
+   },
+   {
+    "year": 371,
+    "text": "The people of Tours demand him as bishop. He is consecrated on 3 July 371, against his own wish and that of some bishops who think him shabby.",
+    "kind": "turning",
+    "step": {
+     "kind": "saint",
+     "label": "Butler, St. Martin of Tours",
+     "when": "371",
+     "year": 371,
+     "butler": "11-11:0",
+     "quote": "in the year 371 he was chosen the third bishop of Tours, and consecrated on the 3d of July",
+     "note": "Butler gives the date."
+    }
+   },
+   {
+    "year": 371,
+    "text": "As bishop he keeps the same humble habits and the same plain clothes, and builds a monastery two miles from the city so that he can keep the solitude of a hermit.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Sulpitius Severus, Life of St. Martin 10",
+     "when": "371",
+     "year": 371,
+     "work": "sulpitius-severus",
+     "section": "ii.ii.xi",
+     "quote": "he established a monastery for himself about two miles outside the city",
+     "note": "This is the monastery later called Marmoutier."
+    }
+   },
+   {
+    "year": 372,
+    "text": "He doubts a local shrine said to hold martyrs and asks the clergy for the martyr's name and date. When none can be given, he stops the veneration there.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Sulpitius Severus, Life of St. Martin 11",
+     "when": "c. 372",
+     "year": 372,
+     "work": "sulpitius-severus",
+     "section": "ii.ii.xii",
+     "quote": "Martin, not inclined to give a hasty belief to things uncertain",
+     "note": "The date is approximate; the story belongs to his early years as bishop."
+    }
+   },
+   {
+    "year": 375,
+    "text": "Tearing down temples in the countryside, he is attacked by a pagan with a sword. Martin bares his neck, and the man falls and begs pardon.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Sulpitius Severus, Life of St. Martin 15",
+     "when": "c. 375",
+     "year": 375,
+     "work": "sulpitius-severus",
+     "section": "ii.ii.xvi",
+     "quote": "Martin, throwing back his cloak, offered his bare neck to the assassin",
+     "note": "Sulpitius gives no year. The chapter is about his mission to the villages."
+    }
+   },
+   {
+    "year": 385,
+    "text": "He refuses to dine with the usurper Maximus, who had killed an emperor, and speaks to him as a bishop speaks to a king. Later he pleads against the execution of Priscillian and his followers.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Sulpitius Severus, Life of St. Martin 20",
+     "when": "c. 385",
+     "year": 385,
+     "work": "sulpitius-severus",
+     "section": "ii.ii.xxi",
+     "quote": "in Martin alone, apostolic authority continued to assert itself",
+     "note": "Dates for Maximus's reign are 383-388; the year here is an estimate."
+    }
+   },
+   {
+    "year": 397,
+    "text": "Martin knows his death is near and goes to settle a quarrel at Candes. He dies there. Sulpitius, writing to his mother-in-law, says Martin's face shone.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Sulpitius Severus, Letter 3 to Bassula",
+     "when": "397",
+     "year": 397,
+     "work": "sulpitius-severus",
+     "section": "ii.iii.iii",
+     "quote": "Martin was aware of the period of his own death long before it occurred",
+     "note": "Butler gives 397 for his death."
+    }
+   }
+  ]
  }
 ]

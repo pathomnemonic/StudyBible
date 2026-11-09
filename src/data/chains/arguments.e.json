@@ -1,0 +1,1659 @@
+[
+  {
+    "id": "assumption-of-mary",
+    "title": "The Assumption of Mary",
+    "question": "What does the Church teach about the end of Mary's earthly life, and what is the evidence for it?",
+    "summary": "The Church teaches that Mary, when the course of her earthly life was finished, was taken up body and soul into heavenly glory. No verse of Scripture records it, and a search of the library here finds no Father who describes it. The teaching rests on the Church's liturgy and on her definition of it in 1950, and it is fair to say plainly that the early written evidence is thin. Orthodox Christians keep the feast of the Dormition; most Protestants do not hold the belief.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Genesis 5:24",
+        "when": "c. 1400 BC",
+        "year": -1400,
+        "ref": "GEN.5.24",
+        "quote": "Enoch walked with God, and he was not found, for God took him.",
+        "note": "Scripture already knows that God can take a faithful person to himself without the usual end of life. This shows what is possible. It does not say anything about Mary."
+      },
+      {
+        "kind": "scripture",
+        "label": "2 Kings 2:11",
+        "when": "c. 850 BC",
+        "year": -850,
+        "ref": "2KI.2.11",
+        "quote": "Elijah went up by a whirlwind into heaven.",
+        "note": "A second case of being taken up. Catholics offer these as fitting parallels, not as proofs."
+      },
+      {
+        "kind": "scripture",
+        "label": "Revelation 12:1",
+        "when": "c. 95",
+        "year": 95,
+        "ref": "REV.12.1-6",
+        "quote": "A great sign was seen in heaven: a woman clothed with the sun, and the moon under her feet, and on her head a crown of twelve stars.",
+        "note": "The Church's liturgy applies this vision to Mary on the feast of the Assumption. Many interpreters read the woman first as Israel or the Church. The passage does not narrate Mary's death or taking up."
+      },
+      {
+        "kind": "scripture",
+        "label": "1 Corinthians 15:20-23",
+        "when": "c. 55",
+        "year": 55,
+        "ref": "1CO.15.20-23",
+        "quote": "But each in his own order: Christ the first fruits, then those who are Christ’s at his coming.",
+        "note": "Paul gives the order of the resurrection: Christ first, the rest at his coming. The Catholic claim is that Mary was brought into his resurrection ahead of the rest, as a unique exception. The text itself does not say so."
+      },
+      {
+        "kind": "writer",
+        "label": "Alphonsus Liguori, The Glories of Mary",
+        "when": "1750",
+        "year": 1750,
+        "work": "liguori-glories-of-mary",
+        "section": "s16",
+        "quote": "On this day the Church proposes to us to celebrate two solemn observances in honor of Mary: one, her happy departure from this earth; the other, her glorious assumption into heaven.",
+        "note": "Liguori shows how the feast was kept and loved in the Catholic West by the eighteenth century. He leans on devotional accounts, so this is witness to the feast, not independent proof of the event."
+      },
+      {
+        "kind": "magisterium",
+        "label": "Baltimore Catechism, Lesson 27",
+        "when": "1885",
+        "year": 1885,
+        "work": "baltimore-catechism",
+        "section": "s28",
+        "quote": "the Assumption of the Blessed Virgin--after death she was taken body and soul into heaven",
+        "note": "The classroom catechism used in the United States states the belief simply, as the fourth glorious mystery of the Rosary."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 966",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 966,
+        "quote": "was taken up body and soul into heavenly glory",
+        "note": "The Catechism quotes the 1950 definition and adds a line from the Byzantine liturgy about the Dormition, which shows the East and West keep the same feast."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 974",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 974,
+        "quote": "anticipating the resurrection of all members of his Body",
+        "note": "The Church ties the Assumption to the hope of every Christian: what happened to Mary first is promised to all who belong to Christ."
+      }
+    ],
+    "objections": [
+      {
+        "q": "The Bible never says it. How can the Church make it a dogma?",
+        "a": "It is true that no verse describes it. The Catholic answer is that revelation reached the Church through the apostles in Scripture and in living tradition, and that the Church may recognise a truth held in her worship before she defines it. Protestants who hold that only Scripture binds the conscience do not accept this reasoning, and for that reason do not accept the dogma. The chain on tradition and Scripture sets out the Catholic case for that principle.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 966",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 966,
+            "quote": "The Assumption of the Blessed Virgin is a singular participation in her Son's Resurrection",
+            "note": "The Catechism presents the Assumption as a consequence of Mary's place in Christ's resurrection, not as a freestanding fact."
+          }
+        ]
+      },
+      {
+        "q": "If it is so important, why do the early Fathers say nothing about it?",
+        "a": "This is the weakest point of the case, and it is better to say so. A search of this app's library finds no Father who describes Mary being taken up. Historians trace the first written accounts to the fifth and sixth centuries, and those accounts are not in the bundled texts. Catholics reply that the feast came first in worship and that a doctrine may be held before it is written about. Others reply that so late and so unsupported a belief should not be required of anyone. Both positions can be stated fairly; the sources here do not settle it."
+      },
+      {
+        "q": "Did Mary die first, or was she taken up without dying?",
+        "a": "The definition says \"when the course of her earthly life was finished\" and does not say whether she died. Many Catholic writers and the Eastern name \"Dormition\" (falling asleep) speak of a death. Liguori, writing in the West, says she died of love alone. The Church has left the question open.",
+        "steps": [
+          {
+            "kind": "writer",
+            "label": "Alphonsus Liguori, The Glories of Mary",
+            "when": "1750",
+            "year": 1750,
+            "work": "liguori-glories-of-mary",
+            "section": "s16",
+            "quote": "As divine love gave her life, so it gave her death",
+            "note": "Liguori reports the common devotional view that Mary died, and that love alone caused it. It is a pious tradition, not a definition."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      966,
+      974,
+      975,
+      2853
+    ]
+  },
+  {
+    "id": "mary-ever-virgin",
+    "title": "Mary, Ever-Virgin",
+    "question": "Did Mary remain a virgin all her life, or did she have other children after Jesus?",
+    "summary": "The Church confesses Mary as ever-virgin: a virgin when she conceived, a virgin in giving birth, and a virgin afterwards. Scripture does not state the last point in so many words, and the question turns on how to read \"until,\" \"firstborn,\" and \"brothers.\" The Fathers and the councils of the fourth to eighth centuries speak with one voice, though a few earlier writers are said to have held otherwise.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Luke 1:34",
+        "when": "c. 60",
+        "year": 60,
+        "ref": "LUK.1.34",
+        "quote": "How can this be, seeing I am a virgin?",
+        "note": "Mary's question is about the present. Augustine and others read it as showing she meant to stay a virgin; other readers see only a statement of her condition. The verse alone does not decide it."
+      },
+      {
+        "kind": "scripture",
+        "label": "Ezekiel 44:2",
+        "when": "c. 570 BC",
+        "year": -570,
+        "ref": "EZK.44.1-2",
+        "quote": "This gate shall be shut. It shall not be opened, no man shall enter in by it; for the LORD, the God of Israel, has entered in by it.",
+        "note": "Fathers and later writers read the closed gate as an image of Mary. It is a figure the Church uses, not a proof text."
+      },
+      {
+        "kind": "scripture",
+        "label": "Matthew 1:24-25",
+        "when": "c. 70",
+        "year": 70,
+        "ref": "MAT.1.24-25",
+        "quote": "didn’t know her sexually until she had given birth to her firstborn son",
+        "note": "The word \"until\" is the main objection. Jerome answers that it speaks only of what happened before the birth and does not say what came after."
+      },
+      {
+        "kind": "scripture",
+        "label": "John 19:26-27",
+        "when": "c. 90",
+        "year": 90,
+        "ref": "JHN.19.26-27",
+        "quote": "From that hour, the disciple took her to his own home.",
+        "note": "Jesus entrusts his mother to the beloved disciple from the cross. The Church has long read this as fitting for a woman with no other sons to care for her."
+      },
+      {
+        "kind": "father",
+        "label": "Jerome, Against Helvidius",
+        "when": "383",
+        "year": 383,
+        "work": "jerome-treatises",
+        "section": "vi.v",
+        "quote": "we do not believe, because we do not read it",
+        "note": "Jerome writes against Helvidius, who said Mary had other children. He is candid that his argument is about what Scripture does not say, and about what the Church holds."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, On the Creed",
+        "when": "c. 393",
+        "year": 393,
+        "work": "aug-doctrinal",
+        "section": "iv.vii.vi",
+        "quote": "A virgin conceived, a virgin bore, and after the birth was a virgin still.",
+        "note": "Augustine teaches it in a catechetical sermon as part of what is taught to those preparing for baptism."
+      },
+      {
+        "kind": "council",
+        "label": "Second Council of Constantinople, Capitula VI",
+        "when": "553",
+        "year": 553,
+        "work": "council-constantinople-2",
+        "section": "xii.vii",
+        "quote": "the holy, glorious, and ever-virgin Mary, the Mother of God",
+        "note": "The fifth ecumenical council uses \"ever-virgin\" as an ordinary title, which shows it was already settled usage."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 499",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 499,
+        "quote": "the liturgy of the Church celebrates Mary as Aeiparthenos, the \"Ever-virgin\"",
+        "note": "The Catechism gives the Greek title, which is also the title in the Eastern liturgies."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Matthew says Joseph \"did not know her until\" she gave birth. Doesn't that mean he did afterwards?",
+        "a": "The word can carry that sense in English, but it need not. Jerome pointed to ordinary speech: the word marks the limit of what the writer is telling, and says nothing about what follows. The same holds for \"firstborn\": Jerome notes that a firstborn is one who has had no one before him, and it does not require brothers to follow. Luke uses the title for the law of the firstborn, which applies on the day of birth.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Luke 2:22-23",
+            "when": "c. 60",
+            "year": 60,
+            "ref": "LUK.2.22-23",
+            "quote": "Every male who opens the womb shall be called holy to the Lord",
+            "note": "The law of the firstborn applied to the first male child at birth. The title does not depend on there being a second child."
+          },
+          {
+            "kind": "father",
+            "label": "Jerome, Against Helvidius",
+            "when": "383",
+            "year": 383,
+            "work": "jerome-treatises",
+            "section": "vi.v",
+            "quote": "By first-born we understand not only one who is succeeded by others, but one who has had no predecessor.",
+            "note": "Jerome's definition of \"firstborn\" answers the objection directly."
+          }
+        ]
+      },
+      {
+        "q": "Isn't this a late teaching that exalts virginity over marriage?",
+        "a": "Jerome says it does not. He argues that honouring Mary's virginity does not insult marriage, since virginity itself is the fruit of marriage. The Church holds marriage to be a sacrament. Whether the teaching is late is debated: the evidence in this library starts in the fourth century, and the editor of the bundled Jerome notes that Helvidius appealed to Tertullian and Victorinus for the other view.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Jerome, Against Helvidius",
+            "when": "383",
+            "year": 383,
+            "work": "jerome-treatises",
+            "section": "vi.v",
+            "quote": "Nor do we say this to condemn marriage, for virginity itself is the fruit of marriage",
+            "note": "Jerome says plainly that he is not attacking marriage."
+          },
+          {
+            "kind": "writer",
+            "label": "Introductory note to Against Helvidius",
+            "when": "19th c.",
+            "year": 1885,
+            "work": "jerome-treatises",
+            "section": "vi.v",
+            "quote": "he supported his opinion by the writings of Tertullian and Victorinus",
+            "note": "The translator reports that Helvidius cited Tertullian and Victorinus. This is a sign that the question was not closed everywhere before Jerome."
+          }
+        ]
+      },
+      {
+        "q": "Did the Reformers accept it?",
+        "a": "From settled history, not from the bundled texts: Martin Luther and Huldrych Zwingli taught Mary's perpetual virginity, and many Anglican and Lutheran writers followed them. Many Protestants today do not hold it, since they read the Gospels as naming Jesus' brothers and sisters. Orthodox and Catholic Christians hold it."
+      }
+    ],
+    "readNext": [
+      499,
+      500,
+      501,
+      510
+    ]
+  },
+  {
+    "id": "brothers-of-the-lord",
+    "title": "The \"Brothers of the Lord\"",
+    "question": "Who are the brothers and sisters of Jesus named in the Gospels?",
+    "summary": "The Gospels speak of James, Joses, Simon, and Judas as \"brothers\" of Jesus. Christians have given three answers: full brothers (born to Mary after Jesus), half-brothers (sons of Joseph from an earlier marriage), or close relatives such as cousins. The Catholic Church requires only that they are not Mary's children, and Jerome made the case for the cousin reading. The words alone do not settle the matter, and honest readers differ.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Matthew 13:55-56",
+        "when": "c. 70",
+        "year": 70,
+        "ref": "MAT.13.55-56",
+        "quote": "Isn’t his mother called Mary, and his brothers James, Joses, Simon, and Judas?",
+        "note": "The townspeople of Nazareth name four brothers and mention sisters. This is the text behind the question."
+      },
+      {
+        "kind": "scripture",
+        "label": "Matthew 27:55-56",
+        "when": "c. 70",
+        "year": 70,
+        "ref": "MAT.27.55-56",
+        "quote": "Mary the mother of James and Joses",
+        "note": "At the cross Matthew names a Mary who is the mother of James and Joses. These two names match two of the \"brothers.\""
+      },
+      {
+        "kind": "scripture",
+        "label": "Mark 15:40",
+        "when": "c. 65",
+        "year": 65,
+        "ref": "MRK.15.40",
+        "quote": "Mary the mother of James the less and of Joses",
+        "note": "Mark gives the same woman. If these are the same James and Joses as in Matthew 13:55, their mother is not Mary the mother of Jesus."
+      },
+      {
+        "kind": "scripture",
+        "label": "John 19:25",
+        "when": "c. 90",
+        "year": 90,
+        "ref": "JHN.19.25",
+        "quote": "his mother’s sister, Mary the wife of Clopas",
+        "note": "John lists the women at the cross. The reading of this verse is disputed: it may name two women or three. It is used in the Catholic case that the other Mary was a relative."
+      },
+      {
+        "kind": "scripture",
+        "label": "Genesis 13:8",
+        "when": "c. 1900 BC",
+        "year": -1900,
+        "ref": "GEN.13.8",
+        "quote": "we are relatives",
+        "note": "Abram says this to Lot, who was his nephew. The Hebrew word for \"brothers\" could be used for kin more widely than the English \"brother,\" and this translation renders it \"relatives.\""
+      },
+      {
+        "kind": "father",
+        "label": "Jerome, Against Helvidius",
+        "when": "383",
+        "year": 383,
+        "work": "jerome-treatises",
+        "section": "vi.v",
+        "quote": "In Holy Scripture there are four kinds of brethren—by nature, race, kindred, love.",
+        "note": "Jerome lists the senses of \"brother\" in Scripture and argues that \"brother of the Lord\" belongs to kindred."
+      },
+      {
+        "kind": "scripture",
+        "label": "Galatians 1:19",
+        "when": "c. 55",
+        "year": 55,
+        "ref": "GAL.1.19",
+        "quote": "But of the other apostles I saw no one except James, the Lord’s brother.",
+        "note": "Paul names James, a leader of the Jerusalem church, as the Lord's brother. Catholic tradition identifies him as one of the apostles named James."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 500",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 500,
+        "quote": "They are close relations of Jesus, according to an Old Testament expression.",
+        "note": "The Catechism states what the Church requires: that these are not other children of the Virgin Mary."
+      }
+    ],
+    "objections": [
+      {
+        "q": "The Greek word is \"brother.\" If Matthew meant cousins, he would have said cousins.",
+        "a": "This is the strongest objection to the cousin reading. Greek had a word for cousin, and Colossians uses it for Mark and Barnabas. Defenders reply that the Gospels' Greek is shaped by Hebrew and Aramaic speech, which had no separate word for cousin, and that the Greek Old Testament also uses \"brother\" for kin. That last point is from settled history and is not checked here. A reader who weighs only the Greek will lean the other way.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Colossians 4:10",
+            "when": "c. 62",
+            "year": 62,
+            "ref": "COL.4.10",
+            "quote": "Mark the cousin of Barnabas",
+            "note": "Paul uses a different word when he means cousin. Those who take the brothers as full brothers use this verse."
+          }
+        ]
+      },
+      {
+        "q": "If they were not Mary's sons, whose sons were they?",
+        "a": "Two answers have been given in the Church. Jerome argued they were sons of Mary the wife of Clopas, so cousins. In the East, writers such as Epiphanius held that they were sons of Joseph by an earlier marriage; from settled history, this is the older Eastern view and the one most Orthodox Christians hold. Jerome rejects the second answer, calling it a rash invention. Catholic teaching does not require either: it requires only that they were not sons of Mary.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Jerome, Against Helvidius",
+            "when": "383",
+            "year": 383,
+            "work": "jerome-treatises",
+            "section": "vi.v",
+            "quote": "an invention which some hold with a rashness which springs from audacity not from piety",
+            "note": "Jerome says it plainly: he does not accept the view that Joseph had other wives."
+          }
+        ]
+      },
+      {
+        "q": "Why did these brothers not believe in Jesus, if they grew up with the Virgin Mary?",
+        "a": "John records that his brothers did not believe in him. Both sides use it. It shows the brothers did not believe during the ministry, and it does not say whose sons they were. The Gospels also show that James later led the Jerusalem church, so he came to faith.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "John 7:5",
+            "when": "c. 90",
+            "year": 90,
+            "ref": "JHN.7.5",
+            "quote": "For even his brothers didn’t believe in him.",
+            "note": "The verse records the brothers' unbelief during Jesus' ministry."
+          },
+          {
+            "kind": "scripture",
+            "label": "Acts 1:14",
+            "when": "c. 62",
+            "year": 62,
+            "ref": "ACT.1.14",
+            "quote": "Mary the mother of Jesus, and with his brothers",
+            "note": "After the resurrection the brothers are in the upper room with Mary and the apostles."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      499,
+      500,
+      501
+    ]
+  },
+  {
+    "id": "anointing-of-the-sick",
+    "title": "Anointing of the Sick",
+    "question": "Is anointing the sick with oil a sacrament, and where does it come from?",
+    "summary": "James tells the sick to call the elders of the church, who pray over them and anoint them with oil, and promises that the prayer will save the sick and forgive sins. The Catholic and Orthodox Churches hold this to be a sacrament; Trent says it was hinted at in Mark and promulgated by James. Over the centuries it was given more and more to the dying, and the Church renewed it as a sacrament for anyone seriously ill. Many Protestants read James as describing a healing ministry, not a sacrament.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Mark 6:12-13",
+        "when": "c. 65",
+        "year": 65,
+        "ref": "MRK.6.12-13",
+        "quote": "anointed many with oil who were sick and healed them",
+        "note": "The Twelve, sent out by Jesus, anoint the sick with oil and heal. Trent reads this as an early sign of the sacrament."
+      },
+      {
+        "kind": "scripture",
+        "label": "James 5:13-16",
+        "when": "c. 60",
+        "year": 60,
+        "ref": "JAS.5.13-16",
+        "quote": "Is any among you sick? Let him call for the elders of the assembly, and let them pray over him, anointing him with oil in the name of the Lord",
+        "note": "This is the central text. It names the minister (the elders), the sign (oil), the prayer, and the promise (healing and forgiveness)."
+      },
+      {
+        "kind": "father",
+        "label": "John Chrysostom, On the Priesthood 3",
+        "when": "c. 390",
+        "year": 390,
+        "work": "chrys-minor",
+        "section": "iv.v",
+        "quote": "For not only at the time of regeneration, but afterwards also, they have authority to forgive sins.",
+        "note": "Chrysostom cites James 5 as proof that priests act for the forgiveness of the sick, which shows the verse was read this way in the fourth century."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Trent, Session 14, on Extreme Unction",
+        "when": "1551",
+        "year": 1551,
+        "work": "trent-canons-decrees",
+        "section": "s14",
+        "quote": "insinuated indeed in Mark, but recommended and promulgated to the faithful by James the Apostle",
+        "note": "Trent teaches that Christ instituted the anointing and that James made it known."
+      },
+      {
+        "kind": "magisterium",
+        "label": "Catechism of the Council of Trent",
+        "when": "1566",
+        "year": 1566,
+        "work": "roman-catechism",
+        "section": "s19",
+        "quote": "James has promulgated the law of this sacrament",
+        "note": "The Roman Catechism, written for parish priests, lays out the same reading with the text of James."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 1512",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 1512,
+        "quote": "Over the centuries the Anointing of the Sick was conferred more and more exclusively on those at the point of death.",
+        "note": "The Catechism admits that the practice narrowed to the deathbed, which is why it was called Extreme Unction."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 1520",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 1520,
+        "quote": "the temptation to discouragement and anguish in the face of death",
+        "note": "The grace of the sacrament is strength and peace, and healing of soul and body if God wills."
+      }
+    ],
+    "objections": [
+      {
+        "q": "James describes prayer for healing, not a sacrament for the dying.",
+        "a": "The text does speak of healing. It also names forgiveness of sins, a set of ministers, and a ritual sign, and the Catholic and Orthodox Churches read these as marks of a sacrament. Many Protestants read it as a ministry of prayer and healing without a sacramental rite. A search of the bundled library finds no father before the fourth century who comments on the practice; earlier witnesses (such as Pope Innocent I's letter) are not in the bundle, so this chain cannot show a continuous early line from its own sources."
+      },
+      {
+        "q": "Why was it kept for the dying?",
+        "a": "The Catechism says plainly that it became so, and gives the old name \"Extreme Unction\" for that reason. After Vatican II the Roman Rite taught that it may be received by anyone seriously ill or frail from age. The Orthodox, who call it Holy Unction, give it to the sick more widely and often at set times.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 1513",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 1513,
+            "quote": "The sacrament of Anointing of the Sick is given to those who are seriously ill",
+            "note": "The renewed rite states who may receive it."
+          }
+        ]
+      },
+      {
+        "q": "Does anointing promise a cure? What if the person does not recover?",
+        "a": "The Catechism says the grace is first strength, peace, and courage, then healing of the soul, and of the body only \"if God wills.\" The Church does not teach that the sacrament forces a cure.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 1520",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 1520,
+            "quote": "healing of the soul, but also of the body if such is God's will",
+            "note": "Healing of the body is a possible fruit, not a guarantee."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      1499,
+      1510,
+      1511,
+      1520,
+      1524
+    ]
+  },
+  {
+    "id": "confirmation",
+    "title": "Confirmation and Chrismation",
+    "question": "What is Confirmation, and is it found in the early Church?",
+    "summary": "In Acts the apostles lay hands on the baptised, and the Holy Spirit comes. The early Fathers speak of anointing with oil and the laying on of hands after baptism, and call it the seal. The West separated it from baptism and kept it for the bishop; the East gives it with baptism through the priest. Trent teaches that it is a true sacrament. Many Protestants treat it as a rite of ratifying baptismal faith.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Acts 8:14-17",
+        "when": "c. 62",
+        "year": 62,
+        "ref": "ACT.8.14-17",
+        "quote": "Then they laid their hands on them, and they received the Holy Spirit.",
+        "note": "Samaria had been baptised, but the apostles Peter and John came and laid hands on them. The Church reads this as the apostolic origin of Confirmation."
+      },
+      {
+        "kind": "scripture",
+        "label": "Acts 19:5-6",
+        "when": "c. 62",
+        "year": 62,
+        "ref": "ACT.19.5-6",
+        "quote": "When Paul had laid his hands on them, the Holy Spirit came on them",
+        "note": "At Ephesus the same pattern: baptism in the name of Jesus, then the laying on of hands."
+      },
+      {
+        "kind": "scripture",
+        "label": "2 Corinthians 1:21-22",
+        "when": "c. 55",
+        "year": 55,
+        "ref": "2CO.1.21-22",
+        "quote": "who also sealed us and gave us the down payment of the Spirit in our hearts",
+        "note": "Paul speaks of being anointed and sealed. Later writers use these words for the chrism."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, On Baptism 8",
+        "when": "c. 200",
+        "year": 200,
+        "work": "tertullian-ethical",
+        "section": "vi.iii.viii",
+        "quote": "In the next place the hand is laid on us, invoking and inviting the Holy Spirit through benediction.",
+        "note": "Tertullian describes a distinct step after the washing: the laying on of hands, to invite the Spirit."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, On the Resurrection of the Flesh 8",
+        "when": "c. 210",
+        "year": 210,
+        "work": "tertullian-marcion",
+        "section": "v.viii",
+        "quote": "the flesh is shadowed with the imposition of hands, that the soul also maybe illuminated by the Spirit",
+        "note": "Tertullian lists the sacramental acts in order, with the laying on of hands as one of them."
+      },
+      {
+        "kind": "father",
+        "label": "Cyprian, Letter 72 to Jubaianus",
+        "when": "c. 255",
+        "year": 255,
+        "work": "cyprian",
+        "section": "iv.iv.lxxii",
+        "quote": "by our prayers and by the imposition of hands obtain the Holy Spirit, and are perfected with the Lord’s seal",
+        "note": "Cyprian says the practice of his own church matches what Peter and John did in Samaria."
+      },
+      {
+        "kind": "father",
+        "label": "Cyril of Jerusalem, Mystagogical Catechesis 3",
+        "when": "c. 350",
+        "year": 350,
+        "work": "cyril-catecheses",
+        "section": "ii.xxv",
+        "quote": "Having been counted worthy of this Holy Chrism, ye are called Christians",
+        "note": "Cyril teaches the newly baptised about the chrism. The East keeps this form: anointing with chrism straight after baptism."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Trent, Session 7, on Confirmation",
+        "when": "1547",
+        "year": 1547,
+        "work": "trent-canons-decrees",
+        "section": "s7",
+        "quote": "If anyone saith that the confirmation of those who have been baptised is an idle ceremony, and not rather a true and proper sacrament",
+        "note": "Trent condemns the view that Confirmation is only a ceremony. This is the Catholic position stated formally."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Acts speaks only of laying on of hands. Where is the oil?",
+        "a": "The oil does not appear in Acts 8. Tertullian and Cyprian treat anointing and the laying on of hands as parts of one sequence in the third century, and Cyril in the fourth. The Catechism says oil was added \"very early\" to show the gift of the Spirit. Catholics hold that the Church may fix the sign. Others hold that a rite not named in Scripture binds no one.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 1289",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 1289,
+            "quote": "Very early, the better to signify the gift of the Holy Spirit, an anointing with perfumed oil (chrism) was added to the laying on of hands.",
+            "note": "The Catechism says the oil was added early, and the East still calls the sacrament Chrismation."
+          }
+        ]
+      },
+      {
+        "q": "Why is it received later in the West, but with baptism in the East?",
+        "a": "The Roman custom was a double anointing: the priest anointed at baptism and the bishop completed it on the forehead. From settled history: as baptism of infants spread and bishops could not attend every one, the West kept the bishop's act and delayed it. The East let the priest do the anointing at once, with chrism blessed by the bishop. Both traditions regard it as the same sacrament.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 1291",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 1291,
+            "quote": "it was completed by a second anointing on the forehead of the newly baptized by the bishop",
+            "note": "The Catechism describes the Roman double anointing."
+          }
+        ]
+      },
+      {
+        "q": "Is it only a public affirmation of faith?",
+        "a": "Many Protestant churches practise it that way and call it confirmation of baptismal vows. Trent specifically condemns this reading as the whole of it. The Catholic position is that the grace is a strengthening by the Spirit, and that the rite conveys it.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 1294",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 1294,
+            "quote": "By Confirmation Christians, that is, those who are anointed, share more completely in the mission of Jesus Christ",
+            "note": "The Catechism states what the sacrament is for."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      1285,
+      1286,
+      1288,
+      1289,
+      1294,
+      1302
+    ]
+  },
+  {
+    "id": "wealth-and-poverty",
+    "title": "Riches and the Poor",
+    "question": "What do Scripture and the Fathers say about wealth, and what do they ask of those who have it?",
+    "summary": "Jesus warns against covetousness, tells a rich young man to sell what he has, and says it is hard for a rich man to enter the kingdom. The Fathers press the point with force: Ambrose says that greed, not nature, turned a common gift into private right. Yet the same Fathers, such as Clement of Alexandria, deny that wealth itself is evil. The Catechism gathers both sides: property is legitimate, and the goods of the earth are meant for all.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Luke 12:15-21",
+        "when": "c. 60",
+        "year": 60,
+        "ref": "LUK.12.15-21",
+        "quote": "Beware! Keep yourselves from covetousness, for a man’s life doesn’t consist of the abundance of the things which he possesses.",
+        "note": "The parable of the rich fool shows a man who hoards without thought for others or for God."
+      },
+      {
+        "kind": "scripture",
+        "label": "Matthew 19:21-24",
+        "when": "c. 70",
+        "year": 70,
+        "ref": "MAT.19.21-24",
+        "quote": "If you want to be perfect, go, sell what you have, and give to the poor, and you will have treasure in heaven",
+        "note": "The invitation to the rich young man, and Jesus' comment on how hard it is for the rich to enter. The Church has read this as a counsel for some, and as a warning for all."
+      },
+      {
+        "kind": "scripture",
+        "label": "Acts 4:32-35",
+        "when": "c. 62",
+        "year": 62,
+        "ref": "ACT.4.32-35",
+        "quote": "they had all things in common",
+        "note": "The Jerusalem church shared its goods so that none lacked. It is the model that religious communities later took up."
+      },
+      {
+        "kind": "scripture",
+        "label": "James 5:1-4",
+        "when": "c. 60",
+        "year": 60,
+        "ref": "JAS.5.1-4",
+        "quote": "Behold, the wages of the laborers who mowed your fields, which you have kept back by fraud, cry out",
+        "note": "James names the sin of withholding wages. The Catechism quotes this passage when it speaks of love for the poor."
+      },
+      {
+        "kind": "father",
+        "label": "Justin Martyr, First Apology",
+        "when": "c. 155",
+        "year": 155,
+        "work": "justin-martyr",
+        "section": "viii.ii",
+        "quote": "we who valued above all things the acquisition of wealth and possessions, now bring what we have into a common stock, and communicate to every one in need",
+        "note": "Justin describes what Christians do. Wealth is no longer the first good, and what they have is shared."
+      },
+      {
+        "kind": "father",
+        "label": "Clement of Alexandria, Who Is the Rich Man That Shall Be Saved?",
+        "when": "c. 200",
+        "year": 200,
+        "work": "clement-alex",
+        "section": "vi.v",
+        "quote": "We must therefore renounce those possessions that are injurious, not those that are capable of being serviceable, if one knows the right use of them.",
+        "note": "Clement writes for rich Christians who feared the gospel excluded them. He teaches that the sin lies in the passions of the soul, not in the thing owned."
+      },
+      {
+        "kind": "father",
+        "label": "Ambrose, On the Duties of the Clergy 1",
+        "when": "c. 391",
+        "year": 391,
+        "work": "ambrose-works",
+        "section": "iv.i.ii",
+        "quote": "Nature, therefore, has produced a common right for all, but greed has made it a right for a few.",
+        "note": "Ambrose says that God made the earth for common use, and that private right grew out of greed. It is a forceful statement of the universal destination of goods."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 2446",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 2446,
+        "quote": "The goods we possess are not ours, but theirs.",
+        "note": "The Catechism quotes Chrysostom and adds that giving to the poor is a debt of justice, not only an act of charity."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Doesn't Acts 4 show that Christians abolished private property?",
+        "a": "Peter's words to Ananias show that the sharing was voluntary and that the property was still the owner's. The Catechism teaches that private property is legitimate, but the earth's goods remain meant for all.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Acts 5:4",
+            "when": "c. 62",
+            "year": 62,
+            "ref": "ACT.5.4",
+            "quote": "While you kept it, didn’t it remain your own?",
+            "note": "Peter says the land was Ananias' own to keep or sell."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 2403",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 2403,
+            "quote": "The right to private property, acquired by work or received from others by inheritance or gift, does not do away with the original gift of the earth to the whole of mankind.",
+            "note": "The Catechism holds both principles together."
+          }
+        ]
+      },
+      {
+        "q": "Must every Christian sell everything?",
+        "a": "Clement answered no, and the Church has held that the call to give up all is a vocation for some. Scripture also tells the rich to be generous and not to put their hope in riches. Some Christians in every age have disagreed and held that the gospel asks all to live simply.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "1 Timothy 6:17-18",
+            "when": "c. 65",
+            "year": 65,
+            "ref": "1TI.6.17-18",
+            "quote": "Charge those who are rich in this present age that they not be arrogant, nor have their hope set on the uncertainty of riches",
+            "note": "Paul tells Timothy how to treat the rich in the church: generosity, not dispossession."
+          }
+        ]
+      },
+      {
+        "q": "Is giving to the poor a favour, or a duty?",
+        "a": "The Fathers speak of it as a debt. Chrysostom says withholding from the poor is to steal from them. The Catechism says that when we attend to the needs of those in want we are \"paying a debt of justice.\" Whether the state or private persons should carry this duty is a question on which Christians differ.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 2446",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 2446,
+            "quote": "More than performing works of mercy, we are paying a debt of justice.",
+            "note": "This is the sharpest line of the Catechism on the subject."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      2402,
+      2403,
+      2443,
+      2445,
+      2446,
+      2447
+    ]
+  },
+  {
+    "id": "war-and-peace",
+    "title": "War, Peace and the Christian Soldier",
+    "question": "May a Christian fight in a war? What did the Fathers say?",
+    "summary": "Jesus blesses peacemakers and tells his followers not to resist evil by returning blow for blow, yet he also praises a centurion. The early Christians were slow to take up arms, and the Fathers in this library show a range: Origen offers prayer for the emperor instead of the sword; Basil excuses killing in war but asks soldiers to abstain from communion for a time; Ambrose and Augustine give reasons for a just war. The Catechism keeps both the right of lawful defence and the witness of those who renounce violence. The strongest early refusals, by Tertullian and Lactantius, are not readable in the bundled texts and are not quoted here.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Matthew 5:38-39",
+        "when": "c. 70",
+        "year": 70,
+        "ref": "MAT.5.38-39",
+        "quote": "don’t resist him who is evil; but whoever strikes you on your right cheek, turn to him the other also.",
+        "note": "Jesus calls his followers to give up retaliation. Peace churches such as the Mennonites and Quakers read this as ruling out all war."
+      },
+      {
+        "kind": "scripture",
+        "label": "Matthew 8:5-10",
+        "when": "c. 70",
+        "year": 70,
+        "ref": "MAT.8.5-10",
+        "quote": "I haven’t found so great a faith, not even in Israel.",
+        "note": "Jesus praises a Roman centurion and does not tell him to leave the army. Catholics and others cite this and Cornelius in Acts 10 to show a soldier can be pleasing to God."
+      },
+      {
+        "kind": "father",
+        "label": "Justin Martyr, First Apology",
+        "when": "c. 155",
+        "year": 155,
+        "work": "justin-martyr",
+        "section": "viii.ii",
+        "quote": "nation shall not lift up sword against nation, neither shall they learn war any more",
+        "note": "Justin quotes Isaiah's prophecy of the age of Christ. Many early Christians took it as describing the Church's way."
+      },
+      {
+        "kind": "father",
+        "label": "Origen, Against Celsus 8.73-74",
+        "when": "c. 248",
+        "year": 248,
+        "work": "origen-celsus",
+        "section": "vi.ix.viii",
+        "quote": "And Christians are benefactors of their country more than others.",
+        "note": "Celsus asked Christians to serve in the army. Origen answers that Christians serve the empire by prayer and by training good citizens. The bundled text does not say in so many words that Christians refuse to fight."
+      },
+      {
+        "kind": "father",
+        "label": "Basil, Letter 188 (to Amphilochius), canon 13",
+        "when": "374",
+        "year": 374,
+        "work": "basil-letters",
+        "section": "ix.clxxxix",
+        "quote": "Homicide in war is not reckoned by our Fathers as homicide; I presume from their wish to make concession to men fighting on behalf of chastity and true religion.",
+        "note": "Basil records the older practice and then, in the next sentence, advises that soldiers whose hands are not clean abstain from communion for three years."
+      },
+      {
+        "kind": "father",
+        "label": "Ambrose, On the Duties of the Clergy 1",
+        "when": "c. 391",
+        "year": 391,
+        "work": "ambrose-works",
+        "section": "iv.i.ii",
+        "quote": "courage, which in war preserves one’s country from the barbarians, or at home defends the weak, or comrades from robbers, is full of justice",
+        "note": "Ambrose, borrowing from Cicero, treats courage in a just defence as a virtue."
+      },
+      {
+        "kind": "father",
+        "label": "Augustine, Letter 189 to Boniface",
+        "when": "418",
+        "year": 418,
+        "work": "aug-letters",
+        "section": "vii.1.CLXXXIX",
+        "quote": "Do not think that it is impossible for any one to please God while engaged in active military service. … For peace is not sought in order to the kindling of war, but war is waged in order that peace may be obtained.",
+        "note": "Augustine writes to a Christian general. He holds that war can be just if its aim is peace, and he tells Boniface to keep the heart of a peacemaker."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 2309",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 2309,
+        "quote": "These are the traditional elements enumerated in what is called the \"just war\" doctrine.",
+        "note": "The Catechism lists the strict conditions for lawful defence and says modern weapons weigh heavily in judging them."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Jesus said to turn the other cheek. How can any Christian justify war?",
+        "a": "The Catholic reading separates what a person does when wronged from what a ruler owes to those he must protect. Romans 13 speaks of authority that bears the sword to punish evil. The Catechism honours those who renounce violence for the sake of the gospel as bearing \"legitimate witness.\" It also says governments cannot be denied the right of lawful defence once all peace efforts have failed. Christians in the Anabaptist and Quaker traditions disagree and hold that Jesus rules out war.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Romans 13:1-4",
+            "when": "c. 57",
+            "year": 57,
+            "ref": "ROM.13.1-4",
+            "quote": "he doesn’t bear the sword in vain",
+            "note": "Paul says the ruler is God's servant for the punishment of evil."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 2306",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 2306,
+            "quote": "They bear legitimate witness to the gravity of the physical and moral risks of recourse to violence",
+            "note": "The Catechism honours the witness of those who refuse to fight."
+          }
+        ]
+      },
+      {
+        "q": "Did the early Church forbid Christians to be soldiers?",
+        "a": "It did not speak with one voice, and the bundled sources give only part of the evidence. Basil's letter shows that in the fourth century the Church kept a penance for soldiers who had killed, though he first says the Fathers did not call it murder. Origen shows reluctance. Cornelius in Acts is not told to leave his post. Writers such as Tertullian forbade soldiering, but that text is not readable in the bundle, so this chain does not quote him."
+      },
+      {
+        "q": "Wasn't just war doctrine a later invention after Constantine?",
+        "a": "In large part it was developed after Christians held public office, and Augustine is its first great teacher. The Catechism calls the conditions \"traditional.\" Pacifists point out that these theories came when the Church was no longer persecuted. Defenders answer that Augustine and Ambrose were drawing on Scripture and on Roman moral thought to give an account of a duty that was already real.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 2308",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 2308,
+            "quote": "governments cannot be denied the right of lawful self-defense, once all peace efforts have failed",
+            "note": "The Catechism states the principle in its modern form."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      2302,
+      2306,
+      2307,
+      2308,
+      2309
+    ]
+  },
+  {
+    "id": "usury-and-lending",
+    "title": "Usury and Lending",
+    "question": "Did the Church forbid charging interest? What does it teach about lending now?",
+    "summary": "The Old Testament forbids charging a poor brother interest, and Jesus tells his followers to lend without expecting repayment. The Council of Nicaea deposed clergy who lent at interest, and the Fathers in this library condemn taking profit from the poor's need. The Catechism lists the ban on loans at interest among the Old Testament measures protecting the poor and condemns usurious dealings that bring hunger. How the Church later separated lawful interest from usury is not in the bundled texts, so that story is only outlined here.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Exodus 22:25",
+        "when": "c. 1400 BC",
+        "year": -1400,
+        "ref": "EXO.22.25",
+        "quote": "If you lend money to any of my people with you who is poor, you shall not be to him as a creditor. You shall not charge him interest.",
+        "note": "The earliest law on the matter protects a poor borrower among God's own people."
+      },
+      {
+        "kind": "scripture",
+        "label": "Deuteronomy 23:19-20",
+        "when": "c. 1400 BC",
+        "year": -1400,
+        "ref": "DEU.23.19-20",
+        "quote": "You may charge a foreigner interest; but you shall not charge your brother interest",
+        "note": "The ban covers loans to a fellow Israelite and allows interest on loans to a foreigner. This distinction later shaped how Christians read the ban."
+      },
+      {
+        "kind": "scripture",
+        "label": "Psalm 15:1-5",
+        "when": "c. 1000 BC",
+        "year": -1000,
+        "ref": "PSA.15.1-5",
+        "quote": "he who doesn’t lend out his money for usury",
+        "note": "The psalm lists refusing usury among the marks of the one who may dwell in God's sanctuary."
+      },
+      {
+        "kind": "scripture",
+        "label": "Luke 6:34-35",
+        "when": "c. 60",
+        "year": 60,
+        "ref": "LUK.6.34-35",
+        "quote": "But love your enemies, and do good, and lend, expecting nothing back; and your reward will be great",
+        "note": "Jesus tells his followers to lend freely, even to those who will not repay."
+      },
+      {
+        "kind": "father",
+        "label": "Clement of Alexandria, Stromata 2",
+        "when": "c. 200",
+        "year": 200,
+        "work": "clement-alex",
+        "section": "vi.iv.ii",
+        "quote": "the law prohibits a brother from taking usury: designating as a brother not only him who is born of the same parents, but also one of the same race and sentiments, and a participator in the same word",
+        "note": "Clement extends \"brother\" to every fellow Christian, and so extends the old ban to the Church."
+      },
+      {
+        "kind": "council",
+        "label": "Council of Nicaea, Canon 17",
+        "when": "325",
+        "year": 325,
+        "work": "council-nicaea-1",
+        "section": "vii.vi",
+        "quote": "the holy and great Synod thinks it just that if after this decree any one be found to receive usury, whether he accomplish it by secret transaction or otherwise",
+        "note": "The first ecumenical council deposes clergy who lend at interest. The canon binds the clergy; it does not describe the lay rule."
+      },
+      {
+        "kind": "father",
+        "label": "John Chrysostom, Homilies on Matthew 5",
+        "when": "c. 390",
+        "year": 390,
+        "work": "chrys-matthew",
+        "section": "iii.V_1",
+        "quote": "Lend unto Him who wants nothing, yet hath need for thy sake",
+        "note": "Chrysostom turns the usurer's gain into a figure: lend to God through the poor and the return is eternal."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 2449",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 2449,
+        "quote": "prohibition of loans at interest and the keeping of collateral",
+        "note": "The Catechism lists the old prohibition among the measures that protect the poor, alongside the jubilee year and the daily payment of the laborer."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Jesus told a parable that praises earning interest. Doesn't that settle it?",
+        "a": "In the parable of the talents the master says the servant should have put the money with the bankers and received it back with interest. Interpreters say the point is the use of what has been given, not a rule about lending. Even so, it shows that the practice was not condemned by Jesus in his story. The Church later distinguished moderate interest on productive loans from usury, which is excessive and exploits need; that history is not in the bundled texts.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Matthew 25:26-27",
+            "when": "c. 70",
+            "year": 70,
+            "ref": "MAT.25.26-27",
+            "quote": "You ought therefore to have deposited my money with the bankers, and at my coming I should have received back my own with interest.",
+            "note": "The master's words in the parable of the talents."
+          }
+        ]
+      },
+      {
+        "q": "Is lending at interest still forbidden to Catholics?",
+        "a": "The Catechism does not teach a blanket ban. It lists the old ban among the Old Testament protections and, elsewhere, condemns the \"usurious and avaricious dealings\" that lead to the hunger and death of the poor. Nicaea's canon applied to clergy. Basil allowed a repentant lender to be received into the ministry if he gave his gain to the poor. What counts as usurious is a question of justice and of the circumstances, and Christians have answered it differently over time.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Basil, Letter 188, canon 14",
+            "when": "374",
+            "year": 374,
+            "work": "basil-letters",
+            "section": "ix.clxxxix",
+            "quote": "A taker of usury, if he consent to spend his unjust gain on the poor, and to be rid for the future of the plague of covetousness, may be received into the ministry.",
+            "note": "Basil follows Nicaea and adds a way of repentance."
+          },
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 2269",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 2269,
+            "quote": "Those whose usurious and avaricious dealings lead to the hunger and death of their brethren in the human family indirectly commit homicide",
+            "note": "The Catechism names the sin in strong terms."
+          }
+        ]
+      },
+      {
+        "q": "Why did the Old Testament allow interest from foreigners?",
+        "a": "The law treats the poor brother as a member of the covenant family, owed help; loans to foreigners in trade were treated differently. Clement of Alexandria, in the bundled library, takes \"brother\" to include every Christian. Jews and Christians have read the distinction differently across the centuries, and this chain does not claim to settle it.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Leviticus 25:35-37",
+            "when": "c. 1400 BC",
+            "year": -1400,
+            "ref": "LEV.25.35-37",
+            "quote": "You shall not lend him your money at interest, nor give him your food for profit.",
+            "note": "The ban is tied to helping a brother who has become poor."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      2269,
+      2409,
+      2449
+    ]
+  },
+  {
+    "id": "fasting-and-abstinence",
+    "title": "Fasting and Abstinence",
+    "question": "Why does the Church fast, and where do her rules for fasting come from?",
+    "summary": "Jesus assumes his disciples will fast and tells them how: without show. The early Church fasted before choosing leaders, kept Wednesday and Friday, and observed a forty-day fast before Easter. Leo the Great joins fasting to prayer and almsgiving as the three duties of a Christian. The Church sets days of fasting and abstinence by her own authority; Christians differ on whether such rules are a help or a burden.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Matthew 6:16-18",
+        "when": "c. 70",
+        "year": 70,
+        "ref": "MAT.6.16-18",
+        "quote": "Moreover when you fast, don’t be like the hypocrites, with sad faces.",
+        "note": "Jesus says \"when you fast,\" not \"if.\" The warning is against show, not against fasting."
+      },
+      {
+        "kind": "scripture",
+        "label": "Matthew 9:14-15",
+        "when": "c. 70",
+        "year": 70,
+        "ref": "MAT.9.14-15",
+        "quote": "the days will come when the bridegroom will be taken away from them, and then they will fast",
+        "note": "Jesus ties the fast of his followers to the time after his departure."
+      },
+      {
+        "kind": "scripture",
+        "label": "Acts 13:2-3",
+        "when": "c. 62",
+        "year": 62,
+        "ref": "ACT.13.2-3",
+        "quote": "Then, when they had fasted and prayed and laid their hands on them, they sent them away.",
+        "note": "The church of Antioch fasts when it sends Barnabas and Saul."
+      },
+      {
+        "kind": "father",
+        "label": "Hermas, Shepherd, Similitude 5 (as paraphrased in a note)",
+        "when": "c. 140",
+        "year": 140,
+        "work": "hermas",
+        "section": "ii.iv.v",
+        "quote": "And on the day on which you fast, be content with bread, and herbs, and water, giving thanks to God.",
+        "note": "This is a paraphrase preserved in an ancient source and quoted by the translator in a note, not Hermas's own words. It shows an early picture of a simple fast."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, On Fasting 2",
+        "when": "c. 208",
+        "year": 208,
+        "work": "tertullian-ethical-2",
+        "section": "iii.ix",
+        "quote": "Thereafter He prescribed to fasts a law—that they are to be performed without sadness",
+        "note": "Tertullian writes as a Montanist and argues against the larger Church for more fasting. He still shows that fasting was a known discipline."
+      },
+      {
+        "kind": "council",
+        "label": "Apostolic Canons, canon 69",
+        "when": "c. 380",
+        "year": 380,
+        "work": "apostolic-constitutions",
+        "section": "ix.ix.vi",
+        "quote": "If any bishop, or presbyter, or deacon, or reader, or singer, does not fast the fast of forty days, or the fourth day of the week, and the day of the Preparation, let him be deprived, except he be hindered by weakness of body.",
+        "note": "By the late fourth century Wednesday, Friday, and a forty-day fast are required, with an exception for illness. The canons are of unknown origin and not from a council."
+      },
+      {
+        "kind": "father",
+        "label": "Leo the Great, Sermon 12 on the Fast of the Tenth Month",
+        "when": "c. 452",
+        "year": 452,
+        "work": "leo-sermons-letters",
+        "section": "ii.v.vi",
+        "quote": "For by prayer we seek to propitiate God, by fasting we extinguish the lusts of the flesh, by alms we redeem our sins",
+        "note": "Leo joins the three works of fasting, prayer, and almsgiving and explains the purpose of each."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 1438",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 1438,
+        "quote": "The seasons and days of penance in the course of the liturgical year (Lent, and each Friday in memory of the death of the Lord) are intense moments of the Church's penitential practice.",
+        "note": "The Catechism gives the present Catholic pattern and the reason for it."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Jesus told us to fast in secret. Isn't a rule about it the very showiness he condemned?",
+        "a": "He condemned fasting done to be seen. The Church answers that a common fast on set days binds the community together and does not require display. Tertullian shows that critics in his day already complained that set fasts were an innovation, and the Catholic Church later did not follow his strict views. The Catechism lists the fast days among the precepts of the Church. Christians in the Reformed tradition tend to leave fasting to private choice.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 2043",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 2043,
+            "quote": "The fifth precept (\"You shall observe the prescribed days of fasting and abstinence.\")",
+            "note": "The Catechism lists it among the five precepts."
+          }
+        ]
+      },
+      {
+        "q": "Does the Church teach that fasting earns forgiveness?",
+        "a": "Leo says \"by alms we redeem our sins.\" Catholics read that in the light of Scripture's teaching that love covers a multitude of sins and that grace is a gift. The Catechism lists fasting, prayer and almsgiving as three expressions of conversion in relation to oneself, God, and others. The chain on faith and works sets out how the Church distinguishes earning from cooperating with grace.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 1434",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 1434,
+            "quote": "Scripture and the Fathers insist above all on three forms, fasting, prayer, and almsgiving",
+            "note": "The Catechism names the three together as expressions of conversion."
+          }
+        ]
+      },
+      {
+        "q": "Why do the details differ between Catholic and Orthodox Christians?",
+        "a": "The rules are discipline, not doctrine, and they differ by Church and by time. From settled history, the Orthodox keep a stricter fast, with more days and no meat or dairy in the great fasts, and Catholics have eased their rules over the last century. The early sources here, such as the canon above and Leo, show Wednesday and Friday and a forty-day fast as shared roots."
+      }
+    ],
+    "readNext": [
+      1434,
+      1438,
+      1969,
+      2043
+    ]
+  },
+  {
+    "id": "sign-of-the-cross",
+    "title": "The Sign of the Cross",
+    "question": "Where does the sign of the cross come from, and what does it mean?",
+    "summary": "Tracing the cross on the forehead is one of the oldest Christian gestures. Ezekiel and Revelation speak of a mark on the forehead of God's people; Tertullian says that Christians trace the sign at every step of daily life and that no Scripture commands it; Cyril of Jerusalem tells new Christians not to be ashamed of it. The Catechism puts it at the start of the day and of prayer, and calls it one of the sacramentals.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Ezekiel 9:4",
+        "when": "c. 590 BC",
+        "year": -590,
+        "ref": "EZK.9.4",
+        "quote": "set a mark on the foreheads of the men that sigh and that cry over all the abominations",
+        "note": "A mark on the forehead sets apart those who belong to God. Fathers later read this as a figure of the cross."
+      },
+      {
+        "kind": "scripture",
+        "label": "Revelation 7:2-3",
+        "when": "c. 95",
+        "year": 95,
+        "ref": "REV.7.2-3",
+        "quote": "until we have sealed the bondservants of our God on their foreheads",
+        "note": "The servants of God are sealed on the forehead. Christians took the seal as baptism and the sign as the way to claim it."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, On the Resurrection of the Flesh 8",
+        "when": "c. 210",
+        "year": 210,
+        "work": "tertullian-marcion",
+        "section": "v.viii",
+        "quote": "the flesh is signed (with the cross), that the soul too may be fortified",
+        "note": "Tertullian lists the signing among the acts of Christian initiation, and gives its purpose: strength for the soul."
+      },
+      {
+        "kind": "father",
+        "label": "Tertullian, On the Crown 3 (as quoted by the translator of Cyril)",
+        "when": "c. 211",
+        "year": 211,
+        "work": "cyril-catecheses",
+        "section": "ii.viii",
+        "quote": "At every forward step and movement, at every going in and out, when we put on our clothes and shoes, when we bathe, when we sit at table, when we light the lamps, on couch, on seat, in all the ordinary actions of daily life, we trace upon the forehead the Sign.",
+        "note": "The bundled text of Tertullian's own treatise is incomplete, but this passage is preserved in the editor's note to Cyril. It shows the sign used constantly by ordinary Christians around the year 211."
+      },
+      {
+        "kind": "father",
+        "label": "Cyril of Jerusalem, Catechesis 4",
+        "when": "c. 350",
+        "year": 350,
+        "work": "cyril-catecheses",
+        "section": "ii.viii",
+        "quote": "Let us, therefore, not be ashamed of the Cross of Christ; but though another hide it, do thou openly seal it upon thy forehead, that the devils may behold the royal sign and flee trembling far away",
+        "note": "Cyril tells catechumens to make the sign openly. It is a public confession of Christ crucified."
+      },
+      {
+        "kind": "father",
+        "label": "Cyril of Jerusalem, Catechesis 13",
+        "when": "c. 350",
+        "year": 350,
+        "work": "cyril-catecheses",
+        "section": "ii.xvii",
+        "quote": "Be the Cross our seal made with boldness by our fingers on our brow, and on everything; over the bread we eat, and the cups we drink; in our comings in, and goings out",
+        "note": "Cyril lists the same occasions as Tertullian a century and a half earlier, and adds food and drink."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 2157",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 2157,
+        "quote": "The Christian begins his day, his prayers, and his activities with the Sign of the Cross",
+        "note": "The Catechism describes the practice today and names the form of words."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 1670",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 1670,
+        "quote": "Sacramentals do not confer the grace of the Holy Spirit in the way that the sacraments do, but by the Church's prayer, they prepare us to receive grace and dispose us to cooperate with it.",
+        "note": "The Catechism gives the sign its place: a sacramental, which prepares and disposes, not a sacrament."
+      }
+    ],
+    "objections": [
+      {
+        "q": "It is not in the Bible. Why do Christians do it?",
+        "a": "Tertullian said so himself: if you ask for a command of Scripture for these customs, you will find none. He answers that tradition, custom, and faith support them. Catholics and Orthodox hold that the apostolic tradition includes practices not written in Scripture. Some Protestants keep the gesture, such as many Lutherans and Anglicans, and others leave it, holding that only Scripture can bind the conscience.",
+        "steps": [
+          {
+            "kind": "father",
+            "label": "Tertullian, On the Crown 3 (as quoted by the translator of Cyril)",
+            "when": "c. 211",
+            "year": 211,
+            "work": "cyril-catecheses",
+            "section": "ii.viii",
+            "quote": "If for these, and other such rules, you insist upon having positive Scripture injunction, you will find none.",
+            "note": "Tertullian admits the point and answers with tradition."
+          }
+        ]
+      },
+      {
+        "q": "Isn't it superstition, a kind of charm?",
+        "a": "The Catechism says a sacramental works by the Church's prayer and by the faith of the person, not by itself. Cyril's reason for the sign is confession, not magic: do not be ashamed of the cross. Misuse is possible, as with any holy practice, and the Church warns against treating signs as charms.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 1670",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 1670,
+            "quote": "they prepare us to receive grace and dispose us to cooperate with it",
+            "note": "Sacramentals aid faith and do not replace it."
+          }
+        ]
+      },
+      {
+        "q": "Is the early gesture the same as the one used today?",
+        "a": "Not exactly. The texts here speak of tracing the cross on the forehead with a finger. The bundled sources do not show when the words \"Father, Son, and Holy Spirit\" were joined to the gesture, or when the larger motion from forehead to chest and shoulder became the custom. Eastern and Western Christians still differ in the way they make the sign."
+      }
+    ],
+    "readNext": [
+      1235,
+      1668,
+      1670,
+      2157
+    ]
+  },
+  {
+    "id": "women-in-the-early-church",
+    "title": "Women in the Early Church",
+    "question": "What roles did women have in the early Church, and what did the Fathers say about them?",
+    "summary": "Women followed Jesus, were the first to see him risen, and are named by Paul as co-workers and leaders in the churches. The Fathers honour Phoebe the deaconess and Priscilla, who helped teach Apollos. At the same time, Paul and the Fathers keep women from teaching in the assembly, and the Apostolic Constitutions give deaconesses a limited role. The Catholic Church holds that men and women have equal dignity and that ordination is reserved to men; many Protestant churches ordain women. Honest readers differ on how much of the early practice was cultural and how much was settled principle.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Luke 8:1-3",
+        "when": "c. 60",
+        "year": 60,
+        "ref": "LUK.8.1-3",
+        "quote": "certain women who had been healed of evil spirits and infirmities: Mary who was called Magdalene",
+        "note": "Women travel with Jesus and support his work from their own means."
+      },
+      {
+        "kind": "scripture",
+        "label": "John 20:17-18",
+        "when": "c. 90",
+        "year": 90,
+        "ref": "JHN.20.17-18",
+        "quote": "Mary Magdalene came and told the disciples that she had seen the Lord",
+        "note": "A woman is the first witness of the resurrection and is sent to tell the apostles."
+      },
+      {
+        "kind": "scripture",
+        "label": "Romans 16:1-2",
+        "when": "c. 57",
+        "year": 57,
+        "ref": "ROM.16.1-2",
+        "quote": "I commend to you Phoebe, our sister, who is a servant of the assembly that is at Cenchreae",
+        "note": "Paul commends Phoebe and asks the Romans to help her. This translation says \"servant\"; the Greek word is the one used for deacon."
+      },
+      {
+        "kind": "father",
+        "label": "John Chrysostom, Homilies on Romans 31",
+        "when": "c. 391",
+        "year": 391,
+        "work": "chrys-romans",
+        "section": "vii.xxxii",
+        "quote": "See how many ways he takes to give her dignity.",
+        "note": "Chrysostom reads Phoebe as a deaconess and says Paul gives her honour in several ways. He also praises Priscilla and Aquila as helpers who instructed Apollos."
+      },
+      {
+        "kind": "scripture",
+        "label": "Galatians 3:26-28",
+        "when": "c. 50",
+        "year": 50,
+        "ref": "GAL.3.26-28",
+        "quote": "there is neither male nor female; for you are all one in Christ Jesus",
+        "note": "Paul says that in baptism all stand equal before Christ. Christians read this as equal dignity; they differ on whether it also settles roles."
+      },
+      {
+        "kind": "council",
+        "label": "Apostolic Constitutions 2.26, on deaconesses",
+        "when": "c. 380",
+        "year": 380,
+        "work": "apostolic-constitutions",
+        "section": "ix.iv.ii",
+        "quote": "Ordain also a deaconess who is faithful and holy, for the ministrations towards women.",
+        "note": "This church order from Syria lists a deaconess among the clergy, to serve women, for example in anointing them at baptism. Its date and authority are debated."
+      },
+      {
+        "kind": "council",
+        "label": "Apostolic Constitutions 3.6, on teaching",
+        "when": "c. 380",
+        "year": 380,
+        "work": "apostolic-constitutions",
+        "section": "ix.iv.i",
+        "quote": "We do not permit our women to teach in the Church",
+        "note": "The same church order bars women from teaching in the assembly, citing Paul. The two rules appear together in the same document."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 369",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 369,
+        "quote": "Man and woman have been created, which is to say, willed by God: on the one hand, in perfect equality as human persons",
+        "note": "The Catechism states the Church's teaching on equal dignity."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Paul says women must be silent in the assembly. Isn't that the end of the matter?",
+        "a": "Paul says it in 1 Corinthians 14 and 1 Timothy 2, and the Fathers took it seriously: Tertullian says it is not permitted to a woman to speak in the church, and Chrysostom says women should be silent even about spiritual matters in church. Yet Paul also speaks of women praying and prophesying in 1 Corinthians 11, and Luke notes Philip's four daughters who prophesied. Scholars and Churches reconcile these in different ways. Some read the silence as a rule for order in particular assemblies; others as a lasting principle about teaching authority.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "1 Corinthians 14:34-35",
+            "when": "c. 55",
+            "year": 55,
+            "ref": "1CO.14.34-35",
+            "quote": "Let the wives be quiet in the assemblies, for it has not been permitted for them to be talking except in submission",
+            "note": "The text the Fathers cite."
+          },
+          {
+            "kind": "father",
+            "label": "Tertullian, On the Veiling of Virgins 9",
+            "when": "c. 207",
+            "year": 207,
+            "work": "tertullian-ethical-2",
+            "section": "iii.iv",
+            "quote": "It is not permitted to a woman to speak in the church",
+            "note": "Tertullian cites Paul as settled discipline."
+          },
+          {
+            "kind": "scripture",
+            "label": "Acts 21:9",
+            "when": "c. 62",
+            "year": 62,
+            "ref": "ACT.21.9",
+            "quote": "Now this man had four virgin daughters who prophesied.",
+            "note": "Luke records women who prophesied. The tension is part of what readers weigh."
+          }
+        ]
+      },
+      {
+        "q": "Were there women deacons or priests in the early Church?",
+        "a": "Deaconesses are attested: Paul's Phoebe, and the office in the Apostolic Constitutions, with duties among women. Whether the office was the same as the male diaconate is still discussed by historians and theologians, and the Church has not defined it. There is no evidence in the bundled sources of women priests or bishops. The Catechism teaches that ordination to the priesthood is reserved to men, because Christ chose men and the Church considers herself bound by that choice. Anglican and many other Protestant churches ordain women, and they do not read the same history this way.",
+        "steps": [
+          {
+            "kind": "catechism",
+            "label": "Catechism of the Catholic Church 1577",
+            "when": "1992",
+            "year": 1992,
+            "ccc": 1577,
+            "quote": "For this reason, the ordination of women is not possible.",
+            "note": "The Catechism states the Catholic teaching and gives its reason."
+          }
+        ]
+      },
+      {
+        "q": "Was Junia an apostle?",
+        "a": "Paul greets Andronicus and Junia as \"notable among the apostles.\" Chrysostom read them as apostles and as a married pair, on the view that Junia was a woman. Some editors, including the translator of the bundled edition, read the phrase as \"well known to the apostles,\" and the translator also read the name as male. The question depends on both the grammar and the name, and the text alone does not settle it.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Romans 16:7",
+            "when": "c. 57",
+            "year": 57,
+            "ref": "ROM.16.7",
+            "quote": "Greet Andronicus and Junia, my relatives and my fellow prisoners, who are notable among the apostles",
+            "note": "The verse in question."
+          },
+          {
+            "kind": "writer",
+            "label": "Editor's note to Chrysostom on Romans 16",
+            "when": "19th c.",
+            "year": 1889,
+            "work": "chrys-romans",
+            "section": "vii.xxxiii",
+            "quote": "or merely that they were held in high esteem by the apostles",
+            "note": "The nineteenth-century editor notes that the Greek can be read either way."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      369,
+      370,
+      1577,
+      2334,
+      2335
+    ]
+  },
+  {
+    "id": "slavery-and-the-fathers",
+    "title": "Slavery and the Fathers",
+    "question": "What did the early Church say about slavery, and what did it fail to say?",
+    "summary": "The New Testament never calls for abolition, yet it tells masters to treat slaves as brothers, lists slave-traders among the lawless, and returns Onesimus to Philemon as \"more than a slave.\" The Fathers in this library trace slavery to sin and greed, call slaves brothers, and ransom captives, but they do not demand an end to the system, and Chrysostom reads Paul as telling a slave to stay a slave. The Church's plain condemnation of slavery came much later, and it is honest to say that Christians accepted and sometimes defended it for many centuries.",
+    "steps": [
+      {
+        "kind": "scripture",
+        "label": "Galatians 3:26-28",
+        "when": "c. 50",
+        "year": 50,
+        "ref": "GAL.3.26-28",
+        "quote": "there is neither slave nor free man",
+        "note": "Paul says baptism makes slave and free one in Christ. Later reformers took this as a principle that would end slavery; in Paul's own day it changed how Christians were to treat each other."
+      },
+      {
+        "kind": "scripture",
+        "label": "Philemon 15-16",
+        "when": "c. 60",
+        "year": 60,
+        "ref": "PHM.1.15-16",
+        "quote": "no longer as a slave, but more than a slave, a beloved brother",
+        "note": "Paul sends a runaway slave back to his master and asks that he be received as a brother. He does not say outright that Onesimus must be freed; Christians differ on whether he implies it."
+      },
+      {
+        "kind": "scripture",
+        "label": "1 Timothy 1:9-10",
+        "when": "c. 65",
+        "year": 65,
+        "ref": "1TI.1.9-10",
+        "quote": "for slave-traders",
+        "note": "Paul lists slave-traders with murderers and the sexually immoral as those the law condemns. The Greek word is for kidnappers who sell people."
+      },
+      {
+        "kind": "father",
+        "label": "Clement of Rome, First Epistle to the Corinthians 55",
+        "when": "c. 96",
+        "year": 96,
+        "work": "clement-rome",
+        "section": "ii.ii.lv",
+        "quote": "Many, too, have surrendered themselves to slavery, that with the price",
+        "note": "Clement tells of Christians who sold themselves into slavery to feed or ransom others. The Church honoured this as charity."
+      },
+      {
+        "kind": "father",
+        "label": "John Chrysostom, Homilies on Ephesians 22",
+        "when": "c. 395",
+        "year": 395,
+        "work": "chrys-eph",
+        "section": "iii.iv.xxiii",
+        "quote": "Slavery is the fruit of covetousness, of degradation, of savagery",
+        "note": "Chrysostom says slavery was not there at the start and came in through sin. It is the strongest statement against the origin of slavery among the bundled Fathers."
+      },
+      {
+        "kind": "father",
+        "label": "John Chrysostom, Homilies on Philemon 3",
+        "when": "c. 395",
+        "year": 395,
+        "work": "chrys-phlm",
+        "section": "v.vi.iii",
+        "quote": "The Master of Paul is not ashamed to call our servants His own brethren; and are we ashamed?",
+        "note": "Chrysostom tells masters to treat slaves as brothers and not to be harsh."
+      },
+      {
+        "kind": "father",
+        "label": "John Chrysostom, Homilies on 1 Corinthians 19",
+        "when": "c. 392",
+        "year": 392,
+        "work": "chrys-1cor",
+        "section": "iv.xx",
+        "quote": "But even (Αλλ' εὶ καὶ δυνάσαι) if thou canst become free, use it rather: that is, rather continue a slave.",
+        "note": "Chrysostom takes Paul's words in 1 Corinthians 7:21 to mean \"stay a slave.\" Most modern translations read it the other way. This shows how the Fathers did not press for emancipation."
+      },
+      {
+        "kind": "catechism",
+        "label": "Catechism of the Catholic Church 2414",
+        "when": "1992",
+        "year": 1992,
+        "ccc": 2414,
+        "quote": "The seventh commandment forbids acts or enterprises that for any reason - selfish or ideological, commercial, or totalitarian - lead to the enslavement of human beings",
+        "note": "The Catechism states the Church's present teaching. It quotes Philemon as a witness against the idea of slavery."
+      }
+    ],
+    "objections": [
+      {
+        "q": "Did the Fathers condemn slavery?",
+        "a": "Some of them condemned it in words, and most did not work to end it. Gregory of Nyssa, in his fourth homily on Ecclesiastes, denounced the buying and owning of human beings as an offence against God, because people are made in God's image. This homily is not in the bundled library and is not quoted here; it is known from settled history. The Fathers who are in the library blame slavery on sin, call slaves brothers, and ransom captives, and they also tell slaves to obey. The Apostolic Constitutions require that slaves rest on the Sabbath and the Lord's day and during Holy Week, and this regulates slavery and does not end it.",
+        "steps": [
+          {
+            "kind": "council",
+            "label": "Apostolic Constitutions 8.33",
+            "when": "c. 380",
+            "year": 380,
+            "work": "apostolic-constitutions",
+            "section": "ix.ix.iv",
+            "quote": "Let the slaves work five days; but on the Sabbath-day and the Lord’s day let them have leisure to go to church for instruction in piety.",
+            "note": "A church order that limits the work of slaves for worship, and keeps the system."
+          }
+        ]
+      },
+      {
+        "q": "Didn't the Church end slavery?",
+        "a": "Pope Leo XIII wrote in 1878 that the Church had \"done away with the curse of slavery,\" and Catholics rightly point to Christian opposition: the ransoming of captives, the freeing of slaves as acts of piety, and in time the condemnation of the slave trade. That claim needs balance. Christians of every tradition, including popes and bishops, held slaves or defended slavery for many centuries, and abolition in the modern era was led in large part by Christians who read the same Bible against the practice, and was resisted by others who read it for the practice. Formal Catholic condemnation of the slave trade came much later than the Fathers.",
+        "steps": [
+          {
+            "kind": "magisterium",
+            "label": "Leo XIII, Inscrutabili Dei Consilio",
+            "when": "1878",
+            "year": 1878,
+            "work": "leo-xiii-encyclicals",
+            "section": "s1",
+            "quote": "the Church has done away with the curse of slavery and restored men to the original dignity of their noble nature",
+            "note": "The pope makes the Catholic claim in his own words. It is a claim about the Church's influence, which historians weigh differently."
+          }
+        ]
+      },
+      {
+        "q": "Paul told slaves to obey their masters. Doesn't that mean he approved of slavery?",
+        "a": "Paul tells slaves to serve and masters to stop threatening, and says God has no partiality. He does not command abolition, and the Fathers read him as asking for kindness within the existing order. Others, from the early Christian reformers to modern readers, argue that Galatians 3:28 and Philemon plant a principle that would in time undo the institution. Both accounts are found among Christians.",
+        "steps": [
+          {
+            "kind": "scripture",
+            "label": "Ephesians 6:5-9",
+            "when": "c. 60",
+            "year": 60,
+            "ref": "EPH.6.5-9",
+            "quote": "You masters, do the same things to them, and give up threatening, knowing that he who is both their Master and yours is in heaven, and there is no partiality with him.",
+            "note": "Paul lays duties on masters as well as on slaves."
+          }
+        ]
+      }
+    ],
+    "readNext": [
+      1935,
+      2414,
+      2434
+    ]
+  }
+]

@@ -2,7 +2,7 @@ import PrintButton from '../../components/PrintButton';
 import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import ShareLinkButton from '../../components/ShareLinkButton';
-import { GLOSSARY } from '../../data/glossary';
+import { GLOSSARY, lookupTerm } from '../../data/glossary';
 
 /** Terms of the faith in plain language, A to Z, each with the Catechism paragraph that treats it. */
 export default function GlossaryPage() {
@@ -23,7 +23,9 @@ export default function GlossaryPage() {
           <li key={g.term} id={g.term} className={open === g.term ? 'glossary-open' : undefined}>
             <strong>{g.term}</strong>
             <p style={{ margin: '2px 0 4px' }}>{g.definition}</p>
-            <Link className="chip" to={`/study/catechism/${g.ccc}`}>Catechism §{g.ccc}</Link> <ShareLinkButton path={`/s/term/${encodeURIComponent(g.term)}`} title={g.term} />
+            <Link className="chip" to={`/study/catechism/${g.ccc}`}>Catechism §{g.ccc}{g.near ? ', nearest teaching' : ''}</Link> <ShareLinkButton path={`/s/term/${encodeURIComponent(g.term)}`} title={g.term} />
+            {!!g.aliases.length && <p className="muted small" style={{ margin: '4px 0 0' }}>Also called: {g.aliases.join(', ')}</p>}
+            {!!g.related?.length && <p className="muted small" style={{ margin: '4px 0 0' }}>See also: {g.related.map((r, i) => { const x = lookupTerm(r); return <span key={r}>{i ? ', ' : ''}{x ? <Link to={`/study/glossary?t=${encodeURIComponent(x.term)}`}>{x.term}</Link> : r}</span>; })}</p>}
           </li>
         ))}
         {!list.length && <li className="empty">No matching term.</li>}

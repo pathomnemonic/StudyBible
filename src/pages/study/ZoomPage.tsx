@@ -63,7 +63,7 @@ export default function ZoomPage() {
       {level >= 2 && <section className="card" aria-label="In a paragraph">
         <h2 className="chain-h2" style={{ marginTop: 0 }}>In a paragraph</h2>
         {para ? <blockquote className="chain-quote"><p>{sentences(para.t, 4)}</p></blockquote> : <p className="muted">Loading the Catechism…</p>}
-        <p className="small"><Link to={`/study/catechism/${g.ccc}`}>Catechism §{g.ccc}</Link></p>
+        <p className="small"><Link to={`/study/catechism/${g.ccc}`}>Catechism §{g.ccc}</Link>{g.near && ' (the nearest paragraph on this topic; it does not name the term)'}</p>
       </section>}
       {level >= 3 && <section className="card" aria-label="In a page">
         <h2 className="chain-h2" style={{ marginTop: 0 }}>In a page</h2>
