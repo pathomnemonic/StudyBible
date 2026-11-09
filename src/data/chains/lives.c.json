@@ -1703,5 +1703,143 @@
     }
    }
   ]
+ },
+ {
+  "id": "boethius",
+  "name": "Boethius",
+  "lifespan": "c. 480 – 524",
+  "sketch": "Boethius was a Roman senator and scholar who served the Gothic king Theodoric, translated Aristotle into Latin, and rose to be one of the highest officials in Italy. Falsely accused of treason, he wrote The Consolation of Philosophy in prison while waiting to be executed. The bundled text of the Consolation is our only source here; the dates are from settled history except where noted.",
+  "events": [
+   {
+    "year": 476,
+    "text": "Odoacer deposes the last western emperor, Romulus Augustulus. Within twenty years Theodoric the Ostrogoth, who rules in the name of the eastern emperor, holds Italy. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 480,
+    "text": "Boethius is born into one of Rome's oldest senatorial families, about this year. His father dies while he is a boy, and he is raised in the household of the noble Symmachus, whose daughter he marries. From settled history.",
+    "kind": "turning"
+   },
+   {
+    "year": 510,
+    "text": "He is made consul in 510, the highest honor in the old Roman order, and begins his translations of Aristotle and his logical works for Latin readers. From settled history.",
+    "kind": "turning"
+   },
+   {
+    "year": 522,
+    "text": "His two sons are made joint consuls in the same year. Boethius gives the speech in praise of the king in the Senate. Philosophy later reminds him of this day.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Boethius, Consolation II",
+     "when": "522",
+     "year": 522,
+     "work": "boethius-consolation",
+     "section": "s3",
+     "quote": "That day when thou didst see thy two sons ride forth from home joint consuls, followed by a train of senators",
+     "note": "The year 522 is from settled history; the text does not give it."
+    }
+   },
+   {
+    "year": 523,
+    "text": "As master of the offices in the king's court he defends the weak. He saves the ex-consul Paulinus from the court's informers and makes enemies by it.",
+    "kind": "work",
+    "step": {
+     "kind": "father",
+     "label": "Boethius, Consolation I",
+     "when": "c. 523",
+     "year": 523,
+     "work": "boethius-consolation",
+     "section": "s1",
+     "quote": "I rescued the consular Paulinus from the gaping jaws of the court bloodhounds",
+     "note": "He cites this as proof that he served the public and not himself."
+    }
+   },
+   {
+    "year": 523,
+    "text": "He is accused of treason. His accusers include Basil, who had been dismissed from the king's household and was driven by his debts to inform against him.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Boethius, Consolation I",
+     "when": "523",
+     "year": 523,
+     "work": "boethius-consolation",
+     "section": "s1",
+     "quote": "one of my accusers is Basil, who, after being dismissed from the king's household, was driven by his debts to lodge an information against my name",
+     "note": "The text in the bundled file is Boethius's own account, so it is his side of the case."
+    }
+   },
+   {
+    "year": 523,
+    "text": "Forged letters are produced to show that he hoped for Rome's freedom. The Senate does not defend him, and he is arrested and sent to a prison at Pavia.",
+    "kind": "setback",
+    "step": {
+     "kind": "father",
+     "label": "Boethius, Consolation I",
+     "when": "523",
+     "year": 523,
+     "work": "boethius-consolation",
+     "section": "s1",
+     "quote": "What need to speak of the forged letters by which an attempt is made to prove that I hoped for the freedom of Rome?",
+     "note": "A note in the bundled text puts his prison at Pavia."
+    }
+   },
+   {
+    "year": 524,
+    "text": "In prison he writes The Consolation of Philosophy. Lady Philosophy comes to his bed and he asks why she has come to a place of exile.",
+    "kind": "writing",
+    "step": {
+     "kind": "father",
+     "label": "Boethius, Consolation I",
+     "when": "524",
+     "year": 524,
+     "work": "boethius-consolation",
+     "section": "s1",
+     "quote": "hast thou come down from on high, and entered the solitude of this my exile?",
+     "note": "The book alternates between prose and verse, and its argument is closer to Platonism than to a Christian catechism, though he is a Christian."
+    }
+   },
+   {
+    "year": 524,
+    "text": "Philosophy recalls what she taught him. She says she repeated in his ear the old maxim, \"Follow after God,\" and that it kept him from seeking dark helpers.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Boethius, Consolation I",
+     "when": "524",
+     "year": 524,
+     "work": "boethius-consolation",
+     "section": "s1",
+     "quote": "Follow after God.",
+     "note": "This is the nearest the opening book comes to naming a faith; his Christian theological tracts are not bundled here."
+    }
+   },
+   {
+    "year": 524,
+    "text": "He is put to death in 524, probably in the spring. The manner of his death is uncertain; the later accounts mention a cord and clubs.",
+    "kind": "turning",
+    "step": {
+     "kind": "father",
+     "label": "Editor's note to the Consolation",
+     "when": "524",
+     "year": 524,
+     "work": "boethius-consolation",
+     "section": "s13",
+     "quote": "of his death there is some uncertainty",
+     "note": "The note adds that one account says he was cut down by soldiers before the king's judgment-seat."
+    }
+   },
+   {
+    "year": 525,
+    "text": "His father-in-law Symmachus is also executed. Theodoric dies the next year. Context from settled history.",
+    "kind": "world"
+   },
+   {
+    "year": 529,
+    "text": "Benedict founds Monte Cassino. The same year the emperor Justinian closes the philosophical school at Athens. Boethius's Consolation becomes one of the most-read books of the Middle Ages. Context from settled history.",
+    "kind": "world"
+   }
+  ]
  }
 ]

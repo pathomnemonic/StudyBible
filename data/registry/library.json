@@ -3613,6 +3613,10 @@
     "numberDuplicates": true,
     "fixTitles": [
      [
+      "\\s*[Ss]ervants [Oo]f God.*$",
+      ""
+     ],
+     [
       "^St\\. Catherine of Siena As Seen in Her Letters$",
       "Introduction (V. D. Scudder): St. Catherine of Siena as seen in her letters"
      ],
@@ -3822,6 +3826,541 @@
      ]
     ]
    }
+  },
+  {
+   "id": "aug-sermons-nt",
+   "ccel": "schaff/npnf106",
+   "title": "Sermons on Selected Lessons of the New Testament",
+   "author": "Augustine of Hippo",
+   "authorId": "augustine",
+   "period": "patristic",
+   "authority": "father",
+   "kind": "sermons",
+   "year": "c. 393–430",
+   "rootTitle": "^Sermons on Selected Lessons",
+   "scriptureMode": "tags",
+   "psalmTags": "english",
+   "description": "Augustine’s preaching to his people at Hippo, sermon by sermon on the Gospels and Epistles.",
+   "translator": "R. G. MacMullen, NPNF 1st series vol. 6 (1888)",
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+  },
+  {
+   "id": "aug-1john",
+   "ccel": "schaff/npnf107",
+   "title": "Ten Homilies on the First Epistle of John",
+   "author": "Augustine of Hippo",
+   "authorId": "augustine",
+   "period": "patristic",
+   "authority": "father",
+   "kind": "homilies",
+   "year": "c. 407",
+   "rootTitle": "^Ten Homilies on the First",
+   "scriptureMode": "tags",
+   "psalmTags": "english",
+   "description": "Ten homilies on love, the heart of the First Letter of John.",
+   "translator": "H. Browne, rev. J. H. Myers, NPNF 1st series vol. 7 (1888)",
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+  },
+  {
+   "id": "aug-soliloquies",
+   "ccel": "schaff/npnf107",
+   "title": "Soliloquies",
+   "author": "Augustine of Hippo",
+   "authorId": "augustine",
+   "period": "patristic",
+   "authority": "father",
+   "kind": "treatise",
+   "year": "386–387",
+   "rootTitle": "^Two Books of Soliloquies",
+   "scriptureMode": "tags",
+   "psalmTags": "english",
+   "description": "Augustine’s early dialogue with his own reason about God and the soul, written soon after his conversion.",
+   "translator": "C. C. Starbuck, NPNF 1st series vol. 7 (1888)",
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+  },
+  {
+   "id": "gregory-nyssa-philosophical",
+   "ccel": "schaff/npnf205",
+   "title": "Philosophical Works",
+   "author": "Gregory of Nyssa",
+   "authorId": "gregory-nyssa",
+   "period": "patristic",
+   "authority": "father",
+   "kind": "treatise",
+   "year": "c. 379–394",
+   "rootTitle": "^Philosophical Works",
+   "scriptureMode": "tags",
+   "psalmTags": "english",
+   "description": "On the Soul and the Resurrection (with his sister Macrina) and On the Making of Man.",
+   "translator": "H. A. Wilson, NPNF 2nd series vol. 5 (1893)",
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+  },
+  {
+   "id": "gregory-nyssa-oratorical",
+   "ccel": "schaff/npnf205",
+   "title": "Oratorical Works",
+   "author": "Gregory of Nyssa",
+   "authorId": "gregory-nyssa",
+   "period": "patristic",
+   "authority": "father",
+   "kind": "sermons",
+   "year": "c. 380–394",
+   "rootTitle": "^Oratorical Works",
+   "scriptureMode": "tags",
+   "psalmTags": "english",
+   "description": "Funeral orations and sermons of Gregory of Nyssa.",
+   "translator": "H. A. Wilson, NPNF 2nd series vol. 5 (1893)",
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+  },
+  {
+   "id": "rufinus-works",
+   "ccel": "schaff/npnf203",
+   "title": "Rufinus: Works and Apology against Jerome",
+   "author": "Rufinus of Aquileia",
+   "authorId": "rufinus",
+   "period": "patristic",
+   "authority": "father",
+   "kind": "treatise",
+   "year": "c. 400–410",
+   "rootTitle": "^Life and Works of Rufinus",
+   "scriptureMode": "tags",
+   "psalmTags": "english",
+   "description": "Rufinus’s Commentary on the Apostles’ Creed, his Apology, and Jerome’s reply in the dispute over Origen.",
+   "translator": "W. H. Fremantle, NPNF 2nd series vol. 3 (1892)",
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+  },
+  {
+   "id": "jerome-prefaces",
+   "ccel": "schaff/npnf206",
+   "title": "Prefaces to his translations and commentaries",
+   "author": "Jerome",
+   "authorId": "jerome",
+   "period": "patristic",
+   "authority": "father",
+   "kind": "treatise",
+   "year": "c. 382–420",
+   "rootTitle": "^Prefaces",
+   "scriptureMode": "tags",
+   "psalmTags": "english",
+   "description": "The prefaces Jerome wrote for the books of the Vulgate and for his other works.",
+   "translator": "W. H. Fremantle, NPNF 2nd series vol. 6 (1893)",
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+  },
+  {
+   "id": "athanasius-minor-works",
+   "ccel": "schaff/npnf204",
+   "title": "Athanasius: Shorter Letters and Defences",
+   "author": "Athanasius of Alexandria",
+   "authorId": "athanasius",
+   "period": "patristic",
+   "authority": "father",
+   "kind": "letters",
+   "year": "c. 325–369",
+   "rootTitle": "^(Deposition of Arius|Letter of Eusebius|Statement of Faith|On Luke x|Encyclical Letter|Defence of Dionysius|Circular to Bishops)",
+   "scriptureMode": "tags",
+   "psalmTags": "english",
+   "description": "The deposition of Arius, the Encyclical and Circular letters, the Defence of Dionysius and other shorter pieces from the Arian conflict.",
+   "translator": "A. Robertson, NPNF 2nd series vol. 4 (1892)",
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+  },
+  {
+   "id": "dionysius-rome",
+   "ccel": "schaff/anf07",
+   "title": "Dionysius, Bishop of Rome",
+   "author": "Dionysius of Rome",
+   "authorId": "dionysius-rome",
+   "period": "patristic",
+   "authority": "father",
+   "kind": "letters",
+   "year": "c. 260",
+   "rootTitle": "^Dionysius$",
+   "scriptureMode": "tags",
+   "psalmTags": "english",
+   "description": "Fragments of Pope Dionysius (259–268) on the Trinity, against those who divided or confused the Persons.",
+   "translator": "ANF editors, Ante-Nicene Fathers vol. 7 (1886)",
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+  },
+  {
+   "id": "asterius-urbanus",
+   "ccel": "schaff/anf07",
+   "title": "Asterius Urbanus",
+   "author": "Asterius Urbanus",
+   "authorId": "asterius-urbanus",
+   "period": "patristic",
+   "authority": "father",
+   "kind": "treatise",
+   "year": "c. 232",
+   "rootTitle": "^Asterius Urbanus",
+   "scriptureMode": "tags",
+   "psalmTags": "english",
+   "description": "Fragments against the Montanists, preserved by Eusebius.",
+   "translator": "ANF editors, Ante-Nicene Fathers vol. 7 (1886)",
+   "rightsEvidence": "19th-century translation printed in the Schaff series; translator credit is in the printed volume."
+  },
+  {
+   "id": "aquinas-prayer",
+   "title": "On Prayer and the Contemplative Life",
+   "author": "Thomas Aquinas",
+   "authorId": "aquinas",
+   "period": "medieval",
+   "authority": "saint",
+   "kind": "treatise",
+   "year": "c. 1270",
+   "scriptureMode": "tags",
+   "description": "Questions of the Summa on religion, devotion, prayer, and the active and contemplative life, with an introduction by Hugh Pope.",
+   "translator": "Hugh Pope, O.P. (R. & T. Washbourne, London, 1914)",
+   "rightsEvidence": "Project Gutenberg's licence header for ebook #22295: 'Creating the works from print editions not protected by U.S. copyright law' (Project Gutenberg licence). Title page: R. & T. Washbourne, London, 1914, with imprimatur dated 20 September 1913; translator Hugh Pope died 1946, the book was published in 1914.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/22295/pg22295.txt",
+    "file": "gutenberg_22295.txt",
+    "sourceName": "Project Gutenberg (ebook #22295)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/22295",
+    "start": "^PREFACE$",
+    "strip": [
+     "^CONTENTS$[\\s\\S]*?^INDEX OF TEXTS QUOTED OR EXPLAINED$"
+    ],
+    "heading": "^(?:PREFACE|INTRODUCTION|QUESTION [IVXLC]+|INDEX|INDEX OF TEXTS QUOTED OR EXPLAINED)$",
+    "bareHeading": "^(?:PREFACE|INTRODUCTION|INDEX)",
+    "titleLines": 1,
+    "dropTitles": [
+     "^Index"
+    ],
+    "lowerSmallWords": true,
+    "introTitle": "Preface"
+   }
+  },
+  {
+   "id": "ignatius-autobiography",
+   "title": "The Autobiography of St. Ignatius",
+   "author": "Ignatius of Loyola",
+   "authorId": "ignatius",
+   "period": "early-modern",
+   "authority": "saint",
+   "kind": "autobiography",
+   "year": "1553–1555",
+   "scriptureMode": "tags",
+   "description": "Ignatius dictated the story of his conversion and early wanderings to Father Gonzalez; the best way to know the man behind the Exercises.",
+   "translator": "Edited by J. F. X. O’Conor, S.J. (Benziger Brothers, New York, 1900)",
+   "rightsEvidence": "Project Gutenberg's licence header for ebook #24534: 'Creating the works from print editions not protected by U.S. copyright law' (Project Gutenberg licence). Title page: Benziger Brothers, New York, 1900 (copyright notice 1900), imprimatur of 14 December 1899.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/24534/pg24534.txt",
+    "file": "gutenberg_24534.txt",
+    "sourceName": "Project Gutenberg (ebook #24534)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/24534",
+    "start": "^Editor's Preface$",
+    "strip": [
+     "^ *Contents *$[\\s\\S]*?(?=^The Autobiography of St\\. Ignatius$)"
+    ],
+    "introTitle": "Editor's Preface",
+    "heading": "^(?:Preface of the Writer|CHAPTER [IVX]+|APPENDIX|THE EDUCATIONAL PLAN OF ST\\. IGNATIUS)$",
+    "titleLines": 3,
+    "bareHeading": "^(?:Preface of|THE EDUC)",
+    "lowerSmallWords": true,
+    "fixTitles": [
+     [
+      "--.*$",
+      ""
+     ]
+    ]
+   }
+  },
+  {
+   "id": "chalippe-francis",
+   "title": "The Life and Legends of Saint Francis of Assisi",
+   "author": "Candide Chalippe",
+   "authorId": "chalippe",
+   "period": "early-modern",
+   "authority": "scholarship",
+   "kind": "history",
+   "year": "1727",
+   "scriptureMode": "tags",
+   "description": "The long classic life of Francis by a Franciscan friar, with the legends and miracles, translated from the French.",
+   "translator": "Translated from the French (Oratorian translation of 1852), revised by Hilarion Duerk, O.F.M. (1917 Jubilee Edition)",
+   "rightsEvidence": "Project Gutenberg's licence header for ebook #6367: 'Creating the works from print editions not protected by U.S. copyright law' (Project Gutenberg licence). Title page: revised and re-edited by Fr Hilarion Duerk, O.F.M., imprimaturs of 1 September 1917 (Provincial) and Cardinal Farley, New York; the French original is of 1727.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/6367/pg6367.txt",
+    "file": "gutenberg_6367.txt",
+    "sourceName": "Project Gutenberg (ebook #6367)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/6367",
+    "start": "^INTRODUCTORY NOTE$",
+    "strip": [
+     "^CONTENTS$[\\s\\S]*?(?=^THE LIFE AND LEGENDS OF SAINT FRANCIS OF ASSISI$\\n+BOOK I$)",
+     "^THE LIFE AND LEGENDS OF SAINT FRANCIS OF ASSISI$"
+    ],
+    "introTitle": "Introductory Note",
+    "heading": "^(?:PREFACE BY THE AUTHOR|BOOK [IVX]+|CONCLUSION)$",
+    "bareHeading": "^(?:PREFACE|BOOK|CONCLUSION)",
+    "titleLines": 0,
+    "lowerSmallWords": true,
+    "fixTitles": [
+     [
+      "^Preface By The Author$",
+      "Preface by the Author"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "camus-francis-de-sales",
+   "title": "The Spirit of St. Francis de Sales",
+   "author": "Jean-Pierre Camus",
+   "authorId": "camus",
+   "period": "early-modern",
+   "authority": "scholarship",
+   "kind": "spiritual",
+   "year": "1639",
+   "scriptureMode": "tags",
+   "description": "Sayings and conversations of Francis de Sales gathered by his friend the Bishop of Belley, in short chapters.",
+   "translator": "Translated by J. S. (new and enlarged edition, London, 1910)",
+   "rightsEvidence": "Project Gutenberg's licence header for ebook #9184: 'Creating the works from print editions not protected by U.S. copyright law' (Project Gutenberg licence). Title page: new and enlarged edition with preface by the Archbishop of Westminster; imprimatur dated 27 May 1910 (Westminster); French original first published in 1639.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/9184/pg9184.txt",
+    "file": "gutenberg_9184.txt",
+    "sourceName": "Project Gutenberg (ebook #9184)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/9184",
+    "start": "^PREFACE\\.$",
+    "introTitle": "Preface by the Archbishop of Westminster",
+    "heading": "^(?!FRANCIS, ARCHBISHOP)[A-Z][A-Z ,.'’;?!:-]{6,}\\.$",
+    "bareHeading": ".",
+    "titleLines": 0,
+    "lowerSmallWords": true,
+    "strip": [
+     "^THE SPIRIT OF ST\\. FRANCIS DE SALES$",
+     "^A PRIEST SHOULD NOT AIM AT IMITATING IN HIS SERMONS ANY PARTICULAR\\n",
+     "^HIS PROMOTION TO THE BISHOPRIC OF GENEVA AND HIS REFUSAL OF THE\\n"
+    ],
+    "fixTitles": [
+     [
+      "^Bishop of Belley$",
+      "Sketch of the life of Jean Pierre Camus, Bishop of Belley"
+     ],
+     [
+      "^Preacher$",
+      "A priest should not aim at imitating any particular preacher in his sermons"
+     ],
+     [
+      "^Archbishopric of Paris$",
+      "His promotion to the bishopric of Geneva and his refusal of the archbishopric of Paris"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "albert-union-with-god",
+   "title": "On Union with God",
+   "author": "Albert the Great",
+   "authorId": "albert-great",
+   "period": "medieval",
+   "authority": "saint",
+   "kind": "spiritual",
+   "year": "c. 1270",
+   "scriptureMode": "tags",
+   "description": "A short treatise on how the soul clings to God, ascribed to Albert the Great, with notes by P. J. Berthier, O.P.",
+   "translator": "A Benedictine of Princethorpe Priory (R. & T. Washbourne, London, 1911)",
+   "rightsEvidence": "Project Gutenberg's licence header for ebook #36402: 'Creating the works from print editions not protected by U.S. copyright law' (Project Gutenberg licence). Title page: Angelus Series, R. & T. Washbourne, London; imprimatur 7 December 1911.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/36402/pg36402.txt",
+    "file": "gutenberg_36402.txt",
+    "sourceName": "Project Gutenberg (ebook #36402)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/36402",
+    "start": "^PREFACE$",
+    "strip": [
+     "^CONTENTS$[\\s\\S]*?(?=^ON UNION WITH GOD$)",
+     "^CONSCIENCE$"
+    ],
+    "introTitle": "Preface",
+    "heading": "^(?:CHAPTER [IVXL]+|NOTES?|APPENDIX)$",
+    "titleLines": 1,
+    "lowerSmallWords": true,
+    "fixTitles": [
+     [
+      "Testimony of Our$",
+      "Testimony of Our Conscience"
+     ],
+     [
+      "Chapter ([IVXL]+) — ",
+      "Chapter $1 — "
+     ]
+    ]
+   }
+  },
+  {
+   "id": "dante-divine-comedy",
+   "title": "The Divine Comedy",
+   "author": "Dante Alighieri",
+   "authorId": "dante",
+   "period": "medieval",
+   "authority": "scholarship",
+   "kind": "poetry",
+   "year": "1308–1320",
+   "scriptureMode": "tags",
+   "description": "Dante’s journey through Hell, Purgatory and Paradise: the great poem of the Catholic Middle Ages, in Longfellow’s blank-verse translation.",
+   "translator": "Henry Wadsworth Longfellow (1867)",
+   "rightsEvidence": "Project Gutenberg's licence header for ebook #1004: 'Creating the works from print editions not protected by U.S. copyright law' (Project Gutenberg licence). Longfellow’s translation was first published in 1867; Longfellow died in 1882. The Gutenberg text is the 1867 translation (notes and commentary are not included).",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/1004/pg1004.txt",
+    "file": "gutenberg_1004.txt",
+    "sourceName": "Project Gutenberg (ebook #1004)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1004",
+    "start": "^(?=Inferno: Canto I$)",
+    "heading": "^(?:Inferno|Purgatorio|Paradiso): Canto [IVXL]+$",
+    "titleLines": 0,
+    "fixTitles": [
+     [
+      "^Inferno: ",
+      "Inferno — "
+     ],
+     [
+      "^Purgatorio: ",
+      "Purgatorio — "
+     ],
+     [
+      "^Paradiso: ",
+      "Paradiso — "
+     ]
+    ]
+   }
+  },
+  {
+   "id": "benson-paradoxes",
+   "title": "Paradoxes of Catholicism",
+   "author": "Robert Hugh Benson",
+   "authorId": "benson",
+   "period": "modern",
+   "authority": "scholarship",
+   "kind": "apologetics",
+   "year": "1913",
+   "scriptureMode": "tags",
+   "description": "Monsignor Benson on the apparent contradictions of the Catholic faith: peace and war, wealth and poverty, sanctity and sin, and more.",
+   "translator": "Original English",
+   "rightsEvidence": "Project Gutenberg's licence header for ebook #16309: 'Creating the works from print editions not protected by U.S. copyright law' (Project Gutenberg licence). Preface signed Hare Street House, Buntingford, Easter 1913; Benson died in October 1914.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/16309/pg16309.txt",
+    "file": "gutenberg_16309.txt",
+    "sourceName": "Project Gutenberg (ebook #16309)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/16309",
+    "strip": [
+     "^CONTENTS$[\\s\\S]*?^PARADOXES OF CATHOLICISM$"
+    ],
+    "heading": "^(?:INTRODUCTORY|[IVX]+)$",
+    "bareHeading": "^INTRODUCTORY$",
+    "titleLines": 1,
+    "lowerSmallWords": true,
+    "fixTitles": [
+     [
+      "^([IVX]+) — ",
+      "Chapter $1 — "
+     ]
+    ]
+   }
+  },
+  {
+   "id": "benson-lourdes",
+   "title": "Lourdes",
+   "author": "Robert Hugh Benson",
+   "authorId": "benson",
+   "period": "modern",
+   "authority": "scholarship",
+   "kind": "history",
+   "year": "1914",
+   "scriptureMode": "tags",
+   "description": "A priest’s account of a pilgrimage to Lourdes, the apparitions and the cures.",
+   "translator": "Original English",
+   "rightsEvidence": "Project Gutenberg's licence header for ebook #18729: 'Creating the works from print editions not protected by U.S. copyright law' (Project Gutenberg licence). Title page: B. Herder, publisher, 1914 (Manresa Press, Roehampton); Benson died in October 1914.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/18729/pg18729.txt",
+    "file": "gutenberg_18729.txt",
+    "sourceName": "Project Gutenberg (ebook #18729)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/18729",
+    "start": "^PREFACE\\.$",
+    "introTitle": "Preface",
+    "strip": [
+     "^LIST OF ILLUSTRATIONS\\.$[\\s\\S]*?(?=^I\\.$)"
+    ],
+    "heading": "^[IVX]+\\.$",
+    "bareHeading": ".",
+    "titleLines": 0,
+    "fixTitles": [
+     [
+      "^([IVX]+)$",
+      "Chapter $1"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "newman-pps-7",
+   "title": "Parochial and Plain Sermons, vol. 7",
+   "author": "John Henry Newman",
+   "authorId": "newman",
+   "period": "modern",
+   "authority": "saint",
+   "kind": "sermons",
+   "year": "1834–1843",
+   "scriptureMode": "tags",
+   "description": "Sermons Newman preached as an Anglican vicar of St Mary’s, Oxford, before he became a Catholic: the Lapse of Time, the Gospel Feast, Mental Prayer, the Unity of the Church.",
+   "translator": "Original English",
+   "rightsEvidence": "Project Gutenberg's licence header for ebook #24256: 'Creating the works from print editions not protected by U.S. copyright law' (Project Gutenberg licence). Title page: Longmans, Green, and Co., London and New York, 1891 (new edition of the 1840s sermons); Newman died in 1890.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/24256/pg24256.txt",
+    "file": "gutenberg_24256.txt",
+    "sourceName": "Project Gutenberg (ebook #24256)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/24256",
+    "strip": [
+     "^CONTENTS\\.$[\\s\\S]*?(?=^SERMON I\\.$(?![\\s\\S]{0,2500}?^SERMON II\\.$))"
+    ],
+    "end": "^END OF VOL\\.",
+    "heading": "^SERMON [IVXL]+\\.?$",
+    "titleLines": 1,
+    "lowerSmallWords": true,
+    "fixTitles": [
+     [
+      "^Sermon ([IVXL]+) — ",
+      "Sermon $1 — "
+     ],
+     [
+      "\\.?\\[\\d+\\]$",
+      ""
+     ]
+    ]
+   }
+  },
+  {
+   "id": "newman-pps-8",
+   "title": "Parochial and Plain Sermons, vol. 8",
+   "author": "John Henry Newman",
+   "authorId": "newman",
+   "period": "modern",
+   "authority": "saint",
+   "kind": "sermons",
+   "year": "1834–1843",
+   "scriptureMode": "tags",
+   "description": "The last volume of Newman’s Oxford sermons: Reverence in Worship, Divine Calls, Josiah, Jeremiah, and Religious Joy.",
+   "translator": "Original English",
+   "rightsEvidence": "Project Gutenberg's licence header for ebook #24284: 'Creating the works from print editions not protected by U.S. copyright law' (Project Gutenberg licence). Title page: Longmans, Green, and Co., London and New York, 1891 (new edition of the 1840s sermons); Newman died in 1890.",
+   "text": {
+    "url": "https://www.gutenberg.org/cache/epub/24284/pg24284.txt",
+    "file": "gutenberg_24284.txt",
+    "sourceName": "Project Gutenberg (ebook #24284)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/24284",
+    "strip": [
+     "^CONTENTS\\.$[\\s\\S]*?(?=^SERMON I\\.$(?![\\s\\S]{0,2500}?^SERMON II\\.$))"
+    ],
+    "end": "^END OF VOL\\.",
+    "heading": "^SERMON [IVXL]+\\.?$",
+    "titleLines": 1,
+    "lowerSmallWords": true,
+    "fixTitles": [
+     [
+      "^Sermon ([IVXL]+) — ",
+      "Sermon $1 — "
+     ],
+     [
+      "\\.?\\[\\d+\\]$",
+      ""
+     ]
+    ]
+   }
   }
  ],
  "_excluded": {
@@ -3846,6 +4385,14 @@
   "vatican-ii-documents": "All Vatican II documents (Abbott 1966, Flannery, and the vatican.va translations) are copyrighted, the vatican.va texts by the Libreria Editrice Vaticana; they stay link-only in data/registry/church-documents.json.",
   "papal-documents-1930-on": "Encyclicals from 1930 on (Casti Connubii, Quadragesimo Anno and later) were published in English by the Vatican (LEV copyright) or by the Catholic Truth Society / NCWC in translations whose renewal could not be checked; all are link-only. See data/registry/church-documents.json.",
   "catechism-of-the-catholic-church-ccc": "The Catechism of the Catholic Church (1992/1997, Libreria Editrice Vaticana; English translation copyright USCCB/LEV) is copyrighted: link-only.",
-  "hanover-trent": "The Hanover Historical Texts Project copy of Waterworth's Trent translation could not be retrieved (the site returned a not-found page), so the Internet Archive scan of Waterworth (Cornell copy) was used instead."
+  "hanover-trent": "The Hanover Historical Texts Project copy of Waterworth's Trent translation could not be retrieved (the site returned a not-found page), so the Internet Archive scan of Waterworth (Cornell copy) was used instead.",
+  "bernard-life-of-malachy": "Gutenberg #25761 (Lawlor, SPCK 1920, pre-1929) is a heavily annotated critical edition: footnotes and Lawlor's long introduction are interleaved with Bernard's text and cannot be separated cleanly. Not imported. On Loving God (Gutenberg #21152) is an audiobook-only record with no text file.",
+  "benedict-rule-doyle": "Gutenberg #50040 is Leonard Doyle's 1935 translation (Herder, St. Louis); print date after 1929 and renewal status unverified. Verheyen's 1911 translation could not be found as text on Gutenberg.",
+  "more-dialogue-of-comfort": "Gutenberg #17075 is Monica Stevens's 1951 modernised edition (Sheed & Ward): not pre-1929, not imported.",
+  "pascal-pensees": "Gutenberg #18269 carries T. S. Eliot's 1931 introduction (still in copyright in the US); Trotter's 1904 translation alone would qualify but the file mixes the two. Not imported.",
+  "camus-maxims-fds": "Gutenberg #73661 (Ella McMahon, Dublin 1884) is rights-sound but is 365 numbered one-paragraph maxims, with no headings to build meaningful sections from. Not imported.",
+  "newman-dream-of-gerontius": "Gutenberg #48927 is the 1910 Longmans edition with Maurice Francis Egan's introduction and notes in one file; the poem's speaker-by-speaker layout does not suit sectioning. Not imported.",
+  "sabatier-life-francis": "Gutenberg #18787 (Sabatier) is by a Protestant critical historian; not imported to keep the library's Franciscan sources Catholic hagiography. Little Flowers of St Francis, Egeria's Pilgrimage, Dionysius the Areopagite, Faber, Marmion and Manning were searched for on Gutenberg and not found as verifiable pre-1929 text; not imported.",
+  "anf09-epistles-clement": "The pseudo-Clementine Epistles on Virginity (ANF vol. 9) are pseudonymous and of uncertain date; not imported with the apocryphal works of that volume."
  }
 }
