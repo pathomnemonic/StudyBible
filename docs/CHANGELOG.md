@@ -1,5 +1,12 @@
 # What changed
 
+## A shorter first run
+- The seven-step setup and the guided tour are gone. A first visit opens one six-card intro, the same for everyone, with Skip on every card: the study Bible with the saints beside each verse, Bible in a Year, the apologetics hub, LibriVox recordings of the saints' books, and learning and games.
+- Bible in a Year asks whether you have listened before: carry on from a day (or find it by title), start at day 1, or leave it out and pick other media.
+- Questions moved to where they matter: who the lessons are for (first time Learn opens), a daily reminder (second day), backup (once there are notes to lose, as before).
+- Features that are not obvious from their name show a short note the first time you tap their red dot, then open.
+- Readers who finished the old setup or tour are not shown the intro. "Replay the intro" is in Settings and You.
+
 ## Everyday settings
 - New Settings sections, all folded away and all starting at today's behaviour: Start and home (which tab opens first), Look and ease of use (bigger buttons, underlined links, animation, tap buzz), Calendar (week starts on Monday or Sunday), Lessons and games (step by step or whole page, lesson pictures, longer game timers, streaks), History and privacy (stop remembering what you read), and Start over (reset settings; notes and progress are kept).
 - The first-run setup can be skipped from any step with one tap and keeps the defaults.

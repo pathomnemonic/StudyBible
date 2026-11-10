@@ -6240,3 +6240,10 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 :root[data-targets="big"] .tabbar button,:root[data-targets="big"] nav a{min-height:48px;display:inline-flex;align-items:center;justify-content:center}
 :root[data-links="underline"] a:not(.btn):not(.tile):not(.pf-tile){text-decoration:underline;text-underline-offset:2px}
 .welcome-skip{margin-left:10px;background:none;border:0;padding:2px 4px;font:inherit;font-size:.85em;color:var(--muted,inherit);text-decoration:underline;cursor:pointer}
+.intro-list{margin:8px 0 12px;padding-left:20px;line-height:1.5}.intro-list li{margin:4px 0}
+.intro-box{margin:8px 0}.intro-hits{list-style:none;margin:6px 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.intro-card input[type=number]{width:5.5em}
+.dottip-layer{position:fixed;inset:0;z-index:90;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.45);padding:12px}
+.dottip{width:min(440px,100%);background:var(--bg-elev,var(--bg));color:var(--text);border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.dottip p{margin:6px 0 12px;line-height:1.5}
+@media (min-width:700px){.dottip-layer{align-items:center}}

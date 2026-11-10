@@ -4,8 +4,9 @@ import Icon from './Icon';
 import { getSettings, useSettings } from '../lib/store';
 import CommandPalette from './CommandPalette';
 import Modal from './Modal';
-import Tour from './Tour';
-import Welcome from './Welcome';
+import Intro from './Intro';
+import DotTips from './DotTips';
+import { wantsTip } from '../lib/dotTips';
 import { NewDot } from './Hints';
 import { markSeen } from '../lib/seen';
 import { useEnsureActivePlan } from '../lib/activePlan';
@@ -112,7 +113,7 @@ export default function Shell({ children }: { children: ReactNode }) {
   useEffect(() => { if (loc.pathname === '/room' || loc.pathname.startsWith('/room/')) { try { localStorage.setItem(ROOM_KEY, loc.pathname + loc.search); } catch { /* private mode */ } } }, [loc.pathname, loc.search]);
   // anything marked data-seen clears its red dot when it is opened
   useEffect(() => {
-    const h = (e: Event) => { const el = (e.target as HTMLElement | null)?.closest?.('[data-seen]'); const id = el?.getAttribute('data-seen'); if (id) markSeen(id); };
+    const h = (e: Event) => { const el = (e.target as HTMLElement | null)?.closest?.('[data-seen]'); const id = el?.getAttribute('data-seen'); if (!id) return; if (el?.tagName === 'A' && wantsTip(id, e as MouseEvent)) { e.preventDefault(); e.stopPropagation(); window.dispatchEvent(new CustomEvent('studybible:dottip', { detail: { id } })); return; } markSeen(id); };
     document.addEventListener('click', h, true);
     return () => document.removeEventListener('click', h, true);
   }, []);
@@ -230,8 +231,8 @@ export default function Shell({ children }: { children: ReactNode }) {
           <dl className="keys-list">{[['Ctrl/⌘ K', 'Jump to a passage, search, go anywhere'], ['?', 'This help'], ['← / →', 'Previous / next (day, chapter)'], ['Home page: i', 'Where today’s texts come from'], ['In the Bible: S', 'Study panel'], ['In the Bible: N', 'Note on the selection'], ['Esc', 'Close a panel']].map(([k, d]) => <div key={k}><dt><kbd>{k}</kbd></dt><dd>{d}</dd></div>)}</dl>
         </Modal>
       )}
-      <Welcome />
-      <Tour />
+      <Intro />
+      <DotTips />
       {palette && <CommandPalette onClose={() => setPalette(false)} />}
     </div>
   );

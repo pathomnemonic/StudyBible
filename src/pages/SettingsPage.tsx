@@ -82,7 +82,7 @@ export default function SettingsPage() {
         <div className="row-actions">
           <button className="btn" onClick={() => { resetSeen(); set({ hints: true }); }}>Show them all again</button>
           <button className="btn" onClick={() => markAllSeen()}>Clear every dot</button>
-          <button className="btn" onClick={() => window.dispatchEvent(new Event('studybible:tour'))}>Take the short tour</button>
+          <button className="btn" onClick={() => window.dispatchEvent(new Event('studybible:tour'))}>Replay the intro</button>
         </div>
       </Fold>
       <Fold id="settings:Your Church" title="Your Church" open={true}>

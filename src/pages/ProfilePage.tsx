@@ -36,7 +36,7 @@ export default function ProfilePage() {
         <div className="btn-row">
           <SurpriseButton />
           <Link className="btn" to="/more">Every page in the app</Link>
-          <button className="btn" onClick={() => window.dispatchEvent(new Event('studybible:tour'))}>Take the tour again</button>
+          <button className="btn" onClick={() => window.dispatchEvent(new Event('studybible:tour'))}>Replay the intro</button>
           <Link className="btn" to="/study/sources">Sources and licensing</Link>
         </div>
       </Group>

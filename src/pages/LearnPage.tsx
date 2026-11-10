@@ -8,6 +8,7 @@ import Fold from '../components/Fold';
 import { HubHeader, RowLink, Tiles } from '../components/Hub';
 import { useSettings } from '../lib/store';
 import LessonOfDay from '../components/LessonOfDay';
+import AudienceAsk from '../components/AudienceAsk';
 import ContinueLesson from '../components/ContinueLesson';
 
 /** Learn: the Catechism course first, then the Catechism itself, then everything else behind a fold. */
@@ -36,6 +37,7 @@ export default function LearnPage() {
     <div className="page hub learn">
       <HubHeader quiet title="Learn" />
       <GamesBar />
+      <AudienceAsk />
       <ContinueLesson />
       <section className="card learn-card students" aria-labelledby="learn-stu">
         <h2 id="learn-stu" className="learn-h">Catechism for students<span>K–12 · lessons, teacher guides, slides and games</span></h2>

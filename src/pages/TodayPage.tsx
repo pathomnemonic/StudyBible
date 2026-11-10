@@ -1,3 +1,4 @@
+import ReminderAsk from '../components/ReminderAsk';
 import SeasonMark from '../components/SeasonMark';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
@@ -175,6 +176,7 @@ export default function TodayPage() {
         </aside>
       )}
 
+      <ReminderAsk />
       <MementoCard />
       <HomeExtras date={date} season={ld.season} ref={ref} label={verse?.label ?? ''} onRandom={random} />
       <footer className="home-actions">
