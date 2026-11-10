@@ -4,7 +4,7 @@ import Icon from './Icon';
 import { getSettings, useSettings } from '../lib/store';
 import CommandPalette from './CommandPalette';
 import Modal from './Modal';
-import Intro from './Intro';
+import Tour from './Tour';
 import DotTips from './DotTips';
 import { wantsTip } from '../lib/dotTips';
 import { NewDot } from './Hints';
@@ -231,7 +231,7 @@ export default function Shell({ children }: { children: ReactNode }) {
           <dl className="keys-list">{[['Ctrl/⌘ K', 'Jump to a passage, search, go anywhere'], ['?', 'This help'], ['← / →', 'Previous / next (day, chapter)'], ['Home page: i', 'Where today’s texts come from'], ['In the Bible: S', 'Study panel'], ['In the Bible: N', 'Note on the selection'], ['Esc', 'Close a panel']].map(([k, d]) => <div key={k}><dt><kbd>{k}</kbd></dt><dd>{d}</dd></div>)}</dl>
         </Modal>
       )}
-      <Intro />
+      <Tour />
       <DotTips />
       {palette && <CommandPalette onClose={() => setPalette(false)} />}
     </div>
