@@ -1,5 +1,9 @@
 # What changed
 
+## Everyday settings
+- New Settings sections, all folded away and all starting at today's behaviour: Start and home (which tab opens first), Look and ease of use (bigger buttons, underlined links, animation, tap buzz), Calendar (week starts on Monday or Sunday), Lessons and games (step by step or whole page, lesson pictures, longer game timers, streaks), History and privacy (stop remembering what you read), and Start over (reset settings; notes and progress are kept).
+- The first-run setup can be skipped from any step with one tap and keeps the defaults.
+
 ## Lesson appeal pass
 - Every lesson now has up to four public-domain pictures (the passage's own Doré/Gothic/museum art first, then its subject), spread across the steps with credits.
 - Step-by-step lessons end with a recap, "Mark done" and "Next lesson"; quizzes explain each answer, list what you missed and offer Try again; progress is kept so Learn can say "continue where you left off".

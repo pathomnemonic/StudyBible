@@ -1,3 +1,4 @@
+import { logHistory } from '../../db/log';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { cccAll, cccRange, getCccIndex, MAX_PARA, type CccIndex, type CccPara } from '../../data/ccc';
@@ -55,7 +56,7 @@ export default function CatechismPage() {
   const [s] = useSettings();
   const edition = get(s.defaultEdition) ?? editions[0];
   useEffect(() => { getCccIndex().then(setIdx); }, []);
-  useEffect(() => { setParas(null); cccRange(start, start + WINDOW - 1).then(setParas); db.history.add({ ts: Date.now(), type: 'catechism', ref: String(target), label: `Catechism §${target}` }).catch(() => {}); }, [start, target]);
+  useEffect(() => { setParas(null); cccRange(start, start + WINDOW - 1).then(setParas); logHistory({ ts: Date.now(), type: 'catechism', ref: String(target), label: `Catechism §${target}` }).catch(() => {}); }, [start, target]);
   useEffect(() => { if (q.trim().length > 2 && !all) cccAll().then(setAll); }, [q, all]);
   useEffect(() => { document.getElementById(`ccc-${target}`)?.scrollIntoView({ block: 'center' }); }, [paras, target]);
   const hits = useMemo(() => {

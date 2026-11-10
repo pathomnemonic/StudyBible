@@ -70,7 +70,7 @@ export default function Welcome() {
     <div className="welcome-layer" role="dialog" aria-modal="true" aria-label={`Set up ${BRAND.name}`}>
       <div className="welcome-card" ref={card} tabIndex={-1}>
         <div className="welcome-dots" aria-hidden>{STEPS.map((_, n) => <i key={n} className={n === i ? 'on' : n < i ? 'done' : ''} />)}</div>
-        <p className="welcome-step">{i === 0 ? 'Welcome' : `Step ${i + 1} of ${STEPS.length}`}</p>
+        <p className="welcome-step">{i === 0 ? 'Welcome' : `Step ${i + 1} of ${STEPS.length}`} <button type="button" className="welcome-skip" onClick={() => done(false)}>Skip setup, use the defaults</button></p>
         <h1 className="welcome-title">{STEPS[i]}</h1>
 
         {i === 0 && <>

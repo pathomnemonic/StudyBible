@@ -1,3 +1,4 @@
+import { logHistory } from '../db/log';
 import { db } from '../db/db';
 import type { HistoryEntry } from '../db/db';
 
@@ -16,7 +17,7 @@ export async function markChapterFinished(bookId: string, anchorChapter: number,
   const ref = `${bookId}.${anchorChapter}`;
   const dayStart = new Date(); dayStart.setHours(0, 0, 0, 0);
   const have = await db.history.where('ts').aboveOrEqual(dayStart.getTime()).filter((r) => r.type === 'finished' && r.ref === ref).count();
-  if (!have) await db.history.add({ ts: Date.now(), type: 'finished', ref, label });
+  if (!have) await logHistory({ ts: Date.now(), type: 'finished', ref, label });
 }
 export async function unmarkChapterToday(bookId: string, anchorChapter: number) {
   const ref = `${bookId}.${anchorChapter}`;

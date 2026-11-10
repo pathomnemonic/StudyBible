@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { buzz } from './lib/haptics';
 import { installRipples } from './lib/ripple';
 import ErrorBoundary from './components/ErrorBoundary';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { EditionsProvider, useEditions } from './data/EditionsContext';
 import { useSettings } from './lib/store';
 import Shell from './components/Shell';
@@ -204,6 +204,21 @@ const AccountPage = lazy(() => import('./pages/AccountPage'));
 const AttachPage = lazy(() => import('./pages/AttachPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 
+/** Opens the tab the reader chose as their start, once per visit, and only when the app was opened on the home screen. */
+function StartPage() {
+  const [s] = useSettings();
+  const nav = useNavigate();
+  const loc = useLocation();
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem('sb:started')) return;
+      sessionStorage.setItem('sb:started', '1');
+      if (loc.pathname === '/' && s.startPage !== 'today') nav(`/${s.startPage}`, { replace: true });
+    } catch { /* private mode */ }
+  }, []);
+  return null;
+}
+
 function ThemeApplier() {
   const [s] = useSettings();
   useEffect(() => installRipples(), []);
@@ -240,6 +255,8 @@ function ThemeApplier() {
       root.dataset.notemarks = s.showNoteMarks ? 'on' : 'off';
       root.dataset.motion = s.motion;
       root.dataset.layout = s.layout;
+      root.dataset.targets = s.bigTargets ? 'big' : '';
+      root.dataset.links = s.underlineLinks ? 'underline' : '';
       root.lang = s.language;
       if (s.fontFamily === 'hyperlegible') void import('@fontsource/atkinson-hyperlegible/400.css').catch(() => {});
       if (s.fontFamily === 'dyslexic') { void import('@fontsource/opendyslexic/400.css').catch(() => {}); void import('@fontsource/atkinson-hyperlegible/400.css').catch(() => {}); }
@@ -257,7 +274,7 @@ function ThemeApplier() {
       mq.removeEventListener('change', apply);
       mc.removeEventListener('change', apply);
     };
-  }, [s.language, s.theme, s.margin, s.fontSize, s.lineHeight, s.fontFamily, s.letterSpacing, s.wordSpacing, s.plainAlign, s.motion]);
+  }, [s.language, s.theme, s.margin, s.fontSize, s.lineHeight, s.fontFamily, s.letterSpacing, s.wordSpacing, s.plainAlign, s.motion, s.bigTargets, s.underlineLinks]);
   return null;
 }
 
@@ -305,6 +322,7 @@ export default function App() {
     <ToastProvider>
     <EditionsProvider>
       <ThemeApplier />
+      <StartPage />
       <UpdateBanner />
       <ScrollMemory />
       <Gate>

@@ -57,6 +57,22 @@ export interface Settings {
   haptics: boolean;
   /** compact: every tab fits one screen, groups folded; classic: the earlier roomy layout with groups open and descriptions */
   layout: 'compact' | 'classic';
+  /** larger buttons and tap areas (easier on small screens and for unsteady hands) */
+  bigTargets: boolean;
+  /** underline every link, not only on hover */
+  underlineLinks: boolean;
+  /** which tab the app opens on when it starts */
+  startPage: 'today' | 'read' | 'learn' | 'pray';
+  /** the first day of the week in calendars */
+  weekStart: 'sun' | 'mon';
+  /** lessons open step by step, or as one whole page */
+  lessonView: 'path' | 'whole';
+  /** public-domain paintings in lessons */
+  lessonPictures: boolean;
+  /** double the time in timed games */
+  longerTimers: boolean;
+  /** keep a list of what was read and opened (History page); off stops recording */
+  recordHistory: boolean;
   /** a ring of ripples spreads from every tap, like a drop falling into still water */
   tapRipple: boolean;
   /** a very quiet water-drop sound on taps */
@@ -174,6 +190,14 @@ export const DEFAULTS: Settings = {
   haptics: false,
   layout: 'compact',
   tapRipple: true,
+  bigTargets: false,
+  underlineLinks: false,
+  startPage: 'today',
+  weekStart: 'sun',
+  lessonView: 'path',
+  lessonPictures: true,
+  longerTimers: false,
+  recordHistory: true,
   tapSound: false,
   defaultEdition: 'webc',
   parallelEdition: null,

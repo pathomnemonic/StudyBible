@@ -1,3 +1,4 @@
+import { useSettings } from '../../lib/store';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getJson } from '../../data/loader';
@@ -41,7 +42,9 @@ export default function CloisterPage() {
   const [path, setPath] = useState<number[]>([]);
   const [found, setFound] = useState<string[]>([]);
   const [msg, setMsg] = useState('');
-  const [left, setLeft] = useState(TIME);
+  const [cfg] = useSettings();
+  const TIMEX = cfg.longerTimers ? TIME * 2 : TIME;
+  const [left, setLeft] = useState(TIMEX);
   const drag = useRef(false);
   const gridRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -56,7 +59,7 @@ export default function CloisterPage() {
   const total = found.reduce((a, w) => a + score(w), 0);
   const word = path.map((i) => board[i]).join('').toLowerCase();
 
-  const begin = (isDaily: boolean) => { const s = isDaily ? dayIndex() : Math.floor(Math.random() * 1e6); setDaily(isDaily); setSeed(s); setFound([]); setPath([]); setLeft(TIME); setMsg(''); setPhase('play'); };
+  const begin = (isDaily: boolean) => { const s = isDaily ? dayIndex() : Math.floor(Math.random() * 1e6); setDaily(isDaily); setSeed(s); setFound([]); setPath([]); setLeft(TIMEX); setMsg(''); setPhase('play'); };
   useEffect(() => {
     if (phase !== 'play') return;
     const t = window.setInterval(() => setLeft((l) => { if (l <= 1) { window.clearInterval(t); setPhase('done'); return 0; } return l - 1; }), 1000);

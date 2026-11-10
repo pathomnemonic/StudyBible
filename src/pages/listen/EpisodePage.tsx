@@ -1,3 +1,4 @@
+import { logHistory } from '../../db/log';
 import SaveOffline from '../../components/SaveOffline';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
@@ -22,7 +23,7 @@ export default function EpisodePage() {
   const ep = biay?.byId.get(id);
   useEffect(() => {
     if (!ep) return;
-    db.history.add({ ts: Date.now(), type: 'episode', ref: ep.id, label: ep.title });
+    logHistory({ ts: Date.now(), type: 'episode', ref: ep.id, label: ep.title });
     const refs = ep.passages.map((p) => parseRefId(p)).filter(Boolean) as Ref[];
     if (refs.length) Promise.all([providers.catechism(refs.slice(0, 1)), providers.doctrine(refs.slice(0, 4))]).then(([a, b]) => setTeach([...a, ...b]));
   }, [ep?.id]);

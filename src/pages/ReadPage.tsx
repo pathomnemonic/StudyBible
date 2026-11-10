@@ -1,3 +1,4 @@
+import { logHistory } from '../db/log';
 import { pageTitle } from '../lib/brand';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
@@ -298,7 +299,7 @@ export default function ReadPage() {
     (async () => {
       const last = await db.history.orderBy('ts').last();
       if (!last || last.ref !== `${bk.id}.${primaryAnchorChapter}`) {
-        db.history.add({ ts: Date.now(), type: 'read', ref: `${bk.id}.${primaryAnchorChapter}`, label: `${bk.name} ${chNum}` });
+        logHistory({ ts: Date.now(), type: 'read', ref: `${bk.id}.${primaryAnchorChapter}`, label: `${bk.name} ${chNum}` });
       }
     })();
     const saved = sessionStorage.getItem('scroll.' + key);

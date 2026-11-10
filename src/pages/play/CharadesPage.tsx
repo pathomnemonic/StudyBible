@@ -1,3 +1,4 @@
+import { getSettings } from '../../lib/store';
 import ShareButton from '../../components/ShareButton';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -17,7 +18,7 @@ const best = (id: string) => { try { return +(localStorage.getItem(bestKey(id)) 
 export default function CharadesPage() {
   const [phase, setPhase] = useState<Phase>('pick');
   const [deck, setDeck] = useState<CharadesDeck>(CHARADES_DECKS[0]);
-  const [secs, setSecs] = useState(60);
+  const [secs, setSecs] = useState(() => (getSettings().longerTimers ? 120 : 60));
   const [flip, setFlip] = useState(() => { try { return localStorage.getItem('sb:charades:flip') === '1'; } catch { return false; } });
   const [count, setCount] = useState(3);
   const [left, setLeft] = useState(60);

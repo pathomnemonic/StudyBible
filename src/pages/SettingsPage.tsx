@@ -1,3 +1,4 @@
+import MoreSettings from '../components/MoreSettings';
 import InstallCard from '../components/InstallCard';
 import Fold, { FoldControls } from '../components/Fold';
 import { resetSeen, markAllSeen } from '../lib/seen';
@@ -75,6 +76,7 @@ export default function SettingsPage() {
         <div className="row between" style={{ margin: '8px 0' }}><span>Liturgical calendar</span><select aria-label="Liturgical calendar" value={s.diocese} onChange={(e) => set({ diocese: e.target.value })}>{Object.entries(NATIONS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></div>
       </Fold>
 
+      <MoreSettings />
       <Fold id="settings:Tips and red dots" title="Tips and red dots" open={false}>
         <label className="welcome-check"><input type="checkbox" checked={s.hints} onChange={(e) => set({ hints: e.target.checked })} /><span><strong>Show red dots and short tips</strong><br /><small>Dots mark things you have not opened; tips explain a feature once.</small></span></label>
         <div className="row-actions">

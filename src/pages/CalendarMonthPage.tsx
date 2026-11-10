@@ -36,14 +36,15 @@ export default function CalendarMonthPage() {
   }, [y, m, variant, events]);
   const title = new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString(undefined, { month: 'long', year: 'numeric', timeZone: 'UTC' });
   const go = (dm: number) => { const d = new Date(Date.UTC(y, m - 1 + dm, 1)); setSp({ y: String(d.getUTCFullYear()), m: String(d.getUTCMonth() + 1) }, { replace: true }); };
-  const lead = days[0]?.offset ?? 0;
+  const mon = s.weekStart === 'mon';
+  const lead = ((days[0]?.offset ?? 0) + (mon ? 6 : 0)) % 7;
   return (
     <div className="page cal-month">
       <div className="row between no-print"><h1>Church calendar</h1><div className="row" style={{ gap: 6 }}><button className="btn small" onClick={() => go(-1)} aria-label="Previous month">‹</button><button className="btn small" onClick={() => go(1)} aria-label="Next month">›</button><button className="btn small primary" onClick={() => window.print()}>Print</button></div></div>
       <div className="print-sheet cal-sheet">
         <h2 className="cal-title">{title}</h2>
         <div className="cal-grid" role="grid" aria-label={title}>
-          {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d) => <div key={d} className="cal-dow" role="columnheader">{d}</div>)}
+          {(mon ? ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']).map((d) => <div key={d} className="cal-dow" role="columnheader">{d}</div>)}
           {Array.from({ length: lead }, (_, i) => <div key={`b${i}`} className="cal-cell blank" />)}
           {days.map((d) => (
             <div key={d.key} role="gridcell" className={`cal-cell${d.dow === 0 ? ' sun' : ''}`}>

@@ -1,3 +1,4 @@
+import { logHistory } from '../../db/log';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -88,7 +89,7 @@ export default function WorkReader() {
   useEffect(() => {
     if (!sec) return;
     noteVisit(workId, idx, work?.sections.length ?? 0);
-    db.history.add({ ts: Date.now(), type: 'work', ref: `${workId}/${idx}`, label: `${meta?.title ?? workId}: ${sec.title}` });
+    logHistory({ ts: Date.now(), type: 'work', ref: `${workId}/${idx}`, label: `${meta?.title ?? workId}: ${sec.title}` });
     if (savedScroll(loc.pathname) === null) window.scrollTo(0, 0);
     document.title = `${sec.title} · ${meta?.title ?? ''}`;
     setSpeaking(null); setFinding(false);
