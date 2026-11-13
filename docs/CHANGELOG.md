@@ -6,6 +6,8 @@
 - Cross-reference workflow test through the interface (follow a reference, change translation, write a note, go back, find the note in the other translation). It found a real bug: changing translation dropped the "Back to John 3:16" way back. Fixed.
 - Writing test through the interface: write, edit, delete, close and reopen, export, restore, and a damaged file refused with a plain message (it used to show "Unexpected end of JSON input"). Google Drive backup is tested to report failure and never record a success it did not have.
 - Screen reader test (the accessibility tree): verses are buttons named "16 For God so loved...", the chapter is a labelled article under a level 1 heading, a selected verse says it is pressed. Search results, the audio player and 200% text are checked with axe.
+- Dialogs and the Toolbox drawer now move focus in when they open, keep Tab inside, and return focus to where you were when they close (the new screen reader test found they did none of this).
+- A chapter links to the Catechism lessons that use it ("Lesson: ..." beside Study this chapter): 233 chapters. Two videos added for social teaching.
 - Sources explains that about 77% of verses have connections tied to the verse itself and the rest are marked "whole chapter".
 
 ## Lengths on every YouTube video

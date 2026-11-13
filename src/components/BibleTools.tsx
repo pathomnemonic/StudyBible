@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Icon from './Icon';
+import { useDialogFocus } from '../lib/dialogFocus';
 import { BIBLE_TOOLS, TOOL_GROUPS } from '../lib/bibleTools';
 import type { Book } from '../lib/canon';
 
@@ -10,6 +11,8 @@ export interface ToolItem { label: string; onClick: () => void }
 
 /** The toolbox: a sheet from the left with small boxes. First what belongs to this chapter, then this book, then every Bible tool by kind. */
 export default function BibleTools({ book, chapter, onClose, items = [] }: { book: Book; chapter: number; onClose: () => void; items?: ToolItem[] }) {
+  const drawer = useRef<HTMLElement>(null);
+  useDialogFocus(drawer);
   const nav = useNavigate();
   const loc = useLocation();
   const at = useRef(loc.pathname);
@@ -29,7 +32,7 @@ export default function BibleTools({ book, chapter, onClose, items = [] }: { boo
   const go = (to: string) => { onClose(); nav(to); };
   return createPortal(
     <div className="drawer-back" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
-      <aside className="drawer" role="dialog" aria-modal="true" aria-label="Toolbox">
+      <aside className="drawer" role="dialog" aria-modal="true" aria-label="Toolbox" ref={drawer}>
         <div className="drawer-head">
           <h2>Toolbox</h2>
           <button className="icon-btn" onClick={onClose} aria-label="Close"><Icon name="close" /></button>

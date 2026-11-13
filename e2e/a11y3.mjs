@@ -30,6 +30,20 @@ const live = await p.locator('[aria-live], [role=status]').count();
 if (live < 1) problems.push('reader: no live region for announcements (selection, saved, offline)');
 await axe('reader with a selected verse');
 
+// 1b. dialogs and panels: the study panel, the books drawer and the toolbox, each open
+await p.locator('.v[data-v="16"] .vn').first().click(); await p.waitForTimeout(800);
+await axe('study panel open');
+await p.keyboard.press('Escape'); await p.keyboard.press('Escape'); await p.waitForTimeout(400);
+await p.locator('button[aria-label^="Books and translation"]').click(); await p.waitForTimeout(700);
+await axe('books and translation drawer');
+const focusIn = await p.evaluate(() => !!document.activeElement && !!document.activeElement.closest('.drawer, [role=dialog]'));
+if (!focusIn) problems.push('the books drawer should take focus when it opens');
+await p.keyboard.press('Escape'); await p.waitForTimeout(400);
+if (await p.locator('.drawer:visible, [role=dialog]:visible').count()) problems.push('Escape should close the books drawer');
+await p.locator('button[aria-label^="Toolbox"]').click(); await p.waitForTimeout(700);
+await axe('toolbox drawer');
+await p.keyboard.press('Escape'); await p.waitForTimeout(400);
+
 // 2. search results
 await p.goto(`${BASE}/#/study/search`); await p.waitForSelector('input[type=search], input[type=text]');
 await p.locator('input[type=search], input[type=text]').first().fill('grace'); await p.keyboard.press('Enter'); await p.waitForTimeout(2500);

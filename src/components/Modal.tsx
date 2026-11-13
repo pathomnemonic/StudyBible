@@ -1,8 +1,11 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
+import { useDialogFocus } from '../lib/dialogFocus';
 import { createPortal } from 'react-dom';
 import Icon from './Icon';
 
 export default function Modal({ title, onClose, children }: { title: string; onClose: () => void; children: ReactNode }) {
+  const box = useRef<HTMLDivElement>(null);
+  useDialogFocus(box);
   useEffect(() => {
     const h = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
     window.addEventListener('keydown', h);
@@ -11,7 +14,7 @@ export default function Modal({ title, onClose, children }: { title: string; onC
   // rendered on <body>, so a parent with a filter or transform (the mini player) cannot trap it or push its close button off screen
   return createPortal(
     <div className="modal-back" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
-      <div className="modal" role="dialog" aria-modal="true" aria-label={title}>
+      <div className="modal" role="dialog" aria-modal="true" aria-label={title} ref={box}>
         <div className="row between" style={{ marginBottom: 8 }}>
           <h2 style={{ margin: 0, fontSize: '1.15rem' }}>{title}</h2>
           <button className="icon-btn" onClick={onClose} aria-label="Close">
