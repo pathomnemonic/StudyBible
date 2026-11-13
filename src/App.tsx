@@ -190,6 +190,7 @@ const TermsIndex = lazy(() => import('./pages/study/TermPage').then((m) => ({ de
 const ConstellationPage = lazy(() => import('./pages/study/ConstellationPage'));
 const TopicalPage = lazy(() => import('./pages/study/TopicalPage'));
 const ConcordancePage = lazy(() => import('./pages/study/ConcordancePage'));
+const AskAllPage = lazy(() => import('./pages/study/AskAllPage'));
 const FingerprintPage = lazy(() => import('./pages/study/FingerprintPage'));
 const BooksPage = lazy(() => import('./pages/study/BooksPage'));
 const IndexPage = lazy(() => import('./pages/study/IndexPage'));
@@ -461,6 +462,7 @@ export default function App() {
               <Route path="/listen-search" element={<MediaSearch />} />
               <Route path="/study/glossary" element={<GlossaryPage />} />
               <Route path="/study/ask" element={<AskPage />} />
+              <Route path="/study/ask-all" element={<AskAllPage />} />
               <Route path="/feast/:date?" element={<FeastCardPage />} />
               <Route path="/study/doctrine-map" element={<DoctrineMapPage />} />
               <Route path="/study/arguments/:id?" element={<ChainsPage mode="arguments" />} />

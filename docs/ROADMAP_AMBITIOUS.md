@@ -3,6 +3,8 @@
 None of these is built. Each is assessed against what the app already has, so the order and cost are honest. Common rules: the core app must keep working with no network and no AI service; nothing personal leaves the device unless the person chooses; every claim carries its source.
 
 ## 1. An evidence-grounded Catholic study assistant
+
+*Status: the retrieval half is built as "Ask the sources" (/study/ask-all): one question, labelled and separated source classes, no generated text and no AI service. The generated-explanation half, which would need a model, is not built.*
 **What a person experiences.** They type a question ("Why do Catholics pray for the dead?"). They get an answer made of short excerpts from the library, each labelled and linked, followed by an optional written synthesis clearly marked as generated. They never get an unsourced paragraph.
 
 **Architecture (retrieval first, generation optional).**

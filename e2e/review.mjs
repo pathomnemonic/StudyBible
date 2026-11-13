@@ -52,4 +52,11 @@ if (!/Card 2 of/.test(await p.locator('.fs-cards').innerText())) fail('Next ques
 await p.goto(`${BASE}/#/study/fingerprint/ROM`); await p.waitForSelector('.fp-list li', { timeout: 30000 });
 const fpText = (await p.locator('.page').innerText()).toLowerCase();
 if (!/faith/.test(fpText) || !/what sets romans apart/.test(fpText)) fail('the Romans fingerprint should name faith and show the distinctive section');
+// 7. ask the sources: Catechism and Scripture shown apart, each with its label
+await p.goto(`${BASE}/#/study/ask-all?q=${encodeURIComponent('Why do Catholics baptize infants?')}`);
+await p.waitForSelector('[aria-label="The Church’s teaching"]', { timeout: 30000 });
+await p.waitForSelector('[aria-label="Scripture"] blockquote, [aria-label="Scripture"] .muted', { timeout: 60000 });
+const ask = await p.locator('.ask-all').innerText();
+if (!/Catechism of the Catholic Church/.test(ask)) fail('the Church’s teaching card should name the Catechism');
+if (!/Bible text/.test(ask) || !/Writings in the library/.test(ask)) fail('every kind of source should be labelled');
 await b.close(); console.log('review ok');
