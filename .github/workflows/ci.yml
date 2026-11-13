@@ -29,7 +29,8 @@ jobs:
         continue-on-error: true
   # comprehensive: real browser, offline reload, accessibility in every theme
   browser:
-    runs-on: ubuntu-latest
+    # pinned: ubuntu-latest moved to 26.04, which this Playwright version cannot install a browser on
+    runs-on: ubuntu-24.04
     needs: fast
     strategy:
       fail-fast: false
