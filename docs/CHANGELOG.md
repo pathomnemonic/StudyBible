@@ -1,5 +1,8 @@
 # What changed
 
+## Video refresh covers every creator
+- All 28 creators in the video library now have their YouTube channel id in data/curated/video-channels.json, each confirmed from the channel page of videos we already list for it. The daily refresh reads every one of them.
+
 ## Feeds, a tidier Learn tab and the toolbox
 - Videos opens on a Feed: the newest videos from the creators you follow (a prompt to choose creators if none), then a Creators page of small boxes with Follow, All videos (search and filters) and your saved and watched lists. New uploads added by the daily refresh go to the front of their creator's list.
 - Podcasts you follow now show as a feed (newest episodes of each, newest first; a year-long programme shows its next unheard day) on the Podcasts tab and in For you, replacing the one-line "new episode" list.

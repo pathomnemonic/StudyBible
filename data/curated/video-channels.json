@@ -1,15 +1,117 @@
 {
   "_about": "YouTube channel ids for the creators in the video library (public/data/media/video_library.json). The daily refresh reads each channel's latest uploads and adds the new ones. A channel is only used when its latest uploads overlap the videos already listed for it, so a wrong id is skipped, not added. To add a channel: put its name exactly as in the library's channel list and its channel id (the UC... id in the channel page's address or source).",
   "channels": [
-    { "name": "Ascension Presents", "id": "UCVdGX3N-WIJ5nUvklBTNhAw" },
-    { "name": "Ascension Press", "id": "UC_n63nhzDdvRo9_QSb1xX7Q" },
-    { "name": "Sundays with Ascension", "id": "UCZpWMxP4e8sQLZjbYQmanIw" },
-    { "name": "Augustine Institute", "id": "UCViR8Uk46_06QjqkTNlVu2Q" },
-    { "name": "Bishop Robert Barron", "id": "UCcMjLgeWNwqL2LBGS-iPb1A" },
-    { "name": "Breaking In The Habit", "id": "UCDcdVPVsJRxAVKq4vY0NYeg" },
-    { "name": "Catholic Answers Live", "id": "UCvwbLBTkuIwqNm9kHUqWRnw" },
-    { "name": "Catholic Productions", "id": "UCONSMaVH6PuXBKQ00aPANpQ" },
-    { "name": "CatholicCulture", "id": "UCBwqvyZyc2bpzI-kOYhwrkw" },
-    { "name": "Discerning Hearts", "id": "UCo1v9xcpaPVoyQ-uqsyoP-w" }
+    {
+      "name": "ACTS XXIX",
+      "id": "UC1LEUlIGjPeCRYF1xzcYvVw"
+    },
+    {
+      "name": "Ascension Presents",
+      "id": "UCVdGX3N-WIJ5nUvklBTNhAw"
+    },
+    {
+      "name": "Ascension Press",
+      "id": "UC_n63nhzDdvRo9_QSb1xX7Q"
+    },
+    {
+      "name": "Augustine Institute",
+      "id": "UCViR8Uk46_06QjqkTNlVu2Q"
+    },
+    {
+      "name": "Bishop Robert Barron",
+      "id": "UCcMjLgeWNwqL2LBGS-iPb1A"
+    },
+    {
+      "name": "Breaking In The Habit",
+      "id": "UCDcdVPVsJRxAVKq4vY0NYeg"
+    },
+    {
+      "name": "Catholic Answers Live",
+      "id": "UCvwbLBTkuIwqNm9kHUqWRnw"
+    },
+    {
+      "name": "Catholic Productions",
+      "id": "UCONSMaVH6PuXBKQ00aPANpQ"
+    },
+    {
+      "name": "Discerning Hearts",
+      "id": "UCo1v9xcpaPVoyQ-uqsyoP-w"
+    },
+    {
+      "name": "EWTN",
+      "id": "UCijDos-LUTh9RQvSCMQqN6Q"
+    },
+    {
+      "name": "FOCUS Catholic",
+      "id": "UCmJTXhjB9h83BjuLjehW_Bw"
+    },
+    {
+      "name": "FormedApp",
+      "id": "UC3scoCSSW6RHPCkhB06ErnA"
+    },
+    {
+      "name": "Franciscan",
+      "id": "UCWAQb7oM9S5fohoAyQ_dfqw"
+    },
+    {
+      "name": "Godsplaining | Catholic Podcast",
+      "id": "UCzXa92qDrWhOJ7AbUsQYZsQ"
+    },
+    {
+      "name": "Hallow",
+      "id": "UCfHKE8XKpbAZ7TalmvHhKNA"
+    },
+    {
+      "name": "Jimmy Akin",
+      "id": "UCX430kXiW2whSzf5BG3hLpQ"
+    },
+    {
+      "name": "Magis Center",
+      "id": "UCTCTeyhCFkCU6ZZQLZSl2SA"
+    },
+    {
+      "name": "Pints with Aquinas (Matt Fradd)",
+      "id": "UClh4JeqYB1QN6f1h_bzmEng"
+    },
+    {
+      "name": "Shameless Popery",
+      "id": "UCDjjcYcw4wsrpmXc0vRRChw"
+    },
+    {
+      "name": "St. Paul Center",
+      "id": "UCBr-aH7rulKvlRdSM2Zz_mQ"
+    },
+    {
+      "name": "Strange Notions",
+      "id": "UCMnBcP4G7KpU5et8CB3N_uw"
+    },
+    {
+      "name": "Sundays with Ascension",
+      "id": "UCZpWMxP4e8sQLZjbYQmanIw"
+    },
+    {
+      "name": "The Catholic Gentleman",
+      "id": "UCp4THgod8th7B0WmBfUgTKQ"
+    },
+    {
+      "name": "The Catholic Talk Show",
+      "id": "UClYN3WXAFPr0FDHUaLx1g0Q"
+    },
+    {
+      "name": "The CatholicTV Network",
+      "id": "UCORAZZmab8apqy2TMHZlZVQ"
+    },
+    {
+      "name": "The Cordial Catholic",
+      "id": "UCUaaz8AUKDEoWLOm22KYEtw"
+    },
+    {
+      "name": "The Counsel of Trent",
+      "id": "UCvySGkfy1W8fda287KMj2CA"
+    },
+    {
+      "name": "The Thomistic Institute",
+      "id": "UCd55APptap1Ve7Jwqa8OcBA"
+    }
   ]
 }
