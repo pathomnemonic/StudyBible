@@ -73,5 +73,6 @@ export default defineConfig({
     }),
   ],
   build: { chunkSizeWarningLimit: 900 },
-  test: { environment: 'node', include: ['tests/**/*.test.ts'] },
+  // the data checks read hundreds of files; under a busy machine they passed alone but timed out at the default 5 s / 15 s
+  test: { environment: 'node', include: ['tests/**/*.test.ts'], testTimeout: 60000, hookTimeout: 60000 },
 });

@@ -31,6 +31,10 @@ jobs:
   browser:
     runs-on: ubuntu-latest
     needs: fast
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ['1/3', '2/3', '3/3'] # the 21 checks split across three runners
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -46,6 +50,8 @@ jobs:
           for i in $(seq 1 30); do curl -sf http://localhost:4173 >/dev/null && break; sleep 1; done
       # smoke, routes, the study and data workflows through the interface, parallel reader, offline (a real dead server), stale scripts, accessibility at every level
       - run: npm run e2e:release
+        env:
+          SHARD: ${{ matrix.shard }}
   # secrets: scan the history for accidentally committed credentials
   secrets:
     runs-on: ubuntu-latest

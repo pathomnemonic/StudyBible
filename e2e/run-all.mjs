@@ -5,8 +5,11 @@ const CHECKS = [
   'smoke', 'newroutes', 'notfound', 'versenote', 'xref', 'dataflow', 'parallel', 'crosslinks', 'passportgo', 'bigquestions',
   'collections', 'studytools', 'videoshorts', 'videoresume', 'offline', 'offlinepack', 'stalechunk', 'readerbar', 'a11y2', 'a11y3', 'a11y',
 ];
+// SHARD=2/3 runs the second of three slices, so CI can run the checks in parallel jobs
+const [si, sn] = (process.env.SHARD ?? '1/1').split('/').map(Number);
+const mine = CHECKS.filter((_, i) => i % sn === si - 1);
 const failed = [];
-for (const c of CHECKS) {
+for (const c of mine) {
   const t = Date.now();
   const r = spawnSync('node', [`e2e/${c}.mjs`], { stdio: 'inherit', env: process.env });
   const ok = r.status === 0;
@@ -14,4 +17,4 @@ for (const c of CHECKS) {
   if (!ok) failed.push(c);
 }
 if (failed.length) { console.error('\nFailed: ' + failed.join(', ')); process.exit(1); }
-console.log(`\nAll ${CHECKS.length} browser checks passed.`);
+console.log(`\nAll ${mine.length} browser checks in this shard passed.`);
