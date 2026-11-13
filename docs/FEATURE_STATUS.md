@@ -115,6 +115,20 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Collection pages: gather passages, your notes, highlights, bookmarks, Catechism paragraphs, links and questions | **Working** | Each collection opens to a page that shows every item read back from its original (a note, a highlight or a passage is referenced by identity, never copied), with a link to the original, reordering, and export to Markdown or print/PDF. Items from Church writings and commentary join from their own pages. Backups and sync carry collections like any other record. Items can be ticked off as done (the tick survives reordering). Not yet built: turning a collection into a plan. |
 | Note templates and backlinks | **Partial** | Templates: Observe/Interpret/Apply, Lectio divina, Prayer, Theological questions, Questions, Argument map, Historical context. Each note shows the collections that hold it and other notes on the same passage, computed on the fly. Not yet built: links from one note to another. **Next:** Note-to-note links with a backlink for each. **Blocked by:** code. **Done when:** A note that links to another appears in that note’s backlinks, and survives a backup and restore.. |
+| Question inbox and weekly review | **Working** | A Review tab in Notes lists every note you wrote as a question, open or answered, with “Look it up” (opens the Catechism search with the question filled in) and “Mark answered”. It also shows the last seven days: notes written, highlights made, questions asked and notes you chose to revisit. All of it is read from your own records on the device. |
+| Collection templates | **Working** | Start a collection from a template (the Eucharist in Scripture, Marian passages, the Passion in John, the Beatitudes and works of mercy, the call of the first disciples). Templates hold Scripture passages only; edit them freely afterwards. |
+
+## Pray
+
+| Feature | Status | Notes |
+|---|---|---|
+| Readings: jump by Sunday | **Working** | The readings page has Previous Sunday and Next Sunday buttons next to the day arrows and date picker. |
+
+## App
+
+| Feature | Status | Notes |
+|---|---|---|
+| Offline readiness card | **Working** | The Downloads page opens with “Ready for a flight? Yes / Not yet”: your Bible saved and no half-saved study pack, with a button to fix each gap. Audio and video are not counted unless saved. |
 
 ## Study
 

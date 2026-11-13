@@ -11,6 +11,7 @@
 - CI browser job pinned to ubuntu-24.04 (ubuntu-latest moved to 26.04, which Playwright cannot install on, so the browser checks had never run in CI) and split into three parallel shards; slow data tests have a 60 s timeout.
 - Collections: tick items off as done.
 - Saints: each life links the saint's own writings in the library and can be added to a collection; people in the family lines show their children and can be added to a collection.
+- Notes gets a Review tab: a question inbox (open and answered, look it up, mark answered) and a weekly review of notes, highlights and questions. Collections can start from templates (Scripture passages only). Readings has Previous/Next Sunday. Downloads opens with a "Ready for a flight?" card. "Report a problem" on a study-panel item now fills in the item id, source and page.
 - Docs: docs/FEATURE_OPPORTUNITIES.md (38 opportunities), docs/ROADMAP_AMBITIOUS.md (ten ambitious features and an evidence-grounded assistant architecture), docs/CYCLE2_REPORT.md.
 
 ## Closing the gaps from the audit

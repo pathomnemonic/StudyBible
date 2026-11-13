@@ -174,4 +174,18 @@ describe('study vault export', () => {
     expect(text).toContain('passages: ["JHN.6.51"]');
     expect(text).toContain('He said: "I am"');
   });
+  it('includes each collection as a Markdown list and in the index', async () => {
+    const { db } = await import('../src/db/db');
+    const { studyVault } = await import('../src/db/exporters');
+    const { unzipSync, strFromU8 } = await import('fflate');
+    await db.collections.add({ name: 'Marian passages', description: 'Mary in the Gospels', items: [{ type: 'passage', ref: 'LUK.1.26' }, { type: 'link', url: 'https://example.org', label: 'An article' }], createdAt: 86400000, updatedAt: 86400000 } as any);
+    const files = unzipSync(await studyVault());
+    const path = Object.keys(files).find((n) => n.startsWith('collections/'))!;
+    expect(path).toBeTruthy();
+    const md = strFromU8(files[path]);
+    expect(md).toContain('# Marian passages');
+    expect(md).toContain('Mary in the Gospels');
+    expect(md).toContain('An article (https://example.org)');
+    expect(JSON.parse(strFromU8(files['index.json'])).collections[0].name).toBe('Marian passages');
+  });
 });

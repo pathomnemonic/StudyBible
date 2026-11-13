@@ -67,6 +67,8 @@ export default function ReadingsPage() {
           <input type="date" value={date} onChange={(e) => e.target.value && nav(`/pray/readings/${e.target.value}`)} aria-label="Date" />
           <button className="icon-btn" onClick={() => go(1)} aria-label="Next day"><Icon name="chevR" /></button>
           <button className="btn small" onClick={() => nav('/pray/readings')}>Today</button>
+          <button className="btn small ghost" onClick={() => go(-(((d.getUTCDay() + 6) % 7) + 1))}>Previous Sunday</button>
+          <button className="btn small ghost" onClick={() => go(7 - d.getUTCDay())}>Next Sunday</button>
         </div>
         <select value={s.diocese} onChange={(e) => set({ diocese: e.target.value })} aria-label="Liturgical calendar">
           {Object.entries(NATIONS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}

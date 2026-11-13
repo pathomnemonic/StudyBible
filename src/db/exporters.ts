@@ -1,11 +1,18 @@
 import { BRAND } from '../lib/brand';
 import { zipSync, strToU8 } from 'fflate';
-import { db, type Note } from './db';
-import { parseRefId } from '../lib/refs';
+import { db, type Note, type Target } from './db';
+import { formatRef, parseRefId } from '../lib/refs';
 import { BOOKS } from '../lib/canon';
 import { renderMarkdown } from '../lib/markdown';
 
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+
+function targetLabel(t: Target): string {
+  if (t.type === 'passage') { const r = parseRefId(t.ref); return r ? formatRef(r) : t.ref; }
+  if (t.type === 'catechism') return t.label ?? `Catechism ${t.para}`;
+  if (t.type === 'note' || t.type === 'highlight' || t.type === 'bookmark') return t.label ?? `A ${t.type} of mine`;
+  return (t as { label?: string }).label ?? t.type;
+}
 
 function where(n: Note): string {
   return n.targets
@@ -100,9 +107,16 @@ export async function studyVault(): Promise<Uint8Array> {
     files[path] = strToU8(`---\ntitle: ${yaml(j.title ?? '')}\nkind: ${j.kind}\ndate: ${j.date}\nrefs: [${(j.refs ?? []).map(yaml).join(', ')}]\n---\n\n${j.body}\n`);
     index.journal.push({ path, kind: j.kind, date: j.date, refs: j.refs ?? [] });
   }
+  index.collections = [];
+  for (const c of await db.collections.toArray()) {
+    const path = name('collections', c.name, c.createdAt);
+    const line = (t: Target) => `- ${targetLabel(t)}${t.type === 'link' ? ` (${t.url})` : ''}`;
+    files[path] = strToU8(`# ${c.name}\n\n${c.description ? `${c.description}\n\n` : ''}${c.items.map(line).join('\n')}\n`);
+    index.collections.push({ path, name: c.name, items: c.items, done: c.done ?? [] });
+  }
   index.highlights = (await db.highlights.toArray()).map((h) => ({ ref: h.ref, color: h.color, created: h.createdAt }));
   index.bookmarks = (await db.bookmarks.toArray()).map((b) => ({ ref: b.ref, kind: b.kind, created: b.createdAt }));
   files['index.json'] = strToU8(JSON.stringify(index, null, 1));
-  files['README.md'] = strToU8(`# ${BRAND.name} vault\n\nNotes and journal entries are Markdown files with front matter. \`index.json\` lists everything, with passages as stable Vulgate-anchored ids such as \`JHN.6.51\`. Re-import the JSON backup from Library → Export and backup to restore into the app.\n`);
+  files['README.md'] = strToU8(`# ${BRAND.name} vault\n\nNotes and journal entries are Markdown files with front matter. \`index.json\` lists everything, with passages as stable Vulgate-anchored ids such as \`JHN.6.51\`. Collections are Markdown lists that point to passages, notes and links by name. Highlights and bookmarks are listed in \`index.json\`. Re-import the JSON backup from Library → Export and backup to restore into the app.\n`);
   return zipSync(files);
 }

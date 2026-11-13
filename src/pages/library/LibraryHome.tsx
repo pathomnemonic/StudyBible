@@ -17,10 +17,11 @@ import { fold } from '../../search/engine';
 import { BOOK_ORDER } from '../../lib/canon';
 import GraphPage from './GraphPage';
 
-type Tab = 'notes' | 'graph' | 'highlights' | 'bookmarks' | 'collections' | 'xrefs' | 'saved' | 'history' | 'export' | 'trash';
-const TABS: [Tab, string][] = [['notes', 'Notes'], ['highlights', 'Highlights'], ['bookmarks', 'Bookmarks'], ['collections', 'Collections']];
+type Tab = 'notes' | 'graph' | 'highlights' | 'bookmarks' | 'collections' | 'review' | 'xrefs' | 'saved' | 'history' | 'export' | 'trash';
+const TABS: [Tab, string][] = [['notes', 'Notes'], ['highlights', 'Highlights'], ['bookmarks', 'Bookmarks'], ['collections', 'Collections'], ['review', 'Review']];
 const MORE: [Tab, string][] = [['graph', 'Knowledge graph'], ['xrefs', 'Connections'], ['saved', 'Saved'], ['history', 'History'], ['trash', 'Recently deleted'], ['export', 'Export and backup']];
 
+import ReviewTab from './ReviewTab';
 export default function LibraryHome() {
   const loc = useLocation();
   const nav = useNavigate();
@@ -41,6 +42,7 @@ export default function LibraryHome() {
       {tab === 'highlights' && <Highlights />}
       {tab === 'bookmarks' && <Bookmarks />}
       {tab === 'collections' && <Collections />}
+      {tab === 'review' && <ReviewTab />}
       {tab === 'xrefs' && <UserXrefs />}
       {tab === 'saved' && <Saved />}
       {tab === 'history' && <History />}
@@ -170,6 +172,20 @@ function Bookmarks() {
   );
 }
 
+const COLLECTION_TEMPLATES: { name: string; description: string; refs: string[] }[] = [
+  { name: 'The Eucharist in Scripture', description: 'Where the New Testament speaks of the bread and the cup.', refs: ['John 6:51-58', 'Luke 22:14-20', '1 Corinthians 11:23-29', 'Luke 24:13-35'] },
+  { name: 'Marian passages', description: 'The Gospel passages about Mary.', refs: ['Luke 1:26-38', 'Luke 1:39-56', 'John 2:1-11', 'John 19:25-27'] },
+  { name: 'The Passion in John', description: 'From the garden to the tomb.', refs: ['John 18:1-11', 'John 19:1-16', 'John 19:17-30', 'John 19:38-42'] },
+  { name: 'The Beatitudes and works of mercy', description: 'How Jesus describes blessedness and judgment.', refs: ['Matthew 5:1-12', 'Matthew 25:31-46'] },
+  { name: 'The call of the first disciples', description: 'Four accounts of being called.', refs: ['Matthew 4:18-22', 'Mark 1:16-20', 'Luke 5:1-11', 'John 1:35-51'] },
+];
+
+async function startTemplate(t: { name: string; description: string; refs: string[] }) {
+  const items: Target[] = [];
+  for (const r of t.refs) { const p = parseRefs(r); if (p.ok) for (const x of p.refs) items.push({ type: 'passage', ref: refId(convertRef('kjv', 'vulgate', x.ref).ref) }); }
+  await db.collections.add({ name: t.name, description: t.description, items, createdAt: Date.now(), updatedAt: Date.now() } as never);
+}
+
 function Collections() {
   const cs = useLiveQuery(() => db.collections.orderBy('updatedAt').reverse().toArray(), []) ?? [];
   const saved = useLiveQuery(() => db.saved.toArray(), []) ?? [];
@@ -181,6 +197,13 @@ function Collections() {
       <div className="row" style={{ marginBottom: 10 }}>
         <input type="text" placeholder="New collection (e.g. Eucharist, Questions on Romans)" value={name} onChange={(e) => setName(e.target.value)} style={{ flex: 1 }} />
         <button className="btn primary" onClick={async () => { if (name.trim()) { await db.collections.add({ name: name.trim(), items: [], createdAt: Date.now(), updatedAt: Date.now() }); setName(''); } }}>Create</button>
+      </div>
+      <div className="row" style={{ marginBottom: 10 }}>
+        <select aria-label="Start from a template" value="" onChange={async (e) => { const t = COLLECTION_TEMPLATES.find((x) => x.name === e.target.value); if (t) await startTemplate(t); }}>
+          <option value="">Start from a template…</option>
+          {COLLECTION_TEMPLATES.map((t) => <option key={t.name} value={t.name}>{t.name}</option>)}
+        </select>
+        <span className="muted small">Scripture passages only; add or remove anything afterwards.</span>
       </div>
       {cs.map((c) => (
         <div className="card" key={c.id}>

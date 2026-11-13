@@ -67,6 +67,7 @@ export default function CollectionPage() {
   const move = (from: number, to: number) => void save({ items: moveItem(c.items, from, to) });
   const base = (n: string) => n.replace(/[^\w]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'collection';
   const exportMd = () => download(`${base(c.name)}.md`, collectionMarkdown(c, items), 'text/markdown');
+  const exportHtml = () => download(`${base(c.name)}.html`, collectionHtml(c, items), 'text/html');
   const exportPdf = () => { const w = window.open('', '_blank'); if (!w) { setMsg('Your browser blocked the print window. Allow pop-ups for this site and try again.'); return; } w.document.write(collectionHtml(c, items)); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
 
   return (
@@ -76,6 +77,7 @@ export default function CollectionPage() {
       <textarea aria-label="What this collection is for" className="cp-desc" rows={2} placeholder="What is this collection for? (optional)" value={c.description ?? ''} onChange={(e) => void save({ description: e.target.value })} />
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', margin: '8px 0 14px' }}>
         <button className="btn" onClick={exportMd} disabled={!items.length}>Export as Markdown</button>
+        <button className="btn" onClick={exportHtml} disabled={!items.length} title="One self-contained page you can email or keep on a USB stick; it opens in any browser with no connection">Save as a web page (HTML)</button>
         <button className="btn" onClick={exportPdf} disabled={!items.length}>Print or save as PDF</button>
         <span className="muted small" style={{ alignSelf: 'center' }}>{items.length} {items.length === 1 ? 'item' : 'items'}{(c.done?.length ?? 0) ? `, ${items.filter((_, i) => isDone(i)).length} done` : ''}. Items point to the originals; nothing is copied.</span>
       </div>

@@ -113,6 +113,22 @@ export default function DownloadsPage() {
         </p>
       )}
 
+      {man && (() => {
+        const def = editions.find((e) => e.id === s.defaultEdition);
+        const missing: { label: string; act?: () => void }[] = [];
+        if (def && def.offlineAllowed && !ed[def.id]) missing.push({ label: `${def.name} (your Bible) is not saved`, act: () => void getEdition(def.id) });
+        for (const p of man.packs) { const c = pkc[p.id]; if (!pk[p.id] && c && c.have > 0) missing.push({ label: `${p.label} is only partly saved`, act: () => void getPack(p) }); }
+        const ready = missing.length === 0;
+        return (
+          <section className="card" aria-label="Offline readiness">
+            <h2 className="card-title">Ready for a flight? {ready ? 'Yes' : 'Not yet'}</h2>
+            {ready
+              ? <p className="small">Your Bible is saved on this device and no study pack is half-saved. Audio and video still need a connection unless you saved the episodes in the lists that follow.</p>
+              : <ul className="dl-list">{missing.map((m) => <li key={m.label}><span>{m.label}</span>{m.act && <span className="dl-act"><button className="btn small" onClick={m.act}>Save it now</button></span>}</li>)}</ul>}
+          </section>
+        );
+      })()}
+
       <section className="card">
         <h2 className="card-title">Space</h2>
         <p className="small">{est ? <>This app uses <strong>{fmtBytes(est.usage)}</strong> of the <strong>{fmtBytes(est.quota)}</strong> the browser allows. Saved audio: <strong>{fmtBytes(audioBytes)}</strong>.</> : 'This browser does not say how much room is left.'}</p>

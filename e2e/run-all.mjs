@@ -3,7 +3,7 @@
 import { spawnSync } from 'node:child_process';
 const CHECKS = [
   'smoke', 'newroutes', 'notfound', 'versenote', 'xref', 'dataflow', 'parallel', 'crosslinks', 'passportgo', 'bigquestions',
-  'collections', 'studytools', 'videoshorts', 'videoresume', 'offline', 'offlinepack', 'stalechunk', 'readerbar', 'a11y2', 'a11y3', 'a11y',
+  'collections', 'review', 'studytools', 'videoshorts', 'videoresume', 'offline', 'offlinepack', 'stalechunk', 'readerbar', 'a11y2', 'a11y3', 'a11y',
 ];
 // SHARD=2/3 runs the second of three slices, so CI can run the checks in parallel jobs
 const [si, sn] = (process.env.SHARD ?? '1/1').split('/').map(Number);
