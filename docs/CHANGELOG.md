@@ -1,5 +1,8 @@
 # What changed
 
+## Third cycle
+- Notes: typing [[ in a note suggests your notes by title and completes the link (the unfinished part of note-to-note links).
+
 ## Second cycle: collections, authors side by side, glossary, offline manager
 - CI fix: docs/FEATURE_STATUS.md had gone stale against src/featureStatus.ts, so "Generated documents are up to date" failed. It is regenerated, and a unit test (tests/docs-status.test.ts) now fails locally whenever the two disagree.
 - CI now runs every browser check the release depends on (npm run e2e:release): smoke, routes, not-found, the study and data workflows, collections, parallel reader, cross-links, passport, videos, offline (a real dead server), stale scripts, and accessibility at every level. It found a real contrast bug in the teaching-setup chips in dark themes, now fixed.

@@ -114,4 +114,13 @@ await p.goto(`${BASE}/#/study/variants`); await p.waitForSelector('.variants .ca
 await p.locator('button', { hasText: 'the verse in three translations' }).first().click();
 await p.waitForSelector('.var-compare dt', { timeout: 30000 });
 if (await p.locator('.var-compare dt').count() < 2) fail('the verse should be shown in at least two translations');
+// 14. the [[ picker suggests your notes by title and completes the link
+await p.evaluate(() => new Promise((res, rej) => { const r = indexedDB.open('studybible'); r.onsuccess = () => { const tx = r.result.transaction('notes', 'readwrite'); tx.objectStore('notes').add({ title: 'Bread of life', body: 'John 6', kind: 'note', targets: [], tags: [], chapterKeys: [], createdAt: Date.now(), updatedAt: Date.now() }); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }; r.onerror = () => rej(r.error); }));
+await p.goto(`${BASE}/#/library`); await p.reload(); await p.waitForTimeout(1200);
+await p.locator('button', { hasText: /^New note$/ }).first().click();
+const ta = p.locator('textarea[aria-label="Note text"]'); await ta.waitFor({ timeout: 10000 });
+await ta.click(); await ta.pressSequentially('See [[bre', { delay: 20 });
+await p.locator('.note-link-picks button', { hasText: 'Bread of life' }).waitFor({ timeout: 10000 });
+await p.locator('.note-link-picks button', { hasText: 'Bread of life' }).click();
+if ((await ta.inputValue()) !== 'See [[Bread of life]]') fail('choosing a suggestion should complete the link, got: ' + await ta.inputValue());
 await b.close(); console.log('review ok');

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useToast } from './Toast';
 import Modal from './Modal';
 import { db, type Note, type NoteKind, type Target } from '../db/db';
@@ -7,6 +7,7 @@ import { renderMarkdown } from '../lib/markdown';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { formatRef, parseRefId, parseRefs } from '../lib/refs';
 import { refId } from '../lib/refs';
+import { completeLink, openLinkAt, suggestNotes } from '../lib/noteLinks';
 
 export function targetLabel(t: Target): string {
   if (t.type === 'passage') {
@@ -67,6 +68,17 @@ export default function NoteEditor({
     r.start();
   };
   const folders = useLiveQuery(() => db.folders.toArray(), []) ?? [];
+  const allNotes = useLiveQuery(() => db.notes.toArray(), []) ?? [];
+  const area = useRef<HTMLTextAreaElement>(null);
+  const [caret, setCaret] = useState(0);
+  const open = preview ? null : openLinkAt(body, caret);
+  const picks = open ? suggestNotes(open.query, allNotes, note?.id) : [];
+  const pick = (title: string) => {
+    if (!open) return;
+    const r = completeLink(body, open.start, caret, title);
+    setBody(r.body); setCaret(r.caret);
+    requestAnimationFrame(() => { area.current?.focus(); area.current?.setSelectionRange(r.caret, r.caret); });
+  };
 
   const addPassage = () => {
     const r = parseRefs(addRef);
@@ -139,8 +151,13 @@ export default function NoteEditor({
           {TEMPLATES.map((t) => <button type="button" key={t.name} className="btn small" onClick={() => setBody(t.text)}>{t.name}</button>)}
         </div>
       )}
-      {preview ? <div className="md card" dangerouslySetInnerHTML={{ __html: renderMarkdown(body) }} /> : <textarea value={body} onChange={(e) => setBody(e.target.value)} autoFocus aria-label="Note text" />}
-      {!preview && <p className="muted small">Link to another of your notes by writing its title in double square brackets, like [[Bread of life]]. Markdown works too.</p>}
+      {preview ? <div className="md card" dangerouslySetInnerHTML={{ __html: renderMarkdown(body) }} /> : <textarea ref={area} value={body} onChange={(e) => { setBody(e.target.value); setCaret(e.target.selectionStart); }} onKeyUp={(e) => setCaret(e.currentTarget.selectionStart)} onClick={(e) => setCaret(e.currentTarget.selectionStart)} autoFocus aria-label="Note text" />}
+      {open && (
+        <div className="row note-link-picks" style={{ gap: 6, flexWrap: 'wrap', margin: '6px 0' }} role="listbox" aria-label="Notes you can link to">
+          {picks.length ? picks.map((n) => <button type="button" role="option" aria-selected="false" key={n.id} className="btn small" onClick={() => pick(n.title!)}>{n.title}</button>) : <span className="muted small">No note of yours has a title like that yet. Finish the brackets to link to it later.</span>}
+        </div>
+      )}
+      {!preview && <p className="muted small">Link to another of your notes by writing its title in double square brackets, like [[Bread of life]]; start typing [[ and your notes are suggested. Markdown works too.</p>}
       <div className="row" style={{ marginTop: 8 }}>
         <input type="text" placeholder="Tags, comma separated" value={tags} onChange={(e) => setTags(e.target.value)} style={{ flex: 1 }} aria-label="Tags" />
         <select value={folderId ?? ''} onChange={(e) => setFolderId(e.target.value ? +e.target.value : undefined)} aria-label="Folder">
