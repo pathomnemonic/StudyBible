@@ -176,6 +176,7 @@ const JournalPage = lazy(() => import('./pages/pray/JournalPage'));
 const PlansPage = lazy(() => import('./pages/pray/PlansPage'));
 const PlanPage = lazy(() => import('./pages/pray/PlanPage'));
 const LibraryHome = lazy(() => import('./pages/library/LibraryHome'));
+const CollectionPage = lazy(() => import('./pages/library/CollectionPage'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const MapsPage = lazy(() => import('./pages/study/MapsPage'));
 const VoicesPage = lazy(() => import('./pages/study/VoicesPage'));
@@ -520,6 +521,7 @@ export default function App() {
               <Route path="/pray/journal" element={<JournalPage />} />
               <Route path="/pray/plans" element={<PlansPage />} />
               <Route path="/pray/plans/:id" element={<PlanPage />} />
+              <Route path="/collection/:id" element={<CollectionPage />} />
               <Route path="/library/*" element={<LibraryHome />} />
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/memorize" element={<MemorizePage />} />

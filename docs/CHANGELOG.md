@@ -1,5 +1,15 @@
 # What changed
 
+## Second cycle: collections, authors side by side, glossary, offline manager
+- CI fix: docs/FEATURE_STATUS.md had gone stale against src/featureStatus.ts, so "Generated documents are up to date" failed. It is regenerated, and a unit test (tests/docs-status.test.ts) now fails locally whenever the two disagree.
+- CI now runs every browser check the release depends on (npm run e2e:release): smoke, routes, not-found, the study and data workflows, collections, parallel reader, cross-links, passport, videos, offline (a real dead server), stale scripts, and accessibility at every level. It found a real contrast bug in the teaching-setup chips in dark themes, now fixed.
+- Collections open to a page of their own: each item is read back from its original (notes, highlights and bookmarks by identity, never copied), with links to the originals, reordering, adding from your notes, highlights, bookmarks, Catechism, links and new questions, and export to Markdown or print/PDF. A new "＋ Collection" button on the reader's selection bar, Catechism paragraphs, Church writings and every study-panel item adds to a collection.
+- Notes: Prayer and Theological questions templates; each note shows the collections that hold it and other notes on the same passage.
+- The study panel's Notes tab gains "Compare the authors side by side": pick any authors, see work, location, period, direct or editorial link, and a link to the original.
+- Glossary entries say their explanation is plain words written for this app, link the Church's own words (Catechism), and list the Scripture that paragraph's footnotes cite.
+- Downloads shows a summary, the date each Bible or pack was saved, and flags a partly saved pack with the number of missing files and a Finish download button.
+- Docs: docs/FEATURE_OPPORTUNITIES.md (38 opportunities), docs/ROADMAP_AMBITIOUS.md (ten ambitious features and an evidence-grounded assistant architecture), docs/CYCLE2_REPORT.md.
+
 ## Closing the gaps from the audit
 - The reader's Books and translation drawer now says what of the translation is really saved on the device ("14 of 73 books are saved, the ones you have opened" or "all 73"), read from the cache, with a link to Downloads.
 - New tests with a server that is really switched off (Playwright's offline switch does not reach the service worker): a downloaded pack loads with no connection, a file never saved does not, an opened chapter reads and an unopened one says it needs a connection.

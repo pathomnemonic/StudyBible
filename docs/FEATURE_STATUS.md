@@ -10,7 +10,8 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Douay-Rheims, Clementine Vulgate, WEB (Catholic): 73 books, offline | **Working** | Public-domain texts ingested from eBible.org USFM; paragraphs, poetry, headings and footnotes preserved. |
 | Parallel view, verse comparison, translation switching that keeps the passage | **Working** | Aligned through the Vulgate anchor. Psalms are mapped by reviewed rules; other chapters whose numbering differs are flagged, never silently mismatched. |
 | Verse-level alignment for Tobit, Judith, Sirach, Esther, Daniel across Greek vs Vulgate texts | **Partial** | These books follow different textual traditions; chapter-level alignment only, with an explicit notice. **Next:** A reviewed verse map for each of the five books. **Blocked by:** verification. **Done when:** a versification test per book that every verse maps or is marked unaligned. |
-| RSV-CE, RSV-2CE, NABRE, Jerusalem Bible / NJB | **Needs license** | Under copyright. The edition registry, anchor mapping (English scheme) and attribution records are ready; a license and text file are required. **Next:** A license and text file from the rights holders. **Blocked by:** rights. **Done when:** the edition registry test passes with the text present and an attribution record. |
+| RSV-2CE (Ignatius Bible) | **Partial** | Bundled from the owner’s scan with the owner’s stated permission: 71 of 73 books (Esther and Zechariah are left out). The scan garbles verse numbers, so verse breaks were rebuilt automatically; about 1 verse in 25 may carry a clause that belongs to its neighbour. No footnotes or cross-references. See docs/RSV2CE.md. **Next:** The publisher’s own text file (fixes verse breaks, adds Esther, Zechariah and the notes) and the licence reference. **Blocked by:** rights. **Done when:** scripts/rsv/audit.py reports no low-overlap verses against the publisher file. |
+| RSV-CE, NABRE, Jerusalem Bible / NJB | **Needs license** | Under copyright. The edition registry, anchor mapping (English scheme) and attribution records are ready; a license and text file are required. (The RSV Second Catholic Edition is bundled separately; see the next row.) **Next:** A license and text file from the rights holders. **Blocked by:** rights. **Done when:** the edition registry test passes with the text present and an attribution record. |
 | Maps and appendices | **Planned** | Not in the public-domain sources used; the data model allows per-edition introductions and footnotes. **Next:** Public-domain appendix sources chosen and ingested. **Blocked by:** data. **Done when:** the data validator lists each appendix with a source. |
 
 ## Study
@@ -112,6 +113,21 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
+| Collection pages: gather passages, your notes, highlights, bookmarks, Catechism paragraphs, links and questions | **Working** | Each collection opens to a page that shows every item read back from its original (a note, a highlight or a passage is referenced by identity, never copied), with a link to the original, reordering, and export to Markdown or print/PDF. Items from Church writings and commentary join from their own pages. Backups and sync carry collections like any other record. Not yet built: marking items done, or turning a collection into a plan. |
+| Note templates and backlinks | **Partial** | Templates: Observe/Interpret/Apply, Lectio divina, Prayer, Theological questions, Questions, Argument map, Historical context. Each note shows the collections that hold it and other notes on the same passage, computed on the fly. Not yet built: links from one note to another. **Next:** Note-to-note links with a backlink for each. **Blocked by:** code. **Done when:** A note that links to another appears in that note’s backlinks, and survives a backup and restore.. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Compare the authors on a passage | **Working** | In the study panel’s Notes tab, choose any number of Fathers, saints and commentators and read them side by side. Each card gives the work, where in it the text sits, the period, whether the link to the passage is direct or editorial, and a link to the original work. Shows only what the library holds; it never summarises. |
+| Glossary: plain-words explanations kept apart from the Church’s own wording | **Partial** | Each entry says it is written in plain words for this app, links the Catechism paragraph (the Church’s own words, or the nearest teaching) and, on request, lists the Scripture that paragraph’s footnotes cite. Not yet built: related doctrines and historical sources per entry. **Next:** Related doctrines and historical sources for each entry. **Blocked by:** data. **Done when:** Every entry lists at least one related doctrine, and the data validator checks that each links to an existing page.. |
+
+## Library
+
+| Feature | Status | Notes |
+|---|---|---|
+| Offline manager: saved date, partly saved packs and a summary | **Working** | The Downloads page shows how many Bibles and study-data packs are on the device, when each was saved, which packs are only partly saved (with the number of missing files and a Finish download button), real sizes, progress and Remove. |
 | Personal knowledge graph | **Working** | Notes, questions, passages, authors, Catechism paragraphs, tags and collections as an interactive graph built on your device. |
 
 ## Study
@@ -165,7 +181,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Study data offline packs | **Working** | Download commentary, the Fathers library and resource links in Settings. Publisher links and audio still need a connection. |
+| Study data offline packs | **Working** | Download commentary, the Fathers library and resource links on the Downloads and offline page, with real sizes, remove buttons and a one-tap Download everything. Audio episodes can be saved one by one. Publisher links and audio still need a connection. |
 
 ## Study
 
@@ -267,7 +283,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Spanish and Latin interface | **Partial** | Menus, the home screen, the readings page headings and the reader’s main buttons are translated (Spanish and Latin translations written for this app, not professionally reviewed). The study material stays in its own languages. There is no Spanish Bible yet: no machine-readable public-domain Catholic-canon Spanish text could be verified. **Next:** Translate the remaining pages. **Blocked by:** code. **Done when:** tests/i18n.test.ts reports no missing keys for any language. |
+| Interface in Spanish, French, Portuguese, Italian and Latin | **Partial** | Menus (about 50 strings), the home screen, the readings page headings and the reader’s main buttons are translated (Spanish and Latin translations written for this app, not professionally reviewed). The study material stays in its own languages. There is no Spanish Bible yet: no machine-readable public-domain Catholic-canon Spanish text could be verified. **Next:** Translate the remaining pages. **Blocked by:** code. **Done when:** tests/i18n.test.ts reports no missing keys for any language. |
 
 ## Reading
 
@@ -411,7 +427,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Lesson in a box | **Working** | Run this lesson: a timed running order for the class length with what to say and ask at each step, built from the lesson and the age band. |
-| Slide PDF handout | **Working** | Every slide with its teacher notes as printable boxes; use Save as PDF in the print dialog. A PowerPoint export is not built. **Next:** PPTX export of the deck. **Blocked by:** code. **Done when:** Open the exported file in PowerPoint and Keynote and compare slide counts. |
+| Slide PDF handout and PowerPoint export | **Working** | Every slide with its teacher notes as printable boxes (Save as PDF in the print dialog), and a .pptx download with the notes as speaker notes. The PowerPoint file is text only, without pictures or builds. A Presenter button opens notes and the next slide in a second window on the same device. |
 
 ## Study
 

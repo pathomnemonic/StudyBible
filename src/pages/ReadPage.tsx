@@ -1,3 +1,4 @@
+import AddToCollection from '../components/AddToCollection';
 import { logHistory } from '../db/log';
 import { pageTitle } from '../lib/brand';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -610,6 +611,7 @@ export default function ReadPage() {
           <button className="icon-btn" onClick={doBookmark} aria-label="Bookmark" title="Bookmark">
             <Icon name="bookmark" />
           </button>
+          <AddToCollection target={() => (selRefs.length ? { type: 'passage', ref: refId(selRefs[0]) } : null)} label="＋ Collection" />
           <button className={`icon-btn${memAll ? ' on' : ''}`} onClick={toggleMemorize} aria-pressed={memAll} aria-label={memAll ? 'Memorizing: tap to remove' : 'Memorize this passage'} title={memAll ? 'On your memory list: tap to remove' : 'Memorize: add to your spaced-review list'}>
             <Icon name="memorize" />
           </button>

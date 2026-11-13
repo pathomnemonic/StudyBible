@@ -183,6 +183,17 @@ export async function downloadPack(
 }
 
 /** Whether a pack's files are still in the offline cache (the browser may evict them), so a stale "downloaded" mark can be repaired. */
+/** How many of a pack's files are on this device, so a half-finished download is shown as such rather than as saved or missing. */
+export async function packCachedCount(pack: StudyPack): Promise<{ have: number; total: number }> {
+  if (typeof window === 'undefined' || !('caches' in window)) return { have: 0, total: pack.files.length };
+  try {
+    const c = await caches.open('studybible-data-v1');
+    const have = new Set((await c.keys()).map((k) => new URL(k.url).pathname));
+    const paths = [...have];
+    return { have: pack.files.filter((f) => paths.some((p) => p.endsWith(`/${f}`))).length, total: pack.files.length };
+  } catch { return { have: 0, total: pack.files.length }; }
+}
+
 export async function packStillCached(pack: StudyPack): Promise<boolean> {
   if (!('caches' in window)) return false;
   try {

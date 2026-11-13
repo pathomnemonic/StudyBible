@@ -19,7 +19,12 @@ export type Target =
   | { type: 'work'; workId: string; section?: string; label: string }
   | { type: 'episode'; episodeId: string; label: string }
   | { type: 'reading'; date: string; label: string }
-  | { type: 'topic'; topicId: string; label: string };
+  | { type: 'topic'; topicId: string; label: string }
+  // a collection can point at the reader's own records and at any link, by identity, so nothing is copied
+  | { type: 'note'; uid: string; label?: string }
+  | { type: 'highlight'; uid: string; label?: string }
+  | { type: 'bookmark'; uid: string; label?: string }
+  | { type: 'link'; url: string; label: string };
 
 export type NoteKind = 'note' | 'question' | 'study' | 'prayer';
 

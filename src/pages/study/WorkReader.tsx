@@ -1,3 +1,4 @@
+import AddToCollection from '../../components/AddToCollection';
 import { logHistory } from '../../db/log';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -158,6 +159,7 @@ export default function WorkReader() {
             <button className="icon-btn tool-sm" aria-pressed={settings.ambience.kind !== 'off'} onClick={() => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'auto' : 'off' }, ambienceTipSeen: true })} aria-label={settings.ambience.kind === 'off' ? 'Turn background sound on' : 'Turn background sound off'}><Icon name="music" /></button>
             <button className="icon-btn tool-sm" onClick={() => setTs(true)} aria-label="Text settings" title="Text, theme, atmosphere and sound"><Icon name="text" /></button>
             <button className="icon-btn tool-sm" aria-pressed={quiet} onClick={() => setSettings({ scriptureOnly: true })} aria-label="Focus mode" title="Focus mode: just the text"><Icon name="expand" /></button>
+            <AddToCollection target={{ type: 'work', workId, section: String(idx), label: `${meta.title}: ${sec.title}` }} label="＋ Collection" />
             <span className="more-wrap">
               <button className="icon-btn more-btn" aria-haspopup="menu" aria-expanded={more} onClick={() => setMore((m) => !m)} aria-label="More reading tools" title="More"><span aria-hidden="true" style={{ fontSize: 20, lineHeight: 1 }}>⋯</span></button>
               {more && (

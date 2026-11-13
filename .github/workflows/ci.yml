@@ -44,8 +44,8 @@ jobs:
         run: |
           npx vite preview --port 4173 &
           for i in $(seq 1 30); do curl -sf http://localhost:4173 >/dev/null && break; sleep 1; done
-      - run: npm run e2e
-      - run: npm run e2e:a11y
+      # smoke, routes, the study and data workflows through the interface, parallel reader, offline (a real dead server), stale scripts, accessibility at every level
+      - run: npm run e2e:release
   # secrets: scan the history for accidentally committed credentials
   secrets:
     runs-on: ubuntu-latest

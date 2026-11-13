@@ -1,3 +1,4 @@
+import NoteBacklinks from '../../components/NoteBacklinks';
 import SafetyCopies from '../../components/SafetyCopies';
 import { useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -115,6 +116,7 @@ function Notes({ openId }: { openId?: number }) {
           <div className="row between"><h3>{n.pinned ? '📌 ' : ''}{n.title || (n.kind === 'question' ? 'Question' : 'Note')}</h3><span className="chip">{n.kind}</span></div>
           <div className="chips">{n.targets.map((t, i) => <TargetChip key={i} t={t} />)}</div>
           <div className="md" dangerouslySetInnerHTML={{ __html: renderMarkdown(n.body) }} />
+          <NoteBacklinks note={n} />
           <div className="chips">{n.tags.map((t) => <span className="chip" key={t}>#{t}</span>)}{n.folderId && <span className="chip">📁 {folders.find((f) => f.id === n.folderId)?.name}</span>}</div>
           <div className="row" style={{ marginTop: 6 }}><button className="btn small" onClick={() => setEditing(n)}>Edit</button><button className="btn small" aria-pressed={!!n.pinned} onClick={() => db.notes.update(n.id!, { pinned: !n.pinned })}>{n.pinned ? 'Unpin' : 'Pin'}</button><span className="muted small">{new Date(n.updatedAt).toLocaleDateString()}</span></div>
         </div>
@@ -182,7 +184,7 @@ function Collections() {
       </div>
       {cs.map((c) => (
         <div className="card" key={c.id}>
-          <div className="row between"><h3>{c.name}</h3><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></div>
+          <div className="row between"><h3><Link to={`/collection/${c.id}`}>{c.name}</Link></h3><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></div>
           <div className="chips">{c.items.map((t, i) => <span key={i}><TargetChip t={t} /> <button aria-label="Remove item" style={{ border: 0, background: 'none' }} onClick={() => db.collections.put({ ...c, items: c.items.filter((_, j) => j !== i), updatedAt: Date.now() })}>×</button></span>)}</div>
           {c.items.length === 0 && <div className="empty">Nothing in this collection yet. Open any Bible passage and use “Add to collection”, or save a reading from the Pray section.</div>}
           <div className="row" style={{ marginTop: 6 }}>

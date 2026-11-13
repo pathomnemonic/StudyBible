@@ -5481,7 +5481,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 /* Teaching options (curriculum teacher view) */
 .teach-opts .to-setup { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
 .teach-opts .to-setup .chip { cursor: pointer; }
-.teach-opts .to-setup .chip.on { background: var(--accent, #7a2e2e); color: #fff; border-color: transparent; }
+.teach-opts .to-setup .chip.on { background: var(--accent, #7a2e2e); color: var(--accent-text, #fff); border-color: transparent; }
 .to-idea { margin-top: 14px; border-top: 1px solid var(--border, rgba(127,127,127,.25)); padding-top: 6px; }
 .to-gist { font-weight: 500; font-size: .95em; }
 .to-chooser { margin: 6px 0 12px; }
@@ -6298,3 +6298,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .bs-list{margin:0;display:grid;gap:10px}.bs-list dt{font-weight:600}.bs-list dd{margin:2px 0 0}
 .bs-bad{color:#e0556b}.bs-warn{color:#d9a441}
 .offline-line{margin:2px 0 10px;color:var(--muted)}.offline-line.ok{color:var(--text)}
+.cp-name{font:inherit;width:100%;background:transparent;border:0;border-bottom:1px dashed var(--hairline,#8886);color:inherit;padding:2px 0}
+.cp-desc{width:100%}.cp-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}.cp-text{margin:6px 0}
+.cp-add{display:grid;gap:12px}.cp-add label{display:grid;gap:4px;font-weight:600}.cp-add label .row{gap:6px}
+.fc-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-top:8px}
+.fc-pick{border:0;padding:0;margin:0}.fc-pick .chip input:focus-visible+*{outline:2px solid currentColor}
+.fc-pick label.chip{cursor:pointer}.fc-pick label.chip:focus-within{outline:2px solid currentColor}.fc-item+.fc-item{border-top:1px solid var(--hairline,#8884);padding-top:8px}

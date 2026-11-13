@@ -14,6 +14,7 @@ export function targetLabel(t: Target): string {
     return r ? formatRef(r) : t.ref;
   }
   if (t.type === 'catechism') return t.label ?? `CCC ${t.para}`;
+  if (t.type === 'note' || t.type === 'highlight' || t.type === 'bookmark') return t.label ?? `My ${t.type}`;
   return t.label;
 }
 
@@ -23,6 +24,8 @@ const TEMPLATES: { name: string; text: string }[] = [
   { name: 'Lectio divina', text: '## Lectio (read)\n\n## Meditatio (what word or phrase stays with me?)\n\n## Oratio (my prayer in response)\n\n## Contemplatio (resting in God)\n' },
   { name: 'Questions to follow up', text: '## Questions\n- \n- \n\n## Where I could look\n- \n' },
   { name: 'Argument map', text: '## Claim\nWhat is the author arguing?\n\n## Because (premise or evidence)\n- \n\n## But (contrast or objection)\n- \n\n## Therefore (conclusion)\n\n## Question the author answers\n' },
+  { name: 'Prayer', text: '## Adoration (who God is)\n\n## Contrition (what I am sorry for)\n\n## Thanksgiving\n\n## Supplication (what I ask, and for whom)\n' },
+  { name: 'Theological questions', text: '## The question\n\n## What the text says\n\n## What the Church teaches (Catechism, Fathers)\n\n## What is still open for me\n' },
   { name: 'Historical context', text: '## Setting\nAuthor, audience, date, place:\n\n## Background\n\n## Why it matters for the passage\n' },
 ];
 

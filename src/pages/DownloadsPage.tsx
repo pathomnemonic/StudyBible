@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
-import { downloadEdition, downloadPack, getManifest, isEditionCached, packStillCached, type StudyPack } from '../data/loader';
+import { downloadEdition, downloadPack, getManifest, isEditionCached, packCachedCount, packStillCached, type StudyPack } from '../data/loader';
 import { BOOKS } from '../lib/canon';
 import { useSettings } from '../lib/store';
 import { getBiay, type BiayEpisode } from '../data/content';
@@ -24,6 +24,8 @@ export default function DownloadsPage() {
   const [man, setMan] = useState<Man | null>(null);
   const [ed, setEd] = useState<Record<string, boolean>>({});
   const [pk, setPk] = useState<Record<string, boolean>>({});
+  const [pkc, setPkc] = useState<Record<string, { have: number; total: number }>>({});
+  const savedOn = (key: string) => { try { const t = Number(localStorage.getItem(`sb:dl:${key}`)); return t ? new Date(t).toLocaleDateString(undefined, { dateStyle: 'medium' }) : ''; } catch { return ''; } };
   const [prog, setProg] = useState<Record<string, string>>({});
   const [err, setErr] = useState<Record<string, string>>({});
   const [est, setEst] = useState<{ usage: number; quota: number } | null>(null);
@@ -36,7 +38,7 @@ export default function DownloadsPage() {
 
   const refresh = () => {
     navigator.storage?.estimate?.().then((e) => setEst({ usage: e.usage ?? 0, quota: e.quota ?? 0 })).catch(() => {});
-    getManifest().then((m) => { setMan(m as Man); (m?.packs ?? []).forEach((p) => packStillCached(p).then((ok) => setPk((x) => ({ ...x, [p.id]: ok })))); }).catch(() => {});
+    getManifest().then((m) => { setMan(m as Man); (m?.packs ?? []).forEach((p) => { packStillCached(p).then((ok) => setPk((x) => ({ ...x, [p.id]: ok }))); packCachedCount(p).then((c) => setPkc((x) => ({ ...x, [p.id]: c }))); }); }).catch(() => {});
     editions.forEach((e) => isEditionCached(e.id, BOOKS.map((b) => b.id)).then((c) => setEd((x) => ({ ...x, [e.id]: c }))));
   };
   useEffect(refresh, [editions]);
@@ -44,7 +46,7 @@ export default function DownloadsPage() {
   const note = (k: string, v: string) => setErr((x) => ({ ...x, [k]: v }));
   const getEdition = async (id: string) => {
     note(id, ''); abort.current = new AbortController();
-    try { await downloadEdition(id, BOOKS.map((b) => b.id), (d, t) => setProg((p) => ({ ...p, [id]: `${Math.round((100 * d) / t)}%` })), abort.current.signal); setEd((x) => ({ ...x, [id]: true })); }
+    try { await downloadEdition(id, BOOKS.map((b) => b.id), (d, t) => setProg((p) => ({ ...p, [id]: `${Math.round((100 * d) / t)}%` })), abort.current.signal); setEd((x) => ({ ...x, [id]: true })); try { localStorage.setItem(`sb:dl:e:${id}`, String(Date.now())); } catch { /* storage blocked */ } }
     catch (e) { note(id, (e as Error).message); }
     setProg((p) => ({ ...p, [id]: '' })); refresh();
   };
@@ -54,6 +56,7 @@ export default function DownloadsPage() {
       const r = await downloadPack(p, (_d, _t, b, tb) => setProg((x) => ({ ...x, [p.id]: tb ? `${Math.round((100 * b) / tb)}%` : '…' })), abort.current.signal);
       const ok = !r.failed.length && !r.corrupt.length && !r.cancelled && !r.storageFull;
       setPk((x) => ({ ...x, [p.id]: ok }));
+      if (ok) { try { localStorage.setItem(`sb:dl:${p.id}`, String(Date.now())); } catch { /* storage blocked */ } }
       note(p.id, r.cancelled ? 'Stopped. Start again to carry on where it left off.' : r.storageFull ? 'This device is out of room for this site. Remove something and try again.' : r.corrupt.length ? `${r.corrupt.length} files did not match and may be damaged. Try again.` : r.failed.length ? `${r.failed.length} of ${p.files.length} files could not be fetched. Are you offline? Try again.` : '');
     } catch (e) { note(p.id, (e as Error).message); }
     setProg((x) => ({ ...x, [p.id]: '' })); refresh();
@@ -103,7 +106,12 @@ export default function DownloadsPage() {
     <div className="page downloads">
       <h1>Downloads and offline</h1>
       <Tip id="downloads" title="Save things for the plane, the retreat or the road">Bibles and study data are small. Audio is large (about 1 MB a minute), so save only what you will use.</Tip>
-      <p className="lede">Everything saved on this device, with the real size of each, and a way to remove it.</p>
+      <p className="lede">Everything saved on this device, with the real size of each, when it was saved, what is missing, and a way to remove it.</p>
+      {man && (
+        <p className="card small" role="status" aria-label="What is saved">
+          <strong>On this device:</strong> {editions.filter((e) => ed[e.id]).length} of {editions.length} Bibles, {(man.packs ?? []).filter((x) => pk[x.id]).length} of {(man.packs ?? []).length} study-data packs{(man.packs ?? []).some((x) => !pk[x.id] && (pkc[x.id]?.have ?? 0) > 0) ? ' (some only partly saved)' : ''}, {saved.length} audio {saved.length === 1 ? 'episode' : 'episodes'}.
+        </p>
+      )}
 
       <section className="card">
         <h2 className="card-title">Space</h2>
@@ -148,7 +156,7 @@ export default function DownloadsPage() {
         <h2 className="card-title">Bibles</h2>
         <ul className="dl-list">
           {shown.map((e) => { const size = sum(man?.editions?.[e.id]?.sizes); return (
-            <li key={e.id}><span><strong>{e.name}</strong> <span className="muted small">{size ? fmtBytes(size) : ''}</span></span>
+            <li key={e.id}><span><strong>{e.name}</strong> <span className="muted small">{size ? fmtBytes(size) : ''}{ed[e.id] && savedOn(`e:${e.id}`) ? ` · saved ${savedOn(`e:${e.id}`)}` : ''}</span></span>
               <span className="dl-act">{prog[e.id] ? <span className="chip">{prog[e.id]}</span> : ed[e.id] ? <><span className="chip good">on this device</span> <button className="btn small ghost" onClick={() => dropEdition(e.id)}>Remove</button></> : <button className="btn small" disabled={!e.offlineAllowed || !online} onClick={() => getEdition(e.id)}>{e.offlineAllowed ? 'Download' : 'Not allowed'}</button>}</span>
               {err[e.id] && <span className="small dl-err" role="alert">{err[e.id]}</span>}</li>); })}
         </ul>
@@ -159,8 +167,8 @@ export default function DownloadsPage() {
         <p className="muted small">Commentary, the Fathers, the Catechism, lessons, saints, maps and word studies. Text only.</p>
         <ul className="dl-list">
           {(man?.packs ?? []).map((p) => (
-            <li key={p.id}><span>{p.label} <span className="muted small">{fmtBytes(p.bytes)}</span></span>
-              <span className="dl-act">{prog[p.id] ? <><span className="chip">{prog[p.id]}</span> <button className="btn small" onClick={() => abort.current?.abort()}>Stop</button></> : pk[p.id] ? <><span className="chip good">on this device</span> <button className="btn small ghost" onClick={() => dropPack(p)}>Remove</button></> : <button className="btn small" disabled={!online} onClick={() => getPack(p)}>Download</button>}</span>
+            <li key={p.id}><span>{p.label} <span className="muted small">{fmtBytes(p.bytes)}{pk[p.id] && savedOn(p.id) ? ` · saved ${savedOn(p.id)}` : ''}</span>{!pk[p.id] && pkc[p.id] && pkc[p.id].have > 0 && <span className="small dl-err" role="status"> Partly saved: {pkc[p.id].have} of {pkc[p.id].total} files. {pkc[p.id].total - pkc[p.id].have} missing, so it will not all work offline.</span>}</span>
+              <span className="dl-act">{prog[p.id] ? <><span className="chip">{prog[p.id]}</span> <button className="btn small" onClick={() => abort.current?.abort()}>Stop</button></> : pk[p.id] ? <><span className="chip good">on this device</span> <button className="btn small ghost" onClick={() => dropPack(p)}>Remove</button></> : <button className="btn small" disabled={!online} onClick={() => getPack(p)}>{pkc[p.id]?.have ? 'Finish download' : 'Download'}</button>}</span>
               {err[p.id] && <span className="small dl-err" role="alert">{err[p.id]}</span>}</li>
           ))}
           {!man && <li className="muted">Loading…</li>}

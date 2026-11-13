@@ -1,3 +1,4 @@
+import AddToCollection from './AddToCollection';
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Marked } from '../study/citations';
@@ -477,6 +478,12 @@ export default function StudyPanel({
               </section>
             );
           })}
+        {tab === 'notes' && (items('fathers').length + items('saints').length + items('commentary').length > 1) && (
+          <details className="fold fc-fold" style={{ marginTop: 12 }}>
+            <summary><span className="fold-t">Compare the authors side by side</span></summary>
+            <div className="fold-body"><FathersCompare items={[...items('fathers'), ...items('saints'), ...items('commentary')]} /></div>
+          </details>
+        )}
         {tab === 'notes' && paths.length > 0 && <div className="path-line small muted">Part of a study path: {paths.slice(0, 2).map((p, i) => <span key={p.id}>{i ? ', ' : ''}<Link to={`/study/path/${p.id}`}>{p.title}</Link></span>)}</div>}
         {tab === 'media' && (
           <p className="small"><button className="linklike" onClick={() => setAddLink(true)}>Attach a link you found to this passage</button></p>
@@ -785,6 +792,7 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, a
           <button className="act" onClick={async () => { await db.userLinks.delete(item.userLinkId!); toast('Link removed.'); }}>Remove</button>
         )}
         {!['mine', 'xref', 'doctrine', 'links'].includes(item.section) && <button className="act" onClick={() => onNote(noteTarget)}>Note</button>}
+        {!['mine', 'xref', 'doctrine', 'links'].includes(item.section) && <AddToCollection target={item.ctx ? { type: 'work', workId: item.ctx.work, section: String(item.ctx.section), label: item.title } : noteTarget} label="Collect" small />}
         {onDismiss && <button className="act" onClick={() => onDismiss(item.id)} title="Put this away. You can bring it back.">Not for me</button>}
         <button className="act info-btn" aria-expanded={info} onClick={() => setInfo(!info)} aria-label="About this source" title="Source and why it is here">ⓘ</button>
       </div>

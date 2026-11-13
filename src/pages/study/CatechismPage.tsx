@@ -1,3 +1,4 @@
+import AddToCollection from '../../components/AddToCollection';
 import { logHistory } from '../../db/log';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -91,6 +92,7 @@ export default function CatechismPage() {
               <h2 className="ccc-n"><Link to={`/study/catechism/${p.n}`} aria-label={`Paragraph ${p.n}`}>{p.n}</Link></h2>
               <div>
                 {p.t.split('\n').map((l, i) => <p key={i}>{l}</p>)}
+                <AddToCollection target={{ type: 'catechism', para: p.n }} label="＋ Collection" />
                 {p.fn.length > 0 && <ol className="ccc-fn small muted">{p.fn.map((f) => <li key={f.id} value={f.id}><Cites text={f.t} onOpen={open as any} /></li>)}</ol>}
               </div>
             </section>
