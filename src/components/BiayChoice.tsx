@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { db } from '../db/db';
+import { startPlan } from '../lib/activePlan';
 import { updateSettings, useSettings } from '../lib/store';
 import { loadBiay, type BiayView } from '../data/biay';
 import { getLibraryIndex } from '../data/content';
@@ -9,8 +9,7 @@ import { toggleFollow, useFollows } from '../lib/follow';
 /** Where in Bible in a Year to carry on: today becomes day N, and the days before it count as heard. */
 export async function catchUp(day: number) {
   const n = Math.max(1, Math.min(365, Math.round(day) || 1));
-  await db.planProgress.put({ planId: 'biay', startedAt: Date.now(), status: 'active', done: Array.from({ length: n - 1 }, (_, i) => i), offsetDays: n - 1 } as never);
-  updateSettings({ activePlan: 'biay' });
+  await startPlan('biay', { restart: true, done: Array.from({ length: n - 1 }, (_, i) => i), offsetDays: n - 1 });
 }
 
 type Mode = 'ask' | 'yes' | 'start' | 'else';

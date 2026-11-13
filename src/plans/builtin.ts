@@ -68,7 +68,7 @@ export async function builtinPlans(vulgate: EditionRecord): Promise<PlanDef[]> {
   const gospels = ['MAT', 'MRK', 'LUK', 'JHN'];
   const plans: PlanDef[] = [];
 
-  plans.push({ id: 'bible-365', name: 'The whole Catholic Bible in a year', description: 'All 73 books in the traditional Catholic order, about 100 verses a day (balanced by length, not by chapter count). Vulgate/Douay chapter numbering.', category: 'bible', days: balanced(chaptersOf(vulgate, allBooks), 365) });
+  plans.push({ id: 'bible-365', name: 'The whole Catholic Bible in a year (reading only, no podcast)', description: 'All 73 books in the traditional Catholic order, about 100 verses a day (balanced by length, not by chapter count). Vulgate/Douay chapter numbering.', category: 'bible', days: balanced(chaptersOf(vulgate, allBooks), 365) });
   plans.push({ id: 'nt-90', name: 'The New Testament in 90 days', description: 'The 27 books of the New Testament, about three chapters a day.', category: 'bible', days: balanced(chaptersOf(vulgate, nt), 90) });
   plans.push({ id: 'gospels-30', name: 'The four Gospels in 30 days', description: 'Matthew, Mark, Luke and John, about three chapters a day.', category: 'gospel', days: balanced(chaptersOf(vulgate, gospels), 30) });
   plans.push({ id: 'gospels-89', name: 'A Gospel chapter a day (89 days)', description: 'One chapter a day through Matthew, Mark, Luke and John.', category: 'gospel', days: chaptersOf(vulgate, gospels).map((x) => ({ refs: [chap(x.book, x.c)] })) });

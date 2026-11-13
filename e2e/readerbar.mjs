@@ -42,5 +42,20 @@ for (const w of [390, 1280]) {
   if (over > 1) fail(`Learn scrolls sideways by ${over}px`);
   await ctx.close();
 }
+{
+  const ctx = await b.newContext({ viewport: { width: 390, height: 800 } });
+  await ctx.addInitScript(() => { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); });
+  const p = await ctx.newPage();
+  await p.goto(`${BASE}/#/profile`); await p.waitForTimeout(1200);
+  const help = p.locator('a.you-help');
+  if (!(await help.count()) || !(await help.isVisible())) fail('the You tab should have a visible Help button');
+  await help.click(); await p.waitForTimeout(800);
+  if (!/Help/.test(await p.locator('h1').innerText())) fail('Help page opens');
+  await p.click('button:has-text("Take the tour again")');
+  await p.waitForSelector('.tour-card', { timeout: 8000 }).catch(() => fail('the tour should start from Help'));
+  const over = await p.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+  if (over > 1) fail(`Help scrolls sideways by ${over}px`);
+  await ctx.close();
+}
 await b.close();
 console.log('readerbar ok');

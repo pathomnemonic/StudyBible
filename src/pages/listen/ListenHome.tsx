@@ -22,6 +22,7 @@ import { RecordedList } from '../../components/RecordedBooks';
 import PodcastView from './PodcastView';
 import ProgrammeView from './ProgrammeView';
 import EpisodeRow from './EpisodeRow';
+import { startPlan } from '../../lib/activePlan';
 import { useLocalFlag } from '../../lib/localFlag';
 import Menu, { type MenuItem } from '../../components/Menu';
 import Fold from '../../components/Fold';
@@ -100,7 +101,7 @@ function BiayListen() {
     await db.episodeProgress.bulkPut(rows);
     const cur = await db.planProgress.get('biay');
     const done = [...new Set([...(cur?.done ?? []), ...Array.from({ length: n }, (_, i) => i)])];
-    await db.planProgress.put({ planId: 'biay', startedAt: Date.now(), status: 'active', done, offsetDays: n });
+    await startPlan('biay', { restart: true, done, offsetDays: n });
     setBulk(false); setUpTo('');
   };
   const clearFinished = async () => {

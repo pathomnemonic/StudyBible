@@ -1,5 +1,11 @@
 # What changed
 
+## One plan at a time, and fresher media
+- Only one reading plan is followed at a time. Starting a plan, or Bible in a Year, from anywhere pauses the other (it asks first) and the other can be picked up again. Readers who already had two active plans are tidied once: Bible in a Year wins when it is in progress. The Plans page says which one you are following.
+- Following Bible in a Year, the toolbox no longer shows a place in another reading plan. Bible in a Year's done days now count episodes heard to the end, not only ticked days. "Start tracking from day 1" now starts at day 1; following the calendar is its own choice.
+- The daily scheduled deploy also refreshes the LibriVox recordings and adds new uploads to the video library from the creators' channels (needs the channel ids in data/curated/video-channels.json; ten are listed so far, and an optional YOUTUBE_API_KEY secret makes it more reliable).
+- The You tab has a Help button: where things are, how the top-bar buttons work, short answers, and the tour again.
+
 ## A simpler reading bar
 - The top bar of the Bible page has five buttons: previous and next chapter on either side, books, search and the toolbox. The menu button is gone.
 - Books also holds the settings of the reading: translation, Find in this chapter and Compare translations. The toolbox holds the rest (read aloud, focus mode, reading settings, the study panel beside the text, the Fathers on this chapter) above the outlines, concordance and other Bible tools.

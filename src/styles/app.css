@@ -6263,3 +6263,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .chapter-chips { display: flex; gap: 6px; padding: 6px 12px; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid var(--border); }
 .chapter-chips::-webkit-scrollbar { display: none; }
 .chapter-chips .chip { white-space: nowrap; flex: none; }
+.you-help { display: flex; align-items: center; gap: 12px; margin: 8px 0 14px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 14px; text-decoration: none; color: inherit; background: var(--surface); }
+.you-help > span:first-child { flex: none; width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; background: var(--accent); color: var(--bg); }
+.you-help strong { display: block; }
+.you-help small { color: var(--muted); }

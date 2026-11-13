@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import { useEditions } from '../data/EditionsContext';
 import { builtinPlans, type PlanDef } from '../plans/builtin';
-import { choosePlan } from '../lib/activePlan';
+import { choosePlan, confirmSwitch } from '../lib/activePlan';
 import { useSettings } from '../lib/store';
 
 /** Switch the reading plan you follow in one tap: the Bible in a Year podcast first, then the other plans. Nothing else pops up. */
@@ -19,7 +19,7 @@ export default function PlanPicker({ onClose }: { onClose: () => void }) {
       <ul className="plan-pick" role="radiogroup" aria-label="Reading plan">
         {ordered.map((p) => (
           <li key={p.id}>
-            <button className={`plan-opt${s.activePlan === p.id ? ' on' : ''}`} role="radio" aria-checked={s.activePlan === p.id} onClick={() => { choosePlan(p.id); onClose(); }}>
+            <button className={`plan-opt${s.activePlan === p.id ? ' on' : ''}`} role="radio" aria-checked={s.activePlan === p.id} onClick={async () => { if (await confirmSwitch(p.id)) { await choosePlan(p.id); onClose(); } }}>
               <span className="plan-opt-t">{p.name}{p.id === 'biay' ? ' · default' : ''}</span>
               <span className="plan-opt-d">{p.days.length} days{p.description ? ` · ${p.description.slice(0, 80)}${p.description.length > 80 ? '…' : ''}` : ''}</span>
             </button>

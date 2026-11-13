@@ -14,7 +14,7 @@ import { dayOfYear } from '../study/verseOfDay';
 import RefLink from './RefLink';
 import Icon from './Icon';
 import ShowSettings from './ShowSettings';
-import { choosePlan } from '../lib/activePlan';
+import { startPlan } from '../lib/activePlan';
 import Menu from './Menu';
 
 /** Progress ring: the Bible in a Year days you have finished, out of 365. */
@@ -43,24 +43,29 @@ export default function YearHero() {
   useEffect(() => {
     loadBiay().then(setBiay);
   }, []);
-  // today's day in the plan: the learner's own count if they started tracking, else the calendar day
-  const todayIdx = prog ? Math.max(0, Math.min(364, Math.floor((Date.now() - prog.startedAt) / 86400000) + prog.offsetDays)) : Math.min(364, dayOfYear() - 1);
+  // listening to an episode to the end counts the day, whether or not the day was ticked: one place for "done"
+  const heard = useLiveQuery(() => db.episodeProgress.filter((r) => !!r.completed).toArray(), []);
+  // today's day in the plan: the reader's own count; before tracking starts it is day 1
+  const todayIdx = prog ? Math.max(0, Math.min(364, Math.floor((Date.now() - prog.startedAt) / 86400000) + prog.offsetDays)) : 0;
   const dayN = todayIdx + 1;
   const ep: BiayEpisode | null = biay?.dayEpisode.get(dayN) ?? null;
-  const finished = prog?.done.includes(todayIdx) ?? false;
+  const heardIds = new Set((heard ?? []).map((r) => r.episodeId));
+  const doneSet = new Set(prog?.done ?? []);
+  if (biay) for (let d = 1; d <= 365; d++) if ((biay.releases.get(d) ?? []).some((e) => heardIds.has(e.id))) doneSet.add(d - 1);
+  const finished = doneSet.has(todayIdx);
   const first = ep?.passages.map((p) => parseRefId(p)).find(Boolean);
-  const startTracking = async () => { await db.planProgress.put({ planId: 'biay', startedAt: Date.now(), status: 'active', done: [], offsetDays: dayOfYear() - 1 }); if (!s.activePlan) choosePlan('biay'); };
+  const startTracking = async (fromCalendar = false) => { await startPlan('biay', { restart: true, offsetDays: fromCalendar ? dayOfYear() - 1 : 0 }); };
   const toggleDone = async () => {
-    if (!prog) return db.planProgress.put({ planId: 'biay', startedAt: Date.now(), status: 'active', done: [todayIdx], offsetDays: dayOfYear() - 1 });
+    if (!prog) return startPlan('biay', { restart: true, done: [todayIdx], offsetDays: 0 });
     const done = finished ? prog.done.filter((x) => x !== todayIdx) : [...prog.done, todayIdx];
     await db.planProgress.put({ ...prog, done });
   };
   const [cfg, setCfg] = useState(false);
   return (
     <section className="year-card" aria-label="Bible in a Year, today">
-      <Ring done={prog?.done.length ?? 0} day={dayN} />
+      <Ring done={doneSet.size} day={dayN} />
       <div className="year-body">
-        <div className="eyebrow">Day {dayN}{prog ? ` · ${prog.done.length} done` : ''}</div>
+        <div className="eyebrow">Day {dayN}{prog ? ` · ${doneSet.size} done` : ''}</div>
         <h2>{ep ? ep.short : 'Today’s episode'}</h2>
         {ep && <p className="year-ps">{ep.passages.slice(0, 4).map((p) => <RefLink key={p} id={p}><span className="chip">{(() => { const r = parseRefId(p); return r ? formatRef(r, { abbr: true }) : p; })()}</span></RefLink>)}</p>}
         <div className="year-acts">
@@ -69,7 +74,7 @@ export default function YearHero() {
           <button className={'btn icon' + (finished ? ' on' : '')} aria-pressed={finished} onClick={toggleDone} title={finished ? 'Done today' : 'Mark today done'} aria-label={finished ? 'Done today. Tap to undo' : 'Mark today done'}>✓</button>
           <Menu items={[
             { label: 'Playback settings', onClick: () => setCfg(true) },
-            ...(!prog ? [{ label: 'Start tracking from day 1', onClick: () => void startTracking() }] : []),
+            ...(!prog ? [{ label: 'Start tracking from day 1', onClick: () => void startTracking() }, { label: `Follow the calendar (day ${dayOfYear()} today)`, onClick: () => void startTracking(true) }] : []),
           ]} />
         </div>
       </div>

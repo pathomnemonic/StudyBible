@@ -9,7 +9,7 @@ import RefLink from '../../components/RefLink';
 import { useSettings } from '../../lib/store';
 import { usePlayer } from '../../data/PlayerContext';
 import { loadBiay } from '../../data/biay';
-import { choosePlan } from '../../lib/activePlan';
+import { choosePlan, confirmSwitch, startPlan } from '../../lib/activePlan';
 
 export default function PlanPage() {
   const { id: rawId = '' } = useParams();
@@ -53,7 +53,7 @@ export default function PlanPage() {
       <h1>{plan.name}</h1>
       <p className="lede">{plan.description}</p>
       {!prog ? (
-        <button className="btn primary" onClick={async () => { await db.planProgress.put({ planId: id, startedAt: Date.now(), status: 'active', done: [], offsetDays: 0 }); choosePlan(id); }}>Start this plan today and make it mine</button>
+        <button className="btn primary" onClick={async () => { if (await confirmSwitch(id)) await startPlan(id, { restart: true }); }}>Start this plan today and make it mine</button>
       ) : (
         <div className="card">
           <div className="progress"><div style={{ width: `${(100 * prog.done.length) / plan.days.length}%` }} /></div>
@@ -66,7 +66,7 @@ export default function PlanPage() {
           <div className="row">
             {s.activePlan === id
               ? <span className="chip sel">This is your plan: it shows in the Bible tab and Today</span>
-              : <button className="btn small primary" onClick={() => choosePlan(id)}>Make this my plan</button>}
+              : <button className="btn small primary" onClick={async () => { if (await confirmSwitch(id)) await choosePlan(id); }}>Make this my plan</button>}
             {prog.status === 'active' ? <button className="btn small" onClick={() => db.planProgress.put({ ...prog, status: 'paused', pausedAt: Date.now() })}>Pause</button> : <button className="btn small" onClick={() => db.planProgress.put({ ...prog, status: 'active', startedAt: prog.startedAt + (Date.now() - (prog.pausedAt ?? Date.now())), pausedAt: undefined })}>Resume</button>}
             <button className="btn small" onClick={() => db.planProgress.put({ ...prog, offsetDays: prog.offsetDays - 1 })}>Slow down a day</button>
             <button className="btn small" onClick={() => db.planProgress.put({ ...prog, offsetDays: prog.offsetDays + 1 })}>Skip ahead a day</button>

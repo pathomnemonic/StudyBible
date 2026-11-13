@@ -1,0 +1,15 @@
+{
+  "_about": "YouTube channel ids for the creators in the video library (public/data/media/video_library.json). The daily refresh reads each channel's latest uploads and adds the new ones. A channel is only used when its latest uploads overlap the videos already listed for it, so a wrong id is skipped, not added. To add a channel: put its name exactly as in the library's channel list and its channel id (the UC... id in the channel page's address or source).",
+  "channels": [
+    { "name": "Ascension Presents", "id": "UCVdGX3N-WIJ5nUvklBTNhAw" },
+    { "name": "Ascension Press", "id": "UC_n63nhzDdvRo9_QSb1xX7Q" },
+    { "name": "Sundays with Ascension", "id": "UCZpWMxP4e8sQLZjbYQmanIw" },
+    { "name": "Augustine Institute", "id": "UCViR8Uk46_06QjqkTNlVu2Q" },
+    { "name": "Bishop Robert Barron", "id": "UCcMjLgeWNwqL2LBGS-iPb1A" },
+    { "name": "Breaking In The Habit", "id": "UCDcdVPVsJRxAVKq4vY0NYeg" },
+    { "name": "Catholic Answers Live", "id": "UCvwbLBTkuIwqNm9kHUqWRnw" },
+    { "name": "Catholic Productions", "id": "UCONSMaVH6PuXBKQ00aPANpQ" },
+    { "name": "CatholicCulture", "id": "UCBwqvyZyc2bpzI-kOYhwrkw" },
+    { "name": "Discerning Hearts", "id": "UCo1v9xcpaPVoyQ-uqsyoP-w" }
+  ]
+}

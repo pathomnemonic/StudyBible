@@ -1,8 +1,8 @@
 """Recorded readings (LibriVox, public domain) for the Bible and for works in the library.
 Each recording is listed with its own files; nothing is cut or timed, so a recording always starts at the beginning of the file shown.
 Run: python3 data/curated/librivox/build.py  (needs network; writes public/data/media/librivox.json)"""
-import json, subprocess, re, sys
-ROOT = '/home/user/StudyBible/'
+import json, os, subprocess, re, sys
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..')) + '/'
 # library work id -> LibriVox book ids (each checked by hand against the work's title and author)
 WORKS = {
  'aug-confessions': [754, 2601], 'aug-city-of-god': [1691], 'aug-christian-doctrine': [13724], 'aug-harmony': [20627],
@@ -38,5 +38,14 @@ for w, ids in WORKS.items():
     out['works'][w] = [p for p in (pack(i) for i in ids) if p['parts']]; print(w, [len(p['parts']) for p in out['works'][w]])
 for k, i in BIBLE.items():
     out['bible'][k] = pack(i); print(k, len(out['bible'][k]['parts']))
-json.dump(out, open(ROOT + 'public/data/media/librivox.json', 'w'), ensure_ascii=False, separators=(',', ':'))
+# never replace a good file with a thin one (an API hiccup returns empty lists), and write it in one step
+target = ROOT + 'public/data/media/librivox.json'
+try:
+    old = json.load(open(target))
+    old_n = sum(len(v) for v in old['works'].values()); new_n = sum(len(v) for v in out['works'].values())
+    if new_n < 0.9 * old_n: sys.exit(f'refusing to replace {old_n} recordings with {new_n}')
+except FileNotFoundError:
+    pass
+json.dump(out, open(target + '.tmp', 'w'), ensure_ascii=False, separators=(',', ':'))
+os.replace(target + '.tmp', target)
 print('bytes', len(json.dumps(out)))

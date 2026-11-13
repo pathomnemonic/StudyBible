@@ -7,7 +7,7 @@ import { builtinPlans, type PlanDef } from '../../plans/builtin';
 import { parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import { getLibraryIndex } from '../../data/content';
-import { choosePlan } from '../../lib/activePlan';
+import { confirmSwitch, startPlan } from '../../lib/activePlan';
 import { useSettings } from '../../lib/store';
 
 const CAT: Record<string, string> = { bible: 'Whole Bible', gospel: 'Gospels', listening: 'Reading + listening', catechism: 'Catechism topics', saint: 'Saints & Fathers', seasonal: 'Seasons', psalms: 'Psalms' };
@@ -22,6 +22,7 @@ export default function PlansPage() {
   const [err, setErr] = useState('');
   const progress = useLiveQuery(() => db.planProgress.toArray(), []) ?? [];
   const user = useLiveQuery(() => db.userPlans.toArray(), []) ?? [];
+  const [st] = useSettings();
   const nav = useNavigate();
   useEffect(() => {
     const v = get('vulgate');
@@ -29,8 +30,8 @@ export default function PlansPage() {
     getLibraryIndex();
   }, []);
   const start = async (id: string) => {
-    await db.planProgress.put({ planId: id, startedAt: Date.now(), status: 'active', done: [], offsetDays: 0 });
-    choosePlan(id);
+    if (!(await confirmSwitch(id))) return;
+    await startPlan(id, { restart: true });
     nav(`/pray/plans/${encodeURIComponent(id)}`);
   };
   const createPlan = async () => {
@@ -47,6 +48,7 @@ export default function PlansPage() {
       <Link to="/pray" className="small">← Pray</Link>
       <h1>Reading plans</h1>
       <p className="lede">Plans are a help, not a measure.</p>
+      {(() => { const mine = plans.find((p) => p.id === st.activePlan)?.name ?? user.find((u) => 'user:' + u.id === st.activePlan)?.name; return mine ? <p className="notice info" role="status">You are following <strong>{mine}</strong>. One plan at a time keeps Today and the Bible tab simple: starting another pauses this one, and you can pick it up again.</p> : null; })()}
       <div className="chips" style={{ marginBottom: 12 }}>
         <button className={`chip${!cat ? ' sel' : ''}`} onClick={() => setCat('')}>All</button>
         {Object.entries(CAT).map(([k, v]) => <button key={k} className={`chip${cat === k ? ' sel' : ''}`} onClick={() => setCat(k)}>{v}</button>)}
@@ -71,7 +73,7 @@ export default function PlansPage() {
         const pr = progress.find((x) => x.planId === p.id);
         return (
           <div className="card" key={p.id}>
-            <div className="row between"><h3>{p.name}</h3><span className="chip">{p.days.length} days</span></div>
+            <div className="row between"><h3>{p.name}</h3><span className={`chip${st.activePlan === p.id ? ' sel' : ''}`}>{st.activePlan === p.id ? 'Following now' : `${p.days.length} days`}</span></div>
             <p className="muted">{p.description}</p>
             <div className="row">
               {pr ? <Link className="btn small primary" to={`/pray/plans/${p.id}`}>{pr.status === 'paused' ? 'Paused — open' : 'Continue'} ({pr.done.length}/{p.days.length})</Link> : <button className="btn small primary" onClick={() => start(p.id)}>Start</button>}

@@ -635,8 +635,8 @@ export default function ReadPage() {
 
   // what belongs to this chapter and is not a setting of the reading: the toolbox shows these first
   const toolboxItems: ToolItem[] = [
-    ...(plan && !plan.finished && plan.next ? (() => { const r = plan.next.refs.map((id) => parseRefId(id)).find(Boolean); return r ? [{ label: `My place in ${plan.plan.name.replace(/^The whole /, '').replace(/ \(.*\)$/, '')}: day ${plan.nextIdx + 1}, ${formatRef(r, { abbr: true })}`, primary: true, onClick: () => nav(readerPath(edition, r)) }] : []; })() : []),
-    ...(plan && !plan.finished ? [{ label: 'Mark today’s plan reading done', onClick: () => void plan.markDone(plan.nextIdx) }] : []),
+    ...(plan && plan.plan.id !== 'biay' && !plan.finished && plan.next ? (() => { const r = plan.next.refs.map((id) => parseRefId(id)).find(Boolean); return r ? [{ label: `My place in ${plan.plan.name.replace(/^The whole /, '').replace(/ \(.*\)$/, '')}: day ${plan.nextIdx + 1}, ${formatRef(r, { abbr: true })}`, primary: true, onClick: () => nav(readerPath(edition, r)) }] : []; })() : []),
+    ...(plan && plan.plan.id !== 'biay' && !plan.finished ? [{ label: 'Mark today’s plan reading done', onClick: () => void plan.markDone(plan.nextIdx) }] : []),
     { label: aloud ? 'Stop reading aloud' : 'Read aloud', onClick: () => setAloud((x) => !x) },
     { label: settings.ambience.kind === 'off' ? 'Turn on the chapter’s soundscape' : 'Turn off the soundscape', onClick: () => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'auto' : 'off' }, ambienceTipSeen: true }) },
     { label: settings.scriptureOnly ? 'Leave focus mode' : 'Focus mode', onClick: () => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); } },
