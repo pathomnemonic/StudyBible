@@ -6,6 +6,7 @@ import { MODES, type Chain, type ChainMode, type Step } from '../../chains/types
 import ShareLinkButton from '../../components/ShareLinkButton';
 import PrintButton from '../../components/PrintButton';
 import InTracks from '../../components/apol/InTracks';
+import LessonsOn from '../../curriculum/LessonsOn';
 
 /** Plain-language version of a chain (summary, a line per step, objection answers). Quotations are never changed. */
 export interface Plain { summary: string; steps: Record<string, string>; objections: string[] }
@@ -63,6 +64,7 @@ function ChainView({ c, mode }: { c: Chain; mode: ChainMode }) {
       <h1>{c.title} <PrintButton /></h1>
       <p className="lede">{c.question}</p>
       <InTracks type={mode} id={c.id} />
+      <LessonsOn type={mode} id={c.id} />
       {plainAll?.[c.id] && (
         <p className="no-print"><button className={`chip${on ? ' sel' : ''}`} aria-pressed={on} onClick={toggle} title="Swap the summary and notes for a simpler version. Quotations stay exactly as they are.">Plain words</button>{on && <span className="small muted"> Simpler wording. The quotations are unchanged.</span>}</p>
       )}

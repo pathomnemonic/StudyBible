@@ -16,3 +16,11 @@ export const getExtras = async (lessonId: string): Promise<Extras | null> => {
 
 /** Which featured pool suits a reader: adults and parents, teens, or the middle grades. */
 export const poolFor = (audience: string): Featured['band'] => (audience === 'youth' ? 'teen' : 'adult');
+
+const ALIAS: Record<string, string> = { arguments: 'chain', claims: 'claim', heresies: 'heresy' };
+/** The lessons whose Discuss step uses this argument, claim or heresy, so those pages can point back to the teaching. */
+export const lessonsOn = async (type: string, id: string): Promise<string[]> => {
+  const all: Record<string, Extras> = await (eCache ??= getJson<Record<string, Extras>>('curriculum/lesson-extras.json', true).then((x) => x ?? {}).catch(() => ({} as Record<string, Extras>)));
+  const t = ALIAS[type] ?? type;
+  return Object.entries(all).filter(([, e]) => e.debate.some((d) => d.type === t && d.id === id)).map(([k]) => k);
+};

@@ -6,6 +6,7 @@
 - A warm-up retrieval quiz now opens each lesson from the elementary grades up, replacing the end-of-lesson review.
 - docs/LESSON_STANDARD.md records the teaching standard (Directory for Catechesis, Rosenshine) and what earns a lesson a feature slot.
 - scripts/launch/make-lesson-links.ts regenerates the links from the tracks.
+- Cross-links: argument, claim and heresy pages now list the lessons that teach them ("Taught in these lessons"), the way back from the lesson Debate it step.
 
 ## Video refresh covers every creator
 - All 28 creators in the video library now have their YouTube channel id in data/curated/video-channels.json, each confirmed from the channel page of videos we already list for it. The daily refresh reads every one of them.

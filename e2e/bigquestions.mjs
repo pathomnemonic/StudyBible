@@ -25,5 +25,13 @@ for (const w of [390, 1280]) {
   if (errs.length) fail(errs[0]);
   await ctx.close();
 }
+{
+  const ctx = await b.newContext({ viewport: { width: 390, height: 800 } });
+  await ctx.addInitScript(() => { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:audienceAsked', '1'); });
+  const p = await ctx.newPage(); p.setDefaultTimeout(12000);
+  await p.goto(`${BASE}/#/study/arguments/sanctity-of-life`);
+  await p.waitForSelector('[aria-label="Lessons that teach this"] a'); // the way back from an argument to its lessons
+  await ctx.close();
+}
 await b.close();
 console.log('bigquestions ok');
