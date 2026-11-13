@@ -105,7 +105,8 @@ export async function initSync() {
   // React's strict mode runs start-up twice in development; listeners and timers must only be installed once
   if (started) return;
   started = true;
-  if (getSettings().localOnly) {
+  // this build was made for a host with no sync server (GitHub Pages): never look for one
+  if (getSettings().localOnly || (import.meta.env.VITE_LOCAL_ONLY === '1' && !import.meta.env.VITE_API_BASE)) {
     // local-only mode: never contact a server
     emit({ server: 'unavailable', status: 'signed-out' });
     return;

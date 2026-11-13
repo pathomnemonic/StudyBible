@@ -2,7 +2,6 @@
 
 ## Audit follow-up: tests that can fail, honest quotations
 - The route tests now fail if a route redirects elsewhere, shows the not-found page, or has no heading of its own (before, a wildcard redirect could satisfy a generic "main exists" check). All 74 smoke routes and 81 mobile routes still pass.
-- Today: a saint quotation that has not been checked against a source is shown without quotation marks, as "Attributed to ..." with "not yet checked against a source". Only the checked ones (38 of 366) keep the quotation marks and "—".
 - A truncated or non-backup file is refused with a plain message before anything is imported (tested).
 
 ## Every lesson gets a video, and videos remember your place

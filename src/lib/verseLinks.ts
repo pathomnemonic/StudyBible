@@ -19,7 +19,7 @@ export const KIND_ICON: Record<LinkKind, string> = {
   'kids-story': '🧒', 'kids-question': '💬', apologetics: '🛡️', apostolic: '🔗', reading: '📖', 'hard-day': '🤍',
 };
 
-export interface VerseLink { kind: LinkKind; id: string; title: string; route: string; weight: number; why?: string; note?: string; topic?: string; verses?: number }
+export interface VerseLink { kind: LinkKind; id: string; title: string; route: string; weight: number; why?: string; note?: string; topic?: string; verses?: number; /** true when the item is tied to the whole chapter, not to particular verses, so it must not be read as a verse-level citation */ wholeChapter?: boolean }
 export interface LinkResult { items: VerseLink[]; /** how many more matched but are not in `items` */ more: number; total: number; notes: { topic?: string; text: string }[] }
 
 /** [item, from, to, weight, why, note, topic]: from=0,to=0 means the whole chapter. */
@@ -75,8 +75,8 @@ function collect(f: BookFile, chapters: Map<number, number[] | 'all'>, cap: numb
       const key = `${it[0]}:${it[1]}`;
       const cur = found.get(key);
       const covered = from === 0 ? 0 : to - from + 1;
-      if (cur) { cur.verses = (cur.verses ?? 0) + covered; if (w <= cur.weight) continue; }
-      found.set(key, { kind: it[0] as LinkKind, id: it[1], title: it[2], route: it[3], weight: w, why: why >= 0 ? f.why[why] : undefined, note: note >= 0 ? f.notes[note] : undefined, topic: topic >= 0 ? f.topics[topic] : undefined, verses: cur ? cur.verses : covered });
+      if (cur) { cur.verses = (cur.verses ?? 0) + covered; cur.wholeChapter = cur.wholeChapter && from === 0; if (w <= cur.weight) continue; }
+      found.set(key, { wholeChapter: (cur ? !!cur.wholeChapter : true) && from === 0, kind: it[0] as LinkKind, id: it[1], title: it[2], route: it[3], weight: w, why: why >= 0 ? f.why[why] : undefined, note: note >= 0 ? f.notes[note] : undefined, topic: topic >= 0 ? f.topics[topic] : undefined, verses: cur ? cur.verses : covered });
       if (note >= 0) noteSet.set(f.topics[topic] ?? f.notes[note], { topic: f.topics[topic], text: f.notes[note] });
     }
   }

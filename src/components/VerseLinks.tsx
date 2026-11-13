@@ -54,7 +54,7 @@ export default function VerseLinks({ book, chapter, verse, scheme }: { book: str
         {shown.map((it) => (
           <li key={`${it.kind}:${it.id}`}>
             <Link className="vl-item" to={it.route}>
-              <span className="vl-kind"><span aria-hidden="true">{KIND_ICON[it.kind]}</span> {KIND_LABEL[it.kind]}</span>
+              <span className="vl-kind"><span aria-hidden="true">{KIND_ICON[it.kind]}</span> {KIND_LABEL[it.kind]}</span>{it.wholeChapter && <span className="scope-tag" title="Tied to the chapter as a whole, not to particular verses">whole chapter</span>}
               <span className="vl-title">{it.title}</span>
               {it.why && <span className="vl-why small muted">{it.why}</span>}
             </Link>

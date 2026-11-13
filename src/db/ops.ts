@@ -106,7 +106,11 @@ function collectLocal(): Record<string, string> {
 }
 const safeUrl = (u: unknown) => typeof u === 'string' && /^https?:\/\//i.test(u);
 
+/** Larger than any real backup (a few thousand long notes are a few megabytes); a bigger file is refused before it is parsed. */
+export const MAX_IMPORT_CHARS = 100_000_000;
+
 export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge'): Promise<number> {
+  if (json.length > MAX_IMPORT_CHARS) throw new Error('This file is far larger than any backup the app makes, so it was not opened. Nothing was imported.');
   let data: any;
   try { data = JSON.parse(json); } catch { throw new Error('The file is cut short or is not a backup. Nothing was imported.'); }
   if (!data || data.format !== 'studybible-export') throw new Error(`Not a ${BRAND.name} export file.`);

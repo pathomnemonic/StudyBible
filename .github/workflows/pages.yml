@@ -46,6 +46,8 @@ jobs:
       - name: Refresh the Bible in a Year episode list from its public feed, then the offline-pack sizes (keeps the committed list if the feed fails)
         run: mkdir -p data/raw && curl -fsS --max-time 60 https://feeds.fireside.fm/bibleinayear/rss -o data/raw/biay.rss.xml && npx tsx scripts/podcasts/refresh-biay.ts || echo 'Bible in a Year refresh failed; using the committed list'
       - run: npm run build
+        env:
+          VITE_LOCAL_ONLY: '1' # GitHub Pages has no sync server, so the app does not look for one
       - run: touch dist/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -59,7 +59,7 @@ export default function AccountPage() {
       <h1>Account & sync</h1>
       {s.server === 'unavailable' && (
         <div className="card">
-          <p>Your notes and highlights are saved on <strong>this device</strong>. To keep a second copy, save a backup file from <Link to="/library?tab=export">Library → Export</Link>.</p>
+          <p>Your notes and highlights are saved on <strong>this device</strong> only. This copy of the app has no sync server, and nothing you write is sent anywhere. To keep a second copy, save a backup file from <Link to="/library?tab=export">Library → Export</Link>.</p>
         </div>
       )}
 
