@@ -1,5 +1,13 @@
 # What changed
 
+## Data safety, sync and scripture-integrity tests
+- Library > Export shows "Where your writing is kept": items in this browser, safety copies (clearly not a backup against clearing the browser), the last backup file, Google Drive and account status, and how many changes are not in any outside copy. A backup or safety copy that fails now says so instead of staying silent.
+- Sync: a note edited here is kept (and sent back) if another device deleted it in the meantime; a note deleted here returns if another device edited it afterwards; an expired sign-in or a server error leaves changes queued and is never reported as a finished sync. All tested against the real server.
+- Imports: a file over 100 million characters is refused before it is opened; a restore that hits a full disk part-way changes nothing; a version 1 backup restores; closing and reopening keeps notes. Tested.
+- Versification: tests across all 73 books (every chapter maps into the same book and back), the Psalms (English n is Vulgate n-1, titles shift verses), and the five books whose numbering does not line up (Tobit, Judith, Esther, Sirach, Daniel) are never presented as exact. An end-to-end test writes a note on English Psalm 51:2 and finds it on Douay Psalm 50:4, after a reload, and backs out of a followed passage link.
+- Chapter-wide resources are marked "whole chapter" and never appear as the connections of a single verse.
+- The GitHub Pages build is local-only: it no longer probes for a sync server. docs/PRIVACY_AND_DATA.md states exactly what is stored where and what is and is not encrypted.
+
 ## Audit follow-up: tests that can fail, honest quotations
 - The route tests now fail if a route redirects elsewhere, shows the not-found page, or has no heading of its own (before, a wildcard redirect could satisfy a generic "main exists" check). All 74 smoke routes and 81 mobile routes still pass.
 - A truncated or non-backup file is refused with a plain message before anything is imported (tested).

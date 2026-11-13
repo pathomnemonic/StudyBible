@@ -173,6 +173,8 @@ export interface Settings {
   /** remind me to back up every N days (0 = never) and when I last did */
   backupEveryDays: number;
   lastBackup: number;
+  /** when a backup file was last saved or shared (lastBackup also counts Drive) */
+  lastFileBackup: number;
 }
 
 export const DEFAULTS: Settings = {
@@ -253,6 +255,7 @@ export const DEFAULTS: Settings = {
   drive: { connected: false, clientId: '', lastOk: 0, lastError: '', nudgeUntil: 0 },
   backupEveryDays: 0,
   lastBackup: 0,
+  lastFileBackup: 0,
 };
 
 const KEY = 'studybible.settings.v1';

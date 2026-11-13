@@ -136,4 +136,81 @@ describe('sync engine against the real server', () => {
     expect(r.rejected).toBe(1);
     expect(await pendingCount(uid)).toBeGreaterThan(0);
   }, 60000);
+
+  it('a note edited here is kept when another device deleted it meanwhile', async () => {
+    await freshDevice();
+    const { api } = await import('../src/sync/api');
+    const user = (await api.register('sync-del1@example.com', 'correct horse battery', 'D')) as any;
+    const uid = user.user.id;
+    const { db } = await import('../src/db/db');
+    const { runSync } = await import('../src/sync/engine');
+    const id = await db.notes.add({ kind: 'note', title: 'keep', body: 'original', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 } as any);
+    await runSync(uid);
+    const mine = (await db.notes.get(id))!;
+    await new Promise((r) => setTimeout(r, 20));
+    await db.notes.update(id, { body: 'my unsynced edit' }); // edited here, not yet synced
+    // the other device deletes it later still
+    const cur = (await api.sync(0, [])).cursor;
+    await api.sync(cur, [{ table: 'notes', uid: mine.uid!, updatedAt: Date.now() + 5000, deleted: true, payload: {} } as any]);
+    await runSync(uid);
+    expect((await db.notes.toArray()).map((n) => n.body)).toContain('my unsynced edit'); // not deleted
+    await runSync(uid); // the revived note is sent back on the next sync
+    // and a clean device receives it too: the edit won, nothing was lost
+    db.close(); await freshDevice();
+    const again = await import('../src/db/db');
+    const eng = await import('../src/sync/engine');
+    await eng.runSync(uid);
+    expect((await again.db.notes.toArray()).map((n) => n.body)).toContain('my unsynced edit');
+  }, 60000);
+
+  it('a note deleted here comes back when another device edited it afterwards', async () => {
+    await freshDevice();
+    const { api } = await import('../src/sync/api');
+    const user = (await api.register('sync-del2@example.com', 'correct horse battery', 'D')) as any;
+    const uid = user.user.id;
+    const { db } = await import('../src/db/db');
+    const { runSync } = await import('../src/sync/engine');
+    const id = await db.notes.add({ kind: 'note', title: 't', body: 'original', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 } as any);
+    await runSync(uid);
+    const mine = (await db.notes.get(id))!;
+    await db.notes.delete(id); // deleted here
+    const cur = (await api.sync(0, [])).cursor;
+    await api.sync(cur, [{ table: 'notes', uid: mine.uid!, updatedAt: Date.now() + 5000, payload: { ...mine, id: undefined, body: 'edited on the other device', updatedAt: Date.now() + 5000 } } as any]);
+    await runSync(uid);
+    expect((await db.notes.toArray()).map((n) => n.body)).toEqual(['edited on the other device']);
+  }, 60000);
+
+  it('an expired sign-in stops the sync, says so, and leaves every change queued', async () => {
+    await freshDevice();
+    const { api } = await import('../src/sync/api');
+    const user = (await api.register('sync-auth@example.com', 'correct horse battery', 'A')) as any;
+    const uid = user.user.id;
+    const { db } = await import('../src/db/db');
+    const { runSync, pendingCount } = await import('../src/sync/engine');
+    await db.notes.add({ kind: 'note', title: 'x', body: 'unsent', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: Date.now() } as any);
+    const saved = cookie; cookie = ''; // the session has expired
+    await expect(runSync(uid)).rejects.toThrow();
+    expect(await pendingCount(uid)).toBeGreaterThan(0);
+    cookie = saved;
+    const r = await runSync(uid); // signing in again sends it
+    expect(r.rejected).toBe(0);
+    expect(await pendingCount(uid)).toBe(0);
+  }, 60000);
+
+  it('a server that answers with an error does not count as a finished sync', async () => {
+    await freshDevice();
+    const { api } = await import('../src/sync/api');
+    const user = (await api.register('sync-503@example.com', 'correct horse battery', 'S')) as any;
+    const uid = user.user.id;
+    const { db } = await import('../src/db/db');
+    const { runSync, pendingCount } = await import('../src/sync/engine');
+    await db.notes.add({ kind: 'note', title: 'x', body: 'unsent', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: Date.now() } as any);
+    const real = globalThis.fetch;
+    vi.stubGlobal('fetch', async () => new Response('Service Unavailable', { status: 503 }));
+    await expect(runSync(uid)).rejects.toThrow();
+    vi.stubGlobal('fetch', real);
+    expect(await pendingCount(uid)).toBeGreaterThan(0);
+    expect((await runSync(uid)).rejected).toBe(0);
+    expect(await pendingCount(uid)).toBe(0);
+  }, 60000);
 });

@@ -88,6 +88,12 @@ async function applyRemote(userId: string, changes: WireChange[]) {
       let local: any = await t.where('uid').equals(c.uid).first();
       if (!local && c.table === 'saved' && c.payload?.key) local = await db.saved.where('key').equals(c.payload.key).first();
       if (c.deleted) {
+        // another device deleted it, but this device edited it since the last sync: the writing is kept (and sent back as a live note) instead of being deleted silently
+        const unsynced = local && (local.updatedAt ?? 0) > Number(get(lk(userId, 'lastPush')) ?? 0);
+        if (unsynced && (c.table === 'notes' || c.table === 'journal') && typeof local.body === 'string' && local.body.trim()) {
+          await t.update(local.id, { updatedAt: Math.max(Date.now(), c.updatedAt + 1) });
+          continue;
+        }
         if (local && (local.updatedAt ?? 0) <= c.updatedAt) await t.delete(local.id);
         continue;
       }

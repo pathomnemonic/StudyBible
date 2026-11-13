@@ -6295,3 +6295,5 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .cw-title{display:block;margin-bottom:4px}
 .cw-bar{height:4px;border-radius:2px;background:color-mix(in srgb,var(--text) 15%,transparent);margin:0 0 8px;overflow:hidden}
 .cw-bar i{display:block;height:100%;background:var(--accent,currentColor)}
+.bs-list{margin:0;display:grid;gap:10px}.bs-list dt{font-weight:600}.bs-list dd{margin:2px 0 0}
+.bs-bad{color:#e0556b}.bs-warn{color:#d9a441}

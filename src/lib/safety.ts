@@ -56,7 +56,7 @@ export async function saveBackupFile(): Promise<'shared' | 'downloaded'> {
     if ((e as Error)?.name === 'AbortError') throw e;
     download(name, json);
   }
-  updateSettings({ lastBackup: Date.now() });
+  updateSettings({ lastBackup: Date.now(), lastFileBackup: Date.now() });
   return how;
 }
 
@@ -76,4 +76,26 @@ export function useRecordCount(): number {
   const [n, setN] = useState(0);
   useEffect(() => { let live = true; const f = () => localDataCount().then((c) => live && setN(c)).catch(() => {}); f(); const t = window.setInterval(f, 60000); return () => { live = false; window.clearInterval(t); }; }, []);
   return n;
+}
+
+/** What is stored where, and what has changed since the last copy that lives outside this browser. Never claims more than is true. */
+export interface BackupStatus {
+  items: number;
+  changedSince: number;
+  fileAt: number;
+  driveAt: number;
+  driveConnected: boolean;
+  driveError: string;
+  accountSync: boolean;
+  snapshotAt: number;
+  snapshots: number;
+}
+export async function backupStatus(signedIn: boolean): Promise<BackupStatus> {
+  const s = getSettings();
+  const items = await localDataCount();
+  const outside = Math.max(s.lastFileBackup || 0, s.drive.lastOk || 0);
+  const after = (t: { where: (k: string) => { above: (n: number) => { count: () => Promise<number> } } }) => t.where('updatedAt').above(outside).count();
+  const changedSince = items ? (await Promise.all([db.notes, db.highlights, db.journal].map((t) => after(t as never).catch(() => 0)))).reduce((a, b) => a + b, 0) : 0;
+  const snaps = await listSnapshots().catch(() => [] as Snapshot[]);
+  return { items, changedSince, fileAt: s.lastFileBackup || 0, driveAt: s.drive.lastOk || 0, driveConnected: s.drive.connected, driveError: s.drive.lastError, accountSync: signedIn, snapshotAt: snaps[0]?.at ?? 0, snapshots: snaps.length };
 }
