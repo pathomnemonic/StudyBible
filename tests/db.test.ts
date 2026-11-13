@@ -109,6 +109,8 @@ describe('backup round trip', () => {
     await expect(ops.importAll(JSON.stringify({ format: 'studybible-export', version: 99 }), 'replace')).rejects.toThrow(/newer version/);
     await expect(ops.importAll(JSON.stringify({ format: 'studybible-export', version: 2, notes: 'oops' }), 'replace')).rejects.toThrow(/damaged/);
     await expect(ops.importAll(JSON.stringify({ format: 'studybible-export', version: 2, userLinks: [{ url: 'javascript:alert(1)' }] }), 'replace')).rejects.toThrow(/http or https/);
+    await expect(ops.importAll('{"format":"studybible-export","notes":[{"id":', 'replace')).rejects.toThrow(/cut short/); // a truncated file
+    await expect(ops.importAll('null', 'replace')).rejects.toThrow(/export file/);
     expect(await db.notes.count()).toBe(1);
   });
 });

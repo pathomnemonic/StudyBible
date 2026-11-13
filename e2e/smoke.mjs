@@ -5,6 +5,8 @@ import { chromium } from 'playwright';
 const BASE = process.env.BASE ?? 'http://localhost:4173';
 const ROUTES = ['/', '/more', '/learn', '/downloads', '/study/visual', '/study/visual/sacraments', '/pray/pilgrim', '/pray/pilgrim/rome', '/pray/intentions', '/privacy', '/goals', '/memento', '/read', '/study', '/room', '/pray', '/pray/office', '/pray/devotions', '/pray/devotions/rosary', '/pray/devotions/divine-mercy', '/pray/devotions/angelus', '/pray/devotions/stations', '/pray/life', '/study/prepare', '/pray/devotions/confession', '/pray/devotions/holy-hour', '/pray/prayers', '/pray/examination', '/pray/novenas', '/pray/sunday', '/pray/build', '/pray/mass', '/study/course', '/study/dossier', '/listen', '/settings', '/library', '/study/apologetics', '/study/videos', '/account', '/study/passage/JHN.6.51', '/study/story', '/study/story/peter', '/pray/year', '/pray/examen', '/pray/morning', '/mass', '/mass/ef', '/study/papal', '/pray/liturgies', '/pray/divine-liturgy', '/pray/liturgy/james', '/pray/liturgy/mark', '/pray/liturgy/addai-mari', '/study/young-adults', '/room', '/study/curriculum', '/study/curriculum/teachers', '/study/curriculum/3', '/study/curriculum/K/K-2-3', '/study/curriculum/9/9-5-2', '/study/curriculum/YA', '/study/curriculum/YA/YA-1-1', '/study/curriculum/3/packet', '/study/works/aug-confessions/0', '/room/work/aug-confessions/0', '/teach', '/join', '/join/123456', '/study/curriculum/9/9-1-2', '/room?tab=mine', '/listen?tab=podcasts', '/listen?tab=audiobooks', '/listen?tab=programmes'];
 
+// routes that are meant to forward somewhere else
+const REDIRECTS = new Set(['/read']);
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined });
 const ctx = await browser.newContext({ viewport: { width: 420, height: 900 } });
 await ctx.addInitScript(() => { try { { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); }; } catch { /* ignore */ } });
@@ -18,6 +20,9 @@ for (const r of ROUTES) {
   await page.waitForSelector('.page, .today, main', { timeout: 15000 }).catch(() => problems.push(`no content on ${r}`));
   await page.waitForTimeout(400);
   if (await page.locator('text=Something went wrong').count()) problems.push(`error boundary on ${r}`);
+  if (await page.locator('h1:has-text("That page is not here")').count()) problems.push(`not-found page on ${r}`);
+  const landed = await page.evaluate(() => location.hash.replace(/^#/, '').split('?')[0]);
+  if (landed !== r.split('?')[0] && !REDIRECTS.has(r)) problems.push(`${r} redirected to ${landed}`);
 }
 
 // reflow: at 320 px wide (what 400% zoom gives on a phone) nothing may force sideways scrolling of the page

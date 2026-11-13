@@ -160,8 +160,8 @@ export default function TodayPage() {
             </blockquote>
             {saint && (
               <figure className="home-saint">
-                <blockquote>“{saint.text}”</blockquote>
-                <figcaption>— {saint.who}{saint.work && !saint.who.includes(saint.work) ? `, ${saint.work}` : ''}{saint.verified && <> · <Link to={`/share?q=${encodeURIComponent(saint.text)}`}>Card</Link></>}{saint.src && (saint.src.work ? <> · <Link to={`/study/works/${saint.src.work}/${saint.src.section ?? 0}`}>{t('home.context')}</Link></> : saint.src.url ? <> · <a href={saint.src.url} target="_blank" rel="noreferrer">{t('home.context')} ↗</a></> : null)}</figcaption>
+                <blockquote>{saint.verified ? <>“{saint.text}”</> : saint.text}</blockquote>
+                <figcaption>{saint.verified ? '— ' : 'Attributed to '}{saint.who}{saint.work && !saint.who.includes(saint.work) ? `, ${saint.work}` : ''}{!saint.verified && <span className="home-unchecked"> · not yet checked against a source</span>}{saint.verified && <> · <Link to={`/share?q=${encodeURIComponent(saint.text)}`}>Card</Link></>}{saint.src && (saint.src.work ? <> · <Link to={`/study/works/${saint.src.work}/${saint.src.section ?? 0}`}>{t('home.context')}</Link></> : saint.src.url ? <> · <a href={saint.src.url} target="_blank" rel="noreferrer">{t('home.context')} ↗</a></> : null)}</figcaption>
               </figure>
             )}
             <Reflect date={date} question={entry.q} refId={entry.ref} />

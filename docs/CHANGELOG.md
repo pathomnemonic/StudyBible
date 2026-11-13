@@ -1,5 +1,10 @@
 # What changed
 
+## Audit follow-up: tests that can fail, honest quotations
+- The route tests now fail if a route redirects elsewhere, shows the not-found page, or has no heading of its own (before, a wildcard redirect could satisfy a generic "main exists" check). All 74 smoke routes and 81 mobile routes still pass.
+- Today: a saint quotation that has not been checked against a source is shown without quotation marks, as "Attributed to ..." with "not yet checked against a source". Only the checked ones (38 of 366) keep the quotation marks and "—".
+- A truncated or non-backup file is refused with a plain message before anything is imported (tested).
+
 ## Every lesson gets a video, and videos remember your place
 - Lessons for grades 6 to 12 and young adults now add the hand-checked videos matched to the lesson's own Scripture passage to their Watch and listen step: 234 of 285 have one, up from 79. The Debate it protocol still appears only where there is a real debate question or argument chain.
 - A YouTube video played in the app remembers where you stopped (saved every few seconds and when you pause or close it, on this device only) and reopens a few seconds before that point.

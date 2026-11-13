@@ -12,6 +12,11 @@ for (const w of [320, 390]) {
   for (const r of ROUTES) {
     errs.length = 0;
     await p.goto(`${BASE}/#${r}`); await p.waitForTimeout(1200);
+    // a route must open its own page: not the not-found page, no redirect elsewhere, and a heading of its own
+    const here = await p.evaluate(() => location.hash.replace(/^#/, '').split('?')[0]);
+    if (here !== r.split('?')[0]) bad.push(`${w}px ${r}: redirected to ${here}`);
+    if (await p.locator('h1:has-text("That page is not here")').count()) bad.push(`${w}px ${r}: shows the not-found page`);
+    if (!(await p.locator('main h1, .page h1, h1').count())) bad.push(`${w}px ${r}: no heading of its own`);
     const over = await p.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     if (over > 1) bad.push(`${w}px ${r}: scrolls sideways by ${over}px`);
     if (errs.length) bad.push(`${w}px ${r}: ${errs[0]}`);
