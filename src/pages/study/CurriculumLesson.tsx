@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { useSettings, updateSettings } from '../../lib/store';
-import { getExtras, getFeatured, type Extras } from '../../curriculum/extras';
+import { getExtras, getFeatured, withPassageVideos, type Extras } from '../../curriculum/extras';
 import RelatedSources from '../../curriculum/RelatedSources';
 import InTracks from '../../components/apol/InTracks';
 import { getGlossary, getGrade, flatLessons, gradeLabel, progressId, toggleDone, vocabQuiz, reviewTerms, cccList, parseQuiz, type GradeData, type Glossary, type LessonSpec, type Question } from '../../curriculum/model';
@@ -202,7 +202,7 @@ export default function CurriculumLesson() {
           onNote={(v) => { setNote(v); try { localStorage.setItem(`sb:cur:note:${lessonId}`, v); } catch { /* private mode */ } }}
           done={done} onDone={() => toggleDone(g.id, idx, true)} next={next ? { id: next.id, title: next.title } : undefined}
           quick={quiz.length > 3 ? <Quiz key={lesson.id + 'q'} qs={quiz.slice(0, 2)} /> : undefined}
-          extras={g.band === 'primary' || g.band === 'elementary' ? null : extras} question={bigQ}
+          extras={g.band === 'primary' || g.band === 'elementary' ? null : withPassageVideos(extras, src.videos)} question={bigQ}
           warmup={review.length > 0 && g.band !== 'primary' ? <Quiz key={lesson.id + 'w'} qs={review.slice(0, 2)} /> : undefined}
           quiz={<><Quiz key={lesson.id} qs={quiz.length > 3 ? quiz.slice(2) : quiz} />{vocabOnly.length > 0 && <><h3>Words</h3><Quiz key={lesson.id + 'v'} qs={vocabOnly} /></>}{review.length > 0 && g.band === 'primary' && <><h3>Remember earlier lessons</h3><Quiz key={lesson.id + 'r'} qs={review} /></>}</>} />
       )}

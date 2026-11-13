@@ -24,3 +24,11 @@ export const lessonsOn = async (type: string, id: string): Promise<string[]> => 
   const t = ALIAS[type] ?? type;
   return Object.entries(all).filter(([, e]) => e.debate.some((d) => d.type === t && d.id === id)).map(([k]) => k);
 };
+
+/** Adds the hand-checked videos matched to the lesson's own Scripture passage, so every lesson with such a video gets a Watch and listen step, not only the lessons the apologetics tracks name. */
+export function withPassageVideos(e: Extras | null, vids: { id: string; title: string; channel: string; note?: string }[]): Extras | null {
+  const fresh = vids.map((v) => ({ title: v.title, creator: v.channel, kind: 'video', url: `https://www.youtube.com/watch?v=${v.id}`, why: v.note ?? 'About the Scripture passage this lesson uses.', track: '' }))
+    .filter((m) => !e?.watch.some((w) => w.url === m.url));
+  if (!fresh.length) return e;
+  return { tracks: e?.tracks ?? [], watch: [...(e?.watch ?? []), ...fresh].slice(0, 6), read: e?.read ?? [], debate: e?.debate ?? [] };
+}

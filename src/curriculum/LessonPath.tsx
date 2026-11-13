@@ -172,7 +172,7 @@ export default function LessonPath(p: Props) {
       { id: 'teaching', label: 'Teaching', icon: '🕊️', body: <>{teachPoints ?? <p>{lesson.idea}</p>}{termsBlock}<h3 className="lp-ask">In the Catechism’s own words</h3>{ccc}{cccNums.length > cccCap && <p className="small"><Link to={`/study/catechism/${cccNums[0]}`}>More in the Catechism</Link></p>}{remember}{p.quick && <><h3 className="lp-ask">Quick check</h3>{p.quick}</>}</> },
       { id: 'witness', label: 'Witness', icon: '⭐', body: <>{pic(2)}{storyBlock}{myths}{memBlock}</> },
       ...(hasMedia ? [{ id: 'watch', label: 'Watch and listen', icon: '🎬', body: <WatchListen extras={p.extras!} /> }] : []),
-      { id: 'discuss', label: 'Discuss', icon: '💬', body: <>{talkBlock}{p.extras && <DebateIt extras={p.extras} question={p.question} />}</> },
+      { id: 'discuss', label: 'Discuss', icon: '💬', body: <>{talkBlock}{p.extras && (p.extras.debate.length > 0 || p.question) && <DebateIt extras={p.extras} question={p.question} />}</> },
       { id: 'practice', label: 'Practice', icon: '🎯', body: <>{doBlock}{adultish ? <details className="lp-deeper"><summary>Optional: practise with games</summary>{gamesBlock}</details> : gamesBlock}</> },
       { id: 'close', label: 'Pray and check', icon: '🙏', body: <>{pic(3)}{prayBlock}<h3 className="lp-ask">Check what you took in</h3>{checkBlock}{deeper}</> },
     ].filter((s) => s.id !== 'witness' || lesson.saint || (lesson.misc && lesson.misc.length) || lesson.mem);
