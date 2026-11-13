@@ -6311,3 +6311,8 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .fs-card { margin: 12px auto; max-width: 640px; padding: 28px 24px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); text-align: center; }
 .fs-card h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 12px; }
 .fs-card p { font-size: clamp(1.4rem, 4.5vw, 2rem); line-height: 1.35; margin: 0; }
+
+.fp-list { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 6px; }
+.fp-list li { display: grid; grid-template-columns: 9em 1fr 3em; gap: 8px; align-items: center; }
+.fp-bar { display: block; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+.fp-bar i { display: block; height: 100%; background: var(--accent); }

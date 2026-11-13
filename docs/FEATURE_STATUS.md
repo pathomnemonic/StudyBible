@@ -121,6 +121,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Cleaner historical texts | **Partial** | Butler’s Lives of the Saints for the scanned months (April to June, August to December) has had scanner debris, footnote citations and Latin verse removed, and common misreadings (for example “tbe”, “thai”, “oflfered”) corrected by program. It has not been proofread by a person, so a misprint may remain. The Roman Catechism and Leo XIII’s encyclicals had scanner misreadings repaired the same way. **Next:** A human proofread of the scanned months. **Blocked by:** verification. **Done when:** A reader checks a sample of days against a clean edition and finds no misprints.. |
+| Book fingerprint | **Working** | For any book: the words it uses most, and the words it uses far more than a spread of other books (Genesis, Psalms, Isaiah, Matthew, John, Acts, Romans, Revelation) do, with how many times more. Counted on the device from the Bible text; each word links to the Concordance. Counting is by exact word, not meaning. |
 
 ## Library
 

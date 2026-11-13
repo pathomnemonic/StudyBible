@@ -48,4 +48,8 @@ await p.locator('button', { hasText: 'Table cards' }).click(); await p.waitForTi
 if (!/Card 1 of \d+/.test(await p.locator('.fs-cards').innerText())) fail('the table cards should start at card 1');
 await p.locator('button', { hasText: 'Next question' }).click(); await p.waitForTimeout(300);
 if (!/Card 2 of/.test(await p.locator('.fs-cards').innerText())) fail('Next question should move to card 2');
+// 6. book fingerprint
+await p.goto(`${BASE}/#/study/fingerprint/ROM`); await p.waitForSelector('.fp-list li', { timeout: 30000 });
+const fpText = (await p.locator('.page').innerText()).toLowerCase();
+if (!/faith/.test(fpText) || !/what sets romans apart/.test(fpText)) fail('the Romans fingerprint should name faith and show the distinctive section');
 await b.close(); console.log('review ok');
