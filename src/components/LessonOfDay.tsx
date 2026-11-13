@@ -1,25 +1,24 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getGrade, flatLessons } from '../curriculum/model';
+import { getFeatured } from '../curriculum/extras';
 import { dayOfYear } from '../study/verseOfDay';
 
-/** One adult lesson a day, chosen by the date so everyone sees the same one and it cycles through the whole course. */
+/** One featured adult lesson a day, chosen by the date so everyone sees the same one. The featured list favours what people really ask and debate (data/curated/featured-lessons.json). */
 export default function LessonOfDay() {
-  const [pick, setPick] = useState<{ id: string; title: string } | null>(null);
+  const [pick, setPick] = useState<{ id: string; q: string } | null>(null);
   useEffect(() => {
-    getGrade('YA').then((g) => {
-      if (!g) return;
-      const all = flatLessons(g);
-      if (!all.length) return;
-      const l = all[(new Date().getFullYear() * 366 + dayOfYear()) % all.length];
-      setPick({ id: l.id, title: l.title });
+    getFeatured().then((all) => {
+      const pool = all.filter((f) => f.band === 'adult');
+      if (!pool.length) return;
+      const f = pool[(new Date().getFullYear() * 366 + dayOfYear()) % pool.length];
+      setPick({ id: f.id, q: f.q });
     });
   }, []);
   if (!pick) return null;
   return (
     <Link className="lod" to={`/study/curriculum/YA/${pick.id}`}>
       <span className="lod-k">Lesson of the day</span>
-      <strong>{pick.title}</strong>
+      <strong>{pick.q}</strong>
       <span className="lod-go" aria-hidden="true">›</span>
     </Link>
   );

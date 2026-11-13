@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../db/db';
 import { useSettings, updateSettings } from '../../lib/store';
+import { getExtras, getFeatured, type Extras } from '../../curriculum/extras';
 import RelatedSources from '../../curriculum/RelatedSources';
 import InTracks from '../../components/apol/InTracks';
 import { getGlossary, getGrade, flatLessons, gradeLabel, progressId, toggleDone, vocabQuiz, reviewTerms, cccList, parseQuiz, type GradeData, type Glossary, type LessonSpec, type Question } from '../../curriculum/model';
@@ -103,6 +104,16 @@ export default function CurriculumLesson() {
   const idx = flat.findIndex((l) => l.id === lessonId);
   const lesson = flat[idx] as (LessonSpec & { unit: GradeData['units'][number] }) | undefined;
   const band: Band | undefined = g ? bandOf(g.band) : undefined;
+  const [extras, setExtras] = useState<Extras | null>(null);
+  const [bigQ, setBigQ] = useState('');
+  useEffect(() => {
+    setExtras(null); setBigQ('');
+    if (!lessonId) return;
+    let live = true;
+    getExtras(lessonId).then((x) => live && setExtras(x));
+    getFeatured().then((f) => live && setBigQ(f.find((x) => x.id === lessonId)?.q ?? ''));
+    return () => { live = false; };
+  }, [lessonId]);
   const src0 = useLessonSources(lesson, g?.band);
   const src = useMemo(() => (st.lessonPictures ? src0 : { ...src0, art: [] }), [src0, st.lessonPictures]);
   const prog = useLiveQuery(() => db.planProgress.get(progressId(grade)), [grade]);
@@ -151,6 +162,7 @@ export default function CurriculumLesson() {
       </nav>
       <div className={`lesson-banner pillar-${pillarKey(lesson.unit.pillar)}`}><span className="pillar-ico" aria-hidden="true">{pillarIcon(lesson.unit.pillar)}</span><div><div className="pillar-name">{lesson.unit.pillar}</div><h1 style={{ margin: 0 }}>{lesson.title}</h1></div></div>
       <p className="muted small" style={{ marginTop: 0 }}>{gradeLabel(g.id)} · {g.theme} · Lesson {idx + 1} of {flat.length}{isLifeLesson(lesson.id) && <span className="key-badge"> ★ Life lesson (short on time)</span>}{isKeyLesson(g.id, lesson.id) && <span className="key-badge"> ★ Core lesson</span>}</p>
+      {bigQ && <p className="big-q"><span className="chip sel">Big question</span> {bigQ}</p>}
       <p className="lesson-time" aria-label="How long this lesson takes">
         <span title="Working through the slides with a group, with discussion and the activity">⏱ About {lessonTime.classMinutes} min with a group</span>
         <span title="Reading, thinking, the activity and the check, working on your own">📖 About {lessonTime.selfMinutes} min on your own</span>
@@ -190,7 +202,9 @@ export default function CurriculumLesson() {
           onNote={(v) => { setNote(v); try { localStorage.setItem(`sb:cur:note:${lessonId}`, v); } catch { /* private mode */ } }}
           done={done} onDone={() => toggleDone(g.id, idx, true)} next={next ? { id: next.id, title: next.title } : undefined}
           quick={quiz.length > 3 ? <Quiz key={lesson.id + 'q'} qs={quiz.slice(0, 2)} /> : undefined}
-          quiz={<><Quiz key={lesson.id} qs={quiz.length > 3 ? quiz.slice(2) : quiz} />{vocabOnly.length > 0 && <><h3>Words</h3><Quiz key={lesson.id + 'v'} qs={vocabOnly} /></>}{review.length > 0 && <><h3>Remember earlier lessons</h3><Quiz key={lesson.id + 'r'} qs={review} /></>}</>} />
+          extras={g.band === 'primary' || g.band === 'elementary' ? null : extras} question={bigQ}
+          warmup={review.length > 0 && g.band !== 'primary' ? <Quiz key={lesson.id + 'w'} qs={review.slice(0, 2)} /> : undefined}
+          quiz={<><Quiz key={lesson.id} qs={quiz.length > 3 ? quiz.slice(2) : quiz} />{vocabOnly.length > 0 && <><h3>Words</h3><Quiz key={lesson.id + 'v'} qs={vocabOnly} /></>}{review.length > 0 && g.band === 'primary' && <><h3>Remember earlier lessons</h3><Quiz key={lesson.id + 'r'} qs={review} /></>}</>} />
       )}
 
       {mode !== 'teacher' && !usePath && <LessonPlay grade={g} lesson={lesson} index={idx} gl={gl} />}

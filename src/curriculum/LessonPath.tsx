@@ -10,12 +10,18 @@ import { contentPoints } from './teachpoints';
 import { saveLessonProgress, clearLessonProgress } from './resume';
 import RelatedSources from './RelatedSources';
 import { TrackLinks, RelatedInApp } from './LessonLinks';
+import { WatchListen, DebateIt } from './LessonMedia';
+import type { Extras } from './extras';
 
 type Lesson = LessonSpec & { unit: GradeData['units'][number] };
 interface Src { art?: { id: string; file: string; title: string; artist: string }[]; passages: { label: string; path: string; verses: { c: number; v: number; text: string }[] }[]; refIds: string[]; ccc: { n: number; t: string }[]; prayer?: { title: string; text: string } | null; story?: { id: string; title: string } | null }
 interface Props {
   grade: GradeData; lesson: Lesson; index: number; band: Band; gl: Glossary; src: Src; kidsText: string;
   note: string; onNote: (v: string) => void; quiz: ReactNode; quick?: ReactNode; done: boolean; onDone: () => void; next?: { id: string; title: string };
+  /** curated media and debate material for this lesson, and the big question it answers, when it has them */
+  extras?: Extras | null; question?: string;
+  /** a short review of earlier lessons, shown first */
+  warmup?: ReactNode;
 }
 interface StepDef { id: string; label: string; icon: string; body: ReactNode }
 
@@ -104,6 +110,8 @@ export default function LessonPath(p: Props) {
     <figure className="lp-figure"><img src={import.meta.env.BASE_URL + w.file} alt={w.title} loading="lazy" /><figcaption className="small muted">{i === 0 && lesson.visual?.caption ? lesson.visual.caption : w.title}, {w.artist}{(w as { credit?: string }).credit ? ` (${(w as { credit?: string }).credit})` : ''}</figcaption></figure>
   ) : null; };
   const picture = pic(0);
+  const warm = p.warmup && <details className="lp-warm" open><summary>Warm-up: what do you remember?</summary>{p.warmup}</details>;
+  const hasMedia = !!p.extras && (p.extras.watch.length > 0 || p.extras.read.length > 0);
   const checkBlock = <div className="lp-check">{p.quiz}</div>;
   const deeper = (
     <details className="lp-deeper">
@@ -149,7 +157,7 @@ export default function LessonPath(p: Props) {
       { id: 'check', label: 'Check', icon: '⭐', body: checkBlock },
     ];
     if (band.id === 'elementary') return [
-      { id: 'listen', label: 'Listen', icon: '📖', body: <>{picture}{big}{p.kidsText && <p className="cur-story">{p.kidsText}</p>}{scriptureBlock}</> },
+      { id: 'listen', label: 'Listen', icon: '📖', body: <>{warm}{picture}{big}{p.kidsText && <p className="cur-story">{p.kidsText}</p>}{scriptureBlock}</> },
       { id: 'learn', label: 'Learn', icon: '💡', body: <>{objectives}{teachPoints}{termsBlock}{ccc}{remember}{memBlock}{storyBlock}{p.quick}</> },
       { id: 'play', label: 'Play', icon: '🎲', body: gamesBlock },
       { id: 'talk', label: 'Talk', icon: '💬', body: <>{pic(1)}{talkBlock}</> },
@@ -158,15 +166,16 @@ export default function LessonPath(p: Props) {
       { id: 'check', label: 'Check', icon: '⭐', body: <>{checkBlock}{deeper}</> },
     ];
     return [
-      { id: 'begin', label: 'Begin', icon: '🌅', body: <>{hookOk && <p className="lp-hook">{lesson.hook}</p>}{picture}{big}<h3 className="lp-ask">Start with this</h3><p className="cur-idea">{lesson.question}</p>{objectives}</> },
+      { id: 'begin', label: 'Begin', icon: '🌅', body: <>{warm}{hookOk && <p className="lp-hook">{lesson.hook}</p>}{picture}{big}<h3 className="lp-ask">Start with this</h3><p className="cur-idea">{lesson.question}</p>{objectives}</> },
       { id: 'scripture', label: 'Scripture', icon: '📖', body: <>{pic(1)}<p className="muted small">Read it slowly, and notice the one phrase that stays with you.</p>{scriptureBlock}</> },
       { id: 'teaching', label: 'Teaching', icon: '🕊️', body: <>{teachPoints ?? <p>{lesson.idea}</p>}{termsBlock}<h3 className="lp-ask">In the Catechism’s own words</h3>{ccc}{cccNums.length > cccCap && <p className="small"><Link to={`/study/catechism/${cccNums[0]}`}>More in the Catechism</Link></p>}{remember}{p.quick && <><h3 className="lp-ask">Quick check</h3>{p.quick}</>}</> },
       { id: 'witness', label: 'Witness', icon: '⭐', body: <>{pic(2)}{storyBlock}{myths}{memBlock}</> },
-      { id: 'discuss', label: 'Discuss', icon: '💬', body: talkBlock },
+      ...(hasMedia ? [{ id: 'watch', label: 'Watch and listen', icon: '🎬', body: <WatchListen extras={p.extras!} /> }] : []),
+      { id: 'discuss', label: 'Discuss', icon: '💬', body: <>{talkBlock}{p.extras && <DebateIt extras={p.extras} question={p.question} />}</> },
       { id: 'practice', label: 'Practice', icon: '🎯', body: <>{doBlock}{adultish ? <details className="lp-deeper"><summary>Optional: practise with games</summary>{gamesBlock}</details> : gamesBlock}</> },
       { id: 'close', label: 'Pray and check', icon: '🙏', body: <>{pic(3)}{prayBlock}<h3 className="lp-ask">Check what you took in</h3>{checkBlock}{deeper}</> },
     ].filter((s) => s.id !== 'witness' || lesson.saint || (lesson.misc && lesson.misc.length) || lesson.mem);
-  }, [lesson.id, band.id, gl, src.passages.length, src.ccc.length, src.art?.length, p.kidsText, p.note, p.quiz, p.quick, src.prayer?.title]);
+  }, [lesson.id, band.id, gl, src.passages.length, src.ccc.length, src.art?.length, p.extras, p.warmup, p.kidsText, p.note, p.quiz, p.quick, src.prayer?.title]);
 
   const last = steps.length - 1;
   const recap = useMemo(() => (lesson.remember && lesson.remember.length ? lesson.remember : contentPoints(lesson)).slice(0, 3), [lesson.id]);

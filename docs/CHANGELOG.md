@@ -1,5 +1,12 @@
 # What changed
 
+## Big questions and richer lessons
+- Lesson of the day on Learn now draws from a featured list of lessons on what people really ask and debate (does God exist, why suffering, science and faith, can I trust the Bible, the Eucharist, infallibility...), chosen from the same topics as the apologetics hub and shown as the question. The list lives in data/curated/featured-lessons.json.
+- Lessons for teens and adults gain a Watch and listen step (hand-picked videos, talks, debates and podcasts from the apologetics tracks, playable in the page) and a Debate it protocol in Discuss (state their view, find agreement, answer with a reason and a source, say what would change your mind, swap sides) linked to the matching argument chains.
+- A warm-up retrieval quiz now opens each lesson from the elementary grades up, replacing the end-of-lesson review.
+- docs/LESSON_STANDARD.md records the teaching standard (Directory for Catechesis, Rosenshine) and what earns a lesson a feature slot.
+- scripts/launch/make-lesson-links.ts regenerates the links from the tracks.
+
 ## Video refresh covers every creator
 - All 28 creators in the video library now have their YouTube channel id in data/curated/video-channels.json, each confirmed from the channel page of videos we already list for it. The daily refresh reads every one of them.
 
