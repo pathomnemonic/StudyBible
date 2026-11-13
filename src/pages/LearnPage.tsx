@@ -5,6 +5,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
 import { getGrades, gradeLabel, type GradeMeta } from '../curriculum/model';
 import Fold from '../components/Fold';
+import { BIBLE_TOOLS } from '../lib/bibleTools';
 import { HubHeader, RowLink, Tiles } from '../components/Hub';
 import { useSettings } from '../lib/store';
 import LessonOfDay from '../components/LessonOfDay';
@@ -12,6 +13,19 @@ import AudienceAsk from '../components/AudienceAsk';
 import ContinueLesson from '../components/ContinueLesson';
 
 /** Learn: the Catechism course first, then the Catechism itself, then everything else behind a fold. */
+const BIBLE_MAIN: [string, string, string][] = [
+  ['/study/books', 'Books and outlines', 'An introduction and outline for each of the 73 books.'],
+  ['/study/fathers-on', 'The Fathers on a passage', 'What several Church Fathers said on the same verses, side by side.'],
+  ['/study/concordance', 'Concordance', 'Every verse containing a word, counted by book.'],
+  ['/study/topical', 'Topical index', 'Thousands of topics with their passages.'],
+  ['/study/terms', 'Key words and phrases', 'Son of Man, Kingdom of God, Lamb of God: what they mean.'],
+  ['/study/lexicon', 'Greek and Hebrew words', 'Look up a word and see every place it appears.'],
+  ['/study/synopsis', 'Gospel comparison', 'Matthew, Mark, Luke and John side by side.'],
+  ['/study/fulfilment', 'Promise and fulfilment', 'Types and prophecies, in the Fathers’ own words.'],
+  ['/study/quotations', 'Who quoted this verse?', 'Every Father and saint who cites a passage.'],
+  ['/study/maps', 'Maps', 'Places named in Scripture.'],
+];
+
 export default function LearnPage() {
   const [grades, setGrades] = useState<GradeMeta[]>([]);
   const nav = useNavigate();
@@ -69,35 +83,6 @@ export default function LearnPage() {
           </form>
         </div>
       </section>
-      <section className="card learn-card biblestudy" aria-labelledby="learn-bib">
-        <h2 id="learn-bib" className="learn-h">Bible study<span>The tools from the Bible page’s toolbox, in one place</span></h2>
-        <div className="rows">
-          <RowLink strong to="/study/books" title="Books and outlines" meta="All 73 books" />
-          <RowLink to="/study/fathers-on" title="The Fathers on a passage" />
-          <RowLink to="/study/concordance" title="Concordance" />
-          <RowLink to="/study/topical" title="Topical index" />
-          <RowLink to="/study/terms" title="Key words and phrases" />
-          <RowLink to="/study/lexicon" title="Greek and Hebrew words" />
-          <RowLink to="/study/synopsis" title="Gospel comparison" />
-          <RowLink to="/study/fulfilment" title="Promise and fulfilment" />
-          <RowLink to="/study/quotations" title="Who quoted this verse?" />
-          <RowLink to="/study/maps" title="Maps and the biblical world" />
-        </div>
-        <Fold id="learn:biblemore" title="More Bible study tools" hint="Themes, timelines, manuscripts and more">
-          <div className="rows">
-            <RowLink to="/study/pauline" title="Paul’s letters" />
-            <RowLink to="/study/conversation" title="A verse across the centuries" />
-            <RowLink to="/study/dossier" title="Passage dossier" />
-            <RowLink to="/study/themes" title="Biblical theology explorer" />
-            <RowLink to="/study/timespace" title="Time and place" />
-            <RowLink to="/study/people" title="Genealogies" />
-            <RowLink to="/study/voices" title="Voices through time" />
-            <RowLink to="/study/manuscripts" title="Manuscripts" />
-            <RowLink to="/study/textual" title="Textual history" />
-            <RowLink to="/study" title="All study tools" />
-          </div>
-        </Fold>
-      </section>
       <section className="card learn-card answers" aria-labelledby="learn-ans">
         <h2 id="learn-ans" className="learn-h">Answer hard questions<span>Learn to explain and defend the faith, with real sources</span></h2>
         <div className="rows">
@@ -106,6 +91,18 @@ export default function LearnPage() {
           <RowLink to="/study/claims" title="Is that true?" />
           <RowLink to="/study/arguments" title="The Argument Map" />
         </div>
+      </section>
+      <section className="card learn-card biblestudy" aria-labelledby="learn-bib">
+        <h2 id="learn-bib" className="learn-h">Bible study<span>Tools for reading Scripture more deeply</span></h2>
+        <div className="drawer-grid">
+          {BIBLE_MAIN.map(([to, label, blurb]) => <Link key={to} className="btn small" to={to} title={blurb}>{label}</Link>)}
+        </div>
+        <Fold id="learn:biblemore" title="More Bible study tools" hint="Themes, timelines, manuscripts and more">
+          <div className="drawer-grid">
+            {BIBLE_TOOLS.filter((t) => !BIBLE_MAIN.some((m) => m[0] === t.to)).map((t) => <Link key={t.to} className="btn small" to={t.to} title={t.blurb}>{t.label}</Link>)}
+            <Link className="btn small drawer-wide" to="/study">All study tools</Link>
+          </div>
+        </Fold>
       </section>
     </div>
   );

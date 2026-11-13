@@ -20,8 +20,8 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   if (!/Day 1\b/.test(listen)) fail(`Genesis 1 should offer the Bible in a Year episode for it, got ${listen}`);
   // Bible in a Year has its own bar: the toolbox does not repeat the place in a plan
   await p.click('button[aria-label^="Toolbox"]');
-  if (await p.locator('.modal button:has-text("My place in")').count()) fail('following Bible in a Year, the toolbox should not show a place in a reading plan');
-  await p.keyboard.press('Escape'); await p.waitForSelector('.modal', { state: 'detached' });
+  if (await p.locator('.drawer button:has-text("My place in")').count()) fail('following Bible in a Year, the toolbox should not show a place in a reading plan');
+  await p.keyboard.press('Escape'); await p.waitForSelector('.drawer', { state: 'detached' });
   // one plan at a time: starting another asks, then pauses Bible in a Year; the toolbox then shows the place and marking done moves it on
   p.on('dialog', (d) => d.accept());
   await p.goto(`${BASE}/#/pray/plans`);
@@ -32,9 +32,9 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   if ((await row('biay'))?.status !== 'paused') fail('starting another plan pauses Bible in a Year');
   if ((await row('john-21'))?.status !== 'active') fail('the new plan is the active one');
   await p.goto(`${BASE}/#/read/webc/JHN/1`); await p.waitForSelector('.reader-bar');
-  const place = async () => { await p.click('button[aria-label^="Toolbox"]'); const t = await p.locator('.modal button:has-text("My place in")').innerText(); await p.keyboard.press('Escape'); await p.waitForSelector('.modal', { state: 'detached' }); return t; };
+  const place = async () => { await p.click('button[aria-label^="Toolbox"]'); const t = await p.locator('.drawer button:has-text("My place in")').innerText(); await p.keyboard.press('Escape'); await p.waitForSelector('.drawer', { state: 'detached' }); return t; };
   const day1 = await place();
-  await p.click('button[aria-label^="Toolbox"]'); await p.click('.modal button:has-text("Mark today’s plan reading done")');
+  await p.click('button[aria-label^="Toolbox"]'); await p.click('.drawer button:has-text("Mark today’s plan reading done")');
   await p.waitForTimeout(600);
   const day2 = await place();
   if (day1 === day2) fail(`marking done should move on (${day1})`);

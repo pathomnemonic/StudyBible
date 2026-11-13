@@ -219,7 +219,7 @@ export default function ListenHome() {
       <div className="tabbar" role="tablist" aria-label="Media">
         {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} data-seen={k === 'programmes' ? undefined : `m.${k}`} onClick={() => go(k)}>{l}{k !== 'programmes' && <NewDot id={`m.${k}`} label={`New: ${l}`} />}</button>)}
       </div>
-      {tab === 'now' && <ForYou />}
+      {tab === 'now' && <ForYou onAllPodcasts={() => go('podcasts')} />}
       {tab === 'videos' && <VideoLibrary embedded />}
       {tab === 'meditate' && <Meditate />}
       {tab === 'podcasts' && (open

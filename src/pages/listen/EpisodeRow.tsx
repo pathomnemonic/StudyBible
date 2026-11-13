@@ -8,7 +8,7 @@ import Icon from '../../components/Icon';
 import type { BiayEpisode } from '../../data/content';
 
 /** One episode in a year-long program: the title is the main target, with play, queue and done beside it. */
-export default function EpisodeRow({ e, progress, inQueue, page }: { e: BiayEpisode; progress?: { completed: boolean; position: number; duration?: number }; inQueue: boolean; page?: boolean }) {
+export default function EpisodeRow({ e, progress, inQueue, page, kicker }: { e: BiayEpisode; progress?: { completed: boolean; position: number; duration?: number }; inQueue: boolean; page?: boolean; kicker?: string }) {
   const player = usePlayer();
   const pct = progress && progress.duration ? Math.round((100 * progress.position) / progress.duration) : 0;
   const toggleQueue = async () => {
@@ -20,6 +20,7 @@ export default function EpisodeRow({ e, progress, inQueue, page }: { e: BiayEpis
   return (
     <li className="ep">
       <div className="ep-main">
+        {kicker && <div className="ep-kicker muted small">{kicker}</div>}
         {page
           ? <Link to={`/listen/episode/${e.id}`} className="ep-title">{title}</Link>
           : <button className="ep-title" onClick={() => player.play(e)}>{title}</button>}

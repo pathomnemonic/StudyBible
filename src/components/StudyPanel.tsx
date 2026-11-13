@@ -420,7 +420,7 @@ export default function StudyPanel({
               </details>
             )}
             {notes.chapter.length > 0 && (
-              <details className="unit" open={noneSpecific}>
+              <details className="unit" open>
                 <summary><span>About the whole chapter · {notes.chapter.length}</span></summary>
                 {notes.chapter.map((i, n, arr) => open(i, n, arr))}
               </details>
@@ -464,7 +464,7 @@ export default function StudyPanel({
                 {units.map((g) => g.items.map((i, n, arr) => open(i, n, arr, { covers: rangeLabel(g.range), autoExpand: (g.range.v2 ?? g.range.v1) === (refs[0].v2 ?? refs[0].v1) })))}
                 {!compact && weak.map((i, n, arr) => open(i, n, arr))}
                 {wide.length > 0 && (
-                  <details className="unit">
+                  <details className="unit" open>
                     <summary><span>About the whole chapter · {wide.length}</span></summary>
                     {wide.map((i, n, arr) => open(i, n, arr))}
                   </details>

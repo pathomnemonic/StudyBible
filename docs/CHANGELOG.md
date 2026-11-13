@@ -1,5 +1,12 @@
 # What changed
 
+## Feeds, a tidier Learn tab and the toolbox
+- Videos opens on a Feed: the newest videos from the creators you follow (a prompt to choose creators if none), then a Creators page of small boxes with Follow, All videos (search and filters) and your saved and watched lists. New uploads added by the daily refresh go to the front of their creator's list.
+- Podcasts you follow now show as a feed (newest episodes of each, newest first; a year-long programme shows its next unheard day) on the Podcasts tab and in For you, replacing the one-line "new episode" list.
+- Learn: Answer hard questions comes before Bible study, and Bible study is a grid of small boxes with the rest folded away.
+- The toolbox is the old menu's sheet again: a left drawer of small boxes, with this chapter first.
+- "About the whole chapter" in the study panel opens by itself.
+
 ## One plan at a time, and fresher media
 - Only one reading plan is followed at a time. Starting a plan, or Bible in a Year, from anywhere pauses the other (it asks first) and the other can be picked up again. Readers who already had two active plans are tidied once: Bible in a Year wins when it is in progress. The Plans page says which one you are following.
 - Following Bible in a Year, the toolbox no longer shows a place in another reading plan. Bible in a Year's done days now count episodes heard to the end, not only ticked days. "Start tracking from day 1" now starts at day 1; following the calendar is its own choice.

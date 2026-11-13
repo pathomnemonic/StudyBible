@@ -13,7 +13,7 @@ import { updateSettings, useSettings } from '../../lib/store';
 interface Lib { channels: string[]; videos: [string, string, number][] }
 
 /** Media's front shelf: your favorite audiobooks and creators first, then where you stopped and what is new from the shows you follow. */
-export default function ForYou() {
+export default function ForYou({ onAllPodcasts }: { onAllPodcasts?: () => void }) {
   const follows = useFollows();
   const [st] = useSettings();
   const [works, setWorks] = useState<LibraryWorkMeta[]>([]);
@@ -48,7 +48,7 @@ export default function ForYou() {
           </ul>
         </section>
       )}
-      <ListenNow />
+      <ListenNow onAllPodcasts={onAllPodcasts} />
     </div>
   );
 }

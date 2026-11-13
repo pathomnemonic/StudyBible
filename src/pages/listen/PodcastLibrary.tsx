@@ -5,6 +5,7 @@ import { fold } from '../../search/engine';
 import { useSettings } from '../../lib/store';
 import FilterBar from '../../components/FilterBar';
 import Fold from '../../components/Fold';
+import FollowedFeed from './FollowedFeed';
 import { addUserShow, exportOpml, parseOpml, removeUserShow, searchPodcasts } from '../../data/feeds';
 
 const ORDER = ['Programs', 'Catholic classics', 'Apologetics', 'Scripture', 'Theology and philosophy', 'Homilies and daily reflections', 'Spiritual life', 'Prayer', 'Saints and history', 'Faith and culture', 'Family and life', 'News'];
@@ -28,6 +29,7 @@ export default function PodcastLibrary({ onOpen }: { onOpen: (id: string) => voi
   const mine = shows.filter((s) => follows.has(s.id));
   return (
     <div>
+      {mine.length > 0 && !q && !cat && <FollowedFeed limit={10} />}
       <p className="muted small" style={{ marginTop: 0 }}>{shows.length} Catholic podcasts and year-long programs.</p>
       <AddPodcast />
       <FilterBar active={cat ? 1 : 0}

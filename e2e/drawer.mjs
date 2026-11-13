@@ -18,15 +18,15 @@ for (const w of [320, 390, 1280]) {
   if (over > 1) fail(`${w}px: the bar overflows by ${over}px`);
   // the toolbox
   await p.click('button[aria-label^="Toolbox"]');
-  await p.waitForSelector('.modal .bible-tools');
-  const t = (await p.locator('.modal').innerText()).toLowerCase();
+  await p.waitForSelector('.drawer .bible-tools');
+  const t = (await p.locator('.drawer').innerText()).toLowerCase();
   for (const need of ['This chapter', 'Read aloud', 'Focus mode', 'About John']) if (!t.includes(need.toLowerCase())) fail(`${w}px: the toolbox should hold "${need}"`);
   await p.keyboard.press('Escape');
-  if (await p.locator('.modal').count()) fail('Escape should close the toolbox');
+  if (await p.locator('.drawer').count()) fail('Escape should close the toolbox');
   await p.click('button[aria-label^="Toolbox"]');
-  await p.locator('.modal .bt-list button').first().click();
+  await p.locator('.drawer .drawer-grid button >> nth=-1').first().click();
   await p.waitForTimeout(800);
-  if (await p.locator('.modal').count()) fail('choosing a tool should close the sheet');
+  if (await p.locator('.drawer').count()) fail('choosing a tool should close the sheet');
   // the books sheet, with this reading's settings
   await p.goto(`${BASE}/#/read/webc/JHN/1`); await p.waitForSelector('.reader-bar');
   await p.click('button[aria-label^="Books and translation"]');

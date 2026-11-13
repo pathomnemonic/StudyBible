@@ -6267,3 +6267,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .you-help > span:first-child { flex: none; width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; background: var(--accent); color: var(--bg); }
 .you-help strong { display: block; }
 .you-help small { color: var(--muted); }
+/* creators: little boxes */
+.creator-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin: 8px 0; }
+.creator-box { display: flex; flex-direction: column; gap: 6px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.creator-box.on { border-color: var(--accent); }
+.creator-open { text-align: left; background: none; border: 0; padding: 0; color: inherit; font: inherit; cursor: pointer; display: flex; flex-direction: column; gap: 2px; }
+.ep-kicker { margin-bottom: 2px; }

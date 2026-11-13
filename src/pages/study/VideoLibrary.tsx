@@ -10,7 +10,7 @@ import FilterBar from '../../components/FilterBar';
 interface Lib { about: string; channels: string[]; videos: [id: string, title: string, channel: number][] }
 const PAGE = 40;
 let cache: Promise<Lib | null> | null = null;
-type View = 'all' | 'later' | 'watched';
+type View = 'feed' | 'creators' | 'all' | 'later' | 'watched';
 type Sort = 'mine' | 'recent' | 'title';
 /** length in seconds and upload date (yyyymmdd) for each video, filled in by scripts/videos/enrich.ts when a YouTube API key is available */
 type Meta = Map<string, [number, number]>;
@@ -30,7 +30,7 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
   const [q, setQ] = useState('');
   const [ch, setCh] = useState(-1);
   const [sort, setSort] = useState<Sort | null>(null);
-  const [view, setView] = useState<View>('all');
+  const [view, setView] = useState<View>('feed');
   const [shown, setShown] = useState(PAGE);
   const [thumbs, setThumbs] = useState(() => ls('sb:vthumbs') === '1');
   const [full, setFull] = useState(false);
@@ -66,12 +66,15 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
     if (!lib) return [];
     const words = q.toLowerCase().split(/\s+/).filter(Boolean);
     let base = lib.videos;
+    if (view === 'feed') base = favs.size ? lib.videos.filter((v) => favs.has(v[2])) : lib.videos;
     if (view === 'watched') base = hist.slice().sort((a, b) => b.ts - a.ts).map((h) => byId.get(h.ref)).filter((v): v is [string, string, number] => !!v);
     else if (view === 'later') base = later.slice().sort((a, b) => b.createdAt - a.createdAt).map((s) => byId.get(s.key.slice(6))).filter((v): v is [string, string, number] => !!v);
     const out = base.filter((v) => (ch < 0 || v[2] === ch) && words.every((w) => v[1].toLowerCase().includes(w)) && !(full && meta && (meta.get(v[0])?.[0] ?? 999) < 300));
-    if (view === 'all') out.sort(eff === 'title' ? (a, b) => a[1].localeCompare(b[1]) : eff === 'mine' ? (a, b) => (+favs.has(b[2]) - +favs.has(a[2])) || byNew(a, b) : byNew);
+    if (view === 'feed') out.sort(byNew);
+    else if (view === 'all') out.sort(eff === 'title' ? (a, b) => a[1].localeCompare(b[1]) : eff === 'mine' ? (a, b) => (+favs.has(b[2]) - +favs.has(a[2])) || byNew(a, b) : byNew);
     return out;
   }, [lib, q, ch, eff, favs, view, hist, later, byId, rank, byNew, full, meta]);
+  const openCreator = (i: number) => { setCh(i); setQ(''); setView('all'); };
   useEffect(() => setShown(PAGE), [q, ch, eff, view]);
   if (!lib) return <div className="page"><p className="muted">Loading…</p></div>;
   const counts = new Map<number, number>();
@@ -93,11 +96,13 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
       {!embedded && <h1>Catholic video library</h1>}
       {!embedded && <p className="lede">{lib.videos.length.toLocaleString()} videos from {lib.channels.length} Catholic channels. They play here through YouTube’s own player, or open on YouTube if the creator turned embedding off.</p>}
       <div className="tabbar" role="tablist">
-        <button role="tab" aria-selected={view === 'all'} onClick={() => setView('all')}>Library</button>
+        <button role="tab" aria-selected={view === 'feed'} onClick={() => setView('feed')}>Feed</button>
+        <button role="tab" aria-selected={view === 'creators'} onClick={() => setView('creators')}>Creators</button>
+        <button role="tab" aria-selected={view === 'all'} onClick={() => setView('all')}>All videos</button>
         <button role="tab" aria-selected={view === 'later'} onClick={() => setView('later')}>Watch later ({later.length})</button>
         <button role="tab" aria-selected={view === 'watched'} onClick={() => setView('watched')}>Watched ({hist.length})</button>
       </div>
-      <FilterBar
+      {view === 'all' && <FilterBar
         active={(ch >= 0 ? 1 : 0) + (full ? 1 : 0) + (sort ? 1 : 0)}
         search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search titles: Eucharist, Genesis, purgatory…" aria-label="Search videos" />}
       >
@@ -117,10 +122,22 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
         </label>}
         <label className="row small" style={{ gap: 8 }}><input type="checkbox" checked={thumbs} onChange={(e) => setThumb(e.target.checked)} /> <span>Show thumbnails</span></label>
         <label className="row small" style={{ gap: 8, opacity: meta ? 1 : 0.55 }}><input type="checkbox" checked={full} disabled={!meta} onChange={(e) => setFull(e.target.checked)} /> <span>Only full-length (5 minutes or more){meta ? '' : ' · lengths not loaded yet'}</span></label>
-      </FilterBar>
-      <div className="row between"><p className="muted small">{list.length.toLocaleString()} videos</p>{view === 'watched' && hist.length > 0 && <button className="btn small" onClick={() => confirm('Clear your watched list?') && db.history.where('type').equals('video').delete()}>Clear watched list</button>}</div>
-      {list.length === 0 && view !== 'all' && <div className="empty">{view === 'later' ? 'Nothing saved yet. Use “Watch later” on any video.' : 'Videos you play here will be listed here.'}</div>}
-      <ul className="vid-list">
+      </FilterBar>}
+      {view === 'feed' && (favs.size > 0
+        ? <p className="muted small">The newest videos from the {favs.size === 1 ? 'creator' : `${favs.size} creators`} you follow, newest first. <button className="linklike" onClick={() => setView('creators')}>Change who you follow</button></p>
+        : <div className="card"><strong>Follow creators to fill your feed.</strong><p className="muted small" style={{ margin: '4px 0 8px' }}>Pick the ones you like and their newest videos appear here. Until then, this shows the newest from every creator.</p><button className="btn small primary" onClick={() => setView('creators')}>Choose creators</button></div>)}
+      {view === 'creators' && (
+        <div className="creator-grid" role="list">
+          {lib.channels.map((c, i) => (counts.get(i) ?? 0) > 0 ? (
+            <div key={c} role="listitem" className={`creator-box${favs.has(i) ? ' on' : ''}`}>
+              <button className="creator-open" onClick={() => openCreator(i)}><strong>{c}</strong><span className="muted small">{(counts.get(i) ?? 0).toLocaleString()} videos</span></button>
+              <button className="btn small" aria-pressed={favs.has(i)} onClick={() => toggleFollow(`vc:${c}`, !favs.has(i))}>{favs.has(i) ? '✓ Following' : 'Follow'}</button>
+            </div>) : null)}
+        </div>
+      )}
+      {view !== 'creators' && <div className="row between"><p className="muted small">{list.length.toLocaleString()} videos</p>{view === 'watched' && hist.length > 0 && <button className="btn small" onClick={() => confirm('Clear your watched list?') && db.history.where('type').equals('video').delete()}>Clear watched list</button>}</div>}
+      {list.length === 0 && (view === 'later' || view === 'watched') && <div className="empty">{view === 'later' ? 'Nothing saved yet. Use “Watch later” on any video.' : 'Videos you play here will be listed here.'}</div>}
+      {view !== 'creators' && <ul className="vid-list">
         {list.slice(0, shown).map(([id, title, c]) => {
           const e = embedFor(`https://www.youtube.com/watch?v=${id}`);
           const w = watched.get(id);
@@ -153,8 +170,8 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
             </li>
           );
         })}
-      </ul>
-      {list.length > shown && <button className="btn" style={{ marginTop: 12 }} onClick={() => setShown(shown + PAGE)}>Show more</button>}
+      </ul>}
+      {view !== 'creators' && list.length > shown && <button className="btn" style={{ marginTop: 12 }} onClick={() => setShown(shown + PAGE)}>Show more</button>}
     </div>
   );
 }

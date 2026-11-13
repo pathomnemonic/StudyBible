@@ -52,7 +52,7 @@ async function main() {
     try {
       const { added, skipped } = mergeUploads(lib.videos, idx, await uploadsFor(c.id));
       if (skipped) { console.log(`${c.name}: skipped, ${skipped}`); continue; }
-      lib.videos.push(...added); total += added.length;
+      lib.videos.unshift(...added); total += added.length; // the library is newest first, so new uploads go in front
       console.log(`${c.name}: ${added.length} new`);
     } catch (e) { failed += 1; console.log(`${c.name}: ${(e as Error).message}`); }
     await new Promise((r) => setTimeout(r, 400));
