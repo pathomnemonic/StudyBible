@@ -30,8 +30,7 @@ import TermPopover from '../components/TermPopover';
 import { loadTerms, makeMatcher, type TermBrief } from '../study/terms';
 import BookPicker from '../components/BookPicker';
 import { useReadingTime } from '../lib/readingTime';
-import ExploreDrawer, { type DrawerItem } from '../components/ExploreDrawer';
-import BibleTools from '../components/BibleTools';
+import BibleTools, { type ToolItem } from '../components/BibleTools';
 import Icon from '../components/Icon';
 import NoteEditor from '../components/NoteEditor';
 import Modal from '../components/Modal';
@@ -139,7 +138,6 @@ export default function ReadPage() {
   const [panel, setPanel] = useState(false);
   const swipe = useRef<[number, number] | null>(null);
   const [toolsOpen, setToolsOpen] = useState(false);
-  const [explore, setExplore] = useState(false);
   useReadingTime(true);
   const wide = useWide();
   const silentRef = useRef(false);
@@ -635,94 +633,78 @@ export default function ReadPage() {
     </>
   );
 
-  const chapterItems: DrawerItem[] = [
+  // what belongs to this chapter and is not a setting of the reading: the toolbox shows these first
+  const toolboxItems: ToolItem[] = [
     ...(plan && !plan.finished && plan.next ? (() => { const r = plan.next.refs.map((id) => parseRefId(id)).find(Boolean); return r ? [{ label: `My place in ${plan.plan.name.replace(/^The whole /, '').replace(/ \(.*\)$/, '')}: day ${plan.nextIdx + 1}, ${formatRef(r, { abbr: true })}`, primary: true, onClick: () => nav(readerPath(edition, r)) }] : []; })() : []),
     ...(plan && !plan.finished ? [{ label: 'Mark today’s plan reading done', onClick: () => void plan.markDone(plan.nextIdx) }] : []),
-    { label: `Translation: ${edition.shortName}`, onClick: () => setEditionPicker(true) },
-    { label: parallelMode ? 'Close the second translation' : 'Compare translations side by side', onClick: () => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id)) },
-    { label: 'Find in this chapter', onClick: () => setFinding(true) },
     { label: aloud ? 'Stop reading aloud' : 'Read aloud', onClick: () => setAloud((x) => !x) },
     { label: settings.ambience.kind === 'off' ? 'Turn on the chapter’s soundscape' : 'Turn off the soundscape', onClick: () => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'auto' : 'off' }, ambienceTipSeen: true }) },
     { label: settings.scriptureOnly ? 'Leave focus mode' : 'Focus mode', onClick: () => { setSettings({ scriptureOnly: !settings.scriptureOnly }); clearSel(); } },
+    { label: 'Reading settings: text, theme, sound', onClick: () => setTextSettings(true) },
+    ...(wide && !settings.scriptureOnly && !parallelMode ? [{ label: dockOn ? 'Hide the study panel beside the text' : 'Keep the study panel beside the text', onClick: () => setSettings({ studyDock: !settings.studyDock }) }] : []),
     { label: 'The Fathers on this chapter', onClick: () => nav(`/study/fathers-on?ref=${bk.id}.${primaryAnchorChapter}`) },
-    { label: 'Compare this chapter in three translations', onClick: () => nav(`/study/compare-translations?ref=${bk.id}.${primaryAnchorChapter}`) },
-    { label: 'Bible tools: outlines, words, topics', onClick: () => setToolsOpen(true) },
   ];
+  const toggleParallel = () => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id));
+  // the settings of this reading live with the books: which translation, find in the chapter, compare
+  const readingHere = (
+    <section className="picker-here" aria-label="This reading">
+      <h3 className="eyebrow-h">This reading</h3>
+      <div className="row between" style={{ gap: 8, flexWrap: 'wrap', margin: '4px 0 8px' }}>
+        <span>Translation</span>
+        <span className="ed-switch segmented" role="group" aria-label="Translation">
+          {choosable.map((e) => <button key={e.id} aria-pressed={e.id === edition.id} onClick={() => { if (e.id !== edition.id) { setPicker(false); switchEdition(e.id); } }} title={e.name}>{e.shortName}</button>)}
+          <button onClick={() => { setPicker(false); setEditionPicker(true); }} title={t('reader.more')} aria-label={t('reader.more')}>⋯</button>
+        </span>
+      </div>
+      <div className="drawer-grid">
+        <button className="btn small" onClick={() => { setPicker(false); setFinding(true); }}>Find in this chapter</button>
+        <button className="btn small" aria-pressed={parallelMode} onClick={() => { setPicker(false); toggleParallel(); }}>{parallelMode ? 'Close the second translation' : 'Compare side by side'}</button>
+        <button className="btn small" onClick={() => { setPicker(false); nav(`/study/compare-translations?ref=${bk.id}.${primaryAnchorChapter}`); }}>Compare in three translations</button>
+      </div>
+    </section>
+  );
   return (
     <div className={`reader${settings.showVerseNumbers && (!settings.scriptureOnly || settings.focus.numbers) ? '' : ' hide-nums'}${panelOpen ? ' has-panel' : ''}`}>
       <div className="reader-col" onTouchStart={(e) => { swipe.current = e.touches.length === 1 ? [e.touches[0].clientX, e.touches[0].clientY] : null; }} onTouchEnd={(e) => { const a = swipe.current; swipe.current = null; if (!a || window.innerWidth >= 700 || !window.getSelection()?.isCollapsed) return; const dx = e.changedTouches[0].clientX - a[0], dy = e.changedTouches[0].clientY - a[1]; if (Math.abs(dx) > 90 && Math.abs(dy) < 45) (dx < 0 ? next : prev)(); }}>
         <div className="reader-bar">
-          <button className="icon-btn" onClick={prev} aria-label="Previous chapter">
+          <button className="icon-btn" onClick={prev} aria-label="Previous chapter" title="Previous chapter">
             <Icon name="chevL" />
           </button>
-          <button className="icon-btn" onClick={() => setExplore(true)} aria-haspopup="dialog" aria-label="Open the Bible menu: study tools, words, people, places" title="Explore the Bible">
-            <span aria-hidden="true" style={{ fontSize: 20, lineHeight: 1 }}>☰</span>
-          </button>
-          <button className="icon-btn" onClick={() => setPicker(true)} aria-haspopup="dialog" aria-label="Choose a book or chapter" title="Books and chapters">
+          <button className="icon-btn" onClick={() => setPicker(true)} aria-haspopup="dialog" aria-label="Books and translation: choose a book, a chapter or a translation" title="Books, chapters and translation">
             <Icon name="library" />
           </button>
           <div className="title">
-            <button className="title-btn" onClick={() => setPicker(true)} aria-haspopup="dialog">
+            <button className="title-btn" onClick={() => setPicker(true)} aria-haspopup="dialog" title={`${edition.name}. Change book, chapter or translation`}>
               {bk.name} {chNum}
             </button>
-            <button className="chip ed-chip" onClick={() => setEditionPicker(true)} aria-label={`Translation: ${edition.name}. Change translation`}>
-              {edition.shortName}
-            </button>
-            <span className="ed-switch segmented" role="group" aria-label="Translation">
-              {choosable.map((e) => (
-                <button key={e.id} aria-pressed={e.id === edition.id} onClick={() => e.id !== edition.id && switchEdition(e.id)} title={e.name}>
-                  {e.shortName}
-                </button>
-              ))}
-              <button onClick={() => setEditionPicker(true)} title={t('reader.more')} aria-label={t('reader.more')}>⋯</button>
-            </span>
             {parallel && (
               <button className="chip" onClick={() => setEditionPicker(true)} aria-label="Change parallel translation">
                 ‖ {parallel.shortName}
               </button>
             )}
           </div>
-          <button className="icon-btn tool-sm" aria-pressed={parallelMode} onClick={() => (parallelMode ? setParallel(null) : setParallel(settings.parallelEdition && settings.parallelEdition !== edition.id ? settings.parallelEdition : choosable.find((e) => e.id !== edition.id && e.id !== 'vulgate')?.id ?? choosable.find((e) => e.id !== edition.id)!.id))} aria-label="Toggle parallel translations" title="Parallel translations">
-            <Icon name="columns" />
-          </button>
           <button className="icon-btn" onClick={() => window.dispatchEvent(new Event('studybible:search'))} aria-label="Search or go to a passage" title="Search or go to a passage (Ctrl+K)">
             <Icon name="search" />
           </button>
-          {wide && !settings.scriptureOnly && !parallelMode && (
-            <button className="icon-btn" aria-pressed={dockOn} onClick={() => setSettings({ studyDock: !settings.studyDock })} aria-label="Study panel" title="Study panel: commentary, Fathers, cross-references, Church teaching (S)">
-              <Icon name="study" />
-            </button>
-          )}
-          <button className="icon-btn tool-sm" aria-pressed={aloud} onClick={() => setAloud((a) => !a)} aria-label="Read aloud" title="Read this chapter aloud">
-            <Icon name="listen" />
+          <button className="icon-btn" onClick={() => setToolsOpen(true)} aria-haspopup="dialog" aria-label="Toolbox: read aloud, outlines, key words, concordance and more" title="Toolbox: read aloud, outlines, key words, concordance and more">
+            <Icon name="toolbox" />
           </button>
-          <button className="icon-btn tool-sm" aria-pressed={settings.ambience.kind !== 'off'} onClick={() => setSettings({ ambience: { ...settings.ambience, kind: settings.ambience.kind === 'off' ? 'auto' : 'off' }, ambienceTipSeen: true })} aria-label={settings.ambience.kind === 'off' ? t('reader.soundOn') : t('reader.soundOff')} title="Reading sound: on/off">
-            <Icon name="music" />
-          </button>
-          <button className="icon-btn" onClick={() => setTextSettings(true)} aria-label={t('reader.settings')} title="Text, theme, atmosphere, sound and quiet reading">
-            <Icon name="text" />
-          </button>
-          <button
-            className="icon-btn tool-sm"
-            aria-pressed={settings.scriptureOnly}
-            onClick={() => {
-              setSettings({ scriptureOnly: !settings.scriptureOnly });
-              clearSel();
-            }}
-            aria-label="Focus mode"
-            title="Focus mode: just the text, in one unbroken scroll (change what it hides in Reading settings)"
-          >
-            <Icon name="expand" />
-          </button>
-          <button className="icon-btn" onClick={() => setToolsOpen(true)} aria-label="Bible tools: book outlines, key words, concordance and more" title="Bible tools: book outlines, key words, concordance, topics"><Icon name="study" /></button>
-          <button className="icon-btn" onClick={next} aria-label="Next chapter">
+          <button className="icon-btn" onClick={next} aria-label="Next chapter" title="Next chapter">
             <Icon name="chevR" />
           </button>
         </div>
 
+        {!settings.scriptureOnly && (
+          <nav className="chapter-chips no-print" aria-label="For this chapter">
+            <Link className="chip" to={`/study/fathers-on?ref=${bk.id}.${primaryAnchorChapter}`}>The Fathers on this chapter</Link>
+            <Link className="chip" to={`/study/books/${bk.id}`}>About {bk.name}</Link>
+            {bk.group === 'Gospels' && <Link className="chip" to="/study/synopsis">Compare the Gospels</Link>}
+            <Link className="chip" to={`/study/passage/${bk.id}.${primaryAnchorChapter}`}>Study this chapter</Link>
+          </nav>
+        )}
         {!wide && !settings.hintVerse && !settings.scriptureOnly && (
           <div className="notice info hint" role="note">
-            <span>Tap any verse to see its commentary, Church Fathers, cross-references, Catechism links and more.</span>
+            <span>Tap the number beside any verse to see its commentary, Church Fathers, cross-references, Catechism links and more.</span>
             <button className="btn small" onClick={() => setSettings({ hintVerse: true })}>Got it</button>
           </div>
         )}
@@ -832,11 +814,11 @@ export default function ReadPage() {
         </div>
       )}
 
-      {explore && <ExploreDrawer items={chapterItems} onClose={() => setExplore(false)} />}
-      {toolsOpen && <BibleTools book={bk} chapter={chNum} onClose={() => setToolsOpen(false)} />}
+      {toolsOpen && <BibleTools book={bk} chapter={chNum} items={toolboxItems} onClose={() => setToolsOpen(false)} />}
       {picker && (
         <BookPicker
           edition={edition}
+          here={readingHere}
           current={bk.id}
           onClose={() => setPicker(false)}
           onPick={(b, c) => {

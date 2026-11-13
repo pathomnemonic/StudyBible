@@ -30,11 +30,22 @@ export default function VerseLinks({ book, chapter, verse, scheme }: { book: str
   const res = useVerseLinks(book, chapter, verse, scheme);
   const [open, setOpen] = useState(false);
   useEffect(() => setOpen(false), [book, chapter, verse]);
-  if (!res || res.items.length === 0) return null;
+  const ref = verse === undefined ? `${book}.${chapter}` : `${book}.${chapter}.${verse}`;
+  // the tools that work on any passage, one tap from the verse: they are also in the toolbox, but this is where the question comes up
+  const tools: [string, string][] = [['Across the centuries', `/study/conversation?ref=${ref}`], ['Who quoted this', `/study/quotations?ref=${ref}`], ['The Fathers on this passage', `/study/fathers-on?ref=${ref}`], ['Compare translations', `/study/compare-translations?ref=${ref}`]];
+  const toolRow = (
+    <div className="vl-tools" role="group" aria-label={`Tools for this ${verse === undefined ? 'chapter' : 'verse'}`}>
+      <span className="muted small">Tools for this {verse === undefined ? 'chapter' : 'verse'}</span>
+      <span className="vl-chips">{tools.map(([t, to]) => <Link key={to} className="chip" to={to}>{t}</Link>)}</span>
+    </div>
+  );
+  if (!res) return null;
+  if (res.items.length === 0) return <section className="vl-card" aria-label="Tools for this passage">{toolRow}</section>;
   const shown = open ? res.items : res.items.slice(0, SHOWN);
   const hidden = res.items.length - shown.length;
   return (
     <section className="vl-card" aria-label="More in this app">
+      {toolRow}
       <h3 className="vl-h">More in this app</h3>
       {res.notes.map((n) => (
         <p key={n.topic ?? n.text} className="vl-note small">{n.topic && <strong>{n.topic}. </strong>}{n.text}</p>

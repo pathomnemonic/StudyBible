@@ -31,5 +31,16 @@ for (const w of [390, 1280]) {
   if (!(await p.locator('aside.panel').count())) fail(`${w}: the verse number should open the study panel`);
   await ctx.close();
 }
+{
+  const ctx = await b.newContext({ viewport: { width: 390, height: 800 } });
+  await ctx.addInitScript(() => { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); });
+  const p = await ctx.newPage();
+  await p.goto(`${BASE}/#/learn`); await p.waitForTimeout(1500);
+  if (!(await p.locator('section.learn-card h2:has-text("Bible study")').count())) fail('Learn should have a Bible study section');
+  for (const href of ['#/study/books', '#/study/concordance', '#/study/fathers-on', '#/study/lexicon']) if (!(await p.locator(`section.biblestudy a[href="${href}"]`).count())) fail(`Bible study should link to ${href}`);
+  const over = await p.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+  if (over > 1) fail(`Learn scrolls sideways by ${over}px`);
+  await ctx.close();
+}
 await b.close();
 console.log('readerbar ok');

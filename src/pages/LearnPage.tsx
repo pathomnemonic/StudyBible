@@ -69,6 +69,35 @@ export default function LearnPage() {
           </form>
         </div>
       </section>
+      <section className="card learn-card biblestudy" aria-labelledby="learn-bib">
+        <h2 id="learn-bib" className="learn-h">Bible study<span>The tools from the Bible page’s toolbox, in one place</span></h2>
+        <div className="rows">
+          <RowLink strong to="/study/books" title="Books and outlines" meta="All 73 books" />
+          <RowLink to="/study/fathers-on" title="The Fathers on a passage" />
+          <RowLink to="/study/concordance" title="Concordance" />
+          <RowLink to="/study/topical" title="Topical index" />
+          <RowLink to="/study/terms" title="Key words and phrases" />
+          <RowLink to="/study/lexicon" title="Greek and Hebrew words" />
+          <RowLink to="/study/synopsis" title="Gospel comparison" />
+          <RowLink to="/study/fulfilment" title="Promise and fulfilment" />
+          <RowLink to="/study/quotations" title="Who quoted this verse?" />
+          <RowLink to="/study/maps" title="Maps and the biblical world" />
+        </div>
+        <Fold id="learn:biblemore" title="More Bible study tools" hint="Themes, timelines, manuscripts and more">
+          <div className="rows">
+            <RowLink to="/study/pauline" title="Paul’s letters" />
+            <RowLink to="/study/conversation" title="A verse across the centuries" />
+            <RowLink to="/study/dossier" title="Passage dossier" />
+            <RowLink to="/study/themes" title="Biblical theology explorer" />
+            <RowLink to="/study/timespace" title="Time and place" />
+            <RowLink to="/study/people" title="Genealogies" />
+            <RowLink to="/study/voices" title="Voices through time" />
+            <RowLink to="/study/manuscripts" title="Manuscripts" />
+            <RowLink to="/study/textual" title="Textual history" />
+            <RowLink to="/study" title="All study tools" />
+          </div>
+        </Fold>
+      </section>
       <section className="card learn-card answers" aria-labelledby="learn-ans">
         <h2 id="learn-ans" className="learn-h">Answer hard questions<span>Learn to explain and defend the faith, with real sources</span></h2>
         <div className="rows">

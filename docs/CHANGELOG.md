@@ -1,5 +1,12 @@
 # What changed
 
+## A simpler reading bar
+- The top bar of the Bible page has five buttons: previous and next chapter on either side, books, search and the toolbox. The menu button is gone.
+- Books also holds the settings of the reading: translation, Find in this chapter and Compare translations. The toolbox holds the rest (read aloud, focus mode, reading settings, the study panel beside the text, the Fathers on this chapter) above the outlines, concordance and other Bible tools.
+- A line of chips under the bar offers the Fathers on this chapter, the book's outline, the Gospel comparison and a study page for the chapter. The study panel for a verse has a row of tools that work on that verse: across the centuries, who quoted it, the Fathers on it, compare translations.
+- The tour explains the top bar, taps the verse number (which opens the study panel) and opens it on Notes, not on the last tab used.
+- Learn has a Bible study section linking to the tools that were in the toolbox.
+
 ## Bible in a Year: finished, and automatic media updates
 - The tour's Bible in a Year question has a new answer, "I finished it and want something else". It and "Not for me" now offer what to listen to next: The Catechism in a Year, The Rosary in a Year, or an audiobook (Augustine's Confessions and the Imitation of Christ first). Picks are followed, so Media puts them first.
 - The daily scheduled deploy now also refreshes the Bible in a Year episode list from its public feed (the podcast lists were already refreshed) and the offline-pack sizes. Media shows when the lists were last refreshed. The app fetches data files network-first, so new episodes appear the next time it is opened online.

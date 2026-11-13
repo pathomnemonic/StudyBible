@@ -38,6 +38,8 @@ interface Step {
   title?: string;
   /** a small control shown in the card */
   control?: 'sound' | 'tradition' | 'theme' | 'size' | 'biay';
+  /** runs when the step starts (for example to make sure the right tab is showing) */
+  prep?: () => void;
   /** show this step only when this is true (it can depend on an earlier answer) */
   when?: () => boolean;
   /** bring the highlighted thing into view even when no tap is asked for */
@@ -59,8 +61,9 @@ const noBiay = () => getSettings().activePlan === '' && getSettings().dashboard.
 
 const STEPS: Step[] = [
   { part: 'Today', route: '/today', exact: true, find: q('.home-verse'), text: 'Today: a verse, a saint’s words and a question for the day.', sub: 'Pick up where you left off from the buttons below. Tap the pen to write your answer to the question.' },
-  { part: 'Bible', route: '/read/webc/JHN/6', find: verseNum51, tap: true, hit: (t) => !!t.closest('.v[data-v="51"] .vn'), text: 'Tap the little number beside verse 51.', sub: 'That number is a shortcut: it opens everything gathered around the verse. Tapping the verse itself selects it for highlights and notes.' },
-  { part: 'The saints', scroll: true, find: saintsHeading, text: 'Here are the Church Fathers and saints, in their own words, on this very verse.', sub: 'Notes also holds the Catechism and the commentators. Tap any writing to read it in its book. Their works are joined to the verses they discuss across the whole Bible.' },
+  { part: 'The top bar', route: '/read/webc/JHN/6', exact: true, find: q('.reader-bar'), text: 'The top bar has five buttons: arrows for the next and previous chapter, books, search and the toolbox.', sub: 'Books (the library icon) changes the book, chapter and translation, and also holds Find in this chapter and Compare translations. Search finds any verse or word. The toolbox holds the rest: read aloud, focus mode, reading settings, outlines, key words and the concordance.' },
+  { part: 'Bible', route: '/read/webc/JHN/6', find: verseNum51, tap: true, prep: () => { try { localStorage.setItem('sb:panelTab', 'notes'); } catch { /* private mode */ } }, hit: (t) => !!t.closest('.v[data-v="51"] .vn'), text: 'Tap the little number beside verse 51.', sub: 'That number is a shortcut: it opens everything gathered around the verse. Tapping the verse itself selects it for highlights and notes.' },
+  { part: 'The saints', scroll: true, find: saintsHeading, prep: () => window.setTimeout(() => { const t = panelTab(/^Notes/)(); if (t && t.getAttribute('aria-selected') !== 'true') (t as HTMLElement).click(); }, 300), text: 'Here are the Church Fathers and saints, in their own words, on this very verse.', sub: 'Notes also holds the Catechism and the commentators. Tap any writing to read it in its book. Their works are joined to the verses they discuss across the whole Bible.' },
   { part: 'Bible in a Year', route: '/listen', find: mediaTab(/^Year/), tap: true, hit: (t) => /^Year/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Year: Bible in a Year, each day’s episode with its reading.' },
   { part: 'Bible in a Year', route: '/listen', find: mediaTab(/^Year/), text: 'Have you listened to Bible in a Year before?', sub: 'Your answer sets where it starts. You can skip this and change it later.', control: 'biay' },
   { part: 'Media', route: '/listen', find: mediaTab(/^For you/), tap: true, when: noBiay, hit: (t) => /^For you/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Pick other Catholic media here.', sub: 'Anything you chose a moment ago is at the top. Add podcasts, audiobooks and video creators you like, and Media puts them first.' },
@@ -132,6 +135,7 @@ export default function Tour() {
   const done = useCallback(() => { put(DONE, '1'); put(STEP, '0'); put('sb:whatsNew', '2026-10b'); put('sb:welcomed', '1'); put('sb:setup', '2'); updateSettings({ onboarded: true }); setOn(false); }, []);
   const go = useCallback((n: number) => { if (steps[i]?.closePanel) document.body.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); const k = Math.max(0, n); if (k >= steps.length) return done(); setI(k); put(STEP, String(k)); }, [steps, i, done]);
 
+  useEffect(() => { if (on) step.prep?.(); }, [on, i]); // eslint-disable-line react-hooks/exhaustive-deps
   // the tour is the introduction: hold back the one-time sound tip so it does not cover the screen
   useEffect(() => { if (on) updateSettings({ ambienceTipSeen: true }); }, [on]);
   useEffect(() => {

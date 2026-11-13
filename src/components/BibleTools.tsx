@@ -8,7 +8,8 @@ import type { Book } from '../lib/canon';
 const PAUL = new Set(['ROM', '1CO', '2CO', 'GAL', 'EPH', 'PHP', 'COL', '1TH', '2TH', '1TI', '2TI', 'TIT', 'PHM']);
 
 /** Everything that helps understand what is being read, in one sheet: first what is about this book, then words and topics. */
-export default function BibleTools({ book, chapter, onClose }: { book: Book; chapter: number; onClose: () => void }) {
+export interface ToolItem { label: string; onClick: () => void }
+export default function BibleTools({ book, chapter, onClose, items = [] }: { book: Book; chapter: number; onClose: () => void; items?: ToolItem[] }) {
   const nav = useNavigate();
   const [word, setWord] = useState('');
   const here: [string, string, string][] = [
@@ -19,8 +20,16 @@ export default function BibleTools({ book, chapter, onClose }: { book: Book; cha
   ];
   const go = (to: string) => { onClose(); nav(to); };
   return (
-    <Modal title="Bible tools" onClose={onClose}>
+    <Modal title="Toolbox" onClose={onClose}>
       <div className="bible-tools">
+        {items.length > 0 && (
+          <section aria-label="This chapter">
+            <h3 className="eyebrow-h">This chapter</h3>
+            <div className="drawer-grid">
+              {items.map((it) => <button key={it.label} className="btn small" onClick={() => { onClose(); it.onClick(); }}>{it.label}</button>)}
+            </div>
+          </section>
+        )}
         <form role="search" onSubmit={(e) => { e.preventDefault(); if (word.trim()) go(`/study/concordance?w=${encodeURIComponent(word.trim())}`); }} className="row" style={{ gap: 6 }}>
           <input type="search" value={word} onChange={(e) => setWord(e.target.value)} placeholder="Look up a word in the whole Bible" aria-label="Look up a word in the whole Bible" style={{ flex: 1 }} />
           <button className="btn primary small">Look up</button>

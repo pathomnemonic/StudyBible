@@ -12,7 +12,7 @@ for (const w of [320, 390]) {
   if (await p.locator('.more-btn').count()) fail('the three dots should be gone from the reader bar');
   const over = await p.evaluate(() => { const bar = document.querySelector('.reader-bar'); return bar.scrollWidth - bar.clientWidth; });
   if (over > 1) fail(`${w}px: reader bar overflows by ${over}px`);
-  await p.click('.reader-bar button[aria-label*="eading settings" i], .reader-bar button[title^="Text, theme"]');
+  await p.click('button[aria-label^="Toolbox"]'); await p.click('.modal button:has-text("Reading settings")');
   await p.waitForSelector('.modal .ts-quick');
   const open = await p.locator('.modal details.fold[open]').count();
   if (open) fail('every group beyond the key controls starts folded');
@@ -20,8 +20,11 @@ for (const w of [320, 390]) {
   if (h > 800) fail(`${w}px: the first view of reading settings is too long (${h}px)`);
   for (const need of ['Text size', 'Typeface', 'Theme', 'Verse numbers']) if (!(await p.locator('.modal .ts-quick').innerText()).includes(need)) fail(`quick settings should include ${need}`);
   await p.keyboard.press('Escape');
-  await p.click('button[aria-label^="Open the Bible menu"]');
-  for (const need of ['Find in this chapter', 'Read aloud', 'Focus mode', 'Translation:']) if (!(await p.locator('.drawer').innerText()).includes(need)) fail(`menu should hold "${need}"`);
+  await p.click('button[aria-label^="Toolbox"]');
+  for (const need of ['Read aloud', 'Focus mode', 'Reading settings']) if (!(await p.locator('.modal').innerText()).includes(need)) fail(`toolbox should hold "${need}"`);
+  await p.keyboard.press('Escape');
+  await p.click('button[aria-label^="Books and translation"]');
+  for (const need of ['Find in this chapter', 'Translation', 'Compare side by side']) if (!(await p.locator('.modal').innerText()).includes(need)) fail(`the books sheet should hold "${need}"`);
   if (errs.length) fail(errs[0]);
   await ctx.close();
 }

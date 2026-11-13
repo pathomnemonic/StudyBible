@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import { BOOKS, GROUPS, getBook } from '../lib/canon';
@@ -10,11 +10,14 @@ export default function BookPicker({
   current,
   onPick,
   onClose,
+  here,
 }: {
   edition: EditionRecord;
   current: string;
   onPick: (book: string, chapter: number) => void;
   onClose: () => void;
+  /** the settings of this reading (translation, find, compare), shown above the list of books */
+  here?: ReactNode;
 }) {
   const [book, setBook] = useState<string | null>(null);
   const [q, setQ] = useState('');
@@ -23,7 +26,7 @@ export default function BookPicker({
     ? BOOKS.filter((b) => (b.name + ' ' + (b.douayName ?? '') + ' ' + b.abbr).toLowerCase().includes(q.trim().toLowerCase()))
     : null;
   return (
-    <Modal title={book ? getBook(book).name : 'Choose a book'} onClose={onClose}>
+    <Modal title={book ? getBook(book).name : 'Books and translation'} onClose={onClose}>
       {book ? (
         <>
           <button className="btn small ghost" onClick={() => setBook(null)}>
@@ -40,6 +43,7 @@ export default function BookPicker({
         </>
       ) : (
         <>
+          {here}
           <div className="picker-ways" aria-label="Other ways to read">
             <Link to="/listen" onClick={onClose}>Bible in a Year</Link>
             <Link to="/pray/readings" onClick={onClose}>Mass readings</Link>
