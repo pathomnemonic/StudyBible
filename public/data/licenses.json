@@ -263,5 +263,11 @@
   "attribution": "Wikisource; Catholic Encyclopedia (1913) for background notes, paraphrased",
   "redistribution": "yes",
   "notes": "Each hymn records its source page and translator"
+ },
+ "graph": {
+  "license": "Derived from this app's own data",
+  "attribution": "Built from the app's doctrine topics, chains, library index and Catechism references (see their own licences); no new source text",
+  "redistribution": "yes",
+  "notes": "Rebuilt by npm run graph"
  }
 }

@@ -31,12 +31,12 @@ function Picker({ g, label, value, onPick }: { g: ConceptGraph; label: string; v
   );
 }
 
-/** A ring around one node: its neighbours, grouped by kind. An aid to seeing the shape; the lists below hold the same links. */
+/** A ring around one node: its neighbours, grouped by kind. An aid to seeing the shape; the grouped lists hold the same links. */
 function Ring({ centre, groups, go }: { centre: GNode; groups: ReturnType<typeof neighbours>; go: (id: string) => void }) {
   const items = groups.flatMap((g) => g.items.slice(0, 14).map((i) => ({ ...i, kind: g.kind })));
   const R = 150, W = 420, H = 380, cx = W / 2, cy = H / 2;
   return (
-    <svg className="cm-ring" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${centre.label} and ${items.length} of its connections, grouped by kind. The same links are listed below.`}>
+    <svg className="cm-ring" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${centre.label} and ${items.length} of its connections, grouped by kind. The same links are listed in groups after the picture.`}>
       {items.map((it, i) => { const a = (2 * Math.PI * i) / items.length - Math.PI / 2; const x = cx + R * Math.cos(a), y = cy + (R - 20) * Math.sin(a); return <line key={`l${it.node.id}${it.type}`} x1={cx} y1={cy} x2={x} y2={y} stroke="var(--border)" strokeWidth="1" />; })}
       {items.map((it, i) => {
         const a = (2 * Math.PI * i) / items.length - Math.PI / 2; const x = cx + R * Math.cos(a), y = cy + (R - 20) * Math.sin(a);
