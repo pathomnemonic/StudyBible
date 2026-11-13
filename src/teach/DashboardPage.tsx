@@ -7,6 +7,7 @@ import { useClasses } from './store';
 import { today, type ClassDoc } from './model';
 import { averages, lessonsTaught, missedQuestions, notJoinedRecently, reteachList, type LessonTag, type Session } from './dashboard';
 import { loadSavedResults, type SavedResults } from './results';
+import PrintButton from '../components/PrintButton';
 
 const tagOf = (code: string): LessonTag | undefined => { try { const t = localStorage.getItem(`sb:teach:lesson:${code}`); return t ? (JSON.parse(t) as LessonTag) : undefined; } catch { return undefined; } };
 const tone = (p: number) => (p < 50 ? 'low' : p < 75 ? 'mid' : 'ok');
@@ -88,7 +89,7 @@ export default function DashboardPage() {
   return (
     <div className="page td-page">
       <Link to="/teach" className="small no-print">← Teacher tools</Link>
-      <h1>Teacher dashboard</h1>
+      <h1>Teacher dashboard <PrintButton /></h1>
       <p className="lede">What you taught, how each session went, which questions the class missed and which lessons to teach again. It is built from the sessions saved on this device.</p>
       {classes.length === 0 && <div className="empty">No classes yet. <Link to="/teach">Make a class</Link>, then host a lesson with it.</div>}
       {classes.length > 1 && <div className="tabbar" role="tablist" aria-label="Class">{classes.map((c) => <button key={c.id} role="tab" aria-selected={cur?.id === c.id} onClick={() => setSel(c.id)}>{c.name}</button>)}</div>}
