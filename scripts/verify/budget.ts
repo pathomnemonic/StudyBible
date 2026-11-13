@@ -8,11 +8,15 @@ import { gzipSync } from 'node:zlib';
  * per-chunk limit, or when the generated data folder passes its ceiling. Raise a budget on purpose, in this file, with a reason.
  */
 const KB = 1024;
+// Raised on 2026-11-13 to the measured size plus about 8% headroom. The limits were set when the app was a fraction of its size and had
+// been failing since; the failure was hidden because the step before it (generated documents) failed first. The app now has about 180
+// routes, 14 themes, print and accessibility styles, and a 270 MB data folder (Fathers library, 13 packs, 42,000-video index, 456 lessons).
+// The real fix for the script is to split shared code out of the entry chunk (see docs/CYCLE2_REPORT.md); until then these stop it growing further.
 const BUDGET = {
-  entryJs: 260 * KB, // the app shell: assets/index-*.js
-  entryCss: 40 * KB,
+  entryJs: 380 * KB, // the app shell: assets/index-*.js (351 KB measured)
+  entryCss: 70 * KB, // (64 KB measured)
   anyJs: 260 * KB, // lazy chunks (3D scene, maps, pages)
-  dataDir: 260 * 1024 * KB, // dist/data on disk, uncompressed
+  dataDir: 290 * 1024 * KB, // dist/data on disk, uncompressed (269 MB measured)
 };
 
 const dist = join(process.cwd(), 'dist');
