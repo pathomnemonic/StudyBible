@@ -14,4 +14,8 @@ await p.locator('article.card a:has-text("Feast day card")').first().click(); aw
 if (!/#\/feast\//.test(await p.evaluate(() => location.hash))) fail('feast card opens');
 await p.goto(`${BASE}/#/study/curriculum/YA/YA-1-1`); await p.waitForSelector('.lp');
 // word links appear where a lesson word has a glossary entry (checked by hand on YA-1-1)
+// reading leads into learning: a chapter that lessons use links to them
+await p.goto(`${BASE}/#/read/webc/JHN/6`); await p.waitForSelector('.v'); await p.waitForTimeout(1500);
+if (!(await p.locator('nav[aria-label="For this chapter"] a:has-text("Lesson:")').count())) fail('John 6 should link to a lesson');
+await p.locator('nav[aria-label="For this chapter"] a:has-text("Lesson:")').first().click(); await p.waitForSelector('.lp');
 await b.close(); console.log('crosslinks ok');

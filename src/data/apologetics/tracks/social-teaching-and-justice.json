@@ -71,6 +71,16 @@
           "why": "The root of everything else."
         },
         {
+          "kind": "resource",
+          "id": "yt-nd-cst",
+          "why": "A short overview of Catholic social teaching and where it comes from."
+        },
+        {
+          "kind": "resource",
+          "id": "yt-ascension-option-poor",
+          "why": "What the Church means by the preferential option for the poor, in plain words."
+        },
+        {
           "kind": "inapp",
           "type": "term",
           "id": "Common good",
@@ -473,6 +483,32 @@
       "why": "Chrysostom presses the claim of the poor on the comfortable.",
       "verified": "2026-11-09",
       "note": "Public-domain translation on New Advent"
+    },
+    {
+      "id": "yt-ascension-option-poor",
+      "title": "The “Preferential Option for the Poor” Explained (with Fr. Mark-Mary)",
+      "creator": "Ascension Presents",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=rOqqEkIU-DU",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "What the Church means by the preferential option for the poor, in plain words.",
+      "verified": "2026-11-13",
+      "note": "Ascension Presents; Fr. Mark-Mary is a Franciscan Friar of the Renewal"
+    },
+    {
+      "id": "yt-nd-cst",
+      "title": "What is Catholic Social Tradition (CST)?",
+      "creator": "Notre Dame Center for Social Concerns",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=eRB1bB1r2-4",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "A short overview of Catholic social teaching and where it comes from.",
+      "verified": "2026-11-13",
+      "note": "university centre; a short overview"
     }
   ]
 }

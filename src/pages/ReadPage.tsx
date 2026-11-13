@@ -57,6 +57,7 @@ import { convertRef } from '../lib/versification';
 import { Link } from 'react-router-dom';
 import ParallelView from './read/ParallelView';
 import OfflineLine from './read/OfflineLine';
+import ChapterLessons from './read/ChapterLessons';
 
 const COLORS: HighlightColor[] = ['yellow', 'green', 'blue', 'pink', 'orange', 'purple'];
 
@@ -703,6 +704,7 @@ export default function ReadPage() {
             <Link className="chip" to={`/study/books/${bk.id}`}>About {bk.name}</Link>
             {bk.group === 'Gospels' && <Link className="chip" to="/study/synopsis">Compare the Gospels</Link>}
             <Link className="chip" to={`/study/passage/${bk.id}.${primaryAnchorChapter}`}>Study this chapter</Link>
+            <ChapterLessons book={bk.id} chapter={primaryAnchorChapter} />
           </nav>
         )}
         {!wide && !settings.hintVerse && !settings.scriptureOnly && (
