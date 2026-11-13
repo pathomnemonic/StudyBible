@@ -248,8 +248,10 @@ export async function exportMarks(format: 'csv' | 'md'): Promise<string> {
 
 /** What an export file contains, without changing anything, so you can check it before importing. */
 export function previewImport(json: string): { counts: Record<string, number>; exportedAt?: string } {
-  const data = JSON.parse(json);
-  if (data.format !== 'studybible-export') throw new Error(`Not a ${BRAND.name} export file.`);
+  if (json.length > MAX_IMPORT_CHARS) throw new Error('This file is far larger than any backup the app makes, so it was not opened. Nothing was imported.');
+  let data: any;
+  try { data = JSON.parse(json); } catch { throw new Error('The file is cut short or is not a backup. Nothing was imported.'); }
+  if (!data || data.format !== 'studybible-export') throw new Error(`Not a ${BRAND.name} export file.`);
   const counts: Record<string, number> = {};
   for (const t of TABLES) if (Array.isArray(data[t]) && data[t].length) counts[t] = data[t].length;
   return { counts, exportedAt: data.exportedAt };
