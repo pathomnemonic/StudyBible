@@ -6291,3 +6291,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .you-help>span:first-child{width:24px!important;height:24px!important;font-size:.85rem}
 .you-help strong{display:inline!important;font-size:.9rem}
 .you-help small{display:none}
+.cw{margin:8px 0 14px}.cw-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.cw-title{display:block;margin-bottom:4px}
+.cw-bar{height:4px;border-radius:2px;background:color-mix(in srgb,var(--text) 15%,transparent);margin:0 0 8px;overflow:hidden}
+.cw-bar i{display:block;height:100%;background:var(--accent,currentColor)}

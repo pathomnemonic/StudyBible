@@ -1,5 +1,10 @@
 # What changed
 
+## Every lesson gets a video, and videos remember your place
+- Lessons for grades 6 to 12 and young adults now add the hand-checked videos matched to the lesson's own Scripture passage to their Watch and listen step: 234 of 285 have one, up from 79. The Debate it protocol still appears only where there is a real debate question or argument chain.
+- A YouTube video played in the app remembers where you stopped (saved every few seconds and when you pause or close it, on this device only) and reopens a few seconds before that point.
+- Media > Videos > Feed opens with Continue watching: unfinished videos with a progress bar and "Resume at 10:00". Videos within the last 20 seconds count as finished.
+
 ## Audit fixes
 - An unknown address now shows a "That page is not here" page with ways home, instead of silently landing on Today.
 - The video list says when it was last refreshed. Shorts are labelled from the Shorts flag only, not from length.

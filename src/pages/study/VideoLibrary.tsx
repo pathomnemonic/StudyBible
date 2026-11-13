@@ -3,6 +3,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { getJson } from '../../data/loader';
 import { embedFor } from '../../lib/embed';
 import { db } from '../../db/db';
+import ContinueWatching from '../../components/ContinueWatching';
 import InlinePlayer from '../../components/InlinePlayer';
 import { toggleFollow, useFollows } from '../../lib/follow';
 import FilterBar from '../../components/FilterBar';
@@ -124,6 +125,7 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
         <label className="row small" style={{ gap: 8 }}><input type="checkbox" checked={thumbs} onChange={(e) => setThumb(e.target.checked)} /> <span>Show thumbnails</span></label>
         <label className="row small" style={{ gap: 8, opacity: meta ? 1 : 0.55 }}><input type="checkbox" checked={full} disabled={!meta} onChange={(e) => setFull(e.target.checked)} /> <span>Only full-length (5 minutes or more){meta ? '' : ' · lengths not loaded yet'}</span></label>
       </FilterBar>}
+      {view === 'feed' && <ContinueWatching onPlay={(id, t) => void db.history.where('type').equals('video').filter((h) => h.ref === id).delete().then(() => db.history.add({ ts: Date.now(), type: 'video', ref: id, label: t }))} />}
       {view === 'feed' && (favs.size > 0
         ? <p className="muted small">The newest videos from the {favs.size === 1 ? 'creator' : `${favs.size} creators`} you follow, newest first. <button className="linklike" onClick={() => setView('creators')}>Change who you follow</button></p>
         : <div className="card"><strong>Follow creators to fill your feed.</strong><p className="muted small" style={{ margin: '4px 0 8px' }}>Pick the ones you like and their newest videos appear here. Until then, this shows the newest from every creator.</p><button className="btn small primary" onClick={() => setView('creators')}>Choose creators</button></div>)}
