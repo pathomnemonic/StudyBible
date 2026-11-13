@@ -19,6 +19,7 @@
 - Ask the sources: one question, with the Catechism, the Bible text, the app's definition and (on request) the Fathers shown in separate labelled cards. Retrieval only; nothing is generated.
 - Map of connections: one normalised graph of topics, chains, lives, passages, Catechism paragraphs, works and authors (npm run graph), with a viewer that follows links and finds how two things connect.
 - Catechesis: pace a grade over the school year (with breaks), print the calendar or put it in a class planner, a letter to families for each unit, and my notes on each lesson.
+- Think it through: a scripted, offline guided walk through any Argument Map question (think first, then each source, then objections), with no generated text.
 - Docs: docs/FEATURE_OPPORTUNITIES.md (38 opportunities), docs/ROADMAP_AMBITIOUS.md (ten ambitious features and an evidence-grounded assistant architecture), docs/CYCLE2_REPORT.md.
 
 ## Closing the gaps from the audit

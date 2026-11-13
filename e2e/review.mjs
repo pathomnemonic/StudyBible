@@ -88,4 +88,14 @@ await box.waitFor({ timeout: 15000 });
 await box.fill('Use the story of the lost sheep first.'); await p.locator('button', { hasText: 'Save my notes' }).click(); await p.waitForTimeout(500);
 await p.goto(`${BASE}/#/library`); await p.waitForTimeout(900);
 if (!/Use the story of the lost sheep first/.test(await p.locator('.page').innerText())) fail('my lesson notes should appear among my notes');
+// 11. think it through (scripted tutor)
+await p.goto(`${BASE}/#/study/tutor/real-presence`); await p.waitForSelector('.tutor textarea', { timeout: 20000 });
+await p.locator('.tutor textarea').fill('I think it is a symbol.');
+await p.locator('button', { hasText: 'Show me the first source' }).click(); await p.waitForTimeout(300);
+if (!/Step 1 of/.test(await p.locator('.tutor').innerText())) fail('the tutor should move to step 1');
+await p.locator('button', { hasText: 'Show the words themselves' }).click();
+if (!(await p.locator('.tutor blockquote').count())) fail('the source words should be revealed on request');
+for (let i = 0; i < 40; i++) { const next = p.locator('button', { hasText: /^(Next|Finish)$/ }); if (!(await next.count())) break; await next.first().click(); await p.waitForTimeout(80); }
+if (!/the answer in brief/i.test(await p.locator('.tutor').innerText())) fail('the tutor should end with the answer in brief: ' + (await p.locator('.tutor').innerText()).slice(0, 300));
+await p.locator('button', { hasText: 'Keep my answer as a note' }).click(); await p.waitForTimeout(400);
 await b.close(); console.log('review ok');
