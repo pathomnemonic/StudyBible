@@ -487,7 +487,7 @@ export default function ReadPage() {
     const t = anchorToNative(target, { ...ref, c2: ref.c1, v2: ref.v1 });
     const ch = Math.min(t.chapter, target.chapters[bk.id] ?? 1);
     const v = selRefs.length ? anchorToNative(target, ref) : null;
-    nav(`/read/${id}/${bk.id}/${ch}${parallelId && parallelId !== id ? `?p=${parallelId}` : ''}${v?.v1 ? `${parallelId && parallelId !== id ? '&' : '?'}v=${v.v1}${v.v2 && v.v2 !== v.v1 ? '-' + v.v2 : ''}` : ''}`);
+    nav(`/read/${id}/${bk.id}/${ch}${parallelId && parallelId !== id ? `?p=${parallelId}` : ''}${v?.v1 ? `${parallelId && parallelId !== id ? '&' : '?'}v=${v.v1}${v.v2 && v.v2 !== v.v1 ? '-' + v.v2 : ''}` : ''}`, { state: loc.state }); // same passage in another translation: the way back stays
     setSettings({ defaultEdition: id });
     setEditionPicker(false);
   };

@@ -36,6 +36,8 @@ export default function SourcesPage() {
         </div>
       ))}
 
+      <h2 style={{ fontSize: '1.2rem' }}>How far a connection reaches</h2>
+      <p className="small">When you select a verse, the study panel lists what is tied to <em>that verse</em>: a note on it, a Father or saint who cites it, a curated page about it. About 77% of verses have something at that level. For the rest, what appears is tied to the <em>whole chapter</em> and is marked “whole chapter”, so a chapter-wide note is never presented as a citation of your verse. Where translations number verses differently (the Psalms, and Tobit, Judith, Esther, Sirach and Daniel), connections are matched on a shared numbering and the panel says when a match is approximate.</p>
       <h2 style={{ fontSize: '1.2rem' }}>Bible editions</h2>
       {editions.map((e) => (
         <div className="card" key={e.id}>
