@@ -59,3 +59,12 @@ writeFileSync(join(root, 'public/data/curriculum/lesson-extras.json'), JSON.stri
 writeFileSync(join(root, 'public/data/curriculum/featured.json'), JSON.stringify(featured.items.map((i) => ({ id: i.id, band: i.band, q: i.q }))));
 const n = Object.keys(out).length, w = Object.values(out).filter((o) => o.watch.length).length, d = Object.values(out).filter((o) => o.debate.length).length;
 console.log(`${n} lessons linked; ${w} with something to watch or hear; ${d} with debate material`);
+
+// Which lessons teach each glossary word, so a glossary entry can point to them. Adult and older grades first.
+const vocab: Record<string, [string, string][]> = {};
+for (const gname of ['YA', '12', '11', '10', '9', '8', '7', '6', '5', '4', '3', '2', '1', 'K']) {
+  const g = JSON.parse(readFileSync(join(root, `public/data/curriculum/grade-${gname}.json`), 'utf8')) as { units: { lessons: { id: string; title: string; vocab: string[] }[] }[] };
+  for (const u of g.units) for (const l of u.lessons) for (const v of l.vocab ?? []) { const a = (vocab[v] ??= []); if (a.length < 3) a.push([l.id, l.title]); }
+}
+writeFileSync(join(root, 'public/data/curriculum/lesson-vocab.json'), JSON.stringify(vocab));
+console.log(`${Object.keys(vocab).length} glossary words linked to lessons`);

@@ -4,7 +4,7 @@
   {
    "id": "learn",
    "label": "Catechism text, the K–12 lessons and their art list, children’s stories and questions, game word lists and apologetics",
-   "bytes": 8049595,
+   "bytes": 8071419,
    "files": [
     "ccc/index.json",
     "ccc/p0.json",
@@ -122,6 +122,7 @@
     "curriculum/index.json",
     "curriculum/lesson-art.json",
     "curriculum/lesson-extras.json",
+    "curriculum/lesson-vocab.json",
     "curriculum/questions/1.json",
     "curriculum/questions/10.json",
     "curriculum/questions/11.json",
@@ -277,6 +278,7 @@
     1958,
     30485,
     91107,
+    21824,
     77042,
     153757,
     165915,
@@ -432,6 +434,7 @@
     "047ac034f9d227fc",
     "887b9d205e70a8a6",
     "178a5dc2ec8a9fce",
+    "c58d579227354f45",
     "4246f85befa92f4b",
     "5607a0a61686f673",
     "1ae41be629152ee0",

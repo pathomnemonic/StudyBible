@@ -1,3 +1,4 @@
+import { lookupTerm } from '../data/glossary';
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import LessonPlay from './LessonPlay';
@@ -71,7 +72,7 @@ export default function LessonPath(p: Props) {
   const termsBlock = words.length > 0 && (
     <details className="lp-terms">
       <summary>{younger ? 'New words' : `Worth knowing: ${words.map((v) => gl[v].w).join(', ')}`}</summary>
-      <dl className="cur-words">{words.map((v) => <div key={v}><dt>{gl[v].w}</dt><dd>{gl[v].d}</dd></div>)}</dl>
+      <dl className="cur-words">{words.map((v) => <div key={v}><dt>{(() => { const g = lookupTerm(gl[v].w); return g ? <Link to={`/study/glossary?t=${encodeURIComponent(g.term)}`}>{gl[v].w}</Link> : gl[v].w; })()}</dt><dd>{gl[v].d}</dd></div>)}</dl>
     </details>
   );
   const scriptureBlock = (

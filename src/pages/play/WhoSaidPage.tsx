@@ -52,7 +52,7 @@ export default function WhoSaidPage() {
           </div>
           {picked && (
             <div className="ws-after">
-              <p>{picked === q.who ? 'Yes.' : 'Not quite.'} <strong>{q.who}</strong>{q.work ? `, ${q.work}` : ''}.</p>
+              <p>{picked === q.who ? 'Yes.' : 'Not quite.'} <strong>{q.who}</strong>{q.work ? `, ${q.work}` : ''}. <Link to={`/study/saint-names?q=${encodeURIComponent(q.who.split(/[ ,]/).filter((w) => w.length > 3 && !/^(saint|pope|blessed)$/i.test(w))[0] ?? q.who)}`}>Find this saint</Link></p>
               <button className="btn primary" onClick={next}>{i + 1 === ROUNDS ? 'See my score' : 'Next quote'}</button>
             </div>
           )}

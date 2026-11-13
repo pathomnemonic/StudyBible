@@ -61,6 +61,7 @@ export default function SaintGuessPage() {
         <div className="ws-end">
           <p className="ws-score">{won ? `Yes: ${saint.name}` : `It was ${saint.name}`}</p>
           <p className="muted">{saint.why}</p>
+          <p className="small"><Link to={`/study/saints/${saint.feast}?name=${encodeURIComponent(saint.name)}`}>Read the life of {saint.name}</Link> · <Link to={`/feast/${new Date().getFullYear()}-${saint.feast}`}>Their feast day</Link></p>
           <div className="row" style={{ justifyContent: 'center', gap: 8 }}><ShareButton text={share} path="/play/saintguess" label="Share result" className="btn" /><button className="btn ghost" onClick={again}>Another saint</button></div>
           <p className="small"><Link to="/study/saint-names">Find saints by name</Link></p>
         </div>

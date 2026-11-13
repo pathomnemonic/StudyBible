@@ -1,5 +1,11 @@
 # What changed
 
+## More cross-links
+- Glossary entries say which lessons teach the word ("Taught in: ...", 163 words linked), and a lesson's "Worth knowing" words link to their glossary entry.
+- Saint Guess ends with the saint's life and feast day; Who Said It links to the saint finder after each answer.
+- Each saint's life in Butler links to its feast day card and to saints for your situation.
+- Argument, claim and heresy pages list the lessons that teach them (earlier), and every empty Passport space is a link.
+
 ## Shorts kept apart, smaller Help button
 - YouTube Shorts are marked in the video library (a fourth item on each video) and kept out of the Feed and For you. Elsewhere they carry a red SHORT tag and a red edge so they are easy to tell from full videos. The refresh marks new uploads itself; scripts/videos/mark-shorts.ts backfilled the newest 40 per creator (367 Shorts found).
 - The Help button on You is a slim one-line row.
