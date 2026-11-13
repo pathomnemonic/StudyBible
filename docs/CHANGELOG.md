@@ -1,5 +1,8 @@
 # What changed
 
+## Videos are current again
+- The daily video refresh skipped nine busy channels (Ascension Presents, Catholic Answers Live, EWTN, FOCUS, Jimmy Akin, Pints with Aquinas and others) because its wrong-channel guard needed an overlap with older listed videos. The registry ids are confirmed, so the refresh now trusts them. A run today added 211 new videos across 25 creators, so the Feed shows this week's uploads.
+
 ## Passport links, one featured video, more media
 - Pilgrim's Passport: every space still to fill is now a link. Tap it to go to that saint, council, feast, argument or game; opening the page earns the stamp.
 - Watch and listen in a lesson opens with one featured video ("Start here", the shortest playable one), the rest folded away as "More to watch and hear"; lengths show as minutes (hours when long).

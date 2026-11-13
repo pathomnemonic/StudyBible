@@ -7615,7 +7615,7 @@
   {
    "id": "media",
    "label": "Media lists: Bible in a Year schedule, podcasts, audiobooks and videos (the audio and video themselves are not included)",
-   "bytes": 15763388,
+   "bytes": 15779396,
    "files": [
     "media/biay.json",
     "media/librivox.json",
@@ -7755,7 +7755,7 @@
     90295,
     161747,
     24473,
-    3200411,
+    3216419,
     397512
    ],
    "sums": [
@@ -7826,7 +7826,7 @@
     "49b4f3b1532b4930",
     "0b6068ea56304a06",
     "b1c821b44f932b25",
-    "397f71e9ff23f483",
+    "f5cc82a6ac66217d",
     "641badb29acaf4a4"
    ]
   },

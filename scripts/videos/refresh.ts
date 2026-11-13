@@ -2,7 +2,7 @@
  * Adds each creator's newest YouTube uploads to the video library (public/data/media/video_library.json).
  * Channels are listed in data/curated/video-channels.json. Uploads come from YouTube's Data API when YOUTUBE_API_KEY is set (the uploads playlist,
  * one quota unit per channel), and otherwise from each channel's public upload feed. Only titles and ids are kept; the video stays on YouTube.
- * A channel whose newest uploads do not overlap the videos already listed for it is skipped as a probable wrong id.
+ * Registry ids are confirmed ones, so the daily run trusts them; an unconfirmed id can be checked by calling mergeUploads without `trusted`, which skips a channel whose newest uploads do not overlap the listed ones.
  * Run:  npx tsx scripts/videos/refresh.ts   (the scheduled deploy runs it every day; it keeps the committed library if anything fails)
  */
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -13,11 +13,12 @@ const SKIP = /#shorts?\b|daily mass|holy mass|^mass for|live ?stream|livestream|
 const MIN_OVERLAP = 1;
 
 /** Adds the uploads that are not listed yet. Returns what was added, or why the channel was skipped. */
-export function mergeUploads(videos: LibVideo[], channel: number, uploads: { id: string; title: string }[]): { added: LibVideo[]; skipped?: string } {
+export function mergeUploads(videos: LibVideo[], channel: number, uploads: { id: string; title: string }[], trusted = false): { added: LibVideo[]; skipped?: string } {
   const have = new Set(videos.map((v) => v[0]));
   const mine = new Set(videos.filter((v) => v[2] === channel).map((v) => v[0]));
   const overlap = uploads.filter((u) => mine.has(u.id)).length;
-  if (mine.size > 0 && uploads.length > 5 && overlap < MIN_OVERLAP) return { added: [], skipped: 'no overlap with the listed videos: probably the wrong channel id' };
+  // the registry's ids were each confirmed from a video page, so `trusted` skips the overlap check, which wrongly skips busy channels whose listed videos are older than their newest 15 uploads
+  if (!trusted && mine.size > 0 && uploads.length > 5 && overlap < MIN_OVERLAP) return { added: [], skipped: 'no overlap with the listed videos: probably the wrong channel id' };
   const added = uploads.filter((u) => u.id && u.title && !have.has(u.id) && !SKIP.test(u.title)).map((u): LibVideo => [u.id, u.title.replace(/\s+/g, ' ').trim(), channel]);
   return { added };
 }
@@ -50,7 +51,7 @@ async function main() {
     const idx = lib.channels.indexOf(c.name);
     if (idx < 0) { console.log(`${c.name}: not in the library's channel list`); continue; }
     try {
-      const { added, skipped } = mergeUploads(lib.videos, idx, await uploadsFor(c.id));
+      const { added, skipped } = mergeUploads(lib.videos, idx, await uploadsFor(c.id), true);
       if (skipped) { console.log(`${c.name}: skipped, ${skipped}`); continue; }
       lib.videos.unshift(...added); total += added.length; // the library is newest first, so new uploads go in front
       console.log(`${c.name}: ${added.length} new`);
