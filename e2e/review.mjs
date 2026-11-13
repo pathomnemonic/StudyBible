@@ -109,4 +109,9 @@ await p.locator('.il-w').first().click(); await p.waitForTimeout(300);
 if (!/Grammar:/.test(await p.locator('.il-detail').innerText())) fail('tapping a word should show its grammar');
 await p.goto(`${BASE}/#/study/interlinear/GEN/1`); await p.waitForSelector('.il-w', { timeout: 30000 });
 if (await p.locator('.il-words[dir=rtl]').count() === 0) fail('Hebrew should be set right to left');
+// 13. where the ancient texts differ
+await p.goto(`${BASE}/#/study/variants`); await p.waitForSelector('.variants .card', { timeout: 30000 });
+await p.locator('button', { hasText: 'the verse in three translations' }).first().click();
+await p.waitForSelector('.var-compare dt', { timeout: 30000 });
+if (await p.locator('.var-compare dt').count() < 2) fail('the verse should be shown in at least two translations');
 await b.close(); console.log('review ok');

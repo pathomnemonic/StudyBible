@@ -6337,3 +6337,5 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .il-t { font-size: .72rem; color: var(--muted); font-style: italic; }
 .il-g { font-size: .72rem; max-width: 9em; text-align: center; }
 .il-detail { position: sticky; bottom: 8px; }
+
+.var-compare { margin: 10px 0 0; display: grid; gap: 8px; } .var-compare dt { font-weight: 600; font-size: .85rem; color: var(--muted); } .var-compare dd { margin: 0; }

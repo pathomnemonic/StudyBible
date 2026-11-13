@@ -17,7 +17,7 @@ Earlier versions of this page implied that several of these wait on "a model or 
 ### B. Offline work that waits on data
 | Workstream | The data it waits on |
 | --- | --- |
-| **Manuscript and textual-variant explorer** (item 4) | A curated variant table (verse, readings, supporting manuscripts, how translations choose), from an apparatus whose licence allows it. The viewer already exists for manuscripts. |
+| **Manuscript and textual-variant explorer** (item 4), **started** | A browser over the app's own short curated list (26 passages where the Hebrew, Greek and Latin differ, plus 28 manuscripts and versions) now exists at /study/variants, with each verse in three translations. The full explorer still needs a curated variant table (verse, readings, supporting manuscripts, how translations choose) from an apparatus whose licence allows it. |
 | **Synchronised recorded audio** (item 5) | Alignment data: verse-level timings per recording, produced by forced alignment at build time on recordings whose licence allows it, or chapter-level sync using what already exists. |
 | **Interlinear and fuller original-language study** (item 6), **started** | The tagged texts turned out to be in the app already (SBLGNT with MorphGNT, and the Hebrew Bible with OSHB, about 18 MB with the lexicons; licences in `public/data/original/sources.json`). A chapter-by-chapter interlinear viewer is built (/study/interlinear). Still to do: line-up with the English verse for the Psalms and other chapters whose Hebrew and English numbering differ; word-for-word English alignment (this needs an alignment data set, which is the remaining data prerequisite). |
 
