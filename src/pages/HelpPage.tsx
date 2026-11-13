@@ -44,7 +44,7 @@ export default function HelpPage() {
       <Group title="Questions">
         <details><summary>How do I follow a different reading plan?</summary><p className="small">Open <Link to="/pray/plans">Reading plans</Link> and start one. Only one plan is followed at a time: starting another pauses the first, and you can pick it up again later.</p></details>
         <details><summary>How do I turn off the red dots and tips?</summary><p className="small">In <Link to="/settings">Settings</Link>, under Tips and red dots.</p></details>
-        <details><summary>Does it work without a connection?</summary><p className="small">Reading, notes and search work offline. Download what you want ahead of time in <Link to="/downloads">Downloads</Link>.</p></details>
+        <details><summary>Does it work without a connection?</summary><p className="small">The app itself, your notes and your highlights work offline. A Bible translation, commentary or audio works offline only once you have opened it before or downloaded it. Check what is saved, and download more ahead of time, in <Link to="/downloads">Downloads</Link>.</p></details>
         <details><summary>Where is my data kept?</summary><p className="small">On this device. Nothing is sent anywhere unless you sign in to sync or connect a backup. See <Link to="/privacy">Privacy</Link>.</p></details>
         <details><summary>Something looks out of date or wrong</summary><p className="small">Close the app completely and open it again while online, so it can fetch the newest data. If a screen still misbehaves, <Link to="/about">About and feature status</Link> shows what is working.</p></details>
       </Group>

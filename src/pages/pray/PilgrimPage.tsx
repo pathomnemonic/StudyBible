@@ -26,7 +26,7 @@ export default function PilgrimPage() {
     <div className="page pilgrim">
       <h1>Pilgrim pack</h1>
       <Tip id="pilgrim" title="Made for the road">Everything on this page is stored in the app, so it works with no signal. Tick the checklist before you go.</Tip>
-      <p className="lede">Guides to the great Catholic pilgrimage places. {online ? 'You are online.' : 'You are offline, and everything here still works.'}</p>
+      <p className="lede">Guides to the great Catholic pilgrimage places. {online ? 'You are online.' : 'You are offline. The guides and map in this app still work; links to other sites do not.'}</p>
       {!site && <>
         <ul className="pil-grid">
           {PILGRIM_SITES.map((s) => (

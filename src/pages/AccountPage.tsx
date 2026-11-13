@@ -161,7 +161,7 @@ export default function AccountPage() {
       <div className="card">
         <h2 className="card-title">How your data is handled</h2>
         <ul className="small bullets">
-          <li><strong>Local first.</strong> Everything works offline and without an account; signing in only adds sync and backup.</li>
+          <li><strong>Local first.</strong> The app works without an account, and your notes work offline; signing in only adds sync and backup. Scripture and study data you have not opened or downloaded need a connection.</li>
           <li><strong>What is stored.</strong> Notes, highlights, bookmarks, folders, collections, journal, plans and progress, links you attach, and reading settings. No analytics, no tracking.</li>
           <li><strong>Security.</strong> Passwords are hashed with scrypt; sessions use HttpOnly cookies; run the server behind HTTPS. Notes are not end-to-end encrypted yet, so the server operator can technically read them — host it yourself or trust your host (see docs/SERVER.md).</li>
           <li><strong>Backup & deletion.</strong> Download everything any time; deleting the account removes all server-side data.</li>

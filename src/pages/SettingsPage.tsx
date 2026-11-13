@@ -142,7 +142,7 @@ export default function SettingsPage() {
           <li><strong>Accounts and sync are optional.</strong> If you or someone you trust runs a sync server, Account lets you sign in and sync across devices. That server can read what it stores: sync is not end-to-end encrypted. If no server is reachable here, everything keeps working locally. Use Google Drive backup or Export/Import to move data between devices without a server.</li>
           <li><strong>Backup.</strong> Connect Google Drive for automatic backups, or export everything as JSON at any time (Library → Export). Clearing browser data erases local data, so back up first.</li>
           <li><strong>Retention & deletion.</strong> Data stays until you delete it. “Delete all my data” removes the local database; if you use a sync server, deleting your account there also removes its copies.</li>
-          <li><strong>Network use.</strong> Reading Scripture, notes and search work offline. The app contacts third parties only when you open an external link, play a Bible in a Year episode (Ascension’s servers), or load the liturgical calendar (LitCal).</li>
+          <li><strong>Network use.</strong> Notes and the app itself work offline; Scripture and study data work offline for what you have opened or downloaded (see Downloads). The app contacts third parties only when you open an external link, play a video (YouTube’s player) or an audio episode (the publisher’s servers), or load the liturgical calendar (LitCal).</li>
         </ul>
         <div className="row">
           <button className="btn" onClick={async () => download(`studybible-export-${new Date().toISOString().slice(0, 10)}.json`, await exportAll())}>Export everything</button>
