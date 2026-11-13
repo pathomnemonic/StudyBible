@@ -32,8 +32,15 @@ jobs:
         run: npx tsx scripts/videos/refresh.ts || echo 'video refresh failed; using the committed library'
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      - name: Add each library video's length and upload date (needs the key; resumable; skipped without it)
+        run: |
+          if [ -n "$YOUTUBE_API_KEY" ]; then npx tsx scripts/videos/enrich.ts && npx tsx -e "import { buildManifest } from './scripts/ingest/manifest'; buildManifest();" || echo '::warning::video lengths and dates not refreshed'; fi
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       - name: Fill in the length of every video in the apologetics tracks, then relink the lessons (needs the key; skipped without it)
-        run: npx tsx scripts/launch/fill-minutes.ts && npx tsx scripts/launch/make-lesson-links.ts || echo 'video lengths not refreshed; using the committed ones'
+        run: |
+          npx tsx scripts/launch/fill-minutes.ts || echo '::warning::video lengths not refreshed; using the committed ones'
+          npx tsx scripts/launch/make-lesson-links.ts
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       - name: Refresh the Bible in a Year episode list from its public feed, then the offline-pack sizes (keeps the committed list if the feed fails)

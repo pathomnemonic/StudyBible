@@ -55,6 +55,7 @@ const SaintsPage = lazy(() => import('./pages/study/SaintsPage'));
 const ApologeticsPage = lazy(() => import('./pages/study/ApologeticsPage'));
 const KidsPage = lazy(() => import('./pages/study/KidsPage'));
 const RoomHome = lazy(() => import('./pages/room/RoomHome'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const VideoLibrary = lazy(() => import('./pages/study/VideoLibrary'));
 const EncyclopediaPage = lazy(() => import('./pages/study/EncyclopediaPage'));
 const StudyHome = lazy(() => import('./pages/study/StudyHome'));
@@ -531,7 +532,7 @@ export default function App() {
               <Route path="/account" element={<AccountPage />} />
               <Route path="/attach" element={<AttachPage />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="*" element={<Navigate replace to="/" />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes></Settle></ErrorBoundary>
           </Suspense>
           <MiniPlayer />

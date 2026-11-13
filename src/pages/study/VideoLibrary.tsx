@@ -8,7 +8,7 @@ import { toggleFollow, useFollows } from '../../lib/follow';
 import FilterBar from '../../components/FilterBar';
 
 type Vid = [id: string, title: string, channel: number, short?: 1];
-interface Lib { about: string; channels: string[]; videos: [id: string, title: string, channel: number, short?: 1][] }
+interface Lib { about: string; updated?: string; channels: string[]; videos: [id: string, title: string, channel: number, short?: 1][] }
 const PAGE = 40;
 let cache: Promise<Lib | null> | null = null;
 type View = 'feed' | 'creators' | 'all' | 'later' | 'watched';
@@ -95,7 +95,7 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
   return (
     <div className={embedded ? undefined : 'page'}>
       {!embedded && <h1>Catholic video library</h1>}
-      {!embedded && <p className="lede">{lib.videos.length.toLocaleString()} videos from {lib.channels.length} Catholic channels. They play here through YouTube’s own player, or open on YouTube if the creator turned embedding off.</p>}
+      {!embedded && <p className="lede">{lib.videos.length.toLocaleString()} videos from {lib.channels.length} Catholic channels. They play here through YouTube’s own player, or open on YouTube if the creator turned embedding off.{lib.updated ? ` List refreshed ${new Date(lib.updated + 'T12:00').toLocaleDateString(undefined, { month: 'long', day: 'numeric' })}.` : ''}</p>}
       <div className="tabbar" role="tablist">
         <button role="tab" aria-selected={view === 'feed'} onClick={() => setView('feed')}>Feed</button>
         <button role="tab" aria-selected={view === 'creators'} onClick={() => setView('creators')}>Creators</button>
@@ -150,9 +150,8 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
                 <strong className="vid-title">{short && <span className="vid-short">Short</span>}{title}</strong>
                 <div className="vid-meta">
                   <span>{lib.channels[c]}</span>
-                  {m && !thumbs && <span className={`vid-pill${m[0] <= 60 ? ' short' : ''}`}>{m[0] <= 60 ? 'Short · ' : ''}{runtime(m[0])}</span>}
-                  {m && m[0] <= 60 && thumbs && <span className="vid-pill short">Short</span>}
-                  {m && m[1] > 0 && <span>{when(m[1])}</span>}
+                  {m && !thumbs && <span className={`vid-pill${short ? ' short' : ''}`}>{short ? 'Short · ' : ''}{runtime(m[0])}</span>}
+                                    {m && m[1] > 0 && <span>{when(m[1])}</span>}
                   {w && <span>✓ watched</span>}
                 </div>
                 {play === id && e ? <InlinePlayer embed={e} title={title} /> : (

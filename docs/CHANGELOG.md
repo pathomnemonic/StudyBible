@@ -1,5 +1,11 @@
 # What changed
 
+## Audit fixes
+- An unknown address now shows a "That page is not here" page with ways home, instead of silently landing on Today.
+- The video list says when it was last refreshed. Shorts are labelled from the Shorts flag only, not from length.
+- Feed titles decode every HTML entity (for example dashes).
+- The daily build adds each library video's length and upload date when the key is set (resumable), and relinks the lessons even if filling lengths fails.
+
 ## More cross-links
 - Glossary entries say which lessons teach the word ("Taught in: ...", 163 words linked), and a lesson's "Worth knowing" words link to their glossary entry.
 - Saint Guess ends with the saint's life and feast day; Who Said It links to the saint finder after each answer.

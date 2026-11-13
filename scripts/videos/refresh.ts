@@ -40,7 +40,7 @@ export function mergeUploads(videos: LibVideo[], channel: number, uploads: { id:
 
 /** The uploads in a YouTube channel feed (newest first). */
 export function parseFeed(xml: string): { id: string; title: string }[] {
-  const dec = (s: string) => s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'");
+  const dec = (s: string) => s.replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16))).replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(+d)).replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
   return [...xml.matchAll(/<entry>[\s\S]*?<\/entry>/g)].map((m) => ({ id: /<yt:videoId>([^<]+)</.exec(m[0])?.[1] ?? '', title: dec(/<media:title>([^<]*)</.exec(m[0])?.[1] ?? /<title>([^<]*)</.exec(m[0])?.[1] ?? '') })).filter((e) => e.id);
 }
 
@@ -75,6 +75,7 @@ async function main() {
     await new Promise((r) => setTimeout(r, 400));
   }
   if (failed === reg.channels.length) { console.log('No channel could be read; keeping the committed library.'); return; }
+  (lib as { updated?: string }).updated = new Date().toISOString().slice(0, 10);
   if (total) { writeFileSync(LIB, JSON.stringify(lib)); buildManifest(); }
   console.log(`${total} new videos.`);
 }
