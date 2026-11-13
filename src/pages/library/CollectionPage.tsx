@@ -62,6 +62,8 @@ export default function CollectionPage() {
     await add({ type: 'note', uid: await uidOf('notes', noteId) });
     setQText('');
   };
+  const isDone = (i: number) => (c.done ?? []).includes(JSON.stringify(c.items[i]));
+  const toggleDone = (i: number) => { const k = JSON.stringify(c.items[i]); const d = c.done ?? []; void save({ done: d.includes(k) ? d.filter((x) => x !== k) : [...d, k] }); };
   const move = (from: number, to: number) => void save({ items: moveItem(c.items, from, to) });
   const base = (n: string) => n.replace(/[^\w]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'collection';
   const exportMd = () => download(`${base(c.name)}.md`, collectionMarkdown(c, items), 'text/markdown');
@@ -75,7 +77,7 @@ export default function CollectionPage() {
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', margin: '8px 0 14px' }}>
         <button className="btn" onClick={exportMd} disabled={!items.length}>Export as Markdown</button>
         <button className="btn" onClick={exportPdf} disabled={!items.length}>Print or save as PDF</button>
-        <span className="muted small" style={{ alignSelf: 'center' }}>{items.length} {items.length === 1 ? 'item' : 'items'}. Items point to the originals; nothing is copied.</span>
+        <span className="muted small" style={{ alignSelf: 'center' }}>{items.length} {items.length === 1 ? 'item' : 'items'}{(c.done?.length ?? 0) ? `, ${items.filter((_, i) => isDone(i)).length} done` : ''}. Items point to the originals; nothing is copied.</span>
       </div>
       {msg && <p className="notice" role="status">{msg}</p>}
 
@@ -83,7 +85,10 @@ export default function CollectionPage() {
         {items.map((r, i) => (
           <li key={i} className="card cp-item">
             <div className="row between" style={{ gap: 8 }}>
-              <span><span className="chip">{r.kind}</span> <strong>{r.title}</strong></span>
+              <span>
+                <input type="checkbox" aria-label={`Mark ${r.title} as done`} checked={isDone(i)} onChange={() => toggleDone(i)} style={{ marginRight: 8 }} />
+                <span className="chip">{r.kind}</span> <strong style={isDone(i) ? { textDecoration: 'line-through', opacity: 0.7 } : undefined}>{r.title}</strong>
+              </span>
               <span className="row" style={{ gap: 4 }}>
                 <button className="icon-btn" aria-label={`Move ${r.title} up`} disabled={i === 0} onClick={() => move(i, i - 1)}>↑</button>
                 <button className="icon-btn" aria-label={`Move ${r.title} down`} disabled={i === items.length - 1} onClick={() => move(i, i + 1)}>↓</button>

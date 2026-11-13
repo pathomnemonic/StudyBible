@@ -79,6 +79,8 @@ export interface Collection extends Syncable {
   name: string;
   description?: string;
   items: Target[];
+  /** items the reader has ticked off (keyed by the item's own JSON, so it survives reordering) */
+  done?: string[];
   createdAt: number;
   updatedAt: number;
 }
