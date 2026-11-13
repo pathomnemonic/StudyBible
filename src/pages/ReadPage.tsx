@@ -56,6 +56,7 @@ import { getBooksInfo, sectionFor, type BookInfo } from '../study/refData';
 import { convertRef } from '../lib/versification';
 import { Link } from 'react-router-dom';
 import ParallelView from './read/ParallelView';
+import OfflineLine from './read/OfflineLine';
 
 const COLORS: HighlightColor[] = ['yellow', 'green', 'blue', 'pink', 'orange', 'purple'];
 
@@ -657,6 +658,7 @@ export default function ReadPage() {
           <button onClick={() => { setPicker(false); setEditionPicker(true); }} title={t('reader.more')} aria-label={t('reader.more')}>⋯</button>
         </span>
       </div>
+      <OfflineLine edition={edition.id} name={edition.shortName} />
       <div className="drawer-grid">
         <button className="btn small" onClick={() => { setPicker(false); setFinding(true); }}>Find in this chapter</button>
         <button className="btn small" aria-pressed={parallelMode} onClick={() => { setPicker(false); toggleParallel(); }}>{parallelMode ? 'Close the second translation' : 'Compare side by side'}</button>

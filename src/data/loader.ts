@@ -93,6 +93,17 @@ export async function downloadEdition(edition: string, books: string[], onProgre
   if (bad.length) throw new Error(`${bad.length} book${bad.length === 1 ? '' : 's'} could not be downloaded or did not match (${bad.slice(0, 5).join(', ')}${bad.length > 5 ? '…' : ''}). Check your connection and try again.`);
 }
 
+/** Which books of a translation are saved on this device right now (opened before, or downloaded), read from the cache itself rather than assumed. */
+export async function cachedBooksOf(edition: string): Promise<string[]> {
+  if (typeof window === 'undefined' || !('caches' in window)) return [];
+  try {
+    const c = await caches.open('studybible-data-v1');
+    const out: string[] = [];
+    for (const k of await c.keys()) { const m = new RegExp(`/bible/${edition}/([A-Z0-9]+)\\.json$`).exec(new URL(k.url).pathname); if (m) out.push(m[1]); }
+    return out;
+  } catch { return []; }
+}
+
 export async function isEditionCached(edition: string, books: string[]): Promise<boolean> {
   if (!('caches' in window)) return false;
   try {

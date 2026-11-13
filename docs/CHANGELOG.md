@@ -1,5 +1,13 @@
 # What changed
 
+## Closing the gaps from the audit
+- The reader's Books and translation drawer now says what of the translation is really saved on the device ("14 of 73 books are saved, the ones you have opened" or "all 73"), read from the cache, with a link to Downloads.
+- New tests with a server that is really switched off (Playwright's offline switch does not reach the service worker): a downloaded pack loads with no connection, a file never saved does not, an opened chapter reads and an unopened one says it needs a connection.
+- Cross-reference workflow test through the interface (follow a reference, change translation, write a note, go back, find the note in the other translation). It found a real bug: changing translation dropped the "Back to John 3:16" way back. Fixed.
+- Writing test through the interface: write, edit, delete, close and reopen, export, restore, and a damaged file refused with a plain message (it used to show "Unexpected end of JSON input"). Google Drive backup is tested to report failure and never record a success it did not have.
+- Screen reader test (the accessibility tree): verses are buttons named "16 For God so loved...", the chapter is a labelled article under a level 1 heading, a selected verse says it is pressed. Search results, the audio player and 200% text are checked with axe.
+- Sources explains that about 77% of verses have connections tied to the verse itself and the rest are marked "whole chapter".
+
 ## Lengths on every YouTube video
 - The daily build now looks up the length of every YouTube video the app lists, not just the 41,980 in the video library: also the hand-picked passage videos (485 were missing) and the apologetics track videos.
 - Lengths now show on Media > For you, in a lesson's Watch and look and Watch and listen, and on the Videos in the Bible study panel, next to the creator's name ("Bishop Robert Barron · 25 min"). Before, only the Video library showed them.
