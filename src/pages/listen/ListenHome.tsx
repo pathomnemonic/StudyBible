@@ -28,6 +28,7 @@ import Fold from '../../components/Fold';
 import ForYou from './ForYou';
 import VideoLibrary from '../study/VideoLibrary';
 import PodcastLibrary from './PodcastLibrary';
+import MediaFreshness from '../../components/MediaFreshness';
 import Audiobooks from './Audiobooks';
 import { useShows, type Show } from '../../data/podcasts';
 import { useSettings } from '../../lib/store';
@@ -225,6 +226,7 @@ export default function ListenHome() {
         : <PodcastLibrary onOpen={(id) => go('podcasts', { show: id })} />)}
       {tab === 'audiobooks' && <Audiobooks />}
       {tab === 'programmes' && <div className="embedded-listen"><YearTab shows={shows} /></div>}
+      <MediaFreshness />
     </div>
   );
 }

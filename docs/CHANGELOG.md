@@ -1,5 +1,10 @@
 # What changed
 
+## Bible in a Year: finished, and automatic media updates
+- The tour's Bible in a Year question has a new answer, "I finished it and want something else". It and "Not for me" now offer what to listen to next: The Catechism in a Year, The Rosary in a Year, or an audiobook (Augustine's Confessions and the Imitation of Christ first). Picks are followed, so Media puts them first.
+- The daily scheduled deploy now also refreshes the Bible in a Year episode list from its public feed (the podcast lists were already refreshed) and the offline-pack sizes. Media shows when the lists were last refreshed. The app fetches data files network-first, so new episodes appear the next time it is opened online.
+- Refreshed the committed Bible in a Year list today: 25 new episodes.
+
 ## A shorter first run
 - The seven-step setup is gone. A first visit starts the point-and-tap tour by itself: it highlights the real screen and waits for you to tap it. End tour is on every step.
 - Steps: Today, tap a verse, the Church Fathers and saints beside it, the Year tab (with the Bible in a Year question), Books for LibriVox recordings of the saints' books, and Questions about the faith with the Learn-to-answer tracks. Answering "not for me" adds a step showing where to pick other media.

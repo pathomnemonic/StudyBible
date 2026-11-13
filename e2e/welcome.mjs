@@ -97,11 +97,32 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   if (/Tap Year/.test(await card())) await p.click('[role=tab]:has-text("Year")');
   await p.waitForFunction(() => /listened to Bible in a Year/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 8000 });
   await p.click('.tour-card button:has-text("Not for me")');
-  await p.click('.tour-card button:has-text("Leave it out")');
+  if (!/listen to instead/.test(await card())) fail('"Not for me" offers something else to listen to');
+  await p.click('.tour-card button:has-text("The Catechism in a Year")');
+  await p.click('.tour-card button:has-text("An audiobook")');
+  await p.waitForSelector('.tour-card [aria-label="Audiobooks"] button');
+  await p.click('.tour-card [aria-label="Audiobooks"] button >> nth=0');
+  await p.click('.tour-card button:has-text("Done")');
+  const follows = await p.evaluate(() => new Promise((res) => { const r = indexedDB.open('studybible'); r.onsuccess = () => { const t = r.result.transaction('cache').objectStore('cache').getAllKeys(); t.onsuccess = () => res(t.result.filter((k) => String(k).startsWith('follow:'))); }; }));
+  if (!follows.includes('follow:catechism-in-a-year') || follows.length < 2) fail('the picks are followed, got ' + JSON.stringify(follows));
   const set = await p.evaluate(() => JSON.parse(localStorage.getItem('studybible.settings.v1') ?? '{}'));
   if (set.activePlan !== '' || !(set.dashboard?.hidden ?? []).includes('biay')) fail('Bible in a Year should be left out');
   await next();
   await p.waitForFunction(() => /Pick other Catholic media/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 8000 }).catch(() => fail('For you step after "not for me"'));
+  await ctx.close();
+
+  // 3b. finished it: the same picker, worded for someone who is done
+  ctx = await b.newContext({ viewport: vp }); p = await ctx.newPage();
+  await p.goto(`${BASE}/#/listen`); await p.waitForSelector('.tour-card');
+  await p.evaluate(() => localStorage.setItem('sb:tourStep', '3')); await p.reload(); await p.waitForSelector('.tour-card');
+  if (/Tap Year/.test(await card())) await p.click('[role=tab]:has-text("Year")');
+  await p.waitForFunction(() => /listened to Bible in a Year/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 8000 });
+  await p.click('.tour-card button:has-text("I finished it and want something else")');
+  if (!/What would you like to listen to next/.test(await card())) fail('finished readers are asked what is next');
+  await p.click('.tour-card button:has-text("The Rosary in a Year")');
+  await p.click('.tour-card button:has-text("Done")');
+  const set2 = await p.evaluate(() => JSON.parse(localStorage.getItem('studybible.settings.v1') ?? '{}'));
+  if (set2.activePlan !== '') fail('Bible in a Year is no longer the active plan');
   await ctx.close();
 
   // 4. leave the tour from the first step: nothing else asks for anything

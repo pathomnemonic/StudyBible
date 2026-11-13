@@ -26,6 +26,8 @@ jobs:
         run: curl -fsS --max-time 30 https://bible.usccb.org/readings.rss -o /tmp/feed.xml && grep -q '<item>' /tmp/feed.xml && cp /tmp/feed.xml public/data/usccb/feed.xml || echo 'feed fetch failed; using committed copy'
       - name: Refresh the podcast episode lists from each show's public feed (keeps the committed lists if a feed fails)
         run: npx tsx scripts/podcasts/build.ts || echo 'podcast refresh failed; using committed lists'
+      - name: Refresh the Bible in a Year episode list from its public feed, then the offline-pack sizes (keeps the committed list if the feed fails)
+        run: mkdir -p data/raw && curl -fsS --max-time 60 https://feeds.fireside.fm/bibleinayear/rss -o data/raw/biay.rss.xml && npx tsx scripts/podcasts/refresh-biay.ts || echo 'Bible in a Year refresh failed; using the committed list'
       - run: npm run build
       - run: touch dist/.nojekyll
       - uses: actions/upload-pages-artifact@v3

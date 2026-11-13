@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-09",
+ "generated": "2026-11-13",
  "packs": [
   {
    "id": "learn",
@@ -7609,7 +7609,7 @@
   {
    "id": "media",
    "label": "Media lists: Bible in a Year schedule, podcasts, audiobooks and videos (the audio and video themselves are not included)",
-   "bytes": 15734555,
+   "bytes": 15763388,
    "files": [
     "media/biay.json",
     "media/librivox.json",
@@ -7682,7 +7682,7 @@
     "media/videos.json"
    ],
    "sizes": [
-    1999480,
+    2028313,
     419954,
     162296,
     150331,
@@ -7753,7 +7753,7 @@
     397512
    ],
    "sums": [
-    "8d99b40d9714baca",
+    "3af2503a2d2390f7",
     "c1f6af73490eb55b",
     "e036edf887bac3d0",
     "9c6eb04472a09165",
