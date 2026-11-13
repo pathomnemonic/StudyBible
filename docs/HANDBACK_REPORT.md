@@ -69,8 +69,8 @@ Each line says what is missing. "Data" means a source I cannot invent. Opportuni
 | 32 | Source-trust badge on every quotation | Confirmation that the verification files may be shown to readers; the saint-quote project was excluded, so this is blocked until that is reopened. |
 | 38 | Spaced review beyond verses | A decision. It changes the synced memory data, so it needs a migration plan. |
 | 17, 20 | Full profile pages | The tagging above. |
-| W-A | Knowledge graph; advanced catechesis platform; scripted tutor | Nothing external. These are offline work and are being built next (see `docs/ROADMAP_AMBITIOUS.md`, "Workstreams"). |
-| W-B | Variant explorer; audio alignment; interlinear | Data: a licensed variant table, verse timings, tagged original-language texts. |
+| W-A (done) | Knowledge graph; advanced catechesis platform (pacing, letters, notes); scripted tutor; source-class labels | Built and tested. Remaining parts: graph quotation layer and a whole-graph view; editing lesson text itself (local overrides). |
+| W-B (data) | Interlinear; variant explorer; audio alignment | Interlinear: the tagged texts were already in the app, so the chapter viewer is built; word-for-word English alignment needs an alignment data set. Variants: a browser over the app's 26 hand-picked passages is built; a full explorer needs a licensed variant table. Audio: needs verse-level timings. |
 | W-C | Native mobile | Platform and store work. |
 | W-D | Encrypted sync; collaborative groups; generated synthesis | Infrastructure and privacy decisions first. |
 | #203–205, #215 | Independent fact review of the wave-2 content; lesson explanations for all 456 lessons; lesson links and spaced review card; lesson standard | A reviewer and a go-ahead. These were deferred earlier by the owner. |
@@ -82,6 +82,15 @@ Other open points:
 - Butler's scanned months need a human proofread.
 - The collection button on a saint life or a family-line person saves a link that opens in a new tab, not an in-app item. I did not test that link by hand.
 - I did not open the live site and look at the new screens by hand; checks are automated.
+
+## 4b. Built since the first version of this report
+- Map of connections (/study/map): one normalised graph of about 980 things and 2,500 typed links built from the app's own data by `npm run graph`; follow links, ask how two things connect, optionally include your own notes.
+- Think it through (/study/tutor): a scripted guided walk through any Argument Map question; nothing generated.
+- Catechesis: pace a grade over the school year, print the calendar, a letter to families per unit, put the plan in a class planner, and keep notes on each lesson.
+- Original language, word by word (/study/interlinear): any chapter of the Greek New Testament or Hebrew Bible, with grammar and dictionary entries.
+- Where the ancient texts differ (/study/variants): the curated list with each verse in three translations.
+- A label on every Father, saint, council and scholar passage saying what kind of voice it is.
+- The roadmap now lists each ambitious feature as its own workstream with its real prerequisites (`docs/ROADMAP_AMBITIOUS.md`).
 
 ## 5. Suggested next assignments, cheapest first
 
