@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import InlinePlayer from '../components/InlinePlayer';
 import { embedFor } from '../lib/embed';
 import { resolveInapp, trackPath } from '../lib/apolTracks';
+import { useVideoMeta, youtubeId, fmtLength } from '../lib/videoMeta';
 import Fold from '../components/Fold';
 import type { Extras, Media } from './extras';
 
@@ -11,10 +12,13 @@ const KIND: Record<string, string> = { video: 'Video', talk: 'Talk', debate: 'De
 function Item({ m, lead }: { m: Media; lead?: boolean }) {
   const [play, setPlay] = useState(false);
   const e = embedFor(m.url);
+  const meta = useVideoMeta();
+  const id = youtubeId(m.url);
+  const len = (id && fmtLength(meta?.get(id)?.[0])) || (m.minutes ? fmtLength(m.minutes * 60) : '');
   return (
     <li className={`lm-item${lead ? ' lm-lead' : ''}`}>
       <div className="lm-meta"><span className="chip">{KIND[m.kind] ?? m.kind}</span> <strong>{m.title}</strong></div>
-      <div className="muted small">{m.creator}{m.minutes ? ` · ${m.minutes >= 60 ? `${Math.floor(m.minutes / 60)} h ${m.minutes % 60} min` : `${m.minutes} min`}` : ''}</div>
+      <div className="muted small">{m.creator}{len ? ` · ${len}` : ''}</div>
       <p className="small" style={{ margin: '2px 0 6px' }}>{m.why}</p>
       {play && e ? <InlinePlayer embed={e} title={m.title} /> : (
         <div className="row" style={{ gap: 6 }}>

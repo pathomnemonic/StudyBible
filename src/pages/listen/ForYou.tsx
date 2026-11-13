@@ -1,3 +1,4 @@
+import { useVideoMeta, fmtLength } from '../../lib/videoMeta';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Fold from '../../components/Fold';
@@ -14,6 +15,7 @@ interface Lib { channels: string[]; videos: [string, string, number, 1?][] }
 
 /** Media's front shelf: your favorite audiobooks and creators first, then where you stopped and what is new from the shows you follow. */
 export default function ForYou({ onAllPodcasts }: { onAllPodcasts?: () => void }) {
+  const vmeta = useVideoMeta();
   const follows = useFollows();
   const [st] = useSettings();
   const [works, setWorks] = useState<LibraryWorkMeta[]>([]);
@@ -42,7 +44,7 @@ export default function ForYou({ onAllPodcasts }: { onAllPodcasts?: () => void }
           <ul className="plain" style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: 8 }}>
             {vids.map(({ v, ch }) => { const e = embedFor(`https://www.youtube.com/watch?v=${v[0]}`); return (
               <li key={v[0]} className="card" style={{ padding: 10 }}>
-                <strong>{v[1]}</strong><div className="muted small">{ch}</div>
+                <strong>{v[1]}</strong><div className="muted small">{ch}{fmtLength(vmeta?.get(v[0])?.[0]) ? ` · ${fmtLength(vmeta?.get(v[0])?.[0])}` : ''}</div>
                 {play === v[0] && e ? <InlinePlayer embed={e} title={v[1]} /> : <button className="btn small" style={{ marginTop: 6 }} onClick={() => setPlay(v[0])}>▶ Play here</button>}
               </li>); })}
           </ul>

@@ -1022,8 +1022,10 @@ export const providers: Record<string, Provider> = {
   /** teaching videos from Catholic creators, matched to the passage by what they are about */
   async videos(refs) {
     const { videosFor } = await import('../data/videos');
+    const { loadVideoMeta, fmtLength } = await import('../lib/videoMeta');
+    const meta = await loadVideoMeta();
     return (await videosFor(refs, false)).map((v) => ({
-      id: `video-${v.id}`, section: 'videos' as SectionKey, title: v.title, author: v.channel, url: `https://www.youtube.com/watch?v=${v.id}`,
+      id: `video-${v.id}`, section: 'videos' as SectionKey, title: v.title, author: [v.channel, fmtLength(meta?.get(v.id)?.[0])].filter(Boolean).join(' · '), url: `https://www.youtube.com/watch?v=${v.id}`,
       excerpt: v.note, authority: 'media' as AuthorityLevel, period: 'contemporary' as Period, format: 'video' as ItemFormat, match: 'passage' as MatchKind,
       why: v.note ? `Matched by subject: ${v.note}` : 'A teaching video about this passage, from a Catholic creator.', sourceName: `${v.channel} on YouTube`, kind: 'Video', noEmbed: v.noEmbed,
     }));

@@ -10,6 +10,7 @@ import InTracks from '../../components/apol/InTracks';
 import { getGlossary, getGrade, flatLessons, gradeLabel, progressId, toggleDone, vocabQuiz, reviewTerms, cccList, parseQuiz, type GradeData, type Glossary, type LessonSpec, type Question } from '../../curriculum/model';
 import { bandOf, FAMILY_DAYS, type Band } from '../../curriculum/pedagogy';
 import { activityName } from '../../curriculum/LessonSlides';
+import { useVideoMeta, fmtLength } from '../../lib/videoMeta';
 import { useLessonSources } from '../../curriculum/useLessonSources';
 import InlinePlayer from '../../components/InlinePlayer';
 import LessonSlides, { buildSlides } from '../../curriculum/LessonSlides';
@@ -114,6 +115,7 @@ export default function CurriculumLesson() {
     getFeatured().then((f) => live && setBigQ(f.find((x) => x.id === lessonId)?.q ?? ''));
     return () => { live = false; };
   }, [lessonId]);
+  const vmeta = useVideoMeta();
   const src0 = useLessonSources(lesson, g?.band);
   const src = useMemo(() => (st.lessonPictures ? src0 : { ...src0, art: [] }), [src0, st.lessonPictures]);
   const prog = useLiveQuery(() => db.planProgress.get(progressId(grade)), [grade]);
@@ -340,7 +342,7 @@ export default function CurriculumLesson() {
           {src.videos.map((v) => (
             <div key={v.id} className="card" style={{ marginBottom: 8 }}>
               {playing === v.id ? <InlinePlayer embed={embedFor(`https://www.youtube.com/watch?v=${v.id}`)!} title={v.title} /> : <button className="btn" onClick={() => setPlaying(v.id)}>▶ {v.title}</button>}
-              <div className="muted small">{v.channel}. Watch it yourself first; it is a link to a creator’s video, not part of this program.</div>
+              <div className="muted small">{v.channel}{fmtLength(vmeta?.get(v.id)?.[0]) ? ` · ${fmtLength(vmeta?.get(v.id)?.[0])}` : ''}. Watch it yourself first; it is a link to a creator’s video, not part of this program.</div>
             </div>
           ))}
           {src.art.length > 0 && <div className="kids-art">{src.art.map((a) => <figure key={a.id}><img src={import.meta.env.BASE_URL + a.file} alt={a.title} loading="lazy" /><figcaption className="small muted">{a.title}, {a.artist}</figcaption></figure>)}</div>}

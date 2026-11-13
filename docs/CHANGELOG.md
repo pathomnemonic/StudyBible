@@ -1,5 +1,9 @@
 # What changed
 
+## Lengths on every YouTube video
+- The daily build now looks up the length of every YouTube video the app lists, not just the 41,980 in the video library: also the hand-picked passage videos (485 were missing) and the apologetics track videos.
+- Lengths now show on Media > For you, in a lesson's Watch and look and Watch and listen, and on the Videos in the Bible study panel, next to the creator's name ("Bishop Robert Barron · 25 min"). Before, only the Video library showed them.
+
 ## Offline, accessibility and reader review
 - Offline claims in Help, Settings, Account and Pilgrim now say exactly what works offline: the app and your notes always; Scripture and study data for what you opened or downloaded. New tests: first launch online then offline (an opened chapter reads, an unopened one says it needs a connection) and recovery from a missing script after an update.
 - npm run e2e:a11y2: axe at every impact level on 13 screens at 320, 768 and 1280 px, seven widths for sideways scroll, landscape phone and tablet, 200% and 400% zoom, reduced motion, and keyboard behaviour in the reader (visible focus, Enter selects a verse, s opens the panel, Escape closes it). It found one low-contrast link, now fixed. Tiny inline targets (footnote markers inside a sentence) are listed rather than failed, since WCAG 2.2 exempts inline targets.

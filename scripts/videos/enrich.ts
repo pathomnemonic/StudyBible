@@ -7,7 +7,7 @@
  * It is safe to stop and run again: videos already done are skipped. Then run the manifest step so downloads include it:
  *   npx tsx -e "import { buildManifest } from './scripts/ingest/manifest'; buildManifest();"
  */
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { isoSeconds } from '../../src/lib/isoDuration';
 
 const KEY = process.env.YOUTUBE_API_KEY;
@@ -17,7 +17,13 @@ const OUT = 'public/data/media/video_meta.json';
 const lib = JSON.parse(readFileSync(LIB, 'utf8')) as { videos: [string, string, number][] };
 const have: { about?: string; d: Record<string, [number, number]> } = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : { d: {} };
 have.about = 'Length in seconds and upload date (yyyymmdd) of each video, from the YouTube Data API. Videos missing here were private, removed or not yet fetched.';
-const todo = lib.videos.map((v) => v[0]).filter((id) => !(id in have.d));
+// the library, the hand-picked passage videos and the apologetics track videos: every YouTube video the app lists
+const extra: string[] = [];
+try { for (const v of (JSON.parse(readFileSync('public/data/media/videos.json', 'utf8')) as { videos: { id: string }[] }).videos) extra.push(v.id); } catch { /* optional */ }
+try {
+  for (const f of readdirSync('src/data/apologetics/tracks')) for (const r of (JSON.parse(readFileSync(`src/data/apologetics/tracks/${f}`, 'utf8')) as { resources: { url: string }[] }).resources) { const m = /[?&]v=([\w-]{11})/.exec(r.url); if (m) extra.push(m[1]); }
+} catch { /* optional */ }
+const todo = [...new Set([...lib.videos.map((v) => v[0]), ...extra])].filter((id) => !(id in have.d));
 console.log(`${todo.length} videos to look up (${Object.keys(have.d).length} already done)`);
 
 const save = () => writeFileSync(OUT, JSON.stringify(have));
