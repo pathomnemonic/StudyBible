@@ -140,6 +140,7 @@ export default function NoteEditor({
         </div>
       )}
       {preview ? <div className="md card" dangerouslySetInnerHTML={{ __html: renderMarkdown(body) }} /> : <textarea value={body} onChange={(e) => setBody(e.target.value)} autoFocus aria-label="Note text" />}
+      {!preview && <p className="muted small">Link to another of your notes by writing its title in double square brackets, like [[Bread of life]]. Markdown works too.</p>}
       <div className="row" style={{ marginTop: 8 }}>
         <input type="text" placeholder="Tags, comma separated" value={tags} onChange={(e) => setTags(e.target.value)} style={{ flex: 1 }} aria-label="Tags" />
         <select value={folderId ?? ''} onChange={(e) => setFolderId(e.target.value ? +e.target.value : undefined)} aria-label="Folder">

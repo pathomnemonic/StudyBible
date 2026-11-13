@@ -4,6 +4,11 @@ Found by reading the 179-entry feature registry (`src/lib/features.ts`), the dat
 
 Legend: **S** small (days), **M** medium (a week or two), **L** large. "Offline" says whether it works with no connection.
 
+## Status (updated after the second cycle)
+**Built:** 11 (done-state only; the rhythm and Today step are not), 12 (templates, passages only), 13 (note-to-note links), 14 and 15 (Review tab), 16 (web-page export), 17 (partly: writings and collection button on each life), 20 and 23 (partly: children and collection button), 27 (Sunday buttons), 30 (the prayer list takes a verse; Examen and Rosary do not show it yet), 31 (readiness card), 33 (prefilled report), 34 (collections in the vault zip).
+**Already existed in some form:** 10 (the Catechism page shows each footnote's Scripture as links), 22 (the Archaeology tab of The biblical world), 25 (season blurbs on the Church year page).
+**Not built:** 1-9, 18, 19, 21, 24, 26, 28, 29, 32, 35-38.
+
 ## Study and Scripture
 1. **Verse-by-verse reading mode with the commentary collapsed under each verse (M, offline).** Today the study panel opens beside the text. In a "reading with notes" mode each verse has a one-line marker that expands to the best single note (Haydock, Challoner or Catena) in place, so a slow reader never leaves the page. Reuses the study-panel ranking that already picks "start here" items.
 2. **"Why is this here?" on every connection (S, offline).** Each item in the panel already carries a match type. Surface it as a plain sentence ("The Catechism quotes this verse in a footnote of §1324") with the footnote text, so people see the evidence, not just a label.

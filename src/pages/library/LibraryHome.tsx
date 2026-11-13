@@ -22,6 +22,7 @@ const TABS: [Tab, string][] = [['notes', 'Notes'], ['highlights', 'Highlights'],
 const MORE: [Tab, string][] = [['graph', 'Knowledge graph'], ['xrefs', 'Connections'], ['saved', 'Saved'], ['history', 'History'], ['trash', 'Recently deleted'], ['export', 'Export and backup']];
 
 import ReviewTab from './ReviewTab';
+import { resolveNoteLinks } from '../../lib/noteLinks';
 export default function LibraryHome() {
   const loc = useLocation();
   const nav = useNavigate();
@@ -117,7 +118,7 @@ function Notes({ openId }: { openId?: number }) {
         <div className="card" key={n.id}>
           <div className="row between"><h3>{n.pinned ? '📌 ' : ''}{n.title || (n.kind === 'question' ? 'Question' : 'Note')}</h3><span className="chip">{n.kind}</span></div>
           <div className="chips">{n.targets.map((t, i) => <TargetChip key={i} t={t} />)}</div>
-          <div className="md" dangerouslySetInnerHTML={{ __html: renderMarkdown(n.body) }} />
+          <div className="md" dangerouslySetInnerHTML={{ __html: renderMarkdown(resolveNoteLinks(n.body, notes)) }} />
           <NoteBacklinks note={n} />
           <div className="chips">{n.tags.map((t) => <span className="chip" key={t}>#{t}</span>)}{n.folderId && <span className="chip">📁 {folders.find((f) => f.id === n.folderId)?.name}</span>}</div>
           <div className="row" style={{ marginTop: 6 }}><button className="btn small" onClick={() => setEditing(n)}>Edit</button><button className="btn small" aria-pressed={!!n.pinned} onClick={() => db.notes.update(n.id!, { pinned: !n.pinned })}>{n.pinned ? 'Unpin' : 'Pin'}</button><span className="muted small">{new Date(n.updatedAt).toLocaleDateString()}</span></div>
