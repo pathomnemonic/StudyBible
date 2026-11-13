@@ -69,7 +69,10 @@ Each line says what is missing. "Data" means a source I cannot invent. Opportuni
 | 32 | Source-trust badge on every quotation | Confirmation that the verification files may be shown to readers; the saint-quote project was excluded, so this is blocked until that is reopened. |
 | 38 | Spaced review beyond verses | A decision. It changes the synced memory data, so it needs a migration plan. |
 | 17, 20 | Full profile pages | The tagging above. |
-| — | Roadmap items 1 (generated half), 2, 3, 4, 5, 6, 7, 8, 9, 10 | A host, a model, a native build, or a design brief. |
+| W-A | Knowledge graph; advanced catechesis platform; scripted tutor | Nothing external. These are offline work and are being built next (see `docs/ROADMAP_AMBITIOUS.md`, "Workstreams"). |
+| W-B | Variant explorer; audio alignment; interlinear | Data: a licensed variant table, verse timings, tagged original-language texts. |
+| W-C | Native mobile | Platform and store work. |
+| W-D | Encrypted sync; collaborative groups; generated synthesis | Infrastructure and privacy decisions first. |
 | #203–205, #215 | Independent fact review of the wave-2 content; lesson explanations for all 456 lessons; lesson links and spaced review card; lesson standard | A reviewer and a go-ahead. These were deferred earlier by the owner. |
 
 Other open points:

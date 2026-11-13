@@ -1,6 +1,37 @@
 # Ambitious features: a long-term proposal
 
-None of these is built. Each is assessed against what the app already has, so the order and cost are honest. Common rules: the core app must keep working with no network and no AI service; nothing personal leaves the device unless the person chooses; every claim carries its source.
+None of these is complete. Each is assessed against what the app already has. Common rules: the core app must keep working with no network and no AI service; nothing personal leaves the device unless the person chooses; every claim carries its source.
+
+## Workstreams and their real prerequisites
+
+Earlier versions of this page implied that several of these wait on "a model or a server". That was wrong for most of them. Each is listed here as its own workstream with what it actually needs. Only the last two groups need infrastructure.
+
+### A. Offline work that can start now (no data purchase, no server, no model)
+| Workstream | What it needs | What it does not need |
+| --- | --- | --- |
+| **Theological knowledge graph** (item 3) | A normalised node and edge list built at build time from data the app already ships (doctrine topics, argument/claim/heresy/development chains, lives, library works and authors, Catechism references, Scripture references), plus one viewer. Decisions: node and edge types, stable ids, which edges are shown by default. | A host. A model. New source data. |
+| **Advanced catechesis platform** (item 7) | The existing lesson model and slides. New pieces: local lesson overrides stored like notes and included in backup, a unit pacing calendar, a printable answer key built from each lesson's quiz, a parent letter built from the lesson's send-home step. | A server. Accounts. A model. |
+| **Scripted study tutor** (item 2, scripted form) | Sourced hints revealed in steps, taken from the argument chains and the Debate-it protocol. | A model (only needed if the hints are to be rephrased). |
+| **Labelled retrieval answers** (item 1, retrieval half) | Built: Ask the sources. Remaining: a source-class map that covers every work in the library, and a pre-built search index as an offline pack. | A model. |
+
+### B. Offline work that waits on data
+| Workstream | The data it waits on |
+| --- | --- |
+| **Manuscript and textual-variant explorer** (item 4) | A curated variant table (verse, readings, supporting manuscripts, how translations choose), from an apparatus whose licence allows it. The viewer already exists for manuscripts. |
+| **Synchronised recorded audio** (item 5) | Alignment data: verse-level timings per recording, produced by forced alignment at build time on recordings whose licence allows it, or chapter-level sync using what already exists. |
+| **Interlinear and fuller original-language study** (item 6) | Morphologically tagged public-domain original-language texts (Greek New Testament, Hebrew Bible) with a clear licence, shipped as an offline pack of roughly 20 to 40 MB. |
+
+### C. Work that needs platform or store work
+| Workstream | What it needs |
+| --- | --- |
+| **Native mobile applications** (item 8) | A Capacitor (or similar) wrapper, store accounts, signing and review, a plan for IndexedDB eviction differences, push and background audio. One codebase. |
+
+### D. Work that needs an infrastructure and privacy decision first
+| Workstream | The decisions it needs |
+| --- | --- |
+| **Optional end-to-end encrypted sync** (item 9) | Key derivation and what happens when a passphrase is lost; what the server may learn (table, uid, time); a migration for people already syncing in plain form; recovery policy. |
+| **Collaborative study groups** (item 10) | Identity and invitations; where shared data lives (a server or a peer-to-peer layer); group keys; moderation; safeguarding when minors are present; data-deletion rules. |
+| **Generated written synthesis** (item 1, optional second half) | A person supplies their own key or a local model; checking that every cited id exists and every quotation appears verbatim; the banner that marks it generated. |
 
 ## 1. An evidence-grounded Catholic study assistant
 
@@ -49,8 +80,8 @@ Today sync (self-hosted) stores notes readable on the server. Add a passphrase-d
 Shared collections and notes within a small group, with comments. Needs an identity and a shared store, so a server or a peer-to-peer layer. The live-class relay (sealed with a class code) shows a no-account pattern. **Infrastructure:** group keys, invitations, moderation. **Complexity:** L. **Risks:** privacy of shared reflections, moderation, safeguarding when minors are present. **Offline:** read yes, collaborate no.
 
 ## Suggested order
-1. Labelled retrieval answers (item 1, steps 1-3): it reuses the most and needs no service.
-2. Encrypted sync (9): makes the existing optional sync safe to recommend.
-3. Knowledge graph data unification (3): feeds 1 and 2.
-4. Interlinear (6) and manuscript variants (4): data-heavy, independent.
-5. Audio sync (5), tutor (2), catechesis authoring (7), wrapper (8), groups (10).
+1. Knowledge graph normalisation and viewer (A): it feeds the assistant and every explorer, and needs nothing external.
+2. Advanced catechesis platform (A): it reuses the lesson model and stays offline.
+3. Scripted tutor and the source-class map (A).
+4. Data workstreams (B), in whichever order the data is found: interlinear, variants, audio alignment.
+5. Decisions for D (encrypted sync, groups), then C (native wrapper).
