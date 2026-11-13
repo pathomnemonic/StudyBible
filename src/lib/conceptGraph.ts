@@ -1,13 +1,13 @@
 import { getJson } from '../data/loader';
 
-export type Kind = 'topic' | 'argument' | 'claim' | 'development' | 'heresy' | 'word' | 'life' | 'situation' | 'passage' | 'catechism' | 'work' | 'author';
+export type Kind = 'topic' | 'argument' | 'claim' | 'development' | 'heresy' | 'word' | 'life' | 'situation' | 'passage' | 'catechism' | 'work' | 'author' | 'note';
 export interface GNode { id: string; kind: Kind; label: string; sub?: string; to?: string }
 export interface GEdge { a: string; b: string; type: string }
 export interface ConceptGraph { generated: string; nodes: GNode[]; edges: GEdge[]; counts: Record<string, number> }
 
 export const KIND_LABEL: Record<Kind, string> = {
   topic: 'Doctrine topics', argument: 'Arguments', claim: 'Claims checked', development: 'How teachings developed', heresy: 'Heresies', word: 'Key words', life: 'Lives of saints', situation: 'Situations',
-  passage: 'Bible chapters', catechism: 'Catechism paragraphs', work: 'Works in the library', author: 'Authors',
+  passage: 'Bible chapters', catechism: 'Catechism paragraphs', work: 'Works in the library', author: 'Authors', note: 'My notes',
 };
 
 let loaded: Promise<ConceptGraph | null> | null = null;
@@ -64,4 +64,36 @@ export function shortestPath(ix: Index, from: string, to: string, maxDepth = 6):
     frontier = next;
   }
   return null;
+}
+
+/** Your own notes as an extra layer: each note joins the Bible chapters it is written on, and the argument it was written for (when it came from "Think it through"). */
+export function personalLayer(
+  notes: { id?: number; title?: string; body: string; kind: string; tags: string[]; targets: { type: string; ref?: string }[] }[],
+  chapterOf: (ref: string) => { book: string; c: number; name: string } | null,
+  has: (nodeId: string) => boolean,
+): { nodes: GNode[]; edges: GEdge[] } {
+  const nodes: GNode[] = [], edges: GEdge[] = [];
+  const extra = new Map<string, GNode>();
+  for (const n of notes) {
+    if (n.id == null) continue;
+    const id = `note:${n.id}`;
+    const label = (n.title || n.body.split('\n')[0] || 'A note').slice(0, 60);
+    const mine: GEdge[] = [];
+    for (const t of n.targets) {
+      if (t.type !== 'passage' || !t.ref) continue;
+      const ch = chapterOf(t.ref);
+      if (!ch) continue;
+      const pid = `passage:${ch.book}.${ch.c}`;
+      if (!has(pid) && !extra.has(pid)) extra.set(pid, { id: pid, kind: 'passage', label: ch.name, to: `/read/webc/${ch.book}/${ch.c}` });
+      mine.push({ a: id, b: pid, type: 'written on' });
+    }
+    for (const tag of n.tags) {
+      const m = /^(argument|claim|development|heresy|word):(.+)$/.exec(tag);
+      if (m && has(tag)) mine.push({ a: id, b: tag, type: 'written for' });
+    }
+    if (!mine.length) continue;
+    nodes.push({ id, kind: 'note', label, sub: n.kind === 'question' ? 'a question' : undefined, to: `/library/notes/${n.id}` });
+    edges.push(...mine);
+  }
+  return { nodes: [...nodes, ...extra.values()], edges };
 }

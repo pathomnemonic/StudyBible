@@ -98,4 +98,8 @@ if (!(await p.locator('.tutor blockquote').count())) fail('the source words shou
 for (let i = 0; i < 40; i++) { const next = p.locator('button', { hasText: /^(Next|Finish)$/ }); if (!(await next.count())) break; await next.first().click(); await p.waitForTimeout(80); }
 if (!/the answer in brief/i.test(await p.locator('.tutor').innerText())) fail('the tutor should end with the answer in brief: ' + (await p.locator('.tutor').innerText()).slice(0, 300));
 await p.locator('button', { hasText: 'Keep my answer as a note' }).click(); await p.waitForTimeout(400);
+// the saved answer appears on the map once "include my notes" is on
+await p.goto(`${BASE}/#/study/map?n=${encodeURIComponent('argument:real-presence')}`); await p.waitForSelector('.concept-map .cm-group', { timeout: 30000 });
+await p.locator('label', { hasText: 'Include my notes' }).locator('input').check(); await p.waitForTimeout(600);
+if (!/My notes/.test(await p.locator('.concept-map').innerText())) fail('a note saved from Think it through should join its argument on the map');
 await b.close(); console.log('review ok');

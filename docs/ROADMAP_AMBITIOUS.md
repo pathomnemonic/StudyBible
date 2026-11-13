@@ -59,7 +59,7 @@ Socratic prompts on a passage ("What does Nicodemus misunderstand?") that reveal
 
 ## 3. A visual theological knowledge graph
 
-*Status: built as the Map of connections (/study/map). `npm run graph` normalises the app's own data into `public/data/graph/graph.json` (about 980 nodes, 2,500 typed edges); the page shows a node's links grouped by kind and finds the shortest chain between two things. Not yet: the personal notes graph and the quotation layer as optional additions, and a pan-and-zoom whole-graph view.*
+*Status: built as the Map of connections (/study/map). `npm run graph` normalises the app's own data into `public/data/graph/graph.json` (about 980 nodes, 2,500 typed edges); the page shows a node's links grouped by kind and finds the shortest chain between two things. The personal notes layer is built (opt-in, on the device). Not yet: a quotation layer and a pan-and-zoom whole-graph view.*
 A navigable graph of doctrines, passages, councils, Fathers and saints with typed edges ("quotes", "defined at", "develops"). The personal graph, constellation, concept graph, doctrine map and argument chains already exist as separate views. The work is a single normalised edge list built from them, with one viewer. **Infrastructure:** a build-time graph file; a WebGL or canvas layout. **Complexity:** L (data unification is the hard part). **Risks:** a pretty graph with weak edges; show the edge's source on tap. **Offline:** yes.
 
 ## 4. Manuscript and textual criticism explorer

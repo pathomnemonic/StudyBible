@@ -31,3 +31,25 @@ describe('the normalised concept graph', () => {
     expect(shortestPath(ix, 'topic:eucharist', 'nope')).toBeNull();
   });
 });
+
+import { personalLayer } from '../src/lib/conceptGraph';
+describe('the personal layer', () => {
+  const chapterOf = (ref: string) => { const m = /^([A-Z0-9]{3})\.(\d+)/.exec(ref); return m ? { book: m[1], c: +m[2], name: `${m[1]} ${m[2]}` } : null; };
+  const has = (id: string) => ix.byId.has(id);
+  it('joins a note to the chapter it is written on', () => {
+    const l = personalLayer([{ id: 7, title: 'Bread', body: 'x', kind: 'note', tags: [], targets: [{ type: 'passage', ref: 'JHN.6.51' }] }], chapterOf, has);
+    expect(l.nodes.some((n) => n.id === 'note:7' && n.kind === 'note')).toBe(true);
+    expect(l.edges).toContainEqual({ a: 'note:7', b: 'passage:JHN.6', type: 'written on' });
+  });
+  it('joins a note to the argument it was written for, only when that argument exists', () => {
+    const l = personalLayer([
+      { id: 1, body: 'a', kind: 'note', tags: ['argument:real-presence'], targets: [] },
+      { id: 2, body: 'b', kind: 'note', tags: ['argument:no-such-thing'], targets: [] },
+    ], chapterOf, has);
+    expect(l.edges).toContainEqual({ a: 'note:1', b: 'argument:real-presence', type: 'written for' });
+    expect(l.nodes.some((n) => n.id === 'note:2')).toBe(false);
+  });
+  it('leaves out a note with nothing to connect it to', () => {
+    expect(personalLayer([{ id: 3, body: 'lonely', kind: 'note', tags: [], targets: [] }], chapterOf, has).nodes).toEqual([]);
+  });
+});

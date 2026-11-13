@@ -1,11 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { indexGraph, KIND_LABEL, loadConceptGraph, neighbours, shortestPath, type ConceptGraph, type GNode, type Index, type Kind } from '../../lib/conceptGraph';
+import { useLiveQuery } from 'dexie-react-hooks';
+import { db } from '../../db/db';
+import { parseRefId } from '../../lib/refs';
+import { convertRef } from '../../lib/versification';
+import { BOOK_BY_ID } from '../../lib/canon';
+import { personalLayer, indexGraph, KIND_LABEL, loadConceptGraph, neighbours, shortestPath, type ConceptGraph, type GNode, type Index, type Kind } from '../../lib/conceptGraph';
 
-const KIND_ORDER: Kind[] = ['topic', 'argument', 'claim', 'development', 'heresy', 'word', 'situation', 'life', 'passage', 'catechism', 'work', 'author'];
+const KIND_ORDER: Kind[] = ['note', 'topic', 'argument', 'claim', 'development', 'heresy', 'word', 'situation', 'life', 'passage', 'catechism', 'work', 'author'];
 const PALETTE: Record<Kind, string> = {
   topic: '#2f7d5b', argument: '#4a6f8a', claim: '#4a6f8a', development: '#4a6f8a', heresy: '#8a2f39', word: '#6b5b95', situation: '#b4631f', life: '#b4631f',
-  passage: '#7a6a2f', catechism: '#2f7d5b', work: '#5b6b7a', author: '#6b5b95',
+  passage: '#7a6a2f', catechism: '#2f7d5b', work: '#5b6b7a', author: '#6b5b95', note: '#b4631f',
 };
 
 /** Finds nodes whose label contains every word of the query, best (shortest) labels first. */
@@ -60,7 +65,15 @@ export default function ConceptMapPage() {
   const [sp, setSp] = useSearchParams();
   const [g, setG] = useState<ConceptGraph | null | undefined>(undefined);
   useEffect(() => { loadConceptGraph().then(setG); }, []);
-  const ix: Index | null = useMemo(() => (g ? indexGraph(g) : null), [g]);
+  const [withMine, setWithMine] = useState(false);
+  const notes = useLiveQuery(() => db.notes.toArray(), []) ?? [];
+  const merged = useMemo(() => {
+    if (!g || !withMine) return g ?? null;
+    const have = new Set(g.nodes.map((n) => n.id));
+    const layer = personalLayer(notes, (ref) => { const r = parseRefId(ref); if (!r) return null; const e = convertRef('vulgate', 'kjv', r).ref; return { book: e.book, c: e.c1, name: `${BOOK_BY_ID[e.book]?.name ?? e.book} ${e.c1}` }; }, (id) => have.has(id));
+    return { ...g, nodes: [...g.nodes, ...layer.nodes.filter((n) => !have.has(n.id))], edges: [...g.edges, ...layer.edges] };
+  }, [g, withMine, notes]);
+  const ix: Index | null = useMemo(() => (merged ? indexGraph(merged) : null), [merged]);
   const id = sp.get('n') ?? 'topic:eucharist';
   const to = sp.get('to') ?? '';
   const centre = ix?.byId.get(id) ?? ix?.byId.get('topic:eucharist');
@@ -79,7 +92,8 @@ export default function ConceptMapPage() {
       <p className="muted small">{g.nodes.length.toLocaleString()} things and {g.edges.length.toLocaleString()} links, built {g.generated}.</p>
 
       <section className="card" aria-label="Choose where to start">
-        <Picker g={g} label="Start from" value={centre.id} onPick={go} />
+        <Picker g={merged ?? g} label="Start from" value={centre.id} onPick={go} />
+        <label className="row" style={{ gap: 8, marginTop: 8 }}><input type="checkbox" checked={withMine} onChange={(e) => setWithMine(e.target.checked)} /> Include my notes (they join the Bible chapters they are written on, and the argument they were written for). Stays on this device.</label>
       </section>
 
       <section className="card" aria-label={`Connections of ${centre.label}`}>
