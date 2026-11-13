@@ -60,8 +60,8 @@ async function build(show: any) {
       short: title.replace(/^day\s+\d+\s*[:\-–]\s*/i, ''),
       date: (() => { const d = new Date(text(it.pubDate)); return Number.isNaN(+d) ? '' : d.toISOString().slice(0, 10); })(),
       duration: secs(it['itunes:duration']),
-      audio: enc ?? '',
-      page: text(it.link) || show.page,
+      audio: (enc ?? '').replace(/&amp;/g, '&'),   // feeds escape the ampersands of an address
+      page: (text(it.link) || show.page).replace(/&amp;/g, '&'),
       description: desc,
       passages: [] as string[],
       ccc: show.id === 'catechism-in-a-year' ? cccRanges(full) : undefined,

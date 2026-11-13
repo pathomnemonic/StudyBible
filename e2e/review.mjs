@@ -42,4 +42,10 @@ if (!/2026-11-08/.test(await p.evaluate(() => location.hash))) fail('Previous Su
 // 4. offline readiness card exists and answers yes or not yet
 await p.goto(`${BASE}/#/downloads`); await p.waitForTimeout(1200);
 if (!/ready for a flight\? (yes|not yet)/i.test(await p.locator('.page').innerText())) fail('the offline readiness card should be on the Downloads page');
+// 5. family sheet table cards
+await p.goto(`${BASE}/#/family-sheet?d=2026-11-15`); await p.waitForTimeout(1500);
+await p.locator('button', { hasText: 'Table cards' }).click(); await p.waitForTimeout(400);
+if (!/Card 1 of \d+/.test(await p.locator('.fs-cards').innerText())) fail('the table cards should start at card 1');
+await p.locator('button', { hasText: 'Next question' }).click(); await p.waitForTimeout(300);
+if (!/Card 2 of/.test(await p.locator('.fs-cards').innerText())) fail('Next question should move to card 2');
 await b.close(); console.log('review ok');

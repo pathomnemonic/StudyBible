@@ -6307,3 +6307,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 
 .rp-trail { display: inline-flex; gap: 6px; align-items: center; margin-left: 8px; }
 .rp-earlier { background: none; border: 0; padding: 0 2px; color: inherit; text-decoration: underline; cursor: pointer; font: inherit; }
+
+.fs-card { margin: 12px auto; max-width: 640px; padding: 28px 24px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); text-align: center; }
+.fs-card h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 12px; }
+.fs-card p { font-size: clamp(1.4rem, 4.5vw, 2rem); line-height: 1.35; margin: 0; }

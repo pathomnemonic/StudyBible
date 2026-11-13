@@ -36,10 +36,33 @@ export default function FamilySheetPage() {
   const full = gospel ? gospel.verses.map((v) => v.text).join(' ') : '';
   const genre = genreOf(full);
   const quote = quoteOf(full);
+  const [cards, setCards] = useState(false);
+  const [ci, setCi] = useState(0);
+  const deck = gospel ? [
+    ...LEVELS.flatMap((l) => questionsFor(genre, l.id).map((q) => ({ head: l.title, text: q }))),
+    { head: 'This week', text: actionFor(genre) },
+  ] : [];
+  const card = deck[Math.min(ci, Math.max(0, deck.length - 1))];
   return (
     <div className="page family-sheet">
       <div className="row between no-print"><h1>Family Gospel sheet</h1><div className="row" style={{ gap: 8 }}><input type="date" value={date} aria-label="Pick a Sunday" onChange={(e) => e.target.value && setSp({ d: e.target.value }, { replace: true })} /><PrintButton label="Print" className="btn small primary" /></div></div>
-      <div className="print-sheet fs-sheet">
+      {gospel && (
+        <div className="row no-print" style={{ gap: 8, margin: '8px 0' }}>
+          <button className="btn small" aria-pressed={!cards} onClick={() => setCards(false)}>Sheet</button>
+          <button className="btn small" aria-pressed={cards} onClick={() => { setCards(true); setCi(0); }}>Table cards</button>
+        </div>
+      )}
+      {cards && card && (
+        <section className="fs-cards no-print" aria-label="Question cards">
+          <p className="muted small">Card {Math.min(ci, deck.length - 1) + 1} of {deck.length}. Read the Gospel first, then take the cards in turn.</p>
+          <div className="fs-card" role="group" aria-live="polite"><h2>{card.head}</h2><p>{card.text}</p></div>
+          <div className="row" style={{ gap: 8, justifyContent: 'center' }}>
+            <button className="btn" disabled={ci <= 0} onClick={() => setCi(ci - 1)}>Previous</button>
+            <button className="btn primary" disabled={ci >= deck.length - 1} onClick={() => setCi(ci + 1)}>Next question</button>
+          </div>
+        </section>
+      )}
+      <div className="print-sheet fs-sheet" hidden={cards && !!card}>
         <h2 style={{ margin: '0 0 2px' }}>{ld.dayName}</h2>
         <p className="muted small" style={{ margin: 0 }}>{new Date(date + 'T12:00:00Z').toLocaleDateString(undefined, { dateStyle: 'full', timeZone: 'UTC' })}{gospel ? ` · Gospel: ${gospel.ref}` : ''}</p>
         {gospel === undefined && <p className="muted">Loading the Gospel…</p>}
