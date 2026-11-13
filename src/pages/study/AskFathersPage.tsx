@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { loadEngine, loadWork, onEngineProgress } from '../../lib/fathersEngine';
+import { classOf, SOURCE_CLASS } from '../../lib/sourceClass';
 import { CENTURIES, EXAMPLE_QUESTIONS, GROUPS, highlight, type CenturyBand, type FathersEngine, type Group, type Hit, type SearchResult } from '../../lib/fathersSearch';
 
 export function Marked({ text, words }: { text: string; words: string[] }) {
@@ -105,7 +106,7 @@ export default function AskFathersPage() {
 export function HitCard({ h, words }: { h: Hit; words: string[] }) {
   return (
     <article className="card af-hit">
-      <h3>{h.author}</h3>
+      <h3>{h.author} <span className="chip small ask-tag" title={SOURCE_CLASS[classOf(h.group)].note}>{SOURCE_CLASS[classOf(h.group)].label}</span></h3>
       <p className="muted small">{h.workTitle}: {h.sectionTitle.length > 90 ? `${h.sectionTitle.slice(0, 90)}…` : h.sectionTitle}<br />{h.yearText}{h.yearText ? ' · ' : ''}{h.band ? `${h.band} century · ` : ''}{h.group}</p>
       {h.passages.map((p) => <blockquote key={p.para}><Marked text={clip(p.text)} words={words} /></blockquote>)}
       <Link className="chip" to={h.href}>Read in context</Link>

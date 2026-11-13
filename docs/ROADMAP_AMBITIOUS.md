@@ -12,7 +12,7 @@ Earlier versions of this page implied that several of these wait on "a model or 
 | **Theological knowledge graph** (item 3), built | A normalised node and edge list built at build time from data the app already ships (doctrine topics, argument/claim/heresy/development chains, lives, library works and authors, Catechism references, Scripture references), plus one viewer. Decisions: node and edge types, stable ids, which edges are shown by default. | A host. A model. New source data. |
 | **Advanced catechesis platform** (item 7) | The existing lesson model and slides. New pieces: local lesson overrides stored like notes and included in backup, a unit pacing calendar, a printable answer key built from each lesson's quiz, a parent letter built from the lesson's send-home step. | A server. Accounts. A model. |
 | **Scripted study tutor** (item 2, scripted form) | Sourced hints revealed in steps, taken from the argument chains and the Debate-it protocol. | A model (only needed if the hints are to be rephrased). |
-| **Labelled retrieval answers** (item 1, retrieval half) | Built: Ask the sources. Remaining: a source-class map that covers every work in the library, and a pre-built search index as an offline pack. | A model. |
+| **Labelled retrieval answers** (item 1, retrieval half) | Built: Ask the sources, and a source class (official teaching, Father of the Church, saint, scholar) on every library passage it shows, taken from each work's own record and tested for every work. Remaining: a pre-built search index as an offline pack. | A model. |
 
 ### B. Offline work that waits on data
 | Workstream | The data it waits on |
