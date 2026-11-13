@@ -13,6 +13,8 @@
 - Saints: each life links the saint's own writings in the library and can be added to a collection; people in the family lines show their children and can be added to a collection.
 - Notes gets a Review tab: a question inbox (open and answered, look it up, mark answered) and a weekly review of notes, highlights and questions. Collections can start from templates (Scripture passages only). Readings has Previous/Next Sunday. Downloads opens with a "Ready for a flight?" card. "Report a problem" on a study-panel item now fills in the item id, source and page.
 - Notes link to each other with [[Title]], and show "Linked from" backlinks. Collections can be saved as a self-contained web page and are included in the study-vault zip. The prayer list can attach a verse to an intention.
+- Writing clean-up: Butler's scanned months lost scanner debris, footnote citations and Latin verse and had common misreadings corrected (scripts/clean_butler_ocr.py, scripts/ocr_repair.py); the Roman Catechism and Leo XIII encyclicals had scanner misreadings repaired; HTML entities such as &amp;, &atilde; and &mdash; that showed as raw text were decoded across the data (scripts/decode_entities.py), and the podcast audio addresses were fixed. Tests keep all three from coming back.
+- The Back pill shows up to four earlier passages; the Family Gospel sheet has swipeable-style table cards.
 - Docs: docs/FEATURE_OPPORTUNITIES.md (38 opportunities), docs/ROADMAP_AMBITIOUS.md (ten ambitious features and an evidence-grounded assistant architecture), docs/CYCLE2_REPORT.md.
 
 ## Closing the gaps from the audit

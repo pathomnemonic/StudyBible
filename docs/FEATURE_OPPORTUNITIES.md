@@ -5,9 +5,9 @@ Found by reading the 179-entry feature registry (`src/lib/features.ts`), the dat
 Legend: **S** small (days), **M** medium (a week or two), **L** large. "Offline" says whether it works with no connection.
 
 ## Status (updated after the second cycle)
-**Built:** 11 (done-state only; the rhythm and Today step are not), 12 (templates, passages only), 13 (note-to-note links), 14 and 15 (Review tab), 16 (web-page export), 17 (partly: writings and collection button on each life), 20 and 23 (partly: children and collection button), 27 (Sunday buttons), 30 (the prayer list takes a verse; Examen and Rosary do not show it yet), 31 (readiness card), 33 (prefilled report), 34 (collections in the vault zip).
-**Already existed in some form:** 10 (the Catechism page shows each footnote's Scripture as links), 22 (the Archaeology tab of The biblical world), 25 (season blurbs on the Church year page).
-**Not built:** 1-9, 18, 19, 21, 24, 26, 28, 29, 32, 35-38.
+**Built:** 3 (the Back pill lists up to four earlier passages), 36 (table cards on the family sheet), 11 (done-state only; the rhythm and Today step are not), 12 (templates, passages only), 13 (note-to-note links), 14 and 15 (Review tab), 16 (web-page export), 17 (partly: writings and collection button on each life), 20 and 23 (partly: children and collection button), 27 (Sunday buttons), 30 (the prayer list takes a verse; Examen and Rosary do not show it yet), 31 (readiness card), 33 (prefilled report), 34 (collections in the vault zip).
+**Already existed in some form:** 6 ("Compare in three translations" is in the books drawer), 29 (the Examination of conscience page can remember where you were, opt-in), 10 (the Catechism page shows each footnote's Scripture as links), 22 (the Archaeology tab of The biblical world), 25 (season blurbs on the Church year page).
+**Not built:** 1, 2, 4, 5, 7, 8, 9, 18, 19, 21, 24, 26, 28, 32, 35, 37, 38. (4 exists as separate tools: Who quoted this, The Fathers on this passage and Across the centuries.)
 
 ## Study and Scripture
 1. **Verse-by-verse reading mode with the commentary collapsed under each verse (M, offline).** Today the study panel opens beside the text. In a "reading with notes" mode each verse has a one-line marker that expands to the best single note (Haydock, Challoner or Catena) in place, so a slow reader never leaves the page. Reuses the study-panel ranking that already picks "start here" items.

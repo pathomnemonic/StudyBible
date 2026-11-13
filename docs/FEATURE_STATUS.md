@@ -115,6 +115,17 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Collection pages: gather passages, your notes, highlights, bookmarks, Catechism paragraphs, links and questions | **Working** | Each collection opens to a page that shows every item read back from its original (a note, a highlight or a passage is referenced by identity, never copied), with a link to the original, reordering, and export to Markdown or print/PDF. Items from Church writings and commentary join from their own pages. Backups and sync carry collections like any other record. Items can be ticked off as done (the tick survives reordering). Not yet built: turning a collection into a plan. |
 | Note templates, note-to-note links and backlinks | **Working** | Templates: Observe/Interpret/Apply, Lectio divina, Prayer, Theological questions, Questions, Argument map, Historical context. Write [[Title of another note]] in a note and it becomes a link to that note when shown. Each note lists the collections that hold it, the notes that link to it and other notes on the same passage, all computed on the fly (nothing extra is stored, so nothing can go stale). A link to a title that matches no note shows as plain text. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Cleaner historical texts | **Partial** | Butler’s Lives of the Saints for the scanned months (April to June, August to December) has had scanner debris, footnote citations and Latin verse removed, and common misreadings (for example “tbe”, “thai”, “oflfered”) corrected by program. It has not been proofread by a person, so a misprint may remain. The Roman Catechism and Leo XIII’s encyclicals had scanner misreadings repaired the same way. **Next:** A human proofread of the scanned months. **Blocked by:** verification. **Done when:** A reader checks a sample of days against a clean edition and finds no misprints.. |
+
+## Library
+
+| Feature | Status | Notes |
+|---|---|---|
 | Question inbox and weekly review | **Working** | A Review tab in Notes lists every note you wrote as a question, open or answered, with “Look it up” (opens the Catechism search with the question filled in) and “Mark answered”. It also shows the last seven days: notes written, highlights made, questions asked and notes you chose to revisit. All of it is read from your own records on the device. |
 | Collection templates | **Working** | Start a collection from a template (the Eucharist in Scripture, Marian passages, the Passion in John, the Beatitudes and works of mercy, the call of the first disciples). Templates hold Scripture passages only; edit them freely afterwards. |
 
