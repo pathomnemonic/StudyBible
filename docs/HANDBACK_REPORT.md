@@ -7,8 +7,8 @@ Purpose: say exactly what was done, what was not, why, and what is needed from y
 
 | Item | State |
 | --- | --- |
-| CI on the last commit confirmed green | Run 505 (`bf242c2`): all jobs green, including the three browser shards. |
-| Commits after that | Runs 506 (Book fingerprint), 507 (Ask the sources) and 508 (teacher dashboard print) were still running when this was written. Local checks on all three were clean: type-check, 703 unit tests, size budgets, and the browser checks in `e2e/review.mjs`. |
+| CI confirmed green | Runs 505 to 508 (last code commit `d2732a8`): all jobs green, including the three browser shards. |
+| Commits after that | Runs 506 (Book fingerprint), 507 (Ask the sources) and 508 (teacher dashboard print) finished green: all jobs, including the three browser shards. Local checks before each push were also clean: type-check, 703 unit tests, size budgets, and the browser checks in `e2e/review.mjs`. |
 | Unit tests | 703 pass. |
 | Browser checks | 22 checks in three CI shards. Accessibility check covers 49 screens in every theme. |
 | Deployment | The Pages deploy succeeded for commit `361e382` (run 470). Later commits were not checked for deploy. |
