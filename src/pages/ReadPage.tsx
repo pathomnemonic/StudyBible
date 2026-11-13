@@ -797,6 +797,7 @@ export default function ReadPage() {
       {from && (
         <div className="return-pill" role="navigation" aria-label="Return to where you were">
           <button className="rp-back" onClick={() => nav(from.path, { state: from.prev ? { from: from.prev } : undefined })}>← Back to {from.label}</button>
+          {from.prev && <span className="rp-trail small">Earlier: {(() => { const t: Trail[] = []; for (let x: Trail | undefined = from.prev; x && t.length < 4; x = x.prev) t.push(x); return t.map((x, i) => <button key={i} className="rp-earlier" onClick={() => nav(x.path, { state: x.prev ? { from: x.prev } : undefined })}>{x.label}</button>); })()}</span>}
           <button className="rp-x" aria-label="Dismiss" onClick={() => nav(loc.pathname + loc.search, { replace: true, state: null })}>×</button>
         </div>
       )}

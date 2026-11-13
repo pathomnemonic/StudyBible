@@ -46,7 +46,7 @@ export default function SaintsPage() {
         <button className="icon-btn" onClick={() => nav(`/study/saints/${shift(day, 1)}`)} aria-label="Next day"><Icon name="chevR" /></button>
         <input type="date" aria-label="Pick a day" onChange={(e) => e.target.value && nav(`/study/saints/${e.target.value.slice(5)}`)} />
       </div>
-      {OCR.has(day.slice(0, 2)) && <div className="notice">This month was scanned from an old print and has not been proofread, so expect misprints and the odd damaged heading.</div>}
+      {OCR.has(day.slice(0, 2)) && <div className="notice">This month was scanned from an old print. Scanner debris, footnote citations and Latin verse were removed and common misreadings were corrected by program, but it has not been proofread, so a misprint may remain.</div>}
       {list === null && <div className="skeleton-list" aria-busy="true"><i /><i /></div>}
       {list?.length === 0 && <p className="muted">No life is printed for this day in Butler.</p>}
       {list?.map((e, i) => (

@@ -6304,3 +6304,6 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .fc-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-top:8px}
 .fc-pick{border:0;padding:0;margin:0}.fc-pick .chip input:focus-visible+*{outline:2px solid currentColor}
 .fc-pick label.chip{cursor:pointer}.fc-pick label.chip:focus-within{outline:2px solid currentColor}.fc-item+.fc-item{border-top:1px solid var(--hairline,#8884);padding-top:8px}
+
+.rp-trail { display: inline-flex; gap: 6px; align-items: center; margin-left: 8px; }
+.rp-earlier { background: none; border: 0; padding: 0 2px; color: inherit; text-decoration: underline; cursor: pointer; font: inherit; }
