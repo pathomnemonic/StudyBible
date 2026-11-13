@@ -6980,7 +6980,7 @@
   {
    "id": "links",
    "label": "Cross-references, verse links, resource links, doctrine, Catechism citations",
-   "bytes": 5842028,
+   "bytes": 6121104,
    "files": [
     "xrefs/1CH.json",
     "xrefs/1CO.json",
@@ -7191,7 +7191,8 @@
     "verse-links/TOB.json",
     "verse-links/WIS.json",
     "verse-links/ZEC.json",
-    "verse-links/ZEP.json"
+    "verse-links/ZEP.json",
+    "graph/graph.json"
    ],
    "sizes": [
     79061,
@@ -7403,7 +7404,8 @@
     516,
     2224,
     248,
-    232
+    232,
+    279076
    ],
    "sums": [
     "c2f4a738cae9672f",
@@ -7615,7 +7617,8 @@
     "5db68581021c361b",
     "ac683e422aac83e4",
     "614dced694d0d2e5",
-    "564f345ea36d206f"
+    "564f345ea36d206f",
+    "dbb4df3a9ab11b51"
    ]
   },
   {

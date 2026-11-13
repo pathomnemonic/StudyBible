@@ -11,7 +11,7 @@ const PACKS: { id: string; label: string; dirs: string[] }[] = [
   { id: 'prayer', label: 'Divine Office, Latin Mass texts, lectionary, hymns, readings to share and daily data', dirs: ['office', 'missa', 'liturgy', 'lectionary', 'daily', 'usccb', 'jesus', 'lens', 'registry', 'church', 'hymns', 'readings-together'] },
   { id: 'commentary', label: 'Commentary (Haydock, Challoner, Catena Aurea, Glossa)', dirs: ['commentary'] },
   { id: 'library', label: 'Fathers & saints library', dirs: ['library'] },
-  { id: 'links', label: 'Cross-references, verse links, resource links, doctrine, Catechism citations', dirs: ['xrefs', 'resources', 'doctrine', 'verse-links'] },
+  { id: 'links', label: 'Cross-references, verse links, resource links, doctrine, Catechism citations', dirs: ['xrefs', 'resources', 'doctrine', 'verse-links', 'graph'] },
   { id: 'media', label: 'Media lists: Bible in a Year schedule, podcasts, audiobooks and videos (the audio and video themselves are not included)', dirs: ['media'] },
   { id: 'reference', label: 'Book outlines, indexes, synopsis, genealogies, memory sets', dirs: ['reference'] },
   { id: 'places', label: 'Maps data and topical index', dirs: ['maps', 'topics'] },

@@ -17,6 +17,7 @@
 - The Back pill shows up to four earlier passages; the Family Gospel sheet has swipeable-style table cards.
 - Book fingerprint page: a book's most used and most distinctive words, linked to the Concordance.
 - Ask the sources: one question, with the Catechism, the Bible text, the app's definition and (on request) the Fathers shown in separate labelled cards. Retrieval only; nothing is generated.
+- Map of connections: one normalised graph of topics, chains, lives, passages, Catechism paragraphs, works and authors (npm run graph), with a viewer that follows links and finds how two things connect.
 - Docs: docs/FEATURE_OPPORTUNITIES.md (38 opportunities), docs/ROADMAP_AMBITIOUS.md (ten ambitious features and an evidence-grounded assistant architecture), docs/CYCLE2_REPORT.md.
 
 ## Closing the gaps from the audit

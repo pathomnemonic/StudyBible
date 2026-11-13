@@ -9,7 +9,7 @@ Earlier versions of this page implied that several of these wait on "a model or 
 ### A. Offline work that can start now (no data purchase, no server, no model)
 | Workstream | What it needs | What it does not need |
 | --- | --- | --- |
-| **Theological knowledge graph** (item 3) | A normalised node and edge list built at build time from data the app already ships (doctrine topics, argument/claim/heresy/development chains, lives, library works and authors, Catechism references, Scripture references), plus one viewer. Decisions: node and edge types, stable ids, which edges are shown by default. | A host. A model. New source data. |
+| **Theological knowledge graph** (item 3), built | A normalised node and edge list built at build time from data the app already ships (doctrine topics, argument/claim/heresy/development chains, lives, library works and authors, Catechism references, Scripture references), plus one viewer. Decisions: node and edge types, stable ids, which edges are shown by default. | A host. A model. New source data. |
 | **Advanced catechesis platform** (item 7) | The existing lesson model and slides. New pieces: local lesson overrides stored like notes and included in backup, a unit pacing calendar, a printable answer key built from each lesson's quiz, a parent letter built from the lesson's send-home step. | A server. Accounts. A model. |
 | **Scripted study tutor** (item 2, scripted form) | Sourced hints revealed in steps, taken from the argument chains and the Debate-it protocol. | A model (only needed if the hints are to be rephrased). |
 | **Labelled retrieval answers** (item 1, retrieval half) | Built: Ask the sources. Remaining: a source-class map that covers every work in the library, and a pre-built search index as an offline pack. | A model. |
@@ -56,6 +56,8 @@ Earlier versions of this page implied that several of these wait on "a model or 
 Socratic prompts on a passage ("What does Nicodemus misunderstand?") that reveal sourced hints in steps. Build as a scripted flow over the same retrieval: the questions come from the lesson and chain data already in the app (the Debate-it protocol and apologetics tracks are the pattern), and a model, if used, only rephrases the hint. **Reuse:** lessons, tracks, study panel. **Infrastructure:** none beyond item 1. **Complexity:** M for scripted, L with a model. **Risks:** a tutor that argues instead of asking. **Offline:** scripted version yes.
 
 ## 3. A visual theological knowledge graph
+
+*Status: built as the Map of connections (/study/map). `npm run graph` normalises the app's own data into `public/data/graph/graph.json` (about 980 nodes, 2,500 typed edges); the page shows a node's links grouped by kind and finds the shortest chain between two things. Not yet: the personal notes graph and the quotation layer as optional additions, and a pan-and-zoom whole-graph view.*
 A navigable graph of doctrines, passages, councils, Fathers and saints with typed edges ("quotes", "defined at", "develops"). The personal graph, constellation, concept graph, doctrine map and argument chains already exist as separate views. The work is a single normalised edge list built from them, with one viewer. **Infrastructure:** a build-time graph file; a WebGL or canvas layout. **Complexity:** L (data unification is the hard part). **Risks:** a pretty graph with weak edges; show the edge's source on tap. **Offline:** yes.
 
 ## 4. Manuscript and textual criticism explorer

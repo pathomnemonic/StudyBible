@@ -191,6 +191,7 @@ const ConstellationPage = lazy(() => import('./pages/study/ConstellationPage'));
 const TopicalPage = lazy(() => import('./pages/study/TopicalPage'));
 const ConcordancePage = lazy(() => import('./pages/study/ConcordancePage'));
 const AskAllPage = lazy(() => import('./pages/study/AskAllPage'));
+const ConceptMapPage = lazy(() => import('./pages/study/ConceptMapPage'));
 const FingerprintPage = lazy(() => import('./pages/study/FingerprintPage'));
 const BooksPage = lazy(() => import('./pages/study/BooksPage'));
 const IndexPage = lazy(() => import('./pages/study/IndexPage'));
@@ -401,6 +402,7 @@ export default function App() {
               <Route path="/study/topical" element={<TopicalPage />} />
               <Route path="/study/concordance" element={<ConcordancePage />} />
               <Route path="/study/fingerprint/:book?" element={<FingerprintPage />} />
+              <Route path="/study/map" element={<ConceptMapPage />} />
               <Route path="/study/doctrine" element={<DoctrinePage />} />
               <Route path="/study/sources" element={<SourcesPage />} />
               <Route path="/study/fathers" element={<RedirectKeepSearch to="/room" />} />

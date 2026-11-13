@@ -59,4 +59,12 @@ await p.waitForSelector('[aria-label="Scripture"] blockquote, [aria-label="Scrip
 const ask = await p.locator('.ask-all').innerText();
 if (!/Catechism of the Catholic Church/.test(ask)) fail('the Church’s teaching card should name the Catechism');
 if (!/Bible text/.test(ask) || !/Writings in the library/.test(ask)) fail('every kind of source should be labelled');
+// 8. map of connections
+await p.goto(`${BASE}/#/study/map?n=${encodeURIComponent('topic:eucharist')}&to=${encodeURIComponent('argument:real-presence')}`);
+await p.waitForSelector('.concept-map .cm-group', { timeout: 30000 });
+const map = await p.locator('.concept-map').innerText();
+if (!/Bible chapters/.test(map)) fail('the Eucharist topic should list Bible chapters among its connections');
+if (!/The Real Presence/.test(map)) fail('the chain from the Eucharist to the Real Presence argument should be shown');
+await p.locator('.cm-group[open] button.linklike').first().click({ force: true }); await p.waitForTimeout(500);
+if (!/n=/.test(await p.evaluate(() => location.hash))) fail('following a link should move the map to that thing');
 await b.close(); console.log('review ok');
