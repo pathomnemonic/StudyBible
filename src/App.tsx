@@ -192,6 +192,7 @@ const TopicalPage = lazy(() => import('./pages/study/TopicalPage'));
 const ConcordancePage = lazy(() => import('./pages/study/ConcordancePage'));
 const AskAllPage = lazy(() => import('./pages/study/AskAllPage'));
 const ConceptMapPage = lazy(() => import('./pages/study/ConceptMapPage'));
+const CurriculumPacing = lazy(() => import('./pages/study/CurriculumPacing'));
 const FingerprintPage = lazy(() => import('./pages/study/FingerprintPage'));
 const BooksPage = lazy(() => import('./pages/study/BooksPage'));
 const IndexPage = lazy(() => import('./pages/study/IndexPage'));
@@ -366,6 +367,7 @@ export default function App() {
               <Route path="/study/curriculum/teachers" element={<CurriculumTeachers />} />
               <Route path="/study/curriculum/:grade" element={<CurriculumGrade />} />
               <Route path="/study/curriculum/:grade/packet" element={<CurriculumPacket />} />
+              <Route path="/study/curriculum/:grade/pacing" element={<CurriculumPacing />} />
               <Route path="/study/curriculum/:grade/:lessonId" element={<CurriculumLesson />} />
               <Route path="/study/young-adults" element={<YoungAdultsPage />} />
               <Route path="/study/adults" element={<YoungAdultsPage />} />

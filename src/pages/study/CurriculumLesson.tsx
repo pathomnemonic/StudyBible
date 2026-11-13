@@ -18,6 +18,7 @@ import { isKeyLesson, isLifeLesson } from '../../curriculum/keyLessons';
 import LessonRun from '../../curriculum/LessonRun';
 import LessonPlay from '../../curriculum/LessonPlay';
 import LessonPath from '../../curriculum/LessonPath';
+import MyLessonNotes from '../../curriculum/MyLessonNotes';
 import { estimateTime } from '../../curriculum/duration';
 import { worthDefining } from '../../curriculum/terms';
 import TeachingOptions from '../../curriculum/TeachingOptions';
@@ -277,6 +278,7 @@ export default function CurriculumLesson() {
             <p className="small muted">A half-page note for families: what we learned, one question to talk about, and a prayer.</p>
             <button className="btn small" onClick={() => sendHome(lesson, g, src.prayer ?? null)}>🖨 Print the take-home note</button>
           </section>
+          <MyLessonNotes grade={g.id} lessonId={lesson.id} title={lesson.title} />
           <section className="sect">
             <h2 className="eyebrow-h">Support and stretch</h2>
             <div className="cur-two"><div><h3>Support</h3><ul>{band.support.map((a) => <li key={a}>{a}</li>)}</ul></div><div><h3>Extend</h3><ul>{band.extend.map((a) => <li key={a}>{a}</li>)}</ul></div></div>

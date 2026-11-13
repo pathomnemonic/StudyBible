@@ -70,6 +70,8 @@ Highlight the verse being read. Needs verse-level timing for each recording. Lib
 The words page and lexicon exist. Add interlinear display for a chapter (Greek NT, Hebrew OT) with morphology tooltips, tap a word for lexicon and every occurrence. **Data:** morphologically tagged public-domain texts (MorphGNT, OSHB). **Complexity:** L. **Risks:** licensing of lexicon glosses; heavy data (about 20-40 MB). **Offline:** yes as a pack.
 
 ## 7. An advanced catechesis platform
+
+*Status: part built. Year pacing (/study/curriculum/:grade/pacing), unit letters to families and per-lesson teacher notes exist; printable tests with answer keys already existed under Teacher tools. Not built: editing the lesson text itself (local overrides).*
 Beyond the 456 lessons: unit pacing calendars, assessments with a printable answer key, parent letters, and a lesson authoring tool so a catechist can adapt a lesson and keep it. **Reuse:** lesson model, the standard in `docs/LESSON_STANDARD.md`, slides, bell ringers. **Infrastructure:** local lesson overrides stored like notes and included in backup. **Complexity:** L. **Risks:** divergence from approved curricula; show the original beside the edit. **Offline:** yes.
 
 ## 8. Native mobile applications

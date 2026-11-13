@@ -37,6 +37,7 @@ export default function CurriculumGrade() {
       <div className="row no-print" style={{ gap: 8, flexWrap: 'wrap', marginBottom: 12 }}>
         <Link className="btn primary" to={`/study/curriculum/${g.id}/${firstOpen}`}>{done.size ? 'Continue' : 'Start the first lesson'}</Link>
         <Link className="btn" to={`/study/curriculum/${g.id}/packet`}>Print the whole grade</Link>
+        <Link className="btn" to={`/study/curriculum/${g.id}/pacing`}>Pace it over the year</Link>
         <span className="muted small" style={{ alignSelf: 'center' }}>{done.size} of {total} done · ★ {[...stars.values()].reduce((a, b) => a + b, 0)} stars earned</span>
       </div>
       <ContinueLesson grade={g.id} />

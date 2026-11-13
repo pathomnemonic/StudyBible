@@ -67,4 +67,25 @@ if (!/Bible chapters/.test(map)) fail('the Eucharist topic should list Bible cha
 if (!/The Real Presence/.test(map)) fail('the chain from the Eucharist to the Real Presence argument should be shown');
 await p.locator('.cm-group[open] button.linklike').first().click({ force: true }); await p.waitForTimeout(500);
 if (!/n=/.test(await p.evaluate(() => location.hash))) fail('following a link should move the map to that thing');
+// 9. pace a grade over the year
+await p.goto(`${BASE}/#/study/curriculum/5/pacing`);
+await p.waitForSelector('.cur-pacing [role=status]', { timeout: 30000 });
+const pace = await p.locator('.cur-pacing').innerText();
+if (!/\d+\s+lessons from/i.test(pace)) fail('the pacing page should say how many lessons it spreads and when they end: ' + pace.slice(0, 200));
+if (!/Letter to families/.test(pace)) fail('each unit should offer a letter to families');
+const rows0 = await p.locator('.cur-table tbody tr').count();
+await p.locator('label.chip', { hasText: 'Thu' }).locator('input').check();
+await p.waitForTimeout(300);
+const rows1 = await p.locator('.cur-table tbody tr').count();
+if (rows1 !== rows0) fail('the number of lessons should not change when a teaching day is added');
+// 10. my notes on a lesson
+await p.goto(`${BASE}/#/study/curriculum/5`); await p.waitForTimeout(1200);
+const lessonHref = await p.locator('a[href*="/study/curriculum/5/"]:not([href$="/packet"]):not([href$="/pacing"])').first().getAttribute('href');
+await p.goto(`${BASE}/${lessonHref}`); await p.waitForTimeout(1500);
+const box = p.locator('textarea[aria-label="My notes on this lesson"]');
+if (await box.count() === 0) { const t = p.locator('button, summary', { hasText: /teacher/i }).first(); if (await t.count()) await t.click().catch(() => {}); }
+await box.waitFor({ timeout: 15000 });
+await box.fill('Use the story of the lost sheep first.'); await p.locator('button', { hasText: 'Save my notes' }).click(); await p.waitForTimeout(500);
+await p.goto(`${BASE}/#/library`); await p.waitForTimeout(900);
+if (!/Use the story of the lost sheep first/.test(await p.locator('.page').innerText())) fail('my lesson notes should appear among my notes');
 await b.close(); console.log('review ok');
