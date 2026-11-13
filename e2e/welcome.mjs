@@ -18,10 +18,9 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   if (await p.locator('.welcome-layer, .intro-card').count()) fail('no setup cards any more');
   if (!/Today/.test(await card())) fail('first step is Today');
   await next();
-  await p.waitForSelector('.v[data-v="51"]'); await p.waitForTimeout(500);
-  if (!/Tap any verse/.test(await card())) fail('verse step');
-  await p.click('.v[data-v="51"]');
-  if (narrow) { await p.waitForFunction(() => /Study this passage/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 8000 }); await p.click('.actionbar .btn.primary'); }
+  await p.waitForSelector('.v[data-v="51"] .vn'); await p.waitForTimeout(500);
+  if (!/little number beside verse 51/.test(await card())) fail('verse number step');
+  await p.click('.v[data-v="51"] .vn');
   await p.waitForFunction(() => /Church Fathers and saints, in their own words/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 10000 }).catch(() => fail('saints step'));
   if (!(await p.locator('.tour-ring').count())) fail('ring around the saints section');
   await next();
@@ -37,9 +36,9 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   await next();
   await p.waitForFunction(() => /Tap Books/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 8000 }).catch(() => fail('Books step (no For you step after answering yes)'));
   await p.click('[role=tab]:has-text("Books")');
-  await p.waitForFunction(() => /Tap Questions about the faith/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 10000 }).catch(() => fail('apologetics step'));
-  await p.click('a[href="#/study/apologetics"]');
-  await p.waitForFunction(() => /Learn to answer/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 10000 }).catch(() => fail('tracks step'));
+  await p.waitForFunction(() => /Tap Learn to answer/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 10000 }).catch(() => fail('apologetics step'));
+  await p.click('a[href="#/study/apologetics-tracks"]');
+  await p.waitForFunction(() => /Pick a question/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 10000 }).catch(() => fail('tracks step'));
   await next();
   await p.waitForFunction(() => /That is all you need/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 8000 }).catch(() => fail('done step'));
   await p.click('.tour-btns .btn:has-text("Done")');
@@ -82,7 +81,7 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   // 2. not listened, would like to: day 1
   ctx = await b.newContext({ viewport: vp }); p = await ctx.newPage();
   await p.goto(`${BASE}/#/listen`); await p.waitForSelector('.tour-card');
-  await p.evaluate(() => localStorage.setItem('sb:tourStep', String(window.innerWidth < 900 ? 4 : 3))); await p.reload(); await p.waitForSelector('.tour-card');
+  await p.evaluate(() => localStorage.setItem('sb:tourStep', String(3))); await p.reload(); await p.waitForSelector('.tour-card');
   await p.waitForFunction(() => /Tap Year|listened to Bible/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 8000 }).catch(() => fail('resume at the Bible in a Year step'));
   if (/Tap Year/.test(await card())) await p.click('[role=tab]:has-text("Year")');
   await p.click('.tour-card button:has-text("No, but I would like to")');
@@ -94,7 +93,7 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   // 3. not interested: it is left out of Today and the tour shows where to pick other media
   ctx = await b.newContext({ viewport: vp }); p = await ctx.newPage();
   await p.goto(`${BASE}/#/listen`); await p.waitForSelector('.tour-card');
-  await p.evaluate(() => localStorage.setItem('sb:tourStep', String(window.innerWidth < 900 ? 4 : 3))); await p.reload(); await p.waitForSelector('.tour-card');
+  await p.evaluate(() => localStorage.setItem('sb:tourStep', String(3))); await p.reload(); await p.waitForSelector('.tour-card');
   if (/Tap Year/.test(await card())) await p.click('[role=tab]:has-text("Year")');
   await p.waitForFunction(() => /listened to Bible in a Year/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 8000 });
   await p.click('.tour-card button:has-text("Not for me")');

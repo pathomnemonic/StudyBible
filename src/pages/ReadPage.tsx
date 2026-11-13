@@ -364,10 +364,12 @@ export default function ReadPage() {
 
   // -------- selection
   const parallelMode = !!parallel;
-  const onVerse = (n: number, e: { shiftKey?: boolean }, menu?: boolean) => {
+  const onVerse = (n: number, e: { shiftKey?: boolean; target?: EventTarget | null }, menu?: boolean) => {
     buzz();
+    // the small number beside a verse is the shortcut: it selects the verse and opens what is connected to it, on a phone too
+    const onNum = !menu && !e.shiftKey && !!(e.target as HTMLElement | null)?.closest?.('.vn');
     setSelNative((cur) => {
-      if (menu) return cur.includes(n) ? cur : [...cur, n];
+      if (menu || onNum) return cur.includes(n) ? cur : [...cur, n];
       if (e.shiftKey && lastClicked.current != null) {
         const [a, b] = [lastClicked.current, n].sort((x, y) => x - y);
         return Array.from({ length: b - a + 1 }, (_, i) => a + i);
@@ -376,7 +378,7 @@ export default function ReadPage() {
     });
     lastClicked.current = n;
     // tapping a verse opens what is connected to it, everywhere (docked beside the text on wide screens, a sheet on phones)
-    if (!menu && !settings.scriptureOnly && (dockOn || window.innerWidth >= 700)) setPanel(true);
+    if (!menu && !settings.scriptureOnly && (onNum || dockOn || window.innerWidth >= 700)) setPanel(true);
   };
 
   /** anchor Refs for the current selection (grouped into contiguous ranges) */
@@ -650,14 +652,14 @@ export default function ReadPage() {
     <div className={`reader${settings.showVerseNumbers && (!settings.scriptureOnly || settings.focus.numbers) ? '' : ' hide-nums'}${panelOpen ? ' has-panel' : ''}`}>
       <div className="reader-col" onTouchStart={(e) => { swipe.current = e.touches.length === 1 ? [e.touches[0].clientX, e.touches[0].clientY] : null; }} onTouchEnd={(e) => { const a = swipe.current; swipe.current = null; if (!a || window.innerWidth >= 700 || !window.getSelection()?.isCollapsed) return; const dx = e.changedTouches[0].clientX - a[0], dy = e.changedTouches[0].clientY - a[1]; if (Math.abs(dx) > 90 && Math.abs(dy) < 45) (dx < 0 ? next : prev)(); }}>
         <div className="reader-bar">
+          <button className="icon-btn" onClick={prev} aria-label="Previous chapter">
+            <Icon name="chevL" />
+          </button>
           <button className="icon-btn" onClick={() => setExplore(true)} aria-haspopup="dialog" aria-label="Open the Bible menu: study tools, words, people, places" title="Explore the Bible">
             <span aria-hidden="true" style={{ fontSize: 20, lineHeight: 1 }}>☰</span>
           </button>
           <button className="icon-btn" onClick={() => setPicker(true)} aria-haspopup="dialog" aria-label="Choose a book or chapter" title="Books and chapters">
             <Icon name="library" />
-          </button>
-          <button className="icon-btn" onClick={prev} aria-label="Previous chapter">
-            <Icon name="chevL" />
           </button>
           <div className="title">
             <button className="title-btn" onClick={() => setPicker(true)} aria-haspopup="dialog">

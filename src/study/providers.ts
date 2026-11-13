@@ -82,7 +82,7 @@ export const TABS: { id: string; label: string; sections: SectionKey[] }[] = [
   { id: 'connections', label: 'Connections', sections: ['typology', 'quotes', 'xref', 'parallels', 'dependency', 'topics'] },
   { id: 'words', label: 'Words', sections: ['wordnotes', 'versions'] },
   { id: 'world', label: 'World', sections: ['customs', 'encyclopedia', 'people', 'background', 'dictionary', 'structure', 'genre', 'witnesses', 'places', 'context', 'language'] },
-  { id: 'media', label: 'Media', sections: ['art', 'videos', 'recorded', 'kids', 'catholic-answers', 'creators', 'word-on-fire', 'ascension', 'biay', 'resources', 'links'] },
+  { id: 'media', label: 'Media', sections: ['videos', 'recorded', 'biay', 'kids', 'ascension', 'word-on-fire', 'catholic-answers', 'creators', 'art', 'resources', 'links'] },
   { id: 'mine', label: 'Mine', sections: ['mine'] },
 ];
 

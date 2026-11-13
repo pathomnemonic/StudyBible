@@ -49,6 +49,7 @@ const vis = (e: Element | null) => (e && e.getBoundingClientRect().width > 0 ? e
 const anyOf = (...sels: string[]) => () => sels.map((x) => vis(document.querySelector(x))).find(Boolean) ?? null;
 const firstVerse = () => [...document.querySelectorAll('.v')].find((e) => { const r = e.getBoundingClientRect(); return r.top > 120 && r.bottom < window.innerHeight - 160 && r.height < 90; }) ?? document.querySelector('.v');
 const verse51 = () => document.querySelector('.v[data-v="51"]');
+const verseNum51 = () => document.querySelector('.v[data-v="51"] .vn') ?? document.querySelector('.v[data-v="51"]');
 const tile = (href: string) => q(`.page a[href="#${href}"]`);
 const panelTab = (name: RegExp) => () => [...document.querySelectorAll('aside.panel [role=tab]')].find((t) => name.test(t.textContent ?? '')) ?? null;
 
@@ -58,15 +59,14 @@ const noBiay = () => getSettings().activePlan === '' && getSettings().dashboard.
 
 const STEPS: Step[] = [
   { part: 'Today', route: '/today', exact: true, find: q('.home-verse'), text: 'Today: a verse, a saint’s words and a question for the day.', sub: 'Pick up where you left off from the buttons below. Tap the pen to write your answer to the question.' },
-  { part: 'Bible', route: '/read/webc/JHN/6', find: verse51, tap: true, hit: (t) => !!t.closest('.v[data-v="51"]'), text: 'Tap any verse to study it. Try verse 51.', sub: 'Tap a verse and everything gathered around it opens.' },
-  { part: 'Bible', narrow: true, find: q('.actionbar .btn.primary'), tap: true, text: 'Tap Study this passage.' },
+  { part: 'Bible', route: '/read/webc/JHN/6', find: verseNum51, tap: true, hit: (t) => !!t.closest('.v[data-v="51"] .vn'), text: 'Tap the little number beside verse 51.', sub: 'That number is a shortcut: it opens everything gathered around the verse. Tapping the verse itself selects it for highlights and notes.' },
   { part: 'The saints', scroll: true, find: saintsHeading, text: 'Here are the Church Fathers and saints, in their own words, on this very verse.', sub: 'Notes also holds the Catechism and the commentators. Tap any writing to read it in its book. Their works are joined to the verses they discuss across the whole Bible.' },
   { part: 'Bible in a Year', route: '/listen', find: mediaTab(/^Year/), tap: true, hit: (t) => /^Year/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Year: Bible in a Year, each day’s episode with its reading.' },
   { part: 'Bible in a Year', route: '/listen', find: mediaTab(/^Year/), text: 'Have you listened to Bible in a Year before?', sub: 'Your answer sets where it starts. You can skip this and change it later.', control: 'biay' },
   { part: 'Media', route: '/listen', find: mediaTab(/^For you/), tap: true, when: noBiay, hit: (t) => /^For you/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Pick other Catholic media here.', sub: 'Choose podcasts, audiobooks and video creators you like, and Media puts them first.' },
   { part: 'The saints, read aloud', route: '/listen', find: mediaTab(/^Books/), tap: true, hit: (t) => /^Books/.test(t.textContent ?? '') && !!t.closest('[role=tab]'), text: 'Tap Books: free LibriVox recordings of the saints’ own books.', sub: 'Augustine’s Confessions, the Imitation of Christ and more, with your place remembered.' },
-  { part: 'Hard questions', route: '/learn', exact: true, find: tile('/study/apologetics'), tap: true, hit: (t) => !!t.closest('a[href="#/study/apologetics"]'), text: 'Tap Questions about the faith.', sub: 'Short answers with the verses, the Catechism and the Fathers.' },
-  { part: 'Hard questions', route: '/study/apologetics', exact: true, scroll: true, find: tile('/study/apologetics-tracks'), text: 'Learn to answer: step-by-step tracks on atheism, Protestant friends, Islam and more.', sub: 'The Argument Map and Is that true? are in Learn too. Each shows the real sources.' },
+  { part: 'Hard questions', route: '/learn', exact: true, find: tile('/study/apologetics-tracks'), tap: true, hit: (t) => !!t.closest('a[href="#/study/apologetics-tracks"]'), text: 'Tap Learn to answer.', sub: 'Step-by-step tracks for the questions people really ask, with the Fathers, the Catechism and Scripture behind each answer.' },
+  { part: 'Hard questions', route: '/study/apologetics-tracks', exact: true, scroll: true, find: q('.apt-card'), text: 'Pick a question, such as atheism, the Resurrection or moral relativism, and work through it level by level.', sub: 'Questions about the faith, Is that true? and the Argument Map sit next to it in Learn.' },
   { part: 'Done', route: '/today', exact: true, title: 'That is all you need', text: 'Red dots mark what you have not opened yet, and each new feature explains itself the first time. Everything is also in Search and on the Everything page.' },
 ];
 
@@ -170,7 +170,14 @@ export default function Tour() {
     };
     tick();
     const id = window.setInterval(tick, 250);
-    return () => { live = false; window.clearInterval(id); };
+    // the page or the panel can scroll under the ring: follow it on the next frame instead of waiting for the timer
+    let raf = 0;
+    const soon = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; tick(); }); };
+    window.addEventListener('scroll', soon, true);
+    window.addEventListener('resize', soon);
+    window.visualViewport?.addEventListener('resize', soon);
+    window.visualViewport?.addEventListener('scroll', soon);
+    return () => { live = false; window.clearInterval(id); if (raf) cancelAnimationFrame(raf); window.removeEventListener('scroll', soon, true); window.removeEventListener('resize', soon); window.visualViewport?.removeEventListener('resize', soon); window.visualViewport?.removeEventListener('scroll', soon); };
   }, [on, i, loc.pathname]);
 
   // a step that asks for a tap moves on when the highlighted thing is tapped
@@ -190,11 +197,13 @@ export default function Tour() {
 
   if (!on) return null;
   const pad = 6;
+  // a very small thing (a verse number) gets a ring big enough to see and to tap
+  const box = rect && (rect.width < 40 || rect.height < 40) ? new DOMRect(rect.left + rect.width / 2 - Math.max(rect.width, 40) / 2, rect.top + rect.height / 2 - Math.max(rect.height, 40) / 2, Math.max(rect.width, 40), Math.max(rect.height, 40)) : rect;
   const high = rect && rect.top > window.innerHeight / 2;
   return (
     <div className="tour-layer" role="dialog" aria-label="App tour" aria-live="polite">
-      {blockers(step.tap ? rect : null, pad)}
-      {rect && <div className="tour-ring" style={{ top: rect.top - pad, left: rect.left - pad, width: rect.width + pad * 2, height: rect.height + pad * 2 }} />}
+      {blockers(step.tap ? box : null, pad)}
+      {box && <div className="tour-ring" style={{ top: box.top - pad, left: box.left - pad, width: box.width + pad * 2, height: box.height + pad * 2 }} />}
       {!rect && <div className="tour-dim" />}
       <div className={`tour-card ${high ? 'top' : 'bottom'}${rect ? '' : ' mid'}`}>
         {(step.title || step.part) && <strong className="tour-title">{step.title ?? step.part}</strong>}

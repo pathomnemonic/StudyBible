@@ -154,7 +154,7 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
                   }}
                   onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), onVerse(n, e))}
                 >
-                  {showNum && k === 0 && <sup className="vn">{n}</sup>}
+                  {showNum && k === 0 && <sup className="vn" title={`Study verse ${n}`}>{n}</sup>}
                   {seg(`${i}.${j}`, text, pc.from, pc.to)}
                   {k === lastTextIdx && lastRunOfVerse && d?.note && <span className="mark" title="You have a note here">✎</span>}
                   {k === lastTextIdx && lastRunOfVerse && d?.bookmark && <span className="mark" title="Bookmarked">⚑</span>}

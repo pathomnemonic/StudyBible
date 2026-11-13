@@ -70,11 +70,14 @@ export default function TodayPage() {
       // wide screens give the page a fixed height (it overflows inside itself); narrow ones let it grow past a minimum
       const fixed = window.matchMedia('(min-width: 900px)').matches;
       const over = () => (fixed ? home.scrollHeight - home.clientHeight : home.offsetHeight - screen) > 1;
-      while (over() && f > 0.6) { f -= 0.04; el.style.setProperty('--fit', f.toFixed(2)); }
-      // still too tall (a small phone with a plan and memento mori on): drop the least important blocks one at a time, never scroll
+      // type shrinks a little first, but stays readable
+      while (over() && f > 0.72) { f -= 0.04; el.style.setProperty('--fit', f.toFixed(2)); }
+      // a phone can scroll a little: that is better than hiding words. Only when the page would be far taller than the screen are the least important blocks hidden, one at a time, the saint's words last.
+      const slack = fixed ? 0 : screen * 0.22;
+      const tooTall = () => (fixed ? home.scrollHeight - home.clientHeight : home.offsetHeight - screen - slack) > 1;
       let tight = 0;
       home.dataset.tight = '0';
-      while (over() && tight < 6) { tight += 1; home.dataset.tight = String(tight); }
+      while (tooTall() && tight < 5) { tight += 1; home.dataset.tight = String(tight); }
     };
     fit();
     window.addEventListener('resize', fit);

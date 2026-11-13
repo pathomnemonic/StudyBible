@@ -62,12 +62,20 @@ export default function LearnPage() {
           <RowLink strong to="/study/curriculum/YA" title="Adult course" meta={adultDone ? `${adultDone} of 48` : '48 sessions'} />
           <RowLink to="/study/catechism" title="Catechism of the Catholic Church" />
           <RowLink to="/study/doctrine" title="Doctrine by topic" />
-          <RowLink to="/study/apologetics" title="Apologetics" />
           <form className="rowform" onSubmit={(e) => { e.preventDefault(); const t = num.trim(); if (/^§?\s*\d{1,4}$/.test(t)) { const n = parseInt(t.replace(/\D/g, ''), 10); if (n >= 1 && n <= 2865) nav(`/study/catechism/${n}`); } else if (t) nav(`/study/ask?q=${encodeURIComponent(t)}`); }}>
             <label className="sr-only" htmlFor="ccc-n">Ask a question, or go to a Catechism paragraph number</label>
             <input id="ccc-n" type="text" enterKeyHint="go" placeholder="Ask a question, or go to §" value={num} onChange={(e) => setNum(e.target.value)} />
             <button className="btn" type="submit" disabled={!num.trim()}>Go</button>
           </form>
+        </div>
+      </section>
+      <section className="card learn-card answers" aria-labelledby="learn-ans">
+        <h2 id="learn-ans" className="learn-h">Answer hard questions<span>Learn to explain and defend the faith, with real sources</span></h2>
+        <div className="rows">
+          <RowLink strong to="/study/apologetics-tracks" title="Learn to answer: apologetics tracks" meta="Step by step" />
+          <RowLink to="/study/apologetics" title="Questions about the faith" />
+          <RowLink to="/study/claims" title="Is that true?" />
+          <RowLink to="/study/arguments" title="The Argument Map" />
         </div>
       </section>
     </div>
