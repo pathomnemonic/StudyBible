@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { getGenealogies, type Genealogies, type Person } from '../../study/refData';
 import FilterBar from '../../components/FilterBar';
 import RefChips from '../../components/RefChips';
+import AddToCollection from '../../components/AddToCollection';
 
 const ROOTS: [string, string][] = [['adam', 'Adam'], ['noah', 'Noah'], ['abraham', 'Abraham'], ['isaac', 'Isaac'], ['jacob', 'Jacob (the twelve tribes)'], ['judah', 'Judah'], ['levi', 'Levi (Moses and Aaron)'], ['david', 'David']];
 const W = 128;
@@ -164,7 +165,9 @@ function OutlineNode({ n, depth, openIds, setOpenIds, sel, setSel, hl, mt, byId 
         <div className="gen-detail" style={{ marginLeft: depth * 14 + 26 }}>
           {n.p.f && <p>Father: {byId.get(n.p.f)?.n}.{n.p.m ? ` Mother: ${byId.get(n.p.m)?.n}.` : ''}</p>}
           {n.p.note && <p>{n.p.note}</p>}
+          {n.kids.length > 0 && <p>Children in the lists: {n.kids.map((k) => k.p.n).join(', ')}.</p>}
           {n.p.r && <p>Passages: <RefChips text={n.p.r} /></p>}
+          <p><AddToCollection target={{ type: 'link', url: `#/study/people`, label: `${n.p.n} (family lines of Scripture)` }} label="＋ Collection" /></p>
         </div>
       )}
       {open && n.kids.length > 0 && <ul>{n.kids.map((k) => <OutlineNode key={k.p.id} n={k} depth={depth + 1} openIds={openIds} setOpenIds={setOpenIds} sel={sel} setSel={setSel} hl={hl} mt={mt} byId={byId} />)}</ul>}

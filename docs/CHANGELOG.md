@@ -8,6 +8,9 @@
 - The study panel's Notes tab gains "Compare the authors side by side": pick any authors, see work, location, period, direct or editorial link, and a link to the original.
 - Glossary entries say their explanation is plain words written for this app, link the Church's own words (Catechism), and list the Scripture that paragraph's footnotes cite.
 - Downloads shows a summary, the date each Bible or pack was saved, and flags a partly saved pack with the number of missing files and a Finish download button.
+- CI browser job pinned to ubuntu-24.04 (ubuntu-latest moved to 26.04, which Playwright cannot install on, so the browser checks had never run in CI) and split into three parallel shards; slow data tests have a 60 s timeout.
+- Collections: tick items off as done.
+- Saints: each life links the saint's own writings in the library and can be added to a collection; people in the family lines show their children and can be added to a collection.
 - Docs: docs/FEATURE_OPPORTUNITIES.md (38 opportunities), docs/ROADMAP_AMBITIOUS.md (ten ambitious features and an evidence-grounded assistant architecture), docs/CYCLE2_REPORT.md.
 
 ## Closing the gaps from the audit
