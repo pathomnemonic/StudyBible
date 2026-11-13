@@ -18,7 +18,7 @@ export default function ProfilePage() {
   return (
     <div className="page hub">
       <HubHeader quiet title="You" sub={sync.user ? `Signed in as ${sync.user.email}.` : `${notes} note${notes === 1 ? '' : 's'} and ${marks} highlight${marks === 1 ? '' : 's'}, kept on this device.`} />
-      <Link className="you-help" to="/help"><span aria-hidden="true">?</span><span><strong>Help</strong><small>Where things are, how the buttons work, and the tour</small></span></Link>
+      <Link className="you-help" to="/help"><span aria-hidden="true">?</span><span><strong>Help</strong> <small>Where things are and the tour</small></span></Link>
       <ContinueStrip kinds={['read', 'episode', 'work']} />
       <HighlightOfDay />
       <WeekCard />

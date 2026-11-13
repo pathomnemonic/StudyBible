@@ -8,7 +8,22 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { buildManifest } from '../ingest/manifest';
 
-export type LibVideo = [id: string, title: string, channel: number];
+/** The optional fourth item is 1 for a YouTube Short, so the app can keep Shorts apart from full videos. */
+export type LibVideo = [id: string, title: string, channel: number, short?: 1];
+
+/** A Short answers /shorts/<id> with 200; any other video is redirected to its watch page. */
+export async function isShort(id: string): Promise<boolean> {
+  try { return (await fetch(`https://www.youtube.com/shorts/${id}`, { method: 'HEAD', redirect: 'manual' })).status === 200; } catch { return false; }
+}
+
+/** Marks the Shorts among these videos (a few at a time, to stay polite). */
+export async function markShorts(vs: LibVideo[]): Promise<number> {
+  let n = 0;
+  for (let i = 0; i < vs.length; i += 8) {
+    await Promise.all(vs.slice(i, i + 8).map(async (v) => { if (v.length < 4 && (await isShort(v[0]))) { v[3] = 1; n++; } }));
+  }
+  return n;
+}
 const SKIP = /#shorts?\b|daily mass|holy mass|^mass for|live ?stream|livestream|\blive:|rosary live|full episode of|sneak peek|promo\b|trailer\b/i;
 const MIN_OVERLAP = 1;
 
@@ -53,6 +68,7 @@ async function main() {
     try {
       const { added, skipped } = mergeUploads(lib.videos, idx, await uploadsFor(c.id), true);
       if (skipped) { console.log(`${c.name}: skipped, ${skipped}`); continue; }
+      await markShorts(added);
       lib.videos.unshift(...added); total += added.length; // the library is newest first, so new uploads go in front
       console.log(`${c.name}: ${added.length} new`);
     } catch (e) { failed += 1; console.log(`${c.name}: ${(e as Error).message}`); }

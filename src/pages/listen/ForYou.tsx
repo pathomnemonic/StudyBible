@@ -10,7 +10,7 @@ import { useFollows } from '../../lib/follow';
 import ListenNow from './ListenNow';
 import { updateSettings, useSettings } from '../../lib/store';
 
-interface Lib { channels: string[]; videos: [string, string, number][] }
+interface Lib { channels: string[]; videos: [string, string, number, 1?][] }
 
 /** Media's front shelf: your favorite audiobooks and creators first, then where you stopped and what is new from the shows you follow. */
 export default function ForYou({ onAllPodcasts }: { onAllPodcasts?: () => void }) {
@@ -24,7 +24,7 @@ export default function ForYou({ onAllPodcasts }: { onAllPodcasts?: () => void }
   useEffect(() => { if (abIds.length) getLibraryIndex().then((l) => setWorks(l?.works ?? [])); }, [abIds.length]);
   useEffect(() => { if (vcNames.length && !lib) getJson<Lib>('media/video_library.json', true).then(setLib); }, [vcNames.length, lib]);
   const mineWorks = works.filter((w) => abIds.includes(w.id));
-  const vids = lib ? vcNames.flatMap((n) => { const i = lib.channels.indexOf(n); return i < 0 ? [] : lib.videos.filter((v) => v[2] === i).slice(0, 2).map((v) => ({ v, ch: n })); }).slice(0, 8) : [];
+  const vids = lib ? vcNames.flatMap((n) => { const i = lib.channels.indexOf(n); return i < 0 ? [] : lib.videos.filter((v) => v[2] === i && !v[3]).slice(0, 2).map((v) => ({ v, ch: n })); }).slice(0, 8) : [];
   const total = follows.size;
   return (
     <div>

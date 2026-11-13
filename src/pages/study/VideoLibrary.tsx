@@ -7,7 +7,8 @@ import InlinePlayer from '../../components/InlinePlayer';
 import { toggleFollow, useFollows } from '../../lib/follow';
 import FilterBar from '../../components/FilterBar';
 
-interface Lib { about: string; channels: string[]; videos: [id: string, title: string, channel: number][] }
+type Vid = [id: string, title: string, channel: number, short?: 1];
+interface Lib { about: string; channels: string[]; videos: [id: string, title: string, channel: number, short?: 1][] }
 const PAGE = 40;
 let cache: Promise<Lib | null> | null = null;
 type View = 'feed' | 'creators' | 'all' | 'later' | 'watched';
@@ -58,7 +59,7 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
   const favs = useMemo(() => new Set((lib?.channels ?? []).map((c, i) => (follows.has(`vc:${c}`) ? i : -1)).filter((i) => i >= 0)), [lib, follows]);
   const eff: Sort = sort ?? (favs.size ? 'mine' : 'recent');
   // newest first: by real upload date when we have it, otherwise by position in the creator's own list (each creator's newest first)
-  const byNew = useMemo(() => (a: [string, string, number], b: [string, string, number]) => {
+  const byNew = useMemo(() => (a: Vid, b: Vid) => {
     const da = meta?.get(a[0])?.[1] ?? 0, db_ = meta?.get(b[0])?.[1] ?? 0;
     return da || db_ ? db_ - da || (rank.get(a[0]) ?? 0) - (rank.get(b[0]) ?? 0) : (rank.get(a[0]) ?? 0) - (rank.get(b[0]) ?? 0);
   }, [meta, rank]);
@@ -66,9 +67,9 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
     if (!lib) return [];
     const words = q.toLowerCase().split(/\s+/).filter(Boolean);
     let base = lib.videos;
-    if (view === 'feed') base = favs.size ? lib.videos.filter((v) => favs.has(v[2])) : lib.videos;
-    if (view === 'watched') base = hist.slice().sort((a, b) => b.ts - a.ts).map((h) => byId.get(h.ref)).filter((v): v is [string, string, number] => !!v);
-    else if (view === 'later') base = later.slice().sort((a, b) => b.createdAt - a.createdAt).map((s) => byId.get(s.key.slice(6))).filter((v): v is [string, string, number] => !!v);
+    if (view === 'feed') base = (favs.size ? lib.videos.filter((v) => favs.has(v[2])) : lib.videos).filter((v) => !v[3]); // Shorts stay out of the Feed
+    if (view === 'watched') base = hist.slice().sort((a, b) => b.ts - a.ts).map((h) => byId.get(h.ref)).filter((v): v is Vid => !!v);
+    else if (view === 'later') base = later.slice().sort((a, b) => b.createdAt - a.createdAt).map((s) => byId.get(s.key.slice(6))).filter((v): v is Vid => !!v);
     const out = base.filter((v) => (ch < 0 || v[2] === ch) && words.every((w) => v[1].toLowerCase().includes(w)) && !(full && meta && (meta.get(v[0])?.[0] ?? 999) < 300));
     if (view === 'feed') out.sort(byNew);
     else if (view === 'all') out.sort(eff === 'title' ? (a, b) => a[1].localeCompare(b[1]) : eff === 'mine' ? (a, b) => (+favs.has(b[2]) - +favs.has(a[2])) || byNew(a, b) : byNew);
@@ -138,15 +139,15 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
       {view !== 'creators' && <div className="row between"><p className="muted small">{list.length.toLocaleString()} videos</p>{view === 'watched' && hist.length > 0 && <button className="btn small" onClick={() => confirm('Clear your watched list?') && db.history.where('type').equals('video').delete()}>Clear watched list</button>}</div>}
       {list.length === 0 && (view === 'later' || view === 'watched') && <div className="empty">{view === 'later' ? 'Nothing saved yet. Use “Watch later” on any video.' : 'Videos you play here will be listed here.'}</div>}
       {view !== 'creators' && <ul className="vid-list">
-        {list.slice(0, shown).map(([id, title, c]) => {
+        {list.slice(0, shown).map(([id, title, c, short]) => {
           const e = embedFor(`https://www.youtube.com/watch?v=${id}`);
           const w = watched.get(id);
           const m0 = meta?.get(id); const m = m0 && m0[0] > 0 ? m0 : undefined;
           return (
-            <li key={id} className={`vid${w ? ' seen' : ''}`}>
+            <li key={id} className={`vid${w ? ' seen' : ''}${short ? ' short' : ''}`}>
               {thumbs && <button className="vid-thumb" onClick={() => start(id, title)} aria-label={`Play ${title}`}><img loading="lazy" decoding="async" src={`https://i.ytimg.com/vi/${id}/mqdefault.jpg`} alt="" />{m && <span className="vid-len">{runtime(m[0])}</span>}</button>}
               <div className="vid-main">
-                <strong className="vid-title">{title}</strong>
+                <strong className="vid-title">{short && <span className="vid-short">Short</span>}{title}</strong>
                 <div className="vid-meta">
                   <span>{lib.channels[c]}</span>
                   {m && !thumbs && <span className={`vid-pill${m[0] <= 60 ? ' short' : ''}`}>{m[0] <= 60 ? 'Short · ' : ''}{runtime(m[0])}</span>}

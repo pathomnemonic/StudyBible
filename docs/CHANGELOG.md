@@ -1,5 +1,9 @@
 # What changed
 
+## Shorts kept apart, smaller Help button
+- YouTube Shorts are marked in the video library (a fourth item on each video) and kept out of the Feed and For you. Elsewhere they carry a red SHORT tag and a red edge so they are easy to tell from full videos. The refresh marks new uploads itself; scripts/videos/mark-shorts.ts backfilled the newest 40 per creator (367 Shorts found).
+- The Help button on You is a slim one-line row.
+
 ## Videos are current again
 - The daily video refresh skipped nine busy channels (Ascension Presents, Catholic Answers Live, EWTN, FOCUS, Jimmy Akin, Pints with Aquinas and others) because its wrong-channel guard needed an overlap with older listed videos. The registry ids are confirmed, so the refresh now trusts them. A run today added 211 new videos across 25 creators, so the Feed shows this week's uploads.
 

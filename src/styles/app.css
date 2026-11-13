@@ -6285,3 +6285,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 @media (hover:hover){.pp-go:hover{opacity:1;background:color-mix(in srgb,var(--text) 8%,transparent)}}
 .lm-lead{border-color:var(--accent,currentColor);padding:14px}
 .lm-lead strong{font-size:1.08rem}
+.vid-short{display:inline-block;margin-right:6px;padding:0 6px;border-radius:6px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;vertical-align:1px;background:color-mix(in srgb,#e0556b 22%,transparent);color:#e0556b}
+.vid.short{box-shadow:inset 3px 0 0 #e0556b}
+.you-help{padding:6px 10px!important;margin:4px 0 10px!important;gap:8px!important;border-radius:10px!important}
+.you-help>span:first-child{width:24px!important;height:24px!important;font-size:.85rem}
+.you-help strong{display:inline!important;font-size:.9rem}
+.you-help small{display:none}
