@@ -1,5 +1,10 @@
 # What changed
 
+## Offline, accessibility and reader review
+- Offline claims in Help, Settings, Account and Pilgrim now say exactly what works offline: the app and your notes always; Scripture and study data for what you opened or downloaded. New tests: first launch online then offline (an opened chapter reads, an unopened one says it needs a connection) and recovery from a missing script after an update.
+- npm run e2e:a11y2: axe at every impact level on 13 screens at 320, 768 and 1280 px, seven widths for sideways scroll, landscape phone and tablet, 200% and 400% zoom, reduced motion, and keyboard behaviour in the reader (visible focus, Enter selects a verse, s opens the panel, Escape closes it). It found one low-contrast link, now fixed. Tiny inline targets (footnote markers inside a sentence) are listed rather than failed, since WCAG 2.2 exempts inline targets.
+- The side-by-side Bibles view moved out of ReadPage into its own file (919 lines left); docs/READPAGE_REVIEW.md maps the rest and orders further steps, each with its test first.
+
 ## Data safety, sync and scripture-integrity tests
 - Library > Export shows "Where your writing is kept": items in this browser, safety copies (clearly not a backup against clearing the browser), the last backup file, Google Drive and account status, and how many changes are not in any outside copy. A backup or safety copy that fails now says so instead of staying silent.
 - Sync: a note edited here is kept (and sent back) if another device deleted it in the meantime; a note deleted here returns if another device edited it afterwards; an expired sign-in or a server error leaves changes queued and is never reported as a finished sync. All tested against the real server.
