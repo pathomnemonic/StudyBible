@@ -32,6 +32,10 @@ jobs:
         run: npx tsx scripts/videos/refresh.ts || echo 'video refresh failed; using the committed library'
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      - name: Fill in the length of every video in the apologetics tracks, then relink the lessons (needs the key; skipped without it)
+        run: npx tsx scripts/launch/fill-minutes.ts && npx tsx scripts/launch/make-lesson-links.ts || echo 'video lengths not refreshed; using the committed ones'
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       - name: Refresh the Bible in a Year episode list from its public feed, then the offline-pack sizes (keeps the committed list if the feed fails)
         run: mkdir -p data/raw && curl -fsS --max-time 60 https://feeds.fireside.fm/bibleinayear/rss -o data/raw/biay.rss.xml && npx tsx scripts/podcasts/refresh-biay.ts || echo 'Bible in a Year refresh failed; using the committed list'
       - run: npm run build

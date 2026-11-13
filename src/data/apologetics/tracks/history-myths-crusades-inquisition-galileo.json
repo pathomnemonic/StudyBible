@@ -47,6 +47,11 @@
     },
     {
      "kind": "resource",
+     "id": "yt-counsel-galileo",
+     "why": "What happened to Galileo and why the usual story leaves out so much."
+    },
+    {
+     "kind": "resource",
      "id": "ca-inquisition",
      "why": "A short overview of what the Inquisitions were."
     },
@@ -91,6 +96,16 @@
      "type": "claim",
      "id": "church-opposed-science-galileo",
      "why": "Tests the claim step by step against sources."
+    },
+    {
+     "kind": "resource",
+     "id": "yt-cts-crusades",
+     "why": "A Catholic historian answers common claims about the Crusades."
+    },
+    {
+     "kind": "resource",
+     "id": "yt-counsel-inquisition",
+     "why": "The myths and the realities of the Inquisition."
     },
     {
      "kind": "resource",
@@ -425,6 +440,45 @@
    "verified": "2026-11-09",
    "minutes": 20,
    "note": "Published by Yad Vashem; the other side’s own scholarly voice."
+  },
+  {
+   "id": "yt-counsel-galileo",
+   "title": "The Galileo Affair (with Chris Check)",
+   "creator": "The Counsel of Trent (Catholic Answers)",
+   "kind": "video",
+   "url": "https://www.youtube.com/watch?v=cjLUoIhEoLQ",
+   "free": true,
+   "level": 1,
+   "audience": "adult",
+   "why": "What happened to Galileo and why the usual story leaves out so much.",
+   "verified": "2026-11-13",
+   "note": "Catholic Answers channel"
+  },
+  {
+   "id": "yt-counsel-inquisition",
+   "title": "Actually, everybody expects the Spanish Inquisition!",
+   "creator": "The Counsel of Trent (Catholic Answers)",
+   "kind": "video",
+   "url": "https://www.youtube.com/watch?v=NlyDF1z5QvY",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "The myths and the realities of the Inquisition.",
+   "verified": "2026-11-13",
+   "note": "Catholic Answers channel"
+  },
+  {
+   "id": "yt-cts-crusades",
+   "title": "Myths About The Crusades That Too Many People Believe",
+   "creator": "The Catholic Talk Show",
+   "kind": "video",
+   "url": "https://www.youtube.com/watch?v=41hnV7t5Keo",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "A Catholic historian answers common claims about the Crusades.",
+   "verified": "2026-11-13",
+   "note": "guest historian Steve Weidenkopf"
   }
  ]
 }

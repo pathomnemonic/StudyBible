@@ -52,6 +52,11 @@
     },
     {
      "kind": "resource",
+     "id": "yt-barron-why-mary-matters",
+     "why": "A bishop explains why Mary matters, from the heart of the Christian story."
+    },
+    {
+     "kind": "resource",
      "id": "ca-mary-mother",
      "why": "Why “Mother of God” matters."
     },
@@ -432,6 +437,19 @@
    "verified": "2026-11-09",
    "minutes": 20,
    "note": "An ecumenical dialogue; honest about the hard points."
+  },
+  {
+   "id": "yt-barron-why-mary-matters",
+   "title": "Why Mary Matters",
+   "creator": "Bishop Robert Barron",
+   "kind": "video",
+   "url": "https://www.youtube.com/watch?v=EIXbOqMRLYg",
+   "free": true,
+   "level": 1,
+   "audience": "any",
+   "why": "A bishop explains why Mary matters, from the heart of the Christian story.",
+   "verified": "2026-11-13",
+   "note": "sermon from Word on Fire"
   }
  ]
 }

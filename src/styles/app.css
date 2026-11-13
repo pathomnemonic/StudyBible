@@ -6280,3 +6280,8 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .big-q { margin: 6px 0; font-weight: 600; }
 .lp-warm { margin: 0 0 12px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 12px; }
 .lp-warm summary { cursor: pointer; font-weight: 600; }
+.pp-go{opacity:.7}
+.pp-go:focus-visible{opacity:1;outline:2px solid var(--accent,currentColor);outline-offset:2px}
+@media (hover:hover){.pp-go:hover{opacity:1;background:color-mix(in srgb,var(--text) 8%,transparent)}}
+.lm-lead{border-color:var(--accent,currentColor);padding:14px}
+.lm-lead strong{font-size:1.08rem}

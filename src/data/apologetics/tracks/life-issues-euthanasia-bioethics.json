@@ -66,6 +66,11 @@
           "why": "The definition and where it sits in the Catechism."
         },
         {
+          "kind": "resource",
+          "id": "yt-edmonton-hope-dignity",
+          "why": "Why the Church says no to euthanasia and how to speak with compassion about it."
+        },
+        {
           "kind": "inapp",
           "type": "term",
           "id": "Sanctity of life",
@@ -335,6 +340,19 @@
       "why": "A disability rights group that opposes assisted suicide laws, for a secular case from people who would be affected.",
       "verified": "2026-11-09",
       "note": "Secular disability-rights organisation, not Catholic; hear their reasons in their own words"
+    },
+    {
+      "id": "yt-edmonton-hope-dignity",
+      "title": "Hope & Dignity: A Catholic Response to Euthanasia and Assisted Suicide",
+      "creator": "Archdiocese of Edmonton",
+      "kind": "video",
+      "url": "https://www.youtube.com/watch?v=1UqskadjhgI",
+      "free": true,
+      "level": 1,
+      "audience": "any",
+      "why": "Why the Church says no to euthanasia and how to speak with compassion about it.",
+      "verified": "2026-11-13",
+      "note": "diocesan formation video"
     }
   ]
 }

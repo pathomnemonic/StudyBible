@@ -96,6 +96,11 @@
     },
     {
      "kind": "resource",
+     "id": "yt-horn-papacy-interview",
+     "why": "The case for Peter and the papacy from Scripture and the early Church, with a section on infallibility."
+    },
+    {
+     "kind": "resource",
      "id": "ca-peter-rock",
      "why": "A short reply on Matthew 16."
     },
@@ -405,6 +410,19 @@
    "verified": "2026-11-09",
    "minutes": 40,
    "note": "A commission text, not an official teaching of either Church."
+  },
+  {
+   "id": "yt-horn-papacy-interview",
+   "title": "Historical and Biblical Arguments for the Papacy",
+   "creator": "Trent Horn (interview)",
+   "kind": "talk",
+   "url": "https://www.youtube.com/watch?v=JqLrTD3Q15Y",
+   "free": true,
+   "level": 2,
+   "audience": "adult",
+   "why": "The case for Peter and the papacy from Scripture and the early Church, with a section on infallibility.",
+   "verified": "2026-11-13",
+   "note": "interview on another channel, Trent Horn of Catholic Answers is the guest"
   }
  ]
 }

@@ -1,5 +1,11 @@
 # What changed
 
+## Passport links, one featured video, more media
+- Pilgrim's Passport: every space still to fill is now a link. Tap it to go to that saint, council, feast, argument or game; opening the page earns the stamp.
+- Watch and listen in a lesson opens with one featured video ("Start here", the shortest playable one), the rest folded away as "More to watch and hear"; lengths show as minutes (hours when long).
+- scripts/launch/fill-minutes.ts reads every YouTube length from the official YouTube Data API and flags videos that have gone private; the daily build runs it when the YOUTUBE_API_KEY secret is set.
+- Seven tracks that had no video gain one to three: Barron on Mary, Trent Horn on the papacy, Catholic Answers on Galileo and the Inquisition, The Catholic Talk Show on the Crusades, and the Archdiocese of Edmonton on euthanasia. Each was checked to exist and to come from the named channel.
+
 ## Big questions and richer lessons
 - Lesson of the day on Learn now draws from a featured list of lessons on what people really ask and debate (does God exist, why suffering, science and faith, can I trust the Bible, the Eucharist, infallibility...), chosen from the same topics as the apologetics hub and shown as the question. The list lives in data/curated/featured-lessons.json.
 - Lessons for teens and adults gain a Watch and listen step (hand-picked videos, talks, debates and podcasts from the apologetics tracks, playable in the page) and a Debate it protocol in Discuss (state their view, find agreement, answer with a reason and a source, say what would change your mind, swap sides) linked to the matching argument chains.

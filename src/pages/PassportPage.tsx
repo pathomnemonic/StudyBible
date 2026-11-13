@@ -126,7 +126,9 @@ export default function PassportPage() {
                     <span className="pp-label">{s.label}</span>
                   </>
                 );
-                if (!s.stamp) return <li key={s.key} className="pp-slot" aria-hidden="true">{body}</li>;
+                if (!s.stamp) return s.to
+                  ? <li key={s.key}><Link to={s.to} className="pp-slot pp-go" aria-label={`${s.label}, not stamped yet. Open it to get the stamp.`}>{body}</Link></li>
+                  : <li key={s.key} className="pp-slot" aria-hidden="true">{body}</li>;
                 const to = s.to ?? undefined;
                 return (
                   <li key={s.key}>

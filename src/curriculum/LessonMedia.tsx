@@ -3,17 +3,18 @@ import { Link } from 'react-router-dom';
 import InlinePlayer from '../components/InlinePlayer';
 import { embedFor } from '../lib/embed';
 import { resolveInapp, trackPath } from '../lib/apolTracks';
+import Fold from '../components/Fold';
 import type { Extras, Media } from './extras';
 
 const KIND: Record<string, string> = { video: 'Video', talk: 'Talk', debate: 'Debate', podcast: 'Podcast', series: 'Series', article: 'Article', tract: 'Article' };
 
-function Item({ m }: { m: Media }) {
+function Item({ m, lead }: { m: Media; lead?: boolean }) {
   const [play, setPlay] = useState(false);
   const e = embedFor(m.url);
   return (
-    <li className="lm-item">
+    <li className={`lm-item${lead ? ' lm-lead' : ''}`}>
       <div className="lm-meta"><span className="chip">{KIND[m.kind] ?? m.kind}</span> <strong>{m.title}</strong></div>
-      <div className="muted small">{m.creator}{m.minutes ? ` · ${m.minutes} min` : ''}</div>
+      <div className="muted small">{m.creator}{m.minutes ? ` · ${m.minutes >= 60 ? `${Math.floor(m.minutes / 60)} h ${m.minutes % 60} min` : `${m.minutes} min`}` : ''}</div>
       <p className="small" style={{ margin: '2px 0 6px' }}>{m.why}</p>
       {play && e ? <InlinePlayer embed={e} title={m.title} /> : (
         <div className="row" style={{ gap: 6 }}>
@@ -25,12 +26,18 @@ function Item({ m }: { m: Media }) {
   );
 }
 
+/** The one to start with, large and ready to play, then a few more behind a fold so the step is not a wall of links. Shorter ones come first. */
+const pickFeature = (list: Media[]) => [...list].sort((a, b) => (b.minutes ? 1 : 0) - (a.minutes ? 1 : 0) || (a.minutes ?? 999) - (b.minutes ?? 999)).find((m) => embedFor(m.url) && (m.minutes ?? 0) <= 40) ?? list[0];
+
 /** Videos, talks and debates for a lesson, picked by hand for the topic, with the reading behind them. */
 export function WatchListen({ extras }: { extras: Extras }) {
+  const lead = extras.watch.length ? pickFeature(extras.watch) : null;
+  const more = extras.watch.filter((m) => m !== lead);
   return (
     <div className="lm">
-      {extras.watch.length > 0 && <><h3 className="lp-ask">Watch and listen</h3><ul className="lm-list">{extras.watch.map((m) => <Item key={m.url} m={m} />)}</ul></>}
-      {extras.read.length > 0 && <><h3 className="lp-ask">Read more</h3><ul className="lm-list">{extras.read.map((m) => <Item key={m.url} m={m} />)}</ul></>}
+      {lead && <><h3 className="lp-ask">Start here</h3><ul className="lm-list"><Item m={lead} lead /></ul></>}
+      {more.length > 0 && <Fold id="lm-more" dot={false} title={`More to watch and hear (${more.length})`}><ul className="lm-list">{more.map((m) => <Item key={m.url} m={m} />)}</ul></Fold>}
+      {extras.read.length > 0 && <Fold id="lm-read" dot={false} title="Read more"><ul className="lm-list">{extras.read.map((m) => <Item key={m.url} m={m} />)}</ul></Fold>}
       <p className="muted small">Chosen by hand, not by search. They are linked at their source and have not been reviewed by a bishop, so weigh them against the Catechism.</p>
     </div>
   );
