@@ -102,4 +102,11 @@ await p.locator('button', { hasText: 'Keep my answer as a note' }).click(); awai
 await p.goto(`${BASE}/#/study/map?n=${encodeURIComponent('argument:real-presence')}`); await p.waitForSelector('.concept-map .cm-group', { timeout: 30000 });
 await p.locator('label', { hasText: 'Include my notes' }).locator('input').check(); await p.waitForTimeout(600);
 if (!/My notes/.test(await p.locator('.concept-map').innerText())) fail('a note saved from Think it through should join its argument on the map');
+// 12. original language, word by word (Greek and Hebrew)
+await p.goto(`${BASE}/#/study/interlinear/JHN/1`); await p.waitForSelector('.il-w', { timeout: 30000 });
+if (!/Ἐν|ἐν/.test(await p.locator('.il-verse').first().innerText())) fail('John 1:1 should show the Greek words');
+await p.locator('.il-w').first().click(); await p.waitForTimeout(300);
+if (!/Grammar:/.test(await p.locator('.il-detail').innerText())) fail('tapping a word should show its grammar');
+await p.goto(`${BASE}/#/study/interlinear/GEN/1`); await p.waitForSelector('.il-w', { timeout: 30000 });
+if (await p.locator('.il-words[dir=rtl]').count() === 0) fail('Hebrew should be set right to left');
 await b.close(); console.log('review ok');

@@ -22,6 +22,7 @@
 - Think it through: a scripted, offline guided walk through any Argument Map question (think first, then each source, then objections), with no generated text.
 - Every Father, saint, council or scholar passage in Ask the Fathers and Ask the sources carries a label for what kind of voice it is, taken from the work's own record.
 - The Map of connections can include your own notes (opt-in): a note joins the Bible chapters it is written on and the argument it was written for.
+- Original language, word by word: any chapter of the Greek New Testament or Hebrew Bible with grammar and dictionary entries on tap (built on texts already in the app).
 - Docs: docs/FEATURE_OPPORTUNITIES.md (38 opportunities), docs/ROADMAP_AMBITIOUS.md (ten ambitious features and an evidence-grounded assistant architecture), docs/CYCLE2_REPORT.md.
 
 ## Closing the gaps from the audit

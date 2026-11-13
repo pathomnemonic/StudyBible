@@ -30,6 +30,7 @@ export const FEATURES: Feature[] = [
   { id: 'bible.search', title: 'Search everything', blurb: 'Verses, words, notes, the Fathers and the Catechism.', to: '/study/search', hub: 'bible', keywords: 'find' },
   { id: 'study.ask-all', title: 'Ask the sources', blurb: 'One question; the Catechism, Bible and Fathers kept apart and labelled.', to: '/study/ask-all', hub: 'study', keywords: 'question answer ask search catechism fathers bible', hot: true },
   { id: 'study.tutor', title: 'Think it through', blurb: 'Say what you think, then meet the sources one at a time.', to: '/study/tutor', hub: 'study', keywords: 'socratic guided argument question tutor' },
+  { id: 'study.interlinear', title: 'Original language, word by word', blurb: 'Greek and Hebrew with grammar and dictionary entries.', to: '/study/interlinear', hub: 'bible', keywords: 'interlinear greek hebrew morphology strongs original' },
   { id: 'study.map', title: 'Map of connections', blurb: 'How teachings, passages, works and people link up.', to: '/study/map', hub: 'study', keywords: 'graph network links connections doctrine' },
   { id: 'bible.fingerprint', title: 'Book fingerprint', blurb: 'The words a book leans on.', to: '/study/fingerprint', hub: 'bible', keywords: 'word frequency vocabulary counts' },
   { id: 'bible.concordance', title: 'Concordance', blurb: 'Every place a word appears.', to: '/study/concordance', hub: 'bible', keywords: 'word search' },

@@ -19,7 +19,7 @@ Earlier versions of this page implied that several of these wait on "a model or 
 | --- | --- |
 | **Manuscript and textual-variant explorer** (item 4) | A curated variant table (verse, readings, supporting manuscripts, how translations choose), from an apparatus whose licence allows it. The viewer already exists for manuscripts. |
 | **Synchronised recorded audio** (item 5) | Alignment data: verse-level timings per recording, produced by forced alignment at build time on recordings whose licence allows it, or chapter-level sync using what already exists. |
-| **Interlinear and fuller original-language study** (item 6) | Morphologically tagged public-domain original-language texts (Greek New Testament, Hebrew Bible) with a clear licence, shipped as an offline pack of roughly 20 to 40 MB. |
+| **Interlinear and fuller original-language study** (item 6), **started** | The tagged texts turned out to be in the app already (SBLGNT with MorphGNT, and the Hebrew Bible with OSHB, about 18 MB with the lexicons; licences in `public/data/original/sources.json`). A chapter-by-chapter interlinear viewer is built (/study/interlinear). Still to do: line-up with the English verse for the Psalms and other chapters whose Hebrew and English numbering differ; word-for-word English alignment (this needs an alignment data set, which is the remaining data prerequisite). |
 
 ### C. Work that needs platform or store work
 | Workstream | What it needs |
@@ -69,6 +69,8 @@ The manuscripts and textual-history pages exist. Add a variant browser: for a ve
 Highlight the verse being read. Needs verse-level timing for each recording. LibriVox and Bible in a Year give chapter or day audio but not verse timings. Options: forced alignment run offline at build time on public-domain recordings (a script, output shipped as small JSON), or chapter-level sync only. **Reuse:** audio player, reader verse spans, listen-while-you-read. **Complexity:** L. **Risks:** alignment errors on archaic text. **Offline:** yes with downloaded audio.
 
 ## 6. A fuller original-language environment
+
+*Status: the interlinear chapter viewer is built on the tagged texts the app already ships. Word-for-word English alignment is not built.*
 The words page and lexicon exist. Add interlinear display for a chapter (Greek NT, Hebrew OT) with morphology tooltips, tap a word for lexicon and every occurrence. **Data:** morphologically tagged public-domain texts (MorphGNT, OSHB). **Complexity:** L. **Risks:** licensing of lexicon glosses; heavy data (about 20-40 MB). **Offline:** yes as a pack.
 
 ## 7. An advanced catechesis platform

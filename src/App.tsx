@@ -194,6 +194,7 @@ const AskAllPage = lazy(() => import('./pages/study/AskAllPage'));
 const ConceptMapPage = lazy(() => import('./pages/study/ConceptMapPage'));
 const CurriculumPacing = lazy(() => import('./pages/study/CurriculumPacing'));
 const TutorPage = lazy(() => import('./pages/study/TutorPage'));
+const InterlinearPage = lazy(() => import('./pages/study/InterlinearPage'));
 const FingerprintPage = lazy(() => import('./pages/study/FingerprintPage'));
 const BooksPage = lazy(() => import('./pages/study/BooksPage'));
 const IndexPage = lazy(() => import('./pages/study/IndexPage'));
@@ -406,6 +407,7 @@ export default function App() {
               <Route path="/study/concordance" element={<ConcordancePage />} />
               <Route path="/study/fingerprint/:book?" element={<FingerprintPage />} />
               <Route path="/study/map" element={<ConceptMapPage />} />
+              <Route path="/study/interlinear/:book?/:chapter?" element={<InterlinearPage />} />
               <Route path="/study/tutor/:id?" element={<TutorPage />} />
               <Route path="/study/doctrine" element={<DoctrinePage />} />
               <Route path="/study/sources" element={<SourcesPage />} />
