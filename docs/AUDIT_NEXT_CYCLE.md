@@ -91,16 +91,16 @@ See the commands and results table below.
 
 | Area | Work recorded | Commit(s) |
 |---|---|---|
-| Versification | Removed verse clamping beyond verified rules; unverified/out-of-range mapping now preserves the source address and reports non-exactness. | `35d75e4` is not this change; see `64206baa` and later branch history for the underlying pre-existing exactness work. |
+| Versification | Reviewed the existing exactness-aware conversion and no-clamping behavior on the starting branch. No new versification implementation change is recorded in this cycle yet; the specified regression suite remains outstanding. | Pre-existing on the starting branch; no new commit. |
 | Reference repair | Human-readable repair conversions now require exact conversion; optional edition counts are used to validate source and anchor candidates. | `80b3f09`, `fd89208` |
-| Reading-plan creation | Typed passages are refused when conversion reports non-exactness; source and anchor semantic validation was attempted but not committed. | Existing changes on branch: `ccr-c086ddeb` ancestry; no new semantic-validation commit. |
+| Reading-plan creation | Typed passages are refused when conversion reports non-exactness. Source/anchor semantic validation has not been completed. | No new commit for this row. |
 | Data health | Optional anchor-edition semantic validation added to passage checks; UI loads Vulgate counts before running the check. | `a4b2c96`, `3dbd99e` |
 | Listening statistics | Added a local calendar-day ledger for listened seconds and actual end events; annual totals now use dated ledger entries, and old cumulative records are explicitly disclosed as undated. | `68d4536`, `35d75e4` |
 | Listening tests | Updated legacy expectations and added year-boundary, real-completion, and position-only-save cases. | `86ae189` |
 | Repair atomicity | Repair batches and Undo use Dexie transactions; a failed snapshot stops the operation. | `9d80f6d` |
 | Trash restore | Restore re-reads the trash row inside a transaction, checks UID duplication, and clears tombstone/trash state atomically. | `4e1707c` |
 | Collection summary | Done marks are compared by canonicalized JSON values, independent of object-key order. | `d65ab18`, `b893a80` |
-| Playback race | Playback source resolution, retry, and reload restoration use a request generation to prevent stale async lookups from replacing a newer selection. | `1c4d4df` |
+| Playback race | Playback source resolution, retry, and reload restoration use a request generation to prevent stale async lookups from replacing a newer selection. Saving paused previous-episode progress before replacement and deterministic race tests remain outstanding. | `1c4d4df` |
 
 ## Regression tests
 
