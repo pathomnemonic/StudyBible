@@ -2,7 +2,7 @@
 // focused checks, so every screen is held to the same rules the reviewer would apply by eye.
 export const INVARIANTS = () => {
   const out = [];
-  const vis = (e) => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 4 && r.height > 4 && cs.visibility !== 'hidden' && cs.display !== 'none' && e.offsetParent !== null; };
+  const vis = (e) => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 4 && r.height > 4 && cs.visibility !== 'hidden' && cs.display !== 'none' && e.offsetParent !== null && !(e.checkVisibility && !e.checkVisibility({ checkVisibilityCSS: true, contentVisibilityAuto: true })) && !(e.closest('details:not([open])') && !e.closest('summary')); };
   const label = (e) => (e.getAttribute('aria-label') || e.textContent || e.getAttribute('title') || e.tagName).trim().replace(/\s+/g, ' ').slice(0, 28);
   const root = document.querySelector('main') || document.body;
   const controls = [...root.querySelectorAll('a[href], button, [role=tab], [role=button], input, select, textarea, summary')].filter(vis);
