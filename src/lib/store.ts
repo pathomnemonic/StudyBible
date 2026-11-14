@@ -116,7 +116,7 @@ export interface Settings {
   /** one verse per line instead of running paragraphs */
   verseLines: boolean;
   /** how Copy formats a selected verse: numbers kept, plain text, or a quotation with a citation */
-  copyStyle: 'numbers' | 'plain' | 'quote';
+  copyStyle: 'numbers' | 'plain' | 'quote' | 'markdown' | 'reference';
   /** study-panel sections the reader has chosen not to see */
   studyHidden: string[];
   /** the Catholic Church the reader belongs to; the Roman Rite is the default */

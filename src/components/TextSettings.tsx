@@ -1,3 +1,4 @@
+import { COPY_STYLES } from '../lib/copyFormat';
 import { useEffect, useState } from 'react';
 import Modal from './Modal';
 import Fold from './Fold';
@@ -93,9 +94,7 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
       <label className="row between" style={{ margin: '10px 0' }}>
         <span>Copy a verse as</span>
         <select value={s.copyStyle} onChange={(e) => set({ copyStyle: e.target.value as any })} aria-label="Copy format">
-          <option value="numbers">Text with verse numbers, then the citation</option>
-          <option value="plain">Plain text, then the citation</option>
-          <option value="quote">A quotation with the citation after it</option>
+          {COPY_STYLES.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
         </select>
       </label>
       <label className="row between" style={{ margin: '10px 0' }}>

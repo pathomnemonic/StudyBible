@@ -27,3 +27,6 @@ Parables and miracles indexes, quotation and fulfilment explorers: need reviewed
 
 ## Priority 5 and 6: prayer, liturgy, audio
 Sunday preparation workspace, novena tracker, prayer-by-circumstance finder: next. Eastern calendar framework: architecture can be built; sources needed. Audio read-along: timing data needed.
+
+## Already in the app (the list above asked for these; nothing to build)
+Passage dossier (Study > Passage dossier opens a full-page version of the study panel with Catechism, Church documents, Fathers, commentary, cross-references, media and your notes), Prepare for Sunday, Novenas and short plans, Lectio Divina, Daily Examen, Divine Office, councils (the twenty-one councils), genealogies, topical index of parables and miracles, glossary with Church wording and Scripture, saint name finder. Where one of these needs a particular improvement from the list, that improvement is listed above as next.

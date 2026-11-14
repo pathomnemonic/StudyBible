@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Copy a verse as a Markdown block quote or as the reference only (two new formats beside the three that existed).
 - Collections list: item count, done count and last-changed date on every collection, search across names, descriptions and items, and a Duplicate button.
 - Notes: typing [[ in a note suggests your notes by title and completes the link (the unfinished part of note-to-note links).
 

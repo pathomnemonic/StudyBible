@@ -147,6 +147,12 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Collection templates | **Working** | Start a collection from a template (the Eucharist in Scripture, Marian passages, the Passion in John, the Beatitudes and works of mercy, the call of the first disciples). Templates hold Scripture passages only; edit them freely afterwards. |
 | Collections list: summary, search and duplicate | **Working** | Each collection in the list shows its item count, how many are ticked done and when it last changed. With more than three collections a search box filters by name, description or the label of any item. Duplicate makes a personal copy (same items, nothing ticked), which is how a template becomes your own. Not built: folders, tags and collection types beyond the item kinds already supported. |
 
+## Bible
+
+| Feature | Status | Notes |
+|---|---|---|
+| Copy a verse in five formats | **Working** | In Text settings, “Copy a verse as” offers verse numbers, plain text, a quotation, a Markdown block quote with the citation in bold, or the reference only. The translation text is never altered; only the wrapping changes. |
+
 ## Pray
 
 | Feature | Status | Notes |

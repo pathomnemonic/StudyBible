@@ -43,6 +43,7 @@ import { useT } from '../lib/i18n';
 import Motes from '../components/Motes';
 import { buzz } from '../lib/haptics';
 import { copyText as safeCopy } from '../lib/clipboard';
+import { formatCopy } from '../lib/copyFormat';
 import { approvedLinks } from '../lib/approved';
 import NotePopover from '../components/NotePopover';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
@@ -525,14 +526,11 @@ export default function ReadPage() {
     for (const r of selRefs) await toggleBookmark(r, 'bookmark', edition.id);
   };
   const copyText = async () => {
-    const lines: string[] = [];
     if (parallelMode) return;
-    for (const [a, b] of groupConsecutive(selNative)) {
-      for (const v of flat.filter((x) => x.n >= a && x.n <= b)) lines.push(settings.copyStyle === 'numbers' ? `${v.n} ${v.text}` : v.text);
-    }
+    const verses: { n: number; text: string }[] = [];
+    for (const [a, b] of groupConsecutive(selNative)) verses.push(...flat.filter((x) => x.n >= a && x.n <= b).map((v) => ({ n: v.n, text: v.text })));
     const label = `${bk.name} ${chNum}:${groupConsecutive(selNative).map(([a, b]) => (a === b ? a : `${a}–${b}`)).join(', ')}`;
-    const body = lines.join(' ');
-    await safeCopy(settings.copyStyle === 'quote' ? `“${body}” — ${label} (${edition.shortName})` : `${body}\n— ${label} (${edition.shortName})`);
+    await safeCopy(formatCopy(settings.copyStyle, verses, label, edition.shortName));
   };
   const copyLink = async () => {
     const [a, b] = parallelMode ? [selAnchor[0], selAnchor[selAnchor.length - 1]] : [Math.min(...selNative), Math.max(...selNative)];
