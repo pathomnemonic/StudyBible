@@ -83,25 +83,32 @@ describe('go further links', () => {
 });
 
 describe('key verse for review', () => {
+  const ctx = refContext(known.editions, 'vulgate');
   it('reads the reference after the quotation', () => {
-    const k = keyVerseRef({ mem: '“Take heart, my son; your sins are forgiven.” (Matthew 9:2)' });
+    const k = keyVerseRef({ mem: '“Take heart, my son; your sins are forgiven.” (Matthew 9:2)' }, ctx);
     expect(k && refId(k.ref)).toBe('MAT.9.2');
   });
-  it('reads a range', () => { expect(refId(keyVerseRef({ mem: '“…he was raised on the third day.” (1 Corinthians 15:3–4)' })!.ref)).toBe('1CO.15.3-4'); });
+  it('reads a range', () => { expect(refId(keyVerseRef({ mem: '“…he was raised on the third day.” (1 Corinthians 15:3–4)' }, ctx)!.ref)).toBe('1CO.15.3-4'); });
   it('gives nothing when there is no reference (a prayer), rather than inventing one', () => {
     expect(keyVerseRef({ mem: 'Come, Lord Jesus.' })).toBeNull();
     expect(keyVerseRef({})).toBeNull();
   });
 
   it('withholds an unverified key verse from automatic memorization', () => {
-    const ctx = refContext(known.editions, 'vulgate');
     const k = keyVerse({ mem: '“Whoever eats my flesh...” (John 6:51–58)' }, ctx);
     expect(k.status).toBe('approximate');
     expect(keyVerseRef({ mem: '“Whoever eats my flesh...” (John 6:51–58)' }, ctx)).toBeNull();
   });
 
+
+  it('does not call a static-only mapping exact when edition counts are unavailable', () => {
+    const k = keyVerse({ mem: '“Take heart, my son; your sins are forgiven.” (Matthew 9:2)' });
+    expect(k.status).toBe('approximate');
+    expect(keyVerseRef({ mem: '“Take heart, my son; your sins are forgiven.” (Matthew 9:2)' })).toBeNull();
+  });
+
   it('most lessons have a verse the memorize list can hold', () => {
-    const n = lessons.filter((l) => keyVerseRef(l)).length;
+    const n = lessons.filter((l) => keyVerseRef(l, ctx)).length;
     expect(n).toBeGreaterThan(300);
   });
 });
