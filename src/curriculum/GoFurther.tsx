@@ -80,7 +80,7 @@ export function GoFurther({ lesson, extras }: { lesson: LessonLike; extras?: Ext
       <h3 className="lp-ask">Go further</h3>
       {GROUPS.map((g) => {
         const items = links.filter((l) => g.kind.includes(l.kind));
-        return items.length ? <p key={g.title} className="small"><strong>{g.title}:</strong> {items.map((l, i) => <span key={l.kind + l.to}>{i ? ' · ' : ''}<Link to={l.to}>{l.label.replace(/^(Read |Track: |Questions about the faith: |Read in the Reading room: )/, '')}</Link>{l.note ? <span className="muted" data-note="approximate"> (verse numbers differ in this edition; check the passage)</span> : null}</span>)}</p> : null;
+        return items.length ? <p key={g.title} className="small"><strong>{g.title}:</strong> {items.map((l, i) => <span key={l.kind + l.to}>{i ? ' · ' : ''}<Link to={l.to}>{l.label.replace(/^(Read |Track: |Questions about the faith: |Read in the Reading room: )/, '')}</Link>{l.note ? <span className="muted" data-note="approximate"> ({l.note})</span> : null}</span>)}</p> : null;
       })}
       {unavailable.length ? <p className="small muted" data-unavailable>{unavailable.map((u) => `${u.label}: ${u.reason}`).join('; ')}.</p> : null}
       {problem ? (
