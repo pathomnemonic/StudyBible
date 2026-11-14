@@ -2,8 +2,10 @@ import { db, type EpisodeProgress } from '../db/db';
 
 /** Mark an episode played or unplayed WITHOUT touching what was really listened to (the hours on the Year page come from `heard`, never from this). */
 export async function setPlayed(episodeId: string, completed: boolean, duration?: number) {
-  const old = await db.episodeProgress.get(episodeId);
-  await db.episodeProgress.put({ ...(old ?? { episodeId, position: 0 }), episodeId, position: 0, completed, duration: duration ?? old?.duration, updatedAt: Date.now() } as EpisodeProgress);
+  await db.transaction('rw', db.episodeProgress, async () => {
+    const old = await db.episodeProgress.get(episodeId);
+    await db.episodeProgress.put({ ...(old ?? { episodeId, position: 0 }), episodeId, position: 0, completed, duration: duration ?? old?.duration, updatedAt: Date.now() } as EpisodeProgress);
+  });
 }
 
 /** Local calendar date, matching the year boundaries used by the Year page. */
@@ -13,24 +15,27 @@ export function listeningDay(at = new Date()): string {
 
 /** Add seconds that really played, and record an actual end event against the day it occurred. */
 export async function creditListening(episodeId: string, secs: number, patch: { position?: number; duration?: number; ranToEnd?: boolean; completed?: boolean } = {}) {
-  const old = await db.episodeProgress.get(episodeId);
-  const done = patch.completed ?? old?.completed ?? false;
-  const day = listeningDay();
-  const ledger = { ...(old?.listeningDays ?? {}) };
-  // Do not create empty day entries for ordinary position-only saves.
-  if (secs > 0 || patch.ranToEnd) {
-    const prior = ledger[day] ?? { seconds: 0, completions: 0 };
-    ledger[day] = {
-      seconds: Math.round((prior.seconds + Math.max(0, secs)) * 10) / 10,
-      completions: prior.completions + (patch.ranToEnd ? 1 : 0),
-    };
-  }
-  await db.episodeProgress.put({
-    ...(old ?? {}), episodeId, position: patch.position ?? old?.position ?? 0, duration: patch.duration ?? old?.duration, completed: done,
-    heard: Math.round(((old?.heard ?? 0) + Math.max(0, secs)) * 10) / 10,
-    listeningDays: ledger,
-    ranToEnd: patch.ranToEnd || old?.ranToEnd || undefined, updatedAt: Date.now(),
-  } as EpisodeProgress);
+  // The ledger is read-modify-written; serialize concurrent timeupdate, pause, visibility and pagehide saves.
+  await db.transaction('rw', db.episodeProgress, async () => {
+    const old = await db.episodeProgress.get(episodeId);
+    const done = patch.completed ?? old?.completed ?? false;
+    const day = listeningDay();
+    const ledger = { ...(old?.listeningDays ?? {}) };
+    // Do not create empty day entries for ordinary position-only saves.
+    if (secs > 0 || patch.ranToEnd) {
+      const prior = ledger[day] ?? { seconds: 0, completions: 0 };
+      ledger[day] = {
+        seconds: Math.round((prior.seconds + Math.max(0, secs)) * 10) / 10,
+        completions: prior.completions + (patch.ranToEnd ? 1 : 0),
+      };
+    }
+    await db.episodeProgress.put({
+      ...(old ?? {}), episodeId, position: patch.position ?? old?.position ?? 0, duration: patch.duration ?? old?.duration, completed: done,
+      heard: Math.round(((old?.heard ?? 0) + Math.max(0, secs)) * 10) / 10,
+      listeningDays: ledger,
+      ranToEnd: patch.ranToEnd || old?.ranToEnd || undefined, updatedAt: Date.now(),
+    } as EpisodeProgress);
+  });
 }
 
 /** Year-specific totals come only from dated ledger entries. Legacy cumulative fields have no reliable year and are not reassigned. */
