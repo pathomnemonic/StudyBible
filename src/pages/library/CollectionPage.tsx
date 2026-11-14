@@ -11,7 +11,10 @@ import { useSettings } from '../../lib/store';
 import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import { collectionHtml, collectionMarkdown, moveItem, resolveAll, type Resolved } from '../../lib/collections';
-import { download } from '../../db/ops';
+import { download, exportCollections } from '../../db/ops';
+import { restoreFromTrash, trashedFor } from '../../lib/trash';
+import PinButton from '../../components/PinButton';
+import { recordOpened } from '../../lib/pins';
 
 /** One collection opened out: every item read back to its original (never copied), with ways to reorder, add from your own notes and marks, and export. */
 export default function CollectionPage() {
@@ -27,6 +30,8 @@ export default function CollectionPage() {
   const bookmarks = useLiveQuery(() => db.bookmarks.toArray(), []) ?? [];
   const [items, setItems] = useState<Resolved[]>([]);
   const [msg, setMsg] = useState('');
+  const [tick, setTick] = useState(0);
+  const [trashed, setTrashed] = useState<Record<number, number>>({});
   const [pass, setPass] = useState('');
   const [ccc, setCcc] = useState('');
   const [url, setUrl] = useState('');
@@ -34,7 +39,7 @@ export default function CollectionPage() {
   const [qText, setQText] = useState('');
   const [qKind, setQKind] = useState<'question' | 'note'>('question');
   const key = c ? JSON.stringify(c.items) : '';
-  useEffect(() => { let live = true; if (c && ed) resolveAll(c, ed).then((r) => live && setItems(r)); return () => { live = false; }; }, [key, ed?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { let live = true; if (c && ed) resolveAll(c, ed).then(async (r) => { if (!live) return; setItems(r); const t: Record<number, number> = {}; for (const x of r) if (x.missing) { const id = await trashedFor(x.target); if (id !== undefined) t[x.index] = id; } if (live) setTrashed(t); }); return () => { live = false; }; }, [key, ed?.id, tick]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /** `field` names which input this patch comes from, so only that input is acknowledged once the write has landed */
   const save = async (patch: Partial<Collection>, field?: string) => { if (!c) return; const saved = field ? beginSave(`collection:${c.id}:${field}`) : null; await db.collections.put({ ...c, ...patch, updatedAt: Date.now() }); saved?.(); };
@@ -54,6 +59,7 @@ export default function CollectionPage() {
     return uid;
   };
 
+  useEffect(() => { if (c) recordOpened({ kind: 'collection', id: c.uid ?? String(c.id), title: c.name, to: `/collection/${c.id}` }); }, [c?.id, c?.name]); // eslint-disable-line react-hooks/exhaustive-deps
   if (c === undefined) return <div className="page"><p className="muted">Loading…</p></div>;
   if (!c) return <div className="page" data-state="not-found"><h1>Collection not found</h1><p><Link to="/library?tab=collections">Back to your collections</Link></p></div>;
 
@@ -76,6 +82,7 @@ export default function CollectionPage() {
   const move = (from: number, to: number) => void save({ items: moveItem(c.items, from, to) });
   const base = (n: string) => n.replace(/[^\w]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'collection';
   const exportMd = () => download(`${base(c.name)}.md`, collectionMarkdown(c, items), 'text/markdown');
+  const exportFile = async () => download(`${base(c.name)}.collection.json`, await exportCollections([c.id!]));
   const exportHtml = () => download(`${base(c.name)}.html`, collectionHtml(c, items), 'text/html');
   const makePlan = async () => { const days = planDaysFromCollection(c); const id = await db.userPlans.add({ name: c.name, description: c.description, days, createdAt: Date.now() } as never); nav(`/pray/plans/${encodeURIComponent('user:' + id)}`); };
   const exportPdf = () => { const w = window.open('', '_blank'); if (!w) { setMsg('Your browser blocked the print window. Allow pop-ups for this site and try again.'); return; } w.document.write(collectionHtml(c, items)); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
@@ -87,7 +94,9 @@ export default function CollectionPage() {
       <textarea data-editor={`collection:${c.id}:description`} aria-label="What this collection is for" className="cp-desc" rows={2} placeholder="What is this collection for? (optional)" value={c.description ?? ''} onChange={(e) => void save({ description: e.target.value }, 'description')} />
       <input data-editor={`collection:${c.id}:tags`} aria-label="Tags for this collection" className="cp-tags" type="text" placeholder="Tags, separated by commas (optional), e.g. prayer, Lent" defaultValue={(c.tags ?? []).join(', ')} onBlur={(e) => void save({ tags: parseTags(e.target.value) }, 'tags')} style={{ width: '100%', margin: '6px 0' }} />
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', margin: '8px 0 14px' }}>
+        <PinButton small={false} entry={{ kind: 'collection', id: c.uid ?? String(c.id), title: c.name, to: `/collection/${c.id}` }} />
         <button className="btn" onClick={exportMd} disabled={!items.length}>Export as Markdown</button>
+        <button className="btn" onClick={() => void exportFile()} title="A file you can import into this app on another device, with your ticks and tags; notes it points at travel with it">Save to a file (to import later)</button>
         <button className="btn" onClick={exportHtml} disabled={!items.length} title="One self-contained page you can email or keep on a USB stick; it opens in any browser with no connection">Save as a web page (HTML)</button>
         <button className="btn" onClick={exportPdf} disabled={!items.length}>Print or save as PDF</button>
         <button className="btn" onClick={makePlan} disabled={!planDaysFromCollection(c).length} title="One day for each Scripture passage in this collection, in this order">Make a reading plan</button>
@@ -109,7 +118,15 @@ export default function CollectionPage() {
                 <button className="icon-btn" aria-label={`Remove ${r.title} from this collection`} onClick={() => void save({ items: c.items.filter((_, k) => k !== i) })}>✕</button>
               </span>
             </div>
-            {r.missing && <p className="muted small">The original is no longer here (it may have been deleted). Remove this item, or restore it from Recently deleted.</p>}
+            {r.missing && (
+              <div className="notice" role="status" data-missing>
+                <p className="small" style={{ margin: 0 }}>No longer here: the original may have been deleted{trashed[i] !== undefined ? ', but it is still in Recently deleted' : ''}.</p>
+                <div className="row" style={{ gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
+                  {trashed[i] !== undefined && <button className="btn small" onClick={async () => { await restoreFromTrash(trashed[i]); setMsg('Restored from Recently deleted.'); setTick((n) => n + 1); }}>Restore from Recently deleted</button>}
+                  <button className="btn small" aria-label={`Remove ${r.title} from this collection`} onClick={() => void save({ items: c.items.filter((_, k) => k !== i) })}>Remove from this collection</button>
+                </div>
+              </div>
+            )}
             {r.text && <p className="cp-text clamp">{r.text}</p>}
             <p className="small">{r.to ? <Link to={r.to}>Open the original</Link> : r.url ? <a href={r.url} target="_blank" rel="noreferrer">Open the original ↗</a> : null}</p>
           </li>

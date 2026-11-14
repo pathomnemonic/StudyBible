@@ -4,8 +4,11 @@ import { useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, TRASH_DAYS, type Collection, type Note, type Target } from '../../db/db';
-import { collectionSummary, copyOfCollection, matchesCollection } from '../../lib/collectionsView';
-import { dataHealth, type Finding } from '../../lib/dataHealth';
+import { collectionSummary, copyOfCollection, copyOfNote, collectionTags, hasTag, matchesCollection, matchesNote, sortCollections, sortNotes, type CollectionSort, type NoteSort } from '../../lib/collectionsView';
+import DataHealth from './DataHealth';
+import PinnedRecent from '../../components/PinnedRecent';
+import PinButton from '../../components/PinButton';
+import { recordOpened } from '../../lib/pins';
 import NoteEditor, { targetLabel } from '../../components/NoteEditor';
 import RefLink from '../../components/RefLink';
 import { renderMarkdown } from '../../lib/markdown';
@@ -13,11 +16,13 @@ import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import { decryptBackup, encryptBackup, isEncryptedBackup } from '../../db/crypto';
 import { newCard } from '../../lib/srs';
-import { download, exportAll, exportMarks, exportNotesMarkdown, importAll, previewImport } from '../../db/ops';
+import { chapterKeysOf, download, exportCollections, importCollections, exportAll, exportMarks, exportNotesMarkdown, importAll, previewImport } from '../../db/ops';
 import { useSettings } from '../../lib/store';
 import { fold } from '../../search/engine';
 import { BOOK_ORDER } from '../../lib/canon';
 import GraphPage from './GraphPage';
+import { targetLink } from '../../lib/collections';
+import { restoreFromTrash } from '../../lib/trash';
 
 type Tab = 'notes' | 'graph' | 'highlights' | 'bookmarks' | 'collections' | 'review' | 'xrefs' | 'saved' | 'history' | 'export' | 'trash';
 const TABS: [Tab, string][] = [['notes', 'Notes'], ['highlights', 'Highlights'], ['bookmarks', 'Bookmarks'], ['collections', 'Collections'], ['review', 'Review']];
@@ -34,6 +39,7 @@ export default function LibraryHome() {
     <div className="page">
       <h1>Notes</h1>
       <p className="lede">Your notes, highlights, bookmarks and collections. Private to this device unless you sign in to sync or export them.</p>
+      <PinnedRecent />
       <div className="tabbar"><div className="tabs-inner" role="tablist">{TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => { setTab(k); if (noteIdFromUrl) nav('/library'); }}>{l}</button>)}</div>
         <select className="tab-more" aria-label="More" value={MORE.some(([k]) => k === tab) ? tab : ''} onChange={(e) => { if (e.target.value) { setTab(e.target.value as Tab); if (noteIdFromUrl) nav('/library'); } }}>
           <option value="">More…</option>
@@ -63,14 +69,17 @@ function Notes({ openId }: { openId?: number }) {
   const [folder, setFolder] = useState<number | '' | 'none'>('');
   const [kind, setKind] = useState('');
   const [timeline, setTimeline] = useState(false);
+  const [sort, setSort] = useState<NoteSort>('updated');
+  const collections = useLiveQuery(() => db.collections.toArray(), []) ?? [];
   const [editing, setEditing] = useState<Note | 'new' | 'question' | null>(null);
   const opened = openId ? notes.find((n) => n.id === openId) : undefined;
   const tags = useMemo(() => [...new Set(notes.flatMap((n) => n.tags))].sort(), [notes]);
-  const list = [...notes].sort((a, b) => Number(!!b.pinned) - Number(!!a.pinned)).filter((n) => (!q || fold(`${n.title ?? ''} ${n.body} ${n.tags.join(' ')} ${n.targets.map(targetLabel).join(' ')}`).includes(fold(q))) && (!tag || n.tags.includes(tag)) && (folder === '' || (folder === 'none' ? !n.folderId : n.folderId === folder)) && (!kind || n.kind === kind));
+  const list = sortNotes(notes, sort).filter((n) => (!q || fold(`${n.title ?? ''} ${n.body} ${n.tags.join(' ')} ${n.targets.map(targetLabel).join(' ')}`).includes(fold(q))) && (!tag || n.tags.includes(tag)) && (folder === '' || (folder === 'none' ? !n.folderId : n.folderId === folder)) && (!kind || n.kind === kind));
   return (
     <>
       <div className="row" style={{ marginBottom: 8 }}>
         <input type="search" placeholder="Search notes…" value={q} onChange={(e) => setQ(e.target.value)} style={{ flex: 1, minWidth: 160 }} aria-label="Search notes" />
+        <select value={sort} onChange={(e) => setSort(e.target.value as NoteSort)} aria-label="Sort notes"><option value="updated">Recently changed</option><option value="created">Newest first</option><option value="title">Title A to Z</option></select>
         <select value={kind} onChange={(e) => setKind(e.target.value)} aria-label="Kind"><option value="">All kinds</option>{['note', 'question', 'study', 'prayer'].map((k) => <option key={k}>{k}</option>)}</select>
         <select value={tag} onChange={(e) => setTag(e.target.value)} aria-label="Tag"><option value="">Any tag</option>{tags.map((t) => <option key={t} value={t}>#{t}</option>)}</select>
         <select value={folder} onChange={(e) => setFolder(e.target.value === 'none' ? 'none' : e.target.value ? +e.target.value : '')} aria-label="Folder"><option value="">Any folder</option><option value="none">Not in a folder (inbox)</option>{folders.map((f) => <option key={f.id} value={f.id}>{f.name}</option>)}</select>
@@ -123,9 +132,10 @@ function Notes({ openId }: { openId?: number }) {
           <div className="md" dangerouslySetInnerHTML={{ __html: renderMarkdown(resolveNoteLinks(n.body, notes)) }} />
           <NoteBacklinks note={n} />
           <div className="chips">{n.tags.map((t) => <span className="chip" key={t}>#{t}</span>)}{n.folderId && <span className="chip">📁 {folders.find((f) => f.id === n.folderId)?.name}</span>}</div>
-          <div className="row" style={{ marginTop: 6 }}><button className="btn small" onClick={() => setEditing(n)}>Edit</button><button className="btn small" aria-pressed={!!n.pinned} onClick={() => db.notes.update(n.id!, { pinned: !n.pinned })}>{n.pinned ? 'Unpin' : 'Pin'}</button><span className="muted small">{new Date(n.updatedAt).toLocaleDateString()}</span></div>
+          <div className="row" style={{ marginTop: 6 }}><button className="btn small" onClick={() => { setEditing(n); recordOpened({ kind: 'note', id: String(n.id), title: n.title || n.body.split('\n')[0].slice(0, 50) || 'Note', to: `/library/notes/${n.id}` }); }}>Edit</button><button className="btn small" onClick={async () => { const c = copyOfNote(n); await db.notes.add({ ...c, chapterKeys: chapterKeysOf(c.targets) } as never); }}>Duplicate</button><button className="btn small" aria-pressed={!!n.pinned} onClick={() => db.notes.update(n.id!, { pinned: !n.pinned })}>{n.pinned ? 'Unpin' : 'Pin'}</button><span className="muted small">{new Date(n.updatedAt).toLocaleDateString()}</span></div>
         </div>
       ))}
+      {q.trim() && (() => { const hit = collections.filter((c) => matchesCollection(c, q, targetLabel)); return hit.length > 0 && <section className="card" aria-label="Collections that match"><h3>Collections that match “{q.trim()}” ({hit.length})</h3><ul className="list">{hit.map((c) => <li key={c.id}><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)}</span></li>)}</ul></section>; })()}
       {(editing || opened) && <NoteEditor note={editing && typeof editing === 'object' ? editing : opened} kind={editing === 'question' ? 'question' : 'note'} onClose={() => setEditing(null)} />}
     </>
   );
@@ -136,12 +146,9 @@ export function TargetChip({ t }: { t: Target }) {
     const r = parseRefId(t.ref);
     return r ? <span className="chip"><RefLink refv={r} /></span> : null;
   }
-  if (t.type === 'work') return <Link className="chip" to={`/study/works/${t.workId}/${t.section ?? ''}`}>{t.label}</Link>;
-  if (t.type === 'episode') return <Link className="chip" to={`/listen/episode/${t.episodeId}`}>{t.label}</Link>;
-  if (t.type === 'catechism') return <a className="chip" href={`#/study/catechism/${t.para}`}>{t.label ?? `CCC §${t.para}`}</a>;
-  if (t.type === 'commentary' && t.url) return <a className="chip" href={t.url} target="_blank" rel="noreferrer">{t.label}</a>;
-  if (t.type === 'reading') return <Link className="chip" to={`/pray/readings/${t.date}`}>{t.label}</Link>;
-  if (t.type === 'topic') return <Link className="chip" to={`/study/topics/${t.topicId}`}>{t.label}</Link>;
+  const l = targetLink(t);
+  if (l.to) return <Link className="chip" to={l.to}>{targetLabel(t)}</Link>;
+  if (l.url) return <a className="chip" href={l.url} target="_blank" rel="noreferrer">{targetLabel(t)}</a>;
   return <span className="chip">{targetLabel(t)}</span>;
 }
 
@@ -194,9 +201,14 @@ async function startTemplate(t: { name: string; description: string; refs: strin
 function Collections() {
   const all = useLiveQuery(() => db.collections.orderBy('updatedAt').reverse().toArray(), []) ?? [];
   const [q, setQ] = useState('');
-  const cs = all.filter((c) => matchesCollection(c, q, targetLabel));
+  const [sort, setSort] = useState<CollectionSort>('updated');
+  const [tag, setTag] = useState('');
+  const allNotes = useLiveQuery(() => db.notes.toArray(), []) ?? [];
+  const tags = collectionTags(all);
+  const cs = sortCollections(all, sort).filter((c) => matchesCollection(c, q, targetLabel) && hasTag(c, tag));
   const saved = useLiveQuery(() => db.saved.toArray(), []) ?? [];
   const [name, setName] = useState('');
+  const [fileMsg, setFileMsg] = useState('');
   const [adding, setAdding] = useState<Record<number, string>>({});
   const add = async (c: Collection, t: Target) => db.collections.put({ ...c, items: [...c.items, t], updatedAt: Date.now() });
   return (
@@ -212,10 +224,19 @@ function Collections() {
         </select>
         <span className="muted small">Scripture passages only; add or remove anything afterwards.</span>
       </div>
+      <div className="row" style={{ marginBottom: 10, gap: 8, flexWrap: 'wrap' }}>
+        <button className="btn small" disabled={!all.length} onClick={async () => download('studybible-collections.json', await exportCollections())}>Save all collections to a file</button>
+        <label className="btn small" style={{ cursor: 'pointer' }}>Import collections from a file<input type="file" accept="application/json,.json" aria-label="Import collections from a file" style={{ display: 'none' }} onChange={async (e) => { const f = e.target.files?.[0]; e.target.value = ''; if (!f) return; try { const r = await importCollections(await f.text()); setFileMsg(`Imported: ${r.added} new, ${r.merged} merged into ones you already have (nothing is duplicated).`); } catch (er) { setFileMsg((er as Error).message); } }} /></label>
+      </div>
+      {fileMsg && <p className="notice" role="status">{fileMsg}</p>}
+      {all.length > 1 && <div className="row" style={{ marginBottom: 10, gap: 8, flexWrap: 'wrap' }}>
+        <select aria-label="Sort collections" value={sort} onChange={(e) => setSort(e.target.value as CollectionSort)}><option value="updated">Recently changed</option><option value="created">Newest first</option><option value="name">Name A to Z</option><option value="size">Most items</option></select>
+        {tags.length > 0 && <select aria-label="Show collections with this tag" value={tag} onChange={(e) => setTag(e.target.value)}><option value="">Any tag</option>{tags.map((t) => <option key={t} value={t}>{t}</option>)}</select>}
+      </div>}
       {all.length > 3 && <div className="row" style={{ marginBottom: 10 }}><input type="search" aria-label="Search your collections" placeholder="Search collections (name, tags, description, passages)" value={q} onChange={(e) => setQ(e.target.value)} style={{ flex: 1 }} /></div>}
       {cs.map((c) => (
         <div className="card" key={c.id}>
-          <div className="row between"><h3><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)}{c.tags?.length ? ` · ${c.tags.join(', ')}` : ''} · changed {new Date(c.updatedAt).toLocaleDateString()}</span></h3><span className="row"><button className="btn small" onClick={() => db.collections.add(copyOfCollection(c) as never)}>Duplicate</button><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></span></div>
+          <div className="row between"><h3><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)}{c.tags?.length ? ` · ${c.tags.join(', ')}` : ''} · changed {new Date(c.updatedAt).toLocaleDateString()}</span></h3><span className="row"><PinButton entry={{ kind: 'collection', id: c.uid ?? String(c.id), title: c.name, to: `/collection/${c.id}` }} /><button className="btn small" onClick={() => db.collections.add(copyOfCollection(c) as never)}>Duplicate</button><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></span></div>
           <div className="chips">{c.items.map((t, i) => <span key={i}><TargetChip t={t} /> <button aria-label="Remove item" style={{ border: 0, background: 'none' }} onClick={() => db.collections.put({ ...c, items: c.items.filter((_, j) => j !== i), updatedAt: Date.now() })}>×</button></span>)}</div>
           {c.items.length === 0 && <div className="empty">Nothing in this collection yet. Open any Bible passage and use “Add to collection”, or save a reading from the Pray section.</div>}
           <div className="row" style={{ marginTop: 6 }}>
@@ -224,6 +245,7 @@ function Collections() {
           </div>
         </div>
       ))}
+      {q.trim() && (() => { const hit = allNotes.filter((n) => matchesNote(n, q, targetLabel)).slice(0, 8); return hit.length > 0 && <section className="card" aria-label="Notes that match"><h3>Notes that match “{q.trim()}”</h3><ul className="list">{hit.map((n) => <li key={n.id}><Link to={`/library/notes/${n.id}`}>{n.title || n.body.slice(0, 60) || 'Note'}</Link></li>)}</ul></section>; })()}
       {all.length > 0 && cs.length === 0 && <div className="empty">No collection matches that search.</div>}
       {all.length === 0 && <div className="empty">Collections gather passages, readings, Catechism paragraphs and notes around a topic.</div>}
     </>
@@ -310,25 +332,6 @@ function History() {
   );
 }
 
-/** A read-only check of your own data: references that lead nowhere. It changes nothing. */
-function DataHealth() {
-  const [found, setFound] = useState<Finding[] | null>(null);
-  const run = async () => {
-    const [notes, highlights, bookmarks, collections, userPlans] = await Promise.all([db.notes.toArray(), db.highlights.toArray(), db.bookmarks.toArray(), db.collections.toArray(), db.userPlans.toArray()]);
-    setFound(dataHealth({ notes, highlights, bookmarks, collections, userPlans } as never));
-  };
-  return (
-    <div className="card" aria-label="Data health check">
-      <h2 className="card-title">Check your data</h2>
-      <p className="muted small">Looks for notes, collections and plans that point at something that is no longer here, or at a passage address the app cannot read. It only reports; nothing is changed or deleted.</p>
-      <button className="btn" onClick={() => void run()}>Run the check</button>
-      {found && (found.length === 0
-        ? <p role="status">Nothing wrong found.</p>
-        : <ul className="dl-list" role="status">{found.map((f, i) => <li key={i}><span><strong>{f.where}</strong> {f.what}.</span>{f.to && <Link className="btn small" to={f.to}>Open</Link>}</li>)}</ul>)}
-    </div>
-  );
-}
-
 /** export only the notes that carry one tag, with their Scripture references kept */
 function NotesByTag() {
   const notes = useLiveQuery(() => db.notes.toArray(), []) ?? [];
@@ -410,14 +413,7 @@ function ExportTab() {
 function Trash() {
   const items = useLiveQuery(() => db.trash.orderBy('deletedAt').reverse().toArray(), []) ?? [];
   const label = (t: { tbl: string; data: any }) => t.data.title || (t.data.body ? String(t.data.body).slice(0, 80) : t.data.ref || t.data.name || t.tbl);
-  const restore = async (id: number) => {
-    const it = await db.trash.get(id);
-    if (!it) return;
-    const { id: _id, ...rest } = it.data;
-    await db.table(it.tbl).add({ ...rest }); // the change hooks stamp it as edited now, so it also wins over the deletion on other devices
-    await db.tombs.filter((t) => t.tbl === it.tbl && t.uid === rest.uid).delete();
-    await db.trash.delete(id);
-  };
+  const restore = (id: number) => restoreFromTrash(id);
   return (
     <section>
       <h2>Recently deleted</h2>
