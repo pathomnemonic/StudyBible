@@ -41,7 +41,13 @@ export default function PlansPage() {
     const days = lines.split('\n').map((l) => l.trim()).filter(Boolean).map((l) => {
       const p = parseRefs(l.replace(/^day\s*\d+\s*[:\-]\s*/i, ''));
       if (!p.ok) throw new Error(`“${l}”: ${p.error}`);
-      return { refs: p.refs.map((x) => refId(convertRef('kjv', 'vulgate', x.ref).ref)) };
+      const refs = p.refs.map((x) => {
+        // Typed passages are English/KJV-numbered; a plan stores Vulgate anchors only after verified conversion.
+        const converted = convertRef('kjv', 'vulgate', x.ref);
+        if (!converted.exact) throw new Error(`“${l}” cannot be converted exactly to the app's Vulgate numbering: ${converted.note ?? 'the verse mapping is unverified'}. This day was not added.`);
+        return refId(converted.ref);
+      });
+      return { refs };
     });
     return db.userPlans.add({ name: name.trim(), days, createdAt: Date.now() });
   };
