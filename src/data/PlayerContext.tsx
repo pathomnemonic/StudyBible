@@ -98,6 +98,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [rate, setRateState] = useState(() => { try { return Number(localStorage.getItem('sb:rate')) || 1; } catch { return 1; } });
   const lastSave = useRef(0);
   const playGeneration = useRef(0);
+  const savePlaybackRef = useRef<((completed?: boolean) => Promise<void>) | null>(null);
   const [sleep, setSleepState] = useState<{ mode: 'off' | 'minutes' | 'end'; left: number }>({ mode: 'off', left: 0 });
   const [error, setError] = useState<null | 'failed' | 'offline'>(null);
   const bindSourceError = (a: HTMLAudioElement, request: number, episodeId: string, src: string) => {
@@ -121,14 +122,15 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     hooks.onNewMedia = () => { try { a.pause(); } catch { /* none */ } }; // a video or recording starting in the host stops this player
     // seconds that really played since the last save: counted from the clock, never from jumps (a seek or a skipped intro adds nothing)
     let heardSince = 0, lastT = -1;
-    const save = (completed = false) => {
+    const save = (completed = false): Promise<void> => {
       const cur = (a as any)._ep as BiayEpisode | undefined;
-      if (!cur) return;
+      if (!cur) return Promise.resolve();
       const dur = a.duration || undefined;
       const done = completed || (dur ? a.currentTime > dur - 20 : false);
       const secs = heardSince; heardSince = 0;
-      creditListening(cur.id, secs, { position: done ? 0 : a.currentTime, duration: dur, completed: done || undefined as any, ranToEnd: completed }).catch(() => {});
+      return creditListening(cur.id, secs, { position: done ? 0 : a.currentTime, duration: dur, completed: done || undefined as any, ranToEnd: completed }).catch(() => {});
     };
+    savePlaybackRef.current = save;
     a.addEventListener('timeupdate', () => {
       setPosition(a.currentTime);
       if (!a.paused && lastT >= 0) { const d = a.currentTime - lastT; if (d > 0 && d <= 2.5) heardSince += d; }
@@ -156,6 +158,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     a.addEventListener('seeking', () => { lastT = -1; });
     a.addEventListener('pause', () => {
       setPlaying(false);
+      if ((a as any)._switchPause) { (a as any)._switchPause = false; return; }
       save();
     });
     a.addEventListener('ended', async () => {
@@ -205,6 +208,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     });
     return () => {
       document.removeEventListener('visibilitychange', hide);
+      savePlaybackRef.current = null;
       a.pause();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -216,11 +220,15 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     const a = audio.current!;
     const previous = (a as any)._ep as BiayEpisode | undefined;
     const same = previous?.id === e.id;
-    if (!same && previous && a.currentTime > 0) {
-      await creditListening(previous.id, 0, { position: a.currentTime, duration: a.duration || undefined });
+    if (!same && previous) {
+      // Flush actual played time and the old position before the audio element is pointed at another source.
+      await savePlaybackRef.current?.();
       if (request !== playGeneration.current) return;
     }
-    if (!same) a.pause();
+    if (!same && !a.paused) {
+      (a as any)._switchPause = true;
+      a.pause();
+    }
     void rememberEpisode(e);
     if (same) {
       if (startAt !== undefined) a.currentTime = startAt;
@@ -313,7 +321,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         ++playGeneration.current;
         const a = audio.current!; const cur = (a as any)._ep as BiayEpisode | undefined;
         // closing keeps the place, so playing this episode again later picks up where it stopped (it does not start by itself)
-        if (cur && a.currentTime > 0) { const dur = a.duration || undefined; const done = dur ? a.currentTime > dur - 20 : false; creditListening(cur.id, 0, { position: done ? 0 : a.currentTime, duration: dur, completed: done || undefined as any, ranToEnd: done }).catch(() => undefined); }
+        // Flush before clearing _ep; the pause event may arrive after the dock is cleared.
+        void savePlaybackRef.current?.();
         a.pause();
         setError(null);
         (audio.current as any)._ep = undefined;
