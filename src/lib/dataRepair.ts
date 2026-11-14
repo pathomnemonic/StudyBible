@@ -27,7 +27,7 @@ export function repairPassageId(s: string, editions?: CountsEdition[]): string[]
     const source = editions ? pooledCounts(editions, 'english') : null;
     const anchor = editions?.find((e) => e.scheme === 'vulgate');
     if (source && p.refs.some((x) => !!checkRefIn(source, x.ref))) return null;
-    const converted = p.refs.map((x) => convertRef('english', 'vulgate', x.ref));
+    const converted = p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref));
     if (converted.some((x) => !x.exact)) return null;
     if (anchor && converted.some((x) => !!checkRefIn(anchor, x.ref))) return null;
     return converted.map((x) => refId(x.ref));
