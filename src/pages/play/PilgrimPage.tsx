@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -80,6 +81,7 @@ export default function PilgrimPage() {
   return (
     <div className="page pilgrim">
       <h1>Pin the Place</h1>
+      <GameHelp how={["Read the place name, then put a pin where you think it is on the map.", "With a mouse or touch, tap the map. Without one, type a latitude and longitude, or move the map with the arrow keys and press Place pin at the map centre.", "Lock in your guess to see how far away you were. Closer scores more, up to 100.", "Five places a round."]} />
       {done ? (
         <div className="ws-end"><p className="ws-score">{score} of {ROUNDS * 100}</p><p className="muted">{score > 350 ? 'You could lead the pilgrimage.' : 'Every map you open helps.'}</p><div className="row" style={{ justifyContent: 'center', gap: 8 }}><ShareButton text={shareText()} path="/play/pilgrim" label="Share result" className="btn" /><button className="btn ghost" onClick={again}>Play another five</button></div></div>
       ) : (

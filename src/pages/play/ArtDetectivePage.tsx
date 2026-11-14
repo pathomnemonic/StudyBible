@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useState } from 'react';
 import ShareButton from '../../components/ShareButton';
 import { getJson } from '../../data/loader';
@@ -42,6 +43,7 @@ export default function ArtDetectivePage() {
   return (
     <div className="page whosaid">
       <h1>Art Detective</h1>
+      <GameHelp how={["Look at the engraving and pick which Bible scene it shows.", "Each picture has a few choices; a right answer scores.", "A new set of pictures comes every day."]} />
       {!works ? <p className="muted">Loading…</p> : !done && q ? (
         <>
           <p className="muted small">Picture {i + 1} of {qs.length}. What scene is shown?</p>

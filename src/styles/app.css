@@ -6440,3 +6440,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .chant-score { background: #f6efdc; color: #1b1a17; border-radius: 10px; padding: 10px 8px; margin: 10px 0; overflow: hidden; }
 .chant-score svg { display: block; }
 .hy-chant { margin-top: 12px; }
+
+/* How to play fold and practice switch on each game */
+.game-help { margin: 8px 0; }
+.game-help summary { cursor: pointer; font-weight: 600; min-height: 32px; display: inline-flex; align-items: center; }
+.game-help ul { margin: 4px 0 4px 20px; padding: 0; }
+.game-help input[type=checkbox] { width: 20px; height: 20px; vertical-align: middle; }

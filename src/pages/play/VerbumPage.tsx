@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { getJson } from '../../data/loader';
 import { THEMED } from '../../data/cloister';
@@ -88,6 +89,7 @@ export default function VerbumPage() {
   return (
     <div className="page verbum">
       <h1>Verbum</h1>
+      <GameHelp how={["Guess the five-letter word in six tries.", "Gold means the right letter in the right place; pale means the letter is in the word elsewhere; dark means it is not in the word. Each letter also says this out loud.", "Type on the keyboard or tap the letters, then Enter.", "One word a day. Practice mode gives you a different word that does not count."]} onPractice={(on) => { if (on) again(); else { setPractice(null); setPGuesses([]); setCur(''); setMsg(''); } }} />
       <p className="muted small">{practice ? 'Practice word' : 'The word of the day'}: five letters from the faith, six tries. Gold is the right place, grey-white is in the word elsewhere.</p>
       <div className="vb-grid" role="grid" aria-label="Guesses">
         {rows.map((w, r) => {

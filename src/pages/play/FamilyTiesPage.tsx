@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getGenealogies, type Person } from '../../study/refData';
@@ -20,6 +21,7 @@ export default function FamilyTiesPage() {
   return (
     <div className="page">
       <h1>Family ties</h1>
+      <GameHelp how={["Each question asks who the father or mother was.", "Pick an answer; the result shows where Scripture says it."]} />
       <p className="lede">Who was the father or mother? Questions come from the genealogies of Scripture in this app, and each answer shows where Scripture says it.</p>
       {!persons && <p className="muted" role="status">Loading…</p>}
       {persons && qs.length === 0 && <p className="muted">The genealogies are not on this device yet. <Link to="/downloads">Save them for offline use</Link>.</p>}

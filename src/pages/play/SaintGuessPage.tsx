@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ShareButton from '../../components/ShareButton';
@@ -48,6 +49,7 @@ export default function SaintGuessPage() {
   return (
     <div className="page saintguess">
       <h1>Saint Guess</h1>
+      <GameHelp how={["You get one clue at a time, and a limited number of tries.", "Pick the saint you think it is. Another clue shows the next hint."]} />
       <p className="muted small">Who is it? One clue at a time: {TRIES} tries.</p>
       <ol className="sg-clues">{Array.from({ length: shown }, (_, i) => <li key={i}>{clueFor(saint, i)}</li>)}</ol>
       {wrong.length > 0 && <p className="small muted">Not: {wrong.join(', ')}</p>}

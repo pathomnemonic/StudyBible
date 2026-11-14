@@ -1,9 +1,10 @@
+import GameHelp from '../../components/GameHelp';
 import { getSettings } from '../../lib/store';
 import ShareButton from '../../components/ShareButton';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CHARADES_DECKS, type CharadesDeck } from '../../data/charades';
-import { recordPlay } from '../../lib/dailyGame';
+import { isPractice, recordPlay } from '../../lib/dailyGame';
 import { buzz } from '../../lib/haptics';
 
 type Phase = 'pick' | 'ready' | 'play' | 'done';
@@ -99,7 +100,7 @@ export default function CharadesPage() {
   useEffect(() => {
     if (phase !== 'done') return;
     const n = rightRef.current.length;
-    try { if (n > best(deck.id)) localStorage.setItem(bestKey(deck.id), String(n)); } catch { /* private mode */ }
+    try { if (!isPractice() && n > best(deck.id)) localStorage.setItem(bestKey(deck.id), String(n)); } catch { /* private mode */ }
     recordPlay('charades', { perfect: n >= 10 });
     buzz(60);
   }, [phase, deck.id]);
@@ -108,6 +109,7 @@ export default function CharadesPage() {
     return (
       <div className="page charades">
         <h1>Charades</h1>
+        <GameHelp how={["Pick a deck and a time, then press Start.", "Hold the phone to your forehead. Friends act out or describe the word.", "Tilt down when you get it, up to pass. If down and up feel backwards, use the flip option.", "The Got it and Pass buttons on screen do the same, so tilting is optional."]} />
         <p className="muted">Hold the phone to your forehead. Your friends act out or describe the word. Tilt down when you get it, up to pass. After each word, put the phone back on your forehead and hold still for the next one. Pick a deck, then press Start.</p>
         <div className="charades-decks" role="radiogroup" aria-label="Deck">
           {CHARADES_DECKS.map((d) => (

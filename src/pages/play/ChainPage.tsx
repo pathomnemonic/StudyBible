@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useState } from 'react';
 import { getJson } from '../../data/loader';
 import { LADDERS } from '../../data/ladders';
@@ -58,6 +59,7 @@ export default function ChainPage() {
   return (
     <div className="page chain">
       <h1>Chain of Grace</h1>
+      <GameHelp how={["Change one letter at a time to turn the first word into the last.", "Every step has to be a real word.", "The page tells you the shortest number of steps when it is known; fewer steps is better."]} />
       <p className="muted small">Turn <strong>{from.toUpperCase()}</strong> into <strong>{to.toUpperCase()}</strong>, changing one letter at a time. Every step must be a word.{par ? ` It can be done in ${par}.` : ''}</p>
       <ol className="ch-list" aria-label="Your chain">{chain.map((w, i) => <li key={w} className={w === to ? 'goal' : ''}>{[...w].map((c, k) => <span key={k} className={i > 0 && c !== chain[i - 1][k] ? 'chg' : ''}>{c}</span>)}</li>)}</ol>
       {won ? (

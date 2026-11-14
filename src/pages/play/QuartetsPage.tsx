@@ -1,5 +1,6 @@
+import GameHelp from '../../components/GameHelp';
 import ShareButton from '../../components/ShareButton';
-import { markDailyDone } from '../../lib/dailyGame';
+import { isPractice, markDailyDone } from '../../lib/dailyGame';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { QUARTETS, type Quartet, type QuartetGroup } from '../../data/quartets';
@@ -24,6 +25,7 @@ export default function QuartetsPage() {
     return (
       <div className="page quartets">
         <h1>Quartets</h1>
+        <GameHelp how={["Sixteen tiles hide four sets of four.", "Select four tiles that belong together and press Submit.", "Four mistakes end the puzzle. Watch for tiles that could fit two sets."]} />
         <p className="muted">Sixteen tiles hide four sets of four. Find the sets. Watch for tiles that fit two of them.</p>
         <button className="btn primary big" onClick={() => setSp({ p: today.id })}>Today’s puzzle{done[today.id] ? (done[today.id].won ? ' ✓' : ' (tried)') : ''}</button>
         <h2 className="eyebrow-h" style={{ marginTop: 16 }}>More puzzles</h2>
@@ -34,7 +36,7 @@ export default function QuartetsPage() {
       </div>
     );
   }
-  return <Board key={picked.id} q={picked} daily={picked.id === today.id} onDone={(won, mistakes) => { if (picked.id === today.id) markDailyDone('quartets', won ? (mistakes ? `${mistakes} mistake${mistakes === 1 ? '' : 's'}` : 'perfect') : 'tried', won && mistakes === 0); const d = { ...loadDone(), [picked.id]: { won, mistakes } }; try { localStorage.setItem(KEY, JSON.stringify(d)); } catch { /* private mode */ } setDone(d); }} back={() => setSp({})} />;
+  return <Board key={picked.id} q={picked} daily={picked.id === today.id} onDone={(won, mistakes) => { if (picked.id === today.id) markDailyDone('quartets', won ? (mistakes ? `${mistakes} mistake${mistakes === 1 ? '' : 's'}` : 'perfect') : 'tried', won && mistakes === 0); const d = { ...loadDone(), [picked.id]: { won, mistakes } }; try { if (!isPractice()) localStorage.setItem(KEY, JSON.stringify(d)); } catch { /* private mode */ } if (!isPractice()) setDone(d); }} back={() => setSp({})} />;
 }
 
 function Board({ q, daily, onDone, back }: { q: Quartet; daily: boolean; onDone: (won: boolean, mistakes: number) => void; back: () => void }) {

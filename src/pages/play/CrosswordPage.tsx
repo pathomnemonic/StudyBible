@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CROSSWORDS, type Crossword } from '../../data/crosswords';
 import ShareButton from '../../components/ShareButton';
@@ -71,6 +72,7 @@ export default function CrosswordPage() {
   return (
     <div className="page crossword">
       <h1>Crossword</h1>
+      <GameHelp how={["Select a square and type a letter. Select it again to switch between across and down.", "You can also pick a clue from the lists.", "Check marks wrong letters. Reveal letter fills the selected square.", "A new puzzle comes every week."]} />
       <p className="muted small">{weekly ? 'This week’s puzzle.' : 'A practice puzzle.'} Tap a square and type. Tap it again to switch between across and down.</p>
       <div className="cw-grid" style={{ gridTemplateColumns: `repeat(${p.cols}, 1fr)`, maxWidth: p.cols * 44 }} role="grid" aria-label="Crossword grid">
         {Array.from({ length: p.rows * p.cols }, (_, i) => {

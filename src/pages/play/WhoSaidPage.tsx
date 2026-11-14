@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { loadDaily } from '../../study/daily';
@@ -41,6 +42,7 @@ export default function WhoSaidPage() {
   return (
     <div className="page whosaid">
       <h1>Who Said It?</h1>
+      <GameHelp how={["Read each quotation and pick which saint said it.", "Five quotations a round."]} />
       {!done && q ? (
         <>
           <p className="muted small">Quote {i + 1} of {ROUNDS}</p>

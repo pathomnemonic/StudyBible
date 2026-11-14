@@ -7,9 +7,14 @@ export const dayIndex = () => Math.floor((Date.now() - new Date().getTimezoneOff
 export const seeded = (seed: number) => { let s = (seed * 2654435761) % 4294967296 || 1; return () => { s = (s * 1664525 + 1013904223) % 4294967296; return s / 4294967296; }; };
 export function shuffled<T>(a: T[], rnd: () => number): T[] { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
 
+/* Practice mode: while it is on, nothing a game finishes is counted (no daily mark, streak day, best score, trophy or sticker). */
+let practiceOn = false;
+export const setPractice = (on: boolean) => { practiceOn = on; };
+export const isPractice = () => practiceOn;
+
 const key = (game: string) => `sb:daily:${game}`;
 /** Remember that today's puzzle of a game was finished, with a short result to show on the Games page. */
-export function markDailyDone(game: string, result: string, perfect = false) { try { localStorage.setItem(key(game), JSON.stringify({ day: dayIndex(), result })); } catch { /* private mode */ } recordPlay(game, { perfect }); }
+export function markDailyDone(game: string, result: string, perfect = false) { if (practiceOn) return; try { localStorage.setItem(key(game), JSON.stringify({ day: dayIndex(), result })); } catch { /* private mode */ } recordPlay(game, { perfect }); }
 export function dailyDone(game: string): string | null { try { const v = JSON.parse(localStorage.getItem(key(game)) ?? 'null') as { day: number; result: string } | null; return v && v.day === dayIndex() ? v.result : null; } catch { return null; } }
 export function useDailyDone(game: string) { const [r, setR] = useState(() => dailyDone(game)); useEffect(() => setR(dailyDone(game)), [game]); return r; }
 
@@ -53,6 +58,7 @@ export const playTotals = (p = loadPlays()) => ({ games: Object.values(p.games).
 
 /** Note that a game was finished today, and hand out any trophy that earns. Returns the trophies newly earned. */
 export function recordPlay(game: string, opts: { perfect?: boolean; solved?: boolean } = {}): Trophy[] {
+  if (practiceOn) return [];
   try {
     const p = loadPlays();
     const today = dayIndex();

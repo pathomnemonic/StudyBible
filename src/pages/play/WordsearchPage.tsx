@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import ShareButton from '../../components/ShareButton';
 import { WS_THEMES, type WsTheme } from '../../data/wordsearch';
@@ -65,6 +66,7 @@ export default function WordsearchPage() {
   return (
     <div className="page wordsearch">
       <h1>Wordsearch: {theme.title}</h1>
+      <GameHelp how={["Find every word in the list; they run in any of eight directions.", "With a mouse or touch, drag across the letters. With a keyboard, move with the arrow keys, press Enter on the first letter, then Enter on the last letter.", "A new theme comes every week."]} />
       <p className="muted small">{weekly ? 'This week’s puzzle.' : 'A practice puzzle.'} Drag across the letters of a word, in any direction. {found.size} of {placed.length} found.</p>
       <div className="ws-grid" style={{ gridTemplateColumns: `repeat(${SIZE}, 1fr)` }} role="grid" aria-label="Wordsearch grid"
         onPointerDown={(e) => { const c = cellAt(e.clientX, e.clientY); if (!c) return; (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId); start.current = c; setSel([c]); }}

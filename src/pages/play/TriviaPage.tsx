@@ -1,9 +1,10 @@
+import GameHelp from '../../components/GameHelp';
 import { loadTriviaBank } from '../../lib/triviaBank';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CATS, LEVELS, NEED, SLICE, WHEEL, bestPick, botRight, hasWon, levelOf, newPlayer, nextQuestion, shuffleOptions, wheelRotation, type CatId, type Level, type Player, type TQ } from '../../lib/trivia';
 import { contextLink } from '../../chains/links';
-import { recordPlay } from '../../lib/dailyGame';
+import { isPractice, recordPlay } from '../../lib/dailyGame';
 
 type Mode = 'solo' | 'pass' | 'bot';
 type Phase = 'setup' | 'spin' | 'spinning' | 'pick' | 'question' | 'reveal' | 'over';
@@ -85,7 +86,7 @@ export default function TriviaPage() {
 
   const finish = useCallback((ps: Player[], winner: number | null) => {
     setPhase('over');
-    setStats((s: ReturnType<typeof loadStats>) => { const crowns = ps.reduce((n, p) => n + (p.bot ? 0 : p.crowns.length), 0); const n = { ...s, played: s.played + 1, won: s.won + (winner !== null && !ps[winner].bot ? 1 : 0), crowns: s.crowns + crowns, bestSolo: mode === 'solo' ? Math.max(s.bestSolo, ps[0].crowns.length) : s.bestSolo }; try { localStorage.setItem(STATS, JSON.stringify(n)); } catch { /* private mode */ } return n; });
+    setStats((s: ReturnType<typeof loadStats>) => { const crowns = ps.reduce((n, p) => n + (p.bot ? 0 : p.crowns.length), 0); const n = { ...s, played: s.played + 1, won: s.won + (winner !== null && !ps[winner].bot ? 1 : 0), crowns: s.crowns + crowns, bestSolo: mode === 'solo' ? Math.max(s.bestSolo, ps[0].crowns.length) : s.bestSolo }; try { if (!isPractice()) localStorage.setItem(STATS, JSON.stringify(n)); } catch { /* private mode */ } return n; });
     try { recordPlay('trivia', { perfect: winner !== null && !ps[winner].bot && ps[winner].wrong === 0 }); } catch { /* ignore */ }
   }, [mode]);
 
@@ -171,6 +172,7 @@ export default function TriviaPage() {
       <div className="page trivia">
         <p className="small no-print"><Link to="/play">← Games</Link></p>
         <h1>Crown Quest</h1>
+        <GameHelp how={["Spin the wheel to land on a category and answer a question.", "Three right answers in a category win its crown. First to all six crowns wins.", "Play against the Bot, pass the phone, or play alone."]} />
         <p className="lede">Spin the wheel, answer in a category, and win its crown with three right answers. Collect all six crowns first.</p>
         <div className="tv-cats" aria-label="The six categories">{CATS.map((c) => <span key={c.id} className="tv-cat-chip" style={{ ['--c' as string]: c.color }}>{c.icon} {c.name}</span>)}</div>
         <h2 className="chain-h2">Who’s playing?</h2>

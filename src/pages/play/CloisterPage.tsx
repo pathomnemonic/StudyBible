@@ -1,10 +1,11 @@
+import GameHelp from '../../components/GameHelp';
 import { useSettings } from '../../lib/store';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getJson } from '../../data/loader';
 import { THEMED } from '../../data/cloister';
 import ShareButton from '../../components/ShareButton';
-import { recordPlay } from '../../lib/dailyGame';
+import { isPractice, recordPlay } from '../../lib/dailyGame';
 import { buzz } from '../../lib/haptics';
 
 const N = 5, TIME = 180;
@@ -65,7 +66,7 @@ export default function CloisterPage() {
     const t = window.setInterval(() => setLeft((l) => { if (l <= 1) { window.clearInterval(t); setPhase('done'); return 0; } return l - 1; }), 1000);
     return () => window.clearInterval(t);
   }, [phase]);
-  useEffect(() => { if (phase === 'done') { recordPlay('cloister', { perfect: total >= 100 }); try { if (total > loadBest(daily)) localStorage.setItem(bestKey(daily), String(total)); } catch { /* private mode */ } } }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (phase === 'done') { recordPlay('cloister', { perfect: total >= 100 }); try { if (!isPractice() && total > loadBest(daily)) localStorage.setItem(bestKey(daily), String(total)); } catch { /* private mode */ } } }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const add = useCallback((i: number) => setPath((p) => {
     if (p.includes(i)) return p.length > 1 && p[p.length - 2] === i ? p.slice(0, -1) : p;
@@ -86,6 +87,7 @@ export default function CloisterPage() {
     return (
       <div className="page cloister">
         <h1>Cloister</h1>
+        <GameHelp how={["Link neighbouring letters, in any direction, to spell words of three letters or more.", "Longer words score more. Words of the faith score a bonus.", "You have three minutes (doubled if Longer time is on in Settings).", "Press letters in turn, or drag across them; press Add word to confirm."]} />
         <p className="muted">Link neighbouring letters to spell words, in any direction. Words of the faith (saint, psalm, altar…) earn a bonus. Three minutes.</p>
         <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
           <button className="btn primary big" disabled={!dict} onClick={() => begin(true)}>{dict ? 'Today’s board' : 'Loading words…'}</button>
