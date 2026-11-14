@@ -30,3 +30,7 @@ Sunday preparation workspace, novena tracker, prayer-by-circumstance finder: nex
 
 ## Already in the app (the list above asked for these; nothing to build)
 Passage dossier (Study > Passage dossier opens a full-page version of the study panel with Catechism, Church documents, Fathers, commentary, cross-references, media and your notes), Prepare for Sunday, Novenas and short plans, Lectio Divina, Daily Examen, Divine Office, councils (the twenty-one councils), genealogies, topical index of parables and miracles, glossary with Church wording and Scripture, saint name finder. Where one of these needs a particular improvement from the list, that improvement is listed above as next.
+
+## Done in this cycle (as of the last push)
+`[[` note picker; collections: list summary, search, duplicate, tags, reading plan, in-app saint and person links; Ask the sources: source filters and save-a-question; verse copy formats; data health check; profile framework (format, validation, pages, empty state); lesson worksheet and answer-key copy; games: Match the term, Family ties.
+Not started because they need a decision, a schema change or data: note version history (new table, needs a migration and rollback note), selective offline downloads and queue (touches the download layer), verse-by-verse notes mode (reader decision), saint and place profile data (reviewed tables), audio read-along (timings), Eastern calendar (sources).

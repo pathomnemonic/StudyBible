@@ -153,6 +153,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Match the term | **Working** | Five terms and five meanings from the glossary (the app’s own plain wording, with the term blanked out). Tap a meaning, then its word; wrong taps are counted. Practice only: it has no daily puzzle and no streak, so it is not part of the trophy count. |
+| Family ties | **Working** | Six questions: who was the father or mother of this person? They come only from the genealogies of Scripture already in the app, leave out entries that carry a note about a variant or complication, and each answer shows the Scripture reference. Practice only (no daily puzzle or streak). |
 
 ## Teach
 

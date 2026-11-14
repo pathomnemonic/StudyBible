@@ -193,4 +193,8 @@ if (await termBtns.count() !== 5) fail('five terms should be offered');
 // try every term for the chosen meaning until one locks in (the right one disables its button)
 for (let i = 0; i < 5; i++) { if (await p.locator('[aria-label="Meanings"] button:disabled').count()) break; await termBtns.nth(i).click(); }
 if (await p.locator('[aria-label="Meanings"] button:disabled').count() !== 1) fail('exactly one pair should be matched');
+// 23. family ties: six questions, an answer shows its Scripture reference
+await p.goto(`${BASE}/#/play/familyties`); await p.waitForSelector('[aria-label="Choices"] button', { timeout: 20000 });
+await p.locator('[aria-label="Choices"] button').first().click(); await p.waitForTimeout(300);
+if (!/See [A-Z0-9]/.test(await p.locator('[aria-label="Question"]').innerText())) fail('an answer should show where Scripture says it');
 await b.close(); console.log('review ok');

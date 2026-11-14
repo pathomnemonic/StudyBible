@@ -100,6 +100,7 @@ const WhoSaidPage = lazy(() => import('./pages/play/WhoSaidPage'));
 const ChainPage = lazy(() => import('./pages/play/ChainPage'));
 const WhichBookPage = lazy(() => import('./pages/play/WhichBookPage'));
 const TermMatchPage = lazy(() => import('./pages/play/TermMatchPage'));
+const FamilyTiesPage = lazy(() => import('./pages/play/FamilyTiesPage'));
 const CrosswordPage = lazy(() => import('./pages/play/CrosswordPage'));
 const PinPlacePage = lazy(() => import('./pages/play/PilgrimPage'));
 const TrophiesPage = lazy(() => import('./pages/play/TrophiesPage'));
@@ -442,6 +443,7 @@ export default function App() {
               <Route path="/play/chain" element={<ChainPage />} />
               <Route path="/play/whichbook" element={<WhichBookPage />} />
               <Route path="/play/termmatch" element={<TermMatchPage />} />
+              <Route path="/play/familyties" element={<FamilyTiesPage />} />
               <Route path="/play/crossword" element={<CrosswordPage />} />
               <Route path="/play/pilgrim" element={<PinPlacePage />} />
               <Route path="/play/trophies" element={<TrophiesPage />} />

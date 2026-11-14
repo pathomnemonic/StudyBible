@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Games: Family ties, a quiz on who was the father or mother of people in the genealogies of Scripture.
 - Games: Match the term, pairing Catholic words with the glossary's own meanings.
 - Lessons: print a student worksheet (or one with the answer key) built only from the lesson's own parts.
 - Profiles of saints, people and places: data format with validation (every fact sourced, uncertainty stated), search and profile pages with an honest empty state. The data file is empty until reviewed sources are supplied.
