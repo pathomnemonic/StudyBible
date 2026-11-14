@@ -87,10 +87,28 @@ describe('repairing passage addresses', () => {
     const { undoRepairs } = await import('../src/lib/dataRepair');
     const id = await db.notes.add({ kind: 'note', body: 'repaired', targets: [], tags: [], createdAt: 1, updatedAt: 1 } as never);
     await expect(undoRepairs([
-      { tbl: 'notes', id, before: { body: 'original' } },
-      { tbl: 'notes', id: 999999, before: { body: 'missing' } },
+      { tbl: 'notes', id, before: { body: 'original' }, after: { body: 'repaired' } },
+      { tbl: 'notes', id: 999999, before: { body: 'missing' }, after: { body: 'missing' } },
     ])).rejects.toThrow(/undo could not restore/i);
     expect((await db.notes.get(id))?.body).toBe('repaired');
+  });
+
+
+  it('refuses to apply a stale repair over an edit made after the check', async () => {
+    const { db } = await import('../src/db/db');
+    const { applyRepairs } = await import('../src/lib/dataRepair');
+    const id = await db.notes.add({ kind: 'note', body: 'original', targets: [], tags: [], createdAt: 1, updatedAt: 1 } as never);
+    await db.notes.update(id, { body: 'newer user edit' });
+    await expect(applyRepairs([{ key: `notes:${id}`, tbl: 'notes', id, where: 'note', changes: [], patch: { body: 'repair' }, before: { body: 'original' } }])).rejects.toThrow(/changed after the check/i);
+    expect((await db.notes.get(id))?.body).toBe('newer user edit');
+  });
+
+  it('refuses to Undo over a later user edit', async () => {
+    const { db } = await import('../src/db/db');
+    const { undoRepairs } = await import('../src/lib/dataRepair');
+    const id = await db.notes.add({ kind: 'note', body: 'later edit', targets: [], tags: [], createdAt: 1, updatedAt: 1 } as never);
+    await expect(undoRepairs([{ tbl: 'notes', id, before: { body: 'original' }, after: { body: 'repaired' } }])).rejects.toThrow(/changed after the fix/i);
+    expect((await db.notes.get(id))?.body).toBe('later edit');
   });
 
   it('lists collection items that Recently deleted can bring back', async () => {
