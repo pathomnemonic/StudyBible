@@ -6,7 +6,7 @@ export interface InlineFig { id: number | string; file: string; title: string; a
 interface ArtWork { id: number; file: string; page: string; title: string; artist: string; date: string; credit: string }
 interface MoreWork { id: string; title: string; artist: string; date: string; credit: string; source: string; file: string; refs: string[]; theme: string }
 let moreCache: Promise<{ work: MoreWork; ranges: Ref[] }[]> | null = null;
-const loadMore = () => (moreCache ??= getJson<{ works: MoreWork[] }>('art-more.json', true).then((d) => (d?.works ?? []).map((work) => ({ work, ranges: work.refs.map((r) => { const p = parseRefs(r); return p.ok ? convertRef('kjv', 'vulgate', p.refs[0].ref).ref : null; }).filter(Boolean) as Ref[] }))).catch(() => []));
+const loadMore = () => (moreCache ??= getJson<{ works: MoreWork[] }>('art-more.json', true).then((d) => (d?.works ?? []).map((work) => ({ work, ranges: work.refs.map((r) => { const p = parseRefs(r); if (!p.ok) return null; const mapped = convertRef('kjv', 'vulgate', p.refs[0].ref); return mapped.exact ? mapped.ref : null; }).filter(Boolean) as Ref[] }))).catch(() => []));
 let cache: Promise<{ works: Map<number, ArtWork>; entries: { work: number; a: string[] }[] }> | null = null;
 const load = () => (cache ??= Promise.all([getJson<{ works: ArtWork[] }>('art.json', true), getJson<{ entries: { work: number; a: string[] }[] }>('lens/art.json', true)]).then(([a, l]) => ({ works: new Map((a?.works ?? []).map((w) => [w.id, w])), entries: l?.entries ?? [] })).catch(() => ({ works: new Map(), entries: [] })));
 
