@@ -68,9 +68,11 @@ export default function CompareTranslationsPage() {
     ev.preventDefault();
     const r = parseRefs(text);
     if (!r.ok) { setErr(r.error + (r.suggestions.length ? ` Did you mean ${r.suggestions.join(', ')}?` : '')); return; }
-    setErr('');
     // Typed numbers follow the modern (English) numbering most readers use; the page works in the Vulgate anchor numbering.
-    update({ ref: refId(convertRef('english', 'vulgate', r.refs[0].ref).ref) });
+    const mapped = convertRef('english', 'vulgate', r.refs[0].ref);
+    if (!mapped.exact) { setErr('This passage cannot be matched to the selected translations with verified numbering. No comparison was opened.'); return; }
+    setErr('');
+    update({ ref: refId(mapped.ref) });
   };
   const setCol = (i: number, id: string) => {
     const next = [...ids];
