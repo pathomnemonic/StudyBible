@@ -241,7 +241,9 @@ export default function WordStudy({ refs }: { refs: Ref[] }) {
       </div>
     );
   const rtl = res.lang === 'hbo';
-  const kj = convertRef('vulgate', 'kjv', { ...ref, c2: ref.c1, v2: ref.v1 ?? 1 }).ref;
+  const mapped = convertRef('vulgate', 'kjv', { ...ref, c2: ref.c1, v2: ref.v1 ?? 1 });
+  if (!mapped.exact) return <div className="empty">The original-language text cannot be linked to this passage with verified verse numbering, so it is withheld rather than showing a possibly different verse.</div>;
+  const kj = mapped.ref;
   const entry = sel && sel.w[1] && lex ? lex[sel.w[1]] : null;
   return (
     <div>
