@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, TRASH_DAYS, type Collection, type Note, type Target } from '../../db/db';
+import { collectionSummary, copyOfCollection, matchesCollection } from '../../lib/collectionsView';
 import NoteEditor, { targetLabel } from '../../components/NoteEditor';
 import RefLink from '../../components/RefLink';
 import { renderMarkdown } from '../../lib/markdown';
@@ -188,7 +189,9 @@ async function startTemplate(t: { name: string; description: string; refs: strin
 }
 
 function Collections() {
-  const cs = useLiveQuery(() => db.collections.orderBy('updatedAt').reverse().toArray(), []) ?? [];
+  const all = useLiveQuery(() => db.collections.orderBy('updatedAt').reverse().toArray(), []) ?? [];
+  const [q, setQ] = useState('');
+  const cs = all.filter((c) => matchesCollection(c, q, targetLabel));
   const saved = useLiveQuery(() => db.saved.toArray(), []) ?? [];
   const [name, setName] = useState('');
   const [adding, setAdding] = useState<Record<number, string>>({});
@@ -206,9 +209,10 @@ function Collections() {
         </select>
         <span className="muted small">Scripture passages only; add or remove anything afterwards.</span>
       </div>
+      {all.length > 3 && <div className="row" style={{ marginBottom: 10 }}><input type="search" aria-label="Search your collections" placeholder="Search collections (name, description, passages)" value={q} onChange={(e) => setQ(e.target.value)} style={{ flex: 1 }} /></div>}
       {cs.map((c) => (
         <div className="card" key={c.id}>
-          <div className="row between"><h3><Link to={`/collection/${c.id}`}>{c.name}</Link></h3><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></div>
+          <div className="row between"><h3><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)} · changed {new Date(c.updatedAt).toLocaleDateString()}</span></h3><span className="row"><button className="btn small" onClick={() => db.collections.add(copyOfCollection(c) as never)}>Duplicate</button><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></span></div>
           <div className="chips">{c.items.map((t, i) => <span key={i}><TargetChip t={t} /> <button aria-label="Remove item" style={{ border: 0, background: 'none' }} onClick={() => db.collections.put({ ...c, items: c.items.filter((_, j) => j !== i), updatedAt: Date.now() })}>×</button></span>)}</div>
           {c.items.length === 0 && <div className="empty">Nothing in this collection yet. Open any Bible passage and use “Add to collection”, or save a reading from the Pray section.</div>}
           <div className="row" style={{ marginTop: 6 }}>
@@ -217,7 +221,8 @@ function Collections() {
           </div>
         </div>
       ))}
-      {cs.length === 0 && <div className="empty">Collections gather passages, readings, Catechism paragraphs and notes around a topic.</div>}
+      {all.length > 0 && cs.length === 0 && <div className="empty">No collection matches that search.</div>}
+      {all.length === 0 && <div className="empty">Collections gather passages, readings, Catechism paragraphs and notes around a topic.</div>}
     </>
   );
 }

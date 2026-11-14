@@ -145,6 +145,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Question inbox and weekly review | **Working** | A Review tab in Notes lists every note you wrote as a question, open or answered, with “Look it up” (opens the Catechism search with the question filled in) and “Mark answered”. It also shows the last seven days: notes written, highlights made, questions asked and notes you chose to revisit. All of it is read from your own records on the device. |
 | Collection templates | **Working** | Start a collection from a template (the Eucharist in Scripture, Marian passages, the Passion in John, the Beatitudes and works of mercy, the call of the first disciples). Templates hold Scripture passages only; edit them freely afterwards. |
+| Collections list: summary, search and duplicate | **Working** | Each collection in the list shows its item count, how many are ticked done and when it last changed. With more than three collections a search box filters by name, description or the label of any item. Duplicate makes a personal copy (same items, nothing ticked), which is how a template becomes your own. Not built: folders, tags and collection types beyond the item kinds already supported. |
 
 ## Pray
 

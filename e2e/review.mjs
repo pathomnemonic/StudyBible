@@ -123,4 +123,11 @@ await ta.click(); await ta.pressSequentially('See [[bre', { delay: 20 });
 await p.locator('.note-link-picks button', { hasText: 'Bread of life' }).waitFor({ timeout: 10000 });
 await p.locator('.note-link-picks button', { hasText: 'Bread of life' }).click();
 if ((await ta.inputValue()) !== 'See [[Bread of life]]') fail('choosing a suggestion should complete the link, got: ' + await ta.inputValue());
+await p.locator('button', { hasText: /^Cancel$/ }).first().click(); await p.waitForTimeout(300);
+// 15. collections list: summary, search and a personal copy
+await p.goto(`${BASE}/#/library`); await p.waitForTimeout(700);
+await p.locator('[role=tab]', { hasText: /^Collections$/ }).first().click(); await p.waitForTimeout(500);
+if (!/4 items, 1 done/i.test(await p.locator('.page').innerText())) fail('the Marian collection should read "4 items, 1 done": ' + (await p.locator('.page').innerText()).slice(0, 500));
+await p.locator('button', { hasText: 'Duplicate' }).first().click(); await p.waitForTimeout(600);
+if (!/Marian passages \(copy\)/i.test(await p.locator('.page').innerText())) fail('Duplicate should add a copy');
 await b.close(); console.log('review ok');

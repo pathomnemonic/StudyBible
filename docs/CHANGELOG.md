@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Collections list: item count, done count and last-changed date on every collection, search across names, descriptions and items, and a Duplicate button.
 - Notes: typing [[ in a note suggests your notes by title and completes the link (the unfinished part of note-to-note links).
 
 ## Second cycle: collections, authors side by side, glossary, offline manager
