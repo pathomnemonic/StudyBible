@@ -38,7 +38,7 @@ jobs:
             echo "Generated reference data is already current."
           else
             git commit -m "Regenerate exact-only reference indexes"
-            git push origin HEAD:refs/heads/reliability/reference-listening-state-cycle
+            git push origin HEAD:refs/heads/reliability/reference-listening-state-cycle || echo '::warning::GitHub Actions token cannot push generated data; download the exact-reference-indexes artifact and commit it with write access.'
           fi
       - run: npm test
       - name: Generated documents are up to date
