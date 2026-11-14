@@ -537,7 +537,15 @@ export default function ReadPage() {
     for (const r of selRefs) await toggleBookmark(r, 'bookmark', edition.id);
   };
   const copyText = async () => {
-    if (parallelMode) return;
+    if (parallelMode) {
+      // the selected rows, in the translation on the left (the one this page is reading)
+      const want = new Set(selAnchor);
+      const vs = flat.filter((x) => { const a = anchorOf.get(x.n); return a && a.c === primaryAnchorChapter && want.has(a.v1); });
+      if (!vs.length) { toast('Nothing in this translation for those rows.', 'info'); return; }
+      const label = `${bk.name} ${chNum}:${groupConsecutive(vs.map((x) => x.n)).map(([a, b]) => (a === b ? a : `${a}–${b}`)).join(', ')}`;
+      await safeCopy(formatCopy(settings.copyStyle, vs.map((v) => ({ n: v.n, text: v.text })), label, edition.shortName));
+      return;
+    }
     const verses: { n: number; text: string }[] = [];
     for (const [a, b] of groupConsecutive(selNative)) verses.push(...flat.filter((x) => x.n >= a && x.n <= b).map((v) => ({ n: v.n, text: v.text })));
     const label = `${bk.name} ${chNum}:${groupConsecutive(selNative).map(([a, b]) => (a === b ? a : `${a}–${b}`)).join(', ')}`;
@@ -630,11 +638,9 @@ export default function ReadPage() {
           <button className="icon-btn" onClick={() => setCompare(true)} aria-label="Compare translations" title="Compare translations">
             <Icon name="compare" />
           </button>
-          {!parallelMode && (
-            <button className="icon-btn" onClick={copyText} aria-label="Copy text" title="Copy text with reference">
-              <Icon name="copy" />
-            </button>
-          )}
+          <button className="icon-btn" onClick={copyText} aria-label="Copy text" title={parallelMode ? `Copy the selected verses in ${edition.shortName} with reference` : 'Copy text with reference'}>
+            <Icon name="copy" />
+          </button>
           <button className="icon-btn" onClick={() => nav(`/share?ref=${encodeURIComponent(refId(selRefs[0]))}`)} aria-label="Share as image" title="Share this passage as an image">
             <Icon name="expand" />
           </button>

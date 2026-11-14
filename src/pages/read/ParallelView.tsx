@@ -3,7 +3,7 @@ import { anchorChapterText, type AnchorText } from '../../lib/bibleText';
 import { formatRef } from '../../lib/refs';
 import { getBook } from '../../lib/canon';
 import { useSettings } from '../../lib/store';
-import { bookAlignmentNote, psalmDualLabel } from '../../lib/versification';
+import { bookAlignmentNote, chapterAlignmentNote, psalmDualLabel } from '../../lib/versification';
 
 /** Two translations side by side, verse by verse, aligned on the shared (Vulgate-anchored) numbering. */
 export default function ParallelView({
@@ -41,9 +41,9 @@ export default function ParallelView({
   if (!a || !b) return <div className="center-note">Loading parallel text…</div>;
   const verses = [...new Set([...a.verses.keys(), ...b.verses.keys()])].sort((x, y) => x - y);
   const skip = new Set<number>();
-  const cell = (side: AnchorText, v: number) => {
+  const cell = (side: AnchorText, v: number, name: string) => {
     const e = side.verses.get(v);
-    if (!e) return <span className="muted">—</span>;
+    if (!e) return <span className="muted missing" data-missing="1"><span aria-hidden="true">— </span><em>Not in {name}</em><span className="sr-only">: this verse has no counterpart in this translation&apos;s text</span></span>;
     return (
       <>
         <span className="vno">{e.native}</span>
@@ -54,6 +54,8 @@ export default function ParallelView({
   };
   const rows = verses.filter((v) => !skip.has(v));
   const ln = bookAlignmentNote(left.scheme, book) ?? bookAlignmentNote(right.scheme, book);
+  const chNotes = [...new Set([chapterAlignmentNote(left.scheme, book, c), chapterAlignmentNote(right.scheme, book, c)].filter((x): x is string => !!x && x !== ln))];
+  const missing = rows.filter((v) => !a.verses.has(v) || !b.verses.has(v)).length;
   return (
     <div className="scripture" style={{ maxWidth: 'none' }}>
       <h1 className="chapter-title">
@@ -62,6 +64,8 @@ export default function ParallelView({
       </h1>
       <div className="subtitle">Rows are aligned by the app's stable verse identifiers (Vulgate anchor), so differing numbering stays side by side.</div>
       {ln && <div className="notice">{ln}</div>}
+      {chNotes.map((n) => <div key={n} className="notice">{n}</div>)}
+      {missing > 0 && <div className="notice" role="status">{missing} verse{missing === 1 ? ' is' : 's are'} in only one of these translations here; the other side says “Not in …” rather than leaving a gap.</div>}
       <table className="parallel">
         <thead>
           <tr>
@@ -71,9 +75,9 @@ export default function ParallelView({
         </thead>
         <tbody>
           {rows.map((v) => (
-            <tr key={v} className={selected.has(v) ? 'selected' : ''} onClick={(e) => onToggle(v, e.shiftKey)} style={{ cursor: 'pointer' }}>
-              <td lang={left.language}>{cell(a, v)}</td>
-              <td lang={right.language}>{cell(b, v)}</td>
+            <tr key={v} className={selected.has(v) ? 'selected' : ''} tabIndex={0} aria-selected={selected.has(v)} aria-label={`Verse ${v}. ${selected.has(v) ? 'Selected' : 'Press Enter to select'}`} onClick={(e) => onToggle(v, e.shiftKey)} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(v, e.shiftKey); } }} style={{ cursor: 'pointer' }}>
+              <td lang={left.language}>{cell(a, v, left.shortName)}</td>
+              <td lang={right.language}>{cell(b, v, right.shortName)}</td>
             </tr>
           ))}
         </tbody>
