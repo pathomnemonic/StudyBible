@@ -1,5 +1,14 @@
 # What changed
 
+## Fourth cycle
+- Bible editions: the NABRE is bundled (all 73 books, headings and the edition's own notes) and the RSV-2CE is rebuilt from the owner's clean publisher file (all 73 books including Esther and Zechariah, with footnotes, study notes and cross-references). The first RSV pack came from a damaged scan (dropped first letters, stray marks); it is gone. A test now fails on that kind of damage.
+- A video or recording started on a page keeps playing when you open another tab and docks as a small player above the tab bar (a link takes you back to its page; × stops it).
+- "About this chapter" opens by itself when there is something to show.
+- Video resume: a Continue-watching video no longer reloads every few seconds.
+- Five-tab bars on phones (Videos: Feed, Creators, All videos, Watch later, Watched) scroll instead of overlapping; a new browser check looks for overlapping or clipped controls on every route.
+- Calendar names no longer show the "[ US ]" tag; the Queue view has Back and Clear buttons.
+- Edition notes (WEB-C, RSV-2CE, NABRE) show the edition's own footnotes.
+
 ## Third cycle
 - Accounts and sync finished behind a switch that is off in every normal build (two-factor sign-in, invites, reset codes, lock-out, profile, security log); see docs/ACCOUNTS_ROLLOUT.md.
 - Modern Catholic voices: short credited quotations from four modern apologetics books, linked to the questions they relate to (kept short because the books are in copyright).

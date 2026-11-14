@@ -9,6 +9,7 @@ import { useSettings } from './lib/store';
 import Shell from './components/Shell';
 import ReadPage from './pages/ReadPage';
 import { PlayerProvider } from './data/PlayerContext';
+import MediaHost from './components/MediaHost';
 import MiniPlayer from './components/MiniPlayer';
 import { ToastProvider } from './components/Toast';
 import { initSync } from './sync/state';
@@ -344,6 +345,7 @@ export default function App() {
         <PlayerProvider>
         <Shell>
           <PassportWatcher />
+          <MediaHost />
           <Suspense fallback={<div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>}>
             <ErrorBoundary resetKey={loc.pathname}><Settle><Routes>
               <Route path="/" element={<TodayPage />} />

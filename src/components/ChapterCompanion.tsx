@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { providers, type StudyItem } from '../study/providers';
 import { getCccScripture } from '../data/ccc';
@@ -13,13 +13,15 @@ const shortDate = (iso: string) => new Date(iso + 'T12:00').toLocaleDateString(u
 /** Everything that puts this chapter in context, folded under one line: where it happens, where else it is told, when the Church reads it, and its key verses. */
 export default function ChapterCompanion({ book, anchorChapters, chapterRef }: { book: string; anchorChapters: number[]; chapterRef: Ref }) {
   const [open, setOpen] = useState(false);
+  const touched = useRef(false);   // the reader opened or closed it themselves: leave it alone
+  const [loaded, setLoaded] = useState(false);
   const [places, setPlaces] = useState<StudyItem[]>([]);
   const [related, setRelated] = useState<StudyItem[]>([]);
   const [mass, setMass] = useState<Mass[]>([]);
   const [keys, setKeys] = useState<{ v: number; n: number }[]>([]);
   const key = `${book}.${anchorChapters.join(',')}`;
   useEffect(() => {
-    if (!open) return;
+    touched.current = false; setOpen(false); setLoaded(false); setPlaces([]); setRelated([]); setMass([]); setKeys([]);
     let live = true;
     providers.places([chapterRef]).then((l) => live && setPlaces(l.slice(0, 8))).catch(() => undefined);
     providers.parallels([chapterRef]).then((l) => live && setRelated(l.filter((x) => ['Gospel parallel', 'Parable', 'Miracle', 'Biblical theme', 'Prophecy', 'Fulfilment'].includes(x.kind ?? '')).slice(0, 6))).catch(() => undefined);
@@ -42,11 +44,15 @@ export default function ChapterCompanion({ book, anchorChapters, chapterRef }: {
         }
       }
       setMass(out);
-    });
+    }).finally(() => live && setLoaded(true));
     return () => { live = false; };
-  }, [open, key]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [key]); // eslint-disable-line react-hooks/exhaustive-deps
+  // open by itself once there is something to show (and not before: an empty box is just noise)
+  useEffect(() => {
+    if (loaded && !touched.current && (places.length || related.length || mass.length || keys.length)) setOpen(true);
+  }, [loaded, places, related, mass, keys]);
   return (
-    <details className="chapter-companion" onToggle={(e) => setOpen((e.currentTarget as HTMLDetailsElement).open)}>
+    <details className="chapter-companion" open={open} onToggle={(e) => { const o = (e.currentTarget as HTMLDetailsElement).open; if (o !== open) { touched.current = true; setOpen(o); } }}>
       <summary>About this chapter: where, when and how it connects</summary>
       {open && (
         <div className="cc-body">
