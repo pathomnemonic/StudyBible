@@ -49,7 +49,7 @@ jobs:
         env:
           VITE_LOCAL_ONLY: '1' # GitHub Pages has no sync server, so the app does not look for one
       - run: touch dist/.nojekyll
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
   deploy:
