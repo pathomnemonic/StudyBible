@@ -14,12 +14,12 @@ export function listeningDay(at = new Date()): string {
 }
 
 /** Add seconds that really played, and record an actual end event against the day it occurred. */
-export async function creditListening(episodeId: string, secs: number, patch: { position?: number; duration?: number; ranToEnd?: boolean; completed?: boolean } = {}) {
+export async function creditListening(episodeId: string, secs: number, patch: { position?: number; duration?: number; ranToEnd?: boolean; completed?: boolean } = {}, at: Date = new Date()) {
   // The ledger is read-modify-written; serialize concurrent timeupdate, pause, visibility and pagehide saves.
   await db.transaction('rw', db.episodeProgress, async () => {
     const old = await db.episodeProgress.get(episodeId);
     const done = patch.completed ?? old?.completed ?? false;
-    const day = listeningDay();
+    const day = listeningDay(at);
     const ledger = { ...(old?.listeningDays ?? {}) };
     const undatedHeard = old?.undatedHeard ?? (old?.heard !== undefined && !Object.keys(old.listeningDays ?? {}).length ? old.heard : undefined);
     const undatedCompletions = old?.undatedCompletions ?? (old?.ranToEnd && !Object.keys(old.listeningDays ?? {}).length ? 1 : undefined);
@@ -37,7 +37,7 @@ export async function creditListening(episodeId: string, secs: number, patch: { 
       listeningDays: ledger,
       undatedHeard,
       undatedCompletions,
-      ranToEnd: patch.ranToEnd || old?.ranToEnd || undefined, updatedAt: Date.now(),
+      ranToEnd: patch.ranToEnd || old?.ranToEnd || undefined, updatedAt: at.getTime(),
     } as EpisodeProgress);
   });
 }
