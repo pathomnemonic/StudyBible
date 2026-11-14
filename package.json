@@ -20,6 +20,8 @@
     "server:dev": "tsx watch server/index.ts",
     "start": "npm run build && tsx server/index.ts",
     "admin": "tsx server/admin.ts",
+    "e2e:accounts": "node e2e/accounts.mjs",
+    
     "e2e": "node e2e/smoke.mjs",
     "budget": "tsx scripts/verify/budget.ts",
     "e2e:a11y": "node e2e/a11y.mjs",

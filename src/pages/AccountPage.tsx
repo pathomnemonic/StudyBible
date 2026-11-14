@@ -6,6 +6,8 @@ import { deleteAccount, retryDiscovery, signIn, signOut, signUp, syncNow, useSyn
 import { pendingCount } from '../sync/engine';
 import { download } from '../db/ops';
 import { useToast } from '../components/Toast';
+import { ForgotPassword, ProfileCard, SecurityLogCard, TwoFactorCard } from '../components/AccountSecurity';
+import { needsCode } from '../lib/securityLog';
 
 const decide = async (n: number): Promise<AuthDecision> =>
   confirm(`This device holds ${n} notes, highlights and other items from a different account.\n\nOK = remove them from this device before signing in (recommended on a shared device).\nCancel = merge them into the account you are signing in to.`) ? 'wipe' : 'merge';
@@ -26,7 +28,10 @@ export default function AccountPage() {
   const [stats, setStats] = useState<{ tables: { table: string; records: number; deleted: number }[]; bytes: number; limits: { records: number; bytes: number } } | null>(null);
   const loadDevices = () => { api.sessions().then((r) => setDevices(r.sessions)).catch(() => setDevices(null)); api.stats().then(setStats).catch(() => setStats(null)); };
   useEffect(() => { if (s.user) loadDevices(); }, [s.user?.id, s.lastSyncAt]);
-  const [mode, setMode] = useState<'in' | 'up'>('in');
+  const [mode, setMode] = useState<'in' | 'up' | 'forgot'>('in');
+  const [code, setCode] = useState('');
+  const [invite, setInvite] = useState('');
+  const [askCode, setAskCode] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [pw, setPw] = useState('');
@@ -41,11 +46,12 @@ export default function AccountPage() {
     setBusy(true);
     setErr('');
     try {
-      if (mode === 'in') await signIn(email, pw, decide);
-      else await signUp(email, pw, name || undefined, decide);
-      setPw('');
+      if (mode === 'in') await signIn(email, pw, decide, code || undefined);
+      else await signUp(email, pw, name || undefined, decide, invite || undefined);
+      setPw(''); setCode(''); setAskCode(false);
       toast(mode === 'in' ? 'Signed in. Your library is syncing.' : 'Account created. Your library is syncing.');
     } catch (e: any) {
+      if (needsCode(e.message)) setAskCode(true);
       setErr(e.message);
     } finally {
       setBusy(false);
@@ -63,11 +69,12 @@ export default function AccountPage() {
         </div>
       )}
 
-      {s.server === 'available' && !s.user && (
+      {s.server === 'available' && !s.user && mode === 'forgot' && <ForgotPassword onDone={() => setMode('in')} />}
+      {s.server === 'available' && !s.user && mode !== 'forgot' && (
         <form className="card auth" onSubmit={submit}>
           <div className="segmented" role="tablist">
             <button type="button" role="tab" aria-selected={mode === 'in'} onClick={() => setMode('in')}>Sign in</button>
-            <button type="button" role="tab" aria-selected={mode === 'up'} disabled={s.registration === 'closed'} onClick={() => setMode('up')}>Create account</button>
+            <button type="button" role="tab" aria-selected={mode === 'up'} onClick={() => setMode('up')}>Create account</button>
           </div>
           <p className="muted">{mode === 'in' ? 'Welcome back. Sign in to load your notes, highlights and progress on this device.' : 'An account keeps your annotations safe and in sync across your devices. It is optional: the app works fully without one.'}</p>
           {mode === 'up' && (
@@ -85,8 +92,22 @@ export default function AccountPage() {
             <input type="password" required minLength={mode === 'up' ? 10 : 1} value={pw} onChange={(e) => setPw(e.target.value)} autoComplete={mode === 'in' ? 'current-password' : 'new-password'} />
             {mode === 'up' && <small className="muted">At least 10 characters. A short phrase is easier to remember and stronger than a clever word.</small>}
           </label>
+          {mode === 'in' && askCode && (
+            <label className="field">
+              <span>Six-digit code (or a recovery code)</span>
+              <input value={code} onChange={(e) => setCode(e.target.value)} autoComplete="one-time-code" inputMode="text" />
+            </label>
+          )}
+          {mode === 'up' && s.registration === 'closed' && (
+            <label className="field">
+              <span>Invite code</span>
+              <input value={invite} onChange={(e) => setInvite(e.target.value)} autoComplete="off" />
+              <small className="muted">This server is invitation-only. The person who runs it can give you a code.</small>
+            </label>
+          )}
           {err && <div className="notice" role="alert">{err}</div>}
           <button className="btn primary block" disabled={busy}>{busy ? 'One moment…' : mode === 'in' ? 'Sign in' : 'Create account'}</button>
+          {mode === 'in' && <p className="small"><button type="button" className="linklike" onClick={() => setMode('forgot')}>Forgot your password?</button></p>}
           <p className="muted small">Your notes belong to you. They are stored on the server only so they can sync, are never shared or used for advertising, and you can export or permanently delete everything from this page.</p>
         </form>
       )}
@@ -109,6 +130,10 @@ export default function AccountPage() {
               <button className="btn" onClick={async () => { const clear = confirm('Sign out and also remove your notes from this device?\n\nOK = remove from this device (they stay in your account).\nCancel = keep a copy on this device.'); await signOut(clear); toast('Signed out.'); }}>Sign out</button>
             </div>
           </div>
+
+          <ProfileCard />
+          <TwoFactorCard />
+          <SecurityLogCard />
 
           <div className="card">
             <h2 className="card-title">Sync activity</h2>

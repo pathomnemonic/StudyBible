@@ -175,13 +175,13 @@ async function afterAuth(user: AccountUser, decide: (n: number) => Promise<AuthD
   await syncNow();
 }
 
-export async function signIn(email: string, password: string, decide: (n: number) => Promise<AuthDecision>) {
-  const { user } = await api.login(email, password);
+export async function signIn(email: string, password: string, decide: (n: number) => Promise<AuthDecision>, code?: string) {
+  const { user } = await api.login(email, password, code);
   await afterAuth(user, decide);
 }
 
-export async function signUp(email: string, password: string, name: string | undefined, decide: (n: number) => Promise<AuthDecision>) {
-  const { user } = await api.register(email, password, name);
+export async function signUp(email: string, password: string, name: string | undefined, decide: (n: number) => Promise<AuthDecision>, invite?: string) {
+  const { user } = await api.register(email, password, name, invite);
   await afterAuth(user, decide);
 }
 
@@ -211,3 +211,8 @@ export function noteSettingsChanged() {
   scheduleSync();
 }
 void getSettings;
+
+/** the signed-in person changed their name or email: show it everywhere */
+export function updateUser(user: AccountUser) {
+  emit({ user });
+}

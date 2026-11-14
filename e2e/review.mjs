@@ -236,4 +236,12 @@ if (await p.locator('li', { hasText: 'Due probe note' }).locator('button', { has
 await p.goto(`${BASE}/#/study/modern-voices`); await p.waitForSelector('blockquote', { timeout: 15000 });
 const mv = await p.locator('.page').innerText();
 if (!/Catholic Answers/.test(mv) || !/not Church teaching/.test(mv)) fail('the quotations should be credited and labelled');
+// 29. accounts are switched off in this build: the page redirects and nothing offers sign-in or sync
+await p.goto(`${BASE}/#/account`); await p.waitForTimeout(1200);
+if (/account/i.test(await p.evaluate(() => location.hash))) fail('/account should redirect away when accounts are off');
+for (const path of ['/settings', '/more', '/privacy']) {
+  await p.goto(`${BASE}/#${path}`); await p.waitForTimeout(1000);
+  const t = await p.locator('body').innerText();
+  if (/Account (and|&) sync|Sign in to sync|Create account/i.test(t)) fail(`${path} should not mention accounts or sync sign-in: ` + (t.match(/.{40}(Account (and|&) sync|Sign in to sync|Create account).{20}/i) ?? [''])[0]);
+}
 await b.close(); console.log('review ok');

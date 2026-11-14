@@ -1,3 +1,4 @@
+import { accountsEnabled } from '../lib/accountsFlag';
 import { Link } from 'react-router-dom';
 
 const OUT: [string, string, string][] = [
@@ -10,10 +11,12 @@ const OUT: [string, string, string][] = [
   ['Watching a video or hearing a podcast player', 'YouTube (privacy-enhanced embed), Vimeo, Apple Podcasts or Spotify', 'Whatever those players collect when they load, as on their own sites.'],
   ['Bible in a Year, LibriVox and the Creedal recordings', 'The publishers’ own audio servers', 'Your IP address, as for any download.'],
   ['Back up to Google Drive (you turn it on)', 'Google', 'Your backup file, under your own Google account.'],
-  ['Sign in to sync (you turn it on)', 'The sync server you enter', 'Your account and your synced notes, highlights, journal and progress.'],
   ['Host or join a live class', 'Public message relays (such as EMQX, HiveMQ or Mosquitto)', 'Sealed messages and your IP address. The relays cannot read the contents.'],
   ['Opening a link to another website', 'That website', 'Whatever the website collects.'],
 ];
+
+/** only listed when accounts are switched on (src/lib/accountsFlag.ts) */
+const SYNC_ROW: [string, string, string] = ['Sign in to sync (you turn it on)', 'The sync server you enter', 'Your account and your synced notes, highlights, journal and progress.'];
 
 /** What stays on your device, what leaves it and when, in plain words. */
 export default function PrivacyPage() {
@@ -33,7 +36,7 @@ export default function PrivacyPage() {
       <div className="card" style={{ padding: 0, overflowX: 'auto' }}>
         <table className="priv-table">
           <thead><tr><th scope="col">When you…</th><th scope="col">It talks to</th><th scope="col">What it sees</th></tr></thead>
-          <tbody>{OUT.map(([a, b, c]) => <tr key={a}><th scope="row">{a}</th><td>{b}</td><td>{c}</td></tr>)}</tbody>
+          <tbody>{[...OUT, ...(accountsEnabled() ? [SYNC_ROW] : [])].map(([a, b, c]) => <tr key={a}><th scope="row">{a}</th><td>{b}</td><td>{c}</td></tr>)}</tbody>
         </table>
       </div>
       <h2>Your choices</h2>

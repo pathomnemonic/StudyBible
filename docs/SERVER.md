@@ -62,8 +62,14 @@ At start-up the server checks these and **refuses to start** on an invalid value
 | Server logs | request errors only; **never** passwords, cookies, tokens or note text | your host's log rotation |
 
 ## Accounts and devices
+(Accounts are switched off in every normal build of the app; see `docs/ACCOUNTS_ROLLOUT.md` for how to turn them on.)
+
+* **Two-factor sign-in:** optional per account (authenticator app, ten one-time recovery codes). `npm run admin -- disable-2fa <email>` helps someone who lost both.
+* **Invite codes:** with `REGISTRATION=closed`, `npm run admin -- invite` makes a one-time code that lets one more person sign up.
+* **Lock-out:** repeated wrong passwords or codes lock an account briefly; `npm run admin -- unlock <email>` clears it.
+* **Security log:** each account can see its last 50 security events.
 * Account → **Signed-in devices** lists every session with its last activity and lets you sign one out or all others. Changing the password signs out all other devices.
-* **No email password reset** (the server sends no email). The operator resets a forgotten password: `npm run admin -- reset-password user@example.com 'new passphrase'` (also `list` and `delete-user`).
+* **No email password reset** (the server sends no email). The operator resets a forgotten password: `npm run admin -- reset-code user@example.com` prints a one-hour, one-use code the person enters on the sign-in screen, or `npm run admin -- reset-password user@example.com 'new passphrase'` sets one directly (also `list`, `invite`, `unlock`, `disable-2fa`, `delete-user`).
 * Limits: 1000 changes per request, 256 KB per record, 200,000 records and 100 MB per user.
 
 ## Sync behaviour

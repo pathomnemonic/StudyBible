@@ -1,6 +1,7 @@
 import { reportUrl } from '../lib/report';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { accountsEnabled } from '../lib/accountsFlag';
 import { FEATURES, STATUS_LABEL, type Status } from '../featureStatus';
 import { CANON_NOTES } from '../lib/canon';
 import { useEffect } from 'react';
@@ -14,7 +15,7 @@ export default function AboutPage() {
   const [f, setF] = useState<Status | ''>('');
   const [built, setBuilt] = useState('');
   useEffect(() => { getJson<{ generated: string }>('manifest.json', true).then((m) => setBuilt(m?.generated ?? '')).catch(() => {}); }, []);
-  const list = FEATURES.filter((x) => !f || x.status === f);
+  const list = FEATURES.filter((x) => (!f || x.status === f) && (accountsEnabled() || !/^Accounts & cross-device sync/.test(x.name)));
   return (
     <div className="page">
       <h1>About & feature status</h1>

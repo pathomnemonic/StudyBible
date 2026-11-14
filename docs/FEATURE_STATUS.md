@@ -68,7 +68,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Notes (Markdown), highlights (6 colors), bookmarks, folders, tags, collections, personal cross-references, journal, export/import | **Working** | Stored in IndexedDB on the device, anchored to stable Vulgate-based ids so they survive translation changes. |
-| Accounts & cross-device sync | **Working** | Optional: needs the bundled Node server (npm start, or the Dockerfile) that you host yourself; the app works fully offline without it. Last-writer-wins sync of notes, highlights, bookmarks, journal, plans and attached links. Not end-to-end encrypted; no email password reset (operators use npm run admin). See docs/SERVER.md. |
+| Accounts & cross-device sync | **Partial** | Built and tested but switched off in every normal build: nothing about sign-in or sync is shown and the app never looks for a server (switch: src/lib/accountsFlag.ts). Built: sign-up and sign-in, invite-only sign-up, two-factor sign-in with recovery codes, lock-out, operator reset codes, profile and email change, signed-in devices, a security log, download and delete, record-level sync with conflict copies, and operator tools. Turning it on needs a host that runs the bundled Node server and a decision about email (docs/ACCOUNTS_ROLLOUT.md). **Next:** Switch accounts on for a real host (and decide about email). **Blocked by:** code. **Done when:** e2e/accounts.mjs passes against the server and a build made with VITE_ACCOUNTS=1. |
 
 ## Study
 

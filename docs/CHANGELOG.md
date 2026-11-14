@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Accounts and sync finished behind a switch that is off in every normal build (two-factor sign-in, invites, reset codes, lock-out, profile, security log); see docs/ACCOUNTS_ROLLOUT.md.
 - Modern Catholic voices: short credited quotations from four modern apologetics books, linked to the questions they relate to (kept short because the books are in copyright).
 - Profiles: 40 saints with sourced facts (drafted by one agent, checked by a second which corrected 21 of them).
 - Collection templates: Prayers in Scripture and Psalms for a hard day (a test checks every template passage is real).
