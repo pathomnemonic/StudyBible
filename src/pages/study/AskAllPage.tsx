@@ -8,6 +8,8 @@ import { BOOK_BY_ID } from '../../lib/canon';
 import { loadWork } from '../../lib/fathersEngine';
 import type { Hit, SearchResult } from '../../lib/fathersSearch';
 import { HitCard, Loading, useEngine } from './AskFathersPage';
+import { ASK_SOURCES, askSourcesParam, parseAskSources, toggleAskSource } from '../../lib/askSources';
+import { db } from '../../db/db';
 
 interface Verse { id: string; b: string; c: number; v: number; t: string }
 const clip = (t: string, n = 420) => (t.length > n ? `${t.slice(0, n).replace(/\s+\S*$/, '')}…` : t);
@@ -18,6 +20,9 @@ function Tag({ children }: { children: string }) { return <span className="chip 
 export default function AskAllPage() {
   const [sp, setSp] = useSearchParams();
   const q = sp.get('q') ?? '';
+  const on = parseAskSources(sp.get('src'));
+  const [saved, setSaved] = useState(false);
+  const setOn = (next: typeof on) => { const p: Record<string, string> = {}; if (q) p.q = q; const sv = askSourcesParam(next); if (sv) p.src = sv; setSp(p); };
   const [text, setText] = useState(q);
   const [s] = useSettings();
   const { get, editions } = useEditions();
@@ -54,7 +59,8 @@ export default function AskAllPage() {
     return () => { live = false; };
   }, [wantFathers, q, eng.eng]);
 
-  const ask = (t: string) => { const v = t.trim(); setText(v); setWantFathers(false); setSp(v ? { q: v } : {}); };
+  const ask = (t: string) => { const v = t.trim(); setText(v); setWantFathers(false); setSaved(false); const sv = askSourcesParam(on); setSp(v ? (sv ? { q: v, src: sv } : { q: v }) : {}); };
+  const saveQuestion = async () => { await db.notes.add({ body: q, kind: 'question', targets: [], tags: [], chapterKeys: [], createdAt: Date.now(), updatedAt: Date.now() } as never); setSaved(true); };
   const topFathers: Hit[] = fathers?.hits.slice(0, 3) ?? [];
   const nothing = ccc && !ccc.paras.length && !ccc.topics.length && !ccc.glossary && verses && !verses.length;
 
@@ -68,10 +74,17 @@ export default function AskAllPage() {
         <button className="btn primary" type="submit">Find</button>
       </form>
 
+      <fieldset className="row" style={{ gap: 12, flexWrap: 'wrap', border: 0, padding: 0, margin: '6px 0' }}>
+        <legend className="sr-only">Which kinds of source to show</legend>
+        <span className="muted small">Show:</span>
+        {ASK_SOURCES.map(([k, l]) => <label key={k} className="small"><input type="checkbox" checked={on.includes(k)} onChange={() => setOn(toggleAskSource(on, k))} /> {l}</label>)}
+      </fieldset>
+      {q && <p className="small"><button type="button" className="btn small" onClick={saveQuestion} disabled={saved}>{saved ? 'Saved to your questions' : 'Save this question'}</button> <span className="muted">It joins the question inbox in Notes, under Review.</span></p>}
+
       {q && !ccc && <div className="center-note" role="status">Searching…</div>}
       {nothing && <p className="muted">Nothing matched those words. Try plainer or older words (for example “baptism” rather than “christening”).</p>}
 
-      {ccc?.glossary && (
+      {on.includes('ccc') && ccc?.glossary && (
         <section className="card" aria-label="Definition">
           <p className="row" style={{ gap: 8 }}><Tag>Written for this app</Tag><strong>{ccc.glossary.term}</strong></p>
           <p>{ccc.glossary.definition}</p>
@@ -79,7 +92,7 @@ export default function AskAllPage() {
         </section>
       )}
 
-      {ccc && ccc.paras.length > 0 && (
+      {on.includes('ccc') && ccc && ccc.paras.length > 0 && (
         <section className="card" aria-label="The Church’s teaching">
           <h2 className="card-title">The Church’s own words</h2>
           <p className="row" style={{ gap: 8 }}><Tag>Catechism of the Catholic Church</Tag><span className="muted small">official teaching, quoted</span></p>
@@ -88,7 +101,7 @@ export default function AskAllPage() {
         </section>
       )}
 
-      {q && (
+      {q && on.includes('bible') && (
         <section className="card" aria-label="Scripture">
           <h2 className="card-title">Scripture</h2>
           <p className="row" style={{ gap: 8 }}><Tag>Bible text</Tag><span className="muted small">{ed?.name}; verses that use your words, not an interpretation</span></p>
@@ -99,7 +112,7 @@ export default function AskAllPage() {
         </section>
       )}
 
-      {q && (
+      {q && on.includes('fathers') && (
         <section className="card" aria-label="The Fathers and saints">
           <h2 className="card-title">The Fathers and saints</h2>
           <p className="row" style={{ gap: 8 }}><Tag>Writings in the library</Tag><span className="muted small">individual writers, not Church teaching</span></p>

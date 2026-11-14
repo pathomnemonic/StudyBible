@@ -59,6 +59,11 @@ await p.waitForSelector('[aria-label="Scripture"] blockquote, [aria-label="Scrip
 const ask = await p.locator('.ask-all').innerText();
 if (!/Catechism of the Catholic Church/.test(ask)) fail('the Church’s teaching card should name the Catechism');
 if (!/Bible text/.test(ask) || !/Writings in the library/.test(ask)) fail('every kind of source should be labelled');
+await p.locator('label', { hasText: 'Bible text' }).locator('input').uncheck(); await p.locator('label', { hasText: 'Fathers and saints' }).locator('input').uncheck(); await p.waitForTimeout(500);
+if (await p.locator('[aria-label="Scripture"]').count() || await p.locator('[aria-label="The Fathers and saints"]').count()) fail('turned-off sources should not be shown');
+if (!/src=ccc/.test(await p.evaluate(() => location.hash))) fail('the source choice should be in the address');
+await p.locator('button', { hasText: 'Save this question' }).click(); await p.waitForTimeout(500);
+if (!/Saved to your questions/.test(await p.locator('.ask-all').innerText())) fail('the question should be saved');
 // 8. map of connections
 await p.goto(`${BASE}/#/study/map?n=${encodeURIComponent('topic:eucharist')}&to=${encodeURIComponent('argument:real-presence')}`);
 await p.waitForSelector('.concept-map .cm-group', { timeout: 30000 });
