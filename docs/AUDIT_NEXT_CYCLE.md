@@ -79,3 +79,58 @@ Found by the stronger full sweep (nightly workflow, first run on `ea1655f`) and 
 ## Test inventory (what ran, on which commit)
 
 See the commands and results table below.
+
+
+---
+
+# Reliability cycle: reference integrity, listening history, and safe state transitions
+
+**Status: incomplete; draft review only.** Branch: `reliability/reference-listening-state-cycle`. Starting point requested: `64206baa813be26f83c5e82139c546aedbc06ece`. Work was performed against the current `ccr-c086ddeb-igsukm` branch after checking its recent history; the requested base SHA is not the branch's current HEAD.
+
+## Findings reproduced / code paths changed
+
+| Area | Work recorded | Commit(s) |
+|---|---|---|
+| Versification | Removed verse clamping beyond verified rules; unverified/out-of-range mapping now preserves the source address and reports non-exactness. | `35d75e4` is not this change; see `64206baa` and later branch history for the underlying pre-existing exactness work. |
+| Reference repair | Human-readable repair conversions now require exact conversion; optional edition counts are used to validate source and anchor candidates. | `80b3f09`, `fd89208` |
+| Reading-plan creation | Typed passages are refused when conversion reports non-exactness; source and anchor semantic validation was attempted but not committed. | Existing changes on branch: `ccr-c086ddeb` ancestry; no new semantic-validation commit. |
+| Data health | Optional anchor-edition semantic validation added to passage checks; UI loads Vulgate counts before running the check. | `a4b2c96`, `3dbd99e` |
+| Listening statistics | Added a local calendar-day ledger for listened seconds and actual end events; annual totals now use dated ledger entries, and old cumulative records are explicitly disclosed as undated. | `68d4536`, `35d75e4` |
+| Listening tests | Updated legacy expectations and added year-boundary, real-completion, and position-only-save cases. | `86ae189` |
+| Repair atomicity | Repair batches and Undo use Dexie transactions; a failed snapshot stops the operation. | `9d80f6d` |
+| Trash restore | Restore re-reads the trash row inside a transaction, checks UID duplication, and clears tombstone/trash state atomically. | `4e1707c` |
+| Collection summary | Done marks are compared by canonicalized JSON values, independent of object-key order. | `d65ab18`, `b893a80` |
+| Playback race | Playback source resolution, retry, and reload restoration use a request generation to prevent stale async lookups from replacing a newer selection. | `1c4d4df` |
+
+## Regression tests
+
+Added/updated:
+- `tests/listening.test.ts`: year-boundary attribution, actual completion, position-only saves, and legacy undated totals.
+- `tests/collectionsView.test.ts`: imported completion mark with a different object-key order and malformed stale marks.
+
+Still required before this cycle is complete:
+- Versification regressions for John 6:51–58 (KJV), unverified Psalms, every unaligned book, verified conversion, invalid book/chapter/verse, single-verse and cross-chapter ranges.
+- Repair tests for safe case normalization versus withheld unverified conversion; mixed valid/unverified plans; Go Further and memorization uncertainty.
+- Player controlled-promise race tests, including imported-local-to-remote transition.
+- Atomic repair snapshot failure, mid-batch write failure, Undo failure; simultaneous and interrupted restore tests.
+- Go Further transient failure/retry, missing work file and unavailable index tests.
+- Full regression coverage for all annual-listening cases specified in the assignment.
+
+## Quality-gate results
+
+No local checkout or command runner was available in this session. The following commands have **not been run** and are not claimed to pass:
+
+| Command | Result |
+|---|---|
+| `npm ci` | Not run |
+| `npm run typecheck` | Not run |
+| `npm test` | Not run |
+| `npm run docs:status` | Not run |
+| `npm run data:validate` | Not run |
+| `npm run build` | Not run |
+| `npm run budget` | Not run |
+| `node scripts/audit-gate.mjs` | Not run |
+| `npm run e2e:release` | Not run |
+| Full-width sweep / verified nightly or release workflow | Not run |
+
+No final quality-gate or full-width-sweep result is verified. This report is intentionally marked incomplete; further code review, test additions, and actual CI execution are required before merge.
