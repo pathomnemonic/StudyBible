@@ -15,7 +15,13 @@ export function repairPassageId(s: string): string[] | null {
   const tidy = s.trim().replace(/[–—]/g, '-').replace(/\s+/g, '').toUpperCase();
   if (tidy && parseRefId(tidy)) return [tidy];
   const p = parseRefs(s);
-  if (p.ok && p.refs.length) return p.refs.map((x) => refId(convertRef('kjv', 'vulgate', x.ref).ref));
+  if (p.ok && p.refs.length) {
+    // Human-readable inputs are English/KJV-numbered. Only repair when every conversion is verified;
+    // an unverified mapping (for example John 6:51–58) must remain for the reader to resolve.
+    const converted = p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref));
+    if (converted.some((x) => !x.exact)) return null;
+    return converted.map((x) => refId(x.ref));
+  }
   return null;
 }
 
