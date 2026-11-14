@@ -76,7 +76,7 @@ describe('listening time', () => {
   it('accumulates frequent five-second saves without losing or multiplying listening time', async () => {
     const { db } = await import('../src/db/db');
     const { creditListening, listeningStats } = await import('../src/lib/listening');
-    for (let i = 0; i < 20; i++) await creditListening('many-saves', 5, { position: (i + 1) * 5 });
+    await Promise.all(Array.from({ length: 20 }, (_, i) => creditListening('many-saves', 5, { position: (i + 1) * 5 })));
     const rows = await db.episodeProgress.toArray();
     expect(rows[0].heard).toBe(100);
     expect(rows[0].listeningDays?.[Object.keys(rows[0].listeningDays ?? {})[0]]?.seconds).toBe(100);
