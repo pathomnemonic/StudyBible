@@ -17,7 +17,9 @@ export const INVARIANTS = () => {
   for (let i = 0; i < rects.length; i++) for (let j = i + 1; j < rects.length; j++) {
     const [a, ra] = rects[i], [c, rc] = rects[j];
     if (a.contains(c) || c.contains(a)) continue;
-    if (a.closest('.tool-menu-list') || c.closest('.tool-menu-list')) continue; // a dropdown is meant to float over the page
+    // a popup menu, or a sticky/fixed bar that has scrolled over the content, is meant to float over the page
+    const floats = (e) => { for (let n = e; n && n !== document.body; n = n.parentElement) { const ps = getComputedStyle(n).position; if ((ps === 'absolute' && n.closest('details')) || ((ps === 'fixed' || ps === 'sticky') && window.scrollY > 4)) return true; } return false; };
+    if (floats(a) || floats(c)) continue;
     // compare line by line, so an inline link that wraps over two lines is not mistaken for overlapping its neighbour
     let hit = false;
     for (const x of a.getClientRects()) for (const y of c.getClientRects()) {
