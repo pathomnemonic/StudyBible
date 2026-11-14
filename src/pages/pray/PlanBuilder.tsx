@@ -3,7 +3,7 @@ import { db } from '../../db/db';
 import { BOOKS } from '../../lib/canon';
 import { parseRefId, parseRefs, type Ref } from '../../lib/refs';
 import { useEditions } from '../../data/EditionsContext';
-import { pooledCounts, resolveRef } from '../../lib/refCheck';
+import { resolvePlanReferences } from '../../lib/planReferences';
 import { buildDays, chapterUnits, dayLabel, MAX_DAYS, type Pace } from '../../lib/planBuilder';
 
 /** Make a plan from a run of chapters or a list of passages at a pace you choose; every day is shown before anything is saved. */
@@ -28,12 +28,9 @@ export default function PlanBuilder({ onSaved }: { onSaved: (id: number) => void
         if (!p.ok) { err = `“${l}”: ${p.error}`; break; }
         for (const x of p.refs) {
           // Typed passages use English/KJV numbering; do not silently store an unverified Vulgate approximation.
-          const source = pooledCounts(editions, 'english');
-          const anchor = editions.find((e) => e.scheme === 'vulgate');
-          if (!source || !anchor) { err = 'Scripture verse counts are not loaded yet. Try again when the editions have finished loading.'; break; }
-          const resolved = resolveRef(source, anchor, x.ref, 'kjv', anchor);
-          if (resolved.status !== 'exact' || !resolved.anchor) { err = `“${l}” cannot be verified in the source and anchor editions: ${resolved.reason ?? 'the verse mapping is not exact'}. Remove it or choose a verified passage.`; break; }
-          units.push(resolved.anchor);
+          const resolved = resolvePlanReferences(p.refs.map((item) => item.ref), editions);
+          if (!resolved.ok) { err = `“${l}” cannot be verified in the source and anchor editions: ${resolved.reason}. Remove it or choose a verified passage.`; break; }
+          units.push(...resolved.refs);
         }
         if (err) break;
       }
