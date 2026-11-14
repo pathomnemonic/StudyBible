@@ -75,6 +75,7 @@ console.log(`${Object.keys(vocab).length} glossary words linked to lessons`);
   const { loadVersification, convertRef } = await import('../../src/lib/versification');
   loadVersification(JSON.parse(readFileSync(join(root, 'public/data/versification.json'), 'utf8')));
   const byChapter: Record<string, [string, string][]> = {};
+  let unverified = 0;
   for (const gname of ['YA', '12', '11', '10', '9', '8', '7', '6', '5', '4', '3', '2', '1', 'K']) {
     const g = JSON.parse(readFileSync(join(root, `public/data/curriculum/grade-${gname}.json`), 'utf8')) as { units: { lessons: { id: string; title: string; scripture?: string }[] }[] };
     for (const u of g.units) for (const l of u.lessons) {
@@ -83,12 +84,14 @@ console.log(`${Object.keys(vocab).length} glossary words linked to lessons`);
         const p = parseRefs(label);
         if (!p.ok) continue;
         for (const r of p.refs) {
-          const a = convertRef('kjv', 'vulgate', r.ref).ref;
+          const mapped = convertRef('kjv', 'vulgate', r.ref);
+          if (!mapped.exact) { unverified++; continue; }
+          const a = mapped.ref;
           for (let c = a.c1; c <= a.c2; c++) { const k = `${a.book}.${c}`; if (seen.has(k)) continue; seen.add(k); const arr = (byChapter[k] ??= []); if (arr.length < 4) arr.push([l.id, l.title]); }
         }
       }
     }
   }
   writeFileSync(join(root, 'public/data/curriculum/lesson-chapters.json'), JSON.stringify(byChapter));
-  console.log(`${Object.keys(byChapter).length} chapters point to lessons`);
+  console.log(`${Object.keys(byChapter).length} chapters point to lessons; ${unverified} unverified lesson references were withheld`);
 }
