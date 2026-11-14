@@ -88,7 +88,7 @@ export function buildGoFurther(lesson: LessonLike, known: Known, extras?: Extras
     const bad = refProblem(label, ref);
     if (bad) { broken.push(bad); continue; }
     if (!ctx) { add({ kind: 'scripture', id: refId(ref), label: `Read ${label}`, ref, to: `/read/${known.edition}/${ref.book}/${ref.c1}` }); continue; }
-    const r = resolveRef(ctx.source, ctx.target, ref, 'kjv', ctx.anchor);
+    const r = resolveRef(ctx.source, ctx.target, ref, 'english', ctx.anchor);
     if (r.status === 'invalid') { broken.push(`scripture "${label}": ${r.reason}`); continue; }
     if (r.status === 'absent') { unavailable.push({ label, reason: r.reason ?? 'not in this edition' }); continue; }
     const to = r.native && readerUrl(ctx.target, r.native);
@@ -152,10 +152,10 @@ export function keyVerse(lesson: { mem?: string }, ctx?: { source: CountsEdition
   const r = p.refs[0].ref;
   const bad = refProblem(cite, r);
   if (bad) return { status: 'invalid', label: cite, reason: bad };
-  const conv = convertRef('kjv', 'vulgate', r);
+  const conv = convertRef('english', 'vulgate', r);
   if (!ctx) return { status: conv.exact ? 'exact' : 'approximate', label: cite, ref: conv.ref, original: r, sourceScheme: 'kjv', exact: conv.exact, reason: conv.exact ? undefined : 'The verse numbering of this passage differs between editions.' };
   // checked against the numbering it was written in; its own anchor mapping is what the card stores
-  const res = resolveRef(ctx.source, ctx.source, r, 'kjv', ctx.anchor);
+  const res = resolveRef(ctx.source, ctx.source, r, 'english', ctx.anchor);
   if (res.status === 'invalid' || res.status === 'absent') return { status: 'invalid', label: cite, reason: res.reason ?? 'not a passage in this numbering' };
   const exact = conv.exact && res.status === 'exact';
   return { status: exact ? 'exact' : 'approximate', label: cite, ref: conv.ref, original: r, sourceScheme: 'kjv', exact, reason: exact ? undefined : res.reason ?? 'The verse numbering of this passage differs between editions.' };
