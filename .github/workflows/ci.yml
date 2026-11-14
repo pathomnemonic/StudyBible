@@ -72,6 +72,25 @@ jobs:
           STATIC_DIR=dist-accounts PORT=8799 COOKIE_SECURE=false REGISTRATION=open DB_PATH=/tmp/acct-e2e.sqlite npx tsx server/index.ts &
           for i in $(seq 1 30); do curl -sf http://127.0.0.1:8799/api/health >/dev/null && break; sleep 1; done
       - run: BASE=http://127.0.0.1:8799 node e2e/accounts.mjs
+  # full-width sweep: every route at phone, tablet, desktop and large-text sizes
+  sweep-full:
+    runs-on: ubuntu-24.04
+    needs: fast
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Serve the build
+        run: |
+          npx vite preview --port 4173 &
+          for i in $(seq 1 30); do curl -sf http://localhost:4173 >/dev/null && break; sleep 1; done
+      - name: Full-width and large-text sweep
+        run: SWEEP_MODE=full node e2e/sweep.mjs
   # secrets: scan the history for accidentally committed credentials
   secrets:
     runs-on: ubuntu-latest
