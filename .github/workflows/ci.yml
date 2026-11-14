@@ -28,6 +28,18 @@ jobs:
             public/data/verse-links/*.json
             public/data/manifest.json
           if-no-files-found: error
+      - name: Commit regenerated exact-reference data to this PR branch
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'reliability/reference-listening-state-cycle'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/curriculum/lesson-chapters.json public/data/verse-links public/data/manifest.json
+          if git diff --cached --quiet; then
+            echo "Generated reference data is already current."
+          else
+            git commit -m "Regenerate exact-only reference indexes"
+            git push origin HEAD:refs/heads/reliability/reference-listening-state-cycle
+          fi
       - run: npm test
       - name: Generated documents are up to date
         run: |
