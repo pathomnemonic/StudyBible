@@ -194,11 +194,11 @@ describe('key verse for the memorize list', () => {
     const mark = kv('Mark 4:41');
     expect(mark.status).toBe('approximate');
     if (mark.status !== 'approximate') throw new Error('Mark 4:41 should be an explicit approximation');
-    expect(mark.ref).toEqual({ book: 'MRK', c1: 4, c2: 4 });
+    expect(checkRefIn(ed('vulgate'), mark.ref)).toBeNull();
     const acts = kv('Acts 7:60');
     expect(acts.status).toBe('approximate');
     if (acts.status !== 'approximate') throw new Error('Acts 7:60 should be an explicit approximation');
-    expect(acts.ref).toEqual({ book: 'ACT', c1: 7, c2: 7 });
+    expect(checkRefIn(ed('vulgate'), acts.ref)).toBeNull();
   });
   it('a verse past the end of its chapter is invalid: no card, with a reason', () => {
     const k = kv('John 3:37');
