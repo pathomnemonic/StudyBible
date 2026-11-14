@@ -1,7 +1,7 @@
 // The Year page's listening numbers must come from what really played, never from episodes marked as played.
 import 'fake-indexeddb/auto';
 import Dexie from 'dexie';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const store = new Map<string, string>();
 vi.stubGlobal('localStorage', { getItem: (k: string) => store.get(k) ?? null, setItem: (k: string, v: string) => void store.set(k, v), removeItem: (k: string) => void store.delete(k) });
@@ -9,6 +9,7 @@ vi.stubGlobal('location', { origin: 'https://example.org' });
 
 describe('listening time', () => {
   beforeEach(async () => { await Dexie.delete('studybible'); vi.resetModules(); store.clear(); });
+  afterEach(() => vi.useRealTimers());
   it('marking 1,000 episodes played adds no hours and no played-to-the-end episodes (the bug: 407.9 hours and 1,097 finished)', async () => {
     const { db } = await import('../src/db/db'); const { setPlayed, listeningStats } = await import('../src/lib/listening');
     for (let i = 0; i < 1000; i++) await setPlayed(`ep${i}`, true, 1800);
