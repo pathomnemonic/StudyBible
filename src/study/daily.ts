@@ -43,5 +43,7 @@ export function pickDaily(f: DailyFile, ld: LiturgicalDay): DailyEntry | null {
 export function dailyRef(e: DailyEntry): Ref | null {
   if (/^[A-Z0-9]{3}\.\d+/.test(e.ref)) return parseRefId(e.ref);
   const p = parseRefs(e.ref);
-  return p.ok ? convertRef('kjv', 'vulgate', p.refs[0].ref).ref : null;
+  if (!p.ok) return null;
+  const mapped = convertRef('kjv', 'vulgate', p.refs[0].ref);
+  return mapped.exact ? mapped.ref : null;
 }
