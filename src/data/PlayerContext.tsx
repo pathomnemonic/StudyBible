@@ -157,9 +157,14 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     a.addEventListener('play', () => { if (!a.paused) { lastT = a.currentTime; setPlaying(true); } });
     a.addEventListener('seeking', () => { lastT = -1; });
     a.addEventListener('pause', () => {
+      if ((a as any)._switchPause) {
+        (a as any)._switchPause = false;
+        if (!a.paused) return; // the old pause arrived after the new source resumed
+        setPlaying(false);
+        return;
+      }
       if (!a.paused) return; // a pause event queued for the previous source must not pause the new one
       setPlaying(false);
-      if ((a as any)._switchPause) { (a as any)._switchPause = false; return; }
       save();
     });
     a.addEventListener('ended', async () => {
