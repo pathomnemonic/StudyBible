@@ -18,7 +18,7 @@ export async function restoreFromTrash(trashId: number): Promise<boolean> {
     const existing = await table.where('uid').equals(rest.uid).first();
     if (!existing) await table.add({ ...rest });
     // If the same uid is already present, do not duplicate it; clear the stale tombstone/trash entry atomically.
-    await db.tombs.where('tbl').equals(it.tbl).filter((t) => t.uid === rest.uid).delete();
+    await db.tombs.filter((t) => t.tbl === it.tbl && t.uid === rest.uid).delete();
     await db.trash.delete(trashId);
     return true;
   });
