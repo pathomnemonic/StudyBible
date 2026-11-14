@@ -95,7 +95,6 @@ mode = 'ok';
 await p.locator('.player-msg button:has-text("Try again")').click();
 await p.waitForFunction(() => !document.querySelector('.player-msg') && !window.__a.paused, null, { timeout: 15000 }).catch(() => fail('Try again should recover once the stream is back'));
 // 9. switching from a local meditation file to a remote Bible-in-a-Year episode flushes the old episode's final position first
-await mode === 'ok';
 await p.locator('.player button[aria-label^="Stop and close"]').click().catch(() => {});
 await startMeditate();
 await p.waitForFunction(() => window.__a && window.__a.src.includes('/audio/'));
