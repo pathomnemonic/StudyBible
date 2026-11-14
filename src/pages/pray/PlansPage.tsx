@@ -9,6 +9,7 @@ import { convertRef } from '../../lib/versification';
 import { getLibraryIndex } from '../../data/content';
 import { confirmSwitch, startPlan } from '../../lib/activePlan';
 import { useSettings } from '../../lib/store';
+import PlanBuilder from './PlanBuilder';
 
 const CAT: Record<string, string> = { bible: 'Whole Bible', gospel: 'Gospels', listening: 'Reading + listening', catechism: 'Catechism topics', saint: 'Saints & Fathers', seasonal: 'Seasons', psalms: 'Psalms' };
 
@@ -17,6 +18,7 @@ export default function PlansPage() {
   const [plans, setPlans] = useState<PlanDef[]>([]);
   const [cat, setCat] = useState('');
   const [creating, setCreating] = useState(false);
+  const [building, setBuilding] = useState(false);
   const [name, setName] = useState('');
   const [lines, setLines] = useState('');
   const [err, setErr] = useState('');
@@ -53,7 +55,9 @@ export default function PlansPage() {
         <button className={`chip${!cat ? ' sel' : ''}`} onClick={() => setCat('')}>All</button>
         {Object.entries(CAT).map(([k, v]) => <button key={k} className={`chip${cat === k ? ' sel' : ''}`} onClick={() => setCat(k)}>{v}</button>)}
         <button className="chip" onClick={() => setCreating(!creating)}>+ Make my own</button>
+        <button className="chip" aria-pressed={building} onClick={() => setBuilding(!building)}>+ Build by pace</button>
       </div>
+      {building && <PlanBuilder onSaved={(id) => { setBuilding(false); nav(`/pray/plans/${encodeURIComponent('user:' + id)}`); }} />}
       {creating && (
         <div className="card">
           <input type="text" placeholder="Plan name" value={name} onChange={(e) => setName(e.target.value)} style={{ width: '100%', marginBottom: 8 }} />
