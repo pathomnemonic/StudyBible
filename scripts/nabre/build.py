@@ -41,6 +41,7 @@ def fname(n):
 def clean(inner):
     s = inner
     # footnote / cross-reference callouts: an anchor around an italic superscript
+    s = re.sub(r'<a (?:id="[^"]*" )?href="#(filepos\d+)"[^>]*>(?:(?!</a>).)*?<sup class="calibre40">.*?</sup>(?:(?!</a>).)*?</a>', lambda m: '\x07' + m.group(1) + '\x08', s, flags=re.S)
     s = re.sub(r'<a [^>]*>(?:(?!</a>).)*?<sup class="calibre40">.*?</sup>(?:(?!</a>).)*?</a>', '', s, flags=re.S)
     s = re.sub(r'<sup[^>]*class="calibre41"[^>]*>(.*?)</sup>', lambda m: '\x01' + re.sub('<[^>]+>', '', m.group(1)).strip() + '\x02', s, flags=re.S)
     s = re.sub(r'<span>(\d+)a</span>', lambda m: '\x01' + m.group(1) + '\x02', s)   # Sirach 33:20a style: part a opens the verse
@@ -50,19 +51,45 @@ def clean(inner):
     s = re.sub(r'<[^>]+>', '', s)
     return html.unescape(s)
 
-def verses(text):
-    """'\\x011\\x02text\\x012\\x02text' -> [[v, text]...]; leading text with no number -> v 0"""
+def verses(text, notes_out=None):
+    """'\\x011\\x02text\\x012\\x02text' -> [[v, text]...]; leading text with no number -> v 0.  Note markers \\x07id\\x08 are
+    collected into notes_out as (verse, id) and removed from the text."""
     out = []
-    parts = re.split(r'\x01([^\x02]*)\x02', text)
-    lead = ' '.join(parts[0].split())
-    if lead: out.append([0, lead])
-    for i in range(1, len(parts), 2):
-        num, body = parts[i].strip(), ' '.join(parts[i + 1].split())
-        if not num.isdigit():
-            if body and out: out[-1][1] = (out[-1][1] + ' ' + body).strip()
+    cur = 0
+    pieces = re.split(r'(\x01[^\x02]*\x02)', text)
+    lead_done = False
+    cur_v = 0
+    buf_notes = []
+    for piece in pieces:
+        m = re.fullmatch(r'\x01([^\x02]*)\x02', piece)
+        if m:
+            num = m.group(1).strip()
+            if num.isdigit(): cur_v = int(num); out.append([cur_v, ''])
             continue
-        out.append([int(num), body])
+        for nid in re.findall(r'\x07(filepos\d+)\x08', piece):
+            if notes_out is not None: notes_out.append((cur_v, nid))
+        body = ' '.join(re.sub(r'\x07filepos\d+\x08', '', piece).split())
+        if not out:
+            if body: out.append([0, body])
+        elif body:
+            out[-1][1] = (out[-1][1] + ' ' + body).strip()
     return [r for r in out if r[1] or r[0]]
+
+# ---- the notes ---------------------------------------------------------------------------------------
+NOTE = {}       # note id -> (label, text)
+def plain_text(x): return ' '.join(html.unescape(re.sub(r'<[^>]+>', '', x)).split())
+for n_ in range(11, 1262):
+    pth = fname(n_)
+    if not os.path.exists(pth): continue
+    tt = open(pth, encoding='utf8').read()
+    for m_ in re.finditer(r'<p id="(filepos\d+)" class="\w+"><span class="calibre10"><a href="[^"]*">(.*?)</a>(.*?)</span></p>', tt, re.S):
+        lab = plain_text(m_.group(2)).rstrip('.').strip()
+        body = plain_text(m_.group(3))
+        body = re.sub(r'^\s*\[[^\]]*\]\s*', '', body)       # the verse range in brackets is where the note sits
+        if lab and body: NOTE[m_.group(1)] = (lab, body)
+print(len(NOTE), 'notes found', file=sys.stderr)
+CH_NOTES = {}   # (book, chapter) -> [(verse, note id)]
+LASTV = {}
 
 books = {}      # id -> {chapter n -> blocks}
 order = []
@@ -132,7 +159,7 @@ for n in range(11, 1262):
         if pc == 'calibre57':   # right-aligned "Selah"
             blocks = books[cur_book][cur_ch]
             if blocks and blocks[-1][0] not in ('s',) and blocks[-1][1]:
-                blocks[-1][1][-1][1] += ' ' + raw.strip()
+                blocks[-1][1][-1][1] += ' ' + re.sub(r'\x07filepos\d+\x08', '', raw).strip()
             continue
         if pc in ('calibre45',) or pc in ('calibre22',): continue
         if hm:
@@ -149,7 +176,13 @@ for n in range(11, 1262):
             cn, vn = (int(x) for x in ref.split(':'))
             carry.setdefault((cur_book, cn), []).append(['p', [[vn, ' '.join(rest.split())]]])
             raw = head
-        runs = verses(raw)
+        nl = []
+        runs = verses(raw, nl)
+        for v_, nid in nl:
+            vv_ = v_ if v_ > 0 else LASTV.get((cur_book, cur_ch), 1)
+            CH_NOTES.setdefault((cur_book, cur_ch), []).append((vv_, nid))
+        for r_ in runs:
+            if r_[0] > 0: LASTV[(cur_book, cur_ch)] = r_[0]
         if not runs: continue
         if pc in ('calibre42', 'calibre47'): kind = 'q1'
         elif pc == 'calibre33' and bq == 'calibre14' and last_kind in ('q1', 'q2') and len(raw.strip()) < 140 and not re.match(r'\s*\x01', raw): kind = 'q2'
@@ -225,7 +258,19 @@ for b in order:
 os.makedirs(OUT, exist_ok=True)
 rep = {}
 for b in order:
-    chs = [{'n': c, 'blocks': books[b][c]} for c in sorted(books[b]) if books[b][c]]
+    chs = []
+    for c in sorted(books[b]):
+        if not books[b][c]: continue
+        d_ = {'n': c, 'blocks': books[b][c]}
+        nt = {}
+        for v_, nid in CH_NOTES.get((b, c), []):
+            if nid in NOTE:
+                lab, txt = NOTE[nid]
+                nt.setdefault(str(v_), [])
+                line = f'{lab}: {txt}'
+                if line not in nt[str(v_)]: nt[str(v_)].append(line)
+        if nt: d_['notes'] = nt
+        chs.append(d_)
     json.dump({'id': b, 'edition': 'nabre', 'chapters': chs}, open(os.path.join(OUT, b + '.json'), 'w'), ensure_ascii=False, separators=(',', ':'))
     rep[b] = {str(ch['n']): sum(1 for bl in ch['blocks'] if bl[0] not in ('s','d','ms','sp','r') for r in bl[1] if r[0] > 0 for _ in [0]) for ch in chs}
 json.dump(rep, open(os.path.join(OUT, '_report.json'), 'w'))

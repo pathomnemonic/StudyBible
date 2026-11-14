@@ -19,7 +19,7 @@ for ed in ('webc', 'nabre', 'dra', 'cpdv', 'brenton'):
 # also names/words in the library that are not Bible text would only add noise; the RSV's own frequent words are trusted
 own = collections.Counter()
 rsv = {}
-for f in sorted(glob.glob('public/data/bible/rsv2ce/*.json')):
+for f in sorted(glob.glob(''+os.environ.get('RSV_DIR','public/data/bible/rsv2ce')+'/*.json')):
     b = os.path.basename(f)[:-5]
     rsv[b] = list(verses(f))
     for _, _, t in rsv[b]:

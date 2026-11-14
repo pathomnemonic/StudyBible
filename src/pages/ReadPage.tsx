@@ -218,9 +218,10 @@ export default function ReadPage() {
   useEffect(() => {
     let live = true;
     const clean = (t: string) => expandNote(t.replace(/^\d+[:.]\d+(?:[-–]\d+)?\s+/, ''));
-    if (edition.id === 'webc') {
+    // an edition that carries its own footnotes (WEB-C, RSV-2CE, NABRE) shows those; the others borrow WEB-C's, matched by verse
+    if (edition.id === 'webc' || Object.keys(chapterData?.notes ?? {}).length) {
       const m = new Map<number, string[]>();
-      for (const [v, ns] of Object.entries(chapterData?.notes ?? {})) m.set(+v, ns.map(clean));
+      for (const [v, ns] of Object.entries(chapterData?.notes ?? {})) m.set(+v, edition.id === 'webc' ? ns.map(clean) : ns);
       setStdNotes(m);
       return;
     }
@@ -869,7 +870,7 @@ export default function ReadPage() {
           </div>
         </div>
       )}
-      {notePop && <NotePopover notes={notePop.notes} at={notePop.at} verse={notePop.n} source={edition.id === 'webc' ? 'World English Bible (Catholic edition)' : 'WEB-C'} onClose={() => setNotePop(null)} />}
+      {notePop && <NotePopover notes={notePop.notes} at={notePop.at} verse={notePop.n} source={edition.id === 'webc' ? 'World English Bible (Catholic edition)' : Object.keys(chapterData?.notes ?? {}).length ? `${edition.shortName}: the edition’s own notes` : 'WEB-C'} onClose={() => setNotePop(null)} />}
       {enabling && <EnableEditionDialog edition={enabling} onClose={() => setEnabling(null)} />}
       {textSettings && <TextSettings onClose={() => setTextSettings(false)} />}
       {editionPicker && (
