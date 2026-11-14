@@ -1,3 +1,5 @@
+import { sameValue } from '../../lib/canonical';
+import { doneKeyMatches } from '../../lib/collections';
 import { beginSave } from '../../lib/dirty';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -38,7 +40,7 @@ export default function CollectionPage() {
   const save = async (patch: Partial<Collection>, field?: string) => { if (!c) return; const saved = field ? beginSave(`collection:${c.id}:${field}`) : null; await db.collections.put({ ...c, ...patch, updatedAt: Date.now() }); saved?.(); };
   const add = async (t: Target) => {
     if (!c) return;
-    const dup = c.items.some((x) => JSON.stringify(x) === JSON.stringify(t));
+    const dup = c.items.some((x) => sameValue(x, t));
     if (dup) { setMsg('That is already in this collection.'); return; }
     setMsg('');
     await save({ items: [...c.items, t] });
@@ -69,8 +71,8 @@ export default function CollectionPage() {
     saved();
     setQText('');
   };
-  const isDone = (i: number) => (c.done ?? []).includes(JSON.stringify(c.items[i]));
-  const toggleDone = (i: number) => { const k = JSON.stringify(c.items[i]); const d = c.done ?? []; void save({ done: d.includes(k) ? d.filter((x) => x !== k) : [...d, k] }); };
+  const isDone = (i: number) => (c.done ?? []).some((k) => doneKeyMatches(k, c.items[i]));
+  const toggleDone = (i: number) => { const item = c.items[i]; const d = c.done ?? []; const was = d.some((k) => doneKeyMatches(k, item)); void save({ done: was ? d.filter((k) => !doneKeyMatches(k, item)) : [...d, JSON.stringify(item)] }); };
   const move = (from: number, to: number) => void save({ items: moveItem(c.items, from, to) });
   const base = (n: string) => n.replace(/[^\w]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'collection';
   const exportMd = () => download(`${base(c.name)}.md`, collectionMarkdown(c, items), 'text/markdown');

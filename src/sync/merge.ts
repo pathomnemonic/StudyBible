@@ -16,16 +16,21 @@ const IGNORED = new Set(['id', 'uid', 'updatedAt', 'createdAt', 'history', 'chap
 const UNION = new Set(['tags', 'refs']);
 const OR = new Set(['pinned', 'answered']);
 
-const norm = (v: unknown): string => JSON.stringify(v === undefined || v === null || v === '' || (Array.isArray(v) && v.length === 0) || v === false ? null : v);
+import { canonical } from '../lib/canonical';
+export { canonical };
+const norm = canonical;
 
-/** a short stable hash of text (FNV-1a), for conflict ids */
+/** a stable 53-bit hash of text (cyrb53), written in base 36: wide enough that different conflicts do not collide in practice */
 export function hash(s: string): string {
-  let h = 0x811c9dc5;
-  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); }
-  return (h >>> 0).toString(36);
+  let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+  for (let i = 0; i < s.length; i++) { const c = s.charCodeAt(i); h1 = Math.imul(h1 ^ c, 2654435761); h2 = Math.imul(h2 ^ c, 1597334677); }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(36);
 }
 
-export const conflictUid = (uid: string, differing: Row) => `${uid}~conflict~${hash(JSON.stringify(differing, Object.keys(differing).sort()))}`;
+/** the same record and the same lost values always give the same id, on any device and on every sync */
+export const conflictUid = (uid: string, differing: Row) => `${uid}~conflict~${hash(canonical(differing))}`;
 
 export interface Resolution {
   /** the record that replaces the local one */

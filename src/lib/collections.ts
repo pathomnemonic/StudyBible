@@ -1,3 +1,4 @@
+import { sameValue } from './canonical';
 import { db, type Collection, type Target } from '../db/db';
 import { parseRefId, formatRef } from './refs';
 import { passageText } from './bibleText';
@@ -99,4 +100,9 @@ export function moveItem<T>(list: T[], from: number, to: number): T[] {
   const [x] = a.splice(from, 1);
   a.splice(to, 0, x);
   return a;
+}
+
+/** a stored "done" mark is the item written as JSON; it matches the item whatever order its keys were written in (older marks and imported ones differ) */
+export function doneKeyMatches(key: string, item: unknown): boolean {
+  try { return sameValue(JSON.parse(key), item); } catch { return false; }
 }

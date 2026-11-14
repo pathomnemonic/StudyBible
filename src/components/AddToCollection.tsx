@@ -1,3 +1,4 @@
+import { sameValue } from '../lib/canonical';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -16,7 +17,7 @@ export default function AddToCollection({ target, label = '＋ Collection', smal
     const t = resolve();
     const c = await db.collections.get(id);
     if (!t || !c) return;
-    if (c.items.some((x) => JSON.stringify(x) === JSON.stringify(t))) { toast(`Already in “${c.name}”.`); setOpen(false); return; }
+    if (c.items.some((x) => sameValue(x, t))) { toast(`Already in “${c.name}”.`); setOpen(false); return; }
     await db.collections.put({ ...c, items: [...c.items, t], updatedAt: Date.now() });
     toast(`Added to “${c.name}”.`);
     setOpen(false);

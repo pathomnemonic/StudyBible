@@ -20,6 +20,7 @@ beforeEach(async () => {
 const remote = (over: any, at = 3000, table = 'notes', uid = 'n1') => ({ table, uid, updatedAt: at, payload: { ...base, ...over, updatedAt: at } as any });
 const notes = () => dbm.db.notes.toArray();
 /** put a row in exactly as written (the database stamps updatedAt on ordinary writes; sync applies remote rows without that) */
+const patchRow = async (uid: string, patch: any) => { dbm.syncFlags.applying = true; try { await dbm.db.notes.where('uid').equals(uid).modify(patch); } finally { dbm.syncFlags.applying = false; } };
 const seed = async (table: 'notes' | 'journal', row: any) => { dbm.syncFlags.applying = true; try { return await (dbm.db as any)[table].add(row); } finally { dbm.syncFlags.applying = false; } };
 
 describe('field-level merge (pure)', () => {
@@ -149,5 +150,62 @@ describe('edit and delete', () => {
     const tomb = await dbm.db.tombs.filter((t) => t.uid === 'n1').first();
     await eng.applyRemote('u', [remote({ title: 'edited after' }, tomb!.updatedAt + 5000)]);
     expect((await notes()).length).toBe(1);
+  });
+});
+
+import { canonical } from '../src/lib/canonical';
+import { doneKeyMatches } from '../src/lib/collections';
+
+describe('nested conflict identity (audit second pass, item 2)', () => {
+  const t = (ref: string) => ({ targets: [{ type: 'passage', ref }] });
+  it('different nested target values give different conflict ids (they used to collide)', () => {
+    expect(conflictUid('n1', t('JHN.1.1'))).not.toBe(conflictUid('n1', t('JHN.1.3')));
+    expect(conflictUid('n1', t('JHN.1.1'))).not.toBe(conflictUid('n1', { targets: [{ type: 'passage', ref: 'JHN.1.1' }, { type: 'passage', ref: 'JHN.1.2' }] }));
+  });
+  it('the canonical form sorts keys at every level, keeps array order, and treats empties as one value', () => {
+    expect(canonical({ b: 1, a: { d: [2, 1], c: 3 } })).toBe(canonical({ a: { c: 3, d: [2, 1] }, b: 1 }));
+    expect(canonical([1, 2])).not.toBe(canonical([2, 1]));
+    expect(canonical({ a: [], b: '', c: null, d: undefined, e: false })).toBe(canonical({}));
+    expect(canonical({ a: { x: 1 } })).not.toBe(canonical({ a: { x: 2 } }));
+  });
+  it('reordering object properties without changing values is not a conflict', () => {
+    const a = { ...base, targets: [{ type: 'passage', ref: 'JHN.1.1' }] };
+    const b = { ...base, targets: [{ ref: 'JHN.1.1', type: 'passage' }] };
+    const r = resolveConflict('notes', a, b);
+    expect(r.differing).toEqual([]);
+    expect(r.copy).toBeNull();
+  });
+  it('different nested metadata values give different stable ids; the same values give the same id', () => {
+    const a = conflictUid('n1', { targets: [{ type: 'passage', ref: 'JHN.1.1', label: 'A' }] });
+    expect(a).not.toBe(conflictUid('n1', { targets: [{ type: 'passage', ref: 'JHN.1.1', label: 'B' }] }));
+    expect(a).toBe(conflictUid('n1', { targets: [{ label: 'A', ref: 'JHN.1.1', type: 'passage' }] }));
+  });
+  it('two distinct target conflicts on the same note both survive applyRemote()', async () => {
+    await seed('notes', { ...base, targets: [{ type: 'passage', ref: 'JHN.1.1' }], updatedAt: 2000 } as any);
+    await eng.applyRemote('u', [remote({ targets: [{ type: 'passage', ref: 'JHN.1.2' }] }, 3000)]);
+    // the same note is edited again here, then a second remote conflict arrives with a different remote value
+    await patchRow('n1', { targets: [{ type: 'passage', ref: 'JHN.1.3' }], updatedAt: 3500 });
+    await eng.applyRemote('u', [remote({ targets: [{ type: 'passage', ref: 'JHN.1.4' }] }, 4000)]);
+    const copies = (await notes()).filter((n) => (n.uid ?? '').includes('~conflict~'));
+    expect(copies.length).toBe(2);
+    expect(new Set(copies.map((c) => c.uid)).size).toBe(2);
+    expect(copies.map((c) => c.targets[0].ref).sort()).toEqual(['JHN.1.1', 'JHN.1.3']);
+  });
+  it('applying the exact same conflict again does not duplicate it', async () => {
+    await seed('notes', { ...base, targets: [{ type: 'passage', ref: 'JHN.1.1' }], updatedAt: 2000 } as any);
+    await eng.applyRemote('u', [remote({ targets: [{ type: 'passage', ref: 'JHN.1.2' }] }, 3000)]);
+    await patchRow('n1', { targets: [{ type: 'passage', ref: 'JHN.1.1' }], updatedAt: 3200 });
+    await eng.applyRemote('u', [remote({ targets: [{ type: 'passage', ref: 'JHN.1.2' }] }, 3300)]);
+    expect((await notes()).filter((n) => (n.uid ?? '').includes('~conflict~')).length).toBe(1);
+  });
+  it('a third device reaching the same conflict derives the same id', () => {
+    const lost = { targets: [{ type: 'passage', ref: 'JHN.1.1' }] };
+    expect(resolveConflict('notes', { ...base, ...lost }, { ...base, targets: [{ type: 'passage', ref: 'JHN.1.2' }] }, 111).copy?.uid)
+      .toBe(resolveConflict('notes', { ...base, ...lost }, { ...base, targets: [{ ref: 'JHN.1.2', type: 'passage' }] }, 999).copy?.uid);
+  });
+  it('a collection\'s done mark still matches its item when the keys were written in another order', () => {
+    expect(doneKeyMatches(JSON.stringify({ type: 'passage', ref: 'JHN.1.1' }), { ref: 'JHN.1.1', type: 'passage' })).toBe(true);
+    expect(doneKeyMatches(JSON.stringify({ type: 'passage', ref: 'JHN.1.1' }), { type: 'passage', ref: 'JHN.1.2' })).toBe(false);
+    expect(doneKeyMatches('not json', {})).toBe(false);
   });
 });
