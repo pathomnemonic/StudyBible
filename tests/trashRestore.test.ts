@@ -74,7 +74,7 @@ describe('a collection item whose original was deleted', () => {
     await expect(restoreFromTrash(trashId)).rejects.toThrow('simulated interruption');
     expect(await db.notes.where('uid').equals('restore-rollback').count()).toBe(0);
     expect(await db.trash.get(trashId)).toBeDefined();
-    expect(await db.tombs.where('uid').equals('restore-rollback').count()).toBe(1);
+    expect(await db.tombs.filter((t) => t.uid === 'restore-rollback').count()).toBe(1);
   });
 
   it('has no trash entry for something that was never kept', async () => {
