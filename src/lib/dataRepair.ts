@@ -114,7 +114,7 @@ export function restorableItems(collections: { id?: number; name: string; items:
   return out;
 }
 
-export interface UndoRecord { tbl: RepairTable; id: number; before: Record<string, unknown> }
+export interface UndoRecord { tbl: RepairTable; id: number; before: Record<string, unknown>; after: Record<string, unknown> }
 
 /** Applies the repairs the reader chose. A safety copy is kept first; the returned record is what undoRepairs needs. */
 export async function applyRepairs(repairs: Repair[]): Promise<UndoRecord[]> {
@@ -126,12 +126,16 @@ export async function applyRepairs(repairs: Repair[]): Promise<UndoRecord[]> {
   if (!snap) throw new Error('A safety copy could not be created. No repairs were applied.');
   await db.transaction('rw', db.notes, db.highlights, db.bookmarks, db.collections, db.userPlans, async () => {
     for (const r of repairs) {
-      const changed = await db.table(r.tbl).update(r.id, r.patch);
+      const table = db.table(r.tbl);
+      const current = await table.get(r.id);
+      if (!current || !sameValue(pick(current, Object.keys(r.before)), r.before))
+        throw new Error(`${r.where} changed after the check. No repairs were applied; run the check again.`);
+      const changed = await table.update(r.id, r.patch);
       if (changed !== 1) throw new Error(`Could not update ${r.where}; the record may have changed or been deleted. No repairs were applied.`);
     }
   });
   // Only report Undo after the whole Dexie transaction has committed.
-  return repairs.map((r) => ({ tbl: r.tbl, id: r.id, before: r.before }));
+  return repairs.map((r) => ({ tbl: r.tbl, id: r.id, before: r.before, after: r.patch }));
 }
 
 export async function undoRepairs(undo: UndoRecord[]): Promise<void> {
@@ -139,7 +143,12 @@ export async function undoRepairs(undo: UndoRecord[]): Promise<void> {
   const { db } = await import('../db/db');
   await db.transaction('rw', db.notes, db.highlights, db.bookmarks, db.collections, db.userPlans, async () => {
     for (const u of undo) {
-      const changed = await db.table(u.tbl).update(u.id, u.before);
+      const table = db.table(u.tbl);
+      const current = await table.get(u.id);
+      if (!current) throw new Error('Undo could not restore every record. No changes were committed.');
+      if (!sameValue(pick(current, Object.keys(u.after)), u.after))
+        throw new Error('A repaired record changed after the fix. Undo was cancelled to protect the newer edit.');
+      const changed = await table.update(u.id, u.before);
       if (changed !== 1) throw new Error('Undo could not restore every record. No changes were committed.');
     }
   });
