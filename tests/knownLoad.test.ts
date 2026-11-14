@@ -42,6 +42,14 @@ describe('loading what Go further knows about', () => {
     expect(r.status).toBe('failed');
   });
 
+
+  it('withholds Scripture links rather than guessing when edition counts fail to load', async () => {
+    const r = await loadKnownFrom(loaders({ editions: () => Promise.reject(new Error('offline')) }));
+    const result = buildGoFurther(lesson, r.known);
+    expect(result.links.some((link) => link.kind === 'scripture')).toBe(false);
+    expect(result.unavailable).toContainEqual(expect.objectContaining({ label: 'John 3:16', reason: expect.stringMatching(/reference counts/i) }));
+  });
+
   it('what depends on a failed source is reported as unavailable, never as broken or silently dropped', async () => {
     const r = await loadKnownFrom(loaders({ apologetics: () => Promise.reject(new Error('x')), library: () => Promise.reject(new Error('x')), tracks: () => Promise.reject(new Error('x')), chains: () => Promise.reject(new Error('x')) }));
     const f = buildGoFurther(lesson, r.known, { tracks: [{ id: 'trk' }], debate: [{ type: 'chain', id: 'c1' }] });
