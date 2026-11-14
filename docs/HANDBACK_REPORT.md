@@ -11,7 +11,7 @@ Purpose: say exactly what was done, what was not, why, and what is needed from y
 | Commits after that | Runs 506 (Book fingerprint), 507 (Ask the sources) and 508 (teacher dashboard print) finished green: all jobs, including the three browser shards. Local checks before each push were also clean: type-check, 703 unit tests, size budgets, and the browser checks in `e2e/review.mjs`. |
 | Unit tests | 703 pass. |
 | Browser checks | 22 checks in three CI shards. Accessibility check covers 49 screens in every theme. |
-| Deployment | The Pages deploy succeeded for commit `361e382` (run 470). Later commits were not checked for deploy. |
+| Deployment | The live Pages site was checked on 14 November 2026 after commit `0036dd5`: the whole `e2e/review.mjs` browser suite (23 sections: the new reader, collections, notes, Ask the sources, map, pacing, interlinear, variants, profiles, worksheet and game checks) passes against https://pathomnemonic.github.io/StudyBible/. CI runs 521 to 534 are green. |
 
 Why CI had been red for so long, all fixed:
 1. `FEATURE_STATUS.md` was stale (a test now prevents that).
@@ -81,7 +81,7 @@ Other open points:
 - The video library keeps only the newest 40 Shorts per creator.
 - Butler's scanned months need a human proofread.
 - Collection links from a saint life or a family-line person now open inside the app (fixed in the third cycle and checked in a real browser run: add from the saint page, open the collection, follow the link).
-- I did not open the live site and look at the new screens by hand; checks are automated.
+- Checks against the live site are automated (a real browser drives the deployed pages); nobody has looked at the new screens by eye, and the screen-reader pass is still to do.
 
 ## 4b. Built since the first version of this report
 - Map of connections (/study/map): one normalised graph of about 980 things and 2,500 typed links built from the app's own data by `npm run graph`; follow links, ask how two things connect, optionally include your own notes.
