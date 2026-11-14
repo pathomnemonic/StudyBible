@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Collections: Make a reading plan, one day for each Scripture passage in the collection.
 - Ask the sources: choose which kinds of source to show (Catechism and definition, Bible text, Fathers and saints) and save the question to the question inbox.
 - Copy a verse as a Markdown block quote or as the reference only (two new formats beside the three that existed).
 - Collections list: item count, done count and last-changed date on every collection, search across names, descriptions and items, and a Duplicate button.

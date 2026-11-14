@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { planDaysFromCollection } from '../../lib/collectionsView';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, newUid, type Collection, type Target } from '../../db/db';
 import { useEditions } from '../../data/EditionsContext';
@@ -12,6 +13,7 @@ import { download } from '../../db/ops';
 /** One collection opened out: every item read back to its original (never copied), with ways to reorder, add from your own notes and marks, and export. */
 export default function CollectionPage() {
   const { id } = useParams();
+  const nav = useNavigate();
   const { get, editions } = useEditions();
   const [s] = useSettings();
   const ed = get(s.defaultEdition) ?? editions[0];
@@ -68,6 +70,7 @@ export default function CollectionPage() {
   const base = (n: string) => n.replace(/[^\w]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'collection';
   const exportMd = () => download(`${base(c.name)}.md`, collectionMarkdown(c, items), 'text/markdown');
   const exportHtml = () => download(`${base(c.name)}.html`, collectionHtml(c, items), 'text/html');
+  const makePlan = async () => { const days = planDaysFromCollection(c); const id = await db.userPlans.add({ name: c.name, description: c.description, days, createdAt: Date.now() } as never); nav(`/pray/plans/${encodeURIComponent('user:' + id)}`); };
   const exportPdf = () => { const w = window.open('', '_blank'); if (!w) { setMsg('Your browser blocked the print window. Allow pop-ups for this site and try again.'); return; } w.document.write(collectionHtml(c, items)); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
 
   return (
@@ -79,6 +82,7 @@ export default function CollectionPage() {
         <button className="btn" onClick={exportMd} disabled={!items.length}>Export as Markdown</button>
         <button className="btn" onClick={exportHtml} disabled={!items.length} title="One self-contained page you can email or keep on a USB stick; it opens in any browser with no connection">Save as a web page (HTML)</button>
         <button className="btn" onClick={exportPdf} disabled={!items.length}>Print or save as PDF</button>
+        <button className="btn" onClick={makePlan} disabled={!planDaysFromCollection(c).length} title="One day for each Scripture passage in this collection, in this order">Make a reading plan</button>
         <span className="muted small" style={{ alignSelf: 'center' }}>{items.length} {items.length === 1 ? 'item' : 'items'}{(c.done?.length ?? 0) ? `, ${items.filter((_, i) => isDone(i)).length} done` : ''}. Items point to the originals; nothing is copied.</span>
       </div>
       {msg && <p className="notice" role="status">{msg}</p>}

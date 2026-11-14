@@ -26,3 +26,11 @@ describe('collections list helpers', () => {
     expect(k.createdAt).toBe(5);
   });
 });
+
+import { planDaysFromCollection } from '../src/lib/collectionsView';
+describe('reading plan from a collection', () => {
+  it('takes passages in order, one per day, and leaves other items out', () => {
+    const days = planDaysFromCollection({ items: [{ type: 'passage', ref: 'JHN.6.51-58' }, { type: 'note', id: 1, label: 'x' } as any, { type: 'passage', ref: 'LUK.22.14-20' }] });
+    expect(days).toEqual([{ refs: ['JHN.6.51-58'] }, { refs: ['LUK.22.14-20'] }]);
+  });
+});

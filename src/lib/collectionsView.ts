@@ -23,3 +23,8 @@ export function collectionSummary(c: Pick<Collection, 'items' | 'done'>): string
 export function copyOfCollection(c: Pick<Collection, 'name' | 'description' | 'items'>, now = Date.now()): Omit<Collection, 'id'> {
   return { name: `${c.name} (copy)`, description: c.description, items: c.items.map((t) => ({ ...t })), createdAt: now, updatedAt: now };
 }
+
+/** One reading-plan day for each Scripture passage in the collection, in the collection's order. Other kinds of item have no place in a reading plan and are left out. */
+export function planDaysFromCollection(c: Pick<Collection, 'items'>): { refs: string[] }[] {
+  return c.items.filter((t): t is Extract<Target, { type: 'passage' }> => t.type === 'passage').map((t) => ({ refs: [t.ref] }));
+}

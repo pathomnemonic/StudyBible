@@ -135,4 +135,9 @@ await p.locator('[role=tab]', { hasText: /^Collections$/ }).first().click(); awa
 if (!/4 items, 1 done/i.test(await p.locator('.page').innerText())) fail('the Marian collection should read "4 items, 1 done": ' + (await p.locator('.page').innerText()).slice(0, 500));
 await p.locator('button', { hasText: 'Duplicate' }).first().click(); await p.waitForTimeout(600);
 if (!/Marian passages \(copy\)/i.test(await p.locator('.page').innerText())) fail('Duplicate should add a copy');
+// 16. a reading plan made from a collection: one day per passage
+await p.locator('a', { hasText: /^Marian passages$/ }).first().click(); await p.waitForSelector('.cp-list');
+await p.locator('button', { hasText: 'Make a reading plan' }).click(); await p.waitForTimeout(1200);
+if (!/pray\/plans\/user/.test(await p.evaluate(() => location.hash))) fail('the plan should open at its own address, got ' + await p.evaluate(() => location.hash));
+if (!/Marian passages/.test(await p.locator('.page').innerText())) fail('the plan should carry the collection name');
 await b.close(); console.log('review ok');
