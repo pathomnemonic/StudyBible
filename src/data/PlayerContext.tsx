@@ -1,4 +1,5 @@
 import { closeHost, hooks } from '../lib/mediaHost';
+import { resolveIfCurrent } from './playbackRequest';
 import { savedUrl } from '../lib/offlineAudio';
 import { nextFavorite } from './autoplay';
 import { getSettings } from '../lib/store';
@@ -180,7 +181,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const ep = await resolveEpisode(id);
       const prog = await db.episodeProgress.get(id);
       if (!ep || (a as any)._ep || prog?.completed || restoreRequest !== playGeneration.current) return;
-      const url = await audioUrl(ep.audio);
+      const url = await resolveIfCurrent(restoreRequest, () => playGeneration.current, () => audioUrl(ep.audio));
       if (!url || (a as any)._ep || restoreRequest !== playGeneration.current) return;
       (a as any)._ep = ep;
       a.src = url;
@@ -212,10 +213,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       if (startAt !== undefined) a.currentTime = startAt;
     } else {
       setError(null);
-      const resolved = await Promise.all([audioUrl(e.audio), db.episodeProgress.get(e.id)]);
+      const resolved = await resolveIfCurrent(request, () => playGeneration.current, () => Promise.all([audioUrl(e.audio), db.episodeProgress.get(e.id)]));
+      if (!resolved) return;
       const url = resolved[0];
       const prog = resolved[1];
-      if (request !== playGeneration.current) return;
       if (!url) { setError(navigator.onLine === false ? 'offline' : 'failed'); return; }
       const skip = showSetting(showKeyOf(e.id), 'skip');
       const at = startAt ?? (prog && !prog.completed && prog.position > 0 ? prog.position : skip);
@@ -284,7 +285,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         if (!cur) return;
         const at = a.currentTime || 0;
         setError(null);
-        void audioUrl(cur.audio).then((u) => {
+        void resolveIfCurrent(request, () => playGeneration.current, () => audioUrl(cur.audio)).then((u) => {
           if (!u || request !== playGeneration.current || (a as any)._ep?.id !== cur.id) return;
           a.src = u; a.load();
           a.addEventListener('loadedmetadata', () => { if (request === playGeneration.current && (a as any)._ep?.id === cur.id && at > 0) a.currentTime = at; }, { once: true });
