@@ -10,7 +10,7 @@ import type { BookData } from '../lib/types';
 import { adjacentBook, getBook, BOOK_BY_ID } from '../lib/canon';
 import { formatRef, parseRefId, refId, type Ref } from '../lib/refs';
 import { readerPath } from '../lib/nav';
-import { measureTopVerse, scrolledIntoChapter } from '../lib/readerPosition';
+import { addPair, hasPair, measureTopVerse, pairKey, removePair, scrolledIntoChapter } from '../lib/readerPosition';
 import { anchorChaptersFor, chapterAlignmentNote, bookAlignmentNote, psalmDualLabel, toAnchor } from '../lib/versification';
 import { anchorChapterText, anchorToNative, chapterTitle, flattenChapter, nativeToAnchorRef, type AnchorText } from '../lib/bibleText';
 import { useSettings } from '../lib/store';
@@ -677,6 +677,26 @@ export default function ReadPage() {
         </span>
       </div>
       <OfflineLine edition={edition.id} name={edition.shortName} />
+      {(parallelMode && parallel || (settings.savedPairs ?? []).length > 0) && (
+        <div className="saved-pairs" role="group" aria-label="Saved translation pairs" style={{ margin: '6px 0 8px' }}>
+          <div className="muted small">Saved pairs</div>
+          <div className="chips">
+            {(settings.savedPairs ?? []).map((pr) => {
+              const l = get(pr.left), r = get(pr.right);
+              if (!l || !r) return null;
+              return (
+                <span key={pairKey(pr)} className="row" style={{ gap: 2 }}>
+                  <button className="chip" onClick={() => { setPicker(false); const q = `?p=${pr.right}`; nav(`/read/${pr.left}/${bk.id}/${Math.min(chNum, l.chapters[bk.id] ?? chNum)}${q}`); setSettings({ defaultEdition: pr.left, parallelEdition: pr.right }); }} aria-label={`Read ${l.shortName} beside ${r.shortName}`}>{l.shortName} ‖ {r.shortName}</button>
+                  <button className="chip" onClick={() => setSettings({ savedPairs: removePair(settings.savedPairs ?? [], pr) })} aria-label={`Forget the pair ${l.shortName} and ${r.shortName}`} title="Forget this pair">×</button>
+                </span>
+              );
+            })}
+            {parallelMode && parallel && !hasPair(settings.savedPairs ?? [], { left: edition.id, right: parallel.id }) && (
+              <button className="chip" onClick={() => { setSettings({ savedPairs: addPair(settings.savedPairs ?? [], { left: edition.id, right: parallel.id }) }); toast(`Saved ${edition.shortName} ‖ ${parallel.shortName}.`, 'info'); }}>＋ Save {edition.shortName} ‖ {parallel.shortName}</button>
+            )}
+          </div>
+        </div>
+      )}
       <div className="drawer-grid">
         <button className="btn small" onClick={() => { setPicker(false); setFinding(true); }}>Find in this chapter</button>
         <button className="btn small" aria-pressed={parallelMode} onClick={() => { setPicker(false); toggleParallel(); }}>{parallelMode ? 'Close the second translation' : 'Compare side by side'}</button>
@@ -872,6 +892,7 @@ export default function ReadPage() {
         <BookPicker
           edition={edition}
           here={readingHere}
+          onRecent={(refStr) => { const r = parseRefId(refStr); if (r) { setPicker(false); nav(readerPath(edition, r, parallelId)); } }}
           current={bk.id}
           onClose={() => setPicker(false)}
           onPick={(b, c) => {
