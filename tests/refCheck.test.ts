@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { chapterToAnchorRefs, convertRef, loadVersification } from '../src/lib/versification';
-import { checkRefIn, pooledCounts, resolveRef, type CountsEdition } from '../src/lib/refCheck';
+import { anchorToNativeRef, checkRefIn, pooledCounts, resolveRef, type CountsEdition } from '../src/lib/refCheck';
 import type { Ref } from '../src/lib/refs';
 
 const editions = (JSON.parse(readFileSync('public/data/editions.json', 'utf8')) as { editions: CountsEdition[] }).editions;
@@ -56,6 +56,15 @@ describe('semantic Scripture reference validation', () => {
     expect(split.exact).toBe(false);
     const spanningSplit = convertRef('english', 'vulgate', { book: 'PSA', c1: 9, v1: 1, c2: 11, v2: 7 });
     expect(spanningSplit.exact).toBe(false);
+  });
+
+
+  it('checks every intermediate chapter when resolving a cross-chapter anchor range', () => {
+    const ordinary = anchorToNativeRef(english, { book: 'GEN', c1: 1, v1: 31, c2: 2, v2: 3 });
+    expect(ordinary.exact).toBe(true);
+    const crossesUnverified = anchorToNativeRef(english, { book: 'GEN', c1: 48, v1: 31, c2: 51, v2: 1 });
+    expect(crossesUnverified.exact).toBe(false);
+    expect(crossesUnverified.note).toMatch(/chapter whose verse alignment is not verified/i);
   });
 
   it('downgrades a known verse-count mismatch to a verified chapter-only anchor', () => {
