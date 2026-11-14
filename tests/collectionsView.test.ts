@@ -34,3 +34,16 @@ describe('reading plan from a collection', () => {
     expect(days).toEqual([{ refs: ['JHN.6.51-58'] }, { refs: ['LUK.22.14-20'] }]);
   });
 });
+
+import { parseTags } from '../src/lib/collectionsView';
+describe('collection tags', () => {
+  it('parses a comma list without blanks or repeats', () => {
+    expect(parseTags('prayer, Lent ,prayer,, ')).toEqual(['prayer', 'Lent']);
+    expect(parseTags('')).toEqual([]);
+  });
+  it('are searched and are copied with a duplicate', () => {
+    const c = { name: 'X', items: [], tags: ['Lent'] } as any;
+    expect(matchesCollection(c, 'lent', () => '')).toBe(true);
+    expect(copyOfCollection(c).tags).toEqual(['Lent']);
+  });
+});

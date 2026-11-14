@@ -210,10 +210,10 @@ function Collections() {
         </select>
         <span className="muted small">Scripture passages only; add or remove anything afterwards.</span>
       </div>
-      {all.length > 3 && <div className="row" style={{ marginBottom: 10 }}><input type="search" aria-label="Search your collections" placeholder="Search collections (name, description, passages)" value={q} onChange={(e) => setQ(e.target.value)} style={{ flex: 1 }} /></div>}
+      {all.length > 3 && <div className="row" style={{ marginBottom: 10 }}><input type="search" aria-label="Search your collections" placeholder="Search collections (name, tags, description, passages)" value={q} onChange={(e) => setQ(e.target.value)} style={{ flex: 1 }} /></div>}
       {cs.map((c) => (
         <div className="card" key={c.id}>
-          <div className="row between"><h3><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)} · changed {new Date(c.updatedAt).toLocaleDateString()}</span></h3><span className="row"><button className="btn small" onClick={() => db.collections.add(copyOfCollection(c) as never)}>Duplicate</button><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></span></div>
+          <div className="row between"><h3><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)}{c.tags?.length ? ` · ${c.tags.join(', ')}` : ''} · changed {new Date(c.updatedAt).toLocaleDateString()}</span></h3><span className="row"><button className="btn small" onClick={() => db.collections.add(copyOfCollection(c) as never)}>Duplicate</button><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></span></div>
           <div className="chips">{c.items.map((t, i) => <span key={i}><TargetChip t={t} /> <button aria-label="Remove item" style={{ border: 0, background: 'none' }} onClick={() => db.collections.put({ ...c, items: c.items.filter((_, j) => j !== i), updatedAt: Date.now() })}>×</button></span>)}</div>
           {c.items.length === 0 && <div className="empty">Nothing in this collection yet. Open any Bible passage and use “Add to collection”, or save a reading from the Pray section.</div>}
           <div className="row" style={{ marginTop: 6 }}>

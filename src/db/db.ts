@@ -78,6 +78,8 @@ export interface Collection extends Syncable {
   id?: number;
   name: string;
   description?: string;
+  /** the reader's own labels (not indexed, so adding them needs no database migration; older collections simply have none) */
+  tags?: string[];
   items: Target[];
   /** items the reader has ticked off (keyed by the item's own JSON, so it survives reordering) */
   done?: string[];

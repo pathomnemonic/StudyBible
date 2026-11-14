@@ -157,4 +157,12 @@ await p.goto(`${BASE}/#/library?tab=export`); await p.reload(); await p.waitForT
 await p.waitForSelector('[aria-label="Data health check"]', { timeout: 15000 });
 await p.locator('button', { hasText: 'Run the check' }).click(); await p.waitForTimeout(600);
 if (!/Health probe/.test(await p.locator('[aria-label="Data health check"]').innerText())) fail('the check should name the collection with the missing note');
+// 19. tags on a collection show in the list and can be searched
+await p.goto(`${BASE}/#/library`); await p.reload(); await p.waitForTimeout(900);
+await p.locator('[role=tab]', { hasText: /^Collections$/ }).first().click(); await p.waitForTimeout(400);
+await p.locator('a', { hasText: /^Marian passages$/ }).first().click(); await p.waitForSelector('.cp-list');
+await p.locator('input[aria-label="Tags for this collection"]').fill('Advent, Mary'); await p.locator('input[aria-label="Collection name"]').click(); await p.waitForTimeout(700);
+await p.goto(`${BASE}/#/library`); await p.reload(); await p.waitForTimeout(900);
+await p.locator('[role=tab]', { hasText: /^Collections$/ }).first().click(); await p.waitForTimeout(500);
+if (!/Advent, Mary/i.test(await p.locator('.page').innerText())) fail('the tags should show in the collections list');
 await b.close(); console.log('review ok');

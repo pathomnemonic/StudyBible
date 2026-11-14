@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Collections: your own tags (shown, searched and copied). The field is optional and not indexed, so no database migration is needed and older collections are unchanged.
 - Library, Export and backup: a data health check that reports references leading nowhere (read-only).
 - Collections: a link saved from a saint life or a family-line person opens inside the app (it used to open a new tab); checked end to end in the browser run.
 - Collections: Make a reading plan, one day for each Scripture passage in the collection.

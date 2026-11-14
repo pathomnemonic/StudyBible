@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { planDaysFromCollection } from '../../lib/collectionsView';
+import { parseTags, planDaysFromCollection } from '../../lib/collectionsView';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, newUid, type Collection, type Target } from '../../db/db';
 import { useEditions } from '../../data/EditionsContext';
@@ -78,6 +78,7 @@ export default function CollectionPage() {
       <p className="small"><Link to="/library?tab=collections">← Collections</Link></p>
       <h1><input aria-label="Collection name" className="cp-name" value={c.name} onChange={(e) => void save({ name: e.target.value })} /></h1>
       <textarea aria-label="What this collection is for" className="cp-desc" rows={2} placeholder="What is this collection for? (optional)" value={c.description ?? ''} onChange={(e) => void save({ description: e.target.value })} />
+      <input aria-label="Tags for this collection" className="cp-tags" type="text" placeholder="Tags, separated by commas (optional), e.g. prayer, Lent" defaultValue={(c.tags ?? []).join(', ')} onBlur={(e) => void save({ tags: parseTags(e.target.value) })} style={{ width: '100%', margin: '6px 0' }} />
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', margin: '8px 0 14px' }}>
         <button className="btn" onClick={exportMd} disabled={!items.length}>Export as Markdown</button>
         <button className="btn" onClick={exportHtml} disabled={!items.length} title="One self-contained page you can email or keep on a USB stick; it opens in any browser with no connection">Save as a web page (HTML)</button>
