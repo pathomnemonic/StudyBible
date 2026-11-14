@@ -45,6 +45,9 @@ describe('semantic Scripture reference validation', () => {
     const ordinary = convertRef('english', 'vulgate', { book: 'GEN', c1: 1, c2: 2 });
     expect(ordinary.ref).toMatchObject({ book: 'GEN', c1: 1, c2: 2 });
     expect(ordinary.exact).toBe(true);
+    const verseRange = convertRef('english', 'vulgate', { book: 'GEN', c1: 1, v1: 31, c2: 2, v2: 3 });
+    expect(verseRange.exact).toBe(true);
+    expect(verseRange.ref).toMatchObject({ book: 'GEN', c1: 1, c2: 2, v1: 31, v2: 3 });
     const split = convertRef('english', 'vulgate', { book: 'PSA', c1: 10, c2: 10 });
     expect(split.exact).toBe(false);
   });
