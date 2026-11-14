@@ -11,6 +11,8 @@ describe('repairing passage addresses', () => {
   beforeEach(async () => { await Dexie.delete('studybible'); vi.resetModules(); store.clear(); });
 
   it('knows the same passage written another way, and refuses to guess otherwise', async () => {
+    const { loadVersification } = await import('../src/lib/versification');
+    loadVersification(JSON.parse(readFileSync('public/data/versification.json', 'utf8')));
     const { repairPassageId } = await import('../src/lib/dataRepair');
     expect(repairPassageId('JHN.6.51-58')).toBeNull(); // already fine
     expect(repairPassageId('jhn.6.51-58')).toEqual(['JHN.6.51-58']);
@@ -25,6 +27,8 @@ describe('repairing passage addresses', () => {
 
 
   it('does not repair a parseable address without semantic proof from edition counts', async () => {
+    const { loadVersification } = await import('../src/lib/versification');
+    loadVersification(JSON.parse(readFileSync('public/data/versification.json', 'utf8')));
     const { repairPassageId } = await import('../src/lib/dataRepair');
     const editions = (JSON.parse(readFileSync('public/data/editions.json', 'utf8')) as { editions: import('../src/lib/refCheck').CountsEdition[] }).editions;
     expect(repairPassageId('JHN.99.1', editions)).toBeNull();
