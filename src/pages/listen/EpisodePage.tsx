@@ -11,6 +11,7 @@ import RefLink from '../../components/RefLink';
 import NoteEditor from '../../components/NoteEditor';
 import Icon from '../../components/Icon';
 import { providers, type StudyItem } from '../../study/providers';
+import { setPlayed } from '../../lib/listening';
 
 export default function EpisodePage() {
   const { id = '' } = useParams();
@@ -41,7 +42,7 @@ export default function EpisodePage() {
         </button>
         <SaveOffline ep={ep} />
         <button className="btn" onClick={() => db.queue.add({ episodeId: ep.id, order: Date.now() }).then(() => rememberEpisode(ep))}><Icon name="queue" size={16} /> Add to queue</button>
-        <button className="btn" onClick={() => db.episodeProgress.put({ episodeId: ep.id, position: 0, completed: !prog?.completed, updatedAt: Date.now() })}><Icon name="check" size={16} /> {prog?.completed ? 'Completed — undo' : 'Mark completed'}</button>
+        <button className="btn" onClick={() => setPlayed(ep.id, !prog?.completed)}><Icon name="check" size={16} /> {prog?.completed ? 'Completed — undo' : 'Mark completed'}</button>
         <button className="btn" onClick={() => setNote(true)}><Icon name="note" size={16} /> Note</button>
       </div>
 

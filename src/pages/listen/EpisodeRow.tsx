@@ -6,6 +6,7 @@ import { formatRef, parseRefId } from '../../lib/refs';
 import RefLink from '../../components/RefLink';
 import Icon from '../../components/Icon';
 import type { BiayEpisode } from '../../data/content';
+import { setPlayed } from '../../lib/listening';
 
 /** One episode in a year-long program: the title is the main target, with play, queue and done beside it. */
 export default function EpisodeRow({ e, progress, inQueue, page, kicker }: { e: BiayEpisode; progress?: { completed: boolean; position: number; duration?: number }; inQueue: boolean; page?: boolean; kicker?: string }) {
@@ -15,7 +16,7 @@ export default function EpisodeRow({ e, progress, inQueue, page, kicker }: { e: 
     if (inQueue) await db.queue.where('episodeId').equals(e.id).delete();
     else { void rememberEpisode(e); await db.queue.add({ episodeId: e.id, order: Date.now() }); }
   };
-  const toggleDone = () => { void rememberEpisode(e); return db.episodeProgress.put({ episodeId: e.id, position: 0, completed: !progress?.completed, updatedAt: Date.now(), duration: progress?.duration }); };
+  const toggleDone = () => { void rememberEpisode(e); return setPlayed(e.id, !progress?.completed, progress?.duration); };
   const title = (e.kind === 'day' ? `Day ${e.day}: ${e.short}` : e.title).replace(/\s*\(\d{4}\)$/, '');
   return (
     <li className="ep">

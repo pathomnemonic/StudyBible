@@ -9,6 +9,7 @@ import { useShows } from '../../data/podcasts';
 import type { BiayEpisode } from '../../data/content';
 import { useFollows } from '../../lib/follow';
 import Icon from '../../components/Icon';
+import { setPlayed } from '../../lib/listening';
 
 const mmss = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 export const showOf = (e: BiayEpisode) => e.album ?? (e.id.startsWith('lv:') ? 'Audiobook' : e.id.startsWith('pod-') ? 'Podcast' : 'The Bible in a Year');
@@ -54,7 +55,7 @@ export default function ListenNow({ onAllPodcasts }: { onAllPodcasts?: () => voi
                     {pct > 0 && <span className="bar"><i style={{ width: `${pct}%` }} /></span>}
                   </div>
                   <button className="btn small primary" onClick={() => player.play(e)}><Icon name="play" size={14} /> Resume</button>
-                  <button className="icon-btn" aria-label="Mark played" title="Mark played" onClick={() => db.episodeProgress.put({ ...p, position: 0, completed: true, updatedAt: Date.now() })}><Icon name="check" /></button>
+                  <button className="icon-btn" aria-label="Mark played" title="Mark played" onClick={() => setPlayed(p.episodeId, true, p.duration)}><Icon name="check" /></button>
                   <button className="icon-btn" aria-label="Forget my place" title="Forget my place" onClick={() => db.episodeProgress.delete(p.episodeId)}><Icon name="close" size={16} /></button>
                 </div>
               </li>); })}

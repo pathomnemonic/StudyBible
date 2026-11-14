@@ -133,6 +133,10 @@ export interface EpisodeProgress extends Syncable {
   position: number; // seconds
   duration?: number;
   completed: boolean;
+  /** seconds of this episode that actually played here (credited by the player; marking an episode played adds nothing) */
+  heard?: number;
+  /** played through to its end here (not just marked as played) */
+  ranToEnd?: boolean;
   updatedAt: number;
 }
 

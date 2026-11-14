@@ -12,6 +12,7 @@ import { fold } from '../../search/engine';
 import Icon from '../../components/Icon';
 import ShowSettings from '../../components/ShowSettings';
 import { toggleFollow, useFollows } from '../../lib/follow';
+import { setPlayed } from '../../lib/listening';
 
 type View = 'plan' | 'all' | 'queue' | 'progress';
 
@@ -100,7 +101,7 @@ function Row({ e, show, progress, inQueue }: { e: BiayEpisode; show: Show; progr
   const player = usePlayer();
   const pct = progress && progress.duration ? Math.round((100 * progress.position) / progress.duration) : 0;
   const toggleQueue = async () => { if (inQueue) await db.queue.where('episodeId').equals(e.id).delete(); else { void rememberEpisode(e); await db.queue.add({ episodeId: e.id, order: Date.now() }); } };
-  const toggleDone = () => { void rememberEpisode(e); return db.episodeProgress.put({ episodeId: e.id, position: 0, completed: !progress?.completed, updatedAt: Date.now(), duration: progress?.duration }); };
+  const toggleDone = () => { void rememberEpisode(e); return setPlayed(e.id, !progress?.completed, progress?.duration); };
   return (
     <li>
       <div className="row between">

@@ -5,6 +5,7 @@ import { useEditions } from '../data/EditionsContext';
 import { builtinPlans, type PlanDay, type PlanDef } from '../plans/builtin';
 import { getSettings, updateSettings, useSettings } from './store';
 import { loadBiay, useBiay } from '../data/biay';
+import { setPlayed } from './listening';
 
 export interface ActivePlan {
   plan: PlanDef;
@@ -58,7 +59,7 @@ export function useActivePlan(): ActivePlan | null {
     startedAt: prog.startedAt,
     markDone: async (i) => {
       const ep = chosen === 'biay' ? biay?.dayEpisode.get(i + 1) : undefined;
-      if (ep) await db.episodeProgress.put({ episodeId: ep.id, position: 0, completed: true, updatedAt: Date.now(), duration: ep.duration ?? undefined });
+      if (ep) await setPlayed(ep.id, true, ep.duration ?? undefined);
       const cur = await db.planProgress.get(chosen); if (cur && !cur.done.includes(i)) { const done = [...cur.done, i]; await db.planProgress.put({ ...cur, done, status: done.length >= plan.days.length ? 'finished' : cur.status }); } },
   };
 }

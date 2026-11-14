@@ -9,6 +9,7 @@ import Modal from './Modal';
 import { useSettings } from '../lib/store';
 import { parseRefId } from '../lib/refs';
 import ShowSettings from './ShowSettings';
+import { setPlayed } from '../lib/listening';
 
 export const SPEEDS = [0.5, 0.7, 0.85, 1, 1.1, 1.25, 1.5, 1.75, 2, 2.5, 3];
 const fmt = (s: number) => { const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60); return `${h ? h + ':' + String(m).padStart(2, '0') : m}:${String(Math.floor(s % 60)).padStart(2, '0')}`; };
@@ -119,7 +120,7 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
         
         <div className="row" style={{ gap: 8 }}>
           <button className="btn small" onClick={share}>Share</button>
-          <button className="btn small" onClick={() => { void db.episodeProgress.put({ episodeId: e.id, position: 0, completed: true, updatedAt: Date.now(), duration: p.duration }); }}>Mark played</button>
+          <button className="btn small" onClick={() => { void setPlayed(e.id, true, p.duration); }}>Mark played</button>
           {readAlong && <Link className="btn small primary" to={readAlong} onClick={onClose}>Read along</Link>}
           {e.link && <Link className="btn small" to={e.link} onClick={onClose}>Open the page</Link>}
         </div>

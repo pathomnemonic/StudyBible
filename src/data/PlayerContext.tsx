@@ -3,6 +3,7 @@ import { savedUrl } from '../lib/offlineAudio';
 import { nextFavorite } from './autoplay';
 import { getSettings } from '../lib/store';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { creditListening } from '../lib/listening';
 import { db } from '../db/db';
 import { loadBiay } from './biay';
 import { lookupEpisode, registerEpisodes } from './podcasts';
@@ -102,15 +103,20 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     a.playbackRate = rate;
     audio.current = a;
     hooks.onNewMedia = () => { try { a.pause(); } catch { /* none */ } }; // a video or recording starting in the host stops this player
+    // seconds that really played since the last save: counted from the clock, never from jumps (a seek or a skipped intro adds nothing)
+    let heardSince = 0, lastT = -1;
     const save = (completed = false) => {
       const cur = (a as any)._ep as BiayEpisode | undefined;
       if (!cur) return;
       const dur = a.duration || undefined;
       const done = completed || (dur ? a.currentTime > dur - 20 : false);
-      db.episodeProgress.put({ episodeId: cur.id, position: done ? 0 : a.currentTime, duration: dur, completed: done || undefined as any, updatedAt: Date.now() }).catch(() => {});
+      const secs = heardSince; heardSince = 0;
+      creditListening(cur.id, secs, { position: done ? 0 : a.currentTime, duration: dur, completed: done || undefined as any, ranToEnd: done }).catch(() => {});
     };
     a.addEventListener('timeupdate', () => {
       setPosition(a.currentTime);
+      if (!a.paused && lastT >= 0) { const d = a.currentTime - lastT; if (d > 0 && d <= 2.5) heardSince += d; }
+      lastT = a.currentTime;
       const cur = (a as any)._ep as BiayEpisode | undefined;
       const out = cur ? showSetting(showKeyOf(cur.id), 'outro') : 0;
       // a show's closing music or ads can be skipped: finish the episode early
@@ -126,7 +132,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       }
     });
     a.addEventListener('loadedmetadata', () => setDuration(a.duration || 0));
-    a.addEventListener('play', () => setPlaying(true));
+    a.addEventListener('play', () => { lastT = a.currentTime; setPlaying(true); });
+    a.addEventListener('seeking', () => { lastT = -1; });
     a.addEventListener('pause', () => {
       setPlaying(false);
       save();
