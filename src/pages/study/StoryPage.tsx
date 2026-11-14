@@ -27,6 +27,7 @@ export default function StoryPage() {
           <li key={i} className="card">
             <div className="muted small">{i + 1} of {steps.length} · {LINK_LABEL[s.link]}</div>
             <ReadingBlock refs={s.refs} label={s.ref} text={s.caption} max={12} />
+            {!s.refs.length && <p className="muted small">This passage cannot be shown with verified numbering in the reader edition, so it is withheld rather than approximated.</p>}
           </li>
         ))}
       </ol>
