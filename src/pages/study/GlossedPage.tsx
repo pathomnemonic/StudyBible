@@ -39,7 +39,9 @@ export default function GlossedPage() {
       for (const [key, text] of Object.entries(en ?? {})) {
         const [kc, kv] = key.split('.').map(Number); if (!kc || !kv) continue;
         // the Glossa follows the Latin numbering; bring each note to the verse it belongs to in the modern text
-        const m = convertRef('vulgate', 'kjv', { book, c1: kc, v1: kv, c2: kc, v2: kv }).ref;
+        const mapped = convertRef('vulgate', 'kjv', { book, c1: kc, v1: kv, c2: kc, v2: kv });
+        if (!mapped.exact) continue;
+        const m = mapped.ref;
         if (m.c1 !== c) continue;
         (out[m.v1 ?? kv] ??= []).push({ en: strip(text), la: la?.[key]?.map((x) => strip(x[1])).join(' ') });
       }
