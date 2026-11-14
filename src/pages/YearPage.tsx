@@ -1,4 +1,4 @@
-import { listeningStats } from '../lib/listening';
+import { hasUndatedListening, listeningStats } from '../lib/listening';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -14,7 +14,7 @@ export default function YearPage() {
   const data = useLiveQuery(async () => {
     const [history, episodes, notes, highlights, journal, memory] = await Promise.all([
       db.history.where('ts').between(from, to).toArray(),
-      db.episodeProgress.where('updatedAt').between(from, to).toArray(),
+      db.episodeProgress.toArray(),
       db.notes.where('updatedAt').between(from, to).count(),
       db.highlights.filter((h) => h.createdAt >= from && h.createdAt < to).count(),
       db.journal.filter((j) => j.createdAt >= from && j.createdAt < to).count(),
@@ -30,9 +30,10 @@ export default function YearPage() {
     const books = new Set(reads.map((r) => r.ref.split('.')[0]));
     const opened = new Set(data.history.filter((h) => h.type === 'read' || h.type === 'finished').map((r) => r.ref)).size;
     const days = new Set(data.history.map((h) => new Date(h.ts).toDateString()));
-    const { hours, playedToEnd: finished } = listeningStats(data.episodes);
+    const { hours, playedToEnd: finished } = listeningStats(data.episodes, year);
+    const undatedListening = hasUndatedListening(data.episodes);
     const perMonth = Array.from({ length: 12 }, (_, m) => new Set(data.history.filter((h) => new Date(h.ts).getMonth() === m).map((h) => new Date(h.ts).toDateString())).size);
-    return { chapters: chapters.size, opened, books: books.size, days: days.size, hours, finished, perMonth, lessons: data.history.filter((h) => h.type === 'work' || h.type === 'catechism').length };
+    return { chapters: chapters.size, opened, books: books.size, days: days.size, hours, finished, undatedListening, perMonth, lessons: data.history.filter((h) => h.type === 'work' || h.type === 'catechism').length };
   }, [data]);
   const max = Math.max(1, ...(s?.perMonth ?? [1]));
   const cards: [string, string | number, string][] = s && data ? [
@@ -56,13 +57,14 @@ export default function YearPage() {
           <div className="stat-grid">
             {cards.map(([k, v, d]) => <div className="card stat" key={k}><strong>{v}</strong><span>{k}</span><em>{d}</em></div>)}
           </div>
+          {s.undatedListening && <p className="muted small" role="note">Some older listening records have cumulative totals but no dated activity. Their time and completion dates cannot be reconstructed, so they are excluded rather than attributed to the wrong year.</p>}
           <section className="card" aria-label="Days active each month">
             <h2 className="eyebrow-h">Days you were here, by month</h2>
             <div className="bars" role="img" aria-label={MONTHS.map((m, i) => `${m} ${s.perMonth[i]}`).join(', ')}>
               {s.perMonth.map((n, i) => <div key={i} className="bar"><i style={{ height: `${Math.max(3, (100 * n) / max)}%` }} /><span>{MONTHS[i][0]}</span></div>)}
             </div>
           </section>
-          <p className="muted small">Counted on this device from what you opened and saved. A chapter counts as read once you reached its end (or marked it read); opening it is only a visit. Hours are time that actually played in this app: episodes you mark as played, or that a plan marks for you, add nothing; for listening before this was recorded, only the point where you left an unfinished episode is counted, so it is an underestimate. Days count a day only when a chapter, lesson or page was recorded, not every time the app was opened. <Link to="/history">See your history</Link>.</p>
+          <p className="muted small">Counted on this device from what you opened and saved. A chapter counts as read once you reached its end (or marked it read); opening it is only a visit. Hours are time that actually played in this app: episodes you mark as played, or that a plan marks for you, add nothing. Listening recorded before dated activity tracking cannot reliably be assigned to a calendar year and is not included in these annual totals. Days count a day only when a chapter, lesson or page was recorded, not every time the app was opened. <Link to="/history">See your history</Link>.</p>
         </>
       )}
     </div>
