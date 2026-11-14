@@ -26,12 +26,10 @@ export default function PlanBuilder({ onSaved }: { onSaved: (id: number) => void
       for (const l of list.split('\n').map((x) => x.trim()).filter(Boolean)) {
         const p = parseRefs(l);
         if (!p.ok) { err = `“${l}”: ${p.error}`; break; }
-        for (const x of p.refs) {
-          // Typed passages use English/KJV numbering; do not silently store an unverified Vulgate approximation.
-          const resolved = resolvePlanReferences(p.refs.map((item) => item.ref), editions);
-          if (!resolved.ok) { err = `“${l}” cannot be verified in the source and anchor editions: ${resolved.reason}. Remove it or choose a verified passage.`; break; }
-          units.push(...resolved.refs);
-        }
+        // Typed passages use English/KJV numbering; do not silently store an unverified Vulgate approximation.
+        const resolved = resolvePlanReferences(p.refs.map((item) => item.ref), editions);
+        if (!resolved.ok) { err = `“${l}” cannot be verified in the source and anchor editions: ${resolved.reason}. Remove it or choose a verified passage.`; break; }
+        units.push(...resolved.refs);
         if (err) break;
       }
     }
