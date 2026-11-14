@@ -197,6 +197,7 @@ const TutorPage = lazy(() => import('./pages/study/TutorPage'));
 const InterlinearPage = lazy(() => import('./pages/study/InterlinearPage'));
 const VariantsPage = lazy(() => import('./pages/study/VariantsPage'));
 const FingerprintPage = lazy(() => import('./pages/study/FingerprintPage'));
+const ProfilesPage = lazy(() => import('./pages/study/ProfilesPage'));
 const BooksPage = lazy(() => import('./pages/study/BooksPage'));
 const IndexPage = lazy(() => import('./pages/study/IndexPage'));
 const SynopsisPage = lazy(() => import('./pages/study/SynopsisPage'));
@@ -407,6 +408,8 @@ export default function App() {
               <Route path="/study/topical" element={<TopicalPage />} />
               <Route path="/study/concordance" element={<ConcordancePage />} />
               <Route path="/study/fingerprint/:book?" element={<FingerprintPage />} />
+              <Route path="/study/profiles" element={<ProfilesPage />} />
+              <Route path="/study/profile/:kind/:id" element={<ProfilesPage />} />
               <Route path="/study/map" element={<ConceptMapPage />} />
               <Route path="/study/variants" element={<VariantsPage />} />
               <Route path="/study/interlinear/:book?/:chapter?" element={<InterlinearPage />} />

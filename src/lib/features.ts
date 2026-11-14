@@ -33,6 +33,7 @@ export const FEATURES: Feature[] = [
   { id: 'study.interlinear', title: 'Original language, word by word', blurb: 'Greek and Hebrew with grammar and dictionary entries.', to: '/study/interlinear', hub: 'bible', keywords: 'interlinear greek hebrew morphology strongs original' },
   { id: 'study.variants', title: 'Where the ancient texts differ', blurb: 'Hebrew, Greek and Latin readings, with the verse in three translations.', to: '/study/variants', hub: 'bible', keywords: 'variants manuscripts septuagint vulgate textual criticism' },
   { id: 'study.map', title: 'Map of connections', blurb: 'How teachings, passages, works and people link up.', to: '/study/map', hub: 'study', keywords: 'graph network links connections doctrine' },
+  { id: 'study.profiles', title: 'Saints, people and places', blurb: 'Profiles with every statement sourced (filled in only from reviewed data).', to: '/study/profiles', hub: 'study', keywords: 'profile saint person place biography' },
   { id: 'bible.fingerprint', title: 'Book fingerprint', blurb: 'The words a book leans on.', to: '/study/fingerprint', hub: 'bible', keywords: 'word frequency vocabulary counts' },
   { id: 'bible.concordance', title: 'Concordance', blurb: 'Every place a word appears.', to: '/study/concordance', hub: 'bible', keywords: 'word search' },
   { id: 'bible.topical', title: 'Topical index', blurb: 'Parables, miracles, prophecies and covenants by topic.', to: '/study/topical', hub: 'bible', keywords: 'topics' },

@@ -148,6 +148,12 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Collections list: summary, search and duplicate | **Working** | Each collection in the list shows its item count, how many are ticked done and when it last changed. With more than three collections a search box filters by name, description or the label of any item. Duplicate makes a personal copy (same items, nothing ticked), which is how a template becomes your own. Make a reading plan turns the Scripture passages of a collection into a plan with one day per passage, in the collection’s order (other kinds of item are left out). Tags: each collection can carry your own tags (comma separated); they show in the list, are searched, and are copied by Duplicate. Not built: folders and collection types beyond the item kinds already supported. |
 | Data health check | **Working** | In Library, Export and backup: “Run the check” looks through your notes, highlights, bookmarks, collections and reading plans for items that point at something no longer here (a note a collection still lists, a deleted bookmark) or at a passage address the app cannot read, and names each one with a link to open it. It only reports; nothing is changed or deleted. Not covered yet: failed downloads and backup problems (Downloads and the backup card show those). |
 
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Profiles of saints, people and places (framework) | **Partial** | The data format, the checks (every fact must name a source, a place’s modern identification must say how sure it is, ids are stable, relations must point at real profiles), the search page and the profile page are built and tested (docs/PROFILE_DATA_FORMAT.md). The data file ships empty, so no profile exists yet: it needs reviewed tables of people, places and saints with sources. The pages say so rather than guess. |
+
 ## Bible
 
 | Feature | Status | Notes |

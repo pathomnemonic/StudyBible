@@ -165,4 +165,7 @@ await p.locator('input[aria-label="Tags for this collection"]').fill('Advent, Ma
 await p.goto(`${BASE}/#/library`); await p.reload(); await p.waitForTimeout(900);
 await p.locator('[role=tab]', { hasText: /^Collections$/ }).first().click(); await p.waitForTimeout(500);
 if (!/Advent, Mary/i.test(await p.locator('.page').innerText())) fail('the tags should show in the collections list');
+// 20. profiles page: honest empty state (no invented facts)
+await p.goto(`${BASE}/#/study/profiles`); await p.waitForTimeout(1200);
+if (!/No profiles are loaded yet/.test(await p.locator('.page').innerText())) fail('with no data the profiles page should say so');
 await b.close(); console.log('review ok');
