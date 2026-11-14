@@ -290,7 +290,7 @@ function ThemeApplier() {
       mq.removeEventListener('change', apply);
       mc.removeEventListener('change', apply);
     };
-  }, [s.language, s.theme, s.margin, s.fontSize, s.lineHeight, s.fontFamily, s.letterSpacing, s.wordSpacing, s.plainAlign, s.motion, s.bigTargets, s.underlineLinks]);
+  }, [s.language, s.theme, s.margin, s.fontSize, s.lineHeight, s.fontFamily, s.letterSpacing, s.wordSpacing, s.plainAlign, s.motion, s.bigTargets, s.underlineLinks, s.verseLines, s.showNoteMarks, s.layout]);
   return null;
 }
 
