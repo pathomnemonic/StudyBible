@@ -94,7 +94,8 @@ export function buildGoFurther(lesson: LessonLike, known: Known, extras?: Extras
     if (r.status === 'absent') { unavailable.push({ label, reason: r.reason ?? 'not in this edition' }); continue; }
     const to = r.native && readerUrl(ctx.target, r.native);
     if (!to) { unavailable.push({ label, reason: `${ctx.target.id} has no matching chapter` }); continue; }
-    add({ kind: 'scripture', id: refId(ref), label: `Read ${label}`, ref, to, note: r.status === 'approximate' ? `Source reference uses English/KJV numbering; the ${ctx.target.id} location is approximate. ${r.reason ?? 'Verify the passage before relying on it.'}` : undefined });
+    const notes = [r.status === 'approximate' ? `Source reference uses English/KJV numbering; the ${ctx.target.id} location is approximate. ${r.reason ?? 'Verify the passage before relying on it.'}` : '', r.native && r.native.c1 !== r.native.c2 ? `This link opens at chapter ${r.native.c1}; continue through chapter ${r.native.c2} for the full range.` : ''].filter(Boolean);
+    add({ kind: 'scripture', id: refId(ref), label: `Read ${label}`, ref, to, note: notes.length ? notes.join(' ') : undefined });
   }
 
   const cl = cccParse(lesson.ccc);
