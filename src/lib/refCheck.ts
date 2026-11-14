@@ -124,6 +124,12 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   const base = { original: ref, sourceScheme };
   const conv = convertRef(sourceScheme, 'vulgate', ref);
   const anchor = conv.ref;
+  // A source-valid verse can still map to an impossible anchor address if the static mapping is stale.
+  // Never return an exact/usable anchor without checking it against the canonical edition's real counts.
+  if (anchorEd) {
+    const anchorIssue = checkRefIn(anchorEd, anchor);
+    if (anchorIssue) return { ...base, status: anchorIssue.kind === 'absent' ? 'absent' : 'invalid', anchor, reason: `canonical Vulgate anchor: ${anchorIssue.reason}` };
+  }
   const bad = checkRefIn(source, ref);
   let numbering: string | undefined;
   if (bad) {
