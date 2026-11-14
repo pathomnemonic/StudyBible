@@ -25,7 +25,7 @@ describe('reading-plan passage validation', () => {
   });
 
   it('rejects a syntactically valid but nonexistent chapter', () => {
-    const result = resolvePlanReferences(refs('John 99:1'), editions);
+    const result = resolvePlanReferences([{ book: 'JHN', c1: 99, v1: 1, c2: 99, v2: 1 }], editions);
     expect(result.ok).toBe(false);
   });
 
