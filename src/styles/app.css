@@ -6396,6 +6396,6 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 /* ===== Narrow screens and big text: nothing may spill out of its box (found by e2e/sweep.mjs) ===== */
 .hub-tile-t, .hub-tile-d { min-width: 0; overflow-wrap: anywhere; }
 :root[data-layout='compact'] .hub-tile > .hub-tile-t { flex: 1 1 0; }
-@media (max-width: 400px) { .hub-tiles, :root[data-layout='compact'] .hub-tiles { grid-template-columns: minmax(0, 1fr); } }
+/* Two columns stay on every phone: a long word wraps inside its tile instead of the list being forced into one column. */
 /* shelf cards in narrow columns: a long single word wraps instead of spilling out of its card */
 .shelf-card { grid-template-columns: minmax(0, 1fr); } .shelf-card .t, .shelf-card .d { overflow-wrap: anywhere; hyphens: auto; }

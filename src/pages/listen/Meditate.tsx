@@ -30,10 +30,11 @@ export default function Meditate() {
   useEffect(() => { void loadTracks().then(setTracks); }, []);
   const queueAll = async (list: Track[], album: string) => {
     const eps = list.map((t) => asEpisode(t, album));
-    for (const e of eps) await rememberEpisode(e);
+    await Promise.all([...new Map(eps.map((e) => [e.id, e])).values()].map((e) => rememberEpisode(e)));
     await p.play(eps[0]);
-    let n = Date.now();
-    for (const e of eps.slice(1)) await db.queue.add({ episodeId: e.id, order: ++n });
+    // one write for the whole run (a long run is a hundred rows: adding them one by one lets "Clear queue" land in the middle, and the rest then reappear)
+    const n = Date.now();
+    await db.queue.bulkAdd(eps.slice(1).map((e, k) => ({ episodeId: e.id, order: n + k + 1 })));
   };
   /** A long run of real recordings that plays on its own for an hour or more, then stops (the player's own sleep timer also works). */
   const sleepMix = async (cats: Track['category'][], album: string) => {

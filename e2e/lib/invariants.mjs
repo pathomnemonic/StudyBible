@@ -20,9 +20,13 @@ export const INVARIANTS = () => {
     // a popup menu, or a sticky/fixed bar that has scrolled over the content, is meant to float over the page
     const floats = (e) => { for (let n = e; n && n !== document.body; n = n.parentElement) { const ps = getComputedStyle(n).position; if ((ps === 'absolute' && n.closest('details')) || ((ps === 'fixed' || ps === 'sticky') && window.scrollY > 4)) return true; } return false; };
     if (floats(a) || floats(c)) continue;
+    if (a.closest('svg') || c.closest('svg')) continue; // diagrams place their own marks, often overlapping on purpose
     // compare line by line, so an inline link that wraps over two lines is not mistaken for overlapping its neighbour
     let hit = false;
-    for (const x of a.getClientRects()) for (const y of c.getClientRects()) {
+    // what is clipped away by a scrolling or overflow-hidden ancestor is not on screen, so it cannot overlap
+    const clip = (e, r) => { let l = r.left, t = r.top, rt = r.right, b = r.bottom; for (let n = e.parentElement; n && n !== document.body; n = n.parentElement) { const cs = getComputedStyle(n); if (/(auto|scroll|hidden|clip)/.test(cs.overflowX + cs.overflowY)) { const q = n.getBoundingClientRect(); l = Math.max(l, q.left); t = Math.max(t, q.top); rt = Math.min(rt, q.right); b = Math.min(b, q.bottom); } } return { left: l, top: t, right: rt, bottom: b }; };
+    for (const x0 of a.getClientRects()) for (const y0 of c.getClientRects()) {
+      const x = clip(a, x0), y = clip(c, y0);
       if (Math.min(x.right, y.right) - Math.max(x.left, y.left) > 6 && Math.min(x.bottom, y.bottom) - Math.max(x.top, y.top) > 6) hit = true;
     }
     if (hit && a.textContent.trim() && c.textContent.trim()) {
@@ -44,4 +48,5 @@ export const INVARIANTS = () => {
 };
 
 /** The words on the screen, reduced so that numbers and spacing do not matter: used to see whether a view comes back as it was. */
-export const SIGNATURE = () => ((document.querySelector('main') || document.body).innerText || '').replace(/\d+/g, '#').replace(/\s+/g, ' ').trim().slice(0, 4000);
+// what a tab shows, without the parts that change by design: popup menus left open by the crawler and the warm-up quiz (it is built from your progress)
+export const SIGNATURE = () => { const c = (document.querySelector('main') || document.body).cloneNode(true); c.querySelectorAll('.lp-warm, details[open]:not(.fold), [role=menu]').forEach((n) => n.remove()); const host = document.createElement('div'); host.style.cssText = 'position:absolute;left:-99999px;top:0;width:360px'; host.appendChild(c); document.body.appendChild(host); const t = c.innerText || c.textContent || ''; host.remove(); return t.replace(/\d+/g, '#').replace(/\s+/g, ' ').trim().slice(0, 4000); };

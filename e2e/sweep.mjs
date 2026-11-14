@@ -27,7 +27,8 @@ async function crawl(size, route) {
   p.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|WebSocket|net::ERR|Content Security|favicon|googleapis|ytimg|youtube|manifest|ServiceWorker/i.test(m.text())) note(where, `console error: ${m.text().slice(0, 120)}`); });
   try {
     await p.goto(`${BASE}/#${route}`); await p.waitForTimeout(450);
-    const check = async (stage) => { for (const x of await p.evaluate(INVARIANTS)) note(`${where}${stage ? ` after ${stage}` : ''}`, x); };
+    // a finding must still be there after the page has settled (entry animations move things for a moment)
+    const check = async (stage) => { let found = await p.evaluate(INVARIANTS); if (found.length) { await p.waitForTimeout(700); const again = new Set(await p.evaluate(INVARIANTS)); found = found.filter((x) => again.has(x)); } for (const x of found) note(`${where}${stage ? ` after ${stage}` : ''}`, x); };
     await check('');
     // folds
     const folds = p.locator('main details:not(.tool-menu) > summary');
@@ -40,7 +41,7 @@ async function crawl(size, route) {
       const tabs = p.locator('[role=tablist]').nth(g).locator('[role=tab]');
       const n = Math.min(await tabs.count(), 8);
       if (n < 2) continue;
-      await tabs.nth(0).click({ timeout: 1500 }).catch(() => undefined); await p.waitForTimeout(250);
+      await tabs.nth(0).click({ timeout: 1500 }).catch(() => undefined); await p.waitForTimeout(900); // let async content (quizzes, lazy chunks) arrive before the snapshot
       const first = await p.evaluate(SIGNATURE);
       for (let i = 1; i < n; i++) {
         const name = ((await tabs.nth(i).innerText().catch(() => '')) || `tab ${i}`).trim().slice(0, 18);
@@ -48,7 +49,8 @@ async function crawl(size, route) {
         await check(`tab "${name}"`);
       }
       await tabs.nth(0).click({ timeout: 1500 }).catch(() => undefined); await p.waitForTimeout(350);
-      const back = await p.evaluate(SIGNATURE);
+      let back = await p.evaluate(SIGNATURE);
+      if (back !== first) { await p.waitForTimeout(800); back = await p.evaluate(SIGNATURE); }
       if (back !== first) note(where, `going back to the first tab of a tab row does not show what it showed before (row ${g + 1}: "${first.slice(0, 40)}…" then "${back.slice(0, 40)}…")`);
     }
   } catch (e) { note(where, `crawl failed: ${String(e.message).slice(0, 100)}`); }

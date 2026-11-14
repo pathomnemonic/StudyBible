@@ -37,3 +37,7 @@ After a release goes live, open it on a phone and walk the Today, Bible, Media a
 * Queue tab then Up next showing chants: `overlap.mjs` mixed-queue sequence and the round-trip rule in `sweep.mjs` (not reproduced by hand; the guard is in place).
 * About this chapter not auto-opening: browser check in `sweep.mjs` opening behaviour and the component's own effect (see `ChapterCompanion`).
 * Heading footnote markers in WEB-C (found by `data-hygiene`): the ingest now drops them.
+
+## Layout rule: fix the problem, not the layout
+
+A page that already fits on a reader's phone keeps its layout. When the crawler finds something that spills or overlaps on a narrow screen, the fix is the smallest one that removes that problem (let a long word wrap, let a row shrink), never a blanket change such as forcing a denser two-column page into one column on every phone. A single-column fallback is allowed only for the exact width where the two-column form cannot hold, and the crawler must show that it cannot. (A blanket "one column under 400px" rule for hub tiles was added once and removed: it made pages worse on ordinary 360 to 412 px phones.)
