@@ -12,6 +12,7 @@ import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import { collectionHtml, collectionMarkdown, moveItem, resolveAll, type Resolved } from '../../lib/collections';
 import { download, exportCollections } from '../../db/ops';
+import { restoreFromTrash, trashedFor } from '../../lib/trash';
 
 /** One collection opened out: every item read back to its original (never copied), with ways to reorder, add from your own notes and marks, and export. */
 export default function CollectionPage() {
@@ -27,6 +28,8 @@ export default function CollectionPage() {
   const bookmarks = useLiveQuery(() => db.bookmarks.toArray(), []) ?? [];
   const [items, setItems] = useState<Resolved[]>([]);
   const [msg, setMsg] = useState('');
+  const [tick, setTick] = useState(0);
+  const [trashed, setTrashed] = useState<Record<number, number>>({});
   const [pass, setPass] = useState('');
   const [ccc, setCcc] = useState('');
   const [url, setUrl] = useState('');
@@ -34,7 +37,7 @@ export default function CollectionPage() {
   const [qText, setQText] = useState('');
   const [qKind, setQKind] = useState<'question' | 'note'>('question');
   const key = c ? JSON.stringify(c.items) : '';
-  useEffect(() => { let live = true; if (c && ed) resolveAll(c, ed).then((r) => live && setItems(r)); return () => { live = false; }; }, [key, ed?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { let live = true; if (c && ed) resolveAll(c, ed).then(async (r) => { if (!live) return; setItems(r); const t: Record<number, number> = {}; for (const x of r) if (x.missing) { const id = await trashedFor(x.target); if (id !== undefined) t[x.index] = id; } if (live) setTrashed(t); }); return () => { live = false; }; }, [key, ed?.id, tick]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /** `field` names which input this patch comes from, so only that input is acknowledged once the write has landed */
   const save = async (patch: Partial<Collection>, field?: string) => { if (!c) return; const saved = field ? beginSave(`collection:${c.id}:${field}`) : null; await db.collections.put({ ...c, ...patch, updatedAt: Date.now() }); saved?.(); };
@@ -111,7 +114,15 @@ export default function CollectionPage() {
                 <button className="icon-btn" aria-label={`Remove ${r.title} from this collection`} onClick={() => void save({ items: c.items.filter((_, k) => k !== i) })}>✕</button>
               </span>
             </div>
-            {r.missing && <p className="muted small">The original is no longer here (it may have been deleted). Remove this item, or restore it from Recently deleted.</p>}
+            {r.missing && (
+              <div className="notice" role="status" data-missing>
+                <p className="small" style={{ margin: 0 }}>No longer here: the original may have been deleted{trashed[i] !== undefined ? ', but it is still in Recently deleted' : ''}.</p>
+                <div className="row" style={{ gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
+                  {trashed[i] !== undefined && <button className="btn small" onClick={async () => { await restoreFromTrash(trashed[i]); setMsg('Restored from Recently deleted.'); setTick((n) => n + 1); }}>Restore from Recently deleted</button>}
+                  <button className="btn small" aria-label={`Remove ${r.title} from this collection`} onClick={() => void save({ items: c.items.filter((_, k) => k !== i) })}>Remove from this collection</button>
+                </div>
+              </div>
+            )}
             {r.text && <p className="cp-text clamp">{r.text}</p>}
             <p className="small">{r.to ? <Link to={r.to}>Open the original</Link> : r.url ? <a href={r.url} target="_blank" rel="noreferrer">Open the original ↗</a> : null}</p>
           </li>

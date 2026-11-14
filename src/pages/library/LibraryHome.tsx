@@ -19,6 +19,7 @@ import { fold } from '../../search/engine';
 import { BOOK_ORDER } from '../../lib/canon';
 import GraphPage from './GraphPage';
 import { targetLink } from '../../lib/collections';
+import { restoreFromTrash } from '../../lib/trash';
 
 type Tab = 'notes' | 'graph' | 'highlights' | 'bookmarks' | 'collections' | 'review' | 'xrefs' | 'saved' | 'history' | 'export' | 'trash';
 const TABS: [Tab, string][] = [['notes', 'Notes'], ['highlights', 'Highlights'], ['bookmarks', 'Bookmarks'], ['collections', 'Collections'], ['review', 'Review']];
@@ -414,14 +415,7 @@ function ExportTab() {
 function Trash() {
   const items = useLiveQuery(() => db.trash.orderBy('deletedAt').reverse().toArray(), []) ?? [];
   const label = (t: { tbl: string; data: any }) => t.data.title || (t.data.body ? String(t.data.body).slice(0, 80) : t.data.ref || t.data.name || t.tbl);
-  const restore = async (id: number) => {
-    const it = await db.trash.get(id);
-    if (!it) return;
-    const { id: _id, ...rest } = it.data;
-    await db.table(it.tbl).add({ ...rest }); // the change hooks stamp it as edited now, so it also wins over the deletion on other devices
-    await db.tombs.filter((t) => t.tbl === it.tbl && t.uid === rest.uid).delete();
-    await db.trash.delete(id);
-  };
+  const restore = (id: number) => restoreFromTrash(id);
   return (
     <section>
       <h2>Recently deleted</h2>
