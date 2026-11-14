@@ -20,7 +20,9 @@ async function scenario(offline) {
   });
   // make the next lazy page fail to load, so the error page appears
   await ctx.route(/\/assets\/PassportPage-.*\.js$/, (r) => r.fulfill({ status: 404, body: 'gone' }));
-  await p.goto(`${BASE}/#/passport`); await p.reload();
+  await p.goto(`${BASE}/#/passport`);
+  // the app may already be reloading itself after the failed chunk (that is the very behaviour under test); an aborted reload is not a failure of the check
+  await p.reload().catch((e) => { if (!/ERR_ABORTED|frame was detached/.test(String(e))) throw e; });
   await p.waitForSelector('[role=alert] button:has-text("Refresh the app")', { timeout: 20000 }).catch(() => null);
   const hasError = await p.locator('[role=alert] button:has-text("Refresh the app")').count();
   if (!hasError) { await ctx.close(); return { skipped: 'the app recovered by itself before the error page showed (auto-reload); nothing to click' }; }
