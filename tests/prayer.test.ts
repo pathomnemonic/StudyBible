@@ -8,6 +8,8 @@ import { THREADS } from '../src/data/threads';
 import { COURSE } from '../src/data/course';
 import { parseRefs, refId } from '../src/lib/refs';
 import { toRefs } from '../src/pray/refs';
+import { loadVersification } from '../src/lib/versification';
+loadVersification(JSON.parse(readFileSync('public/data/versification.json', 'utf8')));
 
 describe('devotions', () => {
   it('withholds devotional passage links when any KJV-to-anchor mapping is unverified', () => {
