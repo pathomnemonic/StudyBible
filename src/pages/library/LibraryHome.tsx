@@ -13,7 +13,7 @@ import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import { decryptBackup, encryptBackup, isEncryptedBackup } from '../../db/crypto';
 import { newCard } from '../../lib/srs';
-import { download, exportAll, exportMarks, exportNotesMarkdown, importAll, previewImport } from '../../db/ops';
+import { download, exportCollections, importCollections, exportAll, exportMarks, exportNotesMarkdown, importAll, previewImport } from '../../db/ops';
 import { useSettings } from '../../lib/store';
 import { fold } from '../../search/engine';
 import { BOOK_ORDER } from '../../lib/canon';
@@ -195,6 +195,7 @@ function Collections() {
   const cs = all.filter((c) => matchesCollection(c, q, targetLabel));
   const saved = useLiveQuery(() => db.saved.toArray(), []) ?? [];
   const [name, setName] = useState('');
+  const [fileMsg, setFileMsg] = useState('');
   const [adding, setAdding] = useState<Record<number, string>>({});
   const add = async (c: Collection, t: Target) => db.collections.put({ ...c, items: [...c.items, t], updatedAt: Date.now() });
   return (
@@ -210,6 +211,11 @@ function Collections() {
         </select>
         <span className="muted small">Scripture passages only; add or remove anything afterwards.</span>
       </div>
+      <div className="row" style={{ marginBottom: 10, gap: 8, flexWrap: 'wrap' }}>
+        <button className="btn small" disabled={!all.length} onClick={async () => download('studybible-collections.json', await exportCollections())}>Save all collections to a file</button>
+        <label className="btn small" style={{ cursor: 'pointer' }}>Import collections from a file<input type="file" accept="application/json,.json" aria-label="Import collections from a file" style={{ display: 'none' }} onChange={async (e) => { const f = e.target.files?.[0]; e.target.value = ''; if (!f) return; try { const r = await importCollections(await f.text()); setFileMsg(`Imported: ${r.added} new, ${r.merged} merged into ones you already have (nothing is duplicated).`); } catch (er) { setFileMsg((er as Error).message); } }} /></label>
+      </div>
+      {fileMsg && <p className="notice" role="status">{fileMsg}</p>}
       {all.length > 3 && <div className="row" style={{ marginBottom: 10 }}><input type="search" aria-label="Search your collections" placeholder="Search collections (name, tags, description, passages)" value={q} onChange={(e) => setQ(e.target.value)} style={{ flex: 1 }} /></div>}
       {cs.map((c) => (
         <div className="card" key={c.id}>

@@ -11,7 +11,7 @@ import { useSettings } from '../../lib/store';
 import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import { collectionHtml, collectionMarkdown, moveItem, resolveAll, type Resolved } from '../../lib/collections';
-import { download } from '../../db/ops';
+import { download, exportCollections } from '../../db/ops';
 
 /** One collection opened out: every item read back to its original (never copied), with ways to reorder, add from your own notes and marks, and export. */
 export default function CollectionPage() {
@@ -76,6 +76,7 @@ export default function CollectionPage() {
   const move = (from: number, to: number) => void save({ items: moveItem(c.items, from, to) });
   const base = (n: string) => n.replace(/[^\w]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'collection';
   const exportMd = () => download(`${base(c.name)}.md`, collectionMarkdown(c, items), 'text/markdown');
+  const exportFile = async () => download(`${base(c.name)}.collection.json`, await exportCollections([c.id!]));
   const exportHtml = () => download(`${base(c.name)}.html`, collectionHtml(c, items), 'text/html');
   const makePlan = async () => { const days = planDaysFromCollection(c); const id = await db.userPlans.add({ name: c.name, description: c.description, days, createdAt: Date.now() } as never); nav(`/pray/plans/${encodeURIComponent('user:' + id)}`); };
   const exportPdf = () => { const w = window.open('', '_blank'); if (!w) { setMsg('Your browser blocked the print window. Allow pop-ups for this site and try again.'); return; } w.document.write(collectionHtml(c, items)); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
@@ -88,6 +89,7 @@ export default function CollectionPage() {
       <input data-editor={`collection:${c.id}:tags`} aria-label="Tags for this collection" className="cp-tags" type="text" placeholder="Tags, separated by commas (optional), e.g. prayer, Lent" defaultValue={(c.tags ?? []).join(', ')} onBlur={(e) => void save({ tags: parseTags(e.target.value) }, 'tags')} style={{ width: '100%', margin: '6px 0' }} />
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', margin: '8px 0 14px' }}>
         <button className="btn" onClick={exportMd} disabled={!items.length}>Export as Markdown</button>
+        <button className="btn" onClick={() => void exportFile()} title="A file you can import into this app on another device, with your ticks and tags; notes it points at travel with it">Save to a file (to import later)</button>
         <button className="btn" onClick={exportHtml} disabled={!items.length} title="One self-contained page you can email or keep on a USB stick; it opens in any browser with no connection">Save as a web page (HTML)</button>
         <button className="btn" onClick={exportPdf} disabled={!items.length}>Print or save as PDF</button>
         <button className="btn" onClick={makePlan} disabled={!planDaysFromCollection(c).length} title="One day for each Scripture passage in this collection, in this order">Make a reading plan</button>

@@ -101,7 +101,7 @@ export async function exportAll(): Promise<string> {
 
 const SETTINGS_KEY = 'studybible.settings.v1';
 /** Things kept in the browser's own storage (game streaks and bests, marked moments, your birthday, lesson notes) that a backup should carry across. */
-const LOCAL_PREFIXES = ['sb:plays', 'sb:trophies', 'sb:daily:', 'sb:verbum', 'sb:crossword', 'sb:quartets', 'sb:prophet', 'sb:cloister', 'sb:charades:best', 'sb:marks:', 'sb:me:', 'sb:pray:done:', 'sb:cur:note:', 'sb:sticker', 'sb:passport', 'sb:slowBible'];
+const LOCAL_PREFIXES = ['sb:plays', 'sb:trophies', 'sb:daily:', 'sb:verbum', 'sb:crossword', 'sb:quartets', 'sb:prophet', 'sb:cloister', 'sb:charades:best', 'sb:marks:', 'sb:me:', 'sb:pray:done:', 'sb:cur:note:', 'sb:sticker', 'sb:passport', 'sb:slowBible', 'sb:pins', 'sb:recentItems'];
 const isLocalKey = (k: string) => LOCAL_PREFIXES.some((p) => k.startsWith(p));
 function collectLocal(): Record<string, string> {
   const out: Record<string, string> = {};
@@ -118,6 +118,7 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
   let data: any;
   try { data = JSON.parse(json); } catch { throw new Error('The file is cut short or is not a backup. Nothing was imported.'); }
   if (!data || data.format !== 'studybible-export') throw new Error(`Not a ${BRAND.name} export file.`);
+  if (mode === 'replace' && data.appExport === 'collections') throw new Error('This file holds only some collections, so it cannot replace everything. Import it with “merge”. Nothing was imported.');
   // a replace overwrites what is here: keep a safety copy first so a wrong file can be undone
   if (mode === 'replace') await import('../lib/safety').then((m) => m.snapshotIfDue(true)).catch(() => undefined);
   if (typeof data.version === 'number' && data.version > 2) throw new Error('This backup was made by a newer version of the app. Update the app, then try again.');
@@ -266,4 +267,50 @@ export function previewImport(json: string): { counts: Record<string, number>; e
   const counts: Record<string, number> = {};
   for (const t of TABLES) if (Array.isArray(data[t]) && data[t].length) counts[t] = data[t].length;
   return { counts, exportedAt: data.exportedAt };
+}
+
+// ---------------------------------------------------------------------------
+// Collections on their own: one or all, to a file and back
+// ---------------------------------------------------------------------------
+
+/** One collection (or all of them) as a file in the same format as the backup, holding only those collections and the notes, highlights and bookmarks they point at (so the pointers still lead somewhere on another device). */
+export async function exportCollections(ids?: number[]): Promise<string> {
+  const all = await db.collections.toArray();
+  const cs = ids ? all.filter((c) => ids.includes(c.id!)) : all;
+  const want = { note: new Set<string>(), highlight: new Set<string>(), bookmark: new Set<string>() };
+  for (const c of cs) for (const t of c.items) if (t.type === 'note' || t.type === 'highlight' || t.type === 'bookmark') want[t.type].add(t.uid);
+  const notes = (await db.notes.toArray()).filter((n) => n.uid && want.note.has(n.uid)).map(({ folderId: _f, ...n }) => n);
+  const highlights = (await db.highlights.toArray()).filter((h) => h.uid && want.highlight.has(h.uid));
+  const bookmarks = (await db.bookmarks.toArray()).filter((b) => b.uid && want.bookmark.has(b.uid));
+  const out = { format: 'studybible-export', version: 2, appExport: 'collections', exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate', counts: { collections: cs.length, notes: notes.length, highlights: highlights.length, bookmarks: bookmarks.length }, collections: cs, notes, highlights, bookmarks };
+  return JSON.stringify(out, null, 1);
+}
+
+/** Reads a collections file back. A collection already here (same uid) gains the items, ticks and tags it lacks, so nothing is duplicated or lost; the rest are added. */
+export async function importCollections(json: string): Promise<{ added: number; merged: number; records: number }> {
+  let data: any;
+  try { data = JSON.parse(json); } catch { throw new Error('The file is cut short or is not a collections file. Nothing was imported.'); }
+  if (!data || data.format !== 'studybible-export' || !Array.isArray(data.collections)) throw new Error('This is not a collections file. Nothing was imported.');
+  const { sameValue } = await import('../lib/canonical');
+  const { doneKeyMatches } = await import('../lib/collections');
+  // the pointed-at notes, highlights and bookmarks first (matched by uid, so none is doubled)
+  const rest = { ...data, collections: [], folders: [], format: 'studybible-export' };
+  const records = await importAll(JSON.stringify(rest), 'merge');
+  let added = 0, merged = 0;
+  for (const raw of data.collections) {
+    if (!raw || typeof raw !== 'object' || typeof raw.name !== 'string' || !Array.isArray(raw.items)) continue;
+    const { id: _id, ...rec } = raw;
+    const ex = rec.uid ? await db.collections.where('uid').equals(rec.uid).first() : undefined;
+    if (!ex) { await db.collections.add({ ...rec, createdAt: rec.createdAt ?? Date.now(), updatedAt: rec.updatedAt ?? Date.now() }); added++; continue; }
+    const items = [...ex.items];
+    for (const t of rec.items) if (!items.some((x) => sameValue(x, t))) items.push(t);
+    const done = [...(ex.done ?? [])];
+    for (const k of rec.done ?? []) if (typeof k === 'string' && !done.some((d) => d === k || (() => { try { return doneKeyMatches(d, JSON.parse(k)); } catch { return false; } })())) done.push(k);
+    const tags = [...(ex.tags ?? [])];
+    for (const t of rec.tags ?? []) if (!tags.some((x) => x.toLowerCase() === String(t).toLowerCase())) tags.push(t);
+    const newer = (rec.updatedAt ?? 0) > (ex.updatedAt ?? 0);
+    await db.collections.put({ ...ex, name: newer ? rec.name : ex.name, description: newer ? rec.description ?? ex.description : ex.description, items, done: done.length ? done : undefined, tags: tags.length ? tags : undefined, updatedAt: Math.max(ex.updatedAt ?? 0, rec.updatedAt ?? 0, Date.now()) });
+    merged++;
+  }
+  return { added, merged, records };
 }
