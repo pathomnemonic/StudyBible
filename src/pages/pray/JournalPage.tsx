@@ -1,3 +1,4 @@
+import { beginSave } from '../../lib/dirty';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -25,8 +26,10 @@ export default function JournalPage() {
     const body = edit.body.trim();
     if (!body && !edit.title) return setEdit(null);
     const rec = { ...edit, updatedAt: Date.now() };
+    const saved = beginSave(`journal:${edit.id ?? 'new'}`);
     if (edit.id) await db.journal.put(rec);
     else await db.journal.add(rec);
+    saved();
     setEdit(null);
   };
   const [refText, setRefText] = useState('');
@@ -43,9 +46,9 @@ export default function JournalPage() {
         <button className="btn primary" onClick={() => setEdit(blank())}>New</button>
       </div>
       {edit && (
-        <div className="card">
+        <div className="card" data-editor={`journal:${edit.id ?? 'new'}`}>
           <div className="row"><input type="date" value={edit.date} onChange={(e) => setEdit({ ...edit, date: e.target.value })} aria-label="Date" /><input type="text" placeholder="Title (optional)" value={edit.title ?? ''} onChange={(e) => setEdit({ ...edit, title: e.target.value })} style={{ flex: 1 }} /></div>
-          <textarea data-saves="journal" value={edit.body} onChange={(e) => setEdit({ ...edit, body: e.target.value })} placeholder={kind === 'intention' ? 'Whom or what are you praying for?' : kind === 'prayer' ? 'A prayer you want to keep' : 'What are you noticing in prayer?'} aria-label="Entry" style={{ marginTop: 8 }} />
+          <textarea value={edit.body} onChange={(e) => setEdit({ ...edit, body: e.target.value })} placeholder={kind === 'intention' ? 'Whom or what are you praying for?' : kind === 'prayer' ? 'A prayer you want to keep' : 'What are you noticing in prayer?'} aria-label="Entry" style={{ marginTop: 8 }} />
           <div className="chips" style={{ margin: '8px 0' }}>
             {edit.refs.map((r, i) => <span key={i} className="chip">{formatRef(parseRefId(r)!)} <button style={{ border: 0, background: 'none' }} onClick={() => setEdit({ ...edit, refs: edit.refs.filter((_, j) => j !== i) })} aria-label="Remove passage">×</button></span>)}
             <input type="text" placeholder="Link a passage…" value={refText} onChange={(e) => setRefText(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') { const p = parseRefs(refText); if (p.ok) { setEdit({ ...edit, refs: [...edit.refs, ...p.refs.map((x) => refId(x.ref))] }); setRefText(''); } } }} />

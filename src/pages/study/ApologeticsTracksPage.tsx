@@ -122,7 +122,7 @@ function ReflectCard({ t, sid, prompt }: { t: Track; sid: string; prompt: string
       <div className="apt-chips"><span className="chip"><span aria-hidden="true">✍️</span> Reflect</span></div>
       <p className="apt-why"><strong>{prompt}</strong></p>
       <label className="small muted" htmlFor={`n-${sid}`}>Your private note (saved only on this device, optional)</label>
-      <textarea id={`n-${sid}`} className="apt-ta" rows={3} value={text} onChange={(e) => { setText(e.target.value); saveNote(t.id, sid, e.target.value); }} />
+      <textarea data-no-dirty id={`n-${sid}`} className="apt-ta" rows={3} value={text} onChange={(e) => { setText(e.target.value); saveNote(t.id, sid, e.target.value); }} />
     </div>
   );
 }

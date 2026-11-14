@@ -1,3 +1,4 @@
+import { beginSave } from '../lib/dirty';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -15,8 +16,10 @@ export default function Reflect({ date, question, refId }: { date: string; quest
     const body = text.trim();
     if (!body) return;
     const now = Date.now();
+    const saved = beginSave(`reflect:${date}`);
     if (existing?.id) await db.journal.put({ ...existing, body, updatedAt: now });
     else await db.journal.add({ date, kind: 'journal', title: question, body, refs: refId ? [refId] : [], createdAt: now, updatedAt: now });
+    saved();
     setSaved(true);
   };
   return (
@@ -29,7 +32,7 @@ export default function Reflect({ date, question, refId }: { date: string; quest
       </p>
       {open && (
         <div className="reflect-box">
-          <textarea data-saves="journal" value={text} onChange={(e) => { setText(e.target.value); setSaved(false); }} placeholder="Your answer, only for you…" rows={4} aria-label="Your reflection" autoFocus />
+          <textarea data-editor={`reflect:${date}`} value={text} onChange={(e) => { setText(e.target.value); setSaved(false); }} placeholder="Your answer, only for you…" rows={4} aria-label="Your reflection" autoFocus />
           <div className="row">
             <button className="btn primary small" onClick={save} disabled={!text.trim()}>{saved ? 'Saved' : 'Save'}</button>
             <Link to="/pray/journal" className="small">Open journal</Link>

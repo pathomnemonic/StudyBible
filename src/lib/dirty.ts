@@ -1,16 +1,20 @@
 /**
- * Is anything the person typed not yet saved? Used so that an app update never reloads the page over an unsaved edit,
+ * Is anything the person typed not yet saved? Used so that an app update never reloads the page over unsaved typing,
  * and never waits for ever because a saved note is sitting in a text box.
  *
- * An edit is recorded when the person types in (or changes) a text field, a select, a checkbox or a rich-text area. It is cleared only
- * when the database confirms a write to the table that field saves to. A field that is no longer on the page does not count
- * (its edit was either saved, or the page was left on purpose). Loading saved text into a field is not an edit.
+ * Every edit to a text field, select, checkbox or rich-text area gets a revision number. An edit is cleared ONLY by the save of the editor
+ * it belongs to, and only if that save carried the same revision:
+ *   const done = beginSave('note:12');   // snapshot the revisions of every field of that editor
+ *   await write(...);                    // the persistence call
+ *   done();                              // runs only if the write succeeded: clears the snapshot revisions, nothing newer
+ * Typing again while the write is in flight gives the field a newer revision, so it stays unsaved. A failed write never calls done().
+ * Another editor's save, or an unrelated write to the same table, cannot clear anything (there is no table-wide acknowledgement).
  *
- * A field says where it saves with data-saves="notes" (or "journal" ...). Without it, any confirmed write to the person's own data
- * clears it, which errs on the side of calling something saved only when something was.
+ * A field says which editor it belongs to with data-editor="kind:id" on itself or an ancestor. A field with no editor is never cleared by a
+ * save elsewhere: it stops counting when it is emptied or leaves the page (a form that clears itself after submitting, or navigation).
  */
-const edits = new Map<Element, { at: number; table: string }>();
-let tick = 0;
+const edits = new Map<Element, number>();
+let revision = 0;
 
 const editable = (el: Element | null): el is HTMLElement => {
   if (!el || !(el instanceof HTMLElement)) return false;
@@ -22,10 +26,17 @@ const editable = (el: Element | null): el is HTMLElement => {
 
 const onEdit = (e: Event) => {
   const el = e.target as Element | null;
-  if (!editable(el)) return;
-  const table = (el.closest('[data-saves]') as HTMLElement | null)?.dataset.saves ?? '*';
-  edits.set(el, { at: ++tick, table });
+  if (editable(el)) edits.set(el, ++revision);
 };
+
+export const editorOf = (el: Element): string | null => (el.closest('[data-editor]') as HTMLElement | null)?.dataset.editor ?? null;
+
+/** Start saving the editor `id`: remember which edits this save carries. Call the returned function after the write has succeeded. */
+export function beginSave(id: string, root: ParentNode = document): () => void {
+  const carried = new Map<Element, number>();
+  for (const [el, rev] of edits) if (root.contains(el) && editorOf(el) === id) carried.set(el, rev);
+  return () => { for (const [el, rev] of carried) if (edits.get(el) === rev) edits.delete(el); };
+}
 
 let started = false;
 export function initDirtyTracking(doc: Document = document) {
@@ -34,13 +45,7 @@ export function initDirtyTracking(doc: Document = document) {
   doc.addEventListener('input', onEdit, true);
   doc.addEventListener('change', onEdit, true);
   // a read-only view for the browser tests (e2e/updatesafety.mjs)
-  try { (globalThis as any).__sbDirty = { isDirty: () => isDirty(), noteSaved }; } catch { /* none */ }
-}
-
-/** the database confirmed a write to `table` */
-export function noteSaved(table: string) {
-  const at = ++tick;
-  for (const [el, e] of edits) if (e.at < at && (e.table === '*' || e.table === table)) edits.delete(el);
+  try { (globalThis as any).__sbDirty = { isDirty: () => isDirty(), beginSave, dirtyEditors: () => [...new Set(dirtyFields().map((e) => editorOf(e) ?? '(no editor)'))] }; } catch { /* none */ }
 }
 
 /** fields with an edit that has not been saved, and that are still on the page */
@@ -55,4 +60,4 @@ export function dirtyFields(): Element[] {
 export const isDirty = () => dirtyFields().length > 0;
 
 /** for tests */
-export function resetDirty() { edits.clear(); tick = 0; started = false; }
+export function resetDirty() { edits.clear(); revision = 0; started = false; }

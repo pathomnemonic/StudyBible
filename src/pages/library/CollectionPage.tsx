@@ -1,3 +1,4 @@
+import { beginSave } from '../../lib/dirty';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { parseTags, planDaysFromCollection } from '../../lib/collectionsView';
@@ -33,7 +34,8 @@ export default function CollectionPage() {
   const key = c ? JSON.stringify(c.items) : '';
   useEffect(() => { let live = true; if (c && ed) resolveAll(c, ed).then((r) => live && setItems(r)); return () => { live = false; }; }, [key, ed?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const save = async (patch: Partial<Collection>) => { if (c) await db.collections.put({ ...c, ...patch, updatedAt: Date.now() }); };
+  /** `field` names which input this patch comes from, so only that input is acknowledged once the write has landed */
+  const save = async (patch: Partial<Collection>, field?: string) => { if (!c) return; const saved = field ? beginSave(`collection:${c.id}:${field}`) : null; await db.collections.put({ ...c, ...patch, updatedAt: Date.now() }); saved?.(); };
   const add = async (t: Target) => {
     if (!c) return;
     const dup = c.items.some((x) => JSON.stringify(x) === JSON.stringify(t));
@@ -61,8 +63,10 @@ export default function CollectionPage() {
   };
   const addQuestion = async () => {
     if (!qText.trim()) return;
+    const saved = beginSave('collection-question');
     const noteId = await db.notes.add({ kind: qKind, title: '', body: qText.trim(), targets: [], tags: [], chapterKeys: [], createdAt: Date.now(), updatedAt: Date.now() } as never) as number;
     await add({ type: 'note', uid: await uidOf('notes', noteId) });
+    saved();
     setQText('');
   };
   const isDone = (i: number) => (c.done ?? []).includes(JSON.stringify(c.items[i]));
@@ -77,9 +81,9 @@ export default function CollectionPage() {
   return (
     <div className="page collection-page">
       <p className="small"><Link to="/library?tab=collections">← Collections</Link></p>
-      <h1><input aria-label="Collection name" className="cp-name" value={c.name} onChange={(e) => void save({ name: e.target.value })} /></h1>
-      <textarea data-saves="collections" aria-label="What this collection is for" className="cp-desc" rows={2} placeholder="What is this collection for? (optional)" value={c.description ?? ''} onChange={(e) => void save({ description: e.target.value })} />
-      <input aria-label="Tags for this collection" className="cp-tags" type="text" placeholder="Tags, separated by commas (optional), e.g. prayer, Lent" defaultValue={(c.tags ?? []).join(', ')} onBlur={(e) => void save({ tags: parseTags(e.target.value) })} style={{ width: '100%', margin: '6px 0' }} />
+      <h1><input data-editor={`collection:${c.id}:name`} aria-label="Collection name" className="cp-name" value={c.name} onChange={(e) => void save({ name: e.target.value }, 'name')} /></h1>
+      <textarea data-editor={`collection:${c.id}:description`} aria-label="What this collection is for" className="cp-desc" rows={2} placeholder="What is this collection for? (optional)" value={c.description ?? ''} onChange={(e) => void save({ description: e.target.value }, 'description')} />
+      <input data-editor={`collection:${c.id}:tags`} aria-label="Tags for this collection" className="cp-tags" type="text" placeholder="Tags, separated by commas (optional), e.g. prayer, Lent" defaultValue={(c.tags ?? []).join(', ')} onBlur={(e) => void save({ tags: parseTags(e.target.value) }, 'tags')} style={{ width: '100%', margin: '6px 0' }} />
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', margin: '8px 0 14px' }}>
         <button className="btn" onClick={exportMd} disabled={!items.length}>Export as Markdown</button>
         <button className="btn" onClick={exportHtml} disabled={!items.length} title="One self-contained page you can email or keep on a USB stick; it opens in any browser with no connection">Save as a web page (HTML)</button>
@@ -143,7 +147,7 @@ export default function CollectionPage() {
           </label>
           <label>A new question or reflection
             <select value={qKind} onChange={(e) => setQKind(e.target.value as 'question' | 'note')} aria-label="Question or reflection"><option value="question">Question</option><option value="note">Reflection</option></select>
-            <textarea data-saves="notes" rows={2} value={qText} onChange={(e) => setQText(e.target.value)} placeholder="Write it here; it is saved as one of your notes and listed here." />
+            <textarea data-editor="collection-question" rows={2} value={qText} onChange={(e) => setQText(e.target.value)} placeholder="Write it here; it is saved as one of your notes and listed here." />
             <button className="btn small" onClick={() => void addQuestion()}>Add</button>
           </label>
         </div>

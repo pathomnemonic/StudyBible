@@ -1,3 +1,4 @@
+import { beginSave } from '../lib/dirty';
 import { useRef, useState } from 'react';
 import { useToast } from './Toast';
 import Modal from './Modal';
@@ -88,8 +89,10 @@ export default function NoteEditor({
     setAddRef('');
   };
 
+  const editorId = `note:${note?.id ?? 'new'}`;
   const save = async () => {
     if (!body.trim() && !title.trim()) return onClose();
+    const saved = beginSave(editorId); // only this editor's own typing is acknowledged, and only what this save carries
     const id = await saveNote({
       id: note?.id,
       title: title.trim() || undefined,
@@ -101,6 +104,7 @@ export default function NoteEditor({
       originEdition: note?.originEdition ?? originEdition,
       revisitAt: revisit,
     } as any);
+    saved();
     if (!note?.id) { try { if (!localStorage.getItem('sb:backupNudge')) { localStorage.setItem('sb:backupNudge', '1'); toast('Saved on this device. Keep a copy any time in Settings → Export.'); } } catch { /* private mode */ } }
     onClose(id);
   };
@@ -114,6 +118,7 @@ export default function NoteEditor({
 
   return (
     <Modal title={note ? 'Edit note' : k === 'question' ? 'New question' : 'New note'} onClose={() => onClose()}>
+      <div data-editor={editorId} style={{ display: 'contents' }}>
       <div className="row" style={{ marginBottom: 8 }}>
         {(['note', 'question', 'study', 'prayer'] as NoteKind[]).map((x) => (
           <button key={x} className={`chip${k === x ? ' sel' : ''}`} onClick={() => setK(x)}>
@@ -121,7 +126,7 @@ export default function NoteEditor({
           </button>
         ))}
       </div>
-      <input data-saves="notes" type="text" placeholder="Title (optional)" value={title} onChange={(e) => setTitle(e.target.value)} style={{ width: '100%', marginBottom: 8 }} />
+      <input type="text" placeholder="Title (optional)" value={title} onChange={(e) => setTitle(e.target.value)} style={{ width: '100%', marginBottom: 8 }} />
       <div className="chips" style={{ marginBottom: 8 }}>
         {targets.map((t, i) => (
           <span key={i} className="chip">
@@ -133,7 +138,7 @@ export default function NoteEditor({
         ))}
       </div>
       <div className="row" style={{ marginBottom: 8 }}>
-        <input data-saves="notes" type="text" placeholder="Connect another passage, e.g. 1 Cor 11:23-26" value={addRef} onChange={(e) => setAddRef(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && addPassage()} style={{ flex: 1 }} aria-label="Connect another passage" />
+        <input type="text" placeholder="Connect another passage, e.g. 1 Cor 11:23-26" value={addRef} onChange={(e) => setAddRef(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && addPassage()} style={{ flex: 1 }} aria-label="Connect another passage" />
         <button className="btn small" onClick={addPassage}>
           Add
         </button>
@@ -151,7 +156,7 @@ export default function NoteEditor({
           {TEMPLATES.map((t) => <button type="button" key={t.name} className="btn small" onClick={() => setBody(t.text)}>{t.name}</button>)}
         </div>
       )}
-      {preview ? <div className="md card" dangerouslySetInnerHTML={{ __html: renderMarkdown(body) }} /> : <textarea data-saves="notes" ref={area} value={body} onChange={(e) => { setBody(e.target.value); setCaret(e.target.selectionStart); }} onKeyUp={(e) => setCaret(e.currentTarget.selectionStart)} onClick={(e) => setCaret(e.currentTarget.selectionStart)} autoFocus aria-label="Note text" />}
+      {preview ? <div className="md card" dangerouslySetInnerHTML={{ __html: renderMarkdown(body) }} /> : <textarea ref={area} value={body} onChange={(e) => { setBody(e.target.value); setCaret(e.target.selectionStart); }} onKeyUp={(e) => setCaret(e.currentTarget.selectionStart)} onClick={(e) => setCaret(e.currentTarget.selectionStart)} autoFocus aria-label="Note text" />}
       {open && (
         <div className="row note-link-picks" style={{ gap: 6, flexWrap: 'wrap', margin: '6px 0' }} role="listbox" aria-label="Notes you can link to">
           {picks.length ? picks.map((n) => <button type="button" role="option" aria-selected="false" key={n.id} className="btn small" onClick={() => pick(n.title!)}>{n.title}</button>) : <span className="muted small">No note of yours has a title like that yet. Finish the brackets to link to it later.</span>}
@@ -166,7 +171,7 @@ export default function NoteEditor({
       ) : null}
       {!preview && <p className="muted small">Link to another of your notes by writing its title in double square brackets, like [[Bread of life]]; start typing [[ and your notes are suggested. Markdown works too.</p>}
       <div className="row" style={{ marginTop: 8 }}>
-        <input data-saves="notes" type="text" placeholder="Tags, comma separated" value={tags} onChange={(e) => setTags(e.target.value)} style={{ flex: 1 }} aria-label="Tags" />
+        <input type="text" placeholder="Tags, comma separated" value={tags} onChange={(e) => setTags(e.target.value)} style={{ flex: 1 }} aria-label="Tags" />
         <select value={folderId ?? ''} onChange={(e) => setFolderId(e.target.value ? +e.target.value : undefined)} aria-label="Folder">
           <option value="">No folder</option>
           {folders.map((f) => (
@@ -199,6 +204,7 @@ export default function NoteEditor({
           </button>
         </div>
       </div>
+    </div>
     </Modal>
   );
 }

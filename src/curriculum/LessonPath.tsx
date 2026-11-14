@@ -92,7 +92,7 @@ export default function LessonPath(p: Props) {
       <p className="cur-idea">{lesson.question}</p>
       {lesson.talk && lesson.talk.length > 0 && <ul className="lp-talk">{lesson.talk.map((t) => <li key={t}>{t}</li>)}</ul>}
       <label className="small no-print">{younger ? 'Draw or write something (kept on this device)' : 'Your thoughts (kept on this device)'}
-        <textarea value={p.note} onChange={(e) => p.onNote(e.target.value)} rows={3} style={{ width: '100%' }} />
+        <textarea data-no-dirty value={p.note} onChange={(e) => p.onNote(e.target.value)} rows={3} style={{ width: '100%' }} />
       </label>
     </>
   );

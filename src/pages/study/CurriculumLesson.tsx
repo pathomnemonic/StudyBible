@@ -400,7 +400,7 @@ export default function CurriculumLesson() {
         <p className="cur-idea">{lesson.question}</p>
         {lesson.talk && lesson.talk.length > 0 && <ul>{lesson.talk.map((t) => <li key={t}>{t}</li>)}</ul>}
         <label className="small no-print">Your thoughts (kept on this device)
-          <textarea value={note} onChange={(e) => { setNote(e.target.value); try { localStorage.setItem(`sb:cur:note:${lessonId}`, e.target.value); } catch { /* private mode */ } }} rows={3} style={{ width: '100%' }} />
+          <textarea data-no-dirty value={note} onChange={(e) => { setNote(e.target.value); try { localStorage.setItem(`sb:cur:note:${lessonId}`, e.target.value); } catch { /* private mode */ } }} rows={3} style={{ width: '100%' }} />
         </label>
         <div className="print-only-lines" aria-hidden="true" />
       </section>

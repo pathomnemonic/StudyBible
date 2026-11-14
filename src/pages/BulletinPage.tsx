@@ -39,7 +39,7 @@ export default function BulletinPage() {
   ].filter((x, i, a) => x !== '' || a[i - 1] !== '').join('\n').trim();
   const set = (k: keyof Parish, v: string) => setParish((p) => ({ ...p, [k]: v }));
   return (
-    <div className="page bulletin">
+    <div className="page bulletin" data-no-dirty>
       <div className="row between no-print"><h1>Parish bulletin helper</h1><div className="row" style={{ gap: 8 }}><input type="date" value={date} aria-label="Pick a Sunday" onChange={(e) => e.target.value && setSp({ d: e.target.value }, { replace: true })} /><PrintButton label="Print" className="btn small primary" /></div></div>
       <details className="no-print card" open={!parish.name}><summary><strong>Your parish</strong> <span className="muted small">(kept on this device)</span></summary>
         <label className="field"><span>Parish name</span><input value={parish.name} onChange={(e) => set('name', e.target.value)} /></label>
