@@ -152,11 +152,12 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     });
     a.addEventListener('loadedmetadata', () => setDuration(a.duration || 0));
     // a stream that cannot load is said out loud, with a way to try again; it clears the moment sound is flowing
-    a.addEventListener('playing', () => setError(null));
-    a.addEventListener('loadeddata', () => setError(null));
-    a.addEventListener('play', () => { lastT = a.currentTime; setPlaying(true); });
+    a.addEventListener('playing', () => { if (!a.paused) setError(null); });
+    a.addEventListener('loadeddata', () => { if (!a.error) setError(null); });
+    a.addEventListener('play', () => { if (!a.paused) { lastT = a.currentTime; setPlaying(true); } });
     a.addEventListener('seeking', () => { lastT = -1; });
     a.addEventListener('pause', () => {
+      if (!a.paused) return; // a pause event queued for the previous source must not pause the new one
       setPlaying(false);
       if ((a as any)._switchPause) { (a as any)._switchPause = false; return; }
       save();
