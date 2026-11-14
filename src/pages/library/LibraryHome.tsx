@@ -327,6 +327,20 @@ function DataHealth() {
   );
 }
 
+/** export only the notes that carry one tag, with their Scripture references kept */
+function NotesByTag() {
+  const notes = useLiveQuery(() => db.notes.toArray(), []) ?? [];
+  const tags = [...new Set(notes.flatMap((n) => n.tags))].sort();
+  const [t, setT] = useState('');
+  if (!tags.length) return null;
+  return (
+    <span className="row" style={{ gap: 6 }}>
+      <select aria-label="Export only notes with this tag" value={t} onChange={(e) => setT(e.target.value)}><option value="">Only notes tagged…</option>{tags.map((x) => <option key={x} value={x}>#{x}</option>)}</select>
+      <button className="btn" disabled={!t} onClick={async () => download(`studybible-notes-${t}.md`, await exportNotesMarkdown({ tag: t }), 'text/markdown')}>Export these (Markdown)</button>
+    </span>
+  );
+}
+
 function ExportTab() {
   const [msg, setMsg] = useState('');
   const [pending, setPending] = useState<{ text: string; counts: Record<string, number>; at?: string } | null>(null);
@@ -353,6 +367,7 @@ function ExportTab() {
           <button className="btn" onClick={async () => { const ex = await import('../../db/exporters'); const bytes = await ex.notesEpub(); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([bytes as BlobPart], { type: 'application/epub+zip' })); a.download = 'studybible-notes.epub'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }}>Notes (e-book, EPUB)</button>
           <button className="btn" onClick={async () => { const ex = await import('../../db/exporters'); const bytes = await ex.studyVault(); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([bytes as BlobPart], { type: 'application/zip' })); a.download = 'studybible-vault.zip'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }}>Study vault (Markdown files, for Obsidian)</button>
           <button className="btn" onClick={async () => download('studybible-notes.md', await exportNotesMarkdown(), 'text/markdown')}>Notes (Markdown)</button>
+          <NotesByTag />
           <button className="btn" onClick={async () => download('studybible-marks.csv', await exportMarks('csv'), 'text/csv')}>Highlights and bookmarks (CSV)</button>
           <button className="btn" onClick={async () => download('studybible-marks.md', await exportMarks('md'), 'text/markdown')}>Highlights and bookmarks (Markdown)</button>
         </div>

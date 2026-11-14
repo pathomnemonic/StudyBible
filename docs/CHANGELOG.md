@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Export: export only the notes carrying one tag.
 - Review: notes you chose to come back to can be marked Reviewed, moved to next week or added to a collection.
 - Problem reports: one shared helper adds the build, the screen (no query text) and the connection state, never anything private; used by study items and the About page.
 - Glossary: a letter row to jump to the first term under each letter.

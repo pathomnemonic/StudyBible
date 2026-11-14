@@ -199,8 +199,9 @@ export async function deleteAllData() {
 }
 
 /** Notes → one Markdown document, grouped by passage, for use in any notes app. */
-export async function exportNotesMarkdown(): Promise<string> {
-  const notes = await db.notes.orderBy('updatedAt').reverse().toArray();
+/** `only` narrows the export to notes carrying that tag; with no `only`, every note is exported */
+export async function exportNotesMarkdown(only?: { tag?: string }): Promise<string> {
+  const notes = (await db.notes.orderBy('updatedAt').reverse().toArray()).filter((n) => !only?.tag || n.tags.includes(only.tag));
   const lines = [`# My ${BRAND.name} notes`, '', `_Exported ${new Date().toISOString().slice(0, 10)}_`, ''];
   for (const n of notes) {
     const where = n.targets
