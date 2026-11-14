@@ -10,6 +10,7 @@ import type { BookData } from '../lib/types';
 import { adjacentBook, getBook, BOOK_BY_ID } from '../lib/canon';
 import { formatRef, parseRefId, refId, type Ref } from '../lib/refs';
 import { readerPath } from '../lib/nav';
+import { measureTopVerse, scrolledIntoChapter } from '../lib/readerPosition';
 import { anchorChaptersFor, chapterAlignmentNote, bookAlignmentNote, psalmDualLabel, toAnchor } from '../lib/versification';
 import { anchorChapterText, anchorToNative, chapterTitle, flattenChapter, nativeToAnchorRef, type AnchorText } from '../lib/bibleText';
 import { useSettings } from '../lib/store';
@@ -484,18 +485,23 @@ export default function ReadPage() {
     const target = get(id);
     if (!target) return;
     let ref: Ref;
+    let topN: number | null = null;
     // a verse the address names (?v=, shown highlighted for a few seconds after arriving) is the reader's place too: switching again must keep it
     const arrived = !selRefs.length && vParam ? /^(\d+)(?:-(\d+))?$/.exec(vParam) : null;
     const arrivedRef = arrived ? nativeToAnchorRef(edition, bk.id, chNum, +arrived[1], arrived[2] ? +arrived[2] : +arrived[1]).ref : null;
     if (selRefs.length) ref = selRefs[0];
     else if (arrivedRef) ref = arrivedRef;
-    else {
+    else if (!parallelMode && scrolledIntoChapter(window.scrollY) && (topN = measureTopVerse()) != null && anchorOf.get(topN)) {
+      // nothing selected, but the reader has scrolled into the chapter: keep the verse at the top of the screen
+      const a = anchorOf.get(topN)!;
+      ref = { book: bk.id, c1: a.c, v1: a.v1, c2: a.c, v2: a.v1 };
+    } else {
       const first = flat[0] ? anchorOf.get(flat[0].n)! : { c: primaryAnchorChapter, v1: 1 };
       ref = { book: bk.id, c1: first.c, v1: first.v1, c2: first.c, v2: first.v1 };
     }
     const t = anchorToNative(target, { ...ref, c2: ref.c1, v2: ref.v1 });
     const ch = t.chapter; // never clamped to "the nearest chapter": a chapter the other translation lacks gets the reader's own explicit state
-    const v = selRefs.length || arrivedRef ? anchorToNative(target, ref) : null;
+    const v = selRefs.length || arrivedRef || topN != null ? anchorToNative(target, ref) : null;
     nav(`/read/${id}/${bk.id}/${ch}${parallelId && parallelId !== id ? `?p=${parallelId}` : ''}${v?.v1 ? `${parallelId && parallelId !== id ? '&' : '?'}v=${v.v1}${v.v2 && v.v2 !== v.v1 ? '-' + v.v2 : ''}` : ''}`, { state: loc.state }); // same passage in another translation: the way back stays
     setSettings({ defaultEdition: id });
     setEditionPicker(false);
