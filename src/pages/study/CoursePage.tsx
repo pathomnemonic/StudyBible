@@ -2,18 +2,12 @@ import { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ReadingBlock from '../../components/ReadingBlock';
 import { COURSE } from '../../data/course';
-import { convertRef } from '../../lib/versification';
-import { parseRefs, type Ref } from '../../lib/refs';
+import { toRefs } from '../../pray/refs';
 
 const KEY = 'sb:course';
 type Prog = Record<string, number>;
 const load = (): Prog => { try { return JSON.parse(localStorage.getItem(KEY) ?? '{}'); } catch { return {}; } };
 const save = (p: Prog) => { try { localStorage.setItem(KEY, JSON.stringify(p)); } catch { /* storage unavailable */ } };
-const toRefs = (s: string): Ref[] => {
-  const p = parseRefs(s);
-  return p.ok ? p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref).ref) : [];
-};
-
 export default function CoursePage() {
   const { id } = useParams();
   const [prog, setProg] = useState(load);
