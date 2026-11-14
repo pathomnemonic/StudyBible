@@ -21,7 +21,7 @@ export interface FurtherLink {
 /** A passage the lesson names that cannot be opened in the chosen edition, and why. Shown as text, never hidden. */
 export interface FurtherUnavailable { label: string; reason: string }
 /** The edition the lesson's own numbering is checked against, and the one the reader link opens in. */
-export interface RefContext { source: CountsEdition; target: CountsEdition; /** an edition in the Vulgate (anchor) numbering, used to confirm a passage that only that tradition numbers */ anchor?: CountsEdition | null }
+export interface RefContext { source: CountsEdition; target: CountsEdition; /** an edition in the Vulgate (anchor) numbering, used to confirm a passage that only that tradition numbers */ anchor: CountsEdition }
 
 /** What exists in the app. The page and the report script each fill this from the same data files. */
 export interface Known {
