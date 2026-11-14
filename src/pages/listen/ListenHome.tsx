@@ -62,6 +62,7 @@ function BiayListen() {
   const wantIds = (view === 'queue' ? queue.map((x) => x.episodeId) : view === 'progress' ? progress.filter((p) => p.completed || p.position > 0).map((p) => p.episodeId) : []).join(',');
   useEffect(() => { let live = true; void Promise.all(wantIds.split(',').filter(Boolean).map(async (id) => [id, await resolveEpisode(id)] as const)).then((r) => live && setOther(Object.fromEntries(r.filter((x): x is [string, BiayEpisode] => !!x[1])))); return () => { live = false; }; }, [wantIds]);
   const doneMap = useMemo(() => new Map(progress.map((p) => [p.episodeId, p])), [progress]);
+  const refSearchUnverified = useMemo(() => { const parsed = parseRefs(q.trim()); return parsed.ok && parsed.refs.some(({ ref }) => !convertRef('kjv', 'vulgate', ref).exact); }, [q]);
 
   const epsFor = useMemo(() => {
     if (!biay) return [] as BiayEpisode[];
@@ -84,7 +85,9 @@ function BiayListen() {
     const pr = parseRefs(s);
     if (pr.ok) {
       // typed passages are read in modern numbering, as the show uses
-      const anchors = pr.refs.map(({ ref }) => convertRef('kjv', 'vulgate', ref).ref);
+      const converted = pr.refs.map(({ ref }) => convertRef('kjv', 'vulgate', ref));
+      if (converted.some((r) => !r.exact)) return []; // do not search by a guessed anchor address
+      const anchors = converted.map((r) => r.ref);
       return epsFor.filter((e) => e.passages.some((p) => { const r = parseRefId(p); return r && anchors.some((a) => refsOverlap(a, r)); }));
     }
     const f = fold(s);
@@ -150,6 +153,7 @@ function BiayListen() {
           </select></label>
         </FilterBar>
       )}
+      {refSearchUnverified && (view === 'plan' || view === 'extras') && <p className="muted small" role="note">This passage cannot be matched to the episode list with verified numbering, so no results are shown rather than guessing.</p>}
       {bulk && (
         <section className="card catchup" aria-label="Catch up">
           <label className="row small" style={{ gap: 8 }}>Finished through day
