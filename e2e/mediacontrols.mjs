@@ -94,7 +94,30 @@ if (!/could not be played/.test(await p.locator('.player-msg').innerText())) fai
 mode = 'ok';
 await p.locator('.player-msg button:has-text("Try again")').click();
 await p.waitForFunction(() => !document.querySelector('.player-msg') && !window.__a.paused, null, { timeout: 15000 }).catch(() => fail('Try again should recover once the stream is back'));
-// 9. offline: an offline notice rather than a dead player
+// 9. switching from a local meditation file to a remote Bible-in-a-Year episode flushes the old episode's final position first
+await mode === 'ok';
+await p.locator('.player button[aria-label^="Stop and close"]').click().catch(() => {});
+await startMeditate();
+await p.waitForFunction(() => window.__a && window.__a.src.includes('/audio/'));
+const local = await p.evaluate(() => ({ id: window.__a._ep?.id, src: window.__a.src }));
+if (!local.id?.startsWith('med:')) fail('the first source should be a local meditation track: ' + JSON.stringify(local));
+await p.evaluate(() => { const a = window.__a; a.currentTime = 40; a.dispatchEvent(new Event('timeupdate')); });
+await p.goto(`${BASE}/#/listen?tab=now`);
+await p.waitForSelector('.ep-acts button[aria-label^="Play "]');
+await p.locator('.ep-acts button[aria-label^="Play "]').first().click();
+await p.waitForFunction((old) => window.__a?._ep?.id && window.__a._ep.id !== old, local.id);
+const remote = await p.evaluate(() => ({ id: window.__a._ep?.id, src: window.__a.src }));
+if (!remote.id || remote.id.startsWith('med:') || remote.src === local.src) fail('the new source should be a different BIAY episode: ' + JSON.stringify({ local, remote }));
+const savedPosition = await p.evaluate(async (id) => {
+  const request = indexedDB.open('studybible');
+  const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
+  const tx = db.transaction('episodeProgress', 'readonly');
+  const req = tx.objectStore('episodeProgress').get(id);
+  const row = await new Promise((resolve, reject) => { req.onsuccess = () => resolve(req.result); req.onerror = () => reject(req.error); });
+  db.close(); return row?.position;
+}, local.id);
+if (Math.abs((savedPosition ?? 0) - 40) > 2) fail('the local episode position should be saved before switching: ' + savedPosition);
+// 10. offline: an offline notice rather than a dead player
 mode = 'fail'; await p.locator('.player button[aria-label^="Stop and close"]').click();
 await ctx.setOffline(true);
 await p.locator('.med-list .icon-btn').first().click().catch(async () => { await p.goto(`${BASE}/#/listen?tab=meditate`).catch(() => {}); });
