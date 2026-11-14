@@ -3,7 +3,7 @@
 ## Third cycle
 - Accounts and sync finished behind a switch that is off in every normal build (two-factor sign-in, invites, reset codes, lock-out, profile, security log); see docs/ACCOUNTS_ROLLOUT.md.
 - Modern Catholic voices: short credited quotations from four modern apologetics books, linked to the questions they relate to (kept short because the books are in copyright).
-- Profiles: 40 saints with sourced facts (drafted by one agent, checked by a second which corrected 21 of them).
+- Profiles: 40 saints, 45 people of Scripture and 42 places with sourced facts (each drafted by one agent and checked by a second, which corrected 21, 28 and all 42).
 - Collection templates: Prayers in Scripture and Psalms for a hard day (a test checks every template passage is real).
 - Ask the sources: suggests existing guided walks (Argument Map questions) that match the words of the question.
 - Export: export only the notes carrying one tag.

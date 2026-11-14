@@ -1684,6 +1684,4735 @@
      "confidence": "certain"
     }
    ]
+  },
+  {
+   "id": "adam",
+   "kind": "person",
+   "name": "Adam",
+   "passages": [
+    "GEN.2.4-25",
+    "GEN.3.1-24",
+    "GEN.4.1-2",
+    "GEN.5.1-5"
+   ],
+   "related": [
+    {
+     "id": "eve",
+     "relation": "husband of",
+     "source": {
+      "label": "Genesis 3:20; 4:1",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "God formed the first man from the dust of the ground, breathed life into him, and placed him in a garden in Eden.",
+     "source": {
+      "label": "Genesis 2:7-8",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Adam ate the fruit God had forbidden, and he was then sent out of the garden.",
+     "source": {
+      "label": "Genesis 2:16-17; 3:6; 3:23-24",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Adam and Eve were the parents of Cain, Abel and Seth.",
+     "source": {
+      "label": "Genesis 4:1-2; 4:25",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Genesis records that Adam lived 930 years and then died.",
+     "source": {
+      "label": "Genesis 5:5",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "eve",
+   "kind": "person",
+   "name": "Eve",
+   "alternateNames": [
+    "Ḥawwāh"
+   ],
+   "passages": [
+    "GEN.2.18-25",
+    "GEN.3.1-24",
+    "GEN.4.1-2",
+    "GEN.4.25-26"
+   ],
+   "related": [
+    {
+     "id": "adam",
+     "relation": "wife of",
+     "source": {
+      "label": "Genesis 3:20; 4:1",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "God made the first woman from one of the man’s ribs and brought her to the man.",
+     "source": {
+      "label": "Genesis 2:21-22",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Adam named his wife Eve because she was to be the mother of all the living.",
+     "source": {
+      "label": "Genesis 3:20",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Eve bore Cain, and later Seth, whom she saw as a replacement for Abel.",
+     "source": {
+      "label": "Genesis 4:1; 4:25",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "noah",
+   "kind": "person",
+   "name": "Noah",
+   "alternateNames": [
+    "Noe"
+   ],
+   "passages": [
+    "GEN.6.9-22",
+    "GEN.7.1-24",
+    "GEN.8.15-22",
+    "GEN.9.1-17"
+   ],
+   "facts": [
+    {
+     "text": "Noah found favour with God and is described as a righteous man who walked with God.",
+     "source": {
+      "label": "Genesis 6:8-9",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "God told Noah to build an ark to save his family and pairs of every kind of animal from a coming flood.",
+     "source": {
+      "label": "Genesis 6:13-22",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "After the flood God made a covenant with Noah and every living creature, with the rainbow as its sign.",
+     "source": {
+      "label": "Genesis 9:8-17",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Noah had three sons, Shem, Ham and Japheth, and lived 950 years.",
+     "source": {
+      "label": "Genesis 6:10; 9:28-29",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "abraham",
+   "kind": "person",
+   "name": "Abraham",
+   "alternateNames": [
+    "Abram"
+   ],
+   "passages": [
+    "GEN.12.1-9",
+    "GEN.15.1-6",
+    "GEN.17.1-8",
+    "GEN.21.1-7",
+    "GEN.22.1-19"
+   ],
+   "related": [
+    {
+     "id": "sarah",
+     "relation": "husband of",
+     "source": {
+      "label": "Genesis 11:29",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "isaac",
+     "relation": "father of",
+     "source": {
+      "label": "Genesis 21:1-3",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "God called Abram to leave his homeland for a land he would be shown, with a promise of blessing for all the families of the earth.",
+     "source": {
+      "label": "Genesis 12:1-4",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "In a covenant with God, Abram’s name was changed to Abraham, meaning father of many nations.",
+     "source": {
+      "label": "Genesis 17:5",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Isaac was born to Abraham and Sarah in their old age, as God had promised.",
+     "source": {
+      "label": "Genesis 21:1-3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "God tested Abraham by asking him to offer Isaac; an angel stopped him, and God provided a ram instead.",
+     "source": {
+      "label": "Genesis 22:1-14",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "sarah",
+   "kind": "person",
+   "name": "Sarah",
+   "alternateNames": [
+    "Sarai"
+   ],
+   "passages": [
+    "GEN.11.27-32",
+    "GEN.17.15-22",
+    "GEN.18.1-15",
+    "GEN.21.1-7",
+    "GEN.23.1-20"
+   ],
+   "related": [
+    {
+     "id": "abraham",
+     "relation": "wife of",
+     "source": {
+      "label": "Genesis 11:29",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "isaac",
+     "relation": "mother of",
+     "source": {
+      "label": "Genesis 21:2-3",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Sarai was the wife of Abram. Genesis 20:12 adds that she was also his half-sister.",
+     "source": {
+      "label": "Genesis 11:29; 20:12",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "God changed her name from Sarai to Sarah and promised that she would bear a son.",
+     "source": {
+      "label": "Genesis 17:15-16",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Sarah bore Isaac when she was old, as promised.",
+     "source": {
+      "label": "Genesis 21:1-3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Sarah died at Kiriath-arba (Hebron), and Abraham buried her in the cave of Machpelah that he bought.",
+     "source": {
+      "label": "Genesis 23:1-20",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "isaac",
+   "kind": "person",
+   "name": "Isaac",
+   "alternateNames": [
+    "Yitzhak"
+   ],
+   "passages": [
+    "GEN.21.1-8",
+    "GEN.22.1-19",
+    "GEN.24.62-67",
+    "GEN.25.19-26",
+    "GEN.27.1-40"
+   ],
+   "related": [
+    {
+     "id": "abraham",
+     "relation": "son of",
+     "source": {
+      "label": "Genesis 21:2-3",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "sarah",
+     "relation": "son of",
+     "source": {
+      "label": "Genesis 21:2-3",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "rebekah",
+     "relation": "husband of",
+     "source": {
+      "label": "Genesis 24:67",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "jacob",
+     "relation": "father of",
+     "source": {
+      "label": "Genesis 25:26",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Isaac was the son promised to Abraham and Sarah.",
+     "source": {
+      "label": "Genesis 21:1-3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Isaac was the son Abraham was told to offer, and was spared when God provided a ram.",
+     "source": {
+      "label": "Genesis 22:1-14",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Isaac married Rebekah and was comforted after his mother’s death.",
+     "source": {
+      "label": "Genesis 24:67",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Isaac was the father of the twins Esau and Jacob.",
+     "source": {
+      "label": "Genesis 25:19-26",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "rebekah",
+   "kind": "person",
+   "name": "Rebekah",
+   "alternateNames": [
+    "Rebecca"
+   ],
+   "passages": [
+    "GEN.24.15-27",
+    "GEN.24.57-67",
+    "GEN.25.19-28",
+    "GEN.27.1-17"
+   ],
+   "related": [
+    {
+     "id": "isaac",
+     "relation": "wife of",
+     "source": {
+      "label": "Genesis 24:67",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "jacob",
+     "relation": "mother of",
+     "source": {
+      "label": "Genesis 25:24-26",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Rebekah, a relative of Abraham, drew water at a well and offered it to Abraham’s servant and his camels.",
+     "source": {
+      "label": "Genesis 24:15-20",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She agreed to leave her family and go with the servant to marry Isaac.",
+     "source": {
+      "label": "Genesis 24:57-58",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Rebekah gave birth to twin sons, Esau and Jacob.",
+     "source": {
+      "label": "Genesis 25:24-26",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She helped Jacob to receive the blessing of Isaac in place of Esau.",
+     "source": {
+      "label": "Genesis 27:5-17",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "jacob",
+   "kind": "person",
+   "name": "Jacob",
+   "alternateNames": [
+    "Israel"
+   ],
+   "passages": [
+    "GEN.25.24-34",
+    "GEN.28.10-22",
+    "GEN.32.22-32",
+    "GEN.35.9-15",
+    "GEN.49.28-32"
+   ],
+   "related": [
+    {
+     "id": "isaac",
+     "relation": "son of",
+     "source": {
+      "label": "Genesis 25:26",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "rebekah",
+     "relation": "son of",
+     "source": {
+      "label": "Genesis 25:24-26",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "joseph-son-of-jacob",
+     "relation": "father of",
+     "source": {
+      "label": "Genesis 30:22-24",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Jacob was the younger of Isaac’s twin sons and was born gripping his brother Esau’s heel.",
+     "source": {
+      "label": "Genesis 25:24-26",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "At Bethel Jacob dreamed of a stairway between earth and heaven, and God renewed the promise to him.",
+     "source": {
+      "label": "Genesis 28:10-17",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "After wrestling through the night, Jacob was given the new name Israel.",
+     "source": {
+      "label": "Genesis 32:24-28",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Jacob had twelve sons, listed in Genesis 35:22-26, and he died and was gathered to his people.",
+     "source": {
+      "label": "Genesis 35:22-26; 49:33",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "joseph-son-of-jacob",
+   "kind": "person",
+   "name": "Joseph, son of Jacob",
+   "passages": [
+    "GEN.37.1-36",
+    "GEN.39.1-23",
+    "GEN.41.37-46",
+    "GEN.45.1-15",
+    "GEN.50.15-21"
+   ],
+   "related": [
+    {
+     "id": "jacob",
+     "relation": "son of",
+     "source": {
+      "label": "Genesis 30:22-24; 37:3",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Joseph was born to Jacob and Rachel; she named him Joseph.",
+     "source": {
+      "label": "Genesis 30:22-24",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "His brothers sold him to traders who took him to Egypt.",
+     "source": {
+      "label": "Genesis 37:23-28",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Pharaoh put Joseph in charge of Egypt after he interpreted Pharaoh’s dreams.",
+     "source": {
+      "label": "Genesis 41:39-43",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Joseph told his brothers that God had sent him ahead of them to preserve life during the famine.",
+     "source": {
+      "label": "Genesis 45:4-8",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "moses",
+   "kind": "person",
+   "name": "Moses",
+   "alternateNames": [
+    "Moyses",
+    "Moshe"
+   ],
+   "passages": [
+    "EXO.2.1-10",
+    "EXO.3.1-15",
+    "EXO.14.15-31",
+    "EXO.20.1-21",
+    "DEU.34.1-12"
+   ],
+   "related": [
+    {
+     "id": "aaron",
+     "relation": "brother of",
+     "source": {
+      "label": "Exodus 4:14; 6:20",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "miriam",
+     "relation": "brother of",
+     "source": {
+      "label": "Numbers 26:59",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Moses was born to a Levite family, hidden in a basket by the Nile, and raised by Pharaoh’s daughter.",
+     "source": {
+      "label": "Exodus 2:1-10",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "God spoke to Moses from a burning bush and sent him to bring the Israelites out of Egypt.",
+     "source": {
+      "label": "Exodus 3:1-10",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "At Mount Sinai Moses received the Ten Commandments for the people.",
+     "source": {
+      "label": "Exodus 19:1-20:17",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "At Mount Sinai God spoke the Ten Commandments to the people and gave Moses the two stone tablets of the covenant.",
+     "source": {
+      "label": "Exodus 20:1-17; 31:18",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "aaron",
+   "kind": "person",
+   "name": "Aaron",
+   "alternateNames": [
+    "Aharon"
+   ],
+   "passages": [
+    "EXO.4.10-17",
+    "EXO.28.1-5",
+    "EXO.32.1-6",
+    "NUM.17.1-11",
+    "NUM.20.22-29"
+   ],
+   "related": [
+    {
+     "id": "moses",
+     "relation": "brother of",
+     "source": {
+      "label": "Exodus 4:14; 6:20",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "miriam",
+     "relation": "brother of",
+     "source": {
+      "label": "Numbers 26:59",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Aaron was Moses’ brother, and God said he would speak for Moses to the people.",
+     "source": {
+      "label": "Exodus 4:14-16",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "God chose Aaron and his sons to serve as priests, and they were consecrated.",
+     "source": {
+      "label": "Exodus 28:1; 29:1-9",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Aaron made a golden calf when the people grew impatient while Moses was on the mountain.",
+     "source": {
+      "label": "Exodus 32:1-6",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Aaron died on Mount Hor, and his son Eleazar took his priestly garments.",
+     "source": {
+      "label": "Numbers 20:22-29",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "miriam",
+   "kind": "person",
+   "name": "Miriam",
+   "alternateNames": [
+    "Mariam"
+   ],
+   "passages": [
+    "EXO.15.19-21",
+    "NUM.12.1-15",
+    "NUM.20.1",
+    "NUM.26.59",
+    "MIC.6.3-5"
+   ],
+   "related": [
+    {
+     "id": "moses",
+     "relation": "sister of",
+     "source": {
+      "label": "Numbers 26:59",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "aaron",
+     "relation": "sister of",
+     "source": {
+      "label": "Numbers 26:59",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Miriam was a sister of Moses and Aaron, children of Amram and Jochebed.",
+     "source": {
+      "label": "Numbers 26:59",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Miriam is called a prophetess; she led the women with tambourines in song after the crossing of the sea.",
+     "source": {
+      "label": "Exodus 15:20-21",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She spoke against Moses, was struck with a skin disease, and was healed after Moses prayed.",
+     "source": {
+      "label": "Numbers 12:1-15",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The unnamed sister who watched over the baby Moses is traditionally taken to be Miriam, but the text does not name her.",
+     "source": {
+      "label": "Exodus 2:4-8",
+      "kind": "scripture"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "joshua",
+   "kind": "person",
+   "name": "Joshua",
+   "alternateNames": [
+    "Josue",
+    "Hoshea"
+   ],
+   "passages": [
+    "EXO.17.8-16",
+    "NUM.27.15-23",
+    "JOS.1.1-9",
+    "JOS.6.1-21",
+    "JOS.24.14-29"
+   ],
+   "related": [
+    {
+     "id": "moses",
+     "relation": "successor of",
+     "source": {
+      "label": "Joshua 1:1-2; Numbers 27:18-23",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Hoshea son of Nun was renamed Joshua by Moses.",
+     "source": {
+      "label": "Numbers 13:16",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Moses laid his hands on Joshua at God’s command and commissioned him as leader.",
+     "source": {
+      "label": "Numbers 27:18-23",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Joshua led Israel in the capture of Jericho.",
+     "source": {
+      "label": "Joshua 6:1-21",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Joshua urged the people to serve the Lord, saying he and his household would do so, and he died aged 110.",
+     "source": {
+      "label": "Joshua 24:15, 24:29",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "ruth",
+   "kind": "person",
+   "name": "Ruth",
+   "passages": [
+    "RUT.1.1-18",
+    "RUT.2.1-23",
+    "RUT.4.9-17",
+    "MAT.1.1-6"
+   ],
+   "related": [
+    {
+     "id": "david",
+     "relation": "great-grandmother of",
+     "source": {
+      "label": "Ruth 4:17-22",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Ruth was a Moabite woman who stayed with her mother-in-law Naomi and pledged to follow her people and her God.",
+     "source": {
+      "label": "Ruth 1:4, 1:16-17",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She gathered grain in the field of Boaz, a relative of Naomi’s late husband.",
+     "source": {
+      "label": "Ruth 2:1-3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Ruth married Boaz and bore Obed, who became the grandfather of David.",
+     "source": {
+      "label": "Ruth 4:13-17",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Matthew lists Ruth in the ancestry of Jesus.",
+     "source": {
+      "label": "Matthew 1:5",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "samuel",
+   "kind": "person",
+   "name": "Samuel",
+   "passages": [
+    "1SA.1.19-28",
+    "1SA.3.1-21",
+    "1SA.9.15-10.1",
+    "1SA.16.1-13",
+    "1SA.25.1"
+   ],
+   "related": [
+    {
+     "id": "david",
+     "relation": "anointer of",
+     "source": {
+      "label": "1 Samuel 16:12-13",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Samuel was born to Hannah after she prayed for a child.",
+     "source": {
+      "label": "1 Samuel 1:19-20",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "As a boy ministering to the Lord before Eli, he heard the Lord call his name and answered.",
+     "source": {
+      "label": "1 Samuel 3:1-10",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Samuel anointed Saul, telling him the Lord sent him to anoint him king over Israel, and later anointed David.",
+     "source": {
+      "label": "1 Samuel 10:1; 15:1; 16:12-13",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Samuel died, and all Israel mourned him.",
+     "source": {
+      "label": "1 Samuel 25:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "david",
+   "kind": "person",
+   "name": "David",
+   "passages": [
+    "1SA.16.1-13",
+    "1SA.17.40-51",
+    "2SA.5.1-5",
+    "2SA.7.8-17",
+    "2SA.12.1-15"
+   ],
+   "related": [
+    {
+     "id": "samuel",
+     "relation": "anointed by",
+     "source": {
+      "label": "1 Samuel 16:12-13",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "solomon",
+     "relation": "father of",
+     "source": {
+      "label": "2 Samuel 12:24",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "David was the youngest son of Jesse of Bethlehem, and Samuel anointed him in the presence of his brothers.",
+     "source": {
+      "label": "1 Samuel 16:1; 16:11-13",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "David defeated the Philistine Goliath with a sling and a stone.",
+     "source": {
+      "label": "1 Samuel 17:4; 17:45-51",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Through the prophet Nathan, God promised that David’s house and throne would endure.",
+     "source": {
+      "label": "2 Samuel 7:8-16",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "David sinned against Uriah and Bathsheba, was rebuked by Nathan, and admitted, “I have sinned against the Lord.”",
+     "source": {
+      "label": "2 Samuel 12:1-13",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "solomon",
+   "kind": "person",
+   "name": "Solomon",
+   "alternateNames": [
+    "Salomon"
+   ],
+   "passages": [
+    "1KI.1.28-40",
+    "1KI.3.3-15",
+    "1KI.6.1-14",
+    "1KI.8.1-21",
+    "1KI.11.1-13"
+   ],
+   "related": [
+    {
+     "id": "david",
+     "relation": "son of",
+     "source": {
+      "label": "2 Samuel 12:24",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Solomon was a son of David and Bathsheba.",
+     "source": {
+      "label": "2 Samuel 12:24",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "David had Solomon anointed king at Gihon.",
+     "source": {
+      "label": "1 Kings 1:32-39",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "At Gibeon Solomon asked God for an understanding heart, and God granted him wisdom.",
+     "source": {
+      "label": "1 Kings 3:5-14",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Solomon built the temple for the Lord, but in later life his foreign wives turned his heart toward other gods.",
+     "source": {
+      "label": "1 Kings 6:1-2; 11:1-6",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "elijah",
+   "kind": "person",
+   "name": "Elijah",
+   "alternateNames": [
+    "Elias",
+    "Eliyahu"
+   ],
+   "passages": [
+    "1KI.17.1-16",
+    "1KI.18.20-40",
+    "1KI.19.9-18",
+    "2KI.2.1-12",
+    "MRK.9.2-8"
+   ],
+   "related": [
+    {
+     "id": "elisha",
+     "relation": "mentor of",
+     "source": {
+      "label": "1 Kings 19:19-21",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Elijah the Tishbite, from Gilead, told King Ahab that there would be no rain except at his word.",
+     "source": {
+      "label": "1 Kings 17:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "On Mount Carmel Elijah challenged the prophets of Baal, and fire from the Lord consumed his sacrifice.",
+     "source": {
+      "label": "1 Kings 18:20-39",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Elijah was taken up into heaven in a whirlwind.",
+     "source": {
+      "label": "2 Kings 2:11",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Malachi says Elijah will be sent before the day of the Lord, and Elijah appears with Moses at the Transfiguration.",
+     "source": {
+      "label": "Malachi 4:5; Mark 9:2-4",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "elisha",
+   "kind": "person",
+   "name": "Elisha",
+   "alternateNames": [
+    "Eliseus"
+   ],
+   "passages": [
+    "1KI.19.19-21",
+    "2KI.2.9-15",
+    "2KI.4.8-37",
+    "2KI.5.1-19"
+   ],
+   "related": [
+    {
+     "id": "elijah",
+     "relation": "successor of",
+     "source": {
+      "label": "2 Kings 2:9-15",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Elijah called Elisha, son of Shaphat, by throwing his cloak over him while he was ploughing.",
+     "source": {
+      "label": "1 Kings 19:19-21",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "After Elijah was taken up, Elisha took up his cloak and the prophets recognised that Elijah’s spirit rested on him.",
+     "source": {
+      "label": "2 Kings 2:9-15",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Elisha restored to life the son of the woman of Shunem.",
+     "source": {
+      "label": "2 Kings 4:8; 4:32-37",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He told the Syrian commander Naaman to wash in the Jordan, and Naaman was healed.",
+     "source": {
+      "label": "2 Kings 5:1-14",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "isaiah",
+   "kind": "person",
+   "name": "Isaiah",
+   "alternateNames": [
+    "Isaias",
+    "Yeshayahu"
+   ],
+   "passages": [
+    "ISA.1.1-4",
+    "ISA.6.1-13",
+    "ISA.7.1-17",
+    "2KI.19.1-7",
+    "2KI.20.1-11"
+   ],
+   "facts": [
+    {
+     "text": "Isaiah was the son of Amoz and received his visions in the reigns of Uzziah, Jotham, Ahaz and Hezekiah.",
+     "source": {
+      "label": "Isaiah 1:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "In a vision in the temple he saw the Lord enthroned, was cleansed, and answered, “Here I am, send me.”",
+     "source": {
+      "label": "Isaiah 6:1-8",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He gave King Ahaz a sign: a virgin would conceive and bear a son called Immanuel.",
+     "source": {
+      "label": "Isaiah 7:10-14",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "King Hezekiah sent messengers to Isaiah when Jerusalem was threatened, and Isaiah gave him a message of reassurance.",
+     "source": {
+      "label": "2 Kings 19:1-7",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "jeremiah",
+   "kind": "person",
+   "name": "Jeremiah",
+   "alternateNames": [
+    "Jeremias",
+    "Yirmeyahu"
+   ],
+   "passages": [
+    "JER.1.1-10",
+    "JER.20.1-9",
+    "JER.36.1-32",
+    "JER.38.1-13",
+    "JER.43.1-7"
+   ],
+   "facts": [
+    {
+     "text": "Jeremiah was a priest’s son from Anathoth whom God called as a prophet while he was still young.",
+     "source": {
+      "label": "Jeremiah 1:1-10",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The priest Pashhur had Jeremiah beaten and put in the stocks.",
+     "source": {
+      "label": "Jeremiah 20:1-2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Jeremiah dictated his messages to the scribe Baruch, who wrote them on a scroll.",
+     "source": {
+      "label": "Jeremiah 36:1-4",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Officials threw Jeremiah into a cistern, and Ebed-melech had him pulled out.",
+     "source": {
+      "label": "Jeremiah 38:6-13",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "ezekiel",
+   "kind": "person",
+   "name": "Ezekiel",
+   "alternateNames": [
+    "Ezechiel",
+    "Yechezkel"
+   ],
+   "passages": [
+    "EZK.1.1-3",
+    "EZK.2.1-9",
+    "EZK.3.16-21",
+    "EZK.24.15-24",
+    "EZK.37.1-14"
+   ],
+   "facts": [
+    {
+     "text": "Ezekiel was a priest, the son of Buzi, among the exiles by the Chebar canal in Babylonia when he saw visions of God.",
+     "source": {
+      "label": "Ezekiel 1:1-3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "God sent him to the rebellious people of Israel and had him eat a scroll of words.",
+     "source": {
+      "label": "Ezekiel 2:1-3:3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "God made Ezekiel a watchman responsible for warning the people.",
+     "source": {
+      "label": "Ezekiel 3:16-21",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "In a vision of dry bones that came to life, he was told God would restore Israel.",
+     "source": {
+      "label": "Ezekiel 37:1-14",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "daniel",
+   "kind": "person",
+   "name": "Daniel",
+   "passages": [
+    "DAN.1.1-21",
+    "DAN.2.24-49",
+    "DAN.5.13-31",
+    "DAN.6.1-24"
+   ],
+   "facts": [
+    {
+     "text": "Daniel was one of the young Judeans taken to Babylon and trained for the king’s service.",
+     "source": {
+      "label": "Daniel 1:3-6",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He interpreted Nebuchadnezzar’s dream and was given a high position in Babylon.",
+     "source": {
+      "label": "Daniel 2:46-49",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Daniel was thrown into a den of lions for praying to his God, and he was kept safe.",
+     "source": {
+      "label": "Daniel 6:10-23",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "esther",
+   "kind": "person",
+   "name": "Esther",
+   "alternateNames": [
+    "Hadassah"
+   ],
+   "passages": [
+    "EST.2.5-18",
+    "EST.4.9-17",
+    "EST.7.1-10"
+   ],
+   "facts": [
+    {
+     "text": "Esther was a Jewish orphan raised by her relative Mordecai.",
+     "source": {
+      "label": "Esther 2:5-7",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The king of Persia loved her and made her queen in place of Vashti.",
+     "source": {
+      "label": "Esther 2:17 (Douay-Rheims)",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Mordecai urged her to speak for her people; she asked the Jews of Susa to fast for her three days and said she would then go in to the king.",
+     "source": {
+      "label": "Esther 4:13-16",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She told the king of Haman’s plot against the Jews and named Haman as the enemy.",
+     "source": {
+      "label": "Esther 7:1-6",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "judith",
+   "kind": "person",
+   "name": "Judith",
+   "passages": [
+    "JDT.8.1-8",
+    "JDT.8.9-34",
+    "JDT.13.1-10",
+    "JDT.13.18-20",
+    "JDT.16.1-17"
+   ],
+   "facts": [
+    {
+     "text": "Judith was a wealthy and devout widow of Bethulia who lived by prayer and fasting.",
+     "source": {
+      "label": "Judith 8:1-8",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She struck off the head of Holofernes as he lay in his tent.",
+     "source": {
+      "label": "Judith 13:6-10",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Ozias (Uzziah) blessed her above all the women of the earth for what she had done.",
+     "source": {
+      "label": "Judith 13:18-20",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Some readers treat the book of Judith as history and others as a religious story with a teaching purpose.",
+     "source": {
+      "label": "Editorial note",
+      "kind": "editorial"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "tobit",
+   "kind": "person",
+   "name": "Tobit",
+   "alternateNames": [
+    "Tobias"
+   ],
+   "passages": [
+    "TOB.1.1-9",
+    "TOB.1.16-22",
+    "TOB.2.9-10",
+    "TOB.11.10-15",
+    "TOB.12.6-15"
+   ],
+   "facts": [
+    {
+     "text": "Tobit was of the tribe of Naphtali and was carried off into captivity by the Assyrians.",
+     "source": {
+      "label": "Tobit 1:1-2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He gave alms and buried the dead who had been left unburied.",
+     "source": {
+      "label": "Tobit 1:16-18",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He became blind when bird droppings fell into his eyes as he slept.",
+     "source": {
+      "label": "Tobit 2:9-10",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "His sight was restored when his son rubbed medicine on his eyes, and the companion Raphael later revealed himself as one of the seven holy angels.",
+     "source": {
+      "label": "Tobit 11:10-13; 12:15",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "job",
+   "kind": "person",
+   "name": "Job",
+   "passages": [
+    "JOB.1.1-22",
+    "JOB.2.1-10",
+    "JOB.38.1-7",
+    "JOB.42.7-16",
+    "JAS.5.10-11"
+   ],
+   "facts": [
+    {
+     "text": "Job lived in the land of Uz and is described as blameless, upright and God-fearing.",
+     "source": {
+      "label": "Job 1:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He lost his children and property in one day and said, “Blessed be the name of the Lord.”",
+     "source": {
+      "label": "Job 1:13-22",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "God answered Job out of the whirlwind, and afterward restored his fortunes.",
+     "source": {
+      "label": "Job 38:1; 42:10-17",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "James holds up Job as an example of patient endurance.",
+     "source": {
+      "label": "James 5:11",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "mary",
+   "kind": "person",
+   "name": "Mary, the Mother of Jesus",
+   "alternateNames": [
+    "Maria",
+    "Mariam",
+    "The Blessed Virgin Mary",
+    "Theotokos"
+   ],
+   "passages": [
+    "LUK.1.26-38",
+    "LUK.1.39-56",
+    "LUK.2.1-20",
+    "JHN.2.1-11",
+    "JHN.19.25-27",
+    "ACT.1.12-14"
+   ],
+   "related": [
+    {
+     "id": "joseph-husband-of-mary",
+     "relation": "wife of",
+     "source": {
+      "label": "Matthew 1:18-25",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "elizabeth",
+     "relation": "kinswoman of",
+     "source": {
+      "label": "Luke 1:36",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "The angel Gabriel announced to Mary of Nazareth, betrothed to Joseph, that she would bear a son; she answered, “Let it be done to me according to your word.”",
+     "source": {
+      "label": "Luke 1:26-38",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Mary gave birth to her firstborn son in Bethlehem.",
+     "source": {
+      "label": "Luke 2:4-7",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Mary stood by the cross, and Jesus entrusted her to the disciple whom he loved.",
+     "source": {
+      "label": "John 19:25-27",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Later tradition names Mary’s parents as Joachim and Anne. Scripture does not name them.",
+     "source": {
+      "label": "Protoevangelium of James 1-5 (second century)",
+      "kind": "historical"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "joseph-husband-of-mary",
+   "kind": "person",
+   "name": "Joseph, husband of Mary",
+   "alternateNames": [
+    "Saint Joseph"
+   ],
+   "passages": [
+    "MAT.1.18-25",
+    "MAT.2.13-23",
+    "LUK.2.1-7",
+    "LUK.2.41-52",
+    "MAT.13.54-58"
+   ],
+   "related": [
+    {
+     "id": "mary",
+     "relation": "husband of",
+     "source": {
+      "label": "Matthew 1:18-25",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Joseph, a righteous man betrothed to Mary, was told in a dream to take her as his wife and name her child Jesus.",
+     "source": {
+      "label": "Matthew 1:18-25",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Warned in dreams, Joseph took Mary and Jesus to Egypt and later settled in Nazareth.",
+     "source": {
+      "label": "Matthew 2:13-15; 2:19-23",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The people of Nazareth called Jesus “the carpenter’s son,” which suggests Joseph worked as a craftsman.",
+     "source": {
+      "label": "Matthew 13:55",
+      "kind": "scripture"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "Joseph and Mary took Jesus to Jerusalem for the Passover when he was twelve.",
+     "source": {
+      "label": "Luke 2:41-52",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "john",
+   "kind": "person",
+   "name": "John the Baptist",
+   "alternateNames": [
+    "John the Baptizer",
+    "Ioannes"
+   ],
+   "passages": [
+    "LUK.1.57-80",
+    "LUK.3.1-20",
+    "MAT.3.1-17",
+    "JHN.1.19-36",
+    "MRK.6.14-29"
+   ],
+   "related": [
+    {
+     "id": "elizabeth",
+     "relation": "son of",
+     "source": {
+      "label": "Luke 1:13; 1:57-60",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "elijah",
+     "relation": "sent in the spirit of",
+     "source": {
+      "label": "Luke 1:17",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "John was born to the priest Zechariah and Elizabeth, and was named John as the angel had said.",
+     "source": {
+      "label": "Luke 1:5; 1:13; 1:57-60",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He preached a baptism of repentance in the wilderness and the region around the Jordan.",
+     "source": {
+      "label": "Luke 3:2-3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "John pointed to Jesus as the Lamb of God, and two of his disciples followed Jesus.",
+     "source": {
+      "label": "John 1:29-37",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Herod had John imprisoned and later had him beheaded.",
+     "source": {
+      "label": "Mark 6:17-28",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "elizabeth",
+   "kind": "person",
+   "name": "Elizabeth, mother of John the Baptist",
+   "alternateNames": [
+    "Elisabeth"
+   ],
+   "passages": [
+    "LUK.1.5-25",
+    "LUK.1.39-45",
+    "LUK.1.57-66"
+   ],
+   "related": [
+    {
+     "id": "john",
+     "relation": "mother of",
+     "source": {
+      "label": "Luke 1:13; 1:57-60",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "mary",
+     "relation": "kinswoman of",
+     "source": {
+      "label": "Luke 1:36",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Elizabeth was the wife of the priest Zechariah and was herself of Aaron’s line; they were childless.",
+     "source": {
+      "label": "Luke 1:5-7",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The angel told Mary that her relative Elizabeth was expecting a child in her old age.",
+     "source": {
+      "label": "Luke 1:36",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "When Mary greeted her, the child leapt in Elizabeth’s womb and she called Mary the mother of her Lord.",
+     "source": {
+      "label": "Luke 1:41-45",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Elizabeth gave birth and insisted that the child be named John.",
+     "source": {
+      "label": "Luke 1:57-60",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "peter",
+   "kind": "person",
+   "name": "Simon Peter",
+   "alternateNames": [
+    "Peter",
+    "Simon",
+    "Cephas",
+    "Simon bar Jonah"
+   ],
+   "passages": [
+    "MAT.16.13-20",
+    "JHN.1.35-42",
+    "JHN.21.15-19",
+    "ACT.2.14-41",
+    "ACT.10.34-48"
+   ],
+   "related": [
+    {
+     "id": "andrew",
+     "relation": "brother of",
+     "source": {
+      "label": "John 1:40",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Andrew brought his brother Simon to Jesus, who gave him the name Cephas, meaning Peter.",
+     "source": {
+      "label": "John 1:40-42",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Simon declared Jesus to be the Christ, and Jesus called him Peter and promised to build his church on this rock.",
+     "source": {
+      "label": "Matthew 16:16-19",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Peter denied Jesus three times, and after the resurrection Jesus asked him three times, “Do you love me?” and told him to feed his sheep.",
+     "source": {
+      "label": "John 18:17; 18:25-27; 21:15-17",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Early Christian writers record that Peter and Paul were martyred at Rome. Scripture does not report it.",
+     "source": {
+      "label": "Eusebius, Church History 2.25",
+      "kind": "historical"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "andrew",
+   "kind": "person",
+   "name": "Andrew",
+   "alternateNames": [
+    "Andreas"
+   ],
+   "passages": [
+    "JHN.1.35-42",
+    "MAT.4.18-20",
+    "JHN.6.5-9",
+    "JHN.12.20-22"
+   ],
+   "related": [
+    {
+     "id": "peter",
+     "relation": "brother of",
+     "source": {
+      "label": "John 1:40",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "john",
+     "relation": "disciple of",
+     "source": {
+      "label": "John 1:35-40",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Andrew was one of two disciples of John the Baptist who followed Jesus after John pointed him out.",
+     "source": {
+      "label": "John 1:35-40",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Andrew was a fisherman who left his nets to follow Jesus with his brother Simon.",
+     "source": {
+      "label": "Matthew 4:18-20",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Andrew pointed out the boy with five loaves and two fish before the feeding of the crowd.",
+     "source": {
+      "label": "John 6:8-9",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Philip told Andrew about some Greeks who wished to see Jesus, and the two went to Jesus together.",
+     "source": {
+      "label": "John 12:20-22",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "james-son-of-zebedee",
+   "kind": "person",
+   "name": "James, son of Zebedee",
+   "alternateNames": [
+    "James the Greater"
+   ],
+   "passages": [
+    "MAT.4.21-22",
+    "MRK.3.13-19",
+    "MRK.9.2-8",
+    "MRK.14.32-42",
+    "ACT.12.1-2"
+   ],
+   "related": [
+    {
+     "id": "john-the-apostle",
+     "relation": "brother of",
+     "source": {
+      "label": "Matthew 4:21",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "James and his brother John left their father Zebedee and their boat when Jesus called them.",
+     "source": {
+      "label": "Matthew 4:21-22",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Jesus gave James and John the name Boanerges, meaning sons of thunder.",
+     "source": {
+      "label": "Mark 3:17",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "James was with Peter and John on the mountain at the Transfiguration.",
+     "source": {
+      "label": "Mark 9:2-8",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "King Herod had James, the brother of John, killed with the sword.",
+     "source": {
+      "label": "Acts 12:1-2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "john-the-apostle",
+   "kind": "person",
+   "name": "John, son of Zebedee",
+   "alternateNames": [
+    "John the Evangelist"
+   ],
+   "passages": [
+    "MAT.4.21-22",
+    "MRK.10.35-45",
+    "ACT.3.1-10",
+    "GAL.2.9",
+    "REV.1.9-11"
+   ],
+   "related": [
+    {
+     "id": "james-son-of-zebedee",
+     "relation": "brother of",
+     "source": {
+      "label": "Matthew 4:21",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "peter",
+     "relation": "companion of",
+     "source": {
+      "label": "Acts 3:1",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "John, son of Zebedee, was called by Jesus with his brother James and followed him.",
+     "source": {
+      "label": "Matthew 4:21-22",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "John went with Peter to the temple, and the two healed a man lame from birth.",
+     "source": {
+      "label": "Acts 3:1-10",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Church tradition identifies the “disciple whom Jesus loved” of John 13:23 and 21:20-24 with John the apostle. The Gospel of John does not name him.",
+     "source": {
+      "label": "Irenaeus, Against Heresies 3.1.1 (second century)",
+      "kind": "historical"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "The book of Revelation names its author as John, who was on the island of Patmos.",
+     "source": {
+      "label": "Revelation 1:9",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Whether the John of Revelation is the apostle is debated.",
+     "source": {
+      "label": "Editorial note",
+      "kind": "editorial"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "matthew",
+   "kind": "person",
+   "name": "Matthew",
+   "alternateNames": [
+    "Levi",
+    "Matthaeus"
+   ],
+   "passages": [
+    "MAT.9.9-13",
+    "MAT.10.1-4",
+    "MRK.2.13-17",
+    "LUK.5.27-32",
+    "ACT.1.12-14"
+   ],
+   "facts": [
+    {
+     "text": "Jesus called Matthew as he sat at the tax collector’s booth, and Matthew got up and followed him.",
+     "source": {
+      "label": "Matthew 9:9",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Mark and Luke tell the same story of a tax collector named Levi, which is generally taken to be the same man.",
+     "source": {
+      "label": "Mark 2:14; Luke 5:27",
+      "kind": "scripture"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "Matthew the tax collector is named among the twelve apostles.",
+     "source": {
+      "label": "Matthew 10:2-4",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Early tradition credits Matthew with the first Gospel. The Gospel itself carries no author’s name.",
+     "source": {
+      "label": "Eusebius, Church History 3.39 (citing Papias)",
+      "kind": "historical"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "thomas",
+   "kind": "person",
+   "name": "Thomas",
+   "alternateNames": [
+    "Didymus"
+   ],
+   "passages": [
+    "JHN.11.14-16",
+    "JHN.14.1-6",
+    "JHN.20.24-29",
+    "JHN.21.1-14",
+    "ACT.1.12-14"
+   ],
+   "facts": [
+    {
+     "text": "Thomas, called Didymus, urged the other disciples to go with Jesus, saying they might die with him.",
+     "source": {
+      "label": "John 11:16",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Thomas asked Jesus how they could know the way when they did not know where he was going.",
+     "source": {
+      "label": "John 14:5",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Thomas was absent when Jesus first appeared; a week later he saw the risen Jesus and said, “My Lord and my God!”",
+     "source": {
+      "label": "John 20:24-29",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Tradition, recorded by Eusebius, says Thomas was allotted Parthia as his mission field. Scripture does not report this.",
+     "source": {
+      "label": "Eusebius, Church History 3.1",
+      "kind": "historical"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "mary-magdalene",
+   "kind": "person",
+   "name": "Mary Magdalene",
+   "alternateNames": [
+    "Mary of Magdala",
+    "Maria Magdalena"
+   ],
+   "passages": [
+    "LUK.8.1-3",
+    "MAT.27.55-61",
+    "MRK.15.40-47",
+    "LUK.24.1-10",
+    "JHN.20.1-18"
+   ],
+   "facts": [
+    {
+     "text": "Mary called Magdalene, from whom seven demons had gone out, travelled with Jesus and supported him.",
+     "source": {
+      "label": "Luke 8:1-3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Mary Magdalene stood near the cross with the other women.",
+     "source": {
+      "label": "John 19:25",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She saw the risen Jesus at the tomb and was sent to tell his disciples.",
+     "source": {
+      "label": "John 20:11-18",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Scripture does not say she is the sinful woman of Luke 7 or Mary of Bethany; Gregory the Great combined them in a sixth-century homily, and this is not a settled identification.",
+     "source": {
+      "label": "Gregory the Great, Homilies on the Gospels 33",
+      "kind": "historical"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "martha",
+   "kind": "person",
+   "name": "Martha",
+   "passages": [
+    "LUK.10.38-42",
+    "JHN.11.1-5",
+    "JHN.11.17-27",
+    "JHN.12.1-3"
+   ],
+   "related": [
+    {
+     "id": "lazarus",
+     "relation": "sister of",
+     "source": {
+      "label": "John 11:1-2",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Martha welcomed Jesus into her home and was busy serving, while her sister Mary sat listening at his feet.",
+     "source": {
+      "label": "Luke 10:38-42",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Martha and her sister Mary lived at Bethany, and Jesus loved Martha, Mary and their brother Lazarus.",
+     "source": {
+      "label": "John 11:1-5",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "When Lazarus died, Martha told Jesus, “I believe that you are the Christ, the Son of God.”",
+     "source": {
+      "label": "John 11:21-27",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "At a supper in Bethany Martha served.",
+     "source": {
+      "label": "John 12:1-2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "lazarus",
+   "kind": "person",
+   "name": "Lazarus of Bethany",
+   "passages": [
+    "JHN.11.1-16",
+    "JHN.11.38-44",
+    "JHN.12.1-11"
+   ],
+   "related": [
+    {
+     "id": "martha",
+     "relation": "brother of",
+     "source": {
+      "label": "John 11:1-2",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Lazarus of Bethany was the brother of Martha and Mary, and Jesus loved him.",
+     "source": {
+      "label": "John 11:1-3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Jesus called Lazarus out of the tomb four days after his death.",
+     "source": {
+      "label": "John 11:38-44",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Crowds came to see Lazarus, and the chief priests planned to kill him as well.",
+     "source": {
+      "label": "John 12:9-11",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Scripture does not identify the Lazarus of Bethany with the beggar named Lazarus in Jesus’ parable.",
+     "source": {
+      "label": "Luke 16:19-31",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "paul",
+   "kind": "person",
+   "name": "Paul",
+   "alternateNames": [
+    "Saul",
+    "Saul of Tarsus",
+    "Paulus"
+   ],
+   "passages": [
+    "ACT.9.1-19",
+    "ACT.13.1-12",
+    "ACT.22.3-16",
+    "ROM.1.1-7",
+    "PHP.3.4-11",
+    "ACT.28.16-31"
+   ],
+   "related": [
+    {
+     "id": "barnabas",
+     "relation": "companion of",
+     "source": {
+      "label": "Acts 13:1-3",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "timothy",
+     "relation": "mentor of",
+     "source": {
+      "label": "1 Timothy 1:2",
+      "kind": "scripture"
+     }
+    },
+    {
+     "id": "stephen",
+     "relation": "witness at the stoning of",
+     "source": {
+      "label": "Acts 7:58; 8:1",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Paul was a Jew born in Tarsus, raised in Jerusalem, a Pharisee of the tribe of Benjamin, and trained under Gamaliel.",
+     "source": {
+      "label": "Acts 22:3; Philippians 3:5",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Saul, who had been persecuting Christians, met the risen Jesus on the road to Damascus and was baptised.",
+     "source": {
+      "label": "Acts 9:1-19",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was sent out from Antioch with Barnabas, and in Acts he is called Paul from the time of the mission in Cyprus.",
+     "source": {
+      "label": "Acts 13:2-9",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Early Christian writers record that Paul was martyred at Rome. Scripture does not report it.",
+     "source": {
+      "label": "Eusebius, Church History 2.25",
+      "kind": "historical"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "barnabas",
+   "kind": "person",
+   "name": "Barnabas",
+   "alternateNames": [
+    "Joseph Barnabas",
+    "Joses"
+   ],
+   "passages": [
+    "ACT.4.36-37",
+    "ACT.9.26-30",
+    "ACT.11.19-26",
+    "ACT.13.1-3",
+    "ACT.15.36-41"
+   ],
+   "related": [
+    {
+     "id": "paul",
+     "relation": "companion of",
+     "source": {
+      "label": "Acts 13:1-3",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "A Levite from Cyprus, called Joses (Joseph in the Douay-Rheims) and named Barnabas by the apostles, he sold a field and gave the money to the apostles.",
+     "source": {
+      "label": "Acts 4:36-37",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Barnabas brought Saul to the apostles in Jerusalem and vouched for him.",
+     "source": {
+      "label": "Acts 9:26-27",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was sent to Antioch and then fetched Saul from Tarsus to work with him there.",
+     "source": {
+      "label": "Acts 11:22-26",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Barnabas parted from Paul over whether to take John Mark on a journey.",
+     "source": {
+      "label": "Acts 15:36-40",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "timothy",
+   "kind": "person",
+   "name": "Timothy",
+   "alternateNames": [
+    "Timotheus"
+   ],
+   "passages": [
+    "ACT.16.1-5",
+    "1TI.1.1-2",
+    "2TI.1.3-7",
+    "PHP.2.19-24",
+    "1TH.3.1-6"
+   ],
+   "related": [
+    {
+     "id": "paul",
+     "relation": "disciple of",
+     "source": {
+      "label": "1 Timothy 1:2; Acts 16:1-3",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Timothy was a disciple from Lystra whose mother was a Jewish believer and whose father was Greek; Paul took him as a companion.",
+     "source": {
+      "label": "Acts 16:1-3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Paul recalls the faith that lived first in Timothy’s grandmother Lois and his mother Eunice.",
+     "source": {
+      "label": "2 Timothy 1:5",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Paul calls Timothy his true child in the faith.",
+     "source": {
+      "label": "1 Timothy 1:2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Paul sent Timothy to strengthen the church in Thessalonica.",
+     "source": {
+      "label": "1 Thessalonians 3:1-2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "stephen",
+   "kind": "person",
+   "name": "Stephen",
+   "alternateNames": [
+    "Stephanos"
+   ],
+   "passages": [
+    "ACT.6.1-7",
+    "ACT.6.8-15",
+    "ACT.7.54-59",
+    "ACT.8.1-2"
+   ],
+   "facts": [
+    {
+     "text": "Stephen was one of seven men chosen to serve at the daily distribution to widows, and is described as full of faith and the Holy Spirit.",
+     "source": {
+      "label": "Acts 6:1-6",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He worked wonders among the people and was accused before the council.",
+     "source": {
+      "label": "Acts 6:8-15",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was stoned outside the city, and as he died he prayed that the Lord not hold the sin against his killers.",
+     "source": {
+      "label": "Acts 7:54-60",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Devout men buried Stephen and mourned for him.",
+     "source": {
+      "label": "Acts 8:2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "luke",
+   "kind": "person",
+   "name": "Luke",
+   "passages": [
+    "COL.4.10-14",
+    "2TI.4.9-12",
+    "PHM.1.23-24",
+    "ACT.16.10-17"
+   ],
+   "related": [
+    {
+     "id": "paul",
+     "relation": "companion of",
+     "source": {
+      "label": "2 Timothy 4:11",
+      "kind": "scripture"
+     }
+    }
+   ],
+   "facts": [
+    {
+     "text": "Paul sends greetings from “Luke the beloved physician.”",
+     "source": {
+      "label": "Colossians 4:14",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Paul wrote that only Luke was with him.",
+     "source": {
+      "label": "2 Timothy 4:11",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Early tradition names Luke, a follower of Paul, as the author of the third Gospel and of Acts. Neither book names its author.",
+     "source": {
+      "label": "Irenaeus, Against Heresies 3.1.1 (second century)",
+      "kind": "historical"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "From this point the narrative of Acts sometimes shifts to “we,” which suggests the writer was travelling with Paul.",
+     "source": {
+      "label": "Acts 16:10-17",
+      "kind": "scripture"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "jerusalem",
+   "kind": "place",
+   "name": "Jerusalem",
+   "alternateNames": [
+    "Hierosolyma",
+    "Aelia Capitolina"
+   ],
+   "passages": [
+    "2SA.5.6-9",
+    "LUK.2.22-38",
+    "MAT.21.1-11",
+    "ACT.2.1-11"
+   ],
+   "identification": {
+    "ancient": "Jerusalem (Hierosolyma)",
+    "modern": "Jerusalem, on a plateau in the Judaean Mountains (the Old City and the City of David ridge); the city's political status is disputed",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Jerusalem'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Jerusalem"
+    }
+   },
+   "facts": [
+    {
+     "text": "David captured the stronghold of Zion and named it the City of David.",
+     "source": {
+      "label": "2 Samuel 5:7",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The infant Jesus was brought to the Temple here, where Simeon and Anna recognised him.",
+     "source": {
+      "label": "Luke 2:22-38",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The emperor Hadrian refounded Jerusalem as the Roman colony Aelia Capitolina, and Jews were forbidden to enter it.",
+     "source": {
+      "label": "Wikipedia, 'Aelia Capitolina'",
+      "kind": "historical",
+      "url": "https://en.wikipedia.org/wiki/Aelia_Capitolina"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "bethlehem",
+   "kind": "place",
+   "name": "Bethlehem",
+   "alternateNames": [
+    "Bethlehem of Judah",
+    "Bethlehem Ephrathah"
+   ],
+   "passages": [
+    "MIC.5.1-2",
+    "MAT.2.1-12",
+    "LUK.2.1-7",
+    "RUT.1.1-2"
+   ],
+   "identification": {
+    "ancient": "Bethlehem of Judah",
+    "modern": "Bethlehem, in the Judaean Mountains about 10 km south of Jerusalem, West Bank",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Bethlehem'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Bethlehem"
+    }
+   },
+   "facts": [
+    {
+     "text": "Matthew places the birth of Jesus in Bethlehem of Judea in the days of King Herod.",
+     "source": {
+      "label": "Matthew 2:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The prophet Micah names Bethlehem Ephrathah as the town from which a ruler of Israel would come.",
+     "source": {
+      "label": "Micah 5:2 (5:1 in the Hebrew numbering)",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Ruth's husband's family came from Bethlehem of Judah.",
+     "source": {
+      "label": "Ruth 1:1-2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "nazareth",
+   "kind": "place",
+   "name": "Nazareth",
+   "passages": [
+    "LUK.1.26-38",
+    "LUK.4.16-30",
+    "MAT.2.19-23",
+    "JHN.1.43-46"
+   ],
+   "identification": {
+    "ancient": "Nazareth",
+    "modern": "Nazareth, in Lower Galilee, Northern District, Israel",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Nazareth'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Nazareth"
+    }
+   },
+   "facts": [
+    {
+     "text": "The angel Gabriel was sent to a virgin named Mary in Nazareth, a town of Galilee.",
+     "source": {
+      "label": "Luke 1:26-27",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Jesus grew up in Nazareth and taught in its synagogue on the Sabbath.",
+     "source": {
+      "label": "Luke 4:16",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Nathanael asks, 'Can any good thing come out of Nazareth?'",
+     "source": {
+      "label": "John 1:46",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "capernaum",
+   "kind": "place",
+   "name": "Capernaum",
+   "alternateNames": [
+    "Kapharnaum",
+    "Kefar Nahum"
+   ],
+   "passages": [
+    "MAT.8.5-17",
+    "MRK.2.1-12",
+    "LUK.4.31-37",
+    "JHN.6.59-71"
+   ],
+   "identification": {
+    "ancient": "Kapharnaum (Kefar Nahum)",
+    "modern": "Tell Hum, on the north shore of the Sea of Galilee, Israel",
+    "confidence": "probable",
+    "source": {
+     "label": "Jewish Virtual Library, 'Archaeology in Israel: Capernaum'",
+     "kind": "historical",
+     "url": "https://www.jewishvirtuallibrary.org/capernaum"
+    }
+   },
+   "facts": [
+    {
+     "text": "Matthew says Jesus left Nazareth and made his home in Capernaum by the sea.",
+     "source": {
+      "label": "Matthew 4:13",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Jesus entered the synagogue at Capernaum and taught, and then healed Peter's mother-in-law and many others at the house of Simon and Andrew.",
+     "source": {
+      "label": "Mark 1:21, 29-34",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Franciscan excavations, renewed between 1968 and 1972, uncovered a house that Christian tradition identifies as the house of Peter; an octagonal church was built over the earlier remains in the mid fifth century.",
+     "source": {
+      "label": "Jewish Virtual Library, 'Archaeology in Israel: Capernaum'",
+      "kind": "historical",
+      "url": "https://www.jewishvirtuallibrary.org/capernaum"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "bethany",
+   "kind": "place",
+   "name": "Bethany",
+   "alternateNames": [
+    "Bethany near Jerusalem"
+   ],
+   "passages": [
+    "JHN.11.1-44",
+    "JHN.12.1-8",
+    "MRK.11.1-11",
+    "LUK.24.50-53"
+   ],
+   "identification": {
+    "ancient": "Bethany",
+    "modern": "Al-Eizariya, on the southeastern slope of the Mount of Olives, less than 2 miles (3.2 km) from Jerusalem, West Bank",
+    "confidence": "probable",
+    "source": {
+     "label": "Wikipedia, 'Bethany (biblical village)'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Bethany_(biblical_village)"
+    }
+   },
+   "facts": [
+    {
+     "text": "Bethany was the village of Mary, Martha and their brother Lazarus.",
+     "source": {
+      "label": "John 11:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "It lay about fifteen stadia (roughly three kilometres) from Jerusalem.",
+     "source": {
+      "label": "John 11:18",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "John also mentions a different Bethany, beyond the Jordan, where John the Baptist was baptizing.",
+     "source": {
+      "label": "John 1:28",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "jericho",
+   "kind": "place",
+   "name": "Jericho",
+   "alternateNames": [
+    "City of Palms"
+   ],
+   "passages": [
+    "JOS.6.1-21",
+    "LUK.10.25-37",
+    "LUK.19.1-10",
+    "MRK.10.46-52"
+   ],
+   "identification": {
+    "ancient": "Jericho",
+    "modern": "Tell es-Sultan (ancient Jericho) and the modern city of Jericho in the Jordan Valley, West Bank",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Jericho'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Jericho"
+    }
+   },
+   "facts": [
+    {
+     "text": "Joshua 6 tells how the Israelites marched around Jericho and its wall fell.",
+     "source": {
+      "label": "Joshua 6:15-20",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "In the parable of the Good Samaritan the traveller goes down from Jerusalem to Jericho.",
+     "source": {
+      "label": "Luke 10:30",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Zacchaeus, a chief tax collector, lived in Jericho and welcomed Jesus into his house.",
+     "source": {
+      "label": "Luke 19:1-6",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "cana",
+   "kind": "place",
+   "name": "Cana",
+   "alternateNames": [
+    "Cana of Galilee"
+   ],
+   "passages": [
+    "JHN.2.1-11",
+    "JHN.4.46-54",
+    "JHN.21.1-2"
+   ],
+   "identification": {
+    "ancient": "Cana of Galilee",
+    "modern": "Disputed. Candidates include Kafr Kanna and Khirbet Qana in Galilee, Israel; other sites have also been proposed",
+    "confidence": "disputed",
+    "source": {
+     "label": "Wikipedia, 'Cana'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Cana"
+    }
+   },
+   "facts": [
+    {
+     "text": "John places the first sign of Jesus, the water changed into wine at a wedding, at Cana in Galilee.",
+     "source": {
+      "label": "John 2:1-11",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Jesus, at Cana, healed the son of a royal official who lay sick at Capernaum.",
+     "source": {
+      "label": "John 4:46-54",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The location of Cana is disputed. A tradition dating from the 8th century identifies it with the town of Kafr Kanna, and Khirbet Qana has also long been proposed.",
+     "source": {
+      "label": "Wikipedia, 'Cana'",
+      "kind": "historical",
+      "url": "https://en.wikipedia.org/wiki/Cana"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "caesarea-philippi",
+   "kind": "place",
+   "name": "Caesarea Philippi",
+   "alternateNames": [
+    "Paneas",
+    "Panias"
+   ],
+   "passages": [
+    "MAT.16.13-20",
+    "MRK.8.27-30"
+   ],
+   "identification": {
+    "ancient": "Caesarea Philippi (Paneas)",
+    "modern": "Banias, at the foot of Mount Hermon, in the Golan Heights",
+    "confidence": "probable",
+    "source": {
+     "label": "Wikipedia, 'Caesarea Philippi'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Caesarea_Philippi"
+    }
+   },
+   "facts": [
+    {
+     "text": "Jesus asked his disciples who people say he is in the region of Caesarea Philippi.",
+     "source": {
+      "label": "Matthew 16:13",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "In that region Peter confessed Jesus as the Christ, and Jesus spoke of building his Church on the rock.",
+     "source": {
+      "label": "Matthew 16:16-18",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "sea-of-galilee",
+   "kind": "place",
+   "name": "Sea of Galilee",
+   "alternateNames": [
+    "Lake of Gennesaret",
+    "Sea of Tiberias",
+    "Chinnereth",
+    "Kinneret"
+   ],
+   "passages": [
+    "MAT.4.18-22",
+    "MRK.4.35-41",
+    "JHN.6.16-21",
+    "LUK.5.1-11",
+    "JHN.21.1-14"
+   ],
+   "identification": {
+    "ancient": "Sea of Galilee (Chinnereth)",
+    "modern": "Lake Kinneret (Sea of Galilee), in northeast Israel between the Golan Heights and Galilee",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Sea of Galilee'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Sea_of_Galilee"
+    }
+   },
+   "facts": [
+    {
+     "text": "Luke calls it the Lake of Gennesaret, and John calls it the Sea of Tiberias.",
+     "source": {
+      "label": "Luke 5:1; John 6:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Jesus called Simon, Andrew, James and John, who were fishermen, beside this sea.",
+     "source": {
+      "label": "Matthew 4:18-22",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Jesus calmed a storm on the lake and walked on its water.",
+     "source": {
+      "label": "Mark 4:37-41; John 6:19",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "jordan-river",
+   "kind": "place",
+   "name": "Jordan River",
+   "passages": [
+    "JOS.3.14-17",
+    "2KI.5.9-14",
+    "MAT.3.13-17",
+    "JHN.1.28"
+   ],
+   "identification": {
+    "ancient": "Jordan",
+    "modern": "The Jordan River, flowing from the Mount Hermon headwaters through the Sea of Galilee to the Dead Sea, along the borders of Israel, Jordan, the West Bank and the Golan Heights",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Jordan River'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Jordan_River"
+    }
+   },
+   "facts": [
+    {
+     "text": "Israel crossed the Jordan on dry ground under Joshua.",
+     "source": {
+      "label": "Joshua 3:15-17",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Naaman the Syrian was cleansed after washing seven times in the Jordan.",
+     "source": {
+      "label": "2 Kings 5:14",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Jesus came from Galilee to the Jordan to be baptized by John.",
+     "source": {
+      "label": "Matthew 3:13",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "mount-sinai",
+   "kind": "place",
+   "name": "Mount Sinai",
+   "alternateNames": [
+    "Horeb",
+    "Jebel Musa"
+   ],
+   "passages": [
+    "EXO.19.1-25",
+    "DEU.5.1-5",
+    "1KI.19.8-14",
+    "GAL.4.24-25"
+   ],
+   "identification": {
+    "ancient": "Sinai / Horeb",
+    "modern": "Disputed. Jebel Musa in the south-central Sinai Peninsula (Egypt), above St Catherine's Monastery, was a major contender by the 4th century; Jebel Serbal, also in southern Sinai, is another proposal",
+    "confidence": "disputed",
+    "source": {
+     "label": "Biblical Archaeology Society, 'The Case for (or Against) Jebel Musa'",
+     "kind": "historical",
+     "url": "https://library.biblicalarchaeology.org/sidebar/the-case-for-or-against-jebel-musa"
+    }
+   },
+   "facts": [
+    {
+     "text": "Exodus says the LORD came down on Mount Sinai and gave the law to Moses there.",
+     "source": {
+      "label": "Exodus 19:20",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Exodus calls Horeb 'God's mountain', and Deuteronomy says the LORD made a covenant with Israel at Horeb.",
+     "source": {
+      "label": "Exodus 3:1; Deuteronomy 5:2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The mountain's location is uncertain: Jebel Musa was a major contender by the 4th century, and Jebel Serbal, also in southern Sinai, is another proposal.",
+     "source": {
+      "label": "Biblical Archaeology Society, 'The Case for (or Against) Jebel Musa'",
+      "kind": "historical",
+      "url": "https://library.biblicalarchaeology.org/sidebar/the-case-for-or-against-jebel-musa"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "mount-of-olives",
+   "kind": "place",
+   "name": "Mount of Olives",
+   "alternateNames": [
+    "Olivet",
+    "Mons Oliveti"
+   ],
+   "passages": [
+    "ZEC.14.4",
+    "LUK.22.39-46",
+    "MAT.24.3",
+    "ACT.1.9-12",
+    "2SA.15.30"
+   ],
+   "identification": {
+    "ancient": "Mount of Olives",
+    "modern": "Mount of Olives, a ridge in East Jerusalem, east of the Old City across the Kidron Valley",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Mount of Olives'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Mount_of_Olives"
+    }
+   },
+   "facts": [
+    {
+     "text": "Jesus went to the Mount of Olives as was his custom, and prayed there before his arrest.",
+     "source": {
+      "label": "Luke 22:39-41",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Acts places the Ascension near Jerusalem and says Olivet was a Sabbath day's journey from the city.",
+     "source": {
+      "label": "Acts 1:9-12",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Zechariah foretells that the LORD will stand on the Mount of Olives east of Jerusalem.",
+     "source": {
+      "label": "Zechariah 14:4",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "mount-zion",
+   "kind": "place",
+   "name": "Mount Zion",
+   "alternateNames": [
+    "Sion",
+    "Zion"
+   ],
+   "passages": [
+    "2SA.5.6-9",
+    "PSA.48.1-3",
+    "ISA.2.1-3",
+    "HEB.12.22-24"
+   ],
+   "identification": {
+    "ancient": "Zion",
+    "modern": "Disputed. The name first belonged to the Jebusite city on the Eastern Hill (City of David) and later shifted; today Mount Zion is the Western Hill just outside the Old City walls to the south",
+    "confidence": "disputed",
+    "source": {
+     "label": "Wikipedia, 'Mount Zion'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Mount_Zion"
+    }
+   },
+   "facts": [
+    {
+     "text": "David captured the stronghold of Zion and called it the City of David.",
+     "source": {
+      "label": "2 Samuel 5:7",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "In early Christian times 'Sion' came to be used as another name for Jerusalem, and the name Sion was applied to the Cenacle, the traditional Upper Room.",
+     "source": {
+      "label": "Catholic Encyclopedia, 'Jerusalem' (New Advent)",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08355a.htm"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "The Letter to the Hebrews speaks of Mount Zion as the heavenly Jerusalem that believers have approached.",
+     "source": {
+      "label": "Hebrews 12:22",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "hebron",
+   "kind": "place",
+   "name": "Hebron",
+   "alternateNames": [
+    "Kiriath-arba",
+    "Al-Khalil"
+   ],
+   "passages": [
+    "GEN.23.1-20",
+    "GEN.13.18",
+    "2SA.2.1-4",
+    "2SA.5.1-5"
+   ],
+   "identification": {
+    "ancient": "Hebron (Kiriath-arba)",
+    "modern": "Hebron (Al-Khalil), in the southern West Bank about 30 km south of Jerusalem",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Hebron'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Hebron"
+    }
+   },
+   "facts": [
+    {
+     "text": "Abraham bought the cave of Machpelah at Hebron as a burial place for Sarah.",
+     "source": {
+      "label": "Genesis 23:2, 19",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "David was anointed king over Judah at Hebron.",
+     "source": {
+      "label": "2 Samuel 2:1-4",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "David reigned at Hebron for seven years and six months before ruling from Jerusalem.",
+     "source": {
+      "label": "2 Samuel 5:5",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "bethel",
+   "kind": "place",
+   "name": "Bethel",
+   "alternateNames": [
+    "Luz"
+   ],
+   "passages": [
+    "GEN.28.10-22",
+    "GEN.12.8",
+    "1KI.12.28-33",
+    "AMO.7.10-13"
+   ],
+   "identification": {
+    "ancient": "Bethel (earlier Luz)",
+    "modern": "Probably Beitin, about 5 km northeast of Ramallah, West Bank",
+    "confidence": "probable",
+    "source": {
+     "label": "Wikipedia, 'Bethel'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Bethel"
+    }
+   },
+   "facts": [
+    {
+     "text": "After his dream of the ladder, Jacob named the place Bethel; its earlier name was Luz.",
+     "source": {
+      "label": "Genesis 28:19",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "King Jeroboam set up a golden calf at Bethel and another at Dan.",
+     "source": {
+      "label": "1 Kings 12:28-29",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "shechem",
+   "kind": "place",
+   "name": "Shechem",
+   "alternateNames": [
+    "Sichem"
+   ],
+   "passages": [
+    "GEN.12.6-7",
+    "JOS.24.1-28",
+    "JDG.9.1-6",
+    "JHN.4.4-6",
+    "GEN.33.18-19",
+    "JOS.24.32"
+   ],
+   "identification": {
+    "ancient": "Shechem",
+    "modern": "Tell Balata, east of the modern city of Nablus, West Bank",
+    "confidence": "probable",
+    "source": {
+     "label": "Wikipedia, 'Shechem'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Shechem"
+    }
+   },
+   "facts": [
+    {
+     "text": "Abram came to Shechem, to the oak of Moreh, where the LORD promised the land to his descendants.",
+     "source": {
+      "label": "Genesis 12:6-7",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Joshua gathered the tribes at Shechem and renewed the covenant.",
+     "source": {
+      "label": "Joshua 24:1, 25",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Genesis says Jacob bought a parcel of ground at Shechem, and Joshua says Joseph's bones were buried there; John places Jesus' meeting with the Samaritan woman at Sychar, near the plot Jacob gave to Joseph.",
+     "source": {
+      "label": "Genesis 33:18-19; Joshua 24:32; John 4:5",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Scholars do not agree whether John's Sychar is Shechem itself or a nearby village.",
+     "source": {
+      "label": "Wikipedia, 'Shechem'",
+      "kind": "historical",
+      "url": "https://en.wikipedia.org/wiki/Shechem"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "samaria",
+   "kind": "place",
+   "name": "Samaria",
+   "alternateNames": [
+    "Sebaste"
+   ],
+   "passages": [
+    "1KI.16.23-24",
+    "2KI.17.5-6",
+    "JHN.4.4-42",
+    "ACT.8.4-25"
+   ],
+   "identification": {
+    "ancient": "Samaria (later Sebaste)",
+    "modern": "Sebastia, a village near Nablus, West Bank",
+    "confidence": "probable",
+    "source": {
+     "label": "Wikipedia, 'Samaria (ancient city)'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Samaria_(ancient_city)"
+    }
+   },
+   "facts": [
+    {
+     "text": "King Omri bought the hill of Samaria and built a city there as the capital of the northern kingdom.",
+     "source": {
+      "label": "1 Kings 16:24",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The king of Assyria besieged and captured Samaria and deported Israelites.",
+     "source": {
+      "label": "2 Kings 17:5-6",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Philip proclaimed the Christ in the city of Samaria, and there was great joy in that city.",
+     "source": {
+      "label": "Acts 8:5-8",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "damascus",
+   "kind": "place",
+   "name": "Damascus",
+   "passages": [
+    "GEN.14.15",
+    "2KI.5.1-14",
+    "ACT.9.1-25",
+    "GAL.1.17"
+   ],
+   "identification": {
+    "ancient": "Damascus",
+    "modern": "Damascus, Syria",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Damascus'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Damascus"
+    }
+   },
+   "facts": [
+    {
+     "text": "Saul was struck by a light from heaven near Damascus and was later baptized there.",
+     "source": {
+      "label": "Acts 9:3, 10-18",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Ananias was sent to a house on the street called Straight.",
+     "source": {
+      "label": "Acts 9:11",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Paul escaped from Damascus by being let down the wall in a basket.",
+     "source": {
+      "label": "2 Corinthians 11:32-33",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "antioch-syria",
+   "kind": "place",
+   "name": "Antioch in Syria",
+   "alternateNames": [
+    "Antioch on the Orontes",
+    "Antiochia"
+   ],
+   "passages": [
+    "ACT.11.19-30",
+    "ACT.13.1-3",
+    "ACT.14.26-28",
+    "GAL.2.11-14"
+   ],
+   "identification": {
+    "ancient": "Antioch on the Orontes",
+    "modern": "Antakya, Hatay Province, Turkey (the ancient city lies under the modern town)",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Antioch'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Antioch"
+    }
+   },
+   "facts": [
+    {
+     "text": "The disciples were first called Christians at Antioch.",
+     "source": {
+      "label": "Acts 11:26",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The church at Antioch sent Barnabas and Saul out on the first missionary journey.",
+     "source": {
+      "label": "Acts 13:1-3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Paul confronted Peter at Antioch over eating with Gentile believers.",
+     "source": {
+      "label": "Galatians 2:11-14",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "ephesus",
+   "kind": "place",
+   "name": "Ephesus",
+   "passages": [
+    "ACT.19.1-41",
+    "EPH.1.1",
+    "1TI.1.3",
+    "REV.2.1-7"
+   ],
+   "identification": {
+    "ancient": "Ephesus",
+    "modern": "Ruins near present-day Selçuk, İzmir Province, Turkey",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Ephesus'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Ephesus"
+    }
+   },
+   "facts": [
+    {
+     "text": "Paul taught at Ephesus for two years, so that all who lived in Asia heard the word of the Lord.",
+     "source": {
+      "label": "Acts 19:8-10",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "A riot led by the silversmiths broke out over the cult of Artemis (Diana) of the Ephesians.",
+     "source": {
+      "label": "Acts 19:23-28",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The third ecumenical council, held at Ephesus in 431, excluded Nestorius from episcopal office.",
+     "source": {
+      "label": "Catholic Encyclopedia, 'Council of Ephesus' (New Advent)",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/05491a.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "corinth",
+   "kind": "place",
+   "name": "Corinth",
+   "passages": [
+    "ACT.18.1-18",
+    "1CO.1.1-2",
+    "2CO.1.1"
+   ],
+   "identification": {
+    "ancient": "Corinth",
+    "modern": "Ancient Corinth, on the Isthmus of Corinth in the Peloponnese region, Greece (the modern city lies about 5 km to the northeast)",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Ancient Corinth'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Ancient_Corinth"
+    }
+   },
+   "facts": [
+    {
+     "text": "Paul stayed in Corinth a year and six months, teaching the word of God.",
+     "source": {
+      "label": "Acts 18:11",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He wrote two letters to the church of God that is at Corinth.",
+     "source": {
+      "label": "1 Corinthians 1:2; 2 Corinthians 1:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Paul met Aquila and Priscilla at Corinth.",
+     "source": {
+      "label": "Acts 18:1-3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "philippi",
+   "kind": "place",
+   "name": "Philippi",
+   "passages": [
+    "ACT.16.9-40",
+    "PHP.1.1-8",
+    "PHP.4.15-16",
+    "1TH.2.2"
+   ],
+   "identification": {
+    "ancient": "Philippi",
+    "modern": "Ruins near the village of Filippoi, within the municipality of Kavala, East Macedonia and Thrace, Greece",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Philippi'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Philippi"
+    }
+   },
+   "facts": [
+    {
+     "text": "Luke calls Philippi a leading city of Macedonia and a Roman colony.",
+     "source": {
+      "label": "Acts 16:12",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Lydia, a dealer in purple cloth, was baptized there with her household.",
+     "source": {
+      "label": "Acts 16:14-15",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Paul wrote the Letter to the Philippians to the saints in Philippi, with their overseers and deacons.",
+     "source": {
+      "label": "Philippians 1:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "thessalonica",
+   "kind": "place",
+   "name": "Thessalonica",
+   "alternateNames": [
+    "Salonica"
+   ],
+   "passages": [
+    "ACT.17.1-9",
+    "1TH.1.1-10",
+    "2TH.1.1",
+    "PHP.4.16"
+   ],
+   "identification": {
+    "ancient": "Thessalonica",
+    "modern": "Thessaloniki, on the Thermaic Gulf, Greece",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Thessaloniki'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Thessaloniki"
+    }
+   },
+   "facts": [
+    {
+     "text": "Paul reasoned in the synagogue at Thessalonica on three Sabbaths.",
+     "source": {
+      "label": "Acts 17:1-2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He wrote two letters to the church of the Thessalonians.",
+     "source": {
+      "label": "1 Thessalonians 1:1; 2 Thessalonians 1:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The Philippians sent aid to Paul more than once while he was in Thessalonica.",
+     "source": {
+      "label": "Philippians 4:16",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "rome",
+   "kind": "place",
+   "name": "Rome",
+   "alternateNames": [
+    "Roma"
+   ],
+   "passages": [
+    "ACT.28.14-31",
+    "ROM.1.1-15",
+    "2TI.1.15-18",
+    "ACT.23.11"
+   ],
+   "identification": {
+    "ancient": "Rome",
+    "modern": "Rome, Italy",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Rome'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Rome"
+    }
+   },
+   "facts": [
+    {
+     "text": "Paul wrote his letter to all God's beloved in Rome.",
+     "source": {
+      "label": "Romans 1:7",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Paul lived under guard in Rome for two years in his own rented lodging and preached openly.",
+     "source": {
+      "label": "Acts 28:16, 30-31",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The Lord told Paul that he must bear witness in Rome as he had in Jerusalem.",
+     "source": {
+      "label": "Acts 23:11",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "athens",
+   "kind": "place",
+   "name": "Athens",
+   "passages": [
+    "ACT.17.16-34",
+    "ACT.17.22-31",
+    "1TH.3.1"
+   ],
+   "identification": {
+    "ancient": "Athens",
+    "modern": "Athens, Greece",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Athens'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Athens"
+    }
+   },
+   "facts": [
+    {
+     "text": "Paul was troubled to see the city full of idols and spoke in the marketplace.",
+     "source": {
+      "label": "Acts 17:16-17",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He addressed the Areopagus and referred to an altar inscribed 'To an unknown god'.",
+     "source": {
+      "label": "Acts 17:19, 22-23",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Dionysius the Areopagite and a woman named Damaris were among those who believed.",
+     "source": {
+      "label": "Acts 17:34",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "galatia",
+   "kind": "place",
+   "name": "Galatia",
+   "passages": [
+    "GAL.1.1-2",
+    "ACT.16.6",
+    "ACT.18.23",
+    "1CO.16.1"
+   ],
+   "identification": {
+    "ancient": "Galatia",
+    "modern": "Central Anatolia, Turkey (roughly the provinces of Ankara and Eskişehir). Scholars debate whether Paul's 'Galatians' lived in the northern ethnic region or the southern Roman province",
+    "confidence": "disputed",
+    "source": {
+     "label": "Wikipedia, 'Galatia'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Galatia"
+    }
+   },
+   "facts": [
+    {
+     "text": "Paul addresses his letter to the churches of Galatia.",
+     "source": {
+      "label": "Galatians 1:2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Luke says Paul and his companions passed through the region of Phrygia and Galatia.",
+     "source": {
+      "label": "Acts 16:6",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Scholars disagree whether the Letter to the Galatians was addressed to churches in the north of the region (North Galatian view) or to churches Paul founded in the southern part of the Roman province (South Galatian view).",
+     "source": {
+      "label": "Wikipedia, 'Epistle to the Galatians'",
+      "kind": "historical",
+      "url": "https://en.wikipedia.org/wiki/Epistle_to_the_Galatians"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "tarsus",
+   "kind": "place",
+   "name": "Tarsus",
+   "passages": [
+    "ACT.9.11",
+    "ACT.9.30",
+    "ACT.11.25",
+    "ACT.21.39",
+    "ACT.22.3"
+   ],
+   "identification": {
+    "ancient": "Tarsus of Cilicia",
+    "modern": "Tarsus, Mersin Province, Turkey, about 20 km inland from the Mediterranean",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Tarsus, Mersin'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Tarsus,_Mersin"
+    }
+   },
+   "facts": [
+    {
+     "text": "Paul called himself a Jew from Tarsus in Cilicia, a citizen of no obscure city.",
+     "source": {
+      "label": "Acts 21:39",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The believers sent Saul to Tarsus after the plot against him in Jerusalem.",
+     "source": {
+      "label": "Acts 9:29-30",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Barnabas went to Tarsus to look for Saul and brought him to Antioch.",
+     "source": {
+      "label": "Acts 11:25-26",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "emmaus",
+   "kind": "place",
+   "name": "Emmaus",
+   "alternateNames": [
+    "Emmaus Nicopolis"
+   ],
+   "passages": [
+    "LUK.24.13-35"
+   ],
+   "identification": {
+    "ancient": "Emmaus",
+    "modern": "Disputed. Candidates near Jerusalem include Emmaus-Nicopolis (Imwas), Abu Ghosh, al-Qubeibeh and Motza",
+    "confidence": "disputed",
+    "source": {
+     "label": "Wikipedia, 'Emmaus'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Emmaus"
+    }
+   },
+   "facts": [
+    {
+     "text": "On Easter day two disciples walking to Emmaus, one named Cleopas, met the risen Jesus and knew him in the breaking of the bread.",
+     "source": {
+      "label": "Luke 24:13-35",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Most manuscripts of Luke give the distance from Jerusalem as sixty stadia, but several manuscripts, including Codex Sinaiticus, give 160.",
+     "source": {
+      "label": "Wikipedia, 'Emmaus'",
+      "kind": "historical",
+      "url": "https://en.wikipedia.org/wiki/Emmaus"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The sixty-stadia reading fits Abu Ghosh or al-Qubeibeh, while the 160-stadia reading fits Emmaus-Nicopolis, long identified as Emmaus since the 4th century. The site is not settled.",
+     "source": {
+      "label": "Biblical Archaeology Society, 'The Emmaus Trail'",
+      "kind": "historical",
+      "url": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/the-emmaus-trail/"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "ur",
+   "kind": "place",
+   "name": "Ur of the Chaldeans",
+   "alternateNames": [
+    "Ur Kasdim"
+   ],
+   "passages": [
+    "GEN.11.27-32",
+    "GEN.15.7",
+    "NEH.9.7",
+    "ACT.7.2-4"
+   ],
+   "identification": {
+    "ancient": "Ur of the Chaldeans",
+    "modern": "Tell el-Muqayyar, Dhi Qar Governorate, southern Iraq, is the usual identification; other sites have been proposed",
+    "confidence": "disputed",
+    "source": {
+     "label": "Wikipedia, 'Ur'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Ur"
+    }
+   },
+   "facts": [
+    {
+     "text": "Terah took his son Abram from Ur of the Chaldeans to go to Canaan, and they settled in Haran.",
+     "source": {
+      "label": "Genesis 11:31",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "God told Abram that he had brought him out of Ur of the Chaldeans.",
+     "source": {
+      "label": "Genesis 15:7",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Tell el-Muqayyar was recognised as Ur when Henry Rawlinson deciphered inscribed bricks from the site, and Leonard Woolley led excavations there from 1922 to 1934.",
+     "source": {
+      "label": "Wikipedia, 'Ur'",
+      "kind": "historical",
+      "url": "https://en.wikipedia.org/wiki/Ur"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "haran",
+   "kind": "place",
+   "name": "Haran",
+   "alternateNames": [
+    "Charran",
+    "Harran"
+   ],
+   "passages": [
+    "GEN.11.31-32",
+    "GEN.12.1-5",
+    "GEN.28.10",
+    "GEN.29.4-5"
+   ],
+   "identification": {
+    "ancient": "Haran",
+    "modern": "Probably Harran, Şanlıurfa Province, southeastern Turkey, about 40 km southeast of Urfa",
+    "confidence": "probable",
+    "source": {
+     "label": "Wikipedia, 'Harran'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Harran"
+    }
+   },
+   "facts": [
+    {
+     "text": "Terah died in Haran after the family settled there.",
+     "source": {
+      "label": "Genesis 11:31-32",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Abram was seventy-five years old when he left Haran at the LORD's command.",
+     "source": {
+      "label": "Genesis 12:4",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "On his journey to Haran Jacob met shepherds who said they were from Haran and who knew Laban.",
+     "source": {
+      "label": "Genesis 28:10; 29:4-5",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "nineveh",
+   "kind": "place",
+   "name": "Nineveh",
+   "passages": [
+    "JON.1.1-2",
+    "JON.3.1-10",
+    "NAM.1.1",
+    "2KI.19.35-37",
+    "ZEP.2.13-15"
+   ],
+   "identification": {
+    "ancient": "Nineveh",
+    "modern": "Ruins across the Tigris from the historic centre of Mosul, Iraq, with the mounds Tell Kuyunjiq and Tell Nabi Yunus",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Nineveh'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Nineveh"
+    }
+   },
+   "facts": [
+    {
+     "text": "God sent Jonah to Nineveh, the great city, to preach against its wickedness.",
+     "source": {
+      "label": "Jonah 1:2",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The people of Nineveh believed God and proclaimed a fast after Jonah's preaching.",
+     "source": {
+      "label": "Jonah 3:5",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "After the disaster to his army, Sennacherib of Assyria departed, went home and lived at Nineveh.",
+     "source": {
+      "label": "2 Kings 19:35-36",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "babylon",
+   "kind": "place",
+   "name": "Babylon",
+   "alternateNames": [
+    "Babel"
+   ],
+   "passages": [
+    "GEN.11.1-9",
+    "2KI.24.10-16",
+    "PSA.137.1-4",
+    "DAN.4.28-30",
+    "REV.18.1-3"
+   ],
+   "identification": {
+    "ancient": "Babylon",
+    "modern": "Ruins near Hillah, Babil Governorate, Iraq, on the lower Euphrates about 85 km south of Baghdad",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Babylon'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Babylon"
+    }
+   },
+   "facts": [
+    {
+     "text": "Genesis says the place of the tower was named Babel because the LORD confused the language of all the earth there.",
+     "source": {
+      "label": "Genesis 11:9",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The Hebrew Bible uses the name Babel for the city of Babylon.",
+     "source": {
+      "label": "Wikipedia, 'Babylon'",
+      "kind": "historical",
+      "url": "https://en.wikipedia.org/wiki/Babylon"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "Nebuchadnezzar carried the leaders and craftsmen of Jerusalem into exile in Babylon.",
+     "source": {
+      "label": "2 Kings 24:14-16",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The exiles wept by the rivers of Babylon when they remembered Zion.",
+     "source": {
+      "label": "Psalm 137:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "goshen",
+   "kind": "place",
+   "name": "Land of Goshen",
+   "alternateNames": [
+    "Goshen"
+   ],
+   "passages": [
+    "GEN.45.9-10",
+    "GEN.47.1-6",
+    "EXO.8.22",
+    "EXO.9.26"
+   ],
+   "identification": {
+    "ancient": "Goshen",
+    "modern": "Probably the eastern Nile Delta, Egypt; the western Wadi Tumilat is a leading proposal and scholars disagree on the exact area",
+    "confidence": "probable",
+    "source": {
+     "label": "Wikipedia, 'Land of Goshen'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Land_of_Goshen"
+    }
+   },
+   "facts": [
+    {
+     "text": "Joseph invited his father and brothers to settle in the land of Goshen.",
+     "source": {
+      "label": "Genesis 45:10",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Pharaoh gave the family the best of the land, in Goshen.",
+     "source": {
+      "label": "Genesis 47:6",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The plague of flies spared Goshen, where Israel lived.",
+     "source": {
+      "label": "Exodus 8:22",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "red-sea",
+   "kind": "place",
+   "name": "Red Sea (Sea of Reeds)",
+   "alternateNames": [
+    "Yam Suph",
+    "Sea of Reeds",
+    "Mare Rubrum"
+   ],
+   "passages": [
+    "EXO.13.17-22",
+    "EXO.14.1-31",
+    "EXO.15.1-21",
+    "1KI.9.26"
+   ],
+   "identification": {
+    "ancient": "Yam Suph",
+    "modern": "Disputed. The Hebrew 'yam suph' is rendered 'Red Sea' or 'Sea of Reeds'; the crossing site is unknown, and proposals include Lake Timsah, the Gulf of Aqaba, the Lake of Tanis, Lake Bardawil and the Ballah Lakes",
+    "confidence": "disputed",
+    "source": {
+     "label": "Wikipedia, 'Yam Suph'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Yam_Suph"
+    }
+   },
+   "facts": [
+    {
+     "text": "God led Israel by the wilderness road toward the Red Sea.",
+     "source": {
+      "label": "Exodus 13:18",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Israel crossed on dry ground, and the Egyptian army was drowned.",
+     "source": {
+      "label": "Exodus 14:21-28",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Solomon made a fleet of ships at Ezion-geber, beside Eloth, on the shore of the Red Sea in the land of Edom.",
+     "source": {
+      "label": "1 Kings 9:26",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The Hebrew yam suph, rendered 'Red Sea', literally means 'sea of reeds' and is also used of the Gulf of Aqaba; the exact location of the Exodus crossing is disputed.",
+     "source": {
+      "label": "Wikipedia, 'Yam Suph'",
+      "kind": "historical",
+      "url": "https://en.wikipedia.org/wiki/Yam_Suph"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "mount-carmel",
+   "kind": "place",
+   "name": "Mount Carmel",
+   "passages": [
+    "1KI.18.17-46",
+    "2KI.2.25",
+    "2KI.4.25",
+    "AMO.9.3"
+   ],
+   "identification": {
+    "ancient": "Carmel",
+    "modern": "Carmel ridge, a coastal mountain range in northern Israel, with Haifa on its northern and western slopes",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Mount Carmel'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Mount_Carmel"
+    }
+   },
+   "facts": [
+    {
+     "text": "Elijah called Ahab and all Israel to Mount Carmel to decide between the LORD and Baal.",
+     "source": {
+      "label": "1 Kings 18:19-20",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Fire from the LORD fell on Elijah's sacrifice.",
+     "source": {
+      "label": "1 Kings 18:38",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The Shunammite woman went to the man of God, Elisha, at Mount Carmel.",
+     "source": {
+      "label": "2 Kings 4:25",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "mount-tabor",
+   "kind": "place",
+   "name": "Mount Tabor",
+   "alternateNames": [
+    "Itabyrion"
+   ],
+   "passages": [
+    "JDG.4.6-14",
+    "JOS.19.22",
+    "PSA.89.12"
+   ],
+   "identification": {
+    "ancient": "Tabor",
+    "modern": "Mount Tabor, a hill at the eastern end of the Jezreel Valley in Lower Galilee, Israel",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Mount Tabor'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Mount_Tabor"
+    }
+   },
+   "facts": [
+    {
+     "text": "Barak gathered ten thousand men on Mount Tabor before defeating Sisera.",
+     "source": {
+      "label": "Judges 4:6, 14",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The Gospels do not name the mountain of the Transfiguration. Matthew says only that Jesus led Peter, James and John up a high mountain.",
+     "source": {
+      "label": "Matthew 17:1",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "A tradition links Tabor with the Transfiguration: the earliest identification is by Origen in the 3rd century, later recounted by Cyril of Jerusalem and Jerome in the 4th century.",
+     "source": {
+      "label": "Wikipedia, 'Mount Tabor'",
+      "kind": "historical",
+      "url": "https://en.wikipedia.org/wiki/Mount_Tabor"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "golgotha",
+   "kind": "place",
+   "name": "Golgotha",
+   "alternateNames": [
+    "Calvary",
+    "Place of the Skull",
+    "Calvariae Locus"
+   ],
+   "passages": [
+    "MRK.15.22-27",
+    "MAT.27.33-35",
+    "LUK.23.33",
+    "JHN.19.16-20",
+    "JHN.19.38-42"
+   ],
+   "identification": {
+    "ancient": "Golgotha",
+    "modern": "Traditionally within the Church of the Holy Sepulchre in the Old City of Jerusalem; the exact spot is debated",
+    "confidence": "probable",
+    "source": {
+     "label": "Wikipedia, 'Golgotha'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Golgotha"
+    }
+   },
+   "facts": [
+    {
+     "text": "Mark says Golgotha means the Place of the Skull.",
+     "source": {
+      "label": "Mark 15:22",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "John says the place of crucifixion was near the city, and that there was a garden with a new tomb nearby.",
+     "source": {
+      "label": "John 19:20, 41",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Since the 4th century Christian tradition has placed Golgotha within the Church of the Holy Sepulchre, though the rocky knoll north of the Damascus Gate (Gordon's Calvary) has also been proposed.",
+     "source": {
+      "label": "Wikipedia, 'Golgotha'",
+      "kind": "historical",
+      "url": "https://en.wikipedia.org/wiki/Golgotha"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "patmos",
+   "kind": "place",
+   "name": "Patmos",
+   "passages": [
+    "REV.1.9-11"
+   ],
+   "identification": {
+    "ancient": "Patmos",
+    "modern": "Patmos, a Greek island of the Dodecanese in the Aegean Sea, off the west coast of Turkey",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Patmos'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Patmos"
+    }
+   },
+   "facts": [
+    {
+     "text": "John writes that he was on the island called Patmos on account of the word of God and the testimony of Jesus.",
+     "source": {
+      "label": "Revelation 1:9",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "There he received the vision recorded in the Book of Revelation.",
+     "source": {
+      "label": "Revelation 1:10-11",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "antioch-pisidia",
+   "kind": "place",
+   "name": "Antioch of Pisidia",
+   "alternateNames": [
+    "Pisidian Antioch"
+   ],
+   "passages": [
+    "ACT.13.14-52",
+    "ACT.14.19-23"
+   ],
+   "identification": {
+    "ancient": "Antioch of Pisidia (Antioch near Pisidia)",
+    "modern": "Ruins about 1 km northeast of Yalvaç, Isparta Province, Turkey",
+    "confidence": "probable",
+    "source": {
+     "label": "Wikipedia, 'Antioch of Pisidia'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Antioch_of_Pisidia"
+    }
+   },
+   "facts": [
+    {
+     "text": "Paul and Barnabas entered the synagogue here on the Sabbath, and Paul preached.",
+     "source": {
+      "label": "Acts 13:14-16",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Paul and Barnabas declared they were turning to the Gentiles after opposition from some of the Jews.",
+     "source": {
+      "label": "Acts 13:46-47",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The Jews stirred up leading women and men of the city, started a persecution against Paul and Barnabas, and drove them out of their district.",
+     "source": {
+      "label": "Acts 13:50-51",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "cyprus",
+   "kind": "place",
+   "name": "Cyprus",
+   "passages": [
+    "ACT.4.36-37",
+    "ACT.11.19-20",
+    "ACT.13.4-12",
+    "ACT.15.39"
+   ],
+   "identification": {
+    "ancient": "Cyprus",
+    "modern": "The island of Cyprus in the eastern Mediterranean, today divided along a United Nations buffer zone between the Republic of Cyprus and a northern area that calls itself the Turkish Republic of Northern Cyprus, recognised only by Turkey",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Cyprus'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Cyprus"
+    }
+   },
+   "facts": [
+    {
+     "text": "Barnabas, a Levite, was a native of Cyprus.",
+     "source": {
+      "label": "Acts 4:36",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Barnabas and Saul sailed to Cyprus, preached at Salamis and met the proconsul Sergius Paulus at Paphos.",
+     "source": {
+      "label": "Acts 13:4-7",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "After the dispute with Paul, Barnabas took Mark and sailed to Cyprus.",
+     "source": {
+      "label": "Acts 15:39",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "joppa",
+   "kind": "place",
+   "name": "Joppa",
+   "alternateNames": [
+    "Jaffa",
+    "Yafo"
+   ],
+   "passages": [
+    "ACT.9.36-43",
+    "ACT.10.9-23",
+    "JON.1.3",
+    "2CH.2.16"
+   ],
+   "identification": {
+    "ancient": "Joppa",
+    "modern": "Jaffa, the southern part of Tel Aviv-Yafo, Israel",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Jaffa'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Jaffa"
+    }
+   },
+   "facts": [
+    {
+     "text": "Peter raised the disciple Tabitha (Dorcas) from the dead at Joppa.",
+     "source": {
+      "label": "Acts 9:36-41",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Peter had his vision of the sheet from heaven while staying with Simon the tanner at Joppa.",
+     "source": {
+      "label": "Acts 10:6, 9-16",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Jonah went down to Joppa to find a ship to Tarshish.",
+     "source": {
+      "label": "Jonah 1:3",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "caesarea-maritima",
+   "kind": "place",
+   "name": "Caesarea Maritima",
+   "alternateNames": [
+    "Caesarea Palestinae",
+    "Strato's Tower"
+   ],
+   "passages": [
+    "ACT.10.1-48",
+    "ACT.8.40",
+    "ACT.12.19-23",
+    "ACT.23.23-35"
+   ],
+   "identification": {
+    "ancient": "Caesarea (earlier Strato's Tower)",
+    "modern": "Caesarea National Park, on the coast of Israel at the western edge of the Sharon plain",
+    "confidence": "certain",
+    "source": {
+     "label": "Wikipedia, 'Caesarea Maritima'",
+     "kind": "historical",
+     "url": "https://en.wikipedia.org/wiki/Caesarea_Maritima"
+    }
+   },
+   "facts": [
+    {
+     "text": "Cornelius, a Roman centurion at Caesarea, received Peter and was baptized with his household.",
+     "source": {
+      "label": "Acts 10:1, 44-48",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Paul was kept prisoner at Caesarea under the governors Felix and Festus.",
+     "source": {
+      "label": "Acts 23:33-35; 24:27; 25:1-6",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Herod the Great built a harbour at the old Phoenician settlement and dedicated the town and its port to Caesar Augustus as Caesarea.",
+     "source": {
+      "label": "Wikipedia, 'Caesarea Maritima'",
+      "kind": "historical",
+      "url": "https://en.wikipedia.org/wiki/Caesarea_Maritima"
+     },
+     "confidence": "certain"
+    }
+   ]
   }
  ]
 }

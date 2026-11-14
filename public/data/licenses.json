@@ -272,7 +272,7 @@
   },
   "profiles": {
     "license": "Short factual summaries written for this app; each fact names its source",
-    "attribution": "Facts cite the Catholic Encyclopedia (1907-1912, public domain), Scripture, and Vatican documents, as named on each fact. Drafted by one agent and checked against the cited sources by a second; a human review is still recommended.",
+    "attribution": "Facts cite the Catholic Encyclopedia (1907-1912, public domain), Scripture (checked against the Bible text in this app), Vatican documents, and for modern place identifications Wikipedia and archaeological society pages, as named on each fact. Each profile was drafted by one agent and checked source by source by a second; a human review is still recommended.",
     "redistribution": "yes",
     "notes": "Format in docs/PROFILE_DATA_FORMAT.md"
   },

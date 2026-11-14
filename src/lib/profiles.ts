@@ -69,8 +69,9 @@ export function validateProfiles(file: unknown): string[] {
       checkSource(p.identification.source, `${w}: identification`, errs);
     }
   }
-  const ids = new Set(f.profiles.map((p) => p?.id));
-  for (const p of f.profiles) for (const r of p?.related ?? []) if (!ids.has(r.id)) errs.push(`profile “${p.id}”: related profile “${r.id}” is not in the file`);
+  // a relation points at a profile of the same kind (the person Peter is not the saint Peter)
+  const keys = new Set(f.profiles.map((p) => `${p?.kind}:${p?.id}`));
+  for (const p of f.profiles) for (const r of p?.related ?? []) if (!keys.has(`${p.kind}:${r.id}`)) errs.push(`profile “${p.id}”: related profile “${r.id}” is not in the file`);
   return errs;
 }
 
