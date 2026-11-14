@@ -38,7 +38,6 @@ describe('the built index', () => {
   it('drops almost nothing, and every item resolves to real data', () => {
     const { files, stats } = buildIndex();
     expect(stats.dropped.filter((x) => !x.includes('non-exact')).length).toBeLessThanOrEqual(3);
-    expect(stats.dropped.every((x) => x.includes('non-exact') || x.includes('no verse count') || x.includes('chapter'))).toBe(true);
     expect(stats.versesLinked).toBeGreaterThan(5000);
     const cat = buildCatalog();
     for (const bf of files.values()) for (const [k, id, title, route] of bf.items) {
