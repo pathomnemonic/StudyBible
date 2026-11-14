@@ -43,7 +43,7 @@ describe('a collection item whose original was deleted', () => {
     expect(results.sort()).toEqual([false, true]);
     expect(await db.notes.where('uid').equals('restore-once').count()).toBe(1);
     expect(await db.trash.get(trashId)).toBeUndefined();
-    expect(await db.tombs.where('uid').equals('restore-once').count()).toBe(0);
+    expect(await db.tombs.filter((t) => t.uid === 'restore-once').count()).toBe(0);
   });
 
   it('does not duplicate a record whose uid is already present', async () => {
@@ -57,7 +57,7 @@ describe('a collection item whose original was deleted', () => {
     expect(await db.notes.where('uid').equals('already-here').count()).toBe(1);
     expect((await db.notes.where('uid').equals('already-here').first())?.body).toBe('current');
     expect(await db.trash.get(trashId)).toBeUndefined();
-    expect(await db.tombs.where('uid').equals('already-here').count()).toBe(0);
+    expect(await db.tombs.filter((t) => t.uid === 'already-here').count()).toBe(0);
   });
 
   it('rolls back restore if consuming the trash row fails', async () => {
