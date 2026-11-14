@@ -6427,3 +6427,5 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .lp-objectives ul { margin: 8px 0 2px; padding-left: 1.2em; }
 .lp-title { margin: 0 0 4px; }
 @media (max-width: 480px) { .lp-card { padding: 14px 14px 16px; } .lp-steps { gap: 6px; } }
+/* a chip inside a card may wrap on a narrow screen instead of pushing past the card's edge ("Official text (link)" at large text) */
+.shelf-card .chip { max-width: 100%; justify-self: start; white-space: normal; overflow-wrap: anywhere; text-align: left; }

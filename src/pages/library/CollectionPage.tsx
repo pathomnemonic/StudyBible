@@ -17,7 +17,8 @@ export default function CollectionPage() {
   const { get, editions } = useEditions();
   const [s] = useSettings();
   const ed = get(s.defaultEdition) ?? editions[0];
-  const c = useLiveQuery(() => db.collections.get(Number(id)), [id]);
+  // undefined while loading, null when there is no such collection (a deleted one, or an address that is not a number): the page says so instead of waiting for ever
+  const c = useLiveQuery(async () => (/^\d+$/.test(id ?? '') ? (await db.collections.get(Number(id))) ?? null : null), [id]);
   const notes = useLiveQuery(() => db.notes.orderBy('updatedAt').reverse().toArray(), []) ?? [];
   const highlights = useLiveQuery(() => db.highlights.toArray(), []) ?? [];
   const bookmarks = useLiveQuery(() => db.bookmarks.toArray(), []) ?? [];

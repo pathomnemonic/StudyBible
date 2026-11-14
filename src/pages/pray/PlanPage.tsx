@@ -15,22 +15,24 @@ export default function PlanPage() {
   const { id: rawId = '' } = useParams();
   const id = decodeURIComponent(rawId);
   const { get } = useEditions();
-  const [plan, setPlan] = useState<PlanDef | null>(null);
+  const [plan, setPlan] = useState<PlanDef | null | undefined>(undefined); // undefined while loading, null when there is no such plan
   const [s] = useSettings();
   const player = usePlayer();
   const prog = useLiveQuery(() => db.planProgress.get(id), [id]);
   useEffect(() => {
     (async () => {
       if (id.startsWith('user:')) {
-        const u = await db.userPlans.get(+id.slice(5));
-        if (u) setPlan({ id, name: u.name, description: u.description ?? 'Your own plan.', category: 'bible', days: u.days });
+        const n = /^\d+$/.test(id.slice(5)) ? +id.slice(5) : null;
+        const u = n === null ? undefined : await db.userPlans.get(n);
+        setPlan(u ? { id, name: u.name, description: u.description ?? 'Your own plan.', category: 'bible', days: u.days } : null);
       } else {
         const v = get('vulgate');
         if (v) setPlan((await builtinPlans(v)).find((p) => p.id === id) ?? null);
       }
     })();
   }, [id]);
-  if (!plan) return <div className="center-note">Loading plan…</div>;
+  if (plan === undefined) return <div className="center-note">Loading plan…</div>;
+  if (plan === null) return <div className="page"><Link to="/pray/plans" className="small">← Plans</Link><h1>Plan not found</h1><p>There is no reading plan with that address. It may have been deleted, or the link may be mistyped.</p><p><Link to="/pray/plans">See all plans</Link></p></div>;
   const todayIdx = prog ? Math.max(0, Math.min(plan.days.length - 1, Math.floor((Date.now() - prog.startedAt) / 86400000) + prog.offsetDays)) : -1;
   const toggle = async (i: number) => {
     if (!prog) return;

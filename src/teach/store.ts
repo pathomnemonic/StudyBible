@@ -8,7 +8,8 @@ type Assessment = Extract<ClassWork, { kind: 'assessment' }>;
 type Attendance = Extract<ClassWork, { kind: 'attendance' }>;
 
 export const useClasses = () => useLiveQuery(() => db.classes.toArray(), []);
-export const useClass = (id: string) => useLiveQuery(() => db.classes.get(id), [id]);
+/** undefined while loading, null when there is no such class (so a mistyped or deleted address can say so instead of loading for ever) */
+export const useClass = (id: string) => useLiveQuery(async () => (await db.classes.get(id)) ?? null, [id]);
 export const useWork = (classId: string) => useLiveQuery(() => db.classwork.where('classId').equals(classId).toArray(), [classId]) ?? [];
 export const sessionsOf = (w: ClassWork[]) => w.filter((x): x is Session => x.kind === 'session').sort((a, b) => b.ts - a.ts);
 export const assessmentsOf = (w: ClassWork[]) => w.filter((x): x is Assessment => x.kind === 'assessment').sort((a, b) => a.date.localeCompare(b.date) || a.title.localeCompare(b.title));

@@ -209,6 +209,8 @@ export const CRAWL = [
   { path: "/pray/plans", kind: "static", route: "/pray/plans" },
   { path: "/pray/plans/__nope__", kind: "unknown-id", route: "/pray/plans/:id" },
   { path: "/collection/__nope__", kind: "unknown-id", route: "/collection/:id" },
+  { path: "/collection/99999", kind: "unknown-id", route: "/collection/:id" }, // a number that was never (or is no longer) a collection
+  { path: "/pray/plans/user:99999", kind: "unknown-id", route: "/pray/plans/:id" }, // a user plan that was deleted
   { path: "/library", kind: "base", route: "/library/*" },
   { path: "/library/notes", kind: "sample", route: "/library/*" },
   { path: "/settings", kind: "static", route: "/settings" },

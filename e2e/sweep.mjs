@@ -72,7 +72,15 @@ async function crawl(size, route) {
   try {
     await p.goto(`${BASE}/#${route}`);
     // a route-specific marker, not just "something rendered": a real heading, not the error page and not the not-found page
-    await p.waitForSelector('main h1, main h2, main [role=heading], .page h1, .page h2, [role=heading]', { timeout: 15000 }).catch(() => note(where, 'no heading appeared (the route rendered nothing recognisable)'));
+    if (KIND.get(route) === 'unknown-id') {
+      // an address with an id that does not exist must SAY so (not stay blank, not load for ever, not break): any clear message will do
+      await p.waitForFunction(() => ((document.querySelector('main') || document.body).innerText || '').replace(/\s+/g, ' ').trim().length > 12, null, { timeout: 15000 }).catch(() => note(where, 'an unknown id leaves the page blank (it should say it was not found)'));
+      await p.waitForTimeout(5000);
+      const msg = ((await p.evaluate(() => (document.querySelector('main') || document.body).innerText)) || '').replace(/\s+/g, ' ').trim();
+      if (/^(← ?\w+\s*)?(loading|…)/i.test(msg) || /loading( plan| text|…)?\s*$/i.test(msg)) note(where, `an unknown id loads for ever ("${msg.slice(0, 40)}")`);
+    } else {
+      await p.waitForSelector('main h1, main h2, main [role=heading], .page h1, .page h2, [role=heading]', { timeout: 15000 }).catch(() => note(where, 'no heading appeared (the route rendered nothing recognisable)'));
+    }
     await p.waitForTimeout(450);
     const head = (await p.locator('main h1, .page h1, h1').first().innerText().catch(() => '')).trim();
     if (/this page did not load|something went wrong/i.test(head)) note(where, `the error page is showing ("${head}")`);
@@ -90,11 +98,11 @@ async function crawl(size, route) {
 
     // every fold (popup menus and the Bible tools dropdown are not folds), repeating while opening one reveals more
     for (let pass = 0; pass < 6; pass++) {
-      const folds = p.locator('main details:not(.tool-menu):not([open]) > summary');
+      const folds = p.locator('main details:not(.tool-menu):not(.act-more):not([open]) > summary');
       const n = await folds.count();
       if (!n) break;
       for (let i = 0; i < n; i++) {
-        const f = p.locator('main details:not(.tool-menu):not([open]) > summary').first();
+        const f = p.locator('main details:not(.tool-menu):not(.act-more):not([open]) > summary').first();
         if (!(await f.count())) break;
         const label = ((await f.innerText().catch(() => '')) || 'fold').trim().replace(/\s+/g, ' ').slice(0, 30);
         if (await click(f, `fold "${label}"`)) stats.folds++; else break;

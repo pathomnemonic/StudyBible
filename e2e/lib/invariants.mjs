@@ -14,7 +14,19 @@ export const INVARIANTS = () => {
   // 1. text spilling out of its box, and controls overlapping each other
   for (const e of controls) {
     const cs = getComputedStyle(e);
-    if (e.scrollWidth > e.clientWidth + 3 && cs.overflowX === 'visible' && e.textContent.trim() && cs.display !== 'inline' && !e.closest('summary')) out.push(`text spills out of "${label(e)}" (${e.scrollWidth}>${e.clientWidth})`);
+    if (e.scrollWidth > e.clientWidth + 3 && cs.overflowX === 'visible' && e.textContent.trim() && cs.display !== 'inline' && !e.closest('summary')) {
+      // only text a reader can SEE counts: words for screen readers are clipped to a pixel on purpose (a button with an icon and a hidden label)
+      const box = e.getBoundingClientRect(); let seenRight = 0;
+      const walk = document.createTreeWalker(e, NodeFilter.SHOW_TEXT);
+      for (let t = walk.nextNode(); t; t = walk.nextNode()) {
+        if (!t.textContent.trim()) continue;
+        const host = t.parentElement; const hs = getComputedStyle(host); const hr = host.getBoundingClientRect();
+        if ((hr.width <= 2 || hr.height <= 2) || /rect\(0(px)?,? 0(px)?,? 0(px)?,? 0(px)?\)|inset\(50%\)/.test(hs.clip + hs.clipPath) || hs.visibility === 'hidden' || hs.opacity === '0') continue;
+        const rg = document.createRange(); rg.selectNodeContents(t);
+        for (const r of rg.getClientRects()) seenRight = Math.max(seenRight, r.right);
+      }
+      if (seenRight > box.right + 3) out.push(`text spills out of "${label(e)}" (${e.scrollWidth}>${e.clientWidth})`);
+    }
   }
   const rects = controls.map((e) => [e, e.getBoundingClientRect()]);
   const seen = new Set();
