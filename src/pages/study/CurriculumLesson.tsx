@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import { worksheetHtml } from '../../curriculum/worksheet';
 import FinePrint from '../../components/FinePrint';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
@@ -64,15 +63,6 @@ function Quiz({ qs, onDone }: { qs: Question[]; onDone?: (score: number) => void
       )}
     </div>
   );
-}
-
-function printWorksheet(lesson: LessonSpec, grade: string, quiz: Question[], key: boolean) {
-  const w = window.open('', '_blank');
-  if (!w) return;
-  w.document.write(worksheetHtml(lesson, { grade, quiz, key }));
-  w.document.close();
-  w.focus();
-  w.print();
 }
 
 function sendHome(lesson: { title: string; idea: string; question: string; scripture?: string; mem?: string; ccc?: string; life?: string }, g: { id: string }, prayer: { title: string; text: string } | null) {
@@ -322,8 +312,8 @@ export default function CurriculumLesson() {
             <h2 className="eyebrow-h">Send home</h2>
             <p className="small muted">A half-page note for families: what we learned, one question to talk about, and a prayer.</p>
             <button className="btn small" onClick={() => sendHome(lesson, g, src.prayer ?? null)}>🖨 Print the take-home note</button>
-            <button className="btn small" onClick={() => printWorksheet(lesson, g.name, quiz, false)}>🖨 Student worksheet</button>
-            <button className="btn small" onClick={() => printWorksheet(lesson, g.name, quiz, true)}>🖨 Worksheet with answer key</button>
+            <Link className="btn small" to={`/print/worksheet/${g.id}~${lesson.id}`}>🖨 Student worksheet</Link>
+            <Link className="btn small" to={`/print/worksheet/${g.id}~${lesson.id}?key=1`}>🖨 Worksheet with answer key</Link>
           </section>
           <MyLessonNotes grade={g.id} lessonId={lesson.id} title={lesson.title} />
           <section className="sect">
