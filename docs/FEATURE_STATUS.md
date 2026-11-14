@@ -198,7 +198,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Student worksheet from a lesson | **Working** | On a lesson’s teacher view, Student worksheet prints a page made only from that lesson’s own parts: what you will do, the Scripture to read, the words to know with blanks, the lesson question and discussion questions with answer lines, the lesson’s own quiz questions, the activity, the lines to remember, the verse to learn and the challenge for the week. Worksheet with answer key marks the right answers. Nothing is added or invented; a lesson that lacks a part simply omits that section. |
+| Student worksheet from a lesson | **Working** | It now opens as an ordinary page, /print/worksheet/<grade>~<lesson> (student copy with no answers; add ?key=1 for the teacher copy with an answer key). On a lesson’s teacher view, Student worksheet prints a page made only from that lesson’s own parts: what you will do, the Scripture to read, the words to know with blanks, the lesson question and discussion questions with answer lines, the lesson’s own quiz questions, the activity, the lines to remember, the verse to learn and the challenge for the week. Worksheet with answer key marks the right answers. Nothing is added or invented; a lesson that lacks a part simply omits that section. |
 
 ## Study
 
@@ -349,6 +349,75 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Original scan of a library text | **Partial** | Eight library texts were taken from Internet Archive scans (the Roman Catechism, Trent, Vatican I, Leo XIII’s encyclicals and others). Each shows a “View the original scan” button that opens the Archive’s own page viewer inside the page, so the printed pages can be read beside the transcription. Nothing is requested from archive.org until the button is pressed, and the privacy page says so. The text is machine-read from the scan and can differ from it. Other texts have no Archive scan as their source and offer none. |
 | Where the Greek editions differ, verse by verse | **Partial** | Select a New Testament verse where the Greek editions read differently in a way that changes the English (the Nestle-Aland and SBL texts, the Textus Receptus behind the King James Version, the Byzantine text and others) and the Words tab lists each place, in the wording of STEPBible’s TAGNT (Tyndale House Cambridge, CC BY 4.0): 1,630 notes on 27 books, including the Lord’s Prayer doxology (Matthew 6:13) and the Johannine Comma (1 John 5:7). Only notes the dataset itself writes are shown; spelling and word-order differences that do not change the translation are not listed, and Mark’s longer ending has no note of its own. A study aid, not a critical apparatus. |
+| Profile search and filters | **Working** | Searches names and alternate names (accent-insensitive, ranked) with a kind filter; the search and filter are kept in the address. |
+| Profile relations and same-passage links | **Working** | Written relations are shown in both directions with their labels and sources, plus other profiles named in the same passages; a missing record shows as plain text with a note. |
+| Profile share, collection and way back | **Working** | Share link, add to collection, breadcrumbs and a back-to-origin trail (the same router state the reader uses). |
+| Profile map view | **Partial** | A list/map toggle appears only for places whose exact name matches one point in the app’s places data (32 of 42 place profiles); the rest are list-only. |
+| Shared profile card | **Working** | One profile card is used on the profile list, the related sections, the study panel’s People section and the command palette. |
+| Passage dossier workspace | **Working** | Save the whole passage to a collection, write a note, parallel view, and a Connected card built from your own records and app data. |
+| Passage backlinks | **Working** | Your notes, collections, reading plans, library works citing the passage and profiles; computed on open, nothing stored. |
+| Ask the Fathers and Ask the sources: locators and context | **Working** | Work, section and paragraph on every passage, surrounding paragraphs on demand, and a work filter. Retrieval only; nothing is generated. |
+| Save Ask results | **Working** | The result set can be saved to a collection or into a note as verbatim quotes with their locators. |
+| Book fingerprint selection and definitions | **Working** | Chapter range, search within the word lists, and a plain-words definition of each measure. |
+| Dossier connections | **Partial** | Glossary words, key words, profiles and four study-tool pages are linked only where the passage text matches the data (literal word matching, so not exhaustive); interlinear and concordance are not linked. |
+
+## Reader
+
+| Feature | Status | Notes |
+|---|---|---|
+| Edition switch keeps your place | **Working** | Carries the selected, arrived or top-of-screen verse when you change translation; not applied in parallel view. |
+| Parallel view gaps and notes | **Working** | A verse in only one translation says “Not in …”, with a count and the chapter alignment notes. |
+| Parallel view keyboard and copy | **Working** | Rows select with Enter or Space, and Copy text copies the left translation. |
+| About this chapter setting | **Working** | Opens by itself (default), stays closed, or remembers your last choice; it never pushes the text down mid-chapter. |
+| Recent chapters and saved pairs | **Working** | Recently read chapters come from the history table and saved translation pairs live in settings (pairs are not yet part of the move-place settings list). |
+
+## Media
+
+| Feature | Status | Notes |
+|---|---|---|
+| Pause vs close | **Working** | Pause keeps the player and your place; close stops, saves the place and never autoplays. |
+| Playback errors and offline | **Working** | A plain message with Try again for a failing or offline stream in the audio player and the video/recording host (a failing YouTube frame while online cannot be detected). |
+| Queue reorder in the full player | **Working** | Move up and down plus remove, announced to screen readers. |
+| Player keyboard keys and live status | **Working** | K, J and L keys documented on screen, spoken Playing, Paused and Closed status, 44 px targets. |
+| Docked player leaves room | **Working** | The page scrolls its last row above the docked player at every width. |
+
+## Library
+
+| Feature | Status | Notes |
+|---|---|---|
+| Collection target table | **Working** | Every collection target type has a label, a link and a missing check; a new type without one fails to compile. |
+| Collection sort, tag filter and cross search | **Working** | Collections sort four ways and filter by tag; one search finds notes and collections; notes sort and can be duplicated. Folders still cannot be renamed or deleted. |
+| Collection files | **Working** | Save one or all collections to a file and import them back; items, ticks and tags are kept, merging never duplicates, and a collections-only file cannot replace everything. |
+| Deleted originals in collections | **Working** | Shows “No longer here” with Remove, and Restore when the original is in Recently deleted. |
+| Data check repairs | **Working** | Certain passage-address fixes by button, with a safety copy and Undo; deleted items can be restored from the check. |
+| Pinned and recent | **Working** | Pins on collections, plans and notes, and a Recently opened list, kept on this device (and in the backup). |
+
+## Pray
+
+| Feature | Status | Notes |
+|---|---|---|
+| Plan builder | **Working** | Build a plan from chapters or passages at a chosen pace, with a day-by-day preview before saving. |
+
+## Games
+
+| Feature | Status | Notes |
+|---|---|---|
+| How to play and Practice mode | **Working** | Every game has a labelled How to play fold and a Practice switch; Practice counts nothing: no streak day, daily mark, best score, trophy or sticker. |
+| Hide streaks setting | **Working** | Settings → Lessons and games → Hide streaks everywhere (off by default) hides streak counters, streak trophies and their toasts and shows totals instead. Live-room screens still show streaks. |
+| Keyboard and non-pointer play | **Partial** | Wordsearch, Crossword, Pin the Place (latitude and longitude, or a map-centre pin) and Cloister can be played without a pointer; live-room screens and some quiz games were not audited in depth. |
+| Deterministic game logic | **Working** | Boards and scoring are pure functions in src/lib/gameLogic.ts, and seeded runs are tested. |
+
+## Teach
+
+| Feature | Status | Notes |
+|---|---|---|
+| My lessons bookmarks and Resume | **Working** | Add to My lessons on any lesson, a My lessons card on the curriculum home, and Resume on Today, the Learn page and the lesson list; a lesson reopens at the step where the learner stopped. |
+
+## Today
+
+| Feature | Status | Notes |
+|---|---|---|
+| Year page counts only what really happened | **Working** | Chapters count as read only when finished, hours and episodes finished come from time that actually played here (marking played adds nothing), and days count days with something recorded. |
 
 ## Pray
 

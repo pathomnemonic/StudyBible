@@ -227,6 +227,7 @@ export const CRAWL = [
   { path: "/account", kind: "static", route: "/account" },
   { path: "/attach", kind: "static", route: "/attach" },
   { path: "/about", kind: "static", route: "/about" },
+  { path: "/print/worksheet/1~1-1-1", kind: "sample", route: "/print/:kind/:id?" },
   { path: "/join/123456", kind: "sample", route: "/join/:code" },
   { path: "/library", kind: "smoke", route: "/library" },
   { path: "/pray/devotions/angelus", kind: "smoke", route: "/pray/devotions/angelus" },
