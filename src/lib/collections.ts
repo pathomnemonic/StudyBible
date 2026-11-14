@@ -22,6 +22,34 @@ export interface Resolved {
   missing?: boolean;
 }
 
+/** Everything a collection can point at, in one table. `Record<Target['type'], …>` makes the compiler refuse a new Target type that has no entry here. */
+export interface TargetInfo {
+  /** the plain-words kind shown on a chip or a heading */
+  label: string;
+  /** where the original lives: an in-app route or an outside address (a passage needs the edition to find the reader page) */
+  link: (t: any, ed?: EditionRecord) => { to?: string; url?: string };
+  /** true when the target can be seen to be broken without reading the database: an address the app cannot read, a number out of range, or (given the sets of records that exist) a record that is gone */
+  missing: (t: any, have?: HaveUids) => boolean;
+}
+export interface HaveUids { note: Set<string>; highlight: Set<string>; bookmark: Set<string> }
+const uidGone = (kind: keyof HaveUids) => (t: { uid: string }, have?: HaveUids) => !!have && !have[kind].has(t.uid);
+export const TARGET_KINDS: Record<Target['type'], TargetInfo> = {
+  passage: { label: 'Passage', link: (t, ed) => { const r = parseRefId(t.ref); return r && ed ? { to: readerPath(ed, r) } : r ? { to: '/read' } : {}; }, missing: (t) => !parseRefId(t.ref) },
+  commentary: { label: 'Commentary', link: (t) => (t.url ? { url: t.url } : {}), missing: () => false },
+  catechism: { label: 'Catechism', link: (t) => ({ to: `/study/catechism/${t.para}` }), missing: (t) => !Number.isInteger(t.para) || t.para < 1 || t.para > 2865 },
+  work: { label: 'Church writing', link: (t) => ({ to: `/study/works/${t.workId}/${t.section ?? ''}` }), missing: () => false },
+  episode: { label: 'Listening', link: (t) => ({ to: `/listen/episode/${t.episodeId}` }), missing: () => false },
+  reading: { label: 'Reading', link: (t) => ({ to: `/pray/readings/${t.date}` }), missing: () => false },
+  topic: { label: 'Topic', link: (t) => ({ to: `/study/topics/${t.topicId}` }), missing: () => false },
+  note: { label: 'Note', link: () => ({ to: '/library' }), missing: uidGone('note') },
+  highlight: { label: 'Highlight', link: () => ({ to: '/library?tab=highlights' }), missing: uidGone('highlight') },
+  bookmark: { label: 'Bookmark', link: () => ({ to: '/library?tab=bookmarks' }), missing: uidGone('bookmark') },
+  link: { label: 'Link', link: (t) => (String(t.url).startsWith('#/') ? { to: String(t.url).slice(1) } : { url: t.url }), missing: (t) => !/^(https?:\/\/|#\/)/i.test(String(t.url)) },
+};
+export const targetKind = (t: Target) => TARGET_KINDS[t.type].label;
+export const targetLink = (t: Target, ed?: EditionRecord) => TARGET_KINDS[t.type].link(t, ed);
+export const targetMissing = (t: Target, have?: HaveUids) => TARGET_KINDS[t.type].missing(t, have);
+
 const firstLine = (s: string) => (s.split('\n').find((l) => l.trim()) ?? '').replace(/^#+\s*/, '').slice(0, 80);
 
 export async function resolveItem(t: Target, index: number, ed: EditionRecord): Promise<Resolved> {
@@ -57,12 +85,12 @@ export async function resolveItem(t: Target, index: number, ed: EditionRecord): 
       const p = await cccPara(t.para).catch(() => null);
       return { ...base, kind: 'Catechism', title: t.label ?? `Catechism §${t.para}`, text: p?.t, to: `/study/catechism/${t.para}` };
     }
-    case 'work': return { ...base, kind: 'Church writing', title: t.label, to: `/study/works/${t.workId}/${t.section ?? ''}` };
-    case 'commentary': return { ...base, kind: 'Commentary', title: t.label, url: t.url };
-    case 'episode': return { ...base, kind: 'Listening', title: t.label, to: `/listen/episode/${t.episodeId}` };
-    case 'reading': return { ...base, kind: 'Reading', title: t.label, to: `/pray/readings/${t.date}` };
-    case 'topic': return { ...base, kind: 'Topic', title: t.label, to: `/study/topics/${t.topicId}` };
-    case 'link': return t.url.startsWith('#/') ? { ...base, kind: 'Link', title: t.label, to: t.url.slice(1) } : { ...base, kind: 'Link', title: t.label, url: t.url };
+    case 'work': return { ...base, kind: targetKind(t), title: t.label, ...targetLink(t) };
+    case 'commentary': return { ...base, kind: targetKind(t), title: t.label, ...targetLink(t) };
+    case 'episode': return { ...base, kind: targetKind(t), title: t.label, ...targetLink(t) };
+    case 'reading': return { ...base, kind: targetKind(t), title: t.label, ...targetLink(t) };
+    case 'topic': return { ...base, kind: targetKind(t), title: t.label, ...targetLink(t) };
+    case 'link': return { ...base, kind: targetKind(t), title: t.label, ...targetLink(t) };
   }
 }
 

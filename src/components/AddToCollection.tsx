@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, type Target } from '../db/db';
 import Modal from './Modal';
+import { targetKind } from '../lib/collections';
+import { targetLabel } from './NoteEditor';
 import { useToast } from './Toast';
 
 /** "Add to collection": choose one of your collections, or start a new one, and the item joins it by reference. */
@@ -34,6 +36,7 @@ export default function AddToCollection({ target, label = '＋ Collection', smal
       <button className={`btn${small ? ' small' : ''} ghost`} onClick={() => setOpen(true)} aria-haspopup="dialog">{label}</button>
       {open && (
         <Modal title="Add to a collection" onClose={() => setOpen(false)}>
+          {(() => { const t = resolve(); return t ? <p className="muted small" data-testid="atc-what">Adding: {targetKind(t)}, {targetLabel(t)}</p> : null; })()}
           {cs.length > 0 && (
             <ul className="list" style={{ marginBottom: 10 }}>
               {cs.map((c) => <li key={c.id}><button className="btn" style={{ width: '100%', justifyContent: 'flex-start' }} onClick={() => void put(c.id!)}>{c.name} <span className="muted small">{c.items.length} {c.items.length === 1 ? 'item' : 'items'}</span></button></li>)}

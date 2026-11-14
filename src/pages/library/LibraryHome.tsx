@@ -18,6 +18,7 @@ import { useSettings } from '../../lib/store';
 import { fold } from '../../search/engine';
 import { BOOK_ORDER } from '../../lib/canon';
 import GraphPage from './GraphPage';
+import { targetLink } from '../../lib/collections';
 
 type Tab = 'notes' | 'graph' | 'highlights' | 'bookmarks' | 'collections' | 'review' | 'xrefs' | 'saved' | 'history' | 'export' | 'trash';
 const TABS: [Tab, string][] = [['notes', 'Notes'], ['highlights', 'Highlights'], ['bookmarks', 'Bookmarks'], ['collections', 'Collections'], ['review', 'Review']];
@@ -136,12 +137,9 @@ export function TargetChip({ t }: { t: Target }) {
     const r = parseRefId(t.ref);
     return r ? <span className="chip"><RefLink refv={r} /></span> : null;
   }
-  if (t.type === 'work') return <Link className="chip" to={`/study/works/${t.workId}/${t.section ?? ''}`}>{t.label}</Link>;
-  if (t.type === 'episode') return <Link className="chip" to={`/listen/episode/${t.episodeId}`}>{t.label}</Link>;
-  if (t.type === 'catechism') return <a className="chip" href={`#/study/catechism/${t.para}`}>{t.label ?? `CCC §${t.para}`}</a>;
-  if (t.type === 'commentary' && t.url) return <a className="chip" href={t.url} target="_blank" rel="noreferrer">{t.label}</a>;
-  if (t.type === 'reading') return <Link className="chip" to={`/pray/readings/${t.date}`}>{t.label}</Link>;
-  if (t.type === 'topic') return <Link className="chip" to={`/study/topics/${t.topicId}`}>{t.label}</Link>;
+  const l = targetLink(t);
+  if (l.to) return <Link className="chip" to={l.to}>{targetLabel(t)}</Link>;
+  if (l.url) return <a className="chip" href={l.url} target="_blank" rel="noreferrer">{targetLabel(t)}</a>;
   return <span className="chip">{targetLabel(t)}</span>;
 }
 
