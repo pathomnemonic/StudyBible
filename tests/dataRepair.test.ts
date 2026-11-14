@@ -58,6 +58,40 @@ describe('repairing passage addresses', () => {
     expect((await db.highlights.get(h))!.ref).toBe('jhn.1.1');
   });
 
+
+  it('stops before any write when the required safety snapshot fails', async () => {
+    const { db } = await import('../src/db/db');
+    const safety = await import('../src/lib/safety');
+    const { applyRepairs } = await import('../src/lib/dataRepair');
+    const id = await db.notes.add({ kind: 'note', body: 'unchanged', targets: [], tags: [], createdAt: 1, updatedAt: 1 } as never);
+    vi.spyOn(safety, 'snapshotIfDue').mockResolvedValue(false);
+    await expect(applyRepairs([{ key: `notes:${id}`, tbl: 'notes', id, where: 'test note', changes: [], patch: { body: 'changed' }, before: { body: 'unchanged' } }])).rejects.toThrow(/safety copy/i);
+    expect((await db.notes.get(id))?.body).toBe('unchanged');
+  });
+
+  it('rolls back the entire repair batch when a later record cannot be updated', async () => {
+    const { db } = await import('../src/db/db');
+    const { applyRepairs } = await import('../src/lib/dataRepair');
+    const id = await db.notes.add({ kind: 'note', body: 'first', targets: [], tags: [], createdAt: 1, updatedAt: 1 } as never);
+    const repairs = [
+      { key: `notes:${id}`, tbl: 'notes' as const, id, where: 'first note', changes: [], patch: { body: 'changed' }, before: { body: 'first' } },
+      { key: 'notes:999999', tbl: 'notes' as const, id: 999999, where: 'missing note', changes: [], patch: { body: 'changed' }, before: { body: 'missing' } },
+    ];
+    await expect(applyRepairs(repairs)).rejects.toThrow(/could not update/i);
+    expect((await db.notes.get(id))?.body).toBe('first');
+  });
+
+  it('rolls back Undo when a later original record is missing', async () => {
+    const { db } = await import('../src/db/db');
+    const { undoRepairs } = await import('../src/lib/dataRepair');
+    const id = await db.notes.add({ kind: 'note', body: 'repaired', targets: [], tags: [], createdAt: 1, updatedAt: 1 } as never);
+    await expect(undoRepairs([
+      { tbl: 'notes', id, before: { body: 'original' } },
+      { tbl: 'notes', id: 999999, before: { body: 'missing' } },
+    ])).rejects.toThrow(/undo could not restore/i);
+    expect((await db.notes.get(id))?.body).toBe('repaired');
+  });
+
   it('lists collection items that Recently deleted can bring back', async () => {
     const { restorableItems } = await import('../src/lib/dataRepair');
     const out = restorableItems([{ id: 1, name: 'C', items: [{ type: 'note', uid: 'u1' }, { type: 'note', uid: 'u2' }] }], [{ id: 7, tbl: 'notes', data: { uid: 'u1' } }, { id: 8, tbl: 'highlights', data: { uid: 'u2' } }]);
