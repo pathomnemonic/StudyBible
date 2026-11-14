@@ -101,6 +101,22 @@ export default function MediaHost() {
     else if (e.key === 'Home' || e.key === 'Escape') { setPos(null); savePosition(null); }
   };
 
+  // a stream that fails, or no network: say so plainly and offer another try (the frame is loaded again)
+  const [bad, setBad] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  const [online, setOnline] = useState(() => navigator.onLine !== false);
+  useEffect(() => { const f = () => setOnline(navigator.onLine !== false); window.addEventListener('online', f); window.addEventListener('offline', f); return () => { window.removeEventListener('online', f); window.removeEventListener('offline', f); }; }, []);
+  useEffect(() => { setBad(false); setAttempt(0); }, [item?.key]);
+  // while docked, the page keeps room for the player so the last row can scroll above it
+  const isDocked = !!item && !anchor;
+  useEffect(() => {
+    const root = document.documentElement; const el = box.current;
+    if (!isDocked || !el) { root.style.removeProperty('--host-h'); return; }
+    // room from the player's top edge to the bottom of the screen, so the page's last row can scroll above it wherever it is docked
+    const set = () => root.style.setProperty('--host-h', `${Math.max(0, Math.round(window.innerHeight - el.getBoundingClientRect().top)) + 8}px`);
+    set(); const ro = new ResizeObserver(set); ro.observe(el); window.addEventListener('resize', set);
+    return () => { ro.disconnect(); window.removeEventListener('resize', set); root.style.removeProperty('--host-h'); };
+  }, [isDocked, item?.key]);
   const key = item?.key;
   const embed = item?.embed;
   const id = embed && embed.kind === 'iframe' ? ytId(embed.src) : undefined;
@@ -138,6 +154,10 @@ export default function MediaHost() {
 
   if (!item || !embed) return null;
   const docked = !anchor;
+  const offlineFrame = !online && (embed.kind === 'iframe' || bad);
+  const msg = bad || offlineFrame ? (!online ? 'You are offline, so this cannot load. Try again when you are back online.' : 'This could not be played. The stream may be down.') : '';
+  const mk = `${key}:${attempt}`;
+  const onBad = () => setBad(true);
   return (
     <div ref={box} className={`media-host${docked ? ' docked' : ''}${embed.kind === 'audio' ? ' is-audio' : ''}`} role="region" aria-label={docked ? `Now playing: ${title}` : undefined}>
       {docked && (
@@ -145,14 +165,15 @@ export default function MediaHost() {
           <button type="button" className="mh-grip" aria-label="Move the player: drag it, or use the arrow keys. Home puts it back." title="Drag to move" onPointerDown={onGripDown} onPointerMove={onGripMove} onPointerUp={onGripUp} onPointerCancel={onGripUp} onKeyDown={onGripKey} onDoubleClick={() => { setPos(null); savePosition(null); }}>⠿</button>
           <Link to={item.route} className="mh-title" title="Back to where this is on the page">{title}</Link>
           {embed.kind !== 'audio' && <button type="button" className="mh-size" aria-label="Resize the player: drag, or use the arrow keys (plus and minus also work). Home puts it back." title="Drag to resize" onPointerDown={onSizeDown} onPointerMove={onSizeMove} onPointerUp={onSizeUp} onPointerCancel={onSizeUp} onKeyDown={onSizeKey} onDoubleClick={() => { setWidth(null); saveW(null); }}>⤡</button>}
-          <button type="button" className="mh-x" onClick={closeHost} aria-label="Stop and close the player">×</button>
+          <button type="button" className="mh-x" onClick={closeHost} aria-label="Stop and close the player" title="Stop and close the player (pause inside the player keeps it open)">×</button>
         </div>
       )}
-      {embed.kind === 'audio' && <audio key={key} controls autoPlay preload="none" src={embed.src} aria-label={title} />}
-      {embed.kind === 'video' && <video key={key} controls autoPlay preload="none" src={embed.src} aria-label={title} playsInline />}
-      {embed.kind === 'iframe' && (
+      {embed.kind === 'audio' && <audio key={mk} onError={onBad} onPlaying={() => setBad(false)} controls autoPlay preload="none" src={embed.src} aria-label={title} />}
+      {embed.kind === 'video' && <video key={mk} onError={onBad} onPlaying={() => setBad(false)} controls autoPlay preload="none" src={embed.src} aria-label={title} playsInline />}
+      {msg && <div className="mh-msg" role="alert"><span>{msg}</span><button type="button" className="btn small" onClick={() => { setBad(false); setAttempt((n) => n + 1); }}>Try again</button></div>}
+      {embed.kind === 'iframe' && !offlineFrame && (
         <iframe
-          key={key}
+          key={mk}
           ref={frame}
           src={src}
           title={`${title} (${embed.provider})`}
