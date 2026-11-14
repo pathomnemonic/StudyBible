@@ -30,7 +30,7 @@ async function crawl(size, route) {
     const check = async (stage) => { for (const x of await p.evaluate(INVARIANTS)) note(`${where}${stage ? ` after ${stage}` : ''}`, x); };
     await check('');
     // folds
-    const folds = p.locator('main details > summary');
+    const folds = p.locator('main details:not(.tool-menu) > summary');
     const nf = Math.min(await folds.count(), 6);
     for (let i = 0; i < nf; i++) { await folds.nth(i).click({ timeout: 1500 }).catch(() => undefined); await p.waitForTimeout(120); }
     if (nf) await check('opening folds');
