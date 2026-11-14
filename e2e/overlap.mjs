@@ -1,5 +1,5 @@
-// Layout and state guard. (1) At phone widths, no two visible controls may overlap and no control's text may spill out of
-// its box, on every route and after clicking each tab in the Media area. (2) The Year tab must show the right list after
+// Focused guard for the Media area (the general crawl of every route is sweep.mjs). (1) After clicking each tab and sub-tab in the Media
+// area, no two controls may overlap and no control's text may spill out of its box. (2) The Year tab must show the right list after
 // every switch between Up next / All days / Queue, even when the queue holds episodes from other shows.
 import { chromium } from 'playwright';
 import { readFileSync } from 'node:fs';
@@ -35,10 +35,6 @@ for (const width of [360]) {
   const ctx = await b.newContext({ viewport: { width, height: 800 } });
   await ctx.addInitScript(() => { try { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); } catch { /* */ } });
   const p = await ctx.newPage();
-  for (const r of ROUTES) {
-    await p.goto(`${BASE}/#${r}`); await p.waitForTimeout(250);
-    for (const x of await p.evaluate(audit)) problems.push(`[${width}px ${r}] ${x}`);
-  }
   // every tab of the Media area, and the sub-tabs inside each
   await p.goto(`${BASE}/#/listen`); await p.waitForSelector('.seg [role=tab]', { timeout: 20000 });
   const top = await p.locator('[role=tablist][aria-label], .tabbar [role=tab], .seg [role=tab]').count();

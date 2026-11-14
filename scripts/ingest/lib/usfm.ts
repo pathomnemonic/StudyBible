@@ -169,7 +169,7 @@ export function parseUsfm(text: string, warn: (msg: string) => void, file = ''):
       if (rest) addInline(rest);
     } else if (HEAD.has(marker)) {
       flushBlock();
-      if (chapter && rest) chapter.blocks.push([normKind(marker), cleanInline(rest).trim()] as Block);
+      if (chapter && rest) chapter.blocks.push([normKind(marker), cleanInline(rest.replace(NOTE_PLACEHOLDER, '')).trim()] as Block);   // a footnote inside a heading has no verse to sit on
     } else if (marker === 'ip' || marker === 'is1' || marker === 'is' || marker === 'imt' || marker === 'imt1') {
       if (!chapter && rest) out.intro.push(cleanInline(rest).trim());
     } else if (SKIP.has(marker)) {

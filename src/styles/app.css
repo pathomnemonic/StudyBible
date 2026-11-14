@@ -6392,3 +6392,8 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .cg-lt { display: flex; flex-direction: column; min-width: 0; }
 .cg-lt-t { line-height: 1.3; }
 .cg-about { margin-top: 14px; }
+
+/* ===== Narrow screens and big text: nothing may spill out of its box (found by e2e/sweep.mjs) ===== */
+.hub-tile-t, .hub-tile-d { min-width: 0; overflow-wrap: anywhere; }
+:root[data-layout='compact'] .hub-tile > .hub-tile-t { flex: 1 1 0; }
+@media (max-width: 400px) { .hub-tiles, :root[data-layout='compact'] .hub-tiles { grid-template-columns: minmax(0, 1fr); } }

@@ -166,7 +166,7 @@ export default function ChapterText({ chapter, selected, decor, onVerse, lang, d
               {lastRunOfVerse && !!stdNotes?.get(n)?.length && (
                 <button
                   className="rm rm-std"
-                  title="Note on the text: an alternate reading or a variant in the manuscripts"
+                  title="Notes on this verse (the edition’s own footnotes, alternate readings and cross-references)"
                   aria-label={`${stdNotes.get(n)!.length} note${stdNotes.get(n)!.length === 1 ? '' : 's'} on the text for verse ${n}`}
                   onClick={(e) => onStdNote?.(n, e.currentTarget)}
                 >
