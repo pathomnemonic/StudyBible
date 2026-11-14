@@ -72,8 +72,11 @@ describe('go further links', () => {
   it('labels a Scripture link when the chosen Vulgate numbering is only approximate', () => {
     const ctx = refContext(known.editions, 'vulgate');
     expect(ctx).not.toBeNull();
-    const link = buildGoFurther({ ...base, scripture: 'John 6:51-58' }, known, undefined, ctx).links.find((x) => x.kind === 'scripture');
+    const lesson = { ...base, scripture: 'John 6:51-58' };
+    const link = buildGoFurther(lesson, known, undefined, ctx).links.find((x) => x.kind === 'scripture');
     expect(link?.note).toBeTruthy();
+    const sameTradition = buildGoFurther(lesson, known).links.find((x) => x.kind === 'scripture');
+    expect(sameTradition?.note).toBeUndefined();
   });
 
   it('reads several passages', () => { expect(lessonRefs('Luke 5:17-26; Matthew 9:1-8').map((x) => x.ref.book)).toEqual(['LUK', 'MAT']); });
