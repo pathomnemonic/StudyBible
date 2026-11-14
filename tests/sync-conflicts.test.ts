@@ -100,7 +100,7 @@ describe('applying a remote change that conflicts with an unsynced local edit', 
     // and a later re-delivery with a newer stamp finds the existing copy instead of making a second one
     await dbm.db.notes.where('uid').equals('n1').modify({ title: 'Local title', updatedAt: 2500 });
     await eng.applyRemote('u', [remote({ title: 'Remote title' }, 3500)]);
-    expect((await notes()).filter((n) => n.uid.includes('~conflict~')).length).toBe(1);
+    expect((await notes()).filter((n) => (n.uid ?? '').includes('~conflict~')).length).toBe(1);
   });
   it('a body difference still keeps the other text (as before)', async () => {
     await seed('notes', { ...base, body: 'local words', updatedAt: 2000 } as any);
