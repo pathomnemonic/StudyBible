@@ -190,6 +190,14 @@ describe('key verse for the memorize list', () => {
     expect(k.status).toBe('approximate');
     if (k.status === 'approximate') { expect(k.exact).toBe(false); expect(k.reason).toBeTruthy(); expect(refId(k.original)).toBe('JHN.6.53'); }
   });
+  it('turns known missing Vulgate verse endpoints into chapter-only explicit approximations', () => {
+    const mark = kv('Mark 4:41');
+    expect(mark.status).toBe('approximate');
+    expect(mark.ref).toEqual({ book: 'MRK', c1: 4, c2: 4 });
+    const acts = kv('Acts 7:60');
+    expect(acts.status).toBe('approximate');
+    expect(acts.ref).toEqual({ book: 'ACT', c1: 7, c2: 7 });
+  });
   it('a verse past the end of its chapter is invalid: no card, with a reason', () => {
     const k = kv('John 3:37');
     expect(k).toMatchObject({ status: 'invalid' });
