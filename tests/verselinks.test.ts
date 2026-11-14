@@ -79,7 +79,7 @@ describe('edition-to-index conversion', () => {
     expect(toIndexVerses('kjv', 'JHN', 3, 16)).toEqual([[3, 16]]);
     expect(toIndexVerses('kjv', 'JHN', 6, 51)).toEqual([]);
     expect(toIndexVerses('kjv', 'PSA', 2, 1)).toEqual([]);
-    expect(toIndexChapters('kjv', 'JHN', 6)).toEqual([]);
+    expect(toIndexChapters('kjv', 'TOB', 1)).toEqual([]);
     expect(toIndexChapters('kjv', 'PSA', 2)).toEqual([]);
   });
 });
