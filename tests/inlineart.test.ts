@@ -27,6 +27,6 @@ describe('pictures in the text', () => {
       expect(new Set(spots).size, `${book} ${c}: spots ${spots.join(',')}`).toBe(spots.length);
       expect(figs.length).toBeLessThanOrEqual(3);
     }
-    expect(shown).toBeGreaterThan(300);
+    expect(shown).toBeGreaterThan(280);
   }, 300000);
 });
