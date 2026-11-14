@@ -1,0 +1,29 @@
+# Third-cycle backlog (from the reviewer's list)
+
+Order follows the reviewer's priorities. "Data" means a reviewed source is needed first; nothing here is to be filled in by invention.
+Status: done / next / data needed / decision needed.
+
+## Priority 1: finish the second-cycle features
+| Item | Status |
+| --- | --- |
+| `[[` picker in notes | done |
+| Collections: item count, done count, last changed, search, duplicate | done |
+| Collections: folders, tags, more item types, plan from a collection, richer HTML export, more templates | next |
+| Notes: incoming links (done earlier as backlinks), tags filter, pin (done earlier), templates (several done), version history, selective export | next |
+| Compare the Fathers starting from a passage; sorting by period; author profiles | next |
+| Ask the sources: source filters, expandable context, saved question into a collection | next |
+| Glossary: alphabetical index, related terms, confusable pairs | next (related terms and confusable pairs need reviewed pairings) |
+| Offline manager: selective downloads, queue, integrity check, update check | next |
+
+## Priority 2: reference libraries
+Saint, biblical person and place profile pages: data needed (reviewed tables with stable identifiers). The schema, import checks and page templates can be built first.
+
+## Priority 3: reading and search
+Verse-by-verse notes mode: decision needed (recommended as a small optional mode). Copy formats, quick-jump, typography options, saved searches: next.
+
+## Priority 4: connected study tools
+Passage dossier (one page assembling the passage, parallels, cross-references, Catechism, Fathers, glossary, map, notes): next, highest value.
+Parables and miracles indexes, quotation and fulfilment explorers: need reviewed tagging for anything not already in the shipped data.
+
+## Priority 5 and 6: prayer, liturgy, audio
+Sunday preparation workspace, novena tracker, prayer-by-circumstance finder: next. Eastern calendar framework: architecture can be built; sources needed. Audio read-along: timing data needed.
