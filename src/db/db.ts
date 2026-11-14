@@ -135,8 +135,10 @@ export interface EpisodeProgress extends Syncable {
   completed: boolean;
   /** seconds of this episode that actually played here (credited by the player; marking an episode played adds nothing) */
   heard?: number;
-  /** played through to its end here (not just marked as played) */
+  /** played through to its end here (not just marked as played); retained for old backups */
   ranToEnd?: boolean;
+  /** Dated local listening ledger. Seconds and genuine completion events are attributed to the local calendar day they occurred. */
+  listeningDays?: Record<string, { seconds: number; completions: number }>;
   updatedAt: number;
 }
 
