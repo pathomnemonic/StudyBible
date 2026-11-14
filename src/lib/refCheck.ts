@@ -158,8 +158,9 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
 
 /** Reader URL for a native passage, or null when the edition does not have that chapter. No chapter is ever clamped. */
 export function readerUrl(ed: CountsEdition, native: Ref, parallel?: string | null): string | null {
-  const nCh = ed.chapters[native.book];
-  if (!nCh || native.c1 < 1 || native.c1 > nCh) return null;
+  // This is the final boundary before a generated link leaves the resolver: reject invalid
+  // end chapters and verse endpoints here too, even if a caller forgot to validate upstream.
+  if (checkRefIn(ed, native)) return null;
   const v = native.v1 ? `v=${native.v1}${native.c2 === native.c1 && native.v2 && native.v2 !== native.v1 ? '-' + native.v2 : ''}` : '';
   const q = [parallel ? `p=${parallel}` : '', v].filter(Boolean).join('&');
   return `/read/${ed.id}/${native.book}/${native.c1}${q ? '?' + q : ''}`;
