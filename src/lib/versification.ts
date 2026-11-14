@@ -192,7 +192,7 @@ export function convertRef(from: Scheme, to: Scheme, r: Ref): { ref: Ref; exact:
       c2: end ? end.c : endChapter,
       v2: end ? end.v2 : r.v1 === undefined ? undefined : start.v2,
     },
-    exact: start.exact && (end ? end.exact : chapterRangeExact),
+    exact: start.exact && (end ? end.exact : true) && chapterRangeExact,
   };
 }
 
