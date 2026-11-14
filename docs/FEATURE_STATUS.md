@@ -336,6 +336,12 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Reading comfort: large print, dyslexia-friendly, low vision, spacing, animation and haptic settings, zen high-contrast theme | **Working** | Presets in Reading settings set the type size, spacing, alignment and font (Atkinson Hyperlegible and OpenDyslexic are bundled). Research on dyslexia fonts is mixed, so both are offered alongside the spacing controls. Haptics work only on devices that support vibration. |
 
+## Media
+
+| Feature | Status | Notes |
+|---|---|---|
+| Podcast transcripts and chapters from the publisher | **Partial** | When a podcast feed lists a Podcasting 2.0 transcript (WebVTT, SRT or JSON; HTML pages are not used), the full player offers it as a fold: it is fetched only when opened, shows the publisher’s own words, follows the playback position and jumps to a line when tapped. Plain-text transcripts have no times, so they are shown without jumping. Chapters from a feed’s chapters file or the show notes already worked. Episodes of feeds that publish no transcript (for example Bible in a Year) have none, and the app does not generate one. |
+
 ## Pray
 
 | Feature | Status | Notes |

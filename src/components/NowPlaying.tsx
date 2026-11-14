@@ -4,7 +4,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../db/db';
 import { resolveEpisode, usePlayer } from '../data/PlayerContext';
 import type { BiayEpisode, EpisodeChapter } from '../data/content';
-import { fetchChapters } from '../data/feeds';
+import { fetchChapters, fetchTranscript, type Cue } from '../data/feeds';
 import Modal from './Modal';
 import { useSettings } from '../lib/store';
 import { parseRefId } from '../lib/refs';
@@ -56,6 +56,32 @@ function Chapters({ e, position, seek }: { e: BiayEpisode; position: number; see
   );
 }
 
+/** The publisher's own transcript (Podcasting 2.0), when the feed offers one. Fetched only when the fold is opened; tap a line to jump there. */
+function Transcript({ e, position, seek }: { e: BiayEpisode; position: number; seek: (t: number) => void }) {
+  const [open, setOpen] = useState(false);
+  const [cues, setCues] = useState<Cue[] | null | undefined>(undefined);
+  useEffect(() => { setOpen(false); setCues(undefined); }, [e.id]);
+  useEffect(() => {
+    if (!open || cues !== undefined || !e.transcriptUrl) return;
+    let live = true; void fetchTranscript(e.transcriptUrl, e.transcriptType ?? '').then((c) => live && setCues(c.length ? c : null));
+    return () => { live = false; };
+  }, [open, cues, e.transcriptUrl, e.transcriptType]);
+  if (!e.transcriptUrl) return null;
+  const timed = !!cues && cues.some((c) => c.t >= 0);
+  let cur = -1; if (timed) cues!.forEach((c, i) => { if (position + 0.5 >= c.t) cur = i; });
+  return (
+    <details onToggle={(ev) => setOpen((ev.currentTarget as HTMLDetailsElement).open)}><summary>Transcript (from the publisher)</summary>
+      {open && cues === undefined && <p className="muted small" role="status">Loading the transcript…</p>}
+      {open && cues === null && <p className="muted small">The transcript could not be loaded. <a href={e.transcriptUrl} target="_blank" rel="noreferrer noopener">Open it on the publisher’s site</a>.</p>}
+      {cues && cues.length > 0 && <div className="transcript" style={{ maxHeight: 260, overflow: 'auto' }}>
+        {cues.map((c, i) => c.t >= 0
+          ? <p key={i} style={{ margin: '4px 0' }}><button className={`linklike${i === cur ? ' now-chapter' : ''}`} aria-current={i === cur ? 'true' : undefined} onClick={() => seek(c.t)}><span className="muted small">{fmt(c.t)}</span> {c.text}</button></p>
+          : <p key={i} style={{ margin: '4px 0' }}>{c.text}</p>)}
+      </div>}
+    </details>
+  );
+}
+
 /** The full player: large controls, speed (remembered for each show), sleep timer, skip intro, show notes, what plays next. */
 export default function NowPlaying({ onClose }: { onClose: () => void }) {
   const p = usePlayer();
@@ -98,6 +124,7 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
           {e.link && <Link className="btn small" to={e.link} onClick={onClose}>Open the page</Link>}
         </div>
         <Chapters e={e} position={p.position} seek={p.seek} />
+        <Transcript e={e} position={p.position} seek={p.seek} />
         <Marks id={e.id} title={e.title} page={e.page} />
         {e.description && <details open><summary>Show notes</summary><p className="small" style={{ whiteSpace: 'pre-wrap' }}>{e.description}</p></details>}
         <details open={q.length > 0}><summary>Up next ({q.length})</summary>

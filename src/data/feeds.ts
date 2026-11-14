@@ -59,6 +59,43 @@ export async function fetchChapters(url: string): Promise<{ t: number; title: st
   }
   return [];
 }
+/** One line of a transcript, with the second it starts at. */
+export interface Cue { t: number; text: string }
+const TRANSCRIPT_RANK = ['text/vtt', 'application/x-subrip', 'application/srt', 'application/json', 'text/plain'];
+/** Of the transcripts a feed offers for an episode, the best one this app can read (never an HTML page). */
+export function pickTranscript(list: { url: string; type: string }[]): { url: string; type: string } | undefined {
+  const ok = list.filter((x) => /^https?:\/\//i.test(x.url) && TRANSCRIPT_RANK.includes(x.type.toLowerCase().split(';')[0].trim()));
+  return ok.sort((a, b) => TRANSCRIPT_RANK.indexOf(a.type.toLowerCase().split(';')[0].trim()) - TRANSCRIPT_RANK.indexOf(b.type.toLowerCase().split(';')[0].trim()))[0];
+}
+const clock = (s: string) => { const m = /^(?:(\d+):)?(\d{1,2}):(\d{2})(?:[.,](\d{1,3}))?$/.exec(s.trim()); return m ? (+(m[1] ?? 0)) * 3600 + +m[2] * 60 + +m[3] + (m[4] ? +m[4].padEnd(3, '0') / 1000 : 0) : null; };
+/** WebVTT, SRT, Podcasting 2.0 JSON or plain text into timed lines. Plain text has no times, so it is returned as untimed lines (t = -1). */
+export function parseTranscript(body: string, type: string): Cue[] {
+  const kind = type.toLowerCase().split(';')[0].trim();
+  const clean = (x: string) => x.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  if (kind === 'application/json') {
+    try {
+      const j = JSON.parse(body); const segs = Array.isArray(j?.segments) ? j.segments : [];
+      return segs.filter((s: any) => typeof s?.startTime === 'number' && s.body).map((s: any) => ({ t: Math.max(0, s.startTime), text: clean(String(s.body)) })).filter((c: Cue) => c.text);
+    } catch { return []; }
+  }
+  if (kind === 'text/vtt' || kind === 'application/x-subrip' || kind === 'application/srt') {
+    const out: Cue[] = [];
+    for (const block of body.replace(/\r\n?/g, '\n').split(/\n{2,}/)) {
+      const lines = block.split('\n'); const i = lines.findIndex((l) => l.includes('-->'));
+      if (i < 0) continue;
+      const t = clock(lines[i].split('-->')[0]); const text = clean(lines.slice(i + 1).join(' '));
+      if (t !== null && text) out.push({ t, text });
+    }
+    return out;
+  }
+  return body.replace(/\r\n?/g, '\n').split(/\n+/).map(clean).filter(Boolean).map((text) => ({ t: -1, text }));
+}
+/** Fetches and reads the transcript (directly, then through the same relays the feeds use). */
+export async function fetchTranscript(url: string, type: string): Promise<Cue[]> {
+  const tries: (() => Promise<Response>)[] = [() => fetch(url), ...PROXIES.map((p) => () => fetch(p(url)))];
+  for (const t of tries) { try { const r = await t(); if (!r.ok) continue; const c = parseTranscript(await r.text(), type); if (c.length) return c.slice(0, 20000); } catch { /* try the next route */ } }
+  return [];
+}
 const plain = (h: string) => new DOMParser().parseFromString(h, 'text/html').body.textContent?.replace(/\s+/g, ' ').trim() ?? '';
 
 export interface ParsedFeed { title: string; host: string; image: string; page: string; description: string; episodes: (Omit<BiayEpisode, 'id'> & { guid: string })[] }
@@ -79,7 +116,8 @@ export function parseFeed(xml: string): ParsedFeed {
     const full = plain(rawNotes);
     const chapters = chaptersFromNotes(notesLines(tagNS(it, 'content:encoded') || rawNotes));
     const chaptersUrl = it.getElementsByTagName('podcast:chapters')[0]?.getAttribute('url')?.replace(/^http:\/\//, 'https://') || undefined;
-    return { guid: txt(it, 'guid') || audio || t, day: null, year: null, kind: 'bonus' as const, title: plain(t), short: plain(t), date: Number.isNaN(+d) ? '' : d.toISOString().slice(0, 10), duration: secs(tagNS(it, 'itunes:duration')), audio, page: txt(it, 'link') || txt(ch, ':scope > link'), description: full.slice(0, 900), passages: [] as string[], passageSource: '', chapters: chapters.length ? chapters : undefined, chaptersUrl };
+    const tr = pickTranscript([...it.getElementsByTagName('podcast:transcript')].map((x) => ({ url: (x.getAttribute('url') ?? '').replace(/^http:\/\//, 'https://'), type: x.getAttribute('type') ?? '' })));
+    return { guid: txt(it, 'guid') || audio || t, day: null, year: null, kind: 'bonus' as const, title: plain(t), short: plain(t), date: Number.isNaN(+d) ? '' : d.toISOString().slice(0, 10), duration: secs(tagNS(it, 'itunes:duration')), audio, page: txt(it, 'link') || txt(ch, ':scope > link'), description: full.slice(0, 900), passages: [] as string[], passageSource: '', transcriptUrl: tr?.url, transcriptType: tr?.type, chapters: chapters.length ? chapters : undefined, chaptersUrl };
   }).filter((e) => e.audio.startsWith('https://')).sort((a, b) => b.date.localeCompare(a.date));
   return { title, host, image, page: txt(ch, ':scope > link'), description: plain(txt(ch, ':scope > description')).slice(0, 400), episodes };
 }

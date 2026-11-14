@@ -46,6 +46,9 @@ export interface BiayEpisode {
   /** chapter marks: from the show notes' timestamps, or fetched from the feed's chapters file */
   chapters?: EpisodeChapter[];
   chaptersUrl?: string;
+  /** a Podcasting 2.0 transcript the publisher offers (<podcast:transcript>), with its media type */
+  transcriptUrl?: string;
+  transcriptType?: string;
   id: string;
   day: number | null;
   year: number | null;
