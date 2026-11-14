@@ -18,14 +18,16 @@ describe('listening time', () => {
     expect(listeningStats(rows, new Date().getFullYear())).toEqual({ hours: 0, playedToEnd: 0 });
   });
   it('real playback is credited, accumulates across saves, and survives a later "mark played"', async () => {
-    const { db } = await import('../src/db/db'); const { setPlayed, creditListening, listeningStats } = await import('../src/lib/listening');
-    await creditListening('a', 600, { position: 600, duration: 1800 });
-    await creditListening('a', 900, { position: 1500, duration: 1800 });
-    await creditListening('a', 300, { position: 0, duration: 1800, completed: true, ranToEnd: true });
+    const { db } = await import('../src/db/db'); const { setPlayed, creditListening, listeningStats, listeningDay } = await import('../src/lib/listening');
+    const at = new Date(2026, 5, 1, 12);
+    await creditListening('a', 600, { position: 600, duration: 1800 }, at);
+    await creditListening('a', 900, { position: 1500, duration: 1800 }, at);
+    await creditListening('a', 300, { position: 0, duration: 1800, completed: true, ranToEnd: true }, at);
     await setPlayed('a', false); await setPlayed('a', true, 1800);
     const r = await db.episodeProgress.get('a');
     expect(r?.heard).toBe(1800); expect(r?.ranToEnd).toBe(true);
-    expect(listeningStats(await db.episodeProgress.toArray(), new Date().getFullYear())).toEqual({ hours: 0.5, playedToEnd: 1 });
+    expect(r?.listeningDays?.[listeningDay(at)]).toEqual({ seconds: 1800, completions: 1 });
+    expect(listeningStats(await db.episodeProgress.toArray(), at.getFullYear())).toEqual({ hours: 0.5, playedToEnd: 1 });
   });
   it('legacy cumulative totals and boolean completion have no recoverable year and are excluded', async () => {
     const { listeningStats, hasUndatedListening } = await import('../src/lib/listening');
