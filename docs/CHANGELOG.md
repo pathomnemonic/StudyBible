@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Collection templates: Prayers in Scripture and Psalms for a hard day (a test checks every template passage is real).
 - Ask the sources: suggests existing guided walks (Argument Map questions) that match the words of the question.
 - Export: export only the notes carrying one tag.
 - Review: notes you chose to come back to can be marked Reviewed, moved to next week or added to a collection.

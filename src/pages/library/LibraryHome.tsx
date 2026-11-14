@@ -175,11 +175,13 @@ function Bookmarks() {
   );
 }
 
-const COLLECTION_TEMPLATES: { name: string; description: string; refs: string[] }[] = [
+export const COLLECTION_TEMPLATES: { name: string; description: string; refs: string[] }[] = [
   { name: 'The Eucharist in Scripture', description: 'Where the New Testament speaks of the bread and the cup.', refs: ['John 6:51-58', 'Luke 22:14-20', '1 Corinthians 11:23-29', 'Luke 24:13-35'] },
   { name: 'Marian passages', description: 'The Gospel passages about Mary.', refs: ['Luke 1:26-38', 'Luke 1:39-56', 'John 2:1-11', 'John 19:25-27'] },
   { name: 'The Passion in John', description: 'From the garden to the tomb.', refs: ['John 18:1-11', 'John 19:1-16', 'John 19:17-30', 'John 19:38-42'] },
   { name: 'The Beatitudes and works of mercy', description: 'How Jesus describes blessedness and judgment.', refs: ['Matthew 5:1-12', 'Matthew 25:31-46'] },
+  { name: 'Prayers in Scripture', description: 'The Our Father and the great canticles of the Gospels.', refs: ['Matthew 6:9-13', 'Luke 1:46-55', 'Luke 1:68-79', 'Luke 2:29-32'] },
+  { name: 'Psalms for a hard day', description: 'Psalms of trust, lament and confidence.', refs: ['Psalm 23', 'Psalm 27', 'Psalm 46', 'Psalm 91', 'Psalm 121', 'Psalm 130'] },
   { name: 'The call of the first disciples', description: 'Four accounts of being called.', refs: ['Matthew 4:18-22', 'Mark 1:16-20', 'Luke 5:1-11', 'John 1:35-51'] },
 ];
 
