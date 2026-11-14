@@ -2,7 +2,7 @@
  *  into public/data/verse-links/<BOOK>.json (one file per book, fetched on demand). Numbers in the index are WEB-Catholic (modern English);
  *  pass `scheme` when the reader is showing an edition numbered differently and the call converts. */
 import { getJson } from '../data/loader';
-import { anchorChaptersFor, convertRef, nativeChaptersFor } from './versification';
+import { convertRef } from './versification';
 import type { Scheme } from './types';
 
 export type LinkKind =
@@ -37,19 +37,21 @@ export function loadVerseLinks(book: string): Promise<BookFile | null> {
 export function toIndexVerses(scheme: Scheme | undefined, book: string, chapter: number, verse: number): [number, number][] {
   if (!scheme || scheme === 'english') return [[chapter, verse]];
   try {
-    const r = convertRef(scheme, 'english', { book, c1: chapter, v1: verse, c2: chapter, v2: verse }).ref;
+    const mapped = convertRef(scheme, 'english', { book, c1: chapter, v1: verse, c2: chapter, v2: verse });
+    if (!mapped.exact) return [];
+    const r = mapped.ref;
     const out: [number, number][] = [];
     for (let v = r.v1 ?? verse; v <= Math.min(r.v2 ?? verse, (r.v1 ?? verse) + 5); v++) out.push([r.c1, v]);
-    return out.length ? out : [[chapter, verse]];
-  } catch { return [[chapter, verse]]; }
+    return out;
+  } catch { return []; }
 }
 export function toIndexChapters(scheme: Scheme | undefined, book: string, chapter: number): number[] {
   if (!scheme || scheme === 'english') return [chapter];
   try {
-    const set = new Set<number>();
-    for (const a of anchorChaptersFor(scheme, book, chapter)) for (const n of nativeChaptersFor('english', book, a)) set.add(n);
-    return set.size ? [...set] : [chapter];
-  } catch { return [chapter]; }
+    const mapped = convertRef(scheme, 'english', { book, c1: chapter, c2: chapter });
+    if (!mapped.exact) return [];
+    return Array.from({ length: mapped.ref.c2 - mapped.ref.c1 + 1 }, (_, i) => mapped.ref.c1 + i);
+  } catch { return []; }
 }
 
 function rank(found: Map<string, VerseLink>, cap: number, notes: LinkResult['notes']): LinkResult {
