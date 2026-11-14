@@ -13,6 +13,8 @@ import { convertRef } from '../../lib/versification';
 import { collectionHtml, collectionMarkdown, moveItem, resolveAll, type Resolved } from '../../lib/collections';
 import { download, exportCollections } from '../../db/ops';
 import { restoreFromTrash, trashedFor } from '../../lib/trash';
+import PinButton from '../../components/PinButton';
+import { recordOpened } from '../../lib/pins';
 
 /** One collection opened out: every item read back to its original (never copied), with ways to reorder, add from your own notes and marks, and export. */
 export default function CollectionPage() {
@@ -57,6 +59,7 @@ export default function CollectionPage() {
     return uid;
   };
 
+  useEffect(() => { if (c) recordOpened({ kind: 'collection', id: c.uid ?? String(c.id), title: c.name, to: `/collection/${c.id}` }); }, [c?.id, c?.name]); // eslint-disable-line react-hooks/exhaustive-deps
   if (c === undefined) return <div className="page"><p className="muted">Loading…</p></div>;
   if (!c) return <div className="page" data-state="not-found"><h1>Collection not found</h1><p><Link to="/library?tab=collections">Back to your collections</Link></p></div>;
 
@@ -91,6 +94,7 @@ export default function CollectionPage() {
       <textarea data-editor={`collection:${c.id}:description`} aria-label="What this collection is for" className="cp-desc" rows={2} placeholder="What is this collection for? (optional)" value={c.description ?? ''} onChange={(e) => void save({ description: e.target.value }, 'description')} />
       <input data-editor={`collection:${c.id}:tags`} aria-label="Tags for this collection" className="cp-tags" type="text" placeholder="Tags, separated by commas (optional), e.g. prayer, Lent" defaultValue={(c.tags ?? []).join(', ')} onBlur={(e) => void save({ tags: parseTags(e.target.value) }, 'tags')} style={{ width: '100%', margin: '6px 0' }} />
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', margin: '8px 0 14px' }}>
+        <PinButton small={false} entry={{ kind: 'collection', id: c.uid ?? String(c.id), title: c.name, to: `/collection/${c.id}` }} />
         <button className="btn" onClick={exportMd} disabled={!items.length}>Export as Markdown</button>
         <button className="btn" onClick={() => void exportFile()} title="A file you can import into this app on another device, with your ticks and tags; notes it points at travel with it">Save to a file (to import later)</button>
         <button className="btn" onClick={exportHtml} disabled={!items.length} title="One self-contained page you can email or keep on a USB stick; it opens in any browser with no connection">Save as a web page (HTML)</button>

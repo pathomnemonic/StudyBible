@@ -6,6 +6,9 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db, TRASH_DAYS, type Collection, type Note, type Target } from '../../db/db';
 import { collectionSummary, copyOfCollection, copyOfNote, collectionTags, hasTag, matchesCollection, matchesNote, sortCollections, sortNotes, type CollectionSort, type NoteSort } from '../../lib/collectionsView';
 import DataHealth from './DataHealth';
+import PinnedRecent from '../../components/PinnedRecent';
+import PinButton from '../../components/PinButton';
+import { recordOpened } from '../../lib/pins';
 import NoteEditor, { targetLabel } from '../../components/NoteEditor';
 import RefLink from '../../components/RefLink';
 import { renderMarkdown } from '../../lib/markdown';
@@ -36,6 +39,7 @@ export default function LibraryHome() {
     <div className="page">
       <h1>Notes</h1>
       <p className="lede">Your notes, highlights, bookmarks and collections. Private to this device unless you sign in to sync or export them.</p>
+      <PinnedRecent />
       <div className="tabbar"><div className="tabs-inner" role="tablist">{TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} onClick={() => { setTab(k); if (noteIdFromUrl) nav('/library'); }}>{l}</button>)}</div>
         <select className="tab-more" aria-label="More" value={MORE.some(([k]) => k === tab) ? tab : ''} onChange={(e) => { if (e.target.value) { setTab(e.target.value as Tab); if (noteIdFromUrl) nav('/library'); } }}>
           <option value="">More…</option>
@@ -128,7 +132,7 @@ function Notes({ openId }: { openId?: number }) {
           <div className="md" dangerouslySetInnerHTML={{ __html: renderMarkdown(resolveNoteLinks(n.body, notes)) }} />
           <NoteBacklinks note={n} />
           <div className="chips">{n.tags.map((t) => <span className="chip" key={t}>#{t}</span>)}{n.folderId && <span className="chip">📁 {folders.find((f) => f.id === n.folderId)?.name}</span>}</div>
-          <div className="row" style={{ marginTop: 6 }}><button className="btn small" onClick={() => setEditing(n)}>Edit</button><button className="btn small" onClick={async () => { const c = copyOfNote(n); await db.notes.add({ ...c, chapterKeys: chapterKeysOf(c.targets) } as never); }}>Duplicate</button><button className="btn small" aria-pressed={!!n.pinned} onClick={() => db.notes.update(n.id!, { pinned: !n.pinned })}>{n.pinned ? 'Unpin' : 'Pin'}</button><span className="muted small">{new Date(n.updatedAt).toLocaleDateString()}</span></div>
+          <div className="row" style={{ marginTop: 6 }}><button className="btn small" onClick={() => { setEditing(n); recordOpened({ kind: 'note', id: String(n.id), title: n.title || n.body.split('\n')[0].slice(0, 50) || 'Note', to: `/library/notes/${n.id}` }); }}>Edit</button><button className="btn small" onClick={async () => { const c = copyOfNote(n); await db.notes.add({ ...c, chapterKeys: chapterKeysOf(c.targets) } as never); }}>Duplicate</button><button className="btn small" aria-pressed={!!n.pinned} onClick={() => db.notes.update(n.id!, { pinned: !n.pinned })}>{n.pinned ? 'Unpin' : 'Pin'}</button><span className="muted small">{new Date(n.updatedAt).toLocaleDateString()}</span></div>
         </div>
       ))}
       {q.trim() && (() => { const hit = collections.filter((c) => matchesCollection(c, q, targetLabel)); return hit.length > 0 && <section className="card" aria-label="Collections that match"><h3>Collections that match “{q.trim()}” ({hit.length})</h3><ul className="list">{hit.map((c) => <li key={c.id}><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)}</span></li>)}</ul></section>; })()}
@@ -232,7 +236,7 @@ function Collections() {
       {all.length > 3 && <div className="row" style={{ marginBottom: 10 }}><input type="search" aria-label="Search your collections" placeholder="Search collections (name, tags, description, passages)" value={q} onChange={(e) => setQ(e.target.value)} style={{ flex: 1 }} /></div>}
       {cs.map((c) => (
         <div className="card" key={c.id}>
-          <div className="row between"><h3><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)}{c.tags?.length ? ` · ${c.tags.join(', ')}` : ''} · changed {new Date(c.updatedAt).toLocaleDateString()}</span></h3><span className="row"><button className="btn small" onClick={() => db.collections.add(copyOfCollection(c) as never)}>Duplicate</button><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></span></div>
+          <div className="row between"><h3><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)}{c.tags?.length ? ` · ${c.tags.join(', ')}` : ''} · changed {new Date(c.updatedAt).toLocaleDateString()}</span></h3><span className="row"><PinButton entry={{ kind: 'collection', id: c.uid ?? String(c.id), title: c.name, to: `/collection/${c.id}` }} /><button className="btn small" onClick={() => db.collections.add(copyOfCollection(c) as never)}>Duplicate</button><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></span></div>
           <div className="chips">{c.items.map((t, i) => <span key={i}><TargetChip t={t} /> <button aria-label="Remove item" style={{ border: 0, background: 'none' }} onClick={() => db.collections.put({ ...c, items: c.items.filter((_, j) => j !== i), updatedAt: Date.now() })}>×</button></span>)}</div>
           {c.items.length === 0 && <div className="empty">Nothing in this collection yet. Open any Bible passage and use “Add to collection”, or save a reading from the Pray section.</div>}
           <div className="row" style={{ marginTop: 6 }}>

@@ -9,6 +9,8 @@ import RefLink from '../../components/RefLink';
 import { useSettings } from '../../lib/store';
 import { usePlayer } from '../../data/PlayerContext';
 import { loadBiay } from '../../data/biay';
+import PinButton from '../../components/PinButton';
+import { recordOpened } from '../../lib/pins';
 import { choosePlan, confirmSwitch, startPlan } from '../../lib/activePlan';
 
 export default function PlanPage() {
@@ -31,6 +33,7 @@ export default function PlanPage() {
       }
     })();
   }, [id]);
+  useEffect(() => { if (plan) recordOpened({ kind: 'plan', id, title: plan.name, to: `/pray/plans/${encodeURIComponent(id)}` }); }, [plan?.id, plan?.name]); // eslint-disable-line react-hooks/exhaustive-deps
   if (plan === undefined) return <div className="center-note">Loading plan…</div>;
   if (plan === null) return <div className="page" data-state="not-found"><Link to="/pray/plans" className="small">← Plans</Link><h1>Plan not found</h1><p>There is no reading plan with that address. It may have been deleted, or the link may be mistyped.</p><p><Link to="/pray/plans">See all plans</Link></p></div>;
   const todayIdx = prog ? Math.max(0, Math.min(plan.days.length - 1, Math.floor((Date.now() - prog.startedAt) / 86400000) + prog.offsetDays)) : -1;
@@ -53,6 +56,7 @@ export default function PlanPage() {
     <div className="page">
       <Link to="/pray/plans" className="small">← Plans</Link>
       <h1>{plan.name}</h1>
+      <p><PinButton entry={{ kind: 'plan', id, title: plan.name, to: `/pray/plans/${encodeURIComponent(id)}` }} /></p>
       <p className="lede">{plan.description}</p>
       {!prog ? (
         <button className="btn primary" onClick={async () => { if (await confirmSwitch(id)) await startPlan(id, { restart: true }); }}>Start this plan today and make it mine</button>

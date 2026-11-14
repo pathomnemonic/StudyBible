@@ -10,6 +10,7 @@ import { getLibraryIndex } from '../../data/content';
 import { confirmSwitch, startPlan } from '../../lib/activePlan';
 import { useSettings } from '../../lib/store';
 import PlanBuilder from './PlanBuilder';
+import PinButton from '../../components/PinButton';
 
 const CAT: Record<string, string> = { bible: 'Whole Bible', gospel: 'Gospels', listening: 'Reading + listening', catechism: 'Catechism topics', saint: 'Saints & Fathers', seasonal: 'Seasons', psalms: 'Psalms' };
 
@@ -70,7 +71,7 @@ export default function PlansPage() {
       {user.map((u) => (
         <div className="card" key={'u' + u.id}>
           <div className="row between"><h3>{u.name}</h3><span className="chip">my plan · {u.days.length} days</span></div>
-          <div className="row"><Link className="btn small" to={`/pray/plans/${encodeURIComponent('user:' + u.id)}`}>Open</Link><button className="btn small danger" onClick={() => confirm('Delete this plan?') && db.userPlans.delete(u.id!)}>Delete</button></div>
+          <div className="row"><Link className="btn small" to={`/pray/plans/${encodeURIComponent('user:' + u.id)}`}>Open</Link><PinButton entry={{ kind: 'plan', id: 'user:' + u.id, title: u.name, to: `/pray/plans/${encodeURIComponent('user:' + u.id)}` }} /><button className="btn small danger" onClick={() => confirm('Delete this plan?') && db.userPlans.delete(u.id!)}>Delete</button></div>
         </div>
       ))}
       {show.map((p) => {
@@ -82,6 +83,7 @@ export default function PlansPage() {
             <div className="row">
               {pr ? <Link className="btn small primary" to={`/pray/plans/${p.id}`}>{pr.status === 'paused' ? 'Paused — open' : 'Continue'} ({pr.done.length}/{p.days.length})</Link> : <button className="btn small primary" onClick={() => start(p.id)}>Start</button>}
               <Link className="btn small" to={`/pray/plans/${p.id}`}>Preview</Link>
+              <PinButton entry={{ kind: 'plan', id: p.id, title: p.name, to: `/pray/plans/${p.id}` }} />
             </div>
           </div>
         );
