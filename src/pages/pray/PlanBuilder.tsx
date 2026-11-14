@@ -22,10 +22,14 @@ export default function PlanBuilder({ onSaved }: { onSaved: (id: number) => void
     let units: Ref[] = [];
     let err = '';
     if (mode === 'book') {
-      units = chapterUnits(book, from, to);
-      const checked = validateAnchorPlanReferences(units, editions);
-      if (!checked.ok) err = `The selected chapter range cannot be verified in the canonical Vulgate edition: ${checked.reason}`;
-      else units = checked.refs;
+      if (!BOOKS.some((x) => x.id === book)) err = 'Choose a book in the Catholic canon.';
+      else if (!Number.isInteger(from) || !Number.isInteger(to) || from < 1 || to < from || to > b.chapters) err = `Choose a valid chapter range from 1 to ${b.chapters}; no chapter is clamped or substituted.`;
+      else {
+        units = chapterUnits(book, from, to);
+        const checked = validateAnchorPlanReferences(units, editions);
+        if (!checked.ok) err = `The selected chapter range cannot be verified in the canonical Vulgate edition: ${checked.reason}`;
+        else units = checked.refs;
+      }
     }
     else {
       for (const l of list.split('\n').map((x) => x.trim()).filter(Boolean)) {
@@ -58,8 +62,8 @@ export default function PlanBuilder({ onSaved }: { onSaved: (id: number) => void
       {mode === 'book' ? (
         <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
           <label>Book <select value={book} onChange={(e) => { const nb = BOOKS.find((x) => x.id === e.target.value)!; setBook(nb.id); setFrom(1); setTo(nb.chapters); }}>{BOOKS.map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}</select></label>
-          <label>From chapter <input type="number" min={1} max={b.chapters} value={from} onChange={(e) => setFrom(Math.max(1, Math.min(+e.target.value || 1, b.chapters)))} style={{ width: 70 }} /></label>
-          <label>to <input type="number" min={from} max={b.chapters} value={to} onChange={(e) => setTo(Math.max(from, Math.min(+e.target.value || from, b.chapters)))} style={{ width: 70 }} /></label>
+          <label>From chapter <input type="number" min={1} max={b.chapters} value={from} onChange={(e) => setFrom(e.target.value === '' ? 0 : +e.target.value)} style={{ width: 70 }} /></label>
+          <label>to <input type="number" min={from} max={b.chapters} value={to} onChange={(e) => setTo(e.target.value === '' ? 0 : +e.target.value)} style={{ width: 70 }} /></label>
           <span className="muted small">Chapters use the Vulgate numbering the app anchors to ({b.chapters} in {b.name}); Psalms are shown with both numbers in the preview.</span>
         </div>
       ) : (
