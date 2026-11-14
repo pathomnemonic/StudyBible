@@ -174,12 +174,13 @@ export function convertRef(from: Scheme, to: Scheme, r: Ref): { ref: Ref; exact:
       : anchorChaptersFor(from, r.book, r.c2);
   const endChapter = endChapters[endChapters.length - 1] ?? r.c2;
   let chapterRangeExact = true;
-  if (r.v1 === undefined || (r.v2 === undefined && r.c2 !== r.c1)) {
+  if (r.c2 !== r.c1 || r.v1 === undefined) {
     const firstWholeChapter = r.v1 === undefined ? r.c1 : r.c1 + 1;
-    for (let c = firstWholeChapter; c <= r.c2; c++) {
+    const lastWholeChapter = r.v2 === undefined ? r.c2 : r.c2 - 1;
+    for (let c = firstWholeChapter; c <= lastWholeChapter; c++) {
       if (!wholeChapterMapsExactly(from, to, r.book, c)) { chapterRangeExact = false; break; }
     }
-    if (endChapters.length !== 1) chapterRangeExact = false;
+    if (r.v2 === undefined && r.c2 !== r.c1 && endChapters.length !== 1) chapterRangeExact = false;
   }
   return {
     ref: {
