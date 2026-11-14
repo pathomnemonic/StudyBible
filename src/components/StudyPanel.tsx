@@ -4,6 +4,7 @@ import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Marked } from '../study/citations';
 import Icon from './Icon';
+import PanelProfiles from './PanelProfiles';
 import NoteEditor from './NoteEditor';
 import AddLinkDialog from './AddLinkDialog';
 import { SECTIONS, TABS, NOTE_STREAM, TEACH_SECTIONS, gatherAll, relevance, MATCH_LABEL, type SectionKey, type StudyItem } from '../study/providers';
@@ -462,6 +463,7 @@ export default function StudyPanel({
                   </>
                 )}
                 {list.length === 0 && <div className="empty">{emptyMessage(sk, refs[0].book)}</div>}
+                {sk === 'people' && <PanelProfiles names={real.map((i) => i.id.replace(/^person-/, ''))} label={heading} />}
                 {compact ? capped(`s-${sk}`, byScore([...specific, ...weak]), tab === 'notes' ? CAP_TEACH : CAP_TAB, (i, n, arr) => open(i, n, arr), 'more') : specific.map((i, n, arr) => open(i, n, arr))}
                 {units.map((g) => g.items.map((i, n, arr) => open(i, n, arr, { covers: rangeLabel(g.range), autoExpand: (g.range.v2 ?? g.range.v1) === (refs[0].v2 ?? refs[0].v1) })))}
                 {!compact && weak.map((i, n, arr) => open(i, n, arr))}
