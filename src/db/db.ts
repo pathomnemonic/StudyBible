@@ -139,6 +139,8 @@ export interface EpisodeProgress extends Syncable {
   ranToEnd?: boolean;
   /** Dated local listening ledger. Seconds and genuine completion events are attributed to the local calendar day they occurred. */
   listeningDays?: Record<string, { seconds: number; completions: number }>;
+  /** Legacy cumulative listening that predates the dated ledger and cannot be assigned to a year. */
+  undatedHeard?: number;
   updatedAt: number;
 }
 
