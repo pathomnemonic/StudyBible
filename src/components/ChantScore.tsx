@@ -49,7 +49,7 @@ export default function ChantScore({ gabc, label }: { gabc: string; label: strin
     <div>
       <div ref={host} className="chant-score" data-state={state} />
       {state === 'loading' && <p className="muted small" role="status">Drawing the notation…</p>}
-      {state === 'failed' && <p className="muted small" role="alert">The notation could not be drawn here. The Latin text above is unaffected.</p>}
+      {state === 'failed' && <p className="muted small" role="alert">The notation could not be drawn here. The Latin text on this page is unaffected.</p>}
     </div>
   );
 }

@@ -67,7 +67,7 @@ function OriginalScan({ url, title }: { url: string; title: string }) {
       </div>
       {open && <>
         <iframe title={`${title}: scan of the printed book (Internet Archive)`} src={`https://archive.org/embed/${id}`} loading="lazy" allowFullScreen style={{ width: '100%', height: 'min(70vh, 520px)', border: 0, marginTop: 8, borderRadius: 8, background: '#fff' }} referrerPolicy="strict-origin-when-cross-origin" />
-        <p className="muted small">If the viewer does not load, <a href={url} target="_blank" rel="noreferrer noopener">open it on archive.org ↗</a>. The scan and the text above can differ: the text is machine-read from the scan.</p>
+        <p className="muted small">If the viewer does not load, <a href={url} target="_blank" rel="noreferrer noopener">open it on archive.org ↗</a>. The scan and the transcription can differ: the text is machine-read from the scan.</p>
       </>}
     </section>
   );
