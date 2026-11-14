@@ -9,6 +9,7 @@ const OUT: [string, string, string][] = [
   ['Eastern Churches’ daily readings', 'Orthocal', 'The date and which calendar you chose.'],
   ['Maps and Time and place', 'OpenStreetMap tile servers', 'Your IP address and the map area you view, as with any website that shows a map.'],
   ['Watching a video or hearing a podcast player', 'YouTube (privacy-enhanced embed), Vimeo, Apple Podcasts or Spotify', 'Whatever those players collect when they load, as on their own sites.'],
+  ['Viewing the original scan of a library text', 'The Internet Archive (archive.org), only after you press “View the original scan”', 'Your IP address and the book you opened, as on archive.org itself.'],
   ['Bible in a Year, LibriVox and the Creedal recordings', 'The publishers’ own audio servers', 'Your IP address, as for any download.'],
   ['Back up to Google Drive (you turn it on)', 'Google', 'Your backup file, under your own Google account.'],
   ['Host or join a live class', 'Public message relays (such as EMQX, HiveMQ or Mosquitto)', 'Sealed messages and your IP address. The relays cannot read the contents.'],

@@ -54,6 +54,25 @@ function Para({ text, hls, find, speaking }: { text: string; hls: { q: string; c
   return <>{parts}{speaking ? '' : ''}</>;
 }
 
+/** The Internet Archive scan this text was taken from, shown in the Archive's own viewer. Nothing loads from archive.org until the reader asks. */
+function OriginalScan({ url, title }: { url: string; title: string }) {
+  const id = /^https:\/\/archive\.org\/details\/([A-Za-z0-9_.-]+)/.exec(url ?? '')?.[1];
+  const [open, setOpen] = useState(false);
+  if (!id) return null;
+  return (
+    <section className="card" aria-label="Original scan" style={{ margin: '10px 0' }}>
+      <div className="row between" style={{ gap: 8, flexWrap: 'wrap' }}>
+        <span><strong>The printed pages.</strong> <span className="muted small">Read the scan this text was taken from, in the Internet Archive’s own viewer.</span></span>
+        <button className="btn small" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? 'Hide the scan' : 'View the original scan'}</button>
+      </div>
+      {open && <>
+        <iframe title={`${title}: scan of the printed book (Internet Archive)`} src={`https://archive.org/embed/${id}`} loading="lazy" allowFullScreen style={{ width: '100%', height: 'min(70vh, 520px)', border: 0, marginTop: 8, borderRadius: 8, background: '#fff' }} referrerPolicy="strict-origin-when-cross-origin" />
+        <p className="muted small">If the viewer does not load, <a href={url} target="_blank" rel="noreferrer noopener">open it on archive.org ↗</a>. The scan and the text above can differ: the text is machine-read from the scan.</p>
+      </>}
+    </section>
+  );
+}
+
 export default function WorkReader() {
   const { workId = '', section } = useParams();
   const nav = useNavigate();
@@ -225,6 +244,7 @@ export default function WorkReader() {
                 <p className="muted small">
                   {isUserBook(workId) ? <>This is your own copy ({meta.source.name}), kept on this device only.</> : <>Translator/edition: {meta.translator}. Text: {meta.source.name} (<a href={meta.source.url} target="_blank" rel="noreferrer">original ↗</a>), public domain — {meta.rightsEvidence}</>}
                 </p>
+                {!isUserBook(workId) && <OriginalScan url={meta.source.url} title={meta.title} />}
                 <div className="chapter-nav row between">
                   <button className="btn" disabled={idx === 0} onClick={() => go(idx - 1)}>← Previous</button>
                   <span className="muted small">Section {idx + 1} of {work.sections.length}</span>

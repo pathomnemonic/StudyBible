@@ -342,6 +342,12 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | Podcast transcripts and chapters from the publisher | **Partial** | When a podcast feed lists a Podcasting 2.0 transcript (WebVTT, SRT or JSON; HTML pages are not used), the full player offers it as a fold: it is fetched only when opened, shows the publisher’s own words, follows the playback position and jumps to a line when tapped. Plain-text transcripts have no times, so they are shown without jumping. Chapters from a feed’s chapters file or the show notes already worked. Episodes of feeds that publish no transcript (for example Bible in a Year) have none, and the app does not generate one. |
 
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Original scan of a library text | **Partial** | Eight library texts were taken from Internet Archive scans (the Roman Catechism, Trent, Vatican I, Leo XIII’s encyclicals and others). Each shows a “View the original scan” button that opens the Archive’s own page viewer inside the page, so the printed pages can be read beside the transcription. Nothing is requested from archive.org until the button is pressed, and the privacy page says so. The text is machine-read from the scan and can differ from it. Other texts have no Archive scan as their source and offer none. |
+
 ## Pray
 
 | Feature | Status | Notes |
