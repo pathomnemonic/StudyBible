@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { resolvePlanReferences } from '../src/lib/planReferences';
+import { resolvePlanReferences, validateAnchorPlanReferences } from '../src/lib/planReferences';
 import { loadVersification } from '../src/lib/versification';
 import type { CountsEdition } from '../src/lib/refCheck';
 import { parseRefs } from '../src/lib/refs';
@@ -29,6 +29,13 @@ describe('reading-plan passage validation', () => {
   it('rejects a syntactically valid but nonexistent chapter', () => {
     const result = resolvePlanReferences([{ book: 'JHN', c1: 99, v1: 1, c2: 99, v2: 1 }], editions);
     expect(result.ok).toBe(false);
+  });
+
+
+  it('validates whole-chapter book-mode plans against the canonical edition', () => {
+    expect(validateAnchorPlanReferences([{ book: 'JHN', c1: 3, c2: 3 }], editions).ok).toBe(true);
+    expect(validateAnchorPlanReferences([{ book: 'JHN', c1: 99, c2: 99 }], editions).ok).toBe(false);
+    expect(validateAnchorPlanReferences([{ book: 'NOPE', c1: 1, c2: 1 }], editions).ok).toBe(false);
   });
 
   it('rejects verse-level conversion in every unaligned book', () => {
