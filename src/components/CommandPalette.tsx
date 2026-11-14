@@ -10,6 +10,9 @@ import { markSeen } from '../lib/seen';
 import { surpriseTarget } from '../lib/surprise';
 import { getIndex } from '../search/useIndex';
 import { rank } from '../search/rank';
+import { loadProfiles } from '../lib/useProfiles';
+import { profilePath, searchProfiles } from '../lib/profileView';
+import type { Profile } from '../lib/profiles';
 
 interface Cmd {
   id: string;
@@ -94,6 +97,9 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
     return () => { live = false; };
   }, [dq]);
 
+  const [profiles, setProfiles] = useState<Profile[]>([]);
+  useEffect(() => { let live = true; void loadProfiles().then((r) => live && setProfiles(r.list ?? [])); return () => { live = false; }; }, []);
+
   const cmds = useMemo<Cmd[]>(() => {
     const out: Cmd[] = [];
     const t = q.trim();
@@ -110,6 +116,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
         }
       }
       if (dq === t) for (const a of answers) out.push({ id: 'ans' + a.to, group: 'Best answers', label: a.title, hint: a.badge, run: go(a.to) });
+      for (const { profile, via } of searchProfiles(profiles, t).slice(0, 4)) out.push({ id: 'prof-' + profile.kind + profile.id, group: 'Saints, people and places', label: profile.name, hint: via ? `also known as ${via}` : profile.kind, run: go(profilePath(profile)) });
       out.push({ id: 'search', group: 'Search', label: `Search everything for “${t}”`, hint: 'Scripture, teaching, Fathers', run: go(`/study/search?q=${encodeURIComponent(t)}`) });
       const lc = t.toLowerCase();
       for (const b of BOOKS.filter((b) => b.name.toLowerCase().includes(lc)).slice(0, 5)) {
@@ -128,7 +135,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
     if (!lc || 'surprise me random'.includes(lc)) out.push({ id: 'surprise', group: 'Go to', label: 'Surprise me', hint: 'A random chapter, work, prayer or feast', run: () => { onClose(); void surpriseTarget().then((to) => nav(to)); } });
     if (!lc) for (const f of FEATURES.filter((f) => f.hot).slice(0, 8)) add(f.id, f.title, f.to, f.blurb.slice(0, 60));
     return out;
-  }, [q, dq, answers, nav, onClose, s.defaultEdition, s.last]);
+  }, [q, dq, answers, profiles, nav, onClose, s.defaultEdition, s.last]);
 
   useEffect(() => setSel(0), [q]);
   const key = (e: React.KeyboardEvent) => {
