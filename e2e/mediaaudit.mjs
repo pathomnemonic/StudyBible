@@ -25,8 +25,10 @@ if (dock.bottom > dock.tabTop + 1) fail(`the docked player covers the tab bar (b
 // 3. every control in the dock has an accessible name and is reachable by keyboard
 const names = await p.evaluate(() => [...document.querySelectorAll('.media-host.docked button, .media-host.docked a')].map((e) => (e.getAttribute('aria-label') || e.textContent || '').trim()));
 if (names.some((n) => !n) || names.length < 3) fail('dock controls must all be named (grip, title link, close): ' + JSON.stringify(names));
+// order in the bar: grip, title link, resize handle (video only), close
 await p.locator('.mh-grip').focus(); await p.keyboard.press('Tab'); await p.keyboard.press('Tab');
-if (!(await p.evaluate(() => document.activeElement?.classList.contains('mh-x')))) fail('Tab should reach the close button after the grip and the title link');
+if (await p.evaluate(() => document.activeElement?.classList.contains('mh-size'))) await p.keyboard.press('Tab');
+if (!(await p.evaluate(() => document.activeElement?.classList.contains('mh-x')))) fail('Tab should reach the close button after the grip, the title link and the resize handle');
 // 4. the title link goes back to where it plays
 await p.locator('.mh-title').click(); await p.waitForTimeout(600);
 if (!/study\/videos/.test(await p.evaluate(() => location.hash))) fail('the title link should return to the page it plays on');

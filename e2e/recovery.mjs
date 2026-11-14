@@ -28,8 +28,11 @@ async function scenario(offline) {
   if (!hasError) { await ctx.close(); return { skipped: 'the app recovered by itself before the error page showed (auto-reload); nothing to click' }; }
   if (offline) await ctx.setOffline(true);
   await p.evaluate(() => { window.__before = performance.now(); });
-  await p.locator('[role=alert] button:has-text("Refresh the app")').click(); await p.waitForTimeout(1500);
+  await p.locator('[role=alert] button:has-text("Refresh the app")').click();
+  // online: wait (up to 10 s, it is slower when the machine is busy) until the app's own code cache is gone; offline: nothing is removed, so a short look is enough
+  for (let i = 0; i < (offline ? 6 : 40); i++) { await p.waitForTimeout(250); const k = await p.evaluate(async () => caches.keys()).catch(() => null); if (!offline && k && !k.includes('studybible-heavy-v1')) break; }
   const left = await p.evaluate(async () => caches.keys()).catch(() => null);
+  if (process.env.DBG) console.log('DBG', JSON.stringify(await p.evaluate(async () => { const o = {}; for (const k of await caches.keys()) o[k] = (await (await caches.open(k)).keys()).map((r) => r.url.replace(location.origin, '')).slice(0, 4); return o; }).catch(() => null)), p.url());
   const offlineNote = await p.locator('[role=alert] [role=status]').count();
   await ctx.close();
   return { seeded: seeded.names, left, offlineNote };
