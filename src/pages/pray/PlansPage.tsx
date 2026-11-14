@@ -67,7 +67,7 @@ export default function PlansPage() {
         <div className="card">
           <input type="text" placeholder="Plan name" value={name} onChange={(e) => setName(e.target.value)} style={{ width: '100%', marginBottom: 8 }} />
           <textarea placeholder={'One day per line, e.g.\nJohn 1:1-18\nGenesis 1-2; Psalm 8\nRomans 8'} value={lines} onChange={(e) => setLines(e.target.value)} />
-          <p className="muted small">Typed passages use modern (English) numbering and are anchored to the Vulgate numbering automatically.</p>
+          <p className="muted small">Typed passages use modern English/KJV numbering. Only passages verified against the source and canonical Vulgate edition are saved as Vulgate anchors.</p>
           {err && <div className="notice">{err}</div>}
           <button className="btn primary" onClick={async () => { try { setErr(''); const id = await createPlan(); setCreating(false); setName(''); setLines(''); nav(`/pray/plans/${encodeURIComponent('user:' + id)}`); } catch (e: any) { setErr(e.message); } }}>Save plan</button>
         </div>
