@@ -73,6 +73,14 @@ describe('resolveRef: carrying a passage between numbering schemes', () => {
     expect(readerUrl(dra, r.native!)).toBe('/read/dra/JHN/3?v=16');
     expect(readerUrl(webc, go('John 3:16', webc).native!)).toBe('/read/webc/JHN/3?v=16');
   });
+  it('rejects a mapped anchor address that fails the canonical edition counts', () => {
+    const anchor = ed('dra');
+    const badAnchor = { ...anchor, chapters: { ...anchor.chapters, JHN: 2 } };
+    const r = resolveRef(english, dra, R('John 3:16'), 'kjv', badAnchor);
+    expect(r.status).toBe('invalid');
+    expect(r.reason).toMatch(/canonical Vulgate anchor/i);
+    expect(r.native).toBeUndefined();
+  });
   it('keeps the original reference and its scheme', () => {
     const r = go('John 3:16-18');
     expect(refId(r.original)).toBe('JHN.3.16-18');
