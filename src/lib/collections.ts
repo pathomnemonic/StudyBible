@@ -61,7 +61,7 @@ export async function resolveItem(t: Target, index: number, ed: EditionRecord): 
     case 'episode': return { ...base, kind: 'Listening', title: t.label, to: `/listen/episode/${t.episodeId}` };
     case 'reading': return { ...base, kind: 'Reading', title: t.label, to: `/pray/readings/${t.date}` };
     case 'topic': return { ...base, kind: 'Topic', title: t.label, to: `/study/topics/${t.topicId}` };
-    case 'link': return { ...base, kind: 'Link', title: t.label, url: t.url };
+    case 'link': return t.url.startsWith('#/') ? { ...base, kind: 'Link', title: t.label, to: t.url.slice(1) } : { ...base, kind: 'Link', title: t.label, url: t.url };
   }
 }
 

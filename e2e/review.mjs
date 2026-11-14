@@ -140,4 +140,15 @@ await p.locator('a', { hasText: /^Marian passages$/ }).first().click(); await p.
 await p.locator('button', { hasText: 'Make a reading plan' }).click(); await p.waitForTimeout(1200);
 if (!/pray\/plans\/user/.test(await p.evaluate(() => location.hash))) fail('the plan should open at its own address, got ' + await p.evaluate(() => location.hash));
 if (!/Marian passages/.test(await p.locator('.page').innerText())) fail('the plan should carry the collection name');
+// 17. a collection link from a saint page opens the saint inside the app, not a new tab
+await p.goto(`${BASE}/#/study/saints/11-13`); await p.waitForTimeout(1500);
+await p.locator('button', { hasText: '＋ Collection' }).first().click(); await p.waitForTimeout(400);
+await p.locator('.modal button, [role=dialog] button', { hasText: /Marian passages \(copy\)/ }).first().click(); await p.waitForTimeout(600);
+await p.goto(`${BASE}/#/library`); await p.waitForTimeout(600);
+await p.locator('[role=tab]', { hasText: /^Collections$/ }).first().click(); await p.waitForTimeout(400);
+await p.locator('a', { hasText: /Marian passages \(copy\)/ }).first().click(); await p.waitForSelector('.cp-list');
+const orig = p.locator('a', { hasText: 'Open the original' }).last();
+if ((await orig.getAttribute('target')) === '_blank') fail('the saint link should open inside the app');
+await orig.click(); await p.waitForTimeout(800);
+if (!/study\/saints\/11-13/.test(await p.evaluate(() => location.hash))) fail('the saint link should land on the saint page, got ' + await p.evaluate(() => location.hash));
 await b.close(); console.log('review ok');

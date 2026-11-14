@@ -80,7 +80,7 @@ Other open points:
 - The entry JavaScript bundle is about 350 KB (the budget is 380 KB); splitting it is a refactor with some risk.
 - The video library keeps only the newest 40 Shorts per creator.
 - Butler's scanned months need a human proofread.
-- The collection button on a saint life or a family-line person saves a link that opens in a new tab, not an in-app item. I did not test that link by hand.
+- Collection links from a saint life or a family-line person now open inside the app (fixed in the third cycle and checked in a real browser run: add from the saint page, open the collection, follow the link).
 - I did not open the live site and look at the new screens by hand; checks are automated.
 
 ## 4b. Built since the first version of this report

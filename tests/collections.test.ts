@@ -51,4 +51,15 @@ describe('collections', () => {
     expect(md).toContain('[Open the original](https://example.org/x)');
     expect(md).toContain('the original is no longer here');
   });
+
+  it('opens an in-app link inside the app and an outside link on its own site', async () => {
+    const { resolveItem } = await import('../src/lib/collections');
+    const ed = {} as never;
+    const inApp = await resolveItem({ type: 'link', url: '#/study/saints/11-13', label: 'A saint' }, 0, ed);
+    expect(inApp.to).toBe('/study/saints/11-13');
+    expect(inApp.url).toBeUndefined();
+    const out = await resolveItem({ type: 'link', url: 'https://example.org/x', label: 'Outside' }, 1, ed);
+    expect(out.url).toBe('https://example.org/x');
+    expect(out.to).toBeUndefined();
+  });
 });

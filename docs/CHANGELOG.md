@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Collections: a link saved from a saint life or a family-line person opens inside the app (it used to open a new tab); checked end to end in the browser run.
 - Collections: Make a reading plan, one day for each Scripture passage in the collection.
 - Ask the sources: choose which kinds of source to show (Catechism and definition, Bible text, Fathers and saints) and save the question to the question inbox.
 - Copy a verse as a Markdown block quote or as the reference only (two new formats beside the three that existed).
