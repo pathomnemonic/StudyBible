@@ -16,7 +16,7 @@ async function openTextSettings() {
   await p.waitForSelector('[aria-label="One verse per line"]', { state: 'attached' });
 }
 const tap = (label) => p.locator(`[aria-label="${label}"]`).evaluate((e) => e.click());
-await p.goto(`${BASE}/#/read/web-c/JHN/1`); await p.waitForSelector('button[aria-label^="Toolbox"]');
+await p.goto(`${BASE}/#/read/webc/JHN/1`); await p.waitForSelector('button[aria-label^="Toolbox"]');
 await p.locator('button:has-text("Got it")').first().click().catch(() => {});
 await openTextSettings();
 
@@ -39,7 +39,7 @@ if ((await attr('notemarks')) !== n1) fail('footnote marks setting lost on reloa
 await p.goto(`${BASE}/#/pray`); await p.waitForTimeout(400);
 if ((await attr('notemarks')) !== n1) fail('footnote marks setting lost on another route');
 // restore
-await p.goto(`${BASE}/#/read/web-c/JHN/1`); await p.waitForSelector('button[aria-label^="Toolbox"]'); await openTextSettings();
+await p.goto(`${BASE}/#/read/webc/JHN/1`); await p.waitForSelector('button[aria-label^="Toolbox"]'); await openTextSettings();
 await tap('Footnote marks'); await p.waitForTimeout(150);
 
 // 3. layout (Profile: Make it yours)

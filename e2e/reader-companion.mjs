@@ -11,7 +11,7 @@ for (const vp of [{ width: 360, height: 740, text: 1 }, { width: 320, height: 70
   const tag = `${vp.width}px x${vp.text}`;
   const box = () => p.locator('details.chapter-companion');
   const isOpen = () => box().evaluate((e) => e.open);
-  await p.goto(`${BASE}/#/read/web-c/JHN/1`); await p.waitForSelector('details.chapter-companion');
+  await p.goto(`${BASE}/#/read/webc/JHN/1`); await p.waitForSelector('details.chapter-companion');
   await p.waitForTimeout(1500);
   if (!(await isOpen())) fail(`${tag}: it should open by itself when the chapter has places, connections or Mass readings`);
   // 1. a deliberate close sticks, through async arrivals, scrolling, resizing
@@ -34,9 +34,9 @@ for (const vp of [{ width: 360, height: 740, text: 1 }, { width: 320, height: 70
   const z = await p.evaluate(() => { const m = document.querySelector('[role=menu], .menu-list, .tool-menu-list'); if (!m) return null; const r = m.getBoundingClientRect(); const top = document.elementFromPoint(r.left + r.width / 2, r.top + Math.min(20, r.height / 2)); return !!top && (m === top || m.contains(top)); });
   if (z === false) fail(`${tag}: the toolbox menu is under other content`);
   await p.keyboard.press('Escape'); await p.waitForTimeout(300);
-  if (!/\/read\/web-c\/JHN\/1/.test(await p.evaluate(() => location.hash))) fail(`${tag}: Escape in the menu should not leave the chapter`);
+  if (!/\/read\/webc\/JHN\/1/.test(await p.evaluate(() => location.hash))) fail(`${tag}: Escape in the menu should not leave the chapter`);
   // 5. next chapter: it opens by itself again if that chapter has content, and a chapter with nothing keeps it closed
-  await p.goto(`${BASE}/#/read/web-c/JHN/2`); await p.waitForTimeout(1800);
+  await p.goto(`${BASE}/#/read/webc/JHN/2`); await p.waitForTimeout(1800);
   const open2 = await isOpen().catch(() => null);
   if (open2 === null) fail(`${tag}: the panel is missing on the next chapter`);
   // 6. back and forward do not crash it, and the state is one of open / closed (never half-rendered)

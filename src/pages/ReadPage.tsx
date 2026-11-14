@@ -668,6 +668,22 @@ export default function ReadPage() {
       </div>
     </section>
   );
+  // An address that names a translation, a book or a chapter that does not exist is said so, never quietly replaced by a different one
+  // (it used to show the first translation, or John, or the last chapter, under the address that was asked for).
+  const unknownEdition = !get(edId), unknownBook = !BOOK_BY_ID[book];
+  const lastCh = edition.chapters[bk.id] ?? 1;
+  // (a book this translation does not contain at all is handled by the reader itself, so only judge a chapter where the book exists)
+  const badChapter = edition.chapters[bk.id] != null && (!/^\d+$/.test(chapter) || +chapter < 1 || +chapter > lastCh);
+  if (unknownEdition || unknownBook || badChapter) {
+    return (
+      <div className="page" role="alert">
+        <Link to="/read" className="small">← Bible</Link>
+        {unknownEdition && <><h1>That translation is not available</h1><p>There is no translation with the address “{edId}”. The link may be mistyped, or from an older version of the app.</p><p><Link className="btn primary" to={`/read/${edition.id}/${bk.id}/${chNum}`}>Read {bk.name} {chNum} in {edition.shortName}</Link></p></>}
+        {!unknownEdition && unknownBook && <><h1>That book is not in the Bible</h1><p>There is no book with the address “{book}”.</p><p><Link className="btn primary" to={`/read/${edition.id}/GEN/1`}>Start at Genesis</Link> <Link className="btn" to={`/read/${edition.id}/JHN/1`}>Open John</Link></p></>}
+        {!unknownEdition && !unknownBook && badChapter && <><h1>{bk.name} has {lastCh} chapter{lastCh === 1 ? '' : 's'}</h1><p>There is no chapter “{chapter}” in {bk.name}.</p><p><Link className="btn primary" to={`/read/${edition.id}/${bk.id}/1`}>Chapter 1</Link> <Link className="btn" to={`/read/${edition.id}/${bk.id}/${lastCh}`}>Chapter {lastCh}</Link></p></>}
+      </div>
+    );
+  }
   return (
     <div className={`reader${settings.showVerseNumbers && (!settings.scriptureOnly || settings.focus.numbers) ? '' : ' hide-nums'}${panelOpen ? ' has-panel' : ''}`}>
       <div className="reader-col" onTouchStart={(e) => { swipe.current = e.touches.length === 1 ? [e.touches[0].clientX, e.touches[0].clientY] : null; }} onTouchEnd={(e) => { const a = swipe.current; swipe.current = null; if (!a || window.innerWidth >= 700 || !window.getSelection()?.isCollapsed) return; const dx = e.changedTouches[0].clientX - a[0], dy = e.changedTouches[0].clientY - a[1]; if (Math.abs(dx) > 90 && Math.abs(dy) < 45) (dx < 0 ? next : prev)(); }}>

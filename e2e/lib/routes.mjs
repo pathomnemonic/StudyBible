@@ -2,8 +2,11 @@
 // kind: static (no parameters), base (an optional parameter left out), sample (a real id), unknown-id (an id that does not exist: the page must say so, not break), smoke (extra).
 export const CRAWL = [
   { path: "/", kind: "static", route: "/" },
-  { path: "/read/web-c/JHN/3", kind: "sample", route: "/read/:edition/:book/:chapter" },
+  { path: "/read/webc/JHN/3", kind: "sample", route: "/read/:edition/:book/:chapter" },
   { path: "/read/nabre/PSA/22", kind: "sample", route: "/read/:edition/:book/:chapter" },
+  { path: "/read/not-a-translation/JHN/3", kind: "unknown-id", route: "/read/:edition/:book/:chapter" }, // a translation that does not exist
+  { path: "/read/webc/XYZ/3", kind: "unknown-id", route: "/read/:edition/:book/:chapter" }, // a book that does not exist
+  { path: "/read/webc/JHN/99", kind: "unknown-id", route: "/read/:edition/:book/:chapter" }, // a chapter past the end
   { path: "/read/rsv2ce/WIS/3", kind: "sample", route: "/read/:edition/:book/:chapter" },
   { path: "/study", kind: "static", route: "/study" },
   { path: "/study/gallery", kind: "static", route: "/study/gallery" },
