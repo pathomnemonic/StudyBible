@@ -85,7 +85,7 @@ See the commands and results table below.
 
 # Reliability cycle: reference integrity, listening history, and safe state transitions
 
-**Status: incomplete; draft review only.** Branch: `reliability/reference-listening-state-cycle`. The PR base is `c3cee139c40d291a0eaa7aa000359c846ac1bbd4`; compare confirms it is the merge base (60 commits ahead, zero behind). No rebase was necessary. The base commit already contains the shared `refCheck` / `resolveRef` and recoverable Go Further loading work; this cycle extends those paths rather than duplicating them.
+**Status: incomplete; draft review only.** Branch: `reliability/reference-listening-state-cycle`. The PR base is `c3cee139c40d291a0eaa7aa000359c846ac1bbd4`; compare confirms it is the merge base (105 commits ahead, zero behind). No rebase was necessary. The base commit already contains the shared `refCheck` / `resolveRef` and recoverable Go Further loading work; this cycle extends those paths rather than duplicating them.
 
 ## Work completed in this pass
 
@@ -132,7 +132,7 @@ The first fast run is evidence only for its own commit, not the current head:
 | Accounts / sync browser job | Not run; requires the fast job to pass |
 | Full-width sweep | Not run; separate nightly/release/manual workflow |
 
-A PR CI run (`43651601159`, run 756) was triggered against head `685570a`; at the time of this update both `fast` and `secrets` were still queued. Later commits have been pushed since that run, so another current-head run is required. Do not treat any current-head gate as passed until its job has completed and its result/logs have been inspected.
+PR CI run `43651601159` (run 756) was queued on head `685570a`. A later run `43651726913` (run 773) was queued on head `58c87b4`; its `fast` and `secrets` jobs also remained queued when checked. The branch has since advanced to `be4cae5`, so a current-head run is required. No gate beyond the initial `npm ci` result is verified. Do not treat any current-head gate as passed until its job has completed and its result/logs have been inspected.
 
 ## Remaining before merge
 
