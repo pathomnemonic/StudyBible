@@ -61,8 +61,9 @@ export default function TermPage() {
       for (const p of t.passages) {
         const ps = parseRefs(p.ref);
         if (!ps.ok) continue;
-        const anchor = convertRef('kjv', 'vulgate', ps.refs[0].ref).ref;
-        const vs = await passageText(ed, anchor, 3).catch(() => []);
+        const mapped = convertRef('kjv', 'vulgate', ps.refs[0].ref);
+        if (!mapped.exact) continue;
+        const vs = await passageText(ed, mapped.ref, 3).catch(() => []);
         out[p.ref] = vs.map((v) => v.text).join(' ');
       }
       if (live) setTexts(out);
@@ -85,11 +86,12 @@ export default function TermPage() {
       <ul className="term-passages">
         {t.passages.map((p) => {
           const ps = parseRefs(p.ref);
-          const anchor = ps.ok ? convertRef('kjv', 'vulgate', ps.refs[0].ref).ref : null;
+          const mapped = ps.ok ? convertRef('kjv', 'vulgate', ps.refs[0].ref) : null;
+          const anchor = mapped?.exact ? mapped.ref : null;
           return (
             <li key={p.ref} className="card">
               <div className="row between">
-                <strong>{anchor ? <Link to={readerPath(ed, anchor)}>{p.ref}</Link> : p.ref}</strong>
+                <strong>{anchor ? <Link to={readerPath(ed, anchor)}>{p.ref}</Link> : <>{p.ref} <span className="muted small">(numbering unverified; no reader link)</span></>}</strong>
                 <span className="muted small">{p.note}</span>
               </div>
               {texts[p.ref] && <blockquote className="fq-block"><p>{texts[p.ref]}</p><footer>{ed.shortName}</footer></blockquote>}
