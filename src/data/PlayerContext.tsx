@@ -226,14 +226,14 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     const a = audio.current!;
     const previous = (a as any)._ep as BiayEpisode | undefined;
     const same = previous?.id === e.id;
-    if (!same && previous) {
-      // Flush actual played time and the old position before the audio element is pointed at another source.
-      await savePlaybackRef.current?.();
-      if (request !== playGeneration.current) return;
-    }
     if (!same && !a.paused) {
       (a as any)._switchPause = true;
       a.pause();
+    }
+    if (!same && previous) {
+      // Pause first, then flush the final clock position and all heard seconds before source replacement.
+      await savePlaybackRef.current?.();
+      if (request !== playGeneration.current) return;
     }
     void rememberEpisode(e);
     if (same) {
@@ -314,11 +314,11 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         const retryEpisode = (a as any)._ep as BiayEpisode | undefined;
         if (!retryEpisode) return;
         void (async () => {
-          // Flush the current episode before retry replaces its media resource.
+          if (!a.paused) { (a as any)._switchPause = true; a.pause(); }
+          // Pause first, then flush the final clock position and all heard seconds before retry replaces its source.
           await savePlaybackRef.current?.();
           if (request !== playGeneration.current || (a as any)._ep?.id !== retryEpisode.id) return;
           const at = a.currentTime || 0;
-          if (!a.paused) { (a as any)._switchPause = true; a.pause(); }
           setError(null);
           const u = await resolveIfCurrent(request, () => playGeneration.current, () => audioUrl(retryEpisode.audio)).catch(() => { if (request === playGeneration.current) setError(navigator.onLine === false ? 'offline' : 'failed'); return null; });
           if (request !== playGeneration.current || (a as any)._ep?.id !== retryEpisode.id) return;
@@ -334,9 +334,9 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         ++playGeneration.current;
         const a = audio.current!;
         // closing keeps the place, so playing this episode again later picks up where it stopped (it does not start by itself)
-        // Flush before clearing _ep; the pause event may arrive after the dock is cleared.
+        // Pause first, then flush before clearing _ep; the pause event may arrive after the dock is cleared.
+        if (!a.paused) { (a as any)._switchPause = true; a.pause(); }
         void savePlaybackRef.current?.();
-        a.pause();
         setError(null);
         (audio.current as any)._ep = undefined;
         audio.current!.removeAttribute('src');
