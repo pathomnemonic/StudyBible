@@ -37,6 +37,7 @@ await p.evaluate(() => {
 });
 await p.getByRole('button', { name: 'Fix this' }).click();
 await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor();
+if (await p.getByRole('button', { name: 'Fix this' }).count()) fail('stale repair actions must be cleared when the committed repair cannot be rechecked');
 const repaired = await p.evaluate(async (id) => {
   const request = indexedDB.open('studybible');
   const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
