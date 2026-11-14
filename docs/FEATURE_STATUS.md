@@ -347,6 +347,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Original scan of a library text | **Partial** | Eight library texts were taken from Internet Archive scans (the Roman Catechism, Trent, Vatican I, Leo XIII’s encyclicals and others). Each shows a “View the original scan” button that opens the Archive’s own page viewer inside the page, so the printed pages can be read beside the transcription. Nothing is requested from archive.org until the button is pressed, and the privacy page says so. The text is machine-read from the scan and can differ from it. Other texts have no Archive scan as their source and offer none. |
+| Where the Greek editions differ, verse by verse | **Partial** | Select a New Testament verse where the Greek editions read differently in a way that changes the English (the Nestle-Aland and SBL texts, the Textus Receptus behind the King James Version, the Byzantine text and others) and the Words tab lists each place, in the wording of STEPBible’s TAGNT (Tyndale House Cambridge, CC BY 4.0): 1,630 notes on 27 books, including the Lord’s Prayer doxology (Matthew 6:13) and the Johannine Comma (1 John 5:7). Only notes the dataset itself writes are shown; spelling and word-order differences that do not change the translation are not listed, and Mark’s longer ending has no note of its own. A study aid, not a critical apparatus. |
 
 ## Pray
 

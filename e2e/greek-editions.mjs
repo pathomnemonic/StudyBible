@@ -1,0 +1,20 @@
+// Selecting a verse where the Greek editions differ shows STEPBible's note in the study panel, with its source; a verse with no difference shows none.
+import { chromium } from 'playwright';
+const BASE = process.env.BASE ?? 'http://localhost:4173';
+const fail = (m) => { console.error('FAIL', m); process.exit(1); };
+const b = await chromium.launch(); const ctx = await b.newContext({ viewport: { width: 1100, height: 900 } });
+await ctx.addInitScript(() => { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); });
+const p = await ctx.newPage(); p.setDefaultTimeout(25000); const errs = []; p.on('pageerror', (e) => errs.push(e.message));
+const open = async (path, v) => { await p.goto(`${BASE}/#${path}`); await p.waitForSelector(`[data-v="${v}"]`); await p.locator(`[data-v="${v}"]`).first().click({ force: true }); await p.waitForTimeout(2500); };
+await open('/read/webc/MAT/6', 13);
+await p.locator('[role=tab]:has-text("Words")').first().click(); await p.waitForTimeout(600);
+const card = p.locator('text=The Greek editions differ at Matthew 6:13').first();
+await card.waitFor({ timeout: 25000 }).catch(() => fail('the study panel must list the Greek editions note at Matthew 6:13'));
+const text = await p.evaluate(() => document.body.innerText);
+if (!/βασιλεία/.test(text.normalize('NFC')) && !/kingdom/i.test(text)) fail('the note itself must show: ' + text.slice(0, 200));
+if (!(await p.locator('a[href*="STEPBible/STEPBible-Data"]').count())) fail('the card must link to its source (STEPBible-Data)');
+await open('/read/webc/MAT/5', 3);
+await p.locator('[role=tab]:has-text("Words")').first().click().catch(() => undefined); await p.waitForTimeout(400);
+if (await p.locator('text=The Greek editions differ at Matthew 5:3').count()) fail('a verse with no listed difference must show no such card');
+if (errs.length) fail(errs[0]);
+await b.close(); console.log('greek-editions ok');

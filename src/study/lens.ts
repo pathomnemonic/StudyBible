@@ -206,6 +206,38 @@ MAKERS.art = {
 
 export const LENS_TYPES = Object.keys(MAKERS);
 
+interface GreekFile { source: string; url: string; items: { c: number; v: number; kind: 'only' | 'differs'; note: string }[] }
+const greekCache = new Map<string, Promise<GreekFile | null>>();
+const loadGreek = (book: string) => {
+  if (!greekCache.has(book)) greekCache.set(book, getJson<GreekFile>(`lens/greek/${book}.json`, true).catch(() => null));
+  return greekCache.get(book)!;
+};
+/**
+ * Where the Greek editions differ at the selected verse(s), in the words STEPBible's TAGNT (Tyndale House, CC BY 4.0) gives for each place.
+ * Only for a selected verse: a whole chapter would list every place at once. One card per verse, one line per place.
+ */
+export async function greekEditionItems(sel: Ref[]): Promise<StudyItem[]> {
+  const out: StudyItem[] = [];
+  for (const r of sel) {
+    if (r.v1 === undefined || r.c1 !== r.c2) continue;
+    const f = await loadGreek(r.book);
+    if (!f) continue;
+    const lo = r.v1, hi = r.v2 ?? r.v1;
+    const byVerse = new Map<number, string[]>();
+    for (const it of f.items) if (it.c === r.c1 && it.v >= lo && it.v <= hi) byVerse.set(it.v, [...(byVerse.get(it.v) ?? []), it.note]);
+    for (const [v, notes] of byVerse) {
+      const at: Ref = { book: r.book, c1: r.c1, v1: v, c2: r.c1, v2: v };
+      out.push({
+        ...base, id: `greek-${r.book}-${r.c1}-${v}`, section: 'wordnotes', authority: 'scholarship', sourceName: 'STEPBible TAGNT (Tyndale House Cambridge and STEPBible.org, CC BY 4.0)', url: f.url,
+        title: `The Greek editions differ at ${formatRef(at, { noDual: true })}`, excerpt: notes[0], kind: 'Greek editions', match: 'explicit-reference',
+        why: 'Places where the Greek editions behind the translations (the Nestle-Aland and SBL texts, the Textus Receptus behind the King James Version, the Byzantine text and others) read differently in a way that changes the English. Written by the STEPBible project; not every difference in spelling or word order is listed.',
+        ref: refId(at), parts: notes.length > 1 ? notes.map((n, i) => ({ label: `${i + 1}`, note: n })) : undefined,
+      });
+    }
+  }
+  return out;
+}
+
 export async function lensItems(sel: Ref[]): Promise<StudyItem[]> {
   const out: StudyItem[] = [];
   await loadArt();

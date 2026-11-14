@@ -14,7 +14,7 @@ import { chapterReadingItems } from './readingLinks';
 import { getIndexes, getSynopsis, getVariants, getThemes, refsFromText } from './refData';
 import { convertRef } from '../lib/versification';
 import { db } from '../db/db';
-import { lensItems } from './lens';
+import { lensItems, greekEditionItems } from './lens';
 
 export type SectionKey =
   | 'apologetics' | 'doctrine' | 'catechism' | 'magisterium' | 'liturgy' // teaching
@@ -1157,7 +1157,7 @@ function tidy(i: StudyItem): StudyItem {
 export async function gatherAll(refs: Ref[], onSection: (key: SectionKey, items: StudyItem[]) => void) {
   const ext = externalSearchItems(refs, (await getResourceSources().catch(() => null)) ?? []);
   const emitExt = (key: SectionKey, extra: StudyItem[] = []) => onSection(key, [...extra, ...ext.filter((i) => i.section === key)]);
-  const lens = lensItems(refs);
+  const lens = Promise.all([lensItems(refs), greekEditionItems(refs)]).then(([a, b]) => [...a, ...b]);
   const jobs: [SectionKey[], Promise<StudyItem[]>][] = [
     [['catechism'], providers.catechism(refs)],
     [['magisterium'], providers.magisterium(refs)],

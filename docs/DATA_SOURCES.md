@@ -23,6 +23,18 @@ Checksums and retrieval dates: `data/provenance/fetched.json`.
 | CPDV (Catholic Public Domain Version) | Dedicated to the public domain, but a machine-readable authoritative source and rights statement were not verified | Verify, then add an entry to `data/registry/editions.json` |
 | Anything via a Bible API | Needs credentials and per-edition terms | Implement a provider using your API key |
 
+## Greek editions that differ: imported (CC BY 4.0)
+
+STEPBible **TAGNT** (Translators Amalgamated Greek NT), Tyndale House Cambridge and STEPBible.org, **CC BY 4.0**, from https://github.com/STEPBible/STEPBible-Data (the licence allows reuse in software with attribution and a link to that repository). `scripts/stepbible/build.mjs` keeps only the notes TAGNT itself writes for words that differ between editions in a way that changes the translation ("… is only in traditional manuscripts", "… occurs in … instead of …"): 1,630 notes on 27 books, written to `public/data/lens/greek/<BOOK>.json` and shown in the study panel under Words as "Greek editions". Nothing is composed here. Not used: TAGNT's translations, grammar tags or its other data, and TAGOT (marked in development). The notes use NRSV verse numbers; for the New Testament these agree with the app's anchor except in a handful of verses.
+
+## Chant notation: imported (CC0)
+
+Square-note scores in GABC from **GregoBase** (https://gregobase.selapa.net), released under CC0 like its corpus (https://github.com/bacor/gregobasecorpus). `scripts/chant/build.mjs` fetches ten chosen scores into `public/data/hymns/chant.json`; `tests/chant.test.ts` checks each is under its hymn's own Latin text. The notation is drawn in the browser by Exsurge (`@vagdur/exsurge`, MIT). Each score is one transcription (book and transcriber shown); there are no recordings.
+
+## Original scans: linked, not copied
+
+Library texts that came from Internet Archive scans offer the Archive's own embedded viewer (`archive.org/embed/<id>`), loaded only when the reader presses the button. The Archive's BookReader code (AGPL-3.0) is not included in this app.
+
 ## Cross-references: imported
 
 OpenBible.info Cross References, **CC BY 4.0**. 341,295 positive-vote pairs (66 protocanonical books; no deuterocanon), converted from KJV numbering to the anchor, top 12 per verse. Attribution is shown in the study panel and `public/data/xrefs/_provenance.json`.
