@@ -24,12 +24,13 @@ export function repairPassageId(s: string, editions?: CountsEdition[]): string[]
   if (p.ok && p.refs.length) {
     // Human-readable inputs are English/KJV-numbered. Only repair when every conversion is verified;
     // an unverified mapping (for example John 6:51–58) must remain for the reader to resolve.
-    const source = editions ? pooledCounts(editions, 'english') : null;
-    const anchor = editions?.find((e) => e.id === 'vulgate');
-    if (source && p.refs.some((x) => !!checkRefIn(source, x.ref))) return null;
+    if (!editions) return null;
+    const source = pooledCounts(editions, 'english');
+    const anchor = editions.find((e) => e.id === 'vulgate');
+    if (!source || !anchor || p.refs.some((x) => !!checkRefIn(source, x.ref))) return null;
     const converted = p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref));
     if (converted.some((x) => !x.exact)) return null;
-    if (anchor && converted.some((x) => !!checkRefIn(anchor, x.ref))) return null;
+    if (converted.some((x) => !!checkRefIn(anchor, x.ref))) return null;
     return converted.map((x) => refId(x.ref));
   }
   return null;
