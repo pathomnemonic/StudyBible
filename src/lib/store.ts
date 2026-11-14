@@ -145,6 +145,8 @@ export interface Settings {
   refNumbering: 'edition' | 'vulgate' | 'english';
   reminders: { enabled: boolean; time: string; message: string };
   showStreaks: boolean;
+  /** hide every streak counter and streak-loss message in the games, lessons and reading stats; progress shows as totals instead. Off by default. */
+  hideStreaks: boolean;
   /** when the queue ends, keep playing the newest unplayed episode from followed shows */
   autoFavorites: boolean;
   /** Memento mori: an opt-in reminder of how much of a life has been lived. Birthday is kept only on this device (and in synced settings if you sync). */
@@ -244,6 +246,7 @@ export const DEFAULTS: Settings = {
   refNumbering: 'edition',
   reminders: { enabled: false, time: '07:30', message: 'A quiet moment with Scripture, if you would like one.' },
   showStreaks: false,
+  hideStreaks: false,
   autoFavorites: false,
   memento: { on: false, birthday: '', expectancy: 80, onHome: true, view: 'bar' },
   weeklyGoal: 0,

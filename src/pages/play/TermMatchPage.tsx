@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GLOSSARY } from '../../data/glossary';
@@ -23,6 +24,7 @@ export default function TermMatchPage() {
   return (
     <div className="page">
       <h1>Match the term</h1>
+      <GameHelp how={["Select a meaning, then the word it belongs to.", "Pair all five to finish."]} />
       <p className="lede">Tap a meaning, then the word it belongs to. The meanings are the glossary’s own wording, with the word blanked out.</p>
       <div className="mt-grid" style={{ display: 'grid', gap: 10, gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
         <ul className="list" aria-label="Meanings">

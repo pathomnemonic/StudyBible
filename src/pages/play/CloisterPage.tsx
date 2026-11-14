@@ -1,36 +1,20 @@
+import GameHelp from '../../components/GameHelp';
 import { useSettings } from '../../lib/store';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getJson } from '../../data/loader';
 import { THEMED } from '../../data/cloister';
 import ShareButton from '../../components/ShareButton';
-import { recordPlay } from '../../lib/dailyGame';
+import { isPractice, recordPlay } from '../../lib/dailyGame';
 import { buzz } from '../../lib/haptics';
+import { CLOISTER_N, adjacent, makeBoard, solveBoard as solve, wordScore } from '../../lib/gameLogic';
 
-const N = 5, TIME = 180;
-const DICE = 'EEEEEEEEEEEEAAAAAAAAAIIIIIIIIOOOOOOOONNNNNNRRRRRRTTTTTTLLLLSSSSUUUUDDDDGGGBBCCMMPPFFHHVVWWYYKJXZ';
+const N = CLOISTER_N, TIME = 180;
 const dayIndex = () => Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 864e5);
-const rng = (seed: number) => { let s = seed * 2654435761 % 4294967296; return () => { s = (s * 1664525 + 1013904223) % 4294967296; return s / 4294967296; }; };
-const makeBoard = (seed: number) => { const r = rng(seed + 1); return Array.from({ length: N * N }, () => DICE[Math.floor(r() * DICE.length)]); };
-const adj = (a: number, b: number) => a !== b && Math.abs((a % N) - (b % N)) <= 1 && Math.abs(Math.floor(a / N) - Math.floor(b / N)) <= 1;
-const pts = (w: string) => (w.length <= 3 ? 1 : w.length === 4 ? 2 : w.length === 5 ? 4 : w.length === 6 ? 6 : 10);
-const score = (w: string) => pts(w) + (THEMED.has(w) ? 5 + pts(w) : 0);
+const adj = adjacent;
+const score = (w: string) => wordScore(w, THEMED);
 const bestKey = (daily: boolean) => `sb:cloister:best:${daily ? 'daily' : 'any'}`;
 const loadBest = (daily: boolean) => { try { return +(localStorage.getItem(bestKey(daily)) ?? 0); } catch { return 0; } };
-
-/** All the words a board holds, found by walking neighbouring letters through the prefixes of the word list. */
-function solve(board: string[], words: Set<string>, prefixes: Set<string>): Set<string> {
-  const found = new Set<string>();
-  const walk = (i: number, path: number[], s: string) => {
-    s += board[i].toLowerCase();
-    if (!prefixes.has(s)) return;
-    if (s.length >= 3 && words.has(s)) found.add(s);
-    if (s.length >= 10) return;
-    for (let j = 0; j < N * N; j++) if (!path.includes(j) && adj(i, j)) walk(j, [...path, j], s);
-  };
-  for (let i = 0; i < N * N; i++) walk(i, [i], '');
-  return found;
-}
 
 /** A board of letters. Link neighbouring letters to spell words; every word scores, and the words of the faith score more. */
 export default function CloisterPage() {
@@ -65,7 +49,7 @@ export default function CloisterPage() {
     const t = window.setInterval(() => setLeft((l) => { if (l <= 1) { window.clearInterval(t); setPhase('done'); return 0; } return l - 1; }), 1000);
     return () => window.clearInterval(t);
   }, [phase]);
-  useEffect(() => { if (phase === 'done') { recordPlay('cloister', { perfect: total >= 100 }); try { if (total > loadBest(daily)) localStorage.setItem(bestKey(daily), String(total)); } catch { /* private mode */ } } }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (phase === 'done') { recordPlay('cloister', { perfect: total >= 100 }); try { if (!isPractice() && total > loadBest(daily)) localStorage.setItem(bestKey(daily), String(total)); } catch { /* private mode */ } } }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const add = useCallback((i: number) => setPath((p) => {
     if (p.includes(i)) return p.length > 1 && p[p.length - 2] === i ? p.slice(0, -1) : p;
@@ -86,6 +70,7 @@ export default function CloisterPage() {
     return (
       <div className="page cloister">
         <h1>Cloister</h1>
+        <GameHelp how={["Link neighbouring letters, in any direction, to spell words of three letters or more.", "Longer words score more. Words of the faith score a bonus.", "You have three minutes (doubled if Longer time is on in Settings).", "Press letters in turn, or drag across them; press Add word to confirm."]} />
         <p className="muted">Link neighbouring letters to spell words, in any direction. Words of the faith (saint, psalm, altar…) earn a bonus. Three minutes.</p>
         <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
           <button className="btn primary big" disabled={!dict} onClick={() => begin(true)}>{dict ? 'Today’s board' : 'Loading words…'}</button>
@@ -105,7 +90,7 @@ export default function CloisterPage() {
         onPointerMove={(e) => { if (!drag.current) return; const i = cellAt(e.clientX, e.clientY); if (i != null) add(i); }}
         onPointerUp={() => { if (!drag.current) return; drag.current = false; if (path.length > 1) submit(); }}
         onPointerCancel={() => { drag.current = false; setPath([]); }}>
-        {board.map((c, i) => <button key={i} data-cell={i} className={`cl-cell${path.includes(i) ? ' on' : ''}${path[path.length - 1] === i ? ' last' : ''}`} onClick={() => { if (phase === 'play' && !drag.current) add(i); }} aria-label={c}>{c}</button>)}
+        {board.map((c, i) => <button key={i} data-cell={i} className={`cl-cell${path.includes(i) ? ' on' : ''}${path[path.length - 1] === i ? ' last' : ''}`} onClick={() => { if (phase === 'play' && !drag.current) add(i); }} aria-label={`${c}, row ${Math.floor(i / N) + 1}, column ${(i % N) + 1}${path.includes(i) ? `, selected ${path.indexOf(i) + 1}` : ''}`} aria-pressed={path.includes(i)}>{c}</button>)}
       </div>
       {phase === 'play' && (
         <div className="row" style={{ gap: 8, justifyContent: 'center', margin: '8px 0' }}>

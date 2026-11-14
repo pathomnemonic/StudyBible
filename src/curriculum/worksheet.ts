@@ -22,17 +22,12 @@ export function worksheetParts(l: LessonSpec) {
   };
 }
 
-export function worksheetHtml(l: LessonSpec, o: WorksheetOptions): string {
+/** The worksheet's markup alone (no document, no styles), so the print route and the pop-up copy share it. Everything in it is escaped lesson text. */
+export function worksheetBody(l: LessonSpec, o: WorksheetOptions): string {
   const p = worksheetParts(l);
   const n = o.answerLines ?? 3;
-  const quiz = o.quiz.map((q, i) => `<li>${esc(q.q)}<ol type="A">${q.options.map((x, j) => `<li>${esc(x)}${o.key && j === q.answer ? ' ✔' : ''}</li>`).join('')}</ol></li>`).join('');
-  return `<!doctype html><meta charset="utf-8"><title>${esc(l.title)}: worksheet</title><style>
-body{font:15px/1.5 Georgia,serif;max-width:700px;margin:20px auto;padding:0 16px;color:#111}
-h1{font-size:22px;margin:0}h2{font-size:15px;margin:16px 0 4px;text-transform:uppercase;letter-spacing:.04em}
-.who{display:flex;gap:24px;margin:10px 0;font:14px sans-serif}.who span{flex:1;border-bottom:1px solid #000;padding-bottom:2px}
-.ln{border-bottom:1px solid #999;height:26px}ol,ul{margin:4px 0 4px 20px}.k{font:12px sans-serif;color:#555}
-@media print{body{margin:0}}</style>
-<h1>${esc(l.title)}</h1><p class="k">${esc(o.grade)}${o.key ? ' · ANSWER KEY' : ''}</p>
+  const quiz = o.quiz.map((q) => `<li>${esc(q.q)}<ol type="A">${q.options.map((x, j) => `<li>${esc(x)}${o.key && j === q.answer ? ' ✔' : ''}</li>`).join('')}</ol></li>`).join('');
+  return `<h1>${esc(l.title)}</h1><p class="k">${esc(o.grade)}${o.key ? ' · ANSWER KEY' : ''}</p>
 <div class="who"><span>Name</span><span>Date</span></div>
 <h2>Today you will</h2><ul>${p.goals.map((g) => `<li>${esc(g)}</li>`).join('')}</ul>
 <h2>Read</h2><p>${esc(p.scripture)}</p>
@@ -44,4 +39,13 @@ ${p.remember.length ? `<h2>Remember</h2><ul>${p.remember.map((r) => `<li>${esc(r
 ${p.mem ? `<h2>Learn by heart</h2><p>${esc(p.mem)}</p>` : ''}
 ${p.life ? `<h2>This week</h2><p>${esc(p.life)}</p>` : ''}
 <p class="k">Catechism §${esc(l.ccc)}</p>`;
+}
+
+export function worksheetHtml(l: LessonSpec, o: WorksheetOptions): string {
+  return `<!doctype html><meta charset="utf-8"><title>${esc(l.title)}: worksheet</title><style>
+body{font:15px/1.5 Georgia,serif;max-width:700px;margin:20px auto;padding:0 16px;color:#111}
+h1{font-size:22px;margin:0}h2{font-size:15px;margin:16px 0 4px;text-transform:uppercase;letter-spacing:.04em}
+.who{display:flex;gap:24px;margin:10px 0;font:14px sans-serif}.who span{flex:1;border-bottom:1px solid #000;padding-bottom:2px}
+.ln{border-bottom:1px solid #999;height:26px}ol,ul{margin:4px 0 4px 20px}.k{font:12px sans-serif;color:#555}
+@media print{body{margin:0}}</style>${worksheetBody(l, o)}`;
 }

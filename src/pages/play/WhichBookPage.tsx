@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useState } from 'react';
 import { useEditions } from '../../data/EditionsContext';
 import { loadDaily } from '../../study/daily';
@@ -79,6 +80,7 @@ export default function WhichBookPage() {
   return (
     <div className="page whosaid">
       <h1>Which Book?</h1>
+      <GameHelp how={["Read the verse and name the book of the Bible it comes from.", "Pick your answer from the choices."]} />
       {!qs ? <p className="muted">Loading…</p> : !done && q ? (
         <>
           <p className="muted small">Verse {i + 1} of {total}</p>

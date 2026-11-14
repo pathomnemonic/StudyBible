@@ -6,6 +6,7 @@ import { PLANS, MORE_PLANS } from '../data/novenas';
 import { EXTRA_PLANS } from '../data/novenas2';
 import { MORE_PLANS3 } from '../data/novenas3';
 import { BRAND } from '../lib/brand';
+import WorksheetSheet from '../curriculum/WorksheetSheet';
 
 const DEVOTIONS: Devotion[] = [ANGELUS, REGINA, MERCY, STATIONS, SORROWS, ...MORE, CONFESSION];
 const NOVENAS = [...PLANS, ...MORE_PLANS, ...EXTRA_PLANS, ...MORE_PLANS3];
@@ -13,6 +14,7 @@ const NOVENAS = [...PLANS, ...MORE_PLANS, ...EXTRA_PLANS, ...MORE_PLANS3];
 /** Plain, printable sheets: a prayer card, the Rosary guide, a devotion or a whole novena. Print, or save as PDF from the print dialog. */
 export default function PrintPage() {
   const { kind, id } = useParams();
+  if (kind === 'worksheet') return <WorksheetSheet id={id} />;
   const sheet = (() => {
     if (kind === 'prayer') {
       const p = BOOK_PRAYERS.find((x) => x.id === id);

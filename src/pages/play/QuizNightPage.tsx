@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ShareButton from '../../components/ShareButton';
@@ -44,6 +45,7 @@ export default function QuizNightPage() {
     return (
       <div className="page quiznight">
         <h1>Quiz night</h1>
+        <GameHelp how={["Pass the phone around, or host a room.", "Each player answers in turn; the highest score wins."]} />
         <p className="lede">For a family or a room. No accounts, nothing sent anywhere.</p>
         <div className="chips" role="group" aria-label="How to play">
           <button className={`chip${mode === 'pass' ? ' sel' : ''}`} aria-pressed={mode === 'pass'} onClick={() => switchMode('pass')}>Pass the phone</button>

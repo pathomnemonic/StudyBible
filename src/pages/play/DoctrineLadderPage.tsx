@@ -1,8 +1,9 @@
+import GameHelp from '../../components/GameHelp';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ShareButton from '../../components/ShareButton';
 import { LADDER, type LadderLevel } from '../../data/doctrineLadder';
-import { recordPlay } from '../../lib/dailyGame';
+import { isPractice, recordPlay } from '../../lib/dailyGame';
 
 const KEY = 'sb:ladder:v1';
 const PASS = 7, N = 10;
@@ -25,7 +26,7 @@ export default function DoctrineLadderPage() {
   const finish = () => {
     if (!level) return;
     const next = { ...best, [level.id]: Math.max(best[level.id] ?? 0, score) };
-    setBest(next); try { localStorage.setItem(KEY, JSON.stringify(next)); } catch { /* private mode */ }
+    if (!isPractice()) setBest(next); try { if (!isPractice()) localStorage.setItem(KEY, JSON.stringify(next)); } catch { /* private mode */ }
     recordPlay('doctrineladder', { perfect: score === N });
   };
   const choose = (o: string) => { if (picked || !q) return; setPicked(o); if (o === q.a[0]) setScore((s) => s + 1); };
@@ -35,6 +36,7 @@ export default function DoctrineLadderPage() {
     return (
       <div className="page">
         <h1>Doctrine ladder</h1>
+        <GameHelp how={["Three levels of questions on what the Church teaches.", "Score enough right at one level to climb to the next."]} />
         <p className="lede">Three levels of questions on what the Church teaches. Score {PASS} of {N} to climb to the next.</p>
         <ul className="play-list">{LADDER.map((l, idx) => (
           <li key={l.id}><button className="play-card" disabled={!unlocked(idx)} onClick={() => start(l)} style={{ width: '100%', textAlign: 'left' }}><span className="play-ico" aria-hidden="true">{unlocked(idx) ? ['🪜', '📘', '🎓'][idx] : '🔒'}</span><span><strong>{l.title}{best[l.id] ? ` ✓ best ${best[l.id]}/${N}` : ''}</strong><em>{unlocked(idx) ? l.blurb : `Score ${PASS} on the level before to unlock.`}</em></span></button></li>

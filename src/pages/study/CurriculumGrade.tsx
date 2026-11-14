@@ -7,6 +7,7 @@ import { starsOf, xpId } from '../../curriculum/LessonPlay';
 import { bandOf } from '../../curriculum/pedagogy';
 import { gradeStats, depthLabel, timeLabel, hoursLabel } from '../../curriculum/lessonStats';
 import ContinueLesson from '../../components/ContinueLesson';
+import { resumeOf } from '../../curriculum/resume';
 import { isKeyLesson, isLifeLesson, keyLessonsOf } from '../../curriculum/keyLessons';
 
 export default function CurriculumGrade() {
@@ -98,7 +99,7 @@ export default function CurriculumGrade() {
                       <span className="cg-dot" aria-hidden="true">{done.has(idx) ? '✓' : ''}</span>
                       <span className="cg-lt">
                         <span className="cg-lt-t">{l.title}{isLifeLesson(l.id) && <span className="key-badge"> ★ Life</span>}{isKeyLesson(g.id, l.id) && <span className="key-badge"> ★ Core</span>}</span>
-                        <span className="muted small">{l.scripture.split(';')[0]}{st ? ` · ${timeLabel(st)}` : ''}{stars.get(idx) ? ` · ${'★'.repeat(stars.get(idx)!)}${'☆'.repeat(3 - stars.get(idx)!)}` : ''}</span>
+                        <span className="muted small">{l.scripture.split(';')[0]}{st ? ` · ${timeLabel(st)}` : ''}{stars.get(idx) ? ` · ${'★'.repeat(stars.get(idx)!)}${'☆'.repeat(3 - stars.get(idx)!)}` : ''}{resumeOf(g.id, l.id) && !done.has(idx) ? ` · Resume at step ${resumeOf(g.id, l.id)!.step + 1} of ${resumeOf(g.id, l.id)!.steps}` : ''}</span>
                       </span>
                     </Link>
                   </li>

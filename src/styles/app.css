@@ -6450,3 +6450,25 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .player .icon-btn, .media-host .mh-x, .media-host .mh-grip { min-width: 44px; min-height: 44px; }
 .player select, .player input[type=range] { min-height: 44px; }
 .player .row { flex-wrap: wrap; }
+/* How to play fold and practice switch on each game */
+.game-help { margin: 8px 0; }
+.game-help summary { cursor: pointer; font-weight: 600; min-height: 32px; display: inline-flex; align-items: center; }
+.game-help ul { margin: 4px 0 4px 20px; padding: 0; }
+.game-help input[type=checkbox] { width: 20px; height: 20px; vertical-align: middle; }
+.ws-cell.found { text-decoration: underline; text-underline-offset: 2px; }
+.ws-cell.pick { outline: 2px dashed currentColor; outline-offset: -3px; }
+.ws-cell:focus-visible { outline: 3px solid var(--accent); outline-offset: -2px; }
+@media (prefers-reduced-motion: reduce) { .ws-cell { transition: none; } }
+.cw-cell.bad { text-decoration: underline wavy; }
+.cl-cell.on { outline: 3px solid currentColor; outline-offset: -3px; }
+.cw-cell:focus-visible, .cl-cell:focus-visible { outline: 3px solid var(--accent); outline-offset: -2px; }
+
+/* lesson worksheet on the print route */
+.print-sheet.wk { text-align: left; font-size: 15px; line-height: 1.5; }
+.wk h1 { text-align: left; font-size: 22px; margin: 0; }
+.wk h2 { font-size: 15px; margin: 16px 0 4px; text-transform: uppercase; letter-spacing: .04em; border: 0; }
+.wk .who { display: flex; gap: 24px; margin: 10px 0; font: 14px sans-serif; }
+.wk .who span { flex: 1; border-bottom: 1px solid #000; padding-bottom: 2px; }
+.wk .ln { border-bottom: 1px solid #999; height: 26px; }
+.wk ol, .wk ul { margin: 4px 0 4px 20px; padding: 0; }
+.wk .k { font: 12px sans-serif; color: #555; }

@@ -45,7 +45,8 @@ export default function MoreSettings() {
         <Choice label="Lessons open" value={s.lessonView} options={[['path', 'Step by step (default)'], ['whole', 'As one whole page']]} onPick={(v) => set({ lessonView: v })} />
         <Toggle label="Pictures in lessons" note="Public-domain paintings and engravings. Turn off to save data." on={s.lessonPictures} onChange={(v) => set({ lessonPictures: v })} />
         <Toggle label="Longer time in timed games" note="Doubles the clock in games like Cloister and Charades." on={s.longerTimers} onChange={(v) => set({ longerTimers: v })} />
-        <Toggle label="Game streaks and trophies" note="Show streak counters on the games menu." on={s.showStreaks} onChange={(v) => set({ showStreaks: v })} />
+        <Toggle label="Days in a row on reading plans" note="Show a days-in-a-row count on a reading plan. Off by default." on={s.showStreaks} onChange={(v) => set({ showStreaks: v })} />
+        <Toggle label="Hide streaks everywhere" note="No streak counters and no streak messages in games, lessons or reading stats. Progress shows as totals and completed instead." on={s.hideStreaks} onChange={(v) => set({ hideStreaks: v })} />
       </Fold>
       <Fold id="settings:Privacy on this device" title="History and privacy" hint="What the app remembers" open={false}>
         <Toggle label="Remember what I read and open" note="Feeds the History page and “continue where I left off”. Turning it off stops new entries; it does not delete old ones." on={s.recordHistory} onChange={(v) => set({ recordHistory: v })} />

@@ -8,7 +8,7 @@ import type { GradeData, Glossary, LessonSpec } from './model';
 import type { Band } from './pedagogy';
 import { cccList } from './model';
 import { contentPoints } from './teachpoints';
-import { saveLessonProgress, clearLessonProgress } from './resume';
+import { saveLessonProgress, clearLessonProgress, getSavedStep } from './resume';
 import RelatedSources from './RelatedSources';
 import { GoFurther, ReviewCard } from './GoFurther';
 import { TrackLinks, RelatedInApp } from './LessonLinks';
@@ -62,7 +62,7 @@ function Passage({ p, studyId, adultish }: { p: Src['passages'][number]; studyId
 export default function LessonPath(p: Props) {
   const { lesson, band, gl, src } = p;
   const key = `sb:cur:step:${lesson.id}`;
-  const [step, setStep] = useState(() => { try { return Math.max(0, +(sessionStorage.getItem(key) ?? 0)); } catch { return 0; } });
+  const [step, setStep] = useState(() => { try { const s = sessionStorage.getItem(key); return Math.max(0, s != null ? +s : getSavedStep(p.grade.id, lesson.id)); } catch { return 0; } });
   const younger = band.id === 'primary' || band.id === 'elementary';
   const adultish = band.id === 'high' || band.id === 'adult';
   const words = useMemo(() => worthDefining(lesson.vocab.filter((v) => gl[v]), band), [lesson.id, gl, band.id]);

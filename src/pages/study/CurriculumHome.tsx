@@ -6,6 +6,7 @@ import { getGrades, gradeLabel, type GradeMeta } from '../../curriculum/model';
 import { BANDS, DELIVERY, PRINCIPLES } from '../../curriculum/pedagogy';
 import { Group, HubHeader, Tiles } from '../../components/Hub';
 import Fold from '../../components/Fold';
+import MyLessons from '../../curriculum/MyLessons';
 
 /** A kindergarten-through-twelfth-grade catechism program built from the Catechism, Scripture and the rest of the app’s library. */
 export default function CurriculumHome() {
@@ -17,6 +18,7 @@ export default function CurriculumHome() {
   return (
     <div className="page hub">
       <HubHeader title="Catechism program" sub={`${total || 408} lessons from Kindergarten to Grade 12, plus a course for adults. Each is built on the Catechism and Scripture.`} />
+      <MyLessons />
       {BANDS.map((b) => (
         <Group key={b.id} title={`${b.label} · ${b.grades}`} hint={`about ${b.minutes} minutes a lesson`}>
           <div className="hub-tiles">

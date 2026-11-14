@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { CROSSWORDS, type Crossword } from '../../data/crosswords';
 import ShareButton from '../../components/ShareButton';
@@ -35,9 +36,16 @@ export default function CrosswordPage() {
   const [checks, setChecks] = useState(0);
   const started = useRef(Date.now());
   const input = useRef<HTMLInputElement>(null);
-  useEffect(() => { if (weekly) try { localStorage.setItem(SAVE, JSON.stringify({ week: weekNo(), fill } satisfies Saved)); } catch { /* private mode */ } }, [fill, weekly]);
+  useEffect(() => { if (weekly) try { const prev = load(); localStorage.setItem(SAVE, JSON.stringify({ week: weekNo(), fill, done: prev?.week === weekNo() ? prev.done : undefined } satisfies Saved)); } catch { /* private mode */ } }, [fill, weekly]);
   const solved = [...L.cells].every(([k, ch]) => fill[k] === ch);
-  useEffect(() => { if (solved) recordPlay('crossword', { solved: true, perfect: revealed.size === 0 }); }, [solved]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (!solved) return;
+    // this week's puzzle counts once, however many times the finished grid is reopened
+    const prev = load();
+    if (weekly && prev?.week === weekNo() && prev.done) return;
+    recordPlay('crossword', { solved: true, perfect: revealed.size === 0 });
+    if (weekly) try { localStorage.setItem(SAVE, JSON.stringify({ week: weekNo(), fill, done: true } satisfies Saved)); } catch { /* private mode */ }
+  }, [solved]); // eslint-disable-line react-hooks/exhaustive-deps
   const wordAt = (k: string, d: 'a' | 'd') => p.words.find((w) => w.d === d && cellsOf(w).includes(k));
   const active = sel ? wordAt(sel, dir) ?? wordAt(sel, dir === 'a' ? 'd' : 'a') : undefined;
   const activeCells = new Set(active ? cellsOf(active) : []);
@@ -62,6 +70,18 @@ export default function CrosswordPage() {
     setChecked(true); setChecks((c) => c + 1);
     setNote(wrong ? `${wrong} letter${wrong === 1 ? ' is' : 's are'} wrong, marked in red.` : empty ? `Everything so far is right. ${empty} square${empty === 1 ? '' : 's'} still empty.` : 'All correct!');
   };
+  const cellKey = (e: React.KeyboardEvent, r: number, c: number, k: string) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const arrows: Record<string, [number, number]> = { ArrowUp: [-1, 0], ArrowDown: [1, 0], ArrowLeft: [0, -1], ArrowRight: [0, 1] };
+    if (arrows[e.key]) {
+      e.preventDefault();
+      let [rr, cc] = [r, c];
+      for (;;) { rr += arrows[e.key][0]; cc += arrows[e.key][1]; if (rr < 0 || cc < 0 || rr >= p.rows || cc >= p.cols) return; if (L.cells.has(`${rr},${cc}`)) break; }
+      setDir(arrows[e.key][0] ? 'd' : 'a');
+      document.querySelector<HTMLElement>(`[data-k="${rr},${cc}"]`)?.focus();
+    } else if (/^[a-zA-Z]$/.test(e.key)) { e.preventDefault(); setSel(k); setFill((f) => ({ ...f, [k]: e.key.toLowerCase() })); setChecked(false); setNote(''); }
+    else if (e.key === 'Backspace' || e.key === 'Delete') { e.preventDefault(); setFill((f) => { const g = { ...f }; delete g[k]; return g; }); }
+  };
   const mins = Math.max(1, Math.round((Date.now() - started.current) / 60000));
   const shareText = () => `Crossword, week ${weekNo()} ✏️ solved in about ${mins} min${revealed.size ? ` · ${revealed.size} letter${revealed.size === 1 ? '' : 's'} revealed` : ' · no reveals'}${checks ? ` · ${checks} check${checks === 1 ? '' : 's'}` : ''}\n` + Array.from({ length: p.rows }, (_, r) => Array.from({ length: p.cols }, (_, c) => { const k = `${r},${c}`; return !L.cells.has(k) ? '⬛' : revealed.has(k) ? '🟦' : '🟨'; }).join('')).join('\n');
   const across = p.words.filter((w) => w.d === 'a').sort((a, b) => L.num(a) - L.num(b));
@@ -71,6 +91,7 @@ export default function CrosswordPage() {
   return (
     <div className="page crossword">
       <h1>Crossword</h1>
+      <GameHelp how={["Select a square and type a letter. Select it again to switch between across and down.", "You can also pick a clue from the lists.", "Check marks wrong letters. Reveal letter fills the selected square.", "A new puzzle comes every week."]} />
       <p className="muted small">{weekly ? 'This week’s puzzle.' : 'A practice puzzle.'} Tap a square and type. Tap it again to switch between across and down.</p>
       <div className="cw-grid" style={{ gridTemplateColumns: `repeat(${p.cols}, 1fr)`, maxWidth: p.cols * 44 }} role="grid" aria-label="Crossword grid">
         {Array.from({ length: p.rows * p.cols }, (_, i) => {
@@ -78,7 +99,7 @@ export default function CrosswordPage() {
           if (!L.cells.has(k)) return <span key={k} className="cw-block" />;
           const bad = checked && fill[k] && fill[k] !== L.cells.get(k);
           return (
-            <button key={k} role="gridcell" className={`cw-cell${sel === k ? ' sel' : activeCells.has(k) ? ' act' : ''}${bad ? ' bad' : ''}`} onClick={() => tap(k)} aria-label={`Row ${r + 1}, column ${c + 1}${L.start.has(k) ? `, clue ${L.start.get(k)}` : ''}${fill[k] ? `, ${fill[k]}` : ', empty'}`}>
+            <button key={k} role="gridcell" className={`cw-cell${sel === k ? ' sel' : activeCells.has(k) ? ' act' : ''}${bad ? ' bad' : ''}`} data-k={k} onClick={() => tap(k)} onFocus={(e) => { if (e.currentTarget.matches(':focus-visible')) setSel(k); }} onKeyDown={(e) => cellKey(e, r, c, k)} aria-label={`Row ${r + 1}, column ${c + 1}${L.start.has(k) ? `, clue ${L.start.get(k)}` : ''}${fill[k] ? `, ${fill[k]}` : ', empty'}${bad ? ', wrong' : ''}`}>
               {L.start.has(k) && <i>{L.start.get(k)}</i>}{fill[k] ?? ''}
             </button>
           );

@@ -24,15 +24,16 @@ function useWidgetData() {
 
 /** One widget, drawn the way it appears on a home screen or in a small window. */
 export function Widget({ kind, d, size = 'm' }: { kind: Kind; d: WidgetData | null; size?: 's' | 'm' }) {
+  const [{ hideStreaks }] = useSettings();
   const k = WIDGET_KINDS.find((x) => x.id === kind)!;
   let body: JSX.Element;
   if (kind === 'verse') body = d?.verse ? <><p className="wg-verse">{size === 's' ? d.verse.text.slice(0, 110) + (d.verse.text.length > 110 ? '…' : '') : d.verse.text}</p><p className="wg-meta">{d.verse.ref} · {d.verse.edition}</p></> : <p className="wg-verse">Open the app once to load today’s verse.</p>;
   else if (kind === 'review') body = <><p className="wg-big">{d?.reviewsDue ?? 0}</p><p className="wg-meta">{d?.reviewsDue === 1 ? 'verse' : 'verses'} to review today</p></>;
-  else if (kind === 'streak') body = <><p className="wg-big">{d?.streak ?? 0}</p><p className="wg-meta">day streak in the games</p></>;
+  else if (kind === 'streak') body = hideStreaks ? <><p className="wg-big">{d?.games ?? 0}</p><p className="wg-meta">games finished</p></> : <><p className="wg-big">{d?.streak ?? 0}</p><p className="wg-meta">day streak in the games</p></>;
   else body = d?.plan ? <><p className="wg-big">{d.plan.done}</p><p className="wg-meta">days done · {d.plan.name}</p></> : <p className="wg-verse">No plan started. Pick one in Settings or on Today.</p>;
   return (
     <div className={`wg wg-${size}`} style={{ ['--c' as string]: k.color }}>
-      <p className="wg-head"><span aria-hidden="true">{k.icon}</span> {k.title}</p>
+      <p className="wg-head"><span aria-hidden="true">{k.icon}</span> {kind === 'streak' && hideStreaks ? 'Games finished' : k.title}</p>
       {body}
     </div>
   );

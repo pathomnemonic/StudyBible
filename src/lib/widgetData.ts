@@ -4,7 +4,7 @@ import { parseRefs, formatRef } from './refs';
 import { convertRef } from './versification';
 import { passageText } from './bibleText';
 import { verseForDay } from '../study/verseOfDay';
-import { currentStreak } from './dailyGame';
+import { currentStreak, playTotals } from './dailyGame';
 import type { EditionRecord } from '../data/loader';
 
 export interface WidgetData {
@@ -13,6 +13,8 @@ export interface WidgetData {
   verse: { ref: string; text: string; edition: string } | null;
   reviewsDue: number;
   streak: number;
+  /** games finished in all: shown in place of the streak when streaks are hidden */
+  games?: number;
   /** days done in the reader's active plan, if any */
   plan: { name: string; done: number } | null;
 }
@@ -33,7 +35,7 @@ export async function buildWidgetData(ed: EditionRecord): Promise<WidgetData> {
   const memory = await db.memory.toArray().catch(() => []);
   const plans = await db.planProgress.filter((x) => x.status === 'active').toArray().catch(() => []);
   const plan = plans[0] ? { name: plans[0].planId === 'biay' ? 'Bible in a Year' : plans[0].planId, done: plans[0].done.length } : null;
-  return { date: widgetDay(), verse, reviewsDue: memory.filter((c) => isDue(c)).length, streak: currentStreak(), plan };
+  return { date: widgetDay(), verse, reviewsDue: memory.filter((c) => isDue(c)).length, streak: currentStreak(), games: playTotals().games, plan };
 }
 
 interface NativeBridge { publish?: (o: { json: string }) => Promise<unknown> | void }

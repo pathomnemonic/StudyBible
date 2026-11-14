@@ -15,6 +15,7 @@ import MementoCard from '../components/MementoCard';
 import Icon from '../components/Icon';
 import HomeExtras, { FavStar } from '../components/HomeExtras';
 import ResumeChips from '../components/ResumeChips';
+import ContinueLesson from '../components/ContinueLesson';
 import { useT, dateLocale } from '../lib/i18n';
 
 const localIso = () => {
@@ -183,6 +184,7 @@ export default function TodayPage() {
       <MementoCard />
       <HomeExtras date={date} season={ld.season} ref={ref} label={verse?.label ?? ''} onRandom={random} />
       <footer className="home-actions">
+        <ContinueLesson />
         <ResumeChips />
       </footer>
     </div>

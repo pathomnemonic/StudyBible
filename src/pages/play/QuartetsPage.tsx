@@ -1,16 +1,17 @@
+import GameHelp from '../../components/GameHelp';
 import ShareButton from '../../components/ShareButton';
-import { markDailyDone } from '../../lib/dailyGame';
+import { isPractice, markDailyDone } from '../../lib/dailyGame';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { QUARTETS, type Quartet, type QuartetGroup } from '../../data/quartets';
 import { copyText } from '../../lib/clipboard';
 import { buzz } from '../../lib/haptics';
+import { judgeQuartet, seededShuffle } from '../../lib/gameLogic';
 
 const LEVEL_EMOJI = ['🟨', '🟩', '🟦', '🟪'];
 const dayIndex = () => Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 864e5);
 const shuffle = <T,>(a: T[]) => { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
-// a stable shuffle for the daily puzzle, so everyone sees the same board
-const seeded = <T,>(a: T[], seed: number) => { const b = [...a]; let s = seed * 9301 + 49297; for (let i = b.length - 1; i > 0; i--) { s = (s * 9301 + 49297) % 233280; const j = Math.floor((s / 233280) * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
+const seeded = seededShuffle;
 const KEY = 'sb:quartets:done';
 const loadDone = (): Record<string, { won: boolean; mistakes: number }> => { try { return JSON.parse(localStorage.getItem(KEY) ?? '{}'); } catch { return {}; } };
 
@@ -24,6 +25,7 @@ export default function QuartetsPage() {
     return (
       <div className="page quartets">
         <h1>Quartets</h1>
+        <GameHelp how={["Sixteen tiles hide four sets of four.", "Select four tiles that belong together and press Submit.", "Four mistakes end the puzzle. Watch for tiles that could fit two sets."]} />
         <p className="muted">Sixteen tiles hide four sets of four. Find the sets. Watch for tiles that fit two of them.</p>
         <button className="btn primary big" onClick={() => setSp({ p: today.id })}>Today’s puzzle{done[today.id] ? (done[today.id].won ? ' ✓' : ' (tried)') : ''}</button>
         <h2 className="eyebrow-h" style={{ marginTop: 16 }}>More puzzles</h2>
@@ -34,7 +36,7 @@ export default function QuartetsPage() {
       </div>
     );
   }
-  return <Board key={picked.id} q={picked} daily={picked.id === today.id} onDone={(won, mistakes) => { if (picked.id === today.id) markDailyDone('quartets', won ? (mistakes ? `${mistakes} mistake${mistakes === 1 ? '' : 's'}` : 'perfect') : 'tried', won && mistakes === 0); const d = { ...loadDone(), [picked.id]: { won, mistakes } }; try { localStorage.setItem(KEY, JSON.stringify(d)); } catch { /* private mode */ } setDone(d); }} back={() => setSp({})} />;
+  return <Board key={picked.id} q={picked} daily={picked.id === today.id} onDone={(won, mistakes) => { if (picked.id === today.id) markDailyDone('quartets', won ? (mistakes ? `${mistakes} mistake${mistakes === 1 ? '' : 's'}` : 'perfect') : 'tried', won && mistakes === 0); const d = { ...loadDone(), [picked.id]: { won, mistakes } }; try { if (!isPractice()) localStorage.setItem(KEY, JSON.stringify(d)); } catch { /* private mode */ } if (!isPractice()) setDone(d); }} back={() => setSp({})} />;
 }
 
 function Board({ q, daily, onDone, back }: { q: Quartet; daily: boolean; onDone: (won: boolean, mistakes: number) => void; back: () => void }) {
@@ -51,10 +53,9 @@ function Board({ q, daily, onDone, back }: { q: Quartet; daily: boolean; onDone:
   const toggle = (t: string) => { if (over) return; setMsg(''); setSel((s) => (s.includes(t) ? s.filter((x) => x !== t) : s.length < 4 ? [...s, t] : s)); };
   const submit = () => {
     if (sel.length !== 4) return;
-    const hit = q.groups.find((g) => !solved.includes(g) && sel.every((t) => g.words.includes(t as never)));
-    if (hit) { setSolved((s) => [...s, hit]); setLog((l) => [...l, hit.level]); setSel([]); buzz(25); return; }
-    const near = q.groups.some((g) => !solved.includes(g) && sel.filter((t) => g.words.includes(t as never)).length === 3);
-    setMistakes((m) => m + 1); setMsg(near ? 'One away…' : 'Not a set.'); buzz(40); setSel([]);
+    const j = judgeQuartet(q.groups, solved, sel);
+    if (j.kind === 'hit') { setSolved((s) => [...s, j.group as QuartetGroup]); setLog((l) => [...l, j.group.level]); setSel([]); buzz(25); return; }
+    setMistakes((m) => m + 1); setMsg(j.kind === 'near' ? 'One away…' : 'Not a set.'); buzz(40); setSel([]);
   };
   const reveal = () => { const rest = q.groups.filter((g) => !solved.includes(g)); setSolved((s) => [...s, ...rest]); };
   useEffect(() => { if (mistakes >= 4 && solved.length < 4) reveal(); }, [mistakes]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -64,6 +65,7 @@ function Board({ q, daily, onDone, back }: { q: Quartet; daily: boolean; onDone:
   return (
     <div className="page quartets">
       <div className="row between"><button className="btn small ghost" onClick={back}>← Puzzles</button><span className="muted small">{daily ? 'Today · ' : ''}{q.title}</span></div>
+      <GameHelp how={['Sixteen tiles hide four sets of four.', 'Select four tiles that belong together and press Submit.', 'Four mistakes end the puzzle.']} />
       <div className="q-solved">
         {(over ? byLevel : solved).map((g) => <div key={g.name} className={`q-row lv${g.level}`}><strong>{g.name}</strong><span>{g.words.join(', ')}</span></div>)}
       </div>

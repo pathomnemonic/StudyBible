@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { currentStreak, dailyDone, dayIndex, loadPlays, seeded } from '../../lib/dailyGame';
+import { currentStreak, dailyDone, dayIndex, loadPlays, playTotals, seeded } from '../../lib/dailyGame';
+import { useSettings } from '../../lib/store';
 
 interface Game { to: string; title: string; blurb: string; icon: string; color: string; time: string; who: string; daily?: string; isNew?: boolean }
 interface Group { id: string; title: string; sub: string; games: Game[] }
@@ -45,14 +46,16 @@ export default function PlayHome() {
   const nav = useNavigate();
   const dailies = ALL.filter((g) => g.daily);
   const todo = dailies.filter((g) => !dailyDone(g.daily!));
+  const [cfg] = useSettings();
   const streak = currentStreak();
+  const totals = playTotals();
   const plays = loadPlays();
   const featured = useMemo(() => (todo.length ? todo[Math.floor(seeded(dayIndex() + 3)() * todo.length)] : ALL.find((g) => g.isNew)!), [todo.length]); // eslint-disable-line react-hooks/exhaustive-deps
   const surprise = () => { const pool = todo.length ? todo : ALL; nav(pool[Math.floor(Math.random() * pool.length)].to); };
   const played = Object.keys(plays.games ?? {}).length;
-  const TIPS = ['A fresh puzzle lands every day. Come back tomorrow!', 'Not sure? Tap Surprise me and let the dice decide.', 'Friends can join a quiz with just six digits.', 'Three right answers in a category wins a crown.', 'Every game here works without an account.', 'Streaks are kept right here on your device.'];
+  const TIPS = ['A fresh puzzle lands every day. Come back tomorrow!', 'Not sure? Tap Surprise me and let the dice decide.', 'Friends can join a quiz with just six digits.', 'Three right answers in a category wins a crown.', 'Every game here works without an account.', cfg.hideStreaks ? 'Your finished games are kept right here on your device.' : 'Streaks are kept right here on your device.'];
   const [tip, setTip] = useState(0);
-  useEffect(() => { const t = window.setInterval(() => setTip((x) => (x + 1) % TIPS.length), 6000); return () => window.clearInterval(t); }, [TIPS.length]);
+  useEffect(() => { if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return; const t = window.setInterval(() => setTip((x) => (x + 1) % TIPS.length), 6000); return () => window.clearInterval(t); }, [TIPS.length]);
   const letters = 'GAMES'.split('');
   const hues = ['#e8812b', '#4a7bd0', '#c0507a', '#2f8f6b', '#d4a017'];
   return (
@@ -60,7 +63,7 @@ export default function PlayHome() {
       <div className="gp-doodles" aria-hidden="true">{['✨', '🎲', '🕊️', '⭐', '🔔', '🧩', '👑', '📿'].map((d, i) => <span key={i} style={{ ['--x' as string]: `${(i * 13 + 6) % 92}%`, ['--d' as string]: `${i * 1.7}s`, ['--s' as string]: `${1.1 + (i % 3) * 0.5}rem` }}>{d}</span>)}</div>
       <header className="pf-top gp-top">
         <h1 className="gp-title" aria-label="Games">{letters.map((l, i) => <span key={i} aria-hidden="true" style={{ ['--h' as string]: hues[i], ['--i' as string]: i }}>{l}</span>)}</h1>
-        <Link className="streak-chip gp-streak" to="/play/trophies">🔥 {streak} day streak · trophies</Link>
+        <Link className="streak-chip gp-streak" to="/play/trophies">{cfg.hideStreaks ? `🏅 ${totals.games} game${totals.games === 1 ? '' : 's'} finished · trophies` : `🔥 ${streak} day streak · trophies`}</Link>
       </header>
       <div className="gp-mascot" role="note"><span className="gp-bot" aria-hidden="true">🤖</span><p key={tip}>{TIPS[tip]}</p></div>
       <section className="pf-hero gp-hero" style={{ ['--c' as string]: featured.color }} aria-label="Play this next">

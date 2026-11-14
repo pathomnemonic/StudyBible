@@ -1,3 +1,4 @@
+import GameHelp from '../../components/GameHelp';
 import { useMemo, useState } from 'react';
 import ShareButton from '../../components/ShareButton';
 import { WHO_AM_I, type WhoAmI } from '../../data/whoami';
@@ -30,6 +31,7 @@ export default function WhoAmIPage() {
   return (
     <div className="page saintguess">
       <h1>Who Am I?</h1>
+      <GameHelp how={["A person from the Bible, from five clues. The first clue is the hardest.", "Pick a name, or ask for the next clue."]} />
       <p className="muted small">A person from the Bible. The first clue is the hardest.</p>
       <ol className="sg-clues">{person.clues.slice(0, shown).map((c, i) => <li key={i}>{c}</li>)}</ol>
       {wrong.length > 0 && <p className="small muted">Not: {wrong.join(', ')}</p>}
