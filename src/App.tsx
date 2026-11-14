@@ -12,6 +12,7 @@ import { PlayerProvider } from './data/PlayerContext';
 import MiniPlayer from './components/MiniPlayer';
 import { ToastProvider } from './components/Toast';
 import { initSync } from './sync/state';
+import { accountsEnabled } from './lib/accountsFlag';
 import UpdateBanner from './components/UpdateBanner';
 import ScrollMemory from './components/ScrollMemory';
 import { db, TRASH_DAYS } from './db/db';
@@ -554,7 +555,7 @@ export default function App() {
               <Route path="/widgets" element={<WidgetsPage />} />
               <Route path="/session" element={<SessionPage />} />
               <Route path="/today" element={<TodayPage />} />
-              <Route path="/account" element={<AccountPage />} />
+              <Route path="/account" element={accountsEnabled() ? <AccountPage /> : <Navigate to="/" replace />} />
               <Route path="/attach" element={<AttachPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="*" element={<NotFoundPage />} />

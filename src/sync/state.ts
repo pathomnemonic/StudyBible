@@ -2,6 +2,7 @@ import { useSyncExternalStore } from 'react';
 import { api, ApiError, type AccountUser } from './api';
 import { syncFlags } from '../db/db';
 import { getSettings, settingsChangeHooks } from '../lib/store';
+import { accountsEnabled, applyPreviewSwitch } from '../lib/accountsFlag';
 import { localDataCount, resetSyncState, runSync, touchSettings, wipeLocalUserData } from './engine';
 
 export type ServerState = 'unknown' | 'available' | 'unavailable';
@@ -102,6 +103,9 @@ const lastUser = () => {
 /** Call once at start-up: probe the server and resume a session if there is one. */
 let started = false;
 export async function initSync() {
+  // accounts are switched off unless the build turns them on (src/lib/accountsFlag.ts): never look for a server
+  applyPreviewSwitch(location.search + (location.hash.includes('?') ? location.hash.slice(location.hash.indexOf('?')) : ''));
+  if (!accountsEnabled()) { emit({ server: 'unavailable', status: 'signed-out' }); return; }
   // React's strict mode runs start-up twice in development; listeners and timers must only be installed once
   if (started) return;
   started = true;

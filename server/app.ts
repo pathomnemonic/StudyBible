@@ -7,6 +7,7 @@ import { lookup } from 'node:dns/promises';
 import { isIP } from 'node:net';
 import type { DatabaseSync } from 'node:sqlite';
 import { LiveHub, MAX_PLAYERS, sanitizeContent, sanitizeRoster, sanitizeSettings, type LiveRoom } from '../src/live/engine';
+import { hashRecovery, lockMs, newRecoveryCodes, newTotpSecret, otpauthUrl, verifyTotp } from './security';
 import { RateLimiter, hashPassword, hashToken, newToken, passwordProblem, validateEmail, verifyPassword } from './auth';
 
 export interface Config {
@@ -215,6 +216,22 @@ export function createApp(cfg: Config): Server {
   const openForSignup = () => cfg.registration === 'open' || (q.userCount.get() as any).n === 0;
   const pub = (u: any) => ({ id: u.id, email: u.email, name: u.display_name ?? null, createdAt: u.created_at });
 
+  /** a short record of security-relevant events on an account, shown to its owner (never passwords, codes or tokens) */
+  const logEvent = (userId: string, event: string, detail?: string) => db.prepare('INSERT INTO security_log (user_id, at, event, detail) VALUES (?, ?, ?, ?)').run(userId, Date.now(), event, detail ? detail.slice(0, 200) : null);
+  const BRAND = process.env.APP_NAME || 'Cathology';
+
+  /** true when `code` is a valid authenticator code (once) or an unused recovery code for this user */
+  function secondFactorOk(u: any, code: unknown): boolean {
+    const c = String(code ?? '').trim();
+    if (!c) return false;
+    const step = verifyTotp(u.totp_secret, c, Date.now(), u.totp_last_step);
+    if (step !== null) { db.prepare('UPDATE users SET totp_last_step = ? WHERE id = ?').run(step, u.id); return true; }
+    const hashes: string[] = JSON.parse(u.recovery_hashes || '[]');
+    const h = hashRecovery(c);
+    if (hashes.includes(h)) { db.prepare('UPDATE users SET recovery_hashes = ? WHERE id = ?').run(JSON.stringify(hashes.filter((x) => x !== h)), u.id); logEvent(u.id, 'recovery-code-used', `${hashes.length - 1} left`); return true; }
+    return false;
+  }
+
   function deleteUserData(userId: string) {
     q.delUserSessions.run(userId);
     db.prepare('DELETE FROM records WHERE user_id = ?').run(userId);
@@ -314,9 +331,16 @@ export function createApp(cfg: Config): Server {
     }
 
     if (path === '/api/auth/register' && method === 'POST') {
-      if (!openForSignup()) throw new HttpError(403, 'Registration is closed on this server.');
-      if (!registerLimit.take(clientIp(req))) throw new HttpError(429, 'Too many sign-ups from this address. Try again later.');
       const b = await readJson(req);
+      // a closed server still takes the first account, and anyone holding an unused, unexpired invite code from the operator
+      let inviteHash: string | null = null;
+      if (!openForSignup()) {
+        const code = typeof b.invite === 'string' ? b.invite.trim() : '';
+        const inv = code ? (db.prepare('SELECT code_hash, expires_at, used_by FROM invites WHERE code_hash = ?').get(hashToken(code)) as any) : null;
+        if (!inv || inv.used_by || inv.expires_at < Date.now()) throw new HttpError(403, code ? 'That invite code is not valid or has been used.' : 'Registration is closed on this server. Ask the person who runs it for an invite code.');
+        inviteHash = inv.code_hash;
+      }
+      if (!registerLimit.take(clientIp(req))) throw new HttpError(429, 'Too many sign-ups from this address. Try again later.');
       const email = validateEmail(b.email);
       if (!email) throw new HttpError(400, 'Enter a valid email address.');
       const pp = passwordProblem(b.password, email);
@@ -325,6 +349,8 @@ export function createApp(cfg: Config): Server {
       const id = randomUUID();
       const name = typeof b.name === 'string' ? b.name.trim().slice(0, 80) || null : null;
       q.insertUser.run(id, email, name, await hashPassword(b.password), Date.now());
+      if (inviteHash) db.prepare('UPDATE invites SET used_by = ? WHERE code_hash = ?').run(id, inviteHash);
+      logEvent(id, 'account-created', inviteHash ? 'with an invite' : undefined);
       return startSession(req, res, id, 201);
     }
 
@@ -334,11 +360,47 @@ export function createApp(cfg: Config): Server {
       const key = `${clientIp(req)}|${email ?? ''}`;
       if (!loginLimit.take(key)) throw new HttpError(429, 'Too many attempts. Wait a few minutes and try again.');
       const u = email ? (q.userByEmail.get(email) as any) : null;
+      if (u && u.locked_until > Date.now()) throw new HttpError(429, `This account is locked for a few minutes after repeated wrong passwords. Try again at ${new Date(u.locked_until).toISOString().slice(11, 16)} UTC, or ask the person who runs the server to reset it.`);
       // Always spend the hashing time so response timing does not reveal whether the account exists.
       const ok = u ? await verifyPassword(String(b.password ?? ''), u.pass_hash) : (await verifyPassword('not-the-password', await dummyHash), false);
-      if (!u || !ok) throw new HttpError(401, 'Email or password is incorrect.');
+      if (!u || !ok) {
+        if (u) {
+          const n = u.failed_logins + 1;
+          db.prepare('UPDATE users SET failed_logins = ?, locked_until = ? WHERE id = ?').run(n, lockMs(n) ? Date.now() + lockMs(n) : 0, u.id);
+          logEvent(u.id, 'wrong-password', `${n} in a row`);
+        }
+        throw new HttpError(401, 'Email or password is incorrect.');
+      }
+      if (u.totp_enabled) {
+        if (!b.code) throw new HttpError(401, 'Enter the six-digit code from your authenticator app (or a recovery code).', );
+        if (!secondFactorOk(u, b.code)) {
+          const n = u.failed_logins + 1;
+          db.prepare('UPDATE users SET failed_logins = ?, locked_until = ? WHERE id = ?').run(n, lockMs(n) ? Date.now() + lockMs(n) : 0, u.id);
+          logEvent(u.id, 'wrong-code', `${n} in a row`);
+          throw new HttpError(401, 'That code is not right. Check the time on your phone, or use a recovery code.');
+        }
+      }
       loginLimit.reset(key);
+      db.prepare('UPDATE users SET failed_logins = 0, locked_until = 0 WHERE id = ?').run(u.id);
+      logEvent(u.id, 'signed-in', String(req.headers['user-agent'] ?? '').slice(0, 80));
       return startSession(req, res, u.id);
+    }
+
+    // a one-time reset code made by the operator (npm run admin -- reset-code <email>); no email is sent
+    if (path === '/api/auth/reset' && method === 'POST') {
+      const b = await readJson(req);
+      if (!loginLimit.take(`reset|${clientIp(req)}`)) throw new HttpError(429, 'Too many attempts. Wait a few minutes and try again.');
+      const row = typeof b.code === 'string' ? (db.prepare('SELECT user_id, expires_at FROM reset_tokens WHERE token_hash = ?').get(hashToken(b.code.trim())) as any) : null;
+      if (!row || row.expires_at < Date.now()) throw new HttpError(400, 'That reset code is not valid or has expired.');
+      const u = q.userById.get(row.user_id) as any;
+      const pp = passwordProblem(b.password, u.email);
+      if (pp) throw new HttpError(400, pp);
+      q.setPass.run(await hashPassword(b.password), u.id);
+      db.prepare('DELETE FROM reset_tokens WHERE user_id = ?').run(u.id);
+      q.delUserSessions.run(u.id);
+      db.prepare('UPDATE users SET failed_logins = 0, locked_until = 0 WHERE id = ?').run(u.id);
+      logEvent(u.id, 'password-reset', 'with an operator reset code; all devices signed out');
+      return json(res, 200, { ok: true });
     }
 
     if (path === '/api/auth/logout' && method === 'POST') {
@@ -351,6 +413,84 @@ export function createApp(cfg: Config): Server {
     if (!me) throw new HttpError(401, 'Not signed in.');
 
     if (path === '/api/auth/me' && method === 'GET') return json(res, 200, { user: pub(q.userById.get(me.id)) });
+
+    const full = () => db.prepare('SELECT * FROM users WHERE id = ?').get(me.id) as any;
+    const needPassword = async (b: any) => { if (!(await verifyPassword(String(b.password ?? ''), full().pass_hash))) throw new HttpError(401, 'Password is incorrect.'); };
+
+    if (path === '/api/account/profile' && method === 'PATCH') {
+      const b = await readJson(req);
+      const name = typeof b.name === 'string' ? b.name.trim().slice(0, 80) || null : null;
+      db.prepare('UPDATE users SET display_name = ? WHERE id = ?').run(name, me.id);
+      return json(res, 200, { user: pub(q.userById.get(me.id)) });
+    }
+
+    if (path === '/api/account/email' && method === 'POST') {
+      const b = await readJson(req);
+      await needPassword(b);
+      const email = validateEmail(b.email);
+      if (!email) throw new HttpError(400, 'Enter a valid email address.');
+      const taken = q.userByEmail.get(email) as any;
+      if (taken && taken.id !== me.id) throw new HttpError(409, 'An account with that email already exists.');
+      const old = full().email;
+      db.prepare('UPDATE users SET email = ? WHERE id = ?').run(email, me.id);
+      const keep = hashToken(cookie(req, 'sb_session')!);
+      db.prepare('DELETE FROM sessions WHERE user_id = ? AND token_hash <> ?').run(me.id, keep);
+      logEvent(me.id, 'email-changed', `${old} -> ${email}`);
+      return json(res, 200, { user: pub(q.userById.get(me.id)) });
+    }
+
+    if (path === '/api/account/2fa' && method === 'GET') {
+      const u = full();
+      return json(res, 200, { enabled: !!u.totp_enabled, recoveryCodesLeft: u.totp_enabled ? (JSON.parse(u.recovery_hashes || '[]') as string[]).length : 0 });
+    }
+
+    if (path === '/api/account/2fa/start' && method === 'POST') {
+      const b = await readJson(req);
+      await needPassword(b);
+      const u = full();
+      if (u.totp_enabled) throw new HttpError(409, 'Two-factor sign-in is already on.');
+      const secret = newTotpSecret();
+      db.prepare('UPDATE users SET totp_pending = ? WHERE id = ?').run(secret, me.id);
+      return json(res, 200, { secret, otpauth: otpauthUrl(u.email, secret, BRAND) });
+    }
+
+    if (path === '/api/account/2fa/confirm' && method === 'POST') {
+      const b = await readJson(req);
+      const u = full();
+      if (!u.totp_pending) throw new HttpError(400, 'Start setting up two-factor sign-in first.');
+      const step = verifyTotp(u.totp_pending, String(b.code ?? ''), Date.now());
+      if (step === null) throw new HttpError(400, 'That code is not right. Check the time on your phone and try the next code.');
+      const { codes, hashes } = newRecoveryCodes();
+      db.prepare('UPDATE users SET totp_secret = totp_pending, totp_pending = NULL, totp_enabled = 1, totp_last_step = ?, recovery_hashes = ? WHERE id = ?').run(step, JSON.stringify(hashes), me.id);
+      logEvent(me.id, '2fa-enabled');
+      return json(res, 200, { ok: true, recoveryCodes: codes });
+    }
+
+    if (path === '/api/account/2fa/recovery' && method === 'POST') {
+      const b = await readJson(req);
+      await needPassword(b);
+      if (!full().totp_enabled) throw new HttpError(400, 'Two-factor sign-in is not on.');
+      const { codes, hashes } = newRecoveryCodes();
+      db.prepare('UPDATE users SET recovery_hashes = ? WHERE id = ?').run(JSON.stringify(hashes), me.id);
+      logEvent(me.id, 'recovery-codes-renewed');
+      return json(res, 200, { recoveryCodes: codes });
+    }
+
+    if (path === '/api/account/2fa/disable' && method === 'POST') {
+      const b = await readJson(req);
+      await needPassword(b);
+      const u = full();
+      if (!u.totp_enabled) throw new HttpError(400, 'Two-factor sign-in is not on.');
+      if (!secondFactorOk(u, b.code)) throw new HttpError(401, 'Enter a current code or a recovery code to turn it off.');
+      db.prepare('UPDATE users SET totp_enabled = 0, totp_secret = NULL, totp_pending = NULL, recovery_hashes = NULL, totp_last_step = -1 WHERE id = ?').run(me.id);
+      logEvent(me.id, '2fa-disabled');
+      return json(res, 200, { ok: true });
+    }
+
+    if (path === '/api/account/security-log' && method === 'GET') {
+      const rows = db.prepare('SELECT at, event, detail FROM security_log WHERE user_id = ? ORDER BY id DESC LIMIT 50').all(me.id) as any[];
+      return json(res, 200, { events: rows });
+    }
 
     if (path === '/api/auth/sessions' && method === 'GET') {
       const mine = hashToken(cookie(req, 'sb_session')!);
@@ -385,6 +525,7 @@ export function createApp(cfg: Config): Server {
       // sign out other devices, keep this one
       const keep = hashToken(cookie(req, 'sb_session')!);
       db.prepare('DELETE FROM sessions WHERE user_id = ? AND token_hash <> ?').run(me.id, keep);
+      logEvent(me.id, 'password-changed', 'other devices signed out');
       return json(res, 200, { ok: true });
     }
 

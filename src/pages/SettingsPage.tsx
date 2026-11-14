@@ -1,3 +1,4 @@
+import { accountsEnabled } from '../lib/accountsFlag';
 import MoreSettings from '../components/MoreSettings';
 import InstallCard from '../components/InstallCard';
 import Fold, { FoldControls } from '../components/Fold';
@@ -47,7 +48,7 @@ export default function SettingsPage() {
       <InstallCard />
       <div className="card more-links">
         <Link to="/downloads">Downloads and offline</Link>
-        {(sync.server === 'available' || sync.user) && <Link to="/account">Account and sync</Link>}
+        {accountsEnabled() && (sync.server === 'available' || sync.user) && <Link to="/account">Account and sync</Link>}
         <Link to="/study/sources">Sources and licensing</Link>
         <Link to="/about">About and feature status</Link>
       </div>

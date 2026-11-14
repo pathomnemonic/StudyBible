@@ -41,5 +41,33 @@ export function openDb(path: string): DatabaseSync {
   // sessions gained a last-seen time after the first release; add the column to databases created before that
   const cols = db.prepare('PRAGMA table_info(sessions)').all() as { name: string }[];
   if (!cols.some((c) => c.name === 'last_seen')) db.exec('ALTER TABLE sessions ADD COLUMN last_seen INTEGER');
+  // second-factor, lock-out and recovery columns were added later; add them to databases created before
+  const ucols = (db.prepare('PRAGMA table_info(users)').all() as { name: string }[]).map((c) => c.name);
+  for (const [name, def] of [['totp_secret', 'TEXT'], ['totp_pending', 'TEXT'], ['totp_enabled', 'INTEGER NOT NULL DEFAULT 0'], ['totp_last_step', 'INTEGER NOT NULL DEFAULT -1'], ['recovery_hashes', 'TEXT'], ['failed_logins', 'INTEGER NOT NULL DEFAULT 0'], ['locked_until', 'INTEGER NOT NULL DEFAULT 0']] as const) {
+    if (!ucols.includes(name)) db.exec(`ALTER TABLE users ADD COLUMN ${name} ${def}`);
+  }
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS security_log (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      at INTEGER NOT NULL,
+      event TEXT NOT NULL,
+      detail TEXT
+    );
+    CREATE INDEX IF NOT EXISTS security_log_user ON security_log(user_id, at);
+    CREATE TABLE IF NOT EXISTS invites (
+      code_hash TEXT PRIMARY KEY,
+      created_at INTEGER NOT NULL,
+      expires_at INTEGER NOT NULL,
+      used_by TEXT,
+      note TEXT
+    );
+    CREATE TABLE IF NOT EXISTS reset_tokens (
+      token_hash TEXT PRIMARY KEY,
+      user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      created_at INTEGER NOT NULL,
+      expires_at INTEGER NOT NULL
+    );
+  `);
   return db;
 }

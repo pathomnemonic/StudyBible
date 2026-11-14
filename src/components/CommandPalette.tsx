@@ -1,3 +1,4 @@
+import { accountsEnabled } from '../lib/accountsFlag';
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Icon from './Icon';
@@ -58,9 +59,9 @@ const NAV: { label: string; to: string }[] = [
   { label: 'Journal', to: '/pray/journal' },
   { label: 'Memorize Scripture', to: '/memorize' },
   { label: 'My library (notes, highlights, bookmarks)', to: '/library' },
-  { label: 'Account & sync', to: '/account' },
   { label: 'Settings', to: '/settings' },
   { label: 'About & feature status', to: '/about' },
+  ...(accountsEnabled() ? [{ label: 'Account & sync', to: '/account' }] : []),
 ];
 
 /** ⌘K / Ctrl+K: jump to any passage, search everything, or go anywhere in the app. */
