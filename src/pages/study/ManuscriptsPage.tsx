@@ -31,7 +31,7 @@ export default function ManuscriptsPage() {
     let link: string | null = null;
     if (cur.ref) {
       const p = parseRefs(cur.ref);
-      if (p.ok) link = readerPath(ed, convertRef('kjv', 'vulgate', p.refs[0].ref).ref);
+      if (p.ok) { const mapped = convertRef('kjv', 'vulgate', p.refs[0].ref); if (mapped.exact) link = readerPath(ed, mapped.ref); }
     }
     const zoom = (d: number) => setZ((s) => ({ ...s, k: Math.max(1, Math.min(6, s.k * d)) }));
     return (
