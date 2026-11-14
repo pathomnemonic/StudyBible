@@ -85,7 +85,7 @@ See the commands and results table below.
 
 # Reliability cycle: reference integrity, listening history, and safe state transitions
 
-**Status: incomplete; draft review only.** Branch: `reliability/reference-listening-state-cycle`. The PR base is `c3cee139c40d291a0eaa7aa000359c846ac1bbd4`; compare confirms it is the merge base (131 commits ahead, zero behind). No rebase was necessary. The base commit already contains the shared `refCheck` / `resolveRef` and recoverable Go Further loading work; this cycle extends those paths rather than duplicating them.
+**Status: incomplete; draft review only.** Branch: `reliability/reference-listening-state-cycle`. The PR base is `c3cee139c40d291a0eaa7aa000359c846ac1bbd4`; compare confirms it is the merge base (166 commits ahead, zero behind). No rebase was necessary. The base commit already contains the shared `refCheck` / `resolveRef` and recoverable Go Further loading work; this cycle extends those paths rather than duplicating them.
 
 ## Work completed in this pass
 
@@ -112,7 +112,18 @@ See the commands and results table below.
 - `tests/listening.test.ts`: year boundaries, manual played marks, position-only saves, legacy rows, end-event attribution, replay in another year, concurrent saves and persistence of legacy-undated disclosure after new activity.
 - `tests/playbackRequest.test.ts`: controlled promise reverse-order resolution, local-file-to-remote transition and stop invalidation.
 - `tests/trashRestore.test.ts`: simultaneous restore, duplicate UID, interrupted transaction rollback.
+- `tests/verselinks.test.ts`: exact-only verse and whole-chapter index lookups; unverified John/Psalm and unaligned-book mappings are withheld.
+- `tests/refIntegrity.test.ts`: exact-only secondary apologetics and daily-reference consumers.
+- `tests/prayer.test.ts`: prayer, course and story helper does not attach approximate passage addresses.
+- `e2e/mediacontrols.mjs`: actual browser audio-element switch from a local meditation file to a BIAY episode; asserts the old position is persisted before the new source takes over.
+- `e2e/datahealth.mjs`: injects a post-commit IndexedDB refresh read failure; asserts the mutation remains committed, the error is accurately reported, and stale repair actions disappear.
 - `tests/collectionsView.test.ts`: key-order-independent completion mark.
+
+## Additional independent consumer audit
+
+A repository-wide scan of the source tree found additional direct convertRef consumers outside the original plan and Go Further paths. They now all gate use of converted addresses on `.exact` or withhold the result: episode search, devotional attachments, course and story references, apologetics, Catechism footnotes, translation comparison, concept-map personal notes, passage dossier, glossed page, lexicon, manuscript links, study paths, daily readings, inline artwork, original-language text, and verse-link index lookup. The reader's book-section label is also suppressed when its reverse chapter mapping is not exact. Unverified episode searches and Catechism/apologetics/term/path views show an explanatory note instead of opening a guessed passage.
+
+This is a source-level audit, not a runtime verification. The new secondary-consumer regression tests and CI results still need to run.
 
 ## CI and quality-gate status
 
@@ -130,15 +141,16 @@ The first fast run is evidence only for its own commit, not the current head:
 | `node scripts/audit-gate.mjs` | Skipped in that run |
 | `npm run e2e:release` | Not run; browser jobs require the fast job to pass |
 | Accounts / sync browser job | Not run; requires the fast job to pass |
-| Full-width sweep | Not run; separate nightly/release/manual workflow |
+| Full-width sweep | A dedicated `sweep-full` CI job has now been added; it runs `SWEEP_MODE=full node e2e/sweep.mjs` after `fast`, but no run result is verified yet |
 
-PR CI run `43651601159` (run 756) was queued on head `685570a`. A later run `43651726913` (run 773) was queued on head `58c87b4`, and run `43651808200` (run 778) was queued on head `31513bf`, runs `43651944315` / `43651944727` (runs 791/792) were queued on head `29cb805`, and runs `43652167757` / `43652167971` (runs 808/809) were queued on head `42e1103`, and run `43652329507` (run 819) was queued on that same head; the `fast` and `secrets` jobs remained queued when checked. The branch has since advanced to `7a01537`, so a current-head run is required. No gate beyond the initial `npm ci` result is verified. Do not treat any current-head gate as passed until its job has completed and its result/logs have been inspected.
+Runs 834 and 835 on head `6ee3908` remained queued when checked. The branch has since advanced to the current head; no completed CI result is available for this head yet. The current workflow now also includes a dedicated full-width sweep job, and the release browser suite includes the new playback-switch and Data Health failure tests. Do not treat any current-head gate as passed until its job has completed and its result/logs have been inspected. Do not treat any current-head gate as passed until its job has completed and its result/logs have been inspected.
 
 ## Remaining before merge
 
 - Await current-head CI and fix every typecheck, unit-test, generated-document, data-validation, build, budget or audit-gate failure it reports.
 - Verify the browser `e2e:release` shards and accounts job after fast CI passes; inspect their actual results.
 - Run or verify the separate full-width sweep workflow.
-- Add an integration-level player test that exercises the actual audio element and verifies previous-episode progress is saved before source replacement and retry; the controlled-promise tests exercise the shared request guard, while the active-source error/ended guards and progress flush still need a browser-level assertion.
-- Continue the independent audit after the current CI run, including a browser-level check of the Data Health commit/refresh error states.
+- Verify the new actual-audio-element local-to-remote transition and retry browser assertions in the release shards; they have been added but not executed yet.
+- Verify the Data Health committed-mutation/refresh-failure browser assertion in the release shards; it has been added but not executed yet.
+- Verify the dedicated full-width sweep job and accounts/sync job after `fast` passes.
 - Update this report with the final run IDs, exact tested commit SHA and actual results. This PR remains draft and must not be merged until these items are complete.
