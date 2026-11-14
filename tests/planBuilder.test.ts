@@ -21,8 +21,10 @@ describe('plan builder', () => {
     expect(spreadUnits([], { days: 3 })).toEqual([]);
     expect(spreadUnits([1, 2, 3], { perDay: 0 })).toHaveLength(3);
   });
-  it('clamps chapters to the book and only merges neighbouring whole chapters of one book', () => {
-    expect(chapterUnits('JHN', 1, 99)).toHaveLength(21);
+  it('rejects invalid chapter ranges instead of clamping and only merges neighbouring whole chapters of one book', () => {
+    expect(chapterUnits('JHN', 1, 99)).toEqual([]);
+    expect(chapterUnits('JHN', 0, 2)).toEqual([]);
+    expect(chapterUnits('JHN', 5, 4)).toEqual([]);
     expect(chapterUnits('NOPE', 1, 2)).toEqual([]);
     const m = mergeContiguous([{ book: 'JHN', c1: 1, c2: 1 }, { book: 'JHN', c1: 3, c2: 3 }, { book: 'JHN', c1: 4, v1: 1, c2: 4, v2: 5 }, { book: 'ACT', c1: 5, c2: 5 }]);
     expect(m).toHaveLength(4);
