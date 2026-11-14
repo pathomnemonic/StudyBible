@@ -21,6 +21,7 @@ import LessonPlay from '../../curriculum/LessonPlay';
 import LessonPath from '../../curriculum/LessonPath';
 import { GoFurther, ReviewCard } from '../../curriculum/GoFurther';
 import MyLessonNotes from '../../curriculum/MyLessonNotes';
+import { BookmarkButton } from '../../curriculum/MyLessons';
 import { estimateTime } from '../../curriculum/duration';
 import { worthDefining } from '../../curriculum/terms';
 import TeachingOptions from '../../curriculum/TeachingOptions';
@@ -175,6 +176,7 @@ export default function CurriculumLesson() {
         <span className="muted small">Unit {lesson.unit.n}: {lesson.unit.title}</span>
       </nav>
       <div className={`lesson-banner pillar-${pillarKey(lesson.unit.pillar)}`}><span className="pillar-ico" aria-hidden="true">{pillarIcon(lesson.unit.pillar)}</span><div><div className="pillar-name">{lesson.unit.pillar}</div><h1 style={{ margin: 0 }}>{lesson.title}</h1></div></div>
+      <p className="no-print" style={{ margin: '6px 0' }}><BookmarkButton grade={g.id} lesson={lesson.id} title={lesson.title} /></p>
       <p className="muted small" style={{ marginTop: 0 }}>{gradeLabel(g.id)} · {g.theme} · Lesson {idx + 1} of {flat.length}{isLifeLesson(lesson.id) && <span className="key-badge"> ★ Life lesson (short on time)</span>}{isKeyLesson(g.id, lesson.id) && <span className="key-badge"> ★ Core lesson</span>}</p>
       {bigQ && <p className="big-q"><span className="chip sel">Big question</span> {bigQ}</p>}
       <p className="lesson-time-one muted small" aria-label="How long this lesson takes">⏱ About {lessonTime.selfMinutes} min on your own · {lessonTime.classMinutes} min with a group</p>

@@ -18,3 +18,20 @@ export function getSavedStep(grade: string, lesson: string): number {
 export const unfinishedIn = (grade: string): LessonResume[] => unfinishedLessons().filter((x) => x.grade === grade);
 /** Puts the saved step where the lesson page looks for it today (session storage), so a link to the lesson reopens there. */
 export function primeSavedStep(grade: string, lesson: string) { try { sessionStorage.setItem(`sb:cur:step:${lesson}`, String(getSavedStep(grade, lesson))); } catch { /* private mode */ } }
+
+/* ---- My lessons: bookmarks, kept on this device ---- */
+export interface LessonMark { grade: string; lesson: string; title: string; at: number }
+const MARKS = 'sb:cur:marks:v1';
+const readMarks = (): LessonMark[] => { try { const v = JSON.parse(localStorage.getItem(MARKS) ?? '[]') as LessonMark[]; return Array.isArray(v) ? v : []; } catch { return []; } };
+const writeMarks = (m: LessonMark[]) => { try { localStorage.setItem(MARKS, JSON.stringify(m)); window.dispatchEvent(new Event('sb:cur:marks')); } catch { /* private mode */ } };
+export const lessonMarks = (): LessonMark[] => readMarks().sort((a, b) => b.at - a.at);
+export const isMarked = (grade: string, lesson: string) => readMarks().some((x) => x.grade === grade && x.lesson === lesson);
+/** Adds the lesson to My lessons, or takes it off. Returns whether it is now marked. */
+export function toggleMark(grade: string, lesson: string, title: string): boolean {
+  const have = readMarks();
+  if (have.some((x) => x.grade === grade && x.lesson === lesson)) { writeMarks(have.filter((x) => !(x.grade === grade && x.lesson === lesson))); return false; }
+  writeMarks([{ grade, lesson, title, at: Date.now() }, ...have]);
+  return true;
+}
+/** The saved step of one unfinished lesson, or null when none (finished lessons are cleared). */
+export const resumeOf = (grade: string, lesson: string): LessonResume | null => unfinishedLessons().find((x) => x.grade === grade && x.lesson === lesson) ?? null;

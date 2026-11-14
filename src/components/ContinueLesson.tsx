@@ -7,13 +7,13 @@ export default function ContinueLesson({ grade }: { grade?: string }) {
   const r = grade ? unfinishedIn(grade)[0] : lastLesson();
   if (!r) return null;
   return (
-    <section className="card continue-lesson" aria-label="Continue your lesson">
+    <section className="card continue-lesson" aria-label="Resume your lesson">
       <div className="continue-lesson-text">
-        <span className="eyebrow">Continue your lesson</span>
+        <span className="eyebrow">Resume your lesson</span>
         <strong className="continue-lesson-title">{r.title}</strong>
         <span className="muted small">{gradeLabel(r.grade)} · Step {r.step + 1} of {r.steps}</span>
       </div>
-      <Link className="btn primary" to={`/study/curriculum/${r.grade}/${r.lesson}`} onClick={() => primeSavedStep(r.grade, r.lesson)}>Continue</Link>
+      <Link className="btn primary" to={`/study/curriculum/${r.grade}/${r.lesson}`} onClick={() => primeSavedStep(r.grade, r.lesson)}>Resume</Link>
     </section>
   );
 }
