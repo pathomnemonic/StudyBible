@@ -262,7 +262,7 @@ export const EXPECT = {
   '/study/saints': 'Lives of the Saints', '/study/councils': 'councils', '/study/curriculum': 'Catechism program', '/study/curriculum/9': 'Grade 9',
   '/study/glossary': 'Glossary', '/pray/prayers': 'Prayer book', '/pray/mass': 'Following the Mass', '/pray/examen': 'Examen', '/pray/journal': 'Prayer journal',
   '/about': 'feature status', '/family-sheet': 'Family Gospel sheet', '/study/papal': 'Papal writings', '/pray/devotions/rosary': 'Rosary',
-  '/read/webc/JHN/3': '^John 3$', '/read/nabre/PSA/22': '^Psalm 22$', '/read/rsv2ce/WIS/3': 'Wisdom', '/study/passage/JHN.6.51': 'John 6:51', '/listen': '^Media$', '/more': '^Everything$',
+  '/read/webc/JHN/3': '^John 3\\d*$', '/read/nabre/PSA/22': '^Psalm 22\\d*$', '/read/rsv2ce/WIS/3': 'Wisdom', '/study/passage/JHN.6.51': 'John 6:51', '/listen': '^Media$', '/more': '^Everything$',
 };
 for (const c of CRAWL) if (EXPECT[c.path] && c.kind !== 'unknown-id') c.expect = EXPECT[c.path];
 

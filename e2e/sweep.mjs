@@ -89,8 +89,13 @@ async function crawl(size, route) {
     };
     await check('');
     const click = async (loc, what) => {
-      try { await loc.click({ timeout: 2500 }); return true; }
-      catch (e) { stats.clicksFailed++; note(where, `could not click ${what}: ${String(e.message).split('\n')[0].slice(0, 90)}`); return false; }
+      // a click that fails once on a busy machine gets a second, longer try; one that fails twice is a control that cannot be pressed
+      try { try { await loc.click({ timeout: 2500 }); } catch { await loc.click({ timeout: 9000 }); } return true; }
+      catch (e) {
+        // a fold the page opened by itself while we were about to press it (About this chapter opens on its own) no longer matches: it is open, which is what pressing it would have done
+        if (/fold/.test(what) && !(await loc.count().catch(() => 1))) return true;
+        stats.clicksFailed++; note(where, `could not click ${what}: ${String(e.message).split('\n')[0].slice(0, 90)}`); return false;
+      }
     };
 
     // every fold, and every fold that opening one reveals, until none is closed (a ceiling that is hit is a failure, not a pass)

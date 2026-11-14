@@ -1492,7 +1492,10 @@ a.card {
 .ptabs {
   display: flex;
   gap: 2px;
-  overflow-x: auto;
+  /* every tab stays in view at every width: the row wraps (the side panel at desktop is only ~400px wide) instead of hiding tabs behind a sideways scroll */
+  flex-wrap: wrap;
+  row-gap: 2px;
+  overflow-x: visible;
   scrollbar-width: none;
   margin: 8px -16px 0;
   padding: 0 12px;

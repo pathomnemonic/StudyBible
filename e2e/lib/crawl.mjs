@@ -3,7 +3,8 @@
 import { PANEL_STATE, SIGNATURE } from './invariants.mjs';
 
 /** the folds a reader opens: closed <details> in the page body, but not popup menus (the Bible tools dropdown, per-row "more" menus) */
-export const FOLD_SELECTOR = 'main details:not(.tool-menu):not(.act-more):not([open]) > summary';
+// :visible, because a page may keep a closed fold in the page for another width (the apostolic chain's list of branches is hidden when the chart is shown): a summary nobody can see is not a control
+export const FOLD_SELECTOR = 'main details:not(.tool-menu):not(.act-more):not([open]) > summary:visible';
 const label = (s) => (s || '').trim().replace(/\s+/g, ' ').slice(0, 30);
 
 /**
@@ -36,10 +37,10 @@ export async function openAllFolds(p, { note, where, click, check, ceiling = 60 
   return opened;
 }
 
-/** wait until the page has stopped changing (lists stream in, quizzes load), so two captures are comparable; gives up after 6 s */
+/** wait until the page has stopped changing (lists stream in, quizzes load, a lazily loaded item slots in above the rest), so two captures are comparable: three equal reads 400 ms apart, or 10 s */
 export async function settled(p, fn) {
-  let last = await p.evaluate(fn);
-  for (let i = 0; i < 15; i++) { await p.waitForTimeout(400); const now = await p.evaluate(fn); if (now === last) return now; last = now; }
+  let last = await p.evaluate(fn), same = 0;
+  for (let i = 0; i < 25; i++) { await p.waitForTimeout(400); const now = await p.evaluate(fn); if (now === last) { if (++same >= 3) return now; } else { same = 0; last = now; } }
   return last;
 }
 
