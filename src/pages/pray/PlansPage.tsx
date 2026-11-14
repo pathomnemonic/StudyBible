@@ -5,7 +5,7 @@ import { db } from '../../db/db';
 import { useEditions } from '../../data/EditionsContext';
 import { builtinPlans, type PlanDef } from '../../plans/builtin';
 import { parseRefs, refId } from '../../lib/refs';
-import { pooledCounts, resolveRef } from '../../lib/refCheck';
+import { resolvePlanReferences } from '../../lib/planReferences';
 import { getLibraryIndex } from '../../data/content';
 import { confirmSwitch, startPlan } from '../../lib/activePlan';
 import { useSettings } from '../../lib/store';
@@ -41,15 +41,10 @@ export default function PlansPage() {
     const days = lines.split('\n').map((l) => l.trim()).filter(Boolean).map((l) => {
       const p = parseRefs(l.replace(/^day\s*\d+\s*[:\-]\s*/i, ''));
       if (!p.ok) throw new Error(`“${l}”: ${p.error}`);
-      const refs = p.refs.map((x) => {
-        // Typed passages are English/KJV-numbered; a plan stores Vulgate anchors only after verified conversion.
-        const source = pooledCounts(editions, 'english');
-        const anchor = editions.find((e) => e.scheme === 'vulgate');
-        if (!source || !anchor) throw new Error('Scripture verse counts are not loaded yet. Try again when the editions have finished loading.');
-        const resolved = resolveRef(source, anchor, x.ref, 'kjv', anchor);
-        if (resolved.status !== 'exact' || !resolved.anchor) throw new Error(`“${l}” cannot be verified in the source and anchor editions: ${resolved.reason ?? 'the verse mapping is not exact'}. This day was not added.`);
-        return refId(resolved.anchor);
-      });
+      // Resolve the whole day as a unit: one unverified reference prevents any of its references from being stored.
+      const resolved = resolvePlanReferences(p.refs.map((x) => x.ref), editions);
+      if (!resolved.ok) throw new Error(`“${l}” cannot be verified in the source and anchor editions: ${resolved.reason}. This day was not added.`);
+      const refs = resolved.refs.map(refId);
       return { refs };
     });
     return db.userPlans.add({ name: name.trim(), days, createdAt: Date.now() });
