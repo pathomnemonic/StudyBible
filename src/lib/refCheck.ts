@@ -123,15 +123,23 @@ export function anchorToNativeRef(ed: CountsEdition, anchor: Ref): { ref: Ref; e
 export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Ref, sourceScheme: Scheme = 'kjv', anchorEd?: CountsEdition | null): Resolution {
   const base = { original: ref, sourceScheme };
   const conv = convertRef(sourceScheme, 'vulgate', ref);
-  const anchor = conv.ref;
-  // A source-valid verse can still map to an impossible anchor address if the static mapping is stale.
-  // Never return an exact/usable anchor without checking it against the canonical edition's real counts.
+  let anchor = conv.ref;
+  let numbering: string | undefined;
+  // A source-valid verse can still map to a verse absent from the canonical edition because
+  // traditions split/merge a chapter differently. In that case retain only the verified chapter
+  // range as an explicit approximation; never preserve the nonexistent verse endpoint.
   if (anchorEd) {
     const anchorIssue = checkRefIn(anchorEd, anchor);
-    if (anchorIssue) return { ...base, status: anchorIssue.kind === 'absent' ? 'absent' : 'invalid', anchor, reason: `canonical Vulgate anchor: ${anchorIssue.reason}` };
+    if (anchorIssue) {
+      const known = anchorIssue.scope === 'verse' && (chapterAlignmentNote(sourceScheme, ref.book, ref.c1) || chapterAlignmentNote(sourceScheme, ref.book, ref.c2));
+      const chapterOnly: Ref = { book: anchor.book, c1: anchor.c1, c2: anchor.c2 };
+      const chapterIssue = checkRefIn(anchorEd, chapterOnly);
+      if (!known || chapterIssue) return { ...base, status: anchorIssue.kind === 'absent' ? 'absent' : 'invalid', anchor, reason: `canonical Vulgate anchor: ${anchorIssue.reason}` };
+      anchor = chapterOnly;
+      numbering = `The verse endpoint is not present at that address in the canonical Vulgate edition (${anchorIssue.reason}); only the chapter range can be verified.`;
+    }
   }
   const bad = checkRefIn(source, ref);
-  let numbering: string | undefined;
   if (bad) {
     const known = bad.scope === 'verse' && (chapterAlignmentNote(sourceScheme, ref.book, ref.c1) || chapterAlignmentNote(sourceScheme, ref.book, ref.c2));
     if (!known || !anchorEd || checkRefIn(anchorEd, anchor)) return { ...base, status: bad.kind === 'absent' ? 'absent' : 'invalid', reason: bad.reason };
