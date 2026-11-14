@@ -1,4 +1,5 @@
 import 'fake-indexeddb/auto';
+import { readFileSync } from 'node:fs';
 import Dexie from 'dexie';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -14,9 +15,19 @@ describe('repairing passage addresses', () => {
     expect(repairPassageId('JHN.6.51-58')).toBeNull(); // already fine
     expect(repairPassageId('jhn.6.51-58')).toEqual(['JHN.6.51-58']);
     expect(repairPassageId(' JHN.6.51–58 ')).toEqual(['JHN.6.51-58']);
-    expect(repairPassageId('Jn 6:51-58')?.length).toBe(1);
+    expect(repairPassageId('Jn 6:51-58')).toBeNull(); // syntactically valid, but the verse mapping is unverified
+    expect(repairPassageId('Jn 3:16')).toEqual(['JHN.3.16']);
     expect(repairPassageId('not a passage at all')).toBeNull();
     expect(repairPassageId('')).toBeNull();
+  });
+
+
+  it('does not repair a parseable address without semantic proof from edition counts', async () => {
+    const { repairPassageId } = await import('../src/lib/dataRepair');
+    const editions = (JSON.parse(readFileSync('public/data/editions.json', 'utf8')) as { editions: import('../src/lib/refCheck').CountsEdition[] }).editions;
+    expect(repairPassageId('JHN.99.1', editions)).toBeNull();
+    expect(repairPassageId('JHN.6.51-58', editions)).toBeNull();
+    expect(repairPassageId('Jn 3:16', editions)).toEqual(['JHN.3.16']);
   });
 
   it('plans a repair only for what is certain, changes nothing by itself, and can be undone', async () => {
