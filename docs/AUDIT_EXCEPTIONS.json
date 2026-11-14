@@ -1,0 +1,19 @@
+{
+  "about": "Tracked waivers for the production dependency audit gate (scripts/audit-gate.mjs). A waiver needs an owner, a reason and an expiry date; after the date the gate fails again. Remove a waiver as soon as a fixed version exists.",
+  "waivers": [
+    {
+      "package": "pptxgenjs",
+      "owner": "pathomnemonic",
+      "reason": "Used only to build the PowerPoint export of a lesson in the browser from the app's own bundled pictures. The reported flaws are denial-of-service loops in image-size's JXL, HEIF and ICNS readers, which are never given a file from outside. npm offers no fixed release (its suggested change is a downgrade to 4.0.0). Re-check when pptxgenjs publishes a release that updates image-size.",
+      "expires": "2027-02-14",
+      "added": "2026-11-14"
+    },
+    {
+      "package": "image-size",
+      "owner": "pathomnemonic",
+      "reason": "Reached only through pptxgenjs (see that waiver): same reason, same expiry.",
+      "expires": "2027-02-14",
+      "added": "2026-11-14"
+    }
+  ]
+}

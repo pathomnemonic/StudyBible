@@ -2,7 +2,11 @@
 // focused checks, so every screen is held to the same rules the reviewer would apply by eye.
 export const INVARIANTS = () => {
   const out = [];
-  const vis = (e) => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 4 && r.height > 4 && cs.visibility !== 'hidden' && cs.display !== 'none' && e.offsetParent !== null && !(e.checkVisibility && !e.checkVisibility({ checkVisibilityCSS: true, contentVisibilityAuto: true })) && !(e.closest('details:not([open])') && !e.closest('summary')); };
+  // popups that are meant to float over a page
+  const KNOWN_OVERLAYS = '[role=menu], .menu-list, .tool-menu-list, .glossary-pop, .term-pop, .lookup, .il-detail, .dottip-layer, .amb-tip, .tour-layer, .tour-card, .tour-dim, .trophy-toast, .modal, .update-banner, .offline-pill, .return-pill, .media-host.docked';
+  // named bars that stick to the top or bottom of the screen and so pass over content while it scrolls
+  const KNOWN_STICKY = '.lp-head, .mass-nav, .find-bar, .read-progress, .rosary-bar, .work-sel, .charades-startbar, .oc-nav, .tool-bar, .sleep-panel';
+  const vis = (e) => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 4 && r.height > 4 && cs.visibility !== 'hidden' && cs.display !== 'none' && (e.offsetParent !== null || cs.position === 'fixed') && !(e.checkVisibility && !e.checkVisibility({ checkVisibilityCSS: true, contentVisibilityAuto: true })) && !(e.closest('details:not([open])') && !e.closest('summary')); };
   const label = (e) => (e.getAttribute('aria-label') || e.textContent || e.getAttribute('title') || e.tagName).trim().replace(/\s+/g, ' ').slice(0, 28);
   const root = document.querySelector('main') || document.body;
   const controls = [...root.querySelectorAll('a[href], button, [role=tab], [role=button], input, select, textarea, summary')].filter(vis);
@@ -17,8 +21,9 @@ export const INVARIANTS = () => {
   for (let i = 0; i < rects.length; i++) for (let j = i + 1; j < rects.length; j++) {
     const [a, ra] = rects[i], [c, rc] = rects[j];
     if (a.contains(c) || c.contains(a)) continue;
-    // a popup menu, or a sticky/fixed bar that has scrolled over the content, is meant to float over the page
-    const floats = (e) => { for (let n = e; n && n !== document.body; n = n.parentElement) { const ps = getComputedStyle(n).position; if ((ps === 'absolute' && n.closest('details')) || ((ps === 'fixed' || ps === 'sticky') && window.scrollY > 4)) return true; } return false; };
+    // Only the overlays this app knows about may float over content: popup menus, and the named sticky/fixed bars and panels once the page has scrolled.
+    // Any other sticky or fixed element covering a control is a bug (the old rule exempted every sticky/fixed ancestor, which could hide real ones).
+    const floats = (e) => { for (let n = e; n && n !== document.body; n = n.parentElement) { const ps = getComputedStyle(n).position; if ((ps === 'absolute' && n.closest('details')) || n.matches?.(KNOWN_OVERLAYS) || ((ps === 'fixed' || ps === 'sticky') && window.scrollY > 4 && n.matches?.(KNOWN_STICKY))) return true; } return false; };
     if (floats(a) || floats(c)) continue;
     if (a.closest('svg') || c.closest('svg')) continue; // diagrams place their own marks, often overlapping on purpose
     // compare line by line, so an inline link that wraps over two lines is not mistaken for overlapping its neighbour
@@ -55,3 +60,12 @@ export const INVARIANTS = () => {
 /** The words on the screen, reduced so that numbers and spacing do not matter: used to see whether a view comes back as it was. */
 // what a tab shows, without the parts that change by design: popup menus left open by the crawler and the warm-up quiz (it is built from your progress)
 export const SIGNATURE = () => { const c = (document.querySelector('main') || document.body).cloneNode(true); c.querySelectorAll('.lp-warm, details[open]:not(.fold), [role=menu]').forEach((n) => n.remove()); const host = document.createElement('div'); host.style.cssText = 'position:absolute;left:-99999px;top:0;width:360px'; host.appendChild(c); document.body.appendChild(host); const t = c.innerText || c.textContent || ''; host.remove(); return t.replace(/⋯/g, '').replace(/\d+/g, '#').replace(/\s+/g, ' ').trim().slice(0, 4000); };
+
+/** What a tab row and the page body are made of, in order, with identities kept: which tab is selected in every tab row, and the first forty link targets.
+ *  Unlike SIGNATURE it keeps numbers (a Queue that quietly shows a different list must not pass). */
+export const STRUCTURE = () => {
+  const m = document.querySelector('main') || document.body;
+  const rows = [...m.querySelectorAll('[role=tablist]')].map((tl) => [...tl.querySelectorAll('[role=tab]')].map((t) => `${t.getAttribute('aria-selected') === 'true' ? '*' : ''}${(t.textContent || '').trim().replace(/\s+/g, ' ').replace(/\d+/g, '#')}`).join('|'));
+  const links = [...m.querySelectorAll('a[href]')].filter((a) => !a.closest('[role=menu], .tool-menu-list, details:not([open])')).slice(0, 40).map((a) => a.getAttribute('href'));
+  return JSON.stringify({ rows, links });
+};

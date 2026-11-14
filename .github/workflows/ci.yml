@@ -24,9 +24,10 @@ jobs:
       - run: npm run build
       - name: Size budgets
         run: npm run budget
+      # high and critical findings fail the build unless docs/AUDIT_EXCEPTIONS.json holds an unexpired waiver (owner, reason, date);
+      # the output says PASS, WAIVED or FAIL for each package
       - name: Dependency vulnerabilities (production)
-        run: npm audit --omit=dev --audit-level=high
-        continue-on-error: true
+        run: node scripts/audit-gate.mjs
   # comprehensive: real browser, offline reload, accessibility in every theme
   browser:
     # pinned: ubuntu-latest moved to 26.04, which this Playwright version cannot install a browser on
@@ -53,6 +54,24 @@ jobs:
       - run: npm run e2e:release
         env:
           SHARD: ${{ matrix.shard }}
+  # accounts and sync in a real browser against the real server (a build with accounts switched on, a throwaway database, no live credentials)
+  accounts:
+    runs-on: ubuntu-24.04
+    needs: fast
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: VITE_ACCOUNTS=1 npx vite build --outDir dist-accounts
+      - run: npx playwright install --with-deps chromium
+      - name: Start the sync server on a temporary database
+        run: |
+          STATIC_DIR=dist-accounts PORT=8799 COOKIE_SECURE=false REGISTRATION=open DB_PATH=/tmp/acct-e2e.sqlite npx tsx server/index.ts &
+          for i in $(seq 1 30); do curl -sf http://127.0.0.1:8799/api/health >/dev/null && break; sleep 1; done
+      - run: BASE=http://127.0.0.1:8799 node e2e/accounts.mjs
   # secrets: scan the history for accidentally committed credentials
   secrets:
     runs-on: ubuntu-latest

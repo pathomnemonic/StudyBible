@@ -1,0 +1,35 @@
+name: Full sweep
+# Every route at every width (320 360 390 412 768 1024 1280) and with large text. Too slow for every push: it runs every night,
+# when a release is published, and on demand. Pull requests run the fast sweep (320 px with large text, and 390 px) inside CI.
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  release:
+    types: [published]
+  workflow_dispatch:
+jobs:
+  sweep:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        sizes: ['320,320-big', '360,390', '390-big,412', '768,1024', '1280,1280-big']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Serve the build
+        run: |
+          npx vite preview --port 4173 &
+          for i in $(seq 1 30); do curl -sf http://localhost:4173 >/dev/null && break; sleep 1; done
+      - run: node e2e/invariants-selftest.mjs
+      - name: Crawl every route in these sizes
+        run: node e2e/sweep.mjs
+        env:
+          SWEEP_MODE: full
+          SWEEP_SIZES: ${{ matrix.sizes }}
