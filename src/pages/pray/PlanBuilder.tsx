@@ -27,7 +27,7 @@ export default function PlanBuilder({ onSaved }: { onSaved: (id: number) => void
         for (const x of p.refs) {
           // Typed passages use English/KJV numbering; do not silently store an unverified Vulgate approximation.
           const converted = convertRef('kjv', 'vulgate', x.ref);
-          if (!converted.exact) { err = `“${l}” cannot be converted exactly to the app's Vulgate numbering: ${converted.note ?? 'the verse mapping is unverified'}. Remove it or choose a passage whose numbering is verified.`; break; }
+          if (!converted.exact) { err = `“${l}” cannot be converted exactly to the app's Vulgate numbering: ${'the verse mapping is unverified'}. Remove it or choose a passage whose numbering is verified.`; break; }
           units.push(converted.ref);
         }
         if (err) break;
