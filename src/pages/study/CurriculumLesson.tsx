@@ -19,6 +19,7 @@ import { isKeyLesson, isLifeLesson } from '../../curriculum/keyLessons';
 import LessonRun from '../../curriculum/LessonRun';
 import LessonPlay from '../../curriculum/LessonPlay';
 import LessonPath from '../../curriculum/LessonPath';
+import { GoFurther, ReviewCard } from '../../curriculum/GoFurther';
 import MyLessonNotes from '../../curriculum/MyLessonNotes';
 import { estimateTime } from '../../curriculum/duration';
 import { worthDefining } from '../../curriculum/terms';
@@ -442,9 +443,8 @@ export default function CurriculumLesson() {
 
       <section className="sect no-print" aria-label="Go deeper">
         <h2 className="eyebrow-h">Go deeper</h2>
+        <GoFurther lesson={lesson} extras={extras} />
         <ul>
-          <li><Link to={`/study/catechism/${cccNums[0]}`}>The Catechism at §{cccNums[0]}</Link></li>
-          {(lesson.deeper ?? []).map((d) => { const [k, id] = d.split(':'); return k === 'apol' ? <li key={d}><Link to={`/study/apologetics/${id}`}>Questions about the faith: {id.replace(/-/g, ' ')}</Link></li> : <li key={d}><Link to={`/room/work/${id}/0`}>Read in the Reading room: {id.replace(/-/g, ' ')}</Link></li>; })}
           {(g.band === 'middle' || g.band === 'high' || g.band === 'adult') && <RelatedSources ccc={cccNums} />}
           {!primary && <li><Link to="/room">Read: saints and Fathers</Link></li>}
           {(g.band === 'high' || g.band === 'middle') && <li><Link to="/study/apologetics">Questions about the faith</Link></li>}
@@ -453,6 +453,7 @@ export default function CurriculumLesson() {
           <li><Link to="/study/curriculum/teachers">For teachers: the handbook</Link></li>
         </ul>
       </section>
+      <div className="no-print"><ReviewCard lesson={lesson} done={done} /></div>
 
       </>)}
 

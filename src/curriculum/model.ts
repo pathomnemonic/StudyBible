@@ -46,16 +46,7 @@ export const getGlossary = () => once('glossary', () => getJson<Glossary>('curri
 export const gradeLabel = (id: string) => (id === 'K' ? 'Kindergarten' : id === 'YA' ? 'Adults' : `Grade ${id}`);
 export const flatLessons = (g: GradeData) => g.units.flatMap((u) => u.lessons.map((l) => ({ ...l, unit: u })));
 
-/** "27-30,355" → [27,28,29,30,355] */
-export function cccList(spec: string): number[] {
-  const out: number[] = [];
-  for (const part of spec.split(',')) {
-    const [a, b] = part.trim().split('-').map(Number);
-    if (!Number.isFinite(a)) continue;
-    if (b && b >= a) for (let n = a; n <= b; n++) out.push(n); else out.push(a);
-  }
-  return out;
-}
+export { cccList } from './cccList';
 
 /** progress: the lesson positions (0-based, across the grade) that are checked off, kept in the synced plan-progress table */
 export const progressId = (grade: string) => `cur:${grade}`;

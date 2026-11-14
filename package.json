@@ -14,6 +14,7 @@
     "data:build": "tsx scripts/ingest/cli.ts build",
     "data:validate": "tsx scripts/ingest/cli.ts validate",
     "data:all": "tsx scripts/ingest/cli.ts all",
+    "report:lessons": "tsx scripts/curriculum/lesson-report.ts",
     "verify:ccc": "tsx scripts/verify/ccc.ts",
     "docs:status": "tsx scripts/docs-status.ts",
     "server": "tsx server/index.ts",

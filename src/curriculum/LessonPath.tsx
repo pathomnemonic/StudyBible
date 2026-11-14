@@ -10,6 +10,7 @@ import { cccList } from './model';
 import { contentPoints } from './teachpoints';
 import { saveLessonProgress, clearLessonProgress } from './resume';
 import RelatedSources from './RelatedSources';
+import { GoFurther, ReviewCard } from './GoFurther';
 import { TrackLinks, RelatedInApp } from './LessonLinks';
 import { WatchListen, DebateIt } from './LessonMedia';
 import type { Extras } from './extras';
@@ -212,6 +213,8 @@ export default function LessonPath(p: Props) {
           <h3>{p.done ? '🎉 Lesson complete' : 'Before you go'}</h3>
           {recap.length > 0 && <><p className="small muted">Three things to carry out of this lesson:</p><ol>{recap.map((t) => <li key={t}>{t}</li>)}</ol></>}
           {lesson.mem && <p className="small"><strong>Learn by heart:</strong> {lesson.mem}</p>}
+          <ReviewCard lesson={lesson} done={p.done} />
+          <GoFurther lesson={lesson} extras={p.extras} />
           <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
             <button type="button" className={`btn${p.done ? '' : ' primary'}`} aria-pressed={p.done} onClick={() => { if (!p.done) p.onDone(); }}>{p.done ? '✓ Marked done' : 'Mark this lesson done'}</button>
             {p.next && <Link className="btn primary" to={`/study/curriculum/${p.grade.id}/${p.next.id}`}>Next lesson: {p.next.title} →</Link>}
