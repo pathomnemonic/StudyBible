@@ -119,25 +119,25 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   const conv = convertRef(sourceScheme, 'vulgate', ref);
   let anchor = conv.ref;
   let numbering: string | undefined;
-  // A source-valid verse can still map to a verse absent from the canonical edition because
-  // traditions split/merge a chapter differently. In that case retain only the verified chapter
-  // range as an explicit approximation; never preserve the nonexistent verse endpoint.
+  const bad = checkRefIn(source, ref);
+  if (bad) {
+    const known = bad.scope === 'verse' && (chapterAlignmentNote(sourceScheme, ref.book, ref.c1) || chapterAlignmentNote(sourceScheme, ref.book, ref.c2));
+    if (!known || !anchorEd || checkRefIn(anchorEd, anchor)) return { ...base, status: bad.kind === 'absent' ? 'absent' : 'invalid', reason: bad.reason };
+    numbering = `${nameOf(ref.book)} is numbered differently in different traditions: ${bad.reason}, but this passage exists in the Vulgate numbering`;
+  }
+  // If the source is valid but a static conversion points to a missing anchor verse, retain only
+  // the verified chapter range as an explicit approximation. An invalid source verse is never
+  // rescued by a chapter-alignment note.
   if (anchorEd) {
     const anchorIssue = checkRefIn(anchorEd, anchor);
     if (anchorIssue) {
-      const known = anchorIssue.scope === 'verse' && (chapterAlignmentNote(sourceScheme, ref.book, ref.c1) || chapterAlignmentNote(sourceScheme, ref.book, ref.c2));
+      const known = !bad && anchorIssue.scope === 'verse' && (chapterAlignmentNote(sourceScheme, ref.book, ref.c1) || chapterAlignmentNote(sourceScheme, ref.book, ref.c2));
       const chapterOnly: Ref = { book: anchor.book, c1: anchor.c1, c2: anchor.c2 };
       const chapterIssue = checkRefIn(anchorEd, chapterOnly);
       if (!known || chapterIssue) return { ...base, status: anchorIssue.kind === 'absent' ? 'absent' : 'invalid', anchor, reason: `canonical Vulgate anchor: ${anchorIssue.reason}` };
       anchor = chapterOnly;
       numbering = `The verse endpoint is not present at that address in the canonical Vulgate edition (${anchorIssue.reason}); only the chapter range can be verified.`;
     }
-  }
-  const bad = checkRefIn(source, ref);
-  if (bad) {
-    const known = bad.scope === 'verse' && (chapterAlignmentNote(sourceScheme, ref.book, ref.c1) || chapterAlignmentNote(sourceScheme, ref.book, ref.c2));
-    if (!known || !anchorEd || checkRefIn(anchorEd, anchor)) return { ...base, status: bad.kind === 'absent' ? 'absent' : 'invalid', reason: bad.reason };
-    numbering = `${nameOf(ref.book)} is numbered differently in different traditions: ${bad.reason}, but this passage exists in the Vulgate numbering`;
   }
   // A passage typed in the English tradition, opened in an edition numbered in that same tradition, needs no conversion:
   // the numbers mean the same thing on both sides (Daniel 3 and 4 are the one place the two traditions' rules differ).
