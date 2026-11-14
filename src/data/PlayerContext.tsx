@@ -311,21 +311,27 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       retry: () => {
         const request = ++playGeneration.current;
         const a = audio.current!;
-        if (!cur) return;
-        const at = a.currentTime || 0;
-        setError(null);
-        void resolveIfCurrent(request, () => playGeneration.current, () => audioUrl(cur.audio)).then((u) => {
-          if (!u || request !== playGeneration.current || (a as any)._ep?.id !== cur.id) return;
-          bindSourceError(a, request, cur.id, u);
+        const retryEpisode = (a as any)._ep as BiayEpisode | undefined;
+        if (!retryEpisode) return;
+        void (async () => {
+          // Flush the current episode before retry replaces its media resource.
+          await savePlaybackRef.current?.();
+          if (request !== playGeneration.current || (a as any)._ep?.id !== retryEpisode.id) return;
+          const at = a.currentTime || 0;
+          if (!a.paused) { (a as any)._switchPause = true; a.pause(); }
+          setError(null);
+          const u = await resolveIfCurrent(request, () => playGeneration.current, () => audioUrl(retryEpisode.audio));
+          if (!u || request !== playGeneration.current || (a as any)._ep?.id !== retryEpisode.id) return;
+          bindSourceError(a, request, retryEpisode.id, u);
           (a as any)._manualEnded = false;
           a.src = u; a.load();
-          a.addEventListener('loadedmetadata', () => { if (request === playGeneration.current && (a as any)._ep?.id === cur.id && at > 0) a.currentTime = at; }, { once: true });
-          return a.play();
-        }).catch(() => undefined);
+          a.addEventListener('loadedmetadata', () => { if (request === playGeneration.current && (a as any)._ep?.id === retryEpisode.id && at > 0) a.currentTime = at; }, { once: true });
+          try { await a.play(); } catch { /* autoplay blocked: the user can press play */ }
+        })().catch(() => undefined);
       },
       stop: () => {
         ++playGeneration.current;
-        const a = audio.current!; const cur = (a as any)._ep as BiayEpisode | undefined;
+        const a = audio.current!;
         // closing keeps the place, so playing this episode again later picks up where it stopped (it does not start by itself)
         // Flush before clearing _ep; the pause event may arrive after the dock is cleared.
         void savePlaybackRef.current?.();
