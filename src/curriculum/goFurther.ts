@@ -70,7 +70,7 @@ export function refContext(editions: CountsEdition[] | undefined, targetId: stri
   if (!editions) return null;
   const source = pooledCounts(editions, 'english');
   const target = editions.find((e) => e.id === targetId) ?? editions.find((e) => e.scheme === 'english');
-  return source && target ? { source, target, anchor: editions.find((e) => e.scheme === 'vulgate') } : null;
+  return source && target ? { source, target, anchor: editions.find((e) => e.id === 'vulgate') } : null;
 }
 
 export function buildGoFurther(lesson: LessonLike, known: Known, extras?: ExtrasLike | null, ctxIn?: RefContext | null): FurtherResult {
