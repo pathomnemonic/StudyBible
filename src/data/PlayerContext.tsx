@@ -96,6 +96,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [duration, setDuration] = useState(0);
   const [rate, setRateState] = useState(() => { try { return Number(localStorage.getItem('sb:rate')) || 1; } catch { return 1; } });
   const lastSave = useRef(0);
+  const playGeneration = useRef(0);
   const [sleep, setSleepState] = useState<{ mode: 'off' | 'minutes' | 'end'; left: number }>({ mode: 'off', left: 0 });
   const [error, setError] = useState<null | 'failed' | 'offline'>(null);
   const [prefsV, setPrefsV] = useState(0);
@@ -172,16 +173,19 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     document.addEventListener('visibilitychange', hide);
     window.addEventListener('pagehide', () => save());
     // after a reload, bring back the last thing played, paused, at the place it stopped
+    const restoreRequest = playGeneration.current;
     db.cache.get('player:last').then(async (row) => {
       const id = row?.value as unknown as string | undefined;
-      if (!id || (a as any)._ep) return;
+      if (!id || (a as any)._ep || restoreRequest !== playGeneration.current) return;
       const ep = await resolveEpisode(id);
       const prog = await db.episodeProgress.get(id);
-      if (!ep || (a as any)._ep || prog?.completed) return;
+      if (!ep || (a as any)._ep || prog?.completed || restoreRequest !== playGeneration.current) return;
+      const url = await audioUrl(ep.audio);
+      if (!url || (a as any)._ep || restoreRequest !== playGeneration.current) return;
       (a as any)._ep = ep;
-      a.src = await audioUrl(ep.audio);
+      a.src = url;
       a.preload = 'metadata';
-      a.addEventListener('loadedmetadata', () => { a.currentTime = prog?.position ?? 0; }, { once: true });
+      a.addEventListener('loadedmetadata', () => { if (restoreRequest === playGeneration.current && (a as any)._ep?.id === ep.id) a.currentTime = prog?.position ?? 0; }, { once: true });
       setCurrent(ep);
       setPosition(prog?.position ?? 0);
     });
@@ -193,30 +197,46 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const play = useCallback(async (e: BiayEpisode, startAt?: number) => {
-    closeHost(); // an audio track starting replaces whatever the video host was playing
+    const request = ++playGeneration.current;
+    closeHost();
     const a = audio.current!;
-    if ((a as any)._ep?.id === e.id && startAt !== undefined) a.currentTime = startAt;
+    const previous = (a as any)._ep as BiayEpisode | undefined;
+    const same = previous?.id === e.id;
+    if (!same && previous && a.currentTime > 0) {
+      await creditListening(previous.id, 0, { position: a.currentTime, duration: a.duration || undefined });
+      if (request !== playGeneration.current) return;
+    }
+    if (!same) a.pause();
     void rememberEpisode(e);
-    db.cache.put({ key: 'player:last', value: e.id as unknown as string, ts: Date.now() }).catch(() => undefined);
-    if ((a as any)._ep?.id !== e.id) {
+    if (same) {
+      if (startAt !== undefined) a.currentTime = startAt;
+    } else {
+      setError(null);
+      const resolved = await Promise.all([audioUrl(e.audio), db.episodeProgress.get(e.id)]);
+      const url = resolved[0];
+      const prog = resolved[1];
+      if (request !== playGeneration.current) return;
+      if (!url) { setError(navigator.onLine === false ? 'offline' : 'failed'); return; }
+      const skip = showSetting(showKeyOf(e.id), 'skip');
+      const at = startAt ?? (prog && !prog.completed && prog.position > 0 ? prog.position : skip);
       (a as any)._ep = e;
       (a as any)._outroDone = false;
-      setError(null);
-      a.src = await audioUrl(e.audio);
+      a.src = url;
+      a.preload = 'metadata';
+      a.addEventListener('loadedmetadata', () => {
+        if (request === playGeneration.current && (a as any)._ep?.id === e.id) a.currentTime = at;
+      }, { once: true });
       setCurrent(e);
-      const prog = await db.episodeProgress.get(e.id);
-      const sk = showSetting(showKeyOf(e.id), 'skip');
-      const at = startAt ?? (prog && !prog.completed && prog.position > 0 ? prog.position : sk);
-      a.addEventListener('loadedmetadata', () => (a.currentTime = at), { once: true });
+      setPosition(at);
+      setDuration(0);
+      db.cache.put({ key: 'player:last', value: e.id as unknown as string, ts: Date.now() }).catch(() => undefined);
     }
+    if (request !== playGeneration.current) return;
     const own = showSetting(showKeyOf(e.id), 'rate');
     a.playbackRate = own || rate;
     if (own) setRateState(own);
-    try {
-      await a.play();
-    } catch {
-      /* autoplay blocked: user can press play */
-    }
+    try { await a.play(); } catch { /* autoplay blocked: user can press play */ }
+    if (request !== playGeneration.current || (a as any)._ep?.id !== e.id) return;
     if ('mediaSession' in navigator) {
       navigator.mediaSession.metadata = new MediaMetadata({ title: e.title, artist: e.artist ?? e.album ?? 'Ascension', album: e.album ?? 'The Bible in a Year' });
       navigator.mediaSession.setActionHandler('play', () => a.play());
@@ -259,17 +279,20 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       showKey: current ? showKeyOf(current.id) : '',
       error,
       retry: () => {
+        const request = ++playGeneration.current;
         const a = audio.current!; const cur = (a as any)._ep as BiayEpisode | undefined;
         if (!cur) return;
         const at = a.currentTime || 0;
         setError(null);
         void audioUrl(cur.audio).then((u) => {
+          if (!u || request !== playGeneration.current || (a as any)._ep?.id !== cur.id) return;
           a.src = u; a.load();
-          a.addEventListener('loadedmetadata', () => { if (at > 0) a.currentTime = at; }, { once: true });
+          a.addEventListener('loadedmetadata', () => { if (request === playGeneration.current && (a as any)._ep?.id === cur.id && at > 0) a.currentTime = at; }, { once: true });
           return a.play();
         }).catch(() => undefined);
       },
       stop: () => {
+        ++playGeneration.current;
         const a = audio.current!; const cur = (a as any)._ep as BiayEpisode | undefined;
         // closing keeps the place, so playing this episode again later picks up where it stopped (it does not start by itself)
         if (cur && a.currentTime > 0) { const dur = a.duration || undefined; const done = dur ? a.currentTime > dur - 20 : false; creditListening(cur.id, 0, { position: done ? 0 : a.currentTime, duration: dur, completed: done || undefined as any, ranToEnd: done }).catch(() => undefined); }
