@@ -6,9 +6,15 @@ import { MORE_PLANS, PLANS as BASE } from '../src/data/novenas';
 const PLANS = [...BASE, ...MORE_PLANS];
 import { THREADS } from '../src/data/threads';
 import { COURSE } from '../src/data/course';
-import { parseRefs } from '../src/lib/refs';
+import { parseRefs, refId } from '../src/lib/refs';
+import { toRefs } from '../src/pray/refs';
 
 describe('devotions', () => {
+  it('withholds devotional passage links when any KJV-to-anchor mapping is unverified', () => {
+    expect(toRefs('John 3:16').map(refId)).toEqual(['JHN.3.16']);
+    expect(toRefs('John 6:51-58')).toEqual([]);
+    expect(toRefs('John 3:16; John 6:51-58')).toEqual([]);
+  });
   it('has twenty mysteries whose references all parse', () => {
     const all = MYSTERIES.flatMap((m) => m.mysteries);
     expect(all).toHaveLength(20);
