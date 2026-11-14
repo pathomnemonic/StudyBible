@@ -72,6 +72,7 @@ describe('go further links', () => {
 
   it('requires canonical Vulgate counts before building a reference context', () => {
     expect(refContext(known.editions.filter((e) => e.id !== 'vulgate'), 'webc')).toBeNull();
+    expect(refContext(known.editions, 'missing-edition')).toBeNull();
   });
 
   it('labels a Scripture link when the chosen Vulgate numbering is only approximate', () => {
