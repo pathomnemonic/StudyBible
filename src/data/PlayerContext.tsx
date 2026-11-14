@@ -201,7 +201,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const ep = await resolveEpisode(id);
       const prog = await db.episodeProgress.get(id);
       if (!ep || (a as any)._ep || prog?.completed || restoreRequest !== playGeneration.current) return;
-      const url = await resolveIfCurrent(restoreRequest, () => playGeneration.current, () => audioUrl(ep.audio));
+      const url = await resolveIfCurrent(restoreRequest, () => playGeneration.current, () => audioUrl(ep.audio)).catch(() => { if (restoreRequest === playGeneration.current) setError(navigator.onLine === false ? 'offline' : 'failed'); return null; });
       if (!url || (a as any)._ep || restoreRequest !== playGeneration.current) return;
       (a as any)._ep = ep;
       (a as any)._manualEnded = false;
@@ -211,7 +211,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       a.addEventListener('loadedmetadata', () => { if (restoreRequest === playGeneration.current && (a as any)._ep?.id === ep.id) a.currentTime = prog?.position ?? 0; }, { once: true });
       setCurrent(ep);
       setPosition(prog?.position ?? 0);
-    });
+    }).catch(() => { if (restoreRequest === playGeneration.current) setError(navigator.onLine === false ? 'offline' : 'failed'); });
     return () => {
       document.removeEventListener('visibilitychange', hide);
       savePlaybackRef.current = null;
@@ -240,7 +240,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       if (startAt !== undefined) a.currentTime = startAt;
     } else {
       setError(null);
-      const resolved = await resolveIfCurrent(request, () => playGeneration.current, () => Promise.all([audioUrl(e.audio), db.episodeProgress.get(e.id)]));
+      const resolved = await resolveIfCurrent(request, () => playGeneration.current, () => Promise.all([audioUrl(e.audio), db.episodeProgress.get(e.id)])).catch(() => { if (request === playGeneration.current) setError(navigator.onLine === false ? 'offline' : 'failed'); return null; });
       if (!resolved) return;
       const url = resolved[0];
       const prog = resolved[1];
@@ -320,7 +320,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
           const at = a.currentTime || 0;
           if (!a.paused) { (a as any)._switchPause = true; a.pause(); }
           setError(null);
-          const u = await resolveIfCurrent(request, () => playGeneration.current, () => audioUrl(retryEpisode.audio));
+          const u = await resolveIfCurrent(request, () => playGeneration.current, () => audioUrl(retryEpisode.audio)).catch(() => { if (request === playGeneration.current) setError(navigator.onLine === false ? 'offline' : 'failed'); return null; });
           if (request !== playGeneration.current || (a as any)._ep?.id !== retryEpisode.id) return;
           if (!u) { setError(navigator.onLine === false ? 'offline' : 'failed'); return; }
           bindSourceError(a, request, retryEpisode.id, u);
