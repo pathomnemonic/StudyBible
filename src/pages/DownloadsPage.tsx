@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
-import { downloadEdition, downloadPack, getManifest, isEditionCached, packCachedCount, packStillCached, type StudyPack } from '../data/loader';
+import { downloadEdition, downloadPack, getManifest, verifyPack, isEditionCached, packCachedCount, packStillCached, type StudyPack } from '../data/loader';
 import { BOOKS } from '../lib/canon';
 import { useSettings } from '../lib/store';
 import { getBiay, type BiayEpisode } from '../data/content';
@@ -100,6 +100,15 @@ export default function DownloadsPage() {
     setYearBusy('');
   };
 
+  const [check, setCheck] = useState<string[] | null>(null);
+  const [checking, setChecking] = useState(false);
+  const runCheck = async () => {
+    if (!man) return;
+    setChecking(true); setCheck(null);
+    const out: string[] = [];
+    for (const p of man.packs) { if (!pk[p.id]) continue; const r = await verifyPack(p); if (r.bad.length) out.push(`${p.label}: ${r.bad.length} of ${p.files.length} saved ${r.bad.length === 1 ? 'file is' : 'files are'} missing or unreadable`); }
+    setCheck(out); setChecking(false);
+  };
   const dataBytes = (man?.packs ?? []).reduce((n, p) => n + p.bytes, 0);
   const audioBytes = saved.reduce((n, x) => n + x.bytes, 0);
   return (
@@ -154,6 +163,13 @@ export default function DownloadsPage() {
           </section>
         );
       })()}
+
+      <section className="card" aria-label="Check saved copies">
+        <h2 className="card-title">Check what is saved</h2>
+        <p className="muted small">Reads each saved study pack back from this device and tells you if a file is missing, cut off or damaged. It changes nothing; use “Save it now” on a pack to fetch it again.</p>
+        <button className="btn" onClick={() => void runCheck()} disabled={checking || !man}>{checking ? 'Checking…' : 'Check saved copies'}</button>
+        {check && (check.length === 0 ? <p role="status">Every saved file is readable.</p> : <ul className="dl-list" role="status">{check.map((c) => <li key={c}>{c}</li>)}</ul>)}
+      </section>
 
       <section className="card">
         <h2 className="card-title">Get ready to go offline</h2>

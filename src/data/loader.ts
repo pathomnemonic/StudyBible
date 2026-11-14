@@ -204,3 +204,29 @@ export async function packStillCached(pack: StudyPack): Promise<boolean> {
     return false;
   }
 }
+
+/** Is this saved file readable? A JSON file must parse and not be empty; any other file must not be empty. */
+export function judgeSavedFile(path: string, text: string): boolean {
+  if (!text.trim()) return false;
+  if (!/\.json$/i.test(path)) return true;
+  try { JSON.parse(text); return true; } catch { return false; }
+}
+
+/** Reads every saved file of a pack back from the device and reports the ones that are missing or unreadable. It changes nothing. */
+export async function verifyPack(pack: StudyPack): Promise<{ checked: number; bad: string[] }> {
+  const bad: string[] = [];
+  if (typeof window === 'undefined' || !('caches' in window)) return { checked: 0, bad: pack.files };
+  const c = await caches.open('studybible-data-v1');
+  const keys = await c.keys();
+  let checked = 0;
+  for (const f of pack.files) {
+    const req = keys.find((k) => new URL(k.url).pathname.endsWith(`/${f}`));
+    if (!req) { bad.push(f); continue; }
+    checked++;
+    try {
+      const r = await c.match(req);
+      if (!r || !judgeSavedFile(f, await r.text())) bad.push(f);
+    } catch { bad.push(f); }
+  }
+  return { checked, bad };
+}

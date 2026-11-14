@@ -214,4 +214,8 @@ await p.locator('.card', { hasText: 'Bread of life' }).locator('button', { hasTe
   await p.locator('.note-history button', { hasText: 'Restore' }).first().click();
   if (!/first version of the note/.test(await t.inputValue())) fail('Restore should put the earlier text in the box, got: ' + await t.inputValue());
 }
+// 25. downloads: the saved-copy check runs and reports
+await p.goto(`${BASE}/#/downloads`); await p.waitForTimeout(1200);
+await p.locator('button', { hasText: 'Check saved copies' }).click(); await p.waitForTimeout(2500);
+if (!/Every saved file is readable|missing or unreadable/.test(await p.locator('[aria-label="Check saved copies"]').innerText())) fail('the saved-copy check should report a result');
 await b.close(); console.log('review ok');

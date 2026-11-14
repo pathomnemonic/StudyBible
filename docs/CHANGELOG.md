@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Downloads: Check saved copies reads each saved pack back and reports missing or damaged files.
 - Notes: the last five earlier versions of a note are kept on the note and can be restored in the editor (optional field, no migration; capped).
 - Games: Family ties, a quiz on who was the father or mother of people in the genealogies of Scripture.
 - Games: Match the term, pairing Catholic words with the glossary's own meanings.
