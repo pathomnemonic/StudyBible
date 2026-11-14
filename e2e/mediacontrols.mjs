@@ -101,7 +101,7 @@ await p.waitForFunction(() => window.__a && window.__a.src.includes('/audio/'));
 const local = await p.evaluate(() => ({ id: window.__a._ep?.id, src: window.__a.src }));
 if (!local.id?.startsWith('med:')) fail('the first source should be a local meditation track: ' + JSON.stringify(local));
 await p.evaluate(() => { const a = window.__a; a.currentTime = 40; a.dispatchEvent(new Event('timeupdate')); });
-await p.goto(`${BASE}/#/listen?tab=now`);
+await p.goto(`${BASE}/#/listen?tab=programmes`);
 await p.waitForSelector('.ep-acts button[aria-label^="Play "]');
 await p.locator('.ep-acts button[aria-label^="Play "]').first().click();
 await p.waitForFunction((old) => window.__a?._ep?.id && window.__a._ep.id !== old, local.id);
