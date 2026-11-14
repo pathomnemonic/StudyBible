@@ -1,10 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { resolvePlanReferences } from '../src/lib/planReferences';
+import { loadVersification } from '../src/lib/versification';
 import type { CountsEdition } from '../src/lib/refCheck';
 import { parseRefs } from '../src/lib/refs';
 
 const editions = (JSON.parse(readFileSync('public/data/editions.json', 'utf8')) as { editions: CountsEdition[] }).editions;
+loadVersification(JSON.parse(readFileSync('public/data/versification.json', 'utf8')));
 const refs = (s: string) => {
   const parsed = parseRefs(s);
   if (!parsed.ok) throw new Error(parsed.error);
