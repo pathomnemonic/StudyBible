@@ -98,6 +98,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [rate, setRateState] = useState(() => { try { return Number(localStorage.getItem('sb:rate')) || 1; } catch { return 1; } });
   const lastSave = useRef(0);
   const playGeneration = useRef(0);
+  const [sleep, setSleepState] = useState<{ mode: 'off' | 'minutes' | 'end'; left: number }>({ mode: 'off', left: 0 });
+  const [error, setError] = useState<null | 'failed' | 'offline'>(null);
   const bindSourceError = (a: HTMLAudioElement, request: number, episodeId: string, src: string) => {
     a.addEventListener('error', () => {
       if (request !== playGeneration.current || (a as any)._ep?.id !== episodeId || a.getAttribute('src') !== src || !a.error) return;
@@ -105,8 +107,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       setError(navigator.onLine === false ? 'offline' : 'failed');
     }, { once: true });
   };
-  const [sleep, setSleepState] = useState<{ mode: 'off' | 'minutes' | 'end'; left: number }>({ mode: 'off', left: 0 });
-  const [error, setError] = useState<null | 'failed' | 'offline'>(null);
+
   const [prefsV, setPrefsV] = useState(0);
   useEffect(() => { const f = () => setPrefsV((x) => x + 1); window.addEventListener('sb:showprefs', f); return () => window.removeEventListener('sb:showprefs', f); }, []);
   const sleepRef = useRef(sleep);
