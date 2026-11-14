@@ -69,9 +69,9 @@ describe('repairing passage addresses', () => {
   it('stops before any write when the required safety snapshot fails', async () => {
     const { db } = await import('../src/db/db');
     const safety = await import('../src/lib/safety');
+    vi.spyOn(safety, 'snapshotIfDue').mockResolvedValue(false);
     const { applyRepairs } = await import('../src/lib/dataRepair');
     const id = await db.notes.add({ kind: 'note', body: 'unchanged', targets: [], tags: [], createdAt: 1, updatedAt: 1 } as never);
-    vi.spyOn(safety, 'snapshotIfDue').mockResolvedValue(false);
     await expect(applyRepairs([{ key: `notes:${id}`, tbl: 'notes', id, where: 'test note', changes: [], patch: { body: 'changed' }, before: { body: 'unchanged' } }])).rejects.toThrow(/safety copy/i);
     expect((await db.notes.get(id))?.body).toBe('unchanged');
   });
