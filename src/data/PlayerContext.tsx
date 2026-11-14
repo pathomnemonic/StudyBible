@@ -304,7 +304,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       error,
       retry: () => {
         const request = ++playGeneration.current;
-        const a = audio.current!; const cur = (a as any)._ep as BiayEpisode | undefined;
+        const a = audio.current!;
         if (!cur) return;
         const at = a.currentTime || 0;
         setError(null);
