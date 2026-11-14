@@ -33,7 +33,7 @@ export default function DataHealth() {
       const u = await applyRepairs(list);
       setUndo(u);
       setMsg(`Fixed ${list.length} ${list.length === 1 ? 'place' : 'places'}. A safety copy was kept first.`);
-      await run(true);
+      try { await run(true); } catch (e) { setError(`The repair was committed, but the check could not refresh: ${e instanceof Error ? e.message : 'unknown error'}`); }
     } catch (e) { setError(e instanceof Error ? e.message : 'The repair failed. No changes were made.'); }
     finally { setBusy(null); }
   };
@@ -43,7 +43,7 @@ export default function DataHealth() {
       <p className="muted small">Looks for notes, collections and plans that point at something that is no longer here, or at a passage address the app cannot read. Running the check changes nothing. Where the fix is certain, a button offers it; nothing is changed until you press one, and you can undo it.</p>
       <button className="btn" disabled={!!busy} onClick={() => { setBusy('check'); setError(''); void run().catch((e) => setError(e instanceof Error ? e.message : 'The check could not be completed.')).finally(() => setBusy(null)); }}>{busy === 'check' ? 'Checking…' : 'Run the check'}</button>
       {error && <p role="alert" className="small">{error}</p>}
-      {msg && <p role="status" className="small">{msg} {undo.length > 0 && <button className="btn small" disabled={!!busy} onClick={async () => { setBusy('undo'); setError(''); try { await undoRepairs(undo); setUndo([]); setMsg('Undone: the earlier addresses are back.'); await run(true); } catch (e) { setError(e instanceof Error ? e.message : 'Undo failed.'); } finally { setBusy(null); } }}>{busy === 'undo' ? 'Undoing…' : 'Undo'}</button>}</p>}
+      {msg && <p role="status" className="small">{msg} {undo.length > 0 && <button className="btn small" disabled={!!busy} onClick={async () => { setBusy('undo'); setError(''); try { await undoRepairs(undo); setUndo([]); setMsg('Undone: the earlier addresses are back.'); try { await run(true); } catch (e) { setError(`Undo committed, but the check could not refresh: ${e instanceof Error ? e.message : 'unknown error'}`); } } catch (e) { setError(e instanceof Error ? e.message : 'Undo failed.'); } finally { setBusy(null); } }}>{busy === 'undo' ? 'Undoing…' : 'Undo'}</button>}</p>}
       {found && (found.length === 0
         ? <p role="status">Nothing wrong found.</p>
         : (
@@ -58,7 +58,7 @@ export default function DataHealth() {
             {restorable.length > 0 && (
               <section aria-label="Can be restored">
                 <h3 className="h-sm">Can be restored from Recently deleted ({restorable.length})</h3>
-                <ul className="dl-list">{restorable.map((r) => <li key={r.trashId}><span>Collection “{r.collection}” holds {r.what} that you deleted.</span><button className="btn small" disabled={!!busy} aria-busy={busy === 'restore-' + r.trashId} onClick={async () => { setBusy('restore-' + r.trashId); setError(''); try { await restoreFromTrash(r.trashId); setMsg('Restored.'); await run(true); } catch (e) { setError(e instanceof Error ? e.message : 'Restore failed.'); } finally { setBusy(null); } }}>{busy === 'restore-' + r.trashId ? 'Restoring…' : 'Restore'}</button></li>)}</ul>
+                <ul className="dl-list">{restorable.map((r) => <li key={r.trashId}><span>Collection “{r.collection}” holds {r.what} that you deleted.</span><button className="btn small" disabled={!!busy} aria-busy={busy === 'restore-' + r.trashId} onClick={async () => { setBusy('restore-' + r.trashId); setError(''); try { await restoreFromTrash(r.trashId); setMsg('Restored.'); try { await run(true); } catch (e) { setError(`Restore committed, but the check could not refresh: ${e instanceof Error ? e.message : 'unknown error'}`); } } catch (e) { setError(e instanceof Error ? e.message : 'Restore failed.'); } finally { setBusy(null); } }}>{busy === 'restore-' + r.trashId ? 'Restoring…' : 'Restore'}</button></li>)}</ul>
               </section>
             )}
             <h3 className="h-sm">Everything found ({found.length})</h3>
