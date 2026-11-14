@@ -19,7 +19,12 @@ interface PlayerState {
   seek: (t: number) => void;
   skip: (d: number) => void;
   setRate: (r: number) => void;
+  /** Close the player: stops playback, keeps the place in the episode, and clears the dock. Pausing (toggle) keeps the player. */
   stop: () => void;
+  /** why the sound is not coming, in plain terms: the stream failed, or the device is offline (null when all is well) */
+  error: null | 'failed' | 'offline';
+  /** load the same episode again from where it was, and play */
+  retry: () => void;
   /** pause after some minutes, or at the end of the episode */
   sleep: { mode: 'off' | 'minutes' | 'end'; left: number };
   setSleep: (m: 'off' | 'end' | number) => void;
@@ -91,6 +96,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [rate, setRateState] = useState(() => { try { return Number(localStorage.getItem('sb:rate')) || 1; } catch { return 1; } });
   const lastSave = useRef(0);
   const [sleep, setSleepState] = useState<{ mode: 'off' | 'minutes' | 'end'; left: number }>({ mode: 'off', left: 0 });
+  const [error, setError] = useState<null | 'failed' | 'offline'>(null);
   const [prefsV, setPrefsV] = useState(0);
   useEffect(() => { const f = () => setPrefsV((x) => x + 1); window.addEventListener('sb:showprefs', f); return () => window.removeEventListener('sb:showprefs', f); }, []);
   const sleepRef = useRef(sleep);
@@ -126,6 +132,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       }
     });
     a.addEventListener('loadedmetadata', () => setDuration(a.duration || 0));
+    // a stream that cannot load is said out loud, with a way to try again; it clears the moment sound is flowing
+    a.addEventListener('error', () => { if (a.getAttribute('src')) { setPlaying(false); setError(navigator.onLine === false ? 'offline' : 'failed'); } });
+    a.addEventListener('playing', () => setError(null));
+    a.addEventListener('loadeddata', () => setError(null));
     a.addEventListener('play', () => setPlaying(true));
     a.addEventListener('pause', () => {
       setPlaying(false);
@@ -184,6 +194,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     if ((a as any)._ep?.id !== e.id) {
       (a as any)._ep = e;
       (a as any)._outroDone = false;
+      setError(null);
       a.src = await audioUrl(e.audio);
       setCurrent(e);
       const prog = await db.episodeProgress.get(e.id);
@@ -239,15 +250,31 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       sleep,
       setSleep: (m) => setSleepState(m === 'off' ? { mode: 'off', left: 0 } : m === 'end' ? { mode: 'end', left: 0 } : { mode: 'minutes', left: m * 60 }),
       showKey: current ? showKeyOf(current.id) : '',
+      error,
+      retry: () => {
+        const a = audio.current!; const cur = (a as any)._ep as BiayEpisode | undefined;
+        if (!cur) return;
+        const at = a.currentTime || 0;
+        setError(null);
+        void audioUrl(cur.audio).then((u) => {
+          a.src = u; a.load();
+          a.addEventListener('loadedmetadata', () => { if (at > 0) a.currentTime = at; }, { once: true });
+          return a.play();
+        }).catch(() => undefined);
+      },
       stop: () => {
-        audio.current!.pause();
+        const a = audio.current!; const cur = (a as any)._ep as BiayEpisode | undefined;
+        // closing keeps the place, so playing this episode again later picks up where it stopped (it does not start by itself)
+        if (cur && a.currentTime > 0) { const dur = a.duration || undefined; const done = dur ? a.currentTime > dur - 20 : false; db.episodeProgress.put({ episodeId: cur.id, position: done ? 0 : a.currentTime, duration: dur, completed: done || undefined as any, updatedAt: Date.now() }).catch(() => undefined); }
+        a.pause();
+        setError(null);
         (audio.current as any)._ep = undefined;
         audio.current!.removeAttribute('src');
         setCurrent(null);
         db.cache.delete('player:last').catch(() => undefined);
       },
     }),
-    [current, playing, position, duration, rate, play, sleep, prefsV],
+    [current, playing, position, duration, rate, play, sleep, prefsV, error],
   );
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

@@ -9,6 +9,7 @@ import Modal from './Modal';
 import { useSettings } from '../lib/store';
 import { parseRefId } from '../lib/refs';
 import ShowSettings from './ShowSettings';
+import { moveInQueue, moveMessage } from '../lib/queueOrder';
 
 export const SPEEDS = [0.5, 0.7, 0.85, 1, 1.1, 1.25, 1.5, 1.75, 2, 2.5, 3];
 const fmt = (s: number) => { const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60); return `${h ? h + ':' + String(m).padStart(2, '0') : m}:${String(Math.floor(s % 60)).padStart(2, '0')}`; };
@@ -89,6 +90,12 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
   const [eps, setEps] = useState<Record<string, BiayEpisode>>({});
   const [cfg, setCfg] = useState(false);
   useEffect(() => { void Promise.all(q.map(async (x) => [x.episodeId, await resolveEpisode(x.episodeId)] as const)).then((r) => setEps(Object.fromEntries(r.filter((x): x is [string, BiayEpisode] => !!x[1])))); }, [q.map((x) => x.episodeId).join()]);
+  const [moved, setMoved] = useState('');
+  const move = async (i: number, by: number) => {
+    const ups = moveInQueue(q, i, by); if (!ups.length) return;
+    await db.transaction('rw', db.queue, async () => { for (const u of ups) await db.queue.update(u.id, { order: u.order }); });
+    setMoved(moveMessage(eps[q[i].episodeId]?.title ?? 'the episode', i + by, q.length));
+  };
   const e = p.current;
   const [st] = useSettings();
   // a Bible in a Year day opens its first passage; a part of a recorded book opens the book. The audio keeps playing while you read.
@@ -112,11 +119,13 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
         <div className="row" style={{ gap: 10, flexWrap: 'wrap' }}>
           <label>Speed <select value={p.rate} onChange={(ev) => p.setRate(+ev.target.value)}>{SPEEDS.map((r) => <option key={r} value={r}>{r}×</option>)}</select></label>
           <label>Sleep <select value={p.sleep.mode === 'off' ? 'off' : p.sleep.mode === 'end' ? 'end' : 'min'} onChange={(ev) => p.setSleep(ev.target.value === 'off' ? 'off' : ev.target.value === 'end' ? 'end' : 15)}><option value="off">Off</option><option value="end">End of this episode</option><option value="min">{p.sleep.mode === 'minutes' ? `${Math.ceil(p.sleep.left / 60)} min left` : 'In minutes…'}</option></select></label>
+          <span className="sr-only" role="status" aria-live="polite">{p.sleep.mode === 'end' ? 'Sleep timer: the player will pause at the end of this episode.' : p.sleep.mode === 'minutes' ? 'Sleep timer is running.' : 'Sleep timer off.'}</span>
           {p.sleep.mode === 'minutes' && <button className="btn small ghost" onClick={() => p.setSleep(Math.ceil(p.sleep.left / 60) + 5)}>+5 min</button>}
           {p.sleep.mode !== 'end' && <label>Minutes <select value="" onChange={(ev) => ev.target.value && p.setSleep(+ev.target.value)}><option value="">choose</option>{[5, 10, 15, 30, 45, 60, 90].map((m) => <option key={m} value={m}>{m}</option>)}</select></label>}
           {p.showKey && <button className="btn small" onClick={() => setCfg(true)}>This show’s settings</button>}
         </div>
         
+        <p className="muted small" style={{ margin: 0 }}>Keyboard: K play or pause, J back, L forward. Closing the player (×) stops it; pausing keeps it.</p>
         <div className="row" style={{ gap: 8 }}>
           <button className="btn small" onClick={share}>Share</button>
           <button className="btn small" onClick={() => { void db.episodeProgress.put({ episodeId: e.id, position: 0, completed: true, updatedAt: Date.now(), duration: p.duration }); }}>Mark played</button>
@@ -128,7 +137,8 @@ export default function NowPlaying({ onClose }: { onClose: () => void }) {
         <Marks id={e.id} title={e.title} page={e.page} />
         {e.description && <details open><summary>Show notes</summary><p className="small" style={{ whiteSpace: 'pre-wrap' }}>{e.description}</p></details>}
         <details open={q.length > 0}><summary>Up next ({q.length})</summary>
-          <ol className="list">{q.map((x) => <li key={x.id} className="row between"><span style={{ minWidth: 0 }}>{eps[x.episodeId]?.title ?? x.episodeId}</span><button className="icon-btn" aria-label="Remove from queue" onClick={() => db.queue.delete(x.id!)}>✕</button></li>)}</ol>
+          <ol className="list">{q.map((x, i) => <li key={x.id} className="row between"><span style={{ minWidth: 0 }}>{eps[x.episodeId]?.title ?? x.episodeId}</span><span className="row" style={{ gap: 2, flex: 'none' }}><button className="icon-btn" aria-label={`Move ${eps[x.episodeId]?.title ?? 'episode'} up`} disabled={i === 0} onClick={() => void move(i, -1)}>↑</button><button className="icon-btn" aria-label={`Move ${eps[x.episodeId]?.title ?? 'episode'} down`} disabled={i === q.length - 1} onClick={() => void move(i, 1)}>↓</button><button className="icon-btn" aria-label={`Remove ${eps[x.episodeId]?.title ?? 'episode'} from the queue`} onClick={() => db.queue.delete(x.id!)}>✕</button></span></li>)}</ol>
+          <p className="sr-only" role="status" aria-live="polite">{moved}</p>
         </details>
       </div>
       {cfg && <ShowSettings showKey={p.showKey} name={e.album ?? e.artist ?? e.title} onClose={() => setCfg(false)} />}

@@ -487,7 +487,7 @@ kbd {
   display: none;
 }
 .main {
-  padding-bottom: calc(var(--tabs-h) + env(safe-area-inset-bottom) + 8px);
+  padding-bottom: calc(var(--tabs-h) + env(safe-area-inset-bottom) + 8px + var(--host-h, 0px));
 }
 .shell.quiet .tabs {
   display: none;
@@ -558,7 +558,7 @@ kbd {
   }
   .main {
     margin-left: var(--rail-w);
-    padding-bottom: 32px;
+    padding-bottom: calc(32px + var(--host-h, 0px));
   }
   .shell.quiet .main {
     margin-left: 0;
@@ -6440,3 +6440,13 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .chant-score { background: #f6efdc; color: #1b1a17; border-radius: 10px; padding: 10px 8px; margin: 10px 0; overflow: hidden; }
 .chant-score svg { display: block; }
 .hy-chant { margin-top: 12px; }
+
+/* media: plain error notices, 44px targets, room for the docked player (Part IV) */
+.player-msg, .mh-msg { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; padding: 8px 10px; margin: 6px 0; border-radius: 10px; background: var(--surface-2, #8882); border: 1px solid var(--border); font-size: .9rem; }
+.mh-msg { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; background: var(--surface, #222); color: var(--text, #fff); margin: 0; }
+.media-host { position: relative; }
+.media-host.docked { position: fixed; }
+.player-msg .btn, .mh-msg .btn { min-height: 44px; }
+.player .icon-btn, .media-host .mh-x, .media-host .mh-grip { min-width: 44px; min-height: 44px; }
+.player select, .player input[type=range] { min-height: 44px; }
+.player .row { flex-wrap: wrap; }
