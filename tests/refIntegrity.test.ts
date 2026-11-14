@@ -134,6 +134,8 @@ describe('resolveRef: carrying a passage between numbering schemes', () => {
   });
   it('readerUrl and readerPath never clamp a chapter the edition does not have', () => {
     expect(readerUrl(webc, { book: 'JHN', c1: 99, c2: 99 })).toBeNull();
+    expect(readerUrl(webc, { book: 'JHN', c1: 3, v1: 16, c2: 3, v2: 999 })).toBeNull();
+    expect(readerUrl(webc, { book: 'GEN', c1: 1, v1: 1, c2: 99, v2: 1 })).toBeNull();
     expect(readerUrl(brenton, { book: 'JHN', c1: 3, c2: 3 })).toBeNull();
     expect(readerPath(webc as unknown as EditionRecord, { book: 'JHN', c1: 99, c2: 99 })).toBe('/read/webc/JHN/99');
   });
