@@ -3,6 +3,7 @@ import { getJson } from '../../data/loader';
 import { THEMED } from '../../data/cloister';
 import { ANSWERS } from '../../data/verbum';
 import { markDailyDone } from '../../lib/dailyGame';
+import { useSettings } from '../../lib/store';
 import ShareButton from '../../components/ShareButton';
 import { buzz } from '../../lib/haptics';
 
@@ -26,6 +27,7 @@ const load = (): Saved => { try { return JSON.parse(localStorage.getItem(SAVE) ?
 
 /** A daily five-letter word of the faith, six tries. One word a day, the same for everyone, with nothing to sign up for. */
 export default function VerbumPage() {
+  const [cfg] = useSettings();
   const [valid, setValid] = useState<Set<string> | null>(null);
   const [practice, setPractice] = useState<string | null>(null);
   const today = dayIndex();
@@ -111,7 +113,7 @@ export default function VerbumPage() {
           ))}
         </div>
       )}
-      {!practice && <p className="muted small" style={{ textAlign: 'center' }}>Played {st.played} · Won {st.won} · Streak {st.streak} · Best {st.best}</p>}
+      {!practice && <p className="muted small" style={{ textAlign: 'center' }}>Played {st.played} · Won {st.won}{cfg.hideStreaks ? '' : ` · Streak ${st.streak} · Best ${st.best}`}</p>}
     </div>
   );
 }

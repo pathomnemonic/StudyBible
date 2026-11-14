@@ -135,7 +135,7 @@ function MyShelves({ works, card }: { works: LibraryWorkMeta[]; card: (w: Librar
     <section className="sect">
       <div className="read-stats" aria-label="Your reading">
         <div><strong>{stats.today}</strong><span>min today of {goal}</span><i className="bar"><b style={{ width: `${Math.min(100, (stats.today / goal) * 100)}%` }} /></i></div>
-        <div><strong>{stats.streak}</strong><span>day streak 🔥</span></div>
+        {!st0.hideStreaks && <div><strong>{stats.streak}</strong><span>day streak 🔥</span></div>}
         <div><strong>{doneThisYear}</strong><span>finished in {year}</span></div>
         <label className="small">Daily goal <select value={goal} onChange={(e) => { setGoal(+e.target.value); setG(+e.target.value); }}>{[5, 10, 15, 20, 30, 45, 60].map((m) => <option key={m} value={m}>{m} min</option>)}</select></label>
         <div className="spark" aria-hidden="true">{stats.week.map((d) => <i key={d.day} title={`${d.day}: ${d.min} min`} style={{ height: `${Math.max(6, Math.min(100, (d.min / Math.max(goal, 1)) * 100))}%` }} className={d.min >= goal ? 'ok' : ''} />)}</div>

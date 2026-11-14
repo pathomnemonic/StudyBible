@@ -4,6 +4,7 @@ import { questionsFor, pick, type BankQuestion } from '../live/bank';
 import { isCorrect } from '../live/judge';
 import type { GradeData, Glossary, LessonSpec } from './model';
 import { progressId } from './model';
+import { useSettings } from '../lib/store';
 
 const SHAPES = ['▲', '◆', '●', '■'];
 type Tab = 'myth' | 'quiz' | 'cards' | 'match' | 'word';
@@ -76,6 +77,7 @@ function Myth({ all }: { all: BankQuestion[] }) {
 
 function Challenge({ all, grade, index }: { all: BankQuestion[]; grade: GradeData; index: number }) {
   const [round, setRound] = useState(0);
+  const [{ hideStreaks }] = useSettings();
   const qs = useMemo(() => pick(all.filter((q) => q.type !== 'order'), 8, grade.band === 'primary' || grade.band === 'elementary' ? 'mixed' : 'hard', round * 7919 + 13), [all.length, round]);
   const [i, setI] = useState(0);
   const [sel, setSel] = useState<number[]>([]);
@@ -95,7 +97,7 @@ function Challenge({ all, grade, index }: { all: BankQuestion[]; grade: GradeDat
   const next = () => { setI(i + 1); setRes(null); setSel([]); setText(''); };
   return (
     <div className="play-card">
-      <div className="row between small muted"><span>Question {i + 1} of {qs.length}</span><span>⚡ {xp} XP{streak >= 2 ? ` · 🔥 ${streak}` : ''}</span></div>
+      <div className="row between small muted"><span>Question {i + 1} of {qs.length}</span><span>⚡ {xp} XP{streak >= 2 && !hideStreaks ? ` · 🔥 ${streak}` : ''}</span></div>
       <p className="play-text">{q.q}</p>
       {res === null && (q.type === 'mc' || q.type === 'tf') && <div className="live-opts n4">{q.options!.map((o, k) => <button key={k} className={`live-opt o${k}`} onClick={() => submit([k])}><span className="shape" aria-hidden="true">{SHAPES[k]}</span>{o}</button>)}</div>}
       {res === null && q.type === 'multi' && <><p className="muted small">Choose all that apply.</p><div className="live-opts n4">{q.options!.map((o, k) => <button key={k} className={`live-opt o${k % 4}${sel.includes(k) ? ' on' : ''}`} aria-pressed={sel.includes(k)} onClick={() => setSel(sel.includes(k) ? sel.filter((x) => x !== k) : [...sel, k])}><span className="shape" aria-hidden="true">{sel.includes(k) ? '✓' : SHAPES[k % 4]}</span>{o}</button>)}</div><button className="btn primary" disabled={!sel.length} onClick={() => submit(sel)}>Check</button></>}
