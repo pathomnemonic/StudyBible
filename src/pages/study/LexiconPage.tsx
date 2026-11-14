@@ -87,10 +87,10 @@ function Entry({ id, e, lang }: { id: string; e: LexEntry; lang: Lang }) {
     setFound({ total, by, refs });
     setBusy(false);
   };
-  const link = (r: { book: string; c: number; v: number }) => {
-    if (!ed) return '/read';
-    const a = convertRef('kjv', 'vulgate', { book: r.book, c1: r.c, c2: r.c, v1: r.v, v2: r.v }).ref;
-    return readerPath(ed, a);
+  const link = (r: { book: string; c: number; v: number }): string | null => {
+    if (!ed) return null;
+    const mapped = convertRef('kjv', 'vulgate', { book: r.book, c1: r.c, c2: r.c, v1: r.v, v2: r.v });
+    return mapped.exact ? readerPath(ed, mapped.ref) : null;
   };
   return (
     <div className="lex-entry">
@@ -103,7 +103,7 @@ function Entry({ id, e, lang }: { id: string; e: LexEntry; lang: Lang }) {
         <div>
           <p><strong>{found.total.toLocaleString()}</strong> {found.total === 1 ? 'time' : 'times'}{found.by.length ? `, in ${found.by.length} book${found.by.length === 1 ? '' : 's'}` : ''}.</p>
           <div className="chips">{found.by.slice(0, 20).map(([b, n]) => <span key={b} className="chip">{bookName(b)} {n}</span>)}</div>
-          {found.refs.length > 0 && <p className="small">First {found.refs.length}: {found.refs.map((r) => <Link key={`${r.book}${r.c}${r.v}`} to={link(r)} style={{ marginRight: 8 }}>{bookName(r.book)} {r.c}:{r.v}</Link>)}</p>}
+          {found.refs.length > 0 && <p className="small">First {found.refs.length}: {found.refs.map((r) => { const to = link(r); const label = `${bookName(r.book)} ${r.c}:${r.v}`; return to ? <Link key={`${r.book}${r.c}${r.v}`} to={to} style={{ marginRight: 8 }}>{label}</Link> : <span key={`${r.book}${r.c}${r.v}`} title="Verse numbering cannot be verified in the reader edition" style={{ marginRight: 8 }}>{label} (unverified)</span>; })}</p>}
         </div>
       )}
     </div>
