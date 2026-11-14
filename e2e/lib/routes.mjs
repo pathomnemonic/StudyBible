@@ -29,7 +29,7 @@ export const CRAWL = [
   { path: "/teach", kind: "static", route: "/teach" },
   { path: "/teach/__nope__", kind: "unknown-id", route: "/teach/:classId" },
   { path: "/join", kind: "static", route: "/join" },
-  { path: "/join/__nope__", kind: "unknown-id", route: "/join/:code" },
+  { path: "/join/__nope__", kind: "sample", route: "/join/:code" }, // a code that is not a game: the join form (a code field), not an error
   { path: "/play/__nope__", kind: "unknown-id", route: "/play/:code" },
   { path: "/host/__nope__", kind: "unknown-id", route: "/host/:code" },
   { path: "/study/curriculum", kind: "static", route: "/study/curriculum" },
@@ -220,14 +220,14 @@ export const CRAWL = [
   { path: "/memorize", kind: "static", route: "/memorize" },
   { path: "/share", kind: "static", route: "/share" },
   { path: "/widget", kind: "static", route: "/widget" },
-  { path: "/widget/__nope__", kind: "unknown-id", route: "/widget/:kind" },
+  { path: "/widget/__nope__", kind: "sample", route: "/widget/:kind" }, // the widget ignores :kind and always shows the same one (so there is nothing to be "not found")
   { path: "/widgets", kind: "static", route: "/widgets" },
   { path: "/session", kind: "static", route: "/session" },
   { path: "/today", kind: "static", route: "/today" },
   { path: "/account", kind: "static", route: "/account" },
   { path: "/attach", kind: "static", route: "/attach" },
   { path: "/about", kind: "static", route: "/about" },
-  { path: "/join/123456", kind: "smoke", route: "/join/123456" },
+  { path: "/join/123456", kind: "sample", route: "/join/:code" },
   { path: "/library", kind: "smoke", route: "/library" },
   { path: "/pray/devotions/angelus", kind: "smoke", route: "/pray/devotions/angelus" },
   { path: "/pray/devotions/confession", kind: "smoke", route: "/pray/devotions/confession" },
@@ -249,6 +249,22 @@ export const CRAWL = [
   { path: "/study/story/peter", kind: "smoke", route: "/study/story/peter" },
   { path: "/study/works/aug-confessions/0", kind: "smoke", route: "/study/works/aug-confessions/0" },
 ];
+
+/**
+ * Route-specific markers: the heading (or document title) each of these routes must show, as a regular expression. A route that renders the wrong page
+ * (a stale redirect, a mis-ordered <Route>, the Today page where a sheet belongs) fails the crawl even though "something rendered".
+ * Unknown-id routes are held to a different marker: the explicit not-found state, [data-state="not-found"] (see routeMarkers in lib/crawl.mjs).
+ */
+export const EXPECT = {
+  '/': 'week|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|feast|solemnity|memorial|Easter|Advent|Lent|Christmas',
+  '/study': 'Explore the Bible', '/study/catechism': 'Catechism of the Catholic Church', '/study/catechism/1324': 'Catechism of the Catholic Church',
+  '/calendar': 'Church calendar', '/settings': '^Settings$', '/memorize': 'Memorize Scripture', '/library': '^Notes$', '/pray/plans': 'Reading plans',
+  '/study/saints': 'Lives of the Saints', '/study/councils': 'councils', '/study/curriculum': 'Catechism program', '/study/curriculum/9': 'Grade 9',
+  '/study/glossary': 'Glossary', '/pray/prayers': 'Prayer book', '/pray/mass': 'Following the Mass', '/pray/examen': 'Examen', '/pray/journal': 'Prayer journal',
+  '/about': 'feature status', '/family-sheet': 'Family Gospel sheet', '/study/papal': 'Papal writings', '/pray/devotions/rosary': 'Rosary',
+  '/read/webc/JHN/3': '^John 3$', '/read/nabre/PSA/22': '^Psalm 22$', '/read/rsv2ce/WIS/3': 'Wisdom', '/study/passage/JHN.6.51': 'John 6:51', '/listen': '^Media$', '/more': '^Everything$',
+};
+for (const c of CRAWL) if (EXPECT[c.path] && c.kind !== 'unknown-id') c.expect = EXPECT[c.path];
 
 /** App routes deliberately not crawled, with the reason. */
 export const EXCLUDED = {

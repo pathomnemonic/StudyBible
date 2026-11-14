@@ -28,7 +28,7 @@ export function ShareVersePage() {
   const label = `${BOOK_BY_ID[book]?.name ?? book} ${chapter}:${a}${b && b !== a ? `-${b}` : ''}`;
   const [copied, setCopied] = useState(false);
   if (rows === undefined) return <div className="page"><div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /></div></div>;
-  if (!rows || !ed) return <div className="page"><p>That passage could not be found. <Link to="/read">Open the Bible</Link></p></div>;
+  if (!rows || !ed) return <div className="page" data-state="not-found"><p>That passage could not be found. <Link to="/read">Open the Bible</Link></p></div>;
   return (
     <div className="page share-link">
       <article className="card share-card-page">
@@ -48,7 +48,7 @@ export function SharePrayerPage() {
   const { id } = useParams();
   const p = BOOK_PRAYERS.find((x) => x.id === id);
   const [copied, setCopied] = useState(false);
-  if (!p) return <div className="page"><p>That prayer could not be found. <Link to="/pray/prayers">Open the prayer book</Link></p></div>;
+  if (!p) return <div className="page" data-state="not-found"><p>That prayer could not be found. <Link to="/pray/prayers">Open the prayer book</Link></p></div>;
   return (
     <div className="page share-link">
       <article className="card share-card-page">
@@ -73,7 +73,7 @@ export function ShareSaintPage() {
   const [e, setE] = useState<ButlerEntry | null | undefined>(undefined);
   useEffect(() => { let live = true; if (!/^\d{2}-\d{2}$/.test(md)) { setE(null); return; } butlerDay(md).then((l) => live && setE(l[i] ?? null)); return () => { live = false; }; }, [md, i]);
   if (e === undefined) return <div className="page"><div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /></div></div>;
-  if (!e) return <div className="page"><p>That saint could not be found. <Link to="/study/saints">Open the saints</Link></p></div>;
+  if (!e) return <div className="page" data-state="not-found"><p>That saint could not be found. <Link to="/study/saints">Open the saints</Link></p></div>;
   return (
     <div className="page share-link">
       <article className="card share-card-page">
@@ -92,7 +92,7 @@ export function ShareSaintPage() {
 export function ShareTermPage() {
   const { term = '' } = useParams();
   const g = GLOSSARY.find((x) => x.term.toLowerCase() === decodeURIComponent(term).toLowerCase());
-  if (!g) return <div className="page"><p>That word could not be found. <Link to="/study/glossary">Open the glossary</Link></p></div>;
+  if (!g) return <div className="page" data-state="not-found"><p>That word could not be found. <Link to="/study/glossary">Open the glossary</Link></p></div>;
   return (
     <div className="page share-link">
       <article className="card share-card-page">
@@ -110,7 +110,7 @@ export function ShareTermPage() {
 export function ShareFeastPage() {
   const { id } = useParams();
   const f = FEASTS.find((x) => x.id === id);
-  if (!f) return <div className="page"><p>That feast could not be found. <Link to="/pray/year">Open the Church year</Link></p></div>;
+  if (!f) return <div className="page" data-state="not-found"><p>That feast could not be found. <Link to="/pray/year">Open the Church year</Link></p></div>;
   return (
     <div className="page share-link">
       <article className="card share-card-page">

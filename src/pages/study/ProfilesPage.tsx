@@ -16,7 +16,7 @@ export default function ProfilesPage() {
     getJson<ProfileFile>('profiles/profiles.json', true).then((f) => { if (!f || validateProfiles(f).length) { setBad(true); setList([]); } else setList(f.profiles); }).catch(() => setList([]));
   }, []);
   const one = list?.find((p) => p.kind === kind && p.id === id);
-  if (id && list) return one ? <Profile p={one} all={list} /> : <div className="page"><h1>Profile not found</h1><p><Link to="/study/profiles">Back to profiles</Link></p></div>;
+  if (id && list) return one ? <Profile p={one} all={list} /> : <div className="page" data-state="not-found"><h1>Profile not found</h1><p><Link to="/study/profiles">Back to profiles</Link></p></div>;
   const shown = list ? (q.trim() ? findProfiles(list, q) : list) : [];
   return (
     <div className="page">

@@ -53,7 +53,7 @@ export default function GlossedPage() {
   if (!settings.glossedPage) return (
     <div className="page"><h1>The glossed page</h1><p className="lede">A chapter set like a medieval glossed Bible, with the <em>Glossa Ordinaria</em> in the margins. It is switched off by default.</p><p><button className="btn" onClick={() => setSettings({ glossedPage: true })}>Turn it on</button> <span className="muted small">You can turn it off again in the reading settings.</span></p></div>
   );
-  if (!info) return <div className="page"><p>That book could not be found. <Link to="/study/glossed/JHN/1">Open John 1</Link></p></div>;
+  if (!info) return <div className="page" data-state="not-found"><p>That book could not be found. <Link to="/study/glossed/JHN/1">Open John 1</Link></p></div>;
   return (
     <div className="page glossed">
       <p className="small no-print"><Link to="/read">← Reading</Link></p>

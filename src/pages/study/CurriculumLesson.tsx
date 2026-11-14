@@ -144,7 +144,7 @@ export default function CurriculumLesson() {
   const review = useMemo(() => (g && idx > 0 ? vocabQuiz({ ...lesson!, id: lesson!.id + 'r', vocab: reviewTerms(g, idx, 3) }, gl, pool, 3) : []), [lesson?.id, gl, idx]);
 
   if (g === undefined) return <div className="page"><p className="muted">Loading…</p></div>;
-  if (!g || !lesson || !band) return <div className="page"><Link to="/study/curriculum">← Curriculum</Link><p>That lesson was not found.</p></div>;
+  if (!g || !lesson || !band) return <div className="page" data-state="not-found"><Link to="/study/curriculum">← Curriculum</Link><p>That lesson was not found.</p></div>;
 
   const minutes = length || band.minutes;
   const usePath = mode === 'student' && view === 'path';

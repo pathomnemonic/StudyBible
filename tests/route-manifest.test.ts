@@ -33,4 +33,18 @@ describe('route manifest', () => {
     for (const r of required) expect(crawl.some((c) => c.route === r && (c.kind === 'sample' || c.kind === 'unknown-id'))).toBe(true);
   });
   it('unknown-id probes exist, so deleted or mistyped ids are exercised', () => { expect(crawl.filter((c) => c.kind === 'unknown-id').length).toBeGreaterThanOrEqual(10); });
+  it('route-specific heading markers name real crawl entries and are valid expressions', () => {
+    const block = /export const EXPECT = \{([\s\S]*?)\n\};/.exec(manifestSrc)?.[1] ?? '';
+    const pairs = [...block.matchAll(/'(\/[^']*)': '((?:[^'\\]|\\.)*)'/g)];
+    expect(pairs.length).toBeGreaterThanOrEqual(25);
+    for (const [, path, rx] of pairs) { expect(crawl.some((c) => c.path === path && c.kind !== 'unknown-id'), path).toBe(true); expect(() => new RegExp(rx, 'i'), path).not.toThrow(); }
+  });
+  it('every unknown-id probe is held to the explicit not-found state (data-state="not-found") by the crawler', () => {
+    const crawlSrc = readFileSync('e2e/lib/crawl.mjs', 'utf8');
+    expect(crawlSrc).toMatch(/\[data-state="not-found"\]/);
+  });
+  it('the pages that answer an unknown id carry the marker', () => {
+    const files = ['src/pages/NotFoundPage.tsx', 'src/pages/pray/PlanPage.tsx', 'src/pages/library/CollectionPage.tsx', 'src/pages/ReadPage.tsx', 'src/pages/study/WorkReader.tsx', 'src/pages/ShareLinkPage.tsx', 'src/live/Screens.tsx'];
+    for (const f of files) expect(readFileSync(f, 'utf8'), f).toContain('data-state="not-found"');
+  });
 });

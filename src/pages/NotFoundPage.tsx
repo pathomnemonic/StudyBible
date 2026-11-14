@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 export default function NotFoundPage() {
   const { pathname } = useLocation();
   return (
-    <div className="page">
+    <div className="page" data-state="not-found">
       <h1>That page is not here</h1>
       <p className="lede">Nothing lives at <code>{pathname}</code>. The link may be old or mistyped, or the page may have moved.</p>
       <p className="row" style={{ gap: 8, flexWrap: 'wrap' }}>

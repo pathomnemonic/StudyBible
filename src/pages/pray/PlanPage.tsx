@@ -32,7 +32,7 @@ export default function PlanPage() {
     })();
   }, [id]);
   if (plan === undefined) return <div className="center-note">Loading plan…</div>;
-  if (plan === null) return <div className="page"><Link to="/pray/plans" className="small">← Plans</Link><h1>Plan not found</h1><p>There is no reading plan with that address. It may have been deleted, or the link may be mistyped.</p><p><Link to="/pray/plans">See all plans</Link></p></div>;
+  if (plan === null) return <div className="page" data-state="not-found"><Link to="/pray/plans" className="small">← Plans</Link><h1>Plan not found</h1><p>There is no reading plan with that address. It may have been deleted, or the link may be mistyped.</p><p><Link to="/pray/plans">See all plans</Link></p></div>;
   const todayIdx = prog ? Math.max(0, Math.min(plan.days.length - 1, Math.floor((Date.now() - prog.startedAt) / 86400000) + prog.offsetDays)) : -1;
   const toggle = async (i: number) => {
     if (!prog) return;

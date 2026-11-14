@@ -245,6 +245,6 @@ export default function ApologeticsTracksPage() {
   if (!trackId) return <Hub />;
   if (!tracks) return <div className="page apt"><p className="center-note">Loading…</p></div>;
   const t = tracks.find((x) => x.id === trackId);
-  if (!t) return <div className="page apt"><p className="callout">We could not find that track.</p><p><Link to={TRACKS_BASE}>See all tracks</Link></p></div>;
+  if (!t) return <div className="page apt" data-state="not-found"><p className="callout">We could not find that track.</p><p><Link to={TRACKS_BASE}>See all tracks</Link></p></div>;
   return <TrackView key={t.id} t={t} />;
 }

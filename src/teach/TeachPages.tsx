@@ -40,7 +40,7 @@ export function ClassPage() {
   const [sp, setSp] = useSearchParams();
   const tab = (sp.get('tab') as Tab) || 'roster';
   if (cls === undefined) return <div className="page"><p className="muted">Loading…</p></div>;
-  if (!cls) return <div className="page"><Link to="/teach">← Teacher tools</Link><p>That class was not found.</p></div>;
+  if (!cls) return <div className="page" data-state="not-found"><Link to="/teach">← Teacher tools</Link><p>That class was not found.</p></div>;
   const TABS: [Tab, string][] = [['roster', 'Students'], ['attendance', 'Attendance'], ['sessions', 'Sessions'], ['grades', 'Gradebook'], ['reports', 'Reports'], ['tools', 'Toolkit']];
   return (
     <div className="page">

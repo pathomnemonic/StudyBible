@@ -85,11 +85,14 @@ export default function MediaHost() {
   }, [key]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const title = item?.title ?? '';
+  const titleRef = useRef(title); titleRef.current = title;
+  // One YouTube player per iframe. The iframe is remounted whenever the media's key changes (the same video opened from another page has another
+  // address), so the binding is made again for every key, not only for every video id, and the old player is destroyed, not just forgotten.
   useEffect(() => {
     if (!id || !frame.current) return;
     let live = true, timer = 0;
     let player: { getCurrentTime(): number; getDuration(): number; destroy(): void } | null = null;
-    const save = () => { try { if (player) savePos(id, player.getCurrentTime(), player.getDuration(), title); } catch { /* player gone */ } };
+    const save = () => { try { if (player) savePos(id, player.getCurrentTime(), player.getDuration(), titleRef.current); } catch { /* player gone */ } };
     loadYT().then((YT) => {
       if (!live || !YT || !frame.current) return;
       player = new YT.Player(frame.current, { events: { onStateChange: (e) => {
@@ -98,8 +101,8 @@ export default function MediaHost() {
         else if (e.data === 2 || e.data === 0) save();
       } } });
     });
-    return () => { live = false; window.clearInterval(timer); save(); };
-  }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => { live = false; window.clearInterval(timer); save(); try { player?.destroy(); } catch { /* the iframe is already gone */ } player = null; };
+  }, [id, key]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!item || !embed) return null;
   const docked = !anchor;

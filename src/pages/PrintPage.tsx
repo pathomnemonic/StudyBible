@@ -48,7 +48,7 @@ export default function PrintPage() {
     }
     return null;
   })();
-  if (!sheet) return <div className="page"><p>That sheet could not be found. <Link to="/pray">Back to Pray</Link></p></div>;
+  if (!sheet) return <div className="page" data-state="not-found"><p>That sheet could not be found. <Link to="/pray">Back to Pray</Link></p></div>;
   return (
     <div className="page print-page">
       <div className="no-print row" style={{ gap: 8, marginBottom: 10 }}>

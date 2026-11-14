@@ -83,3 +83,28 @@ export const STRUCTURE = () => {
   const links = [...m.querySelectorAll('a[href]')].filter((a) => !a.closest('[role=menu], .tool-menu-list, details')).slice(0, 40).map((a) => a.getAttribute('href'));
   return JSON.stringify({ rows, links });
 };
+
+/**
+ * Everything a tab panel is made of (a fold being open or shut is the reader's own state and does not count), in order, with nothing cut short: every tab row (label, selected), the visible tab panels, EVERY link
+ * target and record id in the page body in order, and the full text with its numbers. Compared before and after leaving a tab, so a list that
+ * comes back with a different item, order or count fails. Parts that are volatile by design are left out: an element can say so with
+ * data-volatile, and popup menus, the warm-up quiz (built from progress) and open popups are excluded.
+ */
+export const PANEL_STATE = () => {
+  const m = document.querySelector('main') || document.body;
+  const EXCLUDE = '.lp-warm, [role=menu], details.tool-menu, details.act-more, [data-volatile], time';
+  const keep = (e) => !e.closest(EXCLUDE);
+  const vis = (e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+  const rows = [...m.querySelectorAll('[role=tablist]')].filter(vis).map((tl) => [...tl.querySelectorAll('[role=tab]')].map((t) => `${t.getAttribute('aria-selected') === 'true' ? '*' : ''}${(t.textContent || '').trim().replace(/\s+/g, ' ')}`));
+  const panels = [...m.querySelectorAll('[role=tabpanel]')].filter(vis).map((p) => `${p.id}|${p.getAttribute('aria-labelledby') ?? ''}`);
+  const items = [...m.querySelectorAll('a[href]')].filter((a) => keep(a) && (vis(a) || a.closest('details'))).map((a) => a.getAttribute('href'));
+  const ids = [...m.querySelectorAll('[data-id], [data-record-id], [data-key], [data-uid]')].filter(keep).map((e) => e.dataset.id ?? e.dataset.recordId ?? e.dataset.key ?? e.dataset.uid);
+  // the text, from a copy with the excluded parts removed, laid out off screen so line breaks match what a reader sees
+  const c = m.cloneNode(true);
+  c.querySelectorAll(EXCLUDE).forEach((n) => n.remove());
+  // whether a fold happens to be open is the reader's state, not the content's: read every fold as open and leave out the summary lines
+  c.querySelectorAll('details').forEach((d) => { d.open = true; d.querySelectorAll(':scope > summary').forEach((x) => x.remove()); });
+  const host = document.createElement('div'); host.style.cssText = 'position:absolute;left:-99999px;top:0;width:360px'; host.appendChild(c); document.body.appendChild(host);
+  const text = (c.innerText || c.textContent || '').replace(/\s+/g, ' ').trim(); host.remove();
+  return JSON.stringify({ rows, panels, items, ids, text });
+};

@@ -9,7 +9,7 @@ export default function CurriculumPacket() {
   const [gl, setGl] = useState<Glossary>({});
   useEffect(() => { getGrade(grade).then((x) => setG(x ?? null)); getGlossary().then(setGl); }, [grade]);
   if (g === undefined) return <div className="page"><p className="muted">Loading…</p></div>;
-  if (!g) return <div className="page"><p>That grade was not found.</p></div>;
+  if (!g) return <div className="page" data-state="not-found"><p>That grade was not found.</p></div>;
   return (
     <div className="page cur-packet">
       <div className="no-print row" style={{ gap: 8, marginBottom: 10 }}>

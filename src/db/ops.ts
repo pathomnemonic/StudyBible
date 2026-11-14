@@ -141,11 +141,15 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
     await db.transaction('rw', [...TABLES.map((t) => (db as any)[t]), db.tombs], async () => {
       // restoring over everything also drops old deletion records, which would otherwise delete the restored rows when synced
       if (mode === 'replace') await db.tombs.clear();
-      for (const t of TABLES) {
+      // folders go first: a merge gives rows new ids, and the notes in a folder must follow the folder to its new id (or to the one it already has here)
+      const folderIds = new Map<number, number>();
+      for (const t of ['folders', ...TABLES.filter((x) => x !== 'folders')] as typeof TABLES[number][]) {
         const rows: any[] = data[t] ?? [];
         if (mode === 'replace') await (db as any)[t].clear();
         for (const r of rows) {
           const rec = { ...r };
+          if (t === 'notes' && mode === 'merge' && rec.folderId != null) { const to = folderIds.get(rec.folderId); if (to !== undefined) rec.folderId = to; else delete rec.folderId; }
+          const oldId = rec.id;
           if (auto.has(t)) {
             rec.uid ??= newUid();
             rec.updatedAt ??= rec.createdAt ?? Date.now();
@@ -162,10 +166,12 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
             const ex = rec.uid ? await (db as any)[t].where('uid').equals(rec.uid).first() : undefined;
             if (ex) {
               if ((ex.updatedAt ?? 0) < (rec.updatedAt ?? 0)) await (db as any)[t].put({ ...rec, id: ex.id });
+              if (t === 'folders' && oldId != null) folderIds.set(oldId, ex.id);
               after.add(`${t}|${rec.uid}`);
               continue;
             }
-            await (db as any)[t].add(rec);
+            const newId = await (db as any)[t].add(rec);
+            if (t === 'folders' && oldId != null) folderIds.set(oldId, newId);
           }
           if (rec.uid) after.add(`${t}|${rec.uid}`);
           n++;

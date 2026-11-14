@@ -13,7 +13,7 @@ export default function TopicPage() {
   }, []);
   if (!d) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
   const t = d.topics.find((x) => x.id === id);
-  if (!t) return <div className="page"><p>Topic not found. <Link to="/study/doctrine">All topics</Link></p></div>;
+  if (!t) return <div className="page" data-state="not-found"><p>Topic not found. <Link to="/study/doctrine">All topics</Link></p></div>;
   return (
     <div className="page">
       <Link to="/study/doctrine" className="small">← Doctrine index</Link>

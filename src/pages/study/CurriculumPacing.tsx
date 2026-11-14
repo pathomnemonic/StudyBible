@@ -52,7 +52,7 @@ export default function CurriculumPacing() {
   const toggleDay = (d: number) => setDays((x) => (x.includes(d) ? x.filter((y) => y !== d) : [...x, d].sort()));
 
   if (g === undefined) return <div className="page"><p className="muted" role="status">Loading…</p></div>;
-  if (!g) return <div className="page"><p>That grade was not found.</p></div>;
+  if (!g) return <div className="page" data-state="not-found"><p>That grade was not found.</p></div>;
   const cls = classes.find((c) => c.id === clsId) ?? classes[0];
   const addToClass = async () => {
     if (!cls) return;

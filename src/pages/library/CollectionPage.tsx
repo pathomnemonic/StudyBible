@@ -55,7 +55,7 @@ export default function CollectionPage() {
   };
 
   if (c === undefined) return <div className="page"><p className="muted">Loading…</p></div>;
-  if (!c) return <div className="page"><h1>Collection not found</h1><p><Link to="/library?tab=collections">Back to your collections</Link></p></div>;
+  if (!c) return <div className="page" data-state="not-found"><h1>Collection not found</h1><p><Link to="/library?tab=collections">Back to your collections</Link></p></div>;
 
   const addPassage = async () => {
     const p = parseRefs(pass);

@@ -11,25 +11,30 @@
 // Network: a first-party request that fails, or answers 4xx/5xx, fails the sweep (URL, status and route are printed).
 // Third-party requests (video players, fonts, podcasts) are only counted; see THIRD_PARTY below and docs/QUALITY.md.
 import { chromium } from 'playwright';
-import { INVARIANTS, SIGNATURE, STRUCTURE } from './lib/invariants.mjs';
+import { INVARIANTS } from './lib/invariants.mjs';
 import { CRAWL, EXCLUDED } from './lib/routes.mjs';
+import { openAllFolds, exerciseTabRows, routeMarkers } from './lib/crawl.mjs';
+import { parseShard, parseConcurrency, pickSizes, pickRoutes } from './lib/config.mjs';
 
 const BASE = process.env.BASE ?? 'http://localhost:4173';
 const HOST = new URL(BASE).host;
 export const ROUTE_EXCLUSIONS = EXCLUDED;
 // the whole route manifest (e2e/lib/routes.mjs; tests/route-manifest.test.ts keeps it in step with src/App.tsx)
-let ROUTES = CRAWL.map((c) => c.path);
 const KIND = new Map(CRAWL.map((c) => [c.path, c.kind]));
-if (process.env.ONLY) ROUTES = ROUTES.filter((r) => r.includes(process.env.ONLY));
-const [shardI, shardN] = (process.env.SWEEP_SHARD ?? '1/1').split('/').map(Number);
-ROUTES = ROUTES.filter((_, i) => i % shardN === shardI - 1);
-
+const ENTRY = new Map(CRAWL.map((c) => [c.path, c]));
 const W = (w, text = 1) => ({ name: text === 1 ? `${w}` : `${w}-big`, w, h: w >= 768 ? 900 : 760, text });
 const ALL = [W(320), W(360), W(390), W(412), W(768), W(1024), W(1280), W(320, 1.3), W(390, 1.3), W(1280, 1.3)];
 const MODE = process.env.SWEEP_MODE ?? (process.env.SWEEP_FAST === '0' ? 'full' : 'fast');
-let SIZES = MODE === 'full' ? ALL : [W(320, 1.3), W(390)];
-if (process.env.SWEEP_SIZES) { const want = new Set(process.env.SWEEP_SIZES.split(',')); SIZES = ALL.filter((s) => want.has(s.name)); }
-const CONCURRENCY = Number(process.env.SWEEP_CONCURRENCY ?? 5);
+let ROUTES, SIZES, CONCURRENCY, SHARD;
+try {
+  if (!['fast', 'full'].includes(MODE)) throw new Error(`SWEEP_MODE "${MODE}" must be fast or full`);
+  SHARD = parseShard(process.env.SWEEP_SHARD ?? '1/1');
+  CONCURRENCY = parseConcurrency(process.env.SWEEP_CONCURRENCY ?? '5');
+  ROUTES = pickRoutes(CRAWL.map((c) => c.path), process.env.ONLY, SHARD);
+  SIZES = process.env.SWEEP_SIZES !== undefined ? pickSizes(process.env.SWEEP_SIZES, ALL) : MODE === 'full' ? ALL : [W(320, 1.3), W(390)];
+  if (!SIZES.length) throw new Error('no viewport sizes selected');
+} catch (e) { console.error(`FAIL sweep configuration: ${e.message}`); process.exit(2); }
+console.log(`sweep configuration: mode=${MODE} shard=${SHARD.join('/')} concurrency=${CONCURRENCY} routes=${ROUTES.length} sizes=${SIZES.map((x) => x.name).join(',')} base=${BASE}`);
 
 /** Third-party hosts the app embeds or links to. Their failures are counted, never failures of this app (we do not control them). */
 const THIRD_PARTY = /(^|\.)(youtube(-nocookie)?\.com|ytimg\.com|googlevideo\.com|google\.com|gstatic\.com|googleapis\.com|vimeo\.com|spotify\.com|scdn\.co|archive\.org|librivox\.org|ascensionpress\.com|podcasts?\.apple\.com|itunes\.apple\.com|simplecast\.com|libsyn\.com|buzzsprout\.com|megaphone\.fm|anchor\.fm|transistor\.fm)$/i;
@@ -41,12 +46,6 @@ const note = (where, what) => { if (!problems.has(what)) problems.set(what, new 
 const warn = (where, what) => { if (!warnings.has(what)) warnings.set(what, new Set()); warnings.get(what).add(where); };
 const stats = { crawls: 0, folds: 0, tabGroups: 0, tabs: 0, clicksFailed: 0, thirdPartyFailed: 0, firstPartyRequests: 0 };
 
-/** wait until the page has stopped changing (lists stream in, quizzes load), so two snapshots are comparable; gives up after 6 s and takes what is there */
-async function settled(p, fn) {
-  let last = await p.evaluate(fn);
-  for (let i = 0; i < 15; i++) { await p.waitForTimeout(400); const now = await p.evaluate(fn); if (now === last) return now; last = now; }
-  return last;
-}
 const browser = await chromium.launch();
 async function crawl(size, route) {
   const ctx = await browser.newContext({ viewport: { width: size.w, height: size.h } });
@@ -82,9 +81,7 @@ async function crawl(size, route) {
       await p.waitForSelector('main h1, main h2, main [role=heading], .page h1, .page h2, [role=heading]', { timeout: 15000 }).catch(() => note(where, 'no heading appeared (the route rendered nothing recognisable)'));
     }
     await p.waitForTimeout(450);
-    const head = (await p.locator('main h1, .page h1, h1').first().innerText().catch(() => '')).trim();
-    if (/this page did not load|something went wrong/i.test(head)) note(where, `the error page is showing ("${head}")`);
-    if (/that page is not here/i.test(head) && KIND.get(route) !== 'unknown-id') note(where, 'the not-found page is showing for a route that should exist');
+    for (const x of await routeMarkers(p, ENTRY.get(route))) note(where, x);
     const check = async (stage) => {
       let found = await p.evaluate(INVARIANTS);
       if (found.length) { await p.waitForTimeout(700); const again = new Set(await p.evaluate(INVARIANTS)); found = found.filter((x) => again.has(x)); } // entry animations move things for a moment
@@ -96,58 +93,10 @@ async function crawl(size, route) {
       catch (e) { stats.clicksFailed++; note(where, `could not click ${what}: ${String(e.message).split('\n')[0].slice(0, 90)}`); return false; }
     };
 
-    // every fold (popup menus and the Bible tools dropdown are not folds), repeating while opening one reveals more
-    for (let pass = 0; pass < 6; pass++) {
-      const folds = p.locator('main details:not(.tool-menu):not(.act-more):not([open]) > summary');
-      const n = await folds.count();
-      if (!n) break;
-      for (let i = 0; i < n; i++) {
-        const f = p.locator('main details:not(.tool-menu):not(.act-more):not([open]) > summary').first();
-        if (!(await f.count())) break;
-        const label = ((await f.innerText().catch(() => '')) || 'fold').trim().replace(/\s+/g, ' ').slice(0, 30);
-        if (await click(f, `fold "${label}"`)) stats.folds++; else break;
-        await p.waitForTimeout(100);
-      }
-      await check(`opening folds (pass ${pass + 1})`);
-    }
-
-    // every tab row, every tab
-    const groups = await p.locator('[role=tablist]').count();
-    for (let g = 0; g < groups; g++) {
-      const list = p.locator('[role=tablist]').nth(g);
-      if (!(await list.isVisible().catch(() => false))) continue;
-      const tabs = list.locator('[role=tab]');
-      const n = await tabs.count();
-      if (n < 2) continue;
-      stats.tabGroups++;
-      const names = [];
-      for (let i = 0; i < n; i++) names.push(((await tabs.nth(i).innerText().catch(() => '')) || `tab ${i + 1}`).trim().replace(/\s+/g, ' ').slice(0, 24));
-      if (!(await click(tabs.nth(0), `tab "${names[0]}"`))) continue;
-      const firstStruct = await settled(p, STRUCTURE); // async content (quizzes, lists, lazy chunks) has arrived before the snapshot
-      const firstSig = await p.evaluate(SIGNATURE);
-      let prevSig = firstSig;
-      for (let i = 1; i < n; i++) {
-        if (await tabs.nth(i).isDisabled().catch(() => false)) { warn(where, `tab "${names[i]}" is disabled, so it was not exercised`); continue; }
-        if (!(await click(tabs.nth(i), `tab "${names[i]}"`))) continue;
-        stats.tabs++;
-        await p.waitForTimeout(300);
-        const sel = await tabs.nth(i).getAttribute('aria-selected');
-        if (sel !== null && sel !== 'true') note(where, `tab "${names[i]}" was clicked but is not marked selected (aria-selected=${sel})`);
-        await check(`tab "${names[i]}"`);
-        const sig = await p.evaluate(SIGNATURE);
-        if (sig === prevSig) warn(where, `tab "${names[i]}" shows nothing different from the tab before it`);
-        prevSig = sig;
-      }
-      stats.tabs++;
-      if (!(await click(tabs.nth(0), `tab "${names[0]}" (coming back)`))) continue;
-      const back = await settled(p, STRUCTURE);
-      const backSig = await p.evaluate(SIGNATURE);
-      if (back !== firstStruct) note(where, `going back to the first tab of a tab row does not restore it: selected tabs and item order differ (row ${g + 1}: ${firstStruct.slice(0, 70)}… then ${back.slice(0, 70)}…)`);
-      // same tabs, same links in the same order, but the words differ: usually lazy data that arrived after the first look (reported, not a failure)
-      else if (backSig !== firstSig) warn(where, `going back to the first tab of a tab row shows slightly different text (row ${g + 1}; links and tab order are identical)`);
-      const sel0 = await tabs.nth(0).getAttribute('aria-selected');
-      if (sel0 !== null && sel0 !== 'true') note(where, `after coming back, tab "${names[0]}" is not marked selected`);
-    }
+    // every fold, and every fold that opening one reveals, until none is closed (a ceiling that is hit is a failure, not a pass)
+    stats.folds += await openAllFolds(p, { note, where, click, check });
+    // every tab row (including rows that only appear after a click), every tab, then back through them all
+    await exerciseTabRows(p, { note, warn, where, click, check, stats });
     stats.crawls++;
   } catch (e) { note(where, `crawl failed: ${String(e.message).slice(0, 100)}`); }
   await ctx.close();
@@ -164,6 +113,7 @@ console.log(`sweep mode=${MODE}: ${ROUTES.length} routes × ${SIZES.length} size
 console.log(`exercised: ${stats.folds} folds, ${stats.tabGroups} tab rows, ${stats.tabs} tabs; ${stats.firstPartyRequests} first-party requests checked; ${stats.clicksFailed} clicks failed; ${stats.thirdPartyFailed} third-party failures counted (not failures of this app)`);
 console.log(`exclusions: ${Object.entries(ROUTE_EXCLUSIONS).map(([r, why]) => `${r} (${why})`).join('; ') || 'none'}`);
 if (warnings.size) { console.log(`warnings (${warnings.size}, not failures):`); for (const [what, wheres] of [...warnings].slice(0, 25)) console.log(`  ~ ${what}  e.g. ${[...wheres].slice(0, 2).join(' | ')}${wheres.size > 2 ? ` (+${wheres.size - 2})` : ''}`); }
+if (!stats.crawls && !problems.size) problems.set('no screen was crawled successfully', new Set(['sweep']));
 if (problems.size) {
   console.error(`FAIL sweep: ${problems.size} kinds of problem on ${jobs.length} screens`);
   for (const [what, wheres] of [...problems].slice(0, 70)) console.error(`- ${what}\n    e.g. ${[...wheres].slice(0, 3).join(' | ')}${wheres.size > 3 ? ` (+${wheres.size - 3} more)` : ''}`);

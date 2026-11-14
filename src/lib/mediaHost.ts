@@ -42,3 +42,6 @@ export function release(key: string, anchor: HTMLElement | null) {
 }
 
 export function closeHost() { if (state.item) { state = { item: null, anchor: null }; emit(); } }
+
+// a window onto the host for the browser checks (e2e/mediahost-lifecycle.mjs), like window.__sbDirty
+if (typeof window !== 'undefined') (window as unknown as { __sbHost?: unknown }).__sbHost = { claim, closeHost, release, getState };

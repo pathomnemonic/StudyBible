@@ -201,7 +201,7 @@ export function PlayPage() {
   const [sent, setSent] = useState(false);
   const qKey = `${v?.qIndex}:${v?.phase === 'question'}`;
   useEffect(() => { setSel([]); setText(''); setSent(false); }, [qKey]);
-  if (!token) return <div className="page"><p>You have not joined this class yet.</p><Link className="btn primary" to={`/join/${code}`}>Join</Link></div>;
+  if (!token) return <div className="page" data-state="not-found"><p>You have not joined this class yet.</p><Link className="btn primary" to={`/join/${code}`}>Join</Link></div>;
   if (state === 'gone') return <div className="page"><h1>This session has ended</h1><p className="muted">The teacher closed it, or it timed out.</p><Link className="btn" to="/join">Join another</Link></div>;
   if (!v) return <div className="page"><p className="muted" aria-busy="true">Connecting…</p><p><ConnChip state={state} link={link} /></p><p className="muted small">If this stays here, your host may have closed the game. <Link to="/join">Join again</Link></p></div>;
   const me = v.me;
@@ -300,7 +300,7 @@ export function HostPage() {
     window.addEventListener('keydown', k);
     return () => window.removeEventListener('keydown', k);
   });
-  if (state === 'gone' && !v) return <div className="page"><p>This session is not on this device, or it has ended. Open it where you started it, or start a new one.</p><Link className="btn" to="/study/curriculum">Lessons</Link></div>;
+  if (state === 'gone' && !v) return <div className="page" data-state="not-found"><p>This session is not on this device, or it has ended. Open it where you started it, or start a new one.</p><Link className="btn" to="/study/curriculum">Lessons</Link></div>;
   if (state === 'gone') return <div className="page"><h1>This session has ended</h1><Link className="btn" to="/study/curriculum">Back to lessons</Link></div>;
   if (!v) return <div className="page"><p className="muted" aria-busy="true">Connecting…</p></div>;
   const q = v.question;

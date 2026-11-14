@@ -19,7 +19,7 @@ export default function CurriculumGrade() {
   const prog = useLiveQuery(() => db.planProgress.get(progressId(grade)), [grade]);
   const stars = starsOf(useLiveQuery(() => db.planProgress.get(xpId(grade)), [grade])?.done);
   if (g === undefined) return <div className="page"><p className="muted">Loading…</p></div>;
-  if (!g) return <div className="page"><Link to="/study/curriculum">← Curriculum</Link><p>That grade was not found.</p></div>;
+  if (!g) return <div className="page" data-state="not-found"><Link to="/study/curriculum">← Curriculum</Link><p>That grade was not found.</p></div>;
   const band = bandOf(g.band);
   const done = new Set(prog?.done ?? []);
   let k = -1;

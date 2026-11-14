@@ -137,7 +137,7 @@ export default function WorkReader() {
   }, [work, tocFind]);
 
   if (meta === undefined) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
-  if (meta === null) return <div className="page"><Link to="/room" className="small">← Reading room</Link><h1>That work is not in the library</h1><p>There is no text with that address. It may have been removed, or the link may be mistyped.</p><p><Link to="/room">Browse the reading room</Link></p></div>;
+  if (meta === null) return <div className="page" data-state="not-found"><Link to="/room" className="small">← Reading room</Link><h1>That work is not in the library</h1><p>There is no text with that address. It may have been removed, or the link may be mistyped.</p><p><Link to="/room">Browse the reading room</Link></p></div>;
   if (!work || !sec) return <div className="center-note">Loading text…</div>;
   const quiet = settings.scriptureOnly;
   const last = work.sections.length - 1;

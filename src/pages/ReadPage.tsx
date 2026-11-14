@@ -676,7 +676,7 @@ export default function ReadPage() {
   const badChapter = edition.chapters[bk.id] != null && (!/^\d+$/.test(chapter) || +chapter < 1 || +chapter > lastCh);
   if (unknownEdition || unknownBook || badChapter) {
     return (
-      <div className="page" role="alert">
+      <div className="page" role="alert" data-state="not-found">
         <Link to="/read" className="small">← Bible</Link>
         {unknownEdition && <><h1>That translation is not available</h1><p>There is no translation with the address “{edId}”. The link may be mistyped, or from an older version of the app.</p><p><Link className="btn primary" to={`/read/${edition.id}/${bk.id}/${chNum}`}>Read {bk.name} {chNum} in {edition.shortName}</Link></p></>}
         {!unknownEdition && unknownBook && <><h1>That book is not in the Bible</h1><p>There is no book with the address “{book}”.</p><p><Link className="btn primary" to={`/read/${edition.id}/GEN/1`}>Start at Genesis</Link> <Link className="btn" to={`/read/${edition.id}/JHN/1`}>Open John</Link></p></>}
