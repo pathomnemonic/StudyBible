@@ -77,6 +77,8 @@ describe('the built index', () => {
 describe('edition-to-index conversion', () => {
   it('keeps verified verse and chapter links but withholds unverified John and Psalm mappings', () => {
     expect(toIndexVerses('kjv', 'JHN', 3, 16)).toEqual([[3, 16]]);
+    expect(toIndexVerses('vulgate', 'PSA', 22, 1)).toEqual([[23, 1]]);
+    expect(toIndexChapters('vulgate', 'GEN', 1)).toEqual([1]);
     expect(toIndexVerses('kjv', 'JHN', 6, 51)).toEqual([]);
     expect(toIndexVerses('kjv', 'PSA', 2, 1)).toEqual([]);
     expect(toIndexChapters('kjv', 'TOB', 1)).toEqual([]);
