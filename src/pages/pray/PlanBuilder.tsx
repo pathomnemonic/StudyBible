@@ -65,7 +65,7 @@ export default function PlanBuilder({ onSaved }: { onSaved: (id: number) => void
       ) : (
         <>
           <textarea aria-label="Passages, one per line" placeholder={'One passage per line, e.g.\nJohn 6:51-58\nPsalm 23\nRomans 8'} value={list} onChange={(e) => setList(e.target.value)} rows={4} style={{ width: '100%' }} />
-          <p className="muted small">Typed passages use modern English/KJV numbering. Only passages verified against the source and canonical Vulgate edition are saved as Vulgate anchors.</p>
+          <p className="muted small">Passage entry uses modern English/KJV numbering; book/chapter selections use canonical Vulgate numbering. Only references verified against the canonical Vulgate edition are saved.</p>
         </>
       )}
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', margin: '8px 0' }}>
