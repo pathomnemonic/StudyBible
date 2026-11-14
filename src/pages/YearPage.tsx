@@ -57,7 +57,7 @@ export default function YearPage() {
           <div className="stat-grid">
             {cards.map(([k, v, d]) => <div className="card stat" key={k}><strong>{v}</strong><span>{k}</span><em>{d}</em></div>)}
           </div>
-          {s.undatedListening && <p className="muted small" role="note">Some older listening records have cumulative totals but no dated activity. Their time and completion dates cannot be reconstructed, so they are excluded rather than attributed to the wrong year.</p>}
+          {s.undatedListening && <p className="muted small" role="note">Some older listening records have cumulative totals or completion marks without dated activity. Their listening time and completion dates cannot be reconstructed, so they are excluded rather than attributed to the wrong year.</p>}
           <section className="card" aria-label="Days active each month">
             <h2 className="eyebrow-h">Days you were here, by month</h2>
             <div className="bars" role="img" aria-label={MONTHS.map((m, i) => `${m} ${s.perMonth[i]}`).join(', ')}>
