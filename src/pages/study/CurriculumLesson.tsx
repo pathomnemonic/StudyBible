@@ -176,6 +176,12 @@ export default function CurriculumLesson() {
       <div className={`lesson-banner pillar-${pillarKey(lesson.unit.pillar)}`}><span className="pillar-ico" aria-hidden="true">{pillarIcon(lesson.unit.pillar)}</span><div><div className="pillar-name">{lesson.unit.pillar}</div><h1 style={{ margin: 0 }}>{lesson.title}</h1></div></div>
       <p className="muted small" style={{ marginTop: 0 }}>{gradeLabel(g.id)} · {g.theme} · Lesson {idx + 1} of {flat.length}{isLifeLesson(lesson.id) && <span className="key-badge"> ★ Life lesson (short on time)</span>}{isKeyLesson(g.id, lesson.id) && <span className="key-badge"> ★ Core lesson</span>}</p>
       {bigQ && <p className="big-q"><span className="chip sel">Big question</span> {bigQ}</p>}
+      <p className="lesson-time-one muted small" aria-label="How long this lesson takes">⏱ About {lessonTime.selfMinutes} min on your own · {lessonTime.classMinutes} min with a group</p>
+      {liveOpen && <StartLive grade={g} lesson={lesson} slides={liveSlides()} onClose={() => setLiveOpen(false)} />}
+      <div className="tabbar no-print" role="tablist" aria-label="View">
+        {modes.map(([m, l, d]) => <button key={m} role="tab" aria-selected={mode === m || (adult && mode === 'family' && m === 'student')} title={d} onClick={() => setM(m)}>{l}</button>)}
+      </div>
+      {mode === 'teacher' && (<div className="lesson-tools">
       <p className="lesson-time" aria-label="How long this lesson takes">
         <span title="Working through the slides with a group, with discussion and the activity">⏱ About {lessonTime.classMinutes} min with a group</span>
         <span title="Reading, thinking, the activity and the check, working on your own">📖 About {lessonTime.selfMinutes} min on your own</span>
@@ -183,10 +189,6 @@ export default function CurriculumLesson() {
       </p>
       <InTracks type="lesson" id={lesson.id} />
 
-      {liveOpen && <StartLive grade={g} lesson={lesson} slides={liveSlides()} onClose={() => setLiveOpen(false)} />}
-      <div className="tabbar no-print" role="tablist" aria-label="View">
-        {modes.map(([m, l, d]) => <button key={m} role="tab" aria-selected={mode === m || (adult && mode === 'family' && m === 'student')} title={d} onClick={() => setM(m)}>{l}</button>)}
-      </div>
       <div className="row no-print" style={{ gap: 6, flexWrap: 'wrap', margin: '4px 0 10px' }}>
         <button className="btn small primary" onClick={() => setRunning(true)}>🎒 Run this lesson</button>
         <button className="btn small" onClick={() => setPresent(true)}>▶ Present as slides</button>
@@ -201,6 +203,8 @@ export default function CurriculumLesson() {
           </div>
         </details>
       </div>
+
+      </div>)}
 
       {mode === 'student' && <div className="lp-view no-print" role="group" aria-label="How to read this lesson"><button type="button" className={`btn small${view === 'path' ? ' primary' : ''}`} aria-pressed={view === 'path'} onClick={() => setV('path')}>Step by step</button><button type="button" className={`btn small${view === 'whole' ? ' primary' : ''}`} aria-pressed={view === 'whole'} onClick={() => setV('whole')}>Whole lesson</button></div>}
 
@@ -223,6 +227,34 @@ export default function CurriculumLesson() {
       {mode !== 'teacher' && !usePath && <LessonPlay grade={g} lesson={lesson} index={idx} gl={gl} />}
 
       {mode !== 'teacher' && !usePath && lesson.mem && <section className="cur-mem" aria-label="Learn by heart"><h2 className="eyebrow-h">Learn by heart</h2><p>{lesson.mem}</p></section>}
+
+      {mode !== 'teacher' && (
+        <section className="lesson-tools lesson-tools-after no-print" aria-label="Use this lesson another way">
+          <h2 className="eyebrow-h">Use this lesson another way</h2>
+      <p className="lesson-time" aria-label="How long this lesson takes">
+        <span title="Working through the slides with a group, with discussion and the activity">⏱ About {lessonTime.classMinutes} min with a group</span>
+        <span title="Reading, thinking, the activity and the check, working on your own">📖 About {lessonTime.selfMinutes} min on your own</span>
+        <span className="muted small">{lessonTime.slides} slides · {lessonTime.contentSlides} of teaching</span>
+      </p>
+      <InTracks type="lesson" id={lesson.id} />
+
+      <div className="row no-print" style={{ gap: 6, flexWrap: 'wrap', margin: '4px 0 10px' }}>
+        <button className="btn small primary" onClick={() => setRunning(true)}>🎒 Run this lesson</button>
+        <button className="btn small" onClick={() => setPresent(true)}>▶ Present as slides</button>
+        <button className="btn small" onClick={() => setLiveOpen(true)}>📡 Host live</button>
+        <QuickQuizButton grade={g} lesson={lesson} />
+        {(!usePath || done) && <button className={`btn small${done ? ' primary' : ''}`} aria-pressed={done} onClick={() => toggleDone(g.id, idx, !done)}>{done ? '✓ Done' : 'Mark done'}</button>}
+        <details className="act-more"><summary className="btn small">More</summary>
+          <div className="act-more-list">
+        <Link className="btn small" to="/join">Join a class</Link>
+        {typeof speechSynthesis !== 'undefined' && <button className="btn small" onClick={readAloud} aria-pressed={speaking}>{speaking ? '■ Stop' : '🔊 Read to me'}</button>}
+        <button className="btn small" onClick={() => window.print()}>🖨 Print this lesson</button>
+          </div>
+        </details>
+      </div>
+
+        </section>
+      )}
 
       {mode === 'teacher' && (
         <>

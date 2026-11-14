@@ -23,6 +23,20 @@ for (const route of ['/', '/pray', '/read']) { await p.goto(`${BASE}/#${route}`)
 await p.evaluate(() => { document.querySelector('.media-host iframe').dataset.keep = '1'; });
 await p.goto(`${BASE}/#/learn`); await p.waitForTimeout(500);
 if (!(await p.evaluate(() => document.querySelector('.media-host iframe')?.dataset.keep === '1'))) fail('the player element was recreated when changing page');
+// move it: drag the grip, the player follows and stays on screen, the place is kept across pages; the keyboard works; Home puts it back
+const rect = () => p.evaluate(() => document.querySelector('.media-host.docked').getBoundingClientRect().toJSON());
+const r0 = await rect(); const g = await p.locator('.mh-grip').boundingBox();
+await p.mouse.move(g.x + g.width / 2, g.y + g.height / 2); await p.mouse.down(); await p.mouse.move(g.x + g.width / 2 - 150, g.y + g.height / 2 - 300, { steps: 8 }); await p.mouse.up(); await p.waitForTimeout(200);
+const r1 = await rect();
+if (Math.abs(r1.left - (r0.left - 150)) > 6 || Math.abs(r1.top - (r0.top - 300)) > 6) fail('dragging the grip should move the player: ' + JSON.stringify([r0, r1]));
+await p.mouse.move(g.x, g.y); await p.mouse.down(); await p.mouse.move(-500, -500, { steps: 4 }); await p.mouse.up(); await p.waitForTimeout(100);
+const r2 = await rect(); if (r2.left < 0 || r2.top < 0) fail('the player must stay on screen: ' + JSON.stringify(r2));
+await p.goto(`${BASE}/#/pray`); await p.waitForTimeout(500);
+const r3 = await rect(); if (Math.abs(r3.left - r2.left) > 2 || Math.abs(r3.top - r2.top) > 2) fail('the place should be kept on another page: ' + JSON.stringify([r2, r3]));
+await p.locator('.mh-grip').focus(); await p.keyboard.press('ArrowRight'); await p.waitForTimeout(100);
+const r4 = await rect(); if (r4.left <= r3.left) fail('the arrow keys should move the player');
+await p.keyboard.press('Home'); await p.waitForTimeout(100);
+const r5 = await rect(); if (Math.abs(r5.left - r0.left) > 4 || Math.abs(r5.top - r0.top) > 4) fail('Home should put the player back: ' + JSON.stringify([r0, r5]));
 // close
 await p.locator('.mh-x').click(); await p.waitForTimeout(300);
 if (await p.locator('.media-host').count()) fail('closing should stop the player');

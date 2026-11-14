@@ -34,6 +34,11 @@ export const INVARIANTS = () => {
       if (!seen.has(k)) { seen.add(k); out.push(`"${label(a)}" overlaps "${label(c)}"`); }
     }
   }
+  // 1b. a row of tabs must show every tab: tabs hidden behind a sideways scroll are never found (the Media tab's "Year, For you, …" bar once did this)
+  for (const tl of root.querySelectorAll('[role=tablist]')) {
+    if (!vis(tl)) continue;
+    if (tl.scrollWidth > tl.clientWidth + 3 && /(auto|scroll)/.test(getComputedStyle(tl).overflowX) && !tl.hasAttribute('data-scrolls-by-design')) out.push(`tab row "${(tl.getAttribute('aria-label') || label(tl))}" hides tabs behind a sideways scroll (${tl.scrollWidth}>${tl.clientWidth})`);
+  }
   // 2. the page itself scrolls sideways
   if (document.documentElement.scrollWidth > window.innerWidth + 2) out.push(`page scrolls sideways (${document.documentElement.scrollWidth}>${window.innerWidth})`);
   // 3. text that should never reach a reader: leaked code values, control characters, calendar-style region tags, mojibake

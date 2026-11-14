@@ -5120,8 +5120,11 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 :root[data-layout='compact'] .tabbar:not(:has(> :nth-child(7))) { margin: 6px 0 8px; }
 :root[data-layout='compact'] .lod { min-height: var(--row-h); margin: 0 0 8px; padding: 6px 14px; align-items: center; border-radius: 12px; }
 /* compact: a row of up to six tabs stays on one line */
-:root[data-layout='compact'] .tabbar:has(> :nth-child(5)) { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; scrollbar-width: none; gap: 2px; padding: 3px; border-radius: 999px; }
-:root[data-layout='compact'] .tabbar:has(> :nth-child(5)) button { flex: 1 0 auto !important; min-width: max-content; padding: 4px 8px !important; font-size: .76rem !important; white-space: nowrap !important; min-height: 32px; }
+@media (min-width: 561px) {
+:root[data-layout='compact'] .tabbar:has(> :nth-child(5)) { display: flex !important; flex-wrap: wrap !important; overflow: visible !important; gap: 3px; padding: 3px; border-radius: 18px; } /* every tab stays on screen: a long row wraps to a second line instead of hiding behind a sideways scroll nobody discovers */
+:root[data-layout='compact'] .tabbar:has(> :nth-child(5)) button { flex: 1 1 auto !important; min-width: 0; padding: 4px 9px !important; font-size: .8rem !important; white-space: nowrap !important; min-height: 34px; }
+}
+/* on a phone (560px and under) a row of five or more tabs is the even three-column grid defined above, so every tab is visible */
 .year-pick { margin: 0 0 8px; width: 100%; }
 .year-pick button { flex: 1 1 0; }
 .page.learn { display: flex; flex-direction: column; gap: 10px; }
@@ -6399,3 +6402,26 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 /* Two columns stay on every phone: a long word wraps inside its tile instead of the list being forced into one column. */
 /* shelf cards in narrow columns: a long single word wraps instead of spilling out of its card */
 .shelf-card { grid-template-columns: minmax(0, 1fr); } .shelf-card .t, .shelf-card .d { overflow-wrap: anywhere; hyphens: auto; }
+
+/* the docked player can be moved anywhere: a grip at the left of its bar */
+.mh-grip { flex: none; width: 32px; height: 28px; border: 0; background: transparent; color: var(--muted, #999); font-size: 1.1rem; line-height: 1; cursor: grab; touch-action: none; border-radius: 8px; }
+.mh-grip:active { cursor: grabbing; }
+.mh-grip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+@media (hover: hover) { .mh-grip:hover { background: color-mix(in srgb, var(--text) 12%, transparent); } }
+.mh-bar { padding-left: 2px; }
+
+/* ===== Lessons: one thing at a time, room to read ===== */
+.lesson-time-one { margin: 2px 0 10px; }
+.lesson-tools { margin: 10px 0 14px; padding: 12px 14px; border-radius: 16px; border: 1px solid var(--hairline, #8884); background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.lesson-tools-after { margin-top: 22px; }
+.lesson-tools .lesson-time { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 0 0 8px; font-size: .88rem; }
+.lp-card { padding: 18px 18px 20px; line-height: 1.6; }
+.lp-card > * + * { margin-top: 14px; }
+.lp-card h3 { margin: 18px 0 6px; font-size: 1.02rem; }
+.lp-card .lp-hook { font-size: 1.1rem; }
+.lp-card .cur-big { margin: 0; padding: 12px 14px; }
+.lp-warm, .lp-objectives { border: 1px solid var(--hairline, #8884); border-radius: 12px; padding: 8px 12px; background: transparent; }
+.lp-warm > summary, .lp-objectives > summary { cursor: pointer; font-weight: 600; font-size: .95rem; }
+.lp-objectives ul { margin: 8px 0 2px; padding-left: 1.2em; }
+.lp-title { margin: 0 0 4px; }
+@media (max-width: 480px) { .lp-card { padding: 14px 14px 16px; } .lp-steps { gap: 6px; } }

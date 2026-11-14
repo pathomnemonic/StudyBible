@@ -12,7 +12,8 @@ await p.goto(`${BASE}/#/study/videos`); await p.waitForSelector('[aria-label="Co
 const txt = await p.locator('[aria-label="Continue watching"]').innerText();
 if (!/Where is the evidence/.test(txt) || !/10:00/.test(txt)) fail('resume row shows title and time: ' + txt);
 await p.locator('[aria-label="Continue watching"] button:has-text("Resume")').click();
-await p.waitForSelector('[aria-label="Continue watching"] iframe');
-const src = await p.locator('[aria-label="Continue watching"] iframe').getAttribute('src');
+// the player lives in the persistent media host (so it keeps playing across tabs), not inside the list
+await p.waitForSelector('.media-host iframe');
+const src = await p.locator('.media-host iframe').first().getAttribute('src');
 if (!/start=597/.test(src) || !/enablejsapi=1/.test(src)) fail('player opens at the saved point: ' + src);
 await b.close(); console.log('videoresume ok');

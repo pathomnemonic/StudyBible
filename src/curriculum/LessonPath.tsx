@@ -111,7 +111,7 @@ export default function LessonPath(p: Props) {
     <figure className="lp-figure"><img src={import.meta.env.BASE_URL + w.file} alt={w.title} loading="lazy" /><figcaption className="small muted">{i === 0 && lesson.visual?.caption ? lesson.visual.caption : w.title}, {w.artist}{(w as { credit?: string }).credit ? ` (${(w as { credit?: string }).credit})` : ''}</figcaption></figure>
   ) : null; };
   const picture = pic(0);
-  const warm = p.warmup && <details className="lp-warm" open><summary>Warm-up: what do you remember?</summary>{p.warmup}</details>;
+  const warm = p.warmup && <details className="lp-warm"><summary>Warm-up: what do you remember?</summary>{p.warmup}</details>;
   const hasMedia = !!p.extras && (p.extras.watch.length > 0 || p.extras.read.length > 0);
   const checkBlock = <div className="lp-check">{p.quiz}</div>;
   const deeper = (
@@ -137,7 +137,7 @@ export default function LessonPath(p: Props) {
       ? <div className="lp-explain">{lesson.explain.map((t) => <p key={t}>{t}</p>)}</div>
       : points.length > 0 ? <ol className="lp-points">{points.map((t) => <li key={t}>{t}</li>)}</ol> : null;
     const objectives = lesson.objectives && lesson.objectives.length > 0 && (
-      <div className="lp-objectives"><h3>By the end you can</h3><ul>{lesson.objectives.map((t) => <li key={t}>{t}</li>)}</ul></div>
+      <details className="lp-objectives"><summary>What you will be able to do</summary><ul>{lesson.objectives.map((t) => <li key={t}>{t}</li>)}</ul></details>
     );
     const remember = lesson.remember && lesson.remember.length > 0 && (
       <div className="lp-remember"><h3>Remember</h3><ul>{lesson.remember.map((t) => <li key={t}>{t}</li>)}</ul></div>
@@ -145,7 +145,9 @@ export default function LessonPath(p: Props) {
     const leaderSay = lesson.script && (
       <div className="lp-leader"><h3>A grown-up says it like this</h3>{[lesson.script.open, ...lesson.script.teach].filter(Boolean).map((t) => <p key={t}>{t}</p>)}</div>
     );
-    const ccc = src.ccc.slice(0, cccCap).map((c) => <Excerpt key={c.n} n={c.n} text={c.t} />);
+    const cccAll = src.ccc.slice(0, cccCap).map((c) => <Excerpt key={c.n} n={c.n} text={c.t} />);
+    // one passage of the Catechism up front, the rest one tap away (labelled, not hidden)
+    const ccc = cccAll.length > 2 ? <>{cccAll.slice(0, 1)}<details className="lp-deeper"><summary>{cccAll.length - 1} more from the Catechism</summary>{cccAll.slice(1)}</details></> : cccAll;
     const myths = lesson.misc && lesson.misc.length > 0 && (
       <div className="lp-myths"><h3>Things people often get wrong</h3><ul>{lesson.misc.map((t) => <li key={t}>{t}</li>)}</ul></div>
     );
