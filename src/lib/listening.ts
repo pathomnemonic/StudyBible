@@ -48,12 +48,3 @@ export function hasUndatedListening(rows: Pick<EpisodeProgress, 'heard' | 'ranTo
   return rows.some((r) => (r.heard !== undefined || r.ranToEnd) && !Object.keys(r.listeningDays ?? {}).length);
 }
 
-/**
- * What the Year page may say about listening. Rows written by the current player carry `heard` (seconds that really played). Older rows have no
- * such field: for those only the place an unfinished episode was left at counts (you did get at least that far); a "completed" older row says nothing
- * about time (it may have been marked played, or caught up by a plan), so it adds none. Episodes played to the end are only those the player saw end.
- */
-export function listeningStats(rows: Pick<EpisodeProgress, 'heard' | 'ranToEnd' | 'position' | 'completed'>[]): { hours: number; playedToEnd: number } {
-  const secs = rows.reduce((a, r) => a + (r.heard !== undefined ? Math.max(0, r.heard) : !r.completed && r.position > 0 ? r.position : 0), 0);
-  return { hours: Math.round(secs / 360) / 10, playedToEnd: rows.filter((r) => r.ranToEnd).length };
-}
