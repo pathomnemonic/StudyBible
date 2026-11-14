@@ -87,12 +87,13 @@ describe('listening time', () => {
   it('continues disclosing legacy undated time after new dated listening is recorded', async () => {
     const { db } = await import('../src/db/db');
     const { creditListening, hasUndatedListening, listeningStats } = await import('../src/lib/listening');
-    await db.episodeProgress.put({ episodeId: 'legacy-then-new', position: 0, completed: false, heard: 3600, updatedAt: 1 });
+    await db.episodeProgress.put({ episodeId: 'legacy-then-new', position: 0, completed: true, heard: 3600, ranToEnd: true, updatedAt: 1 });
     await creditListening('legacy-then-new', 60, { position: 60 });
     const rows = await db.episodeProgress.toArray();
     expect(listeningStats(rows, new Date().getFullYear())).toEqual({ hours: 0.2, playedToEnd: 0 });
     expect(hasUndatedListening(rows)).toBe(true);
     expect(rows[0].undatedHeard).toBe(3600);
+    expect(rows[0].undatedCompletions).toBe(1);
   });
 
   it('position-only progress saves do not add dated listening or completion', async () => {
