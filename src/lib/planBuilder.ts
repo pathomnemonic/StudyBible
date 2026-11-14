@@ -5,13 +5,11 @@ import { formatRef, refId, type Ref } from './refs';
 export type Pace = { perDay: number } | { days: number };
 export const MAX_DAYS = 1100;
 
-/** whole chapters from..to of one book (anchor, i.e. Vulgate, numbering; the numbers are clamped to the book) */
+/** whole chapters from..to of one book in anchor (Vulgate) numbering; invalid input is rejected, never clamped */
 export function chapterUnits(book: string, from: number, to: number): Ref[] {
   const b = BOOK_BY_ID[book];
-  if (!b) return [];
-  const a = Math.max(1, Math.min(from, b.chapters));
-  const z = Math.max(a, Math.min(to, b.chapters));
-  return Array.from({ length: z - a + 1 }, (_, i) => ({ book, c1: a + i, c2: a + i }));
+  if (!b || !Number.isInteger(from) || !Number.isInteger(to) || from < 1 || to < from || to > b.chapters) return [];
+  return Array.from({ length: to - from + 1 }, (_, i) => ({ book, c1: from + i, c2: from + i }));
 }
 
 /** Cuts the units into days in order. perDay: that many units a day (the last day may have fewer). days: spread over that many days, the earlier days taking the extra one. Never more days than units, never more than MAX_DAYS. */
