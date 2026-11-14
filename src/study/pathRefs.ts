@@ -13,7 +13,7 @@ const load = () => (cache ??= getJson<Idx>('paths/index.json', true).then(async 
     const f = await getJson<PathFile>(`paths/${p.id}.json`, true).catch(() => null);
     f?.steps.forEach((s, i) => {
       const x = parseRefs(s.ref);
-      if (x.ok) out.push({ id: p.id, title: p.title, step: i, r: convertRef('kjv', 'vulgate', x.refs[0].ref).ref });
+      if (x.ok) { const mapped = convertRef('kjv', 'vulgate', x.refs[0].ref); if (mapped.exact) out.push({ id: p.id, title: p.title, step: i, r: mapped.ref }); }
     });
   }
   return out;
