@@ -84,7 +84,7 @@ describe('repairing passage addresses', () => {
       { key: `notes:${id}`, tbl: 'notes' as const, id, where: 'first note', changes: [], patch: { body: 'changed' }, before: { body: 'first' } },
       { key: 'notes:999999', tbl: 'notes' as const, id: 999999, where: 'missing note', changes: [], patch: { body: 'changed' }, before: { body: 'missing' } },
     ];
-    await expect(applyRepairs(repairs)).rejects.toThrow(/could not update/i);
+    await expect(applyRepairs(repairs)).rejects.toThrow(/changed after the check/i);
     expect((await db.notes.get(id))?.body).toBe('first');
   });
 
