@@ -1,7 +1,9 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { beforeAll, describe, expect, it } from 'vitest';
+import { loadVersification } from '../src/lib/versification';
 
 beforeAll(() => {
+  loadVersification(JSON.parse(readFileSync('public/data/versification.json', 'utf8')));
   globalThis.fetch = (async (url: string) => {
     const p = `public${String(url).replace(/^https?:\/\/[^/]+/, '').replace(/^\.?\//, '/')}`;
     if (!existsSync(p)) return { ok: false, status: 404, json: async () => null } as Response;
