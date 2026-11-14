@@ -6,13 +6,14 @@ import { getPlaces, type Place } from '../../data/content';
 import { getJson } from '../../data/loader';
 import { parseRefId, formatRef } from '../../lib/refs';
 import ShareButton from '../../components/ShareButton';
+import { distanceKm, pinPoints } from '../../lib/gameLogic';
 import { dayIndex, markDailyDone, seeded, shuffled } from '../../lib/dailyGame';
 
 const ROUNDS = 5;
 /** Regions and rivers are too wide to point at. */
 const BROAD = new Set(['Asia', 'Assyria', 'Babylon', 'Beyond the River', 'Canaan', 'Cush', 'Edom', 'Egypt', 'Euphrates', 'Galilee', 'Gilead', 'Jordan', 'Judea', 'Lebanon', 'Macedonia', 'Moab', 'Negeb', 'Nile', 'Bashan', 'Midian', 'Amalek', 'Arabah', 'Carmel']);
-const points = (km: number) => Math.round(100 * Math.pow(0.5, km / 120));
-const km = (a: [number, number], b: [number, number]) => L.latLng(a).distanceTo(L.latLng(b)) / 1000;
+const points = pinPoints;
+const km = distanceKm;
 
 /** Where in the Bible lands is it? Tap the map for a place named in Scripture; the closer you are, the more you score. */
 export default function PilgrimPage() {
@@ -25,6 +26,9 @@ export default function PilgrimPage() {
   const [log, setLog] = useState<number[]>([]);
   const [last, setLast] = useState<{ d: number; pts: number } | null>(null);
   const [hint, setHint] = useState(false);
+  const [latIn, setLatIn] = useState('');
+  const [lonIn, setLonIn] = useState('');
+  const [pinMsg, setPinMsg] = useState('');
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const layer = useRef<L.LayerGroup | null>(null);
@@ -70,8 +74,10 @@ export default function PilgrimPage() {
     }
   }, [guess, last, q]);
 
+  const pinAt = (lat: number, lon: number) => { if (answered.current || Number.isNaN(lat) || Number.isNaN(lon) || Math.abs(lat) > 90 || Math.abs(lon) > 180) { setPinMsg('Enter a latitude from -90 to 90 and a longitude from -180 to 180.'); return; } setGuess([lat, lon]); setPinMsg(`Pin placed at ${lat.toFixed(2)}, ${lon.toFixed(2)}.`); map.current?.panTo([lat, lon], { animate: false }); };
+  const pinCentre = () => { const c = map.current?.getCenter(); if (c) pinAt(c.lat, c.lng); };
   const lock = () => { if (!q || !guess) return; const d = km(guess, [q.lat, q.lon]); const pts = points(d); setScore((s) => s + pts); setLog((l) => [...l, pts]); setLast({ d, pts }); };
-  const next = () => { setGuess(null); setLast(null); setHint(false); setI((n) => n + 1); map.current?.setView([33, 35], 4, { animate: false }); };
+  const next = () => { setGuess(null); setLast(null); setHint(false); setPinMsg(''); setI((n) => n + 1); map.current?.setView([33, 35], 4, { animate: false }); };
   useEffect(() => { if (done && daily) markDailyDone('pilgrim', `${score}/${ROUNDS * 100}`, score >= 400); }, [done]); // eslint-disable-line
   const again = () => { setDaily(false); setSeed(Math.floor(Math.random() * 1e6)); setI(0); setScore(0); setLog([]); setGuess(null); setLast(null); };
   const shareText = () => `Pin the Place ${daily ? '#' + dayIndex() : 'practice'} 📍 ${score}/${ROUNDS * 100}\n${log.map((p) => (p >= 80 ? '🟩' : p >= 50 ? '🟨' : p >= 20 ? '🟧' : '🟥')).join('')}`;
@@ -88,7 +94,19 @@ export default function PilgrimPage() {
         <>
           <p className="pg-ask">Where is <strong>{q?.n}</strong>? <span className="muted small">({i + 1} of {ROUNDS})</span></p>
           {hint && q && <p className="muted small">{first ? `It appears in ${formatRef(first)}.` : ''}{q.c ? ` ${q.c}.` : ''}</p>}
-          <div ref={el} className="pg-map" aria-label="Map: tap where you think the place is" />
+          <div ref={el} className="pg-map" role="application" aria-label="Map. Tap where you think the place is, or use the arrow keys to move the map and the pin buttons below." onKeyDown={(e) => { if (e.key === 'Enter' && !last) { e.preventDefault(); pinCentre(); } }} />
+          {!last && (
+            <fieldset className="pg-kb" style={{ border: 0, padding: 0, margin: '6px 0' }}>
+              <legend className="small"><strong>Without the mouse or touch</strong></legend>
+              <div className="row" style={{ gap: 8, flexWrap: 'wrap', alignItems: 'end' }}>
+                <button type="button" className="btn small" onClick={pinCentre}>Place pin at the map centre</button>
+                <label className="small">Latitude <input type="number" step="any" inputMode="decimal" value={latIn} onChange={(e) => setLatIn(e.target.value)} style={{ width: 90 }} /></label>
+                <label className="small">Longitude <input type="number" step="any" inputMode="decimal" value={lonIn} onChange={(e) => setLonIn(e.target.value)} style={{ width: 90 }} /></label>
+                <button type="button" className="btn small" disabled={latIn === '' || lonIn === ''} onClick={() => pinAt(+latIn, +lonIn)}>Place pin at these numbers</button>
+              </div>
+            </fieldset>
+          )}
+          <p className="small" role="status" aria-live="polite">{pinMsg || (guess ? `Pin placed at ${guess[0].toFixed(2)}, ${guess[1].toFixed(2)}.` : 'No pin yet.')}</p>
           <div className="row" style={{ gap: 8, margin: '8px 0' }}>
             {!last ? (<><button className="btn primary" onClick={lock} disabled={!guess}>Lock in my guess</button><button className="btn ghost" onClick={() => setHint(true)} disabled={hint}>Hint</button></>) : (<><span><strong>{Math.round(last.d)} km away: +{last.pts}</strong></span><button className="btn primary" onClick={next}>{i + 1 === ROUNDS ? 'See my score' : 'Next place'}</button></>)}
           </div>

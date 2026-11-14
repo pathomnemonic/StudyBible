@@ -6,10 +6,11 @@ import ShareButton from '../../components/ShareButton';
 import { isPractice, recordPlay } from '../../lib/dailyGame';
 import { getBookText } from '../../data/loader';
 import { flattenChapter } from '../../lib/bibleText';
+import { prophetPoints } from '../../lib/gameLogic';
 
 const ROUNDS = 8;
 const shuffle = <T,>(a: T[]) => { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
-const points = (guess: number, q: ProphetQ) => Math.round(100 * Math.pow(0.5, Math.abs(guess - q.answer) / q.scale));
+const points = (guess: number, q: ProphetQ) => prophetPoints(guess, q.answer, q.scale);
 const BEST = 'sb:prophet:best';
 const best = () => { try { return +(localStorage.getItem(BEST) ?? 0); } catch { return 0; } };
 

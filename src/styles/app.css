@@ -6446,3 +6446,10 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .game-help summary { cursor: pointer; font-weight: 600; min-height: 32px; display: inline-flex; align-items: center; }
 .game-help ul { margin: 4px 0 4px 20px; padding: 0; }
 .game-help input[type=checkbox] { width: 20px; height: 20px; vertical-align: middle; }
+.ws-cell.found { text-decoration: underline; text-underline-offset: 2px; }
+.ws-cell.pick { outline: 2px dashed currentColor; outline-offset: -3px; }
+.ws-cell:focus-visible { outline: 3px solid var(--accent); outline-offset: -2px; }
+@media (prefers-reduced-motion: reduce) { .ws-cell { transition: none; } }
+.cw-cell.bad { text-decoration: underline wavy; }
+.cl-cell.on { outline: 3px solid currentColor; outline-offset: -3px; }
+.cw-cell:focus-visible, .cl-cell:focus-visible { outline: 3px solid var(--accent); outline-offset: -2px; }

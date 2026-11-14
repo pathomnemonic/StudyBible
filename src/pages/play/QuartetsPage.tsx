@@ -6,12 +6,12 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { QUARTETS, type Quartet, type QuartetGroup } from '../../data/quartets';
 import { copyText } from '../../lib/clipboard';
 import { buzz } from '../../lib/haptics';
+import { judgeQuartet, seededShuffle } from '../../lib/gameLogic';
 
 const LEVEL_EMOJI = ['🟨', '🟩', '🟦', '🟪'];
 const dayIndex = () => Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 864e5);
 const shuffle = <T,>(a: T[]) => { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
-// a stable shuffle for the daily puzzle, so everyone sees the same board
-const seeded = <T,>(a: T[], seed: number) => { const b = [...a]; let s = seed * 9301 + 49297; for (let i = b.length - 1; i > 0; i--) { s = (s * 9301 + 49297) % 233280; const j = Math.floor((s / 233280) * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
+const seeded = seededShuffle;
 const KEY = 'sb:quartets:done';
 const loadDone = (): Record<string, { won: boolean; mistakes: number }> => { try { return JSON.parse(localStorage.getItem(KEY) ?? '{}'); } catch { return {}; } };
 
@@ -53,10 +53,9 @@ function Board({ q, daily, onDone, back }: { q: Quartet; daily: boolean; onDone:
   const toggle = (t: string) => { if (over) return; setMsg(''); setSel((s) => (s.includes(t) ? s.filter((x) => x !== t) : s.length < 4 ? [...s, t] : s)); };
   const submit = () => {
     if (sel.length !== 4) return;
-    const hit = q.groups.find((g) => !solved.includes(g) && sel.every((t) => g.words.includes(t as never)));
-    if (hit) { setSolved((s) => [...s, hit]); setLog((l) => [...l, hit.level]); setSel([]); buzz(25); return; }
-    const near = q.groups.some((g) => !solved.includes(g) && sel.filter((t) => g.words.includes(t as never)).length === 3);
-    setMistakes((m) => m + 1); setMsg(near ? 'One away…' : 'Not a set.'); buzz(40); setSel([]);
+    const j = judgeQuartet(q.groups, solved, sel);
+    if (j.kind === 'hit') { setSolved((s) => [...s, j.group as QuartetGroup]); setLog((l) => [...l, j.group.level]); setSel([]); buzz(25); return; }
+    setMistakes((m) => m + 1); setMsg(j.kind === 'near' ? 'One away…' : 'Not a set.'); buzz(40); setSel([]);
   };
   const reveal = () => { const rest = q.groups.filter((g) => !solved.includes(g)); setSolved((s) => [...s, ...rest]); };
   useEffect(() => { if (mistakes >= 4 && solved.length < 4) reveal(); }, [mistakes]); // eslint-disable-line react-hooks/exhaustive-deps

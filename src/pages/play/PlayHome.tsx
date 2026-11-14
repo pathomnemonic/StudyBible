@@ -55,7 +55,7 @@ export default function PlayHome() {
   const played = Object.keys(plays.games ?? {}).length;
   const TIPS = ['A fresh puzzle lands every day. Come back tomorrow!', 'Not sure? Tap Surprise me and let the dice decide.', 'Friends can join a quiz with just six digits.', 'Three right answers in a category wins a crown.', 'Every game here works without an account.', cfg.hideStreaks ? 'Your finished games are kept right here on your device.' : 'Streaks are kept right here on your device.'];
   const [tip, setTip] = useState(0);
-  useEffect(() => { const t = window.setInterval(() => setTip((x) => (x + 1) % TIPS.length), 6000); return () => window.clearInterval(t); }, [TIPS.length]);
+  useEffect(() => { if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return; const t = window.setInterval(() => setTip((x) => (x + 1) % TIPS.length), 6000); return () => window.clearInterval(t); }, [TIPS.length]);
   const letters = 'GAMES'.split('');
   const hues = ['#e8812b', '#4a7bd0', '#c0507a', '#2f8f6b', '#d4a017'];
   return (
