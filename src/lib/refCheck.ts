@@ -96,22 +96,16 @@ export interface Resolution {
 /** Native passage in `ed`'s own numbering for an anchor passage; both endpoints, cross-chapter ranges included. */
 export function anchorToNativeRef(ed: CountsEdition, anchor: Ref): { ref: Ref; exact: boolean; note?: string } {
   const s = ed.scheme as Scheme;
-  const first = nativeChaptersFor(s, anchor.book, anchor.c1)[0];
-  if (anchor.v1 === undefined) {
-    const chs = nativeChaptersFor(s, anchor.book, anchor.c2);
-    const last = chs[chs.length - 1];
-    const spans = first !== last || nativeChaptersFor(s, anchor.book, anchor.c1).length > 1;
-    const note = chapterAlignmentNote(s, anchor.book, first) ?? bookAlignmentNote(s, anchor.book);
-    const exact = !note && !spans;
-    return { ref: { book: anchor.book, c1: first, c2: last }, exact, note: note ?? (spans ? 'This chapter is split or merged differently in this edition.' : undefined) };
-  }
-  const a = fromAnchor(s, anchor.book, anchor.c1, anchor.v1);
-  const b = anchor.v2 !== undefined ? fromAnchor(s, anchor.book, anchor.c2, anchor.v2) : a;
-  const ref: Ref = { book: anchor.book, c1: a.c, v1: a.v1, c2: anchor.v2 !== undefined ? b.c : a.c, v2: anchor.v2 !== undefined ? b.v2 : a.v2 };
-  const exact = a.exact && b.exact && (anchor.v2 !== undefined || a.v1 === a.v2);
-  return { ref, exact, note: a.note ?? b.note };
+  // Use the shared range-aware converter: checking only the two verse endpoints misses an
+  // unverified chapter between them (for example Genesis 48:31–51:1 across chapters 49–50).
+  const mapped = convertRef('vulgate', s, anchor);
+  const note = mapped.exact ? undefined
+    : bookAlignmentNote(s, anchor.book)
+      ?? chapterAlignmentNote(s, anchor.book, anchor.c1)
+      ?? chapterAlignmentNote(s, anchor.book, anchor.c2)
+      ?? 'This passage crosses a chapter whose verse alignment is not verified in this edition.';
+  return { ref: mapped.ref, exact: mapped.exact, note };
 }
-
 /**
  * Take a passage typed in one numbering (a lesson's English numbering, `kjv`) and place it in a target edition.
  * `source` holds the verse counts of that numbering and decides whether the passage exists at all. Nothing nearby is
