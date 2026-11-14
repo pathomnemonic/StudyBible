@@ -796,7 +796,7 @@ export default function ReadPage() {
             <PastSelf notes={notes ?? []} />
             <ChapterArt book={bk.id} chapter={primaryAnchorChapter} text={flat.map((v) => v.text).join(' ')} />
             {(() => {
-              const mappedChapter = convertRef('vulgate', 'kjv', { book: bk.id, c1: primaryAnchorChapter, v1: 1, c2: primaryAnchorChapter, v2: 1 });
+              const mappedChapter = convertRef('vulgate', 'kjv', { book: bk.id, c1: primaryAnchorChapter, c2: primaryAnchorChapter });
               const line = mappedChapter.exact ? sectionFor(bookInfo, mappedChapter.ref.c1) : null;
               return line ? (
                 <div className="subtitle">
