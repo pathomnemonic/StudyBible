@@ -43,6 +43,46 @@ describe('listening time', () => {
     expect(listeningStats(rows, 2026)).toEqual({ hours: 0.3, playedToEnd: 1 });
     vi.useRealTimers();
   });
+
+  it('does not attribute a later progress update or manual completion to a year with no listening', async () => {
+    const { db } = await import('../src/db/db');
+    const { creditListening, setPlayed, listeningStats } = await import('../src/lib/listening');
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2025-06-01T12:00:00'));
+    await creditListening('old', 120, { position: 120 });
+    vi.setSystemTime(new Date('2026-06-01T12:00:00'));
+    await creditListening('old', 0, { position: 240 });
+    await setPlayed('old', true, 1800);
+    const rows = await db.episodeProgress.toArray();
+    expect(listeningStats(rows, 2025)).toEqual({ hours: 0.3, playedToEnd: 0 });
+    expect(listeningStats(rows, 2026)).toEqual({ hours: 0, playedToEnd: 0 });
+    vi.useRealTimers();
+  });
+
+  it('keeps an end event in its original year when the same episode is replayed the next year', async () => {
+    const { db } = await import('../src/db/db');
+    const { creditListening, listeningStats } = await import('../src/lib/listening');
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2025-12-31T23:59:00'));
+    await creditListening('replay', 300, { ranToEnd: true, completed: true });
+    vi.setSystemTime(new Date('2026-01-01T00:01:00'));
+    await creditListening('replay', 120, { completed: false });
+    const rows = await db.episodeProgress.toArray();
+    expect(listeningStats(rows, 2025)).toEqual({ hours: 0.8, playedToEnd: 1 });
+    expect(listeningStats(rows, 2026)).toEqual({ hours: 0.3, playedToEnd: 0 });
+    vi.useRealTimers();
+  });
+
+  it('accumulates frequent five-second saves without losing or multiplying listening time', async () => {
+    const { db } = await import('../src/db/db');
+    const { creditListening, listeningStats } = await import('../src/lib/listening');
+    for (let i = 0; i < 20; i++) await creditListening('many-saves', 5, { position: (i + 1) * 5 });
+    const rows = await db.episodeProgress.toArray();
+    expect(rows[0].heard).toBe(100);
+    expect(rows[0].listeningDays?.[Object.keys(rows[0].listeningDays ?? {})[0]]?.seconds).toBe(100);
+    expect(listeningStats(rows, new Date().getFullYear())).toEqual({ hours: 0.3, playedToEnd: 0 });
+  });
+
   it('position-only progress saves do not add dated listening or completion', async () => {
     const { db } = await import('../src/db/db'); const { creditListening, listeningStats } = await import('../src/lib/listening');
     await creditListening('position', 0, { position: 300 });
