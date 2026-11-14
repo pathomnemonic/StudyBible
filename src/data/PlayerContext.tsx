@@ -98,6 +98,13 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const [rate, setRateState] = useState(() => { try { return Number(localStorage.getItem('sb:rate')) || 1; } catch { return 1; } });
   const lastSave = useRef(0);
   const playGeneration = useRef(0);
+  const bindSourceError = (a: HTMLAudioElement, request: number, episodeId: string, src: string) => {
+    a.addEventListener('error', () => {
+      if (request !== playGeneration.current || (a as any)._ep?.id !== episodeId || a.getAttribute('src') !== src) return;
+      setPlaying(false);
+      setError(navigator.onLine === false ? 'offline' : 'failed');
+    }, { once: true });
+  };
   const [sleep, setSleepState] = useState<{ mode: 'off' | 'minutes' | 'end'; left: number }>({ mode: 'off', left: 0 });
   const [error, setError] = useState<null | 'failed' | 'offline'>(null);
   const [prefsV, setPrefsV] = useState(0);
@@ -130,6 +137,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       // a show's closing music or ads can be skipped: finish the episode early
       if (out && a.duration && !(a as any)._outroDone && a.duration - a.currentTime <= out && a.currentTime > 30) {
         (a as any)._outroDone = true;
+        (a as any)._manualEnded = true;
         a.pause();
         a.dispatchEvent(new Event('ended'));
         return;
@@ -141,7 +149,6 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     });
     a.addEventListener('loadedmetadata', () => setDuration(a.duration || 0));
     // a stream that cannot load is said out loud, with a way to try again; it clears the moment sound is flowing
-    a.addEventListener('error', () => { if (a.getAttribute('src')) { setPlaying(false); setError(navigator.onLine === false ? 'offline' : 'failed'); } });
     a.addEventListener('playing', () => setError(null));
     a.addEventListener('loadeddata', () => setError(null));
     a.addEventListener('play', () => { lastT = a.currentTime; setPlaying(true); });
@@ -151,6 +158,9 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       save();
     });
     a.addEventListener('ended', async () => {
+      const manualEnd = !!(a as any)._manualEnded;
+      (a as any)._manualEnded = false;
+      if (!a.ended && !manualEnd) return; // ignore a queued ended event from the source that was just replaced
       save(true);
       if (sleepRef.current.mode === 'end') { setSleepState({ mode: 'off', left: 0 }); return; }
       const was = (a as any)._ep as BiayEpisode | undefined;
@@ -184,6 +194,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const url = await resolveIfCurrent(restoreRequest, () => playGeneration.current, () => audioUrl(ep.audio));
       if (!url || (a as any)._ep || restoreRequest !== playGeneration.current) return;
       (a as any)._ep = ep;
+      (a as any)._manualEnded = false;
+      bindSourceError(a, restoreRequest, ep.id, url);
       a.src = url;
       a.preload = 'metadata';
       a.addEventListener('loadedmetadata', () => { if (restoreRequest === playGeneration.current && (a as any)._ep?.id === ep.id) a.currentTime = prog?.position ?? 0; }, { once: true });
@@ -222,6 +234,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const at = startAt ?? (prog && !prog.completed && prog.position > 0 ? prog.position : skip);
       (a as any)._ep = e;
       (a as any)._outroDone = false;
+      (a as any)._manualEnded = false;
+      bindSourceError(a, request, e.id, url);
       a.src = url;
       a.preload = 'metadata';
       a.addEventListener('loadedmetadata', () => {
@@ -287,6 +301,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         setError(null);
         void resolveIfCurrent(request, () => playGeneration.current, () => audioUrl(cur.audio)).then((u) => {
           if (!u || request !== playGeneration.current || (a as any)._ep?.id !== cur.id) return;
+          bindSourceError(a, request, cur.id, u);
+          (a as any)._manualEnded = false;
           a.src = u; a.load();
           a.addEventListener('loadedmetadata', () => { if (request === playGeneration.current && (a as any)._ep?.id === cur.id && at > 0) a.currentTime = at; }, { once: true });
           return a.play();
