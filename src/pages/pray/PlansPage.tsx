@@ -46,7 +46,7 @@ export default function PlansPage() {
         const source = pooledCounts(editions, 'english');
         const anchor = editions.find((e) => e.scheme === 'vulgate');
         if (!source || !anchor) throw new Error('Scripture verse counts are not loaded yet. Try again when the editions have finished loading.');
-        const resolved = resolveRef(source, anchor, x.ref, 'kjv', anchor);
+        const resolved = resolveRef(source, anchor, x.ref, 'english', anchor);
         if (resolved.status !== 'exact' || !resolved.anchor) throw new Error(`“${l}” cannot be verified in the source and anchor editions: ${resolved.reason ?? 'the verse mapping is not exact'}. This day was not added.`);
         return refId(resolved.anchor);
       });
