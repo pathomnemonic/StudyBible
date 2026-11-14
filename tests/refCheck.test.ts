@@ -62,6 +62,13 @@ describe('semantic Scripture reference validation', () => {
     expect(checkRefIn(anchor, { book: 'GEN', c1: 1, v1: 31, c2: 2, v2: 999 })).toMatchObject({ kind: 'invalid', scope: 'verse' });
   });
 
+
+  it('does not treat an unaligned Catholic book as same-tradition merely because both editions use English numbering', () => {
+    const webc = editions.find((e) => e.id === 'webc')!;
+    const tob: Ref = { book: 'TOB', c1: 1, v1: 1, c2: 1, v2: 1 };
+    expect(resolveRef(english, webc, tob, 'kjv', anchor).status).toBe('approximate');
+  });
+
   it('reports a book absent from the target edition instead of inventing a location', () => {
     const brenton = editions.find((e) => e.id === 'brenton')!;
     const ref: Ref = { book: 'JHN', c1: 3, v1: 16, c2: 3, v2: 16 };
