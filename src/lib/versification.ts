@@ -154,6 +154,7 @@ function wholeChapterMapsExactly(from: Scheme, to: Scheme, book: string, chapter
     const nativeChapter = native[0];
     return native.length === 1 && nativeChapter !== undefined && !chapterAlignmentNote(to, book, nativeChapter) && !bookAlignmentNote(to, book);
   }
+  if (bookAlignmentNote(from, book)) return false;
   const refs = chapterToAnchorRefs(from, book, chapter);
   const first = refs[0];
   return refs.length === 1 && !!first && first.exact && first.ref.v1 === undefined;
@@ -226,7 +227,7 @@ export function chapterToAnchorRefs(scheme: Scheme, book: string, nativeChapter:
   const idx = indexes.get(scheme);
   const rules = idx?.native.get(`${book}.${nativeChapter}`);
   const note = caveat(idx, book, nativeChapter);
-  if (!rules) return [{ ref: { book, c1: nativeChapter, c2: nativeChapter }, exact: !note }];
+  if (!rules) return [{ ref: { book, c1: nativeChapter, c2: nativeChapter }, exact: !note && !bookAlignmentNote(scheme, book) }];
   const by = new Map<number, [number, number]>();
   for (const r of rules) {
     const cur = by.get(r[4]);
