@@ -20,7 +20,7 @@ export default function DataHealth() {
     const [notes, highlights, bookmarks, collections, userPlans, trash] = await Promise.all([db.notes.toArray(), db.highlights.toArray(), db.bookmarks.toArray(), db.collections.toArray(), db.userPlans.toArray(), db.trash.toArray()]);
     const input = { notes, highlights, bookmarks, collections, userPlans } as never;
     const { editions } = await loadEditions();
-    const anchor = editions.find((e) => e.scheme === 'vulgate');
+    const anchor = editions.find((e) => e.id === 'vulgate');
     if (!anchor) throw new Error('The Vulgate reference counts are unavailable; no semantic reference check was run.');
     setFound(dataHealth(input, anchor));
     setRepairs(planRepairs(input, chapterKeysOf, editions));
