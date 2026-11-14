@@ -9,7 +9,7 @@ export type PlanReferenceResult =
 /** Resolve an entire user-entered group before returning any anchors; a mixed exact/uncertain list is all-or-nothing. */
 export function resolvePlanReferences(refs: Ref[], editions: CountsEdition[]): PlanReferenceResult {
   const source = pooledCounts(editions, 'english');
-  const anchor = editions.find((e) => e.scheme === 'vulgate');
+  const anchor = editions.find((e) => e.id === 'vulgate');
   if (!source || !anchor) return { ok: false, reason: 'Scripture verse counts are not loaded yet.' };
   const resolved: Ref[] = [];
   for (const ref of refs) {
