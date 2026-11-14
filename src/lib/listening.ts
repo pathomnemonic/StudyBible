@@ -17,11 +17,14 @@ export async function creditListening(episodeId: string, secs: number, patch: { 
   const done = patch.completed ?? old?.completed ?? false;
   const day = listeningDay();
   const ledger = { ...(old?.listeningDays ?? {}) };
-  const prior = ledger[day] ?? { seconds: 0, completions: 0 };
-  ledger[day] = {
-    seconds: Math.round((prior.seconds + Math.max(0, secs)) * 10) / 10,
-    completions: prior.completions + (patch.ranToEnd ? 1 : 0),
-  };
+  // Do not create empty day entries for ordinary position-only saves.
+  if (secs > 0 || patch.ranToEnd) {
+    const prior = ledger[day] ?? { seconds: 0, completions: 0 };
+    ledger[day] = {
+      seconds: Math.round((prior.seconds + Math.max(0, secs)) * 10) / 10,
+      completions: prior.completions + (patch.ranToEnd ? 1 : 0),
+    };
+  }
   await db.episodeProgress.put({
     ...(old ?? {}), episodeId, position: patch.position ?? old?.position ?? 0, duration: patch.duration ?? old?.duration, completed: done,
     heard: Math.round(((old?.heard ?? 0) + Math.max(0, secs)) * 10) / 10,
