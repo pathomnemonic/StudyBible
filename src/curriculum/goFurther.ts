@@ -153,7 +153,7 @@ export function keyVerse(lesson: { mem?: string }, ctx?: { source: CountsEdition
   const bad = refProblem(cite, r);
   if (bad) return { status: 'invalid', label: cite, reason: bad };
   const conv = convertRef('kjv', 'vulgate', r);
-  if (!ctx) return { status: conv.exact ? 'exact' : 'approximate', label: cite, ref: conv.ref, original: r, sourceScheme: 'kjv', exact: conv.exact, reason: conv.exact ? undefined : 'The verse numbering of this passage differs between editions.' };
+  if (!ctx) return { status: 'approximate', label: cite, ref: conv.ref, original: r, sourceScheme: 'kjv', exact: false, reason: 'Edition reference counts are unavailable, so this mapping has not been verified against the source and anchor editions.' };
   // checked against the numbering it was written in; its own anchor mapping is what the card stores
   const res = resolveRef(ctx.source, ctx.source, r, 'kjv', ctx.anchor);
   if (res.status === 'invalid' || res.status === 'absent') return { status: 'invalid', label: cite, reason: res.reason ?? 'not a passage in this numbering' };
