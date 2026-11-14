@@ -93,7 +93,11 @@ export function buildIndex(): BuildResult {
   };
   const addText = (s: string | undefined, key: string, w: number, why?: string) => {
     if (!s) return;
-    for (const a of plainCitations(s)) add(convertRef('vulgate', 'english', a).ref, key, w, { why });
+    for (const a of plainCitations(s)) {
+      const mapped = convertRef('vulgate', 'english', a);
+      if (!mapped.exact) { dropped.push(`${key}: non-exact Vulgate-to-English mapping ${a.book} ${a.c1}-${a.c2}`); continue; }
+      add(mapped.ref, key, w, { why });
+    }
   };
   const addStr = (s: string | undefined, key: string, w: number, opts: { why?: string; expand?: boolean } = {}) => {
     if (!s) return;
@@ -164,7 +168,11 @@ export function buildIndex(): BuildResult {
           for (const { ref } of p.refs) {
             const why = `${label} on ${date}`;
             if (ref.book === 'PSA') { for (let c = ref.c1; c <= ref.c2; c++) add({ book: 'PSA', c1: c, c2: c }, key, 20, { why }); }
-            else add(convertRef('kjv', 'english', ref).ref, key, 20, { why });
+            else {
+              const mapped = convertRef('kjv', 'english', ref);
+              if (!mapped.exact) { dropped.push(`${key}: non-exact KJV-to-English mapping ${ref.book} ${ref.c1}-${ref.c2}`); continue; }
+              add(mapped.ref, key, 20, { why });
+            }
           }
         }
       }
