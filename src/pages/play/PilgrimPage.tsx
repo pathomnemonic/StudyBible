@@ -94,7 +94,7 @@ export default function PilgrimPage() {
         <>
           <p className="pg-ask">Where is <strong>{q?.n}</strong>? <span className="muted small">({i + 1} of {ROUNDS})</span></p>
           {hint && q && <p className="muted small">{first ? `It appears in ${formatRef(first)}.` : ''}{q.c ? ` ${q.c}.` : ''}</p>}
-          <div ref={el} className="pg-map" role="application" aria-label="Map. Tap where you think the place is, or use the arrow keys to move the map and the pin buttons below." onKeyDown={(e) => { if (e.key === 'Enter' && !last) { e.preventDefault(); pinCentre(); } }} />
+          <div ref={el} className="pg-map" role="application" aria-label="Map. Tap where you think the place is, or use the arrow keys to move the map and the pin buttons." onKeyDown={(e) => { if (e.key === 'Enter' && !last) { e.preventDefault(); pinCentre(); } }} />
           {!last && (
             <fieldset className="pg-kb" style={{ border: 0, padding: 0, margin: '6px 0' }}>
               <legend className="small"><strong>Without the mouse or touch</strong></legend>

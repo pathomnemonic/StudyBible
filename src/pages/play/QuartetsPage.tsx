@@ -65,6 +65,7 @@ function Board({ q, daily, onDone, back }: { q: Quartet; daily: boolean; onDone:
   return (
     <div className="page quartets">
       <div className="row between"><button className="btn small ghost" onClick={back}>← Puzzles</button><span className="muted small">{daily ? 'Today · ' : ''}{q.title}</span></div>
+      <GameHelp how={['Sixteen tiles hide four sets of four.', 'Select four tiles that belong together and press Submit.', 'Four mistakes end the puzzle.']} />
       <div className="q-solved">
         {(over ? byLevel : solved).map((g) => <div key={g.name} className={`q-row lv${g.level}`}><strong>{g.name}</strong><span>{g.words.join(', ')}</span></div>)}
       </div>

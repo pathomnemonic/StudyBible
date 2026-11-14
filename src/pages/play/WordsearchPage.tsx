@@ -54,7 +54,7 @@ export default function WordsearchPage() {
               const n: [number, number] = [Math.max(0, Math.min(SIZE - 1, r + mv[e.key][0])), Math.max(0, Math.min(SIZE - 1, c + mv[e.key][1]))];
               setCur(n);
               if (kbStart.current) setSel(lineBetween(kbStart.current, n));
-              requestAnimationFrame(() => document.querySelector<HTMLElement>(`[data-rc="${n[0]},${n[1]}"]`)?.focus());
+              document.querySelector<HTMLElement>(`[data-rc="${n[0]},${n[1]}"]`)?.focus();
             } else if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
               if (!kbStart.current) { kbStart.current = [r, c]; setSel([[r, c]]); setMsg(`Start set at ${ch}. Move to the last letter and press Enter.`); }
