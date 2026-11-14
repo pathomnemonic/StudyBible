@@ -47,6 +47,7 @@ describe('semantic Scripture reference validation', () => {
   });
 
   it('checks both endpoints of single-chapter and cross-chapter ranges', () => {
+    expect(checkRefIn(anchor, { book: 'JHN', c1: 3, v1: 16, c2: 3, v2: 16 })).toBeNull();
     expect(checkRefIn(anchor, { book: 'JHN', c1: 3, v1: 1, c2: 3, v2: 5 })).toBeNull();
     expect(checkRefIn(anchor, { book: 'GEN', c1: 1, v1: 31, c2: 2, v2: 3 })).toBeNull();
     expect(checkRefIn(anchor, { book: 'GEN', c1: 1, v1: 31, c2: 2, v2: 999 })).toMatchObject({ kind: 'invalid', scope: 'verse' });
