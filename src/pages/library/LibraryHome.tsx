@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, TRASH_DAYS, type Collection, type Note, type Target } from '../../db/db';
-import { collectionSummary, copyOfCollection, matchesCollection } from '../../lib/collectionsView';
+import { collectionSummary, copyOfCollection, copyOfNote, collectionTags, hasTag, matchesCollection, matchesNote, sortCollections, sortNotes, type CollectionSort, type NoteSort } from '../../lib/collectionsView';
 import { dataHealth, type Finding } from '../../lib/dataHealth';
 import NoteEditor, { targetLabel } from '../../components/NoteEditor';
 import RefLink from '../../components/RefLink';
@@ -13,7 +13,7 @@ import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
 import { decryptBackup, encryptBackup, isEncryptedBackup } from '../../db/crypto';
 import { newCard } from '../../lib/srs';
-import { download, exportCollections, importCollections, exportAll, exportMarks, exportNotesMarkdown, importAll, previewImport } from '../../db/ops';
+import { chapterKeysOf, download, exportCollections, importCollections, exportAll, exportMarks, exportNotesMarkdown, importAll, previewImport } from '../../db/ops';
 import { useSettings } from '../../lib/store';
 import { fold } from '../../search/engine';
 import { BOOK_ORDER } from '../../lib/canon';
@@ -65,14 +65,17 @@ function Notes({ openId }: { openId?: number }) {
   const [folder, setFolder] = useState<number | '' | 'none'>('');
   const [kind, setKind] = useState('');
   const [timeline, setTimeline] = useState(false);
+  const [sort, setSort] = useState<NoteSort>('updated');
+  const collections = useLiveQuery(() => db.collections.toArray(), []) ?? [];
   const [editing, setEditing] = useState<Note | 'new' | 'question' | null>(null);
   const opened = openId ? notes.find((n) => n.id === openId) : undefined;
   const tags = useMemo(() => [...new Set(notes.flatMap((n) => n.tags))].sort(), [notes]);
-  const list = [...notes].sort((a, b) => Number(!!b.pinned) - Number(!!a.pinned)).filter((n) => (!q || fold(`${n.title ?? ''} ${n.body} ${n.tags.join(' ')} ${n.targets.map(targetLabel).join(' ')}`).includes(fold(q))) && (!tag || n.tags.includes(tag)) && (folder === '' || (folder === 'none' ? !n.folderId : n.folderId === folder)) && (!kind || n.kind === kind));
+  const list = sortNotes(notes, sort).filter((n) => (!q || fold(`${n.title ?? ''} ${n.body} ${n.tags.join(' ')} ${n.targets.map(targetLabel).join(' ')}`).includes(fold(q))) && (!tag || n.tags.includes(tag)) && (folder === '' || (folder === 'none' ? !n.folderId : n.folderId === folder)) && (!kind || n.kind === kind));
   return (
     <>
       <div className="row" style={{ marginBottom: 8 }}>
         <input type="search" placeholder="Search notes…" value={q} onChange={(e) => setQ(e.target.value)} style={{ flex: 1, minWidth: 160 }} aria-label="Search notes" />
+        <select value={sort} onChange={(e) => setSort(e.target.value as NoteSort)} aria-label="Sort notes"><option value="updated">Recently changed</option><option value="created">Newest first</option><option value="title">Title A to Z</option></select>
         <select value={kind} onChange={(e) => setKind(e.target.value)} aria-label="Kind"><option value="">All kinds</option>{['note', 'question', 'study', 'prayer'].map((k) => <option key={k}>{k}</option>)}</select>
         <select value={tag} onChange={(e) => setTag(e.target.value)} aria-label="Tag"><option value="">Any tag</option>{tags.map((t) => <option key={t} value={t}>#{t}</option>)}</select>
         <select value={folder} onChange={(e) => setFolder(e.target.value === 'none' ? 'none' : e.target.value ? +e.target.value : '')} aria-label="Folder"><option value="">Any folder</option><option value="none">Not in a folder (inbox)</option>{folders.map((f) => <option key={f.id} value={f.id}>{f.name}</option>)}</select>
@@ -125,9 +128,10 @@ function Notes({ openId }: { openId?: number }) {
           <div className="md" dangerouslySetInnerHTML={{ __html: renderMarkdown(resolveNoteLinks(n.body, notes)) }} />
           <NoteBacklinks note={n} />
           <div className="chips">{n.tags.map((t) => <span className="chip" key={t}>#{t}</span>)}{n.folderId && <span className="chip">📁 {folders.find((f) => f.id === n.folderId)?.name}</span>}</div>
-          <div className="row" style={{ marginTop: 6 }}><button className="btn small" onClick={() => setEditing(n)}>Edit</button><button className="btn small" aria-pressed={!!n.pinned} onClick={() => db.notes.update(n.id!, { pinned: !n.pinned })}>{n.pinned ? 'Unpin' : 'Pin'}</button><span className="muted small">{new Date(n.updatedAt).toLocaleDateString()}</span></div>
+          <div className="row" style={{ marginTop: 6 }}><button className="btn small" onClick={() => setEditing(n)}>Edit</button><button className="btn small" onClick={async () => { const c = copyOfNote(n); await db.notes.add({ ...c, chapterKeys: chapterKeysOf(c.targets) } as never); }}>Duplicate</button><button className="btn small" aria-pressed={!!n.pinned} onClick={() => db.notes.update(n.id!, { pinned: !n.pinned })}>{n.pinned ? 'Unpin' : 'Pin'}</button><span className="muted small">{new Date(n.updatedAt).toLocaleDateString()}</span></div>
         </div>
       ))}
+      {q.trim() && (() => { const hit = collections.filter((c) => matchesCollection(c, q, targetLabel)); return hit.length > 0 && <section className="card" aria-label="Collections that match"><h3>Collections that match “{q.trim()}” ({hit.length})</h3><ul className="list">{hit.map((c) => <li key={c.id}><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)}</span></li>)}</ul></section>; })()}
       {(editing || opened) && <NoteEditor note={editing && typeof editing === 'object' ? editing : opened} kind={editing === 'question' ? 'question' : 'note'} onClose={() => setEditing(null)} />}
     </>
   );
@@ -193,7 +197,11 @@ async function startTemplate(t: { name: string; description: string; refs: strin
 function Collections() {
   const all = useLiveQuery(() => db.collections.orderBy('updatedAt').reverse().toArray(), []) ?? [];
   const [q, setQ] = useState('');
-  const cs = all.filter((c) => matchesCollection(c, q, targetLabel));
+  const [sort, setSort] = useState<CollectionSort>('updated');
+  const [tag, setTag] = useState('');
+  const allNotes = useLiveQuery(() => db.notes.toArray(), []) ?? [];
+  const tags = collectionTags(all);
+  const cs = sortCollections(all, sort).filter((c) => matchesCollection(c, q, targetLabel) && hasTag(c, tag));
   const saved = useLiveQuery(() => db.saved.toArray(), []) ?? [];
   const [name, setName] = useState('');
   const [fileMsg, setFileMsg] = useState('');
@@ -217,6 +225,10 @@ function Collections() {
         <label className="btn small" style={{ cursor: 'pointer' }}>Import collections from a file<input type="file" accept="application/json,.json" aria-label="Import collections from a file" style={{ display: 'none' }} onChange={async (e) => { const f = e.target.files?.[0]; e.target.value = ''; if (!f) return; try { const r = await importCollections(await f.text()); setFileMsg(`Imported: ${r.added} new, ${r.merged} merged into ones you already have (nothing is duplicated).`); } catch (er) { setFileMsg((er as Error).message); } }} /></label>
       </div>
       {fileMsg && <p className="notice" role="status">{fileMsg}</p>}
+      {all.length > 1 && <div className="row" style={{ marginBottom: 10, gap: 8, flexWrap: 'wrap' }}>
+        <select aria-label="Sort collections" value={sort} onChange={(e) => setSort(e.target.value as CollectionSort)}><option value="updated">Recently changed</option><option value="created">Newest first</option><option value="name">Name A to Z</option><option value="size">Most items</option></select>
+        {tags.length > 0 && <select aria-label="Show collections with this tag" value={tag} onChange={(e) => setTag(e.target.value)}><option value="">Any tag</option>{tags.map((t) => <option key={t} value={t}>{t}</option>)}</select>}
+      </div>}
       {all.length > 3 && <div className="row" style={{ marginBottom: 10 }}><input type="search" aria-label="Search your collections" placeholder="Search collections (name, tags, description, passages)" value={q} onChange={(e) => setQ(e.target.value)} style={{ flex: 1 }} /></div>}
       {cs.map((c) => (
         <div className="card" key={c.id}>
@@ -229,6 +241,7 @@ function Collections() {
           </div>
         </div>
       ))}
+      {q.trim() && (() => { const hit = allNotes.filter((n) => matchesNote(n, q, targetLabel)).slice(0, 8); return hit.length > 0 && <section className="card" aria-label="Notes that match"><h3>Notes that match “{q.trim()}”</h3><ul className="list">{hit.map((n) => <li key={n.id}><Link to={`/library/notes/${n.id}`}>{n.title || n.body.slice(0, 60) || 'Note'}</Link></li>)}</ul></section>; })()}
       {all.length > 0 && cs.length === 0 && <div className="empty">No collection matches that search.</div>}
       {all.length === 0 && <div className="empty">Collections gather passages, readings, Catechism paragraphs and notes around a topic.</div>}
     </>
