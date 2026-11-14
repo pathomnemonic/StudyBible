@@ -85,6 +85,7 @@ export default function ProgrammeView({ show }: { show: Show }) {
         </div>
         <Menu items={menu} />
       </div>
+      {view === 'queue' && <p className="rows-sub">Your queue, from every show <button className="btn small ghost" onClick={() => setView('next')}>Back to {show.title.replace(/^The\s+/, '')}</button>{queue.length > 0 && <button className="btn small ghost" onClick={() => { if (confirm('Clear your whole queue?')) void db.queue.clear(); }}>Clear queue</button>}</p>}
       {view === 'progress' && <p className="rows-sub">History <button className="btn small ghost" onClick={() => setView('next')}>Back</button></p>}
       {view === 'plan' && <input className="year-search" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={show.id === 'catechism-in-a-year' ? 'Day, topic or Catechism § (1324)' : 'Day number or topic'} aria-label="Search episodes" />}
       {data === undefined && <div className="center-note">Loading episodes…</div>}

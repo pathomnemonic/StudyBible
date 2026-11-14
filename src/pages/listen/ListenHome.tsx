@@ -138,6 +138,7 @@ function BiayListen() {
         </div>
         <Menu items={menuItems} />
       </div>
+      {view === 'queue' && <p className="rows-sub">Your queue, from every show <button className="btn small ghost" onClick={() => setView('next')}>Back to Bible in a Year</button>{queue.length > 0 && <button className="btn small ghost" onClick={() => { if (confirm('Clear your whole queue?')) void db.queue.clear(); }}>Clear queue</button>}</p>}
       {view === 'extras' && <p className="rows-sub">Extras <button className="btn small ghost" onClick={() => setView("next")}>Back</button></p>}
       {view === 'progress' && <p className="rows-sub">History <button className="btn small ghost" onClick={() => setView("next")}>Back</button></p>}
       {(view === 'plan' || view === 'extras') && (

@@ -1,10 +1,10 @@
 {
   "_about": "Machine-readable rights for each top-level item in public/data. Details and evidence: docs/DATA_SOURCES.md and docs/LICENSING.md. `redistribution`: yes = may be redistributed as bundled; metadata-only = only facts, titles and links are stored; none = not included.",
   "bible": {
-    "license": "Public domain (DRB 1899, Clementine Vulgate 1598, WEB, CPDV, Brenton 1851); RSV-2CE is under copyright and included with the project owner’s stated permission (see docs/LICENSING.md)",
+    "license": "Public domain (DRB 1899, Clementine Vulgate 1598, WEB, CPDV, Brenton 1851); RSV-2CE and NABRE are under copyright and included with the project owner’s stated permission (see docs/LICENSING.md)",
     "attribution": "Per edition: see editions.json `attribution`",
     "redistribution": "yes",
-    "notes": "WEB trademark note kept; CPDV is a private translation without imprimatur; RSV-2CE (© Ignatius Press / NCC USA) text came from the owner’s scan, verse breaks rebuilt automatically"
+    "notes": "WEB trademark note kept; CPDV is a private translation without imprimatur; RSV-2CE (© Ignatius Press / NCC USA) text came from the owner’s scan, verse breaks rebuilt automatically; NABRE (© 2008, 1991, 1986, 1970 Confraternity of Christian Doctrine, Inc.) text converted from the owner’s Saint Benedict Press epub, translation and section headings only"
   },
   "editions.json": {
     "license": "App-written registry",

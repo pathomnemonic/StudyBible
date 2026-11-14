@@ -12,6 +12,7 @@
 | Peers (Dark Night), 1949 Imitation, Devout Life (CCEL) | **Not bundled** | Translation date/status unverified |
 | Catechism text | Not bundled | © LEV/USCCB; only numbers and check phrases stored |
 | RSV-2CE (Ignatius Bible) | **Bundled, licensed** | Included on the project owner's statement (Nov 2026) that permission has been obtained; licence reference still to be recorded in docs/RSV2CE.md. Text read from the owner's scan. |
+| NABRE (New American Bible, Revised Edition) | **Bundled, licensed** | Included on the project owner's statement (Nov 2026) that official permission to include the NABRE has been obtained; the permission reference is still to be recorded here. © 2008, 1991, 1986, 1970 Confraternity of Christian Doctrine, Inc., Washington, DC. Text converted by `scripts/nabre/build.py` from the owner's Saint Benedict Press epub (translation and section headings only; footnotes, cross-references and introductions are not included). The attribution in `editions.json` follows the notice printed in that edition; confirm the exact wording against the permission letter. |
 | Lectionary / NABRE / RSV-CE / NJB | Not bundled | Copyrighted |
 | Bible in a Year, Word on Fire, Catholic Answers, Ascension | Metadata/links only | No reuse license |
 | Traditional prayers (Our Father, Hail Mary, Memorare, …) | Bundled | Long-established traditional wording; ICEL liturgical texts excluded |

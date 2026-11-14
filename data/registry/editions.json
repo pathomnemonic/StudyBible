@@ -153,6 +153,30 @@
       "bundled": true,
       "offlineAllowed": true,
       "partial": true
+    },
+    {
+      "id": "nabre",
+      "name": "New American Bible, Revised Edition (NABRE)",
+      "shortName": "NABRE",
+      "language": "en",
+      "languageName": "English",
+      "scheme": "nabre",
+      "tradition": "A modern English translation made from the Hebrew, Aramaic and Greek by Catholic scholars for the United States bishops. Hebrew-based verse numbering: the Psalm titles count as verses and a few chapters (Joel, Malachi and some others) divide differently from the English-tradition Bibles.",
+      "description": "The New American Bible, Revised Edition: the New Testament of 1986, the Psalms of 1991 and the Old Testament revised in 2010, as published by Saint Benedict Press with the Church’s approval for Catholic use. This pack carries the translation text with its book and section headings. The footnotes, cross-references and book introductions of the printed edition are not included here, and neither are the lettered Greek additions to Esther (A–F) or the foreword to Sirach, so a few passages in those books are not shown; read them in a printed copy or on the USCCB site. Where the printed text places a verse at the start or end of the neighbouring chapter (for example Job 10:1, Numbers 25:19 or Tobit 6:1), the pack puts it where its number says it belongs.",
+      "year": "2011 (NAB 1970; New Testament 1986; Psalms 1991; Old Testament 2010)",
+      "translators": "Confraternity of Christian Doctrine; Catholic Biblical Association of America and other scholars, for the United States Conference of Catholic Bishops",
+      "catholicStatus": "Translated from the original languages and approved by the Administrative Committee of the United States Conference of Catholic Bishops, with the imprimaturs printed in the edition (New Testament 1986, Psalms 1991, Old Testament rescript of 30 September 2010). It is the base text of the U.S. lectionary tradition but is not itself the current Lectionary for Mass.",
+      "rights": "licensed",
+      "rightsBasis": "© 2008, 1991, 1986, 1970 Confraternity of Christian Doctrine, Inc., Washington, DC. All rights reserved. Included with the project owner’s statement (Nov 2026) that official permission to include the NABRE has been obtained; the permission reference is to be recorded in docs/LICENSING.md. Remove the pack if that permission lapses.",
+      "attribution": "Scripture texts are taken from the New American Bible, revised edition © 2008, 1991, 1986, 1970 Confraternity of Christian Doctrine, Inc., Washington, DC. All rights reserved. Used with permission.",
+      "sourceUrl": "https://bible.usccb.org/",
+      "source": "curated-json",
+      "curatedDir": "nabre",
+      "usfmPattern": "",
+      "bundled": true,
+      "offlineAllowed": true,
+      "approval": "approved",
+      "approvalNote": "Approved for Catholic use by the United States Conference of Catholic Bishops (imprimaturs printed in the edition). Not the Lectionary text."
     }
   ],
   "planned": [
@@ -163,14 +187,6 @@
       "publisher": "Ignatius Press / National Council of the Churches of Christ in the USA",
       "note": "Under copyright. Requires a license from the rights holders (and a Bible-publisher agreement for app use). The app's edition format, anchor mapping and licensing records are ready to receive it; the mapping from English numbering is already implemented.",
       "url": "https://ignatius.com/"
-    },
-    {
-      "id": "nabre",
-      "name": "New American Bible, Revised Edition (NABRE)",
-      "rights": "licensed",
-      "publisher": "Confraternity of Christian Doctrine / USCCB",
-      "note": "Under copyright; the USCCB publishes it online for reading and limits reproduction. Needs written permission before any text is bundled. NABRE follows Hebrew-based verse numbering (a different 'scheme' from the English one); a 'hebrew' versification scheme would be added alongside the license.",
-      "url": "https://bible.usccb.org/"
     },
     {
       "id": "njb",

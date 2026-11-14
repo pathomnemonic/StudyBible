@@ -5120,8 +5120,8 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 :root[data-layout='compact'] .tabbar:not(:has(> :nth-child(7))) { margin: 6px 0 8px; }
 :root[data-layout='compact'] .lod { min-height: var(--row-h); margin: 0 0 8px; padding: 6px 14px; align-items: center; border-radius: 12px; }
 /* compact: a row of up to six tabs stays on one line */
-:root[data-layout='compact'] .tabbar:has(> :nth-child(5)) { display: flex !important; flex-wrap: nowrap !important; gap: 2px; padding: 3px; border-radius: 999px; }
-:root[data-layout='compact'] .tabbar:has(> :nth-child(5)) button { flex: 1 1 0 !important; min-width: 0; padding: 4px 2px !important; font-size: .76rem !important; white-space: nowrap !important; min-height: 32px; }
+:root[data-layout='compact'] .tabbar:has(> :nth-child(5)) { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto !important; scrollbar-width: none; gap: 2px; padding: 3px; border-radius: 999px; }
+:root[data-layout='compact'] .tabbar:has(> :nth-child(5)) button { flex: 1 0 auto !important; min-width: max-content; padding: 4px 8px !important; font-size: .76rem !important; white-space: nowrap !important; min-height: 32px; }
 .year-pick { margin: 0 0 8px; width: 100%; }
 .year-pick button { flex: 1 1 0; }
 .page.learn { display: flex; flex-direction: column; gap: 10px; }

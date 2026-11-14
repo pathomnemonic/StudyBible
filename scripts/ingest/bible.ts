@@ -5,6 +5,7 @@ import { BOOKS, BOOK_BY_ID } from '../../src/lib/canon';
 import type { BookData, ChapterData, Edition } from '../../src/lib/types';
 import type { Rule, VersificationData } from '../../src/lib/versification';
 import { parseUsfm, type ParsedBook } from './lib/usfm';
+import { buildNabreScheme } from './nabre-scheme';
 import { PUBLIC_DATA, RAW, readJson, REGISTRY, Report, writeJson, today, exists } from './lib/util';
 
 interface EditionConfig extends Edition {
@@ -209,6 +210,7 @@ export function buildVersification(
   anchorVul: BuiltEdition,
   english: BuiltEdition,
   report: Report,
+  nabre?: BuiltEdition,
 ): VersificationData {
   const psalmCfg = readJson(join(REGISTRY, '../versification/psalm-title-offsets.json'));
   const tl: Record<string, number> = psalmCfg.titleVerses;
@@ -293,9 +295,22 @@ export function buildVersification(
     ['DAN', 4, 4, 37, 4, 1, 34],
   ];
   report.stats['versification.unverifiedChapters'] = Object.fromEntries(Object.entries(unverified).map(([k, v]) => [k, v.length]));
+  const englishScheme = {
+    description: '',
+    rules,
+    unverifiedChapters: unverified,
+    unalignedBooks: unaligned,
+  };
+  let nabreScheme: VersificationData['schemes'][string] | undefined;
+  if (nabre) {
+    const { stats, ...rest } = buildNabreScheme({ nabre: nabre.books, web: english.books, english: englishScheme, titleLen: tl, report });
+    nabreScheme = rest;
+    report.stats['versification.nabre.lowSimilarityChapters'] = stats.lowChapters as string[];
+  }
   return {
     version: 1,
     schemes: {
+      ...(nabreScheme ? { nabre: nabreScheme } : {}),
       english: {
         description:
           'English (KJV/RSV/WEB) tradition → Clementine Vulgate anchor. Psalms are mapped by verified rules (chapter shifts, splits/merges, and superscription offsets, reviewed by hand). Other books are identity-mapped; chapters whose verse counts differ are listed as unverified rather than guessed. See docs/VERSIFICATION.md.',
@@ -335,7 +350,8 @@ export function buildBible(report: Report) {
   const dra = built.find((b) => b.edition.id === 'dra')!;
   const vul = built.find((b) => b.edition.id === 'vulgate')!;
   const web = built.find((b) => b.edition.id === 'webc')!;
-  const vers = buildVersification(dra, vul, web, report);
+  const nab = built.find((b) => b.edition.id === 'nabre');
+  const vers = buildVersification(dra, vul, web, report, nab);
   writeJson(join(PUBLIC_DATA, 'versification.json'), vers);
   // Carry the verification flags onto the edition record so the UI can read them without loading rules.
   const eng = vers.schemes.english;

@@ -60,7 +60,7 @@ export interface BookData {
 }
 
 /** vulgate = anchor; english = a bundled edition's own English-tradition numbering (WEB); kjv = numbering used by external data and typed references (OpenBible, plans, lectionary). */
-export type Scheme = 'vulgate' | 'english' | 'kjv';
+export type Scheme = 'vulgate' | 'english' | 'kjv' | 'nabre';
 
 export interface Edition {
   id: string;

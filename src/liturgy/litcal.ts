@@ -27,6 +27,8 @@ const API = 'https://litcal.johnromanodorazio.com/api/v5';
 const GRADE_NAME: Record<number, string> = { 0: 'Weekday', 1: 'Commemoration', 2: 'Optional memorial', 3: 'Memorial', 4: 'Feast', 5: 'Feast of the Lord', 6: 'Solemnity', 7: 'Higher solemnity' };
 export const gradeName = (g: number) => GRADE_NAME[g] ?? '';
 
+/** The calendar service tags national observances as "[ US ] Saint …"; the tag is not part of the name (a feast in the national calendar is shown by the calendar you chose, not by a prefix). */
+export const cleanEventName = (n: unknown) => String(n ?? '').replace(/^\s*\[\s*[A-Za-z]{2,4}\s*\]\s*/, '').trim();
 export const NATIONS: Record<string, string> = { universal: 'Universal (General Roman Calendar)', US: 'United States', CA: 'Canada', GB: 'Great Britain', AU: 'Australia', IE: 'Ireland', PH: 'Philippines', IN: 'India', IT: 'Italy', ES: 'Spain', FR: 'France', DE: 'Germany', PL: 'Poland', MX: 'Mexico', BR: 'Brazil' };
 
 export async function loadLitYear(nation: string, year: number): Promise<LitYear | null> {
@@ -41,7 +43,7 @@ export async function loadLitYear(nation: string, year: number): Promise<LitYear
     clearTimeout(t);
     if (!r.ok) throw new Error(String(r.status));
     const j = await r.json();
-    const events: LitEvent[] = (j.litcal as any[]).map((e) => ({ event_key: e.event_key, name: e.name, color: e.color, grade: e.grade, grade_lcl: e.grade_lcl, common_lcl: e.common_lcl, date: String(e.date).slice(0, 10), readings: e.readings }));
+    const events: LitEvent[] = (j.litcal as any[]).map((e) => ({ event_key: e.event_key, name: cleanEventName(e.name), color: e.color, grade: e.grade, grade_lcl: e.grade_lcl, common_lcl: e.common_lcl, date: String(e.date).slice(0, 10), readings: e.readings }));
     const val: LitYear = { fetched: Date.now(), nation, year, events };
     await db.cache.put({ key, value: val, ts: Date.now() });
     return val;

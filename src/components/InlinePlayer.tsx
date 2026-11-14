@@ -8,15 +8,18 @@ const ytId = (src: string) => /youtube(?:-nocookie)?\.com\/embed\/([\w-]{11})/.e
 export default function InlinePlayer({ embed, title }: { embed: Embed; title: string }) {
   const id = embed.kind === 'iframe' ? ytId(embed.src) : undefined;
   const ref = useRef<HTMLIFrameElement>(null);
+  // Keyed on the address, not the embed object: callers build a fresh object on every render, and saving the position
+  // every few seconds re-renders them. A new `start` would reload the iframe each time (the video then kept restarting).
+  const base = embed.kind === 'iframe' ? embed.src : '';
   const src = useMemo(() => {
-    if (embed.kind !== 'iframe' || !id) return embed.kind === 'iframe' ? embed.src : '';
-    const u = new URL(embed.src);
+    if (!base || !id) return base;
+    const u = new URL(base);
     const saved = posOf(id);
     if (saved && !u.searchParams.has('start')) u.searchParams.set('start', String(Math.max(0, saved.t - 3))); // a few seconds back, to catch the sentence
     u.searchParams.set('enablejsapi', '1');
     u.searchParams.set('origin', location.origin);
     return u.toString();
-  }, [embed, id]);
+  }, [base, id]);
 
   useEffect(() => {
     if (!id || !ref.current) return;
