@@ -54,6 +54,13 @@ describe('semantic Scripture reference validation', () => {
     expect(spanningSplit.exact).toBe(false);
   });
 
+  it('downgrades a known verse-count mismatch to a verified chapter-only anchor', () => {
+    const r = resolveRef(english, anchor, { book: 'MRK', c1: 4, v1: 41, c2: 4, v2: 41 }, 'kjv', anchor);
+    expect(r.status).toBe('approximate');
+    expect(r.anchor).toEqual({ book: 'MRK', c1: 4, c2: 4 });
+    expect(r.reason).toMatch(/only the chapter range can be verified/i);
+  });
+
   it('rejects unknown books, chapters and verses against real edition counts', () => {
     expect(checkRefIn(anchor, { book: 'NOPE', c1: 1, c2: 1 })).toMatchObject({ kind: 'invalid', scope: 'book' });
     expect(checkRefIn(anchor, { book: 'JHN', c1: 99, c2: 99 })).toMatchObject({ kind: 'invalid', scope: 'chapter' });
