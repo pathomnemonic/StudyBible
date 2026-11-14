@@ -2,10 +2,7 @@ import { useMemo } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ReadingBlock from '../../components/ReadingBlock';
 import { LINK_LABEL, THREADS } from '../../data/threads';
-import { convertRef } from '../../lib/versification';
-import { parseRefs, type Ref } from '../../lib/refs';
-
-const toRefs = (s: string): Ref[] => { const p = parseRefs(s); return p.ok ? p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref).ref) : []; };
+import { toRefs } from '../../pray/refs';
 
 export default function StoryPage() {
   const { id } = useParams();
