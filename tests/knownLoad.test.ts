@@ -101,8 +101,8 @@ describe('loading what Go further knows about', () => {
       expect(k.failed?.has('library')).toBe(true);
       const f = buildGoFurther({ ...lesson, deeper: ['room:w-ok'] }, k);
       expect(f.broken).toEqual([]);
-      expect(f.unavailable.some((x) => x.kind === 'library')).toBe(true);
-      expect(f.unavailable.some((x) => x.kind === 'scripture')).toBe(true);
+      expect(f.unavailable.some((x) => x.label === 'room:w-ok')).toBe(true);
+      expect(f.unavailable.some((x) => x.label === 'John 3:16')).toBe(true);
     });
     it('the report script and the app use one rule: only works with a data file', () => {
       const k: Known = loadKnown();
