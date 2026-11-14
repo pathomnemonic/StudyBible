@@ -1,0 +1,123 @@
+{
+ "version": 1,
+ "books": {
+  "akin-bible": {
+   "author": "Jimmy Akin",
+   "title": "The Bible Is a Catholic Book",
+   "publisher": "Catholic Answers Press",
+   "year": 2019
+  },
+  "akin-fathers": {
+   "author": "Jimmy Akin",
+   "title": "The Fathers Know Best",
+   "publisher": "Catholic Answers",
+   "year": 2011
+  },
+  "armstrong": {
+   "author": "Dave Armstrong",
+   "title": "100 Biblical Arguments Against Sola Scriptura",
+   "publisher": "Catholic Answers Press",
+   "year": 2012
+  },
+  "kreeft": {
+   "author": "Peter Kreeft and Ronald K. Tacelli",
+   "title": "Handbook of Catholic Apologetics",
+   "publisher": "Ignatius Press",
+   "year": 2016
+  }
+ },
+ "topics": {
+  "canon": {
+   "label": "Who decided which books are in the Bible?",
+   "to": "/study/arguments/canon-of-scripture"
+  },
+  "tradition": {
+   "label": "Tradition and Scripture",
+   "to": "/study/arguments/tradition-and-scripture"
+  },
+  "sola-scriptura": {
+   "label": "Tradition and Scripture",
+   "to": "/study/arguments/tradition-and-scripture"
+  },
+  "eucharist": {
+   "label": "The Real Presence",
+   "to": "/study/arguments/real-presence"
+  },
+  "papacy": {
+   "label": "The Bishop of Rome and the Chair of Peter",
+   "to": "/study/arguments/papal-primacy"
+  },
+  "resurrection": {
+   "label": "Ask the sources about the Resurrection",
+   "to": "/study/ask-all?q=resurrection"
+  }
+ },
+ "quotes": [
+  {
+   "book": "akin-bible",
+   "topic": "canon",
+   "text": "It came to mean an authoritative standard, and so the canon of Scripture is the collection of writings that are divinely authoritative.",
+   "where": "part0005.html"
+  },
+  {
+   "book": "akin-bible",
+   "topic": "tradition",
+   "text": "The word tradition comes from the Latin root tradere, which means “to hand over” or “to pass on.”",
+   "where": "part0005.html"
+  },
+  {
+   "book": "akin-bible",
+   "topic": "canon",
+   "text": "No one Father, however prominent, can settle the canon of Scripture, and on this subject Jerome was in the minority.",
+   "where": "part0008.html"
+  },
+  {
+   "book": "akin-fathers",
+   "topic": "eucharist",
+   "text": "The doctrine of the Real Presence asserts that in the Holy Eucharist, Jesus is present—body and blood, soul and divinity—under the appearances of bread and wine.",
+   "where": "index_split_059.html"
+  },
+  {
+   "book": "akin-fathers",
+   "topic": "papacy",
+   "text": "Irenaeus of Lyons explains, “because of its superior origin, all the churches must agree” with Rome.",
+   "where": "index_split_043.html"
+  },
+  {
+   "book": "armstrong",
+   "topic": "sola-scriptura",
+   "text": "The Bible never teaches that oral tradition would cease and sola scriptura become the new rule of faith",
+   "where": "part0000_split_003.html"
+  },
+  {
+   "book": "armstrong",
+   "topic": "sola-scriptura",
+   "text": "The Bible makes it clear in many passages that oral tradition is a legitimate, binding category of teaching.",
+   "where": "part0000_split_026.html"
+  },
+  {
+   "book": "armstrong",
+   "topic": "sola-scriptura",
+   "text": "If the evidence for oral tradition in Judaism is nullified because there were competing schools of interpretation, then all the more should the contradictory and competing interpretive traditions in Protestantism nullify the principle of sola scriptura.",
+   "where": "part0000_split_022.html"
+  },
+  {
+   "book": "kreeft",
+   "topic": "resurrection",
+   "text": "The Resurrection was not regarded simply or chiefly as evidence for the immortality of the soul.",
+   "where": "index_split_025.html"
+  },
+  {
+   "book": "kreeft",
+   "topic": "eucharist",
+   "text": "Fundamentalists often interpret the “days” of creation literally and reject evolution but interpret “This is my body” symbolically and reject the notion of the Real Presence in the Eucharist.",
+   "where": "index_split_027.html"
+  },
+  {
+   "book": "kreeft",
+   "topic": "eucharist",
+   "text": "But if the doctrine is true, then most Protestants, who do not believe in the Real Presence, are missing out on the most perfect, total and intimate union with God that is possible in this life.",
+   "where": "index_split_044.html"
+  }
+ ]
+}

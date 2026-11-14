@@ -232,4 +232,8 @@ await p.goto(`${BASE}/#/library`); await p.reload(); await p.waitForTimeout(900)
 await p.locator('[role=tab]', { hasText: /^Review$/ }).first().click(); await p.waitForTimeout(500);
 await p.locator('li', { hasText: 'Due probe note' }).locator('button', { hasText: 'Reviewed' }).click(); await p.waitForTimeout(500);
 if (await p.locator('li', { hasText: 'Due probe note' }).locator('button', { hasText: 'Reviewed' }).count()) fail('a reviewed note should leave the come-back list');
+// 28. modern voices: quotations credit their book
+await p.goto(`${BASE}/#/study/modern-voices`); await p.waitForSelector('blockquote', { timeout: 15000 });
+const mv = await p.locator('.page').innerText();
+if (!/Catholic Answers/.test(mv) || !/not Church teaching/.test(mv)) fail('the quotations should be credited and labelled');
 await b.close(); console.log('review ok');

@@ -275,5 +275,11 @@
     "attribution": "Facts cite the Catholic Encyclopedia (1907-1912, public domain), Scripture, and Vatican documents, as named on each fact. Drafted by one agent and checked against the cited sources by a second; a human review is still recommended.",
     "redistribution": "yes",
     "notes": "Format in docs/PROFILE_DATA_FORMAT.md"
+  },
+  "modern": {
+    "license": "Short quotations, with attribution, for commentary and study (fair use / fair dealing). Copyright remains with the authors and publishers.",
+    "attribution": "Jimmy Akin, The Bible Is a Catholic Book (Catholic Answers Press, 2019) and The Fathers Know Best (Catholic Answers, 2011); Dave Armstrong, 100 Biblical Arguments Against Sola Scriptura (Catholic Answers Press, 2012); Peter Kreeft and Ronald K. Tacelli, Handbook of Catholic Apologetics (Ignatius Press, 2016). Each quotation is a sentence or two and names its book.",
+    "redistribution": "metadata-only",
+    "notes": "Quotations are limited in length and number per book (checked by tests/modernVoices.test.ts). The books themselves are not included. Buy or borrow them to read more."
   }
 }
