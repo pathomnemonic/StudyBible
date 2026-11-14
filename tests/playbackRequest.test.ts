@@ -39,6 +39,17 @@ describe('playback request race protection', () => {
     await expect(localResult).resolves.toBeNull();
   });
 
+
+  it('suppresses a rejection from a source lookup that is stale by the time it fails', async () => {
+    let generation = 0;
+    const pending = deferred<string>();
+    const request = ++generation;
+    const result = resolveIfCurrent(request, () => generation, () => pending.promise);
+    generation++;
+    pending.reject(new Error('old local file disappeared'));
+    await expect(result).resolves.toBeNull();
+  });
+
   it('invalidates an in-flight lookup when playback is stopped', async () => {
     let generation = 0;
     const pending = deferred<string>();
