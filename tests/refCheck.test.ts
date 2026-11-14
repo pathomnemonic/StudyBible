@@ -50,6 +50,8 @@ describe('semantic Scripture reference validation', () => {
     expect(verseRange.ref).toMatchObject({ book: 'GEN', c1: 1, c2: 2, v1: 31, v2: 3 });
     const split = convertRef('english', 'vulgate', { book: 'PSA', c1: 10, c2: 10 });
     expect(split.exact).toBe(false);
+    const spanningSplit = convertRef('english', 'vulgate', { book: 'PSA', c1: 9, v1: 1, c2: 11, v2: 7 });
+    expect(spanningSplit.exact).toBe(false);
   });
 
   it('rejects unknown books, chapters and verses against real edition counts', () => {
