@@ -91,7 +91,18 @@ export interface Hit {
   author: string; authorId: string; group: Group; kind: string; yearText: string; year: number | null; band: CenturyBand | null;
   score: number; passages: Passage[]; href: string;
 }
-export interface Filters { bands?: CenturyBand[]; authorIds?: string[]; groups?: Group[] }
+export interface Filters { bands?: CenturyBand[]; authorIds?: string[]; groups?: Group[]; workIds?: string[] }
+
+/** The exact place of a passage: work, section (1-based, with its title) and paragraph (1-based). Nothing but what the index holds. */
+export function locator(h: Pick<Hit, 'workTitle' | 'sectionIdx' | 'sectionTitle'>, para: number): string {
+  return `${h.workTitle}, section ${h.sectionIdx + 1}${h.sectionTitle ? ` (${h.sectionTitle})` : ''}, paragraph ${para + 1}`;
+}
+/** the paragraphs around `para` (default one each side), with their 0-based numbers; the paragraph itself is marked */
+export function contextParas(paras: string[], para: number, around = 1): { para: number; text: string; here: boolean }[] {
+  const out: { para: number; text: string; here: boolean }[] = [];
+  for (let i = Math.max(0, para - around); i <= Math.min(paras.length - 1, para + around); i++) out.push({ para: i, text: paras[i], here: i === para });
+  return out;
+}
 export interface SearchResult { words: string[]; matchedWords: string[]; unmatchedWords: string[]; hits: Hit[]; sectionsMatched: number }
 
 interface TermGroup { word: string; primary: Set<number>; extra: Set<number>; idf: number }
@@ -125,6 +136,11 @@ export class FathersEngine {
   }
   /** Squared, so a rare word (Sunday) outweighs a common one (worship). */
   private idf(df: number) { const N = this.ft.sections.length; return Math.log(1 + (N - df + 0.5) / (df + 0.5)) ** 2; }
+
+  /** Works in the library, for a picker: optionally only those by one author */
+  works(authorId?: string) {
+    return this.lib.works.filter((w) => !authorId || authorKey(w.authorId) === authorId).map((w) => ({ id: w.id, title: w.title, author: w.author })).sort((a, b) => a.title.localeCompare(b.title));
+  }
 
   /** Authors in the library with the number of works and the earliest year, for pickers. */
   authors(groups: Group[] = ['Fathers', 'Saints']) {
@@ -160,6 +176,7 @@ export class FathersEngine {
       if (!w) return false;
       if (f.authorIds?.length && !f.authorIds.includes(authorKey(w.authorId))) return false;
       if (f.groups?.length && !f.groups.includes(groupOf(w))) return false;
+      if (f.workIds?.length && !f.workIds.includes(w.id)) return false;
       if (f.bands?.length) { const b = centuryBand(startYear(w.year)); if (!b || !f.bands.includes(b)) return false; }
       return true;
     };
