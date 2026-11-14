@@ -1,0 +1,106 @@
+{
+ "about": "Square-note scores from GregoBase (https://gregobase.selapa.net), released into the public domain (CC0). Each is one transcription of the chant, in the book named; other books sing the same text to other melodies. Notation is drawn in your browser by Exsurge (MIT).",
+ "fetched": "2026-11-14",
+ "items": [
+  {
+   "hymnId": "veni-creator",
+   "gregobaseId": 14258,
+   "name": "Veni Creator Spiritus",
+   "book": "Liber Hymnarius, 1983, p. 90",
+   "transcriber": "",
+   "mode": "8",
+   "officePart": "Hymnus",
+   "gabc": "name:Veni Creator Spiritus;\noffice-part:Hymnus;\nmode:8;\nbook:Liber Hymnarius, 1983, p. 90;\n%%\n(c3) VE(e)ni(f) cre(ed)á(e)tor(fe) Spí(h)ri(i)tus,(h.) (;)\nmen(h)tes(e) tu(f)ó(h)rum(ih) ví(i)si(j)ta,(i.) (:)\nim(h)ple(ij) su(hg)pér(fe)na(hi) grá(e)ti(f)a,(h.) (;)\nquæ(gh) tu(f) cre(ed)ás(f)ti,(fgf) péc(e)to(de)ra.(e.) (::)\n\n2. Qui(e) dí(f)ce(ed)ris(e) Pa(fe)rá(h)cli(i)tus,(h.) (;)\ndo(h)num(e) De(f)i(h) al(ih)tís(i)si(j)mi,(i.) (:)\nfons(h) vi(ij)vus,(hg) i(fe)gnis,(hi) cá(e)ri(f)tas(h.) (;)\net(gh) spi(f)ri(ed)tá(f)lis(fgf) ún(e)cti(de)o.(e.) (::)\n\n3. Tu(e) sep(f)ti(ed)fór(e)mis(fe) mú(h)ne(i)re,(h.) (;)\ndéx(h)træ(e) De(f)i(h) tu(ih) dí(i)gi(j)tus,(i.) (:)\ntu(h) ri(ij)te(hg) pro(fe)mís(hi)sum(e) Pa(f)tris(h.) (;)\nser(gh)mó(f)ne(ed) di(f)tans(fgf) gút(e)tu(de)ra.(e.) (::)\n\n4. Ac(e)cén(f)de(ed) lu(e)men(fe) sén(h)si(i)bus,(h.) (;)\nin(h)fúnd<i>e</i>(e) a(f)mó(h)rem(ih) cór(i)di(j)bus,(i.) (:)\nin(h)fír(ij)ma(hg) no(fe)stri(hi) cór(e)po(f)ris,(h.) (;) \nvir(gh)tú(f)te(ed) fir(f)mans(fgf) pér(e)pe(de)ti.(e.) (::)\n\n5. Hó(e)stem(f) re(ed)pél(e)las(fe) lón(h)gi(i)us(h.) (;)\npa(h)cém(e)que(f) do(h)nes(ih) pró(i)ti(j)nus ;(i.) (:)\ndu(h)ctó(ij)re(hg) sic(fe) te(hi) prǽ(e)vi(f)o(h.) (;)\nvi(gh)té(f)mus(ed) om(f)ne(fgf) nó(e)xi(de)um.(e.) (::)\n\n6. Per(e) te(f) sci(ed)á(e)mus(fe) da(h) Pa(i)trem(h.) (;)\nnos(h)cá(e)mus(f) at(h)que(ih) Fí(i)li(j)um,(i.) (:)\nte(h) u(ij)tri(hg)ús(fe)que(hi) Spí(e)ri(f)tum(h.) (;)\ncre(gh)dá(f)mus(ed) om(f)ni(fgf) tém(e)po(de)re.(e.) (::)\n\nA(efe)men.(de..) (::)\n"
+  },
+  {
+   "hymnId": "dies-irae",
+   "gregobaseId": 1198,
+   "name": "Dies irae",
+   "book": "Graduale Romanum, 1961, p. 96* & The Liber Usualis, 1961, p. 1810 & Chants of the Church, 1956, p. 63",
+   "transcriber": "Andrew Hinkley",
+   "mode": "1",
+   "officePart": "Sequentia",
+   "gabc": "name:Dies irae;\noffice-part:Sequentia;\nmode:1;\nbook:Graduale Romanum, 1961, p. 96* & The Liber Usualis, 1961, p. 1810 & Chants of the Church, 1956, p. 63;\ntranscriber:Andrew Hinkley;\n%%\n(c4) DI(f)es(e) i(f)rae,(d) di(e)es(c) il(d)la,(d.) (;) Sol(f)vet(fg) sae(fe)clum(dc) in(e) fa(f)víl(e)la :(d.) (;) Te(a)ste(cd) Da(d)vid(dc) cum(e) Si(f)býl(e)la.(d.) (::) \nQuan(f)tus(e) tre(f)mor(d) est(e) fu(c)tú(d)rus,(d.) (;) Quan(f)do(fg) ju(fe)dex(dc) est(e) ven(f)tú(e)rus,(d.) (;) Cun(a)cta(cd) stri(d)cte(dc) dis(e)cus(f)sú(e)rus!(d.) (::) \nTu(h)ba(j) mi(j)rum(igh) spar(hvGF)gens(g) so(h)num(hd..) (;) Per(f) se(e)púl(f)cra(d) re(e)gi(c)ó(d)num,(d.) (;) Co(f)get(gh) o(hvGF)mnes(evDC) an(e)te(f) thro(e)num.(d.) (::) \nMors(h) stu(j)pé(j)bit(igh) et(hvGF) na(g)tú(h)ra,(hd..) (;) Cum(f) re(e)súr(f)get(d) cre(e)a(c)tú(d)ra,(d.) (;) Ju(f)di(gh)cán(hvGF)ti(evDC) re(e)spon(f)sú(e)ra.(d.) (::) \nLi(h)ber(gf) scri(g)ptus(h_d) pro(dc)fe(a)ré(cd)tur,(d.) (;) In(fe) quo(d) to(c)tum(a) con(c)ti(d)né(f)tur,(ecd.) (;) Un(h)de(f) mun(g)dus(d) ju(c)di(d)cé(f)tur.(ecd.) (::) \nJu(h)dex(gf) er(g)go(h_d) cum(dc) se(a)dé(cd)bit,(d.) (;) Quid(fe)quid(d) la(c)tet(a) ap(c)pa(d)ré(f)bit :(ecd.) (;) Nil(h) in(f)úl(g)tum(d) re(c)ma(d)né(f)bit.(ecd.) (::) \nQuid(f) sum(e) mi(f)ser(d) tunc(e) di(c)ctú(d)rus?(d.) (;) Quem(f) pa(fg)tró(fe)num(dc) ro(e)ga(f)tú(e)rus?(d.) (;) Cum(a) vix(cd) ju(d)stus(dc) sit(e) se(f)cú(e)rus.(d.) (::) \nRex(f) tre(e)mén(f)dae(d) ma(e)je(c)stá(d)tis,(d.) (;) Qui(f) sal(fg)ván(fe)dos(dc) sal(e)vas(f) gra(e)tis,(d.) (;) Sal(a)va(cd) me,(d) fons(dc) pi(e)e(f)tá(e)tis.(d.) (::) \nRe(h)cor(j)dá(j)re(igh) Je(hvGF)su(g) pi(h)e,(hd..) (;) Quod(f) sum(e) cau(f)sa(d) tu(e)ae(c) vi(d)ae :(d.) (;) Ne(f) me(gh) per(hvGF)das(evDC) il(e)la(f) di(e)e.(d.) (::) \nQuae(h)rens(j) me,(j) se(igh)dí(hvGF)sti(g) las(h)sus :(hd..) (;) Red(f)e(e)mí(f)sti(d) cru(e)cem(c) pas(d)sus :(d.) (;) Tan(f)tus(gh) la(hvGF)bor(evDC) non(e) sit(f) cas(e)sus.(d.) (::) \nJu(h)ste(gf) ju(g)dex(h_d) ul(dc)ti(a)ó(cd)nis,(d.) (;) Do(fe)num(d) fac(c) re(a)mis(c)si(d)ó(f)nis,(ecd.) (;) An(h)te(f) di(g)em(d) ra(c)ti(d)ó(f)nis.(ecd.) (::) \nIn(h)ge(gf)mí(g)sco,(h_d) tam(dc)quam(a) re(cd)us :(d.) (;) Cul(fe)pa(d) ru(c)bet(a) vul(c)tus(d) me(f)us :(ecd.) (;) Sup(h)pli(f)cán(g)ti(d) par(c)ce(d) De(f)us.(ecd.) (::) \nQui(f) Ma(e)rí(f)am(d) ab(e)sol(c)ví(d)sti,(d.) (;) Et(f) la(fg)tró(fe)nem(dc) ex(e)au(f)dí(e)sti,(d.) (;) Mi(a)hi(cd) quo(d)que(dc) spem(e) de(f)dí(e)sti.(d.) (::) \nPre(f)ces(e) me(f)ae(d) non(e) sunt(c) di(d)gnae :(d.) (;) Sed(f) tu(fg) bo(fe)nus(dc) fac(e) be(f)ní(e)gne,(d.) (;) Ne(a) per(cd)én(d)ni(dc) cre(e)mer(f) i(e)gne.(d.) (::) \nIn(h)ter(j) o(j)ves(igh) lo(hvGF)cum(g) prae(h)sta,(hd..) (;) Et(f) ab(e) hae(f)dis(d) me(e) se(c)qué(d)stra,(d.) (;) Stá(f)tu(gh)ens(hvGF) in(evDC) par(e)te(f) dex(e)tra.(d.) (::) \nCon(h)fu(j)tá(j)tis(igh) ma(hvGF)le(g)dí(h)ctis,(hd..) (;) Flam(f)mis(e) á(f)cri(d)bus(e) ad(c)dí(d)ctis :(d.) (;) Vo(f)ca(gh) me(hvGF) cum(evDC) be(e)ne(f)dí(e)ctis.(d.) (::) \nO(h)ro(gf) sup(g)plex(h_d) et(dc) ac(a)clí(cd)nis,(d.) (;) Cor(fe) con(d)trí(c)tum(a) qua(c)si(d) ci(f)nis :(ecd.) (;) Ge(h)re(f) cu(g)ram(d) me(c)i(d) fi(f)nis.(ecd.) (::) \nLa(d)cri(h)mó(ixhi)sa(h) di(g)es(fe) il(g)la,(h.) (;) Qua(f) re(e)súr(g)get(h.) ex(dfED'C) fa(f)víl(e)la,(d.) (::) \nJu(h)di(j)cán(k)dus(jvIH) ho(hvGF)mo(g) re(h)us :(hd..) (;) Hu(f)ic(e) er(g)go(h.) par(dfED'C)ce(f) De(e)us.(d.) (::) \nPi(h)e(g) Je(f)su(e) Dó(g)mi(g)ne,(h.) (;) do(f)na(e) e(g)is(ede) ré(f)qui(e)em.(d.) (::) \nA(ce!fvED)men.(cd..) (::)\n"
+  },
+  {
+   "hymnId": "vexilla-regis",
+   "gregobaseId": 19728,
+   "name": "Vexilla Regis",
+   "book": "Antiphonale Romanum, 1912, p. sup16",
+   "transcriber": "iaquobus",
+   "mode": "1",
+   "officePart": "Hymnus",
+   "gabc": "name:Vexilla Regis;\noffice-part:Hymnus;\nmode:1;\nbook:Antiphonale Romanum, 1912, p. sup16;\ntranscriber:iaquobus;\n%%\n(c4) VE(f)xíl(gh)la(ixi) Re(hvGF)gis(g) pró(ghg)de(f)unt:(ed) (;) Ful(g)get(g) Cru(h)cis(fd) my(f)sté(ef)ri(d)um,(cd) (:) Quo(d) car(d)ne(f) car(dc)nis(f) Cón(f!gh)di(g)tor(gf) (;) Sus(f)pén(ixfh!ivHG)sus(h) est(fd) pa(f)tí(ef)bu(d)lo.(cd) (::) 2. Quo(f) vul(gh)ne(ixi)rá(hvGF)tus(g) ín(ghg)su(f)per(ed) (;) Mu(g)cró(g)ne(h) di(fd)ro(f) lán(ef)ce(d)ae,(cd) (:) Ut(d) nos(d) la(f)vá(dc)ret(f) crí(f!gh)mi(g)ne,(gf) (;) Ma(f)ná(ixfh!ivHG)vit(h) un(fd)d<i>a</i>(f) et(f) sán(ef)gui(d)ne.(cd) (::) 3. Im(f)plé(gh)ta(ixi) sunt(hvGF) quae(g) cón(ghg)ci(f)nit(ed) (;) Da(g)vid(g) fi(h)dé(fd)li(f) cár(ef)mi(d)ne,(cd) (:) Di(d)cens:(d) In(f) na(dc)ti(f)ó(f!gh)ni(g)bus(gf) (;) Re(f)gná(ixfh!ivHG)vit(h) a(fd) li(f)gno(ef) De(d)us.(cd) (::) 4. Ar(f)bor(gh) de(ixi)có(hg)r<i>a</i>(f) et(g) fúl(ghg)gi(f)da,(ed) (;) Or(g)ná(g)ta(h) Re(fd)gis(f) púr(ef)pu(d)ra,(cd) (:) E(d)lé(d)cta(f) di(dc)gno(f) stí(f!gh)pi(g)te(gf) (;) Tam(f) san(ixfh!ivHG)cta(h) mem(fd)bra(f) tán(ef)ge(d)re.(cd) (::) 5. Be(f)á(gh)ta,(ixi) cu(hvGF)jus(g) brá(ghg)chi(f)is(ed) (;) Sae(g)cli(g) pe(h)pén(fd)dit(f) pré(ef)ti(d)um,(cd) (:) Sta(d)té(d)ra(f) fa(dc)cta(f) cór(f!gh)po(g)ris,(gf) (;) Præ(f)dám(ixfh!ivHG)que(h) tu(fd)lit(f) tár(ef)ta(d)ri.(cd) (::) 6. O(f) Crux(gh) a(ixi)ve,(hvGF) spes(g) ú(ghg)ni(f)ca,(ed) (;) Hoc(g) Pas(g)si(h)ó(fd)nis(f) tém(ef)po(d)re,(cd) (:) Au(d)ge(d) pi(f)is(dc) jus(f)tí(f!gh)ti(g)am,(gf) (;) Re(f)í(ixfh!ivHG)sque(h) do(fd)na(f) vé(ef)ni(d)am.(cd) (::) 7. Te(f) sum(gh)ma,(ixi) De(hvGF)us,(g) Trí(ghg)ni(f)tas,(ed) (;) Col(g)láu(g)det(h) o(fd)mnis(f) spí(ef)ri(d)tus:(cd) (:) Quos(d) per(d) Cru(f)cis(dc) mys(f)té(f!gh)ri(g)um(gf) (;) Sal(f)vas,(ixfh!ivHG) re(h)ge(fd) per(f) saé(ef)cu(d)la.(cd) (::) A(ded)men.(cd) (::)\n"
+  },
+  {
+   "hymnId": "pange-lingua",
+   "gregobaseId": 8670,
+   "name": "Pange lingua... Corporis",
+   "book": "Antiphonale Monasticum, 1934, p. 547",
+   "transcriber": "Dominique CROCHU",
+   "mode": "",
+   "officePart": "Hymnus",
+   "gabc": "name:Pange lingua... Corporis;\noffice-part:Hymnus;\nbook:Antiphonale Monasticum, 1934, p. 547;\ntranscriber:Dominique CROCHU;\n%%\n(c2)PAn(d)ge(d) lin(d')gua(c) glo(f')ri(f)ó(gh)si(h.) (,)\nCór(h!iwj)po(i)ris(i') mys(h)té(g')ri(i)um,(hvGF.) (:)\nSan(f)gui(g')nís(i)que(h') pre(g)ti(f')ó(g)si,(g.) (,)\nQuem(g) in(h) mun(f')di(e) pré(d')ti(g)um(gc..) (:)\nFruc(c)tus(d') ven(f)tris(d') ge(f)ne(g')ró(g)si(f.) (,)\nRex(g) ef(h')fú(f)dit(gf) gén(d)ti(cd)um.(d.) (::)\n\n2. No(d)bis(d) da(d')tus,(c) no(f')bis(f) na(gh)tus(h.) (,)\nEx(h!iwj) in(i)tác(i')ta(h) Vír(g')gi(i)ne,(hvGF.) (:)\nEt(f) in(g') mun(i)do(h') con(g)ver(f')sá(g)tus,(g.) (,)\nSpar(g)so(h) ver(f')bi(e) sé(d')mi(g)ne,(gc..) (:)\nSu(c)i(d') mo(f)ras(d') in(f)co(g')lá(g)tus(f.) (,)\nMi(g)ro(h') clau(f)sit(gf) ór(d)di(cd)ne.(d.) (::)\n\n3. In(d) su(d)pré(d')mæ(c) noc(f')te(f) cœ(gh)næ(h.) (,)\nRe(h!iwj)cúm(i)bens(i') cum(h) frá(g')tri(i)bus,(hvGF.) (:)\nOb(f)ser(g')vá(i)ta(h') le(g)ge(f') ple(g)ne(g.) (,)\nCi(g)bis(h) in(f') le(e)gá(d')li(g)bus,(gc..) (:)\nCi(c)bum(d') tur(f)bæ(d') du(f)o(g')dé(g)næ(f.) (,)\nSe(g) dat(h') su(f)is(gf) má(d)ni(cd)bus.(d.) (::)\n\n4. Ver(d)bum(d) ca(d')ro,(c) pá(f')nem(f) ve(gh)rum(h.) (,)\nVer(h!iwj)bo(i) car(i')nem(h) éf(g')fi(i)cit:(hvGF.) (:)\nFit(f)que(g') San(i)guis(h') Chris(g)ti(f') me(g)rum,(g.) (,)\nEt(g) si(h) sen(f')sus(e) dé(d')fi(g)cit.(gc..) (:)\nAd(c) fir(d')mán(f)dum(d') cor(f) sin(g')cé(g)rum(f.) (,)\nSo(g)la(h') fi(f)des(gf) súf(d)fi(cd)cit.(d.) (::)\n\n5. Tan(d)tum(d) er(d')go(c) Sa(f')cra(f)mén(gh)tum(h.) (,)\nVe(h!iwj)ne(i)ré(i')mur(h) cér(g')nu(i)i:(hvGF.) (:)\nEt(f) an(g')tí(i)quum(h') do(g)cu(f')mén(g)tum(g.) (,)\nNo(g)vo(h) ce(f')dat(e) rí(d')tu(g)i:(gc..) (:)\nPræ(c)stet(d') fi(f)des(d') sup(f)ple(g')mén(g)tum(f.) (,)\nSén(g)su(h')um(f) de(gf)féc(d)tu(cd)i.(d.) (::)\n\n6. Ge(d)ni(d)tó(d')ri,(c) Ge(f')ni(f)tó(gh)que(h.) (,)\nLaus(h!iwj) et(i) ju(i')bi(h)lá(g')ti(i)o,(hvGF.) (:)\nSa(f)lus,(g') ho(i)nor,(h') vir(g)tus(f') quo(g)que(g.) (,)\nSit(g) et(h) be(f')ne(e)díc(d')ti(g)o:(gc..) (:)\nPro(c)ce(d')dén(f)ti(d') ab(f) u(g')tró(g)que(f.) (,)\nCom(g)par(h') sit(f) lau(gf)dá(d)ti(cd)o.(d.) (::)\nA(fd)men.(cd..) (::)\n"
+  },
+  {
+   "hymnId": "tantum-ergo",
+   "gregobaseId": 2176,
+   "name": "Tantum ergo",
+   "book": "Graduale Romanum, 1961, p. 158* & The Liber Usualis, 1961, p. 954",
+   "transcriber": "Albert Bloomfield",
+   "mode": "3",
+   "officePart": "Hymnus",
+   "gabc": "name:Tantum ergo;\noffice-part:Hymnus;\nmode:3;\nbook:Graduale Romanum, 1961, p. 158* & The Liber Usualis, 1961, p. 954;\ntranscriber:Albert Bloomfield;\n%%\n(c4) TAn(e)tum(e') er(f)go(e[ll:1]d) Sa(g')cra(g)mén(hj)tum(j.) (,)\nVe(jk)ne(j)ré(j')mur(i) cér(h')nu(j)i :(ivHG.) (:)\nEt(g) an(h')tí(j)quum(i') do(h)cu(g')mén(h)tum(g.) (,)\nNo(h')vo(i) ce(g')dat(g) rí(e')tu(h)i :(hd..) (:)\nPrae(e)stet(g') fi(g)des(e') sup(g)ple(h')mén(h)tum(g.) (,)\nSén(h)su(i')um(g) de(hg)fé(fe)ctu(d)i.(e.) (::)\n2. Ge(e)ni(e')tó(f)ri,(e[ll:1]d) Ge(g')ni(g)tó(hj)que(j.) (,)\nLaus(jk) et(j) ju(j')bi(i)lá(h')ti(j)o,(ivHG.) (:)\nSa(g)lus,(h') ho(j)nor,(i') vir(h)tus(g') quo(h)que(g.) (,)\nSit(h') et(i) be(g')ne(g)dí(e')cti(h)o :(hd..) (:)\nPro(e)ce(g')dén(g)ti(e') ab(g) u(h')tró(h)que(g.) (,)\nCom(h)par(i') sit(g) lau(hg)dá(fe)ti(d)o.(e.) (::) A(efe)men.(de..) (::)\n"
+  },
+  {
+   "hymnId": "o-salutaris",
+   "gregobaseId": 17870,
+   "name": "O Salutaris Hostia",
+   "book": "",
+   "transcriber": "Nguyễn Thiện Tuấn Hoàng",
+   "mode": "6",
+   "officePart": "Hymnus",
+   "gabc": "name:O Salutaris Hostia;\noffice-part:Hymnus;\nmode:6;\ntranscriber:Nguyễn Thiện Tuấn Hoàng;\n%%\n(cb4)O(f) sa(h)lu(g)tá(h)ris(i) hó(hgv)sti(F)a,(f) (;)\nQuæ(h) cæ(h)li(g) pan(h)dis(j) ó(iyiv)sti(J)um,(j) (:)\nBel(j)la(k) pre(j)munt(h) ho(i)stí(jiv)li(H)a;(g) (;)\nDa(h) ro(f)bur,(g) fer(h) au(i)xí(hgv)li(F)um.(f) \n\n2.(::) U(f)ni(h) tri(g)nó(h)que(i) Dó(hgv)mi(F)no,(f) (;)\nSit(h) sem(h)pi(g)tér(h)na(j) gló(iyiv)ri(J)a:(j) (:)\nQui(j) vi(k)tam(j) si(h)ne(i) tér(jiv)mi(H)no(g) (;)\nNo(h)bis(f) do(g)net(h) in(i) pá(hgv)tri(F)a.(f) (::)\nA(fgf)men.(e!f) (::)\n"
+  },
+  {
+   "hymnId": "adoro-te",
+   "gregobaseId": 15688,
+   "name": "Adoro te devote",
+   "book": "",
+   "transcriber": "Fr. Anastasius OCist",
+   "mode": "5",
+   "officePart": "Hymnus",
+   "gabc": "name:Adoro te devote;\noffice-part:Hymnus;\nmode:5;\ntranscriber:Fr. Anastasius OCist;\n%%\n(c3) <c>A</c>d(d)ó(f)ro(h) te(h) de(h)vó(hi)te,(h) (;)\nla(gxg)tens(f) Dé(e)i(d)tas, *(d) (:)\nQu<sp>ae</sp>(d) sub(f) his(h) fi(h)gú(hi)ris(h) (;)\nve(gxg)re(f) lá(e)ti(d)tas:(d) (:)\nTí(h)bi(h) se(ij) cor(k) mé(kj)um(h) (;)\nto(i)tum(h) súb(gxg)i(f)cit,(e) (:)\nQui(f)a(h) te(gxg) con(f)tém(ed)plans,(e) (;)\nto(f)tum(d) dé(e)fi(d)cit.(d) (::) (Z-)\n<c>V</c>i(d)sus,(f) ta(h)ctus,(h) gú(hi)stus(h) (;) \nin(gxg) te(f) fál(e)li(d)tur; *(d) (:)\nSed(d) au(f)dí(h)tu(h) só(hi)lo(h) (;) \ntú(gxg)to(f) cré(e)di(d)tur:(d) (:)\nCre(h)do(h) quid(ij)quid(k) di(kj)xit(h) (;) \nDe(i)i(h) Fí(g)li(f)us:(e) (:)\nNil(f) hoc(h) ve(gxg)ri(f)tá(ed)tis(e) (;) ver(f)bo(d) vé(e)ri(d)us.(d) (::) (Z-)\n\n<c>I</c>n(d) crú(f)ce(h) la(h)té(hi)bat(h) (;) \nso(gxg)la(f) Dé(e)i(d)tas, *(d) (:)\nAt(d) hic(f) la(h)tet(h) si(hi)mul(h) (;) \net(gxg) hu(f)má(e)ni(d)tas:(d) (:) \nAm(h)bo(h) ta(ij)men(k) cre(kj)dens(h) (;) \nat(i)que(h) cón(gxg)fi(f)tens,(e) (:)\nPe(f)to(h) quod(gxg) pe(f)tí(ed)vit(e) (;) \nla(f)tro(d) p<sp>'oe</sp>(e)ni(d)tens.(d) (::) (Z-)\n\n<c>P</c>la(d)gas,(f) si(h)cut(h) Tho(hi)mas,(h) (;) \nnon(gxg) in(f)tú(e)e(d)or: *(d) (:)\nDe(d)um(f) ta(h)men(h) me(hi)um(h) (;) \nte(gxg) con(f)fí(e)te(d)or;(d) (:)\nFac(h) me(h) ti(ij)bi(k) sem(kj)per(h) (;) \nma(i)gis(h) cré(gxg)de(f)re,(e) (:)\nIn(f) te(h) spem(gxg) ha(f)bé(ed)re,(e) (;) \nte(f) di(d)lí(e)ge(d)re.(d) (::) (Z-)\n\n<c>O</c>(d) me(f)mo(h)ri(h)á(hi)le(h) (;) \nmor(gxg)tis(f) Dó(e)mi(d)ni, *(d) (:)\nPa(d)nis(f) vi(h)vus(h) vi(hi)tam(h) (;) \npr<sp>ae</sp>(gxg)stans(f) hó(e)mi(d)ni,(d) (:)\nPr<sp>ae</sp>(h)sta(h) me(ij)<sp>ae</sp>(k) men(kj)ti(h) (;) \nde(i) te(h) ví(gxg)ve(f)re,(e) (:)\nEt(f) te(h) il(gxg)li(f) sem(ed)per(e) (;) \ndul(f)ce(d) sá(e)pe(d)re.(d) (::) (Z-)\n\n<c>P</c>i(d)e(f) pel(h)li(h)cá(hi)ne(h) (;) \nIe(gxg)su(f) Dó(e)mi(d)ne, *(d) (:)\nMe(d) im(f)mún(h)dum(h) mún(hi)da(h) (;) \ntu(gxg)o(f) sán(e)gui(d)ne, (d) (:)\nCu(h)ius(h) u(ij)na(k) stil(kj)la(h) (;) \nsal(i)vum(h) fá(gxg)ce(f)re(e) (:)\nTo(f)tum(h) quit(gxg) ab(f) o(ed)mni(e) (;)\nmun(f)dum(d) scé(e)le(d)re.(d) (::) (Z-)\n\n<c>I</c>e(d)su,(f) quem(h) ve(h)lá(hi)tum(h) (;) \nnunc(gxg) a(f)spí(e)ci(d)o, *(d) (:)\nO(d)ro,(f) fi(h)at(h) il(hi)lud(h) (;) \nquod(gxg) tam(f) sí(e)ti(d)o:(d) (:)\nUt(h) te(h) re(ij)ve(k)lá(kj)ta(h) (;) \ncer(i)nens(h) fá(gxg)ci(f)e,(e) (:)\nVi(f)su(h) sim(gxg) be(f)á(ed)tus(e) (;) \ntu(f)<sp>ae</sp>(d) gló(e)ri(d)<sp>ae</sp>.(d) (::)\nA(ded)men.(cd) (::) (Z-)\n"
+  },
+  {
+   "hymnId": "regina-caeli",
+   "gregobaseId": 1976,
+   "name": "Regina caeli",
+   "book": "The Liber Usualis, 1961, p. 275 & Liber antiphonarius, 1960, p. 67",
+   "transcriber": "Andrew Hinkley",
+   "mode": "6",
+   "officePart": "Antiphona",
+   "gabc": "name:Regina caeli;\noffice-part:Antiphona;\nmode:6;\nbook:The Liber Usualis, 1961, p. 275 & Liber antiphonarius, 1960, p. 67;\ntranscriber:Andrew Hinkley;\n%%\n(cb4) RE(f)gí(g')na(f) cae(gh)li(h.) *(,) lae(i)tá(hgivHF'gf.0/hg/hf/ggf)re,(f'_) (,) al(i)le(gf)lú(gh){ia} :(f.) (::) Qui(f)a(j'_) quem(jkkj) me(ih)ru(gf)í(gh)sti(h.) (,) por(iii'1g//ijf'/gf.0)(,)(iii'1g//ijf'/gf.0/ghgh)tá(f_[oh:h]g_[oh:h]f_[oh:h])re,(f.) (,) al(ih~)le(gf/gh//fhG'F)lú(ef){ia} :(f.) (::) Re(i)sur(j')ré(kj'ji)xit,(j'_) (,) sic(j)ut(f') di(g)xit,(f.) (,) al(ih~)le(gi!jvjf)lú(gf~){ia} :(f.) (::) O(jj)ra(f) pro(gh) no(ih)bis(gvFE) De(gf)um,(f.) (;) al(f)le(fh!jkj'jvIGh.jvIHF'gf.0)<clear>*(;)(fh!jkj'jvIGh.jvIHF'gf.0)<clear>**(,)(giH'Gh)lú(f_[oh:h]g_[oh:h]f_[oh:h]){ia}.(f.) (::)\n"
+  },
+  {
+   "hymnId": "salve-regina",
+   "gregobaseId": 2715,
+   "name": "Salve Regina",
+   "book": "The Liber Usualis, 1961, p. 276 & Liber antiphonarius, 1960, p. 68",
+   "transcriber": "Andrew Hinkley",
+   "mode": "1",
+   "officePart": "Antiphona",
+   "gabc": "name:Salve Regina;\noffice-part:Antiphona;\nmode:1;\nbook:The Liber Usualis, 1961, p. 276 & Liber antiphonarius, 1960, p. 68;\ntranscriber:Andrew Hinkley;\n%%\n(c4) SAl(hhgh)ve,(d.) *(,) Re(hg)gí(fe/fgf)na,(e[ll:1]d..) (;) ma(c)ter(d) mi(dc)se(d)ri(ef)cór(g)di(dec)ae :(d.) (::) Vi(hhgh)ta,(d.) (,) dul(hg)cé(fe/fgf)do,(e[ll:1]d..) (;) et(c) spes(d) no(ef)stra,(g.) (,) sal(dec)ve.(d.) (::) Ad(df) te(h') cla(g)má(gfh)mus,(e.) (;) éx(g)su(f)les,(edg.) (,) fí(c)li(d)i(edg) He(fe)vae.(d.) (::) Ad(df) te(h') su(j)spi(g)rá(gfg)mus,(h.) (;) ge(d)mén(fg~)tes(g') et(d) flen(fvED)tes(c.) (;) in(d) hac(dcf) la(gh)cri(g)má(fe)rum(g) val(fe~)le.(dcd.) (::) E(ffg){ia}(f) er(gh~)go,(h'_) (,) Ad(j)vo(g)cá(hvGF)ta(d') no(g)stra,(h.) (;) il(k)los(k) tu(ji/jk)os(h'_) (,) mi(k)se(j')ri(h)cór(gfh')des(g) ó(de)cu(f)los(evDC.) (;) ad(cd) nos(f) con(gf~)vér(dcd)te.(d.) (::) Et(d) Je(a)sum,(c_[ll:1]d) (,) be(d)ne(de)dí(e[ll:1]dd)ctum(c') fru(g)ctum(f) ven(e[ll:1]d~)tris(g) tu(fe)i,(dcd.) (;) no(ixdh'!iv)bis(h.) (,) post(hvGF) hoc(g') ex(d)sí(f)li(fe)um(dc__) (,) os(efe)tén(d.)de.(d.) (::) O(hhg/h!iwj) cle(ivHG)mens :(h.) (::) O(g.h!iwjji) pi(hg)a :(gh..) (::) O(hd__fvEDC'd) (,) (de!fg) dul(gf~)cis(g_[uh:l]h) *() Vir(d)go(c') Ma(d)rí(dgff)a.(e[ll:1]d..) (::)\n"
+  },
+  {
+   "hymnId": "te-deum",
+   "gregobaseId": 16704,
+   "name": "Te Deum",
+   "book": "Graduale Romanum, 1974, p. 841",
+   "transcriber": "carolus7",
+   "mode": "3",
+   "officePart": "Hymnus",
+   "gabc": "name:Te Deum;\noffice-part:Hymnus;\nmode:3;\nbook:Graduale Romanum, 1974, p. 841;\ntranscriber:carolus7;\n%%\n(c4)TE(e) De(gh)um(h) lau(hg)dá(hiwj)mus:(i.h.)* (;) te(h) Dó(h)mi(h)num(g) con(h')fi(i)té(h.)mur.(g.) (::)\nTe(j) æ(j)tér(j')num(i) Pa(hi)trem,(h.) (;) om(h)nis(h) ter(h)ra(g) ve(h')ne(i)rá(h.)tur.(g.) (::)\nTi(j)bi(j) om(j')nes(i) án(hi)ge(h)li,(h.) (;) ti(h)bi(h) cæ(h)li,(h) et(h) u(h)ni(h)vér(h)sæ(g) pot(h')es(i)tá(h.)tes  :(g.) (::)\nTi(j)bi(j) ché(j)ru(j)bim(j') et(i) sé(hi)ra(h)phim(h.) (;) in(h)ces(h)sá(h)bi(h)li(h) vo(g)ce(h') pro(i)clá(h.)mant :(g.) (::)\nSanc(g.h/iwj)tus,(i.h.) (::) Sanc(g.h/iwj)tus,(i.h.) (::) Sanc(he/gh)tus(h.) (,) Dó(h)mi(h)nus(g) De(h')us(i) Sá(h')ba(h)oth.(g.) (::)\nPle(j)ni(j) sunt(j) cæ(j)li(j') et(i) ter(hi)ra(h.) (;) ma(h)ies(h)tá(h)tis(h) gló(g)ri(h')æ(i) tu(h.)æ :(g.) (::)\nTe(j) glo(j')ri(i)ó(hi)sus(h.) (,) A(h)pos(h)to(g)ló(h')rum(i) cho(h.)rus :(g.) (::) \nTe(j) pro(j')phe(i)tá(hi)rum(h.) (;) lau(h)dá(g)bi(h')lis(i) nú(h')me(h)rus :(g.) (::) \nTe(j) már(j)ty(j)rum(j) can(j')di(i)dá(hi)tus(h.) (;) lau(g)dat(h') ex(i)ér(h')ci(h)tus.(g.) (::)\nTe(j) per(j) or(j)bem(j') ter(i)rá(hi)rum(h.) (;) sanc(h)ta(h) con(h)fi(h)té(g)tur(h') Ec(i)clé(h')si(h)a:(g.) (::)\nPa(gh/iwj)trem(i.h.) (;) im(h)mén(h)sæ(g) ma(h')ies(i)tá(h.)tis :(g.) (::) \nVe(j)ne(j)rán(j)dum(j) tu(j')um(i) ve(hi)rum(h.) (;) et(h) ú(g)ni(h')cum(i) Fí(h')li(h)um :(g.) (::) Sanc(g)tum(h') quo(i)que(h.) (;) Pa(h)rá(g)cli(h')tum(i) Spí(h')ri(h)tum.(g.) (::)\nTu(gh) rex(h) gló(g)ri(h')æ,(i) Chris(g.)te.(e.) (::)\nTu(h) Pa(i)tris(h.) (,) sem(h)pi(h)tér(g)nus(h') es(i) Fí(g')li(g)us.(e.) (::)\nTu(gj) ad(j) li(j)be(j)rán(j)dum(j) su(j)scep(j)tú(i')rus(h) hó(ij)mi(i)nem,(h.) (;) non(h) hor(h)ru(h)ís(h)ti(h) Vír(g)gi(h')nis(i) u(g')te(g)rum.(e.) (::)\nTu(gj) de(j)víc(j)to(j) mor(j)tis(i') a(h)cú(ij)le(i)o,(h.) (;) a(h)pe(h)ru(h)ís(h)ti(h) cre(h)dén(i)ti(h)bus(h) re(g)gna(h') cæ(i)ló(g.)rum.(e.) (::)\nTu(gj) ad(j) déx(j)te(j)ram(j) De(i')i(h) se(ij)des(i.h.) (;) in(h) gló(g)ri(h')a(i) Pa(g.)tris.(e.) (::)\nIu(h)dex(h) cré(i)de(h)ris(h.) (;) es(g)se(h') ven(i)tú(g.)rus.(e.) (::)\nTe(gj) er(j)go(j) quæ(j)su(j)mus,(j.) tu(j)is(j) fá(j)mu(i')lis(h) súb(ij)ve(i)ni,(h.) (;) quos(h) pre(h)ti(h)ó(h)so(h) sán(i)gui(h)ne(g) red(h')e(i)mis(g.)ti.(e.) (::)\nÆ(f)tér(fe)na(df) fac(evDC.)(;) cum(c) Sanc(e)tis(f) tu(g)is(g) in(g) gló(g)ri(g)a(g) nu(h)me(f)rá(gvFE)ri.(e.) (::)\nSal(c)vum(df) fac(f) pó(f)pu(f)lum(f) tu(f)um(f) Dó(d)mi(f)ne,(evDC.) (;) et(c) bé(df)ne(f)dic(f) he(f)re(fe)di(d)tá(f)ti(gh) tu(gvFE)æ.(e.) (::)\nEt(f) re(fe)ge(d) e(f)os,(EvDC.) (;) et(c) ex(df)tól(fe)le(d) il(g)los(g.) (,) us(g)que(g) in(h) æ(f)tér(gvFE)num.(e.) (::)\nPer(h) sín(h)gu(h')los(g) di(ij)es,(i.h.) (;) be(h)ne(g)dí(h')ci(i)mus(g.) te.(e.) (::)\nEt(h) lau(h)dá(h)mus(h) no(h)men(h) tu(h)um(h') in(g) sæ(ij)cu(i)lum,(h.) (;) et(h) in(h) sæ(g)cu(h')lum(i) sæ(g')cu(g)li.(e.) (::)\nDi(h)gná(h)re(h) Dó(h)mi(h)ne(h) di(h')e(g) is(ij)to(i.h.) (;) si(h)ne(h) pec(h)cá(h)to(h) nos(g) cus(h')to(i)di(g.)re.(e.) (::)\nMi(h)se(h)ré(h)re(h) nos(h')tri(g) Dó(ij)mi(i)ne,(h.) (;) mi(h)se(g)ré(h')re(i) nos(g.)tri.(e.) (::)\nFi(h)at(h) mi(h)se(h)ri(h)cór(h)di(h)a(h) tu(h)a(h.) Dó(h)mi(h')ne,(g) su(ij)per(i) nos,(h.) (;) quem(h)ád(h)mo(h)dum(h) spe(h)rá(g)vi(h')mus(i) in(g.) te.(e.) (::)\nIn(c) te(df) Dó(fe)mi(d)ne(f) spe(gh)rá(gf/gf)vi : (e.d.) (;) non(c) con(df)fún(fe)dar(dc) in(f) æ(gh)tér(gfgvFE)num.(e.) (::)\n"
+  }
+ ]
+}

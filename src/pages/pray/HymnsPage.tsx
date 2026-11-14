@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getJson } from '../../data/loader';
+import ChantScoreView from '../../components/ChantScore';
+
+interface ChantItem { hymnId: string; gregobaseId: number; name: string; book: string; transcriber: string; mode: string; officePart: string; gabc: string }
 
 interface Src { label: string; url: string }
 interface Hymn {
@@ -14,6 +17,9 @@ const SEASONS = ['Pentecost', 'Lent and Holy Week', 'Easter', 'Corpus Christi an
 export default function HymnsPage() {
   const [data, setData] = useState<{ about: string; hymns: Hymn[] } | null | undefined>(undefined);
   const [season, setSeason] = useState<string>('All');
+  const [chant, setChant] = useState<{ about: string; items: ChantItem[] } | null>(null);
+  const [openScore, setOpenScore] = useState<string | null>(null);
+  useEffect(() => { getJson<{ about: string; items: ChantItem[] }>('hymns/chant.json', true).then(setChant).catch(() => setChant(null)); }, []);
   useEffect(() => { getJson<{ about: string; hymns: Hymn[] }>('hymns/hymns.json', true).then(setData).catch(() => setData(null)); }, []);
   const list = useMemo(() => (data?.hymns ?? []).filter((h) => season === 'All' || h.seasons.includes(season)), [data, season]);
   return (
@@ -43,6 +49,20 @@ export default function HymnsPage() {
               {h.translation ? <>{h.translation.text.map((s, i) => <p key={i} className="hy-stanza">{s}</p>)}<p className="muted small">Translation: {h.translation.translator}, {h.translation.year}. Source: <a href={h.translation.source.url} target="_blank" rel="noreferrer noopener">{h.translation.source.label}</a></p></> : <p className="muted">{h.translationNote}</p>}
             </section>
           </div>
+          {(() => {
+            const c = chant?.items.find((x) => x.hymnId === h.id);
+            if (!c) return null;
+            const on = openScore === h.id;
+            return (
+              <section className="hy-chant" aria-label={`Chant notation for ${h.title}`}>
+                <button className="btn small" aria-expanded={on} onClick={() => setOpenScore(on ? null : h.id)}>{on ? 'Hide the chant notation' : '♪ Show the chant notation'}</button>
+                {on && <>
+                  <ChantScoreView gabc={c.gabc} label={`${h.title}, chant notation`} />
+                  <p className="muted small">One transcription of the melody{c.book ? `, from ${c.book}` : ''}{c.mode ? ` (mode ${c.mode})` : ''}{c.transcriber ? `, transcribed by ${c.transcriber}` : ''}. From <a href={`https://gregobase.selapa.net/chant.php?id=${c.gregobaseId}`} target="_blank" rel="noreferrer noopener">GregoBase</a> (public domain). This is the notation only: there is no recording here.</p>
+                </>}
+              </section>
+            );
+          })()}
         </article>
       ))}
       {data && list.length === 0 && <p className="muted">Nothing in this season yet.</p>}

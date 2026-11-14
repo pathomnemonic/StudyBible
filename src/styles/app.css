@@ -6432,3 +6432,8 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .shelf-card .chip { max-width: 100%; justify-self: start; white-space: normal; overflow-wrap: anywhere; text-align: left; }
 /* games menu tiles: content wraps inside the tile at large text (the NEW! badge and titles no longer push past the edge) */
 .pf-tile { min-width: 0; } .pf-tile > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+
+/* chant notation: dark ink on a parchment panel, so it reads in every theme */
+.chant-score { background: #f6efdc; color: #1b1a17; border-radius: 10px; padding: 10px 8px; margin: 10px 0; overflow: hidden; }
+.chant-score svg { display: block; }
+.hy-chant { margin-top: 12px; }
