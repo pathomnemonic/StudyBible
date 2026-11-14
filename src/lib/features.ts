@@ -162,6 +162,7 @@ export const FEATURES: Feature[] = [
   { id: 'learn.quartets', title: 'Quartets', blurb: 'Sort sixteen tiles into four hidden sets. A new puzzle every day.', to: '/play/quartets', hub: 'learn', keywords: 'connections puzzle game daily' },
   { id: 'learn.whosaid', title: 'Who Said It?', blurb: 'Five quotations from the saints: who said each?', to: '/play/whosaid', hub: 'learn', keywords: 'quote quiz daily game saints' },
   { id: 'learn.chain', title: 'Chain of Grace', blurb: 'Change one letter at a time to turn one word into another.', to: '/play/chain', hub: 'learn', keywords: 'word ladder game daily' },
+  { id: 'learn.termmatch', title: 'Match the term', blurb: 'Pair Catholic words with their meanings from the glossary.', to: '/play/termmatch', hub: 'learn', keywords: 'glossary vocabulary terms quiz game matching' },
   { id: 'learn.whichbook', title: 'Which Book?', blurb: 'Name the book of the Bible a verse comes from.', to: '/play/whichbook', hub: 'learn', keywords: 'bible quiz game verse daily' },
   { id: 'learn.crossword', title: 'Crossword', blurb: 'A small crossword of the faith, new each week.', to: '/play/crossword', hub: 'learn', keywords: 'puzzle game weekly clues' },
   { id: 'learn.pilgrim', title: 'Pin the Place', blurb: 'Tap the map to place a city or mountain from Scripture.', to: '/play/pilgrim', hub: 'learn', keywords: 'map geography game places' },

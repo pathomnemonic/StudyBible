@@ -19,6 +19,7 @@ const GROUPS: Group[] = [
     G('/play/crossword', 'Crossword', 'A small crossword of the faith, new each week.', '✏️', '#8a5ac2', '10 min', 'Solo'),
     G('/play/wordsearch', 'Wordsearch', 'A weekly theme. Find the hidden words.', '🔍', '#4a9b8e', '6 min', 'Solo'),
     G('/play/cloister', 'Cloister', 'Link letters into words. Words of the faith score extra.', '🔤', '#b9772e', '5 min', 'Solo'),
+    G('/play/termmatch', 'Match the term', 'Pair five Catholic words with their meanings.', '🔗', '#8a5ac2', '2 min', 'Solo'),
     G('/play/whoami', 'Who Am I?', 'A person from the Bible, from five clues.', '🧔', '#6b7fd7', '3 min', 'Solo', { daily: 'whoami' }),
   ] },
   { id: 'explore', title: 'Explore and discover', sub: 'Maps, art and the stories behind them.', games: [

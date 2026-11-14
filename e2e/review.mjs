@@ -185,4 +185,12 @@ await p.goto(`${BASE}/${lessonHref}`); await p.waitForTimeout(1500);
   if (!/ANSWER KEY/.test(await pk.content())) fail('the key copy should say so');
   await pk.close();
 }
+// 22. match the term: a wrong pair is counted, a right pair locks in
+await p.goto(`${BASE}/#/play/termmatch`); await p.waitForSelector('[aria-label="Meanings"] button', { timeout: 15000 });
+await p.locator('[aria-label="Meanings"] button').first().click();
+const termBtns = p.locator('[aria-label="Terms"] button');
+if (await termBtns.count() !== 5) fail('five terms should be offered');
+// try every term for the chosen meaning until one locks in (the right one disables its button)
+for (let i = 0; i < 5; i++) { if (await p.locator('[aria-label="Meanings"] button:disabled').count()) break; await termBtns.nth(i).click(); }
+if (await p.locator('[aria-label="Meanings"] button:disabled').count() !== 1) fail('exactly one pair should be matched');
 await b.close(); console.log('review ok');
