@@ -3,7 +3,7 @@ import { db } from '../../db/db';
 import { BOOKS } from '../../lib/canon';
 import { parseRefId, parseRefs, type Ref } from '../../lib/refs';
 import { useEditions } from '../../data/EditionsContext';
-import { resolvePlanReferences } from '../../lib/planReferences';
+import { resolvePlanReferences, validateAnchorPlanReferences } from '../../lib/planReferences';
 import { buildDays, chapterUnits, dayLabel, MAX_DAYS, type Pace } from '../../lib/planBuilder';
 
 /** Make a plan from a run of chapters or a list of passages at a pace you choose; every day is shown before anything is saved. */
@@ -21,7 +21,12 @@ export default function PlanBuilder({ onSaved }: { onSaved: (id: number) => void
   const built = useMemo(() => {
     let units: Ref[] = [];
     let err = '';
-    if (mode === 'book') units = chapterUnits(book, from, to);
+    if (mode === 'book') {
+      units = chapterUnits(book, from, to);
+      const checked = validateAnchorPlanReferences(units, editions);
+      if (!checked.ok) err = `The selected chapter range cannot be verified in the canonical Vulgate edition: ${checked.reason}`;
+      else units = checked.refs;
+    }
     else {
       for (const l of list.split('\n').map((x) => x.trim()).filter(Boolean)) {
         const p = parseRefs(l);
