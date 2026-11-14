@@ -68,8 +68,8 @@ describe('listening time', () => {
     const { creditListening, listeningStats } = await import('../src/lib/listening');
     await Promise.all(Array.from({ length: 20 }, (_, i) => creditListening('many-saves', 5, { position: (i + 1) * 5 })));
     const rows = await db.episodeProgress.toArray();
-    expect(rows[0].heard).toBe(100);
-    expect(rows[0].listeningDays?.[Object.keys(rows[0].listeningDays ?? {})[0]]?.seconds).toBe(100);
+    expect(rows[0].heard).toBe(1200);
+    expect(rows[0].listeningDays?.[Object.keys(rows[0].listeningDays ?? {})[0]]?.seconds).toBe(1200);
     expect(listeningStats(rows, new Date().getFullYear())).toEqual({ hours: 0.3, playedToEnd: 0 });
   });
 
