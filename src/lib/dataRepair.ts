@@ -8,18 +8,28 @@ import { parseRefId, parseRefs, refId } from './refs';
 import { convertRef } from './versification';
 import type { Target } from '../db/db';
 import type { HealthInput } from './dataHealth';
+import { checkRefIn, pooledCounts } from './refCheck';
+import type { CountsEdition } from './refCheck';
 
 /** the passage ids an unreadable address stands for, or null when it cannot be known for certain */
-export function repairPassageId(s: string): string[] | null {
+export function repairPassageId(s: string, editions?: CountsEdition[]): string[] | null {
   if (parseRefId(s)) return null; // already fine
   const tidy = s.trim().replace(/[–—]/g, '-').replace(/\s+/g, '').toUpperCase();
-  if (tidy && parseRefId(tidy)) return [tidy];
+  if (tidy && parseRefId(tidy)) {
+    const anchor = editions?.find((e) => e.scheme === 'vulgate');
+    if (anchor && checkRefIn(anchor, parseRefId(tidy)!).kind) return null;
+    return [tidy];
+  }
   const p = parseRefs(s);
   if (p.ok && p.refs.length) {
     // Human-readable inputs are English/KJV-numbered. Only repair when every conversion is verified;
     // an unverified mapping (for example John 6:51–58) must remain for the reader to resolve.
+    const source = editions ? pooledCounts(editions, 'english') : null;
+    const anchor = editions?.find((e) => e.scheme === 'vulgate');
+    if (source && p.refs.some((x) => !!checkRefIn(source, x.ref))) return null;
     const converted = p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref));
     if (converted.some((x) => !x.exact)) return null;
+    if (anchor && converted.some((x) => !!checkRefIn(anchor, x.ref))) return null;
     return converted.map((x) => refId(x.ref));
   }
   return null;
@@ -43,14 +53,14 @@ export interface RepairInput extends Omit<HealthInput, 'highlights' | 'bookmarks
 
 const pick = (row: object, keys: string[]) => Object.fromEntries(keys.map((k) => [k, (row as Record<string, unknown>)[k]]));
 
-export function planRepairs(d: RepairInput, chapterKeysOf: (t: Target[]) => string[] = () => []): Repair[] {
+export function planRepairs(d: RepairInput, chapterKeysOf: (t: Target[]) => string[] = () => [], editions?: CountsEdition[]): Repair[] {
   const out: Repair[] = [];
   for (const n of d.notes) {
     if (n.id == null) continue;
     const changes: string[] = [];
     const targets = n.targets.flatMap((t): Target[] => {
       if (t.type !== 'passage') return [t];
-      const fix = repairPassageId(t.ref);
+      const fix = repairPassageId(t.ref, editions);
       if (!fix) return [t];
       changes.push(`${t.ref} becomes ${fix.join(', ')}`);
       return fix.map((ref) => ({ ...t, ref }));
@@ -60,7 +70,7 @@ export function planRepairs(d: RepairInput, chapterKeysOf: (t: Target[]) => stri
   for (const [tbl, rows, label] of [['highlights', d.highlights, 'A highlight'], ['bookmarks', d.bookmarks, 'A bookmark']] as const) {
     for (const r of rows) {
       if (r.id == null || !r.ref) continue;
-      const fix = repairPassageId(r.ref);
+      const fix = repairPassageId(r.ref, editions);
       if (!fix || fix.length !== 1) continue; // one record cannot become several
       const ref = parseRefId(fix[0])!;
       out.push({ key: `${tbl}:${r.id}`, tbl, id: r.id, where: label, changes: [`${r.ref} becomes ${fix[0]}`], patch: tbl === 'highlights' ? { ref: fix[0], book: ref.book, c: ref.c1 } : { ref: fix[0] }, before: tbl === 'highlights' ? pick(r, ['ref', 'book', 'c']) : pick(r, ['ref']) });
@@ -72,7 +82,7 @@ export function planRepairs(d: RepairInput, chapterKeysOf: (t: Target[]) => stri
     const items: Target[] = [];
     const fixed: Target[] = [];
     for (const t of c.items) {
-      const fix = t.type === 'passage' ? repairPassageId(t.ref) : null;
+      const fix = t.type === 'passage' ? repairPassageId(t.ref, editions) : null;
       if (!fix || t.type !== 'passage') { items.push(t); continue; }
       changes.push(`${t.ref} becomes ${fix.join(', ')}`);
       for (const ref of fix) { const nt: Target = { ...t, ref }; fixed.push(nt); items.push(nt); }
@@ -86,7 +96,7 @@ export function planRepairs(d: RepairInput, chapterKeysOf: (t: Target[]) => stri
   for (const p of d.userPlans) {
     if (p.id == null) continue;
     const changes: string[] = [];
-    const days = p.days.map((day) => ({ ...day, refs: day.refs.flatMap((r) => { const fix = repairPassageId(r); if (!fix) return [r]; changes.push(`${r} becomes ${fix.join(', ')}`); return fix; }) }));
+    const days = p.days.map((day) => ({ ...day, refs: day.refs.flatMap((r) => { const fix = repairPassageId(r, editions); if (!fix) return [r]; changes.push(`${r} becomes ${fix.join(', ')}`); return fix; }) }));
     if (changes.length) out.push({ key: `userPlans:${p.id}`, tbl: 'userPlans', id: p.id, where: `Reading plan “${p.name}”`, changes, patch: { days }, before: pick(p, ['days']) });
   }
   return out;
