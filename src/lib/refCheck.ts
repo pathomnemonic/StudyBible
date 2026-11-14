@@ -133,7 +133,7 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   }
   // A passage typed in the English tradition, opened in an edition numbered in that same tradition, needs no conversion:
   // the numbers mean the same thing on both sides (Daniel 3 and 4 are the one place the two traditions' rules differ).
-  const sameTradition = sourceScheme === 'kjv' && target.scheme === 'english' && ref.book !== 'DAN';
+  const sameTradition = target.scheme === sourceScheme || (sourceScheme === 'kjv' && target.scheme === 'english' && ref.book !== 'DAN');
   const t = sameTradition ? { ref, exact: true, note: undefined } : anchorToNativeRef(target, anchor);
   const issue = checkRefIn(target, t.ref);
   if (issue) {
