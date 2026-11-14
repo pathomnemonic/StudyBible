@@ -3,7 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { db } from '../../db/db';
 import { saveNote } from '../../db/ops';
 import { parseRefs, refId } from '../../lib/refs';
-import { convertRef } from '../../lib/versification';
+import { toRefs } from '../../pray/refs';
 import { BOOK_PRAYERS } from '../../data/prayerbook';
 import FilterBar from '../../components/FilterBar';
 import { HubHeader } from '../../components/Hub';
@@ -43,7 +43,9 @@ export default function PrayerBookPage() {
   const attachTo = async (p: { id: string; title: string; text: string }) => {
     const r = parseRefs(passage);
     if (!r.ok) return setAttachMsg(r.error);
-    await saveNote({ kind: 'prayer', title: p.title, body: p.text, tags: ['prayer'], targets: r.refs.map((x) => ({ type: 'passage' as const, ref: refId(convertRef('kjv', 'vulgate', x.ref).ref) })) } as any);
+    const anchors = toRefs(passage);
+    if (!anchors.length) return setAttachMsg('These passage references cannot all be matched to the reader with verified numbering, so the note was not attached to a possibly different passage.');
+    await saveNote({ kind: 'prayer', title: p.title, body: p.text, tags: ['prayer'], targets: anchors.map((ref) => ({ type: 'passage' as const, ref: refId(ref) })) } as any);
     setAttachMsg(`Attached to ${passage.trim()}. It now appears with that passage in the reader and the study panel, under your notes.`);
     setPassage('');
   };
