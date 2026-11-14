@@ -484,14 +484,18 @@ export default function ReadPage() {
     const target = get(id);
     if (!target) return;
     let ref: Ref;
+    // a verse the address names (?v=, shown highlighted for a few seconds after arriving) is the reader's place too: switching again must keep it
+    const arrived = !selRefs.length && vParam ? /^(\d+)(?:-(\d+))?$/.exec(vParam) : null;
+    const arrivedRef = arrived ? nativeToAnchorRef(edition, bk.id, chNum, +arrived[1], arrived[2] ? +arrived[2] : +arrived[1]).ref : null;
     if (selRefs.length) ref = selRefs[0];
+    else if (arrivedRef) ref = arrivedRef;
     else {
       const first = flat[0] ? anchorOf.get(flat[0].n)! : { c: primaryAnchorChapter, v1: 1 };
       ref = { book: bk.id, c1: first.c, v1: first.v1, c2: first.c, v2: first.v1 };
     }
     const t = anchorToNative(target, { ...ref, c2: ref.c1, v2: ref.v1 });
-    const ch = Math.min(t.chapter, target.chapters[bk.id] ?? 1);
-    const v = selRefs.length ? anchorToNative(target, ref) : null;
+    const ch = t.chapter; // never clamped to "the nearest chapter": a chapter the other translation lacks gets the reader's own explicit state
+    const v = selRefs.length || arrivedRef ? anchorToNative(target, ref) : null;
     nav(`/read/${id}/${bk.id}/${ch}${parallelId && parallelId !== id ? `?p=${parallelId}` : ''}${v?.v1 ? `${parallelId && parallelId !== id ? '&' : '?'}v=${v.v1}${v.v2 && v.v2 !== v.v1 ? '-' + v.v2 : ''}` : ''}`, { state: loc.state }); // same passage in another translation: the way back stays
     setSettings({ defaultEdition: id });
     setEditionPicker(false);
@@ -674,6 +678,20 @@ export default function ReadPage() {
   const lastCh = edition.chapters[bk.id] ?? 1;
   // (a book this translation does not contain at all is handled by the reader itself, so only judge a chapter where the book exists)
   const badChapter = edition.chapters[bk.id] != null && (!/^\d+$/.test(chapter) || +chapter < 1 || +chapter > lastCh);
+  // a translation that does not contain this book at all (the Septuagint has no John; a partial edition may lack a book): say so and offer the translations that do
+  const missingBook = !unknownEdition && !unknownBook && edition.chapters[bk.id] == null;
+  if (missingBook) {
+    const has = choosable.filter((e) => e.id !== edition.id && e.chapters[bk.id] != null);
+    const vq = sp.get('v');
+    return (
+      <div className="page" role="alert" data-state="not-found">
+        <Link to="/read" className="small">← Bible</Link>
+        <h1>{edition.shortName} does not include {bk.name}</h1>
+        <p>{edition.name} does not contain this book, so there is no {bk.name} {/^\d+$/.test(chapter) ? chapter : ''} to show in it. Nothing has been substituted.</p>
+        {has.length > 0 && <p className="row" style={{ gap: 8, flexWrap: 'wrap' }}>{has.map((e) => <Link key={e.id} className="btn" to={`/read/${e.id}/${bk.id}/${/^\d+$/.test(chapter) ? chapter : 1}${vq ? `?v=${vq}` : ''}`}>Read {bk.name} in {e.shortName}</Link>)}</p>}
+      </div>
+    );
+  }
   if (unknownEdition || unknownBook || badChapter) {
     return (
       <div className="page" role="alert" data-state="not-found">

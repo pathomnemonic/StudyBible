@@ -5,7 +5,7 @@ import { existsSync } from 'node:fs';
 import { parseShard } from './lib/config.mjs';
 const CHECKS = [
   'smoke', 'newroutes', 'notfound', 'versenote', 'xref', 'dataflow', 'parallel', 'crosslinks', 'passportgo', 'bigquestions',
-  'collections', 'review', 'studytools', 'videoshorts', 'videoresume', 'offline', 'offlinepack', 'stalechunk', 'recovery', 'updatesafety', 'themeapplier', 'reader-companion', 'editionswitch', 'readerbar', 'a11y2', 'a11y3', 'a11y', 'mediahost', 'mediahost-lifecycle', 'mediaaudit', 'overlap', 'behaviors', 'invariants-selftest', 'crawler-selftest', 'sweep',
+  'collections', 'review', 'studytools', 'videoshorts', 'videoresume', 'offline', 'offlinepack', 'stalechunk', 'recovery', 'updatesafety', 'themeapplier', 'reader-companion', 'editionswitch', 'edition-verse', 'readerbar', 'a11y2', 'a11y3', 'a11y', 'mediahost', 'mediahost-lifecycle', 'mediaaudit', 'overlap', 'behaviors', 'invariants-selftest', 'crawler-selftest', 'sweep',
 ];
 // SHARD=2/3 runs the second of three slices, so CI can run the checks in parallel jobs
 let si, sn;
