@@ -16,7 +16,7 @@ export function repairPassageId(s: string, editions?: CountsEdition[]): string[]
   if (parseRefId(s)) return null; // already fine
   const tidy = s.trim().replace(/[–—]/g, '-').replace(/\s+/g, '').toUpperCase();
   if (tidy && parseRefId(tidy)) {
-    const anchor = editions?.find((e) => e.scheme === 'vulgate');
+    const anchor = editions?.find((e) => e.id === 'vulgate');
     if (anchor && checkRefIn(anchor, parseRefId(tidy)!)) return null;
     return [tidy];
   }
@@ -25,7 +25,7 @@ export function repairPassageId(s: string, editions?: CountsEdition[]): string[]
     // Human-readable inputs are English/KJV-numbered. Only repair when every conversion is verified;
     // an unverified mapping (for example John 6:51–58) must remain for the reader to resolve.
     const source = editions ? pooledCounts(editions, 'english') : null;
-    const anchor = editions?.find((e) => e.scheme === 'vulgate');
+    const anchor = editions?.find((e) => e.id === 'vulgate');
     if (source && p.refs.some((x) => !!checkRefIn(source, x.ref))) return null;
     const converted = p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref));
     if (converted.some((x) => !x.exact)) return null;
