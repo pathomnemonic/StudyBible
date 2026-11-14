@@ -17,8 +17,12 @@ export const INVARIANTS = () => {
   for (let i = 0; i < rects.length; i++) for (let j = i + 1; j < rects.length; j++) {
     const [a, ra] = rects[i], [c, rc] = rects[j];
     if (a.contains(c) || c.contains(a)) continue;
-    const ox = Math.min(ra.right, rc.right) - Math.max(ra.left, rc.left), oy = Math.min(ra.bottom, rc.bottom) - Math.max(ra.top, rc.top);
-    if (ox > 6 && oy > 6 && a.textContent.trim() && c.textContent.trim()) {
+    // compare line by line, so an inline link that wraps over two lines is not mistaken for overlapping its neighbour
+    let hit = false;
+    for (const x of a.getClientRects()) for (const y of c.getClientRects()) {
+      if (Math.min(x.right, y.right) - Math.max(x.left, y.left) > 6 && Math.min(x.bottom, y.bottom) - Math.max(x.top, y.top) > 6) hit = true;
+    }
+    if (hit && a.textContent.trim() && c.textContent.trim()) {
       const k = label(a) + '|' + label(c);
       if (!seen.has(k)) { seen.add(k); out.push(`"${label(a)}" overlaps "${label(c)}"`); }
     }
