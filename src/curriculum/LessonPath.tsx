@@ -154,6 +154,7 @@ export default function LessonPath(p: Props) {
     );
     if (band.id === 'primary') return [
       { id: 'story', label: 'Story', icon: '📖', body: <>{picture}{p.kidsText ? <p className="cur-story">{p.kidsText}</p> : <p className="cur-idea">{lesson.idea}</p>}{leaderSay}{src.story && <p className="muted small">Retold from <Link to={`/study/kids/${src.story.id}`}>{src.story.title}</Link></p>}{termsBlock}</> },
+      ...(hasMedia ? [{ id: 'watch', label: 'Watch', icon: '🎬', body: <WatchListen extras={p.extras!} /> }] : []),
       { id: 'wonder', label: 'Wonder', icon: '💭', body: <>{hookOk && <p className="lp-hook">{lesson.hook}</p>}{pic(1)}{talkBlock}</> },
       { id: 'play', label: 'Play', icon: '🎲', body: gamesBlock },
       { id: 'do', label: 'Do', icon: '✂️', body: <>{doBlock}{memBlock}</> },
@@ -162,6 +163,7 @@ export default function LessonPath(p: Props) {
     ];
     if (band.id === 'elementary') return [
       { id: 'listen', label: 'Listen', icon: '📖', body: <>{warm}{picture}{big}{p.kidsText && <p className="cur-story">{p.kidsText}</p>}{scriptureBlock}</> },
+      ...(hasMedia ? [{ id: 'watch', label: 'Watch', icon: '🎬', body: <WatchListen extras={p.extras!} /> }] : []),
       { id: 'learn', label: 'Learn', icon: '💡', body: <>{objectives}{teachPoints}{termsBlock}{ccc}{remember}{memBlock}{storyBlock}{p.quick}</> },
       { id: 'play', label: 'Play', icon: '🎲', body: gamesBlock },
       { id: 'talk', label: 'Talk', icon: '💬', body: <>{pic(1)}{talkBlock}</> },
