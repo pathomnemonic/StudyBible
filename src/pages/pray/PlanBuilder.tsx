@@ -31,7 +31,7 @@ export default function PlanBuilder({ onSaved }: { onSaved: (id: number) => void
           const source = pooledCounts(editions, 'english');
           const anchor = editions.find((e) => e.scheme === 'vulgate');
           if (!source || !anchor) { err = 'Scripture verse counts are not loaded yet. Try again when the editions have finished loading.'; break; }
-          const resolved = resolveRef(source, anchor, x.ref, 'english', anchor);
+          const resolved = resolveRef(source, anchor, x.ref, 'kjv', anchor);
           if (resolved.status !== 'exact' || !resolved.anchor) { err = `“${l}” cannot be verified in the source and anchor editions: ${resolved.reason ?? 'the verse mapping is not exact'}. Remove it or choose a verified passage.`; break; }
           units.push(resolved.anchor);
         }
