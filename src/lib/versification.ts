@@ -147,6 +147,16 @@ export function chapterAlignmentNote(scheme: Scheme, book: string, nativeChapter
   return caveat(indexes.get(scheme), book, nativeChapter);
 }
 
+/** Whether one whole source chapter maps to one whole target chapter without an unverified boundary. */
+function wholeChapterMapsExactly(from: Scheme, to: Scheme, book: string, chapter: number): boolean {
+  if (from === 'vulgate') {
+    const native = nativeChaptersFor(to, book, chapter);
+    return native.length === 1 && !chapterAlignmentNote(to, book, native[0]) && !bookAlignmentNote(to, book);
+  }
+  const refs = chapterToAnchorRefs(from, book, chapter);
+  return refs.length === 1 && refs[0].exact && refs[0].ref.v1 === undefined;
+}
+
 /** Convert a whole passage between numbering schemes. The result may be wider than the input. */
 export function convertRef(from: Scheme, to: Scheme, r: Ref): { ref: Ref; exact: boolean } {
   if (from === to) return { ref: r, exact: true };
@@ -157,15 +167,29 @@ export function convertRef(from: Scheme, to: Scheme, r: Ref): { ref: Ref; exact:
       : from === 'vulgate'
         ? fromAnchor(to, r.book, r.c2, r.v2)
         : toAnchor(from, r.book, r.c2, r.v2);
+  const endChapters = r.c2 === r.c1 || end
+    ? [end?.c ?? start.c]
+    : from === 'vulgate'
+      ? nativeChaptersFor(to, r.book, r.c2)
+      : anchorChaptersFor(from, r.book, r.c2);
+  const endChapter = endChapters[endChapters.length - 1] ?? r.c2;
+  let chapterRangeExact = true;
+  if (r.v2 === undefined && r.c2 !== r.c1) {
+    const firstWholeChapter = r.v1 === undefined ? r.c1 : r.c1 + 1;
+    for (let c = firstWholeChapter; c <= r.c2; c++) {
+      if (!wholeChapterMapsExactly(from, to, r.book, c)) { chapterRangeExact = false; break; }
+    }
+    if (endChapters.length !== 1) chapterRangeExact = false;
+  }
   return {
     ref: {
       book: r.book,
       c1: start.c,
       v1: r.v1 === undefined ? undefined : start.v1,
-      c2: end ? end.c : start.c,
+      c2: end ? end.c : endChapter,
       v2: end ? end.v2 : r.v1 === undefined ? undefined : start.v2,
     },
-    exact: start.exact && (end ? end.exact : true),
+    exact: start.exact && (end ? end.exact : chapterRangeExact),
   };
 }
 
