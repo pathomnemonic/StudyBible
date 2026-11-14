@@ -85,52 +85,60 @@ See the commands and results table below.
 
 # Reliability cycle: reference integrity, listening history, and safe state transitions
 
-**Status: incomplete; draft review only.** Branch: `reliability/reference-listening-state-cycle`. Starting point requested: `64206baa813be26f83c5e82139c546aedbc06ece`. Work was performed against the current `ccr-c086ddeb-igsukm` branch after checking its recent history; the requested base SHA is not the branch's current HEAD.
+**Status: incomplete; draft review only.** Branch: `reliability/reference-listening-state-cycle`. The PR base is `c3cee139c40d291a0eaa7aa000359c846ac1bbd4`; compare confirms it is the merge base (60 commits ahead, zero behind). No rebase was necessary. The base commit already contains the shared `refCheck` / `resolveRef` and recoverable Go Further loading work; this cycle extends those paths rather than duplicating them.
 
-## Findings reproduced / code paths changed
+## Work completed in this pass
 
-| Area | Work recorded | Commit(s) |
+| Area | Changes and regression coverage | Commits |
 |---|---|---|
-| Versification | Reviewed the existing exactness-aware conversion and no-clamping behavior on the starting branch. No new versification implementation change is recorded in this cycle yet; the specified regression suite remains outstanding. | Pre-existing on the starting branch; no new commit. |
-| Reference repair | Human-readable repair conversions now require exact conversion; optional edition counts are used to validate source and anchor candidates. | `80b3f09`, `fd89208` |
-| Reading-plan creation | Typed passages are refused when conversion reports non-exactness. Source/anchor semantic validation has not been completed. | No new commit for this row. |
-| Data health | Optional anchor-edition semantic validation added to passage checks; UI loads Vulgate counts before running the check. | `a4b2c96`, `3dbd99e` |
-| Listening statistics | Added a local calendar-day ledger for listened seconds and actual end events; annual totals now use dated ledger entries, and old cumulative records are explicitly disclosed as undated. | `68d4536`, `35d75e4` |
-| Listening tests | Updated legacy expectations and added year-boundary, real-completion, and position-only-save cases. | `86ae189` |
-| Repair atomicity | Repair batches and Undo use Dexie transactions; a failed snapshot stops the operation. | `9d80f6d` |
-| Trash restore | Restore re-reads the trash row inside a transaction, checks UID duplication, and clears tombstone/trash state atomically. | `4e1707c` |
-| Collection summary | Done marks are compared by canonicalized JSON values, independent of object-key order. | `d65ab18`, `b893a80` |
-| Playback race | Playback source resolution, retry, and reload restoration use a request generation to prevent stale async lookups from replacing a newer selection. Saving paused previous-episode progress before replacement and deterministic race tests remain outstanding. | `1c4d4df` |
+| CI failure triage | The first observed `fast` run (`43649865764`, commit `354ea94`) passed `npm ci` and failed typecheck on two dynamic Dexie transaction spreads and two reads of nonexistent `convertRef().note`. Replaced the dynamic spread with an explicit transaction table list and removed the invalid property reads. These fixes have not yet been verified by a completed rerun. | `00e62c8`, `eff8fc4`, `023a6c5` |
+| Source / anchor semantics | Added all-or-nothing plan reference resolution against pooled English source counts and a Vulgate anchor edition. Both PlanBuilder and the manual PlansPage creation flow now refuse a day containing any invalid or non-exact reference; they do not persist the valid subset of a mixed day. | `14edda1`, `64d41da`, `1d7321d` |
+| Unaligned books | Copied the five known unaligned Catholic books into the KJV external-reference scheme as well as English; same-tradition shortcuts now respect unaligned-book caveats. | `4016052`, `9579e37`, `3eeda39` |
+| Versification range integrity | `convertRef()` now preserves the end chapter of chapter-only and partial cross-chapter ranges. Whole-chapter mappings that split or merge are marked non-exact. No clamping or nearby-verse substitution was introduced. | `48d91d2`, `ad0b35a` |
+| Reference regressions | Added tests for KJV John 6:51–58, unverified Psalm numbering, every unaligned book in English and KJV schemes, a verified Psalm conversion, invalid book/chapter/verse, single verse, same-chapter range, cross-chapter range endpoints, absent target books, split Psalm chapters and chapter-only range preservation. | `54fc9a4`, `cc0376a`, `e02823f`, `856820c` |
+| Repair semantics | Human-readable repair conversions require exact KJV-to-anchor conversion and optional real edition counts; unverified John 6 references are withheld. Data Health validates stored anchor refs against edition counts. Repair and Undo now re-check the record state inside the transaction, so a later user edit is not overwritten. | `80b3f09`, `fd89208`, `a4b2c96`, `3dbd99e`, `5e24643` |
+| Go Further / memorization | Go Further withholds Scripture links if edition counts are unavailable, reports them as unavailable, and keeps the retryable loading path. Approximate scripture links to a different numbering remain explicitly noted. Memorization retains the original source ref/scheme and an approximate flag; exact-only compatibility lookup returns no card for unverified passages. | `c3cee13`, `6d3bc0a`, `75de56e` |
+| Annual listening | Dated ledger attribution covers listening across years, later position-only updates, manual played marks, replay in a later year, actual end events and legacy undated rows. Listening ledger read-modify-write and manual played updates now use Dexie transactions to prevent concurrent saves from losing increments. | `68d4536`, `35d75e4`, `86ae189`, `4d139de`, `0a00db0` |
+| Playback races | Added a request-generation resolver used by play, retry and reload restoration. Controlled-promise tests resolve requests in reverse order, cover imported local audio followed by a remote episode, and cover stop invalidation. | `d680d06`, `46e1c84`, `057b316` |
+| Atomic repair / restore | Repair batch, Undo and trash restore are transactional. Snapshot failure is a hard stop; mid-batch and Undo failures roll back; concurrent restores consume the trash row once; duplicate UIDs are not re-added; an interrupted restore leaves the trash/tombstone intact. | `9d80f6d`, `4e1707c`, `f715c02`, `3900d78`, `1dad107` |
+| Collection completion | Done marks use canonical JSON comparison rather than key-order-sensitive string comparison. | `d65ab18`, `b893a80` |
 
-## Regression tests
+## Regression tests now present
 
-Added/updated:
-- `tests/listening.test.ts`: year-boundary attribution, actual completion, position-only saves, and legacy undated totals.
-- `tests/collectionsView.test.ts`: imported completion mark with a different object-key order and malformed stale marks.
+- `tests/refCheck.test.ts`: source/target counts, unaligned books, KJV John 6, Psalm numbering, invalid refs, both range endpoints, chapter-only ranges and absent books.
+- `tests/planReferences.test.ts`: exact plan passage, mixed valid/unverified day, invalid chapter and all five unaligned books.
+- `tests/dataRepair.test.ts`: safe capitalization normalization, withheld unverified conversion, semantic counts, snapshot failure, batch rollback, Undo rollback and stale-edit protection.
+- `tests/goFurther.test.ts` and `tests/knownLoad.test.ts`: approximate scripture link disclosure, memorization uncertainty, failed edition index withholding, transient retry, no partial-result caching, missing work file and unavailable index behavior.
+- `tests/listening.test.ts`: year boundaries, manual played marks, position-only saves, legacy rows, end-event attribution, replay in another year and concurrent saves.
+- `tests/playbackRequest.test.ts`: controlled promise reverse-order resolution, local-file-to-remote transition and stop invalidation.
+- `tests/trashRestore.test.ts`: simultaneous restore, duplicate UID, interrupted transaction rollback.
+- `tests/collectionsView.test.ts`: key-order-independent completion mark.
 
-Still required before this cycle is complete:
-- Versification regressions for John 6:51–58 (KJV), unverified Psalms, every unaligned book, verified conversion, invalid book/chapter/verse, single-verse and cross-chapter ranges.
-- Repair tests for safe case normalization versus withheld unverified conversion; mixed valid/unverified plans; Go Further and memorization uncertainty.
-- Player controlled-promise race tests, including imported-local-to-remote transition.
-- Atomic repair snapshot failure, mid-batch write failure, Undo failure; simultaneous and interrupted restore tests.
-- Go Further transient failure/retry, missing work file and unavailable index tests.
-- Full regression coverage for all annual-listening cases specified in the assignment.
+## CI and quality-gate status
 
-## Quality-gate results
+The first fast run is evidence only for its own commit, not the current head:
 
-No local checkout or command runner was available in this session. The following commands have **not been run** and are not claimed to pass:
-
-| Command | Result |
+| Check | Observed result |
 |---|---|
-| `npm ci` | Not run |
-| `npm run typecheck` | Not run |
-| `npm test` | Not run |
-| `npm run docs:status` | Not run |
-| `npm run data:validate` | Not run |
-| `npm run build` | Not run |
-| `npm run budget` | Not run |
-| `node scripts/audit-gate.mjs` | Not run |
-| `npm run e2e:release` | Not run |
-| Full-width sweep / verified nightly or release workflow | Not run |
+| `npm ci` | **Passed** on initial PR head `354ea94`; must be rechecked on current head |
+| `npm run typecheck` | **Failed** on `354ea94` with four errors listed above; fixes pushed, current-head rerun pending |
+| `npm test` | Skipped after the typecheck failure in that run |
+| `npm run docs:status` + generated-doc diff | Skipped in that run |
+| `npm run data:validate` | Skipped in that run |
+| `npm run build` | Skipped in that run |
+| `npm run budget` | Skipped in that run |
+| `node scripts/audit-gate.mjs` | Skipped in that run |
+| `npm run e2e:release` | Not run; browser jobs require the fast job to pass |
+| Accounts / sync browser job | Not run; requires the fast job to pass |
+| Full-width sweep | Not run; separate nightly/release/manual workflow |
 
-No final quality-gate or full-width-sweep result is verified. This report is intentionally marked incomplete; further code review, test additions, and actual CI execution are required before merge.
+A new PR CI run (`43651196456`, run 714) was triggered against the current head `856820c`; at the time of this update both `fast` and `secrets` were still queued. Do not treat any current-head gate as passed until its job has completed and its result/logs have been inspected.
+
+## Remaining before merge
+
+- Await current-head CI and fix every typecheck, unit-test, generated-document, data-validation, build, budget or audit-gate failure it reports.
+- Verify the browser `e2e:release` shards and accounts job after fast CI passes; inspect their actual results.
+- Run or verify the separate full-width sweep workflow.
+- Add an integration-level player test that exercises the actual audio element and verifies previous-episode progress is saved before source replacement; the controlled-promise tests currently exercise the shared request guard, not the complete browser media lifecycle.
+- Continue the independent audit after the current CI run; in particular inspect event-handler races around media error/pause events and verify the UI's explicit approval language for approximate memorization cards.
+- Update this report with the final run IDs, exact tested commit SHA and actual results. This PR remains draft and must not be merged until these items are complete.
