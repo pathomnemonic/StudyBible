@@ -151,10 +151,12 @@ export function chapterAlignmentNote(scheme: Scheme, book: string, nativeChapter
 function wholeChapterMapsExactly(from: Scheme, to: Scheme, book: string, chapter: number): boolean {
   if (from === 'vulgate') {
     const native = nativeChaptersFor(to, book, chapter);
-    return native.length === 1 && !chapterAlignmentNote(to, book, native[0]) && !bookAlignmentNote(to, book);
+    const nativeChapter = native[0];
+    return native.length === 1 && nativeChapter !== undefined && !chapterAlignmentNote(to, book, nativeChapter) && !bookAlignmentNote(to, book);
   }
   const refs = chapterToAnchorRefs(from, book, chapter);
-  return refs.length === 1 && refs[0].exact && refs[0].ref.v1 === undefined;
+  const first = refs[0];
+  return refs.length === 1 && !!first && first.exact && first.ref.v1 === undefined;
 }
 
 /** Convert a whole passage between numbering schemes. The result may be wider than the input. */
