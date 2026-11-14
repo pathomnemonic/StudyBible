@@ -25,7 +25,7 @@ const ABBR: Record<string, string> = {
 const spell = (t: string) => t.replace(/^(?:cf\.?\s+)?([A-Za-z]{2,5})\s*#?\s*(\d[\d,;\- ]*)\.?$/, (m, a: string, n: string) => (ABBR[a] ? `${ABBR[a]} §${n.trim()}` : m));
 
 /** a footnote such as "Mt 28:19-20; Acts 2:42" becomes links into the Bible reader; anything else stays as written */
-function Cites({ text, onOpen }: { text: string; onOpen: (ref: ReturnType<typeof parseRefs> & { ok: true }) => string }) {
+function Cites({ text, onOpen }: { text: string; onOpen: (ref: ReturnType<typeof parseRefs> & { ok: true }) => string | null }) {
   const lead = /^\s*(cf\.?|see)\s+/i.exec(text);
   const rest = text.replace(/^\s*(cf\.?|see)\s+(?:also\s+)?/i, '');
   const parts = rest.split(/;\s*/).map((x) => x.replace(/^(?:cf\.?|see)\s+(?:also\s+)?/i, ''));
@@ -37,7 +37,7 @@ function Cites({ text, onOpen }: { text: string; onOpen: (ref: ReturnType<typeof
       {parts.map((p, i) => {
         const fixed = p.trim().replace(/\b(\d+)\s+(\d+)\b(?!:)/, '$1:$2').replace(/\.$/, '');
         const r = parseRefs(fixed);
-        return <span key={i}>{i ? '; ' : ''}{r.ok ? <>{/^cf/i.test(p.trim()) ? 'compare ' : ''}<Link to={onOpen(r as any)}>{formatRef(r.refs[0].ref, { noDual: true })}{r.refs.length > 1 ? ' …' : ''}</Link></> : spell(p.trim())}</span>;
+        return <span key={i}>{i ? '; ' : ''}{r.ok ? (() => { const to = onOpen(r as any); const label = formatRef(r.refs[0].ref, { noDual: true }) + (r.refs.length > 1 ? ' …' : ''); return to ? <>{/^cf/i.test(p.trim()) ? 'compare ' : ''}<Link to={to}>{label}</Link></> : <span title="The verse numbering cannot be verified in the selected edition">{label} <span className="muted">(numbering unverified)</span></span>; })() : spell(p.trim())}</span>;
       })}
     </>
   );
@@ -66,7 +66,7 @@ export default function CatechismPage() {
     return all.filter((p) => p.t.toLowerCase().includes(t)).slice(0, 40);
   }, [q, all]);
   const heading = useMemo(() => idx?.headings.filter((h) => h.before <= target).slice(-1)[0]?.t, [idx, target]);
-  const open = (r: { refs: { ref: any }[] }) => (edition ? readerPath(edition, convertRef('kjv', 'vulgate', r.refs[0].ref).ref) : '/read');
+  const open = (r: { refs: { ref: any }[] }) => { if (!edition) return '/read'; const mapped = convertRef('kjv', 'vulgate', r.refs[0].ref); return mapped.exact ? readerPath(edition, mapped.ref) : null; };
   return (
     <div className="page ccc-page">
       <h1>Catechism of the Catholic Church</h1>
