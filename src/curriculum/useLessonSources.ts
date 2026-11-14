@@ -40,7 +40,10 @@ export function useLessonSources(lesson: LessonSpec | undefined, band: BandId | 
     if (ed) Promise.all(refs.map(async (r) => ({ label: r.label, ref: r.ref, path: readerPath(ed, r.ref), verses: await passageText(ed, r.anchor, 14).catch(() => []) }))).then((p) => live && setPassages(p.filter((x) => x.verses.length)));
     const nums = cccListSafe(lesson.ccc).slice(0, 12);
     Promise.all(nums.map((n) => cccRange(n, n))).then((x) => live && setCcc(x.flat()));
-    videosFor(anchors, band === 'primary' || band === 'elementary' ? true : undefined).then((v) => live && setVideos(v.filter((x) => (band === 'primary' || band === 'elementary' ? true : !x.kids)).filter((x) => relevant(lesson, x.title, x.refs.join('; '))).slice(0, 4)));
+    const younger = band === 'primary' || band === 'elementary';
+    // Passage matching is already the editorial relevance check. A second title-keyword filter
+    // discarded hand-curated videos whose titles did not repeat the lesson's vocabulary.
+    videosFor(anchors, younger ? true : undefined).then((v) => live && setVideos(v.filter((x) => younger ? !!x.kids : !x.kids).slice(0, 4)));
     Promise.all([lessonPictures(lesson.id), moreArtFor(anchors).catch(() => [])]).then(([pre, a]) => {
       if (!live) return;
       const own = (a as never as (typeof art[number] & { refs?: string[] })[]).filter((w) => relevant(lesson, w.title, (w.refs ?? []).join('; ')));
