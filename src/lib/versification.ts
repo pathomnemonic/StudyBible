@@ -174,7 +174,7 @@ export function convertRef(from: Scheme, to: Scheme, r: Ref): { ref: Ref; exact:
       : anchorChaptersFor(from, r.book, r.c2);
   const endChapter = endChapters[endChapters.length - 1] ?? r.c2;
   let chapterRangeExact = true;
-  if (r.v2 === undefined && r.c2 !== r.c1) {
+  if (r.v1 === undefined || (r.v2 === undefined && r.c2 !== r.c1)) {
     const firstWholeChapter = r.v1 === undefined ? r.c1 : r.c1 + 1;
     for (let c = firstWholeChapter; c <= r.c2; c++) {
       if (!wholeChapterMapsExactly(from, to, r.book, c)) { chapterRangeExact = false; break; }
