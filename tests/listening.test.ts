@@ -37,8 +37,8 @@ describe('listening time', () => {
   });
   it('attributes listening increments and a real completion to the calendar year in which they occur', async () => {
     const { db } = await import('../src/db/db'); const { creditListening, listeningStats } = await import('../src/lib/listening');
-    await creditListening('split', 60, {}, new Date(2025, 11, 31, 23, 59));
-    await creditListening('split', 120, { ranToEnd: true, completed: true }, new Date(2026, 0, 1, 0, 1));
+    await creditListening('split', 600, {}, new Date(2025, 11, 31, 23, 59));
+    await creditListening('split', 1200, { ranToEnd: true, completed: true }, new Date(2026, 0, 1, 0, 1));
     const rows = await db.episodeProgress.toArray();
     expect(listeningStats(rows, 2025)).toEqual({ hours: 0.2, playedToEnd: 0 });
     expect(listeningStats(rows, 2026)).toEqual({ hours: 0.3, playedToEnd: 1 });
@@ -47,19 +47,19 @@ describe('listening time', () => {
   it('does not attribute a later progress update or manual completion to a year with no listening', async () => {
     const { db } = await import('../src/db/db');
     const { creditListening, setPlayed, listeningStats } = await import('../src/lib/listening');
-    await creditListening('old', 120, { position: 120 }, new Date(2025, 5, 1, 12));
+    await creditListening('old', 600, { position: 600 }, new Date(2025, 5, 1, 12));
     await creditListening('old', 0, { position: 240 }, new Date(2026, 5, 1, 12));
     await setPlayed('old', true, 1800);
     const rows = await db.episodeProgress.toArray();
-    expect(listeningStats(rows, 2025)).toEqual({ hours: 0.3, playedToEnd: 0 });
+    expect(listeningStats(rows, 2025)).toEqual({ hours: 0.2, playedToEnd: 0 });
     expect(listeningStats(rows, 2026)).toEqual({ hours: 0, playedToEnd: 0 });
   });
 
   it('keeps an end event in its original year when the same episode is replayed the next year', async () => {
     const { db } = await import('../src/db/db');
     const { creditListening, listeningStats } = await import('../src/lib/listening');
-    await creditListening('replay', 300, { ranToEnd: true, completed: true }, new Date(2025, 11, 31, 23, 59));
-    await creditListening('replay', 120, { completed: false }, new Date(2026, 0, 1, 0, 1));
+    await creditListening('replay', 3000, { ranToEnd: true, completed: true }, new Date(2025, 11, 31, 23, 59));
+    await creditListening('replay', 1200, { completed: false }, new Date(2026, 0, 1, 0, 1));
     const rows = await db.episodeProgress.toArray();
     expect(listeningStats(rows, 2025)).toEqual({ hours: 0.8, playedToEnd: 1 });
     expect(listeningStats(rows, 2026)).toEqual({ hours: 0.3, playedToEnd: 0 });
@@ -70,9 +70,9 @@ describe('listening time', () => {
     const { creditListening, listeningStats } = await import('../src/lib/listening');
     await Promise.all(Array.from({ length: 20 }, (_, i) => creditListening('many-saves', 5, { position: (i + 1) * 5 })));
     const rows = await db.episodeProgress.toArray();
-    expect(rows[0].heard).toBe(1200);
-    expect(rows[0].listeningDays?.[Object.keys(rows[0].listeningDays ?? {})[0]]?.seconds).toBe(1200);
-    expect(listeningStats(rows, new Date().getFullYear())).toEqual({ hours: 0.3, playedToEnd: 0 });
+    expect(rows[0].heard).toBe(100);
+    expect(rows[0].listeningDays?.[Object.keys(rows[0].listeningDays ?? {})[0]]?.seconds).toBe(100);
+    expect(listeningStats(rows, new Date().getFullYear())).toEqual({ hours: 0, playedToEnd: 0 });
   });
 
 
@@ -80,7 +80,7 @@ describe('listening time', () => {
     const { db } = await import('../src/db/db');
     const { creditListening, hasUndatedListening, listeningStats } = await import('../src/lib/listening');
     await db.episodeProgress.put({ episodeId: 'legacy-then-new', position: 0, completed: true, heard: 3600, ranToEnd: true, updatedAt: 1 });
-    await creditListening('legacy-then-new', 60, { position: 60 }, new Date());
+    await creditListening('legacy-then-new', 600, { position: 600 }, new Date());
     const rows = await db.episodeProgress.toArray();
     expect(listeningStats(rows, new Date().getFullYear())).toEqual({ hours: 0.2, playedToEnd: 0 });
     expect(hasUndatedListening(rows)).toBe(true);
