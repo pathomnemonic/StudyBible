@@ -141,6 +141,8 @@ export interface EpisodeProgress extends Syncable {
   listeningDays?: Record<string, { seconds: number; completions: number }>;
   /** Legacy cumulative listening that predates the dated ledger and cannot be assigned to a year. */
   undatedHeard?: number;
+  /** Legacy completion event without a recoverable calendar date. */
+  undatedCompletions?: number;
   updatedAt: number;
 }
 
