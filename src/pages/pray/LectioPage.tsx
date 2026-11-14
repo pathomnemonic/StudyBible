@@ -128,7 +128,7 @@ export default function LectioPage() {
               {text.map((t) => <span key={t.v}><sup>{t.v}</sup> {t.text} </span>)}
             </div>
           )}
-          {step >= 1 && <textarea placeholder="Notes for yourself (optional, private)" value={reflection} onChange={(e) => setReflection(e.target.value)} aria-label="Reflection" />}
+          {step >= 1 && <textarea data-saves="journal" placeholder="Notes for yourself (optional, private)" value={reflection} onChange={(e) => setReflection(e.target.value)} aria-label="Reflection" />}
           {step === 2 && (
             <details className="small"><summary>Traditional prayers</summary>{PRAYERS.slice(0, 4).map((p) => <p key={p.id}><strong>{p.title}.</strong> {p.text}</p>)}</details>
           )}
@@ -146,7 +146,7 @@ export default function LectioPage() {
         <div>
           <h2>Amen.</h2>
           <p className="lede">Would you like to keep a note of this time of prayer?</p>
-          <textarea value={reflection} onChange={(e) => setReflection(e.target.value)} aria-label="Reflection" />
+          <textarea data-saves="journal" value={reflection} onChange={(e) => setReflection(e.target.value)} aria-label="Reflection" />
           <div className="row" style={{ marginTop: 8 }}>
             <button className="btn primary" disabled={saved || !reflection.trim()} onClick={saveToJournal}>{saved ? 'Saved to journal' : 'Save to journal'}</button>
             <button className="btn" onClick={() => { setStep(-1); setSaved(false); setReflection(''); }}>Done</button>

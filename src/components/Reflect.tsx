@@ -29,7 +29,7 @@ export default function Reflect({ date, question, refId }: { date: string; quest
       </p>
       {open && (
         <div className="reflect-box">
-          <textarea value={text} onChange={(e) => { setText(e.target.value); setSaved(false); }} placeholder="Your answer, only for you…" rows={4} aria-label="Your reflection" autoFocus />
+          <textarea data-saves="journal" value={text} onChange={(e) => { setText(e.target.value); setSaved(false); }} placeholder="Your answer, only for you…" rows={4} aria-label="Your reflection" autoFocus />
           <div className="row">
             <button className="btn primary small" onClick={save} disabled={!text.trim()}>{saved ? 'Saved' : 'Save'}</button>
             <Link to="/pray/journal" className="small">Open journal</Link>

@@ -33,7 +33,7 @@ export default function ExamenPage() {
       <section className="card" aria-live="polite">
         <h2 className="card-title">{step.title}</h2>
         <p style={{ fontSize: '1.05rem', lineHeight: 1.6 }}>{step.prompt}</p>
-        {step.write && <textarea value={text[i]} onChange={(e) => setText(text.map((t, k) => (k === i ? e.target.value : t)))} placeholder={(step as any).label} aria-label={(step as any).label} rows={5} />}
+        {step.write && <textarea data-saves="journal" value={text[i]} onChange={(e) => setText(text.map((t, k) => (k === i ? e.target.value : t)))} placeholder={(step as any).label} aria-label={(step as any).label} rows={5} />}
       </section>
       <div className="row between" style={{ marginTop: 12 }}>
         <button className="btn" disabled={i === 0} onClick={() => setI(i - 1)}>Back</button>

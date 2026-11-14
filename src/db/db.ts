@@ -1,3 +1,4 @@
+import { noteSaved } from '../lib/dirty';
 import Dexie, { type Table } from 'dexie';
 
 /** Fields the sync engine stamps on every user-created row. */
@@ -357,14 +358,16 @@ class StudyBibleDB extends Dexie {
   private installSyncHooks() {
     for (const name of AUTO_TABLES) {
       const t = this.table(name);
-      t.hook('creating', (_pk, obj: any) => {
+      t.hook('creating', function (_pk, obj: any) {
         if (syncFlags.applying) return;
         obj.uid ??= newUid();
         obj.updatedAt = Date.now();
+        this.onsuccess = () => noteSaved(name); // only a write the database confirmed counts as saved
         queueMicrotask(() => syncFlags.onLocalChange());
       });
-      t.hook('updating', () => {
+      t.hook('updating', function () {
         if (syncFlags.applying) return;
+        this.onsuccess = () => noteSaved(name);
         queueMicrotask(() => syncFlags.onLocalChange());
         return { updatedAt: Date.now() };
       });
@@ -380,14 +383,16 @@ class StudyBibleDB extends Dexie {
     }
     for (const [name, key] of Object.entries(KEYED_TABLES)) {
       const t = this.table(name);
-      t.hook('creating', (_pk, obj: any) => {
+      t.hook('creating', function (_pk, obj: any) {
         if (syncFlags.applying) return;
         obj.uid = obj[key];
         obj.updatedAt = Date.now();
+        this.onsuccess = () => noteSaved(name);
         queueMicrotask(() => syncFlags.onLocalChange());
       });
-      t.hook('updating', () => {
+      t.hook('updating', function () {
         if (syncFlags.applying) return;
+        this.onsuccess = () => noteSaved(name);
         queueMicrotask(() => syncFlags.onLocalChange());
         return { updatedAt: Date.now() };
       });

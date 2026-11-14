@@ -77,7 +77,7 @@ export default function CollectionPage() {
     <div className="page collection-page">
       <p className="small"><Link to="/library?tab=collections">← Collections</Link></p>
       <h1><input aria-label="Collection name" className="cp-name" value={c.name} onChange={(e) => void save({ name: e.target.value })} /></h1>
-      <textarea aria-label="What this collection is for" className="cp-desc" rows={2} placeholder="What is this collection for? (optional)" value={c.description ?? ''} onChange={(e) => void save({ description: e.target.value })} />
+      <textarea data-saves="collections" aria-label="What this collection is for" className="cp-desc" rows={2} placeholder="What is this collection for? (optional)" value={c.description ?? ''} onChange={(e) => void save({ description: e.target.value })} />
       <input aria-label="Tags for this collection" className="cp-tags" type="text" placeholder="Tags, separated by commas (optional), e.g. prayer, Lent" defaultValue={(c.tags ?? []).join(', ')} onBlur={(e) => void save({ tags: parseTags(e.target.value) })} style={{ width: '100%', margin: '6px 0' }} />
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', margin: '8px 0 14px' }}>
         <button className="btn" onClick={exportMd} disabled={!items.length}>Export as Markdown</button>
@@ -142,7 +142,7 @@ export default function CollectionPage() {
           </label>
           <label>A new question or reflection
             <select value={qKind} onChange={(e) => setQKind(e.target.value as 'question' | 'note')} aria-label="Question or reflection"><option value="question">Question</option><option value="note">Reflection</option></select>
-            <textarea rows={2} value={qText} onChange={(e) => setQText(e.target.value)} placeholder="Write it here; it is saved as one of your notes and listed here." />
+            <textarea data-saves="notes" rows={2} value={qText} onChange={(e) => setQText(e.target.value)} placeholder="Write it here; it is saved as one of your notes and listed here." />
             <button className="btn small" onClick={() => void addQuestion()}>Add</button>
           </label>
         </div>
