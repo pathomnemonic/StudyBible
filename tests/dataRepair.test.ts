@@ -27,6 +27,7 @@ describe('repairing passage addresses', () => {
     const editions = (JSON.parse(readFileSync('public/data/editions.json', 'utf8')) as { editions: import('../src/lib/refCheck').CountsEdition[] }).editions;
     expect(repairPassageId('JHN.99.1', editions)).toBeNull();
     expect(repairPassageId('JHN.6.51-58', editions)).toBeNull();
+    expect(repairPassageId('Jn 6:51-58', editions)).toBeNull();
     expect(repairPassageId('Jn 3:16', editions)).toEqual(['JHN.3.16']);
   });
 
