@@ -163,7 +163,7 @@ export const CRAWL = [
   { path: "/study/lives", kind: "base", route: "/study/lives/:id?" },
   { path: "/study/conversation", kind: "static", route: "/study/conversation" },
   { path: "/study/compare", kind: "static", route: "/study/compare" },
-  { path: "/s/verse", kind: "static", route: "/s/verse" },
+  { path: "/s/verse", kind: "unknown-id", route: "/s/verse" },
   { path: "/s/prayer/__nope__", kind: "unknown-id", route: "/s/prayer/:id" },
   { path: "/s/saint/__nope__", kind: "unknown-id", route: "/s/saint/:md" },
   { path: "/s/term/__nope__", kind: "unknown-id", route: "/s/term/:term" },

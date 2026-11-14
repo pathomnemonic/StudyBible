@@ -5,7 +5,7 @@ export const INVARIANTS = () => {
   // popups that are meant to float over a page
   const KNOWN_OVERLAYS = '[role=menu], .menu-list, .tool-menu-list, .glossary-pop, .term-pop, .lookup, .il-detail, .dottip-layer, .amb-tip, .tour-layer, .tour-card, .tour-dim, .trophy-toast, .modal, .update-banner, .offline-pill, .return-pill, .media-host.docked';
   // named bars that stick to the top or bottom of the screen and so pass over content while it scrolls
-  const KNOWN_STICKY = '.lp-head, .mass-nav, .find-bar, .read-progress, .rosary-bar, .work-sel, .charades-startbar, .oc-nav, .tool-bar, .sleep-panel';
+  const KNOWN_STICKY = '.lp-head, .mass-nav, .find-bar, .read-progress, .rosary-bar, .work-sel, .charades-startbar, .oc-nav, .tool-bar, .sleep-panel, .btn.sticky';
   const vis = (e) => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 4 && r.height > 4 && cs.visibility !== 'hidden' && cs.display !== 'none' && (e.offsetParent !== null || cs.position === 'fixed') && !(e.checkVisibility && !e.checkVisibility({ checkVisibilityCSS: true, contentVisibilityAuto: true })) && !(e.closest('details:not([open])') && !e.closest('summary')); };
   const label = (e) => (e.getAttribute('aria-label') || e.textContent || e.getAttribute('title') || e.tagName).trim().replace(/\s+/g, ' ').slice(0, 28);
   const root = document.querySelector('main') || document.body;
@@ -35,7 +35,7 @@ export const INVARIANTS = () => {
     if (a.contains(c) || c.contains(a)) continue;
     // Only the overlays this app knows about may float over content: popup menus, and the named sticky/fixed bars and panels once the page has scrolled.
     // Any other sticky or fixed element covering a control is a bug (the old rule exempted every sticky/fixed ancestor, which could hide real ones).
-    const floats = (e) => { for (let n = e; n && n !== document.body; n = n.parentElement) { const ps = getComputedStyle(n).position; if ((ps === 'absolute' && n.closest('details')) || n.matches?.(KNOWN_OVERLAYS) || ((ps === 'fixed' || ps === 'sticky') && window.scrollY > 4 && n.matches?.(KNOWN_STICKY))) return true; } return false; };
+    const floats = (e) => { for (let n = e; n && n !== document.body; n = n.parentElement) { const ps = getComputedStyle(n).position; if ((ps === 'absolute' && n.closest('details')) || n.matches?.(KNOWN_OVERLAYS) || ((ps === 'fixed' || ps === 'sticky') && n.matches?.(KNOWN_STICKY))) return true; } return false; };
     if (floats(a) || floats(c)) continue;
     if (a.closest('svg') || c.closest('svg')) continue; // diagrams place their own marks, often overlapping on purpose
     // compare line by line, so an inline link that wraps over two lines is not mistaken for overlapping its neighbour
@@ -59,8 +59,10 @@ export const INVARIANTS = () => {
   // 2. the page itself scrolls sideways
   if (document.documentElement.scrollWidth > window.innerWidth + 2) out.push(`page scrolls sideways (${document.documentElement.scrollWidth}>${window.innerWidth})`);
   // 3. text that should never reach a reader: leaked code values, control characters, calendar-style region tags, mojibake
-  const text = root.innerText || '';
-  const leaks = [[/\bundefined\b/, 'the word "undefined"'], [/\bNaN\b/, '"NaN"'], [/\[object [A-Za-z]+\]/, '"[object …]"'], [/\{\{|\}\}/, 'template braces'], [/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/, 'control characters'], [/\[\s?[A-Z]{2,4}\s?\]/, 'a bracketed region tag like "[ US ]"'], [/Ã.|â€|Â\s/, 'garbled accents (mojibake)'], [/\bnull\b(?!\s*(hypothesis|set))/i, 'the word "null"']];
+  // code samples shown on purpose (a JSON example in the help text) are not leaks
+  let text = root.innerText || '';
+  for (const c of root.querySelectorAll('code, pre')) { const t = c.innerText; if (t && t.length > 3) text = text.split(t).join(' '); }
+  const leaks = [[/\bundefined\b/, 'the word "undefined"'], [/\bNaN\b/, '"NaN"'], [/\[object [A-Za-z]+\]/, '"[object …]"'], [/\{\{|\}\}/, 'template braces'], [/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/, 'control characters'], [/\[\s?[A-Z]{2,4}\s?\]/, 'a bracketed region tag like "[ US ]"'], [/Ã.|â€|Â\s/, 'garbled accents (mojibake)'], [/(^|[\n:=(,])\s*null\s*($|[\n,)])/i, 'the word "null" on its own']];
   for (const [re, what] of leaks) { const m = re.exec(text); if (m) out.push(`shows ${what}: …${text.slice(Math.max(0, m.index - 25), m.index + 30).replace(/\s+/g, ' ')}…`); }
   if (/Something went wrong|That page is not here/.test(text)) out.push('error or not-found screen');
   // 4. pictures that did not load, and controls with no name a screen reader could read

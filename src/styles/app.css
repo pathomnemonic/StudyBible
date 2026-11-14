@@ -6429,3 +6429,5 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 @media (max-width: 480px) { .lp-card { padding: 14px 14px 16px; } .lp-steps { gap: 6px; } }
 /* a chip inside a card may wrap on a narrow screen instead of pushing past the card's edge ("Official text (link)" at large text) */
 .shelf-card .chip { max-width: 100%; justify-self: start; white-space: normal; overflow-wrap: anywhere; text-align: left; }
+/* games menu tiles: content wraps inside the tile at large text (the NEW! badge and titles no longer push past the edge) */
+.pf-tile { min-width: 0; } .pf-tile > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
