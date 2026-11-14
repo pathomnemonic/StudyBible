@@ -12,10 +12,10 @@ describe('collections list helpers', () => {
     expect(matchesCollection(c, 'bread note', label)).toBe(true);
     expect(matchesCollection(c, 'eucharist marian', label)).toBe(false);
   });
-  it('summarises items and done count, ignoring ticks for removed items', () => {
+  it('summarises items and done count, ignoring ticks for removed items and object-key order', () => {
     expect(collectionSummary({ items: [] })).toBe('0 items');
     expect(collectionSummary({ items: [c.items[0]] })).toBe('1 item');
-    expect(collectionSummary({ items: c.items, done: [JSON.stringify(c.items[0]), '{"gone":1}'] })).toBe('2 items, 1 done');
+    expect(collectionSummary({ items: c.items, done: ['{"ref":"JHN.6.51","type":"passage"}', '{"gone":1}', 'not-json'] })).toBe('2 items, 1 done');
   });
   it('copies without sharing items or ticks', () => {
     const k = copyOfCollection({ ...c, done: ['x'] }, 5);
