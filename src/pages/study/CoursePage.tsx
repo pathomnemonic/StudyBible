@@ -38,7 +38,7 @@ export default function CoursePage() {
       <h1>{idx + 1}. {lesson.title}</h1>
       <p className="muted small">{lesson.era}</p>
       <p>{lesson.intro}</p>
-      {lesson.refs.split(';').map((r, i) => <ReadingBlock key={r} refs={toRefs(r)} label={i === 0 ? 'Read' : 'Then'} text={r.trim()} max={14} />)}
+      {lesson.refs.split(';').map((r, i) => { const anchors = toRefs(r); return <div key={r}><ReadingBlock refs={anchors} label={i === 0 ? 'Read' : 'Then'} text={r.trim()} max={14} />{!anchors.length && <p className="muted small">This passage cannot be shown with verified numbering in the reader edition, so it is withheld rather than approximated.</p>}</div>; })}
       <h2>Check yourself</h2>
       {lesson.quiz.map((q, i) => (
         <fieldset key={i} className="card" style={{ border: 'none' }}>
