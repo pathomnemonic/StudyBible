@@ -100,7 +100,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const playGeneration = useRef(0);
   const bindSourceError = (a: HTMLAudioElement, request: number, episodeId: string, src: string) => {
     a.addEventListener('error', () => {
-      if (request !== playGeneration.current || (a as any)._ep?.id !== episodeId || a.getAttribute('src') !== src) return;
+      if (request !== playGeneration.current || (a as any)._ep?.id !== episodeId || a.getAttribute('src') !== src || !a.error) return;
       setPlaying(false);
       setError(navigator.onLine === false ? 'offline' : 'failed');
     }, { once: true });
