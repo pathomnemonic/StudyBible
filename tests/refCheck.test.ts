@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { convertRef, loadVersification } from '../src/lib/versification';
+import { chapterToAnchorRefs, convertRef, loadVersification } from '../src/lib/versification';
 import { checkRefIn, pooledCounts, resolveRef, type CountsEdition } from '../src/lib/refCheck';
 import type { Ref } from '../src/lib/refs';
 
@@ -25,6 +25,10 @@ describe('semantic Scripture reference validation', () => {
       expect(convertRef('english', 'vulgate', ref).exact, `English: ${book}`).toBe(false);
       expect(convertRef('kjv', 'vulgate', ref).exact, `KJV source: ${book}`).toBe(false);
     }
+  });
+
+  it('does not claim exact whole-chapter alignment for an unaligned book', () => {
+    expect(chapterToAnchorRefs('kjv', 'TOB', 1)[0].exact).toBe(false);
   });
 
   it('does not claim exact verse alignment for an unverified Psalm chapter', () => {
