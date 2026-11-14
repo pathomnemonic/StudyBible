@@ -9530,7 +9530,7 @@
   {
    "id": "more",
    "label": "Everything else (art lists, licenses, manuscripts and small tables)",
-   "bytes": 320256,
+   "bytes": 369980,
    "files": [
     "art-more.json",
     "art.json",
@@ -9544,18 +9544,18 @@
     223821,
     14195,
     42664,
-    11436,
+    11518,
     14683,
-    28,
+    49670,
     13429
    ],
    "sums": [
     "d9d052672f8ebbd3",
     "a53d74769abc96df",
     "037ded04e3cee0ff",
-    "50c83198bf67cf48",
+    "7dc8f94976ed590d",
     "f8ce45df7d0ffcf2",
-    "8b3c1e7eec658e86",
+    "68282ea3ef604248",
     "cf5ab83405e8c008"
    ]
   }

@@ -271,9 +271,9 @@
     "notes": "Rebuilt by npm run graph"
   },
   "profiles": {
-    "license": "Structure only; any facts are added from reviewed sources, each naming its source",
-    "attribution": "No source text is shipped yet. Entries are added only from reviewed, rights-cleared sources.",
+    "license": "Short factual summaries written for this app; each fact names its source",
+    "attribution": "Facts cite the Catholic Encyclopedia (1907-1912, public domain), Scripture, and Vatican documents, as named on each fact. Drafted by one agent and checked against the cited sources by a second; a human review is still recommended.",
     "redistribution": "yes",
-    "notes": "Format described in docs/PROFILE_DATA_FORMAT.md; validated by tests/profiles.test.ts"
+    "notes": "Format in docs/PROFILE_DATA_FORMAT.md"
   }
 }

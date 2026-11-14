@@ -1,1 +1,1689 @@
-{"version":1,"profiles":[]}
+{
+ "version": 1,
+ "profiles": [
+  {
+   "id": "peter",
+   "kind": "saint",
+   "name": "Peter",
+   "alternateNames": [
+    "Simon Peter",
+    "Cephas",
+    "Petrus"
+   ],
+   "feast": "06-29",
+   "period": {
+    "to": 68,
+    "note": "died in Rome, according to tradition, between 64 and early 68; exact year unknown"
+   },
+   "passages": [
+    "MAT.16.13-19",
+    "JHN.21.15-19"
+   ],
+   "facts": [
+    {
+     "text": "Peter, also called Simon or Cephas, was a fisherman on the Sea of Galilee and one of the Twelve; the Gospels list him first.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Peter, Prince of the Apostles",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/11744a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Catholic tradition holds that he led the Church in Rome and was martyred there under Nero.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Peter, Prince of the Apostles",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/11744a.htm"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "His exact death year is not recorded in Scripture; the Catholic Encyclopedia places it between July 64 and the beginning of 68.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Peter, Prince of the Apostles",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/11744a.htm"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "paul",
+   "kind": "saint",
+   "name": "Paul",
+   "alternateNames": [
+    "Saul of Tarsus",
+    "Paulus"
+   ],
+   "feast": "06-29",
+   "period": {
+    "to": 67,
+    "note": "died in Rome under Nero, according to tradition; year uncertain (c. 64-68)"
+   },
+   "passages": [
+    "ACT.9.1-19",
+    "GAL.1.11-24"
+   ],
+   "facts": [
+    {
+     "text": "Paul of Tarsus came from a family attached to Pharisaic tradition and persecuted the Church until his conversion, which Acts narrates on the road to Damascus.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Paul",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/11567b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He travelled widely as a missionary to the Gentiles, and letters bearing his name make up a large part of the New Testament.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Paul",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/11567b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Tradition holds that he was beheaded in Rome under Nero; the exact year is uncertain.",
+     "source": {
+      "label": "Eusebius, Church History II.25 (NPNF 2nd series)",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/fathers/250102.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "andrew",
+   "kind": "saint",
+   "name": "Andrew",
+   "alternateNames": [
+    "Andreas"
+   ],
+   "feast": "11-30",
+   "passages": [
+    "JHN.1.35-42",
+    "MAT.4.18-20"
+   ],
+   "facts": [
+    {
+     "text": "Andrew was a fisherman, the brother of Simon Peter, and one of the Twelve; the Gospel of John says he first followed John the Baptist.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Andrew",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01471a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Tradition says he was martyred at Patras in Achaia; the Catholic Encyclopedia notes that the X-shaped cross associated with him is attested only from about the fourteenth century.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Andrew",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01471a.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "john-apostle",
+   "kind": "saint",
+   "name": "John the Apostle",
+   "alternateNames": [
+    "John the Evangelist",
+    "John the Divine"
+   ],
+   "feast": "12-27",
+   "passages": [
+    "MRK.1.19-20",
+    "JHN.19.25-27",
+    "JHN.21.20-24"
+   ],
+   "facts": [
+    {
+     "text": "John was a fisherman, brother of James, and one of the Twelve; the Gospels name him among Jesus' closest disciples.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. John the Evangelist",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08492a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Tradition identifies him as the author of the Fourth Gospel, three letters and Revelation, though scholars debate each attribution.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. John the Evangelist",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08492a.htm"
+     },
+     "confidence": "disputed"
+    },
+    {
+     "text": "Ancient tradition places his later life and death at Ephesus.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. John the Evangelist",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08492a.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "stephen",
+   "kind": "saint",
+   "name": "Stephen",
+   "alternateNames": [
+    "Protomartyr Stephen",
+    "Stephanus"
+   ],
+   "feast": "12-26",
+   "facts": [
+    {
+     "text": "Stephen was one of the seven men chosen to serve the Greek-speaking widows of the Jerusalem community.",
+     "source": {
+      "label": "Acts 6:1-6",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was stoned outside the city after speaking to the council; the Church honours him as the first Christian martyr.",
+     "source": {
+      "label": "Acts 7:54-60",
+      "kind": "scripture"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "ignatius-of-antioch",
+   "kind": "saint",
+   "name": "Ignatius of Antioch",
+   "alternateNames": [
+    "Ignatius Theophorus",
+    "Ignatius Theophoros"
+   ],
+   "authorId": "ignatius-antioch",
+   "feast": "10-17",
+   "period": {
+    "to": 107,
+    "note": "martyred at Rome under Trajan; c. 107 is the traditional date, the Catholic Encyclopedia says between 98 and 117"
+   },
+   "facts": [
+    {
+     "text": "Ignatius was bishop of Antioch and was taken in chains to Rome to be killed for his faith.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Ignatius of Antioch",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/07644a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "On the journey he wrote seven letters, six to churches and one to Polycarp, which survive.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Ignatius of Antioch",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/07644a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "His martyrdom at Rome is placed under Trajan (reigned 98-117); the Catholic Encyclopedia gives no single year and some scholars date it later.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Ignatius of Antioch",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/07644a.htm"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "polycarp",
+   "kind": "saint",
+   "name": "Polycarp of Smyrna",
+   "alternateNames": [
+    "Polycarpus"
+   ],
+   "authorId": "polycarp",
+   "feast": "02-23",
+   "period": {
+    "to": 155,
+    "note": "martyred c. 155; some scholars propose a date in the 160s"
+   },
+   "facts": [
+    {
+     "text": "Polycarp was bishop of Smyrna; his letter to the Philippians survives.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Polycarp",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/12219b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The Catholic Encyclopedia gives February 155 as the probable date of his martyrdom, on 23 February; it names 166 as the other possible year.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Polycarp",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/12219b.htm"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "Irenaeus recalled hearing him as a boy.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Polycarp",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/12219b.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "justin-martyr",
+   "kind": "saint",
+   "name": "Justin Martyr",
+   "alternateNames": [
+    "Justinus Martyr",
+    "Justin the Philosopher"
+   ],
+   "authorId": "justin",
+   "feast": "06-01",
+   "period": {
+    "to": 165,
+    "note": "martyred c. 165"
+   },
+   "facts": [
+    {
+     "text": "Justin was born at Flavia Neapolis in Palestine, was educated in philosophy, became a Christian, and defended the faith in works such as the First Apology.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Justin Martyr",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08580c.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was martyred at Rome about AD 165, after being condemned by the prefect Rusticus.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Justin Martyr",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08580c.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "irenaeus",
+   "kind": "saint",
+   "name": "Irenaeus of Lyons",
+   "alternateNames": [
+    "Irenaeus of Lugdunum",
+    "Irenaeus Lugdunensis"
+   ],
+   "authorId": "irenaeus",
+   "feast": "06-28",
+   "facts": [
+    {
+     "text": "Irenaeus was a priest and then bishop of Lyons, succeeding the martyred Pothinus.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Irenaeus",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08130b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "As a young man he had heard Polycarp, which links him to the apostolic generation.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Irenaeus",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08130b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "His date of death is unknown; it fell at the end of the second or the start of the third century.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Irenaeus",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08130b.htm"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "cyprian-of-carthage",
+   "kind": "saint",
+   "name": "Cyprian of Carthage",
+   "alternateNames": [
+    "Thascius Caecilius Cyprianus",
+    "Cyprianus"
+   ],
+   "authorId": "cyprian",
+   "feast": "09-16",
+   "period": {
+    "to": 258,
+    "note": "martyred in September 258"
+   },
+   "facts": [
+    {
+     "text": "Cyprian became bishop of Carthage around 248 or the beginning of 249, soon after he converted.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Cyprian of Carthage",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/04583b.htm"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "He led his church through the Decian persecution and argued with Rome over the rebaptism of heretics.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Cyprian of Carthage",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/04583b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was beheaded at Carthage in 258.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Cyprian of Carthage",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/04583b.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "athanasius",
+   "kind": "saint",
+   "name": "Athanasius of Alexandria",
+   "alternateNames": [
+    "Athanasius the Great",
+    "Athanasios"
+   ],
+   "authorId": "athanasius",
+   "feast": "05-02",
+   "period": {
+    "from": 296,
+    "to": 373,
+    "note": "born c. 296-298"
+   },
+   "facts": [
+    {
+     "text": "Athanasius became bishop of Alexandria in 328 and defended the full divinity of the Son against Arianism.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Athanasius",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02035a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was exiled several times for his stand.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Athanasius",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02035a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "The Life of Antony is traditionally attributed to him.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Athanasius",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02035a.htm"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "He died on 2 May 373.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Athanasius",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02035a.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "basil-the-great",
+   "kind": "saint",
+   "name": "Basil the Great",
+   "alternateNames": [
+    "Basil of Caesarea",
+    "Basilius Magnus"
+   ],
+   "authorId": "basil",
+   "feast": "01-02",
+   "period": {
+    "from": 329,
+    "to": 379,
+    "note": "born c. 329-330"
+   },
+   "facts": [
+    {
+     "text": "Basil was bishop of Caesarea in Cappadocia from 370 and a major defender of Nicene faith.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Basil the Great",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02330b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He is credited with monastic Rules that became influential in Eastern monasticism.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Basil the Great",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02330b.htm"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "He died on 1 January 379; his birth is usually placed about 329.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Basil the Great",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02330b.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "gregory-of-nazianzus",
+   "kind": "saint",
+   "name": "Gregory of Nazianzus",
+   "alternateNames": [
+    "Gregory the Theologian",
+    "Gregorius Nazianzenus"
+   ],
+   "authorId": "gregory-nazianzus",
+   "feast": "01-02",
+   "period": {
+    "from": 325,
+    "to": 390,
+    "note": "born c. 325 (Catholic Encyclopedia), some place it c. 329-330; died 389 or 390"
+   },
+   "facts": [
+    {
+     "text": "Gregory was a friend of Basil and one of the three Cappadocian Fathers.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Gregory of Nazianzus",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/07010b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He is known as 'the Theologian' for his orations on the Trinity, and he led the Nicene community in Constantinople from 379.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Gregory of Nazianzus",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/07010b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died about 389 or 390 at his family estate at Arianzus; his birth year is uncertain.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Gregory of Nazianzus",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/07010b.htm"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "john-chrysostom",
+   "kind": "saint",
+   "name": "John Chrysostom",
+   "alternateNames": [
+    "Chrysostomus"
+   ],
+   "authorId": "chrysostom",
+   "feast": "09-13",
+   "period": {
+    "from": 347,
+    "to": 407,
+    "note": "born c. 347-349"
+   },
+   "facts": [
+    {
+     "text": "John was a priest of Antioch whose preaching earned him the title Chrysostom, 'golden mouth'.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. John Chrysostom",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08452b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He became archbishop of Constantinople in 398 and was driven into exile after clashing with the court.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. John Chrysostom",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08452b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died on 14 September 407 while being taken to a remote place of exile; his birth is placed around 347.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. John Chrysostom",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08452b.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "ambrose-of-milan",
+   "kind": "saint",
+   "name": "Ambrose of Milan",
+   "alternateNames": [
+    "Ambrosius"
+   ],
+   "authorId": "ambrose",
+   "feast": "12-07",
+   "period": {
+    "from": 339,
+    "to": 397,
+    "note": "born 339 or 340"
+   },
+   "facts": [
+    {
+     "text": "Ambrose was a Roman governor of Liguria and Aemilia who was chosen bishop of Milan by acclamation while still a catechumen.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Ambrose",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01383c.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He defended Nicene faith against Arians, and his preaching helped bring Augustine to the faith; he baptized Augustine at Milan about Easter 387.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Augustine of Hippo",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02084a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died on 4 April 397; his birth year is given as about 340.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Ambrose",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01383c.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "jerome",
+   "kind": "saint",
+   "name": "Jerome",
+   "alternateNames": [
+    "Hieronymus",
+    "Eusebius Hieronymus"
+   ],
+   "authorId": "jerome",
+   "feast": "09-30",
+   "period": {
+    "to": 420,
+    "note": "born in the 340s, exact year uncertain"
+   },
+   "facts": [
+    {
+     "text": "Jerome was a scholar who translated the Bible into Latin; his version became the basis of the Vulgate.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Jerome",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08341a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He spent his later years in Bethlehem, where he wrote commentaries and letters, and he died there in 420.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Jerome",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08341a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "His birth year is uncertain and falls somewhere in the 340s.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Jerome",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08341a.htm"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "augustine-of-hippo",
+   "kind": "saint",
+   "name": "Augustine of Hippo",
+   "alternateNames": [
+    "Augustinus Hipponensis",
+    "Aurelius Augustinus"
+   ],
+   "authorId": "augustine",
+   "feast": "08-28",
+   "period": {
+    "from": 354,
+    "to": 430
+   },
+   "facts": [
+    {
+     "text": "Augustine was born in 354 at Thagaste in North Africa and was baptized by Ambrose in Milan in 387.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Augustine of Hippo",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02084a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He became bishop of Hippo and wrote the Confessions and the City of God.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Augustine of Hippo",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02084a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died in 430 while Hippo was under siege by the Vandals.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Augustine of Hippo",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02084a.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "gregory-the-great",
+   "kind": "saint",
+   "name": "Gregory the Great",
+   "alternateNames": [
+    "Gregory I",
+    "Gregorius Magnus"
+   ],
+   "authorId": "gregory-great",
+   "feast": "09-03",
+   "period": {
+    "from": 540,
+    "to": 604,
+    "note": "born c. 540"
+   },
+   "facts": [
+    {
+     "text": "Gregory was a Roman official who became a monk and was elected pope in 590.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Gregory the Great",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/06780a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He sent monks to convert the Anglo-Saxons and wrote the Pastoral Rule and the Dialogues.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Gregory the Great",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/06780a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died in 604; his birth is placed around 540.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Gregory the Great",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/06780a.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "leo-the-great",
+   "kind": "saint",
+   "name": "Leo the Great",
+   "alternateNames": [
+    "Leo I",
+    "Leo Magnus"
+   ],
+   "authorId": "leo-great",
+   "feast": "11-10",
+   "period": {
+    "to": 461,
+    "note": "pope 440-461"
+   },
+   "facts": [
+    {
+     "text": "Leo was consecrated bishop of Rome on 29 September 440 and governed the Roman Church for about twenty-one years.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), Pope St. Leo I (The Great)",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/09154b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "His letter to Flavian, known as the Tome, shaped the Christological definition at Chalcedon in 451.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), Pope St. Leo I (The Great)",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/09154b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died in 461.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), Pope St. Leo I (The Great)",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/09154b.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "benedict-of-nursia",
+   "kind": "saint",
+   "name": "Benedict of Nursia",
+   "alternateNames": [
+    "Benedict of Norcia",
+    "Benedictus de Nursia"
+   ],
+   "feast": "07-11",
+   "period": {
+    "from": 480,
+    "to": 547,
+    "note": "c. 480 - c. 543-547; traditional dates"
+   },
+   "facts": [
+    {
+     "text": "Benedict was born at Nursia in Italy, lived as a hermit at Subiaco, and later founded the monastery of Monte Cassino.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Benedict of Nursia",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02467b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He wrote the Rule of St. Benedict, the most influential rule for Western monks.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Benedict of Nursia",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02467b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "His dates are traditional: born about 480, died about 543 according to the Catholic Encyclopedia (some place his death a few years later).",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Benedict of Nursia",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02467b.htm"
+     },
+     "confidence": "disputed"
+    }
+   ]
+  },
+  {
+   "id": "bede",
+   "kind": "saint",
+   "name": "Bede the Venerable",
+   "alternateNames": [
+    "Venerable Bede",
+    "Beda Venerabilis"
+   ],
+   "authorId": "bede",
+   "feast": "05-25",
+   "period": {
+    "from": 673,
+    "to": 735,
+    "note": "born 672 or 673"
+   },
+   "facts": [
+    {
+     "text": "Bede was an English monk of Wearmouth-Jarrow who wrote biblical commentaries and the Ecclesiastical History of the English People.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), The Venerable Bede",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02384a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died in 735, on the vigil of the Ascension.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), The Venerable Bede",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02384a.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "anselm-of-canterbury",
+   "kind": "saint",
+   "name": "Anselm of Canterbury",
+   "alternateNames": [
+    "Anselm of Aosta",
+    "Anselmus Cantuariensis"
+   ],
+   "authorId": "anselm",
+   "feast": "04-21",
+   "period": {
+    "from": 1033,
+    "to": 1109
+   },
+   "facts": [
+    {
+     "text": "Anselm was born in Aosta, became a monk and abbot at Bec, and in 1093 was made archbishop of Canterbury.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Anselm",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01546a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He wrote the Proslogion and Cur Deus Homo, and he died on 21 April 1109.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Anselm",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01546a.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "bernard-of-clairvaux",
+   "kind": "saint",
+   "name": "Bernard of Clairvaux",
+   "alternateNames": [
+    "Bernardus Claraevallensis"
+   ],
+   "feast": "08-20",
+   "period": {
+    "from": 1090,
+    "to": 1153,
+    "note": "born 1090 or 1091"
+   },
+   "facts": [
+    {
+     "text": "Bernard became a Cistercian monk and in 1115 was made first abbot of Clairvaux.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Bernard of Clairvaux",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02498d.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was an influential preacher and adviser to popes and kings, and he wrote sermons on the Song of Songs.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Bernard of Clairvaux",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02498d.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died in 1153; his birth is given as 1090 or 1091.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Bernard of Clairvaux",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02498d.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "francis-of-assisi",
+   "kind": "saint",
+   "name": "Francis of Assisi",
+   "alternateNames": [
+    "Francesco d'Assisi",
+    "Franciscus Assisiensis"
+   ],
+   "feast": "10-04",
+   "period": {
+    "from": 1181,
+    "to": 1226,
+    "note": "born c. 1181-1182"
+   },
+   "facts": [
+    {
+     "text": "Francis was born in Assisi in about 1181 or 1182, gave up his family's wealth, and founded the Franciscan Order.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Francis of Assisi",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/06221a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died at Assisi on 3 October 1226 and was canonized by Gregory IX in 1228.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Francis of Assisi",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/06221a.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "dominic",
+   "kind": "saint",
+   "name": "Dominic",
+   "alternateNames": [
+    "Dominic de Guzman",
+    "Domingo de Guzman",
+    "Dominicus"
+   ],
+   "feast": "08-08",
+   "period": {
+    "from": 1170,
+    "to": 1221,
+    "note": "born c. 1170"
+   },
+   "facts": [
+    {
+     "text": "Dominic was born at Calaruega in Castile around 1170 and founded the Order of Preachers.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Dominic",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/05106a.htm"
+     },
+     "confidence": "probable"
+    },
+    {
+     "text": "The order was approved by Honorius III in December 1216.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Dominic",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/05106a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died at Bologna on 6 August 1221.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Dominic",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/05106a.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "anthony-of-padua",
+   "kind": "saint",
+   "name": "Anthony of Padua",
+   "alternateNames": [
+    "Anthony of Lisbon",
+    "Antonius Patavinus"
+   ],
+   "feast": "06-13",
+   "period": {
+    "from": 1195,
+    "to": 1231
+   },
+   "facts": [
+    {
+     "text": "Anthony was born in Lisbon in 1195, left the Augustinian canons, and joined the Franciscans.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Anthony of Padua",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01556a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was a noted preacher and died near Padua on 13 June 1231; Gregory IX canonized him in 1232.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Anthony of Padua",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01556a.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "thomas-aquinas",
+   "kind": "saint",
+   "name": "Thomas Aquinas",
+   "alternateNames": [
+    "Tommaso d'Aquino",
+    "Thomas of Aquino",
+    "Thomas de Aquino"
+   ],
+   "feast": "01-28",
+   "period": {
+    "from": 1225,
+    "to": 1274,
+    "note": "born about 1225 (some give 1227)"
+   },
+   "facts": [
+    {
+     "text": "Thomas was a Dominican friar and theologian who taught at Paris and in Italy.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Thomas Aquinas",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/14663b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "His chief work is the Summa Theologiae; he left it unfinished.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Thomas Aquinas",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/14663b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died on 7 March 1274 at Fossanova on his way to the Council of Lyons; his birth is dated about 1225.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Thomas Aquinas",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/14663b.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "bonaventure",
+   "kind": "saint",
+   "name": "Bonaventure",
+   "alternateNames": [
+    "Bonaventura of Bagnoregio",
+    "John of Fidanza"
+   ],
+   "feast": "07-15",
+   "period": {
+    "from": 1217,
+    "to": 1274,
+    "note": "born c. 1217-1221"
+   },
+   "facts": [
+    {
+     "text": "Bonaventure was a Franciscan theologian who taught at Paris and became Minister General of his order in 1257.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Bonaventure",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02648c.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was made cardinal-bishop of Albano and died at the Council of Lyons in 1274.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Bonaventure",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/02648c.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "albert-the-great",
+   "kind": "saint",
+   "name": "Albert the Great",
+   "alternateNames": [
+    "Albertus Magnus",
+    "Albert of Cologne"
+   ],
+   "authorId": "albert-great",
+   "feast": "11-15",
+   "period": {
+    "to": 1280,
+    "note": "born between about 1193 and 1206; exact year unknown"
+   },
+   "facts": [
+    {
+     "text": "Albert was a German Dominican who taught at Paris and Cologne and wrote on theology and natural science.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), Albert the Great",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01264a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Thomas Aquinas was among his students.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), Albert the Great",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01264a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died at Cologne in 1280; his birth year is uncertain (c. 1206 in the Catholic Encyclopedia, 1193 in some other accounts).",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), Albert the Great",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01264a.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "catherine-of-siena",
+   "kind": "saint",
+   "name": "Catherine of Siena",
+   "alternateNames": [
+    "Caterina da Siena",
+    "Catherine Benincasa"
+   ],
+   "authorId": "catherine-siena",
+   "feast": "04-29",
+   "period": {
+    "from": 1347,
+    "to": 1380
+   },
+   "facts": [
+    {
+     "text": "Catherine was a Dominican tertiary from Siena who worked to bring peace among Italian cities.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Catherine of Siena",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/03447a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She urged Pope Gregory XI to return from Avignon to Rome and wrote letters and the Dialogue.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Catherine of Siena",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/03447a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She died in Rome on 29 April 1380.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Catherine of Siena",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/03447a.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "teresa-of-avila",
+   "kind": "saint",
+   "name": "Teresa of Avila",
+   "alternateNames": [
+    "Teresa of Jesus",
+    "Teresa de Cepeda y Ahumada",
+    "Theresa of Avila"
+   ],
+   "authorId": "teresa-avila",
+   "feast": "10-15",
+   "period": {
+    "from": 1515,
+    "to": 1582
+   },
+   "facts": [
+    {
+     "text": "Teresa was born at Avila in 1515, became a Carmelite, and led a reform of her order that produced the Discalced Carmelites.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Teresa of Jesus (Teresa of Avila)",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/14515b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She wrote her Life and the Interior Castle, and she died in 1582.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Teresa of Jesus (Teresa of Avila)",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/14515b.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She was canonized in 1622.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Teresa of Jesus (Teresa of Avila)",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/14515b.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "john-of-the-cross",
+   "kind": "saint",
+   "name": "John of the Cross",
+   "alternateNames": [
+    "Juan de la Cruz",
+    "Juan de Yepes"
+   ],
+   "feast": "12-14",
+   "period": {
+    "from": 1542,
+    "to": 1591
+   },
+   "facts": [
+    {
+     "text": "John was born in Old Castile in 1542 and helped Teresa begin the Discalced reform among Carmelite friars.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. John of the Cross",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08480a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was imprisoned in Toledo in December 1577 and escaped in August 1578.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. John of the Cross",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08480a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He wrote The Ascent of Mount Carmel and The Dark Night, and died at Ubeda on 14 December 1591.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. John of the Cross",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/08480a.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "ignatius-of-loyola",
+   "kind": "saint",
+   "name": "Ignatius of Loyola",
+   "alternateNames": [
+    "Ignatius Loyola",
+    "Inigo de Loyola",
+    "Ignacio de Loyola"
+   ],
+   "feast": "07-31",
+   "period": {
+    "from": 1491,
+    "to": 1556
+   },
+   "facts": [
+    {
+     "text": "Ignatius was born in 1491 at the castle of Loyola in Spain and was a soldier before his conversion.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Ignatius Loyola",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/07639c.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "At Manresa he began the notes that became the Spiritual Exercises.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Ignatius Loyola",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/07639c.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He founded the Society of Jesus, approved in 1540, and died at Rome on 31 July 1556.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Ignatius Loyola",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/07639c.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "francis-de-sales",
+   "kind": "saint",
+   "name": "Francis de Sales",
+   "alternateNames": [
+    "Francois de Sales",
+    "Franciscus Salesius"
+   ],
+   "authorId": "francis-de-sales",
+   "feast": "01-24",
+   "period": {
+    "from": 1567,
+    "to": 1622
+   },
+   "facts": [
+    {
+     "text": "Francis de Sales was bishop of Geneva, living at Annecy, and a leading preacher of the Catholic reform.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Francis de Sales",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/06220a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He wrote the Introduction to the Devout Life and co-founded the Visitation Order with Jane de Chantal.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Francis de Sales",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/06220a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died at Lyons on 28 December 1622.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Francis de Sales",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/06220a.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "alphonsus-liguori",
+   "kind": "saint",
+   "name": "Alphonsus Liguori",
+   "alternateNames": [
+    "Alfonso Maria de Liguori",
+    "Alphonsus Maria de Liguori"
+   ],
+   "authorId": "alphonsus-liguori",
+   "feast": "08-01",
+   "period": {
+    "from": 1696,
+    "to": 1787
+   },
+   "facts": [
+    {
+     "text": "Alphonsus was a lawyer from Naples who became a priest and founded the Redemptorists in 1732.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Alphonsus Liguori",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01334a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He wrote widely on moral theology and prayer, and he died in 1787.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Alphonsus Liguori",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/01334a.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "therese-of-lisieux",
+   "kind": "saint",
+   "name": "Therese of Lisieux",
+   "alternateNames": [
+    "Therese of the Child Jesus",
+    "Therese Martin",
+    "Little Flower",
+    "Therese de Lisieux"
+   ],
+   "authorId": "therese-lisieux",
+   "feast": "10-01",
+   "period": {
+    "from": 1873,
+    "to": 1897
+   },
+   "facts": [
+    {
+     "text": "Therese Martin entered the Carmel of Lisieux at the age of fifteen, in 1888, and her autobiographical manuscripts were published as Story of a Soul.",
+     "source": {
+      "label": "John Paul II, Divini Amoris Scientia (1997), vatican.va",
+      "kind": "magisterium",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1997/documents/hf_jp-ii_apl_19101997_divini-amoris.html"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "John Paul II declared her a Doctor of the Church on 19 October 1997.",
+     "source": {
+      "label": "John Paul II, Divini Amoris Scientia (1997), vatican.va",
+      "kind": "magisterium",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1997/documents/hf_jp-ii_apl_19101997_divini-amoris.html"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She died on 30 September 1897, aged 24.",
+     "source": {
+      "label": "John Paul II, Divini Amoris Scientia (1997), vatican.va",
+      "kind": "magisterium",
+      "url": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1997/documents/hf_jp-ii_apl_19101997_divini-amoris.html"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "thomas-more",
+   "kind": "saint",
+   "name": "Thomas More",
+   "alternateNames": [
+    "Sir Thomas More",
+    "Thomas Morus"
+   ],
+   "feast": "06-22",
+   "period": {
+    "to": 1535,
+    "note": "born c. 1477-1478"
+   },
+   "facts": [
+    {
+     "text": "Thomas More was an English lawyer, writer and Lord Chancellor who refused to accept Henry VIII's supremacy over the Church.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Thomas More",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/14689c.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was executed on 6 July 1535.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Thomas More",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/14689c.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was beatified in 1886 and canonized by Pius XI in 1935.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), St. Thomas More",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/14689c.htm"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "perpetua-and-felicity",
+   "kind": "saint",
+   "name": "Perpetua and Felicity",
+   "alternateNames": [
+    "Vibia Perpetua",
+    "Felicitas"
+   ],
+   "feast": "03-07",
+   "period": {
+    "to": 203,
+    "note": "martyred c. 203"
+   },
+   "facts": [
+    {
+     "text": "Perpetua was a young noblewoman of Carthage who was arrested as a catechumen with her slave Felicity.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), Felicitas and Perpetua",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/06029a.htm"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "She and her companions were killed in the arena in 203; part of the account of her imprisonment is attributed to her own diary.",
+     "source": {
+      "label": "Catholic Encyclopedia (1907-1912), Felicitas and Perpetua",
+      "kind": "historical",
+      "url": "https://www.newadvent.org/cathen/06029a.htm"
+     },
+     "confidence": "probable"
+    }
+   ]
+  },
+  {
+   "id": "maximilian-kolbe",
+   "kind": "saint",
+   "name": "Maximilian Kolbe",
+   "alternateNames": [
+    "Maksymilian Kolbe",
+    "Raymond Kolbe"
+   ],
+   "feast": "08-14",
+   "period": {
+    "from": 1894,
+    "to": 1941
+   },
+   "facts": [
+    {
+     "text": "Maximilian Kolbe was a Polish Conventual Franciscan who founded the Niepokalanow publishing centre.",
+     "source": {
+      "label": "Vatican biography of Maximilian Maria Kolbe (canonization, 10 Oct 1982)",
+      "kind": "magisterium",
+      "url": "https://www.vatican.va/news_services/liturgy/saints/ns_lit_doc_19821010_massimiliano_kolbe_it.html"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was arrested by the Gestapo in 1941, sent to Auschwitz, and offered to die in place of another prisoner.",
+     "source": {
+      "label": "Vatican biography of Maximilian Maria Kolbe (canonization, 10 Oct 1982)",
+      "kind": "magisterium",
+      "url": "https://www.vatican.va/news_services/liturgy/saints/ns_lit_doc_19821010_massimiliano_kolbe_it.html"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He died on 14 August 1941; John Paul II canonized him on 10 October 1982.",
+     "source": {
+      "label": "Vatican biography of Maximilian Maria Kolbe (canonization, 10 Oct 1982)",
+      "kind": "magisterium",
+      "url": "https://www.vatican.va/news_services/liturgy/saints/ns_lit_doc_19821010_massimiliano_kolbe_it.html"
+     },
+     "confidence": "certain"
+    }
+   ]
+  },
+  {
+   "id": "john-paul-ii",
+   "kind": "saint",
+   "name": "John Paul II",
+   "alternateNames": [
+    "Karol Wojtyla",
+    "Giovanni Paolo II"
+   ],
+   "feast": "10-22",
+   "period": {
+    "from": 1920,
+    "to": 2005
+   },
+   "facts": [
+    {
+     "text": "Karol Wojtyla was born at Wadowice, Poland, on 18 May 1920.",
+     "source": {
+      "label": "Vatican, biographical profile of John Paul II",
+      "kind": "magisterium",
+      "url": "https://www.vatican.va/special/canonizzazione-27042014/documents/biografia_gpii_canonizzazione_en.html"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "He was elected pope on 16 October 1978 and died on 2 April 2005.",
+     "source": {
+      "label": "Vatican, biographical profile of John Paul II",
+      "kind": "magisterium",
+      "url": "https://www.vatican.va/special/canonizzazione-27042014/documents/biografia_gpii_canonizzazione_en.html"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Benedict XVI beatified him on 1 May 2011.",
+     "source": {
+      "label": "Vatican, biographical profile of John Paul II",
+      "kind": "magisterium",
+      "url": "https://www.vatican.va/special/canonizzazione-27042014/documents/biografia_gpii_canonizzazione_en.html"
+     },
+     "confidence": "certain"
+    },
+    {
+     "text": "Francis canonized him, together with John XXIII, on 27 April 2014.",
+     "source": {
+      "label": "Francis, homily at the canonization of John XXIII and John Paul II, 27 April 2014, vatican.va",
+      "kind": "magisterium",
+      "url": "https://www.vatican.va/content/francesco/en/homilies/2014/documents/papa-francesco_20140427_omelia-canonizzazioni.html"
+     },
+     "confidence": "certain"
+    }
+   ]
+  }
+ ]
+}

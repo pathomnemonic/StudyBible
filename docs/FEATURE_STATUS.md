@@ -191,7 +191,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 
 | Feature | Status | Notes |
 |---|---|---|
-| Profiles of saints, people and places (framework) | **Partial** | The data format, the checks (every fact must name a source, a place’s modern identification must say how sure it is, ids are stable, relations must point at real profiles), the search page and the profile page are built and tested (docs/PROFILE_DATA_FORMAT.md). The data file ships empty, so no profile exists yet: it needs reviewed tables of people, places and saints with sources. The pages say so rather than guess. |
+| Profiles of saints, people and places | **Partial** | Search and profile pages with every fact sourced and uncertainty stated (format and checks in docs/PROFILE_DATA_FORMAT.md). 40 saints are loaded: drafted by one agent from the Catholic Encyclopedia, Scripture and Vatican documents, then checked source by source by a second agent, which corrected 21 profiles (dates, a wrong page, claims the cited page did not support). A human review is still recommended. People of Scripture and places are drafted but their independent check is not finished, so they are not shown yet. |
 
 ## Bible
 

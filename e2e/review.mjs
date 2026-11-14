@@ -166,9 +166,12 @@ await p.locator('input[aria-label="Tags for this collection"]').fill('Advent, Ma
 await p.goto(`${BASE}/#/library`); await p.reload(); await p.waitForTimeout(900);
 await p.locator('[role=tab]', { hasText: /^Collections$/ }).first().click(); await p.waitForTimeout(500);
 if (!/Advent, Mary/i.test(await p.locator('.page').innerText())) fail('the tags should show in the collections list');
-// 20. profiles page: honest empty state (no invented facts)
-await p.goto(`${BASE}/#/study/profiles`); await p.waitForTimeout(1200);
-if (!/No profiles are loaded yet/.test(await p.locator('.page').innerText())) fail('with no data the profiles page should say so');
+// 20. profiles page lists the reviewed saints; a profile shows each fact with its source
+await p.goto(`${BASE}/#/study/profiles`); await p.waitForSelector('.list a', { timeout: 20000 });
+await p.locator('input[aria-label="Search profiles"]').fill('aquino'); await p.waitForTimeout(300);
+await p.locator('.list a', { hasText: 'Thomas Aquinas' }).first().click(); await p.waitForTimeout(800);
+const prof = await p.locator('.page').innerText();
+if (!/Catholic Encyclopedia|Vatican|Scripture/i.test(prof) || !/What the sources say/i.test(prof)) fail('a profile should show its facts with their sources: ' + prof.slice(0, 300));
 // 21. student worksheet from a lesson, with and without the answer key
 await p.goto(`${BASE}/${lessonHref}`); await p.waitForTimeout(1500);
 {

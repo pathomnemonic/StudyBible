@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Profiles: 40 saints with sourced facts (drafted by one agent, checked by a second which corrected 21 of them).
 - Collection templates: Prayers in Scripture and Psalms for a hard day (a test checks every template passage is real).
 - Ask the sources: suggests existing guided walks (Argument Map questions) that match the words of the question.
 - Export: export only the notes carrying one tag.
