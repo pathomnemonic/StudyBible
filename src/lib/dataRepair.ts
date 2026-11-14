@@ -124,8 +124,7 @@ export async function applyRepairs(repairs: Repair[]): Promise<UndoRecord[]> {
   // A failed or unavailable safety copy is a hard stop: no record may change without it.
   const snap = await snapshotIfDue(true);
   if (!snap) throw new Error('A safety copy could not be created. No repairs were applied.');
-  const tables = [...new Set(repairs.map((r) => db.table(r.tbl)))];
-  await db.transaction('rw', ...tables, async () => {
+  await db.transaction('rw', db.notes, db.highlights, db.bookmarks, db.collections, db.userPlans, async () => {
     for (const r of repairs) {
       const changed = await db.table(r.tbl).update(r.id, r.patch);
       if (changed !== 1) throw new Error(`Could not update ${r.where}; the record may have changed or been deleted. No repairs were applied.`);
@@ -138,8 +137,7 @@ export async function applyRepairs(repairs: Repair[]): Promise<UndoRecord[]> {
 export async function undoRepairs(undo: UndoRecord[]): Promise<void> {
   if (!undo.length) return;
   const { db } = await import('../db/db');
-  const tables = [...new Set(undo.map((u) => db.table(u.tbl)))];
-  await db.transaction('rw', ...tables, async () => {
+  await db.transaction('rw', db.notes, db.highlights, db.bookmarks, db.collections, db.userPlans, async () => {
     for (const u of undo) {
       const changed = await db.table(u.tbl).update(u.id, u.before);
       if (changed !== 1) throw new Error('Undo could not restore every record. No changes were committed.');
