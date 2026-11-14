@@ -1,3 +1,4 @@
+import { reportUrl } from '../lib/report';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FEATURES, STATUS_LABEL, type Status } from '../featureStatus';
@@ -65,6 +66,7 @@ export default function AboutPage() {
           <li><a href="https://github.com/pathomnemonic/StudyBible/blob/main/docs/CHANGELOG.md" target="_blank" rel="noreferrer">What changed</a> lists app changes and content changes separately.</li>
         </ul>
       </section>
+      <p className="small"><a href={reportUrl({ title: 'Problem report', hash: '#/about' })} target="_blank" rel="noreferrer">Report a problem with the app</a> <span className="muted">(opens a pre-filled GitHub issue with the build and the screen; it never includes your notes or anything you typed)</span></p>
       <p className="small"><Link to="/study/sources">Sources & licensing</Link> · <Link to="/settings">Settings</Link></p>
     </div>
   );

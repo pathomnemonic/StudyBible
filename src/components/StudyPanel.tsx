@@ -1,4 +1,5 @@
 import AddToCollection from './AddToCollection';
+import { reportUrl } from '../lib/report';
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Marked } from '../study/citations';
@@ -674,7 +675,7 @@ function Item({ item, edition, onOpenPassage, onNote, covers, reading = false, a
         </>
       )}
       {!reading && item.tags && item.tags.length > 0 && <div className="tag-row">{item.tags.slice(0, 4).map((t) => <span key={t} className="chip">{t}</span>)}</div>}
-      {!reading && <a className="report" href={`https://github.com/pathomnemonic/StudyBible/issues/new?title=${encodeURIComponent('Problem with: ' + item.title)}&body=${encodeURIComponent(`Item id: ${item.id}\nSource: ${item.sourceName}${item.author ? `\nAuthor: ${item.author}` : ''}${item.url ? `\nLink: ${item.url}` : ''}\nPage: ${location.hash}\n\nWhat is wrong, and what should it say (with a source if you have one):\n`)}`} target="_blank" rel="noreferrer">Report a problem</a>}
+      {!reading && <a className="report" href={reportUrl({ title: 'Problem with: ' + item.title, item: item.id, source: `${item.sourceName}${item.author ? ` (${item.author})` : ''}${item.url ? ` ${item.url}` : ''}` })} target="_blank" rel="noreferrer">Report a problem</a>}
       {item.links && <div className="find-links">{item.links.map((l) => <a key={l.url} className="chip" href={l.url} target="_blank" rel="noreferrer">{l.label} ↗</a>)}</div>}
       {item.quotes && item.quotes.length > 0 && (
         <div className="fq">

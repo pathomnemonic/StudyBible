@@ -218,4 +218,8 @@ await p.locator('.card', { hasText: 'Bread of life' }).locator('button', { hasTe
 await p.goto(`${BASE}/#/downloads`); await p.waitForTimeout(1200);
 await p.locator('button', { hasText: 'Check saved copies' }).click(); await p.waitForTimeout(2500);
 if (!/Every saved file is readable|missing or unreadable/.test(await p.locator('[aria-label="Check saved copies"]').innerText())) fail('the saved-copy check should report a result');
+// 26. glossary letter index jumps to a term
+await p.goto(`${BASE}/#/study/glossary`); await p.waitForSelector('[aria-label="Jump to a letter"] button', { timeout: 15000 });
+if (await p.locator('[aria-label="Jump to a letter"] button').count() < 10) fail('the glossary should offer many letters');
+await p.locator('[aria-label="Jump to a letter"] button', { hasText: /^T$/ }).click(); await p.waitForTimeout(400);
 await b.close(); console.log('review ok');

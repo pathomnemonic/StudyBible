@@ -96,7 +96,7 @@ export default function AskAllPage() {
         <section className="card" aria-label="The Church’s teaching">
           <h2 className="card-title">The Church’s own words</h2>
           <p className="row" style={{ gap: 8 }}><Tag>Catechism of the Catholic Church</Tag><span className="muted small">official teaching, quoted</span></p>
-          {ccc.paras.slice(0, 4).map((p) => <blockquote key={p.n}><Link to={`/study/catechism/${p.n}`}><strong>§{p.n}</strong></Link> {clip(p.text)}</blockquote>)}
+          {ccc.paras.slice(0, 4).map((p) => <blockquote key={p.n}><Link to={`/study/catechism/${p.n}`}><strong>§{p.n}</strong></Link> {p.text.length > 420 ? <details><summary>{clip(p.text)}</summary>{p.text}</details> : p.text}<span className="muted small"> Catechism of the Catholic Church, paragraph {p.n}. <Link to={`/study/catechism/${p.n}`}>Read it with the paragraphs around it</Link></span></blockquote>)}
           {ccc.topics.length > 0 && <p className="small">Related topics: {ccc.topics.map((t, i) => <span key={t.id}>{i ? ', ' : ''}<Link to={`/study/topics/${t.id}`}>{t.title}</Link></span>)}.</p>}
         </section>
       )}

@@ -121,7 +121,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Feature | Status | Notes |
 |---|---|---|
 | Cleaner historical texts | **Partial** | Butler’s Lives of the Saints for the scanned months (April to June, August to December) has had scanner debris, footnote citations and Latin verse removed, and common misreadings (for example “tbe”, “thai”, “oflfered”) corrected by program. It has not been proofread by a person, so a misprint may remain. The Roman Catechism and Leo XIII’s encyclicals had scanner misreadings repaired the same way. **Next:** A human proofread of the scanned months. **Blocked by:** verification. **Done when:** A reader checks a sample of days against a clean edition and finds no misprints.. |
-| Ask the sources | **Working** | One question in plain words. The answer is never written for you: the page finds the Catechism paragraphs that match (official teaching, quoted), the verses that use your words (Bible text, in your translation), the app’s own definition if you named a term, and, on request, passages from the Fathers and saints in the library (single writers, not Church teaching). Each card carries a label naming its kind of source. It works with no AI service and no connection once the data is on the device. Tick which kinds of source to show (kept in the address); “Save this question” adds it to the question inbox in Notes, under Review. |
+| Ask the sources | **Working** | One question in plain words. The answer is never written for you: the page finds the Catechism paragraphs that match (official teaching, quoted), the verses that use your words (Bible text, in your translation), the app’s own definition if you named a term, and, on request, passages from the Fathers and saints in the library (single writers, not Church teaching). Each card carries a label naming its kind of source. It works with no AI service and no connection once the data is on the device. Tick which kinds of source to show (kept in the address); “Save this question” adds it to the question inbox in Notes, under Review. Each Catechism card names its exact location (paragraph number), expands to the full paragraph in place and links to the paragraph with its neighbours. |
 
 ## Learn
 
@@ -147,6 +147,18 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 | Collection templates | **Working** | Start a collection from a template (the Eucharist in Scripture, Marian passages, the Passion in John, the Beatitudes and works of mercy, the call of the first disciples). Templates hold Scripture passages only; edit them freely afterwards. |
 | Collections list: summary, search and duplicate | **Working** | Each collection in the list shows its item count, how many are ticked done and when it last changed. With more than three collections a search box filters by name, description or the label of any item. Duplicate makes a personal copy (same items, nothing ticked), which is how a template becomes your own. Make a reading plan turns the Scripture passages of a collection into a plan with one day per passage, in the collection’s order (other kinds of item are left out). Tags: each collection can carry your own tags (comma separated); they show in the list, are searched, and are copied by Duplicate. Not built: folders and collection types beyond the item kinds already supported. |
 | Data health check | **Working** | In Library, Export and backup: “Run the check” looks through your notes, highlights, bookmarks, collections and reading plans for items that point at something no longer here (a note a collection still lists, a deleted bookmark) or at a passage address the app cannot read, and names each one with a link to open it. It only reports; nothing is changed or deleted. Not covered yet: failed downloads and backup problems (Downloads and the backup card show those). |
+
+## App
+
+| Feature | Status | Notes |
+|---|---|---|
+| Problem reports with a diagnostic summary | **Working** | Report a problem (on a study item, and on the About page) opens a pre-filled GitHub issue with the item id and source, the build (commit and date), the screen (without any query text), whether the device is online and the window width. It never includes notes, anything you typed, names or account details. The report opens in a new tab and nothing is sent until you submit it there. |
+
+## Study
+
+| Feature | Status | Notes |
+|---|---|---|
+| Glossary letter index | **Working** | The glossary (already A to Z, searchable, with the Church’s own words, Scripture the paragraph cites, related terms and the lessons that teach each word) now has a row of letters that jumps to the first term under each. Not built: a side-by-side comparison of easily confused terms, which needs reviewed pairings rather than guessed ones. |
 
 ## Downloads
 

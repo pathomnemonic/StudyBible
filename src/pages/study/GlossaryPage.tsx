@@ -25,11 +25,14 @@ export default function GlossaryPage() {
     const f = q.trim().toLowerCase();
     return [...GLOSSARY].sort((a, b) => a.term.localeCompare(b.term)).filter((g) => !f || `${g.term} ${g.aliases.join(' ')} ${g.definition}`.toLowerCase().includes(f));
   }, [q]);
+  const letters = useMemo(() => [...new Set(list.map((g) => g.term[0].toUpperCase()))], [list]);
+  const jump = (l: string) => { const el = list.find((g) => g.term[0].toUpperCase() === l); if (el) document.getElementById(el.term)?.scrollIntoView({ block: 'start' }); };
   return (
     <div className="page glossary">
       <h1>Glossary <PrintButton /></h1>
       <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Find a term" aria-label="Find a term" />
       <p className="muted small">{list.length} terms. Select a word anywhere in the app to see its meaning. The explanations are in plain words written for this app; the Church’s own wording is in the Catechism paragraph linked on each entry. “Nearest teaching” means that paragraph treats the idea without defining the word itself.</p>
+      {letters.length > 1 && <nav className="row no-print" style={{ gap: 4, flexWrap: 'wrap', margin: '6px 0' }} aria-label="Jump to a letter">{letters.map((l) => <button key={l} type="button" className="btn small" onClick={() => jump(l)}>{l}</button>)}</nav>}
       <ul className="list">
         {list.map((g) => (
           <li key={g.term} id={g.term} className={open === g.term ? 'glossary-open' : undefined}>

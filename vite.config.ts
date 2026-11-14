@@ -10,6 +10,7 @@ const brandHtml = () => ({ name: 'brand-html', transformIndexHtml: (html: string
 // `base: './'` keeps the build relocatable (GitHub Pages sub-paths, file hosting, Capacitor wrappers).
 export default defineConfig({
   base: './',
+  define: { __APP_BUILD__: JSON.stringify(`${process.env.GITHUB_SHA ? process.env.GITHUB_SHA.slice(0, 7) : 'local'} ${new Date().toISOString().slice(0, 10)}`) },
   plugins: [
     react(),
     brandHtml(),

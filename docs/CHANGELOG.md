@@ -1,6 +1,8 @@
 # What changed
 
 ## Third cycle
+- Problem reports: one shared helper adds the build, the screen (no query text) and the connection state, never anything private; used by study items and the About page.
+- Glossary: a letter row to jump to the first term under each letter.
 - Downloads: Check saved copies reads each saved pack back and reports missing or damaged files.
 - Notes: the last five earlier versions of a note are kept on the note and can be restored in the editor (optional field, no migration; capped).
 - Games: Family ties, a quiz on who was the father or mother of people in the genealogies of Scripture.
