@@ -28,9 +28,9 @@ describe('semantic Scripture reference validation', () => {
   });
 
   it('does not claim exact verse alignment for an unverified Psalm chapter', () => {
-    const ref: Ref = { book: 'PSA', c1: 51, v1: 1, c2: 51, v2: 1 };
-    expect(convertRef('english', 'vulgate', ref).exact).toBe(false);
-    expect(resolveRef(english, anchor, ref, 'english', anchor).status).toBe('approximate');
+    const ref: Ref = { book: 'PSA', c1: 2, v1: 1, c2: 2, v2: 1 };
+    expect(convertRef('kjv', 'vulgate', ref).exact).toBe(false);
+    expect(resolveRef(english, anchor, ref, 'kjv', anchor).status).toBe('approximate');
   });
 
   it('converts a verified passage exactly', () => {
