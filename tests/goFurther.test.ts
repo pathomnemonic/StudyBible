@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { buildGoFurther, keyVerseRef, lessonRefs, type Known, type LessonLike } from '../src/curriculum/goFurther';
+import { buildGoFurther, keyVerse, keyVerseRef, lessonRefs, refContext, type Known, type LessonLike } from '../src/curriculum/goFurther';
 import { loadExtras, loadGrades, loadKnown } from '../scripts/curriculum/lessonData';
 import { format, report } from '../scripts/curriculum/lesson-report';
 import { refId } from '../src/lib/refs';
@@ -68,6 +68,14 @@ describe('go further links', () => {
     expect(r.find((x) => x.kind === 'scripture')?.to).toBe('/read/webc/JHN/3?v=16');
     expect(r.filter((x) => x.kind === 'catechism').map((x) => x.to)).toEqual(['/study/catechism/1', '/study/catechism/2', '/study/catechism/3']);
   });
+
+  it('labels a Scripture link when the chosen Vulgate numbering is only approximate', () => {
+    const ctx = refContext(known.editions, 'vulgate');
+    expect(ctx).not.toBeNull();
+    const link = buildGoFurther({ ...base, scripture: 'John 6:51-58' }, known, undefined, ctx).links.find((x) => x.kind === 'scripture');
+    expect(link?.note).toBeTruthy();
+  });
+
   it('reads several passages', () => { expect(lessonRefs('Luke 5:17-26; Matthew 9:1-8').map((x) => x.ref.book)).toEqual(['LUK', 'MAT']); });
 });
 
@@ -81,6 +89,14 @@ describe('key verse for review', () => {
     expect(keyVerseRef({ mem: 'Come, Lord Jesus.' })).toBeNull();
     expect(keyVerseRef({})).toBeNull();
   });
+
+  it('withholds an unverified key verse from automatic memorization', () => {
+    const ctx = refContext(known.editions, 'vulgate');
+    const k = keyVerse({ mem: '“Whoever eats my flesh...” (John 6:51–58)' }, ctx);
+    expect(k.status).toBe('approximate');
+    expect(keyVerseRef({ mem: '“Whoever eats my flesh...” (John 6:51–58)' }, ctx)).toBeNull();
+  });
+
   it('most lessons have a verse the memorize list can hold', () => {
     const n = lessons.filter((l) => keyVerseRef(l)).length;
     expect(n).toBeGreaterThan(300);
