@@ -37,6 +37,20 @@ await p.locator('.mh-grip').focus(); await p.keyboard.press('ArrowRight'); await
 const r4 = await rect(); if (r4.left <= r3.left) fail('the arrow keys should move the player');
 await p.keyboard.press('Home'); await p.waitForTimeout(100);
 const r5 = await rect(); if (Math.abs(r5.left - r0.left) > 4 || Math.abs(r5.top - r0.top) > 4) fail('Home should put the player back: ' + JSON.stringify([r0, r5]));
+// resize: the handle makes the docked player wider and narrower (drag and keyboard), keeps it on screen, remembers the size, and Home puts it back
+const w0 = (await rect()).width;
+const sz = await p.locator('.mh-size').boundingBox();
+await p.mouse.move(sz.x + sz.width / 2, sz.y + sz.height / 2); await p.mouse.down(); await p.mouse.move(sz.x + sz.width / 2 + 90, sz.y + sz.height / 2, { steps: 6 }); await p.mouse.up(); await p.waitForTimeout(150);
+const w1 = await rect(); if (w1.width < w0 + 60) fail('dragging the resize handle should widen the player: ' + [w0, w1.width]);
+if (w1.right > 390 + 1 || w1.left < 0) fail('a resized player must stay on screen: ' + JSON.stringify(w1));
+await p.goto(`${BASE}/#/pray`); await p.waitForTimeout(500);
+if (Math.abs((await rect()).width - w1.width) > 2) fail('the size should be kept on another page');
+await p.locator('.mh-size').focus(); await p.keyboard.press('ArrowLeft'); await p.keyboard.press('ArrowLeft'); await p.waitForTimeout(100);
+if ((await rect()).width >= w1.width - 20) fail('the arrow keys should narrow the player');
+for (let i = 0; i < 30; i++) await p.keyboard.press('ArrowLeft'); await p.waitForTimeout(100);
+if ((await rect()).width < 179) fail('the player must not shrink below its minimum');
+await p.keyboard.press('Home'); await p.waitForTimeout(100);
+if (Math.abs((await rect()).width - w0) > 4) fail('Home should restore the usual width');
 // close
 await p.locator('.mh-x').click(); await p.waitForTimeout(300);
 if (await p.locator('.media-host').count()) fail('closing should stop the player');

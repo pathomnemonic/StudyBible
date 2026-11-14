@@ -8,6 +8,11 @@ type Pos = { x: number; y: number };
 const loadPos = (): Pos | null => { try { const v = JSON.parse(localStorage.getItem(POS_KEY) || 'null'); return v && Number.isFinite(v.x) && Number.isFinite(v.y) ? v : null; } catch { return null; } };
 const savePosition = (p: Pos | null) => { try { if (p) localStorage.setItem(POS_KEY, JSON.stringify(p)); else localStorage.removeItem(POS_KEY); } catch { /* private mode */ } };
 
+const SIZE_KEY = 'sb:host:w';
+const MIN_W = 180;
+const loadW = (): number | null => { try { const v = Number(localStorage.getItem(SIZE_KEY)); return Number.isFinite(v) && v >= MIN_W ? v : null; } catch { return null; } };
+const saveW = (w: number | null) => { try { if (w) localStorage.setItem(SIZE_KEY, String(Math.round(w))); else localStorage.removeItem(SIZE_KEY); } catch { /* private mode */ } };
+
 const ytId = (src: string) => /youtube(?:-nocookie)?\.com\/embed\/([\w-]{11})/.exec(src)?.[1];
 
 /** The one player for videos and recordings opened inside pages. It sits over the page's box while that page is open and docks above the tab bar when you go elsewhere. */
@@ -20,6 +25,10 @@ export default function MediaHost() {
   // where you have put the docked player (null: its usual corner)
   const [pos, setPos] = useState<Pos | null>(loadPos);
   const drag = useRef<{ dx: number; dy: number } | null>(null);
+  // how wide you have made the docked player (null: its usual width); the height follows the picture's shape
+  const [width, setWidth] = useState<number | null>(loadW);
+  const sizing = useRef<{ x: number; w: number } | null>(null);
+  const maxW = () => Math.max(MIN_W, Math.min(window.innerWidth - 8, 720));
   /** Keeps the player fully on screen, above the tab bar. */
   const clamp = (x: number, y: number): Pos => {
     const el = box.current; const w = el?.offsetWidth ?? 260, h = el?.offsetHeight ?? 160;
@@ -46,11 +55,11 @@ export default function MediaHost() {
   useEffect(() => {
     const el = box.current;
     if (!el || anchor) return;
-    const place = () => { if (!pos) { el.style.left = el.style.top = el.style.right = el.style.bottom = ''; return; } const c = clamp(pos.x, pos.y); el.style.left = `${c.x}px`; el.style.top = `${c.y}px`; el.style.right = 'auto'; el.style.bottom = 'auto'; };
+    const place = () => { el.style.width = width ? `${Math.min(width, maxW())}px` : ''; if (!pos) { el.style.left = el.style.top = el.style.right = el.style.bottom = ''; return; } const c = clamp(pos.x, pos.y); el.style.left = `${c.x}px`; el.style.top = `${c.y}px`; el.style.right = 'auto'; el.style.bottom = 'auto'; };
     place();
     window.addEventListener('resize', place);
     return () => window.removeEventListener('resize', place);
-  }, [pos, anchor, item?.key]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [pos, width, anchor, item?.key]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const move = (x: number, y: number) => { const c = clamp(x, y); setPos(c); return c; };
   const onGripDown = (e: React.PointerEvent<HTMLButtonElement>) => {
@@ -61,6 +70,29 @@ export default function MediaHost() {
   };
   const onGripMove = (e: React.PointerEvent<HTMLButtonElement>) => { if (drag.current) move(e.clientX - drag.current.dx, e.clientY - drag.current.dy); };
   const onGripUp = () => { if (drag.current) { drag.current = null; setPos((p) => { savePosition(p); return p; }); } };
+  const resizeTo = (w: number) => {
+    const el = box.current; if (!el) return;
+    const r = el.getBoundingClientRect();
+    const nw = Math.min(Math.max(MIN_W, w), maxW());
+    // growing from the top-left corner: fix the player there so it grows right and down, then keep it on screen
+    const p = clamp(Math.min(r.left, window.innerWidth - nw), r.top);
+    setPos(p); setWidth(nw);
+    return nw;
+  };
+  const onSizeDown = (e: React.PointerEvent<HTMLButtonElement>) => {
+    const el = box.current; if (!el) return;
+    sizing.current = { x: e.clientX, w: el.getBoundingClientRect().width };
+    e.currentTarget.setPointerCapture(e.pointerId); e.preventDefault();
+  };
+  const onSizeMove = (e: React.PointerEvent<HTMLButtonElement>) => { if (sizing.current) resizeTo(sizing.current.w + e.clientX - sizing.current.x); };
+  const onSizeUp = () => { if (sizing.current) { sizing.current = null; saveW(width); savePosition(pos); } };
+  const onSizeKey = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    const el = box.current; if (!el) return;
+    const w = el.getBoundingClientRect().width; const step = e.shiftKey ? 80 : 24;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === '+' || e.key === '=') { e.preventDefault(); const n = resizeTo(w + step); saveW(n ?? null); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown' || e.key === '-') { e.preventDefault(); const n = resizeTo(w - step); saveW(n ?? null); }
+    else if (e.key === 'Home' || e.key === 'Escape') { e.preventDefault(); setWidth(null); saveW(null); }
+  };
   const onGripKey = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     const el = box.current; if (!el) return;
     const r = el.getBoundingClientRect(); const step = e.shiftKey ? 80 : 24;
@@ -112,6 +144,7 @@ export default function MediaHost() {
         <div className="mh-bar">
           <button type="button" className="mh-grip" aria-label="Move the player: drag it, or use the arrow keys. Home puts it back." title="Drag to move" onPointerDown={onGripDown} onPointerMove={onGripMove} onPointerUp={onGripUp} onPointerCancel={onGripUp} onKeyDown={onGripKey} onDoubleClick={() => { setPos(null); savePosition(null); }}>⠿</button>
           <Link to={item.route} className="mh-title" title="Back to where this is on the page">{title}</Link>
+          {embed.kind !== 'audio' && <button type="button" className="mh-size" aria-label="Resize the player: drag, or use the arrow keys (plus and minus also work). Home puts it back." title="Drag to resize" onPointerDown={onSizeDown} onPointerMove={onSizeMove} onPointerUp={onSizeUp} onPointerCancel={onSizeUp} onKeyDown={onSizeKey} onDoubleClick={() => { setWidth(null); saveW(null); }}>⤡</button>}
           <button type="button" className="mh-x" onClick={closeHost} aria-label="Stop and close the player">×</button>
         </div>
       )}

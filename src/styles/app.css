@@ -6353,6 +6353,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .media-host.is-audio audio { width: 100%; height: 54px; display: block; }
 .media-host.docked { position: fixed; z-index: 38; right: 10px; bottom: calc(var(--tabs-h, 60px) + env(safe-area-inset-bottom) + var(--player-h, 0px) + 10px); width: min(58vw, 260px); border: 1px solid var(--border, #8886); box-shadow: 0 10px 30px rgba(0,0,0,.5); background: var(--surface, #111); display: flex; flex-direction: column; }
 .media-host.docked iframe, .media-host.docked video { aspect-ratio: 16 / 9; height: auto; }
+.media-host .mh-size { flex: none; min-width: 32px; min-height: 32px; border: 0; background: none; color: inherit; font-size: 1rem; cursor: nwse-resize; touch-action: none; }
 .media-host.docked.is-audio { width: min(86vw, 340px); }
 .mh-bar { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 10px; font-size: .78rem; background: var(--surface, #111); }
 .mh-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text); text-decoration: none; }
@@ -6408,7 +6409,7 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 /* the docked player can be moved anywhere: a grip at the left of its bar */
 .mh-grip { flex: none; width: 32px; height: 28px; border: 0; background: transparent; color: var(--muted, #999); font-size: 1.1rem; line-height: 1; cursor: grab; touch-action: none; border-radius: 8px; }
 .mh-grip:active { cursor: grabbing; }
-.mh-grip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.mh-size:focus-visible, .mh-grip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 @media (hover: hover) { .mh-grip:hover { background: color-mix(in srgb, var(--text) 12%, transparent); } }
 .mh-bar { padding-left: 2px; }
 
