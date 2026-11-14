@@ -168,4 +168,21 @@ if (!/Advent, Mary/i.test(await p.locator('.page').innerText())) fail('the tags 
 // 20. profiles page: honest empty state (no invented facts)
 await p.goto(`${BASE}/#/study/profiles`); await p.waitForTimeout(1200);
 if (!/No profiles are loaded yet/.test(await p.locator('.page').innerText())) fail('with no data the profiles page should say so');
+// 21. student worksheet from a lesson, with and without the answer key
+await p.goto(`${BASE}/${lessonHref}`); await p.waitForTimeout(1500);
+{
+  const ws = p.locator('button', { hasText: 'Student worksheet' });
+  if (await ws.count() === 0) { const t = p.locator('button, summary', { hasText: /teacher/i }).first(); if (await t.count()) await t.click().catch(() => {}); }
+  await ws.waitFor({ timeout: 15000 });
+  await p.evaluate(() => { window.print = () => {}; const o = window.open; window.open = (...a) => { const w = o.apply(window, a); if (w) w.print = () => {}; return w; }; });
+  const [pop] = await Promise.all([p.waitForEvent('popup'), ws.click()]);
+  await pop.waitForLoadState();
+  const html = await pop.content();
+  if (!/worksheet/i.test(await pop.title()) || !/Name/.test(html) || /ANSWER KEY/.test(html)) fail('the student worksheet should have a name line and no answer key');
+  await pop.close();
+  const [pk] = await Promise.all([p.waitForEvent('popup'), p.locator('button', { hasText: 'Worksheet with answer key' }).click()]);
+  await pk.waitForLoadState();
+  if (!/ANSWER KEY/.test(await pk.content())) fail('the key copy should say so');
+  await pk.close();
+}
 await b.close(); console.log('review ok');
