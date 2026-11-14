@@ -85,6 +85,14 @@ describe('go further links', () => {
     expect(sameTradition?.note).toBeUndefined();
   });
 
+
+  it('discloses that a cross-chapter link opens at the first chapter only', () => {
+    const ctx = refContext(known.editions, 'webc');
+    const link = buildGoFurther({ ...base, scripture: 'Genesis 1:31–2:3' }, known, undefined, ctx).links.find((x) => x.kind === 'scripture');
+    expect(link?.to).toBe('/read/webc/GEN/1?v=31');
+    expect(link?.note).toMatch(/opens at chapter 1.*continue through chapter 2/i);
+  });
+
   it('reads several passages', () => { expect(lessonRefs('Luke 5:17-26; Matthew 9:1-8').map((x) => x.ref.book)).toEqual(['LUK', 'MAT']); });
 });
 
