@@ -69,7 +69,7 @@ function refProblem(label: string, ref: Ref): string | null {
 export function refContext(editions: CountsEdition[] | undefined, targetId: string): RefContext | null {
   if (!editions) return null;
   const source = pooledCounts(editions, 'english');
-  const target = editions.find((e) => e.id === targetId) ?? editions.find((e) => e.scheme === 'english');
+  const target = editions.find((e) => e.id === targetId);
   const anchor = editions.find((e) => e.id === 'vulgate');
   return source && target && anchor ? { source, target, anchor } : null;
 }
