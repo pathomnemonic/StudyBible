@@ -66,6 +66,6 @@ export const SIGNATURE = () => { const c = (document.querySelector('main') || do
 export const STRUCTURE = () => {
   const m = document.querySelector('main') || document.body;
   const rows = [...m.querySelectorAll('[role=tablist]')].map((tl) => [...tl.querySelectorAll('[role=tab]')].map((t) => `${t.getAttribute('aria-selected') === 'true' ? '*' : ''}${(t.textContent || '').trim().replace(/\s+/g, ' ').replace(/\d+/g, '#')}`).join('|'));
-  const links = [...m.querySelectorAll('a[href]')].filter((a) => !a.closest('[role=menu], .tool-menu-list, details:not([open])')).slice(0, 40).map((a) => a.getAttribute('href'));
+  const links = [...m.querySelectorAll('a[href]')].filter((a) => !a.closest('[role=menu], .tool-menu-list, details')).slice(0, 40).map((a) => a.getAttribute('href'));
   return JSON.stringify({ rows, links });
 };

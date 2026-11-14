@@ -6064,7 +6064,9 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .item.reading.brief.expanded .ex { display: block; }
 @media (max-width: 600px) {
   .sp-sub { display: none; }
-  .ptabs { flex-wrap: nowrap !important; overflow-x: auto !important; }
+  /* every tab of the passage panel stays in view: they wrap into a grid instead of hiding behind a sideways scroll (Connections, Words, World, Media and Mine were off screen) */
+  .ptabs { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); overflow: visible !important; gap: 4px; }
+  .ptabs button { min-width: 0; justify-content: center; text-align: center; }
   .item.reading.brief .acts .info-btn { display: none; }
 }
 
