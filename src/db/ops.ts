@@ -14,12 +14,16 @@ export function chapterKeysOf(targets: Target[]): string[] {
   return [...keys];
 }
 
+import { nextHistory } from '../lib/noteHistory';
+
 export async function saveNote(n: Omit<Note, 'createdAt' | 'updatedAt' | 'chapterKeys'> & { id?: number }): Promise<number> {
   const now = Date.now();
   const rec: Note = { ...n, chapterKeys: chapterKeysOf(n.targets), createdAt: now, updatedAt: now };
   if (n.id) {
     const old = await db.notes.get(n.id);
     rec.createdAt = old?.createdAt ?? now;
+    const history = nextHistory(old, n, now);
+    if (history.length) rec.history = history;
     await db.notes.put(rec);
     return n.id;
   }

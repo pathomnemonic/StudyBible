@@ -197,4 +197,21 @@ if (await p.locator('[aria-label="Meanings"] button:disabled').count() !== 1) fa
 await p.goto(`${BASE}/#/play/familyties`); await p.waitForSelector('[aria-label="Choices"] button', { timeout: 20000 });
 await p.locator('[aria-label="Choices"] button').first().click(); await p.waitForTimeout(300);
 if (!/See [A-Z0-9]/.test(await p.locator('[aria-label="Question"]').innerText())) fail('an answer should show where Scripture says it');
+// 24. note history: a real edit keeps the earlier text, and Restore puts it back in the box
+await p.goto(`${BASE}/#/library`); await p.waitForTimeout(900);
+await p.locator('.card', { hasText: 'Bread of life' }).locator('button', { hasText: /^Edit$/ }).first().click();
+{
+  const t = p.locator('textarea[aria-label="Note text"]'); await t.waitFor({ timeout: 10000 });
+  await t.fill('This first version of the note is long enough to be worth keeping as history.');
+  await p.locator('button', { hasText: /^Save$/ }).click(); await p.waitForTimeout(600);
+  await p.locator('.card', { hasText: 'Bread of life' }).locator('button', { hasText: /^Edit$/ }).first().click();
+  await t.waitFor({ timeout: 10000 });
+  await t.fill('A completely different second version of the note, written much later on.');
+  await p.locator('button', { hasText: /^Save$/ }).click(); await p.waitForTimeout(600);
+  await p.locator('.card', { hasText: 'Bread of life' }).locator('button', { hasText: /^Edit$/ }).first().click();
+  await t.waitFor({ timeout: 10000 });
+  await p.locator('summary', { hasText: /Earlier versions/ }).click();
+  await p.locator('.note-history button', { hasText: 'Restore' }).first().click();
+  if (!/first version of the note/.test(await t.inputValue())) fail('Restore should put the earlier text in the box, got: ' + await t.inputValue());
+}
 await b.close(); console.log('review ok');

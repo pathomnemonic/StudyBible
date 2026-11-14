@@ -43,6 +43,8 @@ export interface Note extends Syncable {
   originEdition?: string;
   /** derived: "BOOK.chapter" keys of passage targets, for indexed lookup */
   chapterKeys?: string[];
+  /** the last few earlier versions of the text (newest first), kept so an accidental edit can be undone; optional and not indexed, so no migration is needed */
+  history?: { at: number; title?: string; body: string }[];
   createdAt: number;
   updatedAt: number;
 }

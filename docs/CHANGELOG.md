@@ -1,6 +1,7 @@
 # What changed
 
 ## Third cycle
+- Notes: the last five earlier versions of a note are kept on the note and can be restored in the editor (optional field, no migration; capped).
 - Games: Family ties, a quiz on who was the father or mother of people in the genealogies of Scripture.
 - Games: Match the term, pairing Catholic words with the glossary's own meanings.
 - Lessons: print a student worksheet (or one with the answer key) built only from the lesson's own parts.

@@ -157,6 +157,13 @@ export default function NoteEditor({
           {picks.length ? picks.map((n) => <button type="button" role="option" aria-selected="false" key={n.id} className="btn small" onClick={() => pick(n.title!)}>{n.title}</button>) : <span className="muted small">No note of yours has a title like that yet. Finish the brackets to link to it later.</span>}
         </div>
       )}
+      {note?.history?.length ? (
+        <details className="note-history" style={{ margin: '6px 0' }}>
+          <summary className="small">Earlier versions ({note.history.length})</summary>
+          <ul className="list">{note.history.map((v) => <li key={v.at}><span className="muted small">{new Date(v.at).toLocaleString()}</span> {v.body.slice(0, 80).replace(/\s+/g, ' ')}{v.body.length > 80 ? '…' : ''} <button type="button" className="btn small" onClick={() => { setBody(v.body); if (v.title !== undefined) setTitle(v.title); setPreview(false); }}>Restore</button></li>)}</ul>
+          <p className="muted small">Restoring puts that text back in the box. Nothing changes until you press Save.</p>
+        </details>
+      ) : null}
       {!preview && <p className="muted small">Link to another of your notes by writing its title in double square brackets, like [[Bread of life]]; start typing [[ and your notes are suggested. Markdown works too.</p>}
       <div className="row" style={{ marginTop: 8 }}>
         <input type="text" placeholder="Tags, comma separated" value={tags} onChange={(e) => setTags(e.target.value)} style={{ flex: 1 }} aria-label="Tags" />
