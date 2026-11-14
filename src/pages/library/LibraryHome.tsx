@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, TRASH_DAYS, type Collection, type Note, type Target } from '../../db/db';
 import { collectionSummary, copyOfCollection, matchesCollection } from '../../lib/collectionsView';
+import { dataHealth, type Finding } from '../../lib/dataHealth';
 import NoteEditor, { targetLabel } from '../../components/NoteEditor';
 import RefLink from '../../components/RefLink';
 import { renderMarkdown } from '../../lib/markdown';
@@ -307,6 +308,25 @@ function History() {
   );
 }
 
+/** A read-only check of your own data: references that lead nowhere. It changes nothing. */
+function DataHealth() {
+  const [found, setFound] = useState<Finding[] | null>(null);
+  const run = async () => {
+    const [notes, highlights, bookmarks, collections, userPlans] = await Promise.all([db.notes.toArray(), db.highlights.toArray(), db.bookmarks.toArray(), db.collections.toArray(), db.userPlans.toArray()]);
+    setFound(dataHealth({ notes, highlights, bookmarks, collections, userPlans } as never));
+  };
+  return (
+    <div className="card" aria-label="Data health check">
+      <h2 className="card-title">Check your data</h2>
+      <p className="muted small">Looks for notes, collections and plans that point at something that is no longer here, or at a passage address the app cannot read. It only reports; nothing is changed or deleted.</p>
+      <button className="btn" onClick={() => void run()}>Run the check</button>
+      {found && (found.length === 0
+        ? <p role="status">Nothing wrong found.</p>
+        : <ul className="dl-list" role="status">{found.map((f, i) => <li key={i}><span><strong>{f.where}</strong> {f.what}.</span>{f.to && <Link className="btn small" to={f.to}>Open</Link>}</li>)}</ul>)}
+    </div>
+  );
+}
+
 function ExportTab() {
   const [msg, setMsg] = useState('');
   const [pending, setPending] = useState<{ text: string; counts: Record<string, number>; at?: string } | null>(null);
@@ -319,6 +339,7 @@ function ExportTab() {
   return (
     <>
       <SafetyCopies />
+      <DataHealth />
       <div className="card">
         <h3>Export (backup)</h3>
         <p className="muted">Your data lives on this device. The JSON file contains everything (notes, highlights, bookmarks, collections, journal, plans, memorization, listening progress) and can be re-imported on any device; the other formats are readable copies for other apps. Scripture links use stable Vulgate-anchored ids, so they keep working across translations.</p>

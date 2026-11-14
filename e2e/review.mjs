@@ -151,4 +151,10 @@ const orig = p.locator('a', { hasText: 'Open the original' }).last();
 if ((await orig.getAttribute('target')) === '_blank') fail('the saint link should open inside the app');
 await orig.click(); await p.waitForTimeout(800);
 if (!/study\/saints\/11-13/.test(await p.evaluate(() => location.hash))) fail('the saint link should land on the saint page, got ' + await p.evaluate(() => location.hash));
+// 18. data health check finds a collection item whose note is gone, and names the collection
+await p.evaluate(() => new Promise((res, rej) => { const r = indexedDB.open('studybible'); r.onsuccess = () => { const tx = r.result.transaction('collections', 'readwrite'); tx.objectStore('collections').add({ name: 'Health probe', items: [{ type: 'note', uid: 'does-not-exist', label: 'Vanished note' }], createdAt: Date.now(), updatedAt: Date.now() }); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }; r.onerror = () => rej(r.error); }));
+await p.goto(`${BASE}/#/library?tab=export`); await p.reload(); await p.waitForTimeout(900);
+await p.waitForSelector('[aria-label="Data health check"]', { timeout: 15000 });
+await p.locator('button', { hasText: 'Run the check' }).click(); await p.waitForTimeout(600);
+if (!/Health probe/.test(await p.locator('[aria-label="Data health check"]').innerText())) fail('the check should name the collection with the missing note');
 await b.close(); console.log('review ok');
