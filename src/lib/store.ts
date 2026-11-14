@@ -79,6 +79,12 @@ export interface Settings {
   tapSound: boolean;
   defaultEdition: string;
   parallelEdition: string | null;
+  /** parallel combinations the reader saved: tap one to read that pair again */
+  savedPairs: { left: string; right: string }[];
+  /** About this chapter: open by itself (default), stay closed, or follow the last choice */
+  aboutChapter: 'auto' | 'closed' | 'remember';
+  /** the last open/close choice, used when aboutChapter is 'remember' */
+  aboutChapterOpen: boolean;
   /** older or unfamiliar translations the reader chose to switch on (see Edition.offByDefault) */
   enabledEditions: string[];
   showVerseNumbers: boolean;
@@ -203,6 +209,9 @@ export const DEFAULTS: Settings = {
   tapSound: false,
   defaultEdition: 'webc',
   parallelEdition: null,
+  savedPairs: [],
+  aboutChapter: 'auto',
+  aboutChapterOpen: true,
   enabledEditions: [],
   showVerseNumbers: true,
   scriptureOnly: false,

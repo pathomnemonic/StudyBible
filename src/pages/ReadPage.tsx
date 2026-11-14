@@ -10,6 +10,7 @@ import type { BookData } from '../lib/types';
 import { adjacentBook, getBook, BOOK_BY_ID } from '../lib/canon';
 import { formatRef, parseRefId, refId, type Ref } from '../lib/refs';
 import { readerPath } from '../lib/nav';
+import { addPair, hasPair, measureTopVerse, pairKey, removePair, scrolledIntoChapter } from '../lib/readerPosition';
 import { anchorChaptersFor, chapterAlignmentNote, bookAlignmentNote, psalmDualLabel, toAnchor } from '../lib/versification';
 import { anchorChapterText, anchorToNative, chapterTitle, flattenChapter, nativeToAnchorRef, type AnchorText } from '../lib/bibleText';
 import { useSettings } from '../lib/store';
@@ -484,18 +485,23 @@ export default function ReadPage() {
     const target = get(id);
     if (!target) return;
     let ref: Ref;
+    let topN: number | null = null;
     // a verse the address names (?v=, shown highlighted for a few seconds after arriving) is the reader's place too: switching again must keep it
     const arrived = !selRefs.length && vParam ? /^(\d+)(?:-(\d+))?$/.exec(vParam) : null;
     const arrivedRef = arrived ? nativeToAnchorRef(edition, bk.id, chNum, +arrived[1], arrived[2] ? +arrived[2] : +arrived[1]).ref : null;
     if (selRefs.length) ref = selRefs[0];
     else if (arrivedRef) ref = arrivedRef;
-    else {
+    else if (!parallelMode && scrolledIntoChapter(window.scrollY) && (topN = measureTopVerse()) != null && anchorOf.get(topN)) {
+      // nothing selected, but the reader has scrolled into the chapter: keep the verse at the top of the screen
+      const a = anchorOf.get(topN)!;
+      ref = { book: bk.id, c1: a.c, v1: a.v1, c2: a.c, v2: a.v1 };
+    } else {
       const first = flat[0] ? anchorOf.get(flat[0].n)! : { c: primaryAnchorChapter, v1: 1 };
       ref = { book: bk.id, c1: first.c, v1: first.v1, c2: first.c, v2: first.v1 };
     }
     const t = anchorToNative(target, { ...ref, c2: ref.c1, v2: ref.v1 });
     const ch = t.chapter; // never clamped to "the nearest chapter": a chapter the other translation lacks gets the reader's own explicit state
-    const v = selRefs.length || arrivedRef ? anchorToNative(target, ref) : null;
+    const v = selRefs.length || arrivedRef || topN != null ? anchorToNative(target, ref) : null;
     nav(`/read/${id}/${bk.id}/${ch}${parallelId && parallelId !== id ? `?p=${parallelId}` : ''}${v?.v1 ? `${parallelId && parallelId !== id ? '&' : '?'}v=${v.v1}${v.v2 && v.v2 !== v.v1 ? '-' + v.v2 : ''}` : ''}`, { state: loc.state }); // same passage in another translation: the way back stays
     setSettings({ defaultEdition: id });
     setEditionPicker(false);
@@ -531,7 +537,15 @@ export default function ReadPage() {
     for (const r of selRefs) await toggleBookmark(r, 'bookmark', edition.id);
   };
   const copyText = async () => {
-    if (parallelMode) return;
+    if (parallelMode) {
+      // the selected rows, in the translation on the left (the one this page is reading)
+      const want = new Set(selAnchor);
+      const vs = flat.filter((x) => { const a = anchorOf.get(x.n); return a && a.c === primaryAnchorChapter && want.has(a.v1); });
+      if (!vs.length) { toast('Nothing in this translation for those rows.', 'info'); return; }
+      const label = `${bk.name} ${chNum}:${groupConsecutive(vs.map((x) => x.n)).map(([a, b]) => (a === b ? a : `${a}–${b}`)).join(', ')}`;
+      await safeCopy(formatCopy(settings.copyStyle, vs.map((v) => ({ n: v.n, text: v.text })), label, edition.shortName));
+      return;
+    }
     const verses: { n: number; text: string }[] = [];
     for (const [a, b] of groupConsecutive(selNative)) verses.push(...flat.filter((x) => x.n >= a && x.n <= b).map((v) => ({ n: v.n, text: v.text })));
     const label = `${bk.name} ${chNum}:${groupConsecutive(selNative).map(([a, b]) => (a === b ? a : `${a}–${b}`)).join(', ')}`;
@@ -624,11 +638,9 @@ export default function ReadPage() {
           <button className="icon-btn" onClick={() => setCompare(true)} aria-label="Compare translations" title="Compare translations">
             <Icon name="compare" />
           </button>
-          {!parallelMode && (
-            <button className="icon-btn" onClick={copyText} aria-label="Copy text" title="Copy text with reference">
-              <Icon name="copy" />
-            </button>
-          )}
+          <button className="icon-btn" onClick={copyText} aria-label="Copy text" title={parallelMode ? `Copy the selected verses in ${edition.shortName} with reference` : 'Copy text with reference'}>
+            <Icon name="copy" />
+          </button>
           <button className="icon-btn" onClick={() => nav(`/share?ref=${encodeURIComponent(refId(selRefs[0]))}`)} aria-label="Share as image" title="Share this passage as an image">
             <Icon name="expand" />
           </button>
@@ -665,6 +677,26 @@ export default function ReadPage() {
         </span>
       </div>
       <OfflineLine edition={edition.id} name={edition.shortName} />
+      {(parallelMode && parallel || (settings.savedPairs ?? []).length > 0) && (
+        <div className="saved-pairs" role="group" aria-label="Saved translation pairs" style={{ margin: '6px 0 8px' }}>
+          <div className="muted small">Saved pairs</div>
+          <div className="chips">
+            {(settings.savedPairs ?? []).map((pr) => {
+              const l = get(pr.left), r = get(pr.right);
+              if (!l || !r) return null;
+              return (
+                <span key={pairKey(pr)} className="row" style={{ gap: 2 }}>
+                  <button className="chip" onClick={() => { setPicker(false); const q = `?p=${pr.right}`; nav(`/read/${pr.left}/${bk.id}/${Math.min(chNum, l.chapters[bk.id] ?? chNum)}${q}`); setSettings({ defaultEdition: pr.left, parallelEdition: pr.right }); }} aria-label={`Read ${l.shortName} beside ${r.shortName}`}>{l.shortName} ‖ {r.shortName}</button>
+                  <button className="chip" onClick={() => setSettings({ savedPairs: removePair(settings.savedPairs ?? [], pr) })} aria-label={`Forget the pair ${l.shortName} and ${r.shortName}`} title="Forget this pair">×</button>
+                </span>
+              );
+            })}
+            {parallelMode && parallel && !hasPair(settings.savedPairs ?? [], { left: edition.id, right: parallel.id }) && (
+              <button className="chip" onClick={() => { setSettings({ savedPairs: addPair(settings.savedPairs ?? [], { left: edition.id, right: parallel.id }) }); toast(`Saved ${edition.shortName} ‖ ${parallel.shortName}.`, 'info'); }}>＋ Save {edition.shortName} ‖ {parallel.shortName}</button>
+            )}
+          </div>
+        </div>
+      )}
       <div className="drawer-grid">
         <button className="btn small" onClick={() => { setPicker(false); setFinding(true); }}>Find in this chapter</button>
         <button className="btn small" aria-pressed={parallelMode} onClick={() => { setPicker(false); toggleParallel(); }}>{parallelMode ? 'Close the second translation' : 'Compare side by side'}</button>
@@ -860,6 +892,7 @@ export default function ReadPage() {
         <BookPicker
           edition={edition}
           here={readingHere}
+          onRecent={(refStr) => { const r = parseRefId(refStr); if (r) { setPicker(false); nav(readerPath(edition, r, parallelId)); } }}
           current={bk.id}
           onClose={() => setPicker(false)}
           onPick={(b, c) => {

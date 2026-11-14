@@ -4,6 +4,9 @@ import Modal from './Modal';
 import { BOOKS, GROUPS, getBook } from '../lib/canon';
 import { psalmDualLabel } from '../lib/versification';
 import type { EditionRecord } from '../data/loader';
+import { useLiveQuery } from 'dexie-react-hooks';
+import { db } from '../db/db';
+import { recentPassages } from '../lib/readerPosition';
 
 export default function BookPicker({
   edition,
@@ -11,6 +14,7 @@ export default function BookPicker({
   onPick,
   onClose,
   here,
+  onRecent,
 }: {
   edition: EditionRecord;
   current: string;
@@ -18,7 +22,10 @@ export default function BookPicker({
   onClose: () => void;
   /** the settings of this reading (translation, find, compare), shown above the list of books */
   here?: ReactNode;
+  /** open a recently read chapter (anchor reference id such as JHN.3) */
+  onRecent?: (ref: string) => void;
 }) {
+  const recent = useLiveQuery(async () => recentPassages(await db.history.orderBy('ts').reverse().limit(120).toArray(), 8), []) ?? [];
   const [book, setBook] = useState<string | null>(null);
   const [q, setQ] = useState('');
   const chapters = book ? edition.chapters[book] : 0;
@@ -44,6 +51,14 @@ export default function BookPicker({
       ) : (
         <>
           {here}
+          {onRecent && (
+            <section className="recent-passages" aria-label="Recently read">
+              <h3 className="eyebrow-h">Recently read</h3>
+              {recent.length === 0 ? <p className="muted small">Nothing yet. The chapters you read will be listed here.</p> : (
+                <div className="chips">{recent.map((r) => <button key={r.ref} className="chip" onClick={() => onRecent(r.ref)}>{r.label}</button>)}</div>
+              )}
+            </section>
+          )}
           <div className="picker-ways" aria-label="Other ways to read">
             <Link to="/listen" onClick={onClose}>Bible in a Year</Link>
             <Link to="/pray/readings" onClick={onClose}>Mass readings</Link>

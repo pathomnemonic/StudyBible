@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { providers, type StudyItem } from '../study/providers';
 import { getCccScripture } from '../data/ccc';
 import { getJson } from '../data/loader';
 import { parseRefs } from '../lib/refs';
 import type { Ref } from '../lib/refs';
+import { useSettings } from '../lib/store';
+import { aboutShouldAutoOpen } from '../lib/readerPosition';
 
 interface Mass { date: string; slot: string }
 const SLOT: Record<string, string> = { first_reading: 'First reading', second_reading: 'Second reading', gospel: 'Gospel', responsorial_psalm: 'Psalm' };
@@ -12,7 +14,10 @@ const shortDate = (iso: string) => new Date(iso + 'T12:00').toLocaleDateString(u
 
 /** Everything that puts this chapter in context, folded under one line: where it happens, where else it is told, when the Church reads it, and its key verses. */
 export default function ChapterCompanion({ book, anchorChapters, chapterRef }: { book: string; anchorChapters: number[]; chapterRef: Ref }) {
+  const [settings, setSettings] = useSettings();
   const [open, setOpen] = useState(false);
+  const sumRef = useRef<HTMLElement>(null);
+  const sumTop = useRef<number | null>(null);
   const touched = useRef(false);   // the reader opened or closed it themselves: leave it alone
   const [loaded, setLoaded] = useState(false);
   const [places, setPlaces] = useState<StudyItem[]>([]);
@@ -49,11 +54,18 @@ export default function ChapterCompanion({ book, anchorChapters, chapterRef }: {
   }, [key]); // eslint-disable-line react-hooks/exhaustive-deps
   // open by itself once there is something to show (and not before: an empty box is just noise)
   useEffect(() => {
-    if (loaded && !touched.current && (places.length || related.length || mass.length || keys.length)) setOpen(true);
-  }, [loaded, places, related, mass, keys]);
+    if (aboutShouldAutoOpen({ pref: settings.aboutChapter ?? 'auto', lastOpen: settings.aboutChapterOpen !== false, hasContent: !!(places.length || related.length || mass.length || keys.length), touched: loaded ? touched.current : true, scrollY: window.scrollY })) setOpen(true);
+  }, [loaded, places, related, mass, keys]); // eslint-disable-line react-hooks/exhaustive-deps
+  // opening or closing it must not move what the reader is looking at: keep the summary line where it was on screen
+  useLayoutEffect(() => {
+    if (sumTop.current == null || !sumRef.current) return;
+    const d = sumRef.current.getBoundingClientRect().top - sumTop.current;
+    sumTop.current = null;
+    if (Math.abs(d) > 1) window.scrollBy(0, d);
+  }, [open]);
   return (
-    <details className="chapter-companion" open={open} onToggle={(e) => { const o = (e.currentTarget as HTMLDetailsElement).open; if (o !== open) { touched.current = true; setOpen(o); } }}>
-      <summary>About this chapter: where, when and how it connects</summary>
+    <details className="chapter-companion" open={open} onToggle={(e) => { const o = (e.currentTarget as HTMLDetailsElement).open; if (o !== open) { touched.current = true; setOpen(o); setSettings({ aboutChapterOpen: o }); } }}>
+      <summary ref={sumRef} onClick={() => { sumTop.current = sumRef.current?.getBoundingClientRect().top ?? null; }}>About this chapter: where, when and how it connects</summary>
       {open && (
         <div className="cc-body">
           {places.length > 0 && <div><span className="eyebrow">Where</span><div className="chips">{places.map((p) => <Link key={p.id} className="chip" to={p.internal ?? '/study/maps'}>{p.title}</Link>)}</div></div>}

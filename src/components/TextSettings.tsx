@@ -110,6 +110,10 @@ export default function TextSettings({ onClose }: { onClose: () => void }) {
         <div className="chips">{chip(s.scrollMode === 'pages', 'One at a time', () => set({ scrollMode: 'pages' }))}{chip(s.scrollMode === 'infinite', 'Keep scrolling', () => set({ scrollMode: 'infinite' }))}</div>
       </div>
 
+      <div className="row between" style={{ margin: '10px 0', gap: 8, flexWrap: 'wrap' }} role="group" aria-label="About this chapter">
+        <span>“About this chapter” box</span>
+        <div className="chips">{chip((s.aboutChapter ?? 'auto') === 'auto', 'Opens by itself', () => set({ aboutChapter: 'auto' }))}{chip(s.aboutChapter === 'closed', 'Stays closed', () => set({ aboutChapter: 'closed' }))}{chip(s.aboutChapter === 'remember', 'Remember my last choice', () => set({ aboutChapter: 'remember' }))}</div>
+      </div>
       <label className="row between" style={{ margin: '4px 0' }}>
         <span>Words of Jesus in red</span>
         <input type="checkbox" checked={s.redLetters} onChange={(e) => set({ redLetters: e.target.checked })} aria-label="Words of Jesus in red" />
