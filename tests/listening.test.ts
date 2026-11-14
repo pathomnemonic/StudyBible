@@ -35,7 +35,7 @@ describe('listening time', () => {
   });
   it('attributes listening increments and a real completion to the calendar year in which they occur', async () => {
     const { db } = await import('../src/db/db'); const { creditListening, listeningStats } = await import('../src/lib/listening');
-    vi.useFakeTimers(); vi.setSystemTime(new Date('2025-12-31T23:59:00'));
+    vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(new Date('2025-12-31T23:59:00'));
     await creditListening('split', 60);
     vi.setSystemTime(new Date('2026-01-01T00:01:00'));
     await creditListening('split', 120, { ranToEnd: true, completed: true });
