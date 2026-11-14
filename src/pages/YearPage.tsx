@@ -24,17 +24,19 @@ export default function YearPage() {
   }, [from, to]);
   const s = useMemo(() => {
     if (!data) return null;
-    const reads = data.history.filter((h) => h.type === 'read');
+    // a chapter is READ when its end was reached or the reader said so (type 'finished'); opening a page is only a visit
+    const reads = data.history.filter((h) => h.type === 'finished');
     const chapters = new Set(reads.map((r) => r.ref));
     const books = new Set(reads.map((r) => r.ref.split('.')[0]));
+    const opened = new Set(data.history.filter((h) => h.type === 'read' || h.type === 'finished').map((r) => r.ref)).size;
     const days = new Set(data.history.map((h) => new Date(h.ts).toDateString()));
     const { hours, playedToEnd: finished } = listeningStats(data.episodes);
     const perMonth = Array.from({ length: 12 }, (_, m) => new Set(data.history.filter((h) => new Date(h.ts).getMonth() === m).map((h) => new Date(h.ts).toDateString())).size);
-    return { chapters: chapters.size, books: books.size, days: days.size, hours, finished, perMonth, lessons: data.history.filter((h) => h.type === 'work' || h.type === 'catechism').length };
+    return { chapters: chapters.size, opened, books: books.size, days: days.size, hours, finished, perMonth, lessons: data.history.filter((h) => h.type === 'work' || h.type === 'catechism').length };
   }, [data]);
   const max = Math.max(1, ...(s?.perMonth ?? [1]));
   const cards: [string, string | number, string][] = s && data ? [
-    ['Chapters read', s.chapters, `across ${s.books} book${s.books === 1 ? '' : 's'}`],
+    ['Chapters read to the end', s.chapters, `${s.opened} chapter${s.opened === 1 ? '' : 's'} opened in all`],
     ['Days with reading or study', s.days, `of ${year === now ? Math.max(1, Math.ceil((Date.now() - from) / 864e5)) : 365} so far`],
     ['Hours listened', s.hours, `${s.finished} episode${s.finished === 1 ? '' : 's'} played to the end`],
     ['Notes written or edited', data.notes, `${data.highlights} highlights`],
@@ -60,7 +62,7 @@ export default function YearPage() {
               {s.perMonth.map((n, i) => <div key={i} className="bar"><i style={{ height: `${Math.max(3, (100 * n) / max)}%` }} /><span>{MONTHS[i][0]}</span></div>)}
             </div>
           </section>
-          <p className="muted small">Counted on this device from what you opened and saved. Hours are only time that actually played in this app (episodes you mark as played, or that a plan marks for you, add nothing), and are counted from the update that began recording it, so earlier listening is not included. Days count a day only when a chapter, lesson or page was recorded, not every time the app was opened. <Link to="/history">See your history</Link>.</p>
+          <p className="muted small">Counted on this device from what you opened and saved. A chapter counts as read once you reached its end (or marked it read); opening it is only a visit. Hours are time that actually played in this app: episodes you mark as played, or that a plan marks for you, add nothing; for listening before this was recorded, only the point where you left an unfinished episode is counted, so it is an underestimate. Days count a day only when a chapter, lesson or page was recorded, not every time the app was opened. <Link to="/history">See your history</Link>.</p>
         </>
       )}
     </div>

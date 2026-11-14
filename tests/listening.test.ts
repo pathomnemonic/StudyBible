@@ -26,8 +26,8 @@ describe('listening time', () => {
     expect(r?.heard).toBe(1800); expect(r?.ranToEnd).toBe(true);
     expect(listeningStats(await db.episodeProgress.toArray())).toEqual({ hours: 0.5, playedToEnd: 1 });
   });
-  it('legacy rows (no heard field) count for nothing, and negative or missing values are ignored', async () => {
+  it('legacy rows: only where an unfinished episode was left counts; a completed one adds nothing; bad values are ignored', async () => {
     const { listeningStats } = await import('../src/lib/listening');
-    expect(listeningStats([{}, { heard: -5 }, { heard: undefined, ranToEnd: false }] as never)).toEqual({ hours: 0, playedToEnd: 0 });
+    expect(listeningStats([{ position: 1800, completed: false }, { position: 0, completed: true }, { position: 3600, completed: true }, { heard: -5, position: 99, completed: false }, {}] as never)).toEqual({ hours: 0.5, playedToEnd: 0 });
   });
 });
