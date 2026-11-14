@@ -70,7 +70,7 @@ export default function ConceptMapPage() {
   const merged = useMemo(() => {
     if (!g || !withMine) return g ?? null;
     const have = new Set(g.nodes.map((n) => n.id));
-    const layer = personalLayer(notes, (ref) => { const r = parseRefId(ref); if (!r) return null; const e = convertRef('vulgate', 'kjv', r).ref; return { book: e.book, c: e.c1, name: `${BOOK_BY_ID[e.book]?.name ?? e.book} ${e.c1}` }; }, (id) => have.has(id));
+    const layer = personalLayer(notes, (ref) => { const r = parseRefId(ref); if (!r) return null; const mapped = convertRef('vulgate', 'kjv', r); if (!mapped.exact) return null; const e = mapped.ref; return { book: e.book, c: e.c1, name: `${BOOK_BY_ID[e.book]?.name ?? e.book} ${e.c1}` }; }, (id) => have.has(id));
     return { ...g, nodes: [...g.nodes, ...layer.nodes.filter((n) => !have.has(n.id))], edges: [...g.edges, ...layer.edges] };
   }, [g, withMine, notes]);
   const ix: Index | null = useMemo(() => (merged ? indexGraph(merged) : null), [merged]);
