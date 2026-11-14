@@ -74,7 +74,7 @@ describe('go further links', () => {
     expect(ctx).not.toBeNull();
     const lesson = { ...base, scripture: 'John 6:51-58' };
     const link = buildGoFurther(lesson, known, undefined, ctx).links.find((x) => x.kind === 'scripture');
-    expect(link?.note).toBeTruthy();
+    expect(link?.note).toMatch(/English\/KJV numbering.*vulgate location is approximate/i);
     const sameTradition = buildGoFurther(lesson, known).links.find((x) => x.kind === 'scripture');
     expect(sameTradition?.note).toBeUndefined();
   });
