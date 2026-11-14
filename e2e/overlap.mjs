@@ -3,33 +3,15 @@
 // every switch between Up next / All days / Queue, even when the queue holds episodes from other shows.
 import { chromium } from 'playwright';
 import { readFileSync } from 'node:fs';
+import { INVARIANTS } from './lib/invariants.mjs';
 const BASE = process.env.BASE ?? 'http://localhost:4173';
 const src = readFileSync(new URL('./smoke.mjs', import.meta.url), 'utf8');
 const ROUTES = [...new Set([...src.matchAll(/'(\/[^']*)'/g)].map((m) => m[1]).filter((r) => !r.includes('?')))].slice(0, 400);
 const b = await chromium.launch();
 const problems = [];
 
-const audit = () => {
-  const out = [];
-  const vis = (e) => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e); return r.width > 4 && r.height > 4 && cs.visibility !== 'hidden' && cs.display !== 'none' && e.offsetParent !== null; };
-  const els = [...document.querySelectorAll('main a, main button, main [role=tab], main input, main select, .page a, .page button')].filter(vis);
-  const seen = new Set();
-  for (const e of els) {
-    const cs = getComputedStyle(e);
-    if (e.scrollWidth > e.clientWidth + 3 && cs.overflowX === 'visible' && e.textContent.trim() && cs.display !== 'inline') out.push(`text spills out of "${e.textContent.trim().slice(0, 30)}" (${e.scrollWidth} > ${e.clientWidth})`);
-  }
-  const rects = els.map((e) => [e, e.getBoundingClientRect()]);
-  for (let i = 0; i < rects.length; i++) for (let j = i + 1; j < rects.length; j++) {
-    const [a, ra] = rects[i], [c, rc] = rects[j];
-    if (a.contains(c) || c.contains(a)) continue;
-    const ox = Math.min(ra.right, rc.right) - Math.max(ra.left, rc.left), oy = Math.min(ra.bottom, rc.bottom) - Math.max(ra.top, rc.top);
-    if (ox > 6 && oy > 6 && a.textContent.trim() && c.textContent.trim()) {
-      const k = a.textContent.trim().slice(0, 20) + '|' + c.textContent.trim().slice(0, 20);
-      if (!seen.has(k)) { seen.add(k); out.push(`"${a.textContent.trim().slice(0, 25)}" overlaps "${c.textContent.trim().slice(0, 25)}"`); }
-    }
-  }
-  return out;
-};
+// the one shared detector (lib/invariants.mjs): it ignores tiles inside closed folds, popup menus and clipped screen-reader text, which a private copy here did not
+const audit = INVARIANTS;
 
 for (const width of [360]) {
   const ctx = await b.newContext({ viewport: { width, height: 800 } });
