@@ -69,6 +69,11 @@ describe('go further links', () => {
     expect(r.filter((x) => x.kind === 'catechism').map((x) => x.to)).toEqual(['/study/catechism/1', '/study/catechism/2', '/study/catechism/3']);
   });
 
+
+  it('requires canonical Vulgate counts before building a reference context', () => {
+    expect(refContext(known.editions.filter((e) => e.id !== 'vulgate'), 'webc')).toBeNull();
+  });
+
   it('labels a Scripture link when the chosen Vulgate numbering is only approximate', () => {
     const ctx = refContext(known.editions, 'vulgate');
     expect(ctx).not.toBeNull();
