@@ -4,6 +4,8 @@ import { checkRefIn, pooledCounts, readerUrl, resolveRef, type CountsEdition } f
 import { parseRefs, refId, type Ref } from '../src/lib/refs';
 import { readerPath } from '../src/lib/nav';
 import { buildGoFurther, keyVerse, refContext, type Known } from '../src/curriculum/goFurther';
+import { topicAnchors } from '../src/pages/study/ApologeticsPage';
+import { dailyRef } from '../src/study/daily';
 import type { EditionRecord } from '../src/data/loader';
 
 const known: Known = loadKnown(); // also loads the verse-mapping data, as the app does
