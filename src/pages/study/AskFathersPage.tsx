@@ -2,7 +2,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { loadEngine, loadWork, onEngineProgress } from '../../lib/fathersEngine';
 import { classOf, SOURCE_CLASS } from '../../lib/sourceClass';
-import { CENTURIES, EXAMPLE_QUESTIONS, GROUPS, highlight, type CenturyBand, type FathersEngine, type Group, type Hit, type SearchResult } from '../../lib/fathersSearch';
+import AddToCollection from '../../components/AddToCollection';
+import AddManyToCollection from '../../components/AddManyToCollection';
+import { hitTargets, hitsAsNote } from '../../lib/askResults';
+import { db } from '../../db/db';
+import { contextParas, locator, CENTURIES, EXAMPLE_QUESTIONS, GROUPS, highlight, type CenturyBand, type FathersEngine, type Group, type Hit, type SearchResult } from '../../lib/fathersSearch';
 
 export function Marked({ text, words }: { text: string; words: string[] }) {
   return <>{highlight(text, words).map((s, i) => (s.hit ? <mark key={i}>{s.t}</mark> : <span key={i}>{s.t}</span>))}</>;
@@ -36,6 +40,8 @@ export default function AskFathersPage() {
   const [bands, setBands] = useState<CenturyBand[]>([]);
   const [groups, setGroups] = useState<Group[]>([]);
   const [author, setAuthor] = useState('');
+  const [work, setWork] = useState('');
+  const [noted, setNoted] = useState(false);
   const [byCentury, setByCentury] = useState(true);
 
   useEffect(() => { if (q) start(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -43,12 +49,14 @@ export default function AskFathersPage() {
     if (!q || !eng) return;
     let live = true;
     setBusy(true);
-    eng.search(q, loadWork, { bands, groups, authorIds: author ? [author] : [] }).then((r) => { if (live) { setRes(r); setBusy(false); } }).catch(() => live && setBusy(false));
+    eng.search(q, loadWork, { bands, groups, authorIds: author ? [author] : [], workIds: work ? [work] : [] }).then((r) => { if (live) { setRes(r); setBusy(false); } }).catch(() => live && setBusy(false));
     return () => { live = false; };
-  }, [q, eng, bands, groups, author]);
+  }, [q, eng, bands, groups, author, work]);
 
   const ask = (s: string) => { const t = s.trim(); setText(t); if (t) { start(); setSp({ q: t }); } };
   const authors = useMemo(() => eng?.authors(['Fathers', 'Saints', 'Councils', 'Church documents']) ?? [], [eng]);
+  const works = useMemo(() => eng?.works(author || undefined) ?? [], [eng, author]);
+  const saveNote = async () => { if (!res) return; await db.notes.add({ title: `Ask the Fathers: ${q}`, body: hitsAsNote(q, res.hits), kind: 'study', targets: hitTargets(res.hits), tags: [], chapterKeys: [], createdAt: Date.now(), updatedAt: Date.now() } as never); setNoted(true); };
   const toggle = <T,>(l: T[], v: T) => (l.includes(v) ? l.filter((x) => x !== v) : [...l, v]);
 
   const sections = useMemo(() => {
@@ -76,10 +84,11 @@ export default function AskFathersPage() {
       {eng && q && (
         <>
           <details className="af-filters">
-            <summary>Filters{bands.length + groups.length + (author ? 1 : 0) ? ` (${bands.length + groups.length + (author ? 1 : 0)} on)` : ''}</summary>
+            <summary>Filters{bands.length + groups.length + (author ? 1 : 0) + (work ? 1 : 0) ? ` (${bands.length + groups.length + (author ? 1 : 0) + (work ? 1 : 0)} on)` : ''}</summary>
             <div className="af-row" role="group" aria-label="Century">{CENTURIES.map((b) => <button key={b} className={`chip${bands.includes(b) ? ' sel' : ''}`} aria-pressed={bands.includes(b)} onClick={() => setBands(toggle(bands, b))}>{b}</button>)}</div>
             <div className="af-row" role="group" aria-label="Kind of writer">{GROUPS.map((g) => <button key={g} className={`chip${groups.includes(g) ? ' sel' : ''}`} aria-pressed={groups.includes(g)} onClick={() => setGroups(toggle(groups, g))}>{g}</button>)}</div>
-            <label className="af-row">Author <select value={author} onChange={(e) => setAuthor(e.target.value)}><option value="">Anyone</option>{authors.map((a) => <option key={a.id} value={a.id}>{a.name}</option>)}</select></label>
+            <label className="af-row">Author <select value={author} onChange={(e) => { setAuthor(e.target.value); setWork(''); }}><option value="">Anyone</option>{authors.map((a) => <option key={a.id} value={a.id}>{a.name}</option>)}</select></label>
+            <label className="af-row">Work <select value={work} onChange={(e) => setWork(e.target.value)} aria-label="Work"><option value="">Any work</option>{works.map((w) => <option key={w.id} value={w.id}>{w.title}</option>)}</select></label>
             <label className="af-row"><input type="checkbox" checked={byCentury} onChange={(e) => setByCentury(e.target.checked)} /> Group by century</label>
           </details>
           {busy && <div className="center-note" role="status">Searching…</div>}
@@ -88,6 +97,7 @@ export default function AskFathersPage() {
               {res.unmatchedWords.length > 0 && res.matchedWords.length > 0 && <p className="muted small">Not found in the library: {res.unmatchedWords.join(', ')}. Showing the rest.</p>}
               {res.hits.length === 0 && <p className="af-little">The library has little on this, or the words differ. Try plainer or older words (for example “baptism” rather than “christening”), or remove a filter. Words under four letters are not searched. The library is a selection of public-domain translations, not everything the Fathers wrote.</p>}
               {res.hits.length > 0 && res.hits.length < 4 && <p className="af-little">Only a few passages. The library has little on this.</p>}
+              {res.hits.length > 0 && <p className="row small" style={{ gap: 6, flexWrap: 'wrap' }} aria-label="Save these results"><AddManyToCollection targets={hitTargets(res.hits)} label={`Save all ${res.hits.length} to a collection`} /><button type="button" className="btn small" onClick={saveNote} disabled={noted}>{noted ? 'Saved as a note' : 'Save as a note'}</button></p>}
               {sections.map((s) => (
                 <section key={s.label} className="af-group">
                   <h2 className="eyebrow-h">{s.label}</h2>
@@ -104,12 +114,26 @@ export default function AskFathersPage() {
 }
 
 export function HitCard({ h, words }: { h: Hit; words: string[] }) {
+  const [ctx, setCtx] = useState<{ para: number; text: string; here: boolean }[] | null>(null);
+  const [open, setOpen] = useState(false);
+  const first = h.passages[0]?.para ?? 0;
+  const toggleCtx = async () => {
+    if (open) return setOpen(false);
+    setOpen(true);
+    if (!ctx) { const w = await loadWork(h.workId); setCtx(w?.sections[h.sectionIdx] ? contextParas(w.sections[h.sectionIdx].paras, first, 2) : []); }
+  };
   return (
     <article className="card af-hit">
       <h3>{h.author} <span className="chip small ask-tag" title={SOURCE_CLASS[classOf(h.group)].note}>{SOURCE_CLASS[classOf(h.group)].label}</span></h3>
-      <p className="muted small">{h.workTitle}: {h.sectionTitle.length > 90 ? `${h.sectionTitle.slice(0, 90)}…` : h.sectionTitle}<br />{h.yearText}{h.yearText ? ' · ' : ''}{h.band ? `${h.band} century · ` : ''}{h.group}</p>
-      {h.passages.map((p) => <blockquote key={p.para}><Marked text={clip(p.text)} words={words} /></blockquote>)}
-      <Link className="chip" to={h.href}>Read in context</Link>
+      <p className="muted small">{h.yearText}{h.yearText ? ' · ' : ''}{h.band ? `${h.band} century · ` : ''}{h.group}</p>
+      {h.passages.map((p) => <blockquote key={p.para}><Marked text={clip(p.text)} words={words} /><span className="muted small af-loc" style={{ display: 'block' }}>{locator(h, p.para)}</span></blockquote>)}
+      <p className="row" style={{ gap: 6, flexWrap: 'wrap' }}>
+        <Link className="chip" to={h.href}>Read in context</Link>
+        <button type="button" className="chip" aria-expanded={open} onClick={toggleCtx}>{open ? 'Hide surrounding paragraphs' : 'Show surrounding paragraphs'}</button>
+        <AddToCollection target={{ type: 'work', workId: h.workId, section: String(h.sectionIdx), label: `${h.author}: ${locator(h, first)}` }} label="Collect" />
+      </p>
+      {open && !ctx && <p className="muted small" role="status">Loading…</p>}
+      {open && ctx && ctx.map((c) => <blockquote key={c.para} className="af-ctx" style={c.here ? { borderLeftColor: 'var(--accent)' } : { opacity: 0.85 }}><span className="muted small">Paragraph {c.para + 1}{c.here ? ' (the match)' : ''}</span><br /><Marked text={clip(c.text, 1200)} words={words} /></blockquote>)}
     </article>
   );
 }

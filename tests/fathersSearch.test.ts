@@ -1,6 +1,7 @@
 import { describe, expect, it, beforeAll } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { FathersEngine, compareAuthors, centuryBand, startYear, highlight, queryWords, EXAMPLE_QUESTIONS, type LoadWork } from '../src/lib/fathersSearch';
+import { hitTargets, hitsAsNote } from '../src/lib/askResults';
+import { locator, contextParas, FathersEngine, compareAuthors, centuryBand, startYear, highlight, queryWords, EXAMPLE_QUESTIONS, type LoadWork } from '../src/lib/fathersSearch';
 
 const dir = 'public/data/library';
 const read = (p: string) => JSON.parse(readFileSync(`${dir}/${p}`, 'utf8'));
@@ -54,4 +55,26 @@ describe('fathersSearch', () => {
     expect(c.yearGap).toBeGreaterThanOrEqual(0);
     expect(c.sharedTerms).toContain('bapt');
   }, 60000);
+  it('every hit has an exact locator and can be limited to one work', async () => {
+    const r = await eng.search('baptism', load);
+    const h = r.hits[0];
+    const loc = locator(h, h.passages[0].para);
+    expect(loc).toContain(h.workTitle);
+    expect(loc).toMatch(/section \d+/);
+    expect(loc).toMatch(/paragraph \d+$/);
+    const one = await eng.search('baptism', load, { workIds: [h.workId] });
+    expect(one.hits.length).toBeGreaterThan(0);
+    expect(one.hits.every((x) => x.workId === h.workId)).toBe(true);
+    expect(eng.works().some((w) => w.id === h.workId)).toBe(true);
+    const w = await load(h.workId);
+    const ctx = contextParas(w!.sections[h.sectionIdx].paras, h.passages[0].para, 1);
+    expect(ctx.filter((c) => c.here)).toHaveLength(1);
+    expect(ctx.find((c) => c.here)!.text).toBe(h.passages[0].text);
+    expect(hitTargets([h])[0]).toMatchObject({ type: 'work', workId: h.workId, section: String(h.sectionIdx) });
+    expect(hitsAsNote('baptism', [h])).toContain(h.passages[0].text);
+  }, 60000);
+  it('contextParas clamps at the edges', () => {
+    expect(contextParas(['a', 'b', 'c'], 0, 2).map((c) => c.para)).toEqual([0, 1, 2]);
+    expect(contextParas(['a', 'b', 'c'], 2, 1).map((c) => c.para)).toEqual([1, 2]);
+  });
 });

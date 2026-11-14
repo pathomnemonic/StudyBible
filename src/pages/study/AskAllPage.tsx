@@ -10,6 +10,8 @@ import type { Hit, SearchResult } from '../../lib/fathersSearch';
 import { HitCard, Loading, useEngine } from './AskFathersPage';
 import { ASK_SOURCES, askSourcesParam, parseAskSources, toggleAskSource } from '../../lib/askSources';
 import { db } from '../../db/db';
+import AddManyToCollection from '../../components/AddManyToCollection';
+import { hitTargets, hitsAsNote } from '../../lib/askResults';
 import { loadConceptGraph } from '../../lib/conceptGraph';
 import { relatedQuestions } from '../../lib/relatedQuestions';
 
@@ -65,7 +67,9 @@ export default function AskAllPage() {
 
   const ask = (t: string) => { const v = t.trim(); setText(v); setWantFathers(false); setSaved(false); const sv = askSourcesParam(on); setSp(v ? (sv ? { q: v, src: sv } : { q: v }) : {}); };
   const saveQuestion = async () => { await db.notes.add({ body: q, kind: 'question', targets: [], tags: [], chapterKeys: [], createdAt: Date.now(), updatedAt: Date.now() } as never); setSaved(true); };
+  const [noted, setNoted] = useState(false);
   const topFathers: Hit[] = fathers?.hits.slice(0, 3) ?? [];
+  const saveNote = async () => { await db.notes.add({ title: `Ask the sources: ${q}`, body: hitsAsNote(q, topFathers), kind: 'study', targets: hitTargets(topFathers), tags: [], chapterKeys: [], createdAt: Date.now(), updatedAt: Date.now() } as never); setNoted(true); };
   const nothing = ccc && !ccc.paras.length && !ccc.topics.length && !ccc.glossary && verses && !verses.length;
 
   return (
@@ -125,6 +129,7 @@ export default function AskAllPage() {
           {wantFathers && !eng.eng && !eng.error && <Loading progress={eng.progress} />}
           {eng.error && <p className="notice" role="alert">{eng.error}</p>}
           {fathers && topFathers.length === 0 && <p className="muted">The library has little on this.</p>}
+          {topFathers.length > 0 && <p className="row small" style={{ gap: 6, flexWrap: 'wrap' }} aria-label="Save these results"><AddManyToCollection targets={hitTargets(topFathers)} label={`Save these ${topFathers.length} to a collection`} /><button type="button" className="btn small" onClick={saveNote} disabled={noted}>{noted ? 'Saved as a note' : 'Save as a note'}</button></p>}
           {topFathers.map((h) => <HitCard key={`${h.workId}-${h.sectionIdx}`} h={h} words={fathers!.words} />)}
           {fathers && fathers.hits.length > 3 && <p className="small"><Link to={`/study/ask-fathers?q=${encodeURIComponent(q)}`}>See all {fathers.hits.length} passages, by century</Link></p>}
         </section>

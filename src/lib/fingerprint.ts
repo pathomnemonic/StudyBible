@@ -27,3 +27,17 @@ export function fingerprint(book: { counts: Map<string, number>; total: number }
     .slice(0, take);
   return { frequent, distinctive, total: book.total };
 }
+
+/** the words of a fingerprint list that contain what was typed (ignoring case); an empty search keeps everything */
+export function searchWords<T extends { word: string }>(list: T[], q: string): T[] {
+  const t = q.trim().toLowerCase();
+  return t ? list.filter((x) => x.word.includes(t)) : list;
+}
+
+/** plain-words definitions of each measure, matching exactly what the code above computes */
+export const FINGERPRINT_DEFINITIONS: { term: string; meaning: string }[] = [
+  { term: 'Counted words', meaning: 'Every word of three or more letters in the chosen text, in lower case, with a trailing ’s removed, apart from a fixed list of common small words (the, and, of, he, shall, unto and similar). Each use counts once.' },
+  { term: 'Most used', meaning: 'The counted words that occur most often in the chosen text, highest first. It is a plain count of exact words, so “love” and “loved” are separate.' },
+  { term: 'Times more (×)', meaning: 'A word’s share of the chosen text divided by its share of a spread of other books (Genesis, Psalms, Isaiah, Matthew, John, Acts, Romans and Revelation, leaving out the book being looked at). ×5 means the word is used about five times as much, in proportion, as in that spread. A word the spread never uses is measured against a tiny stand-in share, so its number can be very large; it is shown as 100+ past 100.' },
+  { term: 'What sets it apart', meaning: 'The words used at least five times in the chosen text, ranked by “times more” combined with how often they occur, so a word has to be both over-used and not rare to rank high.' },
+];
