@@ -62,7 +62,8 @@ export default function PathPage() {
   useEffect(() => { if (path && i === null) setI(Math.min(done, path.steps.length - 1)); }, [path, done]);
   const step = path && i !== null ? path.steps[i] : null;
   const parsed = step ? parseRefs(step.ref) : null;
-  const anchor = parsed?.ok ? convertRef('kjv', 'vulgate', parsed.refs[0].ref).ref : null;
+  const mapped = parsed?.ok ? convertRef('kjv', 'vulgate', parsed.refs[0].ref) : null;
+  const anchor = mapped?.exact ? mapped.ref : null;
   useEffect(() => {
     setVerses(null);
     if (!anchor || !edition) return;
@@ -89,7 +90,8 @@ export default function PathPage() {
       <h2>{step.title}</h2>
       <section className="reading-block">
         <div className="eyebrow">{anchor ? formatRef(parsed!.ok ? parsed!.refs[0].ref : anchor, { noDual: true }) : step.ref}</div>
-        {verses === null && <p className="muted">Loading…</p>}
+        {!anchor && <p className="muted small">This passage cannot be opened with verified numbering in the reader edition, so no approximate text is shown.</p>}
+        {anchor && verses === null && <p className="muted">Loading…</p>}
         {verses && <p className="scripture reading-text">{verses.map((v) => <span key={`${v.c}.${v.v}`}><sup>{v.v}</sup>{v.text} </span>)}</p>}
         {anchor && edition && <Link className="small" to={readerPath(edition, anchor)}>Open in the reader →</Link>}
       </section>
