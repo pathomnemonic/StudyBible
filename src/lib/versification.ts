@@ -82,7 +82,8 @@ function caveat(idx: Index | undefined, book: string, nativeChapter: number): st
 export function toAnchor(scheme: Scheme, book: string, c: number, v: number): MapResult {
   if (scheme === 'vulgate') return identity(c, v);
   const idx = indexes.get(scheme);
-  const rules = idx?.native.get(`${book}.${c}`);
+  if (!idx) return identity(c, v, false, `No verified versification data is loaded for ${scheme}.`);
+  const rules = idx.native.get(`${book}.${c}`);
   if (rules) {
     for (const r of rules) {
       if (v >= r[2] && v <= r[3]) {
@@ -103,7 +104,8 @@ export function toAnchor(scheme: Scheme, book: string, c: number, v: number): Ma
 export function fromAnchor(scheme: Scheme, book: string, c: number, v: number): MapResult {
   if (scheme === 'vulgate') return identity(c, v);
   const idx = indexes.get(scheme);
-  const rules = idx?.anchor.get(`${book}.${c}`);
+  if (!idx) return identity(c, v, false, `No verified versification data is loaded for ${scheme}.`);
+  const rules = idx.anchor.get(`${book}.${c}`);
   if (rules) {
     for (const r of rules) {
       if (v >= r[5] && v <= r[6]) {
@@ -114,9 +116,8 @@ export function fromAnchor(scheme: Scheme, book: string, c: number, v: number): 
         return { c: r[1], v1: r[2], v2: r[3], exact: false, note: note ?? 'This verse corresponds to a group of verses in the other numbering.' };
       }
     }
-    // Verse beyond the verified range of the rule(s): point at the last verse of the closest rule, flagged.
-    const last = rules[rules.length - 1];
-    return { c: last[1], v1: last[3], v2: last[3], exact: false, note: 'Beyond the verified verse mapping for this chapter.' };
+    // Never clamp an unmapped verse to a nearby one. Preserve its address and disclose that it cannot be placed.
+    return identity(c, v, false, 'Beyond the verified verse mapping for this chapter.');
   }
   const note = caveat(idx, book, c);
   return identity(c, v, !note, note);
