@@ -321,7 +321,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
           if (!a.paused) { (a as any)._switchPause = true; a.pause(); }
           setError(null);
           const u = await resolveIfCurrent(request, () => playGeneration.current, () => audioUrl(retryEpisode.audio));
-          if (!u || request !== playGeneration.current || (a as any)._ep?.id !== retryEpisode.id) return;
+          if (request !== playGeneration.current || (a as any)._ep?.id !== retryEpisode.id) return;
+          if (!u) { setError(navigator.onLine === false ? 'offline' : 'failed'); return; }
           bindSourceError(a, request, retryEpisode.id, u);
           (a as any)._manualEnded = false;
           a.src = u; a.load();
