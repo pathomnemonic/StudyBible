@@ -1,5 +1,5 @@
 import type { CountsEdition } from './refCheck';
-import { pooledCounts, resolveRef } from './refCheck';
+import { checkRefIn, pooledCounts, resolveRef } from './refCheck';
 import type { Ref } from './refs';
 
 export type PlanReferenceResult =
@@ -18,4 +18,15 @@ export function resolvePlanReferences(refs: Ref[], editions: CountsEdition[]): P
     resolved.push(result.anchor);
   }
   return { ok: true, refs: resolved };
+}
+
+/** Validate already-anchor-numbered whole chapters against the canonical edition before saving a book-mode plan. */
+export function validateAnchorPlanReferences(refs: Ref[], editions: CountsEdition[]): PlanReferenceResult {
+  const anchor = editions.find((e) => e.id === 'vulgate');
+  if (!anchor) return { ok: false, reason: 'The canonical Vulgate edition counts are not loaded yet.' };
+  for (const ref of refs) {
+    const issue = checkRefIn(anchor, ref);
+    if (issue) return { ok: false, ref, reason: issue.reason };
+  }
+  return { ok: true, refs };
 }
