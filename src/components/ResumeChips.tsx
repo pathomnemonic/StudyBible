@@ -13,7 +13,9 @@ export default function ResumeChips() {
   const ep = hist.find((h) => h.type === 'episode');
   const day = plan ? Math.min(365, Math.max(1, Math.floor((Date.now() - plan.startedAt) / 86400000) + 1 + plan.offsetDays)) : null;
   const bible = s.last ? { to: `/read/${s.last.edition}/${s.last.book}/${s.last.chapter}`, text: `${getBook(s.last.book)?.name ?? s.last.book} ${s.last.chapter}` } : { to: `/read/${s.defaultEdition}/JHN/1`, text: 'Begin' };
-  const short = (t: string) => (t.length > 70 ? t.slice(0, 68).trimEnd() + '…' : t);
+  // titles in some sources are ALL CAPS; show them as ordinary words, and keep them short enough for a small card
+  const calm = (t: string) => (t === t.toUpperCase() && /[A-ZÀ-Þ]{3}/.test(t) ? t.toLowerCase().replace(/(^|[\s:(—-])([a-zà-þ])/g, (_m, a: string, b: string) => a + b.toUpperCase()) : t);
+  const short = (t: string) => { const c = calm(t); return c.length > 44 ? c.slice(0, 42).trimEnd() + '…' : c; };
   const chips = [
     { key: 'bible', to: bible.to, kind: 'Bible', text: bible.text, resume: !!s.last },
     { key: 'room', to: work ? `/study/works/${work.ref}` : '/room', kind: 'Read', text: work ? short(work.label.replace(/^.*?:\s*/, '')) : 'Browse', resume: !!work },
