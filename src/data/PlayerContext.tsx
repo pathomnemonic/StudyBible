@@ -117,7 +117,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const dur = a.duration || undefined;
       const done = completed || (dur ? a.currentTime > dur - 20 : false);
       const secs = heardSince; heardSince = 0;
-      creditListening(cur.id, secs, { position: done ? 0 : a.currentTime, duration: dur, completed: done || undefined as any, ranToEnd: done }).catch(() => {});
+      creditListening(cur.id, secs, { position: done ? 0 : a.currentTime, duration: dur, completed: done || undefined as any, ranToEnd: completed }).catch(() => {});
     };
     a.addEventListener('timeupdate', () => {
       setPosition(a.currentTime);
