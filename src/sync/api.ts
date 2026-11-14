@@ -7,19 +7,28 @@ export class ApiError extends Error {
   }
 }
 
+const TIMEOUT_MS = 20_000;
+
 async function call<T>(method: string, path: string, body?: unknown): Promise<T> {
   let res: Response;
+  // a request that never answers must not hold the app's "checking" state for ever
+  const ctl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  const timer = ctl ? setTimeout(() => ctl.abort(), TIMEOUT_MS) : 0;
   try {
     res = await fetch(`${BASE}${path}`, {
       method,
       credentials: BASE ? 'include' : 'same-origin',
       headers: { 'Content-Type': 'application/json', 'X-StudyBible': '1' },
       body: body === undefined ? undefined : JSON.stringify(body),
+      signal: ctl?.signal,
     });
   } catch {
     throw new ApiError(0, 'Could not reach the sync server.');
+  } finally {
+    clearTimeout(timer as number);
   }
-  const text = await res.text();
+  let text: string;
+  try { text = await res.text(); } catch { throw new ApiError(0, 'The sync server stopped answering.'); }
   let data: any = {};
   try {
     data = text ? JSON.parse(text) : {};

@@ -8,8 +8,12 @@ import { localDataCount, resetSyncState, runSync, touchSettings, wipeLocalUserDa
 export type ServerState = 'unknown' | 'available' | 'unavailable';
 export type SyncStatus = 'signed-out' | 'idle' | 'syncing' | 'error' | 'offline';
 
+/** What is known about who is signed in, apart from whether the server can be reached: 'unknown' while a check is pending or failed in a way that may pass. */
+export type SessionState = 'unknown' | 'none' | 'valid';
+
 export interface SyncState {
   server: ServerState;
+  session: SessionState;
   registration: 'open' | 'closed';
   user: AccountUser | null;
   status: SyncStatus;
@@ -17,7 +21,7 @@ export interface SyncState {
   error: string | null;
 }
 
-let state: SyncState = { server: 'unknown', registration: 'open', user: null, status: 'signed-out', lastSyncAt: null, error: null };
+let state: SyncState = { server: 'unknown', session: 'unknown', registration: 'open', user: null, status: 'signed-out', lastSyncAt: null, error: null };
 const listeners = new Set<() => void>();
 const emit = (patch: Partial<SyncState>) => {
   state = { ...state, ...patch };
@@ -73,7 +77,8 @@ export async function syncNow(): Promise<void> {
     else emit({ status: 'idle', lastSyncAt: Date.now() });
   } catch (e: any) {
     if (e instanceof ApiError && e.status === 401) {
-      emit({ user: null, status: 'signed-out', error: 'You were signed out (your session expired, or you signed out from another device). Everything is still on this device; sign in again to carry on syncing.' });
+      epoch++;
+      emit({ session: 'none', user: null, status: 'signed-out', error: 'You were signed out (your session expired, or you signed out from another device). Everything is still on this device; sign in again to carry on syncing.' });
     } else emit({ status: e instanceof ApiError && e.status === 0 ? 'offline' : 'error', error: explain(e) });
   } finally {
     running = false;
@@ -92,6 +97,10 @@ const remember = (id: string) => {
     /* ignore */
   }
 };
+/** Set when the person chose to sign out here: a leftover server session (the sign-out call may have failed offline) must never sign them back in. */
+const SIGNED_OUT = 'studybible.sync.signedOut';
+const intentionallySignedOut = () => { try { return localStorage.getItem(SIGNED_OUT) === '1'; } catch { return false; } };
+const setSignedOut = (v: boolean) => { try { if (v) localStorage.setItem(SIGNED_OUT, '1'); else localStorage.removeItem(SIGNED_OUT); } catch { /* ignore */ } };
 const lastUser = () => {
   try {
     return localStorage.getItem(LAST_USER);
@@ -120,8 +129,9 @@ export async function initSync() {
     if (state.user && !syncFlags.applying) noteSettingsChanged();
   });
   // listeners go in first, so a server that is down at start-up is found later without reloading the app
-  window.addEventListener('online', () => void discover());
-  document.addEventListener('visibilitychange', () => document.visibilityState === 'visible' && void discover());
+  // coming back online, or returning to the app, is a reason to look again straight away, whatever the back-off says
+  window.addEventListener('online', () => { nextTry = 0; sessionNextTry = 0; void discover(); });
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') { sessionNextTry = 0; if (sessionKnown === 'none') sessionKnown = 'unknown'; void discover(); } });
   window.setInterval(() => document.visibilityState === 'visible' && void discover(), 90_000);
   await discover();
 }
@@ -129,33 +139,71 @@ export async function initSync() {
 let discovering = false;
 let failures = 0;
 let nextTry = 0;
+let epoch = 0; // bumped whenever who is signed in is decided (sign in, sign out, expiry): an answer to an older question is dropped
+let sessionKnown: SessionState = 'unknown';
+let sessionFailures = 0;
+let sessionNextTry = 0;
+let retryTimer: number | undefined;
+const backoff = (n: number, capMs: number) => Math.min(capMs, 5_000 * 2 ** Math.min(n, 7)) * (0.75 + Math.random() * 0.5);
+
+/** Ask the server who is signed in. Only a clear "no" (401/403) is remembered as "nobody": a timeout, a 5xx or an unreadable answer is retried. */
+async function checkSession() {
+  if (intentionallySignedOut()) { sessionKnown = 'none'; emit({ session: 'none', user: null, status: 'signed-out' }); return; }
+  if (sessionKnown === 'none' || Date.now() < sessionNextTry) return;
+  const mine = epoch;
+  try {
+    const { user } = await api.me();
+    if (mine !== epoch) return;
+    if (!user || typeof user.id !== 'string') throw new ApiError(502, 'The sync server sent an answer this app cannot read.');
+    sessionKnown = 'valid'; sessionFailures = 0;
+    emit({ session: 'valid', user, status: 'idle', error: null });
+    remember(user.id);
+    void syncNow();
+  } catch (e: any) {
+    if (mine !== epoch) return;
+    if (e instanceof ApiError && (e.status === 401 || e.status === 403)) {
+      sessionKnown = 'none'; sessionFailures = 0;
+      emit({ session: 'none', user: null, status: 'signed-out' });
+    } else if (e instanceof ApiError && e.status === 404) {
+      emit({ server: 'unavailable', session: 'unknown' }); // an app server that is not the sync server (a static host)
+    } else {
+      sessionFailures++;
+      const wait = backoff(sessionFailures, 300_000);
+      sessionNextTry = Date.now() + wait;
+      emit({ session: 'unknown', user: null, status: 'signed-out' });
+      window.clearTimeout(retryTimer);
+      retryTimer = window.setTimeout(() => void discover(), wait + 50);
+    }
+  }
+}
+
 /** Find the server and resume a session, or (when the server is already known) just sync. Failed probes back off, with jitter, up to ten minutes. */
 async function discover() {
-  if (state.server === 'available') return void syncNow();
-  if (discovering || Date.now() < nextTry) return;
+  if (discovering) return;
+  if (state.server === 'available') {
+    if (state.user) return void syncNow();
+    // the server is up but nobody is known to be signed in: the session is checked again (on its own back-off), never assumed
+    discovering = true;
+    try { await checkSession(); } finally { discovering = false; }
+    return;
+  }
+  if (Date.now() < nextTry) return;
   discovering = true;
   try {
     const h = await api.health();
     failures = 0;
     emit({ server: 'available', registration: h.registration });
-    try {
-      const { user } = await api.me();
-      emit({ user, status: 'idle' });
-      remember(user.id);
-      void syncNow();
-    } catch {
-      emit({ user: null, status: 'signed-out' });
-    }
+    await checkSession();
   } catch {
     failures++;
-    nextTry = Date.now() + Math.min(600_000, 5_000 * 2 ** Math.min(failures, 7)) * (0.75 + Math.random() * 0.5);
+    nextTry = Date.now() + backoff(failures, 600_000);
     emit({ server: 'unavailable' });
   } finally {
     discovering = false;
   }
 }
 /** Try again now, whatever the back-off says (for a "retry" button). */
-export const retryDiscovery = () => { nextTry = 0; return discover(); };
+export const retryDiscovery = () => { nextTry = 0; sessionNextTry = 0; if (!intentionallySignedOut() && sessionKnown === 'none') sessionKnown = 'unknown'; return discover(); };
 
 export type AuthDecision = 'merge' | 'wipe';
 
@@ -171,7 +219,8 @@ async function afterAuth(user: AccountUser, decide: (n: number) => Promise<AuthD
   }
   remember(user.id);
   touchSettings(user.id);
-  emit({ user, status: 'idle', error: null });
+  epoch++; setSignedOut(false); sessionKnown = 'valid';
+  emit({ session: 'valid', user, status: 'idle', error: null });
   await syncNow();
 }
 
@@ -187,6 +236,7 @@ export async function signUp(email: string, password: string, name: string | und
 
 export async function signOut(clearLocal: boolean) {
   const u = state.user;
+  epoch++; sessionKnown = 'none'; setSignedOut(true);
   try {
     await api.logout();
   } catch {
@@ -194,7 +244,7 @@ export async function signOut(clearLocal: boolean) {
   }
   if (u) resetSyncState(u.id);
   if (clearLocal) await wipeLocalUserData();
-  emit({ user: null, status: 'signed-out', lastSyncAt: null });
+  emit({ session: 'none', user: null, status: 'signed-out', lastSyncAt: null });
 }
 
 export async function deleteAccount(password: string, clearLocal: boolean) {
@@ -202,7 +252,8 @@ export async function deleteAccount(password: string, clearLocal: boolean) {
   const u = state.user;
   if (u) resetSyncState(u.id);
   if (clearLocal) await wipeLocalUserData();
-  emit({ user: null, status: 'signed-out', lastSyncAt: null });
+  epoch++; sessionKnown = 'none'; setSignedOut(true);
+  emit({ session: 'none', user: null, status: 'signed-out', lastSyncAt: null });
 }
 
 /** Settings changes made on this device are stamped so they sync. */

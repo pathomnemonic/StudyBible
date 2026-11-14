@@ -1,6 +1,7 @@
-import { AUTO_TABLES, KEYED_TABLES, db, newUid, syncFlags } from '../db/db';
+import { AUTO_TABLES, KEYED_TABLES, db, syncFlags } from '../db/db';
 import { DEFAULTS, getSettings, updateSettings } from '../lib/store';
 import { api, ApiError, type WireChange } from './api';
+import { hasContent, resolveConflict } from './merge';
 
 /**
  * Record-level, last-writer-wins sync.
@@ -58,7 +59,7 @@ async function collect(userId: string, since: number): Promise<WireChange[]> {
   return out;
 }
 
-async function applyRemote(userId: string, changes: WireChange[]) {
+export async function applyRemote(userId: string, changes: WireChange[]) {
   const order = ['folders', ...AUTO_TABLES.filter((t) => t !== 'folders'), ...Object.keys(KEYED_TABLES), 'settings'];
   const sorted = [...changes].sort((a, b) => order.indexOf(a.table) - order.indexOf(b.table));
   syncFlags.applying = true;
@@ -90,7 +91,7 @@ async function applyRemote(userId: string, changes: WireChange[]) {
       if (c.deleted) {
         // another device deleted it, but this device edited it since the last sync: the writing is kept (and sent back as a live note) instead of being deleted silently
         const unsynced = local && (local.updatedAt ?? 0) > Number(get(lk(userId, 'lastPush')) ?? 0);
-        if (unsynced && (c.table === 'notes' || c.table === 'journal') && typeof local.body === 'string' && local.body.trim()) {
+        if (unsynced && (c.table === 'notes' || c.table === 'journal') && hasContent(local)) {
           await t.update(local.id, { updatedAt: Math.max(Date.now(), c.updatedAt + 1) });
           continue;
         }
@@ -105,14 +106,20 @@ async function applyRemote(userId: string, changes: WireChange[]) {
       }
       if (local) {
         if ((local.updatedAt ?? 0) >= c.updatedAt) continue;
-        // two devices edited the same text before either synced: the newer one wins, but the other is kept as a copy instead of being lost
+        // two devices edited the same record before either synced: the newer one wins field by field (see merge.ts), and whatever of the
+        // other device's edit cannot be joined is kept as a copy with a stable id, so no edit is lost and syncing again adds nothing
         const unsynced = (local.updatedAt ?? 0) > Number(get(lk(userId, 'lastPush')) ?? 0);
-        if (unsynced && (c.table === 'notes' || c.table === 'journal') && typeof local.body === 'string' && local.body.trim() && local.body !== row.body) {
-          const { id: _id, uid: _uid, ...rest } = local;
-          await t.add({ ...rest, uid: newUid(), updatedAt: Date.now(), ...(c.table === 'notes' ? { title: `${local.title || 'Note'} (other version kept at sync)` } : { body: `(Other version kept at sync)\n\n${local.body}` }) });
+        if (unsynced && (c.table === 'notes' || c.table === 'journal')) {
+          const r = resolveConflict(c.table, local, row);
+          if (r.copy && !(await t.where('uid').equals(r.copy.uid).first())) await t.add(r.copy);
+          await t.put({ ...r.merged, id: local.id });
+        } else {
+          await t.put({ ...row, id: local.id });
         }
-        await t.put({ ...row, id: local.id });
       } else {
+        // a record deleted on this device after the other device last wrote it stays deleted (the deletion is newer)
+        const tomb = await db.tombs.filter((x) => x.tbl === c.table && x.uid === c.uid).first();
+        if (tomb && tomb.updatedAt >= c.updatedAt) continue;
         delete row.id;
         await t.add(row);
       }

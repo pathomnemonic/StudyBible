@@ -8,8 +8,8 @@ Rule for every item: inspect the code, reproduce deterministically, add a test t
 
 | # | Suspected defect | Status | Evidence / test / commit |
 |---|---|---|---|
-| 1 | Sync discovery stuck after a transient session failure | open | |
-| 2 | Sync conflicts lose metadata-only edits | open | |
+| 1 | Sync discovery stuck after a transient session failure | **reproduced and fixed** | Root cause: `discover()` returned to `syncNow()` once the server was "available", and `syncNow()` returns when there is no user, so a failed `/me` left the person signed out until reload. Fix: `src/sync/state.ts` (session tracked apart from reachability; only 401/403 means nobody; timeouts/5xx/unreadable answers retry on a bounded back-off; online/visibility/Retry look again at once; a deliberate sign-out is remembered; an epoch drops stale answers) and a 20 s request timeout in `src/sync/api.ts`. Tests: `tests/sync-discovery.test.ts` (14; 12 fail on the old code). Not covered by a unit test: two real browser tabs (covered by reasoning: each tab keeps its own state and re-checks on visibility). |
+| 2 | Sync conflicts lose metadata-only edits | **reproduced and fixed** | Old code kept the other version only when the body text differed; a title, kind, folder, target, revisit or pin difference was silently overwritten, and an older copy from another device could resurrect a note deleted here. Fix: `src/sync/merge.ts` (tags/refs joined, pin and answered stay set, any other difference kept as a copy with a stable id `uid~conflict~hash`) and `applyRemote` (tombstone check). Tests: `tests/sync-conflicts.test.ts` (21; 11 fail on the old code). Other tables (highlights, bookmarks, collections, plans, queue ...) remain record-level newest-wins by design; folder rename/delete, schema migration, interrupted batches are exercised by the existing `tests/sync-engine.test.ts` against a real server and are not re-tested here. |
 | 3 | Error-boundary recovery deletes unrelated Cache Storage | open | |
 | 4 | Update safety checks textarea presence, not dirty state | open | |
 | 5 | ThemeApplier effect dependencies | open | |
