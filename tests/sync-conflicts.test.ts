@@ -189,7 +189,7 @@ describe('nested conflict identity (audit second pass, item 2)', () => {
     const copies = (await notes()).filter((n) => (n.uid ?? '').includes('~conflict~'));
     expect(copies.length).toBe(2);
     expect(new Set(copies.map((c) => c.uid)).size).toBe(2);
-    expect(copies.map((c) => c.targets[0].ref).sort()).toEqual(['JHN.1.1', 'JHN.1.3']);
+    expect(copies.map((c) => (c.targets[0] as any).ref).sort()).toEqual(['JHN.1.1', 'JHN.1.3']);
   });
   it('applying the exact same conflict again does not duplicate it', async () => {
     await seed('notes', { ...base, targets: [{ type: 'passage', ref: 'JHN.1.1' }], updatedAt: 2000 } as any);

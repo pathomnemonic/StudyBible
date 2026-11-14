@@ -105,6 +105,9 @@ export const RELATIONS: Record<string, { between: ProfileKind[]; inverse: string
   'witness at the stoning of': { between: ['person', 'saint'], inverse: [] },
 };
 
+/** the longest line of descent allowed, in generations (people, counting both ends) */
+export const MAX_GENERATIONS = 60;
+
 /** the same name written two ways for two different people, known and accepted (a search for it shows both) */
 const HOMONYMS = new Set(['mariam']);
 const PASSAGE = /^[A-Z0-9]{3}\.\d{1,3}(?:\.\d{1,3}(?:-\d{1,3}(?:\.\d{1,3})?)?|-\d{1,3})?$/; // JHN.3 · JHN.3.16 · MAT.16.13-19 · 1SA.9.15-10.1 (across a chapter) · PSA.1-3
@@ -141,18 +144,33 @@ export function validateProfileGraph(file: ProfileFile): string[] {
     }
     for (const ref of p.passages ?? []) if (!PASSAGE.test(ref)) errs.push(`${w}: passage reference “${ref}” is not well formed (like JHN.3.16 or MAT.16.13-19)`);
   }
-  // a person is never their own ancestor, and the longest line of descent stays sane
-  const state = new Map<string, number>();
-  const depth = (k: string, trail: string[]): number => {
-    if (state.get(k) === 1) { errs.push(`parent and child relations form a cycle: ${[...trail, k].slice(trail.indexOf(k)).join(' → ')}`); return 0; }
-    if (state.get(k) === 2) return 0;
-    state.set(k, 1);
-    let d = 0;
-    for (const par of parents.get(k) ?? []) d = Math.max(d, 1 + depth(par, [...trail, k]));
-    state.set(k, 2);
-    return d;
-  };
-  for (const k of parents.keys()) if (depth(k, []) > 60) errs.push(`the line of descent through ${k} is more than 60 generations deep`);
+  // a person is never their own ancestor, and the longest line of descent stays within MAX_GENERATIONS.
+  // Iterative with a memo: a node's line is 1 + the longest line among its parents, worked out once however many branches reach it.
+  const line = new Map<string, number>(); // key -> number of generations from the earliest ancestor down to this person, counting both
+  const seenCycles = new Set<string>();
+  for (const start of parents.keys()) {
+    if (line.has(start)) continue;
+    const stack: { k: string; i: number }[] = [{ k: start, i: 0 }];
+    const onPath = new Set<string>([start]);
+    while (stack.length) {
+      const top = stack[stack.length - 1];
+      const ps = parents.get(top.k) ?? [];
+      if (top.i < ps.length) {
+        const par = ps[top.i++];
+        if (onPath.has(par)) {
+          const trail = [...stack.map((x) => x.k)]; const cyc = [...trail.slice(trail.indexOf(par)), par];
+          const id = [...cyc.slice(0, -1)].sort().join('|');
+          if (!seenCycles.has(id)) { seenCycles.add(id); errs.push(`parent and child relations form a cycle: ${cyc.join(' → ')}`); }
+        } else if (!line.has(par)) { stack.push({ k: par, i: 0 }); onPath.add(par); }
+      } else {
+        // every parent is settled (or part of a reported cycle, which counts as nothing)
+        let best = 0; for (const par of ps) best = Math.max(best, line.get(par) ?? 0);
+        line.set(top.k, 1 + best);
+        onPath.delete(top.k); stack.pop();
+      }
+    }
+  }
+  for (const [k, n] of line) if (n > MAX_GENERATIONS) errs.push(`the line of descent through ${k} is ${n} generations deep (the limit is ${MAX_GENERATIONS})`);
   // names: one name must not point at two profiles of the same kind (the person and the saint of one name are different kinds on purpose)
   const names = new Map<string, Set<string>>();
   for (const p of list) for (const n of [p.name, ...(p.alternateNames ?? [])]) { const k = `${p.kind}:${fold(n)}`; (names.get(k) ?? names.set(k, new Set()).get(k)!).add(p.id); }
