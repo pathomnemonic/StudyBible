@@ -40,6 +40,15 @@ describe('semantic Scripture reference validation', () => {
     expect(result.ref).toMatchObject({ book: 'PSA', c1: 22, c2: 22, v1: 1, v2: 6 });
   });
 
+
+  it('preserves chapter-only range endpoints and refuses exactness for a split Psalm chapter', () => {
+    const ordinary = convertRef('english', 'vulgate', { book: 'GEN', c1: 1, c2: 2 });
+    expect(ordinary.ref).toMatchObject({ book: 'GEN', c1: 1, c2: 2 });
+    expect(ordinary.exact).toBe(true);
+    const split = convertRef('english', 'vulgate', { book: 'PSA', c1: 10, c2: 10 });
+    expect(split.exact).toBe(false);
+  });
+
   it('rejects unknown books, chapters and verses against real edition counts', () => {
     expect(checkRefIn(anchor, { book: 'NOPE', c1: 1, c2: 1 })).toMatchObject({ kind: 'invalid', scope: 'book' });
     expect(checkRefIn(anchor, { book: 'JHN', c1: 99, c2: 99 })).toMatchObject({ kind: 'invalid', scope: 'chapter' });
