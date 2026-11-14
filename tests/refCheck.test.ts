@@ -22,7 +22,8 @@ describe('semantic Scripture reference validation', () => {
     expect(unaligned.length).toBeGreaterThan(0);
     for (const book of unaligned) {
       const ref: Ref = { book, c1: 1, v1: 1, c2: 1, v2: 1 };
-      expect(convertRef('english', 'vulgate', ref).exact, book).toBe(false);
+      expect(convertRef('english', 'vulgate', ref).exact, `English: ${book}`).toBe(false);
+      expect(convertRef('kjv', 'vulgate', ref).exact, `KJV source: ${book}`).toBe(false);
     }
   });
 
