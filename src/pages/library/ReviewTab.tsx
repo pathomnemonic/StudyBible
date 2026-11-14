@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, type Note } from '../../db/db';
+import AddToCollection from '../../components/AddToCollection';
 import { formatRef, parseRefId } from '../../lib/refs';
 
 const WEEK = 7 * 864e5;
@@ -52,7 +53,7 @@ export default function ReviewTab() {
         <p><strong>{wrote.length}</strong> {wrote.length === 1 ? 'note' : 'notes'} written, <strong>{lit.length}</strong> {lit.length === 1 ? 'highlight' : 'highlights'} made, <strong>{asked.length}</strong> {asked.length === 1 ? 'question' : 'questions'} asked, <strong>{open.length}</strong> still open.</p>
         {wrote.length > 0 && <><h3>Notes</h3><ul className="list">{wrote.slice(0, 8).map((n) => <li key={n.id}><Link to={`/library/notes/${n.id}`}>{title(n)}</Link></li>)}</ul></>}
         {lit.length > 0 && <><h3>Highlights</h3><ul className="list">{lit.slice(0, 8).map((h) => { const r = parseRefId(h.ref); return <li key={h.id}>{r ? formatRef(r) : h.ref} ({h.color})</li>; })}</ul></>}
-        {due.length > 0 && <><h3>Notes you chose to come back to</h3><ul className="list">{due.slice(0, 8).map((n) => <li key={n.id}><Link to={`/library/notes/${n.id}`}>{title(n)}</Link></li>)}</ul></>}
+        {due.length > 0 && <><h3>Notes you chose to come back to</h3><ul className="list">{due.slice(0, 8).map((n) => <li key={n.id} className="row between" style={{ gap: 8, flexWrap: 'wrap' }}><Link to={`/library/notes/${n.id}`}>{title(n)}</Link><span className="row" style={{ gap: 6 }}><button className="btn small" onClick={() => void db.notes.put({ ...n, revisitAt: undefined, updatedAt: Date.now() })}>Reviewed</button><button className="btn small ghost" onClick={() => void db.notes.put({ ...n, revisitAt: Date.now() + WEEK, updatedAt: Date.now() })}>Next week</button>{n.uid && <AddToCollection target={{ type: 'note', uid: n.uid, label: title(n) }} label="＋ Collection" />}</span></li>)}</ul></>}
         {wrote.length + lit.length + asked.length === 0 && <p className="muted">Nothing yet this week. A highlight or a short note is enough to start.</p>}
       </section>
     </>

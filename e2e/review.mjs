@@ -222,4 +222,10 @@ if (!/Every saved file is readable|missing or unreadable/.test(await p.locator('
 await p.goto(`${BASE}/#/study/glossary`); await p.waitForSelector('[aria-label="Jump to a letter"] button', { timeout: 15000 });
 if (await p.locator('[aria-label="Jump to a letter"] button').count() < 10) fail('the glossary should offer many letters');
 await p.locator('[aria-label="Jump to a letter"] button', { hasText: /^T$/ }).click(); await p.waitForTimeout(400);
+// 27. weekly review: a note set to come back to can be marked reviewed
+await p.evaluate(() => new Promise((res, rej) => { const r = indexedDB.open('studybible'); r.onsuccess = () => { const tx = r.result.transaction('notes', 'readwrite'); tx.objectStore('notes').add({ uid: 'due-probe', title: 'Due probe note', body: 'Come back to this one.', kind: 'note', targets: [], tags: [], chapterKeys: [], revisitAt: Date.now() - 1000, createdAt: Date.now(), updatedAt: Date.now() }); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }; r.onerror = () => rej(r.error); }));
+await p.goto(`${BASE}/#/library`); await p.reload(); await p.waitForTimeout(900);
+await p.locator('[role=tab]', { hasText: /^Review$/ }).first().click(); await p.waitForTimeout(500);
+await p.locator('li', { hasText: 'Due probe note' }).locator('button', { hasText: 'Reviewed' }).click(); await p.waitForTimeout(500);
+if (await p.locator('li', { hasText: 'Due probe note' }).locator('button', { hasText: 'Reviewed' }).count()) fail('a reviewed note should leave the come-back list');
 await b.close(); console.log('review ok');
