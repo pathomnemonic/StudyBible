@@ -35,43 +35,32 @@ describe('listening time', () => {
   });
   it('attributes listening increments and a real completion to the calendar year in which they occur', async () => {
     const { db } = await import('../src/db/db'); const { creditListening, listeningStats } = await import('../src/lib/listening');
-    vi.useFakeTimers({ toFake: ['Date'] }); vi.setSystemTime(new Date('2025-12-31T23:59:00'));
-    await creditListening('split', 60);
-    vi.setSystemTime(new Date('2026-01-01T00:01:00'));
-    await creditListening('split', 120, { ranToEnd: true, completed: true });
+    await creditListening('split', 60, {}, new Date(2025, 11, 31, 23, 59));
+    await creditListening('split', 120, { ranToEnd: true, completed: true }, new Date(2026, 0, 1, 0, 1));
     const rows = await db.episodeProgress.toArray();
     expect(listeningStats(rows, 2025)).toEqual({ hours: 0.2, playedToEnd: 0 });
     expect(listeningStats(rows, 2026)).toEqual({ hours: 0.3, playedToEnd: 1 });
-    vi.useRealTimers();
   });
 
   it('does not attribute a later progress update or manual completion to a year with no listening', async () => {
     const { db } = await import('../src/db/db');
     const { creditListening, setPlayed, listeningStats } = await import('../src/lib/listening');
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date('2025-06-01T12:00:00'));
-    await creditListening('old', 120, { position: 120 });
-    vi.setSystemTime(new Date('2026-06-01T12:00:00'));
-    await creditListening('old', 0, { position: 240 });
+    await creditListening('old', 120, { position: 120 }, new Date(2025, 5, 1, 12));
+    await creditListening('old', 0, { position: 240 }, new Date(2026, 5, 1, 12));
     await setPlayed('old', true, 1800);
     const rows = await db.episodeProgress.toArray();
     expect(listeningStats(rows, 2025)).toEqual({ hours: 0.3, playedToEnd: 0 });
     expect(listeningStats(rows, 2026)).toEqual({ hours: 0, playedToEnd: 0 });
-    vi.useRealTimers();
   });
 
   it('keeps an end event in its original year when the same episode is replayed the next year', async () => {
     const { db } = await import('../src/db/db');
     const { creditListening, listeningStats } = await import('../src/lib/listening');
-    vi.useFakeTimers();
-    vi.setSystemTime(new Date('2025-12-31T23:59:00'));
-    await creditListening('replay', 300, { ranToEnd: true, completed: true });
-    vi.setSystemTime(new Date('2026-01-01T00:01:00'));
-    await creditListening('replay', 120, { completed: false });
+    await creditListening('replay', 300, { ranToEnd: true, completed: true }, new Date(2025, 11, 31, 23, 59));
+    await creditListening('replay', 120, { completed: false }, new Date(2026, 0, 1, 0, 1));
     const rows = await db.episodeProgress.toArray();
     expect(listeningStats(rows, 2025)).toEqual({ hours: 0.8, playedToEnd: 1 });
     expect(listeningStats(rows, 2026)).toEqual({ hours: 0.3, playedToEnd: 0 });
-    vi.useRealTimers();
   });
 
   it('accumulates frequent five-second saves without losing or multiplying listening time', async () => {
@@ -89,7 +78,7 @@ describe('listening time', () => {
     const { db } = await import('../src/db/db');
     const { creditListening, hasUndatedListening, listeningStats } = await import('../src/lib/listening');
     await db.episodeProgress.put({ episodeId: 'legacy-then-new', position: 0, completed: true, heard: 3600, ranToEnd: true, updatedAt: 1 });
-    await creditListening('legacy-then-new', 60, { position: 60 });
+    await creditListening('legacy-then-new', 60, { position: 60 }, new Date());
     const rows = await db.episodeProgress.toArray();
     expect(listeningStats(rows, new Date().getFullYear())).toEqual({ hours: 0.2, playedToEnd: 0 });
     expect(hasUndatedListening(rows)).toBe(true);
