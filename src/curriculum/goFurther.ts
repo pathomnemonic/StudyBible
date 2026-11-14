@@ -87,7 +87,7 @@ export function buildGoFurther(lesson: LessonLike, known: Known, extras?: Extras
   for (const { label, ref } of refs) {
     const bad = refProblem(label, ref);
     if (bad) { broken.push(bad); continue; }
-    if (!ctx) { add({ kind: 'scripture', id: refId(ref), label: `Read ${label}`, ref, to: `/read/${known.edition}/${ref.book}/${ref.c1}` }); continue; }
+    if (!ctx) { unavailable.push({ label, reason: known.failed?.has('editions') ? 'Bible edition reference counts could not be loaded' : 'reference counts are unavailable, so the verse numbering cannot be verified' }); continue; }
     const r = resolveRef(ctx.source, ctx.target, ref, 'kjv', ctx.anchor);
     if (r.status === 'invalid') { broken.push(`scripture "${label}": ${r.reason}`); continue; }
     if (r.status === 'absent') { unavailable.push({ label, reason: r.reason ?? 'not in this edition' }); continue; }
