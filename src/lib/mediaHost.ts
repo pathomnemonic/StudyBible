@@ -20,8 +20,12 @@ export const getState = () => state;
 const here = () => { try { return location.hash.replace(/^#/, '') || '/'; } catch { return '/'; } };
 
 /** A page shows (or re-shows) this media in the given box. The same media keeps playing; different media replaces it. */
+/** the audio player registers here so that starting a video or recording in the host stops it (only one thing plays at a time) */
+export const hooks: { onNewMedia: (() => void) | null } = { onNewMedia: null };
+
 export function claim(key: string, embed: Embed, title: string, anchor: HTMLElement) {
   const same = state.item?.key === key;
+  if (!same) hooks.onNewMedia?.();
   state = { item: same ? { ...state.item!, title } : { key, embed, title, route: here() }, anchor };
   emit();
 }

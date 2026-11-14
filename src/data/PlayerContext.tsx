@@ -1,3 +1,4 @@
+import { closeHost, hooks } from '../lib/mediaHost';
 import { savedUrl } from '../lib/offlineAudio';
 import { nextFavorite } from './autoplay';
 import { getSettings } from '../lib/store';
@@ -100,6 +101,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     a.preload = 'none';
     a.playbackRate = rate;
     audio.current = a;
+    hooks.onNewMedia = () => { try { a.pause(); } catch { /* none */ } }; // a video or recording starting in the host stops this player
     const save = (completed = false) => {
       const cur = (a as any)._ep as BiayEpisode | undefined;
       if (!cur) return;
@@ -174,6 +176,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const play = useCallback(async (e: BiayEpisode, startAt?: number) => {
+    closeHost(); // an audio track starting replaces whatever the video host was playing
     const a = audio.current!;
     if ((a as any)._ep?.id === e.id && startAt !== undefined) a.currentTime = startAt;
     void rememberEpisode(e);
