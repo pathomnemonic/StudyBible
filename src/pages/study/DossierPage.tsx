@@ -12,7 +12,9 @@ export default function DossierPage() {
     e.preventDefault();
     const p = parseRefs(q);
     if (!p.ok) return setErr(p.error);
-    nav(`/study/passage/${encodeURIComponent(refId(convertRef('kjv', 'vulgate', p.refs[0].ref).ref))}`);
+    const mapped = convertRef('kjv', 'vulgate', p.refs[0].ref);
+    if (!mapped.exact) return setErr('This passage cannot be opened at a verified anchor address. No approximate dossier was opened.');
+    nav(`/study/passage/${encodeURIComponent(refId(mapped.ref))}`);
   };
   return (
     <div className="page">
