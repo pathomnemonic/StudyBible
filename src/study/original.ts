@@ -36,7 +36,9 @@ export interface OriginalResult {
 export async function originalFor(ref: Ref, english: EditionRecord | undefined, max = 8): Promise<OriginalResult | null> {
   const lang = languageOf(ref.book);
   if (!lang) return null;
-  const kjv = convertRef('vulgate', 'kjv', ref).ref;
+  const mapped = convertRef('vulgate', 'kjv', ref);
+  if (!mapped.exact) return null;
+  const kjv = mapped.ref;
   const text = await loadText(lang, ref.book);
   if (!text) return null;
   const c = kjv.c1;
