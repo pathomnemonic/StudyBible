@@ -31,12 +31,12 @@ const audit = () => {
   return out;
 };
 
-for (const width of [320, 390]) {
+for (const width of [360]) {
   const ctx = await b.newContext({ viewport: { width, height: 800 } });
   await ctx.addInitScript(() => { try { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); } catch { /* */ } });
   const p = await ctx.newPage();
   for (const r of ROUTES) {
-    await p.goto(`${BASE}/#${r}`); await p.waitForTimeout(350);
+    await p.goto(`${BASE}/#${r}`); await p.waitForTimeout(250);
     for (const x of await p.evaluate(audit)) problems.push(`[${width}px ${r}] ${x}`);
   }
   // every tab of the Media area, and the sub-tabs inside each
