@@ -10,6 +10,8 @@ import type { Hit, SearchResult } from '../../lib/fathersSearch';
 import { HitCard, Loading, useEngine } from './AskFathersPage';
 import { ASK_SOURCES, askSourcesParam, parseAskSources, toggleAskSource } from '../../lib/askSources';
 import { db } from '../../db/db';
+import { loadConceptGraph } from '../../lib/conceptGraph';
+import { relatedQuestions } from '../../lib/relatedQuestions';
 
 interface Verse { id: string; b: string; c: number; v: number; t: string }
 const clip = (t: string, n = 420) => (t.length > n ? `${t.slice(0, n).replace(/\s+\S*$/, '')}…` : t);
@@ -33,6 +35,8 @@ export default function AskAllPage() {
   const [fathers, setFathers] = useState<SearchResult | null>(null);
   const [wantFathers, setWantFathers] = useState(false);
   const eng = useEngine();
+  const [walks, setWalks] = useState<{ label: string; to: string }[]>([]);
+  useEffect(() => { let live = true; setWalks([]); if (q.trim()) loadConceptGraph().then((g) => live && g && setWalks(relatedQuestions(questionTerms(q), g.nodes))).catch(() => {}); return () => { live = false; }; }, [q]);
 
   useEffect(() => {
     setCcc(null); setVerses(null); setVErr(''); setFathers(null);
@@ -82,6 +86,7 @@ export default function AskAllPage() {
       {q && <p className="small"><button type="button" className="btn small" onClick={saveQuestion} disabled={saved}>{saved ? 'Saved to your questions' : 'Save this question'}</button> <span className="muted">It joins the question inbox in Notes, under Review.</span></p>}
 
       {q && !ccc && <div className="center-note" role="status">Searching…</div>}
+      {walks.length > 0 && <p className="small" aria-label="Related guided questions">Guided walks on this: {walks.map((w, i) => <span key={w.to}>{i ? ', ' : ''}<Link to={w.to}>{w.label}</Link></span>)}.</p>}
       {nothing && <p className="muted">Nothing matched those words. Try plainer or older words (for example “baptism” rather than “christening”).</p>}
 
       {on.includes('ccc') && ccc?.glossary && (

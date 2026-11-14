@@ -59,6 +59,7 @@ await p.waitForSelector('[aria-label="Scripture"] blockquote, [aria-label="Scrip
 const ask = await p.locator('.ask-all').innerText();
 if (!/Catechism of the Catholic Church/.test(ask)) fail('the Church’s teaching card should name the Catechism');
 if (!/Bible text/.test(ask) || !/Writings in the library/.test(ask)) fail('every kind of source should be labelled');
+if (!/Guided walks on this/.test(ask) || !/Why Baptize Infants/.test(ask)) fail('a baptism question should offer the infant baptism walk');
 await p.locator('label', { hasText: 'Bible text' }).locator('input').uncheck(); await p.locator('label', { hasText: 'Fathers and saints' }).locator('input').uncheck(); await p.waitForTimeout(500);
 if (await p.locator('[aria-label="Scripture"]').count() || await p.locator('[aria-label="The Fathers and saints"]').count()) fail('turned-off sources should not be shown');
 if (!/src=ccc/.test(await p.evaluate(() => location.hash))) fail('the source choice should be in the address');
