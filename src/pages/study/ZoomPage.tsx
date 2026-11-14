@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { GLOSSARY, type GlossaryEntry } from '../../data/glossary';
 import { cccRange, type CccPara } from '../../data/ccc';
-import { cccList, getGrade, flatLessons } from '../../curriculum/model';
+import { cccListSafe, getGrade, flatLessons } from '../../curriculum/model';
 import { loadChains } from '../../chains/load';
 import { MODES, type Chain, type ChainMode } from '../../chains/types';
 import ShareLinkButton from '../../components/ShareLinkButton';
@@ -31,7 +31,7 @@ export default function ZoomPage() {
     cccRange(g.ccc, g.ccc + 4).then((ps) => { setPara(ps.find((p) => p.n === g.ccc) ?? null); setAround(ps); });
     getGrade('YA').then((gr) => {
       if (!gr) return;
-      setLessons(flatLessons(gr).filter((l) => cccList(l.ccc).some((n) => Math.abs(n - g.ccc) <= 1)).slice(0, 4).map((l) => ({ id: l.id, title: l.title, band: 'Adults', idea: l.idea })));
+      setLessons(flatLessons(gr).filter((l) => cccListSafe(l.ccc).some((n) => Math.abs(n - g.ccc) <= 1)).slice(0, 4).map((l) => ({ id: l.id, title: l.title, band: 'Adults', idea: l.idea })));
     });
     Promise.all((['arguments', 'development', 'heresies', 'words'] as ChainMode[]).map((m) => loadChains(m).then((cs) => cs.map((c) => ({ ...c, mode: m }))))).then((all) =>
       setChains(all.flat().filter((c) => [...c.steps, ...(c.objections ?? []).flatMap((o) => o.steps ?? [])].some((s) => s.ccc && Math.abs(s.ccc - g.ccc) <= 3) || (c.readNext ?? []).some((n) => Math.abs(n - g.ccc) <= 3)).slice(0, 5)));

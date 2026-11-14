@@ -1,4 +1,4 @@
-import { cccList, type LessonSpec } from './model';
+import { cccListSafe, type LessonSpec } from './model';
 import type { BankQuestion } from '../live/bank';
 import type { TQ } from '../lib/trivia';
 
@@ -31,7 +31,7 @@ export function fit(q: TQ, cat: string, topic: BonusTopic, nums: Set<number>, tw
 
 /** Up to `n` questions from the bank, best fit first. Only questions with a real match (a catechism number or two shared words) are used. */
 export function bonusFor(bank: Record<string, TQ[]>, topic: BonusTopic, n: number): { q: TQ; cat: string }[] {
-  const nums = new Set(cccList(topic.ccc));
+  const nums = new Set(cccListSafe(topic.ccc));
   const saintName = topic.saint?.split(':')[0] ?? '';
   const tw = new Set([...words(topic.title), ...words(saintName)]);
   const hay = `${topic.title} ${saintName} ${topic.unit ?? ''}`;

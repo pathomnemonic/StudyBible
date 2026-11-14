@@ -140,11 +140,14 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
   const [answers, setAnswers] = useState<string[]>([]);
   const [done, setDone] = useState(0);
   useEffect(() => {
+    // A reply for a card we have already moved past must not overwrite the card on screen: each run owns its own `live` flag.
+    let live = true;
     setRevealed(false);
     setAnswers([]);
     setVerseText(null);
     const r = cur && parseRefId(cur.ref);
-    if (r) passageText(ed, r, 8).then((vs) => setVerseText(vs.map((v) => v.text).join(' ')));
+    if (r) passageText(ed, r, 8).then((vs) => { if (live) setVerseText(vs.map((v) => v.text).join(' ')); }, () => undefined);
+    return () => { live = false; };
   }, [cur?.id, ed.id]);
 
   const words = useMemo(() => (verseText ? verseText.split(/\s+/) : []), [verseText]);

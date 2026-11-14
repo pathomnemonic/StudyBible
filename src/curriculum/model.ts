@@ -46,7 +46,7 @@ export const getGlossary = () => once('glossary', () => getJson<Glossary>('curri
 export const gradeLabel = (id: string) => (id === 'K' ? 'Kindergarten' : id === 'YA' ? 'Adults' : `Grade ${id}`);
 export const flatLessons = (g: GradeData) => g.units.flatMap((u) => u.lessons.map((l) => ({ ...l, unit: u })));
 
-export { cccList } from './cccList';
+export { cccList, cccParse, cccListSafe } from './cccList';
 
 /** progress: the lesson positions (0-based, across the grade) that are checked off, kept in the synced plan-progress table */
 export const progressId = (grade: string) => `cur:${grade}`;

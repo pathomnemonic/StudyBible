@@ -223,6 +223,11 @@ export interface UserLink extends Syncable {
 export interface MemoryCard extends Syncable {
   id?: number;
   ref: string; // anchor passage id
+  /** The passage as the lesson that created this card wrote it (not an index), with the numbering scheme it was written in. */
+  source?: string;
+  sourceScheme?: string;
+  /** The mapping from `source` to `ref` was not verified when the card was made. */
+  approximate?: boolean;
   set?: string; // themed set id
   ease: number;
   interval: number;

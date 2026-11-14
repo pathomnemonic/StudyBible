@@ -65,7 +65,7 @@ describe('go further links', () => {
 
   it('builds links for a typical lesson', () => {
     const r = buildGoFurther(base, known).links;
-    expect(r.find((x) => x.kind === 'scripture')?.to).toBe('/read/webc/JHN/3');
+    expect(r.find((x) => x.kind === 'scripture')?.to).toBe('/read/webc/JHN/3?v=16');
     expect(r.filter((x) => x.kind === 'catechism').map((x) => x.to)).toEqual(['/study/catechism/1', '/study/catechism/2', '/study/catechism/3']);
   });
   it('reads several passages', () => { expect(lessonRefs('Luke 5:17-26; Matthew 9:1-8').map((x) => x.ref.book)).toEqual(['LUK', 'MAT']); });

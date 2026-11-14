@@ -7,7 +7,7 @@ import { useSettings, updateSettings } from '../../lib/store';
 import { getExtras, getFeatured, withPassageVideos, type Extras } from '../../curriculum/extras';
 import RelatedSources from '../../curriculum/RelatedSources';
 import InTracks from '../../components/apol/InTracks';
-import { getGlossary, getGrade, flatLessons, gradeLabel, progressId, toggleDone, vocabQuiz, reviewTerms, cccList, parseQuiz, type GradeData, type Glossary, type LessonSpec, type Question } from '../../curriculum/model';
+import { getGlossary, getGrade, flatLessons, gradeLabel, progressId, toggleDone, vocabQuiz, reviewTerms, cccListSafe, parseQuiz, type GradeData, type Glossary, type LessonSpec, type Question } from '../../curriculum/model';
 import { bandOf, FAMILY_DAYS, type Band } from '../../curriculum/pedagogy';
 import { activityName } from '../../curriculum/LessonSlides';
 import { useVideoMeta, fmtLength } from '../../lib/videoMeta';
@@ -144,7 +144,7 @@ export default function CurriculumLesson() {
   const words = worthDefining(lesson.vocab.filter((v) => gl[v]), band);
   const kidsText = src.story ? src.story.text[st.kidsAge] : '';
   const scriptureText = src.passages.map((p) => `${p.label}. ${p.verses.map((v) => v.text).join(' ')}`).join(' ');
-  const cccNums = cccList(lesson.ccc);
+  const cccNums = cccListSafe(lesson.ccc);
   const prev = flat[idx - 1], next = flat[idx + 1];
   const primary = g.band === 'primary';
   const adult = g.band === 'adult';

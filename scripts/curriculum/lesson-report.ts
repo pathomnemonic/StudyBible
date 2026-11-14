@@ -1,4 +1,4 @@
-import { buildGoFurther, keyVerseRef, type FurtherKind } from '../../src/curriculum/goFurther';
+import { buildGoFurther, keyVerse, refContext, type FurtherKind } from '../../src/curriculum/goFurther';
 import { loadExtras, loadGrades, loadKnown } from './lessonData';
 
 /**
@@ -8,20 +8,24 @@ import { loadExtras, loadGrades, loadKnown } from './lessonData';
 const FIELDS = ['teach', 'talk', 'quiz', 'life', 'saint', 'saintStory', 'misc', 'mem', 'hook', 'assess', 'script', 'tryit', 'prayer', 'deeper'] as const;
 const KINDS: FurtherKind[] = ['scripture', 'catechism', 'apologetics', 'library', 'track', 'chain'];
 
-export interface GradeRow { grade: string; lessons: number; fields: Record<string, number>; links: Record<string, number>; keyVerse: number; broken: { lesson: string; problem: string }[] }
+export interface GradeRow { grade: string; lessons: number; fields: Record<string, number>; links: Record<string, number>; keyVerse: number; approximate: { lesson: string; note: string }[]; broken: { lesson: string; problem: string }[] }
 
 export function report(): GradeRow[] {
   const known = loadKnown();
   const extras = loadExtras();
   return loadGrades().map((g) => {
-    const row: GradeRow = { grade: g.id, lessons: 0, fields: Object.fromEntries(FIELDS.map((f) => [f, 0])), links: Object.fromEntries(KINDS.map((k) => [k, 0])), keyVerse: 0, broken: [] };
+    const row: GradeRow = { grade: g.id, lessons: 0, fields: Object.fromEntries(FIELDS.map((f) => [f, 0])), links: Object.fromEntries(KINDS.map((k) => [k, 0])), keyVerse: 0, approximate: [], broken: [] };
     for (const l of g.units.flatMap((u) => u.lessons)) {
       row.lessons++;
       const rec = l as unknown as Record<string, unknown>;
       for (const f of FIELDS) { const v = rec[f]; if (Array.isArray(v) ? v.length : v) row.fields[f]++; }
       const r = buildGoFurther(l, known, extras[l.id]);
       for (const k of new Set(r.links.map((x) => x.kind))) row.links[k]++;
-      if (keyVerseRef(l)) row.keyVerse++;
+      const kv = keyVerse(l, refContext(known.editions, known.edition));
+      if (kv.status === 'exact') row.keyVerse++;
+      else if (kv.status === 'approximate') row.approximate.push({ lesson: l.id, note: `${kv.label}: ${kv.reason}` });
+      else if (kv.status === 'invalid') row.broken.push({ lesson: l.id, problem: `key verse "${kv.label}": ${kv.reason}` });
+      for (const a of r.links.filter((x) => x.kind === 'scripture' && x.note)) row.approximate.push({ lesson: l.id, note: `${a.label}: ${a.note}` });
       for (const p of r.broken) row.broken.push({ lesson: l.id, problem: p });
     }
     return row;
@@ -43,6 +47,8 @@ export function format(rows: GradeRow[]): string {
 if (process.argv[1]?.endsWith('lesson-report.ts')) {
   const rows = report();
   console.log(format(rows));
+  const approx = rows.flatMap((r) => r.approximate.map((b) => `${r.grade} ${b.lesson}: ${b.note}`));
+  if (approx.length) console.log(`\n${approx.length} passage(s) whose verse numbering is not verified to match every edition (shown with a note in the app):\n` + approx.join('\n'));
   const bad = rows.flatMap((r) => r.broken.map((b) => `${r.grade} ${b.lesson}: ${b.problem}`));
   if (bad.length) { console.error(`\n${bad.length} broken link(s):\n` + bad.join('\n')); process.exit(1); }
   console.log('\nNo broken links.');

@@ -6,7 +6,7 @@ import { worthDefining } from './terms';
 import { activityName } from './LessonSlides';
 import type { GradeData, Glossary, LessonSpec } from './model';
 import type { Band } from './pedagogy';
-import { cccList } from './model';
+import { cccListSafe } from './model';
 import { contentPoints } from './teachpoints';
 import { saveLessonProgress, clearLessonProgress, getSavedStep } from './resume';
 import RelatedSources from './RelatedSources';
@@ -66,7 +66,7 @@ export default function LessonPath(p: Props) {
   const younger = band.id === 'primary' || band.id === 'elementary';
   const adultish = band.id === 'high' || band.id === 'adult';
   const words = useMemo(() => worthDefining(lesson.vocab.filter((v) => gl[v]), band), [lesson.id, gl, band.id]);
-  const cccNums = cccList(lesson.ccc);
+  const cccNums = cccListSafe(lesson.ccc);
   const hookOk = !!lesson.hook && !/^(ask|have|invite|show|tell|write|put|hold|pass|divide|read|play|give|begin|start|open|display|post|lead|let|take|gather)\b/i.test(lesson.hook.trim());
   const cccCap = band.id === 'adult' ? 4 : band.id === 'high' ? 3 : band.id === 'middle' ? 2 : 1;
 
