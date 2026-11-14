@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { buildCatalog, buildIndex, verseCount, type BookFile } from '../scripts/launch/make-verse-links';
 import { parseRefId } from '../src/lib/refs';
-import { chapterLinksFrom, verseLinksFrom } from '../src/lib/verseLinks';
+import { chapterLinksFrom, toIndexChapters, toIndexVerses, verseLinksFrom } from '../src/lib/verseLinks';
+import { loadVersification } from '../src/lib/versification';
 
+loadVersification(JSON.parse(readFileSync('public/data/versification.json', 'utf8')));
 const DIR = 'public/data/verse-links';
 const file = (b: string): BookFile | null => (existsSync(`${DIR}/${b}.json`) ? JSON.parse(readFileSync(`${DIR}/${b}.json`, 'utf8')) : null);
 const at = (b: string, c: number, v: number) => verseLinksFrom(file(b), b, c, v, undefined, 200);
@@ -69,6 +71,16 @@ describe('the built index', () => {
   it('is compact: under 2.5 MB in all', () => {
     const total = readdirSync(DIR).reduce((n, f) => n + statSync(`${DIR}/${f}`).size, 0);
     expect(total).toBeLessThan(2.5 * 1024 * 1024);
+  });
+});
+
+describe('edition-to-index conversion', () => {
+  it('keeps verified verse and chapter links but withholds unverified John and Psalm mappings', () => {
+    expect(toIndexVerses('kjv', 'JHN', 3, 16)).toEqual([[3, 16]]);
+    expect(toIndexVerses('kjv', 'JHN', 6, 51)).toEqual([]);
+    expect(toIndexVerses('kjv', 'PSA', 2, 1)).toEqual([]);
+    expect(toIndexChapters('kjv', 'JHN', 6)).toEqual([]);
+    expect(toIndexChapters('kjv', 'PSA', 2)).toEqual([]);
   });
 });
 
