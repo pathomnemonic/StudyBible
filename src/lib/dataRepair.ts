@@ -17,7 +17,7 @@ export function repairPassageId(s: string, editions?: CountsEdition[]): string[]
   const tidy = s.trim().replace(/[–—]/g, '-').replace(/\s+/g, '').toUpperCase();
   if (tidy && parseRefId(tidy)) {
     const anchor = editions?.find((e) => e.scheme === 'vulgate');
-    if (anchor && checkRefIn(anchor, parseRefId(tidy)!).kind) return null;
+    if (anchor && checkRefIn(anchor, parseRefId(tidy)!)) return null;
     return [tidy];
   }
   const p = parseRefs(s);
