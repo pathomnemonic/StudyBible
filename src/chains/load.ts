@@ -8,6 +8,7 @@ const cache = new Map<ChainMode, Promise<Chain[]>>();
 export function loadChains(mode: ChainMode): Promise<Chain[]> {
   return memoizeMapPromise(cache, mode, async () => {
     const mine = Object.entries(files).filter(([p]) => { const f = p.split('/').pop()!; return f === `${mode}.json` || (f.startsWith(`${mode}.`) && f.endsWith('.json')); }).sort(([a], [b]) => a.localeCompare(b));
+    if (!mine.length) throw new Error(`No ${mode} chain files were found; this resource index is unavailable.`);
     const parts = await Promise.all(mine.map(([, load]) => load()));
     return parts.flat() as Chain[];
   });
