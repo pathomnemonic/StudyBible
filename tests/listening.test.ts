@@ -35,6 +35,12 @@ describe('listening time', () => {
     expect(listeningStats(rows, new Date().getFullYear())).toEqual({ hours: 0, playedToEnd: 0 });
     expect(hasUndatedListening(rows)).toBe(true);
   });
+  it('does not warn about legacy progress rows with zero listening and no completion', async () => {
+    const { hasUndatedListening } = await import('../src/lib/listening');
+    expect(hasUndatedListening([{ heard: 0 }, { position: 30, completed: false } as never])).toBe(false);
+    expect(hasUndatedListening([{ heard: 0, ranToEnd: true }])).toBe(true);
+  });
+
   it('attributes listening increments and a real completion to the calendar year in which they occur', async () => {
     const { db } = await import('../src/db/db'); const { creditListening, listeningStats } = await import('../src/lib/listening');
     await creditListening('split', 600, {}, new Date(2025, 11, 31, 23, 59));
