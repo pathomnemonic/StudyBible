@@ -66,6 +66,13 @@ describe('checkRefIn: both endpoints, in the edition\'s own numbering', () => {
 describe('resolveRef: carrying a passage between numbering schemes', () => {
   const go = (s: string, target = dra) => resolveRef(english, target, R(s), 'kjv', ed('dra'));
 
+  it('keeps a same-tradition reader link exact when only the optional Vulgate anchor is chapter-only', () => {
+    const r = resolveRef(english, webc, R('Mark 4:41'), 'kjv', dra);
+    expect(r.status).toBe('exact');
+    expect(r.native).toEqual(R('Mark 4:41'));
+    expect(checkRefIn(dra, r.anchor!)).toBeNull();
+    expect(readerUrl(webc, r.native!)).toBe('/read/webc/MRK/4?v=41');
+  });
   it('a valid reference maps exactly through the whole path, and opens at the right verse', () => {
     const r = go('John 3:16');
     expect(r.status).toBe('exact');
