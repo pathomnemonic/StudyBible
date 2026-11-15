@@ -351,7 +351,18 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
           // Pause first, then flush the final clock position and all heard seconds before retry replaces its source.
           await savePlaybackRef.current?.();
           if (request !== playGeneration.current || (a as any)._ep?.id !== retryEpisode.id) return;
-          const at = a.currentTime || 0;
+          let at = a.currentTime || 0;
+          const progress = await resolveIfCurrent(request, () => playGeneration.current, () => db.episodeProgress.get(retryEpisode.id))
+            .catch(() => { if (request === playGeneration.current) setError('failed'); return null; });
+          if (progress === null) return;
+          if (progress?.completed) {
+            at = showSetting(showKeyOf(retryEpisode.id), 'skip');
+            try { await creditListening(retryEpisode.id, 0, { position: at, completed: false }); }
+            catch { if (request === playGeneration.current) setError('failed'); return; }
+            if (request !== playGeneration.current) return;
+            a.currentTime = at;
+            setPosition(at);
+          }
           setError(null);
           const u = await resolveIfCurrent(request, () => playGeneration.current, () => audioUrl(retryEpisode.audio)).catch(() => { if (request === playGeneration.current) setError(navigator.onLine === false ? 'offline' : 'failed'); return null; });
           if (request !== playGeneration.current || (a as any)._ep?.id !== retryEpisode.id) return;
