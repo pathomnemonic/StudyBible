@@ -9,6 +9,7 @@ export async function restoreFromTrash(trashId: number): Promise<boolean> {
   if (!peek) return false;
   if (!(TRASH_TABLES as readonly string[]).includes(peek.tbl)) throw new Error('This item cannot be restored from Recently deleted.');
   const table = db.table(peek.tbl);
+  let rowChanged = false;
   const restored = await db.transaction('rw', db.trash, db.tombs, table, async () => {
     // Re-read inside the transaction: simultaneous taps serialize, and only the first can consume the trash row.
     const it = await db.trash.get(trashId);
@@ -19,16 +20,19 @@ export async function restoreFromTrash(trashId: number): Promise<boolean> {
     const existing = await table.where('uid').equals(rest.uid).first();
     if (!existing) {
       const id = await table.add({ ...rest });
+      rowChanged = true;
       // The normal creating hook stamps now. If a future-dated tombstone exists, move the
       // restored row past it so another device/server cannot immediately delete it again.
       if (tomb && tomb.updatedAt >= ((await table.get(id) as any)?.updatedAt ?? 0)) {
         if (tomb.updatedAt >= Number.MAX_SAFE_INTEGER) throw new Error('This deletion timestamp is too large to restore safely.');
         await table.update(id, { updatedAt: Math.max(Date.now(), tomb.updatedAt + 1) });
+        rowChanged = true;
       }
     } else if (tomb && (existing.updatedAt ?? 0) <= tomb.updatedAt) {
       // Preserve the current local content, but make the intentional restore newer than the delete.
       if (tomb.updatedAt >= Number.MAX_SAFE_INTEGER) throw new Error('This deletion timestamp is too large to restore safely.');
       await table.update(existing.id, { updatedAt: Math.max(Date.now(), tomb.updatedAt + 1) });
+      rowChanged = true;
     }
     // Remove deletion history and its Undo entry atomically with the live row.
     await db.tombs.filter((t) => t.tbl === it.tbl && t.uid === rest.uid).delete();
@@ -36,7 +40,7 @@ export async function restoreFromTrash(trashId: number): Promise<boolean> {
     return true;
   });
   // Removing a tombstone itself must also wake sync, including when the live row was already present.
-  if (restored) syncFlags.onLocalChange();
+  if (restored && !rowChanged) syncFlags.onLocalChange();
   return restored;
 }
 

@@ -9,16 +9,7 @@ import { db } from '../db/db';
 import { loadBiay } from './biay';
 import { lookupEpisode, registerEpisodes } from './podcasts';
 import type { BiayEpisode } from './content';
-
-/** A near-end progress save is not an end event: only the media element's actual ended event completes an episode. */
-export function playbackProgressPatch(currentTime: number, duration: number | undefined, ended: boolean) {
-  return {
-    position: ended ? 0 : Math.max(0, Number.isFinite(currentTime) ? currentTime : 0),
-    duration: duration && Number.isFinite(duration) ? duration : undefined,
-    completed: ended || undefined,
-    ranToEnd: ended,
-  };
-}
+import { playbackProgressPatch } from './playerProgress';
 
 interface PlayerState {
   current: BiayEpisode | null;
