@@ -22,18 +22,18 @@ await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Fix this' }).waitFor();
 await p.evaluate(() => {
   const proto = IDBObjectStore.prototype;
-  const put = proto.put, getAll = proto.getAll;
+  const put = proto.put, getAll = proto.getAll, openCursor = proto.openCursor, openKeyCursor = proto.openKeyCursor;
   let repairCommitted = false, failOnce = true;
   proto.put = function (...args) {
     const result = put.apply(this, args);
     if (this.name === 'notes') repairCommitted = true;
     return result;
   };
-  proto.getAll = function (...args) {
-    if (this.name === 'notes' && repairCommitted && failOnce) { failOnce = false; throw new DOMException('simulated refresh read failure', 'UnknownError'); }
-    return getAll.apply(this, args);
-  };
-  window.__restoreDataHealthIDB = () => { proto.put = put; proto.getAll = getAll; };
+  const failRefresh = (store) => { if (store === 'notes' && repairCommitted && failOnce) { failOnce = false; throw new DOMException('simulated refresh read failure', 'UnknownError'); } };
+  proto.getAll = function (...args) { failRefresh(this.name); return getAll.apply(this, args); };
+  proto.openCursor = function (...args) { failRefresh(this.name); return openCursor.apply(this, args); };
+  proto.openKeyCursor = function (...args) { failRefresh(this.name); return openKeyCursor.apply(this, args); };
+  window.__restoreDataHealthIDB = () => { proto.put = put; proto.getAll = getAll; proto.openCursor = openCursor; proto.openKeyCursor = openKeyCursor; };
 });
 await p.getByRole('button', { name: 'Fix this' }).click();
 await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor();
@@ -70,18 +70,18 @@ await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Restore' }).waitFor();
 await p.evaluate(() => {
   const proto = IDBObjectStore.prototype;
-  const add = proto.add, getAll = proto.getAll;
+  const add = proto.add, getAll = proto.getAll, openCursor = proto.openCursor, openKeyCursor = proto.openKeyCursor;
   let restoreCommitted = false, failOnce = true;
   proto.add = function (...args) {
     const result = add.apply(this, args);
     if (this.name === 'notes') restoreCommitted = true;
     return result;
   };
-  proto.getAll = function (...args) {
-    if (this.name === 'notes' && restoreCommitted && failOnce) { failOnce = false; throw new DOMException('simulated post-restore refresh failure', 'UnknownError'); }
-    return getAll.apply(this, args);
-  };
-  window.__restoreDataHealthRestoreIDB = () => { proto.add = add; proto.getAll = getAll; };
+  const failRefresh = (store) => { if (store === 'notes' && restoreCommitted && failOnce) { failOnce = false; throw new DOMException('simulated post-restore refresh failure', 'UnknownError'); } };
+  proto.getAll = function (...args) { failRefresh(this.name); return getAll.apply(this, args); };
+  proto.openCursor = function (...args) { failRefresh(this.name); return openCursor.apply(this, args); };
+  proto.openKeyCursor = function (...args) { failRefresh(this.name); return openKeyCursor.apply(this, args); };
+  window.__restoreDataHealthRestoreIDB = () => { proto.add = add; proto.getAll = getAll; proto.openCursor = openCursor; proto.openKeyCursor = openKeyCursor; };
 });
 await p.getByRole('button', { name: 'Restore' }).click();
 await p.getByRole('alert').filter({ hasText: 'Restore committed, but the check could not refresh' }).waitFor();
