@@ -233,3 +233,49 @@ The new tests are authored but are not evidence of passing tests until a complet
 6. Keep PR #11 open, draft, and unmerged.
 
 No claim of zero bugs or complete runtime verification is made.
+
+
+## Fourth independent reliability audit — 2026-11-14
+
+This audit continued from the prior report and reviewed the reference conversion path, annual listening ledger, playback request lifecycle, Data Health repair/restore paths, Go Further loading and cache behavior, plan-reference validation, collection completion matching, and the release workflow. Source-level findings below were corrected and regression tests were added. Runtime verification is still pending; authored tests are not evidence of passing tests.
+
+### Additional findings and fixes
+
+| Finding | Fix | Regression coverage |
+|---|---|---|
+| A parser update accidentally duplicated most of `src/lib/refs.ts` inside a regular-expression literal, producing TypeScript parse errors across the file. | Restored the parser and added the intended `C-C:V` partial-chapter range branch in commit `116425ab2dcad5a38fc4f7bfe762748f6676d3d3`. The earlier parser commit `a26e1a9` is not a valid verification point. | Existing `Gen 1–2:3` parser/format round-trip assertion in `tests/refs.test.ts`; CI must execute it. |
+| A same-chapter reference beginning at chapter verse 1 but represented as `v1: undefined` could receive a noncanonical identifier such as `GEN.1-1.3`, distinct from `GEN.1.1-3`. | Canonicalized chapter-start partial ranges in commit `5b637dc3331cd0b4f3b88270f6710257de27273a`. | `tests/refs.test.ts` covers verse 1, verse ranges, and parse/identifier round-trip. |
+| Replaying an episode whose progress row was already completed did not clear `completed`; later saves could continue treating it as finished and lose the replay's resumable position. | Replay now clears completion and stores the new position through `creditListening`, preserving the historical heard total and dated ledger. Error handling for the progress read/write was added in `7bfe97c2dd820ab345702fc0f637f25315c7a7e6`. | `tests/listening.test.ts` verifies completion reset preserves listening history; `e2e/mediacontrols.mjs` exercises replay in the real audio element. |
+| Re-selecting the currently loaded episode incremented the request generation, making the old source-error listener stale; errors from the replayed source could then be ignored. | Rebind the source-error listener to the new generation before the asynchronous progress lookup; see `7245437d43138554f3dbe8484d632e361c370b31`. | `e2e/mediacontrols.mjs` injects a source error after replay and verifies the alert and retry path. |
+| A whole Vulgate Psalm chapter could be reported as an exact whole-English-chapter conversion even when the target English chapter merged two Vulgate chapters (Psalms 114 and 115 both contribute to English Psalm 116). | `wholeChapterMapsExactly()` now checks the reverse target-chapter mapping before claiming exactness; commit `dd77ff05f9530ceb0a91673b0b0aac5de1b678d1`. | `tests/refCheck.test.ts` checks the English Psalm 10 partial split and rejects a false exact Vulgate-Psalm-114-to-English-Psalm-116 whole-chapter mapping. |
+
+### Current verification status
+
+The latest source/test head before this report update was `3aefdae67df4f229588a145a0c1fb29c055c403b`. CI run #1201 (`43666343843`) was queued on that SHA; neither fast nor secrets had started when checked. This documentation commit changes the branch head and will cause a new workflow run. The old queued run is not evidence for the documentation-updated head.
+
+| Gate | Result on the latest source/test head |
+|---|---|
+| `npm ci` | Pending — queued CI, not run |
+| `npm run typecheck` | Pending — queued CI, not run |
+| `npm test` | Pending — queued CI, not run |
+| `npm run docs:status` + generated-doc diff | Pending — queued CI, not run |
+| `npm run data:validate` | Pending — queued CI, not run |
+| `npm run build` | Pending — queued CI, not run |
+| `npm run budget` | Pending — queued CI, not run |
+| `node scripts/audit-gate.mjs` | Pending — queued CI, not run |
+| Secrets scan | Pending — queued CI, not run |
+| Three browser release shards | Pending — depend on fast gate |
+| Accounts/sync browser job | Pending — depends on fast gate |
+| Full-width CI sweep | Pending — depends on fast gate |
+| Dedicated scheduled/release full-width workflow | Not dispatched or verified |
+
+### Next actions — continue; do not merge
+
+1. Inspect the first CI run created for the documentation-updated branch head. Do not count cancelled runs or queued jobs as passes.
+2. If the fast job fails, inspect the exact failing step/log, fix the defect without weakening the regression, and rerun all fast gates on the new head.
+3. Once fast gates pass, verify all three browser shards, accounts/sync, the CI full-width sweep, and the dedicated scheduled/release full-width workflow if it can be dispatched.
+4. If CI regenerates and commits reference indexes, re-read the PR head and tie every result to that exact SHA.
+5. Complete one final source review after runtime results and replace this pending table with exact run IDs, conclusions, and the final tested SHA.
+6. Keep PR #11 open, draft, and unmerged.
+
+No claim of zero bugs is possible. The remaining acceptance criterion is a completed, inspected run on the final head plus all dependent browser jobs; any unavailable gate must remain explicitly marked unverified.
