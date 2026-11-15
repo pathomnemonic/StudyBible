@@ -192,7 +192,7 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
           if (Object.prototype.hasOwnProperty.call(KEYED_TABLES, t)) {
             const keyField = KEYED_TABLES[t];
             const key = rec[keyField];
-            if (key === undefined || key === null || key === '') throw new Error(`The backup is damaged: “${t}” has no ${keyField}.`);
+            if (typeof key !== 'string' || !key.trim()) throw new Error(`The backup is damaged: “${t}” has no valid ${keyField}.`);
             const table = (db as any)[t];
             const current = await table.get(key);
             const revision = (row: any): number => {
