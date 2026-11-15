@@ -368,7 +368,7 @@ export async function importCollections(json: string): Promise<{ added: number; 
     Array.isArray(raw.items) && raw.items.every(validTarget) &&
     (raw.tags === undefined || (Array.isArray(raw.tags) && raw.tags.every((tag: unknown) => typeof tag === 'string'))) &&
     (raw.done === undefined || (Array.isArray(raw.done) && raw.done.every((key: unknown) => typeof key === 'string'))) &&
-    (raw.uid === undefined || typeof raw.uid === 'string');
+    (raw.uid === undefined || (typeof raw.uid === 'string' && raw.uid.trim().length > 0));
   if (!data.collections.every(validCollection)) throw new Error('The collections file is damaged. Nothing was imported.');
   const { sameValue } = await import('../lib/canonical');
   const { doneKeyMatches } = await import('../lib/collections');
@@ -399,7 +399,7 @@ export async function importCollections(json: string): Promise<{ added: number; 
     if (!raw || typeof raw !== 'object' || typeof raw.name !== 'string' || !Array.isArray(raw.items)) continue;
     const { id: _id, ...rec } = raw;
     const ex = rec.uid ? await db.collections.where('uid').equals(rec.uid).first() : undefined;
-    if (!ex) { await db.collections.add({ ...rec, createdAt: rec.createdAt ?? Date.now(), updatedAt: rec.updatedAt ?? Date.now() }); added++; continue; }
+    if (!ex) { await db.collections.add({ ...rec, uid: rec.uid ?? newUid(), createdAt: rec.createdAt ?? Date.now(), updatedAt: rec.updatedAt ?? Date.now() }); added++; continue; }
     const items = [...ex.items];
     for (const t of rec.items) if (!items.some((x) => sameValue(x, t))) items.push(t);
     const done = [...(ex.done ?? [])];
