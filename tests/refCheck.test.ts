@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { chapterToAnchorRefs, convertRef, loadVersification } from '../src/lib/versification';
+import { chapterAlignmentNote, chapterToAnchorRefs, convertRef, loadVersification } from '../src/lib/versification';
 import { anchorToNativeRef, checkRefIn, pooledCounts, resolveRef, type CountsEdition } from '../src/lib/refCheck';
 import type { Ref } from '../src/lib/refs';
 
@@ -70,6 +70,7 @@ describe('semantic Scripture reference validation', () => {
   });
 
   it('downgrades a known one-verse source/anchor mismatch to a verified chapter-only anchor', () => {
+    expect(chapterAlignmentNote('kjv', 'MRK', 4)).toBeTruthy();
     const r = resolveRef(english, english, { book: 'MRK', c1: 4, v1: 41, c2: 4, v2: 41 }, 'kjv', anchor);
     expect(r.status).toBe('approximate');
     expect(r.anchor).toEqual({ book: 'MRK', c1: 4, c2: 4 });
