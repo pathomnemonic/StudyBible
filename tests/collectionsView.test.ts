@@ -17,6 +17,13 @@ describe('collections list helpers', () => {
     expect(collectionSummary({ items: [c.items[0]] })).toBe('1 item');
     expect(collectionSummary({ items: c.items, done: ['{"ref":"JHN.6.51","type":"passage"}', '{"gone":1}', 'not-json'] })).toBe('2 items, 1 done');
   });
+  it('counts a matching item once even when imported done marks are duplicated', () => {
+    const item = { type: 'passage', ref: 'JHN.6.51' };
+    expect(collectionSummary({
+      items: [item],
+      done: ['{"type":"passage","ref":"JHN.6.51"}', '{"ref":"JHN.6.51","type":"passage"}'],
+    })).toBe('1 item, 1 done');
+  });
   it('copies without sharing items or ticks', () => {
     const k = copyOfCollection({ ...c, done: ['x'] }, 5);
     expect(k.name).toBe('The Eucharist in Scripture (copy)');
