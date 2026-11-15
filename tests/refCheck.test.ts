@@ -58,6 +58,12 @@ describe('semantic Scripture reference validation', () => {
     expect(spanningSplit.exact).toBe(false);
     const splitEndChapter = convertRef('english', 'vulgate', { book: 'PSA', c1: 9, c2: 10 });
     expect(splitEndChapter.exact).toBe(false);
+    const splitPsalm = chapterToAnchorRefs('english', 'PSA', 10);
+    expect(splitPsalm).toEqual([{ ref: { book: 'PSA', c1: 9, v1: 22, c2: 9, v2: 39 }, exact: true }]);
+    // Vulgate Psalms 114 and 115 are merged into English Psalm 116; a single
+    // Vulgate chapter must not be reported as an exact whole-English-chapter match.
+    const mergedTarget = convertRef('vulgate', 'english', { book: 'PSA', c1: 114, c2: 114 });
+    expect(mergedTarget.exact).toBe(false);
   });
 
 
