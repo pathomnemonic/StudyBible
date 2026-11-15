@@ -138,27 +138,26 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
   for (const t of ['userLinks', 'media'] as const) for (const r of data[t] ?? []) if (r.url !== undefined && !safeUrl(r.url)) throw new Error(`The backup has a link in “${t}” that does not start with http or https. Nothing was imported.`);
   let n = 0;
   const auto = new Set<string>(AUTO_TABLES);
-  // uids present before a replace, so rows that the backup does not contain can be recorded as deleted for other devices
+  // IDs present before a replace; read them in the same transaction as the restore so no concurrent edit is missed.
   const before: [string, string][] = [];
-  if (mode === 'replace') {
-    for (const t of auto) for (const r of await (db as any)[t].toArray()) if (r.uid) before.push([t, r.uid]);
-    // Keyed progress tables use their natural primary key as the sync UID, not an auto-table UID.
-    // Replacing a backup must tombstone keyed rows omitted from the backup or another device can resurrect them.
-    for (const [t, keyField] of Object.entries(KEYED_TABLES)) {
-      for (const r of await (db as any)[t].toArray()) {
-        const key = r[keyField];
-        if (key !== undefined && key !== null && key !== '') before.push([t, String(key)]);
-      }
-    }
-  }
   const after = new Set<string>();
   // Restore without the change hooks: they would stamp every row as just edited and tombstone each row cleared by a replace
   // (and a tombstone for a restored row's uid would delete it again on the next sync). Rows keep their own timestamps.
   syncFlags.applying = true;
   try {
     await db.transaction('rw', [...TABLES.map((t) => (db as any)[t]), db.tombs], async () => {
-      // restoring over everything also drops old deletion records, which would otherwise delete the restored rows when synced
-      if (mode === 'replace') await db.tombs.clear();
+      if (mode === 'replace') {
+        // Capture both auto-table UIDs and natural keys while the restore transaction holds the database.
+        for (const t of auto) for (const r of await (db as any)[t].toArray()) if (r.uid) before.push([t, r.uid]);
+        for (const [t, keyField] of Object.entries(KEYED_TABLES)) {
+          for (const r of await (db as any)[t].toArray()) {
+            const key = r[keyField];
+            if (key !== undefined && key !== null && key !== '') before.push([t, String(key)]);
+          }
+        }
+        // Existing tombstones are replaced by the ones derived from this snapshot.
+        await db.tombs.clear();
+      }
       // folders go first: a merge gives rows new ids, and the notes in a folder must follow the folder to its new id (or to the one it already has here)
       const folderIds = new Map<number, number>();
       for (const t of ['folders', ...TABLES.filter((x) => x !== 'folders')] as typeof TABLES[number][]) {
@@ -218,13 +217,13 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
           n++;
         }
       }
+      if (mode === 'replace') {
+        const gone = before.filter(([t, uid]) => !after.has(`${t}|${uid}`));
+        if (gone.length) await db.tombs.bulkAdd(gone.map(([tbl, uid]) => ({ tbl, uid, updatedAt: Date.now() }) as any));
+      }
     });
   } finally {
     syncFlags.applying = false;
-  }
-  if (mode === 'replace') {
-    const gone = before.filter(([t, uid]) => !after.has(`${t}|${uid}`));
-    if (gone.length) await db.tombs.bulkAdd(gone.map(([tbl, uid]) => ({ tbl, uid, updatedAt: Date.now() }) as any));
   }
   syncFlags.onLocalChange();
   if (mode === 'replace' && data.settings && typeof data.settings === 'object') {
