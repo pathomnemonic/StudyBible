@@ -78,7 +78,7 @@ Found by the stronger full sweep (nightly workflow, first run on `ea1655f`) and 
 
 ## Test inventory (what ran, on which commit)
 
-See the commands and results table below.
+See the results table at the end of the 14–15 November cycle section.
 
 
 ---
@@ -475,3 +475,28 @@ Branch `ccr-c086ddeb-igsukm`, started from `64206baa813be26f83c5e82139c546aedbc0
 | 14 | STEPBible build fetched `master` and validated chapters only against the English canon | pinned to `5de0a47f35f0fc13dfe1430d104e5db8a4285f9c`, SHA-256 of both files in `scripts/stepbible/sources.lock.json`, build stops on any mismatch, `--update-lock --commit=<sha>` is the only way to move; the same commit reproduces the shipped 1,630 notes exactly; every note's chapter and verse is checked against the verse counts of the English-tradition editions (TAGNT states NRSV versification); files record upstream commit, hashes, numbering, and tell source-authored note text from the app's own `kind` tagging; no TIPNR or TAGOT | `tests/greekEditions.test.ts` | `4439815` |
 
 Not done, on purpose: the Ordinary Form Mass Proper integration; any new external resource; the three missing hymns; checking the chant scores against the printed books (the record says the review compared word lists only); changing `hymns.json`. The browser test cannot set the user's edition to one with approximate numbering for the Psalms in the lesson beyond the three editions it uses (WEB-C, Douay-Rheims, Brenton); other combinations are covered by unit tests only.
+
+## Gate results (actual, this session)
+
+All commands were run in the order below on commit `beb066ae375999c7a6b53130df9d2d1adaa070be` (after the manifest fix; the first run on `30a707c` failed only `data:validate` and three manifest-size tests because new data files were not in `public/data/manifest.json`, which was regenerated). The commit that records this table changes this document only.
+
+| Command | Result |
+|---|---|
+| `npm ci` | passed |
+| `npm run typecheck` | passed |
+| `npm test` | passed (163 files) |
+| `npm run docs:status` | passed; `docs/FEATURE_STATUS.md` unchanged |
+| `npm run data:validate` | passed |
+| `npm run build` | passed |
+| `npm run budget` | passed |
+| `node scripts/audit-gate.mjs` | passed |
+| `npm run e2e:release` (local, 2,898 s) | **failed: 50 checks passed, 2 failed** |
+| full-width sweep (2,480 screens) | **not run** here; the local release run includes only the 496-screen fast sweep; the nightly workflow was not triggered |
+| CI on this commit | **not verified**; no CI run was started for it |
+
+The two failing browser checks both fail deterministically when run alone and are in the owner's branch, where its own CI records (#1306 to #1308 above) show the same two failing before this cycle's changes. I did not change or weaken them:
+
+* `e2e/datahealth.mjs`: after the injected read fault the page shows "This page did not load" (`Failed to execute 'objectStore' on 'IDBTransaction': The transaction has finished`) instead of the committed-repair alert. The fault injector aborts the next read of the notes store, which can be a live query elsewhere on the page rather than the Data Health refresh; a live query that fails reaches the error boundary. Either the injector needs to target only the refresh read, or a failed live query should not take the page down; not decided.
+* `e2e/mediacontrols.mjs` step 10: going offline and starting a meditation track shows no `.player-msg` notice. Not diagnosed; it follows the owner's change to how the player clears and re-arms its source-error listener.
+
+`e2e/gofurther.mjs` (new, registered in `e2e/run-all.mjs`) and `e2e/chant.mjs`, `e2e/greek-editions.mjs`, `e2e/edition-verse.mjs`, `e2e/review.mjs` passed in that run.
