@@ -119,6 +119,15 @@ describe('resolveRef: carrying a passage between numbering schemes', () => {
     }
     expect(resolveRef(english, dra, { book: 'JHN', c1: 22, c2: 22 }).status).toBe('invalid');
   });
+
+  it('does not reduce a large source-valid anchor mismatch to a chapter-only approximation', () => {
+    const original = ed('dra');
+    const verseCounts = { ...original.verseCounts, MRK: [...(original.verseCounts.MRK ?? [])] };
+    verseCounts.MRK[3] = 30;
+    const damagedAnchor = { ...original, verseCounts };
+    expect(resolveRef(english, dra, R('Mark 4:41'), 'kjv', damagedAnchor).status).toBe('invalid');
+  });
+
   it('a book the chosen edition lacks is absent, not redirected', () => {
     const r = resolveRef(english, brenton, R('John 3:16'), 'kjv', dra);
     expect(r.status).toBe('absent');
