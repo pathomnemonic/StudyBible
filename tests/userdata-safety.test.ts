@@ -46,6 +46,28 @@ describe('your writing survives', () => {
     expect(await db.cache.where('key').startsWith('snap:').count()).toBeGreaterThan(1);
   });
 
+  it('merges local progress without overwriting existing values', async () => {
+    const ops = await import('../src/db/ops');
+    localStorage.setItem('sb:plays:today', '5');
+    const backup = JSON.stringify({ format: 'studybible-export', version: 2, local: { 'sb:plays:today': '1', 'sb:plays:other': '2' } });
+    await ops.importAll(backup, 'merge');
+    expect(localStorage.getItem('sb:plays:today')).toBe('5');
+    expect(localStorage.getItem('sb:plays:other')).toBe('2');
+  });
+
+  it('replaces local progress keys exactly while leaving unrelated site keys alone', async () => {
+    const ops = await import('../src/db/ops');
+    localStorage.setItem('sb:plays:old', '7');
+    localStorage.setItem('sb:me:name', 'Old name');
+    localStorage.setItem('unrelated', 'keep');
+    const backup = JSON.stringify({ format: 'studybible-export', version: 2, local: { 'sb:plays:new': '3' } });
+    await ops.importAll(backup, 'replace');
+    expect(localStorage.getItem('sb:plays:old')).toBeNull();
+    expect(localStorage.getItem('sb:me:name')).toBeNull();
+    expect(localStorage.getItem('sb:plays:new')).toBe('3');
+    expect(localStorage.getItem('unrelated')).toBe('keep');
+  });
+
   it('counts changed records across auto-id and keyed tables in backup status', async () => {
     const { db } = await import('../src/db/db');
     const safety = await import('../src/lib/safety');
