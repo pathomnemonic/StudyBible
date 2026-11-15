@@ -183,6 +183,7 @@ describe('go further links use the same checks', () => {
 
 describe('key verse for the memorize list', () => {
   const ctx = refContext(eds, 'webc')!;
+  expect(ctx.anchor.id).toBe('vulgate');
   const kv = (cite: string) => keyVerse({ mem: `“Quoted words.” (${cite})` }, ctx);
   it('an exact mapping is offered, with the original reference preserved', () => {
     const k = kv('Psalm 23:1');
