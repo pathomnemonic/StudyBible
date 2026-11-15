@@ -185,6 +185,8 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
       return { ...base, status: 'invalid', anchor, reason: issue.reason };
     return { ...base, status: 'approximate', anchor, native: chapterOnly, reason: `${numbering ?? issue.reason}; only the verified chapter range is available in ${target.id}, so no verse is selected` };
   }
+  // When both source and target use the same numbering tradition, the native target address can be exact even if its optional Vulgate anchor is not. Keep that distinction for reader links; anchor consumers still check conversion exactness separately.
+  if (sameTradition && !bad) return { ...base, status: 'exact', anchor, native: t.ref };
   if (numbering || (!sameTradition && (!conv.exact || !t.exact))) {
     return { ...base, status: 'approximate', anchor, native: t.ref, reason: numbering ?? t.note ?? 'The verse numbering of this passage differs between editions, so the matching verses may be off by one or two.' };
   }
