@@ -318,7 +318,16 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (sleep.mode !== 'minutes') return;
-    const id = setInterval(() => setSleepState((x) => { if (x.mode !== 'minutes') return x; if (x.left <= 1) { audio.current?.pause(); return { mode: 'off', left: 0 }; } return { mode: 'minutes', left: x.left - 1 }; }), 1000);
+    const id = setInterval(() => setSleepState((x) => {
+      if (x.mode !== 'minutes') return x;
+      if (x.left <= 1) {
+        // An in-flight source lookup must not restart playback after the timer has expired.
+        playGeneration.current++;
+        audio.current?.pause();
+        return { mode: 'off', left: 0 };
+      }
+      return { mode: 'minutes', left: x.left - 1 };
+    }), 1000);
     return () => clearInterval(id);
   }, [sleep.mode]);
 
