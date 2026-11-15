@@ -50,6 +50,14 @@ describe('playback request race protection', () => {
     await expect(result).resolves.toBeNull();
   });
 
+  it('does not let an expired sleep timer restart a pending source request', async () => {
+    let generation = 4;
+    const activeSourceGeneration = generation;
+    const pending = resolveIfCurrent(activeSourceGeneration, () => generation, async () => 'late audio URL');
+    generation++; // the minute timer expires and invalidates pending playback
+    await expect(pending).resolves.toBeNull();
+  });
+
   it('does not adopt a newer pending request as the ended source generation', async () => {
     let requestedGeneration = 0;
     const activeSourceGeneration = requestedGeneration;
