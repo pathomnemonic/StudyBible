@@ -1,6 +1,6 @@
 /** Small pure helpers for the Collections list: search, a one-line summary and a copy. */
 import type { Collection, Target } from '../db/db';
-import { canonical } from './canonical';
+import { doneKeyMatches } from './collections';
 
 const norm = (s: string) => s.toLowerCase().replace(/\s+/g, ' ').trim();
 
@@ -15,10 +15,8 @@ export function matchesCollection(c: Pick<Collection, 'name' | 'description' | '
 /** "4 items, 1 done" (the done count only counts items still in the collection) */
 export function collectionSummary(c: Pick<Collection, 'items' | 'done'>): string {
   const n = c.items.length;
-  const keys = new Set(c.items.map((t) => canonical(t)));
-  const done = (c.done ?? []).filter((k) => {
-    try { return keys.has(canonical(JSON.parse(k))); } catch { return false; }
-  }).length;
+  // Count each item once, using the same key-order-independent matcher as the collection page.
+  const done = c.items.filter((item) => (c.done ?? []).some((key) => doneKeyMatches(key, item))).length;
   return `${n} ${n === 1 ? 'item' : 'items'}${done ? `, ${done} done` : ''}`;
 }
 
