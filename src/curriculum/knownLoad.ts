@@ -54,12 +54,17 @@ export type Loaders = Record<SourceName, () => Promise<unknown>>;
 
 function validSource(name: SourceName, value: unknown): boolean {
   if (!value || typeof value !== 'object') return false;
-  if (name === 'tracks') return Array.isArray(value) && value.length > 0 && value.every((t) => !!t && typeof t.id === 'string' && typeof t.title === 'string' && Array.isArray(t.levels));
+  if (name === 'tracks') return Array.isArray(value) && value.length > 0 && value.every((t) =>
+    !!t && typeof t.id === 'string' && typeof t.title === 'string' &&
+    Array.isArray(t.levels) && t.levels.length > 0 &&
+    t.levels.every((l: any) => !!l && Array.isArray(l.steps) && l.steps.every((s: any) => !!s && typeof s === 'object')));
   if (name === 'editions') {
     if (!Array.isArray(value)) return false;
+    const record = (x: any) => !!x && typeof x === 'object' && !Array.isArray(x);
     const usable = (e: any) => !!e && typeof e.id === 'string' && typeof e.scheme === 'string' &&
-      !!e.chapters && Object.keys(e.chapters).length > 0 &&
-      !!e.verseCounts && Object.keys(e.verseCounts).length > 0;
+      record(e.chapters) && Object.keys(e.chapters).length > 0 &&
+      record(e.verseCounts) && Object.keys(e.verseCounts).length > 0 &&
+      Object.values(e.verseCounts).every((counts: any) => Array.isArray(counts) && counts.length > 0 && counts.every((n: any) => Number.isInteger(n) && n > 0));
     return value.some((e) => usable(e) && e.id === 'vulgate' && e.scheme === 'vulgate') &&
       value.some((e) => usable(e) && e.scheme === 'english');
   }
