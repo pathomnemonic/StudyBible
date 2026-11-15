@@ -302,7 +302,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     if (request !== playGeneration.current || (a as any)._ep?.id !== e.id) return;
     if ('mediaSession' in navigator) {
       navigator.mediaSession.metadata = new MediaMetadata({ title: e.title, artist: e.artist ?? e.album ?? 'Ascension', album: e.album ?? 'The Bible in a Year' });
-      navigator.mediaSession.setActionHandler('play', () => a.play());
+      navigator.mediaSession.setActionHandler('play', () => {
+         const active = (a as any)._ep as BiayEpisode | undefined;
+         if (active) void play(active); else void a.play();
+       });
       navigator.mediaSession.setActionHandler('pause', () => a.pause());
       navigator.mediaSession.setActionHandler('seekbackward', () => (a.currentTime = Math.max(0, a.currentTime - showPrefs(showKeyOf(e.id)).back)));
       navigator.mediaSession.setActionHandler('seekforward', () => (a.currentTime = a.currentTime + showPrefs(showKeyOf(e.id)).fwd));
@@ -325,7 +328,12 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       duration,
       rate,
       play,
-      toggle: () => (audio.current!.paused ? audio.current!.play() : audio.current!.pause()),
+      toggle: () => {
+        const a = audio.current!;
+        if (!a.paused) { a.pause(); return; }
+        const active = (a as any)._ep as BiayEpisode | undefined;
+        if (active) void play(active); else void a.play();
+      },
       seek: (t) => (audio.current!.currentTime = t),
       fwd: current ? showPrefs(showKeyOf(current.id)).fwd : 30,
       back: current ? showPrefs(showKeyOf(current.id)).back : 15,
