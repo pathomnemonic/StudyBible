@@ -120,7 +120,7 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   let anchor = conv.ref;
   let numbering: string | undefined;
   const bad = checkRefIn(source, ref);
-  const knownAlignment = (chapterAlignmentNote(sourceScheme, ref.book, ref.c1) || chapterAlignmentNote(sourceScheme, ref.book, ref.c2)) !== null;
+  const knownAlignment = Boolean(chapterAlignmentNote(sourceScheme, ref.book, ref.c1) || chapterAlignmentNote(sourceScheme, ref.book, ref.c2));
   if (bad) {
     const known = bad.scope === 'verse' && knownAlignment;
     if (!known || !anchorEd) return { ...base, status: bad.kind === 'absent' ? 'absent' : 'invalid', reason: bad.reason };
