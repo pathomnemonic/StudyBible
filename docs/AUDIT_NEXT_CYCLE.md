@@ -136,7 +136,8 @@ A second pass over reference resolution, link construction, memorization, Data H
 | `readerUrl` checked only the first chapter, not the end chapter or verse endpoints. | It now calls `checkRefIn` before returning a URL. `tests/refIntegrity.test.ts` covers invalid end-verse and end-chapter cases. |
 | Approximate memorization cards used the static conversion result even when semantic resolution had reduced the anchor to a chapter-only reference. | `keyVerse` now stores `res.anchor` when available. Mark 4:41 and Acts 7:60 regression cases check that the stored anchor is valid in the canonical edition. |
 | A target-edition verse mismatch could be downgraded to chapter-only without proving a known numbering difference. | The fallback now requires a known alignment caveat, a maximum one-verse overrun and a valid chapter range; it preserves both chapter endpoints and otherwise returns invalid. A damaged-anchor test covers a large mismatch. |
-| Data Health could leave a stale Restore action visible if restoration committed but the follow-up scan failed. | The UI clears stale restore actions and distinguishes a committed restore from a failed refresh. `e2e/datahealth.mjs` now tests both repair and trash restoration with post-commit IndexedDB read failures, then verifies persisted state after reload. |
+| Data Health could leave a stale Restore action visible if restoration committed but the follow-up scan failed. | The UI clears stale restore actions and distinguishes a committed restore from a failed refresh. `e2e/datahealth.mjs` now tests both repair and trash restoration with post-commit IndexedDB read failures, intercepting object-store and index getAll/cursor reads, then verifies persisted state after reload. |
+| Reader edition changes could briefly render the previous edition's chapter while the new edition loaded; the browser test could click a stale verse. | `ReadPage` now keys loaded book data by edition and book and hides stale content immediately. The browser test waits for a matching `data-reader-ready` chapter marker before selecting a verse. |
 | Annual-listening tests used incorrect durations for decimal-hour accounting and fake timers that interfered with IndexedDB. | Tests now inject explicit local dates and realistic durations; frequent five-second saves assert 100 seconds recorded and 0.0 displayed hours after one-decimal rounding. |
 | The trash rollback test queried a tombstone UID index that does not exist. | It now uses a filtered collection scan, matching the actual schema. |
 | CI's generated-index commit failed with HTTP 403. | Only the fast job now requests `contents: write`; subsequent generated-index commit steps passed. |
@@ -151,18 +152,19 @@ Results are tied to the exact commit tested:
 |---|---|---|
 | #1016 | `f3f8432` | `npm ci`, typecheck and reference-index regeneration passed; unit tests failed on six reference/memorization assertions. Later fixes address those failures. |
 | #1029 | `008ddd5` | Fast job passed: `npm ci`, typecheck, exact-reference index generation/commit, `npm test`, `docs:status`, `data:validate`, build, budget and dependency audit gate. Secrets and accounts/sync passed; browser shards and full-width sweep were still running at last check. |
-| #1031 | `d919132` | Fast job passed the same full gate list. Secrets and accounts/sync passed. Browser shards and full-width sweep remained in progress at last check. |
+| #1031 | `d919132` | Fast job passed the same full gate list. Secrets and accounts/sync passed. Browser shard 1 failed in the Data Health refresh-failure test and edition-switch verse-selection test; both causes have been addressed in later commits. Browser shards 2/3 and the full-width sweep remained in progress at last check. |
 | #1043 | `13eb4a9` | Queued; includes the browser retry-position and Data Health restore-refresh assertions. |
-| #1045 | `32f1568` | Queued on the latest PR head, including this report update. No result yet. |
+| #1045 | `32f1568` | Queued on the prior report head. No result yet. |
+| #1061 | `17f8e7f` | Queued; includes the loaded-edition guard and deterministic edition-verse browser wait. No result yet. |
 
 The automatic generated-index commit initially failed with HTTP 403 on run #1001. Job-scoped `permissions: contents: write` fixed it; the generated-data commit step subsequently passed. The workflow uploads an artifact for review and commits regenerated exact-reference indexes and the offline manifest to the PR branch.
 
-Run #1031 is a complete fast-gate pass on `d919132`, not on the latest head. Its browser release shards and full-width sweep were still executing when checked. Accounts/sync passed on that commit. Do not treat the latest PR head as verified until run #1045 and all dependent jobs finish and their results/logs have been inspected.
+Run #1031 is a complete fast-gate pass on `d919132`, not on the latest head. Its browser release shards and full-width sweep were still executing when checked. Accounts/sync passed on that commit. Do not treat the latest PR head as verified until a run on the current head and all dependent jobs finish and their results/logs have been inspected.
 
 ## Remaining before merge
 
-- Await run #1045 on the latest PR head; fix any fast-gate failure and repeat until all fast checks pass.
-- Verify all three browser release shards, including actual audio-element switching, retry-position persistence, and Data Health repair/restore committed-mutation versus refresh-failure assertions.
+- Await a run on the newest PR head; fix any fast-gate failure and repeat until all fast checks pass.
+- Verify all three browser release shards, including actual audio-element switching, retry-position persistence, edition switching, and Data Health repair/restore committed-mutation versus refresh-failure assertions.
 - Verify the dedicated full-width sweep and accounts/sync job on the latest head.
 - Complete one final independent audit after those browser results and record any further fixes.
 - Update this report with final run IDs, the exact tested commit SHA and actual results.
