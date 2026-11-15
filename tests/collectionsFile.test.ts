@@ -101,15 +101,18 @@ describe('collections to a file and back', () => {
   it('rolls back pointed-at records if a collection write fails', async () => {
     const ops = await import('../src/db/ops');
     const { db } = await import('../src/db/db');
+    await db.notes.add({ kind: 'note', body: 'existing must survive', tags: [], targets: [], chapterKeys: [], createdAt: 1, updatedAt: 1, uid: 'existing-note' } as never);
     vi.spyOn(db.collections, 'add').mockRejectedValue(new Error('collection write failed'));
     const file = {
       format: 'studybible-export', version: 2,
-      notes: [{ kind: 'note', body: 'must roll back', tags: [], targets: [], chapterKeys: [], createdAt: 1, updatedAt: 1, uid: 'atomic-note' }],
+      notes: [{ kind: 'note', body: 'must roll back', tags: [], targets: [], chapterKeys: [], createdAt: 2, updatedAt: 2, uid: 'atomic-note' }],
       collections: [{ name: 'Atomic', uid: 'atomic-collection', items: [], createdAt: 1, updatedAt: 1 }],
     };
     await expect(ops.importCollections(JSON.stringify(file))).rejects.toThrow(/collection write failed/);
-    expect(await db.notes.count()).toBe(0);
+    expect(await db.notes.where('uid').equals('existing-note').count()).toBe(1);
+    expect(await db.notes.where('uid').equals('atomic-note').count()).toBe(0);
     expect(await db.collections.count()).toBe(0);
+    expect(await db.cache.where('key').startsWith('snap:').count()).toBe(1);
   });
 
   it('rejects unsafe external URLs before importing pointed-at records', async () => {
