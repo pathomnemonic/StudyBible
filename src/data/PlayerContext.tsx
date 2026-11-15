@@ -255,7 +255,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const progress = await resolveIfCurrent(request, () => playGeneration.current, () => db.episodeProgress.get(e.id))
         .catch(() => { if (request === playGeneration.current) setError('failed'); return null; });
       if (progress === null) return;
-      if (progress?.completed) {
+      const shouldReplay = !!progress?.completed || a.ended || !!(a.duration && a.currentTime >= a.duration) || !!(a as any)._outroDone;
+      if (shouldReplay) {
         const replayAt = startAt ?? showSetting(showKeyOf(e.id), 'skip');
         try { await creditListening(e.id, 0, { position: replayAt, completed: false }); }
         catch { if (request === playGeneration.current) setError('failed'); return; }
