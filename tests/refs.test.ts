@@ -24,6 +24,7 @@ describe('reference parsing', () => {
     expect(one('1 cor 13')).toEqual(['1CO.13']);
     expect(one('1Cor 11:23-26')).toEqual(['1CO.11.23-26']);
     expect(one('Gen 1:1–2:3')).toEqual(['GEN.1.1-2.3']);
+    expect(one('Gen 1–2:3')).toEqual(['GEN.1-2.3']);
     expect(one('ps23')).toEqual(['PSA.23']);
     expect(one('Jude 5-7')).toEqual(['JUD.1.5-7']);
     expect(one('Jn 6:51-58; 1 Cor 11:23-26, 29')).toEqual(['JHN.6.51-58', '1CO.11.23-26', '1CO.11.29']);
