@@ -6,6 +6,9 @@ jobs:
   # fast: runs on every push
   fast:
     runs-on: ubuntu-latest
+    # Only this job needs to commit regenerated, deterministic reference indexes to the PR branch.
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
