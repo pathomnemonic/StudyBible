@@ -11,35 +11,50 @@ await ctx.addInitScript(() => {
   // Observe the actual store access made by Dexie's transaction, rather than
   // inferring its scope from IDBDatabase.transaction arguments. This also covers
   // dynamic tables passed to db.transaction() by restoreFromTrash().
+  // Arm from the real notes write transaction and fail the first notes read transaction
+  // after it commits. The database boundary catches every IndexedDB read strategy Dexie uses.
+  const dbProto = IDBDatabase.prototype;
+  const dbMarker = '__studyBibleDataHealthDatabaseTransactionFaultInstalled';
+  if (!dbProto[dbMarker]) {
+    const originalTransaction = dbProto.transaction;
+    Object.defineProperty(dbProto, dbMarker, { value: true });
+    dbProto.transaction = function (...args) {
+      const tx = originalTransaction.apply(this, args);
+      const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
+      const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
+      const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
+      if (state?.enabled && state.armed && this.name === 'studybible' &&
+          mode === 'readonly' && names.includes('notes')) {
+        state.readRequests = (state.readRequests ?? 0) + 1;
+        try {
+          tx.abort();
+          state.abortedReads++;
+        } catch {
+          state.abortFailures++;
+        }
+      }
+      return tx;
+    };
+  }
+
+  // Dexie resolves actual object stores through IDBTransaction.objectStore().
+  // Count the notes write only after its containing read/write transaction commits.
   const txProto = IDBTransaction.prototype;
   const txMarker = '__studyBibleDataHealthTransactionFaultInstalled';
   if (!txProto[txMarker]) {
     const originalObjectStore = txProto.objectStore;
     const observedWrites = new WeakSet();
-    const observedReads = new WeakSet();
     Object.defineProperty(txProto, txMarker, { value: true });
     txProto.objectStore = function (...args) {
       const store = originalObjectStore.apply(this, args);
       const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
-      if (!state?.enabled || this.db?.name !== 'studybible' || store.name !== 'notes') return store;
-
-      if (this.mode === 'readwrite' && !observedWrites.has(this)) {
+      if (state?.enabled && this.db?.name === 'studybible' && this.mode === 'readwrite' &&
+          store.name === 'notes' && !observedWrites.has(this)) {
         observedWrites.add(this);
         state.notesTransactions = (state.notesTransactions ?? 0) + 1;
         this.addEventListener('complete', () => {
           if (state.enabled) { state.writes++; state.armed = true; }
         }, { once: true });
-      } else if (this.mode === 'readonly' && state.armed && !observedReads.has(this)) {
-        // Fail the first read transaction that actually opens the notes store after the
-        // committed mutation. This is independent of whether Dexie uses get, getAll or a cursor.
-        observedReads.add(this);
-        state.readRequests = (state.readRequests ?? 0) + 1;
-        try {
-          this.abort();
-          state.abortedReads++;
-        } catch {
-          state.abortFailures++;
-        }
       }
       return store;
     };
