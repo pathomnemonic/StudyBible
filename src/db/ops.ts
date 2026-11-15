@@ -337,6 +337,29 @@ export async function importCollections(json: string): Promise<{ added: number; 
   let data: any;
   try { data = JSON.parse(json); } catch { throw new Error('The file is cut short or is not a collections file. Nothing was imported.'); }
   if (!data || data.format !== 'studybible-export' || !Array.isArray(data.collections)) throw new Error('This is not a collections file. Nothing was imported.');
+  const validTarget = (item: any): boolean => {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) return false;
+    switch (item.type) {
+      case 'passage': return typeof item.ref === 'string';
+      case 'commentary': return typeof item.itemId === 'string' && typeof item.label === 'string';
+      case 'catechism': return Number.isInteger(item.para) && item.para > 0;
+      case 'work': return typeof item.workId === 'string' && typeof item.label === 'string';
+      case 'episode': return typeof item.episodeId === 'string' && typeof item.label === 'string';
+      case 'reading': return typeof item.date === 'string' && typeof item.label === 'string';
+      case 'topic': return typeof item.topicId === 'string' && typeof item.label === 'string';
+      case 'note': case 'highlight': case 'bookmark': return typeof item.uid === 'string';
+      case 'link': return typeof item.url === 'string' && typeof item.label === 'string';
+      default: return false;
+    }
+  };
+  const validCollection = (raw: any): boolean =>
+    !!raw && typeof raw === 'object' && !Array.isArray(raw) &&
+    typeof raw.name === 'string' && raw.name.trim().length > 0 &&
+    Array.isArray(raw.items) && raw.items.every(validTarget) &&
+    (raw.tags === undefined || (Array.isArray(raw.tags) && raw.tags.every((tag: unknown) => typeof tag === 'string'))) &&
+    (raw.done === undefined || (Array.isArray(raw.done) && raw.done.every((key: unknown) => typeof key === 'string'))) &&
+    (raw.uid === undefined || typeof raw.uid === 'string');
+  if (!data.collections.every(validCollection)) throw new Error('The collections file is damaged. Nothing was imported.');
   const { sameValue } = await import('../lib/canonical');
   const { doneKeyMatches } = await import('../lib/collections');
   // the pointed-at notes, highlights and bookmarks first (matched by uid, so none is doubled)
