@@ -103,7 +103,8 @@ export async function exportAll(): Promise<string> {
   // reading and accessibility preferences live outside the database; include them so a restore feels the same
   try { const raw = localStorage.getItem(SETTINGS_KEY); if (raw) out.settings = JSON.parse(raw); } catch { /* storage unavailable */ }
   const local = collectLocal();
-  if (Object.keys(local).length) out.local = local;
+  // An explicit empty object distinguishes a current backup with no local keys from an older format that never exported them.
+  out.local = local;
   try { localStorage.setItem('sb:lastExport', String(Date.now())); } catch { /* storage unavailable */ }
   return JSON.stringify(out, null, 1);
 }
@@ -245,8 +246,20 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
   if (mode === 'replace' && data.settings && typeof data.settings === 'object') {
     try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(data.settings)); } catch { /* storage unavailable */ }
   }
-  // game streaks, bests and the like: a merge only fills in what this device does not have; a replace overwrites
-  if (data.local && typeof data.local === 'object') {
+  // Game streaks, bests and the like follow the same merge/replace semantics as database rows.
+  // A current export always carries local (even when empty); older exports without it remain compatible.
+  if (data.local && typeof data.local === 'object' && !Array.isArray(data.local)) {
+    if (mode === 'replace') {
+      const incoming = new Set(Object.entries(data.local as Record<string, unknown>)
+        .filter(([k, v]) => isLocalKey(k) && typeof v === 'string')
+        .map(([k]) => k));
+      try {
+        for (let i = localStorage.length - 1; i >= 0; i--) {
+          const k = localStorage.key(i);
+          if (k && isLocalKey(k) && !incoming.has(k)) localStorage.removeItem(k);
+        }
+      } catch { /* storage unavailable */ }
+    }
     for (const [k, v] of Object.entries(data.local as Record<string, unknown>)) {
       if (typeof v !== 'string' || !isLocalKey(k)) continue;
       try { if (mode === 'replace' || localStorage.getItem(k) === null) localStorage.setItem(k, v); } catch { /* storage unavailable */ }
