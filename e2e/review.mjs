@@ -141,7 +141,7 @@ await p.locator('a', { hasText: /^Marian passages$/ }).first().click(); await p.
 const originalCollectionUrl = p.url();
 const beforePassageCount = await p.locator('.cp-list li').count();
 await p.locator('input[placeholder="John 6:51-58"]').fill('John 6:51-58');
-await p.locator('.cp-add button', { hasText: /^Add$/ }).click();
+await p.locator('.cp-add label').filter({ hasText: 'A passage or range' }).getByRole('button', { name: 'Add' }).click();
 await p.getByText(/cannot be added automatically/i).waitFor();
 if (await p.locator('.cp-list li').count() !== beforePassageCount) fail('an unverified English/KJV passage must not be added to an anchor-numbered collection');
 await p.locator('button', { hasText: 'Make a reading plan' }).click(); await p.waitForTimeout(1200);

@@ -100,14 +100,23 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
   const lastSave = useRef(0);
   const playGeneration = useRef(0);
   const savePlaybackRef = useRef<((completed?: boolean) => Promise<void>) | null>(null);
+  const sourceErrorCleanup = useRef<(() => void) | null>(null);
   const [sleep, setSleepState] = useState<{ mode: 'off' | 'minutes' | 'end'; left: number }>({ mode: 'off', left: 0 });
   const [error, setError] = useState<null | 'failed' | 'offline'>(null);
   const bindSourceError = (a: HTMLAudioElement, request: number, episodeId: string, src: string) => {
-    a.addEventListener('error', () => {
+    sourceErrorCleanup.current?.();
+    const onError = () => {
+      // An error event from an earlier request can be queued after a replay begins. Ignore it
+      // without consuming this request's listener; the current source may still fail afterward.
       if (request !== playGeneration.current || (a as any)._ep?.id !== episodeId || a.getAttribute('src') !== src || !a.error) return;
+      a.removeEventListener('error', onError);
+      if (sourceErrorCleanup.current === cleanup) sourceErrorCleanup.current = null;
       setPlaying(false);
       setError(navigator.onLine === false ? 'offline' : 'failed');
-    }, { once: true });
+    };
+    const cleanup = () => a.removeEventListener('error', onError);
+    sourceErrorCleanup.current = cleanup;
+    a.addEventListener('error', onError);
   };
 
   const [prefsV, setPrefsV] = useState(0);
@@ -222,6 +231,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     }).catch(() => { if (restoreRequest === playGeneration.current) setError(navigator.onLine === false ? 'offline' : 'failed'); });
     return () => {
       document.removeEventListener('visibilitychange', hide);
+      sourceErrorCleanup.current?.();
+      sourceErrorCleanup.current = null;
       savePlaybackRef.current = null;
       a.pause();
     };

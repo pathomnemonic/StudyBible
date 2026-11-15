@@ -60,8 +60,15 @@ if ((replayAfter?.heard ?? 0) < replaySeed.heard || replayAfter?.listeningDays?.
 await p.evaluate(() => { window.__a.currentTime = 40; window.__a.pause(); });
 await p.locator('.player button[aria-label="Play"]').waitFor();
 // A replay has a new request generation; a later error from the same source must still be reported.
+await p.evaluate(() => {
+  const a = window.__a;
+  try { delete a.error; } catch { /* native property may be non-configurable */ }
+  a.dispatchEvent(new Event('error')); // stale/incomplete event: must not consume the active listener
+});
+await p.waitForTimeout(100);
+if (await p.locator('.player-msg[role="alert"]').count()) fail('an error event without a MediaError must not mark the active source failed');
 await p.evaluate(() => { Object.defineProperty(window.__a, 'error', { configurable: true, value: { code: 4 } }); window.__a.dispatchEvent(new Event('error')); });
-await p.waitForSelector('.player-msg[role="alert"]', { timeout: 5000 }).catch(() => fail('a replayed source must report an error under its new request generation'));
+await p.waitForSelector('.player-msg[role="alert"]', { timeout: 5000 }).catch(() => fail('a replayed source must report an error after a stale error event'));
 await p.evaluate(() => { delete window.__a.error; });
 await p.locator('.player-msg button:has-text("Try again")').click();
 await p.waitForFunction(() => !document.querySelector('.player-msg') && !window.__a.paused && Math.abs(window.__a.currentTime - 40) < 3, null, { timeout: 15000 }).catch(() => fail('a replayed source should recover through Try again'));

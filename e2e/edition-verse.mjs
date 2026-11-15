@@ -20,7 +20,14 @@ async function from(ed, book, ch, v) {
     return h?.dataset.readerEdition === ed && h.dataset.readerBook === book && h.dataset.readerChapter === ch && h.dataset.readerReady === 'true';
   }, { ed, book, ch: String(ch) }, { timeout: 20000 }).catch(() => fail(`${ed} ${bookTitle} ${ch}: the requested chapter did not finish loading`));
   await p.waitForSelector(`[data-v="${v}"]`, { timeout: 20000 }).catch(() => fail(`${ed} ${book} ${ch}:${v} did not load`));
-  await p.locator(`[data-v="${v}"]`).first().click({ force: true }); await p.waitForTimeout(400);
+  // Route changes clear a prior chapter's selection in a React effect. Wait for that reset before
+  // clicking; otherwise a fast test can click the same verse number while the old selection is live.
+  await p.keyboard.press('Escape').catch(() => {});
+  await p.waitForFunction((n) => ![...document.querySelectorAll(`[data-v="${n}"]`)].some((e) => e.getAttribute('aria-pressed') === 'true'), v, { timeout: 5000 })
+    .catch(() => fail(`${ed} ${book} ${ch}:${v}: the previous verse selection did not clear after navigation`));
+  await p.locator(`[data-v="${v}"]`).first().click({ force: true });
+  await p.waitForFunction((n) => [...document.querySelectorAll(`[data-v="${n}"]`)].some((e) => e.getAttribute('aria-pressed') === 'true'), v, { timeout: 5000 })
+    .catch(() => fail(`${ed} ${book} ${ch}:${v}: the verse click did not select the verse`));
   const sel = await p.evaluate(() => [...new Set([...document.querySelectorAll('[data-v][aria-pressed=true]')].map((e) => e.dataset.v))]);
   if (sel.join() !== String(v)) fail(`${ed} ${book} ${ch}:${v}: the verse must be selected before switching (selected: ${sel})`);
 }

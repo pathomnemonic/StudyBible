@@ -23,11 +23,18 @@ await p.getByRole('button', { name: 'Fix this' }).waitFor();
 await p.evaluate(() => {
   const proto = IDBObjectStore.prototype;
   const put = proto.put, getAll = proto.getAll, openCursor = proto.openCursor, openKeyCursor = proto.openKeyCursor;
+  const cursorProto = IDBCursor.prototype, cursorUpdate = cursorProto.update;
   const indexProto = IDBIndex.prototype, indexGetAll = indexProto.getAll, indexOpenCursor = indexProto.openCursor, indexOpenKeyCursor = indexProto.openKeyCursor;
   let repairCommitted = false, failOnce = true;
   proto.put = function (...args) {
     const result = put.apply(this, args);
     if (this.name === 'notes') repairCommitted = true;
+    return result;
+  };
+  cursorProto.update = function (...args) {
+    const result = cursorUpdate.apply(this, args);
+    const source = this.source;
+    if ((source?.objectStore?.name ?? source?.name) === 'notes') repairCommitted = true;
     return result;
   };
   const failRefresh = (store) => { if (store === 'notes' && repairCommitted && failOnce) { failOnce = false; throw new DOMException('simulated refresh read failure', 'UnknownError'); } };
@@ -37,7 +44,7 @@ await p.evaluate(() => {
   indexProto.getAll = function (...args) { failRefresh(this.objectStore.name); return indexGetAll.apply(this, args); };
   indexProto.openCursor = function (...args) { failRefresh(this.objectStore.name); return indexOpenCursor.apply(this, args); };
   indexProto.openKeyCursor = function (...args) { failRefresh(this.objectStore.name); return indexOpenKeyCursor.apply(this, args); };
-  window.__restoreDataHealthIDB = () => { proto.put = put; proto.getAll = getAll; proto.openCursor = openCursor; proto.openKeyCursor = openKeyCursor; indexProto.getAll = indexGetAll; indexProto.openCursor = indexOpenCursor; indexProto.openKeyCursor = indexOpenKeyCursor; };
+  window.__restoreDataHealthIDB = () => { proto.put = put; proto.getAll = getAll; proto.openCursor = openCursor; proto.openKeyCursor = openKeyCursor; cursorProto.update = cursorUpdate; indexProto.getAll = indexGetAll; indexProto.openCursor = indexOpenCursor; indexProto.openKeyCursor = indexOpenKeyCursor; };
 });
 await p.getByRole('button', { name: 'Fix this' }).click();
 await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor();

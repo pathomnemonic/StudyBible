@@ -8,7 +8,15 @@ const b = await chromium.launch(); const ctx = await b.newContext({ viewport: { 
 await ctx.addInitScript(() => { if (!sessionStorage.getItem('seeded')) { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:audienceAsked', '1'); sessionStorage.setItem('seeded', '1'); } });
 let p = await ctx.newPage(); p.setDefaultTimeout(10000);
 const fail = (m) => { console.error('FAIL', m); process.exit(1); };
-const notesPage = async (pg) => { await pg.goto(`${BASE}/#/library`); await pg.waitForTimeout(900); await pg.locator('button, [role=tab]', { hasText: /^Notes$/ }).first().click(); await pg.waitForTimeout(500); return pg.locator('main, .page').first().innerText(); };
+const notesPage = async (pg) => {
+  await pg.goto(`${BASE}/#/library`);
+  await pg.waitForTimeout(900);
+  await pg.locator('button, [role=tab]', { hasText: /^Notes$/ }).first().click();
+  await pg.waitForTimeout(500);
+  // Recent-item labels intentionally retain the title captured when a note was opened. The edited
+  // body is the source of truth for this regression, so inspect the note-body Markdown regions only.
+  return (await pg.locator('.page .md').allInnerTexts()).join('\\n');
+};
 const exportPage = async (pg) => { await pg.goto(`${BASE}/#/library?tab=export`); await pg.reload(); await pg.waitForSelector('input[type=file]'); };
 
 // 1. write a note on Psalm 23:1 in the reader
