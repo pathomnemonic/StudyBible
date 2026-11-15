@@ -31,6 +31,34 @@ await p.locator('.player button[aria-label="Pause"]').click();
 await p.locator('.player button[aria-label="Play"]').waitFor();
 if ((await p.locator('.player').count()) !== 1) fail('pausing must keep the player open');
 if (!(await p.evaluate(() => window.__a.paused))) fail('pause should pause');
+// 1b. replaying an already-completed episode clears completion without erasing its historical listening ledger
+const replaySeed = await p.evaluate(async () => {
+  const id = window.__a._ep.id;
+  const request = indexedDB.open('studybible');
+  const database = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
+  const tx = database.transaction('episodeProgress', 'readwrite');
+  const table = tx.objectStore('episodeProgress');
+  const old = await new Promise((resolve, reject) => { const r = table.get(id); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error); });
+  const heard = old?.heard ?? 100;
+  const listeningDays = old?.listeningDays ?? { '2025-12-31': { seconds: 100, completions: 1 } };
+  table.put({ ...(old ?? {}), episodeId: id, position: 0, completed: true, heard, ranToEnd: true, listeningDays, updatedAt: Date.now() });
+  await new Promise((resolve, reject) => { tx.oncomplete = resolve; tx.onerror = () => reject(tx.error); tx.onabort = () => reject(tx.error); });
+  database.close();
+  return { id, heard, listeningDays };
+});
+await p.locator('.player button[aria-label="Play"]').click();
+await p.waitForFunction(() => window.__a && !window.__a.paused);
+const replayAfter = await p.evaluate(async (id) => {
+  const request = indexedDB.open('studybible');
+  const database = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
+  const tx = database.transaction('episodeProgress', 'readonly');
+  const row = await new Promise((resolve, reject) => { const r = tx.objectStore('episodeProgress').get(id); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error); });
+  database.close(); return row;
+}, replaySeed.id);
+if (replayAfter?.completed !== false || replayAfter?.position !== 0) fail('replaying a completed episode should clear completion and restart at the beginning');
+if (replayAfter?.heard !== replaySeed.heard || JSON.stringify(replayAfter?.listeningDays) !== JSON.stringify(replaySeed.listeningDays)) fail('replaying must preserve historical listening totals');
+await p.evaluate(() => { window.__a.currentTime = 40; window.__a.pause(); });
+await p.locator('.player button[aria-label="Play"]').waitFor();
 // 2. the pause button and close button say what they do
 const closeName = await p.locator('.player button[aria-label^="Stop and close"]').count();
 if (!closeName) fail('the close button should be named "Stop and close the player"');
