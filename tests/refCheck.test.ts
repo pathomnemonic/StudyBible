@@ -83,6 +83,21 @@ describe('semantic Scripture reference validation', () => {
     expect(r.reason).toMatch(/only the chapter range can be verified/i);
   });
 
+  it('uses intermediate target-chapter caveats when downgrading a known endpoint mismatch', () => {
+    const target = {
+      ...english,
+      id: 'fixture-kjv',
+      scheme: 'kjv',
+      verseCounts: { ...english.verseCounts, GEN: [...english.verseCounts.GEN] },
+    };
+    target.verseCounts.GEN[50] = 1; // force a one-verse endpoint mismatch in Genesis 51
+    const ref: Ref = { book: 'GEN', c1: 48, v1: 31, c2: 51, v2: 2 };
+    const result = resolveRef(anchor, target, ref, 'vulgate', anchor);
+    expect(result.status).toBe('approximate');
+    expect(result.native).toEqual({ book: 'GEN', c1: 48, c2: 51 });
+    expect(result.reason).toMatch(/only the verified chapter range/i);
+  });
+
   it('rejects unknown books, chapters and verses against real edition counts', () => {
     expect(checkRefIn(anchor, { book: 'NOPE', c1: 1, c2: 1 })).toMatchObject({ kind: 'invalid', scope: 'book' });
     expect(checkRefIn(anchor, { book: 'JHN', c1: 99, c2: 99 })).toMatchObject({ kind: 'invalid', scope: 'chapter' });
