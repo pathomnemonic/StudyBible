@@ -90,7 +90,15 @@ const TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'u
 
 export async function exportAll(): Promise<string> {
   const out: Record<string, unknown> = { format: 'studybible-export', version: 2, appExport: 'all-tables-and-settings', exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate', counts: {} as Record<string, number> };
-  for (const t of TABLES) { const rows = await (db as any)[t].toArray(); out[t] = rows; (out.counts as Record<string, number>)[t] = rows.length; }
+  // Read every exported table under one readonly transaction so a concurrent edit cannot produce
+  // a backup assembled from different points in time (for example, a note without its new folder).
+  await db.transaction('r', TABLES.map((t) => (db as any)[t]), async () => {
+    for (const t of TABLES) {
+      const rows = await (db as any)[t].toArray();
+      out[t] = rows;
+      (out.counts as Record<string, number>)[t] = rows.length;
+    }
+  });
   // reading and accessibility preferences live outside the database; include them so a restore feels the same
   try { const raw = localStorage.getItem(SETTINGS_KEY); if (raw) out.settings = JSON.parse(raw); } catch { /* storage unavailable */ }
   const local = collectLocal();
