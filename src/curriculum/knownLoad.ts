@@ -55,7 +55,9 @@ export type Loaders = Record<SourceName, () => Promise<unknown>>;
 function validSource(name: SourceName, value: unknown): boolean {
   if (!value || typeof value !== 'object') return false;
   if (name === 'tracks') return Array.isArray(value) && value.length > 0 && value.every((t) => !!t && typeof t.id === 'string' && Array.isArray(t.levels));
-  if (name === 'editions') return Array.isArray(value) && value.some((e) => e?.id === 'vulgate' && e.scheme === 'vulgate' && e.chapters && e.verseCounts);
+  if (name === 'editions') return Array.isArray(value) &&
+    value.some((e) => e?.id === 'vulgate' && e.scheme === 'vulgate' && e.chapters && e.verseCounts) &&
+    value.some((e) => e?.scheme === 'english' && e.chapters && e.verseCounts);
   if (name === 'chains') return !Array.isArray(value) && Object.keys(value).length > 0 && Object.values(value).every((rows) => Array.isArray(rows) && rows.every((r: any) => r && typeof r.id === 'string' && typeof r.title === 'string' && typeof r.to === 'string'));
   if (name === 'apologetics') return Array.isArray((value as any).topics) && (value as any).topics.every((r: any) => r && typeof r.id === 'string' && typeof r.title === 'string');
   if (name === 'library') return Array.isArray((value as any).works) && (value as any).works.every((r: any) => r && typeof r.id === 'string' && typeof r.title === 'string');
