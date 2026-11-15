@@ -26,14 +26,18 @@ await p.evaluate(() => {
   // all immediate notes reads so the Data Health follow-up scan deterministically receives an error.
   const proto = IDBDatabase.prototype, transaction = proto.transaction;
   let failReadsUntil = 0;
+  window.__dataHealthFault = { writes: 0, abortedReads: 0 };
   proto.transaction = function (...args) {
     const tx = transaction.apply(this, args);
     const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
     const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
     if (this.name === 'studybible' && names.includes('notes')) {
       if (mode === 'readwrite') {
-        tx.addEventListener('complete', () => { failReadsUntil = Date.now() + 2500; }, { once: true });
+        // Arm before Dexie's transaction promise can resolve and its caller starts the next scan.
+        window.__dataHealthFault.writes++;
+        failReadsUntil = Date.now() + 5000;
       } else if (Date.now() < failReadsUntil) {
+        window.__dataHealthFault.abortedReads++;
         try { tx.abort(); } catch { /* transaction may already have completed */ }
       }
     }
@@ -42,6 +46,7 @@ await p.evaluate(() => {
   window.__restoreDataHealthIDB = () => { proto.transaction = transaction; };
 });
 await p.getByRole('button', { name: 'Fix this' }).click();
+await p.waitForFunction(() => window.__dataHealthFault?.abortedReads > 0, null, { timeout: 5000 }).catch(() => fail('the repair fault injector did not abort the follow-up notes read'));
 await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor();
 if (await p.getByRole('button', { name: 'Fix this' }).count()) fail('stale repair actions must be cleared when the committed repair cannot be rechecked');
 await p.evaluate(() => window.__restoreDataHealthIDB());
@@ -77,14 +82,18 @@ await p.getByRole('button', { name: 'Restore' }).waitFor();
 await p.evaluate(() => {
   const proto = IDBDatabase.prototype, transaction = proto.transaction;
   let failReadsUntil = 0;
+  window.__dataHealthRestoreFault = { writes: 0, abortedReads: 0 };
   proto.transaction = function (...args) {
     const tx = transaction.apply(this, args);
     const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
     const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
     if (this.name === 'studybible' && names.includes('notes')) {
       if (mode === 'readwrite') {
-        tx.addEventListener('complete', () => { failReadsUntil = Date.now() + 2500; }, { once: true });
+        // Arm before Dexie's transaction promise can resolve and its caller starts the next scan.
+        window.__dataHealthRestoreFault.writes++;
+        failReadsUntil = Date.now() + 5000;
       } else if (Date.now() < failReadsUntil) {
+        window.__dataHealthRestoreFault.abortedReads++;
         try { tx.abort(); } catch { /* transaction may already have completed */ }
       }
     }
@@ -93,6 +102,7 @@ await p.evaluate(() => {
   window.__restoreDataHealthRestoreIDB = () => { proto.transaction = transaction; };
 });
 await p.getByRole('button', { name: 'Restore' }).click();
+await p.waitForFunction(() => window.__dataHealthRestoreFault?.abortedReads > 0, null, { timeout: 5000 }).catch(() => fail('the restore fault injector did not abort the follow-up notes read'));
 await p.getByRole('alert').filter({ hasText: 'Restore committed, but the check could not refresh' }).waitFor();
 if (await p.getByRole('button', { name: 'Restore' }).count()) fail('stale restore actions must be cleared after a committed restore with a failed refresh');
 await p.evaluate(() => window.__restoreDataHealthRestoreIDB());

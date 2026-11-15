@@ -108,7 +108,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     const onError = () => {
       // An error event from an earlier request can be queued after a replay begins. Ignore it
       // without consuming this request's listener; the current source may still fail afterward.
-      if (request !== playGeneration.current || (a as any)._ep?.id !== episodeId || a.getAttribute('src') !== src || !a.error) return;
+      let expectedSrc = src;
+      try { expectedSrc = new URL(src, document.baseURI).href; } catch { /* retain the original string for unusual local URLs */ }
+      const sourceMatches = a.getAttribute('src') === src || a.src === expectedSrc;
+      if (request !== playGeneration.current || (a as any)._ep?.id !== episodeId || !sourceMatches || !a.error) return;
       a.removeEventListener('error', onError);
       if (sourceErrorCleanup.current === cleanup) sourceErrorCleanup.current = null;
       setPlaying(false);
