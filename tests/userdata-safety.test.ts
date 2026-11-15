@@ -126,7 +126,8 @@ describe('your writing survives', () => {
       planProgress: [{ planId: 'plan-1', startedAt: 1, status: 'active', done: [0, 1, 2], offsetDays: 0, updatedAt: 80 }],
       libraryProgress: [{ workId: 'work-1', section: '1', scroll: 5, status: 'want', updatedAt: 20 }],
     };
-    await ops.importAll(JSON.stringify(backup), 'merge');
+    const imported = await ops.importAll(JSON.stringify(backup), 'merge');
+    expect(imported).toBe(2); // one new episode and one newer plan row; stale rows are not counted as imported
     expect(await db.episodeProgress.get('episode-old')).toMatchObject({ position: 90, heard: 140 });
     expect(await db.episodeProgress.get('episode-new')).toMatchObject({ position: 15, heard: 15 });
     expect(await db.planProgress.get('plan-1')).toMatchObject({ done: [0, 1, 2], updatedAt: 80 });
