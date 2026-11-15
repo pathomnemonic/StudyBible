@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { latestRequest } from '../../lib/latestRequest';
 import { Tip } from '../../components/Hints';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, type MemoryCard } from '../../db/db';
@@ -135,19 +136,20 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
   const ed = get(s.defaultEdition === 'vulgate' ? 'dra' : s.defaultEdition) ?? editions[0];
   const [queue, setQueue] = useState(cards.map((c) => c.id!));
   const cur = cards.find((c) => c.id === queue[0]);
+  const verseReq = useRef(latestRequest());
   const [verseText, setVerseText] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
   const [answers, setAnswers] = useState<string[]>([]);
   const [done, setDone] = useState(0);
   useEffect(() => {
-    // A reply for a card we have already moved past must not overwrite the card on screen: each run owns its own `live` flag.
-    let live = true;
+    // A reply for a card we have already moved past must not overwrite the card on screen: only the latest request may answer.
+    const ticket = verseReq.current.next();
     setRevealed(false);
     setAnswers([]);
     setVerseText(null);
     const r = cur && parseRefId(cur.ref);
-    if (r) passageText(ed, r, 8).then((vs) => { if (live) setVerseText(vs.map((v) => v.text).join(' ')); }, () => undefined);
-    return () => { live = false; };
+    if (r) passageText(ed, r, 8).then((vs) => { if (ticket.isCurrent()) setVerseText(vs.map((v) => v.text).join(' ')); }, () => undefined);
+    return () => verseReq.current.cancel();
   }, [cur?.id, ed.id]);
 
   const words = useMemo(() => (verseText ? verseText.split(/\s+/) : []), [verseText]);
