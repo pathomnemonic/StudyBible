@@ -392,6 +392,9 @@ export async function importCollections(json: string): Promise<{ added: number; 
   const validCollection = (raw: any): boolean =>
     !!raw && typeof raw === 'object' && !Array.isArray(raw) &&
     typeof raw.name === 'string' && raw.name.trim().length > 0 &&
+    (raw.description === undefined || typeof raw.description === 'string') &&
+    (raw.createdAt === undefined || (typeof raw.createdAt === 'number' && Number.isFinite(raw.createdAt))) &&
+    (raw.updatedAt === undefined || (typeof raw.updatedAt === 'number' && Number.isFinite(raw.updatedAt))) &&
     Array.isArray(raw.items) && raw.items.every(validTarget) &&
     (raw.tags === undefined || (Array.isArray(raw.tags) && raw.tags.every((tag: unknown) => typeof tag === 'string'))) &&
     (raw.done === undefined || (Array.isArray(raw.done) && raw.done.every((key: unknown) => typeof key === 'string'))) &&
