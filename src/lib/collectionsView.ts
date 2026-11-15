@@ -1,6 +1,6 @@
 /** Small pure helpers for the Collections list: search, a one-line summary and a copy. */
 import type { Collection, Target } from '../db/db';
-import { doneKeyMatches } from './collections';
+import { doneKeyMatches } from './collectionDone';
 
 const norm = (s: string) => s.toLowerCase().replace(/\s+/g, ' ').trim();
 
