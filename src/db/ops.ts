@@ -377,14 +377,14 @@ export async function importCollections(json: string): Promise<{ added: number; 
   const validTarget = (item: any): boolean => {
     if (!item || typeof item !== 'object' || Array.isArray(item)) return false;
     switch (item.type) {
-      case 'passage': return typeof item.ref === 'string';
+      case 'passage': return typeof item.ref === 'string' && !!parseRefId(item.ref);
       case 'commentary': return typeof item.itemId === 'string' && item.itemId.length > 0 && typeof item.label === 'string' && (item.url === undefined || isHttpUrl(item.url));
       case 'catechism': return Number.isInteger(item.para) && item.para > 0;
-      case 'work': return typeof item.workId === 'string' && typeof item.label === 'string';
-      case 'episode': return typeof item.episodeId === 'string' && typeof item.label === 'string';
+      case 'work': return typeof item.workId === 'string' && item.workId.length > 0 && typeof item.label === 'string';
+      case 'episode': return typeof item.episodeId === 'string' && item.episodeId.length > 0 && typeof item.label === 'string';
       case 'reading': return typeof item.date === 'string' && typeof item.label === 'string';
-      case 'topic': return typeof item.topicId === 'string' && typeof item.label === 'string';
-      case 'note': case 'highlight': case 'bookmark': return typeof item.uid === 'string';
+      case 'topic': return typeof item.topicId === 'string' && item.topicId.length > 0 && typeof item.label === 'string';
+      case 'note': case 'highlight': case 'bookmark': return typeof item.uid === 'string' && item.uid.trim().length > 0;
       case 'link': return (isHttpUrl(item.url) || isAppHashRoute(item.url)) && typeof item.label === 'string' && item.label.trim().length > 0;
       default: return false;
     }
