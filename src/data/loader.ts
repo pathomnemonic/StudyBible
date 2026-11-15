@@ -1,5 +1,6 @@
 import type { BookData, Edition, PlannedEdition, XrefFile } from '../lib/types';
 import { loadVersification, type VersificationData } from '../lib/versification';
+import { memoizePromise } from '../lib/promiseCache';
 
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const cache = new Map<string, Promise<any>>();
@@ -8,19 +9,26 @@ const cache = new Map<string, Promise<any>>();
 export function getJson<T>(path: string, optional = false): Promise<T | null> {
   let p = cache.get(path);
   if (!p) {
-    p = fetch(`${base}data/${path}`)
+    let request: Promise<T | null>;
+    request = fetch(`${base}data/${path}`)
       .then((r) => {
         if (!r.ok) {
-          if (optional || r.status === 404) return null;
+          if (optional) return null;
+          if (r.status === 404) {
+            // A missing required index is a failed lookup, not a successful cached empty result.
+            if (cache.get(path) === request) cache.delete(path);
+            return null;
+          }
           throw new Error(`${path}: HTTP ${r.status}`);
         }
         return r.json();
       })
       .catch((e) => {
-        cache.delete(path);
+        if (cache.get(path) === request) cache.delete(path);
         if (optional) return null;
         throw e;
       });
+    p = request;
     cache.set(path, p);
   }
   return p;
@@ -37,19 +45,15 @@ interface EditionsFile {
   planned: PlannedEdition[];
 }
 
-let editionsPromise: Promise<EditionsFile> | null = null;
+const loadEditionsCached = memoizePromise(async (): Promise<EditionsFile> => {
+  const [e, v] = await Promise.all([getJson<EditionsFile>('editions.json'), getJson<VersificationData>('versification.json')]);
+  if (!e || !v) throw new Error('Scripture data is missing. Run `npm run data:all`.');
+  loadVersification(v);
+  return e;
+});
 
 export function loadEditions(): Promise<EditionsFile> {
-  if (!editionsPromise) {
-    editionsPromise = Promise.all([getJson<EditionsFile>('editions.json'), getJson<VersificationData>('versification.json')]).then(
-      ([e, v]) => {
-        if (!e || !v) throw new Error('Scripture data is missing. Run `npm run data:all`.');
-        loadVersification(v);
-        return e;
-      },
-    );
-  }
-  return editionsPromise;
+  return loadEditionsCached();
 }
 
 export const getBookText = (edition: string, book: string) => getJson<BookData>(`bible/${edition}/${book}.json`) as Promise<BookData>;
