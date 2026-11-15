@@ -314,3 +314,37 @@ Current source/test head: `3aefdae67df4f229588a145a0c1fb29c055c403b`.
 6. Keep PR #11 open, draft, and unmerged.
 
 The audit reduces known risks but cannot prove the absence of every possible defect. No zero-bug or complete-runtime-verification claim is made.
+
+
+## Fifth audit checkpoint — sleep timer and latest typecheck corrections — 2026-11-15
+
+This checkpoint supersedes the fourth section's queued-run status.
+
+### Additional fixes
+
+- Run #1204 on `965091aaf5ec1faf683c3b55a685faa49b99c53f` completed `npm ci` and failed `npm run typecheck` on two issues:
+  - `src/lib/listening.ts` dereferenced the optional legacy progress row while calculating undated totals.
+  - `tests/collectionsView.test.ts` widened the target discriminator to `string`.
+- Fixed the legacy migration with an explicit optional-safe ledger/total calculation in `3cb00c8cd92c13263bc457b9fcadfc575c22c7fb`.
+- Fixed the test fixture's literal target type in `7a28c164c007a4f1e342b99f5f50240347634bcc`.
+- A further playback audit found that a minute-based sleep timer could pause the active source while leaving an in-flight source lookup valid; that lookup could subsequently start playback after the timer expired. The timer now invalidates the current playback generation before pausing, in `b7d47c924e9f766f5936c8f820174eedc9c9076b`; `d6732f5279fa39b2307d17dec6f58c9ef04c42f7` adds a pending-source regression test.
+
+### Current verification status
+
+Current code/test head: `d6732f5279fa39b2307d17dec6f58c9ef04c42f7`.
+
+- Run #1204: `npm ci` passed; typecheck failed with the two issues above; later corrected. Unit tests and all downstream gates were skipped.
+- Run #1211 (push) and #1212 (pull request) for the corrected head were queued when this checkpoint was written. Neither had completed. No current-head typecheck, unit-test, build, audit, browser, accounts/sync, or full-width pass is claimed.
+- The latest full-gate verification still does not extend beyond run #1031 on intermediate commit `d919132`.
+- The dedicated full-width workflow remains undispatched/unverified; the CI `sweep-full` job is also unverified on the current head.
+
+### Next actions
+
+1. Get a completed fast job on `d6732f5279fa39b2307d17dec6f58c9ef04c42f7`; inspect logs and fix any further typecheck or test failures.
+2. Verify the entire fast gate: install, typecheck, reference-index regeneration, unit tests, docs status, data validation, build, budget and `node scripts/audit-gate.mjs`.
+3. Verify the three browser release shards, accounts/sync, and the full-width sweep on the same final code head.
+4. Verify the dedicated full-width workflow if it can be dispatched; otherwise retain an explicit unverified status.
+5. Perform another independent audit after runtime results and complete the test-results table with actual run IDs, conclusions and exact tested SHA.
+6. Keep PR #11 open, draft and unmerged.
+
+The source-level audit has found and corrected additional defects, but no assertion of zero bugs or complete runtime verification is justified until the required checks execute and pass.
