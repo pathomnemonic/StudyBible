@@ -187,7 +187,8 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
               return Number.isFinite(date) ? date : 0;
             };
             if (mode === 'replace' || !current || revision(rec) > revision(current)) {
-              rec.uid ??= String(key);
+              // Keyed sync identity is the natural primary key; never trust a stale or mismatched exported uid.
+              rec.uid = String(key);
               rec.updatedAt ??= Date.now();
               await table.put(rec);
             }
