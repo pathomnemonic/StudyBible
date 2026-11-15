@@ -415,9 +415,15 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         if (!a.paused) { (a as any)._switchPause = true; a.pause(); }
         void savePlaybackRef.current?.();
         setError(null);
+        // A stopped source may leave a queued error event and its native MediaError on the
+        // reusable element. Remove the old listener and reset the media resource before a
+        // later play binds a new request (including replaying the same meditation URL).
+        sourceErrorCleanup.current?.();
+        sourceErrorCleanup.current = null;
         (audio.current as any)._ep = undefined;
         (audio.current as any)._playGeneration = undefined;
         audio.current!.removeAttribute('src');
+        audio.current!.load();
         setCurrent(null);
         db.cache.delete('player:last').catch(() => undefined);
       },

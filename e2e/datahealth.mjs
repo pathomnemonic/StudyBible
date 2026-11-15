@@ -8,34 +8,33 @@ await ctx.addInitScript(() => {
   localStorage.setItem('sb:tour', '1');
   localStorage.setItem('sb:setup', '2');
   localStorage.setItem('sb:audienceAsked', '1');
-  // Install before Dexie opens the database; it may retain the native transaction method.
-  const proto = IDBDatabase.prototype;
-  const marker = '__studyBibleDataHealthFaultInstalled';
-  if (!proto[marker]) {
-    const original = proto.transaction;
-    Object.defineProperty(proto, marker, { value: true });
-    proto.transaction = function (...args) {
-      const tx = original.apply(this, args);
-      const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
-      const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
-      const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
-      if (state?.enabled && this.name === 'studybible' && names.includes('notes')) {
-        if (mode === 'readwrite') {
-          state.writes++;
-          // Arm only after the selected mutation has actually committed.
-          tx.addEventListener('complete', () => { if (state.enabled) state.armed = true; });
-        }
-      }
-      return tx;
-    };
-  }
-
-  // Dexie Table.toArray() uses IDBObjectStore.getAll() where supported and openCursor() as fallback.
-  // Abort after the notes read request is queued, and stay armed until the test sees the failed refresh.
+  // Observe successful notes writes at the object-store boundary. This covers both
+  // Dexie Table.update() (put) and restoreFromTrash() (add), then arms only after commit.
   const storeProto = IDBObjectStore.prototype;
   const storeMarker = '__studyBibleDataHealthReadFaultInstalled';
   if (!storeProto[storeMarker]) {
     Object.defineProperty(storeProto, storeMarker, { value: true });
+    for (const method of ['add', 'put']) {
+      const originalWrite = storeProto[method];
+      if (typeof originalWrite !== 'function') continue;
+      storeProto[method] = function (...args) {
+        const request = originalWrite.apply(this, args);
+        const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
+        const tx = this.transaction;
+        if (state?.enabled && tx.db.name === 'studybible' && tx.mode === 'readwrite' && this.name === 'notes') {
+          request.addEventListener('success', () => {
+            // A successful request is not enough: arm only once the containing transaction commits.
+            tx.addEventListener('complete', () => {
+              if (state.enabled) { state.writes++; state.armed = true; }
+            }, { once: true });
+          }, { once: true });
+        }
+        return request;
+      };
+    }
+
+    // Dexie Table.toArray() uses IDBObjectStore.getAll() where supported and openCursor() as fallback.
+    // Abort after the notes read request is queued, and stay armed until the test sees the failed refresh.
     for (const method of ['getAll', 'openCursor']) {
       const originalRead = storeProto[method];
       if (typeof originalRead !== 'function') continue;

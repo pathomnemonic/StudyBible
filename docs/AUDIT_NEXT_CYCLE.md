@@ -403,3 +403,25 @@ PR #11 remains open, draft, and unmerged. Authored fixes require fresh CI verifi
 Before the next browser run began, source review caught that the new `startMeditate()` helper's metadata wait also applied to the intentional failed-stream scenario. A failed stream cannot provide metadata, so the helper now waits for an active `med:` source/generation in every case and waits for duration metadata only when `mode === 'ok'`. The regression's failure alert and Retry assertions remain required.
 
 The #1302 workflow run ID in the preceding table is corrected to `43689967257`.
+
+
+## Eighth audit checkpoint — CI #1306 browser results and corrective work — 2026-11-15
+
+Run #1306 (`43693150610`) tested head `ca75b50ed09ba0d23d237d93b8083fcc8e007237`.
+
+| Job | Result |
+|---|---|
+| `fast` | Passed install, typecheck, exact-reference index generation, unit tests, docs checks, data validation, build, budget and production dependency audit |
+| `secrets` | Passed |
+| `accounts` | Passed |
+| `browser (1/3)` | Failed only in the restore phase of `e2e/datahealth.mjs`: its write detector did not arm for the restored notes row |
+| `browser (2/3)` | Failed only in `e2e/mediacontrols.mjs` at the second synthetic source-error assertion; the other 16 checks passed |
+| `browser (3/3)` | Passed all 17 checks, including the 496-screen fast sweep |
+| `sweep-full` | Passed all 2,480 screens (248 routes × 10 sizes): 4,185 folds, 256 tab rows, 1,036 tabs, 45,720 first-party requests checked, zero failed clicks |
+
+### Corrective changes prepared after #1306
+
+- Data Health's E2E fault injector now observes notes writes at the IndexedDB object-store boundary. It handles both `put` (repair) and `add` (restore), and only arms the follow-up read fault after the write request and containing transaction both succeed. The regression still requires a successfully aborted read in both phases.
+- The player stop path now removes its source-error listener, clears the old source identity, removes the source and calls `load()` to reset the reusable media element. This prevents an old queued error/native MediaError from being mistaken for a later request when replaying the same meditation URL. The existing same-source retry and position-flush assertions remain enabled.
+
+Run #1306 concluded failure because browser shards 1/3 and 2/3 failed; the full-width sweep passed. The source fixes require a new full CI run on the pushed head. Cancelled or superseded runs are not passes. PR #11 remains open, draft, and unmerged.
