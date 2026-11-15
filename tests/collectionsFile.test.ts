@@ -70,6 +70,19 @@ describe('collections to a file and back', () => {
     expect(m.tags).toEqual(['mass', 'Lent']);
   });
 
+  it('rejects a malformed collection before importing its pointed-at records', async () => {
+    const ops = await import('../src/db/ops');
+    const { db } = await import('../src/db/db');
+    const malformed = {
+      format: 'studybible-export', version: 2,
+      notes: [{ kind: 'note', body: 'must not partially import', tags: [], targets: [], chapterKeys: [], createdAt: 1, updatedAt: 1, uid: 'partial-note' }],
+      collections: [null],
+    };
+    await expect(ops.importCollections(JSON.stringify(malformed))).rejects.toThrow(/file is damaged.*nothing was imported/i);
+    expect(await db.notes.count()).toBe(0);
+    expect(await db.collections.count()).toBe(0);
+  });
+
   it('refuses to be used as a replace-everything restore, and rejects other files', async () => {
     await seed();
     const ops = await import('../src/db/ops');
