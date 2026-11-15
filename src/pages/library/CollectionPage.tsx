@@ -9,7 +9,8 @@ import { db, newUid, type Collection, type Target } from '../../db/db';
 import { useEditions } from '../../data/EditionsContext';
 import { useSettings } from '../../lib/store';
 import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
-import { convertRef } from '../../lib/versification';
+import { pooledCounts, resolveRef } from '../../lib/refCheck';
+import { validateAnchorPlanReferences } from '../../lib/planReferences';
 import { collectionHtml, collectionMarkdown, moveItem, resolveAll, type Resolved } from '../../lib/collections';
 import { download, exportCollections } from '../../db/ops';
 import { restoreFromTrash, trashedFor } from '../../lib/trash';
@@ -66,7 +67,21 @@ export default function CollectionPage() {
   const addPassage = async () => {
     const p = parseRefs(pass);
     if (!p.ok) { setMsg('Check the passage, for example John 6:51-58.'); return; }
-    await add({ type: 'passage', ref: refId(convertRef('kjv', 'vulgate', p.refs[0].ref).ref) });
+    const source = pooledCounts(editions, 'english');
+    const anchor = editions.find((e) => e.id === 'vulgate');
+    if (!source || !anchor) { setMsg('Passage numbering cannot be checked yet because the source or canonical Vulgate counts are unavailable. Nothing was added.'); return; }
+    const targets: Target[] = [];
+    for (const item of p.refs) {
+      const resolved = resolveRef(source, anchor, item.ref, 'kjv', anchor);
+      if (resolved.status !== 'exact' || !resolved.anchor) {
+        setMsg(`${formatRef(item.ref)} uses English/KJV numbering and has no exact, verified Vulgate anchor. Nothing was added; choose a verified passage instead.`);
+        return;
+      }
+      const target: Target = { type: 'passage', ref: refId(resolved.anchor) };
+      if (!c?.items.some((x) => sameValue(x, target)) && !targets.some((x) => sameValue(x, target))) targets.push(target);
+    }
+    if (!targets.length) setMsg('Those passages are already in this collection.');
+    else { await save({ items: [...(c?.items ?? []), ...targets] }); setMsg('Added verified passage references.'); }
     setPass('');
   };
   const addQuestion = async () => {
@@ -84,7 +99,16 @@ export default function CollectionPage() {
   const exportMd = () => download(`${base(c.name)}.md`, collectionMarkdown(c, items), 'text/markdown');
   const exportFile = async () => download(`${base(c.name)}.collection.json`, await exportCollections([c.id!]));
   const exportHtml = () => download(`${base(c.name)}.html`, collectionHtml(c, items), 'text/html');
-  const makePlan = async () => { const days = planDaysFromCollection(c); const id = await db.userPlans.add({ name: c.name, description: c.description, days, createdAt: Date.now() } as never); nav(`/pray/plans/${encodeURIComponent('user:' + id)}`); };
+  const makePlan = async () => {
+    const passages = c.items.filter((x): x is Extract<Target, { type: 'passage' }> => x.type === 'passage');
+    const refs = passages.map((x) => parseRefId(x.ref)).filter((x): x is NonNullable<typeof x> => !!x);
+    if (refs.length !== passages.length) { setMsg('This collection contains a passage reference that cannot be parsed. Fix it before creating a reading plan.'); return; }
+    const checked = validateAnchorPlanReferences(refs, editions);
+    if (!checked.ok) { setMsg(`This collection cannot become a reading plan yet: ${checked.reason} Nothing was saved.`); return; }
+    const days = planDaysFromCollection(c);
+    const id = await db.userPlans.add({ name: c.name, description: c.description, days, createdAt: Date.now() } as never);
+    nav(`/pray/plans/${encodeURIComponent('user:' + id)}`);
+  };
   const exportPdf = () => { const w = window.open('', '_blank'); if (!w) { setMsg('Your browser blocked the print window. Allow pop-ups for this site and try again.'); return; } w.document.write(collectionHtml(c, items)); w.document.close(); w.focus(); setTimeout(() => w.print(), 400); };
 
   return (
