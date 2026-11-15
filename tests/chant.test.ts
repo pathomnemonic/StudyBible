@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 // @ts-expect-error plain .mjs shared with the build scripts
 import { align, reviewEntry, sha256, sungWords, words } from '../scripts/chant/compare.mjs';
 
-const chant = JSON.parse(readFileSync('public/data/hymns/chant.json', 'utf8')) as { about: string; items: { hymnId: string; gregobaseId: number; name: string; book: string; transcriber: string; gabc: string }[] };
+const chant = JSON.parse(readFileSync('public/data/hymns/chant.json', 'utf8')) as { about: string; items: { hymnId: string; gregobaseId: number; name: string; book: string; transcriber: string; mode: string; officePart: string; gabc: string }[] };
 const hymns = (JSON.parse(readFileSync('public/data/hymns/hymns.json', 'utf8')) as { hymns: { id: string; latin: { text: string[] } | null }[] }).hymns;
 
 const norm = (s: string) => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/æ/g, 'ae').replace(/œ/g, 'oe').replace(/v/g, 'u').replace(/j/g, 'i').match(/[a-z]+/g) ?? [];
@@ -98,7 +98,7 @@ describe('chant scores: ordered comparison with the hymn text', () => {
     it('the same words in the wrong order pass membership but fail ordering', () => {
       const shuffled = [...hymn].reverse();
       const sung = sungWords(`h\n%%\n(c4) ${shuffled.join('(f) ')}(f)`);
-      expect(sung.filter((w) => hymn.includes(w)).length / sung.length).toBe(1); // what the old test measured
+      expect(sung.filter((w: string) => hymn.includes(w)).length / sung.length).toBe(1); // what the old test measured
       expect(align(sung, hymn).ordered).toBeLessThan(0.5);
     });
     it('a truncated score is reported as missing the tail', () => {

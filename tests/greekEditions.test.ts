@@ -64,10 +64,10 @@ describe('Greek edition notes: pinned source and numbering', () => {
   });
   it('the check itself fails on a verse past the end of its chapter', () => {
     const last = english.verseCounts.MAT[5];
-    expect(outOfRange('MAT', [{ c: 6, v: last, note: 'x' }])).toEqual([]);
-    expect(outOfRange('MAT', [{ c: 6, v: last + 1, note: 'x' }])).toHaveLength(1);
-    expect(outOfRange('MAT', [{ c: 99, v: 1, note: 'x' }])).toHaveLength(1);
-    expect(outOfRange('MAT', [{ c: 6, v: 0, note: 'x' }])).toHaveLength(1);
+    expect(outOfRange('MAT', [{ c: 6, v: last }])).toEqual([]);
+    expect(outOfRange('MAT', [{ c: 6, v: last + 1 }])).toHaveLength(1);
+    expect(outOfRange('MAT', [{ c: 99, v: 1 }])).toHaveLength(1);
+    expect(outOfRange('MAT', [{ c: 6, v: 0 }])).toHaveLength(1);
   });
   it('attribution is kept and source-authored notes are told apart from the app\'s own tagging', () => {
     for (const f of files) {
