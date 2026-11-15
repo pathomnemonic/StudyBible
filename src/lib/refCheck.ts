@@ -121,8 +121,13 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   let numbering: string | undefined;
   const bad = checkRefIn(source, ref);
   const knownAlignment = Boolean(chapterAlignmentNote(sourceScheme, ref.book, ref.c1) || chapterAlignmentNote(sourceScheme, ref.book, ref.c2));
+  const verseEndpoints = [{ chapter: ref.c1, verse: ref.v1 }, { chapter: ref.c2, verse: ref.v2 }].filter((x): x is { chapter: number; verse: number } => x.verse !== undefined);
+  const withinOneVerseOverrun = verseEndpoints.length > 0 && verseEndpoints.every(({ chapter, verse }) => {
+    const max = source.verseCounts?.[ref.book]?.[chapter - 1];
+    return max !== undefined && verse >= 1 && verse <= max + 1;
+  });
   if (bad) {
-    const known = bad.scope === 'verse' && knownAlignment;
+    const known = bad.scope === 'verse' && knownAlignment && withinOneVerseOverrun;
     if (!known || !anchorEd) return { ...base, status: bad.kind === 'absent' ? 'absent' : 'invalid', reason: bad.reason };
     const anchorIssue = checkRefIn(anchorEd, anchor);
     if (anchorIssue) {
@@ -135,8 +140,8 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
       numbering = `${nameOf(ref.book)} is numbered differently in different traditions: ${bad.reason}, but this passage exists in the Vulgate numbering`;
     }
   }
-  // If the source is valid but a static conversion points to a missing anchor verse, retain only
-  // the verified chapter range as an explicit approximation.
+  // If a known one-verse numbering overrun or a static conversion points to a missing anchor verse,
+  // retain only the verified chapter range as an explicit approximation.
   if (!bad && anchorEd) {
     const anchorIssue = checkRefIn(anchorEd, anchor);
     if (anchorIssue) {
