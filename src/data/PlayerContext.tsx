@@ -173,10 +173,10 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       if (!a.ended && !manualEnd) return; // ignore a queued ended event from the source that was just replaced
       // Queue lookup and episode loading are asynchronous too. They must not outlive a newer
       // user selection and start an old queued episode over the top of it.
-      const request = playGeneration.current;
+      const request = (a as any)._playGeneration as number | undefined;
       const was = (a as any)._ep as BiayEpisode | undefined;
       await save(true);
-      if (request !== playGeneration.current || (a as any)._ep?.id !== was?.id) return;
+      if (request === undefined || request !== playGeneration.current || (a as any)._ep?.id !== was?.id) return;
       if (sleepRef.current.mode === 'end') { setSleepState({ mode: 'off', left: 0 }); return; }
       if (was && showSetting(showKeyOf(was.id), 'manual')) return;
       // advance through the personal queue, retaining the ended episode identity throughout.
@@ -234,6 +234,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     const a = audio.current!;
     const previous = (a as any)._ep as BiayEpisode | undefined;
     const same = previous?.id === e.id;
+    if (same) (a as any)._playGeneration = request;
     if (!same && !a.paused) {
       (a as any)._switchPause = true;
       a.pause();
@@ -256,6 +257,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const skip = showSetting(showKeyOf(e.id), 'skip');
       const at = startAt ?? (prog && !prog.completed && prog.position > 0 ? prog.position : skip);
       (a as any)._ep = e;
+      (a as any)._playGeneration = request;
       (a as any)._outroDone = false;
       (a as any)._manualEnded = false;
       bindSourceError(a, request, e.id, url);
@@ -347,6 +349,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         void savePlaybackRef.current?.();
         setError(null);
         (audio.current as any)._ep = undefined;
+        (audio.current as any)._playGeneration = undefined;
         audio.current!.removeAttribute('src');
         setCurrent(null);
         db.cache.delete('player:last').catch(() => undefined);
