@@ -1,4 +1,9 @@
 name: CI
+
+# Keep stale PR commits from occupying browser/sweep runners after a newer push.
+concurrency:
+  group: studybible-ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 on:
   push:
   pull_request:
