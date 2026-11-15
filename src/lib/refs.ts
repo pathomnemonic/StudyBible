@@ -64,7 +64,8 @@ function formatRefPlain(r: Ref, opts: { abbr?: boolean; name?: string } = {}): s
   const name = opts.name ?? (opts.abbr ? b.abbr : b.name);
   const single = b.chapters === 1;
   if (r.v1 === undefined) {
-    return r.c2 === r.c1 ? `${name} ${r.c1}` : `${name} ${r.c1}–${r.c2}`;
+    if (r.c2 === r.c1) return r.v2 === undefined ? `${name} ${r.c1}` : `${name} ${r.c1}:1–${r.v2}`;
+    return `${name} ${r.c1}–${r.c2}${r.v2 === undefined ? '' : `:${r.v2}`}`;
   }
   if (single) {
     // Single-chapter books: "Jude 5–7".
