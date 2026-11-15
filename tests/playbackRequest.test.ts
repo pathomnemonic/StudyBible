@@ -50,6 +50,18 @@ describe('playback request race protection', () => {
     await expect(result).resolves.toBeNull();
   });
 
+  it('does not adopt a newer pending request as the ended source generation', async () => {
+    let requestedGeneration = 0;
+    const activeSourceGeneration = requestedGeneration;
+    requestedGeneration++; // episode B is requested, but its source lookup has not resolved
+    const queue = await resolveIfCurrent(
+      activeSourceGeneration,
+      () => requestedGeneration,
+      async () => ['stale-queued-episode'],
+    );
+    expect(queue).toBeNull();
+  });
+
   it('does not advance an ended episode queue over a newer user selection', async () => {
     let generation = 0;
     const pendingQueue = deferred<string[]>();
