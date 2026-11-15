@@ -65,6 +65,19 @@ describe('your writing survives', () => {
     expect(await db.libraryProgress.get('work-1')).toMatchObject({ section: '3', scroll: 60, status: 'reading' });
   });
 
+  it('tombstones keyed progress omitted by a replace restore so sync cannot resurrect it', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    await db.episodeProgress.put({ episodeId: 'episode-removed', position: 90, completed: false, heard: 140, updatedAt: 50 } as never);
+    await db.planProgress.put({ planId: 'plan-removed', startedAt: 1, status: 'active', done: [0], offsetDays: 0, updatedAt: 50 } as never);
+    const backup = JSON.stringify({ format: 'studybible-export', version: 2, notes: [] });
+    await ops.importAll(backup, 'replace');
+    expect(await db.episodeProgress.get('episode-removed')).toBeUndefined();
+    expect(await db.planProgress.get('plan-removed')).toBeUndefined();
+    expect(await db.tombs.filter((row) => row.tbl === 'episodeProgress' && row.uid === 'episode-removed').count()).toBe(1);
+    expect(await db.tombs.filter((row) => row.tbl === 'planProgress' && row.uid === 'plan-removed').count()).toBe(1);
+  });
+
   it('refuses an oversized file before opening it', async () => {
     const ops = await import('../src/db/ops');
     await expect(ops.importAll('x'.repeat(ops.MAX_IMPORT_CHARS + 1), 'replace')).rejects.toThrow(/far larger/);
