@@ -14,7 +14,11 @@ await ctx.addInitScript(() => {
   // Arm from the real notes write transaction and fail the first notes read transaction
   // after it commits. The database boundary catches every IndexedDB read strategy Dexie uses.
   const failNextNotesRead = (tx, state) => {
-    if (!state?.enabled || !state.armed || state.readRequests > 0) return;
+    if (!state?.enabled || state.readRequests > 0) return;
+    if (!state.armed) {
+      state.notesReadsBeforeArm = (state.notesReadsBeforeArm ?? 0) + 1;
+      return;
+    }
     state.readRequests = (state.readRequests ?? 0) + 1;
     try {
       tx.abort();
@@ -69,6 +73,30 @@ await ctx.addInitScript(() => {
       }
       return store;
     };
+
+  // Arm the read fault after the actual notes write request succeeds, not after
+  // the transaction's completion event. Dexie can start its follow-up scan before
+  // the completion listener runs, so event-only arming misses that read.
+  const storeProto = IDBObjectStore.prototype;
+  const storeMarker = '__studyBibleDataHealthStoreWriteFaultInstalled';
+  if (!storeProto[storeMarker]) {
+    Object.defineProperty(storeProto, storeMarker, { value: true });
+    for (const method of ['put', 'add']) {
+      const original = storeProto[method];
+      storeProto[method] = function (...args) {
+        const request = original.apply(this, args);
+        const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
+        if (state?.enabled && this.name === 'notes' && this.transaction?.db?.name === 'studybible' &&
+            this.transaction.mode === 'readwrite') {
+          state.noteWriteRequests = (state.noteWriteRequests ?? 0) + 1;
+          request.addEventListener('success', () => {
+            if (state.enabled) state.armed = true;
+          }, { once: true });
+        }
+        return request;
+      };
+    }
+  }
   }
 });
 const p = await ctx.newPage(); p.setDefaultTimeout(20000);
