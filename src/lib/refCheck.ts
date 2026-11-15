@@ -145,7 +145,12 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   if (!bad && anchorEd) {
     const anchorIssue = checkRefIn(anchorEd, anchor);
     if (anchorIssue) {
-      const known = anchorIssue.scope === 'verse' && knownAlignment;
+      const anchorEndpoints = [{ chapter: anchor.c1, verse: anchor.v1 }, { chapter: anchor.c2, verse: anchor.v2 }].filter((x): x is { chapter: number; verse: number } => x.verse !== undefined);
+      const withinOneAnchorOverrun = anchorEndpoints.length > 0 && anchorEndpoints.every(({ chapter, verse }) => {
+        const max = anchorEd.verseCounts?.[anchor.book]?.[chapter - 1];
+        return max !== undefined && verse >= 1 && verse <= max + 1;
+      });
+      const known = anchorIssue.scope === 'verse' && knownAlignment && withinOneAnchorOverrun;
       const chapterOnly: Ref = { book: anchor.book, c1: anchor.c1, c2: anchor.c2 };
       const chapterIssue = checkRefIn(anchorEd, chapterOnly);
       if (!known || chapterIssue) return { ...base, status: anchorIssue.kind === 'absent' ? 'absent' : 'invalid', anchor, reason: `canonical Vulgate anchor: ${anchorIssue.reason}` };
