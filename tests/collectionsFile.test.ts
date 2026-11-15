@@ -70,6 +70,21 @@ describe('collections to a file and back', () => {
     expect(m.tags).toEqual(['mass', 'Lent']);
   });
 
+  it('stops a collection import when its safety copy cannot be written', async () => {
+    const ops = await import('../src/db/ops');
+    const { db } = await import('../src/db/db');
+    await db.notes.add({ kind: 'note', body: 'existing', tags: [], targets: [], chapterKeys: [], createdAt: 1, updatedAt: 1, uid: 'existing' } as never);
+    vi.spyOn(db.cache, 'put').mockRejectedValue(new Error('snapshot storage failed'));
+    const file = {
+      format: 'studybible-export', version: 2,
+      notes: [{ kind: 'note', body: 'must not import', tags: [], targets: [], chapterKeys: [], createdAt: 2, updatedAt: 2, uid: 'incoming' }],
+      collections: [{ name: 'Incoming', items: [] }],
+    };
+    await expect(ops.importCollections(JSON.stringify(file))).rejects.toThrow(/safety copy could not be made.*nothing was imported/i);
+    expect(await db.notes.where('uid').equals('incoming').count()).toBe(0);
+    expect(await db.collections.count()).toBe(0);
+  });
+
   it('rolls back pointed-at records if a collection write fails', async () => {
     const ops = await import('../src/db/ops');
     const { db } = await import('../src/db/db');
