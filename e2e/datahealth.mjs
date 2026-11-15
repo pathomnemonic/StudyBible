@@ -20,6 +20,9 @@ await ctx.addInitScript(() => {
       return;
     }
     state.readRequests = (state.readRequests ?? 0) + 1;
+    state.readFaultMode = tx.mode;
+    state.readFaultStores = Array.from(tx.objectStoreNames ?? []);
+    state.readFaultStack = new Error('Data Health test read fault call site').stack;
     try {
       tx.abort();
       state.abortedReads++;
@@ -117,7 +120,7 @@ await p.getByRole('button', { name: 'Fix this' }).waitFor();
 await p.evaluate(() => { window.__dataHealthFault = { enabled: true, armed: false, writes: 0, notesTransactions: 0, readRequests: 0, abortedReads: 0, abortFailures: 0 }; });
 await p.getByRole('button', { name: 'Fix this' }).click();
 await p.waitForFunction(() => window.__dataHealthFault?.writes > 0 && window.__dataHealthFault?.abortedReads > 0, null, { timeout: 5000 }).catch(async () => fail('the repair fault injector did not abort the follow-up notes read: ' + JSON.stringify(await p.evaluate(() => window.__dataHealthFault))));
-await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor();
+await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor().catch(async () => fail('the repair refresh did not show the committed-repair alert: ' + JSON.stringify(await p.evaluate(() => ({ fault: window.__dataHealthFault, alerts: [...document.querySelectorAll('[role="alert"]')].map((el) => el.textContent), tail: document.body.innerText.slice(-1200) })))));
 if (await p.getByRole('button', { name: 'Fix this' }).count()) fail('stale repair actions must be cleared when the committed repair cannot be rechecked');
 if (await p.getByText(/Everything found/).count()) fail('stale findings must be cleared when the committed repair cannot be rechecked');
 await p.evaluate(() => { window.__dataHealthFault.enabled = false; window.__dataHealthFault.armed = false; });
