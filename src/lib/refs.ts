@@ -26,6 +26,7 @@ export function parseVid(id: string): { book: string; c: number; v: number } | n
 /** Stable passage identifier, e.g. `JHN.6.51-58`, `GEN.1.1-2.3`, `PSA.22`. */
 export function refId(r: Ref): string {
   const a = r.v1 === undefined ? `${r.book}.${r.c1}` : `${r.book}.${r.c1}.${r.v1}`;
+  if (r.c1 === r.c2 && r.v1 === undefined && r.v2 !== undefined) return `${r.book}.${r.c1}.1${r.v2 === 1 ? '' : '-' + r.v2}`;
   if (r.c1 === r.c2 && r.v1 === r.v2) return a;
   if (r.c1 === r.c2 && r.v1 !== undefined && r.v2 !== undefined) return `${a}-${r.v2}`;
   if (r.v2 === undefined) return `${a}-${r.c2}`;
