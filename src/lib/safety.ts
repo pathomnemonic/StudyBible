@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { db } from '../db/db';
+import { AUTO_TABLES, KEYED_TABLES, db } from '../db/db';
 import { download, exportAll, importAll } from '../db/ops';
 import { localDataCount } from '../sync/engine';
 import { BRAND } from './brand';
@@ -95,15 +95,19 @@ export async function backupStatus(signedIn: boolean): Promise<BackupStatus> {
   const s = getSettings();
   const items = await localDataCount();
   const outside = Math.max(s.lastFileBackup || 0, s.drive.lastOk || 0);
-  const after = (t: { where: (k: string) => { above: (n: number) => { count: () => Promise<number> } } }) => t.where('updatedAt').above(outside).count();
-  // Highlights do carry updatedAt, but that field is not indexed in their Dexie schema.
-  // Querying it with where() throws and was silently counted as zero by the catch below.
-  const highlightChanges = db.highlights.toArray()
-    .then((rows) => rows.filter((row) => (row.updatedAt ?? row.createdAt) > outside).length)
-    .catch(() => 0);
-  const changedSince = items
-    ? (await Promise.all([after(db.notes).catch(() => 0), highlightChanges, after(db.journal).catch(() => 0)])).reduce((a, b) => a + b, 0)
-    : 0;
+  // Count every table included in the local-data total and export. Several tables (including highlights,
+  // bookmarks and keyed progress) do not index updatedAt, so an indexed where() query silently undercounts them.
+  const changedCounts = items ? await Promise.all(
+    [...AUTO_TABLES, ...Object.keys(KEYED_TABLES)].map(async (name) => {
+      const rows = await db.table(name).toArray();
+      return rows.filter((row: any) => {
+        const revision = row.updatedAt ?? row.createdAt ?? row.startedAt ?? row.ts ??
+          (typeof row.date === 'string' ? Date.parse(row.date) : 0);
+        return typeof revision === 'number' && Number.isFinite(revision) && revision > outside;
+      }).length;
+    }),
+  ) : [];
+  const changedSince = changedCounts.reduce((a, b) => a + b, 0);
   const snaps = await listSnapshots().catch(() => [] as Snapshot[]);
   return { items, changedSince, fileAt: s.lastFileBackup || 0, driveAt: s.drive.lastOk || 0, driveConnected: s.drive.connected, driveError: s.drive.lastError, accountSync: signedIn, snapshotAt: snaps[0]?.at ?? 0, snapshots: snaps.length };
 }
