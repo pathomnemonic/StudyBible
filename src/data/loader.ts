@@ -13,15 +13,17 @@ export function getJson<T>(path: string, optional = false): Promise<T | null> {
     request = fetch(`${base}data/${path}`)
       .then((r) => {
         if (!r.ok) {
-          if (optional) return null;
-          if (r.status === 404) {
-            // A missing required index is a failed lookup, not a successful cached empty result.
+          if (optional || r.status === 404) {
+            // Missing/optional data is not a successful cache entry: a later retry must fetch again.
             if (cache.get(path) === request) cache.delete(path);
-            return null;
+            if (optional || r.status === 404) return null;
           }
           throw new Error(`${path}: HTTP ${r.status}`);
         }
-        return r.json();
+        return r.json().then((value) => {
+          if (value == null && cache.get(path) === request) cache.delete(path);
+          return value;
+        });
       })
       .catch((e) => {
         if (cache.get(path) === request) cache.delete(path);
