@@ -94,6 +94,32 @@ if (!/could not be played/.test(await p.locator('.player-msg').innerText())) fai
 mode = 'ok';
 await p.locator('.player-msg button:has-text("Try again")').click();
 await p.waitForFunction(() => !document.querySelector('.player-msg') && !window.__a.paused, null, { timeout: 15000 }).catch(() => fail('Try again should recover once the stream is back'));
+// 8b. retry flushes the active audio element's position before reloading its source
+await p.locator('.player button[aria-label^="Stop and close"]').click();
+await startMeditate();
+await p.waitForFunction(() => window.__a && window.__a.duration > 50);
+const retryEpisodeId = await p.evaluate(() => {
+  const a = window.__a;
+  a.currentTime = 40;
+  a.dispatchEvent(new Event('timeupdate'));
+  Object.defineProperty(a, 'error', { configurable: true, value: { code: 4 } });
+  a.dispatchEvent(new Event('error'));
+  return a._ep?.id;
+});
+await p.waitForSelector('.player-msg[role="alert"]');
+await p.evaluate(() => { delete window.__a.error; });
+await p.locator('.player-msg button:has-text("Try again")').click();
+await p.waitForFunction(() => !document.querySelector('.player-msg') && !window.__a.paused && Math.abs(window.__a.currentTime - 40) < 3, null, { timeout: 15000 }).catch(() => fail('retry should restore the active audio position after flushing it'));
+const retrySavedPosition = await p.evaluate(async (id) => {
+  const request = indexedDB.open('studybible');
+  const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
+  const tx = db.transaction('episodeProgress', 'readonly');
+  const req = tx.objectStore('episodeProgress').get(id);
+  const row = await new Promise((resolve, reject) => { req.onsuccess = () => resolve(req.result); req.onerror = () => reject(req.error); });
+  db.close(); return row?.position;
+}, retryEpisodeId);
+if (Math.abs((retrySavedPosition ?? 0) - 40) > 2) fail('retry should persist the current episode position before replacing its source: ' + retrySavedPosition);
+
 // 9. switching from a local meditation file to a remote Bible-in-a-Year episode flushes the old episode's final position first
 await p.locator('.player button[aria-label^="Stop and close"]').click().catch(() => {});
 await startMeditate();
