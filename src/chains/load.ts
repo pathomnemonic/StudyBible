@@ -18,6 +18,7 @@ const other = new Map<string, Promise<any[]>>();
 function loadKind<T>(prefix: string): Promise<T[]> {
   return memoizeMapPromise(other, prefix, async () => {
     const mine = Object.entries(files).filter(([p]) => { const f = p.split('/').pop()!; return f === `${prefix}.json` || (f.startsWith(`${prefix}.`) && f.endsWith('.json')); }).sort(([a], [b]) => a.localeCompare(b));
+    if (!mine.length) throw new Error(`No ${prefix} files were found; this resource index is unavailable.`);
     const parts = await Promise.all(mine.map(([, load]) => load()));
     return parts.flat() as T[];
   });
