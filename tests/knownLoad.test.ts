@@ -32,6 +32,16 @@ describe('loading what Go further knows about', () => {
     expect(r.status).toBe('partial');
     expect(r.failed).toEqual(['tracks']);
   });
+  it('malformed resource data is partial, not a successful empty index', async () => {
+    const r = await loadKnownFrom(loaders({
+      tracks: () => Promise.resolve({ tracks: [] }),
+      editions: () => Promise.resolve([{ id: 'webc', scheme: 'english', chapters: {}, verseCounts: {} }]),
+    }));
+    expect(r.status).toBe('partial');
+    expect(r.failed).toEqual(expect.arrayContaining(['tracks', 'editions']));
+    expect(r.known.tracks.size).toBe(0);
+    expect(r.known.editions).toBeUndefined();
+  });
   it('a source that answers "nothing" (a missing file) is a failure, not an empty list', async () => {
     const r = await loadKnownFrom(loaders({ apologetics: () => Promise.resolve(null) }));
     expect(r.status).toBe('partial');
