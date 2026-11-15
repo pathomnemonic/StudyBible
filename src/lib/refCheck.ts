@@ -46,6 +46,16 @@ export function pooledCounts(editions: CountsEdition[], scheme: string): CountsE
 
 const nameOf = (book: string) => BOOK_BY_ID[book]?.name ?? book;
 
+/** A verse endpoint may be one number beyond a known count in a numbering system with an explicit alignment caveat. */
+function withinOneVerseOverrun(ed: CountsEdition, ref: Ref): boolean {
+  const endpoints = [{ chapter: ref.c1, verse: ref.v1 }, { chapter: ref.c2, verse: ref.v2 }]
+    .filter((x): x is { chapter: number; verse: number } => x.verse !== undefined);
+  return endpoints.length > 0 && endpoints.every(({ chapter, verse }) => {
+    const max = ed.verseCounts?.[ref.book]?.[chapter - 1];
+    return max !== undefined && Number.isInteger(verse) && verse >= 1 && verse <= max + 1;
+  });
+}
+
 /**
  * Is every part of this passage a real place in this edition's own numbering? Both ends are checked, so a range
  * that starts inside a chapter and runs past its end, or into a chapter that does not exist, is reported.
@@ -131,12 +141,9 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
     : []).filter((note): note is string => Boolean(note));
   const knownAlignment = alignmentNotes.length > 0;
   const verseEndpoints = [{ chapter: ref.c1, verse: ref.v1 }, { chapter: ref.c2, verse: ref.v2 }].filter((x): x is { chapter: number; verse: number } => x.verse !== undefined);
-  const withinOneVerseOverrun = verseEndpoints.length > 0 && verseEndpoints.every(({ chapter, verse }) => {
-    const max = source.verseCounts?.[ref.book]?.[chapter - 1];
-    return max !== undefined && verse >= 1 && verse <= max + 1;
-  });
+  const sourceOverrunIsAtMostOne = withinOneVerseOverrun(source, ref);
   if (bad) {
-    const known = bad.scope === 'verse' && knownAlignment && withinOneVerseOverrun;
+    const known = bad.scope === 'verse' && knownAlignment && sourceOverrunIsAtMostOne;
     if (!known || !anchorEd) return { ...base, status: bad.kind === 'absent' ? 'absent' : 'invalid', reason: bad.reason };
     const anchorIssue = checkRefIn(anchorEd, anchor);
     if (anchorIssue) {
@@ -153,6 +160,12 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   // unverified source chapter is not an exact mapping. Keep only the canonical
   // chapter range; never imply that the same-numbered verse is aligned.
   if (!bad && !conv.exact && knownAlignment && anchorEd && verseEndpoints.length > 0) {
+    // A caveat does not excuse a badly wrong mapped endpoint. Before discarding verse precision,
+    // confirm that every mapped endpoint is present or at most one verse beyond the anchor count.
+    const anchorIssue = checkRefIn(anchorEd, anchor);
+    const smallAnchorOverrun = anchorIssue?.scope === 'verse' && withinOneVerseOverrun(anchorEd, anchor);
+    if (anchorIssue && !smallAnchorOverrun)
+      return { ...base, status: anchorIssue.kind === 'absent' ? 'absent' : 'invalid', anchor, reason: `canonical Vulgate anchor: ${anchorIssue.reason}` };
     const chapterOnly: Ref = { book: anchor.book, c1: anchor.c1, c2: anchor.c2 };
     const chapterIssue = checkRefIn(anchorEd, chapterOnly);
     if (chapterIssue)
@@ -165,11 +178,7 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   if (!bad && anchorEd) {
     const anchorIssue = checkRefIn(anchorEd, anchor);
     if (anchorIssue) {
-      const anchorEndpoints = [{ chapter: anchor.c1, verse: anchor.v1 }, { chapter: anchor.c2, verse: anchor.v2 }].filter((x): x is { chapter: number; verse: number } => x.verse !== undefined);
-      const withinOneAnchorOverrun = anchorEndpoints.length > 0 && anchorEndpoints.every(({ chapter, verse }) => {
-        const max = anchorEd.verseCounts?.[anchor.book]?.[chapter - 1];
-        return max !== undefined && verse >= 1 && verse <= max + 1;
-      });
+      const withinOneAnchorOverrun = withinOneVerseOverrun(anchorEd, anchor);
       const known = anchorIssue.scope === 'verse' && knownAlignment && withinOneAnchorOverrun;
       const chapterOnly: Ref = { book: anchor.book, c1: anchor.c1, c2: anchor.c2 };
       const chapterIssue = checkRefIn(anchorEd, chapterOnly);
@@ -180,13 +189,14 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   }
   // A passage typed in the English tradition, opened in an edition numbered in that same tradition, needs no conversion:
   // the numbers mean the same thing on both sides (Daniel 3 and 4 are the one place the two traditions' rules differ).
-  const sameTradition = (target.scheme === sourceScheme || (sourceScheme === 'kjv' && target.scheme === 'english')) &&
-    !bookAlignmentNote(sourceScheme, ref.book) && !bookAlignmentNote(target.scheme as Scheme, ref.book) &&
-    !knownAlignment &&
-    !(validChapterRange && Array.from(
-      { length: ref.c2 - ref.c1 + 1 },
-      (_, i) => chapterAlignmentNote(target.scheme as Scheme, ref.book, ref.c1 + i),
-    ).some(Boolean));
+  const sameNativeScheme = target.scheme === sourceScheme &&
+    !bookAlignmentNote(sourceScheme, ref.book) && !bookAlignmentNote(target.scheme as Scheme, ref.book);
+  // A concrete English-tradition edition can open the KJV-numbered location directly. A pooled
+  // counts object cannot: its numbers are a union, not the numbering contract of one reader edition.
+  const sameEnglishReader = sourceScheme === 'kjv' && target.scheme === 'english' &&
+    !target.id.includes('+') &&
+    !bookAlignmentNote(sourceScheme, ref.book) && !bookAlignmentNote(target.scheme as Scheme, ref.book);
+  const sameTradition = sameNativeScheme || sameEnglishReader;
   const t = sameTradition ? { ref, exact: true, note: undefined } : anchorToNativeRef(target, anchor);
   const issue = checkRefIn(target, t.ref);
   if (issue) {
@@ -200,12 +210,7 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
       { length: t.ref.c2 - t.ref.c1 + 1 },
       (_, i) => chapterAlignmentNote(targetScheme, t.ref.book, t.ref.c1 + i),
     ).some(Boolean));
-    const endpoints = [{ chapter: t.ref.c1, verse: t.ref.v1 }, { chapter: t.ref.c2, verse: t.ref.v2 }]
-      .filter((x): x is { chapter: number; verse: number } => x.verse !== undefined);
-    const withinOneTargetOverrun = endpoints.length > 0 && endpoints.every(({ chapter, verse }) => {
-      const max = target.verseCounts?.[t.ref.book]?.[chapter - 1];
-      return max !== undefined && verse >= 1 && verse <= max + 1;
-    });
+    const withinOneTargetOverrun = withinOneVerseOverrun(target, t.ref);
     const chapterOnly: Ref = { book: t.ref.book, c1: t.ref.c1, c2: t.ref.c2 };
     const chapterIssue = checkRefIn(target, chapterOnly);
     if (issue.scope !== 'verse' || !targetKnown || !withinOneTargetOverrun || chapterIssue)

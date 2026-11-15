@@ -94,13 +94,15 @@ describe('semantic Scripture reference validation', () => {
       ...english,
       id: 'fixture-kjv',
       scheme: 'kjv',
-      verseCounts: { ...english.verseCounts, GEN: [...english.verseCounts.GEN] },
+      verseCounts: { ...english.verseCounts, NUM: [...english.verseCounts.NUM] },
     };
-    target.verseCounts.GEN[50] = 1; // force a one-verse endpoint mismatch in Genesis 51
-    const ref: Ref = { book: 'GEN', c1: 48, v1: 31, c2: 51, v2: 2 };
+    // Numbers 11–13 are flagged; the requested endpoints (10 and 14) are not.
+    // Make Numbers 14:2 a one-verse overrun in the target to exercise the interior scan.
+    target.verseCounts.NUM[13] = 1;
+    const ref: Ref = { book: 'NUM', c1: 10, v1: 1, c2: 14, v2: 2 };
     const result = resolveRef(anchor, target, ref, 'vulgate', anchor);
     expect(result.status).toBe('approximate');
-    expect(result.native).toEqual({ book: 'GEN', c1: 48, c2: 51 });
+    expect(result.native).toEqual({ book: 'NUM', c1: 10, c2: 14 });
     expect(result.reason).toMatch(/only the verified chapter range/i);
   });
 

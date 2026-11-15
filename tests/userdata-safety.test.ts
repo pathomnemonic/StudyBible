@@ -32,6 +32,39 @@ describe('your writing survives', () => {
     expect(n.updatedAt).toBe(5);
   });
 
+  it('does not replace existing data when its required safety copy fails', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    const safety = await import('../src/lib/safety');
+    await db.notes.add(note('precious'));
+    vi.spyOn(safety, 'snapshotIfDue').mockRejectedValue(new Error('quota exceeded'));
+    const backup = JSON.stringify({ format: 'studybible-export', version: 2, notes: [note('incoming')] });
+    await expect(ops.importAll(backup, 'replace')).rejects.toThrow(/safety copy could not be made.*no data was replaced/i);
+    expect((await db.notes.toArray()).map((x) => x.body)).toEqual(['precious']);
+  });
+
+  it('a merge does not roll keyed progress backwards, but accepts newer records and new rows', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    await db.episodeProgress.put({ episodeId: 'episode-old', position: 90, completed: false, heard: 140, updatedAt: 50 } as never);
+    await db.planProgress.put({ planId: 'plan-1', startedAt: 1, status: 'active', done: [0], offsetDays: 0, updatedAt: 50 } as never);
+    await db.libraryProgress.put({ workId: 'work-1', section: '3', scroll: 60, status: 'reading', updatedAt: 50 } as never);
+    const backup = {
+      format: 'studybible-export', version: 2,
+      episodeProgress: [
+        { episodeId: 'episode-old', position: 10, completed: false, heard: 20, updatedAt: 20 },
+        { episodeId: 'episode-new', position: 15, completed: false, heard: 15, updatedAt: 10 },
+      ],
+      planProgress: [{ planId: 'plan-1', startedAt: 1, status: 'active', done: [0, 1, 2], offsetDays: 0, updatedAt: 80 }],
+      libraryProgress: [{ workId: 'work-1', section: '1', scroll: 5, status: 'want', updatedAt: 20 }],
+    };
+    await ops.importAll(JSON.stringify(backup), 'merge');
+    expect(await db.episodeProgress.get('episode-old')).toMatchObject({ position: 90, heard: 140 });
+    expect(await db.episodeProgress.get('episode-new')).toMatchObject({ position: 15, heard: 15 });
+    expect(await db.planProgress.get('plan-1')).toMatchObject({ done: [0, 1, 2], updatedAt: 80 });
+    expect(await db.libraryProgress.get('work-1')).toMatchObject({ section: '3', scroll: 60, status: 'reading' });
+  });
+
   it('refuses an oversized file before opening it', async () => {
     const ops = await import('../src/db/ops');
     await expect(ops.importAll('x'.repeat(ops.MAX_IMPORT_CHARS + 1), 'replace')).rejects.toThrow(/far larger/);

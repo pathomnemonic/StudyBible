@@ -1,5 +1,5 @@
 import { BRAND } from '../lib/brand';
-import { AUTO_TABLES, db, newUid, syncFlags, type Bookmark, type Highlight, type HighlightColor, type Note, type Target } from './db';
+import { AUTO_TABLES, KEYED_TABLES, db, newUid, syncFlags, type Bookmark, type Highlight, type HighlightColor, type Note, type Target } from './db';
 import { parseRefId, refId, type Ref } from '../lib/refs';
 import { BOOKS } from '../lib/canon';
 
@@ -119,8 +119,15 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
   try { data = JSON.parse(json); } catch { throw new Error('The file is cut short or is not a backup. Nothing was imported.'); }
   if (!data || data.format !== 'studybible-export') throw new Error(`Not a ${BRAND.name} export file.`);
   if (mode === 'replace' && data.appExport === 'collections') throw new Error('This file holds only some collections, so it cannot replace everything. Import it with “merge”. Nothing was imported.');
-  // a replace overwrites what is here: keep a safety copy first so a wrong file can be undone
-  if (mode === 'replace') await import('../lib/safety').then((m) => m.snapshotIfDue(true)).catch(() => undefined);
+  // A replace overwrites what is here: a failed safety copy must stop the restore before any data is touched.
+  if (mode === 'replace') {
+    try {
+      await import('../lib/safety').then((m) => m.snapshotIfDue(true));
+    } catch (error) {
+      const detail = error instanceof Error ? error.message : 'The storage operation failed.';
+      throw new Error(`A safety copy could not be made. No data was replaced. ${detail}`);
+    }
+  }
   if (typeof data.version === 'number' && data.version > 2) throw new Error('This backup was made by a newer version of the app. Update the app, then try again.');
   // check the whole file before touching the database
   for (const t of TABLES) {
@@ -155,9 +162,32 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
             rec.uid ??= newUid();
             rec.updatedAt ??= rec.createdAt ?? Date.now();
           }
-          // merge mode: let new auto ids be assigned to avoid clobbering; keyed tables use put.
-          if (['planProgress', 'episodeProgress', 'libraryProgress', 'classes', 'classwork'].includes(t)) await (db as any)[t].put(rec);
-          else {
+          // Natural-key records must obey the same last-writer-wins rule as sync. An old backup must not
+          // roll back newer listening, plan, shelf, class or classwork progress on this device.
+          if (Object.prototype.hasOwnProperty.call(KEYED_TABLES, t)) {
+            const keyField = KEYED_TABLES[t];
+            const key = rec[keyField];
+            if (key === undefined || key === null || key === '') throw new Error(`The backup is damaged: “${t}” has no ${keyField}.`);
+            const table = (db as any)[t];
+            const current = await table.get(key);
+            const revision = (row: any): number => {
+              for (const field of ['updatedAt', 'createdAt', 'startedAt', 'ts']) {
+                if (typeof row?.[field] === 'number' && Number.isFinite(row[field])) return row[field];
+              }
+              const date = typeof row?.date === 'string' ? Date.parse(row.date) : NaN;
+              return Number.isFinite(date) ? date : 0;
+            };
+            if (mode === 'replace' || !current || revision(rec) > revision(current)) {
+              rec.uid ??= String(key);
+              rec.updatedAt ??= Date.now();
+              await table.put(rec);
+            }
+            if (rec.uid) after.add(`${t}|${rec.uid}`);
+            n++;
+            continue;
+          }
+          // merge mode: let new auto ids be assigned to avoid clobbering; keyed tables are handled above.
+          {
             if (mode === 'merge') delete rec.id;
             if (t === 'saved') {
               const ex = await db.saved.where('key').equals(rec.key).first();
