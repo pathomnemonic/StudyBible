@@ -202,14 +202,16 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
               const date = typeof row?.date === 'string' ? Date.parse(row.date) : NaN;
               return Number.isFinite(date) ? date : 0;
             };
+            let changed = false;
             if (mode === 'replace' || !current || revision(rec) > revision(current)) {
               // Keyed sync identity is the natural primary key; never trust a stale or mismatched exported uid.
               rec.uid = String(key);
               rec.updatedAt ??= Date.now();
               await table.put(rec);
+              changed = true;
             }
             if (rec.uid) after.add(`${t}|${rec.uid}`);
-            n++;
+            if (changed) n++;
             continue;
           }
           // merge mode: let new auto ids be assigned to avoid clobbering; keyed tables are handled above.
