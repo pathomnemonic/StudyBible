@@ -785,7 +785,7 @@ export default function ReadPage() {
         {!data && !error && <div className="center-note">Loading {bk.name}…</div>}
         {data && chapterData && !parallelMode && (
           <article className="scripture" aria-label={`${bk.name} chapter ${chNum}`}>
-            <h1 className="chapter-title has-art">
+            <h1 className="chapter-title has-art" data-reader-edition={edition.id} data-reader-book={bk.id} data-reader-chapter={chNum} data-reader-ready={chapterData ? "true" : "false"}>
               {bk.id === 'PSA' ? `Psalm ${chNum}` : `${bk.name} ${chNum}`}
               {chapterCount > 0 && dockOn && (
                 <button className="rm chapter-rm" title={`${chapterCount} notes about the whole chapter`} aria-label={`${chapterCount} notes about the whole chapter. Open study panel`} onClick={() => { setSelNative([]); setSelAnchor([]); setSettings({ studyDock: true }); }}>
