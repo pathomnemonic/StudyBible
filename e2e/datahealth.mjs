@@ -23,6 +23,7 @@ await p.getByRole('button', { name: 'Fix this' }).waitFor();
 await p.evaluate(() => {
   const proto = IDBObjectStore.prototype;
   const put = proto.put, getAll = proto.getAll, openCursor = proto.openCursor, openKeyCursor = proto.openKeyCursor;
+  const indexProto = IDBIndex.prototype, indexGetAll = indexProto.getAll, indexOpenCursor = indexProto.openCursor, indexOpenKeyCursor = indexProto.openKeyCursor;
   let repairCommitted = false, failOnce = true;
   proto.put = function (...args) {
     const result = put.apply(this, args);
@@ -33,7 +34,10 @@ await p.evaluate(() => {
   proto.getAll = function (...args) { failRefresh(this.name); return getAll.apply(this, args); };
   proto.openCursor = function (...args) { failRefresh(this.name); return openCursor.apply(this, args); };
   proto.openKeyCursor = function (...args) { failRefresh(this.name); return openKeyCursor.apply(this, args); };
-  window.__restoreDataHealthIDB = () => { proto.put = put; proto.getAll = getAll; proto.openCursor = openCursor; proto.openKeyCursor = openKeyCursor; };
+  indexProto.getAll = function (...args) { failRefresh(this.objectStore.name); return indexGetAll.apply(this, args); };
+  indexProto.openCursor = function (...args) { failRefresh(this.objectStore.name); return indexOpenCursor.apply(this, args); };
+  indexProto.openKeyCursor = function (...args) { failRefresh(this.objectStore.name); return indexOpenKeyCursor.apply(this, args); };
+  window.__restoreDataHealthIDB = () => { proto.put = put; proto.getAll = getAll; proto.openCursor = openCursor; proto.openKeyCursor = openKeyCursor; indexProto.getAll = indexGetAll; indexProto.openCursor = indexOpenCursor; indexProto.openKeyCursor = indexOpenKeyCursor; };
 });
 await p.getByRole('button', { name: 'Fix this' }).click();
 await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor();
@@ -71,6 +75,7 @@ await p.getByRole('button', { name: 'Restore' }).waitFor();
 await p.evaluate(() => {
   const proto = IDBObjectStore.prototype;
   const add = proto.add, getAll = proto.getAll, openCursor = proto.openCursor, openKeyCursor = proto.openKeyCursor;
+  const indexProto = IDBIndex.prototype, indexGetAll = indexProto.getAll, indexOpenCursor = indexProto.openCursor, indexOpenKeyCursor = indexProto.openKeyCursor;
   let restoreCommitted = false, failOnce = true;
   proto.add = function (...args) {
     const result = add.apply(this, args);
@@ -81,7 +86,10 @@ await p.evaluate(() => {
   proto.getAll = function (...args) { failRefresh(this.name); return getAll.apply(this, args); };
   proto.openCursor = function (...args) { failRefresh(this.name); return openCursor.apply(this, args); };
   proto.openKeyCursor = function (...args) { failRefresh(this.name); return openKeyCursor.apply(this, args); };
-  window.__restoreDataHealthRestoreIDB = () => { proto.add = add; proto.getAll = getAll; proto.openCursor = openCursor; proto.openKeyCursor = openKeyCursor; };
+  indexProto.getAll = function (...args) { failRefresh(this.objectStore.name); return indexGetAll.apply(this, args); };
+  indexProto.openCursor = function (...args) { failRefresh(this.objectStore.name); return indexOpenCursor.apply(this, args); };
+  indexProto.openKeyCursor = function (...args) { failRefresh(this.objectStore.name); return indexOpenKeyCursor.apply(this, args); };
+  window.__restoreDataHealthRestoreIDB = () => { proto.add = add; proto.getAll = getAll; proto.openCursor = openCursor; proto.openKeyCursor = openKeyCursor; indexProto.getAll = indexGetAll; indexProto.openCursor = indexOpenCursor; indexProto.openKeyCursor = indexOpenKeyCursor; };
 });
 await p.getByRole('button', { name: 'Restore' }).click();
 await p.getByRole('alert').filter({ hasText: 'Restore committed, but the check could not refresh' }).waitFor();
