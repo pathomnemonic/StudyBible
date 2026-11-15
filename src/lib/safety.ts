@@ -38,8 +38,9 @@ export async function listSnapshots(): Promise<Snapshot[]> {
 export async function restoreSnapshot(key: string): Promise<number> {
   const row = await db.cache.get(key);
   if (!row) throw new Error('That safety copy is gone.');
-  await snapshotIfDue(true); // keep what is there now, in case the restore is a mistake
-  return importAll(String(row.value), 'merge');
+  // importAll('replace') first makes a fresh safety copy of the current data, then restores the
+  // snapshot as a complete point-in-time state. Merge would silently keep newer (possibly corrupted) rows.
+  return importAll(String(row.value), 'replace');
 }
 
 /** Save everything as a file: the share sheet on phones (Files, Drive, iCloud, email), a download elsewhere. */
