@@ -15,7 +15,7 @@ const id = await p.evaluate(async () => {
   const row = { kind: 'note', uid: 'e2e-data-health-repair', title: 'Data Health repair test', body: 'Regression fixture', targets: [{ type: 'passage', ref: 'jhn.3.16' }], tags: [], chapterKeys: [], createdAt: Date.now(), updatedAt: Date.now() };
   const tx = db.transaction('notes', 'readwrite');
   const key = tx.objectStore('notes').add(row);
-  const result = await new Promise((resolve, reject) => { key.onsuccess = () => resolve(key.result); key.onerror = () => reject(key.error); tx.oncomplete = () => resolve(key.result); tx.onerror = () => reject(tx.error); });
+  const result = await new Promise((resolve, reject) => { key.onerror = () => reject(key.error); tx.oncomplete = () => resolve(key.result); tx.onerror = () => reject(tx.error); tx.onabort = () => reject(tx.error ?? new Error('fixture transaction aborted')); });
   db.close(); return result;
 });
 await p.getByRole('button', { name: 'Run the check' }).click();
