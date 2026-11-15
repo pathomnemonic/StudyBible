@@ -78,6 +78,16 @@ describe('your writing survives', () => {
     expect(await db.tombs.filter((row) => row.tbl === 'planProgress' && row.uid === 'plan-removed').count()).toBe(1);
   });
 
+  it('rolls back a replace if its deletion tombstones cannot be written', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    await db.episodeProgress.put({ episodeId: 'keep-local', position: 40, completed: false, heard: 80, updatedAt: 30 } as never);
+    const backup = JSON.stringify({ format: 'studybible-export', version: 2, notes: [] });
+    vi.spyOn(db.tombs, 'bulkAdd').mockRejectedValue(new Error('tombstone write failed'));
+    await expect(ops.importAll(backup, 'replace')).rejects.toThrow(/tombstone write failed/);
+    expect(await db.episodeProgress.get('keep-local')).toMatchObject({ position: 40, heard: 80 });
+  });
+
   it('refuses an oversized file before opening it', async () => {
     const ops = await import('../src/db/ops');
     await expect(ops.importAll('x'.repeat(ops.MAX_IMPORT_CHARS + 1), 'replace')).rejects.toThrow(/far larger/);
