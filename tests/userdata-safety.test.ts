@@ -105,11 +105,18 @@ describe('your writing survives', () => {
   });
 
   it('a merge does not roll keyed progress backwards, but accepts newer records and new rows', async () => {
-    const { db } = await import('../src/db/db');
+    const { db, syncFlags } = await import('../src/db/db');
     const ops = await import('../src/db/ops');
-    await db.episodeProgress.put({ episodeId: 'episode-old', position: 90, completed: false, heard: 140, updatedAt: 50 } as never);
-    await db.planProgress.put({ planId: 'plan-1', startedAt: 1, status: 'active', done: [0], offsetDays: 0, updatedAt: 50 } as never);
-    await db.libraryProgress.put({ workId: 'work-1', section: '3', scroll: 60, status: 'reading', updatedAt: 50 } as never);
+    // These are already-persisted rows with historical timestamps; bypass write hooks so the fixture
+    // tests the merge policy rather than the current test clock.
+    syncFlags.applying = true;
+    try {
+      await db.episodeProgress.put({ episodeId: 'episode-old', position: 90, completed: false, heard: 140, updatedAt: 50 } as never);
+      await db.planProgress.put({ planId: 'plan-1', startedAt: 1, status: 'active', done: [0], offsetDays: 0, updatedAt: 50 } as never);
+      await db.libraryProgress.put({ workId: 'work-1', section: '3', scroll: 60, status: 'reading', updatedAt: 50 } as never);
+    } finally {
+      syncFlags.applying = false;
+    }
     const backup = {
       format: 'studybible-export', version: 2,
       episodeProgress: [
