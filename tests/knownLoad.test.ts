@@ -44,6 +44,12 @@ describe('loading what Go further knows about', () => {
     expect(r.failed).toEqual(expect.arrayContaining(['tracks', 'editions']));
     expect(r.known.tracks.size).toBe(0);
     expect(r.known.editions).toBeUndefined();
+
+    const nested = await loadKnownFrom(loaders({
+      tracks: () => Promise.resolve([{ id: 'broken', title: 'Broken', levels: [null] }]),
+    }));
+    expect(nested.failed).toContain('tracks');
+    expect(nested.status).toBe('partial');
   });
   it('a source that answers "nothing" (a missing file) is a failure, not an empty list', async () => {
     const r = await loadKnownFrom(loaders({ apologetics: () => Promise.resolve(null) }));
