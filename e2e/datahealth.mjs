@@ -13,6 +13,17 @@ await ctx.addInitScript(() => {
   // dynamic tables passed to db.transaction() by restoreFromTrash().
   // Arm from the real notes write transaction and fail the first notes read transaction
   // after it commits. The database boundary catches every IndexedDB read strategy Dexie uses.
+  const failNextNotesRead = (tx, state) => {
+    if (!state?.enabled || !state.armed || state.readRequests > 0) return;
+    state.readRequests = (state.readRequests ?? 0) + 1;
+    try {
+      tx.abort();
+      state.abortedReads++;
+    } catch {
+      state.abortFailures++;
+    }
+  };
+
   const dbProto = IDBDatabase.prototype;
   const dbMarker = '__studyBibleDataHealthDatabaseTransactionFaultInstalled';
   if (!dbProto[dbMarker]) {
@@ -21,24 +32,20 @@ await ctx.addInitScript(() => {
     dbProto.transaction = function (...args) {
       const tx = originalTransaction.apply(this, args);
       const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
-      const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
-      const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
-      if (state?.enabled && state.armed && this.name === 'studybible' &&
-          mode === 'readonly' && names.includes('notes')) {
-        state.readRequests = (state.readRequests ?? 0) + 1;
-        try {
-          tx.abort();
-          state.abortedReads++;
-        } catch {
-          state.abortFailures++;
+      if (state?.enabled && this.name === 'studybible') {
+        state.databaseTransactions = (state.databaseTransactions ?? 0) + 1;
+        const names = Array.from(tx.objectStoreNames ?? []);
+        if (tx.mode === 'readonly' && names.includes('notes')) {
+          state.notesReadTransactions = (state.notesReadTransactions ?? 0) + 1;
+          failNextNotesRead(tx, state);
         }
       }
       return tx;
     };
   }
 
-  // Dexie resolves actual object stores through IDBTransaction.objectStore().
-  // Count the notes write only after its containing read/write transaction commits.
+  // Dexie may access a store from an already-created transaction. Observe that
+  // boundary too, so the fault is tied to the actual readonly notes store.
   const txProto = IDBTransaction.prototype;
   const txMarker = '__studyBibleDataHealthTransactionFaultInstalled';
   if (!txProto[txMarker]) {
@@ -55,6 +62,10 @@ await ctx.addInitScript(() => {
         this.addEventListener('complete', () => {
           if (state.enabled) { state.writes++; state.armed = true; }
         }, { once: true });
+      } else if (state?.enabled && this.db?.name === 'studybible' &&
+          this.mode === 'readonly' && store.name === 'notes') {
+        state.notesReadStoreAccesses = (state.notesReadStoreAccesses ?? 0) + 1;
+        failNextNotesRead(this, state);
       }
       return store;
     };
