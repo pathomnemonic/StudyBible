@@ -11,7 +11,10 @@ const data: Record<SourceName, unknown> = {
   catechism: { paragraphs: 2865 },
   tracks: [{ id: 'trk', title: 'A track', levels: [{ steps: [{ kind: 'inapp', type: 'lesson', id: 'x-1-1' }] }] }],
   chains: { chain: [{ id: 'c1', title: 'A chain', to: '/study/arguments/c1' }] },
-  editions: [],
+  editions: [
+    { id: 'vulgate', scheme: 'vulgate', chapters: { JHN: 21 }, verseCounts: { JHN: Array(21).fill(50) } },
+    { id: 'webc', scheme: 'english', chapters: { JHN: 21 }, verseCounts: { JHN: Array(21).fill(50) } },
+  ],
 };
 const loaders = (over: Partial<Record<SourceName, () => Promise<unknown>>> = {}): Loaders =>
   Object.fromEntries(ALL_SOURCES.map((n) => [n, over[n] ?? (() => Promise.resolve(data[n]))])) as Loaders;
