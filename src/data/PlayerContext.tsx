@@ -247,7 +247,15 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     }
     void rememberEpisode(e);
     if (same) {
-      if (startAt !== undefined) a.currentTime = startAt;
+      const progress = await resolveIfCurrent(request, () => playGeneration.current, () => db.episodeProgress.get(e.id));
+      if (progress === null) return;
+      if (progress?.completed) {
+        const replayAt = startAt ?? showSetting(showKeyOf(e.id), 'skip');
+        await creditListening(e.id, 0, { position: replayAt, completed: false });
+        if (request !== playGeneration.current) return;
+        a.currentTime = replayAt;
+        setPosition(replayAt);
+      } else if (startAt !== undefined) a.currentTime = startAt;
     } else {
       setError(null);
       const resolved = await resolveIfCurrent(request, () => playGeneration.current, () => Promise.all([audioUrl(e.audio), db.episodeProgress.get(e.id)])).catch(() => { if (request === playGeneration.current) setError(navigator.onLine === false ? 'offline' : 'failed'); return null; });
@@ -257,6 +265,11 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       if (!url) { setError(navigator.onLine === false ? 'offline' : 'failed'); return; }
       const skip = showSetting(showKeyOf(e.id), 'skip');
       const at = startAt ?? (prog && !prog.completed && prog.position > 0 ? prog.position : skip);
+      // Replaying a completed episode starts a new resumable session; preserve the historical listening ledger.
+      if (prog?.completed) {
+        await creditListening(e.id, 0, { position: at, completed: false });
+        if (request !== playGeneration.current) return;
+      }
       (a as any)._ep = e;
       (a as any)._playGeneration = request;
       (a as any)._outroDone = false;
