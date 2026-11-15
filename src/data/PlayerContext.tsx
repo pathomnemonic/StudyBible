@@ -171,22 +171,30 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const manualEnd = !!(a as any)._manualEnded;
       (a as any)._manualEnded = false;
       if (!a.ended && !manualEnd) return; // ignore a queued ended event from the source that was just replaced
-      save(true);
-      if (sleepRef.current.mode === 'end') { setSleepState({ mode: 'off', left: 0 }); return; }
+      // Queue lookup and episode loading are asynchronous too. They must not outlive a newer
+      // user selection and start an old queued episode over the top of it.
+      const request = playGeneration.current;
       const was = (a as any)._ep as BiayEpisode | undefined;
+      await save(true);
+      if (request !== playGeneration.current || (a as any)._ep?.id !== was?.id) return;
+      if (sleepRef.current.mode === 'end') { setSleepState({ mode: 'off', left: 0 }); return; }
       if (was && showSetting(showKeyOf(was.id), 'manual')) return;
-      // advance through the personal queue
-      const q = await db.queue.orderBy('order').toArray();
-      const cur = (a as any)._ep as BiayEpisode | undefined;
-      const idx = q.findIndex((x) => x.episodeId === cur?.id);
+      // advance through the personal queue, retaining the ended episode identity throughout.
+      const q = await resolveIfCurrent(request, () => playGeneration.current, () => db.queue.orderBy('order').toArray());
+      if (!q || request !== playGeneration.current || (a as any)._ep?.id !== was?.id) return;
+      const idx = q.findIndex((x) => x.episodeId === was?.id);
       const next = idx >= 0 ? q[idx + 1] : q[0];
       if (idx >= 0) await db.queue.delete(q[idx].id!);
+      if (request !== playGeneration.current || (a as any)._ep?.id !== was?.id) return;
       if (next) {
-        await loadBiay();
-        const ep = await resolveEpisode(next.episodeId);
+        const loaded = await resolveIfCurrent(request, () => playGeneration.current, () => loadBiay());
+        if (loaded === null || request !== playGeneration.current || (a as any)._ep?.id !== was?.id) return;
+        const ep = await resolveIfCurrent(request, () => playGeneration.current, () => resolveEpisode(next.episodeId));
+        if (ep === null || request !== playGeneration.current || (a as any)._ep?.id !== was?.id) return;
         if (ep) play(ep);
       } else if (getSettings().autoFavorites) {
-        const ep = await nextFavorite(cur?.id);
+        const ep = await resolveIfCurrent(request, () => playGeneration.current, () => nextFavorite(was?.id));
+        if (ep === null || request !== playGeneration.current || (a as any)._ep?.id !== was?.id) return;
         if (ep) { registerEpisodes([ep]); play(ep); }
       }
     });
