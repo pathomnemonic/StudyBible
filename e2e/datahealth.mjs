@@ -16,7 +16,7 @@ await ctx.addInitScript(() => {
     Object.defineProperty(proto, marker, { value: true });
     proto.transaction = function (...args) {
       const tx = original.apply(this, args);
-      const state = window.__dataHealthFault ?? window.__dataHealthRestoreFault;
+      const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
       const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
       const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
       if (state?.enabled && this.name === 'studybible' && names.includes('notes')) {

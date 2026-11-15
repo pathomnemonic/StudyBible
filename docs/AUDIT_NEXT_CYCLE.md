@@ -371,3 +371,7 @@ Run #1298 (`43685850647`) tested head `f170ce967f6cf7f7ab1d257e2a3263f70815d2aa`
 - The Media Controls failure occurred in the synthetic same-source error/retry test. It removed the injected `MediaError` before clicking Retry, leaving a window in which a queued `loadeddata` event could clear the alert. The test now activates Retry first and clears the synthetic error immediately afterward. The Retry/recovery and saved-position assertions remain intact; the test has not been relaxed.
 
 These are test-harness and stale-view corrections identified by the #1298 logs/source review. A new full CI run is required; no current-head browser pass is inferred from authored tests. PR #11 remains draft, open, and unmerged.
+
+### Follow-up correction to the fault-injector phases
+
+Review immediately after commit `55e1ab9cd5fdb52d7a3e6578b24a446ec5702632` found that the repair-phase state object remains defined (disabled) when the restore-phase object is enabled. The interceptor now selects the enabled phase object rather than using nullish fallback, so the restore test exercises its own transaction and abort assertion. The subsequent CI run must verify both phases.
