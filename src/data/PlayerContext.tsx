@@ -256,6 +256,9 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         a.currentTime = replayAt;
         setPosition(replayAt);
       } else if (startAt !== undefined) a.currentTime = startAt;
+      // The original listener belongs to the previous generation; bind this same source to the new request.
+      const activeSrc = a.getAttribute('src');
+      if (activeSrc) bindSourceError(a, request, e.id, activeSrc);
     } else {
       setError(null);
       const resolved = await resolveIfCurrent(request, () => playGeneration.current, () => Promise.all([audioUrl(e.audio), db.episodeProgress.get(e.id)])).catch(() => { if (request === playGeneration.current) setError(navigator.onLine === false ? 'offline' : 'failed'); return null; });
