@@ -13,7 +13,9 @@ import NoteEditor, { targetLabel } from '../../components/NoteEditor';
 import RefLink from '../../components/RefLink';
 import { renderMarkdown } from '../../lib/markdown';
 import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
-import { convertRef } from '../../lib/versification';
+import { resolvePlanReferences } from '../../lib/planReferences';
+import type { CountsEdition } from '../../lib/refCheck';
+import { useEditions } from '../../data/EditionsContext';
 import { decryptBackup, encryptBackup, isEncryptedBackup } from '../../db/crypto';
 import { newCard } from '../../lib/srs';
 import { chapterKeysOf, download, exportCollections, importCollections, exportAll, exportMarks, exportNotesMarkdown, importAll, previewImport } from '../../db/ops';
@@ -192,13 +194,18 @@ export const COLLECTION_TEMPLATES: { name: string; description: string; refs: st
   { name: 'The call of the first disciples', description: 'Four accounts of being called.', refs: ['Matthew 4:18-22', 'Mark 1:16-20', 'Luke 5:1-11', 'John 1:35-51'] },
 ];
 
-async function startTemplate(t: { name: string; description: string; refs: string[] }) {
-  const items: Target[] = [];
-  for (const r of t.refs) { const p = parseRefs(r); if (p.ok) for (const x of p.refs) items.push({ type: 'passage', ref: refId(convertRef('kjv', 'vulgate', x.ref).ref) }); }
+async function startTemplate(t: { name: string; description: string; refs: string[] }, editions: CountsEdition[]) {
+  const refs = [];
+  for (const r of t.refs) { const p = parseRefs(r); if (!p.ok) return { ok: false as const, reason: p.error }; refs.push(...p.refs.map((x) => x.ref)); }
+  const checked = resolvePlanReferences(refs, editions);
+  if (!checked.ok) return checked;
+  const items: Target[] = checked.refs.map((ref) => ({ type: 'passage', ref: refId(ref) }));
   await db.collections.add({ name: t.name, description: t.description, items, createdAt: Date.now(), updatedAt: Date.now() } as never);
+  return { ok: true as const };
 }
 
 function Collections() {
+  const { editions } = useEditions();
   const all = useLiveQuery(() => db.collections.orderBy('updatedAt').reverse().toArray(), []) ?? [];
   const [q, setQ] = useState('');
   const [sort, setSort] = useState<CollectionSort>('updated');
@@ -209,8 +216,20 @@ function Collections() {
   const saved = useLiveQuery(() => db.saved.toArray(), []) ?? [];
   const [name, setName] = useState('');
   const [fileMsg, setFileMsg] = useState('');
+  const [passMsg, setPassMsg] = useState('');
   const [adding, setAdding] = useState<Record<number, string>>({});
   const add = async (c: Collection, t: Target) => db.collections.put({ ...c, items: [...c.items, t], updatedAt: Date.now() });
+  const addPassages = async (c: Collection, raw: string) => {
+    const parsed = parseRefs(raw);
+    if (!parsed.ok) { setPassMsg(parsed.error); return; }
+    const checked = resolvePlanReferences(parsed.refs.map((x) => x.ref), editions);
+    if (!checked.ok) { setPassMsg(`Passage not added: ${checked.reason}. English/KJV numbering is stored only when its Vulgate anchor is exact.`); return; }
+    const existing = new Set(c.items.filter((x): x is Extract<Target, { type: 'passage' }> => x.type === 'passage').map((x) => x.ref));
+    const targets = checked.refs.map((ref) => refId(ref)).filter((ref) => !existing.has(ref)).map((ref) => ({ type: 'passage' as const, ref }));
+    if (!targets.length) { setPassMsg('Those passages are already in this collection.'); return; }
+    await db.collections.put({ ...c, items: [...c.items, ...targets], updatedAt: Date.now() });
+    setPassMsg('Added verified passage references.');
+  };
   return (
     <>
       <div className="row" style={{ marginBottom: 10 }}>
@@ -218,7 +237,7 @@ function Collections() {
         <button className="btn primary" onClick={async () => { if (name.trim()) { await db.collections.add({ name: name.trim(), items: [], createdAt: Date.now(), updatedAt: Date.now() }); setName(''); } }}>Create</button>
       </div>
       <div className="row" style={{ marginBottom: 10 }}>
-        <select aria-label="Start from a template" value="" onChange={async (e) => { const t = COLLECTION_TEMPLATES.find((x) => x.name === e.target.value); if (t) await startTemplate(t); }}>
+        <select aria-label="Start from a template" value="" onChange={async (e) => { const t = COLLECTION_TEMPLATES.find((x) => x.name === e.target.value); if (t) { const result = await startTemplate(t, editions); setPassMsg(result.ok ? `Created ${t.name}.` : `Template not created: ${result.reason}. Nothing was saved.`); } }}>
           <option value="">Start from a template…</option>
           {COLLECTION_TEMPLATES.map((t) => <option key={t.name} value={t.name}>{t.name}</option>)}
         </select>
@@ -229,6 +248,7 @@ function Collections() {
         <label className="btn small" style={{ cursor: 'pointer' }}>Import collections from a file<input type="file" accept="application/json,.json" aria-label="Import collections from a file" style={{ display: 'none' }} onChange={async (e) => { const f = e.target.files?.[0]; e.target.value = ''; if (!f) return; try { const r = await importCollections(await f.text()); setFileMsg(`Imported: ${r.added} new, ${r.merged} merged into ones you already have (nothing is duplicated).`); } catch (er) { setFileMsg((er as Error).message); } }} /></label>
       </div>
       {fileMsg && <p className="notice" role="status">{fileMsg}</p>}
+      {passMsg && <p className="notice" role="status">{passMsg}</p>}
       {all.length > 1 && <div className="row" style={{ marginBottom: 10, gap: 8, flexWrap: 'wrap' }}>
         <select aria-label="Sort collections" value={sort} onChange={(e) => setSort(e.target.value as CollectionSort)}><option value="updated">Recently changed</option><option value="created">Newest first</option><option value="name">Name A to Z</option><option value="size">Most items</option></select>
         {tags.length > 0 && <select aria-label="Show collections with this tag" value={tag} onChange={(e) => setTag(e.target.value)}><option value="">Any tag</option>{tags.map((t) => <option key={t} value={t}>{t}</option>)}</select>}
@@ -240,7 +260,7 @@ function Collections() {
           <div className="chips">{c.items.map((t, i) => <span key={i}><TargetChip t={t} /> <button aria-label="Remove item" style={{ border: 0, background: 'none' }} onClick={() => db.collections.put({ ...c, items: c.items.filter((_, j) => j !== i), updatedAt: Date.now() })}>×</button></span>)}</div>
           {c.items.length === 0 && <div className="empty">Nothing in this collection yet. Open any Bible passage and use “Add to collection”, or save a reading from the Pray section.</div>}
           <div className="row" style={{ marginTop: 6 }}>
-            <input type="text" placeholder="Add passage, e.g. John 6:51-58" value={adding[c.id!] ?? ''} onChange={(e) => setAdding({ ...adding, [c.id!]: e.target.value })} onKeyDown={async (e) => { if (e.key === 'Enter') { const p = parseRefs(adding[c.id!] ?? ''); if (p.ok) { for (const x of p.refs) await add(c, { type: 'passage', ref: refId(convertRef('kjv', 'vulgate', x.ref).ref) }); setAdding({ ...adding, [c.id!]: '' }); } } }} style={{ flex: 1 }} aria-label="Add passage to collection" />
+            <input type="text" placeholder="Add passage, e.g. John 6:51-58" value={adding[c.id!] ?? ''} onChange={(e) => setAdding({ ...adding, [c.id!]: e.target.value })} onKeyDown={async (e) => { if (e.key === 'Enter') { const raw = adding[c.id!] ?? ''; await addPassages(c, raw); } }} style={{ flex: 1 }} aria-label="Add passage to collection" />
             {saved.length > 0 && <select aria-label="Add a saved item" value="" onChange={(e) => { const s = saved.find((x) => x.id === +e.target.value); if (s) add(c, s.type === 'catechism' ? { type: 'catechism', para: +s.key.split(':')[1], label: s.label } : { type: 'commentary', itemId: s.key, label: s.label, url: s.url }); }}><option value="">Add saved item…</option>{saved.map((s) => <option key={s.id} value={s.id}>{s.label.slice(0, 50)}</option>)}</select>}
           </div>
         </div>
@@ -253,6 +273,7 @@ function Collections() {
 }
 
 function UserXrefs() {
+  const { editions } = useEditions();
   const xs = useLiveQuery(() => db.userXrefs.toArray(), []) ?? [];
   const [a, setA] = useState('');
   const [b, setB] = useState('');
@@ -262,8 +283,12 @@ function UserXrefs() {
     const pa = parseRefs(a);
     const pb = parseRefs(b);
     if (!pa.ok || !pb.ok) return setErr('Check both passages.');
+    if (pa.refs.length !== 1 || pb.refs.length !== 1) return setErr('Enter one passage in each field.');
+    const from = resolvePlanReferences([pa.refs[0].ref], editions);
+    const to = resolvePlanReferences([pb.refs[0].ref], editions);
+    if (!from.ok || !to.ok) return setErr(`Connection not saved: ${!from.ok ? from.reason : to.ok ? 'the reference could not be verified' : to.reason}. Both passages need exact Vulgate anchors.`);
     setErr('');
-    await db.userXrefs.add({ from: refId(convertRef('kjv', 'vulgate', pa.refs[0].ref).ref), to: refId(convertRef('kjv', 'vulgate', pb.refs[0].ref).ref), comment: c, createdAt: Date.now() });
+    await db.userXrefs.add({ from: refId(from.refs[0]), to: refId(to.refs[0]), comment: c, createdAt: Date.now() });
     setA(''); setB(''); setC('');
   };
   return (
