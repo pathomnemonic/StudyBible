@@ -235,7 +235,12 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     const a = audio.current!;
     const previous = (a as any)._ep as BiayEpisode | undefined;
     const same = previous?.id === e.id;
-    if (same) (a as any)._playGeneration = request;
+    if (same) {
+      // Rebind errors immediately: the previous listener belongs to the old generation,
+      // and the progress lookup below is asynchronous.
+      const activeSrc = a.getAttribute('src');
+      if (activeSrc) bindSourceError(a, request, e.id, activeSrc);
+    }
     if (!same && !a.paused) {
       (a as any)._switchPause = true;
       a.pause();
@@ -256,9 +261,6 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
         a.currentTime = replayAt;
         setPosition(replayAt);
       } else if (startAt !== undefined) a.currentTime = startAt;
-      // The original listener belongs to the previous generation; bind this same source to the new request.
-      const activeSrc = a.getAttribute('src');
-      if (activeSrc) bindSourceError(a, request, e.id, activeSrc);
     } else {
       setError(null);
       const resolved = await resolveIfCurrent(request, () => playGeneration.current, () => Promise.all([audioUrl(e.audio), db.episodeProgress.get(e.id)])).catch(() => { if (request === playGeneration.current) setError(navigator.onLine === false ? 'offline' : 'failed'); return null; });
@@ -288,6 +290,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       setDuration(0);
       db.cache.put({ key: 'player:last', value: e.id as unknown as string, ts: Date.now() }).catch(() => undefined);
     }
+    if (same && request === playGeneration.current) (a as any)._playGeneration = request;
     if (request !== playGeneration.current) return;
     const own = showSetting(showKeyOf(e.id), 'rate');
     a.playbackRate = own || rate;
