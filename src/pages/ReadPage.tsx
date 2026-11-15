@@ -134,6 +134,7 @@ export default function ReadPage() {
   const chNum = Math.max(1, Math.min(+chapter || 1, edition.chapters[bk.id] ?? 1));
 
   const [data, setData] = useState<BookData | null>(null);
+  const [loadedKey, setLoadedKey] = useState('');
   const [error, setError] = useState('');
   const [selNative, setSelNative] = useState<number[]>([]);
   const toast = useToast();
@@ -171,16 +172,18 @@ export default function ReadPage() {
   useEffect(() => {
     let live = true;
     setData(null);
+    setLoadedKey('');
     setError('');
     getBookText(edition.id, bk.id)
-      .then((d) => live && setData(d))
+      .then((d) => { if (live) { setData(d); setLoadedKey(`${edition.id}.${bk.id}`); } })
       .catch((e) => live && setError(`Could not load ${bk.name} in ${edition.shortName}. If you are offline, download this edition on the Downloads page (Settings → Downloads and offline) while connected. (${e.message})`));
     return () => {
       live = false;
     };
   }, [edition.id, bk.id]);
 
-  const chapterData = data?.chapters[chNum - 1];
+  const currentData = loadedKey === `${edition.id}.${bk.id}` ? data : null;
+  const chapterData = currentData?.chapters[chNum - 1];
   const flat = useMemo(() => flattenChapter(chapterData), [chapterData]);
   // kept on this device only: how long the first passage took to appear (shown in Settings → Speed on this device)
   useEffect(() => { if (flat.length && !performance.getEntriesByName('sb-first-passage').length) performance.mark('sb-first-passage'); }, [flat.length]);
@@ -782,8 +785,8 @@ export default function ReadPage() {
         )}
         {error && <div className="notice">{error}</div>}
         <ReadingBar book={bk.id} chapters={anchorChapters} />
-        {!data && !error && <div className="center-note">Loading {bk.name}…</div>}
-        {data && chapterData && !parallelMode && (
+        {!currentData && !error && <div className="center-note">Loading {bk.name}…</div>}
+        {currentData && chapterData && !parallelMode && (
           <article className="scripture" aria-label={`${bk.name} chapter ${chNum}`}>
             <h1 className="chapter-title has-art" data-reader-edition={edition.id} data-reader-book={bk.id} data-reader-chapter={chNum} data-reader-ready={chapterData ? "true" : "false"}>
               {bk.id === 'PSA' ? `Psalm ${chNum}` : `${bk.name} ${chNum}`}
@@ -808,7 +811,7 @@ export default function ReadPage() {
             {chNum === 1 && bookInfo && <div className="notice info"><strong>{bk.name}.</strong> {bookInfo.intro}</div>}
             {psalmDual && <div className="subtitle">Hebrew / English numbering: Psalm {psalmDual}</div>}
             {bk.id === 'PSA' && edition.scheme === 'english' && anchorChapters[0] !== chNum && <div className="subtitle">Vulgate (Douay) numbering: Psalm {anchorChapters.join('–')}</div>}
-            {chNum === 1 && data.intro && data.intro.length > 0 && data.intro.map((p, i) => <p key={i} className="subtitle">{p}</p>)}
+            {chNum === 1 && currentData.intro && currentData.intro.length > 0 && currentData.intro.map((p, i) => <p key={i} className="subtitle">{p}</p>)}
             {chNum === 1 && bk.note && <div className="notice info">{bk.note}</div>}
             {chapterNote && <div className="notice">{chapterNote}</div>}
             <ChapterText chapter={chapterData} selected={new Set(selNative.length ? selNative : flash)} decor={decor} onVerse={onVerse as any} lang={edition.language} density={settings.scriptureOnly && !settings.focus.markers ? undefined : density} onMarker={(n) => { setSelNative([n]); lastClicked.current = n; setPanel(true); }} wordFx={settings.wordFx && (!settings.scriptureOnly || settings.focus.effects)} red={red} figures={figureMap} stdNotes={stdNotes} onStdNote={(n, el) => setNotePop({ n, notes: stdNotes.get(n) ?? [], at: el.getBoundingClientRect() })} terms={matcher} onTerm={(id, el) => setTermPop({ id, at: el.getBoundingClientRect() })} />
@@ -835,7 +838,7 @@ export default function ReadPage() {
             )}
           </article>
         )}
-        {data && parallelMode && parallel && (
+        {currentData && parallelMode && parallel && (
           <ParallelView
             book={bk.id}
             anchorChapters={anchorChapters}
