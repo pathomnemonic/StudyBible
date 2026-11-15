@@ -279,3 +279,38 @@ The latest source/test head before this report update was `3aefdae67df4f229588a1
 6. Keep PR #11 open, draft, and unmerged.
 
 No claim of zero bugs is possible. The remaining acceptance criterion is a completed, inspected run on the final head plus all dependent browser jobs; any unavailable gate must remain explicitly marked unverified.
+
+
+## Fourth audit checkpoint — playback replay and Psalm reverse mappings — 2026-11-15
+
+This section supersedes the previous section's “latest code head” and queued-run status. Additional review and concurrent branch work exposed further edge cases after the third audit.
+
+### Additional defects and fixes
+
+| Finding | Fix commits | Regression coverage |
+|---|---|---|
+| A whole Vulgate Psalm chapter can map into a target chapter that merges multiple Vulgate chapters (e.g. Vulgate Psalms 114 and 115 into English Psalm 116). Checking only that one target chapter was returned could falsely mark the conversion exact. | `dd77ff05f9530ceb0a91673b0b0aac5de1b678d1` now reverse-checks the target chapter back to exactly one anchor chapter. | `3aefdae67df4f229588a145a0c1fb29c055c403b` tests the merged-target case and the reverse split-Psalm mapping. |
+| Queue advancement could adopt a newer pending request's generation if the ended event began after the new request but before its audio lookup resolved. | `1f6d704c983fd503e7ab60045fdcec8b4e8539a9` binds queue advancement to the active source generation; `8e6b18c385bf378587b6508143f356c147ceb05f` sets that identity on restore/retry. | `3a231d0040a39ff2d764dd5f103b2f0a0297e267` covers a pending newer request. |
+| Replaying an episode already marked complete could leave its persisted `completed` flag set, preventing future resume restoration. The mini-player's original toggle path also bypassed replay-aware `play()`. | `e44024e29534d00ab1be096e442bf710afad6c23` clears completion without erasing history; `d152f28f400f89af15527d2f2ef88aa3c5d08d17` routes mini-player and Media Session play through replay-aware playback; `dbede8e548f62c27ca4b233ea7d79dc56a682af4` handles ended/outro state even before the completion write finishes; `327cd41a83c0492e4b38d33296034809b301c1b4` applies the reset on retry; `7bfe97c2dd820ab345702fc0f637f25315c7a7e6` surfaces reset failures; `39a55d35347a64077ba327b0d81fc7dac3d3d5bb` keeps Retry bound to the requested episode. | `ef94272b7e8d108fc56ddae6f93502c96cea5dca`, `bc1f5a5d10ce0a4188d1b15b5734b2b7de0238b0`, and `58106ba10b9db87b1a04735565cb3d0f0c393754` add/strengthen replay-ledger tests, including browser coverage. |
+| Replaying the same source changed the request generation, making its existing media-error listener stale; rebinding only after an asynchronous progress lookup left a window where an error could be lost. | `c0a834e60a337fbb6610f8ef180d6c496ae186de` rebinds same-source errors; `7245437d43138554f3dbe8484d632e361c370b31` binds before the async lookup. | `edf6794fe39a2f8278a99c19004f228709c901fb` tests error reporting and Retry after replay. |
+| A malformed cross-chapter parser edit caused typecheck to fail. | The parser file was restored from the last clean version and safely reapplied in `116425ab2dcad5a38fc4f7bfe762748f6676d3d3`. | `tests/refs.test.ts` retains the partial end-chapter parsing/formatting regressions. CI #1162 confirmed the failure before the corrective commit; no pass is claimed for that run. |
+
+### Current code and CI status
+
+Current source/test head: `3aefdae67df4f229588a145a0c1fb29c055c403b`.
+
+- CI run #1162 on the earlier docs-updated head `d8683631ee31e45c10ea876063bd5d70cc7d5a32` ran `npm ci` successfully and failed at `npm run typecheck` due to the parser edit. The parser correction was subsequently pushed.
+- CI run #1201 for the current head was queued at the time of this checkpoint. Its fast and secrets jobs had not completed. No test, build, audit, browser, accounts/sync, or sweep pass is claimed on the current head.
+- Runs cancelled by subsequent branch updates are not passes.
+- The dedicated full-width workflow has not been dispatched or verified. The CI `sweep-full` job remains the available corresponding full-width check, but is also unverified on this head.
+
+### Remaining work
+
+1. Obtain a completed CI run on the current head; inspect the fast job logs and fix any failures without weakening coverage.
+2. Verify `npm ci`, typecheck, all unit tests, docs status, data validation, build, budget, dependency audit, and secrets scan on the same head.
+3. Verify all three browser release shards, including the new replay/error regression, plus accounts/sync and the full-width sweep.
+4. Run/verify the dedicated full-width workflow if available; otherwise record it as unverified.
+5. Repeat the independent source audit after runtime results, update this test-results table with actual run IDs/conclusions, and record the exact tested SHA.
+6. Keep PR #11 open, draft, and unmerged.
+
+The audit reduces known risks but cannot prove the absence of every possible defect. No zero-bug or complete-runtime-verification claim is made.
