@@ -155,7 +155,10 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
             if (key !== undefined && key !== null && key !== '') before.push([t, String(key)]);
           }
         }
-        // Existing tombstones are replaced by the ones derived from this snapshot.
+        // Keep prior deletions too. Clearing them without carrying them forward lets another device
+        // resurrect rows that were already deleted before this backup was restored.
+        for (const tomb of await db.tombs.toArray()) before.push([tomb.tbl, tomb.uid]);
+        // Existing tombstones are replaced by the combined set derived from live rows and old tombstones.
         await db.tombs.clear();
       }
       // folders go first: a merge gives rows new ids, and the notes in a folder must follow the folder to its new id (or to the one it already has here)
