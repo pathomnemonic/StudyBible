@@ -219,6 +219,16 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
               const ex = await db.saved.where('key').equals(rec.key).first();
               if (ex) continue;
             }
+            // These two local history tables predate stable UIDs; use their event identity so re-importing
+            // the same backup does not grow duplicate search and navigation history.
+            if (t === 'recentSearches') {
+              const ex = await db.recentSearches.where('query').equals(rec.query).and((row) => row.ts === rec.ts).first();
+              if (ex) continue;
+            }
+            if (t === 'history') {
+              const ex = await db.history.where('ts').equals(rec.ts).and((row) => row.type === rec.type && row.ref === rec.ref).first();
+              if (ex) continue;
+            }
             // Re-importing an export must not duplicate rows: match by uid and keep the newer one.
             const ex = rec.uid ? await (db as any)[t].where('uid').equals(rec.uid).first() : undefined;
             if (ex) {
