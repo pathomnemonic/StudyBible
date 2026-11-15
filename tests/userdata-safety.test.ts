@@ -78,6 +78,18 @@ describe('your writing survives', () => {
     expect(await db.tombs.filter((row) => row.tbl === 'planProgress' && row.uid === 'plan-removed').count()).toBe(1);
   });
 
+  it('uses the natural key as the sync uid when restoring keyed progress', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    const backup = JSON.stringify({
+      format: 'studybible-export', version: 2,
+      episodeProgress: [{ episodeId: 'episode-kept', uid: 'stale-uid', position: 12, completed: false, heard: 12, updatedAt: 10 }],
+    });
+    await ops.importAll(backup, 'replace');
+    expect(await db.episodeProgress.get('episode-kept')).toMatchObject({ uid: 'episode-kept', position: 12 });
+    expect(await db.tombs.filter((row) => row.tbl === 'episodeProgress' && row.uid === 'episode-kept').count()).toBe(0);
+  });
+
   it('rolls back a replace if its deletion tombstones cannot be written', async () => {
     const { db } = await import('../src/db/db');
     const ops = await import('../src/db/ops');
