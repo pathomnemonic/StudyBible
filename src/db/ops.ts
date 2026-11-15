@@ -2,6 +2,7 @@ import { BRAND } from '../lib/brand';
 import { AUTO_TABLES, KEYED_TABLES, db, newUid, syncFlags, type Bookmark, type Highlight, type HighlightColor, type Note, type Target } from './db';
 import { parseRefId, refId, type Ref } from '../lib/refs';
 import { BOOKS } from '../lib/canon';
+import { isAppHashRoute, isHttpUrl } from '../lib/safeUrl';
 
 export function chapterKeysOf(targets: Target[]): string[] {
   const keys = new Set<string>();
@@ -116,12 +117,12 @@ function collectLocal(): Record<string, string> {
   try { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && isLocalKey(k)) { const v = localStorage.getItem(k); if (v != null) out[k] = v; } } } catch { /* storage unavailable */ }
   return out;
 }
-const safeUrl = (u: unknown) => typeof u === 'string' && /^https?:\/\//i.test(u);
+const safeUrl = isHttpUrl;
 
 /** Larger than any real backup (a few thousand long notes are a few megabytes); a bigger file is refused before it is parsed. */
 export const MAX_IMPORT_CHARS = 100_000_000;
 
-export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge'): Promise<number> {
+export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge', options: { notify?: boolean } = {}): Promise<number> {
   if (json.length > MAX_IMPORT_CHARS) throw new Error('This file is far larger than any backup the app makes, so it was not opened. Nothing was imported.');
   let data: any;
   try { data = JSON.parse(json); } catch { throw new Error('The file is cut short or is not a backup. Nothing was imported.'); }
@@ -240,7 +241,7 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
   } finally {
     syncFlags.applying = false;
   }
-  syncFlags.onLocalChange();
+  if (options.notify !== false) syncFlags.onLocalChange();
   if (mode === 'replace' && data.settings && typeof data.settings === 'object') {
     try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(data.settings)); } catch { /* storage unavailable */ }
   }
@@ -342,6 +343,7 @@ export async function exportCollections(ids?: number[]): Promise<string> {
 
 /** Reads a collections file back. A collection already here (same uid) gains the items, ticks and tags it lacks, so nothing is duplicated or lost; the rest are added. */
 export async function importCollections(json: string): Promise<{ added: number; merged: number; records: number }> {
+  if (json.length > MAX_IMPORT_CHARS) throw new Error('This file is far larger than any collections file the app makes, so it was not opened. Nothing was imported.');
   let data: any;
   try { data = JSON.parse(json); } catch { throw new Error('The file is cut short or is not a collections file. Nothing was imported.'); }
   if (!data || data.format !== 'studybible-export' || !Array.isArray(data.collections)) throw new Error('This is not a collections file. Nothing was imported.');
@@ -349,14 +351,14 @@ export async function importCollections(json: string): Promise<{ added: number; 
     if (!item || typeof item !== 'object' || Array.isArray(item)) return false;
     switch (item.type) {
       case 'passage': return typeof item.ref === 'string';
-      case 'commentary': return typeof item.itemId === 'string' && typeof item.label === 'string';
+      case 'commentary': return typeof item.itemId === 'string' && item.itemId.length > 0 && typeof item.label === 'string' && (item.url === undefined || isHttpUrl(item.url));
       case 'catechism': return Number.isInteger(item.para) && item.para > 0;
       case 'work': return typeof item.workId === 'string' && typeof item.label === 'string';
       case 'episode': return typeof item.episodeId === 'string' && typeof item.label === 'string';
       case 'reading': return typeof item.date === 'string' && typeof item.label === 'string';
       case 'topic': return typeof item.topicId === 'string' && typeof item.label === 'string';
       case 'note': case 'highlight': case 'bookmark': return typeof item.uid === 'string';
-      case 'link': return typeof item.url === 'string' && typeof item.label === 'string';
+      case 'link': return (isHttpUrl(item.url) || isAppHashRoute(item.url)) && typeof item.label === 'string' && item.label.trim().length > 0;
       default: return false;
     }
   };
@@ -370,11 +372,24 @@ export async function importCollections(json: string): Promise<{ added: number; 
   if (!data.collections.every(validCollection)) throw new Error('The collections file is damaged. Nothing was imported.');
   const { sameValue } = await import('../lib/canonical');
   const { doneKeyMatches } = await import('../lib/collections');
-  // the pointed-at notes, highlights and bookmarks first (matched by uid, so none is doubled)
-  const rest = { ...data, collections: [], folders: [], format: 'studybible-export' };
-  const records = await importAll(JSON.stringify(rest), 'merge');
-  let added = 0, merged = 0;
-  for (const raw of data.collections) {
+  // A collections file may carry only the records it points at, never unrelated tables or settings.
+  // Keep every write in one transaction: if either the records or collections fail, neither is imported.
+  const rest = {
+    format: 'studybible-export',
+    version: data.version,
+    notes: data.notes ?? [],
+    highlights: data.highlights ?? [],
+    bookmarks: data.bookmarks ?? [],
+  };
+  const tables = [...TABLES.map((t) => (db as any)[t]), db.tombs, db.trash];
+  const wasApplying = syncFlags.applying;
+  let records = 0, added = 0, merged = 0;
+  try {
+    await db.transaction('rw', tables, async () => {
+      records = await importAll(JSON.stringify(rest), 'merge', { notify: false });
+      // importAll restores the hook flag in its finally block; keep collection writes in restore mode too.
+      syncFlags.applying = true;
+      for (const raw of data.collections) {
     if (!raw || typeof raw !== 'object' || typeof raw.name !== 'string' || !Array.isArray(raw.items)) continue;
     const { id: _id, ...rec } = raw;
     const ex = rec.uid ? await db.collections.where('uid').equals(rec.uid).first() : undefined;
@@ -388,6 +403,11 @@ export async function importCollections(json: string): Promise<{ added: number; 
     const newer = (rec.updatedAt ?? 0) > (ex.updatedAt ?? 0);
     await db.collections.put({ ...ex, name: newer ? rec.name : ex.name, description: newer ? rec.description ?? ex.description : ex.description, items, done: done.length ? done : undefined, tags: tags.length ? tags : undefined, updatedAt: Math.max(ex.updatedAt ?? 0, rec.updatedAt ?? 0, Date.now()) });
     merged++;
+      }
+    });
+  } finally {
+    syncFlags.applying = wasApplying;
   }
+  if (!wasApplying) syncFlags.onLocalChange();
   return { added, merged, records };
 }

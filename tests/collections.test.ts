@@ -52,6 +52,20 @@ describe('collections', () => {
     expect(md).toContain('the original is no longer here');
   });
 
+  it('never turns a stored javascript or malformed address into a clickable collection link', async () => {
+    const { resolveItem, targetMissing } = await import('../src/lib/collections');
+    const ed = {} as never;
+    const script = { type: 'link' as const, url: 'javascript:alert(1)', label: 'unsafe' };
+    const data = { type: 'commentary' as const, itemId: 'x', label: 'unsafe', url: 'data:text/html,hello' };
+    const scriptResult = await resolveItem(script, 0, ed);
+    const dataResult = await resolveItem(data, 1, ed);
+    expect(scriptResult.url).toBeUndefined();
+    expect(scriptResult.to).toBeUndefined();
+    expect(dataResult.url).toBeUndefined();
+    expect(targetMissing(script)).toBe(true);
+    expect(targetMissing(data)).toBe(true);
+  });
+
   it('opens an in-app link inside the app and an outside link on its own site', async () => {
     const { resolveItem } = await import('../src/lib/collections');
     const ed = {} as never;

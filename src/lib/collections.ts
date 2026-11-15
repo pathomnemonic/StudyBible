@@ -5,6 +5,7 @@ import { readerPath } from './nav';
 import { cccPara } from '../data/ccc';
 import type { EditionRecord } from '../data/loader';
 import { BRAND } from './brand';
+import { isAppHashRoute, isHttpUrl } from './safeUrl';
 
 /** One collection item read back to what it points at: its title, the text, and where the original lives. Nothing is copied into the collection. */
 export interface Resolved {
@@ -34,7 +35,7 @@ export interface HaveUids { note: Set<string>; highlight: Set<string>; bookmark:
 const uidGone = (kind: keyof HaveUids) => (t: { uid: string }, have?: HaveUids) => !!have && !have[kind].has(t.uid);
 export const TARGET_KINDS: Record<Target['type'], TargetInfo> = {
   passage: { label: 'Passage', link: (t, ed) => { const r = parseRefId(t.ref); return r && ed ? { to: readerPath(ed, r) } : r ? { to: '/read' } : {}; }, missing: (t) => !parseRefId(t.ref) },
-  commentary: { label: 'Commentary', link: (t) => (t.url ? { url: t.url } : {}), missing: () => false },
+  commentary: { label: 'Commentary', link: (t) => (isHttpUrl(t.url) ? { url: t.url } : {}), missing: (t) => t.url !== undefined && !isHttpUrl(t.url) },
   catechism: { label: 'Catechism', link: (t) => ({ to: `/study/catechism/${t.para}` }), missing: (t) => !Number.isInteger(t.para) || t.para < 1 || t.para > 2865 },
   work: { label: 'Church writing', link: (t) => ({ to: `/study/works/${t.workId}/${t.section ?? ''}` }), missing: () => false },
   episode: { label: 'Listening', link: (t) => ({ to: `/listen/episode/${t.episodeId}` }), missing: () => false },
@@ -43,7 +44,11 @@ export const TARGET_KINDS: Record<Target['type'], TargetInfo> = {
   note: { label: 'Note', link: () => ({ to: '/library' }), missing: uidGone('note') },
   highlight: { label: 'Highlight', link: () => ({ to: '/library?tab=highlights' }), missing: uidGone('highlight') },
   bookmark: { label: 'Bookmark', link: () => ({ to: '/library?tab=bookmarks' }), missing: uidGone('bookmark') },
-  link: { label: 'Link', link: (t) => (String(t.url).startsWith('#/') ? { to: String(t.url).slice(1) } : { url: t.url }), missing: (t) => !/^(https?:\/\/|#\/)/i.test(String(t.url)) },
+  link: {
+    label: 'Link',
+    link: (t) => isAppHashRoute(t.url) ? { to: t.url.slice(1) } : isHttpUrl(t.url) ? { url: t.url } : {},
+    missing: (t) => !isAppHashRoute(t.url) && !isHttpUrl(t.url),
+  },
 };
 export const targetKind = (t: Target) => TARGET_KINDS[t.type].label;
 export const targetLink = (t: Target, ed?: EditionRecord) => TARGET_KINDS[t.type].link(t, ed);

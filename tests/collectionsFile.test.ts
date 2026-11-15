@@ -70,6 +70,32 @@ describe('collections to a file and back', () => {
     expect(m.tags).toEqual(['mass', 'Lent']);
   });
 
+  it('rolls back pointed-at records if a collection write fails', async () => {
+    const ops = await import('../src/db/ops');
+    const { db } = await import('../src/db/db');
+    vi.spyOn(db.collections, 'add').mockRejectedValue(new Error('collection write failed'));
+    const file = {
+      format: 'studybible-export', version: 2,
+      notes: [{ kind: 'note', body: 'must roll back', tags: [], targets: [], chapterKeys: [], createdAt: 1, updatedAt: 1, uid: 'atomic-note' }],
+      collections: [{ name: 'Atomic', uid: 'atomic-collection', items: [], createdAt: 1, updatedAt: 1 }],
+    };
+    await expect(ops.importCollections(JSON.stringify(file))).rejects.toThrow(/collection write failed/);
+    expect(await db.notes.count()).toBe(0);
+    expect(await db.collections.count()).toBe(0);
+  });
+
+  it('rejects unsafe external URLs before importing pointed-at records', async () => {
+    const ops = await import('../src/db/ops');
+    const { db } = await import('../src/db/db');
+    const file = {
+      format: 'studybible-export', version: 2,
+      notes: [{ kind: 'note', body: 'must not import', tags: [], targets: [], chapterKeys: [], createdAt: 1, updatedAt: 1, uid: 'unsafe-note' }],
+      collections: [{ name: 'Unsafe', items: [{ type: 'link', url: 'javascript:alert(1)', label: 'bad' }] }],
+    };
+    await expect(ops.importCollections(JSON.stringify(file))).rejects.toThrow(/file is damaged.*nothing was imported/i);
+    expect(await db.notes.count()).toBe(0);
+  });
+
   it('rejects a malformed collection before importing its pointed-at records', async () => {
     const ops = await import('../src/db/ops');
     const { db } = await import('../src/db/db');
