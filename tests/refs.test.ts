@@ -56,6 +56,9 @@ describe('reference parsing', () => {
     expect(formatRef(parseRefId('JUD.1.5-7')!)).toBe('Jude 5–7');
     expect(formatRef({ book: 'GEN', c1: 1, c2: 2, v2: 3 })).toBe('Genesis 1–2:3');
     expect(formatRef({ book: 'GEN', c1: 1, c2: 1, v2: 3 })).toBe('Genesis 1:1–3');
+    expect(refId({ book: 'GEN', c1: 1, c2: 1, v2: 1 })).toBe('GEN.1.1');
+    expect(refId({ book: 'GEN', c1: 1, c2: 1, v2: 3 })).toBe('GEN.1.1-3');
+    expect(refId(parseRefId('GEN.1.1-3')!)).toBe('GEN.1.1-3');
   });
   it('detects overlap', () => {
     expect(refsOverlap(parseRefId('JHN.6.51-58')!, parseRefId('JHN.6.55')!)).toBe(true);
