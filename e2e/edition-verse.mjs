@@ -13,7 +13,10 @@ const p = await ctx.newPage(); p.setDefaultTimeout(20000);
 const SHORT = { dra: 'DRB', webc: 'WEB-C', nabre: 'NABRE', brenton: 'LXX', rsv2ce: 'RSV-2CE', cpdv: 'CPDV' };
 let n = 0;
 async function from(ed, book, ch, v) {
-  await p.goto(`${BASE}/#/read/${ed}/${book}/${ch}`); await p.waitForSelector(`[data-v="${v}"]`, { timeout: 20000 }).catch(() => fail(`${ed} ${book} ${ch}:${v} did not load`));
+  await p.goto(`${BASE}/#/read/${ed}/${book}/${ch}`);
+  const bookTitle = ({ PSA: 'Psalm', JOL: 'Joel', MAL: 'Malachi', JHN: 'John' })[book] ?? book;
+  await p.waitForFunction(({ title, ch }) => document.querySelector('h1.chapter-title')?.textContent?.includes(`${title} ${ch}`), { title: bookTitle, ch: String(ch) }, { timeout: 20000 }).catch(() => fail(`${ed} ${book} ${ch}: the requested chapter did not finish loading`));
+  await p.waitForSelector(`[data-v="${v}"]`, { timeout: 20000 }).catch(() => fail(`${ed} ${book} ${ch}:${v} did not load`));
   await p.locator(`[data-v="${v}"]`).first().click({ force: true }); await p.waitForTimeout(400);
   const sel = await p.evaluate(() => [...new Set([...document.querySelectorAll('[data-v][aria-pressed=true]')].map((e) => e.dataset.v))]);
   if (sel.join() !== String(v)) fail(`${ed} ${book} ${ch}:${v}: the verse must be selected before switching (selected: ${sel})`);
