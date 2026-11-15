@@ -212,6 +212,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       const url = await resolveIfCurrent(restoreRequest, () => playGeneration.current, () => audioUrl(ep.audio)).catch(() => { if (restoreRequest === playGeneration.current) setError(navigator.onLine === false ? 'offline' : 'failed'); return null; });
       if (!url || (a as any)._ep || restoreRequest !== playGeneration.current) return;
       (a as any)._ep = ep;
+      (a as any)._playGeneration = restoreRequest;
       (a as any)._manualEnded = false;
       bindSourceError(a, restoreRequest, ep.id, url);
       a.src = url;
@@ -334,6 +335,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
           if (request !== playGeneration.current || (a as any)._ep?.id !== retryEpisode.id) return;
           if (!u) { setError(navigator.onLine === false ? 'offline' : 'failed'); return; }
           bindSourceError(a, request, retryEpisode.id, u);
+          (a as any)._playGeneration = request;
           (a as any)._manualEnded = false;
           a.src = u; a.load();
           a.addEventListener('loadedmetadata', () => { if (request === playGeneration.current && (a as any)._ep?.id === retryEpisode.id && at > 0) a.currentTime = at; }, { once: true });
