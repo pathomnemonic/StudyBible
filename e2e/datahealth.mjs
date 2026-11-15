@@ -15,50 +15,34 @@ await ctx.addInitScript(() => {
   const txMarker = '__studyBibleDataHealthTransactionFaultInstalled';
   if (!txProto[txMarker]) {
     const originalObjectStore = txProto.objectStore;
-    const observed = new WeakSet();
+    const observedWrites = new WeakSet();
+    const observedReads = new WeakSet();
     Object.defineProperty(txProto, txMarker, { value: true });
     txProto.objectStore = function (...args) {
       const store = originalObjectStore.apply(this, args);
       const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
-      if (state?.enabled && this.db?.name === 'studybible' && this.mode === 'readwrite' &&
-          store.name === 'notes' && !observed.has(this)) {
-        observed.add(this);
+      if (!state?.enabled || this.db?.name !== 'studybible' || store.name !== 'notes') return store;
+
+      if (this.mode === 'readwrite' && !observedWrites.has(this)) {
+        observedWrites.add(this);
         state.notesTransactions = (state.notesTransactions ?? 0) + 1;
         this.addEventListener('complete', () => {
           if (state.enabled) { state.writes++; state.armed = true; }
         }, { once: true });
+      } else if (this.mode === 'readonly' && state.armed && !observedReads.has(this)) {
+        // Fail the first read transaction that actually opens the notes store after the
+        // committed mutation. This is independent of whether Dexie uses get, getAll or a cursor.
+        observedReads.add(this);
+        state.readRequests = (state.readRequests ?? 0) + 1;
+        try {
+          this.abort();
+          state.abortedReads++;
+        } catch {
+          state.abortFailures++;
+        }
       }
       return store;
     };
-  }
-
-  // Dexie Table.toArray() uses IDBObjectStore.getAll() where supported and openCursor() as fallback.
-  // Abort after the notes read request is queued, and stay armed until the test sees the failed refresh.
-  const storeProto = IDBObjectStore.prototype;
-  const storeMarker = '__studyBibleDataHealthReadFaultInstalled';
-  if (!storeProto[storeMarker]) {
-    Object.defineProperty(storeProto, storeMarker, { value: true });
-    for (const method of ['getAll', 'openCursor']) {
-      const originalRead = storeProto[method];
-      if (typeof originalRead !== 'function') continue;
-      storeProto[method] = function (...args) {
-        const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
-        const tx = this.transaction;
-        const shouldAbort = state?.enabled && state.armed &&
-          tx.db.name === 'studybible' && tx.mode === 'readonly' && this.name === 'notes';
-        const request = originalRead.apply(this, args);
-        if (shouldAbort) {
-          try {
-            state.readRequests = (state.readRequests ?? 0) + 1;
-            tx.abort();
-            state.abortedReads++;
-          } catch {
-            state.abortFailures++;
-          }
-        }
-        return request;
-      };
-    }
   }
 });
 const p = await ctx.newPage(); p.setDefaultTimeout(20000);
