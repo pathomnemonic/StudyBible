@@ -264,11 +264,26 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
         }
       }
       if (mode === 'replace') {
-        const desired = new Map(priorTombs);
-        // A restored live record supersedes a matching old/source tombstone. Otherwise preserve the newest
-        // deletion from either the old device or the backup file.
-        for (const tomb of data.tombs ?? []) {
-          if (!after.has(identity(tomb.tbl, tomb.uid))) keepNewestTomb(desired, tomb);
+        const allTombs = new Map(priorTombs);
+        // The replacement is an explicit restore: when it brings back an identity with an older tombstone,
+        // advance that record past the deletion so the server will accept the intentional resurrection.
+        for (const tomb of data.tombs ?? []) keepNewestTomb(allTombs, tomb);
+        const desired = new Map<string, { tbl: string; uid: string; updatedAt: number }>();
+        for (const [key, tomb] of allTombs) {
+          if (after.has(key)) {
+            const table = db.table(tomb.tbl);
+            const keyed = Object.prototype.hasOwnProperty.call(KEYED_TABLES, tomb.tbl);
+            const local: any = keyed
+              ? await table.get(tomb.uid)
+              : await table.where('uid').equals(tomb.uid).first();
+            if (local && (local.updatedAt ?? 0) <= tomb.updatedAt) {
+              const revivedAt = tomb.updatedAt < Number.MAX_SAFE_INTEGER ? tomb.updatedAt + 1 : Date.now();
+              if (keyed) await table.put({ ...local, updatedAt: revivedAt });
+              else await table.update(local.id, { updatedAt: revivedAt });
+            }
+          } else {
+            keepNewestTomb(desired, tomb);
+          }
         }
         // Any live identity that existed here but is absent from the replacement backup is a new local delete.
         const deletedAt = Date.now();

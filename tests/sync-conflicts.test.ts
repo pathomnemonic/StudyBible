@@ -130,11 +130,28 @@ describe('edit and delete', () => {
     await seed('notes', { ...base, body: '', title: 'Only a title', updatedAt: 2000 } as any);
     await eng.applyRemote('u', [{ table: 'notes', uid: 'n1', updatedAt: 1500, deleted: true, payload: {} }]);
     expect((await notes()).length).toBe(1);
+    expect(await dbm.db.tombs.filter((t) => t.tbl === 'notes' && t.uid === 'n1').count()).toBe(0);
   });
-  it('delete on the other device, nothing here edited: deleted', async () => {
+  it('persists remote deletions locally so the next backup retains them', async () => {
+    await eng.applyRemote('u', [
+      { table: 'notes', uid: 'server-deleted-note', updatedAt: 3000, deleted: true, payload: {} },
+      { table: 'episodeProgress', uid: 'server-deleted-episode', updatedAt: 4000, deleted: true, payload: {} },
+    ]);
+    expect(await dbm.db.tombs.filter((t) => t.tbl === 'notes' && t.uid === 'server-deleted-note').first()).toMatchObject({ updatedAt: 3000 });
+    expect(await dbm.db.tombs.filter((t) => t.tbl === 'episodeProgress' && t.uid === 'server-deleted-episode').first()).toMatchObject({ updatedAt: 4000 });
+    const ops = await import('../src/db/ops');
+    const backup = JSON.parse(await ops.exportAll());
+    expect(backup.tombs).toEqual(expect.arrayContaining([
+      { tbl: 'notes', uid: 'server-deleted-note', updatedAt: 3000 },
+      { tbl: 'episodeProgress', uid: 'server-deleted-episode', updatedAt: 4000 },
+    ]));
+  });
+
+  it('delete on the other device, nothing here edited: deleted and remembered', async () => {
     await seed('notes', { ...base, updatedAt: 500 } as any);
     await eng.applyRemote('u', [{ table: 'notes', uid: 'n1', updatedAt: 3000, deleted: true, payload: {} }]);
     expect((await notes()).length).toBe(0);
+    expect(await dbm.db.tombs.filter((t) => t.tbl === 'notes' && t.uid === 'n1').first()).toMatchObject({ updatedAt: 3000 });
   });
   it('deleted here, an older copy arrives from another device: it stays deleted', async () => {
     const id = await seed('notes', { ...base, updatedAt: 1500 } as any);

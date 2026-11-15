@@ -59,6 +59,13 @@ async function collect(userId: string, since: number): Promise<WireChange[]> {
   return out;
 }
 
+async function rememberRemoteTombstone(table: string, uid: string, updatedAt: number): Promise<void> {
+  const old = await db.tombs.where('tbl').equals(table).and((row) => row.uid === uid).first();
+  if (old && old.updatedAt >= updatedAt) return;
+  if (old) await db.tombs.update(old.id!, { updatedAt });
+  else await db.tombs.add({ tbl: table, uid, updatedAt });
+}
+
 export async function applyRemote(userId: string, changes: WireChange[]) {
   const order = ['folders', ...AUTO_TABLES.filter((t) => t !== 'folders'), ...Object.keys(KEYED_TABLES), 'settings'];
   const sorted = [...changes].sort((a, b) => order.indexOf(a.table) - order.indexOf(b.table));
@@ -78,7 +85,11 @@ export async function applyRemote(userId: string, changes: WireChange[]) {
         const t = db.table(c.table);
         const local: any = await t.get(c.uid);
         if (c.deleted) {
-          if (local && (local.updatedAt ?? 0) <= c.updatedAt) await t.delete(c.uid);
+          const newerLocal = !!local && (local.updatedAt ?? 0) > c.updatedAt;
+          if (local && !newerLocal) await t.delete(c.uid);
+          // Persist server deletions locally: a backup made after sync must carry the deletion even
+          // though the source device never performed this delete itself.
+          if (!newerLocal) await rememberRemoteTombstone(c.table, c.uid, c.updatedAt);
         } else if (!local || (local.updatedAt ?? 0) < c.updatedAt) {
           await t.put({ ...c.payload, updatedAt: c.updatedAt });
         }
@@ -95,7 +106,9 @@ export async function applyRemote(userId: string, changes: WireChange[]) {
           await t.update(local.id, { updatedAt: Math.max(Date.now(), c.updatedAt + 1) });
           continue;
         }
-        if (local && (local.updatedAt ?? 0) <= c.updatedAt) await t.delete(local.id);
+        const newerLocal = !!local && (local.updatedAt ?? 0) > c.updatedAt;
+        if (local && !newerLocal) await t.delete(local.id);
+        if (!newerLocal) await rememberRemoteTombstone(c.table, c.uid, c.updatedAt);
         continue;
       }
       const row: any = { ...c.payload, uid: c.uid, updatedAt: c.updatedAt };

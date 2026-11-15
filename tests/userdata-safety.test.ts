@@ -200,6 +200,7 @@ describe('your writing survives', () => {
     });
     await ops.importAll(backup, 'replace');
     expect(await db.notes.where('uid').equals('restored-note').count()).toBe(1);
+    expect((await db.notes.where('uid').equals('restored-note').first())?.updatedAt).toBeGreaterThan(20);
     expect(await db.tombs.filter((row) => row.tbl === 'notes' && row.uid === 'restored-note').count()).toBe(0);
   });
 
