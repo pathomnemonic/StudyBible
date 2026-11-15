@@ -348,3 +348,26 @@ Current code/test head: `d6732f5279fa39b2307d17dec6f58c9ef04c42f7`.
 6. Keep PR #11 open, draft and unmerged.
 
 The source-level audit has found and corrected additional defects, but no assertion of zero bugs or complete runtime verification is justified until the required checks execute and pass.
+
+
+## Sixth audit checkpoint — CI #1298 browser-shard regressions — 2026-11-15
+
+Run #1298 (`43685850647`) tested head `f170ce967f6cf7f7ab1d257e2a3263f70815d2aa`.
+
+| Job | Result |
+|---|---|
+| `fast` | Passed: install, typecheck, generated exact-reference indexes, unit tests, generated docs, data validation, build, size budgets and production dependency audit |
+| `secrets` | Passed |
+| `accounts` | Passed |
+| `browser (1/3)` | Failed in `datahealth.mjs`: the injected fault did not abort the post-repair notes read; the other 16 checks in this shard passed |
+| `browser (2/3)` | Failed in `mediacontrols.mjs`: the Retry button disappeared before the click in the synthetic-error retry case; the other 16 checks in this shard passed |
+| `browser (3/3)` | Passed all 17 checks |
+| `sweep-full` | Still running when this corrective push was prepared; no pass is claimed |
+
+### Review and corrective work
+
+- The Data Health fault injector was installed after the app had opened Dexie's IndexedDB connection. The interceptor is now installed by Playwright's init script before app initialization; it arms after a notes write transaction commits and aborts the next read-only notes transaction. The test still requires both an observed write and an aborted follow-up read.
+- A source review found that Data Health retained its previous `found`, `repairs`, and `restorable` state while a new scan was running. If a committed repair/restore was followed by a failed scan, stale findings could remain visible. Each new scan now clears the prior result state before reading; browser assertions check that stale findings are not presented after refresh failure.
+- The Media Controls failure occurred in the synthetic same-source error/retry test. It removed the injected `MediaError` before clicking Retry, leaving a window in which a queued `loadeddata` event could clear the alert. The test now activates Retry first and clears the synthetic error immediately afterward. The Retry/recovery and saved-position assertions remain intact; the test has not been relaxed.
+
+These are test-harness and stale-view corrections identified by the #1298 logs/source review. A new full CI run is required; no current-head browser pass is inferred from authored tests. PR #11 remains draft, open, and unmerged.

@@ -17,6 +17,10 @@ export default function DataHealth() {
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState('');
   const run = async (keepMsg = false) => {
+    // A previous scan is no longer authoritative once a new scan starts.
+    setFound(null);
+    setRepairs([]);
+    setRestorable([]);
     const [notes, highlights, bookmarks, collections, userPlans, trash] = await Promise.all([db.notes.toArray(), db.highlights.toArray(), db.bookmarks.toArray(), db.collections.toArray(), db.userPlans.toArray(), db.trash.toArray()]);
     const input = { notes, highlights, bookmarks, collections, userPlans } as never;
     const { editions } = await loadEditions();

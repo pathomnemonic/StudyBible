@@ -4,7 +4,36 @@ const BASE = process.env.BASE ?? 'http://localhost:4173';
 const fail = (m) => { console.error('FAIL', m); process.exit(1); };
 const b = await chromium.launch();
 const ctx = await b.newContext({ viewport: { width: 900, height: 1100 } });
-await ctx.addInitScript(() => { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:audienceAsked', '1'); });
+await ctx.addInitScript(() => {
+  localStorage.setItem('sb:tour', '1');
+  localStorage.setItem('sb:setup', '2');
+  localStorage.setItem('sb:audienceAsked', '1');
+  // Install before Dexie opens the database; it may retain the native transaction method.
+  const proto = IDBDatabase.prototype;
+  const marker = '__studyBibleDataHealthFaultInstalled';
+  if (!proto[marker]) {
+    const original = proto.transaction;
+    Object.defineProperty(proto, marker, { value: true });
+    proto.transaction = function (...args) {
+      const tx = original.apply(this, args);
+      const state = window.__dataHealthFault ?? window.__dataHealthRestoreFault;
+      const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
+      const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
+      if (state?.enabled && this.name === 'studybible' && names.includes('notes')) {
+        if (mode === 'readwrite') {
+          state.writes++;
+          // Arm only after the selected mutation has actually committed.
+          tx.addEventListener('complete', () => { if (state.enabled) state.armed = true; });
+        } else if (mode === 'readonly' && state.armed) {
+          state.armed = false;
+          state.abortedReads++;
+          try { tx.abort(); } catch { /* transaction may already have completed */ }
+        }
+      }
+      return tx;
+    };
+  }
+});
 const p = await ctx.newPage(); p.setDefaultTimeout(20000);
 await p.goto(`${BASE}/#/library?tab=export`);
 await p.waitForSelector('h1');
@@ -20,36 +49,13 @@ const id = await p.evaluate(async () => {
 });
 await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Fix this' }).waitFor();
-await p.evaluate(() => {
-  // Dexie may use get/put, cursor.update, or a bulk API depending on the IndexedDB implementation.
-  // Observe the transaction boundary instead of guessing which write primitive it uses, then fail
-  // all immediate notes reads so the Data Health follow-up scan deterministically receives an error.
-  const proto = IDBDatabase.prototype, transaction = proto.transaction;
-  let failReadsUntil = 0;
-  window.__dataHealthFault = { writes: 0, abortedReads: 0 };
-  proto.transaction = function (...args) {
-    const tx = transaction.apply(this, args);
-    const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
-    const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
-    if (this.name === 'studybible' && names.includes('notes')) {
-      if (mode === 'readwrite') {
-        // Arm before Dexie's transaction promise can resolve and its caller starts the next scan.
-        window.__dataHealthFault.writes++;
-        failReadsUntil = Date.now() + 5000;
-      } else if (Date.now() < failReadsUntil) {
-        window.__dataHealthFault.abortedReads++;
-        try { tx.abort(); } catch { /* transaction may already have completed */ }
-      }
-    }
-    return tx;
-  };
-  window.__restoreDataHealthIDB = () => { proto.transaction = transaction; };
-});
+await p.evaluate(() => { window.__dataHealthFault = { enabled: true, armed: false, writes: 0, abortedReads: 0 }; });
 await p.getByRole('button', { name: 'Fix this' }).click();
-await p.waitForFunction(() => window.__dataHealthFault?.abortedReads > 0, null, { timeout: 5000 }).catch(() => fail('the repair fault injector did not abort the follow-up notes read'));
+await p.waitForFunction(() => window.__dataHealthFault?.writes > 0 && window.__dataHealthFault?.abortedReads > 0, null, { timeout: 5000 }).catch(() => fail('the repair fault injector did not abort the follow-up notes read'));
 await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor();
 if (await p.getByRole('button', { name: 'Fix this' }).count()) fail('stale repair actions must be cleared when the committed repair cannot be rechecked');
-await p.evaluate(() => window.__restoreDataHealthIDB());
+if (await p.getByText(/Everything found/).count()) fail('stale findings must be cleared when the committed repair cannot be rechecked');
+await p.evaluate(() => { window.__dataHealthFault.enabled = false; });
 const repaired = await p.evaluate(async (id) => {
   const request = indexedDB.open('studybible');
   const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
@@ -79,33 +85,13 @@ const restoreFixture = await p.evaluate(async () => {
 });
 await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Restore' }).waitFor();
-await p.evaluate(() => {
-  const proto = IDBDatabase.prototype, transaction = proto.transaction;
-  let failReadsUntil = 0;
-  window.__dataHealthRestoreFault = { writes: 0, abortedReads: 0 };
-  proto.transaction = function (...args) {
-    const tx = transaction.apply(this, args);
-    const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
-    const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
-    if (this.name === 'studybible' && names.includes('notes')) {
-      if (mode === 'readwrite') {
-        // Arm before Dexie's transaction promise can resolve and its caller starts the next scan.
-        window.__dataHealthRestoreFault.writes++;
-        failReadsUntil = Date.now() + 5000;
-      } else if (Date.now() < failReadsUntil) {
-        window.__dataHealthRestoreFault.abortedReads++;
-        try { tx.abort(); } catch { /* transaction may already have completed */ }
-      }
-    }
-    return tx;
-  };
-  window.__restoreDataHealthRestoreIDB = () => { proto.transaction = transaction; };
-});
+await p.evaluate(() => { window.__dataHealthRestoreFault = { enabled: true, armed: false, writes: 0, abortedReads: 0 }; });
 await p.getByRole('button', { name: 'Restore' }).click();
-await p.waitForFunction(() => window.__dataHealthRestoreFault?.abortedReads > 0, null, { timeout: 5000 }).catch(() => fail('the restore fault injector did not abort the follow-up notes read'));
+await p.waitForFunction(() => window.__dataHealthRestoreFault?.writes > 0 && window.__dataHealthRestoreFault?.abortedReads > 0, null, { timeout: 5000 }).catch(() => fail('the restore fault injector did not abort the follow-up notes read'));
 await p.getByRole('alert').filter({ hasText: 'Restore committed, but the check could not refresh' }).waitFor();
 if (await p.getByRole('button', { name: 'Restore' }).count()) fail('stale restore actions must be cleared after a committed restore with a failed refresh');
-await p.evaluate(() => window.__restoreDataHealthRestoreIDB());
+if (await p.getByText('Nothing wrong found.').count()) fail('a stale check result must be cleared after a committed restore with a failed refresh');
+await p.evaluate(() => { window.__dataHealthRestoreFault.enabled = false; });
 const restoreState = await p.evaluate(async (ids) => {
   const request = indexedDB.open('studybible');
   const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });

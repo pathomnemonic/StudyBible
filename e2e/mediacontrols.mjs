@@ -69,8 +69,8 @@ await p.waitForTimeout(100);
 if (await p.locator('.player-msg[role="alert"]').count()) fail('an error event without a MediaError must not mark the active source failed');
 await p.evaluate(() => { Object.defineProperty(window.__a, 'error', { configurable: true, value: { code: 4 } }); window.__a.dispatchEvent(new Event('error')); });
 await p.waitForSelector('.player-msg[role="alert"]', { timeout: 5000 }).catch(() => fail('a replayed source must report an error after a stale error event'));
-await p.evaluate(() => { delete window.__a.error; });
 await p.locator('.player-msg button:has-text("Try again")').click();
+await p.evaluate(() => { delete window.__a.error; });
 await p.waitForFunction(() => !document.querySelector('.player-msg') && !window.__a.paused && Math.abs(window.__a.currentTime - 40) < 3, null, { timeout: 15000 }).catch(() => fail('a replayed source should recover through Try again'));
 await p.locator('.player button[aria-label="Pause"]').click();
 // 2. the pause button and close button say what they do
@@ -149,8 +149,8 @@ const retryEpisodeId = await p.evaluate(() => {
   return a._ep?.id;
 });
 await p.waitForSelector('.player-msg[role="alert"]');
-await p.evaluate(() => { delete window.__a.error; });
 await p.locator('.player-msg button:has-text("Try again")').click();
+await p.evaluate(() => { delete window.__a.error; });
 await p.waitForFunction(() => !document.querySelector('.player-msg') && !window.__a.paused && Math.abs(window.__a.currentTime - 40) < 3, null, { timeout: 15000 }).catch(() => fail('retry should restore the active audio position after flushing it'));
 const retrySavedPosition = await p.evaluate(async (id) => {
   const request = indexedDB.open('studybible');
