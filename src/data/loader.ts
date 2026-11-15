@@ -16,7 +16,7 @@ export function getJson<T>(path: string, optional = false): Promise<T | null> {
           if (optional || r.status === 404) {
             // Missing/optional data is not a successful cache entry: a later retry must fetch again.
             if (cache.get(path) === request) cache.delete(path);
-            if (optional || r.status === 404) return null;
+            return null;
           }
           throw new Error(`${path}: HTTP ${r.status}`);
         }
