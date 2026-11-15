@@ -56,6 +56,8 @@ describe('semantic Scripture reference validation', () => {
     expect(split.exact).toBe(false);
     const spanningSplit = convertRef('english', 'vulgate', { book: 'PSA', c1: 9, v1: 1, c2: 11, v2: 7 });
     expect(spanningSplit.exact).toBe(false);
+    const splitEndChapter = convertRef('english', 'vulgate', { book: 'PSA', c1: 9, c2: 10 });
+    expect(splitEndChapter.exact).toBe(false);
   });
 
 
