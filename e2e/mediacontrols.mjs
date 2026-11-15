@@ -59,6 +59,13 @@ if (replayAfter?.completed !== false || replayAfter?.position !== 0) fail('repla
 if ((replayAfter?.heard ?? 0) < replaySeed.heard || replayAfter?.listeningDays?.['2001-01-01']?.seconds !== 100 || replayAfter?.listeningDays?.['2001-01-01']?.completions !== 1) fail('replaying must preserve historical listening totals');
 await p.evaluate(() => { window.__a.currentTime = 40; window.__a.pause(); });
 await p.locator('.player button[aria-label="Play"]').waitFor();
+// A replay has a new request generation; a later error from the same source must still be reported.
+await p.evaluate(() => { Object.defineProperty(window.__a, 'error', { configurable: true, value: { code: 4 } }); window.__a.dispatchEvent(new Event('error')); });
+await p.waitForSelector('.player-msg[role="alert"]', { timeout: 5000 }).catch(() => fail('a replayed source must report an error under its new request generation'));
+await p.evaluate(() => { delete window.__a.error; });
+await p.locator('.player-msg button:has-text("Try again")').click();
+await p.waitForFunction(() => !document.querySelector('.player-msg') && !window.__a.paused && Math.abs(window.__a.currentTime - 40) < 3, null, { timeout: 15000 }).catch(() => fail('a replayed source should recover through Try again'));
+await p.locator('.player button[aria-label="Pause"]').click();
 // 2. the pause button and close button say what they do
 const closeName = await p.locator('.player button[aria-label^="Stop and close"]').count();
 if (!closeName) fail('the close button should be named "Stop and close the player"');
