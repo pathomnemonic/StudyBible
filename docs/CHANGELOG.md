@@ -1,5 +1,12 @@
 # What changed
 
+## Reference integrity cycle
+- Lesson Scripture links and the key-verse review card now check both ends of a passage (and every chapter between) against the real verse counts of the numbering it was written in and of the edition you read, instead of a chapter count. A verse that does not exist is reported as a data error; a book your edition lacks is named, not redirected; a mapping that is not verified opens the chapter with a note, and the review card is not added for you but offered as a clearly labelled choice. The card keeps the passage as the lesson wrote it.
+- Adding a lesson verse to Memorize is one atomic step: rapid clicks cannot duplicate it, a failed write shows a readable error and the lesson stays done.
+- Go Further tells you when part of its data could not be loaded (with Try again) instead of quietly showing fewer links; library works are offered only when their file can be read; malformed Catechism lists are rejected.
+- Memorize ignores a late reply for a card you have moved past.
+- Chant scores and the Greek-edition notes are validated against pinned, hashed sources (see `docs/DATA_SOURCES.md`).
+
 ## Fourth cycle
 - Bible editions: the NABRE is bundled (all 73 books, headings and the edition's own notes) and the RSV-2CE is rebuilt from the owner's clean publisher file (all 73 books including Esther and Zechariah, with footnotes, study notes and cross-references). The first RSV pack came from a damaged scan (dropped first letters, stray marks); it is gone. A test now fails on that kind of damage.
 - A video or recording started on a page keeps playing when you open another tab and docks as a small player above the tab bar (a link takes you back to its page; × stops it).
