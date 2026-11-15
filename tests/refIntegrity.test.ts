@@ -133,6 +133,7 @@ describe('resolveRef: carrying a passage between numbering schemes', () => {
     verseCounts.MRK[3] = 30;
     const damagedAnchor = { ...original, verseCounts };
     expect(resolveRef(english, dra, R('Mark 4:41'), 'kjv', damagedAnchor).status).toBe('invalid');
+    expect(resolveRef(english, dra, R('Mark 4:42'), 'kjv', damagedAnchor).status).toBe('invalid');
   });
 
   it('a book the chosen edition lacks is absent, not redirected', () => {

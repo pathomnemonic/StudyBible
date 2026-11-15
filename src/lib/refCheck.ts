@@ -149,7 +149,8 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
     if (anchorIssue) {
       const chapterOnly: Ref = { book: anchor.book, c1: anchor.c1, c2: anchor.c2 };
       const chapterIssue = checkRefIn(anchorEd, chapterOnly);
-      if (anchorIssue.scope !== 'verse' || chapterIssue) return { ...base, status: anchorIssue.kind === 'absent' ? 'absent' : 'invalid', anchor, reason: `canonical Vulgate anchor: ${anchorIssue.reason}` };
+      if (anchorIssue.scope !== 'verse' || !withinOneVerseOverrun(anchorEd, anchor) || chapterIssue)
+        return { ...base, status: anchorIssue.kind === 'absent' ? 'absent' : 'invalid', anchor, reason: `canonical Vulgate anchor: ${anchorIssue.reason}` };
       anchor = chapterOnly;
       numbering = `The source and canonical verse counts differ (${bad.reason}; ${anchorIssue.reason}); only the chapter range can be verified.`;
     } else {
