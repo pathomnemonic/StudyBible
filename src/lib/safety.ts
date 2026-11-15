@@ -96,7 +96,14 @@ export async function backupStatus(signedIn: boolean): Promise<BackupStatus> {
   const items = await localDataCount();
   const outside = Math.max(s.lastFileBackup || 0, s.drive.lastOk || 0);
   const after = (t: { where: (k: string) => { above: (n: number) => { count: () => Promise<number> } } }) => t.where('updatedAt').above(outside).count();
-  const changedSince = items ? (await Promise.all([db.notes, db.highlights, db.journal].map((t) => after(t as never).catch(() => 0)))).reduce((a, b) => a + b, 0) : 0;
+  // Highlights do carry updatedAt, but that field is not indexed in their Dexie schema.
+  // Querying it with where() throws and was silently counted as zero by the catch below.
+  const highlightChanges = db.highlights.toArray()
+    .then((rows) => rows.filter((row) => (row.updatedAt ?? row.createdAt) > outside).length)
+    .catch(() => 0);
+  const changedSince = items
+    ? (await Promise.all([after(db.notes).catch(() => 0), highlightChanges, after(db.journal).catch(() => 0)])).reduce((a, b) => a + b, 0)
+    : 0;
   const snaps = await listSnapshots().catch(() => [] as Snapshot[]);
   return { items, changedSince, fileAt: s.lastFileBackup || 0, driveAt: s.drive.lastOk || 0, driveConnected: s.drive.connected, driveError: s.drive.lastError, accountSync: signedIn, snapshotAt: snaps[0]?.at ?? 0, snapshots: snaps.length };
 }
