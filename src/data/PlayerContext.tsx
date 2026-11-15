@@ -273,12 +273,6 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       if (!url) { setError(navigator.onLine === false ? 'offline' : 'failed'); return; }
       const skip = showSetting(showKeyOf(e.id), 'skip');
       const at = startAt ?? (prog && !prog.completed && prog.position > 0 ? prog.position : skip);
-      // Replaying a completed episode starts a new resumable session; preserve the historical listening ledger.
-      if (prog?.completed) {
-        try { await creditListening(e.id, 0, { position: at, completed: false }); }
-        catch { if (request === playGeneration.current) setError('failed'); return; }
-        if (request !== playGeneration.current) return;
-      }
       (a as any)._ep = e;
       (a as any)._playGeneration = request;
       (a as any)._outroDone = false;
@@ -293,6 +287,13 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
       setPosition(at);
       setDuration(0);
       db.cache.put({ key: 'player:last', value: e.id as unknown as string, ts: Date.now() }).catch(() => undefined);
+      // Replaying a completed episode starts a new resumable session; preserve the historical listening ledger.
+      // Do this after selecting the new episode so the Retry action targets the correct source if storage fails.
+      if (prog?.completed) {
+        try { await creditListening(e.id, 0, { position: at, completed: false }); }
+        catch { if (request === playGeneration.current) setError('failed'); return; }
+        if (request !== playGeneration.current) return;
+      }
     }
     if (same && request === playGeneration.current) (a as any)._playGeneration = request;
     if (request !== playGeneration.current) return;
