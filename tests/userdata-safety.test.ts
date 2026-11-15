@@ -32,6 +32,20 @@ describe('your writing survives', () => {
     expect(n.updatedAt).toBe(5);
   });
 
+  it('restores a snapshot as a point-in-time replacement, including older versions of existing notes', async () => {
+    const { db } = await import('../src/db/db');
+    const safety = await import('../src/lib/safety');
+    await db.notes.add({ ...note('current, later edit'), updatedAt: 200 });
+    const snapshot = {
+      format: 'studybible-export', version: 2,
+      notes: [{ ...note('snapshot version'), uid: 'snapshot-note', updatedAt: 10 }],
+    };
+    await db.cache.put({ key: 'snap:fixture', value: JSON.stringify(snapshot), ts: 10 });
+    await safety.restoreSnapshot('snap:fixture');
+    expect((await db.notes.toArray()).map((row) => row.body)).toEqual(['snapshot version']);
+    expect(await db.cache.where('key').startsWith('snap:').count()).toBeGreaterThan(1);
+  });
+
   it('does not replace existing data when its required safety copy fails', async () => {
     const { db } = await import('../src/db/db');
     const ops = await import('../src/db/ops');
