@@ -127,6 +127,19 @@ describe('collections to a file and back', () => {
     expect(await db.notes.count()).toBe(0);
   });
 
+  it('rejects a collection with a malformed passage reference before importing linked records', async () => {
+    const ops = await import('../src/db/ops');
+    const { db } = await import('../src/db/db');
+    const malformed = {
+      format: 'studybible-export', version: 2,
+      notes: [{ kind: 'note', body: 'must not partially import', tags: [], targets: [], chapterKeys: [], createdAt: 1, updatedAt: 1, uid: 'partial-note' }],
+      collections: [{ name: 'Bad passage', items: [{ type: 'passage', ref: 'not-a-passage-id' }] }],
+    };
+    await expect(ops.importCollections(JSON.stringify(malformed))).rejects.toThrow(/file is damaged.*nothing was imported/i);
+    expect(await db.notes.count()).toBe(0);
+    expect(await db.collections.count()).toBe(0);
+  });
+
   it('rejects a malformed collection before importing its pointed-at records', async () => {
     const ops = await import('../src/db/ops');
     const { db } = await import('../src/db/db');
