@@ -94,6 +94,25 @@ describe('listening time', () => {
     expect(rows[0].undatedCompletions).toBe(1);
   });
 
+  it('replaying a completed episode clears completion and saves a new position without changing listening history', async () => {
+    const { db } = await import('../src/db/db');
+    const { creditListening } = await import('../src/lib/listening');
+    const day = '2025-12-31';
+    await db.episodeProgress.put({
+      episodeId: 'completed-replay', position: 0, duration: 1800, completed: true,
+      heard: 1800, ranToEnd: true,
+      listeningDays: { [day]: { seconds: 1800, completions: 1 } },
+      updatedAt: 1,
+    });
+    await creditListening('completed-replay', 0, { position: 45, completed: false }, new Date(2026, 0, 1));
+    const row = await db.episodeProgress.get('completed-replay');
+    expect(row?.completed).toBe(false);
+    expect(row?.position).toBe(45);
+    expect(row?.heard).toBe(1800);
+    expect(row?.ranToEnd).toBe(true);
+    expect(row?.listeningDays).toEqual({ [day]: { seconds: 1800, completions: 1 } });
+  });
+
   it('position-only progress saves do not add dated listening or completion', async () => {
     const { db } = await import('../src/db/db'); const { creditListening, listeningStats } = await import('../src/lib/listening');
     await creditListening('position', 0, { position: 300 });
