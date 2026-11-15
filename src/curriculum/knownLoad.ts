@@ -52,13 +52,25 @@ export interface KnownLoad { status: LoadStatus; known: Known; failed: SourceNam
 /** One loader per source; it resolves with the data, or rejects (or resolves null) when the data could not be read. */
 export type Loaders = Record<SourceName, () => Promise<unknown>>;
 
+function validSource(name: SourceName, value: unknown): boolean {
+  if (!value || typeof value !== 'object') return false;
+  if (name === 'tracks') return Array.isArray(value) && value.length > 0 && value.every((t) => !!t && typeof t.id === 'string' && Array.isArray(t.levels));
+  if (name === 'editions') return Array.isArray(value) && value.some((e) => e?.id === 'vulgate' && e.scheme === 'vulgate' && e.chapters && e.verseCounts);
+  if (name === 'chains') return !Array.isArray(value) && Object.keys(value).length > 0 && Object.values(value).every((rows) => Array.isArray(rows) && rows.every((r: any) => r && typeof r.id === 'string' && typeof r.title === 'string' && typeof r.to === 'string'));
+  if (name === 'apologetics') return Array.isArray((value as any).topics) && (value as any).topics.every((r: any) => r && typeof r.id === 'string' && typeof r.title === 'string');
+  if (name === 'library') return Array.isArray((value as any).works) && (value as any).works.every((r: any) => r && typeof r.id === 'string' && typeof r.title === 'string');
+  return Number.isInteger((value as any).paragraphs) && (value as any).paragraphs > 0;
+}
+
 export async function loadKnownFrom(loaders: Loaders): Promise<KnownLoad> {
   const names = ALL_SOURCES;
   const settled = await Promise.allSettled(names.map((n) => loaders[n]()));
   const raw: Record<string, unknown> = {};
   const failed: SourceName[] = [];
   settled.forEach((r, i) => {
-    if (r.status === 'fulfilled' && r.value != null) raw[names[i]] = r.value; else failed.push(names[i]);
+    const name = names[i];
+    if (r.status === 'fulfilled' && validSource(name, r.value)) raw[name] = r.value;
+    else failed.push(name);
   });
   const known = assembleKnown(raw as RawKnown, new Set(failed));
   return { status: failed.length === 0 ? 'complete' : failed.length === names.length ? 'failed' : 'partial', known, failed };
