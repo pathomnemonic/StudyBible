@@ -139,9 +139,41 @@ if (!/Marian passages \(copy\)/i.test(await p.locator('.page').innerText())) fai
 // 16. a reading plan made from a collection: one day per passage
 await p.locator('a', { hasText: /^Marian passages$/ }).first().click(); await p.waitForSelector('.cp-list');
 const originalCollectionUrl = p.url();
+const beforePassageCount = await p.locator('.cp-list li').count();
+await p.locator('input[placeholder="John 6:51-58"]').fill('John 6:51-58');
+await p.locator('.cp-add button', { hasText: /^Add$/ }).click();
+await p.getByText(/cannot be added automatically/i).waitFor();
+if (await p.locator('.cp-list li').count() !== beforePassageCount) fail('an unverified English/KJV passage must not be added to an anchor-numbered collection');
 await p.locator('button', { hasText: 'Make a reading plan' }).click(); await p.waitForTimeout(1200);
 if (!/pray\/plans\/user/.test(await p.evaluate(() => location.hash))) fail('the plan should open at its own address, got ' + await p.evaluate(() => location.hash));
 if (!/Marian passages/.test(await p.locator('.page').innerText())) fail('the plan should carry the collection name');
+// An existing collection with an invalid anchor reference cannot create a reading plan.
+const invalidCollectionId = await p.evaluate(async () => {
+  const request = indexedDB.open('studybible');
+  const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
+  const tx = db.transaction('collections', 'readwrite');
+  const add = tx.objectStore('collections').add({ name: 'Invalid plan fixture', items: [{ type: 'passage', ref: 'JHN.99.99' }], createdAt: Date.now(), updatedAt: Date.now() });
+  const id = await new Promise((resolve, reject) => { tx.oncomplete = () => resolve(add.result); tx.onerror = () => reject(tx.error); });
+  db.close(); return id;
+});
+const plansBeforeInvalid = await p.evaluate(async () => {
+  const request = indexedDB.open('studybible');
+  const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
+  const tx = db.transaction('userPlans', 'readonly'); const count = await new Promise((resolve, reject) => { const q = tx.objectStore('userPlans').count(); q.onsuccess = () => resolve(q.result); q.onerror = () => reject(q.error); });
+  db.close(); return count;
+});
+await p.goto(`${BASE}/#/collection/${invalidCollectionId}`);
+await p.locator('button', { hasText: 'Make a reading plan' }).click();
+await p.getByText(/cannot become a reading plan yet/i).waitFor();
+if (/pray\/plans\/user/.test(await p.evaluate(() => location.hash))) fail('an invalid collection must not create a reading plan');
+const plansAfterInvalid = await p.evaluate(async () => {
+  const request = indexedDB.open('studybible');
+  const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
+  const tx = db.transaction('userPlans', 'readonly'); const count = await new Promise((resolve, reject) => { const q = tx.objectStore('userPlans').count(); q.onsuccess = () => resolve(q.result); q.onerror = () => reject(q.error); });
+  db.close(); return count;
+});
+if (plansAfterInvalid !== plansBeforeInvalid) fail('invalid collection references must not persist a reading plan');
+
 // 17. a collection link from a saint page opens the saint inside the app, not a new tab
 await p.goto(`${BASE}/#/study/saints/11-13`); await p.waitForTimeout(1500);
 await p.locator('button', { hasText: '＋ Collection' }).first().click(); await p.waitForTimeout(400);
