@@ -170,3 +170,66 @@ Run #1031 is a complete fast-gate pass on `d919132`, not on the latest head. Its
 - Update this report with final run IDs, the exact tested commit SHA and actual results.
 
 PR #11 remains draft and unmerged. Do not merge it.
+
+
+## Third independent reliability audit — 2026-11-15
+
+This pass continued from the current PR head after run #1083 exposed a reference-validation regression. It was a source-level audit plus regression-test authoring; tests on the newest head remain pending until the queued workflow completes. No claim is made that the repository is bug-free.
+
+### Additional findings and fixes
+
+| Finding reproduced by source inspection | Fix | Regression coverage |
+|---|---|---|
+| The same-tradition shortcut could return an exact verse despite an explicit unverified source-chapter caveat. | `d2a0ba0398336e9e43b70008013b0903127c93a9`; range-bounded caveat scan `c5de67c6f9ec8eed41ab72d137ba2495b6784a08`. | Existing one-verse source/anchor mismatch regression; CI #1083 originally failed this test. |
+| A target-edition mismatch fallback inspected only range endpoints and could miss a known unverified intermediate chapter. | `d0565844fe7d1f2e6c264c0eb5aee68b5a463da6`. | `0942dfa010408282fa3d9437a0881e84af19b217` adds a cross-chapter target-caveat case. |
+| An ended-event queue lookup could resolve after a newer user selection and start the stale queued episode. | `cf34ca23a368425096eec5345d0f5bed2c6870d4`. The handler now captures the ended episode and request generation, awaits completion persistence, and rechecks identity/generation after each asynchronous queue/load step. | `8bd3c1296fd0136ce8f7859a883564bf6e162702` adds a controlled-promise stale-queue regression. |
+| Collection summaries counted duplicate imported done marks as multiple completed items. | `59fa922da0780ec4a322e4ee462bcf08feb3c09c`; the lightweight shared matcher was isolated in `87332f018122e5655c1df5bd935d0b6b37987ebc`, re-exported in `d11a2012011c1f2ed14e2c75c1cba6f19118134a`, and used by the summary in `934b7b06f0ed42d7b7a52d1c039cb76e0695f4fd`. The unused import was removed in `898016edeb5c521e66a4d6f827cc5eee75128401`. | `9e94b5d6a592b85bba85c3e52af880d1492b208b` tests duplicate marks and key-order independence. |
+| Go Further computed broken lesson resources but did not render them; a missing library work could therefore disappear silently. | `be26ce2c73f9dc3d81ab9fba40c31e784d8bf4ce` renders broken references and includes them in the visibility/empty-state decision. The all-sources failure fallback now includes editions. | Existing missing-work and broken-link tests in `tests/knownLoad.test.ts` / `tests/goFurther.test.ts`; UI rendering still requires browser verification. |
+| Failed or malformed Go Further indexes could be mistaken for complete data. Track imports swallowed per-file errors; chain, reverse-track and edition caches could retain rejected promises; missing/null JSON results could remain cached; malformed indexes could assemble as apparently empty data. | Retryable cache helper: `5efec59bf5a20c3e33d7f82c0f3de9a22a0cccac`. Edition/JSON retry: `e497876bb3d4d711e8e109a3a107a1e11fe2b1d6`, `ac37183a28a4fbe6130c08d1b1d578aa9d6f3b53`, `dc00c5dbb9f34e74e7298cfad27ef222590c8a28`. Track/reverse-track retry: `cf63f56890755a11c5572bde0035b7c068611fc1`, `8eaf6815c4a855af359dd8fafef4cfcc187dab27`, `7d3cb27b191ca5c51de6e3cc1806d2d2f1b79d36`. Chain and secondary-index retry/missing-index handling: `5d3e55ff540de1037ba3d324b9f627a4d2f4262d`, `7495a46ad1969d7b14b59d29178c84e2be4ca1be`, `f183a80da310ae66e8789daccf126c177c4b49c3`. Structural validation: `9a2801e69306ea80f7494c4958defd4041338956`, `bad66e236478247311601cf455455e0b5646ec24`, `e8cf327beb185f6b90b4c586c1c041333cd9eff1`, `fc0c50054a05e2de91be0601b5704625f8a84f40`. | `2186e67fcc454627b9a436b8236d2685fabbe957` tests retryable promise caches; `2eed159c804c1e796d0d1b3a6fd1f669a7097e70` tests missing/null JSON retry; `7d987ede6fa34a815164bec1f219da3896b79b8c` and `d2f1e8f3cb145e549f0afeca86c13bea207eb51c` test malformed source and nested track indexes. |
+| Legacy episode-progress rows with a zero heard total could trigger an unnecessary “undated listening” warning. | `bc22b3ad862fd263fc43d912c16d14d31da06223` ignores zero-value legacy totals while preserving actual legacy completions. | `e7e7c2e52c78cb3c1ad8eedfee4c5bfb043a88dc`. |
+| Formatting a cross-chapter range whose start is a whole chapter and whose end is a verse dropped the end verse; the corresponding human-readable range could not be parsed back. | Formatting fix `8de4f3bd4cdcb3fff4ca4c09199dae6d6f4e802e`; parser support `a26e1a9fb0777cca0f5e7dffde5d835c95a97438`. | `ac97aeb4b04c147147ffffc12baab57d0f71a2f2` and `519031452aeb5d75bf6705a9cf199d9a77330bfd`. |
+
+### Test inventory added in this pass
+
+- `tests/refCheck.test.ts`: intermediate target-chapter caveat during endpoint downgrade.
+- `tests/playbackRequest.test.ts`: stale queue resolution after a newer selection.
+- `tests/collectionsView.test.ts`: duplicate done marks count once.
+- `tests/knownLoad.test.ts`: malformed index and nested track structure are partial failures.
+- `tests/promiseCache.test.ts`: rejected promise eviction, retry, successful caching, and keyed isolation.
+- `tests/loaderRetry.test.ts`: 404 and JSON-null responses are not cached as successful data.
+- `tests/listening.test.ts`: zero-value legacy progress does not trigger an undated-history warning.
+- `tests/refs.test.ts`: partial cross-chapter formatting and parsing round-trip.
+
+### Verification status on the latest code head
+
+Latest code head at the time of this report: `519031452aeb5d75bf6705a9cf199d9a77330bfd`.
+
+| Check | Result |
+|---|---|
+| CI run #1160 — fast job | Queued; not run/verified |
+| CI run #1160 — secrets job | Queued; not run/verified |
+| `npm ci` | Not yet verified on this head |
+| `npm run typecheck` | Not yet verified on this head |
+| `npm test` | Not yet verified on this head |
+| `npm run docs:status` | Not yet verified on this head |
+| `npm run data:validate` | Not yet verified on this head |
+| `npm run build` | Not yet verified on this head |
+| `npm run budget` | Not yet verified on this head |
+| `node scripts/audit-gate.mjs` | Not yet verified on this head |
+| Three browser release shards | Not yet verified on this head |
+| Accounts/sync browser job | Not yet verified on this head |
+| CI full-width sweep job | Not yet verified on this head |
+| Dedicated scheduled/release full-width workflow | Not dispatched or verified on this head |
+
+The new tests are authored but are not evidence of passing tests until a completed run executes them. Runs cancelled because later commits arrived are not passes.
+
+### Remaining work — do not merge
+
+1. Wait for CI #1160 on `519031452aeb5d75bf6705a9cf199d9a77330bfd` to start and inspect its fast-job logs.
+2. If any gate fails, fix the defect without weakening tests, then rerun the full fast gate on the resulting head.
+3. Verify all three browser release shards, the accounts/sync job, and the full-width CI sweep on the same tested head.
+4. Trigger/verify the dedicated full-width workflow if repository permissions allow; otherwise explicitly retain it as unverified.
+5. Perform a final independent review after runtime results, update the test-results table with exact run IDs and conclusions, and record the exact tested SHA.
+6. Keep PR #11 open, draft, and unmerged.
+
+No claim of zero bugs or complete runtime verification is made.
