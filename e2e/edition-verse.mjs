@@ -25,7 +25,11 @@ async function from(ed, book, ch, v) {
   await p.keyboard.press('Escape').catch(() => {});
   await p.waitForFunction((n) => ![...document.querySelectorAll(`[data-v="${n}"]`)].some((e) => e.getAttribute('aria-pressed') === 'true'), v, { timeout: 5000 })
     .catch(() => fail(`${ed} ${book} ${ch}:${v}: the previous verse selection did not clear after navigation`));
-  await p.locator(`[data-v="${v}"]`).first().click({ force: true });
+  // The verse number's click path is explicitly additive (it selects even when the verse was already selected),
+  // unlike tapping the verse text, which toggles. It also exercises the same path keyboard/touch users use.
+  const number = p.locator(`[data-v="${v}"] .vn`).first();
+  await number.waitFor({ state: 'visible', timeout: 5000 }).catch(() => fail(`${ed} ${book} ${ch}:${v}: the verse number did not render`));
+  await number.click({ force: true });
   await p.waitForFunction((n) => [...document.querySelectorAll(`[data-v="${n}"]`)].some((e) => e.getAttribute('aria-pressed') === 'true'), v, { timeout: 5000 })
     .catch(() => fail(`${ed} ${book} ${ch}:${v}: the verse click did not select the verse`));
   const sel = await p.evaluate(() => [...new Set([...document.querySelectorAll('[data-v][aria-pressed=true]')].map((e) => e.dataset.v))]);

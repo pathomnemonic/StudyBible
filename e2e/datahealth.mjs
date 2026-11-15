@@ -21,34 +21,30 @@ const id = await p.evaluate(async () => {
 await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Fix this' }).waitFor();
 await p.evaluate(() => {
-  const proto = IDBObjectStore.prototype;
-  const put = proto.put, getAll = proto.getAll, openCursor = proto.openCursor, openKeyCursor = proto.openKeyCursor;
-  const cursorProto = IDBCursor.prototype, cursorUpdate = cursorProto.update;
-  const indexProto = IDBIndex.prototype, indexGetAll = indexProto.getAll, indexOpenCursor = indexProto.openCursor, indexOpenKeyCursor = indexProto.openKeyCursor;
-  let repairCommitted = false, failOnce = true;
-  proto.put = function (...args) {
-    const result = put.apply(this, args);
-    if (this.name === 'notes') repairCommitted = true;
-    return result;
+  // Dexie may use get/put, cursor.update, or a bulk API depending on the IndexedDB implementation.
+  // Observe the transaction boundary instead of guessing which write primitive it uses, then fail
+  // all immediate notes reads so the Data Health follow-up scan deterministically receives an error.
+  const proto = IDBDatabase.prototype, transaction = proto.transaction;
+  let failReadsUntil = 0;
+  proto.transaction = function (...args) {
+    const tx = transaction.apply(this, args);
+    const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
+    const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
+    if (this.name === 'studybible' && names.includes('notes')) {
+      if (mode === 'readwrite') {
+        tx.addEventListener('complete', () => { failReadsUntil = Date.now() + 2500; }, { once: true });
+      } else if (Date.now() < failReadsUntil) {
+        try { tx.abort(); } catch { /* transaction may already have completed */ }
+      }
+    }
+    return tx;
   };
-  cursorProto.update = function (...args) {
-    const result = cursorUpdate.apply(this, args);
-    const source = this.source;
-    if ((source?.objectStore?.name ?? source?.name) === 'notes') repairCommitted = true;
-    return result;
-  };
-  const failRefresh = (store) => { if (store === 'notes' && repairCommitted && failOnce) { failOnce = false; throw new DOMException('simulated refresh read failure', 'UnknownError'); } };
-  proto.getAll = function (...args) { failRefresh(this.name); return getAll.apply(this, args); };
-  proto.openCursor = function (...args) { failRefresh(this.name); return openCursor.apply(this, args); };
-  proto.openKeyCursor = function (...args) { failRefresh(this.name); return openKeyCursor.apply(this, args); };
-  indexProto.getAll = function (...args) { failRefresh(this.objectStore.name); return indexGetAll.apply(this, args); };
-  indexProto.openCursor = function (...args) { failRefresh(this.objectStore.name); return indexOpenCursor.apply(this, args); };
-  indexProto.openKeyCursor = function (...args) { failRefresh(this.objectStore.name); return indexOpenKeyCursor.apply(this, args); };
-  window.__restoreDataHealthIDB = () => { proto.put = put; proto.getAll = getAll; proto.openCursor = openCursor; proto.openKeyCursor = openKeyCursor; cursorProto.update = cursorUpdate; indexProto.getAll = indexGetAll; indexProto.openCursor = indexOpenCursor; indexProto.openKeyCursor = indexOpenKeyCursor; };
+  window.__restoreDataHealthIDB = () => { proto.transaction = transaction; };
 });
 await p.getByRole('button', { name: 'Fix this' }).click();
 await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor();
 if (await p.getByRole('button', { name: 'Fix this' }).count()) fail('stale repair actions must be cleared when the committed repair cannot be rechecked');
+await p.evaluate(() => window.__restoreDataHealthIDB());
 const repaired = await p.evaluate(async (id) => {
   const request = indexedDB.open('studybible');
   const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
@@ -58,7 +54,6 @@ const repaired = await p.evaluate(async (id) => {
   db.close(); return row.targets[0].ref;
 }, id);
 if (repaired !== 'JHN.3.16') fail('the repair should be committed despite the failed refresh; got ' + repaired);
-await p.evaluate(() => window.__restoreDataHealthIDB());
 await p.reload();
 await p.waitForSelector('h1');
 await p.getByRole('button', { name: 'Run the check' }).click();
@@ -80,27 +75,27 @@ const restoreFixture = await p.evaluate(async () => {
 await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Restore' }).waitFor();
 await p.evaluate(() => {
-  const proto = IDBObjectStore.prototype;
-  const add = proto.add, getAll = proto.getAll, openCursor = proto.openCursor, openKeyCursor = proto.openKeyCursor;
-  const indexProto = IDBIndex.prototype, indexGetAll = indexProto.getAll, indexOpenCursor = indexProto.openCursor, indexOpenKeyCursor = indexProto.openKeyCursor;
-  let restoreCommitted = false, failOnce = true;
-  proto.add = function (...args) {
-    const result = add.apply(this, args);
-    if (this.name === 'notes') restoreCommitted = true;
-    return result;
+  const proto = IDBDatabase.prototype, transaction = proto.transaction;
+  let failReadsUntil = 0;
+  proto.transaction = function (...args) {
+    const tx = transaction.apply(this, args);
+    const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
+    const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
+    if (this.name === 'studybible' && names.includes('notes')) {
+      if (mode === 'readwrite') {
+        tx.addEventListener('complete', () => { failReadsUntil = Date.now() + 2500; }, { once: true });
+      } else if (Date.now() < failReadsUntil) {
+        try { tx.abort(); } catch { /* transaction may already have completed */ }
+      }
+    }
+    return tx;
   };
-  const failRefresh = (store) => { if (store === 'notes' && restoreCommitted && failOnce) { failOnce = false; throw new DOMException('simulated post-restore refresh failure', 'UnknownError'); } };
-  proto.getAll = function (...args) { failRefresh(this.name); return getAll.apply(this, args); };
-  proto.openCursor = function (...args) { failRefresh(this.name); return openCursor.apply(this, args); };
-  proto.openKeyCursor = function (...args) { failRefresh(this.name); return openKeyCursor.apply(this, args); };
-  indexProto.getAll = function (...args) { failRefresh(this.objectStore.name); return indexGetAll.apply(this, args); };
-  indexProto.openCursor = function (...args) { failRefresh(this.objectStore.name); return indexOpenCursor.apply(this, args); };
-  indexProto.openKeyCursor = function (...args) { failRefresh(this.objectStore.name); return indexOpenKeyCursor.apply(this, args); };
-  window.__restoreDataHealthRestoreIDB = () => { proto.add = add; proto.getAll = getAll; proto.openCursor = openCursor; proto.openKeyCursor = openKeyCursor; indexProto.getAll = indexGetAll; indexProto.openCursor = indexOpenCursor; indexProto.openKeyCursor = indexOpenKeyCursor; };
+  window.__restoreDataHealthRestoreIDB = () => { proto.transaction = transaction; };
 });
 await p.getByRole('button', { name: 'Restore' }).click();
 await p.getByRole('alert').filter({ hasText: 'Restore committed, but the check could not refresh' }).waitFor();
 if (await p.getByRole('button', { name: 'Restore' }).count()) fail('stale restore actions must be cleared after a committed restore with a failed refresh');
+await p.evaluate(() => window.__restoreDataHealthRestoreIDB());
 const restoreState = await p.evaluate(async (ids) => {
   const request = indexedDB.open('studybible');
   const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
@@ -115,7 +110,6 @@ const restoreState = await p.evaluate(async (ids) => {
   db.close(); return result;
 }, restoreFixture);
 if (!restoreState.note || restoreState.trash || restoreState.tombs.length) fail('restore must commit the note and consume its trash row and tombstone despite the failed refresh');
-await p.evaluate(() => window.__restoreDataHealthRestoreIDB());
 await p.reload();
 await p.waitForSelector('h1');
 await p.getByRole('button', { name: 'Run the check' }).click();
