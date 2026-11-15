@@ -30,6 +30,19 @@ describe('collections to a file and back', () => {
     expect(f.notes.map((n: any) => n.uid)).toEqual(['n-1']);
   });
 
+  it('assigns a stable sync uid to a legacy collection that has none', async () => {
+    const ops = await import('../src/db/ops');
+    const { db } = await import('../src/db/db');
+    const file = JSON.stringify({
+      format: 'studybible-export', version: 2,
+      collections: [{ name: 'Legacy', items: [{ type: 'passage', ref: 'JHN.3.16' }] }],
+    });
+    await ops.importCollections(file);
+    const row = await db.collections.toCollection().first();
+    expect(row?.uid).toEqual(expect.any(String));
+    expect(row?.uid?.length).toBeGreaterThan(0);
+  });
+
   it('on a fresh device it brings items, done marks, tags and the pointed-at note', async () => {
     await seed();
     const { exportCollections } = await import('../src/db/ops');
