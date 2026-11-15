@@ -343,14 +343,18 @@ export function previewImport(json: string): { counts: Record<string, number>; e
 
 /** One collection (or all of them) as a file in the same format as the backup, holding only those collections and the notes, highlights and bookmarks they point at (so the pointers still lead somewhere on another device). */
 export async function exportCollections(ids?: number[]): Promise<string> {
-  const all = await db.collections.toArray();
-  const cs = ids ? all.filter((c) => ids.includes(c.id!)) : all;
-  const want = { note: new Set<string>(), highlight: new Set<string>(), bookmark: new Set<string>() };
-  for (const c of cs) for (const t of c.items) if (t.type === 'note' || t.type === 'highlight' || t.type === 'bookmark') want[t.type].add(t.uid);
-  const notes = (await db.notes.toArray()).filter((n) => n.uid && want.note.has(n.uid)).map(({ folderId: _f, ...n }) => n);
-  const highlights = (await db.highlights.toArray()).filter((h) => h.uid && want.highlight.has(h.uid));
-  const bookmarks = (await db.bookmarks.toArray()).filter((b) => b.uid && want.bookmark.has(b.uid));
-  const out = { format: 'studybible-export', version: 2, appExport: 'collections', exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate', counts: { collections: cs.length, notes: notes.length, highlights: highlights.length, bookmarks: bookmarks.length }, collections: cs, notes, highlights, bookmarks };
+  let out: Record<string, unknown> = {};
+  // Keep the collection list and the records it points to from one consistent database snapshot.
+  await db.transaction('r', [db.collections, db.notes, db.highlights, db.bookmarks], async () => {
+    const all = await db.collections.toArray();
+    const cs = ids ? all.filter((c) => ids.includes(c.id!)) : all;
+    const want = { note: new Set<string>(), highlight: new Set<string>(), bookmark: new Set<string>() };
+    for (const c of cs) for (const t of c.items) if (t.type === 'note' || t.type === 'highlight' || t.type === 'bookmark') want[t.type].add(t.uid);
+    const notes = (await db.notes.toArray()).filter((n) => n.uid && want.note.has(n.uid)).map(({ folderId: _f, ...n }) => n);
+    const highlights = (await db.highlights.toArray()).filter((h) => h.uid && want.highlight.has(h.uid));
+    const bookmarks = (await db.bookmarks.toArray()).filter((b) => b.uid && want.bookmark.has(b.uid));
+    out = { format: 'studybible-export', version: 2, appExport: 'collections', exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate', counts: { collections: cs.length, notes: notes.length, highlights: highlights.length, bookmarks: bookmarks.length }, collections: cs, notes, highlights, bookmarks };
+  });
   return JSON.stringify(out, null, 1);
 }
 
