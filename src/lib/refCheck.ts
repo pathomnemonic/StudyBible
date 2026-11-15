@@ -122,10 +122,13 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   const bad = checkRefIn(source, ref);
   // A caveat in any chapter touched by the source range makes verse-level conversion
   // uncertain, including chapters between the two endpoints.
-  const alignmentNotes = Array.from(
-    { length: ref.c2 - ref.c1 + 1 },
-    (_, i) => chapterAlignmentNote(sourceScheme, ref.book, ref.c1 + i),
-  ).filter((note): note is string => Boolean(note));
+  const validChapterRange =
+    Number.isInteger(ref.c1) && Number.isInteger(ref.c2) &&
+    ref.c1 >= 1 && ref.c2 >= ref.c1 &&
+    ref.c2 <= (source.chapters[ref.book] ?? 0);
+  const alignmentNotes = (validChapterRange
+    ? Array.from({ length: ref.c2 - ref.c1 + 1 }, (_, i) => chapterAlignmentNote(sourceScheme, ref.book, ref.c1 + i))
+    : []).filter((note): note is string => Boolean(note));
   const knownAlignment = alignmentNotes.length > 0;
   const verseEndpoints = [{ chapter: ref.c1, verse: ref.v1 }, { chapter: ref.c2, verse: ref.v2 }].filter((x): x is { chapter: number; verse: number } => x.verse !== undefined);
   const withinOneVerseOverrun = verseEndpoints.length > 0 && verseEndpoints.every(({ chapter, verse }) => {
@@ -180,7 +183,10 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   const sameTradition = (target.scheme === sourceScheme || (sourceScheme === 'kjv' && target.scheme === 'english')) &&
     !bookAlignmentNote(sourceScheme, ref.book) && !bookAlignmentNote(target.scheme as Scheme, ref.book) &&
     !knownAlignment &&
-    !Array.from({ length: ref.c2 - ref.c1 + 1 }, (_, i) => chapterAlignmentNote(target.scheme as Scheme, ref.book, ref.c1 + i)).some(Boolean);
+    !(validChapterRange && Array.from(
+      { length: ref.c2 - ref.c1 + 1 },
+      (_, i) => chapterAlignmentNote(target.scheme as Scheme, ref.book, ref.c1 + i),
+    ).some(Boolean));
   const t = sameTradition ? { ref, exact: true, note: undefined } : anchorToNativeRef(target, anchor);
   const issue = checkRefIn(target, t.ref);
   if (issue) {
