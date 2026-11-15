@@ -134,6 +134,30 @@ describe('your writing survives', () => {
     expect(await db.libraryProgress.get('work-1')).toMatchObject({ section: '3', scroll: 60, status: 'reading' });
   });
 
+  it('merges source tombstones by timestamp without deleting a newer local edit', async () => {
+    const { db, syncFlags } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    syncFlags.applying = true;
+    try {
+      await db.notes.add({ ...note('delete this'), uid: 'note-delete', updatedAt: 50 } as never);
+      await db.episodeProgress.put({ episodeId: 'keep-newer', position: 80, completed: false, heard: 80, updatedAt: 200 } as never);
+    } finally {
+      syncFlags.applying = false;
+    }
+    const backup = JSON.stringify({
+      format: 'studybible-export', version: 2,
+      tombs: [
+        { tbl: 'notes', uid: 'note-delete', updatedAt: 100 },
+        { tbl: 'episodeProgress', uid: 'keep-newer', updatedAt: 100 },
+      ],
+    });
+    await ops.importAll(backup, 'merge');
+    expect(await db.notes.where('uid').equals('note-delete').count()).toBe(0);
+    expect(await db.episodeProgress.get('keep-newer')).toMatchObject({ position: 80, heard: 80, updatedAt: 200 });
+    expect(await db.tombs.filter((row) => row.tbl === 'notes' && row.uid === 'note-delete').count()).toBe(1);
+    expect(await db.tombs.filter((row) => row.tbl === 'episodeProgress' && row.uid === 'keep-newer').count()).toBe(0);
+  });
+
   it('tombstones keyed progress omitted by a replace restore so sync cannot resurrect it', async () => {
     const { db } = await import('../src/db/db');
     const ops = await import('../src/db/ops');

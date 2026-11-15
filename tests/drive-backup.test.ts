@@ -31,6 +31,27 @@ describe('Google Drive backup tells the truth', () => {
     await expect(backupNow(false)).rejects.toThrow(/sign in again/i);
   });
 
+  it('keeps edits made during a slow upload marked as newer than the backup snapshot', async () => {
+    const { db } = await import('../src/db/db');
+    const { getSettings } = await import('../src/lib/store');
+    const { backupNow } = await import('../src/sync/drive');
+    const { backupStatus } = await import('../src/lib/safety');
+    await db.notes.add({ kind: 'note', body: 'included in snapshot', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 } as any);
+    vi.stubGlobal('fetch', async (_url: string, init: any = {}) => {
+      if (init.method === 'POST' || init.method === 'PATCH') {
+        await new Promise((resolve) => setTimeout(resolve, 5));
+        await db.notes.add({ kind: 'note', body: 'edited while uploading', tags: [], chapterKeys: [], targets: [], createdAt: Date.now(), updatedAt: Date.now() } as any);
+        return new Response('{}', { status: 200 });
+      }
+      return new Response(JSON.stringify({ files: [] }), { status: 200 });
+    });
+    await backupNow(true);
+    const settings = getSettings();
+    expect(settings.drive.lastSnapshotAt).toBeGreaterThan(0);
+    expect(settings.drive.lastOk).toBeGreaterThanOrEqual(settings.drive.lastSnapshotAt);
+    expect((await backupStatus(false)).changedSince).toBeGreaterThan(0);
+  });
+
   it('a good upload records the time', async () => {
     const { db } = await import('../src/db/db');
     await db.notes.add({ kind: 'note', body: 'precious', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 } as any);

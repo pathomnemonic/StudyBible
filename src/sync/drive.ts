@@ -83,7 +83,8 @@ export function disconnect() {
 
 /** Upload the current data. Within twelve hours of the newest copy it replaces that copy; otherwise it adds a new one, and the oldest beyond seven go. */
 export async function backupNow(interactive = false): Promise<void> {
-  const body = await exportAll();
+  const snapshotAt = Date.now();
+  const body = await exportAll(snapshotAt);
   const files = await listBackups(interactive);
   const newest = files[0];
   const boundary = 'sbbackup' + Math.random().toString(36).slice(2);
@@ -93,7 +94,7 @@ export async function backupNow(interactive = false): Promise<void> {
   await api(`/upload/drive/v3/files${reuse ? `/${newest!.id}` : ''}?uploadType=multipart`, { method: reuse ? 'PATCH' : 'POST', headers: { 'Content-Type': `multipart/related; boundary=${boundary}` }, body: multipart, interactive });
   const all = reuse ? files : [{ id: '', name: '', modified: '', size: 0 }, ...files];
   for (const f of all.slice(KEEP)) if (f.id) await api(`/drive/v3/files/${f.id}`, { method: 'DELETE', interactive }).catch(() => undefined);
-  updateSettings({ drive: { ...getSettings().drive, lastOk: Date.now(), lastError: '' }, lastBackup: Date.now() });
+  updateSettings({ drive: { ...getSettings().drive, lastOk: Date.now(), lastSnapshotAt: snapshotAt, lastError: '' }, lastBackup: Date.now() });
 }
 
 export async function restoreBackup(id: string, mode: 'merge' | 'replace'): Promise<number> {

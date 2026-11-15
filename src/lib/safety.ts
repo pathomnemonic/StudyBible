@@ -45,7 +45,8 @@ export async function restoreSnapshot(key: string): Promise<number> {
 
 /** Save everything as a file: the share sheet on phones (Files, Drive, iCloud, email), a download elsewhere. */
 export async function saveBackupFile(): Promise<'shared' | 'downloaded'> {
-  const json = await exportAll();
+  const snapshotAt = Date.now();
+  const json = await exportAll(snapshotAt);
   const name = `studybible-backup-${new Date().toISOString().slice(0, 10)}.json`;
   let how: 'shared' | 'downloaded' = 'downloaded';
   try {
@@ -57,7 +58,7 @@ export async function saveBackupFile(): Promise<'shared' | 'downloaded'> {
     if ((e as Error)?.name === 'AbortError') throw e;
     download(name, json);
   }
-  updateSettings({ lastBackup: Date.now(), lastFileBackup: Date.now() });
+  updateSettings({ lastBackup: Date.now(), lastFileBackup: snapshotAt });
   return how;
 }
 
@@ -94,7 +95,8 @@ export interface BackupStatus {
 export async function backupStatus(signedIn: boolean): Promise<BackupStatus> {
   const s = getSettings();
   const items = await localDataCount();
-  const outside = Math.max(s.lastFileBackup || 0, s.drive.lastOk || 0);
+  // lastOk is upload completion time; lastSnapshotAt is the content watermark inside the uploaded file.
+  const outside = Math.max(s.lastFileBackup || 0, s.drive.lastSnapshotAt || 0);
   // Count every table included in the local-data total and export. Several tables (including highlights,
   // bookmarks and keyed progress) do not index updatedAt, so an indexed where() query silently undercounts them.
   const changedCounts = items ? await Promise.all(
@@ -107,7 +109,8 @@ export async function backupStatus(signedIn: boolean): Promise<BackupStatus> {
       }).length;
     }),
   ) : [];
-  const changedSince = changedCounts.reduce((a, b) => a + b, 0);
+  const changedSince = changedCounts.reduce((a, b) => a + b, 0) +
+    await db.tombs.filter((row) => row.updatedAt > outside).count();
   const snaps = await listSnapshots().catch(() => [] as Snapshot[]);
   return { items, changedSince, fileAt: s.lastFileBackup || 0, driveAt: s.drive.lastOk || 0, driveConnected: s.drive.connected, driveError: s.drive.lastError, accountSync: signedIn, snapshotAt: snaps[0]?.at ?? 0, snapshots: snaps.length };
 }

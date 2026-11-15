@@ -177,7 +177,7 @@ export interface Settings {
   /** never contact a sync server: hides account prompts */
   localOnly: boolean;
   /** Google Drive backup: connected on this device, the OAuth client id to use (if not built in), when the nudge was last dismissed */
-  drive: { connected: boolean; clientId: string; lastOk: number; lastError: string; nudgeUntil: number };
+  drive: { connected: boolean; clientId: string; lastOk: number; lastSnapshotAt: number; lastError: string; nudgeUntil: number };
   /** remind me to back up every N days (0 = never) and when I last did */
   backupEveryDays: number;
   lastBackup: number;
@@ -264,7 +264,7 @@ export const DEFAULTS: Settings = {
   dashboard: { order: ['continue', 'readings', 'biay', 'plans', 'verse', 'notes', 'memorize', 'liturgy', 'session'], hidden: ['memorize', 'liturgy', 'session'] },
   prayerReminders: [],
   localOnly: false,
-  drive: { connected: false, clientId: '', lastOk: 0, lastError: '', nudgeUntil: 0 },
+  drive: { connected: false, clientId: '', lastOk: 0, lastSnapshotAt: 0, lastError: '', nudgeUntil: 0 },
   backupEveryDays: 0,
   lastBackup: 0,
   lastFileBackup: 0,

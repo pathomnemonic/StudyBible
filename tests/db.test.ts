@@ -91,6 +91,20 @@ describe('backup round trip', () => {
     expect(await db.notes.count()).toBe(1);
   });
 
+  it('exports unsynced deletion tombstones and restores them on a fresh device', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    await db.tombs.add({ tbl: 'notes', uid: 'deleted-while-offline', updatedAt: 12345 } as any);
+    const json = await ops.exportAll();
+    expect(JSON.parse(json).tombs).toEqual([{ tbl: 'notes', uid: 'deleted-while-offline', updatedAt: 12345 }]);
+    db.close();
+    await Dexie.delete('studybible'); vi.resetModules(); store.clear();
+    const fresh = await import('../src/db/db');
+    const restored = await import('../src/db/ops');
+    await restored.importAll(json, 'replace');
+    expect(await fresh.db.tombs.filter((row) => row.tbl === 'notes' && row.uid === 'deleted-while-offline').count()).toBe(1);
+  });
+
   it('replace mode preserves deletion records for rows that the backup does not restore', async () => {
     const { db } = await import('../src/db/db');
     const ops = await import('../src/db/ops');

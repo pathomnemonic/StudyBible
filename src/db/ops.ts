@@ -88,17 +88,21 @@ export async function toggleBookmark(ref: Ref, kind: Bookmark['kind'] = 'bookmar
 // ---------------------------------------------------------------------------
 
 const TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'collections', 'userXrefs', 'journal', 'planProgress', 'userPlans', 'episodeProgress', 'queue', 'savedSearches', 'recentSearches', 'history', 'saved', 'libraryProgress', 'classes', 'classwork', 'media', 'userLinks', 'memory'] as const;
+const SYNC_TABLES = new Set<string>([...AUTO_TABLES, ...Object.keys(KEYED_TABLES)]);
 
-export async function exportAll(): Promise<string> {
-  const out: Record<string, unknown> = { format: 'studybible-export', version: 2, appExport: 'all-tables-and-settings', exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate', counts: {} as Record<string, number> };
-  // Read every exported table under one readonly transaction so a concurrent edit cannot produce
-  // a backup assembled from different points in time (for example, a note without its new folder).
-  await db.transaction('r', TABLES.map((t) => (db as any)[t]), async () => {
+export async function exportAll(snapshotAt = Date.now()): Promise<string> {
+  const out: Record<string, unknown> = { format: 'studybible-export', version: 2, appExport: 'all-tables-and-settings', exportedAt: new Date(snapshotAt).toISOString(), anchorScheme: 'clementine-vulgate', counts: {} as Record<string, number> };
+  // Read every exported table and its deletion ledger under one readonly transaction, so the backup
+  // represents one consistent point in time (including deletes made while the device was offline).
+  await db.transaction('r', [...TABLES.map((t) => (db as any)[t]), db.tombs], async () => {
     for (const t of TABLES) {
       const rows = await (db as any)[t].toArray();
       out[t] = rows;
       (out.counts as Record<string, number>)[t] = rows.length;
     }
+    const tombs = await db.tombs.toArray();
+    out.tombs = tombs.map(({ id: _id, ...row }) => row);
+    (out.counts as Record<string, number>).tombs = tombs.length;
   });
   // reading and accessibility preferences live outside the database; include them so a restore feels the same
   try { const raw = localStorage.getItem(SETTINGS_KEY); if (raw) out.settings = JSON.parse(raw); } catch { /* storage unavailable */ }
@@ -129,15 +133,6 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
   try { data = JSON.parse(json); } catch { throw new Error('The file is cut short or is not a backup. Nothing was imported.'); }
   if (!data || data.format !== 'studybible-export') throw new Error(`Not a ${BRAND.name} export file.`);
   if (mode === 'replace' && data.appExport === 'collections') throw new Error('This file holds only some collections, so it cannot replace everything. Import it with “merge”. Nothing was imported.');
-  // A replace overwrites what is here: a failed safety copy must stop the restore before any data is touched.
-  if (mode === 'replace') {
-    try {
-      await import('../lib/safety').then((m) => m.snapshotIfDue(true));
-    } catch (error) {
-      const detail = error instanceof Error ? error.message : 'The storage operation failed.';
-      throw new Error(`A safety copy could not be made. No data was replaced. ${detail}`);
-    }
-  }
   if (typeof data.version === 'number' && data.version > 2) throw new Error('This backup was made by a newer version of the app. Update the app, then try again.');
   // check the whole file before touching the database
   for (const t of TABLES) {
@@ -146,11 +141,34 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
     if (!Array.isArray(rows) || rows.some((r) => !r || typeof r !== 'object' || Array.isArray(r))) throw new Error(`The backup is damaged: “${t}” is not a list of records. Nothing was imported.`);
   }
   for (const t of ['userLinks', 'media'] as const) for (const r of data[t] ?? []) if (r.url !== undefined && !safeUrl(r.url)) throw new Error(`The backup has a link in “${t}” that does not start with http or https. Nothing was imported.`);
+  const validTombstone = (row: any): boolean =>
+    !!row && typeof row === 'object' && !Array.isArray(row) &&
+    typeof row.tbl === 'string' && SYNC_TABLES.has(row.tbl) &&
+    typeof row.uid === 'string' && row.uid.trim().length > 0 && row.uid.length <= 200 &&
+    Number.isSafeInteger(row.updatedAt) && row.updatedAt > 0;
+  if (data.tombs !== undefined && (!Array.isArray(data.tombs) || !data.tombs.every(validTombstone)))
+    throw new Error('The backup is damaged: “tombs” must contain valid deletion records. Nothing was imported.');
+  // The snapshot must be captured only after the entire input has passed validation.
+  if (mode === 'replace') {
+    try {
+      await import('../lib/safety').then((m) => m.snapshotIfDue(true));
+    } catch (error) {
+      const detail = error instanceof Error ? error.message : 'The storage operation failed.';
+      throw new Error(`A safety copy could not be made. No data was replaced. ${detail}`);
+    }
+  }
   let n = 0;
   const auto = new Set<string>(AUTO_TABLES);
-  // IDs present before a replace; read them in the same transaction as the restore so no concurrent edit is missed.
-  const before: [string, string][] = [];
+  // Identities present before a replace; capture them in the same transaction as the restore.
+  const beforeLive = new Set<string>();
+  const priorTombs = new Map<string, { tbl: string; uid: string; updatedAt: number }>();
   const after = new Set<string>();
+  const identity = (tbl: string, uid: string) => `${tbl}|${uid}`;
+  const keepNewestTomb = (map: Map<string, { tbl: string; uid: string; updatedAt: number }>, row: { tbl: string; uid: string; updatedAt: number }) => {
+    const key = identity(row.tbl, row.uid);
+    const old = map.get(key);
+    if (!old || row.updatedAt > old.updatedAt) map.set(key, { tbl: row.tbl, uid: row.uid, updatedAt: row.updatedAt });
+  };
   // Restore without the change hooks: they would stamp every row as just edited and tombstone each row cleared by a replace
   // (and a tombstone for a restored row's uid would delete it again on the next sync). Rows keep their own timestamps.
   syncFlags.applying = true;
@@ -161,17 +179,16 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
         // deleted record reappear in Undo after the user replaces all data from a backup.
         await db.trash.clear();
         // Capture both auto-table UIDs and natural keys while the restore transaction holds the database.
-        for (const t of auto) for (const r of await (db as any)[t].toArray()) if (r.uid) before.push([t, r.uid]);
+        for (const t of auto) for (const r of await (db as any)[t].toArray()) if (r.uid) beforeLive.add(identity(t, r.uid));
         for (const [t, keyField] of Object.entries(KEYED_TABLES)) {
           for (const r of await (db as any)[t].toArray()) {
             const key = r[keyField];
-            if (key !== undefined && key !== null && key !== '') before.push([t, String(key)]);
+            if (key !== undefined && key !== null && key !== '') beforeLive.add(identity(t, String(key)));
           }
         }
-        // Keep prior deletions too. Clearing them without carrying them forward lets another device
-        // resurrect rows that were already deleted before this backup was restored.
-        for (const tomb of await db.tombs.toArray()) before.push([tomb.tbl, tomb.uid]);
-        // Existing tombstones are replaced by the combined set derived from live rows and old tombstones.
+        // Keep prior tombstones with their original times; restamping an old delete as "now" could
+        // incorrectly defeat a genuinely newer edit on another device.
+        for (const tomb of await db.tombs.toArray()) keepNewestTomb(priorTombs, tomb);
         await db.tombs.clear();
       }
       // folders go first: a merge gives rows new ids, and the notes in a folder must follow the folder to its new id (or to the one it already has here)
@@ -247,8 +264,37 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
         }
       }
       if (mode === 'replace') {
-        const gone = before.filter(([t, uid]) => !after.has(`${t}|${uid}`));
-        if (gone.length) await db.tombs.bulkAdd(gone.map(([tbl, uid]) => ({ tbl, uid, updatedAt: Date.now() }) as any));
+        const desired = new Map(priorTombs);
+        // A restored live record supersedes a matching old/source tombstone. Otherwise preserve the newest
+        // deletion from either the old device or the backup file.
+        for (const tomb of data.tombs ?? []) {
+          if (!after.has(identity(tomb.tbl, tomb.uid))) keepNewestTomb(desired, tomb);
+        }
+        // Any live identity that existed here but is absent from the replacement backup is a new local delete.
+        const deletedAt = Date.now();
+        for (const key of beforeLive) {
+          if (after.has(key)) continue;
+          const split = key.indexOf('|');
+          keepNewestTomb(desired, { tbl: key.slice(0, split), uid: key.slice(split + 1), updatedAt: deletedAt });
+        }
+        if (desired.size) await db.tombs.bulkAdd([...desired.values()] as any[]);
+      } else {
+        // A merged backup may carry deletions made while its source device was offline. Apply a tombstone
+        // only when it is at least as new as the local row; a newer local edit must survive the merge.
+        for (const tomb of data.tombs ?? []) {
+          const table = db.table(tomb.tbl);
+          const keyed = Object.prototype.hasOwnProperty.call(KEYED_TABLES, tomb.tbl);
+          const local: any = keyed
+            ? await table.get(tomb.uid)
+            : await table.where('uid').equals(tomb.uid).first();
+          if (local && (local.updatedAt ?? 0) > tomb.updatedAt) continue;
+          if (local) await table.delete(keyed ? tomb.uid : local.id);
+          const existing = await db.tombs.where('tbl').equals(tomb.tbl).and((row) => row.uid === tomb.uid).first();
+          if (existing && existing.updatedAt >= tomb.updatedAt) continue;
+          if (existing) await db.tombs.update(existing.id!, { updatedAt: tomb.updatedAt });
+          else await db.tombs.add({ tbl: tomb.tbl, uid: tomb.uid, updatedAt: tomb.updatedAt });
+          n++;
+        }
       }
     });
   } finally {
@@ -346,6 +392,7 @@ export function previewImport(json: string): { counts: Record<string, number>; e
   if (!data || data.format !== 'studybible-export') throw new Error(`Not a ${BRAND.name} export file.`);
   const counts: Record<string, number> = {};
   for (const t of TABLES) if (Array.isArray(data[t]) && data[t].length) counts[t] = data[t].length;
+  if (Array.isArray(data.tombs) && data.tombs.length) counts.tombs = data.tombs.length;
   return { counts, exportedAt: data.exportedAt };
 }
 
