@@ -4,7 +4,8 @@ export function memoizePromise<T>(load: () => Promise<T>): () => Promise<T> {
   return () => {
     if (cached) return cached;
     const pending = Promise.resolve().then(load);
-    const guarded = pending.catch((error) => {
+    let guarded: Promise<T>;
+    guarded = pending.catch((error) => {
       if (cached === guarded) cached = null;
       throw error;
     });
