@@ -46,6 +46,20 @@ describe('your writing survives', () => {
     expect(await db.cache.where('key').startsWith('snap:').count()).toBeGreaterThan(1);
   });
 
+  it('does not duplicate history and recent searches when the same backup is merged twice', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    const backup = JSON.stringify({
+      format: 'studybible-export', version: 2,
+      history: [{ ts: 100, type: 'read', ref: 'JHN.3.16', label: 'John 3:16' }],
+      recentSearches: [{ ts: 100, query: 'John 3:16' }],
+    });
+    await ops.importAll(backup, 'merge');
+    await ops.importAll(backup, 'merge');
+    expect(await db.history.count()).toBe(1);
+    expect(await db.recentSearches.count()).toBe(1);
+  });
+
   it('merges local progress without overwriting existing values', async () => {
     const ops = await import('../src/db/ops');
     localStorage.setItem('sb:plays:today', '5');
