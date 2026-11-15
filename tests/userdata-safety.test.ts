@@ -188,7 +188,7 @@ describe('your writing survives', () => {
       ],
     });
     await ops.importAll(backup, 'merge');
-    expect(await db.notes.get((await db.notes.where('uid').equals('stale-note').first())?.id!)).toBeUndefined();
+    expect(await db.notes.where('uid').equals('stale-note').count()).toBe(0);
     expect(await db.notes.where('uid').equals('newer-note').first()).toMatchObject({ body: 'newer note', updatedAt: 350 });
     expect(await db.episodeProgress.get('stale-episode')).toBeUndefined();
     expect(await db.episodeProgress.get('newer-episode')).toMatchObject({ position: 40, updatedAt: 350 });

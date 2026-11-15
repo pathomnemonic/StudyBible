@@ -60,6 +60,28 @@ describe('a collection item whose original was deleted', () => {
     expect(await db.tombs.filter((t) => t.uid === 'already-here').count()).toBe(0);
   });
 
+  it('bumps an existing stale live row past its newer tombstone and wakes sync', async () => {
+    const { db, syncFlags } = await import('../src/db/db');
+    const { restoreFromTrash } = await import('../src/lib/trash');
+    syncFlags.applying = true;
+    try {
+      await db.notes.add({ uid: 'stale-existing', kind: 'note', body: 'keep current content', targets: [], tags: [], createdAt: 1, updatedAt: 10 } as never);
+      await db.tombs.add({ tbl: 'notes', uid: 'stale-existing', updatedAt: 50 });
+    } finally {
+      syncFlags.applying = false;
+    }
+    const trashId = await db.trash.add({ tbl: 'notes', data: { uid: 'stale-existing', kind: 'note', body: 'older trashed content', targets: [], tags: [], createdAt: 1, updatedAt: 5 }, deletedAt: 50 });
+    const notify = vi.fn();
+    syncFlags.onLocalChange = notify;
+    await expect(restoreFromTrash(trashId)).resolves.toBe(true);
+    const row = await db.notes.where('uid').equals('stale-existing').first();
+    expect(row).toMatchObject({ body: 'keep current content' });
+    expect(row!.updatedAt).toBeGreaterThan(50);
+    expect(await db.tombs.filter((t) => t.tbl === 'notes' && t.uid === 'stale-existing').count()).toBe(0);
+    expect(await db.trash.get(trashId)).toBeUndefined();
+    expect(notify).toHaveBeenCalledTimes(1);
+  });
+
   it('rolls back restore if consuming the trash row fails', async () => {
     const { db } = await import('../src/db/db');
     const { restoreFromTrash } = await import('../src/lib/trash');

@@ -10,6 +10,16 @@ import { loadBiay } from './biay';
 import { lookupEpisode, registerEpisodes } from './podcasts';
 import type { BiayEpisode } from './content';
 
+/** A near-end progress save is not an end event: only the media element's actual ended event completes an episode. */
+export function playbackProgressPatch(currentTime: number, duration: number | undefined, ended: boolean) {
+  return {
+    position: ended ? 0 : Math.max(0, Number.isFinite(currentTime) ? currentTime : 0),
+    duration: duration && Number.isFinite(duration) ? duration : undefined,
+    completed: ended || undefined,
+    ranToEnd: ended,
+  };
+}
+
 interface PlayerState {
   current: BiayEpisode | null;
   playing: boolean;
@@ -125,10 +135,8 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     const save = (completed = false): Promise<void> => {
       const cur = (a as any)._ep as BiayEpisode | undefined;
       if (!cur) return Promise.resolve();
-      const dur = a.duration || undefined;
-      const done = completed || (dur ? a.currentTime > dur - 20 : false);
       const secs = heardSince; heardSince = 0;
-      return creditListening(cur.id, secs, { position: done ? 0 : a.currentTime, duration: dur, completed: done || undefined as any, ranToEnd: completed }).catch(() => {});
+      return creditListening(cur.id, secs, playbackProgressPatch(a.currentTime, a.duration, completed)).catch(() => {});
     };
     savePlaybackRef.current = save;
     a.addEventListener('timeupdate', () => {
