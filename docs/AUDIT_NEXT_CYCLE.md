@@ -85,7 +85,7 @@ See the commands and results table below.
 
 # Reliability cycle: reference integrity, listening history, and safe state transitions
 
-**Status: incomplete; draft review only.** Branch: `reliability/reference-listening-state-cycle`. The PR base is `c3cee139c40d291a0eaa7aa000359c846ac1bbd4`; compare confirms it is the merge base (176 commits ahead, zero behind). No rebase was necessary. The base commit already contains the shared `refCheck` / `resolveRef` and recoverable Go Further loading work; this cycle extends those paths rather than duplicating them.
+**Status: incomplete; draft review only.** Branch: `reliability/reference-listening-state-cycle`. The PR base is `c3cee139c40d291a0eaa7aa000359c846ac1bbd4`; compare confirms it is the merge base (227 commits ahead, zero behind). No rebase was necessary. The base commit already contains the shared `refCheck` / `resolveRef` and recoverable Go Further loading work; this cycle extends those paths rather than duplicating them.
 
 ## Work completed in this pass
 
@@ -143,7 +143,7 @@ The first fast run is evidence only for its own commit, not the current head:
 | Accounts / sync browser job | Not run; requires the fast job to pass |
 | Full-width sweep | A dedicated `sweep-full` CI job has now been added; it runs `SWEEP_MODE=full node e2e/sweep.mjs` after `fast`, but no run result is verified yet |
 
-Runs 834 and 835 on head `6ee3908` remained queued at the prior checkpoint. New runs 909 and 910 on merge head `1c3baa2` (PR head `17707f3`) completed with `fast` failing at typecheck on the optional `known.editions` access; `npm ci` and `secrets` passed, while tests and later gates were skipped. The optional access was fixed in `bda203f`; the branch has since advanced to `bda203f` and requires a fresh current-head run. No current-head gate is yet verified. The current workflow now also includes a dedicated full-width sweep job, and the release browser suite includes the new playback-switch and Data Health failure tests. Do not treat any current-head gate as passed until its job has completed and its result/logs have been inspected. Do not treat any current-head gate as passed until its job has completed and its result/logs have been inspected.
+Runs 909/910 exposed the optional `known.editions` test typing error; fixed. Run 966 passed `npm ci`, typecheck and index regeneration, then failed 10 unit tests; fixes included Date-injected listening tests, IndexedDB-safe tombstone filtering, exactness test setup, stale-row expectation, and a cross-chapter range exactness correction. Run 1007 passed `npm ci`, typecheck and index regeneration, then failed only the Mark 4:41 key-verse approximation assertion; the resolver now reduces the known one-verse mismatch to a valid chapter-only anchor and rejects large out-of-range values such as 2 Maccabees 12:99. A current-head rerun is required. No current-head unit-test or downstream gate is yet verified. The current workflow regenerates exact-only lesson/verse indexes and the offline manifest before tests, uploads the generated data artifact, and includes a dedicated full-width sweep job plus the new playback-switch and Data Health failure browser tests. The generated-data commit step currently receives HTTP 403 from github-actions[bot] despite the job-level contents:write permission; it is non-fatal so verification continues. Artifact 14137574837 (run 1007) contains the regenerated data. Repository Actions workflow permissions must allow read/write contents for the automatic commit to succeed. Do not treat any current-head gate as passed until its job has completed and its result/logs have been inspected. Do not treat any current-head gate as passed until its job has completed and its result/logs have been inspected.
 
 ## Remaining before merge
 
@@ -154,4 +154,5 @@ Runs 834 and 835 on head `6ee3908` remained queued at the prior checkpoint. New 
 - Verify the Data Health committed-mutation/refresh-failure browser assertion in the release shards; it has been added but not executed yet.
 - Verify the dedicated full-width sweep job and accounts/sync job after `fast` passes.
 - Re-run all quality gates after the latest exactness-consumer and anchor-count changes.
+- Commit the regenerated exact-reference index artifact to the PR branch; automatic push is blocked by repository Actions permissions until read/write workflow permissions are enabled.
 - Update this report with the final run IDs, exact tested commit SHA and actual results. This PR remains draft and must not be merged until these items are complete.
