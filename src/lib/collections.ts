@@ -1,4 +1,3 @@
-import { sameValue } from './canonical';
 import { db, type Collection, type Target } from '../db/db';
 import { parseRefId, formatRef } from './refs';
 import { passageText } from './bibleText';
