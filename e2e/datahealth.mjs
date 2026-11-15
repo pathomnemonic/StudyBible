@@ -8,25 +8,27 @@ await ctx.addInitScript(() => {
   localStorage.setItem('sb:tour', '1');
   localStorage.setItem('sb:setup', '2');
   localStorage.setItem('sb:audienceAsked', '1');
-  // Arm after any committed read/write transaction that includes notes. Repair and restore
-  // both use multi-table Dexie transactions; this database boundary also observes writes
-  // when Dexie wraps IDBObjectStore.add()/put() internally.
-  const dbProto = IDBDatabase.prototype;
+  // Observe the actual store access made by Dexie's transaction, rather than
+  // inferring its scope from IDBDatabase.transaction arguments. This also covers
+  // dynamic tables passed to db.transaction() by restoreFromTrash().
+  const txProto = IDBTransaction.prototype;
   const txMarker = '__studyBibleDataHealthTransactionFaultInstalled';
-  if (!dbProto[txMarker]) {
-    const originalTransaction = dbProto.transaction;
-    Object.defineProperty(dbProto, txMarker, { value: true });
-    dbProto.transaction = function (...args) {
-      const tx = originalTransaction.apply(this, args);
+  if (!txProto[txMarker]) {
+    const originalObjectStore = txProto.objectStore;
+    const observed = new WeakSet();
+    Object.defineProperty(txProto, txMarker, { value: true });
+    txProto.objectStore = function (...args) {
+      const store = originalObjectStore.apply(this, args);
       const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
-      const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
-      const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
-      if (state?.enabled && this.name === 'studybible' && names.includes('notes') && mode === 'readwrite') {
-        tx.addEventListener('complete', () => {
+      if (state?.enabled && this.db?.name === 'studybible' && this.mode === 'readwrite' &&
+          store.name === 'notes' && !observed.has(this)) {
+        observed.add(this);
+        state.notesTransactions = (state.notesTransactions ?? 0) + 1;
+        this.addEventListener('complete', () => {
           if (state.enabled) { state.writes++; state.armed = true; }
         }, { once: true });
       }
-      return tx;
+      return store;
     };
   }
 
@@ -74,7 +76,7 @@ const id = await p.evaluate(async () => {
 });
 await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Fix this' }).waitFor();
-await p.evaluate(() => { window.__dataHealthFault = { enabled: true, armed: false, writes: 0, readRequests: 0, abortedReads: 0, abortFailures: 0 }; });
+await p.evaluate(() => { window.__dataHealthFault = { enabled: true, armed: false, writes: 0, notesTransactions: 0, readRequests: 0, abortedReads: 0, abortFailures: 0 }; });
 await p.getByRole('button', { name: 'Fix this' }).click();
 await p.waitForFunction(() => window.__dataHealthFault?.writes > 0 && window.__dataHealthFault?.abortedReads > 0, null, { timeout: 5000 }).catch(async () => fail('the repair fault injector did not abort the follow-up notes read: ' + JSON.stringify(await p.evaluate(() => window.__dataHealthFault))));
 await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor();
@@ -110,7 +112,7 @@ const restoreFixture = await p.evaluate(async () => {
 });
 await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Restore' }).waitFor();
-await p.evaluate(() => { window.__dataHealthRestoreFault = { enabled: true, armed: false, writes: 0, abortedReads: 0, abortFailures: 0 }; });
+await p.evaluate(() => { window.__dataHealthRestoreFault = { enabled: true, armed: false, writes: 0, notesTransactions: 0, abortedReads: 0, abortFailures: 0 }; });
 await p.getByRole('button', { name: 'Restore' }).click();
 await p.waitForFunction(() => window.__dataHealthRestoreFault?.writes > 0 && window.__dataHealthRestoreFault?.abortedReads > 0, null, { timeout: 5000 }).catch(async () => fail('the restore fault injector did not abort the follow-up notes read: ' + JSON.stringify(await p.evaluate(() => window.__dataHealthRestoreFault))));
 await p.getByRole('alert').filter({ hasText: 'Restore committed, but the check could not refresh' }).waitFor();
