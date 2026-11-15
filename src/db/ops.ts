@@ -145,8 +145,11 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
   // (and a tombstone for a restored row's uid would delete it again on the next sync). Rows keep their own timestamps.
   syncFlags.applying = true;
   try {
-    await db.transaction('rw', [...TABLES.map((t) => (db as any)[t]), db.tombs], async () => {
+    await db.transaction('rw', [...TABLES.map((t) => (db as any)[t]), db.tombs, db.trash], async () => {
       if (mode === 'replace') {
+        // Trash belongs to the pre-restore dataset and is not part of an export; do not let an old
+        // deleted record reappear in Undo after the user replaces all data from a backup.
+        await db.trash.clear();
         // Capture both auto-table UIDs and natural keys while the restore transaction holds the database.
         for (const t of auto) for (const r of await (db as any)[t].toArray()) if (r.uid) before.push([t, r.uid]);
         for (const [t, keyField] of Object.entries(KEYED_TABLES)) {
