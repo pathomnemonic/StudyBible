@@ -21,8 +21,10 @@ export async function creditListening(episodeId: string, secs: number, patch: { 
     const done = patch.completed ?? old?.completed ?? false;
     const day = listeningDay(at);
     const ledger = { ...(old?.listeningDays ?? {}) };
-    const undatedHeard = old?.undatedHeard ?? ((old?.heard ?? 0) > 0 && !Object.keys(old.listeningDays ?? {}).length ? old.heard : undefined);
-    const undatedCompletions = old?.undatedCompletions ?? (old?.ranToEnd && !Object.keys(old.listeningDays ?? {}).length ? 1 : undefined);
+    const hasDatedLedger = Object.keys(old?.listeningDays ?? {}).length > 0;
+    const legacyHeard = old?.heard ?? 0;
+    const undatedHeard = old?.undatedHeard ?? (legacyHeard > 0 && !hasDatedLedger ? legacyHeard : undefined);
+    const undatedCompletions = old?.undatedCompletions ?? (old?.ranToEnd && !hasDatedLedger ? 1 : undefined);
     // Do not create empty day entries for ordinary position-only saves.
     if (secs > 0 || patch.ranToEnd) {
       const prior = ledger[day] ?? { seconds: 0, completions: 0 };
