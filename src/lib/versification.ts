@@ -152,7 +152,12 @@ function wholeChapterMapsExactly(from: Scheme, to: Scheme, book: string, chapter
   if (from === 'vulgate') {
     const native = nativeChaptersFor(to, book, chapter);
     const nativeChapter = native[0];
-    return native.length === 1 && nativeChapter !== undefined && !chapterAlignmentNote(to, book, nativeChapter) && !bookAlignmentNote(to, book);
+    // One target chapter is not enough: it may merge this anchor chapter with another
+    // (e.g. Vulgate Psalms 114 and 115 both occupy English Psalm 116).
+    const reverse = nativeChapter === undefined ? [] : anchorChaptersFor(to, book, nativeChapter);
+    return native.length === 1 && nativeChapter !== undefined &&
+      reverse.length === 1 && reverse[0] === chapter &&
+      !chapterAlignmentNote(to, book, nativeChapter) && !bookAlignmentNote(to, book);
   }
   if (bookAlignmentNote(from, book)) return false;
   const refs = chapterToAnchorRefs(from, book, chapter);
