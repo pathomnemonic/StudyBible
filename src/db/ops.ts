@@ -302,12 +302,21 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
           const local: any = keyed
             ? await table.get(tomb.uid)
             : await table.where('uid').equals(tomb.uid).first();
-          if (local && (local.updatedAt ?? 0) > tomb.updatedAt) continue;
-          if (local) await table.delete(keyed ? tomb.uid : local.id);
           const existing = await db.tombs.where('tbl').equals(tomb.tbl).and((row) => row.uid === tomb.uid).first();
-          if (existing && existing.updatedAt >= tomb.updatedAt) continue;
-          if (existing) await db.tombs.update(existing.id!, { updatedAt: tomb.updatedAt });
-          else await db.tombs.add({ tbl: tomb.tbl, uid: tomb.uid, updatedAt: tomb.updatedAt });
+          // The effective delete is the newest one known by either device. Do not let an older
+          // incoming tombstone preserve a stale live row merely because that row post-dates the file.
+          const deletedAt = Math.max(tomb.updatedAt, existing?.updatedAt ?? 0);
+          if (local && (local.updatedAt ?? 0) > deletedAt) {
+            // A live edit newer than every known delete wins; discard any stale local tombstone.
+            if (existing) await db.tombs.delete(existing.id!);
+            continue;
+          }
+          if (local) await table.delete(keyed ? tomb.uid : local.id);
+          if (existing) {
+            if (existing.updatedAt < tomb.updatedAt) await db.tombs.update(existing.id!, { updatedAt: tomb.updatedAt });
+          } else {
+            await db.tombs.add({ tbl: tomb.tbl, uid: tomb.uid, updatedAt: tomb.updatedAt });
+          }
           n++;
         }
       }

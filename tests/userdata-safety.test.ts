@@ -158,6 +158,46 @@ describe('your writing survives', () => {
     expect(await db.tombs.filter((row) => row.tbl === 'episodeProgress' && row.uid === 'keep-newer').count()).toBe(0);
   });
 
+  it('uses the newest local or incoming tombstone when merging deletion history', async () => {
+    const { db, syncFlags } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    syncFlags.applying = true;
+    try {
+      await db.notes.add({ ...note('stale note'), uid: 'stale-note', updatedAt: 250 } as never);
+      await db.notes.add({ ...note('newer note'), uid: 'newer-note', updatedAt: 350 } as never);
+      await db.episodeProgress.put({ episodeId: 'stale-episode', position: 20, completed: false, heard: 20, updatedAt: 250 } as never);
+      await db.episodeProgress.put({ episodeId: 'newer-episode', position: 40, completed: false, heard: 40, updatedAt: 350 } as never);
+      await db.tombs.bulkAdd([
+        { tbl: 'notes', uid: 'stale-note', updatedAt: 300 },
+        { tbl: 'notes', uid: 'newer-note', updatedAt: 300 },
+        { tbl: 'episodeProgress', uid: 'stale-episode', updatedAt: 300 },
+        { tbl: 'episodeProgress', uid: 'newer-episode', updatedAt: 300 },
+      ] as never);
+    } finally {
+      syncFlags.applying = false;
+    }
+    // The incoming delete is older than the existing local delete. The former must not decide
+    // whether a local live row survives; the effective deletion time is 300 for both tables.
+    const backup = JSON.stringify({
+      format: 'studybible-export', version: 2,
+      tombs: [
+        { tbl: 'notes', uid: 'stale-note', updatedAt: 200 },
+        { tbl: 'notes', uid: 'newer-note', updatedAt: 200 },
+        { tbl: 'episodeProgress', uid: 'stale-episode', updatedAt: 200 },
+        { tbl: 'episodeProgress', uid: 'newer-episode', updatedAt: 200 },
+      ],
+    });
+    await ops.importAll(backup, 'merge');
+    expect(await db.notes.get((await db.notes.where('uid').equals('stale-note').first())?.id!)).toBeUndefined();
+    expect(await db.notes.where('uid').equals('newer-note').first()).toMatchObject({ body: 'newer note', updatedAt: 350 });
+    expect(await db.episodeProgress.get('stale-episode')).toBeUndefined();
+    expect(await db.episodeProgress.get('newer-episode')).toMatchObject({ position: 40, updatedAt: 350 });
+    expect(await db.tombs.filter((row) => row.uid === 'stale-note').first()).toMatchObject({ updatedAt: 300 });
+    expect(await db.tombs.filter((row) => row.uid === 'stale-episode').first()).toMatchObject({ updatedAt: 300 });
+    expect(await db.tombs.filter((row) => row.uid === 'newer-note').count()).toBe(0);
+    expect(await db.tombs.filter((row) => row.uid === 'newer-episode').count()).toBe(0);
+  });
+
   it('tombstones keyed progress omitted by a replace restore so sync cannot resurrect it', async () => {
     const { db } = await import('../src/db/db');
     const ops = await import('../src/db/ops');

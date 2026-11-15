@@ -38,7 +38,11 @@ describe('JSON backup round trip', () => {
     const before = await tablesOf(db, NAMES);
     const idsBefore = (await db.notes.toArray()).map((n: any) => [n.uid, n.folderId]);
     const json = await exportAll();
-    await Promise.all(NAMES.map((t) => (db as any)[t].clear()));
+    // This is test setup, not user deletion. Clear rows without generating sync tombstones.
+    const { syncFlags } = await import('../src/db/db');
+    syncFlags.applying = true;
+    try { await Promise.all(NAMES.map((t) => (db as any)[t].clear())); }
+    finally { syncFlags.applying = false; }
     await importAll(json, 'replace');
     expect(await tablesOf(db, NAMES)).toEqual(before);
     expect((await db.notes.toArray()).map((n: any) => [n.uid, n.folderId])).toEqual(idsBefore);
