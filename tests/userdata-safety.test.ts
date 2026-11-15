@@ -103,6 +103,16 @@ describe('your writing survives', () => {
     expect(await db.tombs.filter((row) => row.tbl === 'planProgress' && row.uid === 'plan-removed').count()).toBe(1);
   });
 
+  it('clears trash from the replaced dataset so old records cannot be restored afterward', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    await db.trash.add({ tbl: 'notes', data: note('from the old dataset'), deletedAt: 20 } as never);
+    const backup = JSON.stringify({ format: 'studybible-export', version: 2, notes: [note('from the backup')] });
+    await ops.importAll(backup, 'replace');
+    expect(await db.trash.count()).toBe(0);
+    expect((await db.notes.toArray()).map((row) => row.body)).toEqual(['from the backup']);
+  });
+
   it('preserves prior deletion tombstones when a replace backup omits the deleted record', async () => {
     const { db } = await import('../src/db/db');
     const ops = await import('../src/db/ops');
