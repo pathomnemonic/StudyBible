@@ -140,7 +140,17 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
   const auto = new Set<string>(AUTO_TABLES);
   // uids present before a replace, so rows that the backup does not contain can be recorded as deleted for other devices
   const before: [string, string][] = [];
-  if (mode === 'replace') for (const t of auto) for (const r of await (db as any)[t].toArray()) if (r.uid) before.push([t, r.uid]);
+  if (mode === 'replace') {
+    for (const t of auto) for (const r of await (db as any)[t].toArray()) if (r.uid) before.push([t, r.uid]);
+    // Keyed progress tables use their natural primary key as the sync UID, not an auto-table UID.
+    // Replacing a backup must tombstone keyed rows omitted from the backup or another device can resurrect them.
+    for (const [t, keyField] of Object.entries(KEYED_TABLES)) {
+      for (const r of await (db as any)[t].toArray()) {
+        const key = r[keyField];
+        if (key !== undefined && key !== null && key !== '') before.push([t, String(key)]);
+      }
+    }
+  }
   const after = new Set<string>();
   // Restore without the change hooks: they would stamp every row as just edited and tombstone each row cleared by a replace
   // (and a tombstone for a restored row's uid would delete it again on the next sync). Rows keep their own timestamps.
