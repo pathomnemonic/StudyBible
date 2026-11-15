@@ -222,7 +222,7 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
             // These two local history tables predate stable UIDs; use their event identity so re-importing
             // the same backup does not grow duplicate search and navigation history.
             if (t === 'recentSearches') {
-              const ex = await db.recentSearches.where('query').equals(rec.query).and((row) => row.ts === rec.ts).first();
+              const ex = await db.recentSearches.where('ts').equals(rec.ts).and((row) => row.query === rec.query).first();
               if (ex) continue;
             }
             if (t === 'history') {
