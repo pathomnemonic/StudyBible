@@ -100,6 +100,28 @@ describe('your writing survives', () => {
     expect(await db.tombs.filter((row) => row.tbl === 'planProgress' && row.uid === 'plan-removed').count()).toBe(1);
   });
 
+  it('preserves prior deletion tombstones when a replace backup omits the deleted record', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    await db.tombs.add({ tbl: 'notes', uid: 'deleted-on-another-device', updatedAt: 20 } as never);
+    const backup = JSON.stringify({ format: 'studybible-export', version: 2, notes: [] });
+    await ops.importAll(backup, 'replace');
+    expect(await db.tombs.filter((row) => row.tbl === 'notes' && row.uid === 'deleted-on-another-device').count()).toBe(1);
+  });
+
+  it('drops an old tombstone when the replacement backup intentionally restores that uid', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    await db.tombs.add({ tbl: 'notes', uid: 'restored-note', updatedAt: 20 } as never);
+    const backup = JSON.stringify({
+      format: 'studybible-export', version: 2,
+      notes: [{ ...note('restored'), uid: 'restored-note' }],
+    });
+    await ops.importAll(backup, 'replace');
+    expect(await db.notes.where('uid').equals('restored-note').count()).toBe(1);
+    expect(await db.tombs.filter((row) => row.tbl === 'notes' && row.uid === 'restored-note').count()).toBe(0);
+  });
+
   it('uses the natural key as the sync uid when restoring keyed progress', async () => {
     const { db } = await import('../src/db/db');
     const ops = await import('../src/db/ops');
